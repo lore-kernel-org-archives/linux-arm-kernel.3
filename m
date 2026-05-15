@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 552FECD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFC2CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 15 May 2026 09:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/iu0JFAaozh2EwNRNdO40kwIPCNHJ41fgSgDZT9kc6c=; b=b5RS+1ddnFHYQIHJGedk179SJh
-	UXNm/QO7Qgz09++cSPF66nvTKDVaCbW/OGSSNijWsrpnRSgasgtR969M2TdXqgES8gm62kiJEy2tI
-	z/qsJdnxR1cpc9Yvuxg82L9JmEwS2aSeDUS8TvqU0b6PykLcHX4ghGEwP8R64LHiRIiGI0v5ltjGx
-	BxLAvPtecK28Z4qp7j06/IU75kWpP4XUDOii1EAQv6mahf6EAuLvUG+bzOtDTo/WPnRKEb4UFXK+A
-	cOMMxgmwiNnf/Dm9ls07vR0ie80MRKIfRUDXG74QXbvMYKIXYVThwzG0A8KuIasIWuJbs9ADtGCkL
-	YW7we0HA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nz40TiFNC9+ht1LjUoKBL2ZBUTaGeJKCxbuiHSpIf2s=; b=VyUN121Nvt9ITW
+	8uRXWLbCBj9B10Q/61KYC0l87dweCgxhoQY+/2YcXk52zfpUPyrkKa8R6sf2qScKLfTZgTpQcxKYP
+	xKXrWI21ZeBieOx/ul5+kn/gYgDsxnvK8l/P2HOi+5Rrs3Y0I/IkSZeQ15yyNPaaPzqifqLSBvVRu
+	wGZ/CkuULYM1Qmjs9qjY+EzPPi7/ff/zUV1fwQ4r9MpNs63yZ+bknk5z1HE6uxgx2kqNduuJefV7w
+	H4sYn74QjwvNC7WFj+yHxn8aYtHphofavueKZLZCtWibIMIwfENitIEBSyovg0oR5JwrbvQfYUIG6
+	VDofKiX+lDkou9DmOWLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNouR-00000007tuv-3gCg;
-	Fri, 15 May 2026 09:32:43 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1wNozQ-00000007v7S-2JTq;
+	Fri, 15 May 2026 09:37:52 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wNouL-00000007tpZ-1OKG
+	id 1wNozO-00000007v6V-1eLX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 15 May 2026 09:32:39 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5a40b2bc96dso8735437e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 15 May 2026 02:32:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1778837555; x=1779442355; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/iu0JFAaozh2EwNRNdO40kwIPCNHJ41fgSgDZT9kc6c=;
-        b=bX6U00p2PIBnnO3LQFldV2DT2/NjgT6ORQTXQzdLkJYhjF5dbUNUgna6Fl1VXDgYyr
-         hwvBhcXqXTWmX/fdXigInxPxGCB8NMEex6iSMV1Xkjq3f3Dqc7DnWnqElraouh7CY6Kj
-         he/fSqUGOecf50Aat0Flti23onPpbe02TJ2DRFz7B/dK3XM4jHN4HS7T89VUOxFvfESp
-         m0lYnSPw1D1digQzYNbWtCq0IfiPC5n6EB9rppTHaLyJkriO6KcnOD8eDf6mdxfkB+F7
-         8YW6F90i6HTwkQiINniNRLXurQQ1tlVBUaK6o+SddFNx1ZyEKfpWobT1OeXAGdk1+Q+m
-         tuYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778837555; x=1779442355;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=/iu0JFAaozh2EwNRNdO40kwIPCNHJ41fgSgDZT9kc6c=;
-        b=HBC6f5dFEOH+U0Nt9R8S3jvhUlEXo1mV4i2xhnNQw81qAQivUN8PFgtAGjfN7lD43o
-         a+7BvzsBSFlfKwPlmTdt0+GiGTJNtXCgNTuL60Gr8dxignul7c1YQuQh39vvUva+r2+n
-         nAw0sBkTlYjLx2r3m3PfcML6fKEeuTkRA+ROdQKTdQUo8cCkgfCl+lmrd6IDdFIhs79w
-         1ZRK1yuoaQ0NPBDBy2NPYmvjDcaG6d6fRhTLfbsqDxUWToPjyG3ChsBi9ja1zR+awv73
-         4KyanFjhNHsYE3D33vAh8Hq7HN5AoiaTOf1CNU3ZwOmfEU+XJh2UgoCxE8FAbpIaytgW
-         nvNw==
-X-Forwarded-Encrypted: i=1; AFNElJ+dwE8GxW9wgiRbluHmGzsfUoN1AFG9rWATcaWT9aWV3q7VobGZ2FhPBVTC6RqhIhw9GVQq3YWeSJZxtUlTdgkP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqSiFcKNuOdj/QswqAD8xJ9+1SCRIX3slGqYJJMvS16kKNEve2
-	2hgxmWAD7m2mYk0W4BZi1zaU00YCiuM3Q9jECbB++IwzS2/2Fde34g2pSH+rILc85N3Y9/3XRv9
-	yZNUGmXY=
-X-Gm-Gg: Acq92OGguckTvFe8AMvqkvtcXWysMlsO7Ym+SSulVOpjg3HFbOQUCkrcqplZipK9An0
-	teKjNq0/gIf98crE8Jy34JQ2dNVZsFgF6Uimfp6+RbistK0upwJqbWCTAwwTRj7DMsQw6CXg2Ax
-	Tj7low8AFwkgaCgZxIlwrH793kugzFicSYkTt/WJUb/1nw+i8Fc8U9u+l9TVxgtpTsOmQ2Cdtad
-	uw1a/PI0R/eNDwV7OIstFGr+BCWP13ceR8U2hGBxYjcYHFXONzGwkklvcTo66CmzymA7nJw/XvD
-	BFv65YFNml6iSL3vNL1mvRTVk3TNFlI3wIjsffnT34OtHUfxVu19Zz/7MJKzQSk4vQ84wqZrTna
-	LyIyccP57LiSZrsbvORBQgiF5w2Vj2f0QxBppE60WkMt8cG3EXouYddXvQ/Gvf6Iy3Yj9Jmsray
-	JLYER7euBDVn2AVsULWiEaZf0+p3N0a4STxpoIlpK1+uiXHo2Wnwft6bZ8zjkOD5F28Sk2dNeKI
-	UJ6gyfc
-X-Received: by 2002:a05:6512:a92:b0:5a4:d21:de07 with SMTP id 2adb3069b0e04-5aa0e600e2cmr996522e87.1.1778837554430;
-        Fri, 15 May 2026 02:32:34 -0700 (PDT)
-Received: from ta2.c.googlers.com (17.83.155.104.bc.googleusercontent.com. [104.155.83.17])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a90f10c5e5sm1181661e87.3.2026.05.15.02.32.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 15 May 2026 02:32:34 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 15 May 2026 09:32:29 +0000
-Subject: [PATCH v2 5/6] firmware: samsung: acpm: Add TMU protocol support
+	Fri, 15 May 2026 09:37:52 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 15 May
+ 2026 17:37:38 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 15 May 2026 17:37:38 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v3 0/3] pinctrl: aspeed: Add AST2700 SoC1 support
+Date: Fri, 15 May 2026 17:37:36 +0800
+Message-ID: <20260515-pinctrl-single-bit-v3-0-e97da4312104@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260515-acpm-tmu-helpers-v2-5-8ca011d5a965@linaro.org>
-References: <20260515-acpm-tmu-helpers-v2-0-8ca011d5a965@linaro.org>
-In-Reply-To: <20260515-acpm-tmu-helpers-v2-0-8ca011d5a965@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- peter.griffin@linaro.org, andre.draszik@linaro.org, jyescas@google.com, 
- kernel-team@android.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAGDpBmoC/23NQQ6CMBCF4auQrq1pp4rgynsYF6VMYRIspG0aD
+ eHuFhLjQpb/S+abmQX0hIFdi5l5TBRodDnUoWCm165DTm1uBgJKAVLyiZyJfuCBXDcgbyjyVoN
+ UFiow9Znlw8mjpdeG3h+5ewpx9O/tR5Lr+uXUHpckF9yUwoJtKoG2uekwIbYRTX8045OtZoKfo
+ 0S560B2LnUtK2N1U57kn7MsyweU7CU4AQEAAA==
+X-Change-ID: 20260211-pinctrl-single-bit-da213f282c95
+To: Linus Walleij <linusw@kernel.org>, Tony Lindgren <tony@atomide.com>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, Bartosz Golaszewski <brgl@kernel.org>, "Lee
+ Jones" <lee@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+CC: <patrickw3@meta.com>, <linux-gpio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<BMC-SW@aspeedtech.com>, <openbmc@lists.ozlabs.org>, Andrew Jeffery
+	<andrew@aj.id.au>, <linux-clk@vger.kernel.org>, Billy Tsai
+	<billy_tsai@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778837548; l=10670;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=Q0g8PJmvzDrb33+S0JvUG5YPdUMgcoeMcNew8qogA3s=;
- b=081VThk7kSwAg7nN9JkU4Qxg4yVqW1EBrFO49XuM7hZ1pQVCFvdzY+00VaHy6GV5nohiUP9Tf
- 8RbEcKY6/nDDlwHa4K2BdAxRST6sZHFCrANI7Mefp1FvMefW3fZlW46
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778837858; l=4269;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=9Cn9pDIuyFA9O7PKzEDGkjk/BPWLh9Gxh6Xx0JghGi0=;
+ b=GkjgcF1HK1mq+U56PeB/4J8NkQ8iJNGyrh5Cu984mgNvSqUvhC42xoHRoQtJ3QGQZlqDRIlzz
+ +L1gv+Tlej5DXm/LV7HbijCAWqOKfNlEhvJszrkCnwAgTa5+TLPmcJc
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_023237_499485_6ECE4C61 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20260515_023750_451504_555D1B09 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,378 +82,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Thermal Management Unit (TMU) on the Google GS101 SoC is managed
-through a hybrid model shared between the kernel and the Alive Clock
-and Power Manager (ACPM) firmware.
+Legacy ASPEED pin controllers have historically not had a coherent
+register interface. Control fields often had no consistent mapping to
+individual pins, and configuring a function frequently required
+coordinating multiple control bits across several registers. As a
+result, the existing ASPEED pinctrl drivers rely on complex macro
+infrastructure to describe the dependencies between pins, functions,
+and register fields.
 
-Add the protocol helpers required to communicate with the ACPM for
-thermal operations, including initialization, threshold configuration,
-temperature reading, and system suspend/resume handshakes.
+The pin controller for SoC1 in the AST2700 breaks from this legacy
+design.
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+For SoC1, each pin maps directly to a dedicated function field in the
+SCU register space that determines the active mux function for that
+pin. This results in a much more regular register layout compared to
+previous generations.
+
+While the behaviour is conceptually similar to pinctrl-single, the
+register layout and configuration model differ enough that reusing
+pinctrl-single directly is not practical. Therefore this driver is
+implemented as a SoC-specific pinctrl driver using static data tables
+to describe the register layout.
+
+The binding reuses the standard pinmux and generic pin configuration
+schemas and does not introduce any custom Devicetree properties.
+
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 ---
- drivers/firmware/samsung/Makefile                  |   1 +
- drivers/firmware/samsung/exynos-acpm-tmu.c         | 239 +++++++++++++++++++++
- drivers/firmware/samsung/exynos-acpm-tmu.h         |  28 +++
- drivers/firmware/samsung/exynos-acpm.c             |  12 ++
- .../linux/firmware/samsung/exynos-acpm-protocol.h  |  18 ++
- 5 files changed, 298 insertions(+)
+Changes in v3:
+- Added pin configuration group support for AST2700 SoC1 by
+  implementing `pin_config_group_get()` and `pin_config_group_set()`.
+- Restricted AST2700 SoC1 `drive-strength` settings to the supported
+  4/8/12/16 mA values in the pinctrl driver.
+- Convert kernel-doc comment for aspeed_g7_soc1_drv_map to a regular
+  comment to avoid kernel-doc warning reported by kernel test robot.
+- Update the AST2700 SoC1 pinctrl binding to describe the `reg`
+  property and require it.
+- Allow standard pinconf properties in pin state nodes.
+- Add a binding example for the AST2700 SoC1 pinctrl node.
+- Add state-node description, function+groups dependency constraint,
+  and oneOf groups/pins constraint to the binding, matching the SoC0
+  binding style.
+- Add pins enum (212 entries) to the binding to cover all physical pins
+  that support per-pin configuration.
+- Add UART modem-line signals as independent functions/groups:
+  NCTS0/1/5/6, NDCD0/1/5/6, NDSR0/1/5/6, NDTR0/1/5/6,
+  NRI0/1/5/6, NRTS0/1/5/6; remove those pins from UART0/1/5/6 groups.
+- Add LTPI_PS_I2C0/1/2/3 functions/groups for I2C-over-LTPI;
+  extend I2C0/1/2/3 functions with the new LTPI groups.
+- Fix typo: rename RMII0RCKO/RMII1RCKO to RMII0RCLKO/RMII1RCLKO.
+- Fix wrong index: rename DSGPM1 to DSGPM0.
+- Kconfig: use "Aspeed G7 SoC1 pin control" to match neighbouring entries.
+- pin_config_get: fix BIAS_DISABLE readback (val=!val must be skipped
+  for BIAS_DISABLE since hardware bit=1 means pull disabled).
+- set_mux: remove dead null check on grp; propagate regmap_update_bits()
+  return value.
+- gpio_request_enable: propagate regmap_update_bits() return value.
+- Link to v2: https://lore.kernel.org/r/20260306-pinctrl-single-bit-v2-0-79918cfab641@aspeedtech.com
 
-diff --git a/drivers/firmware/samsung/Makefile b/drivers/firmware/samsung/Makefile
-index 80d4f89b33a9..5a6f72bececf 100644
---- a/drivers/firmware/samsung/Makefile
-+++ b/drivers/firmware/samsung/Makefile
-@@ -3,4 +3,5 @@
- acpm-protocol-objs			:= exynos-acpm.o
- acpm-protocol-objs			+= exynos-acpm-pmic.o
- acpm-protocol-objs			+= exynos-acpm-dvfs.o
-+acpm-protocol-objs			+= exynos-acpm-tmu.o
- obj-$(CONFIG_EXYNOS_ACPM_PROTOCOL)	+= acpm-protocol.o
-diff --git a/drivers/firmware/samsung/exynos-acpm-tmu.c b/drivers/firmware/samsung/exynos-acpm-tmu.c
-new file mode 100644
-index 000000000000..c68d60b4c0b3
---- /dev/null
-+++ b/drivers/firmware/samsung/exynos-acpm-tmu.c
-@@ -0,0 +1,239 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright 2020 Samsung Electronics Co., Ltd.
-+ * Copyright 2020 Google LLC.
-+ * Copyright 2026 Linaro Ltd.
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/firmware/samsung/exynos-acpm-protocol.h>
-+#include <linux/ktime.h>
-+#include <linux/string.h>
-+#include <linux/types.h>
-+#include <linux/units.h>
-+
-+#include "exynos-acpm.h"
-+#include "exynos-acpm-tmu.h"
-+
-+/* IPC Request Types */
-+#define ACPM_TMU_INIT		0x01
-+#define ACPM_TMU_READ_TEMP	0x02
-+#define ACPM_TMU_SUSPEND	0x04
-+#define ACPM_TMU_RESUME		0x10
-+#define ACPM_TMU_THRESHOLD	0x11
-+#define ACPM_TMU_INTEN		0x12
-+#define ACPM_TMU_CONTROL	0x13
-+#define ACPM_TMU_IRQ_CLEAR	0x14
-+
-+#define ACPM_TMU_TX_DATA_LEN	8
-+#define ACPM_TMU_RX_DATA_LEN	7
-+
-+struct acpm_tmu_tx {
-+	u16 ctx;
-+	u16 fw_use;
-+	u8 type;
-+	u8 rsvd0;
-+	u8 tzid;
-+	u8 rsvd1;
-+	u8 data[ACPM_TMU_TX_DATA_LEN];
-+} __packed;
-+
-+struct acpm_tmu_rx {
-+	u16 ctx;
-+	u16 fw_use;
-+	u8 type;
-+	s8 ret;
-+	u8 tzid;
-+	s8 temp;
-+	u8 rsvd;
-+	u8 data[ACPM_TMU_RX_DATA_LEN];
-+} __packed;
-+
-+union acpm_tmu_msg {
-+	u32 data[4];
-+	struct acpm_tmu_tx tx;
-+	struct acpm_tmu_rx rx;
-+};
-+
-+static int acpm_tmu_to_linux_err(s8 fw_err)
-+{
-+	/*
-+	 * ACPM_TMU_INIT uses BIT(0) and BIT(1) of msg.rx.ret to flag APM
-+	 * capabilities. Treat zero and all positive values as success.
-+	 */
-+	if (fw_err >= 0)
-+		return 0;
-+
-+	if (fw_err == -1)
-+		return -EACCES;
-+
-+	return -EIO;
-+}
-+
-+int acpm_tmu_init(struct acpm_handle *handle, unsigned int acpm_chan_id)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_INIT;
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-+
-+int acpm_tmu_read_temp(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+		       u8 tz, int *temp)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_READ_TEMP;
-+	msg.tx.tzid = tz;
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	ret = acpm_tmu_to_linux_err(msg.rx.ret);
-+	if (ret)
-+		return ret;
-+
-+	*temp = msg.rx.temp;
-+
-+	return 0;
-+}
-+
-+int acpm_tmu_set_threshold(struct acpm_handle *handle,
-+			   unsigned int acpm_chan_id, u8 tz,
-+			   const u8 temperature[8], size_t tlen)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	if (tlen > ACPM_TMU_TX_DATA_LEN)
-+		return -EINVAL;
-+
-+	msg.tx.type = ACPM_TMU_THRESHOLD;
-+	msg.tx.tzid = tz;
-+	memcpy(msg.tx.data, temperature, tlen);
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-+
-+int acpm_tmu_set_interrupt_enable(struct acpm_handle *handle,
-+				  unsigned int acpm_chan_id, u8 tz, u8 inten)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_INTEN;
-+	msg.tx.tzid = tz;
-+	msg.tx.data[0] = inten;
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-+
-+int acpm_tmu_tz_control(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+			u8 tz, bool enable)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_CONTROL;
-+	msg.tx.tzid = tz;
-+	msg.tx.data[0] = enable ? 1 : 0;
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-+
-+int acpm_tmu_clear_tz_irq(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+			  u8 tz)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_IRQ_CLEAR;
-+	msg.tx.tzid = tz;
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-+
-+int acpm_tmu_suspend(struct acpm_handle *handle, unsigned int acpm_chan_id)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_SUSPEND;
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-+
-+int acpm_tmu_resume(struct acpm_handle *handle, unsigned int acpm_chan_id)
-+{
-+	union acpm_tmu_msg msg = {0};
-+	struct acpm_xfer xfer;
-+	int ret;
-+
-+	msg.tx.type = ACPM_TMU_RESUME;
-+
-+	acpm_set_xfer(&xfer, msg.data, ARRAY_SIZE(msg.data), acpm_chan_id,
-+		      true);
-+
-+	ret = acpm_do_xfer(handle, &xfer);
-+	if (ret)
-+		return ret;
-+
-+	return acpm_tmu_to_linux_err(msg.rx.ret);
-+}
-diff --git a/drivers/firmware/samsung/exynos-acpm-tmu.h b/drivers/firmware/samsung/exynos-acpm-tmu.h
-new file mode 100644
-index 000000000000..8b89f29fda67
---- /dev/null
-+++ b/drivers/firmware/samsung/exynos-acpm-tmu.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright 2020 Samsung Electronics Co., Ltd.
-+ * Copyright 2020 Google LLC.
-+ * Copyright 2026 Linaro Ltd.
-+ */
-+#ifndef __EXYNOS_ACPM_TMU_H__
-+#define __EXYNOS_ACPM_TMU_H__
-+
-+#include <linux/types.h>
-+
-+struct acpm_handle;
-+
-+int acpm_tmu_init(struct acpm_handle *handle, unsigned int acpm_chan_id);
-+int acpm_tmu_read_temp(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+		       u8 tz, int *temp);
-+int acpm_tmu_set_threshold(struct acpm_handle *handle,
-+			   unsigned int acpm_chan_id, u8 tz,
-+			   const u8 temperature[8], size_t tlen);
-+int acpm_tmu_set_interrupt_enable(struct acpm_handle *handle,
-+				  unsigned int acpm_chan_id, u8 tz, u8 inten);
-+int acpm_tmu_tz_control(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+			u8 tz, bool enable);
-+int acpm_tmu_clear_tz_irq(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+			  u8 tz);
-+int acpm_tmu_suspend(struct acpm_handle *handle, unsigned int acpm_chan_id);
-+int acpm_tmu_resume(struct acpm_handle *handle, unsigned int acpm_chan_id);
-+#endif /* __EXYNOS_ACPM_TMU_H__ */
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index 1a0d98b55439..2cebc5456968 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -33,6 +33,7 @@
- #include "exynos-acpm.h"
- #include "exynos-acpm-dvfs.h"
- #include "exynos-acpm-pmic.h"
-+#include "exynos-acpm-tmu.h"
- 
- #define ACPM_PROTOCOL_SEQNUM		GENMASK(21, 16)
- 
-@@ -688,6 +689,17 @@ static const struct acpm_ops exynos_acpm_driver_ops = {
- 		.bulk_write = acpm_pmic_bulk_write,
- 		.update_reg = acpm_pmic_update_reg,
- 	},
-+
-+	.tmu = {
-+		.init = acpm_tmu_init,
-+		.read_temp = acpm_tmu_read_temp,
-+		.set_threshold = acpm_tmu_set_threshold,
-+		.set_interrupt_enable = acpm_tmu_set_interrupt_enable,
-+		.tz_control = acpm_tmu_tz_control,
-+		.clear_tz_irq = acpm_tmu_clear_tz_irq,
-+		.suspend = acpm_tmu_suspend,
-+		.resume = acpm_tmu_resume,
-+	},
- };
- 
- static int acpm_probe(struct platform_device *pdev)
-diff --git a/include/linux/firmware/samsung/exynos-acpm-protocol.h b/include/linux/firmware/samsung/exynos-acpm-protocol.h
-index fbf1829b33db..08d9f5c95701 100644
---- a/include/linux/firmware/samsung/exynos-acpm-protocol.h
-+++ b/include/linux/firmware/samsung/exynos-acpm-protocol.h
-@@ -35,9 +35,27 @@ struct acpm_pmic_ops {
- 			  u8 type, u8 reg, u8 chan, u8 value, u8 mask);
- };
- 
-+struct acpm_tmu_ops {
-+	int (*init)(struct acpm_handle *handle, unsigned int acpm_chan_id);
-+	int (*read_temp)(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+			 u8 tz, int *temp);
-+	int (*set_threshold)(struct acpm_handle *handle,
-+			     unsigned int acpm_chan_id, u8 tz,
-+			     const u8 temperature[8], size_t tlen);
-+	int (*set_interrupt_enable)(struct acpm_handle *handle,
-+				    unsigned int acpm_chan_id, u8 tz, u8 inten);
-+	int (*tz_control)(struct acpm_handle *handle, unsigned int acpm_chan_id,
-+			  u8 tz, bool enable);
-+	int (*clear_tz_irq)(struct acpm_handle *handle,
-+			    unsigned int acpm_chan_id, u8 tz);
-+	int (*suspend)(struct acpm_handle *handle, unsigned int acpm_chan_id);
-+	int (*resume)(struct acpm_handle *handle, unsigned int acpm_chan_id);
-+};
-+
- struct acpm_ops {
- 	struct acpm_dvfs_ops dvfs;
- 	struct acpm_pmic_ops pmic;
-+	struct acpm_tmu_ops tmu;
- };
- 
- /**
+Changes in v2:
+- Updated the series title to focus on AST2700 SoC1 support.
+- Reworked implementation to use static SoC-specific layout tables
+  instead of a generic packed-field model.
+- Dropped the generic "pinctrl-packed" driver approach.
+- Removed custom Devicetree properties.
+- Updated binding to reuse standard pinmux and generic pin
+  configuration schemas.
+- Link to v1: https://lore.kernel.org/r/20260213-pinctrl-single-bit-v1-0-c60f2fb80efb@aspeedtech.com
 
+---
+Billy Tsai (3):
+      dt-bindings: mfd: aspeed,ast2x00-scu: Support AST2700 SoC1 pinctrl
+      dt-bindings: pinctrl: Add aspeed,ast2700-soc1-pinctrl
+      pinctrl: aspeed: Add AST2700 SoC1 support
+
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml           |    1 +
+ .../pinctrl/aspeed,ast2700-soc1-pinctrl.yaml       |  760 +++++++++
+ drivers/pinctrl/aspeed/Kconfig                     |   14 +
+ drivers/pinctrl/aspeed/Makefile                    |    1 +
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c    | 1732 ++++++++++++++++++++
+ 5 files changed, 2508 insertions(+)
+---
+base-commit: e532a5a81d0db872acd2c0a92d2639580ca3da44
+change-id: 20260211-pinctrl-single-bit-da213f282c95
+
+Best regards,
 -- 
-2.54.0.563.g4f69b47b94-goog
+Billy Tsai <billy_tsai@aspeedtech.com>
 
 
