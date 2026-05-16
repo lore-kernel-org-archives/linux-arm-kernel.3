@@ -4,142 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B92FCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 12:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D65CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 12:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0tMlahfmEth5dlLQRNO21reZ980LZhICbYSjGZLVRpM=; b=F50zkRPBwTq1qMZ5TMoWrl8rus
-	Xe1r00aYLip0cVaWfj8CWVlklPo6W8WcXESzQAWWnG1U11cfG22z8r7ViJl3LVWRX7ldP27300INA
-	Vk0Lx/k2HCd+pEPK4CfoqRnTF01O9hcTej8z28VzsLlggQAA5v3ka16Q2in8pL8JnIPUVcZ15iQEV
-	lMFE+shkikK1MhcngoRZ1xqKpGrM2Xr8n3vh5GLqv/UuJ0L9+sZD5F+yQdsFo1Fz5GEj6Jr59uLO4
-	a3hNn0wScujGZ1+71kf8AEQU/QQO2lUT2SOHg0vGwYgmRwTn8zeRllv+eZy8M43VS8KOpAAtMB2Q3
-	nOBdqULA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VyxU4OKFp56ngD6qwRCeyFFITUQj9CckMdRCfQl7hDQ=; b=IdMSjrGxK2ETzB9DO8fpXxHhhx
+	yyKFTT2Uxlv8jFxO1k7Fmf9qGww2h4//F7F3YLQYg4dBk+76t+0izrfU+gFQciGESmSnbyhRD6qfy
+	i2uxs77KwfBQEns3PBn0n0V4bnwKD8XBoDAHv0/UgwRhDCaAl9v5fzNPoBc/2UcTsRy71eAcAFlM3
+	5WhC2/tgIDsWpGXicWHJZ197Y7VgFQt0TYGW7MObJuXWY57aVuTp+dCnZINe+hSIIHPXo5gQzYkdP
+	B1C7li7sxiRoODFR57Xd6gSYiaG74zNUVGysf4j9tWYCjVMtISTtpxLolEGLYrXSHr4GaDOHFyp9k
+	W1FcI1Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOEDv-0000000Aiih-3mbP;
-	Sat, 16 May 2026 12:34:31 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wOEWh-0000000AkRj-3TMI;
+	Sat, 16 May 2026 12:53:55 +0000
+Received: from mail-westus3azon11011024.outbound.protection.outlook.com ([40.107.208.24] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOEDs-0000000AihB-098a
+	id 1wOEWe-0000000AkR1-12nh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 12:34:29 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64G3iLxg3750516
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 12:34:27 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0tMlahfmEth5dlLQRNO21reZ980LZhICbYSjGZLVRpM=; b=THkNH11JahRpcOQh
-	cgkOrfRZ1nJ+n25nkWnaibToFf0oA+EAifIhnxO6Z3clJmVte+16rNYY6B71rEDk
-	rEalt+HaLjbzvJsdOVg+KWNxw4q2QPa/fd8SjbrTOaotR/9m5mb7IoQrKaPpUuao
-	otv0eTHg4hCexmnDuuQxTmOYPWaHEQ4Oj07yrRePtHwAe+4GMnQjzePEFnqB8IqB
-	jKoYGHAMs/RlOwawWTZg2gyAO2ftmRS+PB+VR+U6gXuAqV1+bey0xqgE3t/du8Zo
-	W3s2QNkmbZyXt3qiJ1T2vdqYJ+nd+FodzmhLo741Izch9T7opqkxdh8SJSHYuO4Y
-	FTSJQg==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e6gx6rtw1-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 12:34:27 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-82fd55bf6cdso494287b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 05:34:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1778934867; x=1779539667; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0tMlahfmEth5dlLQRNO21reZ980LZhICbYSjGZLVRpM=;
-        b=B93G9a4ehiqZgwoUobsk07mpmRCRqqbYK0q8uN9QWNiLQfBqEGvLfFkefV+B0JFOOm
-         NOnwR46TpAKSvKhrF6RPXePhOlpbO4i83/MjNaW39ynqvYaJdP/aJgJNDtJJrKOP+Cn5
-         Hi/VdTlOI5lLKLtAdOk7wcLrQdAnwLTIrFerOhcAbGqer/9y4J1nKNhJ/rGs7nHXnt2p
-         qAvwtFgdVrnrfwa1XotU8uG0Ku3qu6QrxNkooJ1e6miNvUlG3iGoYmzF4anROf+8skaH
-         B6E1JHFRAiLbEpNxefLna696rZEOb+KSjTzli+TL+s66ypUib84419BEp2cqziLY+55Y
-         z4pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778934867; x=1779539667;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=0tMlahfmEth5dlLQRNO21reZ980LZhICbYSjGZLVRpM=;
-        b=IzrFwLTIefgehmxMncaV6Zw5qvaA5fjYvD8nCXylqhyjwe55L7lx9k0/UNzHg2Y/dZ
-         kg5FlYmHqhg9yPWyucZShec3cB1Ha5BbdrPgugUAtAFBvo6gujrhX7hI+417MQW/mKRx
-         1tPG2H72KbcJ3jyAuv3LvGqhLV/hiNszKCKVzdewYwyT/Fm+Ztb8gLgNwm3/YuW5EISD
-         C9H2Cp5u6PTapZr/BQqOe05OoHVm8l9CUuDfcDgeMLicjgXFvy4uzpQIJsue641OH+qP
-         moP1Acx0tSz2IesxrgvkdVRUHwW54T8ypX5wZs+KPrFixEy6dcB1/bvQ5nP4BUyv84EV
-         eW1w==
-X-Gm-Message-State: AOJu0YziF2951wHx+InGMfyhxtjdq882OLuQVX/quf5ARHNRU2FRy11I
-	NvoXSMVNokRDOA63wgNLKxspejkMGZQBfAmIbMwHixErCq6ESamCsOkHksiY3tc1dlQENOwPoGS
-	c+TvlXSbYBXva+cY/rzzIk1dmxYdq2mvA2K5nj0wX4QUaJUtMGAeFrEvWa9kniy4tzlp9DdWNun
-	+/M02gdNqdPQ==
-X-Gm-Gg: Acq92OHFetXSbXe/wPkDJLav/HhG+gZMAQHWCEWg7Jr7NgTW9JdRGa4/8S+tUW8Wy3A
-	5/dPqV4ymlVDXCabI69vtMJzCSJD7c4SLGlgXhqKzmcqDDViIZGWj0qK4upld2ynR8T3Fzw8aBH
-	Gvh7ssXUExgC0nases2pChK7Ye5C++HzA7KOlhOVJ0alss1+twgmlAxWEZ0w57wpceDFxNS33C3
-	Yslp4f6MhPLLQHCUEJlH1ynBvICT/wlGTA46UyiDYFjjdETpBkMaHz1P6ajFYdwfXdnNBIzRJaW
-	93Z7VaV3iHXlRXDs5uK2q74G3/yPlKCSzAV5k9RS+9ah4s8FpHA3jNbdua1yVx6lAKE1mi/SxvD
-	0suhCQO6Q4h9jV+FjvNvRbzpn5LRngDcFTsWdt7ScI0WgjeVpdBDP
-X-Received: by 2002:a05:6a00:950f:b0:83e:6fde:54d3 with SMTP id d2e1a72fcca58-83f33f3d3f0mr7854673b3a.50.1778934866920;
-        Sat, 16 May 2026 05:34:26 -0700 (PDT)
-X-Received: by 2002:a05:6a00:950f:b0:83e:6fde:54d3 with SMTP id d2e1a72fcca58-83f33f3d3f0mr7854653b3a.50.1778934866433;
-        Sat, 16 May 2026 05:34:26 -0700 (PDT)
-Received: from hu-bibekkum-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19f7cc9asm11405217b3a.53.2026.05.16.05.34.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 May 2026 05:34:26 -0700 (PDT)
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-Date: Sat, 16 May 2026 18:04:04 +0530
-Subject: [PATCH 2/2] iommu/arm-smmu: Add interconnect bandwidth voting
- support
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Sat, 16 May 2026 12:53:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CC4xr60rk8uI8PQbuPqv2v1LdnsWiNul8y98nZjo6Geqqbkks/wFciNxFkQ3aZTjseEUIWEz4bAOFYz1Kw9LcgGLJ893Hn3Ulc+OFdpCygCyov+jUOf2nkc/HHHhQfwT1CrIANJxm2V8A6k8ygeihKv3fMaZmvvRhq7UWJfygqmjVScIIQta7NqxedUG1ROnP8ElBbsiA9NSgbCYQKF4u7dVwrKlMAeofsJv8VYxjW21EREC8rVe0MrV6GDYQNoQgVyUVbxwQInN2Y38KVO9PaNkdM4q7e8EJIEKbKlL/iX/u9q9fpgRDWpYts2RMcVqXvWfS3lRYvgqNJoqE2MX4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VyxU4OKFp56ngD6qwRCeyFFITUQj9CckMdRCfQl7hDQ=;
+ b=NHU9gMU5bqPe5TL8L5Lwe3oPkAKDCaQRxvHaMulvQI0EC/8Bsm2HYu4bLofwPLKM6Zm+1fUBeCtI1EYAUwr9X2W43QSCljmHCzaeTVEH73laqgqE0OBTy3+/jWEnp9i04VTol3TbAhEqELk4GLDkFu+S4I0i1wzyQCd17zyqNidSYO9mPp212mj+8Q/PJva8FIf1SP2iVzz+zaANlaJAhNdGdvvn5vT/iFmXyw97NUkZgcXAvaw9MzEmpttIkXormpwMwwaSiH4IpTOkjBPhNsb3E8WPxpWrHiceY2TrWhusMqVIRmdY9MGYVM3XgOjUqrMbbPaY3q8wuxg07rkclA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VyxU4OKFp56ngD6qwRCeyFFITUQj9CckMdRCfQl7hDQ=;
+ b=L3DFzTFilMrH5FDVyrcSIE6XqRlnMr7ZOS+/pngj5L78Mx1F/Q907ytgznKiSsZ1MkYkTzL+5TCnLtjUlQrbeXfwJfCPGDqL4EVvvaawNZ+XpbpEwiQPv/d93c6MObwc1iZgIdMojJlJSneV7unWB8QVIO1QIUwUWCOaws9CPOQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by CYYPR12MB8940.namprd12.prod.outlook.com (2603:10b6:930:bd::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.19; Sat, 16 May
+ 2026 12:53:44 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee%6]) with mapi id 15.21.0025.012; Sat, 16 May 2026
+ 12:53:44 +0000
+Message-ID: <6f01978e-ead9-409b-866d-69231dc44d00@amd.com>
+Date: Sat, 16 May 2026 22:53:17 +1000
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v4 03/13] dma-pool: track decrypted atomic pools and
+ select them via attrs
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
+Cc: Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Dan Williams <dan.j.williams@intel.com>,
+ Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+ <20260512090408.794195-4-aneesh.kumar@kernel.org>
+From: Alexey Kardashevskiy <aik@amd.com>
+Content-Language: en-US
+In-Reply-To: <20260512090408.794195-4-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260516-smmu_interconnect_addition-v1-2-f889d933f5c1@oss.qualcomm.com>
-References: <20260516-smmu_interconnect_addition-v1-0-f889d933f5c1@oss.qualcomm.com>
-In-Reply-To: <20260516-smmu_interconnect_addition-v1-0-f889d933f5c1@oss.qualcomm.com>
-To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778934854; l=5165;
- i=bibek.patro@oss.qualcomm.com; s=20260408; h=from:subject:message-id;
- bh=TpMlPRysp3w2m+ZFi+sTeXE10yR8wAdZPz/OYCwHJZo=;
- b=yVvi3RjY40p22B42QDBaFIBVse8JGLs/A7douwNNONNIVhxQTgPq6cRhjnRT3p7MvcZ1o11+A
- IheV8q200YLDw6+xJEkE07G/1km2pLjSR1EpkJSR7EqLt4cgHI3mTcP
-X-Developer-Key: i=bibek.patro@oss.qualcomm.com; a=ed25519;
- pk=V4oTa+TgRi7dib76fc92V+rslyRCAKbK8D4b2RVsMbc=
-X-Proofpoint-ORIG-GUID: qsCooVPVf0lJisO-Cwen3zoTry_IIzdn
-X-Authority-Analysis: v=2.4 cv=f614wuyM c=1 sm=1 tr=0 ts=6a086453 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=taUV0mOn9u7JAoyayg0A:9 a=QEXdDO2ut3YA:10
- a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-GUID: qsCooVPVf0lJisO-Cwen3zoTry_IIzdn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE2MDEyMyBTYWx0ZWRfXyuaVUSsv4Oym
- /53EJoxa5c1c73UrPp5dRA/RtEAS8aAUI7DcQSm+Mo8YIFTvHXHvaBiIXBeT6YOwWXIhUtd/niv
- I9k8uRDOIKYLEqty5ORQ3Bli0iIbm7NZFe9Q7srUylsUXae/yV7WtWWjvFg8ms5X7wCZFkM90NF
- vMx6FF1zqiVVA9WnR3srPHV7HYo+NqrSDrIAjPFBp41ObPZqHnPWfoRQMuo9LUC3Yue/yj7JXQT
- d5V4InNeNUJwGkXgvMNc+Ua0/cPVdRKnsVQjOlYtoLcL5JA8IXeD5u2Ugdge8rwEYohBWbZ87W3
- 1yQIFmNngkv0b4A4MsKUtlwSKiuXpUqW7iHmCSXqEAZnxcMIwzRX+AqFlB9dNYLIm2AyS+DVwiP
- +fCyw1kFCMzxUjFXLLyDF6wEuIMAc0qOnAdDePue2hhA0zqutcBssqMU3FxOeVLIKXpZOA3gHj1
- NviXnrues/fELW4COMg==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-16_01,2026-05-15_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 adultscore=0 bulkscore=0 clxscore=1015 malwarescore=0
- spamscore=0 suspectscore=0 impostorscore=0 phishscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605160123
+X-ClientProxiedBy: SY5PR01CA0114.ausprd01.prod.outlook.com
+ (2603:10c6:10:246::25) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|CYYPR12MB8940:EE_
+X-MS-Office365-Filtering-Correlation-Id: f3003a4c-8eca-4143-d291-08deb34a2971
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|11063799003|4143699003|18002099003|56012099003|22082099003;
+X-Microsoft-Antispam-Message-Info: R2Uq2EzIkmmS5ShgBvYUROzuSXaFZjdPdb1bBozSK0gbURNxDN6YR9jde+1DTjzr+IjzcvA4md6MBlNKoZTxoksVLo4dKocOHGwp3f7KmWViUDQ72JQg13E93LHh32U+f+fLxqwzrT87OBb9jF8DzyinFmnKbadT/2OkO1xUY1/Sw+BMJhFJ+R46fUIIAO8Or/TJEwQrgIOleyJ//W7vEAKw4R/DBwKPknLeVS5Ndef913aN7ppgJa6O+Vd7E8QmYjFzp5eX7wcfnJVo2Co8OF2euLaemBzKhAXD07IOQmLT5BK1UjN8PAWlf4TCu4KUun5QbmZSMqDvqbDNvoeqKSLKhzzAwoHyvPY5obvTZ+UNr2wwFn0xrhYhDwLdumgWRUk6JO9BfZCo0n44ahd6Bsemzp7UP2QJLrZ9B+QQetUfl3V3HT/zqyd9z3rnHlkXU7gVSI7ZqJUbKrWAlGr0b1fqe1+o0A27eUQOQUucDrUOaspJv6OJq8mjOXF94GMwdWOqvKe79Ex6uC3oAUxMzPiwJX0FvnUc3wWkBH1xAupsBYPbTH5IQLL3S2iBUQY7KKTL9r+HSA3f350g/6yM5JKFKDst3QS4fxGegaAGMC7wo2Bmr9B8cy7eppD/iF9guEheVfMjCGMB0rT40Yh6dDBqiVj0YyW7DD37ZYKlU4U2ftjUiqUl9qI+AXHIN2Xy
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(11063799003)(4143699003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Y3J1eXZzektUZnBxVVJrQXZVck5Kd2ZWc1B1Mlk1VW9WVDhwUnhMMU9nVU1m?=
+ =?utf-8?B?dlBDbksvQXY4amVtSzNSL3lDVUI1d2UvRExiV3ZrbzAzOHhMN0ZGYzc3MW1I?=
+ =?utf-8?B?amFHVWdDcThRY1dCWlAwY2syenc4MDh4NENobnMwZ3VNQmQxMGM0Y3k3S1N4?=
+ =?utf-8?B?dFVyUFRncmRQOHhUT1hxaURudVcxZHVFUjB2VWNHS09CTWpkWnRNcnRSWnNv?=
+ =?utf-8?B?dHRRS3h3Uzd3L2VjNU5zQlN2VThFd2t0WCsvM2RpRnM4UllPUmNpb0dBU3dz?=
+ =?utf-8?B?Mi94dDl3MllMQ1NEcTEvc2dIa3BpSFlJTlBvUjhMdzdObW1QSWE2T1dGcTlp?=
+ =?utf-8?B?bG9qcUl0SnVyM1czWkpGd2UvTno5RStiRi93MFBsR25DQjdGT29yaG52VnRX?=
+ =?utf-8?B?cytSdFU5bm9DNHNNOFNMcldESnlXS2VqaU9nb0RyN21SZVhHNzh3em1uL3pX?=
+ =?utf-8?B?N2VqQ0pLTyt0LzZTNHgzTzc2Y2ZUMm40dzVlR3pQblpxY0U5bHBtanovRTN2?=
+ =?utf-8?B?MDFOMk5RTmFPaENIdWQveUxYcGJ0V0E5WWhuUCtGckh3cjV3TUdzK1pMQ1Rn?=
+ =?utf-8?B?U2hXRkk1MldicW5TY2RISzljN0pTUDJsOERWbU9wWm9nY3VlK2lkTHRURzQ0?=
+ =?utf-8?B?a2ptSjU5OWFkc2Q5WGZsR09zSHVGeVRLT005aFFTOFgyak0zZmlEMHVzbFEx?=
+ =?utf-8?B?ZjVLZENIQ25CTDgwNFNXcTJsbnZPZEtLT2FOT3cwaGlSeFFyR0E1Q050L3lJ?=
+ =?utf-8?B?ZVV1Q0czWWhrMyt1OW5tM1JuY3U5S0J5aVJTRHpML1NYaFU3bC9wMEIxV2JD?=
+ =?utf-8?B?SzBRSVZqZGhpbXcxVTBsT044NHNYcGdvTzJQMEdxcVQwdmE1VGxkR2UxREtC?=
+ =?utf-8?B?U3UrSUpJZTA5VXkzdTNaR1ZDenZYL0pIcS9TVVJDWkl0eEx3c2RFRmNzRFVG?=
+ =?utf-8?B?NXRHYjJuUzQyY1FURUVpdG8rUC9WOUlsWVA2eGsrYlFKcFVSQis0YlJrY2NO?=
+ =?utf-8?B?aEhHK3ZpK0xUMTVORmdBU2JFNzYwSmk3cDFYaW0yeW1uSUdZWHozVFpzK1py?=
+ =?utf-8?B?TjFCa202K21maGJPT212YWUzOWg2RTIyYTk5ZFpPbTR4eUNjVVA0cm5nem80?=
+ =?utf-8?B?UXRmVXR5bnRkVDdzRGpITDA0UjhObGsxT2doVUFTeE9vK1ZiU1BORmMrM3kw?=
+ =?utf-8?B?STBDekwreG5YdHJ6YzVjMWFVTzJuMTUvdXFUbldwazlIWFdVVTJ4V0RQUlg0?=
+ =?utf-8?B?cFlWZ043NFBvbWVuN2RRMU16VEtrenBWdVNjRnViSkZoa2ZrNldMaXlMbWp2?=
+ =?utf-8?B?OE9iRlg1UmF2UHpmREJOS2s4OFVkVVVyS0gxMWo5RUxLQ0xFdzNQU2Nnc0Nw?=
+ =?utf-8?B?SlBMUGYyeXRwdVVnVnRoa0loWWNwOHVyYXNBV2taNStiOXl1dCs2dEJvcVFu?=
+ =?utf-8?B?OGcxNU5FK1FXYUpKZHR2WFRwY0kxb2pUR29sVCt0Qk9aTEFITTFUckNQTmdZ?=
+ =?utf-8?B?QW1TZno2YVBtZ2lmZEZxWnBvbzF2b3M4WXM1Z3h6cVlLNWc4Q2d1dFR5RHBF?=
+ =?utf-8?B?czNCMFd5K0JnSmp0cUppejJ3WThueGpTZnZNZTdUcXg1d01hRXhQL0lMYmd6?=
+ =?utf-8?B?V2F3MUZpdmd0WGxkbUVDYTgvaDAxZFlhdFNjOVRUVVdSZjVZN2dKd1AvdjBl?=
+ =?utf-8?B?NVEySkF3SWM2WVR6TzNhd0YrZlZuTVBObm5PdUNyb2tlOSs4cWVnR2RsOVNH?=
+ =?utf-8?B?TFZXcExoeXYxcDVxTS9NdHBZRjhFb0dnM0RWWndDdUNjRHBkMmFobDBDWjV1?=
+ =?utf-8?B?QzVvbjBqbHFpam9paTBNcm9ZdHFWMno1V1RmQnpyTWJEUUY1aDkrOWJxa09p?=
+ =?utf-8?B?S2lac0d6Q3dmY21NSDZ1T3ZObEYvclVJQmJoMXg2bFZkZW1scVZsQS9LcG50?=
+ =?utf-8?B?L0IyTURmNkMwbjJCR0lTKzZnZWY2U1B4a21obWR1MENydGZLS3E2S0dwRXM4?=
+ =?utf-8?B?Q0VySiswODBEbEVzb2FKRmUzcklpSGl3UHlyb25sRFpja3RJK3VGbkd6NUxX?=
+ =?utf-8?B?RUhzZklRMys1dis3YjJ0Wmx2dEVCLzZ6OXlkK296dy93NlkwSDEyQ1haY1dW?=
+ =?utf-8?B?YUlna3IvOEF2L2x3MHVKU1U2eEd4WnIwNFVIMFlYNjhpelR6aFBPekU4NFhv?=
+ =?utf-8?B?bUZZZXNmbjd3cUJlTng0NndJWGxpNTdaczRTMkNXRFVoYndQVmkzbXFhQmVy?=
+ =?utf-8?B?WWZYMGJVeWNsUFVWY09pME41WTdSclorNEpFMlo0VlpCWTNzb1U3amFQUEZJ?=
+ =?utf-8?B?YllqTlh6c3Z5TGZ2di9lV1pkc3N4bE95cFQwWERCTHdKd3pOODZzZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3003a4c-8eca-4143-d291-08deb34a2971
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 May 2026 12:53:44.2323
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5uxKH7pVZxhFhhX9N6q1kRX4Wjuqywla9+JVoFpTO/8vyKT8sn0+f9p1f2HoflYC2mPeDpteONDOJk0UjBgAhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8940
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_053428_086062_C6F9D07D 
-X-CRM114-Status: GOOD (  24.56  )
+X-CRM114-CacheID: sfid-20260516_055352_382287_70F4D3F4 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,156 +163,407 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some SoCs the SMMU registers require an active interconnect
-bandwidth vote to be accessible. While other clients typically
-satisfy this requirement implicitly, certain corner cases (e.g.
-during sleep/wakeup transitions) can leave the SMMU without a
-vote, causing intermittent register access failures.
+On 12/5/26 19:03, Aneesh Kumar K.V (Arm) wrote:
+> Teach the atomic DMA pool code to distinguish between encrypted and
+> decrypted pools, and make pool allocation select the matching pool based
+> on DMA attributes.
+> 
+> Introduce a dma_gen_pool wrapper that records whether a pool is
+> decrypted, initialize that state when the atomic pools are created, and
+> use it when expanding and resizing the pools.  Update dma_alloc_from_pool()
+> to take attrs and skip pools whose encrypted/decrypted state does not
+> match DMA_ATTR_CC_SHARED.  Update dma_free_from_pool() accordingly.
+> 
+> Also pass DMA_ATTR_CC_SHARED from the swiotlb atomic allocation path
+> so decrypted swiotlb allocations are taken from the correct atomic pool.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   drivers/iommu/dma-iommu.c   |   2 +-
+>   include/linux/dma-map-ops.h |   2 +-
+>   kernel/dma/direct.c         |  11 ++-
+>   kernel/dma/pool.c           | 163 +++++++++++++++++++++++-------------
+>   kernel/dma/swiotlb.c        |   7 +-
+>   5 files changed, 122 insertions(+), 63 deletions(-)
+> 
+> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+> index 54d96e847f16..c2595bee3d41 100644
+> --- a/drivers/iommu/dma-iommu.c
+> +++ b/drivers/iommu/dma-iommu.c
+> @@ -1673,7 +1673,7 @@ void *iommu_dma_alloc(struct device *dev, size_t size, dma_addr_t *handle,
+>   	if (IS_ENABLED(CONFIG_DMA_DIRECT_REMAP) &&
+>   	    !gfpflags_allow_blocking(gfp) && !coherent)
+>   		page = dma_alloc_from_pool(dev, PAGE_ALIGN(size), &cpu_addr,
+> -					       gfp, NULL);
+> +					   gfp, attrs, NULL);
+>   	else
+>   		cpu_addr = iommu_dma_alloc_pages(dev, size, &page, gfp, attrs);
+>   	if (!cpu_addr)
+> diff --git a/include/linux/dma-map-ops.h b/include/linux/dma-map-ops.h
+> index 6a1832a73cad..696b2c3a2305 100644
+> --- a/include/linux/dma-map-ops.h
+> +++ b/include/linux/dma-map-ops.h
+> @@ -212,7 +212,7 @@ void *dma_common_pages_remap(struct page **pages, size_t size, pgprot_t prot,
+>   void dma_common_free_remap(void *cpu_addr, size_t size);
+>   
+>   struct page *dma_alloc_from_pool(struct device *dev, size_t size,
+> -		void **cpu_addr, gfp_t flags,
+> +		void **cpu_addr, gfp_t flags, unsigned long attrs,
+>   		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t));
+>   bool dma_free_from_pool(struct device *dev, void *start, size_t size);
+>   
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index 0c2e1f8436ce..dc2907439b3d 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -162,7 +162,7 @@ static bool dma_direct_use_pool(struct device *dev, gfp_t gfp)
+>   }
+>   
+>   static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+> -		dma_addr_t *dma_handle, gfp_t gfp)
+> +		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
+>   {
+>   	struct page *page;
+>   	u64 phys_limit;
+> @@ -172,7 +172,8 @@ static void *dma_direct_alloc_from_pool(struct device *dev, size_t size,
+>   		return NULL;
+>   
+>   	gfp |= dma_direct_optimal_gfp_mask(dev, &phys_limit);
+> -	page = dma_alloc_from_pool(dev, size, &ret, gfp, dma_coherent_ok);
+> +	page = dma_alloc_from_pool(dev, size, &ret, gfp, attrs,
+> +				   dma_coherent_ok);
+>   	if (!page)
+>   		return NULL;
+>   	*dma_handle = phys_to_dma_direct(dev, page_to_phys(page));
+> @@ -261,7 +262,8 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>   	 */
+>   	if ((remap || (attrs & DMA_ATTR_CC_SHARED)) &&
+>   	    dma_direct_use_pool(dev, gfp))
+> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+> +		return dma_direct_alloc_from_pool(dev, size, dma_handle,
+> +						  gfp, attrs);
+>   
+>   	if (is_swiotlb_for_alloc(dev)) {
+>   		page = dma_direct_alloc_swiotlb(dev, size);
+> @@ -397,7 +399,8 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>   		attrs |= DMA_ATTR_CC_SHARED;
+>   
+>   	if ((attrs & DMA_ATTR_CC_SHARED) && dma_direct_use_pool(dev, gfp))
+> -		return dma_direct_alloc_from_pool(dev, size, dma_handle, gfp);
+> +		return dma_direct_alloc_from_pool(dev, size, dma_handle,
+> +						  gfp, attrs);
+>   
+>   	if (is_swiotlb_for_alloc(dev)) {
+>   		page = dma_direct_alloc_swiotlb(dev, size);
+> diff --git a/kernel/dma/pool.c b/kernel/dma/pool.c
+> index 2b2fbb709242..75f0eba48a23 100644
+> --- a/kernel/dma/pool.c
+> +++ b/kernel/dma/pool.c
+> @@ -12,12 +12,18 @@
+>   #include <linux/set_memory.h>
+>   #include <linux/slab.h>
+>   #include <linux/workqueue.h>
+> +#include <linux/cc_platform.h>
+>   
+> -static struct gen_pool *atomic_pool_dma __ro_after_init;
+> +struct dma_gen_pool {
+> +	bool unencrypted;
+> +	struct gen_pool *pool;
+> +};
+> +
+> +static struct dma_gen_pool atomic_pool_dma __ro_after_init;
+>   static unsigned long pool_size_dma;
+> -static struct gen_pool *atomic_pool_dma32 __ro_after_init;
+> +static struct dma_gen_pool atomic_pool_dma32 __ro_after_init;
+>   static unsigned long pool_size_dma32;
+> -static struct gen_pool *atomic_pool_kernel __ro_after_init;
+> +static struct dma_gen_pool atomic_pool_kernel __ro_after_init;
+>   static unsigned long pool_size_kernel;
+>   
+>   /* Size can be defined by the coherent_pool command line */
+> @@ -76,7 +82,7 @@ static bool cma_in_zone(gfp_t gfp)
+>   	return true;
+>   }
+>   
+> -static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+> +static int atomic_pool_expand(struct dma_gen_pool *dma_pool, size_t pool_size,
+>   			      gfp_t gfp)
+>   {
+>   	unsigned int order;
+> @@ -113,12 +119,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>   	 * Memory in the atomic DMA pools must be unencrypted, the pools do not
+>   	 * shrink so no re-encryption occurs in dma_direct_free().
+>   	 */
+> -	ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+> +	if (dma_pool->unencrypted) {
+> +		ret = set_memory_decrypted((unsigned long)page_to_virt(page),
+>   				   1 << order);
+> -	if (ret)
+> -		goto remove_mapping;
+> -	ret = gen_pool_add_virt(pool, (unsigned long)addr, page_to_phys(page),
+> -				pool_size, NUMA_NO_NODE);
+> +		if (ret)
+> +			goto remove_mapping;
+> +	}
+> +
+> +	ret = gen_pool_add_virt(dma_pool->pool, (unsigned long)addr,
+> +				page_to_phys(page), pool_size, NUMA_NO_NODE);
+>   	if (ret)
+>   		goto encrypt_mapping;
+>   
+> @@ -126,11 +135,15 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>   	return 0;
+>   
+>   encrypt_mapping:
+> -	ret = set_memory_encrypted((unsigned long)page_to_virt(page),
+> -				   1 << order);
+> -	if (WARN_ON_ONCE(ret)) {
+> -		/* Decrypt succeeded but encrypt failed, purposely leak */
+> -		goto out;
+> +	if (dma_pool->unencrypted) {
+> +		int rc;
+> +
+> +		rc = set_memory_encrypted((unsigned long)page_to_virt(page),
+> +					  1 << order);
+> +		if (WARN_ON_ONCE(rc)) {
+> +			/* Decrypt succeeded but encrypt failed, purposely leak */
+> +			goto out;
+> +		}
+>   	}
+>   remove_mapping:
+>   #ifdef CONFIG_DMA_DIRECT_REMAP
+> @@ -142,46 +155,52 @@ static int atomic_pool_expand(struct gen_pool *pool, size_t pool_size,
+>   	return ret;
+>   }
+>   
+> -static void atomic_pool_resize(struct gen_pool *pool, gfp_t gfp)
+> +static void atomic_pool_resize(struct dma_gen_pool *dma_pool, gfp_t gfp)
+>   {
+> -	if (pool && gen_pool_avail(pool) < atomic_pool_size)
+> -		atomic_pool_expand(pool, gen_pool_size(pool), gfp);
+> +	if (dma_pool->pool && gen_pool_avail(dma_pool->pool) < atomic_pool_size)
+> +		atomic_pool_expand(dma_pool, gen_pool_size(dma_pool->pool), gfp);
+>   }
+>   
+>   static void atomic_pool_work_fn(struct work_struct *work)
+>   {
+>   	if (IS_ENABLED(CONFIG_ZONE_DMA))
+> -		atomic_pool_resize(atomic_pool_dma,
+> +		atomic_pool_resize(&atomic_pool_dma,
+>   				   GFP_KERNEL | GFP_DMA);
+>   	if (IS_ENABLED(CONFIG_ZONE_DMA32))
+> -		atomic_pool_resize(atomic_pool_dma32,
+> +		atomic_pool_resize(&atomic_pool_dma32,
+>   				   GFP_KERNEL | GFP_DMA32);
+> -	atomic_pool_resize(atomic_pool_kernel, GFP_KERNEL);
+> +	atomic_pool_resize(&atomic_pool_kernel, GFP_KERNEL);
+>   }
+>   
+> -static __init struct gen_pool *__dma_atomic_pool_init(size_t pool_size,
+> -						      gfp_t gfp)
+> +static __init struct dma_gen_pool *__dma_atomic_pool_init(struct dma_gen_pool *dma_pool,
+> +		size_t pool_size, gfp_t gfp)
+>   {
+> -	struct gen_pool *pool;
+>   	int ret;
+>   
+> -	pool = gen_pool_create(PAGE_SHIFT, NUMA_NO_NODE);
+> -	if (!pool)
+> +	dma_pool->pool = gen_pool_create(PAGE_SHIFT, NUMA_NO_NODE);
+> +	if (!dma_pool->pool)
+>   		return NULL;
+>   
+> -	gen_pool_set_algo(pool, gen_pool_first_fit_order_align, NULL);
+> +	gen_pool_set_algo(dma_pool->pool, gen_pool_first_fit_order_align, NULL);
+> +
+> +	/* if platform is using memory encryption atomic pools are by default decrypted. */
+> +	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> +		dma_pool->unencrypted = true;
+> +	else
+> +		dma_pool->unencrypted = false;
+>   
+> -	ret = atomic_pool_expand(pool, pool_size, gfp);
+> +	ret = atomic_pool_expand(dma_pool, pool_size, gfp);
+>   	if (ret) {
+> -		gen_pool_destroy(pool);
+> +		gen_pool_destroy(dma_pool->pool);
+> +		dma_pool->pool = NULL;
+>   		pr_err("DMA: failed to allocate %zu KiB %pGg pool for atomic allocation\n",
+>   		       pool_size >> 10, &gfp);
+>   		return NULL;
+>   	}
+>   
+>   	pr_info("DMA: preallocated %zu KiB %pGg pool for atomic allocations\n",
+> -		gen_pool_size(pool) >> 10, &gfp);
+> -	return pool;
+> +		gen_pool_size(dma_pool->pool) >> 10, &gfp);
+> +	return dma_pool;
+>   }
+>   
+>   #ifdef CONFIG_ZONE_DMA32
+> @@ -207,21 +226,22 @@ static int __init dma_atomic_pool_init(void)
+>   
+>   	/* All memory might be in the DMA zone(s) to begin with */
+>   	if (has_managed_zone(ZONE_NORMAL)) {
+> -		atomic_pool_kernel = __dma_atomic_pool_init(atomic_pool_size,
+> -						    GFP_KERNEL);
+> -		if (!atomic_pool_kernel)
+> +		__dma_atomic_pool_init(&atomic_pool_kernel, atomic_pool_size, GFP_KERNEL);
+> +		if (!atomic_pool_kernel.pool)
+>   			ret = -ENOMEM;
+>   	}
+> +
+>   	if (has_managed_dma()) {
+> -		atomic_pool_dma = __dma_atomic_pool_init(atomic_pool_size,
+> -						GFP_KERNEL | GFP_DMA);
+> -		if (!atomic_pool_dma)
+> +		__dma_atomic_pool_init(&atomic_pool_dma, atomic_pool_size,
+> +				       GFP_KERNEL | GFP_DMA);
+> +		if (!atomic_pool_dma.pool)
+>   			ret = -ENOMEM;
+>   	}
+> +
+>   	if (has_managed_dma32) {
+> -		atomic_pool_dma32 = __dma_atomic_pool_init(atomic_pool_size,
+> -						GFP_KERNEL | GFP_DMA32);
+> -		if (!atomic_pool_dma32)
+> +		__dma_atomic_pool_init(&atomic_pool_dma32, atomic_pool_size,
+> +				       GFP_KERNEL | GFP_DMA32);
+> +		if (!atomic_pool_dma32.pool)
+>   			ret = -ENOMEM;
+>   	}
+>   
+> @@ -230,19 +250,44 @@ static int __init dma_atomic_pool_init(void)
+>   }
+>   postcore_initcall(dma_atomic_pool_init);
+>   
+> -static inline struct gen_pool *dma_guess_pool(struct gen_pool *prev, gfp_t gfp)
+> +static inline struct dma_gen_pool *__dma_guess_pool(struct dma_gen_pool *first,
+> +		struct dma_gen_pool *second, struct dma_gen_pool *third)
+> +{
+> +	if (first->pool)
+> +		return first;
+> +	if (second && second->pool)
+> +		return second;
+> +	if (third && third->pool)
+> +		return third;
+> +	return NULL;
+> +}
+> +
+> +static inline struct dma_gen_pool *dma_guess_pool(struct dma_gen_pool *prev,
+> +		gfp_t gfp)
+>   {
+> -	if (prev == NULL) {
+> +	if (!prev) {
+>   		if (gfp & GFP_DMA)
+> -			return atomic_pool_dma ?: atomic_pool_dma32 ?: atomic_pool_kernel;
+> +			return __dma_guess_pool(&atomic_pool_dma,
+> +						&atomic_pool_dma32,
+> +						&atomic_pool_kernel);
+> +
+>   		if (gfp & GFP_DMA32)
+> -			return atomic_pool_dma32 ?: atomic_pool_dma ?: atomic_pool_kernel;
+> -		return atomic_pool_kernel ?: atomic_pool_dma32 ?: atomic_pool_dma;
+> +			return __dma_guess_pool(&atomic_pool_dma32,
+> +						&atomic_pool_dma,
+> +						&atomic_pool_kernel);
+> +
+> +		return __dma_guess_pool(&atomic_pool_kernel,
+> +					&atomic_pool_dma32,
+> +					&atomic_pool_dma);
+>   	}
+> -	if (prev == atomic_pool_kernel)
+> -		return atomic_pool_dma32 ? atomic_pool_dma32 : atomic_pool_dma;
+> -	if (prev == atomic_pool_dma32)
+> -		return atomic_pool_dma;
+> +
+> +	if (prev == &atomic_pool_kernel)
+> +		return __dma_guess_pool(&atomic_pool_dma32,
+> +					&atomic_pool_dma, NULL);
+> +
+> +	if (prev == &atomic_pool_dma32)
+> +		return __dma_guess_pool(&atomic_pool_dma, NULL, NULL);
+> +
+>   	return NULL;
+>   }
+>   
+> @@ -272,16 +317,20 @@ static struct page *__dma_alloc_from_pool(struct device *dev, size_t size,
+>   }
+>   
+>   struct page *dma_alloc_from_pool(struct device *dev, size_t size,
+> -		void **cpu_addr, gfp_t gfp,
+> +		void **cpu_addr, gfp_t gfp, unsigned long attrs,
+>   		bool (*phys_addr_ok)(struct device *, phys_addr_t, size_t))
+>   {
+> -	struct gen_pool *pool = NULL;
+> +	struct dma_gen_pool *dma_pool = NULL;
+>   	struct page *page;
+>   	bool pool_found = false;
+>   
+> -	while ((pool = dma_guess_pool(pool, gfp))) {
+> +	while ((dma_pool = dma_guess_pool(dma_pool, gfp))) {
+> +
+> +		if (dma_pool->unencrypted != !!(attrs & DMA_ATTR_CC_SHARED))
+> +			continue;
+> +
+>   		pool_found = true;
+> -		page = __dma_alloc_from_pool(dev, size, pool, cpu_addr,
+> +		page = __dma_alloc_from_pool(dev, size, dma_pool->pool, cpu_addr,
+>   					     phys_addr_ok);
+>   		if (page)
+>   			return page;
+> @@ -296,12 +345,14 @@ struct page *dma_alloc_from_pool(struct device *dev, size_t size,
+>   
+>   bool dma_free_from_pool(struct device *dev, void *start, size_t size)
+>   {
+> -	struct gen_pool *pool = NULL;
+> +	struct dma_gen_pool *dma_pool = NULL;
+> +
+> +	while ((dma_pool = dma_guess_pool(dma_pool, 0))) {
+>   
+> -	while ((pool = dma_guess_pool(pool, 0))) {
+> -		if (!gen_pool_has_addr(pool, (unsigned long)start, size))
+> +		if (!gen_pool_has_addr(dma_pool->pool, (unsigned long)start, size))
 
-Add support for an optional interconnect path to the arm-smmu
-driver and vote for bandwidth while the SMMU is active. The path
-is acquired from DT if present and ignored otherwise.
 
-The bandwidth vote is enabled before accessing SMMU registers
-during probe and runtime resume, and released during runtime
-suspend and on error paths.
+v3 of this just crashed here with dma_pool!=NULL but dma_pool->pool==NULL. continuing debugging... Thanks,
 
-Generally, from an architectural perspective, GEM_NOC and DDR are
-expected to have an active vote whenever the adreno_smmu block is
-powered on. In most common use cases, this requirement is implicitly
-satisfied because other GPU-related clients (for example, the GMU
-device) already hold a GEM_NOC vote when adreno_smmu is enabled.
 
-However, there are certain corner cases, such as during sleep/wakeup
-transitions, where the GEM_NOC vote can be removed before adreno_smmu
-is powered down. If adreno_smmu is then accessed while the interconnect
-vote is missing, it can lead to the observed failures. Because of the
-precise ordering involved, this scenario is difficult to reproduce
-consistently.
-(also GDSC is involved in adreno usecases can have an independent vote)
-
-Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
----
- drivers/iommu/arm/arm-smmu/arm-smmu.c | 53 ++++++++++++++++++++++++++++++++++-
- drivers/iommu/arm/arm-smmu/arm-smmu.h |  2 ++
- 2 files changed, 54 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-index 0bd21d206eb3e75c3b9fb1364cdc92e82c5aa499..aedf5edf8f9b2b75f80a61af66727b52a5b3ad49 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-@@ -53,6 +53,11 @@
- #define MSI_IOVA_BASE			0x8000000
- #define MSI_IOVA_LENGTH			0x100000
- 
-+/* Interconnect bandwidth vote values for the SMMU register access path */
-+#define ARM_SMMU_ICC_AVG_BW		0
-+#define ARM_SMMU_ICC_PEAK_BW_HIGH	1000
-+#define ARM_SMMU_ICC_PEAK_BW_LOW	0
-+
- static int force_stage;
- module_param(force_stage, int, S_IRUGO);
- MODULE_PARM_DESC(force_stage,
-@@ -86,6 +91,36 @@ static inline void arm_smmu_rpm_put(struct arm_smmu_device *smmu)
- 	}
- }
- 
-+static int arm_smmu_icc_get(struct arm_smmu_device *smmu)
-+{
-+	smmu->icc_path = devm_of_icc_get(smmu->dev, NULL);
-+	if (IS_ERR(smmu->icc_path)) {
-+		int err = PTR_ERR(smmu->icc_path);
-+
-+		if (err == -ENODATA) {
-+			smmu->icc_path = NULL;
-+			return 0;
-+		}
-+		return dev_err_probe(smmu->dev, err,
-+				     "failed to get interconnect path\n");
-+	}
-+	return 0;
-+}
-+
-+static void arm_smmu_icc_enable(struct arm_smmu_device *smmu)
-+{
-+	if (smmu->icc_path)
-+		WARN_ON(icc_set_bw(smmu->icc_path, ARM_SMMU_ICC_AVG_BW,
-+				   ARM_SMMU_ICC_PEAK_BW_HIGH));
-+}
-+
-+static void arm_smmu_icc_disable(struct arm_smmu_device *smmu)
-+{
-+	if (smmu->icc_path)
-+		WARN_ON(icc_set_bw(smmu->icc_path, ARM_SMMU_ICC_AVG_BW,
-+				   ARM_SMMU_ICC_PEAK_BW_LOW));
-+}
-+
- static void arm_smmu_rpm_use_autosuspend(struct arm_smmu_device *smmu)
- {
- 	/*
-@@ -2189,6 +2224,17 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 	if (err)
- 		return err;
- 
-+	/*
-+	 * Acquire and vote the interconnect path before accessing any SMMU
-+	 * registers (including ARM_SMMU_GR0_ID0 in arm_smmu_device_cfg_probe).
-+	 */
-+	err = arm_smmu_icc_get(smmu);
-+	if (err) {
-+		clk_bulk_disable_unprepare(smmu->num_clks, smmu->clks);
-+		return err;
-+	}
-+	arm_smmu_icc_enable(smmu);
-+
- 	err = arm_smmu_device_cfg_probe(smmu);
- 	if (err)
- 		return err;
-@@ -2294,9 +2340,13 @@ static int __maybe_unused arm_smmu_runtime_resume(struct device *dev)
- 	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
- 	int ret;
- 
-+	arm_smmu_icc_enable(smmu);
-+
- 	ret = clk_bulk_enable(smmu->num_clks, smmu->clks);
--	if (ret)
-+	if (ret) {
-+		arm_smmu_icc_disable(smmu);
- 		return ret;
-+	}
- 
- 	arm_smmu_device_reset(smmu);
- 
-@@ -2308,6 +2358,7 @@ static int __maybe_unused arm_smmu_runtime_suspend(struct device *dev)
- 	struct arm_smmu_device *smmu = dev_get_drvdata(dev);
- 
- 	clk_bulk_disable(smmu->num_clks, smmu->clks);
-+	arm_smmu_icc_disable(smmu);
- 
- 	return 0;
- }
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-index 26d2e33cd328b8278888585fc07a31485d9397e2..c00606a416b2f4bb44a35e5d67f6ef801df68e1c 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-@@ -15,6 +15,7 @@
- #include <linux/bits.h>
- #include <linux/clk.h>
- #include <linux/device.h>
-+#include <linux/interconnect.h>
- #include <linux/io-64-nonatomic-hi-lo.h>
- #include <linux/io-pgtable.h>
- #include <linux/iommu.h>
-@@ -335,6 +336,7 @@ struct arm_smmu_device {
- 	int				num_clks;
- 	unsigned int			*irqs;
- 	struct clk_bulk_data		*clks;
-+	struct icc_path			*icc_path;
- 
- 	spinlock_t			global_sync_lock;
- 
+>   			continue;
+> -		gen_pool_free(pool, (unsigned long)start, size);
+> +
+> +		gen_pool_free(dma_pool->pool, (unsigned long)start, size);
+>   		return true;
+>   	}
+>   
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index 1abd3e6146f4..ab4eccbaa076 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -612,6 +612,7 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>   		u64 phys_limit, gfp_t gfp)
+>   {
+>   	struct page *page;
+> +	unsigned long attrs = 0;
+>   
+>   	/*
+>   	 * Allocate from the atomic pools if memory is encrypted and
+> @@ -623,8 +624,12 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>   		if (!IS_ENABLED(CONFIG_DMA_COHERENT_POOL))
+>   			return NULL;
+>   
+> +		/* swiotlb considered decrypted by default */
+> +		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> +			attrs = DMA_ATTR_CC_SHARED;
+> +
+>   		return dma_alloc_from_pool(dev, bytes, &vaddr, gfp,
+> -					   dma_coherent_ok);
+> +					   attrs, dma_coherent_ok);
+>   	}
+>   
+>   	gfp &= ~GFP_ZONEMASK;
 
 -- 
-2.34.1
+Alexey
 
 
