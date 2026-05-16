@@ -4,80 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6FBECD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 05:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD18ACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 05:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=blOC+9GmrnWG7CFQB7EzYgUnvF3WIzCMlYztxn2jcGY=; b=jf+TEC3a1xrOJhlvY4QzdlZ41A
-	p3QHUpbFS2LJrx5Ke4qyCFXxgETQX5aavYHryCerbEKI5p41uH/7MkMhYFxoXOGxgAU0cnTNB55gX
-	5lEO0HFHtifzuxuheRKWgCW59eukbZCl69uj7XNIkCr1SoQT1u6Bc3YdBRdc+ODHy0VyoQBQJknvf
-	s8wkf+iQ7T4uOgOvqrgg2LKWjtvpJTWucACj/LZydQcXmgGFcwjrAU3EhdkVdkrrSWgFTjbA1WwbJ
-	zq2V1a2OHAI2uBuJT4atP7rku3tPqyuyubDIefNNVdh4IhiVct+ytwx99ruwvK+DPVlZojXQNmDqS
-	NBBtPCnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GeDSC6iDZRgDYmHR6t4TAJwQ3WTA5QzwDb/jb6aEs2I=; b=yadUmxe++xLVN8DrL/CzcJ0uT0
+	SzRj4Fne8vSYN04/azNXDADWj+gNNuCkDTDQsxTRmvz1Gal56E7gZgHvesuDXakhRk78DY/eetnK6
+	gh/WIx/JPDZ9eAQA2do5ZC6X1WclHlvMG5rxwCncAzq462GUV53H5Mm3xfdoFMzgBL/6WN/luSIqW
+	aM7G56TLvq8H24aWEmw3OrvVJS7buRezXBDEe5M644YK01N5E9YeZMcH3x9jYJ2ChkXCfJJHozv3r
+	wVqNV/Ed2Pu5wgMyBPWPyTg09K5Lg9+2HA7nh5EQzu7XqJdWpmi0tcRr4spmEms2yLGhepJPyNJLI
+	V4SBsnNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO7gF-0000000ABEh-3eK5;
-	Sat, 16 May 2026 05:35:19 +0000
+	id 1wO7td-0000000ACgj-14CE;
+	Sat, 16 May 2026 05:49:09 +0000
 Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO7g8-0000000ABCN-2JnX
+	id 1wO7tZ-0000000ACfo-1K9z
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 05:35:15 +0000
+	Sat, 16 May 2026 05:49:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=blOC+9GmrnWG7CFQB7EzYgUnvF3WIzCMlYztxn2jcGY=; b=vlv4aCyJ7sEQL7yIA+Gp8/H1HR
-	HL9cwXW0wkMkcS59YEgPipo52rxkEccXxBNGM2PLXu+mcWOVwGMtQHrQnMASJE44D4vPQ7pSzrW4R
-	W9f6HkPBe8txvX2ixjyKeapO77iF/YjKvDDp9daS05DOLDNbW3zSmDjV57r0c0tW1UqCr8PM509js
-	JXOR7559rxhrvSBB9s4Y5OdpyyCo7oPcoFLBTTzs+rE9RT4Zi/0Etgo+c2+zjHMA60yG8yaQt7c5+
-	LaLsSxEi23lymkWD2we5tMpzdwiN9C3lz3JBJmENnedSW1LOdnCzMVX8wZF+55QOL3OcIRNsCVLMc
-	LWyTPtLA==;
+	bh=GeDSC6iDZRgDYmHR6t4TAJwQ3WTA5QzwDb/jb6aEs2I=; b=ignd8rVGRQS2G1AixRPUaMK0MV
+	/9QYtdHFRsbZ/YDr6TcTGkkroevffBEbYx5z8ABvqXo6XI6VfW3j4CtsRzUZi/wxwBXpMjHUdIu0P
+	W8Bj1f6caxG5eqt9Z/cPH0fgttPfEwm2NDfD/prcD39XBJs88NxIuLh21HhGQvWVcKKCL1Dh57tgQ
+	wfB1SW/+pc/FgrzET3TOlxwOPCtoJ166mKIW9x5dCz8mQ+xtyvnVGNpi4UEeogmnaugGKg8jUf2XX
+	tqKkw2d62BPgC+IuIX28e92ZFhLI12DB/Px9iS+GCnVKToSJSGqSHoR+RpMbDtGA+8z9/57wooGpO
+	Lzszt+Vw==;
 Received: from [91.102.182.218] (helo=localhost)
 	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.99.3)
 	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wO7g4-0000000GeLc-3o1Z;
-	Sat, 16 May 2026 07:35:08 +0200
+	id 1wO7tS-0000000H5s0-3zR1;
+	Sat, 16 May 2026 07:48:59 +0200
 From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Sat, 16 May 2026 07:34:15 +0200
-Subject: [PATCH v3 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
+Date: Sat, 16 May 2026 07:48:37 +0200
+Subject: [PATCH v3] iio: adc: sun20i-gpadc: support non-contiguous channel
+ lookups
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260516-sunxi-a523-gpadc-v3-2-a3a04cff2620@mmpsystems.pl>
-References: <20260516-sunxi-a523-gpadc-v3-0-a3a04cff2620@mmpsystems.pl>
-In-Reply-To: <20260516-sunxi-a523-gpadc-v3-0-a3a04cff2620@mmpsystems.pl>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260516-fix-sunxi-gpadc-sparse-channels-v3-1-4d229d18ff3b@mmpsystems.pl>
+X-B4-Tracking: v=1; b=H4sIADQFCGoC/42OzQ7CIBAGX8Vwdg3QSlNPvofxwM+qmBYJW4nG9
+ N0FvRgvepxkdr59MMLkkdhm8WAJsyd/CQWa5YLZkw5HBO8KM8ml4mvRwMHfgK7h5uEYtbNAUSd
+ CqHLAgUAaZSRXjXFtz0olJiwnr4Xd/s10NWe0U81W4+RpuqT764Usqvf/WhYgQFkpUPbcWMTtO
+ Ea604QjreLA6mKWn832d1OWpmu1UqbjttPdd3Oe5yfLtIJ9OAEAAA==
+X-Change-ID: 20260513-fix-sunxi-gpadc-sparse-channels-2b6b2063bd49
 To: Jonathan Cameron <jic23@kernel.org>, 
  David Lechner <dlechner@baylibre.com>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Andy Shevchenko <andy@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
  Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Maksim Kiselev <bigunclemax@gmail.com>
-Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Michal Piekos <michal.piekos@mmpsystems.pl>
+ Samuel Holland <samuel@sholland.org>
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Andy Shevchenko <andriy.shevchenko@intel.com>, 
+ Michal Piekos <michal.piekos@mmpsystems.pl>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ llvm@lists.linux.dev
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778909655; l=1815;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778910526; l=2985;
  i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=1Ywoj2EChrJkdIEVIClwgbqPkSpkodGiY8WCoxjST1Y=;
- b=fHu1kIpSQz5NOHUcuTQyr3ZHoZwMqVqYAJV12YvtSVwZh3SbwGo3xim22zw1ZdFQ7OVN65+oZ
- w7vY3Ltv3aVD8j7hVj/S/TanLH2DcaAChPgAb9/tw9flsmeRxbux0y8
+ bh=kNt/Z4oKF9AixaAwpIu2Ml8Cbcb+f121JoIe7G1ZaY8=;
+ b=bCBkkZO3AFDZx2E2f2OZ41t7+qc3Brbk3rwbgGezgw6GKjLXWyj7loNmA4mPZZw4yzhFl6g2h
+ gHmxqt/MmOSAqtZbVd6vCN3MA0aENuDRZ6lsyv0hoYWoIPXwyXovAih
 X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
  pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
 X-Authenticated-Id: michal.piekos@mmpsystems.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_223512_768209_5358E835 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20260515_224905_692834_7A2264C5 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,58 +98,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
-clock and module clock.
+Using consumer driver like iio-hwmon which resolve channels through
+io-channels phandles will fail for sparse channels because IIO core by
+default treats phandle argument as index into channel array.
+        eg. <&gpadc 1> will fail if there is only channel@1 specified
 
-Change driver to enable all clocks.
+Add .fwnode_xlate() which maps DT phandle to the registered channel
+whose chan->channel matches the hardware channel number. It allows
+sparse channel maps to be consumed by drivers like iio-hwmon.
 
+Tested on Radxa Cubie A5E.
+
+Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
 Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
- drivers/iio/adc/sun20i-gpadc-iio.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+Changes in v3:
+- Add iiospec->nargs validation in sun20i_gpadc_fwnode_xlate()
+- Keep Andy's Reviewed-by tag since change is narrow validation fix
+- Fix spelling issues in commit message
+- Link to v2: https://patch.msgid.link/20260514-fix-sunxi-gpadc-sparse-channels-v2-1-d4a66b70c7a7@mmpsystems.pl
+
+Changes in v2:
+- Move loop variable declaration into the for statement
+- Fix indentation using clang-format
+- Correct commit wording
+- Link to v1: https://patch.msgid.link/20260513-fix-sunxi-gpadc-sparse-channels-v1-1-6c21e290bcee@mmpsystems.pl
+
+To: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+To: Nuno Sá <nuno.sa@analog.com>
+To: Andy Shevchenko <andy@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+To: Nathan Chancellor <nathan@kernel.org>
+To: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
+To: Bill Wendling <morbo@google.com>
+To: Justin Stitt <justinstitt@google.com>
+Cc: linux-iio@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev
+---
+ drivers/iio/adc/sun20i-gpadc-iio.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
 diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
-index 861c14da75ad..f5fd2240b808 100644
+index 861c14da75ad..8a75498557ff 100644
 --- a/drivers/iio/adc/sun20i-gpadc-iio.c
 +++ b/drivers/iio/adc/sun20i-gpadc-iio.c
-@@ -177,10 +177,10 @@ static int sun20i_gpadc_alloc_channels(struct iio_dev *indio_dev,
- static int sun20i_gpadc_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
--	struct iio_dev *indio_dev;
- 	struct sun20i_gpadc_iio *info;
-+	struct clk_bulk_data *clks;
- 	struct reset_control *rst;
--	struct clk *clk;
-+	struct iio_dev *indio_dev;
- 	int irq;
- 	int ret;
+@@ -139,8 +139,23 @@ static irqreturn_t sun20i_gpadc_irq_handler(int irq, void *data)
+ 	return IRQ_HANDLED;
+ }
  
-@@ -205,9 +205,11 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
- 	if (IS_ERR(info->regs))
- 		return PTR_ERR(info->regs);
- 
--	clk = devm_clk_get_enabled(dev, NULL);
--	if (IS_ERR(clk))
--		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock\n");
-+	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "failed to enable clocks\n");
-+	if (ret == 0)
-+		return dev_err_probe(dev, -ENODEV, "needs at least one clocks\n");
- 
- 	rst = devm_reset_control_get_exclusive(dev, NULL);
- 	if (IS_ERR(rst))
-@@ -243,6 +245,7 @@ static int sun20i_gpadc_probe(struct platform_device *pdev)
- 
- static const struct of_device_id sun20i_gpadc_of_id[] = {
- 	{ .compatible = "allwinner,sun20i-d1-gpadc" },
-+	{ .compatible = "allwinner,sun55i-a523-gpadc" },
- 	{ }
++static int
++sun20i_gpadc_fwnode_xlate(struct iio_dev *indio_dev,
++			  const struct fwnode_reference_args *iiospec)
++{
++	if (iiospec->nargs != 1)
++		return -EINVAL;
++
++	for (unsigned int i = 0; i < indio_dev->num_channels; i++)
++		if (indio_dev->channels[i].channel == iiospec->args[0])
++			return i;
++
++	return -EINVAL;
++}
++
+ static const struct iio_info sun20i_gpadc_iio_info = {
+ 	.read_raw = sun20i_gpadc_read_raw,
++	.fwnode_xlate = sun20i_gpadc_fwnode_xlate,
  };
- MODULE_DEVICE_TABLE(of, sun20i_gpadc_of_id);
+ 
+ static void sun20i_gpadc_reset_assert(void *data)
 
--- 
-2.43.0
+---
+base-commit: 6916d5703ddf9a38f1f6c2cc793381a24ee914c6
+change-id: 20260513-fix-sunxi-gpadc-sparse-channels-2b6b2063bd49
+
+Best regards,
+--  
+Michal Piekos <michal.piekos@mmpsystems.pl>
 
 
