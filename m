@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD18ACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 05:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B283FCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 05:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GeDSC6iDZRgDYmHR6t4TAJwQ3WTA5QzwDb/jb6aEs2I=; b=yadUmxe++xLVN8DrL/CzcJ0uT0
-	SzRj4Fne8vSYN04/azNXDADWj+gNNuCkDTDQsxTRmvz1Gal56E7gZgHvesuDXakhRk78DY/eetnK6
-	gh/WIx/JPDZ9eAQA2do5ZC6X1WclHlvMG5rxwCncAzq462GUV53H5Mm3xfdoFMzgBL/6WN/luSIqW
-	aM7G56TLvq8H24aWEmw3OrvVJS7buRezXBDEe5M644YK01N5E9YeZMcH3x9jYJ2ChkXCfJJHozv3r
-	wVqNV/Ed2Pu5wgMyBPWPyTg09K5Lg9+2HA7nh5EQzu7XqJdWpmi0tcRr4spmEms2yLGhepJPyNJLI
-	V4SBsnNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PzP+icdRk9d5QTcv9vFAW1/hjEaGIuClWltPKk5q5I0=; b=3w8trZvnkm6H11
+	oRio8aZfLzV6VYXxqtZ1kjnZOjrFwJFQLVeQ9DaKnjXWc/kUFD5yVfff++0KUNUBP20VyU+A+XEE8
+	2ZuTkKlDWwK6W1l7iM4F33h2mxa7o3W66Rhl6QlyO6oFemhLTaeCz+WSTt5RCvO6toEJKWav4lYIz
+	G07W/F6CHnv7SNFwwykCeSMnH1COIpyy8f1VzCEucyQupmVAjjGIKuoGUGDC70sekyDgBjgJIBEQG
+	NqAMdLkF8CHwmiIZHTPwlIRiwmpFCTm5B7/skuYzYjsL0U8af3R/9MAD6mjuwwS3hOWRui73yS1UX
+	G4RxuFSx2QK/+UgFvljQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO7td-0000000ACgj-14CE;
-	Sat, 16 May 2026 05:49:09 +0000
-Received: from s106b.cyber-folks.pl ([195.78.66.88])
+	id 1wO81j-0000000ADLI-40ez;
+	Sat, 16 May 2026 05:57:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO7tZ-0000000ACfo-1K9z
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 05:49:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=mmpsystems.pl; s=x; h=Cc:To:Message-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:Date:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GeDSC6iDZRgDYmHR6t4TAJwQ3WTA5QzwDb/jb6aEs2I=; b=ignd8rVGRQS2G1AixRPUaMK0MV
-	/9QYtdHFRsbZ/YDr6TcTGkkroevffBEbYx5z8ABvqXo6XI6VfW3j4CtsRzUZi/wxwBXpMjHUdIu0P
-	W8Bj1f6caxG5eqt9Z/cPH0fgttPfEwm2NDfD/prcD39XBJs88NxIuLh21HhGQvWVcKKCL1Dh57tgQ
-	wfB1SW/+pc/FgrzET3TOlxwOPCtoJ166mKIW9x5dCz8mQ+xtyvnVGNpi4UEeogmnaugGKg8jUf2XX
-	tqKkw2d62BPgC+IuIX28e92ZFhLI12DB/Px9iS+GCnVKToSJSGqSHoR+RpMbDtGA+8z9/57wooGpO
-	Lzszt+Vw==;
-Received: from [91.102.182.218] (helo=localhost)
-	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.3)
-	(envelope-from <michal.piekos@mmpsystems.pl>)
-	id 1wO7tS-0000000H5s0-3zR1;
-	Sat, 16 May 2026 07:48:59 +0200
-From: Michal Piekos <michal.piekos@mmpsystems.pl>
-Date: Sat, 16 May 2026 07:48:37 +0200
-Subject: [PATCH v3] iio: adc: sun20i-gpadc: support non-contiguous channel
- lookups
+	id 1wO81h-0000000ADKD-1WU9;
+	Sat, 16 May 2026 05:57:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F85142A73;
+	Sat, 16 May 2026 05:57:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBBDFC19425;
+	Sat, 16 May 2026 05:57:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778911048;
+	bh=xgHqTQgH2M1DxMukANipoQxREXC67LYplivLEl7I4lM=;
+	h=From:Subject:Date:To:Cc:From;
+	b=MeAyQk6E5xnSOy8mVCCjjoQdNZFOx+kZ8ErTRbCs2C1DXtybedQHVyrvIzko3GYlb
+	 i2U2fDW58cn9JNjZLt6NpiAGSfXCZtJqn6NDM936W1h6xUjFFUGE6wIdNrCaBHQM+V
+	 KYrsuIicboZYL3wLnJvPfG/O4XrGZLYraqKdj6UARhgtWC2+wmQ0rOlP/uibzw0W9d
+	 jq2fo8/czgVMEUiZG7FExkreudHvQjsKweDk6i3jPnmJfgg4pgbOYJnAakaB1m2gEx
+	 LIfQdrQ45N5aZOGQE/nI1UIBRGcPqpctEQ4Zgu57Z2lEfwZK9NJAJQvxhqEYFHVZGp
+	 YebdySSUa2+Yw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v7 00/10] net: airoha: Support multiple
+ net_devices connected to the same GDM port
+Date: Sat, 16 May 2026 07:57:02 +0200
+Message-Id: <20260516-airoha-eth-multi-serdes-v7-0-99e0093303e2@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260516-fix-sunxi-gpadc-sparse-channels-v3-1-4d229d18ff3b@mmpsystems.pl>
-X-B4-Tracking: v=1; b=H4sIADQFCGoC/42OzQ7CIBAGX8Vwdg3QSlNPvofxwM+qmBYJW4nG9
- N0FvRgvepxkdr59MMLkkdhm8WAJsyd/CQWa5YLZkw5HBO8KM8ml4mvRwMHfgK7h5uEYtbNAUSd
- CqHLAgUAaZSRXjXFtz0olJiwnr4Xd/s10NWe0U81W4+RpuqT764Usqvf/WhYgQFkpUPbcWMTtO
- Ea604QjreLA6mKWn832d1OWpmu1UqbjttPdd3Oe5yfLtIJ9OAEAAA==
-X-Change-ID: 20260513-fix-sunxi-gpadc-sparse-channels-2b6b2063bd49
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>
-Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- Andy Shevchenko <andriy.shevchenko@intel.com>, 
- Michal Piekos <michal.piekos@mmpsystems.pl>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- llvm@lists.linux.dev
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1778910526; l=2985;
- i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
- bh=kNt/Z4oKF9AixaAwpIu2Ml8Cbcb+f121JoIe7G1ZaY8=;
- b=bCBkkZO3AFDZx2E2f2OZ41t7+qc3Brbk3rwbgGezgw6GKjLXWyj7loNmA4mPZZw4yzhFl6g2h
- gHmxqt/MmOSAqtZbVd6vCN3MA0aENuDRZ6lsyv0hoYWoIPXwyXovAih
-X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
- pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
-X-Authenticated-Id: michal.piekos@mmpsystems.pl
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33Qy2rDMBAF0F8JWldFz7HVVf+jZKHHKBZN5SI7J
+ iX436uYQlyMs7xc5gzcGxmwJBzI2+FGCk5pSH2uoXk5EN/ZfEKaQs1EMAFMCkVtKn1nKY4d/bq
+ cx0QrEHCg0SmnNSA2Gki9/i4Y03WRP0jGkWa8juRYmy4NY19+lpcTX/o/3ezqE6eMMha1CF4C8
+ /b9E0vG82tfTgs6iQekGN+HRIWsV6KxqByi20ByDcE+JO+QA7TKBG1i3EDqAWnW7EPqDkXg0gG
+ 3yMQG0mvoyUa6Qi3TKFsMXtjtRrCC+JONoEK+NUaB8Co2+h80z/MvjJP/jjYCAAA=
+X-Change-ID: 20260324-airoha-eth-multi-serdes-fb4b556ee756
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Christian Marangi <ansuelsmth@gmail.com>, 
+ Benjamin Larsson <benjamin.larsson@genexis.eu>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ Xuegang Lu <xuegang.lu@airoha.com>, 
+ Madhur Agrawal <madhur.agrawal@airoha.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_224905_692834_7A2264C5 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20260515_225729_448416_F6CF5305 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,87 +84,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using consumer driver like iio-hwmon which resolve channels through
-io-channels phandles will fail for sparse channels because IIO core by
-default treats phandle argument as index into channel array.
-        eg. <&gpadc 1> will fail if there is only channel@1 specified
+EN7581 or AN7583 SoCs support connecting multiple external SerDes (e.g.
+Ethernet or USB SerDes) to GDM3 or GDM4 ports via a hw arbiter that
+manages the traffic in a TDM manner. As a result multiple net_devices can
+connect to the same GDM{3,4} port and there is a theoretical "1:n"
+relation between GDM ports and net_devices.
 
-Add .fwnode_xlate() which maps DT phandle to the registered channel
-whose chan->channel matches the hardware channel number. It allows
-sparse channel maps to be consumed by drivers like iio-hwmon.
+           ┌─────────────────────────────────┐
+           │                                 │    ┌──────┐
+           │                         P1 GDM1 ├────►MT7530│
+           │                                 │    └──────┘
+           │                                 │      ETH0 (DSA conduit)
+           │                                 │
+           │              PSE/FE             │
+           │                                 │
+           │                                 │
+           │                                 │    ┌─────┐
+           │                         P0 CDM1 ├────►QDMA0│
+           │  P4                     P9 GDM4 │    └─────┘
+           └──┬─────────────────────────┬────┘
+              │                         │
+           ┌──▼──┐                 ┌────▼────┐
+           │ PPE │                 │   ARB   │
+           └─────┘                 └─┬─────┬─┘
+                                     │     │
+                                  ┌──▼──┐┌─▼───┐
+                                  │ ETH ││ USB │
+                                  └─────┘└─────┘
+                                   ETH1   ETH2
 
-Tested on Radxa Cubie A5E.
+This series introduces support for multiple net_devices connected to the
+same Frame Engine (FE) GDM port (GDM3 or GDM4) via an external hw
+arbiter. Please note GDM1 or GDM2 does not support the connection with
+the external arbiter.
 
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
-Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
 ---
+Changes in v7:
+- Fix dma_sync_single_for_cpu() size in airoha_qdma_rx_process().
+- Fix hw stats reset.
+- Fix typos.
+- Add fix for airoha_tc_remove_htb_queue queue index.
+- Fix dts schema issues.
+- Remove hw stats patch from the series.
+- Link to v6: https://lore.kernel.org/r/20260511-airoha-eth-multi-serdes-v6-0-c899462c4f75@kernel.org
+
+Changes in v6:
+- Reconfigure REG_GDM_LEN_CFG() whit max 'running' MTU in
+  airoha_dev_stop().
+- Fix port staring MIB counters in airoha_update_hw_stats().
+- Fix regression in TC_HTB_NODE_MODIFY command.
+- Fix length check in airoha_qdma_rx_process().
+- Fix dts schema.
+- Link to v5: https://lore.kernel.org/r/20260509-airoha-eth-multi-serdes-v5-0-805e38edc2aa@kernel.org
+
+Changes in v5:
+- Move qos_sq_bmap bitmap in airoha_gdm_dev struct.
+- Unregister netdevice before running of_node_put().
+- Move stat MIB counters in airoha_gdm_dev struct.
+- Fix airoha_ppe_init_upd_mem() mac address configuration.
+- Do not return -EBUSY if we try to decrease configured MTU of a shared
+  GDM port, just skip hw configuration.
+- use int instead of atomic_t for GDM port users.
+- Add patch "net: airoha: Reserve RX headroom to avoid skb reallocation"
+- Fix typos.
+- Link to v4: https://lore.kernel.org/r/20260507-airoha-eth-multi-serdes-v4-0-af613b61ae02@kernel.org
+
+Changes in v4:
+- Make ethernet-port property available just for GDM3 and GDM4 in DTS
+  specification
+- Move cpu_tx_packets, fwd_tx_packets qos_sq_bmap fields in airoha_qdma
+  struct
+- Fix of_node leak removing the net_device in airoha_remove() or
+  airoha_probe() error path
+- Fix nbq backward compatibility
+- Link to v3: https://lore.kernel.org/r/20260406-airoha-eth-multi-serdes-v3-0-ab6ea49d59ff@kernel.org
+
 Changes in v3:
-- Add iiospec->nargs validation in sun20i_gpadc_fwnode_xlate()
-- Keep Andy's Reviewed-by tag since change is narrow validation fix
-- Fix spelling issues in commit message
-- Link to v2: https://patch.msgid.link/20260514-fix-sunxi-gpadc-sparse-channels-v2-1-d4a66b70c7a7@mmpsystems.pl
+- Fix MTU and VIP configuration when the GDM port is shared between
+  multiple net_devices.
+- Add sanity check for nbq parameter.
+- Add missing of_node_get() for net_device np node.
+- Check if GDM port is shared before decresing device MTU.
+- Move port forward configuration in airoha_dev_stop() before
+  configuring DMA tx/rx engine.
+- Introduce PRIV_FLAG_WAN parameter.
+- Link to v2: https://lore.kernel.org/r/20260401-airoha-eth-multi-serdes-v2-0-ac427ae4beeb@kernel.org
 
 Changes in v2:
-- Move loop variable declaration into the for statement
-- Fix indentation using clang-format
-- Correct commit wording
-- Link to v1: https://patch.msgid.link/20260513-fix-sunxi-gpadc-sparse-channels-v1-1-6c21e290bcee@mmpsystems.pl
-
-To: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-To: Nuno Sá <nuno.sa@analog.com>
-To: Andy Shevchenko <andy@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-To: Samuel Holland <samuel@sholland.org>
-To: Nathan Chancellor <nathan@kernel.org>
-To: Nick Desaulniers <nick.desaulniers+lkml@gmail.com>
-To: Bill Wendling <morbo@google.com>
-To: Justin Stitt <justinstitt@google.com>
-Cc: linux-iio@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-sunxi@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org
-Cc: llvm@lists.linux.dev
----
- drivers/iio/adc/sun20i-gpadc-iio.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/drivers/iio/adc/sun20i-gpadc-iio.c b/drivers/iio/adc/sun20i-gpadc-iio.c
-index 861c14da75ad..8a75498557ff 100644
---- a/drivers/iio/adc/sun20i-gpadc-iio.c
-+++ b/drivers/iio/adc/sun20i-gpadc-iio.c
-@@ -139,8 +139,23 @@ static irqreturn_t sun20i_gpadc_irq_handler(int irq, void *data)
- 	return IRQ_HANDLED;
- }
- 
-+static int
-+sun20i_gpadc_fwnode_xlate(struct iio_dev *indio_dev,
-+			  const struct fwnode_reference_args *iiospec)
-+{
-+	if (iiospec->nargs != 1)
-+		return -EINVAL;
-+
-+	for (unsigned int i = 0; i < indio_dev->num_channels; i++)
-+		if (indio_dev->channels[i].channel == iiospec->args[0])
-+			return i;
-+
-+	return -EINVAL;
-+}
-+
- static const struct iio_info sun20i_gpadc_iio_info = {
- 	.read_raw = sun20i_gpadc_read_raw,
-+	.fwnode_xlate = sun20i_gpadc_fwnode_xlate,
- };
- 
- static void sun20i_gpadc_reset_assert(void *data)
+- Rename multiplexer in arbiter in the commit logs.
+- Rebase on top of net-next main branch.
+- Add missing PPE cpu port configuration for GDM2 when loopback is
+  enabled.
+- Link to v1: https://lore.kernel.org/r/20260329-airoha-eth-multi-serdes-v1-0-00f52dc360ca@kernel.org
 
 ---
-base-commit: 6916d5703ddf9a38f1f6c2cc793381a24ee914c6
-change-id: 20260513-fix-sunxi-gpadc-sparse-channels-2b6b2063bd49
+Lorenzo Bianconi (10):
+      dt-bindings: net: airoha: Add EN7581 ethernet-ports properties
+      net: airoha: Introduce airoha_gdm_dev struct
+      net: airoha: Move airoha_qdma pointer in airoha_gdm_dev struct
+      net: airoha: Rely on airoha_gdm_dev pointer in airoha_is_lan_gdm_port()
+      net: airoha: Move qos_sq_bmap in airoha_gdm_dev struct
+      net: airoha: Move {cpu,fwd}_tx_packets in airoha_gdm_dev struct
+      net: airoha: Support multiple net_devices for a single FE GDM port
+      net: airoha: Do not stop GDM port if it is shared
+      net: airoha: Introduce WAN device flag
+      net: airoha: Support multiple LAN/WAN interfaces for hw MAC address configuration
+
+ .../devicetree/bindings/net/airoha,en7581-eth.yaml |  60 +-
+ drivers/net/ethernet/airoha/airoha_eth.c           | 832 +++++++++++++++------
+ drivers/net/ethernet/airoha/airoha_eth.h           |  47 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c           |  43 +-
+ 4 files changed, 706 insertions(+), 276 deletions(-)
+---
+base-commit: 627ac78f2741e2ebd2225e2e953b6964a8a9182f
+change-id: 20260324-airoha-eth-multi-serdes-fb4b556ee756
 
 Best regards,
---  
-Michal Piekos <michal.piekos@mmpsystems.pl>
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
