@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E702CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C328ACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vc0G3fVTDA0KoBlVty6FVQPgJehqicMqVBRcne/BwdM=; b=KrbxV2XyGysGG337jMJHdrxlpi
-	zKt+DukgTMvIK2ks2c9J3z/2Y78/AEFp2L2zMARWLzgS7y0AaUROyzWXHQj3kMj45rNqBQlX6JMpP
-	wzayPEZoGdvBDZTRBz4+stRPq5LFkBIfABMN2t8xzNTstJhXNwME9CWCzG9Jrls/qmuIdIuPTIE11
-	fNGBQxPhxt9F8pKs+6O66LB0jZqGkKJc9WhteTTEy/LjvdOgTSavmULHHE+R869KVAlz67zQvpjT5
-	NKizGLUU2iOcdoOfANzJISw5DdhDxnQCeqn4xfEnPQSIr9o5kZ8VmqvtQ8G8N3DPnInZym1sAm6C7
-	w8W0LfSg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/BX5U/Puy9NaFvQ/iapnbKOwcmj5Ym/3a3uhEt5xto0=; b=dFTcTt2SISWFyP3hFZPYdUF+5u
+	cLY5xpRW0hU3Skq95TfMGmfpMCcnWdHeb8qCYFCk0z671X0prO7bn48m+jryHthLS2KqV0KT3aTVR
+	clu1xycWU/F3q3AZZEYf6PmKfwYpGREncSDkWZKGKUIYF1FTNwWNnwTqmeUdWhQf8C5kT8Zs2D/F1
+	NJMj4WXDcPIpAe5BfTE2z3oBATr6c63xNfsfxuftdPqj+YAC2DFvumOQ6rG2fnLSFNLP666hmr/j8
+	WDBCDGDYxFst2+Fzh8Fb6X3RE1kRIrxpKFlauyKLY2RGu2AaaQwGtzagLCDeh5T4qh4o9fLsmTxEw
+	kv1zKGqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJms-0000000BCI0-3ipC;
-	Sat, 16 May 2026 18:30:58 +0000
+	id 1wOJmz-0000000BCMI-0vFc;
+	Sat, 16 May 2026 18:31:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJmn-0000000BCG9-3J44
+	id 1wOJmw-0000000BCKG-0qKr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:30:55 +0000
+	Sat, 16 May 2026 18:31:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E9861BF3;
-	Sat, 16 May 2026 11:30:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7E88A4388;
+	Sat, 16 May 2026 11:30:55 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 023AD3F85F;
-	Sat, 16 May 2026 11:30:45 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 116A73F85F;
+	Sat, 16 May 2026 11:30:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778956248; bh=NPq7c3O7m9YoMQfFgefKlCXS40W630c66ivNjwX7VnY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=X3AVoYMic76EhjPA5QnkayYsO/uqgN8aSmHiHRkVLmdd4+gKne8/4SxtqHitV5VIx
-	 dR79teEEA0ZcD5I9q2lArcEV20ly23EVs3HPgOHZ+4qtsomrkBjl7lvv3Q00yg1i4R
-	 60pEIp5GvT2zSy+ff9ZHmAN7EC8SaBkbkzOjSYNo=
+	t=1778956260; bh=5KZ7qUudRVx69oZU53QLLwxihrHqBxwg4Go1w9hakIU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=NzugMphCkvAxgEwnAiw0HL8w4i6xIvLxspyk1uirCke9E42/ZaKgM3o6JVD5e9js/
+	 UY6fUQYC28HqV3ajKiNOW2SM0j0c8VoAfxp9dfG0WIMVrcEUQg0SS2TxIai5DtS+re
+	 MTCd9uvsrx2P9v2KGNdqN/XeWDbhtKCkIOY0X+Qo=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
@@ -56,15 +56,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Will Deacon <will@kernel.org>,
 	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 0/9] KVM: arm64: selftests: Basic nested guest support
-Date: Sat, 16 May 2026 19:29:54 +0100
-Message-ID: <20260516183003.799058-1-weilin.chang@arm.com>
+Subject: [PATCH v3 4/9] KVM: arm64: selftests: Enhance hello_nested test
+Date: Sat, 16 May 2026 19:29:58 +0100
+Message-ID: <20260516183003.799058-5-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260516183003.799058-1-weilin.chang@arm.com>
+References: <20260516183003.799058-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_113053_957234_220E6724 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260516_113102_322940_AC8D1883 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,58 +81,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Handle an "add" hypercall in L1 to add 2 numbers passed by L2, and
+return the result. This better tests our save/restore functionality.
 
-This is v3 of adding basic support for running nested guests (L2) in
-kselftest. This time a framework for enabling stage-2 in the guest is
-added, including the s2_mmu struct, s2 translation control setup, and
-a stage-2 page table generator. Similar to L2 vCPU management, all
-stage-2 work is done in the guest instead of userspace.
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ .../selftests/kvm/arm64/hello_nested.c        | 32 ++++++++++++++++++-
+ .../selftests/kvm/include/arm64/nested.h      |  2 +-
+ 2 files changed, 32 insertions(+), 2 deletions(-)
 
-An additional shadow_stage2 test is added which leverages the framework
-to run L2 with stage-2 enabled.
-
-* Changes from v2 [1]:
-
-  - Update vm_paddr_t to gpa_t, vm_vaddr_t to gva_t.
-
-  - Added framework for enabling stage-2 in the guest.
-
-  - Added shadow_stage2 test.
-
-Thanks!
-
-[1]: https://lore.kernel.org/kvmarm/20260412142216.3806482-1-weilin.chang@arm.com/
-
-Wei-Lin Chang (9):
-  KVM: arm64: selftests: Add GPR save/restore functions for NV
-  KVM: arm64: selftests: Add helpers for guest hypervisors
-  KVM: arm64: selftests: Add hello_nested basic NV selftest
-  KVM: arm64: selftests: Enhance hello_nested test
-  KVM: arm64: selftests: Add shadow_stage2 test
-  KVM: arm64: selftests: shadow_stage2: Allocate L2 stack from dedicated
-    pool
-  KVM: arm64: selftests: shadow_stage2: Check supported stage-2 granule
-    size
-  KVM: arm64: selftests: Add infrastructure for using stage-2 in guest
-  KVM: arm64: selftests: shadow_stage2: Turn on stage-2 translation for
-    the nested guest
-
- tools/testing/selftests/kvm/Makefile.kvm      |   5 +
- .../selftests/kvm/arm64/hello_nested.c        | 134 +++++++++
- .../selftests/kvm/arm64/shadow_stage2.c       | 165 +++++++++++
- .../selftests/kvm/include/arm64/nested.h      |  85 ++++++
- tools/testing/selftests/kvm/lib/arm64/entry.S | 137 +++++++++
- .../selftests/kvm/lib/arm64/hyp-entry.S       |  77 +++++
- .../testing/selftests/kvm/lib/arm64/nested.c  | 264 ++++++++++++++++++
- 7 files changed, 867 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/hello_nested.c
- create mode 100644 tools/testing/selftests/kvm/arm64/shadow_stage2.c
- create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/entry.S
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
-
+diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
+index 1cab56e4597b..9ed5285f5f2d 100644
+--- a/tools/testing/selftests/kvm/arm64/hello_nested.c
++++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+@@ -11,6 +11,10 @@
+ #define XLATE2GPA	(0xABCD)
+ #define L2STACKSZ	(0x100)
+ 
++#define L2SUCCESS	(0x0)
++#define L2FAILED	(0x1)
++#define L2ADD		(0x2)
++
+ /*
+  * TPIDR_EL2 is used to store vcpu id, so save and restore it.
+  */
+@@ -31,7 +35,14 @@ static gpa_t ucall_translate_to_gpa(void *gva)
+ 
+ static void l2_guest_code(void)
+ {
+-	do_hvc();
++	int ans = 0;
++
++	ans = do_hvc(L2ADD, 2, 3);
++
++	if (ans == 5)
++		do_hvc(L2SUCCESS, 0, 0);
++	else
++		do_hvc(L2FAILED, 0, 0);
+ }
+ 
+ static void guest_code(void)
+@@ -42,6 +53,7 @@ static void guest_code(void)
+ 	gpa_t l2_pc, l2_stack_top;
+ 	/* force 16-byte alignment for the stack pointer */
+ 	u8 l2_stack[L2STACKSZ] __attribute__((aligned(16)));
++	u64 arg1, arg2;
+ 
+ 	GUEST_ASSERT_EQ(get_current_el(), 2);
+ 	GUEST_PRINTF("vEL2 entry\n");
+@@ -55,6 +67,24 @@ static void guest_code(void)
+ 	ret = run_l2(&vcpu, &hyp_data);
+ 	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
+ 	GUEST_ASSERT_EQ(ESR_ELx_EC(read_sysreg(esr_el2)), ESR_ELx_EC_HVC64);
++
++	if (vcpu.context.regs.regs[0] == L2ADD) {
++		arg1 = vcpu.context.regs.regs[1];
++		arg2 = vcpu.context.regs.regs[2];
++		GUEST_PRINTF("L2 add request, arg1: %lx, arg2: %lx\n", arg1, arg2);
++		vcpu.context.regs.regs[0] = arg1 + arg2;
++	} else {
++		GUEST_FAIL("Unexpected hvc action\n");
++	}
++
++	ret = run_l2(&vcpu, &hyp_data);
++	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
++	GUEST_ASSERT_EQ(ESR_ELx_EC(read_sysreg(esr_el2)), ESR_ELx_EC_HVC64);
++
++	if (vcpu.context.regs.regs[0] != L2SUCCESS)
++		GUEST_FAIL("L2 failed\n");
++
++	GUEST_PRINTF("L2 success!\n");
+ 	GUEST_DONE();
+ }
+ 
+diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+index 30e626e427da..c10ef4a85be7 100644
+--- a/tools/testing/selftests/kvm/include/arm64/nested.h
++++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+@@ -50,7 +50,7 @@ void prepare_hyp(void);
+ void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top);
+ int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
+ 
+-void do_hvc(void);
++u64 do_hvc(u64 action, u64 arg1, u64 arg2);
+ u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
+ void __hyp_exception(u64 type);
+ 
 -- 
 2.43.0
 
