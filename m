@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E825DCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 06:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4633CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 06:40:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fOEl5xXvJOtKixpf5iEnZM4m30+I4WRFWzEoTJgtBlA=; b=bynGFj6j54rQTR2zx9xjodRTo+
-	JsgGlbBs1ju2fbTlBy1AF321KgHyVXqzznR96Q1P70mJGPoGBHfDc9CwBnFtbmOVKWMeVRFa4DEUd
-	IDtkvFki++si8MsdwHXseAuYozepuASfDNbxX0T8H2bb9na3DimOltgJkLrqn+z35f5K/fIrvWcSB
-	GVNnsHd3YmY1BoSRq0LOAHElrifju2o4IijgdLRmf1HAQKYopRm+tvbJoo9HrF4ZbRBG/SoKQphUd
-	nQqxe4rGiOhYnNOfZcnmQuarT1GvFqlljt2HHnPSiiRjMABgmHw1Zwq2wTtZX+tWMGA/iKr9gmbBL
-	BByHdZXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IAiw1WCrW9eFilDGxnRI0+TcsuxqhR+PLAhpGbnPnBI=; b=sbBvPpxjuAJcj8
+	m+X1YggJVsp/jmesaLZh3gDv2IRtLmHvDza/zED260jYphBSpg+ubJnY/cmieJVY4JHmZMDO4JV8o
+	x3TSuiQbZjbx73G4tGu1vPt4Pk2lZXMwtq7Dkr1L/A2oGBxjixSffY35UpttetgSgjR80z9yYsi8h
+	xhkGnL9IZkikwoejQydiiP+7zXFFBfNJdyJ4d3pQklez6aMTjW/QnyxuDubD9mhExsosFCaEneplW
+	fMBUGvrZ4rvO8w/IN9t17O7/9prM4xuYz7P+PAfWIhrLLVIfkBEBtbPYvBmVV/JaXcUVX5l1dnK5K
+	O7UhKlIhh78+yt7RNM7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO8dd-0000000AHZl-1kyY;
-	Sat, 16 May 2026 06:36:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wO7gF-0000000ABEW-3GaN;
+	Sat, 16 May 2026 05:35:19 +0000
+Received: from s106b.cyber-folks.pl ([195.78.66.88])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO8db-0000000AHZZ-3fZP
+	id 1wO7g6-0000000ABBl-1Ker
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 06:36:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF5F860138;
-	Sat, 16 May 2026 06:36:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5023BC19425;
-	Sat, 16 May 2026 06:36:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778913398;
-	bh=wj3pvJUXnApN9duS4ENA6UUuY+zxbbcfEjF+pPbJNq8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PR6K8Jo7kQyk4nm/tJBIcb+sod/FCvmuK/WpuaxIJN6Pna+qZ8sTNkxBOuYgcp+jz
-	 j8vv0D0T8fG9SznD3FVM7msFz9n4Nq64CTmzLIv0aI83qTm0du5opM8ifkMsKG31ge
-	 X8cRBFtSWEp2wk21xLed0CeRTXz2OkAwNfM0XIWIQyggOUKj8+/REoE1khynnM6wxf
-	 TMgLZ0Bp3m/Y7yndl+ifFr+/PMxxXlXuXLDbp7iqjmN+GpdI+3vZ8ACMm6ueaYsefv
-	 BY5K6cwbK3s4QuZFCJuu0GRcut/P5srokXf4HrYXF9JugcIYe/MXqVCBSqEEt0iFLw
-	 GWrt1Hg/KlO7g==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 01C031AC5A48; Sat, 16 May 2026 07:36:34 +0100 (BST)
-Date: Sat, 16 May 2026 15:36:34 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Ryan Wanner <ryan.wanner@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Radu Pirea <radu.pirea@microchip.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Wenyou Yang <wenyou.yang@atmel.com>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] spi: atmel: two fixes
-Message-ID: <aggQctV06BI6Sobw@sirena.co.uk>
-References: <20260516-atmel-v1-0-674fb4707af6@gmail.com>
- <agfXl-FiZ-PN_cGT@sirena.co.uk>
- <CAN4SLj3H3Sc_N42KnYMzgpe8LcFE-6EHeNxnBY2o35jP74_BkQ@mail.gmail.com>
+	Sat, 16 May 2026 05:35:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=mmpsystems.pl; s=x; h=Cc:To:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=IAiw1WCrW9eFilDGxnRI0+TcsuxqhR+PLAhpGbnPnBI=; b=B1KrSNTfg3tI+U7X15zpEzRQPk
+	zd2maOxtwHG8791lXzGr2gk5e0gO3jbZoicb2nkKiMWQ19yMlbCKbth71maitPhFaH7oVYubm0vqq
+	B1awmDli0kYzK0wPdJoBJK+0piBDI37LqdEgliDKGsK1DC1O7uziXxtBcVtwAjWBPfdL1iyKH+Aak
+	9tYY6XsgSls7Qp9Yx08g6WbQpejvMko7dpQefP5m5F/Q2ohFouO23U1mlir1dVo0MaMD3QlYWx6JN
+	AGUPr6bdvB/qoHaSJBCujDFxrIvPdnoVOW0WH1OKtclKK6k/DSPWmmBVNISC2TgMSm9ycd7Ii01Ir
+	QYt9wcug==;
+Received: from [91.102.182.218] (helo=localhost)
+	by s106.cyber-folks.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.3)
+	(envelope-from <michal.piekos@mmpsystems.pl>)
+	id 1wO7g2-0000000GasF-0t1M;
+	Sat, 16 May 2026 07:35:06 +0200
+From: Michal Piekos <michal.piekos@mmpsystems.pl>
+Subject: [PATCH v3 0/3] Add GPADC support for A523
+Date: Sat, 16 May 2026 07:34:13 +0200
+Message-Id: <20260516-sunxi-a523-gpadc-v3-0-a3a04cff2620@mmpsystems.pl>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fZzu6U2uZ2p9oVsc"
-Content-Disposition: inline
-In-Reply-To: <CAN4SLj3H3Sc_N42KnYMzgpe8LcFE-6EHeNxnBY2o35jP74_BkQ@mail.gmail.com>
-X-Cookie: Truckers welcome.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANUBCGoC/23NQQ6CMBQE0KuYrq35LRTUlfcwLgr9hRqBhg8EQ
+ ri7BV0YdTnJzJuZEbYOiZ13M2txcOSaOoRov2N5qesCuTMhMwkyAQUpp74eHddKRrzw2uRcHNO
+ T1srYVMUszHyL1o0beb29MvXZHfNuddZG6ahr2mn7HMTae/MCfvlBcOCxTTKwMQDY7FJVnibqs
+ KKDf7D1YpCfSPQHkQExCq1BoYTR+TeyLMsTPrgiBQsBAAA=
+X-Change-ID: 20260507-sunxi-a523-gpadc-1879aa5df754
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Michal Piekos <michal.piekos@mmpsystems.pl>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1778909655; l=2320;
+ i=michal.piekos@mmpsystems.pl; s=20260301; h=from:subject:message-id;
+ bh=8GoHeq9jR+/2KxfeL+lHcdywJFQkb502/IOBEjFLrJI=;
+ b=gt2LAeGzMxoGrrckQQX49mfSrf88U060DBS/Zb3T9J7WJN8StEtOUlcjWP7+fGGa0e60Fx6wn
+ B7RnkDO0a/rAVi9jBXvTL5wnL/gGCVscyKy4/0dV+wjCUohLVMuKoig
+X-Developer-Key: i=michal.piekos@mmpsystems.pl; a=ed25519;
+ pk=Aixyx03If7ZDamiKKN0lsa+0mtA+WjIuIf2ZQVYNBqg=
+X-Authenticated-Id: michal.piekos@mmpsystems.pl
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260515_223510_830493_65249012 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +96,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for Allwinner A523 GPADC in sun20i gpadc driver and describe
+corresponding node in dts for A523 SoC.
 
---fZzu6U2uZ2p9oVsc
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+A523 uses same model as existing driver except it has two clocks.
 
-On Sat, May 16, 2026 at 12:41:56PM +0800, Felix Gu wrote:
+Added support to enable more than one clock in the driver, extended the
+binding with new compatible and wired up dts node for A523 as its own
+fallback compatible.
 
-> The two commits are already based on Johan=E2=80=99s fixes:
-> commit ebf99aebc458391893c598f1caddd42bfcc97fc5
-> Author: Johan Hovold johan@kernel.org
-> Date: Wed Apr 29 11:13:16 2026 +0200
-> spi: atmel: switch to managed controller allocation
->=20
-> There should not be any conflicts.
+Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+---
+Changes in v3:
+- More granular handling of devm_clk_bulk_get_all_enabled() return value
+- Added #size-cells and #address-cells to node description
+- Fixed formatting
+- Link to v2: https://patch.msgid.link/20260513-sunxi-a523-gpadc-v2-0-d5efde151dac@mmpsystems.pl
 
-Those are on my for-7.2 branch, we're currently in v7.1-rcN...  I guess
-it's probably not urgent either way.
+Changes in v2:
+- Handle scenario when 0 clocks has been defined
+- Fix copy&paste sentence in 3rd patch commit message
+- Moved status as last property in dts node
+- Make A523 its own fallback compatible
+- Removed redundant maxItems/minItems properties from binding
+- Link to v1: https://patch.msgid.link/20260510-sunxi-a523-gpadc-v1-0-4f6b0f4000fb@mmpsystems.pl
 
---fZzu6U2uZ2p9oVsc
-Content-Type: application/pgp-signature; name="signature.asc"
+To: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+To: Nuno Sá <nuno.sa@analog.com>
+To: Andy Shevchenko <andy@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Chen-Yu Tsai <wens@kernel.org>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: Samuel Holland <samuel@sholland.org>
+To: Maksim Kiselev <bigunclemax@gmail.com>
+Cc: linux-iio@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-sunxi@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org
 
------BEGIN PGP SIGNATURE-----
+---
+Michal Piekos (3):
+      dt-bindings: iio: adc: Add GPADC for Allwinner A523
+      iio: adc: sun20i-gpadc: add A523 gpadc support
+      arm64: dts: allwinner: a523: add gpadc node
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoIEHIACgkQJNaLcl1U
-h9C60gf+NE7mLfYR56Bap6PoYwJj4+q/vXyZotuV8Ir17kP//GySWSh4yCqoJMWf
-XgovPBxdODLmX6xWZBqyMhmLwrLvKNfu+Mipw9FtdRlwP7abOlJcKn4dslJs033x
-noLnCFz+sAPm8/B43xcgg+ahqhvS7rELeqbEGSD0FXqaGWdkZkVqBOaZFn0rXqnn
-vq9tex4y4UzdCAvrtg/7GTJzgcgYO8alyO1NDRI6TWRJ31gydfCsOdegmFwsgSVx
-8ny+NhM+EDimsOjEIzIEF0X3/cgxJ8NpNp1wzy1QDbo6hm4ukxow6283a/O+wjHM
-vpkf0B/AjDnHHLzUJWEEF0G+WVOHGQ==
-=kr9H
------END PGP SIGNATURE-----
+ .../iio/adc/allwinner,sun20i-d1-gpadc.yaml         | 32 +++++++++++++++++++++-
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi     | 13 +++++++++
+ drivers/iio/adc/sun20i-gpadc-iio.c                 | 13 +++++----
+ 3 files changed, 52 insertions(+), 6 deletions(-)
+---
+base-commit: 8ab992f815d6736b5c7a6f5fd7bfe7bc106bb3dc
+change-id: 20260507-sunxi-a523-gpadc-1879aa5df754
 
---fZzu6U2uZ2p9oVsc--
+Best regards,
+--  
+Michal Piekos <michal.piekos@mmpsystems.pl>
+
 
