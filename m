@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A6CCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF27CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LByMhDRnSw/19GAWOU8RQ0GafZjOhHwQpSIXnN3970I=; b=Ke9MKWRZtNSO8Dti3EbQUxQMB0
-	S1QFgLOXtI6sNRtWxXUGSct4nzX567jtExVb82w1vEVPuSbgOEawxB/OMt+hIBfLuL1UMkKeCbXSZ
-	3yPOsWhVKMUF7xm+7WFLVOZvQtlAObm4x507qHjc6PCrPQu48NqX9ZvjfJObZUyk0rb8/dWJW0Cz7
-	FNZjyAOE+WPagRgM2Uk6uLyRHXDh9s1qPtyDP9Ah9wijbEtgOJy7Z57RKkkC/9zTxYRXcSAD47hmk
-	SbamXk/R/82wgDewipThOnx1v4mAdjGqI60pQnAR48CIt1B3xwYS6JIxGL07TlBGdQkT5d7M2reUA
-	VEiH8tpA==;
+	bh=PITqrWXRKnvquhsmFeW25NuAMiXiKqJhb1WF1+79Euc=; b=iSgXDkAQ9V99zpblolrb2tFXbj
+	d+b7kacYOEdgwhvlCYD0oQEr2nlu4M9sBBgr7Etyz8UyCiKcSoIkZCXkJXFaflvuifLxWfNYgrero
+	/EK+5MFwYXf0FpyFJWdEXxwz+jvC66POoTuVED72Qznrw+dpgOJodYZ12fZJnFgxGBjXpbriCajyw
+	dBlN4A9j3pEjdrc6DFto5IQ6UID3pMyJqmcDkMM71KOI9ywIwQ2MI+OntrLoasLc2CiytUf7Ro6Ky
+	hpwjhxNHF2F+GS6QhbPcDBxKqgofguLgqICAZSga5hUbtMoGMKnJRzSxwmkqcZM+emH1XQCC8skh5
+	P24lT6PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJvn-0000000BGKN-2tJ7;
-	Sat, 16 May 2026 18:40:11 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
+	id 1wOJw1-0000000BGk3-3QkR;
+	Sat, 16 May 2026 18:40:25 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJvc-0000000BFwT-0zoH
+	id 1wOJvs-0000000BGUO-3Gce
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:40:10 +0000
+	Sat, 16 May 2026 18:40:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778956799; bh=LByMhDRnSw/19GAWOU8RQ0GafZjOhHwQpSIXnN3970I=;
- b=q+clu/YCKERjcunsEbRu1M6+9NfmUM1Yl4H+oRQ9/e6wIjXK3ry92uFSsMaZqigsSmOvA4TaK
- CiBuXQKTQQJZHYB+aMQuEPsFaABspSXXhHC2lEFIVEZ4KRK+T3B0lKVjW/msLUwHI5Wao0MPwDE
- rElHXWBLYy3p1Plv7FHnGOeoJdlvoqEOz2JH3vyhXdhMNUywOE4bcI7jjsHGG27guNsxD9t9Bww
- AY/24wNw8lhNRXSjm6r8F4Psps9JJHmgMRzoyVXTkr0hiCKlvuy0OL397b/JTodTIXtmUlarSMZ
- xXM59W003AHw7HdIuQ69JstvGaVJz28Dw6IMckN4uDWQ==
-X-Forward-Email-ID: 6a08b9fd79c7625f20eeeedc
+ t=1778956816; bh=PITqrWXRKnvquhsmFeW25NuAMiXiKqJhb1WF1+79Euc=;
+ b=of9xA02wwxeFZwuoegaddrF40khziX1OM2haKcJqow2xXyfr0F5LxSSyQx0cMkj2Y1WCedcqz
+ o2zuFuotfI1nnJWlsp5JP3b3OsaiPfYcGXrXvzgEFSxCcG/znKtE200Kk5buy9m+d2TBAOB9kTG
+ uf5ZnXMdOh0jlPc1Ku65bk1Ek7Zp3j17b3CoEd02LlTbF05hYEa2VVU5qnc1bGVkC/oppceAezp
+ EFvYoyXheTbTaKmTefpm2fg56+o4CugERBuYQeXP99rqtKIAouZIY5AuRScSjUgxWfSNy8QD7a6
+ SEq3wncaDshbd2tNlrqp3BU19J9j72SChXyoqodbj5vA==
+X-Forward-Email-ID: 6a08ba0a79c7625f20eeef2f
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
+ 121.127.44.73
 X-Forward-Email-Version: 2.8.12
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -57,7 +57,10 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
+	Simona Vetter <simona@ffwll.ch>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 Cc: Liu Ying <victor.liu@nxp.com>,
 	Sandy Huang <hjc@rock-chips.com>,
 	Andy Yan <andy.yan@rock-chips.com>,
@@ -73,17 +76,18 @@ Cc: Liu Ying <victor.liu@nxp.com>,
 	linux-sunxi@lists.linux.dev,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 17/22] drm: bridge: dw_hdmi: Drop call to drm_bridge_hpd_notify()
-Date: Sat, 16 May 2026 18:38:27 +0000
-Message-ID: <20260516183838.2024991-18-jonas@kwiboo.se>
+Subject: [PATCH v6 20/22] drm: bridge: dw_hdmi: Remove the empty dw_hdmi_setup_rx_sense()
+Date: Sat, 16 May 2026 18:38:30 +0000
+Message-ID: <20260516183838.2024991-21-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260516183838.2024991-1-jonas@kwiboo.se>
 References: <20260516183838.2024991-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_114000_473136_57F31442 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20260516_114016_979120_D1E425E2 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,115 +102,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The use of calls to both drm_helper_hpd_irq_event() and
-drm_bridge_hpd_notify() from the HPD IRQ handler may cause multiple
-hotplug uevents and modesets when the bridge connector is used.
-
-Use of drm_helper_hpd_irq_event() cause the internal DRM function
-check_connector_changed() to be called, which in turn calls the
-connector detect()/force() funcs to detect any connection status or
-epoch changes, and when changed trigger a hotplug uevent. This also
-help ensure that EDID and CEC phys addr is updated.
-
-If only a call drm_bridge_hpd_notify() would be used, a custom connector
-status/EDID change detection logic needs to be implemented, to fully
-match what check_connector_changed() already provides.
-
-The bridge connector detect() func also ensures that any hpd_notify()
-funcs are called for all bridges in the chain, so there is not really
-any need to have a call to drm_bridge_hpd_notify() here.
-
-With both calls there is two hotplug uevents, two modesets and a total
-of four .hpd_notify() calls (using a bridge connector):
-
-  dw_hdmi_irq(): EVENT=plugout
-  drm_helper_hpd_irq_event():
-    dw_hdmi_bridge_hpd_notify(status=2)
-    [drm:check_connector_changed] [CONNECTOR:46:HDMI-A-1] status updated from connected to disconnected
-    [drm:check_connector_changed] [CONNECTOR:46:HDMI-A-1] Changed epoch counter 1 => 2
-    [drm:drm_sysfs_connector_hotplug_event] [CONNECTOR:46:HDMI-A-1] generating connector hotplug event
-   drm_client_hotplug():
-    [drm:drm_fb_helper_hotplug_event]
-    [drm:drm_client_modeset_probe]
-    [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:46:HDMI-A-1]
-    dw_hdmi_bridge_hpd_notify(status=2)
-    [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:46:HDMI-A-1] disconnected
-    [drm:drm_edid_connector_update] [CONNECTOR:46:HDMI-A-1] EDID changed, epoch counter 3
-    [drm:drm_client_modeset_probe] No connectors reported connected with modes
-    [drm:drm_client_modeset_probe] [CONNECTOR:46:HDMI-A-1] enabled? no
-    [drm:drm_client_firmware_config.isra.0] Not using firmware configuration
-    [drm:drm_client_modeset_probe] picking CRTCs for 3840x2160 config
-    [drm:drm_client_hotplug] fbdev: ret=0
-  drm_bridge_hpd_notify():
-    dw_hdmi_bridge_hpd_notify(status=2)
-    [drm:drm_sysfs_connector_hotplug_event] [CONNECTOR:46:HDMI-A-1] generating connector hotplug event
-   drm_client_hotplug():
-    [drm:drm_fb_helper_hotplug_event]
-    [drm:drm_client_modeset_probe]
-    [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:46:HDMI-A-1]
-    dw_hdmi_bridge_hpd_notify(status=2)
-    [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:46:HDMI-A-1] disconnected
-    [drm:drm_client_modeset_probe] No connectors reported connected with modes
-    [drm:drm_client_modeset_probe] [CONNECTOR:46:HDMI-A-1] enabled? no
-    [drm:drm_client_firmware_config.isra.0] Not using firmware configuration
-    [drm:drm_client_modeset_probe] picking CRTCs for 3840x2160 config
-    [drm:drm_client_hotplug] fbdev: ret=0
-
-Change to only call drm_helper_hpd_irq_event() from HPD IRQ handler to
-ensure that only one hotplug uevent is sent to userspace when connection
-status or EDID changes.
-
-With only a call the drm_helper_hpd_irq_event() there is only a single
-hotplug uevent and only two .hpd_notify() calls:
-
-  dw_hdmi_irq(): EVENT=plugout
-  drm_helper_hpd_irq_event():
-    dw_hdmi_bridge_hpd_notify(status=2)
-    [drm:check_connector_changed] [CONNECTOR:46:HDMI-A-1] status updated from connected to disconnected
-    [drm:check_connector_changed] [CONNECTOR:46:HDMI-A-1] Changed epoch counter 1 => 2
-    [drm:drm_sysfs_connector_hotplug_event] [CONNECTOR:46:HDMI-A-1] generating connector hotplug event
-   drm_client_hotplug():
-    [drm:drm_fb_helper_hotplug_event]
-    [drm:drm_client_modeset_probe]
-    [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:46:HDMI-A-1]
-    dw_hdmi_bridge_hpd_notify(status=2)
-    [drm:drm_helper_probe_single_connector_modes] [CONNECTOR:46:HDMI-A-1] disconnected
-    [drm:drm_edid_connector_update] [CONNECTOR:46:HDMI-A-1] EDID changed, epoch counter 3
-    [drm:drm_client_modeset_probe] No connectors reported connected with modes
-    [drm:drm_client_modeset_probe] [CONNECTOR:46:HDMI-A-1] enabled? no
-    [drm:drm_client_firmware_config.isra.0] Not using firmware configuration
-    [drm:drm_client_modeset_probe] picking CRTCs for 3840x2160 config
-    [drm:drm_client_hotplug] fbdev: ret=0
+The dw_hdmi_setup_rx_sense() helper is empty and no longer needed after
+recent RXSENSE and HPD rework, remove it.
 
 Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # Rock64, RockPro64, Quartz64-B
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
-v6: Drop the call from IRQ handler instead, prior to use of a HPD
-    delayed work to avoid a possible deadlock with use of sync() calls
-    in the bridge hpd_disable() ops,
-    Update commit message,
-    Collect t-b tag
-v5: New patch
+v6: Collect t-b tag
+v5: No change
+v4: New patch
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 5 -----
+ drivers/gpu/drm/meson/meson_dw_hdmi.c     | 3 ---
+ include/drm/bridge/dw_hdmi.h              | 2 --
+ 3 files changed, 10 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index e9c4e24c090c..6cc7b2a860bd 100644
+index 39e94d22249b..59864b9084f6 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -3101,10 +3101,8 @@ static irqreturn_t dw_hdmi_irq(int irq, void *dev_id)
- 			status == connector_status_connected ?
- 			"plugin" : "plugout");
+@@ -3009,11 +3009,6 @@ static irqreturn_t dw_hdmi_hardirq(int irq, void *dev_id)
+ 	return ret;
+ }
  
--		if (hdmi->bridge.dev) {
-+		if (hdmi->bridge.dev)
- 			drm_helper_hpd_irq_event(hdmi->bridge.dev);
--			drm_bridge_hpd_notify(&hdmi->bridge, status);
--		}
- 	}
+-void dw_hdmi_setup_rx_sense(struct dw_hdmi *hdmi, bool hpd, bool rx_sense)
+-{
+-}
+-EXPORT_SYMBOL_GPL(dw_hdmi_setup_rx_sense);
+-
+ static irqreturn_t dw_hdmi_irq(int irq, void *dev_id)
+ {
+ 	struct dw_hdmi *hdmi = dev_id;
+diff --git a/drivers/gpu/drm/meson/meson_dw_hdmi.c b/drivers/gpu/drm/meson/meson_dw_hdmi.c
+index fef1702acb14..2a8756da569b 100644
+--- a/drivers/gpu/drm/meson/meson_dw_hdmi.c
++++ b/drivers/gpu/drm/meson/meson_dw_hdmi.c
+@@ -524,9 +524,6 @@ static irqreturn_t dw_hdmi_top_thread_irq(int irq, void *dev_id)
+ 		if (stat & HDMITX_TOP_INTR_HPD_RISE)
+ 			hpd_connected = true;
  
- 	hdmi_writeb(hdmi, intr_stat, HDMI_IH_PHY_STAT0);
+-		dw_hdmi_setup_rx_sense(dw_hdmi->hdmi, hpd_connected,
+-				       hpd_connected);
+-
+ 		drm_helper_hpd_irq_event(dw_hdmi->bridge->dev);
+ 		drm_bridge_hpd_notify(dw_hdmi->bridge,
+ 				      hpd_connected ? connector_status_connected
+diff --git a/include/drm/bridge/dw_hdmi.h b/include/drm/bridge/dw_hdmi.h
+index 8500dd4f99d8..a612b9fa6dbb 100644
+--- a/include/drm/bridge/dw_hdmi.h
++++ b/include/drm/bridge/dw_hdmi.h
+@@ -186,8 +186,6 @@ struct dw_hdmi *dw_hdmi_bind(struct platform_device *pdev,
+ 
+ void dw_hdmi_resume(struct dw_hdmi *hdmi);
+ 
+-void dw_hdmi_setup_rx_sense(struct dw_hdmi *hdmi, bool hpd, bool rx_sense);
+-
+ int dw_hdmi_set_plugged_cb(struct dw_hdmi *hdmi, hdmi_codec_plugged_cb fn,
+ 			   struct device *codec_dev);
+ void dw_hdmi_set_sample_non_pcm(struct dw_hdmi *hdmi, unsigned int non_pcm);
 -- 
 2.54.0
 
