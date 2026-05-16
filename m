@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DE3CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 09:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38C7CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 09:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z9iwndGPdhhfbaDqoUlTzWSRTEYwd9nb6CJHJivhXZA=; b=O8t6OYJ+NlUlidtRpm3olkPnsN
-	zMtZ+A0owwfHGNHvt3ZCqvXeVEj5XKh5ovI+RnEgClp9haWPwHjyBprbH5iGFjdXoC/IdrgQLsfDM
-	zU+ApDz68IOODJwgfyhbTA5g5jqAPnDWqaQcdEnOT5arZ1/A0HS8RzFL0F1CeFQUcBk2IbM+2ymqY
-	e8w0KD0VIdsOGhUQ4nHDv/BwJLgmFD0+r0GU+ZMWK/pkXAwY92RQlYPe61CIqKUzJavISbX5O771Y
-	vluiAG79/hNxZgSPrkoNYTgMxnwfhs5g8XR/v/30QlPQhciqqzGARsEF/BX4PvTZMlw6kzGXiXi9/
-	/uLIsN3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mkmMM1nU6BmRCOy7uQOa2NEkgrV2wWzu4hgp0wcVYmE=; b=xqq8YlJZyT3rx3HPf3cYEFJHkD
+	/ZrmTj2S2bTvlFaGFA6UZTslvQUEpPopQA6Rocl3E3890cscbuE0xA+NOlntRt5lLKvhfOnmgkJXv
+	/EdMeIsPvImx+Mf+rpQdgXnPdgvwfSh75QXnnmZNAaQ+jcEq99OiEc20AXzh8P5MZH8StRwj3cK27
+	O6ptXNfSNHM2MWOzz9YwP/UwkgGpp6tqawlIAoD+04ihyRujvXXAU8cMK+wW9tU/STcF/olaJg98q
+	e5SwzSZ62+84357iA+q23Zr0qKP4CXQQOmEBPDeD6l+eCmPSuaf/hGuqcTsbwCtRvBA2pQq8OuktS
+	A2acTkNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOAzo-0000000AT51-2QmB;
-	Sat, 16 May 2026 09:07:44 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wOB4O-0000000ATa6-09Gr;
+	Sat, 16 May 2026 09:12:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOAzm-0000000AT4V-1GVp
+	id 1wOB4M-0000000ATZW-3rXf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 09:07:43 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-48d10c981e4so841515e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 02:07:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778922460; x=1779527260; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=z9iwndGPdhhfbaDqoUlTzWSRTEYwd9nb6CJHJivhXZA=;
-        b=YMtdVw3W3AVARdu6Au0AMNNp1+XceUc1j9CVXgULyWJ5p8+dJCljUsvy9PCSQbqSjT
-         G/7g+o1leGpAr0QbFjzcHd3dk6kuFL83D7h26TkM6O0A8od/yLnX5bmAa2ohucoTYHTS
-         Q2Jw1IiQL+1tDBLk/u8DOyyij1vfWlL8uLSh+VqXAVpr7emuE8GnQPmvgzc+4+sWZlSZ
-         rsb7bPsGHrFAxml5gyBx3gFz2K7JeNEO6J5loLiDuS4WrAl5+HrycTZnuQfdO3Ns0VvO
-         p5hdbKinhrrXJw+U1rcfcBgifjrk22Ytu/w7ivhRTsL04EAebbYoeQhnUr9xNdlpEKf3
-         scAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778922460; x=1779527260;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=z9iwndGPdhhfbaDqoUlTzWSRTEYwd9nb6CJHJivhXZA=;
-        b=VJfBI+x15jFO/3edWTZ+p5FjqXXOLYEDcXR5v6ztoX95b5BN1Wq7FwwMXE47erJoxr
-         zP7hF9Dy4fTnwO17hCzijhMk0Vb3yooO1rH+ahz8X9fSDn6CaoDLwHtaJkvsXnLvESVE
-         uwZP0RCAO7eKPtH2OPqoqy91YUz6sXxO2odWlbN0Z3om39kIcDNnoZlSXZUBx2qYuN/k
-         LO/7nl06EQWVSArnI7ZZ4jTUhe1m9UMAyWyVkzjwkBt8I6m5R4fqUGonxCa6BZhh6xiX
-         pmIMgiZ1MMwjZmZjJbJhga4/W20VZQE890p9BaDrfUmL8P3alxvwyARq3MzPC1WaHMob
-         HUJg==
-X-Forwarded-Encrypted: i=1; AFNElJ+/mFKfu/rCA1l6ScvPbaKepObdn/K48k5iTA26C7Dk63TO/6NkEQoP42EtUO7Se0TMytj5S9U2kM1rmFSnOMIS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKr/XNV5GHx3OcC3z4KDod65DxkOwGdmyAaiZwJn9Qy0cbDkDc
-	rGuEoQSV5NwixZlRusUNPm7v/3BsOx5c5HAmQwMMQBLQ0RDryP636l67
-X-Gm-Gg: Acq92OHI5Rbg4qfYwIv2bo3doFiegz8Bs1x/jjShjPpRWVomU+QgUdHqkvGqmU8ooYC
-	r2OUrKEds7V47EhjmufzoQlSyQmow0GvUjARhVpATUlkw9JO1PEAOzxsKvEEAD5xOk6Qe6wlJQR
-	68mWvZ3lGB+g+FXYckD8I+4br2lMekkqtC6CnAoMyMutlKyow8FaPmH4fkqSgT/J/D2Hh02VmUx
-	o5c3dnJ+5BZnsC7GbTFIt1fLQo3UC7AH9p79OrCNWFZKD8Ce/JlLnxuPjLuVharmpKONiksFuov
-	MFxq/7aouQyLg37O9ZbNjigdKF9+s5fKuIeY8jJRSTvQMMc9g0IX5Dp10CBVD2wpUwMftudFaW6
-	gO3P+3WemxaPcWBpetwfOgEKBJDY+m0HxIW4aUCFVFar6ROVDvtWFVq1TdufDX4hvpAt1L4gRr0
-	oX0MIIvuivgZSMM774yiuoR/AnLBics4qPfk5H3mrFZFWb
-X-Received: by 2002:a05:600c:4704:b0:489:1ca4:c999 with SMTP id 5b1f17b1804b1-48fe66550aamr47129795e9.8.1778922459852;
-        Sat, 16 May 2026 02:07:39 -0700 (PDT)
-Received: from localhost.localdomain ([82.215.118.79])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe66544sm32827265e9.23.2026.05.16.02.07.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 May 2026 02:07:39 -0700 (PDT)
-From: Stepan Ionichev <sozdayvek@gmail.com>
-To: gregkh@linuxfoundation.org
-Cc: Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	shawnguo@kernel.org,
-	hcazarim@yahoo.com,
-	imx@lists.linux.dev,
+	Sat, 16 May 2026 09:12:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C10A160138;
+	Sat, 16 May 2026 09:12:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70015C19425;
+	Sat, 16 May 2026 09:12:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778922744;
+	bh=LL/S8GnS0b1/dCWxejuLJBEUJ6lauWpm0bwiV4rKpLg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=a5pOYwINvYqAl5OspBjpye/1VsuInGuPHtwMdtgKAy9sVNjuaTTYWYKZQ0K5svlLC
+	 PQF5OXTUcKMM5w76tnoj96E0nsfZPrCErhPjx6bnUC8sXBUTP1Q7cxp6SbFfYwhYOR
+	 VaJ2tzWLLUaDRcvIkk4Lei0RurttnH3Nzs2hu+mezRlP1Q8OXoQ1C/1YVki0Jyl5Wm
+	 aXVUDrB/Qqb495t+4qvPgF+lzL/VCKRgA/MM419MeVDojCw/ZGsQ0Zq6X4fO1btvaC
+	 hcVGPUw6sJq9J+iZ2MXh8/O2qONnxLX8YrznPM66yQGd6F4cqNllVxRoVlOLcFGkVg
+	 o9Fnegvl5s3Lg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wOB4I-00000002xtC-0blF;
+	Sat, 16 May 2026 09:12:22 +0000
+Date: Sat, 16 May 2026 10:15:36 +0100
+Message-ID: <87o6ifaf5z.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stepan Ionichev <sozdayvek@gmail.com>
-Subject: Re: [PATCH] firmware: imx: scu-irq: accumulate wakeup sources via sysfs_emit_at()
-Date: Sat, 16 May 2026 14:07:26 +0500
-Message-Id: <20260516090726.38362-1-sozdayvek@gmail.com>
-X-Mailer: git-send-email 2.33.0.windows.2
-In-Reply-To: <2026051633-doorstep-sequence-6782@gregkh>
-References: <2026051633-doorstep-sequence-6782@gregkh>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_020742_379892_BF362A47 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 0/2] Optimize S2 page splitting
+In-Reply-To: <20260515195904.2466381-1-leo.bras@arm.com>
+References: <20260515195904.2466381-1-leo.bras@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,23 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 16, 2026 at 09:15:54AM +0200, Greg Kroah-Hartman wrote:
-> This is a horrible sysfs file, and breaks all the rules.  Why not just
-> delete it and use the proper api for it instead?
+On Fri, 15 May 2026 20:59:01 +0100,
+Leonardo Bras <leo.bras@arm.com> wrote:
+> 
+> While playing with dirty-bit tracking, I decided to take a look on how page
+> splitting works. Found out all entries are walked, even though we can infer,
+> for instance that:
+> - If a level-3 entry is walked, it means the parent level-2 entry is split
+> - If a split just succeeded in an table entry, it means all children nodes
+>   are already split
+> 
+> So I tried to optimize it in a way that it does not break other users.
+> 
+> My main idea is to introduce positive return values that hint to the
+> pagetable walking mechanism that either siblings or children can be 
+> skipped. That should be contained to the visitor function, that returns
+> zero if no error was detected.
+> 
+> Numbers on above optimization are promising:
+> A 1GB VM, running on the model, splitting all at the beginning 
+> (no manual protect):
+> - Memory was already split (4k pages): 	-97.33% runtime (-172ms) - 20 runs
+> - THP backed memory: 			-19.82% runtime (-153ms) - 10 runs
+> - 1x1GB hugetlb memory:			-20.65% runtime (-150ms) - 10 runs
+>
 
-Yeah, fair. The sprintf change just papers over the real issue, which
-is the interface itself.
+I haven't looked at the changes in details, but the methodology is
+quite flawed. For a start, measuring anything on a software model
+(QEMU or FVP) doesn't mean anything performance-wise. The trade-offs
+are completely different from a HW implementation, and even the notion
+of time is pretty inconsistent.
 
-Quick check: no Documentation/ABI/ entry, github code search returns
-nothing outside the kernel tree itself
-(https://github.com/search?q=scu_wakeup_irqs&type=code), and
-codesearch.debian.net also shows zero hits. So removing the attribute
-looks doable.
+Please run this on actual HW. I'm sure your employer can give you
+access to one of these mythical arm64 toys. Measure things from
+userspace, not from the kernel, so that you have all the overheads.
+Don't add console output, because that will make things far worse.
 
-Frank, Sascha -- any out-of-tree readers of
-/sys/firmware/scu_wakeup_irqs/wakeup_src I should worry about?  If
-not, I'll send v2 that drops the attribute and logs the wakeup source
-via dev_info() instead.
+I'm sure you can hack one of the selftests for this purpose.
 
-Stepan
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
