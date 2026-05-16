@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E4BFCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 14:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848F1CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 15:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7lRl01Se5Q0jQcED3g7NOrr18imEFUBhEiitHBHJUyU=; b=ri0UxUrtcYzriUmyUgeET8MjtX
-	qIGtTsjqI0RdS30EqKUk6FRYEpiBJj226ErtHWLkAyN5SbJ0J6VRPxvdQZ3fAOTBtez+VHNzxbuNC
-	6ebBDTYN8Lqw6U+u1vIRa10PXFWDZLNCaO2iRhdK3aXS+BfwasHBbwfchyXgs0xpVXlTdn3YyWRKP
-	Jdr8LbecfPVOl98/aSsAzBFwi9HuDQbyWSC6R4R4YSaGsuX+4j8OuVnZHegKSjiIE7GuPmpLq/2pe
-	+IkcoijdasnS5r++nM0QrbATJwXedD3TlIeO1saaAUI75YudWzECS89GC89PcAyN/DWWFT7dp0KyF
-	8QnmzPtg==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PhXCXkEaYWs8mLMuGd17HeyaaKTPfL/cVLd/ZsGcDd0=; b=i6BsI3BOg/hYSibxgKo665bChQ
+	XYg9pvCQs0EubAZxlK7yD0jWBhOrmtoS2c3YUGRMP0hbKRXoQu1nMDvfTD5wS5y3Es94kAV2ewBVl
+	I3kKA+j0qSIRe5vfGpPrzfM8rQzPNps/Hjs9556YjWhykKuV96uPiU0XdqCTQwykf3UUdDhEibY2f
+	7PoT9qPPnOMJq+GrbMpRt2O2dSqU8ggEBnS/Dmt2FuNanq4hAy6mfswtRXlNCA7HlhKjv90PCbpxl
+	188Gw0YwfnL28wpBW9DgCgck/LYIcsRzph4Y03YlUafwyo1hkYUsREc/AhBfUNWiP/eiDHgYU+5pp
+	cilPeR4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOGLF-0000000At4n-2x9m;
-	Sat, 16 May 2026 14:50:13 +0000
-Received: from mailgate02.uberspace.is ([185.26.156.114])
+	id 1wOGX9-0000000AuFR-0LWt;
+	Sat, 16 May 2026 15:02:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOGLB-0000000At2u-4AkA
+	id 1wOGX4-0000000AuF7-059k
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 14:50:12 +0000
-Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
-	by mailgate02.uberspace.is (Postfix) with ESMTPS id 46521180360
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 16:49:58 +0200 (CEST)
-Received: (qmail 30872 invoked by uid 988); 16 May 2026 14:49:58 -0000
-Authentication-Results: perseus.uberspace.de;
-	auth=pass (plain)
-Received: from unknown (HELO unknown) (::1)
-	by perseus.uberspace.de (Haraka/3.1.1) with ESMTPSA; Sat, 16 May 2026 16:49:57 +0200
-From: David Bauer <mail@david-bauer.net>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH mt76] wifi: mt76: mt7915: configure noise floor reporting on reset
-Date: Sat, 16 May 2026 16:49:42 +0200
-Message-ID: <20260516144944.2574053-1-mail@david-bauer.net>
-X-Mailer: git-send-email 2.53.0
+	Sat, 16 May 2026 15:02:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F25443C28;
+	Sat, 16 May 2026 15:02:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55381C19425;
+	Sat, 16 May 2026 15:02:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778943745;
+	bh=uc8pZ4p+HwdI9bwVDTtSCog/2rGBEMcyxeIJvxFLqKc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=exSx/OhIyTzM9AqPgq7wewrwJhVB+w3pV+CxqRz0jsxhbIK6BF8G08y6vJsdpQfBs
+	 4syRzHoi5Iqj/QlpaAUizegO248cw4Xf8ZE9Z7Cgudw+crIGv73BQuPZCoYsDryViZ
+	 Wbc5iYvFKOqOSbxm8GQyLN0q7NvKEDnjMcc6oieQ0Ux8nkITOAhcpKkLDrSDTspOi2
+	 uLoIzGQgFK7l4sMN3gVGS90Bc6xKbOHsnlrF0rPRT190nWEjetS6wk64kbSdUHM4h9
+	 oG1oahV4q/EDroF+ns8oh7yWSpX3tUFDDRP1oz3AA3UfgZ0NvwKGGPzTduvl6jPI9X
+	 WbCUNUpYMhGfA==
+Date: Sat, 16 May 2026 16:02:14 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Michal Piekos <michal.piekos@mmpsystems.pl>
+Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Maksim
+ Kiselev <bigunclemax@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] iio: adc: sun20i-gpadc: add A523 gpadc support
+Message-ID: <20260516160214.658b5543@jic23-huawei>
+In-Reply-To: <20260516-sunxi-a523-gpadc-v3-2-a3a04cff2620@mmpsystems.pl>
+References: <20260516-sunxi-a523-gpadc-v3-0-a3a04cff2620@mmpsystems.pl>
+	<20260516-sunxi-a523-gpadc-v3-2-a3a04cff2620@mmpsystems.pl>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Bar: /
-X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999999) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
-X-Rspamd-Score: -0.099999
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=david-bauer.net; s=uberspace;
-	h=from:to:cc:subject:date;
-	bh=TZUxj+HbLt7zXr6JPNAew7gA5D1W4pXAgzIME0JuOv0=;
-	b=rF6s+3kZW5JAJo2UVMEHPudnGH8BLyyu/LJ6Z3yRDoz4CPYROD1mZWp43F2WEe9Hrshd6AVFTh
-	l+Ocd5j60/t8xwJgn4dsui5vBJ5EAyOkCi143tQX9d1yyqQs5UnTZrP8/hd24SfLj1vNHD5pq8dJ
-	1UXyZ3owVLSI7IJNds4LPK9CAesXPMEpgHaQH2JLKxZsUPU/rhcE8lYdKBRLew/hSiCjw8Vds+fx
-	nrnylafYd3B9HegA7MVpHQmDKX7i34fkFG4n/Iiib3RGkHGdGUiTIlQeVUgtHTsUcYGxFCzT5wU8
-	TcCC1fzArxizcVqCKePMO8jS8AIUzJrzRxpe8/SnxgOtXwf0KOb0NfjJA60FnUCgLReBy4jJTqBH
-	Al0ADRMoCrAFpzQowj5u7TcW02csq8KgiwIFeDq8e+m+fE1/2d4+hWshrR1pmuZ+iTn4MTPdDGBs
-	dxPYM1Ldl2vcyr0Ayd1+euZB++x9J2zRnErP8Z0w/MkaKDXSP9GMWvY/yvDEZOcUVEBG3OvwusmM
-	fzX4HqXEu4tPJkv/j9LBOhFrsM/08cN2UnxUJmJFyYOfD81gH1N70r5F+RcxloXpt96xIeF2L+/x
-	KYve2sN89jLr2WL0MQEGcydimm4SpUxRCzsj1P7WmtiZA5hDSnHg4bqbEPakivE1S+RfRrTDPeiT
-	M=
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_075010_462183_27DB7EB7 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20260516_080226_085106_A44F948D 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When performing a full system recovery of the MCU on a dual-phy
-platform, band 0 (usually 2.4GHz) stops reading correct noise floor
-data.
+On Sat, 16 May 2026 07:34:15 +0200
+Michal Piekos <michal.piekos@mmpsystems.pl> wrote:
 
-This is due to noise floor reporting only being configured correctly
-for the second device PHY.
+> A523 differs from existing sun20i-gpadc-iio by having two clocks; bus
+> clock and module clock.
+> 
+> Change driver to enable all clocks.
+> 
+> Signed-off-by: Michal Piekos <michal.piekos@mmpsystems.pl>
+Applied patches 1 and 2 to the testing branch of iio.git.
 
-Configure the respective registers correctly after restarting the MCU
-firmware to fix reported noise-floor values.
+Given some other folk were involved in reviewing earlier versions I'm fine
+adding tags for nor next few days (or dropping it if I missed anything!)
 
-Signed-off-by: David Bauer <mail@david-bauer.net>
----
- drivers/net/wireless/mediatek/mt76/mt7915/main.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Thanks
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7915/main.c b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-index e1d83052aa6dd..b42c26d0d09a4 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7915/main.c
-@@ -25,11 +25,13 @@ int mt7915_run(struct ieee80211_hw *hw)
- 	struct mt7915_dev *dev = mt7915_hw_dev(hw);
- 	struct mt7915_phy *phy = mt7915_hw_phy(hw);
- 	bool running;
-+	bool reset;
- 	int ret;
- 
- 	running = mt7915_dev_running(dev);
-+	reset = test_bit(MT76_RESET, &phy->mt76->state);
- 
--	if (!running) {
-+	if (!running || (reset && phy == &dev->phy)) {
- 		ret = mt76_connac_mcu_set_pm(&dev->mt76,
- 					     dev->phy.mt76->band_idx, 0);
- 		if (ret)
--- 
-2.53.0
-
+Jonathan
 
