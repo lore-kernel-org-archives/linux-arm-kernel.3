@@ -4,136 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83531CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 17:13:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C63ACD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 17:18:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9jLh/dQOJWE3RHARPvqgKATVrj4A2zOic50j7GN9J7A=; b=yiLTbu0KpHcHvU/c7fkqe/4CWX
-	QWCs8qsiDI4lMpUpB7iMFsn6kWrFN1a/IqpvMkA7QUPCWFJWniPAuI43yonnvbmnOtQIXb4eNuzRe
-	pU2+KvbZaY/tvgA/VSzusd+67AVTDCSBmUECO+SB8UZjujvY64VqjuzUQYPMIDbkic3EmAk37ru6e
-	jgqJPqXZGgie/i6v65iRw4OFeefRe5a8O9wPqYb8AJy6idPqq+tZhzWZ+GjMeKSgb7h9mEL0tl+yE
-	yaMajRoS2+usuQoW3dKUQgidIl+TYEaqRZ2VSMEXb4I0LEroynmJv7WpQPGBBLw9DhBV9yd3c0ZjS
-	8gpockgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lwV+QRBm3GWXd8HomB9LunBJZC6COo8pd7qQw9dl9wk=; b=RQ0Fwe+0GPFCfdD2YqeGHXxLrw
+	1SD3PnZnLsB5ju29LJp5Q4OLo9ezE1PhavEl5h3C0Vbc4auMEVKR81mjCC8zt79n/5n50/h05pert
+	81pe13GU3U6leVATO4neVqtSdMzBVd8xaSdZmzERF2N5A58Ko/2SbogVNG6mqAr6tv4/8zBNURCHv
+	2n3v2uoWCZDY1WGvLySJVu1DracyYildDID1yxEHBkdEOkH6wuOSIO6fRHoZ56kpLlhBCIZ6RYbGg
+	DipavZ9i64itWdT9Oofm/y9YIm2L+oUYjVM7TptfPBzmB5pSQl6VwYIzNdcApTxR8KBx0bi7ZpP4v
+	Xi9mh1wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOIa6-0000000B54j-1ZzL;
-	Sat, 16 May 2026 17:13:42 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1wOIee-0000000B5VE-44EH;
+	Sat, 16 May 2026 17:18:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOIZx-0000000B53c-1rT2
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 17:13:40 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-369576666d5so391124a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 10:13:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778951612; x=1779556412; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=9jLh/dQOJWE3RHARPvqgKATVrj4A2zOic50j7GN9J7A=;
-        b=nCyOgJBttRv8cH+FP6m+4bOsd4X6IwLf4ZArssX8Jpl9Pu9KB6EAJXF92QUW65kgvm
-         R/+4FnVKtktA9K247rRM4xuDp/mOa/FrBSbudej9543XQmclBSUH/GZr5+DDCJLjPIWn
-         FcPDUGodR0JbG1R7WjjW5zGax78WlJ6TlqPEym09dWYNKp7ZCuZUD94M9yK4PgXbXTxu
-         w6eg+y2rVd42elA4NByrEmnrVZVXaPM/3Ta+rtI/u6nVi82hfslE6u68mmTBkg8udrPi
-         H7WJ98Xkr/LwokQ6ZCwsx8HtJ7eHMlhOjQMu61v+Ai3Rd5gQHY78IPLuqltArOAEKDaP
-         QTzQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778951612; x=1779556412;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9jLh/dQOJWE3RHARPvqgKATVrj4A2zOic50j7GN9J7A=;
-        b=hAZ23i3yOxpWgFzdroqZsYSmoLPtpBVBegx/pN0GP6LCOXtOb3qkngiO3cd68piZpj
-         P+Je8rtbw0GS7YJ1kNf4ywAye3ohFdLYnrfdKtg6E/64svm15YNrGpSruYtaxO+jdOir
-         v3BlkbP9oVt9tfncmAbOqmcOz69iH4d839POe5LddunpuLICxYo/6XHcXfcPQ4DZbIEg
-         Mhpp9cvQ2dRFZKhuiV0hxZkGHJxNglgsBRh+3v1shRUCOXeeGSszhIFnVsMVJRaScDzq
-         8TeNNt2NK/Uq4AmAX6cVGrkZyMtqF1ezGI3aj7xr9V6SlRUzMZRfwnvEaxhKNl65hN48
-         g6xA==
-X-Forwarded-Encrypted: i=1; AFNElJ+v49YYh2L/Zy0be8KMeQg+VdJi7/09cRo92l5NK9JM61e9drThqSHobj9uMUt5PMcoKwISn8NYAHVcw0N0Xe6Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YycqUo8n91S8Mg9DV12q1I2JD+yj7YdLeizInQrdKrdSkfXC6ff
-	j/7TzbxSWXCSxao+sJW8TSvA/MjzAURGWUM8mYYgL7LLngb+KhlHIf7B
-X-Gm-Gg: Acq92OEvbOPj56GAAo7UNCLSTai+Ri2Ekd2KZ3c71FyP+kyT20IrBuksOpeVQfqoAZe
-	mGlSvYg5TUOH0FV3oCQZqWFoUEgE3LbyU1jALJxJnQGAyo86mjo2kx8xg36nY+ZSXYPI2ErgEy7
-	QD1Guv1SzJdFvxR1VnhDG0a6PfpT+SfvwOTunZeyoxjFYj1ev7ZMp+R8giY5tVhSTD9gZPHs6A3
-	4hF9omv7OljhqbrPTkjs6LmcHM0CMNBIwRIjHXZB0GZxdF+leneStm9yp/ifVAQo9FqjaZjRZqo
-	1XlP4UYhKIRL0jA4O7D4BVkblY894eyvj19PjKXTJ3BoOI180QfKjw/evMHhH0lWfRSmjE5ZXzY
-	DPyk2a0G1wdm0VPdzt0F5VT9cRIwsdhHAjk0OhzeStklydQrIbX9mVfdZIA/XCyue3aWFHxYNaa
-	1DHD5LIOOlqizKQSuiJ3psTnmjhzwUwac84SkKzPOkPRosKnzCvvSkBC5MeYkzDYQLJ8scxMvZ
-X-Received: by 2002:a17:90a:602:b0:369:96e8:c8ae with SMTP id 98e67ed59e1d1-36996e8d08dmr802988a91.19.1778951611932;
-        Sat, 16 May 2026 10:13:31 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3695a1494f1sm2014014a91.13.2026.05.16.10.13.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 16 May 2026 10:13:31 -0700 (PDT)
-Message-ID: <ff7bf6f8-0090-4aea-ba60-3477cc81a458@roeck-us.net>
-Date: Sat, 16 May 2026 10:13:30 -0700
+	id 1wOIed-0000000B5TZ-105C;
+	Sat, 16 May 2026 17:18:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4E8F160142;
+	Sat, 16 May 2026 17:18:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EBC66C19425;
+	Sat, 16 May 2026 17:18:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1778951902;
+	bh=b14MshZ4cn6b/s8l7UQsBfswQZyULPwSuj5MH7P9aME=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=Mgc/lZBnh1ZOvdoJ1DiGrc2w/NFx5WYF7pkPi5DSjSXjs7eqbYSs5joZnaLeOjr47
+	 ZgqPICe7fgR53yhrpJRb1A2neO5cGZBBDFfCjwUWhs4VWfZ7vaeQZi7wVRtWR3/Alp
+	 UnmaJv8q6SY0U64X1e7lAC8SP2XFYneFdNE08qF9WhvfD71wDlbKpeZheQtt3p53A1
+	 qTCDcJ+s0iIqxLnkuAh8GULiRWMYsS0Fb1R9X+Qx1IFtVvLTshhe3nBOIkxQfBujHI
+	 b520Ek0rEdV9MVi0EQ6w9BQZJgQkJol1t/NuSsfTQYtQMU0lcU91+d35Mq9tzZrbBg
+	 IrZrvcpFBwjIA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D957ECD4F25;
+	Sat, 16 May 2026 17:18:21 +0000 (UTC)
+From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
+Subject: [PATCH v6 0/8] Add VIM4 MCU/FAN support
+Date: Sat, 16 May 2026 19:17:00 +0200
+Message-Id: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] hwmon: raspberrypi: Add voltage input support
-To: Shubham Chakraborty <chakrabortyshubham66@gmail.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, linux-hwmon@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
- <20260516164407.25255-2-chakrabortyshubham66@gmail.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20260516164407.25255-2-chakrabortyshubham66@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_101333_499279_FDA1C0BC 
-X-CRM114-Status: GOOD (  32.17  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WS3Y7aQAyFXwXluoPm3wmqqn2Pqhf22LNMSwJNA
+ trVinfvkOUCaFEvPaPzHfvYH80kY5Gp2aw+mlFOZSr7oRbxy6pJWxxeRRWudWO1jdprq5BZ9em
+ oMg7q1xYZJ3UqvVeYTCIJwaWOmqo+jJLL20L+/uOzHuX3sRrMn48N4SQq7fu+zJvVIG+zWkych
+ Yu+l2nCxX6z+nr9iLqz0Ye10aEWRhn1s+Cw3h5fsN/tX0taV9y3xR3ntF20MWBgiDkz1c4cIjn
+ XBqIYEmkLWvvktIDcq6wDG7tWm9ZGZocMmUwU8gwc2QtS0N5Ce68KIB3pFrvYonAO3rFjzSGmb
+ BJ6JqvJoonNbbrV7Drdki2l3jsI9pJMJRfaiZI6NfoMHTjcnOy9KYHTOYi3JIbbjk3nJDqszOC
+ 7kJiyTcBA/zR1WtUtqTKccFdYHcb9Qcb5XVFdpefOuQzm6vi31izaGr2aQQ3H3U6NMkldI0XdC
+ uWO0W9Oprmsf1umeT++L3dWny77/+9JnYzSFWZszR0TkH6pTcpunccFWdu6wbjnGFsxUE8mkrX
+ edfiAcTcYA88xrmIwIuQAmoyhB4y/wVjzHOMrxnswxqNts+UHTLjF+OeYcOkmp4xgApB1N5jz+
+ fwHghdgrtgDAAA=
+X-Change-ID: 20260402-add-mcu-fan-khadas-vim4-ac1cbe553c9b
+To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Beniamino Galvani <b.galvani@gmail.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>
+Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5349;
+ i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
+ bh=b14MshZ4cn6b/s8l7UQsBfswQZyULPwSuj5MH7P9aME=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQxbHssNhFxZOYfme+D3mSdeumzMnel1JOmqvKzbdJt1Sw
+ sd57UWzjlIWBjEuBlkxRZb+uZYn3l0+eubrHvUUmDmsTCBDGLg4BWAi8S6MDN92mzP2ywjVy1uW
+ yG12enVXSeHVu4/LOcpN7EvqGJwf5DMy7Hr1RubbO5m5jRPs7YynJPu4LHGpC/SSWa21+tGESI1
+ brAA=
+X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
+ fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
+X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
+ auth_id=744
+X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,211 +101,113 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: linux-kernel-dev@aliel.fr
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/16/26 09:44, Shubham Chakraborty wrote:
-> Extend the raspberrypi-hwmon driver to expose firmware-provided
-> voltage measurements through the hwmon subsystem.
-> 
-> The driver now exports the following voltage inputs:
-> 
->    - in0_input (core)
->    - in1_input (sdram_c)
->    - in2_input (sdram_i)
->    - in3_input (sdram_p)
-> 
-> Voltage values returned by firmware are converted from microvolts
-> to millivolts as expected by the hwmon subsystem.
-> 
-> The existing undervoltage sticky alarm handling is preserved and
-> associated with the first voltage channel.
-> 
-> Tested in -
-> - Raspberry Pi 3b+ (Linux raspberrypi 6.12.75+rpt-rpi-v8 #1 SMP PREEMPT
->    Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux)
-> 
-> Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
+The Khadas VIM4 board features a different MCU variant compared to
+previous VIM boards.
+While it shares the same I2C-based communication model,
+it differs in some ways:
 
-I wasn't copied on patch 1/2, so I have no idea what is in there
-and how it is related to this patch. Either way it seems unlikely that
-the new functionality is supported by all versions of Raspberry Pi supported
-by this driver. Just returning an error when the user tries to read a sensor
-that is not supported is unacceptable. This needs either evidence that the
-sensors are supported by all board variants and firmware versions supported
-by this driver, or the is_visible function needs to selectively enable the
-supported sensors.
+  - A distinct register map with its own volatile/writeable register set
+  - A fan control with 0–100 levels instead of the 0–3 levels previously
+  - A fan power supply gated through a regulator
 
-> ---
->   drivers/hwmon/raspberrypi-hwmon.c | 112 +++++++++++++++++++++++++++++-
+This series adds support for this new variant by:
 
-Documentation/hwmon/raspberrypi-hwmon.rst needs to be updated as well.
+  1. Refactoring the khadas-mcu MFD driver to use per-variant data
+     structures (regmap config, cells, fan platform data),
+     and adding the khadas,vim4-mcu compatible string.
 
->   1 file changed, 109 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwmon/raspberrypi-hwmon.c b/drivers/hwmon/raspberrypi-hwmon.c
-> index a2938881ccd2..c73a970db025 100644
-> --- a/drivers/hwmon/raspberrypi-hwmon.c
-> +++ b/drivers/hwmon/raspberrypi-hwmon.c
-> @@ -5,6 +5,7 @@
->    * Based on firmware/raspberrypi.c by Noralf Trønnes
->    *
->    * Copyright (C) 2018 Stefan Wahren <stefan.wahren@i2se.com>
-> + * Copyright (C) 2026 Shubham Chakraborty <chakrabortyshubham66@gmail.com>
->    */
->   #include <linux/device.h>
->   #include <linux/devm-helpers.h>
-> @@ -18,6 +19,11 @@
->   
->   #define UNDERVOLTAGE_STICKY_BIT	BIT(16)
->   
-> +struct rpi_firmware_get_value {
-> +	__le32 id;
-> +	__le32 val;
-> +} __packed;
-> +
->   struct rpi_hwmon_data {
->   	struct device *hwmon_dev;
->   	struct rpi_firmware *fw;
-> @@ -56,6 +62,23 @@ static void rpi_firmware_get_throttled(struct rpi_hwmon_data *data)
->   	hwmon_notify_event(data->hwmon_dev, hwmon_in, hwmon_in_lcrit_alarm, 0);
->   }
->   
-> +static int rpi_firmware_get_voltage(struct rpi_hwmon_data *data, u32 id,
-> +				    long *val)
-> +{
-> +	struct rpi_firmware_get_value packet;
-> +	int ret;
-> +
-> +	packet.id = cpu_to_le32(id);
-> +	packet.val = 0;
-> +	ret = rpi_firmware_property(data->fw, RPI_FIRMWARE_GET_VOLTAGE,
-> +				    &packet, sizeof(packet));
-> +	if (ret)
-> +		return ret;
-> +
-> +	*val = le32_to_cpu(packet.val) / 1000;
-> +	return 0;
-> +}
-> +
->   static void get_values_poll(struct work_struct *work)
->   {
->   	struct rpi_hwmon_data *data;
-> @@ -77,19 +100,101 @@ static int rpi_read(struct device *dev, enum hwmon_sensor_types type,
->   {
->   	struct rpi_hwmon_data *data = dev_get_drvdata(dev);
->   
-> -	*val = !!(data->last_throttled & UNDERVOLTAGE_STICKY_BIT);
-> +	if (type == hwmon_in) {
-> +		switch (attr) {
-> +		case hwmon_in_input:
-> +			switch (channel) {
-> +			case 0:
-> +				return rpi_firmware_get_voltage(data,
-> +						RPI_FIRMWARE_VOLT_ID_CORE,
-> +						val);
-> +			case 1:
-> +				return rpi_firmware_get_voltage(data,
-> +						RPI_FIRMWARE_VOLT_ID_SDRAM_C,
-> +						val);
-> +			case 2:
-> +				return rpi_firmware_get_voltage(data,
-> +						RPI_FIRMWARE_VOLT_ID_SDRAM_I,
-> +						val);
-> +			case 3:
-> +				return rpi_firmware_get_voltage(data,
-> +						RPI_FIRMWARE_VOLT_ID_SDRAM_P,
-> +						val);
-> +			default:
-> +				return -EOPNOTSUPP;
-> +			}
-> +		case hwmon_in_lcrit_alarm:
-> +			if (channel == 0) {
-> +				*val = !!(data->last_throttled & UNDERVOLTAGE_STICKY_BIT);
-> +				return 0;
-> +			}
-> +			return -EOPNOTSUPP;
-> +		default:
-> +			return -EOPNOTSUPP;
-> +		}
-> +	}
-> +
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static int rpi_read_string(struct device *dev, enum hwmon_sensor_types type,
-> +			   u32 attr, int channel, const char **str)
-> +{
-> +	if (type == hwmon_in && attr == hwmon_in_label) {
-> +		switch (channel) {
-> +		case 0:
-> +			*str = "core";
-> +			return 0;
-> +		case 1:
-> +			*str = "sdram_c";
-> +			return 0;
-> +		case 2:
-> +			*str = "sdram_i";
-> +			return 0;
-> +		case 3:
-> +			*str = "sdram_p";
-> +			return 0;
-> +		default:
-> +			return -EOPNOTSUPP;
-> +		}
+  2. Extending the fan thermal driver to retrieve the fan register
+     and maximum level from platform_data,
+     and to optionally manage a power regulator for the fan supply.
 
-This can be implemented as string array.
+  3. Adding the corresponding DTS node for the VIM4, wiring the MCU to
+     the I2C AO_A bus and exposing it as a thermal cooling device.
 
-> +	}
-> +
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +static umode_t rpi_is_visible(const void *_data, enum hwmon_sensor_types type,
-> +			      u32 attr, int channel)
-> +{
-> +	if (type == hwmon_in) {
-> +		switch (attr) {
-> +		case hwmon_in_input:
-> +		case hwmon_in_label:
-> +			return 0444;
-> +		case hwmon_in_lcrit_alarm:
-> +			if (channel == 0)
-> +				return 0444;
-> +			return 0;
-> +		default:
-> +			return 0;
-> +		}
-> +	}
-> +
->   	return 0;
->   }
->   
->   static const struct hwmon_channel_info * const rpi_info[] = {
->   	HWMON_CHANNEL_INFO(in,
-> -			   HWMON_I_LCRIT_ALARM),
-> +			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_LCRIT_ALARM,
-> +			   HWMON_I_INPUT | HWMON_I_LABEL,
-> +			   HWMON_I_INPUT | HWMON_I_LABEL,
-> +			   HWMON_I_INPUT | HWMON_I_LABEL),
->   	NULL
->   };
->   
->   static const struct hwmon_ops rpi_hwmon_ops = {
-> -	.visible = 0444,
-> +	.is_visible = rpi_is_visible,
->   	.read = rpi_read,
-> +	.read_string = rpi_read_string,
->   };
->   
->   static const struct hwmon_chip_info rpi_chip_info = {
-> @@ -159,6 +264,7 @@ static struct platform_driver rpi_hwmon_driver = {
->   module_platform_driver(rpi_hwmon_driver);
->   
->   MODULE_AUTHOR("Stefan Wahren <wahrenst@gmx.net>");
-> +MODULE_AUTHOR("Shubham Chakraborty <chakrabortyshubham66@gmail.com>");
->   MODULE_DESCRIPTION("Raspberry Pi voltage sensor driver");
->   MODULE_LICENSE("GPL v2");
->   MODULE_ALIAS("platform:raspberrypi-hwmon");
+Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+---
+Changes in v6:
+- PATCH 4: Address Lee's review comments:
+  - Use an enum to discriminate between MCU types instead of passing
+    MFD data through the DT match table
+  - Fix error code from -EINVAL to -ENODEV when no MCU type is matched
+  - Make khadas_mcu_fan_cells and khadas_mcu_cells const
+  - Use dev_err_probe() for regmap initialization error
+  - Document fan speed levels for max_level
+- Link to v5: https://lore.kernel.org/r/20260424-add-mcu-fan-khadas-vim4-v5-0-afcfa7157b23@aliel.fr
+
+Changes in v5:
+- PATCH 5: Replace devm_regulator_get_optional() with devm_regulator_get()
+           to simplify error handling and remove NULL checks, also
+           ordering as reverse christmas according to Neil's feedback.
+- Link to v4: https://lore.kernel.org/r/20260421-add-mcu-fan-khadas-vim4-v4-0-447114a28f2d@aliel.fr
+
+Changes in v4:
+- PATCH 1: limit fan-supply property by compatible according to Conor's feedback.
+- Link to v3: https://lore.kernel.org/r/20260417-add-mcu-fan-khadas-vim4-v3-0-a6a7f570b11b@aliel.fr
+
+Changes in v3:
+- PATCH 1: adding comment on vim4 compatible saying it is not discoverable,
+           thanks to Rob's and Neil's feedback.
+- Link to v2: https://lore.kernel.org/r/20260403-add-mcu-fan-khadas-vim4-v2-0-70536b22439a@aliel.fr
+
+Changes in v2:
+- PATCH 5: Add regulator_disable on suspend thanks to Neil's feedback.
+- Link to v1: https://lore.kernel.org/r/20260402-add-mcu-fan-khadas-vim4-v1-0-2b12eb4ac7b0@aliel.fr
+
+---
+Ronald Claveau (8):
+      dt-bindings: mfd: khadas: Add new compatible for Khadas VIM4 MCU
+      dt-bindings: i2c: amlogic: Add compatible for T7 SOC
+      mfd: khadas-mcu: Add per-variant configuration infrastructure and VIM4 support
+      mfd: khadas-mcu: Add support for VIM4 MCU variant
+      thermal: khadas-mcu-fan: Add fan config from platform data Add regulator support
+      arm64: dts: amlogic: t7: Add i2c pinctrl node
+      arm64: dts: amlogic: t7: Add i2c controller node
+      arm64: dts: amlogic: t7: khadas-vim4: Add i2c MCU fan node
+
+ .../bindings/i2c/amlogic,meson6-i2c.yaml           |  13 ++-
+ .../devicetree/bindings/mfd/khadas,mcu.yaml        |  18 ++++
+ .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  |  13 +++
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        |  20 ++++
+ drivers/mfd/khadas-mcu.c                           | 119 ++++++++++++++++++---
+ drivers/thermal/khadas_mcu_fan.c                   |  37 +++++--
+ include/linux/mfd/khadas-mcu.h                     |  44 +++++++-
+ 7 files changed, 236 insertions(+), 28 deletions(-)
+---
+base-commit: f7b64ed948718290209074a50bb0df17e5944873
+change-id: 20260402-add-mcu-fan-khadas-vim4-ac1cbe553c9b
+prerequisite-message-id: <20260326092645.1053261-1-jian.hu@amlogic.com>
+prerequisite-patch-id: f03a086b4137158412b2d47b3de793b858de8dde
+prerequisite-patch-id: 123970c9b29c2090440f2fd71c85d3c6fd8e36de
+prerequisite-patch-id: 3e2e56b0926ba327b520f935df4ced5089bbe503
+prerequisite-patch-id: 65a5d76ffdbc9b3aab3385bb65cb027004c30e7e
+prerequisite-patch-id: 237269801826dd3ad7fb16eb4d7d6d4eab504278
+prerequisite-patch-id: 57e9b08a968aedf543d3d0d56cf1ca4db20b2a16
+prerequisite-change-id: 20260326-add-bcm43752-compatible-e264a4f7973a:v2
+prerequisite-patch-id: cd98b74fa56af72af2553f391c400981d83cd4f4
+prerequisite-patch-id: b730f5e42be1d89d193e63a0265495cdbf2c7d7b
+prerequisite-change-id: 20260330-fix-invalid-property-bbe54d933f71:v2
+prerequisite-patch-id: 8d675e7a239985c762843515b241f0a2f45f9c92
+prerequisite-change-id: 20260331-fix-aml-t7-null-reset-2b608ebf9da4:v1
+prerequisite-patch-id: 5b5de77af11747ce964404fb827d2ee2bff47ea5
+prerequisite-patch-id: 1e37fc75fed1e533adee0f3e7e6ead1f8ff3c55c
+prerequisite-patch-id: 65a5d76ffdbc9b3aab3385bb65cb027004c30e7e
+prerequisite-patch-id: 2daf583fb5e7449a02bd217d8aca330171b598aa
+prerequisite-patch-id: 237269801826dd3ad7fb16eb4d7d6d4eab504278
+prerequisite-patch-id: d1ddf9b7710e91f8062de83bd7ba55afb2c4c112
+prerequisite-patch-id: 57e9b08a968aedf543d3d0d56cf1ca4db20b2a16
+prerequisite-patch-id: cd98b74fa56af72af2553f391c400981d83cd4f4
+prerequisite-patch-id: b730f5e42be1d89d193e63a0265495cdbf2c7d7b
+prerequisite-patch-id: 9debd88fa60febed9cd7208f86603b4c2d270520
+prerequisite-patch-id: 314ef9ff0c4d1d15dab1dea9d92aa065f1eac3e9
+
+Best regards,
+-- 
+Ronald Claveau <linux-kernel-dev@aliel.fr>
+
 
 
