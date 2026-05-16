@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D6E9CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FFDCD4F4B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H9JzmnwdeypjwQOnKFWK+jD3+i5H6JgCUgI4RfiUJ3w=; b=Kn/0dwIKtZbnM6lzl2IPJSWGHV
-	SCN3YuLhClzdjHGfGRmRJQk5o0Fur3U11+fZsuIMioRGJ5fEgq9/bIxHHIZbReKZfPu+TaelOde+1
-	91lKhGOvHybNhSJ62QUyW4oHRIaGpGIfJMAsvz0yP1Rf9TOQIXNXrEo6PHTLptqNavHGz6WSrCUxz
-	htHBrHUtRd2qV1tnIqeUdm+kym3rPVZHrx2E8MrMxlvLRQtZczAmYXXtUHRAyDu2cpOqwo7g0JUac
-	Zws6ByEWRHi+yO2GDFuHDbW891iRYCsSF3VB5inUU3Vv4ZkM4N6qo/s/0l1V/hXI8R2z9p28OR7Qf
-	yvBHAS6Q==;
+	bh=QosCojTWludr4NWZrChxbWqZ5P3GAyS/u/IZWtni4VU=; b=qJD6BjVgNL8lSrrog9hx7j99i7
+	Y1Ygae6xY9GQjfKCC1QjIAicD2N41lHrNNwYNcckpkXbhKw90IxgswNJldXuHqRJ6a2RbSwPClY6f
+	7j8OYczAROR5o0K+0ao+gZHEeg3pb3zKgCFezrglTiRW1ULS9ZdwIR4enLh2g3U0UqqWUtuEjwYpp
+	D0JcTYYFHTYoZPDsdyJHdSEqqAQZnI+qeZeAC3mfF+ArqgHKdiHhEuqTfDw+xAX1p0AwKhFopJfPv
+	TTvYtQ9v8GGt50Zw2ABCLeNgFERScdsDK0w0uH1MWrv3NvurXc19+12BWo51tpultmm1EQTJXYfry
+	cgwD8zOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJnJ-0000000BCew-0AcM;
-	Sat, 16 May 2026 18:31:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJnA-0000000BCWP-2WFZ
+	id 1wOJui-0000000BEfp-0qVY;
+	Sat, 16 May 2026 18:39:04 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOJua-0000000BEb8-0QRZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:31:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 951041BF3;
-	Sat, 16 May 2026 11:31:10 -0700 (PDT)
-Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24C233F85F;
-	Sat, 16 May 2026 11:31:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778956275; bh=/1t/CERV4WJKmLTkfx/AdC8xUY2k0LviAytjvvkIoEI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qpRjr816bPDh6feC6wJMq4ZIT5RzIoLJmWRlzCn5rCnXmoTiF3bHGGE1C5XSnJc7Q
-	 VjYxy9b7Uts/utZxVgpD6SKJNwAU6vibvirdlm9ieO0R71PaivSFzOxTjBQeAyOv0i
-	 RLlH90CDHQA/7p5jNQ6H7s9GkpJ+9Z12pLK0DLbo=
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
+	Sat, 16 May 2026 18:39:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1778956734; bh=QosCojTWludr4NWZrChxbWqZ5P3GAyS/u/IZWtni4VU=;
+ b=HXPOy7gHlZLGhLuDeYN81TWflYL1MDWoPSIKLTp1fvZjyQjJbjwKXO/Ggun77vxYSkC4PyvjS
+ QMbPap457Hp9etWfppbSIqgqjKG1bB15LH+xhQUSKil8O7xH5bgKh0VzOJOEPbLwKNezJ8LhRG4
+ YHwX9eshU8XixNTU79SCaZF4pXnoqgL5tLUs+U+RqN+2abrgRwkA2yR3m5iVEBTMdXnNqVfQeer
+ l0XGM/hspCFIpxzWR+aOJ6m8mFOTvG4/KMe0Ya/DBrbbMG4lQwawIORLa7KHjNTp3jgvwdII+1X
+ ugXMnXPRvjec4AAkVX03srmFR9rrrrv6qnG1zior8qLQ==
+X-Forward-Email-ID: 6a08b9b979c7625f20eeed07
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.12
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>
+Cc: Liu Ying <victor.liu@nxp.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	Diederik de Haas <diederik@cknow-tech.com>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Paolo Bonzini <pbonzini@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 9/9] KVM: arm64: selftests: shadow_stage2: Turn on stage-2 translation for the nested guest
-Date: Sat, 16 May 2026 19:30:03 +0100
-Message-ID: <20260516183003.799058-10-weilin.chang@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260516183003.799058-1-weilin.chang@arm.com>
-References: <20260516183003.799058-1-weilin.chang@arm.com>
+	linux-rockchip@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Christopher Obbard <chris.obbard@collabora.com>
+Subject: [PATCH v6 01/22] drm: bridge: dw_hdmi: Disable scrambler feature when not supported
+Date: Sat, 16 May 2026 18:38:11 +0000
+Message-ID: <20260516183838.2024991-2-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260516183838.2024991-1-jonas@kwiboo.se>
+References: <20260516183838.2024991-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_113116_722074_93AD5EE2 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260516_113856_797392_5C56EED6 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Utilize the stage-2 library functions to initialize a s2_mmu, build a
-stage-2 page table, and turn on stage-2 translation for the nested
-guest. This better tests out the shadow page table code in KVM.
+The scrambler feature can be left enabled when hotplugging from a sink
+and mode that require scrambling to a sink that does not support SCDC or
+scrambling.
 
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+Typically a blank screen or 'no signal' message can be observed after
+using a HDMI 2.0 4K@60Hz mode and then hotplugging to a sink that only
+support HDMI 1.4.
+
+Fix this by disabling the scrambler feature when SCDC is not supported.
+
+Fixes: 264fce6cc2c1 ("drm/bridge: dw-hdmi: Add SCDC and TMDS Scrambling support")
+Reported-by: Christopher Obbard <chris.obbard@collabora.com>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # Rock64, RockPro64, Quartz64-B
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- .../selftests/kvm/arm64/shadow_stage2.c       | 23 ++++++++++++++++---
- 1 file changed, 20 insertions(+), 3 deletions(-)
+v6: Collect t-b tag
+v5: No change
+v4: No change
+v3: Collect r-b tag
+v2: New patch
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/shadow_stage2.c b/tools/testing/selftests/kvm/arm64/shadow_stage2.c
-index 2b274b810dcf..5bce55abdea7 100644
---- a/tools/testing/selftests/kvm/arm64/shadow_stage2.c
-+++ b/tools/testing/selftests/kvm/arm64/shadow_stage2.c
-@@ -51,9 +51,11 @@ static void l2_guest_code(void)
- static void guest_code(void)
- {
- 	struct vcpu vcpu;
-+	struct s2_mmu mmu;
- 	struct hyp_data hyp_data;
- 	int ret, i = 0;
--	gpa_t l2_pc, l2_stack_top;
-+	gpa_t l2_pc, l2_stack_start, l2_stack_top, s2_pgd;
-+	gpa_t do_hvc_gpa;
- 	struct page_pool pp;
- 	u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+index 41b3a9cfa2f5..d3e6a6562870 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+@@ -2135,6 +2135,8 @@ static void hdmi_av_composer(struct dw_hdmi *hdmi,
+ 				    HDMI_MC_SWRSTZ);
+ 			drm_scdc_set_scrambling(hdmi->curr_conn, 0);
+ 		}
++	} else if (hdmi->version >= 0x200a) {
++		hdmi_writeb(hdmi, 0, HDMI_FC_SCRAMBLER_CTRL);
+ 	}
  
-@@ -68,11 +70,20 @@ static void guest_code(void)
- 	if (!has_tgran_2(mmfr0, pp.page_size))
- 		GUEST_SYNC1(TGRAN2NOSUP);
- 
--	l2_stack_top = alloc_page(&pp) + pp.page_size;
-+	l2_stack_start = alloc_page(&pp);
-+	l2_stack_top = l2_stack_start + pp.page_size;
- 	l2_pc = ucall_translate_to_gpa(l2_guest_code);
-+	do_hvc_gpa = ucall_translate_to_gpa(do_hvc);
-+
-+	s2_pgd = alloc_page(&pp);
- 
- 	init_vcpu(&vcpu, l2_pc, l2_stack_top);
--	prepare_hyp_no_s2();
-+	init_s2_mmu(&mmu, 0, s2_pgd, pp.page_size, 40);
-+	create_s2_mapping(&mmu, l2_pc, l2_pc, pp.page_size * 2, &pp);
-+	create_s2_mapping(&mmu, do_hvc_gpa, do_hvc_gpa, pp.page_size, &pp);
-+	create_s2_mapping(&mmu, l2_stack_start, l2_stack_start, pp.page_size, &pp);
-+
-+	prepare_hyp(&mmu);
- 
- 	while (true) {
- 		GUEST_PRINTF("L2 enter\n");
-@@ -113,6 +124,12 @@ int main(void)
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
- 				    L2_PAGE_POOL_ADDR, L2_PAGE_POOL_MEMSLOT,
- 				    L2_PAGE_POOL_NPAGES, 0);
-+	/*
-+	 * This idmap allows L1 to traverse and build its guest stage-2, where
-+	 * it must do a PA to VA conversion in order to descend to the next
-+	 * level.
-+	 */
-+	virt_map(vm, L2_PAGE_POOL_ADDR, L2_PAGE_POOL_ADDR, L2_PAGE_POOL_NPAGES);
- 
- 	while (true) {
- 		vcpu_run(vcpu);
+ 	/* Set up horizontal active pixel width */
 -- 
-2.43.0
+2.54.0
 
 
