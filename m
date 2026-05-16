@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5E4CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21810CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSzt5JOEdaw5HwcafWuwFmNIniGDfgvRT456op0NNFk=; b=fMsLpOtP3lrQTpoVu3TUsxzmBG
-	A28VT3io7Illi0T2HXSs0+zv6YyPgXtK8/uhJRydbfnI3SPXIqrvqXgOSEefV/M7tQNL+JzD0CETm
-	lX7t731bXaNLc6NnJ5UCPlj38D0L1/7eonl89Z0SXsgIgwpIh8cKCrXXJg/jA5fBwqodlFJ7NIMkt
-	beYFilbe4lcct3rPH0I4llSUWtTMGwZk2Fd2z5p5aXOtPdIjhkjzyQoewSNK7vJyV6RC3/DVgDyY6
-	4uMJT8WMs7gS23fm/7F1SzLQttOkm4XPDdPcqzkhX6vybydJYLWePal42BYmbF5FEdK8NB4MdEj8N
-	9NgsTyXg==;
+	bh=IomsAH8xwrIoHm8MRHDr0SiujZ3P9yUxxOiG6UMgCj8=; b=n5U/ItY6IdG8g+6eOcGbrdg3Ne
+	D9P0qOPV0B+gkFwl9WScqtrACRgJZqVUv07YV7avqYGr3zskCRfolpS767TExggSZwBEM/syLpaS1
+	fUU6HCanbOrs0aiaMID03kPGmhjE1imhLHP/IUIs5ilkWwu8EzGPjxJASW2i6+l+Wl8uYQE9L7vg/
+	sVhOAHyOdqqsi096wQqup+ptkSMHaLuwTj0rVVtSx8vCZN5BK6XF7S+ZO6WlpUk3zfG10iMFdXWOf
+	Vgcc2Kg1ayAKHB/gGRBqM8tGNUWbCNhF/y7ehUkLH7o0ks0QisouUuh3hjk3gw1croKOw5x42YMw5
+	hOugLK4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJnC-0000000BCYf-32p8;
+	id 1wOJnC-0000000BCYv-3Xu3;
 	Sat, 16 May 2026 18:31:18 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJn5-0000000BCR0-2eRn
+	id 1wOJn8-0000000BCTw-0Cq1
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:31:12 +0000
+	Sat, 16 May 2026 18:31:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 820292D91;
-	Sat, 16 May 2026 11:31:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8BBF41CDD;
+	Sat, 16 May 2026 11:31:07 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 145AD3F85F;
-	Sat, 16 May 2026 11:31:06 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A8C53F85F;
+	Sat, 16 May 2026 11:31:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778956269; bh=waACEwaOCU9Q56/CgdQoWvYngZ8Q6B/c8GIndLVbAcQ=;
+	t=1778956272; bh=fwVDg016m7eeWy4bYy16DTCCBEBDMvvZImnp5Carqqo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sKa08AsosCe81z3+QYLy0GKotDrI/oTc9yFQYA2Qcwvib+5EX/jkNhQoyOe+D0VM7
-	 9X6BjsHACpnmO+kQL9qjViOAQZLBVxNVL011lFr/tNqddm77JgVUNmiKvAmpZMVR0p
-	 yFoVIuP4YtbbcCTjUa0QMp3Skyq/pxxJI+y68qfY=
+	b=LN2kdcYCpJYQSQAIS40HNiC08siLiOrQMYbk5r3oYmosomJZmIEPjxJgCzmKmE4pg
+	 +ljrjPYwPbeXyZCI9SOjfEfg45magdrdOyI6LQwM6o0Z/JmHC6CEcGWUfXiyZgCC5f
+	 aGetGu8f9AwluRkR//12eMufmZeaKGfSNGazQHHE=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Will Deacon <will@kernel.org>,
 	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 7/9] KVM: arm64: selftests: shadow_stage2: Check supported stage-2 granule size
-Date: Sat, 16 May 2026 19:30:01 +0100
-Message-ID: <20260516183003.799058-8-weilin.chang@arm.com>
+Subject: [PATCH v3 8/9] KVM: arm64: selftests: Add infrastructure for using stage-2 in guest
+Date: Sat, 16 May 2026 19:30:02 +0100
+Message-ID: <20260516183003.799058-9-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260516183003.799058-1-weilin.chang@arm.com>
 References: <20260516183003.799058-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_113111_793664_B53158A9 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260516_113114_199818_97D33847 
+X-CRM114-Status: GOOD (  19.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,111 +81,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When selecting a granule size for stage-2, the supported stage-2 granule
-size must be checked. Add the check. For simplicity, we check whether
-the guest stage-1 granule size is supported for stage-2, and skip the
-test otherwise.
+Add a stage-2 page table generator, the s2_mmu structure, and vEL2
+stage-2 preparation code for a guest hypervisor to turn on stage-2
+translation for its nested guest.
 
 Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
 ---
- .../selftests/kvm/arm64/shadow_stage2.c       |  8 +++++
- .../selftests/kvm/include/arm64/nested.h      |  1 +
- .../testing/selftests/kvm/lib/arm64/nested.c  | 30 +++++++++++++++++++
- 3 files changed, 39 insertions(+)
+ .../selftests/kvm/arm64/hello_nested.c        |   2 +-
+ .../selftests/kvm/arm64/shadow_stage2.c       |   2 +-
+ .../selftests/kvm/include/arm64/nested.h      |  15 +-
+ .../testing/selftests/kvm/lib/arm64/nested.c  | 145 +++++++++++++++++-
+ 4 files changed, 160 insertions(+), 4 deletions(-)
 
+diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
+index 9ed5285f5f2d..b57e41c73214 100644
+--- a/tools/testing/selftests/kvm/arm64/hello_nested.c
++++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+@@ -62,7 +62,7 @@ static void guest_code(void)
+ 	l2_stack_top = ucall_translate_to_gpa(&l2_stack[L2STACKSZ]);
+ 
+ 	init_vcpu(&vcpu, l2_pc, l2_stack_top);
+-	prepare_hyp();
++	prepare_hyp_no_s2();
+ 
+ 	ret = run_l2(&vcpu, &hyp_data);
+ 	GUEST_ASSERT_EQ(ret, ARM_EXCEPTION_TRAP);
 diff --git a/tools/testing/selftests/kvm/arm64/shadow_stage2.c b/tools/testing/selftests/kvm/arm64/shadow_stage2.c
-index 1ad510a38654..c5332b8b5683 100644
+index c5332b8b5683..2b274b810dcf 100644
 --- a/tools/testing/selftests/kvm/arm64/shadow_stage2.c
 +++ b/tools/testing/selftests/kvm/arm64/shadow_stage2.c
-@@ -14,6 +14,8 @@
- #define L2FAILED	(0x1)
- #define L2SYNC		(0x2)
- 
-+#define TGRAN2NOSUP	(0x3)
-+
- /* Used for L2 stack and guest S2 page tables. */
- #define L2_PAGE_POOL_ADDR	(0x80000000)
- #define L2_PAGE_POOL_NPAGES	(512)
-@@ -53,6 +55,7 @@ static void guest_code(void)
- 	int ret, i = 0;
- 	gpa_t l2_pc, l2_stack_top;
- 	struct page_pool pp;
-+	u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
- 
- 	GUEST_ASSERT_EQ(get_current_el(), 2);
- 	GUEST_PRINTF("vEL2 entry\n");
-@@ -62,6 +65,9 @@ static void guest_code(void)
- 	pp.current = L2_PAGE_POOL_ADDR;
- 	pp.page_size = get_page_size();
- 
-+	if (!has_tgran_2(mmfr0, pp.page_size))
-+		GUEST_SYNC1(TGRAN2NOSUP);
-+
- 	l2_stack_top = alloc_page(&pp) + pp.page_size;
+@@ -72,7 +72,7 @@ static void guest_code(void)
  	l2_pc = ucall_translate_to_gpa(l2_guest_code);
  
-@@ -119,6 +125,8 @@ int main(void)
- 			}
- 			if (uc.args[0] == L2SYNC)
- 				pr_info("L2SYNC, L1 info: %ld, L2 info: %ld\n", uc.args[1], uc.args[2]);
-+			if (uc.args[0] == TGRAN2NOSUP)
-+				ksft_exit_skip("Guest page size not supported as guest stage-2 page size!\n");
- 			break;
- 		case UCALL_PRINTF:
- 			pr_info("[L1] %s", uc.buffer);
+ 	init_vcpu(&vcpu, l2_pc, l2_stack_top);
+-	prepare_hyp();
++	prepare_hyp_no_s2();
+ 
+ 	while (true) {
+ 		GUEST_PRINTF("L2 enter\n");
 diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
-index 8e7d7738b381..fc59fabff12d 100644
+index fc59fabff12d..1bcbb31b8d67 100644
 --- a/tools/testing/selftests/kvm/include/arm64/nested.h
 +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
-@@ -55,6 +55,7 @@ struct page_pool {
+@@ -38,6 +38,14 @@ struct vcpu {
+ 	struct cpu_context context;
+ };
  
++struct s2_mmu {
++	gpa_t pgd;
++	unsigned int vmid;
++	unsigned int page_size_shift;
++	u64 vtcr;
++	u64 ipa_bits;
++};
++
+ /*
+  * KVM has host_data and hyp_context, combine them because we're only doing
+  * hyp context.
+@@ -56,8 +64,13 @@ struct page_pool {
  size_t get_page_size(void);
  gpa_t alloc_page(struct page_pool *pp);
-+bool has_tgran_2(u64 mmfr0, size_t size);
- void prepare_hyp(void);
+ bool has_tgran_2(u64 mmfr0, size_t size);
+-void prepare_hyp(void);
++void prepare_hyp_no_s2(void);
++void prepare_hyp(struct s2_mmu *mmu);
  void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top);
++void create_s2_mapping(struct s2_mmu *mmu, u64 ipa, u64 pa, size_t size,
++		       struct page_pool *pp);
++void init_s2_mmu(struct s2_mmu *mmu, unsigned int vmid, gpa_t pgd,
++		 size_t page_size, u64 ipa_bits);
  int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
+ 
+ u64 do_hvc(u64 action, u64 arg1, u64 arg2);
 diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
-index 7f47e340f00d..cda41f355263 100644
+index cda41f355263..9848d607ef64 100644
 --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
 +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
-@@ -9,6 +9,36 @@
- #include <asm/sysreg.h>
- #include <linux/sizes.h>
+@@ -71,13 +71,22 @@ gpa_t alloc_page(struct page_pool *pp)
+ 	}
+ }
  
-+#define _has_tgran_2(__r, __sz)						\
-+	({								\
-+		u64 _s1, _s2, _mmfr0 = __r;				\
-+									\
-+		_s2 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,			\
-+				    TGRAN##__sz##_2, _mmfr0);		\
-+									\
-+		_s1 = SYS_FIELD_GET(ID_AA64MMFR0_EL1,			\
-+				    TGRAN##__sz, _mmfr0);		\
-+									\
-+		((_s2 != ID_AA64MMFR0_EL1_TGRAN##__sz##_2_NI &&		\
-+		  _s2 != ID_AA64MMFR0_EL1_TGRAN##__sz##_2_TGRAN##__sz) || \
-+		 (_s2 == ID_AA64MMFR0_EL1_TGRAN##__sz##_2_TGRAN##__sz && \
-+		  _s1 != ID_AA64MMFR0_EL1_TGRAN##__sz##_NI));		\
-+	})
-+
-+bool has_tgran_2(u64 mmfr0, size_t size)
+-void prepare_hyp(void)
++void prepare_hyp_no_s2(void)
+ {
+ 	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW, hcr_el2);
+ 	write_sysreg(hyp_vectors, vbar_el2);
+ 	isb();
+ }
+ 
++void prepare_hyp(struct s2_mmu *mmu)
 +{
-+	switch (size) {
-+	case SZ_4K:
-+		return _has_tgran_2(mmfr0, 4);
-+	case SZ_16K:
-+		return _has_tgran_2(mmfr0, 16);
-+	case SZ_64K:
-+		return _has_tgran_2(mmfr0, 64);
-+	default:
-+		return false;
++	write_sysreg(mmu->vtcr, vtcr_el2);
++	write_sysreg(mmu->pgd | ((u64)mmu->vmid << 48), vttbr_el2);
++	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW | HCR_EL2_VM, hcr_el2);
++	write_sysreg(hyp_vectors, vbar_el2);
++	isb();
++}
++
+ void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
+ {
+ 	memset(vcpu, 0, sizeof(*vcpu));
+@@ -86,6 +95,140 @@ void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
+ 	vcpu->context.sys_regs[SP_EL1] = l2_stack_top;
+ }
+ 
++static int stage2_levels(unsigned int page_size_shift, u64 ipa_bits)
++{
++	/* taken from ARM64_HW_PGTABLE_LEVELS(ipa) in KVM */
++	return (ipa_bits - 4) / (page_size_shift - 3);
++}
++
++static u64 get_index(struct s2_mmu *mmu, u64 ipa, int level)
++{
++	int width = mmu->page_size_shift - 3;
++	int shift_amount = mmu->page_size_shift + (3 - level) * width;
++
++	return (ipa >> shift_amount) & GENMASK_ULL(width - 1, 0);
++}
++
++static u64 pte_gpa_to_gva(u64 gpa)
++{
++	/*
++	 * This depends on how the memory used for s2pt is mapped in GVA,
++	 * currently it is assumed they are idmapped.
++	 */
++	return gpa;
++}
++
++static u64 pte_to_pt_base(u64 pte)
++{
++	return pte & GENMASK_ULL(47, 12);
++}
++
++#define S2_PTE_AF		(1ULL << 10)
++#define S2_PTE_SH_INNER		(3ULL << 8)
++#define S2_PTE_S2AP_RW		(3ULL << 6)
++#define S2_PTE_ATTR_NORMAL_WB	(0xfULL << 2)
++#define S2_PTE_TYPE_TABLE	(1ULL << 1)
++#define S2_PTE_TYPE_PAGE	(1ULL << 1)
++#define S2_PTE_VALID		1ULL
++
++/* No block mappings for now. */
++static void create_one_s2_mapping(struct s2_mmu *mmu, u64 ipa, u64 pa,
++				  struct page_pool *pp)
++{
++	int levels = stage2_levels(mmu->page_size_shift, mmu->ipa_bits);
++	u64 index, pte, pte_new, table_attr, page_attr;
++	gpa_t pte_addr, pt_base = mmu->pgd;
++
++	table_attr = S2_PTE_TYPE_TABLE | S2_PTE_VALID;
++	page_attr = S2_PTE_AF | S2_PTE_SH_INNER | S2_PTE_S2AP_RW |
++		    S2_PTE_ATTR_NORMAL_WB | S2_PTE_TYPE_PAGE | S2_PTE_VALID;
++
++	for (int level = 4 - levels; level <= 3; level++) {
++		index = get_index(mmu, ipa, level);
++		pte_addr = pt_base + index * 8;
++		pte = *((u64 *)pte_gpa_to_gva(pte_addr));
++
++		if (level == 3) {
++			/* Last level, install leaf entry. */
++			pte_new = pa & ~GENMASK_ULL(mmu->page_size_shift - 1, 0);
++			pte_new |= page_attr;
++			*((u64 *)pte_gpa_to_gva(pte_addr)) = pte_new;
++		} else if (!(pte & S2_PTE_VALID)) {
++			/* Empty next level table, allocate and install. */
++			pte_new = alloc_page(pp);
++			pte_new |= table_attr;
++			*((u64 *)pte_gpa_to_gva(pte_addr)) = pte_new;
++			pt_base = pte_to_pt_base(pte_new);
++		} else {
++			/* Next level table found, descend into it. */
++			pt_base = pte_to_pt_base(pte);
++		}
 +	}
 +}
 +
- size_t get_page_size(void)
++void create_s2_mapping(struct s2_mmu *mmu, u64 ipa, u64 pa, size_t size,
++		       struct page_pool *pp)
++{
++	u64 ipa_end;
++	u64 mask = pp->page_size - 1;
++
++	ipa_end = (ipa + size + mask) & ~mask;
++	ipa &= ~mask;
++	pa &= ~mask;
++
++	while (ipa < ipa_end) {
++		create_one_s2_mapping(mmu, ipa, pa, pp);
++		pa += pp->page_size;
++		ipa += pp->page_size;
++	}
++	dsb(ishst);
++}
++
++void init_s2_mmu(struct s2_mmu *mmu, unsigned int vmid, gpa_t pgd,
++		 size_t page_size, u64 ipa_bits)
++{
++	u64 ps, tg0, sl0_base, mmfr0 = read_sysreg(id_aa64mmfr0_el1);
++	int levels;
++
++	mmu->vmid = vmid;
++	mmu->pgd = pgd;
++	mmu->ipa_bits = ipa_bits;
++	mmu->vtcr = 0;
++
++	switch (page_size) {
++	case SZ_4K:
++		tg0 = VTCR_EL2_TG0_4K;
++		mmu->page_size_shift = 12;
++		sl0_base = 2;
++		break;
++	case SZ_16K:
++		tg0 = VTCR_EL2_TG0_16K;
++		mmu->page_size_shift = 14;
++		sl0_base = 3;
++		break;
++	case SZ_64K:
++	default:
++		tg0 = VTCR_EL2_TG0_64K;
++		mmu->page_size_shift = 16;
++		sl0_base = 3;
++		break;
++	}
++
++	levels = stage2_levels(mmu->page_size_shift, mmu->ipa_bits);
++	mmu->vtcr |= FIELD_PREP(VTCR_EL2_SL0, (sl0_base - (4 - levels)));
++
++	ps = SYS_FIELD_GET(ID_AA64MMFR0_EL1, PARANGE, mmfr0);
++	/* cap ps to 48-bit */
++	ps = ps > 0b0101 ? 0b0101 : ps;
++	mmu->vtcr |= VTCR_EL2_RES1 | SYS_FIELD_PREP(VTCR_EL2, PS, ps)           |
++				    SYS_FIELD_PREP(VTCR_EL2, TG0, tg0)         |
++				    SYS_FIELD_PREP_ENUM(VTCR_EL2, SH0, INNER)  |
++				    SYS_FIELD_PREP_ENUM(VTCR_EL2, ORGN0, WBWA) |
++				    SYS_FIELD_PREP_ENUM(VTCR_EL2, IRGN0, WBWA);
++
++	mmu->vtcr |= FIELD_PREP(VTCR_EL2_T0SZ, 64 - ipa_bits);
++}
++
+ void __sysreg_save_el1_state(struct cpu_context *ctxt)
  {
- 	u64 tcr_el1 = read_sysreg(tcr_el1);
+ 	ctxt->sys_regs[SP_EL1] = read_sysreg(sp_el1);
 -- 
 2.43.0
 
