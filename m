@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38C7CD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 09:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAE0CD4F25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 09:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mkmMM1nU6BmRCOy7uQOa2NEkgrV2wWzu4hgp0wcVYmE=; b=xqq8YlJZyT3rx3HPf3cYEFJHkD
-	/ZrmTj2S2bTvlFaGFA6UZTslvQUEpPopQA6Rocl3E3890cscbuE0xA+NOlntRt5lLKvhfOnmgkJXv
-	/EdMeIsPvImx+Mf+rpQdgXnPdgvwfSh75QXnnmZNAaQ+jcEq99OiEc20AXzh8P5MZH8StRwj3cK27
-	O6ptXNfSNHM2MWOzz9YwP/UwkgGpp6tqawlIAoD+04ihyRujvXXAU8cMK+wW9tU/STcF/olaJg98q
-	e5SwzSZ62+84357iA+q23Zr0qKP4CXQQOmEBPDeD6l+eCmPSuaf/hGuqcTsbwCtRvBA2pQq8OuktS
-	A2acTkNQ==;
+	bh=V9CUaNuUHTduFtdY4JuTJyBwqK5u0AptG917h8AsQ7M=; b=VPxU3pgLG5iu4w/ZnWT4OIEHOY
+	dsm160PTIEdYQDWe0FtFQWzzDl7/oJ/jWri+G/1p58AiMeApGNVn5vfzuijMHQTHoVKeI3EdxciGf
+	M6xbtw6AfCeh2Sxz0mmTe2KM3T6udjkD+kCbOqXcLb9sHnExFpMzunheKfNPHTEjQBAWJ5pB23ulY
+	e8Sf2wzVAq3gastIbCxBUGgwjgAcuVBiejnzc2wU8oRpgnEVUNqflWFXGCgo91Lz6ebuyMNg4ZaEn
+	AwWsZ4H03pQ/VW9K2i/FdcJBnM8ficyhI7gKApHMDks7AIYbVg44++Fbo4CW8o3xyKzaPcAB55abK
+	RfQgyklQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOB4O-0000000ATa6-09Gr;
-	Sat, 16 May 2026 09:12:28 +0000
+	id 1wOBCs-0000000AUJ1-3tb7;
+	Sat, 16 May 2026 09:21:14 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOB4M-0000000ATZW-3rXf
+	id 1wOBCr-0000000AUIn-2AeW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 09:12:27 +0000
+	Sat, 16 May 2026 09:21:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C10A160138;
-	Sat, 16 May 2026 09:12:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70015C19425;
-	Sat, 16 May 2026 09:12:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778922744;
-	bh=LL/S8GnS0b1/dCWxejuLJBEUJ6lauWpm0bwiV4rKpLg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=a5pOYwINvYqAl5OspBjpye/1VsuInGuPHtwMdtgKAy9sVNjuaTTYWYKZQ0K5svlLC
-	 PQF5OXTUcKMM5w76tnoj96E0nsfZPrCErhPjx6bnUC8sXBUTP1Q7cxp6SbFfYwhYOR
-	 VaJ2tzWLLUaDRcvIkk4Lei0RurttnH3Nzs2hu+mezRlP1Q8OXoQ1C/1YVki0Jyl5Wm
-	 aXVUDrB/Qqb495t+4qvPgF+lzL/VCKRgA/MM419MeVDojCw/ZGsQ0Zq6X4fO1btvaC
-	 hcVGPUw6sJq9J+iZ2MXh8/O2qONnxLX8YrznPM66yQGd6F4cqNllVxRoVlOLcFGkVg
-	 o9Fnegvl5s3Lg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wOB4I-00000002xtC-0blF;
-	Sat, 16 May 2026 09:12:22 +0000
-Date: Sat, 16 May 2026 10:15:36 +0100
-Message-ID: <87o6ifaf5z.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	by tor.source.kernel.org (Postfix) with ESMTP id 7475560138;
+	Sat, 16 May 2026 09:21:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA68FC19425;
+	Sat, 16 May 2026 09:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1778923272;
+	bh=RptzUI/9dLkuw+X2YVD/z/myI/ty916as3fpPLYgGAI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jz7wK0GGMPUK9P9chAnahfGDsKfQrsotbIj4xw3k9+dtLr7Tt/K6vft7Vlw79il/w
+	 6CcJRtPsPh1bRiPFYNQZB6/Bwv/lzN4PE/3KVmqy/kFCPqwaJLQZQv+dYSIgrEIgcu
+	 AJW1aXCKHHPsePjCHluoNwc3X8Sg8rBP+9rWE9ws=
+Date: Sat, 16 May 2026 11:20:26 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Stepan Ionichev <sozdayvek@gmail.com>
+Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, shawnguo@kernel.org, hcazarim@yahoo.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/2] Optimize S2 page splitting
-In-Reply-To: <20260515195904.2466381-1-leo.bras@arm.com>
-References: <20260515195904.2466381-1-leo.bras@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: leo.bras@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, tabba@google.com, rananta@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Subject: Re: [PATCH] firmware: imx: scu-irq: accumulate wakeup sources via
+ sysfs_emit_at()
+Message-ID: <2026051656-corral-edgy-290c@gregkh>
+References: <2026051633-doorstep-sequence-6782@gregkh>
+ <20260516090726.38362-1-sozdayvek@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260516090726.38362-1-sozdayvek@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,48 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 May 2026 20:59:01 +0100,
-Leonardo Bras <leo.bras@arm.com> wrote:
+On Sat, May 16, 2026 at 02:07:26PM +0500, Stepan Ionichev wrote:
+> On Sat, May 16, 2026 at 09:15:54AM +0200, Greg Kroah-Hartman wrote:
+> > This is a horrible sysfs file, and breaks all the rules.  Why not just
+> > delete it and use the proper api for it instead?
 > 
-> While playing with dirty-bit tracking, I decided to take a look on how page
-> splitting works. Found out all entries are walked, even though we can infer,
-> for instance that:
-> - If a level-3 entry is walked, it means the parent level-2 entry is split
-> - If a split just succeeded in an table entry, it means all children nodes
->   are already split
+> Yeah, fair. The sprintf change just papers over the real issue, which
+> is the interface itself.
 > 
-> So I tried to optimize it in a way that it does not break other users.
+> Quick check: no Documentation/ABI/ entry, github code search returns
+> nothing outside the kernel tree itself
+> (https://github.com/search?q=scu_wakeup_irqs&type=code), and
+> codesearch.debian.net also shows zero hits. So removing the attribute
+> looks doable.
 > 
-> My main idea is to introduce positive return values that hint to the
-> pagetable walking mechanism that either siblings or children can be 
-> skipped. That should be contained to the visitor function, that returns
-> zero if no error was detected.
-> 
-> Numbers on above optimization are promising:
-> A 1GB VM, running on the model, splitting all at the beginning 
-> (no manual protect):
-> - Memory was already split (4k pages): 	-97.33% runtime (-172ms) - 20 runs
-> - THP backed memory: 			-19.82% runtime (-153ms) - 10 runs
-> - 1x1GB hugetlb memory:			-20.65% runtime (-150ms) - 10 runs
->
+> Frank, Sascha -- any out-of-tree readers of
+> /sys/firmware/scu_wakeup_irqs/wakeup_src I should worry about?  If
+> not, I'll send v2 that drops the attribute and logs the wakeup source
+> via dev_info() instead.
 
-I haven't looked at the changes in details, but the methodology is
-quite flawed. For a start, measuring anything on a software model
-(QEMU or FVP) doesn't mean anything performance-wise. The trade-offs
-are completely different from a HW implementation, and even the notion
-of time is pretty inconsistent.
+Close, but no, don't use dev_info(), when drivers work properly, they
+are quiet.  Make it dev_dbg() so that if anyone wants to see it, they
+can dynamically turn it on.  Or make it a debugfs file.
 
-Please run this on actual HW. I'm sure your employer can give you
-access to one of these mythical arm64 toys. Measure things from
-userspace, not from the kernel, so that you have all the overheads.
-Don't add console output, because that will make things far worse.
+thanks,
 
-I'm sure you can hack one of the selftests for this purpose.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+greg k-h
 
