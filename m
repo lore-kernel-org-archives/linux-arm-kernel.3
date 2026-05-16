@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF866CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 03:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30770CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 04:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0VqaJrtmlGnmqJFHB+QPAdum1A1l6aJG7RH2ObH9Yk=; b=x41v/s9vmpXPZseptELGxc/JAo
-	qJ1bXwIoKG7QR3Rki2qUnIqEdku0tLOdAWXpCql3QJXb4tBJnYuxAdj1AOXCoO8aC/m1hL6mjFyZj
-	kG3WT5M9u6Eewmr/JnaQ8fS2ioVk94wy8hOq+zwmpyAV1/2x7MdeHULBJZJJP30JhxUpBciiWGv8r
-	7PSZRVZuJEMZWTFmNO6GjVtSqGKNkT4Hid4CuJbW66iBFQ9q77VIHEX3snTIVFe1F1fPXA3j6n5Re
-	4hWxXpuP6n+QbWD0iKyLQYI3Qlst1wJrzwlTq/XjIddoxo9kaVdzH9ySyg+9O9aIf4eQLZ/vGPBqi
-	I8Wc4s+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=loRGoAybQ78l+1/SdmY5YM4W68BXV3n4x/p7MYAPFgI=; b=aLg3wRU9s+LQAajvmYI1/Evma1
+	ASgHvnJVxUQ/3HYSnFKnIXUnjXYYzEadb6ClvIiDHW8D8NNoPzL4IxG+7RnSOMBt8DPClKSKhlgcD
+	ueU8vd33mY2ZrnPlNKPZJAf2FMxCus5z88WyRy8NC7wLgtjY31qtp2QYHtoo0F0NqKtThjc+ZLWyH
+	MYnipkKRlOYzdfSOVMlIZlFP9Fcoucn+Hf9XSVQ6jUjeMwx9RuJtAbJqMxam+oJ7iTBoIWJAJpYb4
+	ug0YpKwAyGVJlchsJcKfesp77yJzNxiZuOvdVSytYutRAZbr51j7QY4BG1ULOfJu/Um/FK1y6taU1
+	+3dT4a0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO5Gr-00000009zsm-18kQ;
-	Sat, 16 May 2026 03:00:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wO6O2-0000000A53c-34oX;
+	Sat, 16 May 2026 04:12:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO5Gp-00000009zsH-0NwR
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 03:00:56 +0000
+	id 1wO6O0-0000000A53K-3fcI;
+	Sat, 16 May 2026 04:12:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 421BD41959;
-	Sat, 16 May 2026 03:00:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8A96C2BCB7;
-	Sat, 16 May 2026 03:00:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 04F6860142;
+	Sat, 16 May 2026 04:12:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B45DFC19425;
+	Sat, 16 May 2026 04:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778900454;
-	bh=HFLpP0j57Gst4fAbdNsreMBu/SwQoUZ1kgnq8j+IcOk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hdDsscDNmeL62JgZyX0rtWcMD1xBb532z/HpVKZ3REYKXl0dI7OmYkmV+8w80da/L
-	 nPxcPUHwo66Tz0PZA/aT+42eq+c9w4cWxf0QGrXWVIp2FEPEImCZzaZe9RPNaaCUUe
-	 PUq2sE9bemEPg0sYSMexZ9LrSUgSWOqI9aeGvHy4xhedERQ9NGh8mEhoQPgIajVcGh
-	 9doQzUTQmaV7EPD2+wksEaD8CGmBeJ/OIKLYG++RhjfryFDv2nhLdiFQwmqJmMlHu6
-	 NxTAMq9e/sszeYTHyoQMucCOBu0qlAnf/lICxYtypNj8DaMg60dftIZ4buaYiI2wfJ
-	 Ti8BBQNTYEW6g==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id B913E1AC5A48; Sat, 16 May 2026 04:00:50 +0100 (BST)
-Date: Sat, 16 May 2026 12:00:50 +0900
+	s=k20201202; t=1778904743;
+	bh=krf0ubK+QUrCPT2ffiJuNibxSiI0Pko+MJw8mKNdMBQ=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=d2tsNmk39s1aRPHSiwXRBqiFxuEGDGikEhdXdKyL4zrBZc1py301r0yuBplr5hhKg
+	 LEp70q6JTbjY8p5MOU0uflB28uFF5X26MBBV2h/O8Iho/Rykc4KF5da3GEeg8Pdero
+	 r7+PpVf49HMkxVAFS1Vhs/5h0CkQXXgAnVtTMOMUN/NP4RxlwnAbkNOvVfHnVulfDp
+	 HVBEnV6lb7YpV8W3YmLGcAgkhxR9oypedHTI4cMnuxyDQDWBy8Zw4nxyVgWVg8PrfQ
+	 DCzcjpQijQPoS8GXfKN5eC1a3m0LWwoYFbVeOMFLqQzV95xaBlN4bO2nYDVN+qt0FL
+	 5+x2GO5qX1Afg==
 From: Mark Brown <broonie@kernel.org>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: Olivier Moysan <olivier.moysan@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-sound@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] ASoC: stm: stm32_i2s: Use guard() for spin locks
-Message-ID: <agfd4gvQ_m3Zt8GP@sirena.co.uk>
-References: <20260513104329.81592-1-phucduc.bui@gmail.com>
- <20260513104329.81592-3-phucduc.bui@gmail.com>
- <agUknFcDIfwrOCld@sirena.co.uk>
- <CAABR9nHfXi5G4+sVnLbWWJctQHkWASTzTwiV424bO6BXZDqX+Q@mail.gmail.com>
- <agZ92TVjcYpEv_eH@sirena.co.uk>
- <CAABR9nHR13e3d46_Z7Q8ZkjQzKbkcPs2Er4sAvq6G1EEj-xoXw@mail.gmail.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chuanhong Guo <gch981213@gmail.com>, Felix Gu <ustc.gu@gmail.com>
+Cc: linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20260510-snfi-v1-1-bc375cf1af8e@gmail.com>
+References: <20260510-snfi-v1-1-bc375cf1af8e@gmail.com>
+Subject: Re: [PATCH] spi: mtk-snfi: Fix resource leak in
+ mtk_snand_read_page_cache()
+Message-Id: <177889843639.1174745.10626893124577105758.b4-ty@b4>
+Date: Sat, 16 May 2026 11:27:16 +0900
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Wb7h2GZXqtWpMj3T"
-Content-Disposition: inline
-In-Reply-To: <CAABR9nHR13e3d46_Z7Q8ZkjQzKbkcPs2Er4sAvq6G1EEj-xoXw@mail.gmail.com>
-X-Cookie: Truckers welcome.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_200055_157424_CA789FA0 
-X-CRM114-Status: GOOD (  14.76  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1136; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=krf0ubK+QUrCPT2ffiJuNibxSiI0Pko+MJw8mKNdMBQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqB+6jkGgY6lC5Y3cioDC9PO/YNhcVL3kitOby7
+ 8sbDMrSfoWJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCagfuowAKCRAk1otyXVSH
+ 0AqcB/9LxFQxqX5rI8MM8g1PfrQ6uNT+8BO5i3yzllNC1xNiDphsdnLelOTWr3xJgnbexD834o5
+ brl9ZyYapn4f653+NXmxoUcALdD19dp3KHozqg4WPZThQZy9+WBIHTxCiX8kZ+/K5fyG5vl5jrC
+ mmzpp8Gag8rG/q5iHtWnM15rYoT8v6PBDT+VPor77B0v39uv26wDkjb0axE4q0A0bBokmV1IdRj
+ inuNDQJRlgX5vwUqfImj697GF4e5HepC4C906FXvuKwzpCgZHZgbGhWZriu4wvkxbkcWe6SIvVl
+ V6KGE4KQ/61eDnSd15lbOzDwWkWuhQVVsIcCuL/1Ac9DrjNU
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +82,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 10 May 2026 01:55:37 +0800, Felix Gu wrote:
+> spi: mtk-snfi: Fix resource leak in mtk_snand_read_page_cache()
 
---Wb7h2GZXqtWpMj3T
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Applied to
 
-On Fri, May 15, 2026 at 11:48:55AM +0700, Bui Duc Phuc wrote:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.1
 
-> From a maintainer perspective, is there generally interest in gradually
-> converging these drivers toward more modern/common PM patterns,
-> or is preserving existing hardware-specific sequencing usually preferred
-> unless there is a concrete issue to solve?
+Thanks!
 
-There are likely to be different considerations for different drivers,
-on some systems the power savings from managing the clocks may not be
-meaingful or we may need the clocks for register access.  In general
-it's nicer to actively manage the clocks but it's not super urgent to do
-so from a framework point of view, it's more a how much work the people
-working on the individual drivers want to do and if there's a use case
-for specific hardware.
+[1/1] spi: mtk-snfi: Fix resource leak in mtk_snand_read_page_cache()
+      https://git.kernel.org/broonie/spi/c/496ba79b9496
 
---Wb7h2GZXqtWpMj3T
-Content-Type: application/pgp-signature; name="signature.asc"
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
------BEGIN PGP SIGNATURE-----
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoH3eEACgkQJNaLcl1U
-h9CWHAf/dTTHqWbJspq/0Qx6ffNRKEylxcdLqo4FSGl/tNx3HRkaSdyCNp1MGOW/
-JBoLRDGCg6Zzt9LCEnQVLDIui/dyYHlgeHyPUsRNMoW0CIGvkiv8LAYfBb3fqenB
-wDzwLZIlYwjuO/GmD4upv0XA+rT/YdNHmL2ENMmKDD9e4k8aI4V6kOHhc2ZXpV3f
-VomzNihV82+hNOs9885tQOnf3haJwwAPG9yuUqJA9M4a3jdm7WEk6tc8+N7rtltR
-4Satj7kr/K6bUtWJDRZ+Z5Nbpr9meCN5PSD+qZt3hWhiVAaQK4w9hKKhS+1oxWAR
-/c6vmVHrbIq7x8SebQcdDs/oHp4ijA==
-=76w0
------END PGP SIGNATURE-----
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
---Wb7h2GZXqtWpMj3T--
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
