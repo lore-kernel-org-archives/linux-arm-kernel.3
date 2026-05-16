@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A402BCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 16:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A657BCD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 16:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A7JFWJeo/pdX1qMY2KKRekWYJYWmJZk+1tkiUe+PVAk=; b=GUZj3+zoTDM2kMZe4LcN9Nml+v
-	UrlVY0owd/RxpPA5zWcXuur7GNT1bVcrpZ7q9KYV7UWJxepRipIr2BZWUObUx+GhEWZytqe4q/oxh
-	ExVWaDBIKRyrS+yPQzW+PYFkWamU1IFusiRvAaYKPGKPSEKbYfDzTUr7gENjGALc3xSqVEUqPUdzV
-	/ZufuRB2FtWNLNBpfaP2D4Qf8EsHy/d2C69F39J7vSPIZkfEunKCP9TNtrng9JoULi8qk09fsdD5T
-	fFMWXu1vHmk8p+s/LZGsiKF3RqjlIyhjueMqn67gJxdSs7Dgsl3ZaJLQBg3lWmjLTvGfN82zxG4I2
-	ezsArpfA==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JHW/BI9GDTwQbV2hvJZT0LsNh5n9BJgFdfYTJRCI8qk=; b=gF64KO43onw3S32TvXGRYZtpfB
+	EKVGAvFuxp5PsLOqeeGf4eToXAWJjPq4xyJp1LcmKLE7Ksv64M54/Bm5YY9FNnHQ2I/OUFU1kdV+G
+	LcGyT7rMa9KR5mowfARjS+wopy6hp7OG6y5fmnjephG+7KtcLLGOmBZfvJSr10QrxW8W1aeMlOYbu
+	Jj12cfiJ5UaKODj/BZa4TO2bRtt96aQU8hRcVr/Ejl8TQ2aYhSB2PYyub1vO4uoBxdF71DChs85uz
+	xvjq4AEqCWtLlWUrgiopJwzAgMAE93Y6UhTkvUebG/QiRPO7zNruxUYYJUDgVZC80gfqT/tPL69yK
+	E+aBr/yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOI7f-0000000B2ol-2a1U;
-	Sat, 16 May 2026 16:44:19 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1wOI7s-0000000B2sn-3Cyn;
+	Sat, 16 May 2026 16:44:32 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOI7d-0000000B2nn-1tFD
+	id 1wOI7i-0000000B2pD-2d49
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 16:44:18 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-8353fd1cb5fso366632b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 09:44:16 -0700 (PDT)
+	Sat, 16 May 2026 16:44:30 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-836ed29d1e5so352433b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 09:44:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778949856; x=1779554656; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=A7JFWJeo/pdX1qMY2KKRekWYJYWmJZk+1tkiUe+PVAk=;
-        b=Z1N3PKljQZ9lKXFXhd+dASkPTpQJNE5u8dRcmUgPjm/nXkjOKNTIhgeyo6cL741co8
-         Fliv86vjtIcbDYyo8QRYUJZcwTUt2VXv3gtRv+wL7AeoIaMDWgHncbUvMkuT/o8T3rM0
-         8LnR2lMbUWYp68LZWHh9Jx49F8S9TuYC24igoHese8MEz+J+XoAldFMf3YbmpgiZcHOa
-         ns7L7ZLabLAUD/Hj7sUldTt3MByLkbaLn0esmMc/8g33v3Bx02XiIvpi7AUV6zn6x1DE
-         9I6dthXzq94DTN+gky8XxqKjKzRQCPscDCXNRRhaTNsX4uwq1N5eKObd+h2ybzyyuI/e
-         aXDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778949856; x=1779554656;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20251104; t=1778949862; x=1779554662; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=A7JFWJeo/pdX1qMY2KKRekWYJYWmJZk+1tkiUe+PVAk=;
-        b=QtjDcsevvY2F0c7qxyo6D1cnXeiCjztH3BQQahiSKYiIXzuX4CqtflUykeTCc5ZfBZ
-         6hu5pktdGcvj7/Wf/QVGsi8K/18Cllrfm7dbM9GagsdViALy/tgs2m2Ud5npoLCxWAdv
-         HVvHmOoocrHURjge5gCIdYv1NsOCm0g5NOPcqTDDfKHtloYLiv6p4Wh9OzFKqfjENRNb
-         t68ABxzMlRqOPSKKiaapuaQ5nh20hazM4zIv0M1dlTE8lzym9yMWNPgzXi/J9S26r+br
-         +O+nGTtph6vze5aobdOxrPVDDEJuL8OREEzWf+0qvB9w2H+BGV+r2ezj02Ll4WOT0dWe
-         pd9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+UAWsXXpG/Zr9KKhkCAZuF/MQ29kidzzDuo8OLCb5y2eNWbC+1rR8Gp0ReX3iAQJ4taosiwmgyzR8i/6E6G0Ni@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWbv9F87F60X2Xn8nEZ7o8KCVoh79XMHxvwOlUJWKiX+9yK4FB
-	VzZtVuVXxmgGbPO1QUoVHJYODDmyoolOk0OIkAOxCyAPdTFbWX6Bf4bE
-X-Gm-Gg: Acq92OHDhQ47vAsRTtIVoLdOwIVoWOzARdbc2hBkQmXvxSOwB5z8UkeXE4k9KcFynkP
-	55gCCHaQGbbxpE01W79d4Zsl0I7WhbXSJFpb71xLZxQz4+mAFWXkXqHNNiHL8Oit1ZE7VtprSwE
-	sxW44Pa/uBeBdWFJeDJ/ZQQcJsXFBEpSMxaYVh4UfHqELNhd1c2tCmbVBh2F2OViPjrY5iWvSqL
-	e75yQ/K6gV7zwkyBKF6yTi+rH//SEI1bJfxyO9Dx0AXcsfUpLkyptZ+ygbp9b0O5cJM5n/XMaDQ
-	nXXLtnJPUNojh7x9DvD2G3txIc5S7DHW1uolw1y5+OD8TPveQIlsCcF7z3c7GnT+lKQqhBVR5wE
-	CK6rVhM7Fd4YPVyS90KDbjojhWmfSZpCJJNRd4jEsXhBY/v/xCyEbkyJcQT6g+BUT53GuQUK0bp
-	hbLu8QUDSKUttwlZP4sW91PRF6IZqo2uhvTnFxceSVC8TGEdkssNN+65VHD7wn1jUbeS7R
-X-Received: by 2002:a05:6a00:12cd:b0:837:21dc:6ad4 with SMTP id d2e1a72fcca58-83f33ad9f7emr7788575b3a.2.1778949855866;
-        Sat, 16 May 2026 09:44:15 -0700 (PDT)
+        bh=JHW/BI9GDTwQbV2hvJZT0LsNh5n9BJgFdfYTJRCI8qk=;
+        b=OO68FTi5HB5MjxMQRJbAhoipVfQ/bEQ3CUKU04FJvlZOYGh25BGS7Ol4CyvrZU8KY6
+         PA3dcun521yB+5TDq36jmXN7wSMYRBuDvU7CplF0tdM0OMR6j+x2WrkTea1fz2eWyI98
+         t9p0UKZc8Hm6mcRah91L2OieC2ydt4zekm6S0DYBxj/kdjhA8EBc8o6regfc/47yEoGo
+         AgKv65zH3FifkYrqBN3nqjsDuyYDHdVl4YT0ICvAnhNJcT384dGac/eXvn6RjLDM0EWt
+         YJV2K3CgQqJvqR5QpFYoCXHox5sglA42CE2jGo36jHJeCe2wknYvAj4V4MJUKrFEJ1Rc
+         qa6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1778949862; x=1779554662;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=JHW/BI9GDTwQbV2hvJZT0LsNh5n9BJgFdfYTJRCI8qk=;
+        b=NyMPGEZr7Al3i8PDDFNe8KyqUBdfbfyv9XTj1CPzr7WLjADo/J4JYnq39YFVpzScbD
+         Zhwom9FwMbiVNfHEncth9CqZs/ZebGjF+rkmujxmGzKxhkd/2rsN4nH+cMeRo1YmjeI5
+         DGF0kXN4G+blgz2ymrnHdPNYtbMKPvcgDJ72BXQqTtvY/m9TC1jbemVLaSmxizvPHfok
+         AEKrPrehD1RYRC0yiKsmeQidYyDl1Vr0HoS2AL9jub73HJwIK1FKAjMDSIO0pu8eWHiW
+         NtXD+cOceo4g2cwcQUJ9GtwmsrSEcfTOwp3W4uczSrAo9EmqprrezWBmi2SlSbiBMrYT
+         aOtw==
+X-Forwarded-Encrypted: i=1; AFNElJ+G1c6W49apJPlh5Wgtjivh+e9cCkXLTwD/j4mips//oGSuS00E3cgkj+NfwqzMKHQ9n1o81IPA+qW4hPr3Vqmr@lists.infradead.org
+X-Gm-Message-State: AOJu0YwU4Mbb8MG4fYliZ0s5C9TE9IL+cj28YAddonpy7SYs3Gty/ALP
+	CubE0PgwuJ4XT52Wv0ctyqA3dYN7QqV4tjBteD6QVry2VkS1vvexmBiW
+X-Gm-Gg: Acq92OFUfUeU9Q6agpuBlcx29Rd02JED+Fc9zRCWJAKS5rQk6dQsuKpKuirAGLRFBDq
+	RwHzCIO9+o8QnR3iiDLIWRMlxITT4ra1SDAB7L2T2fLxLHvYe5gURdmN49GKrt6LaftUJ32HP1N
+	6OZr/koXHEqAf68H7YwcDndo2615E572E3qPCv8pFE2/6QNC+OpFRPpw6/asOk4mpDQVltI/4+g
+	K245SOqrpYXP1ASUulqKVuFVIxiza/G/463Oy8tNtEGC/Pwa6vXgYntS12qQIoV0dzpG+Szj5O1
+	QXiiJbbEoT9Qs2FcEDVeI96HpvYt80b3ot7hY5FjbJq/llWbDI/QTimV56TNUVC+q/8iIPRSrp9
+	Jb12mIXf7yNEpLXp7JVLQWtinwFA3y7dodE3Jw9yQ7JKgg9SyKH41Ee9olrZDIWuiTsHGDasrIp
+	1+OcR060xorSxmWYrC0ib+Yk/lqrCVH3d+7OL/9DIFX6aZmXF7JSxIR0DKcA==
+X-Received: by 2002:a05:6a00:e1a:b0:835:6bdf:c888 with SMTP id d2e1a72fcca58-83f33c329d8mr9642858b3a.2.1778949861637;
+        Sat, 16 May 2026 09:44:21 -0700 (PDT)
 Received: from fedora.taildae27b.ts.net ([2409:40e5:100a:b5ee:87c:e578:2b2e:422b])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19664a59sm9562564b3a.1.2026.05.16.09.44.11
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19664a59sm9562564b3a.1.2026.05.16.09.44.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 May 2026 09:44:15 -0700 (PDT)
+        Sat, 16 May 2026 09:44:21 -0700 (PDT)
 From: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
+To: Guenter Roeck <linux@roeck-us.net>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
 	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-hwmon@vger.kernel.org,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] soc: bcm2835: raspberrypi-firmware: Add voltage domain IDs
-Date: Sat, 16 May 2026 22:14:05 +0530
-Message-ID: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
+Subject: [PATCH 2/2] hwmon: raspberrypi: Add voltage input support
+Date: Sat, 16 May 2026 22:14:06 +0530
+Message-ID: <20260516164407.25255-2-chakrabortyshubham66@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
+References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_094417_480284_EE246D2F 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260516_094422_673747_3F70DBDC 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +103,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add firmware voltage domain identifiers for the Raspberry Pi
-mailbox property interface.
+Extend the raspberrypi-hwmon driver to expose firmware-provided
+voltage measurements through the hwmon subsystem.
 
-These IDs are used by firmware clients to query voltage rails
-through the RPI_FIRMWARE_GET_VOLTAGE property.
+The driver now exports the following voltage inputs:
+
+  - in0_input (core)
+  - in1_input (sdram_c)
+  - in2_input (sdram_i)
+  - in3_input (sdram_p)
+
+Voltage values returned by firmware are converted from microvolts
+to millivolts as expected by the hwmon subsystem.
+
+The existing undervoltage sticky alarm handling is preserved and
+associated with the first voltage channel.
+
+Tested in -
+- Raspberry Pi 3b+ (Linux raspberrypi 6.12.75+rpt-rpi-v8 #1 SMP PREEMPT
+  Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux)
 
 Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
 ---
- include/soc/bcm2835/raspberrypi-firmware.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/hwmon/raspberrypi-hwmon.c | 112 +++++++++++++++++++++++++++++-
+ 1 file changed, 109 insertions(+), 3 deletions(-)
 
-diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
-index e1f87fbfe554..fd2e051ce05b 100644
---- a/include/soc/bcm2835/raspberrypi-firmware.h
-+++ b/include/soc/bcm2835/raspberrypi-firmware.h
-@@ -156,6 +156,14 @@ enum rpi_firmware_clk_id {
- 	RPI_FIRMWARE_NUM_CLK_ID,
+diff --git a/drivers/hwmon/raspberrypi-hwmon.c b/drivers/hwmon/raspberrypi-hwmon.c
+index a2938881ccd2..c73a970db025 100644
+--- a/drivers/hwmon/raspberrypi-hwmon.c
++++ b/drivers/hwmon/raspberrypi-hwmon.c
+@@ -5,6 +5,7 @@
+  * Based on firmware/raspberrypi.c by Noralf Trønnes
+  *
+  * Copyright (C) 2018 Stefan Wahren <stefan.wahren@i2se.com>
++ * Copyright (C) 2026 Shubham Chakraborty <chakrabortyshubham66@gmail.com>
+  */
+ #include <linux/device.h>
+ #include <linux/devm-helpers.h>
+@@ -18,6 +19,11 @@
+ 
+ #define UNDERVOLTAGE_STICKY_BIT	BIT(16)
+ 
++struct rpi_firmware_get_value {
++	__le32 id;
++	__le32 val;
++} __packed;
++
+ struct rpi_hwmon_data {
+ 	struct device *hwmon_dev;
+ 	struct rpi_firmware *fw;
+@@ -56,6 +62,23 @@ static void rpi_firmware_get_throttled(struct rpi_hwmon_data *data)
+ 	hwmon_notify_event(data->hwmon_dev, hwmon_in, hwmon_in_lcrit_alarm, 0);
+ }
+ 
++static int rpi_firmware_get_voltage(struct rpi_hwmon_data *data, u32 id,
++				    long *val)
++{
++	struct rpi_firmware_get_value packet;
++	int ret;
++
++	packet.id = cpu_to_le32(id);
++	packet.val = 0;
++	ret = rpi_firmware_property(data->fw, RPI_FIRMWARE_GET_VOLTAGE,
++				    &packet, sizeof(packet));
++	if (ret)
++		return ret;
++
++	*val = le32_to_cpu(packet.val) / 1000;
++	return 0;
++}
++
+ static void get_values_poll(struct work_struct *work)
+ {
+ 	struct rpi_hwmon_data *data;
+@@ -77,19 +100,101 @@ static int rpi_read(struct device *dev, enum hwmon_sensor_types type,
+ {
+ 	struct rpi_hwmon_data *data = dev_get_drvdata(dev);
+ 
+-	*val = !!(data->last_throttled & UNDERVOLTAGE_STICKY_BIT);
++	if (type == hwmon_in) {
++		switch (attr) {
++		case hwmon_in_input:
++			switch (channel) {
++			case 0:
++				return rpi_firmware_get_voltage(data,
++						RPI_FIRMWARE_VOLT_ID_CORE,
++						val);
++			case 1:
++				return rpi_firmware_get_voltage(data,
++						RPI_FIRMWARE_VOLT_ID_SDRAM_C,
++						val);
++			case 2:
++				return rpi_firmware_get_voltage(data,
++						RPI_FIRMWARE_VOLT_ID_SDRAM_I,
++						val);
++			case 3:
++				return rpi_firmware_get_voltage(data,
++						RPI_FIRMWARE_VOLT_ID_SDRAM_P,
++						val);
++			default:
++				return -EOPNOTSUPP;
++			}
++		case hwmon_in_lcrit_alarm:
++			if (channel == 0) {
++				*val = !!(data->last_throttled & UNDERVOLTAGE_STICKY_BIT);
++				return 0;
++			}
++			return -EOPNOTSUPP;
++		default:
++			return -EOPNOTSUPP;
++		}
++	}
++
++	return -EOPNOTSUPP;
++}
++
++static int rpi_read_string(struct device *dev, enum hwmon_sensor_types type,
++			   u32 attr, int channel, const char **str)
++{
++	if (type == hwmon_in && attr == hwmon_in_label) {
++		switch (channel) {
++		case 0:
++			*str = "core";
++			return 0;
++		case 1:
++			*str = "sdram_c";
++			return 0;
++		case 2:
++			*str = "sdram_i";
++			return 0;
++		case 3:
++			*str = "sdram_p";
++			return 0;
++		default:
++			return -EOPNOTSUPP;
++		}
++	}
++
++	return -EOPNOTSUPP;
++}
++
++static umode_t rpi_is_visible(const void *_data, enum hwmon_sensor_types type,
++			      u32 attr, int channel)
++{
++	if (type == hwmon_in) {
++		switch (attr) {
++		case hwmon_in_input:
++		case hwmon_in_label:
++			return 0444;
++		case hwmon_in_lcrit_alarm:
++			if (channel == 0)
++				return 0444;
++			return 0;
++		default:
++			return 0;
++		}
++	}
++
+ 	return 0;
+ }
+ 
+ static const struct hwmon_channel_info * const rpi_info[] = {
+ 	HWMON_CHANNEL_INFO(in,
+-			   HWMON_I_LCRIT_ALARM),
++			   HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_LCRIT_ALARM,
++			   HWMON_I_INPUT | HWMON_I_LABEL,
++			   HWMON_I_INPUT | HWMON_I_LABEL,
++			   HWMON_I_INPUT | HWMON_I_LABEL),
+ 	NULL
  };
  
-+enum rpi_firmware_volt_id {
-+	RPI_FIRMWARE_VOLT_ID_RESERVED = 0,
-+	RPI_FIRMWARE_VOLT_ID_CORE = 1,
-+	RPI_FIRMWARE_VOLT_ID_SDRAM_C = 2,
-+	RPI_FIRMWARE_VOLT_ID_SDRAM_I = 3,
-+	RPI_FIRMWARE_VOLT_ID_SDRAM_P = 4,
-+};
-+
- /**
-  * struct rpi_firmware_clk_rate_request - Firmware Request for a rate
-  * @id:	ID of the clock being queried
+ static const struct hwmon_ops rpi_hwmon_ops = {
+-	.visible = 0444,
++	.is_visible = rpi_is_visible,
+ 	.read = rpi_read,
++	.read_string = rpi_read_string,
+ };
+ 
+ static const struct hwmon_chip_info rpi_chip_info = {
+@@ -159,6 +264,7 @@ static struct platform_driver rpi_hwmon_driver = {
+ module_platform_driver(rpi_hwmon_driver);
+ 
+ MODULE_AUTHOR("Stefan Wahren <wahrenst@gmx.net>");
++MODULE_AUTHOR("Shubham Chakraborty <chakrabortyshubham66@gmail.com>");
+ MODULE_DESCRIPTION("Raspberry Pi voltage sensor driver");
+ MODULE_LICENSE("GPL v2");
+ MODULE_ALIAS("platform:raspberrypi-hwmon");
 -- 
 2.54.0
 
