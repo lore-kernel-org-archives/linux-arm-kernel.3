@@ -4,52 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA9CCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 16:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAF7CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 16:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnCT0dDoIS7z8NOf/aPWiMLvZwNOJLMCfs4dZXjNaYU=; b=SPtlW1wBMy6gvJ9US9qgnQLtJS
-	kBbtmasWBU+CcID6Y5VLipuNqOxhpITVqwKL0rRHFLu7R1RdD12s6KIG3FeXZ5qa8NDuncN3ZyJCE
-	H478PloA52xpWmm/v+phX6mC5PIh3L+J06QY8ai5SiHOBjiTHcmVFVRBg8dt3UxbdwMwR2apgmoPG
-	UuzSsFitq4elti47mhCR1/PcZk1mp8ysmnzV0wy6UzgZCE6lVkoAFhApjY9Mqll8KYNKpVsscZasW
-	zXwd2PGlb+ua2nDIsIuow73YiTLij/JQtBHh1GcYjpzAvF5uUdDNs7eSRf0FCQNcth/IAbaiUFK0e
-	xscxM0vw==;
+	bh=pbFbIRnpJSWCHYSgI8+s4UlzMp+o9Am+VCjsnEOGb04=; b=S4R0ay16rRuELDAd6UC+1kvyiP
+	pLFEqb9Guc/HZIBGW3da4TPou7Esq2aUcCZOREVX2GKrRSohjtcRRsZowu4+E4U4tyUi51bTtd4pe
+	nkBZHQAtGJCtMXTLlAmJORb49Qaqf522/8EslqDJ0Ok0Xmcxy+asG+LpmBESi8WAVysf9g9et8pwL
+	07uZlD0O+XqbQzot/tLOfXC2ObVWNgtZouahebQV/U/xDWEb2LcsPVyYBwETVP1s6b6qDqgEyMPjK
+	sakVDBou35jK6n8FSuRr/s2Jr9E6LYBk+gDrwu+kt/Zzc/TPNk2GYH03Hq99+Lbd9hy84U4SvbFJI
+	uVagLBng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOHr9-0000000B1PO-0gDq;
-	Sat, 16 May 2026 16:27:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wOHrH-0000000B1Rv-147y;
+	Sat, 16 May 2026 16:27:23 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOHr8-0000000B1PA-2STX
+	id 1wOHrE-0000000B1Qp-42Qo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 16:27:14 +0000
+	Sat, 16 May 2026 16:27:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9102660142;
-	Sat, 16 May 2026 16:27:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F989C19425;
-	Sat, 16 May 2026 16:27:10 +0000 (UTC)
-Message-ID: <5dfea4a0-3f10-44e4-8be4-cf011db09016@tuxon.dev>
-Date: Sat, 16 May 2026 19:27:08 +0300
+	by sea.source.kernel.org (Postfix) with ESMTP id 726B744528;
+	Sat, 16 May 2026 16:27:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57E02C2BCB8;
+	Sat, 16 May 2026 16:27:17 +0000 (UTC)
+Message-ID: <9291ac3b-0494-4bcb-b7b0-457a4ec86e30@tuxon.dev>
+Date: Sat, 16 May 2026 19:27:16 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] nvmem: lan9662-otp: add support for LAN969x
+Subject: Re: [PATCH v3 1/3] dt-bindings: nvmem: lan9662-otpc: Add LAN969x
+ series
 To: Robert Marko <robert.marko@sartura.hr>, srini@kernel.org,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  nicolas.ferre@microchip.com, horatiu.vultur@microchip.com,
  daniel.machon@microchip.com, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: luka.perkov@sartura.hr
+Cc: luka.perkov@sartura.hr, Conor Dooley <conor.dooley@microchip.com>
 References: <20260515115954.701155-1-robimarko@gmail.com>
- <20260515115954.701155-2-robimarko@gmail.com>
 Content-Language: en-US
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-In-Reply-To: <20260515115954.701155-2-robimarko@gmail.com>
+In-Reply-To: <20260515115954.701155-1-robimarko@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260516_092721_021183_59272205 
+X-CRM114-Status: UNSURE (   4.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,44 +68,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Robert,
 
->   static int lan9662_otp_probe(struct platform_device *pdev)
-> @@ -196,6 +194,7 @@ static int lan9662_otp_probe(struct platform_device *pdev)
->   
->   	otp_config.priv = otp;
->   	otp_config.dev = dev;
-> +	otp_config.size = (uintptr_t) device_get_match_data(dev);
->   
->   	nvmem = devm_nvmem_register(dev, &otp_config);
->   
-> @@ -203,7 +202,14 @@ static int lan9662_otp_probe(struct platform_device *pdev)
->   }
->   
->   static const struct of_device_id lan9662_otp_match[] = {
-> -	{ .compatible = "microchip,lan9662-otpc", },
-> +	{
-> +		.compatible = "microchip,lan9662-otpc",
-> +		.data = (const void *) SZ_8K,
-> +	},
-> +	{
-> +		.compatible = "microchip,lan9691-otpc",
-> +		.data = (const void *) SZ_16K,
-> +	},
 
-Some checks from checkpatch:
-
-[Checkpatch]      CHECK: No space is necessary after a cast
-#51: FILE: drivers/nvmem/lan9662-otpc.c:197:
-+       otp_config.size = (uintptr_t) device_get_match_data(dev);
-
-CHECK: No space is necessary after a cast
-#62: FILE: drivers/nvmem/lan9662-otpc.c:207:
-+               .data = (const void *) SZ_8K,
-
-CHECK: No space is necessary after a cast
-#66: FILE: drivers/nvmem/lan9662-otpc.c:211:
-+               .data = (const void *) SZ_16K,
-
-total: 0 errors, 0 warnings, 3 checks, 44 lines checked
+On 5/15/26 14:59, Robert Marko wrote:
+> From: Robert Marko <robert.marko@sartura.hr>
+> 
+> Unlike LAN966x series which has 8K of OTP space, LAN969x series has 16K of
+> OTP space, so document the compatible.
+> 
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
+Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 
