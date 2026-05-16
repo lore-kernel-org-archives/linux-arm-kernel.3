@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD95ACD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 17:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A142FCD4F4B
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 17:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qby2WY+NNwzVKONu56demCoQrLAp5pVzeZ7hym5vwxc=; b=gvAgsm47HAObuP0vhARjMPlIdj
-	nTM0TwwZ49fVFT0mR7ZV5zD3GaspoUxWdtAFPwf1VcBTEQevV2PmJBRT+2JWtVsls0kzIQ1XvD8FL
-	/g4pozlIrlVg1AXnJ8g7EkFLDj/hdf1sirjB3TE9IsFDYgF37PkDIgJi3ro3/FOMjmvg2j/NLp5P2
-	aXytzrsZ8oX3y9K0QRakFkciZosZxxNMSs4iMYmnZHknaA+AaQkZEqQwhf94B6BphaqyWOucQlsNJ
-	4Fv+alftpX31gDz5enhuWmQohp3AiDI5HLRMn49ImDCRuZmTAcjABWpUEz2CnGB6Mdp70Gb1iIbvA
-	PeOj284w==;
+	bh=UzKTT13NzG5ffrSLii8KCAeSDGBOKS6qhRDeQKuJEqs=; b=BC1y7T2M5GorkHo1Q0GU0TDHkD
+	Oj8chd06YCMIanySFQ747gprihF+gYPhzTZc92EvNKrRA8nWdyXd5s9gL+DZD5/pqXL9bjqXuqK/O
+	ZdbczPrmfU3Mnm+RvD0j6gF2F1GgpxQ2nM6FqwNnwI8lbdRpRNLCOFitMyrKu2PMMCqBS721DI9he
+	eIR9ZIyJUSPrF584FXdGmPoOJRqyxLiMn2kdHcSu2t3hLOPMKCOTD6Utxi/9WSvl1xElXK1BLzlWw
+	ATe+qXtfakH2C3TYWnk1k73T90oW28M7IaWQz6m2yaKEd3RN/SeTQswSpLj9O3iLJ1qWNx36vFwF4
+	EuntEGqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOIem-0000000B5c0-40Iq;
+	id 1wOIem-0000000B5bK-2nul;
 	Sat, 16 May 2026 17:18:32 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOIed-0000000B5Te-3dKp;
-	Sat, 16 May 2026 17:18:26 +0000
+	id 1wOIed-0000000B5TV-2p2n;
+	Sat, 16 May 2026 17:18:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A0F6E445FE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4012244317;
 	Sat, 16 May 2026 17:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 785CFC19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 0BE7CC2BCC7;
 	Sat, 16 May 2026 17:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778951902;
-	bh=LgAbB0ZXLnx/BP4AfsepnntHvttapSIZpd8aWCrBwiI=;
+	bh=KQ2jlEW1eOaS76algkR9vPolQCqOkVsbm0MXBmfkdXw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=P/ogeJvo6Qqoo6251PbBts1gxDZKQiSTZJABnSyV+H+BPs3XOTuNY8mzop4NeoEb7
-	 dWaQr2pVxhRn7VYGMcPBHB9Q+CabVNprvHlUPt6aYqC5frvXBKdvVbRDLG/rDQnUJ2
-	 Mu6BKndXokp/HqiCMDJmD9USbKgqleB9cUuRxkcyDd1PIcGky0r9oZcsLrh8dKc44F
-	 FNUM59cmQMktPYOS1NHlOPSMCnewFSf75WztHhgTRlAG4B4DFNrw1ABQaKwMWzCI95
-	 k38WDRoM/8LzTPTMc1SNkUt9rlUUj7SvY++aKvxQbMXCGTjv4kwS2cgz9n1xQnlqiM
-	 fJrs2LOotNLGQ==
+	b=f7IRgHVMAr6LYFOcuACeKSyfKbR+gvec+Z6m2nhCkYC9LxpNQvsq/rFhvqwnmlSXS
+	 j/i7Sx4kFkgJxK/wNq/ElrMUagB4vWohbv9IsqkqwEUZCUGwgwkcP0TkldxnhVzjCQ
+	 SYOoEqIww40ByBVw8J0HUv6BX1Si4CnjeO2q01BltAv3bF8SLHYOfMGLk1Wj5IwjN+
+	 a0DC09voLpT5zOc1oS+6ESkE9XQ3qxOFdPab7zYYjWmdLs82EjSbNOsIWgJws9jIXH
+	 UQaoxBz20/0qKeK9HmFsTpSA4BDY1ftd3BPfGxYxUV8XnOaVXQNglT2zJngh8yMXV+
+	 Wq7lN0fHDSZIQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 6885ACD4F21;
-	Sat, 16 May 2026 17:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ED9F8CD4F3C;
+	Sat, 16 May 2026 17:18:21 +0000 (UTC)
 From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Sat, 16 May 2026 19:17:06 +0200
-Subject: [PATCH v6 6/8] arm64: dts: amlogic: t7: Add i2c pinctrl node
+Date: Sat, 16 May 2026 19:17:01 +0200
+Subject: [PATCH v6 1/8] dt-bindings: mfd: khadas: Add new compatible for
+ Khadas VIM4 MCU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260516-add-mcu-fan-khadas-vim4-v6-6-cccc9b61f465@aliel.fr>
+Message-Id: <20260516-add-mcu-fan-khadas-vim4-v6-1-cccc9b61f465@aliel.fr>
 References: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
 In-Reply-To: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
 To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
@@ -66,23 +67,24 @@ To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>,
 Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
- Ronald Claveau <linux-kernel-dev@aliel.fr>
+ Ronald Claveau <linux-kernel-dev@aliel.fr>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=892;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1479;
  i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=F350Js/5aqFj9YLCGASaC045elV+sRf2mbU4+Ox2uSQ=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQxbHshupb14UHLFPDuh4t/dq0s3vaxZNZC7y4IrkDXG4K
- i3N3GrUUcrCIMbFICumyNI/1/LEu8tHz3zdo54CM4eVCWQIAxenAEykgJeRYaNEUOTW+OXrvJMc
- dn3fvOPXXtUX8YFbs48fear2dte9TU6MDBc6N3LXpXhI1PYcj864E31vkvfsBrWrCZ7a+zrEbr0
- qZQAA
+ bh=eCKy2chdqFWw8sHr2BRKBa6cnfiYWQdTnn103pMuJ+4=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQxbHsotaN+osbkya8Odm5qkHogoL5rxT1tLdtr5/rsp2z
+ gyOFstJHaUsDGJcDLJiiiz9cy1PvLt89MzXPeopMHNYmUCGMHBxCsBEFiYx/OFbVJeWnXT+wjm7
+ +bLOtt/2Oua26K8R/n3I7OBuDvEozjpGhsbDs7OVJ+65/2vi9cBVj7Z1Z9dnqdQ6u0m7Rq+ZlGq
+ fyQUA
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
  fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
 X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
  auth_id=744
 X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_101823_951714_1C454CE4 
-X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-CacheID: sfid-20260516_101823_756522_73CB6BDC 
+X-CRM114-Status: UNSURE (   8.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,35 +103,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Add the T7 pinctrl used by the Khadas VIM4 for MCU communication.
+The Khadas VIM4 MCU register is slightly different
+from previous boards' MCU.
+This board also features a switchable power source for its fan.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ Documentation/devicetree/bindings/mfd/khadas,mcu.yaml | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-index 7fe72c94ed623..e96fe10b251a0 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-@@ -376,6 +376,16 @@ mux {
- 					};
- 				};
+diff --git a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+index 084960fd5a1fd..1f135618e3b6f 100644
+--- a/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
++++ b/Documentation/devicetree/bindings/mfd/khadas,mcu.yaml
+@@ -18,6 +18,7 @@ properties:
+   compatible:
+     enum:
+       - khadas,mcu # MCU revision is discoverable
++      - khadas,vim4-mcu # Different MCU variant, not discoverable
  
-+				i2c0_ao_d_pins: i2c0-ao-d {
-+					mux {
-+						groups = "i2c0_ao_sck_d",
-+							 "i2c0_ao_sda_d";
-+						function = "i2c0_ao";
-+						bias-disable;
-+						drive-strength-microamp = <3000>;
-+					};
-+				};
+   "#cooling-cells": # Only needed for boards having FAN control feature
+     const: 2
+@@ -25,10 +26,27 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  fan-supply:
++    description: Phandle to the regulator that powers the fan.
++    $ref: /schemas/types.yaml#/definitions/phandle
 +
- 				pwm_a_pins: pwm-a {
- 					mux {
- 						groups = "pwm_a";
+ required:
+   - compatible
+   - reg
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: khadas,vim4-mcu
++    then:
++      required:
++        - fan-supply
++    else:
++      properties:
++        fan-supply: false
++
+ additionalProperties: false
+ 
+ examples:
 
 -- 
 2.49.0
