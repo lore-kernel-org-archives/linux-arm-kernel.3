@@ -4,137 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E83CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:25:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1FCCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnO5IioVzWSYwRbqhkh2raHko5bjhTUierG2nULceM0=; b=ItCWMsncGSTR6VYzEPnHEJCwok
-	nkCxOm3W/lT+1+60PVlctvkYC32axj8GhXNv0wm7lb2IeVQp6g+bDKQfIvWLeDfWXJ4dI57SWdv0q
-	YmnZmUAinVg85aTnGf9VP8FyIWOlA+WKNb0CPwRInQNs5qhmx5xfR4xYWUv/Ddm6OcYgua/pprMw3
-	TOlfiWd5SQ/JleWxKhfCB4tRUi5yGqDdGM2EUMTaOAgJNo1VF/PHijN4OtKjRZn6wcfv83/hKD5Ju
-	0eKGXzeXYsBk4YXX61Oukh9/hnhH8eW/7xaVAD8Q8iq59MKfV8A7rfqN9cNu9U1g9EKHNq+FJjXKo
-	j4BrIogA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OnIvhljOgEaSFzRrceOlRz/glboJGemj8e4dh4hByIQ=; b=td+OOf3R2W2nCdPQ5MnC8fUxYQ
+	xE+bveWloMuHZD+yJdTFJIBJu7sKAo5Dt4pkaj4PLPkVJA0kJzATYaQc/XRQ1Vsv21BqS++ap2LkA
+	BhYo89n1xHOKPrEc+KffdVRDjOe1+oCF+/ucjdZrCSJdLeWwrm9x/UMkJX5DJ6adfuq4aPhsDv91g
+	07M4gLRHSmJgpf0KR4Ipm7okucyB1CiQ/ridScY2RjXUYFVsMd1yGCzN1KMTuN549+BQqGFs9bMFe
+	2pPNA8pOJ1AH1JCVFaRuZLnyw/bZnz2CZZVMhIKEFR0THfGsEkAQk42j86/2kcMKNTI6fI7OzUBG8
+	PPo/uq+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJhE-0000000BBZk-07GR;
-	Sat, 16 May 2026 18:25:08 +0000
-Received: from mail-dy1-x1336.google.com ([2607:f8b0:4864:20::1336])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJh7-0000000BBYO-2tS2
+	id 1wOJmq-0000000BCHN-35HN;
+	Sat, 16 May 2026 18:30:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOJmn-0000000BCGG-3ZvF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:25:06 +0000
-Received: by mail-dy1-x1336.google.com with SMTP id 5a478bee46e88-2f0ad52830cso1112372eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 11:25:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778955901; x=1779560701; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :references:to:from:subject:user-agent:mime-version:date:message-id
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=gnO5IioVzWSYwRbqhkh2raHko5bjhTUierG2nULceM0=;
-        b=REeFayx661pa7KH9HlqlC9aqJZ2Rs3dtWfeTDIMCLXMsLVtB8Sz2QT3adl627bc2gO
-         NF3oVTUPwGuennPEHBYeA3Nw5uPyRKF6k7qI6VVy5sSfFetDx4Yz/5cA1pLZdZYiMvVk
-         L88NuXc6Vq3MvT1jU4i5VTp6vT5KJ0bXn8YAdIFhvgfHCk5bkQs8t4GuWciId/nTtwQM
-         E3dwYjexEVKZCyPoTfIeQ26/RUMBvhhPfNOmdzaOhooppVbnCwS6fZAgfYSqPNg6w/B1
-         W6jP/SFSvfg+qUdBmo1W1zzWqesTUsBdotSEQFPItOlQdH9LOfZ61yY51lH1pSpXnpLJ
-         SILQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778955901; x=1779560701;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :references:to:from:subject:user-agent:mime-version:date:message-id
-         :sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gnO5IioVzWSYwRbqhkh2raHko5bjhTUierG2nULceM0=;
-        b=itwt7C69WQ0p/Fr9E5TiJT7JjzRolEgYlCKBNZKedHZfYJ1Kw3uAWaMGWu2GNXySyh
-         Zwd6bxpAMCPjwTFI53xst1pV4EDGqCLMSLpdv+VUg7GFWAUsWg9HQi9Zm7O6Dad4+kp0
-         CZIjZb2df4BaKgIeUs55iay3nEnZ+g/szSn6aJmrvlbq8f2f40neWFGQoVfOc/e/qQK/
-         rd+jdYQtxiV/INzKR3K4FHYyh2GPHb6vBikxmMEKMAj03JwTS8eZEasMeMwDcJN3ZRKZ
-         Txe5PVkhMurpWAIKL9649He6xicS1Sfk3SyWWH0W2SdYIA9fXfhaSJ8F/szUAMCsqJdV
-         qIfA==
-X-Forwarded-Encrypted: i=1; AFNElJ8c4/icq0/uW4lX2QRdO8+jnAyEOjl+9zHHvR6BvXNI8nlvZFFoMiomtHEwxXItSfKYuN+syzGlNozv+b9XsCIa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwI3kVrx6iSENOJc7eCsz6TgqaqwHNJ+99qc0X9maFASNpXTGt+
-	V1Nxuxx4gmAH2iiBN5FMVtu+25O6rUv8JHYvALkSVoe4yYmKVMA8va+d
-X-Gm-Gg: Acq92OH8O7THGvM9Fh24bxwQfduT1wuPfGwJcUkcVh0LF6hC4a9apxnJ5oP8YR+C61Y
-	QFNBY6Jtw7poCrgTo5qwWva9wQz5XpQ7tQkp8U/5Fda8LU+d/7twfGzLmP0rjME7yTvumiFSqTl
-	DxF/UcfuXNfQ73IzEbMGc4ayDcNcvRPXtngtOIjFCEqdy6UvOIteWsMfdydZNHKjbaSC72ZVrP/
-	MbHe9oDctxGrtvl/BA/+0knTxJ6JY/6eVOQ85NgxgkeoccfyzojNr2sTEXTEcOjv4l7E30qjXLr
-	RDkR+PorJy4xm187vVW7pmXd6M1hpj0rk8r+Pd8E4lgr1uI6UWFHMithp/6XtJAO+DXZlQUmOYv
-	pydv3QlEbqnRO6hZYjvi8gWML2/6FvgjDxWkBtMuLuEBv6vzATn7h3K7KELxyr/SHd1xX/MYDiX
-	9ulK1MGzPlO50V9jHrucEePdcMj16rKBDEcdY4Pk5k6wwIqh1nOxK+rSB4JAFc1V1zJJfU+q+X
-X-Received: by 2002:a05:7301:608a:b0:2fc:9aa8:83da with SMTP id 5a478bee46e88-303986a03d0mr4032865eec.29.1778955900702;
-        Sat, 16 May 2026 11:25:00 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302978afdd3sm10300284eec.29.2026.05.16.11.24.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 16 May 2026 11:25:00 -0700 (PDT)
-Message-ID: <68c963ab-042f-496b-ae38-9f9584b3c427@roeck-us.net>
-Date: Sat, 16 May 2026 11:24:59 -0700
+	Sat, 16 May 2026 18:30:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72B521CDD;
+	Sat, 16 May 2026 11:30:46 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0575A3F85F;
+	Sat, 16 May 2026 11:30:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778956251; bh=qd/xGyy1flBlfaXhDHK+Ds4y1aU389ligvtTqKbtVIY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=qYLFM3NYxZOKEcRByQD888YKv9cDtPlQulAsDH4gYouxcbFBLRdhGGhXDB3q3Ks1G
+	 Mqy9/mVkoCVv4zHc5cnqAkD/b75zKUcg9YAUrrjuUWJW7zJRnghpbJ0gW9dAbK0wG+
+	 DFc6cd0oPWpJ7kJX0BclGN5uH3urGPG+NkUDiThU=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH v3 1/9] KVM: arm64: selftests: Add GPR save/restore functions for NV
+Date: Sat, 16 May 2026 19:29:55 +0100
+Message-ID: <20260516183003.799058-2-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260516183003.799058-1-weilin.chang@arm.com>
+References: <20260516183003.799058-1-weilin.chang@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] hwmon: raspberrypi: Add voltage input support
-From: Guenter Roeck <linux@roeck-us.net>
-To: Shubham Chakraborty <chakrabortyshubham66@gmail.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, linux-hwmon@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
- <20260516164407.25255-2-chakrabortyshubham66@gmail.com>
- <ff7bf6f8-0090-4aea-ba60-3477cc81a458@roeck-us.net>
-Content-Language: en-US
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <ff7bf6f8-0090-4aea-ba60-3477cc81a458@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_112501_769194_7C4B5FC0 
-X-CRM114-Status: GOOD (  32.57  )
+X-CRM114-CacheID: sfid-20260516_113053_965968_2F8279FF 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,222 +81,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/16/26 10:13, Guenter Roeck wrote:
-> On 5/16/26 09:44, Shubham Chakraborty wrote:
->> Extend the raspberrypi-hwmon driver to expose firmware-provided
->> voltage measurements through the hwmon subsystem.
->>
->> The driver now exports the following voltage inputs:
->>
->>    - in0_input (core)
->>    - in1_input (sdram_c)
->>    - in2_input (sdram_i)
->>    - in3_input (sdram_p)
->>
->> Voltage values returned by firmware are converted from microvolts
->> to millivolts as expected by the hwmon subsystem.
->>
->> The existing undervoltage sticky alarm handling is preserved and
->> associated with the first voltage channel.
->>
->> Tested in -
->> - Raspberry Pi 3b+ (Linux raspberrypi 6.12.75+rpt-rpi-v8 #1 SMP PREEMPT
->>    Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux)
->>
->> Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-> 
-> I wasn't copied on patch 1/2, so I have no idea what is in there
-> and how it is related to this patch. Either way it seems unlikely that
-> the new functionality is supported by all versions of Raspberry Pi supported
-> by this driver. Just returning an error when the user tries to read a sensor
-> that is not supported is unacceptable. This needs either evidence that the
-> sensors are supported by all board variants and firmware versions supported
-> by this driver, or the is_visible function needs to selectively enable the
-> supported sensors.
-> 
->> ---
->>   drivers/hwmon/raspberrypi-hwmon.c | 112 +++++++++++++++++++++++++++++-
-> 
-> Documentation/hwmon/raspberrypi-hwmon.rst needs to be updated as well.
-> 
->>   1 file changed, 109 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/hwmon/raspberrypi-hwmon.c b/drivers/hwmon/raspberrypi-hwmon.c
->> index a2938881ccd2..c73a970db025 100644
->> --- a/drivers/hwmon/raspberrypi-hwmon.c
->> +++ b/drivers/hwmon/raspberrypi-hwmon.c
->> @@ -5,6 +5,7 @@
->>    * Based on firmware/raspberrypi.c by Noralf Trønnes
->>    *
->>    * Copyright (C) 2018 Stefan Wahren <stefan.wahren@i2se.com>
->> + * Copyright (C) 2026 Shubham Chakraborty <chakrabortyshubham66@gmail.com>
->>    */
->>   #include <linux/device.h>
->>   #include <linux/devm-helpers.h>
->> @@ -18,6 +19,11 @@
->>   #define UNDERVOLTAGE_STICKY_BIT    BIT(16)
->> +struct rpi_firmware_get_value {
->> +    __le32 id;
->> +    __le32 val;
->> +} __packed;
->> +
+Adapt entry.S and hyp-entry.S from arch/arm64/kvm/hyp so that guest
+hypervisors can save and restore GPRs, and provide exception handlers
+to regain control after the nested guest exits. Other system register
+save/restore will be added later on demand.
 
-More feedback:
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ tools/testing/selftests/kvm/Makefile.kvm      |   3 +
+ .../selftests/kvm/include/arm64/nested.h      |  45 ++++++
+ tools/testing/selftests/kvm/lib/arm64/entry.S | 132 ++++++++++++++++++
+ .../selftests/kvm/lib/arm64/hyp-entry.S       |  77 ++++++++++
+ .../testing/selftests/kvm/lib/arm64/nested.c  |  12 ++
+ 5 files changed, 269 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
+ create mode 100644 tools/testing/selftests/kvm/lib/arm64/entry.S
+ create mode 100644 tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+ create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
 
-Why define this here but RPI_FIRMWARE_VOLT_ID_CORE etc. in the
-firmware API include file ? struct rpi_firmware_clk_rate_request
-is quite similar and defined (and documented) in the include file.
-
-Also, the name is quite generic, suggesting a common structure.
-rpi_firmware_clk_rate_request, as used for the clock, is much more
-specific. I would suggest to either use a single structure for all
-requests or clarify that this is for voltages only (i.e., name the
-structure and the returned value appropriately).
-
-Last but not least, please send both patches to the same set of people
-and mailing lists.
-
-Thanks,
-Guenter
-
->>   struct rpi_hwmon_data {
->>       struct device *hwmon_dev;
->>       struct rpi_firmware *fw;
->> @@ -56,6 +62,23 @@ static void rpi_firmware_get_throttled(struct rpi_hwmon_data *data)
->>       hwmon_notify_event(data->hwmon_dev, hwmon_in, hwmon_in_lcrit_alarm, 0);
->>   }
->> +static int rpi_firmware_get_voltage(struct rpi_hwmon_data *data, u32 id,
->> +                    long *val)
->> +{
->> +    struct rpi_firmware_get_value packet;
->> +    int ret;
->> +
->> +    packet.id = cpu_to_le32(id);
->> +    packet.val = 0;
->> +    ret = rpi_firmware_property(data->fw, RPI_FIRMWARE_GET_VOLTAGE,
->> +                    &packet, sizeof(packet));
->> +    if (ret)
->> +        return ret;
->> +
->> +    *val = le32_to_cpu(packet.val) / 1000;
->> +    return 0;
->> +}
->> +
->>   static void get_values_poll(struct work_struct *work)
->>   {
->>       struct rpi_hwmon_data *data;
->> @@ -77,19 +100,101 @@ static int rpi_read(struct device *dev, enum hwmon_sensor_types type,
->>   {
->>       struct rpi_hwmon_data *data = dev_get_drvdata(dev);
->> -    *val = !!(data->last_throttled & UNDERVOLTAGE_STICKY_BIT);
->> +    if (type == hwmon_in) {
->> +        switch (attr) {
->> +        case hwmon_in_input:
->> +            switch (channel) {
->> +            case 0:
->> +                return rpi_firmware_get_voltage(data,
->> +                        RPI_FIRMWARE_VOLT_ID_CORE,
->> +                        val);
->> +            case 1:
->> +                return rpi_firmware_get_voltage(data,
->> +                        RPI_FIRMWARE_VOLT_ID_SDRAM_C,
->> +                        val);
->> +            case 2:
->> +                return rpi_firmware_get_voltage(data,
->> +                        RPI_FIRMWARE_VOLT_ID_SDRAM_I,
->> +                        val);
->> +            case 3:
->> +                return rpi_firmware_get_voltage(data,
->> +                        RPI_FIRMWARE_VOLT_ID_SDRAM_P,
->> +                        val);
->> +            default:
->> +                return -EOPNOTSUPP;
->> +            }
->> +        case hwmon_in_lcrit_alarm:
->> +            if (channel == 0) {
->> +                *val = !!(data->last_throttled & UNDERVOLTAGE_STICKY_BIT);
->> +                return 0;
->> +            }
->> +            return -EOPNOTSUPP;
->> +        default:
->> +            return -EOPNOTSUPP;
->> +        }
->> +    }
->> +
->> +    return -EOPNOTSUPP;
->> +}
->> +
->> +static int rpi_read_string(struct device *dev, enum hwmon_sensor_types type,
->> +               u32 attr, int channel, const char **str)
->> +{
->> +    if (type == hwmon_in && attr == hwmon_in_label) {
->> +        switch (channel) {
->> +        case 0:
->> +            *str = "core";
->> +            return 0;
->> +        case 1:
->> +            *str = "sdram_c";
->> +            return 0;
->> +        case 2:
->> +            *str = "sdram_i";
->> +            return 0;
->> +        case 3:
->> +            *str = "sdram_p";
->> +            return 0;
->> +        default:
->> +            return -EOPNOTSUPP;
->> +        }
-> 
-> This can be implemented as string array.
-> 
->> +    }
->> +
->> +    return -EOPNOTSUPP;
->> +}
->> +
->> +static umode_t rpi_is_visible(const void *_data, enum hwmon_sensor_types type,
->> +                  u32 attr, int channel)
->> +{
->> +    if (type == hwmon_in) {
->> +        switch (attr) {
->> +        case hwmon_in_input:
->> +        case hwmon_in_label:
->> +            return 0444;
->> +        case hwmon_in_lcrit_alarm:
->> +            if (channel == 0)
->> +                return 0444;
->> +            return 0;
->> +        default:
->> +            return 0;
->> +        }
->> +    }
->> +
->>       return 0;
->>   }
->>   static const struct hwmon_channel_info * const rpi_info[] = {
->>       HWMON_CHANNEL_INFO(in,
->> -               HWMON_I_LCRIT_ALARM),
->> +               HWMON_I_INPUT | HWMON_I_LABEL | HWMON_I_LCRIT_ALARM,
->> +               HWMON_I_INPUT | HWMON_I_LABEL,
->> +               HWMON_I_INPUT | HWMON_I_LABEL,
->> +               HWMON_I_INPUT | HWMON_I_LABEL),
->>       NULL
->>   };
->>   static const struct hwmon_ops rpi_hwmon_ops = {
->> -    .visible = 0444,
->> +    .is_visible = rpi_is_visible,
->>       .read = rpi_read,
->> +    .read_string = rpi_read_string,
->>   };
->>   static const struct hwmon_chip_info rpi_chip_info = {
->> @@ -159,6 +264,7 @@ static struct platform_driver rpi_hwmon_driver = {
->>   module_platform_driver(rpi_hwmon_driver);
->>   MODULE_AUTHOR("Stefan Wahren <wahrenst@gmx.net>");
->> +MODULE_AUTHOR("Shubham Chakraborty <chakrabortyshubham66@gmail.com>");
->>   MODULE_DESCRIPTION("Raspberry Pi voltage sensor driver");
->>   MODULE_LICENSE("GPL v2");
->>   MODULE_ALIAS("platform:raspberrypi-hwmon");
-> 
-> 
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 98da9fa4b8b7..3dc3e39f7025 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -30,10 +30,13 @@ LIBKVM_x86 += lib/x86/svm.c
+ LIBKVM_x86 += lib/x86/ucall.c
+ LIBKVM_x86 += lib/x86/vmx.c
+ 
++LIBKVM_arm64 += lib/arm64/entry.S
+ LIBKVM_arm64 += lib/arm64/gic.c
+ LIBKVM_arm64 += lib/arm64/gic_v3.c
+ LIBKVM_arm64 += lib/arm64/gic_v3_its.c
+ LIBKVM_arm64 += lib/arm64/handlers.S
++LIBKVM_arm64 += lib/arm64/hyp-entry.S
++LIBKVM_arm64 += lib/arm64/nested.c
+ LIBKVM_arm64 += lib/arm64/processor.c
+ LIBKVM_arm64 += lib/arm64/spinlock.c
+ LIBKVM_arm64 += lib/arm64/ucall.c
+diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+new file mode 100644
+index 000000000000..86d931facacb
+--- /dev/null
++++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+@@ -0,0 +1,45 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * ARM64 Nested virtualization defines
++ */
++
++#ifndef SELFTEST_KVM_NESTED_H
++#define SELFTEST_KVM_NESTED_H
++
++#define ARM_EXCEPTION_IRQ	  0
++#define ARM_EXCEPTION_EL1_SERROR  1
++#define ARM_EXCEPTION_TRAP	  2
++#define ARM_EXCEPTION_IL	  3
++#define ARM_EXCEPTION_EL2_IRQ	  4
++#define ARM_EXCEPTION_EL2_SERROR  5
++#define ARM_EXCEPTION_EL2_TRAP	  6
++
++#ifndef __ASSEMBLER__
++
++#include <asm/ptrace.h>
++#include "kvm_util.h"
++
++extern char hyp_vectors[];
++
++struct cpu_context {
++	struct user_pt_regs regs;	/* sp = sp_el0 */
++};
++
++struct vcpu {
++	struct cpu_context context;
++};
++
++/*
++ * KVM has host_data and hyp_context, combine them because we're only doing
++ * hyp context.
++ */
++struct hyp_data {
++	struct cpu_context hyp_context;
++};
++
++u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
++void __hyp_exception(u64 type);
++
++#endif /* !__ASSEMBLER__ */
++
++#endif /* SELFTEST_KVM_NESTED_H */
+diff --git a/tools/testing/selftests/kvm/lib/arm64/entry.S b/tools/testing/selftests/kvm/lib/arm64/entry.S
+new file mode 100644
+index 000000000000..33bedf5e7fb2
+--- /dev/null
++++ b/tools/testing/selftests/kvm/lib/arm64/entry.S
+@@ -0,0 +1,132 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * adapted from arch/arm64/kvm/hyp/entry.S
++ */
++
++/*
++ * Manually define these for now
++ */
++// offsetof(struct vcpu, context)
++#define CPU_CONTEXT		0
++// offsetof(struct cpu_context, regs)
++#define CPU_USER_PT_REGS	0
++
++#define CPU_XREG_OFFSET(x)	(CPU_USER_PT_REGS + 8*x)
++#define CPU_LR_OFFSET		CPU_XREG_OFFSET(30)
++#define CPU_SP_EL0_OFFSET	(CPU_LR_OFFSET + 8)
++
++.macro save_callee_saved_regs ctxt
++	str	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
++	stp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
++	stp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
++	stp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
++	stp	x25, x26, [\ctxt, #CPU_XREG_OFFSET(25)]
++	stp	x27, x28, [\ctxt, #CPU_XREG_OFFSET(27)]
++	stp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
++.endm
++
++.macro restore_callee_saved_regs ctxt
++	ldr	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
++	ldp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
++	ldp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
++	ldp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
++	ldp	x25, x26, [\ctxt, #CPU_XREG_OFFSET(25)]
++	ldp	x27, x28, [\ctxt, #CPU_XREG_OFFSET(27)]
++	ldp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
++.endm
++
++.macro save_sp_el0 ctxt, tmp
++	mrs	\tmp,	sp_el0
++	str	\tmp,	[\ctxt, #CPU_SP_EL0_OFFSET]
++.endm
++
++.macro restore_sp_el0 ctxt, tmp
++	ldr	\tmp,	  [\ctxt, #CPU_SP_EL0_OFFSET]
++	msr	sp_el0, \tmp
++.endm
++
++/*
++ * u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
++ */
++.globl __guest_enter
++__guest_enter:
++	// x0: vcpu
++	// x1: hyp context
++
++	// Store vcpu and hyp context pointer on the stack
++	stp	x0, x1, [sp, #-16]!
++
++	// Store the hyp regs
++	save_callee_saved_regs x1
++
++	// Save hyp's sp_el0
++	save_sp_el0	x1, x2
++
++	// x29 = vCPU user pt regs
++	add	x29, x0, #CPU_CONTEXT
++
++	// Restore the guest's sp_el0
++	restore_sp_el0 x29, x0
++
++	// Restore guest regs x0-x17
++	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
++	ldp	x2, x3,   [x29, #CPU_XREG_OFFSET(2)]
++	ldp	x4, x5,   [x29, #CPU_XREG_OFFSET(4)]
++	ldp	x6, x7,   [x29, #CPU_XREG_OFFSET(6)]
++	ldp	x8, x9,   [x29, #CPU_XREG_OFFSET(8)]
++	ldp	x10, x11, [x29, #CPU_XREG_OFFSET(10)]
++	ldp	x12, x13, [x29, #CPU_XREG_OFFSET(12)]
++	ldp	x14, x15, [x29, #CPU_XREG_OFFSET(14)]
++	ldp	x16, x17, [x29, #CPU_XREG_OFFSET(16)]
++
++	// Restore guest regs x18-x29, lr
++	restore_callee_saved_regs x29
++
++	// Do not touch any register after this!
++	eret
++
++.globl __guest_exit
++__guest_exit:
++	// x0: return code
++	// x1: vcpu
++	// x2-x29,lr: vcpu regs
++	// vcpu x0-x1 on the stack
++
++	add	x1, x1, #CPU_CONTEXT
++
++	// Store the guest regs x2 and x3
++	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(2)]
++
++	// Retrieve the guest regs x0-x1 from the stack
++	ldp	x2, x3, [sp], #16	// x0, x1
++
++	// Store the guest regs x0-x1 and x4-x17
++	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(0)]
++	stp	x4, x5,   [x1, #CPU_XREG_OFFSET(4)]
++	stp	x6, x7,   [x1, #CPU_XREG_OFFSET(6)]
++	stp	x8, x9,   [x1, #CPU_XREG_OFFSET(8)]
++	stp	x10, x11, [x1, #CPU_XREG_OFFSET(10)]
++	stp	x12, x13, [x1, #CPU_XREG_OFFSET(12)]
++	stp	x14, x15, [x1, #CPU_XREG_OFFSET(14)]
++	stp	x16, x17, [x1, #CPU_XREG_OFFSET(16)]
++
++	// Store the guest regs x18-x29, lr
++	save_callee_saved_regs x1
++
++	// Store the guest's sp_el0
++	save_sp_el0	x1, x2
++
++	// At this point x0 and x1 on the stack is popped, so next is vCPU
++	// pointer, then hyp_context pointer
++	// *sp == vCPU, *(sp + 8) == hyp_context
++	// load x2 = hyp_context, x3 is just for ldp and popping sp
++	ldp	x3, x2, [sp], #16
++
++	// Restore hyp's sp_el0
++	restore_sp_el0 x2, x3
++
++	// Now restore the hyp regs
++	restore_callee_saved_regs x2
++
++	dsb	sy		// Synchronize against in-flight ld/st
++	ret
+diff --git a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+new file mode 100644
+index 000000000000..6341f6e05c90
+--- /dev/null
++++ b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+@@ -0,0 +1,77 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * adapted from arch/arm64/kvm/hyp/hyp-entry.S
++ */
++
++#include "nested.h"
++
++// skip over x0, x1 saved on entry, must be used only before the stack is modified
++.macro get_vcpu_ptr vcpu
++	ldr	\vcpu, [sp, #16]
++.endm
++
++	.text
++
++el1_sync:	// Guest trapped into EL2
++
++	get_vcpu_ptr	x1
++	mov	x0, #ARM_EXCEPTION_TRAP
++	b	__guest_exit
++
++el1_irq:
++el1_fiq:
++	get_vcpu_ptr	x1
++	mov	x0, #ARM_EXCEPTION_IRQ
++	b	__guest_exit
++
++el1_error:
++	get_vcpu_ptr	x1
++	mov	x0, #ARM_EXCEPTION_EL1_SERROR
++	b	__guest_exit
++
++el2_sync:
++	mov	x0, #ARM_EXCEPTION_EL2_TRAP
++	b	__hyp_exception
++
++el2_irq:
++el2_fiq:
++	mov	x0, #ARM_EXCEPTION_EL2_IRQ
++	b	__hyp_exception
++
++el2_error:
++	mov	x0, #ARM_EXCEPTION_EL2_SERROR
++	b	__hyp_exception
++
++
++	.ltorg
++
++	.align 11
++
++.globl hyp_vectors
++hyp_vectors:
++
++.macro exception_vector target
++	.align 7
++	stp	x0, x1, [sp, #-16]!
++	b	\target
++.endm
++
++	exception_vector	el2_sync	// Synchronous EL2t
++	exception_vector	el2_irq		// IRQ EL2t
++	exception_vector	el2_fiq		// FIQ EL2t
++	exception_vector	el2_error	// Error EL2t
++
++	exception_vector	el2_sync	// Synchronous EL2h
++	exception_vector	el2_irq		// IRQ EL2h
++	exception_vector	el2_fiq		// FIQ EL2h
++	exception_vector	el2_error	// Error EL2h
++
++	exception_vector	el1_sync	// Synchronous 64-bit EL1
++	exception_vector	el1_irq		// IRQ 64-bit EL1
++	exception_vector	el1_fiq		// FIQ 64-bit EL1
++	exception_vector	el1_error	// Error 64-bit EL1
++
++	exception_vector	el1_sync	// Synchronous 32-bit EL1
++	exception_vector	el1_irq		// IRQ 32-bit EL1
++	exception_vector	el1_fiq		// FIQ 32-bit EL1
++	exception_vector	el1_error	// Error 32-bit EL1
+diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+new file mode 100644
+index 000000000000..06ddaab2436f
+--- /dev/null
++++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * ARM64 Nested virtualization helpers
++ */
++
++#include "nested.h"
++#include "test_util.h"
++
++void __hyp_exception(u64 type)
++{
++	GUEST_FAIL("Unexpected hyp exception! type: %lx\n", type);
++}
+-- 
+2.43.0
 
 
