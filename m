@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF5FCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 05:58:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6848CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 05:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KqgTWcaswqYmRsjunoklaoEZOFxraEGlQyRNxLpwvgI=; b=xXj08WXrRkLhLIX4jZ0gj+GIGx
-	hAg9HZZqtW1Ob7lPTRVj+aL3MeHpaSwadNEPFp3xg5LOqxC/tSGJKk71oG6lwWf76bXr5PdSvSe6v
-	mWac6h053zR2QurOL9jVAfvn7eoOXDXd5vrmnk8N3nU6+OslxSZ3ENFyLzgl6SJSlNPlCDe1I4LaV
-	Aemv99/YJHtxtbbfPBmnTvOaMsh9npFKOrj8wCQQ2/TMKjapuy8GNaaNJC8UsZBoowSH78mJso2rS
-	yEHVsl8BOwlhe7hDp0+/EdZ+4yBlTrcb4HY7A3M8lH/V7agbcgeejWJqQAKW3JQjp+LFHOr56376+
-	NBQL208Q==;
+	bh=XH/WSpN0Ofgb7V077VoC2jFEzcBpxRIjw8jcRVcXqJM=; b=bOqzmTiJ6rXLmPIv3QdsaxG7tt
+	SbzI+KlfI7NSnGlvrFc+NnEQS/IbqmMbkGchpF7jCMVhAPDWgu5ZzT51heU8CtUSzA7xwIRk/1TSf
+	0Tglvv8KaA6wCDqv8wXvLz5T86CmwzPUf9P0SY9JhqB9jJ3p9VLx/H3Q133rTf2a1/dGcPhSxFhXs
+	ot3mdvrIya//nQy1lar4njfRaOd859OCnVmxCYS5Go455jBguEjPXo0GmrsapOyG2QkZS4waATG96
+	CSjP1tm4rC3CmKYTgHisNqTxTLkVzCaQrImDJ12fR58GaPqmyNBP8iYqkSNa7virTrie9/bIdCsp4
+	xFsLUJqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO82C-0000000ADr1-36uW;
-	Sat, 16 May 2026 05:58:00 +0000
+	id 1wO82F-0000000ADvY-0N8F;
+	Sat, 16 May 2026 05:58:03 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wO822-0000000ADdx-12VS;
-	Sat, 16 May 2026 05:57:51 +0000
+	id 1wO828-0000000ADnO-3pvs;
+	Sat, 16 May 2026 05:58:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E350E416E4;
-	Sat, 16 May 2026 05:57:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA35C2BCB8;
-	Sat, 16 May 2026 05:57:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DAC8241975;
+	Sat, 16 May 2026 05:57:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67C15C2BCB7;
+	Sat, 16 May 2026 05:57:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1778911069;
-	bh=wF2pJ3vMaKwyQTxGa3rV9B1A+KQihqa1V6eUSBBEtp8=;
+	s=k20201202; t=1778911074;
+	bh=TXblOyw4xqTUZlj938ntGPUamqR6+B49eQEtuY69Iu8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=crq2yQPmfBMfPcGY7dG/4DYfpN1y/zHdAzI7fsbNN2rOjbRKh8Dj5Sk95N23Ul8em
-	 B2TFadys3kY2WOO1uYV0zfHKqyB8v3SHDhVs8eJHZceTWrRuFd4VJ+Guxp4qxKV/ju
-	 nDFwRc146SM0RX+YLGlnk7o06Ha6OEOOVBd0x/5U5yv8vSxbUYen+QWbiINpuTfOyt
-	 R2Fk9sBfA2gNXs6jOiCf3jyfW806x4fTn4dLo8PrRWPX76+Y0DdVOe0XaB3CBPanDp
-	 hS87kvpJVNqbgtWgOvZufYlzctARxJomyeLWDmBgY0aaONpmv/kWBHXo1QTwv/C2RL
-	 uc3fczlMZiQmA==
+	b=D5dRy+mt+MrpEqdrOPhMZFtPAs/klM6nmCFzj7PqTmBLirOel76jS/jKDKyUzFhpa
+	 PRKK+lcbIY/Sp95YMIah7ietSYEK2XUx3h7trZqL2hH/N/dFY/3M3hZUTQl7EsNDis
+	 euQnD7wTuUr8rjaRIFged+Sps2bbpJCh9E2aHH3GDhbBGFdcHuIBjHJuYNJU40plFz
+	 aiXRZhZcwufNS2c/stNee71g3lDc+KeZBIbwr0ytODJDWiPZCijGFhEw1WCzsV2k52
+	 9dj37T3JpQDr/MTDZLoujtlvdvjMZ933/kmK8e0910Q+9zrUOUN6G8k2FbW5qsAOYK
+	 8PNTOpsGFjw4w==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 16 May 2026 07:57:10 +0200
-Subject: [PATCH net-next v7 08/10] net: airoha: Do not stop GDM port if it
- is shared
+Date: Sat, 16 May 2026 07:57:12 +0200
+Subject: [PATCH net-next v7 10/10] net: airoha: Support multiple LAN/WAN
+ interfaces for hw MAC address configuration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260516-airoha-eth-multi-serdes-v7-8-99e0093303e2@kernel.org>
+Message-Id: <20260516-airoha-eth-multi-serdes-v7-10-99e0093303e2@kernel.org>
 References: <20260516-airoha-eth-multi-serdes-v7-0-99e0093303e2@kernel.org>
 In-Reply-To: <20260516-airoha-eth-multi-serdes-v7-0-99e0093303e2@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -60,11 +60,11 @@ Cc: Christian Marangi <ansuelsmth@gmail.com>,
  Benjamin Larsson <benjamin.larsson@genexis.eu>, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Xuegang Lu <xuegang.lu@airoha.com>
+ Madhur Agrawal <madhur.agrawal@airoha.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260515_225750_346943_D0EA0A97 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20260515_225757_016834_A1D58B50 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,131 +79,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Theoretically, in the current codebase, two independent net_devices can
-be connected to the same GDM port so we need to check the GDM port is not
-used by any other running net_device before setting the forward
-configuration to FE_PSE_PORT_DROP.
-Moreover, always set in GDM_LONG_LEN_MASK field of REG_GDM_LEN_CFG
-register the maximum MTU of all running net_devices connected to the same
-GDM port.
+The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
+MAC addresses, used to determine whether received traffic is destined for
+this host or should be forwarded to another device.
+The SoC hardware design assumes all interfaces configured as LAN (or WAN)
+share a common upper MAC address, which is programmed into the
+REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses can
+be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
+registers.
+Previously, only a single interface was considered when programming these
+registers. Extend the logic to derive the correct minimum and maximum
+values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
+configured as LAN or WAN.
 
-Tested-by: Xuegang Lu <xuegang.lu@airoha.com>
+Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 55 +++++++++++++++++++++++++-------
- drivers/net/ethernet/airoha/airoha_eth.h |  1 +
- 2 files changed, 45 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/airoha/airoha_eth.c | 77 +++++++++++++++++++++++++++-----
+ drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
+ drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
+ 3 files changed, 68 insertions(+), 15 deletions(-)
 
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 8558790eca64..c70e3ace38e2 100644
+index 0540a73b2997..4e9843acc714 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.c
 +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1716,8 +1716,8 @@ static int airoha_dev_open(struct net_device *netdev)
- 	int err, len = ETH_HLEN + netdev->mtu + ETH_FCS_LEN;
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
-+	u32 cur_len, pse_port = FE_PSE_PORT_PPE1;
- 	struct airoha_qdma *qdma = dev->qdma;
--	u32 pse_port = FE_PSE_PORT_PPE1;
+@@ -71,20 +71,69 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
+ 	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
+ }
  
- 	netif_tx_start_all_queues(netdev);
- 	err = airoha_set_vip_for_gdm_port(dev, true);
-@@ -1731,10 +1731,20 @@ static int airoha_dev_open(struct net_device *netdev)
- 		airoha_fe_clear(qdma->eth, REG_GDM_INGRESS_CFG(port->id),
- 				GDM_STAG_EN_MASK);
- 
--	airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
--		      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
--		      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
--		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-+	cur_len = airoha_fe_get(qdma->eth, REG_GDM_LEN_CFG(port->id),
-+				GDM_LONG_LEN_MASK);
-+	if (!port->users || len > cur_len) {
-+		/* Opening a sibling net_device with a larger MTU updates the
-+		 * MTU of already running devices. This is required to allow
-+		 * multiple net_devices with different MTUs to share the same
-+		 * GDM port.
-+		 */
-+		airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
-+			      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
-+			      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
-+			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-+	}
-+	port->users++;
- 
- 	airoha_qdma_set(qdma, REG_QDMA_GLOBAL_CFG,
- 			GLOBAL_CFG_TX_DMA_EN_MASK |
-@@ -1757,6 +1767,7 @@ static int airoha_dev_stop(struct net_device *netdev)
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
- 	struct airoha_qdma *qdma = dev->qdma;
-+	u32 len = 0;
- 	int i;
- 
- 	netif_tx_disable(netdev);
-@@ -1764,8 +1775,25 @@ static int airoha_dev_stop(struct net_device *netdev)
- 	for (i = 0; i < netdev->num_tx_queues; i++)
- 		netdev_tx_reset_subqueue(netdev, i);
- 
--	airoha_set_gdm_port_fwd_cfg(qdma->eth, REG_GDM_FWD_CFG(port->id),
--				    FE_PSE_PORT_DROP);
-+	for (i = 0; i < ARRAY_SIZE(port->devs); i++) {
-+		struct net_device *n;
+-static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
++static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
+ {
++	u8 ref_addr[ETH_ALEN] __aligned(2);
+ 	struct airoha_eth *eth = dev->eth;
+-	u32 val, reg;
++	u32 reg, val, lmin, lmax;
++	int i;
 +
-+		if (!port->devs[i])
++	eth_zero_addr(ref_addr);
++	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
++	lmax = lmin;
++
++	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
++		struct airoha_gdm_port *port = eth->ports[i];
++		int j;
++
++		if (!port)
 +			continue;
 +
-+		n = port->devs[i]->dev;
-+		if (netif_running(n))
-+			len = max_t(u32, len, n->mtu);
-+	}
-+	len += ETH_HLEN + ETH_FCS_LEN;
-+	airoha_fe_rmw(qdma->eth, REG_GDM_LEN_CFG(port->id),
-+		      GDM_LONG_LEN_MASK,
-+		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
++		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
++			struct airoha_gdm_dev *iter_dev;
++			struct net_device *netdev;
 +
-+	if (!--port->users)
-+		airoha_set_gdm_port_fwd_cfg(qdma->eth,
-+					    REG_GDM_FWD_CFG(port->id),
-+					    FE_PSE_PORT_DROP);
++			iter_dev = port->devs[j];
++			if (!iter_dev || iter_dev == dev)
++				continue;
++
++			if (airoha_is_lan_gdm_dev(iter_dev) !=
++			    airoha_is_lan_gdm_dev(dev))
++				continue;
++
++			netdev = iter_dev->dev;
++			if (netdev->reg_state != NETREG_REGISTERED)
++				continue;
++
++			ether_addr_copy(ref_addr, netdev->dev_addr);
++			val = (netdev->dev_addr[3] << 16) |
++			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
++			if (val < lmin)
++				lmin = val;
++			if (val > lmax)
++				lmax = val;
++		}
++	}
++
++	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
++		/* According to the HW design, hw mac address MS bits
++		 * must be the same for each net_device with the same
++		 * LAN/WAN configuration.
++		 */
++		netdev_err(dev->dev, "wrong mac addr for shared GDM port\n");
++		return -EINVAL;
++	}
  
- 	if (atomic_dec_and_test(&qdma->users)) {
- 		airoha_qdma_clear(qdma, REG_QDMA_GLOBAL_CFG,
-@@ -1917,13 +1945,18 @@ static void airoha_dev_get_stats64(struct net_device *netdev,
- static int airoha_dev_change_mtu(struct net_device *netdev, int mtu)
+ 	reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_H;
+ 	val = (addr[0] << 16) | (addr[1] << 8) | addr[2];
+ 	airoha_fe_wr(eth, reg, val);
+ 
+-	val = (addr[3] << 16) | (addr[4] << 8) | addr[5];
+-	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
+-	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
++	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
++	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
+ 
+-	airoha_ppe_init_upd_mem(dev);
++	airoha_ppe_init_upd_mem(dev, addr);
++
++	return 0;
+ }
+ 
+ static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
+@@ -1814,13 +1863,18 @@ static int airoha_dev_stop(struct net_device *netdev)
+ static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
  {
  	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	u32 cur_len, len = ETH_HLEN + mtu + ETH_FCS_LEN;
- 	struct airoha_gdm_port *port = dev->port;
--	u32 len = ETH_HLEN + mtu + ETH_FCS_LEN;
- 	struct airoha_eth *eth = dev->eth;
++	struct sockaddr *addr = p;
+ 	int err;
  
--	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(port->id),
--		      GDM_LONG_LEN_MASK,
--		      FIELD_PREP(GDM_LONG_LEN_MASK, len));
-+	cur_len = airoha_fe_get(eth, REG_GDM_LEN_CFG(port->id),
-+				GDM_LONG_LEN_MASK);
-+	if (len > cur_len || !port->users ||
-+	    (port->users == 1 && netif_running(netdev)))
-+		airoha_fe_rmw(eth, REG_GDM_LEN_CFG(port->id),
-+			      GDM_LONG_LEN_MASK,
-+			      FIELD_PREP(GDM_LONG_LEN_MASK, len));
+-	err = eth_mac_addr(netdev, p);
++	err = eth_prepare_mac_addr_change(netdev, p);
+ 	if (err)
+ 		return err;
+ 
+-	airoha_set_macaddr(dev, netdev->dev_addr);
++	err = airoha_set_macaddr(dev, addr->sa_data);
++	if (err)
++		return err;
 +
- 	WRITE_ONCE(netdev->mtu, mtu);
++	eth_commit_mac_addr_change(netdev, p);
  
  	return 0;
+ }
+@@ -1925,6 +1979,7 @@ static int airoha_dev_init(struct net_device *netdev)
+ {
+ 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
+ 	struct airoha_gdm_port *port = dev->port;
++	int err;
+ 
+ 	switch (port->id) {
+ 	case AIROHA_GDM3_IDX:
+@@ -1949,12 +2004,12 @@ static int airoha_dev_init(struct net_device *netdev)
+ 	}
+ 
+ 	airoha_dev_set_qdma(dev);
+-	airoha_set_macaddr(dev, netdev->dev_addr);
++	err = airoha_set_macaddr(dev, netdev->dev_addr);
++	if (err)
++		return err;
+ 
+ 	if (!airoha_is_lan_gdm_dev(dev) &&
+ 	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
+-		int err;
+-
+ 		err = airoha_set_gdm2_loopback(dev);
+ 		if (err)
+ 			return err;
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index fc49f0049983..32633d84f7d2 100644
+index a2241520f2e2..364ca76eb3a6 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.h
 +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -555,6 +555,7 @@ struct airoha_gdm_dev {
- struct airoha_gdm_port {
- 	struct airoha_gdm_dev *devs[AIROHA_MAX_NUM_GDM_DEVS];
- 	int id;
-+	int users;
+@@ -684,7 +684,7 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
+ int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
+ int airoha_ppe_init(struct airoha_eth *eth);
+ void airoha_ppe_deinit(struct airoha_eth *eth);
+-void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev);
++void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr);
+ u32 airoha_ppe_get_total_num_entries(struct airoha_ppe *ppe);
+ struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
+ 						  u32 hash);
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 194cd50b2c74..531ce33528b9 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1482,12 +1482,10 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
+ 	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
+ }
  
- 	struct airoha_hw_stats stats;
+-void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev)
++void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr)
+ {
+ 	struct airoha_gdm_port *port = dev->port;
+-	struct net_device *netdev = dev->dev;
+ 	struct airoha_eth *eth = dev->eth;
+-	const u8 *addr = netdev->dev_addr;
+ 	u32 val;
  
+ 	val = (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5];
 
 -- 
 2.54.0
