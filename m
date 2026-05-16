@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 179A1CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:40:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99346CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vw23cGc0SB8mW0jx69+yUGKp7a1je/y9C5lDAkaYNQ8=; b=M0FYBFyHd1hrGKX590mk13VgtZ
-	cb6Y7fQU1SYFX0siqGS6j6FLRH/LKD8ks7XV5aCb9VhNznc9Lls95lTIS8DcV6Ia56hJNzUmE4Yx1
-	zKkTiGowvq4vmaSxjv5YcibbIivj6Txj10wUm8mAtQihIzVqDkxQa22h2lxM10aRvF6PC+9gj9CSo
-	lF/o94EfotsecEhlx7IFLf0MyQHEfUOVgV6zdNlyDsZDfu5nTys3tXAHSSMAeZMDnGDkPWu8ktKtw
-	59Ql8/13n9TKWJZW1ZtDR/ou2sbfa0ntj+rOKNNTJ7cEDOM16wzTM2X1+DHfCSUk2rpMRLQXH3O44
-	uw0lHl2g==;
+	bh=kFmdEA7lLMUeMCYib0u0AXUGOtneg4blGy8SvPLQFtU=; b=1aA5gHKWo2x4P1AMXvlxkUbiI/
+	m0WmBhpnKugB7w5KDVjh8OnCAVZ6Nhol01e9DjkLJcagJmTM9+fE3hFEvym9QBEhLrmAup+y8YJ3U
+	umYpNcnhw2MuAI5Zak/ANCYLdVly+Ev+EkwLRQSyof0vFhsGlCaKuR4mvKQPMF33TpOo67o0g88JK
+	Jl2aAO6E3VQo+ziPraBesbDqLyiLMovh3LVQ4KYVSKpTO8qTEGsaLhtMtXO69Dzb+jpYymnlKdUE6
+	pomh8eGixsOWPIV9jNKk+cYFMkoVtcqtUBRv6xAk2XT6fjjJr9FZ6MEADO/+R+zhfs7j3LM9pvIaB
+	vRLonlyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJve-0000000BG1j-23Md;
-	Sat, 16 May 2026 18:40:02 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1wOJvm-0000000BGH5-2Q28;
+	Sat, 16 May 2026 18:40:10 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJvV-0000000BFZK-2a8v
+	id 1wOJvX-0000000BFnm-3cMA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:39:58 +0000
+	Sat, 16 May 2026 18:40:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778956788; bh=vw23cGc0SB8mW0jx69+yUGKp7a1je/y9C5lDAkaYNQ8=;
- b=yg4j/WIE0q1X5Xjo67BXvGkdtMOBpU7oKI8g2dyYtsrBFAj7Sk4jY+X1EIydddz3mf0RqeDES
- HD9ivAMFZljqBFitjbJCrmrX+7wn4YgxC1R1guJ9u0Z9HtBFil5anUeqF13q0s8Sn5IrlyvvlHV
- yq94BQmkPRcKmxbZDRlKUwqR3tOcFCNKB89R/lyr4aoI5LoyMah8xrUcfkMjjDYbKo4wx/Mvg2u
- WKmpwqjNRKMYbLrjlX7jKo2jbYv3rchMvW3Sf0ZnbS7KbhyO13P+Ffe5I5AQwcD8bTz1ozIz69v
- Z6MRRc7pu9D47QYkhSvplGpmbPL7KfSK411JEkS23edQ==
-X-Forward-Email-ID: 6a08b9ec79c7625f20eeee6c
+ t=1778956795; bh=kFmdEA7lLMUeMCYib0u0AXUGOtneg4blGy8SvPLQFtU=;
+ b=tvPyjnEcEmKy8mgCeI5xfsyosQ0e+gAwv3fk/c+1HpaQGRYrsiDYj94h96ml8ZuHU/pm8Wnek
+ 4z6OYdRlAc7v01X/vhcwkjdcz+bImvxrOdxB+n1thtrOnzLtF9L0X6ZTCuFHTQUWmUMCWrXz7U0
+ sjXTRlYsG4/tfIbQelZzJVZfSIDtgl9R3CW07psnKLn+rYK4k81SD1ji1QuHiZfqsLBXZwfU0mo
+ MWrpIyAqxKjeL8hdLLSIcNTTWfnqckxbeV8ldfQy3CZGAFUsGn2G3rFZJooflyn4PVqfpGo10pn
+ PWJcDjuL1vrbpOu70SlmCvX0N+xp3q5YM85RYYv5Q3Gg==
+X-Forward-Email-ID: 6a08b9f479c7625f20eeeea4
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
+ 121.127.44.66
 X-Forward-Email-Version: 2.8.12
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -73,17 +73,18 @@ Cc: Liu Ying <victor.liu@nxp.com>,
 	linux-sunxi@lists.linux.dev,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 13/22] drm: bridge: dw_hdmi: Use generic CEC notifier helpers
-Date: Sat, 16 May 2026 18:38:23 +0000
-Message-ID: <20260516183838.2024991-14-jonas@kwiboo.se>
+Subject: [PATCH v6 15/22] drm: bridge: dw_hdmi: Declare bridge CEC notifier support
+Date: Sat, 16 May 2026 18:38:25 +0000
+Message-ID: <20260516183838.2024991-16-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260516183838.2024991-1-jonas@kwiboo.se>
 References: <20260516183838.2024991-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_113954_387139_AE7158BD 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20260516_113956_093093_E6E509B1 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,126 +99,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit 8b1a8f8b2002 ("drm/display: add CEC helpers code") added
-generic CEC helpers to be used by HDMI drivers.
+EDID and CEC phys addr is now being updated in bridge detect() func,
+making it possible to have CEC notifier support using the bridge
+connector.
 
-Replace the open-coded CEC notifier handling with use of the generic CEC
-notifier helpers. Ensure DRM_DISPLAY_HDMI_CEC_NOTIFIER_HELPER is also
-selected when DRM_DW_HDMI_CEC is enabled so that the CEC helpers is
-available.
+Add the CEC notifier bridge op to instruct the bridge connector to make
+use of the generic CEC notifier helpers.
 
-The drmm release action for the generic CEC notifier should run just
-before dw_hdmi_connector_destroy(), closely matching the lifetime of
-the replaced CEC notifier and the connector.
-
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # Rock64, RockPro64, Quartz64-B
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
-v6: Update commit message,
-    Collect t-b tag
-v5: Collect r-b tag
-v4: New patch
+v6: New patch
 ---
- drivers/gpu/drm/bridge/synopsys/Kconfig   |  1 +
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 26 +++++------------------
- 2 files changed, 6 insertions(+), 21 deletions(-)
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/Kconfig b/drivers/gpu/drm/bridge/synopsys/Kconfig
-index a46df7583bcf..e6723af03b43 100644
---- a/drivers/gpu/drm/bridge/synopsys/Kconfig
-+++ b/drivers/gpu/drm/bridge/synopsys/Kconfig
-@@ -49,6 +49,7 @@ config DRM_DW_HDMI_CEC
- 	depends on DRM_DW_HDMI
- 	select CEC_CORE
- 	select CEC_NOTIFIER
-+	select DRM_DISPLAY_HDMI_CEC_NOTIFIER_HELPER
- 	help
- 	  Support the CE interface which is part of the Synopsys
- 	  Designware HDMI block.
 diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index a4ecf830103d..2bb043d64b65 100644
+index 3649ccf8d994..1402b3963ae1 100644
 --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
 +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -23,12 +23,11 @@
- #include <linux/dma-mapping.h>
- #include <linux/spinlock.h>
+@@ -3537,6 +3537,9 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
+ 		pdevinfo.dma_mask = 0;
  
--#include <media/cec-notifier.h>
--
- #include <linux/media-bus-format.h>
- #include <linux/videodev2.h>
- 
- #include <drm/bridge/dw_hdmi.h>
-+#include <drm/display/drm_hdmi_cec_helper.h>
- #include <drm/display/drm_hdmi_helper.h>
- #include <drm/display/drm_scdc_helper.h>
- #include <drm/drm_atomic.h>
-@@ -189,8 +188,6 @@ struct dw_hdmi {
- 	void (*enable_audio)(struct dw_hdmi *hdmi);
- 	void (*disable_audio)(struct dw_hdmi *hdmi);
- 
--	struct cec_notifier *cec_notifier;
--
- 	hdmi_codec_plugged_cb plugged_cb;
- 	struct device *codec_dev;
- 	enum drm_connector_status last_connector_result;
-@@ -2475,7 +2472,7 @@ dw_hdmi_connector_status_update(struct dw_hdmi *hdmi,
- 
- 	if (status == connector_status_disconnected) {
- 		drm_edid_connector_update(connector, NULL);
--		cec_notifier_phys_addr_invalidate(hdmi->cec_notifier);
-+		drm_connector_cec_phys_addr_invalidate(connector);
- 		return;
+ 		hdmi->cec = platform_device_register_full(&pdevinfo);
++
++		hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI_CEC_NOTIFIER;
++		hdmi->bridge.hdmi_cec_dev = hdmi->dev;
  	}
  
-@@ -2484,8 +2481,7 @@ dw_hdmi_connector_status_update(struct dw_hdmi *hdmi,
- 	drm_edid_free(drm_edid);
- 
- 	if (status == connector_status_connected)
--		cec_notifier_set_phys_addr(hdmi->cec_notifier,
--				connector->display_info.source_physical_address);
-+		drm_connector_cec_phys_addr_set(connector);
- }
- 
- static enum drm_connector_status
-@@ -2547,9 +2543,6 @@ static void dw_hdmi_connector_destroy(struct drm_connector *connector)
- {
- 	struct dw_hdmi *hdmi = container_of(connector, struct dw_hdmi, connector);
- 
--	cec_notifier_conn_unregister(hdmi->cec_notifier);
--	hdmi->cec_notifier = NULL;
--
- 	drm_connector_cleanup(connector);
- 	drm_bridge_put(&hdmi->bridge);
- }
-@@ -2572,8 +2565,6 @@ static const struct drm_connector_helper_funcs dw_hdmi_connector_helper_funcs =
- static int dw_hdmi_connector_create(struct dw_hdmi *hdmi)
- {
- 	struct drm_connector *connector = &hdmi->connector;
--	struct cec_connector_info conn_info;
--	struct cec_notifier *notifier;
- 	int ret;
- 
- 	if (hdmi->version >= 0x200a)
-@@ -2609,15 +2600,8 @@ static int dw_hdmi_connector_create(struct dw_hdmi *hdmi)
- 
- 	drm_connector_attach_encoder(connector, hdmi->bridge.encoder);
- 
--	cec_fill_conn_info_from_drm(&conn_info, connector);
--
--	notifier = cec_notifier_conn_register(hdmi->dev, NULL, &conn_info);
--	if (!notifier)
--		return -ENOMEM;
--
--	hdmi->cec_notifier = notifier;
--
--	return 0;
-+	return drmm_connector_hdmi_cec_notifier_register(connector, NULL,
-+							 hdmi->dev);
- }
- 
- /* -----------------------------------------------------------------------------
+ 	drm_bridge_add(&hdmi->bridge);
 -- 
 2.54.0
 
