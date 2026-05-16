@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2108CCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 251E8CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 19:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzQjq+GGRQqfce6EUYGeN5kQw9vs5xdAGY4Ni0qtU2U=; b=pH+gDRFdqrHDR0mw6pCKhteTgP
-	r/LKBPaD4mT8aqfnfz2T9fYiGChRRX0NYC7JNErqT4le5aw+pEOvkhgiG5HJO0nYQdzF3NG4poogp
-	6yeisTq3LFl+nqV9CASA8MU13n7gx4GUYqcMnZLY5MIgkQIc9LWV8RwJyY7nP1coBIKmnVX6B2JY/
-	OhGA/TGRouG6Gv7NB+ruOw8TsuXyjTcp8mQwOVvLCPt+ei9BAC1GNN+0yQj3Jqon3EA724ujRDA7e
-	nZeYIYOqivnyF4p9SJbAdxV5IWXAnhh6CmmsVtLC5eHtCg+mUADKd4XplQDZ2EPfEpG8U32DosAMw
-	14j27I/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dMYBSS6uvJz9TFfEdTC5YuKiSD9nmdVnS+QqAnemMa8=; b=WmUweO6Bi3HcV6c/cRmelBDFHd
+	wSWMs3whvwttcQDKEGOS0pr2Q01MCwl7x9TK6AWaegJywdbZDQJaqMus+mXyHvOv+6WSt0nm7y1wW
+	4wojd363aY/7upl9hSgqZfhsp8pVcSZOXafoPf277LwirughsM/t2PUF16Hk2X0vpcIusCZ/n2Vde
+	CUmxDqC++rjQRxdayCrKnWh10ag4LnFit+uydAMYw74u+gpSJoY1SqsgDLp/CldvJmfcsTg0WnQjJ
+	HWNiizDzgNDHnvYPp6ae0JZT8lf2sRYQoTmx1JLMKt5Vcmf5PsiA6gYH1t8P8Bl5gJYrJPLQJm8I0
+	KbpMEkmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOK6N-0000000BJ1G-1Omq;
-	Sat, 16 May 2026 18:51:07 +0000
-Received: from smtp.forwardemail.net ([121.127.44.66])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOK6J-0000000BIyG-2Ia1
+	id 1wOKIJ-0000000BKMD-1QUO;
+	Sat, 16 May 2026 19:03:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOKIG-0000000BKLW-0T6d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:51:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1778957463; bh=CzQjq+GGRQqfce6EUYGeN5kQw9vs5xdAGY4Ni0qtU2U=;
- b=tmXXcstftpbbeJCvXW1XBBDmHTNbG0iAcCQAbEakAcyh5f6bZ1nIRwUbeichFXag2/ErCvoUU
- aWgnEb47DEC6mhjMIiO0WqPGOA02hzuERQ193k1H5CjcWR7JxYR/aySWNgIo52MSsA7MPw3qpjU
- obYPPYIrU4BoiqEO8LlITZY8FLfE+Ys1X97K/lNz/jv7nj0536ffr011lzcILV+sW7e4UBLNKtJ
- k7y8sGCaEI/MDpTywB1st5WO9h8UvMyha+hnxPj0gdshGfh4RxKptz3eaEYOEQuBfiC1WhdPkxL
- UtVr35idtSZrIhRp9J106fNKHeR9wYtQK9K29/Wx/W2Q==
-X-Forward-Email-ID: 6a08ba0579c7625f20eeef14
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.8.12
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>
-Cc: Liu Ying <victor.liu@nxp.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Christian Hewitt <christianshewitt@gmail.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 19/22] drm: bridge: dw_hdmi: Rework HDP and RXSENSE interrupt handling
-Date: Sat, 16 May 2026 18:38:29 +0000
-Message-ID: <20260516183838.2024991-20-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260516183838.2024991-1-jonas@kwiboo.se>
-References: <20260516183838.2024991-1-jonas@kwiboo.se>
+	Sat, 16 May 2026 19:03:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 852A71BF3;
+	Sat, 16 May 2026 12:03:16 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A5BAD3F836;
+	Sat, 16 May 2026 12:03:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1778958201; bh=gB3J/Pwl7OFwPGscVPQK4fMkVyeyBjpwMv4fFHoJYrU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TPeOxhBQlu+nr2mRSHd0tao0teVAcEZJd0M1VJxdqsNGZ1onIBMLLYe+tcBPcdyLM
+	 ttVa1CC5ezesqsCQ1EXEQZCKjO9N2vPCX1w5esJRu57UOecex04gynBEPkpLHOt869
+	 18aCl+zSB68jOLwUJa79fHLfYeclRCP9pAORhSN4=
+Date: Sat, 16 May 2026 20:03:10 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Joey Gouly <joey.gouly@arm.com>, Steffen Eiden <seiden@linux.ibm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] Enable stage 2 translation in L2
+Message-ID: <y4klyr6p2gt7acnxxl2jlyv5euvcyxcibrekz7zr23v6nmxhqx@y7yh3qibz276>
+References: <20260515-enable-s2-hello_nested-v1-1-41f3faca1a08@fujitsu.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260515-enable-s2-hello_nested-v1-1-41f3faca1a08@fujitsu.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_115103_686593_82E8AE0F 
-X-CRM114-Status: GOOD (  25.51  )
+X-CRM114-CacheID: sfid-20260516_120324_240643_9AC031F9 
+X-CRM114-Status: GOOD (  31.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,287 +72,508 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit aeac23bda87f ("drm: bridge/dw_hdmi: improve HDMI
-enable/disable handling") added use of PHY RXSENSE indications to avoid
-triggering a full enable/disable of the HDMI block when a sink use a HPD
-low voltage level pulse to indicate changes of the EDID.
+On Fri, May 15, 2026 at 10:48:05AM +0900, Itaru Kitayama wrote:
+> IPA size and start level are configurable at build time.
 
-HDMI Specification Version 1.4b chapter 8.5 mentions:
+Hi Itaru,
 
-  An HDMI Sink shall indicate any change to the contents of the E-EDID
-  by driving a low voltage level pulse on the Hot Plug Detect pin. This
-  pulse shall be at least 100 msec.
+Thanks for the effort, and sorry for not making the next version for so
+long.
 
-A delayed work is now used to debounce reacting on a HPD low voltage
-level pulse when a sink changes the EDID. The delayed work triggers a
-hotplug uevent every time the connection status or EDID has changed.
+There are a few issues with this. Firstly, my patches aren't accepted
+yet, therefore your code which builds on top of that shouldn't be posted
+independently. Second, the commit message is giving too little
+information about the change, which is non-trivial.
 
-Remove RXSENSE handling to simplify the HPD interrupt handling and
-instead depend on the delayed work to detect any connection status or
-EDID changes.
+In terms of the changes themselves, see below.
 
-This also ensures the initial HPD interrupt polarity is based on current
-HPD status to avoid an unnecessary interrupt from being triggered
-immediately at probe or resume when a sink is connected.
+> 
+> Signed-off-by: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> ---
+> Enable stage 2 translation in L2, but keep stage 1 remain off
+> as Wei Lin prefers. Types are changed accordingly due to the
+> recent selftest-wide changes.
+> ---
+>  tools/testing/selftests/kvm/arm64/hello_nested.c   |  11 +-
+>  tools/testing/selftests/kvm/include/arm64/nested.h |  38 ++-
+>  tools/testing/selftests/kvm/lib/arm64/hyp-entry.S  |   5 +
+>  tools/testing/selftests/kvm/lib/arm64/nested.c     | 279 ++++++++++++++++++++-
+>  4 files changed, 322 insertions(+), 11 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/hello_nested.c b/tools/testing/selftests/kvm/arm64/hello_nested.c
+> index 69f4d8e750e2..1ac045894b89 100644
+> --- a/tools/testing/selftests/kvm/arm64/hello_nested.c
+> +++ b/tools/testing/selftests/kvm/arm64/hello_nested.c
+> @@ -18,9 +18,9 @@
+>  /*
+>   * TPIDR_EL2 is used to store vcpu id, so save and restore it.
+>   */
+> -static vm_paddr_t ucall_translate_to_gpa(void *gva)
+> +static gpa_t ucall_translate_to_gpa(void *gva)
+>  {
+> -	vm_paddr_t gpa;
+> +	gpa_t gpa;
+>  	u64 vcpu_id = read_sysreg(tpidr_el2);
+>  
+>  	GUEST_SYNC2(XLATE2GPA, gva);
+> @@ -50,7 +50,7 @@ static void guest_code(void)
+>  	struct vcpu vcpu;
+>  	struct hyp_data hyp_data;
+>  	int ret;
+> -	vm_paddr_t l2_pc, l2_stack_top;
+> +	gpa_t l2_pc, l2_stack_top;
+>  	/* force 16-byte alignment for the stack pointer */
+>  	u8 l2_stack[L2STACKSZ] __attribute__((aligned(16)));
+>  	u64 arg1, arg2;
+> @@ -92,7 +92,7 @@ int main(void)
+>  	struct kvm_vcpu *vcpu;
+>  	struct kvm_vm *vm;
+>  	struct ucall uc;
+> -	vm_paddr_t gpa;
+> +	gpa_t gpa;
+>  
+>  	TEST_REQUIRE(kvm_check_cap(KVM_CAP_ARM_EL2));
+>  	vm = vm_create(1);
+> @@ -102,13 +102,14 @@ int main(void)
+>  	vcpu = aarch64_vcpu_add(vm, 0, &init, guest_code);
+>  	kvm_arch_vm_finalize_vcpus(vm);
+>  
+> +	prepare_hyp_state(vm, vcpu);
+>  	while (true) {
+>  		vcpu_run(vcpu);
+>  
+>  		switch (get_ucall(vcpu, &uc)) {
+>  		case UCALL_SYNC:
+>  			if (uc.args[0] == XLATE2GPA) {
+> -				gpa = addr_gva2gpa(vm, (vm_vaddr_t)uc.args[1]);
+> +				gpa = addr_gva2gpa(vm, (gva_t)uc.args[1]);
+>  				vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL2), gpa);
+>  			}
+>  			break;
+> diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
+> index b16a72488858..b4ccca3593db 100644
+> --- a/tools/testing/selftests/kvm/include/arm64/nested.h
+> +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
+> @@ -18,14 +18,44 @@
+>  
+>  #include <asm/ptrace.h>
+>  #include "kvm_util.h"
+> +#include "processor.h"
+>  
+>  extern char hyp_vectors[];
+>  
+> +#ifdef CONFIG_ARM64_64K_PAGES
+> +
+> +#define VTCR_EL2_TGRAN                  64K
+> +#define VTCR_EL2_TGRAN_SL0_BASE         3UL
+> +
+> +#elif defined(CONFIG_ARM64_16K_PAGES)
+> +
+> +#define VTCR_EL2_TGRAN                  16K
+> +#define VTCR_EL2_TGRAN_SL0_BASE         3UL
+> +
+> +#else   /* 4K */
+> +
+> +#define VTCR_EL2_TGRAN                  4K
+> +#define VTCR_EL2_TGRAN_SL0_BASE         2UL
+> +
+> +#endif
+> +
+> +struct s2_config {
+> +	u64 granule;
+> +	u8 ia_bits;
+> +	u8 oa_bits;
+> +	u8 start_level;
+> +};
+> +
+> +u64 get_l1_vtcr(const struct s2_config *cfg);
+> +
+> +void nested_map(struct kvm_vm *vm, const struct s2_config *cfg, gpa_t guest_pgd, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
+> +void nested_map_memslot(struct kvm_vm *vm, const struct s2_config *cfg, gpa_t guest_pgd, u32 memslot);
+> +
+>  enum vcpu_sysreg {
+>  	__INVALID_SYSREG__,   /* 0 is reserved as an invalid value */
+>  
+>  	SP_EL1,
+> -
+> +	ESR_EL2,
+>  	NR_SYS_REGS
+>  };
+>  
+> @@ -47,12 +77,14 @@ struct hyp_data {
+>  };
+>  
+>  void prepare_hyp(void);
+> -void init_vcpu(struct vcpu *vcpu, vm_paddr_t l2_pc, vm_paddr_t l2_stack_top);
+> +void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top);
+>  int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
+>  
+>  u64 do_hvc(u64 action, u64 arg1, u64 arg2);
+> +u64 vcpu_get_esr_el2(struct vcpu *vcpu);
+> +
+>  u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
+> -void __hyp_exception(u64 type);
+> +void __hyp_exception(u64 type, u64 esr, u64 elr, u64 far, u64 hpfar, u64 spsr);
+>  
+>  void __sysreg_save_el1_state(struct cpu_context *ctxt);
+>  void __sysreg_restore_el1_state(struct cpu_context *ctxt);
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+> index 6341f6e05c90..fcf7bb303b77 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+> +++ b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
+> @@ -30,6 +30,11 @@ el1_error:
+>  	b	__guest_exit
+>  
+>  el2_sync:
+> +	mrs	x1, esr_el2
+> +	mrs	x2, elr_el2
+> +	mrs	x3, far_el2
+> +	mrs	x4, hpfar_el2
+> +	mrs	x5, spsr_el2
+>  	mov	x0, #ARM_EXCEPTION_EL2_TRAP
+>  	b	__hyp_exception
+>  
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> index b30d20b101c4..104c98d29eb9 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/nested.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
+> @@ -7,15 +7,269 @@
+>  #include "processor.h"
+>  #include "test_util.h"
+>  #include <asm/sysreg.h>
+> +#include <linux/sizes.h>
+> +
+> +static const struct s2_config default_s2_cfg = {
+> +        .granule        = SZ_4K,
+> +        .ia_bits        = 40,
+> +        .oa_bits        = 40,
+> +        .start_level    = 0,
+> +};
 
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # Rock64, RockPro64, Quartz64-B
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
-v6: Update commit message,
-    Collect t-b tag
-v5: Add comment about interrupt generation
-v4: New patch
----
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 144 ++++------------------
- 1 file changed, 21 insertions(+), 123 deletions(-)
+4K is not guaranteed at stage-2, you will need to check
+ID_AA64MMFR0_EL1.TGRAN2_* . oa_bits as 40 is also not guaranteed, you
+will need to check ID_AA64MMFR0_EL1.PARange for the limit.
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index 300dac4a6c35..39e94d22249b 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -161,11 +161,7 @@ struct dw_hdmi {
- 	struct pinctrl_state *unwedge_state;
- 
- 	struct mutex mutex;		/* for state below */
--	enum drm_connector_force force;	/* mutex-protected force state */
- 	struct drm_connector *curr_conn;/* current connector (only valid when !disabled) */
--	bool disabled;			/* DRM has disabled our bridge */
--	bool rxsense;			/* rxsense state */
--	u8 phy_mask;			/* desired phy int mask settings */
- 	u8 mc_clkdis;			/* clock disable register */
- 
- 	spinlock_t audio_lock;
-@@ -196,14 +192,6 @@ const struct dw_hdmi_plat_data *dw_hdmi_to_plat_data(struct dw_hdmi *hdmi)
- }
- EXPORT_SYMBOL_GPL(dw_hdmi_to_plat_data);
- 
--#define HDMI_IH_PHY_STAT0_RX_SENSE \
--	(HDMI_IH_PHY_STAT0_RX_SENSE0 | HDMI_IH_PHY_STAT0_RX_SENSE1 | \
--	 HDMI_IH_PHY_STAT0_RX_SENSE2 | HDMI_IH_PHY_STAT0_RX_SENSE3)
--
--#define HDMI_PHY_RX_SENSE \
--	(HDMI_PHY_RX_SENSE0 | HDMI_PHY_RX_SENSE1 | \
--	 HDMI_PHY_RX_SENSE2 | HDMI_PHY_RX_SENSE3)
--
- static inline void hdmi_writeb(struct dw_hdmi *hdmi, u8 val, int offset)
- {
- 	regmap_write(hdmi->regm, offset << hdmi->reg_shift, val);
-@@ -1702,36 +1690,25 @@ EXPORT_SYMBOL_GPL(dw_hdmi_phy_read_hpd);
- void dw_hdmi_phy_update_hpd(struct dw_hdmi *hdmi, void *data,
- 			    bool force, bool disabled, bool rxsense)
- {
--	u8 old_mask = hdmi->phy_mask;
--
--	if (force || disabled || !rxsense)
--		hdmi->phy_mask |= HDMI_PHY_RX_SENSE;
--	else
--		hdmi->phy_mask &= ~HDMI_PHY_RX_SENSE;
--
--	if (old_mask != hdmi->phy_mask)
--		hdmi_writeb(hdmi, hdmi->phy_mask, HDMI_PHY_MASK0);
- }
- EXPORT_SYMBOL_GPL(dw_hdmi_phy_update_hpd);
- 
- void dw_hdmi_phy_setup_hpd(struct dw_hdmi *hdmi, void *data)
- {
- 	/*
--	 * Configure the PHY RX SENSE and HPD interrupts polarities and clear
--	 * any pending interrupt.
-+	 * Configure the PHY HPD interrupt polarity based on current HPD status
-+	 * and clear any pending interrupt.
- 	 */
--	hdmi_writeb(hdmi, HDMI_PHY_HPD | HDMI_PHY_RX_SENSE, HDMI_PHY_POL0);
--	hdmi_writeb(hdmi, HDMI_IH_PHY_STAT0_HPD | HDMI_IH_PHY_STAT0_RX_SENSE,
--		    HDMI_IH_PHY_STAT0);
-+	hdmi_modb(hdmi, hdmi_readb(hdmi, HDMI_PHY_STAT0) & HDMI_PHY_HPD ?
-+		  0 : HDMI_PHY_HPD, HDMI_PHY_HPD, HDMI_PHY_POL0);
-+	hdmi_writeb(hdmi, HDMI_IH_PHY_STAT0_HPD, HDMI_IH_PHY_STAT0);
- 
- 	/* Enable cable hot plug irq. */
--	hdmi_writeb(hdmi, hdmi->phy_mask, HDMI_PHY_MASK0);
-+	hdmi_writeb(hdmi, ~HDMI_PHY_HPD, HDMI_PHY_MASK0);
- 
- 	/* Clear and unmute interrupts. */
--	hdmi_writeb(hdmi, HDMI_IH_PHY_STAT0_HPD | HDMI_IH_PHY_STAT0_RX_SENSE,
--		    HDMI_IH_PHY_STAT0);
--	hdmi_writeb(hdmi, ~(HDMI_IH_PHY_STAT0_HPD | HDMI_IH_PHY_STAT0_RX_SENSE),
--		    HDMI_IH_MUTE_PHY_STAT0);
-+	hdmi_writeb(hdmi, HDMI_IH_PHY_STAT0_HPD, HDMI_IH_PHY_STAT0);
-+	hdmi_writeb(hdmi, ~HDMI_IH_PHY_STAT0_HPD, HDMI_IH_MUTE_PHY_STAT0);
- }
- EXPORT_SYMBOL_GPL(dw_hdmi_phy_setup_hpd);
- 
-@@ -2395,26 +2372,6 @@ static void dw_hdmi_poweroff(struct dw_hdmi *hdmi)
- 	}
- }
- 
--/*
-- * Adjust the detection of RXSENSE according to whether we have a forced
-- * connection mode enabled, or whether we have been disabled.  There is
-- * no point processing RXSENSE interrupts if we have a forced connection
-- * state, or DRM has us disabled.
-- *
-- * We also disable rxsense interrupts when we think we're disconnected
-- * to avoid floating TDMS signals giving false rxsense interrupts.
-- *
-- * Note: we still need to listen for HPD interrupts even when DRM has us
-- * disabled so that we can detect a connect event.
-- */
--static void dw_hdmi_update_phy_mask(struct dw_hdmi *hdmi)
--{
--	if (hdmi->phy.ops->update_hpd)
--		hdmi->phy.ops->update_hpd(hdmi, hdmi->phy.data,
--					  hdmi->force, hdmi->disabled,
--					  hdmi->rxsense);
--}
--
- static enum drm_connector_status dw_hdmi_detect(struct dw_hdmi *hdmi)
- {
- 	enum drm_connector_status result;
-@@ -2512,9 +2469,7 @@ static void dw_hdmi_connector_force(struct drm_connector *connector)
- 	struct dw_hdmi *hdmi = container_of(connector, struct dw_hdmi, connector);
- 
- 	mutex_lock(&hdmi->mutex);
--	hdmi->force = connector->force;
- 	hdmi->last_connector_result = connector->status;
--	dw_hdmi_update_phy_mask(hdmi);
- 	mutex_unlock(&hdmi->mutex);
- 
- 	dw_hdmi_connector_status_update(hdmi, connector, connector->status);
-@@ -2932,10 +2887,8 @@ static void dw_hdmi_bridge_atomic_disable(struct drm_bridge *bridge,
- 	struct dw_hdmi *hdmi = bridge->driver_private;
- 
- 	mutex_lock(&hdmi->mutex);
--	hdmi->disabled = true;
- 	hdmi->curr_conn = NULL;
- 	dw_hdmi_poweroff(hdmi);
--	dw_hdmi_update_phy_mask(hdmi);
- 	handle_plugged_change(hdmi, false);
- 	mutex_unlock(&hdmi->mutex);
- }
-@@ -2954,10 +2907,8 @@ static void dw_hdmi_bridge_atomic_enable(struct drm_bridge *bridge,
- 	mode = &drm_atomic_get_new_crtc_state(state, crtc)->adjusted_mode;
- 
- 	mutex_lock(&hdmi->mutex);
--	hdmi->disabled = false;
- 	hdmi->curr_conn = connector;
- 	dw_hdmi_poweron(hdmi, connector, mode);
--	dw_hdmi_update_phy_mask(hdmi);
- 	handle_plugged_change(hdmi, true);
- 	mutex_unlock(&hdmi->mutex);
- }
-@@ -3060,78 +3011,29 @@ static irqreturn_t dw_hdmi_hardirq(int irq, void *dev_id)
- 
- void dw_hdmi_setup_rx_sense(struct dw_hdmi *hdmi, bool hpd, bool rx_sense)
- {
--	mutex_lock(&hdmi->mutex);
--
--	if (!hdmi->force) {
--		/*
--		 * If the RX sense status indicates we're disconnected,
--		 * clear the software rxsense status.
--		 */
--		if (!rx_sense)
--			hdmi->rxsense = false;
--
--		/*
--		 * Only set the software rxsense status when both
--		 * rxsense and hpd indicates we're connected.
--		 * This avoids what seems to be bad behaviour in
--		 * at least iMX6S versions of the phy.
--		 */
--		if (hpd)
--			hdmi->rxsense = true;
--
--		dw_hdmi_update_phy_mask(hdmi);
--	}
--	mutex_unlock(&hdmi->mutex);
- }
- EXPORT_SYMBOL_GPL(dw_hdmi_setup_rx_sense);
- 
- static irqreturn_t dw_hdmi_irq(int irq, void *dev_id)
- {
- 	struct dw_hdmi *hdmi = dev_id;
--	u8 intr_stat, phy_int_pol, phy_pol_mask, phy_stat;
--	enum drm_connector_status status = connector_status_unknown;
--
--	intr_stat = hdmi_readb(hdmi, HDMI_IH_PHY_STAT0);
--	phy_int_pol = hdmi_readb(hdmi, HDMI_PHY_POL0);
--	phy_stat = hdmi_readb(hdmi, HDMI_PHY_STAT0);
--
--	phy_pol_mask = 0;
--	if (intr_stat & HDMI_IH_PHY_STAT0_HPD)
--		phy_pol_mask |= HDMI_PHY_HPD;
--	if (intr_stat & HDMI_IH_PHY_STAT0_RX_SENSE0)
--		phy_pol_mask |= HDMI_PHY_RX_SENSE0;
--	if (intr_stat & HDMI_IH_PHY_STAT0_RX_SENSE1)
--		phy_pol_mask |= HDMI_PHY_RX_SENSE1;
--	if (intr_stat & HDMI_IH_PHY_STAT0_RX_SENSE2)
--		phy_pol_mask |= HDMI_PHY_RX_SENSE2;
--	if (intr_stat & HDMI_IH_PHY_STAT0_RX_SENSE3)
--		phy_pol_mask |= HDMI_PHY_RX_SENSE3;
--
--	if (phy_pol_mask)
--		hdmi_modb(hdmi, ~phy_int_pol, phy_pol_mask, HDMI_PHY_POL0);
-+	u8 intr_stat;
- 
- 	/*
--	 * RX sense tells us whether the TDMS transmitters are detecting
--	 * load - in other words, there's something listening on the
--	 * other end of the link.  Use this to decide whether we should
--	 * power on the phy as HPD may be toggled by the sink to merely
--	 * ask the source to re-read the EDID.
-+	 * Interrupt generation is accomplished in the following way:
-+	 *   interrupt = (mask == 0) && (polarity == status)
-+	 * All interrupts are forwarded to the Interrupt Handler sticky bit
-+	 * register ih_phy_stat0 and muted using the register ih_mute_phy_stat0.
- 	 */
--	if (intr_stat &
--	    (HDMI_IH_PHY_STAT0_RX_SENSE | HDMI_IH_PHY_STAT0_HPD)) {
--		dw_hdmi_setup_rx_sense(hdmi,
--				       phy_stat & HDMI_PHY_HPD,
--				       phy_stat & HDMI_PHY_RX_SENSE);
-+	intr_stat = hdmi_readb(hdmi, HDMI_IH_PHY_STAT0);
-+	if (intr_stat & HDMI_IH_PHY_STAT0_HPD) {
-+		enum drm_connector_status status;
- 
--		if ((intr_stat & HDMI_IH_PHY_STAT0_HPD) &&
--		    (phy_stat & HDMI_PHY_HPD))
--			status = connector_status_connected;
-+		/* Set HPD interrupt polarity based on current HPD status. */
-+		status = dw_hdmi_phy_read_hpd(hdmi, hdmi->phy.data);
-+		hdmi_modb(hdmi, status == connector_status_connected ?
-+			  0 : HDMI_PHY_HPD, HDMI_PHY_HPD, HDMI_PHY_POL0);
- 
--		if (!(phy_stat & (HDMI_PHY_HPD | HDMI_PHY_RX_SENSE)))
--			status = connector_status_disconnected;
--	}
--
--	if (status != connector_status_unknown) {
- 		dev_dbg(hdmi->dev, "EVENT=%s\n",
- 			status == connector_status_connected ?
- 			"plugin" : "plugout");
-@@ -3141,8 +3043,7 @@ static irqreturn_t dw_hdmi_irq(int irq, void *dev_id)
- 	}
- 
- 	hdmi_writeb(hdmi, intr_stat, HDMI_IH_PHY_STAT0);
--	hdmi_writeb(hdmi, ~(HDMI_IH_PHY_STAT0_HPD | HDMI_IH_PHY_STAT0_RX_SENSE),
--		    HDMI_IH_MUTE_PHY_STAT0);
-+	hdmi_writeb(hdmi, ~HDMI_IH_PHY_STAT0_HPD, HDMI_IH_MUTE_PHY_STAT0);
- 
- 	return IRQ_HANDLED;
- }
-@@ -3343,9 +3244,6 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
- 	hdmi->dev = dev;
- 	hdmi->sample_rate = 48000;
- 	hdmi->channels = 2;
--	hdmi->disabled = true;
--	hdmi->rxsense = true;
--	hdmi->phy_mask = (u8)~(HDMI_PHY_HPD | HDMI_PHY_RX_SENSE);
- 	hdmi->mc_clkdis = 0x7f;
- 	hdmi->last_connector_result = connector_status_disconnected;
- 
--- 
-2.54.0
+> +
+> +static u64 s2_alloc_page_table(struct kvm_vm *vm, const struct s2_config *cfg)
+> +{
+> +        u64 nr_pages = cfg->granule >> vm->page_shift;
+> +
+> +        TEST_ASSERT(!(cfg->granule & (vm->page_size - 1)),
+> +                    "S2 granule 0x%lx smaller/not aligned to VM page size 0x%x",
+> +                    cfg->granule, vm->page_size);
+> +
+> +        return vm_phy_pages_alloc(vm, nr_pages,
+> +                                  KVM_GUEST_PAGE_TABLE_MIN_PADDR,
+> +                                  vm->memslots[MEM_REGION_PT]);
+> +}
 
+This part is using spaces instead of tabs to indent the code.
+
+>  
+>  void prepare_hyp(void)
+>  {
+> -	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW, hcr_el2);
+> +	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW | HCR_EL2_VM, hcr_el2);
+>  	write_sysreg(hyp_vectors, vbar_el2);
+>  	isb();
+>  }
+>  
+> -void init_vcpu(struct vcpu *vcpu, vm_paddr_t l2_pc, vm_paddr_t l2_stack_top)
+> +static unsigned int s2_granule_shift(const struct s2_config *cfg)
+> +{
+> +	switch (cfg->granule) {
+> +	case SZ_4K:
+> +		return 12;
+> +	case SZ_16K:
+> +		return 14;
+> +	case SZ_64K:
+> +		return 16;
+> +	default:
+> +		TEST_FAIL("Unsupported stage-2 granule %u", cfg->granule);
+> +	}
+> +}
+> +
+> +static unsigned int s2_level_stride(const struct s2_config *cfg)
+> +{
+> +	return s2_granule_shift(cfg) - 3;
+> +}
+> +
+> +static unsigned int s2_ptrs_per_table(const struct s2_config *cfg)
+> +{
+> +	return 1U << s2_level_stride(cfg);
+> +}
+> +
+> +static u64 s2_index_mask(const struct s2_config *cfg)
+> +{
+> +	return s2_ptrs_per_table(cfg) - 1;
+> +}
+> +
+> +static unsigned int s2_last_level(const struct s2_config *cfg)
+> +{
+> +	return 3;
+> +}
+> +
+> +static unsigned int s2_level_shift(const struct s2_config *cfg,
+> +				   unsigned int level)
+> +{
+> +	return s2_granule_shift(cfg) +
+> +	       (s2_last_level(cfg) - level) * s2_level_stride(cfg);
+> +}
+> +
+> +static u64 s2_table_mask(const struct s2_config *cfg)
+> +{
+> +	return GENMASK_ULL(cfg->ia_bits - 1, s2_granule_shift(cfg));
+> +}
+> +
+> +static u64 s2_output_mask(const struct s2_config *cfg)
+> +{
+> +	return GENMASK_ULL(cfg->oa_bits - 1, s2_granule_shift(cfg));
+> +}
+> +
+> +static u64 s2_desc_table(u64 paddr, const struct s2_config *cfg)
+> +{
+> +	return (paddr & s2_table_mask(cfg)) | 0x3;
+> +}
+> +
+> +#define S2_MEMATTR_NORMAL_WB		0xfUL
+> +#define S2_MEMATTR_SHIFT		2
+> +
+> +#define S2_S2AP_R			BIT(6)
+> +#define S2_S2AP_W			BIT(7)
+> +
+> +#define S2_SH_INNER			(3UL << 8)
+> +
+> +
+> +static u64 s2_desc_page(u64 paddr, u64 flags, const struct s2_config *cfg)
+> +{
+> +	u64 desc;
+> +
+> +	desc = paddr & s2_output_mask(cfg);
+> +
+> +	/* Stage-2 lower attrs */
+> +	desc |= S2_MEMATTR_NORMAL_WB << S2_MEMATTR_SHIFT;
+> +	desc |= S2_S2AP_R | S2_S2AP_W;
+> +	desc |= S2_SH_INNER;
+> +	desc |= PTE_AF;
+> +
+> +	/* L3 page descriptor: bits[1:0] = 0b11 */
+> +	desc |= PTE_TYPE_PAGE;
+> +	desc |= PTE_VALID;
+> +
+> +	return desc;
+> +}
+> +
+> +static inline int ipa_bits_to_ps(unsigned int ipa_bits)
+> +{
+> +	switch (ipa_bits) {
+> +	case 32:
+> +		return 0b000;
+> +	case 36:
+> +		return 0b001;
+> +	case 40:
+> +		return 0b010;
+> +	case 42:
+> +		return 0b011;
+> +	case 44:
+> +		return 0b100;
+> +	case 48:
+> +		return 0b101;
+> +	case 52:
+> +		return 0b110;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +u64 get_l1_vtcr(const struct s2_config *cfg)
+> +{
+> +	if (!cfg)
+> +		cfg = &default_s2_cfg;
+> +
+> +	return  FIELD_PREP(VTCR_EL2_PS, ipa_bits_to_ps(cfg->ia_bits)) |
+
+oa_bits here?
+
+> +		FIELD_PREP(VTCR_EL2_TG0, VTCR_EL2_TG0_4K) |
+> +		FIELD_PREP(VTCR_EL2_ORGN0_MASK, VTCR_EL2_ORGN0_WBWA) |
+> +		FIELD_PREP(VTCR_EL2_IRGN0_MASK, VTCR_EL2_IRGN0_WBWA) |
+> +		FIELD_PREP(VTCR_EL2_SH0_MASK, VTCR_EL2_SH0_INNER) |
+> +		FIELD_PREP(VTCR_EL2_SL0, VTCR_EL2_TGRAN_SL0_BASE - cfg->start_level) |
+> +		FIELD_PREP(VTCR_EL2_T0SZ_MASK, 64 - cfg->ia_bits);
+> +}
+> +
+> +void prepare_hyp_state(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> +{
+> +        const struct s2_config *cfg = &default_s2_cfg;
+> +        u64 guest_pgd;
+> +
+> +        vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTCR_EL2), get_l1_vtcr(cfg));
+> +
+> +        guest_pgd = s2_alloc_page_table(vm, cfg);
+> +        nested_map_memslot(vm, cfg, guest_pgd, 0);
+> +
+> +	pr_debug("cfg=%p ia_bits=%u oa_bits=%u granule=%u\n",
+> +	cfg, cfg->ia_bits, cfg->oa_bits, cfg->granule);
+> +
+> +        vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_VTTBR_EL2), guest_pgd);
+> +}
+
+Same here about the spaces.
+
+If you are interested, I just posted v3 with stage-2 enabled for the
+nested guest. Different from your approach, in my version all stage-2
+setup is done by the guest hypervisor itself. You can check it out at
+[1]. Feedback is welcome.
+
+Thanks,
+Wei-Lin Chang
+
+[1]: https://lore.kernel.org/kvmarm/20260516183003.799058-1-weilin.chang@arm.com/
+
+> +
+> +static void __nested_pg_map(struct kvm_vm *vm,
+> +			    const struct s2_config *cfg,
+> +			    u64 guest_pgd,
+> +			    u64 nested_paddr,
+> +			    u64 paddr,
+> +			    u64 flags)
+> +{
+> +	u64 granule = 1ULL << s2_granule_shift(cfg);
+> +	u64 *ptep;
+> +	unsigned int level;
+> +
+> +	TEST_ASSERT(!(nested_paddr & (granule - 1)),
+> +		    "L2 IPA not granule aligned: 0x%lx granule 0x%lx",
+> +		    nested_paddr, granule);
+> +
+> +	TEST_ASSERT(!(paddr & (granule - 1)),
+> +		    "PA not granule aligned: 0x%lx granule 0x%lx",
+> +		    paddr, granule);
+> +
+> +	ptep = addr_gpa2hva(vm, guest_pgd);
+> +
+> +	for (level = cfg->start_level; level < s2_last_level(cfg); level++) {
+> +		u64 idx;
+> +		u64 desc;
+> +
+> +		idx = (nested_paddr >> s2_level_shift(cfg, level)) &
+> +		      s2_index_mask(cfg);
+> +
+> +		ptep += idx;
+> +		desc = *ptep;
+> +
+> +		if (!desc) {
+> +			u64 table = s2_alloc_page_table(vm, cfg);
+> +
+> +			desc = s2_desc_table(table, cfg);
+> +			*ptep = desc;
+> +		}
+> +
+> +		ptep = addr_gpa2hva(vm, desc & s2_table_mask(cfg));
+> +	}
+> +
+> +	ptep += (nested_paddr >> s2_granule_shift(cfg)) & s2_index_mask(cfg);
+> +	*ptep = s2_desc_page(paddr, flags, cfg);
+> +}
+> +
+> +void nested_map(struct kvm_vm *vm,
+> +		const struct s2_config *cfg,
+> +		gpa_t guest_pgd,
+> +		u64 nested_paddr,
+> +		u64 paddr,
+> +		u64 size)
+> +{
+> +	u64 granule;
+> +	size_t npages;
+> +
+> +	if (!cfg)
+> +		cfg = &default_s2_cfg;
+> +
+> +	granule = 1ULL << s2_granule_shift(cfg);
+> +
+> +	TEST_ASSERT(!(size & (granule - 1)),
+> +		    "Mapping size 0x%lx not aligned to granule 0x%lx",
+> +		    size, granule);
+> +
+> +	TEST_ASSERT(nested_paddr + size > nested_paddr, "IPA overflow");
+> +	TEST_ASSERT(paddr + size > paddr, "PA overflow");
+> +
+> +	npages = size / granule;
+> +
+> +	while (npages--) {
+> +		__nested_pg_map(vm, cfg, guest_pgd, nested_paddr, paddr,
+> +				MT_NORMAL);
+> +
+> +		nested_paddr += granule;
+> +		paddr += granule;
+> +	}
+> +}
+> +
+> +void nested_map_memslot(struct kvm_vm *vm,
+> +			const struct s2_config *cfg,
+> +			gpa_t guest_pgd,
+> +			u32 memslot)
+> +{
+> +	struct userspace_mem_region *region;
+> +	u64 gpa, end;
+> +
+> +	region = memslot2region(vm, memslot);
+> +
+> +	gpa = region->region.guest_phys_addr;
+> +	end = gpa + region->region.memory_size;
+> +
+> +	pr_debug("nested S2 map slot %u: GPA %#lx-%#lx\n", memslot, gpa, end);
+> +
+> +	for (; gpa < end; gpa += cfg->granule)
+> +		nested_map(vm, cfg, guest_pgd, gpa, gpa, cfg->granule);
+> +}
+> +
+> +void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
+>  {
+>  	memset(vcpu, 0, sizeof(*vcpu));
+>  	vcpu->context.regs.pc = l2_pc;
+> @@ -46,13 +300,32 @@ int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data)
+>  
+>  	vcpu->context.regs.pc = read_sysreg(elr_el2);
+>  	vcpu->context.regs.pstate = read_sysreg(spsr_el2);
+> +	vcpu->context.sys_regs[ESR_EL2] = read_sysreg(esr_el2);
+>  
+>  	__sysreg_save_el1_state(&vcpu->context);
+>  
+>  	return ret;
+>  }
+>  
+> -void __hyp_exception(u64 type)
+> +u64 vcpu_get_esr_el2(struct vcpu *vcpu)
+>  {
+> +	return vcpu->context.sys_regs[ESR_EL2];
+> +
+> +}
+> +
+> +void __hyp_exception(u64 type, u64 esr, u64 elr, u64 far, u64 hpfar, u64 spsr)
+> +{
+> +	u64 ec = esr >> 26;
+> +	u64 iss = esr & GENMASK_ULL(24, 0);
+> +	u64 ipa = ((hpfar & GENMASK_ULL(39, 4)) << 8) |
+> +		  (far & GENMASK_ULL(11, 0));
+> +
+> +	GUEST_FAIL("Unexpected hyp exception: type=%lu "
+> +		   "ESR_EL2=%#lx EC=%#lx ISS=%#lx "
+> +		   "ELR_EL2=%#lx FAR_EL2=%#lx HPFAR_EL2=%#lx IPA=%#lx "
+> +		   "SPSR_EL2=%#lx",
+> +		   type, esr, ec, iss, elr, far, hpfar, ipa, spsr);
+>  	GUEST_FAIL("Unexpected hyp exception! type: %lx\n", type);
+> +
+> +
+>  }
+> 
+> ---
+> base-commit: eb656a0272c639d43be7a9bdd1c5f31eff3afe86
+> change-id: 20260515-enable-s2-hello_nested-b360a2e9bb87
+> 
+> Best regards,
+> -- 
+> Itaru Kitayama <itaru.kitayama@fujitsu.com>
+> 
 
