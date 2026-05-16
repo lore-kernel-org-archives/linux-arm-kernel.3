@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1FCCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F8FCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 18:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OnIvhljOgEaSFzRrceOlRz/glboJGemj8e4dh4hByIQ=; b=td+OOf3R2W2nCdPQ5MnC8fUxYQ
-	xE+bveWloMuHZD+yJdTFJIBJu7sKAo5Dt4pkaj4PLPkVJA0kJzATYaQc/XRQ1Vsv21BqS++ap2LkA
-	BhYo89n1xHOKPrEc+KffdVRDjOe1+oCF+/ucjdZrCSJdLeWwrm9x/UMkJX5DJ6adfuq4aPhsDv91g
-	07M4gLRHSmJgpf0KR4Ipm7okucyB1CiQ/ridScY2RjXUYFVsMd1yGCzN1KMTuN549+BQqGFs9bMFe
-	2pPNA8pOJ1AH1JCVFaRuZLnyw/bZnz2CZZVMhIKEFR0THfGsEkAQk42j86/2kcMKNTI6fI7OzUBG8
-	PPo/uq+w==;
+	bh=uA1o8fF1GixqyXSdTMSIkMLiiIC/0B7xQ7MYkapwRhQ=; b=RrHSmLKecsVZPDSCOuV+1XQo23
+	U/YlUArWQ6E3scknrds2Yyj6Uf3464civLl+Q453Kx11qlC5ieosgrL9ZNcRtwoAi2SCDRAX9/NOu
+	N812Y6nDBohA1UOevWTqORPLFRCpE2LN4uG0U8Ko8FqOols2potvDVzL1xGnWz8tOTaSX/9k89TgX
+	RPv87ZOznzSZVZ7KFysj+7cg9UjG5QR4XkjipvmWR3oNdcb5kFhHIrwVBEWgp1AV1EyAEY9Xx8cU1
+	ByRzbYhRjWRL8wOt50lRrSj03pC8H/mYOgn1cL1fWbjqSGLyW7uuoqSmNoTHxfRT1DIBcc4hdKTJP
+	T9q9fsPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJmq-0000000BCHN-35HN;
-	Sat, 16 May 2026 18:30:56 +0000
+	id 1wOJms-0000000BCIN-49RX;
+	Sat, 16 May 2026 18:30:58 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOJmn-0000000BCGG-3ZvF
+	id 1wOJmq-0000000BCH9-1TKf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 16 May 2026 18:30:55 +0000
+	Sat, 16 May 2026 18:30:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 72B521CDD;
-	Sat, 16 May 2026 11:30:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76D272D91;
+	Sat, 16 May 2026 11:30:49 -0700 (PDT)
 Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0575A3F85F;
-	Sat, 16 May 2026 11:30:48 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09DDD3F85F;
+	Sat, 16 May 2026 11:30:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1778956251; bh=qd/xGyy1flBlfaXhDHK+Ds4y1aU389ligvtTqKbtVIY=;
+	t=1778956254; bh=oes1Zq1kjZJVeEfVMd7tTaCf/godZJPRNpOF8x60M7Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qYLFM3NYxZOKEcRByQD888YKv9cDtPlQulAsDH4gYouxcbFBLRdhGGhXDB3q3Ks1G
-	 Mqy9/mVkoCVv4zHc5cnqAkD/b75zKUcg9YAUrrjuUWJW7zJRnghpbJ0gW9dAbK0wG+
-	 DFc6cd0oPWpJ7kJX0BclGN5uH3urGPG+NkUDiThU=
+	b=ZzMsjZUeF9Y1iEIsRLrVrIagU7XwyK43VIstkh2KG+3ABw923pUruQwifyGeFF/t6
+	 TPz2TgwwMQhlZarcQX1ZPQKx06U0z2DfxbsU3zRlN0JuKCgLv3puU0HV5t/SrG3N1S
+	 B7xc0tXkNsiRhhppG7HQHZMxVCOEByclbF2+kUZc=
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
@@ -56,17 +56,17 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>,
 	Will Deacon <will@kernel.org>,
 	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
 	Wei-Lin Chang <weilin.chang@arm.com>
-Subject: [PATCH v3 1/9] KVM: arm64: selftests: Add GPR save/restore functions for NV
-Date: Sat, 16 May 2026 19:29:55 +0100
-Message-ID: <20260516183003.799058-2-weilin.chang@arm.com>
+Subject: [PATCH v3 2/9] KVM: arm64: selftests: Add helpers for guest hypervisors
+Date: Sat, 16 May 2026 19:29:56 +0100
+Message-ID: <20260516183003.799058-3-weilin.chang@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260516183003.799058-1-weilin.chang@arm.com>
 References: <20260516183003.799058-1-weilin.chang@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_113053_965968_2F8279FF 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260516_113056_469253_D8CB1A1C 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,332 +81,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adapt entry.S and hyp-entry.S from arch/arm64/kvm/hyp so that guest
-hypervisors can save and restore GPRs, and provide exception handlers
-to regain control after the nested guest exits. Other system register
-save/restore will be added later on demand.
+Add helpers so that guest hypervisors can run nested guests. SP_EL1
+save/restore is added to allow nested guests to use a stack.
 
 Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   3 +
- .../selftests/kvm/include/arm64/nested.h      |  45 ++++++
- tools/testing/selftests/kvm/lib/arm64/entry.S | 132 ++++++++++++++++++
- .../selftests/kvm/lib/arm64/hyp-entry.S       |  77 ++++++++++
- .../testing/selftests/kvm/lib/arm64/nested.c  |  12 ++
- 5 files changed, 269 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/include/arm64/nested.h
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/entry.S
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
- create mode 100644 tools/testing/selftests/kvm/lib/arm64/nested.c
+ .../selftests/kvm/include/arm64/nested.h      | 17 +++++++
+ tools/testing/selftests/kvm/lib/arm64/entry.S |  5 ++
+ .../testing/selftests/kvm/lib/arm64/nested.c  | 46 +++++++++++++++++++
+ 3 files changed, 68 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 98da9fa4b8b7..3dc3e39f7025 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -30,10 +30,13 @@ LIBKVM_x86 += lib/x86/svm.c
- LIBKVM_x86 += lib/x86/ucall.c
- LIBKVM_x86 += lib/x86/vmx.c
- 
-+LIBKVM_arm64 += lib/arm64/entry.S
- LIBKVM_arm64 += lib/arm64/gic.c
- LIBKVM_arm64 += lib/arm64/gic_v3.c
- LIBKVM_arm64 += lib/arm64/gic_v3_its.c
- LIBKVM_arm64 += lib/arm64/handlers.S
-+LIBKVM_arm64 += lib/arm64/hyp-entry.S
-+LIBKVM_arm64 += lib/arm64/nested.c
- LIBKVM_arm64 += lib/arm64/processor.c
- LIBKVM_arm64 += lib/arm64/spinlock.c
- LIBKVM_arm64 += lib/arm64/ucall.c
 diff --git a/tools/testing/selftests/kvm/include/arm64/nested.h b/tools/testing/selftests/kvm/include/arm64/nested.h
-new file mode 100644
-index 000000000000..86d931facacb
---- /dev/null
+index 86d931facacb..30e626e427da 100644
+--- a/tools/testing/selftests/kvm/include/arm64/nested.h
 +++ b/tools/testing/selftests/kvm/include/arm64/nested.h
-@@ -0,0 +1,45 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * ARM64 Nested virtualization defines
-+ */
+@@ -21,8 +21,17 @@
+ 
+ extern char hyp_vectors[];
+ 
++enum vcpu_sysreg {
++	__INVALID_SYSREG__,   /* 0 is reserved as an invalid value */
 +
-+#ifndef SELFTEST_KVM_NESTED_H
-+#define SELFTEST_KVM_NESTED_H
++	SP_EL1,
 +
-+#define ARM_EXCEPTION_IRQ	  0
-+#define ARM_EXCEPTION_EL1_SERROR  1
-+#define ARM_EXCEPTION_TRAP	  2
-+#define ARM_EXCEPTION_IL	  3
-+#define ARM_EXCEPTION_EL2_IRQ	  4
-+#define ARM_EXCEPTION_EL2_SERROR  5
-+#define ARM_EXCEPTION_EL2_TRAP	  6
-+
-+#ifndef __ASSEMBLER__
-+
-+#include <asm/ptrace.h>
-+#include "kvm_util.h"
-+
-+extern char hyp_vectors[];
-+
-+struct cpu_context {
-+	struct user_pt_regs regs;	/* sp = sp_el0 */
++	NR_SYS_REGS
 +};
 +
-+struct vcpu {
-+	struct cpu_context context;
-+};
+ struct cpu_context {
+ 	struct user_pt_regs regs;	/* sp = sp_el0 */
++	u64 sys_regs[NR_SYS_REGS];
+ };
+ 
+ struct vcpu {
+@@ -37,9 +46,17 @@ struct hyp_data {
+ 	struct cpu_context hyp_context;
+ };
+ 
++void prepare_hyp(void);
++void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top);
++int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data);
 +
-+/*
-+ * KVM has host_data and hyp_context, combine them because we're only doing
-+ * hyp context.
-+ */
-+struct hyp_data {
-+	struct cpu_context hyp_context;
-+};
++void do_hvc(void);
+ u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
+ void __hyp_exception(u64 type);
+ 
++void __sysreg_save_el1_state(struct cpu_context *ctxt);
++void __sysreg_restore_el1_state(struct cpu_context *ctxt);
 +
-+u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
-+void __hyp_exception(u64 type);
-+
-+#endif /* !__ASSEMBLER__ */
-+
-+#endif /* SELFTEST_KVM_NESTED_H */
+ #endif /* !__ASSEMBLER__ */
+ 
+ #endif /* SELFTEST_KVM_NESTED_H */
 diff --git a/tools/testing/selftests/kvm/lib/arm64/entry.S b/tools/testing/selftests/kvm/lib/arm64/entry.S
-new file mode 100644
-index 000000000000..33bedf5e7fb2
---- /dev/null
+index 33bedf5e7fb2..df3af3463c6c 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/entry.S
 +++ b/tools/testing/selftests/kvm/lib/arm64/entry.S
-@@ -0,0 +1,132 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * adapted from arch/arm64/kvm/hyp/entry.S
-+ */
-+
-+/*
-+ * Manually define these for now
-+ */
-+// offsetof(struct vcpu, context)
-+#define CPU_CONTEXT		0
-+// offsetof(struct cpu_context, regs)
-+#define CPU_USER_PT_REGS	0
-+
-+#define CPU_XREG_OFFSET(x)	(CPU_USER_PT_REGS + 8*x)
-+#define CPU_LR_OFFSET		CPU_XREG_OFFSET(30)
-+#define CPU_SP_EL0_OFFSET	(CPU_LR_OFFSET + 8)
-+
-+.macro save_callee_saved_regs ctxt
-+	str	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
-+	stp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
-+	stp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
-+	stp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
-+	stp	x25, x26, [\ctxt, #CPU_XREG_OFFSET(25)]
-+	stp	x27, x28, [\ctxt, #CPU_XREG_OFFSET(27)]
-+	stp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
-+.endm
-+
-+.macro restore_callee_saved_regs ctxt
-+	ldr	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
-+	ldp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
-+	ldp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
-+	ldp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
-+	ldp	x25, x26, [\ctxt, #CPU_XREG_OFFSET(25)]
-+	ldp	x27, x28, [\ctxt, #CPU_XREG_OFFSET(27)]
-+	ldp	x29, lr,  [\ctxt, #CPU_XREG_OFFSET(29)]
-+.endm
-+
-+.macro save_sp_el0 ctxt, tmp
-+	mrs	\tmp,	sp_el0
-+	str	\tmp,	[\ctxt, #CPU_SP_EL0_OFFSET]
-+.endm
-+
-+.macro restore_sp_el0 ctxt, tmp
-+	ldr	\tmp,	  [\ctxt, #CPU_SP_EL0_OFFSET]
-+	msr	sp_el0, \tmp
-+.endm
-+
-+/*
-+ * u64 __guest_enter(struct vcpu *vcpu, struct cpu_context *hyp_context);
-+ */
-+.globl __guest_enter
-+__guest_enter:
-+	// x0: vcpu
-+	// x1: hyp context
-+
-+	// Store vcpu and hyp context pointer on the stack
-+	stp	x0, x1, [sp, #-16]!
-+
-+	// Store the hyp regs
-+	save_callee_saved_regs x1
-+
-+	// Save hyp's sp_el0
-+	save_sp_el0	x1, x2
-+
-+	// x29 = vCPU user pt regs
-+	add	x29, x0, #CPU_CONTEXT
-+
-+	// Restore the guest's sp_el0
-+	restore_sp_el0 x29, x0
-+
-+	// Restore guest regs x0-x17
-+	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
-+	ldp	x2, x3,   [x29, #CPU_XREG_OFFSET(2)]
-+	ldp	x4, x5,   [x29, #CPU_XREG_OFFSET(4)]
-+	ldp	x6, x7,   [x29, #CPU_XREG_OFFSET(6)]
-+	ldp	x8, x9,   [x29, #CPU_XREG_OFFSET(8)]
-+	ldp	x10, x11, [x29, #CPU_XREG_OFFSET(10)]
-+	ldp	x12, x13, [x29, #CPU_XREG_OFFSET(12)]
-+	ldp	x14, x15, [x29, #CPU_XREG_OFFSET(14)]
-+	ldp	x16, x17, [x29, #CPU_XREG_OFFSET(16)]
-+
-+	// Restore guest regs x18-x29, lr
-+	restore_callee_saved_regs x29
-+
-+	// Do not touch any register after this!
-+	eret
-+
-+.globl __guest_exit
-+__guest_exit:
-+	// x0: return code
-+	// x1: vcpu
-+	// x2-x29,lr: vcpu regs
-+	// vcpu x0-x1 on the stack
-+
-+	add	x1, x1, #CPU_CONTEXT
-+
-+	// Store the guest regs x2 and x3
-+	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(2)]
-+
-+	// Retrieve the guest regs x0-x1 from the stack
-+	ldp	x2, x3, [sp], #16	// x0, x1
-+
-+	// Store the guest regs x0-x1 and x4-x17
-+	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(0)]
-+	stp	x4, x5,   [x1, #CPU_XREG_OFFSET(4)]
-+	stp	x6, x7,   [x1, #CPU_XREG_OFFSET(6)]
-+	stp	x8, x9,   [x1, #CPU_XREG_OFFSET(8)]
-+	stp	x10, x11, [x1, #CPU_XREG_OFFSET(10)]
-+	stp	x12, x13, [x1, #CPU_XREG_OFFSET(12)]
-+	stp	x14, x15, [x1, #CPU_XREG_OFFSET(14)]
-+	stp	x16, x17, [x1, #CPU_XREG_OFFSET(16)]
-+
-+	// Store the guest regs x18-x29, lr
-+	save_callee_saved_regs x1
-+
-+	// Store the guest's sp_el0
-+	save_sp_el0	x1, x2
-+
-+	// At this point x0 and x1 on the stack is popped, so next is vCPU
-+	// pointer, then hyp_context pointer
-+	// *sp == vCPU, *(sp + 8) == hyp_context
-+	// load x2 = hyp_context, x3 is just for ldp and popping sp
-+	ldp	x3, x2, [sp], #16
-+
-+	// Restore hyp's sp_el0
-+	restore_sp_el0 x2, x3
-+
-+	// Now restore the hyp regs
-+	restore_callee_saved_regs x2
-+
-+	dsb	sy		// Synchronize against in-flight ld/st
+@@ -3,6 +3,11 @@
+  * adapted from arch/arm64/kvm/hyp/entry.S
+  */
+ 
++ .globl do_hvc
++ do_hvc:
++	hvc	#0
 +	ret
-diff --git a/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
-new file mode 100644
-index 000000000000..6341f6e05c90
---- /dev/null
-+++ b/tools/testing/selftests/kvm/lib/arm64/hyp-entry.S
-@@ -0,0 +1,77 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * adapted from arch/arm64/kvm/hyp/hyp-entry.S
-+ */
 +
-+#include "nested.h"
-+
-+// skip over x0, x1 saved on entry, must be used only before the stack is modified
-+.macro get_vcpu_ptr vcpu
-+	ldr	\vcpu, [sp, #16]
-+.endm
-+
-+	.text
-+
-+el1_sync:	// Guest trapped into EL2
-+
-+	get_vcpu_ptr	x1
-+	mov	x0, #ARM_EXCEPTION_TRAP
-+	b	__guest_exit
-+
-+el1_irq:
-+el1_fiq:
-+	get_vcpu_ptr	x1
-+	mov	x0, #ARM_EXCEPTION_IRQ
-+	b	__guest_exit
-+
-+el1_error:
-+	get_vcpu_ptr	x1
-+	mov	x0, #ARM_EXCEPTION_EL1_SERROR
-+	b	__guest_exit
-+
-+el2_sync:
-+	mov	x0, #ARM_EXCEPTION_EL2_TRAP
-+	b	__hyp_exception
-+
-+el2_irq:
-+el2_fiq:
-+	mov	x0, #ARM_EXCEPTION_EL2_IRQ
-+	b	__hyp_exception
-+
-+el2_error:
-+	mov	x0, #ARM_EXCEPTION_EL2_SERROR
-+	b	__hyp_exception
-+
-+
-+	.ltorg
-+
-+	.align 11
-+
-+.globl hyp_vectors
-+hyp_vectors:
-+
-+.macro exception_vector target
-+	.align 7
-+	stp	x0, x1, [sp, #-16]!
-+	b	\target
-+.endm
-+
-+	exception_vector	el2_sync	// Synchronous EL2t
-+	exception_vector	el2_irq		// IRQ EL2t
-+	exception_vector	el2_fiq		// FIQ EL2t
-+	exception_vector	el2_error	// Error EL2t
-+
-+	exception_vector	el2_sync	// Synchronous EL2h
-+	exception_vector	el2_irq		// IRQ EL2h
-+	exception_vector	el2_fiq		// FIQ EL2h
-+	exception_vector	el2_error	// Error EL2h
-+
-+	exception_vector	el1_sync	// Synchronous 64-bit EL1
-+	exception_vector	el1_irq		// IRQ 64-bit EL1
-+	exception_vector	el1_fiq		// FIQ 64-bit EL1
-+	exception_vector	el1_error	// Error 64-bit EL1
-+
-+	exception_vector	el1_sync	// Synchronous 32-bit EL1
-+	exception_vector	el1_irq		// IRQ 32-bit EL1
-+	exception_vector	el1_fiq		// FIQ 32-bit EL1
-+	exception_vector	el1_error	// Error 32-bit EL1
+ /*
+  * Manually define these for now
+  */
 diff --git a/tools/testing/selftests/kvm/lib/arm64/nested.c b/tools/testing/selftests/kvm/lib/arm64/nested.c
-new file mode 100644
-index 000000000000..06ddaab2436f
---- /dev/null
+index 06ddaab2436f..f6c24beb01d0 100644
+--- a/tools/testing/selftests/kvm/lib/arm64/nested.c
 +++ b/tools/testing/selftests/kvm/lib/arm64/nested.c
-@@ -0,0 +1,12 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ARM64 Nested virtualization helpers
-+ */
+@@ -4,7 +4,53 @@
+  */
+ 
+ #include "nested.h"
++#include "processor.h"
+ #include "test_util.h"
++#include <asm/sysreg.h>
 +
-+#include "nested.h"
-+#include "test_util.h"
-+
-+void __hyp_exception(u64 type)
++void prepare_hyp(void)
 +{
-+	GUEST_FAIL("Unexpected hyp exception! type: %lx\n", type);
++	write_sysreg(HCR_EL2_E2H | HCR_EL2_RW, hcr_el2);
++	write_sysreg(hyp_vectors, vbar_el2);
++	isb();
 +}
++
++void init_vcpu(struct vcpu *vcpu, gpa_t l2_pc, gpa_t l2_stack_top)
++{
++	memset(vcpu, 0, sizeof(*vcpu));
++	vcpu->context.regs.pc = l2_pc;
++	vcpu->context.regs.pstate = PSR_MODE_EL1h | PSR_D_BIT | PSR_A_BIT | PSR_I_BIT | PSR_F_BIT;
++	vcpu->context.sys_regs[SP_EL1] = l2_stack_top;
++}
++
++void __sysreg_save_el1_state(struct cpu_context *ctxt)
++{
++	ctxt->sys_regs[SP_EL1] = read_sysreg(sp_el1);
++}
++
++void __sysreg_restore_el1_state(struct cpu_context *ctxt)
++{
++	write_sysreg(ctxt->sys_regs[SP_EL1], sp_el1);
++}
++
++int run_l2(struct vcpu *vcpu, struct hyp_data *hyp_data)
++{
++	u64 ret;
++
++	__sysreg_restore_el1_state(&vcpu->context);
++
++	write_sysreg(vcpu->context.regs.pstate, spsr_el2);
++	write_sysreg(vcpu->context.regs.pc, elr_el2);
++
++	ret = __guest_enter(vcpu, &hyp_data->hyp_context);
++
++	vcpu->context.regs.pc = read_sysreg(elr_el2);
++	vcpu->context.regs.pstate = read_sysreg(spsr_el2);
++
++	__sysreg_save_el1_state(&vcpu->context);
++
++	return ret;
++}
+ 
+ void __hyp_exception(u64 type)
+ {
 -- 
 2.43.0
 
