@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8810ECD4F49
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD95ACD4F4A
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 16 May 2026 17:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,46 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJ+mdiNmeAMezBiiVJe9ciOqh+SicPvri5H0BWXClTI=; b=heHi2Tcv7xbXenP3z/t8dcKxc8
-	Kq9UDlPKx0vkISgP+k/E73LO5pgERobKsIezr7xEDGc8RYWS/Kt0zSN+j7a6G6Fw1H1YxD4Su0YVO
-	RqkK5C/0eU6s+xlD+6kcpxS0UelOGa+4EKChU9OLygt55o4F0tG/wwawuTsECeoDErwCwCbzeIlBG
-	V90CK9ynIwJpb5mc4p79+O7i5LSjGubPTjRu8cVr9zN+Kq6sPEGQF4p0fIJeGtx/CqG+JNg9P+nET
-	XaEIYTj5LVceHclnOr2Cx/xixeYCjMlTituejfdU+5HKrGKWVT/Cq4Wglq5I3L7qY9qmDCnC2/3wI
-	0Ek6U39Q==;
+	bh=Qby2WY+NNwzVKONu56demCoQrLAp5pVzeZ7hym5vwxc=; b=gvAgsm47HAObuP0vhARjMPlIdj
+	nTM0TwwZ49fVFT0mR7ZV5zD3GaspoUxWdtAFPwf1VcBTEQevV2PmJBRT+2JWtVsls0kzIQ1XvD8FL
+	/g4pozlIrlVg1AXnJ8g7EkFLDj/hdf1sirjB3TE9IsFDYgF37PkDIgJi3ro3/FOMjmvg2j/NLp5P2
+	aXytzrsZ8oX3y9K0QRakFkciZosZxxNMSs4iMYmnZHknaA+AaQkZEqQwhf94B6BphaqyWOucQlsNJ
+	4Fv+alftpX31gDz5enhuWmQohp3AiDI5HLRMn49ImDCRuZmTAcjABWpUEz2CnGB6Mdp70Gb1iIbvA
+	PeOj284w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOIem-0000000B5ax-2BvL;
+	id 1wOIem-0000000B5c0-40Iq;
 	Sat, 16 May 2026 17:18:32 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOIed-0000000B5Ta-2o8H;
-	Sat, 16 May 2026 17:18:25 +0000
+	id 1wOIed-0000000B5Te-3dKp;
+	Sat, 16 May 2026 17:18:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 58648445B8;
+	by sea.source.kernel.org (Postfix) with ESMTP id A0F6E445FE;
 	Sat, 16 May 2026 17:18:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 1CB78C4AF0C;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 785CFC19425;
 	Sat, 16 May 2026 17:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1778951902;
-	bh=Jnv894IU9wblCqhm+wVe2Z5FBt6aG6TawzV3npnKdrc=;
+	bh=LgAbB0ZXLnx/BP4AfsepnntHvttapSIZpd8aWCrBwiI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RQGY2GbmRbfMXLB+jQ1nJotT8Kk/SRKJzgIcXaP74wd/3Dp1uF+dhb1Z9fc6MlQKK
-	 yNVc10a5ZGWy2v2+tw3/f2YtXQSVhfniiokcJJq8u/I9bV6DVg/PMLA54uNOjJDm/C
-	 zmolu8wNVGFrTdJb0c1yHPMD0XQoGTCZo3dL6yqwD0+Ke3sAw1RV3kFhE8hRhRoXtN
-	 OZdFCBJCAeJzd00H6DZu9TVqtAFJ8rvvJWNvbZswxGlE49ByTBP++v06k2lSdvGCR4
-	 PMo0nSSgbX1opJiE++QI38kUmCR4i6e4qbqs4epOfJWJy6qrOnxfdAvlJxggkHONgW
-	 WRZ9+OeDxFAXg==
+	b=P/ogeJvo6Qqoo6251PbBts1gxDZKQiSTZJABnSyV+H+BPs3XOTuNY8mzop4NeoEb7
+	 dWaQr2pVxhRn7VYGMcPBHB9Q+CabVNprvHlUPt6aYqC5frvXBKdvVbRDLG/rDQnUJ2
+	 Mu6BKndXokp/HqiCMDJmD9USbKgqleB9cUuRxkcyDd1PIcGky0r9oZcsLrh8dKc44F
+	 FNUM59cmQMktPYOS1NHlOPSMCnewFSf75WztHhgTRlAG4B4DFNrw1ABQaKwMWzCI95
+	 k38WDRoM/8LzTPTMc1SNkUt9rlUUj7SvY++aKvxQbMXCGTjv4kwS2cgz9n1xQnlqiM
+	 fJrs2LOotNLGQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B564CD4F21;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6885ACD4F21;
 	Sat, 16 May 2026 17:18:22 +0000 (UTC)
 From: Ronald Claveau via B4 Relay <devnull+linux-kernel-dev.aliel.fr@kernel.org>
-Date: Sat, 16 May 2026 19:17:02 +0200
-Subject: [PATCH v6 2/8] dt-bindings: i2c: amlogic: Add compatible for T7
- SOC
+Date: Sat, 16 May 2026 19:17:06 +0200
+Subject: [PATCH v6 6/8] arm64: dts: amlogic: t7: Add i2c pinctrl node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260516-add-mcu-fan-khadas-vim4-v6-2-cccc9b61f465@aliel.fr>
+Message-Id: <20260516-add-mcu-fan-khadas-vim4-v6-6-cccc9b61f465@aliel.fr>
 References: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
 In-Reply-To: <20260516-add-mcu-fan-khadas-vim4-v6-0-cccc9b61f465@aliel.fr>
 To: Neil Armstrong <neil.armstrong@linaro.org>, Lee Jones <lee@kernel.org>, 
@@ -69,21 +68,21 @@ Cc: linux-amlogic@lists.infradead.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
  Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1268;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=892;
  i=linux-kernel-dev@aliel.fr; h=from:subject:message-id;
- bh=dSGVBP6Kwid380fHwj/yvIcbmVkBngDKwALA0QzKSyw=;
- b=owGbwMvMwCWm1SvKXP3cUInxtFoSQxbHskuPVK5/bflaERHSuDZrodorkz27U+ztuf9OMuFfd
- HVnrjxTRykLgxgXg6yYIkv/XMsT7y4fPfN1j3oKzBxWJpAhDFycAnCTORkZ7r1Tkn0+McCe/WPz
- X9e2c+84Pm4L4PFh3jPJQJN51ukKd4b/QQG6nQp/5heeDeL/Lmw5Rzp/D0Nqw6sV/tyKJ6Tn/vF
- lAwA=
+ bh=F350Js/5aqFj9YLCGASaC045elV+sRf2mbU4+Ox2uSQ=;
+ b=owGbwMvMwCWm1SvKXP3cUInxtFoSQxbHshupb14UHLFPDuh4t/dq0s3vaxZNZC7y4IrkDXG4K
+ i3N3GrUUcrCIMbFICumyNI/1/LEu8tHz3zdo54CM4eVCWQIAxenAEykgJeRYaNEUOTW+OXrvJMc
+ dn3fvOPXXtUX8YFbs48fear2dte9TU6MDBc6N3LXpXhI1PYcj864E31vkvfsBrWrCZ7a+zrEbr0
+ qZQAA
 X-Developer-Key: i=linux-kernel-dev@aliel.fr; a=openpgp;
  fpr=DFD863F61375BF917F0012173953305EF1D0EC3E
 X-Endpoint-Received: by B4 Relay for linux-kernel-dev@aliel.fr/default with
  auth_id=744
 X-Original-From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_101823_755093_F45884C7 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20260516_101823_951714_1C454CE4 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,38 +101,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ronald Claveau <linux-kernel-dev@aliel.fr>
 
-Add the T7 SOC compatible which fallback to AXG compatible.
+Add the T7 pinctrl used by the Khadas VIM4 for MCU communication.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
 ---
- .../devicetree/bindings/i2c/amlogic,meson6-i2c.yaml         | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml b/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml
-index c4cc8af182807..7b59b60b62e5b 100644
---- a/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/amlogic,meson6-i2c.yaml
-@@ -16,10 +16,15 @@ allOf:
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+index 7fe72c94ed623..e96fe10b251a0 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
+@@ -376,6 +376,16 @@ mux {
+ 					};
+ 				};
  
- properties:
-   compatible:
--    enum:
--      - amlogic,meson6-i2c # Meson6, Meson8 and compatible SoCs
--      - amlogic,meson-gxbb-i2c # GXBB and compatible SoCs
--      - amlogic,meson-axg-i2c # AXG and compatible SoCs
-+    oneOf:
-+      - items:
-+          - enum:
-+              - amlogic,t7-i2c
-+          - const: amlogic,meson-axg-i2c
-+      - enum:
-+          - amlogic,meson6-i2c # Meson6, Meson8 and compatible SoCs
-+          - amlogic,meson-gxbb-i2c # GXBB and compatible SoCs
-+          - amlogic,meson-axg-i2c # AXG and compatible SoCs
- 
-   reg:
-     maxItems: 1
++				i2c0_ao_d_pins: i2c0-ao-d {
++					mux {
++						groups = "i2c0_ao_sck_d",
++							 "i2c0_ao_sda_d";
++						function = "i2c0_ao";
++						bias-disable;
++						drive-strength-microamp = <3000>;
++					};
++				};
++
+ 				pwm_a_pins: pwm-a {
+ 					mux {
+ 						groups = "pwm_a";
 
 -- 
 2.49.0
