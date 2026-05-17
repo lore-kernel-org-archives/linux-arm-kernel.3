@@ -4,109 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3F81CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 00:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF8DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 00:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwlQ5BpuuzTZAL1LxPwbMkdpasTg6SIqMpf1zg1uo5Q=; b=DM8UBoDJCXaVIAYXVmnJzLXZuY
-	cntBtaFZvFEqi0vVsAu+QNiSWK3WsvftrmMkAKkSOGURwC4e5kQEAVArs/TH84krXgt9V8nia5WEu
-	WU6I4TLrjfVDW6D5UUNDZnI+BHFYeSzJrh1FKNiJwv20pU7Olmsv/cctDnXo9qVcUZC3NGg+i7QbR
-	DO0R6DTDSZNcdMn+aTN0mzu3vnNgSI7UbQG/VJlc4WKotNJA0PKICXd6tXsRq5ZDZM6rUahXwE1Fi
-	W4wak3KY+BWuLD9woDMolOt6XbtruV8kESlkLioK4VdiVkbpyJHVXJV3ZBqLmN4JfAnGmrPSZCUqZ
-	Vyqcq1Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mCKUQ4PV+b6oGP9aITiW6m4Z4aNfJIHGPjXpLn1su+c=; b=ycJRU22e+DK2OfIHxU4mpSHl9n
+	irYumI9jioCni39B6eOVV5/JAogHSuFNwDDL+QQoJgTQUVuN+MAi+5WK+lEY5VkyXi8PnanWC55Rw
+	Fo4sl6nkB6Nze32pHrHg3Hp2dh9+90Us6vjb3ux9wx5rizEvGz8hfffOMFuxnUdTsmJt7owbFWZcX
+	ddj3aaCmuDKI3sAyf9z99Wn/sjfpZFJgxvgeNf53SX6t2l3Ui9R195eQm7pQdxL8dpNoFjrGFncjf
+	bXozZnAMD4Mh6xwZwocDF+X6MtvXi0cpSwl+I1lhrNWYcKrDjhJLRnZtxr1WEpZWaHF1CF9cV1HPC
+	hdbv/tIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOPDL-0000000BleA-32xI;
-	Sun, 17 May 2026 00:18:39 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOPDI-0000000Blde-2FJi
+	id 1wOPim-0000000Bo3j-12zj;
+	Sun, 17 May 2026 00:51:08 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOPik-0000000Bo34-1VQx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 00:18:38 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2b45cb89f7eso6762895ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 17:18:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778977116; cv=none;
-        d=google.com; s=arc-20240605;
-        b=j4w2ReIzynbV2Kumz05jbtPF7FmQdRu96RdttjpaoBlnVT6LlfkT53Digd35q1XAed
-         Nyxi6EgVgOWyWPMblZrvybmiVjcgpoEvE6xauCRjyfqHfm9bFhGURIUPUNBKYX6Sf/Sb
-         hk/Ng0WqxiP/0kG8aQlN0c1KaXhXH66zNJqQiew16ZXeFPTaqRDgeIVEDYStDJzkKu1c
-         2F1ro2AuknQ9XX+JkEkMBsaF/oYvxC1XJ8cCTdbi0Y6bW4uKiLoUMQtjP1a1aEmgv/RW
-         xgi4vQftgkgbqt+Wh4tvxjuBGgx2glyEVhnXA9DNVI4XCBARjyze+eF/0BXQbuphuVtv
-         Ub4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mwlQ5BpuuzTZAL1LxPwbMkdpasTg6SIqMpf1zg1uo5Q=;
-        fh=jMq7Hc8SwYwKP+6I8wK4XL2zpjEbP9h5L+CUCkn5cjY=;
-        b=PehrrFb0Uh+nkKUwlldHjaZpDHqg6jQNfEF5C+eGO7s1E+GZiVBifrap+DbqqIqaR1
-         9PT5GcG/Ajrw1pLtLipg5FnZ8zhqE5JiXkDZKDj98/lDP5esYy5PEstA4Mt0yMhwSG+f
-         8Miv2dthU2NmVnuTd2ZU/cxcf56ri8ORlQ4fqBOE9HI0LHjcG89RhUyG++YbFdR83WQQ
-         FrbT0Kmuc7EznNlzEmw1vRJGX26L8QqFa/bLld0/Qe5CBvr/+VFIoyo37FekX1KsZotu
-         3GLsz8uaA+qdvu2KxjAryNv+8crbgn/HbRD8Rf/RLJkyOlnwO7lhC4ai1tX/e6B6KH8N
-         joeg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778977116; x=1779581916; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mwlQ5BpuuzTZAL1LxPwbMkdpasTg6SIqMpf1zg1uo5Q=;
-        b=nWxr1SyMy96QvEpuXv/5vT31kGqqBr7YcY7anPtyi/8J5t2oDKbutNkyDuTZ9lfO9Z
-         bwNI1uAuKJBbziARuZir4ln0Utkug8WqO91vqi735X3XXAnf7N7pGX+rQq493DFZmoSQ
-         3uJOHFgYR3cg797QL2UXIhVjiZnckYj21UNQvB6MtFVzQ+XsHz1HxbL8BRGe7GSndT7B
-         qPeaUTbljGS6zZQs89MXCtn9XVDYGbk+8PrnSbX8PZMgumxgtm/lCwao6PNszbGQDRhk
-         X3ZUk3dFf4I416I2yplSoxqlvVNkAKXuuhpHDxsbmrofo4c7DAfuzh3u9GJCAcdtN8ow
-         m7Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778977116; x=1779581916;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mwlQ5BpuuzTZAL1LxPwbMkdpasTg6SIqMpf1zg1uo5Q=;
-        b=LMhOd9cb3qPQdVInuEMOd8tL8LyWxTpr0z741P8IMTiScE5it4iM7T0H00lrbmMZP9
-         HSKNipPCfvOm6h65CCa1il5RYqBwGOLx9yGrzfzvihja9LPq6b5dvqzICYpVH5E5Iegx
-         qKfjJoeHhrTZMPeepjuUZE/fpq2yzh57PO5pEedccO6RMwXjCXUJ4cPx3SiM8NpnY1Cc
-         h0b4sqRGjnSHVgCbABHXvAwyl9P8OiB3fDN7HuagiFfmc1gqH4ga2qnb/8mgEx9Brhd/
-         AihVIepZyqKz/m5FpU+wZd78bR7tqRbGFlwWbyVtfCIMkD7om0XLxYLy0iQvhMBD0WwB
-         L91g==
-X-Forwarded-Encrypted: i=1; AFNElJ8POF7ec32qWLfOIsvwgI0Da6LE2vmNQTdDh3JOVlE/uz2ejdg0/aKsQ26dq4yRPglcqPL3Nwy8tyRkyLz1RCUu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxli+6vmNNtHJQ/SXO3XdDcJ23gOYPDXxeX9uMKXgB7cSt8opQ7
-	0k35q7VvP13/tueJmbOjpuVIvbjEVEQPedIm7bcQot75KZTmfyV81r84cGxIPobedivm9sgypCT
-	BDx0tlkDs2W227sftTMrcqFkL7k+wDac=
-X-Gm-Gg: Acq92OG7oxlKj/9xnanwyx0nTndqMJyPjyYgwb/pTu4lnXmR8IP7spnTXXrdCpmsv2O
-	j2wQkyhvV3oX9Ik0oHlCOxmQBUq4gggI5gtVWQ0qTGreVisL3NOQ+1trg+ZHM/IkJxr5ITUa1Mp
-	LnpQju0n3FS1+NTvYR7QJa5NTf9xKylhPW6oq0S43fQ8n3k4KRr6u+VCO7Fk/6zR9GF+9Ndo0Cs
-	dhmim+8xxTL8+IAAcC6bOHSR3d+YyJi+jwwwkZOsIdocSGldsPjWZj/++x3ZUeYA1ZcjdfwWslY
-	nIm3RpzBLhD8r4hdXfBiqSr16JJyc7UmPNf8jF3w85OKlgnGEdo=
-X-Received: by 2002:a17:903:3c30:b0:2bd:7ff4:ab0b with SMTP id
- d9443c01a7336-2bd7ff4b216mr106672755ad.39.1778977115676; Sat, 16 May 2026
- 17:18:35 -0700 (PDT)
+	Sun, 17 May 2026 00:51:07 +0000
+Received: from thinkpad-p16sg1.corp.microsoft.com (unknown [40.65.108.177])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DC9F120B7166;
+	Sat, 16 May 2026 17:50:58 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DC9F120B7166
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1778979059;
+	bh=mCKUQ4PV+b6oGP9aITiW6m4Z4aNfJIHGPjXpLn1su+c=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Ffb7RcNfkHey8LR+idMAEG98d+2zqhimWD7OPoj93CKiXPumPfhItYXAtzeJLGDEc
+	 bR+w89A5rQ/LDdBH3eqOWjzuxlsnaFZiKfcOgCjd8gdyaMA75+hBCrPvsKgrJNSHT1
+	 rLAp9byCJ+t4VrcmMwSHJ7B0XMPXHsfw5K0wjxj4=
+From: Shyam Saini <shyamsaini@linux.microsoft.com>
+To: iommu@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	robin.clark@oss.qualcomm.com,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	stable@vger.kernel.org
+Subject: [PATCH] iommu/arm-smmu: pass smmu->dev to report_iommu_fault
+Date: Sat, 16 May 2026 17:50:52 -0700
+Message-ID: <20260517005052.3783378-1-shyamsaini@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260513104329.81592-1-phucduc.bui@gmail.com> <20260513104329.81592-3-phucduc.bui@gmail.com>
- <agUknFcDIfwrOCld@sirena.co.uk> <CAABR9nHfXi5G4+sVnLbWWJctQHkWASTzTwiV424bO6BXZDqX+Q@mail.gmail.com>
- <agZ92TVjcYpEv_eH@sirena.co.uk> <CAABR9nHR13e3d46_Z7Q8ZkjQzKbkcPs2Er4sAvq6G1EEj-xoXw@mail.gmail.com>
- <agfd4gvQ_m3Zt8GP@sirena.co.uk>
-In-Reply-To: <agfd4gvQ_m3Zt8GP@sirena.co.uk>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Sun, 17 May 2026 07:18:24 +0700
-X-Gm-Features: AVHnY4JFQ_P1OHVLxDYOkHcfJiy2AJrIGhHUyvcIGLB3nM-OzzVXfHcxNMGpPaI
-Message-ID: <CAABR9nF2GePScGzjbPs3Fzj_qiiWcP0D0+SciyPw1J9kTR4GUw@mail.gmail.com>
-Subject: Re: [PATCH 2/4] ASoC: stm: stm32_i2s: Use guard() for spin locks
-To: Mark Brown <broonie@kernel.org>
-Cc: Olivier Moysan <olivier.moysan@foss.st.com>, 
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_171836_581937_BD23FCE2 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20260516_175106_427969_2BE106D3 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,21 +70,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+report_iommu_fault() passes the dev argument to trace_io_page_fault(),
+which dereferences it via dev_name() and dev_driver_string(). Passing
+NULL causes a kernel crash when the io_page_fault tracepoint is
+enabled.
 
+In arm-smmu.c, 'commit f8f934c180f6 ("iommu/arm-smmu: Add support for driver IOMMU fault handlers")'
+replaced a dev_err_ratelimited() call that correctly used smmu->dev with
+report_iommu_fault() but passed NULL instead.
+In arm-smmu-qcom-debug.c, 'commit d374555ef993 ("iommu/arm-smmu-qcom: Use a custom context fault handler for sdm845")'
+introduced two report_iommu_fault() calls also with NULL.
 
-> There are likely to be different considerations for different drivers,
-> on some systems the power savings from managing the clocks may not be
-> meaingful or we may need the clocks for register access.  In general
-> it's nicer to actively manage the clocks but it's not super urgent to do
-> so from a framework point of view, it's more a how much work the people
-> working on the individual drivers want to do and if there's a use case
-> for specific hardware.
+Pass smmu->dev to all three call sites.
 
-Understood, and thank you for the clarification.
-That gives me a better understanding of the considerations around PM/clock
-handling in these drivers.
+Fixes: f8f934c180f629bb ("iommu/arm-smmu: Add support for driver IOMMU fault handlers")
+Fixes: d374555ef993433f ("iommu/arm-smmu-qcom: Use a custom context fault handler for sdm845")
+Cc: stable@vger.kernel.org
+Assisted-by: GitHub_Copilot:claude-opus-4.6
+Signed-off-by: Shyam Saini <shyamsaini@linux.microsoft.com>
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c | 4 ++--
+ drivers/iommu/arm/arm-smmu/arm-smmu.c            | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-Best Regard,
-Phuc
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+index 65e0ef6539fe7..8eb9f7831de07 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+@@ -399,7 +399,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
+ 		return IRQ_NONE;
+ 
+ 	if (list_empty(&tbu_list)) {
+-		ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
++		ret = report_iommu_fault(&smmu_domain->domain, smmu->dev, cfi.iova,
+ 					 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+ 
+ 		if (ret == -ENOSYS)
+@@ -417,7 +417,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
+ 
+ 	phys_soft = ops->iova_to_phys(ops, cfi.iova);
+ 
+-	tmp = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
++	tmp = report_iommu_fault(&smmu_domain->domain, smmu->dev, cfi.iova,
+ 				 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+ 	if (!tmp || tmp == -EBUSY) {
+ 		ret = IRQ_HANDLED;
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+index 0bd21d206eb3e..92d8fa2100adb 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+@@ -467,7 +467,7 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+ 	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
+ 		return IRQ_NONE;
+ 
+-	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
++	ret = report_iommu_fault(&smmu_domain->domain, smmu->dev, cfi.iova,
+ 		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+ 
+ 	if (ret == -ENOSYS && __ratelimit(&rs))
+-- 
+2.43.0
+
 
