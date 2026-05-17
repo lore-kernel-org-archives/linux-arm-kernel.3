@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99184CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C80CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 19:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Csc2EOUnK8577Uqh7Gr3ZK6EyQ7a8L8fRxqRpOAL5zY=; b=lwDBI3z1VDkR7Ijl8+vdS6w9R0
-	zEqxhstVIqmAd4S/PdABP45RXqsRX+u6dalHKhhwiAqS0MAKzJ5bliRm12i555K0Nf9RbeB3Yr3cM
-	KBBwX1Wb1to3gwDaeU8sNUn/y64BmbEcNz/+OhlbL/KCcpo0xRtCxj1eHn+tei166iXXkgtdeSrO9
-	FZ6xmKDgxaDbLOvg1iM5xeyMRYPeU+MORzQ4sq+CXPwtv1LrwLFBg/nq5Yh4rB8YKNs7mioDm8Xb5
-	qs2Y/YKQnX6+aBa9UZga8X+YDuqPIU8DExIk0hm5sg3WRGw60IRy3kXSHNRgWzfTwiI2ENS30ivad
-	/fBHNBfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
+	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ut6KPB2FyqD1rZnIlJ5HNRtjMje9EjyeuxhMW4TgzG4=; b=E3irPYA0ECk+BY7E/F557AU2KT
+	ggBbeShSA8J3fTbaahMeJ6JxZA/3PVMRqsQko3CCVEKnGWRq7dseqMlooyYW6YEBkrVxNxX4uzJgu
+	nYrwJW63XW6UJW4Jc14lz7KGm2/Ps5ldytzZyDXliXhcU4Fqa0S+KpPInQvkHQDt5LYAzWjKO9onP
+	s6FWxxj678/llebD0KTpLKGqNmIFIhOgJrW1c6/LA/u4H5AvIMDHy+7x7leWJXn11bSMGdg8i42mX
+	s8c3kNY31+6Q4XneZ89xpR62tKS7/ZhW02jxF0z4J6hxFQm08EWG5NrX9nFASFpx82HBQe7EZ9nQ9
+	tLVurMEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOgho-0000000DHMf-2z3B;
-	Sun, 17 May 2026 18:59:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOgmi-0000000DI27-0LZi;
+	Sun, 17 May 2026 19:04:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOghm-0000000DHMD-4714
+	id 1wOgmh-0000000DI1w-1RXO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 18:59:16 +0000
+	Sun, 17 May 2026 19:04:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D3BD441E5A;
-	Sun, 17 May 2026 18:59:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D8EDC2BCB0;
-	Sun, 17 May 2026 18:59:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 897A160103;
+	Sun, 17 May 2026 19:04:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B1AC2BCB8;
+	Sun, 17 May 2026 19:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779044353;
-	bh=TxClM2mdGfWD4Uq8Jpf0PPjMaqVPLXry0mgG8pyL1ZU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EhLEEUhu8ngvP04rcdO1wJ6msWZdfCnY5xxRLw/j/qz9RmVQey36HjQpIfxu/Nehk
-	 44aoIxHUq3YL9Q1/FjhIR53EscyofY3edMGdLKzx4iSJTdnk2Td94s6P3VMXzkLpGP
-	 Wf6MIL7TvRBTcvlRAKzVSp5IqVoD97DGt7vgdx9WCppZa2PGwuLEs0nljOljWPwmsk
-	 wuApHQCHaO/eGv2m/snfRZ3E+3MOY9lCQTIXOvRKFrcbgtUUEBLKb5OaCwVbc/ZuXr
-	 ElqgLB9hZ0K8Bu1QWeTwQznvaCXcxXExxJONawuQuhelSSy303CUlmVDr4Es6VtZKH
-	 RYBOog/QFPn1Q==
-Date: Sun, 17 May 2026 21:59:05 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Linu Cherian <linu.cherian@arm.com>,
-	Usama Arif <usama.arif@linux.dev>, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org
-Subject: Re: [RFC V2 02/14] mm: Add read-write accessors for vm_page_prot
-Message-ID: <agoP-QlSeVgISjCw@kernel.org>
-References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
- <20260513044547.4128549-3-anshuman.khandual@arm.com>
+	s=k20201202; t=1779044658;
+	bh=NB/CNEIUtc4ERpE+q/zZYxQAMn7kc0YFmUFa9eiJFWI=;
+	h=From:Subject:Date:To:From;
+	b=R3ST2v2Ff6oxWZ/02/DbxJSe4waGUpXE+GdCEU/t5e6wvaPggGl38AuSAfcAdfh7p
+	 IxPq9Tva3H38fJZ+XncBaQPb8rT+P5ZkLdArsCH2WQhl/Tb+s5uTNv5KmvG3S/esEp
+	 5qASULYUY10uEr+ACtz9bKKHkOXWh1fXy0SLvIaKtxciIZprcnTO6h2mUbRrIH6r3d
+	 pavqZj678+n32kc50eCUjKrqY/0QxrKGLBbZtubeY75T96VHOzPsgGcGTqnmye7XDc
+	 AgHXBudAD0aDYzfR2YtwiK/Ib5gnH69IoLfc0hurOPRBLJpsvEABT+Beaaq8YaSx0C
+	 z9XWMUXpUMvvw==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH 0/4] firmware: arm_scmi: Fix protocol parsing and
+ validation
+Date: Sun, 17 May 2026 20:02:39 +0100
+Message-Id: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513044547.4128549-3-anshuman.khandual@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_115915_038780_6D3250E1 
-X-CRM114-Status: GOOD (  14.74  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANMQCmoC/yXM2wpAQBAG4FfRXNuyI5RXkcSaZZRDO0hp393i8
+ us/3CDkmATK6AZHJwuvS4COIzBjuwykuA8GTDBPMl0oMTM3li8ShVpneWoNWosQBpujLwj9qv4
+ tRzeR2d8H8P4Bud8JR24AAAA=
+X-Change-ID: 20260517-scmi_fixes-211563fc2ff2
+To: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sudeep Holla <sudeep.holla@kernel.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,39 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 10:15:35AM +0530, Anshuman Khandual wrote:
-> Currently vma->vm_page_prot is safely read from and written to, without any
-> locks with READ_ONCE() and WRITE_ONCE(). But with introduction of D128 page
-> tables on arm64 platform, vm_page_prot grows to 128 bits which can't safely
-> be handled with READ_ONCE() and WRITE_ONCE().
-> 
-> Add read and write accessors for vm_page_prot like pgprot_[read|write]()
-> which any platform can override when required, although still defaulting as
-> READ_ONCE() and WRITE_ONCE(), thus preserving the functionality for others.
-> 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: linux-mm@kvack.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Hi,
 
-Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+This series fixes a few SCMI protocol parsing and validation issues found
+while checking the driver message layouts against the SCMI specification.
 
-> ---
-> Changes in RFC V2:
-> 
-> - Dropped _once from pgprot_[read|write]() callbacks per Mike
-> 
->  include/linux/pgtable.h | 14 ++++++++++++++
->  mm/huge_memory.c        |  4 ++--
->  mm/memory.c             |  2 +-
->  mm/migrate.c            |  2 +-
->  mm/mmap.c               |  2 +-
->  5 files changed, 19 insertions(+), 5 deletions(-)
+The first patch fixes a clear response width mismatch in SENSOR_CONFIG_GET,
+where the driver requested a 4-byte response but read it as a 64-bit value.
+
+The next two patches harden notification parsing for variable-sized payloads.
+BASE_ERROR_EVENT and SENSOR_UPDATE both carry counted trailing arrays, so the
+received payload size must be validated before copying or parsing those
+entries.
+
+The final patch fixes Powercap protocol v2 helpers to validate the domain id
+before accessing cached per-domain state.
+
+No functional change is intended for well-formed SCMI responses.
+
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+
+Regards,
+Sudeep
+
+---
+Sudeep Holla (4):
+      firmware: arm_scmi: Read sensor config as 32-bit value
+      firmware: arm_scmi: Validate BASE_ERROR_EVENT payload size
+      firmware: arm_scmi: Validate SENSOR_UPDATE payload size
+      firmware: arm_scmi: Validate Powercap domains before state access
+
+ drivers/firmware/arm_scmi/base.c     | 15 +++++++++++++--
+ drivers/firmware/arm_scmi/powercap.c | 25 ++++++++++++++++++-------
+ drivers/firmware/arm_scmi/sensors.c  | 12 ++++++++++--
+ 3 files changed, 41 insertions(+), 11 deletions(-)
+---
+base-commit: d0deb8265c8551343c5c155aaded6b56639e3820
+change-id: 20260517-scmi_fixes-211563fc2ff2
+
 
 -- 
-Sincerely yours,
-Mike.
+Regards,
+Sudeep
+
 
