@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51393CD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 08:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE3ACD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 08:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OxaLP5J/GZlEF9ERJgv3Nk5LgC1koMIzY2yYzqkHqo0=; b=2fCuJZVLfWNkaDtNZ7ul0oyI6r
-	UI8NPPeUY4KhgHXOLAF74We0n+4YAnqfE6R2umEleGaz9dasb/cNhMtJwOqIneegisD8pMxOUaAEK
-	YzaRnXLurNFyN4hNgbjcAOZRm37iM6uLvs8KXTBc1IljUTQJtVXfawwD0ZSdEbQJJAOG4uWnn4XEo
-	VZOM9rrqmqzXWvW9OwLgmztqcz2HVD/VV/JHfWkYMlweInIK+YX7tZ1eqZHkcqmR6FqgOI2A+LSFe
-	+HEJDTgZunRmSnzVlmPqjvxsDPEGdKRB0HV70RxSaPmjrvAP6jctiJF8/eLL0u9Mi6K49VEYQ7gKw
-	jvvPhEnQ==;
+	bh=IwqWSnt1f+GtnaOqHAf4nnsKSW4Dkee99uCObNaViNs=; b=Rea3cr9AF8QNu4XKbaY4bGGBny
+	w/MALjR9YZ1F751AsWQj7smdxqdAK0erd0pQAfnoLInnlytesiOnMzG2QSqFA5IYzVyj/KyKa+she
+	ddcZafMGpbnxnPEOVQ6SLutqjyYogH1rfdA6e3XE6tYotF3gpVNDbWvzqNbT6PdQKindyDj2qoMFO
+	P7onGPOKGz44NaIublo0171clJ2bYeu1YNXmnvxMv4M3xGjO5OzplciM6L9BvCLDJzE2j78IK3wxc
+	BUreb0s6xxEcuLOsiEh3C38cxT7WsnzlAVPw9f8mfsBG9OfoOxRvw1jwRIGvXN4gvVkJhrOlXKG8E
+	8TUxWkGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOWew-0000000CMHK-3sjq;
-	Sun, 17 May 2026 08:15:38 +0000
-Received: from vinatta.cz ([2a03:3b40:fe:428::1])
+	id 1wOX7q-0000000COd0-09bd;
+	Sun, 17 May 2026 08:45:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOWet-0000000CMGC-36ZF
+	id 1wOX7o-0000000COci-48k4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 08:15:37 +0000
-DKIM-Signature: a=rsa-sha256; bh=OxaLP5J/GZlEF9ERJgv3Nk5LgC1koMIzY2yYzqkHqo0=;
- c=relaxed/relaxed; d=vinatta.cz;
- h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@vinatta.cz; s=default; t=1779005699; v=1; x=1779437699;
- b=PMO/+udeo7XzeJ8ziq0fMVnhQ+lOkfiqksINzGQTUTMbfUvnCquMjhKwC3iwPY69pXYaTPBr
- 0sYDtwXBrRrnzTxUb9iMiyQ1fWScUadCw1gNsRPnH3MAf89gDDidD+fIjXGtKdtEbyaylXRkjb4
- KAqHsz2O73Xe2rKMmCUWIhfn6x0SyvfnJuJubOJMAZyWwgoOn7RAC9RN8hQjUIlP9S8R6bWfN0p
- gslmcWbFPc1rV0XGiUzGb/CTfDGc+N/Z2rK0l6C+Yi008AthGl+Yt8jxLtjvtzfoUe37i/vEH38
- XEL331//YH1DNuli4G5ud92X6UHMl0ipgir8EUdNwZs0w==
-Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
- 6a5c1ecf; Sun, 17 May 2026 10:14:59 +0200
-Mime-Version: 1.0
+	Sun, 17 May 2026 08:45:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F151860215
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 08:45:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85A0DC2BCF5
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 08:45:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779007527;
+	bh=p/9AJiwpH9htKz1qH1Sl1BuAo/sVquMqqj2hIHE2j60=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IcZT9tUolcrkwWW0g0RY9HTDkbfvMUWKMC+4fxz9cOlxN5nLUbfxb37rlEv77K6Yz
+	 91/W8a+pD9VIXpnwYL9jbGNNe64gmPI7/gmARH/LrsqxjAESIXXbB0hoqlAI/eOVyA
+	 71yxBQAqlF7qQVourMYDTKkIlJOEhH+OOJG8NyQvxKt+Jkv+ZeuvJZZuT8Uv72hHKe
+	 5Uy2D1EisdI1IXy6U24mBXVmBUDot+lzpFzHE4Dt6atMPLsp/jew4RZqdckHNc2wLr
+	 FmqGPcBeg679dY+2flLU2OkyQdSmrf0RqKFym7/EfEyCQaoVLB61fYxtlxJ1BqzoTE
+	 TcjhzGKbClSVA==
+Received: by mail-qv1-f50.google.com with SMTP id 6a1803df08f44-8b5232009a6so23427196d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 01:45:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8w4+sDRT3KYAbGRcVdhWSEMfU70A4eRplqgq+JSj+ymiZ3GxbUu56dW1m+8d0WFRkyg/42pKMKb3kKnvIHpN0W@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEKAGYz+//HTQpAkCtAJCgBbG4l2CwgV0LtL4N8geBF0lY7CSL
+	/nOcuy7qUivecdCYiVaCO+wLZvl9wSHfu8Dfg/tW94bOinlkdUFPcXnI31saZGaoFJf1LkRPZkQ
+	EF9XPjtccMzRdLZxBGPKXanT5g0Owzrc=
+X-Received: by 2002:a05:6214:1c82:b0:8be:7ed5:477b with SMTP id
+ 6a1803df08f44-8ca0f6b95a0mr188510036d6.22.1779007526681; Sun, 17 May 2026
+ 01:45:26 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+In-Reply-To: <afTpoL3FklpQZNMM@casper.infradead.org>
+From: Barry Song <baohua@kernel.org>
+Date: Sun, 17 May 2026 16:45:15 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+X-Gm-Features: AVHnY4ICHad0vRrEOEwJ7DjNSE1jL9epFkBx0OBK2sLJbi9Nv2hHU65J8Z0HpVM
+Message-ID: <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Matthew Wilcox <willy@infradead.org>, surenb@google.com
+Cc: akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
+	ljs@kernel.org, liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, 
+	mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, 
+	chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
+	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, 
+	shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
+	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 17 May 2026 10:14:58 +0200
-Message-Id: <DIKSVZCAQES1.35I4QY11LBVNV@matfyz.cz>
-Cc: "Brian Norris" <briannorris@chromium.org>, "Francesco Dolcini"
- <francesco@dolcini.it>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, "Andrew Lunn"
- <andrew@lunn.ch>, "Gregory Clement" <gregory.clement@bootlin.com>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
- <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
- <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
- <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
- Fan" <peng.fan@nxp.com>, <david@ixit.cz>
-Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
- samsung,coreprimevelte
-To: "Johannes Berg" <johannes@sipsolutions.net>
-From: "Karel Balej" <balejk@matfyz.cz>
-References: <20251026182602.26464-1-balejk@matfyz.cz>
- <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
- <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
- <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
-In-Reply-To: <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_011536_232409_6A9B48F1 
-X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +91,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Johannes,
+On Sat, May 2, 2026 at 1:58=E2=80=AFAM Matthew Wilcox <willy@infradead.org>=
+ wrote:
+>
+> On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
+> > On Fri, May 1, 2026 at 10:57=E2=80=AFPM Matthew Wilcox <willy@infradead=
+.org> wrote:
+> > >
+> > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
+> > > > 1. There is no deterministic latency for I/O completion. It depends=
+ on
+> > > > both the hardware and the software stack (bio/request queues and th=
+e
+> > > > block scheduler). Sometimes the latency is short; at other times it=
+ can
+> > > > be quite long. In such cases, a high-priority thread performing ope=
+rations
+> > > > such as mprotect, unmap, prctl_set_vma, or madvise may be forced to=
+ wait
+> > > > for an unpredictable amount of time.
+> > >
+> > > But does that actually happen?  I find it hard to believe that thread=
+ A
+> > > unmaps a VMA while thread B is in the middle of taking a page fault i=
+n
+> > > that same VMA.  mprotect() and madvise() are more likely to happen, b=
+ut
+> > > it still seems really unlikely to me.
+> >
+> > It doesn=E2=80=99t have to involve unmapping or applying mprotect to
+> > the entire VMA=E2=80=94just a portion of it is sufficient.
+>
+> Yes, but that still fails to answer "does this actually happen".  How muc=
+h
+> performance is all this complexity in the page fault handler buying us?
+> If you don't answer this question, I'm just going to go in and rip it
+> all out.
+>
 
-Karel Balej, 2026-04-29T12:55:23+02:00:
-> Brian, what are the options here now? Would it be possible to make an
-> exception and accept the patches without the firmware being in
-> linux-firmware? This is an old device with no mainstream audience so I
-> expect everyone who will want to use it will be able to supply the
-> firmware themselves and it would be great to not have to keep the
-> patches in a fork, especially when trying to build on top of them
-> further (such as to fix the driver-firmware incompatibilities discussed
-> in one of the patches of this series).
+Hi Matthew (and Lorenzo, Jan, and anyone else who may be
+waiting for answers),
 
-would you please let us know whether there is any chance an exception
-could be made for this chip regarding the firmware or whether there is
-any other way to upstream the support?
+As promised during LSF/MM/BPF, we conducted thorough
+testing on Android phones to determine whether performing
+I/O in `filemap_fault()` can block `vma_start_write()`.
+I wanted to give a quick update on this question.
 
-Thank you and best regards,
-Karel
+Nanzhe at Xiaomi created tracing scripts and ran various
+applications on Android devices with I/O performed under
+the VMA lock in `filemap_fault()`. We found that:
+
+1. There are very few cases where unmap() is blocked by
+   page faults. I assume this is due to buggy user code
+   or poor synchronization between reads and unmap().
+So I assume it is not a problem.
+
+2. We observed many cases where `vma_start_write()`
+   is blocked by page-fault I/O in some applications.
+   The blocking occurs in the `dup_mmap()` path during
+   fork().
+
+With Suren's commit fb49c455323ff ("fork: lock VMAs of
+the parent process when forking"), we now always hold
+`vma_write_lock()` for each VMA. Note that the
+`mmap_lock` write lock is also held, which could lead to
+chained waiting if page-fault I/O is performed without
+releasing the VMA lock.
+
+My gut feeling is that Suren's commit may be overshooting,
+so my rough idea is that we might want to do something like
+the following (we haven't tested it yet and it might be
+wrong):
+
+diff --git a/mm/mmap.c b/mm/mmap.c
+index 2311ae7c2ff4..5ddaf297f31a 100644
+--- a/mm/mmap.c
++++ b/mm/mmap.c
+@@ -1762,7 +1762,13 @@ __latent_entropy int dup_mmap(struct mm_struct
+*mm, struct mm_struct *oldmm)
+        for_each_vma(vmi, mpnt) {
+                struct file *file;
+
+-               retval =3D vma_start_write_killable(mpnt);
++               /*
++                * For anonymous or writable private VMAs, prevent
++                * concurrent CoW faults.
++                */
++               if (!mpnt->vm_file || (!(mpnt->vm_flags & VM_SHARED) &&
++                                       (mpnt->vm_flags & VM_WRITE)))
++                       retval =3D vma_start_write_killable(mpnt);
+                if (retval < 0)
+                        goto loop_out;
+                if (mpnt->vm_flags & VM_DONTCOPY) {
+
+Based on the above, we may want to re-check whether fork()
+can be blocked by page faults. At the same time, if Suren,
+you, or anyone else has any comments, please feel free to
+share them.
+
+Best Regards
+Barry
 
