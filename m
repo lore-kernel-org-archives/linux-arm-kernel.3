@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB896CD4F47
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 17:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AA5CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 17:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qrJc7oXNNs7XpVs5V0pk82jzYIs19MQnk8BCVdhU5PU=; b=Snntq5dL4zdkQZbXFlut/HpE/n
-	rOX8D6O3mMXZ3gJ7p27n7ItQKD2BYblTo/HS8tIvQkISQYGsMh+Aj9+45BTxsdsVchALLaLwGZpGT
-	wS0uu5UGSxFQTDczfR/6cwTAKxK/Qa4HzJYSWq05HsPvgzNGi8WSR+ftLzve084FRTvkOuD8SzQJb
-	LhS57Tmc23XfvvBUFq4wTgksTlNpLGbOBBQqxroSN9cBUdawqSwG+iYrrFughxIzc7ry5hGrydOPZ
-	kCYDgRX90JPmSj/BgaeBY8a9g1AeDSE2LjlM/AoOnDAsm1QErjoYqWQx0LlA9yie4F+eE+Dflslbq
-	Q/0T5rzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HRChiWgvbp/QT1Pv2ElPVt8Su2o/r7JcmWGd4uX9oCE=; b=3hUwK1KY0JnG+XPjhuqhpzfg97
+	w+EEwlj/k7NOlvYnCx2WfHiw8c+dPy3SgZn7wqgvONLt6ijYeJqpGLrhXNzsPYghkVSMNTheADR5O
+	aTWJCl1Pt4AojCrJ0ydy+YGUXDDJBzyo8DZ/kkk7QyhxZmv50Hvm/3bYE6p1Lx6SlbJcadnqGbX+c
+	/1Ac24u0QdTYM5NHRAOnGChaRr8MEfVFIc/ASXPlhvw0vItKHdGB3ixwyYyhsGHxmfG8kTiz84VcF
+	WfJCro9ZWnzonzC0liczZSNWLv10MFXmhHOCWPlyGC5ANKnc6kARdnIlAQWJ1KswnlCFb2K1jhbQy
+	6udnRByQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOf2j-0000000D58J-3RBg;
-	Sun, 17 May 2026 17:12:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wOf4U-0000000D5O5-02vD;
+	Sun, 17 May 2026 17:14:34 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOf2h-0000000D57k-1Wje;
-	Sun, 17 May 2026 17:12:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 996F340DC1;
-	Sun, 17 May 2026 17:12:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0632C2BCB8;
-	Sun, 17 May 2026 17:12:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779037962;
-	bh=rZTvaM2qqzZ0+ZHapysXVlkiReT0C0YfxuSAed7oo4U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RUrmpOI5z3LGWD8/mdNkUlYbcEA4ysfIOvjNwFRxSxquanwD9ZR3iTnB+zT95QL4s
-	 BmgZ3CpZXgSsU25OUFfr+ynh/HdoGAP6IPd2DjvkMbRwg0jthmTYzrzjIbZk1paajv
-	 U7tO/7oaP4A5gHOcBuSm+xDyKJHnJpvgpb3KP41K0n9NhdnMiGcfdqvyUqVK2B08ZY
-	 lrpWt9CBYbSMa16NE3SOPUm3Q3zFNuwKaKAzflJMaP7qMamAdeFVNa1GV8b8ictQD+
-	 YqCjNxbWwokvEf0AaTrKrRm23D86U0T8KhMuk5dD8Qx7BZNO7SReEPlyoX35YncqkF
-	 mPGdwlJrpqUUA==
-Date: Sun, 17 May 2026 19:12:39 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: xianwei.zhao@amlogic.com
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] pwm: meson: Add support for Amlogic S7
-Message-ID: <agn2Yp3mzI7DcsyN@monoceros>
-References: <20260402-s6-s7-pwm-v2-0-657dce040956@amlogic.com>
- <20260402-s6-s7-pwm-v2-2-657dce040956@amlogic.com>
+	id 1wOf4Q-0000000D5Ms-1N7y
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 17 May 2026 17:14:32 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 30C3C1F80044
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 17:14:25 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 89BBDB407A0; Sun, 17 May 2026 17:14:24 +0000 (UTC)
+Received: from collins (unknown [192.168.1.64])
+	by laika.paulk.fr (Postfix) with ESMTP id CB7A8B4079C;
+	Sun, 17 May 2026 17:14:06 +0000 (UTC)
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: linux-gpio@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Kocialkowski <paulk@sys-base.io>
+Subject: [PATCH] pinctrl: sunxi: Implement function_is_gpio
+Date: Sun, 17 May 2026 19:14:05 +0200
+Message-ID: <20260517171405.3697469-1-paulk@sys-base.io>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="eenroa65e3lftv6j"
-Content-Disposition: inline
-In-Reply-To: <20260402-s6-s7-pwm-v2-2-657dce040956@amlogic.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_101243_451655_EA11619D 
-X-CRM114-Status: GOOD (  22.23  )
+X-CRM114-CacheID: sfid-20260517_101430_528320_206C2D03 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,113 +69,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The function_is_gpio pinmux op allows the core to find out whether a
+GPIO can be safely requested from a pinctrl property and requested as a
+GPIO at the same time.
 
---eenroa65e3lftv6j
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 2/2] pwm: meson: Add support for Amlogic S7
-MIME-Version: 1.0
+This is especially useful to request a GPIO with a particular drive
+strength, which would otherwise not be possible.
 
-Hello,
+Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+---
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-On Thu, Apr 02, 2026 at 02:40:16AM +0000, Xianwei Zhao via B4 Relay wrote:
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
->=20
-> Add support for Amlogic S7 PWM. Amlogic S7 different from the
-> previous SoCs, a controller includes one pwm, at the same time,
-> the controller has only one input clock source.
->=20
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  drivers/pwm/pwm-meson.c | 32 +++++++++++++++++++++++++++++---
->  1 file changed, 29 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
-> index 8c6bf3d49753..7a43c42ef3d6 100644
-> --- a/drivers/pwm/pwm-meson.c
-> +++ b/drivers/pwm/pwm-meson.c
-> @@ -113,6 +113,7 @@ struct meson_pwm_data {
->  	int (*channels_init)(struct pwm_chip *chip);
->  	bool has_constant;
->  	bool has_polarity;
-> +	bool single_pwm;
+diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+index d3042e0c9712..6162f2d86723 100644
+--- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
++++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+@@ -821,6 +821,17 @@ static int sunxi_pmx_get_func_groups(struct pinctrl_dev *pctldev,
+ 	return 0;
+ }
+ 
++static bool sunxi_pmx_function_is_gpio(struct pinctrl_dev *pctldev,
++				       unsigned function)
++{
++	struct sunxi_pinctrl *pctl = pinctrl_dev_get_drvdata(pctldev);
++
++	if (!strncmp(pctl->functions[function].name, "gpio", 4))
++		return true;
++
++	return false;
++}
++
+ static void sunxi_pmx_set(struct pinctrl_dev *pctldev,
+ 				 unsigned pin,
+ 				 u8 config)
+@@ -952,6 +963,7 @@ static const struct pinmux_ops sunxi_pmx_ops = {
+ 	.get_functions_count	= sunxi_pmx_get_funcs_cnt,
+ 	.get_function_name	= sunxi_pmx_get_func_name,
+ 	.get_function_groups	= sunxi_pmx_get_func_groups,
++	.function_is_gpio	= sunxi_pmx_function_is_gpio,
+ 	.set_mux		= sunxi_pmx_set_mux,
+ 	.gpio_set_direction	= sunxi_pmx_gpio_set_direction,
+ 	.request		= sunxi_pmx_request,
+-- 
+2.54.0
 
-Conceptually I'd prefer a `npwm` field here. That doesn't take more
-space in memory and simplifies the logic a bit. (At the cost of having
-to adapt all already existing meson_pwm_data instances, but that's fine
-in my book.)
-
->  };
-> =20
->  struct meson_pwm {
-> @@ -503,6 +504,18 @@ static void meson_pwm_s4_put_clk(void *data)
->  	clk_put(clk);
->  }
-> =20
-> +static int meson_pwm_init_channels_s7(struct pwm_chip *chip)
-> +{
-> +	struct device *dev =3D pwmchip_parent(chip);
-> +	struct meson_pwm *meson =3D to_meson_pwm(chip);
-> +
-> +	meson->channels[0].clk =3D devm_clk_get(dev, NULL);
-> +	if (IS_ERR(meson->channels[0].clk))
-> +		return dev_err_probe(dev, PTR_ERR(meson->channels[0].clk),
-> +				     "Failed to get clk\n");
-> +	return 0;
-> +}
-> +
->  static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
->  {
->  	struct device *dev =3D pwmchip_parent(chip);
-> @@ -592,6 +605,13 @@ static const struct meson_pwm_data pwm_s4_data =3D {
->  	.has_polarity =3D true,
->  };
-> =20
-> +static const struct meson_pwm_data pwm_s7_data =3D {
-> +	.channels_init =3D meson_pwm_init_channels_s7,
-> +	.has_constant =3D true,
-> +	.has_polarity =3D true,
-> +	.single_pwm =3D true,
-> +};
-> +
->  static const struct of_device_id meson_pwm_matches[] =3D {
->  	{
->  		.compatible =3D "amlogic,meson8-pwm-v2",
-> @@ -642,6 +662,10 @@ static const struct of_device_id meson_pwm_matches[]=
- =3D {
->  		.compatible =3D "amlogic,meson-s4-pwm",
->  		.data =3D &pwm_s4_data
->  	},
-> +	{
-> +		.compatible =3D "amlogic,s7-pwm",
-> +		.data =3D &pwm_s7_data
-> +	},
->  	{},
-
-If you touch that array in the next revision, please make this line:
-
-	{ }
-
-(I.e. add a space and drop the comma.)
-
-Best regards
-Uwe
-
---eenroa65e3lftv6j
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoJ9wUACgkQj4D7WH0S
-/k6z4gf8CDKq+whV8je2O5ohJtU1A9GFL80VjHGqWPlp1Vzj64QRpZCZCbBwA/Mr
-VhA7vIcUm2o6m3dGLNdz5Y6CXusEk+afjTh3eQOMgyOXCbK6gL69QQ3TU/RCGuIX
-AGorWZzjsaV9UveLX4vc2VcZHEfxNb2AWNjvOgRfWrVb82Tw9cmg5Ago9dTFaSmz
-LKS03jU9jzuo4qge4VeKniPvSp+a/5YyTGgPOpFcR8RP8/orcE5EhCSI9J4QE+Ad
-Ynysyz8gr+delAF0En9fx190Psp2HsJvaEHO8C5xDfNXWkLw0tEiWD3QZVPY5TFH
-MgfGGtsEIzVFRLKzVpfLkWRtc6Dr7Q==
-=fPc/
------END PGP SIGNATURE-----
-
---eenroa65e3lftv6j--
 
