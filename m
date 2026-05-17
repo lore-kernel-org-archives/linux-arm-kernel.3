@@ -4,99 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EEBACD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 19:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBE3CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 20:08:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8oeugrZbzajef/1vQAam9ttn87tFGEQi6JKVNWh+g0=; b=1lOaroBtdE4WMzbKD83eHTVJBc
-	Ai9wf7zmbPgqkNL6VDGKx3YtZ0tm6J8E8Yh2IPBlTxn4b/11KsSsU/OhniBuNymrQ5ziqlsgRro7F
-	sVoziryYuEu2Zf15gkVbFA6FhsaaqWKfNoKbaJVheAy+CBTe43+AoO8eLP4I1x/oGB+r3FO9JLpQD
-	yNcV4Vr2LaBnFbGxTM+cb4PibnsEKKrmHeqmGzcmybGhx5SszoSCwZQ//iUhnAIc5feYoXZBttWri
-	s1O4SF2rR14JES+aGPL/b04ZGhNH3TBwI2zUQuQhmfQfYfG4JwFIqAsqIJKbH1xPbIINBLNlBwBJx
-	wnUB2TRw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l4wFVxQBgL8B6DVjVkF6XY4KfSRZqxPxMXAGErUdUOE=; b=3FQdShGSsERymvxtE++QiEXqrr
+	axBsfIuroNbq/13GytS7H4RU9n0E5C6IwitV0YrnnGR1SYJPQ2BWSaflRYLEXrM9tyiSbnB+qH905
+	K8RkD+PGV1Ia5PnLB8tlemSrnjPclghONVnSKHe6K8BWCxWve4VA9GowTo26enwuTSR0w9tWhfgBn
+	9QapIocKvd9m5BC12zohZrF63W1KgLrZrxojChyxyhIPUeb+E/SFylJBi/z5TsujSZjM7b879ngIz
+	e339P1+ib40TrZ0d1yOKKmLzrandT5x/+hsZ4mTk/BN0OmEdrvB2AlFOiQORa+SM19dij+Oz7uHgL
+	G9kjGRqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOh3y-0000000DJld-1KVR;
-	Sun, 17 May 2026 19:22:10 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1wOhmn-0000000DNzq-1AoL;
+	Sun, 17 May 2026 20:08:29 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOh3v-0000000DJkm-25iB
+	id 1wOhmk-0000000DNz4-3M6F
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 19:22:09 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7dcd9061b1aso1589851a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 12:22:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1779045726; x=1779650526; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=t8oeugrZbzajef/1vQAam9ttn87tFGEQi6JKVNWh+g0=;
-        b=wvK3qBwI8Dx28vTgN741StLCW9Pd52gN6smPW5xBQVEoh+4BaLTh2or1jICNGH8VIO
-         BYWpQIRCoK2D02HotD50/FALmrR1AVbrBgqNWnBvvOWXl79hphqgYsSx+O0Memv2aDpr
-         KCrOLgiGrQBcVK7v/J2egNUEiWl7anawDeuh70CqFrtuBZGCAwcpE25LxtslE203E9Tk
-         PI7NmoWq9/ZNLsn9eOszpoXwhTeeE4rdxtS514LIUlCvNLXSjXeeNZkYwHlm+L4ekSBl
-         3yMFypNk8Ti16ITqIoOzKk6rClKCnJyhorFOE16VrgYNR8JHFwv6GP5dynBRmkRAC9+C
-         0yLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779045726; x=1779650526;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t8oeugrZbzajef/1vQAam9ttn87tFGEQi6JKVNWh+g0=;
-        b=mMF2MbOYc29y0eqE/ZpTLoU2ePiLdMlgDZAMgoKPEhq+QQcbnSJ3Nzm+39nEZfzReO
-         yb0SCan5XEnn4buN6SfLw2JzeGZNR01JIFOTmYQcyntsLHxsUtCHJ9SMaroApm8+cOrZ
-         3VR165iIjCZ7MzfLAkYLP1GwteWNboh8B0kbEAEsmCGPz2fTnaO7+3kJO6eDItsfGfif
-         kTCqoFbNKyvHGz2tHWwt2PI54IzlKIYvpdVEOsd6e16MYuLldLAEqirXZpCh5spKFfpl
-         BGJWu7FrBXb4Rq4DbKe6GlvQdCcKYScCnmcJtrq13tiejrJCvGQEadX2odKTTMT/BPJ+
-         8ZzQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+Ff3YzA3BvCMrzXa/JwtiuckJrFHSLBGbc08GYbDaq1yftHdXrEI7ehpMd48R0mue7mDo6w94ObMLICIXdjphO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZb16eGdRo3SEhHLrNmecAKFVddbJ9M0n9F8SehC9D+e52I8Fu
-	OxXK5oqfM5rZSfErf2/BeZ4nB9Iac6NJuklzpWfLf0dbGlhqhnswTA+diieMNJUveao=
-X-Gm-Gg: Acq92OFRXZcss/3AsMJ8dF739lxfRkU56XYar3iR9U2yc/gE7BOv6lkIjWldJYVuOsf
-	EDJ4rBeqH3j3NZKK+OT3fVHcm8zM+E1wKxD6NmrbOEJZ0vw0VIybZEdpE1UBQX+G1JrH9Uywrc0
-	k3Y2VSNpGvxhrolNc45CaN3Gx7gHNR3Ud0fEZcG0G3n9sAn2E2Ukq1NElhu0YJh3BIVI8JJxx/+
-	KdvOaVpV+V5o/ZVI1XR1hMuBTIvJxxYgjvX/9Alabth24uHrilOxu+5EsrvS7rt/gsD4qcqaDmf
-	eFST5zSOpsuedO9qifxl5YcjsCQqyEuF2Q6dj/wiY2+S0OSAgRp/six6PPMzzg6Cby7DpOtzCxb
-	i1q+K2xaNPmvm0rIRdGMSKopofUrj/Bv2vAqhoyhOK3p82f4aWrCH/Jr1iVtHdFSQcfzjFWgVQt
-	0miilGxO6DszSKFmyQUB1AWDm67Av2JMWsOLch/aONcz5wafpN5qODaXMz97SthFn/fHZRP0pDm
-	ddqc0Tezw==
-X-Received: by 2002:a05:6830:628a:b0:7e3:d199:3164 with SMTP id 46e09a7af769-7e4f2aa4df0mr8632934a34.11.1779045726420;
-        Sun, 17 May 2026 12:22:06 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:500:7a4b:ddf0:f61:f58d? ([2600:8803:e7e4:500:7a4b:ddf0:f61:f58d])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e55bbd10aesm6121272a34.18.2026.05.17.12.22.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 17 May 2026 12:22:04 -0700 (PDT)
-Message-ID: <83c11e2c-9688-4cc9-b7ee-6380de30fb58@baylibre.com>
-Date: Sun, 17 May 2026 14:22:03 -0500
+	Sun, 17 May 2026 20:08:28 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gJX7B09s4z9vTD;
+	Sun, 17 May 2026 22:08:22 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1779048502;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=l4wFVxQBgL8B6DVjVkF6XY4KfSRZqxPxMXAGErUdUOE=;
+	b=ON+4ZOdDioAhwgYq6wu2cWAZ3cNX+m+ypBoHVg81Nv3MXcUxvt/woO+rGux6YwY3FiDJHa
+	m03vd9UcQ7DiPJG5gZT27AXBo6k6nrldJdGaevjzPr9T/TEOXS7YwUQv6BRX2ciOL/PqEL
+	tjmFaGUIkztIeX3oQ404Uj8XHm2IZ12HKSJr8Bxw7NIPs3bgN1ynk+l2HY2X5X4/9h78/6
+	JyCZ0GlRsfvc6kL1/keCF+ZoSmhDiSt0UYWY7VtB0ubkuODxg5sLZCGTL9zQ7K/7bQ+JfU
+	fPaJM1m/IAz0wmbmp566FhWzELv0+RpaR7Nt2mAiLVwGC9JrxkVMeTPxugREVw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=CcC7WRiX;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1779048500;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=l4wFVxQBgL8B6DVjVkF6XY4KfSRZqxPxMXAGErUdUOE=;
+	b=CcC7WRiXiGfj9qB3IEUc4W9PX+ThhzSiQxdNpIUcfFltXLJW6dDgJsPmiX5Xv/Mm0QdsEK
+	CuP1hqrGnmuje1VrxDDNnh4zFy9xW+3oiRnjUnXSTrd1BG0VJQiVVZVun/cTVU5KSKwAoP
+	MTjaOmbG/8Uz07ukSTjcwLUJo7dzPSRko/d3UL9raDkLOkr504tVEfysJ5wKEk9OlY5bzL
+	y03hd15AGO6KCSsK+ENunR410Tm4sr9Kv+rapXxpfl6Q/Woy9spJ/dDy+hAsADCjOIi2ob
+	97Q7hoOmMSD0xb4YSQP65Kbu1iYqT6MBrDaHNE0nIebsRubHXfjX/SiP+8EdGA==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH v2] arm64: dts: renesas: r8a78000: Describe all reserved memory
+Date: Sun, 17 May 2026 22:07:40 +0200
+Message-ID: <20260517200814.21624-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] iio: timestamp declaration cleanup
-To: Jyoti Bhayana <jbhayana@google.com>, Jonathan Cameron <jic23@kernel.org>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Benson Leung <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev
-References: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
-Content-Language: en-US
-From: David Lechner <dlechner@baylibre.com>
-In-Reply-To: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 3e02abafad4a71cb2b3
+X-MBO-RS-META: xrb9uyt3n4p1aa9mmtafi9o74nrhuoq8
+X-Rspamd-Queue-Id: 4gJX7B09s4z9vTD
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_122207_546624_F29ACE3B 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20260517_130826_986986_835CBB2E 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,29 +94,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/17/26 1:17 PM, David Lechner wrote:
-> While looking around the code, I noticed that there are a lot of places
-> were we are manually filling all of the fields of an IIO timestamp.
-> 
-> This is error-prone (as seen in the first patch) and more verbose than
-> it needs to be.
-> 
-> I went with the approach of using the existing IIO_CHAN_SOFT_TIMESTAMP()
-> macro for doing a struct assignment. This does require a cast, which
-> makes it a bit more verbose, but we were already doing that in to
-> drivers, so I went with it anyway.
-> 
-> If we want to consider alternatives, we could make a iio helper function
-> or macro like the first and second patches did.
-> 
-I should have looked harder for existing alternatives. Just found one
-more that avoids the cast via a local variable (in ad4170-4.c):
+Fully describe all available DRAM in the DT, and describe regions which
+are not accessible because they are used by firmware in reserved-memory
+node.
 
-	/* Add timestamp channel */
-	struct iio_chan_spec ts_chan = IIO_CHAN_SOFT_TIMESTAMP(chan_num);
+Replace first memory bank memory@60600000 with memory@40000000 and a
+518 MiB long reserved-memory no-map subnode. This memory region is used
+by other cores in the system.
 
-	st->chans[chan_num] = ts_chan;
+Reserve 32 kiB of memory at 0x8c100000 for parameters shared by IPL,
+SCP, TFA BL31 and TEE.
 
-And similar code is found in ad7192.c.
+Reserve 512 kiB of memory at 0x8c200000 for TFA BL31. The upcoming
+upstream TFA 2.15 BL31 uses memory from 0x8c200000..0x8c242fff, the
+round up to 512 kiB is slight future proofing.
+
+Reserve 32 MiB of memory at 0x8c400000 for OPTEE-OS, which is the
+entire OPTEE-OS TZ protected DRAM area.
+
+Neither the TFA BL31 nor OPTEE-OS do modify the DT passed to Linux in
+any way with any new reserved-memory {} node to reserve memory areas
+used by the TFA BL31 or OPTEE-OS to prevent the next stage from using
+those areas, which lets Linux use all of the available DRAM as it is
+described in the DT that was passed in by U-Boot, including the areas
+that are newly utilized by TFA BL31 or OPTEE-OS.
+
+In case of high DRAM utilization, unless the memory used by TFA BL31
+or OPTEE-OS is properly reserved, Linux may use and corrupt the memory
+used by TFA BL31 or OPTEE-OS, which would lead to the system becoming
+unresponsive.
+
+Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Rob Herring <robh@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+V2: Run checkpatch, fix indent
+---
+ .../boot/dts/renesas/r8a78000-ironhide.dts    | 35 +++++++++++++++++--
+ 1 file changed, 32 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+index a721734fbd5d0..ed027a6c356ed 100644
+--- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
++++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+@@ -20,10 +20,9 @@ chosen {
+ 		stdout-path = "serial0:1843200n8";
+ 	};
+ 
+-	memory@60600000 {
++	memory@40000000 {
+ 		device_type = "memory";
+-		/* first 518MiB is reserved for other purposes. */
+-		reg = <0x0 0x60600000 0x0 0x5fa00000>;
++		reg = <0x0 0x40000000 0x0 0x80000000>;
+ 	};
+ 
+ 	memory@1080000000 {
+@@ -65,6 +64,36 @@ memory@1e00000000 {
+ 		device_type = "memory";
+ 		reg = <0x1e 0x00000000 0x1 0x00000000>;
+ 	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		/* First 518 MiB is reserved for other purposes. */
++		firmware@40000000 {
++			reg = <0x0 0x40000000 0x0 0x20600000>;
++			no-map;
++		};
++
++		/* Parameters set by IPL. */
++		parameters@8c100000 {
++			reg = <0x0 0x8c100000 0x0 0x00008000>;
++			no-map;
++		};
++
++		/* TFA BL31. */
++		tfa-bl31@8c200000 {
++			reg = <0x0 0x8c200000 0x0 0x00080000>;
++			no-map;
++		};
++
++		/* TEE TZ DRAM. */
++		tee@8c400000 {
++			reg = <0x0 0x8c400000 0x0 0x02000000>;
++			no-map;
++		};
++	};
+ };
+ 
+ &extal_clk {
+-- 
+2.53.0
 
 
