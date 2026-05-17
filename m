@@ -4,88 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8BCDCD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 11:46:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34EB9CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 11:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4DebYSPXyMA12y92kZcA8rAKkRRULfngBHwuM5CKJDc=; b=o2Gr2ez/UHA09hwgtcORbxAHvO
-	VE960OfUpfdvINSOTGG/4YDT7SMCqQ9x0fVhmeNZtOJMnPYr9IHhCzwpQPBYAgdu9BzYnnj/ua0OK
-	DOeYPwQO4JjyC4UKAKrVL4U36creGZh9yf+jLAoxDJ4MNiGM/iOSP+jQiDorFG2vZeS2aewDAcOrc
-	RaCoYQhOSfDb+4DXq2IZ/7WInc5rx/y2Gjup2e5KH/l7th2uBbB+2H5Z6Ojiagh0w30g+ytMWfgAN
-	JFAue2LQnSv856eLjHG7jcH/IkYH0xSIZtQ5BEOuVgjlAX/WcNY6ygRD1bIAe0zEiQ+53HHvUUHqx
-	m1zqBbbw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Viu192jC4/rs0pGZtKEKHYWVgQLZru9+DaFpVD17To8=; b=n3rqBmWtnVB776leiurCCCrbDl
+	P0aEwFPEGLWNhcpJFcZuvA0XxHJUwN5R1ig48VAycAcNT1UDhvWaH7B1ImxzQ6NzK6Jh5CB4CSdqN
+	mz08RVEIY4aHXOm+1yzjWFANdWC9S+XTxuQxU+ALaoG8MCzm+rCjYnGNyvdTzkYZH5zWqulmiABI/
+	vWlLC0iUFcapVoysN30WvJezKkO/vSsXkS7Q6lhjCn8CNBRrl9kySqGtptTVuT+jmpg9MZte+5yQm
+	xvAxcc02BMAy7M+WfTQM/xhd0CV+Nv5L/GynvNO7CcFj50jg+mt6m5TMVNtTyeF4gIEGyMLC/XDmX
+	ESOxqc1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOZwY-0000000CdU3-32Gu;
-	Sun, 17 May 2026 11:46:02 +0000
-Received: from mail-vk1-f172.google.com ([209.85.221.172])
+	id 1wOZxR-0000000Cddg-3dvZ;
+	Sun, 17 May 2026 11:46:57 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOZwV-0000000CdTT-3zAh
+	id 1wOZxP-0000000Cdd9-1wnv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 11:46:01 +0000
-Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-57516e08474so1129220e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 04:45:59 -0700 (PDT)
+	Sun, 17 May 2026 11:46:56 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2ba3e3c4f87so13432085ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 04:46:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779018414; x=1779623214; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Viu192jC4/rs0pGZtKEKHYWVgQLZru9+DaFpVD17To8=;
+        b=EUVk9pUcJB2DrRsjXYNsXPWx93Fqh4FK/gZ3fh3aP++bbXm8k//h+PkC+DfYxI4aqI
+         Xp6ZcHfpiegSsekgoTGCpv4abH3NnJrkT09Tu9bgZvHqmUWcFeqJ10yYwz+Oz8dpGwnr
+         C4i/eYkiq+GmRSzMQydzUlWX/9i/u7R/r5NHPcWVMKPX398d6V+fOdJnhIphyoUqsbuc
+         1LHOqdELjXp1NJfRnTvejdQ0Pk0fpDc5yUpjxGWuFEqUDSVmNRuvcgrERNSex1kFljoR
+         X7ZfpBeAAYDFKvqSubN8cwpsPlIfYH/i83SuWyGxfalrykyPkZ1BAj8Su4ogWZ0rAegz
+         +7ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779018358; x=1779623158;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1779018414; x=1779623214;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4DebYSPXyMA12y92kZcA8rAKkRRULfngBHwuM5CKJDc=;
-        b=pyQYvVq5GFyaaUQAiH874Lmp55IYW329xSTT5JWJjZY4H249TYdNNo+OTXfx1b3wbh
-         tN0Y8rYJdQM6JynBbLawsfAqV7/E1p6/f32kSRfn9CWENTvqIbDZsSqiJ5N7267P4jDo
-         bLoxn6T67ExhrR1jE38oNuxD9Ui+SLHmYHibc27MezZPMh/COKnht2ryJpnwXcY+XcRx
-         2k2cNFcHrwn5dabnl3apIrspDt5bloTAT3GuoKYNzRxVNbnS0DtwF+n0xuI4UCHFxhRE
-         l0zaDCFDYsAE8K7MUDYYsAs249Pw5SGsxrgFSw8eEaZqoYgidXwG5L9lJxKJX+T4camn
-         7GVw==
-X-Forwarded-Encrypted: i=1; AFNElJ+TErjxLm59OgdPAJKY3pUBuuFtvGnMqg1kOppyRMKbltKm9RFWLEIvV8/U6Pr2FbfA0+Agf96eJDuXRr3iSMEA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUcB7LHshNO28Wu7DI/DhwGQ/LJmz+FQqhhY2X3HK3sOZhDEZ5
-	EI4JmxqFNTA6YX3+ox0ViPeBsdjnukWezUA+UeXgH7paGqvQUmgOyXzxjz3v1ku1
-X-Gm-Gg: Acq92OGE+yN1wt4zb4erGqMPAISeiFPXtm2+2AF1EdGWQS2kLxkWtkb6F/OpGr7Bt3q
-	Uad8nV+jx3ApOGbjIH97orKA9lLL+VxBMLR/bBqb7jXbHZzKbef1kr2gN1F/ZobRxQboIIOZv6K
-	wFL+5KCkAa5GhUU2mhTcfJ/GJSYitQpDUpt8NQdjBwkmH1pOrgkKtEJBotWj7NmRPl+X+q+z/Z5
-	9ymQZVWR8jInZTaVuymdOGXz3a6m2CfWdUYcgc7lWxWNmm6eu1dTYZ1I4qY4BKk1RpE5xisJLhX
-	BpwsKK/Oy4t+25QN6ojKp5i2lOxH6YcN61QXLduknpHiESWGZM3X5yR010cIa8I9swS6xTOwjo9
-	s+LNVZjgVc8IHC41X2A6EsPxn7eKFxYdyzuRXHyOZLbbRfYBdEJs8tbLhqViQoErA96JQv9eZRZ
-	9kpx1d+OKKIYihO00PCRHDQVpWksREfqgjFCYe6fqlgLA+2GfKn1dz26exfnI6icBAN6kbC8g=
-X-Received: by 2002:a05:6123:128:b0:575:d035:8cb1 with SMTP id 71dfb90a1353d-5760c096bc8mr6509444e0c.13.1779018358035;
-        Sun, 17 May 2026 04:45:58 -0700 (PDT)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5760f5cd08bsm4452430e0c.5.2026.05.17.04.45.56
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 17 May 2026 04:45:57 -0700 (PDT)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-628086439b6so1239737137.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 04:45:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9YnFO3ocqdcAAbPdxZ7hYfIDnWw9e7FIr8IdQR8AVhinmIgXhaQyu+LJw8oZTNxeeNteUOlQIkVMDmxjm73jFn@lists.infradead.org
-X-Received: by 2002:a05:6102:1499:b0:632:1e2f:3a6f with SMTP id
- ada2fe7eead31-63a3f588eb4mr5593907137.24.1779018356258; Sun, 17 May 2026
- 04:45:56 -0700 (PDT)
+        bh=Viu192jC4/rs0pGZtKEKHYWVgQLZru9+DaFpVD17To8=;
+        b=E6yQWSuTm8haxwZIpcqRGpXFSq2z8IZtRXr6eu16wEBYjhm7mv8OP/5eI4hCb1mFxN
+         9knoAxRj2Eyx2kTi0+4aGm5WNFayVe6TWi1N3nFouWIMIRjKo2wf/+vWl90xex+bicWA
+         Ix2J49SI0qWMyd/JGpOjBpt9Yrvyr91vc6HSi/vFYXTzy384OpFMAWJoYZQtDVZrTBGH
+         Rm0zGGSSMfyb+YeTtfsqVbIKtCD26GDzX9fYK0QD7wlE9ndvLFTJ8n2C7sDxZrAM84iW
+         w3WaBNFZxaMwoYcNc1nSaIGKR+cKGZyOB4cHEq5MX9YDkuAIKn8dnv+qSBgFPcy8AUCT
+         iCDw==
+X-Forwarded-Encrypted: i=1; AFNElJ/vUs+tjQmmLvvTaiE1gQLDyjaXdLln+fMNmaAY9XlRmEMxiEHMFa61Ghhd19A7Gyk6JL97OZ6yrjrNVENoes6R@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMsu7hUzbjYw4RwMNB0RZ8tiCFQH+eMllAfisHTBmVnKla97KD
+	4elg1Luir4D7pRScxNlczbI5baQH79wqHK0h5+tAZLv6TMBDmfmhiVd/
+X-Gm-Gg: Acq92OG/tN9e0ZRg5QWiPg58wbDtvPCPwX372Oop/HmTkBrhYHSLvxhXqrPyBOWWLZw
+	OqDPlcIfOAXD2AAl2xsEJx3zl2Np2rmePau8VuaFfz6EUu5xMa9nhYE4r3P0i0cOhj7Ozqutmug
+	j0b952jkvEJAL5cdHAo5OItj66yqzWc0QyMkrfZq8Rh7hgjWyZ59Mn8ZPmQLoksSJNY4y6Pqg9f
+	GzzADox/ETEpjJzOVE5Syo4br9QUgHVqbyTtDX8+B4pOkEkLKoEMzlMW1eo44HEAdY1517PnZ8Z
+	Tegsy5KrQFmRJIWqHqlPLDRoDpDm4s7dEssGmxIQrQZehkbsyxhjTZxXN4lIWC/DSLIdmXjpwMZ
+	QwOVV5BmhQV55eql9ECO9l+qpXe+r2rXwYxH/FN2LfoBQsprlODAbTSr7y3EwiNUeTSjoTNgsjn
+	nul/c5OVIS/xO6
+X-Received: by 2002:a17:902:da82:b0:2bd:2de3:5198 with SMTP id d9443c01a7336-2bd7e7fa235mr119231005ad.3.1779018414549;
+        Sun, 17 May 2026 04:46:54 -0700 (PDT)
+Received: from lgs.. ([118.193.39.24])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5cfe6492sm110180065ad.45.2026.05.17.04.46.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 17 May 2026 04:46:54 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: =?UTF-8?q?=C5=81ukasz=20Stelmach?= <l.stelmach@samsung.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Kamil Debski <k.debski@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>
+Subject: [PATCH] media: s5p-g2d: avoid double free on video register failure
+Date: Sun, 17 May 2026 19:46:42 +0800
+Message-ID: <20260517114642.951949-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <CALSJ-wAqFni+OwSUcQS+KESfe7SbWMxc0aCURHtTZ93Rx6GZhw@mail.gmail.com>
-In-Reply-To: <CALSJ-wAqFni+OwSUcQS+KESfe7SbWMxc0aCURHtTZ93Rx6GZhw@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Sun, 17 May 2026 13:45:44 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUMvoODD4huxqPb+Hj6Rdid1cSgvzuJdqvg_hRzviyFuA@mail.gmail.com>
-X-Gm-Features: AVHnY4LH2SV9naipvvuNwFBNfxwbLJEv_dNs2guuBciejeAs6rBKW5zfskaYVQw
-Message-ID: <CAMuHMdUMvoODD4huxqPb+Hj6Rdid1cSgvzuJdqvg_hRzviyFuA@mail.gmail.com>
-Subject: Re: [PATCH v2 03/11] m68k: mcf5441x: setup DAC clock name as per
- driver name
-To: Angelo Dureghello <adureghello@baylibre.com>
-Cc: Steven King <sfking@fdwdc.com>, Greg Ungerer <gerg@linux-m68k.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
-	=?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
-	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_044559_999049_5A228D2C 
-X-CRM114-Status: GOOD (  39.51  )
+X-CRM114-CacheID: sfid-20260517_044655_502290_509F42B7 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,94 +101,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Angelo,
+g2d_probe() allocates a video_device with video_device_alloc() and
+releases it from the rel_vdev error path if video_register_device()
+fails.
 
-There's something wrong with "Mail-Followup-To:", which lists everyone,
-except for you...
+This can double free the video_device when __video_register_device()
+reaches device_register() and that call fails:
 
-On Sun, 17 May 2026 at 11:11, Angelo Dureghello
-<adureghello@baylibre.com> wrote:
-> jfyi, for some reason i was not in to/cc, but i could grab the message
-> in lore.
+  video_register_device()
+    -> __video_register_device()
+       -> device_register() fails
+          -> put_device(&vdev->dev)
+             -> v4l2_device_release()
+                -> vdev->release(vdev)
+                   -> video_device_release(vdev)
 
-Might be related...
+  g2d_probe()
+    -> rel_vdev
+       -> video_device_release(vfd)
 
-> On Thu, May 14, 2026 at 10:54:32PM +1000, Greg Ungerer wrote:
-> > On 14/5/26 17:05, Angelo Dureghello wrote:
-> > > On 14.05.2026 11:27, Greg Ungerer wrote:
-> > > > On 13/5/26 19:14, Angelo Dureghello wrote:
-> > > > > From: Angelo Dureghello <adureghello@baylibre.com>
-> > > > >
-> > > > > Later in this patchset, the mcf54415 DAC driver is added.
-> > > > > Considering some other different ColdFire cpu DACs exists, the DAC driver
-> > > > > is named as "mcf54415_dac", related to the mcf5441x family SoCs with
-> > > > > DACs (mcf54415/6/7/8).
-> > > > >
-> > > > > So updating DAC clock names to bind with proper driver name.
-> > > >
-> > > > I am not sure I like naming the clocks here with a prefix for the
-> > > > specific SoC part number this is in. It might be unlikely now, but
-> > > > what if another ColdFire family SoC member uses this same hardware block?
-> > > > That is very common amongst other hardware blocks within the ColdFire
-> > > > family. Can we come up with a name more specific to just this type
-> > > > of DAC hardware block?
-> > > >
-> > >
-> > > from a brief study, this 12bit DAC, and DAC module in general, is only on
-> > > this mcf45441x family. There are some ColdFire with ADC only, as those
-> > > mcf5249/53/82.
-> > > The mcf51mm/ag/je are the opnly to have a 5bit dacs, but these are mcus.
-> > > So, if i don't miss any existing model, the name may be correct,
-> > > unless we want rename it to a more generic mcf_dac.
-> >
-> > Yes, I would suggest just leaving it as is, "mcfdac".
-> > That is not currently used by any other ColdFire variants supported by
-> > the kernel.
-> >
->
-> Ok, will fix this in a v3, just asking confirmation on the name to
-> Jonathan and all, since it involves iio too.
->
-> Chaches are:
-> mcfdac
-> mcf-dac  or mcf_dac (we have drivers as vf610_dac and cio-dac)
+Use video_device_release_empty() while registering the device so that
+registration failure paths do not free vfd through vdev->release().
+g2d_probe() then releases vfd exactly once from rel_vdev. Restore
+video_device_release() after successful registration so the registered
+device keeps its normal lifetime handling.
 
-The clock names in arch/m68k/coldfire/m5441x.c are the names as
-specified by the producer side, not by the consumer side.
+This issue was found by a static analysis tool I am developing.
 
-> > > > > --- a/arch/m68k/coldfire/m5441x.c
-> > > > > +++ b/arch/m68k/coldfire/m5441x.c
-> > > > > @@ -43,8 +43,8 @@ DEFINE_CLK(0, "mcfpit.2", 34, MCF_BUSCLK);
-> > > > >    DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
-> > > > >    DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
-> > > > >    DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
-> > > > > -DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
-> > > > > -DEFINE_CLK(0, "mcfdac.1", 39, MCF_CLK);
-> > > > > +DEFINE_CLK(0, "mcf54415_dac.0", 38, MCF_CLK);
-> > > > > +DEFINE_CLK(0, "mcf54415_dac.1", 39, MCF_CLK);
-> > > > >    DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
-> > > > >    DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
-> > > > >    DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
-> > > > > @@ -106,8 +106,8 @@ static struct clk_lookup m5411x_clk_lookup[] = {
-> > > > >         CLKDEV_INIT("mcfpit.3", NULL, &__clk_0_35),
-> > > > >         CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
-> > > > >         CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
-> > > > > -       CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
-> > > > > -       CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
-> > > > > +       CLKDEV_INIT("mcf54415_dac.0", NULL, &__clk_0_38),
-> > > > > +       CLKDEV_INIT("mcf54415_dac.1", NULL, &__clk_0_39),
-> > > > >         CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
-> > > > >         CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
-> > > > >         CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
+Fixes: 918847341af0 ("[media] v4l: add G2D driver for s5p device family")
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+---
+ drivers/media/platform/samsung/s5p-g2d/g2d.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+index a18b13db19d5..f38c28abd6d9 100644
+--- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
++++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+@@ -684,6 +684,7 @@ static int g2d_probe(struct platform_device *pdev)
+ 		goto unreg_v4l2_dev;
+ 	}
+ 	*vfd = g2d_videodev;
++	vfd->release = video_device_release_empty;
+ 	set_bit(V4L2_FL_QUIRK_INVERTED_CROP, &vfd->flags);
+ 	vfd->lock = &dev->mutex;
+ 	vfd->v4l2_dev = &dev->v4l2_dev;
+@@ -711,6 +712,8 @@ static int g2d_probe(struct platform_device *pdev)
+ 		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
+ 		goto free_m2m;
+ 	}
++
++	vfd->release = video_device_release;
+ 	video_set_drvdata(vfd, dev);
+ 	dev->vfd = vfd;
+ 	v4l2_info(&dev->v4l2_dev, "device registered as /dev/video%d\n",
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.43.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
