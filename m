@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09FEACD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 16:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB896CD4F47
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 17:12:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ON6deAH6ylT+vJ2Xit/WLOsRprv6YaS5ud/E7EPDtRs=; b=R9r6OtmaWI5bWsjtRYSNT2ag6J
-	57RVq+nwgyZ0nWO4cRnop95EL2MuviCIEpAPN9H3wqM2ZnTihqE/bni6mR/PrFgdQDZh+KfBzUAKU
-	P7hZ4dHBojuZzX/tDnwJ9VyYEKPzO0OBZcl4l1pZMcyrTtJ6d/NXqvgSM/W3kGSIIkaxTfN/X49kk
-	SjoNiSz5HsiYIYBFLElRhhfJp7dy8ijXWiwS03WlzxakduW/rFaJF2sTBWmTz0ApKG8j86U099sMW
-	yzFIPs1BX7z3+RVwQkxRleUcCpHNvRn3pNCcB1/tdFf7t1Jwcnqxh54azuOhSJorpgMUKZuTlI1k3
-	yZqXX5Zg==;
+	bh=qrJc7oXNNs7XpVs5V0pk82jzYIs19MQnk8BCVdhU5PU=; b=Snntq5dL4zdkQZbXFlut/HpE/n
+	rOX8D6O3mMXZ3gJ7p27n7ItQKD2BYblTo/HS8tIvQkISQYGsMh+Aj9+45BTxsdsVchALLaLwGZpGT
+	wS0uu5UGSxFQTDczfR/6cwTAKxK/Qa4HzJYSWq05HsPvgzNGi8WSR+ftLzve084FRTvkOuD8SzQJb
+	LhS57Tmc23XfvvBUFq4wTgksTlNpLGbOBBQqxroSN9cBUdawqSwG+iYrrFughxIzc7ry5hGrydOPZ
+	kCYDgRX90JPmSj/BgaeBY8a9g1AeDSE2LjlM/AoOnDAsm1QErjoYqWQx0LlA9yie4F+eE+Dflslbq
+	Q/0T5rzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOelQ-0000000D3ci-4APe;
-	Sun, 17 May 2026 16:54:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOf2j-0000000D58J-3RBg;
+	Sun, 17 May 2026 17:12:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOelO-0000000D3bz-2IV0;
-	Sun, 17 May 2026 16:54:52 +0000
+	id 1wOf2h-0000000D57k-1Wje;
+	Sun, 17 May 2026 17:12:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4293416A7;
-	Sun, 17 May 2026 16:54:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE6BC2BCB0;
-	Sun, 17 May 2026 16:54:47 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 996F340DC1;
+	Sun, 17 May 2026 17:12:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0632C2BCB8;
+	Sun, 17 May 2026 17:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779036888;
-	bh=rl8/+H7UrkvD6Wm6GXhI3VO843IjVdH5GorUML886+s=;
+	s=k20201202; t=1779037962;
+	bh=rZTvaM2qqzZ0+ZHapysXVlkiReT0C0YfxuSAed7oo4U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JsbuppPfeqHH826a2rLBZNT3CPj7ruSwlDcOIGBAMfxGU0LFwgx2/s+KvhkULmoY0
-	 hyccBDN6SGggxgqY8GCkNqjMwJZ9va5Q1N3NBASYSJpnBtrjcSDOVo0RLgW9g78nIj
-	 BJzZSnp4D1aNaNNENmFUit0Fd5u2FagM0CS2EtbQMWMD4wHj5d5byfx1QD7vP81eg4
-	 EqNlosfLq58w3zL8FXfGeDAI5fM5ke012FrHi6w0loU111sRbhVyedtdPTt7wsNQiE
-	 /ZXLzavaTaJsqsl+B48Wh43rpbgslHByU9QG5hF+V7LD5pixVnEOUwqpyyAZnylaw2
-	 /OhcjcWFm6lhw==
-Date: Sun, 17 May 2026 22:24:44 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] phy: rockchip: inno-hdmi: Add configure() and
- validate() ops
-Message-ID: <agny1ER5j6om9hIT@vaman>
-References: <20260515195512.1757363-1-jonas@kwiboo.se>
- <20260515195512.1757363-2-jonas@kwiboo.se>
- <d69b500b-0473-496d-b17e-c60ce9839e0c@kwiboo.se>
+	b=RUrmpOI5z3LGWD8/mdNkUlYbcEA4ysfIOvjNwFRxSxquanwD9ZR3iTnB+zT95QL4s
+	 BmgZ3CpZXgSsU25OUFfr+ynh/HdoGAP6IPd2DjvkMbRwg0jthmTYzrzjIbZk1paajv
+	 U7tO/7oaP4A5gHOcBuSm+xDyKJHnJpvgpb3KP41K0n9NhdnMiGcfdqvyUqVK2B08ZY
+	 lrpWt9CBYbSMa16NE3SOPUm3Q3zFNuwKaKAzflJMaP7qMamAdeFVNa1GV8b8ictQD+
+	 YqCjNxbWwokvEf0AaTrKrRm23D86U0T8KhMuk5dD8Qx7BZNO7SReEPlyoX35YncqkF
+	 mPGdwlJrpqUUA==
+Date: Sun, 17 May 2026 19:12:39 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: xianwei.zhao@amlogic.com
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] pwm: meson: Add support for Amlogic S7
+Message-ID: <agn2Yp3mzI7DcsyN@monoceros>
+References: <20260402-s6-s7-pwm-v2-0-657dce040956@amlogic.com>
+ <20260402-s6-s7-pwm-v2-2-657dce040956@amlogic.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eenroa65e3lftv6j"
 Content-Disposition: inline
-In-Reply-To: <d69b500b-0473-496d-b17e-c60ce9839e0c@kwiboo.se>
+In-Reply-To: <20260402-s6-s7-pwm-v2-2-657dce040956@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_095450_628726_56C554FE 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20260517_101243_451655_EA11619D 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +77,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15-05-26, 23:04, Jonas Karlman wrote:
-> Hi,
-> 
-> On 5/15/2026 9:55 PM, Jonas Karlman wrote:
-> > The commit 10ed34d6eaaf ("phy: Add HDMI configuration options")
-> > introduced a way for HDMI PHYs to be configured through the generic
-> > phy_configure() function.
-> > 
-> > This driver derives the TMDS character rate from the pixel clock and the
-> > PHY bus width setting. However, no in-tree consumer of this PHY has ever
-> > called phy_set_bus_width() to change the TMDS character rate as only
-> > 8-bit RGB output is supported by the HDMI display driver.
-> > 
-> > Add configure() and validate() ops to allow consumers to configure the
-> > TMDS character rate using phy_configure(). Fallback to the deprecated
-> > way of using the PHY bus width to configure the TMDS character rate.
-> > 
-> > A typical call chain during DRM modeset on a RK3328 device:
-> > 
-> >   dw_hdmi_rockchip_encoder_atomic_check():
-> >   - inno_hdmi_phy_validate(): pixclock 148500000 tmdsclock 594000000
-> > 
-> >   dw_hdmi_rockchip_encoder_atomic_mode_set():
-> >   - inno_hdmi_phy_configure(): pixclock 148500000
-> >     - inno_hdmi_phy_validate(): pixclock 148500000 tmdsclock 594000000
-> > 
-> >   vop_crtc_atomic_enable():
-> >   - inno_hdmi_phy_rk3328_clk_set_rate(): rate 594000000 tmdsclk 594000000
-> >   - inno_hdmi_phy_rk3328_clk_set_rate(): pixclock 594000000 tmdsclock 594000000
-> >   - inno_hdmi_phy_rk3328_clk_recalc_rate(): pixclock 594000000 vco 594000000
-> > 
-> >   dw_hdmi_rockchip_encoder_enable():
-> >   - inno_hdmi_phy_power_on(): Inno HDMI PHY Power On
-> >   - inno_hdmi_phy_rk3328_clk_set_rate(): rate 594000000 tmdsclk 594000000
-> > 
-> > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> > ---
-> > Changes in v3:
-> > - Change validate() ops to only validate tmdsclock
-> > - Add comments about expected consumer usage
-> > - Update commit message with a typical call chain
-> > Changes in v2:
-> > - Add validate() ops to validate that the TMDS rate is supported
-> > - Split out parts that remove the old workaround into a separate patch
-> > 
-> > Patch "drm/rockchip: dw_hdmi: Configure HDMI PHY in atomic_mode_set()"
-> > at [1] adds phy_validate() and phy_configure() calls for this HDMI PHY.
-> > 
-> > [1] https://lore.kernel.org/dri-devel/20260510183114.1248840-10-jonas@kwiboo.se/
-> > ---
-> >  drivers/phy/rockchip/phy-rockchip-inno-hdmi.c | 60 ++++++++++++++++++-
-> >  1 file changed, 59 insertions(+), 1 deletion(-)
-> 
-> [snip]
-> 
-> > +static int inno_hdmi_phy_validate(struct phy *phy, enum phy_mode mode,
-> > +				  int submode, union phy_configure_opts *opts)
-> > +{
-> > +	const struct pre_pll_config *cfg = pre_pll_cfg_table;
-> > +	unsigned long tmdsclock;
-> > +
-> > +	if (!(mode == PHY_MODE_HDMI && submode == PHY_HDMI_MODE_TMDS))
-> > +		return -EINVAL;
-> > +
-> > +	if (!opts->hdmi.tmds_char_rate || opts->hdmi.tmds_char_rate > 594000000)
-> > +		return -EINVAL;
-> 
-> Sashiko reasoning log pointed out that a consumer of phy_validate() or
-> phy_configure() can make a call with opts=NULL, so I may likely send a
-> v4 of this series to fix such possible NULL pointer dereference here.
 
-Yes please
+--eenroa65e3lftv6j
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 2/2] pwm: meson: Add support for Amlogic S7
+MIME-Version: 1.0
 
-> 
-> Or is that something that possible should be checked before phy core
-> calls the .validate()/.configure() ops?
+Hello,
 
-The opts is an optional argument depending upon the mode to be valid. So
-we cant do that in the core...
+On Thu, Apr 02, 2026 at 02:40:16AM +0000, Xianwei Zhao via B4 Relay wrote:
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>=20
+> Add support for Amlogic S7 PWM. Amlogic S7 different from the
+> previous SoCs, a controller includes one pwm, at the same time,
+> the controller has only one input clock source.
+>=20
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>  drivers/pwm/pwm-meson.c | 32 +++++++++++++++++++++++++++++---
+>  1 file changed, 29 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+> index 8c6bf3d49753..7a43c42ef3d6 100644
+> --- a/drivers/pwm/pwm-meson.c
+> +++ b/drivers/pwm/pwm-meson.c
+> @@ -113,6 +113,7 @@ struct meson_pwm_data {
+>  	int (*channels_init)(struct pwm_chip *chip);
+>  	bool has_constant;
+>  	bool has_polarity;
+> +	bool single_pwm;
 
-> 
-> Multiple other phy .configure() ops seem to dereference opts members
-> without any type of opts NULL check. (next-20260508)
+Conceptually I'd prefer a `npwm` field here. That doesn't take more
+space in memory and simplifies the logic a bit. (At the cost of having
+to adapt all already existing meson_pwm_data instances, but that's fine
+in my book.)
 
-We should fix these
+>  };
+> =20
+>  struct meson_pwm {
+> @@ -503,6 +504,18 @@ static void meson_pwm_s4_put_clk(void *data)
+>  	clk_put(clk);
+>  }
+> =20
+> +static int meson_pwm_init_channels_s7(struct pwm_chip *chip)
+> +{
+> +	struct device *dev =3D pwmchip_parent(chip);
+> +	struct meson_pwm *meson =3D to_meson_pwm(chip);
+> +
+> +	meson->channels[0].clk =3D devm_clk_get(dev, NULL);
+> +	if (IS_ERR(meson->channels[0].clk))
+> +		return dev_err_probe(dev, PTR_ERR(meson->channels[0].clk),
+> +				     "Failed to get clk\n");
+> +	return 0;
+> +}
+> +
+>  static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
+>  {
+>  	struct device *dev =3D pwmchip_parent(chip);
+> @@ -592,6 +605,13 @@ static const struct meson_pwm_data pwm_s4_data =3D {
+>  	.has_polarity =3D true,
+>  };
+> =20
+> +static const struct meson_pwm_data pwm_s7_data =3D {
+> +	.channels_init =3D meson_pwm_init_channels_s7,
+> +	.has_constant =3D true,
+> +	.has_polarity =3D true,
+> +	.single_pwm =3D true,
+> +};
+> +
+>  static const struct of_device_id meson_pwm_matches[] =3D {
+>  	{
+>  		.compatible =3D "amlogic,meson8-pwm-v2",
+> @@ -642,6 +662,10 @@ static const struct of_device_id meson_pwm_matches[]=
+ =3D {
+>  		.compatible =3D "amlogic,meson-s4-pwm",
+>  		.data =3D &pwm_s4_data
+>  	},
+> +	{
+> +		.compatible =3D "amlogic,s7-pwm",
+> +		.data =3D &pwm_s7_data
+> +	},
+>  	{},
 
+If you touch that array in the next revision, please make this line:
 
-PS: Any reason why you are sending encypted emails?
+	{ }
 
--- 
-~Vinod
+(I.e. add a space and drop the comma.)
+
+Best regards
+Uwe
+
+--eenroa65e3lftv6j
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoJ9wUACgkQj4D7WH0S
+/k6z4gf8CDKq+whV8je2O5ohJtU1A9GFL80VjHGqWPlp1Vzj64QRpZCZCbBwA/Mr
+VhA7vIcUm2o6m3dGLNdz5Y6CXusEk+afjTh3eQOMgyOXCbK6gL69QQ3TU/RCGuIX
+AGorWZzjsaV9UveLX4vc2VcZHEfxNb2AWNjvOgRfWrVb82Tw9cmg5Ago9dTFaSmz
+LKS03jU9jzuo4qge4VeKniPvSp+a/5YyTGgPOpFcR8RP8/orcE5EhCSI9J4QE+Ad
+Ynysyz8gr+delAF0En9fx190Psp2HsJvaEHO8C5xDfNXWkLw0tEiWD3QZVPY5TFH
+MgfGGtsEIzVFRLKzVpfLkWRtc6Dr7Q==
+=fPc/
+-----END PGP SIGNATURE-----
+
+--eenroa65e3lftv6j--
 
