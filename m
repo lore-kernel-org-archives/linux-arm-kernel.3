@@ -4,103 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31902CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 03:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95AADCD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 04:24:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WY8tQdk2Tvql40KAcE/gnoZvaJoJKO77cgfifr2cEeI=; b=pkvnSmNiXt3aNT3062opQw73e/
-	A5AyUbb0WOugbNeGG6l2LP/uk1t+mqH1pxFVj1T54AonyuO8Upajk+CnYn3xkVaLklJU45krCUJP9
-	UtWznK43bdUbcun2FaXL2rwp1uCyRYdwfvngUaaZpw0dy9T8hinBOx00Tfe+XXLNRFsZwV5EraV9U
-	CNhip1FYMQ8PvSxAoYgdDC9NZY3NORAQ2+XwV25sLmVmwWHqWRsaoc8aTc9x+3dA/jHm0OnHe9lCE
-	PKS+spyb46FIZjEezqsTbEACyh9XBjBKsI538skSUSqFwYUSXrDvFMYchM3udEkvyO2L51h0lPiLm
-	uxxXRmBQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=d8n3eAJD8ESNWs1d2EHnu9xgSDw32ShgEg//3WrtNcs=; b=e4hsV+/D8DyVA4Cq3zhbRa3spt
+	2o9RDNQz3wPHEcnpuasMxCnDMDWoGvXrP6tS42a1KttPN6nDG0iKm4/gIgz3/KhZYAUlfogBnZd7d
+	HGO7Y8q1sSuLr66Uebwe/0HQntMgbqyk2tntSrskf6oT/lKjTLO69mOqhVprZT2HI6Vq18XsnrGCX
+	Cd/hoxE/95IGDMaUZQz3ndqfvIceRpB4rhvLzPSSsE33NrQ9PK1d9Sf8Hg9k0WDm/EaE54D8b37oi
+	ddcx+xjekbFZOI/bQlr7+lvlI16XfAwkcNoLeY1iFYlAIbm+Reezl0D5RMQwxH5PTDeXv4ti+ldBe
+	Rxat2uQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOSKf-0000000C0k8-1MQD;
-	Sun, 17 May 2026 03:38:25 +0000
-Received: from mail-qt1-x843.google.com ([2607:f8b0:4864:20::843])
+	id 1wOT3U-0000000C4OH-3LOC;
+	Sun, 17 May 2026 04:24:44 +0000
+Received: from mail-dy1-x1343.google.com ([2607:f8b0:4864:20::1343])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOSKc-0000000C0jK-0P8u
+	id 1wOT3T-0000000C4Nm-0aau
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 03:38:23 +0000
-Received: by mail-qt1-x843.google.com with SMTP id d75a77b69052e-50d87610513so17620191cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 20:38:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1778989101; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QKK2UId9MupsmxBp5DU6n3ArHaAHPrdI2G2E37rD5CuJJkwcqWIVLgTcFWtdrk8O4m
-         wXc9oyzdJs5YpU3p5Wb2DtbmBPOzFGKqDZZJVXYMpAKQ8T4QJwN6H6l5LReiicShep1j
-         yoBLN03IgaO+TqH2Q7j8JToFoRfL0+1z5M/Q84ONoBXrNbcuhYJ6fxSNRXuU17DXqGhI
-         T3sG5B6iqVnMY79Vm9x6tapjotlgtQ5n+RipXemhym02vo2ZBoakfBGfNSaw3FLjsQIH
-         FAqKfL6u3Oby050ewUoL5GaksL6FdfPDjFwD20JAGwJLF33Ns3XdF8+cW7zS0buhkIpK
-         Lvow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WY8tQdk2Tvql40KAcE/gnoZvaJoJKO77cgfifr2cEeI=;
-        fh=zI4t9nfJB36Lx6W1wIF1KOxBAd0Y9TonU2hUqc2ncqo=;
-        b=i/KcvM+vRz6gmXSvC42Q4iYbfuoMecykDFDR4UN8rWb4Nt5m4t02hnIMMWBhdcurJZ
-         o528M4UW54jwhU9WSaNhO4fQubiZnqOv2DCqvMkMS4VUgwlavV0UJH6qQmnJ1qcrfZYn
-         IpL1DvxQdAJM10wdQhCEQ2UbWK8gp+m/eDylJWn7Ifsuapo/AaNkzfs4iCOIEIOgsdpP
-         YWzjfbxmk/ZWWW29o/bBdA0+d3aLg6hKpWqMcz+0ORMoR/D9hGo0aPwRyo0kaOtuyKeu
-         wCFnlq4eTAE/03SkBUuWgr53UpufQHJ06nZoVoCahTCTGthebGyyBvlLxpZqmVKtyKkQ
-         jggg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sun, 17 May 2026 04:24:44 +0000
+Received: by mail-dy1-x1343.google.com with SMTP id 5a478bee46e88-2ef8d6ba48bso528821eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 21:24:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1778989101; x=1779593901; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WY8tQdk2Tvql40KAcE/gnoZvaJoJKO77cgfifr2cEeI=;
-        b=c28UgZzvphrGHSQp1483SlwgdV/KGPCWR6FlOAq9c/iiE3jBGrREyvESBpTgLqaK4T
-         l7s5EiOB6f1q9lMu8od4bnlnKPmdDIoFLZwQ9EpBm9agFdoQ8yXz5SsAL5nXmWUEt0y7
-         6WZDZwKYgaXNxQIoNIne2B0PPbIovD0AfNr4LuPXTrtgjDfPEGJRu4Z1976kV/fIIfcL
-         0D8/88YUFc7EbewTQyPtSRWEzkkmrkf3xvMymgBOTAWZXxYE7VM2RFTsNa/RYeeqGpwl
-         IrTC5inUpszqOd8OV0MQ4OoiQdgWb+ecYBNO476mm0Ri2nVaWtZOgUywpOWy0tdWqNdm
-         fkvA==
+        d=gmail.com; s=20251104; t=1778991882; x=1779596682; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=d8n3eAJD8ESNWs1d2EHnu9xgSDw32ShgEg//3WrtNcs=;
+        b=MeLX1L1/tkgH9mhshmXnv5TxyMi69FOH9WipLk/0mG4MohCNOkTFQqqA2vz4PT3udK
+         /SEr8WU0xLmbDs7DthP7V3iQzlbEUES5aY3jaCB4Yzxhn52vhGl9wlKG933VRDGZbbkZ
+         X8LWi9t7v+kBU9RNqifXPMtYoPssPYM5xRJVB0JuvjNV6japGGogslb7yXvSd9lJk4M5
+         N10CaCjAEgGfS9/8nB/v6euAMiRct7eG1Ly2gEhu1LEAtIKjfiFEgo1WWqs/AyhQMf1i
+         gHz/TfHbYRPgssH19G1S80Mb9MTKROdBwon74vREnAA9KoaRa5jc8M4P2yygL7aHniBe
+         cdyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778989101; x=1779593901;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WY8tQdk2Tvql40KAcE/gnoZvaJoJKO77cgfifr2cEeI=;
-        b=kHA/zDFlR8mBDv4MwwtvM2qg4SpBfGR6d51e038tgRoeb6eu7+AUcgPz5q3ErdD6+e
-         nm12sf+vuzbPC2MXGJd0TDSqErM+iksTK+3LugEJ9HEMtz0fV8tgdcP2nYLd99jhqGLy
-         WVjGf3p1G55NAHdr9VeCIFBjuABJNQ/CX1CPqoOq3YWitd/bw+eiVwvFB5YY5h7/tpWJ
-         E+nnUB0tpqKFCBabQl17qjXFmzVc312EEMfsbdN7Muumy6YJEMcQhqzPZw6r8AcQELl7
-         2Sn0E7xLX0lGoM6BabCYoU6PIoFUO6HW1W347FvG5l3JyI0LF4mfS5tRGhKq5Dm+uRV9
-         NvRg==
-X-Gm-Message-State: AOJu0YyDaaala/iseZgvWkdKHVyKcZ3gEk/nVS/TKO4e6p3PM7ForQnX
-	SeAJAfkP4a5AkjQwZ7Qx2pBTJLYOd/54E5KLJhZRLA2efDYTvtEkW9/IHOBgK9igdtOU5H+2dvl
-	kojGWwbVgTSCl60K8bWAS8sgrFLkURTNUxE7EtBVBjw==
-X-Gm-Gg: Acq92OFjzXKzQjgNQjY0S4QEjf0vhKY6OowRLaccY450eLPuXaqbVQZ6i0xP7E+UqBp
-	IjEhlKBrvlGhbp6/bwZ2Ky/bJ4yOoLJgfo4/1u8Vxaa/eTMmo950O1C0rcj1Jid2/bdLhjsHVlK
-	UpuczNFwj6u45Z7S51VuDn3rdaPDITYIEO/PGj/BRwuX4oJfr3ebPiNApu9u37NoIvzeMnGxprK
-	TmLyiCFny3MLrPddReDy7U8LQkIXW4ysB4PnoOpOVV7Pi/9p9Diagqo0zWmUNepWoGg3vGDiRr+
-	TJpWW57PNjMf4StjI7o5cGHjkTEYOKwBd4l8DxxSaNp6icr2Oa9ztvymQEy/9RKJ22sn
-X-Received: by 2002:a05:622a:a1b:b0:50d:8db0:7abb with SMTP id
- d75a77b69052e-5165a22992bmr77915441cf.42.1778989100904; Sat, 16 May 2026
- 20:38:20 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260517030408.100043-1-enelsonmoore@gmail.com>
-In-Reply-To: <20260517030408.100043-1-enelsonmoore@gmail.com>
+        d=1e100.net; s=20251104; t=1778991882; x=1779596682;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d8n3eAJD8ESNWs1d2EHnu9xgSDw32ShgEg//3WrtNcs=;
+        b=Gska4mfpOf8kcY2FMNjFXCqZesPksrscJSQab/yaouLvYJ0uConj1m8n5AmU3bH4RU
+         J33mpM8tmxjiRZOp1SZJma+NcJ6xsh3rPfdYu6/et0HqaQsNSsTELMZsSYz92UMuUobz
+         V+equGmID813NZtR4g7oLDH4k5esVxteZz0OJwzHL2GJSRu+Lap4pilVAbBhBOrcTPGT
+         /2XjFxBnOs2KTVE611CNy+jRPvDGufC8Lhm2SrD0gzh9WyzUO9X6QulUBbrorZz6UmSu
+         cQTZ4yjPb/v9db428eIAWtxVBoLX5KlYvo1r9gu52YetZ5NtuS8t4+LqA4Bxn/FQRGwx
+         ra2w==
+X-Gm-Message-State: AOJu0Yy67n6PILTYb7N7ZjPnxdxVyqz/K2asHIc7IJiR+WTZwyTEK4+j
+	gkf/w9IeuloyCvpGLwWAnF+QaUZE9OCxFCs0tS9qGmKiDG/K+W2GrZj3zlwuLKPpRKc=
+X-Gm-Gg: Acq92OFcNB0+hra5f6/DvB8HmXBw/lW2UWHSULkYsNDoqnBc3iva6RV9f/zEErkPRlp
+	QTTV3y7CKHu25Y5yqcy3SS7f6zCTxodOMBIT5Oz8g9gqpH92p5yuBByFNR7y0h10owhGg5ad9RH
+	0Xw5jl0mDnP5xmK+CW23B6Bck7ZTh68dSio+I8wTYkxpqvN39TYGyp4MaSfQW8piQm1noOO3BMN
+	nL+0mHWJp3x8OrVZGufUw2zweURw2IugPLHOA5PlqmX9pERv/kx+Qrt32+lUdrijpa+QqEP1ICC
+	5BXIJWXLiOs1yG+XWQH/xbsomtPzlsVRAPk7gOPmrBQAztGgDN91K3da7eCyZ7P11iuK5AVz9Nw
+	Yp8zxeIO7TEKOPDtg8QzzejG1Om0l+8MWncuJ1kcoj2KB5idNm0IuyZloMlVtdJc3zHKqV3sO2/
+	p9pgUlPBhiV2nlkzZ9+dfAzwvRwt18ok2YCCQu3gzuvKaQYsufS2L36VrkOsZ3huWzBsHbYqySr
+	xP6iMXBk4gexi7wKRc5xNsFYEf7xaWLyf0+lICGyf9XSdRqMPc/82Nfb+mbhxBdBWGTMSLlVM/Y
+	Loo37AV6cd1p86Aaa1IdJo9hyxLm
+X-Received: by 2002:a05:7300:4306:b0:2df:498e:811b with SMTP id 5a478bee46e88-3025fa58925mr6970894eec.7.1778991882063;
+        Sat, 16 May 2026 21:24:42 -0700 (PDT)
+Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302978afdd3sm11218719eec.29.2026.05.16.21.24.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 16 May 2026 21:24:41 -0700 (PDT)
 From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Sat, 16 May 2026 20:38:10 -0700
-X-Gm-Features: AVHnY4IPomr9w-HKVeIgr1J0aJ3CFgokPQhKDcItPcCmhDidhlBNrZuXgKTRPIM
-Message-ID: <CADkSEUhe5JhGC=nqwMjJnGrSEk9UsmfORfOPvsWqMTm8SrNHpA@mail.gmail.com>
-Subject: Re: [PATCH] ARM: remove unnecessary architecture-specific <asm/asm-offsets.h>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Russell King <linux@armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Subject: [PATCH] ARM: clean up machine-specific PCI code and move it into mach-footbridge
+Date: Sat, 16 May 2026 21:24:25 -0700
+Message-ID: <20260517042431.288801-1-enelsonmoore@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_203822_141359_E36AC42E 
-X-CRM114-Status: UNSURE (   9.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260516_212443_183583_A8AAF193 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,18 +97,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 16, 2026 at 8:04=E2=80=AFPM Ethan Nelson-Moore
-<enelsonmoore@gmail.com> wrote:
->
-> arch/arm/include/asm/asm-offsets.h is identical to
-> include/asm-generic/asm-offsets.h, and therefore the ARM-specific
-> version is unnecessary. Remove it.
+arch/arm/include/asm/mach/pci.h contains function definitions specific
+to Intel IOP3xx and the DC21285 Footbridge chip. This machine-specific
+code should not be in a global include file. The last IOP3xx platform
+supported was removed in commit b91a69d162aa ("ARM: iop32x: remove the
+platform"), so the IOP3xx definitions are unused. Remove them and move
+the DC21285 definitions into mach-footbridge.
 
-Please ignore this patch - I did not compile test it (because it
-seemed so trivial... lesson learned!) and I didn't realize
-asm-offsets.h was required to exist in each architecture.
+Tested by compiling footbridge_defconfig and netwinder_defconfig.
 
-Sorry for the noise!
+Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+---
+ arch/arm/include/asm/mach/pci.h          | 13 -------------
+ arch/arm/mach-footbridge/dc21285.c       |  2 ++
+ arch/arm/mach-footbridge/ebsa285-pci.c   |  2 ++
+ arch/arm/mach-footbridge/netwinder-pci.c |  2 ++
+ arch/arm/mach-footbridge/pci.h           | 12 ++++++++++++
+ 5 files changed, 18 insertions(+), 13 deletions(-)
+ create mode 100644 arch/arm/mach-footbridge/pci.h
 
-Ethan
+diff --git a/arch/arm/include/asm/mach/pci.h b/arch/arm/include/asm/mach/pci.h
+index ea9bd08895b7..ece5283bdaec 100644
+--- a/arch/arm/include/asm/mach/pci.h
++++ b/arch/arm/include/asm/mach/pci.h
+@@ -70,17 +70,4 @@ extern void pci_map_io_early(unsigned long pfn);
+ static inline void pci_map_io_early(unsigned long pfn) {}
+ #endif
+ 
+-/*
+- * PCI controllers
+- */
+-extern struct pci_ops iop3xx_ops;
+-extern int iop3xx_pci_setup(int nr, struct pci_sys_data *);
+-extern void iop3xx_pci_preinit(void);
+-extern void iop3xx_pci_preinit_cond(void);
+-
+-extern struct pci_ops dc21285_ops;
+-extern int dc21285_setup(int nr, struct pci_sys_data *);
+-extern void dc21285_preinit(void);
+-extern void dc21285_postinit(void);
+-
+ #endif /* __ASM_MACH_PCI_H */
+diff --git a/arch/arm/mach-footbridge/dc21285.c b/arch/arm/mach-footbridge/dc21285.c
+index e1b336624883..5a68b6739ecf 100644
+--- a/arch/arm/mach-footbridge/dc21285.c
++++ b/arch/arm/mach-footbridge/dc21285.c
+@@ -21,6 +21,8 @@
+ #include <asm/mach/pci.h>
+ #include <asm/hardware/dec21285.h>
+ 
++#include "pci.h"
++
+ #define MAX_SLOTS		21
+ 
+ #define PCICMD_ABORT		((PCI_STATUS_REC_MASTER_ABORT| \
+diff --git a/arch/arm/mach-footbridge/ebsa285-pci.c b/arch/arm/mach-footbridge/ebsa285-pci.c
+index c3f280d08fa7..797485249d0c 100644
+--- a/arch/arm/mach-footbridge/ebsa285-pci.c
++++ b/arch/arm/mach-footbridge/ebsa285-pci.c
+@@ -14,6 +14,8 @@
+ #include <asm/mach/pci.h>
+ #include <asm/mach-types.h>
+ 
++#include "pci.h"
++
+ static int irqmap_ebsa285[] = { IRQ_IN3, IRQ_IN1, IRQ_IN0, IRQ_PCI };
+ 
+ static int ebsa285_map_irq(const struct pci_dev *dev, u8 slot, u8 pin)
+diff --git a/arch/arm/mach-footbridge/netwinder-pci.c b/arch/arm/mach-footbridge/netwinder-pci.c
+index e8304392074b..66fedf182744 100644
+--- a/arch/arm/mach-footbridge/netwinder-pci.c
++++ b/arch/arm/mach-footbridge/netwinder-pci.c
+@@ -14,6 +14,8 @@
+ #include <asm/mach/pci.h>
+ #include <asm/mach-types.h>
+ 
++#include "pci.h"
++
+ /*
+  * We now use the slot ID instead of the device identifiers to select
+  * which interrupt is routed where.
+diff --git a/arch/arm/mach-footbridge/pci.h b/arch/arm/mach-footbridge/pci.h
+new file mode 100644
+index 000000000000..8616e9fe6c8c
+--- /dev/null
++++ b/arch/arm/mach-footbridge/pci.h
+@@ -0,0 +1,12 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef __FOOTBRIDGE_PCI_H
++#define __FOOTBRIDGE_PCI_H
++
++/* PCI controller-related definitions for the DC21285 Footbridge chip */
++extern struct pci_ops dc21285_ops;
++extern int dc21285_setup(int nr, struct pci_sys_data *sys);
++extern void dc21285_preinit(void);
++extern void dc21285_postinit(void);
++
++#endif /* __FOOTBRIDGE_PCI_H */
+-- 
+2.43.0
+
 
