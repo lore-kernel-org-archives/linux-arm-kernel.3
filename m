@@ -4,68 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46598CD4F21
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 11:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A85CD4F21
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 11:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G3qa+O+cN1U1/5LekcrM9IfwuZeFX3CWVbXfM6k5yaQ=; b=x2NYeJQ2p1OOGE3XbKlLI2YRAW
-	r4d8ndWSWUDMm/QzsK4TGFZkMRM3XHIG88HUFI+Hs+5KFR0HVOZoKRn2wtsKElPac1RKUNfmKM90z
-	T5xO+HAxSAaUyQCxbUL21Zbmnv3mYCOJkGB3OUnBEYxhF6jQam1VSCa0wZZc8+Rp2ClvYcTXjk3aO
-	tdB8MFTrK+LD2Can7ypUW1srN/b+DLTByK9APai09HqW1SPay5TxBhccmkEs0uL8YwiIWjUF/gw1W
-	XEJuusFCvelho9YB2AIPRA3lEREUaUQnhO+aPd2PM8ahcUMwGdzb5dOKZE+AbPSRgawSAeIU0BOf+
-	fF9jbBsw==;
+	bh=TepbalFreMdEFYnju/atDmgH69ftY0OuR+bDFY72TxQ=; b=0gDDc4+1BO03k8WdQZdoZoW+Bo
+	Ap+Pqd5+fOQSqiXSwwrRLvVZU4+KNbn4c3FlWfLY56KQsKTTaYlLF6Unc80cb4PAq2LnsnhPYZKoA
+	skULL0uOdQMr6rRKlspj/NAcPydvOiC67PXIn7pjlv1MHv/dvGYNFERdy53o/VFHSwvFctMBksG0h
+	raKaiJb8+1SZ+5dRi2OYysJjGDSQnrQcymxxVHwr4ZvhrdjcaIDdf8zmrE3e870jkDvzpetgJY8uR
+	tux9Jo+Y3iRWXWgk0f1R4C+oRwqvBR65MpT7d/G+TISBwu2YHlNpvAW6pkGos/a4rVoRlB5CGAd7J
+	/cSGoeZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOZkc-0000000Cbz9-2DjE;
-	Sun, 17 May 2026 11:33:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wOZnk-0000000CcJZ-3sNo;
+	Sun, 17 May 2026 11:36:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOZka-0000000Cbyw-3o3j
+	id 1wOZnj-0000000CcJQ-2m7H
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 11:33:41 +0000
+	Sun, 17 May 2026 11:36:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A5C4600BB;
-	Sun, 17 May 2026 11:33:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77964C2BCB0;
-	Sun, 17 May 2026 11:33:35 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD7C3600BB;
+	Sun, 17 May 2026 11:36:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A606C2BCB0;
+	Sun, 17 May 2026 11:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779017618;
-	bh=yTYlVW3XNQ6KFLt3e4dKFe0LbjnsvoHG3Q/y/y1Hnk4=;
+	s=k20201202; t=1779017813;
+	bh=g6Apzn4u313EzukCA+wWP7lCh0YVZoSdF8h+35KQL/U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=usGFqiwbn920YSSpla8jifwVPkQ2LQT22xTcHkRQK6clGMkA5A3ZozsuqGboqlD+D
-	 rqEaFyACDlfeQwC58Y93/nOkVnwVs/a7bODfDRCVIiO4m/fBPt/S/kMlhY24gwrBGZ
-	 RzpoJ32NMPa5Z9n9kn8kkHEvi01KKaj40kAYAKMnAc6ku/oDxsKH6GC9S3suCuDqcw
-	 3iYFpSGVGrRX4r3O8g9ITlaEAtGfOMnu0ZC7jkMx6j5TP2VIp2/hZDd/nofwPFqSbE
-	 j+xU1wXeeAJ9xJO1ulP3R+ilLfwfnpcJVvq2q+d9X+oW7ljk/8+Lmkmm4CGF00wo51
-	 OBaBKtJPEQKMQ==
+	b=kqmvU2NL5Rp83xGHXR0ltA7kmyoAtvN3jP6pY5W/Uqq7vVWoh5XuydouURN7Q5qe/
+	 NvVRcv+uYqCg4b82co8kQ3k93DYXsEOMASC8m89W6BKeBY5HZyd5AlovaqY3OW4lk8
+	 18vNWOgYt16UTG6ykqdkkq1TwEIuBcDb+zwu30XMamoidgdQXHiOss1R1JtsaPqdkS
+	 Mpyk8eZWj+3M8Sl3YgEgFkK/RpF2eQE87jLIwwLMuUzwlBgScV3rM60wzd3aNqorDD
+	 zspTFaSIiZtXPo9e86Jyp0+6EvxkIuhItlPJ/1hKPTQ7CBL7dYts2b3HxhskW5bUgI
+	 kCkViuACEXBVw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-To: linux-kernel@vger.kernel.org,
+To: linux-security-module@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-integrity@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	philip.radford@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@foss.st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	geert+renesas@glider.be,
-	kuninori.morimoto.gx@renesas.com,
-	marek.vasut+renesas@gmail.com
-Subject: Re: [PATCH v4 00/15] SCMI Clock rates discovery rework
-Date: Sun, 17 May 2026 12:33:21 +0100
-Message-ID: <177901751519.3834262.16195066181334247381.b4-ty@b4>
+	kvmarm@lists.linux.dev,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH 0/4] firmware: arm_ffa: Move core init to platform driver probe
+Date: Sun, 17 May 2026 12:36:45 +0100
+Message-ID: <177901775932.3835515.4484747964630642694.b4-ty@b4>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260508153300.2224715-1-cristian.marussi@arm.com>
-References: <20260508153300.2224715-1-cristian.marussi@arm.com>
+In-Reply-To: <20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org>
+References: <20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -83,48 +73,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 08 May 2026 16:32:45 +0100, Cristian Marussi wrote:
-> it was a known limitation, in the SCMI Clock protocol support, the lack of
-> dynamic allocation around per-clock rates discovery: fixed size statically
-> per-clock rates arrays did not scale and was increasingly a waste of memory
-> (see [1]).
+On Fri, 08 May 2026 18:54:14 +0100, Sudeep Holla wrote:
+> This series moves the Arm FF-A core initialisation into the driver model by
+> converting the core bring-up path to a platform driver probe/remove flow.
 > 
-> This series aim at solving this in successive steps:
+> The first patch reverts the earlier rootfs_initcall change. That initcall
+> ordering workaround is not a proper solution and potentially conflicts with
+> pKVM FF-A proxy requirement.
 > 
 > [...]
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+Applied to sudeep.holla/linux (for-next/ffa/updates), thanks!
 
-[01/15] clk: scmi: Fix clock rate rounding
-        https://git.kernel.org/sudeep.holla/c/d0c81a38d06d
-[02/15] firmware: arm_scmi: Add clock determine_rate operation
-        https://git.kernel.org/sudeep.holla/c/ecde921eb460
-[03/15] clk: scmi: Use new determine_rate clock operation
-        https://git.kernel.org/sudeep.holla/c/af86c99170b7
-[04/15] firmware: arm_scmi: Simplify clock rates exposed interface
-        https://git.kernel.org/sudeep.holla/c/0d76f62613ca
-[05/15] clk: scmi: Use new simplified per-clock rate properties
-        https://git.kernel.org/sudeep.holla/c/cdcd2fc94936
-[06/15] firmware: arm_scmi: Drop unused clock rate interfaces
-        https://git.kernel.org/sudeep.holla/c/2e757f71a5ab
-[07/15] firmware: arm_scmi: Make clock rates allocation dynamic
-        https://git.kernel.org/sudeep.holla/c/62ba967595e0
-[08/15] firmware: arm_scmi: Harden clock parents discovery
-        https://git.kernel.org/sudeep.holla/c/bda40491e0ce
-[09/15] firmware: arm_scmi: Refactor iterators internal allocation
-        https://git.kernel.org/sudeep.holla/c/e99ed7267263
-[10/15] firmware: arm_scmi: Add bound iterators support
-        https://git.kernel.org/sudeep.holla/c/4848d07ea9fc
-[11/15] firmware: arm_scmi: Fix bound iterators returning too many items
-        https://git.kernel.org/sudeep.holla/c/ae4a088f13de
-[12/15] firmware: arm_scmi: Use proper iter_response_bound_cleanup() name
-        https://git.kernel.org/sudeep.holla/c/3065e26dac52
-[13/15] firmware: arm_scmi: Use bound iterators to minimize discovered rates
-        https://git.kernel.org/sudeep.holla/c/26d04d592a47
-[14/15] firmware: arm_scmi: Fix OOB in scmi_clock_describe_rates_get_lazy()
-        https://git.kernel.org/sudeep.holla/c/4a07036d6159
-[15/15] firmware: arm_scmi: Introduce all_rates_get clock operation
-        https://git.kernel.org/sudeep.holla/c/d2488ff1a257
+[1/4] Revert "firmware: arm_ffa: Change initcall level of ffa_init() to rootfs_initcall"
+      https://git.kernel.org/sudeep.holla/c/1b4c1c4d75a8
+[2/4] firmware: arm_ffa: Register core as a platform driver
+      https://git.kernel.org/sudeep.holla/c/d10175dd517a
+[3/4] firmware: arm_ffa: Set the core device as FF-A device parent
+      https://git.kernel.org/sudeep.holla/c/8bdff2dda405
+[4/4] firmware: arm_ffa: Defer probe until pKVM is initialized
+      https://git.kernel.org/sudeep.holla/c/216d4772b411
 --
 Regards,
 Sudeep
