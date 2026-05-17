@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A601BCD4F4B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872B4CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bsMbxEfC0uMa+kHsY4taTb0VH/LIItEw6BfVK+qBf2E=; b=dc1ekeVXwZH2qxXqrTgWac6l9n
-	159A3pM0MDuPsVH7B3LgkUPBAuy3OiSoML2mmDNBqyk1NH90CobIS9zeve7lzlGVUnr8hnarBBVjy
-	52o7+o6xbVsOsSxDcyg8xRvtHndeHHYyP3Fo0lEJN7xWN2joKn0wQqEXGkUFjrrryapRC74fA1/tu
-	0JjhUcfjYUaPNrlhbfRwEovi2Q270XOrV+dHh27rNJwQoe+qlCZox6jmJEdlyxfV1KFxqmXWFAmn6
-	DODybRpKjD9aPMWfnaUAZRBm3oJAwAIAqDx7EVm/DS+5nRd+yHRLM66O9CrCs5hF/oCDXZEFmOaRt
-	mPVZqrSw==;
+	bh=Ez1Xhq1H9VVtiiULLv6l2O+VSNqbdV04NQCVQ2RP6/g=; b=c6rb+5trkmtvG5ng+z8gTnLAua
+	ocNCkIZyn9vRHXIQH49MzXsn0wcZ0POMz6iEaGNbQaJZ2JBEcL7QeDgTORaMVHXHFhLioKmmTws2D
+	aAKYHK7J/oz4K9EQ7C+xJv3TcHER2E5gVjXBCU4xAgv3khjMgFUwldJ1cTnIC8bcypxVHNV4gysBc
+	IWKqH37kMOV8lg+O9Npsdf0Xzq4++KUdVEa9eHADKtz4gFqlgcELef9L1ywCA+r80hr7ggu3mcOEl
+	u34sV1T6ZpdISF5dxMoh5aa6Ax53caFsrJEJtECfW1z7FT+MnNrSnssPQTm3l8X/VOlIcFG8uyt/4
+	nCKdxmvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOg4V-0000000DCWV-1B3Q;
-	Sun, 17 May 2026 18:18:39 +0000
-Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
+	id 1wOg4f-0000000DCgT-2J3W;
+	Sun, 17 May 2026 18:18:49 +0000
+Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOg4Q-0000000DCRd-189e
+	id 1wOg4V-0000000DCVe-08nA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 18:18:35 +0000
-Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-7e4de538f83so921168a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 11:18:33 -0700 (PDT)
+	Sun, 17 May 2026 18:18:40 +0000
+Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-404254ffe8aso1347278fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 11:18:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1779041913; x=1779646713; darn=lists.infradead.org;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1779041918; x=1779646718; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=bsMbxEfC0uMa+kHsY4taTb0VH/LIItEw6BfVK+qBf2E=;
-        b=qtUcQ53Mc3xifF3hKsrodIRxYVnzIPt8GvhIMvdG0YwDKDFHIv2s5VChNTOBl6PHsW
-         P2LNu12pBbkv6sKlIPCZlt1VlD8chBnEekmq3EOf53P/UA7DYT5PTqzmCuuTg/+PNN6k
-         bozyVDsXyAN5uEQOKPx5I6MusNP8vzH11p9HQ5huh9FhNpoXlzeuvNudHbsLvuza2/bj
-         U3yH7AOUub9h4syu8+m/KK/iCYGme1IhrxNYKTgRwvtQ0JmN7YMuCtrNaTPHBr1FRsa1
-         7UN0lvQz9NLq8bmSHXG0fFKG9ONn8T1/V5AQqY1tJIQeAKMu2kGdC+u6k06xboGNDyD3
-         KEIw==
+        bh=Ez1Xhq1H9VVtiiULLv6l2O+VSNqbdV04NQCVQ2RP6/g=;
+        b=dTkTNKOoUWJ5MLHkc5+tmfzMzLsjz4UcF8M0+Y16Rcjog3CyEjkFIKM6TUkENaKFSe
+         csl/9WPCn3U9WNRiM8iA+DtVWe3p1wEtk8Gl1N77QlC+2p2aYQqin8u7D3Da/0zA1zrX
+         341B8CiHvgOwQy6N9Sk6pGqDOCax4EOHMwH2UeQBtKlDmNW8niLOSJs5bGd0e8CJasnG
+         52AdUJNPXQWYF/eE8tp/dLJR9ZRWn7td6DCS8aemolFwb8FXs+numv20+gzFcmjjJXpm
+         Dm8tP/pv5qRqhtKe4b5Y6wZJsL9VUShkh4WC2KpnsQgYdhzczEPwAnt+82KlsR/2yOyV
+         wZrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779041913; x=1779646713;
+        d=1e100.net; s=20251104; t=1779041918; x=1779646718;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=bsMbxEfC0uMa+kHsY4taTb0VH/LIItEw6BfVK+qBf2E=;
-        b=AFuQZWB2Rgh8IuHo4crFg8jceaxsFi6+TKxQbJUryrNiQfsqnoN3qOnP84IQrcGmnl
-         FdTgZRhmXBVnYjwWV9VQXZxoMEipc88h2lcDFlOq24iJu2HnV39tJC/jY/JKLdzyHkqL
-         0ZSkq4lgeYSL6cEAmpg+hhQpZUshybLLBz9wfxX+yXchbmxba38hdpkfl/FLFNUhUm56
-         5gUwWOTqSfjaKz6UnbQckFIIpWbvyY+wgSPQXPV4EcQp9FcEDp+6WyuuBk8iOaBhPxcT
-         amc/2frM3c8Xi1/g7YS5xhjjuYAfunSIPSBY5bdpAVxDZm9SYycwg/tJ99xz+YtNpU2A
-         KEug==
-X-Forwarded-Encrypted: i=1; AFNElJ/qpeUjQnrk1cOUNsJYZZs4eq5yNdmTXn5FrWHy2NymgaCnwAT8OsL2YbIIChh8Hfj+UyBD3GLlKWZw/F8FvKI2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL4SWE3Lh739kl4xmU9bOVKS3zhMNhZZ/Yh0otBDUR+BYGPTE+
-	c2CyuWsVnb2hTbwibu8kg7jo1Cx68EOzkc/gh8uKC0iFrI6RCkHSCeh/WWdr8Y/eAGE=
-X-Gm-Gg: Acq92OHYOGICFeh/M28tOsLu1zr2S4Kd6ECulsDoOx++mkgnIVX3QdiTePzvJLsLf6Z
-	PhjRkfcZZbqFiaTfG68o/n33iIPmZJikVzP1wWvuS/iDAKgZBvJMNL1aPj5mlC3zc6aZnY2JJvR
-	M+cmo9+LsNh4XsRr5VXd5wkCoYzf8++hQZLTrf3UUAttYgCsOUMhD2/fjQGfJRj9rHN9/paw105
-	1GuX9/Vqq/VlfvuPTkEMZtMgkFojIwdoR9jyezwIFVoX5aBpJKVxGV/FT6/tHGfDz7gB87Yp1Ms
-	zXzfdxXErpyz+NbbppIBvf5RjI94H69251BrpGr0ndIFnMkRiRnihNn+LWbzXGyVYTthQg1zVUG
-	XR9wQpk8q3chuOkod0D9QU+8oiCbrWh7Rhh3cB0sSVGSZbjcl+y0dj/UhQGg5D9kezkeqQQijwf
-	SVNBgBVELzXzl0BpLDgetRv+upv4k=
-X-Received: by 2002:a05:6820:16a6:b0:69b:196a:de62 with SMTP id 006d021491bc7-69c94377590mr7647901eaf.27.1779041913148;
-        Sun, 17 May 2026 11:18:33 -0700 (PDT)
+        bh=Ez1Xhq1H9VVtiiULLv6l2O+VSNqbdV04NQCVQ2RP6/g=;
+        b=Hoe0PhRNC0c4lcgPcXRQNw/uDn8nKQO8r8mQzkzi7C767y5aCszfLJK09kEjDr/GAd
+         yatytvptZu2HK0PV14VnPiPQ3uG0OvtC95tTsxMkTxneGNhD4q+yB1DqzS47sRQQ9MAZ
+         0iRUNfeFsMMDsvpk3ZzDz7CqzV1NM3uJktwSnXWMIQ68jhSw/tjKayVtvCXvqSm9Vf2w
+         rw64EDCgDI6RnvnM6RgAteBeTzJUIpWYZVrBya5/HkVdD0l630mHkPhfpO5UK++ywIs+
+         CMUJr3OklNFPYDsIdVrHELbPzkBAe8h6zqqVcQVlpnHQEFemciOZeVyxr+vMydSxG5Uc
+         BVQw==
+X-Forwarded-Encrypted: i=1; AFNElJ9HTK0MPFY6WUZHot17qXmuhi76Jn2Vdo6Jdr3DVAQDkioURimXgB4l3I+84E2f+eQf/IQqZxiCOUtosPZFVjsJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAtWLEb5qOnMOyMU8SX1YnIJPMh/zQS1hAzY95haqN2hWxevRm
+	tE7yYzKBuiDVQiSbPm667I5MfD760Obtg1Zt5h2pvf+Ga+P+LZkmbwcuCKzPsX86sOA=
+X-Gm-Gg: Acq92OH5WnZFIwDxrsTFScXiXl4gautP59BzYoTuS3pi6xC3CIVKiPg4vFp5pJp67bp
+	Nb2D5CPLrBnuMrvnfx21RN9Rl9F3MLuSujHXRxJb6UThlN6NKDFXDSjykcwe7IDpHr58vNznY6+
+	0nXFyVe3a2+tIf6gr9p//2QUYzDWmQdZS3ji030HdPGw7RgHsqeDD1LPoOiIjVPEvntOYi/Etj9
+	kYAO/xuEOl/zrDiaMgftUJ1wHE9lKq3OUmeBUF43WAdMmQLom8fkYjcwo5kl/z1OnRlqKMVAyzY
+	ffW5DGKXyo8xes7mWB/n93uMI2geMGgkUHcqYo2gAt9d9otbNC+zasaJJZ73zVrucYAYD47y6jU
+	0mRw96Na0I7PTRby9uEmo0Mql30bPpUsExYccDHNaGhqCP72KDiZ1XjfjpdzicwPnzJiK1rcndA
+	zqP01yXmUOKJg4wLeYEp8iMZFxcfBOFUj9rJ/Xfw==
+X-Received: by 2002:a05:6870:1750:b0:404:1843:e5bf with SMTP id 586e51a60fabf-43a2dddeb0fmr7311064fac.18.1779041918076;
+        Sun, 17 May 2026 11:18:38 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:500:7a4b:ddf0:f61:f58d])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-43a95766535sm2085539fac.15.2026.05.17.11.18.31
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-43a95766535sm2085539fac.15.2026.05.17.11.18.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 11:18:31 -0700 (PDT)
+        Sun, 17 May 2026 11:18:36 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Date: Sun, 17 May 2026 13:17:22 -0500
-Subject: [PATCH 5/8] iio: adc: stm32-adc: simplify timestamp channel
- definition
+Date: Sun, 17 May 2026 13:17:24 -0500
+Subject: [PATCH 7/8] iio: light: cros_ec_light_prox: simplify timestamp
+ channel definition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260517-iio-timestamp-cleanup-v1-5-61fb908c11c7@baylibre.com>
+Message-Id: <20260517-iio-timestamp-cleanup-v1-7-61fb908c11c7@baylibre.com>
 References: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
 In-Reply-To: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
 To: Jyoti Bhayana <jbhayana@google.com>, 
@@ -94,20 +94,20 @@ Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev, 
  David Lechner <dlechner@baylibre.com>
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1096; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=G7Szwiws6C+kXgCk6xisivu6OlVDwdV0dSr7Bj27sJk=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqCgZRVFRaQSBdSkHoxJ6yR/B8XlsRDlUP3cMKz
- CVIMrFdEM+JATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCagoGUQAKCRDCzCAB/wGP
- wOtRB/95xIxW8VGaKMif9Izi7JG162j0YqsXHso5T7C3wBxKCbha4uf4X+4lM2uAPDCUAIYTa1e
- hRZUTSXFWZfvnvqS+25laf5z31Wa+ybT61fYxb87EXbWlhwPPlfS/BvXjYKeWljsJNw+/VvC5cE
- DY5MR93FTBEW0Oy51IA+PzInlkVDYO5NvhgDF4UBBXxQw9UdzVO1dcHe5f2Uv2NRgPokVx8OX3G
- +70ao6CG97J+tL6sk0SbhbajYAYyM3KBEQ0JsuymiWfyKo5HvxpGtSjjB6wk9WjOYQ+sKnsnxv4
- YmYMoLuBNLjDgWWPLV1doL8ycCy/rp+0lVvXbLzXCC9R0pJh
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1097; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=zB7k3lhSdqbVTwNkTinjxGrJXZtNT6Oek8UbqFGJVDE=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBqCgZfqM0vragiRqGTD7eEpg/krmTzQCfTGXB1h
+ 0z3rSgndWeJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCagoGXwAKCRDCzCAB/wGP
+ wN/7B/9mbxgZ1arMG7zmnev/BZ3+8rddj+Wn7ufPv6TcTQVYZzFDkOaHVzTOdhOhQywA7LeEEEV
+ IYxyzLebUsY7Cvp2hJfywA+NbN6mvVmcxj3d7MNcdTYL9x4UdjBbqkIPV6CTxo2VyRM4/QG2Rk8
+ nXeiJ7FNalUuj/gJKBAdAsEbnZbV2jUTYylcaR7OcLTK3VbQ/uPpePkxwsx10WIjNYsUvt/g0eG
+ DwEXz3vbLZSJCMhlKhEIdi/N4wcK8Q4Rdaa1PF4w36R70uw/HT3E6MFRjz5JnYuCyliNZUqykHp
+ FNKiie0h+NYOJQVharYkgWkfNDV7xWjPxN6K248678aKDb6Q
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_111834_336046_F8CF1089 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20260517_111839_080897_438AFBAA 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,32 +126,33 @@ Use IIO_CHAN_SOFT_TIMESTAMP() to define the timestamp channel instead of
 manually filling in the struct iio_chan_spec fields. This makes the code
 less verbose and mistake-prone.
 
+Also drop obvious comment while we're at it.
+
 Signed-off-by: David Lechner <dlechner@baylibre.com>
 ---
- drivers/iio/adc/stm32-adc.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ drivers/iio/light/cros_ec_light_prox.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/drivers/iio/adc/stm32-adc.c b/drivers/iio/adc/stm32-adc.c
-index 46106200bb86..bf68f28e7c3a 100644
---- a/drivers/iio/adc/stm32-adc.c
-+++ b/drivers/iio/adc/stm32-adc.c
-@@ -2443,14 +2443,8 @@ static int stm32_adc_chan_fw_init(struct iio_dev *indio_dev, bool timestamping)
- 	scan_index = ret;
- 
- 	if (timestamping) {
--		struct iio_chan_spec *timestamp = &channels[scan_index];
--
--		timestamp->type = IIO_TIMESTAMP;
--		timestamp->channel = -1;
--		timestamp->scan_index = scan_index;
--		timestamp->scan_type.sign = 's';
--		timestamp->scan_type.realbits = 64;
--		timestamp->scan_type.storagebits = 64;
-+		channels[scan_index] =
-+			(struct iio_chan_spec)IIO_CHAN_SOFT_TIMESTAMP(scan_index);
- 
- 		scan_index++;
+diff --git a/drivers/iio/light/cros_ec_light_prox.c b/drivers/iio/light/cros_ec_light_prox.c
+index 815806ceb5c8..6c8746236030 100644
+--- a/drivers/iio/light/cros_ec_light_prox.c
++++ b/drivers/iio/light/cros_ec_light_prox.c
+@@ -223,14 +223,8 @@ static int cros_ec_light_prox_probe(struct platform_device *pdev)
+ 		return -EINVAL;
  	}
+ 
+-	/* Timestamp */
+ 	channel++;
+-	channel->type = IIO_TIMESTAMP;
+-	channel->channel = -1;
+-	channel->scan_index = 1;
+-	channel->scan_type.sign = 's';
+-	channel->scan_type.realbits = 64;
+-	channel->scan_type.storagebits = 64;
++	*channel = (struct iio_chan_spec)IIO_CHAN_SOFT_TIMESTAMP(1);
+ 
+ 	indio_dev->channels = state->channels;
+ 
 
 -- 
 2.43.0
