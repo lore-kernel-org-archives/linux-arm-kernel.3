@@ -4,94 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 441F9CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA90CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWhNCJ8/sNLNjfPa+oqEi9cxsLwe8oIu+0HMTTzZ//Q=; b=ExA4e/2j73436eOqo9TtykuIfz
-	H6ayG/MfubyLWxuCQ9IH6u5CKwFicXCo5N41pCaMe8w8sVIuYhPbKSw1XzKPd/ryzgurhUmwg6fsv
-	AZxQ9c7PWe3oCJ4al1DQuOsQsWQvgwK4qPXjmPq1i2JR3LxasbhR8HldngGMHloUVDl3FuDx10vLQ
-	sTgDl2LiPyJNEfkWFLjFjm11J63jN2ulJQdEH33gg9YSygEltleJVDzXNNsTGVPDOP8b8/GMAnFjk
-	xzVcYiQveTUYhakL6mxVNO1Ke6fWcaj1zaSk9yfka6XsT4XD2ERTGB4oLGCFQvxfUOOFDKYkpCCBM
-	DRimI9ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=47IgD0Iol6l33UGUteMSnMp1BqqYxxlTxqbsNmGL4o0=; b=MdAViSt3M+ZR+l+LaruuIY54LS
+	XLU7E/2jAaGQahNKLJlKEyU/LQOO8RTr6YSAs4pnfuc/0Bu6i5Q6C9Cfn73ObJt35qvB3Ehyiws5V
+	u2dzrW81jlNoSoBYFmlRuGkSaD21bGygu2vyCy79gHZ3cesQ7w6/pAn7T8ZT01wKR/qPSsCdbNnDJ
+	1/k0SYM743l/sY15WrLwpaavG6tJT+hg0LpMWlPD7z6GlmABaX5KbEaexi2Z2tf8Wbn0BrO8Oxel0
+	7n7NIWF8eExiAKet4Nn2pEleIJzeFCsT1nigbsedbS6Zt7FaaT7apTPHDwz0LPPjacghd8Fzx4Fiw
+	i/Djl9UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOftM-0000000DAZ7-2QqX;
-	Sun, 17 May 2026 18:07:08 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wOgCg-0000000DDz4-0loK;
+	Sun, 17 May 2026 18:27:06 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOft7-0000000DAOV-1mSj
+	id 1wOgCe-0000000DDyc-04zO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 18:06:54 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48fde2f2d61so2892795e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 11:06:52 -0700 (PDT)
+	Sun, 17 May 2026 18:27:05 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64H1Cj7W1672239
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 18:27:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	47IgD0Iol6l33UGUteMSnMp1BqqYxxlTxqbsNmGL4o0=; b=SSmJ8zbujuLqmSrJ
+	hP4SOwcuU2/B8tj4fWaGfPBNfswDzwWRaUaQMHW70GI3sgVxCVQ7v3ipcL/Pk7Xf
+	9ijtK7lEPicROvKX95rXsAi5bd4oB6Mzz3zVyjLv/xXx4axbdrJAB9Su0yCxVfuT
+	aqgwaDyVCDhhP73wUZQ2uA+JydvmdKJcyIGFsonoNeh+T1D0K49nhik/l3ThtVb1
+	oGRMZNV8mQmfnsT7hUk7OUdc4Km1xVeBqpKPHT6D1xgY0ZSBJfRuEOaPZhmsHa0A
+	9O/OhHgFGf7fxFK01WyVOmONmMX+R+of8+EmEeN8mEs/ctRFKjgB4WV8tTd1CDvn
+	ejDWNw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e6h0g3bd5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 18:27:03 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-514d2b22e7fso27445001cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 11:27:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779041211; x=1779646011; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XWhNCJ8/sNLNjfPa+oqEi9cxsLwe8oIu+0HMTTzZ//Q=;
-        b=pGaHsJwqRO4V5PKG6m7PkK4ppnc18ofMRtO+UH1aT6pHr0X/8tihv/MJdiETyglBvf
-         DoEbLWYwnyXOW5RG0dV5ceyyfWXV7OplbMjIuoO06XxBRTzIJS8oPcRtc9sGno/w3E3o
-         l/Qh9hC75V6Wdx0VCUAxU3Yy0M1F00WRB00yrtEwdzubJltiSleMdTnTaM+jzne/Tp1D
-         VO1AxOniNbahHF8Jsi/rrRjP7cdGBbTLv+iV6wNncCk2Zerj5Fus5chblbRjSx9/QJhd
-         fO2t6NlKt67qSPDqCco8H/vZhwa2r43VXw+MpVSIePZqLKJ8fQO2LzdHD5ndbKMQHx7J
-         6XzA==
+        d=oss.qualcomm.com; s=google; t=1779042422; x=1779647222; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=47IgD0Iol6l33UGUteMSnMp1BqqYxxlTxqbsNmGL4o0=;
+        b=OPw9KN0eu/HBFbrkvDHwJvtMhU/M8FTC4zZfmP1chDogDlzgjpIgKbcfaZlDzcSpZf
+         F98FU8daFsycc/PJc0R+LWqavUfFdCjeSpn7eGP8Gw/bsxQzsk8NxA/RmkBXggrKBILw
+         XBapU/9xjjWmklQUiJmDH7dqhTTz8K/y3i8e5qudzvi8qqIAYL6ZDXhEvi8vW/oUFuMI
+         TDisI2QeJLsE8Pb4qVav91/8kQVN6VxvlS3SW7SqqHq11UE/c+Bt0oC7C7jELURtJxOj
+         A0xC9XlUvIPH4wpWalTVhkc8brgr7bfyC7a3D/404pizi18T44D8wPx2dehjxlxEorYL
+         Avaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779041211; x=1779646011;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=XWhNCJ8/sNLNjfPa+oqEi9cxsLwe8oIu+0HMTTzZ//Q=;
-        b=Z3zWk37OsxZM5MjVdVx9/zMJzXZBg79Z8wR5IDfOB1BB/FUanhCMg2n/CS4niL0e/e
-         ZtuCFsM2vz72MyNjjTjB6E4G91mgPnZH1RivY8Z/6HQyenx7PKOEsd6ZzE/5LiHff33S
-         El4jntBmb1LEbNPe03HX0PMLl6cE2uuE315vUq1+QY19T87RPDHw8+GB6freqU2rYbT0
-         CXr8sGFS5S4gQfM+6fYegg3H1uY8nmgNcQgjMV6k2naS3xQhy05D2r4LabvAk5m9i4Vp
-         7ov59PzeXCgc3qt5znhAa/0pHsAg0HICmOeE/jxDHnk3JxwRzoZLszZmfgPEAQbLbyVe
-         1NDw==
-X-Forwarded-Encrypted: i=1; AFNElJ/MrXnToHbkmVXA1Gj+I+s1j484a8FSolOIQdwzsvPWCjYcyKJhT+IZuW7N3CXoq3SPMeWAzjTnWCR074oo/Thy@lists.infradead.org
-X-Gm-Message-State: AOJu0YysR2ZeB/lthE33vHaIetIhJJ5MUfEjEAE+m7jM+bIo/fmhDyxA
-	I87IKP1IqmJ7pH1q1CWmkTB/0HDHgcb0PB6V4q8/wqMZmu15wgjVF9sY
-X-Gm-Gg: Acq92OG7Kybv1y0EFXg9tX+7j/T/dJHEvTmACz5uaAE07xup96T9q8mXBq3cGYvABjS
-	Ge2PnNWGOLw1sMhglSaJ9ga0p3yq7fOdEN7L9k2+zApeWjsgBv0aXTIp/6pk2LJOiZrUcXXnoju
-	o3FBvQYR9SXyK/YPp5zLpNJsbAJu9fDNa41IvntJOMYrPPbbJeTzOdqdFJTO5DAV7tw4w7evyQw
-	RDtQq38iD12SATKQJjzgTNqnZ1MKYOALEBhAKoxZMEcNB5L/K6mFNeOAzbrp9AYtflGPjq/02ZJ
-	SMsT/FkmlbSU8imk2qamN+Cz6CBX7ebMLX4N8jvqrwxoxSeJdhjUoOdYWoBJ1fnSeXW8SCAVE5l
-	lbu8k20pSUBbUId+J5QW388e3xPskUB3cSwLt/2cHCYrJjSUDvQ38zWxoom+an5F2sTdMG8Lgtp
-	4JPa7hSW5yhdnuAhVN2gImlJtO6skWMgqshg9ZOIevsKeYNNreQGI40vczusT1fdA=
-X-Received: by 2002:a05:600c:1d0d:b0:485:c456:5e4f with SMTP id 5b1f17b1804b1-48fe59b071bmr91127835e9.0.1779041211464;
-        Sun, 17 May 2026 11:06:51 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da15a6454sm31766775f8f.34.2026.05.17.11.06.50
+        d=1e100.net; s=20251104; t=1779042422; x=1779647222;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=47IgD0Iol6l33UGUteMSnMp1BqqYxxlTxqbsNmGL4o0=;
+        b=V2jMe1IKoESn1lSwuHPp2EoKFYfD3vXafoCG2COTBSck6v2LdcD2tC1dLOmNUwYRpG
+         LEW+98NyV2vPg+K9zHV1A4Wi51qIAFBcibIyArjUU2OLkyPO2Iz7fyd658QISKS5fhLe
+         iOmHJZpLXYMdOU+PQQtmK9AKknc4FIL9ht2iXDZjs4DV6PhukYK+FI8B47Sne+SHHsFZ
+         nzgt6SV9jeJZceAFeVgkZknl0nSd0Fm7QaN8DQzUgnDWHh5Fy2NZy0pfbFD8yQXjyAcw
+         gpbwkMbNDQhSfLQjE1H/ALxytxKxnuEl/tjNu4heHZi+m1hyN/7Vrq8Uz20Rl/qW3Dw+
+         Q9ww==
+X-Forwarded-Encrypted: i=1; AFNElJ/NZ0m3wc8wZQLO+Alaqxm4k843/bi/fh3DPWHYTUeVp6bJ2mWRu2iyUMAPdMdPjEBw7X8+h1fJlSuBo3+p1QhP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZdejqY4zqIsZLRU+Jl8lgR2bw2Z52WkaZHT4cHZHi9DEh1PhA
+	+SstjxzW0taTg3T7xo8hlEI04k2VFvAOHCUo3zmz/Lwf+OmiWdgfaqGsqb5bWTnTU9Syb7QCAjg
+	n685oE5/wn7hCDhoObHmqgqGXlzVsFLHie1raeDP7+mFjm1laQrxJkhjePu+dMz8LM5QRp+6wdz
+	03kg==
+X-Gm-Gg: Acq92OFkWRU5WCds681Yvbq6vCz6PJoozbIj5ZA+Cc/2NGxUNczfC3WRAF6Z3jxFhWR
+	2UdGAho4lXqp4FK1KVKZboSNjn9kznDWkVPMC9lRQZX0Huyjj0nWqxPj7cHCaa5jCnatwSyEfMx
+	Ks4DKkOCd4OA/LuS7tqhyz8n1GeQiy88ZDFUoP//bgmFQWpQ9L4LQ2SDF4GbGO8AbdapFmf2DKK
+	TYWYn/PvTE2w5NGjl9ZQyZ17BKz8OrMoKPT3Iw7iwaMBIkMJDD0m5ldOdOIYH9XH82A/Bg/ooDx
+	f0IABITurgc9GbcyS1euYC65KPfzasKbhgct77g2w10KZHJblwDXKTFxAx0YrvM5HzAcg4tpdyJ
+	JtnT/QbY5ZweC7OVAU6EvSS6df6nZgB7HDv1FYUxS5jhkvkxsD02v7j4GFlEjncSPcqVPktjvMl
+	VvEexMG957eK0jFBxoeN7brzvlFtswXsjDNKY=
+X-Received: by 2002:a05:622a:901b:b0:50d:7d8a:5d45 with SMTP id d75a77b69052e-5165a2754a0mr151817741cf.36.1779042422420;
+        Sun, 17 May 2026 11:27:02 -0700 (PDT)
+X-Received: by 2002:a05:622a:901b:b0:50d:7d8a:5d45 with SMTP id d75a77b69052e-5165a2754a0mr151817231cf.36.1779042421835;
+        Sun, 17 May 2026 11:27:01 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a90f10c885sm2814535e87.11.2026.05.17.11.26.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 11:06:51 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH 04/12] crypto: atmel-ecc - simplify probe error handling
-Date: Sun, 17 May 2026 18:06:31 +0000
-Message-Id: <20260517180639.9657-6-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260517180639.9657-1-l.rubusch@gmail.com>
-References: <20260517180639.9657-1-l.rubusch@gmail.com>
+        Sun, 17 May 2026 11:26:59 -0700 (PDT)
+Date: Sun, 17 May 2026 21:26:57 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+Cc: Akhil P Oommen <akhilpo@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH 6/8] arm64: dts: qcom: kaanapali: Add GPU cooling
+Message-ID: <vjdz65uy4pxlbt2e4wlwvdu5llwazyopeqb3caswvejenm5iv7@3s3p7iz4otef>
+References: <20260512-kaana-gpu-dt-v1-0-13e1c07c2050@oss.qualcomm.com>
+ <20260512-kaana-gpu-dt-v1-6-13e1c07c2050@oss.qualcomm.com>
+ <iun4ziuei3tzvr75qbbqgxytto6vptvtd7j5mr5ol5aqviaafz@5m4yxgnqjavc>
+ <e6572f5b-3686-46ca-956d-c06a7363cef2@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <e6572f5b-3686-46ca-956d-c06a7363cef2@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE3MDE5OCBTYWx0ZWRfX466cYF1VPeC0
+ eXgEwzqOm/75JE4QcLtvULDYAgGDfvbvSfxiRhIrgPF9a0AlbsGFr/hI7kE695U+R26zAStYVow
+ BpdsZYEuos1q3nvN5WiqzqfV9+u0gOtXfuprQAK+k2fuTpwhwA9JsnfANvulPcGvXlzy+yGC2gj
+ JEb6Cfll1IrRuJ8t4T2oAQYswf1W0s8pP+6nZ8U4mgOiU1R8xRyqhz2lZyWOT32lJ13rjxSuDUB
+ lslXlIkDSMZBkch8iQhStAWbFWGEBlMqxK38UpiY1qNvN1J4lkvFrzrms/HdhAjencFl12uGjS7
+ FKnihS/+PPOXy7HeUPrvjLO0DIKp7QRyRTs55wmg2Gc07fSFWJRfw4R0zKyzP5sqw0FeFqg/XhY
+ 298SepIznQ5uQ7NhNEEpqzDu9l60wGI4AgAZmY/cFFpZkzZkALJkifoptSBO1IXFDed4Dc+NIc6
+ s69BUCiCCrolWo4z2IA==
+X-Authority-Analysis: v=2.4 cv=W7gIkxWk c=1 sm=1 tr=0 ts=6a0a0877 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=yUhn81BH2gEySD1AKRsA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-GUID: feFMYhy2hNj_rlijYsxoET9RczHoH6-M
+X-Proofpoint-ORIG-GUID: feFMYhy2hNj_rlijYsxoET9RczHoH6-M
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-17_04,2026-05-15_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 malwarescore=0 impostorscore=0 adultscore=0
+ phishscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605170198
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_110653_482736_4294C584 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260517_112704_064157_6E0EA758 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,49 +165,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace early return in atmel_ecc_probe() with explicit error handling
-using a goto-based cleanup path.
+On Thu, May 14, 2026 at 12:17:54PM +0530, Gaurav Kohli wrote:
+> 
+> 
+> On 5/13/2026 11:23 PM, Dmitry Baryshkov wrote:
+> > On Tue, May 12, 2026 at 03:53:20AM +0530, Akhil P Oommen wrote:
+> > > From: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+> > > 
+> > > Unlike the CPU, the GPU does not throttle its speed automatically when it
+> > > reaches high temperatures.
+> > > 
+> > > Set up GPU cooling by throttling the GPU speed
+> > > when reaching 105°C.
+> > > 
+> > > Signed-off-by: Gaurav Kohli <gaurav.kohli@oss.qualcomm.com>
+> > > Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> > > ---
+> > >   arch/arm64/boot/dts/qcom/kaanapali.dtsi | 165 ++++++++++++++++++++++++++------
+> > >   1 file changed, 135 insertions(+), 30 deletions(-)
+> > > 
+> > > +
+> > >   			thermal-sensors = <&tsens5 0>;
+> > >   			trips {
+> > > -				gpuss-0-hot {
+> > > -					temperature = <120000>;
+> > > +				gpuss_0_alert0: gpuss-0-alert0 {
+> > > +					temperature = <105000>;
+> > >   					hysteresis = <5000>;
+> > > -					type = "hot";
+> > > +					type = "passive";
+> > >   				};
+> > 
+> > Why don't we keep both passive and hot trip points?
+> > 
+> 
+> Need guidance here, we are keeping passive at low temp so still hot trip is
+> needed for such cases.
 
-Add comments to clarify client list insertion and algorithm registration
-steps.
+I think we are saying the same. Keep both passive and hot trip points.
 
-No functional change intended.
+> 
+> > >   				gpuss-0-critical {
+> > > 
+> > 
+> 
 
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
----
- drivers/crypto/atmel-ecc.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 76fb1d0cf075..696ab1d51fc6 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -328,17 +328,20 @@ static int atmel_ecc_probe(struct i2c_client *client)
- 
- 	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
- 	if (ret) {
--		spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
--		list_del(&i2c_priv->i2c_client_list_node);
--		spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
--
- 		dev_err(&client->dev, "%s alg registration failed\n",
- 			atmel_ecdh_nist_p256.base.cra_driver_name);
-+		goto err_list_del;
- 	} else {
- 		dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
- 	}
- 
- 	return ret;
-+
-+err_list_del:
-+	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-+	list_del(&i2c_priv->i2c_client_list_node);
-+	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-+	return ret;
- }
- 
- static void atmel_ecc_remove(struct i2c_client *client)
 -- 
-2.53.0
-
+With best wishes
+Dmitry
 
