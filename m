@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C80CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 19:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BB1CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 19:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ut6KPB2FyqD1rZnIlJ5HNRtjMje9EjyeuxhMW4TgzG4=; b=E3irPYA0ECk+BY7E/F557AU2KT
-	ggBbeShSA8J3fTbaahMeJ6JxZA/3PVMRqsQko3CCVEKnGWRq7dseqMlooyYW6YEBkrVxNxX4uzJgu
-	nYrwJW63XW6UJW4Jc14lz7KGm2/Ps5ldytzZyDXliXhcU4Fqa0S+KpPInQvkHQDt5LYAzWjKO9onP
-	s6FWxxj678/llebD0KTpLKGqNmIFIhOgJrW1c6/LA/u4H5AvIMDHy+7x7leWJXn11bSMGdg8i42mX
-	s8c3kNY31+6Q4XneZ89xpR62tKS7/ZhW02jxF0z4J6hxFQm08EWG5NrX9nFASFpx82HBQe7EZ9nQ9
-	tLVurMEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sWVGuqfYQwMVXFSzwidkMo+of2vCBqFs7cgqtUJvLOc=; b=pFQrWjbfhkiqYGnxDdjukiVdVi
+	TK9Ho0dssT5nrImCNLPAGnFOXLqJaKkf5l4Uxd+YVXEvZ9XjbuDDk7tJ5XKfnxaM33cZ+CeVB7tSp
+	UPMUPWdDFd3J/4UawrC1Q7Z5xX7w9ClaQ7Yz3RDr/LU8SzL+6NfMDYNP+024MfBUvHcmyrdzZYwG/
+	U6JiaCalBzXQJn2s+p6njswKCXobHS/o0x0lOGF7z6254YEpk/4j70KcQLdg/SSXF86+dTOj6JSGr
+	EtckbuIgkXcq7qx1fxgplC9Q8jQuUF2ycw9TzCS2pJXIIfb3cSTg9NdVhiVlu1e3eUhddJHAl/47F
+	MkOWuLRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOgmi-0000000DI27-0LZi;
-	Sun, 17 May 2026 19:04:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wOgmn-0000000DI53-1fx7;
+	Sun, 17 May 2026 19:04:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOgmh-0000000DI1w-1RXO
+	id 1wOgmk-0000000DI32-0OsJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 19:04:19 +0000
+	Sun, 17 May 2026 19:04:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 897A160103;
-	Sun, 17 May 2026 19:04:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80B1AC2BCB8;
-	Sun, 17 May 2026 19:04:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A92564451B;
+	Sun, 17 May 2026 19:04:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1DAFC2BCC6;
+	Sun, 17 May 2026 19:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779044658;
-	bh=NB/CNEIUtc4ERpE+q/zZYxQAMn7kc0YFmUFa9eiJFWI=;
-	h=From:Subject:Date:To:From;
-	b=R3ST2v2Ff6oxWZ/02/DbxJSe4waGUpXE+GdCEU/t5e6wvaPggGl38AuSAfcAdfh7p
-	 IxPq9Tva3H38fJZ+XncBaQPb8rT+P5ZkLdArsCH2WQhl/Tb+s5uTNv5KmvG3S/esEp
-	 5qASULYUY10uEr+ACtz9bKKHkOXWh1fXy0SLvIaKtxciIZprcnTO6h2mUbRrIH6r3d
-	 pavqZj678+n32kc50eCUjKrqY/0QxrKGLBbZtubeY75T96VHOzPsgGcGTqnmye7XDc
-	 AgHXBudAD0aDYzfR2YtwiK/Ib5gnH69IoLfc0hurOPRBLJpsvEABT+Beaaq8YaSx0C
-	 z9XWMUXpUMvvw==
+	s=k20201202; t=1779044661;
+	bh=BagPRorJW0mo6+WpFTl1DFwi/7L5mgLhGiL9DVliUXs=;
+	h=From:Date:Subject:References:In-Reply-To:To:From;
+	b=YLlgiVpTDR9dcJW1vjOzjHVtiy+FWXqRrSWsZOpbf94OoDar2aJzhzXyst88zz+Jw
+	 YHhgiC0iapbFxhzsZHn1cQYVzEtRvTkFqC6rEhAVeg88LntoSeFfh0mAPELovuP3NZ
+	 1Rsak1NdL50VBHLG30WwRanffpXch4JGmZq3nwi08IR1awVTeg1BAqjemPtmlGhFN3
+	 Vqeq+TsqplFTXeo/++7q+syiI4s+fo7Dh+FckxfLKwVTSm47aXMFEtmn9uTU4mYkcL
+	 +1ADfCqggl31JxhW3GDcmMS2e5TCN9rxHhyPkKQ6IG17ACPTYMXNsEFnfJI9jYcE7l
+	 RtAlfesAQuBFQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH 0/4] firmware: arm_scmi: Fix protocol parsing and
- validation
-Date: Sun, 17 May 2026 20:02:39 +0100
-Message-Id: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
+Date: Sun, 17 May 2026 20:02:42 +0100
+Subject: [PATCH 3/4] firmware: arm_scmi: Validate SENSOR_UPDATE payload
+ size
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANMQCmoC/yXM2wpAQBAG4FfRXNuyI5RXkcSaZZRDO0hp393i8
- us/3CDkmATK6AZHJwuvS4COIzBjuwykuA8GTDBPMl0oMTM3li8ShVpneWoNWosQBpujLwj9qv4
- tRzeR2d8H8P4Bud8JR24AAAA=
-X-Change-ID: 20260517-scmi_fixes-211563fc2ff2
+Message-Id: <20260517-scmi_fixes-v1-3-d86daec4defd@kernel.org>
+References: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
+In-Reply-To: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
 To: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
  Sudeep Holla <sudeep.holla@kernel.org>
 X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260517_120422_185250_4E226CDF 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,50 +73,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+SENSOR_UPDATE carries one or more sensor readings after the fixed
+notification header. The parser derives the expected reading count
+from the sensor description, but it did not verify that the received
+payload contains those entries before parsing them.
 
-This series fixes a few SCMI protocol parsing and validation issues found
-while checking the driver message layouts against the SCMI specification.
+Reject truncated update notifications before reading the variable
+array.
 
-The first patch fixes a clear response width mismatch in SENSOR_CONFIG_GET,
-where the driver requested a 4-byte response but read it as a 64-bit value.
-
-The next two patches harden notification parsing for variable-sized payloads.
-BASE_ERROR_EVENT and SENSOR_UPDATE both carry counted trailing arrays, so the
-received payload size must be validated before copying or parsing those
-entries.
-
-The final patch fixes Powercap protocol v2 helpers to validate the domain id
-before accessing cached per-domain state.
-
-No functional change is intended for well-formed SCMI responses.
-
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-Cc: arm-scmi@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-
-Regards,
-Sudeep
-
 ---
-Sudeep Holla (4):
-      firmware: arm_scmi: Read sensor config as 32-bit value
-      firmware: arm_scmi: Validate BASE_ERROR_EVENT payload size
-      firmware: arm_scmi: Validate SENSOR_UPDATE payload size
-      firmware: arm_scmi: Validate Powercap domains before state access
+ drivers/firmware/arm_scmi/sensors.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
- drivers/firmware/arm_scmi/base.c     | 15 +++++++++++++--
- drivers/firmware/arm_scmi/powercap.c | 25 ++++++++++++++++++-------
- drivers/firmware/arm_scmi/sensors.c  | 12 ++++++++++--
- 3 files changed, 41 insertions(+), 11 deletions(-)
----
-base-commit: d0deb8265c8551343c5c155aaded6b56639e3820
-change-id: 20260517-scmi_fixes-211563fc2ff2
-
+diff --git a/drivers/firmware/arm_scmi/sensors.c b/drivers/firmware/arm_scmi/sensors.c
+index 836c294a9f42..b14bb1146356 100644
+--- a/drivers/firmware/arm_scmi/sensors.c
++++ b/drivers/firmware/arm_scmi/sensors.c
+@@ -1072,12 +1072,15 @@ scmi_sensor_fill_custom_report(const struct scmi_protocol_handle *ph,
+ 	case SCMI_EVENT_SENSOR_UPDATE:
+ 	{
+ 		int i;
++		size_t expected_sz;
+ 		struct scmi_sensor_info *s;
+ 		const struct scmi_sensor_update_notify_payld *p = payld;
+ 		struct scmi_sensor_update_report *r = report;
+ 		struct sensors_info *sinfo = ph->get_priv(ph);
+ 
+-		/* payld_sz is variable for this event */
++		if (payld_sz < sizeof(*p))
++			break;
++
+ 		r->sensor_id = le32_to_cpu(p->sensor_id);
+ 		if (r->sensor_id >= sinfo->num_sensors)
+ 			break;
+@@ -1091,6 +1094,11 @@ scmi_sensor_fill_custom_report(const struct scmi_protocol_handle *ph,
+ 		 * readings defined for this sensor or 1 for scalar sensors.
+ 		 */
+ 		r->readings_count = s->num_axis ?: 1;
++		expected_sz = sizeof(*p) + r->readings_count *
++			      sizeof(p->readings[0]);
++		if (payld_sz < expected_sz)
++			break;
++
+ 		for (i = 0; i < r->readings_count; i++)
+ 			scmi_parse_sensor_readings(&r->readings[i],
+ 						   &p->readings[i]);
 
 -- 
-Regards,
-Sudeep
+2.43.0
 
 
