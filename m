@@ -4,97 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B553DCD4F25
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 08:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51393CD37AC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 08:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMtYakkWg6xW89eWo2V/gAFSemUpeEFr7/GQfm8tsfU=; b=pp8Yii84cGitZFEHsFU+fAIQjv
-	DpaxmeOrUhsQYsxlEnM8xB0tGpqwCEwp6w3rL89HIUfAKP2eSpy0lds8KS+HdiTlRVyrqGKXL2DJf
-	xZm6gUytZkdG3ls1lcFHQhMM+MbL/C3SNxYO8YMIapy7c5Arwvt+xhcIyYOaPoclisd38E5qutDNG
-	8mv/LXVnFYaaVMbnIFvGi190arqDf5p1zBBLpCDlxpSsjtMZV4lsW/WN2cU1FGCcNIpdAM2VIlpyc
-	nWuPJu+4HsffVhYDdeLa8nldyvA+vhgi/Y+qDUaH8GgWtwo3C3oOmVo1k2m4a3GNvSEAOTs1TySdA
-	8Y9jXFIw==;
+	bh=OxaLP5J/GZlEF9ERJgv3Nk5LgC1koMIzY2yYzqkHqo0=; b=2fCuJZVLfWNkaDtNZ7ul0oyI6r
+	UI8NPPeUY4KhgHXOLAF74We0n+4YAnqfE6R2umEleGaz9dasb/cNhMtJwOqIneegisD8pMxOUaAEK
+	YzaRnXLurNFyN4hNgbjcAOZRm37iM6uLvs8KXTBc1IljUTQJtVXfawwD0ZSdEbQJJAOG4uWnn4XEo
+	VZOM9rrqmqzXWvW9OwLgmztqcz2HVD/VV/JHfWkYMlweInIK+YX7tZ1eqZHkcqmR6FqgOI2A+LSFe
+	+HEJDTgZunRmSnzVlmPqjvxsDPEGdKRB0HV70RxSaPmjrvAP6jctiJF8/eLL0u9Mi6K49VEYQ7gKw
+	jvvPhEnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOWV1-0000000CLBe-40EF;
-	Sun, 17 May 2026 08:05:23 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1wOWew-0000000CMHK-3sjq;
+	Sun, 17 May 2026 08:15:38 +0000
+Received: from vinatta.cz ([2a03:3b40:fe:428::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOWUz-0000000CL9r-2l5W
+	id 1wOWet-0000000CMGC-36ZF
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 08:05:23 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2ba21d32776so8384725ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 01:05:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779005121; x=1779609921; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yMtYakkWg6xW89eWo2V/gAFSemUpeEFr7/GQfm8tsfU=;
-        b=F64EajyyA6Aq5FPVPd+Wb+n1QM5rfSKFufMxHVdPFH0DcQyuKby9utmwIxgGFNavPa
-         bvh+yvTxId6p8bzQZdxMEsOr6WyAauu0An7UOF601Y6GHECRpEsRK6FC5HzZE0/hDMhN
-         qUgzhn5r/OkcY1I52/Zf/1lVuIGdM0M1dCk2WW0rUj8yNIWYyGDzc2mqofawFfrNvNya
-         q6pIEvz0WF7798J8G/bqAAptw3z84QYFmJFUTZlXDksx9GWf5TCmcn0kMgSlEO3CaVDR
-         ch01oBExAdsv+oMEiBwHW+XbglAdIK3fgRFMcxA64veiA8lBFPA21o8kQRgFWXw2AbYM
-         vrlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779005121; x=1779609921;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=yMtYakkWg6xW89eWo2V/gAFSemUpeEFr7/GQfm8tsfU=;
-        b=eZkFhRXWVcF53VCTsSfj8QY/YH8Bo7FOBlIlYgJwUOpzQvAuyKY//X0NLznVGvDbaD
-         zOVb8Jk/ZJdkWeEm5vZQtfC9W9qN+BWqJL6jH3UIByjt3DGik4iuDad2CvZW0eE9ggu+
-         Caxys8h76Ht5WCVRHJfuU8rT8HudI7LZHwZuAfW559YOkEyUWS1URvFY60P5WNyh459a
-         hXJJHfYfmXRYkKn9DqgRXDY0qHYAv7UoBUlc3WnnBgpgYb35F2JkfKAjPEh6j00OUD+/
-         dFhTZQBERSvJlaHyzaN4njMhR08E1aqMrULssOLxDUZA4twjXTxcOhY/AOpSz16zOq4o
-         YWGA==
-X-Forwarded-Encrypted: i=1; AFNElJ/btVA3MBpxYrFQdFJfS6Oazn3wWxytVe/db6E8932Drxunw5AyX1WX1gwZUCGw4MdfDziy451k3uTU501D3FRi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxby9UuHIsHUKoBnNx/5DQ1uyxaBvO3EEh2EDF91otsxmiUQ6ib
-	evOc63ZuucIq4HZkdo0MQrWk7PKBfSIBpzV7p4MDlZmKspwSyMzcjMAt
-X-Gm-Gg: Acq92OELNMFMCRLK98aUejT6FowT8nbu+D+JsfyK2aOF5Y1Cudue7/sdeHZLFl74/EL
-	g4q7L+LODSX0TmYfbq3mBKR3STMwmnsR8RTg7BF9a5KDRpEaHzZyOj3brYjEWFMBSLzO+RbSxqD
-	Mpo+gQat+4ZuNeoE2+kIEw3KUcy6HYoUV+L3bkLw68p+kJWq79Z7IeX+GrahgQ+2z9EI1mde1fJ
-	4ISCRkhGukHg/sUmJ4NaJWpALoVGvEtjcB+Pu7V/k9DkL4srW1P1Sxwf314YgB118j0IXjqqqjc
-	jqHDt1Zy3BCK9CGWc6tsSv0Z25BMpgDowmfpIJaeaLbZnkVrz0aYvu5YxALvlgZfDvtm3ze96sq
-	8QL7eAsSF6k8FvXE0wWGwz/15jQRk3SHdF3QNwjdpu8U6ayfJRejunDQEZ6FPzbir27+4AFpy3h
-	Kw0zM0A4xhbcfqabNN092EcfIdJwaiFQGk92r9htXklj2DGCEfpZTPbWCQmTfc
-X-Received: by 2002:a17:902:7d86:b0:2bc:7486:21cf with SMTP id d9443c01a7336-2bd7e9056dfmr70871815ad.36.1779005120658;
-        Sun, 17 May 2026 01:05:20 -0700 (PDT)
-Received: from fedora.taildae27b.ts.net ([2409:4064:2d80:75ca:8541:272f:2bb3:5e55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5bd5fb17sm109834595ad.1.2026.05.17.01.05.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 01:05:20 -0700 (PDT)
-From: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-To: Guenter Roeck <linux@roeck-us.net>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	linux-hwmon@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-Subject: [PATCH v3 3/3] hwmon: raspberrypi: Fix delayed-work teardown race
-Date: Sun, 17 May 2026 13:34:45 +0530
-Message-ID: <20260517080445.103962-4-chakrabortyshubham66@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260517080445.103962-1-chakrabortyshubham66@gmail.com>
-References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
- <20260517080445.103962-1-chakrabortyshubham66@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sun, 17 May 2026 08:15:37 +0000
+DKIM-Signature: a=rsa-sha256; bh=OxaLP5J/GZlEF9ERJgv3Nk5LgC1koMIzY2yYzqkHqo0=;
+ c=relaxed/relaxed; d=vinatta.cz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
+ i=@vinatta.cz; s=default; t=1779005699; v=1; x=1779437699;
+ b=PMO/+udeo7XzeJ8ziq0fMVnhQ+lOkfiqksINzGQTUTMbfUvnCquMjhKwC3iwPY69pXYaTPBr
+ 0sYDtwXBrRrnzTxUb9iMiyQ1fWScUadCw1gNsRPnH3MAf89gDDidD+fIjXGtKdtEbyaylXRkjb4
+ KAqHsz2O73Xe2rKMmCUWIhfn6x0SyvfnJuJubOJMAZyWwgoOn7RAC9RN8hQjUIlP9S8R6bWfN0p
+ gslmcWbFPc1rV0XGiUzGb/CTfDGc+N/Z2rK0l6C+Yi008AthGl+Yt8jxLtjvtzfoUe37i/vEH38
+ XEL331//YH1DNuli4G5ud92X6UHMl0ipgir8EUdNwZs0w==
+Received: by vinatta.cz (envelope-sender <karel@vinatta.cz>) with ESMTPS id
+ 6a5c1ecf; Sun, 17 May 2026 10:14:59 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 17 May 2026 10:14:58 +0200
+Message-Id: <DIKSVZCAQES1.35I4QY11LBVNV@matfyz.cz>
+Cc: "Brian Norris" <briannorris@chromium.org>, "Francesco Dolcini"
+ <francesco@dolcini.it>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>, "Andrew Lunn"
+ <andrew@lunn.ch>, "Gregory Clement" <gregory.clement@bootlin.com>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>, "Ulf Hansson"
+ <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
+ <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
+ <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>, "Peng
+ Fan" <peng.fan@nxp.com>, <david@ixit.cz>
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+To: "Johannes Berg" <johannes@sipsolutions.net>
+From: "Karel Balej" <balejk@matfyz.cz>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+ <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+ <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+ <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
+In-Reply-To: <DI5L100Q1RKO.1A68EJIPWYSRC@matfyz.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_010521_703478_7F8C1D58 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260517_011536_232409_6A9B48F1 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,60 +81,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The delayed polling work rearms itself from the work function, so use
-explicit delayed-work setup and cleanup instead of
-devm_delayed_work_autocancel().
+Johannes,
 
-Initialize the delayed work with INIT_DELAYED_WORK() and register a
-devres cleanup action that calls disable_delayed_work_sync() during
-teardown.
+Karel Balej, 2026-04-29T12:55:23+02:00:
+> Brian, what are the options here now? Would it be possible to make an
+> exception and accept the patches without the firmware being in
+> linux-firmware? This is an old device with no mainstream audience so I
+> expect everyone who will want to use it will be able to supply the
+> firmware themselves and it would be great to not have to keep the
+> patches in a fork, especially when trying to build on top of them
+> further (such as to fix the driver-firmware incompatibilities discussed
+> in one of the patches of this series).
 
-This addresses the concern raised during review about the polling work
-being able to requeue itself while the driver is being removed.
+would you please let us know whether there is any chance an exception
+could be made for this chip regarding the firmware or whether there is
+any other way to upstream the support?
 
-Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
----
- drivers/hwmon/raspberrypi-hwmon.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/hwmon/raspberrypi-hwmon.c b/drivers/hwmon/raspberrypi-hwmon.c
-index 8ce6dacc19b0..0bbc735f74a4 100644
---- a/drivers/hwmon/raspberrypi-hwmon.c
-+++ b/drivers/hwmon/raspberrypi-hwmon.c
-@@ -8,7 +8,6 @@
-  * Copyright (C) 2026 Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-  */
- #include <linux/device.h>
--#include <linux/devm-helpers.h>
- #include <linux/err.h>
- #include <linux/hwmon.h>
- #include <linux/module.h>
-@@ -96,6 +95,13 @@ static void get_values_poll(struct work_struct *work)
- 	schedule_delayed_work(&data->get_values_poll_work, 2 * HZ);
- }
- 
-+static void rpi_hwmon_cancel_poll_work(void *res)
-+{
-+	struct rpi_hwmon_data *data = res;
-+
-+	disable_delayed_work_sync(&data->get_values_poll_work);
-+}
-+
- static int rpi_read(struct device *dev, enum hwmon_sensor_types type,
- 		    u32 attr, int channel, long *val)
- {
-@@ -237,8 +243,8 @@ static int rpi_hwmon_probe(struct platform_device *pdev)
- 	if (IS_ERR(data->hwmon_dev))
- 		return PTR_ERR(data->hwmon_dev);
- 
--	ret = devm_delayed_work_autocancel(dev, &data->get_values_poll_work,
--					   get_values_poll);
-+	INIT_DELAYED_WORK(&data->get_values_poll_work, get_values_poll);
-+	ret = devm_add_action_or_reset(dev, rpi_hwmon_cancel_poll_work, data);
- 	if (ret)
- 		return ret;
- 	platform_set_drvdata(pdev, data);
--- 
-2.54.0
-
+Thank you and best regards,
+Karel
 
