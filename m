@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83394CD4F48
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 21:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C4ACD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 21:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9iWJAgQi4oKuW2SmCMvd6aV8Dovou08mStee+1kdn5E=; b=qaGSSNnTNMlwITZ8tYYxn7Eu68
-	hzU3eZOseyOgfcweTWnGls/dnNoVSwp8gLsIYV6qFZWx2S3y7ElPwBtAxqSBC5rrHOT7wAwauHz8L
-	4lVo0pPF7K9+anwCFn44bpqynctgOc+pTGqAj6P++sMZMKe7sCh1qbGJLB4xKY/oMM+EM38yrMQ1v
-	CUBqm1x7h28+P9KFmryrxx6ZbNaLfJWqVAzZu4FN809KR5Oq/RrdDcTBT7SswlNKTCo+nnKs6T0+Y
-	cG7/keSc+eOr8pzsHOdpwM2MRiGuuSDOc1CWEzHG9l6w4+DS37qU2qwikqRnxUTfdOLxqJ6m4o4Lr
-	VvnSXJgw==;
+	bh=tQEPRQOZ4rX+g6q3gTj6TNuvogG0oRapFFGY9eXkr/U=; b=B61fSmbvJMEFpjq1d5BWkxFImV
+	LX5wMN1X7YDmDZ+5JxYKCn0eV5m5IQyN6ujyKFFA6ZnLCoZ3GL6bgNWFIN/fpMSi6yCUdM5OQq/sG
+	u41C3eSQuUyJtdVJEJyBoHsrNexKpYUglEEExwcUkFySrO3J2UkYxfCxCOICoWdSVvBry0H/ybtKg
+	8x0oPJui4w6Ak5feHvO95LbFK0dlvlHHrJSPoJTHkr3IKDu1zYAMP/qNgiodFCj637znBHmoScDlh
+	nRiq56af0EgK1CJiugnIq+6zdk3rz179cRgSISNcIbv3IitzFfehEEFQWf/hMtAANIEnGATkUGFn2
+	zW0/UXPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOimr-0000000DTVD-1g8r;
-	Sun, 17 May 2026 21:12:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wOimw-0000000DTY2-2bI6;
+	Sun, 17 May 2026 21:12:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOimp-0000000DTU8-3AxT
+	id 1wOimq-0000000DTUq-3tlV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 21:12:35 +0000
+	Sun, 17 May 2026 21:12:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BC8DA60125;
-	Sun, 17 May 2026 21:12:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 486A8C2BCB0;
-	Sun, 17 May 2026 21:12:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A6797445DA;
+	Sun, 17 May 2026 21:12:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63AFDC2BCB0;
+	Sun, 17 May 2026 21:12:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779052354;
-	bh=lZMt7EeGweQBM8J04DT8IEIlqL67jEh2Cou/ilga+x8=;
+	s=k20201202; t=1779052356;
+	bh=sa/XEbVus3j3++neSqYHZhHciwIeY/dNrzAJDzxWUxA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=geQeZKjxEjS+TADDQiW3/Hk4Ib4ehBp1PEBUO0IfZ1T9bq8og/X2dB89Bm1k5WrpR
-	 Czd0x03WoFAwbR/BB2nE6FNY6PZlzObFQI3cYSwRqipNQA6OJMCKHIsMq9v9Zl31Zb
-	 Z4Jlpav0WehlNk3Fj3TIIFav3v4W0EF8O2ez0X5EYr4mSZuTCDB7YHwDtlqtKB+mwB
-	 pqSQoPNyTZwQn6wf0w6i2KiStQ9K37NJkQMnV1+FR9G9thZbYQY+b1/sfLxk2Y9A3z
-	 ZfJAqvLl8klQZvncSTNcOMZOfGj0cgLoB3bLzLNi5TY4/1huIi0sLWcEtkPGXt5Zj3
-	 zXgu+kP27ilVg==
+	b=a1gJ4IlNi4iOIT2mipUyACyecpQa+uIf+XnT7/qQ4vdyxGJ11zcsS17cyZrSj4rPO
+	 6vfRZSw9RGeGwRCtlQljfXggM8dW45kuClZyEO+q9fpICwzamys3W1B05zYSgw6TA7
+	 MexHFPn5D0tfyYajRXoFzEoZXB4AAyIcRDXUnd1fQZYM6pP/deUCVD/POZ7V2qnzWI
+	 kvX0WgD81ybgApTydEkfXU70mtFxID4K6WOQM1hO0AtlHaDYw+mA7+EUbsqMzLA/9O
+	 YCdzvRV6dfQfuAMgsBZr9b46TqC4AHRrwtYakUSDz0io38O+mX4zIKHTZRLcrBKnrp
+	 yaQ7A8/Nqj86w==
 From: Tejun Heo <tj@kernel.org>
 To: David Vernet <void@manifault.com>,
 	Andrea Righi <arighi@nvidia.com>,
@@ -68,14 +68,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	Tejun Heo <tj@kernel.org>
-Subject: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot installs
-Date: Sun, 17 May 2026 11:12:25 -1000
-Message-ID: <20260517211232.1670594-2-tj@kernel.org>
+Subject: [PATCH 3/8] bpf: Add sleepable variant of bpf_arena_alloc_pages for kernel callers
+Date: Sun, 17 May 2026 11:12:27 -1000
+Message-ID: <20260517211232.1670594-4-tj@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260517211232.1670594-1-tj@kernel.org>
 References: <20260517211232.1670594-1-tj@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260517_141237_007555_D71A9487 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,94 +93,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ptep_try_install(ptep, new_pte): atomically set *ptep to new_pte
-iff it is currently pte_none(). Returns true on success, false if the
-slot was already populated or the arch has no implementation.
+The existing kernel-side export of bpf_arena_alloc_pages is _non_sleepable
+only - it's used by the verifier to inline the kfunc when the call site is
+non-sleepable. There is no sleepable equivalent for kernel callers; the
+kfunc bpf_arena_alloc_pages itself is BPF-only.
 
-The intended caller is the upcoming bpf_arena kernel-side fault
-recovery path. The install runs from a page fault and may have to
-contend with locks already held by the faulting kernel caller, so
-keeping it lock-free via cmpxchg is the safe choice.
+sched_ext needs sleepable kernel-side allocs for its arena pool init/grow
+paths. Add bpf_arena_alloc_pages_sleepable() mirroring the _non_sleepable
+wrapper but passing sleepable=true to arena_alloc_pages().
 
-The generic version in <linux/pgtable.h> returns false. x86 and arm64
-override with try_cmpxchg-based implementations on the underlying
-pteval. Other architectures get the false stub - the callers there
-already fall through to oops.
-
-Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Suggested-by: Alexei Starovoitov <ast@kernel.org>
 Signed-off-by: Tejun Heo <tj@kernel.org>
 ---
- arch/arm64/include/asm/pgtable.h |  8 ++++++++
- arch/x86/include/asm/pgtable.h   |  8 ++++++++
- include/linux/pgtable.h          | 16 ++++++++++++++++
- 3 files changed, 32 insertions(+)
+ include/linux/bpf.h |  8 ++++++++
+ kernel/bpf/arena.c  | 13 +++++++++++++
+ 2 files changed, 21 insertions(+)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 9029b81ccbe8..eb1dd59aaea3 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -1830,6 +1830,14 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- 	return __ptep_get_and_clear(mm, addr, ptep);
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 831996c411cf..64968ca6db51 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -679,6 +679,8 @@ int bpf_dynptr_from_file_sleepable(struct file *file, u32 flags,
+ void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign, u32 page_cnt, int node_id,
+ 					  u64 flags);
+ void bpf_arena_free_pages_non_sleepable(void *p__map, void *ptr__ign, u32 page_cnt);
++void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32 page_cnt, int node_id,
++				      u64 flags);
+ #else
+ static inline void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign, u32 page_cnt,
+ 							int node_id, u64 flags)
+@@ -689,6 +691,12 @@ static inline void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr
+ static inline void bpf_arena_free_pages_non_sleepable(void *p__map, void *ptr__ign, u32 page_cnt)
+ {
  }
- 
-+#define __HAVE_ARCH_PTEP_TRY_INSTALL
-+static inline bool ptep_try_install(pte_t *ptep, pte_t new_pte)
++
++static inline void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32 page_cnt,
++						    int node_id, u64 flags)
 +{
-+	pteval_t old = 0;
-+
-+	return try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte));
++	return NULL;
 +}
-+
- #define test_and_clear_young_ptes test_and_clear_young_ptes
- static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
- 		unsigned long addr, pte_t *ptep, unsigned int nr)
-diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-index 13e3e9a054cb..afff54a77ffd 100644
---- a/arch/x86/include/asm/pgtable.h
-+++ b/arch/x86/include/asm/pgtable.h
-@@ -1284,6 +1284,14 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm,
- 	} while (!try_cmpxchg((long *)&ptep->pte, (long *)&old_pte, *(long *)&new_pte));
- }
- 
-+#define __HAVE_ARCH_PTEP_TRY_INSTALL
-+static inline bool ptep_try_install(pte_t *ptep, pte_t new_pte)
-+{
-+	pte_t old_pte = __pte(0);
-+
-+	return try_cmpxchg((long *)&ptep->pte, (long *)&old_pte, *(long *)&new_pte);
-+}
-+
- #define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
- 
- #define  __HAVE_ARCH_PMDP_SET_ACCESS_FLAGS
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index cdd68ed3ae1a..60a4afdc9131 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1036,6 +1036,22 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addres
- }
  #endif
  
-+#ifndef __HAVE_ARCH_PTEP_TRY_INSTALL
-+/**
-+ * ptep_try_install - atomically install an empty PTE
-+ * @ptep: page table entry
-+ * @new_pte: value to install
-+ *
-+ * Atomically set *@ptep to @new_pte iff *@ptep is pte_none(). Return
-+ * true on success. Architectures opt in by providing a cmpxchg-based
-+ * override. The generic stub returns false.
-+ */
-+static inline bool ptep_try_install(pte_t *ptep, pte_t new_pte)
-+{
-+	return false;
-+}
-+#endif
+ extern const struct bpf_map_ops bpf_map_offload_ops;
+diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
+index bc696bef7104..8eb7b95f4999 100644
+--- a/kernel/bpf/arena.c
++++ b/kernel/bpf/arena.c
+@@ -937,6 +937,19 @@ void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign, u32 pag
+ 
+ 	return (void *)arena_alloc_pages(arena, (long)addr__ign, page_cnt, node_id, false);
+ }
 +
- #ifndef wrprotect_ptes
- /**
-  * wrprotect_ptes - Write-protect PTEs that map consecutive pages of the same
++void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32 page_cnt,
++				      int node_id, u64 flags)
++{
++	struct bpf_map *map = p__map;
++	struct bpf_arena *arena = container_of(map, struct bpf_arena, map);
++
++	if (map->map_type != BPF_MAP_TYPE_ARENA || flags || !page_cnt)
++		return NULL;
++
++	return (void *)arena_alloc_pages(arena, (long)addr__ign, page_cnt, node_id, true);
++}
++
+ __bpf_kfunc void bpf_arena_free_pages(void *p__map, void *ptr__ign, u32 page_cnt)
+ {
+ 	struct bpf_map *map = p__map;
 -- 
 2.54.0
 
