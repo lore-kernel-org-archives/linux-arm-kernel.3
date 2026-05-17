@@ -4,82 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEBE3CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 20:08:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6260CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 20:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l4wFVxQBgL8B6DVjVkF6XY4KfSRZqxPxMXAGErUdUOE=; b=3FQdShGSsERymvxtE++QiEXqrr
-	axBsfIuroNbq/13GytS7H4RU9n0E5C6IwitV0YrnnGR1SYJPQ2BWSaflRYLEXrM9tyiSbnB+qH905
-	K8RkD+PGV1Ia5PnLB8tlemSrnjPclghONVnSKHe6K8BWCxWve4VA9GowTo26enwuTSR0w9tWhfgBn
-	9QapIocKvd9m5BC12zohZrF63W1KgLrZrxojChyxyhIPUeb+E/SFylJBi/z5TsujSZjM7b879ngIz
-	e339P1+ib40TrZ0d1yOKKmLzrandT5x/+hsZ4mTk/BN0OmEdrvB2AlFOiQORa+SM19dij+Oz7uHgL
-	G9kjGRqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pvFaQsXKMAFdsiEyGScw9s1oo3v187U9mkI8d4FQAZc=; b=GLcC/ZfcUlQvTZU4A3D5Db6tMB
+	fycJUd+CXoEjjK+yeNcB0M5Tnd0p4lVMcQr7uQ8/3iG8eSqTX0Us6Wips8IYPlKF9GEDwYkomVEMk
+	I5brF0bwol3bfCWurN9FAP5EbhHv7v0xOUMQJre9EyKZobwdSHlI8BqDq9jw6wLDSShtPSZhz4LPP
+	qKAgUCjecsw+eR6BWF1Jy+T91y+S4sNmwToWUJKYTKL0Uo3IDLYYguVGEcsmTfBQ3/djpp5gb1RXa
+	YRRQpz4fDxIWASUrTqZsM8fb3VbKqcWY/r0l3+6mPLJgCbUg7ZfrwL0sO5AEY/AgE3/t+h4U/MVkG
+	Y0iKt+cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOhmn-0000000DNzq-1AoL;
-	Sun, 17 May 2026 20:08:29 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1wOiCC-0000000DQ7v-1Qn7;
+	Sun, 17 May 2026 20:34:44 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOhmk-0000000DNz4-3M6F
+	id 1wOiC9-0000000DQ71-1wG7
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 20:08:28 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4gJX7B09s4z9vTD;
-	Sun, 17 May 2026 22:08:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1779048502;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=l4wFVxQBgL8B6DVjVkF6XY4KfSRZqxPxMXAGErUdUOE=;
-	b=ON+4ZOdDioAhwgYq6wu2cWAZ3cNX+m+ypBoHVg81Nv3MXcUxvt/woO+rGux6YwY3FiDJHa
-	m03vd9UcQ7DiPJG5gZT27AXBo6k6nrldJdGaevjzPr9T/TEOXS7YwUQv6BRX2ciOL/PqEL
-	tjmFaGUIkztIeX3oQ404Uj8XHm2IZ12HKSJr8Bxw7NIPs3bgN1ynk+l2HY2X5X4/9h78/6
-	JyCZ0GlRsfvc6kL1/keCF+ZoSmhDiSt0UYWY7VtB0ubkuODxg5sLZCGTL9zQ7K/7bQ+JfU
-	fPaJM1m/IAz0wmbmp566FhWzELv0+RpaR7Nt2mAiLVwGC9JrxkVMeTPxugREVw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=CcC7WRiX;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1779048500;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=l4wFVxQBgL8B6DVjVkF6XY4KfSRZqxPxMXAGErUdUOE=;
-	b=CcC7WRiXiGfj9qB3IEUc4W9PX+ThhzSiQxdNpIUcfFltXLJW6dDgJsPmiX5Xv/Mm0QdsEK
-	CuP1hqrGnmuje1VrxDDNnh4zFy9xW+3oiRnjUnXSTrd1BG0VJQiVVZVun/cTVU5KSKwAoP
-	MTjaOmbG/8Uz07ukSTjcwLUJo7dzPSRko/d3UL9raDkLOkr504tVEfysJ5wKEk9OlY5bzL
-	y03hd15AGO6KCSsK+ENunR410Tm4sr9Kv+rapXxpfl6Q/Woy9spJ/dDy+hAsADCjOIi2ob
-	97Q7hoOmMSD0xb4YSQP65Kbu1iYqT6MBrDaHNE0nIebsRubHXfjX/SiP+8EdGA==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2] arm64: dts: renesas: r8a78000: Describe all reserved memory
-Date: Sun, 17 May 2026 22:07:40 +0200
-Message-ID: <20260517200814.21624-1-marek.vasut+renesas@mailbox.org>
+	Sun, 17 May 2026 20:34:42 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-67f7caa33easo3476924a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 13:34:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779050079; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S4bSh1FaPzpOnh8RgJxwqKMf014mPbqBz5SQcx5EEGlB3m0dZnWOiM9N9kXbUxdI1F
+         6z66mcyfNhHTQdjRaLHA95iCj82fdJEfykl20HqLjGTZqmKp4qTAC0i5lMrUu5PzvSYb
+         6PdsfaketBvGmqS7TS/07tRGoIFh+fwLNhGJO/mkP2ZLiBPPsbU5s4HOp79JtEC379+W
+         zB2+TMXYMqVe/LmBjQUxMKsdesmy+C0PV6S3bbubaR9BC1Nuu3KcZY+jX5kl+60hKUX6
+         vfpkjWGKs1tjq4iNthlLEr/rgQ4XdU0alUVKOcQfI9+gPpYEkFILEXGJ93EutKFLo5ax
+         QRDw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=pvFaQsXKMAFdsiEyGScw9s1oo3v187U9mkI8d4FQAZc=;
+        fh=3t0rleVOq8GoGKWeSLdyGd6W/KMqbHKRFpx372+Kdq4=;
+        b=fmS1+BElEp9ETLgJnbOp5RQ4DIeL32m0JPFZeyg+H0HdgxruQj6eh9DXSEIf4AEn0U
+         rJogdcWaEcnBghEh6Z8HbC2x3LICp6unodFMjWdgKUPxBw6O3OxagdfgRTiMXUwSJLBH
+         0PZiteVCEogdQsZoIycb0l/k3f3eGwajikkJFacJkO+w7/cSllHX3TIB9IjGWZwrFV1p
+         udA01QSw+4XztMlOutVL/jJqdzlG8AZLqntAmGun+waiLhhya+YnVOCIy7rmURPvtSJg
+         G5ooqY2O9tUj9VvP0Ty30OUcVerlQoCHFyFjyojGSie6bdHhgkWYmYqrbIFYsrJ/YDCN
+         +gOA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779050079; x=1779654879; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=pvFaQsXKMAFdsiEyGScw9s1oo3v187U9mkI8d4FQAZc=;
+        b=XJMOfKAn+Fx0/UNAt9ZRRk7H3iglOq5YmUDTIAf+W7rzHm7zg1lcwdwBaLdpjuGoQ0
+         aXuewFRL2/M3+QiXsp7AfGVUelF1lXY+EnrsrsJmPKrPLRte8KWS53kN4SmeJW7KvbUl
+         Gla3dKyXb9MgbFNbplBDdZRN+v/F5BSWN9s1NbIyELNea5zx9wn68W/tUJ9/YI6GVe3B
+         lCoTNZrvAkwBiurmqsPVxdTunAx0mkyyXs4KA+hIyCSHurD8ptvfTZ9CopmuDDF6hpgs
+         ovl26V9Exe7pMHLnyo1vUCZKgCStLWa43NLaWhl9SlDV/CJvw0oZIORAklHyODn1FCAn
+         vcZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779050079; x=1779654879;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pvFaQsXKMAFdsiEyGScw9s1oo3v187U9mkI8d4FQAZc=;
+        b=iTb8Qx2sZVijr07qlZ0zJJHF3nE9T/1qUqtbvclBJOPnlbFyQR4xJADSsoVd+huYlC
+         U0Q5Ho0CF4uLFMoZ8PD7WXPWnFPlpsbM9mjixZFYvVXbdj/heK3yTo/rKUsab/Oyh/zy
+         /JL8i/fgJwSL8PwjmFuLMiCwVAZ+3l6AYeX7w8loDoyD0F+guMH0KVhtXXn3I81p9Z5P
+         j0YZn454fuCJ0lUSUwPvcFCCU/duFZEzwPqbCjEyXEdEnTSH9WXKlVszngxjKMWZ1agD
+         Nm66cLMdcbA1HvwB8IW2RlvwAuXx0iCoPHWfZ07FIOlIpv5+c4WmiJZebsX8Am8DnZx4
+         XfSg==
+X-Forwarded-Encrypted: i=1; AFNElJ+kLR+/MZt7HlBaw1QKg+DKspKJY1klhH5OFwWFixVb/w2MzqKuLsUNRlDSghxNPgABO4leXOXEMo9MlWTXAttI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yznkd3qtj8JZXSPkzOo3XYcloiNPmu5b/nl1SBA2o7EFAqVBrxt
+	MY4S1cvMVnevmePhuLrm7IWoHqtjeUUsWdMDjImqeOmLnjPa8K96aisZpfn2dR6pv9w9wr/WqKa
+	qVP1JcuHBPShid2+XR4BfhGGpW2Tx5to=
+X-Gm-Gg: Acq92OHhuDrl54nEYRBQljWlBvATzQ4rHH88Du3VU6b6S9k9Zqjh/LxtzXREThWccjK
+	7IKrr/TXzq4iHriCVB/zz+AfSirNMXqcesUEuijydd5eka2yWe3vcoeSuWBLOO1edojvaGOqNsO
+	8aseHyhUeAYpynN5do8AKazV9MdDJZMRpHVYUtvSyNM/S12836TOr/xhtAyrHU5FBJ+szzXHgr6
+	ByLycTVnLzagNXWpouRKyzBSAwLVYUSfuw2ykKbwbAQLbDAS2nY/r726F0XOg6WKwI73QvXL8UN
+	e622FyA=
+X-Received: by 2002:a05:6402:249e:b0:684:95a:4d05 with SMTP id
+ 4fb4d7f45d1cf-684095a5202mr4796563a12.8.1779050078758; Sun, 17 May 2026
+ 13:34:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 3e02abafad4a71cb2b3
-X-MBO-RS-META: xrb9uyt3n4p1aa9mmtafi9o74nrhuoq8
-X-Rspamd-Queue-Id: 4gJX7B09s4z9vTD
+References: <20260513233139.659956-1-dbgh9129@gmail.com> <067c55c0-d56c-496e-bf75-5c3491524256@microchip.com>
+In-Reply-To: <067c55c0-d56c-496e-bf75-5c3491524256@microchip.com>
+From: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
+Date: Sun, 17 May 2026 16:34:27 -0400
+X-Gm-Features: AVHnY4LZJOMeJaLZu4hTErugOA3pPaUKx_QVLxhWugGqRJa5iBBxf0p3f7LEaEs
+Message-ID: <CACrCO_XibQxWzt4uv8gVJTYB9eiG85=KCE8H-o8cP6cwybgSKQ@mail.gmail.com>
+Subject: Re: [PATCH v1] irqchip/atmel-aic5: Free SMR cache on init failure
+To: Nicolas Ferre <nicolas.ferre@microchip.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_130826_986986_835CBB2E 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20260517_133441_519653_F0527377 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,108 +115,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fully describe all available DRAM in the DT, and describe regions which
-are not accessible because they are used by firmware in reserved-memory
-node.
+Fair point. I submitted this from a general code hygiene perspective.
+Thanks for taking the time to review it.
 
-Replace first memory bank memory@60600000 with memory@40000000 and a
-518 MiB long reserved-memory no-map subnode. This memory region is used
-by other cores in the system.
+Best regards,
+Yuho Choi
 
-Reserve 32 kiB of memory at 0x8c100000 for parameters shared by IPL,
-SCP, TFA BL31 and TEE.
-
-Reserve 512 kiB of memory at 0x8c200000 for TFA BL31. The upcoming
-upstream TFA 2.15 BL31 uses memory from 0x8c200000..0x8c242fff, the
-round up to 512 kiB is slight future proofing.
-
-Reserve 32 MiB of memory at 0x8c400000 for OPTEE-OS, which is the
-entire OPTEE-OS TZ protected DRAM area.
-
-Neither the TFA BL31 nor OPTEE-OS do modify the DT passed to Linux in
-any way with any new reserved-memory {} node to reserve memory areas
-used by the TFA BL31 or OPTEE-OS to prevent the next stage from using
-those areas, which lets Linux use all of the available DRAM as it is
-described in the DT that was passed in by U-Boot, including the areas
-that are newly utilized by TFA BL31 or OPTEE-OS.
-
-In case of high DRAM utilization, unless the memory used by TFA BL31
-or OPTEE-OS is properly reserved, Linux may use and corrupt the memory
-used by TFA BL31 or OPTEE-OS, which would lead to the system becoming
-unresponsive.
-
-Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: Run checkpatch, fix indent
----
- .../boot/dts/renesas/r8a78000-ironhide.dts    | 35 +++++++++++++++++--
- 1 file changed, 32 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-index a721734fbd5d0..ed027a6c356ed 100644
---- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-@@ -20,10 +20,9 @@ chosen {
- 		stdout-path = "serial0:1843200n8";
- 	};
- 
--	memory@60600000 {
-+	memory@40000000 {
- 		device_type = "memory";
--		/* first 518MiB is reserved for other purposes. */
--		reg = <0x0 0x60600000 0x0 0x5fa00000>;
-+		reg = <0x0 0x40000000 0x0 0x80000000>;
- 	};
- 
- 	memory@1080000000 {
-@@ -65,6 +64,36 @@ memory@1e00000000 {
- 		device_type = "memory";
- 		reg = <0x1e 0x00000000 0x1 0x00000000>;
- 	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* First 518 MiB is reserved for other purposes. */
-+		firmware@40000000 {
-+			reg = <0x0 0x40000000 0x0 0x20600000>;
-+			no-map;
-+		};
-+
-+		/* Parameters set by IPL. */
-+		parameters@8c100000 {
-+			reg = <0x0 0x8c100000 0x0 0x00008000>;
-+			no-map;
-+		};
-+
-+		/* TFA BL31. */
-+		tfa-bl31@8c200000 {
-+			reg = <0x0 0x8c200000 0x0 0x00080000>;
-+			no-map;
-+		};
-+
-+		/* TEE TZ DRAM. */
-+		tee@8c400000 {
-+			reg = <0x0 0x8c400000 0x0 0x02000000>;
-+			no-map;
-+		};
-+	};
- };
- 
- &extal_clk {
--- 
-2.53.0
-
+On Fri, 15 May 2026 at 05:58, Nicolas Ferre <nicolas.ferre@microchip.com> wrote:
+>
+> On 14/05/2026 at 01:31, Yuho Choi wrote:
+> > sama5d2_aic5_of_init() allocates the SMR cache before calling
+> > aic5_of_init(). If that fails, the cache is left allocated even though
+> > no IRQ domain was installed and the cache will not be used.
+> >
+> > Free the cache on the failure path and clear the global pointer.
+>
+> No aic5 = no viable system to run on: I'm not sure it's worth
+> considering the case.
+>
+> > Fixes: a50ac562ef48 ("irqchip/atmel-aic5: Handle suspend to RAM")
+> > Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+> > ---
+> >   drivers/irqchip/irq-atmel-aic5.c | 11 ++++++++++-
+> >   1 file changed, 10 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/irqchip/irq-atmel-aic5.c b/drivers/irqchip/irq-atmel-aic5.c
+> > index 1f14b401f71d..58650eb16880 100644
+> > --- a/drivers/irqchip/irq-atmel-aic5.c
+> > +++ b/drivers/irqchip/irq-atmel-aic5.c
+> > @@ -358,13 +358,22 @@ static int __init sama5d2_aic5_of_init(struct device_node *node,
+> >                                         struct device_node *parent)
+> >   {
+> >   #ifdef CONFIG_PM
+> > +       int rc = 0;
+> >          smr_cache = kcalloc(DIV_ROUND_UP(NR_SAMA5D2_IRQS, 32) * 32,
+> >                              sizeof(*smr_cache), GFP_KERNEL);
+> >          if (!smr_cache)
+> >                  return -ENOMEM;
+> > -#endif
+> >
+> > +       rc = aic5_of_init(node, parent, NR_SAMA5D2_IRQS);
+> > +       if (rc) {
+> > +               kfree(smr_cache);
+> > +               smr_cache = NULL;
+> > +       }
+> > +
+> > +       return rc;
+> > +#else
+> >          return aic5_of_init(node, parent, NR_SAMA5D2_IRQS);
+> > +#endif
+> >   }
+> >   IRQCHIP_DECLARE(sama5d2_aic5, "atmel,sama5d2-aic", sama5d2_aic5_of_init);
+> >
+> > --
+> > 2.43.0
+> >
+>
 
