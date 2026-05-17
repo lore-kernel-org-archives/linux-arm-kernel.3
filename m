@@ -4,94 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4007CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 20:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E4CDCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 20:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fPgB9UynDfl3zmI3aakfTZKeiVVfht++/m5WoF0UhgA=; b=hfepmV4Jh3uDBm9lZYAwTR3hxo
-	c2GU0y3LHrlSUML60ysaLIR822DNDuGlW6Uyoz3vC9TAAAD8Nw4or3zSFExX9JvhjbbK04hA6CTKI
-	Cxpa9HP9ZqjYbOX9AMX/bUwJckGHE52yCTRYweSd3DeRX/1y/+VTb/vxX68oFRWRa0lJohcu3yDnV
-	FrJeurTVrtL77LGeV2IqvQ6/xEu/vvFzwE28xxC2LhJrqy9BJ/ftdvetJreS9AD7ufJY/ZMiP5muw
-	vsOjYpl483AMWEMZTyZ97VGMLRfZqf8HnbzfPrVKe9dfCikjA4lmbHSnzCz/aRbrumLdk4lBPpTvO
-	kltJPLmQ==;
+	bh=v8VzpumEV4ERg80kld+FfcUehxwCUh5dBCPMbnRNhSo=; b=Nu0sPaPh7FFXD0ntzDyxxJHa9D
+	oWcEe/28LJJTbgwVch3BQgzlV8WiCPysurL3slRe9eooVy1w/9g5QEuuY8J3orlNukK6bjnOuIvCN
+	QhI1+5CAfVRHf5NzPmyuzcYJz+OdWMl0PnSqhQ2Po9+pNAn0xhrkOSoz4dHKi56EmRCmXf+fnPEsM
+	9YFLoNZ+95UOfUEUvlaUKDD3fD0DkUVjCC3KKkGwP4hyZPWjDgyUPCtaJGY0AqOBtF3HUPIzbYqX1
+	MjsqlBTtOUmS4es8EW2xhBRL3wJoII8U2m2/NVGyGJ9irvwg6wuYNLPRlKVl1VU42Qjy5fP0gXIvl
+	ao59dBkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOiFK-0000000DQNe-2veo;
-	Sun, 17 May 2026 20:37:58 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOiFH-0000000DQNA-3Zh7
+	id 1wOiJo-0000000DQn3-0pGX;
+	Sun, 17 May 2026 20:42:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOiJl-0000000DQm7-23dM
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 20:37:56 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48984d29fe3so16928385e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 13:37:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779050274; x=1779655074; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=fPgB9UynDfl3zmI3aakfTZKeiVVfht++/m5WoF0UhgA=;
-        b=JeM4GHtKY6lQrK2wGBJ9gDiHkOQlC04IhD8uAWGWFjNRmAcZGyYWoEayKIkPAXAf04
-         A41r6eS+MEAN064kvI5SbLa0PyVEpZov9jK+sgTaKRfGEJGTc3710v3B5zGetXbg3qJR
-         UDGuqjompLBVQfyw9UFHvnRgoZXS/53cEeWyTGSAPA0UK45XvvhYiGBg0QHIOQzrOkwF
-         2tGGOul/VA/APocvV5t/eg2dzaoGsVZMDg1JyAUpilC6RYac7b2zGr8KzCbKUrsaiOh0
-         /N6DakgOvCdz2wGH599ZV2Frz+bzsiEHb58liXjoqSewAMrh7TzJOuwL5JDFHj2Wk8/W
-         l4GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779050274; x=1779655074;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fPgB9UynDfl3zmI3aakfTZKeiVVfht++/m5WoF0UhgA=;
-        b=tH9pbMWY7skFkyJyZ2qRHcfXVJgk1nRsFALi/QQtzcG784mCfxa8upW7mmaIIG2966
-         r1SeLn4M52fRuoR0cku+01wmoeB2CMhVKQU9hNcGPaXTL4m+Dle8Qz3pz9VsGOI/oR6N
-         JUjJF20JIt/vLN22AGgrYSlmILGMufw/WjyHJ1qkiO4N9e7J3cdMc6rcV68As8e0vSpq
-         s2nzp5qihIgM9c8ZvVHxRT1bUags3jn+Hvm2fOmLDwdKGZOASE0qAa959w1diKAF4qEM
-         IYKh4bGEMmlch9WZdJ1+Jh2WTBBrMgJhvGu6bdyJBxGqoj50yG7hZJVSQCn7CHONMOm8
-         uODw==
-X-Forwarded-Encrypted: i=1; AFNElJ9tnH8cOOyLnpjO4YNvCk+L7zuIGmDupbIxYFYsqhfjifuX27qj8fsLi+kAdnFc9svyAZsCmt83GJEmckq1txln@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnEC8Ww1tZOmhkqg3DMW0LtI4bcipSAqOhiP0rQCCUn1BL81Xs
-	N9B8d5wvNuiSMalTqKQDLE7igBMxl+Lel7Q2Yc2chKoNDOPiecZccVIK
-X-Gm-Gg: Acq92OFFjjYnvS/DGCUX8c+DlyVo8vkAHEfxHIUpM+4dbLozv8MCiRqsYd6d7muMOZw
-	mzeuJB9YTwK66deg+/UjoKFe/ltUr+LpMJCpWJ/A/DE4pBfrXCsY8YeEZ3HMoy2mX19AzOYDrhR
-	+vVzN2R9qW0sYqOgHNJrrMjmCkctQZ/xufJYvV3pQN1M9tn6x60rqK3PaGBt4WDiXk95C0clgOS
-	cNbMsh+ypd1LTeKHr6E+FwSNzaa6lQ3kFh11PvMRlSRxV5URrBMMvuWWbqpIRAVYeGNxocHLTer
-	WuFQWG92CfDx0FXbC5bwZWiuR8btBFQShh2QgUbAeZrHNr6PTMni8h2/vW0Vkq32PajqFCZS/wb
-	XKwc4dunZ6uEGH9vWXcYkssXULp1sRGPmODp0yWuPOwwujhIcQPF9Pwr5H/OzFuYJ2QlGoiQTKP
-	eUnknpy8EYob5zyyr8cHNI6XCTe2FrnAnJOxgbzpdfgGVlws0MCpeFpqlNxFmMDvJx2cDBWOTGk
-	j4=
-X-Received: by 2002:a05:600c:a293:b0:48f:e6de:1cc6 with SMTP id 5b1f17b1804b1-48fe6de1e03mr114181345e9.32.1779050273455;
-        Sun, 17 May 2026 13:37:53 -0700 (PDT)
-Received: from giga-mm-11.home (72.92.4.85.dynamic.cust.swisscom.net. [85.4.92.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe5694fbfsm363386665e9.6.2026.05.17.13.37.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 13:37:52 -0700 (PDT)
-Message-ID: <14a7e289ff5ffed8fcd6dcb9b2e8455a1b2c9420.camel@gmail.com>
-Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
- Baijie Helper A133 board
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Andre Przywara <andre.przywara@arm.com>, linux-sunxi@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>,  Samuel Holland <samuel@sholland.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Sun, 17 May 2026 20:42:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 396B6165C;
+	Sun, 17 May 2026 13:42:25 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5E263F632;
+	Sun, 17 May 2026 13:42:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779050550; bh=ibv6k4YlBc18EEJ4WtAjYGWP8e0aYlgR4UUrhJdd/EA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Oxil/PdkhVxEKri4W+21DCWJpSzmbyh//lSfNpbp7YNrzY0gBA77e2HPyJka8ivkE
+	 7jwKFD5fGgewZP7ZuvMxa7hNPL04sAoNbFt9TeMWR1R4qBuRII07O8mB5lqNpEjANF
+	 x9j5Yd3TDEkRJafg8JtoEMNt2coOZ/uH9P0Bv4MU=
+Date: Sun, 17 May 2026 21:42:18 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Ulf Hansson <ulfh@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Date: Sun, 17 May 2026 22:38:13 +0200
-In-Reply-To: <2306dd3c-6362-40ee-8d9f-77f89be3a502@arm.com>
-References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
-	 <20260510201644.4143710-4-alexander.sverdlin@gmail.com>
-	 <2306dd3c-6362-40ee-8d9f-77f89be3a502@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.1 
+Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
+Message-ID: <agooKghZJw3iElvp@pluto>
+References: <cover.1776793163.git.geert+renesas@glider.be>
+ <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+ <aekXUvIPb8nkhdKu@pluto>
+ <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
+ <ae6Zp54NhKlVes8J@pluto>
+ <CAMuHMdWK3Noh5ZQVWT9C0EKyXZePMaJ97C0A_syK+xCb_=abeQ@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdWK3Noh5ZQVWT9C0EKyXZePMaJ97C0A_syK+xCb_=abeQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_133755_922741_A1303814 
-X-CRM114-Status: GOOD (  37.90  )
+X-CRM114-CacheID: sfid-20260517_134233_692559_790E5D7E 
+X-CRM114-Status: GOOD (  51.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,138 +92,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+On Fri, May 08, 2026 at 12:26:19PM +0200, Geert Uytterhoeven wrote:
+> Hi Cristian,
+> 
 
-thanks for the quick feedback!
+Hi,
 
-On Mon, 2026-05-11 at 13:44 +0200, Andre Przywara wrote:
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
-> > @@ -0,0 +1,162 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright (c) 2025 Arm Ltd.
->=20
-> Please put your own copyright here, even if that has been largely copied=
-=20
-> from an existing file.
->=20
-> > + */
-> > +
-> > +/dts-v1/;
-> > +
-> > +#include "sun50i-a100.dtsi"
-> > +#include "sun50i-a100-cpu-opp.dtsi"
-> > +
-> > +/{
-> > +	compatible =3D "baijie,helper-a133-core",
-> > +		=C2=A0=C2=A0=C2=A0=C2=A0 "allwinner,sun50i-a100";
-> > +
-> > +	aliases {
-> > +		serial1 =3D &uart1;	/* BT module */
->=20
-> Do we really need an alias for the BT UART? And is the BT module=20
-> supported already? Then please add a child node to the UART node.
+> On Mon, 27 Apr 2026 at 01:03, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > On Fri, Apr 24, 2026 at 02:08:55PM +0200, Geert Uytterhoeven wrote:
+> > > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > > Also because this should be one of the selling point of the SCMI stack
+> > > > in a virtualized environment: you can ship the same kernel drivers with
+> > > > the same DT and you know that ID=<N> will always identify the specific
+> > > > resource that is needed by your driver without worrying about the fact
+> > > > that in reality in the backstage the effectively managed physical resource
+> > > > could be different across different platforms, because that does not matter
+> > >
+> > > This sounds strange to me, do I understand it correctly?
+> > > So the ID should (1) be tied to the use-case, and not to the underlying
+> > > hardware, and (2) be the same for different platforms?
+> > >
+> > > For (1): Then we must not put these IDs in DT at all, as DT is supposed
+> > >     to describe the hardware (and firmware IDs in DT were IMHO already
+> > >     a stretch before).
+> > > For (2): How can there be a contiguous list of IDs, as not all platforms
+> > >     may have the same underlying hardware?
+> >
+> > I would NOT say that an SCMI FW must behave like this regarding IDs, but it
+> > is a possible SCMI deployed setup that can be useful in virtualized setups
+> >
+> > I mean, the DT describes the hardware of course BUT when you refer to
+> > some of this hardware DT bits from some other subsystem by referencing a
+> > phandle, even in the non-SCMI world, you are in fact selecting a specific
+> > resource that fit you use case, right ? Can we say this ?
+> > I mean you needed that specific clock or regulator that you described
+> > previously so as to be able to enable some other piece of HW...
+> >
+> > Now, the SCMI provides an abstraction on top of this, since you really
+> > discover domain IDs of a specific class (clocks/regulators etc) you are
+> > in fact describing an HW abstraction that you then refer with the usual
+> > phandle...also because there is NOT so much SCMI hardware to describe,
+> > given that the HW is handled transparently (opaquely really :P) by the
+> > driver on the FW side...
+> >
+> > ...you basically obtain such domain ID, usable as phandles through dynamic
+> > SCMI enumeration so that you can use it all over your DT to make use of such
+> > resources...
+> >
+> > ...on top of this, consider that the SCMI server CAN provide to its agents
+> > a per-agent-view of the world, IOW it can (and should) expose to a specific
+> > agent ONLY the resources needed by that agent, i.e. it can expose the set
+> > of resources 1-N to two distinct agents and that does NOT mean that the
+> > underlying physical resource mapped by ID=3 in both agents has to be
+> > effectively the same piece of hardware: it could be the case, and this
+> > would be useful to exposed and managed properly a shared resource, or
+> > it could also be that the same ID=3 could refer to completely distinct
+> > pieces of the same class of hardware...(same protocol same class of
+> > resource...)
+> 
+> Exposing only the clocks/reset/power domains the agent can use,
+> in a contiguous list of IDS, means that the number space changes,
+> depending on which resources are exposed.
+> 
 
-That's the only thing I can do currently regarding BT: stabilize the
-serial enumeration, because UART1 cannot be used for anything else
-except BT module, because this is soldered inside "core" module.
-We can avoid different tty enumeration, should the support for
-BT be implemented in the future...
+Yes, potentially, it depedns on how the HW/FW stack was designed I
+suppose...
 
-> Isn't the WiFi/BT module on the SoM? Then please mention and enable MMC1=
-=20
-> here. Provide the child node for the WiFi chip, even if there is no=20
-> upstream support in the kernel for it yet.
+> Suppose you have a system where you want to assign a specific hardware
+> block in the SoC to the realtime CPU core instead of the application
+> CPU core running Linux.
 
-So both the above BT and the WiFi is AW869A/AIC8800 combo chip, which
-has neither upstream driver, nor [upstream] DT bindings. Even github
-driver for AIC8800 doesn't seem to use DT, therefore it looks quite
-pointless to me at this point to specify anything in the DT for the
-chip which doesn't have the bindings idea even theoretically.
+Ok, so this is definitely a considerable change.
 
-Nothing in the current DT shall block any future work on the AW869A
-support though and the above "aliases" entry shall even guarantee
-unchanged serial enumeration shall such support arise.
+> That means all resources used by that block must no longer be exposed
+> to the Linux agent, and the corresponding IDs must be removed from
+> the ID space exposed to Linux.  As the ID space must be sequential
+> and contiguous, the IDs must be renumbered, impacting resources that
+> are exposed to Linux.  As these IDs are used in the SoC .dtsi, they
+> must be changed there, too, However, these IDs have become part of
+> the stable DT ABI, and thus cannot be changed.
 
-> > +&reg_aldo1 {
->=20
-> What is aldo1 used for, actually? I don't see this referenced anywhere.=
-=20
-> I guess the kernel turns that off after booting?
-> If you have access to the schematic, please check that. If that's for=20
-> some peripheral not yet supported, please note the user anyway, ideally=
-=20
-> by an explaining regulator-name, or by a comment. Also if it's used for=
-=20
-> any of the required SoC VDD pins. See the Liontron .dts for comparison.
->=20
-> > +	regulator-always-on;
-        ^^^^^^^^^^^^^^^^^^^
-I suppose it's not being switcdhed of because of the above.
-It's used for both PLL supply for the whole SoC + as analog voltage referen=
-ce
-for LRADC (the buttons you've noticed on the board are connected to
-this ADC via a resistor ladder).
+Well, you have to ship a final DTB blob that is crafted to describe the
+actual HW at the end, right ?
 
->=20
-> > +&reg_aldo2 {
-> > +	regulator-always-on;
->=20
-> For always-on regulators we definitely need an explanation. Does the=20
-> board stop booting if you remove this line?
-> Maybe it's for DRAM? Can you say what voltage it is, either from the=20
-> reset default, or set by the bootloader?
+I mean, in your example, it seems to me that you have changed considerably
+the HW surface by moving a clock (and its related resources) away from the
+reach of Linux as a whole, so should not be expected to have an updated
+DTB shipped ?
 
-Thanks for the hint! I'll put proper voltages into all regulators +
-comment all the always-on regulators.
+And I am NOT saying to do this by changing the base SoC dtsi, but via build
+time overrides and/or runtime overlays so as to derive from that same SoC
+base dtsi a properly reviewed final DTB that describes how the HW has actually
+changed, becasue beside the renumbering that you mention there will be
+also a bunch of HW pieces that were relying on that clock that now will
+have to be removed from the DTB if no more usable (or remapped to use a
+different, maybe non SCMI resource)
 
->=20
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dt=
-s b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
-> > new file mode 100644
-> > index 000000000000..ccbca5d0a40c
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
+I maybe too naive and not used to very complex DTBs, but why all of the
+above cannot be done along the lines of how is done as an example in
+JUNO [1], where some initial base dtsi was overriden by virtue of includes
+and overrides to properly describe the board at hand (r0/r1/r2), even going
+to the extreme, funny enough, to move from the old SCPI to SCMI.
 
-> And you should provide a top level 5V regulator here, to be the root of=
-=20
-> the regulator tree. Look at reg_vcc5v in the Liontron .dts.
+[1]: https://elixir.bootlin.com/linux/v7.0.8/source/arch/arm64/boot/dts/arm/juno-scmi.dts
 
-It doesn't look to me as if Liontron had reg_vcc5v as its 5V "root" regulat=
-or.
-It seems to be only used for reg_usb1_vbus, while HelperBoard A133 doesn't
-have USB power control. The second issue with Helper/Core split is that
-all PMIC story is inside Core board which has 5V input rail, while HelperBo=
-ard
-around it has indeed 12V->5V DCDC regulator (similar to Liontron), but
-putting it in the DT would introduce wierd dependency of the core to the
-HelperBoard which carries it. Do you think it would make sense?
+> 
+> This patch series fixes that issue, too, by describing the actual
+> hardware in DT, and doing the mapping to exposed SCMI features in the
+> kernel, based on which firmware version is running on the SCP.
+> 
 
-> So from the pictures I found online it looks like there is an USB-C port=
-=20
-> labelled "OTG", so can you please add an &usbotg reference here and=20
-> describe that port.
+Which seems to me to go in the opposite direction to what SCMI expects:
+but I understand that we have to deal and cope with the existing already
+shipped FW, so my concern is not really around enabling this in particular,
+is much more the fact that we open the door and normalize this kind of
+design even with future, still to be developed, SCMI FWs.
 
-Nice catch! I've missed the fact usbphy 0 has to be in peripheral mode,
-not host mode. Will rework!
+...otherwise...have the spec changed/clarified to allow for such
+non-contiguos IDs...
 
-> > +&usbphy {
->=20
-> Are the two USB ports always powered?
->=20
-> And anyway, I see a *dual* USB-A socket on the pictures online, in=20
-> addition to the USB-OTG port. So where does the third USB come from? The=
-=20
-> A133 only supports one host USB port plus the one OTG port. So is there=
-=20
-> an USB hub chip on the board?
+...anyway let's hear Sudeep opinion on this general issue of contiguos
+remapped IDs and being able to peek into SCMI version from outside the
+SCMI world...
 
-There are two hubs, one on each usbphy. OTG side hub is even bus-powered,
-two USB-A ports are always powered from the board's 12V->5V DCDC, no USB
-load switches.
->=20
+Thanks,
+Cristian
 
---=20
-Alexander Sverdlin.
 
