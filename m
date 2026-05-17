@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9FC2CD4F47
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BEDCD4F4B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 18:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7qtD1lVmPgyK77uEJjECTLE482mHgEl/XesnKafKF8U=; b=SucsPON3fDZ7J/HxTV5m4TrxFR
-	MqVTBlWAhMLGJNcVWE6LM+lrDwzTAaQoep2BfQOtrJF/BrjaBtgyItt1i31pPn6BcROe/wAXTYEyD
-	r61VIybRP36fZ876BGjAfshYEtyx6CaS0pZeVbqyc5Q9ySXaHmDIfo3dzy7LzD4lkiuutF7cp78eD
-	Dw9NMo7GjxmgM2rgRU9rBqeZrjFU5uOXbn3ep2NrqHxXRVPeqDy34nbsD59t7w1F2PkzP7GfyrjNs
-	WXk3eovivH9lVjaUHs1A93ArFtMba+rU5vkIsUJv70Lr/hlA4ZVZ9iN7VrdwDQY1FoerwPJoH9Oh9
-	pLoqPZ6g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lfAxUEr/rxn6pVQC4AetRpAM4gvdUnHJSPOgS01+IHE=; b=dLvYxyw9YqMa8L9wWMAsF8jIjt
+	8uJ60T8/G5IsOiBU+2hWDbxGiCThaoQrLJ3zdsTZa9d6NwPMXVRRPU+UphVlHGWfPXIW6EyWqcqKA
+	om7di11K3N4Cg2p+Oxf3QJW7IFK/Jp55vGokd31jPwTEiNEMBApQk6zeGECtgP29Ag9Oy8TgTbPQv
+	crEIO2icSqCJJooEOXguUSZV641iyVXdpvbbp4cmHsXH5x760Z7dk2lGTOssNGws2vkn6IjvKDOhy
+	Pi3vPGvEzAOAouUvxHw+Xwq33r+C3Ju7tZvaYyrAGXutpFx3VEaMcIpHNF/LBsnV/RLe5ybBEVoAP
+	1oQmmpEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOft4-0000000DAO1-3x6M;
-	Sun, 17 May 2026 18:06:50 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wOft9-0000000DAR5-1XZm;
+	Sun, 17 May 2026 18:06:55 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOft2-0000000DAN6-18VB
+	id 1wOft6-0000000DAOA-0UBQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 18:06:49 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-43fe5574cb9so29633f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 11:06:47 -0700 (PDT)
+	Sun, 17 May 2026 18:06:53 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-48e72b02bf6so2319115e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 11:06:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779041206; x=1779646006; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7qtD1lVmPgyK77uEJjECTLE482mHgEl/XesnKafKF8U=;
-        b=saxLmQOR8uTJKzmGRusgyYJYF9URFJBBHYOVk3zljVPAVcM5S9wgkrUJLAEM5tltjV
-         govEP0Cu21H53jDFfs7UnmvtXyF/1ijn7GGLvFP70q98u0qRVmaWYL96EMRKRmhLF5uS
-         Kr3IQVC/iVm+j2Zs3Bo6RsghIfp/0SBIwrrv/VqqQbTSoNuEeUY1Q+9PeG1DNOBsaZrK
-         +1XqTDl8w3l32EzVFcCGUHFwZwiN2nrhLMCD0dyRYG4CqxOBqdc9FQwDK2nngoTQk802
-         8yaHTElzrGNNURXT2UJhNC8zg9qQ1yVyGqry/ZrC/fduu+7MwDd52bGttcQ+tBQnCOAO
-         dOIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779041206; x=1779646006;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779041210; x=1779646010; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7qtD1lVmPgyK77uEJjECTLE482mHgEl/XesnKafKF8U=;
-        b=OK4rMxwmgXMCTNfA4JDbtktvkGlpzOjd26rqndNPltfJM5p9IUXDsYKDM9IDnrzK1v
-         vTjtGF0hb6vn7yvb8ol2zvm8KUaTkaHaMZTqmrPo9n76lEpL9ZFxdrMhl4BPn4PMlgjb
-         35noz7z/Ozqa/Her2y9cg+RzcW1Enj1xQQGZxVV0KBiOgtB+rTA9V3pB87ZZb7gXwd3/
-         p6hZG5T8OlvNeHtSwThwyYiI/Xdnw87o+baa/nNk55vdgkEL50gRyqocX75AiEc1POcs
-         zjfBqS8jEAUUssLXcNHVKgqFUVk74I6mTJgAd0TxOyX0jwenMRSac+Zi4sbULVDi7BD+
-         2Ktg==
-X-Forwarded-Encrypted: i=1; AFNElJ+Du7jrEV/wjNZqRxLdGmTHb7Q3F55SIIc2+a8zAsRTgGWFq6JWOYoOo8UI1jGIRIeEmVEUjQLmZSODsL++9M1n@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSLOwDiwG72Am+cYUZoiy9gybJVjJ4Ef/uuxXSKOdRjCCiLa0J
-	2CRQkPDYp4f1YzNwbnzW54N0GqWj5aisjTDgE1/TUWo44ZHBRPRDWs9X
-X-Gm-Gg: Acq92OEoPCFMH+W6AvQ2zEdkmCZgb8TjZ2Oa3FCDDLthA4db4Tamudn+EOpVmohkNcN
-	2yq7cX5z4aX1Yaph4yHjHNIoY3dziy7AAJeI4mQD6tsGDAeY5fgPOcVVMToCVPpY+5lWbuY1XO0
-	fAQcllFttCL1qFgMzVOlsHMXogRTFRjpHykr+fML6XYYyhKvxzkEXSlxQ9csNtZ5YzH21IEKbcj
-	f9ZVbLGebUETYqkA5qtkzgtphROKEhI4fQ2nwB551FJxKJJFPw6RblHdsPJZWBAO6+MADHQiuKr
-	mJIs9FnoxcodgZnJ/AGFrm3PeqFt4vOy/ruy4d893UyyO1KqihybmBgRiVziQwht58kA+ngAPxJ
-	IGkXsi8ob7Tfr7oLUHw1Ip2a7RtQGa4wIaOKzgUp/whrJ8U28nlQi9f4l4DA2XxvmN1AlAKwQG7
-	PC7xL3GKPGX2g1ueIr6UbDXCCt9eEOhBxKDz0tPoU0BLMu4k+2kIV0c/xRpEC4XGM=
-X-Received: by 2002:a05:6000:2709:b0:44a:ba79:f039 with SMTP id ffacd0b85a97d-45e5c613c1cmr5692426f8f.8.1779041205587;
-        Sun, 17 May 2026 11:06:45 -0700 (PDT)
+        bh=lfAxUEr/rxn6pVQC4AetRpAM4gvdUnHJSPOgS01+IHE=;
+        b=D896SA2wzcwzDYQ3mXYE+mxJcsJOaX/PflWH9qz25TDAUk241lb0lPDVpxhues3960
+         6Gm9wgFLNJklvzN9fGJsmBDM0daIkTSABtjUuGUC4jRKRLu6Z7e5UZmPEER5/TbWqwDA
+         e2ECOjdKtFCykQ/Yaw/SFKEDwBY7Nfh/d6qJIZZIjZajHc2/z0KsvzH7VDCwYV4nZcNi
+         D0DZHfXujoQQSgQdZcC6kZhILlLuFLVA2Tmz2Kx/SUZc4Tqc/VM7Wj1WQmZS+vK8ssIP
+         SI6akkw38TqOBD/X6bbPFH+YvQHAvIrumrK43mVZp7/0tz9n9SZYBe5WAlMF7EsLqRWa
+         WY+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779041210; x=1779646010;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=lfAxUEr/rxn6pVQC4AetRpAM4gvdUnHJSPOgS01+IHE=;
+        b=HU6IMCUVHZEb4NSV4YhKRkhIoB6xpqjBPQx8x+tKz2pE7JKrJghwRsx6fSH5lJB4cR
+         wi6YU/e7EAKPWNFGpXsSNdjXYdfFgaFksfZwOTrLYP1TzoxKhlSzFew//JmXbXUlosuV
+         0lDpE+oJ+9AQqMsUMKnKuJjWyZ3yG/IYL9PO8F5yL+V/aNGik9T2ui/77hlHrnole7Pn
+         k3rlc5SsKEDh2YY7KC9aZWj8QuUYrAoQZOrNQAHwmHZRHr+2TnksYyk6zmRVNkrVpJ9T
+         0CdZwbpuLF0dzQX6GDzRXAi1HrkK3ew+RnWy9d9MvnlJoeYTkOBb63HK0VK00hRIge/+
+         fjJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9x+L2lpFv9yrZBZ+ilRuGGbL9Ew0yIp7qBiC8NBBp4/aJqSzINAYu1MvRYCeulYeuuQL0ZY15+0ipJQbZOb+cG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRR1wjF9KaufaI8Wb9QpCAUjFX/ThS4s9cdI9h633K2+woGy8u
+	3ApDZrN/yssC3vHEF6P4C0OKPvOWqunSgjh2W6Z3zPEOHA6/4fTP/lmK
+X-Gm-Gg: Acq92OGoTvusfdvbrjgDU2N0rKKLk14m8lvR+8WuWYYtpl33w8mgixGz3qGaiPHr605
+	wphyBxDdMnxiF/iKYmDBMDwMWNIEQjo0fTqRanTZqJU/+PfV3P+Rx7AbdqKPUy5IniRtYBtxWVG
+	UmV7TM5Q8rjyCdYoLYzoD6X5of2YkooZLVghEvDnOy74ofY+NmTPTBHE445uEbXsjJlxf0XYrZg
+	HneJK/1leFwMvQXqt5nv8Xk6Mk5QNj3OVrgzNmwPh/1ib1cgqGod4s05tYntk7KWneHNuMAAw0Y
+	CVXWm9qC4arhYyN8kEMm6oZQ3HnNr/GkmAG3fa1egdX11qFAYHGinhSSakQNJCkh+wrBl+W3M7D
+	gJWAx1GgX8AKmKZtLzwA23HHwoTJ12DXw7rvLMC958OQbziIRxMbxT7grgOgO78k/tx9Z0InVOu
+	fi28S0cAegZGTO10dPpim6UfPBM+dMETEvvs4C2f5plrvyMcok333Jwucbe7oz/hjVEKpR+o4fF
+	Q==
+X-Received: by 2002:a05:600c:3106:b0:48a:58e1:6cf7 with SMTP id 5b1f17b1804b1-48fe61f2bdamr81852815e9.4.1779041210437;
+        Sun, 17 May 2026 11:06:50 -0700 (PDT)
 Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da15a6454sm31766775f8f.34.2026.05.17.11.06.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da15a6454sm31766775f8f.34.2026.05.17.11.06.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 11:06:45 -0700 (PDT)
+        Sun, 17 May 2026 11:06:50 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: thorsten.blum@linux.dev,
 	herbert@gondor.apana.org.au,
@@ -79,16 +81,17 @@ Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	l.rubusch@gmail.com
-Subject: [PATCH 00/12] crypto: atmel - introduce shared i2c core client management and capability-based selection framework
-Date: Sun, 17 May 2026 18:06:26 +0000
-Message-Id: <20260517180639.9657-1-l.rubusch@gmail.com>
+Subject: [PATCH 03/12] crypto: atmel - move i2c client management instance into core driver
+Date: Sun, 17 May 2026 18:06:30 +0000
+Message-Id: <20260517180639.9657-5-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260517180639.9657-1-l.rubusch@gmail.com>
+References: <20260517180639.9657-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_110648_330130_75736F29 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260517_110652_167174_AEAB0360 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,56 +106,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces a staged refactoring of the Atmel crypto I2C
-drivers in preparation for a shared core-based architecture. The goal is to
-consolidate I2C client management and selection logic into a common
-atmel-i2c core driver while keeping ECC (ECDH) and SHA204A client drivers
-functionally separate but interoperating through shared infrastructure.
+Move the atmel_i2c client management instance from the ECC driver into the
+atmel-i2c core driver.
 
-The series moves existing ECC-specific client tracking into a shared
-management structure, relocates allocation and selection logic, and
-introduces capability-based filtering for hardware selection. This allows
-individual crypto drivers to request hardware clients based on supported
-features while still benefiting from a unified least-loaded selection
-strategy.
+This is a preparatory step for consolidating shared I2C client tracking
+infrastructure in the core, allowing ECC and SHA204A drivers to operate on
+a common management instance.
 
-Subsequent patches extend this base by:
-- migrating client management fully into the core driver,
-- introducing explicit capability advertisement by each hardware client,
-- updating ECC and SHA204A drivers to participate in capability-aware allocation,
-- and cleaning up probe/remove paths to ensure consistent lifecycle handling.
+The symbol is exported via EXPORT_SYMBOL_GPL() and declared extern in the
+shared header.
 
-No functional behavioral changes are intended at this stage beyond internal
-refactoring and preparation for future feature expansion. The series is
-designed to preserve existing crypto functionality while gradually
-centralizing shared logic in the atmel-i2c core layer, reducing duplication
-and improving maintainability across all Atmel crypto drivers.
+No functional change intended.
 
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
-Lothar Rubusch (12):
-  crypto: atmel-ecc - rename driver_data before moving it into atmel-i2c
-  crypto: atmel - rename atmel_ecc_driver_data to atmel_i2c_client_mgmt
-  crypto: atmel - move i2c client management instance into core driver
-  crypto: atmel-ecc - simplify probe error handling
-  crypto: atmel - factor out i2c client unregistration helper
-  crypto: atmel-sha204a - add i2c hw client list and improve probe error
-    handling
-  crypto: atmel-sha204a - switch to module_i2c_driver
-  crypto: atmel-ecc - switch to module_i2c_driver
-  crypto: atmel-ecc - simplify remove path and relax busy handling
-  crypto: atmel-sha204a - guard remove path against missing client data
-  crypto: atmel - move i2c client selection to core driver
-  crypto: atmel - add capability-based I2C client selection
+ drivers/crypto/atmel-ecc.c | 2 --
+ drivers/crypto/atmel-i2c.c | 6 ++++++
+ drivers/crypto/atmel-i2c.h | 1 +
+ 3 files changed, 7 insertions(+), 2 deletions(-)
 
- drivers/crypto/atmel-ecc.c     | 98 ++++++++--------------------------
- drivers/crypto/atmel-i2c.c     | 54 +++++++++++++++++++
- drivers/crypto/atmel-i2c.h     | 12 ++++-
- drivers/crypto/atmel-sha204a.c | 44 +++++++++------
- 4 files changed, 115 insertions(+), 93 deletions(-)
-
-
-base-commit: 6c9dddeb582fde005360f4fe02c760d45ca05fb5
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+index 9feae468b7ff..76fb1d0cf075 100644
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -23,8 +23,6 @@
+ #include <crypto/kpp.h>
+ #include "atmel-i2c.h"
+ 
+-static struct atmel_i2c_client_mgmt atmel_i2c_mgmt;
+-
+ /**
+  * struct atmel_ecdh_ctx - transformation context
+  * @client     : pointer to i2c client device
+diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
+index 0e275dbdc8c5..db24f65ae90e 100644
+--- a/drivers/crypto/atmel-i2c.c
++++ b/drivers/crypto/atmel-i2c.c
+@@ -21,6 +21,12 @@
+ #include <linux/workqueue.h>
+ #include "atmel-i2c.h"
+ 
++struct atmel_i2c_client_mgmt atmel_i2c_mgmt = {
++	.i2c_list_lock = __SPIN_LOCK_UNLOCKED(atmel_i2c_mgmt.i2c_list_lock),
++	.i2c_client_list = LIST_HEAD_INIT(atmel_i2c_mgmt.i2c_client_list),
++};
++EXPORT_SYMBOL_GPL(atmel_i2c_mgmt);
++
+ static const struct {
+ 	u8 value;
+ 	const char *error_text;
+diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
+index 98a79dcae2b6..a3385e8f0dc9 100644
+--- a/drivers/crypto/atmel-i2c.h
++++ b/drivers/crypto/atmel-i2c.h
+@@ -119,6 +119,7 @@ struct atmel_i2c_client_mgmt {
+ 	struct list_head i2c_client_list;
+ 	spinlock_t i2c_list_lock;
+ } ____cacheline_aligned;
++extern struct atmel_i2c_client_mgmt atmel_i2c_mgmt;
+ 
+ /**
+  * atmel_i2c_client_priv - i2c_client private data
 -- 
 2.53.0
 
