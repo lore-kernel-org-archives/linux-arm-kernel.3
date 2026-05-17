@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81BE8CD4F48
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 21:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473ADCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 21:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TJ+CGOkLMv7NevPUnCa2muMcWL2EUiWvaYd3S9qzAD8=; b=uMzLqNS9K64VLS5hY/T2fHzDeD
-	dCSNK0F5f4i8napU5SWtieQ5jEFuWwdfINmsNZ/DVBzgqfDZ0cREfo4xKPHYk0TSb749qPw9NNhbB
-	5ZBt20X9vD2ZrL4SAbNrMYen1Ue8Fe1DeBwcnMpLNzmQWnPNeQSsjq4hOtW/Ws81JOFw9A1P0hf5t
-	NLtVk/R2pNK8m21E7/Sl8qKzTNKXfECyS8Yzf4MyDNiTD2R+Ejjej2N0ig29fgXO4pN8Ioc4Kgd/S
-	ssXFFnawz6wToAx3DcOIXi5eEujjTLdD5A1ShU33J/8FCZ0VpuvT3JHDMbzT8SAHs/M0g8jxpywcC
-	HebyQcyg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xK8/4hQ0j9g1pID7Vdqyu8/i/yh91hlV7Ni1mBkOJ+0=; b=YAXp2pAc3dNywY8hTABAHchf3n
+	8zEjdlqXeGg7RO1zcUPMj3CjH9V9Mb3wRiRb5nPfry/xjFQfquEFNL7q7KRJzt37GRnpB/Y8SGHet
+	8len0J3VLoFgkLMoJgTSKDiEqAmixzrClmzOnBTveHSvuSOD2X5coAbgfzQP4KuOJ04i3gW3NiRq2
+	HdlGhTB6dBhJ77FAKZAq93GTPMfibznbEDIwakkHLzDa/tO8TWxm++olwr3w9qKE6WcYcax8C+OB9
+	Rdch/z8rcs0/BbTRmil3W1xTCqkjr0akdBMIE+HrFLOBv5w3zlw/Hm00+DmvuUV1pYYKwx+0uf2Ez
+	86ZkWngQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOimw-0000000DTXo-25jL;
-	Sun, 17 May 2026 21:12:42 +0000
+	id 1wOimz-0000000DTZD-0nhe;
+	Sun, 17 May 2026 21:12:45 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOimp-0000000DTU3-2lyT
+	id 1wOimr-0000000DTVK-3zRw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 21:12:37 +0000
+	Sun, 17 May 2026 21:12:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8565F417E7;
-	Sun, 17 May 2026 21:12:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3183CC2BCB0;
-	Sun, 17 May 2026 21:12:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A89EC40A09;
+	Sun, 17 May 2026 21:12:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F62DC2BCB0;
+	Sun, 17 May 2026 21:12:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779052353;
-	bh=a6e2ffrarYvyiSnMafrOD30AH1WgN2On1KkShq4mS0c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=b1E3GALC51Qetd6cxGgeJWodhsrwgRKSs66mftcTKX7YzsuPZuhfJgvzz9CTKlQ0j
-	 RD04UYukWDAL3gqHgnYHUJSRZ1ywZiNWfWZnr4UkHIZ76W/0P/hmT2oWqo8zkGp5bl
-	 kUm5Di17xgAkIoWjni6+yWi2vr9iHQxGTZZWvtqmffmGxPcu3AE1BDpnCDA11bOruT
-	 sQ/JBJ2qLlebcnI3trMS7Ao+wiulQYCuoVdrFRBwWQURPs/2oqdaGpVEOkYX6klWLk
-	 bUcW0aEfl155cUNw+IrTf7HNrcYSpWusjR8szBAfI3Gpm19fwj2+HsBBHnICPKQVnE
-	 te8EPOPinvSRQ==
+	s=k20201202; t=1779052357;
+	bh=cstOV2+2ci8zXNA1Qt+GQw2l2x7LM8SwWqJ3hidZguY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=MIfIFl1CAWc/CVjGk3xpKdxR7pegb2GI+UuTm8hmf1BGvj4qgP23L1Nq00UItsypn
+	 GmFWTSyweqeGBbeeVgNV1s5SBwjAHLC2TT+GCvn6q0wvOE+xJdyVAMbMYrprgq6fmm
+	 m4+bI2CIbM2vaLICiRkAqKKii7zGDXkRGVucdoMYrc6CuGOT06Lgc9hKyCME3l/khl
+	 qwuOuyKy051TL2h1LUFk1RetrNpNJuFlYLTCy1D74Ysr8GkWAbKtk/81Yja/lcoNwj
+	 9rmgpGH8ea5jI+4EiWCGA8NQGhXsjJ9CHjIg7523tcFm/tJP8bJYGpkTN/tO49vSfb
+	 BYzE9Ysm+Na1g==
 From: Tejun Heo <tj@kernel.org>
 To: David Vernet <void@manifault.com>,
 	Andrea Righi <arighi@nvidia.com>,
@@ -68,15 +68,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	Tejun Heo <tj@kernel.org>
-Subject: [PATCHSET v2 sched_ext/for-7.2] bpf/arena: Direct kernel-side access
-Date: Sun, 17 May 2026 11:12:24 -1000
-Message-ID: <20260517211232.1670594-1-tj@kernel.org>
+Subject: [PATCH 4/8] bpf: Add bpf_struct_ops_for_each_prog()
+Date: Sun, 17 May 2026 11:12:28 -1000
+Message-ID: <20260517211232.1670594-5-tj@kernel.org>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260517211232.1670594-1-tj@kernel.org>
+References: <20260517211232.1670594-1-tj@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_141235_751661_8F9B9D30 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20260517_141238_036829_D226C6F4 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,135 +93,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Add a helper that walks the member progs of the struct_ops map
+containing a given @kdata vmtable. struct_ops ->reg() callbacks (and
+similar) sometimes need to inspect the loaded BPF programs, e.g. to
+discover maps they reference via prog->aux->used_maps.
 
-This makes BPF arena memory directly dereferenceable from kernel code
-(struct_ops callbacks, kfuncs). Each arena gets a per-arena scratch page
-that an arch fault hook installs into empty PTEs on kernel-side faults,
-after KFENCE. The faulting instruction retries and the violation is reported
-through the program's BPF stream.
+The implementation mirrors bpf_struct_ops_id(): container_of @kdata
+to recover the bpf_struct_ops_map, then iterate st_map->links[i]->prog
+for i in [0, funcs_cnt). Same access pattern, no new locking - by the
+time ->reg() fires st_map is fully populated and stable.
 
-v2 changes since RFC v1 (20260427105109.2554518-1-tj@kernel.org):
+A sched_ext follow-up walks the member progs of a cid-form scheduler's
+struct_ops map, reads prog->aux->arena directly, and requires all member
+progs to reference exactly one arena, without requiring the BPF program
+to call a registration kfunc.
 
-Switched from pre-filling the arena recovery range with a fallback page to
-leaving PTEs sparse and installing the scratch page from an arch fault hook
-on demand. Pre-fill erased the fault and lost error attribution; on-demand
-keeps the fault visible and reports the violation through the program's
-bpf_stream. Plus misc fixes.
+Signed-off-by: Tejun Heo <tj@kernel.org>
+---
+ include/linux/bpf.h         |  3 +++
+ kernel/bpf/bpf_struct_ops.c | 36 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+)
 
-Motivation
-----------
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 64968ca6db51..5b99d786e98c 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -2129,6 +2129,9 @@ int bpf_prog_assoc_struct_ops(struct bpf_prog *prog, struct bpf_map *map);
+ void bpf_prog_disassoc_struct_ops(struct bpf_prog *prog);
+ void *bpf_prog_get_assoc_struct_ops(const struct bpf_prog_aux *aux);
+ u32 bpf_struct_ops_id(const void *kdata);
++int bpf_struct_ops_for_each_prog(const void *kdata,
++				 int (*cb)(struct bpf_prog *prog, void *data),
++				 void *data);
+ 
+ #ifdef CONFIG_NET
+ /* Define it here to avoid the use of forward declaration */
+diff --git a/kernel/bpf/bpf_struct_ops.c b/kernel/bpf/bpf_struct_ops.c
+index 05b366b821c3..16aec18ed31b 100644
+--- a/kernel/bpf/bpf_struct_ops.c
++++ b/kernel/bpf/bpf_struct_ops.c
+@@ -1203,6 +1203,42 @@ u32 bpf_struct_ops_id(const void *kdata)
+ }
+ EXPORT_SYMBOL_GPL(bpf_struct_ops_id);
+ 
++/**
++ * bpf_struct_ops_for_each_prog - Invoke @cb for each member prog
++ * @kdata: kernel-side struct_ops vmtable (the @kdata arg to ->reg/->update/->unreg)
++ * @cb: callback invoked once per member prog; non-zero return stops iteration
++ * @data: opaque argument passed to @cb
++ *
++ * Walks the struct_ops member progs registered on the map containing @kdata.
++ * Intended for use from struct_ops ->reg() callbacks (and similar) that need to
++ * inspect the loaded BPF programs (for example to discover maps they reference
++ * via @prog->aux->used_maps).
++ *
++ * Return 0 if iteration completed, otherwise the first non-zero @cb return.
++ */
++int bpf_struct_ops_for_each_prog(const void *kdata,
++				 int (*cb)(struct bpf_prog *prog, void *data),
++				 void *data)
++{
++	struct bpf_struct_ops_value *kvalue;
++	struct bpf_struct_ops_map *st_map;
++	u32 i;
++	int ret;
++
++	kvalue = container_of(kdata, struct bpf_struct_ops_value, data);
++	st_map = container_of(kvalue, struct bpf_struct_ops_map, kvalue);
++
++	for (i = 0; i < st_map->funcs_cnt; i++) {
++		if (!st_map->links[i])
++			continue;
++		ret = cb(st_map->links[i]->prog, data);
++		if (ret)
++			return ret;
++	}
++	return 0;
++}
++EXPORT_SYMBOL_GPL(bpf_struct_ops_for_each_prog);
++
+ static bool bpf_struct_ops_valid_to_reg(struct bpf_map *map)
+ {
+ 	struct bpf_struct_ops_map *st_map = (struct bpf_struct_ops_map *)map;
+-- 
+2.54.0
 
-sched_ext's ops_cid.set_cmask() hands the BPF scheduler a struct scx_cmask
-*. The kernel translates a kernel cpumask to a cmask, but it had no way to
-write into the arena, so the cmask lived in kernel memory and was passed as
-a trusted pointer. BPF cmask helpers all operate on arena cmasks though, so
-the BPF side had to word-by-word probe-read the kernel cmask into an arena
-cmask via cmask_copy_from_kernel() before any helper could touch it. It
-works, but is clumsy.
-
-The shape isn't unique to set_cmask. Sub-scheduler support is on the way and
-more sched_ext callbacks will want to pass structured data to BPF. Anywhere
-a kfunc or struct_ops callback wants to hand a struct to a BPF program,
-arena residence is the natural answer.
-
-Approach
---------
-
-Each arena gets a per-arena scratch page. Arenas stay sparsely mapped as
-today - PTEs are populated only for allocated pages. A new arch fault hook
-(bpf_arena_handle_page_fault) is wired into x86 page_fault_oops() and arm64
-__do_kernel_fault(), after KFENCE. When a kernel-side access faults inside
-an arena's kern_vm range, the helper walks the stack to find the BPF program
-responsible, range- checks the fault address against prog->aux->arena, and
-atomically installs the scratch page into the empty PTE via the new
-ptep_try_install() wrapper. The kernel instruction retries and reads/writes
-the scratch page. Free paths and map destruction treat scratch as non-owned.
-Real allocation refuses to overwrite scratch (apply_range_set_cb returns
--EBUSY); a scratched address stays dead until map destroy, since its
-presence means the BPF program has already malfunctioned.
-
-The mechanism is default behavior - no UAPI flag.
-
-What this preserves
--------------------
-
-All the debugging properties of today's sparse-PTE design are
-preserved:
-
-* BPF programs still fault on unmapped arena accesses. The fault semantics
-  (instruction retry with rdst = 0) and the violation report through
-  bpf_streams are unchanged for prog-side accesses.
-
-* The first kernel-side touch of an unmapped address is reported via
-  bpf_streams the same way as a prog-side fault, with the stack walk
-  attributing it to the originating prog.
-
-* User-side fault on a never-scratched address still lazy-allocates a real
-  page (or returns SIGSEGV under BPF_F_SEGV_ON_FAULT). User- side fault on a
-  scratched address SIGSEGVs.
-
-What changes for the kernel-side caller is just that an unmapped deref no
-longer oopses - it retries through the scratch page and emits a violation
-report. The same shape today's BPF instruction faults have.
-
-Patches 1-2 (atomic PTE install + arena scratch-page recovery)
---------------------------------------------------------------
-
-  mm: Add ptep_try_install() for lockless empty-slot installs
-  bpf: Recover arena kernel faults with scratch page
-
-Patches 3-5 (helpers used by struct_ops registration)
------------------------------------------------------
-
-  bpf: Add sleepable variant of bpf_arena_alloc_pages for kernel callers
-  bpf: Add bpf_struct_ops_for_each_prog()
-  bpf/arena: Add bpf_arena_map_kern_vm_start() and bpf_prog_arena()
-
-Patches 6-8 (sched_ext: arena auto-discovery, allocator, set_cmask)
--------------------------------------------------------------------
-
-  sched_ext: Require an arena for cid-form schedulers
-  sched_ext: Sub-allocator over kernel-claimed BPF arena pages
-  sched_ext: Convert ops.set_cmask() to arena-resident cmask
-
-Patch 6 reads each member prog's prog->aux->arena via bpf_prog_arena() and
-requires the cid-form struct_ops to reference exactly one arena. Patch 7
-builds a gen_pool sub-allocator inside that arena. Patch 8 converts
-set_cmask() to write into arena memory; BPF dereferences via __arena like
-any other arena struct, no probe-reads.
-
-Base
-----
-
-sched_ext/for-7.2 (c9017d335aab) with cmask-prep-v2.1 applied:
-  https://lore.kernel.org/r/20260517183614.1191534-1-tj@kernel.org
-
-Git tree: git://git.kernel.org/pub/scm/linux/kernel/git/tj/sched_ext.git arena-direct-v2
-
- Documentation/bpf/kfuncs.rst          |  14 +++
- arch/arm64/include/asm/pgtable.h      |   8 ++
- arch/arm64/mm/fault.c                 |  10 +-
- arch/x86/include/asm/pgtable.h        |   8 ++
- arch/x86/mm/fault.c                   |  12 +-
- include/linux/bpf.h                   |  14 +++
- include/linux/bpf_defs.h              |  11 ++
- include/linux/pgtable.h               |  16 +++
- kernel/bpf/arena.c                    | 209 ++++++++++++++++++++++++++++------
- kernel/bpf/bpf_struct_ops.c           |  36 ++++++
- kernel/bpf/core.c                     |   5 +
- kernel/sched/build_policy.c           |   4 +
- kernel/sched/ext.c                    | 135 +++++++++++++++++++++-
- kernel/sched/ext_arena.c              | 127 +++++++++++++++++++++
- kernel/sched/ext_arena.h              |  18 +++
- kernel/sched/ext_cid.c                |  20 +---
- kernel/sched/ext_internal.h           |  23 +++-
- tools/sched_ext/include/scx/cid.bpf.h |  52 ---------
- tools/sched_ext/scx_qmap.bpf.c        |   5 +-
- 19 files changed, 604 insertions(+), 123 deletions(-)
-
-Thanks.
-
---
-tejun
 
