@@ -4,58 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B7ECD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 17:28:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69286CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 17:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UD9bxD7ezV7biWpJzqU0P2l0lcof0BAgAkAO11CNJe8=; b=EI6xoK43WZpO3ryPJ6XpJqzc15
-	LnFYDuBt403YHAYi+TRBhHgjgRpa4hWe5FiQaHtQ6bzCTGHOkIoucMEaT8/J8sDVDdjYaoIP5Kgce
-	rJkBldvEVAaut9S7nZBgpe0dAxOQVCT13ZxnCuOtm6BzHY5CczfZkNKzMveUfb34MN8WjFZqD25zk
-	yMQ4rGoHObgI8EMHuyNgZXeUmU97RZ+jcPXasFvlnhJcrBKfJbk5i3jab1CBD1tmoitNJWK9+6gQr
-	zEASljuxqoBvpb4K8BsLwqqHhcctdisWV7ESrW2TlDlW61IYk9iochW65S7tgNjfTW4jnIegySDwW
-	ZCJnOODA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AEwo4MAtXfHhC/yEWJTYYWISTgdb20g3+/oxORWHNec=; b=I8kBDuUi2XkLGDXetW0geUND/N
+	ArgGdorZC9z7zgafdhJbkOjNQZlZ9dr/abOl1EsRCf4BXMxFvP3JDY6ugbtCCQWXOTvhOj6PE5B6I
+	VcIahENVz0Gv+uobmaD6IEx9zi3Oz6WDfXAdPLTsduxQQkUfNIQKZjC1TK6im8J/NX4c/m1iPkYd0
+	mFWsjpm5yqyDiVoW3AAEWhbHrNNe0PRjVQFqepv/uyQStrUKeS3cus4sbG0SX250HK68Fj9cfmPIS
+	l6s+TNk/LrrJQ6MOmjXr0oMTybMU0l/LXaDZuq51T+bDCaD+5ifr7JW8Fj2Ajy3j1goNeGIOS1uI6
+	sjRjvBpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOfHe-0000000D6xz-44aZ;
-	Sun, 17 May 2026 17:28:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wOfd6-0000000D9Cj-1xAe;
+	Sun, 17 May 2026 17:50:20 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOfHd-0000000D6xj-1Kc3
+	id 1wOfd3-0000000D9CE-3JfB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 17:28:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA87B60125;
-	Sun, 17 May 2026 17:28:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C82C2BCB0;
-	Sun, 17 May 2026 17:28:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779038888;
-	bh=QtVTlikuQthfSJg9zWb8C/1ODQzEOrDqs3xwjfAexdU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sx+beQlt8PxTnIQS78qei5pYJvZr5OC+P3DR6IQgBsdjvH96BL6/2tHdWUle3fWUf
-	 2diTFnIAFRoiyHFq0GL4dqY2PpoXFr74yuK/tZ+ywBlkbAnKr2Pruzrjeboo1imRcx
-	 1OFnn/hSAFOuzLhj5TC26vMnEoQrFtjmA2EHyh5L8cdxcvgTN4FQ1UYN79N1ZuzPjw
-	 GHom+Hm066HOHRbauKCDa0uwXJKDKzMOigZS70yV9XUh7GI/U/dkicZ9qVaEgXkIvZ
-	 9kfj8lPkLT36FhTnSZbtnAe91tcNvgroq5l4ruwLRgz0CGRFBgHxNgkJ0dzbGXXQnY
-	 cE3ys6qHOka/w==
-Date: Sun, 17 May 2026 18:28:05 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Jamie Nguyen <jamien@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH v2] firmware: arm_ffa: honor descriptor size in
- PARTITION_INFO_GET_REGS
-Message-ID: <20260517-cunning-pony-of-happiness-cab79d@sudeepholla>
-References: <20260515-quixotic-active-dragon-2ee2c6@sudeepholla>
- <20260515174432.13419-1-jamien@nvidia.com>
+	Sun, 17 May 2026 17:50:18 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-8b7dccd6fe4so16344326d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 10:50:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779040216; x=1779645016; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=AEwo4MAtXfHhC/yEWJTYYWISTgdb20g3+/oxORWHNec=;
+        b=HI3UJ4JH8Z0WEMiXknQ16i4FWB9HcDPj3uYoY2FEY4tHJlGT2yx2ZRMHec5S80vUMk
+         HjpYEoDXspMYgnqp5PgGr9LO24ZbRTIxRGOdMiynuWMFb2BWvtvdVQUyfhoHHMB3Pnjz
+         nS0XVpedDjTrQl5/YBCHD+uF8mw+k9AL5HsuYNKZGi1SaNVbX5mtFu8gKAUe7eofU9/G
+         U39ChUFd1/yMjUazjKTO6vMu75vXt9aCj214hVMcTC76w0uhdffStsgCapAcJYtWnrmV
+         go9MudXjhi52mn6iPAoZI6DAJ4hZve2i5vJUkP/SEyD/1x07p2FTvTJN6HIfgRYgdnEK
+         JIhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779040216; x=1779645016;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AEwo4MAtXfHhC/yEWJTYYWISTgdb20g3+/oxORWHNec=;
+        b=XI141bfGHMf1fk240XGLJkyqEwDS4rUR+sZdwPfCWFd8NDWc7r9RPjIrVwUtrXBIwX
+         iHkTxgsNuFW7ThvNLSizAjXrbwmGU64wXMuhobtAQiXu1fXVIAi4uwuJW05U2VNpYoVu
+         y6QSxRbeZmukCD2hUFLr33yJBB9RUZTMxvAKzC1gzAcOPG3r7XXE3MegpMGpcrCCdE3D
+         nqmLbYBfLGK2WGQ+iEdQI0g4jUzTA4CzAMmc0kqrJvaq8iixF0UDSlbiNM7GgUjbghVH
+         BJGUj1ge9mGhrXu8i3ryCZsODb0XkTSaEdLogVm+xXYpSXvDaQ42H9ifsgXZP5Ks+byt
+         2uow==
+X-Forwarded-Encrypted: i=1; AFNElJ+eESi+mBU0ukR7bdWxE1iFjbkp8PEPmHPz/tkCJJSulxM/QUdQoMjsAshqi0QD13DTqCRimxzZVW7Av6z/mnfE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt9wfvXJwi5u+5vl5FFshqQu4d/gjU5lHnYRc4wf7vZUxA7YFn
+	VzYmCDumrpMffswEONc7f2T8OUQWbUH6Bl4HPyZXrcO2JVzL39eatpWK
+X-Gm-Gg: Acq92OE7KeaZ7dC9rswJ6hO8WEQfIo9CNYAIgLAnVPMXXPh4YwI5RjeW+c7GwH08BXr
+	p+M7YI49CGkz20GomAOGIsGX3bJZtHArV1xnp62bSlE9+bFrDecoukoB9pxpNK7+RmzXWX2cAwZ
+	qWlTiq2hPCN39Cax98V3TbtO33Q5sB3hc9QpQWD6G8rgisTZARG5Zfb+kI3GcW1IXEdDH+j4AgR
+	29ARH/k+SR9tLL0IgIyAOne99YfITAoMMitq0DZPY+wjNe25NP7zxt5+8YV6RY87eAmV1R8nYCI
+	bob4Z8lSv6D0KOu0NfjGdDi9/3fV8uYbUyjMTBtGnLysjByHHnelT9Cxt0Gwe2bdN0MlAebLBxn
+	r+fiF1LQqVhd0weK+IH3wNIfkqIZUqCRSaSesrmDlRUbi1uK2O/SRddcohhVYwWqVZVPFRUJZIv
+	8OLZY/a1tBNgddYYBFc+TuniBGA1RCR5vH1dR4n6hBs9h3bBsHJ/TXCIcdHKEKISgwebrSKkb9K
+	Vlo6zieLgYqd/oSA4IdgG/6OYoORLoLo8nqSmL72kgSCr6Unv74cA==
+X-Received: by 2002:a05:6214:4288:b0:8ac:a82c:1c43 with SMTP id 6a1803df08f44-8ca0f8fe1dcmr198672686d6.41.1779040215896;
+        Sun, 17 May 2026 10:50:15 -0700 (PDT)
+Received: from server0.tail6e7dd.ts.net (c-68-48-65-54.hsd1.mi.comcast.net. [68.48.65.54])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ca3609784bsm28551436d6.16.2026.05.17.10.50.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 17 May 2026 10:50:15 -0700 (PDT)
+From: Michael Bommarito <michael.bommarito@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] KVM: arm64: vgic-its: reject restored DTE with out-of-range num_eventid_bits
+Date: Sun, 17 May 2026 13:49:55 -0400
+Message-ID: <20260517174955.273004-1-michael.bommarito@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260515174432.13419-1-jamien@nvidia.com>
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260517_105017_845357_9094D3C0 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,158 +103,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 10:44:32AM -0700, Jamie Nguyen wrote:
-> __ffa_partition_info_get_regs() walks the response with a hardcoded
-> 24-byte stride (regs += 3) even though the SPMC tells us the actual
-> per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
-> read into buf_sz and then thrown away.
-> 
-> That works while every SPMC returns the FF-A v1.1 layout, but it falls
-> apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
-> strides over half a descriptor at a time and ends up parsing every
-> other entry from a slice of two adjacent ones.
-> 
-> The FF-A spec (v1.2, section 18.5) says that the producer should
-> report the descriptor size, and the consumer is supposed to stride by
-> that size and ignore any trailing fields it doesn't understand. The
-> non-REGS path (__ffa_partition_info_get) does this already, and the
-> REGS path should match.
-> 
-> Use buf_sz for the stride, and bail out with -EINVAL if the SPMC
-> reports something we can't safely walk.
-> 
-> Fixes: ba85c644ac8d ("firmware: arm_ffa: Add support for FFA_PARTITION_INFO_GET_REGS")
-> Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
-> ---
-> Changes in v2:
-> - Rebase onto linux-next; reuse the
->   FFA_PART_INFO_GET_REGS_{REGS_PER_DESC,MAX_DESC} macros it added instead of
->   introducing new ones.
-> - Return -EINVAL instead of -EPROTO to match surrounding checks.
-> - Update Fixes: tag to the commit that introduced the hardcoded stride.
-> ---
->  drivers/firmware/arm_ffa/driver.c | 20 +++++++++++++++++---
->  1 file changed, 17 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-> index b9f17fda7243..38ae4476e864 100644
-> --- a/drivers/firmware/arm_ffa/driver.c
-> +++ b/drivers/firmware/arm_ffa/driver.c
-> @@ -374,9 +374,23 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
->  			return -EINVAL;
->  
->  		tag = UUID_INFO_TAG(partition_info.a2);
-> +
-> +		/*
-> +		 * Per FF-A v1.2 section 18.5 the SPMC reports the per-
-> +		 * descriptor size and consumers must stride by that size,
-> +		 * reading only the fields they understand and ignoring any
-> +		 * trailing ones. Reject sizes that cannot hold the v1.1
-> +		 * fields parsed below, are not u64-aligned, or whose total
-> +		 * payload would walk past the x3..x17 window (e.g. a v1.3
-> +		 * 48-byte descriptor with nr_desc > 2).
-> +		 */
+Userspace can trigger a host-side denial of service via
+KVM_DEV_ARM_ITS_RESTORE_TABLES. A Device Table Entry whose Size
+field encodes num_eventid_bits > VITS_TYPER_IDBITS reaches
+scan_its_table() with a sign-extended ~18 EiB length, where the
+loop holds the per-ITS mutex and never calls cond_resched(),
+pinning a host CPU for a time linear in registered guest memslot
+size. The accessor is any process that can open /dev/kvm and
+create a VM. The same out-of-range value also disables a
+subsequent live bounds check on EventID, as described below.
 
-I am not sure if this above note is necessary.
+The MAPD command handler already rejects this case in the live
+path:
 
->  		buf_sz = PARTITION_INFO_SZ(partition_info.a2);
-> -		if (buf_sz > sizeof(*buffer))
-> -			buf_sz = sizeof(*buffer);
-> +		if (buf_sz < FFA_PART_INFO_GET_REGS_REGS_PER_DESC * sizeof(u64) ||
-> +		    buf_sz % sizeof(u64) ||
-> +		    nr_desc * (buf_sz / sizeof(u64)) >
-> +		    FFA_PART_INFO_GET_REGS_MAX_DESC *
-> +		    FFA_PART_INFO_GET_REGS_REGS_PER_DESC)
-> +			return -EINVAL;
->
+  if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
+          return E_ITS_MAPD_ITTSIZE_OOR;
 
-The logic above is correct but bit hard to read, I am thinking of splitting
-this
+vgic_its_restore_dte() reconstructs num_eventid_bits from the DTE
+Size field but does not apply the same cap, so userspace can
+install device state that the live MAPD path is documented to
+reject. The restored value is stored in dev->num_eventid_bits and
+is then used by vgic_its_restore_itt():
 
->  		regs = (void *)&partition_info.a3;
->  		for (idx = 0; idx < nr_desc; idx++, buf++) {
-> @@ -395,7 +409,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
->  			buf->exec_ctxt = PART_INFO_EXEC_CXT(val);
->  			buf->properties = PART_INFO_PROPERTIES(val);
->  			uuid_copy(&buf->uuid, &uuid_regs.uuid);
-> -			regs += 3;
-> +			regs += buf_sz / sizeof(u64);
->  		}
->  		start_idx = cur_idx + 1;
+  size_t max_size = BIT_ULL(dev->num_eventid_bits) * ite_esz;
+  ret = scan_its_table(its, base, max_size, ite_esz, ...);
 
-Is it OK if I adjust something like below patch ?
+scan_its_table() takes the size as int and assigns it to
+unsigned long in the callee:
 
-Regards,
-Sudeep
+  static int scan_its_table(struct vgic_its *its, gpa_t base,
+                            int size, u32 esz, ...)
+  {
+          unsigned long len = size;
 
--->8
+For num_eventid_bits = 28 the size_t value 0x80000000 truncates to
+INT_MIN as int and sign-extends to ~18 EiB as unsigned long. The
+scan loop then walks the registered guest memslot one ite_esz at
+a time with the per-ITS mutex held and no cond_resched(). In a
+QEMU TCG arm64 guest at EL2 on v7.1-rc1, with an empty ITT, the
+ioctl returned -EFAULT after about 14 seconds with a 256 MiB
+memslot and about 56 seconds with a 1 GiB memslot (linear in
+memslot size). The per-iteration cost on native arm64 KVM
+hardware will differ; the loop shape, and so the linear scaling,
+will not.
 
-diff --git c/drivers/firmware/arm_ffa/driver.c w/drivers/firmware/arm_ffa/driver.c
-index fb97b01c282a..54984e1b9741 100644
---- c/drivers/firmware/arm_ffa/driver.c
-+++ w/drivers/firmware/arm_ffa/driver.c
-@@ -329,11 +329,9 @@ __ffa_partition_info_get(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
- #define PART_INFO_EXEC_CXT_MASK        GENMASK(31, 16)
- #define PART_INFO_PROPS_MASK   GENMASK(63, 32)
- #define FFA_PART_INFO_GET_REGS_FIRST_REG       3
--#define FFA_PART_INFO_GET_REGS_REGS_PER_DESC   3
--#define FFA_PART_INFO_GET_REGS_MAX_DESC \
--       (((sizeof(ffa_value_t) / sizeof_field(ffa_value_t, a0)) - \
--         FFA_PART_INFO_GET_REGS_FIRST_REG) / \
--        FFA_PART_INFO_GET_REGS_REGS_PER_DESC)
-+#define FFA_PART_INFO_GET_REGS_MIN_REGS_PER_DESC       3
-+#define FFA_PART_INFO_GET_REGS_NUM_REGS \
-+       (sizeof(ffa_value_t) / sizeof_field(ffa_value_t, a0))
- #define PART_INFO_ID(x)                ((u16)(FIELD_GET(PART_INFO_ID_MASK, (x))))
- #define PART_INFO_EXEC_CXT(x)  ((u16)(FIELD_GET(PART_INFO_EXEC_CXT_MASK, (x))))
- #define PART_INFO_PROPERTIES(x)        ((u32)(FIELD_GET(PART_INFO_PROPS_MASK, (x))))
-@@ -347,7 +345,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+The same out-of-range num_eventid_bits also disables the live
+vgic_its_check_event_id() bounds check, because event_id is u32
+and BIT_ULL(32) is unreachable in that comparison, leaving
+subsequent MAPI/MAPTI handling without an effective EventID cap.
 
-        do {
-                __le64 *regs;
--               int idx, nr_desc, buf_idx;
-+               int idx, nr_desc, buf_idx, regs_per_desc, max_desc;
+Mirror the MAPD cap in vgic_its_restore_dte() before allocating
+the device, so out-of-range restored DTEs are rejected with
+-EINVAL up front rather than triggering the int-truncated scan or
+installing a device whose num_eventid_bits silently disables the
+live bounds check. Sizes within [1, VITS_TYPER_IDBITS] are
+unaffected.
 
-                invoke_ffa_fn((ffa_value_t){
-                              .a0 = FFA_PARTITION_INFO_GET_REGS,
-@@ -370,8 +368,18 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
-                if (cur_idx < start_idx || cur_idx >= count)
-                        return -EINVAL;
+Fixes: 57a9a117154c ("KVM: arm64: vgic-its: Device table save/restore")
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Michael Bommarito <michael.bommarito@gmail.com>
+---
+ arch/arm64/kvm/vgic/vgic-its.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-+               buf_sz = PARTITION_INFO_SZ(partition_info.a2);
-+               if (buf_sz % sizeof(*regs))
-+                       return -EINVAL;
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 2ea9f1c7ebcd0..a5dcf9a6a2854 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -2307,6 +2307,15 @@ static int vgic_its_restore_dte(struct vgic_its *its, u32 id,
+ 	/* dte entry is valid */
+ 	offset = (entry & KVM_ITS_DTE_NEXT_MASK) >> KVM_ITS_DTE_NEXT_SHIFT;
+ 
++	/*
++	 * The MAPD command rejects this case; mirror the cap here so a
++	 * restored DTE cannot install an out-of-range num_eventid_bits
++	 * that vgic_its_restore_itt() would then convert into a
++	 * sign-extended scan_its_table() length.
++	 */
++	if (num_eventid_bits > VITS_TYPER_IDBITS)
++		return -EINVAL;
 +
-+               regs_per_desc = buf_sz / sizeof(*regs);
-+               if (regs_per_desc < FFA_PART_INFO_GET_REGS_MIN_REGS_PER_DESC)
-+                       return -EINVAL;
-+
-                nr_desc = cur_idx - start_idx + 1;
--               if (nr_desc > FFA_PART_INFO_GET_REGS_MAX_DESC)
-+               max_desc = (FFA_PART_INFO_GET_REGS_NUM_REGS -
-+                           FFA_PART_INFO_GET_REGS_FIRST_REG) / regs_per_desc;
-+               if (nr_desc > max_desc)
-                        return -EINVAL;
-
-                buf_idx = buf - buffer;
-@@ -379,9 +387,6 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
-                        return -EINVAL;
-
-                tag = UUID_INFO_TAG(partition_info.a2);
--               buf_sz = PARTITION_INFO_SZ(partition_info.a2);
--               if (buf_sz > sizeof(*buffer))
--                       buf_sz = sizeof(*buffer);
-
-                regs = (void *)&partition_info.a3;
-                for (idx = 0; idx < nr_desc; idx++, buf++) {
-@@ -400,7 +405,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
-                        buf->exec_ctxt = PART_INFO_EXEC_CXT(val);
-                        buf->properties = PART_INFO_PROPERTIES(val);
-                        uuid_copy(&buf->uuid, &uuid_regs.uuid);
--                       regs += 3;
-+                       regs += regs_per_desc;
-                }
-                start_idx = cur_idx + 1;
-
+ 	if (!vgic_its_check_id(its, baser, id, NULL))
+ 		return -EINVAL;
+ 
+-- 
+2.53.0
 
 
