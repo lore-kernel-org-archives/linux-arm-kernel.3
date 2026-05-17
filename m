@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9927FCD37AC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 06:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A345BCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 06:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUI1Kvy8G4UZN8XVWU9+FHDr0P4yKt9TWkL45QXTVdc=; b=hrmrd+En68uiD+nUdxV2m3Jzpu
-	hCRPl4lnU+9fc86f5E45xGRdcQcxY/Tda91GHes//eT0Lpua8ggrntl0f4l5oDiacQWJfnb4bQYh7
-	ge40dvp0FLTJKA2zbPZWzzyNK0afKjgP0cc5OV+O1qEe4b1ggscHvwJi1K7D9sNmVvWe+DtRhaJrJ
-	cS8v130KJejIjRHCaLmJsrgh8q7E24vx9OUxtKEGQ6qnErUuCpLY/oad9HRiBUHz4+bL0Zp8PfSVv
-	N9ARZyg7EttxXL/Sar/mHb88Kr6mEJDiTp9IZcXs+k3FyqVYzdxmy3rhgFUBtwvnFLYZSJbhwglqU
-	Gam29A8g==;
+	bh=j6LhMiZXfcDMxEVRgoZkT9kURlvadnHL56KMb/w+3Dc=; b=3McrjOfeArCgmBLAu1zYijhwOv
+	faExBAqy/CM5VkTAqQW9jjC65jE4eNfrB1B1XpgAxcZ1wFquvRzUc5GCWsrnPt7Z9zoppE0ejPcF2
+	U4Yw+xJ6LNY2obhxqwuBrCdQIBEnhfBIIOjw/ujOhb0frjR0f6tGn5vtYXom/6YvRWLbUdiK8AFAP
+	EwLLWs7DKPrzn4xdMGKL1eWXp0MeEXVfjB2el+emkWirqr8bqZBAmQ6cx2WuHqKYXsO8UAPSnvE25
+	oBn+3AaeqeTWpPLJEHEY+B0oPSzuod4z5o6JTZGmI9LedyYl0Dtr7UKuC6IzQWsAUbSJRrgZI7q/H
+	GIoZPzog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOUqp-0000000CCu2-1VCz;
-	Sun, 17 May 2026 06:19:47 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wOUxF-0000000CDX7-3yPU;
+	Sun, 17 May 2026 06:26:25 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOUql-0000000CCtW-2n3S
+	id 1wOUxC-0000000CDWV-2ItJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 06:19:46 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488a9033b2cso7351095e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 16 May 2026 23:19:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=resnulli-us.20251104.gappssmtp.com; s=20251104; t=1778998781; x=1779603581; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qUI1Kvy8G4UZN8XVWU9+FHDr0P4yKt9TWkL45QXTVdc=;
-        b=enM8j9P4ULEXAjs+U1VLjKGucJ9tZ9arzRWGdxQvG0G56cbxkI3uCj3vVSkEaw3/Md
-         cAoXTJ9YAbbe5INv81+m1npf75X7oopiyQJW5ZgNqBN/qYut9q0dsq/+5Q2l/EMFAjRv
-         acpkoR3GZ9STsQshc/eCKzZBd2j8ZeQu5+H8/csnUFjjXmfc2ucX9e4oWU5Yvtw+AqDw
-         bqi5GsbuEMPddMcRHRTOKQ5dFh2Uo8WKvWAoucNtl9ROFmYH4kTYPoY3C3sX05sBoxd2
-         8qtIJ+OSUbVySoejO24xtKgrXLfNkUzCsvi3MjCE6Q5Ag3aiSJa0k9IxSs+iPWMivCBr
-         XYkQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1778998781; x=1779603581;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qUI1Kvy8G4UZN8XVWU9+FHDr0P4yKt9TWkL45QXTVdc=;
-        b=czkTU9nNAYbTS2YE9i2Z2LVgX0ocAXmwtB3LfmhwtwCUVE4DMFz+LClENUq5+4JB4H
-         fNxTliMIkehD1rdCzoxWQkprBhdF3GM6B7opuWxlSNnK+XKz7o9fZ7vyx2J1etGr1ejk
-         1xzeEjggFK1M9epi/DiCa2s1bhgN9jF6D8rRn2U80FSxW+ydoD4PBciP41t7jD4hjhOv
-         Knd7ihGbqA/mGBU9ZjkDgjvBeQ1P/Ig4NFCITr0kg2K6JJFp3X+1FQll21WBJk3ZWKIW
-         3U6avEIldCMRUG0nvHg8zw3+cp6MgDV4cGSL/fXFKTglwfG9aQULYOp+ykUrF+ipxzfE
-         +fAQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8YmqY+7qAuyvIeLi6idRe4FsuAk8Jr1Tud4Hd2Ew0+7vR3SMHZo9VNF8xCgS1GTtHQiOWnlouBS/WNeF2odwgC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFGAWDWukCnN0v/YaO45WPo4+Sbwy8VvvZONtDiVSxNivBtfzc
-	E1LA8lsCbwmIcgKetf4OUE+IyX7KgF0jLQUchW3nXNvZRLth+1+LOu01fGI3wWxIlFQ=
-X-Gm-Gg: Acq92OFsJUT182y5q+rgf/G39OvXqpZ4EcfBQOB7R1Yy4ji0h1W3yPUbkVP7Z7MC0k8
-	dqKxLSz7Qpky44fDoXIRWTyIQpVKXJaW10unzc9HQHHc0bRRoBOklB5TPtTag+gylKpYWB6rj/9
-	l/yfBoL+dgrpJZTzK6TihoLW6BfCbrx2qcwPRvoBt5WuRj9lF42ga47dab39LUeHOPFmpfIWMMV
-	fgbyS9pd3TYiQe+KSuP/MQiLz6UGHU3yVQYTWiPktGYTJepPElkROdUFhCgkUEPbGKXSWiFbnqZ
-	VEKLyhUTprP5em8nbPemOPGjJijjrrP+dhVH5f4lwEZTUy/4ZBytiu1+gU9yyZZjdwXWF+B4CeG
-	r3G9geEfF9/uzkMbiB7p1lS78SSHU7xrTGNILtSHPkxVg5sInjQuWpdPF9/8OpgT+BSLlT8ub6s
-	1tGznQrN3p69MK+UcKtgJbzw5TwLjX3Nvx6ekBjw4fcQpyPQ==
-X-Received: by 2002:a05:600c:a30a:b0:48a:568f:ae8a with SMTP id 5b1f17b1804b1-48fe5fda35fmr111967805e9.8.1778998781051;
-        Sat, 16 May 2026 23:19:41 -0700 (PDT)
-Received: from FV6GYCPJ69 ([140.209.217.212])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe537c788sm163535945e9.12.2026.05.16.23.19.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 16 May 2026 23:19:39 -0700 (PDT)
-Date: Sun, 17 May 2026 08:19:34 +0200
-From: Jiri Pirko <jiri@resnulli.us>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, 
-	Steven Price <steven.price@arm.com>, Suzuki K Poulose <Suzuki.Poulose@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, 
-	Alexey Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, 
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 00/13] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-Message-ID: <agldl4XQLKAtyLty@FV6GYCPJ69>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+	Sun, 17 May 2026 06:26:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1778999182; x=1810535182;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Wf1JZP90i3OaZ2KJvbePcH9zwwvdOsWpnrVP4OF5sgE=;
+  b=EX7d7by0ro+11/3OJp8XNhAsn8ts+ZZ+JWdUH7ezuf2UO8Kcjj+79RMT
+   CsELvtj2fh/aMCKmVocF+IXmFYXNiDtqgOk2NgYFRJ3IYvoQ2vv01omWM
+   akl/uZ9+46E7UXGI672vXCOT+zkGn2I3kZdYxXbwzDlPYCRcjuPuIO46n
+   dMiVcZmGAx/7mNSknssUegbkMmEiCW4ZHUacd5+S/qDikHxSYpoYE8nlH
+   OY55F8TRiTqGt+PDcSmMKsjwlRqkpCOuNXfTu/WjoOyCD+WAMoC70jNOd
+   0LITG4ju3wWBfWQNtr0VIqO8r2gDFiIf8RcT1xLvuDbmQcqzzCK/COR8d
+   g==;
+X-CSE-ConnectionGUID: bKqFJ8eBSTGQMEDHKSC21w==
+X-CSE-MsgGUID: lUJgO7xbTkqFohQZV4ilKg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11788"; a="79932707"
+X-IronPort-AV: E=Sophos;i="6.23,239,1770624000"; 
+   d="scan'208";a="79932707"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 May 2026 23:26:21 -0700
+X-CSE-ConnectionGUID: 246+PfvgSiaPFM/JTF1UJQ==
+X-CSE-MsgGUID: 3IqONLX/RoOWyijuLQxZVQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,239,1770624000"; 
+   d="scan'208";a="244073016"
+Received: from lkp-server01.sh.intel.com (HELO d94e5e629b2d) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 16 May 2026 23:26:19 -0700
+Received: from kbuild by d94e5e629b2d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wOUx6-000000001P0-2rDk;
+	Sun, 17 May 2026 06:26:16 +0000
+Date: Sun, 17 May 2026 14:25:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Russell King <linux@armlinux.org.uk>
+Subject: Re: [PATCH] ARM: remove unnecessary architecture-specific
+ <asm/asm-offsets.h>
+Message-ID: <202605171414.zrSQqMbq-lkp@intel.com>
+References: <20260517030408.100043-1-enelsonmoore@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+In-Reply-To: <20260517030408.100043-1-enelsonmoore@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260516_231943_724014_84AC66F1 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260516_232622_636959_11D4131A 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,19 +90,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tue, May 12, 2026 at 11:03:55AM +0200, aneesh.kumar@kernel.org wrote:
->This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
->dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
->are handled consistently.
->
->Today, the direct DMA path mostly relies on force_dma_unencrypted() for
->shared/decrypted buffer handling. This series consolidates the
->force_dma_unencrypted() checks in the top-level functions and ensures
->that the remaining DMA interfaces use DMA attributes to make the correct
->decisions.
+Hi Ethan,
 
-FWIW, the patchset in general looks good to me. I tested this with my
-system_cc_shared dmabuf flow, works flawlessly.
+kernel test robot noticed the following build errors:
 
-Thanks!
+[auto build test ERROR on arm/for-next]
+[also build test ERROR on arm/fixes arm64/for-next/core clk/clk-next kvmarm/next rockchip/for-next soc/for-next linus/master shawnguo/for-next v7.1-rc3 next-20260508]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ethan-Nelson-Moore/ARM-remove-unnecessary-architecture-specific-asm-asm-offsets-h/20260517-110530
+base:   git://git.armlinux.org.uk/~rmk/linux-arm.git for-next
+patch link:    https://lore.kernel.org/r/20260517030408.100043-1-enelsonmoore%40gmail.com
+patch subject: [PATCH] ARM: remove unnecessary architecture-specific <asm/asm-offsets.h>
+config: arm-allnoconfig (https://download.01.org/0day-ci/archive/20260517/202605171414.zrSQqMbq-lkp@intel.com/config)
+compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 5bac06718f502014fade905512f1d26d578a18f3)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260517/202605171414.zrSQqMbq-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605171414.zrSQqMbq-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/arm/lib/ashldi3.S:30:
+>> arch/arm/include/asm/assembler.h:22:10: fatal error: 'asm/asm-offsets.h' file not found
+      22 | #include <asm/asm-offsets.h>
+         |          ^~~~~~~~~~~~~~~~~~~
+   1 error generated.
+
+
+vim +22 arch/arm/include/asm/assembler.h
+
+^1da177e4c3f41 include/asm-arm/assembler.h      Linus Torvalds  2005-04-16  19  
+^1da177e4c3f41 include/asm-arm/assembler.h      Linus Torvalds  2005-04-16  20  #include <asm/ptrace.h>
+80c59dafb1a9a8 arch/arm/include/asm/assembler.h Dave Martin     2012-02-09  21  #include <asm/opcodes-virt.h>
+0b1f68e836bcf1 arch/arm/include/asm/assembler.h Catalin Marinas 2014-04-02 @22  #include <asm/asm-offsets.h>
+9a2b51b6ca93fc arch/arm/include/asm/assembler.h Andrey Ryabinin 2014-06-18  23  #include <asm/page.h>
+7af5b901e84743 arch/arm/include/asm/assembler.h Linus Walleij   2024-03-25  24  #include <asm/pgtable.h>
+9a2b51b6ca93fc arch/arm/include/asm/assembler.h Andrey Ryabinin 2014-06-18  25  #include <asm/thread_info.h>
+747ffc2fcf969e arch/arm/include/asm/assembler.h Russell King    2020-05-03  26  #include <asm/uaccess-asm.h>
+^1da177e4c3f41 include/asm-arm/assembler.h      Linus Torvalds  2005-04-16  27  
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
