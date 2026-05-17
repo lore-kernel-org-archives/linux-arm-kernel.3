@@ -4,81 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD43CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 21:13:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A56CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 17 May 2026 21:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9R/gNuEv2Xy8ctDACzL9ci7Vb07fIl3Eot3GkHIyB0U=; b=MpRWfGiURXoD8eaDIpsZXwwVxK
-	supVGA7uSFFUezSOn/yprMHPpP7d9vYW9LGSCK7YDbboXmUJg0TIzMxhI0nUwz0AU0uswnK3Jbx6t
-	QtiKpWX1ZTgDYATCWm1wZX5D+gr5+eshlv6BtwxR6IhjL3QEdB8OpSWmt9dZPD8QF+ECgHz4lt+Hq
-	9XoR2B4WQN/X9p+zJRYZVdehUW3ePtFwZYq9aRMOuRA8wLIeUzj6Dn7+YZdaHaEj7SbBPKRLiP2CR
-	tNVZoO2DqJFM5r9SxZkVMl3VQK1yzweILRkpCG6P1aF4J5COMRI5QuXlWddHB2JJb80K8UF3vMuJx
-	lbxhsZ/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O9IqvZXzRKHrM06BgMCVnIpa54okeXS9JhGSaedJ7rc=; b=G5M+YpLyfxMhNg0R9vEe/w2hhI
+	CsHwRN3m2YhxXH9P7ViWjx0oH+TFYTzxACjGCUSupBGRCv7hhQdi9pw8I7tvGl3fvEIIiusoy93Aq
+	sh9ULBCB6zp6rE5lwaqoLbz4ISJ7+EjvSOrhsfK+r6YGu5CNwHOcCBPs4iN33E73M/U2nmhODD0rG
+	/5rH+0kVsQCnE8+YmFFvKW9LnCORZnqlDbXmyI//avB+97PuH3lofzpS0MWwEvqtFw6vPl5KS0IL0
+	9G/I6NAjLba6D+BJ/XF1DfBw5mdjK/i+jhHkcfQScRmt7GW4s1iET4x3GZiUS+ZWgPhsx39L42SlA
+	D82ajsjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOinH-0000000DTpz-3wId;
-	Sun, 17 May 2026 21:13:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOjLR-0000000DXF5-2vmT;
+	Sun, 17 May 2026 21:48:21 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOimw-0000000DTXU-06F0
+	id 1wOjLO-0000000DXEE-0hy4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 17 May 2026 21:12:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC67540169;
-	Sun, 17 May 2026 21:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85C07C2BCB8;
-	Sun, 17 May 2026 21:12:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779052361;
-	bh=fxqO7G8tF93+kJY+9znNmCMmTASH/TQjlmFfWTFvw3I=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X7e0esLGqEsECSu554ctMVgJiGaswoYg70obb0+5iSrkuewC73kMczW+t/+CHAiFj
-	 yfomcKkHt+Z7EJyYqqY5AUAJkp6v39mc4cG46OuyR3xI/A/z5YYr/80lgzgeZvUouO
-	 brK7phL24kasSgJApzHjk1U0gp3m6iC4ptv0ICGK/6MG3p1AxPjGEcKRn5SmJij/y7
-	 teLMRK0/paiP4ctaGB9wj9gA+XbbW3YThW4Ls/6hDa132FFjODEVhNfvnHfU7KESlI
-	 q3E/hEm2BFtkwIz2t9XAUMfjWikxDy46u9ltHoZyTYvWBuH8oUO5+mWAYlRJlrmkIa
-	 QLb2MQ2ZZiKzg==
-From: Tejun Heo <tj@kernel.org>
-To: David Vernet <void@manifault.com>,
-	Andrea Righi <arighi@nvidia.com>,
-	Changwoo Min <changwoo@igalia.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	sched-ext@lists.linux.dev,
-	bpf@vger.kernel.org,
-	x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Tejun Heo <tj@kernel.org>
-Subject: [PATCH 8/8] sched_ext: Convert ops.set_cmask() to arena-resident cmask
-Date: Sun, 17 May 2026 11:12:32 -1000
-Message-ID: <20260517211232.1670594-9-tj@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260517211232.1670594-1-tj@kernel.org>
-References: <20260517211232.1670594-1-tj@kernel.org>
+	Sun, 17 May 2026 21:48:20 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 1D7071F8004F
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 21:48:14 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 5656EB407A8; Sun, 17 May 2026 21:48:12 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id A490AB4079E;
+	Sun, 17 May 2026 21:48:10 +0000 (UTC)
+Date: Sun, 17 May 2026 23:48:08 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Arash Golgol <arash.golgol@gmail.com>
+Cc: linux-media@vger.kernel.org, yong.deng@magewell.com, mchehab@kernel.org,
+	wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	laurent.pinchart@ideasonboard.com, sakari.ailus@linux.intel.com
+Subject: Re: [PATCH v3 3/3] media: sun6i-csi: capture: Support MC-centric
+ format enumeration
+Message-ID: <ago3mOxf1adhogFW@collins>
+References: <20260509050921.22158-1-arash.golgol@gmail.com>
+ <20260509050921.22158-4-arash.golgol@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yC5mSo+r2Ck9CJ8n"
+Content-Disposition: inline
+In-Reply-To: <20260509050921.22158-4-arash.golgol@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_141242_108630_C671F591 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20260517_144818_528124_E162D1F7 
+X-CRM114-Status: GOOD (  33.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,301 +69,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ops_cid.set_cmask() expects a cmask. The kernel couldn't write into the
-arena, so it translated cpumask -> cmask in kernel memory and passed the
-result as a trusted pointer. The BPF cmask helpers all operate on arena
-cmasks though, so the BPF side had to word-by-word probe-read the kernel
-cmask into an arena cmask via cmask_copy_from_kernel() before any helper
-could touch it. It works, but is clumsy.
 
-With direct kernel-side arena access now in place, build the cmask in the
-arena. The kernel writes to it through the kern_va side of the dual mapping;
-BPF directly dereferences it via an __arena pointer like any other arena
-struct.
+--yC5mSo+r2Ck9CJ8n
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Tejun Heo <tj@kernel.org>
----
- kernel/sched/ext.c                    | 68 +++++++++++++++++++++++++--
- kernel/sched/ext_cid.c                | 20 +-------
- kernel/sched/ext_internal.h           | 10 +++-
- tools/sched_ext/include/scx/cid.bpf.h | 52 --------------------
- tools/sched_ext/scx_qmap.bpf.c        |  5 +-
- 5 files changed, 75 insertions(+), 80 deletions(-)
+Hi Arash,
 
-diff --git a/kernel/sched/ext.c b/kernel/sched/ext.c
-index 3025fbe198d3..1369dc7e4b4e 100644
---- a/kernel/sched/ext.c
-+++ b/kernel/sched/ext.c
-@@ -621,11 +621,16 @@ static inline void scx_call_op_set_cpumask(struct scx_sched *sch, struct rq *rq,
- 		update_locked_rq(rq);
- 
- 	if (scx_is_cid_type()) {
--		struct scx_cmask *cmask = this_cpu_ptr(scx_set_cmask_scratch);
--
--		lockdep_assert_irqs_disabled();
--		scx_cpumask_to_cmask(cpumask, cmask);
--		sch->ops_cid.set_cmask(task, cmask);
-+		struct scx_cmask *kern_va = *this_cpu_ptr(sch->set_cmask_scratch);
-+		unsigned long uaddr = (unsigned long)kern_va -
-+			bpf_arena_map_kern_vm_start(sch->arena_map);
-+		/*
-+		 * Build the per-CPU arena cmask and hand BPF the uaddr. Caller
-+		 * holds the rq lock with IRQs disabled, which makes us the sole
-+		 * user of the scratch area.
-+		 */
-+		scx_cpumask_to_cmask(cpumask, kern_va);
-+		sch->ops_cid.set_cmask(task, (struct scx_cmask *)uaddr);
- 	} else {
- 		sch->ops.set_cpumask(task, cpumask);
- 	}
-@@ -4957,6 +4962,48 @@ static const struct attribute_group scx_global_attr_group = {
- static void free_pnode(struct scx_sched_pnode *pnode);
- static void free_exit_info(struct scx_exit_info *ei);
- 
-+static s32 scx_set_cmask_scratch_alloc(struct scx_sched *sch)
-+{
-+	size_t size = struct_size_t(struct scx_cmask, bits,
-+				    SCX_CMASK_NR_WORDS(num_possible_cpus()));
-+	int cpu;
-+
-+	if (!sch->is_cid_type || !sch->arena_pool)
-+		return 0;
-+
-+	sch->set_cmask_scratch = alloc_percpu(struct scx_cmask *);
-+	if (!sch->set_cmask_scratch)
-+		return -ENOMEM;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct scx_cmask **slot = per_cpu_ptr(sch->set_cmask_scratch, cpu);
-+
-+		*slot = scx_arena_alloc(sch, size);
-+		if (!*slot)
-+			return -ENOMEM;
-+		scx_cmask_init(*slot, 0, num_possible_cpus());
-+	}
-+	return 0;
-+}
-+
-+static void scx_set_cmask_scratch_free(struct scx_sched *sch)
-+{
-+	size_t size = struct_size_t(struct scx_cmask, bits,
-+				    SCX_CMASK_NR_WORDS(num_possible_cpus()));
-+	int cpu;
-+
-+	if (!sch->set_cmask_scratch)
-+		return;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct scx_cmask **slot = per_cpu_ptr(sch->set_cmask_scratch, cpu);
-+
-+		scx_arena_free(sch, *slot, size);
-+	}
-+	free_percpu(sch->set_cmask_scratch);
-+	sch->set_cmask_scratch = NULL;
-+}
-+
- static void scx_sched_free_rcu_work(struct work_struct *work)
- {
- 	struct rcu_work *rcu_work = to_rcu_work(work);
-@@ -5009,6 +5056,7 @@ static void scx_sched_free_rcu_work(struct work_struct *work)
- 
- 	rhashtable_free_and_destroy(&sch->dsq_hash, NULL, NULL);
- 	free_exit_info(sch->exit_info);
-+	scx_set_cmask_scratch_free(sch);
- 	scx_arena_pool_destroy(sch);
- 	if (sch->arena_map)
- 		bpf_map_put(sch->arena_map);
-@@ -7147,6 +7195,12 @@ static void scx_root_enable_workfn(struct kthread_work *work)
- 		goto err_disable;
- 	}
- 
-+	ret = scx_set_cmask_scratch_alloc(sch);
-+	if (ret) {
-+		cpus_read_unlock();
-+		goto err_disable;
-+	}
-+
- 	for (i = SCX_OPI_CPU_HOTPLUG_BEGIN; i < SCX_OPI_CPU_HOTPLUG_END; i++)
- 		if (((void (**)(void))ops)[i])
- 			set_bit(i, sch->has_op);
-@@ -7469,6 +7523,10 @@ static void scx_sub_enable_workfn(struct kthread_work *work)
- 	if (ret)
- 		goto err_disable;
- 
-+	ret = scx_set_cmask_scratch_alloc(sch);
-+	if (ret)
-+		goto err_disable;
-+
- 	if (validate_ops(sch, ops))
- 		goto err_disable;
- 
-diff --git a/kernel/sched/ext_cid.c b/kernel/sched/ext_cid.c
-index 5cd14143f88f..245a39e2e5eb 100644
---- a/kernel/sched/ext_cid.c
-+++ b/kernel/sched/ext_cid.c
-@@ -7,14 +7,6 @@
-  */
- #include <linux/cacheinfo.h>
- 
--/*
-- * Per-cpu scratch cmask used by scx_call_op_set_cpumask() to synthesize a
-- * cmask from a cpumask. Allocated alongside the cid arrays on first enable
-- * and never freed. Sized to the full cid space. Caller holds rq lock so
-- * this_cpu_ptr is safe.
-- */
--struct scx_cmask __percpu *scx_set_cmask_scratch;
--
- /*
-  * cid tables.
-  *
-@@ -54,8 +46,6 @@ static s32 scx_cid_arrays_alloc(void)
- 	u32 npossible = num_possible_cpus();
- 	s16 *cid_to_cpu, *cpu_to_cid;
- 	struct scx_cid_topo *cid_topo;
--	struct scx_cmask __percpu *set_cmask_scratch;
--	s32 cpu;
- 
- 	if (scx_cid_to_cpu_tbl)
- 		return 0;
-@@ -63,25 +53,17 @@ static s32 scx_cid_arrays_alloc(void)
- 	cid_to_cpu = kzalloc_objs(*scx_cid_to_cpu_tbl, npossible, GFP_KERNEL);
- 	cpu_to_cid = kzalloc_objs(*scx_cpu_to_cid_tbl, nr_cpu_ids, GFP_KERNEL);
- 	cid_topo = kmalloc_objs(*scx_cid_topo, npossible, GFP_KERNEL);
--	set_cmask_scratch = __alloc_percpu(struct_size(set_cmask_scratch, bits,
--						       SCX_CMASK_NR_WORDS(npossible)),
--					   sizeof(u64));
- 
--	if (!cid_to_cpu || !cpu_to_cid || !cid_topo || !set_cmask_scratch) {
-+	if (!cid_to_cpu || !cpu_to_cid || !cid_topo) {
- 		kfree(cid_to_cpu);
- 		kfree(cpu_to_cid);
- 		kfree(cid_topo);
--		free_percpu(set_cmask_scratch);
- 		return -ENOMEM;
- 	}
- 
- 	WRITE_ONCE(scx_cid_to_cpu_tbl, cid_to_cpu);
- 	WRITE_ONCE(scx_cpu_to_cid_tbl, cpu_to_cid);
- 	WRITE_ONCE(scx_cid_topo, cid_topo);
--	for_each_possible_cpu(cpu)
--		scx_cmask_init(per_cpu_ptr(set_cmask_scratch, cpu),
--			       0, npossible);
--	WRITE_ONCE(scx_set_cmask_scratch, set_cmask_scratch);
- 	return 0;
- }
- 
-diff --git a/kernel/sched/ext_internal.h b/kernel/sched/ext_internal.h
-index ff7e882bd67a..9bb65367f510 100644
---- a/kernel/sched/ext_internal.h
-+++ b/kernel/sched/ext_internal.h
-@@ -1124,6 +1124,14 @@ struct scx_sched {
- 	struct bpf_map		*arena_map;
- 	struct gen_pool		*arena_pool;
- 
-+	/*
-+	 * Per-CPU arena cmask used by scx_call_op_set_cpumask() to hand a cmask
-+	 * to ops_cid.set_cmask(). The kernel writes through the stored kern_va;
-+	 * the BPF-arena uaddr handed to BPF is recovered by subtracting the
-+	 * arena's kern_vm_start.
-+	 */
-+	struct scx_cmask * __percpu *set_cmask_scratch;
-+
- 	DECLARE_BITMAP(has_op, SCX_OPI_END);
- 
- 	/*
-@@ -1480,8 +1488,6 @@ enum scx_ops_state {
- extern struct scx_sched __rcu *scx_root;
- DECLARE_PER_CPU(struct rq *, scx_locked_rq_state);
- 
--extern struct scx_cmask __percpu *scx_set_cmask_scratch;
--
- /*
-  * True when the currently loaded scheduler hierarchy is cid-form. All scheds
-  * in a hierarchy share one form, so this single key tells callsites which
-diff --git a/tools/sched_ext/include/scx/cid.bpf.h b/tools/sched_ext/include/scx/cid.bpf.h
-index 257d8bdca966..875003f04bdc 100644
---- a/tools/sched_ext/include/scx/cid.bpf.h
-+++ b/tools/sched_ext/include/scx/cid.bpf.h
-@@ -669,56 +669,4 @@ static __always_inline void cmask_from_cpumask(struct scx_cmask __arena *m,
- 	}
- }
- 
--/**
-- * cmask_copy_from_kernel - probe-read a kernel cmask into an arena cmask
-- * @dst: arena cmask to fill; must have @dst->base == 0 and be sized for @src.
-- * @src: kernel-memory cmask (e.g. ops.set_cmask() arg); @src->base must be 0.
-- *
-- * Word-for-word copy; @src and @dst must share base 0 alignment. Triggers
-- * scx_bpf_error() on probe failure or precondition violation.
-- */
--static __always_inline void cmask_copy_from_kernel(struct scx_cmask __arena *dst,
--						   const struct scx_cmask *src)
--{
--	u32 base = 0, nr_cids = 0, nr_words, wi;
--
--	if (dst->base != 0) {
--		scx_bpf_error("cmask_copy_from_kernel requires dst->base == 0");
--		return;
--	}
--
--	if (bpf_probe_read_kernel(&base, sizeof(base), &src->base)) {
--		scx_bpf_error("probe-read cmask->base failed");
--		return;
--	}
--	if (base != 0) {
--		scx_bpf_error("cmask_copy_from_kernel requires src->base == 0");
--		return;
--	}
--
--	if (bpf_probe_read_kernel(&nr_cids, sizeof(nr_cids), &src->nr_cids)) {
--		scx_bpf_error("probe-read cmask->nr_cids failed");
--		return;
--	}
--
--	if (nr_cids > dst->nr_cids) {
--		scx_bpf_error("src cmask nr_cids=%u exceeds dst nr_cids=%u",
--			      nr_cids, dst->nr_cids);
--		return;
--	}
--
--	nr_words = CMASK_NR_WORDS(nr_cids);
--	cmask_zero(dst);
--	bpf_for(wi, 0, CMASK_MAX_WORDS) {
--		u64 word = 0;
--		if (wi >= nr_words)
--			break;
--		if (bpf_probe_read_kernel(&word, sizeof(u64), &src->bits[wi])) {
--			scx_bpf_error("probe-read cmask->bits[%u] failed", wi);
--			return;
--		}
--		dst->bits[wi] = word;
--	}
--}
--
- #endif /* __SCX_CID_BPF_H */
-diff --git a/tools/sched_ext/scx_qmap.bpf.c b/tools/sched_ext/scx_qmap.bpf.c
-index 7e77f22674ea..8a2d6a8ebd8e 100644
---- a/tools/sched_ext/scx_qmap.bpf.c
-+++ b/tools/sched_ext/scx_qmap.bpf.c
-@@ -919,14 +919,15 @@ void BPF_STRUCT_OPS(qmap_update_idle, s32 cid, bool idle)
- }
- 
- void BPF_STRUCT_OPS(qmap_set_cmask, struct task_struct *p,
--		    const struct scx_cmask *cmask)
-+		    const struct scx_cmask *cmask_in)
- {
-+	struct scx_cmask __arena *cmask = (struct scx_cmask __arena *)(long)cmask_in;
- 	task_ctx_t *taskc;
- 
- 	taskc = lookup_task_ctx(p);
- 	if (!taskc)
- 		return;
--	cmask_copy_from_kernel(&taskc->cpus_allowed, cmask);
-+	cmask_copy(&taskc->cpus_allowed, cmask);
- }
- 
- struct monitor_timer {
--- 
-2.54.0
+Le Sat 09 May 26, 08:39, Arash Golgol a =C3=A9crit :
+> Extend vidioc_enum_fmt to support MC-centric enumeration by filtering
+> pixel formats based on the provided mbus code. Advertise MC I/O support
+> on the video device to reflect its intended usage within a media graph.
 
+There is one (important) thing I overlooked last time: the list of
+direct matches between mbus code and pixelformat only covers some of the
+formats that the driver supports, but not all of them.
+
+This is reflected in sun6i_csi_capture_link_validate, where we check
+that a given mbus format set on the bridge is compatible with the
+pixelformat set on the capture side.
+
+I think we essentially have to extract that validation logic into a new
+helper and then use it against all supported pixel formats for a given
+mbus code to find out if that pixel format should be returned or not.
+So it also means that multiple pixel formats can be supported for a given
+mbus format.
+
+A typical example of this would be MEDIA_BUS_FMT_YUYV8_2X8 than can be
+stored to either YUYV (raw mode), NV16/YUV422 (YUV mode, no resampling) or
+NV12/YUV420 (YUV mode, 422 -> 420 resampling).
+
+You're welcome to give it a try if you'd like or I could take a look at
+this myself.
+
+Also the first comment after the sun6i_csi_capture_format_matches
+declaration should be "YUV422", not "YUV420" (would be good to fix it
+while touching these parts).
+
+All the best,
+
+Paul
+
+> Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
+> Changes in v3:
+>  - No change
+>  - Link to v2: https://patchwork.kernel.org/project/linux-media/patch/202=
+60508161721.94285-4-arash.golgol@gmail.com/
+>=20
+> Changes in v2:
+>  - Return pixelformat directly instead of a pointer
+>  - Link to v1: https://patchwork.kernel.org/project/linux-media/patch/202=
+60217064050.18388-4-arash.golgol@gmail.com/
+>=20
+>  .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 39 +++++++++++++++++--
+>  1 file changed, 36 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c b=
+/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> index f788b4234673..5737ebaa7297 100644
+> --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> @@ -327,6 +327,22 @@ static bool sun6i_csi_capture_format_match(u32 pixel=
+format, u32 mbus_code)
+>  	return false;
+>  }
+> =20
+> +static u32 sun6i_csi_capture_pixelformat_find(u32 mbus_code)
+> +{
+> +	unsigned int i;
+> +
+> +	for (i =3D 0; i < ARRAY_SIZE(sun6i_csi_capture_format_matches); i++) {
+> +		const struct sun6i_csi_capture_format_match *match =3D
+> +			&sun6i_csi_capture_format_matches[i];
+> +
+> +		if (match->mbus_code =3D=3D mbus_code)
+> +			return match->pixelformat;
+> +	}
+> +
+> +	/* Valid fourcc is non-zero. */
+> +	return 0;
+> +}
+> +
+>  /* Capture */
+> =20
+>  static void
+> @@ -729,11 +745,27 @@ static int sun6i_csi_capture_enum_fmt(struct file *=
+file, void *priv,
+>  				      struct v4l2_fmtdesc *fmtdesc)
+>  {
+>  	u32 index =3D fmtdesc->index;
+> +	u32 mbus_code =3D fmtdesc->mbus_code;
+> +	u32 pixelformat;
+> +
+> +	/* MC-centric or Video-node-centric */
+> +	if (mbus_code) {
+> +		/* There is only one pixelformat for a mbus_code. */
+> +		if (index)
+> +			return -EINVAL;
+> +
+> +		pixelformat =3D sun6i_csi_capture_pixelformat_find(mbus_code);
+> +	} else {
+> +		if (index >=3D ARRAY_SIZE(sun6i_csi_capture_formats))
+> +			return -EINVAL;
+> +
+> +		pixelformat =3D sun6i_csi_capture_formats[index].pixelformat;
+> +	}
+> =20
+> -	if (index >=3D ARRAY_SIZE(sun6i_csi_capture_formats))
+> +	if (!pixelformat)
+>  		return -EINVAL;
+> =20
+> -	fmtdesc->pixelformat =3D sun6i_csi_capture_formats[index].pixelformat;
+> +	fmtdesc->pixelformat =3D pixelformat;
+> =20
+>  	return 0;
+>  }
+> @@ -1065,7 +1097,8 @@ int sun6i_csi_capture_setup(struct sun6i_csi_device=
+ *csi_dev)
+> =20
+>  	strscpy(video_dev->name, SUN6I_CSI_CAPTURE_NAME,
+>  		sizeof(video_dev->name));
+> -	video_dev->device_caps =3D V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STREAMING;
+> +	video_dev->device_caps =3D V4L2_CAP_VIDEO_CAPTURE | V4L2_CAP_STREAMING |
+> +				 V4L2_CAP_IO_MC;
+>  	video_dev->vfl_dir =3D VFL_DIR_RX;
+>  	video_dev->release =3D video_device_release_empty;
+>  	video_dev->fops =3D &sun6i_csi_capture_fops;
+> --=20
+> 2.34.1
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--yC5mSo+r2Ck9CJ8n
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoKN5gACgkQhP3B6o/u
+lQxjFQ/9ElbgKI3F/VxE16ifDGEGHAuxRHku9cp2Mp9t9Vvc//lpAWOPDKwk+8nr
+giitJevUYjpBW6EWcvre964byYHBI6Ep+GwHbryHbQ0Whhcfs7auaIXV0aGikY+w
+NqZx7Uh5rd3ZCofFxa903cW3Oiz5aPYr9th5iVoXJum/bf7YRDsp3//nQOkHbPBr
+i3ZIYVFCc/R9o8O1KGVd3GNGkYjduH9H5Jpxs210Ti0sxngQjYz4NHtzI9HQ+SO8
+n1N7lxdchE9B6zROCvhPLTPnR680J9aDFsn39LLFRLG/r0iUbQmlmwby1MjDCxyY
+7Xz6xZBKRcLXI6jg3gXVdnH7+q0SPHu4iScZE/55glACRR5ffDIJo1dE+Ons4t++
+c1RW8DzzWkRLwLxA8rKxfDU1GYSHzzlKznl27jjIERAo8ZDFYYeVn3Iu/eKWhnKw
+tD6OgnRP57iCDO0TkE/twbGkIrdxJlbADjiMYaWDhQ2uqDi+UBzQF0TA+SSOAJSF
+GFDeyqkKt/yKdnwmiwNOwnmUICwGHtV7pH7ORyRp2kgYsL+9oV1N8QEeyPBLDeNV
+7wnItI4HfPegIQBUzs7RHVev86QaACxuQFqOTgPGhCbWl24/K7BPg5B8bPOmotid
+kb9ciJP+8S5Z0vRdm6b63p9RYd1kbQEIlVCB9ss1n3rd1DZCqw0=
+=EjDr
+-----END PGP SIGNATURE-----
+
+--yC5mSo+r2Ck9CJ8n--
 
