@@ -4,98 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67470CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B79CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tTAesT9aCvHqy1aw1UCt0dGkyXqlxaqbXlnX4/OKvGA=; b=UNzweugS9lPx2bvGMjjbtUyhaR
-	MvXpZYnG5Tvs1fRyB+78kiL0giPi4L4QHoqToq2X0ko3ujHnLVGVVITIo8N7lcUe7LJ4ayn1nnhKO
-	0B9O8kYswoZ1qKgnLTYWxEa2hUXut6od+WgT+dN7L/okcL+TBTa0XXQL0hxoaH5INcYhL3dNa2EQi
-	8iZMHNfad53JuXvbHsfT+XZE9UEop5lvtU+DmjuF5bcsKo57HqaDy5+CJee4RN2G5/krKr9LsuQmm
-	Yo38zfb3z6//GSqK/LjdROTVXgQ/RxEboo6x+8hg9XsnRyKoQlNrpS1vBDQuaQxlcjivpp6Pco6UN
-	C2aoHkzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uRWobckzeW61/um9iWV6bMFpw8+SVVVfvtQLyFDktwE=; b=mK6VI8+LwAhfelbOuRKIMga+pH
+	i6Co/80MxY2fqZ4e2rCvlaXpoc/302N/8bsjS8uOQ3thiEJ3d+GwsaIbu7/q/fw7cvaNPIwI+deUX
+	K0VZKxU9vXQ/D2TEhO/CwLqinX7IVFGQQGFd89BA39vDVcsse95yYqFJLdGHfBfsvjOP1RmE2qJkV
+	EcgD9uSp0ouNcbv9vvApZe/sbV5/NGWjxOzw+NQhN03zOm1uua8tKxfHlE/o04eTrDUhAS56coy5e
+	HjwJvZclkyGXjKX3TV/VYaFgUL9aQl1vwvO7xa1JvfIYX1qHkSmrFXzkIuOVqgrXHp6d2kxaP3z2H
+	GhHau22Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP2Ar-0000000GRlL-25aI;
-	Mon, 18 May 2026 17:54:41 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1wP2C2-0000000GRwD-2koU;
+	Mon, 18 May 2026 17:55:54 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP2Ao-0000000GRkk-3xDg
+	id 1wP2C0-0000000GRvE-0rWU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 17:54:40 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8acb09ddbf6so52800286d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:54:38 -0700 (PDT)
+	Mon, 18 May 2026 17:55:53 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-6314c3818baso2087492137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:55:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779126950; cv=none;
+        d=google.com; s=arc-20240605;
+        b=eXbFLo9kuat59hjW83bvfk0ZuOyjGk+U6s30UHQmRwpO0xZXgkRseMtwb0jX03fBs0
+         dpEOSye3TbIg6Jcvbgt/VzP9Mh3CYR2ruDcOengvATIPjv5Cz0FxHfChix3PEzcpzMaP
+         Ppv+QEeqT6x4v2eaYalVgG8cMz5hs0ujNCaKk2SxOR+HqmX4lqw1Y43Lj2XkPIef4dwg
+         wXO07D7ye4lqb18htyZm+5S5C4BW2vgikU/qYWtQwtf6fhyQW6LreyQEwSyFQg8jFuon
+         fhhiFpIhlUGTTrBRkExsy5dpL8lhUjhfv3p1GuomByGxLpNuDfXP2cvJrAgExoiSzfeZ
+         Fw/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=uRWobckzeW61/um9iWV6bMFpw8+SVVVfvtQLyFDktwE=;
+        fh=eARnpsFP25SO7f5FMx61uJ6HkH35TUs+XJhu+QmuSXU=;
+        b=jgm73aJAKBk5maXVtq01k7PuvNYycPgLuKl/zYrnjmT8L6C11Zw64A5RO3OcssOOes
+         M8axMJf7f9rFj4qaCi6cvz4JWYcZ5L50f6ucGDVZ27xUqkkR6NmskQUu9lVCwR8PB/LX
+         rnsnnm34JpNlI9TsEILbqfofHTXTfr/RMQK/kdofwZ26Xx1UyYmgiHhGYifMkAlVRnfc
+         rO0coL5hOHZk0PhrWz0bFTcKPGIUNfGY9ZWpDITAppLyKBE5h5fUHuJAv9pWtx9wneHy
+         5g7yoeE8uw+1++ITQG2lQX83dfPPTU0aSkD77scrHrecNe64kgrgofXN8AoZqZeS8Ces
+         2U2A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1779126878; x=1779731678; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tTAesT9aCvHqy1aw1UCt0dGkyXqlxaqbXlnX4/OKvGA=;
-        b=FmVqU8qTwxxTLXLCztrLR2Fengzu4io1l7edkeisf2CpkfLfPvlMcoYBurhohLRKFE
-         hDR3zVu45vItYDvFtIvhFsg5kUw2KukuzEQVHsmP8ivkmRNjzPlmNCA4KSuWS3XjEyKU
-         b84EB0LZU0JwSRYcOv502qeSBMGGoa8tV46CycMHr6cv+EeX61+yjgh9EvZhend3IyOz
-         KWDdgVAftGHttviPB4hV6M+O/h8BWLtmkfuQZyOMa2/nokNUzf1oWTId7VKET+u4P19L
-         3TOC0rt+HUYgI7nb1GftX9r9ryZLaBf5v+heyFcBR5Q5+gkpq/yXNOieluaP5j3yAG1N
-         wKkw==
+        d=google.com; s=20251104; t=1779126950; x=1779731750; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uRWobckzeW61/um9iWV6bMFpw8+SVVVfvtQLyFDktwE=;
+        b=Mghk98bH1a8JylzfCDstjQNNHgu1rU4awDXVqO0QQO1ZT6gE7i/Ob3irEkAeEgIFXu
+         3eaQJBwwPvyCZEVcDviqR2OLfXhdKmj726HVfkJxOLSvLv0UYRlmDOUWZrAVuQv/LByv
+         sRe188twXSB8e7/8NR09WFYH7YV2dhyj2WH8okWGCkFYPH1JXWZ/QKh95NoTM63/bOEo
+         nltMwNnpZPW22QhXDANPWFIoeKJWCYwLOE5qPGY7QiJAy/MRprcwsoKxci36YV0dOM8z
+         9GfuuqfvB7NarPKrLxYzccUQ+DVL+qnASGl8X861EErgZjXT9ZNL5f+I5NZadkp6gM00
+         BlVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779126878; x=1779731678;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tTAesT9aCvHqy1aw1UCt0dGkyXqlxaqbXlnX4/OKvGA=;
-        b=cqj9lyxUyBdetphq9VfQBt1RPGP2c9rGz2YT+tPiADCXniTg8OtBkn3YQB4iA29mgH
-         71ftDT6M2L3n6oPHGXGcg12/4dqTqOwJnpKXPruJshko3mb+fGgEiAPUYEO6qgDmfNF0
-         oMw0fi2XWsRoVCYQzwMvPLJNtV+/azOLB4gGvYGrJwTPbNFYjMBrwvHUnZwnlLHPHMS3
-         XZdpz79ir3pZ7OXV/2VVO/XnIRd+/hRoTNqnZb9Idd35id9K7tS3KZwbC2oTI/6tuTQr
-         paaOGhIZK4B4IyQD3bTrdVrpkijOVMsCyaqWu8ZIN4WTHKPI8qKB6zQZFZijEpkqDKOu
-         f9Gw==
-X-Forwarded-Encrypted: i=1; AFNElJ8tZPpYZkmpLF8mUEv7TjyMt6OnHfnSe9aqcesKQe+EXSocstglEi2Ik7oBEJzCs8ONcsH9fsKMXFeS7LXLKRKg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHy7d6p2Sq/G+ZVgP/PvaWNUAEK+ZPgH6/5DwsTPqoAXX9zIF9
-	VwXmPJSBqwW/oKS1tS4Hl8e0B6nYF/h0zMuPP1NE6gHykEYqQs5AdJMCscixnBtxAf8=
-X-Gm-Gg: Acq92OFwAU/f73IlqlFzUEfxOMvVQdyOxa8IGltvZQm2y7L8Rqay9gwQUJ96ItKdsM+
-	BKGQeaOg6od43r0/h2egl7cClAeGUu3WcRJigyXskc6X8YPBQ/MkpSx+CdhckOS6rTrQBdcG3pn
-	Hh7pYwXEoUMY28ExTxtSr9v2av0pDMgNoK3mZmfxRCE1nRc3nKThsfwfPJsDPPBu2wZoF6dcJ0W
-	nLyULwlmXdMUQRqoqDcsqmXG6wcxmun51nU1SeSAh95SxH6wizvyCE74EMk/gxqJnW/Bmtp/+Nj
-	96GmOfql2SiUPDU8kAWa+nTX2zpsO3Nq6FnB74QERDQXtzaYd2AmL0aN7Qbz8Ae9Fn3Zgnm47Cr
-	LJyCPEeRa4DAfU1CRrxEycOhyKksWXwwGi/YOAOumBKQvIAhvt5yIjAMDy+oyZt/uuIAyIueBUp
-	CeVfFti0sAdxJgd2/ARe9LRd1e+2HYUos3dvVKslz/SPU596HGOPbYM3StWv+VrNOdNkRQFGUHK
-	MCGbGZUvLHKnrjq
-X-Received: by 2002:a05:6214:2684:b0:8ca:1cee:7c58 with SMTP id 6a1803df08f44-8ca1cee93a8mr226863386d6.19.1779126877680;
-        Mon, 18 May 2026 10:54:37 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ca361aabe0sm63112726d6.44.2026.05.18.10.54.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 10:54:36 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wP2Am-0000000DUxu-0CPW;
-	Mon, 18 May 2026 14:54:36 -0300
-Date: Mon, 18 May 2026 14:54:36 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: "Oguz, Yigit" <yigitogu@amazon.de>, "joro@8bytes.org" <joro@8bytes.org>,
-	"will@kernel.org" <will@kernel.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/3] iommu: Add PCI vendor:device ID to IOMMU fault logs
-Message-ID: <20260518175436.GT7702@ziepe.ca>
-References: <C1C278E8-E5F6-4701-9127-DCDBC64636E1@amazon.de>
- <4cbd2bd2-9acc-4c72-a4f5-6c6cf31f71e1@arm.com>
+        d=1e100.net; s=20251104; t=1779126950; x=1779731750;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uRWobckzeW61/um9iWV6bMFpw8+SVVVfvtQLyFDktwE=;
+        b=ZcAjzAbN6hLMlTKXcsTt9xvsUaGaEspKxNbjKLavJqCvlezbd/9oc36N3eSzVmv+lw
+         vXFhxUxo5SdLkf12sfim6hjaS3Tsyu2jgmjtSx3Nv423oSl+XSmx3gt9ervvFaYImkoy
+         pReRD7fba+dJwX8wujLkJz7JVo9tnmZRyrl72ZRoYpt0U1KR9v6q1Phqk6AvsKYSPhV+
+         A8wTyLyxBZaAOKHRDEhL+SQTafhnqzzsx75MBvR+g+4STKWkkmK/6g7FgvVsQAq6/dET
+         6zfCMOop76Qplse1KmXZGnizn7jNyprcvlCjB+LeSsY0feJQnRydU/zS6AkYkBYPlj8t
+         jyxA==
+X-Forwarded-Encrypted: i=1; AFNElJ/ELsynDpf6spbuF7Pz8wDwDJhQrGtz39GXv+NabUaT6dUJvVk6qigbNgtDd9uJOYlaSmgcdrpcWTXAuN3g4RBn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw87c5ih56bhTT88aHI+UnqROt9y1yP7JviOggSp58j2ud+gR1D
+	TkhrUUDqmdLq9/Td9nkwWB4+EyhE1cOEWPISYWxXmwxEH/rBOOhBgV+PO1OdD6bUtR+sAApUfJJ
+	csua4vCAAyoJvHEA8tE1uqkw2sHlymRk88cdeVFLa
+X-Gm-Gg: Acq92OH80hw1CdGKQ7rf422ykdPEHefNBOXDPUBiNbjP745QgkIZNk09BwU9NwRqBRn
+	/AgFPMVu3XM6v/mT2ecQ6HxEBvhWUL7F5UJ8nTS2zPFnL3IVcs8NxjkRAGaIqWNSAMd6EUklubl
+	ycHw6bSD5reAR4pHsoGtqHX2jgjHoXYIxq+lyNlxx3QO7CdZFiNRkKuXzGpeaDGSNikh8FO8z5Y
+	bpuyEVyk5EIjMc/KK5BiWfEi/Pw7K1dcR+OiExXXBXqBNKDYya73T3cM9SvxN/4hW9jYPguk02T
+	CqWJVhdI73PsTiTw7oR/IFsR4fpOtt7fWeROqS25fvhyABAp
+X-Received: by 2002:a05:6102:5493:b0:631:37cb:1e64 with SMTP id
+ ada2fe7eead31-63a3cd147f1mr8765580137.4.1779126949351; Mon, 18 May 2026
+ 10:55:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4cbd2bd2-9acc-4c72-a4f5-6c6cf31f71e1@arm.com>
+References: <20260428183643.3796063-1-dylanbhatch@google.com> <agcEMEl-QR0g6DgF@google.com>
+In-Reply-To: <agcEMEl-QR0g6DgF@google.com>
+From: Dylan Hatch <dylanbhatch@google.com>
+Date: Mon, 18 May 2026 10:55:37 -0700
+X-Gm-Features: AVHnY4KAVyVG3MIthAgIvuYFRo0zgnpM4Osagc0xDbfXJPvO4gKarvsASmJ8hSE
+Message-ID: <CADBMgpx38SUUuYYCm612STqh01jqv817WnJeeXYTD7Uc1r-fug@mail.gmail.com>
+Subject: Re: [PATCH v5 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Jens Remus <jremus@linux.ibm.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>, joe.lawrence@redhat.com, 
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Randy Dunlap <rdunlap@infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_105438_986340_58A15E21 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260518_105552_295239_A822D481 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,15 +124,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 04:52:57PM +0100, Robin Murphy wrote:
+Hi Mostafa,
 
-> TBH I think the more appropriate solution would be to have vfio-pci register
-> its own fault handler, wherein it can properly deal with rate-limiting
-> and/or entirely suppressing fault reports from misbehaving userspace, and if
-> and when it does want to log something it is then free to do that in
-> whatever format it wants, independent of the underlying IOMMU driver.
+On Fri, May 15, 2026 at 4:32=E2=80=AFAM Mostafa Saleh <smostafa@google.com>=
+ wrote:
+>
+> On Tue, Apr 28, 2026 at 06:36:35PM +0000, Dylan Hatch wrote:
+> > Implement a generic kernel sframe-based [1] unwinder. The main goal is
+> > to improve reliable stacktrace on arm64 by unwinding across exception
+> > boundaries.
+> >
+> > On x86, the ORC unwinder provides reliable stacktrace through similar
+> > methodology, but arm64 lacks the necessary support from objtool to
+> > create ORC unwind tables.
+> >
+> > Currently, there's already a sframe unwinder proposed for userspace: [2=
+].
+> > To maintain common definitions and algorithms for sframe lookup, a
+> > substantial portion of this patch series aims to refactor the sframe
+> > lookup code to support both kernel and userspace sframe sections.
+> >
+> > Currently, only GNU Binutils support sframe. This series relies on the
+> > Sframe V3 format, which is supported in binutils 2.46.
+> >
+> > These patches are based on Steven Rostedt's sframe/core branch [3],
+> > which is and aggregation of existing work done for x86 sframe userspace
+> > unwind, and contains [2]. This branch is, in turn, based on Linux
+> > v7.0-rc3. This full series (applied to the sframe/core branch) is
+> > available on github: [4].
+> >
+>
+> Not sure if related, but after updating my toolchain
+> (aarch64-linux-gnu-gcc (Debian 15.2.0-4) 15.2.0), I hit link errors:
+> ld.lld: error: arch/arm64/kernel/vdso/vgettimeofday.o:(.sframe) is being =
+placed in '.sframe'
+> ld.lld: error: arch/arm64/kernel/vdso/vgetrandom.o:(.sframe) is being pla=
+ced in '.sframe`
 
-+1
+Previously when developing against the SFrame V2 format, I had fixed
+these warnings with the VDSO Makefile change currently in this series:
 
-Jason
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makef=
+ile
+index 7dec05dd33b7..c60ef921956f 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -38,7 +38,7 @@ ccflags-y +=3D -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
+ CC_FLAGS_REMOVE_VDSO :=3D $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+                        $(RANDSTRUCT_CFLAGS) $(KSTACK_ERASE_CFLAGS) \
+                        $(GCC_PLUGINS_CFLAGS) \
+-                       $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
++                       $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SFRAME) =
+\
+                        -Wmissing-prototypes -Wmissing-declarations
+
+ CC_FLAGS_ADD_VDSO :=3D -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tables
+
+But the warnings seem to have returned after upgrading my toolchain,
+possibly due to SFrame V3 or some confounding change in GCC. The
+--gsframe in the assembler should be set to 'no' by default, so
+perhaps GCC is providing an override --gsframe internally?
+
+>
+> I applied this series hoping that fix it, but it doesn't, so far I
+> have this hack :
+> diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/v=
+dso.lds.S
+> index 52314be29191..53bdf757ee44 100644
+> --- a/arch/arm64/kernel/vdso/vdso.lds.S
+> +++ b/arch/arm64/kernel/vdso/vdso.lds.S
+> @@ -77,7 +77,7 @@ SECTIONS
+>         /DISCARD/       : {
+>                 *(.data .data.* .gnu.linkonce.d.* .sdata*)
+>                 *(.bss .sbss .dynbss .dynsbss)
+> -               *(.eh_frame .eh_frame_hdr)
+> +               *(.eh_frame .eh_frame_hdr .sframe)
+>         }
+>  }
+>
+> diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmli=
+nux.lds.h
+> index 60c8c22fd3e4..759903acd6fc 100644
+> --- a/include/asm-generic/vmlinux.lds.h
+> +++ b/include/asm-generic/vmlinux.lds.h
+> @@ -1064,6 +1064,7 @@
+>         /* ld.bfd warns about .gnu.version* even when not emitted */    \
+>         *(.gnu.version*)                                                \
+>         *(__tracepoint_check)                                           \
+> +       *(.sframe)                                                      \
+>
+>  #define DISCARDS                                                       \
+>         /DISCARD/ : {                                                   \
+
+Since this series only handles kernel stacktrace, I believe it's
+better to omit the .sframe section entirely in the case where only
+ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME is enabled. I think this hack may
+work better for this purpose:
+
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makef=
+ile
+index c60ef921956f..29f802bfedb1 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -41,7 +41,7 @@ CC_FLAGS_REMOVE_VDSO :=3D $(CC_FLAGS_FTRACE) -Os
+$(CC_FLAGS_SCS) \
+                        $(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SFRAME) =
+\
+                        -Wmissing-prototypes -Wmissing-declarations
+
+-CC_FLAGS_ADD_VDSO :=3D -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tables
++CC_FLAGS_ADD_VDSO :=3D -O2 -mcmodel=3Dtiny -fasynchronous-unwind-tables
+-Wa,--gsframe=3Dno
+
+ CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_REMOVE_VDSO)
+ CFLAGS_REMOVE_vgetrandom.o =3D $(CC_FLAGS_REMOVE_VDSO)
+
+Though, I don't understand why it is necessary to provide --gsframe=3Dno
+explicitly. If this approach seems ok to other folks/maintainers, I
+can fold this into my series.
+
+On the topic of SFrame for VDSO, Jens has a patch adding support for
+this as part of a series to support userspace SFrame unwinding for
+arm64:
+
+https://lore.kernel.org/lkml/20260417150827.1183376-4-jremus@linux.ibm.com/
+
+>
+>
+> Thanks,
+> Mostafa
+>
+
+Thanks,
+Dylan
 
