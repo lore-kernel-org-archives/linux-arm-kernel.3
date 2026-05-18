@@ -4,82 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE64CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 03:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F075CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 03:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x0L1YXQpg5cMFdXw90MD+Ygtm1m+OV8hivBqgSqRHhk=; b=iIJs1A0zNT7+CzxhR1D+PGRXCN
-	ThZiEbB66yMIJnpEAYF3btP2VjUMU03MktZedFXoyss9zmoRws61DGrkuM+JsS0AwEhwg1jbxfJ8b
-	Q7GTNBfxc1LHPEfLyT+7q17Spg4BP/ziZah8ANIIe2Qd7Iyscs1YpF8+yDfdQmRcWps5zmv+Z6YA3
-	1VJPilg2cvRLwwaN7cANfFY0Is6Nz8dLJSSHeeWoSCgPRgGruw4TH1PumFv8CkP3FgeGBJ8eoLWjQ
-	J4dl+xOktDkZ7dt7UUEmUdjZbvrrhcSGMAFLJ7dXTdIF2Un1k8R+7H2yTBHxKDPZNFEEwCXHETT10
-	+B0eRiEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pfhSXfCzdhhJ6IQTsJjqgupU85OghFebsX/Den1/pM4=; b=ANA43rDTHdpoAlUvKIQJJlopZD
+	N9TmUebXz7GbuBb6W4R13w+Hl+qvW9S3jS0RrvjmUjlKaVxe4L5fULrMBPmxze8B15skVBxVljvLm
+	sI6NYRMa8XmFlER3bC7Cph6OKAeMwWcQ9Mx15EYP8fJtysddV1Fa+8FVuzDpakFHwOAAFpZ2+6SSR
+	bQnHRHy8Ak3TPvgVNnjZizf81x6xRocO/vVkb5gWSGKBAyUqpo8MHzFC9HhoPEQTJT4AUSIZiQdZF
+	N8pTr9UCUB+mmF7IXiUbtGd1nkiZ9syRJM7Zo9q8NMsO8NsbASsba/TQDhrKn5hSf9PBuTRoZTgqA
+	O+CX/lzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOoHP-0000000E0Tu-2LnA;
-	Mon, 18 May 2026 03:04:31 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1wOoIR-0000000E0dO-3uCm;
+	Mon, 18 May 2026 03:05:35 +0000
+Received: from mail-japaneastazon11022101.outbound.protection.outlook.com ([52.101.126.101] helo=TYPPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOoHM-0000000E0TC-2uAg;
-	Mon, 18 May 2026 03:04:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=x0L1YXQpg5cMFdXw90MD+Ygtm1m+OV8hivBqgSqRHhk=;
-	b=Wht434ZeCOh98R6ckfracEtlw0fbAaMCxSS0T2qo0yYicqRfE2LDUjRArZh6AV
-	J0OCs5vPig7TxU4sDRJiPZlot4ws03HPwV5JvhaiFSiC6x/fp7BUepwRGFTYOYqo
-	vImc2ieiHdUWnzkpwnc4U8LXTIj4iS5EggmS1fbbMfC+Q=
-Received: from [192.168.50.71] (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgAXv_OUgQpqJm4lDw--.152S2;
-	Mon, 18 May 2026 11:03:51 +0800 (CST)
-Message-ID: <e7143078-0c0a-4c15-a192-081f2a5a5ff8@163.com>
-Date: Mon, 18 May 2026 11:03:48 +0800
-MIME-Version: 1.0
+	id 1wOoIO-0000000E0cW-3wzI;
+	Mon, 18 May 2026 03:05:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AraoCF0PCWQjP4vEvD9YWBEGhJcuJfyg7z7B0rySGXEUbgoghEt9Awe6tEaFfeXhtGNs0f6IqrB3xz3xiWQrOMJOuPGAYo0iH6HS/rlY/VawKzN4aDfhzVtkbA+eb/BR9LxGZlUfRk8PV1DlYAXeBMtQv6Xkqm9Pv89KO/il1R6PA2dc8AKKdyeIDDpWKiZGWvpceiAmpClAS5Yd1+RpCU4Tv8R+1k/8LgDF67EBnpSQlgsG701YAHYt+Q11Zygi2Daa9Mm+j0q0GGg29Fhyk7YTchmjbsJDL/UoiKMoO7EXQWq4RIrCStdhnlbTH5KzBixTf5rtRQE3fwGf0aIw4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pfhSXfCzdhhJ6IQTsJjqgupU85OghFebsX/Den1/pM4=;
+ b=SKoJWiusBXwLfhMpaANUtqyJKyWcWZ7LPzxD1Pu91V87LMpytv5I3BMEU4MveeSrpinwtYxkqm1Ak52YwNkXuhTQdKAN7ZzX5pABaaADdGr/7yO8wMUChYWkAtBjHoq2+WAxePZSA/x1tuhM4L8b58veLdwlpoP0ECz/IBuWuIn4KOlbNWwbw4SdGUeMepqJTsgvbiJvxFju/g80iWd0ZjKDK4EyFs6zK2YPsLj1MA10QcJQTTnW8JRne4PE1Ae5rIWGhdyEXn3WUoUyuYnG6qOx3qn3/9bcHAuGtvP9myJHKhqg0BziGBIZwad2uQik8uIyivTdeUCO0HVeANPglQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pfhSXfCzdhhJ6IQTsJjqgupU85OghFebsX/Den1/pM4=;
+ b=mVzShfQlqJaQK8EoounfyOEso++ueU7ojHZgIQlj9XCMHDhWxPPSnJ2DZmZMWFpYVf3u1HVOPwunay+aPctiCYRtR9hl7km/5RiIAEjROODRLw//cMifI8iP6o56mMkyaCGvEoKSetxPretk/ynt3rAqk0/GJUyiL13LrvMXgdspRPKHxdXdoarIaM5TrqztmBkm6jTZbSuR1v0mrA412Q1rbo2BT0tmLd7CvumAsRceoCKAZFw29RTjFEriMb2E9n7RImPmHjKBy909O5JktUyaghQoLQ3DGisQoCtntUEKgE2Viii86Ofh6ahgjt2w+Ls6gFmFU32Mr1Q6qD+Olg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com (2603:1096:400:289::14)
+ by SEYPR03MB7012.apcprd03.prod.outlook.com (2603:1096:101:b0::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.13; Mon, 18 May
+ 2026 03:05:20 +0000
+Received: from TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4]) by TYZPR03MB6896.apcprd03.prod.outlook.com
+ ([fe80::78d4:9dee:2e32:d1e4%3]) with mapi id 15.21.0048.010; Mon, 18 May 2026
+ 03:05:20 +0000
+Message-ID: <56112c57-ed8c-40c5-98ca-f08b2f0ecb94@amlogic.com>
+Date: Mon, 18 May 2026 11:05:15 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/7] PCI: cadence: Add post-link delay for LGA and
- j721e glue driver
-To: Manikandan Karunakaran Pillai <mpillai@cadence.com>,
- "bhelgaas@google.com" <bhelgaas@google.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
- "mani@kernel.org" <mani@kernel.org>, "vigneshr@ti.com" <vigneshr@ti.com>,
- "jingoohan1@gmail.com" <jingoohan1@gmail.com>,
- "thomas.petazzoni@bootlin.com" <thomas.petazzoni@bootlin.com>,
- "ryder.lee@mediatek.com" <ryder.lee@mediatek.com>,
- "claudiu.beznea.uj@bp.renesas.com" <claudiu.beznea.uj@bp.renesas.com>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "s-vadapalli@ti.com" <s-vadapalli@ti.com>,
- "linux-omap@vger.kernel.org" <linux-omap@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "claudiu.beznea@tuxon.dev" <claudiu.beznea@tuxon.dev>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20260518004246.1384532-1-18255117159@163.com>
- <20260518004246.1384532-3-18255117159@163.com>
- <DM6PR07MB67169B65E6B826E24A8E64AEA2032@DM6PR07MB6716.namprd07.prod.outlook.com>
- <c909a890-65cb-444f-9b4f-9482d2f71c6d@163.com>
- <DM6PR07MB6716CC48016E6D44EC5FCAB3A2032@DM6PR07MB6716.namprd07.prod.outlook.com>
+Subject: Re: [PATCH v2 2/2] pwm: meson: Add support for Amlogic S7
 Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <DM6PR07MB6716CC48016E6D44EC5FCAB3A2032@DM6PR07MB6716.namprd07.prod.outlook.com>
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20260402-s6-s7-pwm-v2-0-657dce040956@amlogic.com>
+ <20260402-s6-s7-pwm-v2-2-657dce040956@amlogic.com>
+ <agn2Yp3mzI7DcsyN@monoceros>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+In-Reply-To: <agn2Yp3mzI7DcsyN@monoceros>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: PigvCgAXv_OUgQpqJm4lDw--.152S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxKF4kXrW7XFWxAr4DuFWxJFb_yoWxGw4DpF
-	WUGFWxC3WxXrW5Z3Wvv3W5XF1aqF98C3yDXws29w17XrnFyFnxJF42qF1ruF9Igr4DCr17
-	ZF1UtF9rWr1ayFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U4xRDUUUUU=
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6xijR2oKgZg1tgAA3t
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR04CA0012.apcprd04.prod.outlook.com
+ (2603:1096:4:197::14) To TYZPR03MB6896.apcprd03.prod.outlook.com
+ (2603:1096:400:289::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR03MB6896:EE_|SEYPR03MB7012:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d69409e-af62-4e73-8cba-08deb48a4bfe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|22082099003|56012099003|18002099003|11063799003|4143699003;
+X-Microsoft-Antispam-Message-Info: uWonfu7MQc2Jb1i6H6K1OpvNyT7Cje6FZVqmOHHbMneTpNPFWq3BaFdB+sFXGEG9MfCYjk79Ztv4uwuzKL+pNJr9iOJa3D7CTmaMkgDVhGUWPWtxz4m2PYfI24lmDuhz7roCC47qN5OuCo8+WsBv7DjCvfxhjCVgaCbIfXHrRxxtpikvnAMkUXTzJjDvyRubml7zmQ9MTB09Kky3P8ZhOcnL1LvCF1FgRbppSx6hQ3uBCEYRQvprV7niIcrAqd3HJoNVdRb710HCWYtG+3T986+B2m4o+YaU3ByO4J1zOFcSC3uY7/EXFgzBEfzN8PzfIy4YSgopL+w/+aRwMxUHKIUqBLqG0rcMppvULknndTqTZ3R6gyHci8hmcB+OTAJLF+yWHJqRxEgIFE0AfeKKPgZnAUbHmszzQ6ySariKKcIOCEwSYP/HdKQOyCUOB+2OEzndt7HYWg5mz7+j8Wg39SoLoUiI9bh46N1D6Wgh4SBHa5GV+cnk7MdXnGhMdK3T/SyIDuCul2LHnowt1RE7DmSDaGk9v7OpQspHYlkhpo+3JIsQyr0xKtc71IJkEJpOenbvcD1vFI0YRtj7OGxwLRnZnbtSjVvAVVeR6u6nLlyoRTEqFuMuOsBdAYlET6jgetW9DuxBKbqE46vB/5cAJSZ2FLjWXmDZnFcy0wqIykiS8MXnNAQ+nHbooTytViv0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6896.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(22082099003)(56012099003)(18002099003)(11063799003)(4143699003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UEx3NHFVd3hKSmltQWtNV292TUFXanpkd1haaFFld0tndzVrU2IvczBrMFkz?=
+ =?utf-8?B?bmtyS04wYjJRZXBsclV6dngvRXZoVjFkdmg2REhEUXhReEJtcXFsMTFWdkJO?=
+ =?utf-8?B?VDNmcGFiT1ZxYnBDQkczM090S2l0KzcrR2Mva0o4eEs2ZjRlNWxqWFpWRm5B?=
+ =?utf-8?B?RVFId2Rwek1nUE5MTEVTV0RNbzF6NGxjdXhBN3VaeVk1U0o3ZUlhejYzb3Yy?=
+ =?utf-8?B?ME9nQmlVeEdsUmNrMnJVUzlNeERIbHdpemxwRDR3ZUs2WUlOcCtnTE53ZCsr?=
+ =?utf-8?B?elBEd1NLcmFvdFhsRDZlWlY4YmVBYmdwQ2NiQ3cvWDc2czRvUk9TV2tPYmp4?=
+ =?utf-8?B?TjZndTcwRG9WN3prTEhnLzUwMncyZHNmZk9pVUFOby9qRWwzOU93RWRvNEwr?=
+ =?utf-8?B?b2V4dHdwaUZJWWsxcXQzTlVUVEVGTnlSS3NvaEs0dFZSYUEySitlajVEUVlH?=
+ =?utf-8?B?UUlhbkFzQ0lFcThGczF2M1RldUJYUHpZVUpqWGlDN1ltd2N6RzZEUW9xR2tG?=
+ =?utf-8?B?aVFxWmplWno5M2RhOUFUMGVLYXhObTQra3hBcDdveUxmOGNVNk95dnp6UnM3?=
+ =?utf-8?B?aitCMjdkSlV3VVZvRnk1Skg1MkNSTi9DSVE0SHVUYXBVcmt2bDFIOVFGTlo3?=
+ =?utf-8?B?WkZsamMwajlGa0VuRzVaeGVpVGN1YkpWaHg2WktQNWVKZTdYVWIxM2RaQ2hO?=
+ =?utf-8?B?dTdpTlcvU3FaRGIrQU9oRXhNUCs1WHNDSFJaTUZqTkE4d2I1YmtjOXpvNVEy?=
+ =?utf-8?B?aE5tS2ZjUmpwWE1HSnBFZWJaK2lWWUR5Uk5scTcwZ0ptY1d0VGRYbDRQM25S?=
+ =?utf-8?B?eGpJVVJrNlhMd3BTWXExRHdFZXBOVnN5eUt5N2I3UVpTS3dKM2Vzai8rU1d4?=
+ =?utf-8?B?bVQ5MHVpY1U3S3ZnU05qSkRxYjNJc2F6SyszS0ZVREVvRHVybmZXeG5TR04r?=
+ =?utf-8?B?RHg0NGtYRTlBVkprUTY5WldCeHdQL3RJZUlhUEJvTGwyQWN2b29wOXZuUldk?=
+ =?utf-8?B?TUlzeXZMUUIwQ2dOUnBNRTU1dzZFZWUxbmd3b0U4bFVwcEMrb3BmOHB1Q2Fa?=
+ =?utf-8?B?eFVyN1pKL1ZNbmhhUVE2SVRqcjN3bHNGUXZHb0pSYzFvanlZUGxHMkZyTmd5?=
+ =?utf-8?B?TDRWdjc1S1lQd3lVV3NOMFhhYlB5KzlKQVhEL05WVzY4Yk1UU0dGTkEyaHZ0?=
+ =?utf-8?B?UGZJazlMMXlmVWszRjF2UFlBTjRyb09vUHhLQjlVQmZTSjFFcENGY2VIRWFG?=
+ =?utf-8?B?U2dONlJmaGRERDZFOUZtRSswZ2NpWUlMd05MSDFReTlJNnlOSmV3UU52SnBw?=
+ =?utf-8?B?bTRKR05ZaDZ4dnlOMGVrTmhRKytmYzNwVHdsRldFU3hVbkVIcWZUS2xySlNC?=
+ =?utf-8?B?cU8xVnUrR2M3WWdGbzFEbWhzOUlsbUdRNDNJMjhYbmNmR0pVTTg3SWRhWXp4?=
+ =?utf-8?B?Q1ZOQWliejN1eEo5ZzA4TkNreGJzaVBIUjgvdGExRkp4OE9UVVNPL0MzY0d4?=
+ =?utf-8?B?djhkNGRWOFBaUXdWeGYzWGI3K29yajF6R2ZDbC93dmNGYytBQk1kL3BrRjJx?=
+ =?utf-8?B?R00weU9LeFdhbEszNytqQkRPZzcvSUFPUkNWTzA3T1B3Y21pQndvS255a2Fw?=
+ =?utf-8?B?UkRJTm41c1plQWpwR1lzNEZCWjNnaVNZUVlhaWlSbGZYd0tNeDlZbGJ2SEVQ?=
+ =?utf-8?B?U1hwRVpUeU4wVWZpRHNHZ3MrNVV1TmFqMldKWFlQelhoZkRhcFJYWGxJLzNi?=
+ =?utf-8?B?aU9JdXRvQ21WRllSbGwzR3NGY1pSTHRmcUV5MkpEWTZTKzR3aVFoNDFMUERW?=
+ =?utf-8?B?K2t3aWl6U3dYRkRHc1Y4RUFINWZCWGlJODN5RlpTVzJDeFI4QXBYTXRxVXNY?=
+ =?utf-8?B?aDdnV0hjaWFxdHprc3BWWm5RMlRyUVVOQndJSm5tMXVIV3BweStaUEVmNnNw?=
+ =?utf-8?B?dDRJRFRud2plM0tScFlQUGVrMzArRWd5RXVlaVZmTEZiUEtlU2phSDNxZDF5?=
+ =?utf-8?B?bGdQdnlkcFQ0dTZEMm1QOVhoZ0U4Q1ZSUktJbkoyZ2xNYXlDbW8vYU1RaTVC?=
+ =?utf-8?B?YnRlcEd5WlhOMG9pSkhiUHlSMkR4N2xQQ05TWWhhQ0JCbC9peFlrNXBsUFFl?=
+ =?utf-8?B?ODNTTlV3MGRJS2tvOCtZc1g1bVJYYzB4V0RRTWo0SkszSEI1aDR4YzF3cDlR?=
+ =?utf-8?B?R1Q1ay9RVUoxcGt4ZUVnNnZ5NC8zM2FOa0dnc3BJYktacnp6WW0xNlQ1WE9j?=
+ =?utf-8?B?Tk9Iay82TUZXcW8zaDFJaGtsUml6YXk0MFF2T3ljRjdPRUVEVi9WV0FFbzJz?=
+ =?utf-8?B?ZEJBYjgzZ3doL0YwZS91b3FHSndJM0srQzVsM2Jsd3VUc0xKSklPQT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d69409e-af62-4e73-8cba-08deb48a4bfe
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6896.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 03:05:20.7588
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: orBSPULWck+hcawOuloTS7u59LQX2w9Tkf6PhNX2KWVtUfFZY2/5AbrcbYMp+J70E6nCZ4TsheRx98uZjCbX40XGiWYxCFa9eWSZvHZriBs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7012
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_200429_121559_95605644 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20260517_200532_982063_ED715EFD 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,177 +153,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Uwe,
+    Thanks for your review.
 
-
-On 5/18/26 10:38, Manikandan Karunakaran Pillai wrote:
+On 2026/5/18 01:12, Uwe Kleine-König wrote:
+> Subject:
+> Re: [PATCH v2 2/2] pwm: meson: Add support for Amlogic S7
+> From:
+> Uwe Kleine-König <ukleinek@kernel.org>
+> Date:
+> 2026/5/18 01:12
+> 
+> To:
+> xianwei.zhao@amlogic.com
+> CC:
+> Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+> Conor Dooley <conor+dt@kernel.org>, Heiner Kallweit 
+> <hkallweit1@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+> Kevin Hilman <khilman@baylibre.com>, Jerome Brunet 
+> <jbrunet@baylibre.com>, Martin Blumenstingl 
+> <martin.blumenstingl@googlemail.com>, linux-pwm@vger.kernel.org, 
+> devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+> linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
 > 
 > 
->> EXTERNAL MAIL
->>
->>
->>
->>
->> On 5/18/26 10:12, Manikandan Karunakaran Pillai wrote:
->>>
->>>
->>>> EXTERNAL MAIL
->>>>
->>>>
->>>> The Cadence LGA (Legacy Architecture IP) PCIe host controller currently
->>>> lacks the mandatory 100 ms delay after link training completes for speeds
->>>>> 5.0 GT/s, as required by PCIe r6.0 sec 6.6.1.
->>>>
->>>> Add a 'max_link_speed' field to struct cdns_pcie. In the common host
->>>> layer function cdns_pcie_host_start_link(), after the link has been
->>>> successfully established, call pci_host_common_link_train_delay() to
->>>> insert the required delay.
->>>>
->>>> For the j721e glue driver, set cdns_pcie.max_link_speed from the existing
->>>> link speed logic. For other LGA-based glue drivers (sky1, sg2042), the
->>>> common LGA host setup (pcie-cadence-host.c) provides a fallback reading
->>>> of the device tree property "max-link-speed" when available. This ensures
->>>> that the delay is not missed on those platforms once they enable the
->>>> property.
->>>>
->>>> Signed-off-by: Hans Zhang <18255117159@163.com>
->>>> ---
->>>> drivers/pci/controller/cadence/pci-j721e.c                | 1 +
->>>> drivers/pci/controller/cadence/pcie-cadence-host-common.c | 4 ++++
->>>> drivers/pci/controller/cadence/pcie-cadence-host.c        | 4 ++++
->>>> drivers/pci/controller/cadence/pcie-cadence.h             | 2 ++
->>>> 4 files changed, 11 insertions(+)
->>>>
->>>> diff --git a/drivers/pci/controller/cadence/pci-j721e.c
->>>> b/drivers/pci/controller/cadence/pci-j721e.c
->>>> index bfdfe98d5aba..ae916e7b1927 100644
->>>> --- a/drivers/pci/controller/cadence/pci-j721e.c
->>>> +++ b/drivers/pci/controller/cadence/pci-j721e.c
->>>> @@ -206,6 +206,7 @@ static int j721e_pcie_set_link_speed(struct
->> j721e_pcie
->>>> *pcie,
->>>> 	    (pcie_get_link_speed(link_speed) == PCI_SPEED_UNKNOWN))
->>>> 		link_speed = 2;
->>>>
->>>> +	pcie->cdns_pcie->max_link_speed = link_speed;
->>>> 	val = link_speed - 1;
->>>> 	ret = regmap_update_bits(syscon, offset, GENERATION_SEL_MASK,
->>>> val);
->>>> 	if (ret)
->>>> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>> b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>> index 2b0211870f02..18e4b6c760b5 100644
->>>> --- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>> +++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
->>>> @@ -14,6 +14,7 @@
->>>>
->>>> #include "pcie-cadence.h"
->>>> #include "pcie-cadence-host-common.h"
->>>> +#include "../pci-host-common.h"
->>>>
->>>> #define LINK_RETRAIN_TIMEOUT HZ
->>>>
->>>> @@ -115,6 +116,9 @@ int cdns_pcie_host_start_link(struct cdns_pcie_rc
->> *rc,
->>>> 	if (!ret && rc->quirk_retrain_flag)
->>>> 		ret = cdns_pcie_retrain(pcie, pcie_link_up);
->>>>
->>>> +	if (!ret)
->>>> +		pci_host_common_link_train_delay(pcie->max_link_speed);
->>>> +
->>>> 	return ret;
->>>> }
->>>> EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
->>>> diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c
->>>> b/drivers/pci/controller/cadence/pcie-cadence-host.c
->>>> index 0bc9e6e90e0e..058e4e619654 100644
->>>> --- a/drivers/pci/controller/cadence/pcie-cadence-host.c
->>>> +++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
->>>> @@ -13,6 +13,7 @@
->>>>
->>>> #include "pcie-cadence.h"
->>>> #include "pcie-cadence-host-common.h"
->>>> +#include "../../pci.h"
->>>>
->>>> static u8 bar_aperture_mask[] = {
->>>> 	[RP_BAR0] = 0x1F,
->>>> @@ -397,6 +398,9 @@ int cdns_pcie_host_setup(struct cdns_pcie_rc *rc)
->>>> 	rc->device_id = 0xffff;
->>>> 	of_property_read_u32(np, "device-id", &rc->device_id);
->>>>
->>>> +	if (pcie->max_link_speed < 1)
->>>> +		pcie->max_link_speed = of_pci_get_max_link_speed(np);
->>>> +
->>> Why is the conditional if required here as during cdns_pcie_host_setup(), the
->> value of
->>> max_link_speed is expected to be '0', unless specifically initialized by the
->> platform code separately.
->>>
->>> What happens if the max_link_speed is not defined in the corresponding dts
->> ? Would not the -EINVAL returned from the function create issues ?
->>
->> Hi Manikandan,
->>
->> Please see:
->>
->> https://urldefense.com/v3/__https://github.com/torvalds/linux/blob/v7.1-
->> rc4/drivers/pci/controller/dwc/pcie-
->> designware.c*L191__;Iw!!EHscmS1ygiU1lA!EDHVakD3QN0gGza3V1__qzHgDG9
->> RZlq7LzC5AFsYLV2i5FcoveNFsjWORRgRdHCAmOI-LizY5cJvGIWBOFJG$
->>
->>
->> Best regards,
->> Hans
->>
-> That is how Designware has implemented it but that does not answer my query. Becos both these implementations do
-> not take care of the error returned, and it could well be the case for many of the current implementations.
-
-Hi Manikandan,
-
-If "max-link-speed" is not defined in the DT, then:
-
-of_pci_get_max_link_speed
-   of_property_read_u32
-     of_property_read_u32_array
-       of_property_read_variable_u32_array
-         return -EINVAL;
-
-
-For patch 0001, no actions will be executed. I wonder if this answers 
-your question?
-
-Best regards,
-Hans
-
-
 > 
->>>
->>>> 	pcie->reg_base = devm_platform_ioremap_resource_byname(pdev,
->>>> "reg");
->>>> 	if (IS_ERR(pcie->reg_base)) {
->>>> 		dev_err(dev, "missing \"reg\"\n");
->>>> diff --git a/drivers/pci/controller/cadence/pcie-cadence.h
->>>> b/drivers/pci/controller/cadence/pcie-cadence.h
->>>> index 574e9cf4d003..042a4c49bb9a 100644
->>>> --- a/drivers/pci/controller/cadence/pcie-cadence.h
->>>> +++ b/drivers/pci/controller/cadence/pcie-cadence.h
->>>> @@ -86,6 +86,7 @@ struct cdns_plat_pcie_of_data {
->>>>    * @ops: Platform-specific ops to control various inputs from Cadence PCIe
->>>>    *       wrapper
->>>>    * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
->>>> + * @max_link_speed: Maximum supported link speed
->>>>    */
->>>> struct cdns_pcie {
->>>> 	void __iomem		             *reg_base;
->>>> @@ -98,6 +99,7 @@ struct cdns_pcie {
->>>> 	struct device_link	             **link;
->>>> 	const  struct cdns_pcie_ops          *ops;
->>>> 	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
->>>> +	int				     max_link_speed;
->>>> };
->>>>
->>>> /**
->>>> --
->>>> 2.43.0
+> Hello,
 > 
+> On Thu, Apr 02, 2026 at 02:40:16AM +0000, Xianwei Zhao via B4 Relay wrote:
+>> From: Xianwei Zhao<xianwei.zhao@amlogic.com>
+>>
+>> Add support for Amlogic S7 PWM. Amlogic S7 different from the
+>> previous SoCs, a controller includes one pwm, at the same time,
+>> the controller has only one input clock source.
+>>
+>> Signed-off-by: Xianwei Zhao<xianwei.zhao@amlogic.com>
+>> ---
+>>   drivers/pwm/pwm-meson.c | 32 +++++++++++++++++++++++++++++---
+>>   1 file changed, 29 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/pwm/pwm-meson.c b/drivers/pwm/pwm-meson.c
+>> index 8c6bf3d49753..7a43c42ef3d6 100644
+>> --- a/drivers/pwm/pwm-meson.c
+>> +++ b/drivers/pwm/pwm-meson.c
+>> @@ -113,6 +113,7 @@ struct meson_pwm_data {
+>>   	int (*channels_init)(struct pwm_chip *chip);
+>>   	bool has_constant;
+>>   	bool has_polarity;
+>> +	bool single_pwm;
+> Conceptually I'd prefer a `npwm` field here. That doesn't take more
+> space in memory and simplifies the logic a bit. (At the cost of having
+> to adapt all already existing meson_pwm_data instances, but that's fine
+> in my book.)
+> 
+I will use npwm(u8 type) instead of single_pwm.
 
+>>   };
+>>   
+>>   struct meson_pwm {
+>> @@ -503,6 +504,18 @@ static void meson_pwm_s4_put_clk(void *data)
+>>   	clk_put(clk);
+>>   }
+>>   
+>> +static int meson_pwm_init_channels_s7(struct pwm_chip *chip)
+>> +{
+>> +	struct device *dev = pwmchip_parent(chip);
+>> +	struct meson_pwm *meson = to_meson_pwm(chip);
+>> +
+>> +	meson->channels[0].clk = devm_clk_get(dev, NULL);
+>> +	if (IS_ERR(meson->channels[0].clk))
+>> +		return dev_err_probe(dev, PTR_ERR(meson->channels[0].clk),
+>> +				     "Failed to get clk\n");
+>> +	return 0;
+>> +}
+>> +
+>>   static int meson_pwm_init_channels_s4(struct pwm_chip *chip)
+>>   {
+>>   	struct device *dev = pwmchip_parent(chip);
+>> @@ -592,6 +605,13 @@ static const struct meson_pwm_data pwm_s4_data = {
+>>   	.has_polarity = true,
+>>   };
+>>   
+>> +static const struct meson_pwm_data pwm_s7_data = {
+>> +	.channels_init = meson_pwm_init_channels_s7,
+>> +	.has_constant = true,
+>> +	.has_polarity = true,
+>> +	.single_pwm = true,
+>> +};
+>> +
+>>   static const struct of_device_id meson_pwm_matches[] = {
+>>   	{
+>>   		.compatible = "amlogic,meson8-pwm-v2",
+>> @@ -642,6 +662,10 @@ static const struct of_device_id meson_pwm_matches[] = {
+>>   		.compatible = "amlogic,meson-s4-pwm",
+>>   		.data = &pwm_s4_data
+>>   	},
+>> +	{
+>> +		.compatible = "amlogic,s7-pwm",
+>> +		.data = &pwm_s7_data
+>> +	},
+>>   	{},
+> If you touch that array in the next revision, please make this line:
+> 
+> 	{ }
+> 
+> (I.e. add a space and drop the comma.)
+> 
+Will do.
+
+> Best regards
+> Uwe
 
