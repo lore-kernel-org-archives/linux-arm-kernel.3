@@ -4,90 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD69ECD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD05CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFobpbpWp8lxREf0EH5OsMiXNiERdzzRvetVBp/957w=; b=y/kVgEKW6gBlLtuFYo9BRLg+AO
-	sWqTwjx1NMsjKoTaOCSMIfYa2Z2I8ZfcUVq8KxGBTFoJBSjFzay334Pt/ufdjpBPxU7GQVMY0OFjJ
-	qX8POTWLcYyB5sq6wSINkKTnBPW9pmcy9Ifo+Vs0h+Z9/XEfT4kfh30F9UAriF/wsOP070tOLVLWz
-	/X0treIXvIU2t7Y5pBxYYG3n5cbPsSJavW5IHmCz7MkbO/sm+McajcYoiT3nYjKBixCvZlnjZbtQ0
-	df+XAzwsO3oiasjpou5RX/WwicfqKSGQFpvmzvvl6fVpzpq4E5U2yuR1MXC+S+OmRqQATnFf9PPX0
-	jjx4c7CQ==;
+	bh=GHcfHl/wIureKjj0xsfWQODZO3Jyb9Roym9vA6p1kY4=; b=Y9wYfNwzq9BFUZM9Br+z2R5qxI
+	OlGx9fJY8l2LYC0P0IV0OKc8KKVl5L+3KI/Opr2BUgZ/nq+ZtVG51mXgr1I9I74BLzJuAOSykwc7M
+	3S+tvGYVpejye26+lyeFMttmErRKbXUInUeoKBQfBecZGBBBlvuBiqDIaZLew05LKb3EC5l41uX4C
+	59jn6yZXHWQQu/qbmP81m0qRxEekhiITZNg/tjOo1dDzTLMrtyqSZW+8FZMLpk3EEmyFBDqNjA/9X
+	e8+Ng1zkOvDBf3gQWxeUVAR0uL/gs959H4L120lvrPxE57ev0SdIQ4NCHtVOFshj2GLQFRrn5t7ZZ
+	u4V8M3/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtj7-0000000Etta-2oQW;
-	Mon, 18 May 2026 08:53:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wOtjZ-0000000Eu2I-05Vt;
+	Mon, 18 May 2026 08:53:57 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtj5-0000000Etso-0Ul4
+	id 1wOtjX-0000000Eu1i-1aBE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 08:53:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=GHcfHl/wIureKjj0xsfWQODZO3Jyb9Roym9vA6p1kY4=; b=arki2gg9XCAktBZmLkR0qOsxQD
+	l7lE0RXyxtuemQ8hJiKLJJ5m5LqI5ZmUfVMae1yhx8l9BjWEJt8buvvQbgj4/C0BhWnlqQ2e7ekaT
+	c9pMB2fBoTMkhucRqlNKMffiM3R63urwopuNlf9vAqsNLqkJgF9hU8h65Sm/aKgHEgPUVXZgaxowY
+	keZd7aDUWB4CepAPdBkacivzHGFZXrMgAFTG6AMabZF5d5uwT6iXUwrmKrcXvBgq5xu2fI7Pgb9oS
+	F7ovddCW34mHb44Bl/60GkRDlZ13DiJwJ38aJ8D/uNa1LSxJmoJslzWjsbV7zq0rOCOobFEwKDzRH
+	cHoRoNNg==;
+Received: from mail-westeuropeazon11010009.outbound.protection.outlook.com ([52.101.69.9] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOtjT-0000000ATE5-1UKR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:53:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B171F443C2
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 08:53:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90FBAC2BCF6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 08:53:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779094406;
-	bh=BeY2D1xhKXuMNqWiLMcfM8mpDskYF1/TSSDTA7pllLc=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=BiUPWewpY7R5J0SFM+oxT1KFVOoRyuzVuZK4mkARnjO3rH1mtxsBxdRfjVRpND3ZQ
-	 udKva8WH8yafbXxhS5Rf0Umgh9L1/2aOJIWOnoVjtTgSzNB/751Bu95d+eV+BPi5eG
-	 yZiDT6sxun6iz9iTeLvsPVNwEohNheDlEw3i2ohSkyzmWtC8Fd5aYX4FooRtY6Aie+
-	 xAgy/XlMO6Ow5KJklTNJOZxeLgBdLk6+hvkKG9xec0+Kbq5nlV0auoN/HvHHRw/xm6
-	 5eWtMLdmJ8g3TmeYLeP+eMnw7KAZs8R7dFGuSsHXr6+xr5H5RGzgCvvK3iG0k+6wRR
-	 uC0lkvB9Nvmiw==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-38e97e73234so18737481fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 01:53:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9QQC67+ytLV7EIAD6NMuTUD0ZCQLdmP8MqYRJHYPebLKB16HNv4EzO7vii3y13TrNAucjKGmL3/YuPDe81hXoB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg9YjVVUvmLUQhCC9nJWyaYyE2iwUYzHMibzqad+rKYNLFQapq
-	sCC+Xn5ZDZN6YJSowREAWwpNKdzp0NMrtnh/AAUyk+0wicuk8YUBLA9ScgErpVDuJcyww7ZxqcE
-	vqNLzGzMFpBVTQy01FcagJpanWONPokSaVTmV2ht1kA==
-X-Received: by 2002:a05:651c:548:b0:393:7ab3:6d50 with SMTP id
- 38308e7fff4ca-395619b0770mr39038201fa.6.1779094405178; Mon, 18 May 2026
- 01:53:25 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 18 May 2026 01:53:22 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 18 May 2026 01:53:22 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260514-arm-psci-system_reset2-vendor-reboots-v22-9-28a5bde07483@oss.qualcomm.com>
+	Mon, 18 May 2026 08:53:54 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=ft2XGcZxVVtKl718C7EHKMQZrkO61UGUB5pvVcO5tKQayH5n7iiWOn6lUhtnEdTbnkrfohzZKEYcRv52B3+RbpgK/7PeNAzWmo3ov1IKa+35h/6HgH5JbbiPnO4Qf7XdoEbsDk6U5uwx9NJ0D4CbV+cC6B8tjs6f2UiuoQKukBFk35GlXgWAHIrp+iqWtsRUWZJtaxJgxHcpFVtKc4MtzySxhSv1hXV+p7gEICttlezMwTN/UYXujf5MO5IxMr5bwfll7PT2/QMldleX2CTKax2BfbM6K1jZaCZ53ayaCBfKjc+4rBiObkM8JLoo0ULGTM4yFqgOG5UvajJWeqsoMA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GHcfHl/wIureKjj0xsfWQODZO3Jyb9Roym9vA6p1kY4=;
+ b=fwPRhFFnpjIA9OoILSodVw281Vtfowlnr8+YdxfNrKT+hSVQRL4hJyydZOXB8ieO83Mi+VWbSjDMnjZiBz15TOAVGlmnZQ2eJ5TPAsEY35mi0EfVwzLTP5bR7rD9HINKD0s0dj+bieuOScGw5yOFTXoFouM0S6Dka8b7qtD4bPQVFH5K51JuoYr5U4hNLNRNHSt4Wz+1NYhtIS7wcSBxc/wE3yfisSUDxFujp/8P8rLSqrXw9ULBCWnQCNVGLqi0h0iWECJI28/i6Lzf1KINzwN8ARjQS3oLohyNJZJmcTpyi9KYgrTUqO2JhmLeE3J+kpJ5COZDonhUpEnFuH6BCQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GHcfHl/wIureKjj0xsfWQODZO3Jyb9Roym9vA6p1kY4=;
+ b=aJBOR2UOKVjgS66pLKaSO9X5X0b17M9019lW247BOj+9S2SKpeUp1o8vI0miSLVAZQqqDhPyX49HImz2kdlwi6eqA7aKC/zoRCn55UI20QgYfMuJbT9/gtIm78n9xGRkw+TieSowmGDRbtixRhpYGs9mK6zNfqL1T8r3zFxdrYE=
+Received: from DUZP191CA0059.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4fa::13)
+ by VI0PR08MB10654.eurprd08.prod.outlook.com (2603:10a6:800:20b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
+ 2026 08:53:45 +0000
+Received: from DU2PEPF0001E9C2.eurprd03.prod.outlook.com
+ (2603:10a6:10:4fa:cafe::b4) by DUZP191CA0059.outlook.office365.com
+ (2603:10a6:10:4fa::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Mon, 18
+ May 2026 08:53:45 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU2PEPF0001E9C2.mail.protection.outlook.com (10.167.8.71) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.11 via
+ Frontend Transport; Mon, 18 May 2026 08:53:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cSSVZ6F5aZYzsx0m7Lezg2eP7oTxeuUieGfZ/mHqxHflAfYzDIWKaUe3ubOisc9cov/ld7lbvPLcAdJi8OaTQxL7r+777A/o5mqFdnYFLhTd8EkhKPgMEaFeINS1JMXhcnkZl9i7bjOP+NwWbLiuZgV/ekCtfhsB4gG/y9/OSACLZftm3/rZfMlLkqIOa+3QKrIAIu0hTWYwBz4bGLWkMJrPTw5BxpkVC4oDq/6MvFrMenoDcYlTjVuLbbPA1S2HUEhmRGomuJStsanDTkAm/dhu4Xdj7o/FUf+HcFXiHkRjc3jZpYdLpI5JtBYo1VK+IRk80OLWjux7PZIg3Fctzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GHcfHl/wIureKjj0xsfWQODZO3Jyb9Roym9vA6p1kY4=;
+ b=eKA3uD/0wAX3XN2tMTnrb0WoXaR1Lal6YevQ6vFsuXKPky0lGVOKEomdxxbI5QoGeQyKwTCGwuh6OPfy90GFbOVj/qOFs92W8WVEcvpxO22SsS2QtQT9SGV3EZlIdwqXPGXA5A6TGvPSwIZr8gQNO37TrTGZdGiMJ2pcR9M5vX46IwkcGEXTMbN1bU5/z2b6FxiIDfATzVHeh6mY26K1AM7pDsaeEqdlEFQeTLU4M1xrrOiLUJwdpm4wjI5wACNVb2B4Yy83phLXplSSa6kSL4LlvJjjKC5mRET3ZiIp+eUDunmRLQVwsClwJ+/s25jC1hWVJZtMdhu3pHJgkZ0eiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 172.205.89.229) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GHcfHl/wIureKjj0xsfWQODZO3Jyb9Roym9vA6p1kY4=;
+ b=aJBOR2UOKVjgS66pLKaSO9X5X0b17M9019lW247BOj+9S2SKpeUp1o8vI0miSLVAZQqqDhPyX49HImz2kdlwi6eqA7aKC/zoRCn55UI20QgYfMuJbT9/gtIm78n9xGRkw+TieSowmGDRbtixRhpYGs9mK6zNfqL1T8r3zFxdrYE=
+Received: from AS4P189CA0011.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:5d7::12)
+ by DU4PR08MB11149.eurprd08.prod.outlook.com (2603:10a6:10:576::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
+ 2026 08:52:39 +0000
+Received: from AM1PEPF000252DA.eurprd07.prod.outlook.com
+ (2603:10a6:20b:5d7:cafe::8a) by AS4P189CA0011.outlook.office365.com
+ (2603:10a6:20b:5d7::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Mon, 18
+ May 2026 08:52:39 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 172.205.89.229)
+ smtp.mailfrom=arm.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 172.205.89.229 as permitted sender) receiver=protection.outlook.com;
+ client-ip=172.205.89.229; helo=nebula.arm.com; pr=C
+Received: from nebula.arm.com (172.205.89.229) by
+ AM1PEPF000252DA.mail.protection.outlook.com (10.167.16.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Mon, 18 May 2026 08:52:39 +0000
+Received: from AZ-NEU-EXJ02.Arm.com (10.240.25.139) by AZ-NEU-EX04.Arm.com
+ (10.240.25.138) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 18 May
+ 2026 08:52:38 +0000
+Received: from AZ-NEU-EX04.Arm.com (10.240.25.138) by AZ-NEU-EXJ02.Arm.com
+ (10.240.25.139) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 18 May
+ 2026 08:52:37 +0000
+Received: from e132472.cambridge.arm.com (10.2.78.53) by mail.arm.com
+ (10.240.25.138) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
+ Transport; Mon, 18 May 2026 08:52:37 +0000
+From: Niyas Sait <niyas.sait@arm.com>
+To: <andre.przywara@arm.com>
+CC: <ben.horgan@arm.com>, <catalin.marinas@arm.com>, <fenghuay@nvidia.com>,
+	<guohanjun@huawei.com>, <james.morse@arm.com>, <jic23@kernel.org>,
+	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<lpieralisi@kernel.org>, <rafael@kernel.org>, <reinette.chatre@intel.com>,
+	<sudeep.holla@kernel.org>, <will@kernel.org>
+Subject: Re: [PATCH 3/5] arm_mpam: add MPAM-Fb MSC firmware access support
+Date: Mon, 18 May 2026 09:52:37 +0100
+Message-ID: <20260518085237.3259344-1-niyas.sait@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260429141339.3171205-4-andre.przywara@arm.com>
+References: <20260429141339.3171205-4-andre.przywara@arm.com>
 MIME-Version: 1.0
-References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
- <20260514-arm-psci-system_reset2-vendor-reboots-v22-9-28a5bde07483@oss.qualcomm.com>
-Date: Mon, 18 May 2026 01:53:22 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MdMKGm2R28Kh3baXTWa8Bo5Yt8ybnL11-12ZJF8BbDB9w@mail.gmail.com>
-X-Gm-Features: AVHnY4KUs56aRoXVmyMp6zYpUiaetiLn907dXUa8eSIFV9OSLRkKS3ZdNxw4t9A
-Message-ID: <CAMRc=MdMKGm2R28Kh3baXTWa8Bo5Yt8ybnL11-12ZJF8BbDB9w@mail.gmail.com>
-Subject: Re: [PATCH v22 09/13] mfd: psci-mfd: Add psci-reboot-mode child cell
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Sebastian Reichel <sre@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Christian Loehle <christian.loehle@arm.com>, Ulf Hansson <ulfh@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 1
+X-MS-TrafficTypeDiagnostic: AM1PEPF000252DA:EE_|DU4PR08MB11149:EE_|DU2PEPF0001E9C2:EE_|VI0PR08MB10654:EE_
+X-MS-Office365-Filtering-Correlation-Id: f76ebb66-7f75-4b24-3c55-08deb4baf801
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|11063799003|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info-Original: BS4aDGvAnVM7Mx27FU3zSC6LWd5/cjis0RsmT83EonuQcTifwzrpqjthsQFQSZcL8sAL7Cd8QxjYdEGAMTis1DHLqLQTkeSOi6VTNS0zD5d5RznO+xzUatAKRb3nQtT9jvFbRUt3pI/aaT7eJK8tI2v2oIcHoG6Mxg8ur+CJjpq1YEFjb8AXr81WeztosaNz3kOxKCS9ejEBuzAcWdlLZAHKzbTBvl9xfi1Bjs7UOuVUzYhMJPkK5QSdbP1rfyllAD4gwjk2YVAkeCluafIvYPJHbRbLWFKDzezrEM45piOcC+xggY6j/qNttHELBj4ggnsqfI6kaW2PeSqInsAeFVK4L4vJDIRVCN2KgQVkbe19TuXAElkzsRd1iowa/SGEaAHvYtJosbwDDQOxRkVCUeswGNS5AaWO8qsoKyPWecyZWH/AhoIn5hJgXn4qzc44kX0dJTyvDU5JeQ0kjAqpM7guKxq1SEsdyr08Fl0f1PWOgx3UoyY7M0KJS+rsPB5y9YFrCM+nub/Altr1qbZyO59bF3ASua/ZSBwxnnvAGha6ZuJh27dklwOjAm4cN8q1hTL+yMXpfZyOyggqaIGioW33kOtubk7JSw2jTlE8EUpD0HY3Lh44H34KXf00ojbcaRfQuQSZEirS7i5kVnMXdziEdOL4v7tGjdW8LrMlbQSmF5FewB+C8FUz3IfEIwhq2ob7KCIDE0+qejN+7Wxu06mqrMhtX/kdHbNZe/kbHX0=
+X-Forefront-Antispam-Report-Untrusted: CIP:172.205.89.229;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:nebula.arm.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(11063799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: Osm4bGXlcXtDU5LADBaAX2pXI9Htb2T+2YPYu/Nsseno92BjIrMoT9+6Atz+BagKRcH1RZLq20HTSzPO1T6TS+X6WeGaY5BKjo4sbw8gI+J5qnaNnwuZWKe7lNcHgnCu8DJ0YfcBOYFbxV7iROWmFotlrV3Dum/o1AXzz28zrR19mVznJnHSigTixRT6a7OLtdZa9bvNai+05EMyhJttTFDGAY+M/78C7J/Adp9WylxWzaB8JfdV9lxZNdEu9ryuEvuJZz4g777yKOpAUOVlFeQyq7q+akrPT0ZX+kLjVOlekXn0JKhh4lu7X8agfWDVP/Mq2ewnX0Tq9N2WyO1r4g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR08MB11149
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF0001E9C2.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b87c3933-a02c-4a2d-b42d-08deb4bad116
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|35042699022|82310400026|36860700016|376014|7416014|56012099003|22082099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: YB2UbuQoQuhCUg9p6I9Omti+wXr4vOCCVHUQk4DeB6aRAmdG4bmR8kmolkiJJAEtjnHbqZ6jKIHS5vGyKq2+v4VMWNU+YsL+9i4B1TBAo7QoHg8a6I40Szc3kCTcfBbQ6kPDUxbeMhqJE0peRVO5kt7i76mQs2OarU+pkuco9OHZxwMMPBMznIs1F3uo0yHwFZCq7zffspTHqwpGqI6XvHkH/R9YHJvg1arKXaolXgMGKuMm266O2Vrh8V2hd3j8icDCn3PUkO2k+7pYWs8ALvqChvhqGbgqgjxUbkJ6rFWK6zd7jjI5+zpMd/+4ol0d8Lu6oiEnDtOyIgNfFQFpxp3xn27kv5lMwDxyf1bCXFCe62ots/1N4w6CV6DB1VXnFPx59znK4Imob6WHw/uhop19oVCT5dcKFjLdUthrkLmDzr/mnIdIreZ9y77pSl0d+vWBCLpgXWdi1ZQgtjmS7A1FEtFnEieeWPuaRTCLWspE7cQ/UQxrT2nyAu1jhXU5znEyqBy1/BIdbcIOl939hXwacEZY8nIbQWDVI/g/8fuM4yLLkmxeDL4LUnRH607dqHDyF87720gxINdQok+8k0M7aB0hYO7eypZrXyvJsm70fAaW9Nyp7+8DvTW/l4olqCFOOqPEvRENQj2nnb6x81A0oeDoKRWgWTvICAfERsLyx4VmMQSUC2SlGM/bPipQ+qvF0U28BkTb4oZtA5VCoLaLiEcWY49mFckObyqQPtY=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(35042699022)(82310400026)(36860700016)(376014)(7416014)(56012099003)(22082099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: QsQGvmWU9g0NdYZA2Rr+Z5Fn7CkN/+xLYHOZrRih5ev6Gs1/DAc6+inSC8j3ntfnd2gyViKbdt0x3g/M+k/oCl8zmFyRuiHP3x00yCJVnetXLqJOajQRJQwUpwPQV/tjwyXSL6oobjaJvllRosYZSMZBA5UJOadT9AqVCX74xJVxnyk+xu6INkdFBSMt4Z2qg0kXok+5Qg4XZq/OsYH81hCtcI5zDqsuovTfL8Mo2Buk96LDxs7TmTDmT2pmdyVS4MUO9io+wK0ImAZhwMjSJUuZ20qmuVtyNIytFvnsRvgmvXZIC+zwnam5MGl0HEJCpsa7iY82waSNNpSUB0ecHRFmUPWfhlNK/vSgmx0nXkhd2E1t0JEijAElK2XHD7T+XMPAlIEARPvFO+aAQK9copBp/Q1gxBwqqnwsMtJY0vvghjFejnlgX/TJ6dMqGy6+
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 08:53:44.9917
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f76ebb66-7f75-4b24-3c55-08deb4baf801
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF0001E9C2.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB10654
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_015327_252589_8AAC1795 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20260518_095351_991662_8F90654E 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,78 +189,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 May 2026 16:25:50 +0200, Shivendra Pratap
-<shivendra.pratap@oss.qualcomm.com> said:
-> The PSCI "reboot-mode" node does not define a compatible because it is a
-> configuration of boot-states provided by the underlying firmware. With
-> the new firmware-node based cells in mfd-core, this node can now be
-> exposed as a proper child cell.
->
-> Add the psci-reboot-mode child cell to the psci-mfd driver and associate
-> the reboot-mode node as its firmware-node.
->
-> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/mfd/psci-mfd.c      | 18 ++++++++++++++++++
->  drivers/power/reset/Kconfig |  2 +-
->  2 files changed, 19 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/mfd/psci-mfd.c b/drivers/mfd/psci-mfd.c
-> index 7affd6bb09dd83452664edeccb09290fe4f43186..852d8e294a438d4ee6789c556d16a83739af2013 100644
-> --- a/drivers/mfd/psci-mfd.c
-> +++ b/drivers/mfd/psci-mfd.c
-> @@ -7,11 +7,29 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> +#include <linux/property.h>
-> +
-> +static struct fwnode_handle *psci_reboot_mode_get_child_fwnode(struct device *parent)
+Hi Andre,
+
+On Wed, Apr 29, 2026 at 04:13:37PM +0200, Andre Przywara wrote:
+
+> +#define SCMI_CHAN_FLAGS_OFS	0x10
+> +#define SCMI_CHAN_FLAGS_IRQ		BIT(0)
+> +#define SCMI_MSG_LENGTH_OFS	0x14
+> +#define SCMI_MSG_HEADER_OFS	0x18
+> +#define SCMI_MSG_PAYLOAD_OFS	0x1c
+
+I think this will not work for the ACPI PCC Type 3 MPAM Fb path.
+
+SCMI shared memory transport layout and ACPI Extended PCC subspace
+shared memory layout use different offsets for the flags, length, command,
+and payload fields.
+
+For Extended PCC subspace, the layout is:
+
+Flags   @ 0x04
+Length  @ 0x08
+Command @ 0x0c
+Payload @ 0x10
+
+SCMI shared memory layout uses:
+
+Flags   @ 0x10
+Length  @ 0x14
+Command @ 0x18
+Payload @ 0x1c
+
+You will need to use the extended PCC subspace layout for the ACPI path.
+
+> +static int mpam_fb_wait_for_channel(struct pcc_mbox_chan *chan,
+> +				    bool free)
 > +{
-> +	struct fwnode_handle *fwnode;
+> +	u32 status = free ? SCMI_CHAN_STATUS_FREE_BIT : 0;
+> +	u32 val;
 > +
-> +	fwnode = fwnode_get_named_child_node(dev_fwnode(parent), "reboot-mode");
-> +	if (!fwnode_device_is_available(fwnode)) {
-> +		fwnode_handle_put(fwnode);
-> +		fwnode = NULL;
-> +	}
-> +
-> +	return fwnode;
-
-Is this reference put anywhere once the cell is torn down?
-
-Bart
-
+> +	/*
+> +	 * The channel should really be free always at this point, as we take
+> +	 * a lock for every read or write request. Check the free bit anyway,
+> +	 * for good measure and to catch corner cases.
+> +	 */
+> +	return readl_poll_timeout(chan->shmem + SCMI_CHAN_STATUS_OFS, val,
+> +				  (val & SCMI_CHAN_STATUS_FREE_BIT) == status,
+> +				  1, 10000);
 > +}
->
->  static const struct mfd_cell psci_cells[] = {
->  	{
->  		.name = "psci-cpuidle-domain",
->  	},
-> +	{
-> +		.name = "psci-reboot-mode",
-> +		.get_child_fwnode = psci_reboot_mode_get_child_fwnode,
-> +	},
->  };
->
->  static int psci_mfd_probe(struct platform_device *pdev)
-> diff --git a/drivers/power/reset/Kconfig b/drivers/power/reset/Kconfig
-> index d9d1f768b8691abc3b32f2675519f2ddbaf19b84..79559206d5852ae5eae4c8eb2c390901cea7531c 100644
-> --- a/drivers/power/reset/Kconfig
-> +++ b/drivers/power/reset/Kconfig
-> @@ -350,7 +350,7 @@ config NVMEM_REBOOT_MODE
->
->  config PSCI_REBOOT_MODE
->  	bool "PSCI reboot mode driver"
-> -	depends on OF && ARM_PSCI_FW
-> +	depends on OF && ARM_PSCI_FW && MFD_PSCI
->  	select REBOOT_MODE
->  	help
->  	  Say y here will enable PSCI reboot mode driver. This gets
->
-> --
-> 2.34.1
->
->
+
+This also assumes SCMI channel status completion semantics in shared memory.
+For PCC Type 3 transport, completion should follow PCC Type 3 completion mechanisms.
+
+Thanks,
+Niyas
 
