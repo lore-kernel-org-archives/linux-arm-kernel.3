@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144D2CD4F48
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5432CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NBatxZ7rLnoE7+1Q0P79q/wyf+V1W3H6ZFP+TdJvcUw=; b=IqMe1fhOm+4a/hRbHRO3nLYDKf
-	AK5vwTWOUWXszhuRI/pJY+p6PeMMNmYLhA3r4fSYNL1zUdercxmC431ByY6v8o2Zg2HaqR51FK0dX
-	8BMpPuuj8/APmFb9BcWUHPB/M4i99+26Ayu09e4Uu3EDvN7B4eL03gSaEBcDCMbDH75ZSdyxMIKpd
-	PE2MdguCoina3aI6Df9NpR6Ng5a1LFVycMDiWLXTAEFEoqwwHoMHP/GGWVHPl/ukFt700gvxNgcLW
-	MsEP0ydFlc85MdZdMoPqq1d1DmDKYJKOe13Wtt7fvVnN2vSgVE13e0RSUHLUBDbLmexqPoaLDKcQm
-	rVdY1hHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HsCQcaBl/J5SnD9OVdDsExA6U4aXBq1UPmmg8tgJyV0=; b=gwT7Q8JUSA3vc0c0osC4WGqfs6
+	cOnruKKhaYh+ts6oYdJsJltTSFYBE6KW0vswCI8CINcq1mu2N2wkrRTmmPyIXtfS+GQzExsHRz4Ai
+	RYd4ENCQvHPrQjrD8tCtnLRRdNJ3e2rNeiWslN8q38D7HgrWRwpEqAYre+vWHWs547GWL5xa3eB6I
+	RyBzKOwPx7o8nc8a4PhgTzWsIUzebN5Qp+01Wm4TtlFVfRPPt6YV0wdAiuELtCzdxBIWrUoxENHVa
+	wKTbC/xDfDll3FDUnpeAjcZECOTbnyiy5AMnqqP8Mk83JpVH98UKkDQXT76+HSS/OT0o7MaNhRuv3
+	LB3cVDTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsFS-0000000EYf5-00fA;
-	Mon, 18 May 2026 07:18:46 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wOsHR-0000000EZ2Q-1mwK;
+	Mon, 18 May 2026 07:20:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsFP-0000000EYdM-0MJo
+	id 1wOsHP-0000000EZ26-3luO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 07:20:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=HsCQcaBl/J5SnD9OVdDsExA6U4aXBq1UPmmg8tgJyV0=; b=UcTOWo+PzacyEunDMK41pwalFV
+	8Cb5ZK0KufVGQDqEHp5w5QlgX2P15pWuxKS7ykXVtJAjFGltd6wj2/HwDOPpNgv3IwGOiyD78saiK
+	Op+YIvgU6ldVHCBl51gPcuKOM31mGllRNU6foDo5h9XS3Z63jR6fTYO5bEU5eWKVQiIu2Dcytmnhu
+	C3nT0ZU+Wn3XrGcikTbc12M0SoxIGBhHneDHx47DSywHaOZoDoqvi9b+9OgWZvb/V7YSchjVQwySy
+	yu0ha7XRLousGwSWqYjW3/WXjufP/HnINweh1tjUMQ5QgsQvbPFmtSqEFaw4yaOeftSFt5OlUuxkE
+	BtkHxv8Q==;
+Received: from mout01.posteo.de ([185.67.36.65])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOsHF-0000000A9GM-2Xy6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 07:18:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1779088717;
-	bh=NBatxZ7rLnoE7+1Q0P79q/wyf+V1W3H6ZFP+TdJvcUw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JE4ggE5lkow4d55Twm2ryEHyY5CUc74EIJJLkQoT3K3HEeE9tJ82zBPEmZF1t1uzn
-	 YLDQCOFReJGREX8XWUxUyJdd1d8hr/TbZVskiTkOpKr8rMPlfyFaHckU03vEB+B6no
-	 ZGav6mClT2OjBe5p2FjnaBytwK2sqMFM3fKLmKGIHUfOHQrOw5pXEha0zDH7GjRvSh
-	 aWcuzaMyGv20fbfsJasgY+8hn2GJwA8AaZkAVEiFqPuBkagj5hoJgmHvFmiDE5VrGf
-	 XCd5jlkLylgw+a4X33JELrSBGr+rjurP9HRLs2uTo1nA32mY5UdwP8IZG4am3xN9K+
-	 9w6WdBg2yUbHg==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 39B2B6025D;
-	Mon, 18 May 2026 15:18:37 +0800 (AWST)
-Message-ID: <39b9a80fe4f49d72cefb8d3f8f1bb3776b9c4226.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kyle Hsieh <kylehsieh1995@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
-	 <joel@jms.id.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Date: Mon, 18 May 2026 16:48:36 +0930
-In-Reply-To: <20260424-ventura2_initial_dts-v4-2-806b00ea4314@gmail.com>
-References: <20260424-ventura2_initial_dts-v4-0-806b00ea4314@gmail.com>
-	 <20260424-ventura2_initial_dts-v4-2-806b00ea4314@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Mon, 18 May 2026 07:20:40 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 1937E24002B
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 09:20:26 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
+	t=1779088826; bh=HsCQcaBl/J5SnD9OVdDsExA6U4aXBq1UPmmg8tgJyV0=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:From:Content-Type:
+	 Content-Transfer-Encoding:From;
+	b=h5I26kyQKCoFpo1K3oXXPDgjrNi2cYOFOKpAC0YzXO3olpabdlTHqQTT/+qmPOxjP
+	 b3FNu5SyMMhHyg3y3qzmRt2R5dkZhaw4HuJFXECmgr+Lsu6AoEApgCIdGwDIGbJtLq
+	 EjBgaFN+7KOazMyLub42oDM7sK5TjeMS+R6tUJo7Uz+eI1NfOwrc+m1QRGUjO1raB1
+	 cBQmaVIjxHdUBjHce59JmHeKjEBxfdaQJWe8o8P6SPi3zkmr6evTKp00Ke2W9ZQmH2
+	 lKALp2TWpP4gZDT7WB5fdwLH1gNgWEqRszgil0eH9q32TK0CiBQieWpmzbbf69WKKT
+	 gr130iC07ZM8Q==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4gJq2c2sxsz6twZ;
+	Mon, 18 May 2026 09:20:24 +0200 (CEST)
+Message-ID: <466b32f4-29f9-4f64-ad38-27f770f981d7@posteo.net>
+Date: Mon, 18 May 2026 07:20:25 +0000
 MIME-Version: 1.0
+Subject: Re: [PATCH v2] tty: serial: atmel: Ignore chars when CREAD is cleared
+To: Rakesh Alasyam <alasyamrakesh77@gmail.com>, gregkh@linuxfoundation.org
+Cc: richard.genoud@gmail.com, jirislaby@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, linux-serial@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <2026051106-obliged-dismount-d85f@gregkh>
+ <20260511165913.36467-1-alasyamrakesh77@gmail.com>
+From: Richard GENOUD <richard.genoud@posteo.net>
+Content-Language: en-US, fr
+In-Reply-To: <20260511165913.36467-1-alasyamrakesh77@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_001843_393456_9462420E 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20260518_082038_096926_18EB2FE2 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,520 +91,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kyle,
+Hi Rakesh,
 
-Firstly, are you trying to represent multiple revisions of the hardware
-design in this devicetree? I'm curious due to the 'legacy' labels
-below.
+Le 11/05/2026 à 18:59, Rakesh Alasyam a écrit :
+> Ignore received characters when CREAD is cleared by adding RXRDY
+> to ignore_status_mask.
+> 
+> This replaces an existing TODO in the driver.
+> 
+> Tested on hardware.
+Could you be more precise?
+Which board(s) did you test with? (e.g. sama5d3_explained, custom...)
+Which SoC? (sam9g35, sama5d2...)
+With DMA, PDC or none?
 
-On Fri, 2026-04-24 at 17:30 +0800, Kyle Hsieh wrote:
-> Add linux device tree entry related to the Meta(Facebook) rmc-node.
-> The system use an AT2600 BMC.
-> This node is named "ventura2".
->=20
-> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
+Regards,
+Richard
+> 
+> Signed-off-by: Rakesh Alasyam <alasyamrakesh77@gmail.com>
+> 
 > ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../dts/aspeed/aspeed-bmc-facebook-ventura2.dts=C2=A0=C2=A0=C2=A0 |=
- 2925 ++++++++++++++++++++
-> =C2=A02 files changed, 2926 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
-/Makefile
-> index 9adf9278dc94..6b96997629d4 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> =C2=A0	aspeed-bmc-facebook-minipack.dtb \
-> =C2=A0	aspeed-bmc-facebook-santabarbara.dtb \
-> =C2=A0	aspeed-bmc-facebook-tiogapass.dtb \
-> +	aspeed-bmc-facebook-ventura2.dtb \
-> =C2=A0	aspeed-bmc-facebook-wedge40.dtb \
-> =C2=A0	aspeed-bmc-facebook-wedge100.dtb \
-> =C2=A0	aspeed-bmc-facebook-wedge400-data64.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts b/=
-arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> new file mode 100644
-> index 000000000000..8d4ddb473862
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> @@ -0,0 +1,2925 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (c) 2023 Facebook Inc.
-> +/dts-v1/;
-> +
-> +#include "aspeed-g6.dtsi"
-> +#include <dt-bindings/i2c/i2c.h>
-> +#include <dt-bindings/gpio/aspeed-gpio.h>
-> +
-> +/ {
-> +	model =3D "Facebook Ventura2 RMC";
-> +	compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
-> +	aliases {
-> +		serial2 =3D &uart3;
-> +		serial4 =3D &uart5;
-> +
-> +		/*
-> +		 * i2c switch 0-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 16-23.
-> +		 */
-> +		i2c16 =3D &i2c0mux0ch0;
-> +		i2c17 =3D &i2c0mux0ch1;
-> +		i2c18 =3D &i2c0mux0ch2;
-> +		i2c19 =3D &i2c0mux0ch3;
-> +		i2c20 =3D &i2c0mux0ch4;
-> +		i2c21 =3D &i2c0mux0ch5;
-> +		i2c22 =3D &i2c0mux0ch6;
-> +		i2c23 =3D &i2c0mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 1-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 24-31.
-> +		 */
-> +		i2c24 =3D &i2c1mux0ch0;
-> +		i2c25 =3D &i2c1mux0ch1;
-> +		i2c26 =3D &i2c1mux0ch2;
-> +		i2c27 =3D &i2c1mux0ch3;
-> +		i2c28 =3D &i2c1mux0ch4;
-> +		i2c29 =3D &i2c1mux0ch5;
-> +		i2c30 =3D &i2c1mux0ch6;
-> +		i2c31 =3D &i2c1mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 4-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 32-39.
-> +		 */
-> +		i2c32 =3D &i2c4mux0ch0;
-> +		i2c33 =3D &i2c4mux0ch1;
-> +		i2c34 =3D &i2c4mux0ch2;
-> +		i2c35 =3D &i2c4mux0ch3;
-> +		i2c36 =3D &i2c4mux0ch4;
-> +		i2c37 =3D &i2c4mux0ch5;
-> +		i2c38 =3D &i2c4mux0ch6;
-> +		i2c39 =3D &i2c4mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 5-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 40-47.
-> +		 */
-> +		i2c40 =3D &i2c5mux0ch0;
-> +		i2c41 =3D &i2c5mux0ch1;
-> +		i2c42 =3D &i2c5mux0ch2;
-> +		i2c43 =3D &i2c5mux0ch3;
-> +		i2c44 =3D &i2c5mux0ch4;
-> +		i2c45 =3D &i2c5mux0ch5;
-> +		i2c46 =3D &i2c5mux0ch6;
-> +		i2c47 =3D &i2c5mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 8-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 48-55.
-> +		 */
-> +		i2c48 =3D &i2c8mux0ch0;
-> +		i2c49 =3D &i2c8mux0ch1;
-> +		i2c50 =3D &i2c8mux0ch2;
-> +		i2c51 =3D &i2c8mux0ch3;
-> +		i2c52 =3D &i2c8mux0ch4;
-> +		i2c53 =3D &i2c8mux0ch5;
-> +		i2c54 =3D &i2c8mux0ch6;
-> +		i2c55 =3D &i2c8mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 11-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 56-63.
-> +		 */
-> +		i2c56 =3D &i2c11mux0ch0;
-> +		i2c57 =3D &i2c11mux0ch1;
-> +		i2c58 =3D &i2c11mux0ch2;
-> +		i2c59 =3D &i2c11mux0ch3;
-> +		i2c60 =3D &i2c11mux0ch4;
-> +		i2c61 =3D &i2c11mux0ch5;
-> +		i2c62 =3D &i2c11mux0ch6;
-> +		i2c63 =3D &i2c11mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 13-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 64-71.
-> +		 */
-> +		i2c64 =3D &i2c13mux0ch0;
-> +		i2c65 =3D &i2c13mux0ch1;
-> +		i2c66 =3D &i2c13mux0ch2;
-> +		i2c67 =3D &i2c13mux0ch3;
-> +		i2c68 =3D &i2c13mux0ch4;
-> +		i2c69 =3D &i2c13mux0ch5;
-> +		i2c70 =3D &i2c13mux0ch6;
-> +		i2c71 =3D &i2c13mux0ch7;
-> +
-> +		/*
-> +		 * i2c switch 15-0077, pca9548, 8 child channels assigned
-> +		 * with bus number 72-79.
-> +		 */
-> +		i2c72 =3D &i2c15mux0ch0;
-> +		i2c73 =3D &i2c15mux0ch1;
-> +		i2c74 =3D &i2c15mux0ch2;
-> +		i2c75 =3D &i2c15mux0ch3;
-> +		i2c76 =3D &i2c15mux0ch4;
-> +		i2c77 =3D &i2c15mux0ch5;
-> +		i2c78 =3D &i2c15mux0ch6;
-> +		i2c79 =3D &i2c15mux0ch7;
+> 
+> v2:
+> - Add blank line before comment
+> - Tested on hardware
+> ---
+>   drivers/tty/serial/atmel_serial.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
+> index 5d8c1cfc1c60..5c756dc904b0 100644
+> --- a/drivers/tty/serial/atmel_serial.c
+> +++ b/drivers/tty/serial/atmel_serial.c
+> @@ -2184,7 +2184,8 @@ static void atmel_set_termios(struct uart_port *port,
+>   		if (termios->c_iflag & IGNPAR)
+>   			port->ignore_status_mask |= ATMEL_US_OVRE;
+>   	}
+> -	/* TODO: Ignore all characters if CREAD is set.*/
+> +	if (!(termios->c_cflag & CREAD))
+> +		port->ignore_status_mask |= ATMEL_US_RXRDY;
+>   
+>   	/* update the per-port timeout */
+>   	uart_update_timeout(port, termios->c_cflag, baud);
 
-Can you please add comments justifying why all of these aliases are
-necessary given a number of them are for busses with no devices
-described under them?
-
-> +	};
-> +
-> +	chosen {
-> +		stdout-path =3D "serial4:57600n8";
-> +	};
-> +
-> +	fan_leds {
-> +		compatible =3D "gpio-leds";
-> +
-> +		led-0 {
-> +			label =3D "fcb0fan0_ledd1_blue";
-
-Given the labels are exposed to userspace and is something applications
-likely consume, is the double 'd' in led intentional?
-
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander0 0 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-1 {
-> +			label =3D "fcb0fan1_ledd2_blue";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander0 1 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-2 {
-> +			label =3D "fcb0fan2_ledd3_blue";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander1 0 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-3 {
-> +			label =3D "fcb0fan3_ledd4_blue";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander1 1 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-4 {
-> +			label =3D "fcb0fan0_ledd1_amber";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander0 4 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-5 {
-> +			label =3D "fcb0fan1_ledd2_amber";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander0 5 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-6 {
-> +			label =3D "fcb0fan2_ledd3_amber";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander1 4 GPIO_ACTIVE_LOW>;
-> +		};
-> +
-> +		led-7 {
-> +			label =3D "fcb0fan3_ledd4_amber";
-> +			default-state =3D "off";
-> +			gpios =3D <&fan_io_expander1 5 GPIO_ACTIVE_LOW>;
-> +		};
-> +	};
-> +
-
-...
-
-> +
-> +&fmc {
-> +	status =3D "okay";
-> +	flash@0 {
-> +		status =3D "okay";
-> +		m25p,fast-read;
-> +		label =3D "bmc";
-> +		spi-max-frequency =3D <50000000>;
-> +		#include "openbmc-flash-layout-128.dtsi"
-> +	};
-> +	flash@1 {
-> +		status =3D "okay";
-> +		m25p,fast-read;
-> +		label =3D "alt-bmc";
-> +		spi-max-frequency =3D <50000000>;
-
-Perhaps include the alternate flash layout dtsi here?
-
-> +	};
-> +};
-> +
-> +&peci0 {
-
-Can you please order the nodes alphabetically. P is not between F and
-G.
-
-> +	status =3D "okay";
-> +};
-> +
->=20
-
-...
-
-> +
-> +&i2c10 {
-> +	status =3D "okay";
-> +
-> +	legacy_prsnt_io_expander0: gpio@11 {
-
-Why 'legacy'?
-
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x11>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_PRSNT1_N_BUF_R", "TRAY_PRSNT2_N_BUF_R",
-> +			"TRAY_PRSNT3_N_BUF_R", "TRAY_PRSNT4_N_BUF_R",
-> +			"TRAY_PRSNT5_N_BUF_R", "TRAY_PRSNT6_N_BUF_R",
-> +			"TRAY_PRSNT7_N_BUF_R", "TRAY_PRSNT8_N_BUF_R",
-> +			"TRAY_PRSNT9_N_BUF_R", "TRAY_PRSNT10_N_BUF_R",
-> +			"TRAY_PRSNT11_N_BUF_R", "TRAY_PRSNT12_N_BUF_R",
-> +			"TRAY_PRSNT13_N_BUF_R", "TRAY_PRSNT14_N_BUF_R",
-> +			"TRAY_PRSNT15_N_BUF_R", "TRAY_PRSNT16_N_BUF_R";
-> +	};
-> +
-> +	legacy_prsnt_io_expander1: gpio@12 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x12>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_PRSNT17_N_BUF_R", "TRAY_PRSNT18_N_BUF_R",
-> +			"TRAY_PRSNT19_N_BUF_R", "TRAY_PRSNT20_N_BUF_R",
-> +			"TRAY_PRSNT21_N_BUF_R", "TRAY_PRSNT22_N_BUF_R",
-> +			"TRAY_PRSNT23_N_BUF_R", "TRAY_PRSNT24_N_BUF_R",
-> +			"TRAY_PRSNT25_N_BUF_R", "TRAY_PRSNT26_N_BUF_R",
-> +			"TRAY_PRSNT27_N_BUF_R", "TRAY_PRSNT28_N_BUF_R",
-> +			"TRAY_PRSNT29_N_BUF_R", "TRAY_PRSNT30_N_BUF_R",
-> +			"TRAY_PRSNT31_N_BUF_R", "TRAY_PRSNT32_N_BUF_R";
-> +	};
-> +
-> +	legacy_prsnt_io_expander2: gpio@13 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x13>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_PRSNT33_N_BUF_R", "TRAY_PRSNT34_N_BUF_R",
-> +			"TRAY_PRSNT35_N_BUF_R", "TRAY_PRSNT36_N_BUF_R",
-> +			"TRAY_PRSNT37_N_BUF_R", "TRAY_PRSNT38_N_BUF_R",
-> +			"TRAY_PRSNT39_N_BUF_R", "TRAY_PRSNT40_N_BUF_R",
-> +			"", "",
-> +			"", "",
-> +			"", "",
-> +			"", "";
-> +	};
-> +
-> +	power-monitor@14 {
-> +		compatible =3D "infineon,xdp710";
-> +		reg =3D <0x14>;
-> +	};
-> +
-> +	legacy_pwrgd_io_expander1: gpio@15 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x15>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_PWRGD17_N_BUF_R", "TRAY_PWRGD18_N_BUF_R",
-> +			"TRAY_PWRGD19_N_BUF_R", "TRAY_PWRGD20_N_BUF_R",
-> +			"TRAY_PWRGD21_N_BUF_R", "TRAY_PWRGD22_N_BUF_R",
-> +			"TRAY_PWRGD23_N_BUF_R", "TRAY_PWRGD24_N_BUF_R",
-> +			"TRAY_PWRGD25_N_BUF_R", "TRAY_PWRGD26_N_BUF_R",
-> +			"TRAY_PWRGD27_N_BUF_R", "TRAY_PWRGD28_N_BUF_R",
-> +			"TRAY_PWRGD29_N_BUF_R", "TRAY_PWRGD30_N_BUF_R",
-> +			"TRAY_PWRGD31_N_BUF_R", "TRAY_PWRGD32_N_BUF_R";
-> +	};
-> +
-> +	legacy_pwrgd_io_expander2: gpio@16 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x16>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_PWRGD33_N_BUF_R", "TRAY_PWRGD34_N_BUF_R",
-> +			"TRAY_PWRGD35_N_BUF_R", "TRAY_PWRGD36_N_BUF_R",
-> +			"TRAY_PWRGD37_N_BUF_R", "TRAY_PWRGD38_N_BUF_R",
-> +			"TRAY_PWRGD39_N_BUF_R", "TRAY_PWRGD40_N_BUF_R",
-> +			"", "",
-> +			"", "",
-> +			"", "",
-> +			"", "";
-> +	};
-> +
-> +	legacy_leak_io_expander0: gpio@17 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x17>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_LEAK_DETECT1_N_BUF_R", "TRAY_LEAK_DETECT2_N_BUF_R",
-> +			"TRAY_LEAK_DETECT3_N_BUF_R", "TRAY_LEAK_DETECT4_N_BUF_R",
-> +			"TRAY_LEAK_DETECT5_N_BUF_R", "TRAY_LEAK_DETECT6_N_BUF_R",
-> +			"TRAY_LEAK_DETECT7_N_BUF_R", "TRAY_LEAK_DETECT8_N_BUF_R",
-> +			"TRAY_LEAK_DETECT9_N_BUF_R", "TRAY_LEAK_DETECT10_N_BUF_R",
-> +			"TRAY_LEAK_DETECT11_N_BUF_R", "TRAY_LEAK_DETECT12_N_BUF_R",
-> +			"TRAY_LEAK_DETECT13_N_BUF_R", "TRAY_LEAK_DETECT14_N_BUF_R",
-> +			"TRAY_LEAK_DETECT15_N_BUF_R", "TRAY_LEAK_DETECT16_N_BUF_R";
-> +	};
-> +
-> +	legacy_leak_io_expander1: gpio@18 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x18>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_LEAK_DETECT17_N_BUF_R", "TRAY_LEAK_DETECT18_N_BUF_R",
-> +			"TRAY_LEAK_DETECT19_N_BUF_R", "TRAY_LEAK_DETECT20_N_BUF_R",
-> +			"TRAY_LEAK_DETECT21_N_BUF_R", "TRAY_LEAK_DETECT22_N_BUF_R",
-> +			"TRAY_LEAK_DETECT23_N_BUF_R", "TRAY_LEAK_DETECT24_N_BUF_R",
-> +			"TRAY_LEAK_DETECT25_N_BUF_R", "TRAY_LEAK_DETECT26_N_BUF_R",
-> +			"TRAY_LEAK_DETECT27_N_BUF_R", "TRAY_LEAK_DETECT28_N_BUF_R",
-> +			"TRAY_LEAK_DETECT29_N_BUF_R", "TRAY_LEAK_DETECT30_N_BUF_R",
-> +			"TRAY_LEAK_DETECT31_N_BUF_R", "TRAY_LEAK_DETECT32_N_BUF_R";
-> +	};
-> +
-> +	legacy_leak_io_expander2: gpio@19 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x19>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_LEAK_DETECT33_N_BUF_R", "TRAY_LEAK_DETECT34_N_BUF_R",
-> +			"TRAY_LEAK_DETECT35_N_BUF_R", "TRAY_LEAK_DETECT36_N_BUF_R",
-> +			"TRAY_LEAK_DETECT37_N_BUF_R", "TRAY_LEAK_DETECT38_N_BUF_R",
-> +			"TRAY_LEAK_DETECT39_N_BUF_R", "TRAY_LEAK_DETECT40_N_BUF_R",
-> +			"", "",
-> +			"", "",
-> +			"", "",
-> +			"", "";
-> +	};
-> +
-> +	legacy_small_leak_io_expander0: gpio@1a {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x1a>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_SMALL_LEAK1_N_BUF_R", "TRAY_SMALL_LEAK2_N_BUF_R",
-> +			"TRAY_SMALL_LEAK3_N_BUF_R", "TRAY_SMALL_LEAK4_N_BUF_R",
-> +			"TRAY_SMALL_LEAK5_N_BUF_R", "TRAY_SMALL_LEAK6_N_BUF_R",
-> +			"TRAY_SMALL_LEAK7_N_BUF_R", "TRAY_SMALL_LEAK8_N_BUF_R",
-> +			"TRAY_SMALL_LEAK9_N_BUF_R", "TRAY_SMALL_LEAK10_N_BUF_R",
-> +			"TRAY_SMALL_LEAK11_N_BUF_R", "TRAY_SMALL_LEAK12_N_BUF_R",
-> +			"TRAY_SMALL_LEAK13_N_BUF_R", "TRAY_SMALL_LEAK14_N_BUF_R",
-> +			"TRAY_SMALL_LEAK15_N_BUF_R", "TRAY_SMALL_LEAK16_N_BUF_R";
-> +	};
-> +
-> +	legacy_small_leak_io_expander1: gpio@1b {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x1b>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_SMALL_LEAK17_N_BUF_R", "TRAY_SMALL_LEAK18_N_BUF_R",
-> +			"TRAY_SMALL_LEAK19_N_BUF_R", "TRAY_SMALL_LEAK20_N_BUF_R",
-> +			"TRAY_SMALL_LEAK21_N_BUF_R", "TRAY_SMALL_LEAK22_N_BUF_R",
-> +			"TRAY_SMALL_LEAK23_N_BUF_R", "TRAY_SMALL_LEAK24_N_BUF_R",
-> +			"TRAY_SMALL_LEAK25_N_BUF_R", "TRAY_SMALL_LEAK26_N_BUF_R",
-> +			"TRAY_SMALL_LEAK27_N_BUF_R", "TRAY_SMALL_LEAK28_N_BUF_R",
-> +			"TRAY_SMALL_LEAK29_N_BUF_R", "TRAY_SMALL_LEAK30_N_BUF_R",
-> +			"TRAY_SMALL_LEAK31_N_BUF_R", "TRAY_SMALL_LEAK32_N_BUF_R";
-> +	};
-> +
-> +	legacy_small_leak_io_expander2: gpio@1c {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x1c>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_SMALL_LEAK33_N_BUF_R", "TRAY_SMALL_LEAK34_N_BUF_R",
-> +			"TRAY_SMALL_LEAK35_N_BUF_R", "TRAY_SMALL_LEAK36_N_BUF_R",
-> +			"TRAY_SMALL_LEAK37_N_BUF_R", "TRAY_SMALL_LEAK38_N_BUF_R",
-> +			"TRAY_SMALL_LEAK39_N_BUF_R", "TRAY_SMALL_LEAK40_N_BUF_R",
-> +			"", "",
-> +			"", "",
-> +			"", "",
-> +			"", "";
-> +	};
-> +
-> +	legacy_pwrgd_io_expander0: gpio@28 {
-> +		compatible =3D "nxp,pca9555";
-> +		reg =3D <0x28>;
-> +		gpio-controller;
-> +		#gpio-cells =3D <2>;
-> +		interrupt-parent =3D <&sgpiom0>;
-> +		interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		gpio-line-names =3D
-> +			"TRAY_PWRGD1_N_BUF_R", "TRAY_PWRGD2_N_BUF_R",
-> +			"TRAY_PWRGD3_N_BUF_R", "TRAY_PWRGD4_N_BUF_R",
-> +			"TRAY_PWRGD5_N_BUF_R", "TRAY_PWRGD6_N_BUF_R",
-> +			"TRAY_PWRGD7_N_BUF_R", "TRAY_PWRGD8_N_BUF_R",
-> +			"TRAY_PWRGD9_N_BUF_R", "TRAY_PWRGD10_N_BUF_R",
-> +			"TRAY_PWRGD11_N_BUF_R", "TRAY_PWRGD12_N_BUF_R",
-> +			"TRAY_PWRGD13_N_BUF_R", "TRAY_PWRGD14_N_BUF_R",
-> +			"TRAY_PWRGD15_N_BUF_R", "TRAY_PWRGD16_N_BUF_R";
-> +	};
-> +
-
-...
-
-> +
-> +&mdio0 {
-> +	status =3D "okay";
-> +};
-> +
-> +&peci0 {
-> +	status =3D "okay";
-> +};
-
-Ah, so the earlier peci node is redundant. Can you please remove it?
-
-Andrew
 
