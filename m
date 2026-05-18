@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE84CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 16:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57F56CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 16:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GQ3AyNwcHkDwyotJKfmaIM16qng3evSu5qPs3Xeesp0=; b=jryHOWLAvBAzgmUMyH/6Pn5NvC
-	Hbk4Vk2Z9sgPO8XzxTyE88cJbdPh0CzLUsjbMeMTGNleExuO/evNov5chO9qzYn/2ilw3PvoEu3S/
-	c1rCvEP5dQhxztm9Va8tfjTj2GHfiBLtS9E4McjF2V9Nxht8r5nWmHs0sfZbj6YAaQ17XhM4Pwst5
-	1DkFIQByCTy+OVDwxa8ye5yoluTiwNI6UhZD78G4mJ/IjzcUtVPS1gpXIIXDz4d5b1tjSUVS2ApAx
-	Ns5CxqArGqR2g4vRR6AhDZGNJq/4IgkpijWkyo5HQn17K+7xdinmklz66Ro0pbDIEOEyGSPd8UKeP
-	y82zExBA==;
+	bh=3jGoaYLrIdfY8fxCt8RE2gFSjMDiP51+IVix3OYHhPU=; b=ddODfI1CO3rJB0biUZJE3sqtli
+	GPja9jAF2qIT53as5U7LYYHv5gJ6588X3iN91cuuTWjeaZBztGbLKyXUnsMNPsPeB0YNbUsvyw6Zm
+	n29g5BTa/to6l2IbUC7A/AiCuV2ya0+4WyIlgWapZDojfIUBf1wgXAJSXpnVXnwiQ1YPnPyGm4KKn
+	DE2fn8pM2QE43EYY59ZY5wIcz3Izu2rU1MBWXsuNdBbOAITtLsRRaGO7kLeNVR3ZLUqmGiPWr2wik
+	S9hvyrklOC7Gt62C3Q05xUrYt3Zz3345REAkx0Ju/dKEtCaG/2pyPvS681jzO1maohzk9S3DzIwqq
+	a56QrkLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0f3-0000000GHHi-30EH;
-	Mon, 18 May 2026 16:17:45 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wP0pC-0000000GIYV-0EL1;
+	Mon, 18 May 2026 16:28:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0f2-0000000GHHE-2I5q;
-	Mon, 18 May 2026 16:17:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GQ3AyNwcHkDwyotJKfmaIM16qng3evSu5qPs3Xeesp0=; b=fU3+SCOFfUUlkOUmyIuTsbnywe
-	89kqfFg93eDsIn1f4q6CEtRQBpKAuBqXFwczvVeUyK1MqiAmO/Is7GNS6SQajMkq/Ou4EEPXO5gjd
-	QG3X5RgIMMIHaZt2k6X7tQJKlMJUiidUWjRLLsCK96ufITmHS/etRFdCcKGXPu9m3Y/9455P1VY+7
-	yI95TKqa8/ath+SxD9IFOJNLaKt8Sstckq3piVjXElv/WkNhCMR7wKydSnX4sVdCnnWMjLyWBjQ2b
-	4vkZR2poj4v3QZS8BJi9xbkgnOoh2L9CaUbogqrM9GJMbxKImRWLaIAgDeo+jPw7Sed1HBtUwdBx+
-	aOLN/sjA==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0em-00000004wNm-3PR8;
-	Mon, 18 May 2026 16:17:28 +0000
-Date: Mon, 18 May 2026 17:17:28 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, surenb@google.com,
-	akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org,
-	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org,
-	mhocko@suse.com, jack@suse.cz, pfalcato@suse.de,
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com,
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org,
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com,
-	bhe@redhat.com, youngjun.park@lge.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <ags7mPK7Ong0ZsBf@casper.infradead.org>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+	id 1wP0p9-0000000GIY2-0GAL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 16:28:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 800B54343D;
+	Mon, 18 May 2026 16:28:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6FF6C2BCB7;
+	Mon, 18 May 2026 16:28:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779121690;
+	bh=3jGoaYLrIdfY8fxCt8RE2gFSjMDiP51+IVix3OYHhPU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=p7ExYI8TItuqZz95XMRoZ60wsT3UBHH2czPLr5/hOQB77QY5jQITBge2xlNIE8AU5
+	 Cd0yMJccZO37BZlp4CSoOlnL6pKqrLS9AB00DVqJEdwEElj1djSAdXCcCbPfLBYDIc
+	 y0wr49RKJ5QoWDhKZCXz9PsOGJtOkdPnpO67XXfslPcJrojB6I2crWCJuJVyshJ5mp
+	 /JAVg1+isUTuinLFcZ2Ttug/pj3bhbuIL2qERaPCyvdFsE7ur2Ak8laaFj31/A6+Dq
+	 wBfAvnmllN92N02lhiySqatuyuNrOXtfqogL0yUJKMjI1Ji+FdUhSa7OSp76aK+0fQ
+	 XOLggQ0TPB4OQ==
+Date: Mon, 18 May 2026 17:28:05 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Neil Cheng <neilcheng0417@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	joel@jms.id.au, andrew@codeconstruct.com.au,
+	geert+renesas@glider.be, magnus.damm@gmail.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: Add Meta Rainiera6 board
+Message-ID: <20260518-contented-untimed-85b12903469f@spud>
+References: <cover.1779088499.git.neilcheng0417@gmail.com>
+ <4f7aee0a2dfc44770347ccc82e54820e7b35317c.1779088499.git.neilcheng0417@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="D4Ni9Iy8zbLh/XVa"
 Content-Disposition: inline
-In-Reply-To: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+In-Reply-To: <4f7aee0a2dfc44770347ccc82e54820e7b35317c.1779088499.git.neilcheng0417@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260518_092811_152630_41B74C1A 
+X-CRM114-Status: UNSURE (   6.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 07:25:54PM +0800, Barry Song wrote:
-> We have clearly observed that the `fork()` operations of many
-> popular Android apps, such as iQiyi, Baidu Tieba, and 10086,
-> end up waiting on page-fault (PF) I/O when the VMA lock is
-> held during I/O operations. This has already become a
-> practical issue. I also believe this can lead to chained
-> waiting, since the global `mmap_lock` blocks all threads that
-> need to acquire it.
 
-It's always been a terrible idea to call fork() from a multithreaded
-application.  For example, this question:
+--D4Ni9Iy8zbLh/XVa
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-https://stackoverflow.com/questions/53601200/calling-fork-on-a-multithreaded-process
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-or this lwn thread: https://lwn.net/Articles/674660/
+--D4Ni9Iy8zbLh/XVa
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Do we have any insight into why these applications are doing this
-horrible thing?
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCags+FQAKCRB4tDGHoIJi
+0h/xAQD/GO09ESffxZeEWy0y0qDA2FYxyklacN0+YEI/W2UZ3wD9EAzOZtufjk4m
+QRtp9ItGZJ9m+ezm/FyqrNQTH/CIlg4=
+=dcZV
+-----END PGP SIGNATURE-----
+
+--D4Ni9Iy8zbLh/XVa--
 
