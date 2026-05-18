@@ -4,76 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8285ACD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC6DCD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5fhFev+xWAooVTT+tM9hoBXOCTAMaZYFzCvirUusCO4=; b=RLcjY2/4kp9RFU6g/p2XGWS7+f
-	NoYJIDGaOTCLaoRKJrUJc6hsLFsA4A9Uan/127ZF8VYU8+zMwuSaKmGYNkl+HN8V6Lh8wJzqVeXNP
-	6VUJZjj6DM/ni/X30gX2tY0BbGZwaiiJzAed3FpjO3fM6CN0ARU7AKoLPY6s8nYSsJi3zrVyzATj3
-	EIp8jMAnJG9oRi02TOj57Mv2M6vj71VHPVCrJr0Pv5NvK5LWs2xE2Hcc7LoWQ0HHui1BzpZzx4wQ0
-	OGG5B4z//YMT6Wv6ly3r1XD1Hc+nYb8BTOHLiQ8wAGdT2QWxdtD0g2Ybx+mpcBcr497I/s9IxJXH1
-	HKMqgybQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WbKtsr4yUar+j/7pijQkG+UE3fsvh5mQ4DE/1l7I1PQ=; b=YzjjZdjFAAzWHYSn8NQpQ6VT+O
+	zuLrP+VFmBy8sCOnr5N5WX01jZAQR0Qa/sV4zRrp3NI1AADsmZ33w/K+kJ2woHzkgsN5eWzCOTcCz
+	bUmrTf3hwZPbI9TuV2wb++7SVfKlnANuk8IYySQIlcFnF1J7R4RmekeFHAz7We4CScxttsE3Jl754
+	0yksdFES/gpSAgTO2m2g4S1SEzlG//PqIHl1by73ka4Sy3QC3ilf/0Mr6XZMjYHtS9zOFpdkm/OPe
+	Bx7muy+S3zqcBiVYuQ4gkzRklYHGovNw48VK1UuQq1vAz6CgvZt5v0DLVLavyWJiKvUr8mmBJyAQv
+	O8nwDYKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyvn-0000000FyOU-39Ex;
-	Mon, 18 May 2026 14:26:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOyyF-0000000Fyjc-0xRr;
+	Mon, 18 May 2026 14:29:27 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyvl-0000000FyNe-2Ko4
+	id 1wOyyB-0000000Fyit-3Y44
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:26:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B4D8434DF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:26:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F11DCC2BCB7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:26:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779114413;
-	bh=hm+pya9FfihN/vfpg8++W+yWh8lnVDDOk1psXq+CI/s=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=vCY1AWCq63YDIRhRIg8pRz68eEPzXnj0ZixhlTK9Nkbcs4CG8tTj1eQXlqnK4M6WL
-	 uD2pHi1p9nC5ZLUGNuJzz1OGTWx/oPnu0M6cl6yRl6GUxUdnTPTpXOy2EmS7xtY7c0
-	 nf1YhUicPLVgsnmX7OU+8ybYl4jXJyrG/2FhSgfp7gSWk/JOpRpMA7T8TiJKW67tBk
-	 aiP/JdY+E9w3Eptue1axz0XrPBskwuPxe4WRgF/JZx6JlCr0p7RKQY02EYDmojfBnH
-	 Fb9U082pOMXNSGzIvxzh0xM0ZySnGi4eEoOV+fBL5TDTf/xwd6HodDAccokFwigeGe
-	 Iz9jTy9wuuZZQ==
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-132c338a537so2135361c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:26:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ95vB1un/OcL5gN79LigTLHu05optYT1jx2itujV2i5+5LTsDH3HUtaOOvL5zpxHd4V/1f5t3AtagsgFlrKO43n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw80/Wrs/0K2mULU6w2PVCveXDCzufPnWEvXwVC1HfsK3f1d6K7
-	rZX9p+xI+FpVlxAVhJ1qosSkK1jpWcJBgS2R1EyV1nI1OTvy4UvgoJTmu7dMZRP0+qrzYpfv7yj
-	qBIUVb+l3p3jHEoiHYPJDmuGCqphS3Q==
-X-Received: by 2002:a05:7022:128d:b0:12d:b8e5:5e2 with SMTP id
- a92af1059eb24-134c8d4f477mr8519239c88.23.1779114412312; Mon, 18 May 2026
- 07:26:52 -0700 (PDT)
+	Mon, 18 May 2026 14:29:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Tkw9/bw5+gjXWyjtP7JH5WSGcwEwxOul3SWYhVGbhwWPbl82nngppV1BUEYhRVynmVcRhbaIy8T5n6iXq4tLeZUiusAsX5aUwEcX8QmUa33pn+BnB63c7RTPoHLHAWhzQB2DtXoqBvCBeiWZBg57nZC7fB79tnYHvTY3zP14nyVxTIAjuFmcMVc6Vx0oqnEPyc7q7lsEEUi/4VrKizo2MU5owGbO31pf0PU+rdBQ0pO33mwZX3xIF5Y79dy3gK9101389IkOWsPes+K3+6oAzl+hRSsTPNcVf1FF9AUD0T3/pBNPCdr/FPMfmFGEAtaip3Z4QXBDmlhO2D2dRipgSg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WbKtsr4yUar+j/7pijQkG+UE3fsvh5mQ4DE/1l7I1PQ=;
+ b=ucsiRGHD1O4sloRIOh1GTGpGaOsZMxEXIXuxslHixNRgB0rT7WaGY3wcLPs7E+5XfrkeYRHqCxziYH0yHORWkJEXMgyosJa2CQ1iVp41xGzPAFJe3r63DupREBajMyAkzlghstSp4R15l29HDgweMXb01iCpGgmQc6cqV8/b2FGKlo21lyDbUDcvFt36aWQfj8Uw50fpJM/scy4pOQtupqZFRLLvfUV6bQ5ZUkQV9m9jYg4E3r1k5CgqYfcOPgW1s9OVABLHOegoSyfjdXuX4f0a693vldYXMucBBwTUbbx2MKR0nrW65SdSbMHkagYssvkfpH12xP7M5gKqvJ5J+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WbKtsr4yUar+j/7pijQkG+UE3fsvh5mQ4DE/1l7I1PQ=;
+ b=H49ZKwyX6WyRc9YFAOZHyRrb98PbnSLNJgI8W0vnX4l2EWwTqFxJXVlzvGkOXdSMdxKwIdd9DQLtf8R+ALUpknS48o2N7LFJvPZx9Vu1I/iPGsgzqZHzMVfmiJqsKcR5zBylID7KVIxRZYfRx1V7OzBejJWShWU/qgzG8Y38HYA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by SJ5PPF6785369A4.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::997) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Mon, 18 May
+ 2026 14:29:06 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0025.022; Mon, 18 May 2026
+ 14:29:06 +0000
+Message-ID: <95361d3a-34b6-4f0f-935e-9e1b45698e81@amd.com>
+Date: Mon, 18 May 2026 19:58:58 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] usb: dwc3: xilinx: use reset_control_reset() in
+ versal init
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "michal.simek@amd.com" <michal.simek@amd.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "git@amd.com" <git@amd.com>
+References: <20260511160814.2904882-1-radhey.shyam.pandey@amd.com>
+ <20260511160814.2904882-3-radhey.shyam.pandey@amd.com>
+ <agUltzvDFgJtPa6j@vbox>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <agUltzvDFgJtPa6j@vbox>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN3PR01CA0085.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:9a::21) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-References: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
-In-Reply-To: <20260429-mediatek-drm-fix-sparse-warnings-v1-0-d95c4d118b83@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 18 May 2026 14:26:40 +0000
-X-Gmail-Original-Message-ID: <CAAOTY_8ra9pD7CuJPP+KtP3keQmRBhy18ci+6tdCCmdzY_wYqA@mail.gmail.com>
-X-Gm-Features: AVHnY4Ib1xGbXsskUH68KIQINuq9-DNUQmBWC2ptMW1dekY9PU2APVoyDwlBMvE
-Message-ID: <CAAOTY_8ra9pD7CuJPP+KtP3keQmRBhy18ci+6tdCCmdzY_wYqA@mail.gmail.com>
-Subject: Re: [PATCH 0/4] drm/mediatek: fix sparse warnings
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
-	Alexandre Mergnat <amergnat@baylibre.com>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|SJ5PPF6785369A4:EE_
+X-MS-Office365-Filtering-Correlation-Id: bbceaf96-70e1-4c6e-a75b-08deb4e9d15b
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|4143699003|18002099003|22082099003|56012099003|11063799003;
+X-Microsoft-Antispam-Message-Info: 2GF8pq8mQ8BR8Qq01TLSM3X0OKHwQ6RLhd2kIg25jYtuyMxindfxSH1BkvpRoEhm3xy6L8vglXa3wjeYJB7Tn1ET6xq0qyym7TY6d0k+l6wnU775uZrHVn22jWNKeyQZR4RM4jjvw+uWrmTEkM4cFa2nEkYkQ+DsHx8xSl8GLnsAFZYoMjeUEdBalQqQwuubHtTmMHHdG/5G7N+j7vgjlVj9W7Z4ev69FD9/19Sqg+CM21pR4zbADTTBR/ux7T8GRB61wCRu4U1f3YlsWDsTxWF3pmwTAEJus6YpcT4OORKLxBYyzAa6+0qPwn+7GvzGcPT42ZdNNGrwNAYAOOjttUmrz/YAPSVQmPVETg4Mkf8n2ciwTwaLMV3gYoygVO236YDGwhwwVajgIeusjxtGqIeovGYgycisrFjjQoevFpnHxTmbaD1uUf5ycEMpD4iU71U0Ktqiut/5QuQN7oc2RPGKdWVI23pEcVkLVKLDgHJCUgdFqUkQ7DJgONTVyVnYFnQn5UE2KlnO5nCA99+4kiqYpxwGX8X7IAzvpu6mKWIMDGUzAOpIxXuxT0x+kyFX3CQs0IhAuV9Qp1Qr1vO4+Ivx+OpZ7i+LmX4VLgxGWLy7XJoaxGiG1fWUnfO1qNVMxniHHjvoiMiYusNLMKL1hpV3Q4/vU+OkEyXzYDcIZQRKSTyw12KR2/QdDD+vLE+j
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(4143699003)(18002099003)(22082099003)(56012099003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejF4THFNbmpMR3VMNlQ1YXhQTW5NN0ExaGtCeGxuZ3ZJYWQvL0NaemcxTnB2?=
+ =?utf-8?B?WXBneFNiNjcrSXpldXBuQ0FVZ0IvSVZFcHlxRFZhNkQxVzdQajJ4QjEvNHJT?=
+ =?utf-8?B?c0xMbU9td0lENGcycFp1U0pXcitZemFJb1M3a0ppYWdTT0Y5NFFlVmhsZlpF?=
+ =?utf-8?B?aDZVVjJ6alFBcFlGM1dUNGN1ZTYyUmJ5cGF1dFoyMzc1TDFoMFZqOXRMR0lI?=
+ =?utf-8?B?SmkvNU84NEVBRlBMempQMmNPcUpFMFhRUHAzRHJNUXVLZXdWd3dmdzEyRlVK?=
+ =?utf-8?B?MzJieHlXOEZ5TGd6UEEvU04vZDBaNVd1SWdtK3g0ZURYMENrc3BZZUdiMFp0?=
+ =?utf-8?B?WkxmNncrQnhZbis2V0xqbnJqVUdJblMwME5CN2tOK2NWYytLNVNlU0FxdDlE?=
+ =?utf-8?B?Y0VTd0RFWkZIeW9ETUEvSzlTK2dxaENudDdwNHNWT3pKR21TTEQycVRIZTgz?=
+ =?utf-8?B?VVhaNVY3N1FkS0pYNHI1ZlB5RFd4Y21wa2F3UE9PNk1CYzVTUXNjZzZjb2hK?=
+ =?utf-8?B?Z3g1cEozTzF1YmlML2U2MFFlUUs4ZFJYR1BvcHRINE9jQVhSa05kRW9uRUpz?=
+ =?utf-8?B?U1o4UnQ4WlEvaUhzSktJZS84ZjRiUDV3Y0ZDWUEzTTFUQnNhUEk3dTgzK2xw?=
+ =?utf-8?B?b1VyeEE3c0JvRmVpaXVlN0RTUDkxcXdGekc0c0ZsRmFjN2hwUFlkMHpPdFE2?=
+ =?utf-8?B?b1JxMWpJSnF6NTBRcGg0NWtoZjBCYVBvbENtUDlHeGphZFFmMTRIMDJmZlAz?=
+ =?utf-8?B?bWh2cEZCQ3BWN2tFSkR3K3VoSDNwVi9tT2RMNXk1d29uMHBnbnpQU0hmOUlJ?=
+ =?utf-8?B?VXJqRjE1VDZoQ3NDdzNVdWhRZG1zZVp2Y1ZyL2ZqL3J4c2Rva0xyUjd3QUg4?=
+ =?utf-8?B?ZUQ2ZGxBL3l5SWF1Nk1NaytRTi93ME1adG41cTVkckM5RzNCV2pod0doUHkx?=
+ =?utf-8?B?SWZHSTlVWm9JWHdyMWRud1lKMGxRYThOOG5DQVBPL09acXpFVUhGUHFrbitp?=
+ =?utf-8?B?MjdnSlBNc1gyNHlPODVFUnBWeXE3ejBBQWZpS09rd3ZVWi83L0theCtKdkVn?=
+ =?utf-8?B?NkV5RVVuWVZBeHlIcnZSQTlDano1NU5XSEozTTNMSThXMERxbUFKY0NHTUJI?=
+ =?utf-8?B?UU1oczdmYldhalZjeHI5ZyswYk1odzhOUklMMFJXaFo4UVFoSVRvVHdPbkxL?=
+ =?utf-8?B?UHlwNXBmaFdsQXpkRUUrMnAvc2dCZDlWbThieEN0M09UdjVxSTZTeDY2R1JN?=
+ =?utf-8?B?UzVJZ0g4YVZRUTJFUWhvdi9uTlR2NmZ1YXdQa0RFV0RsZ3kxWlhwRG9HbUtJ?=
+ =?utf-8?B?RlliNTBxa2szNDg5Sko4aVR4YWo3Q3Q0OXBENTRKMVNNMnptU25HREdQcFpj?=
+ =?utf-8?B?K3YwcGtvV2xpakpmQTNobGltd1RxQUIxdVB5c3VsMmdpazFWdng5ODgyT2Q1?=
+ =?utf-8?B?ZVlwVWIrdE40WmFXWlBqdTNHUzRLQ3BKVTVaeTNOSW5GNnRTd0JMTTNtVFJR?=
+ =?utf-8?B?MWdpQy9RODhtRG40OUo4aVhZcGF3a1dDU3hZRFFNYjVEOVIzTERtU1lYMHhD?=
+ =?utf-8?B?YlVtZzlwWVRRQzdXUjY1UVhTTERPZm1xUWtKbmIyeDBqcUl4Mi8wVWNyTHBo?=
+ =?utf-8?B?SjB6ZE14emJFTW1QRnNWZzl2dVJ2VVFvREozaDhvMlBaWllzaEpIT0xML0ky?=
+ =?utf-8?B?NDZMY2IvZmVVcml6ZHlmSUU1bVU4dHhqR0NXd25IRUJkVTR4VFNhMjFSVU9Z?=
+ =?utf-8?B?WjJhMTNJVXNpdUJUZHJiVy9LWW1qQTFHbWRZWXBBN2l2ZUxneGI0M2c0WWR4?=
+ =?utf-8?B?S1JNdTJ2K3dOQU9hdk1VRk9rUmxFTWE2K0FhdVpha0VadlE5ZldZUndPdGkx?=
+ =?utf-8?B?bVdjV0RwUXpHbHMrQXd5Z2Rxc2VXSU9iK0RTbzJBejBFZlhDcWZsWVlwRWcv?=
+ =?utf-8?B?c1M3eXdJS2ZwbEJxVHAyRjJMTXgyeVM0dHM0SVRJUGlvNzExSWRES0Y3ZzZ3?=
+ =?utf-8?B?L2x2R3NicUhWcFp4VUkrTDZSQ0pORU5ES3ZwcGd0Ni9Vcnl0TmJETDZYcDNT?=
+ =?utf-8?B?WDNtRjJwbW9CWHByTDd0RzBHUktXTVVUbWlEWWR4N0FRL04rUjRmZlkvNjBS?=
+ =?utf-8?B?cEpscTJXQ25uWU5HQUhtWmtsMUNPQ2c5ZFRZcnl5dFRzelovaVd4a3VidlJT?=
+ =?utf-8?B?TXRFRUVvV1NGV0JlRVBUZGY0YWFoRlRPbGJWc3hLYUxNZU83YUo4NnFXS3Vn?=
+ =?utf-8?B?L3RlRkpITzFlWjU2OWRBY3FhVXVpZ0lKUmtzNTk0eGtoVFFFZmtjdFd2bWpC?=
+ =?utf-8?B?NzJDK2FEeTI3VEx2QVdQd2JjbkhLblhlMzVUU0pCQUhGcXJmYTY0UT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bbceaf96-70e1-4c6e-a75b-08deb4e9d15b
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 14:29:06.6910
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kR2X73VMY9VNvpqeLS/wb7AUwLYb41nJ6gc1BNtQPGX+ac52VYVLQAPWP1M2qc+I
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF6785369A4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_072653_684699_38F6942B 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20260518_072923_937993_96086548 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,49 +156,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Louis:
+On 5/14/2026 7:04 AM, Thinh Nguyen wrote:
+> On Mon, May 11, 2026, Radhey Shyam Pandey wrote:
+>> Replace separate reset_control_assert() and reset_control_deassert() calls
+>> with reset_control_reset(), which pulses the reset in one step. Report
+>> failures with dev_err_probe() and a single message. No functional change.
+>>
+> 
+> The behavior of reset_control_reset() is a little different. I wouldn't
+> call this "No functional change". However, I assumed this was tested.
+> Please provide a proper reason for this change in the change log.
 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com> =E6=96=BC 2026=E5=B9=
-=B44=E6=9C=8829=E6=97=A5=E9=80=B1=E4=B8=89 =E4=B8=8A=E5=8D=889:59=E5=AF=AB=
-=E9=81=93=EF=BC=9A
->
-> This series fixes in the mediatek-drm driver the sparse warnings
-> reported by [1] and two others introduced during v6.16 development
-> cycle.
->
-> The series has compile-tested and is based on linux-next (tag:
-> next-2040428).
->
-> [1]: https://lore.kernel.org/all/202604132044.fcYjEcU8-lkp@intel.com/
+In the dwc3-xilinx case, reset_control_reset() routes through the
+zynqmp reset driver and invokes PM_RESET_ACTION_PULSE. This triggers
+the Xilinx firmware reset implementation, which performs both assert
+and deassert. Effectively, reset() issues a single SMC call for a
+reset pulse instead of separate assert and deassert calls and moves
+IP out of reset.
 
-For this series, applied to mediatek-drm-fixes [1], thanks.
+Yes this new reset sequence is validated on HW. I will include
+above description and respin v2..
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-fixes
+> 
+>> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+>> ---
+>>   drivers/usb/dwc3/dwc3-xilinx.c | 16 ++++------------
+>>   1 file changed, 4 insertions(+), 12 deletions(-)
+>>
+>> diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+>> index a3c7dc258c7d..94458b3da1a0 100644
+>> --- a/drivers/usb/dwc3/dwc3-xilinx.c
+>> +++ b/drivers/usb/dwc3/dwc3-xilinx.c
+>> @@ -98,18 +98,10 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *priv_data)
+>>   
+>>   	dwc3_xlnx_mask_phy_rst(priv_data, false);
+>>   
+>> -	/* Assert and De-assert reset */
+>> -	ret = reset_control_assert(crst);
+>> -	if (ret < 0) {
+>> -		dev_err_probe(dev, ret, "failed to assert Reset\n");
+>> -		return ret;
+>> -	}
+>> -
+>> -	ret = reset_control_deassert(crst);
+>> -	if (ret < 0) {
+>> -		dev_err_probe(dev, ret, "failed to De-assert Reset\n");
+>> -		return ret;
+>> -	}
+>> +	/* assert and deassert reset */
+>> +	ret = reset_control_reset(crst);
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "failed to assert and deassert reset\n");
+>>   
+>>   	dwc3_xlnx_mask_phy_rst(priv_data, true);
+>>   	dwc3_xlnx_set_coherency(priv_data, XLNX_USB2_TRAFFIC_ROUTE_CONFIG);
+>> -- 
+>> 2.44.4
 
-Regards,
-Chun-Kuang.
-
->
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
-> Louis-Alexis Eyraud (4):
->       drm/mediatek: mtk_hdmi_ddc_v2: Fix non-static global variable
->       drm/mediatek: mtk_hdmi_v2: Fix non-static global variable
->       drm/mediatek: mtk_cec: Fix non-static global variable
->       drm/mediatek: mtk_hdmi_ddc: Fix non-static global variable
->
->  drivers/gpu/drm/mediatek/mtk_cec.c         | 2 +-
->  drivers/gpu/drm/mediatek/mtk_hdmi_ddc.c    | 2 +-
->  drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c | 2 +-
->  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c     | 2 +-
->  4 files changed, 4 insertions(+), 4 deletions(-)
-> ---
-> base-commit: 0f3ef35b0747832b58b97171bad99011d084c6b1
-> change-id: 20260424-mediatek-drm-fix-sparse-warnings-7404de18204c
->
-> Best regards,
-> --
-> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
->
 
