@@ -4,129 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DF9CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BEACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EzzS909XSVTxvD/BicAff1a5gmsqLGrlNDek+e/EBs8=; b=2LVLqNOz7aSSJ9kUjodp8028M9
-	qVn1ayDtsaqgn8kwLxEs36t+zAVbKfUpVJwZ7otr4DYzLZE5AqXbupbHF2urDcV3LX0IIRxCuHm+R
-	r8+2K4t1SiwvDQ5wu+nVAj3n1IfGtaYQxoBASF7uQnmvw9DJFPyfFBDy4jsecwabu0+9SmW2kg3VE
-	ESCBirsPRvd5lnf4zTLIKovywDrmCZ1sXg67cShYcLYfBn/kK/c8XdutVDFWQfzERPKDAUwS5CU0Y
-	ShnRGhGJ8mUDxFdKsXQY6pxErQaGKXnA5Dl3oyYRC1rsihzaGvjJICWixXdFljUyL1wyrbuHMfTru
-	p9m0pxeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tfp9Xfl9F8C0qLignbu5BJHJOBkG39IsvvzY8WnS24M=; b=pCEmDlh7PCqn4ojcQySAfIveQD
+	wW+8snHxTNN54SdXuasqTUtwdozvAix9GltNirQpySNtDYUuxao8JxUy8SFToxcoFNKXwCKPlpRAF
+	fjOmKztKRg0AELH4yV2yxC9PlTwhyvbNfkjEIzydqMjH1xhQ2WB9jIvNjKroRU2YQVBUTtTObHUQ/
+	cottDwdpa7mSS3xF2FYyQEsP6S21Abeup24ELIOuFfpNaVndDTO3tqHzi/aI82KNX/O78l3GgXonP
+	MxzDtKk+OEuoZW5Z1BFnJqIoGjqZmB0SKVXjLOYZoO80Q5LJTenHyCi7geOEpDPe9oS+G1YT3YVRS
+	Qt+PO85g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3sf-0000000GjzB-2JFf;
-	Mon, 18 May 2026 19:44:01 +0000
-Received: from mail-westus3azon11010008.outbound.protection.outlook.com ([52.101.201.8] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wP4d0-0000000Gthl-2mOG;
+	Mon, 18 May 2026 20:31:54 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3sc-0000000Gjt4-369e
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 19:44:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NnzdbRhoh6oVW2UweBN+Nwkwsv61hJIDwNpaTko97VwkDy1067L2K3CgUwQ9rb9yHx5krNOswyN2CCcdSXrhhkfmV1OpqY20joPh/sau8HY/lzw07YvuWPu+QQNS1VzyQ+pzOEbSAiFLs/bFCh49h+H40QxT0mG61nWueJZ3gZNzn1T2DX6BD721BsA/Y9i7itUJVVur/FH66vRBSzlRrPF3zY8z7gX3s0on9je8s1CbJgVz22h09TClUBTTg6sJEMod5a/RJH3tC8VzBPD6juS8J4WirP/cXqydO4TId2kcs24ftGPZZgj1W1FN5HSfZnES8W1cAdvCIR5Mgq5xng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EzzS909XSVTxvD/BicAff1a5gmsqLGrlNDek+e/EBs8=;
- b=lcd8Msyv+7e2CRox8c/UuayIPQ2DzM9/EsrONOJSs/SHc73llssXYumarYh9t6luW8lrqxdDVjdAayx7JM3Hztf7UKlpXah1CaZ99Z/ePZN/krre5TaiHWk2cYfc3TkccnBKdxnf1LWCs5wGKfAvyc95txbzTB7WmjE+/KCf/EZ8zehWSeuyZPDfZRQIX+KNxFejao4NLFwrjriwWO4XINQbMKOJiGnzk85/LAoxg1GuDxt1T9z7VCC88fNSYB/SC8EusukbWszdFaqdKxg1HSGiCkav0S8vzzN0IZtX0TQZxaOy3amF6YcXacZBWLXibcW37bQVbFP0y+hF0yfJQg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EzzS909XSVTxvD/BicAff1a5gmsqLGrlNDek+e/EBs8=;
- b=Vg4xRF5xVZDKEkXNFTwIfPDJMp7h/nrUcPSHGgrcwyLGg+q/draSyIdQK/kjvsEZeOdnkq+L5+S8AdmoNK9RBCP3rR61w/G7szRp8W19p9EoDaErZ9hHI+ml/QqPgmjzICrdnlDYITZUVkn5hW/YqZERWX79s9xGWWsMX5LfbcFtZ2J9IFDgNYGjM4VIC7Ij3LVGRXJdpaEbP1iTBaDwtAzGoAFUK0CeqeguvPVLur5vkAVYLzxsiRo6qtOJ3gueS9CU7HuoCU1k0qKL1vAOZ2vPft/B5pYPKk+b77T67gU7+SkuvoiItQ5yPfy6CQSekRhz+kq30fglUPRhztEP+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DS3PR12MB999239.namprd12.prod.outlook.com (2603:10b6:8:38c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
- 2026 19:43:50 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0025.022; Mon, 18 May 2026
- 19:43:50 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
+	id 1wP4cx-0000000Gth7-0hL2;
+	Mon, 18 May 2026 20:31:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779136311; x=1810672311;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ydXo2XIcnCDnuaeWYRtalIfepOWgfDw1EKpHwpkVH/8=;
+  b=bqb7qO+W3uRlj1qGK7cfohtnEXLiGAzf7ASjCstnJymMxzJSJYwf54tY
+   CQxH+PX7wO20O8N5zmrBXPyCWeQ2AwbLO50r65mNr8dQ9m6dlYAGT7akk
+   mXbrOKKsUr0cT3G74x09V4wJgHcG5qIMfRJpBHUAm06UlGly038XC0G0v
+   tErSluAH9D+XvlF+U3fhQDm1M7tMQAqlYc9pQRP+l9h77a/zw8RLbhJFj
+   o7kCVtjrcmWQFBO7AQlyosZ8uRNn8r2gQd1DefusLLQZWwjHr6dH5fYIX
+   Bd3Ke+yVTf/TTri9swPJloYQwE6wJDW1ZRLbEaLenIpeD+Zf+By2V1W+8
+   Q==;
+X-CSE-ConnectionGUID: nlyNt4vIQEOyQ50jm6IiKA==
+X-CSE-MsgGUID: jzKdZo8mRe23vfFdgVWUeg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="80035064"
+X-IronPort-AV: E=Sophos;i="6.23,242,1770624000"; 
+   d="scan'208";a="80035064"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 13:31:50 -0700
+X-CSE-ConnectionGUID: d0m9t1lWTf6cVYdn+o0JBQ==
+X-CSE-MsgGUID: 13v+sl6tR2GHBYRSdDRZtw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,242,1770624000"; 
+   d="scan'208";a="233164454"
+Received: from lkp-server01.sh.intel.com (HELO d94e5e629b2d) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 18 May 2026 13:31:47 -0700
+Received: from kbuild by d94e5e629b2d with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wP4cq-000000003N4-14ih;
+	Mon, 18 May 2026 20:31:44 +0000
+Date: Tue, 19 May 2026 04:30:53 +0800
+From: kernel test robot <lkp@intel.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>,
+	Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
+	Houlong Wei <houlong.wei@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 0/8] Organize the SMMUv3 invalidation flow so iommupt can use it
-Date: Mon, 18 May 2026 16:43:37 -0300
-Message-ID: <0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BLAPR05CA0010.namprd05.prod.outlook.com
- (2603:10b6:208:36e::19) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	linux-mediatek@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	Guangshuo Li <lgs201920130244@gmail.com>
+Subject: Re: [PATCH] media: mediatek: mdp: avoid double free on video
+ register failure
+Message-ID: <202605190406.bMshG7YY-lkp@intel.com>
+References: <20260518125500.1000083-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS3PR12MB999239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 409ea299-ec13-4c1e-3c43-08deb515c770
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|3023799003|11063799003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: /GOoyOHASOZK1IhD7fwRzryY64NYUJDq2ra5mShRtAyRDwIMCeHVRCphHz7Dc31QNNV0iq4GzwCNDvwpr9TAhp/5BJusF311VJ3ZrvKi7YXyihWx21QV/FYRD+4eV5I3hF3dZlx5mpzahmjYRkSw11jL2Lxcu90bP+7dlD2kwK3PMVMvlyTSXuQWVRfPRKAGe/y1DYxAL7z1EpXCRm1yyIgf8ZUFUBLX7yI4xb4z65zOANeoqSC8WaMyArC8tNxT+7APp5PlETnBPqVrq6iBZnmTlLBevwb8SC115LqTxlJ+HfGvZCfwsEbVdUh2dgomdg3qhqh0TRhbMQZFo5gHLlj/i/R3WSxhnQJwF1wXwDXZQAZjR1L6zP4P3Uj8gVyXEXMp7L8wis263o/HkGmbreWMw13Dx1UZspwm70slXCKehsb+1G0FQgTJbaisLEpkwvbaImkGY853eQVColJL4OgjtsWzLRG4+HwxxBbXnewA4ynMWvtPWc20h+iZsLlVh8LGPWLsb1bY1wXNPRPXT/USwCxGUDOnJfst7gqlgN9YqR7Ucx9w3xK193D6T9Xq0F+aOprc7DcNfPz99A7/otB7HUP99WUKaJd6Ze0FUACxBG0VABZyO1WvI+9WQhpNMn+4FkR1z4FQJb41FL4SaG2/mF8SADQ+PPiuVHioqIGa7x+YqskdDQouTDx6EnJmJZfy+EdNkvTkXlmS9qtQnQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(3023799003)(11063799003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lbVg9HlyG3HdfQNLEhhj6ozFKc0vLYjYgBMCI6oaOZ5xhtHGp9dmzBoy8PnY?=
- =?us-ascii?Q?Cu9mjKifHyAoGEozdZ+EHnjabT20qJTNTS0CD2LfE34uI2uuxpA1DdUamkuv?=
- =?us-ascii?Q?lN6GQw1ACmn1/fw6wd5/KK1I3LDOgznKOl5uPn1b1bcu4nTt8ezIOhgLdbsZ?=
- =?us-ascii?Q?V89HVcF+UQQrtxAoLEVUhVp8nJZS1ouYhRcJpvNvv7UICDkhY/DquSpqCHY7?=
- =?us-ascii?Q?acma07EhU9PXR+MnBvInbcV5ugfBItGlbMWlHNOlpeH3ZYMlXEClM9NztjO7?=
- =?us-ascii?Q?HXNAfNUNoJSPTqudWQTFK8hTH4HaxyaQbFQ/zTQ/JTqyCA+ZyaGN5Wz6V1gy?=
- =?us-ascii?Q?7afigWycD1EayReZtSp41AUe0kYD1bclcu6HTsVZk7WyIZO9aVoUCdL8SY8t?=
- =?us-ascii?Q?QSRXE8i2eyQIYXRHE3il5RwcpBFU68vBAyK1iyZGLxXeAmPC9Q37VFjG5483?=
- =?us-ascii?Q?wrMJzmdZQXm7AvxWLabyZFNBK6atCeyPP4bFsQ4A4J39UkdkkV6kyHU8K6Q1?=
- =?us-ascii?Q?QdFIMoWNxXV9g+skhICGKV3OBJdrMVYIdlPhk4/9NBw2d+CmyG1JeDHLRS9Z?=
- =?us-ascii?Q?0j7i7JJymbTYve06wNwLz/9olgklGguZz8BHsa/EkrOrnlmbLbV2siO1+WeQ?=
- =?us-ascii?Q?2fCmeMVvCFQNwxw/TKi+b8z5w0uL4USsV4ECpAe0rMjsS+DgzJcyicUXkyn3?=
- =?us-ascii?Q?GxrJtiSlfh1i+fNg5gxMwZrsRA732hUT7ohy5AU8R+PCmxZE4wQmaAGjjWUe?=
- =?us-ascii?Q?aBwDIyXAdDNWEPV102gO/yhbEELF6pqz0mm0vKRv8cRelAe3apwDJFMuDYNs?=
- =?us-ascii?Q?woc0U/Pn0I6wkmTmUrwZ8dJNR6dtKIOh4LiOC8EWbg/hO5NrR3WMOhI/7InK?=
- =?us-ascii?Q?Igqn9BMUXhqF2yi36C67qrP10uvj77H3XgJW7w12My0FK5AV1Q4VkkyoM7gU?=
- =?us-ascii?Q?q7ybuWYSvgLoD+Lx5WglWf4jc+ZdSSQGvfwcfY1Uorgw5jbx2M4EsQNQfX/P?=
- =?us-ascii?Q?XQNLwFIbgDCS/YL3S1WaOW0usel2/ZarfU6UnAalIuY1Awa7B1Rm4euUxj/d?=
- =?us-ascii?Q?VPz/fnuQ8mdewhUwMiTBKYQV3QwgEl//d6WJyNXnq29jGHIH1IZRyadj8wv1?=
- =?us-ascii?Q?lsFzmDjDLBbT+aNCCv7u7KNE9fNEkCUdPz3NGGzo1ZdsI8CyLEsxbfUdV2FX?=
- =?us-ascii?Q?Hag6aAYlDgSSo7GJL0Rkw9Pn27eFO8YBxu2VD5FJW+cAwYX8EwV9mc1mXnIS?=
- =?us-ascii?Q?nxFzbKfJe/XeKpGEjxP5O+ZcbOxbKQSV1n33e/u+j8Y043aNpNujo97Va0UU?=
- =?us-ascii?Q?H+VzGP+wPoiQOBAqRm8Nel0WcdN7yfP8NJHmHoi9ww51FxV37s0WV4GdZyiL?=
- =?us-ascii?Q?rcfgklFY1C8CBqfKv0ttOItwAFx/H4N67ijK5Rp7JAhBzeAYF5YmujArLhJv?=
- =?us-ascii?Q?K4rertHT9itLNa2Jh9kJXbrtV5/TViBb5y03CdJZ84dSUkC6Yh8t/Q9NqpCG?=
- =?us-ascii?Q?Cd/h2+ywjUxI7qC2/0KMc8v/5I9VD8/Voz/tVuk4bJj7psqeFa58kwDq8cFP?=
- =?us-ascii?Q?J9KT+0jjcEXe6f02jTyGUglnJkdDbdUpKxKlMS3fxrUYWutrSo/ojSpEozJC?=
- =?us-ascii?Q?/3zmKJn1zpu83ttXH4yzRWClvxrdHSnwLsHHITemcHo608sUjtPwrFK/P7vG?=
- =?us-ascii?Q?+sXKo19HA81JQKgEoOcT1CFYPpz1g4akvdG6sS3aY/J1/VTA?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 409ea299-ec13-4c1e-3c43-08deb515c770
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 19:43:48.0875
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gMYjtmT0s6t4+A4msZ8Yw6cBCD9Y5nN0dp1RZgP6PvteEu77c9dj8iFC6txBroOC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999239
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260518125500.1000083-1-lgs201920130244@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_124358_787750_F0612BFE 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20260518_133151_247353_55F73BEB 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,105 +96,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[ This is part of the patch pile to move SMMUv3 over to the generic page
-table:
-1) Introduction of new gather items and RISCV usage
-  https://patch.msgid.link/r/0-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com
-2) Remove SMMUv3 struct arm_smmu_cmdq_ent
-  https://patch.msgid.link/r/0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com
-3) Organize the SMMUv3 invalidation flow so iommupt can use it
-4) Use the generic iommu page table for SMMUv3
+Hi Guangshuo,
 
-It depends on #2 only
+kernel test robot noticed the following build errors:
 
-The whole branch is here:
-   https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
-]
+[auto build test ERROR on linuxtv-media-pending/master]
+[also build test ERROR on media-tree/master linus/master v7.1-rc4 next-20260518]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-iommupt has a design that focuses on building a single iommu_iotlb_gather
-for arbitary batches of map/unmap operations. The gather uses the free
-list and it captures invalidations of tables, leaves and supports mixed
-levels.
+url:    https://github.com/intel-lab-lkp/linux/commits/Guangshuo-Li/media-mediatek-mdp-avoid-double-free-on-video-register-failure/20260518-211648
+base:   https://git.linuxtv.org/media-ci/media-pending.git master
+patch link:    https://lore.kernel.org/r/20260518125500.1000083-1-lgs201920130244%40gmail.com
+patch subject: [PATCH] media: mediatek: mdp: avoid double free on video register failure
+config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260519/202605190406.bMshG7YY-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260519/202605190406.bMshG7YY-lkp@intel.com/reproduce)
 
-The introduction of PT_FEAT_DETAILED_GATHER provides some additional
-information that is useful for ARM: the damage bitmaps for the table and
-level changes.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605190406.bMshG7YY-lkp@intel.com/
 
-Prior to switching SMMUv3 over to use iommupt prepare for this by
-reworking the internal invalidation to work on the same data format that
-iommupt will produce. Bridge the invalidations generated by io-pgtable
-into the new format. The conversion is simple enough, io-pgtable generates
-invalidation operations that have only a single set bit in
-table_levels_bitmap/leaf_levels_bitmap, so we can convert the io-pgtable
-provided size into the proper level leaf or table bit.
+All errors (new ones prefixed by >>):
 
-When iommupt uses this mechanism it will fill in full bitmaps reflecting
-the union of all invalidations contained in the gather, and this series
-provides an implementation that can work this way.
-
-Like the other drivers the general algorithm focuses on trying to issue a
-single command per gather or at most 512 single invalidations. If that
-isn't possible then it falls back to full invalidation. Since table and
-leaf invalidation are combined together there is no waste of invaliding
-tables prior to performing a full invalidation.
-
-On its own this provides value as the invalidation has a number of
-rough spots:
-
- - Non-leaf invalidation actually expands into a TLBI for every
-   translation granule because the inner logic doesn't special case the
-   walk vs leaf condition. Now that a table_levels_bitmap is used to
-   describe the walk invalidation it properly generates a RIL with optimal
-   TTL or only one single invalidation.
-
- - RIL doesn't calculate perfect hints for SVA because the SVA rules are
-   different from the io-pgtable-arm rules that the RIL algorithm works
-   with. SVA can now express the combined leaf and table invalidation that
-   the MM callback represents and get the right TTL, with an optimization
-   for the common 4k only scenario.
-
- - RIL didn't generate a single invalidation like VT-d and AMD do,
-   instead it tries to generate an exact coverage with many
-   smaller invalidations. Switch it to match the other drivers single
-   range approach for performance and consistency. Since ARM has a much
-   more flexible range definition the over invalidation is far smaller
-   than other systems.
-
-The approach is to introduce a new struct arm_smmu_tlbi which
-describes the invalidation, pre-compute into the tlbi the single and
-range commands from the start/last and bitmaps, and then apply the
-correct pre-computed command to each of items in the invalidation
-list.
-
-The RIL and single calculations are revised to use the new bitmaps
-and accurately generate TTL/stride/etc.
-
-Some of this design is to support another series to remove the batch on
-the stack. Now that we have the invalidation list and the tlbi it is
-simple to just expand the invs list directly into commands instead of
-using the temporary on-stack batch array. Eventually removing batch will
-save ~1k of stack usage here.
-
-Jason Gunthorpe (8):
-  iommu/arm-smmu-v3: Pass the parameters for the invalidation in a
-    struct
-  iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
-  iommu/arm-smmu-v3: Optimize range invalidation for latency
-  iommu/arm-smmu-v3: Keep track in the arm_smmu_invs if RIL is used
-  iommu/arm-smmu-v3: Precompute the invalidation commands
-  iommu/arm-smmu-v3: Populate the tlbi at the top of the call chain
-  iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
-  iommu/arm-smmu-v3: Support the DS expansion of RIL's SCALE
-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  32 +-
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  30 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 439 ++++++++++++------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  54 ++-
- 4 files changed, 382 insertions(+), 173 deletions(-)
+   drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c: In function 'mtk_mdp_register_m2m_device':
+>> drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c:1217:40: error: expected ';' before 'mdp'
+    1217 |         video_device_release(mdp->vdev)
+         |                                        ^
+         |                                        ;
+    1218 |         mdp->vdev = NULL;
+         |         ~~~                             
 
 
-base-commit: 82440c340635733f86ab9b1ade899ea21ef9da0b
--- 
-2.43.0
+vim +1217 drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
 
+  1172	
+  1173	int mtk_mdp_register_m2m_device(struct mtk_mdp_dev *mdp)
+  1174	{
+  1175		struct device *dev = &mdp->pdev->dev;
+  1176		int ret;
+  1177	
+  1178		mdp->variant = &mtk_mdp_default_variant;
+  1179		mdp->vdev = video_device_alloc();
+  1180		if (!mdp->vdev) {
+  1181			dev_err(dev, "failed to allocate video device\n");
+  1182			ret = -ENOMEM;
+  1183			goto err_video_alloc;
+  1184		}
+  1185		mdp->vdev->device_caps = V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING;
+  1186		mdp->vdev->fops = &mtk_mdp_m2m_fops;
+  1187		mdp->vdev->ioctl_ops = &mtk_mdp_m2m_ioctl_ops;
+  1188		mdp->vdev->release = video_device_release_empty;
+  1189		mdp->vdev->lock = &mdp->lock;
+  1190		mdp->vdev->vfl_dir = VFL_DIR_M2M;
+  1191		mdp->vdev->v4l2_dev = &mdp->v4l2_dev;
+  1192		snprintf(mdp->vdev->name, sizeof(mdp->vdev->name), "%s:m2m",
+  1193			 MTK_MDP_MODULE_NAME);
+  1194		video_set_drvdata(mdp->vdev, mdp);
+  1195	
+  1196		mdp->m2m_dev = v4l2_m2m_init(&mtk_mdp_m2m_ops);
+  1197		if (IS_ERR(mdp->m2m_dev)) {
+  1198			dev_err(dev, "failed to initialize v4l2-m2m device\n");
+  1199			ret = PTR_ERR(mdp->m2m_dev);
+  1200			goto err_m2m_init;
+  1201		}
+  1202	
+  1203		ret = video_register_device(mdp->vdev, VFL_TYPE_VIDEO, 2);
+  1204		if (ret) {
+  1205			dev_err(dev, "failed to register video device\n");
+  1206			goto err_vdev_register;
+  1207		}
+  1208		mdp->vdev->release = video_device_release;
+  1209	
+  1210		v4l2_info(&mdp->v4l2_dev, "driver registered as /dev/video%d",
+  1211			  mdp->vdev->num);
+  1212		return 0;
+  1213	
+  1214	err_vdev_register:
+  1215		v4l2_m2m_release(mdp->m2m_dev);
+  1216	err_m2m_init:
+> 1217		video_device_release(mdp->vdev)
+  1218		mdp->vdev = NULL;
+  1219	err_video_alloc:
+  1220	
+  1221		return ret;
+  1222	}
+  1223	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
