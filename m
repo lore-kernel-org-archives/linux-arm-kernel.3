@@ -4,52 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA91CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8FDCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w/CQ7lz9+RdkC15kpfvNVPpujd3d4yue02Wi8fc96jM=; b=qOPZlbIT0x7KDtyCsGaa2nmxOP
-	paRyuqK91/q+02LVy7am2LDrBI2mV2fyZZbKrQrNsvuoM9iRffSEswxTLgHOMQHJGMdUz38DReR4H
-	lgcDaUgQodP+doukFOq4or1+yBaSzZ0gS3LOI/suGegVL4z+NNFaeyqFElD0kjqHTGLP9Onxp5323
-	iIaDD30z583qQHlQXudqN4dy+Y5ACP8I9g86oF0nVi8vrO2zbWBzeGXH5XR9lHhEhjwS/5bDc7VDX
-	TvxuDV8t77HL3mrLfdP9qrqsCsRywgDKKg9erO9ixTFbaIReEMlxHLNz9Bz8AOGW9kYYV9+acNMlN
-	UxbgJ66g==;
+	bh=DLEVYxxVdHF/BgWe9OZ+y/PeidNEKgGHjk3LEvKUj98=; b=sSbM2Iy5KD5UR8BrdbxvpWs3L5
+	xBU3ZeTge5hDfF0x40MIW9/Sp1s8D4ag8Tnj9JXIhe/B22viFJN+4MYwDUEGVVJeDSAyCSoG+mifm
+	s+7mY4ZwKmQGkyRHa6L+1DLqexqUzPtwbCZL3EVyUe8gTDx5dUMzA5He5cjZv3spyzrUQcI8D81re
+	ASezHG1VsNjzuIXbQMMm/7x2KFGok5K6LpSNcdw7XRteWKXtAB7KmDH/WrElC6GpbrbKd9U1lAHx+
+	PmHfpsK9XQ1Cl3ZVGgfVGMfY+Qk+5ksfJOEmKmo8tK5c2mkkFIbKW1gc4ZtgtongN/WIcTohqHvDx
+	1GqPvq0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvFk-0000000FF3t-2g2A;
-	Mon, 18 May 2026 10:31:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvFj-0000000FF33-1FS3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 10:31:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=w/CQ7lz9+RdkC15kpfvNVPpujd3d4yue02Wi8fc96jM=; b=HlqV4prlewUtuq3twm9vJOiGxa
-	sLXCdsa2V95R3jwEHl9Gphi3QdE8HeTs7Sv5IRVMRlwZES2eyR7b8s1MnQHa0t3+ACeYN9/d2+GA5
-	otBw6y9yJ6pGH9DTpiur02zaxGgwhggkWGseYUyv96q8WjLkbaTQMU8YdNtzxuNJ+EwzKeC6MVnu1
-	c8PcUJ/ZaUydvhKrWcDEOQPSJM7cJjl/98UI2nXlZH4yIJ2r9H9CnEXlpi045Uylz6vpYLUK2iE+H
-	e8DQh8mmXTcKJlO4IngGQA4pr6+ldtd38s03SubmVmdYRSF3KsfRt9tdVswnPBLXGHMWzfsdQQZRR
-	H9+pSbbw==;
+	id 1wOvGG-0000000FFGe-3mHp;
+	Mon, 18 May 2026 10:31:48 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvFg-0000000AluC-12PI
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOvGE-0000000FFFR-1GDO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:31:14 +0000
+	Mon, 18 May 2026 10:31:47 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 1C3C41F8004A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:31:11 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 4CDB51F8004A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:31:44 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 988A8B40822; Mon, 18 May 2026 10:31:10 +0000 (UTC)
+	id BF8DBB40827; Mon, 18 May 2026 10:31:43 +0000 (UTC)
 Received: from collins (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id ECF89B407F9;
-	Mon, 18 May 2026 10:25:00 +0000 (UTC)
+	by laika.paulk.fr (Postfix) with ESMTP id 6F206B407FB;
+	Mon, 18 May 2026 10:25:01 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -65,17 +50,17 @@ Cc: Paul Kocialkowski <paulk@sys-base.io>,
 	Arash Golgol <arash.golgol@gmail.com>,
 	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: [PATCH 12/16] media: sun6i-mipi-csi2: Fix parenthesis alignment
-Date: Mon, 18 May 2026 12:24:47 +0200
-Message-ID: <20260518102451.417971-13-paulk@sys-base.io>
+Subject: [PATCH 13/16] media: sun6i-isp: Add dummy params link_validate implementation
+Date: Mon, 18 May 2026 12:24:48 +0200
+Message-ID: <20260518102451.417971-14-paulk@sys-base.io>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260518102451.417971-1-paulk@sys-base.io>
 References: <20260518102451.417971-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_113112_742035_4BFE3597 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20260518_033146_634287_B7F7307C 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +75,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is purely cosmetic, no functional change intended.
+There isn't anything configurable about the params video device link,
+but the v4l2 core complains that no op is provided so implement a dummy
+one to make it happy.
 
 Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
 ---
- drivers/media/platform/sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../media/sunxi/sun6i-isp/sun6i_isp_params.c     | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/media/platform/sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c b/drivers/media/platform/sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c
-index 682bdd82098c..17a9a215a98a 100644
---- a/drivers/media/platform/sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c
-+++ b/drivers/media/platform/sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c
-@@ -96,7 +96,7 @@ static void sun6i_mipi_csi2_disable(struct sun6i_mipi_csi2_device *csi2_dev)
- }
+diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
+index 77c2d06c0436..b7ef33fa2b13 100644
+--- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
++++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
+@@ -450,6 +450,18 @@ static const struct v4l2_file_operations sun6i_isp_params_fops = {
+ 	.poll		= vb2_fop_poll,
+ };
  
- static void sun6i_mipi_csi2_configure(struct sun6i_mipi_csi2_device *csi2_dev,
--				       const struct v4l2_mbus_framefmt *mbus_format)
-+				      const struct v4l2_mbus_framefmt *mbus_format)
- {
- 	struct regmap *regmap = csi2_dev->regmap;
- 	unsigned int lanes_count =
++/* Media Entity */
++
++static int sun6i_isp_params_link_validate(struct media_link *link)
++{
++	/* Nothing to validate here. */
++	return 0;
++}
++
++static const struct media_entity_operations sun6i_isp_params_entity_ops = {
++	.link_validate	= sun6i_isp_params_link_validate,
++};
++
+ /* Params */
+ 
+ int sun6i_isp_params_setup(struct sun6i_isp_device *isp_dev)
+@@ -470,6 +482,10 @@ int sun6i_isp_params_setup(struct sun6i_isp_device *isp_dev)
+ 	INIT_LIST_HEAD(&state->queue);
+ 	spin_lock_init(&state->lock);
+ 
++	/* Media Entity */
++
++	video_dev->entity.ops = &sun6i_isp_params_entity_ops;
++
+ 	/* Media Pads */
+ 
+ 	pad->flags = MEDIA_PAD_FL_SOURCE | MEDIA_PAD_FL_MUST_CONNECT;
 -- 
 2.54.0
 
