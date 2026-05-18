@@ -4,53 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C404CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2C6CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=snbZ8y+F0BUU/EmaB78zaC79H5axWqPJEhlqfbfpDD4=; b=WPR6K/fR7wOBY7A7eabHSXcivQ
-	PFcn0Rg/ccKX6gCZQ/a4OGytLtvsrkaaj4V+5ssmjwBY3gNneRUqzxJB2/XMjaL44DRwLvSz8iGBh
-	KRrWg+9tW0pH+lqBH0PKV18C50A6hC6cLGYg/IZMtRu4vqe/X8LC8jNi+srEROePz29qaMuwziuGw
-	ToLGy2kYqNLNxPz9XQX3HEi8rrf0TRXqg2zfqQvj/XIdj+wsZwoOmGvb5zYBCodB2k8utpEh6vElN
-	m4JDB/1DDwJ/E8o0DtYdt3+Wlt4g0gn4amRUZ1c2IXKHeGtqGNgUuesd53Fybn8j7D4ZLuPZpyu+/
-	GJeOAzsQ==;
+	bh=4ZlFlL/ldqFxlJ/mCuoKEqDloBHgz/6+XLcrhP5/h8w=; b=05VNWjVxByVG06Biz+LwYGmuRd
+	3eHiKqYCy28unpvCAqH/77pcDZgR9vhnqoGAt58QSmsji5HKQ7bCPAHwwgH/PwWFyVDvD4hQskyNj
+	79XEUW3/Hu9X055Dgbs7bpwz5/MNyyP9ezUv6wGzp2TYVO+Dq0cjW2CIEzrIpYbR6DBUmyoc1H9mJ
+	IOWSa4btVAS0bg3g0lS4uzPD+QTevfw1ReW6egQVr3V6BTt4531SuJ+7o61nGRGY17RYyZe3Q3+C+
+	2jZncrkfihD9hcpEycFdWkfn5r0CoGgijdI3MbrYmbV6pkYjiYH6PtoCOoUXDiYEM8eanwxPfxvjz
+	zqIuzihQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtgE-0000000Eslg-2tyX;
-	Mon, 18 May 2026 08:50:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOtgQ-0000000EsxB-0lHr;
+	Mon, 18 May 2026 08:50:42 +0000
+Received: from out199-7.us.a.mail.aliyun.com ([47.90.199.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtgC-0000000Esiu-08xj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 08:50:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=snbZ8y+F0BUU/EmaB78zaC79H5axWqPJEhlqfbfpDD4=; b=RFo4XpDQWetWoLEtQuFPyHNGAp
-	8PIalBpzhtLdameIO7PCgnl1BnNQJwzx0EZHpcJ3Xq5A6THtbL1wiVAg24xx/l1h0nEMOQK3a6PUw
-	UgkAX3Gr/wlB0UwitBzsF5TDtmfF/UXSo2+QsOlLHX2kgJufcjNuMZ540W3MP8wTTkRfocge6lKDI
-	hQA0Xd7p01icPmX+E3hNAm0oOgJHxe7Ymbf1/k/aoJVPzi2sGY22qe8s6v3w1h+vu6i4fJfXzD72F
-	9u7UJO8ifE7kt+IhiFGNC0GWOLgLX86yuLrN54mI2j6tweWSOoJ3YZhKV55zOTF9s7aqZCJPCtK9n
-	F/zD5kaw==;
-Received: from out199-18.us.a.mail.aliyun.com ([47.90.199.18])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtg7-0000000ASG2-2wj7
+	id 1wOtgF-0000000EskK-2Dxn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:50:27 +0000
+	Mon, 18 May 2026 08:50:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1779094211; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=snbZ8y+F0BUU/EmaB78zaC79H5axWqPJEhlqfbfpDD4=;
-	b=XMrFZSScIc7Q57t3W910PJKIsTV8NDooSzy9U+udtoNOKfbS6MaMia36N0vTRJ6P9KqXJzhi3kYBjqTuoi7wJVtoaQ0YaWM+BuncmyCZ0hn5Y13H8e6qiyXgkreurKM5aUu+VbTLSjM1BCiJ56XM/RnSZAZKflZcMYYDtdCf4QQ=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R301e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033032089153;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=30;SR=0;TI=SMTPD_---0X3647I9_1779094202;
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X3647I9_1779094202 cluster:ay36)
+	t=1779094227; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=4ZlFlL/ldqFxlJ/mCuoKEqDloBHgz/6+XLcrhP5/h8w=;
+	b=uJoZGfGR2uabJ0rfA3C8SFKfpGjjGGUQuFOZlnA8fZcspelZrbuRcVnJ3RI4zeamr2LYLH4AZPW9DSJxXcUoTjCtT4R+pCcSI0S/l1pcw2eJji3+Y9Tu5YbsprOcziR2kj0GcU6QxNoOz00AGfukC30ObrQeOy9GdvzLa4pctV8=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X365dBE_1779094223;
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X365dBE_1779094223 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 18 May 2026 16:50:04 +0800
+          Mon, 18 May 2026 16:50:25 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -79,21 +64,18 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org,
 	kasan-dev@googlegroups.com,
-	tianruidong@linux.alibaba.com,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH v14 1/8] uaccess: add generic fallback version of copy_mc_to_user()
-Date: Mon, 18 May 2026 16:49:45 +0800
-Message-ID: <20260518084956.2538442-2-tianruidong@linux.alibaba.com>
+	tianruidong@linux.alibaba.com
+Subject: [PATCH v14 8/8] lib/tests: memcpy_kunit: add memcpy_mc() and memcpy_mc_large() test
+Date: Mon, 18 May 2026 16:49:52 +0800
+Message-ID: <20260518084956.2538442-9-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
 References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_095024_653911_C75CE569 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_015032_360031_A8E739EA 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,65 +90,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tong Tiangen <tongtiangen@huawei.com>
+memcpy_mc() is the Machine-Check safe memcpy variant that returns the
+number of bytes NOT copied on a hardware memory error, or 0 on success.
 
-x86/powerpc has it's implementation of copy_mc_to_user(), we add generic
-fallback in include/linux/uaccess.h prepare for other architechures to
-enable CONFIG_ARCH_HAS_COPY_MC.
+Add two test cases modeled after the existing memcpy_test() and
+memcpy_large_test() implementations:
 
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-Acked-by: Michael Ellerman <mpe@ellerman.id.au>
-Reviewed-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- arch/powerpc/include/asm/uaccess.h | 1 +
- arch/x86/include/asm/uaccess.h     | 1 +
- include/linux/uaccess.h            | 8 ++++++++
- 3 files changed, 10 insertions(+)
+ lib/tests/memcpy_kunit.c | 113 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 112 insertions(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/include/asm/uaccess.h b/arch/powerpc/include/asm/uaccess.h
-index e98c628e3899..073de098d45a 100644
---- a/arch/powerpc/include/asm/uaccess.h
-+++ b/arch/powerpc/include/asm/uaccess.h
-@@ -432,6 +432,7 @@ copy_mc_to_user(void __user *to, const void *from, unsigned long n)
- 
- 	return n;
+diff --git a/lib/tests/memcpy_kunit.c b/lib/tests/memcpy_kunit.c
+index 85df53ccfb0c..b4b2dafb50f1 100644
+--- a/lib/tests/memcpy_kunit.c
++++ b/lib/tests/memcpy_kunit.c
+@@ -552,6 +552,115 @@ static void copy_mc_page_test(struct kunit *test)
+ 		memcmp(page_dst + PAGE_SIZE, page_zero, PAGE_SIZE), 0,
+ 		"copy_mc_page overflow into adjacent page");
  }
-+#define copy_mc_to_user copy_mc_to_user
- #endif
- 
- extern size_t copy_from_user_flushcache(void *dst, const void __user *src, size_t size);
-diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
-index 3a0dd3c2b233..308b0854d1d5 100644
---- a/arch/x86/include/asm/uaccess.h
-+++ b/arch/x86/include/asm/uaccess.h
-@@ -496,6 +496,7 @@ copy_mc_to_kernel(void *to, const void *from, unsigned len);
- 
- unsigned long __must_check
- copy_mc_to_user(void __user *to, const void *from, unsigned len);
-+#define copy_mc_to_user copy_mc_to_user
- #endif
- 
- /*
-diff --git a/include/linux/uaccess.h b/include/linux/uaccess.h
-index 56328601218c..c53a65394f80 100644
---- a/include/linux/uaccess.h
-+++ b/include/linux/uaccess.h
-@@ -250,6 +250,14 @@ copy_mc_to_kernel(void *dst, const void *src, size_t cnt)
- }
- #endif
- 
-+#ifndef copy_mc_to_user
-+static inline unsigned long __must_check
-+copy_mc_to_user(void *dst, const void *src, size_t cnt)
++/*
++ * memcpy_mc() is a Machine-Check safe memcpy variant.
++ * Signature: int memcpy_mc(void *dst, const void *src, size_t len)
++ * Returns:   0 on success, or number of bytes NOT copied on MC error.
++ *
++ * In the normal (no-poison) path it must behave identically to memcpy()
++ * and always return 0.
++ */
++static void memcpy_mc_test(struct kunit *test)
 +{
-+	return copy_to_user(dst, src, cnt);
-+}
-+#endif
++#define TEST_OP "memcpy_mc"
++	struct some_bytes control = {
++		.data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++		},
++	};
++	struct some_bytes zero = { };
++	struct some_bytes middle = {
++		.data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x00, 0x00, 0x00, 0x00,
++			  0x00, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++		},
++	};
++	struct some_bytes three = {
++		.data = { 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
++			},
++	};
++	struct some_bytes dest = { };
++	int ret, count;
++	u8 *ptr;
 +
- static __always_inline void pagefault_disabled_inc(void)
- {
- 	current->pagefault_disabled++;
++	/* Verify static initializers. */
++	check(control, 0x20);
++	check(zero, 0);
++	compare("static initializers", dest, zero);
++
++	/* Verify assignment. */
++	dest = control;
++	compare("direct assignment", dest, control);
++
++	/* Verify complete overwrite. */
++	ret = memcpy_mc(dest.data, control.data, sizeof(dest.data));
++	KUNIT_ASSERT_EQ(test, ret, 0);
++	compare("complete overwrite", dest, control);
++
++	/* Verify middle overwrite: 7 bytes at offset 12. */
++	dest = control;
++	ret = memcpy_mc(dest.data + 12, zero.data, 7);
++	KUNIT_ASSERT_EQ(test, ret, 0);
++	compare("middle overwrite", dest, middle);
++
++	/* Verify zero-length copy is a no-op. */
++	dest = control;
++	ret = memcpy_mc(dest.data, zero.data, 0);
++	KUNIT_ASSERT_EQ(test, ret, 0);
++	compare("zero length", dest, control);
++
++	/* Verify argument side-effects aren't repeated. */
++	dest = control;
++	ptr = dest.data;
++	count = 1;
++	memcpy(ptr++, zero.data, count++);
++	ptr += 8;
++	memcpy(ptr++, zero.data, count++);
++	compare("argument side-effects", dest, three);
++#undef TEST_OP
++}
++
++static void memcpy_mc_large_test(struct kunit *test)
++{
++	init_large(test);
++
++	/* Sweep 1..1024 bytes x shifting offset to cover all template paths. */
++	for (int bytes = 1; bytes <= ARRAY_SIZE(large_src); bytes++) {
++		for (int offset = 0; offset < ARRAY_SIZE(large_src); offset++) {
++			int right_zero_pos = offset + bytes;
++			int right_zero_size = ARRAY_SIZE(large_dst) - right_zero_pos;
++			int ret;
++
++			ret = memcpy_mc(large_dst + offset, large_src, bytes);
++			KUNIT_ASSERT_EQ_MSG(test, ret, 0,
++				"memcpy_mc returned %d with size %d at offset %d",
++				ret, bytes, offset);
++
++			/* No write before copy area. */
++			KUNIT_ASSERT_EQ_MSG(test,
++				memcmp(large_dst, large_zero, offset), 0,
++				"with size %d at offset %d", bytes, offset);
++			/* No write after copy area. */
++			KUNIT_ASSERT_EQ_MSG(test,
++				memcmp(&large_dst[right_zero_pos], large_zero,
++				       right_zero_size), 0,
++				"with size %d at offset %d", bytes, offset);
++			/* Byte-for-byte exact. */
++			KUNIT_ASSERT_EQ_MSG(test,
++				memcmp(large_dst + offset, large_src, bytes), 0,
++				"with size %d at offset %d", bytes, offset);
++
++			memset(large_dst + offset, 0, bytes);
++		}
++		cond_resched();
++	}
++}
+ #endif /* CONFIG_ARCH_HAS_COPY_MC */
+ 
+ static struct kunit_case memcpy_test_cases[] = {
+@@ -564,6 +673,8 @@ static struct kunit_case memcpy_test_cases[] = {
+ 	KUNIT_CASE(copy_page_test),
+ #ifdef CONFIG_ARCH_HAS_COPY_MC
+ 	KUNIT_CASE(copy_mc_page_test),
++	KUNIT_CASE(memcpy_mc_test),
++	KUNIT_CASE_SLOW(memcpy_mc_large_test),
+ #endif
+ 	{}
+ };
+@@ -575,5 +686,5 @@ static struct kunit_suite memcpy_test_suite = {
+ 
+ kunit_test_suite(memcpy_test_suite);
+ 
+-MODULE_DESCRIPTION("test cases for memcpy(), memmove(), memset() and copy_page()");
++MODULE_DESCRIPTION("test cases for memcpy(), memmove(), memset(), copy_page() and memcpy_mc()");
+ MODULE_LICENSE("GPL");
 -- 
 2.39.3
 
