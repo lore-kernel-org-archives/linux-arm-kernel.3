@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C63ECD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9065ACD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WweKQAj+6Hy9UyAI77KW2jeABwqngTeZC1dub5emDbg=; b=xf8GBnoUVt9CaCpxVKY1UTkJ0W
-	y0Ta+z/sIVb/LA1let1LvyeIw0JceZSuYsTXDIfq3GYZOl11FWg1eZDoYmMw99AZH4m7fHQz9hjoJ
-	SuwmU0qmXok2rqNpP1fgzDL+EBPOkF0TJ7RETGrbh9sLArAHfrLRhLcEENbdS5M2JDR2pp2nPwRbE
-	FDbSdMnyFM/itsVAkJnFw91h6kU05OIXC9e7Juc6IEiXa3N4tHRiwgMxI8gumQMNvI3W4dP5ABM6N
-	miiwHRe7Zc3temyW86PV21BfJVsli7dgMnym76tnuLAnY5cQtb5eApqNiVqjPzEBY3p3eoCyb15my
-	1dPHTA5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hlon68HWzYSuZVvGtZWTYxS8A7InLmxaKDMJZk2vF3Y=; b=JVokCH855gr7e1Yf58aPAPzm6s
+	iFMcdupS5iyt9u3sk7ud/kc1LkYyQbujG+ceW7/BzkWpJDUXRV0GKfWUgfOdCAXlZpe+V5CyxkKSN
+	5jznN9Wu0lQGZXYtnS4aTkRropuvsmjwbFlVG5ckbQixxlHwcmPc7bMcFr/lSbeyjjMOhWLiYFHj8
+	UVm2d+grjStx46n4XBo9wNo57Ghe7dq5OzIHPf0fzl6kwVZSRN4TBzK0wXkmd8ZCvcIfgkniU8C97
+	FV6onaPizWkdXfGa6M3Nuo1nWuhEHukKjy3H1bHA0ZOhhRuIqt9XStT+ZlhVKBfNd1748iP2ZCeqo
+	BFJPWieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP05o-0000000GCRq-0G8d;
-	Mon, 18 May 2026 15:41:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wP09N-0000000GD6V-2AuZ;
+	Mon, 18 May 2026 15:45:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP05m-0000000GCRX-3kr9
+	id 1wP09L-0000000GD5D-1OhR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:41:18 +0000
+	Mon, 18 May 2026 15:45:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 44B9760120;
-	Mon, 18 May 2026 15:41:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CA8C2BCB8;
-	Mon, 18 May 2026 15:41:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A3B742DD7;
+	Mon, 18 May 2026 15:44:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CE63C2BCB7;
+	Mon, 18 May 2026 15:44:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779118878;
-	bh=nGkDdu+N3KWlaQu2LHbVRzFeeLezZZ4e4A5lnJ7m/HY=;
+	s=k20201202; t=1779119096;
+	bh=gTu+hAwJZKRLTtD+A+avEeHzQqC6EwtEYG0HiI1fp9A=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=d11xgqltA+Lt/KKwH30UiTSccND+/f5Aa8LecxQGfbVbkuAX1MYkuYeg33udL8Fxy
-	 jpNEgIsfEgIBmzkx3Vnuj9O6qFTHT31nZ7Gb/zKEmgdUjslCvW0Ew0hE9Re2En7yDM
-	 85MoCCxtbJXwPqsbKxD8Cs+0MF6i+ASkhLY3OyBQiz1MKZC2W2KQEFfXuhXpFL+FT1
-	 5quqEkXeQtv5WCNxt2k2XPlcuIXMieXtOKopKXhjPghNKlVxMuXVCx43Ac10C1I+Ea
-	 DWDct1vwu539+M5GnqnLxswv2dzror/DM0Z7hFKJd6LtMaC7yPevb1YE4vuNCR7dBh
-	 zcfG4KP1X7v9A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wP05j-00000003aaE-3rHO;
-	Mon, 18 May 2026 15:41:16 +0000
-Date: Mon, 18 May 2026 16:41:15 +0100
-Message-ID: <86wlx0wwro.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2] KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
-In-Reply-To: <86y0hgwwul.wl-maz@kernel.org>
-References: <20260518153127.6078-1-will@kernel.org>
-	<86y0hgwwul.wl-maz@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=X1gim1Wewd9sNHDtgFPPToYX5SKVHGz0nzoOWrfIGr6ZyMJ10PN2Egti7EXrVR8Wa
+	 mId0oBVge4I3rGeM8hXIMJQwNXziR9yKy77esHXNPB1HDc6PMFrk0dmWipBmSgSNZ1
+	 apMywtgeKXmL1+utaE7kCj3kj61ONlYEJug5ylrTPQhp/NWNJVuWfRrKBX+LAI51B1
+	 f6n6mBxlo7Z8oZC/sVsX/1oI0iUfiOrsmzniMDPQUfjWBJuMEoao+ZtqquSXLBF/oW
+	 C7CN9pWLhdBNESKp7w/AjQ5KT576gFS/Jzhzn/f6wn6gjr1s7yoHPOU3gU8baW2CSo
+	 zK+IUq9VT36nQ==
+Date: Mon, 18 May 2026 16:44:44 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Jyoti Bhayana
+ <jbhayana@google.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Benson Leung
+ <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev
+Subject: Re: [PATCH 0/8] iio: timestamp declaration cleanup
+Message-ID: <20260518164444.7fb5f616@jic23-huawei>
+In-Reply-To: <41c0317d-2ce8-412c-818a-4a84201fce29@baylibre.com>
+References: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
+	<agq7PPw0qupI_8Dh@ashevche-desk.local>
+	<agq8Q1wpzIw4XhNQ@ashevche-desk.local>
+	<41c0317d-2ce8-412c-818a-4a84201fce29@baylibre.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260518_084459_398315_E70BB6B5 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 16:39:30 +0100,
-Marc Zyngier <maz@kernel.org> wrote:
+On Mon, 18 May 2026 09:34:48 -0500
+David Lechner <dlechner@baylibre.com> wrote:
+
+> On 5/18/26 2:14 AM, Andy Shevchenko wrote:
+> > On Mon, May 18, 2026 at 10:09:48AM +0300, Andy Shevchenko wrote:  
+> >> On Sun, May 17, 2026 at 01:17:17PM -0500, David Lechner wrote:  
+> >>> While looking around the code, I noticed that there are a lot of places
+> >>> were we are manually filling all of the fields of an IIO timestamp.
+> >>>
+> >>> This is error-prone (as seen in the first patch) and more verbose than
+> >>> it needs to be.
+> >>>
+> >>> I went with the approach of using the existing IIO_CHAN_SOFT_TIMESTAMP()
+> >>> macro for doing a struct assignment. This does require a cast, which  
+> >>
+> >> No, it's *not* a cast. It's a compound literal. And instead of doing this in
+> >> every driver, add it to the macro (in a separate patch). Oh, let me just cook
+> >> it for you (I added that to several cases in the past).  
+> > 
+> > 20260518071349.469748-1-andriy.shevchenko@linux.intel.com  
 > 
-> On Mon, 18 May 2026 16:31:26 +0100,
-> Will Deacon <will@kernel.org> wrote:
-> > 
-> > Currently, it is not necessary for __finalise_el2() to configure
-> > TPIDR_EL2:
-> > 
-> > * The hyp stub code does not consume the value of TPIDR_EL2.
-> > 
-> > * On the boot cpu, TPIDR_EL1 is used for the percpu offset until the
-> >   ARM64_HAS_VIRT_HOST_EXTN cpucap is detected and boot alternatives
-> >   are patched. Before boot alternatives are patched,
-> >   cpu_copy_el2regs() will copy TPIDR_EL1 into TPIDR_EL2. It is not
-> >   necessary for __finalise_el2() to initialise TPIDR_EL2 before this.
-> > 
-> > * Secondary CPUs are brought up after boot alternatives have been
-> >   patched, and __secondary_switched() will initialize TPIDR_EL2 in
-> >   'init_cpu_task', after finalise_el2() calls __finalise_el2()
-> > 
-> > * KVM hyp code which may consume TPIDR_EL2 is brought up after all
-> >   secondaries have been booted, once TPIDR_El2 has been configured on
-> >   all CPUs.
-> > 
-> > Remove the redundant initialisation from __finalise_el2().
-> > 
-> > Cc: Oliver Upton <oupton@kernel.org>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> > Signed-off-by: Will Deacon <will@kernel.org>
+> Nice, thanks. I agree this will be the cleanest solution.
+With that the series looks good to me.
+
+J
 > 
-> Reviewed-by: Marc Zyngier <maz@kernel.org>
+> >   
+> >>> makes it a bit more verbose, but we were already doing that in to
+> >>> drivers, so I went with it anyway.  
+> >>  
+> >>> If we want to consider alternatives, we could make a iio helper function
+> >>> or macro like the first and second patches did.  
+> >   
+> 
 
-Ah, realised too late you intended for this to go via the KVM tree.
-
-I'll queue that for 7.2.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
