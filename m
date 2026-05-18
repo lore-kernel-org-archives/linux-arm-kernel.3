@@ -4,80 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E425BCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:23:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E000CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Do77o/xByNZiSPLPmLii/SotJlMs+JtcPBjeWz64hQA=; b=HvTbJyKIu8X1ivfXazR3WETKqc
-	QuCHfY53tKtl8VhlZ58NAdV2cSyQ3SjsB0F0XxQCtRdkGzlEDXh9nZTd9LnAdlojEYFqgis9nHqD8
-	Fke+lfivOxu95sxPPGSVOtYlPhejWXWP8eQJpCFkm6wskrJHokYD51/3EWll7qkfp7wqNGlrCZahp
-	ouZAdevPU3TiuKtOkHXXbmChcmmxHgAMpY0w9AR/xutQhluPlKjlsz61OxTTK3jsba72cvkPIY0Ws
-	tQ3t7snaMHyOjhg7iBZ8veD3ka90oOrAHTB5Eu5Sjxp9vozmzSIv9RWKjzhSRldGFdcGP8h5i7eOj
-	Uynw9Yvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+OkTituhj851UTH98eKeCkJCczBoTU+PcRf+naGINh0=; b=UHPqPAwh5AmyEeZWvZ1jrOKnXm
+	pG7GzB9pWXiv/7+xP7QrBHFCuVTzBpe2oE/vVfYRPPuG+H+ds7csR88wY/vGJLZYefCMPYA5O7iBt
+	7shUWFCxpfcnI9VovcNAq7J2/C/r4gAXm+92+16TAfbeexSi7cgEhALGR2Ku/QGFbYyd18N7a1SyE
+	G9s3Z88gqAmBt9vhmjpJbrR9DlX1P8g1nieCMyFJRnYIdY2l/6peKc88jtbH14xf5agd8Yg1nk9yb
+	o8kEQiy2q8sTlfPxFzC3fynnWz8JUYbrPDpBQJBHPFL53KWt6NXKpR10HIwDVL7YpxurQa37oIltl
+	2r1FZv8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtFr-0000000ElQ3-19u6;
-	Mon, 18 May 2026 08:23:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOtFx-0000000ElSh-1Zdh;
+	Mon, 18 May 2026 08:23:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtFo-0000000ElOU-1r2F
+	id 1wOtFv-0000000ElRl-24oq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 08:23:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=+OkTituhj851UTH98eKeCkJCczBoTU+PcRf+naGINh0=; b=SnPysBgOVxUjDnyT0U7JI+fK3m
+	iTOoP51Km+rrtiLXbrfwnoiQluCUrCY3uvlKP3jV+JGcnJX2wg36q5782m/NiP1FdaW/emwXNXxkU
+	TsWuOQRXihD88yhdkEnJu9lCZu0zejf7Bvm6qRb6RXlH77vseVaV10NIP2DRpBfGPjCSD/AItdhUL
+	e1l7s7g6zYQRwyodoyE/wAEODncEjPpzyDBzikJNgiaCV7EWrvtM3MpIbsn4+/xA/mzgdF0A/UWAO
+	vySxYsTtJnamYDZ9ZKPrjbMZDAnNCbkvUIuO7Oe8vkAodHYME3HwlqrZuwPwb6WgLKC32RaT73+Fr
+	sT6mhkxA==;
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOtFp-0000000ALdb-3E47
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:23:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9EDD2402A9;
-	Mon, 18 May 2026 08:23:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 774E3C2BCC6;
-	Mon, 18 May 2026 08:23:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779092591;
-	bh=uCF5CmaE3lUrpp7famdHrfOeL35ydPnxtwZzBI+wrJM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=i4S+iSbTguhWa8638BrXdyRk2TSkTPMpfZvgYOXhiXO32erYFjY8Jg13vCLWrXy3W
-	 1AZLCm5w5JKEZiSyVxrGcOPLu7QdVTzotGdxVBvn7W+lvTw/Ihe+m7vQMRHpfTHEek
-	 LlIhvbS6A1e5pZ1XCeZ26oVwq9YsX1vYh0kf8x+qq3EjH0z/qK2qWbJsymAsl33yY7
-	 Am1PAbgTI+YT3QEYueCcz0JNx/uMGQxPlRac13G08GCbrr8B6wYelMxi4iTGGxfmyt
-	 rz3S8qotiqrV2TEbKmpX5OJUt7xpUe20G53+bgUpsZP5tgq0H4Kbh+alUXjcmdCjCD
-	 WugC/fSOmksIQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wOtFl-00000003QB2-0Cwg;
-	Mon, 18 May 2026 08:23:09 +0000
-Date: Mon, 18 May 2026 09:23:08 +0100
-Message-ID: <8633zpxh1v.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yao Yuan <yaoyuan@linux.alibaba.com>
-Cc: Michael Bommarito <michael.bommarito@gmail.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+	Mon, 18 May 2026 08:23:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hgHruWpo8T49nfD9Svr6Uhc7QYys401r/tzU5QEEtIib1rI8Mc8pqLH+BlaZXwUrYH703lL+mRN5xcJAjJhTkY28hGdjkswxJEw0Zh4leBZQFp8k3cDr5aRBhIpctW6EBqiZN+2dvBGUy36LgG617T9WnmC2zz/czS2z1rlieXwQcpduKDu4YifTWHe2UXCFpeemfLZ697GyTEb46IMicdgKtP6aKm6CLaz/oRBbToZvyXvH6CAZYB5v5TkQeZ24jMZc+IT0KDP7pLjLQyufle3BQmf/t82PHCkGgJ2YWBv36TRn+ODeLJPzhopY09PTT9FLXgErG7vZltFjHguBYA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+OkTituhj851UTH98eKeCkJCczBoTU+PcRf+naGINh0=;
+ b=C3evI6QXC4vgD6HYiXGw9pdEH2IWMYJ8HdUekrb68kirH8cdV/TwjpoJTSFVxf0LRMVJ2n7W7KBAvI+ZaxyEbgJkLTtNOAqWdYlA0IWoaxHElpz8e4+RzSJz8ue+NK6Jzb2Tnh0Ja577f70ASwuSswqSaEdHpm+TvLrslkFknWI6ddp5kUs7x/bMGHysZ6a5G0h+7IsN81DJ3Hpq5poFSl4bAqHSXKexonYkA9ruzVe0DRvR3oU59BlieYMWG5vKFHj7tjOUKu/6AQfHFwT9Q3dJbIrwdIHJ91cC/6PuKKzvn3usrCwpK5DRK/I1bpRHQhSkKmAFwedjm5X4FHk3Aw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+OkTituhj851UTH98eKeCkJCczBoTU+PcRf+naGINh0=;
+ b=L0hzpxGn1T2N+ALPyo0sn6eYEl+L+C6VAqbAzZp3bPIZFU6xCz6QTrYY5iTCQGLvB5KfC2FrCN0FwCKUcjyFPUZdmKnaVttjNjkliV+G0Jr+iDEcClFSoK7zwouoNMLOE+xWrAnH5X5dWxpdC9uImHiDhTL2jsFnWvM+7b8mJrH1VWZn18j4bNIN5OBWAxVIH1lbi4fL7r9qisWyPN1xBnBmg+2XmlDecEClcwWJ2lrFv9+YC4Y50o4f+a3NoInpXDLROyJD8SJsFXI+GKqDV8gqkYJWaY4dEYpmIgIlyKkzrcvv3WeoEbpOgyG4OT/d2Rvs003/XkiWT1QW2JxRLQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
+ by AM9PR04MB7713.eurprd04.prod.outlook.com (2603:10a6:20b:2d4::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Mon, 18 May
+ 2026 08:23:06 +0000
+Received: from DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7]) by DBBPR04MB7500.eurprd04.prod.outlook.com
+ ([fe80::c291:543b:4bde:cee7%6]) with mapi id 15.20.9913.009; Mon, 18 May 2026
+ 08:23:06 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	f.fainelli@gmail.com,
+	frank.li@nxp.com,
+	chleroy@kernel.org,
+	horms@kernel.org,
+	linux@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	andrew@lunn.ch,
+	olteanv@gmail.com
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: vgic-its: reject restored DTE with out-of-range num_eventid_bits
-In-Reply-To: <w6zdprlry2y37wtkirv4zhiy5awau3stbkjohmvfwkswgoaafe@ul53z6xwyuhw>
-References: <20260517174955.273004-1-michael.bommarito@gmail.com>
-	<w6zdprlry2y37wtkirv4zhiy5awau3stbkjohmvfwkswgoaafe@ul53z6xwyuhw>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yaoyuan@linux.alibaba.com, michael.bommarito@gmail.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	imx@lists.linux.dev
+Subject: [PATCH v8 net-next 03/15] net: enetc: add pre-boot initialization for i.MX94 switch
+Date: Mon, 18 May 2026 16:24:54 +0800
+Message-Id: <20260518082506.1318236-4-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260518082506.1318236-1-wei.fang@nxp.com>
+References: <20260518082506.1318236-1-wei.fang@nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2P153CA0005.APCP153.PROD.OUTLOOK.COM (2603:1096::15) To
+ DBBPR04MB7500.eurprd04.prod.outlook.com (2603:10a6:10:1f4::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DBBPR04MB7500:EE_|AM9PR04MB7713:EE_
+X-MS-Office365-Filtering-Correlation-Id: b89cfda7-fac6-4328-fb6a-08deb4b6afe1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|19092799006|366016|38350700014|921020|18002099003|56012099003|22082099003|3023799003|11063799003;
+X-Microsoft-Antispam-Message-Info: as60KQhfKIc9AdKs/AXcDyThi94gF/GBL/djEo3Fu9EOYIefPXI7PP7EnZff9syvbaT4RN93FBBYv0XXBATtYJ3Qxl/duxmHY/kcteW7/NfIAi3iw3aGu7v4Sm3Zh7BNtqvNUyRO9pCUzSfBRb8BajigDQA4/5FxqiIeWiu2CVmWN7Zec6qYtz3qd/6U6JVRlaiRUbykf4kjDEI4ih15k61pVsRlZWav01+/OtEMy9LmGwYJ2nj0tOojJ26P9VTJZz+5m1VjCgcp/Bwpz/d/oUP1BEPgKEju4NI51Wp+opaDaM7QJzjsAyiK9ahzWHu+RLK0S1MEK9CtvzoCcSVOmK1LSxfqDLPXb2teSFoTxB6NPa8Z20cm63aP7oOrd85pzdeb/UP/6o/RH88gEojB6EqkrPYNoU/GvlB70n645ImpBtH7ZkFE4ZDyRsQBQS0aPnQAybFGSpIQqTiLDAcY3H2sZAgGCdGJBtjX6ZyykzhLa37flydrWla8UmG0NraS5aCvFN8jPvuRbqD6hYkP4WTcsYpKEBvhpK2x2fLMZ+cYr1DecsRlOdxjqEafHLk8olELrOCK5t6GLE3iWikeYHnQG1ZLpF11VgYZQvPmNn6W8Qm2DDcz/6oTSV3CAL1/eYhbWJpmpEDWcQFZiRaSUtBUICYP72xXhRaTCuQS7ZK1rmx+xU2C1WDukGEj+4x23IgSN9805d9VXC6MPlyQ0wj3yZteOqFraO/EuFGdejXLYoHnIK6zVyRNt17iIykDPipzsJJXbnnEQsRxwpec9Q==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7500.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(19092799006)(366016)(38350700014)(921020)(18002099003)(56012099003)(22082099003)(3023799003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bY5dyUTtAqBkNHGjAyUMCXa5f+k3d7kT4LE3z/slFa7qQbdCuvomigPa46kR?=
+ =?us-ascii?Q?lz68F1JdYqPMxdLPtuSCosDTK92DYf8WXpE+O2hNMjnM9njVX25NNElwV5GH?=
+ =?us-ascii?Q?Rv4V4XRzumw9+wg0IzQMpHHnx6CbymXBeR8OeQsz1uL6+NyIlwNCLsVlh/HN?=
+ =?us-ascii?Q?YcxvnZuQR1RGW820ds7a2KTzXrHHd5YoXA92fY767I5zL3vLOYbTkmmD0yj7?=
+ =?us-ascii?Q?CtokbfwEyVRVxhUWNQQeHxilL9ows2su+TWeQOSVbrAoe1cA+SD4QHgOTvak?=
+ =?us-ascii?Q?BiObapOqliOS0QUuEeAaD0BKtdhYmKOxxKr/6I8qNj+R3QuciPaJNE4LwFmd?=
+ =?us-ascii?Q?CWv2W0RktYV7id23RkpH141s1XaV+f1ik63XO7YRsC489yU7UdcTCPaQC58h?=
+ =?us-ascii?Q?gBK2Aoz8fGL5bwa3xj2TnTzH82jVIRCrCN7JpIxVkX89KWC/uaFnf5TQTfZ4?=
+ =?us-ascii?Q?MthErxstjk6gfocn8B2Ht7ZYd1GKe8z+HudqB6roFAFFvVcuS6kU5IFKhERk?=
+ =?us-ascii?Q?dfX1AnL773NdbNjoHItv/TgXxp76Tcr3pHMoJnzjd0pf6WKeXIHRLjwmLdA/?=
+ =?us-ascii?Q?gvhRni7JsctYg+OpD31+4b+4vOat1Cz4aXlDWQfK+NKYiwlkkPaYKitxbiqO?=
+ =?us-ascii?Q?OTDSMfaCUiq8qEocTyXXHYWJId4WZrk+xvWvhGLOzY+mDm1hSb8B7CBC5DJ/?=
+ =?us-ascii?Q?2DMPVLkU5cEoq5BUUqhBcdSO0VgaSjvcVJTfsmfVkxYjfSSpTS4yO0nNz3+D?=
+ =?us-ascii?Q?7tDFM1EiUwpZ3Rtwxmww6KheQ//EoZKS3stpWriAC9pTAP0G3QjBDyqrhwvI?=
+ =?us-ascii?Q?qhmS9M2Wm7pCQV2TIWN5uLKMFwVdH9DdxAo4WugRLsgMdy8GeRLXBTouEQ4N?=
+ =?us-ascii?Q?99C7L4sJWI2cbNXefyilYEew5PmCPdlK9EalrSCpaWr5BdCqNIYOkLvSS0Mo?=
+ =?us-ascii?Q?JsipOh9iqTVmtp2jE9HXukQiFPjJAIBmaDmlCaCTZfPhub4LIqYb14FJ3el7?=
+ =?us-ascii?Q?W1OJ3z1c4KSVm8aiK9gIWGEE5R0PMbuMJIrYFvfo9Sal9Fx60MX1snt30wKY?=
+ =?us-ascii?Q?BF5k4j8jbEBVTW8O8h22D1KO5FNc9rwfS535l0INujWYql9JCIgdJ4LoxX3o?=
+ =?us-ascii?Q?2tj44yHYarCqjPk4i5i7Yj+mrodUlrWUoGT5dMv7+0o3ptbENVr62XyopCYD?=
+ =?us-ascii?Q?XJUT1MwgQdVxz/8P6p/a6/SNLrL56KaJsMYpuhb0lnE9t0o5xDj/w50qBdr/?=
+ =?us-ascii?Q?CNtfdRpL7ZcXCeeMRMFBvpXP4leSGZkJn3H3bOp6lrsBDooaRutPNwRJHUNo?=
+ =?us-ascii?Q?PZRYsDMfPi41uGXKZOJSLrR//rnj4Mfc5fw+SRNTc/Pcwwg4w7LVWT7rmIea?=
+ =?us-ascii?Q?8mwbHD2hUc/H+h5A4Z5pSddfSyPsL4/Yhs2jBShZH0YwokosLXTjlpB0NIXF?=
+ =?us-ascii?Q?0Z8QNLOzREE1lLKiKCZsO9hTrrDLxh5ApAyX9SmI8JVTnX7kwCIewlZbot0z?=
+ =?us-ascii?Q?zOKyzs9gwgxW0UTS5snWx0BCD5U3IhWpKMllloE/1BaYRFo+OHcNOuj9oVzX?=
+ =?us-ascii?Q?RIFzlA5eFoq70/iE4SVIthGD2Yinrg3RRXxR1o0bKnWGhVHtciQQJFWFIuLz?=
+ =?us-ascii?Q?Z8eWQFcXfTKCR29BFj1lsfQg+Zq+FtBWOTBXwdS6uhQ6DVqLcKQHVJj8fWVn?=
+ =?us-ascii?Q?0bk/e4gnOlQ4uljgfhToEQjyZW8GnwL9Be/LjS/98kiBASwHPllYe4rQ98rq?=
+ =?us-ascii?Q?475p2alOzg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b89cfda7-fac6-4328-fb6a-08deb4b6afe1
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7500.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 08:23:06.3672
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 85IY7QE7Gn8fDxRfQPfD5ebFwB8AG5GOGu9o+YnHFPmQNxkmNm164XonE8hQVpLtihTZWyfctumuLHiiyMy6IA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7713
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_012312_521409_2214CD11 
-X-CRM114-Status: GOOD (  24.44  )
+X-CRM114-CacheID: sfid-20260518_092314_224089_B88F72B4 
+X-CRM114-Status: GOOD (  28.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,56 +171,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 07:05:13 +0100,
-Yao Yuan <yaoyuan@linux.alibaba.com> wrote:
-> 
-> On Sun, May 17, 2026 at 01:49:55PM +0800, Michael Bommarito wrote:
+Before probing the NETC switch driver, some pre-initialization needs to
+be set in NETCMIX and IERB to ensure that the switch can work properly.
+For example, i.MX94 NETC switch has three external ports and each port
+is bound to a link. And each link needs to be configured so that it can
+work properly, such as I/O variant and MII protocol.
 
-[...]
+In addition, the switch port 2 (MAC 2) and ENETC 0 (MAC 3) share the same
+parallel interface, they cannot be used at the same time due to the SoC
+constraint. And the MAC selection is controlled by the mac2_mac3_sel bit
+of EXT_PIN_CONTROL register. Currently, the interface is set for ENETC 0
+by default unless the switch port 2 is enabled in the DT node.
 
-> > diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-> > index 2ea9f1c7ebcd0..a5dcf9a6a2854 100644
-> > --- a/arch/arm64/kvm/vgic/vgic-its.c
-> > +++ b/arch/arm64/kvm/vgic/vgic-its.c
-> > @@ -2307,6 +2307,15 @@ static int vgic_its_restore_dte(struct vgic_its *its, u32 id,
-> >  	/* dte entry is valid */
-> >  	offset = (entry & KVM_ITS_DTE_NEXT_MASK) >> KVM_ITS_DTE_NEXT_SHIFT;
-> >
-> > +	/*
-> > +	 * The MAPD command rejects this case; mirror the cap here so a
-> > +	 * restored DTE cannot install an out-of-range num_eventid_bits
-> > +	 * that vgic_its_restore_itt() would then convert into a
-> > +	 * sign-extended scan_its_table() length.
-> > +	 */
-> > +	if (num_eventid_bits > VITS_TYPER_IDBITS)
-> > +		return -EINVAL;
-> 
-> Hi,
-> 
-> IIUC, the same issue is still there when VITS_TYPER_IDBITS
-> change to >=28, I know it's limited to 16 in GITS_TYPER's
-> definition. I mean the issue is still there w/o really be
-> fixed.
+Like ENETC, each external port of the NETC switch can manage its external
+PHY through its port MDIO registers. And the port can only access its own
+external PHY by setting the PHY address to the LaBCR[MDIO_PHYAD_PRTAD].
+If the accessed PHY address is not equal to LaBCR[MDIO_PHYAD_PRTAD], then
+the MDIO access initiated by port MDIO will be invalid.
 
-Change how? This is a hard-coded limit that reflect a practical use of
-the ITS (and is already 32 times larger than what PCIe allows).
+Signed-off-by: Wei Fang <wei.fang@nxp.com>
+---
+ .../ethernet/freescale/enetc/netc_blk_ctrl.c  | 185 +++++++++++++++---
+ 1 file changed, 163 insertions(+), 22 deletions(-)
 
-Are you suggesting a possibility of making this userspace
-configurable?
-
-> 
-> Change the scan_its_table() and other related code path to
-> avoid such date conversion issue is more reasonable
-> fixing to me, please also wait others' input yet.
-
-I don't think this is a reasonable course of action. scan_its_table()
-is generic (it doesn't know about any table in particular), and
-assumes that the scan parameters are validated upfront.
-
-Thanks,
-
-	M.
-
+diff --git a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
+index 92a0f824dae7..c7eb0234c785 100644
+--- a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
++++ b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
+@@ -261,40 +261,108 @@ static int imx94_link_config(struct netc_blk_ctrl *priv,
+ }
+ 
+ static int imx94_enetc_link_config(struct netc_blk_ctrl *priv,
+-				   struct device_node *np)
++				   struct device_node *np,
++				   bool *enetc0_en)
+ {
+ 	int link_id = imx94_enetc_get_link_id(np);
+ 
+ 	if (link_id < 0)
+ 		return link_id;
+ 
++	if (link_id == IMX94_ENETC0_LINK && of_device_is_available(np))
++		*enetc0_en = true;
++
+ 	return imx94_link_config(priv, np, link_id);
+ }
+ 
++static int imx94_switch_link_config(struct netc_blk_ctrl *priv,
++				    struct device_node *np,
++				    bool *swp2_en)
++{
++	struct device_node *ports;
++	u32 port_id;
++	int err = 0;
++
++	ports = of_get_child_by_name(np, "ethernet-ports");
++	if (!ports)
++		return -ENODEV;
++
++	/* The switch may be owned by a guest OS, in this case, the switch
++	 * node in the host OS will be disabled, but we still hope that the
++	 * host OS could do some configurations for the switch, as the
++	 * netc_blk_ctrl is owned by host OS. So of_device_is_available()
++	 * is not needed here.
++	 */
++	for_each_available_child_of_node_scoped(ports, child) {
++		if (of_property_read_u32(child, "reg", &port_id) < 0) {
++			err = -ENODEV;
++			goto end;
++		}
++
++		switch (port_id) {
++		case 0 ... 2: /* External ports */
++			err = imx94_link_config(priv, child, port_id);
++			if (err)
++				goto end;
++
++			if (port_id == 2)
++				*swp2_en = true;
++
++			break;
++		case 3: /* CPU port */
++			break;
++		default:
++			err = -EINVAL;
++			goto end;
++		}
++	}
++
++end:
++	of_node_put(ports);
++
++	return err;
++}
++
+ static int imx94_netcmix_init(struct platform_device *pdev)
+ {
+ 	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
+ 	struct device_node *np = pdev->dev.of_node;
++	bool enetc0_en = false, swp2_en = false;
+ 	u32 val;
+ 	int err;
+ 
+ 	for_each_child_of_node_scoped(np, child) {
+ 		for_each_child_of_node_scoped(child, gchild) {
+-			if (!of_device_is_compatible(gchild, "pci1131,e101"))
+-				continue;
+-
+-			err = imx94_enetc_link_config(priv, gchild);
+-			if (err)
+-				return err;
++			if (of_device_is_compatible(gchild, "pci1131,e101")) {
++				err = imx94_enetc_link_config(priv, gchild,
++							      &enetc0_en);
++				if (err)
++					return err;
++			} else if (of_device_is_compatible(gchild,
++							   "pci1131,eef2")) {
++				err = imx94_switch_link_config(priv, gchild,
++							       &swp2_en);
++				if (err)
++					return err;
++			}
+ 		}
+ 	}
+ 
+-	/* ENETC 0 and switch port 2 share the same parallel interface.
+-	 * Currently, the switch is not supported, so this interface is
+-	 * used by ENETC 0 by default.
++	if (enetc0_en && swp2_en) {
++		dev_err(&pdev->dev,
++			"Cannot enable swp2 and enetc0 at the same time\n");
++		return -EINVAL;
++	}
++
++	/* ENETC 0 and switch port 2 share the same parallel interface, they
++	 * cannot be enabled at the same time. The interface is set for the
++	 * ENETC 0 by default unless the switch port 2 is enabled in the DTS.
+ 	 */
+ 	val = netc_reg_read(priv->netcmix, IMX94_EXT_PIN_CONTROL);
+-	val |= MAC2_MAC3_SEL;
++	if (!swp2_en)
++		val |= MAC2_MAC3_SEL;
++	else
++		val &= ~MAC2_MAC3_SEL;
+ 	netc_reg_write(priv->netcmix, IMX94_EXT_PIN_CONTROL, val);
+ 
+ 	return 0;
+@@ -610,6 +678,78 @@ static int imx94_enetc_mdio_phyaddr_config(struct netc_blk_ctrl *priv,
+ 	return 0;
+ }
+ 
++static int imx94_ierb_enetc_init(struct netc_blk_ctrl *priv,
++				 struct device_node *np,
++				 u32 phy_mask)
++{
++	int err;
++
++	err = imx94_enetc_update_tid(priv, np);
++	if (err)
++		return err;
++
++	return imx94_enetc_mdio_phyaddr_config(priv, np, phy_mask);
++}
++
++static int imx94_switch_mdio_phyaddr_config(struct netc_blk_ctrl *priv,
++					    struct device_node *np,
++					    u32 port_id, u32 phy_mask)
++{
++	int addr;
++
++	/* The switch has 3 external ports at most */
++	if (port_id > 2)
++		return 0;
++
++	addr = netc_get_phy_addr(np);
++	if (addr < 0) {
++		if (addr == -ENODEV)
++			return 0;
++
++		return addr;
++	}
++
++	if (phy_mask & BIT(addr)) {
++		dev_err(&priv->pdev->dev,
++			"Found same PHY address in EMDIO and switch node\n");
++		return -EINVAL;
++	}
++
++	netc_reg_write(priv->ierb, IERB_LBCR(port_id),
++		       LBCR_MDIO_PHYAD_PRTAD(addr));
++
++	return 0;
++}
++
++static int imx94_ierb_switch_init(struct netc_blk_ctrl *priv,
++				  struct device_node *np,
++				  u32 phy_mask)
++{
++	struct device_node *ports;
++	u32 port_id;
++	int err = 0;
++
++	ports = of_get_child_by_name(np, "ethernet-ports");
++	if (!ports)
++		return -ENODEV;
++
++	for_each_available_child_of_node_scoped(ports, child) {
++		err = of_property_read_u32(child, "reg", &port_id);
++		if (err)
++			goto end;
++
++		err = imx94_switch_mdio_phyaddr_config(priv, child,
++						       port_id, phy_mask);
++		if (err)
++			goto end;
++	}
++
++end:
++	of_node_put(ports);
++
++	return err;
++}
++
+ static int imx94_ierb_init(struct platform_device *pdev)
+ {
+ 	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
+@@ -625,17 +765,18 @@ static int imx94_ierb_init(struct platform_device *pdev)
+ 
+ 	for_each_child_of_node_scoped(np, child) {
+ 		for_each_child_of_node_scoped(child, gchild) {
+-			if (!of_device_is_compatible(gchild, "pci1131,e101"))
+-				continue;
+-
+-			err = imx94_enetc_update_tid(priv, gchild);
+-			if (err)
+-				return err;
+-
+-			err = imx94_enetc_mdio_phyaddr_config(priv, gchild,
+-							      phy_mask);
+-			if (err)
+-				return err;
++			if (of_device_is_compatible(gchild, "pci1131,e101")) {
++				err = imx94_ierb_enetc_init(priv, gchild,
++							    phy_mask);
++				if (err)
++					return err;
++			} else if (of_device_is_compatible(gchild,
++							   "pci1131,eef2")) {
++				err = imx94_ierb_switch_init(priv, gchild,
++							     phy_mask);
++				if (err)
++					return err;
++			}
+ 		}
+ 	}
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.34.1
+
 
