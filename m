@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF575CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 00:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317C6CD4F48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 00:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=71TiXWZeiNEnZ9aHbMl8KHb/RAdwEUbQt5Z1vVI0djc=; b=aA9pGh4GsYgSoRgWxr3nvXCgS9
-	trygQnNFcUXwe4+zYnh61rJ5TT/cgyTeJNrnuluCzGk4LCFSYft6Yhf4/AAYoyWlxCjDJrOzTD71O
-	FQzD+PJyNi739aUwjBOThscmaR+po70Wj2UNnb+jFOlqxmBCKJ6BubCfa+rEq3/nePPXYyWv+5SZo
-	P9htNFSIfMUbyE35pvDl+gpRUB1oHMPI4fmVeyqFGp4Co2T4l1udbB93n8qr/H2VvAZ/gupF9ZCJq
-	GUs6xYBhH+bHJtnafH29j5rhO0/bn3h0zfj0Tk7P2IBunYcBRxg402qhdPKFBFZWNJmWBtohLklus
-	MmoNW2fQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3F13ZakzR2RSsT1F2D7I1CFIuqoD/ehoB7Hh/Xe6CP8=; b=v9Vhqrl79mm9YcD78C4iYuKjmK
+	QH4YQ5npEwa4zm6kpA5L19bcln4OX/Puhx1nSGPo08XFLfl+Emke+ZeSUD1wsm21fADQepjBuMY5t
+	eow6qpBQXigI7n5maLTSRVFBUmVFVyu+k5g5s73TrWW8HnRoTuWFlH8StPEOga6o0OmXe9mWmd7t6
+	Nzv6jC4m5Y7qXCGtoAJII79vTJZo/6eN/KqrqL+/Q7HNxEjW+4k0yCgDZJBYI/puscIzLCXNeeN42
+	7Mh1QqpIpUtOqD4hn2Py00YTJu+cZGCXDbiAx6REiUwfQCy2IE6LZQKIN8x/kN4F+eo7Gs85Jgrux
+	m0CwmVIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOm55-0000000DlPA-33uZ;
-	Mon, 18 May 2026 00:43:39 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
+	id 1wOm5F-0000000DlTk-0Yna;
+	Mon, 18 May 2026 00:43:49 +0000
+Received: from m16.mail.163.com ([220.197.31.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOm53-0000000DlMy-0NKT;
-	Mon, 18 May 2026 00:43:38 +0000
+	id 1wOm53-0000000DlN2-15YY;
+	Mon, 18 May 2026 00:43:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=71
-	TiXWZeiNEnZ9aHbMl8KHb/RAdwEUbQt5Z1vVI0djc=; b=FvbFaNgDlCc4BH7ZQ1
-	bkLp4gMSaI26ucPewKKL6mBMwC5aiuJWuc3zL+9jmS/rBKTF5U+8iFn73uCG2k5g
-	NZGjlktM7zIP8E4e47SFrWY9AJ0ANDzELqXQc0ByfzH4mkM3OPnq9UN2VDXf+rmf
-	aTVUPpmOEnUdcRQWNYOch+W0U=
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=3F
+	13ZakzR2RSsT1F2D7I1CFIuqoD/ehoB7Hh/Xe6CP8=; b=mGngdtKnqDAYiq0K16
+	nFCreG2iac289umqPMc5xdw6O9eQ8A/tTy9F4jh86kP+Ikp3Xo+8CE0OfEKZVOTG
+	ZZglwnzSL6RnCAxofrkWYE0Vi0cPFG3EOLsXmYVJgfAr51gFf8BsiTfxi143X3Dq
+	XC+T8FU0ZMky3J9m8qrHhO+/M=
 Received: from Precision-7960.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wCnj6SIYApq2fikCA--.4779S2;
-	Mon, 18 May 2026 08:42:50 +0800 (CST)
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wCnj6SIYApq2fikCA--.4779S4;
+	Mon, 18 May 2026 08:42:53 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: bhelgaas@google.com,
 	lpieralisi@kernel.org,
@@ -56,22 +56,24 @@ Cc: robh@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v4 0/7] PCI: Add common helper for 100 ms delay after link training
-Date: Mon, 18 May 2026 08:42:39 +0800
-Message-ID: <20260518004246.1384532-1-18255117159@163.com>
+Subject: [PATCH v4 2/7] PCI: cadence: Add post-link delay for LGA and j721e glue driver
+Date: Mon, 18 May 2026 08:42:41 +0800
+Message-ID: <20260518004246.1384532-3-18255117159@163.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260518004246.1384532-1-18255117159@163.com>
+References: <20260518004246.1384532-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCnj6SIYApq2fikCA--.4779S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxWr15WF1xZFWfGw17WF4DArb_yoWrKr1xpF
-	WrGrWSk3Z7XFWYvws7A3W7u34Yg3Z3G34Ut3ykK34xZrnrAFyYvrWI9FWvvFy7GrWkXrnF
-	y3WUK3ZrCw12yFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRUkucUUUUU=
+X-CM-TRANSID: _____wCnj6SIYApq2fikCA--.4779S4
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGFWUWFyktFy3trW5Ar4fXwb_yoWrCF4fpa
+	yUGFyfG3WIqrWY9a1kZ3WUXryaqFn8A3srJ3929w1xWF17Cr98JF42gF1fJFZxKrZrAr17
+	ZF1DtF9rGr1ayFUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRwjjkUUUUU=
 X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxAxY+2oKYIwFAAAA3i
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7A5Y+2oKYI65OgAA3M
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_174337_478014_44D3DF4B 
-X-CRM114-Status: GOOD (  11.94  )
+X-CRM114-CacheID: sfid-20260517_174337_671990_48CDEFE4 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,106 +88,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PCIe r6.0, sec 6.6.1 (Conventional Reset) requires that for a Downstream
-Port supporting Link speeds greater than 5.0 GT/s, software must wait a
-minimum of 100 ms after Link training completes before sending any
-Configuration Request.
+The Cadence LGA (Legacy Architecture IP) PCIe host controller currently
+lacks the mandatory 100 ms delay after link training completes for speeds
+> 5.0 GT/s, as required by PCIe r6.0 sec 6.6.1.
 
-Several PCIe host controller drivers currently omit this 100 ms delay
-when the negotiated link speed is Gen3 (8 GT/s) or higher. Only the DWC
-driver already implements it. The missing delay can lead to violations
-of the PCIe specification and cause enumeration failures with high-speed
-devices (e.g., NVIDIA RTX5070 GPU, PCIe 5.0 NVMe SSDs).
+Add a 'max_link_speed' field to struct cdns_pcie. In the common host
+layer function cdns_pcie_host_start_link(), after the link has been
+successfully established, call pci_host_common_link_train_delay() to
+insert the required delay.
 
-To fix this consistently and avoid code duplication, this series:
+For the j721e glue driver, set cdns_pcie.max_link_speed from the existing
+link speed logic. For other LGA-based glue drivers (sky1, sg2042), the
+common LGA host setup (pcie-cadence-host.c) provides a fallback reading
+of the device tree property "max-link-speed" when available. This ensures
+that the delay is not missed on those platforms once they enable the
+property.
 
-  1. Adds a static inline helper `pci_host_common_link_train_delay()`
-     in `drivers/pci/controller/pci-host-common.h`. The helper checks
-     the given max_link_speed and calls msleep(100) if speed > 5 GT/s.
-
-  2. Converts the DWC driver to use this helper.
-
-  3. Adds the missing 100 ms delay to the Cadence PCIe controller
-     (both LGA and HPA IPs). A `max_link_speed` field is introduced
-     in `struct cdns_pcie`. The j721e glue driver sets this field;
-     other LGA glue drivers fall back to reading DT property
-     "max-link-speed". HPA also reads the DT property.
-
-  4. Adds the delay to the Aardvark and MediaTek Gen3 host drivers,
-     and replaces the existing unconditional delay in the Renesas
-     RZ/G3S driver with the conditional helper (per spec).
-
-All changes are placed immediately after link training completes and
-before any Configuration Request would be issued.
-
+Signed-off-by: Hans Zhang <18255117159@163.com>
 ---
-Our company's product is based on the HPA IP from Cadence. When connecting
-to different devices, we encountered issues with the enumeration failure
-when connecting to the NVIDIA RTX5070 GPU and the NVMe SSD with PCIe 5.0
-interface. Our code is based on: 80dc18a0cba8d ("PCI: dwc: Ensure that
-dw_pcie_wait_for_link() waits 100 ms after link up").
----
-Changes since v4:
-- Resolve the pointer reference error in patch 0002. (sashiko)
+ drivers/pci/controller/cadence/pci-j721e.c                | 1 +
+ drivers/pci/controller/cadence/pcie-cadence-host-common.c | 4 ++++
+ drivers/pci/controller/cadence/pcie-cadence-host.c        | 4 ++++
+ drivers/pci/controller/cadence/pcie-cadence.h             | 2 ++
+ 4 files changed, 11 insertions(+)
 
-Changes since v3:
-- Renamed helper from pcie_wait_after_link_train() to
-  pci_host_common_link_train_delay() and moved to pci-host-common.h. (Mani)
-- Reorganized Cadence patches: LGA + j721e glue in one patch, HPA separate.
-- Added missing DT property reading for HPA and LGA fallback.
-- Replace the existing msleep(100) call with the common helper
-  pci_host_common_link_train_delay(). (Claudiu)
-
-Changes since v2:
-- Renamed helper from pcie_wait_after_link_train() to
-  pci_host_common_link_train_delay() and moved to pci-host-common.h. (Mani)
-- Reorganized Cadence patches: LGA + j721e glue in one patch, HPA separate.
-- Added missing DT property reading for HPA and LGA fallback.
-- Replace the existing msleep(100) call with the common helper
-  pci_host_common_link_train_delay(). (Claudiu)
-
-Changes since v1:
-- Add pcie_wait_after_link_train() helper
-- Reduce repetitive code comments and have each Root Port driver use the
-  helper function instead.
-- Increase the delay to 100ms after enabling the link-up that distinguishes
-  between Cadence LGA and HPA IPs.
-- Add the Aardvark, MediaTek Gen3, and Renesas RZ/G3S Root Port driver. When
-  the speed is greater than GEN2, a delay of 100ms should be applied.
-
-v3:
-https://patchwork.kernel.org/project/linux-pci/patch/20260511055923.37117-1-18255117159@163.com/
-
-v2:
-https://patchwork.kernel.org/project/linux-pci/cover/20260506152346.166056-1-18255117159@163.com/
-
-v1:
-https://patchwork.kernel.org/project/linux-pci/patch/20260501153553.66382-1-18255117159@163.com/
----
-
-Hans Zhang (7):
-  PCI: Add pci_host_common_link_train_delay() helper
-  PCI: cadence: Add post-link delay for LGA and j721e glue driver
-  PCI: cadence: HPA: Add post-link delay
-  PCI: dwc: Use common pci_host_common_link_train_delay() helper
-  PCI: aardvark: Add 100 ms delay after link training
-  PCI: mediatek-gen3: Add 100 ms delay after link up
-  PCI: rzg3s-host: Use common pci_host_common_link_train_delay() helper
-
- drivers/pci/controller/cadence/pci-j721e.c      |  1 +
- .../cadence/pcie-cadence-host-common.c          |  4 ++++
- .../controller/cadence/pcie-cadence-host-hpa.c  |  8 ++++++++
- .../pci/controller/cadence/pcie-cadence-host.c  |  4 ++++
- drivers/pci/controller/cadence/pcie-cadence.h   |  2 ++
- drivers/pci/controller/dwc/pcie-designware.c    |  9 ++-------
- drivers/pci/controller/pci-aardvark.c           |  5 ++++-
- drivers/pci/controller/pci-host-common.h        | 17 +++++++++++++++++
- drivers/pci/controller/pcie-mediatek-gen3.c     |  3 +++
- drivers/pci/controller/pcie-rzg3s-host.c        |  3 ++-
- 10 files changed, 47 insertions(+), 9 deletions(-)
-
-
-base-commit: 50897c955902c93ae71c38698abb910525ebdc89
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index bfdfe98d5aba..ae916e7b1927 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -206,6 +206,7 @@ static int j721e_pcie_set_link_speed(struct j721e_pcie *pcie,
+ 	    (pcie_get_link_speed(link_speed) == PCI_SPEED_UNKNOWN))
+ 		link_speed = 2;
+ 
++	pcie->cdns_pcie->max_link_speed = link_speed;
+ 	val = link_speed - 1;
+ 	ret = regmap_update_bits(syscon, offset, GENERATION_SEL_MASK, val);
+ 	if (ret)
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host-common.c b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+index 2b0211870f02..18e4b6c760b5 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host-common.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host-common.c
+@@ -14,6 +14,7 @@
+ 
+ #include "pcie-cadence.h"
+ #include "pcie-cadence-host-common.h"
++#include "../pci-host-common.h"
+ 
+ #define LINK_RETRAIN_TIMEOUT HZ
+ 
+@@ -115,6 +116,9 @@ int cdns_pcie_host_start_link(struct cdns_pcie_rc *rc,
+ 	if (!ret && rc->quirk_retrain_flag)
+ 		ret = cdns_pcie_retrain(pcie, pcie_link_up);
+ 
++	if (!ret)
++		pci_host_common_link_train_delay(pcie->max_link_speed);
++
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(cdns_pcie_host_start_link);
+diff --git a/drivers/pci/controller/cadence/pcie-cadence-host.c b/drivers/pci/controller/cadence/pcie-cadence-host.c
+index 0bc9e6e90e0e..058e4e619654 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence-host.c
++++ b/drivers/pci/controller/cadence/pcie-cadence-host.c
+@@ -13,6 +13,7 @@
+ 
+ #include "pcie-cadence.h"
+ #include "pcie-cadence-host-common.h"
++#include "../../pci.h"
+ 
+ static u8 bar_aperture_mask[] = {
+ 	[RP_BAR0] = 0x1F,
+@@ -397,6 +398,9 @@ int cdns_pcie_host_setup(struct cdns_pcie_rc *rc)
+ 	rc->device_id = 0xffff;
+ 	of_property_read_u32(np, "device-id", &rc->device_id);
+ 
++	if (pcie->max_link_speed < 1)
++		pcie->max_link_speed = of_pci_get_max_link_speed(np);
++
+ 	pcie->reg_base = devm_platform_ioremap_resource_byname(pdev, "reg");
+ 	if (IS_ERR(pcie->reg_base)) {
+ 		dev_err(dev, "missing \"reg\"\n");
+diff --git a/drivers/pci/controller/cadence/pcie-cadence.h b/drivers/pci/controller/cadence/pcie-cadence.h
+index 574e9cf4d003..042a4c49bb9a 100644
+--- a/drivers/pci/controller/cadence/pcie-cadence.h
++++ b/drivers/pci/controller/cadence/pcie-cadence.h
+@@ -86,6 +86,7 @@ struct cdns_plat_pcie_of_data {
+  * @ops: Platform-specific ops to control various inputs from Cadence PCIe
+  *       wrapper
+  * @cdns_pcie_reg_offsets: Register bank offsets for different SoC
++ * @max_link_speed: Maximum supported link speed
+  */
+ struct cdns_pcie {
+ 	void __iomem		             *reg_base;
+@@ -98,6 +99,7 @@ struct cdns_pcie {
+ 	struct device_link	             **link;
+ 	const  struct cdns_pcie_ops          *ops;
+ 	const  struct cdns_plat_pcie_of_data *cdns_pcie_reg_offsets;
++	int				     max_link_speed;
+ };
+ 
+ /**
 -- 
 2.43.0
 
