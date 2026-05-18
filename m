@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C33BCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D387DCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MFnnI6BLldGNd3xKUEPWwgoYbIBXOTqb1boV/gtJDt0=; b=0FR5j2w1rlgOGWwIa0TsRvLryJ
-	vkjAC0UoKu+PFjAFduwQSnYK8npa890aQ2oABhucRe2rzAcXHDUtm7rQJonAVf1n7fBmO1diLWSzb
-	Za2Uc+ILXt0tx0PdtJT5ZAmTgFPESOcXz32mTB0VvB1iHUMDeF1u5aTkSKJsPhH2MsQgVio8BpBaU
-	Adv2f1tEbmElLMnSZvBn9UNDRnaWV7t6MwfBdtBc6zMUhUTU2TOGqBgd2HS0hsVxLPmlw0eOP+MQq
-	Da1HWVERmx9zOdFG0fPqPCN7I7Xk63FC6fH00QHoR4cM6W55MuMH3E8ikNOt4JMvmn0VeybaFEv/W
-	bNYf7iWA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4fCiwvjoYxa7IsnqkuwZMJXGyPW0ItV0NDG21XwCeUU=; b=MR5kR8YmY02pHGgEYxQXvIiKe3
+	RTgDDr/LSr1hYMfnldQn6ZxCMqDmDSOd79i7j1N9ATagXAOqZp/84+8wKw7bgQ27OEFuH9DA0W1N3
+	eGvmrtcBXojkqiEIAve0fyzPHiu50QIzNLLSb2tjMmqmBXwtlnHnhYiCaceS5/Y/gB6YCKYViRrm4
+	ICKaOeV3CZsnQTsne1BqrIkmrhSKJF7jg+8iXL15PdVAd4qBvutj5hCv0PODDBcIOwPNjT4dg7nHU
+	4cNsy7AEupSfOT75TaprQg97dB4WhOUr88sLq++UWkAhk6i6O0L4UIQkEj+GjTh9PprDAm7g9iB+X
+	e3/zrg1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOnaU-0000000Duob-31EL;
-	Mon, 18 May 2026 02:20:10 +0000
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
+	id 1wOnb9-0000000DuwC-3XFk;
+	Mon, 18 May 2026 02:20:51 +0000
+Received: from zg8tmja2lje4os4yms4ymjma.icoremail.net ([206.189.21.223])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOnaR-0000000Dunf-0Mim
+	id 1wOnb6-0000000Duv4-3XRE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 02:20:09 +0000
+	Mon, 18 May 2026 02:20:50 +0000
 Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgBHXaApdwpqD0oaAA--.47720S2;
-	Mon, 18 May 2026 10:19:23 +0800 (CST)
+	by app1 (Coremail) with SMTP id TAJkCgCHG3BqdwpqrU0aAA--.255S2;
+	Mon, 18 May 2026 10:20:27 +0800 (CST)
 From: lizhi2@eswincomputing.com
 To: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
@@ -53,35 +53,37 @@ Cc: ningyu@eswincomputing.com,
 	pinkesh.vaghela@einfochips.com,
 	pritesh.patel@einfochips.com,
 	weishangjuan@eswincomputing.com,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net v2 0/5] net: stmmac: eic7700: fix delay calculation and initialization ordering
-Date: Mon, 18 May 2026 10:19:19 +0800
-Message-ID: <20260518021919.404-1-lizhi2@eswincomputing.com>
+	Zhi Li <lizhi2@eswincomputing.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH net v2 1/5] dt-bindings: ethernet: eswin: add optional TXD and RXD delay register offsets
+Date: Mon, 18 May 2026 10:20:23 +0800
+Message-ID: <20260518022023.427-1-lizhi2@eswincomputing.com>
 X-Mailer: git-send-email 2.52.0.windows.1
+In-Reply-To: <20260518021919.404-1-lizhi2@eswincomputing.com>
+References: <20260518021919.404-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgBHXaApdwpqD0oaAA--.47720S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7tFW5Xr1fJF45Xr1kKryfZwb_yoW8AFW8p3
-	93GFWrtr1kJryxJws7JF1vvFWrtan3CF1Y934rG3s7X3s0gas0qw18K3WFgFyUCr4xZF1j
-	yF4UXa98Cas0krJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBq14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+X-CM-TRANSID: TAJkCgCHG3BqdwpqrU0aAA--.255S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXrW3ZF1DWr1UZr17WFW5Awb_yoW5GF45pa
+	95C3y7GFn5Xr13Wws3J3W09F1fXFs3GFy3Crs7trnrXrn8Xa4YqwsxKw15W3WUCrWxZFy5
+	uFya9a1ru34qkrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBv14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
 	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4U
-	JVW0owA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw2
-	8IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4l
-	x2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrw
-	CI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI
-	42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z2
-	80aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRi7KItUUUUU==
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
+	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
+	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
+	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
+	1lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l
+	IxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4
+	A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRuHqcUUUUU=
 X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_192007_270530_D5CF8C40 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260517_192049_146851_C434FFA4 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,45 +100,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Zhi Li <lizhi2@eswincomputing.com>
 
-v1 -> v2:
-  - Update eswin,eic7700-eth.yaml:
-    - Limit the binding changes to adding optional TXD and RXD delay register
-      offsets in eswin,hsp-sp-csr.
-    - Restore the original enum-based definitions for rx-internal-delay-ps
-      and tx-internal-delay-ps.
-    - Keep rx-internal-delay-ps and tx-internal-delay-ps as required
-      properties.
-    - Restore the original example content, with only the additional optional
-      TXD and RXD delay register offsets.
-    - Restore Acked-by from Conor Dooley for the binding change, which was
-      temporarily omitted in v1 during series restructuring and has been
-      reinstated now that the change is stable and properly isolated.
+Document two optional cells in eswin,hsp-sp-csr for the TXD and RXD
+delay control register offsets.
 
-  - Update dwmac-eic7700.c:
-    - Split driver changes into smaller patches based on review feedback to
-      improve reviewability and bisectability.
-    - Keep the existing requirement that rx-internal-delay-ps and
-      tx-internal-delay-ps must be present in the device tree.
-    - Treat TXD/RXD delay register offsets as optional and only program them
-      when provided by device tree.
-    - Remove the previously proposed fix_mac_speed logic.
+These registers are used by the driver to clear any residual delay
+configuration left by the bootloader, ensuring that MAC-side RGMII delay
+settings are applied solely according to the kernel configuration.
 
-  - Link to v1:
-    https://lore.kernel.org/lkml/20260507083037.152-1-lizhi2@eswincomputing.com/
+Add a reference to the EIC7700X SoC Technical Reference Manual for
+background information about the HSP CSR block.
 
-Zhi Li (5):
-  dt-bindings: ethernet: eswin: add optional TXD and RXD delay register
-    offsets
-  net: stmmac: eswin: fix HSP CSR init ordering after clock enable
-  net: stmmac: eswin: clear TXD and RXD delay registers during
-    initialization
-  net: stmmac: eswin: correct RGMII delay granularity to 20 ps
-  net: stmmac: eswin: validate RGMII delay values
+Fixes: 888bd0eca93c ("dt-bindings: ethernet: eswin: Document for EIC7700 SoC")
+Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../devicetree/bindings/net/eswin,eic7700-eth.yaml  | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
 
- .../bindings/net/eswin,eic7700-eth.yaml       |  13 +-
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 126 +++++++++++++-----
- 2 files changed, 101 insertions(+), 38 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+index 91e8cd1db67b..b66ae6300faf 100644
+--- a/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
++++ b/Documentation/devicetree/bindings/net/eswin,eic7700-eth.yaml
+@@ -73,6 +73,15 @@ properties:
+       HSP CSR is to control and get status of different high-speed peripherals
+       (such as Ethernet, USB, SATA, etc.) via register, which can tune
+       board-level's parameters of PHY, etc.
++
++      Additional background information about the High-Speed Subsystem
++      and the HSP CSR block is available in Chapter 10 ("High-Speed Interface")
++      of the EIC7700X SoC Technical Reference Manual, Part 4
++      (EIC7700X_SoC_Technical_Reference_Manual_Part4.pdf). The manual is
++      publicly available at
++      https://github.com/eswincomputing/EIC7700X-SoC-Technical-Reference-Manual/releases
++
++      This reference is provided for background information only.
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     items:
+       - items:
+@@ -82,6 +91,8 @@ properties:
+           - description: Offset of AXI clock controller Low-Power request
+                          register
+           - description: Offset of register controlling TX/RX clock delay
++          - description: Optional offset of register controlling TXD delay
++          - description: Optional offset of register controlling RXD delay
+ 
+ required:
+   - compatible
+@@ -116,7 +127,7 @@ examples:
+         reset-names = "stmmaceth";
+         rx-internal-delay-ps = <200>;
+         tx-internal-delay-ps = <200>;
+-        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118>;
++        eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
+         snps,axi-config = <&stmmac_axi_setup>;
+         snps,aal;
+         snps,fixed-burst;
 -- 
 2.25.1
 
