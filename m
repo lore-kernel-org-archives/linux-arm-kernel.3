@@ -4,61 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00464CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:21:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2738BCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujSu9aIj42XzTySFT0TuJodAat1iyrUpdlV6tLqkI+4=; b=CuH9vuddWeMrxQasXcI2IggTVC
-	9JlLJ2klqCsAtLryIpoA8T4SntdWCl1OaR6ak405m4kGAbzsZSBd6xKaM6s8QfTqZA9EjrZrdaTGS
-	pGV66Izx0NMoD7KW+fMjCkwdrWc5LDgtwESpYzcM/loF/5OQ05PCJ1XGCR3St9XVO4pi26Or72Sy2
-	p6MYRPNUTTRQJn1Nl5KXSpEVRTPqXKeyjyEw99LV7rnIIbQFoaI3/dw/FqoQc3s3umFWXzz5WBqK+
-	zXwkPFdjiggLpg3/+2my/PjgV+xgL3pyr/4Ligl7sWF9UdkqYYOv5L4gEdXhMLnwaKsibRfIE3Yz/
-	la2dHR8g==;
+	bh=aXTVKb/2WU7jKg8xUh4R5z6ws8fziXO1fuL1081Mb7M=; b=ej06EE9Sjy/B6G9Wmv+83djNsq
+	CmHg7AezSkkmYRQj/aPpdzzoRrXrLbSXMoG46Dm/I3RtVnhHbgvLPNX/vDCLrJlOf91DPtNLqiGuZ
+	uVsDIrXdGY2G0rao8GGTDN4L5MkrB+g/VoYlhV5AtVmhOV7rMFhPELJRrU10eF7o1MTUvlEXJhKSM
+	5ljmi5x7B4esRQU6QGLNBiTJQ9jcy1mwj08S07TQ7VTjWlhKAeQjrieJJz552axU/z3nLT583HJJy
+	EClmxlODVNnFMo5u3YlPal8cOIS83oj2+30goKcUlfo6HepfE9ccVrZ6TO7gEeTRI1RbYC1zWkOkZ
+	2idIXZmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1ew-0000000GOks-03zm;
-	Mon, 18 May 2026 17:21:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1et-0000000GOk9-2tAM
+	id 1wP29A-0000000GRVv-0vjX;
+	Mon, 18 May 2026 17:52:56 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wP297-0000000GRVG-2kfC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 17:21:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7B80302D;
-	Mon, 18 May 2026 10:21:30 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 043033F7B4;
-	Mon, 18 May 2026 10:21:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779124895; bh=2Ad+b40QKOgmfGSGo1dsdGk4tJnXSxqznXpiRjuVOyk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f1G5aw8O3BbozglFHYWcaZytNBlpNfwL+tPszrn8bRU6NzoZ86pjhSlwh7n6ndYN5
-	 Lz0SSl8gp4UJVzInHX5ZC2Hhm/mHojV7DS2o9ujq5XJC4RtO+7xbn5dvY+JlvLXGnH
-	 GmYbu+5CPLnbrnYH8thBVWwZz+kgtyakaQUPSsm4=
-Date: Mon, 18 May 2026 18:21:26 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Kohei Enju <enju.kohei@fujitsu.com>
-Cc: Will Deacon <will@kernel.org>, Sami Mujawar <sami.mujawar@arm.com>,
-	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] virt: arm-cca-guest: use raw variant of
- smp_processor_id() in arm_cca_report_new()
-Message-ID: <agtKlvxAvCHXvX-z@arm.com>
-References: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
- <agsHBb9f3HkmJaIx@arm.com>
- <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
+	Mon, 18 May 2026 17:52:54 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-8b821f39a12so29754556d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:52:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1779126771; x=1779731571; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aXTVKb/2WU7jKg8xUh4R5z6ws8fziXO1fuL1081Mb7M=;
+        b=C0+bmNORosPLGbqiDVMB936jhhMzGP5YmEvHVdQnR2D3oa43AF+Ive8lAhhcuDaVbw
+         cto6l/x6IoZX9K40KIKCYH6yfrCwvvQjCt+EvLf6jyAlGAHqfSXGt3M3L/3jeFa1R1pW
+         0ZRmU8v85OW0DgxJnRRv6kxxTzpExrLWQ3FyXYO2uAC9RPxrkot89dT/oth9hXYRQ5X8
+         /VYpiaGLLk6IIhy2C9JgVFp53Qcz378GweXx2RaUAkqZpRKxPrIkO0srcRWGaZI2GIKX
+         HuJMwWb7XCI/wfvSXEO8MoEaird7w7bQHWzJq5Ftdzfd9gVeZVfYXdXtOYtMue1OIqCp
+         WPuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779126771; x=1779731571;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=aXTVKb/2WU7jKg8xUh4R5z6ws8fziXO1fuL1081Mb7M=;
+        b=Iybe6Tl1LF6cjMIZRMMTJZsuA6sP//fDaWFeZqjBapckdHp0cbHQgBCnpj2+A76PS3
+         /Z5Zruvmt25qsXOgxyMzIO/w+BZnxoVkrFGXB9vlsRd6ovctPVmfo3b8vAHUJ/S1E5oI
+         QVCLLIgZS2kTzAu3pf1DEE3SlFks+wt3jR/+a9lg9ovfEiSvdrUifuWnGIKrNB/oGbCc
+         NJ2r7U+sE5AJeGAuYIxl7J9DcWOtOOzP4EvGmwlYWkjTDfeGcPmaKU6h7pws27BQe38Z
+         GsCUsJCtsbwi9AeFr4x8l3RCDp1V+KIslpcWU7QOnKSoenYiyj15rLI73ltgNVuWDR4e
+         mx/g==
+X-Forwarded-Encrypted: i=1; AFNElJ9UA7d23DexLMFqpppya5Gcw2G6hmbi4K3GNKS6dFJJ9+0bbAdnTVRxstNFcuVaUCUJtjPxhje7nylgst/X4OeZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCs9BnKGb3igbfflwB8SmChOCstdxFAhQfLjvMttDZIwjDkS1I
+	bh9UUPkIetGtEOra4X02gZ/DgL9dTUMp87BwKjIKimiSr/EVXaQgjh4vyPtBZYjDczo=
+X-Gm-Gg: Acq92OGxk3SshWat3EfBNn1CHd+mblo7Mr3YFnUP0sn+6TWLSVPsrK8MDTrc/YwPPqO
+	69um2ydr6CbaKLNslVimJhtf3oND1LtdDb+TIvaJRfQWkv0uOKQ7J9TRZAgU+6ndkoNxKlTyVot
+	mAYITNabcagV8QoD0OvitJ2cF0nFkncpYdfVtTuJQ3Ewsq7oEUALwsP+fv+YOpQ7Huhj0TSmO0U
+	+aCf/02W42WNO8YgptGdnC6YBIFQsxCJS7fn+pp20Fb4X9SXzYCpdfecrvD3Q+VBG4Qjc6UByrb
+	CrkOFa9+lJSR1lDsHM5XyTMYfn1Gyfvd1oIrCqu89L0DqCy8zW6jCmae+S8hVlt1Dy6iy59jwYk
+	zGOhPGRaA35NZAA2MAc/0IUdoIgaE2fcZ7kYSaO8oLd/MVHdoxYBDiBmMtdZgAZFBGUjCnRABK5
+	beg7JeSOFE/TDskVW7oHkLENTHKQTZF4D9vQjrfHLhuIdmL8h8kqxRZLa6wtFYWPU3L13O1C5nu
+	4zkfg==
+X-Received: by 2002:a0c:f109:0:b0:89c:cf63:438e with SMTP id 6a1803df08f44-8ca0f5f236bmr214082166d6.14.1779126771326;
+        Mon, 18 May 2026 10:52:51 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ca36086a61sm63262406d6.4.2026.05.18.10.52.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 10:52:50 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wP293-0000000DUnE-2ZCv;
+	Mon, 18 May 2026 14:52:49 -0300
+Date: Mon, 18 May 2026 14:52:49 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Joonwon Kang <joonwonkang@google.com>
+Cc: kirill.shutemov@linux.intel.com, Alexander.Grest@microsoft.com,
+	alexander.shishkin@linux.intel.com, amhetre@nvidia.com,
+	baolu.lu@linux.intel.com, bp@alien8.de, dave.hansen@linux.intel.com,
+	easwar.hariharan@linux.microsoft.com, hpa@zytor.com,
+	iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com,
+	joro@8bytes.org, jpb@kernel.org, kas@kernel.org, kees@kernel.org,
+	kevin.tian@intel.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, mingo@redhat.com, nicolinc@nvidia.com,
+	peterz@infradead.org, praan@google.com, robin.murphy@arm.com,
+	ryasuoka@redhat.com, smostafa@google.com, sohil.mehta@intel.com,
+	tglx@kernel.org, will@kernel.org, x86@kernel.org, xin@zytor.com
+Subject: Re: [PATCH] iommu: Allow device driver to use its own PASID space
+ for SVA
+Message-ID: <20260518175249.GS7702@ziepe.ca>
+References: <20260515231808.GQ7702@ziepe.ca>
+ <20260518090654.730478-1-joonwonkang@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
+In-Reply-To: <20260518090654.730478-1-joonwonkang@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_102139_866659_221F5F63 
-X-CRM114-Status: GOOD (  23.03  )
+X-CRM114-CacheID: sfid-20260518_105253_770151_09D45073 
+X-CRM114-Status: GOOD (  25.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,58 +113,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kohei,
-
-On Mon, May 18, 2026 at 10:38:53PM +0900, Kohei Enju wrote:
-> On 05/18 13:33, Catalin Marinas wrote:
-> > On Mon, May 18, 2026 at 12:31:31PM +0900, Kohei Enju wrote:
-> > > diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > > index 0c9ea24a200c..2d450caee3e4 100644
-> > > --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > > +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > > @@ -108,7 +108,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
-> > >  	 * allocate outblob based on the returned value from the 'init'
-> > >  	 * call and that cannot be done in an atomic context.
-> > >  	 */
-> > > -	cpu = smp_processor_id();
-> > > +	cpu = raw_smp_processor_id();
+On Mon, May 18, 2026 at 09:06:54AM +0000, Joonwon Kang wrote:
+> > On Fri, May 15, 2026 at 09:46:05AM +0000, Joonwon Kang wrote:
+> > > diff --git a/arch/x86/kernel/traps.c b/arch/x86/kernel/traps.c
+> > > index 0ca3912ecb7f..61e2e52105e5 100644
+> > > --- a/arch/x86/kernel/traps.c
+> > > +++ b/arch/x86/kernel/traps.c
+> > > @@ -864,6 +864,8 @@ static bool try_fixup_enqcmd_gp(void)
+> > >  		return false;
+> > >  
+> > >  	pasid = mm_get_enqcmd_pasid(current->mm);
+> > > +	if (pasid == IOMMU_PASID_INVALID)
+> > > +		return false;
 > > 
-> > That's just hiding the warning which might be genuine, irrespective of
-> > what the comment says. Sashiko has some good points:
+> > If you do this then probably you should get rid of mm_valid_pasid(),
+> > mm_get_enqcmd_pasid() already has the NULL check so the two functions
+> > are kind of pointless.
 > > 
-> > https://sashiko.dev/#/patchset/20260518033157.1865498-1-enju.kohei@fujitsu.com
+> > You also missed the other place calling mm_valid_pasid() that should
+> > really be sensitive to this as well:
 > > 
-> > Basically what guarantees that the cpu won't go offline? Can we use
-> > migrate_disable() and ignore the smp_call_function_single() altogether?
-> > It looks like a hack anyway.
-[...]
-> You've raised a very valid point about raw_smp_processor_id()
-> potentially hiding a genuine issue. I agree this would be a concern in
-> most contexts.
+> > static int prctl_enable_tagged_addr(struct mm_struct *mm, unsigned long nr_bits)
+> > {
+> > [..]
+> >         if (mm_valid_pasid(mm) &&
+> >             !test_bit(MM_CONTEXT_FORCE_TAGGED_SVA, &mm->context.flags))
+> >                 return -EINVAL;
+> > 
+> > Make that removal a prep patch
+> > 
 > 
-> However, this implementation was intentionally designed not to block CPU
-> hotplug:
-> https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
-> 
-> As mentioned in the thread above, the potential failure from the target
-> CPU going offline (resulting in -ENXIO) is an expected and tolerated
-> condition in this path.
-> Using migrate_disable() would go against the non-blocking design goal.
-> 
-> Given the context, the debug warning looks false positive for our
-> specific use case to me, and I believe raw_smp_processor_id() correctly
-> reflects the design intent by simply acquiring a CPU number without
-> debug checks.
+> Thanks for pointing this out. I think mm_valid_pasid() is to check if SVA
+> is currently in action while mm_get_enqcmd_pasid() is to get the PASID for
+> "ENQCMD instruction execution".
 
-Thanks, I wasn't aware of the old discussion. If user-space can
-tolerate, than it's fine.
+> Since it is now possible with this patch to activate SVA without involving
+> EL0(for ENQCMD-like instructions),
 
-Would you mind updating the comment above the changed line? It talks
-about not allocating memory in atomic context, so migrate_disable()
-would solve this. Just mention that it can't block CPU hotplug events
-either and user-space can handle spurious errors.
+I see, this thing about which is about LAM should remain, yes
 
-With that:
+But all the "EL0" machinery about trapping and enabling ENQCMD should
+be moved over to mm_get_enqcmd_pasid() and never call mm_valid_pasid()
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Jason
 
