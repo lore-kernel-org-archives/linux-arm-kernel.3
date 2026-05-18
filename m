@@ -4,84 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FE3CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD98CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 21:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aZNSRiDXdNQz/tad0D1XmKJG1e0NsSfjQsVpDvD0C2s=; b=fj3VcfssA+fB8+IepJAxiPRQ5d
-	CSbB1gHyadAXcyn71M/8FEWXlZlh3U5GqJpmpbIwa9pGpB/9DiweYcfGnNlvXPSdwIE+tbUGsY4xQ
-	+pf1pRaQ5gAg07Dkp5U6clXzB4Bao/nTNoKqxbu9W/RcxZLL8t+Fdp/2lWnxLKOj+YHKx7u8fpxDs
-	BQWg0A+ONFc8s58d6Od22CjSuV6lVcml5BcqYxJtTDjOZK1oDlrKOcInajh7QdsIhyznM/Y4UshiD
-	aQ5Zxvj7/fxtDaZNeerXYXxmSKJV1axM+I9xdkSCSSuKvD+UULwxza0ux1X9v1rH9u1I41XiHT26C
-	jEd9FLug==;
+	bh=k9EMRiVmcXp445Bzm1MuxQc3uKBg58qEu2HWzDpPm/8=; b=RbHv8fJNWkyJDD5o3fzGzseHXv
+	NkTOW2Rjbsas9ai5L73tBvA6JlBNl8RiIbrowbgFpm0EjOeWtNU5Kh3cg/mf3AZ56SmCu9xm8k0bC
+	rC21aw1i18ceicKS9iR4Gny7aX9hooFKR+ncMwUkuT5nCJKGOo7WmMCcQHrQJ8dNOBOP0xOux2nCL
+	hHag0DJELXjaodWJaPiVg4zFam9D8GRcpwm9aPN+H0PH/PwFsk3UfSN7nrZytmko662S7XTzjmyPq
+	/F9Vbhcf+iMLnQo+p+rt9iCsLDqW2nU5pUdRTk3p+UH3PCBD4lasrxXJKdL09zEYL/3tntTB5JKKz
+	OfGsuGow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP4vC-0000000Gvmz-1LxX;
-	Mon, 18 May 2026 20:50:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wP5G0-0000000GxeY-1NJS;
+	Mon, 18 May 2026 21:12:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP4v9-0000000Gvm2-2bC2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 20:50:41 +0000
+	id 1wP5Fy-0000000GxeE-1BLf;
+	Mon, 18 May 2026 21:12:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 74DAE445A0
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 20:50:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB4BC2BD00
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 20:50:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779137438;
-	bh=ypIdx4acKlGusOGofl1Rgy+13Usr/bMeabAYI7vNmVE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Gk0707fUsk9yWgyWpyCE0usmgctr/2kAHAruO5+nioCbF3DwOXvh3XXJOYYbLkzh5
-	 hJ2qI4xZH0TRSFfRaiQZm8jvvSk+DkKMuBR24TjklCVhNb8E02lgN0am+P2km4x9hl
-	 l3nDU0T5UpVuJP450DPP64O/nI/FWXc9L0PtdXkLhmZvxkOogzxRVtHB3So0FEMwk9
-	 HbI5Rpppz0/1ai5xW+yywawcmbLarPa3mDD/r8dZtjhp9DVlB9KD/EmgzDTH8BwZDU
-	 +K9SIW2+RAVZM0fzFYPAz7ugIMm6YeBB/wVGB7FhjefXLk4pr0Zz3bb6JKqwuQ7FFH
-	 u1yF44PQXOp+A==
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-94de68feaf4so1711023241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 13:50:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+7kC6p1kRDVDJestbN0RMpBRRd0swEseM/WcsSz6yrMEbqN82ezzhb21jCgOXlCwEEiTCCFgd0i0YkgrAur87m@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLmtkwxzPfCSjcb8GXJWj+Z638t3lBMn4tRr8kYJ5zMDFOXJBN
-	7E06LP1p8i4ZVsATEgyCfQv/sHqTVI7UovlvWb7sGmH+1slgCiGCa5WE1bsvFmhgfVuqXRUEuKj
-	M/otat7rUYAUQCkJOHC2gO5iOKVpgpQg=
-X-Received: by 2002:a05:6102:1497:b0:632:eef7:4b7f with SMTP id
- ada2fe7eead31-63a3f38ed3dmr8946550137.22.1779137437454; Mon, 18 May 2026
- 13:50:37 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer> <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <ags7mPK7Ong0ZsBf@casper.infradead.org>
-In-Reply-To: <ags7mPK7Ong0ZsBf@casper.infradead.org>
-From: Barry Song <baohua@kernel.org>
-Date: Tue, 19 May 2026 04:50:25 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4zBcx2OF20pE4r2FNUXuF_E_SkS2scFS4b=G6v-GCvXYw@mail.gmail.com>
-X-Gm-Features: AVHnY4LxjbpsTxssULoY1o3L0OWdx82GerNYGpv8290_rAwvBTy9PmnU1AhgaaM
-Message-ID: <CAGsJ_4zBcx2OF20pE4r2FNUXuF_E_SkS2scFS4b=G6v-GCvXYw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, surenb@google.com, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_135039_700560_71E49479 
-X-CRM114-Status: GOOD (  16.92  )
+	by tor.source.kernel.org (Postfix) with ESMTP id E5705600CB;
+	Mon, 18 May 2026 21:12:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC18C2BCB7;
+	Mon, 18 May 2026 21:12:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1779138727;
+	bh=6CbWyBWe6ek+skQD7ezBR5R72rf11+dnwrag4D/122Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dmdzNWjTjK3Cc3C2V+DkRdbwT+d12xy/ZdRJ5bQRPDa4Caa5RS6kZ9MZ1ALFQP/+U
+	 kc1KEx+sN56byuYGjJ5PbU1JGucdCZy76CwlbeuJ+r1GAPZ0VTw7F7ixRcBQbkK4OE
+	 ese4fN8XpUeBQ1LjLfsivknyFMJ0f8eUvHc2/mMw=
+Date: Mon, 18 May 2026 14:12:05 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Madhavan
+ Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti
+ <alex@ghiti.fr>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+ <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+ <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar
+ <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin"
+ <hpa@zytor.com>, Herbert Xu <herbert@gondor.apana.org.au>, Dan Williams
+ <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>, David Sterba
+ <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>, Song Liu
+ <song@kernel.org>, Yu Kuai <yukuai@fnnas.com>, Li Nan
+ <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-raid@vger.kernel.org
+Subject: Re: cleanup the RAID6 P/Q library v3
+Message-Id: <20260518141205.c100f76eec5f58e78bbbf7af@linux-foundation.org>
+In-Reply-To: <20260518051804.462141-1-hch@lst.de>
+References: <20260518051804.462141-1-hch@lst.de>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,47 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 12:17=E2=80=AFAM Matthew Wilcox <willy@infradead.or=
-g> wrote:
->
-> On Mon, May 18, 2026 at 07:25:54PM +0800, Barry Song wrote:
-> > We have clearly observed that the `fork()` operations of many
-> > popular Android apps, such as iQiyi, Baidu Tieba, and 10086,
-> > end up waiting on page-fault (PF) I/O when the VMA lock is
-> > held during I/O operations. This has already become a
-> > practical issue. I also believe this can lead to chained
-> > waiting, since the global `mmap_lock` blocks all threads that
-> > need to acquire it.
->
-> It's always been a terrible idea to call fork() from a multithreaded
-> application.  For example, this question:
->
-> https://stackoverflow.com/questions/53601200/calling-fork-on-a-multithrea=
-ded-process
->
-> or this lwn thread: https://lwn.net/Articles/674660/
->
-> Do we have any insight into why these applications are doing this
-> horrible thing?
+On Mon, 18 May 2026 07:17:43 +0200 Christoph Hellwig <hch@lst.de> wrote:
 
-I swear I read the two links you shared. But the reality
-is that as long as people use the Android framework,
-even the simplest "Hello World" app already runs with
-10+ threads :-)
+> this series cleans up the RAID6 P/Q library to match the recent updates
+> to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
+> providing properly documented external interfaces, hiding the internals,
+> using static_call instead of indirect calls and turning the user space
+> test suite into an in-kernel kunit test which is also extended to
+> improve coverage.
 
+Cool, I'll add this to mm.git's mm-nonmm-unstable branch for some
+linux-next testing.
 
-main
-RenderThread
-ReferenceQueueDaemon
-FinalizerDaemon
-FinalizerWatchdogDaemon
-HeapTaskDaemon
-Binder:1234_1
-Binder:1234_2
-Signal Catcher
-JDWP
-...
-
-Best Regards
-Barry
+AI review found quite a lot to talk about:
+	https://sashiko.dev/#/patchset/20260518051804.462141-1-hch@lst.de
 
