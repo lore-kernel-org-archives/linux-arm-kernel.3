@@ -4,71 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9065ACD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:45:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73099CD4F50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hlon68HWzYSuZVvGtZWTYxS8A7InLmxaKDMJZk2vF3Y=; b=JVokCH855gr7e1Yf58aPAPzm6s
-	iFMcdupS5iyt9u3sk7ud/kc1LkYyQbujG+ceW7/BzkWpJDUXRV0GKfWUgfOdCAXlZpe+V5CyxkKSN
-	5jznN9Wu0lQGZXYtnS4aTkRropuvsmjwbFlVG5ckbQixxlHwcmPc7bMcFr/lSbeyjjMOhWLiYFHj8
-	UVm2d+grjStx46n4XBo9wNo57Ghe7dq5OzIHPf0fzl6kwVZSRN4TBzK0wXkmd8ZCvcIfgkniU8C97
-	FV6onaPizWkdXfGa6M3Nuo1nWuhEHukKjy3H1bHA0ZOhhRuIqt9XStT+ZlhVKBfNd1748iP2ZCeqo
-	BFJPWieA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yMnLBzY0p0Cd+gtn+Agv9RdL/bu0d4IkitP7BLovXc0=; b=aEb7vymfvU1BkuxSYJDPl16ZuN
+	fFBoo0Zcs/ajCEaG+X3IqVwOrdHOwfXBkKnSmtR74oHn1xr5A/jL0wAR/YPV7UpLtnTSJmzUYmPM5
+	4hMDCr4NDP+qemKEJtspulsJMtkMTlAo99ACLovwVxxeuYFkpceP+0fxRDBjZ5e48/xtoWlrs1gRy
+	jNSP8f7qiZC9u/eCLil6bf2W0x/fSY4WSZp2ucyfGowhsg08qoQeFu97AY5K2HvjbsqpHHdVlY3NJ
+	d7aAAaSZ/zLbEmjqO1/ow7vSPjsLTVV20Gh/xLfKHNWeTw3IAQp7zCNDMAP0vsibMlI26ys09QEwz
+	Fv0FS7MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP09N-0000000GD6V-2AuZ;
-	Mon, 18 May 2026 15:45:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wP0Ag-0000000GDLU-2wd8;
+	Mon, 18 May 2026 15:46:22 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP09L-0000000GD5D-1OhR
+	id 1wP0Ae-0000000GDKq-1jwI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:45:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A3B742DD7;
-	Mon, 18 May 2026 15:44:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CE63C2BCB7;
-	Mon, 18 May 2026 15:44:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779119096;
-	bh=gTu+hAwJZKRLTtD+A+avEeHzQqC6EwtEYG0HiI1fp9A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X1gim1Wewd9sNHDtgFPPToYX5SKVHGz0nzoOWrfIGr6ZyMJ10PN2Egti7EXrVR8Wa
-	 mId0oBVge4I3rGeM8hXIMJQwNXziR9yKy77esHXNPB1HDc6PMFrk0dmWipBmSgSNZ1
-	 apMywtgeKXmL1+utaE7kCj3kj61ONlYEJug5ylrTPQhp/NWNJVuWfRrKBX+LAI51B1
-	 f6n6mBxlo7Z8oZC/sVsX/1oI0iUfiOrsmzniMDPQUfjWBJuMEoao+ZtqquSXLBF/oW
-	 C7CN9pWLhdBNESKp7w/AjQ5KT576gFS/Jzhzn/f6wn6gjr1s7yoHPOU3gU8baW2CSo
-	 zK+IUq9VT36nQ==
-Date: Mon, 18 May 2026 16:44:44 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Andy Shevchenko <andriy.shevchenko@intel.com>, Jyoti Bhayana
- <jbhayana@google.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
- <claudiu.beznea@tuxon.dev>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Benson Leung
- <bleung@chromium.org>, Guenter Roeck <groeck@chromium.org>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, chrome-platform@lists.linux.dev
-Subject: Re: [PATCH 0/8] iio: timestamp declaration cleanup
-Message-ID: <20260518164444.7fb5f616@jic23-huawei>
-In-Reply-To: <41c0317d-2ce8-412c-818a-4a84201fce29@baylibre.com>
-References: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
-	<agq7PPw0qupI_8Dh@ashevche-desk.local>
-	<agq8Q1wpzIw4XhNQ@ashevche-desk.local>
-	<41c0317d-2ce8-412c-818a-4a84201fce29@baylibre.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Mon, 18 May 2026 15:46:21 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64I5TeTc3681418;
+	Mon, 18 May 2026 15:45:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=yMnLBz
+	Y0p0Cd+gtn+Agv9RdL/bu0d4IkitP7BLovXc0=; b=DaZ69NTy6khgPB2oBKO7hR
+	qPq1BlhIydDYngtnammgp3r0aiYWbExr0FbdV/xb+TqO/7WqXypPeXYGOX2Py7sr
+	s6ee4AP4dfeo8FQKPiXw6YQ9w6op/QP2mfQ3yNsPaah26bKRJCdbv/0h20/3auf6
+	NIvK6HIW7oxbP+1AK+jGsDirK6ZdtSEC8G29/iQq0TBb4JtPeBTwTvlXKXOeoq10
+	WCFTMBSh2iWsbbjSH7yYr/ODAz4MyeydG+0SVeIeBazfBY6qmKQZTUPj8DwhflAW
+	KppGsoV+1A0CTdXRPfMYUJQ8auXLDUBuMt98G8TmNZWej1KXsfl53WhMVapG1lMQ
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e6h9xrw5t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 May 2026 15:45:55 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64IFdCpG023083;
+	Mon, 18 May 2026 15:45:54 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4e75kxx9m5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 18 May 2026 15:45:54 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64IFjonp30474780
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 18 May 2026 15:45:50 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9B7CF2004D;
+	Mon, 18 May 2026 15:45:50 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5194A2004B;
+	Mon, 18 May 2026 15:45:50 +0000 (GMT)
+Received: from [9.52.210.163] (unknown [9.52.210.163])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 18 May 2026 15:45:50 +0000 (GMT)
+Message-ID: <c12e2f60504c8988a172cd947fc5a07f5cf9148c.camel@linux.ibm.com>
+Subject: Re: [PATCH 2/5] arm/pci: Use official API to iterate over PCI buses
+From: Gerd Bayer <gbayer@linux.ibm.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Yinghai Lu <yinghai@kernel.org>, linux-alpha@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+        Richard Henderson
+	 <richard.henderson@linaro.org>,
+        Matt Turner <mattst88@gmail.com>, Magnus
+ Lindholm <linmag7@gmail.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman	 <mpe@ellerman.id.au>,
+        Nicholas Piggin
+ <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Dave Hansen
+ <dave.hansen@linux.intel.com>, x86@kernel.org,
+        "H. Peter Anvin"
+ <hpa@zytor.com>, Gerd Bayer <gbayer@linux.ibm.com>
+Date: Mon, 18 May 2026 17:45:50 +0200
+In-Reply-To: <20260515-priv_root_buses-v1-2-f8e393c57390@linux.ibm.com>
+References: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
+	 <20260515-priv_root_buses-v1-2-f8e393c57390@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE4MDE1MyBTYWx0ZWRfX8r3cbmeKr0/7
+ ZjyyZTE/MFfCBi9GbmXKpcNX+lwwkqC/9EqO4bFEKkV0WxHMu8YU0cBV1HoQiap3G8VrbbOhPqX
+ cIVfyD5AhPx1YaItAYhYQCGqrHOagMWcAE3rumBa5VM1U0HRMmzgHAH8cxXQLRwUG9a7zv+SoSh
+ c2bAAz/2ICYd/8D8AkBWM3CQq/JaA5wrKvpxgQtOs5xg1QKftyVzMr4wwI5LtajgClZtVrhMJcE
+ TN1xSrsUsMzR8prwkGf/BQuS4GKBSgJKfIIz4XO23oksI0bbnyKrllJJq05fOGQeK9FvA9zifSt
+ ILHC+u9s2O+MSeSQYqvF/D1QBzQMRoScTjrbjFUP295QGllnikQaHWgnadjneqDXfBgv2UOSqOF
+ zBcOuQSW//l0VWrlAEwh+SLRmdEalckBAM9FewQOuKevizxfqy2W4DKwOdIVrPNhLkEftxXcmQk
+ LX9aKHmREnD9ktNyOWQ==
+X-Authority-Analysis: v=2.4 cv=BNuDalQG c=1 sm=1 tr=0 ts=6a0b3433 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=c92rfblmAAAA:8
+ a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=FcXVdTTBcE9J8dFX6AQA:9 a=QEXdDO2ut3YA:10
+ a=GvGzcOZaWPEFPQC_NcjD:22
+X-Proofpoint-ORIG-GUID: xIpXrCK9Gg9N_OlSikDLILgWx7FxlsfY
+X-Proofpoint-GUID: FH1kcY4D8qIED2hpPqBlCS4uqhpURrUR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-18_03,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 priorityscore=1501 malwarescore=0 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605180153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_084459_398315_E70BB6B5 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20260518_084620_458062_1702BD8F 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +137,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 09:34:48 -0500
-David Lechner <dlechner@baylibre.com> wrote:
+On Fri, 2026-05-15 at 16:22 +0200, Gerd Bayer wrote:
+> Replace iterating over pci_root_buses with the official
+> pci_find_next_bus() call provided by PCI core. This allows to make
+> pci_root_buses private to PCI core.
+>=20
+> Signed-off-by: Gerd Bayer <gbayer@linux.ibm.com>
+> ---
+>  arch/arm/kernel/bios32.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm/kernel/bios32.c b/arch/arm/kernel/bios32.c
+> index ac0e890510da..35642c9ba054 100644
+> --- a/arch/arm/kernel/bios32.c
+> +++ b/arch/arm/kernel/bios32.c
+> @@ -59,9 +59,9 @@ static void pcibios_bus_report_status(struct pci_bus *b=
+us, u_int status_mask, in
+> =20
+>  void pcibios_report_status(u_int status_mask, int warn)
+>  {
+> -	struct pci_bus *bus;
+> +	struct pci_bus *bus =3D NULL;
+> =20
+> -	list_for_each_entry(bus, &pci_root_buses, node)
+> +	while ((bus =3D pci_find_next_bus(bus)) !=3D NULL)
+>  		pcibios_bus_report_status(bus, status_mask, warn);
+>  }
+> =20
 
-> On 5/18/26 2:14 AM, Andy Shevchenko wrote:
-> > On Mon, May 18, 2026 at 10:09:48AM +0300, Andy Shevchenko wrote:  
-> >> On Sun, May 17, 2026 at 01:17:17PM -0500, David Lechner wrote:  
-> >>> While looking around the code, I noticed that there are a lot of places
-> >>> were we are manually filling all of the fields of an IIO timestamp.
-> >>>
-> >>> This is error-prone (as seen in the first patch) and more verbose than
-> >>> it needs to be.
-> >>>
-> >>> I went with the approach of using the existing IIO_CHAN_SOFT_TIMESTAMP()
-> >>> macro for doing a struct assignment. This does require a cast, which  
-> >>
-> >> No, it's *not* a cast. It's a compound literal. And instead of doing this in
-> >> every driver, add it to the macro (in a separate patch). Oh, let me just cook
-> >> it for you (I added that to several cases in the past).  
-> > 
-> > 20260518071349.469748-1-andriy.shevchenko@linux.intel.com  
-> 
-> Nice, thanks. I agree this will be the cleanest solution.
-With that the series looks good to me.
+Hi Russell,
 
-J
-> 
-> >   
-> >>> makes it a bit more verbose, but we were already doing that in to
-> >>> drivers, so I went with it anyway.  
-> >>  
-> >>> If we want to consider alternatives, we could make a iio helper function
-> >>> or macro like the first and second patches did.  
-> >   
-> 
+Sashiko
+https://sashiko.dev/#/message/20260515145940.E85AAC2BCB0%40smtp.kernel.org
+reported:
 
+> Since pci_find_next_bus() unconditionally acquires the pci_bus_sem read-w=
+rite
+> semaphore using down_read(), this introduces a blocking operation into th=
+at
+> atomic path:
+>=20
+> dc21285_abort_irq() [hardirq context]
+>   pcibios_report_status()
+>     pci_find_next_bus()
+>       down_read(&pci_bus_sem) [sleeps]
+>=20
+> Does this path need an alternative approach to safely iterate over the bu=
+ses
+> without taking a sleeping lock?
+
+IMHO, it looks like this entire pcibios_report_status() iterating over
+all PCI buses and all their devices would be better off if moved
+outside of the hardirq context?
+
+Or could pcibios_report_status() be converted to use
+for_each_pci_device()?
+
+Any suggestions welcome...
+Gerd
 
