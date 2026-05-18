@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0605ACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 03:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B575ECD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 03:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/c4eqMudSj0GkkZVgzTXnytSbVNcNITl+hrIWAi2mE8=; b=Ym/Hl4DY7KJ+11lj0IViyWnok6
-	gFePGm9pAvUfCfxXXg3glVNlVCGZaX0YCvxeuT/JbwN/rtSm9qD8qIrH5+NrAs4LEhn/dub8g1dmB
-	/xsSy8WQUdL3OBMZ9Eb2MWUNNlP55G5k9Akk2LIhjinsGUIydlzxg1btxpVTGFn7Piwpee5s+DnAx
-	ZkRtCumCHi6tKQJeJCmdFbKuZOR+YCk2eT0pmoIa4T84xF+ax1tT5V615PxoyynKTbmtRD6pXjYjr
-	HYcfGKYQmV8NyeFBcDEk1fYI+XJ81czg4eCBF6keT21FEnIz3IkSeYivD8DiBUccI9yAp3/YaZ2Ep
-	RuaszM7w==;
+	bh=O4z4QeYZgLmQ+74XBWrLJRwdCJBglkAJbbIu6ajXqKY=; b=vWe5ySjY4+WDkYUM35eHf2QxfZ
+	wBWAjgO7MCW0PCTx5rCVxGMZPlZDe5Yx0UKA6hQImsura/Nf65hoJh6w69PdqNXuRYfo7MqxlhFNH
+	KmdoLDkLrB5+6wTNhYxX4ITNNNL3fa5vGhPv0oElYIZb437sqZAp0O4T3BY+Vw1ITvqwBd5uoJSHV
+	lQppgcGAbtipyRzWEXtnNeYD/7hhFuzrx87TZy4p6vGHF7/T9O6tYpA2i7qkl0u1+pn8WB4MZsjxx
+	oUV4ZmQx1LnD2ZyRF7/I2IVQEc0VPxorDz7jRNhbVPLQm6uxa6oECKPDf9XAWFBhSRBsxYOcIeocT
+	7IsXj3yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOoiD-0000000E3kV-1Ht5;
-	Mon, 18 May 2026 03:32:13 +0000
-Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
+	id 1wOokq-0000000E4Q9-0DSA;
+	Mon, 18 May 2026 03:34:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOoiA-0000000E3il-0XXB
+	id 1wOoko-0000000E4PU-1Pvc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 03:34:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=O4z4QeYZgLmQ+74XBWrLJRwdCJBglkAJbbIu6ajXqKY=; b=Bec3aJKSQYMcREpXXA5RqVgjUn
+	4IFx5EBZRVjH6QhsdCIdW+3EF3nYsJHLsTyTJHlMFlTJei6BIUB671LH+aiFH9IrU0hkHEtFi+OeL
+	zMpDm64N8qonQ96eNYLUGmWwaE/F7RoYwjFHrb3JWJ1MbOt4e1WHlS4UnLEQHQgCWwLwYNtaVbZRN
+	E3878Laww78gxac+IyhgPmS5HNNhcNNgUkj+4OFlaw18rXW0fnN2Mq9Jzvzs4wCm3m6FxcOHMgknB
+	Wcdpgpyh7JD+ZovKIzSmi6nFpwRkvxZopeGPmMJXQmRdwIHmh795wQWlinyOPy6xwYTzKO1Te9/Lu
+	08aGZilQ==;
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOokk-00000009kdH-3rsb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 03:32:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1779075130; x=1810611130;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=7DRxMKyUDjg6Y5vlH9EXZ8MiPPZtTDDCvYyYivKrGak=;
-  b=bwH9vlN3EvZhrmbyUe+JPVfmNVx/uAqWEglX1IAZrpd/SdgiYu4pHoe5
-   rCz7hqBZDuiY2hG4FzCsSiFljuB9zJ8TEFEk00JF9tw+fqUw+ilh56qd7
-   W0xAlqrQdkxvGjQGjd4Lww5kTCaAbSUNnmcQgimG2eKcLGv8J+RjsejxE
-   fRbBwft6naU5Wa1todPhDJmHUp6tdUiZzyU0Usra3Z1ax14fBRBAbtFRp
-   qBDlc+789on2OkeyFi/8NWVanIundpsBT2RDN7xJCIsRG4R01kRxxKfHO
-   tlbDWVkvt0H5Go/wnnbcxUD3C5xrfsxxOgoZGMv/MHmXtSBkJht+rtRkk
-   w==;
-X-CSE-ConnectionGUID: mlGFCLFNS3Kw7jiG83rfZQ==
-X-CSE-MsgGUID: O2cHD6ZDTg6XqlVXOpWJtw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11789"; a="218604398"
-X-IronPort-AV: E=Sophos;i="6.23,241,1770562800"; 
-   d="scan'208";a="218604398"
-Received: from gmgwuk01.global.fujitsu.com ([172.187.114.235])
-  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 12:32:05 +0900
-Received: from az2uksmgm4.o.css.fujitsu.com (unknown [10.151.22.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwuk01.global.fujitsu.com (Postfix) with ESMTPS id F0C00C015BC
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 03:32:05 +0000 (UTC)
-Received: from az2nlsmom4.fujitsu.com (az2nlsmom4.o.css.fujitsu.com [10.150.26.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmgm4.o.css.fujitsu.com (Postfix) with ESMTPS id AA477140060B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 03:32:05 +0000 (UTC)
-Received: from sm-x86-amd03.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
-	by az2nlsmom4.fujitsu.com (Postfix) with ESMTP id 7190D2000237;
-	Mon, 18 May 2026 03:32:01 +0000 (UTC)
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Sami Mujawar <sami.mujawar@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mon, 18 May 2026 03:34:52 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82748257f5fso1666552b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 20:34:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779075289; x=1779680089; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=O4z4QeYZgLmQ+74XBWrLJRwdCJBglkAJbbIu6ajXqKY=;
+        b=CndJuZPfENXNYTbOqPNjwLxKv29eXHpSPFk1Y4JNdqbuQCnCTfQvRWPGtYFnfO3mhB
+         +OHOUVGJmLbR9FM8rFK9ZHhrZROnHUKRVePijbcNQUVbRZhGYg5rwe4IRS4KoVJwHUKH
+         IIEwD5cozpTTYQZO6rR8SKd69AQSzsQJiqdHcHsQWZeKnUwO/uFeHXkj8PM/gdCXYoQY
+         j+RVLzKrEDaaokSKL8q2AiAiuITil86yj3rTUZfhNlY1anOp5DvcFhsxF7EL2jNwn/Mx
+         i6ngiRBrUVZyv/xbNuYz7hUBmZPfwh03+qRkE1fYa6i0cYzexyjI0f0z27ikUoGwSkBg
+         k0Qw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779075289; x=1779680089;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O4z4QeYZgLmQ+74XBWrLJRwdCJBglkAJbbIu6ajXqKY=;
+        b=JTg69zbstr24oTAqZLD8ykDX9e4ad0BRiLnPbrG7nEnnI7T0vsaXIaw+1904ygAF4k
+         9k5JyyWjfo+lVAmxxMjoN709+xKxkiInxeGpHkclDOpOozMkp/c7jpwZGNuE2wYNgug/
+         ZeqvcE0eyN7ENBN62r0tPndnvuEwbosw0RpFyDHDeKC6FbVVqM47pOiBc23fhccjc9/i
+         rlgM0bP9ArvBYtIJF9ix3Oqml+tpETS3HLeAotok8HXoJLisCl/Mhbl06gzV0mvu+7m8
+         uQT4sgAWp+vf8LUW8eyTbuWoDxBzSq+bmpo8XV16PPXNCXCcfLvWqRD+HcrMBT6X3NWd
+         2JEA==
+X-Forwarded-Encrypted: i=1; AFNElJ961+Y283G4MeRZdC0rGDy0xcdG5Vl/DLC+NqgJ1zngUk0+G9w1mhYAYvGv2KnBOX1AiPWE60p+Ft1yPmTpmWa0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDU7U0sS6Y3qYhA28sFl1USfXfsrHvK+I6GXjtdOWW8X2nMJoM
+	TQdgT1yYEGHn2ul6+0Xy/I+5QMmTI3zFik1QESiHxKd9xdot6Cts+6da
+X-Gm-Gg: Acq92OH/On7oQz6/QOYD/ABc5iqmjzGUngAP0nNFkFqhrhGshkgB1WkF82R1RPIQxAl
+	2oxQHYrHdl2dA4QpLgkbu0+xw4G4a1fG3YHQLj5PS2Q/mEyJv0/g2/Pd8m0uO8S2L4DjER0kQvl
+	vczqOAjpegi+KPsbuwSP1p9lPYVfpphwwJo5ga2di0WfT8wGAnutlGHESOh0CnoT/QctjcWo1Ph
+	2m1GcZGRl2VMVT8aOSSh94r1PFPHWjduQDjDghdNglN6zz4eWq4YUHX9BIDRJX5pSS2b5NsNzXU
+	ZsPzcgcUMuJJZSG7J9FSYgMkQ5pGBBkkwUOilMW3kPZbJcI058quNXpG/U6Ag+ohyqtN8MvHFo6
+	WgudLx6eXY16t3Jp+HnEHMyETtZKvO71Hp31u+vSJanfeeho7YabqwWIeq+53zzm1UpUXfX06pH
+	neg/4c+Yg70a9PZInbDTYdjViRrnOC+BJq1ILqk98k
+X-Received: by 2002:a05:6a21:3987:b0:3b2:8674:9830 with SMTP id adf61e73a8af0-3b2867498e9mr3029580637.14.1779075288739;
+        Sun, 17 May 2026 20:34:48 -0700 (PDT)
+Received: from debian.prasanth ([103.177.82.201])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82c4031662sm11183717a12.16.2026.05.17.20.34.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 17 May 2026 20:34:48 -0700 (PDT)
+From: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+To: joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	devicetree@vger.kernel.org,
+	linux-aspeed@lists.ozlabs.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kohei Enju <enju.kohei@fujitsu.com>
-Subject: [PATCH v1] virt: arm-cca-guest: use raw variant of smp_processor_id() in arm_cca_report_new()
-Date: Mon, 18 May 2026 12:31:31 +0900
-Message-ID: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
+	Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
+Subject: [PATCH v3 0/2] Add ASRock Rack B650D4U BMC
+Date: Mon, 18 May 2026 09:04:38 +0530
+Message-ID: <20260518033440.17569-1-prasanth.padarthi10@gmail.com>
 X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_203210_800465_800C9DFD 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20260518_043451_368475_501DBE77 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +118,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
-debug_smp_processor_id(). This debug function complains when certain
-conditions that ensure CPU ID stability are not met, specifically when
-it's called from a preemptible context.
+Add initial devicetree support for the ASRock Rack B650D4U BMC,
+an ASPEED AST2600-based server management controller.
 
-In arm_cca_report_new(), which runs in a preemptible context,
-smp_processor_id() triggers a splat [0] due to this.
+Changes in v3:
+- Reorder board DTS nodes alphabetically by label.
+- Clarify that the management LAN PHY is an on-board discrete PHY.
+- Keep MAC0 phy-mode as "rgmii-rxid" based on the extracted vendor DTB.
+- Keep flash layout unspecified until it can be validated on hardware.
 
-However, the CPU ID obtained here is used as the target CPU for
-smp_call_function_single() to designate a specific CPU for subsequent
-operations, not to assert that the current thread will continue to
-execute on the same CPU. Therefore, snapshotting the CPU ID itself is
-correct, and thus there's no actual harm except for the splat.
+Changes in v2:
+- Add MAC0 dedicated management LAN description with MDIO PHY at address 0.
 
-Use raw_smp_processor_id() instead, to directly retrieve the current CPU
-ID without the debug checks, avoiding the unnecessary warning message
-while preserving the correct functional behavior.
+Prasanth Kumar Padarthi (2):
+  dt-bindings: arm: aspeed: Add ASRock Rack B650D4U
+  ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
 
-[0]
- BUG: using smp_processor_id() in preemptible [00000000] code: cca-workload-at/134
- caller is debug_smp_processor_id+0x20/0x2c
- CPU: 0 UID: 0 PID: 134 Comm: cca-workload-at Not tainted 7.0.0-rc1-gc74a64d12073 #1 PREEMPT
- Hardware name: linux,dummy-virt (DT)
- Call trace:
-  [...]
-  check_preemption_disabled+0xf8/0x100
-  debug_smp_processor_id+0x20/0x2c
-  arm_cca_report_new+0x54/0x230
-  tsm_report_read+0x184/0x260
-  tsm_report_outblob_read+0x18/0x38
-  configfs_bin_read_iter+0xf4/0x1dc
-  vfs_read+0x230/0x31c
-  [...]
+ .../bindings/arm/aspeed/aspeed.yaml           |  1 +
+ arch/arm/boot/dts/aspeed/Makefile             |  1 +
+ .../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts  | 71 +++++++++++++++++++
+ 3 files changed, 73 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
 
-Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
-Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
----
- drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-index 0c9ea24a200c..2d450caee3e4 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-@@ -108,7 +108,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
- 	 * allocate outblob based on the returned value from the 'init'
- 	 * call and that cannot be done in an atomic context.
- 	 */
--	cpu = smp_processor_id();
-+	cpu = raw_smp_processor_id();
- 
- 	info.challenge = desc->inblob;
- 	info.challenge_size = desc->inblob_len;
 -- 
 2.47.3
 
