@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85BACD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BDFCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Sy2PqXZ6ebOtE0DOUjyEW5oMkeY/jMTLVTy3qbrNxw=; b=pgiLkSfgehOHVAnoMj1nNReyek
-	TwM5n+dpHwY2g+1+lHK9+lk2YGNhmm9fDvQrKyKmwR2tw2QL7RS5LWIJoUxOPrvLW6dAyR8MqQvg3
-	jlw5p3dky0Hn/URnT0bT1ckza4LSP4lAoKZEQzPZPb4XtunSlXulZn/5EclLdKvyp6oeyGkpucR4H
-	Qr6I5TulRlguORPiWdwcyceCCriUHZAOHzMO6CdomPVb/VbQ366rKcBcXYcp83cXrlx06w9//C+mM
-	/qc+ttut5TtJWPHZ/1dxKcFq+b8vVcYw4F0U+g2jJrug830ZpeiHgJmQFbS/Yy0YjfxjW9e3MCSpn
-	Y4mTXe/Q==;
+	bh=pC9TScL6CxIBlhr7Fs+T0Ee2cF3m9ksp0G13aaDD7mA=; b=1o+EyjuLhjtyk8dzfVQhmaeRLJ
+	JfnDdqwXJBfeV8+UlevhiGDMUdyxinr1XOuLqmiVeS2gU+1ISdNU8AsjfmMGTqVkkUCjzwm9JkMfF
+	XGj7Zgxw720GzUzaFOibEOcb9Z6Cs2lAtHZYvmtiMgniDK1fiAvl6khdN2UtBCHtJdc0Ds8sHBNul
+	wSpaaC+pYzkUN20tduM6TLWIbgH83h0QNovgMfXI1D1UzgiYIZuDMAbleh1D1dbsXxkou0XNKVve6
+	1Z9juQQIpBOc+xq/xIxywTb6msHjPs+M2autx0a52AWsZ1NpS1reNDX0PVWUYkoZZp9d4m3i1TACF
+	ChJJL6Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOz0t-0000000Fz9m-2geY;
-	Mon, 18 May 2026 14:32:11 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wOzMS-0000000G3eQ-00CS;
+	Mon, 18 May 2026 14:54:28 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOz0n-0000000Fz4x-3369
+	id 1wOzMP-0000000G3d0-0g9E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:32:06 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-44ccbd3290aso2163328f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:32:05 -0700 (PDT)
+	Mon, 18 May 2026 14:54:27 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-488ab2db91aso24781095e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:54:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1779114724; x=1779719524; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779116063; x=1779720863; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4Sy2PqXZ6ebOtE0DOUjyEW5oMkeY/jMTLVTy3qbrNxw=;
-        b=XlEVhWHEmV0mfHDlwYAOWyZ3uVp9kWf/2jfCFNhmZSNmqIQVuR8zoj3J36YGllYfzk
-         C6T3OApxLLYluMMpPhZiz0kTaZymlqy4K8V1GCiIlY9qAflzzGzP3ow4LAUAp/UrLhb4
-         yVtJUsT5FrsUB0KW3AyEHt4cYvnfuqAPo51gg=
+        bh=pC9TScL6CxIBlhr7Fs+T0Ee2cF3m9ksp0G13aaDD7mA=;
+        b=guGHzgGuxKg2+cNn6KVSInJoTBAqPkEU6VwZ3tKgEcg80HTpkKO7lKrIN7lzaSFVZk
+         nKY1cDQNZsvT+apIoOwtVfZp8SjU7BmRJKd9PCGv0Nw5J1WIL3Atba+DS770MDaoSKHC
+         u2A32non+XZLeOSdrnYYNCVgerhRWi7/HeeRQbOcMib8rPK621Jbh8Gjpa5XvV+ROgAm
+         YCfgKnac8gAspd8R/YLCSd0I65bURloaJBboPGCZQnrIGCd/LzOt/NVo/R3YfXXzyuhA
+         ilVZUvRtR4U6Em40aofM6W2mRKTF/DHmvO78y1pM2JU7JFU8T+nR0YmfFqvJgQi7Jq3N
+         wjrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779114724; x=1779719524;
+        d=1e100.net; s=20251104; t=1779116063; x=1779720863;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=4Sy2PqXZ6ebOtE0DOUjyEW5oMkeY/jMTLVTy3qbrNxw=;
-        b=c0VPGnpEiE9B7kZjJsr32bi49AgPIFwfegaIUiIaYnG8LihbYvJOrCgcvVhsrxW/P2
-         50bgpH+WkEsQ8aCtFoDNgd5ckN+M3w1TTDHnMEwyoUt46Pmgz2zNGhlYpX3ghm5ohsnF
-         Stj/8/AtiV9rlXOs9N5/sJsOYuqWkknixerB9OInVm9H9NuLIw7aVCZ5XCoQ7vKllbqJ
-         s7Oid4xYBbcgbvBtjgn/CzSSbl7QuhtIQyFWGC8KfpjH9+no7NMkNLrqBiuMJ97+K1pK
-         0fQdMLX0r7Q4UOHhzwHFiGIVk+zuKgzz06Uj0nEF6PXOPiuFsx+HssFEFIJmRjjwxY1I
-         ghvg==
-X-Forwarded-Encrypted: i=1; AFNElJ+WY/k78lbSWXNOc44uvoEK5wnak6z0baIETBVfwNPv7EXC17cd0E/xLbOsEycURq1Q5OrGrMwsmMOjqoFtbx94@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTA9mV4x1HmQLR9Xjpd0moc6SJy/TZxs7DeO9k8CByMLLZ2wR5
-	DN2sH2SoCUO5U0GRUtbX0nJrJiMK0w0PJ66tJ+aQPFXyazWYrXa2yFwGWXOOXVkGt8U=
-X-Gm-Gg: Acq92OEAiyBjp20zi7WWuqnVD9KV2abBiaPLYwPDD17CqyTIkwFxRQb1eL0YXOQ38Ox
-	CFbXhVe61tiayd6QHjS2iW6dmM81ODuP0ZJeEMRdap/1tgV/FvkJnpY9KWyEhRjbt5j/gHyssEY
-	vHOsi65SUds0VXTQfc06Yl/KrN5dB2E+BykV1cEqnlh98oneb5g7kpYGFBtCiO3MoATIxdJgEMq
-	IkNILkautMxMafyOk84fTTYwsXU4f8Di9AnnfXEbksUroJ3BtgMuDcwfICa2IuKIjZXMvxyxvzk
-	MCdPuvq3YvZdNJ3gWFZC16dLAzpr67QeQtNCIvkXHFIKfZihapaFMV8ZZK14xkC0qMH6f8bQdDt
-	739r0BrWRH2MbRRd4OAnzML+mJ/CxZwCnL5vhDPIa63SbAOpQ+zyDAzJi8uoropDjMf/iIoSHj3
-	yBx8PVpjTi5tD/cFAHuFtsoK/DBYZ/IlcsqRTw6MxJYkp0ghb/M3gnz+k7Ud1UF0H+9j6g7Jsl1
-	Dibi4HZbbdBiWuuGFHl6jBGP1iqHNCJltSWlLayMp1V+H1F
-X-Received: by 2002:a05:6000:1845:b0:44a:47a4:ce91 with SMTP id ffacd0b85a97d-45e5c58d4b5mr24057819f8f.25.1779114723899;
-        Mon, 18 May 2026 07:32:03 -0700 (PDT)
-Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.43.167])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a1aeafsm39564572f8f.23.2026.05.18.07.32.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 07:32:03 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	domenico.acri@engicam.com,
-	francesco.utel@engicam.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
+        bh=pC9TScL6CxIBlhr7Fs+T0Ee2cF3m9ksp0G13aaDD7mA=;
+        b=Lv3tO83+mlpjRQso8z15I8nDMFk0E3ojmgtyF1IdKltZWWLL9+pwSBr/TLybE+iTga
+         X2IlJXaiwOoBR8DetPL4wg9zFmud59IQXGG7scPFwzALyKcdUGehxVdH/1a7S6sXukmq
+         3EyYBhyuNTyNouAra6WLp+beJbdr0U2T7V1fe3Mz5ROCCB2M3zKwNiHjUWFJjIfmFxy+
+         M24vTTkQHvZ6GPy81vhIxOIAtiBNog5MYPXQUmmZgVTdbbCZBfeOcyazqSy+cSvDnQm/
+         5xw5zuQlf+CWDa1797D01Crv8c7dzJ2y7hTPwWGysRBQ2BExnVeeRd0u/s7V90xWVXhn
+         cylw==
+X-Forwarded-Encrypted: i=1; AFNElJ8ebiyU/Z2iOjpsBiPDA14/PjY0FnmkoYvlely6KP45fhhphVPp2WkhY/VhZemE32gLM+/V7RrRy3C+a6YenOG/@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywk7BSZU+nzboJn+LO+vRZ68mQnfruw4uAp4Uk/aYOP6uNjanPh
+	SEyDvigd68eO7GL403fs68kd3ewxHaHt0AOGD31SPD+XaST/vEvoz5k=
+X-Gm-Gg: Acq92OFgfYCfeUVgqn+OjZaisiPr5OABljNTbYfpc9koUUcs3osZZgpDnUYi/vbvi4F
+	6Pyk9/vXvDrvz+OBx7QuKqBFaFxl6AsboKl6oEy2GQFb46JB3167vlT/RfjFqXqkxPyzYzz74jp
+	bSvbpf6Qzh+l0bLgm065BgBYxR855SmgZMuk8b20dH3edPD1jbB/UvMxNRoewRYKOMkvGCqZYIt
+	MlfbesQdKom8IvinRu+YD8su6tKbPIXy4G8X9udwWcOKI0gt4rICAesAyxABG7Prh7/VqsOmu06
+	bKMRQPaoJVP46yzZ00AdYDYzJ3i9Hl6tE7Rp7WaHYpso906K9zijL5q0W4VMHZZ0UmHGTk8BATE
+	IlTJir/DwCTREaqApmbQZyhh2I3tNokocc5Oyx1W/9Q3+/sj3IF6bbtd1uRIERBn0QalU0c+Io8
+	qLJb1fxh4fnUh6Fvpy9H5lq9krjfssGF2g27XBYIChBV35PDEvNzip+EX7q358HXmb7eWKgmepO
+	QQWC85v+F4=
+X-Received: by 2002:a05:600c:821b:b0:488:b811:51c4 with SMTP id 5b1f17b1804b1-48fe6515831mr225383255e9.25.1779116062889;
+        Mon, 18 May 2026 07:54:22 -0700 (PDT)
+Received: from localhost.localdomain ([151.47.57.9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe53ab671sm261061285e9.1.2026.05.18.07.54.21
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 18 May 2026 07:54:22 -0700 (PDT)
+From: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+To: jonas@kwiboo.se,
+	detlev.casanova@collabora.com,
+	nicolas.dufresne@collabora.com,
+	hverkuil@kernel.org,
+	mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar,
+	heiko@sntech.de,
+	stable@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 03/15] arm64: dts: st: add CAN1 support on stm32mp25
-Date: Mon, 18 May 2026 16:31:18 +0200
-Message-ID: <20260518143150.3138712-4-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260518143150.3138712-1-dario.binacchi@amarulasolutions.com>
-References: <20260518143150.3138712-1-dario.binacchi@amarulasolutions.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] media: rkvdec: fix PM runtime teardown ordering in remove
+Date: Mon, 18 May 2026 16:54:14 +0200
+Message-ID: <20260518145414.64514-1-pavone.lawyer@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260518105413.42147-1-pavone.lawyer@gmail.com>
+References: <20260518105413.42147-1-pavone.lawyer@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_073205_782707_C9B972A6 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_075425_220213_4F37E0CB 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +108,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The controller is compliant with ISO 11898-1: 2015 (CAN protocol
-specification version 2.0 part A, B) and CAN FD protocol specification
-version 1.0.
+From: Jonas Karlman <jonas@kwiboo.se>
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+The current remove() path calls rkvdec_v4l2_cleanup() and
+pm_runtime_disable() before pm_runtime_dont_use_autosuspend(), and
+frees the empty IOMMU domain after that. With autosuspend still
+armed when the domain goes away, the VDPU381 can be left in a dirty
+state across module reload and suspend/resume cycles.
+
+On RK3588 this surfaces as a VP9 inter-prediction bug: from the
+second ALTREF frame onward, motion blocks decode with U=V=0 (BT.709
+green), while intra and static blocks stay correct. Reordering the
+teardown to dont_use_autosuspend() -> iommu_domain_free() ->
+pm_runtime_disable() -> v4l2_cleanup() makes the symptom go away.
+
+Tested on a Radxa Rock 5B+ (RK3588, 8 GB LPDDR5) with both the
+libva-v4l2-request mpv pipeline and Chromium's V4L2 stateless
+decoder. With the fix, 300 random pixel samples on VP9 Profile 0
+clips at 1080p and 1440p match a libvpx software reference exactly
+(worst delta 0). Without it, the same 1080p sample at frame 4,
+pixel (960, 270) reads HW=(0,112,0) vs SW=(204,147,116). HEVC and
+H.264 stateless decoding via mpv keep running on hardware with no
+fallback.
+
+Fixes: ff8c5622f9f7 ("media: rkvdec: Restore iommu addresses on errors")
+Cc: <stable@vger.kernel.org>
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
 ---
+Changes in v2:
+ - Add Cc: <stable@vger.kernel.org>; media-CI flagged that the
+   Fixes: target (ff8c5622f9f7) is present in the 6.17, 6.18, 6.19
+   and 7.0 stable branches, so the fix should reach them too.
+   Link to v1: https://lore.kernel.org/all/20260518105413.42147-1-pavone.lawyer@gmail.com/
+   Media-CI report: https://linux-media.pages.freedesktop.org/-/users/patchwork/-/jobs/100124849/artifacts/report.htm
 
- arch/arm64/boot/dts/st/stm32mp253.dtsi | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp253.dtsi b/arch/arm64/boot/dts/st/stm32mp253.dtsi
-index eeceb086252b..d5871203ccb0 100644
---- a/arch/arm64/boot/dts/st/stm32mp253.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp253.dtsi
-@@ -43,6 +43,21 @@ &optee {
- };
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 6f5f0422d317..bb95b090a25b 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -2066,12 +2066,13 @@ static void rkvdec_remove(struct platform_device *pdev)
  
- &rifsc {
-+	m_can1: can@402d0000 {
-+		compatible = "bosch,m_can";
-+		reg = <0x402d0000 0x400>, <0x40310000 0xd50>;
-+		reg-names = "m_can", "message_ram";
-+		interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "int0", "int1";
-+		clocks = <&rcc CK_BUS_FDCAN>, <&rcc CK_KER_FDCAN>;
-+		clock-names = "hclk", "cclk";
-+		bosch,mram-cfg = <0x0 0 0 32 0 0 2 2>;
-+		access-controllers = <&rifsc 56>;
-+		power-domains = <&CLUSTER_PD>;
-+		status = "disabled";
-+	};
+ 	cancel_delayed_work_sync(&rkvdec->watchdog_work);
+ 
+-	rkvdec_v4l2_cleanup(rkvdec);
+-	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 
+ 	if (rkvdec->empty_domain)
+ 		iommu_domain_free(rkvdec->empty_domain);
 +
- 	ethernet2: ethernet@482d0000 {
- 		compatible = "st,stm32mp25-dwmac", "snps,dwmac-5.20";
- 		reg = <0x482d0000 0x4000>;
++	pm_runtime_disable(&pdev->dev);
++	rkvdec_v4l2_cleanup(rkvdec);
+ }
+ 
+ #ifdef CONFIG_PM
 -- 
-2.43.0
+2.45.0
 
 
