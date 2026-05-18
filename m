@@ -4,125 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73099CD4F50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E619CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMnLBzY0p0Cd+gtn+Agv9RdL/bu0d4IkitP7BLovXc0=; b=aEb7vymfvU1BkuxSYJDPl16ZuN
-	fFBoo0Zcs/ajCEaG+X3IqVwOrdHOwfXBkKnSmtR74oHn1xr5A/jL0wAR/YPV7UpLtnTSJmzUYmPM5
-	4hMDCr4NDP+qemKEJtspulsJMtkMTlAo99ACLovwVxxeuYFkpceP+0fxRDBjZ5e48/xtoWlrs1gRy
-	jNSP8f7qiZC9u/eCLil6bf2W0x/fSY4WSZp2ucyfGowhsg08qoQeFu97AY5K2HvjbsqpHHdVlY3NJ
-	d7aAAaSZ/zLbEmjqO1/ow7vSPjsLTVV20Gh/xLfKHNWeTw3IAQp7zCNDMAP0vsibMlI26ys09QEwz
-	Fv0FS7MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oaHjQLjoZ0RKvTMa9o0qahWf3+S1KCRnhCd6+W/2lkI=; b=RK83kkWKEpdnFc3o29UNp3yoRP
+	hdjpWdl9P5kfxdcq5NQ2joAUdqAGtWDLIgfd46R3ETrGfbNU9WGf6fa+GSzxBS7W+snCLYKyAMJyG
+	TQefMxjLBbKfhjvYokPtwvaK9i9DWCvNh119Gy5LCXe3loLkYI4wTb/kwZAEJvnrOQdy+u8a663T/
+	Qby1IXwR4T9ZJy+FYo2wPVgxC1Y1kbaGPV///HUIBFP6tGJz3Hf7KXUortyZl9lvHO3yqzgjpObzr
+	L5X6mDQE18en9gUAIJkae9YmZ5u0fBJzwIiG84KXYw8rAQMNH/8wNVnRV9o40yxJnePIVjD5Jqeye
+	LV8NaEGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0Ag-0000000GDLU-2wd8;
-	Mon, 18 May 2026 15:46:22 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0Ae-0000000GDKq-1jwI
+	id 1wP0HI-0000000GE2P-2X3G;
+	Mon, 18 May 2026 15:53:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wP0HF-0000000GE1V-2IGz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:46:21 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64I5TeTc3681418;
-	Mon, 18 May 2026 15:45:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=yMnLBz
-	Y0p0Cd+gtn+Agv9RdL/bu0d4IkitP7BLovXc0=; b=DaZ69NTy6khgPB2oBKO7hR
-	qPq1BlhIydDYngtnammgp3r0aiYWbExr0FbdV/xb+TqO/7WqXypPeXYGOX2Py7sr
-	s6ee4AP4dfeo8FQKPiXw6YQ9w6op/QP2mfQ3yNsPaah26bKRJCdbv/0h20/3auf6
-	NIvK6HIW7oxbP+1AK+jGsDirK6ZdtSEC8G29/iQq0TBb4JtPeBTwTvlXKXOeoq10
-	WCFTMBSh2iWsbbjSH7yYr/ODAz4MyeydG+0SVeIeBazfBY6qmKQZTUPj8DwhflAW
-	KppGsoV+1A0CTdXRPfMYUJQ8auXLDUBuMt98G8TmNZWej1KXsfl53WhMVapG1lMQ
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e6h9xrw5t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 May 2026 15:45:55 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64IFdCpG023083;
-	Mon, 18 May 2026 15:45:54 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4e75kxx9m5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 May 2026 15:45:54 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64IFjonp30474780
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 18 May 2026 15:45:50 GMT
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 9B7CF2004D;
-	Mon, 18 May 2026 15:45:50 +0000 (GMT)
-Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 5194A2004B;
-	Mon, 18 May 2026 15:45:50 +0000 (GMT)
-Received: from [9.52.210.163] (unknown [9.52.210.163])
-	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 18 May 2026 15:45:50 +0000 (GMT)
-Message-ID: <c12e2f60504c8988a172cd947fc5a07f5cf9148c.camel@linux.ibm.com>
-Subject: Re: [PATCH 2/5] arm/pci: Use official API to iterate over PCI buses
-From: Gerd Bayer <gbayer@linux.ibm.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Yinghai Lu <yinghai@kernel.org>, linux-alpha@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
-        Richard Henderson
-	 <richard.henderson@linaro.org>,
-        Matt Turner <mattst88@gmail.com>, Magnus
- Lindholm <linmag7@gmail.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman	 <mpe@ellerman.id.au>,
-        Nicholas Piggin
- <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Bjorn Helgaas <bhelgaas@google.com>, Thomas Gleixner <tglx@kernel.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Dave Hansen
- <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin"
- <hpa@zytor.com>, Gerd Bayer <gbayer@linux.ibm.com>
-Date: Mon, 18 May 2026 17:45:50 +0200
-In-Reply-To: <20260515-priv_root_buses-v1-2-f8e393c57390@linux.ibm.com>
-References: <20260515-priv_root_buses-v1-0-f8e393c57390@linux.ibm.com>
-	 <20260515-priv_root_buses-v1-2-f8e393c57390@linux.ibm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Mon, 18 May 2026 15:53:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43AE41CE0;
+	Mon, 18 May 2026 08:53:00 -0700 (PDT)
+Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 146EA3F85F;
+	Mon, 18 May 2026 08:53:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779119585; bh=jMXNL95liy6TgsVQCG7HsUijE+AyJo7sFeAB9TI1bf8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eFXXVjbC6bx4xzN2QF+cki9bxTyhDEhzDdCq8sHOyBT1rUSQeCXcb+nPt8QH/UsIY
+	 M1RQRii5gNhE61qM7JIcNa+ZOea5Sq5Tc2/eCjhaIiF3shsazo4FJKaGW6Y3SVY4ve
+	 KmVIFKSzr6mdCoj/g+Q+dD+oMMYr9Gvf4tDbCugQ=
+Message-ID: <4cbd2bd2-9acc-4c72-a4f5-6c6cf31f71e1@arm.com>
+Date: Mon, 18 May 2026 16:52:57 +0100
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE4MDE1MyBTYWx0ZWRfX8r3cbmeKr0/7
- ZjyyZTE/MFfCBi9GbmXKpcNX+lwwkqC/9EqO4bFEKkV0WxHMu8YU0cBV1HoQiap3G8VrbbOhPqX
- cIVfyD5AhPx1YaItAYhYQCGqrHOagMWcAE3rumBa5VM1U0HRMmzgHAH8cxXQLRwUG9a7zv+SoSh
- c2bAAz/2ICYd/8D8AkBWM3CQq/JaA5wrKvpxgQtOs5xg1QKftyVzMr4wwI5LtajgClZtVrhMJcE
- TN1xSrsUsMzR8prwkGf/BQuS4GKBSgJKfIIz4XO23oksI0bbnyKrllJJq05fOGQeK9FvA9zifSt
- ILHC+u9s2O+MSeSQYqvF/D1QBzQMRoScTjrbjFUP295QGllnikQaHWgnadjneqDXfBgv2UOSqOF
- zBcOuQSW//l0VWrlAEwh+SLRmdEalckBAM9FewQOuKevizxfqy2W4DKwOdIVrPNhLkEftxXcmQk
- LX9aKHmREnD9ktNyOWQ==
-X-Authority-Analysis: v=2.4 cv=BNuDalQG c=1 sm=1 tr=0 ts=6a0b3433 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=c92rfblmAAAA:8
- a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=FcXVdTTBcE9J8dFX6AQA:9 a=QEXdDO2ut3YA:10
- a=GvGzcOZaWPEFPQC_NcjD:22
-X-Proofpoint-ORIG-GUID: xIpXrCK9Gg9N_OlSikDLILgWx7FxlsfY
-X-Proofpoint-GUID: FH1kcY4D8qIED2hpPqBlCS4uqhpURrUR
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-18_03,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 malwarescore=0 impostorscore=0 suspectscore=0
- lowpriorityscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605180153
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] iommu: Add PCI vendor:device ID to IOMMU fault logs
+To: "Oguz, Yigit" <yigitogu@amazon.de>, "joro@8bytes.org" <joro@8bytes.org>,
+ "will@kernel.org" <will@kernel.org>,
+ "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+ "dwmw2@infradead.org" <dwmw2@infradead.org>,
+ "suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>
+Cc: "jgg@ziepe.ca" <jgg@ziepe.ca>, "nicolinc@nvidia.com"
+ <nicolinc@nvidia.com>, "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <C1C278E8-E5F6-4701-9127-DCDBC64636E1@amazon.de>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <C1C278E8-E5F6-4701-9127-DCDBC64636E1@amazon.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_084620_458062_1702BD8F 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20260518_085309_668693_D8AE81BE 
+X-CRM114-Status: GOOD (  33.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,62 +77,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2026-05-15 at 16:22 +0200, Gerd Bayer wrote:
-> Replace iterating over pci_root_buses with the official
-> pci_find_next_bus() call provided by PCI core. This allows to make
-> pci_root_buses private to PCI core.
->=20
-> Signed-off-by: Gerd Bayer <gbayer@linux.ibm.com>
-> ---
->  arch/arm/kernel/bios32.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm/kernel/bios32.c b/arch/arm/kernel/bios32.c
-> index ac0e890510da..35642c9ba054 100644
-> --- a/arch/arm/kernel/bios32.c
-> +++ b/arch/arm/kernel/bios32.c
-> @@ -59,9 +59,9 @@ static void pcibios_bus_report_status(struct pci_bus *b=
-us, u_int status_mask, in
-> =20
->  void pcibios_report_status(u_int status_mask, int warn)
->  {
-> -	struct pci_bus *bus;
-> +	struct pci_bus *bus =3D NULL;
-> =20
-> -	list_for_each_entry(bus, &pci_root_buses, node)
-> +	while ((bus =3D pci_find_next_bus(bus)) !=3D NULL)
->  		pcibios_bus_report_status(bus, status_mask, warn);
->  }
-> =20
+On 18/05/2026 4:19 pm, Oguz, Yigit wrote:
+> On 2026-05-08, Robin Murphy wrote:
+>> Sorry, but why are unexpected DMA faults happening "at scale" in the
+>> first place? If you have so many broken drivers that disambiguating them
+>> needs help from the kernel, something seems fundamentally wrong with
+>> that picture. Conversely if these are devices assigned to userspace then
+>> we should perhaps reconsider their ability to spam up the host kernel
+>> log at will anyway.
+> 
+> The use case is VFIO passthrough environments where translation faults
+> show up during device lifecycle operations, mainly around device reset.
+> When mappings are torn down and a device still has DMA in flight or
+> issues DMA during/after FLR, the IOMMU blocks it and logs the fault.
+> This series doesn't change when or whether events get logged, it just
+> makes the existing lines more useful for triage when they do fire.
+> 
+>> I'm not saying I necessarily have anything against this change in
+>> particular, but it has a strong smell of effort being spent on the wrong
+>> thing...
+> 
+> Fair point. Whether the faults themselves should be addressed is a
+> separate question, but since the kernel already logs them unconditionally,
+> making the output more immediately useful seemed like low-hanging fruit.
 
-Hi Russell,
+TBH I think the more appropriate solution would be to have vfio-pci 
+register its own fault handler, wherein it can properly deal with 
+rate-limiting and/or entirely suppressing fault reports from misbehaving 
+userspace, and if and when it does want to log something it is then free 
+to do that in whatever format it wants, independent of the underlying 
+IOMMU driver.
 
-Sashiko
-https://sashiko.dev/#/message/20260515145940.E85AAC2BCB0%40smtp.kernel.org
-reported:
+Thanks,
+Robin.
 
-> Since pci_find_next_bus() unconditionally acquires the pci_bus_sem read-w=
-rite
-> semaphore using down_read(), this introduces a blocking operation into th=
-at
-> atomic path:
->=20
-> dc21285_abort_irq() [hardirq context]
->   pcibios_report_status()
->     pci_find_next_bus()
->       down_read(&pci_bus_sem) [sleeps]
->=20
-> Does this path need an alternative approach to safely iterate over the bu=
-ses
-> without taking a sleeping lock?
+>> (And even then AFAICS it only really helps in the specific scenario of
+>> having only one of each type of device, otherwise you're back to still
+>> needing per-system knowledge of how BDFs map to physical instances to
+>> know what's what.)
+> 
+> The vendor:device ID answers the first question in triage: "what kind of
+> device is this?" Even with multiple instances of the same type, narrowing
+> by type cuts down the search space when correlating faults with device
+> lifecycle events.
+> 
+> Thanks,
+> Yigit
+> 
+> 
+> On 2026-05-06 4:05 pm, Yigit Oguz wrote:
+>> IOMMU fault and event logs currently identify devices using only their
+>> PCI segment/bus/device/function (SSSS:BB:DD.F). While mapping a single
+>> BDF to a device type is straightforward, doing so at scale across many
+>> hosts and thousands of fault events requires additional tooling and
+>> manual cross-referencing. Including the vendor:device ID directly in
+>> the log line makes each event self-contained and immediately actionable
+>> without any post-processing.
+> 
+> 
+> Sorry, but why are unexpected DMA faults happening "at scale" in the
+> first place? If you have so many broken drivers that disambiguating them
+> needs help from the kernel, something seems fundamentally wrong with
+> that picture. Conversely if these are devices assigned to userspace then
+> we should perhaps reconsider their ability to spam up the host kernel
+> log at will anyway.
+> 
+> 
+> I'm not saying I necessarily have anything against this change in
+> particular, but it has a strong smell of effort being spent on the wrong
+> thing...
+> 
+> 
+> (And even then AFAICS it only really helps in the specific scenario of
+> having only one of each type of device, otherwise you're back to still
+> needing per-system knowledge of how BDFs map to physical instances to
+> know what's what.)
+> 
+> 
+> Thanks,
+> Robin.
+> 
+> 
+>> This series adds vendor:device ID (VVVV:DDDD) to IOMMU event logs for
+>> ARM SMMUv3, Intel VT-d and AMD IOMMU.
+>>
+>> Before:
+>> arm-smmu-v3 arm-smmu-v3.0.auto: event: F_TRANSLATION client: 0000:2b:11.6
+>> sid: 0x158e ssid: 0x0 iova: 0x280000000000 ipa: 0x0
+>> DMAR: [DMA Write NO_PASID] Request device [86:00.0] fault addr 0xe0000000
+>> [fault reason 0x05] PTE Write access is not set
+>> AMD-Vi: Event logged [IO_PAGE_FAULT device=0000:41:00.0 domain=0x000a
+>> address=0xe0000000 flags=0x0020]
+>>
+>> After:
+>> arm-smmu-v3 arm-smmu-v3.0.auto: event: F_TRANSLATION client: 0000:2b:11.6 [8086:1533]
+>> sid: 0x158e ssid: 0x0 iova: 0x280000000000 ipa: 0x0
+>> DMAR: [DMA Write NO_PASID] Request device [0000:86:00.0 8086:1533] fault addr 0xe0000000
+>> [fault reason 0x05] PTE Write access is not set
+>> AMD-Vi: Event logged [IO_PAGE_FAULT device=0000:41:00.0 8086:1533 domain=0x000a
+>> address=0xe0000000 flags=0x0020]
+>>
+>> Patch 1 adds vendor:device ID to ARM SMMUv3 translation fault logs.
+>> Patch 2 adds PCI segment and vendor:device ID to Intel VT-d DMAR
+>> fault logs.
+>> Patch 3 adds a devid_str helper and vendor:device ID to all AMD IOMMU
+>> event log paths.
+>>
+>> Testing:
+>> Build-tested against mainline Linux (torvalds/master).
+>>
+>> Runtime-tested on a custom downstream branch on ARM SMMUv3, Intel VT-d and
+>> AMD IOMMU hosts. Translation faults were induced in a virtualized setup
+>> by removing DMA mappings for an in-use region, causing the assigned device's
+>> subsequent DMA transactions to hit unmapped IOVAs and produce
+>> translation fault events. The resulting log lines were verified to
+>> contain the PCI vendor:device ID on all three platforms.
+>>
+>> Lilit Janpoladyan (1):
+>> iommu/arm-smmu-v3: Print PCI vendor:device ID in SMMU translation
+>> fault logs
+>>
+>> Yigit Oguz (2):
+>> iommu/vt-d: Add PCI segment and vendor:device ID to DMAR fault logs
+>> iommu/amd: Add vendor:device ID to AMD IOMMU event logs
+>>
+>> drivers/iommu/amd/iommu.c | 94 +++++++++++++--------
+>> drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 29 ++++++-
+>> drivers/iommu/intel/dmar.c | 33 +++++---
+>> 3 files changed, 104 insertions(+), 52 deletions(-)
+>>
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> Amazon Web Services Development Center Germany GmbH
+> Tamara-Danz-Str. 13
+> 10243 Berlin
+> Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+> Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+> Sitz: Berlin
+> Ust-ID: DE 365 538 597
 
-IMHO, it looks like this entire pcibios_report_status() iterating over
-all PCI buses and all their devices would be better off if moved
-outside of the hardirq context?
-
-Or could pcibios_report_status() be converted to use
-for_each_pci_device()?
-
-Any suggestions welcome...
-Gerd
 
