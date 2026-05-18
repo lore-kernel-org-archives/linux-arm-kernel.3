@@ -4,105 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E28CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8BFCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i5Oh1fD1na/utz3Cs/1Qt7UzGSujhfOk0rSSTDdiTsM=; b=3MvpMU3giHK2icJAL55OtqRQL0
-	OQvQQbJlFg0E4vlXFkUmUserHyo5963lrwqwjDyjVaPG5b/Ix1eCqfZQ1RchVWF0Upf9vEWM1VUAr
-	rlrPP2H3Dcudqb+BSHlVCKiWpLLBQViTL1C/JEVhhhqSR+Qp3yWQcp5Fly6iXyFWInVO+QV7Ope1G
-	TKhxVLNyP/lFRNHgOXUd7KWVv2uvqfnxKXtzHuasyEyTx5t0RZnuA+iGhcdyw9JGfi6yir/qjbZ4L
-	I7irxXUdhrHqaRKef/Sum6H5LDYicdzoxYDg+LpPbYmRUvVw51S7HKpjz8DLXpnN+eFXDN4QEhIub
-	lIEFvPZA==;
+	bh=D19Vw4l9A1iAw5lo1r64wNXQuyjnSfA8yjiubDQIMYM=; b=pfUXqwQyOhSzc4bH8dehpHk4XK
+	WmUc/j0XrnlYS68qNd7vYyL0w+jlfE9efgbO8N6hee/XrGd0HjmIWyzpbnXsihWwcFDeFSorKSVJm
+	z0iaob8E1XnfxbVAc/C2X9JmLQs9N4BGdwGby2vIhAFoBKpFCmKW7GaHnTa12eHQlDa6myiMQbnMs
+	RgOTm8q51+chWwUChAf7OJPBbgErMH8F2wSb41q03OwSlgrkzbM06TnyQz2NjrtenxRW0srNudL3K
+	RdIApQEsTfP8TYyQ3xyxwW5pRGqQdoz0maFMDDl/DmJDhs2m/I+om98nyWgoPLi4UBMyyPM/bIDYY
+	CTZ5xdKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3DA-0000000GdIG-1CCr;
-	Mon, 18 May 2026 19:01:08 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1wP3GC-0000000Gden-2dK0;
+	Mon, 18 May 2026 19:04:16 +0000
+Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3D4-0000000GdGE-1fQ0
+	id 1wP3GA-0000000Gddw-0icP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 19:01:06 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-479f7e75a6bso937681b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 12:01:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779130861; cv=none;
+	Mon, 18 May 2026 19:04:15 +0000
+Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-7de46b8e432so2886603a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 12:04:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779131053; cv=none;
         d=google.com; s=arc-20240605;
-        b=S/zj1eooCW3N3Y8dtvOsWb198CjICREzWi7cJcWhLRLJ/VONLdKJmjdzs3+FKDoq91
-         bNewj/50ihg93ux5qC3kSQm77mgQ9+qTwyk3Pq0Ckw6OLCXh07PtlzBPN9AxMMxO+Mj0
-         SoUK5KX+yo0tlyTRgTPNiJ60SM6G+7gvZ/yLf8oEeAuvrIXZhPPqoihh7wR6/5SRrRPi
-         l0IiKhiGL7DDtULDH49WqqhYlRPc85l7CesX253XfX+2KjYesBEvlDWrA9nkKt1wo+F1
-         g9UkX0ysWaolMKJVUDKAwe1BM44lGn9lvwTHM4BqNmmIt7JuyK7QedZ3vucPLU8UtwSA
-         r0wQ==
+        b=FFccEZryWmCU11OdNKpwrPjyw2UY4Ft0OBmRJJDWntc78Fz4xnAQEYT4u0q5nX/DoN
+         wY/nHJEbEdDxO/TkLUfCVAqyDXWW6yvFmY5vMIPoQiPCndRkibgvDj91PUgZligZ8eId
+         8qjaEGdFXYX2w/5sQeom6CNSjy9qKjoWY4GeHoQhAncSFkFX4vG6LnXG5K1QGwOgQblh
+         fy5D0Z3rCGUZOfgoesKjQcCfCMHccdrmP4IiKPf2l2qkZoJeXaKE38gIMBn1MOSueRIL
+         kaP5jH0YSUn5zcAfN5dASnY373NyK/R0BeMIc13gGFtJfGUlElqdDMgNiR8k/k2QmE5x
+         m+Aw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=i5Oh1fD1na/utz3Cs/1Qt7UzGSujhfOk0rSSTDdiTsM=;
-        fh=lgs4J9o5rA4enEF/Kg2Njkem6Y88sQqhkXWTTBQ3M3I=;
-        b=XO17z6V1iHppQ3R04hM0rATjjsnEFqPBuKNsZoQBWiu7LoFhJNmfNhLyRUzVkLlZ5h
-         g6vb3X++8ISGw4bskmmsyufRESglkhvLFZqIYycv/YarvsbKliaY6RGgb76M0KNvujdX
-         NQhvwZopVl0avYxyrLWspWoExeBEk+mtMPqTP0vmy4PwcaYr5jcP/EVPPY4FF7f2nrgT
-         ha+ruXKcM4wyXypHW3l9LTOaNxIm8i6FaCNZB7Rvp/xVesVbAxWFBnzW1mkUdTEajhay
-         1ZzLQpbY5RnQ43j2PJhHk/W5Eizha7iHFlIVe7mUY9tBt2NoLGR7IQNLqtSmiVOr/Mf1
-         I1Qg==;
+        bh=D19Vw4l9A1iAw5lo1r64wNXQuyjnSfA8yjiubDQIMYM=;
+        fh=9ige2ZH5UKq5VF2iXZ3YW85XeNcYe0fzZYIb0V65WYk=;
+        b=Asr0KgWfsul6kjt4rgqT98r4JSKJHiac5VzhdCvgb6vI+jTun/Pr/NqOL1y15rLmBy
+         SLeflIcLBAEnYpALTmZmKps9ABMvfXwCZsIEQ/sIwTyMThTIDjpw1FkVYBSxEKphTh8d
+         xB2T/ppfSErhaCaABozftfVakyB1FXFIlu7Cwz68U3H0G8sYUP3egCOZvK6wLUcNtCHk
+         ofCXkfKBuZee1wMuzbaALhJ/41Oewd1Kue16kxA0n4NXjqU8YaoTG59Gar8/CauCZJSq
+         yIxHrg3cJZWLd2J0XUJ3Q9ICKSfSNgRJOiKNvwsmnhP3SwQNyMwh+M1fuYVcxkIZgQqP
+         txLQ==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779130861; x=1779735661; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779131053; x=1779735853; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=i5Oh1fD1na/utz3Cs/1Qt7UzGSujhfOk0rSSTDdiTsM=;
-        b=WYCT6A9M6wqFn8xTK6Sue4YLqn5tHrTcLO2+NDt6698AXm6smx5U+OqQ97z/AiXEe7
-         O82g6SNgLeoMOcjutZ/xA5Ppuf8xmAY6psyUaNO+wj4TT+ggWYrqH3c2LRIxObhpFHBV
-         tqEcpLlDtS1MTr1iOpFp+BxjtNUt/wB0pVGR02U4u5L18IuvBFy/s/Ub7r7CA+uSokeG
-         TIl7932GHpFStKJq2moRl2ojfj0SgA1SioJhxD2gdanvvjAMv7GSK6tWwP+V2yg2KEdz
-         tW5vC7xOCAv4uFKmeWEQ+e64yJH2Tu1BeWppe6RMV95oEbLrk8KeOL1GzedkdFbxxF8g
-         MH3Q==
+        bh=D19Vw4l9A1iAw5lo1r64wNXQuyjnSfA8yjiubDQIMYM=;
+        b=JsGaL4sunm+B8ZWWKeXg+N4qxQhCQ+t5NFEFQ/2AeXDnlW0Ipk22F+lC2ONhn6Esmg
+         i0g4XnEVdGkDv1BFQiBlka52Hn0iruZNt1gRvUKZDrDMzqjkZMxdfJkRmN9t0VfQcmgp
+         UZzHEAs17e81WTrTiw+37Z66+uLmvMZekPHpR3gJeESoZAvlIsW928NiQ0cP4qgdB9UJ
+         6ASqmLas3mc4DxVrvFVtHnqKZcWr0/+bzO5ZHu4nj8SM7MBWvN//wG5V8DIrZqZjkLTv
+         NiXqAhfJylAGXheOFpl0IasDpKZTBIx6+QLJK10cF/4dmaKVuJFuu9h+cwphCRR/NAhR
+         2epw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779130861; x=1779735661;
+        d=1e100.net; s=20251104; t=1779131053; x=1779735853;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=i5Oh1fD1na/utz3Cs/1Qt7UzGSujhfOk0rSSTDdiTsM=;
-        b=ZVyA+YFumNc41aqTDmMY2knfzJZHLdcTItcxePHShi68X2jMgC11mkS/W4m9GBVPB+
-         nwHQBJ5FVgCZBjh0UuKmmmTzo0KLWfKZ44yQl/cTpOGZNAeLlwdspPDbD5uF/gzyzF8e
-         De7cKCWrLypKFDjPzZOzbHetV0VbPYdQ++zLlojvnWQxqQILIgyjFiWRDrK8teuRv0ni
-         qlj0q108MgdqTE8EEWclLSLMF/ohXe5QrONzSj38GquolUHQOwNNNCiwi5Z3/U2iXd2Q
-         w50qcXcO/zZpAdlVpkp7st1sfQhQMyPha1siy5p+IT7JXNlhrJuxLX4IpWvZyafjxzHv
-         EtnQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9w4XZNK+rrRZledbG2vcHk/XWAPFe8TegqCGzHwjhmc2xhFP0DW3UGD4ckhswmNezSbio5iQOgBVcwoM6dl8IM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjOcVMBkugnnuKRDClnG146T6gfkI1eQUJzUSkKlCNz4cK96/6
-	m/nf55NSKm/suqukHLis34HfJA79sKwtv9vXYhbgTHLZu1LRCuTEUyET2MwD0g704x+LbJsM5fJ
-	1xb8YhKML3dU+zxSpDHMP8fpecuwsZvk=
-X-Gm-Gg: Acq92OGw5POQAO+yuGOc6jqP54lH34KhG+zohVngx578vY017zpyVj4Zg2/imtBOZfG
-	iGCJbA1qSN2BtoZRGgXEEDAZEw5W3ySq4WskUquVqZCcus8br2H3xFRZyde3LjDWIKuudFd9osh
-	a81nXvxF6iFmf33Toic8DnZNEeR7zVpNuQPqXFHWhhy+YeltTHGIY4Bccqgk/x7wX7XXSct+hfL
-	wYsmGUf5N5txehPY1HqydBmdaiE6klOUY62f/ZRhTODJ9Bn1YL1sYA5iCx2jOR1Hmp6yPEvSvco
-	ezBeQEjx
-X-Received: by 2002:a05:6808:e416:b0:482:6817:405a with SMTP id
- 5614622812f47-482e57c671bmr6794827b6e.32.1779130860858; Mon, 18 May 2026
- 12:01:00 -0700 (PDT)
+        bh=D19Vw4l9A1iAw5lo1r64wNXQuyjnSfA8yjiubDQIMYM=;
+        b=fMrSz+ZZksdE87huVhBNpaZA2KkLOO5aj73HR4S2HagBkMRAbMIaJNL+urdeTL94hH
+         LYe6R2AOryTHVuurxNtDXxyFzrP90Ri43AY1qaqvzAzywa1uvqYCLbOcwBzey6BsKBNi
+         kiGfYiAv/kSfcFmQ5tUcUIzr6OeSbbF5XM1si1xAF4B7QnzBlpZCP9uJUIXHCQyjrfFK
+         VMSpPUhN1XQp+b3nlhM8PFqoVUyH2SSwi+9/JZ4Ueg2ZY9UnVqn9MbpYnmRzQXB0WPl0
+         QjTePI3x78Qbxey9QE1JsdGbsZFUijX8CJbFJ7jG/J4Gdds/Ro9XNRCEoND01ZD6yc6a
+         0kng==
+X-Forwarded-Encrypted: i=1; AFNElJ9XWv/94qs814VCoOPdLlElOvFdCzjqeJAgc0h66HB4LZmjW0/mI1Fgj3ljoqUi/QWuqbx/dnLN7sA4/BllGC+d@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3ewtNfUanzXHcaDFB5PtOmjDPTVNh6kUfwPVGSSCgG893lHYT
+	bxHi/IJFMyTb/x3f67yWCNpQNENBwQCiUjWwttcDq3o8D6WxJnI/g9GtRPexRocbqyG5jeycRIv
+	d23+iUdKYQLfH8BW9UFAOa89YjB6F718=
+X-Gm-Gg: Acq92OExfoBEIqq5rjIlZqT+Nwknml4gqMB/bNaxGtTet4hMN/QfcEdHQ+PcjLkQEly
+	VIHDDaSW8RgZH6mtbpCm6ckga32cuCEbNcFhJpZEkVcr69IuLKWcETYy/HeCluupG0W/MEfh30c
+	wF3eHoOQYyQ+vcFjA5ae6nB2ZfTV8B2HUnaLvz/DgE8jjP2o9I9H+A/Ocan9P9JzI4kkJvZamJl
+	NI90HBHneC4aqQ/qva/02rYpwnQcYUMEBcy6zphm1Ohs6ABxLCdlQJcH20dJEM21lcb3fboURd9
+	/HGbEKF1v376428A6Zc=
+X-Received: by 2002:a05:6830:3809:b0:7de:44a5:51d1 with SMTP id
+ 46e09a7af769-7e4ea0818c0mr10204710a34.7.1779131052955; Mon, 18 May 2026
+ 12:04:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260430-exynos-mbox-dead-def-v1-1-a69176b7d0f0@linaro.org>
-In-Reply-To: <20260430-exynos-mbox-dead-def-v1-1-a69176b7d0f0@linaro.org>
+References: <20260428025614.1094085-1-senozhatsky@chromium.org>
+In-Reply-To: <20260428025614.1094085-1-senozhatsky@chromium.org>
 From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Mon, 18 May 2026 14:00:49 -0500
-X-Gm-Features: AVHnY4KQIWjDuAullpsAk41jbvnL-5-zhnGtG7a0cMY6I8twms7NTNeEd50I88A
-Message-ID: <CABb+yY2mSzd61m+sceQVCpPFMG+DB1LMiXjo4_36VwXSzMMFTQ@mail.gmail.com>
-Subject: Re: [PATCH] mailbox: exynos: Drop unused register definitions
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, alexey.klimov@linaro.org, 
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+Date: Mon, 18 May 2026 14:04:01 -0500
+X-Gm-Features: AVHnY4I7yygR6iIAN0n3cRgheBUNKVPddXLQRGYhBBdR5Z8-_fNNgL2cX9WJYo4
+Message-ID: <CABb+yY1zjOdV9XpSfD82WjbAY3_9tadQm+Cf2KaOsYercB6CEA@mail.gmail.com>
+Subject: Re: [PATCH] mailbox: mtk-adsp: fix UAF during device teardown
+To: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Allen-KH Cheng <Allen-KH.Cheng@mediatek.com>, YC Hung <yc.hung@mediatek.com>, 
+	Tzung-Bi Shih <tzungbi@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_120102_439082_B358FC23 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260518_120414_225452_0923506F 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,50 +119,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 30, 2026 at 6:13=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
-.org> wrote:
+On Mon, Apr 27, 2026 at 9:56=E2=80=AFPM Sergey Senozhatsky
+<senozhatsky@chromium.org> wrote:
 >
-> Leaving these dead definitions in place hides which registers are
-> actually being used by the hardware, making the driver harder to read
-> and maintain. Remove them to clean up the file.
+> When the SOF audio driver fails to initialize (e.g. firmware boot
+> timeout), its devres unwind frees the snd_sof_dev object that the
+> mailbox client (mtk-adsp-ipc) reaches via chan->cl->rx_callback.
+> The mtk-adsp-mailbox shutdown clears the mailbox command registers
+> but leaves the IRQ line unmasked, so a late interrupt can still
+> queue a threaded handler after mbox_free_channel() had cleared
+> chan->cl, and mbox_chan_received_data() would then trigger UAF:
 >
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+>   BUG: KASAN: slab-use-after-free in sof_ipc3_validate_fw_version
+>    sof_ipc3_validate_fw_version
+>    sof_ipc3_do_rx_work
+>    sof_ipc3_rx_msg
+>    mt8196_dsp_handle_request
+>    mtk_adsp_ipc_recv
+>    mbox_chan_received_data
+>    mtk_adsp_mbox_isr
+>    irq_thread_fn
+>   Freed by task ...:
+>    kfree
+>    devres_release_all
+>    really_probe
+>    ... (sof-audio-of-mt8196 probe failure)
+>
+> The crash was observed roughly three seconds after the failed probe.
+>
+> disable_irq() in shutdown and enable_irq() in startup. disable_irq()
+> also waits for any in-flight interrupts, so by the time
+> mbox_free_channel() proceeds to clear chan->cl no rx_callback can run.
+>
+> In addition, request the IRQ with IRQF_NO_AUTOEN so it stays masked
+> between probe and the first client bind =E2=80=94 otherwise an early inte=
+rrupt
+> can crash on chan->cl =3D=3D NULL in mbox_chan_received_data().
+>
+> Fixes: af2dfa96c52d ("mailbox: mediatek: add support for adsp mailbox con=
+troller")
+> Signed-off-by: Sergey Senozhatsky <senozhatsky@chromium.org>
 > ---
->  drivers/mailbox/exynos-mailbox.c | 7 -------
->  1 file changed, 7 deletions(-)
+>  drivers/mailbox/mtk-adsp-mailbox.c | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 >
-> diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-ma=
-ilbox.c
-> index 5f2d3b81c1db..953e715a89b1 100644
-> --- a/drivers/mailbox/exynos-mailbox.c
-> +++ b/drivers/mailbox/exynos-mailbox.c
-> @@ -16,15 +16,8 @@
->  #include <linux/platform_device.h>
->  #include <linux/slab.h>
+> diff --git a/drivers/mailbox/mtk-adsp-mailbox.c b/drivers/mailbox/mtk-ads=
+p-mailbox.c
+> index 91487aa4d7da..8bcecddee0eb 100644
+> --- a/drivers/mailbox/mtk-adsp-mailbox.c
+> +++ b/drivers/mailbox/mtk-adsp-mailbox.c
+> @@ -19,6 +19,7 @@ struct mtk_adsp_mbox_priv {
+>         struct mbox_controller mbox;
+>         void __iomem *va_mboxreg;
+>         const struct mtk_adsp_mbox_cfg *cfg;
+> +       int irq;
+>  };
 >
-> -#define EXYNOS_MBOX_MCUCTRL            0x0     /* Mailbox Control Regist=
-er */
-> -#define EXYNOS_MBOX_INTCR0             0x24    /* Interrupt Clear Regist=
-er 0 */
->  #define EXYNOS_MBOX_INTMR0             0x28    /* Interrupt Mask Registe=
-r 0 */
-> -#define EXYNOS_MBOX_INTSR0             0x2c    /* Interrupt Status Regis=
-ter 0 */
-> -#define EXYNOS_MBOX_INTMSR0            0x30    /* Interrupt Mask Status =
-Register 0 */
->  #define EXYNOS_MBOX_INTGR1             0x40    /* Interrupt Generation R=
-egister 1 */
-> -#define EXYNOS_MBOX_INTMR1             0x48    /* Interrupt Mask Registe=
-r 1 */
-> -#define EXYNOS_MBOX_INTSR1             0x4c    /* Interrupt Status Regis=
-ter 1 */
-> -#define EXYNOS_MBOX_INTMSR1            0x50    /* Interrupt Mask Status =
-Register 1 */
+>  struct mtk_adsp_mbox_cfg {
+> @@ -67,6 +68,8 @@ static int mtk_adsp_mbox_startup(struct mbox_chan *chan=
+)
+>         writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_in);
+>         writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_out);
 >
->  #define EXYNOS_MBOX_INTMR0_MASK                GENMASK(15, 0)
->  #define EXYNOS_MBOX_INTGR1_MASK                GENMASK(15, 0)
+> +       enable_irq(priv->irq);
+> +
+>         return 0;
+>  }
 >
-> ---
+> @@ -74,6 +77,8 @@ static void mtk_adsp_mbox_shutdown(struct mbox_chan *ch=
+an)
+>  {
+>         struct mtk_adsp_mbox_priv *priv =3D get_mtk_adsp_mbox_priv(chan->=
+mbox);
+>
+> +       disable_irq(priv->irq);
+> +
+>         /* Clear ADSP mbox command */
+>         writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_in);
+>         writel(0xFFFFFFFF, priv->va_mboxreg + priv->cfg->clr_out);
+> @@ -139,8 +144,10 @@ static int mtk_adsp_mbox_probe(struct platform_devic=
+e *pdev)
+>         if (irq < 0)
+>                 return irq;
+>
+> +       priv->irq =3D irq;
+>         ret =3D devm_request_threaded_irq(dev, irq, mtk_adsp_mbox_irq,
+> -                                       mtk_adsp_mbox_isr, IRQF_TRIGGER_N=
+ONE,
+> +                                       mtk_adsp_mbox_isr,
+> +                                       IRQF_TRIGGER_NONE | IRQF_NO_AUTOE=
+N,
+>                                         dev_name(dev), mbox->chans);
+>         if (ret < 0)
+>                 return ret;
+> --
+> 2.54.0.545.g6539524ca2-goog
+>
 Applied to mailbox/for-next
 Thanks
 Jassi
