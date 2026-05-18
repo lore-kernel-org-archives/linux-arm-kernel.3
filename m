@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD887CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C023FCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajfnX6dMmVY7JCDQSBrodP3hJi7Tq1yTdnqow1jktWo=; b=qy42aVDBjp2gwNynK7y6x+TbQl
-	xXRYdaFAnJV8n0jbPvAmZFYBQHvD3orZgPodp8tmejNX7v50R4uU2iiSxVIaafm/D/lHDtwAtP704
-	y8jpsbLIV+mdLbf5uVeUw9t+633Ziq2dvD/qzgn50feR2xQIdPljZP7Lx028Nb9jx7yabe8XrFyQi
-	kVrrbrA8wd3wJgUdET1HfJamvkemQgptD/KJDZZjZSrP0tVyy1DgESmu+BTvg4bt8j3b3LxWSKsKb
-	EIR2qMMye5Y9tTmn5E5MHu7GM2cvTVtT5KjoOaTdYMoY4hox1xmj5rJW93LXfvpCapjFVpDoojOsh
-	T5JxLu+A==;
+	bh=3+k59PO7Q6mwKuhBsH7yuVL9o+LfhNOS4fz21yzeyIo=; b=PedqY8BpW+ckqu3gCUqa9/X29f
+	/9rt7ZJ4mbmKD+7gz3DYjYMY44K51ip3ws4Ltbt1y8Lx9wI9lPU84rAqqSL4idyFdg03L1Ra1M2iP
+	LNHGTmm1ayEVej/tkuakAKM56uqaJq4v37ZsaU0F28thibFL5aYp3vWKpFhebYndaWliQs0yyJdYc
+	GEn9G/sEwGS5hRktEI5jZAvagVTckJePa/+lVGg47jfS7WOfJdD/KcX1kdbLqrG6EqeMnstXOm1sk
+	xqvqV8byKZ559a7ocLU1yaE1cRlOOK7mtg7oyP8Lp65D+I8VNDNZJtV/SMPgUJTkoX3BIsokWhsod
+	rncVpWUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOs1O-0000000EW8d-3f4D;
-	Mon, 18 May 2026 07:04:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOs4Z-0000000EWgV-1KfV;
+	Mon, 18 May 2026 07:07:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOs1N-0000000EW8M-1Fjc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 07:04:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ajfnX6dMmVY7JCDQSBrodP3hJi7Tq1yTdnqow1jktWo=; b=PCG/ShIiIgxbjAa8DEYdsof4wL
-	otTGdx+I3MSN55tGzCGKGPcor8f14tIedXt+KNIOOOS9PTnnRrudW7NQbHQkp+wpSr3ha2OWZqbDb
-	BekqEg1m+gOr8RuZjVv6HHWStmBMmXgmp0LhmGEiEWYcQl+iH+t1cCCSdqnhPn5QGu63z0EbI9EBf
-	y4nGa5iVkOurUVCZ7+jWe+voKopLdnQibZvU7YsbkSH10T/ktznCkSRPvHR9j51gn9dKaSdKUZJUt
-	LglxTyT6gebbY42yxUJyYa/0nIfjvefqrQuF7T3JAzptqAxvuBMrRFYf65xQvNU+OcJWzUJmRKKST
-	3xJbgkcg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOs1J-0000000A6i3-442B
+	id 1wOs4W-0000000EWft-02h8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 07:04:12 +0000
+	Mon, 18 May 2026 07:07:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F74B43A30;
-	Mon, 18 May 2026 07:04:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C8BC2BCB7;
-	Mon, 18 May 2026 07:04:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E18F24401A;
+	Mon, 18 May 2026 07:07:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA450C2BCB7;
+	Mon, 18 May 2026 07:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779087845;
-	bh=hnrDQUYFFgiNdzIDL56HetQO294DYGJMy2+uWl9Fu4Q=;
+	s=k20201202; t=1779088046;
+	bh=MKXLogmGk/Z9aRPLYSGv52Z8vYljivWCzlY49r4KzWA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=loQUswwdkvWKSBGrHURb45xfjjYnNj68/OcI2MmNEZ3Tc1kBc3PSvJGLUuqiPpw3T
-	 cuJZimDZ/TbC7KWexo2UhviQEupFfJ290THUbo4Wv3b7ihOVaZh3WWxJd9RkagNJ5L
-	 VW3MZpAm4S3+Y9fEgwbIFZwMMZinbdJRb10WFh0kv81pQfC5yyXwXA4haGoEq4ew+9
-	 0l5acAM2JXyGXqRw5UtOPe/rMevDKz4vsO0Lu1zjietCknyM4nmSw2uGJA0Vc9SDhy
-	 BjzyFhymlDnMsjf/WG7il3iV8sdCW1R8uYDfFSkXNwGK0Fa4ph1znky3ILF/fSHPHq
-	 TH86DbT4gTD5g==
-Message-ID: <42d727b7-9117-4763-829b-6d7361c74b49@kernel.org>
-Date: Mon, 18 May 2026 09:04:00 +0200
+	b=Yr1pcdARntEinFCi3Pgr8QrJfRwlIgARnLjU9Bqebhq5KT1/3hpKCyxL6VPLRPBSY
+	 LncYEHPlcDmCoRR/SSHrZ4ul8lHROTdUsWkvbltZIbeOPGTgiawxTdd54hjiIXZVMA
+	 b3+uWzfy+HPMKzcwNIjYlHOb0+QzQdcg3uV+oNSpFpaYgVx2dd4Hl5+aowGq5J/+b6
+	 MFs3MDevHEtoGqIYV4z2UalIn1TDGSno562eKaxalkn8nLriagOXed6P14NVqdC6+c
+	 qw36E0nsAz7eF7CkNxDz1trpoGc0HK6L5Zpt0p8srr51XGgPesZUUpi8Y+B8qnXKl8
+	 t15ThCvxxvbDw==
+Message-ID: <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
+Date: Mon, 18 May 2026 09:07:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] dt-bindings: usb: add CIX Sky1 Cadence USB3
- controller
-To: Peter Chen <peter.chen@cixtech.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- gregkh@linuxfoundation.org, pawell@cadence.com, rogerq@kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org, arnd@arndb.de
-References: <20260511024244.981941-1-peter.chen@cixtech.com>
- <20260511024244.981941-4-peter.chen@cixtech.com>
- <20260515-dynamic-archetypal-reindeer-dc6dd5@quoll>
- <agb0he7vvbqSIym5@nchen-desktop>
- <ccc8ab6c-d301-4585-8be3-1977485c5e87@kernel.org>
- <agq5eZSAZYRAuCH6@nchen-desktop>
+Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
+To: Chancel Liu <chancel.liu@nxp.com>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <20260509024846.2094049-1-chancel.liu@nxp.com>
+ <20260509024846.2094049-3-chancel.liu@nxp.com>
+ <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
+ <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -120,12 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <agq5eZSAZYRAuCH6@nchen-desktop>
+In-Reply-To: <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_080410_802641_85443101 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20260518_000728_093328_00A84219 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,39 +131,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/05/2026 09:02, Peter Chen wrote:
-> On 26-05-15 13:18:53, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL
+On 18/05/2026 06:18, Chancel Liu wrote:
+>>> +description:
+>>> +  The NXP I/O connector represents a physically present I/O connector
+>>> +on the
+>>> +  base board. It acts as a nexus that exposes a constrained set of
+>>> +I/O
+>>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
+>>> +fixed
+>>> +  electrical wiring. All actual hardware providers reside on the base board.
+>>> +  The connector node only defines index-based mappings to those
+>> providers.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: fsl,io-connector
 >>
->> On 15/05/2026 12:25, Peter Chen wrote:
->>> On 26-05-15 09:54:10, Krzysztof Kozlowski wrote:
->>>> EXTERNAL EMAIL
->>>>
->>>> On Mon, May 11, 2026 at 10:42:43AM +0800, Peter Chen wrote:
->>>>> Add a binding for the CIX Sky1 integration of the Cadence USBSSP DRD
->>>>> controller. The schema documents the glue register window, clocks,
->>>>> resets, interrupts and S5 system controller phandle.
->>>>>
->>>>> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
->>>>> ---
->>>>>  .../bindings/usb/cix,sky1-cdns3.yaml          | 151 ++++++++++++++++++
->>>>
->>>> Why are you mixing USB patches with DTS in one patchset? Don't.
->>>
->>> In this series, the 1st patch is the IP core driver changes (export APIs for glue layer
->>> use), and the second glue layer patch is the user for new adding APIs.
->>
->>
->> Not really answer to my question. Why is DTS here? It has nothing to do
->> with 1st patch, second patch or this one.
+>> Everything is IO. Everything is connector, so your compatible does not match
+>> requirements from writing bindings.
 >>
 > 
-> Per submitting-patches.rst I.7, the DTS was placed at the end of the
-> series so either maintainer can apply their portion. That said, if
-> you prefer I can split it into a separate series, I have no strong
-> option.
+> Yes, this compatible is too generic. I will rename the compatible to
+> fsl,aud-io-connector.
 
-Don't mix DTS with USB patchset.
+aud is not much better. Which boards have it? What's the pinout? What's
+standard? Is it described anywhere? If so, provide reference to spec/docs.
+
+> 
+>>> +
+>>> +  gpio-controller: true
+>>> +
+>>> +  '#gpio-cells':
+>>> +    const: 2
+>>> +
+>>> +  gpio-map:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+>>
+>> You do not need to redefine the types. You need constraints, though.
+>>
+> 
+> OK. I will add proper constraints.
+> 
+>>> +
+>>> +  gpio-map-mask:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>> +
+>>> +  gpio-map-pass-thru:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>> +
+>>> +  '#clock-cells':
+>>> +    const: 1
+>>> +
+>>> +  clock-map:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+>>> +
+>>> +  clock-map-mask:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>> +
+>>> +  clock-map-pass-thru:
+>>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>>
+>> I do not see these defined anywhere. I also checked cover letter for
+>> references for pulls to dtschema.
+>>
+>  
+> Nexus nodes are already in the device-tree specification：
+> https://github.com/devicetree-org/devicetree-specification/blob/v0.4/source/chapter2-devicetree-basics.rst#nexus-nodes-and-specifier-mapping
+> For reference, current kernel has supported it:
+> * Nexus OF support:
+> commit bd6f2fd5a1d5 ("of: Support parsing phandle argument lists through a nexus node")
+> * GPIO adoption:
+> commit c11e6f0f04db ("gpio: Support gpio nexus dt bindings")
+> * PWM adoption:
+> commit e71e46a6f19c ("pwm: Add support for pwm nexus dt bindings")
+> Clock adoption is ongoing:
+> https://lore.kernel.org/all/20260327-schneider-v7-0-rc1-crypto-v1-10-5e6ff7853994@bootlin.com/
+
+DT spec only mentions nexuses, but it is only a spec. Each property from
+the spec must be defined in dtschema or kernel bindings.
+
+I do not see any dependency mentioned in the cover letter, so how do you
+think we can figure out where is this definition of clock nexus?
+
 
 Best regards,
 Krzysztof
