@@ -4,122 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E45CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 09:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC95CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 09:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Amh+bVXjDqTRNawRkZLKL9MlUJaoVw2UfnFqXJanPVg=; b=q6x/PjORyNGmzHtj+lfmto4Nfm
-	W5x0Di9NVyzTK/yeHoRcMkCswKacjI7zRB7iTCpa+/mHIcMD8/bSQioaqr2MromgsJIjKIS5TNIzR
-	0su8GF/UwwqWf0X3mb+HGpx3eAlKr5mMadRySH26UbCnPWGsA5ptUavovHaXjDXUOPoqP6j0iGOp6
-	vCVT/ppsizLAyznUKDYHN1xv0KWi1YyHMJzWXDG6Q5IKcVLLNGcQ4PxY4cvCg3DoHiu+bDyEim+2O
-	GUe51hrW1LiWbChPeK4w3An6G+P1ek9ctveRJjUtPzbc57xVi9QDQYgkxgdOxGsDRWcWr+KNB2w/p
-	zjkO0O6A==;
+	bh=GxdjSCoSHRAw2soZ2duKpNm8mf0V8MJVumP3dJOuQ34=; b=P4rgNdxiCXjvr2YQ6Xr3bpKudW
+	QRXpt3H2Lcww6lxxKBfRJMURonlyHsQtlaH/eSF7tYlgLtdTGAdrwtYx0VcToaC7uLQ1+9w9ZyV6L
+	ofh52kUGjrS4LerLxX0wasu0Fc/S4slm97GvjKfnTszI8Kbpwri7XPyN3LsWZCyBckH3Ghf0bGjJ8
+	Bpf03LtRR1PoXzDryVVstu+2JbjG5pFm70xwYxtFOIItk+2dUOOg6gujuI9vXEcADBDykMrmE8BkD
+	WbjdGdElcAA2Z7d7znyI7gbTjPijpjTL2kfMVlsSoWIkK2cW0QdkREmGH7M6rAE0DFqJueAGgcxsQ
+	F0lT7iHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOu2i-0000000EyGp-13gR;
-	Mon, 18 May 2026 09:13:44 +0000
+	id 1wOuS4-0000000F3e8-3klc;
+	Mon, 18 May 2026 09:39:56 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOu2h-0000000EyG6-0PM2
+	id 1wOuS3-0000000F3dW-3LHp
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 09:13:43 +0000
+	Mon, 18 May 2026 09:39:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Amh+bVXjDqTRNawRkZLKL9MlUJaoVw2UfnFqXJanPVg=; b=p6M8/dnUEWiLW1yxKW/FqhCUV1
-	U1YNidCzaCvxOVgHIzlW4m6NJ6UuWgrjhZj+RkU1MN7lzGFUboLFbumF9+tnPzqYIEI2gXeaL92dQ
-	xFMf6Jn9p7xgDlw6kPQ6MQxjRlIeg6BOaSHlFBg5+61nbbnn6/hAuQ7HuRKWRKrwKk2eAcbgU2LEu
-	IofvrldJLcAW8Ae5uJJNOmyZUJoNI2FN+E25T45Vvnm+0Jyzb+Qy/YatAgfs7MuzpWmirMCESrDRV
-	Ql1k4nb3HPGxLt9kabIIafyOvAJGNOi5AKx4bIilmqIKTHN+t86cScFMJegmtkSyB56d8t5G6O9Q5
-	qKssUd3w==;
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=GxdjSCoSHRAw2soZ2duKpNm8mf0V8MJVumP3dJOuQ34=; b=pWCrKFxVgNoPV0yKbOkzBsRIbA
+	9Eia8FmxPNrZ9vfLBoXECLHOHj2mD8shWarN57v5fHkgkJI6BDEB2/lYhJuV91o//c6qSLhYqYi2+
+	xS76CWmVzLe1cEA0JF9FVDPDpgIrRt0RQXrQcMJCGc54ipMTnsFpkyD659Je1fydZ0wFLQ2OdyFnP
+	jibI0Q2v3TUes44SND4NYMkUR1poN58j3gNgT+U4ZQWuvEoWbxC4N6LCG2yu4Igv5z/EytMKAIoft
+	rubdH63wbwNMmBNbfMIc816aDqo99wyhpDp9tJLAGWouW7Yc8PNxQ/BBlq3CIWaoimFWdJR3T/Ads
+	hmLKta+g==;
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOu2d-0000000AWvx-1qOH
+	id 1wOuS0-0000000AbfR-0cco
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 09:13:42 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-394413a63d3so18170841fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 02:13:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779095617; cv=none;
-        d=google.com; s=arc-20240605;
-        b=WJ0BKEgwXCDnUr6j3i7w6o7kqYay8k+oJzLuMQ2xWwQz9gkRdDG7Lbd+LD+gM7bqie
-         DsFiLE5PH4jy6we5UTl8vrDfsG2XVyi/Ebr5Uc7r57wV6c+ct4nxzxOTb5r7J8eJ2q7g
-         ZZzXdchgF2SderZV18n33ejKEyZ9e08qvN9QUIJ1J014lpJ8KNbpXLigrJ2bJ/yMICyQ
-         4iIZbCsgMfUPktXdh7mvFj5T7waq77m30srZUUXuTABnriXAS2kS0aAwNXzii/Lf2RAe
-         tC1xskfoMQqpnDDbod/2EtlccUwSW29pu7JBcgRoF4oGf/4yC/z1ZivxcZmKTCIsbcmP
-         Fe2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Amh+bVXjDqTRNawRkZLKL9MlUJaoVw2UfnFqXJanPVg=;
-        fh=JiwpbZde40UcbxmJ5uWojEmbFUKdL6wPe+OpsziVfsk=;
-        b=QRPJSXgOoUFCkhQ2mTnXY/TKHRRbrDLSuH8/CcUvldQvEGE6bg+BwZvdi/Ep9W5YRB
-         gB1z7b+KZdSpQ1DDC+YX/Dj6kGbXF3Y9rvDDHK1IUtwP/dtViy8PcXhZ0YIXTXXconSY
-         FjvfWk34qDs2F3USD73y4ECHGU9psfzWJgx6FyNC81pOrUUX+97ux6OX3htoEbpzBVdi
-         jNLlDv1C5LHPDyBDgsoD2+N4oaUmxZu2gW3bIwZKKkGIH2/7ZQqgEkUy9FMA/oN7GzRb
-         1mK0DyfmK1T6KAQUyapgbebSPVXIJIQQLZ5RRjlZTM3KiDw5wpUu5SGWhOpefB4Mj/Qc
-         m4kw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 18 May 2026 09:39:54 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-44c44af71f8so271433f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 02:39:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1779095617; x=1779700417; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779097190; x=1779701990; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Amh+bVXjDqTRNawRkZLKL9MlUJaoVw2UfnFqXJanPVg=;
-        b=JzvTGOW3Jer8YCCzwCyrmwxGijP+B46Er23jQBZVtQhLs/0V2qxNvk6yfRtkILtOfl
-         x9DAyWpishqPyrgLAuv50mOgU3Pp/dVydEY8E/goc+ub5fM7algpaVRR4MOCg75JtzJn
-         UZlI0xKJgyyniQ3BHWYg3JPd/897taKbmjxBQ=
+        bh=GxdjSCoSHRAw2soZ2duKpNm8mf0V8MJVumP3dJOuQ34=;
+        b=q9fEfT+HmQA5FFH4ug0WukqI6qhzu661deMILl39O4LZGjlsut4XNFVrZdbwf+M4sc
+         4mVRFdJXvInjcZT0e3ufwEic+Sz1cIwgF56jKcMC+TmokPD8HFGU10/jdkkzwzcLVlro
+         /l7G7WXBjH2B8p0oB6v1TPmdlUXPNBZT7KlixT7YFPKwmcrf50DlkLrDrhZVHEu69LZj
+         qUTqCb2LqZ9LxvJIQOG78bmo4ZrmJUg65DXJfhkR1j+5c2p7dh4f+AGhxaETnGSPv/Ie
+         ++UOfrpzRrs4GhcjRREBsipEAjvMaNBq/1O/QrbJjvfs2cPtau8jP07dtOgjiz2rWKM4
+         35ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779095617; x=1779700417;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1779097190; x=1779701990;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Amh+bVXjDqTRNawRkZLKL9MlUJaoVw2UfnFqXJanPVg=;
-        b=SzLC+3ckkpzwjq36pBDAqN/kFig8jTNKuiBqR47q9KOyaoqrx3N0M8f2q0xSV2229S
-         0zB3Z7RV7JzQw2Xxx2GnzKkAgK1VZw3z2GnbDvLx1LIg0OnLqR2gEufvw+K93ePMfr4u
-         g+yQroRqEVvEqCEk4OjFk/s0rfuQgVZbLvNzVvUPDX5ev47WOy1qFO/k0NSycGmtEBHw
-         2EvOKyg2q2UOXehBZEJcs/kO32xdt/R2nDetPr/oKgho68xxix54AreBtZgdCspHXrv9
-         oAYJ2y2fthu0RQr8gznmhPvdj2MIZBfZA8pskQcAmLB6/Q/1ZpQjr1x67xYusDqI+pB4
-         C05w==
-X-Forwarded-Encrypted: i=1; AFNElJ+RSW+4ziVXdcVvOgC3fG3/j6vtxHtOHpHip5AIma3v+EZ4OkxzqAuQjQC08OqjWomhIC4IMybFfNeWfaXRUQ/f@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXHzKJb+a6v0RWxh7YDab+w0y+mFGDQfaMHoms3B3ZDc7ulFGo
-	ZDbKjEp4wJ5A9r5Qre2wP2o/zcvQTESLpWl8ZNLIn+FMUDbaSGiIqTN8zim5GfnIYDClzjs56Qy
-	xxC9+6Lbu0kiOCkbQoX4Fhu26cjCKJkrMBcCXe6Uc
-X-Gm-Gg: Acq92OHbjMiMPuv9fiTFRJKbEqWI9XhJMAvEXqnfnnOzjwT09b4PhjRD9ORT9CD1hSR
-	NVEk4OOmaAL2gFDBDIyFL3JlJRnIxBpFr1LVGXUg7B7lZR8WIVKBsv2hsZoDC5ARRjt4OsiXfIC
-	OMLrFQ4s+ufvU1yicwKNuvOv9GHHXh6MiKc3NodoHec2w2z6MhY9gKw8nrclscAKZKBZRnucJuy
-	VcihlLRFEcSjYtS8fvkTrY8Ui/mG7ajX5YTqwrwHDsGQNZPzZtNLUJ1PRMbKpHNTY17V+jFiHqt
-	7b5D86emtFfodD6SLaMx9tDa6LKsvKmfyn3vQrSJEcxjd8Ab
-X-Received: by 2002:a05:6512:3e14:b0:5a8:9f6f:3212 with SMTP id
- 2adb3069b0e04-5aa0e741fd0mr3969603e87.34.1779095617441; Mon, 18 May 2026
- 02:13:37 -0700 (PDT)
+        bh=GxdjSCoSHRAw2soZ2duKpNm8mf0V8MJVumP3dJOuQ34=;
+        b=pTkT3cOxUJc6c+rEYUac1b5yfh2a2CV4OFwkGRwPzFTeocz5GvaZmETN54LuRGG5ud
+         N3iWo4WN0kbHHoygmjxtD7IiuCMn5xJmdD7j4B8W91fxPHfWqxqfcAV2TrM3bsuhNpas
+         m6xJwxyA0Kk3j//KB/TpyQkZcMMe46lBcCQRIMTgsLgZtF8FGhz9e7Fz5C7xppjOFvkB
+         4vbfR3egfcKtpHm/AXRUzucl96xQIbppeeIOTGwMqrILPQTCjQbOpulFdkLy4t1bD1Cn
+         kug+roDq4fn1QeLevuhhOipJytneS36hdg/UJQ6Q2Zp6uuXLsfoE5g516v/ySQX2r8FX
+         7zag==
+X-Forwarded-Encrypted: i=1; AFNElJ8nqwwodd6KBc99YdN4lvvbFYBAcf5Rt0fnacSGFNZ/gUes+NjHoVuAqsAd5VpArkWcT9jyMS/wlxN3IedVMWXO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE9Om7foDu8ahVuPwRUBq5Qo7w++5N2eFzzXXMROfIstowNTkG
+	o/EioeyQvv7lUDU8aPErnDCittvedVDC7H0NRwjFLsyuTQvdmf+SrG7BDe12FCtC2Hg=
+X-Gm-Gg: Acq92OHoifY7gxgXfEzbjnGaABrLca9QrmbnjgwKTuU63PMOX+7DNMDRMlzPsI2Z458
+	F2oZ+SteizCRfqYnpukzlyx2Cdo57bpCg+gd08EdVXrtCb5DiaPg87NISBQBLyIsGquubi40Zt3
+	Dk68ZCr8rzncCdkiQyqBWbAXwLbc+ooRFAWEtKPu8KbEH70otVHGqSaT4/s6USM/OrSqUT010K8
+	5PVAbwKNiMoV+4gO4M5HCH0/CbGLtBhGqV7/OoVqwQJbvyqzD6P4OZi1CuiUqeVwGFGyLiG7K72
+	aNwgL/9oU2elWUFdJZFvaTjfk6akgBVeKrooc0+hV6hpbl5Y5VFANyMb5Ewc5+x3t0tyr4LbIuD
+	0665CAIwd4I2oEg004UGk5Hg1m1HudyLB2n9b6nALGoV7Gc7IfgFtCDLOFtXIhC8vsRJeOf228z
+	3LDBuiAwKqO1gnP3B8UQyQ1ejDv6Gq+rpiHY9Ib1MrJKEQ
+X-Received: by 2002:a05:600c:3594:b0:490:502:8422 with SMTP id 5b1f17b1804b1-4900d55ec74mr24159285e9.6.1779097189418;
+        Mon, 18 May 2026 02:39:49 -0700 (PDT)
+Received: from localhost.localdomain ([82.215.118.79])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe4862209sm245408615e9.0.2026.05.18.02.39.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 02:39:48 -0700 (PDT)
+From: Stepan Ionichev <sozdayvek@gmail.com>
+To: Frank.Li@nxp.com
+Cc: peng.fan@oss.nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	shawnguo@kernel.org,
+	gregkh@linuxfoundation.org,
+	hcazarim@yahoo.com,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	sozdayvek@gmail.com
+Subject: [PATCH v2] firmware: imx: scu-irq: drop wakeup_src sysfs file, log via dev_dbg()
+Date: Mon, 18 May 2026 14:39:33 +0500
+Message-Id: <20260518093934.1910-1-sozdayvek@gmail.com>
+X-Mailer: git-send-email 2.33.0.windows.2
+In-Reply-To: <20260515175002.34853-1-sozdayvek@gmail.com>
+References: <20260515175002.34853-1-sozdayvek@gmail.com>
 MIME-Version: 1.0
-References: <20260515090149.3169406-1-wenst@chromium.org> <20260515090149.3169406-6-wenst@chromium.org>
- <41260a6d-46fa-4a45-9906-e1bc5e5dd83a@rowland.harvard.edu>
-In-Reply-To: <41260a6d-46fa-4a45-9906-e1bc5e5dd83a@rowland.harvard.edu>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Mon, 18 May 2026 17:13:25 +0800
-X-Gm-Features: AVHnY4KWMoq2C1egFaF2o_wZ2pbZmcxOkUhi_AoDtPCF3Cwz3jQrR0zfOzxPPG4
-Message-ID: <CAGXv+5GT8vS87owuNJvMxWBnwCELCV28SbwsUXFr-Ne5O3EgsQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 05/12] usb: hub: Power on connected M.2 E-key connectors
-To: Alan Stern <stern@rowland.harvard.edu>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_101340_045466_C3FC1C9D 
-X-CRM114-Status: GOOD (  26.73  )
+X-CRM114-CacheID: sfid-20260518_103952_847282_32E7F184 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,134 +122,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 10:39=E2=80=AFPM Alan Stern <stern@rowland.harvard.=
-edu> wrote:
->
-> On Fri, May 15, 2026 at 05:01:41PM +0800, Chen-Yu Tsai wrote:
-> > diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
-> > index 90ea597d42ae..4165f71e212b 100644
-> > --- a/drivers/usb/core/hub.c
-> > +++ b/drivers/usb/core/hub.c
-> > @@ -31,7 +31,9 @@
-> >  #include <linux/minmax.h>
-> >  #include <linux/mutex.h>
-> >  #include <linux/random.h>
-> > +#include <linux/of_graph.h>
-> >  #include <linux/pm_qos.h>
-> > +#include <linux/pwrseq/consumer.h>
-> >  #include <linux/kobject.h>
-> >
-> >  #include <linux/bitfield.h>
-> > @@ -888,13 +890,25 @@ int usb_hub_set_port_power(struct usb_device *hde=
-v, struct usb_hub *hub,
-> >  {
-> >       int ret;
-> >
-> > +     if (set)
-> > +             ret =3D pwrseq_power_on(hub->ports[port1 - 1]->pwrseq);
-> > +     else
-> > +             ret =3D pwrseq_power_off(hub->ports[port1 - 1]->pwrseq);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> >       if (set)
-> >               ret =3D set_port_feature(hdev, port1, USB_PORT_FEAT_POWER=
-);
-> >       else
-> >               ret =3D usb_clear_port_feature(hdev, port1, USB_PORT_FEAT=
-_POWER);
-> >
-> > -     if (ret)
-> > +     if (ret) {
-> > +             if (set)
-> > +                     pwrseq_power_off(hub->ports[port1 - 1]->pwrseq);
-> > +             else
-> > +                     pwrseq_power_on(hub->ports[port1 - 1]->pwrseq);
-> >               return ret;
-> > +     }
-> >
-> >       if (set)
-> >               set_bit(port1, hub->power_bits);
-> > @@ -1867,6 +1881,7 @@ static int hub_probe(struct usb_interface *intf, =
-const struct usb_device_id *id)
-> >       struct usb_host_interface *desc;
-> >       struct usb_device *hdev;
-> >       struct usb_hub *hub;
-> > +     int ret;
-> >
-> >       desc =3D intf->cur_altsetting;
-> >       hdev =3D interface_to_usbdev(intf);
->
-> This change is totally useless.  Didn't you get a warning from the
-> compiler when you built it?
+wakeup_source_show() walks all IMX_SC_IRQ_NUM_GROUP groups and
+rewrites buf from offset 0 each iteration, so userspace reading
+/sys/firmware/scu_wakeup_source/wakeup_src only ever sees the last
+group reported, and the trailing strlen(buf) reports only that
+line length. sprintf() is also unbounded against the sysfs
+PAGE_SIZE buffer.
 
-Apologies. This should have been part of the previous patch.
+The attribute is not documented under Documentation/ABI/ and a code
+search across GitHub and Debian found no out-of-tree consumers.
+Peng Fan (NXP) confirmed it is safe to drop.
 
-> > diff --git a/drivers/usb/core/hub.h b/drivers/usb/core/hub.h
-> > index 9ebc5ef54a32..6039e5f5dcd7 100644
-> > --- a/drivers/usb/core/hub.h
-> > +++ b/drivers/usb/core/hub.h
-> > @@ -85,6 +85,7 @@ struct usb_hub {
-> >   * @port_owner: port's owner
-> >   * @peer: related usb2 and usb3 ports (share the same connector)
-> >   * @connector: USB Type-C connector
-> > + * @pwrseq: power sequencing descriptor for the port
-> >   * @req: default pm qos request for hubs without port power control
-> >   * @connect_type: port's connect type
-> >   * @state: device state of the usb device attached to the port
-> > @@ -104,6 +105,7 @@ struct usb_port {
-> >       struct usb_dev_state *port_owner;
-> >       struct usb_port *peer;
-> >       struct typec_connector *connector;
-> > +     struct pwrseq_desc *pwrseq;
-> >       struct dev_pm_qos_request *req;
-> >       enum usb_port_connect_type connect_type;
-> >       enum usb_device_state state;
->
-> The fact that hub.h uses struct pwrseq_desc indicates that it ought to
-> #include <linux/pwrseq/consumer.h>, instead of making the .c files do
-> so themselves.  Then you wouldn't have to add the #include lines to
-> hub.c and port.c.
+Remove the attribute, the supporting kobject and the per-group
+valid/wakeup_src state used only to feed it. Log the same wakeup
+information via dev_dbg() from imx_scu_irq_work_handler() so it
+can be enabled dynamically when needed.
 
-I couldn't tell if the existing pattern in this file was to include
-the headers or not, as it's missing a whole bunch.
+Fixes: c081197a33a2 ("firmware: imx: scu-irq: support identifying SCU wakeup source from sysfs")
+Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Link: https://lore.kernel.org/all/2026051656-corral-edgy-290c@gregkh/
+Signed-off-by: Stepan Ionichev <sozdayvek@gmail.com>
+---
+v2:
+- Drop the sysfs file entirely instead of patching it (Greg)
+- Log wakeup info via dev_dbg() in the IRQ work handler (Greg)
+- Peng Fan (NXP) confirmed no out-of-tree consumers
 
-Regardless of whether this header file includes linux/pwrseq/consumer.h
-or has a forward declaration or nothing, I think that if the .c files
-use the API, then they should include the corresponding header file
-directly.
+v1: https://lore.kernel.org/all/20260515175002.34853-1-sozdayvek@gmail.com/
 
-> > diff --git a/drivers/usb/core/port.c b/drivers/usb/core/port.c
-> > index b1364f0c384c..2d09037fee93 100644
-> > --- a/drivers/usb/core/port.c
-> > +++ b/drivers/usb/core/port.c
-> > @@ -7,11 +7,14 @@
-> >   * Author: Lan Tianyu <tianyu.lan@intel.com>
-> >   */
-> >
-> > +#include <linux/cleanup.h>
->
-> Why is this needed?
+ drivers/firmware/imx/imx-scu-irq.c | 84 ++++++------------------------
+ 1 file changed, 16 insertions(+), 68 deletions(-)
 
-For the __free() in usb_hub_port_pwrseq_get() below:
+diff --git a/drivers/firmware/imx/imx-scu-irq.c b/drivers/firmware/imx/imx-scu-irq.c
+index a68d38f89..5969460ba 100644
+--- a/drivers/firmware/imx/imx-scu-irq.c
++++ b/drivers/firmware/imx/imx-scu-irq.c
+@@ -9,11 +9,9 @@
+ #include <dt-bindings/firmware/imx/rsrc.h>
+ #include <linux/firmware/imx/ipc.h>
+ #include <linux/firmware/imx/sci.h>
+-#include <linux/kobject.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/of.h>
+ #include <linux/suspend.h>
+-#include <linux/sysfs.h>
+ 
+ #define IMX_SC_IRQ_FUNC_ENABLE	1
+ #define IMX_SC_IRQ_FUNC_STATUS	2
+@@ -43,19 +41,8 @@ struct imx_sc_msg_irq_enable {
+ 	u8 enable;
+ } __packed;
+ 
+-struct scu_wakeup {
+-	u32 mask;
+-	u32 wakeup_src;
+-	bool valid;
+-};
+-
+-/* Sysfs functions */
+-static struct kobject *wakeup_obj;
+-static ssize_t wakeup_source_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf);
+-static struct kobj_attribute wakeup_source_attr =
+-		__ATTR(wakeup_src, 0660, wakeup_source_show, NULL);
+-
+-static struct scu_wakeup scu_irq_wakeup[IMX_SC_IRQ_NUM_GROUP];
++static u32 scu_irq_wakeup_mask[IMX_SC_IRQ_NUM_GROUP];
++static struct device *imx_sc_irq_dev;
+ 
+ static struct imx_sc_ipc *imx_sc_irq_ipc_handle;
+ static struct work_struct imx_sc_irq_work;
+@@ -88,11 +75,6 @@ static void imx_scu_irq_work_handler(struct work_struct *work)
+ 	u8 i;
+ 
+ 	for (i = 0; i < IMX_SC_IRQ_NUM_GROUP; i++) {
+-		if (scu_irq_wakeup[i].mask) {
+-			scu_irq_wakeup[i].valid = false;
+-			scu_irq_wakeup[i].wakeup_src = 0;
+-		}
+-
+ 		ret = imx_scu_irq_get_status(i, &irq_status);
+ 		if (ret) {
+ 			pr_err("get irq group %d status failed, ret %d\n",
+@@ -102,12 +84,15 @@ static void imx_scu_irq_work_handler(struct work_struct *work)
+ 
+ 		if (!irq_status)
+ 			continue;
+-		if (scu_irq_wakeup[i].mask & irq_status) {
+-			scu_irq_wakeup[i].valid = true;
+-			scu_irq_wakeup[i].wakeup_src = irq_status & scu_irq_wakeup[i].mask;
+-		} else {
+-			scu_irq_wakeup[i].wakeup_src = irq_status;
+-		}
++
++		if (scu_irq_wakeup_mask[i] & irq_status)
++			dev_dbg(imx_sc_irq_dev,
++				"Wakeup source group = %d, irq = 0x%x\n",
++				i, irq_status & scu_irq_wakeup_mask[i]);
++		else
++			dev_dbg(imx_sc_irq_dev,
++				"Spurious SCU wakeup, group = %d, irq = 0x%x\n",
++				i, irq_status);
+ 
+ 		pm_system_wakeup();
+ 		imx_scu_irq_notifier_call_chain(irq_status, &i);
+@@ -164,9 +149,9 @@ int imx_scu_irq_group_enable(u8 group, u32 mask, u8 enable)
+ 			group, mask, ret);
+ 
+ 	if (enable)
+-		scu_irq_wakeup[group].mask |= mask;
++		scu_irq_wakeup_mask[group] |= mask;
+ 	else
+-		scu_irq_wakeup[group].mask &= ~mask;
++		scu_irq_wakeup_mask[group] &= ~mask;
+ 
+ 	return ret;
+ }
+@@ -177,25 +162,6 @@ static void imx_scu_irq_callback(struct mbox_client *c, void *msg)
+ 	schedule_work(&imx_sc_irq_work);
+ }
+ 
+-static ssize_t wakeup_source_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
+-{
+-	int i;
+-
+-	for (i = 0; i < IMX_SC_IRQ_NUM_GROUP; i++) {
+-		if (!scu_irq_wakeup[i].wakeup_src)
+-			continue;
+-
+-		if (scu_irq_wakeup[i].valid)
+-			sprintf(buf, "Wakeup source group = %d, irq = 0x%x\n",
+-				i, scu_irq_wakeup[i].wakeup_src);
+-		else
+-			sprintf(buf, "Spurious SCU wakeup, group = %d, irq = 0x%x\n",
+-				i, scu_irq_wakeup[i].wakeup_src);
+-	}
+-
+-	return strlen(buf);
+-}
+-
+ int imx_scu_enable_general_irq_channel(struct device *dev)
+ {
+ 	struct of_phandle_args spec;
+@@ -233,29 +199,11 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
+ 	if (IS_ERR(ch)) {
+ 		ret = PTR_ERR(ch);
+ 		dev_err(dev, "failed to request mbox chan gip3, ret %d\n", ret);
+-		goto free_cl;
+-	}
+-
+-	/* Create directory under /sysfs/firmware */
+-	wakeup_obj = kobject_create_and_add("scu_wakeup_source", firmware_kobj);
+-	if (!wakeup_obj) {
+-		ret = -ENOMEM;
+-		goto free_ch;
++		devm_kfree(dev, cl);
++		return ret;
+ 	}
+ 
+-	ret = sysfs_create_file(wakeup_obj, &wakeup_source_attr.attr);
+-	if (ret) {
+-		dev_err(dev, "Cannot create wakeup source src file......\n");
+-		kobject_put(wakeup_obj);
+-		goto free_ch;
+-	}
++	imx_sc_irq_dev = dev;
+ 
+ 	return 0;
+-
+-free_ch:
+-	mbox_free_channel(ch);
+-free_cl:
+-	devm_kfree(dev, cl);
+-
+-	return ret;
+ }
+-- 
+2.43.0
 
-    struct device_node *np __free(device_node) =3D NULL;
-
-
-Thanks
-ChenYu
-
-
-> >  #include <linux/kstrtox.h>
-> >  #include <linux/slab.h>
-> >  #include <linux/string_choices.h>
-> >  #include <linux/sysfs.h>
-> > +#include <linux/of_graph.h>
-> >  #include <linux/pm_qos.h>
-> > +#include <linux/pwrseq/consumer.h>
-> >  #include <linux/component.h>
-> >  #include <linux/usb/of.h>
-> >
->
-> Alan Stern
 
