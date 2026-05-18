@@ -4,83 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F01DCD4F50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:39:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7714DCD4F50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ZXZf0QrLRBB3/wedLhEYzNfMCQac39aVxAQMf9tnbw=; b=fkb/7jRCPX0fZWj7mXUHIuRvct
-	JtsCjEF7VBaqdBVDuw6on2AKriOO1h0aNR4GSh2mgrzOjnvaz0HJnwJfQgY5lboRDCknMDwD/YuU/
-	CwHj0nVgA68JPob8RQidnUERMjNGfiTBRdrUPsPDi+YRhQgnOnhTyQZgRTIt6jWqBiIp3/YGjp+f1
-	DaEwsD04WXmwgO+kJ5o5oe07gpr8Bvai95x0IihOBzElZlY7b7XMMjxdou/lXeJjRBfJvlxbZMZ83
-	tEZ+/DXoclyxq50f43PfJ91GQd8rFLbLWsrLPlgcJYuDIrTy7w5sZgZvOFKtRVsg0Qx84c7KrxqhK
-	hqm6TcvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FlfjiaBxnUfnTZewiPeC+z2VrnUvvUGsrr3gDKT2vns=; b=EH7evGw9WeKyvwRF0Ly8B4xyjr
+	oJ0YvjM1KxpQ3xFCyEvBDDzdCPN5IX3KeK+I57L/kOSoUKlpWqeoVZvxcerELh3wM4PZ9RsD0HZX2
+	bZZn/LMfRSPJgvRcMjHyiFfLpd80Ww3it8Pnq1wlPq67wZXVny4tuvjctzvUcTfHhqCa3dQe2FMRs
+	hclMpaKGzOEzpqgNbMgRBSywQ1BC4VTZSqZHy+n1iIIUUCeFP+g/wJVSROwkr2sddecUoLqRq0iRu
+	Nw/YLEFPiseuzigTUMU0jPCRdCCOprvOaNTBmZdEvN8PNirCuLs1X6Met0rEzpIpu+Zf062XTt009
+	6KgIfbJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyBU-0000000Fq4E-3LL0;
-	Mon, 18 May 2026 13:39:04 +0000
-Received: from esa8.hc1455-7.c3s2.iphmx.com ([139.138.61.253])
+	id 1wOyC1-0000000FqAL-3rSK;
+	Mon, 18 May 2026 13:39:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyBR-0000000Fq3O-3ILJ
+	id 1wOyBz-0000000Fq9S-3Sf9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 13:39:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1779111541; x=1810647541;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Z2kNdpLbI2LyHk1ntAUPjhzA6RQ5Jbi78aL7gqWOJ6s=;
-  b=iAOLMj90bSPsO8EwSU/u/x5f3oJcvnsaQYzQcusWpVCgMvBusarpGBDj
-   hXeJRxmuQtXL3XmGg41bLSqmpcLNVsQ3edlARKtmvR9V61jnG8wnt+BPU
-   0OUkZhzxl+z9BYfzSWho88LOGgwxEAuPdDw/LNV7TL1rEbBsZ2r0o6b1R
-   bqxUMn85oeSjIzanlngIDqsJFl5xwxVvJ9vCrpfYHHUS2IXgrP7WMQvlz
-   uhaqWcErqS4V1fSMzEHjqjr3lyTc7x4xn3iAlaB4ywXPyIXPhZAoDRimn
-   KehWC/4wjaWnfH7v03EmRtFnE6MeYMy0O1l+JfxhxtcFp7juU87bme97o
-   Q==;
-X-CSE-ConnectionGUID: nKPR1v72SmSoE5hxwHWQIQ==
-X-CSE-MsgGUID: pX2K+EXhTvyrXH4HkRX49g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="228929312"
-X-IronPort-AV: E=Sophos;i="6.23,242,1770562800"; 
-   d="scan'208";a="228929312"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 22:38:59 +0900
-Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 142281C000B6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 13:38:59 +0000 (UTC)
-Received: from az2uksmom3.o.css.fujitsu.com (az2uksmom3.o.css.fujitsu.com [10.151.22.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id B67EB18026F3
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 13:38:58 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.3.119])
-	by az2uksmom3.o.css.fujitsu.com (Postfix) with SMTP id 6019810003F8;
-	Mon, 18 May 2026 13:38:54 +0000 (UTC)
-Date: Mon, 18 May 2026 22:38:53 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Sami Mujawar <sami.mujawar@arm.com>, 
-	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] virt: arm-cca-guest: use raw variant of
- smp_processor_id() in arm_cca_report_new()
-Message-ID: <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
-References: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
- <agsHBb9f3HkmJaIx@arm.com>
+	Mon, 18 May 2026 13:39:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C85AF4419F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 13:39:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD58C2BD00
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 13:39:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779111574;
+	bh=1bjO3PVxRe3/4rE7yd1mVAeSvqZ+cwGYwn1Xps2SaBU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ALSgzLJ+v19bLSdcNKMsCGKuAGvNKVRKUMYWuPu0UdOUU5W345v7Yr14ulqs35hGc
+	 n2ZJ5WDz8pG+BIkECrdpiSG9RFfWLMszctVHVy2dEdv5UrQnUWYXaoOm7Soxr1PBGj
+	 f0J7stzkruGxfHyU5OKRzqfZkrNes6nAqrlGxuPojNajQyJq0nntx1Gvtr1Sng7Ztu
+	 G+iJir9ntiF9wrKvY+QOS7OhWaARdqM+Zgy1Rq4un3e6N/W8KPYuXEHFEjJCHRsWv3
+	 kRJkiNwIDaODDOlqJbg3gDg6Oec8rbQ853N2Z0W64FeYuTGI0Q1WFOokqu2bkvE4/Y
+	 Uo3xjmfbgXSJg==
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-134ac81c445so8704806c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 06:39:34 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8SQaUlE3JwQvk5a81pY2WYnX96hBCzv5ioX7mZl1PigfNMumPrCclLjYpc5IePWuw7znwVJ1TJZtnH63o454Ra@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN5uo7bzjh1+dUU4SRP5w7jdcBVkPyAFsTG2vKUkyODBpHKI6k
+	ldZ5CHxSuTqM9nsSAJBLAQR+KRkgQuIxEhOlrRZ0hB400AWc91VrJoVMMSRAL5kfqZR5j3smXzA
+	f1VUHhrb0+HYivilzWSdd/z9KZq/cCw==
+X-Received: by 2002:a05:7022:f9d:b0:119:e56b:958a with SMTP id
+ a92af1059eb24-1350451e343mr6439973c88.15.1779111573911; Mon, 18 May 2026
+ 06:39:33 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <agsHBb9f3HkmJaIx@arm.com>
+References: <20260420052008.5417-1-abhiraj21put@gmail.com>
+In-Reply-To: <20260420052008.5417-1-abhiraj21put@gmail.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Mon, 18 May 2026 13:39:21 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_9LTmas78sFvwAnkxcXt0jqXaxZ1oa0jj_+xhL-o1Ei4g@mail.gmail.com>
+X-Gm-Features: AVHnY4JN47eeSY49tByNRVwfGLFjrAA9LUtPn9wmQMHba45G9quErL5vSBBoobM
+Message-ID: <CAAOTY_9LTmas78sFvwAnkxcXt0jqXaxZ1oa0jj_+xhL-o1Ei4g@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: Convert legacy DRM logging to drm_* helpers
+ in mtk_dsi.c
+To: Abhishek Rajput <abhiraj21put@gmail.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_063902_397823_302F7320 
-X-CRM114-Status: GOOD (  33.03  )
+X-CRM114-CacheID: sfid-20260518_063935_910356_84163003 
+X-CRM114-Status: GOOD (  21.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,100 +86,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/18 13:33, Catalin Marinas wrote:
-> On Mon, May 18, 2026 at 12:31:31PM +0900, Kohei Enju wrote:
-> > With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
-> > debug_smp_processor_id(). This debug function complains when certain
-> > conditions that ensure CPU ID stability are not met, specifically when
-> > it's called from a preemptible context.
-> > 
-> > In arm_cca_report_new(), which runs in a preemptible context,
-> > smp_processor_id() triggers a splat [0] due to this.
-> > 
-> > However, the CPU ID obtained here is used as the target CPU for
-> > smp_call_function_single() to designate a specific CPU for subsequent
-> > operations, not to assert that the current thread will continue to
-> > execute on the same CPU. Therefore, snapshotting the CPU ID itself is
-> > correct, and thus there's no actual harm except for the splat.
-> > 
-> > Use raw_smp_processor_id() instead, to directly retrieve the current CPU
-> > ID without the debug checks, avoiding the unnecessary warning message
-> > while preserving the correct functional behavior.
-> > 
-> > [0]
-> >  BUG: using smp_processor_id() in preemptible [00000000] code: cca-workload-at/134
-> >  caller is debug_smp_processor_id+0x20/0x2c
-> >  CPU: 0 UID: 0 PID: 134 Comm: cca-workload-at Not tainted 7.0.0-rc1-gc74a64d12073 #1 PREEMPT
-> >  Hardware name: linux,dummy-virt (DT)
-> >  Call trace:
-> >   [...]
-> >   check_preemption_disabled+0xf8/0x100
-> >   debug_smp_processor_id+0x20/0x2c
-> >   arm_cca_report_new+0x54/0x230
-> >   tsm_report_read+0x184/0x260
-> >   tsm_report_outblob_read+0x18/0x38
-> >   configfs_bin_read_iter+0xf4/0x1dc
-> >   vfs_read+0x230/0x31c
-> >   [...]
-> > 
-> > Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
-> > Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
-> > ---
-> >  drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > index 0c9ea24a200c..2d450caee3e4 100644
-> > --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > @@ -108,7 +108,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
-> >  	 * allocate outblob based on the returned value from the 'init'
-> >  	 * call and that cannot be done in an atomic context.
-> >  	 */
-> > -	cpu = smp_processor_id();
-> > +	cpu = raw_smp_processor_id();
-> 
-> That's just hiding the warning which might be genuine, irrespective of
-> what the comment says. Sashiko has some good points:
-> 
-> https://sashiko.dev/#/patchset/20260518033157.1865498-1-enju.kohei@fujitsu.com
-> 
-> Basically what guarantees that the cpu won't go offline? Can we use
-> migrate_disable() and ignore the smp_call_function_single() altogether?
-> It looks like a hack anyway.
+Hi, Abhishek:
 
-Hi Catalin,
-Thank you for reviewing.
+Abhishek Rajput <abhiraj21put@gmail.com> =E6=96=BC 2026=E5=B9=B44=E6=9C=882=
+0=E6=97=A5=E9=80=B1=E4=B8=80 =E4=B8=8A=E5=8D=885:20=E5=AF=AB=E9=81=93=EF=BC=
+=9A
+>
+> Replace DRM_INFO(), DRM_WARN() and DRM_ERROR() calls in
+> drivers/gpu/drm/mediatek/mtk_dsi.c with the corresponding
+> drm_info(), drm_warn() and drm_err() helpers.
+>
+> The drm_*() logging helpers take a struct drm_device * argument,
+> allowing the DRM core to prefix log messages with the correct device
+> name and instance. This is required to correctly distinguish log
+> messages on systems with multiple GPUs.
+>
+> This change aligns the radeon driver with the DRM TODO item:
+> "Convert logging to drm_* functions with drm_device parameter".
 
-You've raised a very valid point about raw_smp_processor_id()
-potentially hiding a genuine issue. I agree this would be a concern in
-most contexts.
+Applied to mediatek-drm-next [1], thanks.
 
-However, this implementation was intentionally designed not to block CPU
-hotplug:
-https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-next
 
-As mentioned in the thread above, the potential failure from the target
-CPU going offline (resulting in -ENXIO) is an expected and tolerated
-condition in this path.
-Using migrate_disable() would go against the non-blocking design goal.
+Regards,
+Chun-Kuang.
 
-Given the context, the debug warning looks false positive for our
-specific use case to me, and I believe raw_smp_processor_id() correctly
-reflects the design intent by simply acquiring a CPU number without
-debug checks.
-
-> 
-> We should also look at the other unrelated findings in this function
-
-Regarding the other unrelated findings by Sashiko, I'll take a look at
-them. Thanks for the heads-up.
-
-Thanks,
-Kohei
-
-> 
-> -- 
-> Catalin
-> 
+>
+> Signed-off-by: Abhishek Rajput <abhiraj21put@gmail.com>
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediate=
+k/mtk_dsi.c
+> index 0e2bcd5f67b7..a67ad575f5f0 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+> @@ -510,6 +510,7 @@ static void mtk_dsi_config_vdo_timing_per_line_lp(str=
+uct mtk_dsi *dsi)
+>         u32 delta;
+>         struct mtk_phy_timing *timing =3D &dsi->phy_timing;
+>         struct videomode *vm =3D &dsi->vm;
+> +       struct drm_device *drm =3D dsi->bridge.dev;
+>
+>         if (dsi->format =3D=3D MIPI_DSI_FMT_RGB565)
+>                 dsi_tmp_buf_bpp =3D 2;
+> @@ -543,7 +544,7 @@ static void mtk_dsi_config_vdo_timing_per_line_lp(str=
+uct mtk_dsi *dsi)
+>                                              horizontal_backporch_byte /
+>                                              horizontal_front_back_byte;
+>         } else {
+> -               DRM_WARN("HFP + HBP less than d-phy, FPS will under 60Hz\=
+n");
+> +               drm_warn(drm, "HFP + HBP less than d-phy, FPS will under =
+60Hz\n");
+>         }
+>
+>         if ((dsi->mode_flags & MIPI_DSI_HS_PKT_END_ALIGNED) &&
+> @@ -623,12 +624,13 @@ static s32 mtk_dsi_wait_for_irq_done(struct mtk_dsi=
+ *dsi, u32 irq_flag,
+>  {
+>         s32 ret =3D 0;
+>         unsigned long jiffies =3D msecs_to_jiffies(timeout);
+> +       struct drm_device *drm =3D dsi->bridge.dev;
+>
+>         ret =3D wait_event_interruptible_timeout(dsi->irq_wait_queue,
+>                                                dsi->irq_data & irq_flag,
+>                                                jiffies);
+>         if (ret =3D=3D 0) {
+> -               DRM_WARN("Wait DSI IRQ(0x%08x) Timeout\n", irq_flag);
+> +               drm_warn(drm, "Wait DSI IRQ(0x%08x) Timeout\n", irq_flag)=
+;
+>
+>                 mtk_dsi_enable(dsi);
+>                 mtk_dsi_reset_engine(dsi);
+> @@ -663,9 +665,10 @@ static s32 mtk_dsi_switch_to_cmd_mode(struct mtk_dsi=
+ *dsi, u8 irq_flag, u32 t)
+>  {
+>         mtk_dsi_irq_data_clear(dsi, irq_flag);
+>         mtk_dsi_set_cmd_mode(dsi);
+> +       struct drm_device *drm =3D dsi->bridge.dev;
+>
+>         if (!mtk_dsi_wait_for_irq_done(dsi, irq_flag, t)) {
+> -               DRM_ERROR("failed to switch cmd mode\n");
+> +               drm_err(drm, "failed to switch cmd mode\n");
+>                 return -ETIME;
+>         } else {
+>                 return 0;
+> @@ -849,11 +852,12 @@ static void mtk_dsi_bridge_atomic_pre_enable(struct=
+ drm_bridge *bridge,
+>                                              struct drm_atomic_state *sta=
+te)
+>  {
+>         struct mtk_dsi *dsi =3D bridge_to_dsi(bridge);
+> +       struct drm_device *drm =3D bridge->dev;
+>         int ret;
+>
+>         ret =3D mtk_dsi_poweron(dsi);
+>         if (ret < 0)
+> -               DRM_ERROR("failed to power on dsi\n");
+> +               drm_err(drm, "failed to power on dsi\n");
+>  }
+>
+>  static void mtk_dsi_bridge_atomic_post_disable(struct drm_bridge *bridge=
+,
+> @@ -916,7 +920,7 @@ static int mtk_dsi_encoder_init(struct drm_device *dr=
+m, struct mtk_dsi *dsi)
+>         ret =3D drm_simple_encoder_init(drm, &dsi->encoder,
+>                                       DRM_MODE_ENCODER_DSI);
+>         if (ret) {
+> -               DRM_ERROR("Failed to encoder init to drm\n");
+> +               drm_err(drm, "Failed to encoder init to drm\n");
+>                 return ret;
+>         }
+>
+> @@ -932,7 +936,7 @@ static int mtk_dsi_encoder_init(struct drm_device *dr=
+m, struct mtk_dsi *dsi)
+>
+>         dsi->connector =3D drm_bridge_connector_init(drm, &dsi->encoder);
+>         if (IS_ERR(dsi->connector)) {
+> -               DRM_ERROR("Unable to create bridge connector\n");
+> +               drm_err(drm, "Unable to create bridge connector\n");
+>                 ret =3D PTR_ERR(dsi->connector);
+>                 goto err_cleanup_encoder;
+>         }
+> @@ -985,6 +989,7 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *=
+host,
+>  {
+>         struct mtk_dsi *dsi =3D host_to_dsi(host);
+>         struct device *dev =3D host->dev;
+> +       struct drm_device *drm =3D dsi->bridge.dev;
+>         int ret;
+>
+>         dsi->lanes =3D device->lanes;
+> @@ -1012,7 +1017,7 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host=
+ *host,
+>
+>         ret =3D component_add(host->dev, &mtk_dsi_component_ops);
+>         if (ret) {
+> -               DRM_ERROR("failed to add dsi_host component: %d\n", ret);
+> +               drm_err(drm, "failed to add dsi_host component: %d\n", re=
+t);
+>                 drm_bridge_remove(&dsi->bridge);
+>                 return ret;
+>         }
+> @@ -1034,11 +1039,12 @@ static void mtk_dsi_wait_for_idle(struct mtk_dsi =
+*dsi)
+>  {
+>         int ret;
+>         u32 val;
+> +       struct drm_device *drm =3D dsi->bridge.dev;
+>
+>         ret =3D readl_poll_timeout(dsi->regs + DSI_INTSTA, val, !(val & D=
+SI_BUSY),
+>                                  4, 2000000);
+>         if (ret) {
+> -               DRM_WARN("polling dsi wait not busy timeout!\n");
+> +               drm_warn(drm, "polling dsi wait not busy timeout!\n");
+>
+>                 mtk_dsi_enable(dsi);
+>                 mtk_dsi_reset_engine(dsi);
+> @@ -1123,6 +1129,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_ds=
+i_host *host,
+>                                      const struct mipi_dsi_msg *msg)
+>  {
+>         struct mtk_dsi *dsi =3D host_to_dsi(host);
+> +       struct drm_device *drm =3D dsi->bridge.dev;
+>         ssize_t recv_cnt;
+>         u8 read_data[16];
+>         void *src_addr;
+> @@ -1153,7 +1160,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_ds=
+i_host *host,
+>         }
+>
+>         if (!msg->rx_buf) {
+> -               DRM_ERROR("dsi receive buffer size may be NULL\n");
+> +               drm_err(drm, "dsi receive buffer size may be NULL\n");
+>                 ret =3D -EINVAL;
+>                 goto restore_dsi_mode;
+>         }
+> @@ -1177,7 +1184,7 @@ static ssize_t mtk_dsi_host_transfer(struct mipi_ds=
+i_host *host,
+>         if (recv_cnt)
+>                 memcpy(msg->rx_buf, src_addr, recv_cnt);
+>
+> -       DRM_INFO("dsi get %zd byte data from the panel address(0x%x)\n",
+> +       drm_info(drm, "dsi get %zd byte data from the panel address(0x%x)=
+\n",
+>                  recv_cnt, *((u8 *)(msg->tx_buf)));
+>
+>  restore_dsi_mode:
+> --
+> 2.43.0
+>
 
