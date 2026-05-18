@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F93CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:20:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A1BCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:References:In-Reply-To
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZOl++/U8mgGRzBj4a+TwuLZWAUpFgNm4L1UTdesaiE=; b=bQBZbk8sVKQKctXP0ZMnqutzum
-	sELrQzgJ7nXIRVAtdQOF4ItPfOudWgBG3onJMTZpMKuxntT9pO2MqfmY5qBIusxWYv5NnnO8Hmtj6
-	zPciRtuBLC2u0stvEShXW89lF9etyk0bQabo4YKZzqpTQAJzUaJGVRdD9Wnqr97qLBiGvFdLO7NUq
-	HUUcPAI4M12vmvRlKEbZSS5wzP04cL3Eyr9133h5FJZ2QVn76eWJR5hrHXjTOVEeuWUYpLCJZNNJD
-	MDVRx82srcMk6nQOWruUoT0RSUnxewbv/rkOraUETgULtMs/3K5p84iZDT8Oykh1WwoypGufmTqQp
-	LCvVtggg==;
+	bh=57BKhrzrww/oj2bQTyT2tJUOOogiCFZ1vx7aZ99NI/s=; b=43gMG6BigYOX5k8Cvv9TjOzxCB
+	a/gHnxt2OjaSTn4OkbcRXEgCWP6yjZBOkZeaviSq7KkaJpofQo7TTNUtEhE1Emo+pGvGZxRcjtiYk
+	6TrLyKNdRiPavYg+G93U3vhHXINC9Dppji7M5GE8afYAvqADqS3YSdScjQDADT3Yhj5Xbsk+FlwZD
+	hlpOVPwIx2VKCjYHfuj24WgUAeFV7ChIOQUWUTAKUjhUqKWu89TU8pAyC9fa5IK2YYY4XssQS5Ofn
+	HzjYWSM0dVWVnvru4VXmI9tsJiBx1x80atgIZ2x62rLZqRv1DkHOGBe82L1+JMWxREuF5DD57xJEh
+	I5IFbhdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOv53-0000000FBbG-1hrE;
-	Mon, 18 May 2026 10:20:13 +0000
+	id 1wOv58-0000000FBdM-023o;
+	Mon, 18 May 2026 10:20:18 +0000
 Received: from jpms-ob02-os7.noc.sony.co.jp ([2001:cf8:acf:41::8])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOv4z-0000000FBZG-145f
+	id 1wOv54-0000000FBZG-2uAp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:20:12 +0000
+	Mon, 18 May 2026 10:20:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1779099609; x=1810635609;
-  h=from:subject:date:message-id:mime-version:
-   content-transfer-encoding:in-reply-to:references:to:cc;
-  bh=cZOl++/U8mgGRzBj4a+TwuLZWAUpFgNm4L1UTdesaiE=;
-  b=XEToUaVNkIfIqoADhAuN5GLqu++Q/49WkNP8vmOToPMsRSnSV16RTl2M
-   umnH5eCWZbrPxV03Xct1QoKpNFLYxS+VQknXHu65wqRNf1g0gK8JStdz9
-   7Cz2ZTPgKngbbVJDzUHMHONIkuJrnZ3WMjQyIN5NfH5uqekb0M19G50fr
-   gFq1BqHOOgLbAGGyaS2IhupVdfFnONL8Yu2oOcnrrc3WM7SdM7iHP/5/A
-   bPubMvwp56kQ8p5rNz2Fttey1mDrr4GvaA38eeUPZ+89iiuupUVp7PXss
-   nTpI1p/Y9IXukHHiyqyG4db1Gcf3MoLlumHnuIYefljSda2RfhkIsxN6p
-   g==;
-X-CSE-ConnectionGUID: uJsddEshRG28PMftYXzX7Q==
-X-CSE-MsgGUID: bpyqI7EZRdmLC9moL67+xg==
+  d=sony.com; s=s1jp; t=1779099615; x=1810635615;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=57BKhrzrww/oj2bQTyT2tJUOOogiCFZ1vx7aZ99NI/s=;
+  b=ah/vDZ3azGK7/OJLjd4gC9TYmHsKGKqf5K5eeiLS149UKTXb/sOer7ve
+   c3blPVbe5ffK8/dPs0WgNju7gNr1fQ4WiI5u0h/F13Zfk5MP1O4biUedV
+   Z8I1AL14YZtdabBfyQ+kwVik+AXF+Zr09ezLNQ7J2oUpdAfYqQCmdCX7J
+   bWnQLrMzFbl3d+/uP3feF6BwdNIFKySS/Tirb4SELtq6ng+DXXfLAAUCy
+   wr8BwhW9WA6fM9rS3wt0G6RO8VspktzaNCEv3XW+Jz3usgGFL3fRKHAaN
+   nxHr7nnqLmBcu9KFoLn6Lv7/NIIeBFP4xAGLFJlTs2QLBWC/aaJG3mME/
+   Q==;
+X-CSE-ConnectionGUID: eJ7VhhBlTgOqf+CyIiS/jA==
+X-CSE-MsgGUID: 0dvVNZGXTt6NSMxl4gCr7Q==
 Received: from unknown (HELO jpmta-ob02-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::7])
-  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:20:03 +0900
-X-CSE-ConnectionGUID: ZtJ8Ohn+Q/eMmZQya0wKEA==
-X-CSE-MsgGUID: DD9c8FoKSYeM1xB6sFyjqA==
+  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:20:04 +0900
+X-CSE-ConnectionGUID: 4jQSlB5ITpKgajH3gphI2g==
+X-CSE-MsgGUID: spYUaIejTPeTbctKBbAqhA==
 X-IronPort-AV: E=Sophos;i="6.23,241,1770562800"; 
-   d="scan'208";a="56041664"
+   d="scan'208";a="56041670"
 Received: from unknown (HELO [127.0.1.1]) ([IPv6:2001:cf8:1:573:0:dddd:6b3e:119e])
-  by jpmta-ob02-os7.noc.sony.co.jp with ESMTP; 18 May 2026 19:20:02 +0900
+  by jpmta-ob02-os7.noc.sony.co.jp with ESMTP; 18 May 2026 19:20:04 +0900
 From: Shashank Balaji <shashank.mahadasyam@sony.com>
-Subject: [PATCH v5 0/4] Enable sysfs module symlink for more built-in
- drivers
-Date: Mon, 18 May 2026 19:19:56 +0900
-Message-Id: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
+Date: Mon, 18 May 2026 19:19:58 +0900
+Subject: [PATCH v5 2/4] kernel: param: initialize module_kset in a
+ pure_initcall
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAMznCmoC/3XNTQrCMBCG4atI1kbyZ2pceQ8RSZMZjdCmNFosp
- Xc31U0JuPxgnncmkqAPkMhxM5EehpBCbPPYbzfE3W17Axp83kQwoZnimlrXhWsT/bW1DVDUam8
- rDVJWNcmm6wHD+9s7X347veoHuOcSWS7uIT1jP34fDny5+9ceOGWUW+WNRn/QzpxSbMediw1Z0
- oNYYcFLLDKGSqKRnHnrZYHlGosSy4wtPyhANIgaC6zWuCqxyliIOmcVc6Ze43meP4TjS4dyAQA
- A
-X-Change-ID: 20260416-acpi_mod_name-f645a76e337b
-In-Reply-To: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
-References: <20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260518-acpi_mod_name-v5-2-705ccc430885@sony.com>
+References: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
+In-Reply-To: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  James Clark <james.clark@linaro.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
@@ -90,18 +84,18 @@ Cc: Rahul Bukte <rahul.bukte@sony.com>,
  linux-modules@vger.kernel.org, linux-tegra@vger.kernel.org, 
  Sumit Gupta <sumitg@nvidia.com>
 X-Mailer: b4 0.16-dev-3bfbc
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5952;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1488;
  i=shashank.mahadasyam@sony.com; h=from:subject:message-id;
- bh=O9LaxrL42z23osWLnzEggWM0DPpmMqp5gkr/0jAvRGA=;
- b=owGbwMvMwCU2bX1+URVTXyjjabUkhiyu5+evnVP3asuKrfB9fiR5U4v1xrjjqz68mfmiTvTsz
- i8K+m35HaUsDGJcDLJiiiylStW/9q4IWtJz5rUizBxWJpAhDFycAjCRO4yMDAf33V6tsyJwer/j
- u3Qt0+tOEVqPvGfO6tv/6OJNjV1/mUIZGTbZHzB4NnGT7YX1Fct/dUyy41bdqbliX3GrSWDHrV2
- aCYwA
+ bh=50TjhgnVmYRUF6Xy+gJCwmaxbDzOViHP9xJuJuhoEVo=;
+ b=owGbwMvMwCU2bX1+URVTXyjjabUkhiyu5xdWZa8Xc9j/a/HiLfnr7GZMC0mpaJOM53hY9ts7L
+ vfTnPfBHaUsDGJcDLJiiiylStW/9q4IWtJz5rUizBxWJpAhDFycAjCRAGlGhp35Qbwq4genvz/c
+ eqls3p7zR5wUv7ScuuN55aj5/X/+XJYMf+X3CN8/0yHf2HpXsvXSPRsfwZ+H1wVz7Up/0GhxY2f
+ iTUYA
 X-Developer-Key: i=shashank.mahadasyam@sony.com; a=openpgp;
  fpr=75227BFABDA852A48CCCEB2196AF6F727A028E55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_032009_556122_6CE0EED9 
-X-CRM114-Status: GOOD (  19.72  )
+X-CRM114-CacheID: sfid-20260518_032014_973637_B4F46340 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,133 +110,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-struct device_driver's mod_name is not set by a number of bus' driver registration
-functions. Without that, built-in drivers don't have the module symlink in sysfs.
-We want this to go from unbound driver name -> module name -> kernel config name.
-This is useful on embedded platforms to minimize kernel config, reduce kernel size,
-and reduce boot time.
+Commit "driver core: platform: set mod_name in driver registration" will set
+struct device_driver's mod_name member for platform driver registration. For a
+driver to be registered with its mod_name set, module_kset needs to be
+initialized, which currently happens in a subsys_initcall in param_sysfs_init().
+The tegra cbb drivers register themselves before module_kset init, in a
+core_initcall. This works currently because lookup_or_create_module_kobject(),
+which dereferences module_kset via kset_find_obj(), is not called if mod_name
+is not set, which is the case now.
 
-In order to achieve this, mod_name has to be set to KBUILD_MODNAME, and this has
-to be done for all buses which don't yet do this.
+So in preparation for the commit "driver core: platform: set mod_name in driver registration",
+move module_kset init to pure_initcall level, ensuring it happens before tegra
+cbb driver registration.
 
-Here are some treewide stats:
-- 110 registration functions across all bus types
-- 20 of them set mod_name
-- Remaining 90 do not set mod_name:
-    1. 36 functions under pattern 1:
-        They have a __register function + register macro. KBUILD_MODNAME needs to
-        be passed and the function needs to take mod_name as input.
-    2. 42 functions under pattern 2:
-        These have no macro wrapper. They need a double-underscore rename + macro
-        wrapper to make them similar to pattern 1.
-    3. Remaining 12 do not have such a clean registration interface. More analysis
-       is required.
-
-We plan to start with pattern 1, since it's the easiest category of changes.
-Within that, for now we're only sending the platform patch. If we get the go-ahead
-on that, we'll send the remaining ones.
-
-Patch 4 depends on patches 1, 2, and 3.
-
+Suggested-by: Gary Guo <gary@garyguo.net>
 Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
 Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
 Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
 ---
-Changes in v5:
-- Move tegra cbb driver init to core_initcall and module_kset init to pure_initcall (Gary)
-- Rename coresight_init_driver() to coresight_init_driver_with_owner(), and
-  declare function prototype before use (Leo)
-- Merge doc change patch with code change patch, so that __platform_register_drivers()
-  prototype is changed everywhere in the same patch
-- Link to v4: https://patch.msgid.link/20260427-acpi_mod_name-v4-0-22b42240c9bf@sony.com
-
-Changes in v4:
-- Initialize module_kset in do_basic_setup() before do_initcalls() (Gary)
-- Add commit body to the documentation patch (Greg)
-- Link to v3: https://patch.msgid.link/20260422-acpi_mod_name-v3-0-a184eff9ff6f@sony.com
-
-Changes in v3:
-- Initialize module_kset on-demand (Greg)
-- Make coresight driver registration happen through a macro (Greg)
-- Split up the patch adding mod_name to platform driver registrations (Greg)
-- Link to v2: https://patch.msgid.link/20260421-acpi_mod_name-v2-0-e73f9310dad3@sony.com
-
-Changes in v2:
-- Drop acpi patch, send platform instead (Rafael)
-- Link to v1: https://patch.msgid.link/20260416-acpi_mod_name-v1-0-1a4d96fd86c9@sony.com
-
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-To: James Clark <james.clark@linaro.org>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-To: Danilo Krummrich <dakr@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-To: Boqun Feng <boqun@kernel.org>
-To: Gary Guo <gary@garyguo.net>
-To: Björn Roy Baron <bjorn3_gh@protonmail.com>
-To: Benno Lossin <lossin@kernel.org>
-To: Andreas Hindborg <a.hindborg@kernel.org>
-To: Alice Ryhl <aliceryhl@google.com>
-To: Trevor Gross <tmgross@umich.edu>
-To: Jonathan Corbet <corbet@lwn.net>
-To: Shuah Khan <skhan@linuxfoundation.org>
-To: Luis Chamberlain <mcgrof@kernel.org>
-To: Petr Pavlu <petr.pavlu@suse.com>
-To: Daniel Gomez <da.gomez@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-To: Aaron Tomlin <atomlin@atomlin.com>
-To: Mike Leach <mike.leach@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-To: Thierry Reding <thierry.reding@kernel.org>
-To: Jonathan Hunter <jonathanh@nvidia.com>
-Cc: linux-kernel@vger.kernel.org
-Cc: coresight@lists.linaro.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: driver-core@lists.linux.dev
-Cc: rust-for-linux@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-Cc: Shashank Balaji <shashank.mahadasyam@sony.com>
-Cc: Rahul Bukte <rahul.bukte@sony.com>
-Cc: Daniel Palmer <daniel.palmer@sony.com>
-Cc: Tim Bird <tim.bird@sony.com>
-Cc: linux-modules@vger.kernel.org
-Cc: linux-tegra@vger.kernel.org
-Cc: Sumit Gupta <sumitg@nvidia.com>
-
+Patch 4 depends on this patch
 ---
-Shashank Balaji (4):
-      soc/tegra: cbb: Move driver registration from pure_initcall to core_initcall
-      kernel: param: initialize module_kset in a pure_initcall
-      coresight: pass THIS_MODULE implicitly through a macro
-      driver core: platform: set mod_name in driver registration
+ kernel/params.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- Documentation/driver-api/driver-model/platform.rst |  3 ++-
- drivers/base/platform.c                            | 21 ++++++++++++++-------
- drivers/hwtracing/coresight/coresight-catu.c       |  2 +-
- drivers/hwtracing/coresight/coresight-core.c       |  9 +++++----
- drivers/hwtracing/coresight/coresight-cpu-debug.c  |  3 +--
- drivers/hwtracing/coresight/coresight-funnel.c     |  3 +--
- drivers/hwtracing/coresight/coresight-replicator.c |  3 +--
- drivers/hwtracing/coresight/coresight-stm.c        |  2 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c   |  2 +-
- drivers/hwtracing/coresight/coresight-tnoc.c       |  2 +-
- drivers/hwtracing/coresight/coresight-tpdm.c       |  3 +--
- drivers/hwtracing/coresight/coresight-tpiu.c       |  2 +-
- drivers/soc/tegra/cbb/tegra194-cbb.c               |  2 +-
- drivers/soc/tegra/cbb/tegra234-cbb.c               |  2 +-
- include/linux/coresight.h                          |  7 +++++--
- include/linux/platform_device.h                    | 17 +++++++++--------
- kernel/params.c                                    |  2 +-
- rust/kernel/platform.rs                            |  4 +++-
- 18 files changed, 50 insertions(+), 39 deletions(-)
----
-base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
-change-id: 20260416-acpi_mod_name-f645a76e337b
+diff --git a/kernel/params.c b/kernel/params.c
+index 74d620bc2521..ac088d4b09a9 100644
+--- a/kernel/params.c
++++ b/kernel/params.c
+@@ -957,7 +957,7 @@ static int __init param_sysfs_init(void)
+ 
+ 	return 0;
+ }
+-subsys_initcall(param_sysfs_init);
++pure_initcall(param_sysfs_init);
+ 
+ /*
+  * param_sysfs_builtin_init - add sysfs version and parameter
 
-Best regards,
---  
-Shashank Balaji <shashank.mahadasyam@sony.com>
+-- 
+2.43.0
 
 
