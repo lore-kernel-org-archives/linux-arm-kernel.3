@@ -4,38 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2C6CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1D81CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZlFlL/ldqFxlJ/mCuoKEqDloBHgz/6+XLcrhP5/h8w=; b=05VNWjVxByVG06Biz+LwYGmuRd
-	3eHiKqYCy28unpvCAqH/77pcDZgR9vhnqoGAt58QSmsji5HKQ7bCPAHwwgH/PwWFyVDvD4hQskyNj
-	79XEUW3/Hu9X055Dgbs7bpwz5/MNyyP9ezUv6wGzp2TYVO+Dq0cjW2CIEzrIpYbR6DBUmyoc1H9mJ
-	IOWSa4btVAS0bg3g0lS4uzPD+QTevfw1ReW6egQVr3V6BTt4531SuJ+7o61nGRGY17RYyZe3Q3+C+
-	2jZncrkfihD9hcpEycFdWkfn5r0CoGgijdI3MbrYmbV6pkYjiYH6PtoCOoUXDiYEM8eanwxPfxvjz
-	zqIuzihQ==;
+	bh=1XKHXutbZ1417bPP+b3eJaiLcyB5W21y2+Eld3tQs3k=; b=co49rfA0kAjnVQxiNIsjB77Agm
+	mAnO1IOR+95QxmVcnX9u61NBhg6ppAMLP4O/G2yXixdSMn4u05PoRj8cX7UL9u+bJMGOE3XIZNQO1
+	wJi6mppZ2S/jZInqMJJGqezedCcduMmWtxypIMem4OHZTXfTsDh4syK82wP/MH5DVryjOF/4NRFm1
+	ddPQSO7OB+DRcfKa2W6+ag733dRLf63/+3idAK5GVgtR9p9rrRnONgqrxSBnAu/3k2eA21+jMwPZ7
+	+qr6W6cqULKnf6k4uzrJ0ML7lXv8gPCZl1h6jUi5D6JHsHzwKNgodzbEqQJT924616eDmds9HjEDG
+	/vuOEQyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtgQ-0000000EsxB-0lHr;
+	id 1wOtgP-0000000Eswk-46fC;
 	Mon, 18 May 2026 08:50:42 +0000
-Received: from out199-7.us.a.mail.aliyun.com ([47.90.199.7])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtgF-0000000EskK-2Dxn
+	id 1wOtgF-0000000EslP-129j
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 08:50:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=1XKHXutbZ1417bPP+b3eJaiLcyB5W21y2+Eld3tQs3k=; b=R1dqOW82chB9jCc17hrhkzH73o
+	ccrWXpBT6NjxDRQ3vpgpQgHP6gT4MZUGjKZ+YNrV4apPumBRcjxgKQyhnH9IHgHTRMzb3iA13PLs6
+	ZD7esjesl4fT8s67yzSeF7aVzxiZwb8utcIoW1F0ayF/Fg/CjsDADliIiRR06GAb+WvDXgYX7f7I6
+	ckF3ObGdNwguUGt27w0lQxpglX/BfOpAMtNVsIHudUWhnV8CSdynFB4Huj1WGw6Ili04/BzyHFNri
+	R/EP1JMM8jJ1BhCah6dk5oj4V2Qn+oJCs++B2zPgEauKaV3cKPohfoK3cJNjoJorqMZD5PHM+6vaP
+	/8Jkbxqg==;
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOtg9-0000000ASJb-16es
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:50:34 +0000
+	Mon, 18 May 2026 08:50:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1779094227; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=4ZlFlL/ldqFxlJ/mCuoKEqDloBHgz/6+XLcrhP5/h8w=;
-	b=uJoZGfGR2uabJ0rfA3C8SFKfpGjjGGUQuFOZlnA8fZcspelZrbuRcVnJ3RI4zeamr2LYLH4AZPW9DSJxXcUoTjCtT4R+pCcSI0S/l1pcw2eJji3+Y9Tu5YbsprOcziR2kj0GcU6QxNoOz00AGfukC30ObrQeOy9GdvzLa4pctV8=
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037009110;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X365dBE_1779094223;
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X365dBE_1779094223 cluster:ay36)
+	t=1779094219; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=1XKHXutbZ1417bPP+b3eJaiLcyB5W21y2+Eld3tQs3k=;
+	b=AzzSjUVcTOWGAuxXlA2L6qRIZihEK097NufReEBZa1AwqmVteJOFjbTX0qCXZd8UxU42l/IfVK8KOFb0G10vfEqRyRkmPLY3SZt4XvOQSWDsAhbWg7CTQzG2iCKDUbRa5oLumjijQK1xm+FrqPlqfd/1SK6bvJLI/v5W/ZTtGh8=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R371e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X36F6or_1779094215;
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X36F6or_1779094215 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 18 May 2026 16:50:25 +0800
+          Mon, 18 May 2026 16:50:16 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -65,17 +80,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kasan-dev@googlegroups.com,
 	tianruidong@linux.alibaba.com
-Subject: [PATCH v14 8/8] lib/tests: memcpy_kunit: add memcpy_mc() and memcpy_mc_large() test
-Date: Mon, 18 May 2026 16:49:52 +0800
-Message-ID: <20260518084956.2538442-9-tianruidong@linux.alibaba.com>
+Subject: [PATCH v14 5/8] arm64: support copy_mc_[user]_highpage()
+Date: Mon, 18 May 2026 16:49:49 +0800
+Message-ID: <20260518084956.2538442-6-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.43.7
 In-Reply-To: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
 References: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_015032_360031_A8E739EA 
-X-CRM114-Status: GOOD (  12.88  )
+X-CRM114-CacheID: sfid-20260518_095026_144331_BB9C2952 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,153 +105,481 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-memcpy_mc() is the Machine-Check safe memcpy variant that returns the
-number of bytes NOT copied on a hardware memory error, or 0 on success.
+From: Tong Tiangen <tongtiangen@huawei.com>
 
-Add two test cases modeled after the existing memcpy_test() and
-memcpy_large_test() implementations:
+Currently, many scenarios that can tolerate memory errors when copying page
+have been supported in the kernel[1~5], all of which are implemented by
+copy_mc_[user]_highpage(). arm64 should also support this mechanism.
 
+Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
+architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
+__HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
+
+Add new helper copy_mc_page() which provide a page copy implementation with
+hardware memory error safe. The code logic of copy_mc_page() is the same as
+copy_page(), the main difference is that the ldp insn of copy_mc_page()
+contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
+main logic is extracted to copy_page_template.S. In addition, the fixup of
+MOPS insn is not considered at present.
+
+[Ruidong: add FEAT_MOPS support]
+
+[1] commit d302c2398ba2 ("mm, hwpoison: when copy-on-write hits poison, take page offline")
+[2] commit 1cb9dc4b475c ("mm: hwpoison: support recovery from HugePage copy-on-write faults")
+[3] commit 6b970599e807 ("mm: hwpoison: support recovery from ksm_might_need_to_copy()")
+[4] commit 98c76c9f1ef7 ("mm/khugepaged: recover from poisoned anonymous memory")
+[5] commit 12904d953364 ("mm/khugepaged: recover from poisoned file-backed memory")
+
+Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- lib/tests/memcpy_kunit.c | 113 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 112 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/mte.h        |  9 ++++
+ arch/arm64/include/asm/page.h       | 10 ++++
+ arch/arm64/lib/Makefile             |  2 +
+ arch/arm64/lib/copy_mc_page.S       | 44 +++++++++++++++++
+ arch/arm64/lib/copy_page.S          | 62 ++----------------------
+ arch/arm64/lib/copy_page_template.S | 71 +++++++++++++++++++++++++++
+ arch/arm64/lib/mte.S                | 29 +++++++++++
+ arch/arm64/mm/copypage.c            | 75 +++++++++++++++++++++++++++++
+ include/linux/highmem.h             |  8 +++
+ 9 files changed, 253 insertions(+), 57 deletions(-)
+ create mode 100644 arch/arm64/lib/copy_mc_page.S
+ create mode 100644 arch/arm64/lib/copy_page_template.S
 
-diff --git a/lib/tests/memcpy_kunit.c b/lib/tests/memcpy_kunit.c
-index 85df53ccfb0c..b4b2dafb50f1 100644
---- a/lib/tests/memcpy_kunit.c
-+++ b/lib/tests/memcpy_kunit.c
-@@ -552,6 +552,115 @@ static void copy_mc_page_test(struct kunit *test)
- 		memcmp(page_dst + PAGE_SIZE, page_zero, PAGE_SIZE), 0,
- 		"copy_mc_page overflow into adjacent page");
+diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
+index 7f7b97e09996..a0b1757f4847 100644
+--- a/arch/arm64/include/asm/mte.h
++++ b/arch/arm64/include/asm/mte.h
+@@ -98,6 +98,11 @@ static inline bool try_page_mte_tagging(struct page *page)
+ void mte_zero_clear_page_tags(void *addr);
+ void mte_sync_tags(pte_t pte, unsigned int nr_pages);
+ void mte_copy_page_tags(void *kto, const void *kfrom);
++
++#ifdef CONFIG_ARCH_HAS_COPY_MC
++int mte_copy_mc_page_tags(void *kto, const void *kfrom);
++#endif
++
+ void mte_thread_init_user(void);
+ void mte_thread_switch(struct task_struct *next);
+ void mte_cpu_setup(void);
+@@ -134,6 +139,10 @@ static inline void mte_sync_tags(pte_t pte, unsigned int nr_pages)
+ static inline void mte_copy_page_tags(void *kto, const void *kfrom)
+ {
  }
++static inline int mte_copy_mc_page_tags(void *kto, const void *kfrom)
++{
++	return 0;
++}
+ static inline void mte_thread_init_user(void)
+ {
+ }
+diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
+index e25d0d18f6d7..f65818ee614a 100644
+--- a/arch/arm64/include/asm/page.h
++++ b/arch/arm64/include/asm/page.h
+@@ -29,6 +29,16 @@ void copy_user_highpage(struct page *to, struct page *from,
+ void copy_highpage(struct page *to, struct page *from);
+ #define __HAVE_ARCH_COPY_HIGHPAGE
+ 
++#ifdef CONFIG_ARCH_HAS_COPY_MC
++int copy_mc_page(void *to, const void *from);
++int copy_mc_highpage(struct page *to, struct page *from);
++#define __HAVE_ARCH_COPY_MC_HIGHPAGE
++
++int copy_mc_user_highpage(struct page *to, struct page *from,
++		unsigned long vaddr, struct vm_area_struct *vma);
++#define __HAVE_ARCH_COPY_MC_USER_HIGHPAGE
++#endif
++
+ struct folio *vma_alloc_zeroed_movable_folio(struct vm_area_struct *vma,
+ 						unsigned long vaddr);
+ #define vma_alloc_zeroed_movable_folio vma_alloc_zeroed_movable_folio
+diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
+index 448c917494f3..1f4c3f743a20 100644
+--- a/arch/arm64/lib/Makefile
++++ b/arch/arm64/lib/Makefile
+@@ -7,6 +7,8 @@ lib-y		:= clear_user.o delay.o copy_from_user.o		\
+ 
+ lib-$(CONFIG_ARCH_HAS_UACCESS_FLUSHCACHE) += uaccess_flushcache.o
+ 
++lib-$(CONFIG_ARCH_HAS_COPY_MC) += copy_mc_page.o
++
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ 
+ obj-$(CONFIG_ARM64_MTE) += mte.o
+diff --git a/arch/arm64/lib/copy_mc_page.S b/arch/arm64/lib/copy_mc_page.S
+new file mode 100644
+index 000000000000..ad1371e9e687
+--- /dev/null
++++ b/arch/arm64/lib/copy_mc_page.S
+@@ -0,0 +1,44 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#include <linux/linkage.h>
++#include <linux/const.h>
++#include <asm/assembler.h>
++#include <asm/page.h>
++#include <asm/cpufeature.h>
++#include <asm/alternative.h>
++#include <asm/asm-extable.h>
++#include <asm/asm-uaccess.h>
++
 +/*
-+ * memcpy_mc() is a Machine-Check safe memcpy variant.
-+ * Signature: int memcpy_mc(void *dst, const void *src, size_t len)
-+ * Returns:   0 on success, or number of bytes NOT copied on MC error.
++ * Copy a page from src to dest (both are page aligned) with memory error safe
 + *
-+ * In the normal (no-poison) path it must behave identically to memcpy()
-+ * and always return 0.
++ * Parameters:
++ *	x0 - dest
++ *	x1 - src
++ * Returns:
++ * 	x0 - Return 0 if copy success, or -EFAULT if anything goes wrong
++ *	     while copying.
 + */
-+static void memcpy_mc_test(struct kunit *test)
++	.macro ldp1 reg1, reg2, ptr, val
++	KERNEL_MEM_ERR(9998f, ldp \reg1, \reg2, [\ptr, \val])
++	.endm
++
++	.macro cpy1 dst, src, count
++	.arch_extension mops
++	USER_CPY(9998f, 0, cpyfprt [\dst]!, [\src]!, \count!)
++	USER_CPY(9998f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
++	USER_CPY(9998f, 0, cpyfert [\dst]!, [\src]!, \count!)
++	.endm
++
++SYM_FUNC_START(__pi_copy_mc_page)
++#include "copy_page_template.S"
++
++	mov x0, #0
++	ret
++
++9998:	mov x0, #-EFAULT
++	ret
++
++SYM_FUNC_END(__pi_copy_mc_page)
++SYM_FUNC_ALIAS(copy_mc_page, __pi_copy_mc_page)
++EXPORT_SYMBOL(copy_mc_page)
+diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
+index e6374e7e5511..d0186bbf99f1 100644
+--- a/arch/arm64/lib/copy_page.S
++++ b/arch/arm64/lib/copy_page.S
+@@ -17,65 +17,13 @@
+  *	x0 - dest
+  *	x1 - src
+  */
+-SYM_FUNC_START(__pi_copy_page)
+-#ifdef CONFIG_AS_HAS_MOPS
+-	.arch_extension mops
+-alternative_if_not ARM64_HAS_MOPS
+-	b	.Lno_mops
+-alternative_else_nop_endif
+-
+-	mov	x2, #PAGE_SIZE
+-	cpypwn	[x0]!, [x1]!, x2!
+-	cpymwn	[x0]!, [x1]!, x2!
+-	cpyewn	[x0]!, [x1]!, x2!
+-	ret
+-.Lno_mops:
+-#endif
+-	ldp	x2, x3, [x1]
+-	ldp	x4, x5, [x1, #16]
+-	ldp	x6, x7, [x1, #32]
+-	ldp	x8, x9, [x1, #48]
+-	ldp	x10, x11, [x1, #64]
+-	ldp	x12, x13, [x1, #80]
+-	ldp	x14, x15, [x1, #96]
+-	ldp	x16, x17, [x1, #112]
+-
+-	add	x0, x0, #256
+-	add	x1, x1, #128
+-1:
+-	tst	x0, #(PAGE_SIZE - 1)
+ 
+-	stnp	x2, x3, [x0, #-256]
+-	ldp	x2, x3, [x1]
+-	stnp	x4, x5, [x0, #16 - 256]
+-	ldp	x4, x5, [x1, #16]
+-	stnp	x6, x7, [x0, #32 - 256]
+-	ldp	x6, x7, [x1, #32]
+-	stnp	x8, x9, [x0, #48 - 256]
+-	ldp	x8, x9, [x1, #48]
+-	stnp	x10, x11, [x0, #64 - 256]
+-	ldp	x10, x11, [x1, #64]
+-	stnp	x12, x13, [x0, #80 - 256]
+-	ldp	x12, x13, [x1, #80]
+-	stnp	x14, x15, [x0, #96 - 256]
+-	ldp	x14, x15, [x1, #96]
+-	stnp	x16, x17, [x0, #112 - 256]
+-	ldp	x16, x17, [x1, #112]
+-
+-	add	x0, x0, #128
+-	add	x1, x1, #128
+-
+-	b.ne	1b
+-
+-	stnp	x2, x3, [x0, #-256]
+-	stnp	x4, x5, [x0, #16 - 256]
+-	stnp	x6, x7, [x0, #32 - 256]
+-	stnp	x8, x9, [x0, #48 - 256]
+-	stnp	x10, x11, [x0, #64 - 256]
+-	stnp	x12, x13, [x0, #80 - 256]
+-	stnp	x14, x15, [x0, #96 - 256]
+-	stnp	x16, x17, [x0, #112 - 256]
++	.macro ldp1 reg1, reg2, ptr, val
++	ldp \reg1, \reg2, [\ptr, \val]
++	.endm
+ 
++SYM_FUNC_START(__pi_copy_page)
++#include "copy_page_template.S"
+ 	ret
+ SYM_FUNC_END(__pi_copy_page)
+ SYM_FUNC_ALIAS(copy_page, __pi_copy_page)
+diff --git a/arch/arm64/lib/copy_page_template.S b/arch/arm64/lib/copy_page_template.S
+new file mode 100644
+index 000000000000..d466b51c8ed9
+--- /dev/null
++++ b/arch/arm64/lib/copy_page_template.S
+@@ -0,0 +1,71 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (C) 2012 ARM Ltd.
++ */
++
++/*
++ * Copy a page from src to dest (both are page aligned)
++ *
++ * Parameters:
++ *	x0 - dest
++ *	x1 - src
++ */
++dstin	.req	x0
++src	.req	x1
++
++#ifdef CONFIG_AS_HAS_MOPS
++	.arch_extension mops
++alternative_if_not ARM64_HAS_MOPS
++	b	.Lno_mops
++alternative_else_nop_endif
++	mov	x2, #PAGE_SIZE
++	cpy1	dst, src, x2
++	b	.Lexitfunc
++.Lno_mops:
++#endif
++
++	ldp1	x2, x3, x1, #0
++	ldp1	x4, x5, x1, #16
++	ldp1	x6, x7, x1, #32
++	ldp1	x8, x9, x1, #48
++	ldp1	x10, x11, x1, #64
++	ldp1	x12, x13, x1, #80
++	ldp1	x14, x15, x1, #96
++	ldp1	x16, x17, x1, #112
++
++	add	x0, x0, #256
++	add	x1, x1, #128
++1:
++	tst	x0, #(PAGE_SIZE - 1)
++
++	stnp	x2, x3, [x0, #-256]
++	ldp1	x2, x3, x1, #0
++	stnp	x4, x5, [x0, #16 - 256]
++	ldp1	x4, x5, x1, #16
++	stnp	x6, x7, [x0, #32 - 256]
++	ldp1	x6, x7, x1, #32
++	stnp	x8, x9, [x0, #48 - 256]
++	ldp1	x8, x9, x1, #48
++	stnp	x10, x11, [x0, #64 - 256]
++	ldp1	x10, x11, x1, #64
++	stnp	x12, x13, [x0, #80 - 256]
++	ldp1	x12, x13, x1, #80
++	stnp	x14, x15, [x0, #96 - 256]
++	ldp1	x14, x15, x1, #96
++	stnp	x16, x17, [x0, #112 - 256]
++	ldp1	x16, x17, x1, #112
++
++	add	x0, x0, #128
++	add	x1, x1, #128
++
++	b.ne	1b
++
++	stnp	x2, x3, [x0, #-256]
++	stnp	x4, x5, [x0, #16 - 256]
++	stnp	x6, x7, [x0, #32 - 256]
++	stnp	x8, x9, [x0, #48 - 256]
++	stnp	x10, x11, [x0, #64 - 256]
++	stnp	x12, x13, [x0, #80 - 256]
++	stnp	x14, x15, [x0, #96 - 256]
++	stnp	x16, x17, [x0, #112 - 256]
++.Lexitfunc:
+diff --git a/arch/arm64/lib/mte.S b/arch/arm64/lib/mte.S
+index 5018ac03b6bf..9d4eeb76a838 100644
+--- a/arch/arm64/lib/mte.S
++++ b/arch/arm64/lib/mte.S
+@@ -80,6 +80,35 @@ SYM_FUNC_START(mte_copy_page_tags)
+ 	ret
+ SYM_FUNC_END(mte_copy_page_tags)
+ 
++#ifdef CONFIG_ARCH_HAS_COPY_MC
++/*
++ * Copy the tags from the source page to the destination one with memory error safe
++ *   x0 - address of the destination page
++ *   x1 - address of the source page
++ * Returns:
++ *   x0 - Return 0 if copy success, or
++ *        -EFAULT if anything goes wrong while copying.
++ */
++SYM_FUNC_START(mte_copy_mc_page_tags)
++	mov	x2, x0
++	mov	x3, x1
++	multitag_transfer_size x5, x6
++1:
++KERNEL_MEM_ERR(2f, ldgm	x4, [x3])
++	stgm	x4, [x2]
++	add	x2, x2, x5
++	add	x3, x3, x5
++	tst	x2, #(PAGE_SIZE - 1)
++	b.ne	1b
++
++	mov x0, #0
++	ret
++
++2:	mov x0, #-EFAULT
++	ret
++SYM_FUNC_END(mte_copy_mc_page_tags)
++#endif
++
+ /*
+  * Read tags from a user buffer (one tag per byte) and set the corresponding
+  * tags at the given kernel address. Used by PTRACE_POKEMTETAGS.
+diff --git a/arch/arm64/mm/copypage.c b/arch/arm64/mm/copypage.c
+index cd5912ba617b..9fd773baf17b 100644
+--- a/arch/arm64/mm/copypage.c
++++ b/arch/arm64/mm/copypage.c
+@@ -72,3 +72,78 @@ void copy_user_highpage(struct page *to, struct page *from,
+ 	flush_dcache_page(to);
+ }
+ EXPORT_SYMBOL_GPL(copy_user_highpage);
++
++#ifdef CONFIG_ARCH_HAS_COPY_MC
++/*
++ * Return -EFAULT if anything goes wrong while copying page or mte.
++ */
++int copy_mc_highpage(struct page *to, struct page *from)
 +{
-+#define TEST_OP "memcpy_mc"
-+	struct some_bytes control = {
-+		.data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+		},
-+	};
-+	struct some_bytes zero = { };
-+	struct some_bytes middle = {
-+		.data = { 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x00, 0x00, 0x00, 0x00,
-+			  0x00, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+		},
-+	};
-+	struct some_bytes three = {
-+		.data = { 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x00, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			  0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20,
-+			},
-+	};
-+	struct some_bytes dest = { };
-+	int ret, count;
-+	u8 *ptr;
++	void *kto = page_address(to);
++	void *kfrom = page_address(from);
++	struct folio *src = page_folio(from);
++	struct folio *dst = page_folio(to);
++	unsigned int i, nr_pages;
++	int ret;
 +
-+	/* Verify static initializers. */
-+	check(control, 0x20);
-+	check(zero, 0);
-+	compare("static initializers", dest, zero);
++	ret = copy_mc_page(kto, kfrom);
++	if (ret)
++		return -EFAULT;
 +
-+	/* Verify assignment. */
-+	dest = control;
-+	compare("direct assignment", dest, control);
++	if (kasan_hw_tags_enabled())
++		page_kasan_tag_reset(to);
 +
-+	/* Verify complete overwrite. */
-+	ret = memcpy_mc(dest.data, control.data, sizeof(dest.data));
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	compare("complete overwrite", dest, control);
++	if (!system_supports_mte())
++		return 0;
 +
-+	/* Verify middle overwrite: 7 bytes at offset 12. */
-+	dest = control;
-+	ret = memcpy_mc(dest.data + 12, zero.data, 7);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	compare("middle overwrite", dest, middle);
++	if (folio_test_hugetlb(src)) {
++		if (!folio_test_hugetlb_mte_tagged(src) ||
++		    from != folio_page(src, 0))
++			return 0;
 +
-+	/* Verify zero-length copy is a no-op. */
-+	dest = control;
-+	ret = memcpy_mc(dest.data, zero.data, 0);
-+	KUNIT_ASSERT_EQ(test, ret, 0);
-+	compare("zero length", dest, control);
++		WARN_ON_ONCE(!folio_try_hugetlb_mte_tagging(dst));
 +
-+	/* Verify argument side-effects aren't repeated. */
-+	dest = control;
-+	ptr = dest.data;
-+	count = 1;
-+	memcpy(ptr++, zero.data, count++);
-+	ptr += 8;
-+	memcpy(ptr++, zero.data, count++);
-+	compare("argument side-effects", dest, three);
-+#undef TEST_OP
-+}
-+
-+static void memcpy_mc_large_test(struct kunit *test)
-+{
-+	init_large(test);
-+
-+	/* Sweep 1..1024 bytes x shifting offset to cover all template paths. */
-+	for (int bytes = 1; bytes <= ARRAY_SIZE(large_src); bytes++) {
-+		for (int offset = 0; offset < ARRAY_SIZE(large_src); offset++) {
-+			int right_zero_pos = offset + bytes;
-+			int right_zero_size = ARRAY_SIZE(large_dst) - right_zero_pos;
-+			int ret;
-+
-+			ret = memcpy_mc(large_dst + offset, large_src, bytes);
-+			KUNIT_ASSERT_EQ_MSG(test, ret, 0,
-+				"memcpy_mc returned %d with size %d at offset %d",
-+				ret, bytes, offset);
-+
-+			/* No write before copy area. */
-+			KUNIT_ASSERT_EQ_MSG(test,
-+				memcmp(large_dst, large_zero, offset), 0,
-+				"with size %d at offset %d", bytes, offset);
-+			/* No write after copy area. */
-+			KUNIT_ASSERT_EQ_MSG(test,
-+				memcmp(&large_dst[right_zero_pos], large_zero,
-+				       right_zero_size), 0,
-+				"with size %d at offset %d", bytes, offset);
-+			/* Byte-for-byte exact. */
-+			KUNIT_ASSERT_EQ_MSG(test,
-+				memcmp(large_dst + offset, large_src, bytes), 0,
-+				"with size %d at offset %d", bytes, offset);
-+
-+			memset(large_dst + offset, 0, bytes);
++		/*
++		 * Populate tags for all subpages.
++		 *
++		 * Don't assume the first page is head page since
++		 * huge page copy may start from any subpage.
++		 */
++		nr_pages = folio_nr_pages(src);
++		for (i = 0; i < nr_pages; i++) {
++			kfrom = page_address(folio_page(src, i));
++			kto = page_address(folio_page(dst, i));
++			ret = mte_copy_mc_page_tags(kto, kfrom);
++			if (ret)
++				return -EFAULT;
 +		}
-+		cond_resched();
++		folio_set_hugetlb_mte_tagged(dst);
++	} else if (page_mte_tagged(from)) {
++		/* It's a new page, shouldn't have been tagged yet */
++		WARN_ON_ONCE(!try_page_mte_tagging(to));
++
++		ret = mte_copy_mc_page_tags(kto, kfrom);
++		if (ret)
++			return -EFAULT;
++		set_page_mte_tagged(to);
 +	}
++
++	return 0;
 +}
- #endif /* CONFIG_ARCH_HAS_COPY_MC */
- 
- static struct kunit_case memcpy_test_cases[] = {
-@@ -564,6 +673,8 @@ static struct kunit_case memcpy_test_cases[] = {
- 	KUNIT_CASE(copy_page_test),
- #ifdef CONFIG_ARCH_HAS_COPY_MC
- 	KUNIT_CASE(copy_mc_page_test),
-+	KUNIT_CASE(memcpy_mc_test),
-+	KUNIT_CASE_SLOW(memcpy_mc_large_test),
++EXPORT_SYMBOL(copy_mc_highpage);
++
++int copy_mc_user_highpage(struct page *to, struct page *from,
++			unsigned long vaddr, struct vm_area_struct *vma)
++{
++	int ret;
++
++	ret = copy_mc_highpage(to, from);
++	if (ret)
++		return ret;
++
++	flush_dcache_page(to);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(copy_mc_user_highpage);
++#endif
+diff --git a/include/linux/highmem.h b/include/linux/highmem.h
+index 18dc4aca4aa1..f168c9d4ad0e 100644
+--- a/include/linux/highmem.h
++++ b/include/linux/highmem.h
+@@ -424,6 +424,7 @@ static inline void copy_highpage(struct page *to, struct page *from)
  #endif
- 	{}
- };
-@@ -575,5 +686,5 @@ static struct kunit_suite memcpy_test_suite = {
  
- kunit_test_suite(memcpy_test_suite);
+ #ifdef copy_mc_to_kernel
++#ifndef __HAVE_ARCH_COPY_MC_USER_HIGHPAGE
+ /*
+  * If architecture supports machine check exception handling, define the
+  * #MC versions of copy_user_highpage and copy_highpage. They copy a memory
+@@ -449,7 +450,9 @@ static inline int copy_mc_user_highpage(struct page *to, struct page *from,
  
--MODULE_DESCRIPTION("test cases for memcpy(), memmove(), memset() and copy_page()");
-+MODULE_DESCRIPTION("test cases for memcpy(), memmove(), memset(), copy_page() and memcpy_mc()");
- MODULE_LICENSE("GPL");
+ 	return ret ? -EFAULT : 0;
+ }
++#endif
+ 
++#ifndef __HAVE_ARCH_COPY_MC_HIGHPAGE
+ static inline int copy_mc_highpage(struct page *to, struct page *from)
+ {
+ 	unsigned long ret;
+@@ -468,20 +471,25 @@ static inline int copy_mc_highpage(struct page *to, struct page *from)
+ 
+ 	return ret ? -EFAULT : 0;
+ }
++#endif
+ #else
++#ifndef __HAVE_ARCH_COPY_MC_USER_HIGHPAGE
+ static inline int copy_mc_user_highpage(struct page *to, struct page *from,
+ 					unsigned long vaddr, struct vm_area_struct *vma)
+ {
+ 	copy_user_highpage(to, from, vaddr, vma);
+ 	return 0;
+ }
++#endif
+ 
++#ifndef __HAVE_ARCH_COPY_MC_HIGHPAGE
+ static inline int copy_mc_highpage(struct page *to, struct page *from)
+ {
+ 	copy_highpage(to, from);
+ 	return 0;
+ }
+ #endif
++#endif
+ 
+ static inline void memcpy_page(struct page *dst_page, size_t dst_off,
+ 			       struct page *src_page, size_t src_off,
 -- 
 2.39.3
 
