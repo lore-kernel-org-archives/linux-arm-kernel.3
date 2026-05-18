@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2FCECD4F56
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 22:05:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB6ECD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 22:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Cd2gH8+KVNAxcq+NWcUqT38BQp2PFP+quQ7E39pyZhM=; b=sbyVLPJMJCnhUw2jbD8bHkmfn4
-	vDC+z30VOMOgYxChwVv/BRgEZ+SaWZV27jErYPSqy91eh/4b0D6dznJVoRq+99PFQQsZ9WoJwMdv8
-	RPKKPgnKbhkwZ9unyPBVdCoIgnUCsC6OaMT7oLKDh0mgrSXnY+tbl2H3WrpXG/x6wF0TgrDSGVlF3
-	Hy5M3EoHDDXVn3IHQwGUEJafAartc22NGR/VXyUtCA+2xueCyFlVAmCaV38abB5xJkEr/t81GGKo9
-	0opdrSxrOrgN+zuk8NpedT+AE2XSffjJ1/vUsERmoBZo3RLlLWC3Kj2HtBJM/SYd2WWOgovTMZ3YC
-	6gw0xu6g==;
+	bh=kpz3rbq9P9pH8i5JgQAH9XRkEkwWKb9Pq31/YwXsa/0=; b=r4HwT/LB7Vsc/62DTsdUTdFGcY
+	VyNlpukzUJ2toAMUnYRp9jifAa90VWh2PH64Wew7hKh7T0YjAuja8d8olHQ8QWkMlBYL26yF08FUM
+	QXoPLzVfEHir1oRSB2pADyKPIvWFdZNcA9EIfh82Wqvu15LDt0WFnLia2knLUcUXt1DfRmwfrsQIF
+	4nU6xxOLumDq2szEjDv7jffwMVHvWD0AV+XVBpx3LI7KPfTvJYWpeuHI/OHx3IniHsbhn1coKtbYr
+	sZBGWWRLWQTzQXM1Laej7wyOUZ9jplPDFWFR6NPVBtaVzla/Jgx0MIm1VPJaC8RKihCzuYsYH3VN4
+	ylD6yGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP65C-0000000H3eI-06F4;
-	Mon, 18 May 2026 22:05:06 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wP6Cj-0000000H4JD-2w7x;
+	Mon, 18 May 2026 22:12:53 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP659-0000000H3dI-0dnm
+	id 1wP6Cg-0000000H4Ik-0Y5T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 22:05:04 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-488d2079582so26939455e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 15:05:02 -0700 (PDT)
+	Mon, 18 May 2026 22:12:51 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-8353fd1cb5fso1332349b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 15:12:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779141901; x=1779746701; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779142369; x=1779747169; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Cd2gH8+KVNAxcq+NWcUqT38BQp2PFP+quQ7E39pyZhM=;
-        b=lzRS9yFoRPlqcEpgdEAoMnanaqjrEmkjPXsbe/a8ftnihPm0PUIrBXjv7VFzKH2zDz
-         7GqSsj0NWv/PtgF7WarvjSiNjROK/uf8wQFjIW7fnvBuOPbFnJ0IgxHd9hjf/NGwM/fh
-         UEKM5eAW2nd/wbQoroko2An5lqFroa7W95PgRzwpACzRY7QvnN3pzsvpV9gPxGCMUkJp
-         Bd0rvqUqTfT8eAWrMlBaYe/KbV+R2PfdcbzTRWxr5A4UROmBy0p9SvrTR5QL76a/a1rK
-         L5uRMhpsXxKowS7w25JtZX1yBaf37ZYITYjwSEtKbPfgHhA/jAwtDqY3tHsuW4gzRhZQ
-         A+Zw==
+        bh=kpz3rbq9P9pH8i5JgQAH9XRkEkwWKb9Pq31/YwXsa/0=;
+        b=ZgWNupStd8slEnYzHmTgFcGof+Dkw/4N5bTXr6NU2lbVKpmMay1vHnTlV3lDlJEsEh
+         Cb3gm6RxLyPE0vTccDsenlBjFEVuFXhwd0ORO1RDAE7MGsa8Taby24hv6cfUchPpMLbv
+         aQSRPm6XsBQe+Rdl/JGZmOVPF1ABul5DsiDAksu8UWqNbIfzlwvZ7WSrnYl0FQdHMtEN
+         KDMQYW8P5lyyhcPQiblRiz50f5jwjpClLZzN1wbO8nggVP877/kBdgPxHUhFQgvpZO5y
+         GGRTRSWtUSKspP2heF3gc8O2xIfxEbDZB5ZgLfgy191sbbDlGKDLauibWueboSh6zP+O
+         ARYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779141901; x=1779746701;
+        d=1e100.net; s=20251104; t=1779142369; x=1779747169;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Cd2gH8+KVNAxcq+NWcUqT38BQp2PFP+quQ7E39pyZhM=;
-        b=E9oOCSSGH5z18gK9il5Y+TgP6+341Vva2HDGkXvH8XYr6+hX3G47SVkR10NamvBulw
-         AlRNSrYWH33RRg2q9x1VIcJCctfmZ2As5DQTEYzMRxEFVqAwOhVz7TO8Eo11slBOVmF7
-         CIpEJgoXGALncVU/jLPoX59ELOdx9I/x851U2a/3PD8zEzEuSivjhT2BB9M1AcTiB21t
-         f+oyinaPs1e5hKy8GAIG5qzKzWW0j43xFQvtZv1SXrLwMoyQ3mQW+tifeZ9+yicW0D7r
-         01TcFtzSJ0MtBNoqry+tZqPEe3KUrj7L18OjmUBxfBB8cJW4cm1usZ6yyimPRb4MGqQC
-         8E9w==
-X-Forwarded-Encrypted: i=1; AFNElJ/IseTyUG15HTZBK+XOvqG6DHlubQBI12FeSqTu98WUx+WtbcUdAB+wrXck8Hq2mDMkCL8CyHAoX8v2P9AdxPZ9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrN+God1rVAbNBz1xJInSopa5Yr22LG6Ihn7gc2NjH3/caw8dB
-	SRB1ephpW5R9YU1CN6lKwkuzyJ3z5TSUZS9QHNMni1pgq3fL+YPfCSUy
-X-Gm-Gg: Acq92OGtV3KEKpIORDsrCu1b/QV+TH9Ohn4GByM9b9acnmkR+sxUsmvj1VI9oSgPDZD
-	TJlgoupUjGVRQo5QYU7LIvNsh/lcOqqA4aKxiRjkvty6d21gvEvOv80dzAv7Ok8/aJtXohddKiU
-	mJSAiMPZlbIqGJqL4gvSoCN70zqx1Hg/kENY170pIGfqP/tS+v/CiiDBHeqtB7Yn9IaS8bGBSIF
-	OuQehQvMRKEImzslWe5iTL/3r/n5XzEHQ44ME5iIEzz1mpzr1ryo4NUduaMyZi7bZu7l/p7cuAj
-	y0D5d5adiUwEIIzen3tScaPRX94GEwBe88+SELmPUYNlELSrlYMzVS6z0usk7qmeQrJcrVXayX3
-	aIqDw48ffZNHG3cqmBYqp3O2nTQaoHidDuYLN0kSvdYLVPm5rSBVRSM0So031hU6Nn7p5odK9wb
-	Z89PsoWYHkuW05dXxS3zThf1xSBAN4nmAVUTo0sETa84rsVsNyPKfjVtX1mIoB6vG8JLSMWpgrR
-	3+BVWSpQVnEGyV04T8MdegKVqCbUb5QEeMKnFpT7+1DU4OvTfKNQPigIkaa+Y98t9JMuonD4ykP
-	+b0go8AS2vApQRfLi61FdwUGLas/Qd0a0RpHHLS5QtigxMJuPg82+J6VRMyfgulXr51US2rHk5u
-	O9raiZk+ECnJfZVu0ZlYXBw==
-X-Received: by 2002:a05:600c:34cc:b0:48e:635a:18d7 with SMTP id 5b1f17b1804b1-48fe59b047bmr287108655e9.0.1779141900529;
-        Mon, 18 May 2026 15:05:00 -0700 (PDT)
-Received: from cypher.home.roving-it.com (7.9.7.f.b.1.3.0.b.8.f.0.9.e.0.0.1.8.6.2.1.1.b.f.0.b.8.0.1.0.0.2.ip6.arpa. [2001:8b0:fb11:2681:e9:f8b:31b:f797])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-48fe53ab671sm281976645e9.1.2026.05.18.15.04.59
+        bh=kpz3rbq9P9pH8i5JgQAH9XRkEkwWKb9Pq31/YwXsa/0=;
+        b=D4dNr6inEcyXNCFPDVmUUnhX4mUiYv28+N0Pw8vE0+VESrKCbxz2qoSajI6ixK7X78
+         GNDnf5hUwoMNFEBJTr5a/dO4mFqd0ymygRUOugvZ4dIYA93cJqM/UVhOwNIAwNPQmrS8
+         OFER5eIgHb8ljRV5GsGA/vBMDyDHZmdby+YurM08Vn016+6m6t6GnS7d6WktNfOhs3qi
+         WzBCKdq1iTbymWaM+/NhoswwoXS9la+kz1btXrL+D3jk2FuIbLwn96VYwADkpVaPaUNB
+         ip2Uzph2UQPcu0FZdRGFE94USGFE87y0mX6Oj9Cckm3fJN1+OtAYJID/OV+qxKxEHyfb
+         uIDA==
+X-Forwarded-Encrypted: i=1; AFNElJ+cUogOpbaa4uZpVLcmZ0QZUqs2Dnm4hU3dvvcxLKOrBO6mX70u6ZoYlGfjCRvSjUNjz9Scsxbuu2vlSxyNagQv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAfCXwFwMwTZIftbt+zovW8y5ZmgHisMWv5D972x3XPio4jy52
+	D/kTfWULXJFJardad6YHtoCrU+xj+CNEbJdoY59fAJm5wsS4aofScDBV
+X-Gm-Gg: Acq92OEe96S4IkUhl0v5MpYV6sapRk6YpXTkb5qgVe7EEVdHMu0aOpgQFRbMZXAxYQr
+	UVAs720W0BbBt6z6zMHWEjdXQyVZO3dHzQRf1paTLqi+dZxF/wdPZJ+gRg815CZ0CPxNr1wr2I9
+	3nNfvKZUlQhQjOrV7UzXnnb07rCJSvSsqk5AtjZ1+E7Su3pgr7SLbRPa3n8om8RjatKUfY801bB
+	SEPr1FNG7/ScrUMZrOf4PheBv7D7NHNfakx2iGyoh68CgntwXlkvoCeWO6QQdVvk5uQeYmVe6UJ
+	XYhHRA20Kz/Tv3bwLX6oJp864/qcrhyDv70/YULpxciQQWn01EjoapMYHxkgCmf1BeKopc0+Ml/
+	IXIgwvzBhbQe+oT3kugbsV+c2+p3qmxlyj+M2cKJcu+92xL/SPTTAyMgt6ebUhYzbLaks4YeaMD
+	VNUvRZxP4UnIG7l8nNq0FfrhI2ZSQDuWCi+Z0mVQD9AWfVCnsf/vxfztZkArOP4tCFCy0rwhW8E
+	dKO1YqTBPQkgs1gVTEckXW4go5nO2lNkOo=
+X-Received: by 2002:a05:6a00:12c2:b0:82f:9a88:9092 with SMTP id d2e1a72fcca58-83f18ee3862mr17241901b3a.33.1779142369233;
+        Mon, 18 May 2026 15:12:49 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19f7cca8sm15870899b3a.56.2026.05.18.15.12.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 15:04:59 -0700 (PDT)
-From: Peter Robinson <pbrobinson@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Cc: Peter Robinson <pbrobinson@gmail.com>
-Subject: [PATCH] arm64: dts: allwinner: sun50i-a64: Enable DT overlays
-Date: Mon, 18 May 2026 23:04:49 +0100
-Message-ID: <20260518220455.156874-1-pbrobinson@gmail.com>
+        Mon, 18 May 2026 15:12:48 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-clk@vger.kernel.org
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
+	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
+Subject: [PATCH] clk: stm32: allow STM32MP COMPILE_TEST builds
+Date: Mon, 18 May 2026 15:12:30 -0700
+Message-ID: <20260518221230.19879-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_150503_201227_0BC51145 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20260518_151250_174723_8DABBFBB 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DT overlays on some of the Pine64 devices to enable
-use of addon accessories such as WiFi or audio modules.
+COMMON_CLK_STM32MP already allows COMPILE_TEST, but the parent clock
+Makefile only descends into drivers/clk/stm32 for ARCH_STM32.  Use the
+STM32MP clock symbol for that directory gate instead.
 
-Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+Building the STM32MP21 and STM32MP25 clock drivers then requires direct
+linux/bitfield.h includes for FIELD_GET(), so add them as part of exposing
+that compile-test coverage.
+
+Tested with:
+make LLVM=1 ARCH=loongarch drivers/clk/stm32/
+
+Assisted-by: Codex:GPT-5.5
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- arch/arm64/boot/dts/allwinner/Makefile | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/clk/Makefile              | 2 +-
+ drivers/clk/stm32/clk-stm32mp21.c | 1 +
+ drivers/clk/stm32/clk-stm32mp25.c | 1 +
+ 3 files changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index d116864b6c2b3..53e6b701e7d3a 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -1,4 +1,10 @@
- # SPDX-License-Identifier: GPL-2.0
-+# Enables support for device-tree overlays for named devices
-+DTC_FLAGS_sun50i-a64-pine64-lts := -@
-+DTC_FLAGS_sun50i-a64-pine64 := -@
-+DTC_FLAGS_sun50i-a64-pine64-plus := -@
-+DTC_FLAGS_sun50i-a64-sopine-baseboard := -@
-+
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-amarula-relic.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-bananapi-m64.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-nanopi-a64.dtb
+diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+index 9c3a9703ad92..0cd2223de3ca 100644
+--- a/drivers/clk/Makefile
++++ b/drivers/clk/Makefile
+@@ -150,7 +150,7 @@ obj-y					+= spacemit/
+ obj-$(CONFIG_PLAT_SPEAR)		+= spear/
+ obj-y					+= sprd/
+ obj-$(CONFIG_ARCH_STI)			+= st/
+-obj-$(CONFIG_ARCH_STM32)		+= stm32/
++obj-$(CONFIG_COMMON_CLK_STM32MP)	+= stm32/
+ obj-y					+= starfive/
+ obj-$(CONFIG_ARCH_SUNXI)		+= sunxi/
+ obj-y					+= sunxi-ng/
+diff --git a/drivers/clk/stm32/clk-stm32mp21.c b/drivers/clk/stm32/clk-stm32mp21.c
+index c8a37b716bd5..3c143371c77e 100644
+--- a/drivers/clk/stm32/clk-stm32mp21.c
++++ b/drivers/clk/stm32/clk-stm32mp21.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/bus/stm32_firewall_device.h>
++#include <linux/bitfield.h>
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
+ #include <linux/platform_device.h>
+diff --git a/drivers/clk/stm32/clk-stm32mp25.c b/drivers/clk/stm32/clk-stm32mp25.c
+index 52f0e8a12926..cc95fac66449 100644
+--- a/drivers/clk/stm32/clk-stm32mp25.c
++++ b/drivers/clk/stm32/clk-stm32mp25.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/bus/stm32_firewall_device.h>
++#include <linux/bitfield.h>
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
+ #include <linux/platform_device.h>
 -- 
 2.54.0
 
