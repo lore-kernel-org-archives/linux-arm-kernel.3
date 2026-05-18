@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02662CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12897CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntPcgXuiijPtNcQjvJZDG1WYIL2yByzBhpdDgns3eLM=; b=inyrbaav/NlRSGXr4IfWx/F5Ld
-	SOB4h9rySA1qjYeUDB7r8h8IXU6nJlpGZ5f/159vBKHETRkc72u53gUq+pn79aMGFK9oNnRIYzI0d
-	oyM6xB/7/CWMfix9VrEwOyQ1raBzI9h/Z/V18Es2ytrf6z0cDT5m0yVD/1jozrr5frk45mjbl107E
-	sRoUdUtBIgMXz8W84ZpWMskpwzDVZfyBHT1Iila6bfzkUnL1YmT8UanMxpSS35ukyVyBKABfR0/Ut
-	i9D90nIbr1gaB74BHwcDh0P5PJkENf8bsQ5DGJL2g2TB4SPwOMdPN+epN4bWoZjE9wjo2mMaJnzyo
-	gVp9bCbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3KCVcJgT1Q5WCat2a88crXMoYEFLlEzzSrHFDf+e13o=; b=HWNFYb3GyqVNAhhjB//pkCOBig
+	dQ0A+ZwPW8mzpBfyXV9G5wzKp8xjWlsHF7ATsuCNPT20eMgD4Lcd5RptPzAC6MjFJJQ9lD9XG+/v2
+	qsqOy/Lney3Smr1NvwWFpGryoETzIgWdvLzQL9fDOGR57vmbbvZmQnlHiuFNtr9NaMt723UdCvP7t
+	8ON9vSVmIjR1f7N63906VUnGduLYjgJKI5ykB+zGfAhpT9Jgwh0P1Y2PASbLZcIzHVr7FJR/zX8aO
+	GoTJUVp0PU8oFev3dGQtezOsXRdvXn3J2XOdSeHMfKgdQO7pryapSYrLacMbnj4lCpUPK0bHwAw6b
+	RKy8ESPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyIE-0000000Fqyg-2jEh;
-	Mon, 18 May 2026 13:46:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyIB-0000000Fqy4-3YWJ
+	id 1wOyIQ-0000000Fr0p-3Qsl;
+	Mon, 18 May 2026 13:46:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOyIN-0000000Fqzo-2iXI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 13:46:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C1E143C9D;
-	Mon, 18 May 2026 13:45:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC738C2BCB8;
-	Mon, 18 May 2026 13:45:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779111958;
-	bh=75yRSP2IEDju9uSJUM5mcUQkVTRaXUsmfsv1K2TMIPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g4dnHL8iK3ErA20o/kJ5NoQ3Hl3LZ05nbGlKx0sywbn27A12YzQRvH36tNFS9q9LY
-	 tsFcH/mBIh4iVIpMvtQXwZEQioYhVRnprWCe1o1E122IJSnhHcSFaPx4CEjgTggtZ2
-	 z0QiAQ7hM0o/b4JcqFmR/7um/MOGzAZK3dXoH7WxxS/e7BmXCWfDus+B9JRCkT8J6Y
-	 XFaD7Q7F7hLEm0cMdJ81/mHqzLhk/JWDhhWubYYZ59nJnzpYYZ6E5ITKyU3Z2oi32i
-	 hbGDtL/8okaPEtPFKdLxndLHIBYAfF/4RsBEobWYZS4vdETBL/Cid4N48jsoznz7K9
-	 LiBvXPZq1LZAQ==
-Date: Mon, 18 May 2026 14:45:53 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Sebastian Ene <sebastianene@google.com>
-Cc: catalin.marinas@arm.com, maz@kernel.org, oupton@kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>, will@kernel.org,
-	joey.gouly@arm.com, korneld@google.com, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	android-kvm@google.com, mrigendra.chaubey@gmail.com,
-	perlarsen@google.com, suzuki.poulose@arm.com, vdonnefort@google.com,
-	yuzenghui@huawei.com
-Subject: Re: [PATCH v3 0/2] arm_ffa, KVM: Fix FF-A emad offset calculations
-Message-ID: <20260518-heavy-intelligent-partridge-ddc80b@sudeepholla>
-References: <20260512124442.1899107-1-sebastianene@google.com>
- <20260513-ludicrous-beautiful-cuttlefish-34271d@sudeepholla>
+	Mon, 18 May 2026 13:46:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E9711C14;
+	Mon, 18 May 2026 06:46:03 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EE3F3F7B4;
+	Mon, 18 May 2026 06:46:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779111968; bh=fhdGtklIFTyvTEj9H05WIHW2CNgFWJkbGWF6iw7PZzE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=beTSK4+WHg0cuF6W9ehQ1y809SqkXFak9EQbi6G8zWnRsR/8ytwO07ZgN//Hv7643
+	 k+CJRIzOwfYsYD4592NwkXss+qG3ninaFAf/Dz04n9BHZr3c0L4ehe0lmU8hG24QSb
+	 9jeD793DfqECw3hAjWyw+Y896oRD5BmF6wzwQ0yI=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 1/2] KVM: arm64: Introduce S2 walker SKIP return options
+Date: Mon, 18 May 2026 14:45:59 +0100
+Message-ID: <agsYF-Dav2bpxWK4@devkitleo>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <agrTQMw4QJX6HGrm@willie-the-truck>
+References: <20260515195904.2466381-1-leo.bras@arm.com> <20260515195904.2466381-2-leo.bras@arm.com> <agq-RyKhBy4CIThm@kernel.org> <agrTQMw4QJX6HGrm@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260513-ludicrous-beautiful-cuttlefish-34271d@sudeepholla>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_064559_908023_12BD7CF5 
-X-CRM114-Status: GOOD (  21.42  )
+X-CRM114-CacheID: sfid-20260518_064611_843081_140E211B 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +80,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 06:23:43PM +0100, Sudeep Holla wrote:
-> On Tue, May 12, 2026 at 12:44:40PM +0000, Sebastian Ene wrote:
-> > Hi all,
+Hello Oliver, Will,
+Thanks for reviewing!
+
+On Mon, May 18, 2026 at 09:52:16AM +0100, Will Deacon wrote:
+> On Mon, May 18, 2026 at 12:22:47AM -0700, Oliver Upton wrote:
+> > On Fri, May 15, 2026 at 08:59:02PM +0100, Leonardo Bras wrote:
+> > > Introduce S2 walker return values:
+> > > - SKIP_CHILDREN: skip walking the children of the current node
+> > > - SKIP_SIBLINGS: skip waling the siblings of the current node
+> > > 
+> > > Also, modify __kvm_pgtable_visit() to fulfil the hing on above return
+> > > values. Current walkers should not be impacted
 > > 
-> > This series fixes the Endpoint Memory Access Descriptor (EMAD) offset calculations
-> > and adds the necessary bounds checks for both the core FF-A driver and the pKVM
-> > hypervisor.
+> > I'd rather see something based around new walk flags than introducing an
+> > entirely new mechanic around return values.
 > > 
-> > Prior to FF-A version 1.1, the memory region header didn't specify an explicit offset
-> > for the EMADs, leading to the assumption that they immediately follow the header.
-> > However, from v1.1 onwards, the specification dictates using the `ep_mem_offset` field
-> > to determine the start of the memory access array.
+> > e.g. you could split the LEAF flag into separate flags for blocks v.
+> > pages:
 > > 
-> > The patches in this series address this by:
-> > 1. Updating the core `arm_ffa` firmware driver to correctly calculate the descriptor
-> >    offset using `ep_mem_offset` rather than defaulting to `sizeof(struct ffa_mem_region)`.
-> >    It also introduces bounds checking against `max_fragsize`.
-> > 2. Enhancing the pKVM hypervisor validation logic to no longer strictly enforce that
-> >    the descriptor strictly follows the header, aligning it with the driver behavior
-> >    and the FF-A specification, while also ensuring the offset falls within the mailbox
-> >    buffer bounds.
-> >
-> 
-> Looks good apart from the minor nits, but how do you plan to route these
-> changes as they are dependent for functionality but not for the build IIUC.
->
+> > 	KVM_PGTABLE_WALK_PAGE,
+> > 	KVM_PGTABLE_WALK_BLOCK,
+> > 	KVM_PGTABLE_WALK_LEAF	= KVM_PGTABLE_WALK_PAGE |
+> > 				  KVM_PGTABLE_WALK_BLOCK,
+> > 
+> > and then let __kvm_pgtable_visit() decide how to steer the walk. You may
+> > need some special handling to get the address arithmetic right when
+> > skipping over a table of page descriptors.
 
-You can add (with minor nit fixed) my
+I am probably not getting the whole inner workings of this solution, but 
+IIUC the idea would be to walk the blocks, but not the pages, right?
 
-Reviewed-by:  Sudeep Holla <sudeep.holla@kernel.org>
+Blocks meaning level2- and pages being level3?
+ 
+> I was wondering along similar lines, but maybe it would be useful just
+> to pass a maximum level to the walker logic? That feels like the most
+> general case without complicating the existing logic.
 
-if it is routed via KVM or other tree.
+This proposal seems simpler for me to understand, and indeed looks like a 
+better solution than what I have proposed, taking care of  the 
+'already split' case with better performance, as it don't even walk a 
+single level-3 entry. 
 
--- 
-Regards,
-Sudeep
+On the 'splitting' case, it also works flawlessly if the memory is given in 
+level-2 blocks. There is only one case that I would like to address here:
+
+- Memory given in level-1 blocks (say 1GB)
+- Walker flag says 'walk down to level-2 only'
+- Split Walker on level-1 will break page down to (up to) level-3 entries.
+- Walker will continue to be called on level-2 entries, even though it's 
+  not necessary.
+
+To solve this, I would like to suggest a new flag, that skips a table 
+that has just been created. This could be easily implemented in 
+__kvm_page_visit() on top of the max level flags suggested.
+
+enum kvm_pgtable_walk_flags {
+[...]
+	KVM_PGTABLE_WALK_SKIP_LEVEL3		= BIT(7),
+	KVM_PGTABLE_WALK_SKIP_LEVEL2		= BIT(8),
+	KVM_PGTABLE_WALK_SKIP_LEVEL1		= BIT(9),
+	KVM_PGTABLE_WALK_SKIP_NEW_TABLE		= BIT(10),
+};
+
+How does that sound?
+
+Thanks!
+Leo
 
