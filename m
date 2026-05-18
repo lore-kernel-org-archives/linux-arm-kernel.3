@@ -4,112 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4926ACD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4B3CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:19:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X+Ax+1Z8oLF4pWQ3pkLQ3ol5AnvWs9B6rVDXrsxZx54=; b=k43uTMqEJYtOVWm5kdKgyYWlpM
-	PxmFVRzyQHIDZkqERSxcQ4ttu9nxjiR0a+5IkGEf6TRuKwUF51uW7Jt8xfwheZhDKfcZwdchO3fkB
-	myjwJ1nSkAtioHAHZRHcwAy9ZZRytckWrO03aN2OA9Vs+PNsu3U5hILzIUGg5scgAavVrKFFO1Fjq
-	mQeXksvRaK5wnf/tA3KOeRC2hp6yjauIs0EvnfJSfh97PtQIlYzOFJW7ueKwWo59C55rfKAv1bSzq
-	5Zo2d46Dwg88sJZcSuoy9efnQkULLlRClux4EwrMPdd/vgz+j+ZVaWtJwGgSmpjOM2ig52Vlzk4mG
-	HzaFSQmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l/eXIHQ97qvLycx7yujVJPHWnmDIXlS/vd9sn2OT4DE=; b=Y9I8tpLdTWT3RTYtCTmtN6Mh4p
+	4QnDb711n0gTCjMf8hzKPZ2+cixgJSI5t0VuS5pOqLgN8f20gnJY390pcOcE/kRE9zJbvhGnlS3rq
+	Rz/eVvV258CFxiM9W/ZYX0A3ldqxzbefswsY1RuZ4K0D+nrXqiKct8wB5TC5D1cQ5JOdiaVhqmp3x
+	lEicxqOjAEqKUBa5Nq2HmZ8wQrxFqJFVfJva15deiJFOQWdYNOL3q/9NWOxVNiTBOMJAjNw9n3A05
+	tfITftaP+/6sCxTjqNTb8jFUJ75kaxBCy8CNzQDtAJ7SSF+8z4zvO1RWnHjev3Wv1xNEB+DWL8l93
+	e+yQdE6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOt6s-0000000EjOD-1iwx;
-	Mon, 18 May 2026 08:13:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOtCK-0000000EkV9-0v0N;
+	Mon, 18 May 2026 08:19:36 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOt6q-0000000EjNM-3uf6
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 08:13:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=X+Ax+1Z8oLF4pWQ3pkLQ3ol5AnvWs9B6rVDXrsxZx54=; b=WpMaJ003RwWpb2huwjpUAe05MO
-	pnqMi5Scp1VR1rd73wrwNXsqV7HSkFUxKf82u7D8197Fr4e/AP0tix+2VIihXW/VA2qTn1JGPJRag
-	KyJMTX0x9XQSYX2mXG9kIdNKAaYUxnRlqWR+7fPntaKlpzTHHDgkdze6x8lgcMKEjP89mYxS5hchs
-	AUnk+J47GWCyDI4k8yI5KMNnIzoyRLGASDNyWCvAR4rxP3ViFRSR2UxOblUBVcHdexjnAs/wRFEwx
-	zhE03Z5B46odwdmh1emuzmjhqeQUYtOAgdLDGCuispDy4g0rzNyLJbYCbv3NloUdIRWFmjxX1jm4V
-	fxlsa05Q==;
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOt6n-0000000AJXw-1ldH
+	id 1wOtCG-0000000EkU5-272o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:13:55 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c70fb6aa323so694524a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 01:13:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779092031; x=1779696831; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X+Ax+1Z8oLF4pWQ3pkLQ3ol5AnvWs9B6rVDXrsxZx54=;
-        b=IwnMANauh8eZD4Wa72WpEaunmjYz0SdfPSuPVWd23PaIspKTo9lYG4VycfsbwMeny4
-         Fpp0BoxWPj2wLHqGk24V9NdQsd+p5TXfh+vqK3HcBjbaEZCTP2XF85To4jnsRiQGCuBT
-         YbQyi+BlsImnBO+G1goLqgUAJu4fRQ7+eJ87DJfzVitQtolu9hnkCe4cCK1yIxC+uTy1
-         UbWgYgrn9ePIGP8bvTtISNv7N+454emZllslCBetI+zCBkl+cov3fuFOSmnyzPjswm42
-         BblxJUHLXmuuJVch7/CaPBOqoKoGpUb3e2iEGlTpPugLlJiQ9cRt8BEWYkk5SHkesg96
-         eiBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779092031; x=1779696831;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=X+Ax+1Z8oLF4pWQ3pkLQ3ol5AnvWs9B6rVDXrsxZx54=;
-        b=I8ZhoSsBFfpgMQOwPi2+bSCrQrvjz2lmpkfbhxm6KWcnzSx+F7/A782NT5wsr35mkY
-         34HDfVfvVPE90qi78O+c1gDUhTg4pKX236SDOAQPM2VR5Lg6a5H+kS5SF7EOSJVxt0f+
-         dHyeurkk4ZabDJ1CVT6+BZua+CzhvKMcC3MyDXqFHr7awMehBVA8yM3XaG+rC3VT4tXX
-         jlUyRlDyFgjXdvyPvsYwDL1LwpBAy4vDpjNg0aNLrEMaBWuuG3om7pX7tO1xh8RhZICS
-         0xEyRUnWA0upcIs3WT+mmytPC8D7+6G9TIBXejuuuu5XWakqPP6+B5uMecnxaL87HHVM
-         Lg3Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+Wf2XArgn6mnntiFap+qd63sA95xY8RNFQ3tQi5cMMl3o4qa3mWMvpUiDwPEs7ODAcJnzvqE4WQdaQxGthc49X@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeGj2PAjNZDouq/WFcWBYmumIyspw8OzHi8mqFDVLMsaFpxLOI
-	OYZuJRPYqU6RW/RNAu+oD1NrQU6qAjCZhCKSl1NplZgLXySW4KYkHnGM
-X-Gm-Gg: Acq92OFPWYiYOFRsBfuyscbftOim3O74pROwIbXnvzvoAAdoztXPDuPBlfIAzMIXC54
-	N/jkNs0gc9ANZ/xbUOU/cjDGsVG7ykWSpxS4/Y98akwc8Ik9aCtKD1/hbAynDfhkQCwxn+ObXDW
-	RPiiwA/VAhDNqsZFnuNO7hXSH8LBOAjfzsQjJHG2tuqHZbG6sO7lCe0fNQqHjpWe+2YKfhsBpnb
-	L+/ZTYgC3PfyNsZlIJd7DwjrKIg04zmtIhiu4ggmPHm9vWD8m/Ind//DDAqZwTBSbB3QJZaA1eW
-	EwX7U922vQdNI3q0fD/CmdiejcLUKYPuFK7IL/ZBDqIvZx3REatVoltwrHl7d0vaoSOFrVKuFzz
-	ZXhtXnqscF4CexrSRsEpuTVQpZ5jQjnhe7WiHv0ssPD8HVyqDjHzXr5ovbu2Gcy4T1k25pcq7qi
-	eDM4uWVCTqhV/lwJKBEoxpnnwuI0lvZ48aCkaSSjGSHZmU02p84M/V3q9Z+ZGiRQbVd9mNu+5jB
-	Tjq+SE4mxYCHAC8ABY10kfT
-X-Received: by 2002:a05:6a21:33a8:b0:3b2:86eb:335b with SMTP id adf61e73a8af0-3b286eb353dmr4619924637.11.1779092030725;
-        Mon, 18 May 2026 01:13:50 -0700 (PDT)
-Received: from open.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb100706sm12749462a12.17.2026.05.18.01.13.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 01:13:50 -0700 (PDT)
-From: Neil Cheng <neilcheng0417@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	joel@jms.id.au,
-	andrew@codeconstruct.com.au,
-	geert+renesas@glider.be,
-	magnus.damm@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	Neil Cheng <neilcheng0417@gmail.com>
-Subject: [PATCH 2/2] ARM: dts: aspeed: rainiera6: Add Meta Rainiera6 BMC
-Date: Mon, 18 May 2026 16:13:25 +0800
-Message-Id: <afee3ea3d6d697d039ce97cc7add47e97bbdab4e.1779088499.git.neilcheng0417@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <cover.1779088499.git.neilcheng0417@gmail.com>
-References: <cover.1779088499.git.neilcheng0417@gmail.com>
+	Mon, 18 May 2026 08:19:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dLgG8a7anz5ypulAKsniqE+61Y2YWUWPhF0q7WEEhqmyJ5RkxdqLhY86gdxLfvh8y9pYkq3N7KlrCghPEZvmdvJX2I09Dqf3cHupOrbN5cBpso49x+1lUz0HWLZ7SGGZPS/YsYAfzQPuFw1eU6E1i2vwV2jW1/NaniZTEaiB2MgqE0g1KtpoElPhlrvcOs0awcgLtklx05Tuxp3aCi4QUmsUyLQoHOXIMeHdj1tf2Vod1jUx0JAIb/0GUNKYmQQ2C+35Cpdcfp7QODuffJ+kjCmCh+sUBXjDwSMCIJkjb5frvu8vgUzcaOq+POC/dEmpscq05ItNUA9DhF9e086iUw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l/eXIHQ97qvLycx7yujVJPHWnmDIXlS/vd9sn2OT4DE=;
+ b=JQrakeGotb7gc3o31lPWH9wpo7Ds2ERzFhe3DJKJGR0LGwwtL5PnF3B8iZEgUK+DaAWTaxn9ZK+30uH7jyl8qnSF6F65WjdzFjbeylNmjSAjHE8r9di87Cf1mUHl7syLmFDiNRTNbBvWB1OwVrnIw9LGOwuQgrTi9u10LhlV3uSJn4zs1lKnJP9MpLtTdke20uUs8S+7p35qON7+zHB13pLdNGX2A/53ZW8Hd97P4m0I5k8ucW7pb97q8/VUpfQKuwOiNl7RvPeqYhqTgBzmixFiaNO/Kr8ZtzqUnTnwVFkGFMQYFs602IyJblgxgsX8ZtC28xsy+sNlIbmAMTBBwg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l/eXIHQ97qvLycx7yujVJPHWnmDIXlS/vd9sn2OT4DE=;
+ b=eSby0OBHJdmkaMLdY3g3QxtDMaSkd8VMZo1ueg6dpvBmf725ADYfHOIJ9quf4V9Ie72oDVLmo/QzavMI9dN2gz3NnF+eygSfiPODMYmQ2Di4lwE8FwfCjihtp4B0/GL6ywEks411Z8ANQplxAh8pgcl+GzlDV8JLT7V4Fv6Z3N4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
+ by DM4PR12MB7647.namprd12.prod.outlook.com (2603:10b6:8:105::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Mon, 18 May
+ 2026 08:19:21 +0000
+Received: from CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee]) by CH3PR12MB9194.namprd12.prod.outlook.com
+ ([fe80::1e6b:ca8b:7715:6fee%6]) with mapi id 15.21.0025.022; Mon, 18 May 2026
+ 08:19:21 +0000
+Message-ID: <d185a616-14dc-4697-865a-2729d00f57e3@amd.com>
+Date: Mon, 18 May 2026 18:19:00 +1000
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+ iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
+Cc: Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh <smostafa@google.com>,
+ Petr Tesarik <ptesarik@suse.com>, Dan Williams <dan.j.williams@intel.com>,
+ Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+ <20260512090408.794195-5-aneesh.kumar@kernel.org>
+From: Alexey Kardashevskiy <aik@amd.com>
+Content-Language: en-US
+In-Reply-To: <20260512090408.794195-5-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SY5P282CA0180.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:249::29) To CH3PR12MB9194.namprd12.prod.outlook.com
+ (2603:10b6:610:19f::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|DM4PR12MB7647:EE_
+X-MS-Office365-Filtering-Correlation-Id: ee6ad031-f696-408c-3749-08deb4b629ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|22082099003|18002099003|56012099003|4143699003|11063799003;
+X-Microsoft-Antispam-Message-Info: LdC9a9AdRvNWza1jm6bJOBgNeo6Vg+OcWiun/TF1tZZqjs6DWJl+F1eotSvD10mdGGkQZpWRaQRaDwJSu6w62WG9Pk8TI+5RSxkBZIKgvBeMRfy/jHirq6Jv254Nk+L3H0PBJyDBegaRVN4QpCBHaxregtdYE/KdXPOPjMMzWvsJIbvEfCCAGQ+KN8MMClNhKD4CgwnpVVmZNtgzSYtYTz97YcZnPnAcCSRdFO1jLijxxymg2FmgLcGp0QRm1FqPJ5BQcTK2u7A4+PI+szS1GosBk2a8C8Kfg8C/g+AyfPXnBXVavWNET+iQLuEugWsdbAUOMSkzNqFfmqdqZdeE6C0WhPBKiPMlFTz8Sz5EiSpuQGP10fRDDzSHoCG0MhJWSJRykmfQQ7lCvpcIHhsdXl+sz/BcItf8Qm7BIcouecJgj6m3jIsXA++06qPrY5H3yFXhb5j7hLk5kRmXBNY0dGgiwWrPxAXcjpnHP62gh4y5pMlVz9B9u64jG/kZhJgzzBIklhUqG4J5G4d6x2FmEOEKkAhpXD578w0Tn8dU6Ym51B4ESZGx+LSsFz8QtiMsqumGHiJL2h7DDogYOxup1dCwDjlGoucad1UDe59kgEsIxviTKmV4kntYMg2hot/Q4sNQboKURGLACMJXN0ZKFd3cLsv3yy7OWf4ELZs4IUm0nv/t0dLaVJWtm2dBzFj8
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(22082099003)(18002099003)(56012099003)(4143699003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0VadTd0M1FHWC90VXo5YURQdXc3TExMcnZqRXE2Si81M0lNQ0RaODVHcjA4?=
+ =?utf-8?B?VkppL3hTQk91VkxyVlNKUDJRWmRYUXVId0RuVDg5ell4VndGQllSSkRaZTRp?=
+ =?utf-8?B?TjRQbDlXS0syYjQ3NXBzbUlqVVM1dGpxQkc2a0wyanhVVkVrKzA4SXVPcm9x?=
+ =?utf-8?B?eld0cmtFRVJCc3E4QnJVRlVtNUlDSjNQc1ZjOGFpSnBPZCtZV0NJRHd4eDNX?=
+ =?utf-8?B?bXRlN3VtNFhjS3N1dVZUM0kxY0ZsQjFqOEJMWEhMWnpWejF0Q3hYZnJONjcr?=
+ =?utf-8?B?S0t3dzZjaDdxK0UrUC9oMmMyMU5WRFErRDl4bGo2VVZNMkdXbGg5UkZCbjJU?=
+ =?utf-8?B?NTRNTkltS2dhQk9UMlVFQ0dZeThjZEk0S29RL3gyQWZWanh2N2RONEprTmxG?=
+ =?utf-8?B?c0JiN2VnMEpCMzE0WTh3bjY5SFpBdk00K2RVUW0wbmZxdzhqTVVQWVNsTnVQ?=
+ =?utf-8?B?R2NOaGVLY0JlN3NtUUE4aWpRSjF4bFpYdWVxWERpaUE3VTA0VEd0NE1yTXM4?=
+ =?utf-8?B?UHhNOEZUbnd3YW1xYTdQN2VKcFRKVy96b0h3blY5OVRFcmQ0b25nNUtsNlBG?=
+ =?utf-8?B?cGgzQjgrWFB4a09KbGdWV2gvWEc2UXZRaXJJVzIyL29hVS9ib1llYzdmSWNR?=
+ =?utf-8?B?a2xWblhKNVdsMDZxbjU0THJDUFByNm56d2Nlc0tIVmFPQzRZYlJHOEczbnRz?=
+ =?utf-8?B?bXJrcFFuT0tmSXhuOVZDK0VFck0xTXFoalFLWmNHOFQ2VXNYVzBHZndBUWtQ?=
+ =?utf-8?B?ZVM5NFg5MUhlbGdVaExyVUxmSit6TEp5a2hyckhuQXNqdHI3dWkvWnk2c3RP?=
+ =?utf-8?B?UEEwVEo2d3o4ZlprTW13WjN0TFAyZjkybHY1T1crSWorRzZRNlZBOHltaWtX?=
+ =?utf-8?B?M0tTY1FDaTFzZEtlaG5qcTJtRDlsdUlpMlBJRHozWDgwMjg2RG0vVm91Zmtp?=
+ =?utf-8?B?ZmxnZDZWNGRqeXNSYVVMNHFwYzNRQ1Zlc1J2S1dya3lPS0VYZnFqVDV3NUhh?=
+ =?utf-8?B?ZmhJTWQwQmM5anlZMDlaWkl3L243VXpxbi9MWFk1VWkxVXNYdXgrQ2d5QXRi?=
+ =?utf-8?B?azIyZjdVSDV4SlR1cGZyWW8xd3hoSzlLejFiY0E0S3RpRmk2RjFEVGRHYUJ3?=
+ =?utf-8?B?MlB6N2tkeXBiaGd2VmR5RjhMcXVFcUhqMFFJODJQMm1YRHRrZk96Nnkwa3JQ?=
+ =?utf-8?B?bkFDbjlaNHNyZHpaaGIvV2JubW84UWREYlF0bE1XYTM2NW9jSXJ0bTB4M1FU?=
+ =?utf-8?B?aGhwbzlRVmZhT2NBUFpLOWVyR0NrNERBMUZEQWZZSTlObEF1Q0RrS1E2OGY1?=
+ =?utf-8?B?TXVMbmt4b0MrWXV2NzZmMlVjTnJBcnprWkg3MkkreHJkWGtHVVhJMUxjU3dN?=
+ =?utf-8?B?bGZnM1oyL3FBVTlVQU9EcFRQVzh4Sk4xNFdMU1hPdkdobnJVejJYd0Jmeit3?=
+ =?utf-8?B?K2tjcUVPYUZJdTM3V3hrT1ZnRDc2TjdJZExOT013bVZUQUVsQ2Z4UDVIbjJk?=
+ =?utf-8?B?ZU5KQlllVExKTjdpVjdXTHlKc1daVWZoMzBHbkFBQW81cHhsOUNMcjBnNThl?=
+ =?utf-8?B?bUNuZHJVSW9pRDB5dzZTN3ZwUVc5ZU03dU8wYWUxVkk4cEtzdFh0ZmdRUldR?=
+ =?utf-8?B?d05zTTk2cjVySWpNODc0QVEwTTNJMUFGdUhHQVFOckhVS2tSWkxWNDhaek45?=
+ =?utf-8?B?WkYvNmxoY0t6b3JFZzdYTnhMS0JkKzdaOFFMQVBOVFFHZXJPV0xTV3BnZyt2?=
+ =?utf-8?B?YTFHQ2Uva2l1aEhteHJCWGVmcmJzWTlDajhmeGFKZi9oRmdIQ3RhaGpOSzdY?=
+ =?utf-8?B?dFJYVktuMDdBa1oxM2VrVlBLbGM3emwyNWI1b3VJUGM0amdEYk1VdmRPbC9G?=
+ =?utf-8?B?bC9WZ09sWU10NEdMTWR3RE9VendRaDV0T1MvZlJNSWhEdzdiaEcwWitlRjR6?=
+ =?utf-8?B?bzVWSlZsb2hva1ErbWhPdTV1THptZVRNRmhvRWo0bmhrRGtVajRIbStoeGFU?=
+ =?utf-8?B?QldBRmc2N240dzM5aTNqemJhYmhNMERqc09sRE5QcWFwOFUwWGszVk5pcHRY?=
+ =?utf-8?B?YjlMS1pvTFJHUk1CQ3RwODZzSjVIckFYRndpdWYxVHV2UE9jQ3N0MVpVZ1RG?=
+ =?utf-8?B?QlNwdlkyZDJFUC9NY2hKNXV1SHNySG1mbUF6Tmc4aDNyMEgzMUF2ZFRBaXRp?=
+ =?utf-8?B?QWF5THRRSHVBL2gyb3IxVFJmbW13eERIYXJxVXNXL0tONzNwaVYrckhTRVQz?=
+ =?utf-8?B?amcrMjBadHVxSVB1SnBpQi9SODZFOWJXbHIzb2ZrOEJOS01QVXVmQU5RTnYy?=
+ =?utf-8?B?NjFCdDk1RTVXaDhGZGFlREIzQXU2cDAxcFgxTjZGSlo2bVZrcGVMUT09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee6ad031-f696-408c-3749-08deb4b629ee
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 08:19:21.5776
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kXLEcjiq1bevEgDbd7B4TYLV7y/Sa2uyDx5gDvz4dsl6qtye0wDCqK3aAyjoQoEUzTNJeVAmowIQYIr/wC8HyQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7647
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_091354_211920_7FC9D3CF 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20260518_011932_648141_1C2FE380 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,1047 +163,461 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree for the Meta (Facebook) Rainiera6 compute node, based on
-AST2600 BMC.
+On 12/5/26 19:03, Aneesh Kumar K.V (Arm) wrote:
+> Teach swiotlb to distinguish between encrypted and decrypted bounce
+> buffer pools, and make allocation and mapping paths select a pool whose
+> state matches the requested DMA attributes.
+> 
+> Add a decrypted flag to io_tlb_mem, initialize it for the default and
+> restricted pools, and propagate DMA_ATTR_CC_SHARED into swiotlb pool
+> allocation. Reject swiotlb alloc/map requests when the selected pool does
+> not match the required encrypted/decrypted state.
+> 
+> Also return DMA addresses with the matching phys_to_dma_{encrypted,
+> unencrypted} helper so the DMA address encoding stays consistent with the
+> chosen pool.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>   include/linux/dma-direct.h |  10 ++++
+>   include/linux/swiotlb.h    |   8 ++-
+>   kernel/dma/direct.c        |  14 +++--
+>   kernel/dma/swiotlb.c       | 108 +++++++++++++++++++++++++++----------
+>   4 files changed, 107 insertions(+), 33 deletions(-)
+> 
+> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+> index c249912456f9..94fad4e7c11e 100644
+> --- a/include/linux/dma-direct.h
+> +++ b/include/linux/dma-direct.h
+> @@ -77,6 +77,10 @@ static inline dma_addr_t dma_range_map_max(const struct bus_dma_region *map)
+>   #ifndef phys_to_dma_unencrypted
+>   #define phys_to_dma_unencrypted		phys_to_dma
+>   #endif
+> +
+> +#ifndef phys_to_dma_encrypted
+> +#define phys_to_dma_encrypted		phys_to_dma
+> +#endif
+>   #else
+>   static inline dma_addr_t __phys_to_dma(struct device *dev, phys_addr_t paddr)
+>   {
+> @@ -90,6 +94,12 @@ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+>   {
+>   	return dma_addr_unencrypted(__phys_to_dma(dev, paddr));
+>   }
+> +
+> +static inline dma_addr_t phys_to_dma_encrypted(struct device *dev,
+> +		phys_addr_t paddr)
+> +{
+> +	return dma_addr_encrypted(__phys_to_dma(dev, paddr));
+> +}
+>   /*
+>    * If memory encryption is supported, phys_to_dma will set the memory encryption
+>    * bit in the DMA address, and dma_to_phys will clear it.
+> diff --git a/include/linux/swiotlb.h b/include/linux/swiotlb.h
+> index 3dae0f592063..b3fa3c6e0169 100644
+> --- a/include/linux/swiotlb.h
+> +++ b/include/linux/swiotlb.h
+> @@ -81,6 +81,7 @@ struct io_tlb_pool {
+>   	struct list_head node;
+>   	struct rcu_head rcu;
+>   	bool transient;
+> +	bool unencrypted;
+>   #endif
+>   };
+>   
+> @@ -111,6 +112,7 @@ struct io_tlb_mem {
+>   	struct dentry *debugfs;
+>   	bool force_bounce;
+>   	bool for_alloc;
+> +	bool unencrypted;
+>   #ifdef CONFIG_SWIOTLB_DYNAMIC
+>   	bool can_grow;
+>   	u64 phys_limit;
+> @@ -282,7 +284,8 @@ static inline void swiotlb_sync_single_for_cpu(struct device *dev,
+>   extern void swiotlb_print_info(void);
+>   
+>   #ifdef CONFIG_DMA_RESTRICTED_POOL
+> -struct page *swiotlb_alloc(struct device *dev, size_t size);
+> +struct page *swiotlb_alloc(struct device *dev, size_t size,
+> +		unsigned long attrs);
+>   bool swiotlb_free(struct device *dev, struct page *page, size_t size);
+>   
+>   static inline bool is_swiotlb_for_alloc(struct device *dev)
+> @@ -290,7 +293,8 @@ static inline bool is_swiotlb_for_alloc(struct device *dev)
+>   	return dev->dma_io_tlb_mem->for_alloc;
+>   }
+>   #else
+> -static inline struct page *swiotlb_alloc(struct device *dev, size_t size)
+> +static inline struct page *swiotlb_alloc(struct device *dev, size_t size,
+> +		unsigned long attrs)
+>   {
+>   	return NULL;
+>   }
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index dc2907439b3d..97ae4fa10521 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -104,9 +104,10 @@ static void __dma_direct_free_pages(struct device *dev, struct page *page,
+>   	dma_free_contiguous(dev, page, size);
+>   }
+>   
+> -static struct page *dma_direct_alloc_swiotlb(struct device *dev, size_t size)
+> +static struct page *dma_direct_alloc_swiotlb(struct device *dev, size_t size,
+> +		unsigned long attrs)
+>   {
+> -	struct page *page = swiotlb_alloc(dev, size);
+> +	struct page *page = swiotlb_alloc(dev, size, attrs);
+>   
+>   	if (page && !dma_coherent_ok(dev, page_to_phys(page), size)) {
+>   		swiotlb_free(dev, page, size);
+> @@ -266,8 +267,12 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+>   						  gfp, attrs);
+>   
+>   	if (is_swiotlb_for_alloc(dev)) {
 
-Signed-off-by: Neil Cheng <neilcheng0417@gmail.com>
----
- arch/arm/boot/dts/aspeed/Makefile             |    1 +
- .../aspeed/aspeed-bmc-facebook-rainiera6.dts  | 1012 +++++++++++++++++
- 2 files changed, 1013 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts
+here we know it is shared so ...
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index 767f7c7652d5..215429af1135 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -34,6 +34,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-facebook-harma.dtb \
- 	aspeed-bmc-facebook-minerva.dtb \
- 	aspeed-bmc-facebook-minipack.dtb \
-+	aspeed-bmc-facebook-rainiera6.dtb \
- 	aspeed-bmc-facebook-santabarbara.dtb \
- 	aspeed-bmc-facebook-tiogapass.dtb \
- 	aspeed-bmc-facebook-wedge40.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts
-new file mode 100644
-index 000000000000..2c8c983db677
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts
-@@ -0,0 +1,1012 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+// Copyright (c) 2026 Facebook Inc.
-+
-+/dts-v1/;
-+#include "aspeed-g6.dtsi"
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+#include <dt-bindings/i2c/i2c.h>
-+
-+/ {
-+	model = "Facebook Rainier BMC";
-+	compatible = "facebook,rainiera6-bmc", "aspeed,ast2600";
-+
-+	aliases {
-+		i2c16 = &i2c5mux0ch0;
-+		i2c17 = &i2c5mux0ch1;
-+		i2c18 = &i2c5mux1ch0;
-+		i2c19 = &i2c5mux1ch1;
-+		i2c20 = &i2c6mux0ch0;
-+		i2c21 = &i2c6mux0ch1;
-+		i2c22 = &i2c6mux0ch2;
-+		i2c23 = &i2c6mux0ch3;
-+		i2c24 = &i2c8mux0ch0;
-+		i2c25 = &i2c8mux0ch1;
-+		i2c26 = &i2c8mux0ch2;
-+		i2c27 = &i2c8mux0ch3;
-+		i2c28 = &i2c26mux0ch0;
-+		i2c29 = &i2c26mux0ch1;
-+		i2c30 = &i2c26mux0ch2;
-+		i2c31 = &i2c26mux0ch3;
-+		serial0 = &uart1;
-+		serial2 = &uart3;
-+		serial3 = &uart4;
-+		serial4 = &uart5;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial4:57600n8";
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
-+					  <&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
-+					  <&adc1 2>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			label = "bmc_heartbeat_amber";
-+			gpios = <&gpio0 ASPEED_GPIO(P, 7) GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-1 {
-+			label = "fp_id_amber";
-+			default-state = "off";
-+			gpios = <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-2 {
-+			label = "power_fault_amber";
-+			default-state = "off";
-+			gpios = <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x80000000>;
-+	};
-+
-+	p1v8_adc_vref: regulator-p1v8-aux {
-+		compatible = "regulator-fixed";
-+		regulator-name = "p1v8_adc_vref";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
-+	spi_gpio: spi {
-+		compatible = "spi-gpio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		sck-gpios = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
-+		mosi-gpios = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
-+		miso-gpios = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
-+		cs-gpios = <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
-+		num-chipselects = <1>;
-+		status = "okay";
-+
-+		tpm@0 {
-+			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
-+			spi-max-frequency = <33000000>;
-+			reg = <0>;
-+		};
-+	};
-+};
-+
-+&adc0 {
-+	vref-supply = <&p1v8_adc_vref>;
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
-+				 &pinctrl_adc2_default &pinctrl_adc3_default
-+				 &pinctrl_adc4_default &pinctrl_adc5_default
-+				 &pinctrl_adc6_default &pinctrl_adc7_default>;
-+};
-+
-+&adc1 {
-+	aspeed,int-vref-microvolt = <2500000>;
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_adc10_default>;
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&fmc {
-+	status = "okay";
-+
-+	flash@0 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "bmc";
-+		spi-max-frequency = <50000000>;
-+#include "openbmc-flash-layout-128.dtsi"
-+	};
-+
-+	flash@1 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "alt-bmc";
-+		spi-max-frequency = <50000000>;
-+	};
-+};
-+
-+&gpio0 {
-+	gpio-line-names =
-+	/*A0-A7*/	"","","","","","","","",
-+	/*B0-B7*/	"BATTERY_DETECT","","BMC_I2C1_FPGA_ALERT_L","BMC_READY_R",
-+				"IOEXP_INT_3V3_L_R1","FM_ID_LED","","",
-+	/*C0-C7*/	"BMC_GPIOC0","","","","PMBUS_REQ_N","PSU_FW_UPDATE_REQ_N","",
-+				"BMC_I2C_SSIF_ALERT_L",
-+	/*D0-D7*/	"","","","","BMC_GPIOD4","","","",
-+	/*E0-E7*/	"BMC_GPIOE0","BMC_GPIOE1","","","","","","",
-+	/*F0-F7*/	"","","","","","","","",
-+	/*G0-G7*/	"FM_BMC_MUX1_SEL_R","","","","","","FM_DEBUG_PORT_PRSNT_R1_N",
-+			"FM_BMC_DBP_PRESENT_R_N",
-+	/*H0-H7*/	"","","","","","","","",
-+	/*I0-I7*/	"","","","","","FLASH_WP_STATUS_R1","BMC_JTAG_MUX_SEL","",
-+	/*J0-J7*/	"","","","","","","","",
-+	/*K0-K7*/	"","","","","","","","",
-+	/*L0-L7*/	"","","","","","","","",
-+	/*M0-M7*/	"PCIE_EP_RST_EN","BMC_FRU_WP","SCM_HPM_STBY_RST_N",
-+				"SCM_HPM_STBY_R_EN","STBY_POWER_PG_3V3_R","TH500_SHDN_OK_L","","",
-+	/*N0-N7*/	"LED_POSTCODE_0","LED_POSTCODE_1","LED_POSTCODE_2",
-+				"LED_POSTCODE_3","LED_POSTCODE_4","LED_POSTCODE_5",
-+				"LED_POSTCODE_6","LED_POSTCODE_7",
-+	/*O0-O7*/	"RUN_POWER_PG","PWR_BRAKE_L","CHASSIS_AC_LOSS_L",
-+				"BSM_PRSNT_R_N","PSU_SMB_ALERT_L","FM_TPM_PRSNT_0_N",
-+				"PSU_FW_UPDATING_N","DEBUG_CARD_BYPASS",
-+	/*P0-P7*/	"PWR_BTN_BMC_R1_N","IPEX_CABLE_PRSNT_L","ID_RST_BTN_BMC_R_N",
-+				"RST_BMC_RSTBTN_OUT_R_N","BMC_PWR_LED","RUN_POWER_EN",
-+				"SHDN_FORCE_L","BMC_HEARTBEAT_N",
-+	/*Q0-Q7*/	"IRQ_PCH_TPM_SPI_LV3_N","USB_OC0_REAR_R_N","UART_MUX_SEL",
-+				"I2C_MUX_RESET_L","RSVD_NV_PLT_DETECT","SPI_TPM_INT_L",
-+				"CPU_JTAG_MUX_SELECT","THERM_BB_OVERT_L",
-+	/*R0-R7*/	"THERM_BB_WARN_L","SPI_BMC_FPGA_INT_L","CPU_BOOT_DONE",
-+				"PMBUS_GNT_L","CHASSIS_PWR_BRK_L","PCIE_WAKE_L","PDB_THERM_OVERT_L",
-+				"SHDN_REQ_L",
-+	/*S0-S7*/	"","","SYS_BMC_PWRBTN_R_N","FM_TPM_PRSNT_1_N",
-+				"FM_BMC_DEBUG_SW_N","UID_LED_N","SYS_FAULT_LED_N",
-+				"RUN_POWER_FAULT_L",
-+	/*T0-T7*/	"","","","","","","","",
-+	/*U0-U7*/	"","","","","","","","",
-+	/*V0-V7*/	"L2_RST_REQ_OUT_L","L0L1_RST_REQ_OUT_L","BMC_ID_BEEP_SEL_R1",
-+				"BMC_I2C0_FPGA_ALERT_L","SMB_BMC_TMP_ALERT","PWR_LED_N",
-+				"SYS_RST_OUT_L","IRQ_TPM_SPI_N",
-+	/*W0-W7*/	"","","","","","","","",
-+	/*X0-X7*/	"","FM_DBP_CPU_PREQ_GF_N_R1","","","","","","",
-+	/*Y0-Y7*/	"","RST_BMC_SELF_HW_R1","FM_FLASH_LATCH_N_R1","",
-+				"BMC_GPIOY4_R","BMC_GPIOY5_R","","",
-+	/*Z0-Z7*/	"","","","","","","BMC_GPIOZ6_R","BMC_GPIOZ7_R";
-+};
-+
-+&gpio1 {
-+	gpio-line-names =
-+	/*18A0-18A7*/	"","","","","","","","",
-+	/*18B0-18B7*/	"","","","","FM_BOARD_BMC_REV_ID0","FM_BOARD_BMC_REV_ID1",
-+			"FM_BOARD_BMC_REV_ID2","",
-+	/*18C0-18C7*/	"","","SPI_BMC_BIOS_ROM_IRQ0_R_N","","","","","",
-+	/*18D0-18D7*/	"","","","","","","","",
-+	/*18E0-18E3*/	"FM_BMC_PROT_LS_EN","AC_PWR_BMC_BTN_R_N","","";
-+};
-+
-+/* Rainiera6 SoC SSIF */
-+&i2c1 {
-+	status = "okay";
-+
-+	ssif_bmc: ssif-bmc@10 {
-+		compatible = "ssif-bmc";
-+		reg = <0x10>;
-+		status = "okay";
-+	};
-+};
-+
-+/* MCIO 2A I2C */
-+&i2c2 {
-+	status = "okay";
-+};
-+
-+&i2c4 {
-+	multi-master;
-+	mctp-controller;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+	};
-+
-+	/* OCP NIC TEMP */
-+	temperature-sensor@1f {
-+		compatible = "ti,tmp421";
-+		reg = <0x1f>;
-+	};
-+
-+	/* OCP NIC FRU EEPROM */
-+	eeprom@50 {
-+		compatible = "atmel,24c64";
-+		reg = <0x50>;
-+	};
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+
-+	gpio-expander@22 {
-+		compatible = "nxp,pca9535";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"JTAG_BMC_IOEXP_MUX_OE", "JTAG_BMC_MCIO_MUX_S1",
-+			"JTAG_BMC_MCIO_MUX_S0", "JTAG_IOEXP_BMC_MUX_SEL",
-+			"FM_USB_MUX_1_OE_N", "FM_USB_MUX_2_OE_N",
-+			"PROGRAMN_CPLD", "",
-+			"", "",
-+			"", "",
-+			"", "",
-+			"", "";
-+	};
-+
-+	/* I2C MUX for MCIO 1A */
-+	i2c-mux@70 {
-+		compatible = "nxp,pca9546";
-+		reg = <0x70>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux0ch0: i2c@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c5mux0ch1: i2c@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
-+
-+	/* I2C MUX for MCIO 0A */
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9546";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux1ch0: i2c@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c5mux1ch1: i2c@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
-+};
-+
-+&i2c6 {
-+	status = "okay";
-+
-+	/* I2C MUX for PWRPIC #13 ~ #16 */
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9546";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		/* PWRPIC #13 */
-+		i2c6mux0ch0: i2c@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		/* PWRPIC #14 */
-+		i2c6mux0ch1: i2c@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		/* PWRPIC #16 */
-+		i2c6mux0ch2: i2c@2 {
-+			reg = <2>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		/* PWRPIC #15 */
-+		i2c6mux0ch3: i2c@3 {
-+			reg = <3>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
-+};
-+
-+&i2c7 {
-+	multi-master;
-+	status = "okay";
-+
-+	ipmb@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+		i2c-protocol;
-+	};
-+};
-+
-+&i2c8 {
-+	status = "okay";
-+
-+	power-monitor@14 {
-+		compatible = "infineon,xdp710";
-+		reg = <0x14>;
-+	};
-+
-+	adc@1d {
-+		compatible = "ti,adc128d818";
-+		reg = <0x1d>;
-+		ti,mode = /bits/ 8 <1>;
-+	};
-+
-+	/* PDB IOEXP0 */
-+	pdb_io_expander0: gpio-expander@24 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x24>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <92 IRQ_TYPE_LEVEL_LOW>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"FM_P52V_AUX_FLT_N","FM_P12V_AUX_ALERT_N",
-+			"FM_SLOT1_HSC_FAULT","FM_SLOT2_HSC_FAULT",
-+			"FM_SLOT3_HSC_FAULT","FM_SLOT4_HSC_FAULT",
-+			"FM_SLOT5_HSC_FAULT","FM_SLOT6_HSC_FAULT",
-+			"PRSNT_FAN0","PRSNT_FAN1",
-+			"PRSNT_FAN2","PRSNT_FAN3",
-+			"","",
-+			"","INT_SLOT";
-+	};
-+
-+	/* PDB IOEXP1 */
-+	gpio-expander@25 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x25>;
-+		interrupt-parent = <&pdb_io_expander0>;
-+		interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"SLOT1_CM_UPDATE","SLOT2_CM_UPDATE",
-+			"SLOT3_CM_UPDATE","SLOT4_CM_UPDATE",
-+			"SLOT5_CM_UPDATE","SLOT6_CM_UPDATE",
-+			"","",
-+			"","",
-+			"","",
-+			"","",
-+			"","";
-+	};
-+
-+	power-sensor@40 {
-+		compatible = "ti,ina238";
-+		reg = <0x40>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	/* PADDLE BD IOEXP */
-+	gpio-expander@41 {
-+		compatible = "nxp,pca9536";
-+		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"HSC_OC_GPIO0", "HSC_OC_GPIO1",
-+			"HSC_OC_GPIO2", "HSC_OC_GPIO3";
-+	};
-+
-+	power-sensor@42 {
-+		compatible = "ti,ina238";
-+		reg = <0x42>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-monitor@43 {
-+		compatible = "lltc,ltc4287";
-+		reg = <0x43>;
-+		shunt-resistor-micro-ohms = <100>;
-+	};
-+
-+	power-sensor@44 {
-+		compatible = "ti,ina238";
-+		reg = <0x44>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-sensor@45 {
-+		compatible = "ti,ina238";
-+		reg = <0x45>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-monitor@46 {
-+		compatible = "mps,mp5998";
-+		reg = <0x46>;
-+	};
-+
-+	power-monitor@47 {
-+		compatible = "ti,tps25990";
-+		reg = <0x47>;
-+		ti,rimon-micro-ohms = <430000000>;
-+	};
-+
-+	temperature-sensor@48 {
-+		compatible = "ti,tmp75";
-+		reg = <0x48>;
-+	};
-+
-+	temperature-sensor@49 {
-+		compatible = "ti,tmp75";
-+		reg = <0x49>;
-+	};
-+
-+	/* PDB FRU */
-+	eeprom@56 {
-+		compatible = "atmel,24c128";
-+		reg = <0x56>;
-+	};
-+
-+	/* Paddle BD FRU */
-+	eeprom@57 {
-+		compatible = "atmel,24c128";
-+		reg = <0x57>;
-+	};
-+
-+	power-monitor@58 {
-+		compatible = "renesas,isl28022";
-+		reg = <0x58>;
-+		shunt-resistor-micro-ohms = <10000>;
-+	};
-+
-+	power-monitor@59 {
-+		compatible = "renesas,isl28022";
-+		reg = <0x59>;
-+		shunt-resistor-micro-ohms = <10000>;
-+	};
-+
-+	power-monitor@5a {
-+		compatible = "renesas,isl28022";
-+		reg = <0x5a>;
-+		shunt-resistor-micro-ohms = <10000>;
-+	};
-+
-+	power-monitor@5b {
-+		compatible = "renesas,isl28022";
-+		reg = <0x5b>;
-+		shunt-resistor-micro-ohms = <10000>;
-+	};
-+
-+	psu@5c {
-+		compatible = "renesas,raa228006";
-+		reg = <0x5c>;
-+	};
-+
-+	fan-controller@5e{
-+		compatible = "maxim,max31790";
-+		reg = <0x5e>;
-+	};
-+
-+	/* I2C MUX for PWRPIC #1, #2, #11, #12 */
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9546";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		/* PWRPIC #1 */
-+		i2c8mux0ch0: i2c@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		/* PWRPIC #2 */
-+		i2c8mux0ch1: i2c@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		/* PWRPIC #12 (Connector to CXL BD) */
-+		i2c8mux0ch2: i2c@2 {
-+			reg = <2>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			i2c-mux@70 {
-+				compatible = "nxp,pca9546";
-+				reg = <0x70>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				i2c-mux-idle-disconnect;
-+				i2c26mux0ch0: i2c@0 {
-+					reg = <0>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+				i2c26mux0ch1: i2c@1 {
-+					reg = <1>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+				i2c26mux0ch2: i2c@2 {
-+					reg = <2>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+					/* CXL FRU */
-+					eeprom@50 {
-+						compatible = "atmel,24c64";
-+						reg = <0x50>;
-+					};
-+				};
-+				i2c26mux0ch3: i2c@3 {
-+					reg = <3>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+			};
-+		};
-+
-+		/* PWRPIC #11 */
-+		i2c8mux0ch3: i2c@3 {
-+			reg = <3>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
-+};
-+
-+&i2c9 {
-+	status = "okay";
-+
-+	temperature-sensor@4b {
-+		compatible = "ti,tmp75";
-+		reg = <0x4b>;
-+	};
-+
-+	/* SCM FRU */
-+	eeprom@51 {
-+		compatible = "atmel,24c128";
-+		reg = <0x51>;
-+	};
-+
-+	/* BSM FRU */
-+	eeprom@56 {
-+		compatible = "atmel,24c64";
-+		reg = <0x56>;
-+	};
-+};
-+
-+/* MCIO 0A I2C */
-+&i2c10 {
-+	status = "okay";
-+};
-+
-+&i2c11 {
-+	status = "okay";
-+
-+	/* I2C11_IOEXP_3 */
-+	gpio-expander@20 {
-+		compatible = "nxp,pca9535";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"IRQ_INA230_FAN0_ALERT_N_CPLD", "IRQ_INA230_FAN1_ALERT_N_CPLD",
-+			"IRQ_INA230_FAN2_ALERT_N_CPLD", "IRQ_INA230_FAN3_ALERT_N_CPLD",
-+			"IRQ_INA230_P12V_DIMM_0_ALERT_N", "IRQ_INA230_P12V_DIMM_1_ALERT_N",
-+			"IRQ_P3V3_E1S_0_FLT_N", "P12V_E1S_0_FAULT_R_N",
-+			"IRQ_P3V3_E1S_1_FLT_N", "P12V_E1S_1_FAULT_R_N",
-+			"IRQ_P3V3_NIC_FLT_N", "P12V_NIC_FAULT_R_N",
-+			"SMB_SENSOR_ALERT_N", "FW_CPLD_RST_RTC_RST_R1",
-+			"RTC_CLR", "RTC_U11_ALRT_N";
-+	};
-+
-+	/* I2C11_IOEXP_2 */
-+	gpio-expander@21 {
-+		compatible = "nxp,pca9535";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"FAN_0_PRESENT_CPLD", "FAN_1_PRESENT_CPLD",
-+			"FAN_2_PRESENT_CPLD", "FAN_3_PRESENT_CPLD",
-+			"FAN_FAIL_L_CPLD", "FULL_SPEED_N_R_CPLD",
-+			"P12V_FAN0_PWRGD_CPLD", "P12V_FAN1_PWRGD_CPLD",
-+			"P12V_FAN2_PWRGD_CPLD", "P12V_FAN3_PWRGD_CPLD",
-+			"FM_P12V_FAN0_FLTB_N_CPLD", "FM_P12V_FAN1_FLTB_N_CPLD",
-+			"FM_P12V_FAN2_FLTB_N_CPLD", "FM_P12V_FAN3_FLTB_N_CPLD",
-+			"P12V_FAN_EN_R_CPLD", "";
-+	};
-+
-+	/* I2C11_IOEXP_1 */
-+	gpio-expander@27 {
-+		compatible = "nxp,pca9535";
-+		reg = <0x27>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"PWRGD_P12V_SCM", "PWRGD_P5V_STBY",
-+			"PWRGD_P3V3_STBY", "PWRGD_P1V8_STBY",
-+			"PWRGD_P1V2_STBY", "PWRGD_P1V1_STBY",
-+			"PWRGD_P1V0_STBY", "",
-+			"", "",
-+			"", "",
-+			"", "",
-+			"", "";
-+	};
-+
-+	power-sensor@40 {
-+		compatible = "ti,ina230";
-+		reg = <0x40>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-sensor@41 {
-+		compatible = "ti,ina230";
-+		reg = <0x41>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-sensor@42 {
-+		compatible = "ti,ina230";
-+		reg = <0x42>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	power-sensor@43 {
-+		compatible = "ti,ina230";
-+		reg = <0x43>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	power-sensor@44 {
-+		compatible = "ti,ina230";
-+		reg = <0x44>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	power-sensor@45 {
-+		compatible = "ti,ina230";
-+		reg = <0x45>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	adc@49 {
-+		compatible = "ti,ads7830";
-+		reg = <0x49>;
-+	};
-+
-+	adc@4a {
-+		compatible = "ti,ads7830";
-+		reg = <0x4a>;
-+	};
-+
-+	adc@4b {
-+		compatible = "ti,ads7830";
-+		reg = <0x4b>;
-+	};
-+	rtc@6f {
-+		compatible = "nuvoton,nct3018y";
-+		reg = <0x6f>;
-+		status = "okay";
-+	};
-+};
-+
-+/* MCIO 4A I2C */
-+&i2c12 {
-+	multi-master;
-+	mctp-controller;
-+	clock-frequency = <400000>;
-+	status = "okay";
-+
-+	mctp@10 {
-+		compatible = "mctp-i2c-controller";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+	};
-+};
-+
-+&i2c13 {
-+	status = "okay";
-+
-+	fan-controller@20 {
-+		compatible = "maxim,max31790";
-+		reg = <0x20>;
-+	};
-+
-+	power-sensor@40 {
-+		compatible = "ti,ina230";
-+		reg = <0x40>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	power-sensor@41 {
-+		compatible = "ti,ina230";
-+		reg = <0x41>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	power-sensor@44 {
-+		compatible = "ti,ina230";
-+		reg = <0x44>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	power-sensor@45 {
-+		compatible = "ti,ina230";
-+		reg = <0x45>;
-+		shunt-resistor = <2000>;
-+	};
-+
-+	temperature-sensor@48 {
-+		compatible = "national,lm75b";
-+		reg = <0x48>;
-+	};
-+
-+	temperature-sensor@49 {
-+		compatible = "national,lm75b";
-+		reg = <0x49>;
-+	};
-+
-+	/* MB FRU */
-+	eeprom@51 {
-+		compatible = "atmel,24c128";
-+		reg = <0x51>;
-+	};
-+};
-+
-+/* PROT reserve */
-+&i2c14 {
-+	status = "okay";
-+};
-+
-+/* MCIO 3A I2C */
-+&i2c15 {
-+	status = "okay";
-+};
-+
-+&mac2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_ncsi3_default>;
-+	use-ncsi;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	pinctrl_ncsi3_default: ncsi3_default {
-+		function = "RMII3";
-+		groups = "NCSI3";
-+	};
-+};
-+
-+&sgpiom0 {
-+	status = "okay";
-+	ngpios = <128>;
-+	bus-frequency = <2000000>;
-+	gpio-line-names =
-+	/*"input pin","output pin"*/
-+	"SOC_ERROR_N_CPLD","RST_SOC_SRST_N_CPLD",
-+	"SOC_ELASTOPCLK_N","SOC_BMC_READY_CPLD",
-+	"SOC_LINKSTOP_N","wIBB_BMC_SRST_OUT",
-+	"SOC_POST_COMPLETE_CPLD","I3C_MUX_SEL_DIMM_C0_024",
-+	"SOC_RESETREQ","I3C_MUX_SEL_DIMM_C0_135",
-+	"SOC_SYS_PWRDN_CPLD","I3C_MUX_SEL_DIMM_C1_024",
-+	"SOC_PORQ","I3C_MUX_SEL_DIMM_C1_135",
-+	"SOC_HOT_N_CPLD","BOOT_PWRDIS_CPLD",
-+	// IOB0-IOB7 bit8-15
-+	"PWRGD_V1P8_CPU","HDD0_PERST_N_CPLD",
-+	"PWRGD_V1P26_CPLD","HDD1_PERST_N_CPLD",
-+	"PWRGD_V1P2","MCIO_1A_PWRDIS_R",
-+	"","",
-+	"FM_CONFIG_ID","P3V_BAT_SCALED_EN",
-+	"wALL_POWER_OK","PERST_CEM0_N_CPLD",
-+	"wANDGATE_ALL_POWER_GD","PERST_CEM1_N_CPLD",
-+	"wAC_CYCLE_12V","PERST_PLD_TUSB7340_N",
-+	// IOC0-IOC7 bit16-23
-+	"wAC_CYCLE_54V","FM_USB_MUX_SEL_CPLD",
-+	"FM_PLD_CLKS_DEV_EN","SMB_BOOT_RST_N_CPLD",
-+	"PWRGD_P1V2_STBY","SMB_MCIO_0A_RST_R_N",
-+	"wIBB_BMC_SRST","RST_SMB_NIC_R_N",
-+	"PWRGD_P12V_E1S_0","FM_PPS_NIC_IN_BUF_OE_N_R",
-+	"PWRGD_P12V_E1S_1","FM_BUF_PPS_NIC_IN_EN_CPLD",
-+	"","FM_NIC_PPS_IN_OE_CPLD",
-+	"PWRGD_P12V_NIC","FM_PPS_NIC_IN_S0_CPLD",
-+	// IOD0-IOD7 bit24-31
-+	"wALL_POWER_OK_1","FM_NIC_PPS_IN_S1",
-+	"wALL_POWER_OK_2","FM_PPS_NIC_OUT_CPU_OE_N",
-+	"PWRGD_EAST_DIMM_CPLD","",
-+	"PWRGD_WEST_DIMM_CPLD","FM_BUF_PPS_NIC_OUT_EN_CPLD",
-+	"PWRGD_NIC_CPLD","",
-+	"","PMBUS_MUX_SEL_C0",
-+	"PHOENIX_PWRBTN_N_CPLD","PMBUS_MUX_SEL_C1",
-+	"IRQ_INA230_E1S_0_ALERT_N","",
-+	// IOE0-IOE7 bit32-39
-+	"IRQ_INA230_E1S_1_ALERT_N","PWR_ON_RST_TUSB7340_CPLD",
-+	"","RST_PCIE_BOOT_PERST_N_CPLD",
-+	"FM_NIC_WAKE_N_CPLD","RST_PCIE_CPLD_NIC_N_CPLD",
-+	"FM_TPM_CONN_PRSNT_N","RST_PCIE_MCIO_0A_PERST_N_CPLD",
-+	"HDD0_PRSNT_N_CPLD","RST_PCIE_MCIO_0B_PERST_N_CPLD",
-+	"IRQ_INA230_P12V_NIC_ALERT_N","RST_PCIE_MCIO_1A_PERST_N_CPLD",
-+	"IRQ_INA230_P12V_SCM_ALERT_N","RST_PCIE_MCIO_1A_SA_PERST_N_CPL",
-+	"IRQ_PMBUS_ALERT_PWR11_R_N","RST_PCIE_MCIO_1B_PERST_N_CPLD",
-+	// IOF0-IOF7 bit40-47
-+	"CHASSIS_LEAK_2A_R_N","RST_PCIE_MCIO_2A_PERST_N_CPLD",
-+	"CHASSIS_LEAK_3A_R_N","RST_PCIE_MCIO_2B_PERST_N_CPLD",
-+	"CHASSIS_LEAK_4A_R_N","RST_PCIE_MCIO_3A_PERST_N_CPLD",
-+	"OC_ALERT_PADDLE_R_N","RST_PCIE_MCIO_3B_PERST_N_CPLD",
-+	"OC_ALERT_PWR2_R_N","RST_PCIE_MCIO_4A_PERST_N_CPLD",
-+	"OC_ALERT_PWR11_R_N","RST_PCIE_MCIO_4B_PERST_N_CPLD",
-+	"FM_IOE_ALT_N","RST_PERST1_N_CPLD",
-+	"LEAK_DETECT_1_PWR14_R_N","RST_PERST2_N_CPLD",
-+	// IOG0-IOG7 bit48-55
-+	"LEAK_DETECT_2_PWR14_R_N","RST_PERST3_N_CPLD",
-+	"LEAK_DETECT_1_PWR15_R_N","RST_SMB_MUX_MCIO_0A_R_N",
-+	"LEAK_DETECT_2_PWR15_R_N","RST_SMB_MUX_MCIO_1A_R_N",
-+	"MCIO_0A_SMB_ALERT_N","RST_SOC_EXTWARMRESET_CPLD",
-+	"MCIO_1A_SMB_ALERT_N","RST_SOC_PORESET_N_BMC",
-+	"MCIO_2A_SMB_ALERT_N","RST_USB_HUB_R_N",
-+	"MCIO_2B_SMB_ALERT_N","SMB_MM7_MUX_RESET_N",
-+	"MCIO_3A_SMB_ALERT_N","SMB_MUX_RESET_N_CPLD",
-+	// IOH0-IOH7 bit56-63
-+	"MCIO_3B_SMB_ALERT_N","SOC_I2C_0_ALERT_CPLD",
-+	"MCIO_4A_SMB_ALERT_N","SOC_LINKSTOP_OUT_N",
-+	"MCIO_4B_SMB_ALERT_N","SPI_TPM_RST_R_N",
-+	"MCIO_1A_THERMTRIP_N","",
-+	"MCIO_2A_THERMTRIP_N","",
-+	"MCIO_3A_THERMTRIP_N","",
-+	"MCIO_4A_THERMTRIP_N_CPLD","",
-+	"UV_ALERT_PADDLE_R_N","wFM_USB_MUX_OE_N",
-+	// IOI0-IOI7 bit64-71
-+	"UV_ALERT_PWR2_R_N","wFM_USB_MUX_SEL",
-+	"UV_ALERT_PWR11_R_N","",
-+	"SOC_PMBUS_0_ALERT_R_CPLD","FM_BIOS_DEBUG_MODE_N",
-+	"HDD1_PRSNT_N_CPLD","",
-+	"","",
-+	"SOC_DRAM_0_HOT_N_CPLD","",
-+	"SOC_DRAM_1_HOT_N_CPLD","RST_PLTRST_PLD_B_N",
-+	"SOC_DRAM_2_HOT_N_CPLD","FM_TPM_MUX6_SEL",
-+	// IOJ0-IOJ7 bit72-79
-+	"SOC_DRAM_3_HOT_N_CPLD","CPLD_MUX6_EN_N",
-+	"IRQ_P3V3_NIC_FLT_MOS_N_CPLD","",
-+	"VRHOT_V0P75_PCIE_VDDQ_N","",
-+	"P12V_SCM_FAULT_R_N","",
-+	"SOC_I2C_1_ALERT_CPLD","",
-+	"","",
-+	"SOC_PLATHOT_N_CPLD","",
-+	"SOC_THRMTRIP_N_CPLD","",
-+	// IOK0-IOK7 bit80-87
-+	"VRHOT_VCPUC1_VCPUMC1_N","",
-+	"VRHOT_VSYSC0_VSOCC0_N","",
-+	"VRHOT_VSYSC1_VSOCC1_N","",
-+	"VRHOT_VCPUC0_VCPUMC0_N","",
-+	"","",
-+	"INT_IOEXP_N","",
-+	"RSVD_IOEXP_0A_SB1_R","",
-+	"RSVD_IOEXP_0A_SB2_R","",
-+	// IOL0-IOL7 bit88-95
-+	"IRQ_PMBUS_PWR2_ALERT_R_N","",
-+	"FM_BORD_REV_ID0","",
-+	"FM_BORD_REV_ID1","",
-+	"FM_BORD_REV_ID2","",
-+	"FM_VR_TYPE_0","",
-+	"FM_VR_TYPE_1","",
-+	"","",
-+	"MCIO_0B_SMB_ALERT_N","",
-+	// IOM0-IOM7 bit96-103
-+	"MCIO_1B_SMB_ALERT_N","",
-+	"PRSNT_BOOT_N","",
-+	"PRSNT_MCIO_1A_N","",
-+	"wPRSNT_NIC_N","",
-+	"","",
-+	"SOC_TEST_MODE0","",
-+	"PWRGD_V0P75_PCIE","",
-+	"PWRGD_VDDQ","",
-+	// ION0-ION7 bit104-111
-+	"PWRGD_VCPUC0","",
-+	"PWRGD_VCPUMC0","",
-+	"PWRGD_VCPUMC1","",
-+	"PWRGD_VCPUC1","",
-+	"PWRGD_VSYSC0","",
-+	"PWRGD_VSOCC0","",
-+	"PWRGD_VSYSC1","",
-+	"PWRGD_VSOCC1","",
-+	// IOO0-IOO7 bit112-119
-+	"SOC_PMBUS_1_ALERT_R_CPLD","",
-+	"SOC_GPIO_15","",
-+	"C0_POSTCODE_0_CPLD","",
-+	"C0_POSTCODE_1_CPLD","",
-+	"C0_POSTCODE_2_CPLD","",
-+	"C0_POSTCODE_3_CPLD","",
-+	"C0_POSTCODE_4_CPLD","",
-+	"C1_POSTCODE_0_CPLD","",
-+	// IOP0-IOP7 bit 120-127
-+	"C1_POSTCODE_1_CPLD","",
-+	"C1_POSTCODE_2_CPLD","",
-+	"C1_POSTCODE_3_CPLD","",
-+	"C1_POSTCODE_4_CPLD","",
-+	"","",
-+	"SOC_GPIO_17","",
-+	"SOC_GPIO_18","",
-+	"SOC_GPIO_37","";
-+};
-+
-+/* BIOS Flash */
-+&spi2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi2_default>;
-+	status = "okay";
-+
-+	flash@0 {
-+		m25p,fast-read;
-+		label = "pnor";
-+		spi-max-frequency = <12000000>;
-+		spi-tx-bus-width = <2>;
-+		spi-rx-bus-width = <2>;
-+		status = "okay";
-+	};
-+};
-+
-+&uart1 {
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+/* SOL */
-+&uart3 {
-+	status = "okay";
-+};
-+
-+&uart4 {
-+	status = "okay";
-+};
-+
-+/* BMC Console */
-+&uart5 {
-+	status = "okay";
-+};
-+
-+&wdt1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_wdtrst1_default>;
-+	aspeed,reset-type = "soc";
-+	aspeed,external-signal;
-+	aspeed,ext-push-pull;
-+	aspeed,ext-active-high;
-+	aspeed,ext-pulse-duration = <256>;
-+	status = "okay";
-+};
+
+> -		page = dma_direct_alloc_swiotlb(dev, size);
+> +		page = dma_direct_alloc_swiotlb(dev, size, attrs);
+>   		if (page) {
+> +			/*
+> +			 * swiotlb allocations comes from pool already marked
+> +			 * decrypted
+> +			 */
+
+... is not this needed here
+attrs |= DMA_ATTR_CC_SHARED;
+
+?
+
+and then the setup_page label below can do the right thing, which I tried, with enforcing io_tlb_default_mem.for_alloc=1, it works - accepted device can still do DMA to shared memory. Thanks,
+
+
+
+>   			mark_mem_decrypt = false;
+>   			goto setup_page;
+>   		}
+> @@ -374,6 +379,7 @@ void dma_direct_free(struct device *dev, size_t size,
+>   		return;
+>   
+>   	if (swiotlb_find_pool(dev, dma_to_phys(dev, dma_addr)))
+> +		/* Swiotlb doesn't need a page attribute update on free */
+>   		mark_mem_encrypted = false;
+>   
+>   	if (is_vmalloc_addr(cpu_addr)) {
+> @@ -403,7 +409,7 @@ struct page *dma_direct_alloc_pages(struct device *dev, size_t size,
+>   						  gfp, attrs);
+>   
+>   	if (is_swiotlb_for_alloc(dev)) {
+> -		page = dma_direct_alloc_swiotlb(dev, size);
+> +		page = dma_direct_alloc_swiotlb(dev, size, attrs);
+>   		if (!page)
+>   			return NULL;
+>   
+> diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
+> index ab4eccbaa076..065663be282c 100644
+> --- a/kernel/dma/swiotlb.c
+> +++ b/kernel/dma/swiotlb.c
+> @@ -259,10 +259,21 @@ void __init swiotlb_update_mem_attributes(void)
+>   	struct io_tlb_pool *mem = &io_tlb_default_mem.defpool;
+>   	unsigned long bytes;
+>   
+> +	/*
+> +	 * if platform support memory encryption, swiotlb buffers are
+> +	 * decrypted by default.
+> +	 */
+> +	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> +		io_tlb_default_mem.unencrypted = true;
+> +	else
+> +		io_tlb_default_mem.unencrypted = false;
+> +
+>   	if (!mem->nslabs || mem->late_alloc)
+>   		return;
+>   	bytes = PAGE_ALIGN(mem->nslabs << IO_TLB_SHIFT);
+> -	set_memory_decrypted((unsigned long)mem->vaddr, bytes >> PAGE_SHIFT);
+> +
+> +	if (io_tlb_default_mem.unencrypted)
+> +		set_memory_decrypted((unsigned long)mem->vaddr, bytes >> PAGE_SHIFT);
+>   }
+>   
+>   static void swiotlb_init_io_tlb_pool(struct io_tlb_pool *mem, phys_addr_t start,
+> @@ -505,8 +516,10 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
+>   	if (!mem->slots)
+>   		goto error_slots;
+>   
+> -	set_memory_decrypted((unsigned long)vstart,
+> -			     (nslabs << IO_TLB_SHIFT) >> PAGE_SHIFT);
+> +	if (io_tlb_default_mem.unencrypted)
+> +		set_memory_decrypted((unsigned long)vstart,
+> +				     (nslabs << IO_TLB_SHIFT) >> PAGE_SHIFT);
+> +
+>   	swiotlb_init_io_tlb_pool(mem, virt_to_phys(vstart), nslabs, true,
+>   				 nareas);
+>   	add_mem_pool(&io_tlb_default_mem, mem);
+> @@ -539,7 +552,9 @@ void __init swiotlb_exit(void)
+>   	tbl_size = PAGE_ALIGN(mem->end - mem->start);
+>   	slots_size = PAGE_ALIGN(array_size(sizeof(*mem->slots), mem->nslabs));
+>   
+> -	set_memory_encrypted(tbl_vaddr, tbl_size >> PAGE_SHIFT);
+> +	if (io_tlb_default_mem.unencrypted)
+> +		set_memory_encrypted(tbl_vaddr, tbl_size >> PAGE_SHIFT);
+> +
+>   	if (mem->late_alloc) {
+>   		area_order = get_order(array_size(sizeof(*mem->areas),
+>   			mem->nareas));
+> @@ -563,6 +578,7 @@ void __init swiotlb_exit(void)
+>    * @gfp:	GFP flags for the allocation.
+>    * @bytes:	Size of the buffer.
+>    * @phys_limit:	Maximum allowed physical address of the buffer.
+> + * @unencrypted: true to allocate unencrypted memory, false for encrypted memory
+>    *
+>    * Allocate pages from the buddy allocator. If successful, make the allocated
+>    * pages decrypted that they can be used for DMA.
+> @@ -570,7 +586,8 @@ void __init swiotlb_exit(void)
+>    * Return: Decrypted pages, %NULL on allocation failure, or ERR_PTR(-EAGAIN)
+>    * if the allocated physical address was above @phys_limit.
+>    */
+> -static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+> +static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes,
+> +		u64 phys_limit, bool unencrypted)
+>   {
+>   	unsigned int order = get_order(bytes);
+>   	struct page *page;
+> @@ -588,13 +605,13 @@ static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+>   	}
+>   
+>   	vaddr = phys_to_virt(paddr);
+> -	if (set_memory_decrypted((unsigned long)vaddr, PFN_UP(bytes)))
+> +	if (unencrypted && set_memory_decrypted((unsigned long)vaddr, PFN_UP(bytes)))
+>   		goto error;
+>   	return page;
+>   
+>   error:
+>   	/* Intentional leak if pages cannot be encrypted again. */
+> -	if (!set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+> +	if (unencrypted && !set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+>   		__free_pages(page, order);
+>   	return NULL;
+>   }
+> @@ -604,30 +621,26 @@ static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes, u64 phys_limit)
+>    * @dev:	Device for which a memory pool is allocated.
+>    * @bytes:	Size of the buffer.
+>    * @phys_limit:	Maximum allowed physical address of the buffer.
+> + * @attrs:	DMA attributes for the allocation.
+>    * @gfp:	GFP flags for the allocation.
+>    *
+>    * Return: Allocated pages, or %NULL on allocation failure.
+>    */
+>   static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+> -		u64 phys_limit, gfp_t gfp)
+> +		u64 phys_limit, unsigned long attrs, gfp_t gfp)
+>   {
+>   	struct page *page;
+> -	unsigned long attrs = 0;
+>   
+>   	/*
+>   	 * Allocate from the atomic pools if memory is encrypted and
+>   	 * the allocation is atomic, because decrypting may block.
+>   	 */
+> -	if (!gfpflags_allow_blocking(gfp) && dev && force_dma_unencrypted(dev)) {
+> +	if (!gfpflags_allow_blocking(gfp) && (attrs & DMA_ATTR_CC_SHARED)) {
+>   		void *vaddr;
+>   
+>   		if (!IS_ENABLED(CONFIG_DMA_COHERENT_POOL))
+>   			return NULL;
+>   
+> -		/* swiotlb considered decrypted by default */
+> -		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+> -			attrs = DMA_ATTR_CC_SHARED;
+> -
+>   		return dma_alloc_from_pool(dev, bytes, &vaddr, gfp,
+>   					   attrs, dma_coherent_ok);
+>   	}
+> @@ -638,7 +651,8 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>   	else if (phys_limit <= DMA_BIT_MASK(32))
+>   		gfp |= __GFP_DMA32;
+>   
+> -	while (IS_ERR(page = alloc_dma_pages(gfp, bytes, phys_limit))) {
+> +	while (IS_ERR(page = alloc_dma_pages(gfp, bytes, phys_limit,
+> +					     !!(attrs & DMA_ATTR_CC_SHARED)))) {
+>   		if (IS_ENABLED(CONFIG_ZONE_DMA32) &&
+>   		    phys_limit < DMA_BIT_MASK(64) &&
+>   		    !(gfp & (__GFP_DMA32 | __GFP_DMA)))
+> @@ -657,15 +671,18 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
+>    * swiotlb_free_tlb() - free a dynamically allocated IO TLB buffer
+>    * @vaddr:	Virtual address of the buffer.
+>    * @bytes:	Size of the buffer.
+> + * @unencrypted: true if @vaddr was allocated decrypted and must be
+> + *	re-encrypted before being freed
+>    */
+> -static void swiotlb_free_tlb(void *vaddr, size_t bytes)
+> +static void swiotlb_free_tlb(void *vaddr, size_t bytes, bool unencrypted)
+>   {
+>   	if (IS_ENABLED(CONFIG_DMA_COHERENT_POOL) &&
+>   	    dma_free_from_pool(NULL, vaddr, bytes))
+>   		return;
+>   
+>   	/* Intentional leak if pages cannot be encrypted again. */
+> -	if (!set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+> +	if (!unencrypted ||
+> +	    !set_memory_encrypted((unsigned long)vaddr, PFN_UP(bytes)))
+>   		__free_pages(virt_to_page(vaddr), get_order(bytes));
+>   }
+>   
+> @@ -676,6 +693,7 @@ static void swiotlb_free_tlb(void *vaddr, size_t bytes)
+>    * @nslabs:	Desired (maximum) number of slabs.
+>    * @nareas:	Number of areas.
+>    * @phys_limit:	Maximum DMA buffer physical address.
+> + * @attrs:	DMA attributes for the allocation.
+>    * @gfp:	GFP flags for the allocations.
+>    *
+>    * Allocate and initialize a new IO TLB memory pool. The actual number of
+> @@ -686,7 +704,8 @@ static void swiotlb_free_tlb(void *vaddr, size_t bytes)
+>    */
+>   static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+>   		unsigned long minslabs, unsigned long nslabs,
+> -		unsigned int nareas, u64 phys_limit, gfp_t gfp)
+> +		unsigned int nareas, u64 phys_limit, unsigned long attrs,
+> +		gfp_t gfp)
+>   {
+>   	struct io_tlb_pool *pool;
+>   	unsigned int slot_order;
+> @@ -704,9 +723,10 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+>   	if (!pool)
+>   		goto error;
+>   	pool->areas = (void *)pool + sizeof(*pool);
+> +	pool->unencrypted = !!(attrs & DMA_ATTR_CC_SHARED);
+>   
+>   	tlb_size = nslabs << IO_TLB_SHIFT;
+> -	while (!(tlb = swiotlb_alloc_tlb(dev, tlb_size, phys_limit, gfp))) {
+> +	while (!(tlb = swiotlb_alloc_tlb(dev, tlb_size, phys_limit, attrs, gfp))) {
+>   		if (nslabs <= minslabs)
+>   			goto error_tlb;
+>   		nslabs = ALIGN(nslabs >> 1, IO_TLB_SEGSIZE);
+> @@ -724,7 +744,8 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
+>   	return pool;
+>   
+>   error_slots:
+> -	swiotlb_free_tlb(page_address(tlb), tlb_size);
+> +	swiotlb_free_tlb(page_address(tlb), tlb_size,
+> +			 !!(attrs & DMA_ATTR_CC_SHARED));
+>   error_tlb:
+>   	kfree(pool);
+>   error:
+> @@ -742,7 +763,9 @@ static void swiotlb_dyn_alloc(struct work_struct *work)
+>   	struct io_tlb_pool *pool;
+>   
+>   	pool = swiotlb_alloc_pool(NULL, IO_TLB_MIN_SLABS, default_nslabs,
+> -				  default_nareas, mem->phys_limit, GFP_KERNEL);
+> +				  default_nareas, mem->phys_limit,
+> +				  mem->unencrypted ? DMA_ATTR_CC_SHARED : 0,
+> +				  GFP_KERNEL);
+>   	if (!pool) {
+>   		pr_warn_ratelimited("Failed to allocate new pool");
+>   		return;
+> @@ -762,7 +785,7 @@ static void swiotlb_dyn_free(struct rcu_head *rcu)
+>   	size_t tlb_size = pool->end - pool->start;
+>   
+>   	free_pages((unsigned long)pool->slots, get_order(slots_size));
+> -	swiotlb_free_tlb(pool->vaddr, tlb_size);
+> +	swiotlb_free_tlb(pool->vaddr, tlb_size, pool->unencrypted);
+>   	kfree(pool);
+>   }
+>   
+> @@ -1232,6 +1255,7 @@ static int swiotlb_find_slots(struct device *dev, phys_addr_t orig_addr,
+>   	nslabs = nr_slots(alloc_size);
+>   	phys_limit = min_not_zero(*dev->dma_mask, dev->bus_dma_limit);
+>   	pool = swiotlb_alloc_pool(dev, nslabs, nslabs, 1, phys_limit,
+> +				  mem->unencrypted ? DMA_ATTR_CC_SHARED : 0,
+>   				  GFP_NOWAIT);
+>   	if (!pool)
+>   		return -1;
+> @@ -1394,6 +1418,7 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+>   		enum dma_data_direction dir, unsigned long attrs)
+>   {
+>   	struct io_tlb_mem *mem = dev->dma_io_tlb_mem;
+> +	bool require_decrypted = false;
+>   	unsigned int offset;
+>   	struct io_tlb_pool *pool;
+>   	unsigned int i;
+> @@ -1411,6 +1436,16 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
+>   	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
+>   		pr_warn_once("Memory encryption is active and system is using DMA bounce buffers\n");
+>   
+> +	/*
+> +	 * if we are trying to swiotlb map a decrypted paddr or the paddr is encrypted
+> +	 * but the device is forcing decryption, use decrypted io_tlb_mem
+> +	 */
+> +	if ((attrs & DMA_ATTR_CC_SHARED) || force_dma_unencrypted(dev))
+> +		require_decrypted = true;
+> +
+> +	if (require_decrypted != mem->unencrypted)
+> +		return (phys_addr_t)DMA_MAPPING_ERROR;
+> +
+>   	/*
+>   	 * The default swiotlb memory pool is allocated with PAGE_SIZE
+>   	 * alignment. If a mapping is requested with larger alignment,
+> @@ -1608,8 +1643,14 @@ dma_addr_t swiotlb_map(struct device *dev, phys_addr_t paddr, size_t size,
+>   	if (swiotlb_addr == (phys_addr_t)DMA_MAPPING_ERROR)
+>   		return DMA_MAPPING_ERROR;
+>   
+> -	/* Ensure that the address returned is DMA'ble */
+> -	dma_addr = phys_to_dma_unencrypted(dev, swiotlb_addr);
+> +	/*
+> +	 * Use the allocated io_tlb_mem encryption type to determine dma addr.
+> +	 */
+> +	if (dev->dma_io_tlb_mem->unencrypted)
+> +		dma_addr = phys_to_dma_unencrypted(dev, swiotlb_addr);
+> +	else
+> +		dma_addr = phys_to_dma_encrypted(dev, swiotlb_addr);
+> +
+>   	if (unlikely(!dma_capable(dev, dma_addr, size, true))) {
+>   		__swiotlb_tbl_unmap_single(dev, swiotlb_addr, size, dir,
+>   			attrs | DMA_ATTR_SKIP_CPU_SYNC,
+> @@ -1773,7 +1814,8 @@ static inline void swiotlb_create_debugfs_files(struct io_tlb_mem *mem,
+>   
+>   #ifdef CONFIG_DMA_RESTRICTED_POOL
+>   
+> -struct page *swiotlb_alloc(struct device *dev, size_t size)
+> +struct page *swiotlb_alloc(struct device *dev, size_t size,
+> +		unsigned long attrs)
+>   {
+>   	struct io_tlb_mem *mem = dev->dma_io_tlb_mem;
+>   	struct io_tlb_pool *pool;
+> @@ -1784,6 +1826,9 @@ struct page *swiotlb_alloc(struct device *dev, size_t size)
+>   	if (!mem)
+>   		return NULL;
+>   
+> +	if (mem->unencrypted != !!(attrs & DMA_ATTR_CC_SHARED))
+> +		return NULL;
+> +
+>   	align = (1 << (get_order(size) + PAGE_SHIFT)) - 1;
+>   	index = swiotlb_find_slots(dev, 0, size, align, &pool);
+>   	if (index == -1)
+> @@ -1853,9 +1898,18 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
+>   			kfree(mem);
+>   			return -ENOMEM;
+>   		}
+> +		/*
+> +		 * if platform supports memory encryption,
+> +		 * restricted mem pool is decrypted by default
+> +		 */
+> +		if (cc_platform_has(CC_ATTR_MEM_ENCRYPT)) {
+> +			mem->unencrypted = true;
+> +			set_memory_decrypted((unsigned long)phys_to_virt(rmem->base),
+> +					     rmem->size >> PAGE_SHIFT);
+> +		} else {
+> +			mem->unencrypted = false;
+> +		}
+>   
+> -		set_memory_decrypted((unsigned long)phys_to_virt(rmem->base),
+> -				     rmem->size >> PAGE_SHIFT);
+>   		swiotlb_init_io_tlb_pool(pool, rmem->base, nslabs,
+>   					 false, nareas);
+>   		mem->force_bounce = true;
+
 -- 
-2.25.1
+Alexey
 
 
