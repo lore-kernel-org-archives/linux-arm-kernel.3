@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12110CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:39:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C63ECD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ME512cC2uBRndOQ+ky46UOhg5pcCYvj2qNhOWVbFLsA=; b=yWWFSR8FlpcCVvXf1Z05uArQ5F
-	u9JKG8W4y+3qZ1tKvjyRALsgjcHEZ0XUG5Js3n99wBqfJ1uZuvd6gZ/NzdLGbIc4jLiOJ3UjpcHWZ
-	gvW9FoLFYdmatyrSvs+qEjK5Qsz7iTZqJJ9QwvNBBVTTqGO0LqCNlvghdUhJhwum1UsyZfo9VIrN4
-	01bMM5mDGXBb0Q5BhH5oaINPn1CSEJc4v3sQHi0VxvKaDd0PK42B5ykytw/LwOqPcP1QNMouJq6l2
-	EaotdKhdlIg1kMG+bX6b+7w1DfINvBij9/bFF4o9c/O4Ol+UkLQcZxKyzbWxgJHBfJpeKic+c1RMu
-	zS+wp7Vw==;
+	bh=WweKQAj+6Hy9UyAI77KW2jeABwqngTeZC1dub5emDbg=; b=xf8GBnoUVt9CaCpxVKY1UTkJ0W
+	y0Ta+z/sIVb/LA1let1LvyeIw0JceZSuYsTXDIfq3GYZOl11FWg1eZDoYmMw99AZH4m7fHQz9hjoJ
+	SuwmU0qmXok2rqNpP1fgzDL+EBPOkF0TJ7RETGrbh9sLArAHfrLRhLcEENbdS5M2JDR2pp2nPwRbE
+	FDbSdMnyFM/itsVAkJnFw91h6kU05OIXC9e7Juc6IEiXa3N4tHRiwgMxI8gumQMNvI3W4dP5ABM6N
+	miiwHRe7Zc3temyW86PV21BfJVsli7dgMnym76tnuLAnY5cQtb5eApqNiVqjPzEBY3p3eoCyb15my
+	1dPHTA5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP046-0000000GCCy-3F5G;
-	Mon, 18 May 2026 15:39:34 +0000
+	id 1wP05o-0000000GCRq-0G8d;
+	Mon, 18 May 2026 15:41:20 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP045-0000000GCCe-3j5P
+	id 1wP05m-0000000GCRX-3kr9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:39:33 +0000
+	Mon, 18 May 2026 15:41:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1EF2F60120;
-	Mon, 18 May 2026 15:39:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3ADCC2BCB7;
-	Mon, 18 May 2026 15:39:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 44B9760120;
+	Mon, 18 May 2026 15:41:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CA8C2BCB8;
+	Mon, 18 May 2026 15:41:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779118772;
-	bh=wI0oS/IXcvdTNYNkud/F2xdNSev5RKBVMA5br75br9M=;
+	s=k20201202; t=1779118878;
+	bh=nGkDdu+N3KWlaQu2LHbVRzFeeLezZZ4e4A5lnJ7m/HY=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LI1Aan7fPFNd6DucdTzzfC2r1Sx8xmK1vwupHy4Jd4v2ImIszPzLL0DMQj5KC+eDP
-	 ErsR4IY8DcpfBXUwlVVDfzVRUAagDrI5fonSk5Y5cW8gKUF90vX2SUx390PIy7iWe1
-	 8Mnz75I6AhyjYIKC/67Y3gbtaYvErZRJ/21HiyWZOcmLOyQp44h1qYueUn4mqbDqmk
-	 lrqekcHlcME1VxpL8juEYLAIBjyPnBfW50ccswkXInj/LyAHIpeFBdMTdKkDGeawYa
-	 PCqMWOyjLMLm++tsdpdtaXgx5EgkaY5ydc+TjNTX8AYm0uGCikC79QdrSVafpF9spi
-	 yiOLGXoEvZxtg==
+	b=d11xgqltA+Lt/KKwH30UiTSccND+/f5Aa8LecxQGfbVbkuAX1MYkuYeg33udL8Fxy
+	 jpNEgIsfEgIBmzkx3Vnuj9O6qFTHT31nZ7Gb/zKEmgdUjslCvW0Ew0hE9Re2En7yDM
+	 85MoCCxtbJXwPqsbKxD8Cs+0MF6i+ASkhLY3OyBQiz1MKZC2W2KQEFfXuhXpFL+FT1
+	 5quqEkXeQtv5WCNxt2k2XPlcuIXMieXtOKopKXhjPghNKlVxMuXVCx43Ac10C1I+Ea
+	 DWDct1vwu539+M5GnqnLxswv2dzror/DM0Z7hFKJd6LtMaC7yPevb1YE4vuNCR7dBh
+	 zcfG4KP1X7v9A==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wP042-00000003aXk-2cLS;
-	Mon, 18 May 2026 15:39:30 +0000
-Date: Mon, 18 May 2026 16:39:30 +0100
-Message-ID: <86y0hgwwul.wl-maz@kernel.org>
+	id 1wP05j-00000003aaE-3rHO;
+	Mon, 18 May 2026 15:41:16 +0000
+Date: Mon, 18 May 2026 16:41:15 +0100
+Message-ID: <86wlx0wwro.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Will Deacon <will@kernel.org>
 Cc: kvmarm@lists.linux.dev,
@@ -58,8 +58,9 @@ Cc: kvmarm@lists.linux.dev,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>
 Subject: Re: [PATCH v2] KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
-In-Reply-To: <20260518153127.6078-1-will@kernel.org>
+In-Reply-To: <86y0hgwwul.wl-maz@kernel.org>
 References: <20260518153127.6078-1-will@kernel.org>
+	<86y0hgwwul.wl-maz@kernel.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -83,37 +84,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 18 May 2026 16:31:26 +0100,
-Will Deacon <will@kernel.org> wrote:
+On Mon, 18 May 2026 16:39:30 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> Currently, it is not necessary for __finalise_el2() to configure
-> TPIDR_EL2:
+> On Mon, 18 May 2026 16:31:26 +0100,
+> Will Deacon <will@kernel.org> wrote:
+> > 
+> > Currently, it is not necessary for __finalise_el2() to configure
+> > TPIDR_EL2:
+> > 
+> > * The hyp stub code does not consume the value of TPIDR_EL2.
+> > 
+> > * On the boot cpu, TPIDR_EL1 is used for the percpu offset until the
+> >   ARM64_HAS_VIRT_HOST_EXTN cpucap is detected and boot alternatives
+> >   are patched. Before boot alternatives are patched,
+> >   cpu_copy_el2regs() will copy TPIDR_EL1 into TPIDR_EL2. It is not
+> >   necessary for __finalise_el2() to initialise TPIDR_EL2 before this.
+> > 
+> > * Secondary CPUs are brought up after boot alternatives have been
+> >   patched, and __secondary_switched() will initialize TPIDR_EL2 in
+> >   'init_cpu_task', after finalise_el2() calls __finalise_el2()
+> > 
+> > * KVM hyp code which may consume TPIDR_EL2 is brought up after all
+> >   secondaries have been booted, once TPIDR_El2 has been configured on
+> >   all CPUs.
+> > 
+> > Remove the redundant initialisation from __finalise_el2().
+> > 
+> > Cc: Oliver Upton <oupton@kernel.org>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+> > Signed-off-by: Will Deacon <will@kernel.org>
 > 
-> * The hyp stub code does not consume the value of TPIDR_EL2.
-> 
-> * On the boot cpu, TPIDR_EL1 is used for the percpu offset until the
->   ARM64_HAS_VIRT_HOST_EXTN cpucap is detected and boot alternatives
->   are patched. Before boot alternatives are patched,
->   cpu_copy_el2regs() will copy TPIDR_EL1 into TPIDR_EL2. It is not
->   necessary for __finalise_el2() to initialise TPIDR_EL2 before this.
-> 
-> * Secondary CPUs are brought up after boot alternatives have been
->   patched, and __secondary_switched() will initialize TPIDR_EL2 in
->   'init_cpu_task', after finalise_el2() calls __finalise_el2()
-> 
-> * KVM hyp code which may consume TPIDR_EL2 is brought up after all
->   secondaries have been booted, once TPIDR_El2 has been configured on
->   all CPUs.
-> 
-> Remove the redundant initialisation from __finalise_el2().
-> 
-> Cc: Oliver Upton <oupton@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Will Deacon <will@kernel.org>
+> Reviewed-by: Marc Zyngier <maz@kernel.org>
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+Ah, realised too late you intended for this to go via the KVM tree.
+
+I'll queue that for 7.2.
+
+Thanks,
 
 	M.
 
