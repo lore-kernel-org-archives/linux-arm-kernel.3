@@ -4,59 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9742DCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:00:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98847CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EzuC6MTUMNVSoGicxK1S0ctH7XsxNeVhYy22mcOe1G8=; b=aWZyfZ1C9bWs7flWhiiOxNs417
-	VJHVmC8DZHAPrA3ko0HxX0UZIbDnLCF1OuDeKm992Ee505h+UI05TcCJVcwqX5dQemaz5KJSv2Gwc
-	VRLkVsusRGbvu7uB3oQ+QA68Nyo0M57VckZrjImNM1ye/16Pn/oNEMsWgxrqpsM2Yk1nxQU0qCcmK
-	qkWGleHHwZ0b0mzHlak8XCzPq5oNxYVci6zRcDsx00g38Rgr5lbeqETdCv+vsYE1SC46897PnpeFc
-	VJu4BV5vhv7Po3EMzC+d/xEYpLbo1yHoNWvQoINHLBpWSj3QRGNs++peMjyyvXgWYjl9CL6nwaurs
-	5CKY5Rxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Date:From:
+	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OaA3ZM2Zqnd6U5xNasrJ5HhecqWu3+FpjPtc7vgz6NU=; b=ZkaxHzREMMSI6lBesIlw1aTEpb
+	JpohvECceF6L1L2ecMvnSTBcT2tuXAdMfIqgsBYTEFvXq3OwEmxCQXVbYsloWa37+WztUAmof1WjP
+	W2OhW0+zvAvGAiJ5M0Foc8qDp7pac0Uxq+Wy527YlRQCR+HeGku2DsL58bLdynMgKKNmVQnhxwvoi
+	enGbmy1FRjjHuBz1NogTrAu23twwwV0anUoT2t1ER7ux4BZ3KnuEEjkV3DfhCp2SdzkQN2YGIHs/T
+	5kThOMqpW+0TiRb/9sR3aUZzfWoDjN9/sxDbUINBfzckGNlUU2RJHt79sy7cypOkZxUuYi7kceloh
+	4oOURX5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1KL-0000000GMTZ-1idj;
-	Mon, 18 May 2026 17:00:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1KH-0000000GMSz-46h2
+	id 1wP1Px-0000000GN55-0Ngv;
+	Mon, 18 May 2026 17:06:13 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wP1Pu-0000000GN4C-15QM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 17:00:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7CDDF1C01;
-	Mon, 18 May 2026 10:00:13 -0700 (PDT)
-Received: from [10.1.196.85] (e121345-lin.cambridge.arm.com [10.1.196.85])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA0B63F7B4;
-	Mon, 18 May 2026 10:00:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779123618; bh=zugYL5vZCUyEQykpVMWy7k6xRPMdLB3vw6jYEjwAALM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WqqK7h5FWp2KhMpVKzpxLfTmT18whExXGBcJr4XbD0XRL2A5fZ8iHZUXsWqOGiCMK
-	 1NfKj9ZYcNJd+BiY/CBkKrcfbb5YQ1LPbM3WF6t+T1q5W3LbAobk1+GCOqaAsL31cC
-	 fp4SKF/1zjRptiTTL0NL+yg10qJ95nkU4vCt5ayQ=
-Message-ID: <83e27ae0-870e-4bfe-806d-2c2f21a719df@arm.com>
-Date: Mon, 18 May 2026 18:00:14 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/arm-smmu: pass smmu->dev to report_iommu_fault
-To: Shyam Saini <shyamsaini@linux.microsoft.com>, iommu@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- robin.clark@oss.qualcomm.com, will@kernel.org, joro@8bytes.org,
- stable@vger.kernel.org
-References: <20260517005052.3783378-1-shyamsaini@linux.microsoft.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260517005052.3783378-1-shyamsaini@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Mon, 18 May 2026 17:06:12 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c80148ae949so960656a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:06:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779123968; x=1779728768; darn=lists.infradead.org;
+        h=cc:to:subject:date:from:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OaA3ZM2Zqnd6U5xNasrJ5HhecqWu3+FpjPtc7vgz6NU=;
+        b=RwkXxUtyRNk0CK1CbgCGSPXXOKpNIOYi2XduWW8R4tO/2suxI7m6ZXK2iJYH++ZKpD
+         LfT84Ig2jY4GdjrhoykaNZ1an1c/Dw22v21ryWY68snDzAMcW6jFHq+Pfx0uOLoiHv25
+         saU7OxYvZObRkBrgCL11v7YVlE/i5Q8F4XcmfACXYS6ZdBy4bioeCzLDQ85NEQGUN+LG
+         t8cYeawkVo5C64jz279ZUM3MJuPwsuPJxgRj0QxBBXYMuxN0B98COraWMqqzUkGZ3OGw
+         09MxXdDucyrYWnZs3PapsohWqJgjQiOV0uPO49AlxF0PFC0nmO7EAdQG5n+VElr+LyNb
+         F21Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779123968; x=1779728768;
+        h=cc:to:subject:date:from:message-id:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=OaA3ZM2Zqnd6U5xNasrJ5HhecqWu3+FpjPtc7vgz6NU=;
+        b=bqeFNgQ2SNJFhF9/5mB5lFT30NK6qjKsU/ooG67LzkdU2SmwAFUsSzRt5UYWUStnRo
+         pH4D9UnMPcSFSbHu2uoS0IUSb3maDHiJyIJQiopCQbgeAPZwt1W6ra6ux/+v/wJ4Tuxk
+         k24UYPc5wsqlPfqV8hwR49uQwtBq2rat8TC7jlTubqio7rrTK2n5PBvTRMcntb70MFS2
+         yxOhOwYnT17xywqyb7hWuqWxQPFjlBenIV6MyHRmXnoGnyaKKWsk7HIQfwvkKTuiTrIJ
+         rsGKwYw/sjJen8rF96IByq5zdENNrpVGVKopd4/1F+GhY2YH7S5E5QzreG00nOEjf8vk
+         kUng==
+X-Forwarded-Encrypted: i=1; AFNElJ91xow0/VUsimc728rRqXovP4hUjxZBXEGCzgLR5xn+LM1mJHB49FPo9ckzq2UumyTibT5w9wgAzG/2dDfEja80@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVorHEb3t4tMBEccK/9GuyV4EHd88YwzGedG7J+FmOH3qoANwj
+	nIE6VZo4MKukkUPDUow4OkprFjTOxBWCBoduc0aMr30w1lkupwhuzOr+
+X-Gm-Gg: Acq92OGGCcIdVTXH91TpjPo/eKGw3NxdVaEVZx9tEDKhxKtwFyU9VY/ewcepBJOLgi9
+	jZqEqrYOSHagV2O+//UOQx9RYPBWyRX/ihufYf9O7hjc4o+lOMRRmN8aQzM/6uJ3fT+KCB4hvH9
+	AXoRL9Gvd+pPD3lURbHOfH+wLDXDm/bmQcEke3tzYxzTaO/IqIxdE/OXaSUlOU5sR1CyHe7W66o
+	ykMH1jlbArDfxa0Y92kw28vO+ZJL6RDAR456vrBz2LDACQzquDQukrd/oN/y099rGjbUYrZwigp
+	7UUky8tC8HRzAJKMIZfOfMKmo8+AvddyzShn8LOWfLPGG++Em70Ki4gZSe8/Lq8e5pOVxLHhhCT
+	UduK4K+P8K2H8cXoiN1CrXeX1uiMPvqOzu6aefmwYQIolMOvAAPehEEZ4HPmXsDFKYyFJylwoS1
+	vuiR8EOmkzxbgTvdxjfhIIP5oEq1QOhOXGOCFmI7ZWL9+N6Wq1Q3GvWGTbs5yqk2KCDdTWtZWyH
+	5+MERIfHwUB8vUekQ==
+X-Received: by 2002:a05:6a21:6d94:b0:3a2:dafd:3c02 with SMTP id adf61e73a8af0-3b22ea861a4mr18190165637.19.1779123968468;
+        Mon, 18 May 2026 10:06:08 -0700 (PDT)
+Received: from 1.0.0.127.in-addr.arpa ([110.44.115.146])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7ed3fsm14932377b3a.45.2026.05.18.10.06.01
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 18 May 2026 10:06:08 -0700 (PDT)
+Message-ID: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
+From: Shuvam Pandey <shuvampandey1@gmail.com>
+Date: Mon, 18 May 2026 22:44:17 +0545
+Subject: [PATCH 1/2] PCI: dwc: Guard RAS DES debugfs deinit
+To: Jingoo Han <jingoohan1@gmail.com>,
+    Manivannan Sadhasivam <mani@kernel.org>,
+    Lorenzo Pieralisi <lpieralisi@kernel.org>,
+    =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+    Bjorn Helgaas <bhelgaas@google.com>,
+    Yue Wang <yue.wang@Amlogic.com>,
+    Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Rob Herring <robh@kernel.org>,
+    Kevin Hilman <khilman@baylibre.com>,
+    Jerome Brunet <jbrunet@baylibre.com>,
+    Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+    Fan Ni <fan.ni@samsung.com>,
+    Shradha Todi <shradha.t@samsung.com>,
+    Hanjie Lin <hanjie.lin@amlogic.com>,
+    linux-pci@vger.kernel.org,
+    linux-amlogic@lists.infradead.org,
+    linux-arm-kernel@lists.infradead.org,
+    linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_100022_415717_49A7E50C 
-X-CRM114-Status: GOOD (  20.84  )
+X-CRM114-CacheID: sfid-20260518_100610_300741_7559542A 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,77 +108,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/05/2026 1:50 am, Shyam Saini wrote:
-> report_iommu_fault() passes the dev argument to trace_io_page_fault(),
-> which dereferences it via dev_name() and dev_driver_string(). Passing
-> NULL causes a kernel crash when the io_page_fault tracepoint is
-> enabled.
-> 
-> In arm-smmu.c, 'commit f8f934c180f6 ("iommu/arm-smmu: Add support for driver IOMMU fault handlers")'
-> replaced a dev_err_ratelimited() call that correctly used smmu->dev with
+dwc_pcie_rasdes_debugfs_init() returns success when the controller has
+no RAS DES capability, leaving pci->debugfs->rasdes_info unset. The
+common debugfs teardown path still calls
+dwc_pcie_rasdes_debugfs_deinit(), which dereferences rasdes_info
+unconditionally.
 
-I'm not sure it was really correct - it's pretty clear that "dev" is 
-intended to be the client device that _caused_ the fault, since why 
-would it make any sense to pass the IOMMU device to some other 
-driver/subsystem's fault handler? (Yes, other IOMMU drivers already do 
-that; I would consider them just as wrong too).
+Return early when no RAS DES state was allocated. In that case no RAS DES
+mutex was initialized, so there is nothing to destroy.
 
-IMO it would seem more robust to just fix the tracepoint to handle a 
-NULL "dev" in the case that one can't (easily) be identified.
+Fixes: 4fbfa17f9a07 ("PCI: dwc: Add debugfs based Silicon Debug support for DWC")
+Signed-off-by: Shuvam Pandey <shuvampandey1@gmail.com>
+---
+ drivers/pci/controller/dwc/pcie-designware-debugfs.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Thanks,
-Robin.
-
-> report_iommu_fault() but passed NULL instead.
-> In arm-smmu-qcom-debug.c, 'commit d374555ef993 ("iommu/arm-smmu-qcom: Use a custom context fault handler for sdm845")'
-> introduced two report_iommu_fault() calls also with NULL.
-> 
-> Pass smmu->dev to all three call sites.
-> 
-> Fixes: f8f934c180f629bb ("iommu/arm-smmu: Add support for driver IOMMU fault handlers")
-> Fixes: d374555ef993433f ("iommu/arm-smmu-qcom: Use a custom context fault handler for sdm845")
-> Cc: stable@vger.kernel.org
-> Assisted-by: GitHub_Copilot:claude-opus-4.6
-> Signed-off-by: Shyam Saini <shyamsaini@linux.microsoft.com>
-> ---
->   drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c | 4 ++--
->   drivers/iommu/arm/arm-smmu/arm-smmu.c            | 2 +-
->   2 files changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
-> index 65e0ef6539fe7..8eb9f7831de07 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
-> @@ -399,7 +399,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
->   		return IRQ_NONE;
->   
->   	if (list_empty(&tbu_list)) {
-> -		ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
-> +		ret = report_iommu_fault(&smmu_domain->domain, smmu->dev, cfi.iova,
->   					 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
->   
->   		if (ret == -ENOSYS)
-> @@ -417,7 +417,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
->   
->   	phys_soft = ops->iova_to_phys(ops, cfi.iova);
->   
-> -	tmp = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
-> +	tmp = report_iommu_fault(&smmu_domain->domain, smmu->dev, cfi.iova,
->   				 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
->   	if (!tmp || tmp == -EBUSY) {
->   		ret = IRQ_HANDLED;
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index 0bd21d206eb3e..92d8fa2100adb 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -467,7 +467,7 @@ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
->   	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
->   		return IRQ_NONE;
->   
-> -	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
-> +	ret = report_iommu_fault(&smmu_domain->domain, smmu->dev, cfi.iova,
->   		cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
->   
->   	if (ret == -ENOSYS && __ratelimit(&rs))
+diff --git a/drivers/pci/controller/dwc/pcie-designware-debugfs.c b/drivers/pci/controller/dwc/pcie-designware-debugfs.c
+index d0884253b..c3671cb2f 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-debugfs.c
++++ b/drivers/pci/controller/dwc/pcie-designware-debugfs.c
+@@ -557,6 +557,9 @@ static void dwc_pcie_rasdes_debugfs_deinit(struct dw_pcie *pci)
+ {
+ 	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+ 
++	if (!rinfo)
++		return;
++
+ 	mutex_destroy(&rinfo->reg_event_lock);
+ }
+ 
+-- 
+2.50.1 (Apple Git-155)
 
 
