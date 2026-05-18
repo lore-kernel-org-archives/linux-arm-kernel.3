@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E596CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD81CD4F50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:09:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBvZjwLe5zdrCJH73EVqsmX0tJp3K8ogpghIuJyZiG0=; b=D9PoLVHgMZwfMNYx7AVLmYPhpw
-	VOrKVUjJ3tEh8/4YaaSOdPwVUHC0g37iHjhJjQmYJmPTE49BUTAtoqJLgR9EWn/lZR/iTCSOxr/En
-	78wCuT0cPdLHq21Nn4LDWvSyuWp7Fr73D4RK4l18LZo9nMCMT9YvGFyHGe3vFJ/0yhQCWEI9nqW5I
-	e+xgtoB9FjvZ2P9HfwRTCTk6BWpq4eb08yWdiv6ngjbHCGoUBoEDCyAtT1UcIOJkjiV/hkMvWoVB9
-	7IJ02XteSWE5nwLziC/ZKsk1ZMXJ9zYKQv75OBt7Ze5l3KSJsVEKx12p9UkyKljG/dLMaBNqQFk0S
-	KK0DK5tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0GyVbaMizFd6dp6sYV2cV6DF4/PWzBLikux5CvpVItM=; b=i/ff7pILCUZfSpFEdkZ8xFSzV/
+	8oZYrW4s2Pizyt0ZwpDfMd4sE4VAJ1tbIOXOA/9dxYqwehkhOWeyxJK6Ep1kX0CwvKuYG5K19Hjus
+	6ksDR1cHMUy5H1Wcy4wm9yYYqwRrhcJiJpPBV/zv75ih1nIeZIWBd2Kr7yeI+AqvpgJoMhUrWacmd
+	IY0VRWfSFUKXt3+/ibtmrEeL+NWaN7en3mlM0WNFxlZ2K05Ln9I1U6etxzfO3sXiOQnQFmdr0mb6i
+	x8kXdsTc/6+u7e15ELdyOE+pSsg+kH6yloebVwHdatS4S7ueta6LmHjR3WdopuSfTRYKP1OAALx3j
+	sbop6t3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyfB-0000000FvOh-3xVY;
-	Mon, 18 May 2026 14:09:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyf9-0000000FvMy-0PMS
+	id 1wOyfJ-0000000FvSV-0uoH;
+	Mon, 18 May 2026 14:09:53 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOyfF-0000000FvPl-2vDc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:09:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC9641D6F;
-	Mon, 18 May 2026 07:09:35 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF0FB3F85F;
-	Mon, 18 May 2026 07:09:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779113380; bh=l/Qlu3Hv8DU45+5xpV6c4Ys2pdhcs0h9f9qT0mq7CAA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fF0Rbl+3+beUy/Z/uEmudgn3t5s4SroQO42yF9HRXheF6oLVt9/UdhuMxyo5YJYem
-	 061Y/QZdP51yOHhLMIL9Lmv6zQ4EaLf5wxtJaWug/AmesDsc8mD/rQEkGe+uQIVYsO
-	 V2VQnzwfK/BX+w+nZ/E1KWe2awZTmPh4Q84ZHVEA=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/2] Optimize S2 page splitting
-Date: Mon, 18 May 2026 15:09:36 +0100
-Message-ID: <agsdoBEpPLx38lkI@devkitleo>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <87o6ifaf5z.wl-maz@kernel.org>
-References: <20260515195904.2466381-1-leo.bras@arm.com> <87o6ifaf5z.wl-maz@kernel.org>
+	Mon, 18 May 2026 14:09:51 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id C1D971F80044
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:09:46 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id B814FB407FA; Mon, 18 May 2026 14:09:45 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 33A58B407F5;
+	Mon, 18 May 2026 14:09:44 +0000 (UTC)
+Date: Mon, 18 May 2026 16:09:41 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-staging@lists.linux.dev
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arash Golgol <arash.golgol@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH 04/16] media: sun8i-a83t-mipi-csi2: Use V4L2 subdev
+ active state
+Message-ID: <agsdpcxifnFwaUu3@collins>
+References: <20260518102451.417971-1-paulk@sys-base.io>
+ <20260518102451.417971-5-paulk@sys-base.io>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SmpESyxiLXAcu4zS"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260518102451.417971-5-paulk@sys-base.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_070943_203086_21C2F94A 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20260518_070950_068099_7496F467 
+X-CRM114-Status: GOOD (  30.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,52 +75,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 16, 2026 at 10:15:36AM +0100, Marc Zyngier wrote:
-> On Fri, 15 May 2026 20:59:01 +0100,
-> Leonardo Bras <leo.bras@arm.com> wrote:
-> > 
-> > While playing with dirty-bit tracking, I decided to take a look on how page
-> > splitting works. Found out all entries are walked, even though we can infer,
-> > for instance that:
-> > - If a level-3 entry is walked, it means the parent level-2 entry is split
-> > - If a split just succeeded in an table entry, it means all children nodes
-> >   are already split
-> > 
-> > So I tried to optimize it in a way that it does not break other users.
-> > 
-> > My main idea is to introduce positive return values that hint to the
-> > pagetable walking mechanism that either siblings or children can be 
-> > skipped. That should be contained to the visitor function, that returns
-> > zero if no error was detected.
-> > 
-> > Numbers on above optimization are promising:
-> > A 1GB VM, running on the model, splitting all at the beginning 
-> > (no manual protect):
-> > - Memory was already split (4k pages): 	-97.33% runtime (-172ms) - 20 runs
-> > - THP backed memory: 			-19.82% runtime (-153ms) - 10 runs
-> > - 1x1GB hugetlb memory:			-20.65% runtime (-150ms) - 10 runs
-> >
-> 
-> I haven't looked at the changes in details, but the methodology is
-> quite flawed. For a start, measuring anything on a software model
-> (QEMU or FVP) doesn't mean anything performance-wise. The trade-offs
-> are completely different from a HW implementation, and even the notion
-> of time is pretty inconsistent.
-> 
-> Please run this on actual HW. I'm sure your employer can give you
-> access to one of these mythical arm64 toys.
 
-Ok, will use real hardware next.
+--SmpESyxiLXAcu4zS
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> Measure things from
-> userspace, not from the kernel, so that you have all the overheads.
-> Don't add console output, because that will make things far worse.
-> 
-> I'm sure you can hack one of the selftests for this purpose.
+Le Mon 18 May 26, 12:24, Paul Kocialkowski a =C3=A9crit :
+> From: Arash Golgol <arash.golgol@gmail.com>
+>=20
+> Use the V4L2 subdev active state API to store the active format.
+> This simplifies the driver not only by dropping the bridge mbus_format
+> field, but it also allows dropping the bridge lock, replaced with
+> the state lock.
+>=20
+> The sun8i-a83t-mipi-csi2 hardware does not perform any format
+> conversion. Enforce identical formats on the sink and source pads in
+> the set_fmt() and init_state() callbacks.
+>=20
+> Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
 
-I think the dirty_log_perf_test should have an config I can use for that 
-without introducing any change. 
+I forgot to pick it up but this is already:
 
-Thanks!
-Leo
+Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
+Tested-by: Paul Kocialkowski <paulk@sys-base.io>
+
+Paul
+
+> ---
+>  .../sun8i_a83t_mipi_csi2.c                    | 113 +++++++++---------
+>  .../sun8i_a83t_mipi_csi2.h                    |   2 -
+>  2 files changed, 56 insertions(+), 59 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
+_mipi_csi2.c b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
+_mipi_csi2.c
+> index dbc51daa4fe3..2b7635f3952d 100644
+> --- a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
+si2.c
+> +++ b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
+si2.c
+> @@ -144,12 +144,12 @@ sun8i_a83t_mipi_csi2_disable(struct sun8i_a83t_mipi=
+_csi2_device *csi2_dev)
+>  }
+> =20
+>  static void
+> -sun8i_a83t_mipi_csi2_configure(struct sun8i_a83t_mipi_csi2_device *csi2_=
+dev)
+> +sun8i_a83t_mipi_csi2_configure(struct sun8i_a83t_mipi_csi2_device *csi2_=
+dev,
+> +			       const struct v4l2_mbus_framefmt *mbus_format)
+>  {
+>  	struct regmap *regmap =3D csi2_dev->regmap;
+>  	unsigned int lanes_count =3D
+>  		csi2_dev->bridge.endpoint.bus.mipi_csi2.num_data_lanes;
+> -	struct v4l2_mbus_framefmt *mbus_format =3D &csi2_dev->bridge.mbus_forma=
+t;
+>  	const struct sun8i_a83t_mipi_csi2_format *format;
+>  	struct device *dev =3D csi2_dev->dev;
+>  	u32 version =3D 0;
+> @@ -205,7 +205,8 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
+subdev *subdev, int on)
+>  	struct v4l2_subdev *source_subdev =3D csi2_dev->bridge.source_subdev;
+>  	union phy_configure_opts dphy_opts =3D { 0 };
+>  	struct phy_configure_opts_mipi_dphy *dphy_cfg =3D &dphy_opts.mipi_dphy;
+> -	struct v4l2_mbus_framefmt *mbus_format =3D &csi2_dev->bridge.mbus_forma=
+t;
+> +	struct v4l2_subdev_state *state;
+> +	const struct v4l2_mbus_framefmt *mbus_format;
+>  	const struct sun8i_a83t_mipi_csi2_format *format;
+>  	struct phy *dphy =3D csi2_dev->dphy;
+>  	struct device *dev =3D csi2_dev->dev;
+> @@ -215,8 +216,12 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2=
+_subdev *subdev, int on)
+>  	unsigned long pixel_rate;
+>  	int ret;
+> =20
+> -	if (!source_subdev)
+> -		return -ENODEV;
+> +	state =3D v4l2_subdev_lock_and_get_active_state(subdev);
+> +
+> +	if (!source_subdev) {
+> +		ret =3D -ENODEV;
+> +		goto unlock;
+> +	}
+> =20
+>  	if (!on) {
+>  		v4l2_subdev_call(source_subdev, video, s_stream, 0);
+> @@ -228,7 +233,7 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
+subdev *subdev, int on)
+> =20
+>  	ret =3D pm_runtime_resume_and_get(dev);
+>  	if (ret < 0)
+> -		return ret;
+> +		goto unlock;
+> =20
+>  	/* Sensor pixel rate */
+> =20
+> @@ -254,6 +259,9 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
+subdev *subdev, int on)
+>  		goto error_pm;
+>  	}
+> =20
+> +	mbus_format =3D
+> +		v4l2_subdev_state_get_format(state,
+> +					     SUN8I_A83T_MIPI_CSI2_PAD_SINK);
+>  	format =3D sun8i_a83t_mipi_csi2_format_find(mbus_format->code);
+>  	if (WARN_ON(!format)) {
+>  		ret =3D -ENODEV;
+> @@ -292,7 +300,7 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
+subdev *subdev, int on)
+> =20
+>  	/* Controller */
+> =20
+> -	sun8i_a83t_mipi_csi2_configure(csi2_dev);
+> +	sun8i_a83t_mipi_csi2_configure(csi2_dev, mbus_format);
+>  	sun8i_a83t_mipi_csi2_enable(csi2_dev);
+> =20
+>  	/* D-PHY */
+> @@ -309,7 +317,8 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
+subdev *subdev, int on)
+>  	if (ret && ret !=3D -ENOIOCTLCMD)
+>  		goto disable;
+> =20
+> -	return 0;
+> +	ret =3D 0;
+> +	goto unlock;
+> =20
+>  disable:
+>  	phy_power_off(dphy);
+> @@ -318,6 +327,8 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
+subdev *subdev, int on)
+>  error_pm:
+>  	pm_runtime_put(dev);
+> =20
+> +unlock:
+> +	v4l2_subdev_unlock_state(state);
+>  	return ret;
+>  }
+> =20
+> @@ -341,22 +352,24 @@ sun8i_a83t_mipi_csi2_mbus_format_prepare(struct v4l=
+2_mbus_framefmt *mbus_format)
+>  static int sun8i_a83t_mipi_csi2_init_state(struct v4l2_subdev *subdev,
+>  					   struct v4l2_subdev_state *state)
+>  {
+> -	struct sun8i_a83t_mipi_csi2_device *csi2_dev =3D
+> -		v4l2_get_subdevdata(subdev);
+> -	unsigned int pad =3D SUN8I_A83T_MIPI_CSI2_PAD_SINK;
+> -	struct v4l2_mbus_framefmt *mbus_format =3D
+> -		v4l2_subdev_state_get_format(state, pad);
+> -	struct mutex *lock =3D &csi2_dev->bridge.lock;
+> +	unsigned int pad;
+> =20
+> -	mutex_lock(lock);
+> +	/*
+> +	 * This subdev does not perform format conversion,
+> +	 * initialize both pads identically.
+> +	 */
+> +	for (pad =3D 0; pad < subdev->entity.num_pads; pad++) {
+> +		struct v4l2_mbus_framefmt *mbus_format;
+> =20
+> -	mbus_format->code =3D sun8i_a83t_mipi_csi2_formats[0].mbus_code;
+> -	mbus_format->width =3D 640;
+> -	mbus_format->height =3D 480;
+> +		mbus_format =3D v4l2_subdev_state_get_format(state, pad);
+> +
+> +		mbus_format->code =3D sun8i_a83t_mipi_csi2_formats[0].mbus_code;
+> +		mbus_format->width =3D 640;
+> +		mbus_format->height =3D 480;
+> =20
+> -	sun8i_a83t_mipi_csi2_mbus_format_prepare(mbus_format);
+> +		sun8i_a83t_mipi_csi2_mbus_format_prepare(mbus_format);
+> +	}
+> =20
+> -	mutex_unlock(lock);
+> =20
+>  	return 0;
+>  }
+> @@ -375,55 +388,33 @@ sun8i_a83t_mipi_csi2_enum_mbus_code(struct v4l2_sub=
+dev *subdev,
+>  	return 0;
+>  }
+> =20
+> -static int sun8i_a83t_mipi_csi2_get_fmt(struct v4l2_subdev *subdev,
+> -					struct v4l2_subdev_state *state,
+> -					struct v4l2_subdev_format *format)
+> -{
+> -	struct sun8i_a83t_mipi_csi2_device *csi2_dev =3D
+> -		v4l2_get_subdevdata(subdev);
+> -	struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
+> -	struct mutex *lock =3D &csi2_dev->bridge.lock;
+> -
+> -	mutex_lock(lock);
+> -
+> -	if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
+> -		*mbus_format =3D *v4l2_subdev_state_get_format(state,
+> -							     format->pad);
+> -	else
+> -		*mbus_format =3D csi2_dev->bridge.mbus_format;
+> -
+> -	mutex_unlock(lock);
+> -
+> -	return 0;
+> -}
+> -
+>  static int sun8i_a83t_mipi_csi2_set_fmt(struct v4l2_subdev *subdev,
+>  					struct v4l2_subdev_state *state,
+>  					struct v4l2_subdev_format *format)
+>  {
+> -	struct sun8i_a83t_mipi_csi2_device *csi2_dev =3D
+> -		v4l2_get_subdevdata(subdev);
+> -	struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
+> -	struct mutex *lock =3D &csi2_dev->bridge.lock;
+> +	struct v4l2_mbus_framefmt *fmt;
+> =20
+> -	mutex_lock(lock);
+> +	/* The format on the source pad always matches the sink pad. */
+> +	if (format->pad !=3D SUN8I_A83T_MIPI_CSI2_PAD_SINK)
+> +		return v4l2_subdev_get_fmt(subdev, state, format);
+> =20
+> -	sun8i_a83t_mipi_csi2_mbus_format_prepare(mbus_format);
+> +	sun8i_a83t_mipi_csi2_mbus_format_prepare(&format->format);
+> =20
+> -	if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
+> -		*v4l2_subdev_state_get_format(state, format->pad) =3D
+> -			*mbus_format;
+> -	else
+> -		csi2_dev->bridge.mbus_format =3D *mbus_format;
+> +	/* Set the format on the sink pad. */
+> +	fmt =3D v4l2_subdev_state_get_format(state, format->pad);
+> +	*fmt =3D format->format;
+> =20
+> -	mutex_unlock(lock);
+> +	/* Propagate the format to the source pad. */
+> +	fmt =3D v4l2_subdev_state_get_format(state,
+> +					   SUN8I_A83T_MIPI_CSI2_PAD_SOURCE);
+> +	*fmt =3D format->format;
+> =20
+>  	return 0;
+>  }
+> =20
+>  static const struct v4l2_subdev_pad_ops sun8i_a83t_mipi_csi2_pad_ops =3D=
+ {
+>  	.enum_mbus_code	=3D sun8i_a83t_mipi_csi2_enum_mbus_code,
+> -	.get_fmt	=3D sun8i_a83t_mipi_csi2_get_fmt,
+> +	.get_fmt	=3D v4l2_subdev_get_fmt,
+>  	.set_fmt	=3D sun8i_a83t_mipi_csi2_set_fmt,
+>  };
+> =20
+> @@ -540,8 +531,6 @@ sun8i_a83t_mipi_csi2_bridge_setup(struct sun8i_a83t_m=
+ipi_csi2_device *csi2_dev)
+>  	bool notifier_registered =3D false;
+>  	int ret;
+> =20
+> -	mutex_init(&bridge->lock);
+> -
+>  	/* V4L2 Subdev */
+> =20
+>  	v4l2_subdev_init(subdev, &sun8i_a83t_mipi_csi2_subdev_ops);
+> @@ -570,6 +559,12 @@ sun8i_a83t_mipi_csi2_bridge_setup(struct sun8i_a83t_=
+mipi_csi2_device *csi2_dev)
+>  	if (ret)
+>  		return ret;
+> =20
+> +	/* V4L2 Subdev finalize */
+> +
+> +	ret =3D v4l2_subdev_init_finalize(subdev);
+> +	if (ret < 0)
+> +		goto error_media_entity_cleanup;
+> +
+>  	/* V4L2 Async */
+> =20
+>  	v4l2_async_subdev_nf_init(notifier, subdev);
+> @@ -603,6 +598,9 @@ sun8i_a83t_mipi_csi2_bridge_setup(struct sun8i_a83t_m=
+ipi_csi2_device *csi2_dev)
+>  error_v4l2_notifier_cleanup:
+>  	v4l2_async_nf_cleanup(notifier);
+> =20
+> +	v4l2_subdev_cleanup(subdev);
+> +
+> +error_media_entity_cleanup:
+>  	media_entity_cleanup(&subdev->entity);
+> =20
+>  	return ret;
+> @@ -617,6 +615,7 @@ sun8i_a83t_mipi_csi2_bridge_cleanup(struct sun8i_a83t=
+_mipi_csi2_device *csi2_dev
+>  	v4l2_async_unregister_subdev(subdev);
+>  	v4l2_async_nf_unregister(notifier);
+>  	v4l2_async_nf_cleanup(notifier);
+> +	v4l2_subdev_cleanup(subdev);
+>  	media_entity_cleanup(&subdev->entity);
+>  }
+> =20
+> diff --git a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
+_mipi_csi2.h b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
+_mipi_csi2.h
+> index f1e64c53434c..819527bcd64d 100644
+> --- a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
+si2.h
+> +++ b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
+si2.h
+> @@ -33,8 +33,6 @@ struct sun8i_a83t_mipi_csi2_bridge {
+>  	struct media_pad		pads[SUN8I_A83T_MIPI_CSI2_PAD_COUNT];
+>  	struct v4l2_fwnode_endpoint	endpoint;
+>  	struct v4l2_async_notifier	notifier;
+> -	struct v4l2_mbus_framefmt	mbus_format;
+> -	struct mutex			lock; /* Mbus format lock. */
+> =20
+>  	struct v4l2_subdev		*source_subdev;
+>  };
+> --=20
+> 2.54.0
+>=20
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--SmpESyxiLXAcu4zS
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoLHaUACgkQhP3B6o/u
+lQxtAg//S2QfTj832c+YdD3o+iJ3BWs9KibhqT9dGuWMlWVc/9HZIlEsqYfjH5x4
+Bxvv9Uz2F46nRp3UB4H5aqDC0s1cp7h2T2vGfo/UIZ3QAKUSzuC3Kt/NUltvEC9z
+/8XZGNj7Y5t5Op2lhlvsxMN8o3fB2blmd53xQjxSQKYuLK6jQwSmgo9LmGOcNgRu
+yRw8+D9nm1f9MC2Tb1JMlKnNLnDPuFLhtscgwSzOw/vxSj1EkiXnDH8wiBerG0IR
+375DfqmVwCmZfX0bjAeObTplFu5hzLDBZbHwBm9QxC6SBHEw9KeOC/4VJF9wApM4
+foqMGlyHbjpZEv/b56hqwpD7LIfyk/7dprJDKvvGyurnRXyVJIkpAkPymAaPMlre
+ik/2xFiorIjXjhbqEHndObXu5F7CxTVirQNbSFHtBr/KytuSZN/KFvu1PN75qrJl
+lJDe57UVDA1h8q6GUjHd/cLnTZN4YZgOLOidjEYKi0JQd/am3nz8iRaVolzMK++p
+8IhvjsnHYOemh8XsbQ9jGimWzrZqR1LnBc/kcpr0GCohmD7ttQQ50YK4CtYNXFip
+qBuyLkQDfzfcyMMgXj00KbQbEwndjkF58In4kWwqpCrmmAET0U8/afswDv1+J7Qu
+EwAdL0JFWWndXIYllxNVnzepuUdwbXov4HzLRMY1AfZr/ajf8Gk=
+=vz53
+-----END PGP SIGNATURE-----
+
+--SmpESyxiLXAcu4zS--
 
