@@ -4,114 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CADE3CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:06:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC9DCD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HUZWOPgWLn/EZxMpNyrU2lb/9ipHruzoOy77CIyBgCE=; b=VHAzrRPvrKo4iRC+eQcnCtk5lK
-	I450lbLyYGPWDz8FSwLbrW0nWZNfJZOQsehum4oE5Xw97aty2rtHfRze7HVf6vC20oOIDXlyTzUm1
-	EHlx9OR3OVeMtviDzNXolixba321WVCkMY+C9hjOzpIttueRfIdmBLwKhZKS91bfG1eLsdlJss7r4
-	0lwGOtr4dg+ObY950XxTzMZUex7hXv5gTBNwPoLKtVQ++Jd+k4s1X3RVyPgASqZzxgtFN1nqmigvE
-	V+fQbTpHid7+N5BKSJZy6cWN3P+mf3SRRvulGYFk7V0XPtdNAA/+Fx3xxTRa+TRUsZdLk7xXYymV2
-	62DQhgMA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TtmjcFudJHdbwgaOw1dq0xgX0ESp0DVFqApr/5XXiuc=; b=29Olai3JFnxCQoU632iKXmVCuX
+	z5tRG+Dab113rrle5Fnw+w8ObrApWW7FKhaXt5oaZjT0oKTAhTUgZRBRlOa37ZWdu2JLR/+9rFJuw
+	TaaKKqp7udskdprDJ6TQTPFa+Qwgp6V8D2uFkoWqnUDZ1p4faoPI7DlD377G7Web+v/xXG44NesF0
+	lDHmJx1jV8ydRM4ISxgJkPi9cV50WtGI2Q+fITvcWvWJWRIcFcwpZByV0KSpW5nnuREKvMgIowenD
+	74XBMk8Lyl3c4c+vMr5DFhx768fq4ISvBcCuGclgxD5o9KP4NL9vshJRyyVpnxHEZkbu0MgT38Vzm
+	OqNaiXMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOszq-0000000Ei2c-1NyR;
-	Mon, 18 May 2026 08:06:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wOt6g-0000000EjJP-0cny;
+	Mon, 18 May 2026 08:13:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOszo-0000000Ei2E-0S2w
+	id 1wOt6f-0000000EjJ8-1fR8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 08:13:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=TtmjcFudJHdbwgaOw1dq0xgX0ESp0DVFqApr/5XXiuc=; b=mdiStVJxJI25MNFoMlE9WPUsdA
+	vUUO1Kf0ohztVR8IwjMS0fsAj36g61TUZJCBYrCAhO7RI6z2nlt+yRshjcOGkfAkWz1lkVdYOqvxQ
+	UVGPEqr6w06tOta0UKipiTTV1QcwHnS9l3Z30c0MMgfdZljUEBvJgS0tfUdtO5VPwmcLVKjaLKaH2
+	9Eq7bRDc6kt9lxSqgPIt3QBI2hWWcXa4G2OQnE1/UkzcF7ekqbf40/qfVwIn7q1wEHIlGL5uDfGb1
+	HeTWzEEPXpGDW3oY0ys32IIpzA5/SHRL7RYQboBUQSEFohPQ4uqiJ7T7g+DLqi0rVRtNG1JBoLSZa
+	O1nG7y3g==;
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOt6c-0000000AJVq-07E0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:06:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2FBD66001A;
-	Mon, 18 May 2026 08:06:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0ADAC2BCB7;
-	Mon, 18 May 2026 08:06:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779091598;
-	bh=kEuniSHQNIJ6L0hPMKHr8wZkzqKyNNWkUVWkXhasdXA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=INZ5j3KRIvy4Z5CGgrdXBCP3zQoo46tl5JhAXKL8QiMoOPlkLJrMDpj+ZxyxCAiHu
-	 5QKLn81mMUogW66RPtBBpQDF3XTQVJTQjVhE6Z4lblQ2r192u2SEDMfPxJFblcRJo3
-	 g+WzHT7dJ0We8jH0fK9DguWfVQmfppbRhGdrIBZ70HIjztIRzlA7skVOXSps6jK7kt
-	 KJcba635Qk44MTDo49U9Tq2XtuCd12/YMTP9VztzEq4SaAhSctg88I9pce7Gh3BMUQ
-	 L/1UhjJR92pWAdhnsFqnEozTBxHJg+u3VkpunwomR7JL1DtWvsbMEBRPGVf89x7NPV
-	 jXAkwB6IsxfyQ==
-Message-ID: <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
-Date: Mon, 18 May 2026 10:06:29 +0200
+	Mon, 18 May 2026 08:13:44 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c8025500cc7so1484704a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 01:13:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779092020; x=1779696820; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TtmjcFudJHdbwgaOw1dq0xgX0ESp0DVFqApr/5XXiuc=;
+        b=PTwlluQO5vvmGee++7NOXnrFwUTvd8Wm43/LBJEewHkqitCrHhfOKrWXCVL7qJcpKb
+         EggmJ4cQA5m1+IA9pL03ur8us7ht/vEJYdDosYQsExc0Kz2DXH8cUaCNP0gQrLeD8UDM
+         kgEOqrzjKx6eICPpR5m/V46sWs/f0s79PjzVtq+eBZJ2ltQBxTvEUEHRVW/bMCavMoMU
+         u959ACyqMmsB5Lb+o8V+Mr7shNi1Sva7dyr+hfOGnOqEbyUwLXyn5/ZErzwu6szQ5uM/
+         aLfFMstc5cifiszvQCQJqn2RI5FgNrqkrpR6eLl+Arn21h4sVpLYq6qYNRpbvO0DEcZn
+         CyBg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779092020; x=1779696820;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TtmjcFudJHdbwgaOw1dq0xgX0ESp0DVFqApr/5XXiuc=;
+        b=R6QbUy+kCbS4ee3M6v8lVQW9FZ36tBrE38IupmupIDDOdhiFvckZxoQy/PfWjJ1v0L
+         VA9pW4pWHHTwqFeF2FJO1AV0KLXyGz3Fb1lUmyRiWfWnMF6NNWR9MOLHsVuGj7523hCZ
+         iQvjaGQA6A86sbRCZUJMWSTiPynBehuWxXppByQo2FCSZQ29UH7QwILx95AWtza0tdtR
+         89QVFsFEPAMb7V1s3/nId+hoZ/GeTXfzJeJHRK6czE++XMGsYoiffR/mwiNNi+hqJC7m
+         uV1WLvvL4EZ37f+2wcn1uhdZnF9ACZ6eNyuTPgHmguBVAh0js+pNKjlXgtdMr4fiUlL3
+         rKIQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+7L0pAfXKpkSloDG1IoGmIgWa1Q0ggnZrNWvEVPktDAII3r1N8pZWB/BFZD4E6aNnKKbJ5ueJHM2rRAVYC259v@lists.infradead.org
+X-Gm-Message-State: AOJu0YziLZnOx1hHkCMGyWLf6q6KFdMRMwvHPC/Vczxvd5HE/nWtJojx
+	0x0Az/5b7DKMLtssfQzgmc0FXItkSQUJjv7XoCpCEcpL7NnJXXU5cx5W
+X-Gm-Gg: Acq92OFDZxMLyzrEYD81xF83Zhprkati4NOUJbOUFwuri4IBAckObtedIxqgTTVDinL
+	n+pzoG93tZAo2gV/+89wRfaXpAdF8mKTzE449u7JiR9OQJPyB614VgSBq321zUS28dnUKccE4Oe
+	NAggPpz/1eZenWDlx5PAPcJqO8KjcSEE1NOXa38+ucEIjEA5B8EKu0BakDU+GLn/YaFJvme1enx
+	04lfI1shGMRxFEnFEjgFrLr6Jc0IPD5SDdRSlhwuOOnisxGKWavSFvqFAD1qzxT6xONwQmsaVFz
+	sx+EGzssikJVO6HJrvSTAa3Ilbo7uMETvrbaDIdNVSX6PDIz4WnokooWPEFJlg2wf/wJm0SYXie
+	msCX/nrzwPQj6PP/tZyI5xmG9BgsFX2acQJZs5SSM2xKL0nX1Qzmew/5NiftTlX+tMmiAkR2q7U
+	12zVrAjKccHAVSf5+2YJQzU/k7ATfoQZeWexcE4x2tgFwMoRJ+aPsNqDiMqg3TNSeIWniiY1Vki
+	e+vmTizZcqQ/mK2LwlPz3vC
+X-Received: by 2002:a05:6a20:7294:b0:398:9d5f:e093 with SMTP id adf61e73a8af0-3b22e75954bmr15671941637.19.1779092019769;
+        Mon, 18 May 2026 01:13:39 -0700 (PDT)
+Received: from open.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb100706sm12749462a12.17.2026.05.18.01.13.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 01:13:39 -0700 (PDT)
+From: Neil Cheng <neilcheng0417@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au,
+	geert+renesas@glider.be,
+	magnus.damm@gmail.com
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	Neil Cheng <neilcheng0417@gmail.com>
+Subject: [PATCH 0/2] Add Meta Rainiera6 BMC support
+Date: Mon, 18 May 2026 16:13:23 +0800
+Message-Id: <cover.1779088499.git.neilcheng0417@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-To: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
- Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-2-tj@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260517211232.1670594-2-tj@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260518_091342_661495_130836CE 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,55 +122,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/17/26 23:12, Tejun Heo wrote:
-> Add ptep_try_install(ptep, new_pte): atomically set *ptep to new_pte
-> iff it is currently pte_none(). Returns true on success, false if the
-> slot was already populated or the arch has no implementation.
-> 
-> The intended caller is the upcoming bpf_arena kernel-side fault
-> recovery path. The install runs from a page fault and may have to
-> contend with locks already held by the faulting kernel caller, so
-> keeping it lock-free via cmpxchg is the safe choice.
-> 
-> The generic version in <linux/pgtable.h> returns false. x86 and arm64
-> override with try_cmpxchg-based implementations on the underlying
-> pteval. Other architectures get the false stub - the callers there
-> already fall through to oops.
-> 
-> Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Suggested-by: Alexei Starovoitov <ast@kernel.org>
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> ---
+Add initial device tree support for the Meta Rainiera6 platform.
 
-[...]
+This series adds:
+- Meta Rainiera6 compatible entry
+- Rainiera6 BMC DTS
 
->  
-> +#ifndef __HAVE_ARCH_PTEP_TRY_INSTALL
-> +/**
-> + * ptep_try_install - atomically install an empty PTE
-> + * @ptep: page table entry
-> + * @new_pte: value to install
-> + *
-> + * Atomically set *@ptep to @new_pte iff *@ptep is pte_none(). Return
-> + * true on success. Architectures opt in by providing a cmpxchg-based
-> + * override. The generic stub returns false.
-> + */
-> +static inline bool ptep_try_install(pte_t *ptep, pte_t new_pte)
-> +{
-> +	return false;
-> +}
-> +#endif
+The DTS has been validated with:
+- make dtbs
+- make dt_binding_check
+- make CHECK_DTBS=y
 
-Ehm, what?
+Neil Cheng (2):
+  dt-bindings: arm: aspeed: Add Meta Rainiera6 board
+  ARM: dts: aspeed: rainiera6: Add Meta Rainiera6 BMC
 
-This is a very, very, very bad generic idea/interface.
-
-On which ptes is this supposed to be used? User ptes or kernel ptes?
-
-Surely we don't want this on user ptes.
+ .../bindings/arm/aspeed/aspeed.yaml           |    1 +
+ arch/arm/boot/dts/aspeed/Makefile             |    1 +
+ .../aspeed/aspeed-bmc-facebook-rainiera6.dts  | 1012 +++++++++++++++++
+ 3 files changed, 1014 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-rainiera6.dts
 
 -- 
-Cheers,
+2.25.1
 
-David
 
