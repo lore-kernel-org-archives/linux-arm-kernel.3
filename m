@@ -4,73 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABB65CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:11:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86797CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2t8910FrRWZux8hizne38ZE1f02Q5VgRvKTVLosCHw=; b=DfBST5ho3JJbUS/aMI30X2yBdZ
-	TYs35No+ij25T6t4YCe0NDkCuXAYDj0S4NdrHPeBCBpATwhmm8srng1jbBawcFubAVKyWsxa3RJTN
-	PWJNPQ8pmP35FeQ2I8xhIPiueVFnVUxt33wBBH1x8PA5TeWZJIUH5nTaK0V98ipFl4GWjEa0oY3y6
-	M+JhQw5AxfZptUFj0VPQ6E8h0B3I4VD/L7r4JSTi5fXapG0nctUZ1ugScpTErllX2oAUIrs6JcIZo
-	uvKrNlHV9uQCtaTB4ioTROcxLRicVt65Cc6WG+sNGMXnasWZCdY0aAhMBs3Wqqcf3iL4OwqBRIeN8
-	Q2Xv53aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZgPHNxFeYLuFZ/hmvF0vBYpJj99fq4Y1mXbnP9/ld0U=; b=0kMYA2AEW2oa1zwmI5ePE7SiL4
+	1zk3EIcFuD9z0Q7eNhSN0hw3m6Dfd9EvjSEtrRdM3K2K6pQ7PkX2FEEZVg2b/4CI9WctYVW4NG8i1
+	h7zUh3XJT68M6+7cHHML9FpG9agQRApCGwB3+108C/2FTILI2vAVY1RzcGRYwzuDbeYKG78vEqBOm
+	0ZnBSlxRP9epG8jHphij6cbrKLc87rVDJh1X1p82eeCc99QuCtbzukrxGQkEvEQqLMi0T+e99eORq
+	igFwNZTXQBDpmg6qx3HL0ZkH3/ZLqWuOJ7A3Xc6ElbOmWgb5kfmrf14gm3B9uhtVLdhwgXwH36Cpv
+	vCPZC43A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOygo-0000000Fw2R-1r7e;
-	Mon, 18 May 2026 14:11:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wOyk3-0000000FwcU-1rOJ;
+	Mon, 18 May 2026 14:14:47 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOygl-0000000Fw1X-3iUQ
+	id 1wOyk1-0000000Fwbn-0KAy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:11:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A0FD601E7
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:11:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 057ADC2BCF6
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:11:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779113483;
-	bh=h7gVkfTa5QHeRim/stNXsU/SzV573sj0iQ7u9k7nmU0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ryEjjJ6JWn+X5PFCMwVoRDjDgpCxRDbrTUHHWIIaIUJ65I5Efqt2Ea47ot/lc9mvm
-	 kZiUmdTgEHsDz2CTJzMoYL5jCYxwjCmcp6JrWljg0A6VodksTJ3ebGI0XTbiUIwKdJ
-	 wZg3dT8eeWcZIPG3nfZuqzgKbljHAKBuXYseOBEOmAzzitmh/BJp01IRTgOOGh9dzX
-	 1YKLs5BWFqaGTdbz8PUW1Kpm28nNMSKz7hR5NWQtkik0zoA0Mm5Lxa8X7ib49SR6/2
-	 5nkrSg0hUA0yTi3iSC2hE/uC7nNi3dAKKqfImpNVSqcBnZXFSYRgPebTk5HQQWLGn7
-	 Ad5QaBuJspxLA==
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-132830d8281so9274147c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:11:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ82RLY9GH1LIWeH4zUEEpXCHEHCzPBTtcx48uwoRarAmStRqYBlkwBJAt/YnJhNTzvOnH6PJrvDwmBk+vrZHDVJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ+3E5tz+zt567LCXIEiLfntfO/Lx13X4k8R7f9JkA0xlRLIh9
-	Vx39D86x0AG4X+1i9JpXimsgrNqhuui0Aa/+ToM0PdmMIMMs+EtWVAUFVYfldsry/wO8JKjDwrm
-	R9SRn9UOFIk7oj0P1+fW8ji0+JWnvsg==
-X-Received: by 2002:a05:7023:b11:b0:12a:6ab7:3f73 with SMTP id
- a92af1059eb24-1350463608fmr6954781c88.0.1779113482382; Mon, 18 May 2026
- 07:11:22 -0700 (PDT)
+	Mon, 18 May 2026 14:14:46 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id D648D1F80044
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:14:42 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id EE03AB407F8; Mon, 18 May 2026 14:14:41 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 74C9EB407F3;
+	Mon, 18 May 2026 14:14:41 +0000 (UTC)
+Date: Mon, 18 May 2026 16:14:39 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
+ Baijie Helper A133 board
+Message-ID: <agsezxcxjQlBmesm@collins>
+References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
+ <20260510201644.4143710-4-alexander.sverdlin@gmail.com>
+ <agr9m_tidBr6Cu2h@collins>
+ <579c7c33123c4cd0bd486301e56daf5962ca55ec.camel@gmail.com>
 MIME-Version: 1.0
-References: <20260505214541.333657-1-l.scorcia@gmail.com> <20260505214541.333657-3-l.scorcia@gmail.com>
-In-Reply-To: <20260505214541.333657-3-l.scorcia@gmail.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Mon, 18 May 2026 14:11:08 +0000
-X-Gmail-Original-Message-ID: <CAAOTY_-ROn-9S1qfHgovv=kU8JOe-A40PAMA+5tsj2O4admTRg@mail.gmail.com>
-X-Gm-Features: AVHnY4In4m85pm3lmCfr_GmIUHep1vnejd09hnbSXzHvVRUiJfd8Dukfjspay4c
-Message-ID: <CAAOTY_-ROn-9S1qfHgovv=kU8JOe-A40PAMA+5tsj2O4admTRg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] drm/mediatek: dsi: Add compatible for mt8167-dsi
-To: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="13+JjIMW89tJHa3E"
+Content-Disposition: inline
+In-Reply-To: <579c7c33123c4cd0bd486301e56daf5962ca55ec.camel@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260518_071445_304412_72EFF1F2 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,52 +69,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Luca:
 
-Luca Leonardo Scorcia <l.scorcia@gmail.com> =E6=96=BC 2026=E5=B9=B45=E6=9C=
-=885=E6=97=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=889:46=E5=AF=AB=E9=81=93=EF=
-=BC=9A
->
-> The mt8167 DSI controller is fully compatible with the one found in
-> mt2701. Unfortunately the device tree has a dedicated compatible for
-> mt8167 since 2022 and it cannot be changed with a fallback nor removed at
-> this point. The only way to get the device to work is to add the
-> compatible to the driver.
+--13+JjIMW89tJHa3E
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied to mediatek-drm-next [1], thanks.
+Hi Alexander,
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+Le Mon 18 May 26, 14:09, Alexander Sverdlin a =C3=A9crit :
+> Hi Paul,
+>=20
+> On Mon, 2026-05-18 at 13:52 +0200, Paul Kocialkowski wrote:
+> > Just in case you missed it, there was a previous submission for this
+> > board which wasn't followed up on.
+> >=20
+> > I also have one of this board and wanted to respin support, but it looks
+> > like you beat me to it :)
+>=20
+> thanks for the hint!
+> Do you mean this series:
+> https://lore.kernel.org/all/20241227-a133-display-support-v1-0-13b52f71fb=
+14@linumiz.com/
+> ?
+>=20
+> I've missed it indeed! I'll look into it!
 
-Regards,
-Chun-Kuang.
+Yes that's the one! But I don't think there are features that your
+series is missing, as long as you apply the suggestions I made earlier.
 
->
-> Signed-off-by: Luca Leonardo Scorcia <l.scorcia@gmail.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_dsi.c | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediate=
-k/mtk_dsi.c
-> index 5aa71fcdcfab..167e33fef025 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_dsi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
-> @@ -1305,6 +1305,7 @@ static const struct mtk_dsi_driver_data mt8188_dsi_=
-driver_data =3D {
->
->  static const struct of_device_id mtk_dsi_of_match[] =3D {
->         { .compatible =3D "mediatek,mt2701-dsi", .data =3D &mt2701_dsi_dr=
-iver_data },
-> +       { .compatible =3D "mediatek,mt8167-dsi", .data =3D &mt2701_dsi_dr=
-iver_data },
->         { .compatible =3D "mediatek,mt8173-dsi", .data =3D &mt8173_dsi_dr=
-iver_data },
->         { .compatible =3D "mediatek,mt8183-dsi", .data =3D &mt8183_dsi_dr=
-iver_data },
->         { .compatible =3D "mediatek,mt8186-dsi", .data =3D &mt8186_dsi_dr=
-iver_data },
-> --
-> 2.43.0
->
+I also have a U-Boot config ready for it, which I could send once the
+device-trees are merged on the kernel side. I could send it to you if
+you're interested.
+
+I will also get back to you about your TF-A series so we can move all of
+this forward!
+
+By the way it's good to wait a few days before sending new versions of
+patch series, to avoid overwhelmind the developers.
+
+All the best,
+
+Paul
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--13+JjIMW89tJHa3E
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoLHs8ACgkQhP3B6o/u
+lQzxQxAAj+POVozr8ILWTwBBo8K+9u6fOAhaIvVBK9Gh6e6QwQNxajiypvE+Ycbv
+dsdYblGjo71iJlVVK/zbnzKA/1ISAjszLEMeKA5klCl74P8l7ev3rWtetQECbg91
+8Ntww4kc9uDVuIDRpgRfkR2RFch1TMnPHfOPKY3k4jGJMIfLaOAhxCpcrclEmhov
+Pl/IvFc8R3z8EpdAhrsa9yEcrboK/NpUH2Ja6SlYZ2KNceoTfnMl0kBFKJ/njt6k
+XKe4nglJ5u6nHlnScCZDc/4w8tiOkBPAhV+IaEQ5qgSn9Y6At6d6NG0+/e7IETGr
+0EN5Xv/CWoEjFpKNSiC59ar0zRm9nF028wficzJsM5+dLuoHDXxwrl6zoObEzu13
+1VihUwQmzPWDZb00ZBSq6FPlmfLXzNqMz93hPe9RHqdyg1v61N6aDSl9+UQS6v4i
+sSblUNGlnoIvWf5FaFmEksVxutLGVZstQBoxzVYQqOA5Ck67c/ImuUCzdF1iAn0n
+x2BfCz37xh3IcvHUYYVcKmpO40OAYSypvYQDHz8WCacmnSBEUJVfgaLoqmRdOBxe
+c6d7pCjgFsIP0EysryqtUX/PSot2BdsqdHvmO5ckiRGf9juZCPWEcoHNhu2geEI6
+rho/+QfaS4RVA4E8SXUgqzqj5f0q5P4vWmcrDst3NLfj/EHQA3o=
+=1xn4
+-----END PGP SIGNATURE-----
+
+--13+JjIMW89tJHa3E--
 
