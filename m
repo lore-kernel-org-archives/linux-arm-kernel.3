@@ -4,173 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DCB9CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A3ACD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U2SyuGkHeWoQ8X7TK3zS+q4Er9LuEcTJWTwvh1EY+XQ=; b=Moi11LRYdaoQWLmc20ZWkDEDij
-	yPL1e100QNmoWgTQfijSk0oR6WKcI7fuF4hEgnJZ+CCXjFaQdkR2qjMUitHfanOVJQmwQMqKnG1jd
-	XWCWW/ux5uVRkIImyc/FcSFMwrw+09nFaauSocq5Ws4M6IdOOIoMg3Kzp2JQkRsjzyledPM/QwOMh
-	sSjbXr8ovwGDDhc35iOossd5+oApLExBjXIfdWyJbTg0fgSQw797ya60VMhKMbo/WveAZak9oySse
-	mLx8eSc094lsEnMfx7V27OeHvZjcbn2S/XBlrinqfRYjYYD3RP2tkUi8o3yXbgFAAr7kusl8/wVYr
-	irX/wg5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eI78fNQzDWVxrB5IUbZho+FqcNBT2AVoVGt8ZJA1oBY=; b=t3R/S7y4j2k7+ZTGyD6QogrPuM
+	2BAxlrfBLKOZdkGqs8WOoPsSNC5yi87Km5tQF8O4xG0ckh1ON92crxfJ5B2WpiwK6J9sCcOU/ICKM
+	HvVOCggjtY2647O7IhPpe2HnUONGPQlse+1BnuWk6G/1jqh0M8MHp0Fvre0ZWegkjle+qw3hTPxov
+	Z0Mvh/sksNUh8QOS0q8IQIdNpkg4lqRz68q3JKiPukRHDgAKfevXcdDcK+QZgBXHQkrDUK1QXouFy
+	un7ymWV4EExrfSgc6GbITg8B3QgplxZfIrLTqWXfP/3JPBEM+HSGhROt51e/8HzZ/JGYJZ/ESC+lR
+	Rh6GbY4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvg9-0000000FLZB-0Mai;
-	Mon, 18 May 2026 10:58:33 +0000
+	id 1wOvjR-0000000FMLq-3V26;
+	Mon, 18 May 2026 11:01:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvg7-0000000FLYI-1mUA
+	id 1wOvjP-0000000FMLG-3MFR
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 10:58:31 +0000
+	Mon, 18 May 2026 11:01:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=U2SyuGkHeWoQ8X7TK3zS+q4Er9LuEcTJWTwvh1EY+XQ=; b=ivdCIzL/BFXZXmpn1mOmJVDL0P
-	nnifbzRdn0ttMwusWMwtuLyjFVsN0txZjtiTlIZO54ocSnG8dDPLSe+5hqwdwjvN9mn4JxVUDHXLI
-	n3MK0PlcBzR6EbrbMb1vKCspZ8h8qpBfNhKd/qpN1TwUHZ0OSuURyFhpV8Wr9yHNJsGhuUEFJ6ZEJ
-	upgnJkNNTICBAZYg9YTx9An7GPZODfzKAejrWXixP7vxADFB50XkaBMBBXB/BrRfp3nfxdVoyL2M3
-	OclHlufkHYhRR6cYThayY9ST3bz05DUtV6rKVcQop1kr6+49CtNpa3t5aPCwxWyJmx9rLfX/pDkfD
-	sj91cSLA==;
-Received: from mail-swedencentralazon11013052.outbound.protection.outlook.com ([52.101.83.52] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=eI78fNQzDWVxrB5IUbZho+FqcNBT2AVoVGt8ZJA1oBY=; b=OF8oe0ypnXJaCdlGICJdYxAUsL
+	fJZdzQ7Fzt+/Fx41P2EtNPs9n92gI16u+Ib6v3rJif7dkSFLXkhm7rr4k6qc0ALwxLNK8rnwE6EQz
+	JBsWy1UV7Ip1OZnn9CQnf5rbIQmIvqcgsgOVkChRihwQVuEY46E/8D1iYqIO55vl6T5olXOhDhMSA
+	d8kMU+fquAcEVFJWBvG026C+qiajSEx09lbgkloq+5M3pVuFYwexmeIjIiFCEoBN6hEByWBkCuaZx
+	Dp5RfEPHRKHnqHD6HGH/aJQrhfONgjikwkvl3OCYH6BbSGRCHcihgotKCBTb2jbmkceM8dD6N9qhc
+	Mgpa+Fdw==;
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvg3-0000000AqaT-2GG4
+	id 1wOvjL-0000000ArOW-2ec0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:58:29 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=uOj8kOAbMntZjJ8Bfg3avM8bntbWwzTsaJlLW2wCk5Nqhzf+kfGKskqOs7cIXYQdYhDu9ZYaiEDwBLkhNcxYl5VM+7rRtn4fwwzK9pvdoiG3+gDZdOkMEnNytjgH/LUWc61xQQjgw664m7F7CYvDTttikCUIPYWu7dwuJFmwZXDD16rFqpdDaOl/9QzZBiTM13Fy3RnchPHQep6kN4yWvNoMSFEoqfgsFfTyQlA3N9mfhBxl4OfBs3pP6Nh9TZ6l4bKSTbMU3y63mimrAitvdUzB8gE63zHiEwtRXVC5CtDs7omSpJCujeG/V0YzJAtMS4QPoYNZytFjHyeSk3/1Dg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U2SyuGkHeWoQ8X7TK3zS+q4Er9LuEcTJWTwvh1EY+XQ=;
- b=ZRKGL9WVPt8MNDmkd1pY2lmcvKXrzJurgXZBNWYFmLt7miu4TcCe+1Uf22QjTdC6ftHyjQZsBeh/B0EDJqfeSIWGC0ktgC1EujmOT90MO4HTFuDz182YXiEciYmYxHnz6Q9VrkWBMII7RhPumg5AVYAfNQG7FrMJw/iYdZ1E0JaHwfeAkrjJM+1AVljzljCIMQYN4hdmHT5oyuhgWjiJJk8LFBxOot6H3Ols1qdYKgdsqgmqrDR1cWTMl0pVZUjRakufyfhoH8PKPSBHU8APGrEWVUpKezFMze+mIj2dnAArwP+FV/bsdiHZIUyfACSSuS/0t63ruBlZ7GjQeYq0oA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U2SyuGkHeWoQ8X7TK3zS+q4Er9LuEcTJWTwvh1EY+XQ=;
- b=BgY4zp4Azr6hLydBdZG3W7e4jAmAhOqdrbZ9TUHcrSG2kEnvmLIDzzNT+aKe90KtAUAbKBK36DhgV3r6FgAiGgE3dE8hENKoYRcbCaCA0wxN8kTaZhLWhM0l0mzUZGQqDqPlRJ03ac41LMe3mQ2DNQ4QCmsIUzCuOopktNqwpgY=
-Received: from CWLP123CA0269.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:1d5::12)
- by AS8PR08MB9041.eurprd08.prod.outlook.com (2603:10a6:20b:5b1::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
- 2026 10:58:19 +0000
-Received: from AMS0EPF000001A4.eurprd05.prod.outlook.com
- (2603:10a6:400:1d5:cafe::5e) by CWLP123CA0269.outlook.office365.com
- (2603:10a6:400:1d5::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Mon, 18
- May 2026 10:58:18 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS0EPF000001A4.mail.protection.outlook.com (10.167.16.229) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.11
- via Frontend Transport; Mon, 18 May 2026 10:58:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=N+wJs1Rq+IvHaF7NCZecmHde4uJvb0ne2JY9fvPf4+s9tw0ZmsZD8EO0E7lP1chNioV/Sm7Rfq1SZqpSZ312KJbsrUvVz0v2GiuBxb4CxpfLPyi8T7qvHQZ/dwgT7j/IiQzEnQM+ojYHrBchbS/eMVUS6FOvuzYYAQ23OvwLcLhubrdjyoICuBokAEhUDyE23mVOJ1snTceji/yU0yeDX7R4pVIuMQ06V1sruxjxZePmFFwtSKqz6GlpDaKemPnzkhjBaAHHCSVZkNKUS5w0NPMjihBLtuuQ89FS+XlslzVZG/hi3Zrk7ae9tqgQLLjGYtUFWXYVF0sOwZTiEccyIQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U2SyuGkHeWoQ8X7TK3zS+q4Er9LuEcTJWTwvh1EY+XQ=;
- b=iDW2TVu3KL0EFONmznXS+qbmrfR5PiAmUXBp8qWN25r6/mYj4dlXuiMjfhysZeUqCL02hQPeWjI0GwLvYZ8FhR2M/ibPqjIfIeXJAodqUNT0NYhLjyWKkxPucdGVTb82d1lDDnWvyH4fIsXxXD3DDj8CIhqLXJCLXYp3+R+RaJMPv7/x7ht2vqp+ml5dKpuNwYVzGAXYbXhmnJM3T7B8tXtuuv25HmEmd/+8e9T2Gm5ge0EA3DWKNiQMwWjorIaAfGWJ8scgcfLwC3CrtoNPJiFvN2vEtWvirg0N/pS9VPlHEcKfd31ViUYJrsH3VoHi0ps2WEjHRHKYM2rVbbPWaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 172.205.89.229) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U2SyuGkHeWoQ8X7TK3zS+q4Er9LuEcTJWTwvh1EY+XQ=;
- b=BgY4zp4Azr6hLydBdZG3W7e4jAmAhOqdrbZ9TUHcrSG2kEnvmLIDzzNT+aKe90KtAUAbKBK36DhgV3r6FgAiGgE3dE8hENKoYRcbCaCA0wxN8kTaZhLWhM0l0mzUZGQqDqPlRJ03ac41LMe3mQ2DNQ4QCmsIUzCuOopktNqwpgY=
-Received: from DUZPR01CA0073.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c2::11) by AS2PR08MB10376.eurprd08.prod.outlook.com
- (2603:10a6:20b:545::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
- 2026 10:57:13 +0000
-Received: from DB5PEPF00014B9B.eurprd02.prod.outlook.com
- (2603:10a6:10:3c2:cafe::a7) by DUZPR01CA0073.outlook.office365.com
- (2603:10a6:10:3c2::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Mon, 18
- May 2026 10:57:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 172.205.89.229)
- smtp.mailfrom=arm.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 172.205.89.229 as permitted sender) receiver=protection.outlook.com;
- client-ip=172.205.89.229; helo=nebula.arm.com; pr=C
-Received: from nebula.arm.com (172.205.89.229) by
- DB5PEPF00014B9B.mail.protection.outlook.com (10.167.8.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Mon, 18 May 2026 10:57:11 +0000
-Received: from AZ-NEU-EX04.Arm.com (10.240.25.138) by AZ-NEU-EX03.Arm.com
- (10.240.25.137) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 18 May
- 2026 10:57:08 +0000
-Received: from e132472.cambridge.arm.com (10.2.78.53) by mail.arm.com
- (10.240.25.138) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
- Transport; Mon, 18 May 2026 10:57:08 +0000
-From: Niyas Sait <niyas.sait@arm.com>
-To: <andre.przywara@arm.com>
-CC: <ben.horgan@arm.com>, <catalin.marinas@arm.com>, <fenghuay@nvidia.com>,
-	<guohanjun@huawei.com>, <james.morse@arm.com>, <jic23@kernel.org>,
-	<lenb@kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <rafael@kernel.org>, <reinette.chatre@intel.com>,
-	<sudeep.holla@kernel.org>, <will@kernel.org>
-Subject: Re: [PATCH 4/5] arm_mpam: prevent MPAM-Fb accesses inside IRQ handler
-Date: Mon, 18 May 2026 11:57:08 +0100
-Message-ID: <20260518105708.3268174-1-niyas.sait@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260429141339.3171205-5-andre.przywara@arm.com>
-References: <20260429141339.3171205-5-andre.przywara@arm.com>
+	Mon, 18 May 2026 11:01:54 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-bccd251d622so374793166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 04:01:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20251104.gappssmtp.com; s=20251104; t=1779102110; x=1779706910; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eI78fNQzDWVxrB5IUbZho+FqcNBT2AVoVGt8ZJA1oBY=;
+        b=NZp3ytREk3UTx5KiV3vxbe4legrq1bOCP9RDhLEkdbznVqW/G/Yfva9oSOBHGnrQcx
+         UEWfTh05j/jg8UhuwTm3MTtl2LRh7IlgNBTqi99U9AOAhffSrFkQD1+MIyZO/jIATl53
+         B7XPjgx2F/smoD58oQZIkbtGyeosLMjMgtiHHl8E8rFWLnPCw/hUZfOMw/cuQvEgYwUq
+         uWcEnqFxmUWXPY6J32Habnmdiqk8vjpkDtCX5/+qPn3vRaQ7JvwwsXZPz69OdipeR3kX
+         M4wVoWvj94lhLaLuHJkYzSmZnK53NfQCErK1GHy9C6ApsdiJytB5WDvvNLy/2Qs8ny28
+         RAGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779102110; x=1779706910;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eI78fNQzDWVxrB5IUbZho+FqcNBT2AVoVGt8ZJA1oBY=;
+        b=mc/86Q/vw1hkkIqF2nPJ/JBS8O5CHoP4zDbDnIu6PyI1GtapF3LxL8Pe/a9LsdOqED
+         F2G8RS902SDtt37WyLNworOZDVmqWTNWcjgXSMZMm4ZxySUnbGZToG/x4iMhSdI3+6aw
+         Cba49uF7nGRM04LjeLu8eWkKfMUvGzAi6unOPUb1VmvX3/kPAkLa7KNfz9FDRu2y5QbG
+         pTjp0ykJv83E+xlHBY3EHsmCHnqmVBT+r0rJ14fw8gZL4xSmOYrwA/lpX9h5bizqLPdo
+         Id/OiqYkHPRfqgh78EharfifNdh9nADu2SbUxkb36tDP8fVAFIc6IhN4uNWUYVKianVP
+         VzWA==
+X-Forwarded-Encrypted: i=1; AFNElJ8gHSNYzDEdL7UCtUmLD6j/vzpcZUrD0VI4Q2ndUQEydjUtVWGVKi4ZB7vOLPiMX7sqp7hTSMFeGpeJVdvbhpXZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywge1vdx21eB/gxHkKWNyv+u8TcMYBaOFREPRlo7qOy6KrBowC5
+	Bd5esHWKtkcfiWmDgugUUC5I/uKRNKDznxAwqbJyMayIaXBWhXps1E5fonKlGuC4pV8=
+X-Gm-Gg: Acq92OGhRHdzIBtVmQdHJkDEntYFGX21EJmps9zNpGSkJunVEnbz0dxdilaROIM2Kas
+	pGypfFzpm9gIdFsfq6zcZKnpHYYlzzQS52gozjeMvUAJjxq0NdIS9pC2y9yhw0bXUzKfD7E6WSC
+	yPYrDib03ESBStcDuaDKBTbDUW7Q2Ym+ya5sDaBYPFMG92v1CBuX4NeCqbrHvm3lpqI49Wq1PKR
+	2Ani6gfhbdHbkq33bW+k0MlhnHgy1AKO39Z6mKQaaEEVIee8xEyIpl2yjkpknrPAlI2FOuJ1kFV
+	val9M9/D1fO4el3oKM2//qqjyf4BDi7XIgbfOeg6R+1FoEwQiDavB1kj4WM7yPz5zZMnl3IISY+
+	Dfvt1Knm9jZqQfLVjODyYXpnuW2jCyhut/nUSvVhhD+b9SC9Qn8fyl6jdaUXTaD70AZJA2ZmyuC
+	glHBES1oBLyK9Hh4LNpn9xmBOaXdwsIeNaLiVads1Y128szm33Hrc2OvUloSU/Za4eqJEBoksBq
+	TY95tlZ1K+syZk=
+X-Received: by 2002:a17:907:1c9c:b0:b9c:bc70:e928 with SMTP id a640c23a62f3a-bd51797a003mr681771166b.25.1779102109253;
+        Mon, 18 May 2026 04:01:49 -0700 (PDT)
+Received: from localhost (p200300f65f47db049367b55fc4056f2b.dip0.t-ipconnect.de. [2003:f6:5f47:db04:9367:b55f:c405:6f2b])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-45da0a1aeafsm38159279f8f.23.2026.05.18.04.01.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 04:01:48 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Hans de Goede <hansg@kernel.org>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Yongbo Zhang <giraffesnn123@gmail.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Alexey Charkov <alchark@flipper.net>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	=?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Yuanshen Cao <alex.caoys@gmail.com>,
+	Sven Peter <sven@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	Hector Martin <marcan@marcan.st>,
+	Ethan Tidmore <ethantidmore06@gmail.com>,
+	Peter Korsgaard <peter@korsgaard.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Johan Hovold <johan@kernel.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Pooja Katiyar <pooja.katiyar@intel.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] usb: typec: Use named initializers for arrays of i2c_device_data
+Date: Mon, 18 May 2026 13:01:42 +0200
+Message-ID: <20260518110142.637215-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11391; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=+cRRSUN8Pyo7Zp+Oieu53UnuJtj+OkEfZ7v6axdguB0=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqCvGWFqpvaa9cA+VEofFHMCORDH81VvU8T8int qictklVYj6JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCagrxlgAKCRCPgPtYfRL+ Ts9oB/9HxGMzLSC8j9bCXzYFkucZK6ckWCQz+grxaxfcyKoeYHhZqYzNFJGkeC13hdcT8SEX/82 LKjn5znzmmyXPCiTw1WlZxWgg7Ug9N/WMMq+p5reRnyDHJ+d1qEBK1A/jDBJfzBzyIaREE5tBwc gN+ocSOS/yap9y2Zs8OI612YR8ugHh3h0q/ZkmIt/cV9iYXOn6HuV7dYoyFdPIblvHKgfjZQNR3 nhkwoLFOFRebeLCp8jNPZbERnU2S4hUEGhaSM1gTt0KXrXkC3GX/cvWr6GIfmnFLkLmkt5AzOuj g6FPI5sKcdaAQc0F9mtXjfPIiOe5LBTpXOQza7dkLWnumeYh
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 1
-X-MS-TrafficTypeDiagnostic: DB5PEPF00014B9B:EE_|AS2PR08MB10376:EE_|AMS0EPF000001A4:EE_|AS8PR08MB9041:EE_
-X-MS-Office365-Filtering-Correlation-Id: feb45c8e-f272-456e-afee-08deb4cc5e94
-X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|36860700016|376014|7416014|82310400026|1800799024|11063799003|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info-Original: pHbmRn2aIKplyKldKaEtz9gjSBpQKZgAyuK+q/lv4tpDCqH7UiO4FqTFgPjAs4y0Tiu9x1beJDcEOWmOy98ThBGSOOhHAZijtHwxY33T3WwYDL3hbefhZSk5TAEX7H0VWbf94aceolj1/DBJym/AUrtMNXY5C2R+xJphVkLmdD8qKYpmIMjyvSpNtOSqXHGx6/m+yWkLEiuFFnFVFSb2XynytEAXj2N4jhyQF+Wtr1TVqlqFz/KA6+kF/DPZlX/KU76C3yqj/6/Z/qntlWVnCtB6VGH2mxbhJO8wUGC0Gh6wa7v+p7kw4fnQSesxYDpGAGXtJoGP1XxQLeZyIASUM8hdI7K3mxudga5WJYKb2C451cmDR5UFVvrY3NmG1LbLN4xyPJjQrDRkNaeGgtQZV3nxhJAmahYDcsE94U3IaI4hOOPzAuBqGwHk48cCXtrqISCakcPBOanLnWctb1KbFh9o0N9Tr3uFUSIkveEnhdEEVZwdReEtEFjgpUtEdvXyFaTbyPl5ooQQc82uAnhKuqzioe0Ajbccduu3b2JmnAED/v9vy7YYAbUeLF1+4fBczmJLe+YDPAjnWJ4N+0B+Ke9wzKij0JQXBLNZrisnGp8tnbfVHTQ+tZDPJODqUA1JKV6tavAHaCHTf0QPQXHWejhm8/R/ilk4ljSNRpHXC7EXSi0paYWt1MPCvj8TSmaoxZGA8sHRfZ1OdBFni7eFlu0GRxEV4Kjng+np3XXwD5s=
-X-Forefront-Antispam-Report-Untrusted: CIP:172.205.89.229;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:nebula.arm.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(82310400026)(1800799024)(11063799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-Exchange-RoutingPolicyChecked: TkPo9gvQSeGfzos4c58GSCg/FLZS1Sp/dobWIvuLY/DBwzBdIp5kFzKPM9R7MWrq92cx9AG0DTJqQU2JxffTOAbL/RVQ33ET1yUNohDDAImeepFKMSqoI+NjtItxo3/XG0pg9k7cTbG2TFSLSKH2st4TFS6znIi8yYKhPDotJ+3g+CX8v6qqYlXHWJlgGaqBzVq1r5leTlEr1w1mGfYU8ww3cogVNKZiZ91liASlBQwmvzK/4U3sU4JBjcyQLxUm3kPjlY6MoLDwgs/7EMSTrb7VDYdqPHPgxxn9QBS79OMvvu6z+dz0Fe4y1CmkVfgnpd5HpQEnTa7LS7aZGRVLYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10376
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A4.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: ec5dbdcc-7546-47fa-71be-08deb4cc36b9
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|35042699022|82310400026|14060799003|7416014|376014|1800799024|56012099003|18002099003|22082099003|11063799003;
-X-Microsoft-Antispam-Message-Info: BYIYGbR1UKm5m0BDYF0ni4da7pVTo8v9A2MGwS+Kq7sSL+ThpSXFRu3jJpfg6DXSaHg5WLUgAmhb8N5i8d2DMROEy7+gjxe7AvW/TK1IQ/g3K1x79LKSo9MZDZ3iJtHw4fU8cFijho2yFM6AD0EujcLyNxHX1a8mt7nfxAPoOMCGV6Phj/YJVNJ5JM2iXpOhjPxZedagaW2x3cC/moMRm1iRbW20LKD+91kzLGHrbGAKtf51hjUq8nnzDBwbEqqKnLsq5iZrQnIa7s8wzvXvmvJNxyj9TYAk0tPtn6CC92DpSPC6RveX8czGOPTNh9Sd14oQERpv04xUROHMAgqsyBX5kFJfe5lvVrLvjeR28k2TIHyuS+RAEZ4/TXKWlmXp3WPSbBkMCUQ9N8EwmI9dKl5JfJ/PO9T6yr/pQcbSU85+Hkq5ZMqzKBm9L92n0WK52bYy70zSBOzvCub0fU/BgPJfrp4a/qYH+kZdf523wa39ExD1qEro9G3Wh5kFEnjSH+iVqv5LX6f5IV18ImzUlQjngC69qrFonskE1ePwoM9l0jmv1O/8iI5m9AfnCVOtaAbG1KWm1Smxj1biUS72hPS6yAx30bd5HsfTt2zyJHdUmzwJ6sHwVAdWu9m+cHX3VK+w/IOtbrrAJ8OD/vnuxnRBJIEGO76wcG9sfcnC8TH0qqY9gtHAO9aS3+zmgc/zsfzGlHkW4n375QgY/Q6NvKI1yLr9VV1D0tQJ9lgbBFA=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(35042699022)(82310400026)(14060799003)(7416014)(376014)(1800799024)(56012099003)(18002099003)(22082099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: oj+/ZvbY33dezac8uJU6n1T93ULrIkX3lCg5r8rRcrtUE3dlVN0vQ5gYzsz6/+eBO8JZhvLHeakBMq9AJ8p9IP099XybhzdwUxl0tgXhnpTrVgv8OYt3kLVoi1YIyqcG2Rveey55Hs6nV7lgxCzijUhCjnngfGy/k5zwRvf4x10DiYpmm9uV/gItWROyD1JYYUnWjNCVjKRMM1Nw0F/tVhYLwt5vX5uNY/MMF3jiYXzzzOzjOnIeqmf+gBT4zA13wG2OYE7XUTYVj2xs8TbW20XOdeIZytnzHXV0lbEcU5xqMOBa5UTa/bJKxXxheuD/kSvHV+rWaixsLS+acvlHONQxbDbNuH1JSailA4lNDB86ticPWdd9dHwd0KaSX91Gu/UpB0DpetSNZSqxPkoYxxBXZH129uNUiwfARcpPB+8OA9pYjprqtrw+8VDsf/fF
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 10:58:18.5403
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: feb45c8e-f272-456e-afee-08deb4cc5e94
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A4.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_115828_209966_3E8C0A9C 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20260518_120152_170099_FD8E7112 
+X-CRM114-Status: GOOD (  23.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,33 +140,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+While being less compact, using named initializers allows to more easily
+see which members of the structs are assigned which value without having
+to lookup the declaration of the struct. And it's also more robust
+against changes to the struct definition.
 
-On Wed, Apr 29, 2026 at 04:13:38PM +0200, Andre Przywara wrote:
+The mentioned robustness is relevant for a planned change to struct
+i2c_device_id that replaces .driver_data by an anonymous union.
 
-> This error report relies on reading the MSC's error status register
-> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
-> MSC accesses, since they involve mailbox routines that might sleep.
+While touching all these arrays, unify usage of whitespace in the list
+terminator.
 
-I think there are a few other places where we may still end up invoking
-the MPAM-Fb path from atomic/IRQ context.
+This patch doesn't modify the compiled arrays, only their representation
+in source form benefits. The former was confirmed with x86 and arm64
+builds.
 
-For example, _msmon_read() uses smp_call_function_any(), which runs
-__ris_msmon_read() in callback/atomic context
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-{
-    ...
-    err = smp_call_function_any(&msc->accessibility,
-                    __ris_msmon_read, arg,
-                    true);
-    ...
-}
+the mentioned change to i2c_device_id is the following:
 
-For MPAM-Fb, I think we could potentially avoid the smp_call_function_any() path entirely
-and invoke directly from the current CPU. Since PCC accesses are effectively CPU agnostic, 
-I think that should be fine for the MPAM-Fb case.
+	diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+	index 23ff24080dfd..aebd3a5e90af 100644
+	--- a/include/linux/mod_devicetable.h
+	+++ b/include/linux/mod_devicetable.h
+	@@ -477,7 +477,11 @@ struct rpmsg_device_id {
 
-Thanks,
-Niyas
+	 struct i2c_device_id {
+		char name[I2C_NAME_SIZE];
+	-	kernel_ulong_t driver_data;	/* Data private to the driver */
+	+	union {
+	+		/* Data private to the driver */
+	+		kernel_ulong_t driver_data;
+	+		const void *driver_data_ptr;
+	+	};
+	 };
+
+	 /* pci_epf */
+
+and this requires that .driver_data is assigned via a named initializer
+for static data. This requirement isn't a bad one because named
+initializers are also much better readable than list initializers.
+
+The union added to struct i2c_device_id enables further cleanups like:
+
+	diff --git a/drivers/regulator/ad5398.c b/drivers/regulator/ad5398.c
+	index 0123ca8157a8..dfb0b07500a7 100644
+	--- a/drivers/regulator/ad5398.c
+	+++ b/drivers/regulator/ad5398.c
+	@@ -207,8 +207,8 @@ struct ad5398_current_data_format {
+	 static const struct ad5398_current_data_format df_10_4_120 = {10, 4, 0, 120000};
+
+	 static const struct i2c_device_id ad5398_id[] = {
+	-	{ .name = "ad5398", .driver_data = (kernel_ulong_t)&df_10_4_120 },
+	-	{ .name = "ad5821", .driver_data = (kernel_ulong_t)&df_10_4_120 },
+	+	{ .name = "ad5398", .driver_data_ptr = &df_10_4_120 },
+	+	{ .name = "ad5821", .driver_data_ptr = &df_10_4_120 },
+	 	{ }
+	 };
+	 MODULE_DEVICE_TABLE(i2c, ad5398_id);
+	@@ -219,8 +219,7 @@ static int ad5398_probe(struct i2c_client *client)
+	 	struct regulator_init_data *init_data = dev_get_platdata(&client->dev);
+	 	struct regulator_config config = { };
+	 	struct ad5398_chip_info *chip;
+	-	const struct ad5398_current_data_format *df =
+	-	                (struct ad5398_current_data_format *)id->driver_data;
+	+	const struct ad5398_current_data_format *df = id->driver_data;
+
+	 	chip = devm_kzalloc(&client->dev, sizeof(*chip), GFP_KERNEL);
+	 	if (!chip)
+
+that are an improvement for readability (again!) and it keeps some
+properties of the pointers (here: being const) without having to pay
+attention for that. (I didn't find a usb driver that benefits, so this
+is "only" a regulator driver example.)
+
+My additional motivation for this effort is CHERI[1]. This is a hardware
+extension that uses 128 bit pointers but unsigned long is still 64 bit.
+So with CHERI you cannot store pointers in unsigned long variables.
+
+Best regards
+Uwe
+
+[1] https://cheri-alliance.org/discover-cheri/
+    https://lwn.net/Articles/1037974/
+
+ drivers/usb/typec/anx7411.c               | 4 ++--
+ drivers/usb/typec/mux/fsa4480.c           | 2 +-
+ drivers/usb/typec/mux/it5205.c            | 2 +-
+ drivers/usb/typec/mux/nb7vpq904m.c        | 2 +-
+ drivers/usb/typec/mux/pi3usb30532.c       | 2 +-
+ drivers/usb/typec/mux/ptn36502.c          | 2 +-
+ drivers/usb/typec/mux/wcd939x-usbss.c     | 2 +-
+ drivers/usb/typec/tcpm/fusb302.c          | 4 ++--
+ drivers/usb/typec/tcpm/tcpci.c            | 2 +-
+ drivers/usb/typec/tcpm/tcpci_maxim_core.c | 2 +-
+ drivers/usb/typec/tcpm/tcpci_rt1711h.c    | 8 ++++----
+ drivers/usb/typec/tipd/core.c             | 2 +-
+ drivers/usb/typec/ucsi/ucsi_ccg.c         | 4 ++--
+ drivers/usb/typec/ucsi/ucsi_stm32g0.c     | 4 ++--
+ 14 files changed, 21 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/usb/typec/anx7411.c b/drivers/usb/typec/anx7411.c
+index 2e8ae1d2faf9..604868ebf422 100644
+--- a/drivers/usb/typec/anx7411.c
++++ b/drivers/usb/typec/anx7411.c
+@@ -1577,8 +1577,8 @@ static void anx7411_i2c_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id anx7411_id[] = {
+-	{ "anx7411" },
+-	{}
++	{ .name = "anx7411" },
++	{ }
+ };
+ 
+ MODULE_DEVICE_TABLE(i2c, anx7411_id);
+diff --git a/drivers/usb/typec/mux/fsa4480.c b/drivers/usb/typec/mux/fsa4480.c
+index c54e42c7e6a1..bea0c1deec94 100644
+--- a/drivers/usb/typec/mux/fsa4480.c
++++ b/drivers/usb/typec/mux/fsa4480.c
+@@ -336,7 +336,7 @@ static void fsa4480_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id fsa4480_table[] = {
+-	{ "fsa4480" },
++	{ .name = "fsa4480" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, fsa4480_table);
+diff --git a/drivers/usb/typec/mux/it5205.c b/drivers/usb/typec/mux/it5205.c
+index 4357cc67a867..5e1a120b2e3b 100644
+--- a/drivers/usb/typec/mux/it5205.c
++++ b/drivers/usb/typec/mux/it5205.c
+@@ -266,7 +266,7 @@ static void it5205_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id it5205_table[] = {
+-	{ "it5205" },
++	{ .name = "it5205" },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(i2c, it5205_table);
+diff --git a/drivers/usb/typec/mux/nb7vpq904m.c b/drivers/usb/typec/mux/nb7vpq904m.c
+index b57b6c9c40fe..d1fa26ff442c 100644
+--- a/drivers/usb/typec/mux/nb7vpq904m.c
++++ b/drivers/usb/typec/mux/nb7vpq904m.c
+@@ -499,7 +499,7 @@ static void nb7vpq904m_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id nb7vpq904m_table[] = {
+-	{ "nb7vpq904m" },
++	{ .name = "nb7vpq904m" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, nb7vpq904m_table);
+diff --git a/drivers/usb/typec/mux/pi3usb30532.c b/drivers/usb/typec/mux/pi3usb30532.c
+index 8eeec135dcdb..985683fe49e9 100644
+--- a/drivers/usb/typec/mux/pi3usb30532.c
++++ b/drivers/usb/typec/mux/pi3usb30532.c
+@@ -169,7 +169,7 @@ static void pi3usb30532_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id pi3usb30532_table[] = {
+-	{ "pi3usb30532" },
++	{ .name = "pi3usb30532" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, pi3usb30532_table);
+diff --git a/drivers/usb/typec/mux/ptn36502.c b/drivers/usb/typec/mux/ptn36502.c
+index 129d9d24b932..afd16775dbaf 100644
+--- a/drivers/usb/typec/mux/ptn36502.c
++++ b/drivers/usb/typec/mux/ptn36502.c
+@@ -404,7 +404,7 @@ static void ptn36502_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id ptn36502_table[] = {
+-	{ "ptn36502" },
++	{ .name = "ptn36502" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, ptn36502_table);
+diff --git a/drivers/usb/typec/mux/wcd939x-usbss.c b/drivers/usb/typec/mux/wcd939x-usbss.c
+index d46c353dfaf2..73db3aa3cec4 100644
+--- a/drivers/usb/typec/mux/wcd939x-usbss.c
++++ b/drivers/usb/typec/mux/wcd939x-usbss.c
+@@ -753,7 +753,7 @@ static void wcd939x_usbss_remove(struct i2c_client *client)
+ }
+ 
+ static const struct i2c_device_id wcd939x_usbss_table[] = {
+-	{ "wcd9390-usbss" },
++	{ .name = "wcd9390-usbss" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, wcd939x_usbss_table);
+diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
+index 889c4c29c1b8..6560da0c523b 100644
+--- a/drivers/usb/typec/tcpm/fusb302.c
++++ b/drivers/usb/typec/tcpm/fusb302.c
+@@ -1841,8 +1841,8 @@ static const struct of_device_id fusb302_dt_match[] __maybe_unused = {
+ MODULE_DEVICE_TABLE(of, fusb302_dt_match);
+ 
+ static const struct i2c_device_id fusb302_i2c_device_id[] = {
+-	{ "typec_fusb302" },
+-	{}
++	{ .name = "typec_fusb302" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, fusb302_i2c_device_id);
+ 
+diff --git a/drivers/usb/typec/tcpm/tcpci.c b/drivers/usb/typec/tcpm/tcpci.c
+index 0148b8f50412..8841a94df153 100644
+--- a/drivers/usb/typec/tcpm/tcpci.c
++++ b/drivers/usb/typec/tcpm/tcpci.c
+@@ -1020,7 +1020,7 @@ static int tcpci_resume(struct device *dev)
+ static DEFINE_SIMPLE_DEV_PM_OPS(tcpci_pm_ops, tcpci_suspend, tcpci_resume);
+ 
+ static const struct i2c_device_id tcpci_id[] = {
+-	{ "tcpci" },
++	{ .name = "tcpci" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, tcpci_id);
+diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
+index c0ee7e6959ed..6ceb25e5bdd0 100644
+--- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
++++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
+@@ -570,7 +570,7 @@ static int max_tcpci_suspend(struct device *dev)
+ static SIMPLE_DEV_PM_OPS(max_tcpci_pm_ops, max_tcpci_suspend, max_tcpci_resume);
+ 
+ static const struct i2c_device_id max_tcpci_id[] = {
+-	{ "maxtcpc" },
++	{ .name = "maxtcpc" },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, max_tcpci_id);
+diff --git a/drivers/usb/typec/tcpm/tcpci_rt1711h.c b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
+index 4b3e4e22a82e..a8726da6fc71 100644
+--- a/drivers/usb/typec/tcpm/tcpci_rt1711h.c
++++ b/drivers/usb/typec/tcpm/tcpci_rt1711h.c
+@@ -373,10 +373,10 @@ static const struct rt1711h_chip_info rt1715 = {
+ };
+ 
+ static const struct i2c_device_id rt1711h_id[] = {
+-	{ "et7304", (kernel_ulong_t)&rt1715 },
+-	{ "rt1711h", (kernel_ulong_t)&rt1711h },
+-	{ "rt1715", (kernel_ulong_t)&rt1715 },
+-	{}
++	{ .name = "et7304", .driver_data = (kernel_ulong_t)&rt1715 },
++	{ .name = "rt1711h", .driver_data = (kernel_ulong_t)&rt1711h },
++	{ .name = "rt1715", .driver_data = (kernel_ulong_t)&rt1715 },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, rt1711h_id);
+ 
+diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
+index 43faec794b95..f560606c588c 100644
+--- a/drivers/usb/typec/tipd/core.c
++++ b/drivers/usb/typec/tipd/core.c
+@@ -2027,7 +2027,7 @@ static const struct of_device_id tps6598x_of_match[] = {
+ MODULE_DEVICE_TABLE(of, tps6598x_of_match);
+ 
+ static const struct i2c_device_id tps6598x_id[] = {
+-	{ "tps6598x", (kernel_ulong_t)&tps6598x_data },
++	{ .name = "tps6598x", .driver_data = (kernel_ulong_t)&tps6598x_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, tps6598x_id);
+diff --git a/drivers/usb/typec/ucsi/ucsi_ccg.c b/drivers/usb/typec/ucsi/ucsi_ccg.c
+index 199799b319c2..ddde0a7702f0 100644
+--- a/drivers/usb/typec/ucsi/ucsi_ccg.c
++++ b/drivers/usb/typec/ucsi/ucsi_ccg.c
+@@ -1525,8 +1525,8 @@ static const struct of_device_id ucsi_ccg_of_match_table[] = {
+ MODULE_DEVICE_TABLE(of, ucsi_ccg_of_match_table);
+ 
+ static const struct i2c_device_id ucsi_ccg_device_id[] = {
+-	{ "ccgx-ucsi" },
+-	{}
++	{ .name = "ccgx-ucsi" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, ucsi_ccg_device_id);
+ 
+diff --git a/drivers/usb/typec/ucsi/ucsi_stm32g0.c b/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+index 838ac0185082..848ed459a6de 100644
+--- a/drivers/usb/typec/ucsi/ucsi_stm32g0.c
++++ b/drivers/usb/typec/ucsi/ucsi_stm32g0.c
+@@ -737,8 +737,8 @@ static const struct of_device_id __maybe_unused ucsi_stm32g0_typec_of_match[] =
+ MODULE_DEVICE_TABLE(of, ucsi_stm32g0_typec_of_match);
+ 
+ static const struct i2c_device_id ucsi_stm32g0_typec_i2c_devid[] = {
+-	{ "stm32g0-typec" },
+-	{}
++	{ .name = "stm32g0-typec" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(i2c, ucsi_stm32g0_typec_i2c_devid);
+ 
+
+base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+-- 
+2.47.3
+
 
