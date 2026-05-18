@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D67F5CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 12:33:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 088E9CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 12:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2PrBsO/3g+rvrUx9lCvyGjsipNuDjm5uAnA+JG+s1bw=; b=rox0j1B8q5ALE45VPTXJYAK6XE
-	UTdQAKX4nzgO8M3GtO0P6VhNC/rpVtutCJd6xIpWH5SOnVvhUjN+Dce0sBGleky2H7OaDEoPuI4Vc
-	kc2wu/eXCwNUwIihZALjfgEzyVErGZtkB+XzBBH/LxUleSYu5mgRTHvMvR/Yqb/e1+E0Wc6LX6CxN
-	TQ9fGbndNKX5d1BCBtg5JJh0R41dL//30bE1sZSvFYPHKyiZ10zJl1y4B6Zb0pKKVfGZ/6sc8j9c9
-	Lm96AaFQrhKbCBmFIUQsuLyy0XWSCAszIBZtfFBoddzgk0K8tjFQkuXGtOdcG0Agemj+1xP9Jm7yd
-	S9tmfpXA==;
+	bh=Iw0gbgIgSebXvUGfQhR263rUammleT3+dcI2MU+rKYM=; b=Lmey+z2ArmfuavZrtXeAtgaHhz
+	MTIcQGSvr0jJm/EVaOhogJ7X2aYzNxE5nQ2nrgtcFKebvm26Wy0Uxhoc55JMdk3d6kGEO7zhyY1kA
+	QONfGdcK59r3Ps3fRHs0GWWOi+RX9ngYbF+kzWEXRR+txibIY3QmW9bhRZSgU5MHeEnlsXQuZ0eVN
+	nL4BK/6Xiu0ZKHdar1UugaOAzj8mtAPhVl3aBbrXUrT9oyz0Q9aQ3Yl+uH1IUVnEageXLNJxh6b3+
+	pPaIhlAUT1a0Ze6w8dReSnWp64uVUjLYc/qnY/2Kwq4a/k3R2i0WQAJV2cA2PgmXB4vnu3cYlTQSm
+	p8H8kx3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOxA8-0000000FeI0-31Fm;
-	Mon, 18 May 2026 12:33:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wOxAG-0000000FeKV-065w;
+	Mon, 18 May 2026 12:33:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOxA5-0000000FeGj-2CSu
+	id 1wOxAF-0000000FeJr-0kmf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 12:33:34 +0000
+	Mon, 18 May 2026 12:33:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E115E4450C;
-	Mon, 18 May 2026 12:33:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14096C2BCFF;
-	Mon, 18 May 2026 12:33:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7296360055;
+	Mon, 18 May 2026 12:33:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 534A8C2BCB8;
+	Mon, 18 May 2026 12:33:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779107612;
-	bh=v3h//Duuy7AHQQ8ShnbJDLW3E+a+LiFjIf5rtx+YwOE=;
+	s=k20201202; t=1779107622;
+	bh=qIjsom9bZAoeQ2Rimjo1anVHtnBVcomhLRxGciBa02g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bPAlED3RNR9MJ+3qW2zXG2w1+/Oo/0DqssTSaiZl0JdqA8/KoaWu0DzXMU96auN2G
-	 h4YTbU81AUFehiocRa1YcuuftQK81BN0RkebW51FjezL1AYfsjtn8Zz2nnh4QjoY44
-	 KDy9A5G5LA//5TfwuMIW7DvvwAH1CBPHVghJWBacn3eckm92MbfeWaUBdAGAWdmILT
-	 VtBKsaJHXWtc+4VSnGsKZGyPj3lwBP7yv9OaOz43fg0qNE1F1Ez3/vbZL9Dys3kwl8
-	 mGzJDwMMDAQ4wkRNlV5/HtAX97YXx2N3REyt+l0TbsEUfySbFg9r6KhikF4ltjHmqS
-	 QlpCTFfujwafA==
-Date: Mon, 18 May 2026 14:33:30 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: iommu: arm,smmu: Document optional
- interconnects property
-Message-ID: <20260518-mellow-robust-caterpillar-93fcaa@quoll>
-References: <20260516-smmu_interconnect_addition-v1-0-f889d933f5c1@oss.qualcomm.com>
- <20260516-smmu_interconnect_addition-v1-1-f889d933f5c1@oss.qualcomm.com>
+	b=Z8b61GTy309/yJnxtCMygQx8FAFBnbAxOTCJnUyDA8aXCcdyuzNpmHwTv07a3OI9+
+	 6xuBseVGr5BvXOLWpporsekZHIMbfbyM8ZCGvi384cKn+p5YugQmz56hKj0ANeQ+dX
+	 qpkIUHbT0p2dGN5X2hYXHK/wAmAobBwyVSeM5rXpjFmirmZhvcsxr+4twg6uLyvFYj
+	 hLOqcTXtA9o07kpvFUr1ZAz8Yq4bugXRZ4XAAGm3KU1FtWOodpm42+X7xJfJet9042
+	 ToizkHaqW/ossLM1jwrTaugoWzcN+vqKyH+j8mnUPVXuQTQvzZBahfm0D2L8RLP7J1
+	 nr4YHHMSi7znA==
+Date: Mon, 18 May 2026 13:33:36 +0100
+From: Will Deacon <will@kernel.org>
+To: Muchun Song <songmuchun@bytedance.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, linux-mm@kvack.org,
+	akpm@linux-foundation.org, Muchun Song <muchun.song@linux.dev>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>, Dev Jain <dev.jain@arm.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Chaitanya S Prakash <chaitanyas.prakash@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] arm64/mm: drop vmemmap_pmd helpers and use
+ generic code
+Message-ID: <agsHINLR-D-tRiGd@willie-the-truck>
+References: <20260404122105.3989557-1-songmuchun@bytedance.com>
+ <20260404122105.3989557-3-songmuchun@bytedance.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260516-smmu_interconnect_addition-v1-1-f889d933f5c1@oss.qualcomm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_053333_594835_C30E53C0 
-X-CRM114-Status: GOOD (  16.90  )
+In-Reply-To: <20260404122105.3989557-3-songmuchun@bytedance.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,41 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 16, 2026 at 06:04:03PM +0530, Bibek Kumar Patro wrote:
-> Some SoC implementations require a bandwidth vote on an interconnect
-
-Then this should be disallowed for other devices in "allOf:".
-
-> path before the SMMU register space is accessible. Add the optional
-> 'interconnects' property to the binding to allow platform DT nodes
-> to describe this path.
+On Sat, Apr 04, 2026 at 08:20:55PM +0800, Muchun Song wrote:
+> The generic implementations now suffice; remove the arm64 copies.
 > 
-> The arm-smmu driver uses these properties to vote for bandwidth before
-> accessing any SMMU registers and releases the vote on runtime suspend.
-> 
-> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> Signed-off-by: Muchun Song <songmuchun@bytedance.com>
 > ---
->  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 9 +++++++++
->  1 file changed, 9 insertions(+)
+>  arch/arm64/mm/mmu.c | 14 --------------
+>  1 file changed, 14 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> index 06fb5c8e7547cb7a92823adc2772b94f747376a6..5cbf944f2d3e178b3723d4dbaa19ee0d33446979 100644
-> --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-> @@ -243,6 +243,15 @@ properties:
->      minItems: 1
->      maxItems: 3
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index ec1c6971a561..b87053452641 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1745,20 +1745,6 @@ static void free_empty_tables(unsigned long addr, unsigned long end,
+>  }
+>  #endif
 >  
-> +  interconnects:
-> +    maxItems: 1
-> +    description:
-> +      Optional interconnect path to the SMMU register space. On some SoCs
-> +      the SMMU registers are only accessible after a bandwidth vote has been
+> -void __meminit vmemmap_set_pmd(pmd_t *pmdp, void *p, int node,
+> -			       unsigned long addr, unsigned long next)
+> -{
+> -	pmd_set_huge(pmdp, __pa(p), __pgprot(PROT_SECT_NORMAL));
+> -}
+> -
+> -int __meminit vmemmap_check_pmd(pmd_t *pmdp, int node,
+> -				unsigned long addr, unsigned long next)
+> -{
+> -	vmemmap_verify((pte_t *)pmdp, node, addr, next);
+> -
+> -	return pmd_sect(READ_ONCE(*pmdp));
+> -}
 
-Drivers are irrelevant here, drop. Also first sentence is redundant.
-Schema says what is and what is not optional.
+I think this is fine:
 
-Best regards,
-Krzysztof
+Acked-by: Will Deacon <will@kernel.org>
 
+but note that, since c25c4aa3f79a ("arm64: mm: Add PTE_DIRTY back to
+PAGE_KERNEL* to fix kexec/hibernation"), I think that using PAGE_KERNEL
+(like the generic code does in the first patch of this series) means
+that this change isn't a no-op -- it means that the huge entries will
+now be marked as dirty. That's possibly a bug fix (?)
+
+Will
 
