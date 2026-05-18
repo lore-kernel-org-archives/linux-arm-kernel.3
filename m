@@ -4,59 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDEACD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CF0CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dyx/WAd/4hjOcMcsJmCxGjIgR8e2a5jk1JUwFrJZSao=; b=cTg07kR0eCBv+t7Q5UlIulVlku
-	M2GHV1rgoMezJGCkk+kNmpWxYGls8OrxFdLkxFm/RkaeV6t0Tb77lnyT5OHzDyxuRgU6V4rFDyjzP
-	6zp67PHPLWo++TnX0n9HAUDvAEGkzpATvyRxKDXipUkQnJSADcGd6JhRAIju9ILajA3wBSesDpTrf
-	doxda8X4XCsw5Z1Eo+sEsVyyEfvsv0KqdDx10rT+eZIJkmnKsDAb+MNR/C9NPD/aXtGNNl0kM5bhU
-	ZOZJLa/5e2pmBqWuDy81PBeKrQTi1Zhim1MrKZlAg/Ryvy5uLtFUxzx3rjiuPeGyKRFDpUqA+pYju
-	i4X1jbGQ==;
+	bh=bMlxrlY09I0+URao4dl7KEWZ0T0fHCJmeuASJ1zvd4E=; b=nyT8jmX9QA8Dc+CyW8236ttwwA
+	g902kms56+zBjswH0z2/RtFQdS3dcujAwRusQe8HE/N/uDFZ6KK11jz3YLQvftu7vhHXz+1u4Dirf
+	UPN+Gl23+c3xV7nmX0euWTxn5Tpy359lzkmbG9j0KK624FKKAy0aan9GEAm9hInd67olFUsXwlvpk
+	QqT8J0HWG8mo8LgFaqaW6c01UpFTedOKmLihH3wJq/EekgfnnFufjwAp+U2deJqaRnjL57Cwr99EB
+	KZfvAyWaLaJn0TO0+wQhVLRMyTYFB3IWfIDGzRut9NiYfRqAqmo8qtcdDaEaekQ+qDO94CcBV7gHZ
+	TIf1SIkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOv5E-0000000FBgx-0hhq;
-	Mon, 18 May 2026 10:20:24 +0000
-Received: from jpms-ob02-os7.noc.sony.co.jp ([211.125.139.72])
+	id 1wOv5J-0000000FBl6-1clo;
+	Mon, 18 May 2026 10:20:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOv55-0000000FBbh-3rXJ
+	id 1wOv5E-0000000FBgP-0pN1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 10:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=bMlxrlY09I0+URao4dl7KEWZ0T0fHCJmeuASJ1zvd4E=; b=SufT7dnQVuZRh5JMTJTlji6JRj
+	YA5eRQmGThAqdzohJr1fQf6WrVpc7v2/Glgu1x6x39KxtWMxb8ZvD9KV/wZap9gUKuk/nAHXEOAvO
+	EDgRYH6Hz1AVEycbNyP8TENxD+LviWgXCN/q3250GXPf9IEAN1QxwG0gj7DuxPIlkAyeWBkizsPee
+	x+su/9AAiMCxRVOy7qY1rWEg/fzBDdB9mcJ9wmnkxotLdvFk98KSA8u/1JUe5JpHovZuGOnF21/Na
+	Q9WekJzD+J6s+5TIpkawEwARUN+UNJQ2HOcZdoRbknPBWevFZiN8dTntqe6cuJ6qKYo6h6eO2IRjd
+	vo3BZMJg==;
+Received: from jpms-ob02-os7.noc.sony.co.jp ([2001:cf8:acf:41::8])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOv58-0000000AjWv-1H8G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:20:17 +0000
+	Mon, 18 May 2026 10:20:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=sony.com; s=s1jp; t=1779099616; x=1810635616;
+  d=sony.com; s=s1jp; t=1779099619; x=1810635619;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:references:in-reply-to:to:cc;
-  bh=dyx/WAd/4hjOcMcsJmCxGjIgR8e2a5jk1JUwFrJZSao=;
-  b=rX2wlVjXKHjQBnFeTHlH+2bIyjl8aYPyUX0h5yasJPplgTcXqZJpLoN8
-   ujKWt7mo2Lm7cCsxbC6Q0/ALCeZ3zOHQE5sDj8P+Hz8hcAIihDzUkv6aM
-   xCJ1sTCqUTeeqeJ57wBsDIOLohJMd/gQGDXwHJIkX7NOQh4z2xlBgqjHm
-   Wf+Q51FPXSswuaH22g2nl45jCcGLfGVoyTdTDauKZYsf1+8TMPPQI7dLg
-   JMDu/zj10eTwQXyruj93W24HEXyEzmjPStLT5A0aBRkFM3ln9yMUAEhf+
-   0+ZbRTtqTItvwoQOhxPfAk5CSRngVbhv39NzGVWINfpFhhyxkS2KAh2x7
-   g==;
-X-CSE-ConnectionGUID: uelQ+8k9TS+/L0hdhLzItw==
-X-CSE-MsgGUID: y0aqiZjdRB2k/OCQojZapQ==
+  bh=bMlxrlY09I0+URao4dl7KEWZ0T0fHCJmeuASJ1zvd4E=;
+  b=MJN1me4zSjKiCKbyikWeYegaCniX10kan1OM1cEi64jm3Z4k1+Gadz9g
+   VcorMMEl7KVhFNn7XIN7rZE7CRn3A71Q89SG5j0ovHsRLzillzMXDC/B0
+   d/2FUuaR9nFsK7FWkeLR8Q47NhaVQgyeJTgYX+F26/tu8EF3QHnbOF9ZC
+   sj4Q1stupwTxKX1xGXyccLI9U2KbfHueurIKVIecdnShaytpmR5IUcgup
+   a7ghs1c3g0R4VsA4PzIyuGgUycpj1KdN1/FN+scnU5cYw74lRhuHiwWvg
+   eMv66trHLSvhF2DVFEzxDd2vXHfezTNZJ7Fu8LW97BTKft+abFPD5RfmO
+   A==;
+X-CSE-ConnectionGUID: zksISLk+QPa/K4Afg/pmIg==
+X-CSE-MsgGUID: jRq+YpUJSkWIdmf0Wr9BZg==
 Received: from unknown (HELO jpmta-ob02-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::7])
-  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:20:05 +0900
-X-CSE-ConnectionGUID: XQMiEi2RTcWpArWyYri4mg==
-X-CSE-MsgGUID: VrHP121bRvWEDxjNnwRL5g==
+  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:20:06 +0900
+X-CSE-ConnectionGUID: Gv+mPeDIQ3qMzddEJ2Zy3Q==
+X-CSE-MsgGUID: KtoDGItcQg60rTP0IxeYBw==
 X-IronPort-AV: E=Sophos;i="6.23,241,1770562800"; 
-   d="scan'208";a="56041672"
+   d="scan'208";a="56041678"
 Received: from unknown (HELO [127.0.1.1]) ([IPv6:2001:cf8:1:573:0:dddd:6b3e:119e])
-  by jpmta-ob02-os7.noc.sony.co.jp with ESMTP; 18 May 2026 19:20:05 +0900
+  by jpmta-ob02-os7.noc.sony.co.jp with ESMTP; 18 May 2026 19:20:06 +0900
 From: Shashank Balaji <shashank.mahadasyam@sony.com>
-Date: Mon, 18 May 2026 19:19:59 +0900
-Subject: [PATCH v5 3/4] coresight: pass THIS_MODULE implicitly through a
- macro
+Date: Mon, 18 May 2026 19:20:00 +0900
+Subject: [PATCH v5 4/4] driver core: platform: set mod_name in driver
+ registration
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260518-acpi_mod_name-v5-3-705ccc430885@sony.com>
+Message-Id: <20260518-acpi_mod_name-v5-4-705ccc430885@sony.com>
 References: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
 In-Reply-To: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -84,18 +99,18 @@ Cc: Rahul Bukte <rahul.bukte@sony.com>,
  linux-modules@vger.kernel.org, linux-tegra@vger.kernel.org, 
  Sumit Gupta <sumitg@nvidia.com>
 X-Mailer: b4 0.16-dev-3bfbc
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8553;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11357;
  i=shashank.mahadasyam@sony.com; h=from:subject:message-id;
- bh=lnmr+Tsr/Pi3mBRQX9k33KTQHyV3H2FAwHmofyYMs7Q=;
- b=owGbwMvMwCU2bX1+URVTXyjjabUkhiyu5xeL6j6mXzyT/uGF70aDo31uxSyL06W1tC23mtqIz
- HF4bne5o5SFQYyLQVZMkaVUqfrX3hVBS3rOvFaEmcPKBDKEgYtTACYiwcTI0Kt24U3Bli+PBDzu
- vaxdf7+6Ick61OyqYMXqfRpLkqoTShn+ux7vjjhvIrh925kNh5vO88i5vRRa57VuMcu+FRlTLsv
- YcQMA
+ bh=7RmL7RpLDjTb7OFP3+8ENtJ07SYTLx3tLFTfJEYLdO0=;
+ b=owGbwMvMwCU2bX1+URVTXyjjabUkhiyu5xffV1gf+bPHiPeM3eu/YszJVzVnluxZKrNU5nWU3
+ zRR5bikjlIWBjEuBlkxRZZSpepfe1cELek581oRZg4rE8gQBi5OAZiIAgcjw8eJjT+mqasuem79
+ ujGncmqEVEpg/9NUWxXZHSyiu/58/cDwV+aHZ4/OBrmkm6u+3f4VMEF8SljrXPbSD62nL4f+1/w
+ syQoA
 X-Developer-Key: i=shashank.mahadasyam@sony.com; a=openpgp;
  fpr=75227BFABDA852A48CCCEB2196AF6F727A028E55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_032016_305199_2D3A68BC 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20260518_112019_870657_CF88F3EC 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,193 +125,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename coresight_init_driver() to coresight_init_driver_with_owner() and replace
-it with a macro wrapper that passes THIS_MODULE implicitly. This is in line with
-what other buses do.
+Pass KBUILD_MODNAME through the driver registration macro so that
+the driver core can create the module symlink in sysfs for built-in
+drivers, and fixup all callers.
 
-Suggested-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+The Rust platform adapter is updated to pass the module name through to the new
+parameter.
+
+Tested on qemu with:
+- x86 defconfig + CONFIG_RUST
+- arm64 defconfig + CONFIG_RUST + CONFIG_CORESIGHT stuff
+
+Examples after this patch:
+
+    /sys/bus/platform/drivers/...
+        coresight-itnoc/module		-> coresight_tnoc
+        coresight-static-tpdm/module	-> coresight_tpdm
+        coresight-catu-platform/module	-> coresight_catu
+        serial8250/module		-> 8250
+        acpi-ged/module			-> acpi
+        vmclock/module			-> ptp_vmclock
+
 Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
 Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
 Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
 ---
-Patch 4 depends on this patch
+This patch depends on patches 1, 2, 3
 ---
- drivers/hwtracing/coresight/coresight-catu.c       | 2 +-
- drivers/hwtracing/coresight/coresight-core.c       | 6 +++---
- drivers/hwtracing/coresight/coresight-cpu-debug.c  | 3 +--
- drivers/hwtracing/coresight/coresight-funnel.c     | 3 +--
- drivers/hwtracing/coresight/coresight-replicator.c | 3 +--
- drivers/hwtracing/coresight/coresight-stm.c        | 2 +-
- drivers/hwtracing/coresight/coresight-tmc-core.c   | 2 +-
- drivers/hwtracing/coresight/coresight-tnoc.c       | 2 +-
- drivers/hwtracing/coresight/coresight-tpdm.c       | 3 +--
- drivers/hwtracing/coresight/coresight-tpiu.c       | 2 +-
- include/linux/coresight.h                          | 6 ++++--
- 11 files changed, 16 insertions(+), 18 deletions(-)
+ Documentation/driver-api/driver-model/platform.rst |  3 ++-
+ drivers/base/platform.c                            | 21 ++++++++++++++-------
+ drivers/hwtracing/coresight/coresight-core.c       |  5 +++--
+ include/linux/coresight.h                          |  5 +++--
+ include/linux/platform_device.h                    | 17 +++++++++--------
+ rust/kernel/platform.rs                            |  4 +++-
+ 6 files changed, 34 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-index ce71dcddfca2..0c8698c8fc5e 100644
---- a/drivers/hwtracing/coresight/coresight-catu.c
-+++ b/drivers/hwtracing/coresight/coresight-catu.c
-@@ -706,7 +706,7 @@ static int __init catu_init(void)
- {
- 	int ret;
+diff --git a/Documentation/driver-api/driver-model/platform.rst b/Documentation/driver-api/driver-model/platform.rst
+index cf5ff48d3115..9673470bded2 100644
+--- a/Documentation/driver-api/driver-model/platform.rst
++++ b/Documentation/driver-api/driver-model/platform.rst
+@@ -70,7 +70,8 @@ Kernel modules can be composed of several platform drivers. The platform core
+ provides helpers to register and unregister an array of drivers::
  
--	ret = coresight_init_driver("catu", &catu_driver, &catu_platform_driver, THIS_MODULE);
-+	ret = coresight_init_driver("catu", &catu_driver, &catu_platform_driver);
- 	tmc_etr_set_catu_ops(&etr_catu_buf_ops);
- 	return ret;
+ 	int __platform_register_drivers(struct platform_driver * const *drivers,
+-				      unsigned int count, struct module *owner);
++				      unsigned int count, struct module *owner,
++				      const char *mod_name);
+ 	void platform_unregister_drivers(struct platform_driver * const *drivers,
+ 					 unsigned int count);
+ 
+diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+index 75b4698d0e58..2b0cc0889386 100644
+--- a/drivers/base/platform.c
++++ b/drivers/base/platform.c
+@@ -901,11 +901,14 @@ EXPORT_SYMBOL_GPL(platform_device_register_full);
+  * __platform_driver_register - register a driver for platform-level devices
+  * @drv: platform driver structure
+  * @owner: owning module/driver
++ * @mod_name: module name string
+  */
+-int __platform_driver_register(struct platform_driver *drv, struct module *owner)
++int __platform_driver_register(struct platform_driver *drv, struct module *owner,
++			       const char *mod_name)
+ {
+ 	drv->driver.owner = owner;
+ 	drv->driver.bus = &platform_bus_type;
++	drv->driver.mod_name = mod_name;
+ 
+ 	return driver_register(&drv->driver);
  }
+@@ -938,6 +941,7 @@ static int is_bound_to_driver(struct device *dev, void *driver)
+  * @drv: platform driver structure
+  * @probe: the driver probe routine, probably from an __init section
+  * @module: module which will be the owner of the driver
++ * @mod_name: module name string
+  *
+  * Use this instead of platform_driver_register() when you know the device
+  * is not hotpluggable and has already been registered, and you want to
+@@ -955,7 +959,8 @@ static int is_bound_to_driver(struct device *dev, void *driver)
+  */
+ int __init_or_module __platform_driver_probe(struct platform_driver *drv,
+ 					     int (*probe)(struct platform_device *),
+-					     struct module *module)
++					     struct module *module,
++					     const char *mod_name)
+ {
+ 	int retval;
+ 
+@@ -983,7 +988,7 @@ int __init_or_module __platform_driver_probe(struct platform_driver *drv,
+ 
+ 	/* temporary section violation during probe() */
+ 	drv->probe = probe;
+-	retval = __platform_driver_register(drv, module);
++	retval = __platform_driver_register(drv, module, mod_name);
+ 	if (retval)
+ 		return retval;
+ 
+@@ -1011,6 +1016,7 @@ EXPORT_SYMBOL_GPL(__platform_driver_probe);
+  * @data: platform specific data for this platform device
+  * @size: size of platform specific data
+  * @module: module which will be the owner of the driver
++ * @mod_name: module name string
+  *
+  * Use this in legacy-style modules that probe hardware directly and
+  * register a single platform device and corresponding platform driver.
+@@ -1021,7 +1027,7 @@ struct platform_device * __init_or_module
+ __platform_create_bundle(struct platform_driver *driver,
+ 			 int (*probe)(struct platform_device *),
+ 			 struct resource *res, unsigned int n_res,
+-			 const void *data, size_t size, struct module *module)
++			 const void *data, size_t size, struct module *module, const char *mod_name)
+ {
+ 	struct platform_device *pdev;
+ 	int error;
+@@ -1044,7 +1050,7 @@ __platform_create_bundle(struct platform_driver *driver,
+ 	if (error)
+ 		goto err_pdev_put;
+ 
+-	error = __platform_driver_probe(driver, probe, module);
++	error = __platform_driver_probe(driver, probe, module, mod_name);
+ 	if (error)
+ 		goto err_pdev_del;
+ 
+@@ -1064,6 +1070,7 @@ EXPORT_SYMBOL_GPL(__platform_create_bundle);
+  * @drivers: an array of drivers to register
+  * @count: the number of drivers to register
+  * @owner: module owning the drivers
++ * @mod_name: module name string
+  *
+  * Registers platform drivers specified by an array. On failure to register a
+  * driver, all previously registered drivers will be unregistered. Callers of
+@@ -1073,7 +1080,7 @@ EXPORT_SYMBOL_GPL(__platform_create_bundle);
+  * Returns: 0 on success or a negative error code on failure.
+  */
+ int __platform_register_drivers(struct platform_driver * const *drivers,
+-				unsigned int count, struct module *owner)
++				unsigned int count, struct module *owner, const char *mod_name)
+ {
+ 	unsigned int i;
+ 	int err;
+@@ -1081,7 +1088,7 @@ int __platform_register_drivers(struct platform_driver * const *drivers,
+ 	for (i = 0; i < count; i++) {
+ 		pr_debug("registering platform driver %ps\n", drivers[i]);
+ 
+-		err = __platform_driver_register(drivers[i], owner);
++		err = __platform_driver_register(drivers[i], owner, mod_name);
+ 		if (err < 0) {
+ 			pr_err("failed to register platform driver %ps: %d\n",
+ 			       drivers[i], err);
 diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index 46f247f73cf6..54ad5193b850 100644
+index 54ad5193b850..94ee24afdc6d 100644
 --- a/drivers/hwtracing/coresight/coresight-core.c
 +++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1694,8 +1694,8 @@ static void __exit coresight_exit(void)
- module_init(coresight_init);
+@@ -1695,7 +1695,8 @@ module_init(coresight_init);
  module_exit(coresight_exit);
  
--int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
--			  struct platform_driver *pdev_drv, struct module *owner)
-+int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_drv,
-+				     struct platform_driver *pdev_drv, struct module *owner)
+ int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_drv,
+-				     struct platform_driver *pdev_drv, struct module *owner)
++				     struct platform_driver *pdev_drv, struct module *owner,
++				     const char *mod_name)
  {
  	int ret;
  
-@@ -1713,7 +1713,7 @@ int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
- 	amba_driver_unregister(amba_drv);
- 	return ret;
- }
--EXPORT_SYMBOL_GPL(coresight_init_driver);
-+EXPORT_SYMBOL_GPL(coresight_init_driver_with_owner);
+@@ -1705,7 +1706,7 @@ int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_d
+ 		return ret;
+ 	}
  
- void coresight_remove_driver(struct amba_driver *amba_drv,
- 			     struct platform_driver *pdev_drv)
-diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-index 629614278e46..3a806c1d50ea 100644
---- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-+++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-@@ -757,8 +757,7 @@ static struct platform_driver debug_platform_driver = {
+-	ret = __platform_driver_register(pdev_drv, owner);
++	ret = __platform_driver_register(pdev_drv, owner, mod_name);
+ 	if (!ret)
+ 		return 0;
  
- static int __init debug_init(void)
- {
--	return coresight_init_driver("debug", &debug_driver, &debug_platform_driver,
--				     THIS_MODULE);
-+	return coresight_init_driver("debug", &debug_driver, &debug_platform_driver);
- }
- 
- static void __exit debug_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-index 3f56ceccd8c9..0abc11f0690c 100644
---- a/drivers/hwtracing/coresight/coresight-funnel.c
-+++ b/drivers/hwtracing/coresight/coresight-funnel.c
-@@ -412,8 +412,7 @@ static struct amba_driver dynamic_funnel_driver = {
- 
- static int __init funnel_init(void)
- {
--	return coresight_init_driver("funnel", &dynamic_funnel_driver, &funnel_driver,
--				     THIS_MODULE);
-+	return coresight_init_driver("funnel", &dynamic_funnel_driver, &funnel_driver);
- }
- 
- static void __exit funnel_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index 07fc04f53b88..2f382de357ee 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -418,8 +418,7 @@ static struct amba_driver dynamic_replicator_driver = {
- 
- static int __init replicator_init(void)
- {
--	return coresight_init_driver("replicator", &dynamic_replicator_driver, &replicator_driver,
--				     THIS_MODULE);
-+	return coresight_init_driver("replicator", &dynamic_replicator_driver, &replicator_driver);
- }
- 
- static void __exit replicator_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-index aca6cec7885a..4e860519a73f 100644
---- a/drivers/hwtracing/coresight/coresight-stm.c
-+++ b/drivers/hwtracing/coresight/coresight-stm.c
-@@ -1050,7 +1050,7 @@ static struct platform_driver stm_platform_driver = {
- 
- static int __init stm_init(void)
- {
--	return coresight_init_driver("stm", &stm_driver, &stm_platform_driver, THIS_MODULE);
-+	return coresight_init_driver("stm", &stm_driver, &stm_platform_driver);
- }
- 
- static void __exit stm_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index c89fe996af23..bc5a133ada3e 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -1046,7 +1046,7 @@ static struct platform_driver tmc_platform_driver = {
- 
- static int __init tmc_init(void)
- {
--	return coresight_init_driver("tmc", &tmc_driver, &tmc_platform_driver, THIS_MODULE);
-+	return coresight_init_driver("tmc", &tmc_driver, &tmc_platform_driver);
- }
- 
- static void __exit tmc_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index 96a25877b824..9e8de4323d28 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.c
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -344,7 +344,7 @@ static struct platform_driver itnoc_driver = {
- 
- static int __init tnoc_init(void)
- {
--	return coresight_init_driver("tnoc", &trace_noc_driver, &itnoc_driver, THIS_MODULE);
-+	return coresight_init_driver("tnoc", &trace_noc_driver, &itnoc_driver);
- }
- 
- static void __exit tnoc_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index eaf7210af648..8464edbba2d4 100644
---- a/drivers/hwtracing/coresight/coresight-tpdm.c
-+++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1563,8 +1563,7 @@ static struct platform_driver static_tpdm_driver = {
- 
- static int __init tpdm_init(void)
- {
--	return coresight_init_driver("tpdm", &dynamic_tpdm_driver, &static_tpdm_driver,
--				     THIS_MODULE);
-+	return coresight_init_driver("tpdm", &dynamic_tpdm_driver, &static_tpdm_driver);
- }
- 
- static void __exit tpdm_exit(void)
-diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-index b8560b140e0f..7b029d2eb389 100644
---- a/drivers/hwtracing/coresight/coresight-tpiu.c
-+++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-@@ -310,7 +310,7 @@ static struct platform_driver tpiu_platform_driver = {
- 
- static int __init tpiu_init(void)
- {
--	return coresight_init_driver("tpiu", &tpiu_driver, &tpiu_platform_driver, THIS_MODULE);
-+	return coresight_init_driver("tpiu", &tpiu_driver, &tpiu_platform_driver);
- }
- 
- static void __exit tpiu_exit(void)
 diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 2131febebee9..cd8fb47a1192 100644
+index cd8fb47a1192..1cf85d772bea 100644
 --- a/include/linux/coresight.h
 +++ b/include/linux/coresight.h
-@@ -691,8 +691,10 @@ coresight_find_output_type(struct coresight_platform_data *pdata,
- 			   enum coresight_dev_type type,
+@@ -692,9 +692,10 @@ coresight_find_output_type(struct coresight_platform_data *pdata,
  			   union coresight_dev_subtype subtype);
  
--int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
--			  struct platform_driver *pdev_drv, struct module *owner);
-+int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_drv,
-+				     struct platform_driver *pdev_drv, struct module *owner);
-+#define coresight_init_driver(drv, amba_drv, pdev_drv) \
-+	coresight_init_driver_with_owner(drv, amba_drv, pdev_drv, THIS_MODULE)
+ int coresight_init_driver_with_owner(const char *drv, struct amba_driver *amba_drv,
+-				     struct platform_driver *pdev_drv, struct module *owner);
++				     struct platform_driver *pdev_drv, struct module *owner,
++				     const char *mod_name);
+ #define coresight_init_driver(drv, amba_drv, pdev_drv) \
+-	coresight_init_driver_with_owner(drv, amba_drv, pdev_drv, THIS_MODULE)
++	coresight_init_driver_with_owner(drv, amba_drv, pdev_drv, THIS_MODULE, KBUILD_MODNAME)
  
  void coresight_remove_driver(struct amba_driver *amba_drv,
  			     struct platform_driver *pdev_drv);
+diff --git a/include/linux/platform_device.h b/include/linux/platform_device.h
+index 975400a472e3..26e6a43358e2 100644
+--- a/include/linux/platform_device.h
++++ b/include/linux/platform_device.h
+@@ -293,18 +293,19 @@ struct platform_driver {
+  * use a macro to avoid include chaining to get THIS_MODULE
+  */
+ #define platform_driver_register(drv) \
+-	__platform_driver_register(drv, THIS_MODULE)
++	__platform_driver_register(drv, THIS_MODULE, KBUILD_MODNAME)
+ extern int __platform_driver_register(struct platform_driver *,
+-					struct module *);
++					struct module *, const char *mod_name);
+ extern void platform_driver_unregister(struct platform_driver *);
+ 
+ /* non-hotpluggable platform devices may use this so that probe() and
+  * its support may live in __init sections, conserving runtime memory.
+  */
+ #define platform_driver_probe(drv, probe) \
+-	__platform_driver_probe(drv, probe, THIS_MODULE)
++	__platform_driver_probe(drv, probe, THIS_MODULE, KBUILD_MODNAME)
+ extern int __platform_driver_probe(struct platform_driver *driver,
+-		int (*probe)(struct platform_device *), struct module *module);
++		int (*probe)(struct platform_device *), struct module *module,
++		const char *mod_name);
+ 
+ static inline void *platform_get_drvdata(const struct platform_device *pdev)
+ {
+@@ -368,19 +369,19 @@ static int __init __platform_driver##_init(void) \
+ device_initcall(__platform_driver##_init); \
+ 
+ #define platform_create_bundle(driver, probe, res, n_res, data, size) \
+-	__platform_create_bundle(driver, probe, res, n_res, data, size, THIS_MODULE)
++	__platform_create_bundle(driver, probe, res, n_res, data, size, THIS_MODULE, KBUILD_MODNAME)
+ extern struct platform_device *__platform_create_bundle(
+ 	struct platform_driver *driver, int (*probe)(struct platform_device *),
+ 	struct resource *res, unsigned int n_res,
+-	const void *data, size_t size, struct module *module);
++	const void *data, size_t size, struct module *module, const char *mod_name);
+ 
+ int __platform_register_drivers(struct platform_driver * const *drivers,
+-				unsigned int count, struct module *owner);
++				unsigned int count, struct module *owner, const char *mod_name);
+ void platform_unregister_drivers(struct platform_driver * const *drivers,
+ 				 unsigned int count);
+ 
+ #define platform_register_drivers(drivers, count) \
+-	__platform_register_drivers(drivers, count, THIS_MODULE)
++	__platform_register_drivers(drivers, count, THIS_MODULE, KBUILD_MODNAME)
+ 
+ #ifdef CONFIG_SUSPEND
+ extern int platform_pm_suspend(struct device *dev);
+diff --git a/rust/kernel/platform.rs b/rust/kernel/platform.rs
+index 8917d4ee499f..2d626eecc450 100644
+--- a/rust/kernel/platform.rs
++++ b/rust/kernel/platform.rs
+@@ -82,7 +82,9 @@ unsafe fn register(
+         }
+ 
+         // SAFETY: `pdrv` is guaranteed to be a valid `DriverType`.
+-        to_result(unsafe { bindings::__platform_driver_register(pdrv.get(), module.0) })
++        to_result(unsafe {
++            bindings::__platform_driver_register(pdrv.get(), module.0, name.as_char_ptr())
++        })
+     }
+ 
+     unsafe fn unregister(pdrv: &Opaque<Self::DriverType>) {
 
 -- 
 2.43.0
