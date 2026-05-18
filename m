@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0FECD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99C6CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mICx5iKzUsbrauZEfkUGecznKZuqlMLzf6U5xnZJSoQ=; b=hcRfEkEgE0IOR+4poWk6FJJqIR
-	stM7OvV9N5dWwhp+d1MlUGStM7li+uoHCspyI7AyReN7G6J74AeGAkQftNuncTDgV4RbdJPxKeIva
-	83yn3FYIngeLfK2C37AFa7iDoIMknQH1zqqIdOnoILmzqX2CZvnUwsaaRtrbxDAf+VaKNb+WVjFLm
-	hYn2WB0c+aRkt0hP4E3uOZkjBILOYy4y1d83rgXVv03O5SFA/6mxwR8+jhNDvzsFUZP6KnEdAtirH
-	rSGwCA7HeVF9RsfXK+544rOEe600sRm4mYiWFE2ykZbOgCIvB1Cqx4xIQz3k+wyg8dpDuIwtttBcT
-	jCWOH5dA==;
+	bh=HrrAPa24V40EHH9bsffLH4Tw6EbLYMg2oVtJO5x9Vyo=; b=Yn7zwoY0595kKrA6EoUE6izS+I
+	xW8MBzb+9bGBg/6C4HTvwj4MnzLnMn7ieO6HQgISMBed8bpj+iPgTe8V26t3tNElMeSXkcVs1YdjL
+	C0KY0FtciVBnwlq/Bkk3hwNXYq64958yRoGewhLjBvU8ZYrXQRXxVdRMqoLmhPS28IbCI/VsNegaI
+	DW6InoUnJAnCsg4LQ3uDWpSzfLzvSqGNzhnNQzGOlsQxZAhi+gRcdblY12cmyE1DIAwZ9rqzNko+a
+	zsPsMGTf5ZPOgAQJJlL+ELOgRfD+3Knuhep6QPHWe7i55aHFbePZRSqnkuLLoBBFm+C0uEXxfhOZa
+	G54zyQgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOncj-0000000DvMe-2BUc;
-	Mon, 18 May 2026 02:22:29 +0000
-Received: from mail.eswincomputing.com ([123.124.195.78])
+	id 1wOndF-0000000Dva9-3Px9;
+	Mon, 18 May 2026 02:23:01 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOncg-0000000DvL2-3VvI
+	id 1wOndB-0000000DvX8-0VAz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 02:22:28 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgA3S57Wdwpqt0oaAA--.229S2;
-	Mon, 18 May 2026 10:22:16 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Mon, 18 May 2026 02:22:59 +0000
+Received: from localhost (unknown [36.110.52.2])
+	by APP-05 (Coremail) with SMTP id zQCowADnfBD8dwpqqRCVEA--.152S2;
+	Mon, 18 May 2026 10:22:52 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: ukleinek@kernel.org
+Cc: nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	linux-pwm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net v2 5/5] net: stmmac: eswin: validate RGMII delay values
-Date: Mon, 18 May 2026 10:22:13 +0800
-Message-ID: <20260518022214.507-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260518021919.404-1-lizhi2@eswincomputing.com>
-References: <20260518021919.404-1-lizhi2@eswincomputing.com>
+Subject: Re: [PATCH] pwm: atmel-tcb: Remove unneeded semicolon
+Date: Mon, 18 May 2026 10:21:25 +0800
+Message-ID: <20260518022251.1625520-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <agnyKRxQk5WXSTHe@monoceros>
+References: <agnyKRxQk5WXSTHe@monoceros>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgA3S57Wdwpqt0oaAA--.229S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxWw4ruw17ZF1DWF4xZr18Krg_yoW5uFW7pF
-	W5JFy5KFWqqr1xGwn3Aw4vqFyUKa1jgF43AF95tF93t3Z8trn8X3y8Kas8GF1qvrWxZw1S
-	y34UJan7uFs09FDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4U
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRByxiUUUUU=
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
+X-CM-TRANSID: zQCowADnfBD8dwpqqRCVEA--.152S2
+X-Coremail-Antispam: 1UD129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UjIYCTnIWjp_UUUYF7k0a2IF6FyUM7kC6x804xWl14x267AK
+	xVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGw
+	A2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26ryj
+	6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Cr
+	1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAa
+	Y2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4
+	A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k2
+	0xvY0x0EwIxGrwCF54CYxVCY1x0262kKe7AKxVWUAVWUtwCFx2IqxVCFs4IE7xkEbVWUJV
+	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
+	1VAFwI0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
+	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
+	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IU8XzVUUUUUU==
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_192227_175728_B81BB65A 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20260517_192257_519173_9D51BE3C 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,89 +81,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
+On Sun, May 17, 2026 at 06:52:48PM +0200, Uwe Kleine-König wrote:
 
-Validate rx-internal-delay-ps and tx-internal-delay-ps against the
-hardware capabilities of the EIC7700 MAC.
+> I'd like to pick up this commit, but don't want to modify the commit log
 
-The programmable RGMII delay supports 20 ps steps and a maximum value of
-2540 ps. The driver previously accepted arbitrary values and silently
-truncated unsupported settings when converting them to hardware units.
+> without your consent. For now this is blocked because of that.
 
-As a result, invalid device tree values could lead to unexpected delay
-programming and incorrect RGMII timing.
+Hi Uwe,
 
-Reject delay values that are not multiples of 20 ps or exceed the
-supported hardware range.
+That is fine with me. Please go ahead and add the note to the commit log.
 
-Fixes: ea77dbbdbc4e ("net: stmmac: add Eswin EIC7700 glue driver")
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 29 ++++++++++++++++---
- 1 file changed, 25 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-index ef60cab24533..4ac979d874d6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-eic7700.c
-@@ -34,7 +34,10 @@
- #define EIC7700_ETH_TX_ADJ_DELAY	GENMASK(14, 8)
- #define EIC7700_ETH_RX_ADJ_DELAY	GENMASK(30, 24)
- 
--#define EIC7700_MAX_DELAY_UNIT 0x7F
-+#define EIC7700_MAX_DELAY_STEPS		0x7F
-+#define EIC7700_DELAY_STEP_PS		20
-+#define EIC7700_MAX_DELAY_PS	\
-+	(EIC7700_MAX_DELAY_STEPS * EIC7700_DELAY_STEP_PS)
- 
- static const char * const eic7700_clk_names[] = {
- 	"tx", "axi", "cfg",
-@@ -128,7 +131,7 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	struct plat_stmmacenet_data *plat_dat;
- 	struct stmmac_resources stmmac_res;
- 	struct eic7700_qos_priv *dwc_priv;
--	u32 delay_ps;
-+	u32 delay_ps, val;
- 	int i, ret;
- 
- 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
-@@ -148,7 +151,16 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	/* Read rx-internal-delay-ps and update rx_clk delay */
- 	if (!of_property_read_u32(pdev->dev.of_node,
- 				  "rx-internal-delay-ps", &delay_ps)) {
--		u32 val = min(delay_ps / 20, EIC7700_MAX_DELAY_UNIT);
-+		if (delay_ps % EIC7700_DELAY_STEP_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"rx delay must be multiple of %dps\n",
-+				EIC7700_DELAY_STEP_PS);
-+
-+		if (delay_ps > EIC7700_MAX_DELAY_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"rx delay out of range\n");
-+
-+		val = delay_ps / EIC7700_DELAY_STEP_PS;
- 
- 		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_RX_ADJ_DELAY;
- 		dwc_priv->eth_clk_dly_param |=
-@@ -161,7 +173,16 @@ static int eic7700_dwmac_probe(struct platform_device *pdev)
- 	/* Read tx-internal-delay-ps and update tx_clk delay */
- 	if (!of_property_read_u32(pdev->dev.of_node,
- 				  "tx-internal-delay-ps", &delay_ps)) {
--		u32 val = min(delay_ps / 20, EIC7700_MAX_DELAY_UNIT);
-+		if (delay_ps % EIC7700_DELAY_STEP_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"tx delay must be multiple of %dps\n",
-+				EIC7700_DELAY_STEP_PS);
-+
-+		if (delay_ps > EIC7700_MAX_DELAY_PS)
-+			return dev_err_probe(&pdev->dev, -EINVAL,
-+				"tx delay out of range\n");
-+
-+		val = delay_ps / EIC7700_DELAY_STEP_PS;
- 
- 		dwc_priv->eth_clk_dly_param &= ~EIC7700_ETH_TX_ADJ_DELAY;
- 		dwc_priv->eth_clk_dly_param |=
--- 
-2.25.1
+Best regards,
+Chen Ni
 
 
