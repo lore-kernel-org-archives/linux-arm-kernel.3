@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEAE9CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10285CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xcoZwd6NZEfUHZh7T//JHQ0H6dEGcLPgqCMFlRE4XCk=; b=DWMKfJXxJLu3/RD0w88vh4I2qm
-	J/yLnf5DWmHBnN4njt2veDX9jTT+Kqur3i9fWDsmfhVmXP+B/F2UnuQ7Mj77oxIEKVfPsi3nCbHeE
-	u2boFcTKe1Gjad0IF89GCcAXmo8EA48Vt7HDLCakAP5KCuOdSH4B7uefHCmff/0tu4Psqu4tPE6lQ
-	DTQfJu2T8RIK46RY/ruTL3g9kHFRiUAQJI1ENYfvLEpcvgmj/4ZogimLbq0oudxAxnJKm+bHKOlnV
-	Bqmrg2mq/P1B/8GTpM3Wos1z5MhkJq8q6aV3PUYzCV8xTOG+97u5mgBfSoTIxSO8wD+yn2TNlMCN/
-	mU4Sna1A==;
+	bh=947SOLNtyKjftx3F/FZ7uNcrN3ZeuC/GABDa4a4xvv4=; b=WMiFbnOzhtUZMPknjxXgqLKU5P
+	AIrSEu0/K7fcL9oX1XbxgUAlg77C82VGh5axFxG+/9fEYUOHkld5rJeQ7g36RMCFCmUp4FEwSqO8g
+	b63n2/UNuqOZPF6WbJ6KCCyfk5NLriD6qLpJnxaN7MNwKvGwFjOkhC5jQT8Z6I16XtKEJN3vM++u8
+	PVOtGbeOYxvdf0fCUacgxmz73AVCHhWPXL5xpqnYKFviy5CAEox8SEQ2pNmsFJgphmN28LSN4rgRK
+	9xgFrr3AQtzZUc5bavgIFKTujclxkHlOhd+MQKUAet2QpNqkL8vP+3tXJskOFj+eee0rs1FaU4043
+	rQ5SLbMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP40L-0000000GnpZ-3aA0;
-	Mon, 18 May 2026 19:51:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wP41y-0000000Go95-0BfJ;
+	Mon, 18 May 2026 19:53:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP40J-0000000Gnoi-33g8
+	id 1wP41v-0000000Go8e-3SY5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 19:51:56 +0000
+	Mon, 18 May 2026 19:53:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BCAAB43538;
-	Mon, 18 May 2026 19:51:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71871C2BCB7;
-	Mon, 18 May 2026 19:51:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A661419B5;
+	Mon, 18 May 2026 19:53:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 245BFC2BCC6;
+	Mon, 18 May 2026 19:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779133914;
-	bh=0EDZC3hd1XIo9RQYnoioqSdk6FylXyXD32g6lc8WK80=;
+	s=k20201202; t=1779134015;
+	bh=nZ0D31rkJ58LmFaS2W1jBidt3T9eg8DSZrXA9r0f9Ac=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=A3KTXS+Q/AEBoZ4uNfNUsQ0k+ej9XaXq69rCQFPw1ygtZW43gGcEuMye/wWE45zdM
-	 YMDY+mI9YFi+aDyqPtX65ur9P0c1QLANOG7IYdZsxcU5O4TksyH0HhEMICOGFtEsDu
-	 NbqOY4ZUq2HB4h+bfnVdA26kN4pBS4xYv5DFT9gazLd16W7FbrqAVkcww8+KXOp2eb
-	 jkLATaJa7wZKYa7Y3RhuUVAq34sssOBxg9XNnYenpE4Kl2gYVnA293XdgSXNGs1/Y7
-	 aOE88cBDoObjjaZ5K6sWE4I1ly4Ftfz3HR+tVZRTJvCijUZ6tVmR9iJuQl7V3aRIho
-	 Az/hnaRVwWgCA==
-Date: Mon, 18 May 2026 09:51:53 -1000
+	b=O7U/5SfC8PP4wcXOspJBnyLZb8fjuk1HP3PEPyF0HIn2Ol0sAqvYeirvFb76FXTEV
+	 7bP5b9jtSmSp0lbLozkGPZzV2ePN+x3oKsnbmcjC3dGCgssQwrpbZEcc4f+Yrh9Zua
+	 DriwYDD0PKgwef2oYAWjf8kFFx4pIo645Am5zxDzXKIwL0mUfQWQn+WqmrU6EUuGMC
+	 4oHyw0BCaJQeh3JHzSX28eKEPukAnj95j2ZxM40kb+iIrvhAqcNHOH2uXrsebtcEn+
+	 cLD/nrjnJYs4zdQz08NAjMpyWK/YGQqSjN2NP8c+cBNlGfIOS3hLZ4dA+dGnlzn/sI
+	 j6XR/xgodjqmA==
+Date: Mon, 18 May 2026 09:53:34 -1000
 From: Tejun Heo <tj@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
 Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
 	Changwoo Min <changwoo@igalia.com>,
 	Alexei Starovoitov <ast@kernel.org>,
@@ -57,25 +57,24 @@ Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
 	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
 	Mike Rapoport <rppt@kernel.org>,
 	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
 	bpf@vger.kernel.org, x86@kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/8] sched_ext: Sub-allocator over kernel-claimed BPF
- arena pages
-Message-ID: <agtt2dEjS4Qg7a_P@slm.duckdns.org>
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
+ installs
+Message-ID: <agtuPrgIDNKSu2Oo@slm.duckdns.org>
 References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-8-tj@kernel.org>
- <20260518072042.GP3102624@noisy.programming.kicks-ass.net>
+ <20260517211232.1670594-2-tj@kernel.org>
+ <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260518072042.GP3102624@noisy.programming.kicks-ass.net>
+In-Reply-To: <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_125155_791733_321028F1 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260518_125335_881086_747AD6A3 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,13 +91,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello,
 
-On Mon, May 18, 2026 at 09:20:42AM +0200, Peter Zijlstra wrote:
-...
-> Should this really be part of scx rather than be part of the bpf-arena
-> thing proper?
+On Mon, May 18, 2026 at 10:06:29AM +0200, David Hildenbrand (Arm) wrote:
+> On 5/17/26 23:12, Tejun Heo wrote:
+> > +static inline bool ptep_try_install(pte_t *ptep, pte_t new_pte)
+> > +{
+> > +	return false;
+> > +}
+> > +#endif
+> 
+> Ehm, what?
+> 
+> This is a very, very, very bad generic idea/interface.
+> 
+> On which ptes is this supposed to be used? User ptes or kernel ptes?
+> 
+> Surely we don't want this on user ptes.
 
-It's just a layer on top of arena. If bpf folks are okay with it, I don't
-see why it can't be a common utility thing on the bpf side.
+Yeah, this is only for the BPF arena PTEs which are already managed in their
+own way. I'd be happy to place / gate it however appropriate.
 
 Thanks.
 
