@@ -4,153 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D582CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC6FCD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=se49UU57phbmkJgjmZO35eDRlLDBBH2ZxwM8OzuGous=; b=jVpqWwwprxD0LZUTEvI006kyEn
-	6VsYmtdwUBO8YS9IzuL5/eYBh5HIOpkdVEjpPVcVRt54HNZCtDCsgUEsqYp0p4uQSpEpsihz8k2d8
-	qvgvNpCi3ju7vxDwTVU4c8cFD7rwYJGCCm/X81t5icBMxKAim3CoiUlSyvQOLmgPyfeD0BfIn0Z/1
-	n877XfhekFkZ4yQAKISZqQwW3l8RvsWAbwOraCmYaAUBuwX1MWzGnH7SeLxYHRxUs7xLORTI3F12i
-	iT91tpVlSCUWKJ4ef6SJY4USTcxUbjtw8cA4iWg84GcxT3AJt5gitYz9hm+BVA7SWI2zgBkEbyq+m
-	fRAqTgXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QIExxa2gtCgMJh0cTlkHMJMi23odo6hrsowfpi04xjs=; b=xLSojom2yFfKWo+QnkZ8tLuCpv
+	wliuvK5J8GnOkBCh7uxY0e0g6fq2wwdWVRh0vWamgn4u1edjhi2rX2wmG6trq6Bo7mODdAKb+P9ZB
+	VzhZKOmzWLbK37bIOMbZE2UqORSdBESvaO0priIuSxjnJIDjutXAlO74sW4MRVcrybW9yQs2SfzAX
+	x4QvL5IQRBXmVSxUm7zLd5ZXAn7bWELtFrZd/g+g8HgLEgqi/Y+Hp2ecIwNsU0ERSbtIW+/l5dkvI
+	fjdnmav24SaYsFYoe0VZTelNmm5hYXKo8q5FUQk8O5krbDcMQLSKv60X57mrSa1WXmKjamcQMhaLS
+	dCNaVELg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtYn-0000000ErDe-2Cjd;
-	Mon, 18 May 2026 08:42:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOtfx-0000000EsbB-2qxt;
+	Mon, 18 May 2026 08:50:13 +0000
+Received: from out199-18.us.a.mail.aliyun.com ([47.90.199.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtYl-0000000ErD7-3ES0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 08:42:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=se49UU57phbmkJgjmZO35eDRlLDBBH2ZxwM8OzuGous=; b=XNQI2tCK6DXtXsbnuEpM6PGmD/
-	PyJRytfrVl8nV+hJJH7K3IpOfCqt0frg0rC3PRdfn1hTWLO4F6rJ4nkoXlDs4GOXjJapeM1QtAGnK
-	GCfBp3uGus3jHIS4mW1hQci9Gb8esmSxBNnCddg40BD08oBCSOnp+i8U0mrOtRTQ8+8KEWwukb9oQ
-	cCZviUr8aWxeuyFRB95pia1/7u+b1U0CL0xmdpaYrflIRmdfQETNjhkxHrzPayHupwz0e55fjLFPu
-	vwiAQib/7YQ6puZOj0gqanhvA+eN8teaouac0CyevjT+bLvqk1GF9iOpHxcFXlnfau+G+qWXjgnFn
-	0F7+MeKQ==;
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtYi-0000000AQpA-0mtV
+	id 1wOtfu-0000000EsYc-0GaV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:42:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qttYvNkrhVUrEjR38A2v429ocOph9uCjz++DfMIltezVRmbdzz/aWfkBMJxhRC4VVp3PXRI0Du7mOxdgwgj8/9o2pK7g4W9eXP5ZpaiRIWAlCtr9BytvplEPIqgZjWsZsmhpAHg10yDFskgQUlB+0qpQWpf2FmMin7OCkyuIHotgfdlfMlyaPYw7wHTD3w0YpQGt2R5xujWAsaAPTGuIioeW0w+53+oTCRw6hJHrSUR0slM386XemCGB7tR3vjgfPo9r1DJBi0HUJjQFvJ/z3jut+rUw+fPRK+ZRio9j808bG5k6xgv5xMVI9N+X3T+sS0fUwnCXcNuG7jHgNOZkHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=se49UU57phbmkJgjmZO35eDRlLDBBH2ZxwM8OzuGous=;
- b=KFIM8661x+y8DEOlWxHQaJZG3806Pk8DM7ozFUBW4Xg5UCDwLfiOhRHXSbphlpDG7lpzd4FmNeRcGaSw/AVS4o/dy6PlZQG3gL9W5SUzhw6mkBLSlC2mzeLccEddf05YKx2E6BZqZV9P+1a+RBi9PwARcT7G8kZDHMAMkARCdPBnrKdrAexC84aheeB3JeWXxjLp2lMryUsV7v1X3Yg6KoMyPKNpTYhn67OcEGDlVXzIFriUhP5RAjUeqDvjtBodSNGK4rD4oamqGPgt0dPZ6UWTf3yTSnAReh8EfIrERZnD5jmjVxyCYrPcPyHD5AQc4rPdPTxHHbRFQEwkybDy0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=se49UU57phbmkJgjmZO35eDRlLDBBH2ZxwM8OzuGous=;
- b=OdpEfQyvQDnel66ksEDoAJYCU0NEMhaKnA2k2CEeR1aEFpHXS3AzpNIE6jHaDEQMa3e1V8Z3Xo5lO4gYITyryLZzoFbdYlxI1+xF9bkjCPoy8m9rHJZmhktKoxseavSVhMpH3PDcKkhjtcfA24elKuTjKU2gzOTyL0Y3Vu8GORb7zccqz4TIeDBBBy4f4MLMyAO5vGD5EG3LT/CUm9/OewiOv3U6NTTNsJIodH77+n9QTux52+3608wygEVDCyM858e15CSfIKmUSr9Jc9qHohiZkQfpWja81Iq6lGxAFdHXMPZiC7jpguFcLzfA7W71PW2oajppViPltGWmXC86Kg==
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- (2603:10a6:800:315::13) by DB9PR04MB9450.eurprd04.prod.outlook.com
- (2603:10a6:10:369::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Mon, 18 May
- 2026 08:42:38 +0000
-Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
- ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0025.022; Mon, 18 May 2026
- 08:42:38 +0000
-From: Sherry Sun <sherry.sun@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li
-	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
-	<mani@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>, Hongxing Zhu
-	<hongxing.zhu@nxp.com>, "l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH V14 02/12] PCI: host-generic: Add common helpers for
- parsing Root Port properties
-Thread-Topic: [PATCH V14 02/12] PCI: host-generic: Add common helpers for
- parsing Root Port properties
-Thread-Index: AQHc0jsxliV0xf54o0mI/gzBxIIshLYMsR4AgAbuO4A=
-Date: Mon, 18 May 2026 08:42:38 +0000
-Message-ID: <VI0PR04MB1211452312EB9BC6EF1ED2E0192032@VI0PR04MB12114.eurprd04.prod.outlook.com>
-References: <20260422093549.407022-3-sherry.sun@nxp.com>
- <20260513224944.GA341451@bhelgaas>
-In-Reply-To: <20260513224944.GA341451@bhelgaas>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|DB9PR04MB9450:EE_
-x-ms-office365-filtering-correlation-id: f5098160-6264-43a8-da33-08deb4b96a9f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|11063799003|22082099003|56012099003|18002099003|38070700021|4143699003;
-x-microsoft-antispam-message-info: Cidq266q6PlNlWUGDmqZYpVkGGKq76gSEgvK9ITPnKdRR/Xzg7BpgxiRrnhUc5mpf5lHzrhIFA2u0d269J+mrnYQD7PQxgMfGykaYb+sChartgukqGx7AJCfVn7D6aOxneDTHXQ9MYTdRRXn0yrTcFTxITnPNsWYfnbTO7rNc7r8kk+cs/B7MMyhPZGZ/nAoi5YWTqJtbfCv4QCtJaak7OdoEhTJ24PLQrKkaqpeONr4nMBI6cq5KpYlqVr69YOy8bwoWPuR8FOkz3JlA/JpDgSt/NdPnN4XlYRGu2saH3B/h0VkVIslL22b10sCHxEqJNnYd4PAa82E8tsdPb38hq8LcluM8GkxUBk9TFFHP0XqBvm0XapwmPAHrx2gG2OPuSVJjBko+dTJwMSq364cZikWAKf+zzwYYzGh46dzCSGRcfSqicDU8wESzGUsK19uTnWpv0B6Fl5MZbTlmGpZ9j82gVY9MbMsxjb1eGHDcpYT2E+VYI66XU9VTNmpgQuAtDkJJPlgr9sqbJnpxEZb8oAkx2LcAb+cDyJtzcVEh3swvgp8w+ckPipNiZA0NZLxadMjkW8YYawef3OvRBf8GL8XlyEEV3DJ4qEqB8bajoKfN0CAd7ERbYzVdfkm5vQa5kCsZMCVNql5PcOHO+p7D+OYwXuNTh7aSJwKp5bCt5OGZ5lYSkcCKQoD7KCUG/wmP4/4yV6j8a4oUbVSbGYPXdVzfjr/ldlN/kdWPPZ4n4DJ98wxwunIR1pN7vPUubQK
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(11063799003)(22082099003)(56012099003)(18002099003)(38070700021)(4143699003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ncPHyt0N9sF7eScjLHeoHWHoXLo6jh+m+9RmRvCnpCD/5IlyTJqjhrIY/PUK?=
- =?us-ascii?Q?frxkQlueRTieD+L0FvUa7wFNUEDJaoSDXhRrVkeeZk0ohTpSAVvjepL0OPZM?=
- =?us-ascii?Q?AYRHsXxnWEY/dET7xqm0GJ0k5IpNj9wgrHmU+vwwN5aFvh2GZkQpZ/Kvp9nq?=
- =?us-ascii?Q?GBLUezN+tm1nfY9MuKakE/oaqUQXsthM+j78effZa6iF4lcrQnPYxQhy2L9f?=
- =?us-ascii?Q?MBYjOkiLKixiMV+Z4R0pKXAediougn/eDgTnUq7+exGEScin2xciA4HTPEfU?=
- =?us-ascii?Q?kXuGRfhXd6/fi5lOy7niomewhHeZMV8ycyTQIV7tAN8CMpff74qn3OAGN1W2?=
- =?us-ascii?Q?c2u3LHFKuH6Za0C874QQf9sKo2uvw4wBwNI8QQ8lhNFe9llNgha40H2Mae3g?=
- =?us-ascii?Q?jit3n7m/Y3ttwAs1oqlovI7DR3gHNDV0Aew64bKhe0DOAj1ESLzaUWSRZ44y?=
- =?us-ascii?Q?Lji+WtBf2DVHiDekP9wkvoE2QspKjo5wt3G6CvPhtrmMQ0eCNf6YedqIKu9G?=
- =?us-ascii?Q?pKVWNLSLFDhu/DKP2mi/vdjaz1QqM6FEcDY50fYcjWsPNpgruV0g0Fl2DuXj?=
- =?us-ascii?Q?2fVv2QP4OAQMXQ//v4RNogJsyGVqa172nG1dL2ReDStRNQ9wB8TcvCD23Aoy?=
- =?us-ascii?Q?uQipCQRfiqcmQ4lolnIxfo0d/AojBiBqK/fh8MhOsSLQEbLOsA3HLAu9LnOb?=
- =?us-ascii?Q?p72tDiPcB8IsBNzXsl8H94E13CFTL5bjeNOFI7C/13IAgK3vZW6j3pgfp7I1?=
- =?us-ascii?Q?fFKPYTFU2JDk8v6YYqAqhA0TuTi0LsvzfRlus2lN/E/l8mcHUSXTDRuAHEpL?=
- =?us-ascii?Q?j1BMHxXMF0zoDlQA6V+ECJQKLRr/f92l87t2Adb0g5iMZ8HNsVhjFMFANmPE?=
- =?us-ascii?Q?KMgXZ5h12aQ9ARHzuM+FOF5azRsUalRTfaiBdCnItKbEQZBg1yljHOjilscv?=
- =?us-ascii?Q?hJQviTsNGafKYgwNylwosqNQZsvQ81MuT0uR2bWdE3gTndFnjJVm7B/ubnSa?=
- =?us-ascii?Q?P94Z27Fv65R4l1ue8OK3hKGVowqnLOJGem7QpVkgHjgb/MMByNm40MA03QDJ?=
- =?us-ascii?Q?/6jcGnkSa+OAGobXe6pSaIN4al/Ju28hYFeDh/Te1nUtbji4qIn/rDgatwVs?=
- =?us-ascii?Q?4ZfPXsaahaIhEVhTsjrj3Z6jDw0KsuGI1WlYDufJDBoHjBi9YAJv4krLk0gZ?=
- =?us-ascii?Q?U5GnKW60EI+QOC3MbVPJnMhIB6zXY22K8DGsL7RB5ebtfVK5Lz260DVK0Ifi?=
- =?us-ascii?Q?BtsebBfelsogyCBQgHwoJHY6bu/6QtmPTtR92CWGyBW9nOW2ftEDboUGsNte?=
- =?us-ascii?Q?WvbK/qrZ3CxTcIlcLYs/+eHheCcTmZGc8TWWFsSsnvlJ8DMT+nHE0T5BxtfM?=
- =?us-ascii?Q?HPBG35ssweLwaeh3E0AljmHEw6OJCP0PbbYfhum7zAuUsK83DsniO7Uj8hTx?=
- =?us-ascii?Q?JFmX4omOiDIwayB5djfMRnkycYmLg7VlIWNoiML7dRamkHZfxjh4UYyPI/wN?=
- =?us-ascii?Q?oiYGX5ErVeQaLP65M+zjADLDi6xE01JrTU1DoW2wmu5/5bcP6dE5Po4h7pF9?=
- =?us-ascii?Q?ySwk92K5swAgBov99MsUUzcQQX1ula+ToypvqaaWexpvQUoO+Jcsb4DS4HDW?=
- =?us-ascii?Q?A8tNJVYArMyY8QXWK6TPDXfNF0/xNa8yH10pRSlXrDtpe3Pc8xoB2P6ibFGF?=
- =?us-ascii?Q?wABw85hEwiqltQgaPNo4w+KpGM/6nxe0jHddY69ou1ul79AN?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 18 May 2026 08:50:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1779094203; h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type;
+	bh=QIExxa2gtCgMJh0cTlkHMJMi23odo6hrsowfpi04xjs=;
+	b=ltRTjLzt5FpJ5CSEyjH1q7WcQt3eNmEzp7fW3S4khyEpqSVw3cwPKAvDNUSHxqYaKAmNGeE7hJYPQiwWLaokGWVEcO6+Xupk+IgdqV91ycLTCzk2Xb7fYjABa3QL7ePLoUoYx00PrLgI89Cq+sVNBkBM2EI/CqrMjeh6u+KTkeY=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R121e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam011083073210;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=28;SR=0;TI=SMTPD_---0X36F6ip_1779094198;
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X36F6ip_1779094198 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 18 May 2026 16:50:00 +0800
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	rafael@kernel.org,
+	tony.luck@intel.com,
+	guohanjun@huawei.com,
+	mchehab@kernel.org,
+	xueshuai@linux.alibaba.com,
+	tongtiangen@huawei.com,
+	james.morse@arm.com,
+	robin.murphy@arm.com,
+	andreyknvl@gmail.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	mpe@ellerman.id.au,
+	npiggin@gmail.com,
+	ryabinin.a.a@gmail.com,
+	glider@google.com,
+	christophe.leroy@csgroup.eu,
+	aneesh.kumar@kernel.org,
+	naveen.n.rao@linux.ibm.com,
+	tglx@linutronix.de,
+	mingo@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	tianruidong@linux.alibaba.com
+Subject: [PATCH v14 0/8] arm64: add ARCH_HAS_COPY_MC support
+Date: Mon, 18 May 2026 16:49:44 +0800
+Message-ID: <20260518084956.2538442-1-tianruidong@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f5098160-6264-43a8-da33-08deb4b96a9f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 May 2026 08:42:38.3707
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: SW+DrQZzwfvnsf3Nguka/esxfUqwaK0/aaYf8oyb0DT55Ur9jQzKRZR/HDTnZjw1Y+Y/ZwhsCbwTtAMz7f6MOQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9450
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_094244_617553_676E32E4 
-X-CRM114-Status: GOOD (  39.19  )
+X-CRM114-CacheID: sfid-20260518_015010_822023_FBD5F74E 
+X-CRM114-Status: GOOD (  36.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,239 +89,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH V14 02/12] PCI: host-generic: Add common helpers for
-> parsing Root Port properties
->=20
-> On Wed, Apr 22, 2026 at 05:35:39PM +0800, Sherry Sun wrote:
-> > Introduce generic helper functions to parse Root Port device tree
-> > nodes and extract common properties like reset GPIOs. This allows
-> > multiple PCI host controller drivers to share the same parsing logic.
-> >
-> > Define struct pci_host_port to hold common Root Port properties
-> > (currently only list of PERST# GPIO descriptors) and add
-> > pci_host_common_parse_ports() to parse Root Port nodes from device
-> tree.
-> >
-> > Also add the 'ports' list to struct pci_host_bridge for better
-> > maintain parsed Root Port information.
-> > ...
->=20
-> > +static int pci_host_common_parse_port(struct device *dev,
-> > +				      struct pci_host_bridge *bridge,
-> > +				      struct device_node *node)
-> > +{
-> > +	struct pci_host_port *port;
-> > +	int ret;
-> > +
-> > +	port =3D devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-> > +	if (!port)
-> > +		return -ENOMEM;
-> > +
-> > +	INIT_LIST_HEAD(&port->perst);
-> > +
-> > +	ret =3D pci_host_common_parse_perst(dev, port, node);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	/*
-> > +	 * 1. PERST# found in RP or its child nodes - list is not empty, cont=
-inue
-> > +	 * 2. PERST# not found in RP/children, but found in RC node - return =
--
-> ENODEV
-> > +	 *    to fallback legacy binding
-> > +	 * 3. PERST# not found anywhere - list is empty, continue (optional
-> PERST#)
-> > +	 */
-> > +	if (list_empty(&port->perst)) {
-> > +		if (of_property_present(dev->of_node, "reset-gpios") ||
-> > +		    of_property_present(dev->of_node, "reset-gpio"))
-> > +			return -ENODEV;
->=20
-> This doesn't seem right to me.  The parser of per-Root Port properties sh=
-ould
-> not be responsible for deciding whether legacy methods are valid, i.e.,
-> whether a property is in the Root Complex node.  I think it's up to the c=
-aller
-> to decide whether it needs to look elsewhere.
->=20
-> I don't think this even needs to return a "success/failure" value because=
- there
-> may be more properties in the future, and not all will be required.  This
-> function can't tell which properties a specific driver requires and which=
- are
-> optional.
->=20
-> The caller can check whether we found what it needs and fall back to a le=
-gacy
-> method as needed.
+This series continues Tong Tiangen's work on arm64 ARCH_HAS_COPY_MC
+support. We encounter the same problem, and from a forward-looking
+perspective, large-memory ARM machines such as Grace and Vera will suffer
+more from this class of issues, which motivates us to push this feature
+upstream.
 
-Hi Bjorn,
-The code here was suggested by Mani, https://lore.kernel.org/all/lnzprzrdwr=
-a7pn7d6m3sbj5pvjy64blwpjl6i3lmlnfbyho63b@czpyhpgz5vum/.
-I think your suggestion here is reasonable, the per-Root Port parser should=
-n't
-check the RC-level binding. That's a policy decision that belongs to the ca=
-ller.
+Problem
+=========
+With the increase of memory capacity and density, the probability of memory
+error also increases. The increasing size and density of server RAM in data
+centers and clouds have shown increased uncorrectable memory errors.
 
-Hi Mani, if you also agree, I'll rework this so that:
-1. pci_host_common_parse_port() only parses properties from the Root Port
-    (and its children) without checking the RC node.
-2. The function won't return failure for "property not found" - it will onl=
-y return
-     errors for real failures (e.g., -ENOMEM, GPIO acquisition errors).
-3. The legacy fallback logic will be moved to the caller, which can inspect=
- the
-     parsed result and decide whether to fall back to the legacy binding.
+Currently, more and more scenarios that can tolerate memory errors, such as
+COW[1,2], KSM copy[3], coredump copy[4], khugepaged[5,6], uaccess copy[7],
+etc.
 
->=20
-> > +	}
-> > +
-> > +	INIT_LIST_HEAD(&port->list);
-> > +	list_add_tail(&port->list, &bridge->ports);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +/**
-> > + * pci_host_common_parse_ports - Parse Root Port nodes from device
-> > +tree
-> > + * @dev: Device pointer
-> > + * @bridge: PCI host bridge
-> > + *
-> > + * This function iterates through child nodes of the host bridge and
-> > +parses
-> > + * Root Port properties (currently only reset GPIOs).
-> > + *
-> > + * Returns: 0 on success, -ENODEV if no ports found or PERST# found
-> > +in RC node
-> > + * (legacy binding should be used), Other negative error codes on fail=
-ure.
-> > + */
-> > +int pci_host_common_parse_ports(struct device *dev, struct
-> > +pci_host_bridge *bridge) {
-> > +	int ret =3D -ENODEV;
-> > +
-> > +	for_each_available_child_of_node_scoped(dev->of_node, of_port) {
-> > +		if (!of_node_is_type(of_port, "pci"))
-> > +			continue;
-> > +		ret =3D pci_host_common_parse_port(dev, bridge, of_port);
-> > +		if (ret)
-> > +			goto err_cleanup;
-> > +	}
->=20
-> I think we should export pci_host_common_parse_port() itself and drop thi=
-s
-> so we deal with a single Root Port, and drivers that support multiple RPs
-> should include their own loop similar to this.  That way the driver can d=
-o
-> several things at once in each iteration of that loop, e.g., get resource=
-s, power
-> up, configure, etc.
->=20
-> I see that would require some rework of the devm_add_action_or_reset()
-> cleanup.
+Solution
+=========
 
-Thanks for the suggestion, make sense.
-I'll export pci_host_common_parse_port() to deal with a single Root Port
-and drop pci_host_common_parse_ports().
+This patchset introduces a new processing framework on ARM64, which enables
+ARM64 to support error recovery in the above scenarios, and more scenarios
+can be expanded based on this in the future.
 
->=20
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return devm_add_action_or_reset(dev,
-> pci_host_common_delete_ports,
-> > +					&bridge->ports);
-> > +
-> > +err_cleanup:
-> > +	pci_host_common_delete_ports(&bridge->ports);
-> > +	return ret;
-> > +}
-> > +EXPORT_SYMBOL_GPL(pci_host_common_parse_ports);
-> > ...
->=20
-> > + * struct pci_host_perst - PERST# GPIO descriptor
-> > + * @list: List node for linking multiple PERST# GPIOs
-> > + * @desc: GPIO descriptor for PERST# signal
-> > + *
-> > + * This structure holds a single PERST# GPIO descriptor.
-> > + */
-> > +struct pci_host_perst {
-> > +	struct list_head	list;
-> > +	struct gpio_desc	*desc;
-> > +};
->=20
-> How do we associate an element of this list with something?
->=20
-> Based on the imx6 changes, I guess we don't; we don't even associate the
-> pci_host_port with an RP.  We just assert/deassert PERST# for every RP at
-> once, and we do it for every GPIO associated with each RP.
->=20
-> There's no way to assert PERST# for a single RP.  I guess we don't need t=
-hat?
+In arm64, memory error handling in do_sea(), which is divided into two cases:
+ 1. If the user state consumed the memory errors, the solution is to kill
+    the user process and isolate the error page.
+ 2. If the kernel state consumed the memory errors, the solution is to
+    panic.
 
-You are right. In the current design, we assert/deassert PERST# for all GPI=
-Os across
-all Root Ports simultaneously - there is no per-RP independent PERST# contr=
-ol.
-And I think we don't need it for now, for most platforms, multiple RPs typi=
-cally share
-a single PERST# signal or require synchronized reset sequencing during init=
-ialization.
-I am not aware of a practical use case where independent per-RP PERST# cont=
-rol is
-required at the host controller driver level during probe/remove.
+For case 2, Undifferentiated panic may not be the optimal choice, as it can
+be handled better. In some scenarios, we can avoid panic, such as uaccess,
+if the uaccess fails due to memory error, only the user process will be
+affected, returning an error to the caller and isolating the user page with
+hardware memory errors is a better choice.
 
-The per-port structure is a natural result of parsing per-RP DT nodes (each=
- Root Port
-child node maps to one pci_host_port, with PERST# GPIOs collected from the =
-RP and
-its downstream nodes). Even if such a requirement does arise in the future,=
- since
-the controller driver now owns the multi-RP loop, the driver that needs per=
--RP PERST#
-control could associate each parsed port with its own per-RP context and op=
-erate on
-specific ports independently.
+[1] commit d302c2398ba2 ("mm, hwpoison: when copy-on-write hits poison, take page offline")
+[2] commit 1cb9dc4b475c ("mm: hwpoison: support recovery from HugePage copy-on-write faults")
+[3] commit 6b970599e807 ("mm: hwpoison: support recovery from ksm_might_need_to_copy()")
+[4] commit 245f09226893 ("mm: hwpoison: coredump: support recovery from dump_user_range()")
+[5] commit 98c76c9f1ef7 ("mm/khugepaged: recover from poisoned anonymous memory")
+[6] commit 12904d953364 ("mm/khugepaged: recover from poisoned file-backed memory")
+[7] commit 278b917f8cb9 ("x86/mce: Add _ASM_EXTABLE_CPY for copy user access")
 
-For the i.MX case (single Root Port), there's no need for per-RP PERST# con=
-trol -- we
-just assert/deassert all PERST# GPIOs at once.
+------------------
+Test result:
 
->=20
-> > +/**
-> > + * struct pci_host_port - Generic Root Port properties
-> > + * @list: List node for linking multiple ports
-> > + * @perst: List of PERST# GPIO descriptors for this port and its
-> > +children
-> > + *
-> > + * This structure contains common properties that can be parsed from
-> > + * Root Port device tree nodes.
-> > + */
-> > +struct pci_host_port {
->=20
-> "host_port" is not really a standard term.  And despite the comments abov=
-e
-> and below, I don't think the list is restricted to Root Ports because we =
-traverse
-> the whole hierarchy below the RP.
+Tested on Kunpeng 920.
 
-Ok. How about struct pci_root_port_info to better reflect its purpose, I ca=
-n also
-highlight in the struct comment that it holds common properties parsed from=
- a
-Root Port device tree node and all PCIe bridge nodes under this Root Port (=
-currently
-only PERST# GPIOs). Or any other suggestions?
+1. copy_page(), copy_mc_page() basic function test pass, and the disassembly
+   contents remains the same before and after refactor.
 
-Best Regards
-Sherry
+2. copy_to/from_user() access kernel NULL pointer raise translation fault
+   and dump error message then die(), test pass.
 
->=20
-> > +	struct list_head	list;
-> > +	struct list_head	perst;
-> > +};
->=20
-> > +	struct list_head ports;		/* Root Port list (pci_host_port) */
+3. Test following scenarios: copy_from_user(), get_user(), COW.
+
+   Before patched: trigger a hardware memory error then panic.
+   After  patched: trigger a hardware memory error without panic.
+
+   Testing step:
+   step1. start an user-process.
+   step2. poison(einj) the user-process's page.
+   step3: user-process access the poison page in kernel mode, then trigger SEA.
+   step4: the kernel will not panic, only the user process is killed, the poison
+          page is isolated. (before patched, the kernel will panic in do_sea())
+
+   The above tests can also be reproduced using ras-tools, which provides
+   einj-based injection and validation for uaccess and COW scenarios.
+   Example usage:
+
+     einj_mem_uc futex          # get_user
+     einj_mem_uc copyin         # copy_to_user
+     einj_mem_uc copy-on-write  # COW
+
+   Link: https://git.kernel.org/pub/scm/linux/kernel/git/aegl/ras-tools.git
+
+------------------
+
+Benefits
+=========
+According to Huawei's statistics from their storage products, memory errors
+triggered in kernel-mode by COW and page cache read (uaccess) scenarios
+account for more than 50%. With this patchset deployed, all kernel panics
+caused by COW and page cache memory errors are eliminated. 
+Alibaba Cloud has also observed memory errors occurring in uaccess contexts.
+
+Since V13:
+1. Changed MC-safe functions to return an error rather than kill the user
+   process. When a user program invokes a syscall and the kernel encounters
+   a memory error during uaccess, killing the process is unexpected; the
+   syscall should return an error.
+2. Added FEAT_MOPS support for the copy_page_mc paths.
+3. Refactored copy_page() and memcpy() on top of the shared memcpy_template,
+   reducing duplicated assembly code.
+
+Since v12:
+Thanks to the suggestions of Jonathan, Mark, and Mauro, the following modifications
+are made:
+1. Rebase to latest kernel version.
+2. Patch1, add Jonathan's and Mauro's review-by.
+3. Patch2, modified do_apei_claim_sea() according to Mark's and Jonathan's suggestions,
+   and optimized the commit message according to Mark's suggestions(Added description of
+   the impact on regular copy_to_user()).
+4. Patch3, optimized the commit message according to Mauro's suggestions and add Jonathan's
+   review-by.
+5. Patch4, modified copy_mc_user_highpage() and Optimized the commit message according to
+   Jonathan's suggestions(no functional changes).
+6. Patch5, optimized the commit message according to Mauro's suggestions.
+7. Patch4/5, FEAT_MOPS is added to the code logic. Currently, the fixup is not performed
+   on the MOPS instruction. 
+8. Remove patch6 in v12 according to Jonathan's suggestions.
+
+Since v11:
+1. Rebase to latest kernel version 6.9-rc1.
+2. Add patch 5, Since the problem described in "Since V10 Besides 3" has
+   been solved in a50026bdb867 ('iov_iter: get rid of 'copy_mc' flag').
+3. Add the benefit of applying the patch set to our company to the description of patch0.
+
+Since V10:
+ Accroding Mark's suggestion:
+ 1. Merge V10's patch2 and patch3 to V11's patch2.
+ 2. Patch2(V11): use new fixup_type for ld* in copy_to_user(), fix fatal
+    issues (NULL kernel pointeraccess) been fixup incorrectly.
+ 3. Patch2(V11): refactoring the logic of do_sea().
+ 4. Patch4(V11): Remove duplicate assembly logic and remove do_mte().
+
+ Besides:
+ 1. Patch2(V11): remove st* insn's fixup, st* generally not trigger memory error.
+ 2. Split a part of the logic of patch2(V11) to patch5(V11), for detail,
+    see patch5(V11)'s commit msg.
+ 3. Remove patch6(v10) “arm64: introduce copy_mc_to_kernel() implementation”.
+    During modification, some problems that cannot be solved in a short
+    period are found. The patch will be released after the problems are
+    solved.
+ 4. Add test result in this patch.
+ 5. Modify patchset title, do not use machine check and remove "-next".
+
+Since V9:
+ 1. Rebase to latest kernel version 6.8-rc2.
+ 2. Add patch 6/6 to support copy_mc_to_kernel().
+
+Since V8:
+ 1. Rebase to latest kernel version and fix topo in some of the patches.
+ 2. According to the suggestion of Catalin, I attempted to modify the
+    return value of function copy_mc_[user]_highpage() to bytes not copied.
+    During the modification process, I found that it would be more
+    reasonable to return -EFAULT when copy error occurs (referring to the
+    newly added patch 4). 
+
+    For ARM64, the implementation of copy_mc_[user]_highpage() needs to
+    consider MTE. Considering the scenario where data copying is successful
+    but the MTE tag copying fails, it is also not reasonable to return
+    bytes not copied.
+ 3. Considering the recent addition of machine check safe support for
+    multiple scenarios, modify commit message for patch 5 (patch 4 for V8).
+
+Since V7:
+ Currently, there are patches supporting recover from poison
+ consumption for the cow scenario[1]. Therefore, Supporting cow
+ scenario under the arm64 architecture only needs to modify the relevant
+ code under the arch/.
+ [1]https://lore.kernel.org/lkml/20221031201029.102123-1-tony.luck@intel.com/
+
+Since V6:
+ Resend patches that are not merged into the mainline in V6.
+
+Since V5:
+ 1. Add patch2/3 to add uaccess assembly helpers.
+ 2. Optimize the implementation logic of arm64_do_kernel_sea() in patch8.
+ 3. Remove kernel access fixup in patch9.
+ All suggestion are from Mark. 
+
+Since V4:
+ 1. According Michael's suggestion, add patch5.
+ 2. According Mark's suggestiog, do some restructuring to arm64
+ extable, then a new adaptation of machine check safe support is made based
+ on this.
+ 3. According Mark's suggestion, support machine check safe in do_mte() in
+ cow scene.
+ 4. In V4, two patches have been merged into -next, so V5 not send these
+ two patches.
+
+Since V3:
+ 1. According to Robin's suggestion, direct modify user_ldst and
+ user_ldp in asm-uaccess.h and modify mte.S.
+ 2. Add new macro USER_MC in asm-uaccess.h, used in copy_from_user.S
+ and copy_to_user.S.
+ 3. According to Robin's suggestion, using micro in copy_page_mc.S to
+ simplify code.
+ 4. According to KeFeng's suggestion, modify powerpc code in patch1.
+ 5. According to KeFeng's suggestion, modify mm/extable.c and some code
+ optimization.
+
+Since V2:
+ 1. According to Mark's suggestion, all uaccess can be recovered due to
+    memory error.
+ 2. Scenario pagecache reading is also supported as part of uaccess
+    (copy_to_user()) and duplication code problem is also solved. 
+    Thanks for Robin's suggestion.
+ 3. According Mark's suggestion, update commit message of patch 2/5.
+ 4. According Borisllav's suggestion, update commit message of patch 1/5.
+
+Since V1:
+ 1.Consistent with PPC/x86, Using CONFIG_ARCH_HAS_COPY_MC instead of
+   ARM64_UCE_KERNEL_RECOVERY.
+ 2.Add two new scenes, cow and pagecache reading.
+ 3.Fix two small bug(the first two patch).
+
+V1 in here:
+https://lore.kernel.org/lkml/20220323033705.3966643-1-tongtiangen@huawei.com/
+
+Ruidong Tian (3):
+  ACPI: APEI: GHES: use exception context to gate SIGBUS on poison
+    consumption
+  lib/test: memcpy_kunit: add copy_page() and copy_mc_page() tests
+  lib/tests: memcpy_kunit: add memcpy_mc() and memcpy_mc_large() test
+
+Tong Tiangen (5):
+  uaccess: add generic fallback version of copy_mc_to_user()
+  arm64: add support for ARCH_HAS_COPY_MC
+  mm/hwpoison: return -EFAULT when copy fail in
+    copy_mc_[user]_highpage()
+  arm64: support copy_mc_[user]_highpage()
+  arm64: introduce copy_mc_to_kernel() implementation
+
+ arch/arm64/Kconfig                   |   1 +
+ arch/arm64/include/asm/asm-extable.h |  22 ++-
+ arch/arm64/include/asm/asm-uaccess.h |   4 +
+ arch/arm64/include/asm/extable.h     |   1 +
+ arch/arm64/include/asm/mte.h         |   9 +
+ arch/arm64/include/asm/page.h        |  10 ++
+ arch/arm64/include/asm/string.h      |   5 +
+ arch/arm64/include/asm/uaccess.h     |  17 ++
+ arch/arm64/kernel/acpi.c             |   2 +-
+ arch/arm64/lib/Makefile              |   2 +
+ arch/arm64/lib/copy_mc_page.S        |  44 +++++
+ arch/arm64/lib/copy_page.S           |  62 +------
+ arch/arm64/lib/copy_page_template.S  |  71 ++++++++
+ arch/arm64/lib/copy_to_user.S        |  10 +-
+ arch/arm64/lib/memcpy.S              | 253 ++-------------------------
+ arch/arm64/lib/memcpy_mc.S           |  56 ++++++
+ arch/arm64/lib/memcpy_template.S     | 249 ++++++++++++++++++++++++++
+ arch/arm64/lib/mte.S                 |  29 +++
+ arch/arm64/mm/copypage.c             |  75 ++++++++
+ arch/arm64/mm/extable.c              |  21 +++
+ arch/arm64/mm/fault.c                |  30 +++-
+ arch/powerpc/include/asm/uaccess.h   |   1 +
+ arch/x86/include/asm/uaccess.h       |   1 +
+ drivers/acpi/apei/ghes.c             |  36 ++--
+ include/acpi/ghes.h                  |   6 +-
+ include/linux/highmem.h              |  16 +-
+ include/linux/uaccess.h              |   8 +
+ lib/tests/memcpy_kunit.c             | 178 ++++++++++++++++++-
+ mm/kasan/shadow.c                    |  12 ++
+ mm/khugepaged.c                      |   4 +-
+ 30 files changed, 904 insertions(+), 331 deletions(-)
+ create mode 100644 arch/arm64/lib/copy_mc_page.S
+ create mode 100644 arch/arm64/lib/copy_page_template.S
+ create mode 100644 arch/arm64/lib/memcpy_mc.S
+ create mode 100644 arch/arm64/lib/memcpy_template.S
+
+-- 
+2.39.3
+
 
