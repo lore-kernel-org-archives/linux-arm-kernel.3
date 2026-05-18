@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF576CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F50CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:53:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sV4YQ3dip+CTwPK4v0XbttMLXj/WGie2ymS0JhzSueI=; b=ZyGyksywUrQ93Htu1ZHpPL8qgj
-	4ptHg4gkGnzjZSo9BXNZBsTtPshD6nj+PxPRLMaF3B23/sLX/lDtcgUzoabiojQyvJl/JuKN7jGL/
-	5+UVAtQa7uIyxNMYcHEwQu5xk6Ywprfymhy5GMROwrI3RF9AN9zeJO2XRG+o/3z8m4golBCpZgBbh
-	PVp83KrApE6fOTRCxAg9YJsBQrAxuy+dtQAE7zt0qQLo3qVR4WxnVRcwX3JsEGofrWKV1Bf8aWZZr
-	biSk2yyF2INsYFVdW2oJZJnzn8/Fm6sgqm4N+XJM9XLYa8fpemNuW6pOmhtaCRMg/0hxr7GUOTfTl
-	2luhAB2g==;
+	bh=zIzpiGI8GqM5FjPfQKvMD+awkdC+f1Ek5Yf1158nQR4=; b=zalx3bckduuWmmPfIGRFYEL2op
+	0WKTD/PSZJNa21MNE/gWufX45K+1/Cb/H7ayOJUsgt26wQ1gJyWcvpyRjIdXEB9k/n1UuAf/BX95Y
+	qxlkLIMDOZQkQRSJDXufEL3YXhyJaf66eukeBiAiNq6NX9DLUs8nbSgboono2QdYyj0FqbNySZ3ah
+	irzyZK2MS8dnAWZbTVDrxH3gRZL0V/H/EShFnNhyXdzQur2RDmsdBJKruMTtgpSTD0P8mC8PviP0F
+	gzOeWcInMbnnOTnKVEo4SElg24eHtzQdvhLe6tQ33tBNhHNlVIiWNsNdqPH7nE7dvSko7pIxbu0pI
+	gfd4wbUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyPH-0000000Fs6g-0QJl;
-	Mon, 18 May 2026 13:53:20 +0000
+	id 1wOyPI-0000000Fs8Q-3AhP;
+	Mon, 18 May 2026 13:53:21 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyP4-0000000Frt2-2YH8
+	id 1wOyP9-0000000FrzZ-11Fr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 13:53:07 +0000
+	Mon, 18 May 2026 13:53:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 098212328;
-	Mon, 18 May 2026 06:53:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB5332328;
+	Mon, 18 May 2026 06:53:04 -0700 (PDT)
 Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22F493F7B4;
-	Mon, 18 May 2026 06:53:03 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 090783F7B4;
+	Mon, 18 May 2026 06:53:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779112385; bh=8FoL1ekUxNiNQPlakEgEnWfaj7gkwH2zbMF99u38VQg=;
+	t=1779112390; bh=qzr5nPazMza2Pj0XmgTUKYZ45rxq+XYytiOmcraNaqw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X3KOSEnQYGCnK8jpmsZz0f7ffA0QWEDTNIjTn+j0kKSuIuXfGNtJMQxC/cc//EeIb
-	 SGLLVDBKriez9Ct/pBlbMNIbJpnWS1f7SqK+VO6gPOqWRI21XC8J7FkcJqSvl+KOFG
-	 K23GHEAQ8b8KWfz7DMpfvBY77amRa4DjA59hjOTw=
+	b=Io1bid8ioLv3BkG3wXqQT9S8RWhuZOZukNocKnFHt4JdvujSJPU00K+zV0C/bSrX3
+	 yqhl4doPfmI9UfLifLhtVtm6V1Mt2vZ8k5IKYMMDFWEbkz2IaOuhQ5utTAXM66V7H+
+	 uwmgcasql9n5oufhN52+p3ezT3UtB6IfhDgj3TC4=
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -55,19 +55,18 @@ Cc: sudeep.holla@arm.com,
 	dan.carpenter@linaro.org,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
 	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v6 07/12] include: trace: Add new parameter to trace_scmi_fc_call
-Date: Mon, 18 May 2026 14:52:29 +0100
-Message-ID: <20260518135234.2953532-8-philip.radford@arm.com>
+Subject: [PATCH v6 09/12] firmware: arm_scmi: add Powercap MAI get/set support
+Date: Mon, 18 May 2026 14:52:31 +0100
+Message-ID: <20260518135234.2953532-10-philip.radford@arm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260518135234.2953532-1-philip.radford@arm.com>
 References: <20260518135234.2953532-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_065306_789236_E5572D6D 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260518_065311_384765_AA5B0143 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,154 +81,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Marussi <cristian.marussi@arm.com>
+Add support for Power Measurement Averaging Interval (MAI) get and set
+operations to the SCMI powercap protocol driver. Extends scmi_powercap_info
+to store MAI configuration and implement MAI get/set via xfer and optional
+fast-channel support.
 
-Since SCMIv4.0 some of the supported Fastchannels can be configured using
-an additional parameter like CPL_ID or Capability_ID.
-
-Add equivalent support in the SCMI fastchannel traces to printout also such
-parameter and fix all the existent call sites.
-
-When such parameter is not used, it will simply show up as zero.
-
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
- drivers/firmware/arm_scmi/perf.c     |  8 ++++----
- drivers/firmware/arm_scmi/powercap.c | 12 +++++++-----
- include/trace/events/scmi.h          | 12 +++++++-----
- 3 files changed, 18 insertions(+), 14 deletions(-)
+V5->V6
+- Fixed comment length
+- Changed warning message wording
+- Fixed line lengths and alignment
+- Updated docs for new fields
+---
+ drivers/firmware/arm_scmi/powercap.c | 127 +++++++++++++++++++++++++++
+ include/linux/scmi_protocol.h        |  18 ++++
+ 2 files changed, 145 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-index 7f283f457e02..88d614e3184b 100644
---- a/drivers/firmware/arm_scmi/perf.c
-+++ b/drivers/firmware/arm_scmi/perf.c
-@@ -552,7 +552,7 @@ static int __scmi_perf_limits_set(const struct scmi_protocol_handle *ph,
- 		struct scmi_fc_info *fci = &dom->fc_info[PERF_FC_LIMIT];
- 
- 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LIMITS_SET,
--				   dom->id, min_perf, max_perf);
-+				   dom->id, 0, min_perf, max_perf);
- 		iowrite32(max_perf, fci->set_addr);
- 		iowrite32(min_perf, fci->set_addr + 4);
- 		ph->hops->fastchannel_db_ring(fci->set_db);
-@@ -636,7 +636,7 @@ static int __scmi_perf_limits_get(const struct scmi_protocol_handle *ph,
- 		*max_perf = ioread32(fci->get_addr);
- 		*min_perf = ioread32(fci->get_addr + 4);
- 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LIMITS_GET,
--				   dom->id, *min_perf, *max_perf);
-+				   dom->id, 0, *min_perf, *max_perf);
- 		return 0;
- 	}
- 
-@@ -706,7 +706,7 @@ static int __scmi_perf_level_set(const struct scmi_protocol_handle *ph,
- 		struct scmi_fc_info *fci = &dom->fc_info[PERF_FC_LEVEL];
- 
- 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LEVEL_SET,
--				   dom->id, level, 0);
-+				   dom->id, 0, level, 0);
- 		iowrite32(level, fci->set_addr);
- 		ph->hops->fastchannel_db_ring(fci->set_db);
- 		return 0;
-@@ -769,7 +769,7 @@ static int __scmi_perf_level_get(const struct scmi_protocol_handle *ph,
- 	if (dom->fc_info && dom->fc_info[PERF_FC_LEVEL].get_addr) {
- 		*level = ioread32(dom->fc_info[PERF_FC_LEVEL].get_addr);
- 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LEVEL_GET,
--				   dom->id, *level, 0);
-+				   dom->id, 0, *level, 0);
- 		return 0;
- 	}
- 
 diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-index fdfaf03277ab..09152bb8642c 100644
+index 09152bb8642c..dfec09fd687f 100644
 --- a/drivers/firmware/arm_scmi/powercap.c
 +++ b/drivers/firmware/arm_scmi/powercap.c
-@@ -599,7 +599,7 @@ static int __scmi_powercap_cap_get(const struct scmi_protocol_handle *ph,
- 	    dom->cpli[cpl_id].fc_info[POWERCAP_FC_CAP].get_addr) {
- 		*power_cap = ioread32(dom->cpli[cpl_id].fc_info[POWERCAP_FC_CAP].get_addr);
- 		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_CAP_GET,
--				   dom->id, *power_cap, 0);
-+				   dom->id, cpl_id, *power_cap, 0);
- 		return 0;
- 	}
+@@ -403,6 +403,34 @@ scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
+ 		dom_info->notify_powercap_measurement_change =
+ 			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
  
-@@ -732,7 +732,7 @@ static int __scmi_powercap_cap_set(const struct scmi_protocol_handle *ph,
- 		iowrite32(power_cap, fci->set_addr);
- 		ph->hops->fastchannel_db_ring(fci->set_db);
- 		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_CAP_SET,
--				   domain_id, power_cap, 0);
-+				   domain_id, cpl_id, power_cap, 0);
- 		ret = 0;
- 	} else {
- 		ret = pi->xfer_cap_set(ph, pc, cpl_id, power_cap, ignore_dresp);
-@@ -837,7 +837,8 @@ static int scmi_powercap_avg_interval_get(const struct scmi_protocol_handle *ph,
- 			POWERCAP_PAI_GET : POWERCAP_CAI_GET;
++	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x3) {
++		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp_v3 = r;
++
++		flags = le32_to_cpu(resp_v3->attributes);
++		if (pinfo->notify_measurements_cmd)
++			dom_info->notify_powercap_measurement_change =
++			       SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
++
++		dom_info->mai_config = SUPPORTS_POWERCAP_MAI_CONFIGURATION(flags);
++		dom_info->min_mai = le32_to_cpu(resp_v3->min_mai);
++		dom_info->max_mai = le32_to_cpu(resp_v3->max_mai);
++		dom_info->mai_step = le32_to_cpu(resp_v3->mai_step);
++
++		if (dom_info->mai_config) {
++			ret = scmi_powercap_validate(dom_info->min_mai,
++						     dom_info->max_mai,
++						     dom_info->mai_step,
++						     dom_info->mai_config);
++
++			if (ret) {
++				dev_warn(ph->dev, "Platform reported invalid MAI config for domain %d - %s\n",
++					 dom_info->id, dom_info->name);
++
++				return ret;
++			}
++		}
++	}
++
+ 	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
  
- 		*val = ioread32(dom->cpli[cpl_id].fc_info[POWERCAP_FC_XAI].get_addr);
--		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id, *val, 0);
-+		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id,
-+				   cpl_id, *val, 0);
- 		return 0;
- 	}
+ 	dom_info->async_powercap_cap_set =
+@@ -1084,6 +1112,103 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
+ 	return 0;
+ }
  
-@@ -910,7 +911,8 @@ static int scmi_powercap_avg_interval_set(const struct scmi_protocol_handle *ph,
- 			POWERCAP_PAI_SET : POWERCAP_CAI_SET;
- 		struct scmi_fc_info *fci = &pc->cpli[cpl_id].fc_info[POWERCAP_FC_XAI];
++static int scmi_powercap_xfer_mai_get(const struct scmi_protocol_handle *ph,
++				      u32 domain_id, u32 *mai)
++{
++	int ret;
++	struct scmi_xfer *t;
++
++	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_GET, sizeof(u32),
++				      sizeof(u32), &t);
++
++	if (ret)
++		return ret;
++
++	put_unaligned_le32(domain_id, t->tx.buf);
++
++	ret = ph->xops->do_xfer(ph, t);
++	if (!ret)
++		*mai = get_unaligned_le32(t->rx.buf);
++
++	ph->xops->xfer_put(ph, t);
++	return ret;
++}
++
++static int scmi_powercap_xfer_mai_set(const struct scmi_protocol_handle *ph,
++				      u32 domain_id, u32 mai)
++{
++	int ret;
++	struct scmi_xfer *t;
++	struct scmi_msg_powercap_cap_or_pai_set *msg;
++
++	ret = ph->xops->xfer_get_init(ph, POWERCAP_MAI_SET, sizeof(*msg),
++				      0, &t);
++	if (ret)
++		return ret;
++
++	msg = t->tx.buf;
++	msg->domain_id = cpu_to_le32(domain_id);
++	msg->flags = cpu_to_le32(0);
++	msg->value = cpu_to_le32(mai);
++
++	ret = ph->xops->do_xfer(ph, t);
++
++	ph->xops->xfer_put(ph, t);
++	return ret;
++}
++
++static int
++scmi_powercap_measurements_interval_get(const struct scmi_protocol_handle *ph,
++					u32 domain_id,
++					u32 *val)
++{
++	const struct scmi_powercap_info *pc;
++	struct scmi_fc_info *fci;
++
++	if (!val)
++		return -EINVAL;
++
++	pc = scmi_powercap_dom_info_get(ph, domain_id);
++	if (!pc)
++		return -EINVAL;
++
++	fci = pc->cpli[CPL0].fc_info;
++	if (fci && fci[POWERCAP_FC_MAI].get_addr) {
++		*val = ioread32(fci[POWERCAP_FC_MAI].get_addr);
++		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_GET,
++				   domain_id, 0, *val, 0);
++		return 0;
++	}
++
++	return scmi_powercap_xfer_mai_get(ph, domain_id, val);
++}
++
++static int
++scmi_powercap_measurements_interval_set(const struct scmi_protocol_handle *ph,
++					u32 domain_id,
++					u32 val)
++{
++	const struct scmi_powercap_info *pc;
++	struct scmi_fc_info *fci;
++
++	pc = scmi_powercap_dom_info_get(ph, domain_id);
++	if (!pc)
++		return -EINVAL;
++
++	if (!pc->mai_config || !val || val < pc->min_mai || val > pc->max_mai)
++		return -EINVAL;
++
++	fci = pc->cpli[CPL0].fc_info;
++	if (fci && fci[POWERCAP_FC_MAI].set_addr) {
++		iowrite32(val, fci[POWERCAP_FC_MAI].set_addr);
++		ph->hops->fastchannel_db_ring(fci[POWERCAP_FC_MAI].set_db);
++		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MAI_SET, domain_id, 0, val, 0);
++		return 0;
++	}
++
++	return scmi_powercap_xfer_mai_set(ph, domain_id, val);
++}
++
+ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+ 	.num_domains_get = scmi_powercap_num_domains_get,
+ 	.info_get = scmi_powercap_dom_info_get,
+@@ -1096,6 +1221,8 @@ static const struct scmi_powercap_proto_ops powercap_proto_ops = {
+ 	.measurements_get = scmi_powercap_measurements_get,
+ 	.measurements_threshold_set = scmi_powercap_measurements_threshold_set,
+ 	.measurements_threshold_get = scmi_powercap_measurements_threshold_get,
++	.measurements_interval_get = scmi_powercap_measurements_interval_get,
++	.measurements_interval_set = scmi_powercap_measurements_interval_set,
+ };
  
--		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id, ivl, 0);
-+		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id,
-+				   cpl_id, ivl, 0);
- 		iowrite32(ivl, fci->set_addr);
- 		ph->hops->fastchannel_db_ring(fci->set_db);
- 		return 0;
-@@ -963,7 +965,7 @@ static int scmi_powercap_measurements_get(const struct scmi_protocol_handle *ph,
- 		/* See SCMIv4.0 3.10.2 - Payload is 32bit ONLY avg_power */
- 		*avg_ivl = 0;
- 		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MEASUREMENTS_GET,
--				   pc->id, *avg_power, *avg_ivl);
-+				   pc->id, 0, *avg_power, *avg_ivl);
- 		return 0;
- 	}
+ static void scmi_powercap_domain_init_fc(const struct scmi_protocol_handle *ph,
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index d0f6c0102559..90615611be4a 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -654,6 +654,12 @@ struct scmi_powercap_cpl_info {
+  *		       reports power data on an abstract linear scale.
+  * @extended_names: Support for long names.
+  * @fastchannels: Support for at least one fastchannel,
++ * @mai_config: MAI configuration support.
++ * @min_mai: Minimum supported Power Measurement Averaging Interval in
++ *			microseconds.
++ * @max_mai: Maximum supporte Power Measurement Averaging Interval in
++			microseconds.
++ * @mai_step: Step size between supported MAI values in microseconds.
+  * @name: name assigned to the Powercap Domain by platform.
+  * @sustainable_power: Maximum sustainable power consumption for this domain
+  *		       under normal conditions.
+@@ -675,6 +681,10 @@ struct scmi_powercap_info {
+ 	bool powercap_scale_uw;
+ 	bool extended_names;
+ 	bool fastchannels;
++	bool mai_config;
++	u32 min_mai;
++	u32 max_mai;
++	u32 mai_step;
+ 	char name[SCMI_MAX_STR_SIZE];
+ 	unsigned int sustainable_power;
+ 	unsigned int accuracy;
+@@ -733,6 +743,10 @@ struct scmi_powercap_info {
+  * @measurements_threshold_get: get the currently configured low and high power
+  *				thresholds used when registering callbacks for
+  *				notification POWERCAP_MEASUREMENTS_NOTIFY.
++ * @measurements_interval_get: get the current Power Measurement Averaging
++ *				Interval (MAI) value for the specified domain.
++ * @measurements_interval_set: set the Power Measurement Averaging Interval
++ *				(MAI) value for the specified domain.
+  */
+ struct scmi_powercap_proto_ops {
+ 	int (*num_domains_get)(const struct scmi_protocol_handle *ph);
+@@ -758,6 +772,10 @@ struct scmi_powercap_proto_ops {
+ 	int (*measurements_threshold_get)(const struct scmi_protocol_handle *ph,
+ 					  u32 domain_id, u32 *power_thresh_low,
+ 					  u32 *power_thresh_high);
++	int (*measurements_interval_get)(const struct scmi_protocol_handle *ph,
++					 u32 domain_id, u32 *val);
++	int (*measurements_interval_set)(const struct scmi_protocol_handle *ph,
++					 u32 domain_id, u32 val);
+ };
  
-diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
-index 703b7bb68e44..b03da7323d04 100644
---- a/include/trace/events/scmi.h
-+++ b/include/trace/events/scmi.h
-@@ -10,13 +10,14 @@
- #define TRACE_SCMI_MAX_TAG_LEN	6
- 
- TRACE_EVENT(scmi_fc_call,
--	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 val1, u32 val2),
--	TP_ARGS(protocol_id, msg_id, res_id, val1, val2),
-+	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 sub_id, u32 val1, u32 val2),
-+	TP_ARGS(protocol_id, msg_id, res_id, sub_id, val1, val2),
- 
- 	TP_STRUCT__entry(
- 		__field(u8, protocol_id)
- 		__field(u8, msg_id)
- 		__field(u32, res_id)
-+		__field(u32, sub_id)
- 		__field(u32, val1)
- 		__field(u32, val2)
- 	),
-@@ -25,13 +26,14 @@ TRACE_EVENT(scmi_fc_call,
- 		__entry->protocol_id = protocol_id;
- 		__entry->msg_id = msg_id;
- 		__entry->res_id = res_id;
-+		__entry->sub_id = sub_id;
- 		__entry->val1 = val1;
- 		__entry->val2 = val2;
- 	),
- 
--	TP_printk("pt=%02X msg_id=%02X res_id:%u vals=%u:%u",
--		__entry->protocol_id, __entry->msg_id,
--		__entry->res_id, __entry->val1, __entry->val2)
-+	TP_printk("pt=%02X msg_id=%02X res_id:%u sub_id:%u vals=%u:%u",
-+		  __entry->protocol_id, __entry->msg_id,
-+		  __entry->res_id, __entry->sub_id, __entry->val1, __entry->val2)
- );
- 
- TRACE_EVENT(scmi_xfer_begin,
+ enum scmi_pinctrl_selector_type {
 -- 
 2.47.3
 
