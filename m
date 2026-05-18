@@ -4,103 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B505CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212FCCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uYfojg12w5muo1Y1nJcT6Yfje9fAPhcae6+0t2EB+gE=; b=bMzSr0y9PsbayJd1am/JC4nSC5
-	ZW5YaPxBoPqCPENWovkW7O2Klre97ejvFYDRN8A1NBTTXrOb1BZKUIuOaD8pPCIAXA7HltaTPpOzU
-	uPBBcQW0ms5dLw8Pab04Nx9CfGnzGFTTScjgeV78QAYFfFX8gXBsmQiSHDwlOx53gz6stVqO++OgV
-	hlVoCnTYzsyT4JwJr7zL0bGat3RYq35SGV1/vgP8yrW9TRwLdEHqX/N1G/Zm7SORbgckLrOewsBKB
-	0W4BL26a6j/a4p5vmGYfctVb+O/FobyPD/rS5ZLpJurJRbT1goSpCg8Kho2REt9kq2GvsuN1Pcca2
-	SZ7vDYqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mmp02j+JTh/LSA7GCH0kahZIKzpGQLcvXOXcVOAsbFw=; b=D7Ejs45AtuaIr5FShVhrIaDAoh
+	00iujLRXhEupwJNN+PAtTtAhB6RDQd9ivV56hVLd5zV5PSkgIMEAb+flqa7eAStkLM2Qe0PsRSwML
+	GdS14zHoJwYwq5o/TKS4584xkyQgD9yQspg+3nzDO+HpTxfD089GBgxCGvoylK+m/R2/t+FVuSQid
+	ve/DSS7AxkztNEOdvqV83drlX6EXH8YYYRbtBME9pdm0Zny5TfghhHpUAFIw6kbgiVowI9d/oZgl7
+	g46ZN/6GPUW4eS2fpTmjF7ZACkq3B5HXa+7NT7QD1XQ6MZuGxR+epcIjAeMmyQ6DNs93ROCS1hPpH
+	LnlZqujQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOnuy-0000000Dxri-1gT5;
-	Mon, 18 May 2026 02:41:20 +0000
-Received: from mail-dy1-x132b.google.com ([2607:f8b0:4864:20::132b])
+	id 1wOnyL-0000000DyKC-0Hwc;
+	Mon, 18 May 2026 02:44:49 +0000
+Received: from mail-m12785.qiye.163.com ([115.236.127.85])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOnuu-0000000Dxpw-3ABu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 02:41:18 +0000
-Received: by mail-dy1-x132b.google.com with SMTP id 5a478bee46e88-2f68f3b075fso7593623eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 19:41:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779072075; x=1779676875; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=uYfojg12w5muo1Y1nJcT6Yfje9fAPhcae6+0t2EB+gE=;
-        b=Vs1o7RSx2P5WZO9eIAjFF/Eglk9nnsXd6D5hjvbvVWEl/BAO0+liXAqfiaE89zW18A
-         SubmwYqzcwK4wgZUd/TlxFhDfjeW4Evm1NZoDMSQgK/xbIMKKXLqaQth25TdWyRiSrHS
-         g/6763F63kxjqIcyL1Giuosm2t/HpeI1vbhmA5vfKRcD8eAHyuDEqO4tCmsLDCgJNVEL
-         kqSYvYgiyu34NYrcA6+MBcKZ4JAe8Y7Q6JoM5czvHiTJzg+eb5heENiAgrxzPw9tXQyO
-         t7rLjf/4Y7j7C17Rg1zcAtDzgPfAOoa5AQZIvIXDyYjY6llXmL8ruNDUuxmiv9A6yaY+
-         28Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779072075; x=1779676875;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uYfojg12w5muo1Y1nJcT6Yfje9fAPhcae6+0t2EB+gE=;
-        b=erHTPr/mBSzFvKqR3wv0sfl0g6D7hjwg1in5R9eC1SsdKkQH/BHvrW9Dm9NL8JEzLc
-         a74Miet2ro/0/SrfidH2M5Obm0H6DdpPjVrbjOCfbxmyacSl4ThYlpwjrsR5Iaq/Uo3x
-         0+ghurZ6gx3CfTHIcppmkhz25doYAwfEagXwMaon8y9oEtPtH9Pkop5/OMQOjONFhBk7
-         PvqQNTbfjXjPy2dPc1u4hRSl4TbV8QyW4UhzHThoM4jsUMzrVXaFJbohdHiGix9Ub+WQ
-         QgZompLhVyiIQpgAqUU7g23VuHKbU/0tDfQSHzNgsHhOUWHhtNy/S0ThIS60s73fov/U
-         KR4g==
-X-Forwarded-Encrypted: i=1; AFNElJ/MU2w2eqjBXo4+wZLDArQAJu1iObqbhXF0ddnXSn/2VydBPcttcns3TrEF60smaQYwDUYCYmFlHrJN0s94xUgR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxz8zhippoMpPcnCPs9S9sAOnIV06/zTxbaY0wqu6QNQXXjb46W
-	bA+ic3DBdtkhEmndQyLhAfKgD5Kh1Sp8IKfyj/j1IDCId7HoeVcyGRsz
-X-Gm-Gg: Acq92OGXUGWywO3mPBpPUIrbLk6tixeHLRYtIob7rIycc9xq3ri7BeEs3swtlnCJhIC
-	cqQ4EQOS6c3SJFa0gDMAw1DqXb0x5iEcLLmCITRHOg+VyQcP2RtpTQn65dPLcIcCJX3HeDruw8b
-	vH3ixtrDeCoaQoRW5R1xYn5r0TFpBirpW7U2FbkyjATXXAJoFdEntv8JAYdId4sNETm8FyNsE92
-	jGNX/3kXsHwzAo7aDJ5B1OAPNnSYHBE2I0GUyD/TIg2rEVHKBok31thRQKH02kcXN34mGNS0KGo
-	v8v8Cv6XmNdU3zRc9UQp9O1wfp04WeGQBmaA/ywHG1JYH1NXn/FkE59LObl+ZQBd3wewnlvkq/O
-	BMETJ5wrutPzIP/2CROeS3gAQD/p6rpizg/IkDQ00eD3Zit+mnQVdrRwTiisbYGJVmRRB20gbP2
-	fjJM1u+TG5GSNjZlG1TSLBILS0D4+6TkINSjOWU4liOzXtj+JkhFUixe11bxK6O7xZjBTuUkmIt
-	w==
-X-Received: by 2002:a05:7301:6447:b0:2ed:6f94:9d9d with SMTP id 5a478bee46e88-3039816bacemr6250335eec.8.1779072075393;
-        Sun, 17 May 2026 19:41:15 -0700 (PDT)
-Received: from [192.168.1.18] (177-4-162-74.user3p.v-tal.net.br. [177.4.162.74])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302944ffdf0sm13394794eec.8.2026.05.17.19.41.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 19:41:15 -0700 (PDT)
-From: =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-Date: Sun, 17 May 2026 23:41:07 -0300
-Subject: [PATCH] ASoC: mediatek: mt8196: Fix probe resource cleanup
+	id 1wOnyH-0000000DyIo-0ETo;
+	Mon, 18 May 2026 02:44:48 +0000
+Received: from [172.16.12.43] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3ec15c82d;
+	Mon, 18 May 2026 10:44:29 +0800 (GMT+08:00)
+Message-ID: <a7ab01f6-78a4-405f-8160-8af31a8ef99c@rock-chips.com>
+Date: Mon, 18 May 2026 10:44:29 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260517-asoc-mt8196-probe-cleanup-v1-1-a5d26949d7fe@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMSw7CMAwA0atUXmPJsaB8roK6SF0DQZBEcYuQq
- t69KSzfYmYG0xLU4NLMUPQTLKRY4XYNyMPHu2IYqoGJWzrQEb0lwfd4cucWc0m9orzUxykjM7s
- 9D46IBGqfi97C9/e+dn/b1D9Vxm0Iy7ICxn/9m30AAAA=
-X-Change-ID: 20260507-asoc-mt8196-probe-cleanup-222142d1000c
-To: Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Darren Ye <darren.ye@mediatek.com>, Cyril Chao <Cyril.Chao@mediatek.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4462;
- i=cassiogabrielcontato@gmail.com; h=from:subject:message-id;
- bh=NQY0kyeCTdDm7O2l5wtg6rcyOWbfpOIoGV+6BXsEjug=;
- b=owGbwMvMwCV2IdZeKur/u2bG02pJDFlcNe6JtUFtfgbVXazaLt8rss0LjIzi50y7e38R660Ds
- 6zfftPoKGVhEONikBVTZFmdtMhyT9eDq/VxKzxg5rAygQxh4OIUgImUH2JkuHxgTuuh4hOduRML
- b2ex+S46dcbM8f7Mmh3TmJccS/pRaMjwV3xax8suw2mTDQ/z2dZN8OC8M8+I/7dhosam3E97g/c
- mMwEA
-X-Developer-Key: i=cassiogabrielcontato@gmail.com; a=openpgp;
- fpr=AB62A239BC8AE0D57F5EA848D05D3F1A5AFFEE83
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] dt-bindings: display: rockchip: analogix-dp:
+ Expose inherited properties
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Conor Dooley <conor@kernel.org>, hjc@rock-chips.com, heiko@sntech.de,
+ andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
+ cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
+ dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
+ dianders@chromium.org, m.szyprowski@samsung.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260514070133.2275069-1-damon.ding@rock-chips.com>
+ <20260514070133.2275069-2-damon.ding@rock-chips.com>
+ <20260514-upstate-sneer-0b6e78682798@spud>
+ <2f653664-27e9-4632-97e9-8b59cf7e585e@rock-chips.com>
+ <20260515-confess-hungrily-4f64ce0d8de2@wendy>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <20260515-confess-hungrily-4f64ce0d8de2@wendy>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9e38f87b4603a3kunm9c63833a220204
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1kYFggdWUFKV1ktWUFJV1kPCRoVCBIfWUFZQk1DSlZISUJPHkwfS0
+	pMH0JWFRQJFhoXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0
+	tIVUpLSEpKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=FwLaaBmhRyX/1x2IvWIC8qOmg34/xaCXClSHSdAJaEUcRSf5nX3SBXOZhMb994CUmRYQeSsjZ6y0NOI6bU0UW1xVnMC9WLJxklcjrM2drB63dzkXrU7kaLlmYkFEXYIvDYF0lijlkN3eymJS+Yf77EsmSG7sshWzf/Qm15GFjng=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=mmp02j+JTh/LSA7GCH0kahZIKzpGQLcvXOXcVOAsbFw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_194116_801466_F796699C 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20260517_194445_678410_75580B0B 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,140 +86,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8196 AFE probe assigns reserved memory with
-of_reserved_mem_device_init(), but never releases it.
-This leaks the reserved memory assignment on driver
-removal and on later probe failures.
+Hi Conor,
 
-The same probe path also uses unchecked pm_runtime_get_sync() calls.
-A failure while resuming the device can leave the runtime PM usage
-count in an unexpected state.
+On 5/15/2026 5:04 PM, Conor Dooley wrote:
+> On Fri, May 15, 2026 at 11:57:58AM +0800, Damon Ding wrote:
+>> Hi Conor,
+>>
+>> On 5/15/2026 2:16 AM, Conor Dooley wrote:
+>>> On Thu, May 14, 2026 at 03:01:31PM +0800, Damon Ding wrote:
+>>>> Expose the inherited properties from the base analogix-dp schema
+>>>> to satisfy unevaluatedProperties constraints.
+>>>>
+>>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>>
+>>> Given it's unevaluatedProperties, not addtionalProperties, this patch
+>>> shouldn't be needed?
+>>>
+>>
+>> When I remove both the top-level data-lanes property and those explicit
+>> "xxx: true" property entries and run the dtbs check with:
+>>
+>> make CHECK_DTBS=y CROSS_COMPILE=aarch64-linux-gnu- LT0=none LLVM=1
+>> LLVM_IAS=1 ARCH=arm64 rockchip/rk3588-evb1-v10.dtb
+>> rockchip/rk3588s-evb1-v10.dtb rockchip/rk3399-sapphire-excavator.dtb
+>> rockchip/rk3576-evb1-v10.dtb -j4
+>>
+>> It results in validation errors like these:
+>>
+>> /home/ding/drm-misc/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb:
+>> edp@27dc0000: ports:port@1:endpoint: Unevaluated properties are not allowed
+>> ('data-lanes' was unexpected)
+>>          from schema $id:
+>> http://devicetree.org/schemas/display/rockchip/rockchip,analogix-dp.yaml#
+>> /home/ding/drm-misc/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb:
+>> edp@27dc0000: Unevaluated properties are not allowed ('force-hpd',
+>> 'interrupts', 'phy-names', 'phys', 'ports', 'reg' were unexpected)
+>>          from schema $id:
+>> http://devicetree.org/schemas/display/rockchip/rockchip,analogix-dp.yaml#
+>>
+>> I suspect that the properties defined in the child binding are
+>> overriding/masking all the inherited properties from the parent Analogix DP
+>> schema.
+>>
+>> Is there a better way to fix this issue without explicitly listing all
+>> inherited properties as true?
+> 
+> The example in this file uses most of the properties that you mention
+> above:
+>      dp@ff970000 {
+>        compatible = "rockchip,rk3288-dp";
+>        reg = <0xff970000 0x4000>;
+>        interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
+>        clocks = <&cru SCLK_EDP>, <&cru PCLK_EDP_CTRL>;
+>        clock-names = "dp", "pclk";
+>        phys = <&dp_phy>;
+>        phy-names = "dp";
+>        resets = <&cru 111>;
+>        reset-names = "dp";
+>        rockchip,grf = <&grf>;
+>        pinctrl-0 = <&edp_hpd>;
+>        pinctrl-names = "default";
+> 
+> dt_binding_check reports no problems with this node, so I think the
+> problem might lie elsewhere?
+> There's no edp node in the dts you mention above, so this looks like an
+> interaction with something that's not yet upstream.
 
-The regmap error path returns directly while the device is still
-runtime active, and the remove path drops a runtime PM reference even
-though successful probe has already released its temporary reference.
+Ah, I see.
 
-Register a devm cleanup action for the reserved memory assignment,
-use pm_runtime_resume_and_get(), and only drop runtime PM references
-on paths where they are actually held.
+I did add extra changes to the edp node on my local rk3576-evb1 board 
+DTS, which indeed caused this 'asymmetric information' issue and made 
+the validation fail incorrectly.
 
-Fixes: 57513aabfe5b ("ASoC: mediatek: mt8196: add platform driver")
-Signed-off-by: Cássio Gabriel <cassiogabrielcontato@gmail.com>
----
- sound/soc/mediatek/mt8196/mt8196-afe-pcm.c | 44 ++++++++++++++++++++----------
- 1 file changed, 30 insertions(+), 14 deletions(-)
+I will try adding the data-lanes property to the example in the binding 
+document to ensure dt_binding_check passes cleanly.
 
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-index 511e888567be..a1ae8322d8b6 100644
---- a/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
-@@ -2242,13 +2242,16 @@ static int mt8196_afe_runtime_resume(struct device *dev)
- static int mt8196_afe_component_probe(struct snd_soc_component *component)
- {
- 	struct mtk_base_afe *afe = snd_soc_component_get_drvdata(component);
-+	int ret;
-+
-+	/* enable clock for regcache get default value from hw */
-+	ret = pm_runtime_resume_and_get(afe->dev);
-+	if (ret)
-+		return dev_err_probe(afe->dev, ret, "failed to resume device\n");
-+
-+	mtk_afe_add_sub_dai_control(component);
-+	pm_runtime_put_sync(afe->dev);
- 
--	if (component) {
--		/* enable clock for regcache get default value from hw */
--		pm_runtime_get_sync(afe->dev);
--		mtk_afe_add_sub_dai_control(component);
--		pm_runtime_put_sync(afe->dev);
--	}
- 	return 0;
- }
- 
-@@ -2306,6 +2309,11 @@ static const struct reg_sequence mt8196_cg_patch[] = {
- 	{ AUDIO_TOP_CON4, 0x361c },
- };
- 
-+static void mt8196_afe_release_reserved_mem(void *data)
-+{
-+	of_reserved_mem_device_release(data);
-+}
-+
- static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
- {
- 	int ret, i;
-@@ -2320,8 +2328,13 @@ static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	ret = of_reserved_mem_device_init(dev);
--	if (ret)
-+	if (ret) {
- 		dev_err(dev, "failed to assign memory region: %d\n", ret);
-+	} else {
-+		ret = devm_add_action_or_reset(dev, mt8196_afe_release_reserved_mem, dev);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	afe = devm_kzalloc(dev, sizeof(*afe), GFP_KERNEL);
- 	if (!afe)
-@@ -2422,18 +2435,22 @@ static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
- 	dev_pm_syscore_device(dev, true);
- 
- 	/* enable clock for regcache get default value from hw */
--	pm_runtime_get_sync(dev);
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to resume device\n");
- 
- 	afe->regmap = devm_regmap_init_mmio(dev, afe->base_addr,
- 					    &mt8196_afe_regmap_config);
--	if (IS_ERR(afe->regmap))
--		return PTR_ERR(afe->regmap);
-+	if (IS_ERR(afe->regmap)) {
-+		ret = PTR_ERR(afe->regmap);
-+		goto err_pm_put;
-+	}
- 
- 	ret = regmap_register_patch(afe->regmap, mt8196_cg_patch,
- 				    ARRAY_SIZE(mt8196_cg_patch));
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to apply cg patch\n");
--		goto err_pm_disable;
-+		goto err_pm_put;
- 	}
- 
- 	regmap_read(afe->regmap, AFE_IRQ_MCU_EN, &tmp_reg);
-@@ -2452,12 +2469,12 @@ static int mt8196_afe_pcm_dev_probe(struct platform_device *pdev)
- 					      afe->num_dai_drivers);
- 	if (ret) {
- 		dev_err(dev, "afe component err\n");
--		goto err_pm_disable;
-+		return ret;
- 	}
- 
- 	return 0;
- 
--err_pm_disable:
-+err_pm_put:
- 	pm_runtime_put_sync(dev);
- 	return ret;
- }
-@@ -2467,7 +2484,6 @@ static void mt8196_afe_pcm_dev_remove(struct platform_device *pdev)
- 	struct mtk_base_afe *afe = platform_get_drvdata(pdev);
- 	struct device *dev = &pdev->dev;
- 
--	pm_runtime_put_sync(dev);
- 	if (!pm_runtime_status_suspended(dev))
- 		mt8196_afe_runtime_suspend(dev);
- 
+> 
+> If this is required for the rk3576 edp, then you should include this
+> patch in the rk3576 edp support series rather than this one anyway where
+> it can actually be evaluated alongside the node it apparently causes
+> problems with.
 
----
-base-commit: 2be19ed9535043fe6abd7ccfc9aac6b7ecaac842
-change-id: 20260507-asoc-mt8196-probe-cleanup-222142d1000c
+The data-lanes property is actually applicable and useful for all 
+Rockchip eDP platforms, not just rk3576.
+
+In the next version, I will modify the series to better separate this 
+common data-lanes change from the rk3576 specific eDP support patches.
+
+> 
+> pw-bot: changes-requested
+> 
+>>
+>> Best regards,
+>> Damon
+>>
+>>>> ---
+>>>>    .../bindings/display/rockchip/rockchip,analogix-dp.yaml    | 7 +++++++
+>>>>    1 file changed, 7 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+>>>> index bb75d898a5c5..896ded87880f 100644
+>>>> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+>>>> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
+>>>> @@ -50,6 +50,13 @@ properties:
+>>>>      aux-bus:
+>>>>        $ref: /schemas/display/dp-aux-bus.yaml#
+>>>> +  reg: true
+>>>> +  interrupts: true
+>>>> +  phys: true
+>>>> +  phy-names: true
+>>>> +  force-hpd: true
+>>>> +  ports: true
+>>>> +
+>>>>    required:
+>>>>      - compatible
+>>>>      - clocks
+>>>> -- 
+>>>> 2.34.1
+>>>>
+>>>>
+>>
 
 Best regards,
---  
-Cássio Gabriel <cassiogabrielcontato@gmail.com>
+Damon
 
 
