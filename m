@@ -4,133 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDBFACD4F48
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:18:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1BBCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:18:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wAhkFeF7JNkI5WEAieJjyU+uQn8BQ+yFXW+Yca/ihes=; b=WZBXXhMXwF4JEjzFn0rUL00p3a
-	IbdlEMiB18BBloVR6LO1ODZlpv7ybH9g9wJMPrAhgejM9+SckjpFxSpzG1DEEG2Xr8a+MkXhVfuPn
-	qVsIrAp4UJfwFufJwWS5a4v0cHuInBu6ETRkVszoCDiVwS/Bw+8VMPCmAiOUJ+Yd0uo6PdTABWAGf
-	XtjhYIQRfwmdBEESdUOswfsgoYjunVoJKnkePAuLeWje090+seJNyg/ahdYpDf3GHY8weBu4OteQh
-	Q2Ws+1cCeoFI4Ao/AlqsbZcJWpHfdWS2H87heRQ3DN0hVWKGyUXzh8RL1+YRsSeq3GTkykLDzzakq
-	IhLZXoBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2BaSm/XjGBh4son00sA6wyvpPsCewbAXPb4XTuwg+MM=; b=pJh5UifTAh7WVHEhvDmB2qPOk9
+	2jIG4Q7NCRO/AoyKVcvPBONroezQj07yKP6oVq87xH32TK/fVbl2lDjIvhMEd4gV9Jknr/j8xaikw
+	RnohvdS9ihV4sWlGDtd4rY2KurUZad4D/YiDB/RbybNAEM2m5OUHHP6FnJbz0npC/lBZ/2+RRe51W
+	9t6G7nAn4+0iCVjOKCV1p9ViGdaA3nnt5ZCkbERGm5+0chfFPe6W60qs0pP4WVv5Lp5MAzjhd3Fbv
+	Y5fw0SuJ8c6yKBYQf993cLp5HxScl1NO2L/F2GnBxzk/a+M5DnPxQxE5ZQtkckXAyvW87Sqr3843P
+	MuUoihMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsFD-0000000EYZ5-3CKE;
-	Mon, 18 May 2026 07:18:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOsFI-0000000EYbS-3nF5;
+	Mon, 18 May 2026 07:18:36 +0000
+Received: from mail-ua1-f54.google.com ([209.85.222.54])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsFC-0000000EYYf-47Tz;
-	Mon, 18 May 2026 07:18:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wAhkFeF7JNkI5WEAieJjyU+uQn8BQ+yFXW+Yca/ihes=; b=kNCFCiR+vdQt2YivSl2DA1s7lr
-	IUKg+fn2kd/eHu5ngD3b2hdrb8xmlEkQBgcDzbV2XIWX64Y2lWrALmYhvNB1yAuzI/luK2QTpBQ2V
-	9/Lj9QI0bc3ruNtU5gUN6ilPJG7To0O65FWkv7MKrVU+UFAxvvjU/F/riltnFdSFQow+JCGeVvzZt
-	VwwCH4e9rSkJk/l1cHMW7fg8GhJnzDM+/OLA6HVwxeO/8+njIcJgY5OG4cFSnwsR2dvwjwjtJFqg/
-	A70RQ8fllNh9IIxvDunZBRwRlF2FCeqLu9Ljoo/Zf84mDgQQgaukKkc6dU+fGlaWEVyTwZWqlsnTT
-	UFC73fUw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsF8-0000000A8mq-0zTf;
-	Mon, 18 May 2026 07:18:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F48444152;
-	Mon, 18 May 2026 07:18:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C498C2BCB7;
-	Mon, 18 May 2026 07:18:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779088703;
-	bh=wcGxJccY94W723JayRAfL4ldNM0QJ+CV24OqzGDkYcU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=i+MrcTw82SqDG13g9ckamWqmo7Q2CCtvzA9S5A7EKGRVSSVftYTWN1Y9fkdfWxDCZ
-	 OyiqD/h0bx+3ErpjIGWvakzlG8kQd9uK9FBqdR9+kYe2NJUMeXS1aTKyODCEdvgqz9
-	 pPfbdPW8PGowCHJZMx7yLmsWZSH1Ys06JtFY08gPBOdDn4BT4a8X3Z0b+xUBAkupce
-	 2ZkEnzoCr4dXqSFFUtW0Ykut50aJBh4j2Ik2HQfnvs7Xhz/v8QJxxs3frXq4HuZnyn
-	 xmQTPPIh7pPHkWx/WmLN/sHZ0cq1ITXwUCZuXdy0R7bW1NHpOM2cOrf3MlrWFYy2gy
-	 1C0JOd5ueKOGA==
-Message-ID: <1571510c-e51c-40c6-a702-214bf77f9f4d@kernel.org>
-Date: Mon, 18 May 2026 09:18:18 +0200
+	id 1wOsFC-0000000EYYZ-2QKr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 07:18:32 +0000
+Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-9568bae58f7so1271111241.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 00:18:30 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779088709; x=1779693509;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2BaSm/XjGBh4son00sA6wyvpPsCewbAXPb4XTuwg+MM=;
+        b=itRVm98KTk1FfgUyUYcpKYeK3zZ8lcBE8CKVLmeoVY8Lfl3glHIL5gw5D0CQ7Cke82
+         Mp1azyNXmBdeywFoSfaoyycvg3ilUgzDzv7MOa7VyTjz15W+igGIsxl2BzzFy7H0xjiw
+         9LNefGxU4j/WDImtsj9xoPNcCVwOrRCQMRPd/hlNoS5fzupGwJqMwJVV0V0Pclbpxzhz
+         +e7knIOH7zM11ehfvUoXkxOoTz3jp/y1GB6wBfr5Dh66TYWyETTpDCpIOZw/XL9nq4pm
+         crB+V8HLaYcPaCgR+NgPCs4n6V8FOgYXEU6/f81Geed6f3fqNDcZcX8DX2YHcq0x5iwa
+         +qBw==
+X-Gm-Message-State: AOJu0Yy8wE2X823cXjVA/zWYKo0+VcOrE2GJK6eM60yrX2X+uSJ91sMi
+	KvDiL/AiqQXzidgKw6WPajUhtVU06V/uvAInXFyj1xSZNfb8Og7qdWb4xnutE6qP
+X-Gm-Gg: Acq92OExE5YBrYg7q+dvjEOlE1PBxSkDWG2ozEqShG/0cXcrfxP6H5218SEzIICjBP9
+	f1nRpSZIl6t+xgaeAFvIAinfpzGpxtPrCe2XNty+RRIDgnII98e8I6gOPj5BkcpnS75xKRdS6Qg
+	KnhM/Cu9MCHXmaKFBDov7Mei8FoaR0DFskelVPkB6U79TRS9eRoC1UJXlMs/GMflMqOkRSF4hli
+	lrsyfz6HykFzRqpNqaJ2yxwCSwC21RAe/iYfwgauTThPdNf8z1PrpxEKD97Or7aIMRBjY6+aLU3
+	gys4EtTNkIdxu/AfLa06IKTe/+vc0Ah6xpgXZkFmuXdSuU6NSkwnQ8Jp37AnaWoMZTlIRe84KjL
+	sGax3CIAs1xuTi/ewN/khZ8Kna6HH6DTq08T8Tb5yRZnhlEzlJASgsNh7pJleg1U9N+7LXebucp
+	f0TRe1qwOoogyXoQalIMruH/RkfUdXKrpAGtF8HPc0Xl48sVsnnKfQKpeRFCue
+X-Received: by 2002:a05:6102:2910:b0:611:3bcb:aee5 with SMTP id ada2fe7eead31-63a3996686emr6877049137.0.1779088709093;
+        Mon, 18 May 2026 00:18:29 -0700 (PDT)
+Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95fc2fe0a69sm4322341241.13.2026.05.18.00.18.28
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 May 2026 00:18:28 -0700 (PDT)
+Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-63145ce291bso1608490137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 00:18:28 -0700 (PDT)
+X-Received: by 2002:a05:6102:511f:b0:632:137d:3ab with SMTP id
+ ada2fe7eead31-63a403ad984mr6556785137.31.1779088707988; Mon, 18 May 2026
+ 00:18:27 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] memory: mtk-smi: Add a flag skip_rpm
-To: =?UTF-8?B?WHVlcWkgWmhhbmcgKOW8oOmbqueQpik=?= <Xueqi.Zhang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>
-Cc: =?UTF-8?B?V2VuZHktU1QgTGluICjmnpfoqanluq0p?= <Wendy-ST.Lin@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-References: <20250320073625.25225-1-xueqi.zhang@mediatek.com>
- <20250320073625.25225-3-xueqi.zhang@mediatek.com>
- <46e0e1f1-e094-40f9-99f9-22678bb40d39@collabora.com>
- <198865fb3184926d0b1b4e4855b5f863ad0d6a20.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <198865fb3184926d0b1b4e4855b5f863ad0d6a20.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20260517163212.18016-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260517163212.18016-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 18 May 2026 09:18:16 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVcpR96smOd4sdEXHoRp=WTLLzWNN9hO0P0=ZBTe4fKog@mail.gmail.com>
+X-Gm-Features: AVHnY4JKgHlqd5SaFhNLozD0z7aZ9BTFwj4ug759FlpKdE8vGqFRTa8yvRVCDYo
+Message-ID: <CAMuHMdVcpR96smOd4sdEXHoRp=WTLLzWNN9hO0P0=ZBTe4fKog@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Describe all reserved memory
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_081827_500327_647C073A 
-X-CRM114-Status: UNSURE (   5.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_001830_628713_EAD5A95F 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,19 +94,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/05/2026 09:16, Xueqi Zhang (张雪琦) wrote:
-> Hi Angelo,
-> 
-> First of all, please accept my apologies for the delayed response. I 
-> have been deeply occupied with MT8196 Aluminium pKVM SMMU and SMI 
-> related tasks recently.
-> 
+Hi Marek,
 
+On Sun, 17 May 2026 at 18:32, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Fully describe all available DRAM in the DT, and describe regions which
+> are not accessible because they are used by firmware in reserved-memory
+> node.
+>
+> Replace first memory bank memory@60600000 with memory@40000000 and a
+> 518 MiB long reserved-memory no-map subnode. This memory region is used
+> by other cores in the system.
+>
+> Reserve 32 kiB of memory at 0x8c100000 for parameters shared by IPL,
+> SCP, TFA BL31 and TEE.
+>
+> Reserve 512 kiB of memory at 0x8c200000 for TFA BL31. The upcoming
+> upstream TFA 2.15 BL31 uses memory from 0x8c200000..0x8c242fff, the
+> round up to 512 kiB is slight future proofing.
+>
+> Reserve 32 MiB of memory at 0x8c400000 for OPTEE-OS, which is the
+> entire OPTEE-OS TZ protected DRAM area.
+>
+> Neither the TFA BL31 nor OPTEE-OS do modify the DT passed to Linux in
+> any way with any new reserved-memory {} node to reserve memory areas
+> used by the TFA BL31 or OPTEE-OS to prevent the next stage from using
+> those areas, which lets Linux use all of the available DRAM as it is
+> described in the DT that was passed in by U-Boot, including the areas
+> that are newly utilized by TFA BL31 or OPTEE-OS.
+>
+> In case of high DRAM utilization, unless the memory used by TFA BL31
+> or OPTEE-OS is properly reserved, Linux may use and corrupt the memory
+> used by TFA BL31 or OPTEE-OS, which would lead to the system becoming
+> unresponsive.
+>
+> Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-How may times are you going to send it? I counted FOUR already!
+Thanks for your patch!
 
-https://lore.kernel.org/all/?q=%22Re%3A+%5BPATCH+2%2F3%5D+memory%3A+mtk-smi%3A+Add+a+flag+skip_rpm%22
+> --- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+> +++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
+> @@ -20,10 +20,9 @@ chosen {
+>                 stdout-path = "serial0:1843200n8";
+>         };
+>
+> -       memory@60600000 {
+> +       memory@40000000 {
+>                 device_type = "memory";
+> -               /* first 518MiB is reserved for other purposes. */
+> -               reg = <0x0 0x60600000 0x0 0x5fa00000>;
+> +               reg = <0x0 0x40000000 0x0 0x80000000>;
+>         };
+>
+>         memory@1080000000 {
+> @@ -65,6 +64,36 @@ memory@1e00000000 {
+>                 device_type = "memory";
+>                 reg = <0x1e 0x00000000 0x1 0x00000000>;
+>         };
+> +
+> +       reserved-memory {
+> +               #address-cells = <2>;
+> +               #size-cells = <2>;
+> +               ranges;
+> +
+> +               /* First 518 MiB is reserved for other purposes. */
+> +               firmware@40000000 {
+> +                       reg = <0x0 0x40000000 0x0 0x20600000>;
+> +                       no-map;
+> +               };
+> +
+> +               /* Parameters set by IPL. */
+> +               parameters@8c100000 {
+> +                       reg = <0x0 0x8c100000 0x0 0x00008000>;
+> +                       no-map;
+> +               };
+> +
+> +               /* TFA BL31. */
+> +               tfa-bl31@8c200000 {
+> +                       reg = <0x0 0x8c200000 0x0 0x00080000>;
+> +                       no-map;
+> +               };
+> +
+> +               /* TEE TZ DRAM. */
+> +               tee@8c400000 {
+> +                       reg = <0x0 0x8c400000 0x0 0x02000000>;
+> +                       no-map;
+> +               };
+> +        };
 
-Best regards,
-Krzysztof
+Shouldn't these reservations be added by the bootloader stack, when
+passing the DTB to Linux?
+
+>  };
+>
+>  &extal_clk {
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
