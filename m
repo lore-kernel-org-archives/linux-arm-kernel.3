@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA61CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76710CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FchV9glvh5UhWTEiURTz/glfciz9Vw2jj22qgC9Vt+M=; b=CMkfFSLg7UOtaibAy5dK5Ak3Ob
-	XcTAMf+J1RLm31piGt0kedLjUIR/BTfYJ4W9cI7YBakQcGMGunhJJ5Po78T5J7qZIDbliHm9NJP+3
-	lS6YWiJKWFahNgF+Tv/FagpaapZTRwcZF5ZOmW7hzp6EFjx7EKllpW16IzRjBAdwpDWDd2IM47JaG
-	Y1NEggyCQK/CZQhdlCLtjS3AZgGGkmNnO2a4PxATmDl3AZSKpGASyxlGLueEiBtXzp6/S1rXIVx43
-	wXUU+S6mKEbSmHp1lba2q54zsEV3gmFwAXix/2CN11Ws2uOhlfDioHBjr1soa38ytLj+jZg+cB+c9
-	NAaq231g==;
+	bh=4zO/JslR4dtpUare48IWPEh7zby/iEoySFzUlGPOX5Q=; b=rlVU9n+o+jpln9RZZh2KETWIXn
+	uklRDBzwjeDkgkzrj/dfaW/m1NajbsN9i1jXQb4XA7Oa3UskdnpnEMk8XqiyrYkf7MgGCwj1Qk5ZK
+	vOkZ9MXwBmpD/UysX3Xs4TVmqFZwd0maKDdqyWANJAdgmrAIYA/PcxhG37lYIbomFsJgNCzHRu3i4
+	ofUlpJECYOfI4wX/51ScMNXSIEiHzgxzQSLXIiaa+Znb1TUMssuQpzB8WSNXAoZA9Ivk3KVX98yFO
+	eRKr8cpqgq6rTELK0b53I2jYyOgt3ZVJoVKP7iRDUAw8T7EyPKnXuccBChkHfAWWsj3xHxJmH+uuz
+	9JOrWISg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3wn-0000000GlJ2-0RdX;
-	Mon, 18 May 2026 19:48:17 +0000
+	id 1wP3ws-0000000GlRM-2AGG;
+	Mon, 18 May 2026 19:48:22 +0000
 Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3wl-0000000GlGG-1xyE
+	id 1wP3wn-0000000GlKB-49Qb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 19:48:16 +0000
+	Mon, 18 May 2026 19:48:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1779133695; bh=FchV9glvh5UhWTEiURTz/glfciz9Vw2jj22qgC9Vt+M=;
- b=XuGCimcC7YLQIicVcGOs7RbIhRWYHLPeVWV3jpZcBSXJMYSKNd7gqd3EkFLZykoATb609F8y6
- 5uMFuhYPSCrFmuX6qMIupm7jt9d+2INwjIoBl+cO7aHTQK6hE2+YWWZyg4TqAq+BQtl2WsDhptu
- UdTR0FcpwDPGEse5kFPobmp4iPJog5JA2gQ0+dYgS5zR3jH9MLvxF+7IdP9qAPpqQU8nG9XHlzG
- /uH1R5RBwEh+ogBZ3FR/dg01/kSIlUVE/uNfpaGLYXi1wErA/TcWVgBJyk3t+ZTUr6T4sMpQhta
- 4r9LzSbC4wEUv655Iih7bIoMGXSTE3d2fMWUZrcT7lpw==
-X-Forward-Email-ID: 6a0b6cf9b74b0ebd362eee90
+ t=1779133697; bh=4zO/JslR4dtpUare48IWPEh7zby/iEoySFzUlGPOX5Q=;
+ b=fxtTYUpfelm5+3PenQvU1Jlz5qg+LbRTCikqBPcscSdOVs+AreUdH+OFLCuSBs9+YPUWTRxjr
+ w1z9E8hAfUGl4577+xal7tOBe+75Zs0phBYXMARcwLrW1ha5nmUMO/dFcGQbJKBcT+OSQBwtJ2s
+ oh3wUeWH5R4zFCgiUdcCK3Svcw916zUcUILhRZ/Hzz5gL3RLMRVwG9hOSMRuBXq4jhXi0MDrSMe
+ KxoPZIniEgMtQFCmBW786dhD4cHIa4KbU9pAutRmoYqcAZouhuomKBrGTWwvBsyDoQJrWCQg4cU
+ +QV1sKc1WkCydEe8z137K8yilUEnK/D24qDt3DTTMDdA==
+X-Forward-Email-ID: 6a0b6cfdb74b0ebd362eeeab
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.73
 X-Forward-Email-Version: 2.8.12
@@ -61,17 +61,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>,
 	linux-rockchip@lists.infradead.org
-Subject: [PATCH 04/13] drm/meson: dw-hdmi: Drop call to drm_bridge_hpd_notify()
-Date: Mon, 18 May 2026 19:47:32 +0000
-Message-ID: <20260518194744.2483580-5-jonas@kwiboo.se>
+Subject: [PATCH 05/13] drm/meson: encoder_hdmi: Use CEC phys addr from display_info
+Date: Mon, 18 May 2026 19:47:33 +0000
+Message-ID: <20260518194744.2483580-6-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260518194744.2483580-1-jonas@kwiboo.se>
 References: <20260518194744.2483580-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_124815_598969_10C5B8A9 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260518_124818_112312_AA851718 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Calls to both drm_helper_hpd_irq_event() and drm_bridge_hpd_notify() in
-the IRQ handler causes multiple hotplug uevents and modesets during an
-HPD interrupt.
+The dw-hdmi bridge detect() func now updates EDID for the connector.
+Something that ensures that display_info.source_physical_address has an
+updated CEC phys addr when the hpd_notify() func is called.
 
-Change to only call drm_helper_hpd_irq_event() in IRQ handler to ensure
-only one hotplug uevent is triggered when the connection status or EDID
-has changed.
-
-The bridge connectors detect() func help ensure that any hpd_notify()
-func is called for all bridges in the chain.
+Change to use display_info source_physical_address directly instead of
+re-reading EDID to set the CEC phys addr at HPD interrupt.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
- drivers/gpu/drm/meson/meson_dw_hdmi.c | 11 +----------
- 1 file changed, 1 insertion(+), 10 deletions(-)
+ drivers/gpu/drm/meson/meson_encoder_hdmi.c | 26 ++++------------------
+ 1 file changed, 4 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/gpu/drm/meson/meson_dw_hdmi.c b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-index 9aafdc768f2b..30099bf71aad 100644
---- a/drivers/gpu/drm/meson/meson_dw_hdmi.c
-+++ b/drivers/gpu/drm/meson/meson_dw_hdmi.c
-@@ -521,17 +521,8 @@ static irqreturn_t dw_hdmi_top_thread_irq(int irq, void *dev_id)
+diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+index 55c0601df3c6..1b9a1d9ed3d3 100644
+--- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
++++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+@@ -330,28 +330,10 @@ static void meson_encoder_hdmi_hpd_notify(struct drm_bridge *bridge,
+ 	if (!encoder_hdmi->cec_notifier)
+ 		return;
  
- 	/* HPD Events */
- 	if (stat & (HDMITX_TOP_INTR_HPD_RISE | HDMITX_TOP_INTR_HPD_FALL) &&
--	    dw_hdmi->bridge) {
--		bool hpd_connected = false;
+-	if (status == connector_status_connected) {
+-		const struct drm_edid *drm_edid;
+-		const struct edid *edid;
 -
--		if (stat & HDMITX_TOP_INTR_HPD_RISE)
--			hpd_connected = true;
+-		drm_edid = drm_bridge_edid_read(encoder_hdmi->bridge.next_bridge,
+-						encoder_hdmi->connector);
+-		if (!drm_edid)
+-			return;
 -
-+	    dw_hdmi->bridge)
- 		drm_helper_hpd_irq_event(dw_hdmi->bridge->dev);
--		drm_bridge_hpd_notify(dw_hdmi->bridge,
--				      hpd_connected ? connector_status_connected
--						    : connector_status_disconnected);
--	}
- 
- 	return IRQ_HANDLED;
+-		/*
+-		 * FIXME: The CEC physical address should be set using
+-		 * cec_notifier_set_phys_addr(encoder_hdmi->cec_notifier,
+-		 * connector->display_info.source_physical_address) from a path
+-		 * that has read the EDID and called
+-		 * drm_edid_connector_update().
+-		 */
+-		edid = drm_edid_raw(drm_edid);
+-
+-		cec_notifier_set_phys_addr_from_edid(encoder_hdmi->cec_notifier, edid);
+-
+-		drm_edid_free(drm_edid);
+-	} else
++	if (status == connector_status_connected)
++		cec_notifier_set_phys_addr(encoder_hdmi->cec_notifier,
++					   connector->display_info.source_physical_address);
++	else
+ 		cec_notifier_phys_addr_invalidate(encoder_hdmi->cec_notifier);
  }
+ 
 -- 
 2.54.0
 
