@@ -4,88 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A38CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 04:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2F4CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 04:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N1NeYPzkew/lg8N5iZf3wRciXirvXJuukKHofoQ/xo4=; b=n1/JoFhdBeId3RV+EMGSYHfGSp
-	zlq8Eag332hAtXU3G0SV5cZZUYUifXx9LoXWl/pVobRbHRYSKatp9Uy5y137Anxk1eDdZTdO9uJms
-	e7PHwkyBZsk5n30z3fapxcXHNLE89dDZZSQQ6NXmcTkCpURhCp1G8UIo47fFvKQUyPrijJ87mmgqI
-	G9CjrU4v5yin/s5hgY7ROcfoEgLueu2olfvoNQhfhvEraQqYuuX3BJwlbUPlZiu54MP9PHfsjBje6
-	g+RkVPFK5nNpWpmkGrJjoltulr1QBeZ36OSk+TynWj+rDw/YZpRxohg+mlrVy733iR5WV7GVRvm5m
-	saNejp8g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JTEBKh9m3DSxJ6Hq5DJGf4poghBQYd3LemNf8I+sa1M=; b=YKcUFqYIh5F1aqgZj/WNo5nhFU
+	etZ9JiaYvp7+A24wqnJsZ/vTYDLhRxQ1Zss4BPaZ/WFXf58Ss8Ff3zjbQVU6ciTzYzJigwRaIXIAF
+	htrcAHgz7quQEKWFp7k7Q1mf04JhOZNqsZxPhtmg3q5Jn85xiiyUagfud90FKkvLiLf6JHBitQH2a
+	g2wAEDVfiZgGiXlBg6wn9EC8LJ5J9G5pRr77DHv5VwxwcyzUSJL0PY4NcB/gNmbuIPq2CI2k82UG5
+	XWT+F4QjoP3lVOVFCLnM5ZYeXg19BnIdTcxWOREBSA2CQ4nlLDFv7x3gU3wTJJ7ZoCdhmhgghbmAn
+	fp6z7efQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOpTX-0000000E94u-3r7g;
-	Mon, 18 May 2026 04:21:07 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOpTV-0000000E93H-2YUD
+	id 1wOpTc-0000000E985-2A2C;
+	Mon, 18 May 2026 04:21:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOpTW-0000000E92u-3Eco
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 04:21:06 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-c80227b1f6cso555037a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 21:21:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779078064; x=1779682864; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=N1NeYPzkew/lg8N5iZf3wRciXirvXJuukKHofoQ/xo4=;
-        b=IY3HwRLjN4HN6qXWpO0Trq2X3i7W2oz/FIL+ZWS8x5aRkpeM7nY8BFnkHEtkGCWKED
-         BWkpejkjZI4qJT2OaD0NJkpuhN4JgjhQk5Of+Cf3W1DSbgMs8iOt8Ivan/+3aDSR8MPQ
-         dK90rI2CH3zP7tdno97/KFDYE/Cq4H76a7WXYmq5v4MmG2BCaLSMGtkZ6RztNccQNgGY
-         tR+08pE4POatt9VQCLD8vG80Gf4UBsS1pINo+V37J+MH+XZ7L/LhK+I/SgeCIbmwnw3e
-         BrU6gMHPrsZfyyoRaTF7F6ptWu8SMoFgfZO9DXx1SHpxDIbtQnSBJV9HbTlBf/F7aFCE
-         kYVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779078064; x=1779682864;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N1NeYPzkew/lg8N5iZf3wRciXirvXJuukKHofoQ/xo4=;
-        b=JNMFhXtgKRfpx/uHuVONqRa10S0fSAL+EZItxr7BCV/9G7MJmtjhWj7MhIJu9u6Wtd
-         FE3o3tllvfymx9izlOAraCt33YhO6bHauNfy3Tplo0Fl1KK9jJpP6phJ9QgLUa24YJUu
-         QpDnkVsOpSBknBvqOTgJgxu7COjyqDRwbTdBNyBURmol+IpjZ8kaX8DjCkzeGbV0IH9b
-         XeEAvr1j/7hAXNNF8bR4m/CfW+P+hFuOKuFanV46cpJ1A09iX7OoWzHMwLtFzU+8TNcv
-         Z6TMsZVlV3Hr9fnXgv2dIomXHRqbtHUYvVmDr2pqmm9++pZZT5FDeF/9xR07P1cNitRy
-         WbbQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+1xs2CkqtVtmv+lFBfdSJw+ON0ixtVehXWOmX9v4+mdhYLUWOUsO/OF+6x9xw1YU4cw9Zp8IkvQ8GJQ2SXAA09@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgjHaaGkx1WR200GELwH7ps9bjqvpfQb4YFgyBwXnhG6CYXF3M
-	lKH6RM26IuhKIqlIBpke9LNmQmRaBkJ6zccYpmeWuBqz/4J0mozNNKHd1j1GIwLw
-X-Gm-Gg: Acq92OE0NntncrpKcHxHPFCWz26o66g13KBjbZ2PGkeZFlKuDTrwGn5NFO+tGD3OGIv
-	1L6YWye+hDlde4glGSjtWwuTJQkbHW1vd2VMmkzBmyI1yi29Zj75qygZjZegYZuwBqDWNe7WzFJ
-	L8cz6KhoYT3frs3ZjuR7q5nFxV0Zw+Qjfkg5xiJMR8lRHQK9Sb2TISllBupAUnNHf4xyCHD5MBg
-	TqggTL6QmQFgCayJ9QUDkiQG2B/7MnaArZ5M8bcdG0rtx4TePXtdFkfWvy+u6PtCMz+F4RTngI5
-	BM5mGoYFU0dQHECV69kvgRq/fLjoEv27Yc4Cu4I8oGk3zRqS5mQD4ZIroXJpb3qgAa/O99Stqr7
-	Ea9mdQGxXHM29IYxjE0sOyyf+FH2vB8I7jX/Guuw9sVzJC9xsmFR1mxDNJitwBGzkYbqFTaHVXn
-	cPzmJv4njMzPBKEQj+OS6DVR4bg4lWyfPZAEDXVgFNClfCVg1RLUgHmfrADXzXkSzlFHW7R60Kw
-	7JOVtuRcJJ9nnjHMvIC1JwcKtGWm4Y5jQ4=
-X-Received: by 2002:a17:902:c194:b0:2ba:6013:eeaf with SMTP id d9443c01a7336-2bd7e8fbda6mr106088815ad.19.1779078064386;
-        Sun, 17 May 2026 21:21:04 -0700 (PDT)
-Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5bd5fe51sm130747005ad.2.2026.05.17.21.21.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 21:21:03 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-input@vger.kernel.org
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH] Input: mtk-pmic-keys - use of_device_get_match_data()
-Date: Sun, 17 May 2026 21:20:46 -0700
-Message-ID: <20260518042046.981861-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Mon, 18 May 2026 04:21:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 872331F91;
+	Sun, 17 May 2026 21:20:57 -0700 (PDT)
+Received: from [10.164.18.45] (unknown [10.164.18.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DE6C03F632;
+	Sun, 17 May 2026 21:20:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779078062; bh=7qEOG0EubcCTb2hX+beWzGRWlPEKLWITmG0O/s/Mou0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gAd+bc7hPx4rXAAfzhgvWv0NVb0WQZj0dnh1zz6CJhO+MMhFx9HSMYpw4pGV117Qv
+	 9X4uGnyFUsyUUKEuoEpsDeBHeqqWy8rjvwqAIZQDHaiK1ixvJs5/G5+cB8yFORDGHj
+	 +vPHi4aBHLfqfSwX2F5KEZ0tOqRuupWfwC5xSWb0=
+Message-ID: <50e91f4f-f44f-4457-aa44-abd877e5e241@arm.com>
+Date: Mon, 18 May 2026 09:50:55 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V2 00/14] arm64/mm: Enable 128 bit page table entries
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+ <agRF7FXwCvp4Ec3h@lucifer>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <agRF7FXwCvp4Ec3h@lucifer>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_212105_642087_011F363B 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20260517_212107_076584_FFE9302C 
+X-CRM114-Status: GOOD (  24.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,47 +76,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use of_device_get_match_data() to fetch the PMIC key register data directly instead of open-coding an of_match_device() lookup.
 
-This also lets the driver drop the of_device.h include.
 
-Assisted-by: Codex:GPT-5.5
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
----
- drivers/input/keyboard/mtk-pmic-keys.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+On 13/05/26 3:09 PM, Lorenzo Stoakes wrote:
+> -cc my previous kernel address
+> 
+> Hi Anshuman,
+> 
+> Sorry to be a pain, but I'm using ljs@kernel.org now for my kernel mail, so
+> I am at risk of missing stuff sent to my @oracle.com address (I changed
+> things around to make managing the... rather large quantities of mail I get
+> a bit easier :)
+> 
+> Hence I missed this previously, can you send future revisions to
+> ljs@kernel.org? Thanks!
 
-diff --git a/drivers/input/keyboard/mtk-pmic-keys.c b/drivers/input/keyboard/mtk-pmic-keys.c
-index c78d9f6d97c4..fd684ac16938 100644
---- a/drivers/input/keyboard/mtk-pmic-keys.c
-+++ b/drivers/input/keyboard/mtk-pmic-keys.c
-@@ -16,7 +16,6 @@
- #include <linux/mfd/mt6397/core.h>
- #include <linux/mfd/mt6397/registers.h>
- #include <linux/module.h>
--#include <linux/of_device.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
-@@ -333,8 +332,6 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
- 	struct mtk_pmic_keys *keys;
- 	const struct mtk_pmic_regs *mtk_pmic_regs;
- 	struct input_dev *input_dev;
--	const struct of_device_id *of_id =
--		of_match_device(of_mtk_pmic_keys_match_tbl, &pdev->dev);
- 
- 	keys = devm_kzalloc(&pdev->dev, sizeof(*keys), GFP_KERNEL);
- 	if (!keys)
-@@ -342,7 +339,7 @@ static int mtk_pmic_keys_probe(struct platform_device *pdev)
- 
- 	keys->dev = &pdev->dev;
- 	keys->regmap = pmic_chip->regmap;
--	mtk_pmic_regs = of_id->data;
-+	mtk_pmic_regs = of_device_get_match_data(&pdev->dev);
- 
- 	keys->input_dev = input_dev = devm_input_allocate_device(keys->dev);
- 	if (!input_dev) {
--- 
-2.54.0
+Sure, will do.
+
+> 
+> Cheers, Lorenzo
+> 
+> On Wed, May 13, 2026 at 10:15:33AM +0530, Anshuman Khandual wrote:
+>> FEAT_D128 is a new arm architecture feature adding support for VMSAv9-128
+>> translation system. FEAT_D128 is an optional feature from ARMV9.3 onwards.
+>> So with this feature arm64 platforms could have two different translation
+>> systems, VMSAv8-64 and VMSAv9-128 could selectively be enabled.
+>>
+>> FEAT_D128 adds 128 bit page table entries, thus supporting larger physical
+>> and virtual address range while also expanding available room for more MMU
+>> management feature bits both for HW and SW.
+>>
+>> This series has been split into two parts. Generic MM changes followed by
+>> arm64 platform changes, finally enabling D128 with a new config ARM64_D128.
+>>
+>> READ_ONCE() on page table entries get routed via level specific pxdp_get()
+>> helpers which platforms could then override when required. These accessors
+>> on arm64 platform help in ensuring page table accesses are performed in an
+>> atomic manner while reading 128 bit page table entries.
+>>
+>> All ARM64_VA_BITS and ARM64_PA_BITS combinations for all page sizes are now
+>> supported both on D64 and D128 translation regimes. Although new 56 bits VA
+>> space is not yet supported. Similarly FEAT_D128 skip level is not supported
+>> currently.
+>>
+>> Basic page table geometry has also been changed with D128 as there are fewer
+>> entries per level. Please refer to the following table for leaf entry sizes.
+>>
+>>                     D64              D128
+>> ------------------------------------------------
+>> | PAGE_SIZE |   PMD  |  PUD  |   PMD  |   PUD  |
+>> -----------------------------|-----------------|
+>> |     4K    |    2M  |  1G   |    1M  |  256M  |
+>> |    16K    |   32M  | 64G   |   16M  |   16G  |
+>> |    64K    |  512M  |  4T   |  256M  |    1T  |
+>> ------------------------------------------------
+>>
+>>                          D64                        D128
+>> --------------------------------------------------------------------
+>> | PAGE_SIZE |   CONT_PTE  |  CONT_PMD  |   CONT_PTE  |   CONT_PMD  |
+>> --------------------------|------------|-------------|--------------
+>> |     4K    |     64K     |     32M    |     64K     |      16M    |
+>> |    16K    |      2M     |      1G    |      1M     |     256M    |
+>> |    64K    |      2M     |     16G    |      1M     |      16G    |
+>> --------------------------------------------------------------------
+>>
+>> From arm64 kernel features perspective KVM, KASAN and UNMAP_KERNEL_AT_EL0
+>> are currently not supported as well.
+>>
+>> This series applies on v7.1-rc3 and there are no apparent problems while
+>> running MM kselftests with and without CONFIG_ARM64_D128. Besides this has
+>> been built tested on other platform such as x86, powerpc, riscv, arm and
+>> s390 etc.
+>>
+>> Changes in RFC V2:
+>>
+>> - Dropped some patches that were merged upstream and rebased on v7.1-rc3
+>> - Moved pxdval_t definition inside generic page table header per Mike
+>> - Restored print format in __print_bad_page_map_pgtable() per Usama
+>> - Renamed __PRIpte as __PRIpxx per David
+>> - Dropped _once from pgprot_[read|write]() callbacks per Mike
+>> - Moved back all helpers back from arch/arm64/mm/mmu.c into the header
+>> - Renamed all ptdesc_ instances as pxxval_ instead
+>> - Moved arm64 pgtable header READ_ONCE() replacements later in the series
+>> - Updated commit message for the 5-level fixmap change per David
+>> - Updated ARM64_CONT_[PTE|PMD]_SHIFT both for 16K and 64K base pages
+>> - Added abstraction for tlbi_op
+>> - Adopted TLBIP implementation to recent TLB flush changes
+>> - Updated all commit messages as required and suggested
+>>
+>> Changes in RFC V1:
+>>
+>> https://lore.kernel.org/linux-arm-kernel/20260224051153.3150613-2-anshuman.khandual@arm.com/
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>> Cc: Mark Rutland <mark.rutland@arm.com>
+>> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+>> Cc: Andrew Morton <akpm@linux-foundation.org>
+>> Cc: David Hildenbrand <david@kernel.org>
+>> Cc: Mike Rapoport <rppt@kernel.org>
+>> Cc: Linu Cherian <linu.cherian@arm.com>
+>> Cc: Usama Arif <usama.arif@linux.dev>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Cc: linux-mm@kvack.org
+>>
+>> Anshuman Khandual (13):
+>>   mm: Abstract printing of pxd_val()
+>>   mm: Add read-write accessors for vm_page_prot
+>>   arm64/mm: Convert READ_ONCE() as pmdp_get() while accessing PMD
+>>   arm64/mm: Convert READ_ONCE() as pudp_get() while accessing PUD
+>>   arm64/mm: Convert READ_ONCE() as p4dp_get() while accessing P4D
+>>   arm64/mm: Convert READ_ONCE() as pgdp_get() while accessing PGD
+>>   arm64/mm: Route all pgtable reads via pxxval_get()
+>>   arm64/mm: Route all pgtable writes via pxxval_set()
+>>   arm64/mm: Route all pgtable atomics to central helpers
+>>   arm64/mm: Abstract printing of pxd_val()
+>>   arm64/mm: Override read-write accessors for vm_page_prot
+>>   arm64/mm: Enable fixmap with 5 level page table
+>>   arm64/mm: Add initial support for FEAT_D128 page tables
+>>
+>> Linu Cherian (1):
+>>   arm64/mm: Add an abstraction level for tlbi_op
+>>
+>>  arch/arm64/Kconfig                     |  51 +++++++-
+>>  arch/arm64/Makefile                    |   4 +
+>>  arch/arm64/include/asm/assembler.h     |   4 +-
+>>  arch/arm64/include/asm/el2_setup.h     |   9 ++
+>>  arch/arm64/include/asm/pgtable-hwdef.h | 137 ++++++++++++++++++++
+>>  arch/arm64/include/asm/pgtable-prot.h  |  18 ++-
+>>  arch/arm64/include/asm/pgtable-types.h |  12 ++
+>>  arch/arm64/include/asm/pgtable.h       | 169 ++++++++++++++++++++-----
+>>  arch/arm64/include/asm/smp.h           |   1 +
+>>  arch/arm64/include/asm/tlbflush.h      | 138 ++++++++++++++------
+>>  arch/arm64/kernel/head.S               |  12 ++
+>>  arch/arm64/mm/fault.c                  |  20 +--
+>>  arch/arm64/mm/fixmap.c                 |  24 +++-
+>>  arch/arm64/mm/hugetlbpage.c            |  10 +-
+>>  arch/arm64/mm/kasan_init.c             |  14 +-
+>>  arch/arm64/mm/mmu.c                    |  65 +++++-----
+>>  arch/arm64/mm/pageattr.c               |   8 +-
+>>  arch/arm64/mm/proc.S                   |  25 +++-
+>>  arch/arm64/mm/trans_pgd.c              |  14 +-
+>>  include/linux/pgtable.h                |  25 ++++
+>>  mm/huge_memory.c                       |   4 +-
+>>  mm/memory.c                            |  25 ++--
+>>  mm/migrate.c                           |   2 +-
+>>  mm/mmap.c                              |   2 +-
+>>  24 files changed, 624 insertions(+), 169 deletions(-)
+>>
+>> --
+>> 2.43.0
+>>
 
 
