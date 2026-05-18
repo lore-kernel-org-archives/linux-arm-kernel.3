@@ -4,131 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA91CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBB1CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JZWHiELT+SKeD/VHhgOQrpDww5CYuKtPZAq1kcMnPBU=; b=OHrj82OPlDLJ9TtRVld+jp2twg
-	06zGHq/Ta+gpRX2W3FFcEF9bEVX+SS4j2SnHPuPf7kvTdlF2F3+r55Uss8rHgdDEVmTpasOay/dnU
-	5mrFrFk9lwQndGQ0s1w1Nr4uWvKi5qeHmSbABzrscHr/bOnH0wqtW9XAGaaNThzBZNQ0ysiTCfoFt
-	NYYBMvTI5kBUT76o1LoqEJY511JAg7/PDDkDQDLVr7jCa7lfq29BVnbAy4wztuu9lzLkFE6bEaExS
-	38or1ZSE7pipmoqVfHPCHYUAVd5b7S5OQIaY4zvldMjSmJvuBX2vg5B56Oy/sctkLA2R00hkm4VO8
-	aO2Hqylg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mc7nblQbAWFFELQ9xDqrj2Jacy9OF+Rdr+ldOYLP6HQ=; b=Gg9hcty4sjKEGWf2/fhF+1nG1w
+	DTLeUwuEC6uNXrdaoUsXyMbDxZRN+3XABTlzOMQhNS05eL2imnrqpnNU0E6n6cVrro1KvVIFbKzpx
+	GIlLB/Tp8tMOtkkYv8U5SngTtOYHBmMf8yJaDAjfD0Cr0M9G/cgB9WZgR1pMcozJ3aHpx4IgmBHeU
+	jn2agElBB+Vbs/F98hFqflgqJ0BfISlT6XhlnO4LbwXCwx6y48PyfpWH6iqnjf20TLAemoq5/G+20
+	CpiMZt8KpJQws+9FTMIC6sHYA88K2JlLwhwr03jSbsnRMOhrPbtTf/pT74ZZyF9e15B62l/bIEmpg
+	2jKAqHTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3t8-0000000GkQ1-1R5v;
-	Mon, 18 May 2026 19:44:31 +0000
-Received: from mail-northcentralusazon11010064.outbound.protection.outlook.com ([52.101.193.64] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wP3wd-0000000GlAB-284r;
+	Mon, 18 May 2026 19:48:07 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3t3-0000000GkJq-1E7J
+	id 1wP3wa-0000000Gl77-21bI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 19:44:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RLSbzyM+3Nt1mcmYwVt3WIu+fBEupexbM5AtYda1LkNj6KO/ozRm1IDBkhE9/ca8fGZohWtG6GdHFT740vboUHE6EBaNc0wFDigVEmtuL+jW4UHR3YXlkfWJME2UvGDtarob/prrPGQUqvs49FUaIQw4hcABHaeakejTTa8BEF0h5A/9MSX78nN0gFqmPaGu6Y3hI4c3ox2uux5cgsID32LyivZR3TcHOotEsTB2fQ3rdJpPK8ik6hEHMSUcauK1eWVev0OIQDIUB+bfVx1iaZGkzPqyidjSOw80u7fVBdgmXezqPWfAl4xKh+xiLcvSqMptw2bPsBTweRJiFQxkhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JZWHiELT+SKeD/VHhgOQrpDww5CYuKtPZAq1kcMnPBU=;
- b=Hy/XU0KVoNWD4ldD9iii05J8b4EJradCEKtswqpAEGWS3EGjrLKFgJy7NDcTP+AbxHvsVanAncvml4bIisOQ+xTPKkWe8IPfAbMok+MpN7mnP50KgMMCvzKUffgrlNmbDVYA1V0B4f+1dDZw8kkxDP8z0jor8VhaUtCMaVzXvn3GMG8EvDM2FXq/lqsXR4fiVzwbk2n8PMMuP4K1mZMoXBk8wYQfoEfZbW5+1wnzDL0QqhkNrCuQFOvjMREP9iZMzw7pbWL+nCy6aYMcRDb6krWYdijpt8vQjSYSEZOTu6/f/+LknbalwCV4vF5OTK3ZtYHg0hsFBWQykyU+8mMEpQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JZWHiELT+SKeD/VHhgOQrpDww5CYuKtPZAq1kcMnPBU=;
- b=o3CopqF97bTypzwzts4Vpk/7lsZZxxb5aQSyphKtDgqy8GfJ3q7c6tSAvKP09y8z5aXnGDVlaPaBDNiIUIArmy3xmgtALfL7Xe16od+HG7AfzWko0Uf7K0hI59+8PxnMBs69pO5lbR4oWVcUuc1PNUVT9Uc4kqGoixxD9WvScPHBkmo+lK+1hsJNnbqELbC9HJtpw5l2jDkiZz8ty3NNJpHS38bfcKq4Z5PCeveCkxdNldCuZryFJSqcFeF6uLWmBCNbc0D55nDhWiTinvfEMFNNFlk5bvy0ZilZK/jAzM1x8QKZuaP5j9NQ5Kau0JBCgC/j2/CEnHm5G7ipmdMjLA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB5951.namprd12.prod.outlook.com (2603:10b6:510:1da::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
- 2026 19:44:15 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0025.022; Mon, 18 May 2026
- 19:44:15 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: iommu@lists.linux.dev,
-	Joerg Roedel <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
+	Mon, 18 May 2026 19:48:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1779133680;
+ bh=mc7nblQbAWFFELQ9xDqrj2Jacy9OF+Rdr+ldOYLP6HQ=;
+ b=bpeEtfsqCPpw2Uu4ETHBM8aGVyZSbA0enjMEdnMrfx2JGd7Sn69QzCam+ZY/ssPlEXZgTgv3r
+ ojBBZvLM/GsKhNAtQn6mleMxrMpjtO0fpTBnF8JaYRHFQ9WLX/mKaPPRG7qxaD6HHnrDHU7PNWK
+ lzzdXOqPhF6uI5/jU86vEsmE3QqwVEaaxgxiEs6v4apPHQVn5ljX9kAPJm69Q2csaXWEzCWds4r
+ wbobLkAj+3dSpwst1obF2BEcsW/1zQgF3aoGtSYCo6x4q+lycEFsCnyZ/LKXxZ8s1vptG6grtIh
+ yuD0pTRCBzPDVgFtumpaOy3vFCg4HOjNJ0JnE7uLGBpA==
+X-Forward-Email-ID: 6a0b6ce8b74b0ebd362eee05
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 2.8.12
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	dri-devel@lists.freedesktop.org,
+	linux-amlogic@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 5/8] iommu/arm-smmu-v3: Precompute the invalidation commands
-Date: Mon, 18 May 2026 16:43:42 -0300
-Message-ID: <5-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com>
-In-Reply-To: <0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BLAPR03CA0144.namprd03.prod.outlook.com
- (2603:10b6:208:32e::29) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 00/13] drm/meson: dw-hdmi: Misc cleanup and use CEC notifier helpers
+Date: Mon, 18 May 2026 19:47:28 +0000
+Message-ID: <20260518194744.2483580-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5951:EE_
-X-MS-Office365-Filtering-Correlation-Id: f309dfb6-ea13-4ff9-fe72-08deb515d78d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|11063799003|56012099003|22082099003|18002099003|3023799003;
-X-Microsoft-Antispam-Message-Info: jeBltHideTtW+j5QuUmz4nHHGB8mPI39r6toQNaw53wCen3V3RL8G85zBy3naJDsDA9fDQendWbxtAnPUoHhL0w6oW13/6sMH9mFIreaNVsft/DE8JWEaIPIy6LwFT2+PfUCqSLqXoAKH4sfLgI12RofF9ia9xP8xmLWs0qxjfQJ3PPcdXkXb/B1k9Pa/AehICHq5iyzgct+tGcD3FvgbeUylMqfZdoXv/3S50bkyXG05WDh6DbYlzth8qr1e6affmod+QozeqOpl6m3BBEMQ/D/tbBofn4AhIadaC6gEmh4rkfBoqfFZtrAfz9a5zhpmlfJvrcaTZhmTgyh0bzP02yqrXIO7ohOwHIEKnAPZrA3sjOyHRfEEji/l1uxnzBG99kwK81J1FErGb/yhtW7JyesvDEt7x+cxRXEBTCqD0KzGACHd9F5cm5HBb/iJbatbdb/OjOA2swRubbfqpFUy1Ty2OkFGPzcMO3pjsvHCV5PBbtDr/gomgeBZCRvHvPMoZnueMNiBrQcd2Rj/166mImZRooFsRgrzLcMZ391+SDeQ8dxBHoj+TqHmI2qclhIwF3KV6s0YaUT+1zygpFDrTmnw+lk6wqcbTDyA8jpL5m6uLm0Nma8d+xc0pZ8Lp3O6N+YB1EmbYaZ7dliazXIo2FlbgTY0TQ3cGUY0GLP5oXpDp563IEv/3eomuv1FAlS
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(11063799003)(56012099003)(22082099003)(18002099003)(3023799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NrQuBx+R4CStvemefBXHxkT2U5duJtmJXAg8eqMWa4x0BEeB34y9xtIGDi+b?=
- =?us-ascii?Q?9qz+pjEHlHkdaqh/draAClsuf0jV5H9fe3XJO5dw8ZKbR+J6ZbP/u+UCcXgw?=
- =?us-ascii?Q?owxjZvOEuvqhnoIY1wIj3Xl2VrCgNzGGeRh/hKFp/dC50FnzHDoMrInpegcL?=
- =?us-ascii?Q?waC+l/mipzqVAb73PMoWQxI9lH0lSV0cOGCJCMvwm8p5pbDOhAMixXC+TSEJ?=
- =?us-ascii?Q?U/0JVaBBouKcRyEpjicd+zxUlkjSzthNV49Eukpl8X7EBcfoNqN3knJKBwjq?=
- =?us-ascii?Q?q3K/iDeIRSGL+rZk0+QsLcpiqEuvWryvunWKy5vaoNHtCj+WlXIQ/9BYNZ4u?=
- =?us-ascii?Q?2oIvrrLe1UlC/7hw+m+aZiNVyvDgYJTDzHcemwv4JrzOY/GL7o8Wo+P2xWT5?=
- =?us-ascii?Q?M+/FIaQC8F5FeV/h7lcMl/DAEKzrFNpQqd4bmzEk1gSyxU5hZwBEWRsNUyb7?=
- =?us-ascii?Q?9HmwDDIeSpu9ErxAXdBGBYh2Kel5GiexarXYSu8DvZu0D+EUnla07ke0h06H?=
- =?us-ascii?Q?0mdtaqmo3bE1zOQ0ImtMsjhNwr+vEAOZ7bqg0ZMWPQUiBQrM8ELLbdpS5wZ4?=
- =?us-ascii?Q?TPqqRz+MljfCN2ya7ApWlPLGP432dhZshxK9kjlivOiKXdqCw6j/Fcn7TBbj?=
- =?us-ascii?Q?5QsN7IRTvfdwh+kGcgHtdYmFLilt8c8v1Zln7Ojh560iTIezAiwpyYqHY0TS?=
- =?us-ascii?Q?D6HvZvk+qVfP04UvtLXIVI1h8k0AYP+CTXs3zc9rUTj2dDfq2PJageL/QPKZ?=
- =?us-ascii?Q?g/aELvSUZnPE2RYJgfq+9g/Li9E/v42enLlHhTv0edlyW+xBgivVUFkuPzZG?=
- =?us-ascii?Q?nCXebvqSp9i7M4/HHfGkhQ8Xo10pGSMVNsiFDvvEEu6Fdk9+t/XlBnIkIT/V?=
- =?us-ascii?Q?ligWwez+lafrPuDX07lhRRFX8vzAfaQG/tmVIvGZmHF+7AbXneMZEXIcTk/h?=
- =?us-ascii?Q?Zk+EBLf9uxoCU7p/520yOB4/kaN5Jy5cVAo2IwHgaOfwpe0aXl60EhfHTT2G?=
- =?us-ascii?Q?ctorsAmuk4lUY7WrKem1FA6kbAdfyjSObyZBYOgmtVfoy/kOyOZ8Xp67i2T5?=
- =?us-ascii?Q?XxRdokaHX+YhHbiPU5Pns0Q2awarSSkL/Zh1rkzup/iFLT1rWxSMYOXou+6m?=
- =?us-ascii?Q?XCPIiv031srGgWTkzHSQKmHo2bogTDCtXhlw6u44yueo6ieju9gDZUO8m25E?=
- =?us-ascii?Q?6lw7oIX2CKpaXl5baPlbsIpxC6qTBsVw8Kr8iG5iQxjJP6bEMcBUodgDo3Ms?=
- =?us-ascii?Q?vcbrdXHYfMAtZ7SKqEyW6pxWusFMVJ+8wFNbSXX6Ibk/PLQu/y4a+26FXFHk?=
- =?us-ascii?Q?/H2GB5izuNHMh7n7XXku9pi5ybCsURNfRNN9iaVisW03P5uwBn7CF7vJ4HV0?=
- =?us-ascii?Q?xTZbN/qKlIJd/fN8stISywBqz9UKYyO900tUyO+T/WxPLvgQ2PF4SLCH3aAE?=
- =?us-ascii?Q?XZ8wuTzvKnleMnFzCccLmIXLgeG+1NnuK6BrYYd/tueRV0P4ZKCIZzMoF5Bf?=
- =?us-ascii?Q?cNTJCod20Ryvkl6JZFo9dRDZCMT+FYCENkNpv1hA5Ql6B+/LXGQETymP0ksu?=
- =?us-ascii?Q?iBOh9lO6iICo2zcaBfuTyi8X/bvmV7nIvD9im2T+PyXU5HBkNTUkrfzAl2hH?=
- =?us-ascii?Q?PurRs8vmLpaEiiKsk2N1lBPn1vu+ABdc3S/bECd6OosMglsm7vwoEvBeIF5c?=
- =?us-ascii?Q?2f0G1Fj3YhEb3TfMcaYMJ7B0gC90SIVR5tdTwDIST2ogoxUa?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f309dfb6-ea13-4ff9-fe72-08deb515d78d
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 19:44:15.1030
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UfocH9TLYqVEs/T0KNYvaBDPGzbct9HFLY8ETt3pS6J4phN6GMCpycjy4PmSShn+
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5951
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_124425_386109_3F4B7345 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20260518_124804_616084_CFD86C42 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,267 +85,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Store the required cmd data in the tlbi and just copy it out when
-processing each item in the invs list. The cmd form only depends on
-if the instance supports RIL or not, otherwise it is always the same.
+This series include misc cleanup of the meson-dw-hdmi driver, changes to
+use the bridge CEC notifier op and to use the dw-hdmi delayed work for
+HPD event handling.
 
-This avoids redundant calculations for each invs entry.
+Patch 1 ensure connector status is based on HPD bit
+Patch 2 protect from a possible NULL pointer dereference during bind()
+Patch 4 reduce number of hotplug uevents and hpd_notify() calls
+Patch 6 changes to use bridge connector CEC notifier
+Patch 3,5,7-10 cleanup code for consistency
+Patch 11-12 changes to use dw-hdmi HPD delayed work at HPD event
+Patch 13 changes to use suspend_late/resume_early/resume_noirq pm ops
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 132 +++++++++++---------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  11 ++
- 2 files changed, 81 insertions(+), 62 deletions(-)
+This series depends on improvements made in the series "drm: bridge:
+dw_hdmi: Misc enable/disable, CEC and EDID cleanup" [1].
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 3b0b273fcde829..9aa08f782e8986 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2398,32 +2398,15 @@ static bool arm_smmu_ttl_addr_aligned(u64 address, unsigned int tg,
- 	return !(address & GENMASK_U64(pgsz_lg2 - 1, 0));
- }
- 
--static void arm_smmu_cmdq_batch_add_ril(struct arm_smmu_device *smmu,
--					struct arm_smmu_cmdq_batch *cmds,
--					struct arm_smmu_cmd *cmd, bool leaf,
--					u64 address, unsigned int num,
--					unsigned int scale, u8 ttl, u8 tg_enc)
--{
--	cmd->data[0] |= FIELD_PREP(CMDQ_TLBI_0_NUM, num) |
--			FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
--	cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, leaf) |
--		       FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
--		       FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) | address;
--	arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--}
--
- /*
-- * Issue a single range TLBI command covering [iova, iova+size). Returns true if
-- * successful, false if the range is too large for a single command.
-+ * Generate a single range TLBI command covering [iova, iova+size). Sets
-+ * use_full_inv if the range is too large for a single command.
-  *
-  * The algorithm finds the smallest SCALE where the range (in tg-sized pages)
-  * fits in the 5-bit NUM field (max 32 units of 2^SCALE pages). This may widen
-  * the invalidation range.
-  */
--static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
--					  struct arm_smmu_cmdq_batch *cmds,
--					  struct arm_smmu_cmd *cmd,
--					  struct arm_smmu_tlbi *tlbi)
-+static void arm_smmu_tlbi_calc_range(struct arm_smmu_tlbi *tlbi)
- {
- 	unsigned int tg_lg2 = tlbi->smmu_domain->tgsz_lg2;
- 	u64 cur_tg = tlbi->iova >> tg_lg2;
-@@ -2433,9 +2416,6 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	unsigned int scale;
- 	u8 ttl = 0;
- 
--	if (!tlbi->size)
--		return false;
--
- 	/*
- 	 * Determine what level the granule is at. For non-leaf, both
- 	 * io-pgtable and SVA pass a nominal last-level granule because they
-@@ -2452,10 +2432,13 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	if (num_tg == 1) {
- 		if (!ttl)
- 			ttl = 3;
--		arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
--					    cur_tg << tg_lg2, 0, 0, ttl,
--					    tg_enc);
--		return true;
-+		tlbi->range.data0 = 0;
-+		tlbi->range.data1 =
-+			FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+			FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-+			FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-+			(cur_tg << tg_lg2);
-+		return;
- 	}
- 
- 	/*
-@@ -2474,7 +2457,8 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 		/*
- 		 * Range too large for a single command, use full invalidation.
- 		 */
--		return false;
-+		tlbi->range.use_full_inv = true;
-+		return;
- 	}
- 
- 	/* 16K granule TTL=1 is reserved (Section 4.4.1) */
-@@ -2485,38 +2469,31 @@ static bool arm_smmu_cmdq_batch_add_range(struct arm_smmu_device *smmu,
- 	if (ttl && !arm_smmu_ttl_addr_aligned(cur_tg << tg_lg2, tg_lg2, ttl))
- 		ttl = 0;
- 
--	arm_smmu_cmdq_batch_add_ril(smmu, cmds, cmd, tlbi->leaf_only,
--				    cur_tg << tg_lg2,
--				    DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1,
--				    scale, ttl, tg_enc);
--	return true;
-+	tlbi->range.data0 =
-+		FIELD_PREP(CMDQ_TLBI_0_NUM,
-+			   DIV_ROUND_UP_ULL(num_tg, 1ULL << scale) - 1) |
-+		FIELD_PREP(CMDQ_TLBI_0_SCALE, scale);
-+	tlbi->range.data1 = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+			    FIELD_PREP(CMDQ_TLBI_1_TTL, ttl) |
-+			    FIELD_PREP(CMDQ_TLBI_1_TG, tg_enc) |
-+			    (cur_tg << tg_lg2);
- }
- 
- /*
-  * One TLBI command per IOTLB entry, assuming the entries are all at least
-- * iopte_granule sized. Returns false if too many commands would be needed which
-- * indicates too high a latency. The threshold is similar to MAX_DVM_OPS in
-- * arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-+ * iopte_granule sized. Sets use_full_inv if too many commands would be needed
-+ * which indicates too high a latency. The threshold is similar to MAX_DVM_OPS
-+ * in arch/arm64/include/asm/tlbflush.h for the 4k PAGE_SIZE.
-  */
--static bool arm_smmu_cmdq_batch_add_single(struct arm_smmu_device *smmu,
--					   struct arm_smmu_cmdq_batch *cmds,
--					   struct arm_smmu_cmd *cmd,
--					   struct arm_smmu_tlbi *tlbi)
-+static void arm_smmu_tlbi_calc_single(struct arm_smmu_tlbi *tlbi)
- {
- 	unsigned long num_ops = tlbi->size / tlbi->iopte_granule;
--	unsigned long iova = tlbi->iova;
--	unsigned long i;
- 
--	if (!num_ops || num_ops > 512)
--		return false;
--
--	for (i = 0; i < num_ops; i++) {
--		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
--			       (iova & ~GENMASK_U64(11, 0));
--		arm_smmu_cmdq_batch_add_cmd_p(smmu, cmds, cmd);
--		iova += tlbi->iopte_granule;
-+	if (!num_ops || num_ops > 512) {
-+		tlbi->single.use_full_inv = true;
-+		return;
- 	}
--	return true;
-+	tlbi->single.num = num_ops;
- }
- 
- static void arm_smmu_inv_all_cmd(struct arm_smmu_inv *inv,
-@@ -2536,16 +2513,32 @@ static bool arm_smmu_inv_to_cmdq_batch(struct arm_smmu_inv *inv,
- 				       struct arm_smmu_cmd *cmd,
- 				       struct arm_smmu_tlbi *tlbi)
- {
-+	u64 iova = tlbi->iova;
-+	unsigned int i;
-+
- 	if (inv->smmu->features & ARM_SMMU_FEAT_RANGE_INV) {
--		if (arm_smmu_cmdq_batch_add_range(inv->smmu, cmds, cmd, tlbi))
--			return false;
--	} else {
--		if (arm_smmu_cmdq_batch_add_single(inv->smmu, cmds, cmd, tlbi))
--			return false;
-+		if (tlbi->range.use_full_inv) {
-+			arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+			return true;
-+		}
-+		cmd->data[0] |= tlbi->range.data0;
-+		cmd->data[1] = tlbi->range.data1;
-+		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
-+		return false;
- 	}
- 
--	arm_smmu_inv_all_cmd(inv, cmds, cmd);
--	return true;
-+	if (tlbi->single.use_full_inv) {
-+		arm_smmu_inv_all_cmd(inv, cmds, cmd);
-+		return true;
-+	}
-+
-+	for (i = 0; i < tlbi->single.num; i++) {
-+		cmd->data[1] = FIELD_PREP(CMDQ_TLBI_1_LEAF, tlbi->leaf_only) |
-+			       (iova & ~GENMASK_U64(11, 0));
-+		iova += tlbi->iopte_granule;
-+		arm_smmu_cmdq_batch_add_cmd_p(inv->smmu, cmds, cmd);
-+	}
-+	return false;
- }
- 
- static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
-@@ -2564,8 +2557,8 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
- 	return false;
- }
- 
--static void __arm_smmu_domain_inv_range(struct arm_smmu_tlbi *tlbi,
--					struct arm_smmu_invs *invs)
-+static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
-+				     struct arm_smmu_invs *invs)
- {
- 	struct arm_smmu_cmdq_batch cmds = {};
- 	bool used_s12_vmall = false;
-@@ -2662,6 +2655,13 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 	};
- 	struct arm_smmu_invs *invs;
- 
-+	if (!size || size == SIZE_MAX) {
-+		tlbi.single.use_full_inv = true;
-+		tlbi.range.use_full_inv = true;
-+	} else {
-+		arm_smmu_tlbi_calc_single(&tlbi);
-+	}
-+
- 	/*
- 	 * An invalidation request must follow some IOPTE change and then load
- 	 * an invalidation array. In the meantime, a domain attachment mutates
-@@ -2692,6 +2692,14 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 	rcu_read_lock();
- 	invs = rcu_dereference(smmu_domain->invs);
- 
-+	/* Only precaculate RIL if it will be used. */
-+	if (invs->has_range_inv) {
-+		if (!tlbi.range.use_full_inv)
-+			arm_smmu_tlbi_calc_range(&tlbi);
-+	} else {
-+		tlbi.range.use_full_inv = true;
-+	}
-+
- 	/*
- 	 * Avoid locking unless ATS is being used. No ATC invalidation can be
- 	 * going on after a domain is detached.
-@@ -2700,10 +2708,10 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
- 		unsigned long flags;
- 
- 		read_lock_irqsave(&invs->rwlock, flags);
--		__arm_smmu_domain_inv_range(&tlbi, invs);
-+		arm_smmu_domain_tlbi_inv(&tlbi, invs);
- 		read_unlock_irqrestore(&invs->rwlock, flags);
- 	} else {
--		__arm_smmu_domain_inv_range(&tlbi, invs);
-+		arm_smmu_domain_tlbi_inv(&tlbi, invs);
- 	}
- 
- 	rcu_read_unlock();
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d58fe91a96325f..b5e214b428d644 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -809,6 +809,17 @@ struct arm_smmu_tlbi {
- 	size_t size;
- 	unsigned int iopte_granule;
- 	bool leaf_only;
-+
-+	struct {
-+		bool use_full_inv;
-+		u16 num;
-+	} single;
-+
-+	struct {
-+		bool use_full_inv;
-+		u32 data0;
-+		u64 data1;
-+	} range;
- };
- 
- struct arm_smmu_evtq {
+[1] https://patchwork.freedesktop.org/series/134727/
+
+This series is part of a multi series effort to:
+- drm: bridge: dw_hdmi: Misc enable/disable, CEC and EDID cleanup [v7]
+- drm/meson: hdmi: Misc cleanup and use CEC notifier helpers [v1]
+- drm/bridge: dw-hdmi: Improve input/output bus format handling
+- drm/bridge: dw-hdmi: Convert to a HDMI bridge and use of bridge connector
+- drm/bridge: dw-hdmi: Add and use tmds_char_rate_valid() plat data ops
+- phy: rockchip: inno-hdmi: Change TMDS rate handling to configure() ops [v4]
+- drm/rockchip: dw_hdmi: Misc cleanup and propagate bus format [v2]
+- drm/rockchip: dw_hdmi: Enable YCbCr and Deep Color modes
+Link to snapshot: https://github.com/Kwiboo/linux-rockchip/commits/next-20260518-rk-hdmi-v5/
+
+Jonas Karlman (13):
+  drm/meson: dw-hdmi: Report connector status based on HPD bit
+  drm/meson: dw-hdmi: Protect from possible NULL pointer dereference
+  drm/meson: dw-hdmi: Call dw_hdmi_remove() consistently
+  drm/meson: dw-hdmi: Drop call to drm_bridge_hpd_notify()
+  drm/meson: encoder_hdmi: Use CEC phys addr from display_info
+  drm/meson: encoder_hdmi: Use bridge connector CEC notifier
+  drm/meson: encoder_hdmi: Report ycbcr_420_allowed from encoder
+  drm/meson: dw-hdmi: Use local dev variable consistently in bind()
+  drm/meson: dw-hdmi: Use devm_clk_get_enabled() helper
+  drm/meson: dw-hdmi: Use dev_err_probe() to report errors
+  drm/bridge: dw-hdmi: Export dw_hdmi_schedule_hpd_work() helper
+  drm/meson: dw-hdmi: Use dw_hdmi_schedule_hpd_work() helper
+  drm/meson: dw-hdmi: Use suspend_late/resume_early/resume_noirq pm ops
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c  |  11 +-
+ drivers/gpu/drm/meson/Kconfig              |   1 +
+ drivers/gpu/drm/meson/meson_dw_hdmi.c      | 169 +++++++++------------
+ drivers/gpu/drm/meson/meson_dw_hdmi.h      |   3 +
+ drivers/gpu/drm/meson/meson_encoder_hdmi.c | 107 +++----------
+ include/drm/bridge/dw_hdmi.h               |   2 +
+ 6 files changed, 106 insertions(+), 187 deletions(-)
+
 -- 
-2.43.0
+2.54.0
 
 
