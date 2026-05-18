@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BDCCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 21:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7507DCD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 21:55:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fy1HBFVuO0GJ4o0p11RLty2yKXcghAkaNBsukWq8870=; b=sP7p712lN1ZmjIrRpwzDI/dsVN
-	jeY8Iv7hkzhn616gZgXLVaQf4oyPbuVNcqhzpyIRWeuSRNIbmWNb8gQrhm7wdwx81VBCr+rDaKcrt
-	OSPivFJQ5uYEAfphCgWt/iLEsKQzw7wfyGlRYb2ed2MY9PrOzK0zqB1AXxYIUO3ijN3JsYZpztqQd
-	n7aqTVzUnuXt0xKtfBlhafzcBPQDkjza7jKfrnVm6qGlbt+trxRknbb/e1jwUdf15CzYhodwtyXCm
-	AZu6rFlp8ASpspC5O9p0rC3RyIgvW8s48baLeJUx1imJ91QEvNGS6xqt8jYjrBfiQb7vl25lyaZ4J
-	/zQVXaaw==;
+	bh=aT19v/akBh/92rAN6rbnhCv4aQeTgCXIVPX2AHaFqvM=; b=Po4kXQyRVIUevxyVqgviwvgh2k
+	p9iLEenri8t318lUqEd/UqJRjqL17ihHEWu4xMMRGA+sDXiiZMikptsoBrvltlW4LEUNRAFIZg/lv
+	5Ul88Fq7B0yNvpr6wJ4SCRwPK6g0tB4UGyv1TvxSil2KKhIvwNCGBlfT80TZ6fUFZz7UI+Y0wtHPq
+	+nGnkM9x3z/6HVgRtPV2cBHsSuosCzJW33g367yK7qC6zf6b5mLcJAaFDNmCcMmB9J4tY8GOb/6U4
+	3tS2PR92h+jQGCxxeWjUmWfqfsNESoaEPkht9WhjerEhFrvdz6g2yPaxb5YcEpOgbqRWo3bbuVSpS
+	ZpeWQoxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP5qs-0000000H2KU-1yZw;
-	Mon, 18 May 2026 21:50:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP5qr-0000000H2K9-34Vy;
-	Mon, 18 May 2026 21:50:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fy1HBFVuO0GJ4o0p11RLty2yKXcghAkaNBsukWq8870=; b=pOS83YWVtXk7JjEx5UQDv2tmhN
-	uUtw4kBpiwQBAIH1ENn5cy0zMz3ksAIO+IYMXP8o94X1/6A9wh/oRBXvSErRuEye2Yk5IQd/Hxl2x
-	HAvYzxGaxfPIMaOpOkDFVMEPBB/ToXEGCQbQVXyuD86ePU78dQBTnynzuHnMiLTgEXvZTB9EFuRF+
-	QqeKiGf3O2OVZ61bCcAm69/8MoXATh39NSN2y+gp1tMRY4ZX0jroOU54I/PEZLBPeRMTcXEdQ5IA1
-	jvguieBHlA7I99EFDZOD7W/Uq2h4PT+GoIoyoVnaflNu0iPCC17GCpAd85ziHC6zP3e0BPE5cLhxf
-	sekawg9Q==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP5qX-0000000CQ3N-3Rxb;
-	Mon, 18 May 2026 21:50:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 958E242A9D;
-	Mon, 18 May 2026 21:49:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72344C2BCB7;
-	Mon, 18 May 2026 21:49:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779140993;
-	bh=BCGSqu4+tudCgoGPI93aYjf9oZVk8EXFJax6d4C+gqU=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=jVKkLixeYzQCESMmdpBM9gDq8wylpSSYAhoz/4BwiMZAb+st0HmL67KfdXstWd8CD
-	 2yxdvNaCnWIYCq1s5KKlt6IQQWo7HgQGjGiImraJJsCh4TAUlFLsIOeo0ijNv3+jX8
-	 JXbydklE6vPhGyZqGnjXnOs6RSgqxv4XAwlWimH2MxbU+LeycUTGdzyYKgciYkHPjB
-	 o2QJk940DzsKMmJWidNYaZ3hET/LUpq7wk1LQhpDtMTPNB1OHwXe3GDNmVypt8E+Wl
-	 LrIAYUaAA56cHch+H8gYT2S9bUCsv/O4XSfIlc3hSKcQDvqXGBUIzf8w4mch4UGXJV
-	 P11EUBVuvYcrA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 19AF23930CB1;
-	Mon, 18 May 2026 21:50:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1wP5vr-0000000H2sZ-11Cn;
+	Mon, 18 May 2026 21:55:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wP5vo-0000000H2rz-2peh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 21:55:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2D4E832AC;
+	Mon, 18 May 2026 14:55:17 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF1313F7B4;
+	Mon, 18 May 2026 14:55:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779141322; bh=YD8ys6Cvuh2mZbnirI1fsh8QprXFw+273S/FOd5w6Kk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XxmKvM1Kytq9wmpk2HPJ0TY3hWfXQD4nJPkDZj7nb3h9B23qMrJU8MTQGMxMJJ9pY
+	 uZRd7JxzqNLCnP+gCI74gIfE1GKZSZN3XHtrQTGvRWaTo0bUuQ6FbLZm3+WrE6zsca
+	 whJVdCaKYHw4idToRhdsK05umXIIlpYXakZRt0tY=
+Date: Mon, 18 May 2026 23:54:32 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: Paul Kocialkowski <paulk@sys-base.io>, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
+ Baijie Helper A133 board
+Message-ID: <20260518235432.07537260@ryzen.lan>
+In-Reply-To: <04da68168f92b196cce4d49c766fc62702bf6472.camel@gmail.com>
+References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
+	<20260510201644.4143710-4-alexander.sverdlin@gmail.com>
+	<agr9m_tidBr6Cu2h@collins>
+	<04da68168f92b196cce4d49c766fc62702bf6472.camel@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] Bluetooth: btmtk: fix urb->setup_packet leak in error
- paths
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <177914100464.1984363.3049951945476473554.git-patchwork-notify@kernel.org>
-Date: Mon, 18 May 2026 21:50:04 +0000
-References: <20260518022402.20398-1-liujiajia@kylinos.cn>
-In-Reply-To: <20260518022402.20398-1-liujiajia@kylinos.cn>
-To: Jiajia Liu <liujiajia@kylinos.cn>
-Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, sean.wang@mediatek.com,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_224958_848866_52DD9043 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20260518_145524_849780_ABA4E20F 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,29 +75,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, 18 May 2026 22:05:25 +0200
+Alexander Sverdlin <alexander.sverdlin@gmail.com> wrote:
 
-This patch was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
+Hi Paul, Alexander,
 
-On Mon, 18 May 2026 10:24:02 +0800 you wrote:
-> The setup_packet of control urb is not freed if usb_submit_urb fails or
-> the submitted urb is killed. Add free in these two paths.
+> thanks for the review!
 > 
-> Fixes: a1c49c434e150 ("Bluetooth: btusb: Add protocol support for MediaTek MT7668U USB devices")
-> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
-> ---
->  drivers/bluetooth/btmtk.c | 2 ++
->  1 file changed, 2 insertions(+)
+> On Mon, 2026-05-18 at 13:52 +0200, Paul Kocialkowski wrote:
+> >   
+> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
+> > > new file mode 100644
+> > > index 000000000000..65b094f30bf5
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi  
+> 
+> []
+> 
+> > You should add:
+> > 
+> > 	chosen {
+> > 		stdout-path = "serial0:115200n8";
+> > 	};  
+> 
+> I actually have it in .dts, but it's theoretically possible to deploy
+> the core board in a way that serial0 is *not* a console, so the above
+> probably will not be valid in all cases in .dtsi.
 
-Here is the summary with links:
-  - Bluetooth: btmtk: fix urb->setup_packet leak in error paths
-    https://git.kernel.org/bluetooth/bluetooth-next/c/5daf96ab8398
+I am with Alexander here, to me the serial port belong into the
+helper board .dts, not the SoM .dtsi.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> 
+> > 
+> > 
+> >   
+> > > +&reg_dcdc2 {
+> > > +	regulator-always-on;
+> > > +	regulator-min-microvolt = <500000>;
+> > > +	regulator-max-microvolt = <1300000>;  
+> > 
+> > Should be:
+> > 	regulator-min-microvolt = <900000>;
+> > 	regulator-max-microvolt = <1300000>;  
+> 
+> 0.81..1.2v according to A133 Datasheet Revision 1.1 Jul.14, 2020?
 
+Do you have the CPU OPPs for this board? Do they slightly
+overclock/over-volt the core? We have seen this for some other boards.
+But you could go with the safer 810mV...1200mV range, and we adjust
+this when needed.
 
+> 
+> >   
+> > > +&reg_dcdc4 {
+> > > +	regulator-always-on;
+> > > +	regulator-min-microvolt = <500000>;
+> > > +	regulator-max-microvolt = <1300000>;
+> > > +	regulator-name = "vdd-sys";  
+> > 
+> > Should be:
+> > 	regulator-min-microvolt = <810000>;
+> > 	regulator-max-microvolt = <990000>;
+> > 	regulator-name = "vcc-usb-sys";  
+> 
+> I'm a bit puzzled here: datasheet says 0.9..1.0v
+> and it has no "Typ" value, similar to VDD_CPU, but
+> VDD_SYS is not part of OPP tables, so who is going
+> to adjust this? Or shall it be just
+> 
+> regulator-min-microvolt = <950000>;
+> regulator-max-microvolt = <950000>;
+
+There is indeed no exact value to be found. Just go with whatever the
+BSP used: either it's the PMIC reset value, or it's adjusted by boot0.
+If you have a BSP kernel booted, check the value of this regulator on
+the Linux prompt, then use this value. Chances are it's indeed 950mV,
+as used by the Liontron board.
+
+> 
+> ?
+> 
+> >   
+> > > +};
+> > > +
+> > > +&reg_dcdc5 {
+> > > +	regulator-always-on;
+> > > +	regulator-min-microvolt = <800000>;
+> > > +	regulator-max-microvolt = <1840000>;
+> > > +	regulator-name = "vcc-dram";  
+> > 
+> > Should be:
+> > 	regulator-min-microvolt = <1100000>;
+> > 	regulator-max-microvolt = <1100000>;
+> > 	regulator-name = "vcc-dram-2";
+> > 
+> > ALDO2 is the main DRAM supply, this is the second one.  
+> 
+> Core schematics mentions 1.1V/1.2/1.35/1.5 on this rail...
+> Currently U-Boot has CONFIG_AXP_DCDC5_VOLT=1100, but potentially
+> this is adjustable, right? At some point LPDDR4 chips they
+> are soldering today will be unavailable. And in the current
+> market it will happen rather sooner than later...
+
+We don't support multiple DRAM types for one board, really. If they
+switch to another DRAM type, we will need a new DT or some other way to
+adjust this (potentially runtime patched by U-Boot). But we can address
+this when we get there, so just set the 1.1V that LPDDR4 requires for
+the existing boards right now.
+
+> 
+> >   
+> > > +};
+> > > +
+> > > +/* DCDC6 unused */
+> > > +
+> > > +&reg_dldo1 {
+> > > +	regulator-min-microvolt = <700000>;
+> > > +	regulator-max-microvolt = <3300000>;
+> > > +	regulator-enable-ramp-delay = <1000>;  
+> > 
+> > Should be:
+> > 	regulator-min-microvolt = <1800000>;
+> > 	regulator-max-microvolt = <1800000>;
+> > 	regulator-name = "vcc-pg";  
+> 
+> Do suggest to drop vendor's
+> 
+> regulator-enable-ramp-delay = <1000>;
+> 
+> in all cases?
+> 
+
+I don't see this used in many other mainline DTs, mostly it's just for
+some picky peripherals (PHYs). So if that works stable for you without,
+I'd drop all of them.
+
+> > > 
+> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
+> > > new file mode 100644
+> > > index 000000000000..ccbca5d0a40c
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts  
+> 
+> []
+> 
+> > > +	aliases {
+> > > +		serial0 = &uart0;  
+> > 
+> > The is best added to the core dtsi.
+> >   
+> > > +	};
+> > > +
+> > > +	chosen {
+> > > +		stdout-path = "serial0:115200n8";  
+> > 
+> > Ditto.  
+> 
+> But it only physically materializes in Helperboard, the carrier.
+> Potentially this one can be left floating or used for something else.
+
+As mentioned above, I agree on this staying in the helper board .dts,
+and it not being moved.
+
+Cheers,
+Andre
 
