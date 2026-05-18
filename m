@@ -4,127 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C87CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C6F7CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 13:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZcOdpdoLw45XsrEt8n63eqY+BeCred7b4848JUv1Qsw=; b=d923gKqCsgJrHO1NekgPp8LrEi
-	WPhl9Kknz7LG4Usfebvcy6bFmREsMRrKoqH3+n8zcPXp4uw0IysU4bNAk1lALGb7+DKehzUhru/kf
-	50Ax/LmVCfNUFg0SmEb0G+MkGMOPX9cWc+JHSsmdCKDEg91Od7MRr2dDlMOmDnBk9kqNCPAqvQLSE
-	FnxPB7iW2PwAHBBssTW/2fGsTNopLxdsuTixOz/E7w8vLd6tLpeFTEnigj8/NFp3ixL0cjjIL3J3t
-	k5ce+tnFyANvZQA3cdHo27Lo7lRGVdhVRDgKgt3tI4V7IMb6Tu3axYVgZmgOav32VZsc3j80nCz/N
-	MtBm93Vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HxgTGn2UGPzs3R9hEnApQQFF803ju8gKa2p5R3olVUQ=; b=XM39U0gibpy6WI2v3Iht93tphw
+	olXhUGJdKY8Vg8UoJj3KhJzfS24ymCXmWf2HhYhZzTT5auJ+ao+sGTvD5nZRCiSovyQIS4tVuqi0O
+	8bA885Xe9kOsjOThRlBj2IDuRQ8vejA6Vuqb/KjaAlACpnyZ8hzkFub2Pb/FvacmMweaXgzCYYAiV
+	hiTVeOCmDbTc1w/ZEb1+POO4LDfiSfG2PhEnQGQonWxO3PQjkz+IMF6NKam6xM6wvocegZ1qFyv+6
+	MCheHrIgsg30d/Wcsz6I6IzKGFlw38VXoMpYl3/1F1L732UQAdL3ZOjn7LHBVPydl384lImPtdvV6
+	OM8+xLsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOxvh-0000000FnjU-3d24;
-	Mon, 18 May 2026 13:22:45 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wOxwJ-0000000Fnrx-0D4I;
+	Mon, 18 May 2026 13:23:23 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOxvf-0000000FniU-2qax
+	id 1wOxwG-0000000Fnqg-2Zuo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 13:22:44 +0000
+	Mon, 18 May 2026 13:23:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n/iOvzIgVe6b2/TBsvoUuyG0OzRoxgsYkZqrn/SnljoYNessCrLZHgHc3QkXMEu481GnLUdQGyeSrzhyl1T9cuM0kTlz9nGWiISpYAByytJxXS+/HRSzPNxy+dbtniyTMd5aOoOO6fG9Eu8Sgg9UToh6p7sGc7tVcOqCC81OfFsKyy/SAUgPtSyGQXVvyW5/zoPLV8R4g1KzdK973N0aDuodGR0EbP/zqEoZk79n9eVEhC+gOiJ0fZVcpeU9pCjqN7zEeficAd5w7hvVfTF5IIZdWKax63UPEIRobwQMnFns8UjsvRVq/iSbbyDbJw5ewX1imeKKsU4HI6ONbR/iDg==
+ b=h93JVVnA5oyPSksPodWh1LolerZ/gihgsGolvyF5lIOZBx+8p7qNq4MjSXmGvJdhuf1D3lKw7OnEAwbonUdpHog2aGpEumnmuH8r05ZvPU/Kr4n4EFPWRW5hNbaHIv+vN2Pob9YDCEbLYpVWmwzFsjyDTXLToQoex0+WT6ZLykogoi3WPXhmspTuvSV2SxGJsZwPh1p/UFIrbuCl7Gh8pvXhEcHkM8NnfDV9RDxNA0bQzX8NqybusBnT8xm5mR3ppEFRz6BU05VyLgkABPnaM2fVxpvPs3oo0H27np0NDoKgGhWa4maTGWPlJkuDfjm1XKs3zn3blVZkZGFpoxRumA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZcOdpdoLw45XsrEt8n63eqY+BeCred7b4848JUv1Qsw=;
- b=hr21/jjkm5fcz7N+RVJmU+YI7eN4hYqMUUd6uLEXyyo4mSw1+tRcI2/EbRX+P1ksZi57U5FnhjSqt+hCfOffO1T8bJ6VZK13HpMjPukeqy2Lvnm90BVaAXdoU5bEFPxwut7R85yOeuyCUT90gx5PmnP+VhrJY0pSjScxObhOMd6HcXHi7Q9Jk+gLCeJbZY1pUeU31M2N+0SAfIz2QTn4t/rcA8Qu8h5ryI+zvBaUo/sy+tMb+q02e2+vvr6Iw4GdFYEoM54Iroli+ihEjr84pZ+++FG7TUlxLiQcs7YqY4t75PN/1wS4h2if6Un/dHFKAW7V/4is7S8JAckwRn6nMw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=HxgTGn2UGPzs3R9hEnApQQFF803ju8gKa2p5R3olVUQ=;
+ b=JbwRaEb7rX3FPAkHdd8cvK0pE5rgRKKcdazSJG2Ax2d1x6Oj7sRlV0ipfq/PVPgtYhGgnOw7ZfCcEnVUuzhfVHI69Zy4EPONG+RAYMY959HbNmh38TBV6UjMvWniSfarMPuEOsGJzuv25HJBL4SzELIxioOqPbTb8kTFwu3o5702+rRqQw3X9qA88HpZOfkHicXrNUSPQZJGgWZhohCE6196ecAwefCtZ6dDDFf0/Rc+EpOrmrnkha3PaaImXcBpR2JmsS7hz76FzbVsu86xq7j5IxuzF2daGKsXNnIh9ZCN9eBDyWucw6NyevIUyiDI/XH42JTFcFHX1yJK1MzAgA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZcOdpdoLw45XsrEt8n63eqY+BeCred7b4848JUv1Qsw=;
- b=hwDwtm/wIj8tvR8JoNrzG//v4vvNpIvuEOXNc1SSb9Fd7tFkudoxXyQ/eMsnmnLmkxAG6T/viNv4crHk9ZdT9qxsLhIJKg6VejVm33JdfkkpP6wbW+x/54PrjV4ub3V2L7Dtoak2Dm7yP5BfhoLyvu0/4hKflu4In5kvPloMVus=
-Received: from PH8P220CA0059.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:2d9::7)
- by SJ0PR10MB5742.namprd10.prod.outlook.com (2603:10b6:a03:3ed::20) with
+ bh=HxgTGn2UGPzs3R9hEnApQQFF803ju8gKa2p5R3olVUQ=;
+ b=BzjK2t72WNW6pLxGVOzBkPthYBi0mpVWc8OCwFnLPAvb1r23f1sh81cA2qo0LR1VKpxD+kQNM+DxLMJoRrbd+S8QKjX4Lqs1QbbtNYv2Nbho2YJ2z64V/W8uE54MMnFCXtVFhMiuKgpjAtRLK9XQG71Ayo4zGNdbttrotKf0cvaxri/Q7iBlZwlAjEInadGDnBMKNemW/kC3LynrJFaBHuScwapoJNDV6w74cJ3fPfBhDaxjMZS+ZSGswLh/6mkdp5cnHgYrdOda7pe9yrgERLfzFX181SLX6AYR0qq/PDR9ee6p2aGh+XvSBLZNrQMB2kKJSUotA6vHdFNQuqRbjA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CH2PR12MB4055.namprd12.prod.outlook.com (2603:10b6:610:78::15) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Mon, 18 May
- 2026 13:22:36 +0000
-Received: from SA2PEPF00003F66.namprd04.prod.outlook.com
- (2603:10b6:510:2d9:cafe::ec) by PH8P220CA0059.outlook.office365.com
- (2603:10b6:510:2d9::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Mon, 18
- May 2026 13:22:36 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SA2PEPF00003F66.mail.protection.outlook.com (10.167.248.41) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Mon, 18 May 2026 13:22:34 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 18 May
- 2026 08:22:27 -0500
-Received: from DFLE214.ent.ti.com (10.64.6.72) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Mon, 18 May
- 2026 08:22:26 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Mon, 18 May 2026 08:22:26 -0500
-Received: from [10.249.135.81] ([10.249.135.81])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64IDMCe51951923;
-	Mon, 18 May 2026 08:22:12 -0500
-Message-ID: <495082a3-1a08-45d9-90f0-4723837ec4be@ti.com>
-Date: Mon, 18 May 2026 18:52:11 +0530
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Mon, 18 May
+ 2026 13:23:08 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0025.022; Mon, 18 May 2026
+ 13:23:08 +0000
+Date: Mon, 18 May 2026 10:23:06 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: iommu@lists.linux.dev, Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Krishna Reddy <vdumpa@nvidia.com>, Will Deacon <will@kernel.org>,
+	David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 6/9] iommu/arm-smmu-v3: Directly encode simple commands
+Message-ID: <20260518132306.GL787748@nvidia.com>
+References: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <6-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+ <agqETancvNtL0lXc@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <agqETancvNtL0lXc@Asurada-Nvidia>
+X-ClientProxiedBy: YT4PR01CA0182.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:110::23) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 2/4] firmware: ti_sci: add support for restoring IRQs
- during resume
-To: "Thomas Richard (TI)" <thomas.richard@bootlin.com>, Nishanth Menon
-	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
-	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>
-CC: Gregory CLEMENT <gregory.clement@bootlin.com>,
-	<richard.genoud@bootlin.com>, Abhash Kumar <a-kumar2@ti.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>, Dhruva Gole <d-gole@ti.com>, Kendall Willis
-	<k-willis@ti.com>, <u-kumar1@ti.com>
-References: <20260513-ti-sci-jacinto-s2r-restore-irq-v8-0-195b27f91519@bootlin.com>
- <20260513-ti-sci-jacinto-s2r-restore-irq-v8-2-195b27f91519@bootlin.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20260513-ti-sci-jacinto-s2r-restore-irq-v8-2-195b27f91519@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F66:EE_|SJ0PR10MB5742:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5b3532b-173f-4c2f-3387-08deb4e085e6
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CH2PR12MB4055:EE_
+X-MS-Office365-Filtering-Correlation-Id: abd06da7-5c0c-45e5-a059-08deb4e099b0
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|7416014|1800799024|56012099003|18002099003|22082099003|4143699003;
-X-Microsoft-Antispam-Message-Info: bK8u08H2ZbLqjlez619fVnEz7/RlJio7EhlnghuaW9IQYqUbkKe2N1SfHP1wO6oZpA42jwXpanQgZf+tDzPHPe2zMOEFyr0Gpx1f+So9ZyIswCB0+mbDWdw7nK4AmPioAC0orUHArVjv9VWWl3BDB/atFEZNNbMAAAk7sL7ChxmTShC6LJbOpbPtgG4ra59EwEdkcwHAFVOvX6x232oCdV6z/mlCr4431rZ1YjQsX18J1V4AHnZWDStogpilmOU4BhvhTIfnXFf7vHnZqf6k6SYmNaW9Jk+I+HShsexPzV7t15MjEdFPvbHgi7e4M0czqLUDhxs/UncWU9e/C8Ee9iS6y5Kpj+emphD2G1K6MvQzl56+PY4Ly1N5xRkM6Skh3ZPJseObSgMzikEt7ZjwHDnqfokJijEX6O2fSt6gF7y1U8ewVsJf9LSD667qmyX8k8FOAtKMNcwSlkOkP6rpLPpNtabjwArpvh6fLKNju2iyLftMslKdfxrVkYfvWzwt5GlQ2LI4hsSUgANYLvue8tGkmygSKWmaMhFBw2NnXnwnzmSP83FWYvWUJ/z+o9G6O1gDERC9FP2dkKkMwUSWHVzKCbHLZe6ENRdk+NPLRIzWzIgV00O0rUb76U8Jop97hSlH75EDOcKK68FwD7sj5dvbWY/DOtBldq8gZ+/9Oh6OEP7o7OjbFMR6FjLdKLtCKUPm6j1FuaYonh5GTTj36qoGLYi/PoAXIap2IkETmiw=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(7416014)(1800799024)(56012099003)(18002099003)(22082099003)(4143699003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|4143699003|11063799003|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 9N5jjR3y1GBQ61e3aYGMDCEms/fMDCC3Z3nWy9EuspjEtdgfkukNx1oaLGejKGVmRNJcTtH4J1Cm7uVFAVzW2iYVdSqc3ES9vJs/StS741y9AikLGKYtWvWpmj8K1Bm+C+XJz+sriYMeAU5Vt0dd80squwoZEMpTes2jL8h6A0Xq+LhjVsCAuixYaZRbjx7K1F9wSSESDMw1DAZcXenfqzPTzGMb5OvC81j2s/MIAtPt8hdTNy/ENtaLga0MvFyUNHo/LYw7yX9Y41iRWh3D7wKkRTZGRnppNhhuqfoqobYRqrrK8N/A0DfPyn94JC9VJ/zUX/I6++0V2GB8T4cmgCLV/c0Yx2F9+fmoquwwq0+HAlQ79VD5D3f9Uc8BZfpGZhM4zzzRkD3UhslodUpjwiDkkZJWl3rXq6E4Cu2k32SsSheTS+qRrkxN4/F2n10MHelTrTeWtc/1kEQXQzKSUo8I9FkpZhwoAFGu6rJaYv5iDkTx3RVMUKpcVmQu76mFvvmE1pU+EY52tNoPS9lSM0dIs4Uwi57GEyWKjx/KkDRGXFcgjUPa1mrqFHN3m/c84KwNiP6yFbdZ8AJxSzmXYnR9OvYTiSjRMjqaFmCALZsvcQRgGyL2JK0Mhep/ZcRXf8FV6TCjnESyqbdQoSbRfBqow4XX2r3mTJDFDeKR74VBN5uRAFFar9D51+CLRnj5
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(4143699003)(11063799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: viUdqPK5JibixM+QecqZhI1BdAS06G1B+oSLPvhZuTh2C/6SnF6w50zkK0d4Sfp/iTKQznAvg+lAX9uXtwrQD/uMvqhMPJiVzfMHTQvl5VgJPoLHIwJVojo0Yx2phR1vEr47sOxngFy1xU+UTudwvX9G7BmfS4IeDLveLnaBSYEEKsEhUNS+SqTLu/7AXXfSXb8HdhdUECgRwTXi1XIP7Ub+KgM1XqX01RoSt1m+mNJbDsY7W74MYL397i12q9CLXPd8NVTNik9Xa7tZB4yZCapZcBgBiNV+B75oYAWQe4ef38F+BnARW3tdMlgtERA0vXeR9JagkKklfL9gl0rc1vcu/IZ7VwD45CKZ9kICAxv7SVmz2bk3q8FKRL00bbjlleHK6xm4k6Kf5rpa3IF9ZMwR3xHYxWCTMzlZeoY7cHzcn6xYcem54RYfb4ZzcYou
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 13:22:34.4634
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cNepZeubWqCPA8Btdw6/ZFXj+KqUQWlnZrxzoJ1fZAsg5U6r1iUqbcOfCwg+?=
+ =?us-ascii?Q?z2oo1wcQzqvBAOcBQ3o1BXGxN/SeG2S61EJ1Qx1v9Cy/esA5JkyhgXiVUM7J?=
+ =?us-ascii?Q?c6TskmEcQhZB6FcKLKza+xdG5O8298V9zkbLPSQ/MJW3Y40vr5Ujz/5ZafV5?=
+ =?us-ascii?Q?M6q87CTeoxGYL47Q7FklVkbofJTvydbO5d57jYWpoxudKfIO+edA9L3oe7fW?=
+ =?us-ascii?Q?MwDRf6S8ffYHWAj/ZG2n67X+uTyJKa5u8D1eGWRchlkGxfvM2g0xV2TVu6oy?=
+ =?us-ascii?Q?OD4xIetRqtrFyEoTjFQg0uYgIJAxOZKwOOJOUE2YFy/LSrE2w3LO1kDLbw7k?=
+ =?us-ascii?Q?ZvN9Y5wClaYDlZBbaRzP415jWONQkuW5rj8BwXHCM4DWQWPbdt8CyPfttxXO?=
+ =?us-ascii?Q?taM9rAwWRQe5OcGCgl6pEdqWuhcRhiN1i2NeU6E8h03gX6MQQ4WdrR34Al6w?=
+ =?us-ascii?Q?xRztMXleDfvuq/JL9wnqhB9+O7jAJ/VCyloNkxe7k0PN8OcH6TykjgpgQisc?=
+ =?us-ascii?Q?BveJFC2hGhcDO7jz8dXUiSTnJyIP+Z/fxSJyPJv0zUz9YfC7RBbkFsBJqzzN?=
+ =?us-ascii?Q?L7Fh5utSmcpqLhTFhhHwAGcyubUAlRtO8MkElquHz3+WdjE3UhgPacLWjuLS?=
+ =?us-ascii?Q?kCoQDqIplcjMB4EJ/fuoTPLiXhBkx25Z7fW6S4XOM4sn6sRH58FAyyTveuH3?=
+ =?us-ascii?Q?qLo0HCpg74gwLHCwSsArYYS5ttxNVxL/ZZ+QHhQ82wRDRzGX+ep7OlGDhauv?=
+ =?us-ascii?Q?0GF4vW5kaDk4dMeQnesq1BFsWtjHwIIy0ZbRn+yh8tNUgmrLyaXatmvs7p0v?=
+ =?us-ascii?Q?pOXWw9/p3nIv/J3KAlwrCfQAOMrJFskzqQsD3F9y1PxnBtjpQe/11WFKtNyA?=
+ =?us-ascii?Q?vvvmdk7Q9+ULpputPfbI7uD6NKs49lToDcjp5fzqaPN6wWdTRCg+dn+OHghU?=
+ =?us-ascii?Q?gZd4XLV5rgNyNRbuXURrv5tfmJSCveILpFTafjL1spB0rmJ2PVixeP5jdnMA?=
+ =?us-ascii?Q?DhhWkPRGeYwBuFre5F//UISECGaDuJXBsOfXRxHKuvkmlenc79IrGBSs+69R?=
+ =?us-ascii?Q?LBiCQEq+V9ru5HzPfItlmk9yaRAKz9JtL6nS6lDIe4/jg5KlZoR1EbUxvOa+?=
+ =?us-ascii?Q?nVJnJChY4EeRdwEooUEdwkHnt2PoIIwB2J6CRXC65tTojWDB55Q8DXyuo/cx?=
+ =?us-ascii?Q?bbu2ovU3s1idg/OvzYTMbUgK5zV3pzST5EAzwjIEU+8Gj3AKF2eL07dEgORf?=
+ =?us-ascii?Q?U8OBBfn58UTyKNJfwD2FtH8dLDQN8gJ9aPuH6QTbqWnEYTGprSSGDh0ooRSk?=
+ =?us-ascii?Q?ytgWQpjLP0udEE+FAgEDv/jRLkmN7QRHrx0BvHQsN47deQSOgXal9n8wvUvo?=
+ =?us-ascii?Q?+4WIXp51zDFtdDruHccZtICE3HTDqRWNGD16AOjM2qtaPwLWE63ojgdIB3bF?=
+ =?us-ascii?Q?vjKtPVWJSgonmO6pHkVEoEpSBJJQ+Av0x6Lgk57jys/V7iyFgc8GUocn4GSi?=
+ =?us-ascii?Q?NZzn/+kW6rZfu8Ju5ME2LtCpUmV0mG3Vr8+TPkUlTZWd8jjUmticDQJ3QaGW?=
+ =?us-ascii?Q?fE4oTz4p3R00GKwHedJQ7VN/f7HSQhImqobsdTkdKBv6vD1UzlknrO5/ZMw0?=
+ =?us-ascii?Q?hPiH9pcQ5NdGryS6Oerm9ad9wvoBpmp6cRCXLUazlbdk4kw7rXJaH0Mk8Hy9?=
+ =?us-ascii?Q?TA9pbcABnPde6nWnfemN1EzheefZIMvCR2ClGuaEjxVaXIX8?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: abd06da7-5c0c-45e5-a059-08deb4e099b0
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 13:23:07.9730
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5b3532b-173f-4c2f-3387-08deb4e085e6
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F66.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR10MB5742
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DrG6M1bZoHRhEQdZof5zEvXmwLYusmQJ24K1kiFeike52cQLh+WjzltbbT/5usOl
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_062243_723134_1C5DE520 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20260518_062320_673503_BB1ABA5D 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,95 +146,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/13/2026 6:16 PM, Thomas Richard (TI) wrote:
-> Some DM-Firmware are not able to restore the IRQ context after a
-> suspend-resume. The IRQ_CONTEXT_LOST firmware capability has been
-> introduced to identify this characteristic. In this case the
-> responsibility is delegated to the ti_sci driver, which maintains an
-> internal list of all requested IRQs. This list is updated on each
-> set()/free() operation, and all IRQs are restored during the resume_noirq()
-> phase.
+On Sun, May 17, 2026 at 08:15:25PM -0700, Nicolin Chen wrote:
+> > +static inline struct arm_smmu_cmd arm_smmu_make_cmd_cfgi_all(void)
+> > +{
+> > +	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_op(CMDQ_OP_CFGI_ALL);
+> > +
+> > +	cmd.data[1] |= FIELD_PREP(CMDQ_CFGI_1_RANGE, 31);
 > 
-> Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> Reviewed-by: Kendall Willis <k-willis@ti.com>
-> Signed-off-by: Thomas Richard (TI) <thomas.richard@bootlin.com>
-> ---
->  drivers/firmware/ti_sci.c | 201 +++++++++++++++++++++++++++++++++++++++++++---
->  drivers/firmware/ti_sci.h |   3 +
->  2 files changed, 192 insertions(+), 12 deletions(-)
-> 
-> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> index eaeaaae94142..35ee8cc830c8 100644
-> --- a/drivers/firmware/ti_sci.c
-> +++ b/drivers/firmware/ti_sci.c
-> @@ -12,11 +12,13 @@
->  #include <linux/cpu.h>
->  #include <linux/debugfs.h>
->  #include <linux/export.h>
-> +#include <linux/hashtable.h>
->  #include <linux/io.h>
->  #include <linux/iopoll.h>
->  #include <linux/kernel.h>
->  #include <linux/mailbox_client.h>
->  #include <linux/module.h>
-> +#include <linux/mutex.h>
->  #include <linux/of.h>
->  #include <linux/of_platform.h>
->  #include <linux/platform_device.h>
+> Optional, might retain the note:
+> 	/* Cover the entire SID range */
 
-Could you check, recursive header inclusion header warning
-In file included from linux/printk.h,
-                  from linux/srcu.h:85
-                  from linux/notifier.h:16
-                  from linux/reboot.h:6
--drivers/firmware/ti_sci.c:31: warning: recursive header inclusion
-+drivers/firmware/ti_sci.c:33: warning: recursive header inclusion
+The spec doesn't have a note like this is just defined cfgi_all as
+having this encoding.
 
-> @@ -87,6 +89,16 @@ struct ti_sci_desc {
->  	int max_msg_size;
->  };
->  
-> +/**
-> + * struct ti_sci_irq - Description of allocated irqs
-> + * @node: Link to hash table
-> + * @desc: Description of the irq
-> + */
-> +struct ti_sci_irq {
-> +	struct hlist_node node;
-> +	struct ti_sci_msg_req_manage_irq desc;
-> +};
-> +
->  /**
->   * struct ti_sci_info - Structure representing a TI SCI instance
->   * @dev:	Device pointer
-> @@ -101,6 +113,8 @@ struct ti_sci_desc {
->   * @chan_rx:	Receive mailbox channel
->   * @minfo:	Message info
->   * @node:	list head
-> + * @irqs:	List of allocated irqs
-> + * @irq_lock:	Protection for irq hash list
->   * @host_id:	Host ID
->   * @fw_caps:	FW/SoC low power capabilities
->   * @users:	Number of users of this instance
-> @@ -118,6 +132,8 @@ struct ti_sci_info {
->  	struct mbox_chan *chan_rx;
->  	struct ti_sci_xfers_info minfo;
->  	struct list_head node;
-> +	DECLARE_HASHTABLE(irqs, 8);
-> +	struct mutex irq_lock;
-
-One of script report errors, you might need to document hashtabke.
-However warning is unrelated
-CHECK: struct mutex definition without commen
-
->  	u8 host_id;
->  	u64 fw_caps;
->  	/* protected by ti_sci_list_mutex */
-> @@ -2301,6 +2317,32 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
->  	return ret;
->  }
->  
-[..]
+Jason
 
