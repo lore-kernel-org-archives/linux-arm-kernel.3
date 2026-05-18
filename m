@@ -4,167 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B32B2CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB0ACD4F50
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u3PHvNAkLfyzKLYXg/H9ItO5otO3ceYN3s7CBn5sO7M=; b=4D/xdUukHfUqj/X7vm5T+OdJP6
-	yk1tOZVJt20h731D0xPi9wmQNehSy8WT55hCBLJjMJdbCaiWG2Gc5ufRHDHl9QFxPg2Itp7v4SbUs
-	S5FipaaaW6pfpTsEAtTadA6m+2+0bpXIcSYBCKxsDjRhguDzrK+DN23hsN8DHsVVtUWzpc8Tw+IuG
-	HJaQU5ZanP/lcj+2fOvMz+03j2xpeB/9iXMbR7iQ+Tx9m0kYQ6fNArsp/aGjl+RUUY9BJ/Rx1P1NT
-	tI/RVjz8AJNOt7B4GT3IbjsTwdmCCjF2zUS1Hkwv0YZ4zISgoX6gPlhlOdl18RVogoLtkEC74ecyD
-	yAJ9rrxQ==;
+	bh=Wy+J26CG/KBGcKxq3KmI13vbiPtxYEkFTnnheWea5rk=; b=ZlHNla7FuZURlCL1vuIHw/fpHZ
+	btKO3BzqGWwueyr+5++D7keOCy8LJAyJWl9sOL6O1vXUqAKlitOQ5iyDXuBUWYrS324gToP2FfWQo
+	9XfWseK+akV5VpDpmoBe8bdrYRVN0C4CvoNyviKHn46uFRkU8jXh9+Pdq7mKPVFoNvJSkByOWkiE/
+	BE3Pl+vazUbvY+dTFfabH5BCZaO7He89UGWQU1WvUsyLypWz7JzGhE7pGeQPU52hLcPtg3B9r6QJO
+	+meccpUbAG2iV+iOrrrKKdhRWi0JVSvTExiUEdZLQ5k4wffX5m1DvnuE+alEynJKGv2Zc4BkieK4b
+	bfn1LY5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrGb-0000000EOrL-3QHd;
-	Mon, 18 May 2026 06:15:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOrMl-0000000EPlr-39pb;
+	Mon, 18 May 2026 06:22:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrGa-0000000EOql-20bT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 06:15:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=u3PHvNAkLfyzKLYXg/H9ItO5otO3ceYN3s7CBn5sO7M=; b=HE9jGjJnJQgmIdsqEoB5Rq9t/R
-	GrSkyAmIZ1x1ySJsqXoj0yCU6efM52XiUaK/rs0KIfWextbOf6G8KRyHq1AvoKo8MiEak4pa7dfS+
-	KZHfSFiEuZOipanVXbxixbIovoUx8M27LmkzZgV+FKiihWtRkLuO8NsVo3v3rtxvRVnD3ivMWbdeH
-	1Wl8XdwtpaKQKZpOXpi7sF7b5eL1RlDZIpkdf241l6mPGvsin3idO9bzr7n1RFFVyzaf7ykTXPHUY
-	IM8yDzeIOI0rCWqfMYfcossC6rKMSq0rZPl1YuGFREk9vGvK5Co5ogcMmUE2/ZhweO64QdvXzosOP
-	YaUPuQgA==;
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrGW-00000009zjT-1C27
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 06:15:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pflNMGtWiPwXsjy1B04CZ++hgHDI6ykVQETAZdH0sYHhG1RBDJ+MMXVFcqj6pX1HJQT0Ug7WvWIrlJfOv5YyQgTNEs9Tz6ZuOL+IbhCQSA/4oa2lt2Jai02AP2sG7iqil3uUd1215ojPYX12rbJ0OK1vgilj5z6slXKxQ+5rsuDqyaqTJkSLnBk2LCkv81pOFU9jfJjKDTziojwjnqSEO9zoAO+764cM5EQ8y0FXS/Keuk1iRDeJTxuBtycVbOkibfR71LshuAeDvRnrXiL5QcXZAIetpX/xHxpm6Ea7qo/2sj+y2z3ZWWTswfhJVnFg/h5o+LVygdPjrEoDjTXeLQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u3PHvNAkLfyzKLYXg/H9ItO5otO3ceYN3s7CBn5sO7M=;
- b=jiAdpEXKV2wOucvBVOonrXeEChe1XA+wx25c60JkjOt1Z488fUT1fW4VVlEYqj66GxY33vebBEiwpARCAYvr4T4gFFGf/d1FKt7cTUM41CHPEUzBVlS9DgY6+eQqafCCUMHO920i9DwVjnHm8DnuQU4ww8yYbXWl1gpyNZIjur4KuAvupCz4SUOpFNciRlbE9M5StyJXpAg+8XbSr5kYLGjgchi6hezVzGJI5nXW2XXlSGt4plR76iaO8GTYoN9h3gDKmRcCHsQ29qrvxSsDMftI/RiweIzp5Yk5LVsRPRcMscCA+XsuxWxcVfU4u2ErDRJE947rex/b5aqsvIwluQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u3PHvNAkLfyzKLYXg/H9ItO5otO3ceYN3s7CBn5sO7M=;
- b=tisNEa/wq/cnvqcoRH/k2ySOOxPNTiQV1/qh6XmZlvR/nAJVqD2vS/JcC2v/A13As6GWz0cfhlUUe/LimzC4t17Hypbpq3udk/rjS8lo7BD3VunPulhtn8rn8Z4I9WcUNBoiC9SLALf4vFqFAzoGzeBNKjsoRzfqnvcGa69whSb8V+woEQLW9/xNsJBayKJX5d9m+qpYznJEGvmal0wEx18NgcTFCGnS7qCGDR5cTS0/+qT7iW3WJ+CnPaN5y8ZcWYIbFUKZUCSIMEeEbwHCx7lgv2tDwm5eqQZNqWWHY4rbryysmyJu+EQEwF0uh1vNnYypLDUzirKjl4oCKuekfw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8190.eurprd04.prod.outlook.com (2603:10a6:102:1bf::23)
- by GV1PR04MB10966.eurprd04.prod.outlook.com (2603:10a6:150:204::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
- 2026 06:15:40 +0000
-Received: from PAXPR04MB8190.eurprd04.prod.outlook.com
- ([fe80::4608:7dcb:899b:e4a1]) by PAXPR04MB8190.eurprd04.prod.outlook.com
- ([fe80::4608:7dcb:899b:e4a1%4]) with mapi id 15.21.0025.020; Mon, 18 May 2026
- 06:15:39 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: [PATCH 1/1] arm64: dts: Add usbphynop and usbotg pinctrl for S32G platforms
-Date: Mon, 18 May 2026 08:15:22 +0200
-Message-Id: <20260518061522.2884441-2-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260518061522.2884441-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20260518061522.2884441-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P250CA0001.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:5df::6) To PAXPR04MB8190.eurprd04.prod.outlook.com
- (2603:10a6:102:1bf::23)
+	id 1wOrMk-0000000EPkU-0gQp;
+	Mon, 18 May 2026 06:22:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 05EE640DBC;
+	Mon, 18 May 2026 06:22:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A01CC2BCB7;
+	Mon, 18 May 2026 06:22:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779085332;
+	bh=zkFDJF7fz51FV37iDY2VAna6p1X471J7zJme82WLsjs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=S+kE7lokwNjnm9hvlBCtnLv445qG+GCXIVjLfHmeChC4oyGZnd/ILC768x1ScWGb7
+	 GvnjSzMy7vYc5k+AqXhnZcQ4h9c7m3vrO9MBM/QOqMv6dXuiUlmFvip/GX+7jnfw7T
+	 OohmcKlf7aH+0dKHk5EY0JoQSb1OrL7wyVYnq/Dmp4d8+52y5HJK0DX+7VpqX13DR5
+	 EXSDqXNCb97kCJBHm7KOsbaUAniKBxvLmrtOjkAjsuUMFcKKPxY3LQYs9XqfJaJe8d
+	 A1t65qfPm/zHB2RUDbCOeYniRrnfabTDQRI7AE8OEWqId1Fb5l9+IgOMefKbErftE2
+	 0f6l7jrFmYABw==
+Date: Mon, 18 May 2026 11:51:56 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: manivannan.sadhasivam@oss.qualcomm.com, 
+	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
+	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>, 
+	Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
+ a platform specific way
+Message-ID: <tgsh3cum6qxrqjzbdeqjsp6bf7cqedj7il77hww3oxecadndin@idjnwib7cz4z>
+References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
+ <abFMa6DCGGLUHddA@fedora>
+ <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
+ <srdn3bspgwff7f7tnst7wzg4us4buifrv7o3ylo527hmuciyl3@6ioyrl6rfhaz>
+ <abk3rU2EDKjkefUD@ryzen>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8190:EE_|GV1PR04MB10966:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe33af13-96f9-4f6b-d9bc-08deb4a4de9d
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|376014|366016|3023799003|11063799003|22082099003|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: xnv5jMoFSjZCHHDpEyUC4XKKPJGKESqvhLAr8DtYQds/FmYnUMZGvhGudVkj2aT9rw2svxetm2Ea2r5aWKepEJJT6OiM4jWplJCB9FO0MQUlc1JClw62yq8Sc8NDOreZe2r8Xvsfjg9u0xlemb4wEsFc81VPSPp5tZ4EEwJBAHapG0RNm4rPecqW2dRfgus56KRMbjOC7Z9DRwXU6mFUNqnDPUZLv7DrgkuewiVhfh5jakOv76MNCT8RzJG6gCyFvf/Bn2Pp+7ii726nIV4c9CA2gEE3Am9pVrKlaO0f6TY9O3VoRYOoEDZ/+MCrPc0I7jPD4hCoKinGUyNOQfsOO4nRYu9gUwgpaD5zVKN2wJpdRq0KCyfO/eeJwUyorwR/VdE883BEq0Cgfn/T62a4PiMV4UFUYsor/WNet/7KWT588kpKKhWwZYSS6YD8KQ4kCLN6zQBNBbA4hGqJX1BappTAsXpObThRHivsc77fUzre2AoZa30Ho4IC7lqL+EFC9nQ/ztBw+QfzLCHsOmm+OyBqTp5/GExdne/fe5XJLA6MLOB2G6dBgPcRvdlu+u03FCn+pqD+lFfSjPlYZpfWfesnIBiO0YbGS5s4iF/cZFLZi5zPBJ28xqVyIJf6vVGnrZciLKXNwV0I4+kQrTsrP303xzbegThxAXJvXUfffeIth+YY7c5/06+y7Br+d4eN
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8190.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(376014)(366016)(3023799003)(11063799003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R2FTcHpIRzFaY3R2cldqcmFpNXBSUkc0T0tBeTU3N2xGT01WcXpBbHdZMVBT?=
- =?utf-8?B?eWwybWtwQjNoWjhaaXdmRTh2QS9pR04vNWF1THZCYTNRbGFyU3orem9LNk91?=
- =?utf-8?B?MXRReFJNU1RSTGo3UlIyODIzMDllUlQ1ZFlJaXE5VHlCbDhrcEx1VGJqRE9M?=
- =?utf-8?B?bmQ0NGgxOGJRQi9DVWxTWW1QRFJ4c1NEUDhKWXRTYnRQMkxuYlpZNnBmZkEz?=
- =?utf-8?B?dW1UVlBibVkyN3B0TmpldGpwV04zOEhQT0RWVDNsckhBeEh2eVNRdkpHYURN?=
- =?utf-8?B?OXlwYmpUQkZkV1JwK2d6TGh1a0kwMDFHNi8zRHYwYTdXUmc2MHBQWGhMYnVH?=
- =?utf-8?B?OHNlQkJlMWRnNFJZekZlaUI5ZEplMHJ0T0kweVJ3bTV5ZHRtUHB1TURiMUEv?=
- =?utf-8?B?YmQybzdyT2R3aGlIQmNaK09VeUJEREtXU3VyTFFPTVRpeTFOMW1hb0FJeUlm?=
- =?utf-8?B?UkNtTU0xSnlpZmVra1RoMzlCb200RXRLYXk2Z3M4M2QrOFhTcTlaYzBnb21u?=
- =?utf-8?B?T3BDcEhMdS9mRFNUbFcwU1MvSTdib0RLVVZXN2Zlc3greUEvS1JKeUpYaERR?=
- =?utf-8?B?eHJqLzdMMVNSanIwK1lvQUxsYXNCVHFIRy9jcUdSU3l0aDBBSWxLa0JtdzhV?=
- =?utf-8?B?U1pRcXdOOWlyYXExNmdCZ3gvNlgxVGFvaDNXbXhJYkJOcDZBTXdlaytGV3Ux?=
- =?utf-8?B?Y1FyNUdZTUg0RWsxb2g2K2liRVVjOGNxN0xNcFR6YkxFTHJSMXRjMHB2T3l2?=
- =?utf-8?B?Vk9lK2Q4ZXgxVTFRU21DV2tNUVUrTTRXSHVtdWMzWDlsaXphMVVkUGl6VnZs?=
- =?utf-8?B?M2xVUldkVEFsQlJVc1g1WjJsRUVrYnh4M3NRc09SNmFZd3JQWkRTdVZ4MERs?=
- =?utf-8?B?T1FlUEt3N25uSVpTckY3RzBpSWZMc0lrU3AzQk9RcU9JZ2R3citoSmNXS2I2?=
- =?utf-8?B?RmpaZWk0Z2crL3pHVURVVkd2aGtpVlpJa0pmRk8wdEhNb0ovZ1l6cXRMdm4y?=
- =?utf-8?B?VFdpQjFwb2tBdk1qU1A1Vk9DRVl1dVBKS2V5a0NHc3pOcEZKL3o2NzNudmFm?=
- =?utf-8?B?aEI0TkN6a3Q0RlpBVlhSbFd4VjR2UWwrMXcxT1NXVElyZVZLaGh6ZTdqbmtH?=
- =?utf-8?B?M05wU21rK0VLL0ZzLzJGaHUwbUtETmVVUFg5U2ViS1ZMbFkxK2JFTURqZEV5?=
- =?utf-8?B?OEd1eFYzMDFjTGNXZ0RieUNKeUgyTFpCMk9tUHdCSG9ua0NrQ2NaSWJ0aFRm?=
- =?utf-8?B?RG1Xd3VqMjlhUTVKUlpEMXREc3J0WVM2ZWdtbHZLZk5KYlpJREdPM2MrdjlH?=
- =?utf-8?B?bmp5OFVDZ25IRExSSVZBKzRIRmdoZkRmVFovNmFwclRiODlQWk55UTFJQlpS?=
- =?utf-8?B?V0JtSzRRZVRtNktKYUt6NXJJeHpYSHVQL1pUS24zQUxlYmNNYUgvUHJxSEhM?=
- =?utf-8?B?bEVSdFoydVNQZDJrRlQ2ZGlWZUxTaGFNM1NwTC9NU3RIYXUyenIzSXFoOWdY?=
- =?utf-8?B?cXExbXU3bnkvMXoxWFgraFNHNUdpOXpnYk9HUG8vV2l5QTN6WGEzZ3J5Ni81?=
- =?utf-8?B?V1ZiNXBla1B6bzNRVUJHSG5hbU1ocmdUU1JvWmJnMlZRMG92NVhwQ285Qi9y?=
- =?utf-8?B?MkY2NUw1VkFhbG11S3BmVWUvR01tekgrSnM0RmVKQUMyd3BwdituTmhSUkQy?=
- =?utf-8?B?M1JiUGRzOHplTktidVFzL1VZTEQ2R0NVdW9FZmVkWWM1bk1VV3NqUkgwT2J3?=
- =?utf-8?B?SUVaSElxNTBoczN3eUREdGpxV2pMaGJzQ1R5T2ZwdDJZTmkvNHpVUU8zRDJ6?=
- =?utf-8?B?V0RmcDl6UlRWQUNvLzV4K1pSZnRaa1VCc1F6WWR3UXA2aWF5ZjF0WDlEOCtj?=
- =?utf-8?B?UnJNVFRqTHlGRVhuSStob3VabHBOMWdIVktHZTBLK0RWUDM0NlN1Mk1laGNT?=
- =?utf-8?B?ZVg2WktldUxCajRiRWR5dXhZYzJTYUhMN1JDQVVCMFJJeHRMY3VYeWJDUFU3?=
- =?utf-8?B?Vjh4b21XVzFUVTkxamxlQm5Bay83WmRoTTFlellmSmloR2JlakFHSkorVmwv?=
- =?utf-8?B?blMwK0hnVDFSRUpxRjBBS0VJUmRJenIvaldZa2pXTG1lVkJsZklsRGNrRVU0?=
- =?utf-8?B?WlB5Y05udXFFU2o2QVFmaWlSbGs0M2I0ckNxUnAvMUY0MTFyRWdKSVJTZzh2?=
- =?utf-8?B?NUg2dWlMMWxmOXhCNUEyc0xkQkR1czg1MXNSUkIyVmJEdkFGOExkUGo2dFoy?=
- =?utf-8?B?akVoZWRpaVY5ZWFBTVd3bGU3VEpTdXI4MjY1N2MyRm9NNDN5b0plY0M2ZGFX?=
- =?utf-8?B?Wng4WUFwbm0zVzRkc3c0TUt0ZHdya3d4a3VDdklSNTZMKzYzRDF0REpzN3pl?=
- =?utf-8?Q?v1HtVxmf38kgTxxRRBOJ5sNzrIauAGEy4sd20?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe33af13-96f9-4f6b-d9bc-08deb4a4de9d
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8190.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 06:15:38.9989
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U1i1jMZgc9Wrm/46QnA6jKhZwaZVkpKz/IGEj1KTtVGf7/u4XoazfigHrpKG3aK1MiKXCJgWLjtlUvEHiOZptUqf+tb5Sxj6MeLiMquZKmxgVfv3gIUKEW4JkyiIafy7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10966
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <abk3rU2EDKjkefUD@ryzen>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_071549_270751_424C7566 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20260517_232214_244564_CCBC2A3D 
+X-CRM114-Status: GOOD (  42.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,179 +85,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the usbphynop node and the usbotg pinctrl
-support for the S32G2 and S32G3 SoCs.
+On Tue, Mar 17, 2026 at 12:16:47PM +0100, Niklas Cassel wrote:
+> On Wed, Mar 11, 2026 at 08:44:15PM +0530, Manivannan Sadhasivam wrote:
+> > On Wed, Mar 11, 2026 at 08:09:53PM +0530, Manivannan Sadhasivam wrote:
+> > > On Wed, Mar 11, 2026 at 12:05:15PM +0100, Niklas Cassel wrote:
+> > > > On Tue, Mar 10, 2026 at 07:31:58PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
+> > > > > Changes in v7:
+> > > > > - Dropped Rockchip Root port reset patch due to reported issues. But the series
+> > > > >   works on other platforms as tested by others.
+> > > > 
+> > > > Are you referring to
+> > > > 
+> > > > ## On EP side:
+> > > > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
+> > > >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
+> > > > 
+> > > > Then running pcitest only having 7 / 16 tests passed ?
+> > > > 
+> > > > If so, isn't that a problem also for qcom?
+> > > > 
+> > > 
+> > > No, tests are passing on my setup after link up.
+> > > 
+> > > > 
+> > > > There is no chance that the patch:
+> > > > "misc: pci_endpoint_test: Add AER error handlers"
+> > > > improves things in this regard?
+> > > > 
+> > > > Or will it simply avoid the "AER: device recovery failed" print?
+> > > > 
+> > > 
+> > > Yes, as mentioned in the commit message, it just avoids the AER recovery failure
+> > > message.
+> > > 
+> > 
+> > I also realized that Endpoint state is not saved in all the code paths. So the
+> > pci_endpoint_test driver has to save/restore the state also. But it is still not
+> > clear why that didn't help you.
+> > 
+> > Can you share the snapshot of the entire config space before and after reset
+> > using 'lspci -xxxx -s "0000:01:00"'?
+> 
+> If I don't add something like:
+> 
+> diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
+> index 1eced7a419eb..9d7ee39164d4 100644
+> --- a/drivers/misc/pci_endpoint_test.c
+> +++ b/drivers/misc/pci_endpoint_test.c
+> @@ -1059,6 +1059,9 @@ static int pci_endpoint_test_set_irq(struct pci_endpoint_test *test,
+>                 return ret;
+>         }
+>  
+> +       pr_info("saving PCI state (irq_type: %d)\n", req_irq_type);
+> +       pci_save_state(pdev);
+> +
+>         return 0;
+>  }
+>  
+> @@ -1453,6 +1456,7 @@ static pci_ers_result_t pci_endpoint_test_error_detected(struct pci_dev *pdev,
+>  
+>  static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
+>  {
+> +       pci_restore_state(pdev);
+>         return PCI_ERS_RESULT_RECOVERED;
+>  }
+> 
+> On top of your patch.
+> 
+> Then all the BAR tests + MSI and MSI-X tests fail.
+> 
+> There is a huge difference in lspci -vvv output (as I guess is expected),
+> including all BARs being marked as disabled.
+> 
+> 
+> With the patch above. There is zero difference before/after reset, and all
+> the BAR tests pass. However, MSI/MSI-X tests still fail with:
+> 
+> # pci_endpoint_test.c:143:MSI_TEST:Expected 0 (0) == ret (-110) 
+> # pci_endpoint_test.c:143:MSI_TEST:Test failed for MSI1
+> 
+> ETIMEDOUT.
+> 
+> This suggests that pci_endpoint_test on the host side did not receive an
+> interrupt.
+> 
+> I don't know why, but considering that lspci output is now (with the
+> save+restore) identical, I assume that the problem is not related to
+> the host. Unless somehow the host will use a new/different MSI address
+> after the root port has been reset, and we restore the old MSI address,
+> but looking at the code, dw_pcie_msi_init() is called by
+> dw_pcie_setup_rc(), so I would expect the MSI address to be the same.
+> 
 
-This enables the USB controller to reference the
-generic PHY and use the required pinmux for USB OTG ops.
+Hi Niklas,
 
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
----
- .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 53 ++++++++++++++++++-
- .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 53 ++++++++++++++++++-
- 2 files changed, 104 insertions(+), 2 deletions(-)
+When I rebased this series on top of v7.1-rc1, I ended up seeing the issue what
+you described here (not sure why I didn't see it earlier). So after the Root
+Port reset, MSI tests fail, but BAR tests succeed. Also, I got IOMMU faults on
+the host after endpoint triggers MSI.
 
-diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-index 803ff4531077..d096744cdb0f 100644
---- a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-@@ -1,12 +1,19 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-- * Copyright 2024 NXP
-+ * Copyright 2024, 2026 NXP
-  *
-  * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-  *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-  *          Larisa Grigore <larisa.grigore@nxp.com>
-  */
+I investigated it and found that the MSI iATU mapping gets cleared in hw after
+LDn happens. But the host continues to use the same address/size for the
+endpoint MSI even after reset. Due to this, the existing checks in
+dw_pcie_ep_raise_msi_irq() don't pass and the stale MSI iATU mapping gets
+reused.
+
+The fix would be to clear the mapping in dw_pcie_ep_cleanup(), which gets called
+as part of the PERST# assert/deassert sequence post LDn and also set
+msi_iatu_mapped flag to 'false'. This will force dw_pcie_ep_raise_msi_irq() to
+use fresh iATU mapping when it gets called for the first time:
+
+diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+index d4dc3b24da60..4ae0e1b55f39 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-ep.c
++++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+@@ -1035,6 +1035,11 @@ void dw_pcie_ep_cleanup(struct dw_pcie_ep *ep)
+ {
+        struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
  
-+/ {
-+	usbphynop: usbphynop {
-+		compatible = "usb-nop-xceiv";
-+		#phy-cells = <0>;
-+	};
-+};
++       if (ep->msi_iatu_mapped) {
++               dw_pcie_ep_unmap_addr(ep->epc, 0, 0, ep->msi_mem_phys);
++               ep->msi_iatu_mapped = false;
++       }
 +
- &pinctrl {
- 	can0_pins: can0-pins {
- 		can0-grp0 {
-@@ -245,6 +252,39 @@ dspi5-grp4 {
- 			bias-pull-up;
- 		};
- 	};
-+
-+	usbotg_pins: usbotg_pins {
-+		usbotg_grp0 {
-+			pinmux = <0x3802>, <0x3812>,
-+				<0x3822>, <0x3832>,
-+				<0x3842>, <0x3852>,
-+				<0x3862>, <0x3872>,
-+				<0x37f2>, <0x3882>,
-+				<0x3892>;
-+		};
-+
-+		usbotg_grp1 {
-+			pinmux = <0x3e1>, <0x3f1>,
-+				<0x401>, <0x411>,
-+				<0xbc1>, <0xbd1>,
-+				<0xbe1>, <0x701>;
-+			output-enable;
-+			input-enable;
-+			slew-rate = <208>;
-+		};
-+
-+		usbotg_grp2 {
-+			pinmux = <0xb80>, <0xb90>, <0xbb0>;
-+			input-enable;
-+			slew-rate = <208>;
-+		};
-+
-+		usbotg_grp3 {
-+			pinmux = <0xba1>;
-+			output-enable;
-+			slew-rate = <208>;
-+		};
-+	};
- };
- 
- &can0 {
-@@ -304,3 +344,14 @@ &spi5 {
- 	pinctrl-names = "default";
- 	status = "okay";
- };
-+
-+&usbmisc {
-+	status = "okay";
-+};
-+
-+&usbotg {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbotg_pins>;
-+	fsl,usbphy = <&usbphynop>;
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-index 979868f6d2c5..b756bcf6469d 100644
---- a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-@@ -1,12 +1,19 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
- /*
-- * Copyright 2024 NXP
-+ * Copyright 2024, 2026 NXP
-  *
-  * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-  *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
-  *          Larisa Grigore <larisa.grigore@nxp.com>
-  */
- 
-+/ {
-+	usbphynop: usbphynop {
-+		compatible = "usb-nop-xceiv";
-+		#phy-cells = <0>;
-+	};
-+};
-+
- &pinctrl {
- 	can0_pins: can0-pins {
- 		can0-grp0 {
-@@ -199,6 +206,39 @@ dspi5-grp4 {
- 			bias-pull-up;
- 		};
- 	};
-+
-+	usbotg_pins: usbotg_pins {
-+		usbotg_grp0 {
-+			pinmux = <0x3802>, <0x3812>,
-+				<0x3822>, <0x3832>,
-+				<0x3842>, <0x3852>,
-+				<0x3862>, <0x3872>,
-+				<0x37f2>, <0x3882>,
-+				<0x3892>;
-+		};
-+
-+		usbotg_grp1 {
-+			pinmux = <0x3e1>, <0x3f1>,
-+				<0x401>, <0x411>,
-+				<0xbc1>, <0xbd1>,
-+				<0xbe1>, <0x701>;
-+			output-enable;
-+			input-enable;
-+			slew-rate = <208>;
-+		};
-+
-+		usbotg_grp2 {
-+			pinmux = <0xb80>, <0xb90>, <0xbb0>;
-+			input-enable;
-+			slew-rate = <208>;
-+		};
-+
-+		usbotg_grp3 {
-+			pinmux = <0xba1>;
-+			output-enable;
-+			slew-rate = <208>;
-+		};
-+	};
- };
- 
- &can0 {
-@@ -257,3 +297,14 @@ &i2c4 {
- 	pinctrl-1 = <&i2c4_gpio_pins>;
- 	status = "okay";
- };
-+
-+&usbmisc {
-+	status = "okay";
-+};
-+
-+&usbotg {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&usbotg_pins>;
-+	fsl,usbphy = <&usbphynop>;
-+	status = "okay";
-+};
+        dwc_pcie_debugfs_deinit(pci);
+        dw_pcie_edma_remove(pci);
+ }
+
+With this change, MSI works after Root Port reset without any issues on our Qcom
+endpoint/host setup.
+
+Please test this change on your rockchip setup as well. You have to make sure
+that dw_pcie_ep_cleanup() is called during PERST# assert/deassert.
+
+I'm going to respin the series with this fix. If you confirm it works for you,
+then we can merge your Rockchip Root Port change.
+
+- Mani
+
 -- 
-2.34.1
-
+மணிவண்ணன் சதாசிவம்
 
