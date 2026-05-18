@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C369CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F88CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:48:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fpwXJPMyON2eWtQYaGV+3QNAbVJ3mx8rU5QiQ/o+uTc=; b=zBIVAxrWXdjjbwNzzc/U0vvcez
-	uKOIN9wfBMrK7prI7mmQ5e+H+xDiWjCCrhs0+r0hes57DaymzaQqUg/enNOjOt22GsWeMxIf85CAH
-	cp2DtfYDyeO4E9XPBMwoxj9z27StNapqEY6ohNa932SLgs38nmENrOT1ZvB5jcgcycUqotXNOXAdn
-	zlbOwkAvguh96pnoquwF6KnnwlCD9k6NA66Jv+8VbnJE7exTKWlN3JOXQUrgxiN7W1J54KxYPvdH1
-	9zXQX5Z+1pn+DW05dfvJ2cKISeqcI6wgMYByxSbu0zsrw/1ruzy91CiS/4WlKwFCm/lAKGAwtnQUy
-	yH0zVs1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yCIIJPedrSN9Nbfy8rMYwb7u5VqcNWKHuQcBf8AmRZs=; b=t79ax7QbCYXRMnfrm15FXijC7E
+	TJxIoQn4r0mDWIBYT7dKV+i5tda72b155nb1zVdF4QpeOJFeVg1xRXxyELOTWNj5CpGKOy4DoRMPc
+	1fY4vyTCAyhUAbW9yjBcJOyiBPlauv9tol1YBhTkqKJkIAwpGgIGwKyWTKrR31MbMk4XAFIJjZVhW
+	D+88t2gFAH1dS7PB9TfRbqX7AuOy0j5HyY+B9y1cOjPuF4pON5Nd+USP/4NdteKfmrzG8ucEg3zde
+	R+o1zklcWaQGoQ8yGtkWQAB74nIuopNVOPpTUciZE9xZ0KkZrrM410XQm0fsRzKCEMhEX2dzRPZ+l
+	O9ev7X0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrhl-0000000ESre-3hdE;
-	Mon, 18 May 2026 06:43:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrhl-0000000ESrO-00IK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 06:43:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:From:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=fpwXJPMyON2eWtQYaGV+3QNAbVJ3mx8rU5QiQ/o+uTc=; b=FirhsM4HvYNFY8bG1Yw1FJuv19
-	IUP6g+aS1DW4PEMrGKGKRGszV0UHPxSuhFQKV/WWUKOa6KXPeKUzrC3I4bymTb8vw+XirRPvW+jFG
-	gBCwS4KmxDZkmrr/RD+g0hRkqpWT9mMQiqfSGsU+Iockcz2G/lffVy8zgcLpRBGdqsOr9AZ5M1z3S
-	TPqmAo+EYLN8Kj3/k/qsq1GS8BMsv1hwXzCJM5j82qAHOzqpAKft8KzybGmrjMmoJqgvA6fP4I8gP
-	4tKDjHj/Y7ISLIajOsTA5obwmxVBwDBjRzEvKZt55O7KIwgIywerfX0DjHFkFwBo0gpxZc3763yYu
-	3Y3rBhXw==;
+	id 1wOrll-0000000ETPt-1GFr;
+	Mon, 18 May 2026 06:48:05 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrhX-0000000A3lf-2G89
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOrli-0000000ETPK-3Dpo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 06:43:55 +0000
+	Mon, 18 May 2026 06:48:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1779086612;
-	bh=fpwXJPMyON2eWtQYaGV+3QNAbVJ3mx8rU5QiQ/o+uTc=;
-	h=From:To:In-Reply-To:References:Subject:Date;
-	b=S4G57EjkcItjKyOzc3wgqcYj/W7Jo7P+GnbppqCtdkLgNfDi1vkxrbwp1Bb8Vab1W
-	 SkXGY8ZpyeKHuKnxhe28E4OvWuRt/db/18611N0GszPw3yvhwKKCSfRfBOUnbFsQV2
-	 O9ItcIMHLzcaaL4DQnwGUJlIDi1Wl/BEvLnXuq2j4/aFsitYa0GDObxG1NzaItARcP
-	 XfwOM9fFLZqW+yHYAr7E8AGtqVHiEwdeT7YisxZdup1hxfbn1QLt4JGrwKz4aoIL5t
-	 S08G5m++8iqp8mTALV4VIyxX99nLuZ0wucRteEnMmfTTDF3jdgvyFIcQ6l+jKfgnb8
-	 ex90ei2OG2wqw==
-Received: from [127.0.1.1] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id EF63F6025D;
-	Mon, 18 May 2026 14:43:31 +0800 (AWST)
+	d=codeconstruct.com.au; s=2022a; t=1779086880;
+	bh=yCIIJPedrSN9Nbfy8rMYwb7u5VqcNWKHuQcBf8AmRZs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Rhb6Eg43fawS7KulytVw/afj3ttEg0nj3SdwaLqNePcoGJiVmQr7INEVY36wTkGpf
+	 7gRk0gNebpLCaOTnAJiPe+S0NaFc7mQyCnDuHM+bly+eEScA2MdswmAL6H1NU0X67b
+	 ffimn4S+Q0l0fbYRmip4G3GnylimDSmBH0o27rE5YGsEvnb/NbVVTbW3B1D09023S+
+	 qslXNV4KhzfDQF5kVJDLAnOHmjTCd3rl5hVUm2a6/tvU3KE5oz0tSILFBbpMIxCYPV
+	 ick4TLd4wrTDm8aYIM9jQrFzneghHldyF11c/Q2eTPrsW7IlBKvT3P5mlJeV+1H0iX
+	 4RPpGvf0sFUHw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 547616025D;
+	Mon, 18 May 2026 14:48:00 +0800 (AWST)
+Message-ID: <bae3a186da639118d88ad2632c5edf8963946dc1.camel@codeconstruct.com.au>
+Subject: Re: [PATCH] ARM: dts: aspeed: anacapa: name EDSFF and thermtrip
+ SGPIO lines
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Joel Stanley <joel@jms.id.au>, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260505102635.160772-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260505102635.160772-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] soc: aspeed: Move MODULE_DEVICE_TABLE next to the
- table itself
-Message-Id: <177908661185.1619049.12663504861396932958.b4-ty@b4>
-Date: Mon, 18 May 2026 16:13:31 +0930
+To: Rex.Fu@amd.com, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Mon, 18 May 2026 16:17:59 +0930
+In-Reply-To: <20260430-anacapa-sgpio-edsff-thermtrip-v1-1-2fd5e72435d0@amd.com>
+References: <20260430-anacapa-sgpio-edsff-thermtrip-v1-1-2fd5e72435d0@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_074344_621279_47AC4AB1 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260517_234803_006184_680D6AAF 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,19 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 05 May 2026 12:26:36 +0200, Krzysztof Kozlowski wrote:
-> By convention MODULE_DEVICE_TABLE() immediately follows the ID table it
-> exports, because this is easier to read and verify.  It also makes more
-> sense since #ifdef for ACPI or OF could hide both of them.
-> 
-> Most of the privers already have this correctly placed, so adjust
-> the missing ones.  No functional impact.
-> 
-> [...]
+Hello Rex,
 
-Thanks, I've applied this to the BMC tree.
+On Thu, 2026-04-30 at 13:44 +0800, Rex Fu via B4 Relay wrote:
+> From: Rex Fu <Rex.Fu@amd.com>
+>=20
+> Name the Anacapa SGPIO lines used for EDSFF power-good and thermtrip
+> assertion signals.
+>=20
+> The affected lines replace legacy
+>=20
 
--- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
+Which are legacy?
 
+>  or unused=C2=A0
+>=20
+
+Which are unused?
+
+> CPU-related names with the
+> platform signal names used by userspace monitoring.
+
+This is the kind of change that has the potential to break old
+userspace. Why is it appropriate? I'd like a more precise discussion in
+the commit message.
+
+Was there some other underlying change (e.g. a new revision of the
+platform design)?
+
+Andrew
+
+>=20
+> Signed-off-by: Rex Fu <Rex.Fu@amd.com>
+> ---
+> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts | 10 +++++=
+-----
+> =C2=A01 file changed, 5 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/a=
+rch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+> index 2cb7bd128d24..fe960bb7bc27 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+> @@ -912,7 +912,7 @@ &sgpiom0 {
+> =C2=A0	"PWRGD_PVDDIO_P0", "",
+> =C2=A0	"PWRGD_PVDDIO_MEM_S3_P0", "",
+> =C2=A0	"PWRGD_CHMP_CPU0_FPGA", "",
+> -	"PWRGD_CHIL_CPU0_FPGA", "",
+> +	"HPM_EDSFF_PG", "",
+> =C2=A0	"PWRGD_CHEH_CPU0_FPGA", "",
+> =C2=A0	"PWRGD_CHAD_CPU0_FPGA", "FM_BMC_READY_PLD",
+> =C2=A0	"", "",
+> @@ -957,8 +957,8 @@ &sgpiom0 {
+> =C2=A0	"PDB_ALERT_R_N", "",
+> =C2=A0
+> =C2=A0	/* L0-L7 line 176-191 */
+> -	"CPU0_SP7R1", "", "CPU0_SP7R2", "",
+> -	"CPU0_SP7R3", "", "CPU0_SP7R4", "",
+> +	"L_EDSFF2_PG", "", "L_EDSFF3_PG", "",
+> +	"R_EDSFF2_PG", "", "R_EDSFF3_PG", "",
+> =C2=A0	"CPU0_CORETYPE0", "", "CPU0_CORETYPE1", "",
+> =C2=A0	"CPU0_CORETYPE2", "", "FM_BIOS_POST_CMPLT_R_N", "",
+> =C2=A0
+> @@ -984,8 +984,8 @@ &sgpiom0 {
+> =C2=A0	"HPM_PWR_FAIL", "Port80_b0",
+> =C2=A0	"FM_DIMM_IP_FAIL", "Port80_b1",
+> =C2=A0	"FM_DIMM_AH_FAIL", "Port80_b2",
+> -	"HPM_AMC_THERMTRIP_R_L", "Port80_b3",
+> -	"FM_CPU0_THERMTRIP_N", "Port80_b4",
+> +	"AMC_THERMTRIP_ASSERT", "Port80_b3",
+> +	"CPU_THERMTRIP_ASSERT", "Port80_b4",
+> =C2=A0	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
+> =C2=A0	"CPLD_SGPIO_RDY", "Port80_b6",
+> =C2=A0	"", "Port80_b7",
+>=20
+> ---
+> base-commit: 9974969c14031a097d6b45bcb7a06bb4aa525c40
+> change-id: 20260430-anacapa-sgpio-edsff-thermtrip-acb228bf61be
+>=20
+> Best regards,
+> --=C2=A0=20
+> Rex Fu <Rex.Fu@amd.com>
+>=20
 
