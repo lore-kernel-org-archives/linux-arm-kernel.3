@@ -4,109 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECCACD4F48
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9FDECD4F48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KmCn+mTkHPH5ZAxqmSOpN0WELh6JdKYdne5LrRISsg=; b=nVwm54oTqO2+/9PsUz4osMR/M1
-	PmNhLVzRTuVnd14JKDVjhWXDrr7WT1pVEVDjLamh91X4H+vuRQrfSD0mPs4UOty+otGlU5A1ChgXF
-	almKTccS9M0M1qzXFs9gvfDlzF0/41nYLGYrcQknQcXF5OKK4Rp7lWtmZZtMuXOxqeA7wPl39LP7+
-	0I4nlegThAc5RfTxo5J9cDQNYiyM0Q3wSmfJ0w8yaZsmflNI3qzGtz58YVHyYNAd71TIGnsxRq2uu
-	hdwhgmbWFmLsYaJlzjuwQPJhkKu6chUSV0QITZhlbF9QvJf4mT7TonRN2hxi6Q3O0l//uJSaoP6Zc
-	XyBFhIpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RYGQmbDGLNkZG+Jhza855l6mvvJwkdiEVhrgBGIANlY=; b=T+WcjHqGfeYH8t3GLXVdTE7jPe
+	J4UnAAVhTgBOkCZIkyhPXYz5Su/oz3lJIya3sYP4jEdpNEUVjAjEsmp/BiRPiPQNJcJuPHCj1XcMM
+	SvPUkkBUkNpI0DtF8EXeTWpI5XqiTISQZk61yP8vvnC0liadQ55GzVlgxQ/TJ3CC2WfPSbPGxokxN
+	zl65xAev+U5uF0c8nGGdpiO4HIs+XTMp8JNKqkICnx9ehklFVInLTZj8wqAYMv7V5tf+lrqxdyUpq
+	tdvQFdi/DFDhtjCRcXTS5tpX7MxPtOn/ECn9WdtmEdoC2rZTATPPe+4GxFDdpV2ClyIVUC1X1fh7S
+	Ee08U/3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOstA-0000000Egxn-1iWV;
-	Mon, 18 May 2026 07:59:48 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1wOsvM-0000000EhN1-3HtY;
+	Mon, 18 May 2026 08:02:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOst8-0000000Egwm-0ba8
+	id 1wOsvK-0000000EhMG-0EVh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 07:59:47 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B89747A00F0;
-	Mon, 18 May 2026 03:59:42 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Mon, 18 May 2026 03:59:43 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1779091182;
-	 x=1779177582; bh=+KmCn+mTkHPH5ZAxqmSOpN0WELh6JdKYdne5LrRISsg=; b=
-	WRZM9xmqxYtj848T5aFJJlnIYwPS6O9ybs6W29pknf0tC4wgq5l77xmRAxzv9JwQ
-	WOPRSBcNjEmowEEafT9br1z7OqRJ2rHi+nCysCcQDjdtmU0WBH82NEgYoUIyCR71
-	7nmy1H/MicUoArmow7nI9gw3+W7eBtbjVNdoaP6dIVxCdMlPqw15eZjKL4h1yRsh
-	5O20JVS3wkocI3pAs0D61RyAiEx9u1q4NyYp7DP03eQndnuKf+t/sMHHIiQ8M7l7
-	2KoGG/V38wQjhR6q8ON33Fsbb6UDH/koBMcOI+Fq11sOikPhVTPrr25Jlz6PnBr4
-	mKz/r+3Y1i7T3f3KMbVy9g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779091182; x=
-	1779177582; bh=+KmCn+mTkHPH5ZAxqmSOpN0WELh6JdKYdne5LrRISsg=; b=D
-	/JARF58TJUSQyLqcyWaZ7MqPWcIgBRFuKktKuaTg01c+1N9g2qwn1TJKQNWMRS9b
-	eY0BRZ4Ib+R2hYaHDWx6jSNrNWEygyRxWEr22Fewe8WZ7cOwsaEHGzgoTdVmDlDZ
-	Ueh+oH8X0zb4pwUq1DmmtHGJ+gdUga8CSlhSN8WghBZ+FbBcY2Kqq81WJhyOeBs6
-	hwaN7ty3THg8IQQeoT0RHr2+I6COFjKkZPegNX9RA/HK2IYFbSkObLZ+1VDTkuKj
-	/khzyCWhOmTck8v/WP2ZAihg9C3AXE9gGEcBerXbhDFYGeI+J2yonjNogPHma9u/
-	DE0T5+iTZHVWQdTYgOhGw==
-X-ME-Sender: <xms:7sYKanlFumOsSXzPRXll5tBlTGd3P5AHxZAYS91BP97FWuq7_bfWLg>
-    <xme:7sYKaloe1aX6tmZ592PNpWE59Xd3ZLQTBQ4A_MW-EGQdVjewZYv-XsDJPsWUNkQuj
-    xAlby08Sm6ZU3Wg6g-4K7xti5LJrHb_5UNFZEEurQmUak7MEq38VRQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddufeekfeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpth
-    htohepnhhitghkrdguvghsrghulhhnihgvrhhsodhlkhhmlhesghhmrghilhdrtghomhdp
-    rhgtphhtthhopehjuhhsthhinhhsthhithhtsehgohhoghhlvgdrtghomhdprhgtphhtth
-    hopehmohhrsghosehgohhoghhlvgdrtghomhdprhgtphhtthhopehnrghthhgrnheskhgv
-    rhhnvghlrdhorhhgpdhrtghpthhtohepnhhstgeskhgvrhhnvghlrdhorhhgpdhrtghpth
-    htoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggu
-    rdhorhhgpdhrtghpthhtoheplhhlvhhmsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtg
-    hpthhtoheplhhinhhugidqkhgsuhhilhgusehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:7sYKanKZW10_0xy0319p16Qm3Y90W9h4WRyTkj6QVUdr1dlIXg4CKw>
-    <xmx:7sYKanCU2VP7CU3Lty98GicAXKJI-oBIje6SIiJHY5fbNRdip4lnqA>
-    <xmx:7sYKasvuC_YchdmY5x1Pq8FPqG404sFheA7oMlNv-L4SiMyb5stehg>
-    <xmx:7sYKalR59GWKK7B8x9jZBc9fktB7xia56M9Hn0BPfyLlcbSiztiSmw>
-    <xmx:7sYKaiGn-PLoZwslguTORBU6KFDLe973_QcEE9wkPs2h6lbox8Z32ZG1>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1EBD8182007A; Mon, 18 May 2026 03:59:42 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 18 May 2026 08:02:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CE401443B0
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 08:02:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1247C2BCC9
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 08:02:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779091320;
+	bh=Szxe4uR+z2SalkTXFaMC0PsQG6FLID/9Q/TTJ8kZxXY=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=Sag4IRhnfU/eMwaPn8uattkG6U2DS6Tgzm4hVf7ERx1nwlXr3Us4zxHsC4e/sKldR
+	 Rl7hQeymd+MxRhLe2qH50E5gEC8cSC9cGiVXbcpofm0I4h/XSRJtSrg5d//ozpsgkF
+	 s/VkyAWMFXR9Y5n38AkK2RqGI1pG3UsG7EMJ5EI3Gt6hwUABV7cFN+Hu99lLOr19iW
+	 noi1sQVcJ0m1PAgnFU2On082PhLCGpfNZ5my9xbkYNJhLFgiClqIKoTIYKveCmIEi4
+	 omcl95CpOcaEM/k8H7CnFg9UN7iMiymsPZ7HOWa8x4Sq3T4DXxzUH9Q7vYS5hMakZY
+	 Nn7TXInqQmEAw==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-38be5e86918so27386151fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 01:02:00 -0700 (PDT)
+X-Gm-Message-State: AOJu0YwRf5CB4VwMIpTFAhnYcB/OPMPMPD8poaY8nWOursBYic39mIam
+	V93hVru6nTkxSLOhAMowM24C0o5fGwuXD7okodUjbRGgwEfaZGFmRFo5Zq4dgjwHtWonBIVwXa3
+	VOg5BVzrYwiMrj7R6gTG6YzceCvT1gsewBmi1UDuJgg==
+X-Received: by 2002:a05:651c:41d5:b0:38f:e2ad:e975 with SMTP id
+ 38308e7fff4ca-39561c0d38amr41642981fa.14.1779091319243; Mon, 18 May 2026
+ 01:01:59 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 18 May 2026 01:01:56 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 18 May 2026 01:01:56 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260515092520.9006-1-chaitanya.msabnis@gmail.com>
 MIME-Version: 1.0
-X-ThreadId: A0NnAMceuwWo
-Date: Mon, 18 May 2026 09:59:21 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Nathan Chancellor" <nathan@kernel.org>,
- "Nicolas Schier" <nsc@kernel.org>, "Bill Wendling" <morbo@google.com>,
- "Justin Stitt" <justinstitt@google.com>,
- "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>
-Cc: linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- linux-kbuild@vger.kernel.org, "Russell King" <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <994710ea-450d-41cf-a381-33bcae5ad5fc@app.fastmail.com>
-In-Reply-To: <20260517-bump-minimum-supported-llvm-version-to-17-v2-7-b3b8cda46bdd@kernel.org>
-References: <20260517-bump-minimum-supported-llvm-version-to-17-v2-0-b3b8cda46bdd@kernel.org>
- <20260517-bump-minimum-supported-llvm-version-to-17-v2-7-b3b8cda46bdd@kernel.org>
-Subject: Re: [PATCH v2 07/16] ARM: Drop tautological ld.lld conditions from
- ARCH_MULTI_V4{,T}
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20260515092520.9006-1-chaitanya.msabnis@gmail.com>
+Date: Mon, 18 May 2026 01:01:56 -0700
+X-Gmail-Original-Message-ID: <CAMRc=MfLi2Ny-U5U3z-RMk5pVq-Vbe4A8THNyHv=NEMmnL4Vpg@mail.gmail.com>
+X-Gm-Features: AVHnY4IaNhVu5lcH7cgyEg9L3kHOwb1wCT_RRLI-YStqpM1fc4cfeVrcxNXrqg4
+Message-ID: <CAMRc=MfLi2Ny-U5U3z-RMk5pVq-Vbe4A8THNyHv=NEMmnL4Vpg@mail.gmail.com>
+Subject: Re: [PATCH v3] i2c: davinci: fix division by zero on missing clock-frequency
+To: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>, brgl@kernel.org, 
+	andi.shyti@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_005946_231093_54920470 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_010202_153855_C85C1B7B 
+X-CRM114-Status: GOOD (  20.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,17 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026, at 01:05, Nathan Chancellor wrote:
-> Now that the minimum supported version of LLVM for building the kernel
-> has been raised to 17.0.1, the '!ld.lld || ld.lld >= 16' dependency of
-> CONFIG_ARCH_MULTI_V4{,T} is always true, so tit can be removed from both
-> symbols.
+On Fri, 15 May 2026 11:25:20 +0200, Chaitanya Sabnis
+<chaitanya.msabnis@gmail.com> said:
+> When the 'clock-frequency' property is missing from the device tree,
+> the driver falls back to DAVINCI_I2C_DEFAULT_BUS_FREQ. However, this
+> macro was defined in kHz (100), whereas the device tree property is
+> expected in Hz.
 >
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> The probe function divided the fallback value by 1000, causing
+> integer truncation that resulted in dev->bus_freq = 0. This triggered
+> a deterministic division-by-zero kernel panic when calculating clock
+> dividers later in the probe sequence.
+>
+> Fix this by redefining DAVINCI_I2C_DEFAULT_BUS_FREQ in Hz (100000)
+> to match the expected device tree property unit, allowing the existing
+> division logic to work correctly for both cases.
+>
+> Fixes: b04ce6385979 ("i2c: davinci: kill platform data")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://lore.kernel.org/all/20260514044726.57297C2BCB7@smtp.kernel.org/
+> Signed-off-by: Chaitanya Sabnis <chaitanya.msabnis@gmail.com>
 > ---
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: linux-arm-kernel@lists.infradead.org
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+Missing changelog.
+
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+
+>  drivers/i2c/busses/i2c-davinci.c | 4 +---
+>  1 file changed, 1 insertion(+), 3 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-davinci.c b/drivers/i2c/busses/i2c-davinci.c
+> index a773ba082321..a264a480dc3c 100644
+> --- a/drivers/i2c/busses/i2c-davinci.c
+> +++ b/drivers/i2c/busses/i2c-davinci.c
+> @@ -117,7 +117,7 @@
+>  /* timeout for pm runtime autosuspend */
+>  #define DAVINCI_I2C_PM_TIMEOUT	1000	/* ms */
+>
+> -#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100
+> +#define DAVINCI_I2C_DEFAULT_BUS_FREQ	100000
+>
+>  struct davinci_i2c_dev {
+>  	struct device           *dev;
+> @@ -761,9 +761,7 @@ static int davinci_i2c_probe(struct platform_device *pdev)
+>  	r = device_property_read_u32(&pdev->dev, "clock-frequency", &prop);
+>  	if (r)
+>  		prop = DAVINCI_I2C_DEFAULT_BUS_FREQ;
+> -
+>  	dev->bus_freq = prop / 1000;
+> -
+
+These a ninja changes, at least mention them in the commit message.
+
+Bart
+
+>  	dev->has_pfunc = device_property_present(&pdev->dev, "ti,has-pfunc");
+>
+>  	dev->clk = devm_clk_get(&pdev->dev, NULL);
+> --
+> 2.43.0
+>
+>
 
