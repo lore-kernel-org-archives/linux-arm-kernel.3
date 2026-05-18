@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE4DCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 22:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2067CCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 22:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HvAeM3G6bmkfm6f0wgfGcfgEROVq1lUgw+e1xbuFGjg=; b=srO//VUR9+Ot73vu+6LyBdC4JG
-	x1emeU0UiCDZLtUiqIlcj/xI5mwF0U5zMy112rEzJ1podPcemxbUozSszqfxrCvNCfwQK/T8VkHZo
-	fe+Vjp6EEaylc1kblyQTorm0dxHbytwHDX90Gf8ne8hF6FmGYo0Uwi0KbscZR+DrSpxokZ7TgKAu9
-	DB47mJXJjSc2cxoBZPK1COIuX/2Crf3GmwN7sY1oTNa/6JKqzXFXwYK2+tlzNNeecu607IAc0OwVX
-	9CsdiebJAdGCUyuC321mFZTIksCeeYpC2IHK2YlnsT7cUHVhDLULU/jLIKFTkVwWNY3RymkymMg20
-	LTnwI1Xg==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NICbkQQdRoV0Bx1rLVTrcr9quvoWxCqrJ8N0XFoOpO8=; b=oEH6IH9AN0QfI/
+	nwdH+0k4n/BCloikP9L69RURhm1Sd21Zck4Cte2v3VlPa65eZD0GgHijtOhFfJnHCimLhedEeg9Ht
+	6c8BZ26c8YEOh5xyx5jRXVKLXNVde1U7C/MvgXzVUIi7zeYTdynJWeJQD9EE3m097Gn51sgLfX3ta
+	2/Bf9TV2rofCQwDln6yeiUTaChRg2ZQq1kJbRPqQ0TuwC0J2pDsu2Zj6ufyn22HdFMKEef1gWpCxU
+	WX6u37Tsc6aTTOCj+kBESBC9+8ebRlxn9GTRhSWyJ5a7hqIkAULnWNFzmNp8bbR4ZOVo3aoeI8y2w
+	fb4H+VOJ74rwC8pz7FPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP6Hl-0000000H4lB-1Rjn;
-	Mon, 18 May 2026 22:18:05 +0000
-Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
+	id 1wP6b5-0000000H6ss-1j8T;
+	Mon, 18 May 2026 22:38:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP6Hi-0000000H4kB-0FiG
+	id 1wP6b3-0000000H6s9-0lgH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 22:18:03 +0000
-Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-2f7020a928eso4072456eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 15:18:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779142681; x=1779747481; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HvAeM3G6bmkfm6f0wgfGcfgEROVq1lUgw+e1xbuFGjg=;
-        b=fYjFhCDtYFEx6aAkz1RpcQDOE9nAPmdSwU4RdkIWDmXaaYgfzN7Ep7ZCV7X6yYdDLw
-         eP8zwn8+A8iXAnXLqlPCox85HgnY7qcNQUK39DDQU1AJllLL24BiwGtTppP2/L8ht5XX
-         g0hsoWqwCpHKLv2WrEfvqLDZGhqhIf5JIKmNZukpEx+n7aHNSHGxZ0DYNzX33ijnJrFq
-         uop0VIG2Rljf3AgvyufvcxBsHI4b/uXzUB9lfK+G2wqMlIThNALfRV3bix6pQ9d2QrJI
-         kqYNHMQtjgHS443w6+o0h7+kDcm/YyStC3VAYEeZN3hRoDhAJZ7mNzb6Nuon6qjFb8rb
-         sUGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779142681; x=1779747481;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=HvAeM3G6bmkfm6f0wgfGcfgEROVq1lUgw+e1xbuFGjg=;
-        b=GwJjiPouGnorwMMIARkrvVliDIHn1CHgsY5rIUvNM2TwEVLCSq8aV6vkLv9ef4Qg+s
-         VLPMP1rps/iqmEKIzyVeCdrcICPY/HHlPMH/em3ChqyLH7Ocl5sTregYnwZjrrD2b3rX
-         aG45owVrztb3OoxPOaBQat9SD7PC2C1o2rO3eSi/B9jzZXxxP2yUo8axTUVyb41fS4UT
-         dBmJwsgGhMXl6c0te3mlFAV+9oStkZKX8afGSb3vSRvIBfQeQc4e8nZAiV35KOYieicZ
-         zyQ+OHQRcGddVfln3T34Mb1E5HELvzod2E8A0PIzmNDigRm2WJ38QLjOp2acyu1JTFN+
-         ZFwg==
-X-Forwarded-Encrypted: i=1; AFNElJ8vNHF3wcn48FKnsF4/CoW0tIgaWImpOvClPg0BJX/DZNYiDZCnKwedIJNNdEGtiSVzJCEiVYxCXHABxpNER7An@lists.infradead.org
-X-Gm-Message-State: AOJu0YwObc077K+vrb5Ey23lrOwqLWCEXbCL2DuA5R7nvALSMWUXzUF6
-	ZeM7cuznMECOsBUU3acsxY0Tu+C2BbY/kHLG3iUXCi3++RZHccGg/yVY
-X-Gm-Gg: Acq92OGJw28Ve6XoYpqLtBMmewpIUuDVeDhP4bkP69gEFv9Z9Os37WFhMBXGcRVFlso
-	FpEXsnJoLHI4DaSATjayFEPNUofP9qYv3HaCTyFjOAj8VtDEbRwrKc+pBt6sYmz26gRTBCnFcsf
-	3YaCHJYmBtkDpqQZ1jdE75l5Bo+7hT1MZgggjWzoDwFBPRFz6xEBia4FaRTG5zbjtvyEbiiDu+1
-	vQTrsir65GUU7wNoWn+Rnes44VTjUcONLPEPcU88lVwvlkEPu26X/7+CL/i5J9u/eFM3EXTOVie
-	jBmqXGu8Q8avyX0nN74TUh4c5nNUt7bXCb2ckEQoNOJNMIn03uWiiA1YP6DaB0DQEqVEB+OQyWU
-	qUpC2JTOSEPTHUZD1INJxr1Gl5jfukO8b8wn+AXBQ6SWlxEj38Hs08ZvKjgmmtVt0CllkGt3D/l
-	eenZfhQ7wQV5f96hecNdtAZ31O2C6Kk/JJwovJSf6YM/s9Ixw=
-X-Received: by 2002:a05:7300:fb83:b0:2ed:2942:34ab with SMTP id 5a478bee46e88-3039818afb2mr7606381eec.3.1779142680596;
-        Mon, 18 May 2026 15:18:00 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30296dcb6c3sm18171998eec.19.2026.05.18.15.17.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 15:18:00 -0700 (PDT)
-Date: Mon, 18 May 2026 15:17:59 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] soc: bcm2835: raspberrypi-firmware: Add voltage
- domain IDs
-Message-ID: <a3eba071-d969-4498-baae-77cee9b2ed78@roeck-us.net>
-References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
- <20260517080445.103962-1-chakrabortyshubham66@gmail.com>
- <20260517080445.103962-2-chakrabortyshubham66@gmail.com>
+	Mon, 18 May 2026 22:38:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ED0A5402B7;
+	Mon, 18 May 2026 22:37:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE48DC2BCB7;
+	Mon, 18 May 2026 22:37:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779143879;
+	bh=yCPh+HXQRcTVsmUvu2yXJQlDcVHXXFcwMfPUyflHlTc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=uIV9oMFsZiB2k1H5yl4LvHnzDb5kbXykJcpKi7D9HmO3wpF30Fm7LMuqdkV/3wCSx
+	 OZUB0KApB6xzK86w+pr1GMGjcouh1CpiLyTubSJWy5Iizzi4Sh0lwp+iUl5vy4gPCe
+	 hVUHFUGhHj/5bI5VhZ5jEFySJ7rdeKgSF+J7SO1dmKKI7ondlimEn9G0rFsSQFIxzS
+	 Wuph+R9JnXLbtGU5Xvac38Cp0cMt9u0DQ5P/aqPnpoAQKMIdGejHfufT4c+eB+oPta
+	 6aFZyhcUkwnug9239xE8FvofQgCMdSkFJZtUA2kDeuTuF14eScoCCQb/PcZbUrT3Wg
+	 Ty4V3IdCqwS6Q==
+Date: Mon, 18 May 2026 17:37:58 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Sherry Sun <sherry.sun@nxp.com>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Frank Li <frank.li@nxp.com>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	Hongxing Zhu <hongxing.zhu@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH V14 02/12] PCI: host-generic: Add common helpers for
+ parsing Root Port properties
+Message-ID: <20260518223758.GA649325@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260517080445.103962-2-chakrabortyshubham66@gmail.com>
+In-Reply-To: <VI0PR04MB1211452312EB9BC6EF1ED2E0192032@VI0PR04MB12114.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_151802_100113_F1D04085 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20260518_153801_265147_5721FB16 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +87,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 17, 2026 at 01:34:43PM +0530, Shubham Chakraborty wrote:
-> Add Raspberry Pi firmware voltage domain identifiers for the mailbox
-> property interface.
+On Mon, May 18, 2026 at 08:42:38AM +0000, Sherry Sun wrote:
+> > Subject: Re: [PATCH V14 02/12] PCI: host-generic: Add common helpers for
+> > parsing Root Port properties
+> > 
+> > On Wed, Apr 22, 2026 at 05:35:39PM +0800, Sherry Sun wrote:
+> > > Introduce generic helper functions to parse Root Port device tree
+> > > nodes and extract common properties like reset GPIOs. This allows
+> > > multiple PCI host controller drivers to share the same parsing logic.
+> > >
+> > > Define struct pci_host_port to hold common Root Port properties
+> > > (currently only list of PERST# GPIO descriptors) and add
+> > > pci_host_common_parse_ports() to parse Root Port nodes from device
+> > tree.
+> > >
+> > > Also add the 'ports' list to struct pci_host_bridge for better
+> > > maintain parsed Root Port information.
+> > > ...
+> > 
+> > > +static int pci_host_common_parse_port(struct device *dev,
+> > > +				      struct pci_host_bridge *bridge,
+> > > +				      struct device_node *node)
+> > > +{
+> > > +	struct pci_host_port *port;
+> > > +	int ret;
+> > > +
+> > > +	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+> > > +	if (!port)
+> > > +		return -ENOMEM;
+> > > +
+> > > +	INIT_LIST_HEAD(&port->perst);
+> > > +
+> > > +	ret = pci_host_common_parse_perst(dev, port, node);
+> > > +	if (ret)
+> > > +		return ret;
+> > > +
+> > > +	/*
+> > > +	 * 1. PERST# found in RP or its child nodes - list is not empty, continue
+> > > +	 * 2. PERST# not found in RP/children, but found in RC node - return -
+> > ENODEV
+> > > +	 *    to fallback legacy binding
+> > > +	 * 3. PERST# not found anywhere - list is empty, continue (optional
+> > PERST#)
+> > > +	 */
+> > > +	if (list_empty(&port->perst)) {
+> > > +		if (of_property_present(dev->of_node, "reset-gpios") ||
+> > > +		    of_property_present(dev->of_node, "reset-gpio"))
+> > > +			return -ENODEV;
+> > 
+> > This doesn't seem right to me.  The parser of per-Root Port properties should
+> > not be responsible for deciding whether legacy methods are valid, i.e.,
+> > whether a property is in the Root Complex node.  I think it's up to the caller
+> > to decide whether it needs to look elsewhere.
+> > 
+> > I don't think this even needs to return a "success/failure" value because there
+> > may be more properties in the future, and not all will be required.  This
+> > function can't tell which properties a specific driver requires and which are
+> > optional.
+> > 
+> > The caller can check whether we found what it needs and fall back to a legacy
+> > method as needed.
 > 
-> Also add the voltage request structure used with
-> RPI_FIRMWARE_GET_VOLTAGE so firmware clients can share the common API
-> definition from the firmware header.
+> Hi Bjorn,
+> The code here was suggested by Mani, https://lore.kernel.org/all/lnzprzrdwra7pn7d6m3sbj5pvjy64blwpjl6i3lmlnfbyho63b@czpyhpgz5vum/.
+> I think your suggestion here is reasonable, the per-Root Port parser shouldn't
+> check the RC-level binding. That's a policy decision that belongs to the caller.
 > 
-> Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
+> Hi Mani, if you also agree, I'll rework this so that:
+> 1. pci_host_common_parse_port() only parses properties from the Root Port
+>     (and its children) without checking the RC node.
+> 2. The function won't return failure for "property not found" - it will only return
+>      errors for real failures (e.g., -ENOMEM, GPIO acquisition errors).
+> 3. The legacy fallback logic will be moved to the caller, which can inspect the
+>      parsed result and decide whether to fall back to the legacy binding.
 
-I'll need an Acked-by: from a maintainer to apply this patch,
-or some other maintainer will have to pick it up.
-
-Thanks,
-Guenter
-
-> ---
->  include/soc/bcm2835/raspberrypi-firmware.h | 25 ++++++++++++++++++++++
->  1 file changed, 25 insertions(+)
-> 
-> diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
-> index e1f87fbfe554..975bef529854 100644
-> --- a/include/soc/bcm2835/raspberrypi-firmware.h
-> +++ b/include/soc/bcm2835/raspberrypi-firmware.h
-> @@ -156,6 +156,31 @@ enum rpi_firmware_clk_id {
->  	RPI_FIRMWARE_NUM_CLK_ID,
->  };
->  
-> +enum rpi_firmware_volt_id {
-> +	RPI_FIRMWARE_VOLT_ID_CORE = 1,
-> +	RPI_FIRMWARE_VOLT_ID_SDRAM_C = 2,
-> +	RPI_FIRMWARE_VOLT_ID_SDRAM_P = 3,
-> +	RPI_FIRMWARE_VOLT_ID_SDRAM_I = 4,
-> +	RPI_FIRMWARE_NUM_VOLT_ID,
-> +};
-> +
-> +/**
-> + * struct rpi_firmware_get_voltage_request - Firmware request for a voltage
-> + * @id:		ID of the voltage being queried
-> + * @value:	Voltage in microvolts. Set by the firmware.
-> + *
-> + * Used by @RPI_FIRMWARE_GET_VOLTAGE.
-> + */
-> +struct rpi_firmware_get_voltage_request {
-> +	__le32 id;
-> +	__le32 value;
-> +} __packed;
-> +
-> +#define RPI_FIRMWARE_GET_VOLTAGE_REQUEST(_id)	\
-> +	{					\
-> +		.id = cpu_to_le32(_id),		\
-> +	}
-> +
->  /**
->   * struct rpi_firmware_clk_rate_request - Firmware Request for a rate
->   * @id:	ID of the clock being queried
+This is only used for imx6 so far, so I think this is OK as-is for
+v7.2.  We can file this under "possible future rework or kernel
+mentee project."
 
