@@ -4,102 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 262B2CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 04:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C636BCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 05:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VAt7IsMFHJq5LL7MHyUipGEDyQkdeJ+DGVaEDh3ohQE=; b=y0nBs/lLFZdCTK/LQ91pGI5iew
-	F+30v+3wS2d3T/Me59VjuhGnDR5kxhICk9y1xzwjpMH2HU9jBi84a11rAw3ckTz5g8qXv2BDcnyB0
-	I+XtTRV3xH3GZHIeh7+Qo3lHq/Da9XSq9qe5Rz/cc0pRkmc2bW8qMkQ81TFYytgz5syfmhjxuoNEf
-	Ur7aKBLv8YkMB+pDXskskpcVab2PWNB6wnsejvcPxyqewOyAmdvTj2iDufnZRn1sn96kwGOcLSwvL
-	GsITeuHw/+a+I97xnSh6WkPa7H8sb9+oAs9NZjRghSPPG9vDxdSlbI+DVQGOgnrzfbgOD0R2iARKT
-	VbJg/nXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MiGtwoPUHm2LKcxW6fZx/3aamAm5XYlTqpOjgktt4wc=; b=M5BeUjRaAQmdo9lufe86ReueTN
+	zLHyIERq4pnaSVPK4IfWkv/8BaO1rttnoiGeFHeyYCKDMfOWSrqMV1aukW/3BKdiIuYT9gy37736n
+	qNiHHz/XSHQXZc9DugYgpxmgQvR7gb5rjcKKcLRnt6XDIVXWuOm3/iJ3Iw/glqBbusFt1ZpzJi3vq
+	S/ii/gNf8iwKiS5bMS/IlJlxZlBzV2YNXnfASNy615GyLlK3UeMjBju86i4BnvaRAE2M2JnyB2x+O
+	l6KCTPZ/kc9N5lJPoYobr5NUqvqT0Q0jlxyicAwADW+qRu//1Ubtbipwu6tPvVJfw+EXcY9gITh91
+	nxAT32yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOpb6-0000000EA3C-1BAl;
-	Mon, 18 May 2026 04:28:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wOq7a-0000000EDRo-1B4X;
+	Mon, 18 May 2026 05:02:30 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOpb3-0000000EA2Q-1Gb0
+	id 1wOq7W-0000000EDR0-457f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 04:28:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779078530;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VAt7IsMFHJq5LL7MHyUipGEDyQkdeJ+DGVaEDh3ohQE=;
-	b=MJyjoDpeEWPUV4TVe2Qu677qKC5VV7Dlk1ofR+HG8mqjOtsuUnq4f2jy5lAVYQwB4aRZTr
-	ZJXDvCLALapfYcmmuodbZmYH1ZimSGoMw1/+DM2V5lF4F+0WqQwZkSvGNJMtu/ngYuoS+b
-	xKXoTmRBXbsrfwpxRc/uzO5bh4C77qg=
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
- [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-403-ffWvwPj7OKGr-z2sfHP44w-1; Mon, 18 May 2026 00:28:48 -0400
-X-MC-Unique: ffWvwPj7OKGr-z2sfHP44w-1
-X-Mimecast-MFC-AGG-ID: ffWvwPj7OKGr-z2sfHP44w_1779078528
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-c8279604464so2520335a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 21:28:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779078527; x=1779683327;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VAt7IsMFHJq5LL7MHyUipGEDyQkdeJ+DGVaEDh3ohQE=;
-        b=AiDTABwVyibduUn1r10fc0PFKl4YaCvlySKCMELE1Fiuoz/dsKGDEr1I4XLipGZqzz
-         oni127NIYtcqtrEZkXGW1ry/CMwsezkVzI3l3nYfgrNPjSU8A38QNldyP6D23fulQOqP
-         xKYQEoZsx745esPd8MsOfAs/+JI1ei3DfJxA0jH8VP1MCe3A32/UKU47LQZrsjx9GGMN
-         cBAr1dV/UKNLZkrdqQq1RrCJGeS/lGnOq8TmY38d7qfh5s1SXanKb6S3jn9wY2O16JXP
-         j19B7AIbK+pcmBb8M9ym+XYZBP86id6PTMqVfEUP+JqzeEztkyt3Ve3TtxY6por4HS0O
-         zT0Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8s9qUBA/hU7oUwF3CaANnc2Ez2GSNpao0r16FTl/rrBu4zPALAhrBT2xTreXK+VPbAiJYIqyc7xtNJmQYDtAAT@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywr8OmqAyMZQ2MORucoHr1czG7e2m5QHtxGxdTlO+XTrQSprynZ
-	7yxssExVeVJbF6nNDi39sks+ieC2hFyT2/2ecX46LwP/AxanRvgvXnErblncn+w2A3CJbZvbj1D
-	qkWBGSEfUkhkUTHOYkL33ksT8OOOKBf3F0V9gwtlbV8eLQR+zumhxltfoNAYzNsRVCtj0Pd1nTl
-	/R
-X-Gm-Gg: Acq92OFLJkDhNRux2fj87TEJFDypYg7A0UZSzc+nq3EKcGNX3gTXNXA+cZbJCq77Inx
-	ApbbO76xYYG4QHNvJrl31gOi01W1tXwonmZtDs53uaH+fg2ZIuUldC+zouIEOg9ITBYZe+u+Sqg
-	7b2D9bSBENe25E7H+cz53BzDFCzOCoNY7rTzFsKqAZFrlS+LTm3wT0FSruGupbmAb6lp/bBRXyx
-	CN3iPFQoJF0X/fWSP62cA8va5wEwaFg4WRvM4BsEeaow+877EcdQ3Yyx32za2wnAkSZM/eQLNX4
-	SPJXiXH7ULM/aD7OwcPyZYqLnE0Jnrp/McqMB1BcIUTvDgnodp/CZdVto4RjMm6m5uiEPF8Od0x
-	dl/m3jAS1HXS6TASUCMfnFj5EPxlGgMWSVg10MQtOrVHI7Y+ATKXLSr29eQqNCCRa
-X-Received: by 2002:a05:6a20:6a0e:b0:398:7256:3c0 with SMTP id adf61e73a8af0-3b22e71fc4amr14838693637.13.1779078527573;
-        Sun, 17 May 2026 21:28:47 -0700 (PDT)
-X-Received: by 2002:a05:6a20:6a0e:b0:398:7256:3c0 with SMTP id adf61e73a8af0-3b22e71fc4amr14838679637.13.1779078527097;
-        Sun, 17 May 2026 21:28:47 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb07d2f2sm11414785a12.10.2026.05.17.21.28.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 17 May 2026 21:28:46 -0700 (PDT)
-Message-ID: <4c79ff7b-5176-4fd7-8427-0f7a1113f31b@redhat.com>
-Date: Mon, 18 May 2026 14:28:40 +1000
+	Mon, 18 May 2026 05:02:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1779080541;
+	bh=MiGtwoPUHm2LKcxW6fZx/3aamAm5XYlTqpOjgktt4wc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=V537ku1DUKlUnpyvBfXQTRmZtwO0M9khnjhFoZkwPTTuzgNGZqasZSPR5Te2AfLL8
+	 ItvG8QguMR+XGSAv6MWwz3a0bet/9Lp/HiNboJXGR/8CJ80lkx3QfL3epnsseycq8S
+	 0h/zIuGQjFnu8hhGLLhBePg9654iI5vzrPDdYjeRcyX06qP/srM8ht6XAnce+hZAAY
+	 Z6xFiVbkR9MFSXnPOsYGwZ2UvL3Nu5uKIvmgXcSTkKsm88+hWVyef070efjPirRHbb
+	 XWHGtVvqACFfk4jEQW17pzudzceTavrZNNDrg8d/AtrJ0kpi/Ka7eqeQgBnaeLz2ab
+	 cUPr/h6oqO78g==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id A23266025D;
+	Mon, 18 May 2026 13:02:19 +0800 (AWST)
+Message-ID: <23203c124a158536c272d1bffb2657a0d713f8ce.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v4 0/3] ARM: dts: aspeed-g6: add AST2600 I3C nodes and
+ bindings
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Dawid Glazik <dawid.glazik@linux.intel.com>, Lee Jones <lee@kernel.org>,
+  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,  Joel Stanley <joel@jms.id.au>,
+ linux-aspeed@lists.ozlabs.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, maciej.lawniczak@intel.com
+Date: Mon, 18 May 2026 14:32:19 +0930
+In-Reply-To: <15956b70-c6c2-4e3d-8f15-471a274d6e2d@linux.intel.com>
+References: <cover.1777058942.git.dawid.glazik@linux.intel.com>
+	 <15956b70-c6c2-4e3d-8f15-471a274d6e2d@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] virt: arm-cca-guest: use raw variant of
- smp_processor_id() in arm_cca_report_new()
-To: Kohei Enju <enju.kohei@fujitsu.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Sami Mujawar <sami.mujawar@arm.com>, Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8Yvh02u4KBoVo3C9RflUjbE3rGvbi7cPOUyAQMomf7A_1779078528
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_212853_427906_CB6E8E7D 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260517_220227_211715_EEFCCEC7 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,47 +75,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/18/26 1:31 PM, Kohei Enju wrote:
-> With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
-> debug_smp_processor_id(). This debug function complains when certain
-> conditions that ensure CPU ID stability are not met, specifically when
-> it's called from a preemptible context.
-> 
-> In arm_cca_report_new(), which runs in a preemptible context,
-> smp_processor_id() triggers a splat [0] due to this.
-> 
-> However, the CPU ID obtained here is used as the target CPU for
-> smp_call_function_single() to designate a specific CPU for subsequent
-> operations, not to assert that the current thread will continue to
-> execute on the same CPU. Therefore, snapshotting the CPU ID itself is
-> correct, and thus there's no actual harm except for the splat.
-> 
-> Use raw_smp_processor_id() instead, to directly retrieve the current CPU
-> ID without the debug checks, avoiding the unnecessary warning message
-> while preserving the correct functional behavior.
-> 
-> [0]
->   BUG: using smp_processor_id() in preemptible [00000000] code: cca-workload-at/134
->   caller is debug_smp_processor_id+0x20/0x2c
->   CPU: 0 UID: 0 PID: 134 Comm: cca-workload-at Not tainted 7.0.0-rc1-gc74a64d12073 #1 PREEMPT
->   Hardware name: linux,dummy-virt (DT)
->   Call trace:
->    [...]
->    check_preemption_disabled+0xf8/0x100
->    debug_smp_processor_id+0x20/0x2c
->    arm_cca_report_new+0x54/0x230
->    tsm_report_read+0x184/0x260
->    tsm_report_outblob_read+0x18/0x38
->    configfs_bin_read_iter+0xf4/0x1dc
->    vfs_read+0x230/0x31c
->    [...]
-> 
-> Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
-> Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
-> ---
->   drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+Hi Dawid,
 
+On Mon, 2026-05-11 at 16:14 +0200, Dawid Glazik wrote:
+> On 4/24/2026 10:20 PM, Dawid Glazik wrote:
+> > This series reworks and resubmits AST2600 I3C DTS updates that were
+> > originally posted in 2024, but stalled without further upstream
+> > progress.[1] The series was rebased onto the current tree and merge
+> > conflicts were resolved.
+> >=20
+> > The patches first move I2C controller nodes under the APB simple-bus
+> > for layout consistency, then document aspeed,ast2600-i3c-global in
+> > the syscon binding, and finally add AST2600 I3C controller nodes in
+> > aspeed-g6.dtsi.
+> >=20
+> > Jeremy agreed in a separate email thread that I can continue this
+> > series under my authorship.
+> >=20
+> > Link: https://lore.kernel.org/all/9d8c03d742fa9767f30e23d75ddf0baf4296c=
+88e.1714647917.git.jk@codeconstruct.com.au/
+> >=20
+> > Dawid Glazik (3):
+> > =C2=A0=C2=A0 ARM: dts: aspeed-g6: move i2c controllers directly into ap=
+b node
+> > =C2=A0=C2=A0 dt-bindings: mfd: syscon: add aspeed,ast2600-i3c-global co=
+mpatible
+> > =C2=A0=C2=A0 ARM: dts: aspeed-g6: Add nodes for i3c controllers
+> >=20
+> > =C2=A0 .../devicetree/bindings/mfd/syscon.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> > =C2=A0 arch/arm/boot/dts/aspeed/aspeed-g6.dtsi=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 | 543 ++++++++++--------
+> > =C2=A0 2 files changed, 318 insertions(+), 227 deletions(-)
+> >=20
+> >=20
+> > base-commit: 6de23f81a5e08be8fbf5e8d7e9febc72a5b5f27f
+>=20
+> Hi all,
+>=20
+> Gentle ping for this series:
+> https://lore.kernel.org/all/cover.1777058942.git.dawid.glazik@linux.intel=
+.com/#t
+>=20
+> I received Reviewed-by from Krzysztof Kozlowski (thank you).
+> Could I please get feedback/ack from maintainers on the remaining parts,
+> especially ASPEED DTS?
+>=20
+> If preferred, I can respin/rebase the series.
+>=20
+
+Sorry for the delay.
+
+Given Krzysztof's R-b tag for patch 2 I've applied 3 (along with 1) to
+the BMC tree. Patch 2 should be picked up by Lee through the MFD tree.
+
+Cheers,
+
+Andrew
 
