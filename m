@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20BDCD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85BACD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:53:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7N6f0O1fL7CnMh9vlnmxZC9H0Mq5P8xsNIyAlAW370=; b=GWoKE/VpD6UXOXVxJpTkB0NdYG
-	DR5IEI7/CUmgwiRfNifpiDWthqs+5MdzBLU4uU+GL+Jr1uu0t8dRLMLm1LEIG+swrXZt4/KJtbp7o
-	BgUKD+LG5W4Jw5ovcuLuVM59xPFWkTzv2yA/jk0PhGgcEhSN33kPehXpw6O5N4wAWuj/Jz00PYY74
-	UdUPxshlXIOH+vY26anAS56O8ZbtfdJCG84MIT/A5CjCfCVobrVGhh56g+69E53QRdYGtkpoM76al
-	m9UEDN0emnxnf0Jk3fTBy655ilFQeQORdMqOzgu1Y4qq+aD3gJExCHoI/sDeDdTA+yMZI8KcqTcbH
-	XNNIitPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Sy2PqXZ6ebOtE0DOUjyEW5oMkeY/jMTLVTy3qbrNxw=; b=pgiLkSfgehOHVAnoMj1nNReyek
+	TwM5n+dpHwY2g+1+lHK9+lk2YGNhmm9fDvQrKyKmwR2tw2QL7RS5LWIJoUxOPrvLW6dAyR8MqQvg3
+	jlw5p3dky0Hn/URnT0bT1ckza4LSP4lAoKZEQzPZPb4XtunSlXulZn/5EclLdKvyp6oeyGkpucR4H
+	Qr6I5TulRlguORPiWdwcyceCCriUHZAOHzMO6CdomPVb/VbQ366rKcBcXYcp83cXrlx06w9//C+mM
+	/qc+ttut5TtJWPHZ/1dxKcFq+b8vVcYw4F0U+g2jJrug830ZpeiHgJmQFbS/Yy0YjfxjW9e3MCSpn
+	Y4mTXe/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOzJc-0000000G3Em-0CjU;
-	Mon, 18 May 2026 14:51:32 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1wOz0t-0000000Fz9m-2geY;
+	Mon, 18 May 2026 14:32:11 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOzJZ-0000000G3E7-0Net
+	id 1wOz0n-0000000Fz4x-3369
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:51:30 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-488af96f6b2so26739895e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:51:28 -0700 (PDT)
+	Mon, 18 May 2026 14:32:06 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-44ccbd3290aso2163328f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:32:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779115887; x=1779720687; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=q7N6f0O1fL7CnMh9vlnmxZC9H0Mq5P8xsNIyAlAW370=;
-        b=GbbkoohCLIJtgzOkcMPwy7cHtIUb1ELjBGby2jRG155jS/CoyKg0dF8TeShanhLjLb
-         5H3+XuUIpHuVtjzdlFNWVQtTJ5eSGO38Jy1uPRVG8tVxhW4ino/juuvrKS0o0MUCSuRM
-         qz2XBM5T68oEsGHPxyd8/kRXQPheqQgpIwjRtYePA1nWn2iX2n5jbfq3/+T9hq16ZPp4
-         gpGkkT8qkqo48QkyG5hmthjonnKSFEOmMA2RDQmkdcG+5j/xfnpGvoX6XSE26SvShMIr
-         t2jGamKFl6UpacrgVnrmAQ9XAlgyIo4GFuK7cjxA+bK60nOJmY2Ot67iVHkc+cjRoEdJ
-         tq5Q==
+        d=amarulasolutions.com; s=google; t=1779114724; x=1779719524; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4Sy2PqXZ6ebOtE0DOUjyEW5oMkeY/jMTLVTy3qbrNxw=;
+        b=XlEVhWHEmV0mfHDlwYAOWyZ3uVp9kWf/2jfCFNhmZSNmqIQVuR8zoj3J36YGllYfzk
+         C6T3OApxLLYluMMpPhZiz0kTaZymlqy4K8V1GCiIlY9qAflzzGzP3ow4LAUAp/UrLhb4
+         yVtJUsT5FrsUB0KW3AyEHt4cYvnfuqAPo51gg=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779115887; x=1779720687;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q7N6f0O1fL7CnMh9vlnmxZC9H0Mq5P8xsNIyAlAW370=;
-        b=JmtArv/vS1BrV7rfZXvQqMmNWKNEQ+oiFWV6VQ7KobiKRrsM4JZy0hrt8bIan2unC+
-         7THsyVpJoiH3vfH+cFHPOmGXYKmMfP2khKmVWgOnygwXp5EqCGByklQMnoYT8JXn5Vp5
-         5Ie8l/4yhjMltA5m/cg87ZRAGcHB5+8vVvXMUCA6LLTr8lCrfhBV7Zv8EEeyyBc+9uxJ
-         Jmk9E7L5pmdKzjB1Nb4YzxSfF2LfX+3dAIW7w9Gwle6/wxHYFEUkMQVQlX8aoDy/LwcM
-         anM0v4PpeUH+Rd/23j0NtCSFbMN9UW8Oo+CNuTD95vDz6sOJ/B6AmF2yn/Ruwo1eZcNj
-         0YiQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/Jg4XeuWzvtHeR+Tz0SybNvziEg/0PdYxDbGXsghh+uXERs2+MKajd6RxOUO58h5575A47zTf0i7rwPwYAHG9O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx52jWcnEzNiur5ubVJ7YgyTUDDpQAZP6ySnmI6APaF/AfuSAUv
-	A+X1FoXtM+EWfWEVUm3279B4Y388m1YcRmzyyK2+qzg6iPFOfqgG78Vc
-X-Gm-Gg: Acq92OGr5dMIpxSd6+hpTjDvKNq0D53ocK3hT45DGn7xaWw+2G6sRv2xBHRi9yU4+mw
-	xzcIzt1g2N5GfaAV7iqhP9/L6paIj5DRYTUlrHwpvsoHqeYECan31uLVI+7BNIEM5RQmd6HneBr
-	5PMm+DwDbnNPzi2g5sD60llUiik+0rxavjAK/udX1skQldmdXftfyJvs9FquRm6nW1iRWmiMsVh
-	MWYZWxE7C2zQS6weZXVp30NHx6AfFytrMctwYaVJ3M6hyPmAyXIC+svXAw1+Hy8ZgTsKOc1nOJV
-	6225zMZ2moNqJESpXUKpaMQjq6fUlwIxmqNItuvyl9yPRg7ApECE+QoQowE+4FQwxAi4U+ojpA/
-	bgiPlBgXjqJfgtue66++UpbuavmSN3AVqnUwwtPjEKs589NPux58rhesGqPzq4+LdjZ0WjTBznx
-	4wdTyJhyhRV4bBchdc/7LdstFer+g04yn7Z+uslAnRLlqJn5Rza4V9TBSEjuLy8tMTWK4TwgoQ3
-	zc=
-X-Received: by 2002:a05:600c:698d:b0:48f:e230:2a1c with SMTP id 5b1f17b1804b1-48fe6631158mr246804535e9.31.1779115887039;
-        Mon, 18 May 2026 07:51:27 -0700 (PDT)
-Received: from giga-mm-11.home (72.92.4.85.dynamic.cust.swisscom.net. [85.4.92.72])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48feaa2a878sm131021135e9.1.2026.05.18.07.51.26
+        d=1e100.net; s=20251104; t=1779114724; x=1779719524;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=4Sy2PqXZ6ebOtE0DOUjyEW5oMkeY/jMTLVTy3qbrNxw=;
+        b=c0VPGnpEiE9B7kZjJsr32bi49AgPIFwfegaIUiIaYnG8LihbYvJOrCgcvVhsrxW/P2
+         50bgpH+WkEsQ8aCtFoDNgd5ckN+M3w1TTDHnMEwyoUt46Pmgz2zNGhlYpX3ghm5ohsnF
+         Stj/8/AtiV9rlXOs9N5/sJsOYuqWkknixerB9OInVm9H9NuLIw7aVCZ5XCoQ7vKllbqJ
+         s7Oid4xYBbcgbvBtjgn/CzSSbl7QuhtIQyFWGC8KfpjH9+no7NMkNLrqBiuMJ97+K1pK
+         0fQdMLX0r7Q4UOHhzwHFiGIVk+zuKgzz06Uj0nEF6PXOPiuFsx+HssFEFIJmRjjwxY1I
+         ghvg==
+X-Forwarded-Encrypted: i=1; AFNElJ+WY/k78lbSWXNOc44uvoEK5wnak6z0baIETBVfwNPv7EXC17cd0E/xLbOsEycURq1Q5OrGrMwsmMOjqoFtbx94@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTA9mV4x1HmQLR9Xjpd0moc6SJy/TZxs7DeO9k8CByMLLZ2wR5
+	DN2sH2SoCUO5U0GRUtbX0nJrJiMK0w0PJ66tJ+aQPFXyazWYrXa2yFwGWXOOXVkGt8U=
+X-Gm-Gg: Acq92OEAiyBjp20zi7WWuqnVD9KV2abBiaPLYwPDD17CqyTIkwFxRQb1eL0YXOQ38Ox
+	CFbXhVe61tiayd6QHjS2iW6dmM81ODuP0ZJeEMRdap/1tgV/FvkJnpY9KWyEhRjbt5j/gHyssEY
+	vHOsi65SUds0VXTQfc06Yl/KrN5dB2E+BykV1cEqnlh98oneb5g7kpYGFBtCiO3MoATIxdJgEMq
+	IkNILkautMxMafyOk84fTTYwsXU4f8Di9AnnfXEbksUroJ3BtgMuDcwfICa2IuKIjZXMvxyxvzk
+	MCdPuvq3YvZdNJ3gWFZC16dLAzpr67QeQtNCIvkXHFIKfZihapaFMV8ZZK14xkC0qMH6f8bQdDt
+	739r0BrWRH2MbRRd4OAnzML+mJ/CxZwCnL5vhDPIa63SbAOpQ+zyDAzJi8uoropDjMf/iIoSHj3
+	yBx8PVpjTi5tD/cFAHuFtsoK/DBYZ/IlcsqRTw6MxJYkp0ghb/M3gnz+k7Ud1UF0H+9j6g7Jsl1
+	Dibi4HZbbdBiWuuGFHl6jBGP1iqHNCJltSWlLayMp1V+H1F
+X-Received: by 2002:a05:6000:1845:b0:44a:47a4:ce91 with SMTP id ffacd0b85a97d-45e5c58d4b5mr24057819f8f.25.1779114723899;
+        Mon, 18 May 2026 07:32:03 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.43.167])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a1aeafsm39564572f8f.23.2026.05.18.07.32.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 07:51:26 -0700 (PDT)
-Message-ID: <22731dae5ed48680bd456a3a5fe5e7086d17a54c.camel@gmail.com>
-Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
- Baijie Helper A133 board
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: wens@kernel.org, Andre Przywara <andre.przywara@arm.com>
-Cc: linux-sunxi@lists.linux.dev, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej
- Skrabec	 <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 18 May 2026 16:51:25 +0200
-In-Reply-To: <CAGb2v65jpG-XXNjT46H2KnLoM_SHOatFw82u38ZGEELgXmvDtQ@mail.gmail.com>
-References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
-	 <20260510201644.4143710-4-alexander.sverdlin@gmail.com>
-	 <2306dd3c-6362-40ee-8d9f-77f89be3a502@arm.com>
-	 <14a7e289ff5ffed8fcd6dcb9b2e8455a1b2c9420.camel@gmail.com>
-	 <256b1cd8-b143-4f71-91cc-8513be04ce4c@arm.com>
-	 <CAGb2v65jpG-XXNjT46H2KnLoM_SHOatFw82u38ZGEELgXmvDtQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.1 
+        Mon, 18 May 2026 07:32:03 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	domenico.acri@engicam.com,
+	francesco.utel@engicam.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 03/15] arm64: dts: st: add CAN1 support on stm32mp25
+Date: Mon, 18 May 2026 16:31:18 +0200
+Message-ID: <20260518143150.3138712-4-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260518143150.3138712-1-dario.binacchi@amarulasolutions.com>
+References: <20260518143150.3138712-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_075129_159701_35849BA8 
-X-CRM114-Status: GOOD (  36.45  )
+X-CRM114-CacheID: sfid-20260518_073205_782707_C9B972A6 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,79 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+The controller is compliant with ISO 11898-1: 2015 (CAN protocol
+specification version 2.0 part A, B) and CAN FD protocol specification
+version 1.0.
 
-On Mon, 2026-05-18 at 22:47 +0800, Chen-Yu Tsai wrote:
-> > > > > --- /dev/null
-> > > > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
-> > > > > @@ -0,0 +1,162 @@
-> > > > > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > > > > +/*
-> > > > > + * Copyright (c) 2025 Arm Ltd.
-> > > >=20
-> > > > Please put your own copyright here, even if that has been largely c=
-opied
-> > > > from an existing file.
-> > > >=20
-> > > > > + */
-> > > > > +
-> > > > > +/dts-v1/;
-> > > > > +
-> > > > > +#include "sun50i-a100.dtsi"
-> > > > > +#include "sun50i-a100-cpu-opp.dtsi"
-> > > > > +
-> > > > > +/{
-> > > > > +=C2=A0=C2=A0 compatible =3D "baijie,helper-a133-core",
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 "allwinner,sun50i-a100";
-> > > > > +
-> > > > > +=C2=A0=C2=A0 aliases {
-> > > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ser=
-ial1 =3D &uart1;=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* BT module */
-> > > >=20
-> > > > Do we really need an alias for the BT UART? And is the BT module
-> > > > supported already? Then please add a child node to the UART node.
-> > >=20
-> > > That's the only thing I can do currently regarding BT: stabilize the
-> > > serial enumeration, because UART1 cannot be used for anything else
-> > > except BT module, because this is soldered inside "core" module.
-> > > We can avoid different tty enumeration, should the support for
-> > > BT be implemented in the future...
-> > >=20
-> > > > Isn't the WiFi/BT module on the SoM? Then please mention and enable=
- MMC1
-> > > > here. Provide the child node for the WiFi chip, even if there is no
-> > > > upstream support in the kernel for it yet.
-> > >=20
-> > > So both the above BT and the WiFi is AW869A/AIC8800 combo chip, which
-> > > has neither upstream driver, nor [upstream] DT bindings. Even github
-> > > driver for AIC8800 doesn't seem to use DT, therefore it looks quite
-> > > pointless to me at this point to specify anything in the DT for the
-> > > chip which doesn't have the bindings idea even theoretically.
-> > >=20
-> > > Nothing in the current DT shall block any future work on the AW869A
-> > > support though and the above "aliases" entry shall even guarantee
-> > > unchanged serial enumeration shall such support arise.
-> >=20
-> > Fair enough for not providing DT nodes for those unsupported chips, but
-> > why do we need to force enumeration? For the eventual Bluetooth usage,
-> > the driver will find the respective serial interface by just looking at
-> > its parent interface. IIUC there is nothing referring to ttyS1
-> > explicitly. So we wouldn't really need an alias, would we?
-> > I see that some boards do define an alias, but others with Bluetooth
-> > don't, which I think is the right thing to do. Which name the kernel
-> > comes up with for UART1 shouldn't matter in any way.
->=20
-> It does provide a hint for any users enabling more UARTs and adding
-> aliases for them that they should number them starting from 2? And
-> just stable numbering overall.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+---
 
-that's exactly what I had in mind, as the the status of BT/WiFi might
-change in future, we might want to make UART1=3Dtty1 and UART2=3Dtty2
-today and this will not change with potentially coming AW869A support.
+ arch/arm64/boot/dts/st/stm32mp253.dtsi | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-But that's not an essential feature to me, just nice to have.
+diff --git a/arch/arm64/boot/dts/st/stm32mp253.dtsi b/arch/arm64/boot/dts/st/stm32mp253.dtsi
+index eeceb086252b..d5871203ccb0 100644
+--- a/arch/arm64/boot/dts/st/stm32mp253.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp253.dtsi
+@@ -43,6 +43,21 @@ &optee {
+ };
+ 
+ &rifsc {
++	m_can1: can@402d0000 {
++		compatible = "bosch,m_can";
++		reg = <0x402d0000 0x400>, <0x40310000 0xd50>;
++		reg-names = "m_can", "message_ram";
++		interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "int0", "int1";
++		clocks = <&rcc CK_BUS_FDCAN>, <&rcc CK_KER_FDCAN>;
++		clock-names = "hclk", "cclk";
++		bosch,mram-cfg = <0x0 0 0 32 0 0 2 2>;
++		access-controllers = <&rifsc 56>;
++		power-domains = <&CLUSTER_PD>;
++		status = "disabled";
++	};
++
+ 	ethernet2: ethernet@482d0000 {
+ 		compatible = "st,stm32mp25-dwmac", "snps,dwmac-5.20";
+ 		reg = <0x482d0000 0x4000>;
+-- 
+2.43.0
 
---=20
-Alexander Sverdlin.
 
