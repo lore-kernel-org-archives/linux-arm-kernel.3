@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1BBCD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 144D2CD4F48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2BaSm/XjGBh4son00sA6wyvpPsCewbAXPb4XTuwg+MM=; b=pJh5UifTAh7WVHEhvDmB2qPOk9
-	2jIG4Q7NCRO/AoyKVcvPBONroezQj07yKP6oVq87xH32TK/fVbl2lDjIvhMEd4gV9Jknr/j8xaikw
-	RnohvdS9ihV4sWlGDtd4rY2KurUZad4D/YiDB/RbybNAEM2m5OUHHP6FnJbz0npC/lBZ/2+RRe51W
-	9t6G7nAn4+0iCVjOKCV1p9ViGdaA3nnt5ZCkbERGm5+0chfFPe6W60qs0pP4WVv5Lp5MAzjhd3Fbv
-	Y5fw0SuJ8c6yKBYQf993cLp5HxScl1NO2L/F2GnBxzk/a+M5DnPxQxE5ZQtkckXAyvW87Sqr3843P
-	MuUoihMQ==;
+	bh=NBatxZ7rLnoE7+1Q0P79q/wyf+V1W3H6ZFP+TdJvcUw=; b=IqMe1fhOm+4a/hRbHRO3nLYDKf
+	AK5vwTWOUWXszhuRI/pJY+p6PeMMNmYLhA3r4fSYNL1zUdercxmC431ByY6v8o2Zg2HaqR51FK0dX
+	8BMpPuuj8/APmFb9BcWUHPB/M4i99+26Ayu09e4Uu3EDvN7B4eL03gSaEBcDCMbDH75ZSdyxMIKpd
+	PE2MdguCoina3aI6Df9NpR6Ng5a1LFVycMDiWLXTAEFEoqwwHoMHP/GGWVHPl/ukFt700gvxNgcLW
+	MsEP0ydFlc85MdZdMoPqq1d1DmDKYJKOe13Wtt7fvVnN2vSgVE13e0RSUHLUBDbLmexqPoaLDKcQm
+	rVdY1hHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsFI-0000000EYbS-3nF5;
-	Mon, 18 May 2026 07:18:36 +0000
-Received: from mail-ua1-f54.google.com ([209.85.222.54])
+	id 1wOsFS-0000000EYf5-00fA;
+	Mon, 18 May 2026 07:18:46 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsFC-0000000EYYZ-2QKr
+	id 1wOsFP-0000000EYdM-0MJo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 07:18:32 +0000
-Received: by mail-ua1-f54.google.com with SMTP id a1e0cc1a2514c-9568bae58f7so1271111241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 00:18:30 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779088709; x=1779693509;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2BaSm/XjGBh4son00sA6wyvpPsCewbAXPb4XTuwg+MM=;
-        b=itRVm98KTk1FfgUyUYcpKYeK3zZ8lcBE8CKVLmeoVY8Lfl3glHIL5gw5D0CQ7Cke82
-         Mp1azyNXmBdeywFoSfaoyycvg3ilUgzDzv7MOa7VyTjz15W+igGIsxl2BzzFy7H0xjiw
-         9LNefGxU4j/WDImtsj9xoPNcCVwOrRCQMRPd/hlNoS5fzupGwJqMwJVV0V0Pclbpxzhz
-         +e7knIOH7zM11ehfvUoXkxOoTz3jp/y1GB6wBfr5Dh66TYWyETTpDCpIOZw/XL9nq4pm
-         crB+V8HLaYcPaCgR+NgPCs4n6V8FOgYXEU6/f81Geed6f3fqNDcZcX8DX2YHcq0x5iwa
-         +qBw==
-X-Gm-Message-State: AOJu0Yy8wE2X823cXjVA/zWYKo0+VcOrE2GJK6eM60yrX2X+uSJ91sMi
-	KvDiL/AiqQXzidgKw6WPajUhtVU06V/uvAInXFyj1xSZNfb8Og7qdWb4xnutE6qP
-X-Gm-Gg: Acq92OExE5YBrYg7q+dvjEOlE1PBxSkDWG2ozEqShG/0cXcrfxP6H5218SEzIICjBP9
-	f1nRpSZIl6t+xgaeAFvIAinfpzGpxtPrCe2XNty+RRIDgnII98e8I6gOPj5BkcpnS75xKRdS6Qg
-	KnhM/Cu9MCHXmaKFBDov7Mei8FoaR0DFskelVPkB6U79TRS9eRoC1UJXlMs/GMflMqOkRSF4hli
-	lrsyfz6HykFzRqpNqaJ2yxwCSwC21RAe/iYfwgauTThPdNf8z1PrpxEKD97Or7aIMRBjY6+aLU3
-	gys4EtTNkIdxu/AfLa06IKTe/+vc0Ah6xpgXZkFmuXdSuU6NSkwnQ8Jp37AnaWoMZTlIRe84KjL
-	sGax3CIAs1xuTi/ewN/khZ8Kna6HH6DTq08T8Tb5yRZnhlEzlJASgsNh7pJleg1U9N+7LXebucp
-	f0TRe1qwOoogyXoQalIMruH/RkfUdXKrpAGtF8HPc0Xl48sVsnnKfQKpeRFCue
-X-Received: by 2002:a05:6102:2910:b0:611:3bcb:aee5 with SMTP id ada2fe7eead31-63a3996686emr6877049137.0.1779088709093;
-        Mon, 18 May 2026 00:18:29 -0700 (PDT)
-Received: from mail-vs1-f53.google.com (mail-vs1-f53.google.com. [209.85.217.53])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-95fc2fe0a69sm4322341241.13.2026.05.18.00.18.28
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2026 00:18:28 -0700 (PDT)
-Received: by mail-vs1-f53.google.com with SMTP id ada2fe7eead31-63145ce291bso1608490137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 00:18:28 -0700 (PDT)
-X-Received: by 2002:a05:6102:511f:b0:632:137d:3ab with SMTP id
- ada2fe7eead31-63a403ad984mr6556785137.31.1779088707988; Mon, 18 May 2026
- 00:18:27 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260517163212.18016-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260517163212.18016-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 18 May 2026 09:18:16 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVcpR96smOd4sdEXHoRp=WTLLzWNN9hO0P0=ZBTe4fKog@mail.gmail.com>
-X-Gm-Features: AVHnY4JKgHlqd5SaFhNLozD0z7aZ9BTFwj4ug759FlpKdE8vGqFRTa8yvRVCDYo
-Message-ID: <CAMuHMdVcpR96smOd4sdEXHoRp=WTLLzWNN9hO0P0=ZBTe4fKog@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: renesas: r8a78000: Describe all reserved memory
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+	Mon, 18 May 2026 07:18:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1779088717;
+	bh=NBatxZ7rLnoE7+1Q0P79q/wyf+V1W3H6ZFP+TdJvcUw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=JE4ggE5lkow4d55Twm2ryEHyY5CUc74EIJJLkQoT3K3HEeE9tJ82zBPEmZF1t1uzn
+	 YLDQCOFReJGREX8XWUxUyJdd1d8hr/TbZVskiTkOpKr8rMPlfyFaHckU03vEB+B6no
+	 ZGav6mClT2OjBe5p2FjnaBytwK2sqMFM3fKLmKGIHUfOHQrOw5pXEha0zDH7GjRvSh
+	 aWcuzaMyGv20fbfsJasgY+8hn2GJwA8AaZkAVEiFqPuBkagj5hoJgmHvFmiDE5VrGf
+	 XCd5jlkLylgw+a4X33JELrSBGr+rjurP9HRLs2uTo1nA32mY5UdwP8IZG4am3xN9K+
+	 9w6WdBg2yUbHg==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 39B2B6025D;
+	Mon, 18 May 2026 15:18:37 +0800 (AWST)
+Message-ID: <39b9a80fe4f49d72cefb8d3f8f1bb3776b9c4226.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Kyle Hsieh <kylehsieh1995@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Mon, 18 May 2026 16:48:36 +0930
+In-Reply-To: <20260424-ventura2_initial_dts-v4-2-806b00ea4314@gmail.com>
+References: <20260424-ventura2_initial_dts-v4-0-806b00ea4314@gmail.com>
+	 <20260424-ventura2_initial_dts-v4-2-806b00ea4314@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_001830_628713_EAD5A95F 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20260518_001843_393456_9462420E 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,110 +74,520 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Hi Kyle,
 
-On Sun, 17 May 2026 at 18:32, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Fully describe all available DRAM in the DT, and describe regions which
-> are not accessible because they are used by firmware in reserved-memory
-> node.
->
-> Replace first memory bank memory@60600000 with memory@40000000 and a
-> 518 MiB long reserved-memory no-map subnode. This memory region is used
-> by other cores in the system.
->
-> Reserve 32 kiB of memory at 0x8c100000 for parameters shared by IPL,
-> SCP, TFA BL31 and TEE.
->
-> Reserve 512 kiB of memory at 0x8c200000 for TFA BL31. The upcoming
-> upstream TFA 2.15 BL31 uses memory from 0x8c200000..0x8c242fff, the
-> round up to 512 kiB is slight future proofing.
->
-> Reserve 32 MiB of memory at 0x8c400000 for OPTEE-OS, which is the
-> entire OPTEE-OS TZ protected DRAM area.
->
-> Neither the TFA BL31 nor OPTEE-OS do modify the DT passed to Linux in
-> any way with any new reserved-memory {} node to reserve memory areas
-> used by the TFA BL31 or OPTEE-OS to prevent the next stage from using
-> those areas, which lets Linux use all of the available DRAM as it is
-> described in the DT that was passed in by U-Boot, including the areas
-> that are newly utilized by TFA BL31 or OPTEE-OS.
->
-> In case of high DRAM utilization, unless the memory used by TFA BL31
-> or OPTEE-OS is properly reserved, Linux may use and corrupt the memory
-> used by TFA BL31 or OPTEE-OS, which would lead to the system becoming
-> unresponsive.
->
-> Fixes: ad142a4ef710 ("arm64: dts: renesas: r8a78000: Add initial Ironhide board support")
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Firstly, are you trying to represent multiple revisions of the hardware
+design in this devicetree? I'm curious due to the 'legacy' labels
+below.
 
-Thanks for your patch!
-
-> --- a/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-> +++ b/arch/arm64/boot/dts/renesas/r8a78000-ironhide.dts
-> @@ -20,10 +20,9 @@ chosen {
->                 stdout-path = "serial0:1843200n8";
->         };
->
-> -       memory@60600000 {
-> +       memory@40000000 {
->                 device_type = "memory";
-> -               /* first 518MiB is reserved for other purposes. */
-> -               reg = <0x0 0x60600000 0x0 0x5fa00000>;
-> +               reg = <0x0 0x40000000 0x0 0x80000000>;
->         };
->
->         memory@1080000000 {
-> @@ -65,6 +64,36 @@ memory@1e00000000 {
->                 device_type = "memory";
->                 reg = <0x1e 0x00000000 0x1 0x00000000>;
->         };
+On Fri, 2026-04-24 at 17:30 +0800, Kyle Hsieh wrote:
+> Add linux device tree entry related to the Meta(Facebook) rmc-node.
+> The system use an AT2600 BMC.
+> This node is named "ventura2".
+>=20
+> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
+> ---
+> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
+=A0=C2=A0=C2=A0 1 +
+> =C2=A0.../dts/aspeed/aspeed-bmc-facebook-ventura2.dts=C2=A0=C2=A0=C2=A0 |=
+ 2925 ++++++++++++++++++++
+> =C2=A02 files changed, 2926 insertions(+)
+>=20
+> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
+/Makefile
+> index 9adf9278dc94..6b96997629d4 100644
+> --- a/arch/arm/boot/dts/aspeed/Makefile
+> +++ b/arch/arm/boot/dts/aspeed/Makefile
+> @@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
+> =C2=A0	aspeed-bmc-facebook-minipack.dtb \
+> =C2=A0	aspeed-bmc-facebook-santabarbara.dtb \
+> =C2=A0	aspeed-bmc-facebook-tiogapass.dtb \
+> +	aspeed-bmc-facebook-ventura2.dtb \
+> =C2=A0	aspeed-bmc-facebook-wedge40.dtb \
+> =C2=A0	aspeed-bmc-facebook-wedge100.dtb \
+> =C2=A0	aspeed-bmc-facebook-wedge400-data64.dtb \
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts b/=
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
+> new file mode 100644
+> index 000000000000..8d4ddb473862
+> --- /dev/null
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
+> @@ -0,0 +1,2925 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (c) 2023 Facebook Inc.
+> +/dts-v1/;
 > +
-> +       reserved-memory {
-> +               #address-cells = <2>;
-> +               #size-cells = <2>;
-> +               ranges;
+> +#include "aspeed-g6.dtsi"
+> +#include <dt-bindings/i2c/i2c.h>
+> +#include <dt-bindings/gpio/aspeed-gpio.h>
 > +
-> +               /* First 518 MiB is reserved for other purposes. */
-> +               firmware@40000000 {
-> +                       reg = <0x0 0x40000000 0x0 0x20600000>;
-> +                       no-map;
-> +               };
+> +/ {
+> +	model =3D "Facebook Ventura2 RMC";
+> +	compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
+> +	aliases {
+> +		serial2 =3D &uart3;
+> +		serial4 =3D &uart5;
 > +
-> +               /* Parameters set by IPL. */
-> +               parameters@8c100000 {
-> +                       reg = <0x0 0x8c100000 0x0 0x00008000>;
-> +                       no-map;
-> +               };
+> +		/*
+> +		 * i2c switch 0-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 16-23.
+> +		 */
+> +		i2c16 =3D &i2c0mux0ch0;
+> +		i2c17 =3D &i2c0mux0ch1;
+> +		i2c18 =3D &i2c0mux0ch2;
+> +		i2c19 =3D &i2c0mux0ch3;
+> +		i2c20 =3D &i2c0mux0ch4;
+> +		i2c21 =3D &i2c0mux0ch5;
+> +		i2c22 =3D &i2c0mux0ch6;
+> +		i2c23 =3D &i2c0mux0ch7;
 > +
-> +               /* TFA BL31. */
-> +               tfa-bl31@8c200000 {
-> +                       reg = <0x0 0x8c200000 0x0 0x00080000>;
-> +                       no-map;
-> +               };
+> +		/*
+> +		 * i2c switch 1-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 24-31.
+> +		 */
+> +		i2c24 =3D &i2c1mux0ch0;
+> +		i2c25 =3D &i2c1mux0ch1;
+> +		i2c26 =3D &i2c1mux0ch2;
+> +		i2c27 =3D &i2c1mux0ch3;
+> +		i2c28 =3D &i2c1mux0ch4;
+> +		i2c29 =3D &i2c1mux0ch5;
+> +		i2c30 =3D &i2c1mux0ch6;
+> +		i2c31 =3D &i2c1mux0ch7;
 > +
-> +               /* TEE TZ DRAM. */
-> +               tee@8c400000 {
-> +                       reg = <0x0 0x8c400000 0x0 0x02000000>;
-> +                       no-map;
-> +               };
-> +        };
+> +		/*
+> +		 * i2c switch 4-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 32-39.
+> +		 */
+> +		i2c32 =3D &i2c4mux0ch0;
+> +		i2c33 =3D &i2c4mux0ch1;
+> +		i2c34 =3D &i2c4mux0ch2;
+> +		i2c35 =3D &i2c4mux0ch3;
+> +		i2c36 =3D &i2c4mux0ch4;
+> +		i2c37 =3D &i2c4mux0ch5;
+> +		i2c38 =3D &i2c4mux0ch6;
+> +		i2c39 =3D &i2c4mux0ch7;
+> +
+> +		/*
+> +		 * i2c switch 5-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 40-47.
+> +		 */
+> +		i2c40 =3D &i2c5mux0ch0;
+> +		i2c41 =3D &i2c5mux0ch1;
+> +		i2c42 =3D &i2c5mux0ch2;
+> +		i2c43 =3D &i2c5mux0ch3;
+> +		i2c44 =3D &i2c5mux0ch4;
+> +		i2c45 =3D &i2c5mux0ch5;
+> +		i2c46 =3D &i2c5mux0ch6;
+> +		i2c47 =3D &i2c5mux0ch7;
+> +
+> +		/*
+> +		 * i2c switch 8-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 48-55.
+> +		 */
+> +		i2c48 =3D &i2c8mux0ch0;
+> +		i2c49 =3D &i2c8mux0ch1;
+> +		i2c50 =3D &i2c8mux0ch2;
+> +		i2c51 =3D &i2c8mux0ch3;
+> +		i2c52 =3D &i2c8mux0ch4;
+> +		i2c53 =3D &i2c8mux0ch5;
+> +		i2c54 =3D &i2c8mux0ch6;
+> +		i2c55 =3D &i2c8mux0ch7;
+> +
+> +		/*
+> +		 * i2c switch 11-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 56-63.
+> +		 */
+> +		i2c56 =3D &i2c11mux0ch0;
+> +		i2c57 =3D &i2c11mux0ch1;
+> +		i2c58 =3D &i2c11mux0ch2;
+> +		i2c59 =3D &i2c11mux0ch3;
+> +		i2c60 =3D &i2c11mux0ch4;
+> +		i2c61 =3D &i2c11mux0ch5;
+> +		i2c62 =3D &i2c11mux0ch6;
+> +		i2c63 =3D &i2c11mux0ch7;
+> +
+> +		/*
+> +		 * i2c switch 13-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 64-71.
+> +		 */
+> +		i2c64 =3D &i2c13mux0ch0;
+> +		i2c65 =3D &i2c13mux0ch1;
+> +		i2c66 =3D &i2c13mux0ch2;
+> +		i2c67 =3D &i2c13mux0ch3;
+> +		i2c68 =3D &i2c13mux0ch4;
+> +		i2c69 =3D &i2c13mux0ch5;
+> +		i2c70 =3D &i2c13mux0ch6;
+> +		i2c71 =3D &i2c13mux0ch7;
+> +
+> +		/*
+> +		 * i2c switch 15-0077, pca9548, 8 child channels assigned
+> +		 * with bus number 72-79.
+> +		 */
+> +		i2c72 =3D &i2c15mux0ch0;
+> +		i2c73 =3D &i2c15mux0ch1;
+> +		i2c74 =3D &i2c15mux0ch2;
+> +		i2c75 =3D &i2c15mux0ch3;
+> +		i2c76 =3D &i2c15mux0ch4;
+> +		i2c77 =3D &i2c15mux0ch5;
+> +		i2c78 =3D &i2c15mux0ch6;
+> +		i2c79 =3D &i2c15mux0ch7;
 
-Shouldn't these reservations be added by the bootloader stack, when
-passing the DTB to Linux?
+Can you please add comments justifying why all of these aliases are
+necessary given a number of them are for busses with no devices
+described under them?
 
->  };
->
->  &extal_clk {
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial4:57600n8";
+> +	};
+> +
+> +	fan_leds {
+> +		compatible =3D "gpio-leds";
+> +
+> +		led-0 {
+> +			label =3D "fcb0fan0_ledd1_blue";
 
-Gr{oetje,eeting}s,
+Given the labels are exposed to userspace and is something applications
+likely consume, is the double 'd' in led intentional?
 
-                        Geert
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander0 0 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-1 {
+> +			label =3D "fcb0fan1_ledd2_blue";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander0 1 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-2 {
+> +			label =3D "fcb0fan2_ledd3_blue";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander1 0 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-3 {
+> +			label =3D "fcb0fan3_ledd4_blue";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander1 1 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-4 {
+> +			label =3D "fcb0fan0_ledd1_amber";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander0 4 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-5 {
+> +			label =3D "fcb0fan1_ledd2_amber";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander0 5 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-6 {
+> +			label =3D "fcb0fan2_ledd3_amber";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander1 4 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-7 {
+> +			label =3D "fcb0fan3_ledd4_amber";
+> +			default-state =3D "off";
+> +			gpios =3D <&fan_io_expander1 5 GPIO_ACTIVE_LOW>;
+> +		};
+> +	};
+> +
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+...
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> +
+> +&fmc {
+> +	status =3D "okay";
+> +	flash@0 {
+> +		status =3D "okay";
+> +		m25p,fast-read;
+> +		label =3D "bmc";
+> +		spi-max-frequency =3D <50000000>;
+> +		#include "openbmc-flash-layout-128.dtsi"
+> +	};
+> +	flash@1 {
+> +		status =3D "okay";
+> +		m25p,fast-read;
+> +		label =3D "alt-bmc";
+> +		spi-max-frequency =3D <50000000>;
+
+Perhaps include the alternate flash layout dtsi here?
+
+> +	};
+> +};
+> +
+> +&peci0 {
+
+Can you please order the nodes alphabetically. P is not between F and
+G.
+
+> +	status =3D "okay";
+> +};
+> +
+>=20
+
+...
+
+> +
+> +&i2c10 {
+> +	status =3D "okay";
+> +
+> +	legacy_prsnt_io_expander0: gpio@11 {
+
+Why 'legacy'?
+
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x11>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_PRSNT1_N_BUF_R", "TRAY_PRSNT2_N_BUF_R",
+> +			"TRAY_PRSNT3_N_BUF_R", "TRAY_PRSNT4_N_BUF_R",
+> +			"TRAY_PRSNT5_N_BUF_R", "TRAY_PRSNT6_N_BUF_R",
+> +			"TRAY_PRSNT7_N_BUF_R", "TRAY_PRSNT8_N_BUF_R",
+> +			"TRAY_PRSNT9_N_BUF_R", "TRAY_PRSNT10_N_BUF_R",
+> +			"TRAY_PRSNT11_N_BUF_R", "TRAY_PRSNT12_N_BUF_R",
+> +			"TRAY_PRSNT13_N_BUF_R", "TRAY_PRSNT14_N_BUF_R",
+> +			"TRAY_PRSNT15_N_BUF_R", "TRAY_PRSNT16_N_BUF_R";
+> +	};
+> +
+> +	legacy_prsnt_io_expander1: gpio@12 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x12>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_PRSNT17_N_BUF_R", "TRAY_PRSNT18_N_BUF_R",
+> +			"TRAY_PRSNT19_N_BUF_R", "TRAY_PRSNT20_N_BUF_R",
+> +			"TRAY_PRSNT21_N_BUF_R", "TRAY_PRSNT22_N_BUF_R",
+> +			"TRAY_PRSNT23_N_BUF_R", "TRAY_PRSNT24_N_BUF_R",
+> +			"TRAY_PRSNT25_N_BUF_R", "TRAY_PRSNT26_N_BUF_R",
+> +			"TRAY_PRSNT27_N_BUF_R", "TRAY_PRSNT28_N_BUF_R",
+> +			"TRAY_PRSNT29_N_BUF_R", "TRAY_PRSNT30_N_BUF_R",
+> +			"TRAY_PRSNT31_N_BUF_R", "TRAY_PRSNT32_N_BUF_R";
+> +	};
+> +
+> +	legacy_prsnt_io_expander2: gpio@13 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x13>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_PRSNT33_N_BUF_R", "TRAY_PRSNT34_N_BUF_R",
+> +			"TRAY_PRSNT35_N_BUF_R", "TRAY_PRSNT36_N_BUF_R",
+> +			"TRAY_PRSNT37_N_BUF_R", "TRAY_PRSNT38_N_BUF_R",
+> +			"TRAY_PRSNT39_N_BUF_R", "TRAY_PRSNT40_N_BUF_R",
+> +			"", "",
+> +			"", "",
+> +			"", "",
+> +			"", "";
+> +	};
+> +
+> +	power-monitor@14 {
+> +		compatible =3D "infineon,xdp710";
+> +		reg =3D <0x14>;
+> +	};
+> +
+> +	legacy_pwrgd_io_expander1: gpio@15 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x15>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_PWRGD17_N_BUF_R", "TRAY_PWRGD18_N_BUF_R",
+> +			"TRAY_PWRGD19_N_BUF_R", "TRAY_PWRGD20_N_BUF_R",
+> +			"TRAY_PWRGD21_N_BUF_R", "TRAY_PWRGD22_N_BUF_R",
+> +			"TRAY_PWRGD23_N_BUF_R", "TRAY_PWRGD24_N_BUF_R",
+> +			"TRAY_PWRGD25_N_BUF_R", "TRAY_PWRGD26_N_BUF_R",
+> +			"TRAY_PWRGD27_N_BUF_R", "TRAY_PWRGD28_N_BUF_R",
+> +			"TRAY_PWRGD29_N_BUF_R", "TRAY_PWRGD30_N_BUF_R",
+> +			"TRAY_PWRGD31_N_BUF_R", "TRAY_PWRGD32_N_BUF_R";
+> +	};
+> +
+> +	legacy_pwrgd_io_expander2: gpio@16 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x16>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_PWRGD33_N_BUF_R", "TRAY_PWRGD34_N_BUF_R",
+> +			"TRAY_PWRGD35_N_BUF_R", "TRAY_PWRGD36_N_BUF_R",
+> +			"TRAY_PWRGD37_N_BUF_R", "TRAY_PWRGD38_N_BUF_R",
+> +			"TRAY_PWRGD39_N_BUF_R", "TRAY_PWRGD40_N_BUF_R",
+> +			"", "",
+> +			"", "",
+> +			"", "",
+> +			"", "";
+> +	};
+> +
+> +	legacy_leak_io_expander0: gpio@17 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x17>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_LEAK_DETECT1_N_BUF_R", "TRAY_LEAK_DETECT2_N_BUF_R",
+> +			"TRAY_LEAK_DETECT3_N_BUF_R", "TRAY_LEAK_DETECT4_N_BUF_R",
+> +			"TRAY_LEAK_DETECT5_N_BUF_R", "TRAY_LEAK_DETECT6_N_BUF_R",
+> +			"TRAY_LEAK_DETECT7_N_BUF_R", "TRAY_LEAK_DETECT8_N_BUF_R",
+> +			"TRAY_LEAK_DETECT9_N_BUF_R", "TRAY_LEAK_DETECT10_N_BUF_R",
+> +			"TRAY_LEAK_DETECT11_N_BUF_R", "TRAY_LEAK_DETECT12_N_BUF_R",
+> +			"TRAY_LEAK_DETECT13_N_BUF_R", "TRAY_LEAK_DETECT14_N_BUF_R",
+> +			"TRAY_LEAK_DETECT15_N_BUF_R", "TRAY_LEAK_DETECT16_N_BUF_R";
+> +	};
+> +
+> +	legacy_leak_io_expander1: gpio@18 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x18>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_LEAK_DETECT17_N_BUF_R", "TRAY_LEAK_DETECT18_N_BUF_R",
+> +			"TRAY_LEAK_DETECT19_N_BUF_R", "TRAY_LEAK_DETECT20_N_BUF_R",
+> +			"TRAY_LEAK_DETECT21_N_BUF_R", "TRAY_LEAK_DETECT22_N_BUF_R",
+> +			"TRAY_LEAK_DETECT23_N_BUF_R", "TRAY_LEAK_DETECT24_N_BUF_R",
+> +			"TRAY_LEAK_DETECT25_N_BUF_R", "TRAY_LEAK_DETECT26_N_BUF_R",
+> +			"TRAY_LEAK_DETECT27_N_BUF_R", "TRAY_LEAK_DETECT28_N_BUF_R",
+> +			"TRAY_LEAK_DETECT29_N_BUF_R", "TRAY_LEAK_DETECT30_N_BUF_R",
+> +			"TRAY_LEAK_DETECT31_N_BUF_R", "TRAY_LEAK_DETECT32_N_BUF_R";
+> +	};
+> +
+> +	legacy_leak_io_expander2: gpio@19 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x19>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_LEAK_DETECT33_N_BUF_R", "TRAY_LEAK_DETECT34_N_BUF_R",
+> +			"TRAY_LEAK_DETECT35_N_BUF_R", "TRAY_LEAK_DETECT36_N_BUF_R",
+> +			"TRAY_LEAK_DETECT37_N_BUF_R", "TRAY_LEAK_DETECT38_N_BUF_R",
+> +			"TRAY_LEAK_DETECT39_N_BUF_R", "TRAY_LEAK_DETECT40_N_BUF_R",
+> +			"", "",
+> +			"", "",
+> +			"", "",
+> +			"", "";
+> +	};
+> +
+> +	legacy_small_leak_io_expander0: gpio@1a {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x1a>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_SMALL_LEAK1_N_BUF_R", "TRAY_SMALL_LEAK2_N_BUF_R",
+> +			"TRAY_SMALL_LEAK3_N_BUF_R", "TRAY_SMALL_LEAK4_N_BUF_R",
+> +			"TRAY_SMALL_LEAK5_N_BUF_R", "TRAY_SMALL_LEAK6_N_BUF_R",
+> +			"TRAY_SMALL_LEAK7_N_BUF_R", "TRAY_SMALL_LEAK8_N_BUF_R",
+> +			"TRAY_SMALL_LEAK9_N_BUF_R", "TRAY_SMALL_LEAK10_N_BUF_R",
+> +			"TRAY_SMALL_LEAK11_N_BUF_R", "TRAY_SMALL_LEAK12_N_BUF_R",
+> +			"TRAY_SMALL_LEAK13_N_BUF_R", "TRAY_SMALL_LEAK14_N_BUF_R",
+> +			"TRAY_SMALL_LEAK15_N_BUF_R", "TRAY_SMALL_LEAK16_N_BUF_R";
+> +	};
+> +
+> +	legacy_small_leak_io_expander1: gpio@1b {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x1b>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_SMALL_LEAK17_N_BUF_R", "TRAY_SMALL_LEAK18_N_BUF_R",
+> +			"TRAY_SMALL_LEAK19_N_BUF_R", "TRAY_SMALL_LEAK20_N_BUF_R",
+> +			"TRAY_SMALL_LEAK21_N_BUF_R", "TRAY_SMALL_LEAK22_N_BUF_R",
+> +			"TRAY_SMALL_LEAK23_N_BUF_R", "TRAY_SMALL_LEAK24_N_BUF_R",
+> +			"TRAY_SMALL_LEAK25_N_BUF_R", "TRAY_SMALL_LEAK26_N_BUF_R",
+> +			"TRAY_SMALL_LEAK27_N_BUF_R", "TRAY_SMALL_LEAK28_N_BUF_R",
+> +			"TRAY_SMALL_LEAK29_N_BUF_R", "TRAY_SMALL_LEAK30_N_BUF_R",
+> +			"TRAY_SMALL_LEAK31_N_BUF_R", "TRAY_SMALL_LEAK32_N_BUF_R";
+> +	};
+> +
+> +	legacy_small_leak_io_expander2: gpio@1c {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x1c>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_SMALL_LEAK33_N_BUF_R", "TRAY_SMALL_LEAK34_N_BUF_R",
+> +			"TRAY_SMALL_LEAK35_N_BUF_R", "TRAY_SMALL_LEAK36_N_BUF_R",
+> +			"TRAY_SMALL_LEAK37_N_BUF_R", "TRAY_SMALL_LEAK38_N_BUF_R",
+> +			"TRAY_SMALL_LEAK39_N_BUF_R", "TRAY_SMALL_LEAK40_N_BUF_R",
+> +			"", "",
+> +			"", "",
+> +			"", "",
+> +			"", "";
+> +	};
+> +
+> +	legacy_pwrgd_io_expander0: gpio@28 {
+> +		compatible =3D "nxp,pca9555";
+> +		reg =3D <0x28>;
+> +		gpio-controller;
+> +		#gpio-cells =3D <2>;
+> +		interrupt-parent =3D <&sgpiom0>;
+> +		interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		gpio-line-names =3D
+> +			"TRAY_PWRGD1_N_BUF_R", "TRAY_PWRGD2_N_BUF_R",
+> +			"TRAY_PWRGD3_N_BUF_R", "TRAY_PWRGD4_N_BUF_R",
+> +			"TRAY_PWRGD5_N_BUF_R", "TRAY_PWRGD6_N_BUF_R",
+> +			"TRAY_PWRGD7_N_BUF_R", "TRAY_PWRGD8_N_BUF_R",
+> +			"TRAY_PWRGD9_N_BUF_R", "TRAY_PWRGD10_N_BUF_R",
+> +			"TRAY_PWRGD11_N_BUF_R", "TRAY_PWRGD12_N_BUF_R",
+> +			"TRAY_PWRGD13_N_BUF_R", "TRAY_PWRGD14_N_BUF_R",
+> +			"TRAY_PWRGD15_N_BUF_R", "TRAY_PWRGD16_N_BUF_R";
+> +	};
+> +
+
+...
+
+> +
+> +&mdio0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&peci0 {
+> +	status =3D "okay";
+> +};
+
+Ah, so the earlier peci node is redundant. Can you please remove it?
+
+Andrew
 
