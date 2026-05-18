@@ -4,70 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABF5CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:30:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D42DCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZU4KMSXz1atxI8mwcuEwyKVRckbnY44nXQw70rZIw6s=; b=OfnbyfUh5WCWME9XhqfwJ+kCy2
-	UtCRqZVo62fXM/RCIIxxYr7QJbRSkGs/xCVJGEEEfguqx2IU8YhkkP6DT7MfJ/eZSDVxKa0vj7hSP
-	bHS2NEC7IR6sCOrbNEo8tbw/AJmX+ZNOUDwQqWEzSl7FFbWLJ/LyEdHC+Rev4ISokSHGfN0O1kA52
-	mEx1FQyyKQKl+AdsP5xa2wbennEKscmaDOFEFJQEN9x0DjIwmK27CWU8ohnOHNT7+OP4fjCKEvQr2
-	Fv/Jn4UyZjkNmEo+D+6tTeL37cS02bfVV9rZ4Jw6gx+aJ7vr6r56VTVeZZVvFcbqt4AGw3NXtkma2
-	drNWOUmQ==;
+	bh=OPLzR8oDPNN23goctM1doHC/4cQsRID+tuEaNIAs+wg=; b=qClLQyNp/hvkpSH28yClJ4ugRK
+	RhKveLzReMUBcWRVEe8MXfmOoxrnFTALWOl9s/jgTPMImF12AhSO5b5Sp2BHLYW3X3tHh7OzFwMsg
+	4Xgcb2Bhf2DtqzASgLtdhpc3vIIerUuM2KJngmtEOoH9GyhgY1XOHQ/QX4odchNuQrA3NdZ3DkCIh
+	HL360cxozXtn8kcUTZqUVhSdqgNxvs9rErorXBHBucsAmbAyDsOIuAZt6fqSUMjkwhi9r1JAQ8RLc
+	sSbIhwH8r2sE5f7p8mkRQaNI4uNrqK/Qb5kRThqq6BQ+9pdTPZfn2opGmopHfHMz7z9L3JvWpfRkY
+	3gryIVjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrUA-0000000EQhF-2GIg;
-	Mon, 18 May 2026 06:29:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wOrZc-0000000ERYJ-26xF;
+	Mon, 18 May 2026 06:35:32 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrU8-0000000EQgY-2zSy
+	id 1wOrZZ-0000000ERXT-31H8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 06:29:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B8F9E60125;
-	Mon, 18 May 2026 06:29:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0539C2BCB7;
-	Mon, 18 May 2026 06:29:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779085791;
-	bh=Xh7w7wEfnab0GSYumOL+HvLpnmXotMfZwX7VhW4Nuss=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=ibRAIZYL7cOQIV/4eXb2SMHBrA5p7RnZxRWlJteC0IhBbtN0mb/NDl7sHmAef4GSa
-	 PVKk2KXoXKtEO+7IXGD8zHC2bPv4iGjToZxzNuluROioo59UkulmZHG7SGdKItdmQd
-	 T3QqDDa4fFoig4sRbRJEMB5qzTaf+N5JKJDz52X3MZ5XzUljQ736xvJndJ6C0LxvNk
-	 +v7ZyWGdNX6C4ubg7uzRJVbS+tFILbbh5Zst5yXI+u80nXkOxh6Twi+08X5iYjyKsn
-	 Br3FpoTGpi7FlSbx2s4WDPFxB6khvIH0ZBWpCRivagfna7NnLDDi5zm3fD/aCglm2B
-	 nemHdyCUoQVdw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Greg KH <gregkh@linuxfoundation.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>
-Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
- device and CCA auxiliary drivers
-In-Reply-To: <2026051404-headboard-cabbage-e09a@gregkh>
-References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
- <20260514094030.42495-2-aneesh.kumar@kernel.org>
- <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
- <2026051420-amusement-drove-73e6@gregkh> <yq5alddm5a6w.fsf@kernel.org>
- <2026051404-headboard-cabbage-e09a@gregkh>
-Date: Mon, 18 May 2026 11:59:44 +0530
-Message-ID: <yq5apl2txmav.fsf@kernel.org>
+	Mon, 18 May 2026 06:35:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1779086127;
+	bh=OPLzR8oDPNN23goctM1doHC/4cQsRID+tuEaNIAs+wg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=RImyBGvE1qS7EIaiJ1BCR11W4L35QOSClxXJhV1IEvQbN1ApnxZo+nZitPkxA1/YL
+	 XEp9iSRzH18Z00Aw4jK8FjsBf9AVnV/Y5mLoxdzWq/nfooixxNmmQoCy3IwcX9D+Wx
+	 Dy5xBMrGFPBFlYImFB5wbNNCpqvBHA4oqUoVQ1QxGulrNGm2vxEIoTHNFTcHnurFg5
+	 pX4lg+nZvR9GuWdcLrrvAGRMA1pIel2mpfyQhMfUxmpo551ZBWjsYpkEgEGqfUpcVj
+	 4YKGDhwy4GPzuUy0lALTSdqsv8VLPvACasEZVATVX4ySRPj37K7LtOZJXaYZ+FJjxZ
+	 r7Dvh98rkbHhw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id DC8786025D;
+	Mon, 18 May 2026 14:35:24 +0800 (AWST)
+Message-ID: <5947248c99e14e59f10b707e7ba523985c7d875f.camel@codeconstruct.com.au>
+Subject: Re: [PATCH 1/1] ARM: dts: aspeed: msx4: enable BMC networking via
+ MAC0
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ender Hsieh <andhsieh@nvidia.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, Andrew Lunn
+	 <andrew@lunn.ch>, Marc Olberding <molberding@nvidia.com>, Jacky Chou
+	 <jacky_chou@aspeedtech.com>
+Date: Mon, 18 May 2026 16:05:23 +0930
+In-Reply-To: <20260505050541.3031447-2-andhsieh@nvidia.com>
+References: <20260505050541.3031447-1-andhsieh@nvidia.com>
+	 <20260505050541.3031447-2-andhsieh@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260517_233529_964050_C6B2D88D 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,130 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Greg KH <gregkh@linuxfoundation.org> writes:
+On Tue, 2026-05-05 at 14:05 +0900, Ender Hsieh wrote:
+> Add &mac0, &mdio3, and the ethphy3 PHY node to enable BMC networking
+> on the AST2600-based NVIDIA MSX4 board. The PHY is attached to MDIO3
+> at address 2 and uses RGMII with PHY-internal delays.
+>=20
+> These nodes were intentionally omitted in commit f28674fab34f ("ARM:
+> dts: aspeed: Add NVIDIA MSX4 HPM") at Andrew Lunn's request, pending
+> clarification of the RGMII delay handling. Following his guidance on
+> linux-aspeed, the bootloader has been modified to stop enabling MAC
+> clock delays on the SoC side, so phy-mode =3D "rgmii-id" correctly
+> results in the PHY adding the required ~2ns delay without any
+> double-delay from the MAC controller.
+>=20
+> The corresponding U-Boot change has been submitted to openbmc/u-boot.
+>=20
+> Link: https://patch.msgid.link/eac09481-0ba1-4ac2-ad8c-d859822ff0d5@lunn.=
+ch
+> Link: https://patch.msgid.link/20260504044702.2613879-1-andhsieh@nvidia.c=
+om
+> Cc: Andrew Lunn <andrew@lunn.ch>
+> Cc: Marc Olberding <molberding@nvidia.com>
+> Signed-off-by: Ender Hsieh <andhsieh@nvidia.com>
+> ---
+> =C2=A0.../dts/aspeed/aspeed-bmc-nvidia-msx4-bmc.dts=C2=A0=C2=A0=C2=A0=C2=
+=A0 | 15 +++++++++++++++
+> =C2=A01 file changed, 15 insertions(+)
+>=20
 
-> On Thu, May 14, 2026 at 08:07:27PM +0530, Aneesh Kumar K.V wrote:
->> Greg KH <gregkh@linuxfoundation.org> writes:
->> 
->> > On Thu, May 14, 2026 at 12:04:13PM +0100, Suzuki K Poulose wrote:
->> >> Hi Aneesh
->> >> 
->> >> On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
->> >> > Make the SMCCC driver responsible for registering the arm-smccc platform
->> >> > device and after confirming the relevant SMCCC function IDs, create
->> >> > the arm_cca_guest auxiliary device.
->> >> > 
->> >> 
->> >> There are a few changes squashed in to this patch. Please could we
->> >> split the patch in the following order ?
->> >> 
->> >> 1. Add platform device for arm-smccc
->> >
->> > Do not make any more "fake" platform devices please.
->> >
->> >> 2. Move TRNG to Auxilliary Device - (Even though it is a later patch, move
->> >> it before the RSI changes)
->> >
->> > No, move it to the faux api please.
->> >
->> 
->> 
->> Maybe I was not complete in my previous reply. I did not want to repeat
->> the entire thread, so I quoted the lore link for more details.
->> 
->> 1. We have platform firmware-provided SMCCC interfaces. Based on the
->> support/availability of these function IDs, we want to load multiple
->> drivers.
->> 2. This patch series adds a platform device to represent the
->> firmware-provided SMCCC resource.
->> 3. Different SMCCC ranges are now represented as auxiliary devices.
->> 4. Different subsystems, such as TSM, can autoload their backend drivers
->> based on the availability of these SMCCC ranges, which are now
->> represented as auxiliary devices.
->> 
->> You had agreed to all of this in the previous discussion here:
->> https://lore.kernel.org/all/2025101516-handbook-hyphen-62ec@gregkh
->
-> Then why did someone say "this is a fake platform device with no actual
-> resources"?  That's what I was triggering off of.
->
-> Again, if you have actual platform resources, GREAT, use a platform
-> device and aux.  If you do not, then do NOT use a platform device.
->
-> totally confused,
->
-> greg k-h
+I've applied this to the BMC tree. I've also applied the linked u-boot
+patch to openbmc/u-boot, and backported this change to openbmc/linux.
 
-I have now rewritten the cover letter as below. Let me know if this
-helps.
+Cheers,
 
-Switch Arm SMCCC firmware services to auxiliary devices
-
-As discussed here:
-https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
-
-The earlier CCA guest support used an arm-cca-dev platform device as a pure
-software anchor for the TSM class device. That platform device did not
-correspond to a DT/ACPI described device, MMIO range, interrupt, or other
-platform resource; it existed only to make the CCA guest driver bind and to
-place the resulting TSM device in the driver model. The same pattern also
-exists for smccc_trng. Creating separate platform devices for such
-SMCCC-discovered features is misleading, because those features are not
-independent platform devices.
-
-This series changes the model so that there is a single arm-smccc platform
-device representing the SMCCC firmware interface itself. The firmware
-interface, including its discoverable SMCCC function space, is the
-resource: after PSCI/SMCCC conduit discovery, the kernel can query SMCCC
-function IDs and determine whether optional firmware services are present.
-Services such as SMCCC TRNG and Realm Services Interface (RSI) are
-therefore represented as children of the arm-smccc device, and are created
-only when the required SMCCC function IDs and ABI checks succeed.
-
-The child devices use the auxiliary bus deliberately: they are intended to
-bind independent feature drivers, not just to provide a driverless object for
-sysfs or other class-device anchoring. They are firmware-provided functions
-of the parent SMCCC interface that are consumed by separate kernel drivers
-in different subsystems, such as hwrng and virt/coco/TSM. Those drivers
-need normal driver-core matching, probe/remove lifetime, and module
-autoloading based on the discovered firmware feature. The auxiliary bus
-provides a MODALIAS and id-table based binding model for that case, while
-keeping the feature drivers off the platform bus. A faux device was
-considered, but not used because it is suited for simple software objects
-that do not need independent bus/driver binding. The faux bus has no
-feature-driver id-table or MODALIAS matching, so it would not preserve the
-module-autoload flow that the current platform-device based users rely on.
-
-In other words, the parent arm-smccc device represents the firmware
-resource exposed through the SMCCC conduit, and each auxiliary child
-represents one discovered firmware service of that parent. This removes the
-unnecessary per-feature platform devices while retaining automatic loading
-and independent subsystem drivers for the SMCCC services.
-
-The TSM framework uses the device abstraction to provide cross-architecture
-TSM and TEE I/O functionality, including enumerating available platform TEE
-I/O capabilities and provisioning connections between the platform TSM and
-device DSMs.  For Arm CCA, the RSI auxiliary device continues to provide the
-device anchor used by the CCA guest TSM provider.
-
-For the CCA platform, the resulting device hierarchy appears as follows.
-Note that the auxiliary device is parented by the arm-smccc platform device,
-so the sysfs path remains under /devices/platform/arm-smccc/:
-
-$ cd /sys/class/tsm/
-$ ls -al
-total 0
-drwxr-xr-x    2 root     root             0 Jan  1 00:02 .
-drwxr-xr-x   23 root     root             0 Jan  1 00:00 ..
-lrwxrwxrwx    1 root     root             0 Jan  1 00:03 tsm0 -> ../../devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0/tsm/tsm0
-$
-
-The series also replaces the old arm-cca-dev userspace-visible dummy device
-with /sys/firmware/cca/realm_guest for detecting whether the kernel is
-running in a Realm.  This keeps the guest-state ABI under /sys/firmware and
-separates it from the internal driver-binding device used by the CCA guest
-TSM provider.
-
-
--aneesh
+Andrew
 
