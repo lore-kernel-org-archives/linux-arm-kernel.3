@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A97CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 05:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 115A3CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 05:13:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i2PykgTZ59OqLYyaVj3A9+ycwaibzO5zZ0kF4EM5pJA=; b=C6SsGvE6tHWcVPAUH+3OAgDYpu
-	evjQVJ2ijXkqxGX0vvcTsV8oA5dxgvEYXbHuXtSgoUqR/opGZF9y3o3dTghQ7I5ZsS5yUVitT7817
-	dy5i+Ewc0CW0FTvWqVfbYLWkJK1Wit6AwzN9kAGOBWJxUCfR0pA+cXX1dPE80P0AM9QGwgcAacsgJ
-	W56VW/Fi4bAOI/ZUEKuRVj6IHttGil8LbowWmXqCD7xkACXnqd4IwKt1HbcGXGJZgYvH5F1x7NqJ9
-	zaY7E15Fki3aXtTa0o3Ef8fgDtykMn94dehPAXgVdlMHgElUlQGQycfG+mL/Mof4VvO/nmVQXEIkk
-	qt+Klnxw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dwab+Vrf0RkpX4kATklkT0WVGxtwKqB/2sp1x4ycw+I=; b=bQ21Wh2W8ZyOmckEEQi67AZxVG
+	QJFLFjf9w2k6Q51T/QrrmX2X7TcX26KYsXSLpKH5YL4oiWgXXpZmjt+c+V/v0mmpbmQ8d/hwiTnxD
+	KCymGjvG5ZuGl155ZE1k2dMevlebN12AskkXWLavGbJvwzRoDUnnVeJMXHR9XDwb+0BdO8ZJJ0t2B
+	d8VQMx3SiIiuXB+OS0hQK/mgtGG9kKAy66fqYehL5jq77mE+Wk7etsUBhfOrkfs5LFOhW8adl8i7F
+	9caceebcluxiewyymznB1pveDpKGpwjAY4R0bducoQMhNwojdzk7v6q+KlQmc8toetVgAcHrgZzyz
+	pqxRsc/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOqHe-0000000EETQ-1aQr;
-	Mon, 18 May 2026 05:12:54 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOqHc-0000000EESc-2Wi9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 05:12:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1779081168;
-	bh=i2PykgTZ59OqLYyaVj3A9+ycwaibzO5zZ0kF4EM5pJA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=aPKfRaxlpjRjX1lxwyOR0yHKYT3GuwmduyuUMuIz4evV85Lhyye6c/jHOGUCIdNvB
-	 S5xtRrhGTLc5RP9pZSglxjsFBOPgX3ieP658Ou3ACBnx3XTLEhi7vRzYtNdUxh1jdd
-	 kiCOuVgYeX8VSaa4gw3E7ayvZX/tSsblwiYJLdTckSrGK+HNVPXYVJO6usfs3MkjZV
-	 ojMBo3aCxP9DfhGbNf4LAtgcZsy9ckbl6CdtoSY43nftGwYvVtirenIYoGO6GdO3s8
-	 MokfjlSrD/lpiqfqLxhwqQe02ke9lSoyIK9FhXefC5zhcPSpWJhchdVLbG9MKNNbGA
-	 oSII5YKFtnUgA==
-Received: from [127.0.1.1] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 97F586025D;
-	Mon, 18 May 2026 13:12:47 +0800 (AWST)
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Colin Huang <u8813345@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- colin.huang2@amd.com
-In-Reply-To: <20260511-add-jtag-trst-pin-v1-1-b0be2f7b2da5@gmail.com>
-References: <20260511-add-jtag-trst-pin-v1-1-b0be2f7b2da5@gmail.com>
-Subject: Re: [PATCH] ARM: dts: aspeed: anacapa: add JTAG CPLD TRST pin to
- SGPIO map
-Message-Id: <177908116750.1269230.16667761190075154399.b4-ty@b4>
-Date: Mon, 18 May 2026 14:42:47 +0930
+	id 1wOqHn-0000000EEWa-1yTP;
+	Mon, 18 May 2026 05:13:03 +0000
+Received: from [213.208.157.211] (helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOqHi-0000000EERm-1Mpl;
+	Mon, 18 May 2026 05:12:58 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: cleanup the RAID6 P/Q library v3
+Date: Mon, 18 May 2026 07:12:19 +0200
+Message-ID: <20260518051245.451860-1-hch@lst.de>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_221252_832114_82185796 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,19 +90,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 11 May 2026 17:47:56 +0800, Colin Huang wrote:
-> Add JTAG_CPLD_TRST_R_N to the sgpiom0 pin name table on
-> Facebook Anacapa BMC.
-> 
-> This exposes the CPLD JTAG TRST signal through SGPIO,
-> allowing proper JTAG reset control during debug.
-> 
-> 
-> [...]
+Hi all,
 
-Thanks, I've applied this to the BMC tree.
+this series cleans up the RAID6 P/Q library to match the recent updates
+to the RAID 5 XOR library and other CRC/crypto libraries.  This includes
+providing properly documented external interfaces, hiding the internals,
+using static_call instead of indirect calls and turning the user space
+test suite into an in-kernel kunit test which is also extended to
+improve coverage.
 
--- 
-Andrew Jeffery <andrew@codeconstruct.com.au>
+Note that this changes registration so that non-priority algorithms are
+not registered, which greatly helps with the benchmark time at boot time.
+I'd like to encourage all architecture maintainers to see if they can
+further optimized this by registering as few as possible algorithms when
+there is a clear benefit in optimized or more unrolled implementations.
 
+This series sits on top of the "cleanup the RAID5 XOR library v3" series.
+
+A git tree is also available here:
+
+    git://git.infradead.org/users/hch/misc.git lib-raid6
+
+Gitweb:
+
+    https://git.infradead.org/?p=users/hch/misc.git;a=shortlog;h=refs/heads/lib-raid6
+
+Changes since v2:
+ - merge two patches that should have been one
+ - split out enforcing the 4-device minimum into a well-documented patch
+   explaining the rationale
+ - drop the btrfs patch to restrict the number of devices again
+ - fix them module description for the kunit test
+ - add -I $(src) to fix out of srctree builds for architectures with
+   headers in the architecture-specific directories
+ - always add the least optimized/unrolled algorithms first to keep the
+   existing no-benchmark behavior
+ - drop the delayed benchmarking for now to avoid corner cases
+ - improve a few commit messages
+
+Changes since v1:
+ - fix arm64 objdir != srcdir builds
+ - call the kunit module raid6_kunit.ko from the beginning
+ - update MAINTAINERS
+ - don't require preemptible context and apply the same restrictions as
+   the merged version of the XOR API
+ - fix the arm64 default in Kconfig
+ - pick the last registered (and presumably most optimized) algorithm when
+   benchmarking is disabled
+ - port over the randomization fixes from the XOR series
+ - misc other kunit cleanups
+ - require at least 4 devices for RAID6 to skip broken special cases
+
+Diffstat:
+ b/Documentation/crypto/async-tx-api.rst           |    4 
+ b/MAINTAINERS                                     |    2 
+ b/crypto/async_tx/async_pq.c                      |    9 
+ b/crypto/async_tx/async_raid6_recov.c             |    9 
+ b/drivers/dma/bcm-sba-raid.c                      |    1 
+ b/drivers/md/raid5.c                              |    4 
+ b/fs/btrfs/raid56.c                               |    8 
+ b/include/linux/raid/pq.h                         |  216 ------------
+ b/include/linux/raid/pq_tables.h                  |   19 +
+ b/lib/Kconfig                                     |   11 
+ b/lib/Makefile                                    |    1 
+ b/lib/raid/Kconfig                                |   33 +
+ b/lib/raid/Makefile                               |    2 
+ b/lib/raid/raid6/Makefile                         |  128 +++++++
+ b/lib/raid/raid6/algos.c                          |  377 ++++++++++++++++++++++
+ b/lib/raid/raid6/algos.h                          |   41 ++
+ b/lib/raid/raid6/arm/neon.c                       |   23 -
+ b/lib/raid/raid6/arm/neon.uc                      |    2 
+ b/lib/raid/raid6/arm/pq_arch.h                    |   21 +
+ b/lib/raid/raid6/arm/recov_neon.c                 |   27 -
+ b/lib/raid/raid6/arm/recov_neon_inner.c           |    2 
+ b/lib/raid/raid6/arm64/pq_arch.h                  |    1 
+ b/lib/raid/raid6/int.uc                           |   10 
+ b/lib/raid/raid6/loongarch/loongarch_simd.c       |   31 -
+ b/lib/raid/raid6/loongarch/pq_arch.h              |   23 +
+ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c |   39 --
+ b/lib/raid/raid6/mktables.c                       |   28 -
+ b/lib/raid/raid6/powerpc/altivec.uc               |   32 -
+ b/lib/raid/raid6/powerpc/pq_arch.h                |   32 +
+ b/lib/raid/raid6/powerpc/vpermxor.uc              |   29 -
+ b/lib/raid/raid6/recov.c                          |   62 ---
+ b/lib/raid/raid6/riscv/pq_arch.h                  |   21 +
+ b/lib/raid/raid6/riscv/recov_rvv.c                |   14 
+ b/lib/raid/raid6/riscv/rvv.h                      |   26 -
+ b/lib/raid/raid6/s390/pq_arch.h                   |   15 
+ b/lib/raid/raid6/s390/recov_s390xc.c              |   14 
+ b/lib/raid/raid6/s390/s390vx.uc                   |   15 
+ b/lib/raid/raid6/tests/Makefile                   |    3 
+ b/lib/raid/raid6/tests/raid6_kunit.c              |  321 ++++++++++++++++++
+ b/lib/raid/raid6/x86/avx2.c                       |   47 --
+ b/lib/raid/raid6/x86/avx512.c                     |   57 +--
+ b/lib/raid/raid6/x86/mmx.c                        |   39 --
+ b/lib/raid/raid6/x86/pq_arch.h                    |   96 +++++
+ b/lib/raid/raid6/x86/recov_avx2.c                 |   22 -
+ b/lib/raid/raid6/x86/recov_avx512.c               |   26 -
+ b/lib/raid/raid6/x86/recov_ssse3.c                |   23 -
+ b/lib/raid/raid6/x86/sse1.c                       |   49 --
+ b/lib/raid/raid6/x86/sse2.c                       |   47 --
+ lib/raid6/Makefile                                |   83 ----
+ lib/raid6/algos.c                                 |  291 ----------------
+ lib/raid6/loongarch.h                             |   38 --
+ lib/raid6/test/.gitignore                         |    3 
+ lib/raid6/test/Makefile                           |  156 ---------
+ lib/raid6/test/test.c                             |  152 --------
+ lib/raid6/x86.h                                   |   75 ----
+ 55 files changed, 1349 insertions(+), 1511 deletions(-)
 
