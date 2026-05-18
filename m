@@ -4,144 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC6DCD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4228DCD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WbKtsr4yUar+j/7pijQkG+UE3fsvh5mQ4DE/1l7I1PQ=; b=YzjjZdjFAAzWHYSn8NQpQ6VT+O
-	zuLrP+VFmBy8sCOnr5N5WX01jZAQR0Qa/sV4zRrp3NI1AADsmZ33w/K+kJ2woHzkgsN5eWzCOTcCz
-	bUmrTf3hwZPbI9TuV2wb++7SVfKlnANuk8IYySQIlcFnF1J7R4RmekeFHAz7We4CScxttsE3Jl754
-	0yksdFES/gpSAgTO2m2g4S1SEzlG//PqIHl1by73ka4Sy3QC3ilf/0Mr6XZMjYHtS9zOFpdkm/OPe
-	Bx7muy+S3zqcBiVYuQ4gkzRklYHGovNw48VK1UuQq1vAz6CgvZt5v0DLVLavyWJiKvUr8mmBJyAQv
-	O8nwDYKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g4gGcghC8/VjxZsUokcHk3DMALbk4ZgwiZSR2n7JFnI=; b=QM3vvz/ZcuG55Db/dGptPYc+A2
+	vjX9T1uFcsMd7tl/nhWSPxJuqED8F9NzHfjXFZQfIxw/n5+3P21GOUpyolRgTaDfwKamsyXJClqkz
+	DGRLbckm+tqD3xT5BeTT94rRAchcPj9CgI6bXu4s1yHGbWlhIpOP1TZzsCnww1hxhhTTbGL0pwP6R
+	CPkMB5djoTtvFfUeviY9cB5kW/Rf7zccuEPW07gSWRy67AgNKBuVEO2bDKnWVm1Rga/LrtnnSmlZH
+	XDw5DMAlsqsgGa6Kz5tnmxCa+lGEdIjLmW3TP3rhADJqrfBrK9a8yfZcw1ombpz/kustfnEACxuFw
+	qFHhFtAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyyF-0000000Fyjc-0xRr;
-	Mon, 18 May 2026 14:29:27 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wOz0j-0000000Fz3K-3PvU;
+	Mon, 18 May 2026 14:32:01 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyyB-0000000Fyit-3Y44
+	id 1wOz0h-0000000Fz2V-2Bp9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:29:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tkw9/bw5+gjXWyjtP7JH5WSGcwEwxOul3SWYhVGbhwWPbl82nngppV1BUEYhRVynmVcRhbaIy8T5n6iXq4tLeZUiusAsX5aUwEcX8QmUa33pn+BnB63c7RTPoHLHAWhzQB2DtXoqBvCBeiWZBg57nZC7fB79tnYHvTY3zP14nyVxTIAjuFmcMVc6Vx0oqnEPyc7q7lsEEUi/4VrKizo2MU5owGbO31pf0PU+rdBQ0pO33mwZX3xIF5Y79dy3gK9101389IkOWsPes+K3+6oAzl+hRSsTPNcVf1FF9AUD0T3/pBNPCdr/FPMfmFGEAtaip3Z4QXBDmlhO2D2dRipgSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WbKtsr4yUar+j/7pijQkG+UE3fsvh5mQ4DE/1l7I1PQ=;
- b=ucsiRGHD1O4sloRIOh1GTGpGaOsZMxEXIXuxslHixNRgB0rT7WaGY3wcLPs7E+5XfrkeYRHqCxziYH0yHORWkJEXMgyosJa2CQ1iVp41xGzPAFJe3r63DupREBajMyAkzlghstSp4R15l29HDgweMXb01iCpGgmQc6cqV8/b2FGKlo21lyDbUDcvFt36aWQfj8Uw50fpJM/scy4pOQtupqZFRLLvfUV6bQ5ZUkQV9m9jYg4E3r1k5CgqYfcOPgW1s9OVABLHOegoSyfjdXuX4f0a693vldYXMucBBwTUbbx2MKR0nrW65SdSbMHkagYssvkfpH12xP7M5gKqvJ5J+w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WbKtsr4yUar+j/7pijQkG+UE3fsvh5mQ4DE/1l7I1PQ=;
- b=H49ZKwyX6WyRc9YFAOZHyRrb98PbnSLNJgI8W0vnX4l2EWwTqFxJXVlzvGkOXdSMdxKwIdd9DQLtf8R+ALUpknS48o2N7LFJvPZx9Vu1I/iPGsgzqZHzMVfmiJqsKcR5zBylID7KVIxRZYfRx1V7OzBejJWShWU/qgzG8Y38HYA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by SJ5PPF6785369A4.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::997) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Mon, 18 May
- 2026 14:29:06 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0025.022; Mon, 18 May 2026
- 14:29:06 +0000
-Message-ID: <95361d3a-34b6-4f0f-935e-9e1b45698e81@amd.com>
-Date: Mon, 18 May 2026 19:58:58 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] usb: dwc3: xilinx: use reset_control_reset() in
- versal init
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Cc: "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "michal.simek@amd.com" <michal.simek@amd.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "git@amd.com" <git@amd.com>
-References: <20260511160814.2904882-1-radhey.shyam.pandey@amd.com>
- <20260511160814.2904882-3-radhey.shyam.pandey@amd.com>
- <agUltzvDFgJtPa6j@vbox>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <agUltzvDFgJtPa6j@vbox>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN3PR01CA0085.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:9a::21) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	Mon, 18 May 2026 14:32:00 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-44a044cb827so1634448f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:31:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1779114717; x=1779719517; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g4gGcghC8/VjxZsUokcHk3DMALbk4ZgwiZSR2n7JFnI=;
+        b=ZM7ikyqv0AcDf2/MO8ABUlBMH4ngKPHZJ1qOJPDjDYCuJgrcWrPN6dObVJyY+flNA9
+         MhutDk4HHpqtllJt65HLx5P7VSmqgg42dqmTrXrArPWTzF/jsU6LJrKPTfijfs5ns00S
+         ffeMJGXEqc21XYclBECHyukh5TR/xcfelE720=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779114717; x=1779719517;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g4gGcghC8/VjxZsUokcHk3DMALbk4ZgwiZSR2n7JFnI=;
+        b=lE0iRX5Iz+XH5olua09WukGepzKs67RBzM/h30+/pJLYwdOUPzNpXt0UwvXcMoBmWM
+         hw3+rw6YUH9vZOS5fa7VCCjWgFrhcviIs8Tpc+oGpnfhjgIiF87egJQiNMt/aZRtZ8Hb
+         k+3OIgovbOATDuMoUc/+4bdGmgXIRSZAuPbEehe9IH85Ety8szjF+RWF291icGNCzRWs
+         Yfwizu0Ux4MXu4sI33Ms7fYGv1mhG0cOTS4N6Ir/ynNCJMgBQ4I7YASmF2Hxut36RDML
+         5YZGey7BIZrnTt5vj46fHl/Q1SKrx8Bt9ahOP5QWWqZtIaxXbnoFjz6+LA+8m7VU5LFd
+         uxrQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+7CUT4vlh52paCpDctFJfTo5mpFcPmVtHLFvFWi/iCbYUVkT/Oq76ZhtaYgCDzffUXuqtKWzQ73hXXENypG22o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+WUrYw8cFb0LK3GuurAW4T8Ma0w1zMjyBUotzp769W7d+oHCl
+	4V2HIfDBjBFW5IodU43GvkOE9TRPdGXaRQewIAMfAOejkuEHjv8Uum0uLdWhlExMa2U=
+X-Gm-Gg: Acq92OGPc7RNSj3QWjqAjc32TjT8FpkhegOH4q1YrBJVRuLfrUna2cf9o1f8/QQkmiY
+	udpKUNRkwR6+baW5ZovFdQmv0nVMNRJOsm8wp0YOyKhkqu9BFCAStip9lW0QuLkpysqQYkFHvBB
+	i9chFTCPlSMATZUi4MXBPWAZff5DPjR9AIIOJHt9gC0OnH2tTdEpbjd5C8L8OV9L3fk5hCFMWcb
+	EOcTJ6HiekPmpLPBU4B0P8sKGoyVYjeG1QSIgspbf6uB+Psg1NqPcR9gE9cVj3pm7s7C52PNRI0
+	sBK5acLA5RUUhrFzHn6D7ETbhcEjixaa5OzKBN959qwYi/9snu6EhvirkPYc3EpYr5s4U9VAWH4
+	JGkMZtYXseyHNtSx0x7qJcVmKWB1a/RuCXjO5A3C4ncaLQFG41Zu6Ihopp9ef8HAbCfS3ME4nnx
+	dFvCr97cFA6K/OqzBKeELTaxgI2sPU4b9mJKnEodVjoKL0GTR1Rmf8yOxtuWzVcy+T6n+ANWclK
+	ob1hIlIsBUwMI2n9dGecyxlAyQ+HIIlmCSFI3E4wCsCuTjS
+X-Received: by 2002:a05:6000:2383:b0:449:9aee:4575 with SMTP id ffacd0b85a97d-45e5c5ccbf6mr24920170f8f.30.1779114717015;
+        Mon, 18 May 2026 07:31:57 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.amarulasolutions.com ([2.196.43.167])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a1aeafsm39564572f8f.23.2026.05.18.07.31.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 07:31:56 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	domenico.acri@engicam.com,
+	francesco.utel@engicam.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Christophe Parant <c.parant@phytec.fr>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	Luca Weiss <luca.weiss@fairphone.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Rob Herring <robh@kernel.org>,
+	Sven Peter <sven@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 00/15] arm64: support Engicam MicroGEA-STM32MP257-RMM board
+Date: Mon, 18 May 2026 16:31:15 +0200
+Message-ID: <20260518143150.3138712-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|SJ5PPF6785369A4:EE_
-X-MS-Office365-Filtering-Correlation-Id: bbceaf96-70e1-4c6e-a75b-08deb4e9d15b
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|4143699003|18002099003|22082099003|56012099003|11063799003;
-X-Microsoft-Antispam-Message-Info: 2GF8pq8mQ8BR8Qq01TLSM3X0OKHwQ6RLhd2kIg25jYtuyMxindfxSH1BkvpRoEhm3xy6L8vglXa3wjeYJB7Tn1ET6xq0qyym7TY6d0k+l6wnU775uZrHVn22jWNKeyQZR4RM4jjvw+uWrmTEkM4cFa2nEkYkQ+DsHx8xSl8GLnsAFZYoMjeUEdBalQqQwuubHtTmMHHdG/5G7N+j7vgjlVj9W7Z4ev69FD9/19Sqg+CM21pR4zbADTTBR/ux7T8GRB61wCRu4U1f3YlsWDsTxWF3pmwTAEJus6YpcT4OORKLxBYyzAa6+0qPwn+7GvzGcPT42ZdNNGrwNAYAOOjttUmrz/YAPSVQmPVETg4Mkf8n2ciwTwaLMV3gYoygVO236YDGwhwwVajgIeusjxtGqIeovGYgycisrFjjQoevFpnHxTmbaD1uUf5ycEMpD4iU71U0Ktqiut/5QuQN7oc2RPGKdWVI23pEcVkLVKLDgHJCUgdFqUkQ7DJgONTVyVnYFnQn5UE2KlnO5nCA99+4kiqYpxwGX8X7IAzvpu6mKWIMDGUzAOpIxXuxT0x+kyFX3CQs0IhAuV9Qp1Qr1vO4+Ivx+OpZ7i+LmX4VLgxGWLy7XJoaxGiG1fWUnfO1qNVMxniHHjvoiMiYusNLMKL1hpV3Q4/vU+OkEyXzYDcIZQRKSTyw12KR2/QdDD+vLE+j
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(4143699003)(18002099003)(22082099003)(56012099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejF4THFNbmpMR3VMNlQ1YXhQTW5NN0ExaGtCeGxuZ3ZJYWQvL0NaemcxTnB2?=
- =?utf-8?B?WXBneFNiNjcrSXpldXBuQ0FVZ0IvSVZFcHlxRFZhNkQxVzdQajJ4QjEvNHJT?=
- =?utf-8?B?c0xMbU9td0lENGcycFp1U0pXcitZemFJb1M3a0ppYWdTT0Y5NFFlVmhsZlpF?=
- =?utf-8?B?aDZVVjJ6alFBcFlGM1dUNGN1ZTYyUmJ5cGF1dFoyMzc1TDFoMFZqOXRMR0lI?=
- =?utf-8?B?SmkvNU84NEVBRlBMempQMmNPcUpFMFhRUHAzRHJNUXVLZXdWd3dmdzEyRlVK?=
- =?utf-8?B?MzJieHlXOEZ5TGd6UEEvU04vZDBaNVd1SWdtK3g0ZURYMENrc3BZZUdiMFp0?=
- =?utf-8?B?WkxmNncrQnhZbis2V0xqbnJqVUdJblMwME5CN2tOK2NWYytLNVNlU0FxdDlE?=
- =?utf-8?B?Y0VTd0RFWkZIeW9ETUEvSzlTK2dxaENudDdwNHNWT3pKR21TTEQycVRIZTgz?=
- =?utf-8?B?VVhaNVY3N1FkS0pYNHI1ZlB5RFd4Y21wa2F3UE9PNk1CYzVTUXNjZzZjb2hK?=
- =?utf-8?B?Z3g1cEozTzF1YmlML2U2MFFlUUs4ZFJYR1BvcHRINE9jQVhSa05kRW9uRUpz?=
- =?utf-8?B?U1o4UnQ4WlEvaUhzSktJZS84ZjRiUDV3Y0ZDWUEzTTFUQnNhUEk3dTgzK2xw?=
- =?utf-8?B?b1VyeEE3c0JvRmVpaXVlN0RTUDkxcXdGekc0c0ZsRmFjN2hwUFlkMHpPdFE2?=
- =?utf-8?B?b1JxMWpJSnF6NTBRcGg0NWtoZjBCYVBvbENtUDlHeGphZFFmMTRIMDJmZlAz?=
- =?utf-8?B?bWh2cEZCQ3BWN2tFSkR3K3VoSDNwVi9tT2RMNXk1d29uMHBnbnpQU0hmOUlJ?=
- =?utf-8?B?VXJqRjE1VDZoQ3NDdzNVdWhRZG1zZVp2Y1ZyL2ZqL3J4c2Rva0xyUjd3QUg4?=
- =?utf-8?B?ZUQ2ZGxBL3l5SWF1Nk1NaytRTi93ME1adG41cTVkckM5RzNCV2pod0doUHkx?=
- =?utf-8?B?SWZHSTlVWm9JWHdyMWRud1lKMGxRYThOOG5DQVBPL09acXpFVUhGUHFrbitp?=
- =?utf-8?B?MjdnSlBNc1gyNHlPODVFUnBWeXE3ejBBQWZpS09rd3ZVWi83L0theCtKdkVn?=
- =?utf-8?B?NkV5RVVuWVZBeHlIcnZSQTlDano1NU5XSEozTTNMSThXMERxbUFKY0NHTUJI?=
- =?utf-8?B?UU1oczdmYldhalZjeHI5ZyswYk1odzhOUklMMFJXaFo4UVFoSVRvVHdPbkxL?=
- =?utf-8?B?UHlwNXBmaFdsQXpkRUUrMnAvc2dCZDlWbThieEN0M09UdjVxSTZTeDY2R1JN?=
- =?utf-8?B?UzVJZ0g4YVZRUTJFUWhvdi9uTlR2NmZ1YXdQa0RFV0RsZ3kxWlhwRG9HbUtJ?=
- =?utf-8?B?RlliNTBxa2szNDg5Sko4aVR4YWo3Q3Q0OXBENTRKMVNNMnptU25HREdQcFpj?=
- =?utf-8?B?K3YwcGtvV2xpakpmQTNobGltd1RxQUIxdVB5c3VsMmdpazFWdng5ODgyT2Q1?=
- =?utf-8?B?ZVlwVWIrdE40WmFXWlBqdTNHUzRLQ3BKVTVaeTNOSW5GNnRTd0JMTTNtVFJR?=
- =?utf-8?B?MWdpQy9RODhtRG40OUo4aVhZcGF3a1dDU3hZRFFNYjVEOVIzTERtU1lYMHhD?=
- =?utf-8?B?YlVtZzlwWVRRQzdXUjY1UVhTTERPZm1xUWtKbmIyeDBqcUl4Mi8wVWNyTHBo?=
- =?utf-8?B?SjB6ZE14emJFTW1QRnNWZzl2dVJ2VVFvREozaDhvMlBaWllzaEpIT0xML0ky?=
- =?utf-8?B?NDZMY2IvZmVVcml6ZHlmSUU1bVU4dHhqR0NXd25IRUJkVTR4VFNhMjFSVU9Z?=
- =?utf-8?B?WjJhMTNJVXNpdUJUZHJiVy9LWW1qQTFHbWRZWXBBN2l2ZUxneGI0M2c0WWR4?=
- =?utf-8?B?S1JNdTJ2K3dOQU9hdk1VRk9rUmxFTWE2K0FhdVpha0VadlE5ZldZUndPdGkx?=
- =?utf-8?B?bVdjV0RwUXpHbHMrQXd5Z2Rxc2VXSU9iK0RTbzJBejBFZlhDcWZsWVlwRWcv?=
- =?utf-8?B?c1M3eXdJS2ZwbEJxVHAyRjJMTXgyeVM0dHM0SVRJUGlvNzExSWRES0Y3ZzZ3?=
- =?utf-8?B?L2x2R3NicUhWcFp4VUkrTDZSQ0pORU5ES3ZwcGd0Ni9Vcnl0TmJETDZYcDNT?=
- =?utf-8?B?WDNtRjJwbW9CWHByTDd0RzBHUktXTVVUbWlEWWR4N0FRL04rUjRmZlkvNjBS?=
- =?utf-8?B?cEpscTJXQ25uWU5HQUhtWmtsMUNPQ2c5ZFRZcnl5dFRzelovaVd4a3VidlJT?=
- =?utf-8?B?TXRFRUVvV1NGV0JlRVBUZGY0YWFoRlRPbGJWc3hLYUxNZU83YUo4NnFXS3Vn?=
- =?utf-8?B?L3RlRkpITzFlWjU2OWRBY3FhVXVpZ0lKUmtzNTk0eGtoVFFFZmtjdFd2bWpC?=
- =?utf-8?B?NzJDK2FEeTI3VEx2QVdQd2JjbkhLblhlMzVUU0pCQUhGcXJmYTY0UT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bbceaf96-70e1-4c6e-a75b-08deb4e9d15b
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 14:29:06.6910
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kR2X73VMY9VNvpqeLS/wb7AUwLYb41nJ6gc1BNtQPGX+ac52VYVLQAPWP1M2qc+I
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF6785369A4
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_072923_937993_96086548 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20260518_073159_598813_3B0C2F19 
+X-CRM114-Status: GOOD (  11.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,61 +114,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/14/2026 7:04 AM, Thinh Nguyen wrote:
-> On Mon, May 11, 2026, Radhey Shyam Pandey wrote:
->> Replace separate reset_control_assert() and reset_control_deassert() calls
->> with reset_control_reset(), which pulses the reset in one step. Report
->> failures with dev_err_probe() and a single message. No functional change.
->>
-> 
-> The behavior of reset_control_reset() is a little different. I wouldn't
-> call this "No functional change". However, I assumed this was tested.
-> Please provide a proper reason for this change in the change log.
+This series adds initial support for the Engicam MicroGEA-STM32MP257-RMM
+board based on the MicroGEA-STM32MP257 SoM.
 
-In the dwc3-xilinx case, reset_control_reset() routes through the
-zynqmp reset driver and invokes PM_RESET_ACTION_PULSE. This triggers
-the Xilinx firmware reset implementation, which performs both assert
-and deassert. Effectively, reset() issues a single SMC call for a
-reset pulse instead of separate assert and deassert calls and moves
-IP out of reset.
+The support includes device tree descriptions for both the SoM and the
+carrier board, together with the required pinctrl definitions for the
+peripherals used.
 
-Yes this new reset sequence is validated on HW. I will include
-above description and respin v2..
+The series also updates the arm64 defconfig accordingly and performs a
+small cleanup to keep it consistent with the newly added configurations.
 
-> 
->> Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
->> ---
->>   drivers/usb/dwc3/dwc3-xilinx.c | 16 ++++------------
->>   1 file changed, 4 insertions(+), 12 deletions(-)
->>
->> diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
->> index a3c7dc258c7d..94458b3da1a0 100644
->> --- a/drivers/usb/dwc3/dwc3-xilinx.c
->> +++ b/drivers/usb/dwc3/dwc3-xilinx.c
->> @@ -98,18 +98,10 @@ static int dwc3_xlnx_init_versal(struct dwc3_xlnx *priv_data)
->>   
->>   	dwc3_xlnx_mask_phy_rst(priv_data, false);
->>   
->> -	/* Assert and De-assert reset */
->> -	ret = reset_control_assert(crst);
->> -	if (ret < 0) {
->> -		dev_err_probe(dev, ret, "failed to assert Reset\n");
->> -		return ret;
->> -	}
->> -
->> -	ret = reset_control_deassert(crst);
->> -	if (ret < 0) {
->> -		dev_err_probe(dev, ret, "failed to De-assert Reset\n");
->> -		return ret;
->> -	}
->> +	/* assert and deassert reset */
->> +	ret = reset_control_reset(crst);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "failed to assert and deassert reset\n");
->>   
->>   	dwc3_xlnx_mask_phy_rst(priv_data, true);
->>   	dwc3_xlnx_set_coherency(priv_data, XLNX_USB2_TRAFFIC_ROUTE_CONFIG);
->> -- 
->> 2.44.4
 
+Dario Binacchi (15):
+  dt-bindings: arm: stm32: support Engicam MicroGEA-STM32MP257-RMM board
+  arm64: dts: st: add SDMMC2 support on stm32mp25
+  arm64: dts: st: add CAN1 support on stm32mp25
+  arm64: dts: st: add i2c1 pins for stm32mp25
+  arm64: dts: st: add ltdc pins for stm32mp25
+  arm64: dts: st: add can1 pins for stm32mp25
+  arm64: dts: st: add pwm2/pwm4 pins for stm32mp25
+  arm64: dts: st: add sai1 pins for stm32mp25
+  arm64: dts: st: add sdmmc2 pins for stm32mp25
+  arm64: dts: st: add spi1 pins for stm32mp25
+  arm64: dts: st: add usart1 pins for stm32mp25
+  arm64: dts: st: support Engicam MicroGEA-STM32MP257 SoM
+  arm64: dts: st: support Engicam MicroGEA-STM32MP257-RMM board
+  arm64: defconfig: cleanup the defconfig
+  arm64: defconfig: enable configs for Engicam MicroGEA-STM32MP257-RMM
+
+ .../devicetree/bindings/arm/stm32/stm32.yaml  |   7 +
+ arch/arm64/boot/dts/st/Makefile               |   1 +
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 328 ++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |  15 +
+ arch/arm64/boot/dts/st/stm32mp253.dtsi        |  15 +
+ .../st/stm32mp257-engicam-microgea-rmm.dts    | 321 +++++++++++++++++
+ .../dts/st/stm32mp257-engicam-microgea.dtsi   |  64 ++++
+ arch/arm64/configs/defconfig                  | 293 ++++++----------
+ 8 files changed, 862 insertions(+), 182 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea-rmm.dts
+ create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
+
+-- 
+2.43.0
+
+base-commit: 70eda68668d1476b459b64e69b8f36659fa9dfa8
+branch: stm32mp257d-microgea
 
