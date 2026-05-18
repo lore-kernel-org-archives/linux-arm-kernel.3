@@ -4,84 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BEACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FD2CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tfp9Xfl9F8C0qLignbu5BJHJOBkG39IsvvzY8WnS24M=; b=pCEmDlh7PCqn4ojcQySAfIveQD
-	wW+8snHxTNN54SdXuasqTUtwdozvAix9GltNirQpySNtDYUuxao8JxUy8SFToxcoFNKXwCKPlpRAF
-	fjOmKztKRg0AELH4yV2yxC9PlTwhyvbNfkjEIzydqMjH1xhQ2WB9jIvNjKroRU2YQVBUTtTObHUQ/
-	cottDwdpa7mSS3xF2FYyQEsP6S21Abeup24ELIOuFfpNaVndDTO3tqHzi/aI82KNX/O78l3GgXonP
-	MxzDtKk+OEuoZW5Z1BFnJqIoGjqZmB0SKVXjLOYZoO80Q5LJTenHyCi7geOEpDPe9oS+G1YT3YVRS
-	Qt+PO85g==;
+	bh=nBuIeX8tQtefHJffIoyh2L3hKZqnKtvvK5N0oXNmfJk=; b=i1JKGF3LccpW2vR9bqVcqky+I6
+	dSHG9TcpNlGtm599ewtolv2sTXkVq1pW18ZxRgtlJ4jOsx/MKY6V2NjmZyh8f6+i7TgM0VXSzvrsc
+	Xnf+1E+TmOiy1Bhb6NldC0MmL7xOr9ZNCGuyDlkuw+09V+2S9s452ktaeB7vByvPvZF4yOo1sXDxn
+	uXWcEYXrg3C41g4QkXsm+OVBpo+BtW7Vh+tJ4PB8isojH3pMXqYq2Z63WEO6glvXlv+6uf4GJSam/
+	AD8UnHjq9M4W5MIiVSpO8tXdIvS+afZ/n57xQhWvLIDuHZrrAYkqnr03+dNXvMAn0CnSxC1ATeNzi
+	EeRpMfng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP4d0-0000000Gthl-2mOG;
-	Mon, 18 May 2026 20:31:54 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1wP4d4-0000000Gtk5-3izY;
+	Mon, 18 May 2026 20:31:58 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP4cx-0000000Gth7-0hL2;
-	Mon, 18 May 2026 20:31:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779136311; x=1810672311;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ydXo2XIcnCDnuaeWYRtalIfepOWgfDw1EKpHwpkVH/8=;
-  b=bqb7qO+W3uRlj1qGK7cfohtnEXLiGAzf7ASjCstnJymMxzJSJYwf54tY
-   CQxH+PX7wO20O8N5zmrBXPyCWeQ2AwbLO50r65mNr8dQ9m6dlYAGT7akk
-   mXbrOKKsUr0cT3G74x09V4wJgHcG5qIMfRJpBHUAm06UlGly038XC0G0v
-   tErSluAH9D+XvlF+U3fhQDm1M7tMQAqlYc9pQRP+l9h77a/zw8RLbhJFj
-   o7kCVtjrcmWQFBO7AQlyosZ8uRNn8r2gQd1DefusLLQZWwjHr6dH5fYIX
-   Bd3Ke+yVTf/TTri9swPJloYQwE6wJDW1ZRLbEaLenIpeD+Zf+By2V1W+8
-   Q==;
-X-CSE-ConnectionGUID: nlyNt4vIQEOyQ50jm6IiKA==
-X-CSE-MsgGUID: jzKdZo8mRe23vfFdgVWUeg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="80035064"
-X-IronPort-AV: E=Sophos;i="6.23,242,1770624000"; 
-   d="scan'208";a="80035064"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 13:31:50 -0700
-X-CSE-ConnectionGUID: d0m9t1lWTf6cVYdn+o0JBQ==
-X-CSE-MsgGUID: 13v+sl6tR2GHBYRSdDRZtw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,242,1770624000"; 
-   d="scan'208";a="233164454"
-Received: from lkp-server01.sh.intel.com (HELO d94e5e629b2d) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 18 May 2026 13:31:47 -0700
-Received: from kbuild by d94e5e629b2d with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wP4cq-000000003N4-14ih;
-	Mon, 18 May 2026 20:31:44 +0000
-Date: Tue, 19 May 2026 04:30:53 +0800
-From: kernel test robot <lkp@intel.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>,
-	Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
-	Houlong Wei <houlong.wei@mediatek.com>,
-	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
-	Guangshuo Li <lgs201920130244@gmail.com>
-Subject: Re: [PATCH] media: mediatek: mdp: avoid double free on video
- register failure
-Message-ID: <202605190406.bMshG7YY-lkp@intel.com>
-References: <20260518125500.1000083-1-lgs201920130244@gmail.com>
+	id 1wP4d3-0000000GtiG-0QC5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 20:31:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UtTflidvMZyoN1Wnxt5Qc7zI2DUrDX9E1Y6BtXAxp6RQWDNaBU6IKSYPswQ94F+NOls1ox/4x31Z+kFRD3oTNMZz6bxMkCl78FmhMOnQo8pa4hADjXd3r6zEDX4k4XFaIb9VXfBbL9bKB9BGUdVW6GlM5FlXXzf+KjSBObpjYocb0cREF9pmj0+RLXWOFqZfyyqybfcsptj6vEaMcLmgIEvG5NwtEboMeG67BJvGPQtRnfwF5gjYJvjJ4GDKzDAWjToNEM7MhYDQnDuUUgDbVD4j7liH5iXQvbWYxYvZWGEJ7zNeSWbsaEXBSxBJICbe2XaJag7SZ5mjxgkDVz7g5Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nBuIeX8tQtefHJffIoyh2L3hKZqnKtvvK5N0oXNmfJk=;
+ b=bjLopvbSxubiI+shrIUtsqyxeHawXqLe8AzjFpXpvR0/MwxqPutWbp6A74LKX89pbtRB9zYgkEc/+gAMZPGVacuJvMdx2RWpDCNAVLq3x10CdL6rbQjktcC3EE4ZZBe8DmmzGzOQGboDHjB3BKkRotP7MEL09vDl1bOSjP56kk2eW2V/rfXXv+CFSG1Zc+YP1HLizOEygT46/KgN8DBIlFQxToXhxLNUwlo2vzh3CEPodFSwnqbKtHs/EGgPjFdLUfXH5vlxYgYTUHAmo2fspaqtCvyiKHoKnZdAyF1FPf2NKmZTc5k2swbKKVpBHN7eDovLcn0s7dibxf9bEp6+Rw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nBuIeX8tQtefHJffIoyh2L3hKZqnKtvvK5N0oXNmfJk=;
+ b=UHcSvWAGkbhb8Wo7DJEmFIE68POA7KtFXJDQ/V030raC5ddigAxH0lw5Hkrk+V9UyDx3IashXVDZjhcxg1TFl3B4t00Ni7UhXmb1l9x8wIjRiAHG63Vvvzd/KASw/9QPbtrtTxRoEQFFtD08s7clX6n8cTaUqKWMpSutGzcGQfhJM6JYVXSl2tR70gh6vq2NoY4TS0geNpS8iHfmjvCViYPPeXX6ORcVbTWbtv3psJsCR45F1TdEvXHtfe8LbmbuHG0SJ/1ZRF0Oe8AKWbhlN22pV6mdfhJZL7bmI+QqbesgLz6BzAn5/sxM9GWzRu7uQ36ocA07S3NOb06KX80Jig==
+Received: from DS7PR05CA0052.namprd05.prod.outlook.com (2603:10b6:8:2f::30) by
+ SA1PR12MB9548.namprd12.prod.outlook.com (2603:10b6:806:458::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Mon, 18 May
+ 2026 20:31:49 +0000
+Received: from DS1PEPF00017099.namprd05.prod.outlook.com
+ (2603:10b6:8:2f:cafe::a0) by DS7PR05CA0052.outlook.office365.com
+ (2603:10b6:8:2f::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Mon, 18
+ May 2026 20:31:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS1PEPF00017099.mail.protection.outlook.com (10.167.18.103) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Mon, 18 May 2026 20:31:47 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
+ 2026 13:31:27 -0700
+Received: from localhost.localdomain (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
+ 2026 13:31:26 -0700
+From: Jamie Nguyen <jamien@nvidia.com>
+To: <sudeep.holla@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<jamien@nvidia.com>
+Subject: [PATCH v3] firmware: arm_ffa: honor descriptor size in PARTITION_INFO_GET_REGS
+Date: Mon, 18 May 2026 13:31:16 -0700
+Message-ID: <20260518203116.42624-1-jamien@nvidia.com>
+X-Mailer: git-send-email 2.46.2
+In-Reply-To: <20260517-cunning-pony-of-happiness-cab79d@sudeepholla>
+References: <20260517-cunning-pony-of-happiness-cab79d@sudeepholla>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260518125500.1000083-1-lgs201920130244@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.126.231.37]
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017099:EE_|SA1PR12MB9548:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9336118-94bf-4e31-7bcf-08deb51c7bb3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|82310400026|18002099003|22082099003|11063799003|56012099003;
+X-Microsoft-Antispam-Message-Info: b5IayLioxYfhqXS4dcFM9PI6NHphFtSYOY9cQoPfa3wunRk927kBIFZWmSOIwySjwqP4oyE96fvoLd+j5ZjcOxvenBVZakPlDRsibcbgdFDA+NLtAovPqMyjzV+kL7sYxseG7T4BZvOkodSx/Gho0EYWp1jT3kXVWoN9MJzb3o4Pm0cgwn/fYI6jWYfiQdsh0KZl2otuUWAvexYaZTOla5SwG7mLnsIvvCWd8iyrlynKgKwmhzxhluOJpJq5dkGtLxUQZBvetgUm4zXx+P9ZRtlmfzKo792ZlxajnDY+bfup/O0Kgv6KXvBq3bV74LApAxil8lkfGxDlAZa6+PzQK4bCBXS8OgFe7bK+GqgFvEc4aEY5d/ZJ9OUDGQ8pBTNyoOSbo/mjb5fah4mVpyMFV1C/6D/X7OHKGPR90qe6STeiE0CBOJmPr3ozo0XtC3sGw0Jhyh6ci9YssUOm6EBdSSZGCIz+s9SOvXWRKoGGJf6zLI8EZ5lmfKVUiHTX2DF177kIwUQ+IHncVXox+bZiOoCkQw0NpLX2WJ+baDji17pU0K9ygWoryurmyVyJQuizYfXxhTXeU9TkLnjueD5Is91Jj+ov3UoenHivVx3QVWNr+HswN+GUNvtCehJIq3a77hFPptIEF0mLocJ/Ph/Q5QdBi/KHgAU6rK1Ls3NFNmsOZ1NZLMJ6e+igAqBZKQjL5jh4m/JMgr0naJbEaUbjmwH1IIjzUuq2Up9n79qZG6k=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(82310400026)(18002099003)(22082099003)(11063799003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: KhLhmh0x4EWNki/aXV4jS1CXGD9U6hz4HeZCJsAu1lbBHiTscqmueT1XwOnn65ozZ3FVdzAWO/q4N6c/5TBof+KivwleroylFv53Vld87b1wwL2SRUrmupiL0n10CY/99CMJKHp8fF9J9EQ3EXuXkiPaKFmJhX3BdFcA46loCKN0+RSpFi04aZ5IeBiL/2Q9lkoxtAToqWBSEW9wkdeWXvV5/nRiWZ/q46f9Yq4zuI1QFRkBtrB19GLHt9qLmc4Gz56o7JWUhQRFoOCArnUqhZqIuEHU3x6piZxNP/uCgdifxfUScWUrAdPj1UkFE7JbaBuRD7XlHSw3A61UgXD9FOSkKDpWd8aGqIljBo67y1CBMc4/mh3IsE1jLkQIdjWxUawux7eHmhGufRWipSc45xQvCwsN4/alLicvqYtPCQr1JKJVwn36SDAyhpih8nRR
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 20:31:47.0819
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9336118-94bf-4e31-7bcf-08deb51c7bb3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017099.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9548
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_133151_247353_55F73BEB 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20260518_133157_149507_8D94AA69 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,96 +125,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guangshuo,
+__ffa_partition_info_get_regs() walks the response with a hardcoded
+24-byte stride (regs += 3) even though the SPMC tells us the actual
+per-descriptor size via PARTITION_INFO_SZ in x2[63:48]. The size is
+read into buf_sz and then thrown away.
 
-kernel test robot noticed the following build errors:
+That works while every SPMC returns the FF-A v1.1 layout, but it falls
+apart against a v1.3 SPMC returning the 48-byte descriptor. The loop
+strides over half a descriptor at a time and ends up parsing every
+other entry from a slice of two adjacent ones.
 
-[auto build test ERROR on linuxtv-media-pending/master]
-[also build test ERROR on media-tree/master linus/master v7.1-rc4 next-20260518]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+The FF-A spec (v1.2, section 18.5) says that the producer should
+report the descriptor size, and the consumer is supposed to stride by
+that size and ignore any trailing fields it doesn't understand. The
+non-REGS path (__ffa_partition_info_get) does this already, and the
+REGS path should match.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Guangshuo-Li/media-mediatek-mdp-avoid-double-free-on-video-register-failure/20260518-211648
-base:   https://git.linuxtv.org/media-ci/media-pending.git master
-patch link:    https://lore.kernel.org/r/20260518125500.1000083-1-lgs201920130244%40gmail.com
-patch subject: [PATCH] media: mediatek: mdp: avoid double free on video register failure
-config: m68k-allmodconfig (https://download.01.org/0day-ci/archive/20260519/202605190406.bMshG7YY-lkp@intel.com/config)
-compiler: m68k-linux-gcc (GCC) 15.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260519/202605190406.bMshG7YY-lkp@intel.com/reproduce)
+Use buf_sz for the stride, and bail out with -EINVAL if the SPMC
+reports something we can't safely walk.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605190406.bMshG7YY-lkp@intel.com/
+Fixes: ba85c644ac8d ("firmware: arm_ffa: Add support for FFA_PARTITION_INFO_GET_REGS")
+Suggested-by: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Jamie Nguyen <jamien@nvidia.com>
+---
+Changes in v3:
+- Per Sudeep's review: drop the explanatory comment and split the buf_sz
+  validation into three named checks (u64 alignment, minimum size for the
+  v1.1 layout we parse, fit in the x3..x17 window for nr_desc).
+- Replace FFA_PART_INFO_GET_REGS_REGS_PER_DESC with
+  FFA_PART_INFO_GET_REGS_MIN_REGS_PER_DESC and replace
+  FFA_PART_INFO_GET_REGS_MAX_DESC with FFA_PART_INFO_GET_REGS_NUM_REGS,
+  computing max_desc per call from the SPMC-reported descriptor size.
+- Drop the now-redundant `if (buf_sz > sizeof(*buffer))` clamp.
 
-All errors (new ones prefixed by >>):
+Changes in v2:
+- Rebase onto linux-next; reuse the
+  FFA_PART_INFO_GET_REGS_{REGS_PER_DESC,MAX_DESC} macros it added instead of
+  introducing new ones.
+- Return -EINVAL instead of -EPROTO to match surrounding checks.
+- Update Fixes: tag to the commit that introduced the hardcoded stride.
+---
+ drivers/firmware/arm_ffa/driver.c | 27 ++++++++++++++++-----------
+ 1 file changed, 16 insertions(+), 11 deletions(-)
 
-   drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c: In function 'mtk_mdp_register_m2m_device':
->> drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c:1217:40: error: expected ';' before 'mdp'
-    1217 |         video_device_release(mdp->vdev)
-         |                                        ^
-         |                                        ;
-    1218 |         mdp->vdev = NULL;
-         |         ~~~                             
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index b9f17fda7243..cab32cfdac42 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -324,11 +324,9 @@ __ffa_partition_info_get(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ #define PART_INFO_EXEC_CXT_MASK	GENMASK(31, 16)
+ #define PART_INFO_PROPS_MASK	GENMASK(63, 32)
+ #define FFA_PART_INFO_GET_REGS_FIRST_REG	3
+-#define FFA_PART_INFO_GET_REGS_REGS_PER_DESC	3
+-#define FFA_PART_INFO_GET_REGS_MAX_DESC \
+-	(((sizeof(ffa_value_t) / sizeof_field(ffa_value_t, a0)) - \
+-	  FFA_PART_INFO_GET_REGS_FIRST_REG) / \
+-	 FFA_PART_INFO_GET_REGS_REGS_PER_DESC)
++#define FFA_PART_INFO_GET_REGS_MIN_REGS_PER_DESC	3
++#define FFA_PART_INFO_GET_REGS_NUM_REGS \
++	(sizeof(ffa_value_t) / sizeof_field(ffa_value_t, a0))
+ #define PART_INFO_ID(x)		((u16)(FIELD_GET(PART_INFO_ID_MASK, (x))))
+ #define PART_INFO_EXEC_CXT(x)	((u16)(FIELD_GET(PART_INFO_EXEC_CXT_MASK, (x))))
+ #define PART_INFO_PROPERTIES(x)	((u32)(FIELD_GET(PART_INFO_PROPS_MASK, (x))))
+@@ -342,7 +340,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 
+ 	do {
+ 		__le64 *regs;
+-		int idx, nr_desc, buf_idx;
++		int idx, nr_desc, buf_idx, regs_per_desc, max_desc;
+ 
+ 		invoke_ffa_fn((ffa_value_t){
+ 			      .a0 = FFA_PARTITION_INFO_GET_REGS,
+@@ -365,8 +363,18 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 		if (cur_idx < start_idx || cur_idx >= count)
+ 			return -EINVAL;
+ 
++		buf_sz = PARTITION_INFO_SZ(partition_info.a2);
++		if (buf_sz % sizeof(*regs))
++			return -EINVAL;
++
++		regs_per_desc = buf_sz / sizeof(*regs);
++		if (regs_per_desc < FFA_PART_INFO_GET_REGS_MIN_REGS_PER_DESC)
++			return -EINVAL;
++
+ 		nr_desc = cur_idx - start_idx + 1;
+-		if (nr_desc > FFA_PART_INFO_GET_REGS_MAX_DESC)
++		max_desc = (FFA_PART_INFO_GET_REGS_NUM_REGS -
++			    FFA_PART_INFO_GET_REGS_FIRST_REG) / regs_per_desc;
++		if (nr_desc > max_desc)
+ 			return -EINVAL;
+ 
+ 		buf_idx = buf - buffer;
+@@ -374,9 +382,6 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 			return -EINVAL;
+ 
+ 		tag = UUID_INFO_TAG(partition_info.a2);
+-		buf_sz = PARTITION_INFO_SZ(partition_info.a2);
+-		if (buf_sz > sizeof(*buffer))
+-			buf_sz = sizeof(*buffer);
+ 
+ 		regs = (void *)&partition_info.a3;
+ 		for (idx = 0; idx < nr_desc; idx++, buf++) {
+@@ -395,7 +400,7 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
+ 			buf->exec_ctxt = PART_INFO_EXEC_CXT(val);
+ 			buf->properties = PART_INFO_PROPERTIES(val);
+ 			uuid_copy(&buf->uuid, &uuid_regs.uuid);
+-			regs += 3;
++			regs += regs_per_desc;
+ 		}
+ 		start_idx = cur_idx + 1;
+ 
 
+base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+-- 
+2.34.1
 
-vim +1217 drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
-
-  1172	
-  1173	int mtk_mdp_register_m2m_device(struct mtk_mdp_dev *mdp)
-  1174	{
-  1175		struct device *dev = &mdp->pdev->dev;
-  1176		int ret;
-  1177	
-  1178		mdp->variant = &mtk_mdp_default_variant;
-  1179		mdp->vdev = video_device_alloc();
-  1180		if (!mdp->vdev) {
-  1181			dev_err(dev, "failed to allocate video device\n");
-  1182			ret = -ENOMEM;
-  1183			goto err_video_alloc;
-  1184		}
-  1185		mdp->vdev->device_caps = V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING;
-  1186		mdp->vdev->fops = &mtk_mdp_m2m_fops;
-  1187		mdp->vdev->ioctl_ops = &mtk_mdp_m2m_ioctl_ops;
-  1188		mdp->vdev->release = video_device_release_empty;
-  1189		mdp->vdev->lock = &mdp->lock;
-  1190		mdp->vdev->vfl_dir = VFL_DIR_M2M;
-  1191		mdp->vdev->v4l2_dev = &mdp->v4l2_dev;
-  1192		snprintf(mdp->vdev->name, sizeof(mdp->vdev->name), "%s:m2m",
-  1193			 MTK_MDP_MODULE_NAME);
-  1194		video_set_drvdata(mdp->vdev, mdp);
-  1195	
-  1196		mdp->m2m_dev = v4l2_m2m_init(&mtk_mdp_m2m_ops);
-  1197		if (IS_ERR(mdp->m2m_dev)) {
-  1198			dev_err(dev, "failed to initialize v4l2-m2m device\n");
-  1199			ret = PTR_ERR(mdp->m2m_dev);
-  1200			goto err_m2m_init;
-  1201		}
-  1202	
-  1203		ret = video_register_device(mdp->vdev, VFL_TYPE_VIDEO, 2);
-  1204		if (ret) {
-  1205			dev_err(dev, "failed to register video device\n");
-  1206			goto err_vdev_register;
-  1207		}
-  1208		mdp->vdev->release = video_device_release;
-  1209	
-  1210		v4l2_info(&mdp->v4l2_dev, "driver registered as /dev/video%d",
-  1211			  mdp->vdev->num);
-  1212		return 0;
-  1213	
-  1214	err_vdev_register:
-  1215		v4l2_m2m_release(mdp->m2m_dev);
-  1216	err_m2m_init:
-> 1217		video_device_release(mdp->vdev)
-  1218		mdp->vdev = NULL;
-  1219	err_video_alloc:
-  1220	
-  1221		return ret;
-  1222	}
-  1223	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
