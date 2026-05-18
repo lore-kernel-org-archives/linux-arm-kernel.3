@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6964DCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 01:49:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506E9CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yo1ANKt2AnPbyfOMzXRqEqyKaR/EpdFhiCwQ4FFZO/4=; b=I7rNrb0IY5aMONrvqn2VYdan/o
-	/JXg5nQtTZl9z1Dyl8KxEJ3AdZR9QZpWPTcvcpkwc5e4nX4X2LGLVRyau9O9r5eMdhH0ckkK1SWMc
-	m3C7Ztw2qTa1zaSYi2h7FeCTH0K0/kGriphV+O8gEfNO7GjjBnw5LrBF3d2qKIVACS+3pwbQ5Fm4O
-	CsuZiiJRZkSKpi+T1HAXRVDFF9s1QVMZ3FecW/iLAQJKunPpexpBaAuhQxr+tkGaDcg3QjOORdoUb
-	y74sDFgtmm6lSZz7B7JlcskDPSk5Ial428Fm2E9KrsbDea1yCQaGcFhdVnnBtZ8F/2hOPiH70DLd8
-	GNlZtyOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x8u7GTxrVk0C2PJrbCem+3xBCd5jbswvYhojVoW4ZD0=; b=hpW3LkZTmTe+9hn/gleReS9Oel
+	eGYIuoWd8CF/Ab5+HvIL22FAxVg+Rvx9KcrT4Td5GdQYGKm6zK2cSV0XIZiscFS/yiHtm7Tj+URsp
+	mTTrLeOwoq3b+D5/RjR3/OVeI/mk61jg4goUKXEdG2BwuRiQ9AiYneJnvJJEMOzxX5fHaHvF2dQJn
+	TRgyogb38lrEx/FbCxW9aFpQXGuVtP7POrGPz6V2P5K0PdFWXNWmPGUBR/n4mMH8vUzLcbDpjENqV
+	DY3G2MYPyo/dTi1M68n+JWNFud+CQ6yTbeizI0URqrGN7qpYLro3rehGJeT3ituoNbyl8vGC6mrMf
+	HnNRlR3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOn71-0000000DrQ3-4Ari;
-	Mon, 18 May 2026 01:49:43 +0000
-Received: from mail-dy1-x1343.google.com ([2607:f8b0:4864:20::1343])
+	id 1wOnP5-0000000DtHe-1w8v;
+	Mon, 18 May 2026 02:08:23 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOn6y-0000000DrPG-30V0
+	id 1wOnP1-0000000DtGi-45ho
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 01:49:41 +0000
-Received: by mail-dy1-x1343.google.com with SMTP id 5a478bee46e88-2ee990e8597so5241290eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 18:49:40 -0700 (PDT)
+	Mon, 18 May 2026 02:08:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779068980; x=1779673780; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=yo1ANKt2AnPbyfOMzXRqEqyKaR/EpdFhiCwQ4FFZO/4=;
-        b=cTI1hHNN+gQiIr6K/q9VEPndWSTABMB3FtlRTyuRGd4LY24MoB4iBVM1sioBx9Ib6P
-         Xwv+S1Yprme+U4gTwTSGDglDhlQp0WZvdUPtwY/tRG8+y7C8RcUIk/cEPKebRJ2RQGWb
-         z/hKRvrHPBslVMVdwEj5q3flZyEb7tapM4Q/fQ8rAWNvdA2xih6E+ipqZ7tIfoCajKDS
-         XI4GoIDFEapswFYSownH7qc2FPM+RAgWguolRyUZxOJ8D27xP/KaNPImQSMBMl51iyvf
-         Q4UgknmMa3DJSLZDaB5gb8CCPmcqYrIyvH6ln0DkyAo+23aflaZmXWe6IJdW3oAxqWYp
-         jTOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779068980; x=1779673780;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yo1ANKt2AnPbyfOMzXRqEqyKaR/EpdFhiCwQ4FFZO/4=;
-        b=q2NbHMbLNFzVxOqm+lcaHyWDYpCNd58bMreZhlBdIQcURNamM6/q0i5EyIMARdFK72
-         aTfCqkouXf5z6YtMfcENXqmBvOwlv5Ff3A6eLg59+Ba6bdvbX70Uja2jdjkQ7HWrY7xr
-         dRQ86SJaoBI0rlv81lAxjUzbbVpyGrRX6HgQp7OsMKdvvWl1Ys/btokeDsmG6gDOa23O
-         4kEHlREOVglbCWsl2o7fFdPdfuxc309NuSRLblgpI5b58gc9RO5spy7L61uRdQy7BqLh
-         SeAB6xFXQb4UOLxPxGjHBbg3B4o8T9GzV1M/NJEzvrMXe3w2e8GmdJuHx0k+IN07IhCz
-         EHEg==
-X-Gm-Message-State: AOJu0Yw/a8ssxb9VamjgKWAesb+lg5IN9Tmm5IWZEiHNaBUgWdp4g99Z
-	N3HJKErgqWTMsLau0J7JXpmIjulQD6Xha5ZPWBihKlQ94lgyKJl+Y3bHqRTdnEvDisA=
-X-Gm-Gg: Acq92OFAytKBJUv0Fqxfz1xx5Hk+rq96mt4L5kiQFTweRtRO1sxMf+vqK3QOIt/82UM
-	DhW7Q5OxF7/1h9v0euewEipgrMY24vwIC5KxrOxpNs/ZIw9peK13fR3OYiqHI/swUyhwpTjZqob
-	Kk92kjOHh3pi4QUHpT+q07RfqR8mHS4aB+J7txDTeyQC0gzGEPTvlry81pPCyOcsoOM5QuYzuBD
-	MJY7MUgxZcGTgppy6MBHHLKz3rniViHx4Z3fMSEz6RZkniwXFCpAJJqqq4Zd+asqjN1trTl0lrk
-	8HbKExgo2x/mRXHC0vGNC2B++zNMjqxehzRLyo6UAPV7UlMLssilh9+JhwDAZkJ11kUk1mvkuBl
-	XXFwuxlvrYwlN5wPB/kHDQ0WIlTKCLG9gd8h8dEtbIQcaSseQU0r87esJgCHsNPPezKmm+M82IW
-	JN/VPJmnZz+TDAdwO5GS6DvCmcW4v3JFlmsx2h3k3RijGdlv37N+xUz/pGSzhMLRcdMeHy5bUL6
-	uGQwkHp9ZlnTjRexW4D/7BIA0orC40Vpabq14rJs2i47W4r0ohy2o1EvRBxBhK8relxx6yfh6zf
-	ZazoIxuGYJBM4BWBEQ==
-X-Received: by 2002:a05:7300:ad30:b0:2e6:e504:5435 with SMTP id 5a478bee46e88-303982be4c5mr6340680eec.12.1779068979663;
-        Sun, 17 May 2026 18:49:39 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302973bc8ddsm12335857eec.21.2026.05.17.18.49.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 18:49:39 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	stable@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linusw@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Thomas Weissschuh <thomas.weissschuh@linutronix.de>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Shubham Bansal <illusionist.neo@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>
-Subject: [PATCH] ARM: disable broken eBPF JIT on the Risc PC
-Date: Sun, 17 May 2026 18:49:17 -0700
-Message-ID: <20260518014920.135011-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	d=codeconstruct.com.au; s=2022a; t=1779070089;
+	bh=x8u7GTxrVk0C2PJrbCem+3xBCd5jbswvYhojVoW4ZD0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WjJ1dXe9pkIadrwUEsZ3nLCVl/sBeoO0RlerFs/2F7dsR1vqQ6h9eDUgMn+2BkJTx
+	 sU+ufPnAAQlTC2n1ZqiIJ57FPvyX6d2rHwaqtdVQA2eHw9vQaKS71sYWwy+v42CegN
+	 J/IlaMjSZiSqQ8sIqirJmsH1FPCrhnyLjeoSEK5x0PyTXTU4nWKrgUf0odHukYNQFB
+	 OHEFn5a34TwZfn+n3rTOyQ72FOxTIW6NCsSFIYu/6tKwi/8j+t2+PmB3GBPebZHusL
+	 QRsB5qRB4R0G8390g019AOKULWeZ0eKglLCCxJPRG+SUCKjYcAHVgaMAaFMht7F8gx
+	 c7PaiHl78VcVw==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 2BFAC6037B;
+	Mon, 18 May 2026 10:08:06 +0800 (AWST)
+Message-ID: <7927e6edf6cbe915a66b76746436c8d19f317bd6.camel@codeconstruct.com.au>
+Subject: Re: usb: gadget: aspeed_udc: list iterator used after loop in
+ ast_udc_ep_dequeue
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Maoyi Xie <maoyixie.tju@gmail.com>, neal_liu@aspeedtech.com, 
+	gregkh@linuxfoundation.org
+Cc: joel@jms.id.au, linux-aspeed@lists.ozlabs.org,
+ linux-usb@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 18 May 2026 11:38:05 +0930
+In-Reply-To: <CAHPEe=Fs223obDewRunPdTtqhVOM11AXVsLRNHx+=NP0KiFwMQ@mail.gmail.com>
+References: <CAHPEe=Fs223obDewRunPdTtqhVOM11AXVsLRNHx+=NP0KiFwMQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_184940_794966_BD41AE6C 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20260517_190820_374664_D95F9A5E 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +73,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The eBPF JIT unconditionally generates ldrh/strh instructions, which do
-not function correctly on the Risc PC because its bus is unable to
-signal half-word accesses. Work around this issue by disabling the eBPF
-JIT when building for ARMv3 (the Risc PC is the only currently
-supported ARMv3 machine).
+Hi,
 
-Fixes: 39c13c204bb1 ("arm: eBPF JIT compiler")
-Cc: stable@vger.kernel.org
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- arch/arm/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Sun, 2026-05-17 at 23:46 +0800, Maoyi Xie wrote:
+> Hi all,
+>=20
+> (Resending from a personal address =E2=80=94 my previous attempt from
+> my NTU corporate account carried an auto-appended confidentiality
+> disclaimer that you've declined to accept. The content below is
+> unchanged.)
+>=20
+> I have been running a small static check for list_for_each_entry
+> past-the-end patterns, similar to Jakob Koschel's 2022 cleanup
+> (commit 2966a9918df and related). The check flagged
+> ast_udc_ep_dequeue() in drivers/usb/gadget/udc/aspeed_udc.c, and I
+> would like to ask whether you consider this a real defect before I
+> send anything formal. The same code is present in v7.0 and in
+> v7.1-rc1 (the two files are byte-identical).
+>=20
+> The code in question is around line 691:
+>=20
+> =C2=A0=C2=A0=C2=A0 struct ast_udc_request *req;
+> =C2=A0=C2=A0=C2=A0 ...
+> =C2=A0=C2=A0=C2=A0 list_for_each_entry(req, &ep->queue, queue) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (&req->req =3D=3D _req) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 list_d=
+el_init(&req->queue);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ast_ud=
+c_done(ep, req, -ESHUTDOWN);
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 _req->=
+status =3D -ECONNRESET;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
+> =C2=A0=C2=A0=C2=A0 }
+> =C2=A0=C2=A0=C2=A0 if (&req->req !=3D _req)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rc =3D -EINVAL;
+>=20
+> If nothing matches, the loop exits past-the-end and req becomes the
+> synthetic container_of(&ep->queue, struct ast_udc_request, queue).
+> Reading &req->req after the loop is undefined per C11. The post-loop
+> check works in practice only because real _req values do not collide
+> with that synthetic address.
+>=20
+> What made me suspect this was not intentional is that 14 other UDC
+> drivers in the same directory (at91_udc, atmel_usba_udc, dummy_hcd,
+> fsl_qe_udc, fsl_udc_core, goku_udc, gr_udc, lpc32xx_udc, max3420_udc,
+> net2280, omap_udc, pxa25x_udc, pxa27x_udc, udc-xilinx) use a
+> different pattern, with a separate iter cursor and a result variable.
+> For example dummy_hcd.c:
+>=20
+> =C2=A0=C2=A0=C2=A0 struct dummy_request *req =3D NULL, *iter;
+> =C2=A0=C2=A0=C2=A0 list_for_each_entry(iter, &ep->queue, queue) {
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 if (&iter->req !=3D _req) cont=
+inue;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 ...
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 req =3D iter;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 retval =3D 0;
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
+> =C2=A0=C2=A0=C2=A0 }
+> =C2=A0=C2=A0=C2=A0 if (retval =3D=3D 0) { ... }
+>=20
+> aspeed_udc seems to be the only outlier in drivers/usb/gadget/udc/,
+> which is what made me think this was probably an oversight rather
+> than a deliberate idiom.
+>=20
+> I also tried to confirm whether it observably misbehaves. If _req
+> happens to coincide with the synthetic past-the-end address, the
+> function returns 0 (success) on an empty queue without removing
+> anything. I attached a small userspace reproducer (poc_aspeed_udc.c
+> and its output log) that arranges this collision. In normal use _req
+> comes from the kernel slab and the collision is unlikely to happen
+> naturally, so I am not sure whether this rises to the level of a
+> real bug or just a code-quality issue.
+>=20
+> Two questions:
+>=20
+> =C2=A0 1. Do you consider the past-the-end use here a defect worth fixing=
+,
+> =C2=A0=C2=A0=C2=A0=C2=A0 or is it an accepted idiom in this driver that I=
+ am misreading?
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 1155c78bb6aa..8185d013e5d1 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -98,7 +98,7 @@ config ARM
- 	select HAVE_ARCH_TRACEHOOK
- 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if ARM_LPAE
- 	select HAVE_ARM_SMCCC if CPU_V7
--	select HAVE_EBPF_JIT if !CPU_ENDIAN_BE32
-+	select HAVE_EBPF_JIT if !CPU_ENDIAN_BE32 && !CPU_32v3
- 	select HAVE_CONTEXT_TRACKING_USER
- 	select HAVE_C_RECORDMCOUNT
- 	select HAVE_BUILDTIME_MCOUNT_SORT
--- 
-2.43.0
+I don't know that it's an accepted idiom - there are only two
+invocations in the driver and the other doesn't suffer the problem
+you've highlighted.
 
+list_first_entry() does note that the caller be sure that the list
+isn't empty. As you note this isn't tested, so it's now a pre-condition
+of ast_udc_ep_dequeue() that it's not. A bunch of gadgets test if they
+have requests in-flight before invoking dequeue, so that may not be
+unreasonable. However, given ast_udc_nuke(), and the implementation
+admitting that the provided req might be invalid by the existence of
+the test, I'm not convinced that the invariant is upheld.
+
+Note that the (other, separate) Aspeed vhub driver avoids your concern
+in its dequeue implementations, so I'd rather it's avoided in the udc
+implementation as well:
+
+ * https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+drivers/usb/gadget/udc/aspeed-vhub/ep0.c?h=3Dv7.1-rc4#n438
+ * https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/=
+drivers/usb/gadget/udc/aspeed-vhub/epn.c?h=3Dv7.1-rc4#n472
+
+>=20
+> =C2=A0 2. If it is worth fixing, I already have a small patch that brings
+> =C2=A0=C2=A0=C2=A0=C2=A0 the function in line with the 14 sibling drivers=
+. Would you like
+> =C2=A0=C2=A0=C2=A0=C2=A0 me to send it, or would you rather address it lo=
+cally?
+
+IMO send the patch. It's almost always better to be reviewing a
+concrete change proposal.
+
+Andrew
 
