@@ -4,134 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7659BCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 09:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D7FCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 09:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bc0qUG5ezu0fBTIae+Gg2HH0O7czfnS/tLixkncMJ94=; b=gpKfhxARuV2x5yOxmQ14p/T7AI
-	+tOgdZMyHvvxHxMUiqNhNYO6oubELeI72cVq6TgVDlc7hfhbqbgo+Djo+mThWMHhDNw1P5dLXAbZQ
-	i5B9DOvwBNlCIWZWLI6Of3TC73jQ9H+KkJO38gtLWdDO5byT/ay2/kT0sRYN9ov262OJYqgPb8gKt
-	gXSzma3Eyhho99PkP9YyeOu7vqdj3m7rYOYN1m7sAe46qkuVXSP4qdRVnZR1Ks2DSTm3POi3JL4Cw
-	chV5Fm6hypELqCM3A9tP+ZcUHhTChEp2O91M/e4h1QRTkDTh/MlivKUxI2GHGjn+nkKy20LcHKl3i
-	mcUafjpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ftpTpUPuup/zc7/H1kJE7NPrluIIdzjmJzVnVd/TRfg=; b=3d5+2He8WBfzcO
+	7+JyHNyb+wEc6WVl4ZgrcqrD8xs3L87HyOZtqEi7TlDRd5bSZh49i5Qp67SRm/Fh/BuKB6+f72qpr
+	j0c0huAegrgYFi0qpKIbEYbVG0ep2pvHJj0ZVIQkCaoKn3L4Wah/FV+1RX7/uSPhJZUrUxtLgZ5pd
+	IybEbvcBbcZwcG9SWaC2qUAvLhG6wGLUIQ0MwpuiQdk5RuvzRWBolpxpk9VFsbiFUrf0yZpewBrvf
+	adJSGcnDdcZtyou+gTwLLbt1p4mI1K6EAMoIrP/kc9L6quaa/+Hcs1AJpWIiWyQFMhW9FT9NMSdmX
+	T2pnmALz+7ZldA48OoBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOugK-0000000F6aK-1jKn;
-	Mon, 18 May 2026 09:54:40 +0000
+	id 1wOuj2-0000000F7FY-3ooC;
+	Mon, 18 May 2026 09:57:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOugJ-0000000F6a2-2ckm;
-	Mon, 18 May 2026 09:54:39 +0000
+	id 1wOuj2-0000000F7F7-0dK3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 09:57:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Bc0qUG5ezu0fBTIae+Gg2HH0O7czfnS/tLixkncMJ94=; b=eUMDZXMV7s6hmzBIstWzn/jlQ8
-	w8klnNPJE+5PX7SOwZK+SMeKxQxoYbpK/TgJDm8N7QmOP9AVIQ1neyWiDV0EjZkvc1ktCeT3OjhG6
-	W4Z3Tpz+GkHOaO4cMF+dg8dOCtLtGcEpsWPHH/IUSqaAQnaZgx7tOLuEjzZNvS/P0htFwzAFjbf+U
-	OP1Gli25aAJb655onE03FOETE1W5fuwMLJDd5ZO7B5eCStcqbK+yX0nm7wzI+N903YRIIF7qARmnC
-	Cy3Tcj2L1NZ8XbRg9q6EDvG6i6hbe1jjYwt4jLJkrAIqrfA7L74fZmSq6t/buiDKZT0p2TwdsDjWF
-	Q+FD+uCw==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:To:From:Sender:Reply-To:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ftpTpUPuup/zc7/H1kJE7NPrluIIdzjmJzVnVd/TRfg=; b=XqqnBS3/BBddu3pn+9cERsvDMv
+	/1uZcCYSuJqbdooWvZJJJupagmUwEW/6Dv74V5pGtI+8XBt4QSf3oWDTUBC9gLRIkBdyVpLVEaiYk
+	afftE9x7ZH2r3sMFd1c1gKXqxM0QWwc2dGhzY8hGP+31NbfXtQJVfcICpIcFKQ33i12uI2e0w0nWX
+	9lhodef2+mUPuZgNUEB8T9ItxIngIUBHJ/ZSOEoMGiRfryBOFq69Yd+xIYxtzYTO0vWVnQ2AzRSCc
+	CUHQRmbPTWHpQskJaLYBHhaCIY4UYyqHiqbi52/p50HNGNRNhrkv3GSRWst4EM+wbdgTLY/3RrEfx
+	V23E9dxw==;
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOufc-0000000AeV1-1UTz;
-	Mon, 18 May 2026 09:54:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 66FE542A71;
-	Mon, 18 May 2026 09:53:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A1DCC2BCB7;
-	Mon, 18 May 2026 09:53:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779098029;
-	bh=W8Y9KhF7UdtIAt1c+NPri553EDOVp1AAPUaE7TKCmjc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pd65kd8GwKjdONJbfTVC0Cbl/3yXe5p7s3Odr3JoeXeW5LNYe95k6Po6QAxURYpS7
-	 B/fp4Vt5Z3BIPBT6bfhGi63GZlBdT1O4IjpTSFgqkdrl1GS76ZEqwVPiCihl8mgw25
-	 ewkaG1poBVEHGPVLrhZkCfUmmYcBYaMy8YNHSrh0SLnR/GsnPO8dcDE7DsfBCg+0WR
-	 zKuF/vEy1e8RoDYGByJjQS7ArI72vcW8qFhPO+TFbT+RYPfD0MuVuXglet+3AD+81z
-	 MO7vGLYPvMjA8AvRMC7wYWoPCUZs2JpKZdhJml4rhXSJWvwHBF9InDkR9UY50YRVCV
-	 Cp57Dwam949Zg==
-Message-ID: <b65722ee-6476-4038-bfbb-44a32b3544fd@kernel.org>
-Date: Mon, 18 May 2026 11:53:37 +0200
+	id 1wOuiy-0000000AfBu-1kEo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 09:57:26 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 18 May
+ 2026 17:57:08 +0800
+Received: from aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Mon, 18 May 2026 17:57:08 +0800
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+To: <clg@kaod.org>, <broonie@kernel.org>, <joel@jms.id.au>,
+	<andrew@codeconstruct.com.au>, <linux-aspeed@lists.ozlabs.org>,
+	<openbmc@lists.ozlabs.org>, <linux-spi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<BMC-SW@aspeedtech.com>
+Subject: [PATCH 0/2] spi: aspeed: Fix __iomem annotation and VLA parameter
+Date: Mon, 18 May 2026 17:57:06 +0800
+Message-ID: <20260518095708.2502537-1-chin-ting_kuo@aspeedtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- surenb@google.com
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, ljs@kernel.org,
- liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com,
- jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
- lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
- chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
- nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Nanzhe Zhao <nzzhao@126.com>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_105402_684978_66D1E920 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20260518_105724_889282_AC3735BF 
+X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,77 +80,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/17/26 10:45, Barry Song wrote:
-> On Sat, May 2, 2026 at 1:58 AM Matthew Wilcox <willy@infradead.org> wrote:
->>
->> On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
->>>
->>> It doesn’t have to involve unmapping or applying mprotect to
->>> the entire VMA—just a portion of it is sufficient.
->>
->> Yes, but that still fails to answer "does this actually happen".  How much
->> performance is all this complexity in the page fault handler buying us?
->> If you don't answer this question, I'm just going to go in and rip it
->> all out.
->>
-> 
-> Hi Matthew (and Lorenzo, Jan, and anyone else who may be
-> waiting for answers),
-> 
-> As promised during LSF/MM/BPF, we conducted thorough
-> testing on Android phones to determine whether performing
-> I/O in `filemap_fault()` can block `vma_start_write()`.
-> I wanted to give a quick update on this question.
-> 
-> Nanzhe at Xiaomi created tracing scripts and ran various
-> applications on Android devices with I/O performed under
-> the VMA lock in `filemap_fault()`. We found that:
-> 
-> 1. There are very few cases where unmap() is blocked by
->    page faults. I assume this is due to buggy user code
->    or poor synchronization between reads and unmap().
-> So I assume it is not a problem.
-> 
-> 2. We observed many cases where `vma_start_write()`
->    is blocked by page-fault I/O in some applications.
->    The blocking occurs in the `dup_mmap()` path during
->    fork().
-> 
-> With Suren's commit fb49c455323ff ("fork: lock VMAs of
-> the parent process when forking"), we now always hold
-> `vma_write_lock()` for each VMA. Note that the
-> `mmap_lock` write lock is also held, which could lead to
-> chained waiting if page-fault I/O is performed without
-> releasing the VMA lock.
-> 
-> My gut feeling is that Suren's commit may be overshooting,
-> so my rough idea is that we might want to do something like
-> the following (we haven't tested it yet and it might be
-> wrong):
-> 
-> diff --git a/mm/mmap.c b/mm/mmap.c
-> index 2311ae7c2ff4..5ddaf297f31a 100644
-> --- a/mm/mmap.c
-> +++ b/mm/mmap.c
-> @@ -1762,7 +1762,13 @@ __latent_entropy int dup_mmap(struct mm_struct
-> *mm, struct mm_struct *oldmm)
->         for_each_vma(vmi, mpnt) {
->                 struct file *file;
-> 
-> -               retval = vma_start_write_killable(mpnt);
-> +               /*
-> +                * For anonymous or writable private VMAs, prevent
-> +                * concurrent CoW faults.
-> +                */
-> +               if (!mpnt->vm_file || (!(mpnt->vm_flags & VM_SHARED) &&
-> +                                       (mpnt->vm_flags & VM_WRITE)))
-> +                       retval = vma_start_write_killable(mpnt);
+This series fixes two sparse warnings reported by the kernel test robot.
+The first patch fixes missing __iomem annotation on an MMIO pointer
+parameter, which also caused a redundant cast at the call site.
+A VLA function parameter warning is also fixed in this patch series.
 
-Likely is_cow_mapping() is what you would want to check to handle VMAs that
-could have anonymous pages in them.
+Chin-Ting Kuo (2):
+  spi: aspeed: Fix missing __iomem annotation in output transfer path
+  spi: aspeed: Fix sparse warnings for VLA parameter in calibration
+    helper
+
+ drivers/spi/spi-aspeed-smc.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
 -- 
-Cheers,
+2.34.1
 
-David
 
