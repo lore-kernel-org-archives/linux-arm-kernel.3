@@ -4,190 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC934CD4F50
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEF6CD4F3C
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6O1ICdWN4yeWnS17BkX1f3AB76ALr0jZSbYGRErvLQ=; b=YzPwuVPBt8pDFZ0vu05ukOREkw
-	Vntbk8nblSoljQJbOjxni9TD05EeuGkVdgUX78gVhA1nK6KkS+gI+L2OwQvMkD3D0fTo+lKQETPl+
-	3HtyN8kRb884d6NGla3Lnpn3/pSvUiNpyF7rWM8j3RiuRYfsDxX7aD5D0uxcAR/nrKEd1mTVBHy8b
-	2zjqm8ObjeqiYiSQF6zzHgrFoXfBFa3d5l80e88fraT3zd9Lzb0GHc7A3LqtPhZSsLMjXQAEj5QSc
-	6uvOyluYpYzIsutil7yWlCQPshrjyUS5cG24rTKttqU3FFlz0R52IvyAu1Rb29hvZYhWRepscFvh1
-	HK2ADyug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yC8VYGTT7Bg7wfZS0SEiMkPiv5BSoy0nPjUFrQ4vges=; b=kiqjEMobBhxwHcVNrCpqgU4d9d
+	vKco9tEOWgUUQETGqWxH/9ZTDWYg++je1Wc20rOuoWQX8EnfpdNhlcqOpAFr0cY4xM7ImTYaTCm4D
+	ZZKvE79rXiPLckB8vH+fxoTuhZezQ/lh/3VJNAmEfaC97byBgEuLTseAQadn/e29gON5Jz4BE0VK4
+	TgkiwoK1kdwj6LbJ5MIeuZNq9a5v/zldYi+WTeT1NeOCIyg3h6ywdMA3C26FBD/RrTBO+InHrPNKX
+	xEeYcwtq5SwauUFvprRUQXOjmyLbSUuEUMXFdRa1OYrfWHj4XKvtfiDylzQbeJQN1xA5k1lj1ek+u
+	x/W8hbEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrpp-0000000EU87-3RRz;
-	Mon, 18 May 2026 06:52:17 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrpo-0000000EU7J-0dAx;
-	Mon, 18 May 2026 06:52:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To
-	:From:Sender:Reply-To:Content-Description;
-	bh=R6O1ICdWN4yeWnS17BkX1f3AB76ALr0jZSbYGRErvLQ=; b=D4olbQto6/SovLuEO+rTlA/GtY
-	OsOcMpQp6yJV5MxYJZ71q5zyymN3SPWDd8mJiTXQVhAsLlUGdLBT0Jt/zoxjpHIOsOsqHIjtECXhj
-	DyxhmuKoZs3A1xIn6VBZXCAw8qt52HQi0MJi2Qf1g5lMT/8g30Mx0aEsTHNza7GMpnGH4aH0a0NPD
-	nPnQJod7Kd+YGcf/NOCdyGT5o4wOet/YE3mZQFrxDMu3G5b4ZfK6/wvYPepYJdWKpoJy4NttDAYzq
-	lIy3O5zDeW/D7dksDRMb6tzkB+ywx2cPV9jKlebH+YjJoVp/B3PRW2OB7nwbB0pKnCaKI1W+5lCWn
-	5QpdJQcw==;
-Received: from mailgw02.mediatek.com ([216.200.240.185])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrpa-0000000A50p-1f6G;
-	Mon, 18 May 2026 06:52:13 +0000
-X-UUID: 0c1c84dc528611f1acbe4559397dec65-20260517
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=R6O1ICdWN4yeWnS17BkX1f3AB76ALr0jZSbYGRErvLQ=;
-	b=FK+5I+XSqWkJ8c3LdilZuLQ3z4EVTbW4/RhVcDwfdAyAMj1QsfBnxJbQ+OgSiOmVwdbpvGRJ3oByOaMpQkaBaWDNioJ/oq2T9QM8IqQngJPRltngxSVVb86Dr+q+GYybWjv5nND3iCmrzH5IDUc5IphZEDjSfH5Q9oF3Brxnb9o=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.14,REQID:d7d39e11-ebd6-4334-b1d8-ad272f8a4f94,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:9091e75,CLOUDID:1d8681a4-a669-48ac-a1cb-3b38a93be682,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
-	l,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 0c1c84dc528611f1acbe4559397dec65-20260517
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <xueqi.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 743955222; Sun, 17 May 2026 23:51:50 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 18 May 2026 14:51:48 +0800
-Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 18 May 2026 14:51:48 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gr8WLFD/HSPL4QsRuXXNDHtYYp5h2l++Fv396gvANRmmwy0LDlV/CNqNvsGKElCj2jJv+5jAnNNLqb7/IVYz/4kF8dUzk1QtLIvMdaI9NsLPwZ7os5qP8mh4eIr+M/MnnTFWmZ249fQL8thL4kDrAyYrBUhvsX4Lrybqint6zY/NTNsAF7L7F1ZMysMax1aUir5qCywzQjCirvhmEON+x5J8cnHVmzeR5uKg9gidEWmpfrNmzaXdIAneHO9x3rZjub80e37/4gjPbvszwo3v/82uWvETCDwNVMuTC7UH+h7qjOIJ+5fhEGKUkA/OPp2bnq+08US7crpdhAgLJTqN0w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R6O1ICdWN4yeWnS17BkX1f3AB76ALr0jZSbYGRErvLQ=;
- b=SPLrApPrCqXWcaWlZlEaihXmjnG7JWBGvhY1jylN0zHOyJeFOq/VcvV0G6hdeMcJCRWYIvyYpybL1I2aYCvtBBRvNmBV1A8JLOIT3Ik7MGIp5fVzC8Z52r83Ur2C39eo/pDKuVDn0DrR8w1sjkDWnKXQmOXUuX9j1H8s5qr1g03Ce65OyLGVzVw/zDXZAj5Vqq68DAFwpWQCOPM+tajcaWoTOeCd027M6M6O+gMXLBkxUV5qYN7ypV341ks8oaLUEkMEd4aci/jI+48VQ5CCQ2ZMsD1dNgwYBVayYCNvW7eFgO4OgV1Z8aSLHssyHDs96MqavhQHpKPwgDG1QkjGgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R6O1ICdWN4yeWnS17BkX1f3AB76ALr0jZSbYGRErvLQ=;
- b=tawSlm5MeHJYnt2E6T0+P+2wsiZGZAtgX1FKFrhFHCt5xeVpGjF25TxhgXApdBzegT03GsAy7WfLFmz1ywLyE1sNq7y7mUoHW2HMHIWc1tcKkXxi/Cs9wpHhM6q+CHinrhzsO46Ab74pp4sifHffAXObhh12hwfUVgn0McouPIA=
-Received: from TYZPR03MB6471.apcprd03.prod.outlook.com (2603:1096:400:1c9::8)
- by SE1PPF499066549.apcprd03.prod.outlook.com (2603:1096:108:1::850) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.16; Mon, 18 May
- 2026 06:51:43 +0000
-Received: from TYZPR03MB6471.apcprd03.prod.outlook.com
- ([fe80::6c05:f611:5357:7326]) by TYZPR03MB6471.apcprd03.prod.outlook.com
- ([fe80::6c05:f611:5357:7326%5]) with mapi id 15.21.0048.010; Mon, 18 May 2026
- 06:51:43 +0000
-From: =?utf-8?B?WHVlcWkgWmhhbmcgKOW8oOmbqueQpik=?= <Xueqi.Zhang@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, =?utf-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?=
-	<Yong.Wu@mediatek.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "krzk@kernel.org"
-	<krzk@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>
-CC: =?utf-8?B?V2VuZHktU1QgTGluICjmnpfoqanluq0p?= <Wendy-ST.Lin@mediatek.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 2/3] memory: mtk-smi: Add a flag skip_rpm
-Thread-Topic: [PATCH 2/3] memory: mtk-smi: Add a flag skip_rpm
-Thread-Index: AQHbmWr+ThkPYzLV/EeJKX653FeCxLN777UAgpoDBYA=
-Date: Mon, 18 May 2026 06:51:43 +0000
-Message-ID: <80b16f367c2f9a65b3629efd0b8f30715d2c2c5a.camel@mediatek.com>
-References: <20250320073625.25225-1-xueqi.zhang@mediatek.com>
-	 <20250320073625.25225-3-xueqi.zhang@mediatek.com>
-	 <46e0e1f1-e094-40f9-99f9-22678bb40d39@collabora.com>
-In-Reply-To: <46e0e1f1-e094-40f9-99f9-22678bb40d39@collabora.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6471:EE_|SE1PPF499066549:EE_
-x-ms-office365-filtering-correlation-id: 0384d4b3-2972-4e8b-165f-08deb4a9ebe1
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|18002099003|22082099003|56012099003|11063799003|4143699003;
-x-microsoft-antispam-message-info: 5AtVOc98u9StU6cNInwd9D9hH7Lv71QJ0VUkanHdQidLYfMoGUDg+G6Fv2Kp2QZA57XQjIy5BUiPkojGJXwE450YIzGzVSCLEKwusK3eUxejIyZRfsmlhw5eKU0RM3r/3xvu+Km/ynnFDO4qPI78uVzbyIcW0lk5b1JAPyzGnTQKsB1CTthlOMaYwKvShnBXpuIwWItZRvJEdDE/027fwZYn8WWJ4K9IcyOpsn4PYtPvpJeYBmYraPaqN/4VM2mQY93UApj3loas0zC5Lt0Q0e7LZZ+ARF1wVq7/7ioHf8JIwPC3VlgbGPXmoZhR7bN3xxoV3GDcckk1dxkPpBvUFEXogYpu14KpWJdRnUt/Q2DYixRfs3WKqHBNJ3mXb0qQY782EM9KZN3XllZm6TqSI8KPAp1ipGoYa4dBMdQga+QoUz0CCc0aq3qnjhxhrnxP4sLBHpXH6Mg3DvdER3/AbLDx3IaetwzWhSsh5K2iYJdymDLdtm/SxuI0uXYj+mG2uZXb6rWWQ7hBtxLX9MpySk7+szON6z4JS3oXt/QdXYp/gsQfJgZIaJbEmlLeXSKQsUKeZyg/p/Bw32GH1pOzApS3dqX8LdtYpRomDZBA88dI0hFX88JixPf8F1AfbL9zfZdnzeVMEGiECKqmwglvqee1bJLyuRwIjr0JRGCZSkxv9SZN8ih9X9lY2LVFyvw70RGIsfZxdVNV5GlaqvlmduRKX9PGx6g8bbFQ1O3Yh2P0pu6swI+C/rKLlGYYm8oa
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6471.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(18002099003)(22082099003)(56012099003)(11063799003)(4143699003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QmZxbjNBdWxBUFRVMElnSDcya1pROGF3djF0NWZuTytRQ0pSSjlLK3lyQXMz?=
- =?utf-8?B?OXpqZGxUeE5rQmVqOEhFU0dBeDYrUWlqbFRJemNYdmROdTIvZCtTOTVQSDBM?=
- =?utf-8?B?MTRRaFU1OGM3NTd2ZDZsSHphT3FnMjJWV2FUV3dXSExOaEp0Z1haZzNQMWZJ?=
- =?utf-8?B?NEVXRGEvcjJnSFlFVTY3UGE2anpsU201YWlwSkpqZitXWTFXcWU0YTlUOG9D?=
- =?utf-8?B?aTZFQlRRWVV5V3puZzNoVkpmQkR1QTE0WXZNUFJPbjJ3WC84M241VXVYeEdq?=
- =?utf-8?B?MHhjSFMrRkRQYTZSOXhrRFlNRERLSzVJWUtzMXlUNU1SUTB6dEpEelB2NHVy?=
- =?utf-8?B?eVZNRjh4VGZ3Wkt0L3BDTDFxcW16RUtYaFNnVC9TaE1hZzQzWld6RzZvckth?=
- =?utf-8?B?OXpVbTkwbUtFY1oxb2ZYMzZLbDlpbjAwU0tFc3VJQ01xbHorOWFnWDBrNi90?=
- =?utf-8?B?YUx0MllaVWZhMzhDcWFmRlJBb1Nqbmg1L0lzOWdXNVFzQks0WjJ6YUR3WUdk?=
- =?utf-8?B?eUtzYUhjeExMS2x0UzJKNzJqK3hEbVo5V0xmVUNYWnRSbmtVWktGa1k1bXFy?=
- =?utf-8?B?dllLUGo5S0w0VEg3WGtWZGNVMU4xeWxwSmtweVFwQ2M1cStyZkpyRjJmajBk?=
- =?utf-8?B?MlYraU9jSkJIOXAwc1hNaUw1Vmp5ZUtjUVdjdTdEK0JRenRISDJuUjdBUVRC?=
- =?utf-8?B?UkJ0TzU1MWZmUUpwY3Q0YWhWTnhvVTlxWE5na29sVmZFcStVYXZzOHA0Nkdz?=
- =?utf-8?B?eDlRVEVEaTJTYngrMy82STIzRWJhUjJsRGs0RFQrZjQzdmt5c1dDNkp5ZDJ3?=
- =?utf-8?B?eHRJMTdWMEFST1pqdDk2SzM3bmJzSG56amtTMmxyZWNxakI4TGFjcHNyM1kv?=
- =?utf-8?B?OHV3aURrazZpS1htTkRWYVJjc3pZZzF6aFg2MFBNM1ZBR1pJbFVHUk5laHRu?=
- =?utf-8?B?UHR5aC80MEZMQXBaVzhDYU4vQ1R3YlVSNnBlN3Yyc1V4VWRvK1BXRHM3aG1Q?=
- =?utf-8?B?akxscW05T1RpcmlsZEpMT3JPOFF5cjRZdThMOGE5UDc2cDhqTzdDRSt1V3Zr?=
- =?utf-8?B?WjBDWk9WY1JGaVZERnVaU21YS3N4b0xqd2JsMmM3ZE16RVhXTUViWDBsRlVR?=
- =?utf-8?B?TzNybVdlM2JVM0dWWTl6dHpUTGVRSGhudE5yVXhEeld0VXJvSTd2NVBPUkhV?=
- =?utf-8?B?WVJ2MVRoOEZTclJERk5pRXRERmpLZGk5NVB0ckp2bHkrSEN1L05hSElocHlm?=
- =?utf-8?B?WklDNUlYZ0NDL0l3ZVZqZUZ1UlNWcytJSkFhaTZiK2lIRWdQZVJuWUdPU0lQ?=
- =?utf-8?B?QXRmSSsxYWpHcjJxeUJFd2duamJxblZCK0RHMVBuN1l2cWQrNnhZckd4ZGdj?=
- =?utf-8?B?OStjZlUvdnJ1ZE0xL1BBSmM1eDNkcS9RYXpLemRvZi9CcndZV2NESVo1eEJs?=
- =?utf-8?B?NzdYR0JKbVI0bnJYdmsrYy80RElNa25BckdrdXZoVjh5MkJNQUhtUHNoK3Zo?=
- =?utf-8?B?SjNaQ1JPa05paHZsQnNlMkM4VTJsa2tZeWRzaUd4WjBjZGhPUnlTazVSVlVi?=
- =?utf-8?B?c2RxdnI0NjhQS2E2ZjRUVkJSdGVKbkJWNTFmdTZKaGRHdU5oeThHRVhRZExD?=
- =?utf-8?B?M29idTFFSE5OdFhOdnRzSGpPbW5wR1pmTWNQZlN0RlVmUnRtT1RpRk9OMTgy?=
- =?utf-8?B?Z2Q2eS9lOFNkNEVab29vWjNDSVhHYWl0Y05oVFpjTWNodVU2M3JkTnRaTE90?=
- =?utf-8?B?YzVQQVFZQzZLNmd0YWNDbEowK0FYZCtiNFRGdWtSNk5ZTWtRS0w3UlFXTlYz?=
- =?utf-8?B?SFQrOHhOMUwyV1J5TGlPcGxia3IyUDkzSjN1U29WMG05U3lYT0pRTVBTR3NI?=
- =?utf-8?B?d3BIZ0RiUnhLa3dNN0lxOFE2TzJvTElMc2l1K3RrUk1rMXhDMmRTdHR0bTBn?=
- =?utf-8?B?TzVZMFF2NG9XZTNzbm1NTmlwVVlYN0gyWnJxZHdnLzBrejZxc2tFUDdmRHhQ?=
- =?utf-8?B?NGFvcHhjNCs1cHIxRzNtQW1XajQzVW1SZ2VXV0xTaVdFaldsY1I2Q3JPbkFG?=
- =?utf-8?B?YWljd0R5eW50eTVtYTgvMTc4ZTY5YnIrOTBzaTlUU1lGTDh3OU9wM2VoeWlU?=
- =?utf-8?B?Y1c3TEZTM000Um1US0tnekNOQkRPOVJwTFo1ZnBOdVNhSUtiNTFWSG5rdkhD?=
- =?utf-8?B?T2J6L3hLNUFCc2NvZ3kvRVV0VmYvVndZL2Q4aVFYY0tOcW1nOUpnaVpWUUk4?=
- =?utf-8?B?Z0FaWUU3NFI5U2lHQkRGdkZNMEpIdi93Ukc0Sy9HUzNCRmtZQ0FpOEUxWGVw?=
- =?utf-8?B?ejhlSGJsRUgvUFI2bUdmeTVsU2FoeDhzTUEyN2JVaitNYm9wTFpPQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <DF61A6134E998A4EA8B628B0B4766E87@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1wOqPJ-0000000EH9p-48Ae;
+	Mon, 18 May 2026 05:20:49 +0000
+Received: from [2001:4bb8:2d1:6fdb:d67d:128c:34ba:85b8] (helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOqPG-0000000EGxe-2HfK;
+	Mon, 18 May 2026 05:20:47 +0000
+From: Christoph Hellwig <hch@lst.de>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Chris Mason <clm@fb.com>,
+	David Sterba <dsterba@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai@fnnas.com>,
+	Li Nan <linan122@huawei.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-btrfs@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-raid@vger.kernel.org
+Subject: [PATCH 10/18] raid6: rework registration of optimized algorithms
+Date: Mon, 18 May 2026 07:17:53 +0200
+Message-ID: <20260518051804.462141-11-hch@lst.de>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260518051804.462141-1-hch@lst.de>
+References: <20260518051804.462141-1-hch@lst.de>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: oObWT5qVN7tgqFnX3ptMgS3c20LShPL8w6QTk3hFK556dGaZWa4DSSdNtD28G2e4pT4wpG0jJ93CFxIw5B1VfTbXxGtxIJkawK4yHUYsp+VTfdg/aEEXKxAzvLorRIB5Oqyw8RZNpL0AMnuq5NOuLmCziLy00r3wzQtBfz63xszmRlYvCRJ48vv2p7rBYqvf/dH8GBaevoxOFhMXNfm6NS1hKKwZgTr0umXRLltTNtw3a/VZ8WXWdieUCD6t4A7p11ZK7YTPaulFwZsAgVGDyT2LO1Q2m17cJQZaYQqPcWN37QslnhwKaZQ4qs/2LV+TpZSfQfOEEDQeOvkmHtf3wg==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6471.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0384d4b3-2972-4e8b-165f-08deb4a9ebe1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 May 2026 06:51:43.1796
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 84Of/vazns6MKue5OsfDiKeMMQN0WmBCFW4iNGEo1HdpHg9Dwk0HnB5Mn7WMzEBDGKI1+NhlTYFBLrj5F6eTBw0ambo0+uX2Vwip/TJ7DOw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE1PPF499066549
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_075204_459711_F829699C 
-X-CRM114-Status: GOOD (  27.75  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,86 +92,1444 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQW5nZWxvDQoNCkZpcnN0IG9mIGFsbCwgcGxlYXNlIGFjY2VwdCBteSBhcG9sb2dpZXMgZm9y
-IHRoZSBkZWxheWVkIHJlc3BvbnNlLiBJDQpoYXZlIGJlZW4gZGVlcGx5IG9jY3VwaWVkIHdpdGgg
-TVQ4MTk2IEFsdW1pbml1bSBwS1ZNIFNNTVUgYW5kIFNNSQ0KcmVsYXRlZCB0YXNrcyByZWNlbnRs
-eS4NCg0KUmVnYXJkaW5nIHlvdXIgcXVlc3Rpb24sIG15IHByZXZpb3VzIGRlc2NyaXB0aW9uIGlu
-IHRoZSBwYXRjaCB3YXMgbm90DQphY2N1cmF0ZSBlbm91Z2ggYW5kIG1heSBoYXZlIGNhdXNlZCBz
-b21lIGNvbmZ1c2lvbi4gSW4gZmFjdCwgbm90IGFsbA0KU01JIGNvbW1vbnMgaGF2ZSB0aGVpciBi
-YWNrdXAvcmVzdG9yZSBoYW5kbGVkIGJ5IHRoZSBSVEZGIGhhcmR3YXJlLiBUaGUNClNNSSBjb21t
-b25zIGFyZSBkaXN0cmlidXRlZCBhY3Jvc3MgdmFyaW91cyBzdWJzeXN0ZW1zIChlLmcuLCBtbWlu
-ZnJhLA0KdmVuYywgZGlzcGxheSwgY2FtLCBldGMuKS4gQ3VycmVudGx5LCBvbmx5IHRoZSBTTUkg
-Y29tbW9uIHVuZGVyIHRoZQ0KbW1pbmZyYSBzdWJzeXN0ZW0gaXMgYmFja2VkIHVwIGFuZCByZXN0
-b3JlZCBieSB0aGUgUlRGRiBoYXJkd2FyZS4NCg0KVGhlcmVmb3JlLCBJIGJlbGlldmUgYWRkaW5n
-IGEgc3BlY2lmaWMgc2tpcF9ycG0gZmxhZyBpcyBtb3JlDQphcHByb3ByaWF0ZSBoZXJlLiBJZiB3
-ZSB3ZXJlIHRvIGRpZmZlcmVudGlhdGUgdGhpcyBiYXNlZCBvbiBhIG5ldw0KTVRLX1NNSV9HRU4z
-IHR5cGUsIGl0IHdvdWxkIGltcGx5IHRoYXQgYWxsIFNNSSBjb21tb24gbW9kdWxlcyBvZiB0aGF0
-DQpnZW5lcmF0aW9uIHdvdWxkIHNraXAgdGhlIFJQTSBvcGVyYXRpb25zLCB3aGljaCBpcyBub3Qg
-dGhlIGludGVuZGVkDQpiZWhhdmlvci4NCg0KVG8gbWFrZSB0aGlzIGNsZWFyZXIsIEkgcGxhbiB0
-byB1cGRhdGUgdGhlIGNvbW1pdCBtZXNzYWdlIGluIHRoZSBuZXh0DQp2ZXJzaW9uIGFzIGZvbGxv
-d3M6DQoNClN1YmplY3Q6IG1lbW9yeTogbXRrLXNtaTogQWRkIHNraXBfcnBtIGZsYWcgZm9yIGNl
-cnRhaW4gTVQ4MTk2IFNNSQ0KY29tbW9ucw0KDQpCb2R5Og0KT24gTVQ4MTk2LCBjZXJ0YWluIFNN
-SSBjb21tb25zIGFyZSBiYWNrZWQgdXAgYW5kIHJlc3RvcmVkIGJ5IHRoZSBSVEZGDQpoYXJkd2Fy
-ZSByYXRoZXIgdGhhbiBieSBzb2Z0d2FyZS4NCg0KRm9yIHRoZXNlIHNwZWNpZmljIFNNSSBjb21t
-b25zLCBzb2Z0d2FyZS1jb250cm9sbGVkIHJlZ2lzdGVyIGJhY2t1cCBhbmQNCnJlc3RvcmUgaW4g
-dGhlIHJ1bnRpbWUgY2FsbGJhY2sgaXMgbm8gbG9uZ2VyIG5lY2Vzc2FyeS4gVGhlcmVmb3JlLA0K
-aW50cm9kdWNlIGEgc2tpcF9ycG0gZmxhZyB0byBieXBhc3MgdGhlc2UgcmVkdW5kYW50IFJQTSBv
-cGVyYXRpb25zIGZvcg0KdGhlc2UgU01JIGNvbW1vbnMuDQoNCldoYXQgZG8geW91IHRoaW5rIGFi
-b3V0IHRoaXMgYXBwcm9hY2g/DQoNClRoYW5rcywNClh1ZXFpDQoNCk9uIFRodSwgMjAyNS0wMy0y
-MCBhdCAxMzoxMSArMDEwMCwgQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8gd3JvdGU6DQo+IEV4
-dGVybmFsIGVtYWlsIDogUGxlYXNlIGRvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1l
-bnRzIHVudGlsDQo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQu
-DQo+IA0KPiANCj4gSWwgMjAvMDMvMjUgMDg6MzYsIFh1ZXFpIFpoYW5nIGhhIHNjcml0dG86DQo+
-ID4gTVQ4MTk2IFNNSSBjb21tb25zIGlzIGJhY2tlZCB1cC9yZXN0b3JlZCBieSBSVEZGIEhXLg0K
-PiA+IEl0IGRvZXNuJ3QgbmVlZCBTVyBjb250cm9sIHRoZSByZWdpc3RlciBiYWNrdXAvc3RvcmUN
-Cj4gPiBpbiB0aGUgcnVudGltZSBjYWxsYmFjay5UaGVyZWZvcmUsIGFkZCBhIGZsYWcgc2tpcF9y
-cG0NCj4gPiB0byBoZWxwIHNraXAgUlBNIG9wZXJhdGlvbnMgZm9yIFNNSSBjb21tb25zLg0KPiA+
-IA0KPiA+IFNpZ25lZC1vZmYtYnk6IFh1ZXFpIFpoYW5nIDx4dWVxaS56aGFuZ0BtZWRpYXRlay5j
-b20+DQo+IA0KPiBTbyB0aGUgTVQ4MTk2IFNNSSBjb21tb24gZG9lc24ndCByZXF1aXJlIGFueSBj
-bG9ja3M/DQo+IA0KPiBUaGF0J3MgZmluZSBmb3IgbWUsIGJ1dCB0aGlzIGxvb2tzIGJsb29keSBz
-aW1pbGFyIHRvIE1UNjk4OSdzIFNNSQ0KPiBjb21tb24sIHdoaWNoDQo+IGlzIFNNSSBHRU4zIGFu
-ZCBub3QgR0VOMi4uLi4NCj4gDQo+IC4uLi5zbywgYXJlIHlvdSBzdXJlIHRoYXQgeW91IG5lZWQg
-YSBgc2tpcF9ycG1gIGZsYWcgYW5kIG5vdCBuZXcNCj4gTVRLX1NNSV9HRU4zIGFuZA0KPiBNVEtf
-U01JX0dFTjNfU1VCX0NPTU0gdHlwZXM/IDotKQ0KPiANCj4gUmVnYXJkcywNCj4gQW5nZWxvDQo+
-IA0KPiA+IC0tLQ0KPiA+ICAgZHJpdmVycy9tZW1vcnkvbXRrLXNtaS5jIHwgMTEgKysrKysrKyst
-LS0NCj4gPiAgIDEgZmlsZSBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0p
-DQo+ID4gDQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbWVtb3J5L210ay1zbWkuYyBiL2RyaXZl
-cnMvbWVtb3J5L210ay1zbWkuYw0KPiA+IGluZGV4IGE4ZjU0NjdkNmIzMS4uYjlhZmZhM2MzMTg1
-IDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvbWVtb3J5L210ay1zbWkuYw0KPiA+ICsrKyBiL2Ry
-aXZlcnMvbWVtb3J5L210ay1zbWkuYw0KPiA+IEBAIC0xMjMsNiArMTIzLDcgQEAgc3RhdGljIGNv
-bnN0IGNoYXIgKiBjb25zdCBtdGtfc21pX2NvbW1vbl9jbGtzW10NCj4gPiA9IHsiYXBiIiwgInNt
-aSIsICJnYWxzMCIsICJnYWxzMQ0KPiA+ICAgc3RydWN0IG10a19zbWlfY29tbW9uX3BsYXQgew0K
-PiA+ICAgICAgIGVudW0gbXRrX3NtaV90eXBlICAgICAgIHR5cGU7DQo+ID4gICAgICAgYm9vbCAg
-ICAgICAgICAgICAgICAgICAgaGFzX2dhbHM7DQo+ID4gKyAgICAgYm9vbCAgICAgICAgICAgICAg
-ICAgICAgc2tpcF9ycG07DQo+ID4gICAgICAgdTMyICAgICAgICAgICAgICAgICAgICAgYnVzX3Nl
-bDsgLyogQmFsYW5jZSBzb21lIGxhcmJzIHRvDQo+ID4gZW50ZXIgbW11MCBvciBtbXUxICovDQo+
-ID4gDQo+ID4gICAgICAgY29uc3Qgc3RydWN0IG10a19zbWlfcmVnX3BhaXIgICAqaW5pdDsNCj4g
-PiBAQCAtNTQ3LDYgKzU0OCw5IEBAIHN0YXRpYyBpbnQgbXRrX3NtaV9kdHNfY2xrX2luaXQoc3Ry
-dWN0IGRldmljZQ0KPiA+ICpkZXYsIHN0cnVjdCBtdGtfc21pICpzbWksDQo+ID4gICB7DQo+ID4g
-ICAgICAgaW50IGksIHJldDsNCj4gPiANCj4gPiArICAgICBpZiAoc21pLT5wbGF0LT5za2lwX3Jw
-bSkNCj4gPiArICAgICAgICAgICAgIHJldHVybiAwOw0KPiA+ICsNCj4gPiAgICAgICBmb3IgKGkg
-PSAwOyBpIDwgY2xrX25yX3JlcXVpcmVkOyBpKyspDQo+ID4gICAgICAgICAgICAgICBzbWktPmNs
-a3NbaV0uaWQgPSBjbGtzW2ldOw0KPiA+ICAgICAgIHJldCA9IGRldm1fY2xrX2J1bGtfZ2V0KGRl
-diwgY2xrX25yX3JlcXVpcmVkLCBzbWktPmNsa3MpOw0KPiA+IEBAIC03ODMsNyArNzg3LDcgQEAg
-c3RhdGljIGludCBtdGtfc21pX2NvbW1vbl9wcm9iZShzdHJ1Y3QNCj4gPiBwbGF0Zm9ybV9kZXZp
-Y2UgKnBkZXYpDQo+ID4gICAgICAgY29tbW9uLT5kZXYgPSBkZXY7DQo+ID4gICAgICAgY29tbW9u
-LT5wbGF0ID0gb2ZfZGV2aWNlX2dldF9tYXRjaF9kYXRhKGRldik7DQo+ID4gDQo+ID4gLSAgICAg
-aWYgKGNvbW1vbi0+cGxhdC0+aGFzX2dhbHMpIHsNCj4gPiArICAgICBpZiAoIWNvbW1vbi0+cGxh
-dC0+c2tpcF9ycG0gJiYgY29tbW9uLT5wbGF0LT5oYXNfZ2Fscykgew0KPiA+ICAgICAgICAgICAg
-ICAgaWYgKGNvbW1vbi0+cGxhdC0+dHlwZSA9PSBNVEtfU01JX0dFTjIpDQo+ID4gICAgICAgICAg
-ICAgICAgICAgICAgIGNsa19yZXF1aXJlZCA9IE1US19TTUlfQ09NX0dBTFNfUkVRX0NMS19OUjsN
-Cj4gPiAgICAgICAgICAgICAgIGVsc2UgaWYgKGNvbW1vbi0+cGxhdC0+dHlwZSA9PSBNVEtfU01J
-X0dFTjJfU1VCX0NPTU0pDQo+ID4gQEAgLTgxNCwxMyArODE4LDE0IEBAIHN0YXRpYyBpbnQgbXRr
-X3NtaV9jb21tb25fcHJvYmUoc3RydWN0DQo+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiA+
-ICAgICAgIH0NCj4gPiANCj4gPiAgICAgICAvKiBsaW5rIGl0cyBzbWktY29tbW9uIGlmIHRoaXMg
-aXMgc21pLXN1Yi1jb21tb24gKi8NCj4gPiAtICAgICBpZiAoY29tbW9uLT5wbGF0LT50eXBlID09
-IE1US19TTUlfR0VOMl9TVUJfQ09NTSkgew0KPiA+ICsgICAgIGlmIChjb21tb24tPnBsYXQtPnR5
-cGUgPT0gTVRLX1NNSV9HRU4yX1NVQl9DT01NICYmICFjb21tb24tDQo+ID4gPnBsYXQtPnNraXBf
-cnBtKSB7DQo+ID4gICAgICAgICAgICAgICByZXQgPSBtdGtfc21pX2RldmljZV9saW5rX2NvbW1v
-bihkZXYsICZjb21tb24tDQo+ID4gPnNtaV9jb21tb25fZGV2KTsNCj4gPiAgICAgICAgICAgICAg
-IGlmIChyZXQgPCAwKQ0KPiA+ICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmV0Ow0KPiA+
-ICAgICAgIH0NCj4gPiANCj4gPiAtICAgICBwbV9ydW50aW1lX2VuYWJsZShkZXYpOw0KPiA+ICsg
-ICAgIGlmICghY29tbW9uLT5wbGF0LT5za2lwX3JwbSkNCj4gPiArICAgICAgICAgICAgIHBtX3J1
-bnRpbWVfZW5hYmxlKGRldik7DQo+ID4gICAgICAgcGxhdGZvcm1fc2V0X2RydmRhdGEocGRldiwg
-Y29tbW9uKTsNCj4gPiAgICAgICByZXR1cm4gMDsNCj4gPiAgIH0NCj4gDQo+IA0K
+Replace the static array of algorithms with a call to an architecture
+helper to register algorithms.  This serves two purposes:  it avoid
+having to register all algorithms in a single central place, and it
+removes the need for the priority field by just registering the
+algorithms that the architecture considers suitable for the currently
+running CPUs.
+
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
+Tested-by: Ard Biesheuvel <ardb@kernel.org> # kunit only on arm64
+---
+ lib/raid/Kconfig                              |  11 +
+ lib/raid/raid6/Makefile                       |   4 +
+ lib/raid/raid6/algos.c                        | 303 ++++++++----------
+ lib/raid/raid6/algos.h                        |  67 +---
+ lib/raid/raid6/arm/neon.c                     |   6 -
+ lib/raid/raid6/arm/pq_arch.h                  |  21 ++
+ lib/raid/raid6/arm/recov_neon.c               |   7 -
+ lib/raid/raid6/arm64/pq_arch.h                |   1 +
+ lib/raid/raid6/loongarch/loongarch_simd.c     |  12 -
+ lib/raid/raid6/loongarch/pq_arch.h            |  23 ++
+ .../raid6/loongarch/recov_loongarch_simd.c    |  14 -
+ lib/raid/raid6/powerpc/altivec.uc             |  10 -
+ lib/raid/raid6/powerpc/pq_arch.h              |  32 ++
+ lib/raid/raid6/powerpc/vpermxor.uc            |  11 -
+ lib/raid/raid6/recov.c                        |   2 -
+ lib/raid/raid6/riscv/pq_arch.h                |  21 ++
+ lib/raid/raid6/riscv/recov_rvv.c              |   2 -
+ lib/raid/raid6/riscv/rvv.h                    |   6 -
+ lib/raid/raid6/s390/pq_arch.h                 |  15 +
+ lib/raid/raid6/s390/recov_s390xc.c            |   2 -
+ lib/raid/raid6/s390/s390vx.uc                 |   7 -
+ lib/raid/raid6/tests/raid6_kunit.c            |  23 +-
+ lib/raid/raid6/x86/avx2.c                     |  14 -
+ lib/raid/raid6/x86/avx512.c                   |  19 --
+ lib/raid/raid6/x86/mmx.c                      |   8 -
+ lib/raid/raid6/x86/pq_arch.h                  |  96 ++++++
+ lib/raid/raid6/x86/recov_avx2.c               |   8 -
+ lib/raid/raid6/x86/recov_avx512.c             |  12 -
+ lib/raid/raid6/x86/recov_ssse3.c              |   9 -
+ lib/raid/raid6/x86/sse1.c                     |  12 -
+ lib/raid/raid6/x86/sse2.c                     |  15 -
+ 31 files changed, 384 insertions(+), 409 deletions(-)
+ create mode 100644 lib/raid/raid6/arm/pq_arch.h
+ create mode 100644 lib/raid/raid6/arm64/pq_arch.h
+ create mode 100644 lib/raid/raid6/loongarch/pq_arch.h
+ create mode 100644 lib/raid/raid6/powerpc/pq_arch.h
+ create mode 100644 lib/raid/raid6/riscv/pq_arch.h
+ create mode 100644 lib/raid/raid6/s390/pq_arch.h
+ create mode 100644 lib/raid/raid6/x86/pq_arch.h
+
+diff --git a/lib/raid/Kconfig b/lib/raid/Kconfig
+index e39f6d667792..978cd6ba08ac 100644
+--- a/lib/raid/Kconfig
++++ b/lib/raid/Kconfig
+@@ -32,6 +32,17 @@ config XOR_KUNIT_TEST
+ config RAID6_PQ
+ 	tristate
+ 
++# selected by architectures that provide an optimized PQ implementation
++config RAID6_PQ_ARCH
++	depends on RAID6_PQ
++	default y if KERNEL_MODE_NEON		# arm32/arm64
++	default y if LOONGARCH
++	default y if ALTIVEC			# powerpc
++	default y if RISCV_ISA_V
++	default y if S390
++	default y if X86
++	bool
++
+ config RAID6_PQ_KUNIT_TEST
+ 	tristate "KUnit tests for RAID6 PQ functions" if !KUNIT_ALL_TESTS
+ 	depends on KUNIT
+diff --git a/lib/raid/raid6/Makefile b/lib/raid/raid6/Makefile
+index 90de3dce152e..1d79b76b320e 100644
+--- a/lib/raid/raid6/Makefile
++++ b/lib/raid/raid6/Makefile
+@@ -4,6 +4,10 @@ ccflags-y			+= -I $(src)
+ 
+ ccflags-y			+= -I $(src)
+ 
++ifeq ($(CONFIG_RAID6_PQ_ARCH),y)
++CFLAGS_algos.o			+= -I$(src)/$(SRCARCH)
++endif
++
+ obj-$(CONFIG_RAID6_PQ)		+= raid6_pq.o tests/
+ 
+ raid6_pq-y			+= algos.o tables.o
+diff --git a/lib/raid/raid6/algos.c b/lib/raid/raid6/algos.c
+index d83ca4dac864..30d7cb34874f 100644
+--- a/lib/raid/raid6/algos.c
++++ b/lib/raid/raid6/algos.c
+@@ -17,6 +17,9 @@
+ #include <kunit/visibility.h>
+ #include "algos.h"
+ 
++#define RAID6_MAX_ALGOS		16
++static const struct raid6_calls *raid6_algos[RAID6_MAX_ALGOS];
++static unsigned int raid6_nr_algos;
+ static const struct raid6_recov_calls *raid6_recov_algo;
+ 
+ /* Selected algorithm */
+@@ -97,71 +100,6 @@ bool raid6_can_xor_syndrome(void)
+ }
+ EXPORT_SYMBOL_GPL(raid6_can_xor_syndrome);
+ 
+-const struct raid6_calls * const raid6_algos[] = {
+-#if defined(__i386__) && !defined(__arch_um__)
+-	&raid6_avx512x2,
+-	&raid6_avx512x1,
+-	&raid6_avx2x2,
+-	&raid6_avx2x1,
+-	&raid6_sse2x2,
+-	&raid6_sse2x1,
+-	&raid6_sse1x2,
+-	&raid6_sse1x1,
+-	&raid6_mmxx2,
+-	&raid6_mmxx1,
+-#endif
+-#if defined(__x86_64__) && !defined(__arch_um__)
+-	&raid6_avx512x4,
+-	&raid6_avx512x2,
+-	&raid6_avx512x1,
+-	&raid6_avx2x4,
+-	&raid6_avx2x2,
+-	&raid6_avx2x1,
+-	&raid6_sse2x4,
+-	&raid6_sse2x2,
+-	&raid6_sse2x1,
+-#endif
+-#ifdef CONFIG_ALTIVEC
+-	&raid6_vpermxor8,
+-	&raid6_vpermxor4,
+-	&raid6_vpermxor2,
+-	&raid6_vpermxor1,
+-	&raid6_altivec8,
+-	&raid6_altivec4,
+-	&raid6_altivec2,
+-	&raid6_altivec1,
+-#endif
+-#if defined(CONFIG_S390)
+-	&raid6_s390vx8,
+-#endif
+-#ifdef CONFIG_KERNEL_MODE_NEON
+-	&raid6_neonx8,
+-	&raid6_neonx4,
+-	&raid6_neonx2,
+-	&raid6_neonx1,
+-#endif
+-#ifdef CONFIG_LOONGARCH
+-#ifdef CONFIG_CPU_HAS_LASX
+-	&raid6_lasx,
+-#endif
+-#ifdef CONFIG_CPU_HAS_LSX
+-	&raid6_lsx,
+-#endif
+-#endif
+-#ifdef CONFIG_RISCV_ISA_V
+-	&raid6_rvvx1,
+-	&raid6_rvvx2,
+-	&raid6_rvvx4,
+-	&raid6_rvvx8,
+-#endif
+-	&raid6_intx8,
+-	&raid6_intx4,
+-	&raid6_intx2,
+-	&raid6_intx1,
+-	NULL
+-};
+-EXPORT_SYMBOL_IF_KUNIT(raid6_algos);
+-
+ /**
+  * raid6_recov_2data - recover two missing data disks
+  * @disks:	number of "disks" to operate on including parity
+@@ -215,119 +153,57 @@ void raid6_recov_datap(int disks, size_t bytes, int faila, void **ptrs)
+ }
+ EXPORT_SYMBOL_GPL(raid6_recov_datap);
+ 
+-const struct raid6_recov_calls *const raid6_recov_algos[] = {
+-#ifdef CONFIG_X86
+-	&raid6_recov_avx512,
+-	&raid6_recov_avx2,
+-	&raid6_recov_ssse3,
+-#endif
+-#ifdef CONFIG_S390
+-	&raid6_recov_s390xc,
+-#endif
+-#if defined(CONFIG_KERNEL_MODE_NEON)
+-	&raid6_recov_neon,
+-#endif
+-#ifdef CONFIG_LOONGARCH
+-#ifdef CONFIG_CPU_HAS_LASX
+-	&raid6_recov_lasx,
+-#endif
+-#ifdef CONFIG_CPU_HAS_LSX
+-	&raid6_recov_lsx,
+-#endif
+-#endif
+-#ifdef CONFIG_RISCV_ISA_V
+-	&raid6_recov_rvv,
+-#endif
+-	&raid6_recov_intx1,
+-	NULL
+-};
+-EXPORT_SYMBOL_IF_KUNIT(raid6_recov_algos);
+-
+ #define RAID6_TIME_JIFFIES_LG2	4
+ #define RAID6_TEST_DISKS	8
+ #define RAID6_TEST_DISKS_ORDER	3
+ 
+-static inline const struct raid6_recov_calls *raid6_choose_recov(void)
++static int raid6_choose_gen(void *(*const dptrs)[RAID6_TEST_DISKS],
++		const int disks)
+ {
+-	const struct raid6_recov_calls *const *algo;
+-	const struct raid6_recov_calls *best;
+-
+-	for (best = NULL, algo = raid6_recov_algos; *algo; algo++)
+-		if (!best || (*algo)->priority > best->priority)
+-			if (!(*algo)->valid || (*algo)->valid())
+-				best = *algo;
++	/* work on the second half of the disks */
++	int start = (disks >> 1) - 1, stop = disks - 3;
++	const struct raid6_calls *best = NULL;
++	unsigned long bestgenperf = 0;
++	unsigned int i;
+ 
+-	if (best) {
+-		raid6_recov_algo = best;
++	for (i = 0; i < raid6_nr_algos; i++) {
++		const struct raid6_calls *algo = raid6_algos[i];
++		unsigned long perf = 0, j0, j1;
+ 
+-		pr_info("raid6: using %s recovery algorithm\n", best->name);
+-	} else
+-		pr_err("raid6: Yikes! No recovery algorithm found!\n");
+-
+-	return best;
+-}
++		preempt_disable();
++		j0 = jiffies;
++		while ((j1 = jiffies) == j0)
++			cpu_relax();
++		while (time_before(jiffies,
++				    j1 + (1<<RAID6_TIME_JIFFIES_LG2))) {
++			algo->gen_syndrome(disks, PAGE_SIZE, *dptrs);
++			perf++;
++		}
++		preempt_enable();
+ 
+-static inline const struct raid6_calls *raid6_choose_gen(
+-	void *(*const dptrs)[RAID6_TEST_DISKS], const int disks)
+-{
+-	unsigned long perf, bestgenperf, j0, j1;
+-	int start = (disks>>1)-1, stop = disks-3;	/* work on the second half of the disks */
+-	const struct raid6_calls *const *algo;
+-	const struct raid6_calls *best;
+-
+-	for (bestgenperf = 0, best = NULL, algo = raid6_algos; *algo; algo++) {
+-		if (!best || (*algo)->priority >= best->priority) {
+-			if ((*algo)->valid && !(*algo)->valid())
+-				continue;
+-
+-			if (!IS_ENABLED(CONFIG_RAID6_PQ_BENCHMARK)) {
+-				best = *algo;
+-				break;
+-			}
+-
+-			perf = 0;
+-
+-			preempt_disable();
+-			j0 = jiffies;
+-			while ((j1 = jiffies) == j0)
+-				cpu_relax();
+-			while (time_before(jiffies,
+-					    j1 + (1<<RAID6_TIME_JIFFIES_LG2))) {
+-				(*algo)->gen_syndrome(disks, PAGE_SIZE, *dptrs);
+-				perf++;
+-			}
+-			preempt_enable();
+-
+-			if (perf > bestgenperf) {
+-				bestgenperf = perf;
+-				best = *algo;
+-			}
+-			pr_info("raid6: %-8s gen() %5ld MB/s\n", (*algo)->name,
+-				(perf * HZ * (disks-2)) >>
+-				(20 - PAGE_SHIFT + RAID6_TIME_JIFFIES_LG2));
++		if (perf > bestgenperf) {
++			bestgenperf = perf;
++			best = algo;
+ 		}
++		pr_info("raid6: %-8s gen() %5ld MB/s\n", algo->name,
++			(perf * HZ * (disks-2)) >>
++			(20 - PAGE_SHIFT + RAID6_TIME_JIFFIES_LG2));
+ 	}
+ 
+ 	if (!best) {
+ 		pr_err("raid6: Yikes! No algorithm found!\n");
+-		goto out;
++		return -EINVAL;
+ 	}
+ 
+ 	raid6_call = *best;
+ 
+-	if (!IS_ENABLED(CONFIG_RAID6_PQ_BENCHMARK)) {
+-		pr_info("raid6: skipped pq benchmark and selected %s\n",
+-			best->name);
+-		goto out;
+-	}
+-
+ 	pr_info("raid6: using algorithm %s gen() %ld MB/s\n",
+ 		best->name,
+ 		(bestgenperf * HZ * (disks - 2)) >>
+ 		(20 - PAGE_SHIFT + RAID6_TIME_JIFFIES_LG2));
+ 
+ 	if (best->xor_syndrome) {
+-		perf = 0;
++		unsigned long perf = 0, j0, j1;
+ 
+ 		preempt_disable();
+ 		j0 = jiffies;
+@@ -346,8 +222,7 @@ static inline const struct raid6_calls *raid6_choose_gen(
+ 			(20 - PAGE_SHIFT + RAID6_TIME_JIFFIES_LG2 + 1));
+ 	}
+ 
+-out:
+-	return best;
++	return 0;
+ }
+ 
+ 
+@@ -357,12 +232,17 @@ static inline const struct raid6_calls *raid6_choose_gen(
+ static int __init raid6_select_algo(void)
+ {
+ 	const int disks = RAID6_TEST_DISKS;
+-
+-	const struct raid6_calls *gen_best;
+-	const struct raid6_recov_calls *rec_best;
+ 	char *disk_ptr, *p;
+ 	void *dptrs[RAID6_TEST_DISKS];
+ 	int i, cycle;
++	int error;
++
++	if (!IS_ENABLED(CONFIG_RAID6_PQ_BENCHMARK) || raid6_nr_algos == 1) {
++		pr_info("raid6: skipped pq benchmark and selected %s\n",
++			raid6_algos[raid6_nr_algos - 1]->name);
++		raid6_call = *raid6_algos[raid6_nr_algos - 1];
++		return 0;
++	}
+ 
+ 	/* prepare the buffer and fill it circularly with gfmul table */
+ 	disk_ptr = (char *)__get_free_pages(GFP_KERNEL, RAID6_TEST_DISKS_ORDER);
+@@ -385,22 +265,109 @@ static int __init raid6_select_algo(void)
+ 		memcpy(p, raid6_gfmul, (disks - 2) * PAGE_SIZE % 65536);
+ 
+ 	/* select raid gen_syndrome function */
+-	gen_best = raid6_choose_gen(&dptrs, disks);
+-
+-	/* select raid recover functions */
+-	rec_best = raid6_choose_recov();
++	error = raid6_choose_gen(&dptrs, disks);
+ 
+ 	free_pages((unsigned long)disk_ptr, RAID6_TEST_DISKS_ORDER);
+ 
+-	return gen_best && rec_best ? 0 : -EINVAL;
++	return error;
+ }
+ 
+-static void raid6_exit(void)
++/*
++ * Register a RAID6 P/Q generation algorithm.  The most optimized/unrolled
++ * implementation should be registered last so it will be selected when the
++ * boot-time benchmark is disabled.
++ */
++void __init raid6_algo_add(const struct raid6_calls *algo)
+ {
+-	do { } while (0);
++	if (WARN_ON_ONCE(raid6_nr_algos == RAID6_MAX_ALGOS))
++		return;
++	raid6_algos[raid6_nr_algos++] = algo;
+ }
+ 
+-subsys_initcall(raid6_select_algo);
++void __init raid6_algo_add_default(void)
++{
++	raid6_algo_add(&raid6_intx1);
++	raid6_algo_add(&raid6_intx2);
++	raid6_algo_add(&raid6_intx4);
++	raid6_algo_add(&raid6_intx8);
++}
++
++void __init raid6_recov_algo_add(const struct raid6_recov_calls *algo)
++{
++	if (WARN_ON_ONCE(raid6_recov_algo))
++		return;
++	raid6_recov_algo = algo;
++}
++
++#ifdef CONFIG_RAID6_PQ_ARCH
++#include "pq_arch.h"
++#else
++static inline void arch_raid6_init(void)
++{
++	raid6_algo_add_default();
++}
++#endif /* CONFIG_RAID6_PQ_ARCH */
++
++static int __init raid6_init(void)
++{
++	/*
++	 * Architectures providing arch_raid6_init must add all PQ generation
++	 * algorithms they want to consider in arch_raid6_init(), including
++	 * the generic ones using raid6_algo_add_default() if wanted.
++	 */
++	arch_raid6_init();
++
++	/*
++	 * Architectures don't have to set a recovery algorithm, we'll just pick
++	 * the generic integer one if none was set.
++	 */
++	if (!raid6_recov_algo)
++		raid6_recov_algo = &raid6_recov_intx1;
++	pr_info("raid6: using %s recovery algorithm\n", raid6_recov_algo->name);
++
++	return raid6_select_algo();
++}
++
++static void __exit raid6_exit(void)
++{
++}
++
++subsys_initcall(raid6_init);
+ module_exit(raid6_exit);
+ MODULE_LICENSE("GPL");
+ MODULE_DESCRIPTION("RAID6 Q-syndrome calculations");
++
++#if IS_ENABLED(CONFIG_RAID6_PQ_KUNIT_TEST)
++const struct raid6_calls *raid6_algo_find(unsigned int idx)
++{
++	if (idx >= raid6_nr_algos) {
++		/*
++		 * Always include the simplest generic integer implementation in
++		 * the unit tests as a baseline.
++		 */
++		if (idx == raid6_nr_algos &&
++		    raid6_algos[0] != &raid6_intx1)
++			return &raid6_intx1;
++		return NULL;
++	}
++	return raid6_algos[idx];
++}
++EXPORT_SYMBOL_IF_KUNIT(raid6_algo_find);
++
++const struct raid6_recov_calls *raid6_recov_algo_find(unsigned int idx)
++{
++	switch (idx) {
++	case 0:
++		/* always test the generic integer implementation */
++		return &raid6_recov_intx1;
++	case 1:
++		/* test the optimized implementation if there is one */
++		if (raid6_recov_algo != &raid6_recov_intx1)
++			return raid6_recov_algo;
++		return NULL;
++	default:
++		return NULL;
++	}
++}
++EXPORT_SYMBOL_IF_KUNIT(raid6_recov_algo_find);
++#endif /* CONFIG_RAID6_PQ_KUNIT_TEST */
+diff --git a/lib/raid/raid6/algos.h b/lib/raid/raid6/algos.h
+index e5f1098d2179..43f636be183f 100644
+--- a/lib/raid/raid6/algos.h
++++ b/lib/raid/raid6/algos.h
+@@ -5,6 +5,7 @@
+ #ifndef _PQ_IMPL_H
+ #define _PQ_IMPL_H
+ 
++#include <linux/init.h>
+ #include <linux/raid/pq_tables.h>
+ 
+ /* Routine choices */
+@@ -13,70 +14,28 @@ struct raid6_calls {
+ 	void (*gen_syndrome)(int disks, size_t bytes, void **ptrs);
+ 	void (*xor_syndrome)(int disks, int start, int stop, size_t bytes,
+ 			void **ptrs);
+-	int  (*valid)(void);	/* Returns 1 if this routine set is usable */
+-	int priority;		/* Relative priority ranking if non-zero */
+ };
+ 
+-/* Various routine sets */
+-extern const struct raid6_calls raid6_intx1;
+-extern const struct raid6_calls raid6_intx2;
+-extern const struct raid6_calls raid6_intx4;
+-extern const struct raid6_calls raid6_intx8;
+-extern const struct raid6_calls raid6_mmxx1;
+-extern const struct raid6_calls raid6_mmxx2;
+-extern const struct raid6_calls raid6_sse1x1;
+-extern const struct raid6_calls raid6_sse1x2;
+-extern const struct raid6_calls raid6_sse2x1;
+-extern const struct raid6_calls raid6_sse2x2;
+-extern const struct raid6_calls raid6_sse2x4;
+-extern const struct raid6_calls raid6_altivec1;
+-extern const struct raid6_calls raid6_altivec2;
+-extern const struct raid6_calls raid6_altivec4;
+-extern const struct raid6_calls raid6_altivec8;
+-extern const struct raid6_calls raid6_avx2x1;
+-extern const struct raid6_calls raid6_avx2x2;
+-extern const struct raid6_calls raid6_avx2x4;
+-extern const struct raid6_calls raid6_avx512x1;
+-extern const struct raid6_calls raid6_avx512x2;
+-extern const struct raid6_calls raid6_avx512x4;
+-extern const struct raid6_calls raid6_s390vx8;
+-extern const struct raid6_calls raid6_vpermxor1;
+-extern const struct raid6_calls raid6_vpermxor2;
+-extern const struct raid6_calls raid6_vpermxor4;
+-extern const struct raid6_calls raid6_vpermxor8;
+-extern const struct raid6_calls raid6_lsx;
+-extern const struct raid6_calls raid6_lasx;
+-extern const struct raid6_calls raid6_rvvx1;
+-extern const struct raid6_calls raid6_rvvx2;
+-extern const struct raid6_calls raid6_rvvx4;
+-extern const struct raid6_calls raid6_rvvx8;
+-
+ struct raid6_recov_calls {
+ 	const char *name;
+ 	void (*data2)(int disks, size_t bytes, int faila, int failb,
+ 			void **ptrs);
+ 	void (*datap)(int disks, size_t bytes, int faila, void **ptrs);
+-	int  (*valid)(void);
+-	int priority;
+ };
+ 
+-extern const struct raid6_recov_calls raid6_recov_intx1;
+-extern const struct raid6_recov_calls raid6_recov_ssse3;
+-extern const struct raid6_recov_calls raid6_recov_avx2;
+-extern const struct raid6_recov_calls raid6_recov_avx512;
+-extern const struct raid6_recov_calls raid6_recov_s390xc;
+-extern const struct raid6_recov_calls raid6_recov_neon;
+-extern const struct raid6_recov_calls raid6_recov_lsx;
+-extern const struct raid6_recov_calls raid6_recov_lasx;
+-extern const struct raid6_recov_calls raid6_recov_rvv;
++void __init raid6_algo_add(const struct raid6_calls *algo);
++void __init raid6_algo_add_default(void);
++void __init raid6_recov_algo_add(const struct raid6_recov_calls *algo);
+ 
+-extern const struct raid6_calls raid6_neonx1;
+-extern const struct raid6_calls raid6_neonx2;
+-extern const struct raid6_calls raid6_neonx4;
+-extern const struct raid6_calls raid6_neonx8;
++/* for the kunit test */
++const struct raid6_calls *raid6_algo_find(unsigned int idx);
++const struct raid6_recov_calls *raid6_recov_algo_find(unsigned int idx);
+ 
+-/* Algorithm list */
+-extern const struct raid6_calls * const raid6_algos[];
+-extern const struct raid6_recov_calls *const raid6_recov_algos[];
++/* generic implementations */
++extern const struct raid6_calls raid6_intx1;
++extern const struct raid6_calls raid6_intx2;
++extern const struct raid6_calls raid6_intx4;
++extern const struct raid6_calls raid6_intx8;
++extern const struct raid6_recov_calls raid6_recov_intx1;
+ 
+ #endif /* _PQ_IMPL_H */
+diff --git a/lib/raid/raid6/arm/neon.c b/lib/raid/raid6/arm/neon.c
+index bd4ec4c86ee8..341c61af675e 100644
+--- a/lib/raid/raid6/arm/neon.c
++++ b/lib/raid/raid6/arm/neon.c
+@@ -42,15 +42,9 @@
+ 	struct raid6_calls const raid6_neonx ## _n = {			\
+ 		.gen_syndrome	= raid6_neon ## _n ## _gen_syndrome,	\
+ 		.xor_syndrome	= raid6_neon ## _n ## _xor_syndrome,	\
+-		.valid		= raid6_have_neon,			\
+ 		.name		= "neonx" #_n,				\
+ 	}
+ 
+-static int raid6_have_neon(void)
+-{
+-	return cpu_has_neon();
+-}
+-
+ RAID6_NEON_WRAPPER(1);
+ RAID6_NEON_WRAPPER(2);
+ RAID6_NEON_WRAPPER(4);
+diff --git a/lib/raid/raid6/arm/pq_arch.h b/lib/raid/raid6/arm/pq_arch.h
+new file mode 100644
+index 000000000000..3f876ea6749c
+--- /dev/null
++++ b/lib/raid/raid6/arm/pq_arch.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#include <asm/neon.h>
++
++extern const struct raid6_calls raid6_neonx1;
++extern const struct raid6_calls raid6_neonx2;
++extern const struct raid6_calls raid6_neonx4;
++extern const struct raid6_calls raid6_neonx8;
++extern const struct raid6_recov_calls raid6_recov_neon;
++
++static __always_inline void __init arch_raid6_init(void)
++{
++	raid6_algo_add_default();
++	if (cpu_has_neon()) {
++		raid6_algo_add(&raid6_neonx1);
++		raid6_algo_add(&raid6_neonx2);
++		raid6_algo_add(&raid6_neonx4);
++		raid6_algo_add(&raid6_neonx8);
++		raid6_recov_algo_add(&raid6_recov_neon);
++	}
++}
+diff --git a/lib/raid/raid6/arm/recov_neon.c b/lib/raid/raid6/arm/recov_neon.c
+index e1d1d19fc9a8..1524050d09b7 100644
+--- a/lib/raid/raid6/arm/recov_neon.c
++++ b/lib/raid/raid6/arm/recov_neon.c
+@@ -10,11 +10,6 @@
+ #include "algos.h"
+ #include "arm/neon.h"
+ 
+-static int raid6_has_neon(void)
+-{
+-	return cpu_has_neon();
+-}
+-
+ static void raid6_2data_recov_neon(int disks, size_t bytes, int faila,
+ 		int failb, void **ptrs)
+ {
+@@ -87,7 +82,5 @@ static void raid6_datap_recov_neon(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_neon = {
+ 	.data2		= raid6_2data_recov_neon,
+ 	.datap		= raid6_datap_recov_neon,
+-	.valid		= raid6_has_neon,
+ 	.name		= "neon",
+-	.priority	= 10,
+ };
+diff --git a/lib/raid/raid6/arm64/pq_arch.h b/lib/raid/raid6/arm64/pq_arch.h
+new file mode 100644
+index 000000000000..27ff564d7594
+--- /dev/null
++++ b/lib/raid/raid6/arm64/pq_arch.h
+@@ -0,0 +1 @@
++#include "arm/pq_arch.h"
+diff --git a/lib/raid/raid6/loongarch/loongarch_simd.c b/lib/raid/raid6/loongarch/loongarch_simd.c
+index f77d11ce676e..c1eb53fafd27 100644
+--- a/lib/raid/raid6/loongarch/loongarch_simd.c
++++ b/lib/raid/raid6/loongarch/loongarch_simd.c
+@@ -26,11 +26,6 @@
+ #ifdef CONFIG_CPU_HAS_LSX
+ #define NSIZE 16
+ 
+-static int raid6_has_lsx(void)
+-{
+-	return cpu_has_lsx;
+-}
+-
+ static void raid6_lsx_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ {
+ 	u8 **dptr = (u8 **)ptrs;
+@@ -246,7 +241,6 @@ static void raid6_lsx_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_lsx = {
+ 	.gen_syndrome	= raid6_lsx_gen_syndrome,
+ 	.xor_syndrome	= raid6_lsx_xor_syndrome,
+-	.valid		= raid6_has_lsx,
+ 	.name		= "lsx",
+ };
+ 
+@@ -256,11 +250,6 @@ const struct raid6_calls raid6_lsx = {
+ #ifdef CONFIG_CPU_HAS_LASX
+ #define NSIZE 32
+ 
+-static int raid6_has_lasx(void)
+-{
+-	return cpu_has_lasx;
+-}
+-
+ static void raid6_lasx_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ {
+ 	u8 **dptr = (u8 **)ptrs;
+@@ -414,7 +403,6 @@ static void raid6_lasx_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_lasx = {
+ 	.gen_syndrome	= raid6_lasx_gen_syndrome,
+ 	.xor_syndrome	= raid6_lasx_xor_syndrome,
+-	.valid		= raid6_has_lasx,
+ 	.name		= "lasx",
+ };
+ #undef NSIZE
+diff --git a/lib/raid/raid6/loongarch/pq_arch.h b/lib/raid/raid6/loongarch/pq_arch.h
+new file mode 100644
+index 000000000000..ae443a4d7b69
+--- /dev/null
++++ b/lib/raid/raid6/loongarch/pq_arch.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#include <asm/cpu-features.h>
++
++extern const struct raid6_calls raid6_lsx;
++extern const struct raid6_calls raid6_lasx;
++
++extern const struct raid6_recov_calls raid6_recov_lsx;
++extern const struct raid6_recov_calls raid6_recov_lasx;
++
++static __always_inline void __init arch_raid6_init(void)
++{
++	raid6_algo_add_default();
++	if (IS_ENABLED(CONFIG_CPU_HAS_LSX) && cpu_has_lsx)
++		raid6_algo_add(&raid6_lsx);
++	if (IS_ENABLED(CONFIG_CPU_HAS_LASX) && cpu_has_lasx)
++		raid6_algo_add(&raid6_lasx);
++
++	if (IS_ENABLED(CONFIG_CPU_HAS_LASX) && cpu_has_lasx)
++		raid6_recov_algo_add(&raid6_recov_lasx);
++	else if (IS_ENABLED(CONFIG_CPU_HAS_LSX) && cpu_has_lsx)
++		raid6_recov_algo_add(&raid6_recov_lsx);
++}
+diff --git a/lib/raid/raid6/loongarch/recov_loongarch_simd.c b/lib/raid/raid6/loongarch/recov_loongarch_simd.c
+index 0bbdc8b5c2e7..87a2313bbb4f 100644
+--- a/lib/raid/raid6/loongarch/recov_loongarch_simd.c
++++ b/lib/raid/raid6/loongarch/recov_loongarch_simd.c
+@@ -24,11 +24,6 @@
+  */
+ 
+ #ifdef CONFIG_CPU_HAS_LSX
+-static int raid6_has_lsx(void)
+-{
+-	return cpu_has_lsx;
+-}
+-
+ static void raid6_2data_recov_lsx(int disks, size_t bytes, int faila,
+ 				  int failb, void **ptrs)
+ {
+@@ -291,18 +286,11 @@ static void raid6_datap_recov_lsx(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_lsx = {
+ 	.data2 = raid6_2data_recov_lsx,
+ 	.datap = raid6_datap_recov_lsx,
+-	.valid = raid6_has_lsx,
+ 	.name = "lsx",
+-	.priority = 1,
+ };
+ #endif /* CONFIG_CPU_HAS_LSX */
+ 
+ #ifdef CONFIG_CPU_HAS_LASX
+-static int raid6_has_lasx(void)
+-{
+-	return cpu_has_lasx;
+-}
+-
+ static void raid6_2data_recov_lasx(int disks, size_t bytes, int faila,
+ 				   int failb, void **ptrs)
+ {
+@@ -509,8 +497,6 @@ static void raid6_datap_recov_lasx(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_lasx = {
+ 	.data2 = raid6_2data_recov_lasx,
+ 	.datap = raid6_datap_recov_lasx,
+-	.valid = raid6_has_lasx,
+ 	.name = "lasx",
+-	.priority = 2,
+ };
+ #endif /* CONFIG_CPU_HAS_LASX */
+diff --git a/lib/raid/raid6/powerpc/altivec.uc b/lib/raid/raid6/powerpc/altivec.uc
+index eb4a448cc88e..c5429fb71dd6 100644
+--- a/lib/raid/raid6/powerpc/altivec.uc
++++ b/lib/raid/raid6/powerpc/altivec.uc
+@@ -104,17 +104,7 @@ static void raid6_altivec$#_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 	preempt_enable();
+ }
+ 
+-int raid6_have_altivec(void);
+-#if $# == 1
+-int raid6_have_altivec(void)
+-{
+-	/* This assumes either all CPUs have Altivec or none does */
+-	return cpu_has_feature(CPU_FTR_ALTIVEC);
+-}
+-#endif
+-
+ const struct raid6_calls raid6_altivec$# = {
+ 	.gen_syndrome	= raid6_altivec$#_gen_syndrome,
+-	.valid		= raid6_have_altivec,
+ 	.name		= "altivecx$#",
+ };
+diff --git a/lib/raid/raid6/powerpc/pq_arch.h b/lib/raid/raid6/powerpc/pq_arch.h
+new file mode 100644
+index 000000000000..ea1878777ff2
+--- /dev/null
++++ b/lib/raid/raid6/powerpc/pq_arch.h
+@@ -0,0 +1,32 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#include <asm/cputable.h>
++
++extern const struct raid6_calls raid6_altivec1;
++extern const struct raid6_calls raid6_altivec2;
++extern const struct raid6_calls raid6_altivec4;
++extern const struct raid6_calls raid6_altivec8;
++extern const struct raid6_calls raid6_vpermxor1;
++extern const struct raid6_calls raid6_vpermxor2;
++extern const struct raid6_calls raid6_vpermxor4;
++extern const struct raid6_calls raid6_vpermxor8;
++
++static __always_inline void __init arch_raid6_init(void)
++{
++	raid6_algo_add_default();
++
++	/* This assumes either all CPUs have Altivec or none does */
++	if (cpu_has_feature(CPU_FTR_ALTIVEC)) {
++		raid6_algo_add(&raid6_altivec1);
++		raid6_algo_add(&raid6_altivec2);
++		raid6_algo_add(&raid6_altivec4);
++		raid6_algo_add(&raid6_altivec8);
++	}
++	if (cpu_has_feature(CPU_FTR_ALTIVEC_COMP) &&
++	    cpu_has_feature(CPU_FTR_ARCH_207S)) {
++		raid6_algo_add(&raid6_vpermxor1);
++		raid6_algo_add(&raid6_vpermxor2);
++		raid6_algo_add(&raid6_vpermxor4);
++		raid6_algo_add(&raid6_vpermxor8);
++	}
++}
+diff --git a/lib/raid/raid6/powerpc/vpermxor.uc b/lib/raid/raid6/powerpc/vpermxor.uc
+index ec61f30bec11..e8964361aaef 100644
+--- a/lib/raid/raid6/powerpc/vpermxor.uc
++++ b/lib/raid/raid6/powerpc/vpermxor.uc
+@@ -76,18 +76,7 @@ static void raid6_vpermxor$#_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 	preempt_enable();
+ }
+ 
+-int raid6_have_altivec_vpermxor(void);
+-#if $# == 1
+-int raid6_have_altivec_vpermxor(void)
+-{
+-	/* Check if arch has both altivec and the vpermxor instructions */
+-	return (cpu_has_feature(CPU_FTR_ALTIVEC_COMP) &&
+-		cpu_has_feature(CPU_FTR_ARCH_207S));
+-}
+-#endif
+-
+ const struct raid6_calls raid6_vpermxor$# = {
+ 	.gen_syndrome	= raid6_vpermxor$#_gen_syndrome,
+-	.valid		= raid6_have_altivec_vpermxor,
+ 	.name		= "vpermxor$#",
+ };
+diff --git a/lib/raid/raid6/recov.c b/lib/raid/raid6/recov.c
+index 735ab4013771..76eb2aef3667 100644
+--- a/lib/raid/raid6/recov.c
++++ b/lib/raid/raid6/recov.c
+@@ -97,7 +97,5 @@ static void raid6_datap_recov_intx1(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_intx1 = {
+ 	.data2 = raid6_2data_recov_intx1,
+ 	.datap = raid6_datap_recov_intx1,
+-	.valid = NULL,
+ 	.name = "intx1",
+-	.priority = 0,
+ };
+diff --git a/lib/raid/raid6/riscv/pq_arch.h b/lib/raid/raid6/riscv/pq_arch.h
+new file mode 100644
+index 000000000000..82f1a188f8c4
+--- /dev/null
++++ b/lib/raid/raid6/riscv/pq_arch.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#include <asm/vector.h>
++
++extern const struct raid6_calls raid6_rvvx1;
++extern const struct raid6_calls raid6_rvvx2;
++extern const struct raid6_calls raid6_rvvx4;
++extern const struct raid6_calls raid6_rvvx8;
++extern const struct raid6_recov_calls raid6_recov_rvv;
++
++static __always_inline void __init arch_raid6_init(void)
++{
++	raid6_algo_add_default();
++	if (has_vector()) {
++		raid6_algo_add(&raid6_rvvx1);
++		raid6_algo_add(&raid6_rvvx2);
++		raid6_algo_add(&raid6_rvvx4);
++		raid6_algo_add(&raid6_rvvx8);
++		raid6_recov_algo_add(&raid6_recov_rvv);
++	}
++}
+diff --git a/lib/raid/raid6/riscv/recov_rvv.c b/lib/raid/raid6/riscv/recov_rvv.c
+index 02120d245e22..2305940276dd 100644
+--- a/lib/raid/raid6/riscv/recov_rvv.c
++++ b/lib/raid/raid6/riscv/recov_rvv.c
+@@ -218,7 +218,5 @@ static void raid6_datap_recov_rvv(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_rvv = {
+ 	.data2		= raid6_2data_recov_rvv,
+ 	.datap		= raid6_datap_recov_rvv,
+-	.valid		= rvv_has_vector,
+ 	.name		= "rvv",
+-	.priority	= 1,
+ };
+diff --git a/lib/raid/raid6/riscv/rvv.h b/lib/raid/raid6/riscv/rvv.h
+index c293130d798b..3a7c2468b1ea 100644
+--- a/lib/raid/raid6/riscv/rvv.h
++++ b/lib/raid/raid6/riscv/rvv.h
+@@ -10,11 +10,6 @@
+ #include <asm/vector.h>
+ #include "algos.h"
+ 
+-static int rvv_has_vector(void)
+-{
+-	return has_vector();
+-}
+-
+ #define RAID6_RVV_WRAPPER(_n)						\
+ 	static void raid6_rvv ## _n ## _gen_syndrome(int disks,		\
+ 					size_t bytes, void **ptrs)	\
+@@ -41,6 +36,5 @@ static int rvv_has_vector(void)
+ 	struct raid6_calls const raid6_rvvx ## _n = {			\
+ 		.gen_syndrome	= raid6_rvv ## _n ## _gen_syndrome,	\
+ 		.xor_syndrome	= raid6_rvv ## _n ## _xor_syndrome,	\
+-		.valid		= rvv_has_vector,			\
+ 		.name		= "rvvx" #_n,				\
+ 	}
+diff --git a/lib/raid/raid6/s390/pq_arch.h b/lib/raid/raid6/s390/pq_arch.h
+new file mode 100644
+index 000000000000..95d14c342306
+--- /dev/null
++++ b/lib/raid/raid6/s390/pq_arch.h
+@@ -0,0 +1,15 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#include <linux/cpufeature.h>
++
++extern const struct raid6_calls raid6_s390vx8;
++extern const struct raid6_recov_calls raid6_recov_s390xc;
++
++static __always_inline void __init arch_raid6_init(void)
++{
++	if (cpu_has_vx())
++		raid6_algo_add(&raid6_s390vx8);
++	else
++		raid6_algo_add_default();
++	raid6_recov_algo_add(&raid6_recov_s390xc);
++}
+diff --git a/lib/raid/raid6/s390/recov_s390xc.c b/lib/raid/raid6/s390/recov_s390xc.c
+index e7b3409f21e2..08d56896e5ea 100644
+--- a/lib/raid/raid6/s390/recov_s390xc.c
++++ b/lib/raid/raid6/s390/recov_s390xc.c
+@@ -112,7 +112,5 @@ static void raid6_datap_recov_s390xc(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_s390xc = {
+ 	.data2 = raid6_2data_recov_s390xc,
+ 	.datap = raid6_datap_recov_s390xc,
+-	.valid = NULL,
+ 	.name = "s390xc",
+-	.priority = 1,
+ };
+diff --git a/lib/raid/raid6/s390/s390vx.uc b/lib/raid/raid6/s390/s390vx.uc
+index aba3515eacac..e5cf9054be2a 100644
+--- a/lib/raid/raid6/s390/s390vx.uc
++++ b/lib/raid/raid6/s390/s390vx.uc
+@@ -121,15 +121,8 @@ static void raid6_s390vx$#_xor_syndrome(int disks, int start, int stop,
+ 	kernel_fpu_end(&vxstate, KERNEL_VXR);
+ }
+ 
+-static int raid6_s390vx$#_valid(void)
+-{
+-	return cpu_has_vx();
+-}
+-
+ const struct raid6_calls raid6_s390vx$# = {
+ 	.gen_syndrome	= raid6_s390vx$#_gen_syndrome,
+ 	.xor_syndrome	= raid6_s390vx$#_xor_syndrome,
+-	.valid		= raid6_s390vx$#_valid,
+ 	.name		= "vx128x$#",
+-	.priority	= 1,
+ };
+diff --git a/lib/raid/raid6/tests/raid6_kunit.c b/lib/raid/raid6/tests/raid6_kunit.c
+index de6a866953c5..4dea1c5acc96 100644
+--- a/lib/raid/raid6/tests/raid6_kunit.c
++++ b/lib/raid/raid6/tests/raid6_kunit.c
+@@ -88,19 +88,20 @@ static void test_disks(struct kunit *test, const struct raid6_calls *calls,
+ 
+ static void raid6_test(struct kunit *test)
+ {
+-	const struct raid6_calls *const *algo;
+-	const struct raid6_recov_calls *const *ra;
+ 	int i, j, p1, p2;
++	unsigned int r, g;
+ 
+-	for (ra = raid6_recov_algos; *ra; ra++) {
+-		if ((*ra)->valid  && !(*ra)->valid())
+-			continue;
++	for (r = 0; ; r++) {
++		const struct raid6_recov_calls *ra = raid6_recov_algo_find(r);
+ 
+-		for (algo = raid6_algos; *algo; algo++) {
+-			const struct raid6_calls *calls = *algo;
++		if (!ra)
++			break;
+ 
+-			if (calls->valid && !calls->valid())
+-				continue;
++		for (g = 0; ; g++) {
++			const struct raid6_calls *calls = raid6_algo_find(g);
++
++			if (!calls)
++				break;
+ 
+ 			/* Nuke syndromes */
+ 			memset(data[NDISKS - 2], 0xee, PAGE_SIZE);
+@@ -112,7 +113,7 @@ static void raid6_test(struct kunit *test)
+ 
+ 			for (i = 0; i < NDISKS-1; i++)
+ 				for (j = i+1; j < NDISKS; j++)
+-					test_disks(test, calls, *ra, i, j);
++					test_disks(test, calls, ra, i, j);
+ 
+ 			if (!calls->xor_syndrome)
+ 				continue;
+@@ -130,7 +131,7 @@ static void raid6_test(struct kunit *test)
+ 					for (i = 0; i < NDISKS-1; i++)
+ 						for (j = i+1; j < NDISKS; j++)
+ 							test_disks(test, calls,
+-									*ra, i, j);
++									ra, i, j);
+ 				}
+ 
+ 		}
+diff --git a/lib/raid/raid6/x86/avx2.c b/lib/raid/raid6/x86/avx2.c
+index 0bf831799082..7efd94e6a87a 100644
+--- a/lib/raid/raid6/x86/avx2.c
++++ b/lib/raid/raid6/x86/avx2.c
+@@ -24,11 +24,6 @@ static const struct raid6_avx2_constants {
+ 	  0x1d1d1d1d1d1d1d1dULL, 0x1d1d1d1d1d1d1d1dULL,},
+ };
+ 
+-static int raid6_have_avx2(void)
+-{
+-	return boot_cpu_has(X86_FEATURE_AVX2) && boot_cpu_has(X86_FEATURE_AVX);
+-}
+-
+ /*
+  * Plain AVX2 implementation
+  */
+@@ -131,10 +126,7 @@ static void raid6_avx21_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_avx2x1 = {
+ 	.gen_syndrome	= raid6_avx21_gen_syndrome,
+ 	.xor_syndrome	= raid6_avx21_xor_syndrome,
+-	.valid		= raid6_have_avx2,
+ 	.name		= "avx2x1",
+-	/* Prefer AVX2 over priority 1 (SSE2 and others) */
+-	.priority	= 2,
+ };
+ 
+ /*
+@@ -262,10 +254,7 @@ static void raid6_avx22_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_avx2x2 = {
+ 	.gen_syndrome	= raid6_avx22_gen_syndrome,
+ 	.xor_syndrome	= raid6_avx22_xor_syndrome,
+-	.valid		= raid6_have_avx2,
+ 	.name		= "avx2x2",
+-	/* Prefer AVX2 over priority 1 (SSE2 and others) */
+-	.priority	= 2,
+ };
+ 
+ #ifdef CONFIG_X86_64
+@@ -466,9 +455,6 @@ static void raid6_avx24_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_avx2x4 = {
+ 	.gen_syndrome	= raid6_avx24_gen_syndrome,
+ 	.xor_syndrome	= raid6_avx24_xor_syndrome,
+-	.valid		= raid6_have_avx2,
+ 	.name		= "avx2x4",
+-	/* Prefer AVX2 over priority 1 (SSE2 and others) */
+-	.priority	= 2,
+ };
+ #endif /* CONFIG_X86_64 */
+diff --git a/lib/raid/raid6/x86/avx512.c b/lib/raid/raid6/x86/avx512.c
+index 98ed42fb0a46..0772e798b742 100644
+--- a/lib/raid/raid6/x86/avx512.c
++++ b/lib/raid/raid6/x86/avx512.c
+@@ -30,16 +30,6 @@ static const struct raid6_avx512_constants {
+ 	  0x1d1d1d1d1d1d1d1dULL, 0x1d1d1d1d1d1d1d1dULL,},
+ };
+ 
+-static int raid6_have_avx512(void)
+-{
+-	return boot_cpu_has(X86_FEATURE_AVX2) &&
+-		boot_cpu_has(X86_FEATURE_AVX) &&
+-		boot_cpu_has(X86_FEATURE_AVX512F) &&
+-		boot_cpu_has(X86_FEATURE_AVX512BW) &&
+-		boot_cpu_has(X86_FEATURE_AVX512VL) &&
+-		boot_cpu_has(X86_FEATURE_AVX512DQ);
+-}
+-
+ static void raid6_avx5121_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ {
+ 	u8 **dptr = (u8 **)ptrs;
+@@ -159,10 +149,7 @@ static void raid6_avx5121_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_avx512x1 = {
+ 	.gen_syndrome	= raid6_avx5121_gen_syndrome,
+ 	.xor_syndrome	= raid6_avx5121_xor_syndrome,
+-	.valid		= raid6_have_avx512,
+ 	.name		= "avx512x1",
+-	/* Prefer AVX512 over priority 1 (SSE2 and others) */
+-	.priority	= 2,
+ };
+ 
+ /*
+@@ -317,10 +304,7 @@ static void raid6_avx5122_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_avx512x2 = {
+ 	.gen_syndrome	= raid6_avx5122_gen_syndrome,
+ 	.xor_syndrome	= raid6_avx5122_xor_syndrome,
+-	.valid		= raid6_have_avx512,
+ 	.name		= "avx512x2",
+-	/* Prefer AVX512 over priority 1 (SSE2 and others) */
+-	.priority	= 2,
+ };
+ 
+ #ifdef CONFIG_X86_64
+@@ -556,9 +540,6 @@ static void raid6_avx5124_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_avx512x4 = {
+ 	.gen_syndrome	= raid6_avx5124_gen_syndrome,
+ 	.xor_syndrome	= raid6_avx5124_xor_syndrome,
+-	.valid		= raid6_have_avx512,
+ 	.name		= "avx512x4",
+-	/* Prefer AVX512 over priority 1 (SSE2 and others) */
+-	.priority	= 2,
+ };
+ #endif
+diff --git a/lib/raid/raid6/x86/mmx.c b/lib/raid/raid6/x86/mmx.c
+index 052d9f010bfe..3228c335965a 100644
+--- a/lib/raid/raid6/x86/mmx.c
++++ b/lib/raid/raid6/x86/mmx.c
+@@ -22,12 +22,6 @@ const struct raid6_mmx_constants {
+ 	0x1d1d1d1d1d1d1d1dULL,
+ };
+ 
+-static int raid6_have_mmx(void)
+-{
+-	/* Not really "boot_cpu" but "all_cpus" */
+-	return boot_cpu_has(X86_FEATURE_MMX);
+-}
+-
+ /*
+  * Plain MMX implementation
+  */
+@@ -70,7 +64,6 @@ static void raid6_mmx1_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 
+ const struct raid6_calls raid6_mmxx1 = {
+ 	.gen_syndrome	= raid6_mmx1_gen_syndrome,
+-	.valid		= raid6_have_mmx,
+ 	.name		= "mmxx1",
+ };
+ 
+@@ -127,6 +120,5 @@ static void raid6_mmx2_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 
+ const struct raid6_calls raid6_mmxx2 = {
+ 	.gen_syndrome	= raid6_mmx2_gen_syndrome,
+-	.valid		= raid6_have_mmx,
+ 	.name		= "mmxx2",
+ };
+diff --git a/lib/raid/raid6/x86/pq_arch.h b/lib/raid/raid6/x86/pq_arch.h
+new file mode 100644
+index 000000000000..28e395eb04d1
+--- /dev/null
++++ b/lib/raid/raid6/x86/pq_arch.h
+@@ -0,0 +1,96 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#include <asm/cpufeature.h>
++
++extern const struct raid6_calls raid6_mmxx1;
++extern const struct raid6_calls raid6_mmxx2;
++extern const struct raid6_calls raid6_sse1x1;
++extern const struct raid6_calls raid6_sse1x2;
++extern const struct raid6_calls raid6_sse2x1;
++extern const struct raid6_calls raid6_sse2x2;
++extern const struct raid6_calls raid6_sse2x4;
++extern const struct raid6_calls raid6_avx2x1;
++extern const struct raid6_calls raid6_avx2x2;
++extern const struct raid6_calls raid6_avx2x4;
++extern const struct raid6_calls raid6_avx512x1;
++extern const struct raid6_calls raid6_avx512x2;
++extern const struct raid6_calls raid6_avx512x4;
++
++extern const struct raid6_recov_calls raid6_recov_ssse3;
++extern const struct raid6_recov_calls raid6_recov_avx2;
++extern const struct raid6_recov_calls raid6_recov_avx512;
++
++static inline int raid6_has_avx512(void)
++{
++	return boot_cpu_has(X86_FEATURE_AVX2) &&
++		boot_cpu_has(X86_FEATURE_AVX) &&
++		boot_cpu_has(X86_FEATURE_AVX512F) &&
++		boot_cpu_has(X86_FEATURE_AVX512BW) &&
++		boot_cpu_has(X86_FEATURE_AVX512VL) &&
++		boot_cpu_has(X86_FEATURE_AVX512DQ);
++}
++
++static inline bool raid6_has_avx2(void)
++{
++	return boot_cpu_has(X86_FEATURE_AVX2) && boot_cpu_has(X86_FEATURE_AVX);
++}
++
++static inline bool raid6_has_ssse3(void)
++{
++	return boot_cpu_has(X86_FEATURE_XMM) &&
++		boot_cpu_has(X86_FEATURE_XMM2) &&
++		boot_cpu_has(X86_FEATURE_SSSE3);
++}
++
++static inline bool raid6_has_sse2(void)
++{
++	return boot_cpu_has(X86_FEATURE_MMX) &&
++		    boot_cpu_has(X86_FEATURE_FXSR) &&
++		    boot_cpu_has(X86_FEATURE_XMM) &&
++		    boot_cpu_has(X86_FEATURE_XMM2);
++}
++
++static inline bool raid6_has_sse1_or_mmxext(void)
++{
++	return boot_cpu_has(X86_FEATURE_MMX) &&
++		(boot_cpu_has(X86_FEATURE_XMM) ||
++		 boot_cpu_has(X86_FEATURE_MMXEXT));
++}
++
++static __always_inline void __init arch_raid6_init(void)
++{
++	if (raid6_has_avx2()) {
++		if (raid6_has_avx512()) {
++			raid6_algo_add(&raid6_avx512x1);
++			raid6_algo_add(&raid6_avx512x2);
++			if (IS_ENABLED(CONFIG_X86_64))
++				raid6_algo_add(&raid6_avx512x4);
++		}
++		raid6_algo_add(&raid6_avx2x1);
++		raid6_algo_add(&raid6_avx2x2);
++		if (IS_ENABLED(CONFIG_X86_64))
++			raid6_algo_add(&raid6_avx2x4);
++	} else if (IS_ENABLED(CONFIG_X86_64) || raid6_has_sse2()) {
++		/* x86_64 can assume SSE2 as baseline */
++		raid6_algo_add(&raid6_sse2x1);
++		raid6_algo_add(&raid6_sse2x2);
++		if (IS_ENABLED(CONFIG_X86_64))
++			raid6_algo_add(&raid6_sse2x4);
++	} else {
++		raid6_algo_add_default();
++		if (raid6_has_sse1_or_mmxext()) {
++			raid6_algo_add(&raid6_sse1x1);
++			raid6_algo_add(&raid6_sse1x2);
++		} else if (boot_cpu_has(X86_FEATURE_MMX)) {
++			raid6_algo_add(&raid6_mmxx1);
++			raid6_algo_add(&raid6_mmxx2);
++		}
++	}
++
++	if (raid6_has_avx512())
++		raid6_recov_algo_add(&raid6_recov_avx512);
++	else if (raid6_has_avx2())
++		raid6_recov_algo_add(&raid6_recov_avx2);
++	else if (raid6_has_ssse3())
++		raid6_recov_algo_add(&raid6_recov_ssse3);
++}
+diff --git a/lib/raid/raid6/x86/recov_avx2.c b/lib/raid/raid6/x86/recov_avx2.c
+index 06c6e05763bc..a714a780a2d8 100644
+--- a/lib/raid/raid6/x86/recov_avx2.c
++++ b/lib/raid/raid6/x86/recov_avx2.c
+@@ -9,12 +9,6 @@
+ #include <asm/fpu/api.h>
+ #include "algos.h"
+ 
+-static int raid6_has_avx2(void)
+-{
+-	return boot_cpu_has(X86_FEATURE_AVX2) &&
+-		boot_cpu_has(X86_FEATURE_AVX);
+-}
+-
+ static void raid6_2data_recov_avx2(int disks, size_t bytes, int faila,
+ 		int failb, void **ptrs)
+ {
+@@ -305,11 +299,9 @@ static void raid6_datap_recov_avx2(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_avx2 = {
+ 	.data2 = raid6_2data_recov_avx2,
+ 	.datap = raid6_datap_recov_avx2,
+-	.valid = raid6_has_avx2,
+ #ifdef CONFIG_X86_64
+ 	.name = "avx2x2",
+ #else
+ 	.name = "avx2x1",
+ #endif
+-	.priority = 2,
+ };
+diff --git a/lib/raid/raid6/x86/recov_avx512.c b/lib/raid/raid6/x86/recov_avx512.c
+index 850bb962b514..ec72d5a30c01 100644
+--- a/lib/raid/raid6/x86/recov_avx512.c
++++ b/lib/raid/raid6/x86/recov_avx512.c
+@@ -11,16 +11,6 @@
+ #include <asm/fpu/api.h>
+ #include "algos.h"
+ 
+-static int raid6_has_avx512(void)
+-{
+-	return boot_cpu_has(X86_FEATURE_AVX2) &&
+-		boot_cpu_has(X86_FEATURE_AVX) &&
+-		boot_cpu_has(X86_FEATURE_AVX512F) &&
+-		boot_cpu_has(X86_FEATURE_AVX512BW) &&
+-		boot_cpu_has(X86_FEATURE_AVX512VL) &&
+-		boot_cpu_has(X86_FEATURE_AVX512DQ);
+-}
+-
+ static void raid6_2data_recov_avx512(int disks, size_t bytes, int faila,
+ 				     int failb, void **ptrs)
+ {
+@@ -369,11 +359,9 @@ static void raid6_datap_recov_avx512(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_avx512 = {
+ 	.data2 = raid6_2data_recov_avx512,
+ 	.datap = raid6_datap_recov_avx512,
+-	.valid = raid6_has_avx512,
+ #ifdef CONFIG_X86_64
+ 	.name = "avx512x2",
+ #else
+ 	.name = "avx512x1",
+ #endif
+-	.priority = 3,
+ };
+diff --git a/lib/raid/raid6/x86/recov_ssse3.c b/lib/raid/raid6/x86/recov_ssse3.c
+index 95589c33003a..700bd2c865ec 100644
+--- a/lib/raid/raid6/x86/recov_ssse3.c
++++ b/lib/raid/raid6/x86/recov_ssse3.c
+@@ -8,13 +8,6 @@
+ #include <asm/fpu/api.h>
+ #include "algos.h"
+ 
+-static int raid6_has_ssse3(void)
+-{
+-	return boot_cpu_has(X86_FEATURE_XMM) &&
+-		boot_cpu_has(X86_FEATURE_XMM2) &&
+-		boot_cpu_has(X86_FEATURE_SSSE3);
+-}
+-
+ static void raid6_2data_recov_ssse3(int disks, size_t bytes, int faila,
+ 		int failb, void **ptrs)
+ {
+@@ -320,11 +313,9 @@ static void raid6_datap_recov_ssse3(int disks, size_t bytes, int faila,
+ const struct raid6_recov_calls raid6_recov_ssse3 = {
+ 	.data2 = raid6_2data_recov_ssse3,
+ 	.datap = raid6_datap_recov_ssse3,
+-	.valid = raid6_has_ssse3,
+ #ifdef CONFIG_X86_64
+ 	.name = "ssse3x2",
+ #else
+ 	.name = "ssse3x1",
+ #endif
+-	.priority = 1,
+ };
+diff --git a/lib/raid/raid6/x86/sse1.c b/lib/raid/raid6/x86/sse1.c
+index 7004255a0bb1..6ebdcf824e00 100644
+--- a/lib/raid/raid6/x86/sse1.c
++++ b/lib/raid/raid6/x86/sse1.c
+@@ -25,14 +25,6 @@ extern const struct raid6_mmx_constants {
+ 	u64 x1d;
+ } raid6_mmx_constants;
+ 
+-static int raid6_have_sse1_or_mmxext(void)
+-{
+-	/* Not really boot_cpu but "all_cpus" */
+-	return boot_cpu_has(X86_FEATURE_MMX) &&
+-		(boot_cpu_has(X86_FEATURE_XMM) ||
+-		 boot_cpu_has(X86_FEATURE_MMXEXT));
+-}
+-
+ /*
+  * Plain SSE1 implementation
+  */
+@@ -86,9 +78,7 @@ static void raid6_sse11_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 
+ const struct raid6_calls raid6_sse1x1 = {
+ 	.gen_syndrome	= raid6_sse11_gen_syndrome,
+-	.valid		= raid6_have_sse1_or_mmxext,
+ 	.name		= "sse1x1",
+-	.priority	= 1,	/* Has cache hints */
+ };
+ 
+ /*
+@@ -148,7 +138,5 @@ static void raid6_sse12_gen_syndrome(int disks, size_t bytes, void **ptrs)
+ 
+ const struct raid6_calls raid6_sse1x2 = {
+ 	.gen_syndrome	= raid6_sse12_gen_syndrome,
+-	.valid		= raid6_have_sse1_or_mmxext,
+ 	.name		= "sse1x2",
+-	.priority	= 1,	/* Has cache hints */
+ };
+diff --git a/lib/raid/raid6/x86/sse2.c b/lib/raid/raid6/x86/sse2.c
+index f30be4ee14d0..7049c8512f35 100644
+--- a/lib/raid/raid6/x86/sse2.c
++++ b/lib/raid/raid6/x86/sse2.c
+@@ -22,15 +22,6 @@ static const struct raid6_sse_constants {
+ 	{ 0x1d1d1d1d1d1d1d1dULL, 0x1d1d1d1d1d1d1d1dULL },
+ };
+ 
+-static int raid6_have_sse2(void)
+-{
+-	/* Not really boot_cpu but "all_cpus" */
+-	return boot_cpu_has(X86_FEATURE_MMX) &&
+-		boot_cpu_has(X86_FEATURE_FXSR) &&
+-		boot_cpu_has(X86_FEATURE_XMM) &&
+-		boot_cpu_has(X86_FEATURE_XMM2);
+-}
+-
+ /*
+  * Plain SSE2 implementation
+  */
+@@ -136,9 +127,7 @@ static void raid6_sse21_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_sse2x1 = {
+ 	.gen_syndrome	= raid6_sse21_gen_syndrome,
+ 	.xor_syndrome	= raid6_sse21_xor_syndrome,
+-	.valid		= raid6_have_sse2,
+ 	.name		= "sse2x1",
+-	.priority	= 1,	/* Has cache hints */
+ };
+ 
+ /*
+@@ -266,9 +255,7 @@ static void raid6_sse22_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_sse2x2 = {
+ 	.gen_syndrome	= raid6_sse22_gen_syndrome,
+ 	.xor_syndrome	= raid6_sse22_xor_syndrome,
+-	.valid		= raid6_have_sse2,
+ 	.name		= "sse2x2",
+-	.priority	= 1,	/* Has cache hints */
+ };
+ 
+ #ifdef CONFIG_X86_64
+@@ -473,9 +460,7 @@ static void raid6_sse24_xor_syndrome(int disks, int start, int stop,
+ const struct raid6_calls raid6_sse2x4 = {
+ 	.gen_syndrome	= raid6_sse24_gen_syndrome,
+ 	.xor_syndrome	= raid6_sse24_xor_syndrome,
+-	.valid		= raid6_have_sse2,
+ 	.name		= "sse2x4",
+-	.priority	= 1,	/* Has cache hints */
+ };
+ 
+ #endif /* CONFIG_X86_64 */
+-- 
+2.53.0
+
 
