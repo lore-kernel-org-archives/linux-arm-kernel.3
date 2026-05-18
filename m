@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59FCCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB2CCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1HplpjPfZZKHeTWIfZorZgld9o4ERT5L3P6NfLt3+g=; b=qrLwMG4IUSxvHFihY7zY1W601B
-	jVabMgorqlqOODk5e4A0NZochviyk2FsmYeh6QECNKK33UsSoKhl/LAesSTVwLj1aKE5eAdmyIqws
-	BgkeJzscAf4N/pI+WNCjilxNeiAE6AKyJgcCNH3rG41FUY1JZ3Lm+KDh7++ReCGVDDnhAtPzzEN1w
-	ksYoI+qCEYWjnt9sUfzKzKq/qw0yBAoHtYdGb+x4Yu04h9gAxCZJGiEh58qNG4M5Lytw7MQES9TGt
-	0r3rKutP9xixDeHD+OjagI5A5duVZ1O0RKHzv/wer6JJgy/W/CmLTG8OLvAYSsANi8QxpH6sVaWxi
-	iGZ4q2Jg==;
+	bh=nzsDWOOYvpaUy8TXIH2yV7CTdJ93Ilwd3B4S+TiEyrU=; b=t3WTjA4MPvGsfQdym8gzPbP5ES
+	06pH7Mbidqb/YfWUzYetbrtbreAyPqE675LGkOHEdLLJq7V0P2q+c5QcIlNwOSsAKvuDnAUZ1h1Gh
+	D0BfVvLEmW0C6gCGbv4qw5rHxaEkbIjI1GayDc8Q4hj8nNdYXOcTt2GKE24/hksr42Rcvl3I2UTJA
+	2Kk0AVHObkkPXxyXX3c7R26yH/gOSDYk2sCGN2jtqgsQcsnMOvpwzMN/mHdfaz6UIVpeJlbLAA1dn
+	lDSb/CluPD4YVGlckoHQHMbRSkyaj0C+HpwEUB4J+ta3A8BJBWK80sVfu5ITUEIihqaMDWkVz1+P/
+	kNs/qedg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwGn-0000000FSWA-3851;
-	Mon, 18 May 2026 11:36:25 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1wOwJ1-0000000FSwj-1aQs;
+	Mon, 18 May 2026 11:38:43 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwGj-0000000FSUy-3p4b
+	id 1wOwIy-0000000FSw0-3cRe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 11:36:23 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 70DCF1F8004D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 11:36:19 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 85BBEB407F3; Mon, 18 May 2026 11:36:18 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id B159DB407E7;
-	Mon, 18 May 2026 11:36:17 +0000 (UTC)
-Date: Mon, 18 May 2026 13:36:15 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: linux-sunxi@lists.linux.dev, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add Shenzhen Baijie
- Technology Co., Ltd.
-Message-ID: <agr5r5ikeEzv6B1l@collins>
-References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
- <20260510201644.4143710-2-alexander.sverdlin@gmail.com>
+	Mon, 18 May 2026 11:38:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1779104318;
+	bh=nzsDWOOYvpaUy8TXIH2yV7CTdJ93Ilwd3B4S+TiEyrU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Z6pBIkpgVu7nBeQyqo8FXqPA4g6Igx7OajR/dadXsp6OogcgWVhRx4wZ28No1SQTd
+	 lRAHCuby8EYWtCq4wI11yf6rNXUpehbiilnIkoZvZzxJwRVh9ep5FcxMPRNBoPYzhU
+	 lGFNBMvANxjU9q+4x7RRYR5IDDStHPDlqYkQ1cuK45Mz4lXVvtLvbVhyTTXAVjlSTS
+	 Q/iFw7YKvgq4ZUJSTMMEOSR6sLLDEUiiSwVQUvuaJL5fOxeUGKc1oa5mfcCrSgPt/2
+	 Qx2T9cg7QA54QEL3Ot6JZHQJSzWgB7uxD6x8OpWrSLwQdLUVSCuPNRYwCgOOTOVz1H
+	 +sCDeIZXrjWBQ==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5B0D66024D;
+	Mon, 18 May 2026 19:38:38 +0800 (AWST)
+Message-ID: <26a62f67c2aa5fafb019b59893d374047d2f5e70.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v1 2/7] ARM: dts: aspeed: system1: Enable video engine
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Ninad Palsule <ninad@linux.ibm.com>, eajames@linux.ibm.com,
+ robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Cc: Manojkiran Eda <manojkiran.eda@gmail.com>
+Date: Mon, 18 May 2026 21:08:38 +0930
+In-Reply-To: <20260421224551.1611818-3-ninad@linux.ibm.com>
+References: <20260421224551.1611818-1-ninad@linux.ibm.com>
+	 <20260421224551.1611818-3-ninad@linux.ibm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="DPmCpSAJMKwxwRKn"
-Content-Disposition: inline
-In-Reply-To: <20260510201644.4143710-2-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_043622_109531_06372084 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260518_043841_093800_9017AB72 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,78 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---DPmCpSAJMKwxwRKn
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Le Sun 10 May 26, 22:16, Alexander Sverdlin a =C3=A9crit :
-> Shenzhen Baijie Technology Co., Ltd. focuses on R&D and production of
-> embedded products as well as customization of embedded solutions.
+On Tue, 2026-04-21 at 17:45 -0500, Ninad Palsule wrote:
+> From: Manojkiran Eda <manojkiran.eda@gmail.com>
 >=20
-> Link: https://szbaijie.com/
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> This patch enables the aspeed video engine support in ASPEED BMC for
+> IBM System1. It is crucial for facilitating the BMC's video capture
+> and redirection capabilities, which are integral to remote management
+> and KVM (Keyboard-Video-Mouse) over IP functionality.
 
-Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
+This is a real nitpick, but: The commit message seems a bit too
+grandiose for my tastes. Can you make it more succinct? Writing in
+imperative mood to avoid "this patch" is generally recommended too:
 
-All the best,
+https://docs.kernel.org/process/submitting-patches.html#describe-your-chang=
+es
 
-Paul
+Andrew
 
+>=20
+> Signed-off-by: Manojkiran Eda <manojkiran.eda@gmail.com>
+> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
 > ---
->  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 4 ++++
+> =C2=A01 file changed, 4 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
-umentation/devicetree/bindings/vendor-prefixes.yaml
-> index 28784d66ae7b..095cf654787f 100644
-> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-> @@ -229,6 +229,8 @@ patternProperties:
->      description: Azoteq (Pty) Ltd
->    "^azw,.*":
->      description: Shenzhen AZW Technology Co., Ltd.
-> +  "^baijie,.*":
-> +    description: Shenzhen Baijie Technology Co., Ltd.
->    "^baikal,.*":
->      description: BAIKAL ELECTRONICS, JSC
->    "^bananapi,.*":
-> --=20
-> 2.54.0
->=20
->=20
-
---=20
-Paul Kocialkowski,
-
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
-
-Expert in multimedia, graphics and embedded hardware support with Linux.
-
---DPmCpSAJMKwxwRKn
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoK+a8ACgkQhP3B6o/u
-lQw2kRAAgtcMljYZEZ7CkBCq//84iLqr97yZ/jVDrney1Lh0ZJCwI7h/0pA7Qya3
-xcb5EaLnms9wUCB7qwSoX4nEoYCAn95CsRNcC2cbxBaOZbNb+S11CtwP34+NKAiS
-4ZhO5aKo7AabLBCm1cuBpnCSFxloXh+vHIsOxTzYwen9FF876jn/wxR3HvQy4e5N
-r+VBBY5IxCnYbFWyLVZt5A1B4WEH0Fg1xPVyqHQgT21TyOpVy7C+QAA/ZSHfq8MX
-9n59oKIKOTePPCLGWxMWXamXAVXF03aVYmADw6/10yaWNmcQmMxafX7J2rXEMz6V
-Wj+/GXxhldtt8WiYpA0ym62qqjgXriLwP6O8sSjfJBMHTln6fHxXLYp1n8W2tYY4
-8TEOLC35gXiNSSSvOS1va5etgBNlscoEiFu/MN+NluBIIseSvRgdIdYKXOaKkKt9
-+OJ9gBnWsF2jNekXk9+2Q1gGn/W/Iq3Oz7wp1Qt30JXhNuhwwswEw0R68+1U4BE6
-XAsImQDjDtEqhtBJYo4uLBDrcdhjAIwvQWxMWgi8SPaOwRYda8rkxvmNBsZr94TV
-N6zivylUvp/9TkEQ0V2M8w73ijUB2PV+EGV9J3/J+lcpSms2UDE3w1qn1DHS7sza
-KWSByvWLnYd1VHbXiYwE8N8Y1UHIDEiAV6qifiIbMs3T1sJMbuw=
-=y2JF
------END PGP SIGNATURE-----
-
---DPmCpSAJMKwxwRKn--
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
+> b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
+> index 488d0b3916a1..0ca799893791 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
+> @@ -531,6 +531,10 @@ &lpc_snoop {
+> =C2=A0	snoop-ports =3D <0x80>, <0x81>;
+> =C2=A0};
+> =C2=A0
+> +&video {
+> +	status =3D "okay";
+> +};
+> +
+> =C2=A0&i2c0 {
+> =C2=A0	status =3D "okay";
+> =C2=A0
 
