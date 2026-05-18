@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5027CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24405CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 19:38:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2z4VxKDs/PdZygrKT0+7hbj3H+IMEjk3pxkj8X3h2NE=; b=HZTKbNzoQT5hvw3IScr2HxRxAE
-	Wd+zn9Idt5Csh4+4ESurA1451sJ6y+em0yKjfwvzW7yDrTBZybLTeUX6NfpBe2JXQKUy5MZl+ZaIu
-	Z/FmMQiVPYNZbMZP++eh6sZ3MTil/laexIp6HvNVCKnRr6yllWmRSIeCnuIviW9NVvKruyqu7VRQt
-	65SQlyD/znpdPkng2yTwCwXtnqWQNdij5jh3f/gGXsjAo9fOlORmXdvG+yiss41yw0uRAiHtEx9Dz
-	d75YzOyC28qodHIh61vRMdGEoBiCwnVFvk+6R40gfinwlzS1ZkGKB9LXZXtkoaKY90XMdEluNLs6Z
-	FLja/8zA==;
+	bh=pzma+IDa02TNdDXAZyn/iNzxfLzVJhTpHCwYXbJ3+Ac=; b=L5vVI0imjxrSi5zNOtDBhcQjth
+	TkwGtVY+sCa04n8kzKAzui+xqRn6f/+Tm4ypLs6sE0VDE7lYDvOB46BIj0JG1VguWSw7iHcHMzBuQ
+	xRT91bgG2CBEN+4WkcrUb9asfPhGF7URsBIeFQTNv6gPhxjimK4cbOX1yg7gTtVSEvgAib23j9x4A
+	7nUFZhMcUBJXJJ0AE3cYpMhTnY+vID31LIsGFYQEW3f+9p4HEsXtqUdFv9KAsxOR4bP/GUgSAvdRY
+	/Wfa000lNRnia0zKMIYfn2uZ7Es1A//b10FETVNJ/HE9uVvLtW3RadMbhuYKnLlZNoJoa94nBH5e9
+	jp/VBBFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3n2-0000000Ghpr-0sFd;
+	id 1wP3n2-0000000GhqD-1aeY;
 	Mon, 18 May 2026 19:38:12 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP3mw-0000000Ghmb-3XMj
+	id 1wP3mw-0000000Ghm1-2moq
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 18 May 2026 19:38:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1779133086; bh=2z4VxKDs/PdZygrKT0+7hbj3H+IMEjk3pxkj8X3h2NE=;
- b=ad8XU+PE+3MVu2S5bEr0pzGFwEfRTBZfILY4sp6nRD8Dw4QC66rMVYmqlJhGLs5jItuJvaOI1
- tMqgRaYvtVeE084JAphWQX4TBYJ6fOc4UPSSWQhSX/YeYU8jGsqlT3F/JqoS/JvTOzA0FDIz2Xp
- Kc2AvfRDjYpI/lJeAOzSd/8/yUqFXdC7g7PvDmOW4wBN2iJs3SuZmO2LnOCYYD/53sgYjS4DHEm
- teWO053jxd8AonHf8FPcB8nVYhjwOSdxZ6Xz15dACZwnS0P6m86hfZEIxzH8dkhr16qYm2Dc2mw
- XcfqTPOYZnrz4zcSwA0Ytr96ULskU2cN82fFUznblYcQ==
-X-Forward-Email-ID: 6a0b6a96486b4b38b826f9ba
+ t=1779133085; bh=pzma+IDa02TNdDXAZyn/iNzxfLzVJhTpHCwYXbJ3+Ac=;
+ b=foF8Gw4/kakkhSYI33IAk++ha4e9SNquvlDMGOJhgplsuEZ4/3mRV7eObm1SBVsxxpQs/meMO
+ foagEqlzHtxNN3ADVoEoXg4WtrpIOCBAg0NoIOQ6dPkNoPPkyUnoITU6YFi/4q1u0+WaFyI/XtL
+ mXu/EfDeB/Ei2JT/Mjm9jsDaVwx7do92c+yjpx6YQRWtYvl67kR8/KtB55htcoZ23V1AsGeStuI
+ 4Zudya9+amKRWdJe2a4fRf7FuQU9opdA/XkMmHR+pKF0pRQz06iF+KGE3KLNbaO4D7xc0DM5WmX
+ q8L094I/gqjNysWvWgDOsNPeWTkRtUIyEKdwqE3kfE8Q==
+X-Forward-Email-ID: 6a0b6a9a486b4b38b826f9d5
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
+ 121.127.44.73
 X-Forward-Email-Version: 2.8.12
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -58,17 +58,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v2 01/11] drm/rockchip: dw_hdmi: Use of_device_get_match_data() to get match data
-Date: Mon, 18 May 2026 19:37:35 +0000
-Message-ID: <20260518193748.2482823-2-jonas@kwiboo.se>
+Subject: [PATCH v2 02/11] drm/rockchip: dw_hdmi: Use local dev variable consistently in bind()
+Date: Mon, 18 May 2026 19:37:36 +0000
+Message-ID: <20260518193748.2482823-3-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260518193748.2482823-1-jonas@kwiboo.se>
 References: <20260518193748.2482823-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_123806_878528_E41FB230 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20260518_123806_803205_FC537E9E 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,51 +83,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Change to use of_device_get_match_data() to get match data prior to
-allocating private data. All current entries in the of_device_id match
-table provide match data, so no functional change is intended.
+Replace indirect struct device accesses via hdmi->dev and pdev->dev with
+the local dev parameter already available in dw_hdmi_rockchip_bind(),
+for consistency and readability.
 
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
 v2: No change
 ---
- drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 11 +++++++----
- 1 file changed, 7 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 11 +++++------
+ 1 file changed, 5 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-index 40df6d1be2bf..fd7cc1572a40 100644
+index fd7cc1572a40..0d5d60c315c6 100644
 --- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
 +++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
-@@ -536,8 +536,8 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
- {
- 	struct platform_device *pdev = to_platform_device(dev);
- 	struct device_node *np = dev_of_node(dev);
-+	const struct dw_hdmi_plat_data *drv_data;
- 	struct dw_hdmi_plat_data *plat_data;
--	const struct of_device_id *match;
- 	struct drm_device *drm = data;
- 	struct drm_encoder *encoder;
- 	struct rockchip_hdmi *hdmi;
-@@ -546,13 +546,16 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
- 	if (!np)
+@@ -550,16 +550,15 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 	if (!drv_data)
  		return -ENODEV;
  
-+	drv_data = of_device_get_match_data(dev);
-+	if (!drv_data)
-+		return -ENODEV;
-+
- 	hdmi = devm_kzalloc(&pdev->dev, sizeof(*hdmi), GFP_KERNEL);
+-	hdmi = devm_kzalloc(&pdev->dev, sizeof(*hdmi), GFP_KERNEL);
++	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
  	if (!hdmi)
  		return -ENOMEM;
  
--	match = of_match_node(dw_hdmi_rockchip_dt_ids, np);
--	plat_data = devm_kmemdup(&pdev->dev, match->data,
--					     sizeof(*plat_data), GFP_KERNEL);
-+	plat_data = devm_kmemdup(&pdev->dev, drv_data,
-+				 sizeof(*drv_data), GFP_KERNEL);
+-	plat_data = devm_kmemdup(&pdev->dev, drv_data,
+-				 sizeof(*drv_data), GFP_KERNEL);
++	plat_data = devm_kmemdup(dev, drv_data, sizeof(*drv_data), GFP_KERNEL);
  	if (!plat_data)
  		return -ENOMEM;
  
+-	hdmi->dev = &pdev->dev;
++	hdmi->dev = dev;
+ 	hdmi->plat_data = plat_data;
+ 	hdmi->chip_data = plat_data->phy_data;
+ 	plat_data->phy_data = hdmi;
+@@ -581,13 +580,13 @@ static int dw_hdmi_rockchip_bind(struct device *dev, struct device *master,
+ 
+ 	ret = rockchip_hdmi_parse_dt(hdmi);
+ 	if (ret) {
+-		return dev_err_probe(hdmi->dev, ret, "Unable to parse OF data\n");
++		return dev_err_probe(dev, ret, "Unable to parse OF data\n");
+ 	}
+ 
+ 	hdmi->phy = devm_phy_optional_get(dev, "hdmi");
+ 	if (IS_ERR(hdmi->phy)) {
+ 		ret = PTR_ERR(hdmi->phy);
+-		return dev_err_probe(hdmi->dev, ret, "failed to get phy\n");
++		return dev_err_probe(dev, ret, "failed to get phy\n");
+ 	}
+ 
+ 	index = of_property_match_string(np, "phy-names", "hdmi");
 -- 
 2.54.0
 
