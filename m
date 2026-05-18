@@ -4,53 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF55CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:35:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59FCCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmhddThTMK58L3PXC/18IOejJNGs2Tcz3Fy4kbWUIuc=; b=p35x0LwnZgquXqFXaOmzSvpOLu
-	v82xqK0bXwBQkXhmmRudEzAs9S2jJCropBgZmEZIlWQxIzXynMy6xtdjP0c+Njp/Gk/vQ0o9vDYhZ
-	tosLpFrvg9+JfuCFIcCmM7qbBZDn6kpTxMsf+U+1rLDdKDQlQEAIApyL4NUaqstqssUvoalTERi3c
-	2eK/ojHe+ssMbqwQkR3/Dk3IqOkqdaI+K8daP1iIYOFJbaF4z+ifmIPCIXEYW3KALy1XW2rc+ijhK
-	yr/2W0JjhGP0FA+ws9eVr/Y5E55IndDP3EdzIVn4O2ZUubTShKuf4SPNzGG+bw97+RDbXYbkTkfs8
-	6iZHoHMg==;
+	bh=Q1HplpjPfZZKHeTWIfZorZgld9o4ERT5L3P6NfLt3+g=; b=qrLwMG4IUSxvHFihY7zY1W601B
+	jVabMgorqlqOODk5e4A0NZochviyk2FsmYeh6QECNKK33UsSoKhl/LAesSTVwLj1aKE5eAdmyIqws
+	BgkeJzscAf4N/pI+WNCjilxNeiAE6AKyJgcCNH3rG41FUY1JZ3Lm+KDh7++ReCGVDDnhAtPzzEN1w
+	ksYoI+qCEYWjnt9sUfzKzKq/qw0yBAoHtYdGb+x4Yu04h9gAxCZJGiEh58qNG4M5Lytw7MQES9TGt
+	0r3rKutP9xixDeHD+OjagI5A5duVZ1O0RKHzv/wer6JJgy/W/CmLTG8OLvAYSsANi8QxpH6sVaWxi
+	iGZ4q2Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwFs-0000000FSFx-1yQ0;
-	Mon, 18 May 2026 11:35:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwFq-0000000FSF0-0Xw4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 11:35:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=UmhddThTMK58L3PXC/18IOejJNGs2Tcz3Fy4kbWUIuc=; b=hX4nWv1vM713LDoWQmfRuviKLq
-	y5Ygxhyisaja5VAqZN9VfmeigVn2GuQEaj5c2Enc62x3Gu+guHE3hWdMcnlAkjhnYBRgrboZy/03q
-	BOr4vlZwcagfEN5WWKCn6MK/hwrkw/SwgUNX2A2hPbn43aZyDARHiC4/9H2Rrh3EGptEq1eiuk/xM
-	R7bsKW6OR7Gzq6DxreJJ5upPMGjtet3QU7rA45scK3tD9k/x9IV49wV0Mgjcfng6Jj7OJznq5OlKe
-	DwKVnm8fWGlatLpfNgkqSeL4bbNbvOJIYQewpGb/Q+nqnH9d3STw4/+QiIqS9ytIRMG4YFAnU/Qn6
-	LLgX2u0w==;
+	id 1wOwGn-0000000FSWA-3851;
+	Mon, 18 May 2026 11:36:25 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwFl-0000000AxWd-2DNz
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOwGj-0000000FSUy-3p4b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 11:35:24 +0000
+	Mon, 18 May 2026 11:36:23 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 63F7B1F8004D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 11:35:19 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 70DCF1F8004D
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 11:36:19 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id F2A50B407F2; Mon, 18 May 2026 11:35:17 +0000 (UTC)
+	id 85BBEB407F3; Mon, 18 May 2026 11:36:18 +0000 (UTC)
 Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 9E03FB407ED;
-	Mon, 18 May 2026 11:35:16 +0000 (UTC)
-Date: Mon, 18 May 2026 13:35:14 +0200
+	by laika.paulk.fr (Postfix) with ESMTPSA id B159DB407E7;
+	Mon, 18 May 2026 11:36:17 +0000 (UTC)
+Date: Mon, 18 May 2026 13:36:15 +0200
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 Cc: linux-sunxi@lists.linux.dev, Rob Herring <robh@kernel.org>,
@@ -59,20 +44,21 @@ Cc: linux-sunxi@lists.linux.dev, Rob Herring <robh@kernel.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>,
 	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: arm: sunxi: Add Baijie HelperBoard
- A133 compatible
-Message-ID: <agr5cmgZ_fdv52Ni@collins>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add Shenzhen Baijie
+ Technology Co., Ltd.
+Message-ID: <agr5r5ikeEzv6B1l@collins>
 References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
- <20260510201644.4143710-3-alexander.sverdlin@gmail.com>
+ <20260510201644.4143710-2-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SGiZE73NjioLjzVe"
+	protocol="application/pgp-signature"; boundary="DPmCpSAJMKwxwRKn"
 Content-Disposition: inline
-In-Reply-To: <20260510201644.4143710-3-alexander.sverdlin@gmail.com>
+In-Reply-To: <20260510201644.4143710-2-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_123522_720967_B99A139F 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20260518_043622_109531_06372084 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,63 +74,45 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---SGiZE73NjioLjzVe
+--DPmCpSAJMKwxwRKn
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Hi Alexander,
+Hi,
 
 Le Sun 10 May 26, 22:16, Alexander Sverdlin a =C3=A9crit :
-> Baijie HelperBoard A133 is a development board around their A133 Core
-> board. Introduce a compatible for both the Core and the development
-> boards.
+> Shenzhen Baijie Technology Co., Ltd. focuses on R&D and production of
+> embedded products as well as customization of embedded solutions.
 >=20
+> Link: https://szbaijie.com/
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+
+Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
+
+All the best,
+
+Paul
+
 > ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 >=20
-> Changelog:
-> v2:
-> - introduced baijie,helper-a133-core compatible for the Core (SoM) board
->=20
->  Documentation/devicetree/bindings/arm/sunxi.yaml | 11 +++++++++++
->  1 file changed, 11 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documenta=
-tion/devicetree/bindings/arm/sunxi.yaml
-> index e6443c266fa1..d7b9dec81165 100644
-> --- a/Documentation/devicetree/bindings/arm/sunxi.yaml
-> +++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
-> @@ -96,6 +96,17 @@ properties:
->            - const: allwinner,ba10-tvbox
->            - const: allwinner,sun4i-a10
-> =20
-> +      - description: Baijie Helper A133
-
-Please use the correct naming from the vendor, which is: "Baijie
-A133 HelperBoard"
-
-> +        items:
-> +          - const: baijie,helper-a133
-
-Please make this: "baijie,helperboard-a133"
-
-> +          - const: baijie,helper-a133-core
-
-Please make this: "baijie,helperboard-a133-core"
-
-Thanks!
-
-> +          - const: allwinner,sun50i-a100
-> +
-> +      - description: HelperBoardA133 Core
-> +        items:
-> +          - const: baijie,helper-a133-core
-> +          - const: allwinner,sun50i-a100
-> +
->        - description: BananaPi
->          items:
->            - const: lemaker,bananapi
+> diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Doc=
+umentation/devicetree/bindings/vendor-prefixes.yaml
+> index 28784d66ae7b..095cf654787f 100644
+> --- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> +++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+> @@ -229,6 +229,8 @@ patternProperties:
+>      description: Azoteq (Pty) Ltd
+>    "^azw,.*":
+>      description: Shenzhen AZW Technology Co., Ltd.
+> +  "^baijie,.*":
+> +    description: Shenzhen Baijie Technology Co., Ltd.
+>    "^baikal,.*":
+>      description: BAIKAL ELECTRONICS, JSC
+>    "^bananapi,.*":
 > --=20
 > 2.54.0
 >=20
@@ -158,25 +126,25 @@ Free software developer - https://www.paulk.fr/
 
 Expert in multimedia, graphics and embedded hardware support with Linux.
 
---SGiZE73NjioLjzVe
+--DPmCpSAJMKwxwRKn
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoK+XIACgkQhP3B6o/u
-lQw2BA/+IHc8I9Er6XihIareQXTGKDeAAatpQfTX63S6GliuDvrCF4et5lAtdz9E
-EXw3F7ATLVdz+uJsHGMbk0TYQ43gUMmGp8A+pycB0owdwpDGoP3WqLU36AMsciPG
-AxFgqFg3uKB09ejkze0Jm8f8rdbb4tTxOcGO4NvqtAUneGWSRha+B+0YslU0Eyvi
-j+/XcUVKzYPwHsE+PkpHdxP5Aj1G1eQ1ccr7a2weSTBmokEEZM8udMc++lw+7H2P
-Go7dbJ3pMWHxlL8GSZOgPyofTsfc1pT7JR/j/ZOc1tkK3B1y81ZxxkrL57u8oxQK
-gekBvmVxHQCPK1jljy4oQKlbmieUrDdopY+qDCVlxkX/CnuagrE3Ntscg6i9ok9Q
-wSS/BsZt1sYls1EDl19DWIfwkELpbReZ3b0pr+dyopcR4Pgz9UBjcDXdAPxCcqhz
-a9CZUdoiw6ik1KY4c1mHYpFxMUe77/AsVNApUF3F/fy3sozZ0waW3TvDtIhdwpM7
-Mt+kc0mDywba/aSn269mf4/xzcqA2UeLr7Qy9ZFozqnJDyFhTl/SHHnAv9/boMB1
-Hv0S9UkVASAvE8d6ykrdb8kLEWDsqK2p/C6lkFfRECrc6lq0JN4cnywf2topi/JK
-fu+wzkv/K17deUo6JsbPCS54zn6t9arEzedTiJ19Qe1Y3f2ew1c=
-=KXWX
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoK+a8ACgkQhP3B6o/u
+lQw2kRAAgtcMljYZEZ7CkBCq//84iLqr97yZ/jVDrney1Lh0ZJCwI7h/0pA7Qya3
+xcb5EaLnms9wUCB7qwSoX4nEoYCAn95CsRNcC2cbxBaOZbNb+S11CtwP34+NKAiS
+4ZhO5aKo7AabLBCm1cuBpnCSFxloXh+vHIsOxTzYwen9FF876jn/wxR3HvQy4e5N
+r+VBBY5IxCnYbFWyLVZt5A1B4WEH0Fg1xPVyqHQgT21TyOpVy7C+QAA/ZSHfq8MX
+9n59oKIKOTePPCLGWxMWXamXAVXF03aVYmADw6/10yaWNmcQmMxafX7J2rXEMz6V
+Wj+/GXxhldtt8WiYpA0ym62qqjgXriLwP6O8sSjfJBMHTln6fHxXLYp1n8W2tYY4
+8TEOLC35gXiNSSSvOS1va5etgBNlscoEiFu/MN+NluBIIseSvRgdIdYKXOaKkKt9
++OJ9gBnWsF2jNekXk9+2Q1gGn/W/Iq3Oz7wp1Qt30JXhNuhwwswEw0R68+1U4BE6
+XAsImQDjDtEqhtBJYo4uLBDrcdhjAIwvQWxMWgi8SPaOwRYda8rkxvmNBsZr94TV
+N6zivylUvp/9TkEQ0V2M8w73ijUB2PV+EGV9J3/J+lcpSms2UDE3w1qn1DHS7sza
+KWSByvWLnYd1VHbXiYwE8N8Y1UHIDEiAV6qifiIbMs3T1sJMbuw=
+=y2JF
 -----END PGP SIGNATURE-----
 
---SGiZE73NjioLjzVe--
+--DPmCpSAJMKwxwRKn--
 
