@@ -4,108 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1F9CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B82C8CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNm0P/bZjFz50FHQ/dGvilOppAsbdM8goRfGTDaWVD0=; b=OKMNiSrgpNN/IxYKgtCRgNk8U4
-	sIldVCREe2WvhB0neDHGQc75XbgwJ6XVjeTljoEEC7JeHhr1i8qmIl0u6+EixvnIhum0W6sSS8/7O
-	rxDpwjGVGjysE+x5VLtTD36oxmmVB8mTBvs35UA1NxTQVF+wf0TbGCA3ikim30AdNL7XklThnruVO
-	XEUXkl+k63KbmFrDOiMnJv+Y6qrrfYarLqBGjvt+WAnOExz1N5w0R1ebGTMIy8oED3RyOxQqD67e3
-	PX2vYeEtOiRed2Uf929xasc8CuBy9O/X23tacRbFA3WDUvEoH1oZEK+jyqytjJ00mfOUkHN/YE01o
-	62xSihEw==;
+	bh=8d252bNXxfK7aWnUfmLYfK0MNvm91wjWgg9oavzJ3QE=; b=r3FdZjaQ9jETuZQARwztLKevhz
+	EqM1SLN1SwNtORn3synvHfNlwSrjReKJq4FQhLA/1KOocjSX8j3ULO+Q5Fbf5b+7CuzK9Thg2FZ0t
+	vdpWEDnZSczLgI37iUEgcjyoIMzjo0bjO/25uWcGZ9LVVaoaGzGXLbl7morCH4OYTaQpaE2MY8hVI
+	t6e7Zaj6t+lt/DE7GGS/nQK8nlObyFUAzJO5RszwjDUldo+Etqs7rrU3Wh/Q4oUk8KSrDuZZQ/a/S
+	Tcj5/eBG4QsEqnCKr2Jn2cJNi3Un1BOzlgb4FOczt+NfefKwBNChCGQqj9VdsyQhRuZ977TKbw7f7
+	Y6SRfa1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrw9-0000000EV0X-1ylR;
-	Mon, 18 May 2026 06:58:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrw7-0000000EV01-3wfE
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 06:58:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=BNm0P/bZjFz50FHQ/dGvilOppAsbdM8goRfGTDaWVD0=; b=OuY5kMyDQwlksOErMTMKwknvYy
-	78gJfXbzKyl9XO/9QRC8QRSEnUlhLy/mHoOry/0B6YSo2vdHcaxp4r79JHaj+wa+Z6vn+A0m8jU7r
-	EF5ZXZzRFZS7J6Y76Z4u/DBaFBngQPMPVvPZddwg93IaJ8aa2/9qWDuII3pZkflAAKySzpwLok6jS
-	DyB2+4SCBWW6yH8+6u1IqiH9gybN6zLCh/os0snHHt0AeCsTyEqR1deFboU6oMJi6Hdb5qb82+euQ
-	wMEw+wOUr50OyAuLUaV0uX+SW4phNXr8LNIbt5SGgCGeOLi7424REEK2ve1N3zVc8qDgVTus2samU
-	DTVFUI8Q==;
+	id 1wOrzR-0000000EVmL-20ir;
+	Mon, 18 May 2026 07:02:13 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrvs-0000000A5ur-0pwm
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOrzO-0000000EVlb-2hzb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 06:58:45 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64I5eHiD833037
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 06:58:28 GMT
+	Mon, 18 May 2026 07:02:11 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64I26Yjj1462932
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:02:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=BNm0P/bZjFz50FHQ/dGvilOp
-	pAsbdM8goRfGTDaWVD0=; b=g7nlHgDuv4DoaJItVPkAN7izhmqHDWExDMqkusZ6
-	+oqh5uRTL7mDem2MD6z7a+lpUc7KnCWU1x7EbVF3XUQZo0e5aZgNpSRF5n2peHub
-	YGj21uooHZSFUA68f9qCAJNq0zxM02N00XDO0c4b9Cd1GAvWjctESjGUDyKyrT8B
-	MtF9h1/E4icY74Oxv3sVTHy0iEXlAYZxbdOWZGWWsORuxuPr63tZM2EgJh0IcmWW
-	D3KkxmGOx3/Ux8ucDkuquwrYPzVLbAa4U47QljHwZYSybQ+a5bim3W4XmUrSh86o
-	p/VdVUhz/U58aThViaa8RY8wLN4x/I/Who8JTW/eLgAkKw==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e6hbcd17r-1
+	:references:subject:to; s=qcppdkim1; bh=8d252bNXxfK7aWnUfmLYfK0M
+	Nvm91wjWgg9oavzJ3QE=; b=U5rlg/xeJ12UN5reNjt6RouHjoASyq3cQd4O3j9Z
+	Rc7NuUs6N5saLAwrcf0uzV1B6cheRN4kv1w3nVEyADNyD+bwsz4cdndwXCGaYTZa
+	K0bxsV4vs+5KzijwehqCk6bI+rNgcvfd0Zaf0TX0zCfAsJaFOpz+CLCH/qJD8UhE
+	s8kGs7qFTkWqhe33Q9m1jayMs7W66JeOO0EeerWAQQRy4Z8MOWqMdUOWtgO4/d5v
+	tNDXnRPW3ITTN3DBVXIZakWe3EQBk9fRrabQTw1oiPBepl77Iczvd89p4TtApw/b
+	1TVCIMEckGzMjfNJXpQn4SV35Km0aDwtDkmki/AVZPUYwg==
+Received: from mail-vk1-f198.google.com (mail-vk1-f198.google.com [209.85.221.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e6h0g52pu-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 06:58:28 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-515224a8aa0so14697791cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 17 May 2026 23:58:28 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:02:09 +0000 (GMT)
+Received: by mail-vk1-f198.google.com with SMTP id 71dfb90a1353d-56f73835016so1104859e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 00:02:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779087507; x=1779692307; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1779087729; x=1779692529; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BNm0P/bZjFz50FHQ/dGvilOppAsbdM8goRfGTDaWVD0=;
-        b=h33MGET89wktqHPjj7OpMJ8Q0w6jBH9x5H7rAM8S3zuFZhqAjI9y14MGW02EChrVS7
-         TAiReDQhrfJmFEI0zmDlzPgCdGhyEXAHyDk4llG2mJDSmiZ57cRIpkiRg6PsGpdpfNE0
-         VZhADVhU7Db5jWfl9CT/N7hKesAmcGqkHqZ3zbSmnrIjj0ObFLDO0ZXB4kLQvjszB35V
-         500TSJsjNOHlHs4G0t04jRKlABEElrsiFWYs3mUl+i8bQStVzhvKUPLw3hT2DWMrsMq5
-         Oj+fDjxvle5cnU9CRIZFmWBQfMTPAID0jlWRUxGuvnZu5/wyvuBVfYYosGhMV5jVd6VD
-         r8Rg==
+        bh=8d252bNXxfK7aWnUfmLYfK0MNvm91wjWgg9oavzJ3QE=;
+        b=RKBWpbfSxyqMUNzlZps5fZWjpy86iQm/lKOc4FsEEsBwbWkcEKLujMiOlxJHqdT5xx
+         Wi8mhCY32dyyxsYVZDWxwjz2NdilECZZ01CJYzBjTlEIWBRMJjzn3seelN7ADRVnJjyh
+         SgesneTix2u88fB9BRLICqJxhu2/0MrIpoBFyAJmDrEoGq8EfxeUQ5ngRZAY8FvwhDMj
+         rhg/hCZ8hpxORMiSB13vB9Luqk1b0t3WCPu+40N1kS5I+I02DyiDtXQDlVJGEeKixJfo
+         ZVxlSK/763YoVzSZkFirmlGfcL6gkqweM4AAKxuLwY4FKyNOBxq/jjIL+VWNTHT/PB9k
+         TGcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779087507; x=1779692307;
+        d=1e100.net; s=20251104; t=1779087729; x=1779692529;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BNm0P/bZjFz50FHQ/dGvilOppAsbdM8goRfGTDaWVD0=;
-        b=q9k8MyaPKKasy7B1/iqDVRxMI0geCjXgzTsPGfQVkIKkl7QKSOfsrKsVip91MEkZRG
-         y0HdCgwIVxCpTf0yBE3C5ZDzTpvoCpABWjKlXfZjPN+mJf+dx0gisx/aGZ3l646LLgf9
-         q8AGqYrYwT6dTCzxQGcB4kQSUkfQtqaNfTS9FF/fbDWzK68/aMsLvkkTmF6J88SOMNSf
-         yLqPA6VcbNfhz8+QoInrB8MbHx9/aGkGo230GorM2bAIdGyDO2NILpHH0kvVDjAVQwRY
-         +++4dWxsUoXa5P6sPHvMIi2q4zTbRKnkrUD3zadea+QWA4d+AShEqUJPl5Ekyma/a4CC
-         X3nA==
-X-Forwarded-Encrypted: i=1; AFNElJ9NmVedQyXR+jhscQs4V8ccjR2paqFddabYcZXA5FA650zpE0moMfLOSwFXTZtDvh2FEjKX1nPDfnI73qLEnsoY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVnRRYhXkBJNl2O0WIZsaoXBTXGU2Gdz0tnA4ZlarKn2g/h4A4
-	XM2V6TBQo94O78N+YtwOr2V2rEp4vX8TRuA4eYFktv18kFvjPUe+ZCI4JQ+aJpcOm6pCzXCn6Fr
-	LnTJFnfzyk4Kr6qCDZQb08LnMk+LBBB67iWIipYozBJBT0SVOfyjmDOn9OCDbjuNZsbK2+QbDYB
-	8vlA==
-X-Gm-Gg: Acq92OGpvscP7ArcIKJVUfthJ85uTxIpbxujDWIC+PQlx8hinW6dciN1swIczRDjfKL
-	R04IRDkF2IJgEnncz7YW4tCwTJ+eMwz5r2BaqIbO0rOnA/dlxgEjJrWTYw7P2R5ol5q2TfYr36q
-	uZ2u9ET5Ewc05Z+5gpFLTc3UJW57z9xn08jZF5t2eQ21PtHQjqZNX3R8sysFN2j+Fnfk3Ja9eis
-	I1J/w6lucpCqb2XZ9fkyBw+hPg/yrWXTGKj5ziCAD5OqNKy9wK7JsK2343qywEeWKR4OPHx8QiN
-	nrYqDNkrQv/U0qrmNkQbSVZaosp9MMC+uF49YjWTIcaqITo03rjNAt3u8Yki64NtbJgV8nCgtmF
-	bfGPyautBVuoUJbr+E/tvdWPc96hZmwMpATM=
-X-Received: by 2002:ac8:7f8a:0:b0:50f:b732:202a with SMTP id d75a77b69052e-5165a04b49cmr191471141cf.27.1779087507092;
-        Sun, 17 May 2026 23:58:27 -0700 (PDT)
-X-Received: by 2002:ac8:7f8a:0:b0:50f:b732:202a with SMTP id d75a77b69052e-5165a04b49cmr191470791cf.27.1779087506469;
-        Sun, 17 May 2026 23:58:26 -0700 (PDT)
+        bh=8d252bNXxfK7aWnUfmLYfK0MNvm91wjWgg9oavzJ3QE=;
+        b=bFqYaeRjpyNmHnPInCC5JYEhAyxmJEWtcvdleGjYhP2PH3Pzqrf6x0yVln1UY1LWRX
+         AKbzFW1ojYCnAqRdTWWXHFXIHmLN+EHRCS/cXtrdUmbY/6qrwk/WToUPJbY89IAReHmI
+         LMWvHjpZqIvsNfhpg467DmAAN3M05LUQSC3AFpQV1ayYWSvmlZpt9c6GCGUP7f75WOp3
+         kPEJbopev7KVfXixWdfM68xjYxUKnoi0ZNEqbePg/fhfOL8LQq3FG60hnxDjDbjz4jU4
+         2c8VQo2/DFsXDms2V+ULv8M7MIwsto+yoARFaoiF3QswaVEhXMhUEl2HGoHBXQq51An9
+         mFRA==
+X-Forwarded-Encrypted: i=1; AFNElJ9EdfdukoQ+qn07NYyxTiIRa33wGbf9y0JBeK+673PGe4wCarhxdMEdCUvmEbQjsMtVx7wFR80ka8rsv6OvIMia@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMh640rdPNBF8DVq51mAWERxErAoK7G6M/+MyQJhTZp4DN3gBh
+	BCy46To70HUFIxrMkVuBxkSRUt/naaUt+k9U9S+e02364dFGk+Qw1Wemruay3xRgzOCNcsO/JRs
+	ffAyD58G3nJ61EuUvvnXHgLQlLQeMQqukwMuVF8bwO5er+pLfGvrUlCUQ+fiL8gzb1+GogkfKGA
+	yBsA==
+X-Gm-Gg: Acq92OE7e+mobAwburOdovy54xL6G2/QSHiQ1Auk0+AKgpBj09H/V1oFn3gvWKtBNKN
+	nZ/STgUSs7pmn3uGAvAEXe0iILBaTBNey4d+7CwH6leEfrc0QBH25E6CpTNILhFfRDnctakx2YP
+	4rPxXc2PQmxdo0OrAw9HnSa36tz0qjkspMKRtdWunR/jSumcSvrUW9jPAAX0xqp9RlKnfScWvwI
+	e6wsHCvUm9KF9zvlsNl+XYfWyoXCC4rXZkCNbd43/XnbBETxMf6TQ6tOl646N61Kfj0JtFQVFyk
+	7ngGahetFQt9ecIx4uv7wsCWrUi7vGR/WxBz5aXjvXeVwQhVpCcGXtu3DC8kdxUPO81ojabjEBm
+	a0FJfgQ8VKnhJYCEvigq+sfay0kAEFwY3Ths=
+X-Received: by 2002:a05:6122:4006:b0:56f:b2df:1791 with SMTP id 71dfb90a1353d-5760c043936mr6788623e0c.9.1779087728148;
+        Mon, 18 May 2026 00:02:08 -0700 (PDT)
+X-Received: by 2002:a05:6122:4006:b0:56f:b2df:1791 with SMTP id 71dfb90a1353d-5760c043936mr6788579e0c.9.1779087727532;
+        Mon, 18 May 2026 00:02:07 -0700 (PDT)
 Received: from oss.qualcomm.com ([188.24.162.19])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da15a6454sm35167840f8f.34.2026.05.17.23.58.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe78aadsm73144795e9.29.2026.05.18.00.02.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 17 May 2026 23:58:25 -0700 (PDT)
-Date: Mon, 18 May 2026 09:58:23 +0300
+        Mon, 18 May 2026 00:02:06 -0700 (PDT)
+Date: Mon, 18 May 2026 10:02:04 +0300
 From: Abel Vesa <abel.vesa@oss.qualcomm.com>
 To: Paul Geurts <paul.geurts@prodrive-technologies.com>
-Cc: "abelvesa@kernel.org" <abelvesa@kernel.org>,
+Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>,
+        Martijn de Gouw <martijn.de.gouw@prodrive-technologies.com>,
+        Saravana Kannan <saravanak@google.com>,
+        "abelvesa@kernel.org" <abelvesa@kernel.org>,
         "peng.fan@nxp.com" <peng.fan@nxp.com>,
         "mturquette@baylibre.com" <mturquette@baylibre.com>,
         "sboyd@kernel.org" <sboyd@kernel.org>,
@@ -117,44 +105,43 @@ Cc: "abelvesa@kernel.org" <abelvesa@kernel.org>,
         "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
         "imx@lists.linux.dev" <imx@lists.linux.dev>,
         "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        Martijn de Gouw <martijn.de.gouw@prodrive-technologies.com>
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH] clk: clk-imx8mm: Initialize clocks in arch_initcall
-Message-ID: <cr4z2qzawe3hlhcr4lvdf5zmlnt4cfbec7p7jhyiwgk7dkkwlp@3gu36sd3afoi>
-References: <20260408101313.2082125-1-paul.geurts@prodrive-technologies.com>
- <l5fcjw4okcpk3nl243xqn7y57nr2mjjspjdfl6m3pi6smx4phb@2qp722n22lyq>
- <GVXPR02MB109688D7C86DC2A63D8BA146FBD2C2@GVXPR02MB10968.eurprd02.prod.outlook.com>
+Message-ID: <ks5m7sfdhbtu3njyx7bj7drxng7qnncw4rbg7uhou5nddiubbh@b5e6k3pwdyox>
+References: <9f36af74-ef1a-4777-a1c3-ff13b68c2221@pengutronix.de>
+ <20260409091643.3787112-1-paul.geurts@prodrive-technologies.com>
+ <95e718b9-c281-4336-9c1e-3bf8aff68457@pengutronix.de>
+ <GVXPR02MB109689E26A9BAE94C2BAA34FDBD2C2@GVXPR02MB10968.eurprd02.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <GVXPR02MB109688D7C86DC2A63D8BA146FBD2C2@GVXPR02MB10968.eurprd02.prod.outlook.com>
-X-Authority-Analysis: v=2.4 cv=cuSrVV4i c=1 sm=1 tr=0 ts=6a0ab894 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=eYxG+yUyFZr/0hLq1CKHgQ==:17
+In-Reply-To: <GVXPR02MB109689E26A9BAE94C2BAA34FDBD2C2@GVXPR02MB10968.eurprd02.prod.outlook.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE4MDA2NiBTYWx0ZWRfXzKJ4XahTTXOX
+ jkbKSNRpRpZdU1wSGwazcT7TibKscnsHJbgCkeuEJ+lcbmLjwrvUPyW4FJy3oYDi3yGAlzruYmp
+ zHgLq2LR5zvbodTTeoe1DYAJGaFnX+Nc/obeeXsqbEsua3YrDScIektI+g8hskW823yL8oHJC1+
+ EKfTHLqQVuXUSFIbBque1OuwUCUyT8EdNTP0XpC4LXJssUDWVlyii9wb4fJt2sc7PBe1Mj5Z6o9
+ dfjyI7ot1ZGorvIwM4k9JyvH3B+pNdhnf6+msjF2lv8Ex9X+mx1urrd0Nes2Mti2LnbgjRICy5P
+ LhjLnlz2UuYJX+oBKiKX6y00TKcFhxHiO+HFmc67oQXFVjnzke+zeCQ2HxSezV+x2Zkpqr0M2P9
+ YWFisuWrRtsr4rR12VhwvwOPEdJD8DFWF215VcJS62XnsFQGDVK+iF93u1bBwgwyHzItszVQbO7
+ 7Jv5dBfC15M1/Vnqa6Q==
+X-Authority-Analysis: v=2.4 cv=W7gIkxWk c=1 sm=1 tr=0 ts=6a0ab971 cx=c_pps
+ a=1Os3MKEOqt8YzSjcPV0cFA==:117 a=eYxG+yUyFZr/0hLq1CKHgQ==:17
  a=kj9zAlcOel0A:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=926zIK9uAAAA:8 a=GegrNMS54E6FrsLxTi4A:9 a=CjuIK1q_8ugA:10
- a=a_PwQJl-kcHnX1M80qC6:22 a=LlT7wNnaD8DP1V76ktP_:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE4MDA2NSBTYWx0ZWRfXyAz9sa9cWzbS
- /ZfpNTNjwtGun2frz1OPzZvf+LV9oG/t05yVvcKRCVMWlUahL1o/It+gZ0Gmdn7QaMminYadMPb
- UUhruRu2t3ha/sxRkfPBRTcZ68p8LQmyduKrvjYla1P4IPVx0mqGj4d75A7RBxF/CvzvJOi5na/
- I7bwAPLgTyRAEAodZUZE6jXvTK/pvEG3A9+pqXF1iY5I/slM4t+RyDdySJwmk3zO5rkYF8CvIEh
- DnCtrQhsW2vovx24u/xphIIKIzMOTj1VSXKt8v1CGEPywV98Y79EBumtbxA5ZY+5mi3397taluH
- QX33yl/GDoKnZoi4xIdTC1gftrb87IbOBgGt6ZDHVobb08smPPvAJSo68FlsEZDjcJVt8WJOSQA
- OZmCppcPAtg8DSbCep14wJL/K238aA+li9pZxXAWG0pK4DSAwIZbBkrN9QLUHtk+1omJQq8wEg+
- uDVfgu5DDnCIdNsTrFA==
-X-Proofpoint-GUID: 5Egu20TmZ3L2XBsjFvf4ThcLYYZPEG_s
-X-Proofpoint-ORIG-GUID: 5Egu20TmZ3L2XBsjFvf4ThcLYYZPEG_s
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=eaySs-uAEo-cwj1-tAcA:9 a=CjuIK1q_8ugA:10 a=hhpmQAJR8DioWGSBphRh:22
+X-Proofpoint-GUID: C3V6ZCDuDr9oqb7jxWdZLcJR8_z9Mg64
+X-Proofpoint-ORIG-GUID: C3V6ZCDuDr9oqb7jxWdZLcJR8_z9Mg64
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-18_01,2026-05-15_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 malwarescore=0 impostorscore=0 bulkscore=0 adultscore=0
- spamscore=0 clxscore=1015 suspectscore=0 phishscore=0 lowpriorityscore=0
+ suspectscore=0 bulkscore=0 malwarescore=0 impostorscore=0 adultscore=0
+ phishscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605180065
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605180066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_075840_721061_FEDDB16D 
-X-CRM114-Status: GOOD (  31.76  )
+X-CRM114-CacheID: sfid-20260518_000210_690617_A36A36B7 
+X-CRM114-Status: GOOD (  42.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,53 +156,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26-04-21 11:14:27, Paul Geurts wrote:
-> > On 26-04-08 12:13:13, Paul Geurts wrote:
-> >> The i.MX8MM clock driver is implemented as module_platform_driver();,
-> >> which makes it initialize in device_initcall(). This means that all
-> >> drivers referencing the clock driver nodes in the device tree are
-> >> deferred by fw_devlink, which are most of the i.MX8M platform drivers.
+On 26-04-21 12:00:43, Paul Geurts wrote:
+> > Hello Paul,
+> > 
+> > Cc += Saravana
+> > 
+> > On 4/9/26 11:16 AM, Paul Geurts wrote:
+> >>> Hello Paul,
+> >>>
+> >>> On 4/8/26 12:13 PM, Paul Geurts wrote:
+> >>>> The i.MX8MM clock driver is implemented as module_platform_driver();,
+> >>>> which makes it initialize in device_initcall(). This means that all
+> >>>> drivers referencing the clock driver nodes in the device tree are
+> >>>> deferred by fw_devlink, which are most of the i.MX8M platform drivers.
+> >>>>
+> >>>> Explicitly initialize the clock driver in arch_initcall(), to make sure
+> >>>> the clock driver is ready when the rest of the drivers are probed.
+> >>>>
+> >>>> Fixes: af7e7ee0e428 ("clk: imx8mm: Switch to platform driver")
+> >>>
+> >>> Your commit message doesn't explain why this was a problem for you.
+> >>> Does it delay your boot? What makes this patch a fix?
 > >>
-> >> Explicitly initialize the clock driver in arch_initcall(), to make sure
-> >> the clock driver is ready when the rest of the drivers are probed.
-> >>
-> >> Fixes: af7e7ee0e428 ("clk: imx8mm: Switch to platform driver")
-> >> Signed-off-by: Paul Geurts <paul.geurts@prodrive-technologies.com>
+> >> Yes I could update that in the commit description. The problem is that because
+> >> of this, _all_ hardware is initialized in late_initcall, as that is where
+> >> deferred probes are handled.
 > > 
-> > Nack.
-> > 
-> > Nothing wrong with probe deferring. It is there to ensure the order
-> > the drivers probe in is correct.
-> > 
-> > Plus, moving it to arch_initcall won't solve anything.
-> I disagree, as it solves a _lot_ on my setup. But I think the next section
-> explains it better.
-
-Nope. If your setup has issues with the clock controller not probing
-early enough, then your setup isn't following the upstream model.
-
-Please describe exactly what are the issues with your setup. Maybe we
-can find a proper solution.
-
+> > There's no one initcall order that will make drivers across all systems
+> > equally happy. That's why there are probe deferrals in the first place.
+> 
+> I understand. But this order makes all i.MX systems equally unhappy :-P.
 > 
 > > 
-> > fw_devlink will not stop the driver from probing if there is no provider
-> > that this driver is waiting for. And if there is a provider that is
-> > needed by this clock controller, moving it to arch_initcall won't
-> > magically skip waiting for the provider anyway.
-> I think you have the issue backwards. There is no provider that is needed
-> by the clock controller. The clock controller is needed by everything else.
-> So the clock controller is not deferred. All other things are deferred because
-> of the clock controller.
+> >> For embedded devices, some sign of life is
+> >> expected by most people during boot. Especially when an initrd needs to be
+> >> unpacked, this sign of life is going to take a very long time.
+> > 
+> > Ok, so the problem is that the probes happen too late. Does the total
+> > boot time take considerably longer or are you just unhappy with the
+> > ordering?
 > 
-> I understand that probe deferring is not there for nothing. But I would also
-> argue that the initcall levels are also not there for nothing. IMO a chip
-> clock controller is an architecture driver, and belongs in arch_. Whether this
-> is the correct way to do it, or whether this driver should be able to be
-> compiled as a module is a separate discussion.
+> Both. It takes longer, and interfaces I would expect to be live "early" are very late.
+> 
+> > 
+> >> Some display
+> >> controllers don't even get enough time to show the boot logo because of this.
+> >> I don't think the idea behind the initcall levels is that _everything_ is
+> >> initialized in late.
+> > 
+> > I suspect we could improve the situation with "post-init-providers"
+> > hints, but I haven't used it myself so far.
+> > Maybe Saravana could give some advice once the problem is better understood?
+> 
+> I could look into this, thanks!
+> 
+> > 
+> >>> What happens if you build the driver as module with your changes applied?
+> >>
+> >> On module insertion, there is no initcall level, and initialization is
+> >> performed on insertion (AFAIK). Fact is that the system would probably
+> >> not boot when this is built as a module, as there are no peripheral clocks
+> >> without it.
+> > 
+> > Ok, then this is patch is not acceptable. What's buildable as module
+> > should work as module. I don't personally build it as module either, but
+> > removing the possibility will break users relying on it for Android GKI,
+> > I presume.
+> 
+> This patch doesn't change anything about whether the driver is usable as
+> a module. I think the original driver is already not useable as a module,
+> independent of this patch.
 
-By the looks of it, you are obviously confusing terms here. A clock
-controller is never an "architecture driver" and it definitely doesn't
-"belong in arch_". A clock controller is most of the time a platform
-driver. There is a big difference.
+What? Why is it not usable as a module?
 
