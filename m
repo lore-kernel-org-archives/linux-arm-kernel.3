@@ -4,91 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6487BCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 09:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACB6CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 09:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2vVr/uimRMBFX0B8JcUaRpBXgnD5hWkWFZBFhi1DO0=; b=oDxDN95Tx26hqboGcFtGfKC/qq
-	ReAbO/1sCClb6soHtuV9n7nLPYsKNQE8K/yt8fZ0yA0kkeqRK2Ah6Zisf6tUupzeF5P3LCI8Pt9Ln
-	cjU62N27/+GRKon1AXIOBfXoeetSKAjcULsFS3Gp4PQ6Jz1o2wj60LUCOp4oHriFuUWVfIhPN6qvM
-	ocpZ1aJ5ckm9j6Wwvwx+Ha8FAx9hkYCC9/fWqflYcZYz73+kbGnUtT9pumGj15pWQdLvaQVKDcs3n
-	X9YvzrdRtKcOfirDozALZxGXe8zFCLB89zEzkDsDZucqztf/1QeHTKeOLgREqaor77rDRaddAY+Wk
-	sn3cAGrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GrZBPSxLkW0AkrfTdodxkO9szE1nwqGlCG9zccC7o70=; b=GE6+/oe34vNYoYPz9aueJid/69
+	2AvJVm3YB8v8O6lg/UGueIzhds184TznxheSBcXMAhz1p/1OSpalGYHB+LjUyFfCpQEjNQdZyCHOc
+	puKD2c++AWw4T52/Eryv+8WkfwB6/Mw4UuP/+/aMUlNGFYPbJqSw0yDc9rcpOZf1mAi1IESYK49yP
+	l8ZiRg/l2G6xdJ2iaRJs9//BTN3kdMLL6MkfXdNl+gSZNGgzQ4R5W2K/mhZH4r1hXyW214vP8EJDq
+	GUza2JqZvJf3RM+Nbqgx9CfQhQysG+/7gmd7b6koGVWDXjiiroh+HatNb54cOPj5BBUumJ8yI0QRU
+	qWIP3tKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtqB-0000000EvMf-0kHn;
-	Mon, 18 May 2026 09:00:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOtr4-0000000EvZG-1bA6;
+	Mon, 18 May 2026 09:01:42 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtq9-0000000EvLy-45aB
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 09:00:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=H2vVr/uimRMBFX0B8JcUaRpBXgnD5hWkWFZBFhi1DO0=; b=Q7K4zRxdaXEL5JwPPQoxrrjXn5
-	LttZA0lO6XpvojwTUh2NK0CO0QN11dX3aUA2qD/NC+wFh9yM7baf8g7j+FcOI3B703p2fNFBt9/5Z
-	UW/aQQiEAjomp+eFYPVeJbQUYLeTbRKAo5/tL8riaazNtqjkVYElUw4pDfrWg79fdb3JOLT3TCXcp
-	3bCc3j1Y7i0rLu9xCCPdaXL1c0G55UAEEJ7kjKuJLTw8BqRKq13pMvznR3WnAGDSdkMvxy7XOuGnN
-	403HXDNOcsvrv5AfNJLlTwikikZHJUXob8xEN+2AGbC4tfD3pi5omKbVQTozKL6mBzxkWTrLfAF8U
-	OpxiI9ow==;
-Received: from mailgw.kylinos.cn ([124.126.103.232])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtq5-0000000AUIt-2NQI
+	id 1wOtqz-0000000EvXx-3EIM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 09:00:44 +0000
-X-UUID: 02384214529811f1aa26b74ffac11d73-20260518
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:7c304e6f-f36b-48ce-a03c-f6230c9c4b1d,IP:15,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:15
-X-CID-INFO: VERSION:1.3.12,REQID:7c304e6f-f36b-48ce-a03c-f6230c9c4b1d,IP:15,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:15
-X-CID-META: VersionHash:e7bac3a,CLOUDID:e5c072aeb588723cb41317fa48f4de54,BulkI
-	D:260515183906C6QDF1VJ,BulkQuantity:2,Recheck:0,SF:17|19|38|64|66|78|80|81
-	|82|83|102|127|841|865|898,TC:nil,Content:0|15|52,EDM:-3,IP:-2,URL:0,File:
-	nil,RT:nil,Bulk:40,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:
-	0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_FAS,TF_CID_SPAM_FSD,TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 02384214529811f1aa26b74ffac11d73-20260518
-X-User: tianyaxiong@kylinos.cn
-Received: from [192.168.12.149] [(116.128.244.171)] by mailgw.kylinos.cn
-	(envelope-from <tianyaxiong@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_128_GCM_SHA256 128/128)
-	with ESMTP id 1877425875; Mon, 18 May 2026 17:00:25 +0800
-Message-ID: <05839836-dd16-4476-9cf9-2e8dd3083fe1@kylinos.cn>
-Date: Mon, 18 May 2026 17:00:11 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/6] devfreq: Get and put module refcount when
- switching governor
-To: Jie Zhan <zhanjie9@hisilicon.com>, cwchoi00@gmail.com,
- cw00.choi@samsung.com, myungjoo.ham@samsung.com, kyungmin.park@samsung.com,
- linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: linuxarm@huawei.com, zhenglifeng1@huawei.com, zhangpengjie2@huawei.com,
- lihuisong@huawei.com, prime.zeng@hisilicon.com
-References: <20260513093832.1645890-1-zhanjie9@hisilicon.com>
- <20260513093832.1645890-6-zhanjie9@hisilicon.com>
- <d6e83d90-0c2a-40a7-a939-298c3b393602@kylinos.cn>
- <6f160e25-9903-4f49-8a95-1192b7acb96d@hisilicon.com>
- <66a14821-fd14-440e-b75f-98bc37eedba7@hisilicon.com>
+	Mon, 18 May 2026 09:01:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BAab+el9csfqsdDvQKJF3tCd0b+cDbAQO5gMB6tRsS/e1PYY1ORNXn/CwtgtjrlfQa6m3ey0DVH/LacUYG1DXOQO+Y122bcvB1Duvja6n1bgdTu5sG20ywwZ/BOCGnN6xs8JeleOzP+7MoZiHS/zFygfVZvWEN9PtWfIQ8Yjn1oSYvfevINpXf2TCWCppo3Y7Ev2OQzV6eC5OSzzq+nPTiEANwESEM27egBM2T5MzhKnhYzbUsEI7M+MV2NMYyi6GOq2zyqNzmcmuRWqZS7uJrNx3GnMY3P0kIbYJiOvmt32tvz5VuZ3qlB2qhfxn0+ckQa42FyXXr4kzK0pFUGtlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GrZBPSxLkW0AkrfTdodxkO9szE1nwqGlCG9zccC7o70=;
+ b=Lz9QmpIYNE3+gHyHjFsrF+7pR4fTapqT5WNB3EvFhgYuOpVvo7m5OW6Z1lwyhmz9x1ot4dCYqs5F5N41MIQzDigQND6oRfk1KRAUA8SHPj4Plur+thDDc06Wel45EB46wDVkMiw+xOGi58yMBmrPi4eOTHrD3KwmB2fPJoReQlqinsVAtrgjY5xhHlplssiR26qLRa7C00ug8xh0xyfq0GUQR7CR3i8BVqRxQolxCo0LmDLBwHnjXDrWRvAgM+Ch53sn3EzRpqG9Is3TSKw2hqCDfFCuLC6vdw/2MTpr6gCLpGpp5igJo5lNqry0U1lwc72Tk24ycLV3pLFT5lU7VA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GrZBPSxLkW0AkrfTdodxkO9szE1nwqGlCG9zccC7o70=;
+ b=oAbo//ol6/dmVz7Frygv+Fg6Ymms4lCKPCmyLXghkgtpvWYonBKcWDU2lL4RI9gOIxURHp+Jj7t19jHph9jhdm7eedbTUsWYcdgqW3oDgH91fHn01BH4dCA282AM41RMhzwLxHl4KsSBZOQFNUbLzKz9T4kyliiWqLYj/FPfNdE=
+Received: from DS4PR12MB9706.namprd12.prod.outlook.com (2603:10b6:8:277::8) by
+ SN7PR12MB6691.namprd12.prod.outlook.com (2603:10b6:806:271::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.25.23; Mon, 18 May 2026 09:01:32 +0000
+Received: from DS4PR12MB9706.namprd12.prod.outlook.com
+ ([fe80::5f2d:b44:e38d:63f3]) by DS4PR12MB9706.namprd12.prod.outlook.com
+ ([fe80::5f2d:b44:e38d:63f3%6]) with mapi id 15.21.0025.022; Mon, 18 May 2026
+ 09:01:31 +0000
+From: "Fu, Rex" <Rex.Fu@amd.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>
+CC: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] ARM: dts: aspeed: anacapa: name EDSFF and thermtrip SGPIO
+ lines
+Thread-Topic: [PATCH] ARM: dts: aspeed: anacapa: name EDSFF and thermtrip
+ SGPIO lines
+Thread-Index: AQHc2GSbPA7avnS0lkWo8IKZE58UxrYTc76AgAAkoDA=
+Date: Mon, 18 May 2026 09:01:30 +0000
+Message-ID: <DS4PR12MB9706E6033B3BD469A94062FB8F032@DS4PR12MB9706.namprd12.prod.outlook.com>
+References: <20260430-anacapa-sgpio-edsff-thermtrip-v1-1-2fd5e72435d0@amd.com>
+ <bae3a186da639118d88ad2632c5edf8963946dc1.camel@codeconstruct.com.au>
+In-Reply-To: <bae3a186da639118d88ad2632c5edf8963946dc1.camel@codeconstruct.com.au>
+Accept-Language: en-US
 Content-Language: en-US
-From: Yaxiong Tian <tianyaxiong@kylinos.cn>
-In-Reply-To: <66a14821-fd14-440e-b75f-98bc37eedba7@hisilicon.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-05-18T08:59:04.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
+ General
+ v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS4PR12MB9706:EE_|SN7PR12MB6691:EE_
+x-ms-office365-filtering-correlation-id: b97f803a-2af7-4e88-ee21-08deb4bc0db8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|56012099003|22082099003|18002099003|38070700021|4143699003|11063799003;
+x-microsoft-antispam-message-info: bKymhlcay4EQRNuASSDQyxykWAf3Zo1wyWwoPdjI+nz/zgAGUnXrkkbaqCdnE+kCnjZ59pfO5XZ0WIMvzXAHohet1zVFyC+Wjyx5QCBQonkcRdUQRZsfUpgcO3Xey0M/fa91LDY8ibLL3KIcLMZB5nMaHQSV7kmqdBY9DEDdkoMWLfaBHeNcI/H3660rB+K8ZHktZs57nav4ZZrKyIEIRsbLCyAt3u9HOXCaUug3kRU0FM4IibLrdhc/HMllYump7LWpzqywiMhoJn9rI9+5tzHika0BgHaBiun90sZD9y10Wn4S0nbmc6mwoI2lGQ9/tI6jVPNRkTuG0SyqV5lgBCcDVs2U/qJLRe/30jkYZRkNnKSs4lbByoEIh3bRnoPgRFyUtOuIeyu8ZyaVguBBfihmAraRy1gYopCJVYuXOpBPX1jd0sbEMNe0POnwFFi8HH/i730gDs+s3qkU5ErjHSg4KdhOT0g4/B3YeSCjma2KUvlHfUC90uSv57RzPK+FODsLNYAhEbp/1R6MAWXUfEWhGJJVb0+PFPez7ghTk23rU/VmZmX37DFzj7n6VkcLrb4XLBZJRBigc6q/Ifbx8dJyPR0GQflVRV4DClcooyDDl/9vyxUlk6sMKy724wUJfSb+LzAomhKTBNfVpWI7SbdNm7ij2Dp5xUNFUSNHMJSCjmWsBv2LGN6YlFOwLxnZHpLQTXKovwWNspiK2LVWUP76XEL/6SRwh0D+Jn6Iygn627zKoLdqPek/RBMeZkTh
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB9706.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(56012099003)(22082099003)(18002099003)(38070700021)(4143699003)(11063799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WWhsbnpOaHZzQUpTN1p5NjE3eUpkQndJaWJPSDYxZTRNUDNXbVBqWW1TdTdr?=
+ =?utf-8?B?cFRVT0dwQWRzRGlWcnY3NnFjaUxNODZsZVZMT0RHd2ZxQ2lnTHFBcm1Za0VV?=
+ =?utf-8?B?SlJYLzI5YzdSNTduOVpCc3FuRERlS09SMlF1VGtWWGNYRERtMGFCMHhvRTFY?=
+ =?utf-8?B?ck1BajRvbXVURlpQbkVHZ2o4eWc0Vm9kbXJEVWNNRGxOQ3duNlZpd1REWGp0?=
+ =?utf-8?B?bDNWZ1FvREdtRzJzOGlXQkllRml4Uis0ekgxMmJvd1JreWFPYWpnOVg4b3Js?=
+ =?utf-8?B?TXBGUG8rNnNRSUJLd3Rjcmt6VzRxMW1WQ3RjaFJuOTgyRW1IalVMNGx2SlQ3?=
+ =?utf-8?B?amJLVDQ1OVpmUHlpU0FDR1E2Mm1CUDBTV1pqMEFFVlRPTTNpV3lVYmphaHBz?=
+ =?utf-8?B?OGpNMUEvTng1dFRSbTh2NDRjWnBEZmdIUWJnWXplZnBHT1NSYzh4RFdZZ0dC?=
+ =?utf-8?B?MmYyVWl2SW11aWdiU3E4NzUzZWprcDNQNUVxemR1VzZWdVVveEhKbFFrZUZM?=
+ =?utf-8?B?RTVqVUZNaTZMZkxkTDdTZVkyTytDNVorLzgzcGVFTlFaSzZrTDRvUC95NTkr?=
+ =?utf-8?B?Vkl2eWFRbW9VNUY0WVg3V1lxb0VKVXhoVWtlSXlacmV1bm8wVlp3QUpqbm1R?=
+ =?utf-8?B?ZWxqd0RnV3FudHBqbWFhaEpTWURUVThYQkt0djVtTEk1K0dUT0JDRUZGUjVP?=
+ =?utf-8?B?MytoSEQzbjJnVjAxUUY5QzNPTndkQWRPWHNGeDhJTVRkS041NmxjRVJLejE1?=
+ =?utf-8?B?SGZMYmNPQm5CL0dqOHdzNnExQVZuNVIydFdkblU0T2xZcFNnUDg5RWxxVjhH?=
+ =?utf-8?B?WmZBSlJaYUpVQWZLZHEwSDdRU1JsbE5RMlJ5QVo2aytmNkhrWENkREJhUUJn?=
+ =?utf-8?B?eHBQVkNmK216S2ErUzEzTXZlaFpYcDU1UmMvczRxYmNLVlR6aVpPY2ZRWkF3?=
+ =?utf-8?B?VFdtN2w5K2tCWnFXYlFWb01WaEpjeS9jNlZ3OGxPYXJYTlhxdWtBVzlFL29U?=
+ =?utf-8?B?eTJKS3NKTGZPWTRQa3hoc1ZyU3RqSXF6dHFzait0SDM1RDFXQ2RVSFo4UU1l?=
+ =?utf-8?B?T1RYWUlRSk11UUtyRjhycFcrejY5bmpoQXdQQ0dleXI5RVE0RXhMbFlUVVJE?=
+ =?utf-8?B?ZTBUQUZjSmNpWjZXbzFtZ2hCUTFrMy9qUjJYQzAyZnl6NXdWOGtSa1ZhRXBC?=
+ =?utf-8?B?OWhYYzQ1TXg3eU1haG9VM2o1bEl4eDVyZXBEdGVsanFiMEY1cTNUSXUwd3V6?=
+ =?utf-8?B?UXRRYXZITWlVcGZwYVBMUzE0SUVBZDNpbHNUUWNUZGVTRVhzT05GV3Jid0N1?=
+ =?utf-8?B?TjNNdlpVT0YrVkJVc0RtTzNvM0IvWWEwbGJpN2YyTC92b0x2T2w4L24yNk9U?=
+ =?utf-8?B?Y1ZScHlaREhuZy9VMStiZVozTmNUWXlSNVhBWWRqeWt0N3pkYzlrZzd3cmpG?=
+ =?utf-8?B?UDB6ZkJKSWtURWlaeGlJTmJzblJ1QUlKOWdYVnZ5RXlDTGJvSndxNmwvYm1Z?=
+ =?utf-8?B?QklXV1NYdWZtOVh6UXNYSnVRcXNQaSs4Q1JGeUoxQnNlcFNFRkZvL0ZNUFdz?=
+ =?utf-8?B?VldESFlpUEpJSjVqSlplaVZHTk85U1FlQzYvL0dBcHMvSXIwVEk0N2JTNkNS?=
+ =?utf-8?B?Z1F2NTc5Wmo4TFVORVphRDExOEx6OVJLejRYTE9SNXY3VHhvRC9UZGhLbXI2?=
+ =?utf-8?B?a1d6dmdIcFFiaFp4WmJFb0s4WVRibXppbDI2cm01eXRGVGVZZVg2eGhDMG94?=
+ =?utf-8?B?TURwTFNYZEFlenVyTWhVLzIwaDROcU9ZdGFxVmdpVUJhbHRqSlNabkt2bXI4?=
+ =?utf-8?B?SU1ZKzcvbVhjNU9YSVZkdXVzbDRXYjljdXV6N1dZcVVibFdWWUlydlFCY3ZC?=
+ =?utf-8?B?ZllyZ25VeU9OVmF3UUNsSU1McDd4c0J4cElUeTBoQk41cFFmNUo4Q2FESmdy?=
+ =?utf-8?B?TkJJdlFab2xMNTlpOE5tdzFmbUR5anM0bVRhREYvSW9RNTV3SUZFbmZzYTRP?=
+ =?utf-8?B?VUJnOWZqbkVSYjNoc3JaMTB6REpWYmxiM2xRcTROS2NodU0zeCtVM0ZXSFU4?=
+ =?utf-8?B?SUg1N2NuZU8rYmhOL2ZVNTZxQ3ZBMkV1K0tCRE40aGFKSjYxdUhkYTUwQTV6?=
+ =?utf-8?B?eTI3VGkrQXhJbGNxcE5kOU02a3o4dzFmWXp0cGdPTGVRU1prRGkwNGNheS9q?=
+ =?utf-8?B?RWpZK09mN1BodXU0a082L2YvOE05Tyt2MHdwL1JONmJydU1rS2REdHc3eWl2?=
+ =?utf-8?Q?lzPtcRVMkmIf9dEkCb+vCgDZ1vC5WlyJPE1TVqOVB4=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB9706.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b97f803a-2af7-4e88-ee21-08deb4bc0db8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 May 2026 09:01:30.9993
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Iha46kBJIGgbK+WuB/tp6WKsuXalDCV0EAiwHVycLgUeYS03u29nWIMl1PYEgy2D
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6691
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_100042_635967_050FC510 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20260518_020137_850745_B84DB827 
+X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,110 +155,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-在 2026/5/18 16:39, Jie Zhan 写道:
->
-> On 5/15/2026 6:39 PM, Jie Zhan wrote:
->>
->> On 5/14/2026 2:50 PM, Yaxiong Tian wrote:
->>> 在 2026/5/13 17:38, Jie Zhan 写道:
->>>> A governor module can be dynamically inserted or removed if compiled as a
->>>> kernel module.  'devfreq->governor' would become NULL if the governor
->>>> module is removed when it's in use.
->>>>
->>>> To prevent the governor module from being removed (except for force
->>>> unload) when it's in use, get and put a refcount of the governor module
->>>> when starting and stopping the governor.
->>>>
->>>> As a result, unloading a governor module in use returns an error, e.g.:
->>>>     $ cat governor
->>>>     performance
->>>>     $ rmmod governor_performance
->>>>     rmmod: ERROR: Module governor_performance is in use
->>>>
->>>> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
->>>> ---
->>>>    drivers/devfreq/devfreq.c | 17 ++++++++++++++++-
->>>>    1 file changed, 16 insertions(+), 1 deletion(-)
->>>>
->>>> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
->>>> index e1363ab69173..2ea42325d030 100644
->>>> --- a/drivers/devfreq/devfreq.c
->>>> +++ b/drivers/devfreq/devfreq.c
->>>> @@ -345,24 +345,37 @@ static int devfreq_set_governor(struct devfreq *df,
->>>>                     __func__, df->governor->name, ret);
->>>>                return ret;
->>>>            }
->>>> +        module_put(old_gov->owner);
->>>>        }
->>>>          /* Start the new governor */
->>>> +    if (!try_module_get(new_gov->owner)) {
->>>> +        df->governor = NULL;
->>>> +        return -EINVAL;
->>>> +    }
->>>> +
->>> Here, new_gov has already been checked in try_then_request_governor() for whether the module can be obtained.
->>>
->>> I think it might be more reasonable to merge try_then_request_governor() and devfreq_set_governor(), so that when new_gov cannot be obtained, the operation of the old governor is not affected.
->>>
->> Well yeah, indeed! I'll take a look at how to implement this.
->> Thanks for the suggestion.
->>
->> Jie
-> Hi Yaxiong,
->
-> A follow-up after digging deeper.
->
-> 1. To be clear, the try_module_get() / module_put() pairs in
-> try_then_request_governor() and devfreq_set_governor() protect different
-> ranges.  Assuming no FORCE_UNLOAD, the former protects the governor module
-> from the time it's queried until it's set as the working governor, while
-> the latter protects when the governor is in use.
->
-> However, I realized the former protection is no longer needed since I
-> removed the governor list lock in v2.  devfreq_remove_governor() and the
-> 'request and set' governor sequence are already synchronized by
-> 'devfreq_list_lock'. Thus, patch 6 should be dropped.
->
-> 2. devfreq_add_device() needs error prints because it's a probe path.
-> governor_store() doesn't want error prints since it's not a good practice
-> to print on a sysfs read/write.  Merging the two functions will violate
-> either of them.
->
-> Thanks,
-> Jie
-Okay, please ignore my suggestion.
->>>>        df->governor = new_gov;
->>>>        ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
->>>>        if (ret) {
->>>>            dev_warn(dev, "%s: Governor %s not started(%d)\n",
->>>>                 __func__, df->governor->name, ret);
->>>> +        module_put(new_gov->owner);
->>>>              /* Restore previous governor */
->>>>            df->governor = old_gov;
->>>>            if (!df->governor)
->>>>                return ret;
->>>>    +        if (!try_module_get(old_gov->owner)) {
->>>> +            df->governor = NULL;
->>>> +            return -EINVAL;
->>>> +        }
->>>> +
->>>>            ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
->>>>            if (ret) {
->>>>                dev_err(dev, "%s: restore Governor %s failed (%d)\n",
->>>>                    __func__, df->governor->name, ret);
->>>> +            module_put(old_gov->owner);
->>>>                df->governor = NULL;
->>>>                return ret;
->>>>            }
->>>> @@ -1040,9 +1053,11 @@ int devfreq_remove_device(struct devfreq *devfreq)
->>>>          devfreq_cooling_unregister(devfreq->cdev);
->>>>    -    if (devfreq->governor)
->>>> +    if (devfreq->governor) {
->>>>            devfreq->governor->event_handler(devfreq,
->>>>                             DEVFREQ_GOV_STOP, NULL);
->>>> +        module_put(devfreq->governor->owner);
->>>> +    }
->>>>        device_unregister(&devfreq->dev);
->>>>          return 0;
+QU1EIEdlbmVyYWwNCg0KSGkgQW5kcmV3LA0KDQpUaGFua3MgZm9yIHRoZSByZXZpZXcuDQoNCkkg
+YWdyZWUgdGhhdCB0aGUgb3JpZ2luYWwgY29tbWl0IG1lc3NhZ2Ugd2FzIHRvbyB2YWd1ZSwgZXNw
+ZWNpYWxseSBzaW5jZSB0aGVzZSBHUElPIGxpbmUgbmFtZXMgYXJlIHZpc2libGUgdG8gdXNlcnNw
+YWNlLg0KDQpUaGVyZSBpcyBubyBuZXcgYm9hcmQgcmV2aXNpb24gb3IgdW5kZXJseWluZyBoYXJk
+d2FyZSBjaGFuZ2UgaW52b2x2ZWQuIFRoaXMgaXMgYSBuYW1pbmcgY29ycmVjdGlvbiBmb3IgdGhl
+IGV4aXN0aW5nIEFuYWNhcGEgaGFyZHdhcmUgZGVzaWduLg0KDQpJIHdpbGwgcmVtb3ZlIHRoZSAi
+bGVnYWN5IG9yIHVudXNlZCIgd29yZGluZy4gVGhlIHByZXZpb3VzIG5hbWVzIGRvIG5vdCBtYXRj
+aCB0aGUgYWN0dWFsIEFuYWNhcGEgdXNhZ2U6IHNvbWUgbGluZXMgd2VyZSBuYW1lZCBhcyBDUFUt
+cmVsYXRlZCBzaWduYWxzIGJ1dCBhcmUgdXNlZCBmb3IgRURTRkYgcG93ZXItZ29vZCBtb25pdG9y
+aW5nLCBhbmQgdGhlIHRoZXJtdHJpcCBsaW5lcyB1c2VkIHJhdyBhY3RpdmUtbG93IHNpZ25hbCBu
+YW1lcyB3aGlsZSB1c2Vyc3BhY2UgbW9uaXRvcnMgdGhlIGFzc2VydGVkIGNvbmRpdGlvbi4NCg0K
+Q2hhbmdpbmcgdGhlc2UgbmFtZXMgaXMgYXBwcm9wcmlhdGUgYmVjYXVzZSB0aGUgdXNlcnNwYWNl
+IG1vbml0b3JpbmcgY29uZmlndXJhdGlvbiBpcyBiYXNlZCBvbiB0aGUgcGxhdGZvcm0gc2lnbmFs
+IG5hbWVzLiBLZWVwaW5nIHRoZSBvbGQgbmFtZXMgd291bGQgbWFrZSB0aGUgRFRTIGluY29uc2lz
+dGVudCB3aXRoIHRoZSBoYXJkd2FyZSBkZXNpZ24gYW5kIHVzZXJzcGFjZSBjb25maWd1cmF0aW9u
+Lg0KDQpJIHdpbGwgc2VuZCBhIHYyIHdpdGggdGhlIGV4YWN0IG9sZC10by1uZXcgbWFwcGluZ3Mg
+YW5kIGEgbW9yZSBwcmVjaXNlIGV4cGxhbmF0aW9uIGluIHRoZSBjb21taXQgbWVzc2FnZS4NCg0K
+QmVzdCByZWdhcmRzLA0KUmV4IEZ1DQpCTUMgRW5naW5lZXIgIHwgIEFNRA0KRGF0YSBDZW50ZXIg
+UGxhdGZvcm0gRW5naW5lZXJpbmcgR3JvdXANCk8gKzg4NiAoMikgMjY1NS04ODg1DQotLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tDQozRiwgTm8uIDMtMiBZdWFucXUgU3RyZWV0LCBOYW5nYW5nIERpc3RyaWN0LCBU
+YWlwZWkgMTE1LCBUYWl3YW4NCkxpbmtlZEluICB8ICBJbnN0YWdyYW0gIHwgIFggIHwgIGFtZC5j
+b20NCg0KDQotLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KRnJvbTogQW5kcmV3IEplZmZlcnkg
+PGFuZHJld0Bjb2RlY29uc3RydWN0LmNvbS5hdT4NClNlbnQ6IE1vbmRheSwgTWF5IDE4LCAyMDI2
+IDI6NDggUE0NClRvOiBGdSwgUmV4IDxSZXguRnVAYW1kLmNvbT47IFJvYiBIZXJyaW5nIDxyb2Jo
+QGtlcm5lbC5vcmc+OyBLcnp5c3p0b2YgS296bG93c2tpIDxrcnprK2R0QGtlcm5lbC5vcmc+OyBD
+b25vciBEb29sZXkgPGNvbm9yK2R0QGtlcm5lbC5vcmc+OyBKb2VsIFN0YW5sZXkgPGpvZWxAam1z
+LmlkLmF1Pg0KQ2M6IGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnOyBsaW51eC1hcm0ta2VybmVs
+QGxpc3RzLmluZnJhZGVhZC5vcmc7IGxpbnV4LWFzcGVlZEBsaXN0cy5vemxhYnMub3JnOyBsaW51
+eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnDQpTdWJqZWN0OiBSZTogW1BBVENIXSBBUk06IGR0czog
+YXNwZWVkOiBhbmFjYXBhOiBuYW1lIEVEU0ZGIGFuZCB0aGVybXRyaXAgU0dQSU8gbGluZXMNCg0K
+W1lvdSBkb24ndCBvZnRlbiBnZXQgZW1haWwgZnJvbSBhbmRyZXdAY29kZWNvbnN0cnVjdC5jb20u
+YXUuIExlYXJuIHdoeSB0aGlzIGlzIGltcG9ydGFudCBhdCBodHRwczovL2FrYS5tcy9MZWFybkFi
+b3V0U2VuZGVySWRlbnRpZmljYXRpb24gXQ0KDQpDYXV0aW9uOiBUaGlzIG1lc3NhZ2Ugb3JpZ2lu
+YXRlZCBmcm9tIGFuIEV4dGVybmFsIFNvdXJjZS4gVXNlIHByb3BlciBjYXV0aW9uIHdoZW4gb3Bl
+bmluZyBhdHRhY2htZW50cywgY2xpY2tpbmcgbGlua3MsIG9yIHJlc3BvbmRpbmcuDQoNCg0KSGVs
+bG8gUmV4LA0KDQpPbiBUaHUsIDIwMjYtMDQtMzAgYXQgMTM6NDQgKzA4MDAsIFJleCBGdSB2aWEg
+QjQgUmVsYXkgd3JvdGU6DQo+IEZyb206IFJleCBGdSA8UmV4LkZ1QGFtZC5jb20+DQo+DQo+IE5h
+bWUgdGhlIEFuYWNhcGEgU0dQSU8gbGluZXMgdXNlZCBmb3IgRURTRkYgcG93ZXItZ29vZCBhbmQg
+dGhlcm10cmlwDQo+IGFzc2VydGlvbiBzaWduYWxzLg0KPg0KPiBUaGUgYWZmZWN0ZWQgbGluZXMg
+cmVwbGFjZSBsZWdhY3kNCj4NCg0KV2hpY2ggYXJlIGxlZ2FjeT8NCg0KPiAgb3IgdW51c2VkDQo+
+DQoNCldoaWNoIGFyZSB1bnVzZWQ/DQoNCj4gQ1BVLXJlbGF0ZWQgbmFtZXMgd2l0aCB0aGUNCj4g
+cGxhdGZvcm0gc2lnbmFsIG5hbWVzIHVzZWQgYnkgdXNlcnNwYWNlIG1vbml0b3JpbmcuDQoNClRo
+aXMgaXMgdGhlIGtpbmQgb2YgY2hhbmdlIHRoYXQgaGFzIHRoZSBwb3RlbnRpYWwgdG8gYnJlYWsg
+b2xkIHVzZXJzcGFjZS4gV2h5IGlzIGl0IGFwcHJvcHJpYXRlPyBJJ2QgbGlrZSBhIG1vcmUgcHJl
+Y2lzZSBkaXNjdXNzaW9uIGluIHRoZSBjb21taXQgbWVzc2FnZS4NCg0KV2FzIHRoZXJlIHNvbWUg
+b3RoZXIgdW5kZXJseWluZyBjaGFuZ2UgKGUuZy4gYSBuZXcgcmV2aXNpb24gb2YgdGhlIHBsYXRm
+b3JtIGRlc2lnbik/DQoNCkFuZHJldw0KDQo+DQo+IFNpZ25lZC1vZmYtYnk6IFJleCBGdSA8UmV4
+LkZ1QGFtZC5jb20+DQo+IC0tLQ0KPiAgYXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1i
+bWMtZmFjZWJvb2stYW5hY2FwYS5kdHMgfCAxMA0KPiArKysrKy0tLS0tDQo+ICAxIGZpbGUgY2hh
+bmdlZCwgNSBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQ0KPg0KPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stYW5hY2FwYS5kdHMN
+Cj4gYi9hcmNoL2FybS9ib290L2R0cy9hc3BlZWQvYXNwZWVkLWJtYy1mYWNlYm9vay1hbmFjYXBh
+LmR0cw0KPiBpbmRleCAyY2I3YmQxMjhkMjQuLmZlOTYwYmI3YmMyNyAxMDA2NDQNCj4gLS0tIGEv
+YXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stYW5hY2FwYS5kdHMN
+Cj4gKysrIGIvYXJjaC9hcm0vYm9vdC9kdHMvYXNwZWVkL2FzcGVlZC1ibWMtZmFjZWJvb2stYW5h
+Y2FwYS5kdHMNCj4gQEAgLTkxMiw3ICs5MTIsNyBAQCAmc2dwaW9tMCB7DQo+ICAgICAgICJQV1JH
+RF9QVkRESU9fUDAiLCAiIiwNCj4gICAgICAgIlBXUkdEX1BWRERJT19NRU1fUzNfUDAiLCAiIiwN
+Cj4gICAgICAgIlBXUkdEX0NITVBfQ1BVMF9GUEdBIiwgIiIsDQo+IC0gICAgICJQV1JHRF9DSElM
+X0NQVTBfRlBHQSIsICIiLA0KPiArICAgICAiSFBNX0VEU0ZGX1BHIiwgIiIsDQo+ICAgICAgICJQ
+V1JHRF9DSEVIX0NQVTBfRlBHQSIsICIiLA0KPiAgICAgICAiUFdSR0RfQ0hBRF9DUFUwX0ZQR0Ei
+LCAiRk1fQk1DX1JFQURZX1BMRCIsDQo+ICAgICAgICIiLCAiIiwNCj4gQEAgLTk1Nyw4ICs5NTcs
+OCBAQCAmc2dwaW9tMCB7DQo+ICAgICAgICJQREJfQUxFUlRfUl9OIiwgIiIsDQo+DQo+ICAgICAg
+IC8qIEwwLUw3IGxpbmUgMTc2LTE5MSAqLw0KPiAtICAgICAiQ1BVMF9TUDdSMSIsICIiLCAiQ1BV
+MF9TUDdSMiIsICIiLA0KPiAtICAgICAiQ1BVMF9TUDdSMyIsICIiLCAiQ1BVMF9TUDdSNCIsICIi
+LA0KPiArICAgICAiTF9FRFNGRjJfUEciLCAiIiwgIkxfRURTRkYzX1BHIiwgIiIsDQo+ICsgICAg
+ICJSX0VEU0ZGMl9QRyIsICIiLCAiUl9FRFNGRjNfUEciLCAiIiwNCj4gICAgICAgIkNQVTBfQ09S
+RVRZUEUwIiwgIiIsICJDUFUwX0NPUkVUWVBFMSIsICIiLA0KPiAgICAgICAiQ1BVMF9DT1JFVFlQ
+RTIiLCAiIiwgIkZNX0JJT1NfUE9TVF9DTVBMVF9SX04iLCAiIiwNCj4NCj4gQEAgLTk4NCw4ICs5
+ODQsOCBAQCAmc2dwaW9tMCB7DQo+ICAgICAgICJIUE1fUFdSX0ZBSUwiLCAiUG9ydDgwX2IwIiwN
+Cj4gICAgICAgIkZNX0RJTU1fSVBfRkFJTCIsICJQb3J0ODBfYjEiLA0KPiAgICAgICAiRk1fRElN
+TV9BSF9GQUlMIiwgIlBvcnQ4MF9iMiIsDQo+IC0gICAgICJIUE1fQU1DX1RIRVJNVFJJUF9SX0wi
+LCAiUG9ydDgwX2IzIiwNCj4gLSAgICAgIkZNX0NQVTBfVEhFUk1UUklQX04iLCAiUG9ydDgwX2I0
+IiwNCj4gKyAgICAgIkFNQ19USEVSTVRSSVBfQVNTRVJUIiwgIlBvcnQ4MF9iMyIsDQo+ICsgICAg
+ICJDUFVfVEhFUk1UUklQX0FTU0VSVCIsICJQb3J0ODBfYjQiLA0KPiAgICAgICAiUFZERENSX1NP
+Q19QMF9PQ1BfTCIsICJQb3J0ODBfYjUiLA0KPiAgICAgICAiQ1BMRF9TR1BJT19SRFkiLCAiUG9y
+dDgwX2I2IiwNCj4gICAgICAgIiIsICJQb3J0ODBfYjciLA0KPg0KPiAtLS0NCj4gYmFzZS1jb21t
+aXQ6IDk5NzQ5NjljMTQwMzFhMDk3ZDZiNDViY2I3YTA2YmI0YWE1MjVjNDANCj4gY2hhbmdlLWlk
+OiAyMDI2MDQzMC1hbmFjYXBhLXNncGlvLWVkc2ZmLXRoZXJtdHJpcC1hY2IyMjhiZjYxYmUNCj4N
+Cj4gQmVzdCByZWdhcmRzLA0KPiAtLQ0KPiBSZXggRnUgPFJleC5GdUBhbWQuY29tPg0KPg0K
 
