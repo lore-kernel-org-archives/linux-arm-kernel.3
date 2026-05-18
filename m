@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F0FCD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B01CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mwugSUphOBqMOoaO8ATtkF6S0udnP96DFpv0rANrIU=; b=cb1XGgCplibzfQU9NxCYkFCLrL
-	hdXKWPkSBqV11cg5K5RbUN72zUJAAM/31QSCV5UHuF7d7/OieeTX6VaT7dPK0OiQ+anPnV8DhGQb5
-	F5c3+9vZKFBqdKTa3R1abC/FACgCY4CNYXiPHOFJF8N9WmeJ1tFGmTUPFaAgI5uigsvcipk/gzrYp
-	jkzS6Pa3WngJgsIyVhJjmWvPHtfcuS1i0V+B0vJ8EwFbAY++5iXlcarBFoyAW3wEffDXNm/jawFBx
-	tHXJwa5YrPwnEaHtTwSsAp01CvJHgT6kmSYFrJvhVELIODIUE3Zr1QPBAUBiUGdkTmcpWYHgAJuhV
-	wUs1NMjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qg52IZakrDwa+7/YtZM2VQOBVW4gzCDrQLRgDaIE4Fk=; b=3AEUy++EawkBccVK0QTRoevYuB
+	OiDCGNJCT3KczWfyKrjSTXJL5z1vIDhdxvnSGAteG49x2VcBJr+DVGYGonNQr98v2XjxqxxhjCpa4
+	Agtp3UmLfKLd1TgGaOCbt/mrWza5tfHEY+DdFlYDJxs27SELcMGd4ZJMRPNA4ZKLU7BdTqDDccWXV
+	XDdVutTKzXJN57tXCfkNLpVNlW3pcHhgp9FJxfhw97WsONzCtn9NaZgdyrW3G4dEzWIjV3fpFXP5w
+	5mfJOybk87VZylp//nVgP02PCG4sYQVbVokcZNakUcjEksc2VP5yI/DQ8G54lX6N2fO4uJg5gI4T+
+	vkToQxLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvGi-0000000FFSc-0REk;
-	Mon, 18 May 2026 10:32:16 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1wOvH2-0000000FFas-0ti3;
+	Mon, 18 May 2026 10:32:36 +0000
+Received: from jpms-ob02-os7.noc.sony.co.jp ([211.125.139.72])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvGe-0000000FFQL-1TkE
+	id 1wOvGx-0000000FFZ2-32wS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:32:15 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 4B0461F8004A
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:32:10 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id B8695B4082A; Mon, 18 May 2026 10:32:09 +0000 (UTC)
-Received: from collins (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id B68C1B407FD;
-	Mon, 18 May 2026 10:25:01 +0000 (UTC)
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-media@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-staging@lists.linux.dev
-Cc: Paul Kocialkowski <paulk@sys-base.io>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arash Golgol <arash.golgol@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: [PATCH 14/16] media: sun6i-isp: Use V4L2 subdev active state
-Date: Mon, 18 May 2026 12:24:49 +0200
-Message-ID: <20260518102451.417971-15-paulk@sys-base.io>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260518102451.417971-1-paulk@sys-base.io>
-References: <20260518102451.417971-1-paulk@sys-base.io>
+	Mon, 18 May 2026 10:32:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=sony.com; s=s1jp; t=1779100352; x=1810636352;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Qg52IZakrDwa+7/YtZM2VQOBVW4gzCDrQLRgDaIE4Fk=;
+  b=tkMcCKfLCOPFfwCegoVuQvfSutKGk3R2h7TriPJ9p/C0Ce25d2p3768l
+   w7c32iPAsv1FU2qKWpNfBmMQtTl/XssIBokK8hyMWvV64PSfwS6x5q0KF
+   liHfWUQgRK79OhJQehM8ss8/W6EUcIiNg5hpxiKuwI131wSFvJl5R1bxI
+   ns+Fbr22f162hEfBOLb0uqxUQNyh8/QAjNMfZDl8eXXmwxDl50D27qFEm
+   q3gvOh8sprSfqRCpdgEKAYTtKYxQDNDXJVWm46FG/IzRDsmsysSbqQt6D
+   nyrWNIO8sV5pssSd3dsND8j3JXulk8mr4RjrQ+yu6MInOCH60/kGevCIH
+   w==;
+X-CSE-ConnectionGUID: YXQRt+Q0TlyzhNQV8ujJkQ==
+X-CSE-MsgGUID: lKj07yj0TSGeLnAKbp0QaA==
+Received: from unknown (HELO jpmta-ob01-os7.noc.sony.co.jp) ([IPv6:2001:cf8:acf:1104::6])
+  by jpms-ob02-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:32:30 +0900
+X-CSE-ConnectionGUID: LE5Xik2fR8SdQOdHHPC7kA==
+X-CSE-MsgGUID: tneGe+ukRCC0giD8+owyPg==
+X-IronPort-AV: E=Sophos;i="6.23,241,1770562800"; 
+   d="scan'208";a="66945202"
+Received: from unknown (HELO JPC00244420) ([IPv6:2001:cf8:1:573:0:dddd:6b3e:119e])
+  by jpmta-ob01-os7.noc.sony.co.jp with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:32:29 +0900
+Date: Mon, 18 May 2026 19:32:28 +0900
+From: Shashank Balaji <shashank.mahadasyam@sony.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Rahul Bukte <rahul.bukte@sony.com>, linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, Daniel Palmer <daniel.palmer@sony.com>,
+	Tim Bird <tim.bird@sony.com>, linux-modules@vger.kernel.org,
+	linux-tegra@vger.kernel.org, Sumit Gupta <sumitg@nvidia.com>
+Subject: Re: [PATCH v5 4/4] driver core: platform: set mod_name in driver
+ registration
+Message-ID: <agrqvIiNWrYtGvTk@JPC00244420>
+References: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
+ <20260518-acpi_mod_name-v5-4-705ccc430885@sony.com>
+ <2026051827-curler-disjoin-c83f@gregkh>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2026051827-curler-disjoin-c83f@gregkh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_033213_144342_CD01AA4A 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20260518_033232_034404_EBE675AB 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,382 +105,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Store the active format using the common V4L2 subdev active state
-instead of our local copy of it.
+On Mon, May 18, 2026 at 12:27:13PM +0200, Greg Kroah-Hartman wrote:
+> On Mon, May 18, 2026 at 07:20:00PM +0900, Shashank Balaji wrote:
+> > Pass KBUILD_MODNAME through the driver registration macro so that
+> > the driver core can create the module symlink in sysfs for built-in
+> > drivers, and fixup all callers.
+> > 
+> > The Rust platform adapter is updated to pass the module name through to the new
+> > parameter.
+> > 
+> > Tested on qemu with:
+> > - x86 defconfig + CONFIG_RUST
+> > - arm64 defconfig + CONFIG_RUST + CONFIG_CORESIGHT stuff
+> > 
+> > Examples after this patch:
+> > 
+> >     /sys/bus/platform/drivers/...
+> >         coresight-itnoc/module		-> coresight_tnoc
+> >         coresight-static-tpdm/module	-> coresight_tpdm
+> >         coresight-catu-platform/module	-> coresight_catu
+> >         serial8250/module		-> 8250
+> >         acpi-ged/module			-> acpi
+> >         vmclock/module			-> ptp_vmclock
+> > 
+> > Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
+> > Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
+> > Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
+> > ---
+> > This patch depends on patches 1, 2, 3
+> > ---
+> >  Documentation/driver-api/driver-model/platform.rst |  3 ++-
+> >  drivers/base/platform.c                            | 21 ++++++++++++++-------
+> >  drivers/hwtracing/coresight/coresight-core.c       |  5 +++--
+> >  include/linux/coresight.h                          |  5 +++--
+> >  include/linux/platform_device.h                    | 17 +++++++++--------
+> >  rust/kernel/platform.rs                            |  4 +++-
+> >  6 files changed, 34 insertions(+), 21 deletions(-)
+> > 
+> > diff --git a/Documentation/driver-api/driver-model/platform.rst b/Documentation/driver-api/driver-model/platform.rst
+> > index cf5ff48d3115..9673470bded2 100644
+> > --- a/Documentation/driver-api/driver-model/platform.rst
+> > +++ b/Documentation/driver-api/driver-model/platform.rst
+> > @@ -70,7 +70,8 @@ Kernel modules can be composed of several platform drivers. The platform core
+> >  provides helpers to register and unregister an array of drivers::
+> >  
+> >  	int __platform_register_drivers(struct platform_driver * const *drivers,
+> > -				      unsigned int count, struct module *owner);
+> > +				      unsigned int count, struct module *owner,
+> > +				      const char *mod_name);
+> 
+> Why can't you just use the owner->name value instead?  They are always
+> the same here, right?
 
-Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
----
- .../media/sunxi/sun6i-isp/sun6i_isp_capture.c |  16 ++-
- .../media/sunxi/sun6i-isp/sun6i_isp_params.c  |  18 ++-
- .../media/sunxi/sun6i-isp/sun6i_isp_params.h  |   4 +-
- .../media/sunxi/sun6i-isp/sun6i_isp_proc.c    | 117 ++++++++----------
- .../media/sunxi/sun6i-isp/sun6i_isp_proc.h    |   7 --
- 5 files changed, 82 insertions(+), 80 deletions(-)
-
-diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-index e7b99cee63d6..24e731bcabe9 100644
---- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-+++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-@@ -595,11 +595,25 @@ static int sun6i_isp_capture_link_validate(struct media_link *link)
- 		media_entity_to_video_device(link->sink->entity);
- 	struct sun6i_isp_device *isp_dev = video_get_drvdata(video_dev);
- 	struct v4l2_device *v4l2_dev = &isp_dev->v4l2.v4l2_dev;
-+	struct v4l2_subdev *proc_subdev =
-+		media_entity_to_v4l2_subdev(link->source->entity);
- 	unsigned int capture_width, capture_height;
- 	unsigned int proc_width, proc_height;
-+	struct v4l2_subdev_format proc_subdev_format = {
-+		.which	= V4L2_SUBDEV_FORMAT_ACTIVE,
-+		.pad	= link->source->index,
-+	};
-+	int ret;
- 
- 	sun6i_isp_capture_dimensions(isp_dev, &capture_width, &capture_height);
--	sun6i_isp_proc_dimensions(isp_dev, &proc_width, &proc_height);
-+
-+	ret = v4l2_subdev_call(proc_subdev, pad, get_fmt, NULL,
-+			       &proc_subdev_format);
-+	if (ret)
-+		return ret;
-+
-+	proc_width = proc_subdev_format.format.width;
-+	proc_height = proc_subdev_format.format.height;
- 
- 	/* No cropping/scaling is supported (yet). */
- 	if (capture_width != proc_width || capture_height != proc_height) {
-diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-index b7ef33fa2b13..0cc48e2bc8c6 100644
---- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-+++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-@@ -43,11 +43,14 @@ static const struct sun6i_isp_params_config sun6i_isp_params_config_default = {
- 	},
- };
- 
--static void sun6i_isp_params_configure_ob(struct sun6i_isp_device *isp_dev)
-+static void
-+sun6i_isp_params_configure_ob(struct sun6i_isp_device *isp_dev,
-+			      const struct v4l2_mbus_framefmt *mbus_format)
- {
- 	unsigned int width, height;
- 
--	sun6i_isp_proc_dimensions(isp_dev, &width, &height);
-+	width = mbus_format->width;
-+	height = mbus_format->height;
- 
- 	sun6i_isp_load_write(isp_dev, SUN6I_ISP_OB_SIZE_REG,
- 			     SUN6I_ISP_OB_SIZE_WIDTH(width) |
-@@ -112,10 +115,12 @@ static void sun6i_isp_params_configure_wb(struct sun6i_isp_device *isp_dev)
- 			     SUN6I_ISP_WB_CFG_CLIP(0xfff));
- }
- 
--static void sun6i_isp_params_configure_base(struct sun6i_isp_device *isp_dev)
-+static void
-+sun6i_isp_params_configure_base(struct sun6i_isp_device *isp_dev,
-+				const struct v4l2_mbus_framefmt *mbus_format)
- {
- 	sun6i_isp_params_configure_ae(isp_dev);
--	sun6i_isp_params_configure_ob(isp_dev);
-+	sun6i_isp_params_configure_ob(isp_dev, mbus_format);
- 	sun6i_isp_params_configure_wb(isp_dev);
- }
- 
-@@ -170,14 +175,15 @@ sun6i_isp_params_configure_modules(struct sun6i_isp_device *isp_dev,
- 	sun6i_isp_load_write(isp_dev, SUN6I_ISP_MODULE_EN_REG, value);
- }
- 
--void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev)
-+void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev,
-+				const struct v4l2_mbus_framefmt *mbus_format)
- {
- 	struct sun6i_isp_params_state *state = &isp_dev->params.state;
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&state->lock, flags);
- 
--	sun6i_isp_params_configure_base(isp_dev);
-+	sun6i_isp_params_configure_base(isp_dev, mbus_format);
- 
- 	/* Default config is only applied at the very first stream start. */
- 	if (state->configured)
-diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h
-index 50f10f879c42..c0d6cff95d54 100644
---- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h
-+++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h
-@@ -36,8 +36,8 @@ struct sun6i_isp_params {
- 
- /* Params */
- 
--void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev);
--
-+void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev,
-+				const struct v4l2_mbus_framefmt *mbus_format);
- /* State */
- 
- void sun6i_isp_params_state_update(struct sun6i_isp_device *isp_dev,
-diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c
-index 46a334b602f1..9073a7f3f8c8 100644
---- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c
-+++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c
-@@ -15,17 +15,6 @@
- #include "sun6i_isp_proc.h"
- #include "sun6i_isp_reg.h"
- 
--/* Helpers */
--
--void sun6i_isp_proc_dimensions(struct sun6i_isp_device *isp_dev,
--			       unsigned int *width, unsigned int *height)
--{
--	if (width)
--		*width = isp_dev->proc.mbus_format.width;
--	if (height)
--		*height = isp_dev->proc.mbus_format.height;
--}
--
- /* Format */
- 
- static const struct sun6i_isp_proc_format sun6i_isp_proc_formats[] = {
-@@ -137,9 +126,10 @@ static void sun6i_isp_proc_disable(struct sun6i_isp_device *isp_dev)
- 	regmap_write(regmap, SUN6I_ISP_FE_CFG_REG, 0);
- }
- 
--static void sun6i_isp_proc_configure(struct sun6i_isp_device *isp_dev)
-+static void
-+sun6i_isp_proc_configure(struct sun6i_isp_device *isp_dev,
-+			 const struct v4l2_mbus_framefmt *mbus_format)
- {
--	struct v4l2_mbus_framefmt *mbus_format = &isp_dev->proc.mbus_format;
- 	const struct sun6i_isp_proc_format *format;
- 	u32 value;
- 
-@@ -173,6 +163,8 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev *subdev, int on)
- 	struct sun6i_isp_proc_source *source;
- 	struct v4l2_subdev *source_subdev;
- 	struct media_pad *remote_pad;
-+	struct v4l2_subdev_state *state;
-+	const struct v4l2_mbus_framefmt *mbus_format;
- 	int ret;
- 
- 	/* Source */
-@@ -191,6 +183,10 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev *subdev, int on)
- 	else
- 		source = &proc->source_csi1;
- 
-+	/* Active State */
-+
-+	state = v4l2_subdev_lock_and_get_active_state(subdev);
-+
- 	if (!on) {
- 		sun6i_isp_proc_irq_disable(isp_dev);
- 		v4l2_subdev_call(source_subdev, video, s_stream, 0);
-@@ -202,7 +198,7 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev *subdev, int on)
- 
- 	ret = pm_runtime_resume_and_get(dev);
- 	if (ret < 0)
--		return ret;
-+		goto unlock;
- 
- 	/* Clear */
- 
-@@ -210,9 +206,12 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev *subdev, int on)
- 
- 	/* Configure */
- 
-+	mbus_format = v4l2_subdev_state_get_format(state,
-+						   SUN6I_ISP_PROC_PAD_SINK_CSI);
-+
- 	sun6i_isp_tables_configure(isp_dev);
--	sun6i_isp_params_configure(isp_dev);
--	sun6i_isp_proc_configure(isp_dev);
-+	sun6i_isp_params_configure(isp_dev, mbus_format);
-+	sun6i_isp_proc_configure(isp_dev, mbus_format);
- 	sun6i_isp_capture_configure(isp_dev);
- 
- 	/* State Update */
-@@ -230,13 +229,17 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev *subdev, int on)
- 		goto disable;
- 	}
- 
--	return 0;
-+	ret = 0;
-+	goto unlock;
- 
- disable:
- 	sun6i_isp_proc_disable(isp_dev);
- 
- 	pm_runtime_put(dev);
- 
-+unlock:
-+	v4l2_subdev_unlock_state(state);
-+
- 	return ret;
- }
- 
-@@ -259,21 +262,22 @@ sun6i_isp_proc_mbus_format_prepare(struct v4l2_mbus_framefmt *mbus_format)
- static int sun6i_isp_proc_init_state(struct v4l2_subdev *subdev,
- 				     struct v4l2_subdev_state *state)
- {
--	struct sun6i_isp_device *isp_dev = v4l2_get_subdevdata(subdev);
--	unsigned int pad = SUN6I_ISP_PROC_PAD_SINK_CSI;
--	struct v4l2_mbus_framefmt *mbus_format =
--		v4l2_subdev_state_get_format(state, pad);
--	struct mutex *lock = &isp_dev->proc.lock;
-+	unsigned int pad;
- 
--	mutex_lock(lock);
-+	for (pad = 0; pad < subdev->entity.num_pads; pad++) {
-+		struct v4l2_mbus_framefmt *mbus_format;
- 
--	mbus_format->code = sun6i_isp_proc_formats[0].mbus_code;
--	mbus_format->width = 1280;
--	mbus_format->height = 720;
-+		if (pad == SUN6I_ISP_PROC_PAD_SINK_PARAMS)
-+			continue;
- 
--	sun6i_isp_proc_mbus_format_prepare(mbus_format);
-+		mbus_format = v4l2_subdev_state_get_format(state, pad);
- 
--	mutex_unlock(lock);
-+		mbus_format->code = sun6i_isp_proc_formats[0].mbus_code;
-+		mbus_format->width = 1280;
-+		mbus_format->height = 720;
-+
-+		sun6i_isp_proc_mbus_format_prepare(mbus_format);
-+	}
- 
- 	return 0;
- }
-@@ -291,53 +295,31 @@ sun6i_isp_proc_enum_mbus_code(struct v4l2_subdev *subdev,
- 	return 0;
- }
- 
--static int sun6i_isp_proc_get_fmt(struct v4l2_subdev *subdev,
--				  struct v4l2_subdev_state *state,
--				  struct v4l2_subdev_format *format)
--{
--	struct sun6i_isp_device *isp_dev = v4l2_get_subdevdata(subdev);
--	struct v4l2_mbus_framefmt *mbus_format = &format->format;
--	struct mutex *lock = &isp_dev->proc.lock;
--
--	mutex_lock(lock);
--
--	if (format->which == V4L2_SUBDEV_FORMAT_TRY)
--		*mbus_format = *v4l2_subdev_state_get_format(state,
--							     format->pad);
--	else
--		*mbus_format = isp_dev->proc.mbus_format;
--
--	mutex_unlock(lock);
--
--	return 0;
--}
--
- static int sun6i_isp_proc_set_fmt(struct v4l2_subdev *subdev,
- 				  struct v4l2_subdev_state *state,
- 				  struct v4l2_subdev_format *format)
- {
--	struct sun6i_isp_device *isp_dev = v4l2_get_subdevdata(subdev);
--	struct v4l2_mbus_framefmt *mbus_format = &format->format;
--	struct mutex *lock = &isp_dev->proc.lock;
-+	struct v4l2_mbus_framefmt *mbus_format;
- 
--	mutex_lock(lock);
-+	if (format->pad != SUN6I_ISP_PROC_PAD_SINK_CSI)
-+		return v4l2_subdev_get_fmt(subdev, state, format);
- 
--	sun6i_isp_proc_mbus_format_prepare(mbus_format);
-+	sun6i_isp_proc_mbus_format_prepare(&format->format);
- 
--	if (format->which == V4L2_SUBDEV_FORMAT_TRY)
--		*v4l2_subdev_state_get_format(state, format->pad) =
--			*mbus_format;
--	else
--		isp_dev->proc.mbus_format = *mbus_format;
-+	mbus_format = v4l2_subdev_state_get_format(state, format->pad);
-+	*mbus_format = format->format;
- 
--	mutex_unlock(lock);
-+	/* Propagate the format to the source pad. */
-+	mbus_format = v4l2_subdev_state_get_format(state,
-+						   SUN6I_ISP_PROC_PAD_SOURCE);
-+	*mbus_format = format->format;
- 
- 	return 0;
- }
- 
- static const struct v4l2_subdev_pad_ops sun6i_isp_proc_pad_ops = {
- 	.enum_mbus_code	= sun6i_isp_proc_enum_mbus_code,
--	.get_fmt	= sun6i_isp_proc_get_fmt,
-+	.get_fmt	= v4l2_subdev_get_fmt,
- 	.set_fmt	= sun6i_isp_proc_set_fmt,
- };
- 
-@@ -499,8 +481,6 @@ int sun6i_isp_proc_setup(struct sun6i_isp_device *isp_dev)
- 	struct media_pad *pads = proc->pads;
- 	int ret;
- 
--	mutex_init(&proc->lock);
--
- 	/* V4L2 Subdev */
- 
- 	v4l2_subdev_init(subdev, &sun6i_isp_proc_subdev_ops);
-@@ -532,10 +512,14 @@ int sun6i_isp_proc_setup(struct sun6i_isp_device *isp_dev)
- 
- 	/* V4L2 Subdev */
- 
-+	ret = v4l2_subdev_init_finalize(subdev);
-+	if (ret < 0)
-+		goto error_media_entity;
-+
- 	ret = v4l2_device_register_subdev(v4l2_dev, subdev);
- 	if (ret < 0) {
- 		v4l2_err(v4l2_dev, "failed to register v4l2 subdev: %d\n", ret);
--		goto error_media_entity;
-+		goto error_subdev_finalize;
- 	}
- 
- 	/* V4L2 Async */
-@@ -562,6 +546,9 @@ int sun6i_isp_proc_setup(struct sun6i_isp_device *isp_dev)
- 
- 	v4l2_device_unregister_subdev(subdev);
- 
-+error_subdev_finalize:
-+	v4l2_subdev_cleanup(subdev);
-+
- error_media_entity:
- 	media_entity_cleanup(&subdev->entity);
- 
-@@ -577,5 +564,7 @@ void sun6i_isp_proc_cleanup(struct sun6i_isp_device *isp_dev)
- 	v4l2_async_nf_cleanup(notifier);
- 
- 	v4l2_device_unregister_subdev(subdev);
-+	v4l2_subdev_cleanup(subdev);
-+
- 	media_entity_cleanup(&subdev->entity);
- }
-diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h
-index db6738a39147..26c4327c5ed7 100644
---- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h
-+++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h
-@@ -42,18 +42,11 @@ struct sun6i_isp_proc {
- 	struct v4l2_subdev		subdev;
- 	struct media_pad		pads[3];
- 	struct v4l2_async_notifier	notifier;
--	struct v4l2_mbus_framefmt	mbus_format;
--	struct mutex			lock; /* Mbus format lock. */
- 
- 	struct sun6i_isp_proc_source	source_csi0;
- 	struct sun6i_isp_proc_source	source_csi1;
- };
- 
--/* Helpers */
--
--void sun6i_isp_proc_dimensions(struct sun6i_isp_device *isp_dev,
--			       unsigned int *width, unsigned int *height);
--
- /* Format */
- 
- const struct sun6i_isp_proc_format *sun6i_isp_proc_format_find(u32 mbus_code);
--- 
-2.54.0
-
+owner is NULL for built-in modules.
 
