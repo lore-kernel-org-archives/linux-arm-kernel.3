@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BACA8CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:37:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D119CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLTWGIeMQRbtVMplN40NKotv3iko+jUi1B5gs+XwF2A=; b=Uwv3l5gnxYOMDcfHimXuYs5IkB
-	1Y08vz3TWuMQbWsY+jkp00LxJQpDxW3MGWy/TliG9yILf8jNBs5J8/jA4lgapXx+MmypXehdyEVPk
-	6EB4x57TzrZ+uHL/EPxWWgh84Ycur8v7onmjpHVM7IvrBI/bkbBLZh0XC4uM5D+28759p0S72wWo3
-	usj3tp7SjYv5OY4JwiDzQqpXz49LnoNj5H/6rqxn13jTV3aD/t324IQH/5uDktfdJkoyjYWEa0/Cf
-	UHfKrnVYcj3l4pSyU2HAdRFbktiBlCz8yxEgF/GgkTZOHqcpkB78+Hf4+UQGOQh472/QQVck8zYQw
-	VzH0LiOg==;
+	bh=AYKyvCRVI76ZUGnePlGCbDg4GGAj6prk4JMDGhGxq+4=; b=U5UoFNIf+0j9jqBhz7NeeZLH8Q
+	h8zjwT82R886ciNgC257+EwUFdQFZrfYnR4Tb8GVNmTdCwVW3aYcxCxq8gJXN2/KqNjsiDEyVLHAP
+	bAB2sKFFuYRb+IDvQHHo5tuT6yhZci61QJC67hkMdzLuuBsG/8bqs4dKzlGVYLSHQaiYK9OlkFNml
+	H7Vkp2fKpQvrKkbxcOkT4KAg375vO7XX2nrxNNc6zhSto8+MFSeILDBOR5Tiut9fvGl/KHHcgVhv6
+	XMYXk2kNHXZkdq4QiwflhMBFqLmpIjtlawokGOX08YbXRBXZAdyCXw1vtEmElw4BUR1KfifLrCGGX
+	3n4n3fkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP01n-0000000GBck-0SJJ;
-	Mon, 18 May 2026 15:37:11 +0000
+	id 1wP02H-0000000GBkN-0yYB;
+	Mon, 18 May 2026 15:37:41 +0000
 Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP01k-0000000GBc4-2VZa
+	id 1wP02E-0000000GBjV-22Ql
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:37:09 +0000
+	Mon, 18 May 2026 15:37:39 +0000
 Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id 9A47F1F8004F
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 15:37:06 +0000 (UTC)
+	by leonov.paulk.fr (Postfix) with ESMTPS id 7EEEB1F8004F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 15:37:36 +0000 (UTC)
 Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id 168C7B40801; Mon, 18 May 2026 15:37:05 +0000 (UTC)
+	id 0E80BB4081A; Mon, 18 May 2026 15:37:35 +0000 (UTC)
 Received: from collins (unknown [192.168.1.64])
-	by laika.paulk.fr (Postfix) with ESMTP id 85EB4B40802;
-	Mon, 18 May 2026 15:33:43 +0000 (UTC)
+	by laika.paulk.fr (Postfix) with ESMTP id F1111B40803;
+	Mon, 18 May 2026 15:33:47 +0000 (UTC)
 From: Paul Kocialkowski <paulk@sys-base.io>
 To: linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org,
@@ -55,17 +55,17 @@ Cc: Yong Deng <yong.deng@magewell.com>,
 	Brian Masney <bmasney@redhat.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Paul Kocialkowski <paul.kocialkowski@bootlin.com>
-Subject: [PATCH v9 6/9] ARM: dts: sun8i: v3s: Add support for the ISP
-Date: Mon, 18 May 2026 17:33:35 +0200
-Message-ID: <20260518153339.619947-7-paulk@sys-base.io>
+Subject: [PATCH v9 7/9] ARM: dts: sun8i: a83t: Add MIPI CSI-2 controller node
+Date: Mon, 18 May 2026 17:33:36 +0200
+Message-ID: <20260518153339.619947-8-paulk@sys-base.io>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260518153339.619947-1-paulk@sys-base.io>
 References: <20260518153339.619947-1-paulk@sys-base.io>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_083708_800435_2EBC3420 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20260518_083738_682931_AF926B24 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,78 +82,74 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
 
-The V3s (and related platforms) come with an instance of the A31 ISP.
-Even though it is very close to the A31 ISP, it is not exactly
-register-compatible and a dedicated compatible only is used as a
-result.
+MIPI CSI-2 is supported on the A83T with a dedicated controller that
+covers both the protocol and D-PHY. It is connected to the only CSI
+receiver with a fwnode graph link. Note that the CSI receiver supports
+both this MIPI CSI-2 source and a parallel source.
 
-Just like most other blocks of the camera pipeline, the ISP uses
-the common CSI bus, module and ram clock as well as reset.
-
-A port connection to the ISP is added to CSI0 for convenience since
-CSI0 serves for MIPI CSI-2 interface support, which is likely to
-receive raw data that will need to be processed by the ISP to produce
-a final image.
-
-The interconnects property is used to inherit the proper DMA offset.
+An empty port with a label for the MIPI CSI-2 sensor input is also
+defined for convenience.
 
 Signed-off-by: Paul Kocialkowski <paul.kocialkowski@bootlin.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi | 35 ++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
+ arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi | 43 +++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-index bfe02295f45d..f63534a02706 100644
---- a/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-+++ b/arch/arm/boot/dts/allwinner/sun8i-v3s.dtsi
-@@ -695,6 +695,14 @@ csi0_in_mipi_csi2: endpoint {
- 						remote-endpoint = <&mipi_csi2_out_csi0>;
- 					};
- 				};
-+
-+				port@2 {
-+					reg = <2>;
-+
-+					csi0_out_isp: endpoint {
-+						remote-endpoint = <&isp_in_csi0>;
-+					};
-+				};
- 			};
- 		};
- 
-@@ -753,5 +761,32 @@ csi1: camera@1cb4000 {
+diff --git a/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi b/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
+index 6f88d8764e6a..cc107c6030de 100644
+--- a/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
++++ b/arch/arm/boot/dts/allwinner/sun8i-a83t.dtsi
+@@ -1062,6 +1062,49 @@ csi: camera@1cb0000 {
+ 			clock-names = "bus", "mod", "ram";
  			resets = <&ccu RST_BUS_CSI>;
  			status = "disabled";
- 		};
 +
-+		isp: isp@1cb8000 {
-+			compatible = "allwinner,sun8i-v3s-isp";
-+			reg = <0x01cb8000 0x1000>;
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@1 {
++					reg = <1>;
++
++					csi_in_mipi_csi2: endpoint {
++						remote-endpoint = <&mipi_csi2_out_csi>;
++					};
++				};
++			};
++		};
++
++		mipi_csi2: csi@1cb1000 {
++			compatible = "allwinner,sun8i-a83t-mipi-csi2";
++			reg = <0x01cb1000 0x1000>;
 +			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
 +			clocks = <&ccu CLK_BUS_CSI>,
 +				 <&ccu CLK_CSI_SCLK>,
-+				 <&ccu CLK_DRAM_CSI>;
-+			clock-names = "bus", "mod", "ram";
++				 <&ccu CLK_MIPI_CSI>,
++				 <&ccu CLK_CSI_MISC>;
++			clock-names = "bus", "mod", "mipi", "misc";
 +			resets = <&ccu RST_BUS_CSI>;
-+			interconnects = <&mbus 5>;
-+			interconnect-names = "dma-mem";
 +			status = "disabled";
 +
 +			ports {
 +				#address-cells = <1>;
 +				#size-cells = <0>;
 +
-+				port@0 {
++				mipi_csi2_in: port@0 {
 +					reg = <0>;
++				};
 +
-+					isp_in_csi0: endpoint {
-+						remote-endpoint = <&csi0_out_isp>;
++				mipi_csi2_out: port@1 {
++					reg = <1>;
++
++					mipi_csi2_out_csi: endpoint {
++						remote-endpoint = <&csi_in_mipi_csi2>;
 +					};
 +				};
 +			};
-+		};
- 	};
- };
+ 		};
+ 
+ 		hdmi: hdmi@1ee0000 {
 -- 
 2.54.0
 
