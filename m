@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86190CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 12:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6721DCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 12:15:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+pg7I8Mbwg4j0XO5DjLnEMwVuYoSblXIRe51x3rQuQ=; b=y/kAZPDlD6avNhp/cs0YJou/b+
-	LlAlWFDfO10rUmXbIpE6IxRZ+fFYP950XRD7GVOJcgOHxRG7Kw0GXRTaqmgNXdeBHVsjhxcD5OYXh
-	aVSd0bBoR8P8iakWCO147CigCv2D0/Z9MOzfa+neTgPUo7fDrzofsOUh0h8Rf+PaewuREpQNaevNe
-	Mq/xfBI2p3foWW+uclO+tVRpm7l8quxLAKo46j9MpmFsG2wrIUTwaJUu55A4uylv6FMsalHYYcsH/
-	FHGPejmICSRrn6JB4MxRaVV48zAJ0YueZY2Q7ILCh41e5XkwI5OAyEuAHZHdEF1y5B3CeAe3M7ewD
-	ilOMzqZg==;
+	bh=X7+IrOf1xh/a06u1p4cIYBF+TcQzTocL0vH6yNrlzzs=; b=hDj3dfsgy2OvIDC6pv0Miui7X8
+	WgRE00ROa/fkt6P4mclWSRpoVPyebElRj8xTFO4qE+2INwBl1698zIziW61cIdTP5iRsaRv7elaQe
+	++E641nNvlLN0GGzqzOS7y5lXjuv90fgk9T3alREI28mQOQrU+PpawDoleuWNI2V7UHZF6CvTG62P
+	Voz9N+INZsIFUlUAwJlRIaUJRgNTiVTkM0YulTTnjh4nMGOA7xZFMxkft7fIS9mNpq56vK5/cjVO6
+	wQn0weM3rhR3BquPBHRi4u8fZA6A6I7C/YE7+iwHrNqnlVXNiAj8cPB6PvS1eDvImiyF+9c+BkzJY
+	OK3dyIHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwqH-0000000FaHs-3IYL;
-	Mon, 18 May 2026 12:13:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOwsS-0000000FalX-0ktN;
+	Mon, 18 May 2026 12:15:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwqG-0000000FaHf-1UIO
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 12:13:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=8+pg7I8Mbwg4j0XO5DjLnEMwVuYoSblXIRe51x3rQuQ=; b=Xnp+7OGTvt13GaLRVeB6osuNQ7
-	tWJSSX4i4iFEVmx3nZjyVZCeJ79sV/XEHJ8wDp5Lv3jkXsfy+Ot6euaHOZrLQk9GxTXzk5BokkYs+
-	cHB+WEmAo4Rd3rqNtEOI5SJJTQ71LBbRefwgbsx+/Umk8K9tVwj1gfqAX12BVqX8Z56lXdbIp2FPn
-	0FP4B6xEXxjPSxrOjzuAI5gXqA/YRK0HqtaffLe7oQEpfMgrys50BuH01PgmXJYT3gB7q6GtAqI10
-	70cKs5y5byBTTGq6JNKTYiWE2MhYbU6a+aetMLjSeKE93vce5LVd62Lfg3wh0Dth+9wFrCRHEFr9K
-	lDKrAHhA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwqC-0000000B5M5-1azO
+	id 1wOwsP-0000000Fajr-3bdD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 12:13:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=8+pg7I8Mbwg4j0XO5DjLnEMwVuYoSblXIRe51x3rQuQ=; b=h6zoxgCfEzO5HKeM4/v8EtMWON
-	whcBygWdkmhNKwZCFsl+iokpvANX/698CIKgRWqNW88Y1fgmNUxMSKfaaBrIKSjqZNaobeZzcVXJN
-	ivkjIstgzb8zRMlkJ6VM7s1Gc4eGegr+SuJ+FDnGMQCRYShuV4BKsdpZmTmqr/kYZLLc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wOwpt-003UGf-TX; Mon, 18 May 2026 14:12:41 +0200
-Date: Mon, 18 May 2026 14:12:41 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-Cc: joel@jms.id.au, andrew@codeconstruct.com.au, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, andrew+netdev@lunn.ch,
-	devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-Message-ID: <ddb781dd-e117-4f9a-a5a3-94c192d8c2ef@lunn.ch>
-References: <20260518033440.17569-1-prasanth.padarthi10@gmail.com>
- <20260518033440.17569-3-prasanth.padarthi10@gmail.com>
+	Mon, 18 May 2026 12:15:19 +0000
+Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3C4F578E;
+	Mon, 18 May 2026 14:15:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1779106500;
+	bh=2HVervgvMNY5n3viqEx3IGFKAzg8w3ucqWbg/iYzyR4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dc/e2DvPe15tr1gMJX3PWROLhQ/zKc3zbnG1fYku/UK2w2sJJb5R1Nss2Dy3kIP7L
+	 QUnX97dhOD08t0OjB9obeeeKBLDY/NvawNnAngZZPIrx4ak9hyMsV6qK050qQ/nJ+q
+	 VDDaaQ5fU/YcrEplCw3O8CSG6dU9UVs2qTyw/SBk=
+Date: Mon, 18 May 2026 14:15:11 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arash Golgol <arash.golgol@gmail.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH 00/16] media: sun6i-csi/isp MC-centric support and
+ cleanups
+Message-ID: <20260518121511.GD21216@killaraus.ideasonboard.com>
+References: <20260518102451.417971-1-paulk@sys-base.io>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260518033440.17569-3-prasanth.padarthi10@gmail.com>
+In-Reply-To: <20260518102451.417971-1-paulk@sys-base.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_131300_808422_117C416C 
-X-CRM114-Status: UNSURE (   7.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_051518_041031_97F9D30E 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,12 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&mac0 {
-> +	status = "okay";
-> +	phy-mode = "rgmii-rxid";
+On Mon, May 18, 2026 at 12:24:35PM +0200, Paul Kocialkowski wrote:
+> This series first introduces some fixes and new formats to v4l2 format
+> info, one of which we need for the sun6i-csi driver. Support for
+> MC-centric format enumeration is then added, along with cleanups and
+> improvements for both the sun6i-csi and sun6i-isp drivers.
+> 
+> The first 4 patches are already reviewed and ready to go and are
+> included here as a reminder that this series depends on them.
 
-It does not matter if this is what the vendor does, it is still wrong,
-unless you can show the PCB is adding the delay.
+Patch 04/16 has no R-b tag.
 
-   Andrew
+> Arash Golgol (4):
+>   media: sun6i-csi: bridge: Use V4L2 subdev active state
+>   media: sun6i-csi: capture: Implement vidioc_enum_framesizes
+>   media: sun6i-mipi-csi2: Use V4L2 subdev active state
+>   media: sun8i-a83t-mipi-csi2: Use V4L2 subdev active state
+> 
+> Paul Kocialkowski (12):
+>   media: v4l2-common: Fix NV15_4L4 format info block height
+>   media: v4l2-common: Add missing tiled format info block sizes
+>   media: v4l2-common: Add NV12_16L16 pixel format to v4l2 format info
+>   media: v4l2-common: Add NV12_32L32 pixel format to v4l2 format info
+>   media: sun6i-csi: Split format validation to a dedicated helper
+>   media: sun6i-csi: Add support for MC-centric format enumeration
+>   media: sun6i-csi: Tidy up and unify coding style
+>   media: sun6i-mipi-csi2: Fix parenthesis alignment
+>   media: sun6i-isp: Add dummy params link_validate implementation
+>   media: sun6i-isp: Use V4L2 subdev active state
+>   media: sun6i-isp: Add support for MC-centric format enumeration
+>   media: sun6i-isp: Add support for frame size enumeration
+> 
+>  .../sunxi/sun6i-csi/sun6i_csi_bridge.c        | 153 +++++++---------
+>  .../sunxi/sun6i-csi/sun6i_csi_bridge.h        |   9 -
+>  .../sunxi/sun6i-csi/sun6i_csi_capture.c       | 168 +++++++++++++-----
+>  .../sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.c   | 107 ++++++-----
+>  .../sunxi/sun6i-mipi-csi2/sun6i_mipi_csi2.h   |   2 -
+>  .../sun8i_a83t_mipi_csi2.c                    | 113 ++++++------
+>  .../sun8i_a83t_mipi_csi2.h                    |   2 -
+>  drivers/media/v4l2-core/v4l2-common.c         |  12 +-
+>  .../media/sunxi/sun6i-isp/sun6i_isp_capture.c |  47 ++++-
+>  .../media/sunxi/sun6i-isp/sun6i_isp_params.c  |  37 +++-
+>  .../media/sunxi/sun6i-isp/sun6i_isp_params.h  |   4 +-
+>  .../media/sunxi/sun6i-isp/sun6i_isp_proc.c    | 117 ++++++------
+>  .../media/sunxi/sun6i-isp/sun6i_isp_proc.h    |   7 -
+>  13 files changed, 437 insertions(+), 341 deletions(-)
+
+-- 
+Regards,
+
+Laurent Pinchart
 
