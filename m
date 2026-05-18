@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98847CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACFF6CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Date:From:
-	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OaA3ZM2Zqnd6U5xNasrJ5HhecqWu3+FpjPtc7vgz6NU=; b=ZkaxHzREMMSI6lBesIlw1aTEpb
-	JpohvECceF6L1L2ecMvnSTBcT2tuXAdMfIqgsBYTEFvXq3OwEmxCQXVbYsloWa37+WztUAmof1WjP
-	W2OhW0+zvAvGAiJ5M0Foc8qDp7pac0Uxq+Wy527YlRQCR+HeGku2DsL58bLdynMgKKNmVQnhxwvoi
-	enGbmy1FRjjHuBz1NogTrAu23twwwV0anUoT2t1ER7ux4BZ3KnuEEjkV3DfhCp2SdzkQN2YGIHs/T
-	5kThOMqpW+0TiRb/9sR3aUZzfWoDjN9/sxDbUINBfzckGNlUU2RJHt79sy7cypOkZxUuYi7kceloh
-	4oOURX5w==;
+	References:In-Reply-To:Message-ID:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zllnXd80rkp5aHt7G7/Ts91W3aw+U7xcISZlpRJwkn8=; b=s6lYMiTaj9CNtUmr4VBImw0xbm
+	u3RIVwFK7vWLdw+lRYaoPwepLm0UddSh/R7COpHMseP2JoDHeKfZNe8VRXDwfrvsHAkFuv+AQ2Gd8
+	p0WhO1MT22unDdQRhR6nvAM5Odj5wMQBtdX2aAS0wH/ozqn1SJdvu88f9WZZgdbjAgGO22GqUGboq
+	dNdriO+Tr7ICXlCFcYAdfPjDVc0Ikr/gwilzv0cURPtRU4o0d7naqmspFgavqinLTA/P1yYf55W01
+	QVL2azYepwJp7/+z4Zl6LLwkHfvuSGUGtoYcwOBy5r4CpGIJ31aM/KGkIqUUTYpswDdWZG1RLsJzF
+	2tSgz33Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1Px-0000000GN55-0Ngv;
-	Mon, 18 May 2026 17:06:13 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1wP1Q2-0000000GN7b-40vO;
+	Mon, 18 May 2026 17:06:18 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1Pu-0000000GN4C-15QM
+	id 1wP1Pz-0000000GN5u-2Y69
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 17:06:12 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c80148ae949so960656a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:06:09 -0700 (PDT)
+	Mon, 18 May 2026 17:06:16 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-c8028fa6039so1733799a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:06:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779123968; x=1779728768; darn=lists.infradead.org;
-        h=cc:to:subject:date:from:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OaA3ZM2Zqnd6U5xNasrJ5HhecqWu3+FpjPtc7vgz6NU=;
-        b=RwkXxUtyRNk0CK1CbgCGSPXXOKpNIOYi2XduWW8R4tO/2suxI7m6ZXK2iJYH++ZKpD
-         LfT84Ig2jY4GdjrhoykaNZ1an1c/Dw22v21ryWY68snDzAMcW6jFHq+Pfx0uOLoiHv25
-         saU7OxYvZObRkBrgCL11v7YVlE/i5Q8F4XcmfACXYS6ZdBy4bioeCzLDQ85NEQGUN+LG
-         t8cYeawkVo5C64jz279ZUM3MJuPwsuPJxgRj0QxBBXYMuxN0B98COraWMqqzUkGZ3OGw
-         09MxXdDucyrYWnZs3PapsohWqJgjQiOV0uPO49AlxF0PFC0nmO7EAdQG5n+VElr+LyNb
-         F21Q==
+        d=gmail.com; s=20251104; t=1779123975; x=1779728775; darn=lists.infradead.org;
+        h=cc:to:subject:date:from:references:in-reply-to:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zllnXd80rkp5aHt7G7/Ts91W3aw+U7xcISZlpRJwkn8=;
+        b=FUgxldQfrSwUJQ68LsfDrJxDFeVI57Da5VAeIeVlDbqm/d1UE6Tm3wYd3QB9fcedDI
+         KvBllUK6GSV32CJU/jmmRbsoRdpUCFWxaVUxqLFMkksV2tH8yBA85NeOdklWzTRVpqn0
+         IFfS9aR+J1we1w57SX0JXJIwD/bRh/Ku56nIYaqfkqBk27u28wwCrZhMkTB1wVU+5qmx
+         4DncYgRYj9x5WmGpYefksqn1t0Nxd4aiauu4niGI5IQxUWwLMC5lR5ol8QvM/sc5/lxm
+         PdpcqTi5A4ncCBydlSMzDh6iq8LiYHBrHvjvpBJ6Pq6X37dmD/+yiatfDm0ote7xlCxJ
+         eYoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779123968; x=1779728768;
-        h=cc:to:subject:date:from:message-id:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OaA3ZM2Zqnd6U5xNasrJ5HhecqWu3+FpjPtc7vgz6NU=;
-        b=bqeFNgQ2SNJFhF9/5mB5lFT30NK6qjKsU/ooG67LzkdU2SmwAFUsSzRt5UYWUStnRo
-         pH4D9UnMPcSFSbHu2uoS0IUSb3maDHiJyIJQiopCQbgeAPZwt1W6ra6ux/+v/wJ4Tuxk
-         k24UYPc5wsqlPfqV8hwR49uQwtBq2rat8TC7jlTubqio7rrTK2n5PBvTRMcntb70MFS2
-         yxOhOwYnT17xywqyb7hWuqWxQPFjlBenIV6MyHRmXnoGnyaKKWsk7HIQfwvkKTuiTrIJ
-         rsGKwYw/sjJen8rF96IByq5zdENNrpVGVKopd4/1F+GhY2YH7S5E5QzreG00nOEjf8vk
-         kUng==
-X-Forwarded-Encrypted: i=1; AFNElJ91xow0/VUsimc728rRqXovP4hUjxZBXEGCzgLR5xn+LM1mJHB49FPo9ckzq2UumyTibT5w9wgAzG/2dDfEja80@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVorHEb3t4tMBEccK/9GuyV4EHd88YwzGedG7J+FmOH3qoANwj
-	nIE6VZo4MKukkUPDUow4OkprFjTOxBWCBoduc0aMr30w1lkupwhuzOr+
-X-Gm-Gg: Acq92OGGCcIdVTXH91TpjPo/eKGw3NxdVaEVZx9tEDKhxKtwFyU9VY/ewcepBJOLgi9
-	jZqEqrYOSHagV2O+//UOQx9RYPBWyRX/ihufYf9O7hjc4o+lOMRRmN8aQzM/6uJ3fT+KCB4hvH9
-	AXoRL9Gvd+pPD3lURbHOfH+wLDXDm/bmQcEke3tzYxzTaO/IqIxdE/OXaSUlOU5sR1CyHe7W66o
-	ykMH1jlbArDfxa0Y92kw28vO+ZJL6RDAR456vrBz2LDACQzquDQukrd/oN/y099rGjbUYrZwigp
-	7UUky8tC8HRzAJKMIZfOfMKmo8+AvddyzShn8LOWfLPGG++Em70Ki4gZSe8/Lq8e5pOVxLHhhCT
-	UduK4K+P8K2H8cXoiN1CrXeX1uiMPvqOzu6aefmwYQIolMOvAAPehEEZ4HPmXsDFKYyFJylwoS1
-	vuiR8EOmkzxbgTvdxjfhIIP5oEq1QOhOXGOCFmI7ZWL9+N6Wq1Q3GvWGTbs5yqk2KCDdTWtZWyH
-	5+MERIfHwUB8vUekQ==
-X-Received: by 2002:a05:6a21:6d94:b0:3a2:dafd:3c02 with SMTP id adf61e73a8af0-3b22ea861a4mr18190165637.19.1779123968468;
-        Mon, 18 May 2026 10:06:08 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779123975; x=1779728775;
+        h=cc:to:subject:date:from:references:in-reply-to:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zllnXd80rkp5aHt7G7/Ts91W3aw+U7xcISZlpRJwkn8=;
+        b=LDilVEI1nF4uMWOJErcOh7pe2aKbHzU8UakXlWvSChTnxAEbJ+auhV+wlcQIPQjKml
+         3it1C1Z1po+yOIseNsNuCZSmXI3OugTkvi5G3OW3A19tAtt1XsEpvFyOzwPYrflT10k5
+         yVyU0pGrKExcnOw2ksgaIh+xiAicE3hghs29iTuzxU5zkrTMrOox1kSGl9YnME0+l7HA
+         FEQM1mSmU9OcRxPrX1x4YEde4R9D8dLQbS4gu3P0TD5wtMp6ace9IS8XjfU9IO4Aqa+6
+         gMX7iPqBocvTQJ8ilq61Xc6PNCqMtZ+h24CrPkBjbG58JIN57+rOdsy/DGoXCgO7T3Vc
+         MjsA==
+X-Forwarded-Encrypted: i=1; AFNElJ+iLUGsnN14sbfc2iFsWlM7vLOWIES6r9s9aY3cg+HlAABbvqEPMsaV+AJdeXLL4b69MxCgpvqfM/oZQimOYUn3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeF+cA/ImE4MGSJGkBwI4tBgCaADYu+/GwXpjCcpburuBEUSo4
+	V4/TTdM905r5Stsksrq8ZFccn9Kxw3URjdfPQuUv4UaKxZfNDQeqqSq4
+X-Gm-Gg: Acq92OHfw3Ng7HWl9xECfMByHVoBowi5p/VBgxixbMRtUXspcvGWrsmifvkmHvwvyNp
+	pC9mL63maKPeB6yhCWZNjl98IMP4mjlaw4e1LUjLRilQ+iVkmBdP+0y1APVCIwt9iE//HX6EcNx
+	9CjmTJ9Z6am1WsXakPVsq+siPdMOKUlYz7mp8xVIzO8f0qJvmV6qmc72zR8f/dNX8GOuI/pLPSF
+	gDQKrrsYhtwWFVaeXvIiWLbY0/bfyvl3JcaePQTFBRCKXcDqNz1P0JRjrvuAeCufa1M4mAW40uI
+	p8XneG5PZeIcJGdQS4gMv6VE9tXMjfFClEQ9988On8lB5XQUrQz2FlmFWDq4/pJWqlv5ZzXqqj+
+	lgId+r/nhmaI0ENMLj09gHHAAya4GxSyAz5ii3h7vdVOBSL0S5oqNWmJsjei428yJzYQXY3r8c+
+	LcTtX6JaYhsT5VXqfGe6W/N6iMrUVUu230Lm5jIzx42JFaAXcWwZj+iD6i9EB1pkunFjicMGK7k
+	I+Dda3Gtlm/krEwAg==
+X-Received: by 2002:aa7:88d1:0:b0:83d:b0a0:90e3 with SMTP id d2e1a72fcca58-83f33c344a1mr16612881b3a.31.1779123974543;
+        Mon, 18 May 2026 10:06:14 -0700 (PDT)
 Received: from 1.0.0.127.in-addr.arpa ([110.44.115.146])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7ed3fsm14932377b3a.45.2026.05.18.10.06.01
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c7ed3fsm14932377b3a.45.2026.05.18.10.06.08
         (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 18 May 2026 10:06:08 -0700 (PDT)
-Message-ID: <0f97352506d8d813f70f441de4d63fcd5b7d1c3e.1779123847.git.shuvampandey1@gmail.com>
+        Mon, 18 May 2026 10:06:14 -0700 (PDT)
+Message-ID: <1a0c86ab264cdc1c79c917e984b90991af51d827.1779123847.git.shuvampandey1@gmail.com>
+In-Reply-To: =?utf-8?q?=3C0f97352506d8d813f70f441de4d63fcd5b7d1c3e=2E1779123?=
+ =?utf-8?q?847=2Egit=2Eshuvampandey1=40gmail=2Ecom=3E?=
+References: =?utf-8?q?=3C0f97352506d8d813f70f441de4d63fcd5b7d1c3e=2E17791238?=
+ =?utf-8?q?47=2Egit=2Eshuvampandey1=40gmail=2Ecom=3E?=
 From: Shuvam Pandey <shuvampandey1@gmail.com>
-Date: Mon, 18 May 2026 22:44:17 +0545
-Subject: [PATCH 1/2] PCI: dwc: Guard RAS DES debugfs deinit
+Date: Mon, 18 May 2026 22:44:18 +0545
+Subject: [PATCH 2/2] PCI: meson: Add missing remove callback
 To: Jingoo Han <jingoohan1@gmail.com>,
     Manivannan Sadhasivam <mani@kernel.org>,
     Lorenzo Pieralisi <lpieralisi@kernel.org>,
@@ -91,9 +95,8 @@ Cc: Rob Herring <robh@kernel.org>,
     linux-arm-kernel@lists.infradead.org,
     linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_100610_300741_7559542A 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_100615_655097_A46C7C5C 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +111,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dwc_pcie_rasdes_debugfs_init() returns success when the controller has
-no RAS DES capability, leaving pci->debugfs->rasdes_info unset. The
-common debugfs teardown path still calls
-dwc_pcie_rasdes_debugfs_deinit(), which dereferences rasdes_info
-unconditionally.
+meson_pcie_probe() powers on the PHY and registers the DesignWare host
+bridge with dw_pcie_host_init(), but the driver has no remove callback.
+On driver unbind or module unload, the driver core therefore proceeds to
+devres cleanup without first unregistering the host bridge or powering off
+the PHY.
 
-Return early when no RAS DES state was allocated. In that case no RAS DES
-mutex was initialized, so there is nothing to destroy.
+Add a remove callback that deinitializes the DesignWare host bridge and
+powers off the PHY while device-managed resources are still valid.
 
-Fixes: 4fbfa17f9a07 ("PCI: dwc: Add debugfs based Silicon Debug support for DWC")
+Fixes: 9c0ef6d34fdb ("PCI: amlogic: Add the Amlogic Meson PCIe controller driver")
 Signed-off-by: Shuvam Pandey <shuvampandey1@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-designware-debugfs.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/pci/controller/dwc/pci-meson.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-debugfs.c b/drivers/pci/controller/dwc/pcie-designware-debugfs.c
-index d0884253b..c3671cb2f 100644
---- a/drivers/pci/controller/dwc/pcie-designware-debugfs.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-debugfs.c
-@@ -557,6 +557,9 @@ static void dwc_pcie_rasdes_debugfs_deinit(struct dw_pcie *pci)
- {
- 	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
- 
-+	if (!rinfo)
-+		return;
-+
- 	mutex_destroy(&rinfo->reg_event_lock);
+diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+index 0694084f6..c96e2244a 100644
+--- a/drivers/pci/controller/dwc/pci-meson.c
++++ b/drivers/pci/controller/dwc/pci-meson.c
+@@ -451,6 +451,14 @@ static int meson_pcie_probe(struct platform_device *pdev)
+ 	return ret;
  }
  
++static void meson_pcie_remove(struct platform_device *pdev)
++{
++	struct meson_pcie *mp = platform_get_drvdata(pdev);
++
++	dw_pcie_host_deinit(&mp->pci.pp);
++	meson_pcie_power_off(mp);
++}
++
+ static const struct of_device_id meson_pcie_of_match[] = {
+ 	{
+ 		.compatible = "amlogic,axg-pcie",
+@@ -464,6 +472,7 @@ MODULE_DEVICE_TABLE(of, meson_pcie_of_match);
+ 
+ static struct platform_driver meson_pcie_driver = {
+ 	.probe = meson_pcie_probe,
++	.remove = meson_pcie_remove,
+ 	.driver = {
+ 		.name = "meson-pcie",
+ 		.of_match_table = meson_pcie_of_match,
 -- 
 2.50.1 (Apple Git-155)
 
