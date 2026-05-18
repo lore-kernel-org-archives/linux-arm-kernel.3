@@ -4,111 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899D6CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D45CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oofnoEjFC3k8jMJB3VTduoNGQlCA1NG6eHrRA2nUPzQ=; b=be/hbaiU53fNg8xh0ApgAEgs3w
-	Dyu463mXSLQZXN7OrK0bBYV0SeApILLWeZMIEdOPWDRfezSCxO2vccALXjpOxhnCG45C552veunfR
-	rIKEuA+DbfMI4EYgs3QD72NCk8G8IgN2B/t/S3cv4zpI53OccaHU++x0AKLB7jRDc0Jj8KEn3Vbu/
-	iPUEZG6Yrf1Cs6vW4WNs9Do2Scg+1DBLxPeJaRXqRtW326JEXvXVVhksYyGV9J2wZymXQDVl+tTWW
-	MUw42Zv3PZpBpPGu5mFsvqDzBjtaP7IZoKiWznhZIRixNA02IASbA3W1XqYWBB9GtLevFzuLQ56+0
-	60tYZ/Tg==;
+	bh=GyhjbKlmebPTkdeuEE7/OVXl+p8LpfJLrBiknhU4r5Q=; b=eP8g9bgBPGIMIS+i0wgjuyfVyf
+	JaldPlLkbZhg2a+FOKzCCPp/eBWJ5TGLFladRaf7+SO+38p8CRqxfdyGbNfteNTbBeQ1OP4JhwWl+
+	1wtvRINwEdSBvNZkSkcaKVM1cbFwRY4IDVvuN4BzApmtCXFxIMz2I8Rrm37kndGyDt8d40n1oJUKj
+	fPwsgeYxiDaqMc0lw+G7PZUbXPSoIpgjFo32Eujh1ZM44NkCGbP0/6D6GYVEgq4rIsaBjwl3QIJtW
+	/eRmMpX6LAiZSd29MG2XRvUqqW9NSZSlf3m8ZGkzI++IFj21ostXrzfV/de29+PUHVueF4YnpYMOV
+	7500JpFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvBz-0000000FDPI-1hHN;
-	Mon, 18 May 2026 10:27:23 +0000
+	id 1wOvCQ-0000000FDYh-2vlR;
+	Mon, 18 May 2026 10:27:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvBx-0000000FDNx-18K0
+	id 1wOvCP-0000000FDY6-2SpM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 10:27:21 +0000
+	Mon, 18 May 2026 10:27:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=oofnoEjFC3k8jMJB3VTduoNGQlCA1NG6eHrRA2nUPzQ=; b=hcUrp+cLgZNQeim3FeTJutgLeS
-	j4op+oiGKBUoKHhNnFJh7Pe0nYaAjRhaUFJHBMzac5aE2arUjcFoRNT6skSuulrutBNnfjQz3Q0mH
-	EUSZeNrpWqONsU+sqw6kWyZzs5dLyk/HJoCVT9vCZmtQiAjlcpoGctVLQ5zkX38XI8QkwyuxY4hkW
-	vg3JntbTyeI0J80pF0fXhjVVPBF0hc4JrguiNvVd0FNl7Bs70JCSp/QFfmBRSduLsP/qif0DAQubt
-	DprWJ/3aMb16k3O9xXgPyZujnN9YzsnTA5ECmXvRCVTm3OBPahlA3jy8Gfk2u53TyNKenuOTjIhpz
-	uMajMB5w==;
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=GyhjbKlmebPTkdeuEE7/OVXl+p8LpfJLrBiknhU4r5Q=; b=D33q+lxq8KPj9jfNsRl+74IWSB
+	A5fgCihvlW5S1QBORRrojwFZUXMoyB+shB6TaJrNYs1ALh+/80ona1UYkwJG1Dk52oledAPuV/fPk
+	Q31k+XdgahFsvX+0BV+q1KBridvbFwGFvHRKyKtQBXcwG42WKNiS3f6zL3EeVlml6Fyq72UpbOUuy
+	H4IZqIqk/BZyVJhS48a40GFzYPXAnU++K/ZrlVIVFG/yRmh0vV8cCvYcPsAzEG1rHrMfL8eGEjNWv
+	Z4nMVQgmSCWMmGq16+VQrg6tQueUFWt/Q22e5Bu5SpO+sy5m0w1U2QESes7bPT2fZOUusL7OwC0uD
+	WJQAYHvw==;
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvBt-0000000Akyb-0LXm
+	id 1wOvCL-0000000Al54-3TK1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:27:19 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-48d146705b4so22530305e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 03:27:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779100035; x=1779704835; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oofnoEjFC3k8jMJB3VTduoNGQlCA1NG6eHrRA2nUPzQ=;
-        b=N8nxU3oPS5/f/NkAlNXjfk8uE2h+Yu/e+0dY/NrGaPZNlI0lyjOgl2JiGzXckt8946
-         8bDxA0kkkyqd3oQ5OmnJ6hcSK9QlxIjbVre1zhZziSQgZuH5bJqjRMdwUigk3I9Xw7tB
-         q4oz7Hktk7NAnCuFNUkBrX8EXHef1HV0oTaHaQhohAMcRkhOZND1e831D9/aMyUD3HGF
-         uP67IfqNK2Z18ADkluu8BnicMKMfVk0QZ5gAX8ujrOG4oEeRhdllmutP6id8geKxuD50
-         0YpZ8yHGHr68mXcLTnge6yxiBVp3QkYZPAz13GLegb5fSHJ0SpScOwWpnvpENT3b6KsC
-         ckWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779100035; x=1779704835;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oofnoEjFC3k8jMJB3VTduoNGQlCA1NG6eHrRA2nUPzQ=;
-        b=QIjq4l+z7joj6E5jerxDq392JYjJ5gLwwny+ffUzOfZExmyVCtppCB4zLWBPK+Py3m
-         rF1yw3XPLe2iyGoCA3gah0igyzexboIdrklsZGdRd6QDLR1us+zh3f/4rD54iEe3tZFk
-         LwL9S7Q0+ah1MaM+LCm44g0gV6V1o1F+lt6OD7EB23WDlM/yVLzR6XGyHZUCgVVXl7Aa
-         9zEEh68tE/4+ru7Fn0kaZ7a7bQjz+a0Igpj5NzmZm7d3RrGpYAcoTdeK1nknkADMDfxx
-         mxWbvIJJVe+cOUU3sUs2uwlAMbRTxc0sR7dfQhyq+RixuROImZpE5UeVAz908sP5TmoM
-         9bnw==
-X-Forwarded-Encrypted: i=1; AFNElJ+r/cYGrENiMhbVpoWqmWXqX85eItSkWncHezSlgh9WTWeW9VsC1JjvlMsDiag8MnDzh7a8HR5dxnYvcm3FQlEs@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQpnoC6hMurfvh8P1ZPSYhGILoBakTnpFWe5An3mLbhEBYv5K2
-	ULSMyirbW3WbXnpbH8nBsL4vAZ3aDEJopuk5GED3uIISfS+mHHZVPjOyS/xKrGpj0Ro=
-X-Gm-Gg: Acq92OHUJD7u6iwwCKHPVl9ll1DyB3MrODwaxFvy9FJN23Nqjp38BHdDUBe2y1Qp4LC
-	JvtJdAY8JtYKQtZ/hnkNgAxFZ8MOEKrmSEqH++kmMMdZF5YO1SUgdNgP09+Rtl34r1dWhMPe7zm
-	Uyiu1vpGFc0vx9rAlWLA9mP1hQcoyFXUejSXknNP0LxcpplkMWUM+L70DYAMJ8LvbQmlAL/rJH/
-	+4O9QrptI+s3YEnFmEWAv9wb2MUNbcboeKYb0nNwdQ5S2WO7lf1ktGtVBa6vCCVkKgsQ10l/M6k
-	flqIeO0YEcgsT41fUQLsPFHqufG+Vo/RNY6RvmR8cO/LT6yoCVsxZK2hXR/eydybnFwPP48b1SK
-	kMF8iOOngtnrb24DS9XjAvPG0eWx0xc7nv1ZlosC1hs9Ijlh+YWtwx1ypKA6ah8TsInbKQixnja
-	1grOYUWTb2zPu72042iPJO3WqMaKHbSE74PbqFOs5Gkg==
-X-Received: by 2002:a05:600c:3b07:b0:489:1a3a:9e45 with SMTP id 5b1f17b1804b1-48fe651e127mr216677595e9.26.1779100035288;
-        Mon, 18 May 2026 03:27:15 -0700 (PDT)
-Received: from [10.11.12.109] ([82.76.215.73])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a1aeafsm37898451f8f.23.2026.05.18.03.27.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2026 03:27:15 -0700 (PDT)
-Message-ID: <6802a856-76dc-4bd0-a026-59b0249646af@linaro.org>
-Date: Mon, 18 May 2026 13:27:12 +0300
+	Mon, 18 May 2026 10:27:47 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id B7C571F80041
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 10:27:44 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 3A6E5B4080C; Mon, 18 May 2026 10:27:44 +0000 (UTC)
+Received: from collins (unknown [192.168.1.64])
+	by laika.paulk.fr (Postfix) with ESMTP id A3E79B407F2;
+	Mon, 18 May 2026 10:24:54 +0000 (UTC)
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-staging@lists.linux.dev
+Cc: Paul Kocialkowski <paulk@sys-base.io>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arash Golgol <arash.golgol@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: [PATCH 05/16] media: v4l2-common: Fix NV15_4L4 format info block height
+Date: Mon, 18 May 2026 12:24:40 +0200
+Message-ID: <20260518102451.417971-6-paulk@sys-base.io>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260518102451.417971-1-paulk@sys-base.io>
+References: <20260518102451.417971-1-paulk@sys-base.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] firmware: samsung: acpm: add Exynos850 support
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260513-exynos850-acpm-firmware-support-v1-0-3858d097e433@linaro.org>
- <20260513-exynos850-acpm-firmware-support-v1-2-3858d097e433@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20260513-exynos850-acpm-firmware-support-v1-2-3858d097e433@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_112717_639359_5A96FE04 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_112746_269610_49D6196B 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,26 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The NV15_4L4 format is specified as a 4x4 format, not 4x1.
+In addition the block size should not take subsampling in account,
+so specify it as 4x4 for both luma and chroma.
 
+Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+---
+ drivers/media/v4l2-core/v4l2-common.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-On 5/13/26 2:12 AM, Alexey Klimov wrote:
-> The Exynos850 SoC contains an APM co-processor. Communication
-> with this hardware block is established using the ACPM protocol,
-> which handles IPC messages for clocks, power, thermal management,
-> and PMIC control.
-> 
-> Add the "samsung,exynos850-acpm-ipc" compatible string along with
-> its associated match data. This includes the specific initialisation
-
-s/initialisation/initialization 
-
-> data base offset (which differs from the GS101 offset) and the
-> "exynos850-acpm-clk" device name required to properly instantiate
-> the clock provider.
-
-The patch looks alright. With what client did you test it, cpufreq?
-
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org> 
-
+diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
+index 554c591e1113..77a0daa92c2b 100644
+--- a/drivers/media/v4l2-core/v4l2-common.c
++++ b/drivers/media/v4l2-core/v4l2-common.c
+@@ -309,7 +309,7 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
+ 		/* Tiled YUV formats */
+ 		{ .format = V4L2_PIX_FMT_NV12_4L4, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 1, 2, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 		{ .format = V4L2_PIX_FMT_NV15_4L4, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 5, 10, 0, 0 }, .bpp_div = { 4, 4, 1, 1 }, .hdiv = 2, .vdiv = 2,
+-		  .block_w = { 4, 2, 0, 0 }, .block_h = { 1, 1, 0, 0 }},
++		  .block_w = { 4, 4, 0, 0 }, .block_h = { 4, 4, 0, 0 }},
+ 		{ .format = V4L2_PIX_FMT_P010_4L4, .pixel_enc = V4L2_PIXEL_ENC_YUV, .mem_planes = 1, .comp_planes = 2, .bpp = { 2, 4, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 2, .vdiv = 2 },
+ 
+ 		/* YUV planar formats, non contiguous variant */
+-- 
+2.54.0
 
 
