@@ -4,73 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB0ACD4F50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABF5CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 06:30:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wy+J26CG/KBGcKxq3KmI13vbiPtxYEkFTnnheWea5rk=; b=ZlHNla7FuZURlCL1vuIHw/fpHZ
-	btKO3BzqGWwueyr+5++D7keOCy8LJAyJWl9sOL6O1vXUqAKlitOQ5iyDXuBUWYrS324gToP2FfWQo
-	9XfWseK+akV5VpDpmoBe8bdrYRVN0C4CvoNyviKHn46uFRkU8jXh9+Pdq7mKPVFoNvJSkByOWkiE/
-	BE3Pl+vazUbvY+dTFfabH5BCZaO7He89UGWQU1WvUsyLypWz7JzGhE7pGeQPU52hLcPtg3B9r6QJO
-	+meccpUbAG2iV+iOrrrKKdhRWi0JVSvTExiUEdZLQ5k4wffX5m1DvnuE+alEynJKGv2Zc4BkieK4b
-	bfn1LY5Q==;
+	bh=ZU4KMSXz1atxI8mwcuEwyKVRckbnY44nXQw70rZIw6s=; b=OfnbyfUh5WCWME9XhqfwJ+kCy2
+	UtCRqZVo62fXM/RCIIxxYr7QJbRSkGs/xCVJGEEEfguqx2IU8YhkkP6DT7MfJ/eZSDVxKa0vj7hSP
+	bHS2NEC7IR6sCOrbNEo8tbw/AJmX+ZNOUDwQqWEzSl7FFbWLJ/LyEdHC+Rev4ISokSHGfN0O1kA52
+	mEx1FQyyKQKl+AdsP5xa2wbennEKscmaDOFEFJQEN9x0DjIwmK27CWU8ohnOHNT7+OP4fjCKEvQr2
+	Fv/Jn4UyZjkNmEo+D+6tTeL37cS02bfVV9rZ4Jw6gx+aJ7vr6r56VTVeZZVvFcbqt4AGw3NXtkma2
+	drNWOUmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrMl-0000000EPlr-39pb;
-	Mon, 18 May 2026 06:22:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wOrUA-0000000EQhF-2GIg;
+	Mon, 18 May 2026 06:29:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOrMk-0000000EPkU-0gQp;
-	Mon, 18 May 2026 06:22:15 +0000
+	id 1wOrU8-0000000EQgY-2zSy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 06:29:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 05EE640DBC;
-	Mon, 18 May 2026 06:22:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A01CC2BCB7;
-	Mon, 18 May 2026 06:22:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B8F9E60125;
+	Mon, 18 May 2026 06:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0539C2BCB7;
+	Mon, 18 May 2026 06:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779085332;
-	bh=zkFDJF7fz51FV37iDY2VAna6p1X471J7zJme82WLsjs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=S+kE7lokwNjnm9hvlBCtnLv445qG+GCXIVjLfHmeChC4oyGZnd/ILC768x1ScWGb7
-	 GvnjSzMy7vYc5k+AqXhnZcQ4h9c7m3vrO9MBM/QOqMv6dXuiUlmFvip/GX+7jnfw7T
-	 OohmcKlf7aH+0dKHk5EY0JoQSb1OrL7wyVYnq/Dmp4d8+52y5HJK0DX+7VpqX13DR5
-	 EXSDqXNCb97kCJBHm7KOsbaUAniKBxvLmrtOjkAjsuUMFcKKPxY3LQYs9XqfJaJe8d
-	 A1t65qfPm/zHB2RUDbCOeYniRrnfabTDQRI7AE8OEWqId1Fb5l9+IgOMefKbErftE2
-	 0f6l7jrFmYABw==
-Date: Mon, 18 May 2026 11:51:56 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: manivannan.sadhasivam@oss.qualcomm.com, 
-	Bjorn Helgaas <bhelgaas@google.com>, Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
-	Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>, Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Lukas Wunner <lukas@wunner.de>, Richard Zhu <hongxing.zhu@nxp.com>, 
-	Brian Norris <briannorris@chromium.org>, Wilson Ding <dingwei@marvell.com>, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v7 0/4] PCI: Add support for resetting the Root Ports in
- a platform specific way
-Message-ID: <tgsh3cum6qxrqjzbdeqjsp6bf7cqedj7il77hww3oxecadndin@idjnwib7cz4z>
-References: <20260310-pci-port-reset-v7-0-9dd00ccc25ab@oss.qualcomm.com>
- <abFMa6DCGGLUHddA@fedora>
- <dp2rem4gj7zhfgykvekmcrhq4ticm6m6ido6tbgflwzfcuuwkl@4wuxgle27eyx>
- <srdn3bspgwff7f7tnst7wzg4us4buifrv7o3ylo527hmuciyl3@6ioyrl6rfhaz>
- <abk3rU2EDKjkefUD@ryzen>
+	s=k20201202; t=1779085791;
+	bh=Xh7w7wEfnab0GSYumOL+HvLpnmXotMfZwX7VhW4Nuss=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=ibRAIZYL7cOQIV/4eXb2SMHBrA5p7RnZxRWlJteC0IhBbtN0mb/NDl7sHmAef4GSa
+	 PVKk2KXoXKtEO+7IXGD8zHC2bPv4iGjToZxzNuluROioo59UkulmZHG7SGdKItdmQd
+	 T3QqDDa4fFoig4sRbRJEMB5qzTaf+N5JKJDz52X3MZ5XzUljQ736xvJndJ6C0LxvNk
+	 +v7ZyWGdNX6C4ubg7uzRJVbS+tFILbbh5Zst5yXI+u80nXkOxh6Twi+08X5iYjyKsn
+	 Br3FpoTGpi7FlSbx2s4WDPFxB6khvIH0ZBWpCRivagfna7NnLDDi5zm3fD/aCglm2B
+	 nemHdyCUoQVdw==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Greg KH <gregkh@linuxfoundation.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH v5 1/3] firmware: smccc: coco: Manage arm-smccc platform
+ device and CCA auxiliary drivers
+In-Reply-To: <2026051404-headboard-cabbage-e09a@gregkh>
+References: <20260514094030.42495-1-aneesh.kumar@kernel.org>
+ <20260514094030.42495-2-aneesh.kumar@kernel.org>
+ <0c88bcee-65b5-4328-87e6-e1c714c3d1ca@arm.com>
+ <2026051420-amusement-drove-73e6@gregkh> <yq5alddm5a6w.fsf@kernel.org>
+ <2026051404-headboard-cabbage-e09a@gregkh>
+Date: Mon, 18 May 2026 11:59:44 +0530
+Message-ID: <yq5apl2txmav.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <abk3rU2EDKjkefUD@ryzen>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_232214_244564_CCBC2A3D 
-X-CRM114-Status: GOOD (  42.33  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,144 +82,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 17, 2026 at 12:16:47PM +0100, Niklas Cassel wrote:
-> On Wed, Mar 11, 2026 at 08:44:15PM +0530, Manivannan Sadhasivam wrote:
-> > On Wed, Mar 11, 2026 at 08:09:53PM +0530, Manivannan Sadhasivam wrote:
-> > > On Wed, Mar 11, 2026 at 12:05:15PM +0100, Niklas Cassel wrote:
-> > > > On Tue, Mar 10, 2026 at 07:31:58PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> > > > > Changes in v7:
-> > > > > - Dropped Rockchip Root port reset patch due to reported issues. But the series
-> > > > >   works on other platforms as tested by others.
-> > > > 
-> > > > Are you referring to
-> > > > 
-> > > > ## On EP side:
-> > > > # echo 0 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start && \
-> > > >   sleep 0.1 && echo 1 > /sys/kernel/config/pci_ep/controllers/a40000000.pcie-ep/start
-> > > > 
-> > > > Then running pcitest only having 7 / 16 tests passed ?
-> > > > 
-> > > > If so, isn't that a problem also for qcom?
-> > > > 
-> > > 
-> > > No, tests are passing on my setup after link up.
-> > > 
-> > > > 
-> > > > There is no chance that the patch:
-> > > > "misc: pci_endpoint_test: Add AER error handlers"
-> > > > improves things in this regard?
-> > > > 
-> > > > Or will it simply avoid the "AER: device recovery failed" print?
-> > > > 
-> > > 
-> > > Yes, as mentioned in the commit message, it just avoids the AER recovery failure
-> > > message.
-> > > 
-> > 
-> > I also realized that Endpoint state is not saved in all the code paths. So the
-> > pci_endpoint_test driver has to save/restore the state also. But it is still not
-> > clear why that didn't help you.
-> > 
-> > Can you share the snapshot of the entire config space before and after reset
-> > using 'lspci -xxxx -s "0000:01:00"'?
-> 
-> If I don't add something like:
-> 
-> diff --git a/drivers/misc/pci_endpoint_test.c b/drivers/misc/pci_endpoint_test.c
-> index 1eced7a419eb..9d7ee39164d4 100644
-> --- a/drivers/misc/pci_endpoint_test.c
-> +++ b/drivers/misc/pci_endpoint_test.c
-> @@ -1059,6 +1059,9 @@ static int pci_endpoint_test_set_irq(struct pci_endpoint_test *test,
->                 return ret;
->         }
->  
-> +       pr_info("saving PCI state (irq_type: %d)\n", req_irq_type);
-> +       pci_save_state(pdev);
-> +
->         return 0;
->  }
->  
-> @@ -1453,6 +1456,7 @@ static pci_ers_result_t pci_endpoint_test_error_detected(struct pci_dev *pdev,
->  
->  static pci_ers_result_t pci_endpoint_test_slot_reset(struct pci_dev *pdev)
->  {
-> +       pci_restore_state(pdev);
->         return PCI_ERS_RESULT_RECOVERED;
->  }
-> 
-> On top of your patch.
-> 
-> Then all the BAR tests + MSI and MSI-X tests fail.
-> 
-> There is a huge difference in lspci -vvv output (as I guess is expected),
-> including all BARs being marked as disabled.
-> 
-> 
-> With the patch above. There is zero difference before/after reset, and all
-> the BAR tests pass. However, MSI/MSI-X tests still fail with:
-> 
-> # pci_endpoint_test.c:143:MSI_TEST:Expected 0 (0) == ret (-110) 
-> # pci_endpoint_test.c:143:MSI_TEST:Test failed for MSI1
-> 
-> ETIMEDOUT.
-> 
-> This suggests that pci_endpoint_test on the host side did not receive an
-> interrupt.
-> 
-> I don't know why, but considering that lspci output is now (with the
-> save+restore) identical, I assume that the problem is not related to
-> the host. Unless somehow the host will use a new/different MSI address
-> after the root port has been reset, and we restore the old MSI address,
-> but looking at the code, dw_pcie_msi_init() is called by
-> dw_pcie_setup_rc(), so I would expect the MSI address to be the same.
-> 
+Greg KH <gregkh@linuxfoundation.org> writes:
 
-Hi Niklas,
+> On Thu, May 14, 2026 at 08:07:27PM +0530, Aneesh Kumar K.V wrote:
+>> Greg KH <gregkh@linuxfoundation.org> writes:
+>> 
+>> > On Thu, May 14, 2026 at 12:04:13PM +0100, Suzuki K Poulose wrote:
+>> >> Hi Aneesh
+>> >> 
+>> >> On 14/05/2026 10:40, Aneesh Kumar K.V (Arm) wrote:
+>> >> > Make the SMCCC driver responsible for registering the arm-smccc platform
+>> >> > device and after confirming the relevant SMCCC function IDs, create
+>> >> > the arm_cca_guest auxiliary device.
+>> >> > 
+>> >> 
+>> >> There are a few changes squashed in to this patch. Please could we
+>> >> split the patch in the following order ?
+>> >> 
+>> >> 1. Add platform device for arm-smccc
+>> >
+>> > Do not make any more "fake" platform devices please.
+>> >
+>> >> 2. Move TRNG to Auxilliary Device - (Even though it is a later patch, move
+>> >> it before the RSI changes)
+>> >
+>> > No, move it to the faux api please.
+>> >
+>> 
+>> 
+>> Maybe I was not complete in my previous reply. I did not want to repeat
+>> the entire thread, so I quoted the lore link for more details.
+>> 
+>> 1. We have platform firmware-provided SMCCC interfaces. Based on the
+>> support/availability of these function IDs, we want to load multiple
+>> drivers.
+>> 2. This patch series adds a platform device to represent the
+>> firmware-provided SMCCC resource.
+>> 3. Different SMCCC ranges are now represented as auxiliary devices.
+>> 4. Different subsystems, such as TSM, can autoload their backend drivers
+>> based on the availability of these SMCCC ranges, which are now
+>> represented as auxiliary devices.
+>> 
+>> You had agreed to all of this in the previous discussion here:
+>> https://lore.kernel.org/all/2025101516-handbook-hyphen-62ec@gregkh
+>
+> Then why did someone say "this is a fake platform device with no actual
+> resources"?  That's what I was triggering off of.
+>
+> Again, if you have actual platform resources, GREAT, use a platform
+> device and aux.  If you do not, then do NOT use a platform device.
+>
+> totally confused,
+>
+> greg k-h
 
-When I rebased this series on top of v7.1-rc1, I ended up seeing the issue what
-you described here (not sure why I didn't see it earlier). So after the Root
-Port reset, MSI tests fail, but BAR tests succeed. Also, I got IOMMU faults on
-the host after endpoint triggers MSI.
+I have now rewritten the cover letter as below. Let me know if this
+helps.
 
-I investigated it and found that the MSI iATU mapping gets cleared in hw after
-LDn happens. But the host continues to use the same address/size for the
-endpoint MSI even after reset. Due to this, the existing checks in
-dw_pcie_ep_raise_msi_irq() don't pass and the stale MSI iATU mapping gets
-reused.
+Switch Arm SMCCC firmware services to auxiliary devices
 
-The fix would be to clear the mapping in dw_pcie_ep_cleanup(), which gets called
-as part of the PERST# assert/deassert sequence post LDn and also set
-msi_iatu_mapped flag to 'false'. This will force dw_pcie_ep_raise_msi_irq() to
-use fresh iATU mapping when it gets called for the first time:
+As discussed here:
+https://lore.kernel.org/all/20250728135216.48084-12-aneesh.kumar@kernel.org
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
-index d4dc3b24da60..4ae0e1b55f39 100644
---- a/drivers/pci/controller/dwc/pcie-designware-ep.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-@@ -1035,6 +1035,11 @@ void dw_pcie_ep_cleanup(struct dw_pcie_ep *ep)
- {
-        struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
- 
-+       if (ep->msi_iatu_mapped) {
-+               dw_pcie_ep_unmap_addr(ep->epc, 0, 0, ep->msi_mem_phys);
-+               ep->msi_iatu_mapped = false;
-+       }
-+
-        dwc_pcie_debugfs_deinit(pci);
-        dw_pcie_edma_remove(pci);
- }
+The earlier CCA guest support used an arm-cca-dev platform device as a pure
+software anchor for the TSM class device. That platform device did not
+correspond to a DT/ACPI described device, MMIO range, interrupt, or other
+platform resource; it existed only to make the CCA guest driver bind and to
+place the resulting TSM device in the driver model. The same pattern also
+exists for smccc_trng. Creating separate platform devices for such
+SMCCC-discovered features is misleading, because those features are not
+independent platform devices.
 
-With this change, MSI works after Root Port reset without any issues on our Qcom
-endpoint/host setup.
+This series changes the model so that there is a single arm-smccc platform
+device representing the SMCCC firmware interface itself. The firmware
+interface, including its discoverable SMCCC function space, is the
+resource: after PSCI/SMCCC conduit discovery, the kernel can query SMCCC
+function IDs and determine whether optional firmware services are present.
+Services such as SMCCC TRNG and Realm Services Interface (RSI) are
+therefore represented as children of the arm-smccc device, and are created
+only when the required SMCCC function IDs and ABI checks succeed.
 
-Please test this change on your rockchip setup as well. You have to make sure
-that dw_pcie_ep_cleanup() is called during PERST# assert/deassert.
+The child devices use the auxiliary bus deliberately: they are intended to
+bind independent feature drivers, not just to provide a driverless object for
+sysfs or other class-device anchoring. They are firmware-provided functions
+of the parent SMCCC interface that are consumed by separate kernel drivers
+in different subsystems, such as hwrng and virt/coco/TSM. Those drivers
+need normal driver-core matching, probe/remove lifetime, and module
+autoloading based on the discovered firmware feature. The auxiliary bus
+provides a MODALIAS and id-table based binding model for that case, while
+keeping the feature drivers off the platform bus. A faux device was
+considered, but not used because it is suited for simple software objects
+that do not need independent bus/driver binding. The faux bus has no
+feature-driver id-table or MODALIAS matching, so it would not preserve the
+module-autoload flow that the current platform-device based users rely on.
 
-I'm going to respin the series with this fix. If you confirm it works for you,
-then we can merge your Rockchip Root Port change.
+In other words, the parent arm-smccc device represents the firmware
+resource exposed through the SMCCC conduit, and each auxiliary child
+represents one discovered firmware service of that parent. This removes the
+unnecessary per-feature platform devices while retaining automatic loading
+and independent subsystem drivers for the SMCCC services.
 
-- Mani
+The TSM framework uses the device abstraction to provide cross-architecture
+TSM and TEE I/O functionality, including enumerating available platform TEE
+I/O capabilities and provisioning connections between the platform TSM and
+device DSMs.  For Arm CCA, the RSI auxiliary device continues to provide the
+device anchor used by the CCA guest TSM provider.
 
--- 
-மணிவண்ணன் சதாசிவம்
+For the CCA platform, the resulting device hierarchy appears as follows.
+Note that the auxiliary device is parented by the arm-smccc platform device,
+so the sysfs path remains under /devices/platform/arm-smccc/:
+
+$ cd /sys/class/tsm/
+$ ls -al
+total 0
+drwxr-xr-x    2 root     root             0 Jan  1 00:02 .
+drwxr-xr-x   23 root     root             0 Jan  1 00:00 ..
+lrwxrwxrwx    1 root     root             0 Jan  1 00:03 tsm0 -> ../../devices/platform/arm-smccc/arm_cca_guest.arm-rsi-dev.0/tsm/tsm0
+$
+
+The series also replaces the old arm-cca-dev userspace-visible dummy device
+with /sys/firmware/cca/realm_guest for detecting whether the kernel is
+running in a Realm.  This keeps the guest-state ABI under /sys/firmware and
+separates it from the internal driver-binding device used by the CCA guest
+TSM provider.
+
+
+-aneesh
 
