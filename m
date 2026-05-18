@@ -4,50 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B419ACD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:59:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544E5CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fHnX61O6uZxed9xsnOQwM4beNPtwTbCxDLQyZHp4Hjs=; b=w1y/KZbpSJCqGh
-	z22rJq4UJIY/olmc5WQ0KIDWLUCFO1P/yXRDGrhLkvmYcFd3Fs2jefhiCk8uNqIj803CY94So4TXF
-	++pbDiNwHvySGk1X6rplCgF0KG7kdrXcglH8cGFyrC0zocZP7Hlsbj4JDchfaOUIcOmCBkw+QZFBw
-	2QSZZUK7yLW1ryoa4Zf0OLSLZPtzAhKbzPDgEypkRVFWmBw861RQqaRaoYUl2O6DYNJpik2Zg0MLi
-	OON+eL5ejDpa7LcKTdF4XpinW1PjXKTK0qGoQu+ZxcSdd2CPHmKqiMGJLYQ/tn1jdmhbAqYqqu3l3
-	2rs0E/NoAG0N9tgw0qYQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m325/+moxPJt42YkbAJ0tJINMKz0vdnkANW87mDKBjU=; b=u0U+dyaY75UOfTtxK8nne9xvUc
+	9iZACozJsP7S9tAKivAYkx+44Hz/1U/zSC4As+ekrvzMs/sl8RFLXXMeAaxIWmoLEGy2GqO7cddkn
+	RLCe1fyiK6Yzxp/MHeHZ7sOR3KDqBUhtn+euyj4usQbUC/f0atVuLgOm1r2CkXEA42Hk3Jdgdb/kl
+	i7SUawIztyPSahWzgIA7V+Q1lBI/uiJLML4ij//OJ8k5ah3hzzT9tuybDDmBY4kK9THCk0ue3/7Vx
+	bRMUyIy4XA3ciLOYuoaX5vWjipieijX2O2YE5phH6xLQYLuId2edjYmhzEOaq4tkdNI8glW+uXJBf
+	Ep3O+K7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOoC4-0000000DzYO-1PlN;
-	Mon, 18 May 2026 02:59:00 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1wOoC7-0000000DzZi-1qZj;
+	Mon, 18 May 2026 02:59:03 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOoC1-0000000DzWZ-1j58
+	id 1wOoC2-0000000DzWl-3ZHs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 02:58:58 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 97BC31A117D;
-	Mon, 18 May 2026 04:58:53 +0200 (CEST)
+	Mon, 18 May 2026 02:59:00 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 6E0A4201203;
+	Mon, 18 May 2026 04:58:55 +0200 (CEST)
 Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5F9B51A11BA;
-	Mon, 18 May 2026 04:58:53 +0200 (CEST)
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 36EA92011A8;
+	Mon, 18 May 2026 04:58:55 +0200 (CEST)
 Received: from lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com [10.52.9.99])
-	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 23ECA180026F;
-	Mon, 18 May 2026 10:58:51 +0800 (+08)
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id EA507180217B;
+	Mon, 18 May 2026 10:58:52 +0800 (+08)
 From: Joseph Guo <qijian.guo@nxp.com>
-Subject: [PATCH v4 0/2] Add NXP FRDM-IMX95-PRO board support
-Date: Mon, 18 May 2026 11:58:18 +0900
-Message-Id: <20260518-imx95_frdm_pro-v4-0-975346555a9b@nxp.com>
+Date: Mon, 18 May 2026 11:58:19 +0900
+Subject: [PATCH v4 1/2] dt-bindings: arm: fsl: Add i.MX95 19x19 FRDM PRO
+ board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEqACmoC/2XOywqDMBCF4VeRrJsymVw0XfU9ShGjSZuFF2IJF
- vHdG4Uircsz8P3MTEYbvB3JJZtJsNGPvu/SEKeM1M+qe1jqm7QJAirgjFHfTlqWLjRtOYSe5lX
- RADcSdIEkoSFY56cteLun/fTjqw/vrR/Zev2miv9UZBRoUQNYqR0YZq7dNJzrviVrKOKOBR4xJ
- iy4QAFGSXTiF/Mdp1cPmCesFWowImdcqx0vy/IBAHWJdiQBAAA=
-X-Change-ID: 20260311-imx95_frdm_pro-7a8d03b50982
+Message-Id: <20260518-imx95_frdm_pro-v4-1-975346555a9b@nxp.com>
+References: <20260518-imx95_frdm_pro-v4-0-975346555a9b@nxp.com>
+In-Reply-To: <20260518-imx95_frdm_pro-v4-0-975346555a9b@nxp.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -59,17 +57,17 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Joseph Guo <qijian.guo@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>, 
  Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779073130; l=1424;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779073130; l=1080;
  i=qijian.guo@nxp.com; s=20250519; h=from:subject:message-id;
- bh=36KvpVLZ2OlTOmDx+ai6Qq77ttV27luyGGK993oHgt0=;
- b=8oK+MDmC88h8FpZTSKRofjrcbESSKd7LxuSew2ILEVR4Nxnfqpzd4W+FaVOMDSWOx3dY7l77m
- NEYRW2Z71+WAy4MKwRDmI+7ImTCKyqnadvuWwlJJXHn5FRsLgsLnVfx
+ bh=9GQNv2wGSWkbfAUHwoF9Hs8KSZtunAO9+Pncvtb1r5A=;
+ b=ifZjH5AbvLyD0FuomB604p0HFCt20GtUi1uva/Kxe5I4PlVKAhJNNJ+GWAXQ65kGdgRFqqcfQ
+ xJIYQF2gPhwCS0lY5YZ0/q6Fva52LCG5j1u19tboczSGgruANefVql3
 X-Developer-Key: i=qijian.guo@nxp.com; a=ed25519;
  pk=VRjOOFhVecTRwBzK4mt/k3JBnHoYfuXKCm9FM+hHQhs=
 X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_195857_590735_33EE1B17 
-X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-CacheID: sfid-20260517_195859_031035_A1926A8E 
+X-CRM114-Status: UNSURE (   7.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,44 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patchset add Devicetree support for NXP FRDM-IMX95-PRO
-development board based on i.MX95 19x19 SoC.
+Add the i.MX95 19x19 FRDM PRO board in the binding document.
 
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
 ---
-Changes in v4:
-- Correct underscores in node names
-- Correct 'silent-gpio' of can_phy to GPIO_ACTIVE_HIGH
-- Fix typo in pinctrl_pcal6416
-- Link to v3: https://lore.kernel.org/r/20260509-imx95_frdm_pro-v3-0-96290b471396@nxp.com
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes in v3:
-- Change status of CAN1 to reserved
-- Remove unused pinctrl
-- Explain difference with i.MX95 15x15 FRDM in message
-- Link to v2: https://lore.kernel.org/r/20260428-imx95_frdm_pro-v2-0-434240b652f4@nxp.com
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index f5d3c08369b92987b2cb01e36c26f9f72937f557..9f50b4bf67bc2c0b0e11b1ae615151aa4d5f0d09 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1485,6 +1485,7 @@ properties:
+               - fsl,imx95-15x15-evk       # i.MX95 15x15 EVK Board
+               - fsl,imx95-15x15-frdm      # i.MX95 15x15 FRDM Board
+               - fsl,imx95-19x19-evk       # i.MX95 19x19 EVK Board
++              - fsl,imx95-19x19-frdm-pro  # i.MX95 19x19 FRDM PRO Board
+               - toradex,verdin-imx95-19x19-evk  # i.MX95 Verdin Evaluation Kit (EVK)
+           - const: fsl,imx95
+ 
 
-Changes in v2:
-- Run dt-format to reformat the node order
-- Change compatible of mqs to audio-graph-card2
-- Add imx95-19x19-frdm-pro in Makefile
-- Link to v1: https://lore.kernel.org/r/20260318-imx95_frdm_pro-v1-0-8c00e59f0b1b@nxp.com
-
----
-Joseph Guo (2):
-      dt-bindings: arm: fsl: Add i.MX95 19x19 FRDM PRO board
-      arm64: dts: freescale: add i.MX95 19x19 FRDM PRO board dts
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |    1 +
- arch/arm64/boot/dts/freescale/Makefile             |    1 +
- .../boot/dts/freescale/imx95-19x19-frdm-pro.dts    | 1021 ++++++++++++++++++++
- 3 files changed, 1023 insertions(+)
----
-base-commit: 7109a2155340cc7b21f27e832ece6df03592f2e8
-change-id: 20260311-imx95_frdm_pro-7a8d03b50982
-
-Best regards,
 -- 
-Joseph Guo <qijian.guo@nxp.com>
+2.34.1
 
 
