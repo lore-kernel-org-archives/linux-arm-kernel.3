@@ -4,100 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE326CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD02CD4F48
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 07:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BmSkuL91S5JTeOMwcODWsgNYZazITVhdV6wqP+5D8Es=; b=p11Vh09K3fA0VH7LJZ2NRmLMMn
-	KI42slfJaMLNgvj5vVjXsEHK+049EL1ZupVXcDlkq5pgqXgr71hJjpAXmtqFxrqdY/cWGFkK+Q3F+
-	igKvP1pUwSECki702p776sjr8Oi+qmDOqAq95aNFJ2+ONXew04bbzzcFSCtc3nTJpLn+s4ZQ1HcSr
-	SNby64Wjm7X04yfqElk5xbh0xaibNITi+3850mujvjrqYVhFIbnK3wuEPD3URNqYl0JhUlKvd7qTv
-	0vEf6y4UXJ8+G0qLkerDuJQYw2juXsQf7Jsg9mJwuOUyti6ksi21XHfqgP2nHdRxibTFXPf1/4lJr
-	1EPZolpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T8K3ktX6kxGJCGj6r3lYBqDLxaBpHUVMXWebpGjuIPc=; b=2GnIx9Xms0naqjkyHI1wOQBP0g
+	PemVutJutZo/8gg21SO7vbXUBI5wlveTm/Fg/vTjziPQFxGB4I0ftdAljtaHqB06SAiPyYKFhU5iW
+	eP2C70OxWyZPcrPjDq4Est/alhOiiL+cpRdth57ZS+2x5ARh8TR3o48qG+xf3BtojlZLlMNIlUxrV
+	rV3nJSW3ZE8Gf/6hemh7RYyZzUgEPJufUPC9sKazqYtPqrI3jnEbnHnhBb4SeezO16elq2SsDtOqt
+	aCAM6mJtY6XKpTKsmc7YCQdFVWa9XC5gAr/XGIIKNKA5ybSE3KFCROBgkQrq+CCNpQJ5eNOWQ2YfE
+	TbPyrMnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsNO-0000000EaNA-2B6i;
-	Mon, 18 May 2026 07:26:58 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wOsOR-0000000EaZM-3Pzj;
+	Mon, 18 May 2026 07:28:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsNN-0000000EaMZ-1rPo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 18 May 2026 07:26:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=BmSkuL91S5JTeOMwcODWsgNYZazITVhdV6wqP+5D8Es=; b=oS5YY9TlmhdB96HFeZ+rNtPbdS
-	6b0Lzkig749yReP+bwGIySLI56PVr0NVGNEMCfBk+Ni8otRsORXExHSZXTQPx9xFN1MYpIOKt+8Pa
-	W6QK86UudYvqnRvurHe5sOUylKgpi/mIzK22Lem0flM9258PgNir+NVGwioMTIoqrFyRrj2CcaIwt
-	VOcSv8jK6dobikiAbicJ56VtbXJx5Y4BsKuoH5oP27MHzEKR7dSyB997y9yIl3yTsbQlnsLDCKTQ9
-	fjUWHVk+SRVcTC2AlrjgEH83uN2WnnGnWj+rdGGPjGfUcTL8kEbkEYrlMfAy3u1FsWXx167nYXh0n
-	kf7NeYBw==;
-Received: from mgamail.intel.com ([198.175.65.17])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOsNJ-0000000AAGL-2foN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 07:26:56 +0000
+	id 1wOsOP-0000000EaYK-3MQ6;
+	Mon, 18 May 2026 07:28:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779089214; x=1810625214;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=t53bHA1/nxgmKznFl2xB1CX1LnkvFJuRl85dZH2IABE=;
-  b=C1hwfQ9bwprd7IshQkJa/XY8jjWFC3wYiCXlQY/IzYTd1hagfbpfl8vr
-   oo/PcpmEko30ffCeyndiQ27W5t02HeS88mBQr2UEVsPS5H+HoAnXwX495
-   0zI07A9Y2XoYBLL9JuufEjMS8m/EVuHlILc6YxLZ9PFbaTJdbeFC9WY9E
-   t/NrtXr4+5PgoEwrfMZCDc3GcTNffqeKiPuyvh05n8OvIpjj6hohDqQkk
-   hnOOQUVDM+Gc8iqXl3fkBMSanNIQvqxKmr+IPPa4ba6/VdlIUnv3ECdAV
-   T5iw64iBOvfjzjejE1B0zcYIleheMdMHfKOLVijhRLTgpBY7PikMogACG
-   A==;
-X-CSE-ConnectionGUID: k2Ry0M0vTayJiVP4TqNKIg==
-X-CSE-MsgGUID: 79EiewdPT72cV2egRyNa7A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11789"; a="79914925"
-X-IronPort-AV: E=Sophos;i="6.23,241,1770624000"; 
-   d="scan'208";a="79914925"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 00:26:51 -0700
-X-CSE-ConnectionGUID: 1zI6GwacTxqeoB8ZnGOasg==
-X-CSE-MsgGUID: +v/e/I8qTTGyxw8wKlu63A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,241,1770624000"; 
-   d="scan'208";a="235113416"
-Received: from fpallare-mobl4.ger.corp.intel.com (HELO localhost) ([10.245.244.3])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 00:26:47 -0700
-Date: Mon, 18 May 2026 10:26:44 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Jyoti Bhayana <jbhayana@google.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Nuno =?iso-8859-1?Q?S=E1?= <nuno.sa@analog.com>,
-	Andy Shevchenko <andy@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Benson Leung <bleung@chromium.org>,
-	Guenter Roeck <groeck@chromium.org>, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	chrome-platform@lists.linux.dev
-Subject: Re: [PATCH 0/8] iio: timestamp declaration cleanup
-Message-ID: <agq_NJfR7aLA-gJu@ashevche-desk.local>
-References: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1779089281; x=1810625281;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=mTL4AmldJLzLoADrNv/OW3KIjhSEDw/stTd1/0S4/Kk=;
+  b=I0nxskgXa2zm4t9c6LiOFJMJycw5icblpKYfpVYvE/rzQTZkBxtU6W+U
+   HheCywDj48ByDpHUi03D4E1+dgy14Tx7WyJfCBh0j2Fz8Oz3wCJjhgRJU
+   alKDa+BJ2QjSItF04OQ7hCVieZTuuz7xik1Guiiw0XpWpDPwRkv6vLZr3
+   aIW3SCwykmMhSGU/iFL00mDCrl135jCoQqQMa+yZdVWWVq/lIF7Indfo9
+   mB5EOHJhPm6XxM+0y0+e845CwQM07U9laEOjxE360seCryrjX+AlZuRHA
+   cxEcBwbUcMh3I6bdbYX1C6/EjDhrwLAdsB2ex5eZv1sbrEslx7OFOkody
+   g==;
+X-CSE-ConnectionGUID: J2ZZy5+7R6SKTOgX18Itgw==
+X-CSE-MsgGUID: 09Eij195QgmMOObYXG9Vhg==
+X-IronPort-AV: E=Sophos;i="6.23,241,1770620400"; 
+   d="scan'208";a="66398712"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 00:27:59 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.37; Mon, 18 May 2026 00:27:59 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 18 May 2026 00:27:54 -0700
+Message-ID: <0ae90352-2099-4d3d-a55c-40a6e090fde4@microchip.com>
+Date: Mon, 18 May 2026 09:27:55 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260517-iio-timestamp-cleanup-v1-0-61fb908c11c7@baylibre.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 4/5] ARM: dts: microchip: add I3C controller
+To: Manikandan M - I67131 <Manikandan.M@microchip.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+CC: "alexandre.belloni@bootlin.com" <alexandre.belloni@bootlin.com>,
+	"Frank.Li@nxp.com" <Frank.Li@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"mturquette@baylibre.com" <mturquette@baylibre.com>, "sboyd@kernel.org"
+	<sboyd@kernel.org>, "tytso@mit.edu" <tytso@mit.edu>, Aubin Constans - M51280
+	<Aubin.Constans@microchip.com>, Ryan Wanner - C70674
+	<Ryan.Wanner@microchip.com>, Romain Sioen - M70749
+	<Romain.Sioen@microchip.com>, "durai.manickamkr@microchip.com"
+	<durai.manickamkr@microchip.com>, Cristian Birsan - M91496
+	<Cristian.Birsan@microchip.com>, "adrian.hunter@intel.com"
+	<adrian.hunter@intel.com>, "jarkko.nikula@linux.intel.com"
+	<jarkko.nikula@linux.intel.com>, "npitre@baylibre.com" <npitre@baylibre.com>,
+	"linux-i3c@lists.infradead.org" <linux-i3c@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>
+References: <20260507084805.481737-1-manikandan.m@microchip.com>
+ <20260507084805.481737-5-manikandan.m@microchip.com>
+ <da83523d-f3ac-42e3-83a2-fb7e7d64ebf9@tuxon.dev>
+ <515e89f3-fca9-477c-be4d-be9ed9428d5f@microchip.com>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <515e89f3-fca9-477c-be4d-be9ed9428d5f@microchip.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_082654_702169_A9F7E1D9 
-X-CRM114-Status: GOOD (  15.77  )
+X-CRM114-CacheID: sfid-20260518_002801_849803_A95829FC 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +106,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 17, 2026 at 01:17:17PM -0500, David Lechner wrote:
-> While looking around the code, I noticed that there are a lot of places
-> were we are manually filling all of the fields of an IIO timestamp.
+On 18/05/2026 at 08:10, Manikandan M - I67131 wrote:
+> Hi Claudiu,
 > 
-> This is error-prone (as seen in the first patch) and more verbose than
-> it needs to be.
+> On 16/05/26 9:37 pm, Claudiu Beznea wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know
+>> the content is safe
+>>
+>> Hi, Manikandan,
+>>
+>> On 5/7/26 11:48, Manikandan Muralidharan wrote:
+>>> From: Durai Manickam KR <durai.manickamkr@microchip.com>
+>>>
+>>> Add I3C controller for sama7d65 SoC.
+>>>
+>>> Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
+>>> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+>>> ---
+>>> Changes in v3:
+>>> - Remove clock-names property as driver enables the clk in bulk
+>>>
+>>>    arch/arm/boot/dts/microchip/sama7d65.dtsi | 8 ++++++++
+>>>    1 file changed, 8 insertions(+)
+>>>
+>>> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>>> b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>>> index 67253bbc08df..ec200848c153 100644
+>>> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>>> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+>>> @@ -1055,5 +1055,13 @@ gic: interrupt-controller@e8c11000 {
+>>>                        #address-cells = <0>;
+>>>                        interrupt-controller;
+>>>                };
+>>> +
+>>> +             i3c: i3c@e9000000 {
+>>> +                     compatible = "microchip,sama7d65-i3c-hci";
+>>> +                     reg = <0xe9000000 0x300>;
+>>
+>>   From manual at [1] I see the size of I3CC region is 0x1000. Unless that is
+>> wrong I think we should use 0x1000 to properly describe de HW. Please
+>> let me
+>> know and I can do it while applying.
+
+The memory map simply describes what is the next memory boundary 
+assigned (or void in this case), not the actual size of the IP user 
+interface.
+So we took the opportunity to avoid mapping unused memory.
+
+> According to Table 78.6 (Register Summary), the I3CC register space
+> extends up to offset 0x258, Ideally the mapping should have been 0x400
+
+The underlying memory mapping certainly does what is best, so I would 
+cling to being the closest to last register described. So your 0x300 
+value looks very good to me.
+
+Best regards,
+   Nicolas
+
+> (next power of 2 considering the memory region alignment), using 0x1000
+> is also acceptable. Please advise which value is preferred.
 > 
-> I went with the approach of using the existing IIO_CHAN_SOFT_TIMESTAMP()
-> macro for doing a struct assignment. This does require a cast, which
-> makes it a bit more verbose, but we were already doing that in to
-> drivers, so I went with it anyway.
+>> Thank you,
+>> Claudiu
+>>
+>> [1]
+>> https://ww1.microchip.com/downloads/aemDocuments/documents/MPU32/ProductDocuments/DataSheets/SAMA7D6-Series-Data-Sheet-DS60001851.pdf
+>>
+>>> +                     interrupts = <GIC_SPI 105 IRQ_TYPE_LEVEL_HIGH>;
+>>> +                     clocks = <&pmc PMC_TYPE_PERIPHERAL 105>, <&pmc
+>>> PMC_TYPE_GCK 105>;
+>>> +                     status = "disabled";
+>>> +             };
+>>>        };
+>>>    };
+>>
 > 
-> If we want to consider alternatives, we could make a iio helper function
-> or macro like the first and second patches did.
-
-I like the series, just incorporate my patch, test and issue a v2, I will give
-my tag.
-
--- 
-With Best Regards,
-Andy Shevchenko
-
 
 
