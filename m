@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD81CD4F50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE45CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0GyVbaMizFd6dp6sYV2cV6DF4/PWzBLikux5CvpVItM=; b=i/ff7pILCUZfSpFEdkZ8xFSzV/
-	8oZYrW4s2Pizyt0ZwpDfMd4sE4VAJ1tbIOXOA/9dxYqwehkhOWeyxJK6Ep1kX0CwvKuYG5K19Hjus
-	6ksDR1cHMUy5H1Wcy4wm9yYYqwRrhcJiJpPBV/zv75ih1nIeZIWBd2Kr7yeI+AqvpgJoMhUrWacmd
-	IY0VRWfSFUKXt3+/ibtmrEeL+NWaN7en3mlM0WNFxlZ2K05Ln9I1U6etxzfO3sXiOQnQFmdr0mb6i
-	x8kXdsTc/6+u7e15ELdyOE+pSsg+kH6yloebVwHdatS4S7ueta6LmHjR3WdopuSfTRYKP1OAALx3j
-	sbop6t3Q==;
+	bh=Ql/TB5Fnvwszgz6NHH2PAJghSE7VzH8sGOmqwzlwv/w=; b=QHcAeaogLNn/zv4tmI9vPfxyhw
+	TPHRl5QKuhFVxO7WWY4MU+6zfJKI30OuQeCtLXXq1ldsLRT6SQZDBbaRqEYMdY79gRGhE2seMFUpV
+	b0eIdgwtELGF17Nl5q8UA6JFimhmFOMI873Eb2oaSNY8JcovQCjTOyAOgXeiRKG8vyi+fjiMLe+N+
+	Z7Vr5fALwLN3V37hGCn4iXj9mDPZGa2RXaZdBitHnUjRFur0PUW5/85tQQHfz3ti1grZKPCgKv3w3
+	9rTgU2UHVlLQaKmML9y+yCgqEQy50xe5H5g5yZzAt3DHp15av27wCq4KQACdYtO8mBjM5hn6beawu
+	fqSW7fKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyfJ-0000000FvSV-0uoH;
-	Mon, 18 May 2026 14:09:53 +0000
-Received: from leonov.paulk.fr ([185.233.101.22])
+	id 1wOygW-0000000FvwN-0qR4;
+	Mon, 18 May 2026 14:11:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyfF-0000000FvPl-2vDc
+	id 1wOygU-0000000Fvvu-0TvB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 14:09:51 +0000
-Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
-	by leonov.paulk.fr (Postfix) with ESMTPS id C1D971F80044
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:09:46 +0000 (UTC)
-Received: by laika.paulk.fr (Postfix, from userid 65534)
-	id B814FB407FA; Mon, 18 May 2026 14:09:45 +0000 (UTC)
-Received: from collins (unknown [192.168.1.1])
-	by laika.paulk.fr (Postfix) with ESMTPSA id 33A58B407F5;
-	Mon, 18 May 2026 14:09:44 +0000 (UTC)
-Date: Mon, 18 May 2026 16:09:41 +0200
-From: Paul Kocialkowski <paulk@sys-base.io>
-To: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-staging@lists.linux.dev
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arash Golgol <arash.golgol@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: Re: [PATCH 04/16] media: sun8i-a83t-mipi-csi2: Use V4L2 subdev
- active state
-Message-ID: <agsdpcxifnFwaUu3@collins>
-References: <20260518102451.417971-1-paulk@sys-base.io>
- <20260518102451.417971-5-paulk@sys-base.io>
+	Mon, 18 May 2026 14:11:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B512143A55;
+	Mon, 18 May 2026 14:11:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF7A7C2BCB7;
+	Mon, 18 May 2026 14:11:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779113465;
+	bh=dNTK27n/XJgH33ISdED46BJpCMX/A0Twn4BMGEKrFfY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Rlb+C+7EFLw9iDZnS247E6fEBlfX46YAbiIEoTsYbK6xFuhqtOVkUBjo+AHQrfvVj
+	 9QgIyKvL4cM5Y/HOyLKV0RzpnX5wBo2i/bDtQEIMYo75+hV7JP9HhbS+JfXks4isj0
+	 MYvpPHTbjEqFlNDxiEL/wi/Fd8W0NP9eWbjb+UUZpSadZvKZlb5nLRgvIZL4+Pvqjd
+	 IZirM4JqVL/6ZaEhZVkxBLCTygGt+PXS5/kI0VBmCNkNhmgV6F7iTZxUXnU86fvHFC
+	 3f+v16FAbqB6chJdMKbEBRB4fXJj8a/9fZ9Q0JC8UOqgb9veDUgAbY6ZmvNQO1I9D9
+	 pJYtzGUL4/aEA==
+Date: Mon, 18 May 2026 15:11:01 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, James Morse <james.morse@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	Reinette Chatre <reinette.chatre@intel.com>,
+	Fenghua Yu <fenghuay@nvidia.com>,
+	Jonathan Cameron <jic23@kernel.org>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] arm_mpam: add MPAM-Fb MSC firmware access support
+Message-ID: <20260518-orchid-bat-of-influence-ae1ccc@sudeepholla>
+References: <20260429141339.3171205-1-andre.przywara@arm.com>
+ <20260429141339.3171205-4-andre.przywara@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="SmpESyxiLXAcu4zS"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260518102451.417971-5-paulk@sys-base.io>
+In-Reply-To: <20260429141339.3171205-4-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_070950_068099_7496F467 
-X-CRM114-Status: GOOD (  30.84  )
+X-CRM114-CacheID: sfid-20260518_071106_206836_4ECBE1CC 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,346 +82,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Apr 29, 2026 at 04:13:37PM +0200, Andre Przywara wrote:
 
---SmpESyxiLXAcu4zS
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[...]
 
-Le Mon 18 May 26, 12:24, Paul Kocialkowski a =C3=A9crit :
-> From: Arash Golgol <arash.golgol@gmail.com>
->=20
-> Use the V4L2 subdev active state API to store the active format.
-> This simplifies the driver not only by dropping the bridge mbus_format
-> field, but it also allows dropping the bridge lock, replaced with
-> the state lock.
->=20
-> The sun8i-a83t-mipi-csi2 hardware does not perform any format
-> conversion. Enforce identical formats on the sink and source pads in
-> the set_fmt() and init_state() callbacks.
->=20
-> Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
-
-I forgot to pick it up but this is already:
-
-Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
-Tested-by: Paul Kocialkowski <paulk@sys-base.io>
-
-Paul
-
-> ---
->  .../sun8i_a83t_mipi_csi2.c                    | 113 +++++++++---------
->  .../sun8i_a83t_mipi_csi2.h                    |   2 -
->  2 files changed, 56 insertions(+), 59 deletions(-)
->=20
-> diff --git a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
-_mipi_csi2.c b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
-_mipi_csi2.c
-> index dbc51daa4fe3..2b7635f3952d 100644
-> --- a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
-si2.c
-> +++ b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
-si2.c
-> @@ -144,12 +144,12 @@ sun8i_a83t_mipi_csi2_disable(struct sun8i_a83t_mipi=
-_csi2_device *csi2_dev)
->  }
-> =20
->  static void
-> -sun8i_a83t_mipi_csi2_configure(struct sun8i_a83t_mipi_csi2_device *csi2_=
-dev)
-> +sun8i_a83t_mipi_csi2_configure(struct sun8i_a83t_mipi_csi2_device *csi2_=
-dev,
-> +			       const struct v4l2_mbus_framefmt *mbus_format)
->  {
->  	struct regmap *regmap =3D csi2_dev->regmap;
->  	unsigned int lanes_count =3D
->  		csi2_dev->bridge.endpoint.bus.mipi_csi2.num_data_lanes;
-> -	struct v4l2_mbus_framefmt *mbus_format =3D &csi2_dev->bridge.mbus_forma=
-t;
->  	const struct sun8i_a83t_mipi_csi2_format *format;
->  	struct device *dev =3D csi2_dev->dev;
->  	u32 version =3D 0;
-> @@ -205,7 +205,8 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
-subdev *subdev, int on)
->  	struct v4l2_subdev *source_subdev =3D csi2_dev->bridge.source_subdev;
->  	union phy_configure_opts dphy_opts =3D { 0 };
->  	struct phy_configure_opts_mipi_dphy *dphy_cfg =3D &dphy_opts.mipi_dphy;
-> -	struct v4l2_mbus_framefmt *mbus_format =3D &csi2_dev->bridge.mbus_forma=
-t;
-> +	struct v4l2_subdev_state *state;
-> +	const struct v4l2_mbus_framefmt *mbus_format;
->  	const struct sun8i_a83t_mipi_csi2_format *format;
->  	struct phy *dphy =3D csi2_dev->dphy;
->  	struct device *dev =3D csi2_dev->dev;
-> @@ -215,8 +216,12 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2=
-_subdev *subdev, int on)
->  	unsigned long pixel_rate;
->  	int ret;
-> =20
-> -	if (!source_subdev)
-> -		return -ENODEV;
-> +	state =3D v4l2_subdev_lock_and_get_active_state(subdev);
+> diff --git a/drivers/resctrl/mpam_fb.c b/drivers/resctrl/mpam_fb.c
+> new file mode 100644
+> index 000000000000..bfb5798c74b0
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_fb.c
+> @@ -0,0 +1,158 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2024 Arm Ltd.
 > +
-> +	if (!source_subdev) {
-> +		ret =3D -ENODEV;
-> +		goto unlock;
-> +	}
-> =20
->  	if (!on) {
->  		v4l2_subdev_call(source_subdev, video, s_stream, 0);
-> @@ -228,7 +233,7 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
-subdev *subdev, int on)
-> =20
->  	ret =3D pm_runtime_resume_and_get(dev);
->  	if (ret < 0)
-> -		return ret;
-> +		goto unlock;
-> =20
->  	/* Sensor pixel rate */
-> =20
-> @@ -254,6 +259,9 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
-subdev *subdev, int on)
->  		goto error_pm;
->  	}
-> =20
-> +	mbus_format =3D
-> +		v4l2_subdev_state_get_format(state,
-> +					     SUN8I_A83T_MIPI_CSI2_PAD_SINK);
->  	format =3D sun8i_a83t_mipi_csi2_format_find(mbus_format->code);
->  	if (WARN_ON(!format)) {
->  		ret =3D -ENODEV;
-> @@ -292,7 +300,7 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
-subdev *subdev, int on)
-> =20
->  	/* Controller */
-> =20
-> -	sun8i_a83t_mipi_csi2_configure(csi2_dev);
-> +	sun8i_a83t_mipi_csi2_configure(csi2_dev, mbus_format);
->  	sun8i_a83t_mipi_csi2_enable(csi2_dev);
-> =20
->  	/* D-PHY */
-> @@ -309,7 +317,8 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
-subdev *subdev, int on)
->  	if (ret && ret !=3D -ENOIOCTLCMD)
->  		goto disable;
-> =20
-> -	return 0;
-> +	ret =3D 0;
-> +	goto unlock;
-> =20
->  disable:
->  	phy_power_off(dphy);
-> @@ -318,6 +327,8 @@ static int sun8i_a83t_mipi_csi2_s_stream(struct v4l2_=
-subdev *subdev, int on)
->  error_pm:
->  	pm_runtime_put(dev);
-> =20
-> +unlock:
-> +	v4l2_subdev_unlock_state(state);
->  	return ret;
->  }
-> =20
-> @@ -341,22 +352,24 @@ sun8i_a83t_mipi_csi2_mbus_format_prepare(struct v4l=
-2_mbus_framefmt *mbus_format)
->  static int sun8i_a83t_mipi_csi2_init_state(struct v4l2_subdev *subdev,
->  					   struct v4l2_subdev_state *state)
->  {
-> -	struct sun8i_a83t_mipi_csi2_device *csi2_dev =3D
-> -		v4l2_get_subdevdata(subdev);
-> -	unsigned int pad =3D SUN8I_A83T_MIPI_CSI2_PAD_SINK;
-> -	struct v4l2_mbus_framefmt *mbus_format =3D
-> -		v4l2_subdev_state_get_format(state, pad);
-> -	struct mutex *lock =3D &csi2_dev->bridge.lock;
-> +	unsigned int pad;
-> =20
-> -	mutex_lock(lock);
-> +	/*
-> +	 * This subdev does not perform format conversion,
-> +	 * initialize both pads identically.
-> +	 */
-> +	for (pad =3D 0; pad < subdev->entity.num_pads; pad++) {
-> +		struct v4l2_mbus_framefmt *mbus_format;
-> =20
-> -	mbus_format->code =3D sun8i_a83t_mipi_csi2_formats[0].mbus_code;
-> -	mbus_format->width =3D 640;
-> -	mbus_format->height =3D 480;
-> +		mbus_format =3D v4l2_subdev_state_get_format(state, pad);
+> +#include <linux/arm_mpam.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/gfp.h>
+> +#include <linux/iopoll.h>
+> +#include <linux/list.h>
+> +#include <linux/mailbox_client.h>
+> +#include <linux/mutex.h>
+> +#include <linux/of.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/printk.h>
+> +#include <linux/processor.h>
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/types.h>
 > +
-> +		mbus_format->code =3D sun8i_a83t_mipi_csi2_formats[0].mbus_code;
-> +		mbus_format->width =3D 640;
-> +		mbus_format->height =3D 480;
-> =20
-> -	sun8i_a83t_mipi_csi2_mbus_format_prepare(mbus_format);
-> +		sun8i_a83t_mipi_csi2_mbus_format_prepare(mbus_format);
-> +	}
-> =20
-> -	mutex_unlock(lock);
-> =20
->  	return 0;
->  }
-> @@ -375,55 +388,33 @@ sun8i_a83t_mipi_csi2_enum_mbus_code(struct v4l2_sub=
-dev *subdev,
->  	return 0;
->  }
-> =20
-> -static int sun8i_a83t_mipi_csi2_get_fmt(struct v4l2_subdev *subdev,
-> -					struct v4l2_subdev_state *state,
-> -					struct v4l2_subdev_format *format)
-> -{
-> -	struct sun8i_a83t_mipi_csi2_device *csi2_dev =3D
-> -		v4l2_get_subdevdata(subdev);
-> -	struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
-> -	struct mutex *lock =3D &csi2_dev->bridge.lock;
-> -
-> -	mutex_lock(lock);
-> -
-> -	if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
-> -		*mbus_format =3D *v4l2_subdev_state_get_format(state,
-> -							     format->pad);
-> -	else
-> -		*mbus_format =3D csi2_dev->bridge.mbus_format;
-> -
-> -	mutex_unlock(lock);
-> -
-> -	return 0;
-> -}
-> -
->  static int sun8i_a83t_mipi_csi2_set_fmt(struct v4l2_subdev *subdev,
->  					struct v4l2_subdev_state *state,
->  					struct v4l2_subdev_format *format)
->  {
-> -	struct sun8i_a83t_mipi_csi2_device *csi2_dev =3D
-> -		v4l2_get_subdevdata(subdev);
-> -	struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
-> -	struct mutex *lock =3D &csi2_dev->bridge.lock;
-> +	struct v4l2_mbus_framefmt *fmt;
-> =20
-> -	mutex_lock(lock);
-> +	/* The format on the source pad always matches the sink pad. */
-> +	if (format->pad !=3D SUN8I_A83T_MIPI_CSI2_PAD_SINK)
-> +		return v4l2_subdev_get_fmt(subdev, state, format);
-> =20
-> -	sun8i_a83t_mipi_csi2_mbus_format_prepare(mbus_format);
-> +	sun8i_a83t_mipi_csi2_mbus_format_prepare(&format->format);
-> =20
-> -	if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
-> -		*v4l2_subdev_state_get_format(state, format->pad) =3D
-> -			*mbus_format;
-> -	else
-> -		csi2_dev->bridge.mbus_format =3D *mbus_format;
-> +	/* Set the format on the sink pad. */
-> +	fmt =3D v4l2_subdev_state_get_format(state, format->pad);
-> +	*fmt =3D format->format;
-> =20
-> -	mutex_unlock(lock);
-> +	/* Propagate the format to the source pad. */
-> +	fmt =3D v4l2_subdev_state_get_format(state,
-> +					   SUN8I_A83T_MIPI_CSI2_PAD_SOURCE);
-> +	*fmt =3D format->format;
-> =20
->  	return 0;
->  }
-> =20
->  static const struct v4l2_subdev_pad_ops sun8i_a83t_mipi_csi2_pad_ops =3D=
- {
->  	.enum_mbus_code	=3D sun8i_a83t_mipi_csi2_enum_mbus_code,
-> -	.get_fmt	=3D sun8i_a83t_mipi_csi2_get_fmt,
-> +	.get_fmt	=3D v4l2_subdev_get_fmt,
->  	.set_fmt	=3D sun8i_a83t_mipi_csi2_set_fmt,
->  };
-> =20
-> @@ -540,8 +531,6 @@ sun8i_a83t_mipi_csi2_bridge_setup(struct sun8i_a83t_m=
-ipi_csi2_device *csi2_dev)
->  	bool notifier_registered =3D false;
->  	int ret;
-> =20
-> -	mutex_init(&bridge->lock);
-> -
->  	/* V4L2 Subdev */
-> =20
->  	v4l2_subdev_init(subdev, &sun8i_a83t_mipi_csi2_subdev_ops);
-> @@ -570,6 +559,12 @@ sun8i_a83t_mipi_csi2_bridge_setup(struct sun8i_a83t_=
-mipi_csi2_device *csi2_dev)
->  	if (ret)
->  		return ret;
-> =20
-> +	/* V4L2 Subdev finalize */
+> +#include <acpi/pcc.h>
 > +
-> +	ret =3D v4l2_subdev_init_finalize(subdev);
-> +	if (ret < 0)
-> +		goto error_media_entity_cleanup;
+> +#include <asm/mpam.h>
 > +
->  	/* V4L2 Async */
-> =20
->  	v4l2_async_subdev_nf_init(notifier, subdev);
-> @@ -603,6 +598,9 @@ sun8i_a83t_mipi_csi2_bridge_setup(struct sun8i_a83t_m=
-ipi_csi2_device *csi2_dev)
->  error_v4l2_notifier_cleanup:
->  	v4l2_async_nf_cleanup(notifier);
-> =20
-> +	v4l2_subdev_cleanup(subdev);
+> +#include "mpam_fb.h"
 > +
-> +error_media_entity_cleanup:
->  	media_entity_cleanup(&subdev->entity);
-> =20
->  	return ret;
-> @@ -617,6 +615,7 @@ sun8i_a83t_mipi_csi2_bridge_cleanup(struct sun8i_a83t=
-_mipi_csi2_device *csi2_dev
->  	v4l2_async_unregister_subdev(subdev);
->  	v4l2_async_nf_unregister(notifier);
->  	v4l2_async_nf_cleanup(notifier);
-> +	v4l2_subdev_cleanup(subdev);
->  	media_entity_cleanup(&subdev->entity);
->  }
-> =20
-> diff --git a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
-_mipi_csi2.h b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t=
-_mipi_csi2.h
-> index f1e64c53434c..819527bcd64d 100644
-> --- a/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
-si2.h
-> +++ b/drivers/media/platform/sunxi/sun8i-a83t-mipi-csi2/sun8i_a83t_mipi_c=
-si2.h
-> @@ -33,8 +33,6 @@ struct sun8i_a83t_mipi_csi2_bridge {
->  	struct media_pad		pads[SUN8I_A83T_MIPI_CSI2_PAD_COUNT];
->  	struct v4l2_fwnode_endpoint	endpoint;
->  	struct v4l2_async_notifier	notifier;
-> -	struct v4l2_mbus_framefmt	mbus_format;
-> -	struct mutex			lock; /* Mbus format lock. */
-> =20
->  	struct v4l2_subdev		*source_subdev;
->  };
-> --=20
-> 2.54.0
->=20
+> +#define MPAM_FB_PROTOCOL_ID	0x1a
 
---=20
-Paul Kocialkowski,
+This is only possible place where referring to SCMI is Okay but good
+that you have avoided by keeping it MPAM_FB_PROTOCOL_ID. You can add a
+note if that is helpful but other than that remove any reference to SCMI
+from this file as it is not needed and might be misleading.
 
-Independent contractor - sys-base - https://www.sys-base.io/
-Free software developer - https://www.paulk.fr/
+Consider a system that just implements SCMI for sake of MPAM_FB_PROTOCOL
+and need not be completely SCMI conformant in terms of base and other
+protocol if it is not used on such a system. Using or referring SCMI must
+give a misunderstanding that SCMI is needed for this to work.
 
-Expert in multimedia, graphics and embedded hardware support with Linux.
+> +#define MPAM_MSC_ATTRIBUTES_CMD	0x3
+> +#define MPAM_MSC_READ_CMD	0x4
+> +#define MPAM_MSC_WRITE_CMD	0x5
+> +
+> +#define MPAM_MSC_PROT_ID_MASK	GENMASK(17, 10)
+> +#define MPAM_MSC_TOKEN_MASK	GENMASK(27, 18)
+> +
+> +#define SCMI_CHAN_RSVD_OFS	0x00
+> +#define SCMI_CHAN_STATUS_OFS	0x04
+> +#define SCMI_CHAN_STATUS_FREE_BIT	BIT(0)
+> +#define SCMI_CHAN_FLAGS_OFS	0x10
+> +#define SCMI_CHAN_FLAGS_IRQ		BIT(0)
+> +#define SCMI_MSG_LENGTH_OFS	0x14
+> +#define SCMI_MSG_HEADER_OFS	0x18
+> +#define SCMI_MSG_PAYLOAD_OFS	0x1c
+> +
 
---SmpESyxiLXAcu4zS
-Content-Type: application/pgp-signature; name=signature.asc
+However, there is nothing SCMI specific in all the above, plain PCC shared
+memory layout and hence SCMI needs to be dropped. Also you don't need
+all these offsets if you use acpi_pcct_ext_pcc_shared_memory directly.
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoLHaUACgkQhP3B6o/u
-lQxtAg//S2QfTj832c+YdD3o+iJ3BWs9KibhqT9dGuWMlWVc/9HZIlEsqYfjH5x4
-Bxvv9Uz2F46nRp3UB4H5aqDC0s1cp7h2T2vGfo/UIZ3QAKUSzuC3Kt/NUltvEC9z
-/8XZGNj7Y5t5Op2lhlvsxMN8o3fB2blmd53xQjxSQKYuLK6jQwSmgo9LmGOcNgRu
-yRw8+D9nm1f9MC2Tb1JMlKnNLnDPuFLhtscgwSzOw/vxSj1EkiXnDH8wiBerG0IR
-375DfqmVwCmZfX0bjAeObTplFu5hzLDBZbHwBm9QxC6SBHEw9KeOC/4VJF9wApM4
-foqMGlyHbjpZEv/b56hqwpD7LIfyk/7dprJDKvvGyurnRXyVJIkpAkPymAaPMlre
-ik/2xFiorIjXjhbqEHndObXu5F7CxTVirQNbSFHtBr/KytuSZN/KFvu1PN75qrJl
-lJDe57UVDA1h8q6GUjHd/cLnTZN4YZgOLOidjEYKi0JQd/am3nz8iRaVolzMK++p
-8IhvjsnHYOemh8XsbQ9jGimWzrZqR1LnBc/kcpr0GCohmD7ttQQ50YK4CtYNXFip
-qBuyLkQDfzfcyMMgXj00KbQbEwndjkF58In4kWwqpCrmmAET0U8/afswDv1+J7Qu
-EwAdL0JFWWndXIYllxNVnzepuUdwbXov4HzLRMY1AfZr/ajf8Gk=
-=vz53
------END PGP SIGNATURE-----
-
---SmpESyxiLXAcu4zS--
+-- 
+Regards,
+Sudeep
 
