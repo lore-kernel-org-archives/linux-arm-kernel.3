@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD0BCD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21E83CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 16:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7ghlEoHBHGmCrn5Bs1oOERL1T6HbRmnFLgtX+ZwhaU=; b=jFDjljJ9CSdl78U+NUvC1IIrs6
-	daRiUOqMWThnG0B46QRa42JB4vKj8P5d54bg4V3MbeY2MjhxIUKLty6HGFYTmkZMo+sNvNn5Tzfu0
-	xFSTNkSmoqSMg9WeaiurpnsBLhaubmPM74GQ3xTjhr/1YmfYFpifu98tJM+GEYCF13xggu+tLAFti
-	itGHRKRyWYv2lMJ61z2HD/ysm/ZHDM384rn9dFe/QVaxCHu5cC5yjU/mCyc9NhiWxkDXKUQqQ3zR/
-	gx5l3QIfaEQFBErXapNGC8da8UB9/eo2ctnvn7AMMF2LnSem/EcHWFA++ynok+MvEgyBLMJqMPoQf
-	luJpIIsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S+bJNY2azawl6TARHEiCSrt3oexOSpIJ3nSEc+39PZs=; b=a1HWCqxlVn1tSk
+	fS1TkUUjrY8GJ2te3pBXfgX8CZVBk8t0zF0bIRchgBRKUUq8WPoxYvoYCCdDf9eYo9GSNt7eq6Ni2
+	GLcRoMNY5/iE+m3R8WtWUGzCCjOI3ImBhQnBuidp6Srd3OPT62ZO3mK4RK/d1+FO7kxGqHV8yRLck
+	FcxW4BUYhUV5R5MiK+4iMAMeMCxC5Mhf6qIJysWKLlypR2VXlGCLkccY0nQGGkxPdz2E6u+gWJubq
+	c1Skz291icjyrlNlovy4+3q5U3VtwdeuQJN9HaugaQK7Km33vkB3msvV0z1w5Fq0vHjL2Bq/fufQT
+	g0m6jkgLmW39Ov9VLDIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0K4-0000000GEj6-12Nk;
-	Mon, 18 May 2026 15:56:04 +0000
+	id 1wP0dm-0000000GGzP-1ZJB;
+	Mon, 18 May 2026 16:16:26 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP0K3-0000000GEik-2CUz
+	id 1wP0dk-0000000GGzD-41SV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:56:03 +0000
+	Mon, 18 May 2026 16:16:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A5DCA601E3;
-	Mon, 18 May 2026 15:56:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F903C2BCB7;
-	Mon, 18 May 2026 15:56:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5247160120;
+	Mon, 18 May 2026 16:16:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAC6FC2BCB7;
+	Mon, 18 May 2026 16:16:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779119762;
-	bh=dpZik2/Jd8VdAFvr0/z5S0PoQjKxn1keu6UZtFpwAJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lOWUIdFa5gfNcdVH9/pGSoGCEtls2XDpW+SgbCLZ0XVxKzAWSgIsZWe6sirm11gp8
-	 eG0HhcCFmVlorjyxBU8sSWzS9FEDX8mRfPYbpTRo1sQg8WgXeY058dPZPOrvsxGw2c
-	 Uhtw6ITIyuCdw5doFGvxUSv5GqPKLqFsGZ9CRHYI2iLsczIjf9jVUYISGLb0GFIura
-	 DDRz6zBXRQsiODY7kbOrtL7eTXCz8UTadPhDuYR9AgS9K8Uxo/KWxdAx9bAUjt5vir
-	 8mmyyc/ccYv9mU9noEpRTVVbBzlG1KXSdjKzuK8mao1AEK7euNrDjGMuiANPLWoKdx
-	 mY/WmSXqMXEPw==
-Date: Mon, 18 May 2026 16:55:57 +0100
-From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v2] KVM: arm64: Don't populate TPIDR_EL2 in finalise_el2()
-Message-ID: <ags2ja9HW41_GKls@willie-the-truck>
-References: <20260518153127.6078-1-will@kernel.org>
- <86y0hgwwul.wl-maz@kernel.org>
- <86wlx0wwro.wl-maz@kernel.org>
+	s=k20201202; t=1779120984;
+	bh=a6ehEwxcfvf1a/EiCCCXSWERXhRSVhiiTAiYG3cJw6U=;
+	h=From:Subject:Date:To:Cc:From;
+	b=L1mY3kegMOzlom+F+EaQFxiQvWDUqFmnYzFvrPYT+rPP7lTOW18dO8GMA3iN52jDT
+	 lQ+UbAAJisE30EQ0hDMIHKYeETaf9Q8tjEQ3RfK+T/m6KjVB/yJ//68VLyLg5Xttke
+	 BXfwEcOEvkajxjvPiRgtc1LC6g/XQ3qRz96tbvsHux6bWLAyDKtLpEmsFgebnPQI7l
+	 pDwljOV3Fxv02SJhcgksDT9wN+0gVUWCruZ+UgKtipvwVn+OT21F4IuzIaMltVz9cC
+	 DKDdJPAenj/b6bn5Vw9FDVMtYS47lvByY39wru9X8q6fJDGC4hCaF5P+JAe3DEemi8
+	 htpcWzFIpeseA==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v9 0/2] arm64/sve: Performance improvements with SVE state
+ saving
+Date: Mon, 18 May 2026 17:11:45 +0100
+Message-Id: <20260518-arm64-sve-trap-mitigation-v9-0-9cc8fcd002fd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86wlx0wwro.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEE6C2oC/43S22rDMAwG4Fcpvp6HJfm4q73H2IUTK63ZesAJY
+ aPk3ecWujACZpe/QJ+Q0FWMXDKP4mV3FYXnPObzqYbwtBP9IZ72LHOqWaBCUl45GcvRajnOLKc
+ SL/KYp7yPU+2SyI7RWuq9DqL2XwoP+etuv73XfMjjdC7f91Ez3Kr/UWeQIFNA5gQJvTGvH1xO/
+ Pl8LntxY2dcqQDUorBS0CUeBvIIDjYU/VIAbYoqpZ0LfaiU9rSh9IPSChBblK6U0ayS85Eihw1
+ lVkor06LMbUG0A6MBw8N2QbtSBkOLspXqUZHr2Mae04ZyK+VItShXKWdMfQ+q109uQ/kHZRVhk
+ /JSSd8NALb3TFb9oZZl+QHmN3Dg0AIAAA==
+X-Change-ID: 20230807-arm64-sve-trap-mitigation-2e7e2663c849
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>
+Cc: Mark Rutland <Mark.Rutland@arm.com>, 
+ Ryan Roberts <Ryan.Roberts@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4967; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=a6ehEwxcfvf1a/EiCCCXSWERXhRSVhiiTAiYG3cJw6U=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqCztUOrdwfBgpR7sN6MMkFaFVvDvPRM0J7hcYp
+ DUaj7bmYF2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCags7VAAKCRAk1otyXVSH
+ 0LSuB/9KiuzcI02vHn3x3bnLvPeoq3nmLF9VYF/OEXLgSheWL4P4xziYEOoIq1DESn8HhG3V9nx
+ /0OSD4w1kw98EQVci2+CYoX4AbvU1YAYtcOlQrs6w09zE5x1LIHQfTHWyByf8B772jbk+u08xNw
+ TJ0SytguYc6FclDNIw1oDRbfFtWvuBCeanHcIvMlmenaKdZMskt3A+xnTHLAGafLtQNdhOqU02+
+ TZcV2qNM1T8d78+KASKSZAhE3wZfPOIoQVzXjCT/k5nPpz32h6ajzupa0Myfs9AevYLB6/pObLr
+ swUUNMc8T80Ywo1A3mPayGhshaRFRbAt1jhENytkNRQoCvBr
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +88,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 04:41:15PM +0100, Marc Zyngier wrote:
-> On Mon, 18 May 2026 16:39:30 +0100,
-> Marc Zyngier <maz@kernel.org> wrote:
-> > 
-> > On Mon, 18 May 2026 16:31:26 +0100,
-> > Will Deacon <will@kernel.org> wrote:
-> > > 
-> > > Currently, it is not necessary for __finalise_el2() to configure
-> > > TPIDR_EL2:
-> > > 
-> > > * The hyp stub code does not consume the value of TPIDR_EL2.
-> > > 
-> > > * On the boot cpu, TPIDR_EL1 is used for the percpu offset until the
-> > >   ARM64_HAS_VIRT_HOST_EXTN cpucap is detected and boot alternatives
-> > >   are patched. Before boot alternatives are patched,
-> > >   cpu_copy_el2regs() will copy TPIDR_EL1 into TPIDR_EL2. It is not
-> > >   necessary for __finalise_el2() to initialise TPIDR_EL2 before this.
-> > > 
-> > > * Secondary CPUs are brought up after boot alternatives have been
-> > >   patched, and __secondary_switched() will initialize TPIDR_EL2 in
-> > >   'init_cpu_task', after finalise_el2() calls __finalise_el2()
-> > > 
-> > > * KVM hyp code which may consume TPIDR_EL2 is brought up after all
-> > >   secondaries have been booted, once TPIDR_El2 has been configured on
-> > >   all CPUs.
-> > > 
-> > > Remove the redundant initialisation from __finalise_el2().
-> > > 
-> > > Cc: Oliver Upton <oupton@kernel.org>
-> > > Cc: Marc Zyngier <maz@kernel.org>
-> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-> > > Signed-off-by: Will Deacon <will@kernel.org>
-> > 
-> > Reviewed-by: Marc Zyngier <maz@kernel.org>
-> 
-> Ah, realised too late you intended for this to go via the KVM tree.
-> 
-> I'll queue that for 7.2.
+This series aims to improve our handling of SVE access traps and state
+clearing.  As SVE deployment progresses both hardware and software
+actively using SVE is becoming more common.  When a task is using SVE it
+faces additional costs, the floating point state we must track is larger
+and our syscall ABI requires that the extra state is cleared on every
+syscall.  Users have measured these overheads and raised concerns about
+them.
 
-Thanks, Marc!
+We can avoid these costs by reenabling SVE access traps and falling back
+to FPSIMD only mode but if we do this too often for tasks that are
+actively using SVE the cost of the access traps becomes prohibitive.
+Currently we attempt to balance the tradeoffs here by starting tasks
+with SVE disabled, enabling it on first use and then turning it off if
+we need to load state from memory while the task is in a syscall.  This
+means that CPU bound tasks that do not regularly do blocking syscalls
+will rarely drop SVE while tasks that use a lot of SVE but do block in
+syscalls (eg, due to network or user interaction) will be much more
+likely to do and hence incur SVE access traps.
 
-Will
+I did some instrumentation which counted the number of SVE access traps
+and the number of times we loaded FPSIMD only register state for each task.
+Testing with Debian Bookworm this showed that during boot the overwhelming
+majority of tasks triggered another SVE access trap more than 50% of the
+time after loading FPSIMD only state with a substantial number near 100%,
+though some programs had a very small number of SVE accesses most likely
+from the dynamic linker. There were few tasks in the range 5-45%, most
+tasks either used SVE frequently or used it only a tiny proportion of
+times. As expected older distributions which do not have the SVE
+performance work available showed no SVE usage in general applications.
+
+For tasks with minimal SVE usage benchmarking with fp-pidbench on a
+system with 128 bit SVE shows an approximately 6% overhead on syscalls
+from having used SVE in the task, the overhead should be greater on a
+system with 256 bit SVE since the Z registers must be flushed as well as
+the P and FFR registers.
+
+The two patches here move to using a time based heuristic to decide when
+to reenable the SVE access trap, doing so after a second.  This means
+that tasks actively using SVE which block in syscalls should see reduced
+or similar numbers of access traps, while CPU bound tasks that rarely
+use SVE will see the SVE syscall overhead removed after running for
+approximately a second, confirmed via fp-pidbench.
+
+The benchmarking here is all very much microbenchmarks so there are
+obviously some concerns on the system level impacts in actual use.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v9:
+- Rebase onto v7.1-rc3.
+- Link to v8: https://patch.msgid.link/20260320-arm64-sve-trap-mitigation-v8-0-8bf116c8e360@kernel.org
+
+Changes in v8:
+- Rebase onto v7.0-rc3.
+- Add some benchmarking info from physical systems.
+- Add second patch that helps processes that stay on the CPU drop
+  TIF_SVE.
+- Link to v7: https://lore.kernel.org/r/20240730-arm64-sve-trap-mitigation-v7-1-755e7e31bdd7@kernel.org
+
+Changes in v7:
+- Rebase onto v6.11-rc1.
+- Only flush the predicate registers when loading FPSIMD state, Z will
+  be flushed by loading the V registers.
+- Link to v6: https://lore.kernel.org/r/20240529-arm64-sve-trap-mitigation-v6-1-c2037be6aced@kernel.org
+
+Changes in v6:
+- Rebase onto v6.10-rc1.
+- Link to v5: https://lore.kernel.org/r/20240405-arm64-sve-trap-mitigation-v5-1-126fe2515ef1@kernel.org
+
+Changes in v5:
+- Rebase onto v6.9-rc1.
+- Use a timeout rather than number of state loads to decide when to
+  reenable traps.
+- Link to v4: https://lore.kernel.org/r/20240122-arm64-sve-trap-mitigation-v4-1-54e0d78a3ae9@kernel.org
+
+Changes in v4:
+- Rebase onto v6.8-rc1.
+- Link to v3: https://lore.kernel.org/r/20231113-arm64-sve-trap-mitigation-v3-1-4779c9382483@kernel.org
+
+Changes in v3:
+- Rebase onto v6.7-rc1.
+- Link to v2: https://lore.kernel.org/r/20230913-arm64-sve-trap-mitigation-v2-1-1bdeff382171@kernel.org
+
+Changes in v2:
+- Rebase onto v6.6-rc1.
+- Link to v1: https://lore.kernel.org/r/20230807-arm64-sve-trap-mitigation-v1-1-d92eed1d2855@kernel.org
+
+---
+Mark Brown (2):
+      arm64/fpsimd: Suppress SVE access traps when loading FPSIMD state
+      arm64/sve: Disable TIF_SVE on syscall once per second
+
+ arch/arm64/include/asm/fpsimd.h    |  1 +
+ arch/arm64/include/asm/processor.h |  1 +
+ arch/arm64/kernel/entry-common.c   | 14 ++++++++++--
+ arch/arm64/kernel/entry-fpsimd.S   | 15 +++++++++++++
+ arch/arm64/kernel/fpsimd.c         | 46 +++++++++++++++++++++++++++++++++-----
+ 5 files changed, 70 insertions(+), 7 deletions(-)
+---
+base-commit: 5d6919055dec134de3c40167a490f33c74c12581
+change-id: 20230807-arm64-sve-trap-mitigation-2e7e2663c849
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
+
 
