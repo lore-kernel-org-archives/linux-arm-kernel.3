@@ -4,78 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0B7CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00464CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 17:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d1t5bVZUzm488Yf6C5K+jVPU5FU9HqkWcLSsN4zkVoU=; b=yEGQT33/dU4r8Mzl7W6HWF6inY
-	HxuKC2U8Kqh8s7AY4acH7nbHvKR/bcoP5eSJzwqQc25T+Y9xgcL95ZCgad7zcrfdRCKbMgJiwTF5I
-	+VLIIhH+fZEGizlilSHqv3CmNoSIa2HA+/uyNEAv3YhOq92xAp71g4mKrl0BznpWBGeszy5km6U0P
-	tN8u8f3fjnOmMVxftC/1BCsP6zsSlQsAt4sewmYjmgJ0scKd3i/KoU53UCh//IfuVwCpd3Z6E550n
-	iJqFrmeztD4yK6pBBUGM28m6hRF3GcRZUDIIwxfwS/OVJW4atcIcTdIIbXO6B8AL/ftaU3KSElH3w
-	4XGl4bTQ==;
+	bh=ujSu9aIj42XzTySFT0TuJodAat1iyrUpdlV6tLqkI+4=; b=CuH9vuddWeMrxQasXcI2IggTVC
+	9JlLJ2klqCsAtLryIpoA8T4SntdWCl1OaR6ak405m4kGAbzsZSBd6xKaM6s8QfTqZA9EjrZrdaTGS
+	pGV66Izx0NMoD7KW+fMjCkwdrWc5LDgtwESpYzcM/loF/5OQ05PCJ1XGCR3St9XVO4pi26Or72Sy2
+	p6MYRPNUTTRQJn1Nl5KXSpEVRTPqXKeyjyEw99LV7rnIIbQFoaI3/dw/FqoQc3s3umFWXzz5WBqK+
+	zXwkPFdjiggLpg3/+2my/PjgV+xgL3pyr/4Ligl7sWF9UdkqYYOv5L4gEdXhMLnwaKsibRfIE3Yz/
+	la2dHR8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1XI-0000000GO1T-0xEm;
-	Mon, 18 May 2026 17:13:48 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP1XG-0000000GO0y-2jeU;
-	Mon, 18 May 2026 17:13:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3855443898;
-	Mon, 18 May 2026 17:13:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C68B9C2BCB7;
-	Mon, 18 May 2026 17:13:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779124426;
-	bh=r7lglwV4YwDD/QEcv/dilMUnEHiAk1JwFYHmSq6gX08=;
+	id 1wP1ew-0000000GOks-03zm;
+	Mon, 18 May 2026 17:21:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wP1et-0000000GOk9-2tAM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 17:21:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7B80302D;
+	Mon, 18 May 2026 10:21:30 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 043033F7B4;
+	Mon, 18 May 2026 10:21:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779124895; bh=2Ad+b40QKOgmfGSGo1dsdGk4tJnXSxqznXpiRjuVOyk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=udyZ5G6FTMb4+S07+r6ZpAPJ5RrnJa4qX56JhasfA1/uPE5w8eaP5ffRJVtlVWNp3
-	 6FQlyoVTMyaiSuqXPSaBZdgWr/uBCB/OVy5K6lgLN10Wq2p4NBeLw2XOYksC2JPkRP
-	 z0hOIowrXn/uUI4ZRSr/cFxVnpVDyR+mSlZ4VaNkmakZJErodFC6/6g8+r37JR5zTG
-	 AGb3PGjq+QV26BvDNL4/ddK6wxGx5HJYRxIuvGls9NTeGngGwp3LukuSw4rWPP/2Mt
-	 vAvw6kgDjzGP8eEX/MghrcgZEn+BH+jGv8wRGz2YmfOw9lEt8WNIr9k5K+mxwYPYtB
-	 s3jXgYGfxDGzQ==
-Date: Mon, 18 May 2026 18:13:40 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Woody Douglass <wdouglass@carnegierobotics.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Markus Schneider-Pargmann <msp@baylibre.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Saravanan Sekar <sravanhome@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Icenowy Zheng <icenowy@aosc.io>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH v1] regulator: Use named initializers for arrays of
- i2c_device_data
-Message-ID: <43a185ee-06a2-4cb8-b978-7f9fb19fae82@sirena.org.uk>
-References: <20260515103150.164887-2-u.kleine-koenig@baylibre.com>
- <20260515122816.GB52035@killaraus.ideasonboard.com>
- <54168033-c968-4565-afe8-2f1f8547ddf0@carnegierobotics.com>
+	b=f1G5aw8O3BbozglFHYWcaZytNBlpNfwL+tPszrn8bRU6NzoZ86pjhSlwh7n6ndYN5
+	 Lz0SSl8gp4UJVzInHX5ZC2Hhm/mHojV7DS2o9ujq5XJC4RtO+7xbn5dvY+JlvLXGnH
+	 GmYbu+5CPLnbrnYH8thBVWwZz+kgtyakaQUPSsm4=
+Date: Mon, 18 May 2026 18:21:26 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: Will Deacon <will@kernel.org>, Sami Mujawar <sami.mujawar@arm.com>,
+	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] virt: arm-cca-guest: use raw variant of
+ smp_processor_id() in arm_cca_report_new()
+Message-ID: <agtKlvxAvCHXvX-z@arm.com>
+References: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
+ <agsHBb9f3HkmJaIx@arm.com>
+ <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="UPAvI50FP47clfJO"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <54168033-c968-4565-afe8-2f1f8547ddf0@carnegierobotics.com>
-X-Cookie: She sells cshs by the cshore.
+In-Reply-To: <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_101346_711776_1BB525E0 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20260518_102139_866659_221F5F63 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,34 +73,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Kohei,
 
---UPAvI50FP47clfJO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Mon, May 18, 2026 at 10:38:53PM +0900, Kohei Enju wrote:
+> On 05/18 13:33, Catalin Marinas wrote:
+> > On Mon, May 18, 2026 at 12:31:31PM +0900, Kohei Enju wrote:
+> > > diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> > > index 0c9ea24a200c..2d450caee3e4 100644
+> > > --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> > > +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> > > @@ -108,7 +108,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+> > >  	 * allocate outblob based on the returned value from the 'init'
+> > >  	 * call and that cannot be done in an atomic context.
+> > >  	 */
+> > > -	cpu = smp_processor_id();
+> > > +	cpu = raw_smp_processor_id();
+> > 
+> > That's just hiding the warning which might be genuine, irrespective of
+> > what the comment says. Sashiko has some good points:
+> > 
+> > https://sashiko.dev/#/patchset/20260518033157.1865498-1-enju.kohei@fujitsu.com
+> > 
+> > Basically what guarantees that the cpu won't go offline? Can we use
+> > migrate_disable() and ignore the smp_call_function_single() altogether?
+> > It looks like a hack anyway.
+[...]
+> You've raised a very valid point about raw_smp_processor_id()
+> potentially hiding a genuine issue. I agree this would be a concern in
+> most contexts.
+> 
+> However, this implementation was intentionally designed not to block CPU
+> hotplug:
+> https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
+> 
+> As mentioned in the thread above, the potential failure from the target
+> CPU going offline (resulting in -ENXIO) is an expected and tolerated
+> condition in this path.
+> Using migrate_disable() would go against the non-blocking design goal.
+> 
+> Given the context, the debug warning looks false positive for our
+> specific use case to me, and I believe raw_smp_processor_id() correctly
+> reflects the design intent by simply acquiring a CPU number without
+> debug checks.
 
-On Mon, May 18, 2026 at 05:07:46PM +0000, Woody Douglass wrote:
-> On 5/15/26 08:28, Laurent Pinchart wrote:
-> > CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender.
+Thanks, I wasn't aware of the old discussion. If user-space can
+tolerate, than it's fine.
 
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
+Would you mind updating the comment above the changed line? It talks
+about not allocating memory in atomic context, so migrate_disable()
+would solve this. Just mention that it can't block CPU hotplug events
+either and user-space can handle spurious errors.
 
---UPAvI50FP47clfJO
-Content-Type: application/pgp-signature; name="signature.asc"
+With that:
 
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoLSMMACgkQJNaLcl1U
-h9CdmAf8CZKlR5k8GZroDpyzwUUN8pMF/nolTKDwsljqF41zVg+Gp31MEQQ6BImF
-VuF3sI9f3Bk83VWtdI76MJBOq0+DZesPdMEh+TCT+g7bCwYf1aImNOwcuzoZrMZW
-qDUuXmoODStoHFus/AY9cPgaKjysui538fFZdjMuVNEjZHeKtQcbZp8JXWLI9JX7
-TsI7xaA9KYoqNrABYWzOUHcESvw/yYAd8SbRpnNmEQEoyO6ZKZeMjQJ+PlvLTMVf
-0VTh3XQQ6Lx0LR9kKtjufzbSEuNkzAhcCPeok8mBw1VMfmCoHlg/T3SbcbN6A9dn
-xvTCYhFKtZWxgYIJlLg324K9mIQVbA==
-=Rd4d
------END PGP SIGNATURE-----
-
---UPAvI50FP47clfJO--
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
