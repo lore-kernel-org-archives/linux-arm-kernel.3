@@ -4,93 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABEFCD4F50
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE257CD4F49
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v5Kj2t/nnvRCJCklm4qnm+pzJg6dhKl7rRb/ZWy5vqI=; b=dx3zjumY7yI2vtWT2zQv3SMr/c
-	VH/Zt/+hOASAGQBIsZOkzMjOlluyi4y3adil+Air/4cWcVKCuKwUe7pctGc+tPhnrinXXsI2tcrap
-	HGA42XDwRGVVB1HGNGFN1zXiY/2oHdpPKcNmZVuiZVy5z1LnKNJLZVznOiC/gZjIfaYl8O6NvSAjJ
-	1/FUqjdj9D6Yc+5XNUPUhsZ6ZIZ/5QnhECLpqAfxgGpo1kQB7YmOBB31Albl3lG2Rf/3m8HBPDVek
-	kkeGeqjCaT3muiCr5Cu0XNIniOhNjGcmE4gGDoxh0kI8ZS3sxVFFRq4ckZTHUU8PaKgg9YKdxgWHq
-	AXIwaobg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BvLj49y1Cv0WBKsChKHd46/85V+NR0jQnbAm1ZNw62k=; b=hizjDNs5Sz9NE/
+	j+N233+6VBbtaUe4N69ff10dLhU+IIwmpaE++guirHTbAvxshVBi3MhGqqx+EEy9OBxaMe0Dia2kr
+	D8nd1yqdRqR/hBNKCmxjmS926/xk/yORzALCV7dD4SVWNU/cJGzPuu83NcgZcItx70NnpYwcoWxJo
+	qaKfap6IdJtxacSTbP/nohHO7w1eHbMyHvBIBpjEOrgszIC3yNuMYJeP+qTdsPYa3i5P/v4ctwv3f
+	8YCbXAkQ1WwIfWNcvG6ot9KbIOvYR7gOwWE0Gx2h8q64RS8e3pNNxsr4LpeAOMG7fLmw6N4KN4D67
+	z2wjOp5tucXOF3QF4aYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOzRd-0000000G4ml-0Mtr;
-	Mon, 18 May 2026 14:59:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wOzTo-0000000G5mF-2x9M;
+	Mon, 18 May 2026 15:02:04 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOzRR-0000000G4cr-2e1k;
-	Mon, 18 May 2026 14:59:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCCB44456B;
-	Mon, 18 May 2026 14:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id AF662C2BCC6;
-	Mon, 18 May 2026 14:59:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779116376;
-	bh=5tZEGCo7wCfylxqFJDnXkP1AKDZPWVP0KlTUW5f53Fs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=naUlmNLdzZNdmF7I8FSq4MwSTlr544XWn9m+fXzeUJkpc9N/dije1ZXLtebKtGzq7
-	 TDA0XIb8bj9GWvSTkRvHot5/WNhv1k0oO8UD/6uJG8dNDaPgWdPNph+E8VINcC2lgQ
-	 W928pSMWtGdDEiGTQ377zxGrn4V4CBt+593BBFP6efF7if9GE2QkkBIOyDNizF29Na
-	 mPOawKdW3CJXxLikh4Hws1jLR4peo0MUBRY9cKNR57GembAPZvkkDWJVIUx5ROZRta
-	 JYb5OECoxx9HXbSCeX0Yuu1Jt+rxtyGUqr28rDHa1cJTw5nKxbkGdanxZS3IA4OQBi
-	 I5Qy64WH5aZXA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A0E8FCD4F4A;
-	Mon, 18 May 2026 14:59:36 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Date: Mon, 18 May 2026 20:29:14 +0530
-Subject: [PATCH v8 2/5] PCI/ERR: Add support for resetting the Root Ports
- in a platform specific way
+	id 1wOzTl-0000000G5lf-1OWp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 18 May 2026 15:02:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h/MLlWwRXpdmycHp8+fZxjcXJdQZ9QSsfvytFOwZ9rtSIYgHlDPUu/XZw5UIDwYIHaQLYVFDLyiVAhHIbYAgM0WIpWEPDkjjxr4uERiq00bdD9AcD7y9FNWOu1+cI/XmtEjSjACReopntb0jIK/Qe1jK+qgCpRwTXyXOy3LE/649wzXMEyJwEAQRChanLrMeqVewRWmCBeP2g48f0xJr2WDMWl1YJkdSQO29IgYBf0Kk+3wBnLIpI/BhdpZbWtwEbX3dzWP27+ElHI2nYyabFF2rOUUbBCkwj3cgs/MTfJteUN+KRHnlIqldHQBZWg235vm4meRxhEYMttqPDK/eVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BvLj49y1Cv0WBKsChKHd46/85V+NR0jQnbAm1ZNw62k=;
+ b=ls+OV+KoYogQYjQiv/a5r0gGKrvsGEYV3oGs8qm2ai5B2eucoq/o1utl6x/KlJXFu8TZEeqHIPtEc4s5N3a05HOfNHh8rLsOup9Y/X1+aftX9Z/DEPQ5JKZ2zHcUv+lmBXol5e6cdroMVy764GfTp5GhnNPLfb4UXw/Sg5G8w7nOJlLUYCL4H8iLuPyMTcmPkYGGTKYPHcbJ1nvIQcjlL5qcbQQuQP5ou9zDX5dPBDSucAC3eMCaJE1c6i8S8fVo1/o5MO2+E+u4AArBL+NmbrgcB/D+MGjZLXAdA4dLCkeP9JHr6oiv06mXsh9bEXTX7kiVKbAc9McNzDkdrKt/0w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=nxp.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BvLj49y1Cv0WBKsChKHd46/85V+NR0jQnbAm1ZNw62k=;
+ b=dSvYOi9yPen7APyx0UtoLUn5125xvvsm23Vp6TzY+4xdQrJiOQGtgSHkmpZMB2EHlU8b/l1gAWPSdvpVJg58kQMW5KsmvFLESkuZZS5+Qp0jUbOQRwrjXmnIFvriqeB9loEUJIf9FrMh67zyq2Hx/KP8c2ud6Y/pRjQjdNcBRHM=
+Received: from BN9PR03CA0568.namprd03.prod.outlook.com (2603:10b6:408:138::33)
+ by DS4PR12MB9771.namprd12.prod.outlook.com (2603:10b6:8:29b::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Mon, 18 May
+ 2026 15:01:52 +0000
+Received: from BN2PEPF00004FBD.namprd04.prod.outlook.com
+ (2603:10b6:408:138:cafe::4f) by BN9PR03CA0568.outlook.office365.com
+ (2603:10b6:408:138::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Mon, 18
+ May 2026 15:01:51 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ BN2PEPF00004FBD.mail.protection.outlook.com (10.167.243.183) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Mon, 18 May 2026 15:01:51 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.41; Mon, 18 May
+ 2026 10:01:42 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 18 May
+ 2026 10:01:41 -0500
+Received: from [172.31.11.23] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Mon, 18 May 2026 10:01:39 -0500
+Message-ID: <43a11a8e-75a9-4625-a3a0-c55f2a1af296@amd.com>
+Date: Mon, 18 May 2026 10:01:38 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 3/4] gpio: rpmsg: add generic rpmsg GPIO driver
+To: Shenwei Wang <shenwei.wang@nxp.com>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>
+CC: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, Beleswar Prasad Padhi
+	<b-padhi@ti.com>, Andrew Lunn <andrew@lunn.ch>, Linus Walleij
+	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet
+	<corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson
+	<andersson@kernel.org>, Frank Li <frank.li@nxp.com>, Sascha Hauer
+	<s.hauer@pengutronix.de>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+	"Peng Fan" <peng.fan@nxp.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>
+References: <CANLsYkzt9xUczxSU28u-TfZAAjr0ufZKXAj8Eqfq=45gufXW3w@mail.gmail.com>
+ <f7ef3417-eb84-4467-ac72-a9bc8b0c81e8@foss.st.com>
+ <21de8440-adf7-454b-acfc-06e50882e075@ti.com>
+ <4c526816-b127-43e7-86e9-eee4dc1152bc@foss.st.com>
+ <268f8e00-91bc-43ea-ba95-077cf859e7f3@ti.com>
+ <9e2492d3-8753-46c7-8db6-5f1a80b4f2e9@foss.st.com>
+ <db4c18be-1c8d-4227-9fcc-1d25cec50e37@ti.com>
+ <6917e3d7-8c6c-4e63-8eca-5308621ec3e8@foss.st.com> <afzIABSh1xtMEGbf@p14s>
+ <PAXPR04MB9185BFA6E7375FAD0B15B021893C2@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <agYHzH-nJLl1HFIn@p14s>
+ <PAXPR04MB918587A8812B51BBB2A46A2C89032@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: "Shah, Tanmay" <tanmays@amd.com>
+In-Reply-To: <PAXPR04MB918587A8812B51BBB2A46A2C89032@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260518-pci-port-reset-v8-2-eb5a7d331dfc@oss.qualcomm.com>
-References: <20260518-pci-port-reset-v8-0-eb5a7d331dfc@oss.qualcomm.com>
-In-Reply-To: <20260518-pci-port-reset-v8-0-eb5a7d331dfc@oss.qualcomm.com>
-To: Bjorn Helgaas <bhelgaas@google.com>, 
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Will Deacon <will@kernel.org>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- Niklas Cassel <cassel@kernel.org>, 
- Wilfred Mallawa <wilfred.mallawa@wdc.com>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- mani@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Richard Zhu <hongxing.zhu@nxp.com>, Brian Norris <briannorris@chromium.org>, 
- Wilson Ding <dingwei@marvell.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>, 
- Frank Li <Frank.Li@nxp.com>, Manivannan Sadhasivam <mani@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3066;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=fadAkZ1kLRIswT7sEoWlHZDHy4GXaK/5Uzi4qJOgymI=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBqCylUQC0CnLltOm2LNknUaTUAACpnCJ3VV59Bw
- 195OG/pDUuJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCagspVAAKCRBVnxHm/pHO
- 9Ub5B/wJfDUeumCQbnp9zPxpqe1kXfqsDRckD1Y5ckykPBLsLrTsZvBCYNgP40Uiypr1/Coi7ii
- uYM6xto+vGX13yv/p3MQMaWV2oi56o1f93EGeMLvTPJF7Qiy84R27MhA3mcx0P++l7TtopIXRmn
- SE4LeuFrPvyR5Xn5g6pIplxseyrK+JZml11C9C7jb/9PDcYHQIScAKsqoxmp6mI7uf6o7yFdewa
- a3fdUuBCrXostKMruQIAgv7ZPND7Dbg1+bdPC088nKamGAJ7rLST2LgiyAQI/7i65wdM6qcziYE
- /HK1vK7WcJA9s/F9r+k5K+TLAu5/YkNJAR7UnQ6AA+cN8nHS
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Received-SPF: None (SATLEXMB04.amd.com: tanmays@amd.com does not designate
+ permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBD:EE_|DS4PR12MB9771:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2488e9ce-8c37-40d5-92e8-08deb4ee64b5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|7416014|376014|22082099003|18002099003|56012099003|4143699003|11063799003;
+X-Microsoft-Antispam-Message-Info: cgyFGAw5lbc0Jpxw1uSPmXGj7YRdBA5eCuFhSq7zr8LTvPfbkT1DiAvsGyP0XUNfsw8yhn1HW3cDCy2veamtN4iuEo/Fi7UHzuu1qFLUF50B0t8ayaOu28w/0cnG2BVQiT/o8TO9VukfEvSd7HD60vIK5hru2F6Y+WABGtatlRVtvS3mS8upnOZb2JbkK9ebBCTPH77CO4bUdKfSTaT9cJfunulZnTCT21t/Z9rMSzricPfaUVAOXygbXjAZggydA8StNDR6O0TvSN48tisVB/gibhpj6ukp6VMtnjADA+IjVOEMEbLkmwootj91fYyjMWyvEJHP7SLcqHsDsp+vWnOtST0a9R+kVE20hCvAhLg9t6rzDUJAnOpCYNqKYrhnPaI99u6s0NFiCHtKt+w920rVkiTahWbQAsp1RduYdKndLB2gv8sZ3eLRZLtvtLtBTee91NaH2BIbXh0nmXKYG6AJNG1TDh6KLXRE5DovwHOrTcsZBF3naDrXXAvtQBH6/49M5Q0XyY/lKMa++eF5/N/Hms7C4YpiODcLR6j5+PF5y2vNjKqoGvm9zDILub2pFmpnh6KpVllCoo/M7ByxYighWYMgBcfTDPIlLLrkXW7+5iJzm6RVZ/lF7milZb3sszQygz9uB+rVWeIb32ryUdrqC/aGiWRG19M0vYf0HkMqyBeb3i1PyXb/gEgJ4Qp7TDasCUnJscfQzs+MhkNK1pcB/dExShgyXfgi3X4xfUI=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(7416014)(376014)(22082099003)(18002099003)(56012099003)(4143699003)(11063799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: A7QkFlrwtNT7/tzyYYVoRnfKW4Rwz8ELHQSu3IQY/DsSuCACp8MyQLf5KR43qqrrIYjiSUMi0bjWYjrenX2Yjv4lu8c+55dZq0ge2qUQyx0raJXlTkYH+CMfMkW2cQE/IDMMZxAvV3dtMySX974cVNyQpxhj/ChPqkRs/fYdddcs7C1i6M7GYfMj7CbbGV2cMq2MHAfOhp6EQG7gWdBMI+0O7Wh96N7Jk0fS+E8Y0r8J/lacmg9FSdgvG8VgnwKINl6DeWwNwVEq0k9NxwgEaxXeKIFeGvIIWjviP4uYpmJGe2taYQ3m3n+xld1fnkfZL/uW3A66wNpNGFUWD5j45CZrCf1bZY11XbSe0sPv4saxzyTPpJ5ssSJWW9C4vUsKlQpTn6BF0zRBbd6Tq4VgQmtHsifKWNPwvkQZ+FHgRYMprd9tz58zX7jDn+u6HAPp
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 15:01:51.7631
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2488e9ce-8c37-40d5-92e8-08deb4ee64b5
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBD.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9771
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_075937_831381_005F966E 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20260518_080201_703639_46622CC0 
+X-CRM114-Status: GOOD (  22.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,90 +150,88 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@oss.qualcomm.com
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <mani@kernel.org>
 
-Some host bridge devices require resetting the Root Ports in a platform
-specific way to recover them from error conditions such as Fatal AER
-errors, Link Down etc... So introduce pci_host_bridge::reset_root_port()
-callback and call it from pcibios_reset_secondary_bus() if available. Also,
-save the Root Port config space before reset and restore it afterwards.
 
-The 'reset_root_port' callback is responsible for resetting the given Root
-Port referenced by the 'pci_dev' pointer in a platform specific way and
-bring it back to the working state if possible. If any error occurs during
-the reset operation, relevant errno should be returned.
+On 5/18/2026 9:24 AM, Shenwei Wang wrote:
+> 
+> 
+>  
+>>
+>> On Thu, May 07, 2026 at 07:43:33PM +0000, Shenwei Wang wrote:
+>>>
+>>>
+>>>> That was my initial approach.  We don't even need an additional
+>>>> "rpmsg-io-*" in rpmsg_gpio_channel_id_table[].  All we need is:
+>>>>
+>>>> /* rpmsg devices and drivers are matched using the service name */
+>>>> static inline int rpmsg_id_match(const struct rpmsg_device *rpdev,
+>>>>                                  const struct rpmsg_device_id *id) {
+>>>>  +     size_t len = strnlen(id->name, RPMSG_NAME_SIZE);
+>>>>
+>>>>  -     return strncmp(id->name, rpdev->id.name, RPMSG_NAME_SIZE) == 0;
+>>>>  +     return strncmp(id->name, rpdev->id.name, len) == 0;
+>>>> }
+>>>>
+>>>
+>>> If we encode the port index directly into ept->src, for example:
+>>>
+>>>     ept->src = (baseaddr << 8) | port_index;
+>>>
+>>
+>> There is no rpmsg_endpoint::src.  You likely meant ept->addr.  This would work
+>> but not optimal on two front:
+>>
+>> (1) rpms_endpoint::addr is a u32 and idr_alloc() returns an 'int'.  As such there is a
+>> possibility of conflict.  I concede the possibility is marginal, but it still exists.
+>>
+> 
+> I think there may be a misunderstanding in the implementation. In this case, we do not 
+> need the return value from idr_alloc.
+> 
+> When the driver calls rpmsg_create_ept, it can pass an rpmsg_channel_info structure as an
+>  input parameter. This allows you to specify the source address you want to bind.
+> Please refer to the definitions below:
+> 
+> struct rpmsg_endpoint *rpmsg_create_ept(struct rpmsg_device *rpdev,
+> 					rpmsg_rx_cb_t cb, void *priv,
+> 					struct rpmsg_channel_info chinfo)
+> 
+> struct rpmsg_channel_info {
+> 	char name[RPMSG_NAME_SIZE];
+> 	u32 src;
+> 	u32 dst;
+> };
+> 
+>> (2) By proceeding this way, the kernel exposes the GPIO controller it knows
+>> about.  It is preferrable to have the remote processor tell the kernel about the
+>> GPIO controller it wants.
+>>
+> 
+> If everyone agrees with this namespace announcement approach, I will prepare the 
+> next revision based on it, even though it is not as clean as the source address encoding solution.
+> 
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Tested-by: Brian Norris <briannorris@chromium.org>
-Tested-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Tested-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/pci.c      | 13 +++++++++++++
- drivers/pci/pcie/err.c |  5 -----
- include/linux/pci.h    |  1 +
- 3 files changed, 14 insertions(+), 5 deletions(-)
+I have ack on the namespace announcement approach. To me it is very
+simple contract between the firmware and the Linux which allows dynamic
+endpoint allocation without giving up security concerns. Also this
+approach can be easily extended for any other rpmsg devices like i2c,
+spi etc..  With the fix in the rpmsg_core.c, this will work. I will have
+to see the actual implementation in the next rev to provide further
+feedback.
 
-diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
-index 8f7cfcc00090..651505b3bd60 100644
---- a/drivers/pci/pci.c
-+++ b/drivers/pci/pci.c
-@@ -4809,6 +4809,19 @@ void pci_reset_secondary_bus(struct pci_dev *dev)
- 
- void __weak pcibios_reset_secondary_bus(struct pci_dev *dev)
- {
-+	struct pci_host_bridge *host = pci_find_host_bridge(dev->bus);
-+	int ret;
-+
-+	if (pci_is_root_bus(dev->bus) && host->reset_root_port) {
-+		ret = host->reset_root_port(host, dev);
-+		if (ret)
-+			pci_err(dev, "Failed to reset Root Port: %d\n", ret);
-+		else
-+			pci_restore_state(dev);
-+
-+		return;
-+	}
-+
- 	pci_reset_secondary_bus(dev);
- }
- 
-diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-index bebe4bc111d7..13b9d9eb714f 100644
---- a/drivers/pci/pcie/err.c
-+++ b/drivers/pci/pcie/err.c
-@@ -256,11 +256,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
- 	}
- 
- 	if (status == PCI_ERS_RESULT_NEED_RESET) {
--		/*
--		 * TODO: Should call platform-specific
--		 * functions to reset slot before calling
--		 * drivers' slot_reset callbacks?
--		 */
- 		status = PCI_ERS_RESULT_RECOVERED;
- 		pci_dbg(bridge, "broadcast slot_reset message\n");
- 		pci_walk_bridge(bridge, report_slot_reset, &status);
-diff --git a/include/linux/pci.h b/include/linux/pci.h
-index 2c4454583c11..439dbd0d9184 100644
---- a/include/linux/pci.h
-+++ b/include/linux/pci.h
-@@ -646,6 +646,7 @@ struct pci_host_bridge {
- 	void (*release_fn)(struct pci_host_bridge *);
- 	int (*enable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
- 	void (*disable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
-+	int (*reset_root_port)(struct pci_host_bridge *bridge, struct pci_dev *dev);
- 	void		*release_data;
- 	unsigned int	ignore_reset_delay:1;	/* For entire hierarchy */
- 	unsigned int	no_ext_tags:1;		/* No Extended Tags */
+Thanks,
+Tanmay
 
--- 
-2.48.1
-
+> Shenwei
+> 
+>> I am done reviewing this revision.  Given the amount of refactoring needed, I will
+>> not look at the code.  Please refer to this reply [1] for what I am expecting in the
+>> next revision.
+>>
+> 
 
 
