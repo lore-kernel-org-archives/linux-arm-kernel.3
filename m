@@ -4,92 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5592ACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E74DCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 20:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cAkY0vj7iSY+sZjzSMZGpI/xkJ9Jb7vUa4k3TiZjewI=; b=tZ87+1mKlgR8wzRXRzgJ0AsNQc
-	hmKo/lDnkXmBL5JU3CvM9lFj2JMnkIzpqCDhiWq26P9ncgf7mzTCoONfo5VA58iyoqRytn9cLcGA+
-	qQd9O0Wr57NQnIso3clyCLq0MwoFNLFa4RXhpjD5OkD55j2zuUbxNRapJ2IT0PmWhE+ReZYlBBBSn
-	k/1UWpsQCqY+nFYfeaL1UNpfX89A+/ngHnIzGQsZiV0JLOXQN4TfIBE1G4sxiB3E3sih/JKUiHl4o
-	yT2vXCLNcs/lq1DV31zVBcmfvSuIHVoOVDYfdK7UIFaxwCUvxKvw4YaKyEG/ZTWBvoJUyYMVhwV5A
-	GhCfb8IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=etvv2U4FKsy2HZdjgWxHRqD+z5PRay/+07+XMhAoOQM=; b=apqW8lrMe+NQemz1rXKnzPr806
+	FUZ0nsFDkjU64ASDCExS1QQKVvA9ChJHCnsmgaO/3B+x+OrL3TCiyevHbGJk5UVABDhb3r3BbCnRU
+	jkwbqSUPAw6N4kWDxNXjbLqKHD+0p6vyO31NIq5dY5co0UcR0iFYRcjXfLUihBoGOpxGhGwRKxrXA
+	wQU+1RB95z7eIUAFB0C2yZ5zC5sxl9WksVUwp2IdM6DauPAlWOM5YVL1+QS/vudyE0ws6FSMja1I0
+	hKKbHYi2M84RiuZBSB2S5Une8sT+TxpZlpRDwVUEDuMTvPDsOB/77RQM/QG+L2aZF9r0hUGLTtNvL
+	7lLuuyRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP4DT-0000000Gps5-1ocw;
-	Mon, 18 May 2026 20:05:31 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wP3sf-0000000GjyR-119v;
+	Mon, 18 May 2026 19:44:01 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP4DQ-0000000GprS-3M66
+	id 1wP3sc-0000000Gjte-2Izx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 20:05:29 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-43d76dd4ee8so134143f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 13:05:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779134727; x=1779739527; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=cAkY0vj7iSY+sZjzSMZGpI/xkJ9Jb7vUa4k3TiZjewI=;
-        b=PG0V341TTW9LyAj/HL5n4ovUyZN6wrS0NJ7zhtxZENopBimyHV1T/CGyr3ad0vY+Ui
-         2KD2Lh+YbRj8h+cJifnj8PJobJGSpCt9zeas79xTPtzb1OG50B5kAhIgu8Nht5dqkWG+
-         C3thwBCm29OtOFlhcmGmYljgLhEA2JBEgR4KzR4suHawvLVoNUZ05wfXfz5oUOtKt2ie
-         3NPTeOQXlBfkTpKQw5bWZJZleqEYCTm8UjDUqxTNQLzZvAi1xs1agc25dZDDPgNO/AZy
-         CSZthTofBoAm0lo19gUoZQolE2fJVHsxZAGyd7NMLzYAVBL+Z9H7o1v2jC/QvHw6ohCG
-         zhAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779134727; x=1779739527;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cAkY0vj7iSY+sZjzSMZGpI/xkJ9Jb7vUa4k3TiZjewI=;
-        b=EForA4hBVR+m9VIiEht4Mn35puquLkEHLcftr9cWxZpti9EYs+GpboHGRfJk5O800W
-         yLwjYDjRF50G53YB5ek8Y7g9MzxuqDJuIZu5Qk553D7DoS10wAvl9YeDUqjZnbJ3qvce
-         pWfImUMP4YM3rTdzvxk94hRO3dzORXn5homCg+QgiPmca9ZZ0Zn8Ix5AhAToZ8EwfAg5
-         QLeTqABP5CLvaHSFYesPCo1/Z4rQP7otLTsNHDPazAtlc9e8Mtw4Yxdtcpr5RAyeo+pz
-         H4mQzlcV/DUkNqeeT0VzntULYQb1KB5MyAIXyqo+8rMvuBGDHmv6j/SpsgeX7zuS6h0u
-         woWA==
-X-Forwarded-Encrypted: i=1; AFNElJ/VcaDgdCx9pJZR7cWte6iP2DueyhWeupjK9hK95zQxjpScQ3kXeYg3akswBkOtAabi6BXRkMBB3URLJjdAZ6Az@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbwsJnZq7GNRDQj3P36QdYlBKoudd412RvjPz+gcnpCWOekQW4
-	r0qS3AcWlYdrHwa7FRRzV+oCwDwkQIolAxwz9cggMBkab1HVLlgsG6sS
-X-Gm-Gg: Acq92OHYxqZrIxEWMxQUOS+jSVfQk5lriBeD6FUjJXBrGWtY8egFEXwkz6zl703NsiF
-	ROVtN/SaZtyrjofcJ7PUVTU9n4wxQnGlKeKp63HMiYzraM+QxFcG82pjHxWt08xYz43XfbUFBfD
-	aZq9zaG9VRo7TjUBJXbEGQPYKQfPqJOJRzWLOCf+b1CPrDb5EzNalCCctqikNG0kVNvjoVqfIpv
-	XnW8BDodtcsIFEkBs1FuOowAQzWlYoZ2nh4eSJgZQh60Cz1nOod6C9bI05kdOD3xkbkIPdf4GoG
-	7VIlfo74nzqdgYhrNPdMDLf+n8Y51fQisokpFZSL2/puGsr0ujoBCRvokhS6Xy6LrmFx05IaTwC
-	bouzv9hU4d8OUWfhGCGW9Eqffm1XDphYgIOUrGyEXIHgU2zDll52EQISH0pIAwYZxhczZMDmTh5
-	4Mx1qNR+pYvIabQrySCuQaMHZZJJqjnpiSSEX+ULqqmvyutXerf/MgWW7J1TzFOGXn2myWSjNzs
-	VI=
-X-Received: by 2002:a5d:584c:0:b0:446:db72:e8ec with SMTP id ffacd0b85a97d-45e5c587281mr26781621f8f.23.1779134726576;
-        Mon, 18 May 2026 13:05:26 -0700 (PDT)
-Received: from giga-mm-11.home (72.92.4.85.dynamic.cust.swisscom.net. [85.4.92.72])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a19c2dsm40825454f8f.21.2026.05.18.13.05.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 13:05:26 -0700 (PDT)
-Message-ID: <04da68168f92b196cce4d49c766fc62702bf6472.camel@gmail.com>
-Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
- Baijie Helper A133 board
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: linux-sunxi@lists.linux.dev, Andre Przywara <andre.przywara@arm.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 18 May 2026 22:05:25 +0200
-In-Reply-To: <agr9m_tidBr6Cu2h@collins>
-References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
-	 <20260510201644.4143710-4-alexander.sverdlin@gmail.com>
-	 <agr9m_tidBr6Cu2h@collins>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.1 
+	Mon, 18 May 2026 19:43:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KhtOD783P+DDqJO7gl/2lwJxVHeAhraj6KLnmJYu4dXcRnOdU5UWMxLrj0/dfcfQvP+TUCM0lK6hNDdLDShV6liro+pP1o2KC7iXtowzOAvMHf3gOR6T91z4bdnMqMMGyw3GiflXaJgrBhtZ0MhsIJ0/TyCJ0XMtyGSRgZhQ2f8hnaYUeKP48U6QKGz9m0oI2uCxkmWmle7gRAUY9gvYvv5zitkpnmfcNJFMn3s3yiWJREj2Ggi8yIQK+ju6Qj6Gbu6u7+5OClELtz8z+coOEPS/nSzHLdd5CnDmmcTlbyqT2n97mcH8rkbODQVlvxVk/Xb8PbQDlzIyowSBVSaMaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=etvv2U4FKsy2HZdjgWxHRqD+z5PRay/+07+XMhAoOQM=;
+ b=AbJqzP8PTr6DyIhlD2Ubxn35ePaRLO0lr/svfH1CPY0cubRvB0LNdWBSeMEL7DwPff3jrq38YP+WZcJfwirPG67O4vGUEXVGJN6dOBb5mBXbg4J21yYZq4RGEGfdqZnc7B0Wmy04JVfx0tPa3Qn9zjH14otblS9TIWYwNGZSSuGDvyEfSq59SoyhXWyl2MsWgexKuiQQ7IP4VZ4RRPLNzcvclsW+G+kcHAwT3FIbK6h8OvLAbHXmSMTY6NnrHOcUkhbJ4J5CqS3xsnmU/tVGrPmN+ZlKLJgyfUA9WHCYDuVqECll6NS/qh7FRG/YbuHg05FqpZbezzGOZwIevWtx/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=etvv2U4FKsy2HZdjgWxHRqD+z5PRay/+07+XMhAoOQM=;
+ b=e1QPuafRKg4YQ+Mp/zXS9ADyPncpvHJOqvBJ2Z+SycHj0ssyc8nq201W3QzynDvoWuMt717QfR5cqbzA9vlnY97401L5FDCnv0cDBqSSi48fiyLuAVt7iX+RasCTHxVWQsX3aSyYlAH8BYgpi6/wK0eQbmD3ZQ2yy5Iy6n/2Wurks+hRMVc75/TulgvkYbWp0hnhr0q7L2g4hKlMcTNDvthBx/LSgB9aCoQciZqpP82EXGkPzPz7yPM8fUbRjTm80SkVvjV8MbVa/nTsY4qu8MK4oD7FZMKyaqiLT0nslnh63g71UiDucdyq/YGv+cuxkYqOidSmK4Ijq5aBC/EIfg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DS3PR12MB999239.namprd12.prod.outlook.com (2603:10b6:8:38c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Mon, 18 May
+ 2026 19:43:50 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0025.022; Mon, 18 May 2026
+ 19:43:50 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: iommu@lists.linux.dev,
+	Joerg Roedel <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: David Matlack <dmatlack@google.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	patches@lists.linux.dev,
+	Pranjal Shrivastava <praan@google.com>,
+	Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: [PATCH 6/8] iommu/arm-smmu-v3: Populate the tlbi at the top of the call chain
+Date: Mon, 18 May 2026 16:43:43 -0300
+Message-ID: <6-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com>
+In-Reply-To: <0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com>
+References: 
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BLAPR03CA0124.namprd03.prod.outlook.com
+ (2603:10b6:208:32e::9) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DS3PR12MB999239:EE_
+X-MS-Office365-Filtering-Correlation-Id: a24918cc-5990-4b41-535c-08deb515c76c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|11063799003|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: d0YHDnXQ9A3dr/MMvVYLajAmTfkF7pbeOJTsurU9WxfSldwtoccv1UlCy2zs8LHghtES9Fn8ASUqWC0mRbRi/qsN/rBJqVAGwTeeLAZbgj2wtuA2YP5ddKad30FldB4fc05Cf6ragI4EdHVTwV6mw7xsNkb90Wj7bayEuoPAHyrjNP0PUQKDYfLaG9foXQ0boQeK4z95MAh9oFrGhhuocvfdqdhtCdqlc+jHoWBhQeHdY4g55fVV3AAj0XokGPR9sLt4CCLuUscklB4jZ62+tqrwAx/3dW6DfoJO0eG8sulFRrYJWecReSTzSXvN+yldTMhv4JGZwkZ19bvSP5gfyYbQLt1e6+dVFgI6hgHM1HDleAidJjn7UlF3KLZ3rvJWuH3RhzmAJGKSno71cTj2VMZOqF618kflnDAcII1RBQE7mFqU/CuGRqu+g2PQDub61HqJdgwb84DTpezRE35cVgMlz/rvPdfpT5XncTKRDLWQELCoJgdZ+Y/IDaQUya66dWyVb7pMoYjHRiqaz/w9aliI2mbp+Z68WH9EDYppSltIBndDiySVnT2ExAGTVcScGmlzVUwXYmPElCKMwgLuWWIde7Zs0ztKjs5GVfL0CIsdSZljyrxuO3WoG70szYvwNvQJeOXn4pFsDuH7aT3LQQcVu2C3FsYslyTWfNxS6+iKvkJhVPCVP3MnOjnN6key
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(11063799003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3tdlHAwdkDwu4ZuhFC6hc2S1liuc8ipby9kHqQvXPsQ80hu2bqZiG27MbpTo?=
+ =?us-ascii?Q?620UFnQv6A/I4W2bnnSHTHfLSjxASwQrBhgRp13GkkToSoDSySDN9kzz+CeO?=
+ =?us-ascii?Q?O+FL72dETOhJil9flETZ4wTM5lAa83ee/aa9PcrLtegCPPTpse/rQ8lYFl9Q?=
+ =?us-ascii?Q?HertE/opxcJmtHHqdr2nmbcdq2wbEQBzzHPNW0NQaKixSSuDdwU4vIwGyAnX?=
+ =?us-ascii?Q?8M9RK/Unby6kecSmvUGXOd/tVv1sKEtgdp8QJLl4eh0nAjuXHU1SywubiH53?=
+ =?us-ascii?Q?3LVe4TF7ir3yiFkvpzAspBhbje4E3+Sy+OXbkbL5JKmmL41GVEuq4WTzeWGj?=
+ =?us-ascii?Q?+av6RAwoquru36/bEcsYXoudDHE4NT5Px6UNeug4ffWOR487Av33URm/9ZQ7?=
+ =?us-ascii?Q?kZOOaec4mbSjPOcAZ0RAZhext0b4g2opook304Ta1mAvR6bqcyHgsIuU2JUC?=
+ =?us-ascii?Q?8hWS0j55TJMg2MHoNOFyRx0WfDYu8e2izVRCu3rhhJBGyF1G/dFUWfmxpvw3?=
+ =?us-ascii?Q?ISwtXnYS3fjWTSzvr3tZxwls+V8EWDyuuxpMupFQMDf5I1YMkU7nrqvGyiyp?=
+ =?us-ascii?Q?qJ1C+LvuK15YamQpeRaPO8aAtQTUDIwenxJEYr3i3MHEpTdgYIfssHPYN2o7?=
+ =?us-ascii?Q?IBN5KHb/6vU9Kp/YnIPT5CpDCjVlpxir3rGj7LBfkg0ibLDk5ReIttymV5Dd?=
+ =?us-ascii?Q?lTPR6TcRfaK0KMIMu2dn/8O4bpE7QZfle61W7BM6VH+hgUvVig1NYPIfIBzG?=
+ =?us-ascii?Q?7+Veh7X6f9E+kUdDnftqzKPLU/l/N5FrpRGTNFSTLqoFefuwhKaz4R1VYo4B?=
+ =?us-ascii?Q?31YZrdYJr3rXQwznCmyRZPxrSQwrkzb6CpHl1VPL24+taKC9ZTsJWVYwVxnz?=
+ =?us-ascii?Q?5kCkSQhs7NI/rCTLOJRQOZPxoNNLuAJVmdlmwKLuqF/2kJ+GGKaGa5N93zFx?=
+ =?us-ascii?Q?JO5DVafX6kfBXQjdmtYAjh73W1KE35y9DSTIlVe2PlPBu/GnoQJuU/szYca8?=
+ =?us-ascii?Q?c7pTT/pcxZnUjUSe3Z1Dn4Wd8r2mt0qZYMywOf8AMhoHI8eiQKYsu5u4ExYU?=
+ =?us-ascii?Q?3tsKs3xdRjP56wybkx5Jx4N+OLZVZZmoi1/ldRTSLjYZXlmKVDprnE7etPpV?=
+ =?us-ascii?Q?ROlf9rFNi+iPXhrOdwks3mPCn3iHIInNPW0/IWVILT7ar6zCpMjchGkKsrYx?=
+ =?us-ascii?Q?0F6BHG+WH9D+oXa7O9xjKgrfOk+Qx1F/uQcg4U0b+vB/zAYIw5wk3cEokD7o?=
+ =?us-ascii?Q?LdVhQlImxlTXZfGhb+nexsSDHJfk4ahdTYaI5GCu/Zhpm3eoW7vnmOrmbQx7?=
+ =?us-ascii?Q?P36B1iAiHMFOvz+WzJ+8LlwVturg+wrM3hZlOIQpzLjme8J26SQ0QDCUBemw?=
+ =?us-ascii?Q?bYnV6AUAr5/knb/5hLpDd9tyIjG+U77gu4aiGyXPdgGonVxPBkV9HEtQ/lyb?=
+ =?us-ascii?Q?nwh8M5fQis7Qrb3BjX12K66A01Rbxzkx74xKOEClMv12NAsQmzDEzKWKgzfB?=
+ =?us-ascii?Q?HxOQJ8UncH6VS62ITPi1/nw4YzAQtuc11FsS7yV6rv3bcmXErtrue2obf5D1?=
+ =?us-ascii?Q?4WJvFT5YUrTVsbNc7lyX7cdpDyxNYh8JWNkPpMDsnYI1csURl8CavSPqgYok?=
+ =?us-ascii?Q?66kqLhtUJPJEdNoNkH+HZ3Cm/fww4QESc281GtOYcrIgC+YCrF0Onx86X7gf?=
+ =?us-ascii?Q?orC7lRAgWcmfUR/Uh8JbCSVxLbqvEHxTkFrttdjB3RTpVIje?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a24918cc-5990-4b41-535c-08deb515c76c
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2026 19:43:47.9919
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0sxPKr3mG58v7S2yQgBBELoYzGs8+Ffx4lDiS+OMMBkYt0yLL9OZT33xuzUvx4BN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999239
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_130528_853828_01C238BA 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20260518_124358_604865_27F9D1CC 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,135 +143,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+Each of these has their own unique situation, populate the tlbi right
+at the top and pass it into arm_smmu_domain_inv_range(). They will
+diverge further when the iommupt invalidation scheme is introduced.
 
-thanks for the review!
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   | 21 ++++----
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 51 +++++++++----------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 13 +++--
+ 3 files changed, 45 insertions(+), 40 deletions(-)
 
-On Mon, 2026-05-18 at 13:52 +0200, Paul Kocialkowski wrote:
->=20
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi =
-b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
-> > new file mode 100644
-> > index 000000000000..65b094f30bf5
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 4649717df151ba..c708fefb053771 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -129,16 +129,19 @@ static void arm_smmu_mm_arch_invalidate_secondary_tlbs(struct mmu_notifier *mn,
+ {
+ 	struct arm_smmu_domain *smmu_domain =
+ 		container_of(mn, struct arm_smmu_domain, mmu_notifier);
+-	size_t size;
++	struct arm_smmu_tlbi tlbi = {
++		.smmu_domain = smmu_domain,
++		.iova = start,
++		/*
++		 * The mm_types defines vm_end as the first byte after the end
++		 * address, different from IOMMU subsystem using the last
++		 * address of an address range.
++		 */
++		.size = end - start,
++		.iopte_granule = PAGE_SIZE,
++	};
+ 
+-	/*
+-	 * The mm_types defines vm_end as the first byte after the end address,
+-	 * different from IOMMU subsystem using the last address of an address
+-	 * range. So do a simple translation here by calculating size correctly.
+-	 */
+-	size = end - start;
+-
+-	arm_smmu_domain_inv_range(smmu_domain, start, size, PAGE_SIZE, false);
++	arm_smmu_domain_tlbi(&tlbi);
+ }
+ 
+ static void arm_smmu_mm_release(struct mmu_notifier *mn, struct mm_struct *mm)
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 9aa08f782e8986..94f742de90330c 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2642,25 +2642,12 @@ static void arm_smmu_domain_tlbi_inv(struct arm_smmu_tlbi *tlbi,
+ 	}
+ }
+ 
+-void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+-			       unsigned long iova, size_t size,
+-			       unsigned int granule, bool leaf)
++void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi)
+ {
+-	struct arm_smmu_tlbi tlbi = {
+-		.smmu_domain = smmu_domain,
+-		.iova = iova,
+-		.size = size,
+-		.iopte_granule = granule,
+-		.leaf_only = leaf,
+-	};
+ 	struct arm_smmu_invs *invs;
+ 
+-	if (!size || size == SIZE_MAX) {
+-		tlbi.single.use_full_inv = true;
+-		tlbi.range.use_full_inv = true;
+-	} else {
+-		arm_smmu_tlbi_calc_single(&tlbi);
+-	}
++	if (!tlbi->single.use_full_inv)
++		arm_smmu_tlbi_calc_single(tlbi);
+ 
+ 	/*
+ 	 * An invalidation request must follow some IOPTE change and then load
+@@ -2690,14 +2677,14 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+ 	smp_mb();
+ 
+ 	rcu_read_lock();
+-	invs = rcu_dereference(smmu_domain->invs);
++	invs = rcu_dereference(tlbi->smmu_domain->invs);
+ 
+ 	/* Only precaculate RIL if it will be used. */
+ 	if (invs->has_range_inv) {
+-		if (!tlbi.range.use_full_inv)
+-			arm_smmu_tlbi_calc_range(&tlbi);
++		if (!tlbi->range.use_full_inv)
++			arm_smmu_tlbi_calc_range(tlbi);
+ 	} else {
+-		tlbi.range.use_full_inv = true;
++		tlbi->range.use_full_inv = true;
+ 	}
+ 
+ 	/*
+@@ -2708,10 +2695,10 @@ void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+ 		unsigned long flags;
+ 
+ 		read_lock_irqsave(&invs->rwlock, flags);
+-		arm_smmu_domain_tlbi_inv(&tlbi, invs);
++		arm_smmu_domain_tlbi_inv(tlbi, invs);
+ 		read_unlock_irqrestore(&invs->rwlock, flags);
+ 	} else {
+-		arm_smmu_domain_tlbi_inv(&tlbi, invs);
++		arm_smmu_domain_tlbi_inv(tlbi, invs);
+ 	}
+ 
+ 	rcu_read_unlock();
+@@ -2731,8 +2718,14 @@ static void arm_smmu_tlb_inv_walk(unsigned long iova, size_t size,
+ 				  size_t granule, void *cookie)
+ {
+ 	struct arm_smmu_domain *smmu_domain = cookie;
++	struct arm_smmu_tlbi tlbi = {
++		.smmu_domain = smmu_domain,
++		.iova = iova,
++		.size = size,
++		.iopte_granule = granule,
++	};
+ 
+-	arm_smmu_domain_inv_range(smmu_domain, iova, size, granule, false);
++	arm_smmu_domain_tlbi(&tlbi);
+ }
+ 
+ static const struct iommu_flush_ops arm_smmu_flush_ops = {
+@@ -3994,14 +3987,18 @@ static void arm_smmu_flush_iotlb_all(struct iommu_domain *domain)
+ static void arm_smmu_iotlb_sync(struct iommu_domain *domain,
+ 				struct iommu_iotlb_gather *gather)
+ {
+-	struct arm_smmu_domain *smmu_domain = to_smmu_domain(domain);
++	struct arm_smmu_tlbi tlbi = {
++		.smmu_domain = to_smmu_domain(domain),
++		.iova = gather->start,
++		.size = gather->end - gather->start + 1,
++		.iopte_granule = gather->pgsize,
++		.leaf_only = true,
++	};
+ 
+ 	if (!gather->pgsize)
+ 		return;
+ 
+-	arm_smmu_domain_inv_range(smmu_domain, gather->start,
+-				  gather->end - gather->start + 1,
+-				  gather->pgsize, true);
++	arm_smmu_domain_tlbi(&tlbi);
+ }
+ 
+ static phys_addr_t
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index b5e214b428d644..95da62d64df171 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -1168,13 +1168,18 @@ int arm_smmu_set_pasid(struct arm_smmu_master *master,
+ 		       struct arm_smmu_domain *smmu_domain, ioasid_t pasid,
+ 		       struct arm_smmu_cd *cd, struct iommu_domain *old);
+ 
+-void arm_smmu_domain_inv_range(struct arm_smmu_domain *smmu_domain,
+-			       unsigned long iova, size_t size,
+-			       unsigned int granule, bool leaf);
++void arm_smmu_domain_tlbi(struct arm_smmu_tlbi *tlbi);
+ 
+ static inline void arm_smmu_domain_inv(struct arm_smmu_domain *smmu_domain)
+ {
+-	arm_smmu_domain_inv_range(smmu_domain, 0, 0, 0, false);
++	/* Prefilled for invalidate all */
++	struct arm_smmu_tlbi tlbi = {
++		.smmu_domain = smmu_domain,
++		.single.use_full_inv = true,
++		.range.use_full_inv = true,
++	};
++
++	arm_smmu_domain_tlbi(&tlbi);
+ }
+ 
+ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
+-- 
+2.43.0
 
-[]
-
-> You should add:
->=20
-> 	chosen {
-> 		stdout-path =3D "serial0:115200n8";
-> 	};
-
-I actually have it in .dts, but it's theoretically possible to deploy
-the core board in a way that serial0 is *not* a console, so the above
-probably will not be valid in all cases in .dtsi.
-
->=20
->=20
->=20
-> > +&reg_dcdc2 {
-> > +	regulator-always-on;
-> > +	regulator-min-microvolt =3D <500000>;
-> > +	regulator-max-microvolt =3D <1300000>;
->=20
-> Should be:
-> 	regulator-min-microvolt =3D <900000>;
-> 	regulator-max-microvolt =3D <1300000>;
-
-0.81..1.2v according to A133 Datasheet Revision 1.1 Jul.14, 2020?
-
->=20
-> > +&reg_dcdc4 {
-> > +	regulator-always-on;
-> > +	regulator-min-microvolt =3D <500000>;
-> > +	regulator-max-microvolt =3D <1300000>;
-> > +	regulator-name =3D "vdd-sys";
->=20
-> Should be:
-> 	regulator-min-microvolt =3D <810000>;
-> 	regulator-max-microvolt =3D <990000>;
-> 	regulator-name =3D "vcc-usb-sys";
-
-I'm a bit puzzled here: datasheet says 0.9..1.0v
-and it has no "Typ" value, similar to VDD_CPU, but
-VDD_SYS is not part of OPP tables, so who is going
-to adjust this? Or shall it be just
-
-regulator-min-microvolt =3D <950000>;
-regulator-max-microvolt =3D <950000>;
-
-?
-
->=20
-> > +};
-> > +
-> > +&reg_dcdc5 {
-> > +	regulator-always-on;
-> > +	regulator-min-microvolt =3D <800000>;
-> > +	regulator-max-microvolt =3D <1840000>;
-> > +	regulator-name =3D "vcc-dram";
->=20
-> Should be:
-> 	regulator-min-microvolt =3D <1100000>;
-> 	regulator-max-microvolt =3D <1100000>;
-> 	regulator-name =3D "vcc-dram-2";
->=20
-> ALDO2 is the main DRAM supply, this is the second one.
-
-Core schematics mentions 1.1V/1.2/1.35/1.5 on this rail...
-Currently U-Boot has CONFIG_AXP_DCDC5_VOLT=3D1100, but potentially
-this is adjustable, right? At some point LPDDR4 chips they
-are soldering today will be unavailable. And in the current
-market it will happen rather sooner than later...
-
->=20
-> > +};
-> > +
-> > +/* DCDC6 unused */
-> > +
-> > +&reg_dldo1 {
-> > +	regulator-min-microvolt =3D <700000>;
-> > +	regulator-max-microvolt =3D <3300000>;
-> > +	regulator-enable-ramp-delay =3D <1000>;
->=20
-> Should be:
-> 	regulator-min-microvolt =3D <1800000>;
-> 	regulator-max-microvolt =3D <1800000>;
-> 	regulator-name =3D "vcc-pg";
-
-Do suggest to drop vendor's
-
-regulator-enable-ramp-delay =3D <1000>;
-
-in all cases?
-
-> >=20
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dt=
-s b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
-> > new file mode 100644
-> > index 000000000000..ccbca5d0a40c
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
-
-[]
-
-> > +	aliases {
-> > +		serial0 =3D &uart0;
->=20
-> The is best added to the core dtsi.
->=20
-> > +	};
-> > +
-> > +	chosen {
-> > +		stdout-path =3D "serial0:115200n8";
->=20
-> Ditto.
-
-But it only physically materializes in Helperboard, the carrier.
-Potentially this one can be left floating or used for something else.
-
---=20
-Alexander Sverdlin.
 
