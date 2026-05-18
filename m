@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083A2CD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567B7CD4F4A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 14:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FxfeZW/DOyhYiifnvt6Lo6Kx4Guzhhx1Keh/1kj2aSM=; b=thkOvNeNPJ6LLQMJZMz8VbxpOX
-	BhdeyumDqW6jdq758n0aggoAJMyXPBcgIYQtZmUx9SmOhBcyB8b/jSvm46WCQSoeJ6CYnldqbSQzi
-	7kxtnfRVBUQvBPylQwFguCG5zdZWI3eKoN7W4JFlNWCB6okCwJvc4oD2DBZtuTXf+MwINg1OvjV+L
-	PiLat4sE2CgbZq8QCyExXqDozAmmcwmGN1u+PG23h9i2khxxQVZV3ebetrtAFIMIrK+Rm4iw21WiX
-	WFyDtzZPTo0KW0uTmD6ACpPVPxNY3qFrcCqtZURXmtSWKEpKI5fiuWhwYphPbuh3os3Fh7xU2IK+n
-	JUKPC0OA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S4c2AULgCr+oAYdflJy/tl/FD0zXRMyuMjKCi/X55po=; b=RkQn9W2QpLDpo8JAV0EJ2WPnWl
+	kuuUmwB/6HN1IcCXehpPNNogapIRiEnngEZCaMJzEuMMcGVwX667vsfJc/xrdobf9zEf7EGjjZUcH
+	iXEYpGWKclbow5bRsA+7pqp8r0Qlrp2aTzH/Y7QPjDyaJlVKHuFXHumYfyyri9A5MrLuGU5ljRUS+
+	0Qv/pSnf4Gd/DACVb1baYg3Xiv81NX83cjvjyZnl+iuFfC24F0tf5oS9umnpN0MtUVNrXODM96tf6
+	KuYjPB+iiiSyix3tOGYe1TEfBGSenBbxOc+FQgFYqDwxQiUCkFGIRxd/7U13vf3zjb8/8llfuopkj
+	5bFFasNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyP5-0000000FrvU-1T7X;
-	Mon, 18 May 2026 13:53:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOyOv-0000000Frok-0m3U
+	id 1wOz8i-0000000G1Sz-2O7x;
+	Mon, 18 May 2026 14:40:16 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOz8h-0000000G1SN-0WZU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 13:52:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 515FC1D6F;
-	Mon, 18 May 2026 06:52:50 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (donnerap.manchester.arm.com [10.33.8.81])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6AC8A3F7B4;
-	Mon, 18 May 2026 06:52:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779112375; bh=8xObcw7lp2BP5iwKGgdDKqddiutPu+0lZmqfMU7VJ+8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QQ3Ld1BMtWxk18A1UBm/TvchVkfyxadQfCF6ZWMbp1esSlBfkSdahXJ0RCH/Iizxf
-	 LJJW3RfzZWWwi6PY0Gm6w2m9MlZrSYfKheQQUj575MPAFViHCI5U5OzGd0nPvGwJ0s
-	 yVQadWZJos17e4zGUTUhSelKxPAgvERvlYSDzLgA=
-From: Philip Radford <philip.radford@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	d-gole@ti.com,
-	souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v6 03/12] firmware: arm_scmi: Add SCMIv4.0 Powercap basic support
-Date: Mon, 18 May 2026 14:52:25 +0100
-Message-ID: <20260518135234.2953532-4-philip.radford@arm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260518135234.2953532-1-philip.radford@arm.com>
-References: <20260518135234.2953532-1-philip.radford@arm.com>
+	Mon, 18 May 2026 14:40:16 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-488a88aeec9so28560415e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 07:40:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779115213; x=1779720013; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=S4c2AULgCr+oAYdflJy/tl/FD0zXRMyuMjKCi/X55po=;
+        b=q4WMaaZc3BDzewQQYfW0d4ESO765oT3+viYy1e6ts2S3IW4HwQVtKB0arZ3YvXFJ0L
+         TBfIdEz43xD6IoUyWyik03QNItxe7Sy4jtzIk+C++Uoetn8Ru6+MkDyBQh5Ysds1ItN4
+         dqLQRwFHwxrYh4Ji02wCPKP6qy7pK7K8UB4OqIlC4mCZCcF2zYvuPrrlEAcEvDwAqxmT
+         7nrHMqqxpP4VTSyIi4rRuv56sPvif/Peqo13Oq5hWZXW8xsn3iiL5klCBuGk6+/k4/g2
+         IyJjcOUt6QXsTKheVbZNlQ8L9JyzdkjXsFGKMiuCa/sWLdqum/r2zhNNTYjXuAG+LoSc
+         DDfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779115213; x=1779720013;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=S4c2AULgCr+oAYdflJy/tl/FD0zXRMyuMjKCi/X55po=;
+        b=H0ixj4NVzJb2wK5ZVZmWeb2qZ4Q33d+DrcXKO0nxeqXHwPz+AV4P8ijBdRektRXTsL
+         7tWaivAygyO/EZ68ecqB14ZnU8U/s5QAoueV8IstwOn/hTUG2JRyPawCD1TkDj2+pBgD
+         WHTk9RUO3r546JaZ9u+aJyxF/ETWe7pWTbLr+rlippXb6HgV0zcWoJ8+ATPFnTjtuR9O
+         W68th+6ohDWfgVfNVWXv1Xt5WZ9cV6BZESfm/IfIHmycenDroDJ47M+rHL/yMEnT0iiN
+         0+x/sVp9a1HUp8hD6yXdj98Gm4PsAB471x+vZwROHzr9BOXjXMccalXzvGAhpzlPu/Up
+         iE8w==
+X-Forwarded-Encrypted: i=1; AFNElJ8RFn9bXPdGogtDbEA3/Mr91OwRQHrXU0i8STF7+/CLvsxGVgRFIETNVtSh3duI89Qz5Syr+7/tJJOR3HxY92Zm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4M5P5P+ITthiHYIvfSqXOHxNlSr7tlL3DqprB2QwXQU75gYM2
+	9sgbqZjkGlsX1TlZUITfJ29o7yr1nChqoHcU8mHQ/fruM41qw1nsFNyx
+X-Gm-Gg: Acq92OE9zknH61NnqIKWh2JesCdGv7IuzgD/U4u1lTkajZHx2PQjuppQhIsukxRF7cF
+	LWxGdQMjYRxkg/V2/WI+vpsBSbDSmjbsHowRCDArg+hh2doQGChV6ZNpLgLyd0dSLPHPXItw/S9
+	BoNIsGOpXR835yHlGVbxttdveOd8h6boARMslwYkQx2etoXNTE/6vERNY1zTvfa+BrQAySaf9ow
+	XLR5CCoAXxskGyfvGwBtD5ainPU4AxpTEbY4PcZQbFzKC37t/VteO91bLaS6MBg/iabiiSDiym3
+	X5AiQ2HiFBPGqVrI/haEX5fPspHFTFhWW9SHsG4dtKqDMfGykacnnQ7OXp32JrbkzCaGb1lKOdK
+	UCELehndzdP2h5QuP1WsKlzMx73mppB7H0g+BxQ7GIGRueFOh7rFm+N4WaoaAvKpJUKe8cwKXio
+	tBEyuMZFwpD0QKtcIH8RX4z4hfblrviMfuN+4IrhX0VG9kGFqF0mEiatsXtmpQNgnO+uliGuuuz
+	Ds=
+X-Received: by 2002:a05:600c:c087:b0:48a:7b55:12a6 with SMTP id 5b1f17b1804b1-48fe5cb36aamr189623285e9.0.1779115213181;
+        Mon, 18 May 2026 07:40:13 -0700 (PDT)
+Received: from giga-mm-11.home (72.92.4.85.dynamic.cust.swisscom.net. [85.4.92.72])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe5e9d5d9sm303576575e9.15.2026.05.18.07.40.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 May 2026 07:40:12 -0700 (PDT)
+Message-ID: <bc3b786313adee30cc00c65ea98ff5258a816abb.camel@gmail.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
+ Baijie Helper A133 board
+From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 18 May 2026 16:40:11 +0200
+In-Reply-To: <agsezxcxjQlBmesm@collins>
+References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
+	 <20260510201644.4143710-4-alexander.sverdlin@gmail.com>
+	 <agr9m_tidBr6Cu2h@collins>
+	 <579c7c33123c4cd0bd486301e56daf5962ca55ec.camel@gmail.com>
+	 <agsezxcxjQlBmesm@collins>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_065257_314198_A665645D 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20260518_074015_169996_DD01938C 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,669 +105,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Marussi <cristian.marussi@arm.com>
+Hi Paul,
 
-Add SCMIv4.0 Powercap support for enumerating multiple CPLs of a domain
-when available.
+On Mon, 2026-05-18 at 16:14 +0200, Paul Kocialkowski wrote:
+> I also have a U-Boot config ready for it, which I could send once the
+> device-trees are merged on the kernel side. I could send it to you if
+> you're interested.
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-[Philip: Fixed sparse issues where int was expected]
-Signed-off-by: Philip Radford <philip.radford@arm.com>
----
- drivers/firmware/arm_scmi/powercap.c | 472 +++++++++++++++++++++------
- include/linux/scmi_protocol.h        |   1 +
- 2 files changed, 376 insertions(+), 97 deletions(-)
+I do have one as well, I'm testing all open-source ;-) from ATF-upwards,
+just thought U-Boot would require ATF merged and kernel DT merged
+because of OF_UPSTREAM in U-Boot. But I'd be happy to sync when we get
+there.
 
-diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
-index 47aa6dde4a52..3291bde78367 100644
---- a/drivers/firmware/arm_scmi/powercap.c
-+++ b/drivers/firmware/arm_scmi/powercap.c
-@@ -33,6 +33,7 @@ enum scmi_powercap_protocol_cmd {
- 	POWERCAP_CAP_NOTIFY = 0xa,
- 	POWERCAP_MEASUREMENTS_NOTIFY = 0xb,
- 	POWERCAP_DESCRIBE_FASTCHANNEL = 0xc,
-+	POWERCAP_CPC_ATTRIBUTES = 0xd,
- };
- 
- enum {
-@@ -69,19 +70,58 @@ struct scmi_msg_resp_powercap_domain_attributes {
- 	__le32 parent_id;
- };
- 
-+struct scmi_msg_resp_powercap_domain_attributes_v3 {
-+	__le32 attributes;
-+#define SUPPORTS_POWERCAP_MAI_CONFIGURATION(x)		((x) & BIT(25))
-+#define SUPPORTS_POWERCAP_FASTCHANNELS(x)		((x) & BIT(22))
-+#define SUPPORTS_POWERCAP_CAP_CHANGE_NOTIFY_V3(x)	((x) & BIT(21))
-+#define SUPPORTS_POWERCAP_CAI_CONFIGURATION(x)		((x) & BIT(20))
-+	u8 name[SCMI_SHORT_NAME_MAX_SIZE];
-+	__le32 min_mai;
-+	__le32 max_mai;
-+	__le32 mai_step;
-+	__le32 min_power_cap;
-+	__le32 max_power_cap;
-+	__le32 power_cap_step;
-+	__le32 sustainable_power;
-+	__le32 accuracy;
-+	__le32 parent_id;
-+	__le32 min_cai;
-+	__le32 max_cai;
-+	__le32 cai_step;
-+};
-+
-+struct scmi_msg_powercap_get_v3 {
-+	__le32 domain_id;
-+	__le32 cpli;
-+};
-+
- struct scmi_msg_powercap_set_cap_or_pai {
--	__le32 domain;
-+	__le32 domain_id;
- 	__le32 flags;
- #define CAP_SET_ASYNC		BIT(1)
- #define CAP_SET_IGNORE_DRESP	BIT(0)
- 	__le32 value;
- };
- 
-+struct scmi_msg_powercap_set_cap_v3 {
-+	__le32 domain_id;
-+	__le32 cpli;
-+	__le32 flags;
-+	__le32 power_cap;
-+};
-+
- struct scmi_msg_resp_powercap_cap_set_complete {
--	__le32 domain;
-+	__le32 domain_id;
- 	__le32 power_cap;
- };
- 
-+struct scmi_msg_resp_powercap_cap_set_complete_v3 {
-+	__le32 domain_id;
-+	__le32 power_cap;
-+	__le32 cpli;
-+};
-+
- struct scmi_msg_resp_powercap_meas_get {
- 	__le32 power;
- 	__le32 pai;
-@@ -112,6 +152,33 @@ struct scmi_powercap_meas_changed_notify_payld {
- 	__le32 power;
- };
- 
-+struct scmi_msg_powercap_cpc {
-+	__le32 domain_id;
-+	__le32 desc_index;
-+};
-+
-+struct scmi_msg_resp_powercap_cpc {
-+	__le32 num_cpl;
-+#define NUM_RETURNED(n)		(le32_get_bits((n), GENMASK(15, 0)))
-+#define NUM_REMAINING(n)	(le32_get_bits((n), GENMASK(31, 16)))
-+	struct {
-+		__le32 cpli;
-+		__le32 flags;
-+		__le32 min_power_cap;
-+		__le32 max_power_cap;
-+		__le32 power_cap_step;
-+		__le32 min_cai;
-+		__le32 max_cai;
-+		__le32 cai_step;
-+		u8 name[SCMI_SHORT_NAME_MAX_SIZE];
-+	} desc[];
-+};
-+
-+struct scmi_cpls_priv {
-+	u32 domain_id;
-+	struct scmi_powercap_cpl_info *cpli;
-+};
-+
- struct scmi_powercap_state {
- 	bool enabled;
- 	u32 last_pcap;
-@@ -129,6 +196,11 @@ struct powercap_info {
- 	bool notify_measurements_cmd;
- 	struct scmi_powercap_state *states;
- 	struct scmi_powercap_info *powercaps;
-+	int (*xfer_cap_get)(const struct scmi_protocol_handle *ph,
-+			    u32 domain_id, u32 cpl_id, u32 *power_cap);
-+	int (*xfer_cap_set)(const struct scmi_protocol_handle *ph,
-+			    const struct scmi_powercap_info *pc,
-+			    u32 cpl_id, u32 power_cap, bool ignore_dresp);
- };
- 
- static enum scmi_powercap_protocol_cmd evt_2_cmd[] = {
-@@ -192,111 +264,240 @@ scmi_powercap_validate(unsigned int min_val, unsigned int max_val,
- 	return 0;
- }
- 
-+static void iter_powercap_cpls_prepare_message(void *message,
-+					       unsigned int desc_index,
-+					       const void *priv)
-+{
-+	struct scmi_msg_powercap_cpc *msg = message;
-+	const struct scmi_cpls_priv *p = priv;
-+
-+	msg->domain_id = cpu_to_le32(p->domain_id);
-+	msg->desc_index = cpu_to_le32(desc_index);
-+}
-+
-+static int iter_powercap_cpls_update_state(struct scmi_iterator_state *st,
-+					   const void *response, void *priv)
-+{
-+	const struct scmi_msg_resp_powercap_cpc *r = response;
-+
-+	st->num_returned = NUM_RETURNED(r->num_cpl);
-+	st->num_remaining = NUM_REMAINING(r->num_cpl);
-+
-+	return 0;
-+}
-+
- static int
--scmi_powercap_domain_attributes_get(const struct scmi_protocol_handle *ph,
--				    struct powercap_info *pinfo,
--				    struct scmi_powercap_info *dom_info)
-+iter_powercap_cpls_process_response(const struct scmi_protocol_handle *ph,
-+				    const void *response,
-+				    struct scmi_iterator_state *st, void *priv)
- {
--	int ret;
--	u32 flags;
--	struct scmi_xfer *t;
--	struct scmi_msg_resp_powercap_domain_attributes *resp;
-+	const struct scmi_msg_resp_powercap_cpc *r = response;
-+	struct scmi_cpls_priv *p = priv;
-+	struct scmi_powercap_cpl_info *cpl;
- 
--	ret = ph->xops->xfer_get_init(ph, POWERCAP_DOMAIN_ATTRIBUTES,
--				      sizeof(dom_info->id), sizeof(*resp), &t);
--	if (ret)
--		return ret;
-+	cpl = &p->cpli[st->desc_index + st->loop_idx];
- 
--	put_unaligned_le32(dom_info->id, t->tx.buf);
--	resp = t->rx.buf;
-+	cpl->id = le32_to_cpu(r->desc[st->loop_idx].cpli);
-+	cpl->cap_config = le32_to_cpu(r->desc[st->loop_idx].flags) & BIT(0);
- 
--	ret = ph->xops->do_xfer(ph, t);
--	if (!ret) {
--		flags = le32_to_cpu(resp->attributes);
-+	cpl->min_power_cap = le32_to_cpu(r->desc[st->loop_idx].min_power_cap);
-+	cpl->max_power_cap = le32_to_cpu(r->desc[st->loop_idx].max_power_cap);
-+	cpl->power_cap_step = le32_to_cpu(r->desc[st->loop_idx].power_cap_step);
-+	if (!cpl->power_cap_step && cpl->min_power_cap != cpl->max_power_cap)
-+		return -EINVAL;
-+
-+	cpl->min_avg_ivl = le32_to_cpu(r->desc[st->loop_idx].min_cai);
-+	cpl->max_avg_ivl = le32_to_cpu(r->desc[st->loop_idx].max_cai);
-+	cpl->avg_ivl_step = le32_to_cpu(r->desc[st->loop_idx].cai_step);
-+	if (!cpl->avg_ivl_step && cpl->min_avg_ivl != cpl->max_avg_ivl)
-+		return -EINVAL;
-+
-+	cpl->avg_ivl_config = cpl->min_avg_ivl != cpl->max_avg_ivl;
-+
-+	strscpy(cpl->name, r->desc[st->loop_idx].name, SCMI_SHORT_NAME_MAX_SIZE);
-+
-+	return 0;
-+}
- 
--		if (pinfo->notify_cap_cmd)
-+static int scmi_powercap_cpls_enumerate(const struct scmi_protocol_handle *ph,
-+					struct scmi_powercap_info *dom_info)
-+{
-+	void *iter;
-+	struct scmi_iterator_ops ops = {
-+		.prepare_message = iter_powercap_cpls_prepare_message,
-+		.update_state = iter_powercap_cpls_update_state,
-+		.process_response = iter_powercap_cpls_process_response,
-+	};
-+	struct scmi_cpls_priv cpriv = {
-+		.domain_id = dom_info->id,
-+		.cpli = dom_info->cpli,
-+	};
-+
-+	iter = ph->hops->iter_response_init(ph, &ops, dom_info->num_cpli,
-+					    POWERCAP_CPC_ATTRIBUTES,
-+					    sizeof(struct scmi_msg_powercap_cpc),
-+					    &cpriv);
-+	if (IS_ERR(iter))
-+		return PTR_ERR(iter);
-+
-+	return ph->hops->iter_response_run(iter);
-+}
-+
-+static int
-+scmi_powercap_domain_attrs_process(const struct scmi_protocol_handle *ph,
-+				   struct powercap_info *pinfo,
-+				   struct scmi_powercap_info *dom_info, void *r)
-+{
-+	struct scmi_msg_resp_powercap_domain_attributes *resp = r;
-+	u32 flags = le32_to_cpu(resp->attributes);
-+	bool cap_config;
-+	int ret;
-+
-+	cap_config = SUPPORTS_POWERCAP_CAP_CONFIGURATION(flags);
-+	if (PROTOCOL_REV_MAJOR(ph->version) < 0x3) {
-+		dom_info->num_cpli = 1;
-+	} else {
-+		dom_info->num_cpli = le32_get_bits(resp->attributes,
-+						   GENMASK(18, 15));
-+		if (cap_config && !dom_info->num_cpli)
-+			return -EINVAL;
-+	}
-+
-+	dom_info->cpli = devm_kcalloc(ph->dev, dom_info->num_cpli,
-+				      sizeof(*dom_info->cpli), GFP_KERNEL);
-+	if (!dom_info->cpli)
-+		return -ENOMEM;
-+
-+	if (pinfo->notify_cap_cmd) {
-+		if (PROTOCOL_REV_MAJOR(ph->version) < 0x3)
- 			dom_info->notify_powercap_cap_change =
- 				SUPPORTS_POWERCAP_CAP_CHANGE_NOTIFY(flags);
--		if (pinfo->notify_measurements_cmd)
--			dom_info->notify_powercap_measurement_change =
--				SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
--		dom_info->async_powercap_cap_set =
--			SUPPORTS_ASYNC_POWERCAP_CAP_SET(flags);
--
--		dom_info->powercap_monitoring =
--			SUPPORTS_POWERCAP_MONITORING(flags);
--		dom_info->powercap_scale_mw =
--			SUPPORTS_POWER_UNITS_MW(flags);
--		dom_info->powercap_scale_uw =
--			SUPPORTS_POWER_UNITS_UW(flags);
--		dom_info->fastchannels =
--			SUPPORTS_POWERCAP_FASTCHANNELS(flags);
--
--		strscpy(dom_info->name, resp->name, SCMI_SHORT_NAME_MAX_SIZE);
--
--		dom_info->sustainable_power =
--			le32_to_cpu(resp->sustainable_power);
--		dom_info->accuracy = le32_to_cpu(resp->accuracy);
--
--		dom_info->parent_id = le32_to_cpu(resp->parent_id);
--		if (dom_info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID &&
--		    (dom_info->parent_id >= pinfo->num_domains ||
--		     dom_info->parent_id == dom_info->id)) {
--			dev_err(ph->dev,
--				"Platform reported inconsistent parent ID for domain %d - %s\n",
--				dom_info->id, dom_info->name);
--			ret = -ENODEV;
--		}
-+		else
-+			dom_info->notify_powercap_cap_change =
-+				SUPPORTS_POWERCAP_CAP_CHANGE_NOTIFY_V3(flags);
-+	}
-+
-+	if (pinfo->notify_measurements_cmd)
-+		dom_info->notify_powercap_measurement_change =
-+			SUPPORTS_POWERCAP_MEASUREMENTS_CHANGE_NOTIFY(flags);
-+
-+	dom_info->extended_names = SUPPORTS_EXTENDED_NAMES(flags);
-+
-+	dom_info->async_powercap_cap_set =
-+		SUPPORTS_ASYNC_POWERCAP_CAP_SET(flags);
-+
-+	dom_info->powercap_monitoring =
-+		SUPPORTS_POWERCAP_MONITORING(flags);
-+	dom_info->powercap_scale_mw =
-+		SUPPORTS_POWER_UNITS_MW(flags);
-+	dom_info->powercap_scale_uw =
-+		SUPPORTS_POWER_UNITS_UW(flags);
-+	dom_info->fastchannels =
-+		SUPPORTS_POWERCAP_FASTCHANNELS(flags);
-+
-+	strscpy(dom_info->name, resp->name, SCMI_SHORT_NAME_MAX_SIZE);
-+
-+	dom_info->sustainable_power =
-+		le32_to_cpu(resp->sustainable_power);
-+	dom_info->accuracy = le32_to_cpu(resp->accuracy);
-+
-+	dom_info->parent_id = le32_to_cpu(resp->parent_id);
-+	if (dom_info->parent_id != SCMI_POWERCAP_ROOT_ZONE_ID &&
-+	    (dom_info->parent_id >= pinfo->num_domains ||
-+	     dom_info->parent_id == dom_info->id)) {
-+		dev_err(ph->dev,
-+			"Platform reported inconsistent parent ID for domain %d - %s\n",
-+			dom_info->id, dom_info->name);
-+		return -ENODEV;
-+	}
- 
-+	dom_info->cpli[0].id = CPL0;
-+	if (PROTOCOL_REV_MAJOR(ph->version) < 0x3)
- 		dom_info->cpli[0].avg_ivl_config =
- 			SUPPORTS_POWERCAP_PAI_CONFIGURATION(flags);
-+	else
-+		dom_info->cpli[0].avg_ivl_config =
-+			SUPPORTS_POWERCAP_CAI_CONFIGURATION(flags);
-+
-+	if (PROTOCOL_REV_MAJOR(ph->version) < 0x3) {
- 		dom_info->cpli[0].min_avg_ivl = le32_to_cpu(resp->min_pai);
- 		dom_info->cpli[0].max_avg_ivl = le32_to_cpu(resp->max_pai);
- 		dom_info->cpli[0].avg_ivl_step = le32_to_cpu(resp->pai_step);
--		ret = scmi_powercap_validate(dom_info->cpli[0].min_avg_ivl,
--					     dom_info->cpli[0].max_avg_ivl,
--					     dom_info->cpli[0].avg_ivl_step,
--					     dom_info->cpli[0].avg_ivl_config);
--		if (ret) {
--			dev_err(ph->dev,
--				"Platform reported inconsistent PAI config for domain %d - %s\n",
--				dom_info->id, dom_info->name);
--			goto clean;
--		}
-+	} else {
-+		struct scmi_msg_resp_powercap_domain_attributes_v3 *resp = r;
- 
--		dom_info->cpli[0].cap_config =
--			SUPPORTS_POWERCAP_CAP_CONFIGURATION(flags);
--		dom_info->cpli[0].min_power_cap = le32_to_cpu(resp->min_power_cap);
--		dom_info->cpli[0].max_power_cap = le32_to_cpu(resp->max_power_cap);
--		dom_info->cpli[0].power_cap_step = le32_to_cpu(resp->power_cap_step);
--		ret = scmi_powercap_validate(dom_info->cpli[0].min_power_cap,
--					     dom_info->cpli[0].max_power_cap,
--					     dom_info->cpli[0].power_cap_step,
--					     dom_info->cpli[0].cap_config);
--		if (ret) {
--			dev_err(ph->dev,
--				"Platform reported inconsistent CAP config for domain %d - %s\n",
--				dom_info->id, dom_info->name);
--			goto clean;
--		}
-+		dom_info->cpli[0].min_avg_ivl = le32_to_cpu(resp->min_cai);
-+		dom_info->cpli[0].max_avg_ivl = le32_to_cpu(resp->max_cai);
-+		dom_info->cpli[0].avg_ivl_step = le32_to_cpu(resp->cai_step);
-+	}
-+
-+	ret = scmi_powercap_validate(dom_info->cpli[0].min_avg_ivl,
-+				     dom_info->cpli[0].max_avg_ivl,
-+				     dom_info->cpli[0].avg_ivl_step,
-+				     dom_info->cpli[0].avg_ivl_config);
-+	if (ret) {
-+		dev_err(ph->dev,
-+			"Platform reported inconsistent PAI config for domain %d - %s\n",
-+			dom_info->id, dom_info->name);
-+		return ret;
-+	}
- 
--		/* Just using same short name */
--		strscpy(dom_info->cpli[0].name, dom_info->name,
--			SCMI_SHORT_NAME_MAX_SIZE);
-+	dom_info->cpli[0].cap_config = cap_config;
-+	dom_info->cpli[0].min_power_cap = le32_to_cpu(resp->min_power_cap);
-+	dom_info->cpli[0].max_power_cap = le32_to_cpu(resp->max_power_cap);
-+	dom_info->cpli[0].power_cap_step = le32_to_cpu(resp->power_cap_step);
-+	ret = scmi_powercap_validate(dom_info->cpli[0].min_power_cap,
-+				     dom_info->cpli[0].max_power_cap,
-+				     dom_info->cpli[0].power_cap_step,
-+				     dom_info->cpli[0].cap_config);
-+	if (ret) {
-+		dev_err(ph->dev,
-+			"Platform reported inconsistent CAP config for domain %d - %s\n",
-+			dom_info->id, dom_info->name);
-+		return ret;
- 	}
-+	/* Just using same short name */
-+	strscpy(dom_info->cpli[0].name, dom_info->name, SCMI_SHORT_NAME_MAX_SIZE);
-+
-+	return 0;
-+}
-+
-+static int
-+scmi_powercap_domain_attributes_get(const struct scmi_protocol_handle *ph,
-+				    struct powercap_info *pinfo,
-+				    struct scmi_powercap_info *dom_info)
-+{
-+	int ret;
-+	struct scmi_xfer *t;
-+	struct scmi_msg_resp_powercap_domain_attributes *resp;
-+
-+	ret = ph->xops->xfer_get_init(ph, POWERCAP_DOMAIN_ATTRIBUTES,
-+				      sizeof(dom_info->id), 0, &t);
-+	if (ret)
-+		return ret;
-+
-+	put_unaligned_le32(dom_info->id, t->tx.buf);
-+	resp = t->rx.buf;
-+
-+	ret = ph->xops->do_xfer(ph, t);
-+	if (!ret)
-+		ret = scmi_powercap_domain_attrs_process(ph, pinfo, dom_info, resp);
- 
--clean:
- 	ph->xops->xfer_put(ph, t);
- 
- 	/*
- 	 * If supported overwrite short name with the extended one;
- 	 * on error just carry on and use already provided short name.
- 	 */
--	if (!ret && SUPPORTS_EXTENDED_NAMES(flags))
-+	if (!ret && dom_info->extended_names)
- 		ph->hops->extended_name_get(ph, POWERCAP_DOMAIN_NAME_GET,
- 					    dom_info->id, NULL, dom_info->name,
- 					    SCMI_MAX_STR_SIZE);
- 
-+	/* When protocol version > 0x3 there can possibly be more than 1 CPLs */
-+	if (!ret && dom_info->num_cpli > 1)
-+		ret = scmi_powercap_cpls_enumerate(ph, dom_info);
-+
- 	return ret;
- }
- 
-@@ -306,14 +507,7 @@ scmi_powercap_domain_initialize(const struct scmi_protocol_handle *ph,
- {
- 	struct scmi_powercap_info *dom_info = pinfo->powercaps + domain;
- 
--	dom_info->num_cpli = 1;
--	dom_info->cpli = devm_kcalloc(ph->dev, dom_info->num_cpli,
--				      sizeof(*dom_info->cpli), GFP_KERNEL);
--	if (!dom_info->cpli)
--		return -ENOMEM;
--
- 	dom_info->id = domain;
--	dom_info->cpli[0].id = CPL0;
- 
- 	return scmi_powercap_domain_attributes_get(ph, pinfo, dom_info);
- }
-@@ -337,7 +531,7 @@ scmi_powercap_dom_info_get(const struct scmi_protocol_handle *ph, u32 domain_id)
- }
- 
- static int scmi_powercap_xfer_cap_get(const struct scmi_protocol_handle *ph,
--				      u32 domain_id, u32 *power_cap)
-+				      u32 domain_id, u32 cpl_id, u32 *power_cap)
- {
- 	int ret;
- 	struct scmi_xfer *t;
-@@ -348,6 +542,33 @@ static int scmi_powercap_xfer_cap_get(const struct scmi_protocol_handle *ph,
- 		return ret;
- 
- 	put_unaligned_le32(domain_id, t->tx.buf);
-+
-+	ret = ph->xops->do_xfer(ph, t);
-+	if (!ret)
-+		*power_cap = get_unaligned_le32(t->rx.buf);
-+
-+	ph->xops->xfer_put(ph, t);
-+
-+	return ret;
-+}
-+
-+static int scmi_powercap_xfer_cap_get_v3(const struct scmi_protocol_handle *ph,
-+					 u32 domain_id, u32 cpl_id,
-+					 u32 *power_cap)
-+{
-+	int ret;
-+	struct scmi_xfer *t;
-+	struct scmi_msg_powercap_get_v3 *msg;
-+
-+	ret = ph->xops->xfer_get_init(ph, POWERCAP_CAP_GET, sizeof(*msg),
-+				      sizeof(u32), &t);
-+	if (ret)
-+		return ret;
-+
-+	msg = t->tx.buf;
-+	msg->domain_id = cpu_to_le32(domain_id);
-+	msg->cpli = cpu_to_le32(cpl_id);
-+
- 	ret = ph->xops->do_xfer(ph, t);
- 	if (!ret)
- 		*power_cap = get_unaligned_le32(t->rx.buf);
-@@ -361,6 +582,8 @@ static int __scmi_powercap_cap_get(const struct scmi_protocol_handle *ph,
- 				   const struct scmi_powercap_info *dom,
- 				   u32 cpl_id, u32 *power_cap)
- {
-+	struct powercap_info *pi = ph->get_priv(ph);
-+
- 	if (dom->cpli[cpl_id].fc_info &&
- 	    dom->cpli[cpl_id].fc_info[POWERCAP_FC_CAP].get_addr) {
- 		*power_cap = ioread32(dom->cpli[cpl_id].fc_info[POWERCAP_FC_CAP].get_addr);
-@@ -369,7 +592,7 @@ static int __scmi_powercap_cap_get(const struct scmi_protocol_handle *ph,
- 		return 0;
- 	}
- 
--	return scmi_powercap_xfer_cap_get(ph, dom->id, power_cap);
-+	return pi->xfer_cap_get(ph, dom->id, cpl_id, power_cap);
- }
- 
- static int scmi_powercap_cap_get(const struct scmi_protocol_handle *ph,
-@@ -402,7 +625,7 @@ static int scmi_powercap_xfer_cap_set(const struct scmi_protocol_handle *ph,
- 		return ret;
- 
- 	msg = t->tx.buf;
--	msg->domain = cpu_to_le32(pc->id);
-+	msg->domain_id = cpu_to_le32(pc->id);
- 	msg->flags =
- 		cpu_to_le32(FIELD_PREP(CAP_SET_ASYNC, pc->async_powercap_cap_set) |
- 			    FIELD_PREP(CAP_SET_IGNORE_DRESP, ignore_dresp));
-@@ -416,7 +639,7 @@ static int scmi_powercap_xfer_cap_set(const struct scmi_protocol_handle *ph,
- 			struct scmi_msg_resp_powercap_cap_set_complete *resp;
- 
- 			resp = t->rx.buf;
--			if (le32_to_cpu(resp->domain) == pc->id)
-+			if (le32_to_cpu(resp->domain_id) == pc->id)
- 				dev_dbg(ph->dev,
- 					"Powercap ID %d CAP set async to %u\n",
- 					pc->id,
-@@ -430,6 +653,51 @@ static int scmi_powercap_xfer_cap_set(const struct scmi_protocol_handle *ph,
- 	return ret;
- }
- 
-+static int scmi_powercap_xfer_cap_set_v3(const struct scmi_protocol_handle *ph,
-+					 const struct scmi_powercap_info *pc,
-+					 u32 cpl_id, u32 power_cap,
-+					 bool ignore_dresp)
-+{
-+	int ret;
-+	struct scmi_xfer *t;
-+	struct scmi_msg_powercap_set_cap_v3 *msg;
-+
-+	ret = ph->xops->xfer_get_init(ph, POWERCAP_CAP_SET,
-+				      sizeof(*msg), 0, &t);
-+	if (ret)
-+		return ret;
-+
-+	msg = t->tx.buf;
-+	msg->domain_id = cpu_to_le32(pc->id);
-+	msg->cpli = cpu_to_le32(cpl_id);
-+	msg->flags =
-+		cpu_to_le32(FIELD_PREP(CAP_SET_ASYNC, pc->async_powercap_cap_set) |
-+			    FIELD_PREP(CAP_SET_IGNORE_DRESP, ignore_dresp));
-+	msg->power_cap = cpu_to_le32(power_cap);
-+
-+	if (!pc->async_powercap_cap_set || ignore_dresp) {
-+		ret = ph->xops->do_xfer(ph, t);
-+	} else {
-+		ret = ph->xops->do_xfer_with_response(ph, t);
-+		if (!ret) {
-+			struct scmi_msg_resp_powercap_cap_set_complete_v3 *resp;
-+
-+			resp = t->rx.buf;
-+			if (le32_to_cpu(resp->domain_id) == pc->id &&
-+			    le32_to_cpu(resp->cpli) == pc->cpli[cpl_id].id)
-+				dev_dbg(ph->dev,
-+					"Powercap ID:%d/CPLI:%d CAP set async to %u\n",
-+					pc->id, cpl_id,
-+					get_unaligned_le32(&resp->power_cap));
-+			else
-+				ret = -EPROTO;
-+		}
-+	}
-+
-+	ph->xops->xfer_put(ph, t);
-+	return ret;
-+}
-+
- static int __scmi_powercap_cap_set(const struct scmi_protocol_handle *ph,
- 				   struct powercap_info *pi, u32 domain_id,
- 				   u32 cpl_id, u32 power_cap, bool ignore_dresp)
-@@ -456,12 +724,12 @@ static int __scmi_powercap_cap_set(const struct scmi_protocol_handle *ph,
- 				   domain_id, power_cap, 0);
- 		ret = 0;
- 	} else {
--		ret = scmi_powercap_xfer_cap_set(ph, pc, cpl_id, power_cap,
--						 ignore_dresp);
-+		ret = pi->xfer_cap_set(ph, pc, cpl_id, power_cap, ignore_dresp);
- 	}
- 
--	/* Save the last explicitly set non-zero powercap value */
--	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x2 && !ret && power_cap)
-+	/* Save the last explicitly set non-zero powercap value for CPL0 */
-+	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x2 && !ret &&
-+	    cpl_id == CPL0 && power_cap)
- 		pi->states[domain_id].last_pcap = power_cap;
- 
- 	return ret;
-@@ -480,8 +748,8 @@ static int scmi_powercap_cap_set(const struct scmi_protocol_handle *ph,
- 	if (!power_cap)
- 		return -EINVAL;
- 
--	/* Just log the last set request if acting on a disabled domain */
--	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x2 &&
-+	/* Just log the last set request on CPL0 on a disabled domain */
-+	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x2 && cpl_id == CPL0 &&
- 	    !pi->states[domain_id].enabled) {
- 		pi->states[domain_id].last_pcap = power_cap;
- 		return 0;
-@@ -554,7 +822,7 @@ static int scmi_powercap_xfer_pai_set(const struct scmi_protocol_handle *ph,
- 		return ret;
- 
- 	msg = t->tx.buf;
--	msg->domain = cpu_to_le32(domain_id);
-+	msg->domain_id = cpu_to_le32(domain_id);
- 	msg->flags = cpu_to_le32(0);
- 	msg->value = cpu_to_le32(pai);
- 
-@@ -1013,6 +1281,16 @@ scmi_powercap_protocol_init(const struct scmi_protocol_handle *ph)
- 	if (!pinfo)
- 		return -ENOMEM;
- 
-+	ph->set_priv(ph, pinfo);
-+
-+	if (PROTOCOL_REV_MAJOR(ph->version) < 0x3) {
-+		pinfo->xfer_cap_get = scmi_powercap_xfer_cap_get;
-+		pinfo->xfer_cap_set = scmi_powercap_xfer_cap_set;
-+	} else {
-+		pinfo->xfer_cap_get = scmi_powercap_xfer_cap_get_v3;
-+		pinfo->xfer_cap_set = scmi_powercap_xfer_cap_set_v3;
-+	}
-+
- 	ret = scmi_powercap_attributes_get(ph, pinfo);
- 	if (ret)
- 		return ret;
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 9918fb30100c..547ab4763a63 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -673,6 +673,7 @@ struct scmi_powercap_info {
- 	bool powercap_monitoring;
- 	bool powercap_scale_mw;
- 	bool powercap_scale_uw;
-+	bool extended_names;
- 	bool fastchannels;
- 	char name[SCMI_MAX_STR_SIZE];
- 	unsigned int sustainable_power;
--- 
-2.47.3
-
+--=20
+Alexander Sverdlin.
 
