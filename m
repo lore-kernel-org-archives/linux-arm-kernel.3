@@ -4,84 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB46CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDDFCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 08:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gto/x644J1RoJGCRYuOXFHhKwlN38WzOD0Fh2FU/wX8=; b=muhJ3DQzh1k7psRrW37sm4ee4z
-	9xs7wH9rWaZyBUTXJZHeyHrthowbMSCLK7L1rh9FJ19X07gYC4Yg008Juv1mMZt4xyqc8ep8l7Lu+
-	EYjhBywwLo30ml+ZdidfmeVQ6kCC6MGTZ0oSt6ZT+otVNIdby8HuTvRmfOUYQN8cdBIQ6Of+SHzks
-	2j0j/dsOruVxdcuH4/2YU94ykLUso9VZN4+r0hccx3roGBCXCuyq9B/zwXF5MQIrfUeLp2mVvT2SH
-	rn+Wydf4IJZLIjc0vblPerKofv62qgziVpUD/zzpbZn7V2+7efsvHjv3Drn1620ok3+/cr25kgmMT
-	BjghRZNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DbZZTEOYgnznlEBlXZmmNIdMePa7w/xJfaHACc0l0Pc=; b=RPVQCcOWPo4JhZA+NrvW9Klwa8
+	LuZVvS6tvbCXI25eFjQyytrLXIQDMgl3rgMxQdGw8efQCO0hAlJvJtlklCsxQnqI3f88Inmn462DZ
+	KpTtoO2HtBsqs2lfgM5QYZmzmVe//Rfh5OjXygNGQ3onBYcVieiYP/2Hf7RP/kPJhZ4hhch5c8HLX
+	JX59rD4acYRIYfCs06UZ+ubsW8kw8yLFwuMdRyjGP7zJ/9/5J9lHNGKhu5nBqpEMcKpiahvvtpoO4
+	vjOKkQiIpYkOqcZZxXM3tKCQzREAzMaG43JLFOYm6TOtrffScPA2yDKlu1HeB7wd2k3YIVLqFmOZv
+	+ojb18tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtPR-0000000EoyC-0pk2;
-	Mon, 18 May 2026 08:33:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wOtQ6-0000000EpAt-1xM1;
+	Mon, 18 May 2026 08:33:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOtPQ-0000000Eoxq-0J0m
+	id 1wOtQ5-0000000EpAF-0Vda
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 08:33:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=DbZZTEOYgnznlEBlXZmmNIdMePa7w/xJfaHACc0l0Pc=; b=WJQd1+Lexyp9VIwaEnL4gWgl9J
+	Mmup6PxeAR7CBWWBQovaTWWDf8lQPQgNpzzGxgda0QjzC+zhXJ8w3uUprXS542Tx2RkuUXRZWi70S
+	pyjT4Ql+5pTHZpgLVARCOlFYI8ez1KyCQJ+CvB9/uTAKugLKJNcw3dOmNw7Ckjwno9jW8ThleCK9s
+	oHL7nloOPRaollo3FPP1JnR+RnoNnv+wO9JKqQ5DGYuH4DsJn/7KKVL5kLyDxru97moQfmu8QG21p
+	zUyZOsY5RbyspAm1BmTuUWUK5ApVCrkk1pb3idBZaS+uYBKRLqvDWqzQSHSTmbY5nw+c9B/90OvrX
+	TzI83HnA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOtQ1-0000000AOXq-3W7k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 08:33:08 +0000
+	Mon, 18 May 2026 08:33:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1B99D6001A;
-	Mon, 18 May 2026 08:33:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06DC6C2BCB7;
-	Mon, 18 May 2026 08:32:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2313540B7E;
+	Mon, 18 May 2026 08:33:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F33BBC2BCB7;
+	Mon, 18 May 2026 08:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779093186;
-	bh=Gto/x644J1RoJGCRYuOXFHhKwlN38WzOD0Fh2FU/wX8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=BE+iNrX9vMsPMUhr8SGMnvgEthIUx/c+NMO3t5BqE5YX/xVRG5zaOrJw4iWhA8tfE
-	 pcSJUFZonGdRKpo6jEKsb0RNG64KXwFOA/gvy32BWyMijZdbGKjvI4VYWqLj1QLOdk
-	 7j+gOOsWp9uOg2i+oW5kltwfeaaRqOx9TI7YwkeHvtyJas4tayDsDtB3mNQclLfzLZ
-	 sSt0IeC6JBt6OmuNfFgoDrbYWkEcO29qFu50kqzFEUahu+HGbWFS9+zA78AldYJ54L
-	 Om2E9GB/saFMFhr1T169Nj9kkUQ6tatrQcmcsHiKY7E+gGrmOlym+/vw4M1+b0qgk6
-	 oLpclk06Q4I3w==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Alexey Kardashevskiy <aik@amd.com>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	s=k20201202; t=1779093222;
+	bh=/yn5AaMzJ9BgnhIOhBP334j/TdcMsLgg4RzjCIiAFaQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NnF2XX+foXJmxANzHYbYc2oOmrtQJsbxRDRdUAV9Tdw5gVh7TsGQBI7+Fh85hnbiW
+	 4YXWuZyV1l7DTbPwwUsR2/MxHJIshAM71lg4mb+T9IaCsBCyK9azfrZe0vSC9tQFoM
+	 XgTH0HjNsenfFlbYM346k103qA5QUN9zHq9lKlFgl3CvzQIYXxjvSUuht+JSKw93EB
+	 pWTDSv46QEYD2c0L/OyXT7wkU0qZTWjSdLaGG5P9697ldOF/Ez/zOesysxN561/KA5
+	 1ON7gL1i8aOKwwlLOto6l5swfmaQ5tILXYN+R2op/gRdP3DICH7FkEA4UpsEVk7dIe
+	 iGqXsaBXgJlZg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wOtPv-00000003QcE-2skF;
+	Mon, 18 May 2026 08:33:39 +0000
+Date: Mon, 18 May 2026 09:33:39 +0100
+Message-ID: <861pf9xgkc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Michael Bommarito <michael.bommarito@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 03/13] dma-pool: track decrypted atomic pools and
- select them via attrs
-In-Reply-To: <df4b78cf-6192-4fe3-8ad5-df9e6fdda8e6@amd.com>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
- <20260512090408.794195-4-aneesh.kumar@kernel.org>
- <6f01978e-ead9-409b-866d-69231dc44d00@amd.com>
- <df4b78cf-6192-4fe3-8ad5-df9e6fdda8e6@amd.com>
-Date: Mon, 18 May 2026 14:02:55 +0530
-Message-ID: <yq5ajyt1xglk.fsf@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: base64
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: vgic-its: reject restored DTE with out-of-range num_eventid_bits
+In-Reply-To: <20260517174955.273004-1-michael.bommarito@gmail.com>
+References: <20260517174955.273004-1-michael.bommarito@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: michael.bommarito@gmail.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260518_093346_547257_C01D277D 
+X-CRM114-Status: GOOD (  33.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,100 +105,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QWxleGV5IEthcmRhc2hldnNraXkgPGFpa0BhbWQuY29tPiB3cml0ZXM6DQoNCj4gT24gMTYvNS8y
-NiAyMjo1MywgQWxleGV5IEthcmRhc2hldnNraXkgd3JvdGU6DQo+PiBPbiAxMi81LzI2IDE5OjAz
-LCBBbmVlc2ggS3VtYXIgSy5WIChBcm0pIHdyb3RlOg0KDQouLi4NCg0KPj4+IC1zdGF0aWMgaW50
-IGF0b21pY19wb29sX2V4cGFuZChzdHJ1Y3QgZ2VuX3Bvb2wgKnBvb2wsIHNpemVfdCBwb29sX3Np
-emUsDQo+Pj4gK3N0YXRpYyBpbnQgYXRvbWljX3Bvb2xfZXhwYW5kKHN0cnVjdCBkbWFfZ2VuX3Bv
-b2wgKmRtYV9wb29sLCBzaXplX3QgcG9vbF9zaXplLA0KPj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIGdmcF90IGdmcCkNCj4+PiDCoCB7DQo+Pj4gwqDCoMKgwqDCoCB1
-bnNpZ25lZCBpbnQgb3JkZXI7DQo+Pj4gQEAgLTExMywxMiArMTE5LDE1IEBAIHN0YXRpYyBpbnQg
-YXRvbWljX3Bvb2xfZXhwYW5kKHN0cnVjdCBnZW5fcG9vbCAqcG9vbCwgc2l6ZV90IHBvb2xfc2l6
-ZSwNCj4+PiDCoMKgwqDCoMKgwqAgKiBNZW1vcnkgaW4gdGhlIGF0b21pYyBETUEgcG9vbHMgbXVz
-dCBiZSB1bmVuY3J5cHRlZCwgdGhlIHBvb2xzIGRvIG5vdA0KPj4+IMKgwqDCoMKgwqDCoCAqIHNo
-cmluayBzbyBubyByZS1lbmNyeXB0aW9uIG9jY3VycyBpbiBkbWFfZGlyZWN0X2ZyZWUoKS4NCj4+
-PiDCoMKgwqDCoMKgwqAgKi8NCj4+PiAtwqDCoMKgIHJldCA9IHNldF9tZW1vcnlfZGVjcnlwdGVk
-KCh1bnNpZ25lZCBsb25nKXBhZ2VfdG9fdmlydChwYWdlKSwNCj4+PiArwqDCoMKgIGlmIChkbWFf
-cG9vbC0+dW5lbmNyeXB0ZWQpIHsNCj4+PiArwqDCoMKgwqDCoMKgwqAgcmV0ID0gc2V0X21lbW9y
-eV9kZWNyeXB0ZWQoKHVuc2lnbmVkIGxvbmcpcGFnZV90b192aXJ0KHBhZ2UpLA0KPj4+IMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMSA8PCBvcmRlcik7DQo+Pj4gLcKg
-wqDCoCBpZiAocmV0KQ0KPj4+IC3CoMKgwqDCoMKgwqDCoCBnb3RvIHJlbW92ZV9tYXBwaW5nOw0K
-Pj4+IC3CoMKgwqAgcmV0ID0gZ2VuX3Bvb2xfYWRkX3ZpcnQocG9vbCwgKHVuc2lnbmVkIGxvbmcp
-YWRkciwgcGFnZV90b19waHlzKHBhZ2UpLA0KPj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgcG9vbF9zaXplLCBOVU1BX05PX05PREUpOw0KPj4+ICvCoMKgwqDCoMKgwqDCoCBpZiAo
-cmV0KQ0KPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGdvdG8gcmVtb3ZlX21hcHBpbmc7DQo+
-Pj4gK8KgwqDCoCB9DQo+Pj4gKw0KPj4+ICvCoMKgwqAgcmV0ID0gZ2VuX3Bvb2xfYWRkX3ZpcnQo
-ZG1hX3Bvb2wtPnBvb2wsICh1bnNpZ25lZCBsb25nKWFkZHIsDQo+Pj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCBwYWdlX3RvX3BoeXMocGFnZSksIHBvb2xfc2l6ZSwgTlVNQV9OT19O
-T0RFKTsNCj4NCj4NCj4gVGhpcyBjbGF1c2UgY291bGQgZ28gdG8gdGhlIGVsc2UgYnJhbmNoLg0K
-Pg0KPg0KDQpDYW4geW91IGNsYXJpZnkgdGhpcyBiZXR0ZXI/IA0KDQo+Pj4gwqDCoMKgwqDCoCBp
-ZiAocmV0KQ0KPj4+IMKgwqDCoMKgwqDCoMKgwqDCoCBnb3RvIGVuY3J5cHRfbWFwcGluZzsNCj4+
-PiBAQCAtMTI2LDExICsxMzUsMTUgQEAgc3RhdGljIGludCBhdG9taWNfcG9vbF9leHBhbmQoc3Ry
-dWN0IGdlbl9wb29sICpwb29sLCBzaXplX3QgcG9vbF9zaXplLA0KPj4+IMKgwqDCoMKgwqAgcmV0
-dXJuIDA7DQo+Pj4gwqAgZW5jcnlwdF9tYXBwaW5nOg0KPj4+IC3CoMKgwqAgcmV0ID0gc2V0X21l
-bW9yeV9lbmNyeXB0ZWQoKHVuc2lnbmVkIGxvbmcpcGFnZV90b192aXJ0KHBhZ2UpLA0KPj4+IC3C
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMSA8PCBvcmRlcik7DQo+Pj4gLcKg
-wqDCoCBpZiAoV0FSTl9PTl9PTkNFKHJldCkpIHsNCj4+PiAtwqDCoMKgwqDCoMKgwqAgLyogRGVj
-cnlwdCBzdWNjZWVkZWQgYnV0IGVuY3J5cHQgZmFpbGVkLCBwdXJwb3NlbHkgbGVhayAqLw0KPj4+
-IC3CoMKgwqDCoMKgwqDCoCBnb3RvIG91dDsNCj4+PiArwqDCoMKgIGlmIChkbWFfcG9vbC0+dW5l
-bmNyeXB0ZWQpIHsNCj4+PiArwqDCoMKgwqDCoMKgwqAgaW50IHJjOw0KPj4+ICsNCj4+PiArwqDC
-oMKgwqDCoMKgwqAgcmMgPSBzZXRfbWVtb3J5X2VuY3J5cHRlZCgodW5zaWduZWQgbG9uZylwYWdl
-X3RvX3ZpcnQocGFnZSksDQo+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoCAxIDw8IG9yZGVyKTsNCj4+PiArwqDCoMKgwqDCoMKgwqAgaWYgKFdBUk5fT05fT05D
-RShyYykpIHsNCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvKiBEZWNyeXB0IHN1Y2NlZWRl
-ZCBidXQgZW5jcnlwdCBmYWlsZWQsIHB1cnBvc2VseSBsZWFrICovDQo+Pj4gK8KgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgZ290byBvdXQ7DQo+Pj4gK8KgwqDCoMKgwqDCoMKgIH0NCj4+PiDCoMKgwqDC
-oMKgIH0NCj4+PiDCoCByZW1vdmVfbWFwcGluZzoNCj4+PiDCoCAjaWZkZWYgQ09ORklHX0RNQV9E
-SVJFQ1RfUkVNQVANCj4+PiBAQCAtMTQyLDQ2ICsxNTUsNTIgQEAgc3RhdGljIGludCBhdG9taWNf
-cG9vbF9leHBhbmQoc3RydWN0IGdlbl9wb29sICpwb29sLCBzaXplX3QgcG9vbF9zaXplLA0KPj4+
-IMKgwqDCoMKgwqAgcmV0dXJuIHJldDsNCj4+PiDCoCB9DQoNCi4uLg0KDQo+Pj4gwqAgYm9vbCBk
-bWFfZnJlZV9mcm9tX3Bvb2woc3RydWN0IGRldmljZSAqZGV2LCB2b2lkICpzdGFydCwgc2l6ZV90
-IHNpemUpDQo+Pj4gwqAgew0KPj4+IC3CoMKgwqAgc3RydWN0IGdlbl9wb29sICpwb29sID0gTlVM
-TDsNCj4+PiArwqDCoMKgIHN0cnVjdCBkbWFfZ2VuX3Bvb2wgKmRtYV9wb29sID0gTlVMTDsNCj4+
-PiArDQo+Pj4gK8KgwqDCoCB3aGlsZSAoKGRtYV9wb29sID0gZG1hX2d1ZXNzX3Bvb2woZG1hX3Bv
-b2wsIDApKSkgew0KPj4+IC3CoMKgwqAgd2hpbGUgKChwb29sID0gZG1hX2d1ZXNzX3Bvb2wocG9v
-bCwgMCkpKSB7DQo+Pj4gLcKgwqDCoMKgwqDCoMKgIGlmICghZ2VuX3Bvb2xfaGFzX2FkZHIocG9v
-bCwgKHVuc2lnbmVkIGxvbmcpc3RhcnQsIHNpemUpKQ0KPj4+ICvCoMKgwqDCoMKgwqDCoCBpZiAo
-IWdlbl9wb29sX2hhc19hZGRyKGRtYV9wb29sLT5wb29sLCAodW5zaWduZWQgbG9uZylzdGFydCwg
-c2l6ZSkpDQo+PiANCj4+IA0KPj4gdjMgb2YgdGhpcyBqdXN0IGNyYXNoZWQgaGVyZSB3aXRoIGRt
-YV9wb29sIT1OVUxMIGJ1dCBkbWFfcG9vbC0+cG9vbD09TlVMTC4gY29udGludWluZyBkZWJ1Z2dp
-bmcuLi4gVGhhbmtzLA0KPg0KPg0KPiBkbWFfZGlyZWN0X2ZyZWU6DQo+ICAgIGRtYV9mcmVlX2Zy
-b21fcG9vbCAobG9vcCBvdmVyIHBvb2xzKSAtPiBmYWxzZQ0KPiAgICAgIFtoZXJlIHdhcyBhIGNy
-YXNoIHdoaWNoIEkgZml4ZWQgYnkgImlmICghZG1hX3Bvb2wtPnBvb2wpIGNvbnRpbnVlIl0NCj4g
-ICAgc3dpb3RsYl9maW5kX3Bvb2wgKGxvb3AgYWdhaW4pIC0+IGZhbHNlDQo+ICAgICAgX19kbWFf
-ZGlyZWN0X2ZyZWVfcGFnZXMNCj4gICAgICAgIHN3aW90bGJfZnJlZQ0KPiAgICAgICAgICBzd2lv
-dGxiX2ZpbmRfcG9vbCAobG9vcCBhZ2FpbikNCj4gICAgICAgIGRtYV9mcmVlX2NvbnRpZ3VvdXMg
-PT4gZG9uZS4NCj4NCj4gc28gdGhhdCB3b3JrcyBidXQga2luZGEgaGFyZCB0byBmb2xsb3cgYW5k
-IHRoZXJlIGlzIHNvbWUgcm9vbSBmb3INCj4gb3B0aW1pemF0aW9uLiBJIGRvIG5vdCBub3JtYWxs
-eSBoYXZlIHN3aW90dGxiIHdoZW4gSSB0ZXN0IHRoaXMgYW5kDQo+IHRoZXJlIGlzIHRvbyBtYW55
-IG9mIHRoaXMgc3dpb3RsYiBzdHVmZiBvbiB0aGUgcmVhbCBkaXJlY3QgZG1hIG1hcHBpbmcNCj4g
-cGF0aCBpbWhvLiBUaGFua3MsDQo+DQoNCkkgd2lsbCB3b3JrIG9uIHRoaXMgaW4gdGhlIG5leHQg
-dXBkYXRlLiBJIGNhbiBwb3NzaWJseSBkcm9wIHRoZQ0Kc3dpb3RsYl9maW5kX3Bvb2wgZnJvbSB0
-aGUgc3dpb3RsYl9mcmVlKCkgcGF0aC4NCg0KPj4gDQo+PiANCj4+PiDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBjb250aW51ZTsNCj4+PiAtwqDCoMKgwqDCoMKgwqAgZ2VuX3Bvb2xfZnJlZShw
-b29sLCAodW5zaWduZWQgbG9uZylzdGFydCwgc2l6ZSk7DQo+Pj4gKw0KPj4+ICvCoMKgwqDCoMKg
-wqDCoCBnZW5fcG9vbF9mcmVlKGRtYV9wb29sLT5wb29sLCAodW5zaWduZWQgbG9uZylzdGFydCwg
-c2l6ZSk7DQo+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiB0cnVlOw0KPj4+IMKgwqDCoMKg
-wqAgfQ0KPj4+IGRpZmYgLS1naXQgYS9rZXJuZWwvZG1hL3N3aW90bGIuYyBiL2tlcm5lbC9kbWEv
-c3dpb3RsYi5jDQo+Pj4gaW5kZXggMWFiZDNlNjE0NmY0Li5hYjRlY2NiYWEwNzYgMTAwNjQ0DQo+
-Pj4gLS0tIGEva2VybmVsL2RtYS9zd2lvdGxiLmMNCj4+PiArKysgYi9rZXJuZWwvZG1hL3N3aW90
-bGIuYw0KPj4+IEBAIC02MTIsNiArNjEyLDcgQEAgc3RhdGljIHN0cnVjdCBwYWdlICpzd2lvdGxi
-X2FsbG9jX3RsYihzdHJ1Y3QgZGV2aWNlICpkZXYsIHNpemVfdCBieXRlcywNCj4+PiDCoMKgwqDC
-oMKgwqDCoMKgwqAgdTY0IHBoeXNfbGltaXQsIGdmcF90IGdmcCkNCj4+PiDCoCB7DQo+Pj4gwqDC
-oMKgwqDCoCBzdHJ1Y3QgcGFnZSAqcGFnZTsNCj4+PiArwqDCoMKgIHVuc2lnbmVkIGxvbmcgYXR0
-cnMgPSAwOw0KPj4+IMKgwqDCoMKgwqAgLyoNCj4+PiDCoMKgwqDCoMKgwqAgKiBBbGxvY2F0ZSBm
-cm9tIHRoZSBhdG9taWMgcG9vbHMgaWYgbWVtb3J5IGlzIGVuY3J5cHRlZCBhbmQNCj4+PiBAQCAt
-NjIzLDggKzYyNCwxMiBAQCBzdGF0aWMgc3RydWN0IHBhZ2UgKnN3aW90bGJfYWxsb2NfdGxiKHN0
-cnVjdCBkZXZpY2UgKmRldiwgc2l6ZV90IGJ5dGVzLA0KPj4+IMKgwqDCoMKgwqDCoMKgwqDCoCBp
-ZiAoIUlTX0VOQUJMRUQoQ09ORklHX0RNQV9DT0hFUkVOVF9QT09MKSkNCj4+PiDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gTlVMTDsNCj4+PiArwqDCoMKgwqDCoMKgwqAgLyogc3dp
-b3RsYiBjb25zaWRlcmVkIGRlY3J5cHRlZCBieSBkZWZhdWx0ICovDQo+Pj4gK8KgwqDCoMKgwqDC
-oMKgIGlmIChjY19wbGF0Zm9ybV9oYXMoQ0NfQVRUUl9NRU1fRU5DUllQVCkpDQo+Pj4gK8KgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgYXR0cnMgPSBETUFfQVRUUl9DQ19TSEFSRUQ7DQo+Pj4gKw0KPj4+
-IMKgwqDCoMKgwqDCoMKgwqDCoCByZXR1cm4gZG1hX2FsbG9jX2Zyb21fcG9vbChkZXYsIGJ5dGVz
-LCAmdmFkZHIsIGdmcCwNCj4+PiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgZG1hX2NvaGVyZW50X29rKTsNCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgYXR0cnMsIGRtYV9jb2hlcmVudF9vayk7DQo+Pj4gwqDCoMKg
-wqDCoCB9DQo+Pj4gwqDCoMKgwqDCoCBnZnAgJj0gfkdGUF9aT05FTUFTSzsNCj4+IA0KPg0KPiAt
-LSANCj4gQWxleGV5DQoNCg0KLWFuZWVzaA0K
+On Sun, 17 May 2026 18:49:55 +0100,
+Michael Bommarito <michael.bommarito@gmail.com> wrote:
+> 
+> Userspace can trigger a host-side denial of service via
+> KVM_DEV_ARM_ITS_RESTORE_TABLES. A Device Table Entry whose Size
+> field encodes num_eventid_bits > VITS_TYPER_IDBITS reaches
+> scan_its_table() with a sign-extended ~18 EiB length, where the
+> loop holds the per-ITS mutex and never calls cond_resched(),
+> pinning a host CPU for a time linear in registered guest memslot
+> size. The accessor is any process that can open /dev/kvm and
+> create a VM. The same out-of-range value also disables a
+> subsequent live bounds check on EventID, as described below.
+> 
+> The MAPD command handler already rejects this case in the live
+> path:
+> 
+>   if (valid && num_eventid_bits > VITS_TYPER_IDBITS)
+>           return E_ITS_MAPD_ITTSIZE_OOR;
+> 
+> vgic_its_restore_dte() reconstructs num_eventid_bits from the DTE
+> Size field but does not apply the same cap, so userspace can
+> install device state that the live MAPD path is documented to
+> reject. The restored value is stored in dev->num_eventid_bits and
+> is then used by vgic_its_restore_itt():
+> 
+>   size_t max_size = BIT_ULL(dev->num_eventid_bits) * ite_esz;
+>   ret = scan_its_table(its, base, max_size, ite_esz, ...);
+> 
+> scan_its_table() takes the size as int and assigns it to
+> unsigned long in the callee:
+> 
+>   static int scan_its_table(struct vgic_its *its, gpa_t base,
+>                             int size, u32 esz, ...)
+>   {
+>           unsigned long len = size;
+> 
+> For num_eventid_bits = 28 the size_t value 0x80000000 truncates to
+> INT_MIN as int and sign-extends to ~18 EiB as unsigned long. The
+> scan loop then walks the registered guest memslot one ite_esz at
+> a time with the per-ITS mutex held and no cond_resched(). In a
+> QEMU TCG arm64 guest at EL2 on v7.1-rc1, with an empty ITT, the
+> ioctl returned -EFAULT after about 14 seconds with a 256 MiB
+> memslot and about 56 seconds with a 1 GiB memslot (linear in
+> memslot size). The per-iteration cost on native arm64 KVM
+> hardware will differ; the loop shape, and so the linear scaling,
+> will not.
+> 
+> The same out-of-range num_eventid_bits also disables the live
+> vgic_its_check_event_id() bounds check, because event_id is u32
+> and BIT_ULL(32) is unreachable in that comparison, leaving
+> subsequent MAPI/MAPTI handling without an effective EventID cap.
+> 
+> Mirror the MAPD cap in vgic_its_restore_dte() before allocating
+> the device, so out-of-range restored DTEs are rejected with
+> -EINVAL up front rather than triggering the int-truncated scan or
+> installing a device whose num_eventid_bits silently disables the
+> live bounds check. Sizes within [1, VITS_TYPER_IDBITS] are
+> unaffected.
+
+This commit message is way too verbose, and really looks like a copy
+paste from an LLM analysis. This needs trimming (the initial paragraph
+has most of it...).
+
+> 
+> Fixes: 57a9a117154c ("KVM: arm64: vgic-its: Device table save/restore")
+> Assisted-by: Claude:claude-opus-4-7
+> Signed-off-by: Michael Bommarito <michael.bommarito@gmail.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-its.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+> index 2ea9f1c7ebcd0..a5dcf9a6a2854 100644
+> --- a/arch/arm64/kvm/vgic/vgic-its.c
+> +++ b/arch/arm64/kvm/vgic/vgic-its.c
+> @@ -2307,6 +2307,15 @@ static int vgic_its_restore_dte(struct vgic_its *its, u32 id,
+>  	/* dte entry is valid */
+>  	offset = (entry & KVM_ITS_DTE_NEXT_MASK) >> KVM_ITS_DTE_NEXT_SHIFT;
+>  
+> +	/*
+> +	 * The MAPD command rejects this case; mirror the cap here so a
+> +	 * restored DTE cannot install an out-of-range num_eventid_bits
+> +	 * that vgic_its_restore_itt() would then convert into a
+> +	 * sign-extended scan_its_table() length.
+> +	 */
+
+Same here. Something like:
+
+	/* Mimic the MAPD behaviour and reject invalid EID bits */
+
+would be enough.
+
+> +	if (num_eventid_bits > VITS_TYPER_IDBITS)
+> +		return -EINVAL;
+> +
+>  	if (!vgic_its_check_id(its, baser, id, NULL))
+>  		return -EINVAL;
+>  
+
+Otherwise looks good.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
