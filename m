@@ -4,91 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1410ECD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 21:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9FAECD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 21:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OANDM8Na3472eWZUNdpiSE+WZ0j53b9Df8FisM//ZFk=; b=IPAi9iGR6h7uyKuz4TEBS6aG/3
-	I33MO5wE7URY2dgeELfBZtjbssYpVFeNT54+CCgn7U41gSeA1jnjV+spVPvcMoZ5h5CIHi/1RKNNF
-	ekPFx04ayhtQeXhsTaRhqg2BfKkUTUeCumeXHgaS9ZVtJs+plI+4SjuWrvCjB9+x1CcgutHn4ty3C
-	Prv1hez89+NvCl168oiKSIeA0hIcH8aoIl++eI/98HDNf4/Jls3YMJXrN9pf+Dp2nK0HB7cQJO7JK
-	GD3U+NUbqzVnw6/O+QLD6vOVIbjJ0Iai5Ir8X4H2sZkIzmYatBm8+eJYnon+sScdgkMR/ro+7sJ8v
-	Z5N8H2kg==;
+	bh=+13wAwrWoBXN18Chi5bGmWHAFyIongjx10W5PyDknCQ=; b=rD/lG2oIC6hqhCWyv0uHNJ0g9h
+	tkyoGcC8dPXep+8G7NXhnv4zXg9mKN9gqoSNX4F7KiXUI8/Rm5m64crh9LhEOOMdKtxwC1mlHNqZ9
+	yimPXQ2JSBXK4Ei0NN5YH3Bl/RCwYK/Fb/bSq+dq5PFjxgbyq/yG/d2dNpfkIhMZ+Xz3aOdTynQ+R
+	xX8qEqyDQPO8OfT437UUqLjD2bbxRDs/5igrs2/egx+QELEN0j/yHSnEGFoI2eMmAqMkOCgHnjCbf
+	FdJLJIOKP/yGIAeVML8ObQX4JEr2i8Q9Vgo+KHqx2PSwXMNbVjs7IGhprvBKPcuzr7VgjTlVesiOY
+	abaJaOkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP5kL-0000000H1eD-0vau;
-	Mon, 18 May 2026 21:43:33 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1wP5nY-0000000H1yS-2SxK;
+	Mon, 18 May 2026 21:46:52 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP5kI-0000000H1dR-0vvi
+	id 1wP5nU-0000000H1xV-2eIh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 21:43:32 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-90d1f03238bso374304585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 14:43:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rowland.harvard.edu; s=google; t=1779140607; x=1779745407; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=OANDM8Na3472eWZUNdpiSE+WZ0j53b9Df8FisM//ZFk=;
-        b=qjq5UwOyE3OJu/ycO7XmioTrH8AkU1eXUYCFptLR41mnVueY9g+fkuvzWHHYEPQGcy
-         C7K9WA173BBIQ0GJNX7WJc5w/lvDnpQAVYWuvrmElueT+HXK1hhCTHKK2XeGMoQgNiZj
-         903zwdMC5vsadZo0yGmT2Mt1vB9XiovAnLaoILKL5+2G1Ng71+4QB0mu0r1dk4ldNLHu
-         ELiS+T/Yx+M6tQ6XEsRqNoz0l+8ZUSO1eNIZwH11gj1AEbh60ziuOYwjgEBMNmvYr71x
-         LT8OS9z3JxoBQsmnWHc0jvGyf2bUTuKzXgFXJ3mzdFIMlwPYyADztEbmbqQPRPYRPS2n
-         IXJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779140607; x=1779745407;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OANDM8Na3472eWZUNdpiSE+WZ0j53b9Df8FisM//ZFk=;
-        b=GCRRB+a3UWypANnI/s64u6ctOyet1dpOCY+dcqa719Bqc0msk0N2GgtywswbRt8/Wv
-         Es8PqZyKjQBROcTGGKnZlvTZ4erxlkf3BQBH21k85cDqA2SLctrg9Fxk+5dU7eMzyrDq
-         gLY4Zj9X6jcfVK9Bs0uNxVAntsUuyAKBsKjPS1Y/MvpV1rxsPFlNGm5Kqjw2iUaw++Jv
-         6FCBVCcLvffT+FKna3dpI2Jt2mjnqf6NVuDhQbCM66IAE6wggUvbIbi99VussmEXgAwK
-         qaEa06Z819HCwYDj0EZyc3Sor/CBWbEQSaxpirIHdGTSpwrTdymc5Yq7dUeL8PzUZ4z/
-         0adQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8dzv+aGRwrCyydYk9LMd2vUer9qhkRwlkUKBcIZZXnJE+G62wgNAN+tgSRLnNI9vpzaTBFMIGSvupoDL7e9Syr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfiNQx0BGvy9fd/+sNv6lEv+PatoanNzpZ0knjHLHSvn+BL4HH
-	v/bsw8SyNjIPN5j29GXGMdSkEWBdGHX+bT8jUlt8wjgnJFJsjRIPi60hGqiqBfbChA==
-X-Gm-Gg: Acq92OHAui5pLKLSoo8ag8swf4WFcdf/ySCN51c+dRDrxGbAhP8oUfZBjFV+PNdhskY
-	jfX4NEuV+A/+3gDmIzMWbMryfLUmyoisAVphmUQAEs6BOXYlgKeQEgiFh/8WbAAuSf8U0shs1v2
-	THFbp98ES8n/vE5vFjZO3kS/FqAW5XyECeoDnhAws6qSlrrcwOwX4fQebEHsjszFHWL4sL2OnOx
-	Efa7Ykq2q+U7QRrn/CGOVRHyn6lCnEgDdogG1lxC2pvEAq5fcSXrM7iyE7Lc5MQ9UFaavsWx0JS
-	ETyTQqD4TXoVeJ113PHC6AIVZOqxpXMti8lmXVJccy/ANzIZIPshyUd0wzGjax7ZMOREEc3tvlv
-	Ockv+8e53HlSDdjigF099Q7qQXw6H8uVvD+1VZT73ghjveweqRmxyZdUGe1XXeBuQc7kQdQwoJ0
-	WRNFSWYJ1G26xFXQ1UzR2Fz2zYssekWM0B31uvdc83UWA=
-X-Received: by 2002:a05:620a:2587:b0:8f1:9e59:21fa with SMTP id af79cd13be357-911cd858a7amr2197388885a.5.1779140607206;
-        Mon, 18 May 2026 14:43:27 -0700 (PDT)
-Received: from rowland.harvard.edu ([2601:19b:d01:d210:d62f:1911:f952:16ba])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-910ba182535sm1622387185a.8.2026.05.18.14.43.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 14:43:26 -0700 (PDT)
-Date: Mon, 18 May 2026 17:43:24 -0400
-From: Alan Stern <stern@rowland.harvard.edu>
-To: Maoyi Xie <maoyixie.tju@gmail.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Neal Liu <neal_liu@aspeedtech.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] usb: gadget: aspeed_udc: avoid past-the-end iterator in
- dequeue
-Message-ID: <d659cf09-8136-4383-b61f-045b92d495db@rowland.harvard.edu>
-References: <20260518073403.1285339-1-maoyi.xie@ntu.edu.sg>
+	Mon, 18 May 2026 21:46:50 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id 63D1A1F8004F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 21:46:42 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id E2C07B4080F; Mon, 18 May 2026 21:46:40 +0000 (UTC)
+Received: from shepard (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id 10FC4B40809;
+	Mon, 18 May 2026 21:46:40 +0000 (UTC)
+Date: Mon, 18 May 2026 23:46:38 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+Cc: linux-sunxi@lists.linux.dev, Andre Przywara <andre.przywara@arm.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
+ Baijie Helper A133 board
+Message-ID: <aguIvpKQM18kX97T@shepard>
+References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
+ <20260510201644.4143710-4-alexander.sverdlin@gmail.com>
+ <agr9m_tidBr6Cu2h@collins>
+ <04da68168f92b196cce4d49c766fc62702bf6472.camel@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="n/6HFoDPod6U7Z7S"
 Content-Disposition: inline
-In-Reply-To: <20260518073403.1285339-1-maoyi.xie@ntu.edu.sg>
+In-Reply-To: <04da68168f92b196cce4d49c766fc62702bf6472.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_144330_722792_EEDE9E74 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20260518_144649_001535_8F745FF7 
+X-CRM114-Status: GOOD (  37.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +70,209 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 03:34:03PM +0800, Maoyi Xie wrote:
-> From: Maoyi Xie <maoyixie.tju@gmail.com>
-> 
-> ast_udc_ep_dequeue() declares the loop cursor `req` outside the
-> list_for_each_entry(). After the loop it tests `&req->req != _req`
-> to decide whether the request was found. If the queue holds no
-> match, `req` is past-the-end. It then aliases
-> container_of(&ep->queue, struct ast_udc_request, queue) via offset
-> cancellation. Whether that synthetic address equals `_req` depends
-> on heap layout. The function can return 0 without dequeueing
-> anything.
-> 
-> Use the cursor-vs-result idiom from the sibling aspeed-vhub driver,
-> ast_vhub_epn_dequeue() in drivers/usb/gadget/udc/aspeed-vhub/epn.c.
-> A separate `iter` walks the list. `req` is set only when a request
-> matches. After the loop, `req` is NULL if nothing matched.
-> 
-> The same idiom is used by the other UDC drivers in
-> drivers/usb/gadget/udc/ (at91_udc, atmel_usba_udc, dummy_hcd,
-> fsl_qe_udc, fsl_udc_core, goku_udc, gr_udc, lpc32xx_udc,
-> max3420_udc, net2280, omap_udc, pxa25x_udc, pxa27x_udc, udc-xilinx,
-> bcm63xx_udc).
-> 
-> Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
-> ---
->  drivers/usb/gadget/udc/aspeed_udc.c | 24 ++++++++++++++----------
->  1 file changed, 14 insertions(+), 10 deletions(-)
-> 
-> --- a/drivers/usb/gadget/udc/aspeed_udc.c
-> +++ b/drivers/usb/gadget/udc/aspeed_udc.c
-> @@ -692,26 +692,30 @@
->  {
->  	struct ast_udc_ep *ep = to_ast_ep(_ep);
->  	struct ast_udc_dev *udc = ep->udc;
-> -	struct ast_udc_request *req;
-> +	struct ast_udc_request *req = NULL, *iter;
->  	unsigned long flags;
->  	int rc = 0;
->  
->  	spin_lock_irqsave(&udc->lock, flags);
->  
->  	/* make sure it's actually queued on this endpoint */
-> -	list_for_each_entry(req, &ep->queue, queue) {
-> -		if (&req->req == _req) {
-> -			list_del_init(&req->queue);
-> -			ast_udc_done(ep, req, -ESHUTDOWN);
-> -			_req->status = -ECONNRESET;
-> -			break;
-> -		}
-> +	list_for_each_entry(iter, &ep->queue, queue) {
-> +		if (&iter->req != _req)
-> +			continue;
-> +		req = iter;
-> +		break;
->  	}
 
-There's nothing wrong with doing it this way, and this is how the other 
-drivers do it.  Still, organizing the loop in this way does look a 
-little strange.  Consider this instead:
+--n/6HFoDPod6U7Z7S
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-	list_for_each_entry(iter, &ep->queue, queue) {
-		if (&iter->req == _req) {
-			req = iter;
-			break;
-		}
-	}
+Hi Alexander,
 
-Alan Stern
+On Mon 18 May 26, 22:05, Alexander Sverdlin wrote:
+> Hi Paul,
+>=20
+> thanks for the review!
+>=20
+> On Mon, 2026-05-18 at 13:52 +0200, Paul Kocialkowski wrote:
+> >=20
+> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dts=
+i b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
+> > > new file mode 100644
+> > > index 000000000000..65b094f30bf5
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
+>=20
+> []
+>=20
+> > You should add:
+> >=20
+> > 	chosen {
+> > 		stdout-path =3D "serial0:115200n8";
+> > 	};
+>=20
+> I actually have it in .dts, but it's theoretically possible to deploy
+> the core board in a way that serial0 is *not* a console, so the above
+> probably will not be valid in all cases in .dtsi.
+
+Yes I figured out later that it was in the board dts file and I initially
+assumed it was missing entirely.
+
+In practice both options are fine, although the reference software does
+hardcode UART0 as debug serial.
+
+> > > +&reg_dcdc2 {
+> > > +	regulator-always-on;
+> > > +	regulator-min-microvolt =3D <500000>;
+> > > +	regulator-max-microvolt =3D <1300000>;
+> >=20
+> > Should be:
+> > 	regulator-min-microvolt =3D <900000>;
+> > 	regulator-max-microvolt =3D <1300000>;
+>=20
+> 0.81..1.2v according to A133 Datasheet Revision 1.1 Jul.14, 2020?
+
+I guess the initial values are taken from the allwinner-perf1 board dts.
+
+The 900 mV-1.3 V range matches the CPU OPPs (although it really only goes up
+to 1.13 V). Maybe down to 810 mV does work, but we don't have an OPP for it.
+I think I took these values from the reference BSP for the board.
+
+Also it would be good to add:
+
+	regulator-name =3D "vdd-cpux";
+
+> >=20
+> > > +&reg_dcdc4 {
+> > > +	regulator-always-on;
+> > > +	regulator-min-microvolt =3D <500000>;
+> > > +	regulator-max-microvolt =3D <1300000>;
+> > > +	regulator-name =3D "vdd-sys";
+> >=20
+> > Should be:
+> > 	regulator-min-microvolt =3D <810000>;
+> > 	regulator-max-microvolt =3D <990000>;
+> > 	regulator-name =3D "vcc-usb-sys";
+>=20
+> I'm a bit puzzled here: datasheet says 0.9..1.0v
+> and it has no "Typ" value, similar to VDD_CPU, but
+> VDD_SYS is not part of OPP tables, so who is going
+> to adjust this? Or shall it be just
+>=20
+> regulator-min-microvolt =3D <950000>;
+> regulator-max-microvolt =3D <950000>;
+>=20
+> ?
+
+Yes the reference BSP runs it at 950 mV, LGTM.
+
+>=20
+> >=20
+> > > +};
+> > > +
+> > > +&reg_dcdc5 {
+> > > +	regulator-always-on;
+> > > +	regulator-min-microvolt =3D <800000>;
+> > > +	regulator-max-microvolt =3D <1840000>;
+> > > +	regulator-name =3D "vcc-dram";
+> >=20
+> > Should be:
+> > 	regulator-min-microvolt =3D <1100000>;
+> > 	regulator-max-microvolt =3D <1100000>;
+> > 	regulator-name =3D "vcc-dram-2";
+> >=20
+> > ALDO2 is the main DRAM supply, this is the second one.
+>=20
+> Core schematics mentions 1.1V/1.2/1.35/1.5 on this rail...
+> Currently U-Boot has CONFIG_AXP_DCDC5_VOLT=3D1100, but potentially
+> this is adjustable, right? At some point LPDDR4 chips they
+> are soldering today will be unavailable. And in the current
+> market it will happen rather sooner than later...
+
+It is part of the LPDDR4 spec that the main voltage should be 1.8 V and
+the second and I/O buffer ones should be 1.1 V. See JESD209-4D Table 180 =
+=E2=80=94
+Recommended DC Operating Conditions.
+
+Maybe they jsut copied this comment from a reference design that allows for
+other types of DRAM too. In any case their BSP hardcodes 1.1 V anyway.
+
+> >=20
+> > > +};
+> > > +
+> > > +/* DCDC6 unused */
+> > > +
+> > > +&reg_dldo1 {
+> > > +	regulator-min-microvolt =3D <700000>;
+> > > +	regulator-max-microvolt =3D <3300000>;
+> > > +	regulator-enable-ramp-delay =3D <1000>;
+> >=20
+> > Should be:
+> > 	regulator-min-microvolt =3D <1800000>;
+> > 	regulator-max-microvolt =3D <1800000>;
+> > 	regulator-name =3D "vcc-pg";
+>=20
+> Do suggest to drop vendor's
+>=20
+> regulator-enable-ramp-delay =3D <1000>;
+>=20
+> in all cases?
+
+Well we generally don't have the delays in the axp regulator definitions and
+it works well without them, but I guess they don't hurt either.
+
+In practice many drivers will have a delay after a regulator power on anyway
+because we generally expect that hardware needs some time to power up,
+in addition to the regulator. So all in all it's rarely critical.
+
+>=20
+> > >=20
+> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.=
+dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
+> > > new file mode 100644
+> > > index 000000000000..ccbca5d0a40c
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
+>=20
+> []
+>=20
+> > > +	aliases {
+> > > +		serial0 =3D &uart0;
+> >=20
+> > The is best added to the core dtsi.
+> >=20
+> > > +	};
+> > > +
+> > > +	chosen {
+> > > +		stdout-path =3D "serial0:115200n8";
+> >=20
+> > Ditto.
+>=20
+> But it only physically materializes in Helperboard, the carrier.
+> Potentially this one can be left floating or used for something else.
+
+Yes fair enough, I'm happy with having it on the helperboard dts file.
+
+All the best,
+
+Paul
+
+--=20
+Paul Kocialkowski,
+
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
+
+Expert in multimedia, graphics and embedded hardware support with Linux.
+
+--n/6HFoDPod6U7Z7S
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoLiL4ACgkQhP3B6o/u
+lQzu7w/+Li3WB/RqyOhBotp67F5Kst4upx8CaFkmpfvnE1C+xCKF8o9JNYivUnIV
++b0k9Gzb2riSG/LSkroml7G684MdWJ13L9Lf0By5T4odFvkrYP8iqJY87NFXgGkk
+tiw4gP5MaAJlErtzvisLh9o1XncrxEzWMjeS8Zqf8gp7FDW551PX3QN89KfHI/cF
+sL1IEJ01Gc43nlrPyDrbMc+rU+XKnQK/VdbUNtaIQnBHgeBz++Ngi4d6EPwL4ST4
+9asVDJiWa5up6319Nwv8BZYzgR2UqURVfKCALQCy21aQWhKlGGIDMPtH15K9ZB+Q
+A42Now55/m8Ld6m293eMu9k8aNIdfMaAM3RkwRDRP9rmAhZjQ16XpbwHasgBjTgK
+FskGcacWVAdhj3D96HSQ76DDJ64kJhOyPL7GipEyuG+P+rOSLBHICo1bw4plI+lc
+CQG72K3bPWQ4TYYVQyTcVFyNKAnRx5J7t6cFNKDXM8/ghf5IXIxRypGoFNfS9hts
+ZBt7B1gP2enqtCvuUcgrHKKmgRqKKm7KEWpdULsMkfj4GlcM7330BuWsKUg8h8EM
+dO4upS6qp0pR/tfJrfkaB4lJ5HwdEimwXugq0KeFywXzOfv+vTZlVUQBKqin3MWs
+Z/vovo0munJJASdEaQRy4bQZOiEI/R+Uo4NzRYiqQJUKobbaVH0=
+=/6pF
+-----END PGP SIGNATURE-----
+
+--n/6HFoDPod6U7Z7S--
 
