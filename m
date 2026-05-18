@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BB2CCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41475CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 11:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzsDWOOYvpaUy8TXIH2yV7CTdJ93Ilwd3B4S+TiEyrU=; b=t3WTjA4MPvGsfQdym8gzPbP5ES
-	06pH7Mbidqb/YfWUzYetbrtbreAyPqE675LGkOHEdLLJq7V0P2q+c5QcIlNwOSsAKvuDnAUZ1h1Gh
-	D0BfVvLEmW0C6gCGbv4qw5rHxaEkbIjI1GayDc8Q4hj8nNdYXOcTt2GKE24/hksr42Rcvl3I2UTJA
-	2Kk0AVHObkkPXxyXX3c7R26yH/gOSDYk2sCGN2jtqgsQcsnMOvpwzMN/mHdfaz6UIVpeJlbLAA1dn
-	lDSb/CluPD4YVGlckoHQHMbRSkyaj0C+HpwEUB4J+ta3A8BJBWK80sVfu5ITUEIihqaMDWkVz1+P/
-	kNs/qedg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RqVGUA3uSgAUjexcINA82gz5Nnz3mAqZB4EHGUzNSx0=; b=Off+egbJrRcH8lbeDHLo6B1l8A
+	3DPpOCAPMXp3CL7RbnUQxhaokvSwpoZ1kzq6mU0jwJsIyQuwLhXcLQYj2tLXe5hWn1iz6oHsDqXyi
+	kszwfxA4W4BFqVPN87t3p1hKLbAqK+slxiBV1+kF1S06xrubpZMRSCwSXgNF3QSSgZUDGhs9ooJkN
+	cSdkATCJywLmsBhZ2LLtwk+gUEg79yH55GBBuv3UYtBjqYaze4o8Blwxy5LHPuiuSKOwgOvAveV44
+	Y6Ic8t0xkTqR7ELib0/XYPdkLU4XL5Z9YDb4U07Oa3xyzwRj12Sr+Y409LAilo8NtZr6WWSYW8tix
+	MVXTVciw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwJ1-0000000FSwj-1aQs;
-	Mon, 18 May 2026 11:38:43 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1wOwSS-0000000FUkn-4B7o;
+	Mon, 18 May 2026 11:48:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOwIy-0000000FSw0-3cRe
+	id 1wOwSR-0000000FUkL-1q3u
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 18 May 2026 11:48:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=RqVGUA3uSgAUjexcINA82gz5Nnz3mAqZB4EHGUzNSx0=; b=O+Xki/PDBBaIsHo9ceAF+8aQGb
+	KnLo0ulBnKhZPJIzKc2fr99FHrNGesb1dZ+pJmYLeDeTjipNJv4AOYV6Ps8ViwjUklBsDonmbMTRV
+	qR8yjRfGcyDOEhhEM4OBAmBieoyn0ohGSiAuuHnq4xa+wOVLu3KSNgRJjRPaulo/honkfyumljk47
+	vm7U3BUVJHyjrA3dIWFGuu4ZeoE3F5b5SuF/A6h5zfAlc+mFGCXFLzDjkx7AneWtJ6ujvbvhNvMGD
+	POOMuUjGNpsEiDm8tD5DpPzAlsZV20PDQVL3BvfWdEQV0obqOgqtS7LEA5Agj3DjBB2imQCdK1+K9
+	LRyemxsA==;
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOwSN-0000000B0DG-42RU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 11:38:42 +0000
+	Mon, 18 May 2026 11:48:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1779104318;
-	bh=nzsDWOOYvpaUy8TXIH2yV7CTdJ93Ilwd3B4S+TiEyrU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Z6pBIkpgVu7nBeQyqo8FXqPA4g6Igx7OajR/dadXsp6OogcgWVhRx4wZ28No1SQTd
-	 lRAHCuby8EYWtCq4wI11yf6rNXUpehbiilnIkoZvZzxJwRVh9ep5FcxMPRNBoPYzhU
-	 lGFNBMvANxjU9q+4x7RRYR5IDDStHPDlqYkQ1cuK45Mz4lXVvtLvbVhyTTXAVjlSTS
-	 Q/iFw7YKvgq4ZUJSTMMEOSR6sLLDEUiiSwVQUvuaJL5fOxeUGKc1oa5mfcCrSgPt/2
-	 Qx2T9cg7QA54QEL3Ot6JZHQJSzWgB7uxD6x8OpWrSLwQdLUVSCuPNRYwCgOOTOVz1H
-	 +sCDeIZXrjWBQ==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 5B0D66024D;
-	Mon, 18 May 2026 19:38:38 +0800 (AWST)
-Message-ID: <26a62f67c2aa5fafb019b59893d374047d2f5e70.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v1 2/7] ARM: dts: aspeed: system1: Enable video engine
+	d=codeconstruct.com.au; s=2022a; t=1779104897;
+	bh=RqVGUA3uSgAUjexcINA82gz5Nnz3mAqZB4EHGUzNSx0=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=Xdhit/c8ZXUu6hclYtQqjI+ZOMKReIoKuek0qUDo64h9QYqlKaC0SJ8TGIA47m5NU
+	 EldYK6ZYamgBeIRR7tMSb8ScpClPRYE4TW/372xHB7W4UUfiSWozN17herbMvVE1EO
+	 u3QmYaJw/jFZ2l3zaYKjLvO67E84X0w1NDvgTZODvZW5l55wukjQuhOGLXx9D/UI1N
+	 4jUAGFm9mZSRPMVNsKZ9AB1scpwT7gupExcmESL5l2pJFs97/WhAIg6GNDDeVVqfcH
+	 +/d56zuLxI0wHiqIzZidd4xSQcsE38KryfYrEa4VIsLS6vd677xlBy6wd5r4TLWJ2A
+	 Kagxg9eQLaKGg==
+Received: from [127.0.1.1] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 696F56024D;
+	Mon, 18 May 2026 19:48:17 +0800 (AWST)
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Ninad Palsule <ninad@linux.ibm.com>, eajames@linux.ibm.com,
- robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Cc: Manojkiran Eda <manojkiran.eda@gmail.com>
-Date: Mon, 18 May 2026 21:08:38 +0930
-In-Reply-To: <20260421224551.1611818-3-ninad@linux.ibm.com>
-References: <20260421224551.1611818-1-ninad@linux.ibm.com>
-	 <20260421224551.1611818-3-ninad@linux.ibm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Rex Fu <Rex.Fu@amd.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260417-anacapa-pca9555-irq-v1-1-9a6d28b1b656@amd.com>
+References: <20260417-anacapa-pca9555-irq-v1-1-9a6d28b1b656@amd.com>
+Subject: Re: [PATCH] ARM: dts: aspeed: anacapa: add interrupt properties
+ for PDB PCA9555
+Message-Id: <177910489732.1782799.1747360209738224632.b4-ty@b4>
+Date: Mon, 18 May 2026 21:18:17 +0930
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_043841_093800_9017AB72 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20260518_124824_688351_22C2BE0A 
+X-CRM114-Status: UNSURE (   6.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +89,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2026-04-21 at 17:45 -0500, Ninad Palsule wrote:
-> From: Manojkiran Eda <manojkiran.eda@gmail.com>
->=20
-> This patch enables the aspeed video engine support in ASPEED BMC for
-> IBM System1. It is crucial for facilitating the BMC's video capture
-> and redirection capabilities, which are integral to remote management
-> and KVM (Keyboard-Video-Mouse) over IP functionality.
+On Fri, 17 Apr 2026 14:41:49 +0800, Rex Fu wrote:
+> Add interrupt-parent and interrupts properties to the PDB PCA9555
+> nodes in the anacapa DTS.
 
-This is a real nitpick, but: The commit message seems a bit too
-grandiose for my tastes. Can you make it more succinct? Writing in
-imperative mood to avoid "this patch" is generally recommended too:
+Thanks, I've applied this to the BMC tree.
 
-https://docs.kernel.org/process/submitting-patches.html#describe-your-chang=
-es
+-- 
+Andrew Jeffery <andrew@codeconstruct.com.au>
 
-Andrew
-
->=20
-> Signed-off-by: Manojkiran Eda <manojkiran.eda@gmail.com>
-> Signed-off-by: Ninad Palsule <ninad@linux.ibm.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts | 4 ++++
-> =C2=A01 file changed, 4 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-> b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-> index 488d0b3916a1..0ca799893791 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dts
-> @@ -531,6 +531,10 @@ &lpc_snoop {
-> =C2=A0	snoop-ports =3D <0x80>, <0x81>;
-> =C2=A0};
-> =C2=A0
-> +&video {
-> +	status =3D "okay";
-> +};
-> +
-> =C2=A0&i2c0 {
-> =C2=A0	status =3D "okay";
-> =C2=A0
 
