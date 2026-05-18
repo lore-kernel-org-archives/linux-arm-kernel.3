@@ -4,133 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FADBCD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F84CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:10:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqG9pcJuVwBv9+ztVwo8tr2fW0UH1ib8ZvGVBXkIgQw=; b=VjUp3Gf4gIj0w5mC1jAS/meE3l
-	LCJsiP3OXUfRhMfT6ufB8Kt0CvLnEto2LqCV+hPrYxr3hWDfHrv/9llLxJN2gOmvrlCYDgjdvH8JE
-	yJFzYNAZbGyAPblV9mgVmHsXI6pe7+ugLhHvIvIx51JlCyqSPA5ZgLkyiz+lXFe24zVtlHXbzNSJy
-	D4Uw62bFDdVoTM0mOXMnBmK5YRePlLan/JZnnQplHl7Tgm6BwutbNujDh8j9nKmiFytdpNLNIK0Ne
-	LbKu8d2FNhDGvzugYK3vH0PYc9JDkyf8w+ekeN3zyLybNPsVXzdE8OEUzRfBhUw3clyktlUIGE5lM
-	GX5Ey7EA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6YOePkzpKdtcaeSkD2ei9bKN6cTmuB9GBSIuGfGIbww=; b=jxysZu5TnSVyvPq/Oztp1yOY3U
+	kfBnn61yB47KqWUCj0ugD6yTzSELBH235lDJ4yuZPWg+aaEg+tkmEvSWyqP8WdFj+QLIqwAy8ZoHV
+	ZJ4KcS3bMjltgkNho8pUuX35HjKc5q/LP7AoxY7s13PboxuVmTog7WVWnQC2XqotjR7yuu8J7JMbG
+	/Q/L4+t6CA5+pFBFdAAFoTq5GJ3cFy1WUGmktlbdwkyURzcx899ZG8uk/0BYchm226YOJSFbO5uXf
+	C5qcjauu+3dAY5V/EO8bdg4FGNbJsOibs9eHnPee1+yrXd1kxKY3wpB5R5iQ+TWeb4eOV99nGKOo+
+	phg4e6ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOuqA-0000000F8yl-3SGR;
-	Mon, 18 May 2026 10:04:50 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wOuv4-0000000F9sR-1jby;
+	Mon, 18 May 2026 10:09:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOuq8-0000000F8xu-03Ke
+	id 1wOuv1-0000000F9rg-22zS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:04:49 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64I5xINO3644003;
-	Mon, 18 May 2026 10:04:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=xqG9pc
-	JuVwBv9+ztVwo8tr2fW0UH1ib8ZvGVBXkIgQw=; b=SCGHXnOZiuLhs26tPceFUq
-	EeQYRCC3wgSS4WI7KC14mP3KNB6D2AAKK8pfccYiMIWsB9BRMuyHWLC5udDnspwW
-	A+MSsUkU0nCp6L3/eGNkBVCu1hB+8eXHDeGgYqDnt87PjvWQ3XZGVNgnhPpsTM3O
-	4RLGtDNkB+Ed7HoUoZ9sKYVMrqtlNeUiKGNBWa6EpoCI7yLC1zEhqy9swpKNrXsg
-	Eh0m4Z9RQMkoCEmqWYAQU39ITzthgM6HyxZdbNuggeWWv6mXqxdk9VBtNgBouq5X
-	nF6ebA6+ys04MhwYCg5v/IW8Z65tcTt2nhcbcLaZv2V8o1emCOB0UpspTkHn4MbQ
-	==
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e6hb86ysr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 May 2026 10:04:31 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64I9s5oD009355;
-	Mon, 18 May 2026 10:04:30 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4e74dhd8rc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 18 May 2026 10:04:30 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64IA4QZN16318818
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 18 May 2026 10:04:26 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6DAF72004E;
-	Mon, 18 May 2026 10:04:26 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id D838B2004B;
-	Mon, 18 May 2026 10:04:25 +0000 (GMT)
-Received: from [9.52.200.39] (unknown [9.52.200.39])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 18 May 2026 10:04:25 +0000 (GMT)
-Message-ID: <3488974b-ad99-4adb-96c2-e8623f81c3f0@linux.ibm.com>
-Date: Mon, 18 May 2026 12:04:25 +0200
+	Mon, 18 May 2026 10:09:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CC00F43E18;
+	Mon, 18 May 2026 10:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A7E31C2BCC6;
+	Mon, 18 May 2026 10:09:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779098989;
+	bh=u56jg7DlcON9+DXGEF4UUjo0mA99ELeWFFq/Ike9RM8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=nAy4SXupexX5Yd/Jh65iRzTGGKibrwsVMx4Do553FwQOWDk8pNtcdeQiEYw/M1y1R
+	 2SOnNZtpy+5SgAR/UTPBE4m8hjVxGSdEUbt8WvJSeb8B1yYuFNRDAlglFqHBHRvNvW
+	 LJhMVt2nhI0SjNrBzmKBkv6E755upD6Yg+qxgyzaAuDuWiAD3NQL9/iqv1/z5yDSCg
+	 C4UPn298sXtznWOIpRevUfjk7j7bJ1BmpnEdD5QP4JwDMCfqnHEvF4jy4pM0WuR4EY
+	 vIQF/SIgRVbgrx2BqHCyHOeS9ws85RQFblwxJOdRTp5yJ2n1iRZo1rT/CCT0j7jJZL
+	 CeVlWEg1KkpwQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 965C3CD4F54;
+	Mon, 18 May 2026 10:09:49 +0000 (UTC)
+From: Rex Fu via B4 Relay <devnull+Rex.Fu.amd.com@kernel.org>
+Date: Mon, 18 May 2026 18:00:40 +0800
+Subject: [PATCH v2] ARM: dts: aspeed: anacapa: correct SGPIO names for
+ monitoring
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 07/13] dma-direct: make dma_direct_map_phys() honor
- DMA_ATTR_CC_SHARED
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-        Marek Szyprowski <m.szyprowski@samsung.com>,
-        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-        Steven Price <steven.price@arm.com>,
-        Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
-        Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
-        Alexey Kardashevskiy <aik@amd.com>,
-        Dan Williams <dan.j.williams@intel.com>,
-        Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-        linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-        Halil Pasic <pasic@linux.ibm.com>,
-        Matthew Rosato <mjrosato@linux.ibm.com>,
-        Jaehoon Kim <jhkim@linux.ibm.com>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
- <20260512090408.794195-8-aneesh.kumar@kernel.org>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20260512090408.794195-8-aneesh.kumar@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE4MDA5MiBTYWx0ZWRfXweiiSDL+TsiI
- 8jYni17GlfiiUQkjE+LprA3ViqMfAzAhdcoH54htbeNnRhM0stXFxfm1EHaGmrBFQP9PjyEmE7N
- 9n23EAatbVmq7kRfVC07ErevUPVkCpcIptKoX7JUlnUHsT+FBYtUeHFDHozSyE0NizAgMRRPE5g
- kFTi2itktI9BOqK92lemOsxyHHU4YVKMSQwXHKzI+71UPPGIZT9GZFeBKoVECnhQyA75672VqWv
- d2X8lZa4d3KiJvviOZkR8ohQGU/HfIUrSQlqVhg5OIUzYrurkPpG+II4u1stFhYU05DUs5hwz3L
- ACcOX+TyejgiHcKRx4UWAsf6hpx9+WAUMZGn1Wl8yZ9/YCgJvO+HcXIM4doqmQX+iSty4CniAeO
- muLLQBQ2AAGLzvzCLdsZbD2W5QjkHa++34l5lrzH6QygREm6GxMe3sTaM39LNf1Lzpgkh2dRn3K
- zXbCC85lM8fWpui8x6w==
-X-Proofpoint-GUID: _1ROsYvBpxxXKrSVhYjNsdTf1ncTdJwI
-X-Proofpoint-ORIG-GUID: GMA_N4PbhBFPm2tIl6aZuINIeP481idN
-X-Authority-Analysis: v=2.4 cv=aYBRWxot c=1 sm=1 tr=0 ts=6a0ae42f cx=c_pps
- a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=VwQbUJbxAAAA:8
- a=cNP6tjfTc9-AQSTecuMA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-18_02,2026-05-15_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 bulkscore=0 suspectscore=0 lowpriorityscore=0
- clxscore=1011 spamscore=0 phishscore=0 priorityscore=1501 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605180092
+Message-Id: <20260518-anacapa-sgpio-edsff-thermtrip-v2-1-e43b1847b2dc@amd.com>
+X-B4-Tracking: v=1; b=H4sIAEfjCmoC/42OSwrCMBRFt1Iy9kmSfhRH7kM6yOelfUKbkMSgl
+ O7dtm7A4YHDuXdhCSNhYrdqYRELJfLzBvJUMTOqeUAguzGTXHa8qTmoWRkVFKQhkAe0yTnII8Y
+ pRwqgjJbyql0nNLKtESI6eh/9R//j9NJPNHmP7sZIKfv4OQ4UsXv/bhUBAqSzLV5kU7eW39Vkz
+ 8ZPrF/X9QvqpmBx2gAAAA==
+X-Change-ID: 20260430-anacapa-sgpio-edsff-thermtrip-acb228bf61be
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Rex Fu <Rex.Fu@amd.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779098465; l=4551;
+ i=Rex.Fu@amd.com; s=20260417; h=from:subject:message-id;
+ bh=R6pEDyauTB50Fmhvxn0QsYGtV2og2/4FKpGrDbJds/8=;
+ b=RC64u2ytJ72iyOUFotIilIIvQnQwyvi5OfqMn3hKP+rzzxF8q2th+T0U1TtU6hXd+NbgacbZ0
+ kRDPXrW5GeECk58Ywm1UgI3Pjx7idCfONhNhX9W2thRQSbad/63mm9J
+X-Developer-Key: i=Rex.Fu@amd.com; a=ed25519;
+ pk=26ECoh24fxrbXDKgA4hCmgg0xjQ+IxU97kXb46ovwgc=
+X-Endpoint-Received: by B4 Relay for Rex.Fu@amd.com/20260417 with
+ auth_id=738
+X-Original-From: Rex Fu <Rex.Fu@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_030448_184202_BC5B1246 
-X-CRM114-Status: GOOD (  29.37  )
+X-CRM114-CacheID: sfid-20260518_030951_577792_55412825 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,169 +89,132 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Rex.Fu@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cc Halil, Matt, Jaehoon.
-Can you have a look what this means for virtio on secure execution?
+From: Rex Fu <Rex.Fu@amd.com>
 
-Am 12.05.26 um 11:04 schrieb Aneesh Kumar K.V (Arm):
-> Teach dma_direct_map_phys() to select the DMA address encoding based on
-> DMA_ATTR_CC_SHARED.
-> 
-> Use phys_to_dma_unencrypted() for decrypted mappings and
-> phys_to_dma_encrypted() otherwise. If a device requires unencrypted DMA
-> but the source physical address is still encrypted, force the mapping
-> through swiotlb so the DMA address and backing memory attributes remain
-> consistent.
-> 
-> Update the arm64, x86, s390 and powerpc secure-guest setup to not use
-> swiotlb force option
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
-> Changes from v3:
-> * Handle DMA_ATTR_MMIO
-> ---
->   arch/arm64/mm/init.c                 |  4 +--
->   arch/powerpc/platforms/pseries/svm.c |  2 +-
->   arch/s390/mm/init.c                  |  2 +-
->   arch/x86/kernel/pci-dma.c            |  4 +--
->   kernel/dma/direct.c                  |  4 ++-
->   kernel/dma/direct.h                  | 38 +++++++++++++---------------
->   6 files changed, 24 insertions(+), 30 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> index 97987f850a33..acf67c7064db 100644
-> --- a/arch/arm64/mm/init.c
-> +++ b/arch/arm64/mm/init.c
-> @@ -338,10 +338,8 @@ void __init arch_mm_preinit(void)
->   	unsigned int flags = SWIOTLB_VERBOSE;
->   	bool swiotlb = max_pfn > PFN_DOWN(arm64_dma_phys_limit);
->   
-> -	if (is_realm_world()) {
-> +	if (is_realm_world())
->   		swiotlb = true;
-> -		flags |= SWIOTLB_FORCE;
-> -	}
->   
->   	if (IS_ENABLED(CONFIG_DMA_BOUNCE_UNALIGNED_KMALLOC) && !swiotlb) {
->   		/*
-> diff --git a/arch/powerpc/platforms/pseries/svm.c b/arch/powerpc/platforms/pseries/svm.c
-> index 384c9dc1899a..7a403dbd35ee 100644
-> --- a/arch/powerpc/platforms/pseries/svm.c
-> +++ b/arch/powerpc/platforms/pseries/svm.c
-> @@ -29,7 +29,7 @@ static int __init init_svm(void)
->   	 * need to use the SWIOTLB buffer for DMA even if dma_capable() says
->   	 * otherwise.
->   	 */
-> -	ppc_swiotlb_flags |= SWIOTLB_ANY | SWIOTLB_FORCE;
-> +	ppc_swiotlb_flags |= SWIOTLB_ANY;
->   
->   	/* Share the SWIOTLB buffer with the host. */
->   	swiotlb_update_mem_attributes();
-> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-> index 1f72efc2a579..843dbd445124 100644
-> --- a/arch/s390/mm/init.c
-> +++ b/arch/s390/mm/init.c
-> @@ -149,7 +149,7 @@ static void __init pv_init(void)
->   	virtio_set_mem_acc_cb(virtio_require_restricted_mem_acc);
->   
->   	/* make sure bounce buffers are shared */
-> -	swiotlb_init(true, SWIOTLB_FORCE | SWIOTLB_VERBOSE);
-> +	swiotlb_init(true, SWIOTLB_VERBOSE);
->   	swiotlb_update_mem_attributes();
->   }
->   
-> diff --git a/arch/x86/kernel/pci-dma.c b/arch/x86/kernel/pci-dma.c
-> index 6267363e0189..75cf8f6ae8cd 100644
-> --- a/arch/x86/kernel/pci-dma.c
-> +++ b/arch/x86/kernel/pci-dma.c
-> @@ -59,10 +59,8 @@ static void __init pci_swiotlb_detect(void)
->   	 * bounce buffers as the hypervisor can't access arbitrary VM memory
->   	 * that is not explicitly shared with it.
->   	 */
-> -	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-> +	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT))
->   		x86_swiotlb_enable = true;
-> -		x86_swiotlb_flags |= SWIOTLB_FORCE;
-> -	}
->   }
->   #else
->   static inline void __init pci_swiotlb_detect(void)
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index ac315dd046c4..5aaa813c5509 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -691,8 +691,10 @@ size_t dma_direct_max_mapping_size(struct device *dev)
->   {
->   	/* If SWIOTLB is active, use its maximum mapping size */
->   	if (is_swiotlb_active(dev) &&
-> -	    (dma_addressing_limited(dev) || is_swiotlb_force_bounce(dev)))
-> +	    (dma_addressing_limited(dev) || is_swiotlb_force_bounce(dev) ||
-> +	     force_dma_unencrypted(dev)))
->   		return swiotlb_max_mapping_size(dev);
-> +
->   	return SIZE_MAX;
->   }
->   
-> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
-> index e05dc7649366..4e35264ab6f8 100644
-> --- a/kernel/dma/direct.h
-> +++ b/kernel/dma/direct.h
-> @@ -89,36 +89,32 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
->   	dma_addr_t dma_addr;
->   
->   	if (is_swiotlb_force_bounce(dev)) {
-> -		if (!(attrs & DMA_ATTR_CC_SHARED)) {
-> -			if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> -				return DMA_MAPPING_ERROR;
-> +		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
-> +			return DMA_MAPPING_ERROR;
->   
-> -			return swiotlb_map(dev, phys, size, dir, attrs);
-> -		}
-> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> -		return DMA_MAPPING_ERROR;
-> +		return swiotlb_map(dev, phys, size, dir, attrs);
->   	}
->   
-> -	if (attrs & DMA_ATTR_MMIO) {
-> -		dma_addr = phys;
-> -		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
-> -			goto err_overflow;
-> -	} else if (attrs & DMA_ATTR_CC_SHARED) {
-> +	if (attrs & DMA_ATTR_CC_SHARED)
->   		dma_addr = phys_to_dma_unencrypted(dev, phys);
-> +	else
-> +		dma_addr = phys_to_dma_encrypted(dev, phys);
-> +
-> +	if (attrs & DMA_ATTR_MMIO) {
->   		if (unlikely(!dma_capable(dev, dma_addr, size, false, attrs)))
->   			goto err_overflow;
-> -	} else {
-> -		dma_addr = phys_to_dma(dev, phys);
-> -		if (unlikely(!dma_capable(dev, dma_addr, size, true, attrs)) ||
-> -		    dma_kmalloc_needs_bounce(dev, size, dir)) {
-> -			if (is_swiotlb_active(dev) &&
-> -			    !(attrs & DMA_ATTR_REQUIRE_COHERENT))
-> -				return swiotlb_map(dev, phys, size, dir, attrs);
-> +		goto dma_mapped;
-> +	}
->   
-> -			goto err_overflow;
-> -		}
-> +	if (unlikely(!dma_capable(dev, dma_addr, size, true, attrs)) ||
-> +	    dma_kmalloc_needs_bounce(dev, size, dir)) {
-> +		if (is_swiotlb_active(dev) &&
-> +		    !(attrs & DMA_ATTR_REQUIRE_COHERENT))
-> +			return swiotlb_map(dev, phys, size, dir, attrs);
-> +		goto err_overflow;
->   	}
->   
-> +dma_mapped:
->   	if (!dev_is_dma_coherent(dev) &&
->   	    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO))) {
->   		arch_sync_dma_for_device(phys, size, dir);
+Update several Anacapa SGPIO line names to match the existing platform
+hardware design and the signal names consumed by userspace monitoring.
+
+The previous names did not match the actual Anacapa SGPIO usage. Some
+lines were named as CPU or CPU power-good signals, but they are wired and
+used on Anacapa for EDSFF presence, EDSFF power-good, boot EDSFF
+presence, and thermal-trip assertion monitoring.
+
+Correct the mappings as follows:
+
+  PWRGD_PVDDCR_SOC_P0     -> L_PRSNT_EDSFF0_N
+  PWRGD_PVDDIO_P0         -> L_PRSNT_EDSFF1_N
+  PWRGD_PVDDIO_MEM_S3_P0  -> R_PRSNT_EDSFF2_N
+  PWRGD_CHMP_CPU0_FPGA    -> R_PRSNT_EDSFF3_N
+  PWRGD_CHIL_CPU0_FPGA    -> HPM_EDSFF_PG
+  EAM2_CPU_MOD_PWR_GD_R   -> PRSNT_EDSFF_BOOT_N
+  CPU0_SP7R1              -> L_EDSFF0_PG
+  CPU0_SP7R2              -> L_EDSFF1_PG
+  CPU0_SP7R3              -> R_EDSFF2_PG
+  CPU0_SP7R4              -> R_EDSFF3_PG
+  HPM_AMC_THERMTRIP_R_L   -> AMC_THERMTRIP_ASSERT
+  FM_CPU0_THERMTRIP_N     -> CPU_THERMTRIP_ASSERT
+
+The left-side EDSFF slots are numbered as EDSFF0 and EDSFF1 to match
+the platform slot numbering used by userspace. The thermtrip names are
+also updated to describe the asserted condition monitored by userspace
+instead of the raw active-low signal names.
+
+This is a naming correction for the existing Anacapa hardware design.
+There is no new board revision or underlying hardware change involved.
+
+Signed-off-by: Rex Fu <Rex.Fu@amd.com>
+---
+Update the Anacapa SGPIO line names to match the existing hardware
+design and the platform signal names used by userspace monitoring.
+
+The v2 commit message now explains why changing these userspace-visible
+GPIO line names is appropriate and lists the exact old-to-new mappings.
+---
+Changes in v2:
+- Reworked the commit message to explain why these userspace-visible
+  GPIO line names are changed.
+- Listed the exact old-to-new SGPIO line name mappings.
+- Clarified that this is a naming correction for the existing hardware
+  design and not a board revision or hardware change.
+- Link to v1: https://patch.msgid.link/20260430-anacapa-sgpio-edsff-thermtrip-v1-1-2fd5e72435d0@amd.com
+
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Joel Stanley <joel@jms.id.au>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-aspeed@lists.ozlabs.org
+Cc: linux-kernel@vger.kernel.org
+---
+ .../boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts  | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+index 2cb7bd128d24..e898bc11e6f5 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-anacapa.dts
+@@ -908,11 +908,11 @@ &sgpiom0 {
+ 	"", "", "", "",
+ 
+ 	/* G0-G7 line 96-111 */
+-	"PWRGD_PVDDCR_SOC_P0", "",
+-	"PWRGD_PVDDIO_P0", "",
+-	"PWRGD_PVDDIO_MEM_S3_P0", "",
+-	"PWRGD_CHMP_CPU0_FPGA", "",
+-	"PWRGD_CHIL_CPU0_FPGA", "",
++	"L_PRSNT_EDSFF0_N", "",
++	"L_PRSNT_EDSFF1_N", "",
++	"R_PRSNT_EDSFF2_N", "",
++	"R_PRSNT_EDSFF3_N", "",
++	"HPM_EDSFF_PG", "",
+ 	"PWRGD_CHEH_CPU0_FPGA", "",
+ 	"PWRGD_CHAD_CPU0_FPGA", "FM_BMC_READY_PLD",
+ 	"", "",
+@@ -934,7 +934,7 @@ &sgpiom0 {
+ 	"EAM3_BRD_PRSNT_R_L", "",
+ 	"EAM0_CPU_MOD_PWR_GD_R", "",
+ 	"EAM1_CPU_MOD_PWR_GD_R", "",
+-	"EAM2_CPU_MOD_PWR_GD_R", "",
++	"PRSNT_EDSFF_BOOT_N", "",
+ 	"EAM3_CPU_MOD_PWR_GD_R", "",
+ 
+ 	/* J0-J7 line 144-159 */
+@@ -957,8 +957,8 @@ &sgpiom0 {
+ 	"PDB_ALERT_R_N", "",
+ 
+ 	/* L0-L7 line 176-191 */
+-	"CPU0_SP7R1", "", "CPU0_SP7R2", "",
+-	"CPU0_SP7R3", "", "CPU0_SP7R4", "",
++	"L_EDSFF0_PG", "", "L_EDSFF1_PG", "",
++	"R_EDSFF2_PG", "", "R_EDSFF3_PG", "",
+ 	"CPU0_CORETYPE0", "", "CPU0_CORETYPE1", "",
+ 	"CPU0_CORETYPE2", "", "FM_BIOS_POST_CMPLT_R_N", "",
+ 
+@@ -984,8 +984,8 @@ &sgpiom0 {
+ 	"HPM_PWR_FAIL", "Port80_b0",
+ 	"FM_DIMM_IP_FAIL", "Port80_b1",
+ 	"FM_DIMM_AH_FAIL", "Port80_b2",
+-	"HPM_AMC_THERMTRIP_R_L", "Port80_b3",
+-	"FM_CPU0_THERMTRIP_N", "Port80_b4",
++	"AMC_THERMTRIP_ASSERT", "Port80_b3",
++	"CPU_THERMTRIP_ASSERT", "Port80_b4",
+ 	"PVDDCR_SOC_P0_OCP_L", "Port80_b5",
+ 	"CPLD_SGPIO_RDY", "Port80_b6",
+ 	"", "Port80_b7",
+
+---
+base-commit: 9974969c14031a097d6b45bcb7a06bb4aa525c40
+change-id: 20260430-anacapa-sgpio-edsff-thermtrip-acb228bf61be
+
+Best regards,
+--  
+Rex Fu <Rex.Fu@amd.com>
+
 
 
