@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C868CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F6F1CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9/zO0zp2r2FGgOERfPfiqfEES0NFm6hJuu5wdDFRS34=; b=EEytldgmQQun3rgFH/cNdfaraL
-	MWokWhQfwaSAgis/IbYfAuEqyzxwCygmkzDP33SqSFoPNIfgPymXq2XClO/Rd05VrD4RfHIbId5Kn
-	WdngEVumHvfvplW5EOLmrLKH+63782WwC4ORiYxu4Bz26Z/H1DnwdM+MkTi756LbsKHLVMRLy1+QG
-	bdp2H3nIG1ZiF2mwD4bcHjvxjzTLY5Zzf8fUwoWLBtOi1l2mTCUGEMNpEjkUzHYF0fC7x29P5Uk93
-	xPXXTsDXAYC6JWChe0rEmMYK8TJvDCmQWI2SYgvFBGcFVY2c8RUciMrtNJ7rFRKDs2YiuYMfVY7c6
-	3PuHds2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hl/m7s8+gdhaAEkK8F8CgPM1JiiK905rKoY3T49KXgs=; b=ea8WiXNBpft8udLMAYK5jewFfO
+	Nbu2Ud+S4lLTCReSde4kqQ0cfkao1oHoD4ikD40sL6Pq4v8iuoIJvNFt0rghNT9+0G8tt6OJ3fZYI
+	ZBBURL1vH3aKKZfZcZW+vdNNmCTdFmh/C/jgzkveieAol38lksdBnOjBWZPRxrO+X/68zFLsj9uu4
+	XB4k6lUwXyvTYzJgKkrp/bQVl3ZtlOkPBRPmHR1lpDfmD646bfKG/D8DHNUaGSKaT6zsI908J2gjw
+	D2sFjBEkrxDOG7C0fy/YOIp7qpXKTZx3Wben2WAHtVIynJPG9YFOJvBK63aajFHpiSJHCD40bSNUI
+	5m2EHmwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvYU-0000000FJqB-21Zz;
-	Mon, 18 May 2026 10:50:38 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wOvcB-0000000FKhj-1gaQ;
+	Mon, 18 May 2026 10:54:27 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvYP-0000000FJnD-3WM0
+	id 1wOvc8-0000000FKgN-1sg5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:50:35 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id C0E714E42CE2;
-	Mon, 18 May 2026 10:50:28 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 741C95FFA3;
-	Mon, 18 May 2026 10:50:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 685B811AF8493;
-	Mon, 18 May 2026 12:50:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779101427; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=9/zO0zp2r2FGgOERfPfiqfEES0NFm6hJuu5wdDFRS34=;
-	b=heXyafCM/wLX2BEnRUVB6I1LvciXkXkGOp1QVSXzvEVNPgbmW4kOe5GBgki6tpZrpmEpQm
-	XYGDYYm87gHlRs/wz1vK2gz227wopf/fMYJaEHGmOWDznkO4nyZAoHhGILrwsTcM5RWIxD
-	mbiCD94a95vAXB5AzxHG96indCe5cXxpC0GLXk/mnorsK6skaw8EstUgNekqTXNg9O4qbF
-	ae87N/6mNYw99dtmyztg5Krr+bq4yxC9LZ3Nxk9bYxZmzQVZifp8IH5R0aJov160Zs+mtv
-	5N04Gbbpo2IUhzf0uzLgITVYZMF3IEv9ClgD7I+6IHOa++cAstqYqOUsnjHzbw==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 18 May 2026 12:50:18 +0200
-Message-Id: <DILQTGH47XGL.1K6I6UI6IXP92@bootlin.com>
-To: "Simon Wright" <simon@symple.nz>, "Cristian Ciocaltea"
- <cristian.ciocaltea@collabora.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH] drm/bridge: dw-hdmi-qp: compute audio CTS from N when
- not in TMDS table
-Cc: "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Heiko
- Stuebner" <heiko@sntech.de>, "Andy Yan" <andy.yan@rock-chips.com>,
- "Sebastian Reichel" <sebastian.reichel@collabora.com>, "Dmitry Baryshkov"
- <dmitry.baryshkov@oss.qualcomm.com>, "Algea Cao"
- <algea.cao@rock-chips.com>, <dri-devel@lists.freedesktop.org>,
- <linux-rockchip@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc 0.20.1
-References: <92aa4191-2a2a-41e3-badb-c0a5b1fbb957@symple.nz>
-In-Reply-To: <92aa4191-2a2a-41e3-badb-c0a5b1fbb957@symple.nz>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 18 May 2026 10:54:25 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4891b0786beso15096725e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 03:54:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779101662; x=1779706462; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Hl/m7s8+gdhaAEkK8F8CgPM1JiiK905rKoY3T49KXgs=;
+        b=gs3KWbJ6KrQUNjarRbT615ZBqhNDWfNK1QButBe43d0G8ZzATI5VB97KsDEoop/R19
+         ji0KKw0B0nzErdQ7nZNh6ctcctiCDyRXKFaft773DjGEiIjcaAHWUOYBD07WCsyUI9tJ
+         DZ1dOWjC9TBIWiGTJDV9SuL0D7TOn3tB5ISnvysMec/Xj1qfjyzThDdcm5R+aDeXT5hi
+         AMCbXKWSLwV7TEzSiHqkpKMejHPypl8p4Y4ZE4caLQzMqQBRhtZZS7FY0rc8TFBt1xOf
+         bQ92toL4CwVdJkihpSaR1LilUDYBkVqSwST+HaNfzfMIbFY+N5ZnyHTh/i2js/PjoqDV
+         mXqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779101662; x=1779706462;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Hl/m7s8+gdhaAEkK8F8CgPM1JiiK905rKoY3T49KXgs=;
+        b=ofrYWY84Z/27f5cxSpIs9MOT0pMYRasbN62sR1jmEWG/nNN7custoNOdxBwKwQHA6H
+         QPifSzFRpY6mBA/57UuDxrfDjqqk/b4y+jjt7HD83vjN3kNRhdLWWiDDdqPyyzcGj8Q4
+         0fLKBG12x8G2KhbXwTDi8E/Y+3KMSnMMEB45mK2RhRWJ5MTploFyuCCj1gxE5bCpZ8Ru
+         ZyNBIS7n98ST80UpC/C63clfJMDn58hQQwU/G5Kk27Ymi70sQFiulOjxtIzf+12wj9UU
+         eXW10arzB1k/QjfMAjjJREdU9c/q4Ebsp7H0HJNI7talQaEMnNReIQiGpCsKHOig6eRN
+         f2+Q==
+X-Forwarded-Encrypted: i=1; AFNElJ9l5Ww+aAbYAU8QmcQasZiU0nDmYWcQDjAqFOnejSJs3+iYuCn8LYnUBv0wUE5Q3YuePjgFQOFB7TzSCf4kDMyV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjrJmWZw9NXNCcVdQrwkp1fbhYI9VXzjUb8Oh2qfPtImr4qkn9
+	jbnI8KrUoqwZNYp/tzCzoT8oTtXI8Q0P7qUTtaz76prpgHS7oLuyt7FnZR08
+X-Gm-Gg: Acq92OH+2oG+NZYL+Dd6Xl1KKMCNyYvbycMEoBx9EyjNEFtXziHA3cs1YwFI4SxtzF+
+	UwkKgIhlRN4y4j9wxNwA+SqDRptF7U4cG7+MVcr7ZwCpKqmzGzMWUv/BmPJifSNoNZJeUQgC3/n
+	Dzjb+6ZWVg7h0dELhH587Jc6uJHsPP3/zishefuzuX3JFJklTtDnFl3FfFGR9si/sp/fwlX3x1D
+	pRjU8ERvACdox7+4SlaiRwa6CY4NINh69GKhIi+n19vrQsk3IOl8a+ruzBWFtgOP17FLkDNwOjW
+	qsgBrbZUmiXC9SSBsk//mB7VB3rgT4/lcmscmOfHERbmoC/H/aEhtlFwnFjMy+dzE3iJtlN0dqf
+	AqgfdnU53OUUNGHXC7q8WEy8spMxQmNcGsn+P1b6FurvXPs513+eHmmmxu1LPkT+k6dfXzfSkmH
+	i4htLGI8TIJwOYMwlC2+tny+lHmSJ4piXKmSHMJi9gcuHA9w2S44SG+OadRASfoMYQibZ3fljcg
+	g9eK9Xtso6xVA==
+X-Received: by 2002:a05:600c:c0db:b0:48e:8499:4be0 with SMTP id 5b1f17b1804b1-48fe60ee481mr163456935e9.15.1779101662049;
+        Mon, 18 May 2026 03:54:22 -0700 (PDT)
+Received: from localhost.localdomain ([151.57.14.108])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe5694f2csm249429345e9.4.2026.05.18.03.54.20
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 18 May 2026 03:54:21 -0700 (PDT)
+From: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+To: jonas@kwiboo.se,
+	detlev.casanova@collabora.com,
+	nicolas.dufresne@collabora.com,
+	hverkuil@kernel.org,
+	mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar,
+	heiko@sntech.de,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] media: rkvdec: fix PM runtime teardown ordering in remove
+Date: Mon, 18 May 2026 12:54:13 +0200
+Message-ID: <20260518105413.42147-1-pavone.lawyer@gmail.com>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_035034_165669_C385A2AD 
-X-CRM114-Status: GOOD (  28.01  )
+X-CRM114-CacheID: sfid-20260518_035424_503704_B452F51E 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,119 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Simon,
+From: Jonas Karlman <jonas@kwiboo.se>
 
-On Sat May 9, 2026 at 9:09 AM CEST, Simon Wright wrote:
-> dw_hdmi_qp_find_cts() returns 0 for any TMDS character rate not
-> present in common_tmds_cts_table[] (which terminates at 148.5 MHz).
-> In that case dw_hdmi_qp_set_sample_rate() calls dw_hdmi_qp_set_cts_n()
-> with cts =3D=3D 0, which leaves AUDPKT_ACR_CTS_OVR_EN clear and falls
-> back to the controller's internal CTS auto-measurement.
-> On at least the RK3576 hdptx integration, strict HDMI sinks mute
-> audio in this configuration. =C2=A0The behaviour reproduces at any rate
-> not present in the table -- it is not specific to HDMI 2.x:
-> 1920x1080@60 with 10-bit deep colour (185.625 MHz, HDMI 1.4) is
-> affected, as is 3840x2160@60 8-bit (594 MHz, HDMI 2.0). =C2=A0Supplying
-> explicit CTS via the standard set_cts_n() override path resolves
-> the mute.
-> The driver already has the symmetric machinery for the N-table-miss
-> case: dw_hdmi_qp_compute_n() falls back to a dynamic search using
-> dw_hdmi_qp_audio_math_diff() ((pixel_clk * n) / (128 * freq)) when
-> no table entry matches. =C2=A0The CTS path lacks the equivalent fallback.
-> Compute CTS inline in dw_hdmi_qp_set_sample_rate() from N per the
-> HDMI spec (CTS =3D TMDS * N / (128 * Fs)) when find_cts() returns 0.
-> The same formula appears in the legacy DesignWare HDMI driver
-> (drivers/gpu/drm/bridge/synopsys/dw-hdmi.c, hdmi_set_clk_regenerator())
-> under its AHB / GP audio paths.
-> Tested on R76S (RK3576) on Armbian-edge mainline 7.0.1 with Cristian
-> Ciocaltea's hdptx-clk-fixes v1 series applied:
->  =C2=A0 TMDS =C2=A0 =C2=A0 =C2=A0 =C2=A0 Mode =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 In table? =C2=A0Audio with fix
->  =C2=A0 148.5 MHz =C2=A0 =C2=A01080p60 =C2=A08-bit =C2=A0 yes =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0plays (regression check)
->  =C2=A0 185.625 MHz =C2=A01080p60 10-bit =C2=A0 no =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 plays
->  =C2=A0 297 MHz =C2=A0 =C2=A0 =C2=A03840p30 =C2=A08-bit =C2=A0 no =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 plays
->  =C2=A0 594 MHz =C2=A0 =C2=A0 =C2=A03840p60 =C2=A08-bit =C2=A0 no =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 plays
-> Sinks tested: LG G3 OLED, LG C4 OLED, TCL 75P7K QLED, Kogan
-> KALED43XU9210STA (Changhong-OEM 4K LED). =C2=A0Without the fix, the LG
-> G3 mutes audio -- this is the originally reported bug
-> (linux-rockchip 070633). =C2=A0The LG C4 was verified during this cycle
-> to mute at 185.625 MHz (1080p60 10-bit) with the unpatched module.
-> The Kogan TV plays audio with or without the fix; it is a
-> permissive HDMI 2.0 implementation that does not strictly cross-
-> check ACR timing. =C2=A0The TCL 75P7K was tested with the fix loaded
-> only.
-> Audio plays at every supported sample rate (32 / 44.1 / 48 / 96 /
-> 192 kHz) verified on the TCL at the 185.625 MHz out-of-table TMDS
-> rate -- the fallback's CTS =3D (TMDS * N) / (128 * Fs) computation is
-> independent of sample rate, as expected.
-> The LG C4's CTA-861 SVDs do not advertise 3840x2160@60 over TMDS
-> (it is signalled FRL-only on that model), so that one row is N/A
-> on the C4. =C2=A0The same audio-path code is exercised at 297 MHz on
-> that sink and behaves identically to the G3.
-> Reported-by: Simon Wright <simon@symple.nz>
-> Closes:
-> https://lists.infradead.org/pipermail/linux-rockchip/2026-May/070633.html
-> Suggested-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> Tested-by: Simon Wright <simon@symple.nz>
-> Signed-off-by: Simon Wright <simon@symple.nz>
-> ---
->  =C2=A0drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 15 +++++++++++++++
->  =C2=A01 file changed, 15 insertions(+)
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> index 0dbb1274360..25ac8d3cfc8 100644
-> ---a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> +++b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-> @@-461,6 +461,21 @@static void dw_hdmi_qp_set_sample_rate(struct
-> dw_hdmi_qp *hdmi, unsigned long lo
->  =C2=A0 n =3D dw_hdmi_qp_find_n(hdmi, tmds_char_rate, sample_rate);
->  =C2=A0 cts =3D dw_hdmi_qp_find_cts(hdmi, tmds_char_rate, sample_rate);
-> + /*
-> + =C2=A0* dw_hdmi_qp_find_cts() returns 0 for any TMDS rate not in
-> + =C2=A0* common_tmds_cts_table[]. =C2=A0Falling through to the controlle=
-r's
-> + =C2=A0* auto-measure path mutes audio on strict HDMI sinks at out-of-
-> + =C2=A0* table rates (e.g. 185.625 MHz, 297 MHz, 594 MHz). =C2=A0Compute=
- CTS
-> + =C2=A0* from N per HDMI spec instead, so the standard override path
-> + =C2=A0* supplies it on the wire.
-> + =C2=A0*/
-> + if (!cts && n) {
-> + =C2=A0 u64 computed =3D (u64)tmds_char_rate * n;
-> +
-> + =C2=A0 do_div(computed, 128ULL * sample_rate);
-> + =C2=A0 cts =3D (unsigned int)computed;
-> + }
-> +
->  =C2=A0 dw_hdmi_qp_set_cts_n(hdmi, cts, n);
->  =C2=A0}
+The current remove() path calls rkvdec_v4l2_cleanup() and
+pm_runtime_disable() before pm_runtime_dont_use_autosuspend(), and
+frees the empty IOMMU domain after that. With autosuspend still
+armed when the domain goes away, the VDPU381 can be left in a dirty
+state across module reload and suspend/resume cycles.
 
-Thanks for your patch. I cannot comment on the content but I can point for
-formal issues with your submission.
+On RK3588 this surfaces as a VP9 inter-prediction bug: from the
+second ALTREF frame onward, motion blocks decode with U=V=0 (BT.709
+green), while intra and static blocks stay correct. Reordering the
+teardown to dont_use_autosuspend() -> iommu_domain_free() ->
+pm_runtime_disable() -> v4l2_cleanup() makes the symptom go away.
 
-Your patch got mangled by your mailer and cannot be applied. Please don't
-try to convince your mailer to send patches the right way: save your time
-and use "git-format patch + git send-email", or even better use b4.
+Tested on a Radxa Rock 5B+ (RK3588, 8 GB LPDDR5) with both the
+libva-v4l2-request mpv pipeline and Chromium's V4L2 stateless
+decoder. With the fix, 300 random pixel samples on VP9 Profile 0
+clips at 1080p and 1440p match a libvpx software reference exactly
+(worst delta 0). Without it, the same 1080p sample at frame 4,
+pixel (960, 270) reads HW=(0,112,0) vs SW=(204,147,116). HEVC and
+H.264 stateless decoding via mpv keep running on hardware with no
+fallback.
 
-Also your commit message is very detailed, and think it would be more
-readable if split in paragraphs. You can have a look at various commits in
-the kernel log for inspiration.
+Fixes: ff8c5622f9f7 ("media: rkvdec: Restore iommu addresses on errors")
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+---
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-There's plenty of suggestions on how to send patches in [0], ensure you
-read them all.
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 6f5f0422d317..bb95b090a25b 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -2066,12 +2066,13 @@ static void rkvdec_remove(struct platform_device *pdev)
+ 
+ 	cancel_delayed_work_sync(&rkvdec->watchdog_work);
+ 
+-	rkvdec_v4l2_cleanup(rkvdec);
+-	pm_runtime_disable(&pdev->dev);
+ 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+ 
+ 	if (rkvdec->empty_domain)
+ 		iommu_domain_free(rkvdec->empty_domain);
++
++	pm_runtime_disable(&pdev->dev);
++	rkvdec_v4l2_cleanup(rkvdec);
+ }
+ 
+ #ifdef CONFIG_PM
+-- 
+2.45.0
 
-[0] https://docs.kernel.org/process/submitting-patches.html
-
-Thanks!
-
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
