@@ -4,93 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9EACCD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834BFCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 10:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51UEAf2XGrgb3sTNi1xRNy5C5WRe9clSdlI0urQKEJI=; b=GuG9JOpQmTgJIN1ajq/0wPX1q2
-	x4a2q8Wx92YR+j5YK37vowm2Vts4Kp66XG4sXQ8tlanSwJ3JSia/rggeQ/GntIKDWLTGUFl4lhG3U
-	/exWa6xpH9dfcmgJL6fKBUfP/kuutgD/Q3FKsYGYmGRP2QB73Gfpy1iZV9VnfUEOr8+KLwJgKGQM9
-	x8hn3Pl2Oim7xxeucSDOF7PSky8SSmmEtRaunkHQNgA4EUBYYCh1WukAnxoqc3T1UyIh4WfwrffdY
-	iWQYuOjNWvmTPSbXl1rYsrjbhtOZFn1GFa50OZNGVQCjKwR4zaR5BExG0SUbSFFQ8SaISFKpsgb6g
-	W928l2sQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=613kovGpTvhuAM0CvMdqsW4kkHDDD6hhLd4A7wDyFwg=; b=m/6nLi6BLJT5rab2RcpnOmCoJT
+	TKbJdglFd26kbX83QvDkHbJ3dvjLm9ooCLP4798JI8SS0/bhnVgQeicgIKrx0P/ZBfadzDuThLSFD
+	juiGzfs1ztYQOdSA8pAPJFOrdvYvgiPcilHg4ezqb8ko3BHYcazY8sa5qqa361oXJrZ6H6gXBr6OL
+	A6dXF2R6io2ftFb1xyGy392DwCgEiwmXhG/oCiRgHg6zrsf3WEOfsmNZqauva/hTtd3drzAnXZ3eY
+	+fu8fv3m/pFOFNFblQbCGFLMMUubntbipkXBM2n0AGnmQUO4EIaTB2XDGOJ/S/DNaLRBFzbyP+TLa
+	mp/zHWqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvV0-0000000FIvJ-1f9f;
-	Mon, 18 May 2026 10:47:02 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wOvXm-0000000FJbs-0V0a;
+	Mon, 18 May 2026 10:49:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOvUx-0000000FIti-1RAp
+	id 1wOvXi-0000000FJae-0uPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 10:47:00 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-44a14580111so1547826f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 03:46:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779101217; x=1779706017; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=51UEAf2XGrgb3sTNi1xRNy5C5WRe9clSdlI0urQKEJI=;
-        b=uuq2NChekvPXeVfeYmEev7/ON6exPY7K52lIMYVjBPdHwj1neyfgsmM92JAAFfxLyL
-         ikARFEYdOwy2TFjFmcm4C4xZyk1e7Ewcr4YaEBrpLCP5x78LQAOUUWklNRUAJd7Eg0t0
-         NVQa6cJNVx8itfawHmOJjzx4S+MZjgozl3mIS7qXm6N/VuP4fxMPQdEyG7rdSLCxiBvq
-         td/EJtYyueMLCOMmT7HKNCB+JZdJa2cl6+tGrb3s6VyblWwX7m7vxTitivdQTREfhFb0
-         2FiSba+XhQH4FWHN4vY3FJx9yli0lnN6knO+wPidTTGvtqxUOTLoZnj4y+y2BRfhDVkC
-         lCFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779101217; x=1779706017;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=51UEAf2XGrgb3sTNi1xRNy5C5WRe9clSdlI0urQKEJI=;
-        b=GJsMyssgHLek7/LorasH9njRNVrsh9nK7U2+0i0KUl8EE5H5KVP6kGzy8Q5P7pc6IP
-         w5sm18LNUZe7ldnvvf27p0k9zAVGpksigig+Obswx7zeNfuR1+M/MA9y+dPm8s5UkdNE
-         hIPXBc1MgYy/yo89liHDR78eLRl5k34ch7F0pZjoFsIdVojBnZ0to+qQRbgLP0IKIvcf
-         d1NceDjh3uAZx9RqJbPPmHZFNQCDXPkw3+haegdEkUer9+ScACBwv+h4sPzV8vyhzfvl
-         5221trsp3PVpc2aJ69WsU5+ucEIZ3L0bsi0Ta+aT1GUfbOtoRdSZCAVLC75D4luaq1pj
-         DNow==
-X-Forwarded-Encrypted: i=1; AFNElJ9qNbPObUnwTq0Xa7ZAWQRmaDEEFten0w/Kl2GtBiF8c/umAAGH2uB1EYK+PP+1lWPvhlccWuSSlpw5z02Hv8sm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHaDAsRnjQEqSPiDJ+mIWUcb47NKR0QtILypwQ/yJbfjMCU18c
-	+rrcvvwAcfChq6P8ZGc1zAeUN3ZBX1Dx682mMdHSiGlvkqTGSHfZ7x4GP4lnqsC/k8E=
-X-Gm-Gg: Acq92OHThpDoenhFxG81z2dhFHhJt9Qg/LCAYz3G6NFRg5P+36UKNBsnendArFCrbho
-	ZFvakh/x/bp9EBFCHutsV4m6s0m4Zn3X5yn9VOQdMCCjcGagCaFh4uHT9GP/o/xMekjuMe4wEZB
-	1BpPthDFOd4+ZSb+tq6y8uhG7JDPOIyAFk163oboSA8pLelYl+X7tQ2HVST/vXwqpBflhbFSx97
-	qSOn9RQYL4gS3Cjf28Jcd/i4Vm+/6uO6SoEocWR948XH9Err3AP86ScPqF6wADHlb7Rdcqi831V
-	iL/d1KIAj5sNOK8R5ieiRB/SHBs6YVUvT+Jsje+gyLsRYGl3xFoJTCaTGukqA7c4Av0FM3y8g3n
-	pWnx5syPl2zhA/IOylqN4tkG3Z1wD0+KZwfZsmJs8umVyBDLnOsfaxZRXu6R0/7O2nHPkC1syJv
-	8hDNHBB9GSwNMbIJ4utJNoX6weDFfvL1iHiVDfr0Mx0L3E+xLd9Ax+/COEGQcc7yYAv+Jq4nhdB
-	5bXExEuEWr9FCcuZKVJwyAXQWr0
-X-Received: by 2002:a5d:584f:0:b0:45d:484b:ec10 with SMTP id ffacd0b85a97d-45e5c5bbe5cmr22863944f8f.2.1779101217129;
-        Mon, 18 May 2026 03:46:57 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:33b7:a835:bc95:259f])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe248dsm35777201f8f.30.2026.05.18.03.46.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2026 03:46:56 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 18 May 2026 11:46:55 +0100
-Message-Id: <DILQQVKC65OW.105KDQXOG4PN5@linaro.org>
-Cc: "Peter Griffin" <peter.griffin@linaro.org>,
- <linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/2] firmware: samsung: acpm: add Exynos850 support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Sam Protsenko"
- <semen.protsenko@linaro.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Krzysztof Kozlowski" <krzk@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>
-X-Mailer: aerc 0.20.0
-References: <20260513-exynos850-acpm-firmware-support-v1-0-3858d097e433@linaro.org> <20260513-exynos850-acpm-firmware-support-v1-2-3858d097e433@linaro.org> <6802a856-76dc-4bd0-a026-59b0249646af@linaro.org>
-In-Reply-To: <6802a856-76dc-4bd0-a026-59b0249646af@linaro.org>
+	Mon, 18 May 2026 10:49:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 32ABB4446C;
+	Mon, 18 May 2026 10:49:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FC5DC2BCB7;
+	Mon, 18 May 2026 10:49:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1779101389;
+	bh=42jNNsHQpsQpdQu92rwfrOHOBcpmK94BPUkm62USyd4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bvmkqrM+eXFjvGXVjJHiwUCycK215Afb0uWDNVzd1/qkeeUmDxVKwfS8cLg9LcLFf
+	 gSI0Vp7+TKoFzL9pIp3Ga8zHUcTvD0kmsveZ2nd3ds7cGPM81D3VR4kwFq9v4CNLjR
+	 /m8B69I8qyU/qSTxlW0YVjITv6VzOn4aKpDD49W8=
+Date: Mon, 18 May 2026 12:49:03 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Shashank Balaji <shashank.mahadasyam@sony.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+	Boqun Feng <boqun@kernel.org>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Daniel Gomez <da.gomez@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Aaron Tomlin <atomlin@atomlin.com>, Mike Leach <mike.leach@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Rahul Bukte <rahul.bukte@sony.com>, linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	driver-core@lists.linux.dev, rust-for-linux@vger.kernel.org,
+	linux-doc@vger.kernel.org, Daniel Palmer <daniel.palmer@sony.com>,
+	Tim Bird <tim.bird@sony.com>, linux-modules@vger.kernel.org,
+	linux-tegra@vger.kernel.org, Sumit Gupta <sumitg@nvidia.com>
+Subject: Re: [PATCH v5 4/4] driver core: platform: set mod_name in driver
+ registration
+Message-ID: <2026051849-life-almanac-224e@gregkh>
+References: <20260518-acpi_mod_name-v5-0-705ccc430885@sony.com>
+ <20260518-acpi_mod_name-v5-4-705ccc430885@sony.com>
+ <2026051827-curler-disjoin-c83f@gregkh>
+ <agrqvIiNWrYtGvTk@JPC00244420>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <agrqvIiNWrYtGvTk@JPC00244420>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_034659_431333_15579201 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20260518_034950_296953_EF4F914C 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +96,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon May 18, 2026 at 11:27 AM BST, Tudor Ambarus wrote:
->
->
-> On 5/13/26 2:12 AM, Alexey Klimov wrote:
->> The Exynos850 SoC contains an APM co-processor. Communication
->> with this hardware block is established using the ACPM protocol,
->> which handles IPC messages for clocks, power, thermal management,
->> and PMIC control.
->>=20
->> Add the "samsung,exynos850-acpm-ipc" compatible string along with
->> its associated match data. This includes the specific initialisation
->
-> s/initialisation/initialization=20
+On Mon, May 18, 2026 at 07:32:28PM +0900, Shashank Balaji wrote:
+> On Mon, May 18, 2026 at 12:27:13PM +0200, Greg Kroah-Hartman wrote:
+> > On Mon, May 18, 2026 at 07:20:00PM +0900, Shashank Balaji wrote:
+> > > Pass KBUILD_MODNAME through the driver registration macro so that
+> > > the driver core can create the module symlink in sysfs for built-in
+> > > drivers, and fixup all callers.
+> > > 
+> > > The Rust platform adapter is updated to pass the module name through to the new
+> > > parameter.
+> > > 
+> > > Tested on qemu with:
+> > > - x86 defconfig + CONFIG_RUST
+> > > - arm64 defconfig + CONFIG_RUST + CONFIG_CORESIGHT stuff
+> > > 
+> > > Examples after this patch:
+> > > 
+> > >     /sys/bus/platform/drivers/...
+> > >         coresight-itnoc/module		-> coresight_tnoc
+> > >         coresight-static-tpdm/module	-> coresight_tpdm
+> > >         coresight-catu-platform/module	-> coresight_catu
+> > >         serial8250/module		-> 8250
+> > >         acpi-ged/module			-> acpi
+> > >         vmclock/module			-> ptp_vmclock
+> > > 
+> > > Co-developed-by: Rahul Bukte <rahul.bukte@sony.com>
+> > > Signed-off-by: Rahul Bukte <rahul.bukte@sony.com>
+> > > Signed-off-by: Shashank Balaji <shashank.mahadasyam@sony.com>
+> > > ---
+> > > This patch depends on patches 1, 2, 3
+> > > ---
+> > >  Documentation/driver-api/driver-model/platform.rst |  3 ++-
+> > >  drivers/base/platform.c                            | 21 ++++++++++++++-------
+> > >  drivers/hwtracing/coresight/coresight-core.c       |  5 +++--
+> > >  include/linux/coresight.h                          |  5 +++--
+> > >  include/linux/platform_device.h                    | 17 +++++++++--------
+> > >  rust/kernel/platform.rs                            |  4 +++-
+> > >  6 files changed, 34 insertions(+), 21 deletions(-)
+> > > 
+> > > diff --git a/Documentation/driver-api/driver-model/platform.rst b/Documentation/driver-api/driver-model/platform.rst
+> > > index cf5ff48d3115..9673470bded2 100644
+> > > --- a/Documentation/driver-api/driver-model/platform.rst
+> > > +++ b/Documentation/driver-api/driver-model/platform.rst
+> > > @@ -70,7 +70,8 @@ Kernel modules can be composed of several platform drivers. The platform core
+> > >  provides helpers to register and unregister an array of drivers::
+> > >  
+> > >  	int __platform_register_drivers(struct platform_driver * const *drivers,
+> > > -				      unsigned int count, struct module *owner);
+> > > +				      unsigned int count, struct module *owner,
+> > > +				      const char *mod_name);
+> > 
+> > Why can't you just use the owner->name value instead?  They are always
+> > the same here, right?
+> 
+> owner is NULL for built-in modules.
 
-Why? Where is the error here?
-
-Also:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Doc=
-umentation/doc-guide/contributing.rst?h=3Dv7.1-rc4#n176
-
-"Both American and British English spellings are allowed within the
-kernel documentation.  There is no need to fix one by replacing it with
-the other."
-
-Also looking at git log, plenty of _s_ spellings.
-
->> data base offset (which differs from the GS101 offset) and the
->> "exynos850-acpm-clk" device name required to properly instantiate
->> the clock provider.
->
-> The patch looks alright. With what client did you test it, cpufreq?
->
-> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>=20
-
-Thanks. As you might be aware this was tested with acpm-based tmu
-and with dvfs/cpufreq both on e850-96. They are local changes here but I
-can't send all of them in one go -- I need dependencies first.
-
-Best regards,
-Alexey
+Ah, sorry, forgot about that.
 
