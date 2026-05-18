@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213F0CD4F49
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D62CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 15:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CjDz+P5pE8aYo1YUm5+9bGyVGEMdzm9eHx1+Plr5Uus=; b=Huv13i+yoa95pXH+JWjcPNmfAv
-	psm4XLjqiVlp2CM6192QruvJ/nxR9v/eW62i8XjoIOwCK8mYr+mr/zfsH51xvr9yEKp8b8a0Cb+92
-	feAk7X/Ak45NOt2ZOZ+tiCKWII8hHtA42hVMAUiAMgTFWX4oYrJqTKIax0cYBljdAevxxg+5/37CF
-	qunfkB3hKwsRA78AO1lSt9N4CgkhYHuIvlBPLbgNkMOE6aPzXGDfmEKZwAVoSC2yDGXWF9oblyROw
-	xdfMBTERnNBlbAbCw9VY5bI65foKNAiJLAqCOOaYS6++a93pjVhETqcGEuEHIHIkdtEfnKCcjGGcd
-	sISmzqsQ==;
+	bh=m5FwAlhgzpaBSsYllt86ZWKKewn7PYpMdyJ+DlZuLc0=; b=EdG5VuK379DzN6JJ6fTg56BwAR
+	f0KMx4aLZ8SrZjQvaAe4tzy6RkuPh1TU2S7JSIgkp9OZ89lC4vt4SEpq/fd/GKw5Dw3EfAip3Tpbt
+	0O3K5Xm3euUbObu84Kg2OneFcBbIMD+Lg2ThXj8EIydWLsM3E1/COqboXwToE8vFDF1bGVbL+88fu
+	vH9XQ1ujXzw0lqJPNa5bAyXxKeDXXG+jHwTYqhDPh0LPtQczbOu+mbWjkwLVLNfOXzuM4GVTYfsGN
+	4wlviI39BMygHD69W617+8Tw8vzerSZnY+nNUwWglmY+ckCNjdEk0/tlNZqrsP+ViP88pGQoiDywm
+	U6TRTpzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOzaW-0000000G6tK-0VCT;
-	Mon, 18 May 2026 15:09:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOzaP-0000000G6qG-0jQZ
+	id 1wOzpA-0000000G8qT-0IKn;
+	Mon, 18 May 2026 15:24:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOzp6-0000000G8pP-32ab
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 15:08:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E35CF43C3F;
-	Mon, 18 May 2026 15:08:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32CC4C2BCB7;
-	Mon, 18 May 2026 15:08:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779116932;
-	bh=cfA4Ibdui6nnrdEV54tiYvssRE6gcGfQ0ARyvZ4bAAY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=INRh4+GGjQHX0qwXeslpFza20QCQAPfFM2xhozYOYD7gaJr7QaL2TJ/irYFmSIr92
-	 uquHagjrFwfeUDCrEe464adINNgOLXT8mVErM6N8uJer819Bgw8e/urhwDSqkrXtjq
-	 /XEby8wgpoEuR1WOef8Ln8SlayFxQwcKNt0P9BAq6Ao6CoZdljnSOngCLbx50Fius1
-	 XUUrN1eMxqko8lBF7qeDmS/i3x7MAvrqVMeX2LlBRtBrWiFKrtfxSMhzvU0Co0XIiD
-	 9CQ2kwLJYXQx5cMjdAe5kIdMfMNRCxH1NiA80mN5v/6iSDTgIEEyiaaa3iV5yoijs2
-	 cAfKLq77/FxBA==
-From: Mark Brown <broonie@kernel.org>
-Date: Mon, 18 May 2026 16:07:30 +0100
-Subject: [PATCH v2 2/2] kselftest/arm64: Add 2025 dpISA coverage to hwcaps
+	Mon, 18 May 2026 15:24:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3E621756;
+	Mon, 18 May 2026 08:23:57 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 910D03F85F;
+	Mon, 18 May 2026 08:24:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779117843; bh=HUh7OUQHd40zB/UJtVm6xYp8OBDyCCY4+4FgcMoHom0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TbJbftJBhQIkBZwo0HRW5A1tX4MAAwrlagir0iZ3jZHqgqqTnZaGCrdEQG3f0Okvo
+	 VJGPqut7KyMdwPwA4ZIIZ8wvj4Fqy5kvY3a63yhyfDkVzmaKmR4wJrIgD5j51WOLKN
+	 h543MSdtLC9fmKDTGrUA528Iwg5yho5qEMvmkjYw=
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Yabin Cui <yabinc@google.com>,
+	Keita Morisaki <keyz@google.com>,
+	Jie Gan <jie.gan@oss.qualcomm.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tamas Petz <tamas.petz@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v14 00/28] CoreSight: Refactor power management for CoreSight path
+Date: Mon, 18 May 2026 16:23:47 +0100
+Message-ID: <177911781163.221272.5834610199324773140.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
+References: <20260515-arm_coresight_path_power_management_improvement-v14-0-f88c4a3ecfe9@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260518-arm64-dpisa-2025-v2-2-b3367b73bd00@kernel.org>
-References: <20260518-arm64-dpisa-2025-v2-0-b3367b73bd00@kernel.org>
-In-Reply-To: <20260518-arm64-dpisa-2025-v2-0-b3367b73bd00@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5117; i=broonie@kernel.org;
- h=from:subject:message-id; bh=cfA4Ibdui6nnrdEV54tiYvssRE6gcGfQ0ARyvZ4bAAY=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqCyt+tC6HEN5KhtRFuBmb2AlnCPLhZuPZqHHIf
- J3ZKvpsAieJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCagsrfgAKCRAk1otyXVSH
- 0DEmB/4pD0mSaCB2En9wA75gJzPKr/6DL0dNbf3NlSPnWX9R6sibPUUhLsgyTgOyPs/6EXiJW/x
- kUcjXeOgbTcvB0vQYZAJWtZFfdFzMKyVE8zhoRtGzykfeM51bys+ZReEvh7aGjwcuuylg48vSlU
- Dvi1Ybu3cUc4ZPzm2ITogr87TdaWicIWxXjDw7ynug9QQM4txBueZbNwaP6KyagCTSFKFLAP6Zb
- Sp5eEy+lPM+Pw3PPZI8B8agWVvQvHbUWCdbIZJRJalAndccU4u186aLafGjryYpeXN8ty7gxZkA
- 3TAsxFBKDnH1pm9zj6SsKq/fSTVHGJzvC4wmRHsrybenLdn6
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_080853_259576_FE05DA35 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20260518_082404_934327_7C81707E 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,220 +84,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add coverage of the new hwcaps to the test program, encodings cross checked
-against LLVM 22.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/arm64/abi/hwcap.c | 116 ++++++++++++++++++++++++++++++
- 1 file changed, 116 insertions(+)
+On Fri, 15 May 2026 21:08:07 +0100, Leo Yan wrote:
+> This series focuses on CoreSight path power management.  The changes can
+> be divided into four parts for review:
+> 
+>   Patches 01 - 10: Preparison for CPU PM:
+>                    Fix source disabling on idr_alloc failure.
+>                    Fix helper enable failure handling.
+>                    Refactor CPU ID stored in csdev.
+>                    Move CPU lock to sysfs layer.
+> 		   Move per-CPU source pointer from etm-perf to core layer.
+> 		   Refactor etm-perf to retrieve source via per-CPU's event
+> 		   data for lockless and get source reference during AUX
+> 		   setup.
+>   Patches 11 - 13: Refactor CPU idle flow managed in the CoreSight core
+>                    layer.
+>   Patches 14 - 23: Refactor path enable / disable with range, control path
+>                    during CPU idle.
+>   Patches 24 - 25: Support the sink (TRBE) control during CPU idle.
+>   Patches 26 - 28: Move CPU hotplug into the core layer, and fix sysfs
+>                    mode for hotplug.
+> 
+> [...]
 
-diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
-index e22703d6b97c..19fca95f7c22 100644
---- a/tools/testing/selftests/arm64/abi/hwcap.c
-+++ b/tools/testing/selftests/arm64/abi/hwcap.c
-@@ -108,6 +108,24 @@ static void f8mm8_sigill(void)
- 	asm volatile(".inst 0x6e80ec00");
- }
- 
-+static void f16f32dot_sigill(void)
-+{
-+	/* FDOT V0.2S, V0.4H, V0.2H[0] */
-+	asm volatile(".inst 0xf409000");
-+}
-+
-+static void f16f32mm_sigill(void)
-+{
-+	/* FMMLA V0.4S, V0.8H, V0.8H */
-+	asm volatile(".inst 0x4e40ec00");
-+}
-+
-+static void f16mm_sigill(void)
-+{
-+	/* FMMLA V0.8H, V0.8H, V0.8H */
-+	asm volatile(".inst 0x4ec0ec00");
-+}
-+
- static void faminmax_sigill(void)
- {
- 	/* FAMIN V0.4H, V0.4H, V0.4H */
-@@ -191,6 +209,12 @@ static void lut_sigill(void)
- 	asm volatile(".inst 0x4e801000");
- }
- 
-+static void sve_lut6_sigill(void)
-+{
-+	/* LUTI6 Z0.H, { Z0.H, Z1.H }, Z0[0] */
-+	asm volatile(".inst 0x4560ac00");
-+}
-+
- static void mops_sigill(void)
- {
- 	char dst[1], src[1];
-@@ -282,6 +306,18 @@ static void sme2p2_sigill(void)
- 	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
- }
- 
-+static void sme2p3_sigill(void)
-+{
-+	/* SMSTART SM */
-+	asm volatile("msr S0_3_C4_C3_3, xzr" : : : );
-+
-+	/* ADDQP Z0.B, Z0.B, Z0.B */
-+	asm volatile(".inst 0x4207800" : : : "z0");
-+
-+	/* SMSTOP */
-+	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
-+}
-+
- static void sme_aes_sigill(void)
- {
- 	/* SMSTART SM */
-@@ -378,6 +414,18 @@ static void smef8f32_sigill(void)
- 	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
- }
- 
-+static void smelut6_sigill(void)
-+{
-+	/* SMSTART */
-+	asm volatile("msr S0_3_C4_C7_3, xzr" : : : );
-+
-+	/* LUTI6 { Z0.B-Z3.B }, ZT0, { Z0-Z2 } */
-+	asm volatile(".inst 0xc08a0000" : : : );
-+
-+	/* SMSTOP */
-+	asm volatile("msr S0_3_C4_C6_3, xzr" : : : );
-+}
-+
- static void smelutv2_sigill(void)
- {
- 	/* SMSTART */
-@@ -486,6 +534,12 @@ static void sve2p2_sigill(void)
- 	asm volatile(".inst 0x4cea000" : : : "z0");
- }
- 
-+static void sve2p3_sigill(void)
-+{
-+	/* ADDQP Z0.B, Z0.B, Z0.B */
-+	asm volatile(".inst 0x4207800" : : : "z0");
-+}
-+
- static void sveaes_sigill(void)
- {
- 	/* AESD z0.b, z0.b, z0.b */
-@@ -504,6 +558,12 @@ static void sveb16b16_sigill(void)
- 	asm volatile(".inst 0x65000000" : : : );
- }
- 
-+static void sveb16mm_sigill(void)
-+{
-+	/* BFMMLA Z0.H, Z0.H, Z0.H */
-+	asm volatile(".inst 0x64e0e000" : : : );
-+}
-+
- static void svebfscale_sigill(void)
- {
- 	/* BFSCALE Z0.H, P0/M, Z0.H, Z0.H */
-@@ -729,6 +789,27 @@ static const struct hwcap_data {
- 		.cpuinfo = "f8mm4",
- 		.sigill_fn = f8mm4_sigill,
- 	},
-+	{
-+		.name = "F16MM",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_F16MM,
-+		.cpuinfo = "f16mm",
-+		.sigill_fn = f16mm_sigill,
-+	},
-+	{
-+		.name = "F16F32DOT",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_F16F32DOT,
-+		.cpuinfo = "f16f32dot",
-+		.sigill_fn = f16f32dot_sigill,
-+	},
-+	{
-+		.name = "F16F32MM",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_F16F32MM,
-+		.cpuinfo = "f16f32mm",
-+		.sigill_fn = f16f32mm_sigill,
-+	},
- 	{
- 		.name = "FAMINMAX",
- 		.at_hwcap = AT_HWCAP2,
-@@ -918,6 +999,13 @@ static const struct hwcap_data {
- 		.cpuinfo = "sme2p2",
- 		.sigill_fn = sme2p2_sigill,
- 	},
-+	{
-+		.name = "SME 2.3",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_SME2P3,
-+		.cpuinfo = "sme2p3",
-+		.sigill_fn = sme2p3_sigill,
-+	},
- 	{
- 		.name = "SME AES",
- 		.at_hwcap = AT_HWCAP,
-@@ -967,6 +1055,13 @@ static const struct hwcap_data {
- 		.cpuinfo = "smef8f32",
- 		.sigill_fn = smef8f32_sigill,
- 	},
-+	{
-+		.name = "SME LUT6",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_SME_LUT6,
-+		.cpuinfo = "smelut6",
-+		.sigill_fn = smelut6_sigill,
-+	},
- 	{
- 		.name = "SME LUTV2",
- 		.at_hwcap = AT_HWCAP2,
-@@ -1052,6 +1147,13 @@ static const struct hwcap_data {
- 		.cpuinfo = "sve2p2",
- 		.sigill_fn = sve2p2_sigill,
- 	},
-+	{
-+		.name = "SVE 2.3",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_SVE2P3,
-+		.cpuinfo = "sve2p3",
-+		.sigill_fn = sve2p3_sigill,
-+	},
- 	{
- 		.name = "SVE AES",
- 		.at_hwcap = AT_HWCAP2,
-@@ -1066,6 +1168,13 @@ static const struct hwcap_data {
- 		.cpuinfo = "sveaes2",
- 		.sigill_fn = sveaes2_sigill,
- 	},
-+	{
-+		.name = "SVE B16MM",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_SVE_B16MM,
-+		.cpuinfo = "sveb16mm",
-+		.sigill_fn = sveb16mm_sigill,
-+	},
- 	{
- 		.name = "SVE BFSCALE",
- 		.at_hwcap = AT_HWCAP,
-@@ -1087,6 +1196,13 @@ static const struct hwcap_data {
- 		.cpuinfo = "svef16mm",
- 		.sigill_fn = svef16mm_sigill,
- 	},
-+	{
-+		.name = "SVE_LUT6",
-+		.at_hwcap = AT_HWCAP3,
-+		.hwcap_bit = HWCAP3_SVE_LUT6,
-+		.cpuinfo = "svelut6",
-+		.sigill_fn = sve_lut6_sigill,
-+	},
- 	{
- 		.name = "SVE2 B16B16",
- 		.at_hwcap = AT_HWCAP2,
+Applied, thanks!
 
+[01/28] coresight: Fix source not disabled on idr_alloc_u32 failure
+        https://git.kernel.org/coresight/c/ea2c2b9e2a66
+[02/28] coresight: Handle helper enable failure properly
+        https://git.kernel.org/coresight/c/864754d0a084
+[03/28] coresight: Extract device init into coresight_init_device()
+        https://git.kernel.org/coresight/c/10be00dd7375
+[04/28] coresight: Populate CPU ID into coresight_device
+        https://git.kernel.org/coresight/c/da2bfe3377b5
+[05/28] coresight: Remove .cpu_id() callback from source ops
+        https://git.kernel.org/coresight/c/9d5eb760e304
+[06/28] coresight: Take hotplug lock in enable_source_store() for Sysfs mode
+        https://git.kernel.org/coresight/c/2c7f786928c4
+[07/28] coresight: perf: Retrieve path and source from event data
+        https://git.kernel.org/coresight/c/f37bc31447c0
+[08/28] coresight: Take a reference on csdev
+        https://git.kernel.org/coresight/c/6317302ae252
+[09/28] coresight: Move per-CPU source pointer to core layer
+        https://git.kernel.org/coresight/c/3a4a1c4dd977
+[10/28] coresight: Take per-CPU source reference during AUX setup
+        https://git.kernel.org/coresight/c/d79125cc3622
+[11/28] coresight: Register CPU PM notifier in core layer
+        https://git.kernel.org/coresight/c/4d8dd98ee5bf
+[12/28] coresight: etm4x: Hook CPU PM callbacks
+        https://git.kernel.org/coresight/c/0f5e588c70a8
+[13/28] coresight: etm4x: Remove redundant checks in PM save and restore
+        https://git.kernel.org/coresight/c/81bf1c33f6a7
+[14/28] coresight: syscfg: Use IRQ-safe spinlock to protect active variables
+        https://git.kernel.org/coresight/c/3b6e3e04659a
+[15/28] coresight: Disable source helpers in coresight_disable_path()
+        https://git.kernel.org/coresight/c/5cae71994339
+[16/28] coresight: Control path with range
+        https://git.kernel.org/coresight/c/3d3289c0d850
+[17/28] coresight: Use helpers to fetch first and last nodes
+        https://git.kernel.org/coresight/c/0724585ace19
+[18/28] coresight: Introduce coresight_enable_source() helper
+        https://git.kernel.org/coresight/c/a18e877b0491
+[19/28] coresight: Save active path for system tracers
+        https://git.kernel.org/coresight/c/ac8eac9062ee
+[20/28] coresight: etm4x: Set active path on target CPU
+        https://git.kernel.org/coresight/c/b6d54a94dcf4
+[21/28] coresight: etm3x: Set active path on target CPU
+        https://git.kernel.org/coresight/c/bc9907750718
+[22/28] coresight: sysfs: Use source's path pointer for path control
+        https://git.kernel.org/coresight/c/a2e91258e864
+[23/28] coresight: Control path during CPU idle
+        https://git.kernel.org/coresight/c/39c40892f1a4
+[24/28] coresight: Add PM callbacks for sink device
+        https://git.kernel.org/coresight/c/7bbe5a172376
+[25/28] coresight: trbe: Save and restore state across CPU low power state
+        https://git.kernel.org/coresight/c/da06d6eb523b
+[26/28] coresight: sysfs: Increment refcount only for software source
+        https://git.kernel.org/coresight/c/bf64b06ede93
+[27/28] coresight: Move CPU hotplug callbacks to core layer
+        https://git.kernel.org/coresight/c/7105d2aa76d8
+[28/28] coresight: sysfs: Validate CPU online status for per-CPU sources
+        https://git.kernel.org/coresight/c/a5dd853fb777
+
+Best regards,
 -- 
-2.47.3
-
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
