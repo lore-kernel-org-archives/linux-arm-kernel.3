@@ -4,60 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A01DCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C33BCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 02:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PiiHDF+nX4+QzwmcKPsuaf62O5ixDsbk+wGUlXGzkVQ=; b=m//ZQjr0bOPb1z/faU5QZubXNa
-	H3u4cFGxmDnNHaVfS+eAMTMwi4aFKuCrAexlyi/sE1dOeT3Yb28axsY4DPLY9ZwdTBd7pyQjyNuo7
-	NwOLnAZVgZyol8uYGtLJDFxny8VDB6jou6htS8Q8aFrcEu4Xw6tR+oa4QMOx40fSUnJXnuAjF7Og9
-	Mhrxx6v5gQdlMhYbMmT7lnazpDYlMa22n6QyG170+L2yAQVFDcXDq5+hZxIscfCUK+Go4s5HE0QDg
-	lLDO397jVjN1cvH/qpytcN1wxebhE8rEBkbsvO/hPP4ID4/Lh5PPM0A9tO5KXvsyHbEyxss63SHoL
-	yxpI0sCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MFnnI6BLldGNd3xKUEPWwgoYbIBXOTqb1boV/gtJDt0=; b=0FR5j2w1rlgOGWwIa0TsRvLryJ
+	vkjAC0UoKu+PFjAFduwQSnYK8npa890aQ2oABhucRe2rzAcXHDUtm7rQJonAVf1n7fBmO1diLWSzb
+	Za2Uc+ILXt0tx0PdtJT5ZAmTgFPESOcXz32mTB0VvB1iHUMDeF1u5aTkSKJsPhH2MsQgVio8BpBaU
+	Adv2f1tEbmElLMnSZvBn9UNDRnaWV7t6MwfBdtBc6zMUhUTU2TOGqBgd2HS0hsVxLPmlw0eOP+MQq
+	Da1HWVERmx9zOdFG0fPqPCN7I7Xk63FC6fH00QHoR4cM6W55MuMH3E8ikNOt4JMvmn0VeybaFEv/W
+	bNYf7iWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOnYJ-0000000DuVs-1iXx;
-	Mon, 18 May 2026 02:17:55 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wOnYG-0000000DuUR-3srv
+	id 1wOnaU-0000000Duob-31EL;
+	Mon, 18 May 2026 02:20:10 +0000
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net ([162.243.161.220])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wOnaR-0000000Dunf-0Mim
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 02:17:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1779070670;
-	bh=PiiHDF+nX4+QzwmcKPsuaf62O5ixDsbk+wGUlXGzkVQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ge1iBDQ6IshC+uFwYBYN09lGe9yZ80q6yvJlNL6cbZWZRF7ta/0Yd+PqmCXc6ArY/
-	 lCTER7bV69sG41xzIsPJ+EJ4RSn5HwUft2rdlzgIFwVESJ/MZE2D07LZyFV41Z95BN
-	 p44G2o3kx0vBTDUoMB3/m65JszEzJEQ6+CEMCPg11RlI01Q470HvoWx+ykgOmA4K3A
-	 XDYsCQZ5SM2O5PBrpVP9MqipBie08SGpQq4L3Mb+9m7xjy3yW5nUzLOvWdnXt5DhPz
-	 JykTCkzdKCiy6GC5VD+DyiQm/ZI9Wv+hNN9qXDGh5f6/Nuw6QR4kmdaJpCHavxrT6b
-	 5kxMjD5/JC8LA==
-Received: from [192.168.68.117] (unknown [180.150.112.11])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 7157A6037B;
-	Mon, 18 May 2026 10:17:50 +0800 (AWST)
-Message-ID: <9b81b5cf24afb2fd587c62ffd808366ac2fe5cd7.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: Add ASRock Rack B650D4U BMC
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>, joel@jms.id.au
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	devicetree@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	Mon, 18 May 2026 02:20:09 +0000
+Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
+	by app2 (Coremail) with SMTP id TQJkCgBHXaApdwpqD0oaAA--.47720S2;
+	Mon, 18 May 2026 10:19:23 +0800 (CST)
+From: lizhi2@eswincomputing.com
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org
-Date: Mon, 18 May 2026 11:47:50 +0930
-In-Reply-To: <20260514031622.1416922-3-prasanth.padarthi10@gmail.com>
-References: <20260514031622.1416922-1-prasanth.padarthi10@gmail.com>
-	 <20260514031622.1416922-3-prasanth.padarthi10@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+Cc: ningyu@eswincomputing.com,
+	linmin@eswincomputing.com,
+	pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com,
+	weishangjuan@eswincomputing.com,
+	Zhi Li <lizhi2@eswincomputing.com>
+Subject: [PATCH net v2 0/5] net: stmmac: eic7700: fix delay calculation and initialization ordering
+Date: Mon, 18 May 2026 10:19:19 +0800
+Message-ID: <20260518021919.404-1-lizhi2@eswincomputing.com>
+X-Mailer: git-send-email 2.52.0.windows.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: TQJkCgBHXaApdwpqD0oaAA--.47720S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFW5Xr1fJF45Xr1kKryfZwb_yoW8AFW8p3
+	93GFWrtr1kJryxJws7JF1vvFWrtan3CF1Y934rG3s7X3s0gas0qw18K3WFgFyUCr4xZF1j
+	yF4UXa98Cas0krJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBq14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4U
+	JVW0owA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwAKzVCY07xG64k0F24lc7CjxVAaw2AFwI0_GFv_Wrylc2xSY4AK6svPMxAIw2
+	8IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4l
+	x2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWrXwCIc40Y0x0EwIxGrw
+	CI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI
+	42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z2
+	80aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7sRi7KItUUUUU==
+X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260517_191753_170531_1942D5C9 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20260517_192007_270530_D5CF8C40 
+X-CRM114-Status: UNSURE (   7.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,122 +96,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Prasanth,
+From: Zhi Li <lizhi2@eswincomputing.com>
 
-On Thu, 2026-05-14 at 08:46 +0530, Prasanth Kumar Padarthi wrote:
-> Add initial device tree support for the ASRock Rack B650D4U BMC.
-> The B650D4U is a server motherboard utilizing the ASPEED AST2600
-> SoC for management.
->=20
-> Signed-off-by: Prasanth Kumar Padarthi <prasanth.padarthi10@gmail.com>
-> ---
-> =C2=A0arch/arm/boot/dts/aspeed/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> =C2=A0.../dts/aspeed/aspeed-bmc-asrock-b650d4u.dts=C2=A0 | 71 +++++++++++=
-++++++++
-> =C2=A02 files changed, 72 insertions(+)
-> =C2=A0create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d=
-4u.dts
->=20
-> diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed=
-/Makefile
-> index c4f064e4b..124d4f8f8 100644
-> --- a/arch/arm/boot/dts/aspeed/Makefile
-> +++ b/arch/arm/boot/dts/aspeed/Makefile
-> @@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> =C2=A0	aspeed-bmc-asrock-romed8hm3.dtb \
-> =C2=A0	aspeed-bmc-asrock-spc621d8hm3.dtb \
-> =C2=A0	aspeed-bmc-asrock-x570d4u.dtb \
-> +	aspeed-bmc-asrock-b650d4u.dtb \
-> =C2=A0	aspeed-bmc-asus-x4tf.dtb \
-> =C2=A0	aspeed-bmc-bytedance-g220a.dtb \
-> =C2=A0	aspeed-bmc-delta-ahe50dc.dtb \
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts b/arc=
-h/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-> new file mode 100644
-> index 000000000..130b7f3e0
-> --- /dev/null
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-b650d4u.dts
-> @@ -0,0 +1,71 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/dts-v1/;
-> +
-> +#include "aspeed-g6.dtsi"
-> +
-> +/ {
-> +	model =3D "ASRock Rack B650D4U BMC";
-> +	compatible =3D "asrock,b650d4u-bmc", "aspeed,ast2600";
-> +
-> +	aliases {
-> +		serial4 =3D &uart5;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path =3D "serial4:115200n8";
-> +	};
-> +
-> +	memory@80000000 {
-> +		device_type =3D "memory";
-> +		reg =3D <0x80000000 0x40000000>;
-> +	};
-> +};
-> +
-> +/* BMC Console UART */
-> +&uart5 {
-> +	status =3D "okay";
-> +};
-> +
-> +/* SPI Flash Management */
-> +&fmc {
-> +	status =3D "okay";
-> +	flash@0 {
-> +		status =3D "okay";
-> +		m25p,fast-read;
-> +		label =3D "bmc";
+v1 -> v2:
+  - Update eswin,eic7700-eth.yaml:
+    - Limit the binding changes to adding optional TXD and RXD delay register
+      offsets in eswin,hsp-sp-csr.
+    - Restore the original enum-based definitions for rx-internal-delay-ps
+      and tx-internal-delay-ps.
+    - Keep rx-internal-delay-ps and tx-internal-delay-ps as required
+      properties.
+    - Restore the original example content, with only the additional optional
+      TXD and RXD delay register offsets.
+    - Restore Acked-by from Conor Dooley for the binding change, which was
+      temporarily omitted in v1 during series restructuring and has been
+      reinstated now that the change is stable and properly isolated.
 
-Have you considered describing the flash layout here?
+  - Update dwmac-eic7700.c:
+    - Split driver changes into smaller patches based on review feedback to
+      improve reviewability and bisectability.
+    - Keep the existing requirement that rx-internal-delay-ps and
+      tx-internal-delay-ps must be present in the device tree.
+    - Treat TXD/RXD delay register offsets as optional and only program them
+      when provided by device tree.
+    - Remove the previously proposed fix_mac_speed logic.
 
-> +	};
-> +};
-> +
-> +/* Dedicated Management LAN */
-> +&mdio0 {
-> +	status =3D "okay";
-> +
-> +	ethphy0: ethernet-phy@0 {
-> +		compatible =3D "ethernet-phy-ieee802.3-c22";
-> +		reg =3D <0>;
-> +	};
-> +};
-> +
-> +&mac0 {
-> +	status =3D "okay";
-> +	phy-mode =3D "rgmii-rxid";
-> +	phy-handle =3D <&ethphy0>;
-> +	pinctrl-names =3D "default";
-> +	pinctrl-0 =3D <&pinctrl_rgmii1_default &pinctrl_mdio1_default>;
-> +};
-> +
-> +/* I2C Bus for FRU/EEPROM Storage */
-> +&i2c7 {
-> +	status =3D "okay";
-> +	eeprom@57 {
-> +		compatible =3D "atmel,24c02";
-> +		reg =3D <0x57>;
-> +		pagesize =3D <16>;
-> +	};
-> +};
-> +
-> +/* System Watchdog */
-> +&wdt1 {
-> +	status =3D "okay";
-> +	aspeed,reset-type =3D "soc";
-> +};
+  - Link to v1:
+    https://lore.kernel.org/lkml/20260507083037.152-1-lizhi2@eswincomputing.com/
 
-My preference is that the nodes are ordered alphabetically by label
-name. Can you please fix that? While it's also fine to order them e.g.
-by unit address, alphabetical order is much easier for me to assess by
-inspection.
+Zhi Li (5):
+  dt-bindings: ethernet: eswin: add optional TXD and RXD delay register
+    offsets
+  net: stmmac: eswin: fix HSP CSR init ordering after clock enable
+  net: stmmac: eswin: clear TXD and RXD delay registers during
+    initialization
+  net: stmmac: eswin: correct RGMII delay granularity to 20 ps
+  net: stmmac: eswin: validate RGMII delay values
 
-Andrew
+ .../bindings/net/eswin,eic7700-eth.yaml       |  13 +-
+ .../ethernet/stmicro/stmmac/dwmac-eic7700.c   | 126 +++++++++++++-----
+ 2 files changed, 101 insertions(+), 38 deletions(-)
+
+-- 
+2.25.1
+
 
