@@ -4,108 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF28CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C69BFCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=; b=xZcaia5O5jpymQ3y8G4EbjXfFI
-	p+f/OfopnuA4kus4WoHb4pGHIhe4a64aUnGokY0bBYHZi/KWGY0Y8mHv/umz4gQdrlmYMsfJFjYXt
-	jhOVus1CjelIyQVc7i2gxx+NLV6pseQ9T1wcljIvdH6o/omdrLA+KWBPMX/bCUFwP2Hn6rcPmqgPJ
-	AkpHrzkg4Ol0mUC2ocLG7IZx3KOcGpleLoLexaTA4bxYwZ3q3J1WfyldxB/xwnbd2UgQcX3nXbwAU
-	eFMrGvyi8WlS89t6/XZPOhvxCk5l3HGt9cuP74IKUAX0QzjWORy69LImfuxqsvy7SgUK5K2ByeleZ
-	iEGHNPdQ==;
+	bh=xXt3caDLxr9b08np3/+L56yljFj3B6qtLP2ybCBMaQ4=; b=FpS/juCKrglRX8oHfHpL3DpSzt
+	xqqY71bn6NEHIYiNfp5otmB84q1AwzboDa7h+qvLSCAYnofhbB2NH04a2t9VfbzLAwwYg5Yb0ORYA
+	sWv8IC8WZVuycphCfo5UkVQLpn8Hfdwyzerm/5QKOHJSuoc60vfMLhkcuOhwvdJPeOQFg5/l7xRUY
+	Ctqek9KBPXIWJu5IqsTvvcHKWArgmw5AMERWvaBSwzvyahbyW6P18nK5gitj3h7H7VOVjUVzz2+ro
+	EMNd0/1qbNqVw1tfyQYDxTEbIexaZ9xdGK+6b7m5oFruA1nAw5gF4gYrgPQQvUaR1RidEoSeoNtQq
+	whuWR4dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJ6y-00000001OqZ-1cfN;
-	Tue, 19 May 2026 11:59:48 +0000
-Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
+	id 1wPJ9H-00000001PA2-2wa2;
+	Tue, 19 May 2026 12:02:11 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJ6v-00000001Opn-3H7n
+	id 1wPJ9F-00000001P9Z-1U5S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 11:59:47 +0000
-Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50d864c23bdso16981cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 04:59:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779191984; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NWD5kbCXOxEx79cdx3y4CByryj4AHXQBWOWB8D7nU6yrwPlmSW3TjOjj0ceRK3HgqH
-         IrXAUv1td4D4Vf70PbV73zA+iC/QN7/3LvU2VzL4VdXbqMXpA1aFeeyBCj9guajMDw+1
-         590S7ZurVcWmMmWSX+ztIc8lqtKdO0AuoPxcu8SObnheEBI3mLu8Yeb8jAwH6aAP7Fqj
-         32Mxh/azZLgY0/1+E4fD9Pz1B6CduwyOFJQrxp9nhy8b0MIMnpHPW8Itc98GryYqVmNM
-         5jyob8b7xqusM1j9sPoT8gDjmoZee03ZwVCEu0BSrel9b8v+PI+te8FQqd+GL/272t9j
-         3EMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=;
-        fh=ralYBd206bqwmNnQlCR7zFERoQ4JxSVqyx3CE5HucOc=;
-        b=cRtD+aRN4DpZRiqrYamYy0CEmSFgoSVA+7nl561UexB69SstmkfCFnpS/MXr+xMPMU
-         VaaAr43sVigvzfnzmFjFQDUXn7uugUaQQkMb3pbH+YtZ9Cm8VbVpeuHd8EKmJTKaWgQd
-         fQKzukyUdIG3bN4ReIn9t7xOG9yMdM6KpTJKhMlb2VWvfdwmI64boPV8bZ6R34y+clHn
-         9sANG/eUxsPx+RBAgMeSN26n+Y45zZJAtDDIhnvAavIewY5kvK9OGW6hMNpz+iy5V04W
-         PpEHZPKtdnohTG/NyyiR2jk9rjiNc61fEl2Q2W0nqTd2bcivTmrnaSiEwtGhSjYZNlQD
-         75Mw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779191984; x=1779796784; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=;
-        b=DCzLEg5wyKFyJ6agii0cZO93ZOLtwuIV/dzXGoORSsBZCxfUxjXRF/75lNUOGMv0mK
-         b+zDSQRKiM7SLYcPiC7tLYQRib0FpyKSKG8nI7cq18kpUYNr41T6vPM8MAM+xMu7TqMT
-         j+fQaEX1Wj/BwDfSbVb0toYxkRkJm6/4sahEX6TqkXuhHDYuNHgkbkDKgcrMkEMN6QQC
-         EHMNG+febdJa/ED7wMmlo/vFVy5OQlRX/yfYua76G2rlwsh/t4UmjB7Z7qh72tWobruK
-         lsz2b0O85skzb0TshosJ8HbnzWElputvC4OJdIWWLh0Z3N7xvidfzS/V4xRX3oCtS/c3
-         wkUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779191984; x=1779796784;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=;
-        b=C6T7U7jpXHrOLpTeezSOzthodkThOeTBYHTt9o9I10BOZs5JMuSvCRS7xstgFBtcYn
-         KDi1RoEyI8qOgwbBZdSHZkSnnAB2KCCvxiy2OoBwy5r5t2M0jrOegKb/Uqi1gvorw3Iw
-         s1sgxkRn+0e9WlHiGLpJjBLQ6JMJNKdj2uR4dKanef69abuOKn56A5M2o8gOhvevODkv
-         pp70iSXs66qxvi2GPkZni2B75qu7x2uxyQ2u6WLFslhqj0unJJMawmQMNZzpaQy+hlJ7
-         +MambGPZ1erm/EVT5UJ+THYOnu2OVio6Gu3g3N90D9iIJ0G7/ZvfqsIELpRNqicm5e9b
-         yNoA==
-X-Forwarded-Encrypted: i=1; AFNElJ/MrVs0oiQPYA0FPP7XRBYbI3hEZ63oEVagdxLW/wiAXPQgx7m68XFJ03s2mCQmtp0LuW+05acSvJD3vuARDsFV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWD8eMv5wc7+qOKGNSUhdrWazjW6hCZSoJYFQZ7NGWA8/QPheV
-	VNX0lu7AJA1MRA/cGjn+bDpu8xLrC80nY6cpNWm4hZ/vuMaitwqO3P0KNtpnuhLL3XwIDA8aI84
-	Va4BLoKxH+kP77CldNj+QGso69S+2YnlTUsOSsDZwxfTKKTNKKhWMtKWJOK8=
-X-Gm-Gg: Acq92OFz65JafDG9UIcd3E9Qcvj1lG6X0vXzs5MtANhP+Ifm1r3swokTICPi6GvdT1y
-	Lkc2xsv12ENwsumk1t3ojYl6klCUhyRPi+X62A/xLA4fbJK28wj5AAHk6BWOFS0OBRAP1TXWVUf
-	dWGgBn98Tm06LQiddipFc+dQBFcwNHLcOcZQ424XRVcYpRFt7QfWTpDICEOtHmF5N6pShIkYeqK
-	29yLt6V26rNRcLI9LvKcmrpDSuG86kF2cVyxHUE0FEzeR0t8F0rHQ4r8+8+ClI8dbAA/eXdckjF
-	4YaYVtPkaznO5rgkmJ4wshAX+MWIM6NKRtH79hdfZFtObIZZ
-X-Received: by 2002:a05:622a:1f0c:b0:4f3:5475:6b10 with SMTP id
- d75a77b69052e-5167937eeeamr27627991cf.8.1779191983904; Tue, 19 May 2026
- 04:59:43 -0700 (PDT)
+	Tue, 19 May 2026 12:02:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MOMrTog1yHexCC49XaekwCrJVm/9MH/KENNc7iUWpJjZEdzabElMuOuaxjLNvtZnvj/RM0B25DUpF1uvVacf1w3lHvgm0BRXmuhm7sLuzSXQkqzreqV5n+y4zpC0MCaiMQNqZDydIF/y873FxXiuJatrQyFamLPZAGgT6wUCVSYRUgiEj5/BzfmEU5q0+3PcvTPXTOgCrEEMP3slRJPF6O1/s0gyWbtIqWWCjfUQsNkVphEioGMLYdGuKS3eIJsKFkLkqxmTHL4q9Xx+MXI2oYTNUugelcTOKZLGhACzcGID/9dBuaPsvLL6bZO9s7pVIr04y/lPRaNIk3Z77DKoog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xXt3caDLxr9b08np3/+L56yljFj3B6qtLP2ybCBMaQ4=;
+ b=bx2KGZ6IRt6zF2kIxjFMZr0hXoY4Sl9hHwAO8cwi0I799FUUqZp/4PzTHg0UoYAyp4fmjpg0OTNIPRUHleNVm1b+lXbrhgx6MqeFJAyfKX1uKsGKmjqCsK2ijX/SIWcyZILxdxVO/G3oL4kn3clkOWoLCCqNs+/HhFZoQK+s8hEEiUI3uC0dtWlk+1FVovenpb6BP1bxcu93jqH49i348iusL/Qoe1EF1pezrAx4xaqeW3/jUSsLjzGv9+pQJEyAK3Ht9yS91GcCdcJPZfh5PLyKzib93L/W0jEmHng8U8R+Ljse48sajCRNRxOkxyRT2XcxyrVgWm7Y2rCkGLgM9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xXt3caDLxr9b08np3/+L56yljFj3B6qtLP2ybCBMaQ4=;
+ b=hAZfKSv59BzztYTwXXYwEvaAxNb+NeGKV/Od8sYxZ2fKFcK9ASaTiaN2FOdNVZuDvJnXh/8r9sRMlmuX1gP+ZsrqK1vqE1PA3+Dlq+ucgB21eRtqb/PIi53Kgtk13ah6ezyTsiIxdebJrFTp4CQu7a+5gxpBPq3kyGnb/Nuf6K3tfv4OJ3MekouVh9WYRxy1+HtJjBnaRjcC/TVvyKbI3rv6TvQnK7jSkO0Mc8NQEmkCbjfvKniHLqfm/U1n8QxMJM8MhXNzB1ljt4DnPotkRuj74bfRykUBLF6WM/yFo3DBCl/ZYyqQiOv6IBWAG0R34cqwALD5Ch7o6x49FmOa+g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM4PR12MB6040.namprd12.prod.outlook.com (2603:10b6:8:af::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Tue, 19 May
+ 2026 12:01:55 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Tue, 19 May 2026
+ 12:01:55 +0000
+Date: Tue, 19 May 2026 09:01:52 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, vsethi@nvidia.com,
+	Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v4 17/24] iommu/arm-smmu-v3: Add master in arm_smmu_inv
+ for ATS entries
+Message-ID: <20260519120152.GA3477375@nvidia.com>
+References: <cover.1779161849.git.nicolinc@nvidia.com>
+ <2ea9edeaf0b23840670c62a57e71e7cf73f41ad6.1779161849.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2ea9edeaf0b23840670c62a57e71e7cf73f41ad6.1779161849.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: YT4PR01CA0473.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:d6::6) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20260501-host-direct-messages-v6-0-3f4af727ed85@google.com> <20260501-host-direct-messages-v6-2-3f4af727ed85@google.com>
-In-Reply-To: <20260501-host-direct-messages-v6-2-3f4af727ed85@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 19 May 2026 12:59:06 +0100
-X-Gm-Features: AVHnY4Ig1N0dpqVbGvtdmXRoPPpkiLAJ97bxEVMStEvo9zlm0QSTSGFeCOzGZhg
-Message-ID: <CA+EHjTyXHG05nGy5-7629vSmnctvMw0GDvjqYCMr_DisLaJewA@mail.gmail.com>
-Subject: Re: [PATCH v6 2/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
- host handler
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Armelle Laine <armellel@google.com>, 
-	Sebastien Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM4PR12MB6040:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3c8216fd-349d-4690-9410-08deb59e6b89
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|11063799006|18002099003|22082099003|56012099003|4143699003;
+X-Microsoft-Antispam-Message-Info: HH4kwQPIpCRUqEqwyvf9gwGWqPiNgqNZzHqt2iDBlTy9zbzJbZm5HhG2APZTz27wzrVqah2cmKyTJMP6bJzCNR4FnZys3vkg0V/GDGoEU/1VSemwhYxDhW7fEbHApyUdPiBNQScNqq4b/rScfw4UUTHKEVpqxjshMSOZ/HZs4I4x/sZjTWeWr317PFsO2WbYiKU7MZIFUuIW1prGJI5VBbJVwJUtt0KfhA3smjS1QODze1OfptXD943ma94lckS08kL6lmrNicmtx8v0jpPQytM/pIRRyw4N2LE0qXExF9AbQujqXDNbdugmvTl++LJGVsS5OrXVRqWabDSKZ55Mm0BsG0Zoxss2gYeaxuxWxl/Xlncf0sGiGqrfrcEblWinUauDdbeSr4RiCQcwNPeZMn34WT30Xs2gcvPzlmS3r0+d2nkFUz07h1yR1pCwTo9SygGj+CQhoGxLQGM4QVOP8iQRs4SUxovL/48Zu90HW03BipHi3GV5FmRUEy3XDPQ06rxq7V2qdKQ188j8IVfiSDnnMZuh84Eplw6axLxXxNG+TblYybn8Ouc1GISWIyC0V4e11eBhXBzNgL5aBRLUgb54YmrkF0EPGDTltE7iGkdqn63o3a1o6fCPRE7Rqu3FloLVxLhqeMRSv9JzY/JWv42SaltQCTOB+ZBprNrG1zb2694t+lyu4FCXsboE4qm0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(11063799006)(18002099003)(22082099003)(56012099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sp8+lmNPIAB+cTCzBusqNzcjzhg/tXs3c6fxJRS2MXdXiTpxbqgBRNbAID+d?=
+ =?us-ascii?Q?wYTAxKJiQxB1RE+v89ZJVvtnRDtvM1n+lHxefHOd2CUri6m8wqh2zcU2AX9/?=
+ =?us-ascii?Q?C49xshu8qTvUqBpAL/Ntba6BVFOdvBGFjSrAiOLDEo4g3jX2TsR174ZjC/Pd?=
+ =?us-ascii?Q?Fy8+4LgkEqPhojBR7fC2ihsXUzb+H8t8XDyrXtRZCJYsi6FGksvaU8nQzI6Q?=
+ =?us-ascii?Q?2neiTLIFC0TWBYIVX9K4iLyyJRDFDPmLV39vf+birtlTzF0IPcau3itPCpLn?=
+ =?us-ascii?Q?/3Br5iaJwHgKvH6hjrl3v7peyyPv6nGxPR00pH4SUWWogfy6gyNnprFWRVhy?=
+ =?us-ascii?Q?pbbxX6VNHJpTiy4v26QFqvYWfAJ9+ctoHGxO07fro03VJVj5uNaijPr38kV5?=
+ =?us-ascii?Q?LRBkIt6ZDWl7S+c+dbOwr+5axb3DSU1irPvMHAuhpBZ5K+bCKJ0M1wRBHpFO?=
+ =?us-ascii?Q?9LTprBGR2q8uD3zn4JGU2n45qn6nxwFdKh51Z6K3uj+IhhM2JrTb/mt6hMRW?=
+ =?us-ascii?Q?Pwyb6HZ8PblnF2HJNueFyUP1BYyVVCJYlp4YHGiwLolZhioiqU5hAA+RIjvd?=
+ =?us-ascii?Q?EXgLN6R8mFu6dpKfX7e7EVHrCYuTv2ckvgl32WROGP3xUU2q+gAUhdvYoAps?=
+ =?us-ascii?Q?Etsd21+eyf0n/LK2Wcnemunrl2Hdq5WuSQj+WvxHPjoF1TND2TN3/Mpy5I/k?=
+ =?us-ascii?Q?WXCA9zPzPfECkFrH1sR6KklWt42MT8Uu6ofj6bmvkpUDEsQbrjd7/PbVJ7+t?=
+ =?us-ascii?Q?0XsV1LYhHNBtU7QkL44DEYkWGhbIvLk3OaJ2OFvxyYH/QGQgPE3bFVrLx3+l?=
+ =?us-ascii?Q?i+yE8i533SxQbPG/GbUmODYcz2m4yL55Ggs9Vgka1wzlDmJSgB7ouDfW/RTW?=
+ =?us-ascii?Q?94KBDHzWZnFgK1d09q0lcomFymCrjpuonP2rtd5n2LvEA2r70Q9WqdvmvE6O?=
+ =?us-ascii?Q?gR1eAfBsfC4MaN2C/mwSBAdtG6duq2oJREWnTQP/5t89p1MI45Ia70DLncNP?=
+ =?us-ascii?Q?CD8h5M/buQDQmbT7w9Zpfnc4HM+x2JRVrSCBHGExHz8AhpkZoqipbjIfrRnd?=
+ =?us-ascii?Q?+RCn+l9gTbHdHGwoXmqlUOSN4ZjHp8JVNd6xLGUouajwEWSZQQgf/H1UgvlI?=
+ =?us-ascii?Q?8qc4lr80a2EP4o7I8PrJngXKN4smKvgb4i8dPp4SW78gSVpkNEUltKzbSNec?=
+ =?us-ascii?Q?6IojiQElTuqJV+nu28Vcp9mtdt4aExhz80++tWxzzCctuVvKGTsnX/BjgE9F?=
+ =?us-ascii?Q?r5uX/NbhOSjW+WiKOCVC7Pr/q3F8TMlrLaE6Y1zHL86onT7nPI4iowyzBW8c?=
+ =?us-ascii?Q?MzmqI9T1QQP/1Lu73AmxWNRHHwPEKZyONkA94986CKlnW1AwbtaJCD76bODQ?=
+ =?us-ascii?Q?sKOweHg1QA56v/YfwEdZnkdhgdxg2dhpD66eP7k2LSbgydXAW+MoAng9NW24?=
+ =?us-ascii?Q?PdtB6uv+3Q0lm8v2gd9JZPH5y2eC9FGETXgoGJCeSefbrbk1VN3BYBzMy5ge?=
+ =?us-ascii?Q?UNT0TB7y3oMgon+23OuPgfixC2TzWK9KCav0IAym7gRi/P6J8azyCw7k1E20?=
+ =?us-ascii?Q?EZ4nyqk8WiHWLRT6jmdLrcf1MxQZWgwU1JszrzF0rtiy8CUminxvZbjzXrUF?=
+ =?us-ascii?Q?C0iNVwGFcqDx66D64+oBR0pKcecYXBOhXn1DN2oP9Lt9580yzwqJIHqUycWZ?=
+ =?us-ascii?Q?pWvoX/aYHE5Ci8+/cijUzIeVCrfoUqKtLt9YU/igkNSaC3Sg?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3c8216fd-349d-4690-9410-08deb59e6b89
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 12:01:55.0629
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zwsHI67kUTFDsVanJBpDNEn5VqI6eRkGsy8ge9zuQRldB5tnisoDvQ7Pv4UOwtHQ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_045945_837704_170DFD9D 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20260519_050209_401756_D51330FB 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,116 +145,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Per,
-
-On Fri, 1 May 2026 at 06:34, Per Larsen via B4 Relay
-<devnull+perlarsen.google.com@kernel.org> wrote:
->
-> From: Per Larsen <perlarsen@google.com>
->
-> FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
-> the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions and can use the
-> existing handler function. Add support for FFA_MSG_SEND_DIRECT_REQ2 in
-> the host ffa handler.
->
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
+On Mon, May 18, 2026 at 08:39:00PM -0700, Nicolin Chen wrote:
+> Storing the master pointer allows backtracking it from an ATS invalidation
+> entry, which will be useful when handling ATC invalidation timeouts.
+> 
+> Don't simply swap the "smmu" pointer for the "master": a non-ATS entry may
+> be shared across multiple devices (masters). An ATS entry is okay since it
+> is tied to a unique SID.
+> 
+> Master must outlive any concurrent RCU reader iterating the domain->invs,
+> because inv->master is dereferenced inside the read-side critical section.
+> 
+> Add a synchronize_rcu() in arm_smmu_release_device() before freeing master.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 17 ++++++++++++++---
->  1 file changed, 14 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 3a58e01d255f..e5718c0f1c31 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -684,11 +684,12 @@ static bool ffa_call_supported(u64 func_id)
->         case FFA_NOTIFICATION_GET:
->         case FFA_NOTIFICATION_INFO_GET:
->         /* Optional interfaces added in FF-A 1.2 */
-> -       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
->         case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
->         case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not in Table 13.1 */
->         case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual instances per 13.1 */
->                 return false;
-> +       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
-> +               return hyp_ffa_version >= FFA_VERSION_1_2;
->         }
->
->         return true;
-> @@ -865,6 +866,7 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
->  static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
->                               struct kvm_cpu_context *ctxt)
->  {
-> +       DECLARE_REG(u64, func_id, ctxt, 0);
->         DECLARE_REG(u32, endp, ctxt, 1);
->         DECLARE_REG(u32, flags, ctxt, 2);
->
-> @@ -875,8 +877,12 @@ static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
->                 return;
->         }
->
-> -       /* filter out framework messages and validate SBZ/MBZ bits */
-> -       if (flags) {
-> +       /*
-> +        * filter out framework messages and validate SBZ/MBZ flag bits.
-> +        * FFA_MSG_SEND_DIRECT_REQ2 implies flag-less partition message.
-> +        */
-> +       if ((func_id == FFA_MSG_SEND_DIRECT_REQ ||
-> +            func_id == FFA_FN64_MSG_SEND_DIRECT_REQ) && flags) {
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 +++++++++++---
+>  2 files changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index 604f7edf54158..df6e539f75274 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -738,6 +738,7 @@ enum arm_smmu_inv_type {
+>  
+>  struct arm_smmu_inv {
+>  	struct arm_smmu_device *smmu;
+> +	struct arm_smmu_master *master; /* INV_TYPE_ATS* */
 
-I don't have much experience with FFA, however, Sashiko flagged this
-[1], and I think it found a real issue.
+I don't like this and the locking for just a slow error case.. You
+should use the SID for this and have a spinlocked ATS master list to
+search for the SID.
 
-handle_host_smc() in hyp-main.c clears ARM_SMCCC_CALL_HINTS from its
-local func_id and rejects calls with non-zero x0[63:32] before
-dispatching here, so the upper bits (u64) aren't the issue. The issue is
-that the hint-bit clear in handle_host_smc() only touches the local variable.
-host_ctxt->regs.regs[0] still carries whatever the host wrote.
-
-The DECLARE_REG() you added re-reads the raw X0 from ctxt, so the
-SVE_HINT bit (0x10000) reappears. With the host setting that bit,
-func_id becomes 0x8401006F and the equality test against
-FFA_MSG_SEND_DIRECT_REQ (0x8400006F) falls through, skipping the
-flags check. Note this isn't u64-specific -- u32 would capture the
-same bit.
-
-I think it's safest to pass the canonicalised func_id from
-kvm_host_ffa_handler() rather than re-deriving here, matching the
-__do_ffa_mem_xfer() style.
-
-Cheers,
-/fuad
-
-https://sashiko.dev/#/patchset/20260501-host-direct-messages-v6-0-3f4af727ed85%40google.com
-
-
-
->                 ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
->                 return;
->         }
-> @@ -942,6 +948,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->         case FFA_PARTITION_INFO_GET:
->                 do_ffa_part_get(&res, host_ctxt);
->                 goto out_handled;
-> +       case FFA_MSG_SEND_DIRECT_REQ2:
-> +               if (!ffa_call_supported(func_id))
-> +                       goto out_not_supported;
-> +               fallthrough;
->         case FFA_MSG_SEND_DIRECT_REQ:
->         case FFA_FN64_MSG_SEND_DIRECT_REQ:
->                 do_ffa_direct_msg(&res, host_ctxt);
-> @@ -951,6 +961,7 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->         if (ffa_call_supported(func_id))
->                 return false; /* Pass through */
->
-> +out_not_supported:
->         ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
->  out_handled:
->         ffa_set_retval(host_ctxt, &res);
->
-> --
-> 2.54.0.545.g6539524ca2-goog
->
->
->
+Jason
 
