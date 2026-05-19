@@ -4,122 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402FFCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E817FCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mf/OGUGuIRiuTTXYie0rUXZGqyUUzS6jn0J2l0v1FPs=; b=x32sel/AHlO9s4X5bukz8jBz89
-	U1CCTEGxHVf9sCp8iXbheBzFo2hWoE0AVbM0YhPXK9egrcMgD2BPy0uiiOUZ9uZE9BKj3W0hi4dM4
-	zZx89EyuPqy9G1JviiLZVQzylx9P/Gqd/gb3d8ENIh/loNMAPnf+ntObc0n1GLS7KLVkt1ZrXlur1
-	S1Vp4ipbYAAToZbhci7sNQfLwrmx+ugHmk41Cm9a9H7pTH67IsG55a5qv1VgYHES3IOnFeq24tLcx
-	iCevqiyRXckmnCEfd6DvaBWu/likKeZr3L0b2u3DPhiHQgsL68OOzWlCMXqjo+BCgngdeytZL9btv
-	G1R7BqIQ==;
+	bh=V0uXNBPWEICurSaeD4MWEpMYBS3113b02AXnGrWCKxQ=; b=Y1NMcuGJ5kfhBMi4oN7LSNaAAy
+	kiusu+lX8a2qQy9BuUSbunrLn3EFQy0c9z0q6nPQ/gLBr+cRS9E3dFnZgoyAkz1zghz8uOYxLTJ8B
+	WblEGVtLlcQPy7IwZtViQEBpCbmVN0rZOtJrTWP+Vjc17I9oEpH43Fl+HA6OE2q8lTwJM6Kd83L1d
+	CWIY2mBOGH1RwF5+zDH/Dw5XX9iJnaFDMP/W6D1MAA65S15DTxgCTSZJQP5xvOkucRd6xpBZZ4lO/
+	D6y5RzlvfRAyJbBNW/4CydsGclb7YpaC949LPds7czwovpLrALAjOYPQ3oD/iCcqMPjkOTX5C+eAF
+	kigbRAVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLlT-00000001tn7-14o9;
-	Tue, 19 May 2026 14:49:47 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1wPLni-00000001u7B-2zNg;
+	Tue, 19 May 2026 14:52:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLlQ-00000001tmO-2nIX
+	id 1wPLng-00000001u6g-0JLQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:49:46 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-910bb291688so455560885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:49:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1779202183; x=1779806983; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mf/OGUGuIRiuTTXYie0rUXZGqyUUzS6jn0J2l0v1FPs=;
-        b=jqGtcVVOvpl/2aNukK2A4oS9drgtYkpNsYTDWM7uT2jVzcfOtjE4W6GWi6K1EynxhS
-         16pE2uce6ptaQ8fKzdT4/+vSCmGl6KdzXLZn6HCx63EqLekpVNS71aYPFVr6Vt4v3vu4
-         yGY/wlGOfw2OZMacYXA9fyxj06kPjDxxsVArgDS1zrCf/alEbV2QP96R2v/marVseFrx
-         jxwhIHf/6j7IEl/pMIMMKN3t5VUFp+R+aDM4hOiOTJ+4TTz8qlLmTgmDDEz/6T+IoEGL
-         Iu7R1NvAZ6ADlTv/wGYCe5vKSdsm6BQubHEJOO5FeOq1JxOub8IIDozKniNx2tuzWUJJ
-         0Stg==
+	Tue, 19 May 2026 14:52:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779202323;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=V0uXNBPWEICurSaeD4MWEpMYBS3113b02AXnGrWCKxQ=;
+	b=YDZmUa2cYebIuKFkxXomwZ6pb4RXgnjbikk0I/OsJ0OrTM1RfzAHYPP1mrl1s8cV9Q3UHi
+	dahpaTkFKJXc8OI3ejMY+YBdNWOaRF6sHe0eBF34eDMJxqkLwJxSGa0jmZGiXWjBAJeYqN
+	XBsI5e1ZJwoZctshNs5rTydyNUO99Fc=
+Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com
+ [209.85.128.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-411-znD2AMyINUuAfF9AftvyOw-1; Tue, 19 May 2026 10:52:01 -0400
+X-MC-Unique: znD2AMyINUuAfF9AftvyOw-1
+X-Mimecast-MFC-AGG-ID: znD2AMyINUuAfF9AftvyOw_1779202321
+Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-7cfea0b5cb7so9121177b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:52:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779202183; x=1779806983;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mf/OGUGuIRiuTTXYie0rUXZGqyUUzS6jn0J2l0v1FPs=;
-        b=QyV0mTXEYfR0+/MJ42h8D7UA5DATBXVCNhNlKep5U3zjQiiwPfI3qItj5jy5+nhEUj
-         p6g595BbN6mKuZvQX2MgTpF7eTFkwASqgLlLsTejpg4bqK0JRVjtOM07Y9SORjKM/C6z
-         d3NlAdsuFlEOo7PGDkWsa9G1W8MBVmS4lEycXblLK5OUK9aAVn0BdXHouJYZ7QXAoSt4
-         8rupp5yjX9xE5HhsJ2oZq/vrRKFEnHRrjNSXMYh/kOqj7JFcq3AK4xbtAxI7K+ibo4y9
-         G7CCbZ8Unk0PTOMTv/QEKc/s3zTJSnFsw9cZjfLlvuNOWNcCm5D4AhJehCjd15xde1gJ
-         k3ww==
-X-Forwarded-Encrypted: i=1; AFNElJ/+Alg4bhK3H45iuBspXRJqkh6I8cbaFMYW3DpqRU915aJOhSeKXl0U06aIxHq2glR0B+1lOkHYtlveugCB8CJ0@lists.infradead.org
-X-Gm-Message-State: AOJu0YweAYOUf6+luJjVRnfuRAyv0M/TizKQIF+/v/RuAN3+V9BQMtUl
-	n25kk4mRhV/8rSQf8pq/RFfaDySUpPHd+VsIF4HzRhPj4zoe/wRdKI9Yp5oAuXLbWnY=
-X-Gm-Gg: Acq92OFBl6FzSMdQHBQPPFZOllj8lYDHw1j8fCU64b/tuRQ0P583fOet7FRZOyNONpA
-	KfnxbUIGlNAlNRrhQcH2yQHtqxGyJf2a24zY/XX/jIibogbv88zOwR/82FuPK2Idy0qZ6+96rrw
-	1G5dqYs0z95YJT+eWdEEnuIDk+JdqISj8fbyGX27wRRUXrAONwnyHDELcVSzvqzRhv7FOnJqM+r
-	YcR98cCg+3xxHfiuA8D6Q5LPdVxW9tItQMIzMgUKADMB5cTOnntPx+VK/dfqqHpEHM80anXtrKN
-	hxzhzUGB0VyjMK6IAINxIaFaT3ySnhGxTmItF+Vk7KAKi7Xt0gpJulp6eResqNjAs1DlThlGeGW
-	eARrghRpBTYPEFmri12o6Fc0UtpdLAPrsE1ov9tPEe8DTpWH2x/MpAkFKPpfUc0JVI7WmKaMFi3
-	wHwtTcp2owYfoIvC8eR5I2IFCbDpcGkNuUFboJJBnnXXscUWDzOMk1GBZccFJISE4sEzGs3UJr+
-	nRoYg==
-X-Received: by 2002:a05:620a:1a14:b0:911:411e:2e4b with SMTP id af79cd13be357-911cd46df94mr3109274985a.23.1779202183344;
-        Tue, 19 May 2026 07:49:43 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-910ba36e68csm1851459085a.10.2026.05.19.07.49.42
+        d=1e100.net; s=20251104; t=1779202320; x=1779807120;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=V0uXNBPWEICurSaeD4MWEpMYBS3113b02AXnGrWCKxQ=;
+        b=jOKhAS/APOgywYWmQdqqmWuotLRMoSNM1YjFYBafyL/BSesWJAwADEItC8g4tqGrLL
+         ThjVzuXzhS1O+Lr29cYuzqzJVu6nsUZ90fuA/vC2wr3qQiZTKXuju2+TaZ7z86ylIJGb
+         5/s0oa3FzjY5umvT5fbAwuwzSyGZMZhDlviuDS4dfAQ4AyfGslz+/37GMQg9KA79qP1H
+         7xhiWfFCTanGvb9a0u/SjWGODBSxJZdaxgdg13j7HCdJ1rHkSCYmzMkVPlFa7JVjmJhL
+         Ey7wcTbBi+dDi87pb0YDgKs72PIK0Qhnh2w73iH8gtClWNKA8K741xM19vkcXzWuwOgz
+         qTzQ==
+X-Forwarded-Encrypted: i=1; AFNElJ83mYYUFiFmEpfRbbQuUO1JBON6VFIr6sfVeVg42dmV9mKBpREaTtDwUdX9kwS+c3HeaqzXRSByvVL3hNSejcqi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMOKYu3rM9OKzK7aJGVA00Js1cUURGa02dSq25Rwt9dEFQGbrh
+	5l0zfWE79jKFAzvEle2jzXSrj9rmLdEJ/d0kcHjK2dhDV2EDPWqFu6TmpAKlUeMU1Dx/Ievtzpv
+	BC9V0lVp5Rm8pI96MOBQme6Ycu9KPUdJWI88aJP1unk5YAAw5UagG8F3O6vmKNvzbPuzgyQWTyx
+	ux5aueOc4H
+X-Gm-Gg: Acq92OEqYmwLCxkmKAWs/L3bFQVTJJXG517LIkBMKI3Jk4icyw6fJOJGXrh9aYyuZW7
+	4JoI1z5X7fSHOfnS6GS9kEfJjxALZrNfynnILm+9lPfpfDrTZenDtOHuyEv+Ka/kuDSVuWqAZSJ
+	snQPKL0cZHR7k0MJG/psRgNwQ7PIl2Hp4cMg/FFUL7HtnPZKqq0YN+s8AkRVoYSfEiCI8ehOxBW
+	m4IC4guxEvCnp5mSnVxii4RK1zmy0I8edaaAByfrSidzTL5O2Y4VZ6NnKtzi8RMGASZ4fZcKg4v
+	CzBtneUDRTaNDWXeRsyizOqA5qMOFwC3Thy4HL8HXJ1GVIlGax6VgTGE7cScTgEte3ocBP19q4b
+	QCXrpGbC0NX8lZQQCpsVzTHId1G3xyJNTPoTITraCaJFeiHrUGGgXA1fB
+X-Received: by 2002:a05:690c:4424:b0:7b3:852d:eed8 with SMTP id 00721157ae682-7c95a66e7damr198299297b3.20.1779202320561;
+        Tue, 19 May 2026 07:52:00 -0700 (PDT)
+X-Received: by 2002:a05:690c:4424:b0:7b3:852d:eed8 with SMTP id 00721157ae682-7c95a66e7damr198299007b3.20.1779202320032;
+        Tue, 19 May 2026 07:52:00 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-7cc991c97absm38128667b3.8.2026.05.19.07.51.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 07:49:42 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wPLlO-0000000F92G-1VL1;
-	Tue, 19 May 2026 11:49:42 -0300
-Date: Tue, 19 May 2026 11:49:42 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-Message-ID: <20260519144942.GJ7702@ziepe.ca>
-References: <yq5ah5oaa63h.fsf@kernel.org>
- <agW5rhE9n2gDQ0w5@google.com>
- <yq5apl2y5f96.fsf@kernel.org>
- <agXaby-7L7yS3Vva@google.com>
- <yq5ah5oa59wy.fsf@kernel.org>
- <agxDxdxynp4KEovA@google.com>
- <20260519132911.GA7702@ziepe.ca>
- <agxolksC_1nfO34X@google.com>
- <20260519143529.GD7702@ziepe.ca>
- <agx3j6Oc8QivZ3RG@google.com>
+        Tue, 19 May 2026 07:51:59 -0700 (PDT)
+Date: Tue, 19 May 2026 10:51:57 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Joey Lu <a0987203069@gmail.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, ychuang3@nuvoton.com,
+	schung@nuvoton.com, yclu4@nuvoton.com,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] clk: nuvoton: ma35d1: fix ignored div_u64 return
+ values in PLL freq calculation
+Message-ID: <agx5DSrHkmKeEejN@redhat.com>
+References: <20260513055626.1070533-1-a0987203069@gmail.com>
+ <20260513055626.1070533-2-a0987203069@gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <20260513055626.1070533-2-a0987203069@gmail.com>
+User-Agent: Mutt/2.3.1 (2026-03-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: tozsBeT4POmMxVo5M-z2s_I4VBLJZWMQK5KYiADlbDw_1779202321
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agx3j6Oc8QivZ3RG@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_074944_711408_F297EF84 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_075204_181875_65E6035A 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,16 +112,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 02:45:35PM +0000, Mostafa Saleh wrote:
-> However, it should not alway use SWIOTLB? It can trigger decryption for
-> any memory returned from __dma_direct_alloc_pages() which can come
-> from alloc_pages_node().
+On Wed, May 13, 2026 at 01:56:24PM +0800, Joey Lu wrote:
+> div_u64() does not modify its argument in place; the return value must
+> be assigned.  Both ma35d1_calc_smic_pll_freq() and ma35d1_calc_pll_freq()
+> called div_u64() and discarded the result, leaving pll_freq holding the
+> undivided product and thus returning a frequency orders of magnitude too
+> high.
+> 
+> Fixes: 691521a367cf ("clk: nuvoton: Add clock driver for ma35d1 clock controller")
+> Signed-off-by: Joey Lu <a0987203069@gmail.com>
 
-The alloc coherent flow is seperate and different, these are not pages
-'passed into the DMA API' but pages fully allocated internally and
-owned by it.
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
-Yes, it should cause decrypted *allocation*.
-
-Jason
 
