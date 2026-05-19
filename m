@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69201CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 23:48:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16E4CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 23:56:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=A3TVSBPvTAzpV2lCqomUSYCy+B+r1WiclbQNPvmeu/I=; b=g73RLbZ0kNKa4Z
-	NFttmgaMn5HKPUvM/hiZNPylW0aoyDQ9w+RIBNLlP97c0d81ltk9rpeieDckUYbJK36IKFKQMfHeq
-	uK+sWxI+Z4ekPbg3UfAx5/hNQFM8S0d7VEVabnshrh4TukHZSvL7jhNTAXNDfgxyGAba53MPJGW6D
-	KanLck/I1AKyy9PNhKOKkHTOBnU7yNXO56v0bRMySiKdaNvlxXv3Z3q9YhYtHfCu646jNwGbEyqu8
-	jANbQ0g/Mv7cjpGaP4/JrT2PINT8nEvvYjQZAp71xncJh/JKtbt6qBGRXNCbwbiv8EPQIvD9D7vqP
-	zNfhAueb/B93N29cBbvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yYWbA7j46aueWZEJm8bnihGWxOjtMrOMmpHf9Fu5Y7A=; b=wVuxE4V/92ejzgnfFzIdBRMBp0
+	LpcomNbXeKkblYpctbWYIkY19yCfeIGF7P8IQmCy+x18AO7VgV2STQirqOXf87IF56xbftWY00RTg
+	zbLdBCj9b68h7sq8YptYfNbqqdpNG3VtLd5WPghHqtVfahBxDXjCUH55jpnDULwkE8Y3kwI9+vm68
+	kmzjaUOhEgNule6089YPV3lP+vSdPwcApOqjZzDu30NOF2WIefo/m/fzzI/BmVAUSkwEfW0oUHt+O
+	VTeXEfQ9O/CdsokUyBKJYsCoha6vZJokwa9ISdphL26BnNorbz4cfFIGRHwqXuX6ytCdwe9/66ooA
+	kU9gmk1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPUAR-000000035dx-39C1;
-	Tue, 19 May 2026 23:48:07 +0000
+	id 1wPUIt-000000036HJ-2L6c;
+	Tue, 19 May 2026 23:56:51 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPUAO-000000035dG-0AeL
+	id 1wPUIq-000000036Gh-3yXF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 23:48:05 +0000
+	Tue, 19 May 2026 23:56:50 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id C772B43903;
-	Tue, 19 May 2026 23:48:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 802651F00894;
-	Tue, 19 May 2026 23:48:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4815540510;
+	Tue, 19 May 2026 23:56:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 458CC1F000E9;
+	Tue, 19 May 2026 23:56:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779234482;
-	bh=A3TVSBPvTAzpV2lCqomUSYCy+B+r1WiclbQNPvmeu/I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=Jo+ASq8MQQkL0btOV+rJ+HkyOcuSKCJ3DLbkOFiSfw2YluJRoDhtsj5UlnYvYPwyl
-	 X8uyn4Kd1akU10ybHGTD6IW51YDdieEMFZBWHLgh0WNXNCyEawuolqXlPKiISRSYCw
-	 tIKunDq/m+idi6xvgPd3gM1/KiF2oOMXwdwpHyMPNz6LiomcgqhTraZHSbtMjZ3wZb
-	 IoVsDI36WfhRVgHTEidmxMu2KiQZHs2TXgpGN7U3onWJ77zlqJWDNh/PHCzU9+xnz6
-	 JPS4oSKunk1vihItQbf18owPTLVGyeyRv818f2sFhWze0lq2DYemPQyC9RxGM4E9nl
-	 HG6wtL3YANpnQ==
-Date: Tue, 19 May 2026 18:48:01 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, bhelgaas@google.com, joro@8bytes.org,
-	praan@google.com, baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
-	jonathan.cameron@huawei.com, vsethi@nvidia.com,
-	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
-Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260519234801.GA21369@bhelgaas>
+	s=k20260515; t=1779235008;
+	bh=yYWbA7j46aueWZEJm8bnihGWxOjtMrOMmpHf9Fu5Y7A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=INtNDhNNwgCAkz3ew87JMcdeZl6c+E1ryD+QFvS0NJQGxosUfkWGVZgyOiriYretc
+	 Y0AyKreTS1Ey0kji8T8wdYsuU1aUND9pI4BtwVhxE5Nh7XIscCq+4ICKXho4j0dn6K
+	 BZRkQoQRub0KZUMvFEB+Th0vMXgmiX5RNvtHPaFb/zOd5MgQPRHL907oVn5Zt3n7bL
+	 3X/A72M3Ub7C/EqQ86i6FtCOZWj2MYTwGJoJlXmr+LbG1dG3cqIabGsEchb1dno/Im
+	 bc0JnXGz1TW8HIipXfAy0B8T7OPqSfeb9cmLFLoRm6u0kFDttm3AD79iki7P2H8GKU
+	 RtO/BLJ2FDRXA==
+Date: Tue, 19 May 2026 16:56:46 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Luka Gejak <luka.gejak@linux.dev>
+Cc: MD Danish Anwar <danishanwar@ti.com>, Felix Maurer <fmaurer@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Meghana Malladi <m-malladi@ti.com>, Jacob Keller
+ <jacob.e.keller@intel.com>, David Carlier <devnexen@gmail.com>, Vadim
+ Fedorenko <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
+ netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Vladimir Oltean <vladimir.oltean@nxp.com>
+Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg: Add HSR and LRE PA
+ statistics
+Message-ID: <20260519165646.09b0783f@kernel.org>
+In-Reply-To: <E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
+References: <20260514075605.850674-1-danishanwar@ti.com>
+	<20260514075605.850674-3-danishanwar@ti.com>
+	<20260518184506.694c584e@kernel.org>
+	<E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260519222335.GK3602937@nvidia.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_164804_099253_75643ED4 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20260519_165649_038679_542A09F2 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +84,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 07:23:35PM -0300, Jason Gunthorpe wrote:
-> On Tue, May 19, 2026 at 02:36:49PM -0500, Bjorn Helgaas wrote:
-> > One motivation for putting this in the PCI core was to use the quirk
-> > infrastructure, but this series doesn't use any of that.  It doesn't
-> > declare any fixups, e.g., DECLARE_PCI_FIXUP_FINAL, and it doesn't
-> > update any state cached by the PCI core.
+On Tue, 19 May 2026 07:55:55 +0200 Luka Gejak wrote:
+> On May 19, 2026 3:45:06 AM GMT+02:00, Jakub Kicinski <kuba@kernel.org> wrote:
+> >On Thu, 14 May 2026 13:26:05 +0530 MD Danish Anwar wrote:  
+> >> Add new firmware PA statistics counters for HSR and LRE to the ethtool
+> >> statistics exposed by the ICSSG driver.
+> >> 
+> >> New statistics added:
+> >>  - FW_HSR_FWD_CHECK_FAIL_DROP: Packets dropped on the HSR forwarding path
+> >>  - FW_HSR_HE_CHECK_FAIL_DROP: Packets dropped on the HSR host egress path
+> >>  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES: Frames with duplicate discard
+> >>    skipped
+> >>  - FW_LRE_CNT_UNIQUE/DUPLICATE/MULTIPLE_RX: LRE duplicate detection
+> >>    counters
+> >>  - FW_LRE_CNT_RX/TX: LRE per-port frame counters
+> >>  - FW_LRE_CNT_OWN_RX: Own HSR tagged frames received
+> >>  - FW_LRE_CNT_ERRWRONGLAN: Frames with wrong LAN identifier (PRP)
+> >> 
+> >> Document the new HSR/LRE statistics in icssg_prueth.rst.  
+> >
+> >To an untrained eye these stats look like stuff that could 
+> >be standardized across drivers. 
+> >
+> >Luka, Felix, others on CC, do you think we should expose these
+> >from HSR over netlink as "standard" offload stats different drivers 
+> >can plug into or not worth it?  
 > 
-> It works like the acs quirks that are in the quirks file, which are
-> also arguably only used by iommu too :)
+> I think there is a case for standardizing part of this, but I would 
+> not standardize the whole set as-is.
+> 
+> The LRE counters look generic enough to me, especially:
+>  - unique rx
+>  - duplicate rx
+>  - multiple rx
+>  - rx / tx
+>  - own rx
+>  - wrong LAN, PRP only
+> 
+> Those are protocol/LRE concepts rather than TI firmware details, so
+> exposing them from the HSR/PRP layer sounds useful. I would expect 
+> both the software implementation and offloaded implementations to be 
+> able to provide at least some of them, with unsupported counters 
+> omitted or reported as not available.
+> I would not put the firmware check/drop counters in the same standard
+> bucket, though:
+>  - FW_HSR_FWD_CHECK_FAIL_DROP
+>  - FW_HSR_HE_CHECK_FAIL_DROP
+>  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES
 
-True, although ACS has a lot more PCI-specific grunge in it, including
-all the "pci=config_acs" and "pci=disable_acs_redir" stuff.
+Thanks for the breakdown!
 
-> I'm not keen on spreading lists of device ids for PCI quirks to iommu
-> files, but it would be OK to move pci_ats_always_on() to
-> iommu_ats_always_on() that calls the PCI quirk function.
+> Those sound more like implementation/debug counters for the ICSSG
+> firmware pipeline. They are still useful in ethtool driver stats, but 
+> I would be hesitant to bake their exact semantics into HSR UAPI.
+> So my preference would be:
+>  1. Keep driver-private ethtool stats for the full firmware counter set.
+>  2. Add a small HSR/PRP standard stats set separately, limited to
+>     well-defined LRE counters.
+>  3. Make the HSR layer expose them, with offload drivers plugging in via
+>     an optional callback or offload stats op.
+>  4. Define the counters carefully, including whether they are per-HSR
+>     device or per-port A/B, and what PRP-only counters mean for HSR.
+> 
+> I do not think this patch should blindly become the UAPI definition, 
 
-Yeah, I guess it's fair to collect the device IDs in PCI since this is
-about characteristics of the device.
+Not at all, the unique / multiple stats gave me pause. We should
+only put in the standard API what can be easily and unambiguously
+defined given the protocol spec.
 
-If we leave stuff in drivers/pci/, I would prefer that part of it be
-named to be purely informational, i.e., "CXL.cache_enabled" or
-something similar that would also cover the NVIDIA devices.
+> but I do think it points at a useful follow-up. If we want to avoid 
+> adding driver-private names first and then standardizing different 
+> names later, then it may be worth asking Danish to split the 
+> protocol-level LRE counters out and route those through a common HSR 
+> stats interface.
 
-"pci_ats_always_on()" doesn't sound right quite to me because it
-presupposes the policy choice that IOMMU is going to make; that PCI
-function doesn't actually turn ATS on, and it looks like the question
-of enabling ATS depends on how the device is actually *used*.  E.g.,
-if Cache_Enable is not set, is ATS required?
-
-That raises the question of whether this is the right test:
-
-  +   if (pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap))
-  +           return false;
-  +
-  +   return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
-
-That just says the device is *capable* of CXL.cache; should it check
-whether CXL.cache is *enabled* instead?
-
-Bjorn
+As a general policy we ask for standard stats to be added first and
+ethtool to only contain what didn't fit in the standard ones.
+There are some technical reasons but it's mostly a mindset thing.
 
