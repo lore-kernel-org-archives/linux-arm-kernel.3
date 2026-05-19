@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0E9CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 01:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58666CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 01:57:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o37hTeJdpPUB5NIJUvjYrF+TMdqvemrUasiCaTeIcmg=; b=2SOpbASMKOxOmr5Ws6iEvuuFPO
-	2TCAjXErgMWUpXvH9RYR7bepg0QXHt1nUSADQQaSi+JFlRID36X0zqnJUPpD0SpfF3VFvOzyzO8US
-	E4iJj6ZiEqhxk23HK1XFLHI9Xavp9cHAHfABEgDa6XvhMuHpbqbeyODRN/2Kz/vbtW5UN75tD981+
-	u1L3K6pU+M06LGZ//7K3F21hcJNChqxSKkzTUUUl47MsisBp2+CT1iEQwcPQ+vrZB80V0Km4X2pFc
-	2roh9U7iUNXs7DVTyGBlr6grSWFkAKJ4G917tTgyNqGVYorm/KYJU4ismSrPyh31LUWu+ZTRY6Mzn
-	X5B0R9VQ==;
+	bh=+s0IvEn0QduM+NAryTI1PSdqYWmoLeqb5O++XMz3oOw=; b=TkVNjSxAy2e93HThx0NFuCGFeh
+	O9zf57X5CoeU5M1kEid6j/VGRk5sh5rJaCUntkwK6AzITc8vkRhRcCn2neIJx6oP8ca7A/nxYdD/M
+	tyNjMz2xzcv5P6MCGD8QCKrIpdqlUvzvu3m20VfClupBwXiwMu4Zkus/9L7uuxQUzhY3bLZeejmeO
+	PJcmvPxuU3JRRCDKE3Oz0KoRS1r25IPNnUVreEZBK/68DPv1n/5PDT1VTGhWzqBZJ5ZbWsglqC1cI
+	g7gVm/EYBeYAQbAIbnAjZ9gWi7KNwuoMVOxgZBitPoFhgmg+VXcNdwZeiKmAwTh4Qntm+vFp7ZBH0
+	L3N2rG2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP9WC-0000000HNzA-1EGm;
-	Tue, 19 May 2026 01:45:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wP9hr-0000000HOqK-18on;
+	Tue, 19 May 2026 01:57:15 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP9W9-0000000HNyZ-3UVN
+	id 1wP9ho-0000000HOpl-1ZQd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 01:45:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B9A1344527;
-	Tue, 19 May 2026 01:45:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B597AC2BCB7;
-	Tue, 19 May 2026 01:45:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779155108;
-	bh=jWldts9FblFH1mYDzIugutl7ATve2iNQ1j1e6bLhQoM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qVcGExeea97pfo5vK6My+3vFGZ8z+8IjEdgt+PGRaznq5MiotUpDOsXOhUtPMFwmb
-	 oZ8DNLP933KyTxRvRyjZL9uGx4FG9I+tB76CmurjqPLi0R6udkvrUJBCZHPO4auBx6
-	 xJzOS1jsyeISCc8aecwaEf4yEwYqmKG9R4QvFORhIIX8HKv7khb3afuh2GWRJlQLtc
-	 H+c9POwXWVKKL/bb+YZ/pbuDUXGZH3NT5zxJA7aw8kUaFet/Vd7lC8JQlB3tOKPU3E
-	 ZKa1D68Pev6F4tT8Y4zBtfY18+i4CG+nm9dVfdInNaxiYq7YbapsnrUPBbO4zyfqa2
-	 Z5485zhJZjr4A==
-Date: Mon, 18 May 2026 18:45:06 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: MD Danish Anwar <danishanwar@ti.com>, Felix Maurer <fmaurer@redhat.com>,
- Luka Gejak <luka.gejak@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Meghana Malladi <m-malladi@ti.com>, Jacob Keller
- <jacob.e.keller@intel.com>, David Carlier <devnexen@gmail.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
- <netdev@vger.kernel.org>, <linux-doc@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- Vladimir Oltean <vladimir.oltean@nxp.com>
-Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg: Add HSR and LRE PA
- statistics
-Message-ID: <20260518184506.694c584e@kernel.org>
-In-Reply-To: <20260514075605.850674-3-danishanwar@ti.com>
-References: <20260514075605.850674-1-danishanwar@ti.com>
-	<20260514075605.850674-3-danishanwar@ti.com>
+	Tue, 19 May 2026 01:57:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1779155822;
+	bh=+s0IvEn0QduM+NAryTI1PSdqYWmoLeqb5O++XMz3oOw=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=fmsUIgxthdrTTcu8M50vmX7XAI/IclFp2ZBtqRSo+0ldwe6FoGrnvbvaZQyB0bCUY
+	 8GO4Zq6vJ+9h/Bb2E1wYtLqQKYNLrBHMw6D6/OGayZ65QnINC+NGwD9Yv8utM4D33u
+	 xc/twRHI5UE0I8ba5Nh+ZuR9ArK7HGt+7iUo/kIBmo7J1QVVpaHYC6K38/EQOvJZqC
+	 m1b4AJ/UPwop5RYahz92TT0XHcrZjVTyyVNqTj7gtXAahIzOCeGRjW0koF5IykJFdZ
+	 /dQ1wU9L+t1LZk/C562JZXRz2Xl/43QCV1CfCqceJs0FIdvEL7S+/vO3VlRqDAJBD4
+	 IIyjJV+/Xsnvg==
+Received: from [127.0.1.1] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 9E2946025D;
+	Tue, 19 May 2026 09:57:01 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Rex Fu <Rex.Fu@amd.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260518-anacapa-sgpio-edsff-thermtrip-v2-1-e43b1847b2dc@amd.com>
+References: <20260518-anacapa-sgpio-edsff-thermtrip-v2-1-e43b1847b2dc@amd.com>
+Subject: Re: [PATCH v2] ARM: dts: aspeed: anacapa: correct SGPIO names for
+ monitoring
+Message-Id: <177915582159.2591185.16167968978393310497.b4-ty@b4>
+Date: Tue, 19 May 2026 11:27:01 +0930
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_184509_895531_06DF4B95 
-X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-CacheID: sfid-20260518_185712_614691_2931D7BC 
+X-CRM114-Status: UNSURE (   9.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,27 +74,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 May 2026 13:26:05 +0530 MD Danish Anwar wrote:
-> Add new firmware PA statistics counters for HSR and LRE to the ethtool
-> statistics exposed by the ICSSG driver.
+On Mon, 18 May 2026 18:00:40 +0800, Rex Fu wrote:
+> Update several Anacapa SGPIO line names to match the existing platform
+> hardware design and the signal names consumed by userspace monitoring.
 > 
-> New statistics added:
->  - FW_HSR_FWD_CHECK_FAIL_DROP: Packets dropped on the HSR forwarding path
->  - FW_HSR_HE_CHECK_FAIL_DROP: Packets dropped on the HSR host egress path
->  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES: Frames with duplicate discard
->    skipped
->  - FW_LRE_CNT_UNIQUE/DUPLICATE/MULTIPLE_RX: LRE duplicate detection
->    counters
->  - FW_LRE_CNT_RX/TX: LRE per-port frame counters
->  - FW_LRE_CNT_OWN_RX: Own HSR tagged frames received
->  - FW_LRE_CNT_ERRWRONGLAN: Frames with wrong LAN identifier (PRP)
+> The previous names did not match the actual Anacapa SGPIO usage. Some
+> lines were named as CPU or CPU power-good signals, but they are wired and
+> used on Anacapa for EDSFF presence, EDSFF power-good, boot EDSFF
+> presence, and thermal-trip assertion monitoring.
 > 
-> Document the new HSR/LRE statistics in icssg_prueth.rst.
+> [...]
 
-To an untrained eye these stats look like stuff that could 
-be standardized across drivers. 
+Thanks, I've applied this to the BMC tree.
 
-Luka, Felix, others on CC, do you think we should expose these
-from HSR over netlink as "standard" offload stats different drivers 
-can plug into or not worth it?
+-- 
+Andrew Jeffery <andrew@codeconstruct.com.au>
+
 
