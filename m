@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F36DCD4F3C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1649CD4F54
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 03:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYRntXu32Q6izfHxxzfXSiTNRSSg5NonQdMdse5RyvE=; b=teU358kd2TjZb1ZyBYWGH8HkzR
-	V8MCExCQ+TckpWaHG2ixCid1UkdDLh2Fo6l7nWaJ6JOZ+4FqBCpQD3SSW61IPC1XFd0TjTe4tw30u
-	HKyTnSuzCXnnbLzaPDn6LSNKKU3KKtBzptID+/7kjmESSa6HIyM8Ue50lJioy1Vf7YQIaclkVb38M
-	xSqpCFPNqYSVF6voQM1Duu8spYfVs0D3QZSjElMIJkL9rG2owO7zXFYOQK6tuTUN4wZkwTyzCaJxO
-	iK9TgQSERXmLyGiI8dCHB9Q8b5PAumqWCpbXWQtUWCLmDvfYOa51V5orItWO38Jwty63zqvI9uA6B
-	tKw8Resw==;
+	bh=hpKHFRP6ABwZOwRWoFiUhhrAMiH65x2ERGC1R3gLMk0=; b=2fevkrxPRk5DzNmeaOWA6HVZwj
+	Ga1WwhzBy5W9B/3IbEGGvw68fooSUFhd046mCDMES2Xcm2YHJeeqZtCZoJnEK4PP47TKBVw5hQS9C
+	HI6Ws7jhvpEvlpiPHBuD8CaCw4ZCaID+g62zDQGYVNnMwovo2JRY5y9Mj2ilzgp7lDs+djTwHPGQi
+	Y/lyD9CO0xZ/prQwnE4qXtlaCsZ7q/ZPJQKv7ydnTGQtlU2UjQHraPf+urxQyHygHj9+oVYaaUsMh
+	T+Phi0i1HSAcbSnR65qqxz4S82oym93KxNhKlR4QkiwLPwbwvO8lVVBCptnGjkJRpXJUx+sDAFry6
+	/NWAlhVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBJS-0000000Hb4E-0Fek;
+	id 1wPBJS-0000000Hb4j-12wq;
 	Tue, 19 May 2026 03:40:10 +0000
-Received: from mail-westus3azon11011051.outbound.protection.outlook.com ([40.107.208.51] helo=PH0PR06CU001.outbound.protection.outlook.com)
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBJI-0000000Hau9-0IGX
+	id 1wPBJI-0000000Havr-3dJF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 03:40:01 +0000
+	Tue, 19 May 2026 03:40:02 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FME7+UIMRovuA1l0Pz3AWkuWiNahZrNEd/9FUKW0gyUoDRVP/Wy7qAKtAQqlqdeQlqjJqAxGL+y06EGrYGEc/nkEO0oNeZivekUo817Nqe/C/cfCRPlPqoD6kEoQx1ZaroY1P1zyFCxwSHC1fM2mkGpzPUzQLNgma52XoYjZIQn0jTF8HRQNofxzlgfIPeIACVBBR4Ut1JxgWSfnaw8hl8SPNNxKpIO3krw55PVDzy4Pq/l/x088lm/jVpw0LbqljrxPXOLeQNbhDS0IMv+ybc4soYDOsuIX1cLElVF/CwjeSbsWHyP/Ac4jqnvyCzeIq2pk69wr3Fgptk481lfv8A==
+ b=m2AOnpaliB6QJHQ4LRc1BvKP7Y1jOJ1n5JOUvdbn2rYSCJSO/ObQAOC5MBZTN3arxppCmppUherOYTndaRQ+aFpkpIBoaZI7Vr3bQlJE3jGSHI1nMZwDnlkFAidF3iBzfQAqvWqkfaWiuhPhYcU2YJrn1MsQTdQRNWBNLJEb0T4vnjdrub7Ndq2ZctxV6OgR4U4FvmI/h7GO3WxPsn7TxEw992qAr4bg1/pumhVwdNkOjFF/2I8Luj+kr23JwWsgPATpS/V9C1SB0+U1d8FJ+SMrW15QKmHuicoPrSzSAxKSp6KRBwe65xwXNNuVPJZSBCJMgNxFySWWu287aAK/ZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AYRntXu32Q6izfHxxzfXSiTNRSSg5NonQdMdse5RyvE=;
- b=AcLxAp8B1b/fvdvpWvvm00VhzNsOqOVcLovr4hMV6vrVXp+qTwlHrNMv9sZkuh10kzgsLORcbR8CvHMgOz40pr8CXlSK+ph4l4n6Ku0oPcnvTJF+Vvlf7LE/KbKw0ZmVIietpw2oLl9cuGQMXWTaPXv5p00i0Y5y/zKXj1xmzX49bPT6wb6VXAJoD1t7vLP6yoYnq0uYbbbI1O3hNo65BlDKbIb9yDWLGESnVF4Ubwsr+qB3mUXPmsGCvoH0vTq45WL7tWO5nL5+9xGL2rrLsQcE1Pgxta0X0xuwad/1UX2ZT+if+RjB8GsLO7nZaOwsPJw/L0FzMv6h4AbAFTDoIg==
+ bh=hpKHFRP6ABwZOwRWoFiUhhrAMiH65x2ERGC1R3gLMk0=;
+ b=Yv3a7crfIcP3yzWuG30naOpCyHp+YnsjDgp+Ou+MkHoXeUFLrAgNV9Q7+k5EcyeWpITueKzNxhtwZJ44/BCdZprLx5OQ3PQf7HAALbbJcURlPjqaoDozwMbwynBVw0yQJEdXG0s7vEFUIoaNORdyWQqpKaCcCV5XGH1/4y8SZDQmghDzMXWBfgEiAWOIo76i2qIneOZwVJEDPkCiyX0LerVmZYkF1QWK9uKJHmhod4eoehCN4Obe57Hy+6eye+tI/8jsHLHmVK3CIPt+kg1MsNeC/YgYN59A5mn5oj/ciE43QJzVXuVOHhm90if5bndlYfnpEcUhtZc19LqnnxAfNQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AYRntXu32Q6izfHxxzfXSiTNRSSg5NonQdMdse5RyvE=;
- b=MGmQWa0okHOcbe1cgUbRddVWykvP/zw0dMz2bxYiz+/FPxlheJo2dh5aa1i91NrAOQ+ygLZzCa8zA/Tub72MMQNMJHTJTWVPBMgJhuBAhOyo+CWnNGS119uouYVIiT5vF2V3tc58A5uF6VTu5QmLs2KGY5+pNtbNoXT8ZbWVFBPr9KHEicOlEmocf8WJ0I6xtUhJYRxGFDRRMGoCjhv4Fu87PZVi/G/g2t9DNhtjV3ktZo2/3lv263vDomDWFPhPAtljRTu9D5RWY9I7bLec56Rxunb/u0gONrifrDHuV2mfTQGJjnWod1MLHoNnf8Y0kETi9IWKE1z/7PprIornmw==
-Received: from SJ0PR03CA0188.namprd03.prod.outlook.com (2603:10b6:a03:2ef::13)
- by PH8PR12MB7328.namprd12.prod.outlook.com (2603:10b6:510:214::7) with
+ bh=hpKHFRP6ABwZOwRWoFiUhhrAMiH65x2ERGC1R3gLMk0=;
+ b=CIeH/gUqsFJpXJUUvO/I1/8pAlsR/wN7dTIvBQ6bzU2eZMLbPxJyCBot+l2I87iyLUpPGqtDJkKw6Mb+Nbq8ZarlseH4bTs2UePjMp/tFZILZ10SUhTWJoI9Fz1EcTV8GMC2jAsMTUcMHETn1OMZ3MFo2RvIDMHiHr0ZpnZiWXwmWigiEHQqre9AhLaj2sTH9jIh5i9uvRfALNZfZuhdDNoDvxF6P2r5EHWl1/SdWPinn+HgytR2ffl+0FQuJpz7lQJgI0F5Qzwtcccu6u1OA8VTdaeCusDZ6cSJvkc4VPE7BE5KVnq4w8XAH6CtBAxrvN7O9cTIoBGiobG2ju/t2A==
+Received: from SJ0PR03CA0198.namprd03.prod.outlook.com (2603:10b6:a03:2ef::23)
+ by SJ2PR12MB9007.namprd12.prod.outlook.com (2603:10b6:a03:541::18) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
- 2026 03:39:51 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.19; Tue, 19 May
+ 2026 03:39:54 +0000
 Received: from SJ1PEPF00002318.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef:cafe::4b) by SJ0PR03CA0188.outlook.office365.com
- (2603:10b6:a03:2ef::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
- May 2026 03:39:51 +0000
+ (2603:10b6:a03:2ef:cafe::4b) by SJ0PR03CA0198.outlook.office365.com
+ (2603:10b6:a03:2ef::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Tue, 19
+ May 2026 03:39:54 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -62,18 +62,18 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
 Received: from mail.nvidia.com (216.228.117.160) by
  SJ1PEPF00002318.mail.protection.outlook.com (10.167.242.228) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:39:51 +0000
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:39:54 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
- 2026 20:39:30 -0700
+ 2026 20:39:36 -0700
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
- 2026 20:39:30 -0700
+ 2026 20:39:36 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 18 May 2026 20:39:29 -0700
+ Transport; Mon, 18 May 2026 20:39:35 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
  Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
@@ -85,9 +85,9 @@ CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
 	<xueshuai@linux.alibaba.com>
-Subject: [PATCH v4 07/24] iommu: Defer __iommu_group_free_device() to be outside group->mutex
-Date: Mon, 18 May 2026 20:38:50 -0700
-Message-ID: <bae489d600425a014bfed1c2290ee7c0c657f198.1779161849.git.nicolinc@nvidia.com>
+Subject: [PATCH v4 11/24] iommu: Add iommu_report_device_broken() to quarantine a broken device
+Date: Mon, 18 May 2026 20:38:54 -0700
+Message-ID: <745da1a819eb943f2519e660c8bcfde715885c6c.1779161849.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1779161849.git.nicolinc@nvidia.com>
 References: <cover.1779161849.git.nicolinc@nvidia.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002318:EE_|PH8PR12MB7328:EE_
-X-MS-Office365-Filtering-Correlation-Id: fe79e014-dd60-4ca2-9357-08deb55848b5
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002318:EE_|SJ2PR12MB9007:EE_
+X-MS-Office365-Filtering-Correlation-Id: a8a58e9e-38ff-48e8-b518-08deb5584a5f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|7416014|22082099003|56012099003|18002099003|11063799003;
-X-Microsoft-Antispam-Message-Info: H6MmkUqvXKFUmgdj2JnVn9rrdb/j1fUZCtZ+mQR66paslWaVWZrXZJLk4vWk2biZjZBOvloVuvT74cRqcsuYbJ3VsYCtQrlk1CRl1uTBQR+kwo/il2VE3xbtbWrli34b0FNaYDWtpgy4ffhTR3i0HSuM+AP4DkulQotn6IiO90RACBIGnAcTiIUIMdljzLJMsiGzd3D2YPNLOfudjhpJqkcrqapzab+WYxa9a96Qq68gliBuvspAuEPKhlaY0B6kyFpKEjvJ8Cj/KoIXR0Lt2xx+gZEDXPEkIHh0v2G/w9NF+sL/f0gb9dOYbawIzby9eMJwGkKE7yfCqGxxO7i2b1lT+dawMCq/LDfZWmyABSVtD6bLvnpjFWljdQVNmC0QpqaKKmObOHopQ9ux7walMrrEQjTX9GJpFrc8xmHrM1oW9sh/MrfwEmxcE/E9sscIjy2XOdJxXCizwaJjY3toD7s/iP/14a/b35CIpgwcnILXCzxzJC1J7HuJ+/V1rlxSiTCIm8mmAjvzLkdHjwdqxh5dbUDsNmi/1OIMF3I0N+Bcl+8qr5hMYqfq1uNGPUmdGW67xIJgCDGuIrWCvkh/efu1mD2QsGYY3omGYn6XnU/DkfcZa9HCyIglFydUwf9WOue6hOchAgX+vTT9EJBB3B+elju5a2iOlp8IF/ZXHK9/RpA6+dYzeI3jrogbq4b2s7D9ycBOOlwdfy+V4uCqVffp9dxmruc5bKOf/vABt+k=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(7416014)(22082099003)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|82310400026|22082099003|18002099003|56012099003|11063799003;
+X-Microsoft-Antispam-Message-Info: 9E6e35TaANrNdFgB3sobmSBZyST2BPP5HYeoQoA/zHN7kSjLL4JFxYlj84jOVW2Ab8KfJGnqUdOX213BB9pvAXQLrZcwzHaQYuJybkSEQOSugR+YGvcWlV+NEigd602o1Wso6d0YfaH86GaV7xl+T3fqwtg4wWcTx1Z3qZICcK1lA2Xri+9v4j0miOJIhKYK9omwQhh75Qjs9kPjssd6PHbVBqkr4dpXsFWbxvmDzgmGWsJkmHDSpZlsDVmsxostlmWg6bxvTx8QhN8bkuWy4RpXt/CPB7pTf8qc32o8+hit9HntrAvJEQ0J16DwTLnlOkTBA/3ERQ0zLXdt7pMw5v+bEiD1blrMQN3vNhHE4EXT2AlyF1n2bTEzPZSw2NcU87lMHqo7YFADbUKIJvUwbONVE9pkl1zc5QI2SX98+JWyR7BVNg1rsMkkYbG//PARx+rbpaglgE8PL5VJ70closP/MQNh7DfMlP2+okO/iqITSCjrnfJvWx/SslWpSVQX/odYY6qXcr6Uw+Bna5m9gtfNn+Q4HnUVO/DxEA6jPRDIFeZeI38z0H/0qMQ6Zni8g9BhWjjNYbjowvN5G9tubIxZShlvXNjYQiHMT9oBCGeY2T+L0JOcqw9QdbDgVjgyS416JECUbsaE0oLeYrtiy7ZAIGW7VYAlGkwMhUO1Kwmqw3bLALtg+UkI+MWmh7s7ajX7eUN5pq/HaoTFUtksZ/eMRGyqszkRTWvvad/vyPA=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(82310400026)(22082099003)(18002099003)(56012099003)(11063799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: /3QLgt1x9Abq7gMRq+1HNYnuGF2vhKQNllcs4LnPsHiElQMOKHsvJE6pINQ1J/8Mby1ZGEI2dZ24hAfAGKCU9g9fzO4vT76jX0Q4ms3eYNY63rLgqVn6OFGfjXmQk2E5Hpg9kdgtA5geWx01CImcIg6Bo3DYh5cGac5aiLKAc1vgwzChdnT7s2pwMg0wGY+vXKY3thUh15gJCryLjF6sKl0pmQVGMafImn03NK+D3w07EMwqdhA5qDlhdC4her+B1BT9x1oINTIq/pJqjM1fPrHxQKjx/cKczvLxL0bWxm55ugZMBGUvDwzzOmegkyg5rHMPweBOwz97PQoqjXZDdT8snD+Bxg7gXMdQrl5YXa0vDP6dBLmTOilaSWmY1IyUYTrlizefrFjPrmCu2KhlCbn49bo4REQnjVK9R4Tiwo+ZyHBRi57/DNYpWEm/9uga
+X-MS-Exchange-AntiSpam-MessageData-0: ixF0m7+JRWx/hrBAaPnl/AfkieZXYcVJlcXFNSznMns+fQiuSdFFVnuw0A5SoxTBJpE0T6/wqg3hXMz7xlPXbjutYB3e0bD/42th8dmvyXlh9oMfczGTX7T4M9/ejxL8iKGvOJpGmnHqnXmvLjArpTWYugloPn8FCcvstekz+oyCW020jf4k0daT80LijENawk2pmQ45tN8zu2pR9Y+xNCeGM8s0NauNVSEr396c99biSDptiGltknGLVqpQhc0HkrklAS87vGwxBMwnqXyoehEyh22mPj1n1JinuJwK+dxrAdKh9xQboEfOW7Q2A7k8hQtXX+pAc8ROfa1qSQri7LDoWmXjbqbrfRJ4NOGJdVrUxS9Ix+BeQuQI9R6T0cXc44iTLLPD2dFoBjAT1fOXzUgeeyUKfkfSQBoVY6Qd8dp6lJp6CBX7qonjqE37bid5
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:39:51.3406
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:39:54.1429
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fe79e014-dd60-4ca2-9357-08deb55848b5
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8a58e9e-38ff-48e8-b518-08deb5584a5f
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002318.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7328
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_204000_116468_67F33377 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20260518_204000_925628_969BC903 
+X-CRM114-Status: GOOD (  30.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,119 +133,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__iommu_group_remove_device() holds group->mutex across the entire call to
-__iommu_group_free_device() that performs sysfs removals, tracing, and the
-final kfree(). But in fact, most of these operations don't really need the
-group->mutex.
+When an IOMMU hardware detects an error due to a faulty device (e.g. an ATS
+invalidation timeout), IOMMU drivers may quarantine the device by disabling
+specific hardware features or dropping translation capabilities.
 
-Subsequent changes will introduce sleepable operations to this function:
- + synchronize_rcu() to defer the gdev->dev put past a grace period.
- + disable_work_sync() to cancel a future broken_work.
-Neither should run while holding group->mutex. Thus, move them outside.
+However, the core-level states of the faulty device are out of sync, as the
+device can still be attached to a translation domain or even potentially be
+moved to a new domain that might overwrite the driver-level quarantine.
 
-Separate the assertion from __iommu_group_free_device() to another helper
-__iommu_group_empty_assert_owner_cnt(). While moving it, revise the inline
-comment a bit to make it clearer.
+Given that such an error can likely be triggered from an ISR, introduce an
+asynchronous broken_work per group_device, and provide a helper function to
+allow the driver to initiate a quarantine in the core. __dev_to_gdev_rcu()
+is required here to safely iterate the group_device list.
 
-Defer the __iommu_group_free_device() until the mutex is released.
-
-This is a preparatory refactor with no functional change.
+Note: gdev and gdev->group teardown will be blocked by disable_work_sync(),
+so it's completely safe for the worker thread to access the group pointer.
 
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/iommu.c | 35 +++++++++++++++++++++++------------
- 1 file changed, 23 insertions(+), 12 deletions(-)
+ include/linux/iommu.h |  11 +++-
+ drivers/iommu/iommu.c | 139 ++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 149 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 6727b6f7797bd..2f8f3ea13f490 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -634,6 +634,19 @@ static struct iommu_domain *pasid_array_entry_to_domain(void *entry)
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index 6c124e9e9af8b..c088c8e8c1e2b 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -631,7 +631,10 @@ __iommu_copy_struct_to_user(const struct iommu_user_data *dst_data,
+  *                  group and attached to the groups domain
+  * @reset_device_done: Notify the driver that a device has reset successfully.
+  *                     Note that the core invokes the callback function while
+- *                     holding the group->mutex
++ *                     holding the group->mutex. Before returning, the driver
++ *                     must drain or filter pre-reset fault reports so that
++ *                     subsequent calls to iommu_report_device_broken() will
++ *                     reflect only post-reset faults.
+  * @device_group: find iommu group for a particular device
+  * @get_resv_regions: Request list of reserved regions for a device
+  * @of_xlate: add OF master IDs to iommu grouping
+@@ -896,6 +899,8 @@ static inline struct iommu_device *__iommu_get_iommu_dev(struct device *dev)
+ #define iommu_get_iommu_dev(dev, type, member) \
+ 	container_of(__iommu_get_iommu_dev(dev), type, member)
  
- DEFINE_MUTEX(iommu_probe_device_lock);
++void iommu_report_device_broken(struct device *dev);
++
+ static inline void iommu_iotlb_gather_init(struct iommu_iotlb_gather *gather)
+ {
+ 	*gather = (struct iommu_iotlb_gather) {
+@@ -1211,6 +1216,10 @@ struct iommu_iotlb_gather {};
+ struct iommu_dirty_bitmap {};
+ struct iommu_dirty_ops {};
  
-+static void __iommu_group_empty_assert_owner_cnt(struct iommu_group *group)
++static inline void iommu_report_device_broken(struct device *dev)
 +{
-+	lockdep_assert_held(&group->mutex);
-+	/*
-+	 * If the group has become empty, the ownership must have been released,
-+	 * and the current domain must be set back to the default domain (which
-+	 * itself can be NULL).
-+	 */
-+	if (list_empty(&group->devices))
-+		WARN_ON(group->owner_cnt ||
-+			group->domain != group->default_domain);
 +}
 +
- static int __iommu_probe_device(struct device *dev, struct list_head *group_list)
+ static inline bool device_iommu_capable(struct device *dev, enum iommu_cap cap)
  {
- 	struct iommu_group *group;
-@@ -707,10 +720,12 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
+ 	return false;
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index b150d22d8015f..6e5a7e38c5e67 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -82,6 +82,7 @@ enum gdev_blocked {
+ 	BLOCKED_NO = 0, /* Not blocked */
+ 	BLOCKED_RESETTING, /* PCI reset in flight */
+ 	BLOCKED_RESET_FAILED, /* PCI reset failed */
++	BLOCKED_BROKEN, /* Driver flagged a fault */
+ };
  
- err_remove_gdev:
- 	list_del(&gdev->list);
--	__iommu_group_free_device(group, gdev);
-+	__iommu_group_empty_assert_owner_cnt(group);
- err_put_group:
- 	iommu_deinit_device(dev);
- 	mutex_unlock(&group->mutex);
-+	if (!IS_ERR(gdev))
-+		__iommu_group_free_device(group, gdev);
- 	iommu_group_put(group);
+ struct group_device {
+@@ -95,6 +96,9 @@ struct group_device {
+ 	 */
+ 	enum gdev_blocked blocked;
+ 	unsigned int reset_depth;
++	struct work_struct broken_work;
++	/* Transient state before broken_worker thread starts */
++	bool broken_pending;
+ };
  
- 	return ret;
-@@ -739,20 +754,13 @@ static void __iommu_group_free_device(struct iommu_group *group,
- {
- 	struct device *dev = grp_dev->dev;
+ /* Iterate over each struct group_device in a struct iommu_group */
+@@ -117,6 +121,25 @@ static struct group_device *__dev_to_gdev(struct device *dev)
+ 	return NULL;
+ }
  
-+	lockdep_assert_not_held(&group->mutex);
++/* Caller must be inside rcu_read_lock(). */
++static struct group_device *__dev_to_gdev_rcu(struct device *dev)
++{
++	struct iommu_group *group;
++	struct group_device *gdev;
 +
++	lockdep_assert(rcu_read_lock_held());
++
++	group = rcu_dereference(dev_iommu_group_rcu(dev));
++	if (!group)
++		return NULL;
++
++	for_each_group_device(group, gdev) {
++		if (gdev->dev == dev)
++			return gdev;
++	}
++	return NULL;
++}
++
+ struct iommu_group_attribute {
+ 	struct attribute attr;
+ 	ssize_t (*show)(struct iommu_group *group, char *buf);
+@@ -180,6 +203,7 @@ static ssize_t iommu_group_store_type(struct iommu_group *group,
+ static struct group_device *iommu_group_alloc_device(struct iommu_group *group,
+ 						     struct device *dev);
+ static void __iommu_group_free_device(struct group_device *grp_dev);
++static void iommu_group_broken_worker(struct work_struct *work);
+ static void iommu_domain_init(struct iommu_domain *domain, unsigned int type,
+ 			      const struct iommu_ops *ops);
+ 
+@@ -762,6 +786,12 @@ static void __iommu_group_free_device(struct group_device *grp_dev)
  	sysfs_remove_link(group->devices_kobj, grp_dev->name);
  	sysfs_remove_link(&dev->kobj, "iommu_group");
  
++	/*
++	 * Disable (not just cancel) broken_work to prevent UAF; otherwise a
++	 * concurrent schedule_work() from iommu_report_device_broken() would
++	 * queue onto an about-to-be-freed gdev.
++	 */
++	disable_work_sync(&grp_dev->broken_work);
  	trace_remove_device_from_group(group->id, dev);
  
--	/*
--	 * If the group has become empty then ownership must have been
--	 * released, and the current domain must be set back to NULL or
--	 * the default domain.
--	 */
--	if (list_empty(&group->devices))
--		WARN_ON(group->owner_cnt ||
--			group->domain != group->default_domain);
--
  	kfree(grp_dev->name);
- 	kfree(grp_dev);
- }
-@@ -761,7 +769,7 @@ static void __iommu_group_free_device(struct iommu_group *group,
- static void __iommu_group_remove_device(struct device *dev)
- {
- 	struct iommu_group *group = dev->iommu_group;
--	struct group_device *device;
-+	struct group_device *device, *to_free = NULL;
+@@ -1308,6 +1338,7 @@ static struct group_device *iommu_group_alloc_device(struct iommu_group *group,
+ 	device->group = group;
+ 	/* Keep dev alive for any in-flight RCU reader of grp_dev->dev. */
+ 	get_device(dev);
++	INIT_WORK(&device->broken_work, iommu_group_broken_worker);
  
- 	mutex_lock(&group->mutex);
- 	for_each_group_device(group, device) {
-@@ -772,15 +780,18 @@ static void __iommu_group_remove_device(struct device *dev)
- 		if (device->blocked && !WARN_ON(group->recovery_cnt == 0))
- 			group->recovery_cnt--;
- 		list_del(&device->list);
--		__iommu_group_free_device(group, device);
-+		__iommu_group_empty_assert_owner_cnt(group);
- 		if (dev_has_iommu(dev))
- 			iommu_deinit_device(dev);
- 		else
- 			rcu_assign_pointer(dev_iommu_group_rcu(dev), NULL);
-+		to_free = device;
- 		break;
- 	}
- 	mutex_unlock(&group->mutex);
+ 	ret = sysfs_create_link(&dev->kobj, &group->kobj, "iommu_group");
+ 	if (ret)
+@@ -4301,6 +4332,14 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev, int reset_result)
+ 	 */
+ 	if (ops->reset_device_done)
+ 		ops->reset_device_done(&pdev->dev);
++	/*
++	 * Clear broken_pending after the reset_device_done callback to
++	 * neutralize any stale pre-reset report. Until this moment, a
++	 * driver may call iommu_report_device_broken() on a pre-reset
++	 * fault. Legitimate post-reset reports can only fire after the
++	 * re-attach below, so this clear cannot hide them.
++	 */
++	WRITE_ONCE(gdev->broken_pending, false);
  
-+	if (to_free)
-+		__iommu_group_free_device(group, to_free);
  	/*
- 	 * Pairs with the get in iommu_init_device() or
- 	 * iommu_group_add_device()
+ 	 * Re-attach RID domain back to group->domain
+@@ -4346,6 +4385,106 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev, int reset_result)
+ }
+ EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_done);
+ 
++static void iommu_group_broken_worker(struct work_struct *work)
++{
++	struct group_device *gdev =
++		container_of(work, struct group_device, broken_work);
++	struct iommu_group *group = gdev->group;
++	struct device *dev = gdev->dev;
++
++	guard(mutex)(&group->mutex);
++
++	/*
++	 * iommu_deinit_device() frees dev->iommu under group->mutex. Bail
++	 * out if the device has already been removed from IOMMU handling.
++	 */
++	if (!dev_has_iommu(dev))
++		return;
++
++	/*
++	 * A successful reset between schedule_work() and now would have cleared
++	 * broken_pending. Skip as the device has already been recovered.
++	 */
++	if (!READ_ONCE(gdev->broken_pending))
++		return;
++
++	/*
++	 * Quarantine the device completely. For a PCI device, it will be lifted
++	 * upon a pci_dev_reset_iommu_done(pdev, reset_result=0) call indicating
++	 * a device recovery.
++	 *
++	 * For a non-PCI device, currently it has no recovery framework tied to
++	 * the IOMMU subsystem. Quarantine it indefinitely until a recovery path
++	 * is introduced.
++	 */
++	if (WARN_ON(__iommu_group_block_device(gdev, BLOCKED_BROKEN)))
++		return;
++
++	dev_warn(dev, "IOMMU has quarantined the device\n");
++	WRITE_ONCE(gdev->broken_pending, false);
++}
++
++/**
++ * iommu_report_device_broken() - Report a broken device to quarantine it
++ * @dev: Device that has encountered an unrecoverable IOMMU-related error
++ *
++ * When an IOMMU driver detects a critical error caused by a device (e.g. an ATC
++ * invalidation timeout), this function should be used to quarantine the device
++ * at the IOMMU core level.
++ *
++ * The quarantine moves the device's RID and PASIDs to group->blocking_domain to
++ * prevent any further DMA/ATS activity that can potentially corrupt the system
++ * memory due to stale device cache entries.
++ *
++ * This function must not be called from a reset_device_done callback: setting
++ * broken_pending there would race the clear in pci_dev_reset_iommu_done() that
++ * follows. Otherwise, this function is safe to call from any context (including
++ * interrupt handlers), as the actual quarantine is done in an asynchronous work
++ * thread. The caller should have already taken driver-level measures (e.g., ATS
++ * disabled in HW) to contain the fault promptly before calling this function.
++ *
++ * An asynchronous reset can occur while the driver is handling an IOMMU-related
++ * error. The driver is responsible for calling this only for post-reset faults.
++ * A queued or delayed pre-reset fault must be drained or filtered by the driver
++ * before delivery. Otherwise, a stale report would falsely quarantine a freshly
++ * recovered device.
++ *
++ * For PCI devices, the quarantine will be lifted by a successful device reset
++ * via pci_dev_reset_iommu_done(). For non-PCI devices, the quarantine remains
++ * in effect indefinitely until a recovery mechanism is introduced.
++ *
++ * If the device is concurrently being removed or has already been removed from
++ * the IOMMU subsystem, this function will silently return without any action.
++ */
++void iommu_report_device_broken(struct device *dev)
++{
++	struct group_device *gdev;
++
++	/*
++	 * We cannot hold group->mutex here. Rely on iommu_group_broken_worker()
++	 * to validate dev_has_iommu(). The iommu_group memory is RCU-protected
++	 * via kfree_rcu() in iommu_group_release(), and group->devices is an
++	 * RCU-protected list, so the lookup runs entirely under rcu_read_lock.
++	 *
++	 * Note the device might have been concurrently removed from the group
++	 * (list_del_rcu) before iommu_deinit_device() cleared the dev->iommu.
++	 */
++	rcu_read_lock();
++	gdev = __dev_to_gdev_rcu(dev);
++	if (gdev) {
++		/*
++		 * Narrow chance we re-set broken_pending right after a concurrent
++		 * worker cleared it. Benign: the worker we are queueing here will
++		 * read it true and clear it again (skipping if already blocked);
++		 * pci_dev_reset_iommu_done() also clears it on a successful reset.
++		 */
++		WRITE_ONCE(gdev->broken_pending, true);
++		schedule_work(&gdev->broken_work);
++	}
++	rcu_read_unlock();
++}
++EXPORT_SYMBOL_GPL(iommu_report_device_broken);
++
+ #if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+ /**
+  * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
 -- 
 2.43.0
 
