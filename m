@@ -4,81 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8E00CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41721CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FZQEydHotOlp4uMmV3gxWEdikDSpyup0DxMbUZ/XuPY=; b=nAiH4mXOvdmr4bo1WfCYcMogHU
-	FTdiWV8ojEaSeqjOXN6xfmOVBr4e0QhvVqallP40xVA6wUvZXZ6PK4Bc8TYjdtwf9pl0D3p59O/FE
-	HuQLM6SXHSas2xkYT7/3fahrC9UhBdkgDjJiqvziDzT3Jxl5Aws9ndOHAmbNF7rGT3CMhcrv4DPAn
-	n1+uGlIC9No/Aec0d/jqKKwPyY41cMWfzqUVdoxtpNCdEWJdeGvwWCoVbyA8WHrTbpLLAEtNmpajL
-	BmYV3dhwy7y0pq1CxdmOI8jpNNxIlgEKwsCyxQsu4QfUGbpNxqQpFSl1M6H5sPRAHpEnasMJJ9N/J
-	H6b5N3Pw==;
+	bh=VRNv2LUnqB0I2/Pwnw7AHbbTwUE/DoMeioJdNlkHPNo=; b=GS06Q8NAgxP5BQKk+Q/saXhiDu
+	xCin/pz2Pwpa8DcNmWRiOIon3WO3hMcxRrb5MTDHxMFGeMyqRyLKxLjYiEV2GJK1xTdmjWKV8lm9D
+	2R56sQcDLtAK7w7HuN3L/ZI0dK4LEszP4C8CtLOs0bRvoQJwN5shaSFVhV7qjCp6Pr+T8WGRiJ58v
+	/rPq7Tb41EipLeFX1C4Ls+XJaeM7DNH2PsY9jxVkgbLJIAxNp1mG03Xf27WajNDd2XSxWFyYDGPaP
+	XWVgUwCZ4Wpl0IE7MJQUe0s1rzbWcUugpKuklnG/jkuCnX4giKlUVJfD05Mi1KYfK/Hf7sj9IMdOt
+	CezW43wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPH7a-00000000zrh-1aEK;
-	Tue, 19 May 2026 09:52:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPH9S-000000010GD-3REN;
+	Tue, 19 May 2026 09:54:14 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPH7Y-00000000zr8-0IZA;
-	Tue, 19 May 2026 09:52:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A943440325;
-	Tue, 19 May 2026 09:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07597C2BCB3;
-	Tue, 19 May 2026 09:52:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779184335;
-	bh=qQAx2S7DIvi/HfSEU64Ukx1DApHFp7BANES2FJ3Vywc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JHEixrZpCOxm73sOygk3wsmQN4Sm+kK2cjidgYWrtWzLq18Z52de1Mvh9HxAqd6EA
-	 VVXXQvt1Ozkom/KZncwEzxmYH+FMDBWqFO/tLBn2FGrJKFLVq0FKr4uovi5j5MPIvI
-	 geo1yLPS/pBsfqcn2UjNTDoaT/EnpFNcsqApniiB3GHn0ETqukBO1/NKnIQg+JHBtQ
-	 dqT9Bdj3KS1vonHExfpsmiZHZnByH8K238WVDuIlSfAZNa6L4jbVwToGFlqx45vRaU
-	 jkX6w76ZEHYGgY3IK4PrDOPXISkwqWxw9DSyEdHmQD6rMSDzzgss1dpEolpI3FMdfF
-	 S7+EGBrXxCzzg==
-Date: Tue, 19 May 2026 11:52:13 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: Chia-I Wu <olvaffe@gmail.com>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Marcin =?utf-8?Q?=C5=9Alusarz?= <marcin.slusarz@arm.com>, Ketil Johnsen <ketil.johnsen@arm.com>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
-	"T.J. Mercier" <tjmercier@google.com>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
-	Steven Price <steven.price@arm.com>, Daniel Almeida <daniel.almeida@collabora.com>, 
-	Alice Ryhl <aliceryhl@google.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
-Subject: Re: [Linaro-mm-sig] Re: [PATCH 4/8] drm/panthor: Add support for
- protected memory allocation in panthor
-Message-ID: <20260519-loutish-beautiful-trogon-67453f@houat>
-References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
- <20260505140516.1372388-5-ketil.johnsen@arm.com>
- <20260505181523.49a3d85c@fedora>
- <afxVIuVVPisBQ9p_@e129842.arm.com>
- <20260507135356.5428d50d@fedora>
- <agMvb_jeRsO7tSS-@e142607>
- <20260512161111.0cb7000e@fedora>
- <agNJasayW8VCHTiU@e142607>
- <CAPaKu7QC7FdjL6m_OSb+E5aYKs6bmT-9DAHc5PC=XctCmRph2Q@mail.gmail.com>
- <20260518091650.5a7a4f4a@fedora>
+	id 1wPH9Q-000000010FF-1NLg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 09:54:13 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-50d6b393d60so5401cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 02:54:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779184450; cv=none;
+        d=google.com; s=arc-20240605;
+        b=jWfUrZ4dJobiPJ5WCaiJIBEV8AJGBjG3IfSL5wLlrh+E60/MhPZTjhxnlXXFAWFTe8
+         x8fH+Z41zIwIxp9zvIS0DpSZL6aK4Vd/P1/Nq/49nP5ey4pR33dI/dbkin72htJlPwqo
+         UmrDWc/3EhxOPxjSVN1YsNoqMSWB1kVkmVAFPsveRzPjytFqPxuYvY1BCXHA1f4e2uK4
+         qGC8Gat501UKQ4QxXSEJePKy+sW2ussNuCkF1kPWmV4ZuuaueDxRQ+SLQ7ZA4Lg9HJKO
+         MGwSnehNmNk0b4zxZdMkLJocacDOIw5dtBpzSjeG9NfCE5GQcoIIJjEdlHS2iY8zXB2C
+         DioQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=VRNv2LUnqB0I2/Pwnw7AHbbTwUE/DoMeioJdNlkHPNo=;
+        fh=gyq2WRBo2UhvuCj9gYFDWuHZkRytuSF9hsrfAKMUHjw=;
+        b=FZGQnTEES/9u+AYZJlSB7IE+icLJn0YiMwC8RjfGpspeF47VhshbK41oLd7ICh8LlS
+         7M8wqUqmzGbT+djLtx+Svv26pOnSIOf9q6NpCyttWnObkSgF9xh5KOKLdRtF6Jo1xMbe
+         F9j6Q+0gmdoQ+Jd2sGeDPDCqSkGWDV90DdFUNTVl0ygAoViH9SOfhoiu9yFC1fZhBpa6
+         14ZUjbW1i2fjqDeTBmZYIEMVFk141vSKnEnGWoG3Aqqm18qnB+Zbpz1RG+0QkFCqLeMK
+         pHSC25GYhP4rqAbgJXSP0wLyxkGZOK4fBi3AcUT66+3KwP5IsjQyR6r5v93+CW3eVoOm
+         xpCg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779184450; x=1779789250; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=VRNv2LUnqB0I2/Pwnw7AHbbTwUE/DoMeioJdNlkHPNo=;
+        b=ZR/NZ3nXX9ByvlseDZsfaIQrPLKV8T8lrt+uuwimY8nxyhqUBrfu0hvGZFLKjZVzYD
+         6dQkXMq2rWuzYMobXNmFf3PoGUg8fvkwkFew/mNgkDVK6Q+Z8en33bWGpkIPqg2cWgjn
+         b3nRln6CD3M69QBiFEsbCITu2sMBSnBpk7Sb33fVe+xh0N4+8qKDbpBXEN4j38JIyI2J
+         45jkQed0VkCW8edmj2ei4Ld59oRaXoeWCY1Gx1L7rN39+N96SFJn2oTSky1eEYgjuvWC
+         u2XzeQ5GBy+Th4lBs3Jo7vz/3E3KiNQuo0N6ljpNkCbdo0TOo7nLZ+250EeYN3Gk8kZD
+         kMSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779184450; x=1779789250;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VRNv2LUnqB0I2/Pwnw7AHbbTwUE/DoMeioJdNlkHPNo=;
+        b=cZmC7mimlCUOkdv9bYyc6Mk05wMovoYI4vZSDa7nJycAQbwrPuTJIelul1vjfHfrcU
+         Jh+tyFVfnyfQoO5g1FYcYeFwaSt9SoWX3OAu61Nq1q16rgmKB4GpBZ2wkSfeIUtuBTsP
+         vTOTAnywBOF7tIIz+inSDH6D3dDNY6xapS6f16w2wysNr7bCGckwXRtx1WGViO1o368m
+         RmVhecBZGZev0T0ppn1QcaSYEDDXkDUiFkriIVTgmFmlpVVpDRHp8klcetrteAXu5kYW
+         5wuWZJaN+VlJw8RlISCViogjVqWQhQCyG/d7tnVb7iA1AGcp57CCY4qfff5WZEUlfSHI
+         jkyA==
+X-Gm-Message-State: AOJu0YyzyVFdFTnb8K1PJEFd9il9AWVDtL0L6DPV27gB9OB3LYC2jyvO
+	I1yWhP3DDK7Ut5JD923URIijqAoKU2lbHQBpXOnKCvp9WSWDJjobtPF+M/aAsfnK4d4thdeRyUv
+	4Ktmcic+oCryxTNnWeDOt8AyQHYJsqrl9oLuGljZ+
+X-Gm-Gg: Acq92OGHFuOukO2bYZUIm/Esip6cWjLEv3yCTdkcvuw6Eylk9PgFBIsUOWo5Jyzjz96
+	gxCALGCXw5YOrzQWeTXezBCJIC7hwQFnZPGcVMy11fKYpQO/l+3tgTpEscFB5AzWX+4sU6A7fjK
+	yxnKvYfyOzJk0LtVO7fPyCEOqzxpFsfwddedxY3kMBLg98+acvQYIr+E/Pd78xNWoAl32/iAAQh
+	Qasq/x6nMZCRdfn0FcsCIXzRllM8l7RTmC9oWnC+w1p2ZFoylHaZz9Gv5UUrcovkmZNh2OW5j5e
+	1wsskW+L+zLp8z3rodVXrskqXj5SeI7iJ7LMkI5AVHLdRd2t
+X-Received: by 2002:a05:622a:5590:b0:516:4f62:85e9 with SMTP id
+ d75a77b69052e-5167943e78amr18402511cf.20.1779184449660; Tue, 19 May 2026
+ 02:54:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="ehulylxo6op5dniv"
-Content-Disposition: inline
-In-Reply-To: <20260518091650.5a7a4f4a@fedora>
+References: <20260519092243.7278-1-will@kernel.org>
+In-Reply-To: <20260519092243.7278-1-will@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 19 May 2026 10:53:32 +0100
+X-Gm-Features: AVHnY4Lk3hWZ4v6bl-ajxMDKmFzz55aDWu-c56F4QHc5SYU1-46EuP5FIAfg2qA
+Message-ID: <CA+EHjTy8r7Zw4fNXQsU68sUviH2BuSXEZKEP1hOotanYk3W2gQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: cpucaps: Keep entries sorted
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Marc Zyngier <maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_025216_154545_F56365F4 
-X-CRM114-Status: GOOD (  44.18  )
+X-CRM114-CacheID: sfid-20260519_025412_377979_1E31BC62 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,119 +114,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Will,
 
---ehulylxo6op5dniv
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [Linaro-mm-sig] Re: [PATCH 4/8] drm/panthor: Add support for
- protected memory allocation in panthor
-MIME-Version: 1.0
+On Tue, 19 May 2026 at 10:23, Will Deacon <will@kernel.org> wrote:
+>
+> The cpucaps list is supposed to be sorted, even though the awk script
+> which processes it doesn't really care. Since this isn't enforced or
+> relied upon and because the alphabet is hard, the list has gradually
+> developed an ordering of its own.
+>
+> Re-sort the file.
+>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Reported-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+>
+> Marc pointed out that HAS_BBML2_NOABORT was in the wrong place but, on
+> closer inspection, there are a bunch of misplaced entries here. I
+> honestly don't like the churn of re-sorting it, so an alternative is
+> to live with it and remove the comment at the top asking people to keep
+> it sorted it. Any preferences?
 
-Hi Boris,
+The resorting looks correct to me, but this is bound to drift unless
+we enforce it. How about pairing it with enforcement, such as a `sort
+-c` check in arch/arm64/tools/Makefile, or an awk rule in
+gen-cpucaps.awk?
 
-On Mon, May 18, 2026 at 09:16:50AM +0200, Boris Brezillon wrote:
-> On Wed, 13 May 2026 12:31:32 -0700
-> Chia-I Wu <olvaffe@gmail.com> wrote:
->=20
-> > On Tue, May 12, 2026 at 8:39=E2=80=AFAM Liviu Dudau <liviu.dudau@arm.co=
-m> wrote:
-> > >
-> > > On Tue, May 12, 2026 at 04:11:11PM +0200, Boris Brezillon wrote: =20
-> > > > On Tue, 12 May 2026 14:47:27 +0100
-> > > > Liviu Dudau <liviu.dudau@arm.com> wrote:
-> > > > =20
-> > > > > On Thu, May 07, 2026 at 01:53:56PM +0200, Boris Brezillon wrote: =
-=20
-> > > > > > On Thu, 7 May 2026 11:02:26 +0200
-> > > > > > Marcin =C5=9Alusarz <marcin.slusarz@arm.com> wrote:
-> > > > > > =20
-> > > > > > > On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon wro=
-te: =20
-> > > > > > > > > @@ -277,9 +286,21 @@ int panthor_device_init(struct panth=
-or_device *ptdev)
-> > > > > > > > >                     return ret;
-> > > > > > > > >     }
-> > > > > > > > >
-> > > > > > > > > +   /* If a protected heap name is specified but not foun=
-d, defer the probe until created */
-> > > > > > > > > +   if (protected_heap_name && strlen(protected_heap_name=
-)) { =20
-> > > > > > > >
-> > > > > > > > Do we really need this strlen() > 0? Won't dma_heap_find() =
-fail is the
-> > > > > > > > name is "" already? =20
-> > > > > > >
-> > > > > > > If dma_heap_find() will fail, then the whole probe with fail =
-too.
-> > > > > > > This check prevents that. =20
-> > > > > >
-> > > > > > Yeah, that's also a questionable design choice. I mean, we can
-> > > > > > currently probe and boot the FW even though we never setup the
-> > > > > > protected FW sections, so why should we defer the probe here? C=
-an't we
-> > > > > > just retry the next time a group with the protected bit is crea=
-ted and
-> > > > > > fail if we can find a protected heap? =20
-> > > > >
-> > > > > The problem we have with the current firmware is that it does a n=
-umber of setup steps at "boot"
-> > > > > time only. One of the steps is preparing its internal structures =
-for when it enters protected
-> > > > > mode and it stores them in the buffer passed in at firmware loadi=
-ng. We cannot later run the
-> > > > > process when we have a group with protected mode set. =20
-> > > >
-> > > > No, but we can force a full/slow reset and have that thing
-> > > > re-initialized, can't we? I mean, that's basically what we do when a
-> > > > fast reset fails: we re-initialize all the sections and reset again=
-, at
-> > > > which point the FW should start from a fresh state, and be able to
-> > > > properly initialize the protected-related stuff if protected sectio=
-ns
-> > > > are populated. Am I missing something? =20
-> > >
-> > > Right, we can do that. For some reason I keep associating the reset w=
-ith the
-> > > error handling and not with "normal" operations. =20
-> > I kind of hope we end up with either
-> >=20
-> >  - panthor knows the exact heap to use and fails with EPROBE_DEFER if
-> > the heap is missing, or
-> >  - panthor gets a dma-buf from userspace and does the full reset
-> >    - userspace also needs to provide a dma-buf for each protected
-> > group for the suspend buffer
-> >=20
-> > than something in-between. The latter is more ad-hoc and basically
-> > kicks the issue to the userspace.
->=20
-> Indeed, the second option is more ad-hoc, but when you think about it,
-> userspace has to have this knowledge, because it needs to know the
-> dma-heap to use for buffer allocation that cross a device boundary
-> anyway. Think about frames produced by a video decoder, and composited
-> by the GPU into a protected scanout buffer that's passed to the KMS
-> device. Why would the GPU driver be source of truth when it comes to
-> choosing the heap to use to allocate protected buffers for the video
-> decoder or those used for the display?
+Otherwise, lgtm.
 
-Just fyi, the trend is to go to devices listing the heaps userspace
-should allocate from and/or using the heaps internally to allocate their
-buffers, so that last part is where we're headed, and feels totally
-reasonable to me.
+Reviewed-by: Fuad Tabba <tabba@google.com>
 
-Maxime
+/fuad
 
---ehulylxo6op5dniv
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCagwyvwAKCRAnX84Zoj2+
-dgjMAX9vYm/a4/mvh7CTGhu02MOZ2R365vHowMKWRty1Iieek7krzaTpTq2fXWdd
-H94eza8Bf1qt0LVur372tjV0TZ6LACyCkou132aOZthz51XbsLGn68Or0vOV4+vZ
-v4p+K4/w4Q==
-=5L5Y
------END PGP SIGNATURE-----
 
---ehulylxo6op5dniv--
+>
+>  arch/arm64/tools/cpucaps | 28 ++++++++++++++--------------
+>  1 file changed, 14 insertions(+), 14 deletions(-)
+>
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 811c2479e82d..0fc05b5026eb 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -5,6 +5,7 @@
+>  ALWAYS_BOOT
+>  ALWAYS_SYSTEM
+>  BTI
+> +HAFT
+>  # Unreliable: use system_supports_32bit_el0() instead.
+>  HAS_32BIT_EL0_DO_NOT_USE
+>  HAS_32BIT_EL1
+> @@ -14,6 +15,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
+>  HAS_ADDRESS_AUTH_IMP_DEF
+>  HAS_AMU_EXTN
+>  HAS_ARMv8_4_TTL
+> +HAS_BBML2_NOABORT
+>  HAS_CACHE_DIC
+>  HAS_CACHE_IDC
+>  HAS_CNP
+> @@ -26,41 +28,40 @@ HAS_ECV
+>  HAS_ECV_CNTPOFF
+>  HAS_EPAN
+>  HAS_EVT
+> -HAS_FPMR
+>  HAS_FGT
+>  HAS_FGT2
+> +HAS_FPMR
+>  HAS_FPSIMD
+>  HAS_GCS
+>  HAS_GENERIC_AUTH
+>  HAS_GENERIC_AUTH_ARCH_QARMA3
+>  HAS_GENERIC_AUTH_ARCH_QARMA5
+>  HAS_GENERIC_AUTH_IMP_DEF
+> +HAS_GIC_PRIO_MASKING
+> +HAS_GIC_PRIO_RELAXED_SYNC
+>  HAS_GICV3_CPUIF
+>  HAS_GICV5_CPUIF
+>  HAS_GICV5_LEGACY
+> -HAS_GIC_PRIO_MASKING
+> -HAS_GIC_PRIO_RELAXED_SYNC
+> -HAS_ICH_HCR_EL2_TDIR
+>  HAS_HCR_NV1
+>  HAS_HCX
+> +HAS_ICH_HCR_EL2_TDIR
+>  HAS_LDAPR
+>  HAS_LPA2
+> -HAS_LSE_ATOMICS
+>  HAS_LS64
+>  HAS_LS64_V
+> +HAS_LSE_ATOMICS
+>  HAS_LSUI
+>  HAS_MOPS
+>  HAS_NESTED_VIRT
+> -HAS_BBML2_NOABORT
+>  HAS_PAN
+>  HAS_PMUV3
+> -HAS_S1PIE
+> -HAS_S1POE
+> -HAS_SCTLR2
+>  HAS_RAS_EXTN
+>  HAS_RASV1P1_EXTN
+>  HAS_RNG
+> +HAS_S1PIE
+> +HAS_S1POE
+>  HAS_SB
+> +HAS_SCTLR2
+>  HAS_STAGE2_FWB
+>  HAS_TCR2
+>  HAS_TIDCP1
+> @@ -69,7 +70,6 @@ HAS_VA52
+>  HAS_VIRT_HOST_EXTN
+>  HAS_WFXT
+>  HAS_XNX
+> -HAFT
+>  HW_DBM
+>  KVM_HVHE
+>  KVM_PROTECTED_MODE
+> @@ -83,10 +83,10 @@ MTE_STORE_ONLY
+>  SME
+>  SME_FA64
+>  SME2
+> +SPECTRE_BHB
+>  SPECTRE_V2
+>  SPECTRE_V3A
+>  SPECTRE_V4
+> -SPECTRE_BHB
+>  SSBS
+>  SVE
+>  UNMAP_KERNEL_AT_EL0
+> @@ -110,9 +110,6 @@ WORKAROUND_4193714
+>  WORKAROUND_4311569
+>  WORKAROUND_AMPERE_AC03_CPU_38
+>  WORKAROUND_AMPERE_AC04_CPU_23
+> -WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+> -WORKAROUND_TSB_FLUSH_FAILURE
+> -WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
+>  WORKAROUND_CAVIUM_23154
+>  WORKAROUND_CAVIUM_27456
+>  WORKAROUND_CAVIUM_30115
+> @@ -128,3 +125,6 @@ WORKAROUND_REPEAT_TLBI
+>  WORKAROUND_SPECULATIVE_AT
+>  WORKAROUND_SPECULATIVE_SSBS
+>  WORKAROUND_SPECULATIVE_UNPRIV_LOAD
+> +WORKAROUND_TRBE_OVERWRITE_FILL_MODE
+> +WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
+> +WORKAROUND_TSB_FLUSH_FAILURE
+> --
+> 2.54.0.563.g4f69b47b94-goog
+>
+>
 
