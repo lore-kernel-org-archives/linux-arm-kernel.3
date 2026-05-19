@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB0CCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD30CD5BA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=viok0NZbuZ8e/hD57hUPyDwRDr0DwR3pZjydZmRPEJY=; b=33HkugSOF0ENoamz0Hl+RJOwF2
-	96VuLUoYc6C/OH8QRarSThJOU7sxbx2xEpIHJSe7KBJgTgBrtwpdAc8xLy1adadcmLDKrGBCc5HRL
-	m0XgQdDQcisRXfOPyUnlBOPzUqYI1LnDJdTQ97XngX4JtT/Ps7hxZMbQSGo3EPCEA3m4ZCsPsZ41O
-	7usODQnXgfRGkNd5P3VUfn4+ov0LZiLPmJBjMz5/wwqM5EDXgLzijm5Ra8S1oaNPVCB9jc6EC4Ej3
-	1UOJSx7Ixqe8oqiDwrPaZ1pN6/C4omhl5vvSwb9GBrDyEppeJgzzFFKxoCwSs5cPfIRW9ycjRnJe8
-	T0gC255Q==;
+	bh=Sao0yuOn9cKu8y1mwI62QTwKuextTxc4wrqkEYzJgG8=; b=RRPo5ivIQIqd5hwdpGnVgATKOI
+	iJBG2ySBus4clAmohf3xN9S7NxsF97bp1qALxPW+tBujH0JkuuosR7Jt8zgLlTv5ad84ZdLEikz/N
+	Ty8YrwB2cD4uvnLLofZN+DiZ3iS4bGbdUNP/JmbEwo5v9odj/cQ5NKpAdW9D46v1goL0xBbHqX7d+
+	UzOqu/Tcp6+omDdpw15+epYw/Zi4atYE8vdyQpXglVd8TQZT8OlEDYcRGMiVAZF9G3Kc3eK1l1Y/n
+	EFJOfirfOkBSL86DJwC5CqZGJUZUBlqyS0ZzGFtUgkJqD1bBtPYMib52h/qtbI9I4DQhR+b1trCBQ
+	QjixZBbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHrU-000000018mL-1pyz;
-	Tue, 19 May 2026 10:39:44 +0000
+	id 1wPHrV-000000018nN-0XlV;
+	Tue, 19 May 2026 10:39:45 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHrG-000000018So-2Qy2
+	id 1wPHrP-000000018eh-1o1p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:39:32 +0000
+	Tue, 19 May 2026 10:39:40 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 1910DC2B9DB;
-	Tue, 19 May 2026 10:40:22 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id BFB61C2B9DB;
+	Tue, 19 May 2026 10:40:30 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E2635606E9;
-	Tue, 19 May 2026 10:39:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA268107E8AE0;
-	Tue, 19 May 2026 12:39:23 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 95B0B606E9;
+	Tue, 19 May 2026 10:39:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1F29C107E8AEA;
+	Tue, 19 May 2026 12:39:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187167; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1779187175; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=viok0NZbuZ8e/hD57hUPyDwRDr0DwR3pZjydZmRPEJY=;
-	b=IIQiFWvNhiB4jeRRZP+AbU7H+nswsdO7rN2CHIxfxHWCb9p85Lo2MX8g+God7kNUYM6QqT
-	eex8Oq4KVgVP9LWOyYMRfAtUclVVk/qVJRvY9MlyVUrWnVDpqNLn9ZoIzsPdubT6m+0ozZ
-	72wGxTOzSj0HhmcJw6q+bYhj9qV0r8yqb9QAIoHN1Rna7oNG1nd+FO2saAWOQOkmOho3+g
-	zwELy0KhvMn3tJ2XTIYYkEZUzYpm0NUYi7oP4qnhOdKczQfLRT9egTI3gpnAuqPFfgDPdT
-	W50AuSHxDuUytCTc5ai93A0f25XxPAXswScof0rdzd2njB/4mGJhmR/wMJ/YZA==
+	bh=Sao0yuOn9cKu8y1mwI62QTwKuextTxc4wrqkEYzJgG8=;
+	b=fds5ptX+ISSKYE732a+mWt2C3yJ0bk/EOQU5Yg8lFWoWyvrrpHoft9W6zIvZp0p1qS/+Pj
+	u2RTS20ixBQv2nQhXkkimN9FDNyYOQhlrO86b9HmB6xDbZESgY6d07ajiaLmcpsnh7UV5u
+	lRSIl1YZyPCRT7fqlZNjB3BtFSWV1edY4ZN0v3JoYJYTd4eNDmJDoWbkBPq8jP9qyek1eu
+	7z9tc9phH/NEJ4nXXVR8L7kmBHrbKyjKulqYnXnkVUY6VrzavivWqWJtHfqTogVgDfxDdJ
+	aePNkGH1yIdz5mpmp/IOM0FwuzVV9HxIii1pXp6X8L2vw2VvSbbpGTQi8lHqtA==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:36 +0200
-Subject: [PATCH 19/37] drm/bridge: samsung-dsim: move drm_bridge_add() call
- to probe
+Date: Tue, 19 May 2026 12:37:38 +0200
+Subject: [PATCH 21/37] drm/bridge: initialize chain_node list head on
+ allocation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-19-45e2bdb3dfb4@bootlin.com>
+Message-Id: <20260519-drm-bridge-hotplug-v1-21-45e2bdb3dfb4@bootlin.com>
 References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,8 +75,9 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_033930_974227_20E417CA 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20260519_033939_649612_CD23DEF6 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,97 +92,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This bridge driver calls drm_bridge_add() in the DSI host .attach callback
-instead of in the probe function.
-
-This works for current use cases but is problematic for supporting hotplug
-of DRM bridges. The problematic case is when this DSI host is always
-present while its DSI device is hot-pluggable. In such case with the
-current code the DRM card will not be populated until after the DSI device
-attaches to the host, which could happen a very long time after booting, or
-even not happen at all.
-
-The reason is that the previous pipeline component (the encoder in this
-case) when probing cannot find the samsung-dsim bridge. What happens is:
-
- [1 and 2 can happen in any order, same result]
- 1) samsung-dsim probes (does not drm_bridge_add() itself)
- 2) The lcdif starts probing multiple times, but
-    lcdif_probe
-    -> lcdif_load
-       -> lcdif_attach_bridge
-          -> devm_drm_of_get_bridge() returns -EPROBE_DEFER because
-             the samsung-dsim is not in the global bridge_list
-             (deferred probe pending: imx-lcdif: Cannot connect bridge)
-
-The samsung-dsim will not drm_bridge_add() itself until a DSI device will
-try to mipi_dsi_attach() to the DSI Host, which can happen arbitratily late
-on hot-pluggable hardware.
-
-As a preliminary step to supporting hotplug move drm_bridge_add() at probe
-time, so that the samsung-dsim DSI host bridge is available during boot,
-even without a connected DSI device. This results in:
-
- 1) samsung-dsim probes (and adds to drm_bridge_add() itself)
- 2) The lcdif starts probing multiple times, but
-    lcdif_probe
-    -> lcdif_load
-       -> lcdif_attach_bridge
-          -> devm_drm_of_get_bridge() --> OK, returns samsung-dsim ptr
+In preparation to add a check to detect whether a bridge is not yet
+attached, ensure the chain_node list_head is always empty [as in
+list_empty()] since it is allocated, until it is attached.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ drivers/gpu/drm/drm_bridge.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 2af287221e22..cefb20ec68ad 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1980,8 +1980,6 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 		     mipi_dsi_pixel_format_to_bpp(device->format),
- 		     device->mode_flags);
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 687b36eea0c7..657f6609d7b1 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -378,6 +378,7 @@ void *__devm_drm_bridge_alloc(struct device *dev, size_t size, size_t offset,
+ 		return ERR_PTR(-ENOMEM);
  
--	drm_bridge_add(&dsi->bridge);
--
- 	/*
- 	 * This is a temporary solution and should be made by more generic way.
- 	 *
-@@ -2014,7 +2012,6 @@ static int samsung_dsim_host_attach(struct mipi_dsi_host *host,
- 	if (!(device->mode_flags & MIPI_DSI_MODE_VIDEO))
- 		samsung_dsim_unregister_te_irq(dsi);
- err_remove_panel_bridge:
--	drm_bridge_remove(&dsi->bridge);
- 	if (dsi->panel_bridge_added) {
- 		drm_panel_bridge_remove(next_bridge);
- 		dsi->panel_bridge_added = false;
-@@ -2040,8 +2037,6 @@ static int samsung_dsim_host_detach(struct mipi_dsi_host *host,
- 
- 	samsung_dsim_unregister_te_irq(dsi);
- 
--	drm_bridge_remove(&dsi->bridge);
--
- 	return 0;
- }
- 
-@@ -2242,6 +2237,8 @@ int samsung_dsim_probe(struct platform_device *pdev)
- 			goto err_disable_runtime;
- 	}
- 
-+	drm_bridge_add(&dsi->bridge);
-+
- 	return 0;
- 
- err_disable_runtime:
-@@ -2255,6 +2252,8 @@ void samsung_dsim_remove(struct platform_device *pdev)
- {
- 	struct samsung_dsim *dsi = platform_get_drvdata(pdev);
- 
-+	drm_bridge_remove(&dsi->bridge);
-+
- 	pm_runtime_disable(&pdev->dev);
- 
- 	if (dsi->plat_data->host_ops && dsi->plat_data->host_ops->unregister_host)
+ 	bridge = container + offset;
++	INIT_LIST_HEAD(&bridge->chain_node);
+ 	INIT_LIST_HEAD(&bridge->list);
+ 	bridge->container = container;
+ 	bridge->funcs = funcs;
 
 -- 
 2.54.0
