@@ -4,152 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACC3CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:05:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313A7CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVPS/YZ1oSIlrkSb8D1UOrXNB6sJr5b517OMbwu23HY=; b=CS/A2OrT5cPg8DvHCM5ZY1XG7o
-	KhWMVF61pwLpNOIOyu7m45nCmZMqxzWjPyXdlAg7mhZ41ra25a5Y9EY3zasrNX8YlxY6z7+Q0wkcL
-	KSPTur2GOeoRfT8ffOSd5PV/3pfgLlBs/oqNj/AkpdSzv0ckNB1DjH3qudbp9GBgfAZNP00SsyAUY
-	cI06ml2h1qc3saWyOz6owzBLOvslXrtg2+4WeZsQzOczUOApskazzOvn3qMdrUCgeKSwmGWmwInF4
-	oMoyCYAurg3dgNMAyqr6fJLwtVKQ42kssSsMxb7/V5MumLthnuOgiVcwxgxga55l0UamhQ43uh9tj
-	HjNAEs1A==;
+	bh=3lIDxJSaCajGTRzsdr7llad9+YDVYVX1WlfP1ZJZZC8=; b=U4qxlCGNV9hwKeTOAxl3ucFDwl
+	yjJ+8lTe+iKtQKpVHL2BHXyvop1ZWGmkNRNhRYtMmwLjvOEn/eBPX9nLKZjQTsm/jhfYtrNbhR4bP
+	ZJ1VmASpMdh9uZD/gvpbpQQ8nzZqpHYH9NvbikoqwOVjmWL26VMT6x3czgIhopVSr+UsAAQAh3gFJ
+	+CF1+oLNuzt7N5cqMeFkoAESV5ltPnFENLkNo+4NZRmsC2QAy8bJCXrflpM5G1UvLzYJTbcZbw5zp
+	u/xstmYW1/C2QiymzEpyBK6NKL0IHm5CWwRDg+dlucFG0ZlbmDF6ATA0BcE5qjgLV1R17U4UcDmBZ
+	cbrKzAxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP9qB-0000000HPwl-2rep;
-	Tue, 19 May 2026 02:05:51 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wP9xC-0000000HQsF-1gWg;
+	Tue, 19 May 2026 02:13:06 +0000
+Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP9q4-0000000HPnQ-35Gt;
-	Tue, 19 May 2026 02:05:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D9f0wltmYGDfsziW0KhCqmqLKwPaD1C5aDCcArDugtHqMnvRT4dTwBsmwCAHV/J0KREko1pcs7HPRiRwNNyoiai1i4pH7GuQ9HsWsFhJYMOua7c+qU+o3lA3bjAvpFfD/ErQG6EA5H4O8VSLpP7J8r6TDUljYdZyR6TGZmWYH3eQE8uDTG0PYdB9/OCokg87lM92ok2AgWZd5OD9ln91Irm9zqlTy3WueQ2CA3dJ+fUfnWEudYy3gkSL8b5/kljKdkUjeJhR+DME0+RBlMruViMdfWjNDULkXlcKnactsDkv+7CeGjd2xb4O/XG275lZ9w6QivCtLNf4Aa4u/H5AtQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iVPS/YZ1oSIlrkSb8D1UOrXNB6sJr5b517OMbwu23HY=;
- b=nbUG7wW+Q0LUz0dP+7uJ25DnYYzlOBFiwS5IOlYQ5bDoz2ZRJgA7Hzkq8xb7H5uUfOa7fF3gYfIMp/0kaWGTePRe6E6+yZyTj28mqIMw3I6VhMOW3xO7xBVyroQg13OyxjVGqilF887rU3i3e9bLuBpdTsK2NpOXovi9Wahw7KMzJ9/YvdC0o5FDJUxUDqFae5bqCtPXD/M7/8VCZGV9Ay7ARl8yGTJSSX55ZR3ycZUSuZTXvfntZ2AsYb2xDla0Cid50qa4Q+qM9/rZPssCa30S6qcQH6lyphJwA9zusBzWaRbJ8VJlwvurfdodVoLtylAhJQiREnjiot/bFemQ/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iVPS/YZ1oSIlrkSb8D1UOrXNB6sJr5b517OMbwu23HY=;
- b=O8qbLt0ufjvbBGVYQVDmjWQDDrgh0nyKkHMRdoIAhJ1uu+j6PiaPn7QFBBRl8L/Fwkypl+QqPIj6PVCtH7afIu0rdLE/WkFmUwYZjdfK5tor0zW4qTnvzxXOpEMrb+1gbEgYltkDmBNRhbzc6KvW1/VZ9abKLStm3DUdZ4RqZ6lw6BJ0hYeXfx2rrXC85MW2hhSqA1/3/whUtLg+w5MMdjXBQ9mnCPPfiNRxh13x8GT5h1LAgqtascFLo2gfLnDDIour7Kg2wogC85IMP1N9krP9oTJjKtX2Vi2do5N7DWBKw/AFz5VxauJy03i2SyfoZegqdN4vnBiDCpclj+Y9wg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
- by DU7PR04MB11139.eurprd04.prod.outlook.com (2603:10a6:10:5b1::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
- 2026 02:05:38 +0000
-Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
- ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 02:05:38 +0000
-From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Date: Tue, 19 May 2026 10:07:43 +0800
-Subject: [PATCH v4 6/6] media: synopsys: Add support for i.MX95
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-csi2_imx95-v4-6-84ea4bb78a88@oss.nxp.com>
-References: <20260519-csi2_imx95-v4-0-84ea4bb78a88@oss.nxp.com>
-In-Reply-To: <20260519-csi2_imx95-v4-0-84ea4bb78a88@oss.nxp.com>
-To: Michael Riesch <michael.riesch@collabora.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Frank Li <Frank.Li@nxp.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Hans Verkuil <hverkuil+cisco@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779156481; l=2362;
- i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
- bh=FEG5bYsPBxZ4dSkv2k1aIVamftOpHreA3QLGwnJexfk=;
- b=8J+RaSWf/RzWXF1+grk+iSAnstSpSBemF6oEpWMXlUTHpleh8VpwsPX4lJBUmPh+KdMQyTQ1B
- 7ZZnMMybcaFDZEF50IZptMoFtJLpolxJ1GrMW6au7d4AjSLPjRenP6h
-X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
- pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
-X-ClientProxiedBy: SI2PR01CA0011.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::6) To AS8PR04MB9080.eurprd04.prod.outlook.com
- (2603:10a6:20b:447::16)
+	id 1wP9x7-0000000HQrT-42lj
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 02:13:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1779156782; x=1810692782;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=RptmMw58B7z2kp+LpO4yKtCECQzw5sRd637q2vcLyXs=;
+  b=OXAoOXicQD1KyA3Rl1QjRu+p/p/78lKdNBw61Azj8S6MZrNAV1E+nZDI
+   QAZ1tLtzccJI8QPEXOcSYk2an8vRenM/ZO+IWrTq4eM+y0009c5VBWrGl
+   KVd1grDtYCtGbmRqfh0+NgxL1BqwbAB4XgF8utjIPSIAZmFOyY9Og12kd
+   vbjTU7D/NQcft8sQT1dto9wXQV+0kkble1Wtm0qwi/5uMaWt13HWQ1CON
+   uSxfSCqmsComNTfYD+Pg98JzWh1nivrgbZtvUCsNtDEmwZ8+0Ov+fvkap
+   bw4VCKQ56h4omihIr1qX1Qjbkr1h+sgPx6LZlgCjq+ncTyLcneXxj2tPF
+   Q==;
+X-CSE-ConnectionGUID: MY2/WwjHQGmX/16uBoWbFA==
+X-CSE-MsgGUID: piNLvE80RhCf0rxjbL6e7g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="218720760"
+X-IronPort-AV: E=Sophos;i="6.23,243,1770562800"; 
+   d="scan'208";a="218720760"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2026 11:12:59 +0900
+Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id AEEE21C000B1
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 02:12:59 +0000 (UTC)
+Received: from az2nlsmom4.fujitsu.com (az2nlsmom4.o.css.fujitsu.com [10.150.26.201])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 660C41C0017C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 02:12:59 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.207.142])
+	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id 7B3AB20000AA;
+	Tue, 19 May 2026 02:12:55 +0000 (UTC)
+Date: Tue, 19 May 2026 11:12:52 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Sami Mujawar <sami.mujawar@arm.com>, 
+	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] virt: arm-cca-guest: use raw variant of
+ smp_processor_id() in arm_cca_report_new()
+Message-ID: <agvGi9nrQeslnvjM@FCCLS0092175.localdomain>
+References: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
+ <agsHBb9f3HkmJaIx@arm.com>
+ <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
+ <agtKlvxAvCHXvX-z@arm.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|DU7PR04MB11139:EE_
-X-MS-Office365-Filtering-Correlation-Id: f9a1aca3-4897-4a74-c97a-08deb54b1f41
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|1800799024|366016|19092799006|11063799003|38350700014|56012099003|22082099003|18002099003|921020;
-X-Microsoft-Antispam-Message-Info: L94tIORaYPDGuoNraAUwU8MP2LocQpg+uW7PpziE2F5Ty43hvOdvLJ9aDOx9QE0wZKGPZQf/u5ZeWPZjDp7ATW64NSFP6h1QzYY9s0M7rrKqbhrnuUremaRK+bLJRJgqKwUfinmRhHhqy+diN5bTHRvVdyi6EAWoBoGUKi2ZcZJQxDRkhBQn3x+SptBW5vJ+vzddZ7Xcn6RNTFWBj1mvcpmrAr5xb8kUIAVEf2kGoaBVryf9B6I+wZkKguWZz76+VyTEcxwCjvv4U/AXuQHoID6QEcgyzZwbGFE5HjLMl2aAkwYYaUSkTUrubqqllm8fLf2N/QiSxfjoraENDYNAnRYUWoC6/hiljpqhq/Vzc5lVX/VnEYxgaffAcHQychOE43wMu1l7x8crk+qrbaxZxYoMGafczYfouGLeCkZRx7ycM6oajfRLLH7RE55jgUTyGkAAc/FtC9wpnYe3nsDU4rVxoYzuNmeHD1bEzPwnZG0idZ0bIB8oH0kegxInfem2DxWVlLISYJbp+yIMd8Rg3KaJVHdVve9GMzXaW98c6gIqhXIMkd2NV2EwkNq+fMxk8bhRVBi8otALf6WrMfg/jT1wThEAdjqcu+0pr/hdpwC95Dw/5eyWCtSB5O7VZ8Pf2oqH+i2pOEAV1fytaoVmBqqv8egMIZTneoDhPuIPOZ/xJSWSQ+s27dxPXIm7/EUNq4GIBLJEgepqk38AJVKS0IZkIxVcIue4yovYo5C5nucz2BySGAZArxvXr1LRf9Oxf+CV5JML0K+g0MalTp/AIw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(1800799024)(366016)(19092799006)(11063799003)(38350700014)(56012099003)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QkFsRmJpL0pKcFM4emxvLyswMjJ3LzNIei90aUYxdkRPUGQyb2k0V2VIL3ZT?=
- =?utf-8?B?c0pnSUpNeU1BbkVVdTI5QTNVRFJKWmo1Qkd6SWNzOW5NVFNFaUNzamFtNnI3?=
- =?utf-8?B?aVFxNDJKdkpCbWNLMmxpK3k4anF1RGFqVjJITUkvamF4cjdIMFZWVHRTNitP?=
- =?utf-8?B?QnlMeVRtcDJTT0lUV25ZZm0wckZ2Njc0NDNTYmVJWGdZT0FlVFBnRGZMRmo5?=
- =?utf-8?B?dVo1WGRXRXhIZ2FKSlNWM0UwcjEzSzQ5WkhoRmxuWHhqTXZDbVJnSURaL0RQ?=
- =?utf-8?B?R3dVT1hZdCt3bmZ5b0owWTlyWk1MQ2tmSHNkcHVPSm51RGR1bTlQVFhra1Qy?=
- =?utf-8?B?UU41cUIxTUdVYlZMbCtYdE1QZXptOG1LeWc5WEtLWE9NaTFRa25TT3AvV05P?=
- =?utf-8?B?aStnNTcwTk1iY3o3aWQ1Sm5BNW81LzF5VG5ET3pzN3NZeUdJUWs5b0ZzMWxo?=
- =?utf-8?B?WkpId1JlL0Z3SWNtVjkvR2VUOXNVMEF6Y1NtSW5JQmxKODRuZkdBTXYvTHBz?=
- =?utf-8?B?a28wbkZ5anA2aWJ6ZUgxdmgwbjZpY2NGRlFVOVZ3WFQ5ZmQ3QmZEa0k1RlFE?=
- =?utf-8?B?UDdJaVUxak1GQUhZamxSYUw4cHV3aklMV2lWTUM0LzAvMUVUL0h0SXlxVE55?=
- =?utf-8?B?N3V5WDFScm0yUGRtbEE0M1N6NFdPdTNqcm9NaWtiNzN2RDF1ZmhiNHFBUEhE?=
- =?utf-8?B?YXA2WUgyK2JXUVhKdDJCRld1Wk1JNlBNa3A1bzBOY1BGdjRxMzFFbzVpOEJk?=
- =?utf-8?B?Tk91TmxSL3V1aXZCUUJEbVJEZ2FIdGdSeEVKck4xMmMyNXM5MUhuZzdRTTRz?=
- =?utf-8?B?WVJ3SE1OZWlqdzd2aWk5WjRvclMrNlRnT1FoT1oyaHNBUklIQTFZbHlkbmZE?=
- =?utf-8?B?UEJTQUVyQWQzQjhwb3Nsa1ltNFgvTGlWb0dYWUVtczBIYk9nWCtZZXRmUjJz?=
- =?utf-8?B?bzM0VEpFM09MSjZweG85RmVmQ3RidDZmTHBRNFhGdlBtektKcXZoekNhbVF1?=
- =?utf-8?B?ZnMvd2dXeVd0U25nTzk5eDVQS0VVek5qTC9zL3kzcy9CY3ZtMUlJQ2lUb05M?=
- =?utf-8?B?SDlpQldXbFk2V3RUcDdyYzRWSkRSejNIS1dXbWxWaU5halZVcmY4MDBtczJR?=
- =?utf-8?B?L3hQWS8zdk9HMjRkZU9ta3lmUnFxRXBiRnBBNnhRT0V6TEFiUDFIeStNdUhk?=
- =?utf-8?B?TklzUkNoUXMyWFo4cndVbFQ2cGFsN2ZWUURMZjA5K2VUWmtVSVJ1MkJFMVNK?=
- =?utf-8?B?ODJpTHZVaXZKZ00xK3RNVnNkK1dIam50WUlnYVJOUjdQYlpzL3M2cmxWRTRW?=
- =?utf-8?B?WnA2Z3BGYVVOWS91TGlmOXRtRVp3am1WdGtvcFpUTXEyeS8zTytwdlp2VVh5?=
- =?utf-8?B?RHlwZm9VMWpuOTgxdkRZbW90eHdzcmFXZWdsa3Btbkg4Q0laRGZ3KzZOT0lI?=
- =?utf-8?B?T01salBHZTVzcjEvanhTMTZPS0hZSHFMZnRzZW1BbEFQSVdzQ1FBQlY2Q00y?=
- =?utf-8?B?S3dpeDNiMnVVeSs3VStJT05vWUhiSXRveE5rdWMxTUtjWlc3aUtFaE9jc09H?=
- =?utf-8?B?MUpsOUpQVnlqK25BNHRweEs1NGJqWVVrRGl2MGxld3BqQTVoV21mZnBHMHQ0?=
- =?utf-8?B?MzREaHR5MElzaGIwOWd1ZUVPU0ZUQ3oxWjVpS05zbjJTbFVJRUI4MWZQTWJL?=
- =?utf-8?B?S0FuRTI0ZFFpM0cvS21SOStVRlZ3RGJpQVVRTDN4V0hnUWlwMlNuY3lxdEJu?=
- =?utf-8?B?ank3RXhkQ21rN0pMS29uT3JFc0dQVXYra0FqOUVoWmVnWVk1VHREZUFWN25l?=
- =?utf-8?B?dEJON05YR29ld1pRblNSQmUzbWY3OCtpaDU0MjNjS0pjaGVpb0o5V1FQTFUy?=
- =?utf-8?B?Z0MwNWdxeHN6RGFyM21YUGRxck56ZTJuUm9FdGJuQWF6Q3dFUEZYREZENGl3?=
- =?utf-8?B?YmhTNnl5NmpTWUhodUZUKy9qTnRVenF4UVo3MnFML3VuQ2Z4Yk80WHQvbVhZ?=
- =?utf-8?B?NGpuSUlVeXRuMkRwL25mWGhxODgxUFZ3ZzB6WktOdk9VOVg5UDh0N1JPaTFG?=
- =?utf-8?B?V0NkVHFGam52M0cvb1NYcUE0RnlXcTcvRTNNVi8zbXB2c1ppVVp2Vk0raEZV?=
- =?utf-8?B?RGFWMzNlSDVFemovZHR1N2lEMmdoUGpUb25TZzR6RWZJVU8zWmowWWtNdnVp?=
- =?utf-8?B?SkJGVUpyVWEyTVRxSVRhbmlkcEFSaVFyQ0x6ZlBvTTM2N1UraUFDcVRHRjNs?=
- =?utf-8?B?cm50NVpyemY0aXBlbWw3ekZsNFkvdlhUbkwzOE9XSzlzZnFkcEhienV4ck51?=
- =?utf-8?B?b0NMckNxdGtUWm1NMFF5MU5HZ3lvcGRVTU9Ic2tXSVJBRzZLZ3FmZz09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f9a1aca3-4897-4a74-c97a-08deb54b1f41
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 02:05:38.6285
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: q/hTCdOzOMirPNy/h991LkIBKkqwNkqJBsLnoycvhoaEvrv2U4CrvVKOva56Pvz0r3pTgf53pyWE7sEw87L+bw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11139
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <agtKlvxAvCHXvX-z@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_190547_237529_AD50105C 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20260518_191302_493996_8EF4AC1D 
+X-CRM114-Status: GOOD (  29.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,69 +97,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the i.MX95 MIPI CSI-2 receiver. The i.MX95 variant is
-nearly identical to i.MX93, with the main difference being the use of
-IDI (Image Data Interface) instead of IPI (Image Pixel Interface).
-However, the IDI interface is transparent to software, requiring only
-a different register map definition while sharing the same PHY control
-functions with i.MX93.
+On 05/18 18:21, Catalin Marinas wrote:
+> Hi Kohei,
+> 
+> On Mon, May 18, 2026 at 10:38:53PM +0900, Kohei Enju wrote:
+> > On 05/18 13:33, Catalin Marinas wrote:
+> > > On Mon, May 18, 2026 at 12:31:31PM +0900, Kohei Enju wrote:
+> > > > diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> > > > index 0c9ea24a200c..2d450caee3e4 100644
+> > > > --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> > > > +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> > > > @@ -108,7 +108,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+> > > >  	 * allocate outblob based on the returned value from the 'init'
+> > > >  	 * call and that cannot be done in an atomic context.
+> > > >  	 */
+> > > > -	cpu = smp_processor_id();
+> > > > +	cpu = raw_smp_processor_id();
+> > > 
+> > > That's just hiding the warning which might be genuine, irrespective of
+> > > what the comment says. Sashiko has some good points:
+> > > 
+> > > https://sashiko.dev/#/patchset/20260518033157.1865498-1-enju.kohei@fujitsu.com
+> > > 
+> > > Basically what guarantees that the cpu won't go offline? Can we use
+> > > migrate_disable() and ignore the smp_call_function_single() altogether?
+> > > It looks like a hack anyway.
+> [...]
+> > You've raised a very valid point about raw_smp_processor_id()
+> > potentially hiding a genuine issue. I agree this would be a concern in
+> > most contexts.
+> > 
+> > However, this implementation was intentionally designed not to block CPU
+> > hotplug:
+> > https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
+> > 
+> > As mentioned in the thread above, the potential failure from the target
+> > CPU going offline (resulting in -ENXIO) is an expected and tolerated
+> > condition in this path.
+> > Using migrate_disable() would go against the non-blocking design goal.
+> > 
+> > Given the context, the debug warning looks false positive for our
+> > specific use case to me, and I believe raw_smp_processor_id() correctly
+> > reflects the design intent by simply acquiring a CPU number without
+> > debug checks.
+> 
+> Thanks, I wasn't aware of the old discussion. If user-space can
+> tolerate, than it's fine.
+> 
+> Would you mind updating the comment above the changed line? It talks
+> about not allocating memory in atomic context, so migrate_disable()
+> would solve this. Just mention that it can't block CPU hotplug events
+> either and user-space can handle spurious errors.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
----
-Changes in v2:
-- Add Reviewed-by tag from Frank Li <Frank.Li@nxp.com>
----
- drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
+Sure, I'm happy to do. Thank you for the suggestion.
+I'll work on v2.
 
-diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-index 8a34aec550ad..41e48365167e 100644
---- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-+++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
-@@ -154,6 +154,17 @@ static const u32 imx93_regs[DW_MIPI_CSI2RX_MAX] = {
- 	[DW_MIPI_CSI2RX_IPI_SOFTRSTN] = DW_REG(0xa0),
- };
- 
-+static const u32 imx95_regs[DW_MIPI_CSI2RX_MAX] = {
-+	[DW_MIPI_CSI2RX_N_LANES] = DW_REG(0x4),
-+	[DW_MIPI_CSI2RX_RESETN] = DW_REG(0x8),
-+	[DW_MIPI_CSI2RX_PHY_SHUTDOWNZ] = DW_REG(0x40),
-+	[DW_MIPI_CSI2RX_DPHY_RSTZ] = DW_REG(0x44),
-+	[DW_MIPI_CSI2RX_PHY_STATE] = DW_REG(0x48),
-+	[DW_MIPI_CSI2RX_PHY_STOPSTATE] = DW_REG(0x4c),
-+	[DW_MIPI_CSI2RX_PHY_TST_CTRL0] = DW_REG(0x50),
-+	[DW_MIPI_CSI2RX_PHY_TST_CTRL1] = DW_REG(0x54),
-+};
-+
- static const struct v4l2_mbus_framefmt default_format = {
- 	.width = 3840,
- 	.height = 2160,
-@@ -914,11 +925,22 @@ static const struct dw_mipi_csi2rx_drvdata imx93_drvdata = {
- 	.wait_for_phy_stopstate = imx93_csi2rx_wait_for_phy_stopstate,
- };
- 
-+static const struct dw_mipi_csi2rx_drvdata imx95_drvdata = {
-+	.regs = imx95_regs,
-+	.dphy_assert_reset = imx93_csi2rx_dphy_assert_reset,
-+	.dphy_deassert_reset = imx93_csi2rx_dphy_deassert_reset,
-+	.wait_for_phy_stopstate = imx93_csi2rx_wait_for_phy_stopstate,
-+};
-+
- static const struct of_device_id dw_mipi_csi2rx_of_match[] = {
- 	{
- 		.compatible = "fsl,imx93-mipi-csi2",
- 		.data = &imx93_drvdata,
- 	},
-+	{
-+		.compatible = "fsl,imx95-mipi-csi2",
-+		.data = &imx95_drvdata,
-+	},
- 	{
- 		.compatible = "rockchip,rk3568-mipi-csi2",
- 		.data = &rk3568_drvdata,
+Thanks,
+Kohei
 
--- 
-2.34.1
-
+> 
+> With that:
+> 
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> 
 
