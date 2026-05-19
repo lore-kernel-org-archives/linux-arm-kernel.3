@@ -4,69 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BFCDCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:23:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FC8CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7H68l4OcBjtpjeaF6z5PFn99IQuPZnYdgMG4q7QTLc4=; b=DbqRIPe7iYh7cMUjAoeYFWVbgq
-	d0pe+GZyG1uWQl6nlOATSb8/C2bmwIRZM6cP5mP6E/kiMux1N2ZnY8pyGoH3b3KwSqaZvWDpx/WQP
-	5h7JxX65X1wpcUtd0tHpFSWwI7RqdMTTksxUoqHhKM6Evrjmsitmu2c9ZtFp97bXiq2aYgtLSozZ9
-	aRHfZvZ5D1qM7nOhEAO0IfVZf5nsYo9tAfogGqPAY35ZT45i2d1t97mXkALWErsiqRXNu6afmVB7J
-	nOeI3OVvGDtLU2geUIo1xW3VaSOF89tF4R7sf50J93x0PmJaEhDigZfoKoeHwALSQFGeIwByKmycF
-	pBKKsf2g==;
+	bh=vyJ+ELCJOcY26hp1JsTwSbKqxxgMph0NnK5dpm+jvso=; b=ArcpshpiA/aP15mu6Tc500CK73
+	DOjqFr60xUY1+dKN8Bgd1tN6OqymiwJSiMRENRqXnIG7H8HDM+RTfXGuIoAdGntzEQIwUoa/8MyZm
+	39hXxB/3NJRmQtdXMjnTmHXvQqkOZnOO5kuTIgDR6OfhQ1XSBSE5zEk3mqMF3mrOYU99iCjci1MAp
+	u0BWdGL3MaNoi5gL8BoivfbQLJl783XNNosVjbgho9ESo9B/ismdtGPTwEs/e/hw8bcViaVsuHW2s
+	LLWEphBops1VlsLqzHS2h7p3zaRE4fS5M8X+hs6ZWve2ImluFUPFaeEUF4+LqYF9BK7P8382X4ZTy
+	z6x52HxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHbL-000000014YO-07dR;
-	Tue, 19 May 2026 10:23:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPHe3-00000001541-1eLJ;
+	Tue, 19 May 2026 10:25:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHbJ-000000014Xx-3yOH
+	id 1wPHe2-0000000153a-0q8P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:23:02 +0000
+	Tue, 19 May 2026 10:25:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2DA660219;
-	Tue, 19 May 2026 10:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A94DAC2BCB3;
-	Tue, 19 May 2026 10:23:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8E00B6020B;
+	Tue, 19 May 2026 10:25:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5D69C2BCC9;
+	Tue, 19 May 2026 10:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779186180;
-	bh=dJqprahTyxpYNUn6AwqHfPXuovfDD8ZbTCYM1ACl1RM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Q/fBj+NlM1QXg6cYP9E/cUcU9PkApK4IBpvWBL/OWD6zlG1VjGo+sQynkZ66uGKh7
-	 y02lUQCdhSnZ4ccWZDGP523e3xOIAuITQxam3+OLLJX1k5uHMcJ27mkSbFAzz3UyVY
-	 eYrFk1RJ+It7ZBvQNkQkxOibpGAX6i3WfNvnEf2zUIWYy8eg/F9ajF/40H680urVgx
-	 +g2qBmMSw/N+Pkl6qeJeEpydZIJZCkbW+0urapOFoHtFZJ1orJcSRyNcrUgU5PXVAU
-	 t1mO+ju4NkfIENmzyN+TjgtoXQGlpfgnkz+f+hw5jQDpp9oqODZcDLmj6bXqFRU10c
-	 opn7BpsWT9y7A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wPHbG-00000003tLL-1SCO;
-	Tue, 19 May 2026 10:22:58 +0000
-Date: Tue, 19 May 2026 11:22:57 +0100
-Message-ID: <86se7nwvem.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
+	s=k20201202; t=1779186349;
+	bh=P5YfddLVQL7aZ5v/LZq0e1k59RJIWRdeUlHDtWhzr4c=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=FNkvBKPkbg7II0DvIuHKCqEJeTFm94iqnAJRMhA5FvZZh6jBd8ZlciRMQQfHH7rNm
+	 O2gl8A3loKWcFmGK2B+tRaHPQ20f+lEVk0N6gLw+M4P7ly5oH41fpPhycawVND830T
+	 0JlRGRjih8LfcZk1dRdBN5Q3uLFtWxU5Tm6G+5mCOrQehKaGtNuIgWGJ02u1Yz/o3f
+	 XrHY6ghrqRVP50TtSAS3/eDoJXX/XxMOFLqiiifkxVbvU3Ev0Jk0qqXvGq3FuIBHyZ
+	 irWqD7vYWxKX+ZA/0nE3JFOJIsnWAskrtWZYs664Wn2IxmWIwh4VIDtOoCkI6IKVuD
+	 ZMiponcYh/GXA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH] arm64: cpucaps: Keep entries sorted
-In-Reply-To: <20260519092243.7278-1-will@kernel.org>
-References: <20260519092243.7278-1-will@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 37/44] arm64: RMI: Prevent Device mappings for Realms
+In-Reply-To: <20260513131757.116630-38-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-38-steven.price@arm.com>
+Date: Tue, 19 May 2026 15:55:37 +0530
+Message-ID: <yq5ase7nsnku.fsf@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,62 +87,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 May 2026 10:22:42 +0100,
-Will Deacon <will@kernel.org> wrote:
-> 
-> The cpucaps list is supposed to be sorted, even though the awk script
-> which processes it doesn't really care. Since this isn't enforced or
-> relied upon and because the alphabet is hard, the list has gradually
-> developed an ordering of its own.
-> 
-> Re-sort the file.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Reported-by: Marc Zyngier <maz@kernel.org>
-> Signed-off-by: Will Deacon <will@kernel.org>
+Steven Price <steven.price@arm.com> writes:
+
+> Physical device assignment is not yet supported. RMM v2.0 does add the
+> relevant APIs, but device assignment is a big topic so will be handled
+> in a future patch series. For now prevent device mappings when the guest
+> is a realm.
+>
+> Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
-> 
-> Marc pointed out that HAS_BBML2_NOABORT was in the wrong place but, on
-> closer inspection, there are a bunch of misplaced entries here. I
-> honestly don't like the churn of re-sorting it, so an alternative is
-> to live with it and remove the comment at the top asking people to keep
-> it sorted it. Any preferences?
+> Changes from v6:
+>  * Fix the check in user_mem_abort() to prevent all pages that are not
+>    guest_memfd() from being mapped into the protected half of the IPA.
+> Changes from v5:
+>  * Also prevent accesses in user_mem_abort()
+> ---
+>  arch/arm64/kvm/mmu.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 776ffe56d17e..7678226ffd38 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1230,6 +1230,10 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+>  	if (is_protected_kvm_enabled())
+>  		return -EPERM;
+>  
+> +	/* We don't support mapping special pages into a Realm */
+> +	if (kvm_is_realm(kvm))
+> +		return -EPERM;
+> +
+>  	size += offset_in_page(guest_ipa);
+>  	guest_ipa &= PAGE_MASK;
+>  
 
-I'm not sold on the requirement for keeping this sorted, TBH. The
-commit message says "to minimise conflicts", which I can understand as
-it avoids people adding entries at the end all the time, but it is
-obvious that we (especially myself) can't manage to do that.
+The commit message suggests that this will need to be updated to support
+Device Assignment, but that is not true. IIUC, this is only used by
+GICv2?. Can we update the commit message?
 
-If we want to keep this sorted for $reasons, let's actively enforce it
-in the generation script:
-
-diff --git a/arch/arm64/tools/gen-cpucaps.awk b/arch/arm64/tools/gen-cpucaps.awk
-index 2f4f61a0af17e..2e06768ff432e 100755
---- a/arch/arm64/tools/gen-cpucaps.awk
-+++ b/arch/arm64/tools/gen-cpucaps.awk
-@@ -20,10 +20,14 @@ BEGIN {
- 	print ""
- 	print "/* Generated file - do not edit */"
- 	cap_num = 0
-+	previous = ""
- 	print ""
- }
- 
- /^[vA-Z0-9_]+$/ {
-+	if (cap_num > 0 && previous > $0)
-+		fatal("unsorted cap " $0)
-+	previous = $0
- 	printf("#define ARM64_%-40s\t%d\n", $0, cap_num++)
- 	next
- }
-
-although that results in a different sorting order (my awk-foo is limited).
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+-aneesh
 
