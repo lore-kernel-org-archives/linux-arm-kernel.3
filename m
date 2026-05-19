@@ -4,132 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8120CD5BA3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C1ACD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1NI4i3qAOmXz6TF+2j/KV7Gkq890skuu+xgreT/5Zbo=; b=JpAA5OF+FcH7Ah+5O7jg8azxIO
-	id+BJGVFK9LV7qlLAE1mc/JRaQ8SikmGLiiarDps3Bmn8D+yQn8NjDb3S89Y6EJul9BlanEGf2Ktz
-	+3u1ALlEPiWf0bau3g2Q0Lzoq6jhLg/gi5CKri/0gpTmaSQg8VDPMP1Iwk+VDlzZkFUa+uAMYv7WJ
-	UFmA3Wy8LcmWMysQ4VdjosXswERau1wGXk5QWZEEOt0q6n1OGh65IyaqunDHUih1QaGJBHTc9ye5J
-	Ix/+hITqlipjORkkSIUO+m/Zkf4GSEVT9tN6kMyPtv5Ljc4z+qvsRVwvizJcmnhDex4/oWKdJo0Eq
-	8Sh+mimQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/Q60EfCLUFk1gJm09+b3WgWO/cMVpTuRFJqZCCOqpfo=; b=PwPzQpCK4M0ImC2my5TDEzJgGT
+	ih5o2cW3CB7HcHYhFSTRy/sVXjWW6aEk6L3uloO9qU6DMT9naTkC5Dyt4Ozd0w+VARYK5Nn0MrGVN
+	Te/X3dQLAJnTWdchXBW1tYDscAId7e5FZwXz2Ahwwn0BSSi8xn2cXuu15c0RtI09RLjITu8Cb1DB1
+	52m2oIyH+nvpM2bZqIptqmueXFA8gFlLuX0GY6zUQyf8P5H6sEeufgBTCRfKqF52rMoom+qhbp0EW
+	eTfuwjOY+ywUbaN/z4koymbS7IBrZeP7ngzDcnp90iwsaCo1ZPNbdjLVRCLfwQEAJ1rXKlv+TS0kF
+	bY8R1iYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHwj-00000001BfQ-3uaL;
-	Tue, 19 May 2026 10:45:09 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wPHz6-00000001CB2-0ybv;
+	Tue, 19 May 2026 10:47:36 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHwg-00000001Bdn-3WjB
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:45:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MLMYByaoGG+4YyISMjWU9m5vdUeYVmic6Fj5PiC31cW8NJ9UHvMgHjVVcR+MQN/r1QByi8rwnf1LYeGeEeDYn7fPnnyx700oiCJqF0iUvR1Sez6g/Gb87PiUjzQrJnEAHVajWoD3szP8vo2DEGsIfhumo+ugyCd+u9EfdJq0nQX38FU/7vEv1pSA3GjzNbbs0NNijJYhEurpaCdLrH5LF/x4X5TotDMgTj9qUH52EpOpdo0A5wa18lzZxwdN4XamSqTvi+X0mCgx2cxzTH3n49au7hcljyXd8duk7pkmaZBplhF3yj6wdYHEPjyErwnaGzsHGpvt1PmIoRCLS7cVAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1NI4i3qAOmXz6TF+2j/KV7Gkq890skuu+xgreT/5Zbo=;
- b=H1SyZPhwoOWWu3Ewjg4kAb0Q2zuo1yD6wSTbqJcBoAKbZoGs6vaoia27JVVH3jqDCP7jeVp/Pzzyee0wul4U1LAc4JdN30RdsE1gqe8tLbD/7jv9Y0qtHkWnoAzO0hsg7SxmZPmHXVIEAj/ZRcSvy7JBRjSTAB7pQFzupc8SP7w2QfA2061/gFlgRxK1eKuEXJfe8EL0CjEyeowIjAJFAtgoXUkKiUdQT3tdTQqWL5luFe9zPfyUcxVQ2h2LAiTwuq1JzM03pZmpZCjPMW5lQ7lDyEaMymDwOKrIHsUlqoqwXRz1fCdH76EQ8kqt/SQVDXQ9MdOOmq2w0HpoImyK5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1NI4i3qAOmXz6TF+2j/KV7Gkq890skuu+xgreT/5Zbo=;
- b=PDYuMZk9GqKkNOibQXazD+h3tbqrLDeBdlQrTxeyu3vV40QGk6yO7vjqTtozRLqgstqvZxsPD3n0nmzuij5/kVgC7uqi7OWLToFR6P4/zuT5Frsfj0saCJl7H5p0VHLbu4rV5P24K6K9P3fTiVXvA2XF0U7agwdFIpIST21iwy07mMmzcnnCGSeIDssCjrhrZoSrDMOdwZ5MgPRpB+qTZ6BVTCNtkYsGMn0+sJ74NtHTBIA9QeaiwcnNop+ACDLyaHdr5E/QNpvC3eJKNRczOxX43go8nDCS0YepG+phpPzPOZSDl7eofpGYymtnCg1BpUKkDSWAVqWaygip0T4ayA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Tue, 19 May
- 2026 10:44:58 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 10:44:58 +0000
-From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-To: broonie@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	carlos.song@nxp.com
-Cc: linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] spi: imx: replace dmaengine_terminate_all with dmaengine_terminate_sync
-Date: Tue, 19 May 2026 18:46:59 +0800
-Message-ID: <20260519104659.2794476-1-carlos.song@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR02CA0127.eurprd02.prod.outlook.com
- (2603:10a6:20b:28c::24) To AM0PR04MB6802.eurprd04.prod.outlook.com
- (2603:10a6:208:184::17)
+	id 1wPHz4-00000001CAR-2TEo;
+	Tue, 19 May 2026 10:47:35 +0000
+Date: Tue, 19 May 2026 12:47:31 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1779187652;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/Q60EfCLUFk1gJm09+b3WgWO/cMVpTuRFJqZCCOqpfo=;
+	b=m6AO7vZZtNrhhMS7oB+nSYNhvnRo4YGUzkvcYZBFvgQSWM4GZAkjOlhyuJTuQfpc8Zb0h3
+	W3Ntgv6nrQ7Use4om4pl1x+hUD+ie/3ebBQ0HMmLPLlV/3hMaO9bKcEkHk7JC0WsXyknzR
+	rwQC2CnwuJ4tMthsfhZqbuYuIWQHNTuT0u4PH9WE18ZWIFx7U+J2wUfLeQxeEFyQrDDoRH
+	QMZwBuTxDUjPqFAYPt2hYMS9CKrFcGcs56d7nK1Q3ecZKJMadapfyk2KdaOqhi9e311mBt
+	R4oBQSaV2L+YMS12WQ69JNb1nDz5tlZu4/S9MAMQWVgLGqIvrtpkn6QgUk0fTQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1779187652;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/Q60EfCLUFk1gJm09+b3WgWO/cMVpTuRFJqZCCOqpfo=;
+	b=pkxjd7DEZvG2Mj5JYHckMljpwLSQC7PwA+bYyrymWtkO3HY8YI66M9viu2Axqy7lauHjNh
+	4zvQIwkGikLNqEDA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Gregor Herburger <gregor.herburger@linutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] nvmem: Add the Raspberry Pi OTP driver
+Message-ID: <20260519123911-0a9ca1dc-7fee-425f-ba0f-e86368596e55@linutronix.de>
+References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
+ <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
+ <20260519110041-2d8d92c2-d265-43d1-848f-bf9231a106c8@linutronix.de>
+ <bv4vwmkkjh23lahkrupwclqs7il4vxqeknalgqn52k3wc6ztsg@z5ukn774brtg>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|MRWPR04MB12330:EE_
-X-MS-Office365-Filtering-Correlation-Id: c3dc53ca-4dde-42fd-e536-08deb593abbe
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|376014|1800799024|56012099003|18002099003|11063799006|38350700014;
-X-Microsoft-Antispam-Message-Info: yMMP2zR8eCCEZyb6ptYlSbIHmPsl8+CAwCe4R6T45upAl2xNLHgZ3Zb0bi4YfPKCRMD+TzLm1VRdTe0zrsIFErhZs8i53Fxbe9z79D/RAbbT5gPU/adHX+ZQuq2lkB1tFfDQFFx2rBD9e3W+vijzfBdRdX6fzV6dxNCr41dxv/gi1+de7U49yCli0ugZ5FZ2eyrhQW/2VQob4rwuyWLw6AU1Z023zxewlNC+EoRG6+e245B3u1j7D35P2EYn/jRJ+lBU/1Bcpl0uwXUjk+cwxHf5I5uqlqWBYJKKMNew+DsCjNveb5CIGFcMpZSn4OdRVoqrSyvZF53H76C4mNunKEx75WAQHKdauWp0W6kOelIwZgYZtEBaLK802cyHSw1lISZUKixfmyZlfoTGa+xz/vyuNBOhIa5ECHXO/LGKUDDzRaIriRpw0WJeCeSGcmedUB0RGWSjLUYATE9A5fh/1LPIA53HJZ6OUaaF8EAo5fZnmIk2XOMJm8CrzoKZXnaKnKunK4OEKe0ATiAmv5zjwsgMaQdimMOQeJHtTSwr53PlPH3hMzrce6pfl9OD+7CwgLO9FlmES00EIVc18OH41s25mmh4iWCO4W2T2hITcN2jGIhaHap3Ol85NEbIJAKud7C/mrY5WhE3kOCDNXCpDY2zVy6UDU17l0McIECYTK0CPHtrJMj3KE0tzUOhZCU7n8/igqbnVB0u2pwPhLvWFG7hH/TllfGwGQJklH0xM7Ro/ZkmaudKTQKIR9jKLTQL
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(376014)(1800799024)(56012099003)(18002099003)(11063799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5yh/QzfaA97d57RX9Iv4jKQsaah5jnJqt9m7Qx/Cn8lwYiUBqAJ5gkIfQ1kK?=
- =?us-ascii?Q?b0D6pBAUOYvH6zLtoe+1KwfewhrIYhmEgnWaq1FD+O+6Q21LkDnn7SX+/Xna?=
- =?us-ascii?Q?68MDsSLO/v9hsuKx+nZmlioFwuwJOb8oYXyc6BpXXnkpHjHNjUqmZjnBYWTc?=
- =?us-ascii?Q?HnxQt1YbUa12CrcQz7FE0M6RWbW3483OU5YtAy4gsBMgVJ52w1e7SW+RUQEQ?=
- =?us-ascii?Q?mdek/vBfGZlLlgFrasGxq/AnhNRQ+oehJcBI9mM3xifOQo88c98PNXLKAIe0?=
- =?us-ascii?Q?V54uLLXWmTrHM7jg8y6S58KL32ultGRHfq7Zd6275iGDZEkCKsUwOTiKCSjm?=
- =?us-ascii?Q?Hy7ZkvRsK7+naZec0JefdsMjGy6Iq29G9JVzxXhLogyb07piNGZ8MpiEIaoQ?=
- =?us-ascii?Q?dfvDM6F5Xuc3DGAp9HVGgqUkWBVnyj7I7rFVOVez0giGecLAPf7TLSH9rEH/?=
- =?us-ascii?Q?ywcQ73Rb9jVsryTGK9zxErvbKK3vggGCJNWef2Hx23gplg3a1vnVN32y/Yqr?=
- =?us-ascii?Q?ffYC8J6E40s3zuunpB9DFKdO0Muq0PNr+9ivNCcuACsu49MTeF/ZKlxy7IG6?=
- =?us-ascii?Q?v1U2Z+6RSuyq71mMnR9kvlov/jVSoW5UKtleqZDRztcruuYHjswAiFtWo3/v?=
- =?us-ascii?Q?CpqParrqnQBacOCtoGHv2Kmv/At/UnCq+TkV83qt5JGAwg0o5Tn7vNpMsXDL?=
- =?us-ascii?Q?+7E/F3pVbv3mKtKMoqwrHzWwpRxXaICFnPPhCJmHVfMZigxo7U2q7nFI0Mw4?=
- =?us-ascii?Q?AusxRg1tLidREwbylnQxNQKG9sCfffj6zD2dcaZBG705QE2qQySnWDwkjv5M?=
- =?us-ascii?Q?FCLc9gsw9K8qpWWgCX9VqdGHwjfJOo2Bb8q3EEQnd23PrAEqr5ys3rdke2Wy?=
- =?us-ascii?Q?8JFxNNIzkigSuL9p0Jl9t7x081t8KAENGLWtvAilCB6/m8Ipxwl27jlbiPPd?=
- =?us-ascii?Q?onicfPD9Sp9XDKC5eyuyT9IpTglHYeZtTC8OcIHHxYarfBNYl8xQtrDC7qMq?=
- =?us-ascii?Q?3j6R3SIG/IcssPGLHW/g1dapkY4ScbT4jmBY05STqBcIZebSTZjqriusbM9c?=
- =?us-ascii?Q?1GjS857B3dNwb5FbVJYNJnMvRoYYQ8fYuVQfIFaVmLLUdsi8BrWjNUVXFMKO?=
- =?us-ascii?Q?Lf0JqY+8+jPB/+sUAOzdyebwQmk9grDIM5QLWjdqMJqqRGEQ3m5/qwv8twdw?=
- =?us-ascii?Q?K7gzUEyyMB4EY391p9I8hQeqoLJQdDkhzj0mGM1ICcYto/Zg9u2g3nc/jdVT?=
- =?us-ascii?Q?sOlJ9yRzzzsix1dPWSsxAtZSQVE2SOKE57quVRgTYKUK53Fe/P3+DM/OSCj7?=
- =?us-ascii?Q?XMq4iNa0Q6hhyfPg81QKxdbNFD/i9gLyT5XHQo0zNAOaR1maRaM+flXydJtu?=
- =?us-ascii?Q?O0Tr+ftC8bbbhAokhGnjeVvTXhoo25TezgZBi+zO44nBnMryQzb96iLK+yct?=
- =?us-ascii?Q?Y4kfyAHY/+USLvUbpZFarKRI85aAj2BwROYDhr6x01ok/ZIqFCqs4Um+8n+0?=
- =?us-ascii?Q?eSxywfQxO7vrzV7jO4G5oGxlEGLaQfUK2cHS6G4UzHV8jOG5bqNUBraUH+ev?=
- =?us-ascii?Q?Z6aTL5+SEtk1EvHlR/HLs++PAhOhARQgZ8CI7lECjbNoLx6WkJi0yp7m90Le?=
- =?us-ascii?Q?9PHmY6C8VTITEKu4DAJJl1oP7Z83xqNfP4BFliI36cJHci+P2LIp9NLoBcQc?=
- =?us-ascii?Q?xAnwrSbohKcqc8+OZpOZ19nVLusBgmwjB7EllsQEOUJwXiIlP2nGbuP6VbVe?=
- =?us-ascii?Q?RIohv8dOiw=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c3dc53ca-4dde-42fd-e536-08deb593abbe
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 10:44:58.7718
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BWVoJ5fGOZ9CBSxRelqHl7XDXtVDgzRasRqM9aglYHqwSjQoMDj6PKqr9BYH3Q09fFaGeket0IfAqdKTEJHD6w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB12330
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <bv4vwmkkjh23lahkrupwclqs7il4vxqeknalgqn52k3wc6ztsg@z5ukn774brtg>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_034506_893754_E81844FB 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_034734_771233_315F1DED 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,74 +86,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
+On Tue, May 19, 2026 at 12:20:14PM +0200, Gregor Herburger wrote:
+> On Tue, May 19, 2026 at 11:14:28AM +0200, Thomas Weißschuh wrote:
+> > On Fri, May 08, 2026 at 04:42:45PM +0200, Gregor Herburger wrote:
+> > > +config NVMEM_RASPBERRYPI_OTP
+> > > +	tristate "Raspberry Pi OTP support"
+> > > +	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
+> > 
+> > The '&& !RASPBERRYPI_FIRMWARE' clause looks weird, is it really necessary?
+> 
+> Yes it does looks weird but I think it is necessary. Without this it would be
+> possible to build RASPBERRYPI_FIRMWARE=m and NVMEM_RASPBERRYPI_OTP=y which
+> results in linker errors.
 
-The terminate API dmaengine_terminate_all() has been deprecated, improve
-driver with dmaengine_terminate_sync().
+Fair enough. I would prefer the solution below, though.
+It would cleanly solve the issues also for other (future) drivers.
 
-Fixes: ba9b28652c75 ("spi: imx: enable DMA mode for target operation")
-Fixes: a450c8b77f92 ("spi: imx: handle DMA submission errors with dma_submit_error()")
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
- drivers/spi/spi-imx.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
+index 17595a96e90b..0efd479ffced 100644
+--- a/include/soc/bcm2835/raspberrypi-firmware.h
++++ b/include/soc/bcm2835/raspberrypi-firmware.h
+@@ -188,7 +188,7 @@ struct rpi_otp_driver_data {
+        int size;
+ };
+ 
+-#if IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE)
++#if IS_REACHABLE(CONFIG_RASPBERRYPI_FIRMWARE)
+ int rpi_firmware_property(struct rpi_firmware *fw,
+                          u32 tag, void *data, size_t len);
+ int rpi_firmware_property_list(struct rpi_firmware *fw,
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 480d1e8b281f..ae9912905c67 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -1774,8 +1774,8 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 							transfer_timeout);
- 		if (!time_left) {
- 			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
--			dmaengine_terminate_all(controller->dma_tx);
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_tx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -ETIMEDOUT;
- 		}
- 
-@@ -1784,7 +1784,7 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 		if (!time_left) {
- 			dev_err(&controller->dev, "I/O Error in DMA RX\n");
- 			spi_imx->devtype_data->reset(spi_imx);
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -ETIMEDOUT;
- 		}
- 	} else {
-@@ -1793,15 +1793,15 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion) ||
- 		    READ_ONCE(spi_imx->target_aborted)) {
- 			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
--			dmaengine_terminate_all(controller->dma_tx);
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_tx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -EINTR;
- 		}
- 
- 		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion) ||
- 		    READ_ONCE(spi_imx->target_aborted)) {
- 			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -EINTR;
- 		}
- 
-@@ -1818,9 +1818,9 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 	return 0;
- 
- dmaengine_terminate_tx:
--	dmaengine_terminate_all(controller->dma_tx);
-+	dmaengine_terminate_sync(controller->dma_tx);
- dmaengine_terminate_rx:
--	dmaengine_terminate_all(controller->dma_rx);
-+	dmaengine_terminate_sync(controller->dma_rx);
- 
- 	return -EINVAL;
- }
--- 
-2.43.0
+(...)
 
+> > > +static int rpi_otp_read(void *context, unsigned int offset, void *buf, size_t bytes)
+> > > +{
+> > > +	struct rpi_otp_priv *priv = context;
+> > > +	struct rpi_otp_header *fwbuf;
+> > > +	u32 count;
+> > > +	int ret;
+> > > +
+> > > +	if (!IS_ALIGNED(offset, 4) || !IS_ALIGNED(bytes, 4))
+> > > +		return -EINVAL;
+> > 
+> > Isn't this already enforced by the nvmem core?
+> 
+> Only for sysfs access through bin_attr_nvmem_read/bin_attr_nvmem_write. But
+> there is an in-kernel API nvmem_device_read/nvmem_device_write which does not
+> have alignment checks. So I added the check to be more defensive here.
+
+The other drivers don't seem to check this explicitly. It looks like an
+accident waiting to happen.
+
+(...)
+
+
+Thomas
 
