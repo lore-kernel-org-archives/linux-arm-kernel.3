@@ -4,121 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33366CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C51DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XwOWnEeHG/j1dIISjUBQ3VGZjEvKu/Ve2bPF/FUDvjA=; b=Ogy9rPwysMJ5uK6fJShZ+O6lKl
-	6/suL8Ws87aXLSVQunFXTfwKmZ95tBueje6YwJyTbviidGwBihX+LZhVbIIB35NhGrFCa7/0VwPGI
-	+3MgYXZ82m9+f6hUC6Zw55c95n7DxVtIlI63QYqmOpFspNRJFt27mmUK0qx8iGOZVMO5XJt8Zwjj5
-	fGMJPcqJ1/bNhGs4QwaOFDLTkrP1/YdSo8OBWGDs0JWQrLSEh18QkfX2WJwexlH7KUCyDFLAa+vGp
-	NaCvms+ko/7eGpXpygiiQzitX+/g3qv728O+wkaFeBbu0pFRFVII8ZZR7I9/ZtjwuTQV4DeS/IQDz
-	4ojel5Fw==;
+	bh=QQ8R5hz+2HMQgOIT4Egku+daAX/QfMhbk2ccuSFhbaM=; b=rg2Zp/QnIMcsRMpe0wEUj1mXEb
+	HkvDLoZjvqsuD+Zo92ZixIg0VuTaD4t2LJM0dGkS3srULQjNDThwEpZDAH88PukBV/4HP/QsrPQGD
+	vzRuTAxVzVk8JW3B3flcUaWwlZ/dulkzZxQm92hToONshYg5mwozNx55x7GK/LePTRD5zwmTC8XqU
+	zJA34yfSXQYO/F9OemizQuY9WKOm5t/3cUcAcHBPa0VFB+jlBJEwzP9KWvuOcTeUp5PHqv77QLj1q
+	gJ3tss+pVsYgHP1QXzwJ3uZNXu/Q8QyCQmJVTeivQsCGocihuyhLZcF9BLOWilA7ixfRzu4Zbted+
+	OffV6gZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPCww-00000000BrV-07fp;
-	Tue, 19 May 2026 05:25:02 +0000
-Received: from 5.mo534.mail-out.ovh.net ([54.36.140.176])
+	id 1wPD2s-00000000CSS-2kwa;
+	Tue, 19 May 2026 05:31:10 +0000
+Received: from mail-westus2azon11010011.outbound.protection.outlook.com ([52.101.46.11] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPCws-00000000Bq7-30Ar
+	id 1wPD2q-00000000CRu-0boj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 05:25:01 +0000
-Received: from director1.derp.mail-out.ovh.net (director1.derp.mail-out.ovh.net [51.68.80.175])
-	by mo534.mail-out.ovh.net (Postfix) with ESMTPS id 4gKNQv4ZXsz60B8;
-	Tue, 19 May 2026 05:24:55 +0000 (UTC)
-Received: from director1.derp.mail-out.ovh.net (director1.derp.mail-out.ovh.net. [127.0.0.1])
-        by director1.derp.mail-out.ovh.net (inspect_sender_mail_agent) with SMTP
-        for <BMC-SW@aspeedtech.com>; Tue, 19 May 2026 05:24:55 +0000 (UTC)
-Received: from mta3.priv.ovhmail-u2.ea.mail.ovh.net (unknown [10.110.43.211])
-	by director1.derp.mail-out.ovh.net (Postfix) with ESMTPS id 4gKNQv2J6Rz5vLW;
-	Tue, 19 May 2026 05:24:55 +0000 (UTC)
-Received: from kaod.org (unknown [10.1.6.6])
-	(Authenticated sender: clg@kaod.org)
-	by mta3.priv.ovhmail-u2.ea.mail.ovh.net (Postfix) with ESMTPSA id BAE3312E3B55;
-	Tue, 19 May 2026 05:24:53 +0000 (UTC)
-Authentication-Results: garm.ovh; auth=pass (GARM-111S0054c8bd1e3-d3ef-4284-ba4e-ebb5c026c5fa,
-                    A1C5BDF50025601E7F63D663DE463AD2E6007479) smtp.auth=clg@kaod.org
-X-OVh-ClientIp: 82.64.250.170
-Message-ID: <5d16a357-9acf-468b-bbca-0d615f50a8b0@kaod.org>
-Date: Tue, 19 May 2026 07:24:53 +0200
+	Tue, 19 May 2026 05:31:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EdT9rht4iYNf4r3tDJM9KR1mtG4x+TJdvPH4WvcgX3UznICxDm9inU1ZEE1kSgplPh9rCwTb4o7YTsABuiv+hF/+lgIYfLjUv0kRZ81K1zPjAvqoOFMlvi4XIDt5E5oN1ppUXGrF7lMWyc6h4YDXxYAARBduv0zZ12Uqtm/b37TppFdtLfHdhOvTU+l32NBvIMARiYbTGf3Jy/BShjxbhg+n/Vbg2helhV77vCfreE50tqebDmKuxUJljNkB8pmjaRRT/Ja/2NcS9n7H+GZQUIEcMH5c2GMCQRmW9+ZUkVE+EDxTMcGtP84gYPc5Hdo3IeJtwnGI8Xe7ZFbBxsCBnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QQ8R5hz+2HMQgOIT4Egku+daAX/QfMhbk2ccuSFhbaM=;
+ b=eXhVAM099V3WYDUUoW2YG11HnW+YYcE96qlXGZZrA8a5BMf/iGMcTsYTh8/yJzFI4ZlRROBJsyBk7DXEDDbbHSwn3gqn3m0qsfVbIyVfbmAzp8yz80pvZn34ipFkxJbtReBdTVnqPntg+QtpmKt0QFFOow/0Rwm8oRB9NL8amDk1NqjO9uEh0AxiMup+MjMH1snUbOVpY82BO9fIOx3J4RbYdOwu848fyg1SWdV6MtCFK80sBnLsOcZeGEGg6u2BSxtjry7fsFD5v7nWE3S4Yw9FxUkqamFvoBsqS+yfy0E7ZCp1Pg5gKycrELr1R2Bhwb+moN35MN5pNHzINE6sfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QQ8R5hz+2HMQgOIT4Egku+daAX/QfMhbk2ccuSFhbaM=;
+ b=p7EbI5HrerDRyRKj5bTbb7IMIs324j4rQojmzfhwUHDHHYStQTr8NUUIOGpSTqz2d06w4Uz6mpoTzK42IQKzudiNKgquAa03nnOP7MmzqqypZayy8y4b5II0n5NSTIoZyc/6BAHHxW5mj05Zpxnj++CR5d3W0R/KLZFe74e9/EI=
+Received: from CH2PR15CA0022.namprd15.prod.outlook.com (2603:10b6:610:51::32)
+ by SA6PR10MB8088.namprd10.prod.outlook.com (2603:10b6:806:43f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 05:31:03 +0000
+Received: from CH2PEPF00000141.namprd02.prod.outlook.com
+ (2603:10b6:610:51:cafe::8f) by CH2PR15CA0022.outlook.office365.com
+ (2603:10b6:610:51::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.23 via Frontend Transport; Tue, 19
+ May 2026 05:31:03 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CH2PEPF00000141.mail.protection.outlook.com (10.167.244.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 05:31:01 +0000
+Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 19 May
+ 2026 00:30:45 -0500
+Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 19 May
+ 2026 00:30:44 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
+ (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 19 May 2026 00:30:44 -0500
+Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64J5UeqD3370029;
+	Tue, 19 May 2026 00:30:40 -0500
+Message-ID: <b7fc62b7-a73a-4201-98e1-ea6a628e9dce@ti.com>
+Date: Tue, 19 May 2026 11:00:39 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: aspeed: Replace VLA parameter with flat pointer in
- calibration helper
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, broonie@kernel.org,
- joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
- openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- BMC-SW@aspeedtech.com
-Cc: kernel test robot <lkp@intel.com>
-References: <20260518095708.2502537-1-chin-ting_kuo@aspeedtech.com>
- <20260518095708.2502537-3-chin-ting_kuo@aspeedtech.com>
-Content-Language: en-US, fr
-From: =?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>
-Autocrypt: addr=clg@kaod.org; keydata=
- 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
-In-Reply-To: <20260518095708.2502537-3-chin-ting_kuo@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-x-ovh-tracer-id: 17593030472268033226
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 0
-X-VR-SPAMCAUSE: dmFkZTE0iObQoePV2K1IhH/lNEfSblAOLwfgQuw3JoEnub5SozOtHYNazyv8nWJMCS9ATMcFGMTsyXaylTALoaNU765TsL1CA5M+JDrRdxbzWTERzO0GvgTfErFfsPFjmyGyvKtoi2sQKhyjk/3C6wk7rCMj9xft6HrUApWYeszRGEQxd49e8KdKWcQYqpUaAt/Plu4YtmK05kQh/EnFSVTwYzYZGyQyatwGRTjocDouBqYutoRycMSived2vCDkWh3UGftJ1HRoFqqq8YCrFwlx0kVJrdDSJcNZQHMTsgQzekmABOXgRbu2ZYwZKJfCsXvne3D+c3bMSXMSCOJTlPtJe2imD08vnxf4Uw7bPTw7XZOPZVOTHUD0yAbSk7GRDYH+qzAKV+CmWEVgu7df+EQMv8m+jhY9r0Dl1b2ABYbLZ1ViIu2vQmCQaw+pIUkLB3chSVb+BaceC7uKdJ/SwbCvlfD89qIfv1y/3RXt8f5EVPgfjUQ8Wxi3U7ZuuwD+Pp9zQPhRzSTxymqITYDfjWQCrYUDqEXZSv0rRt7SSARWIaPJywkmI18mIak/zAdh1sW0eTkaNunk0waDzJ5C4lMB2BxMR/tIvlhAk3W9+4hvHexGFX7Fp98b5cYpi4sVVTjGHDQM6lRxJjOfTMTuvQtBU4wrXRdcK86DGZEzhQjc5AG1Ag
-DKIM-Signature: a=rsa-sha256; bh=XwOWnEeHG/j1dIISjUBQ3VGZjEvKu/Ve2bPF/FUDvjA=;
- c=relaxed/relaxed; d=kaod.org; h=From; s=ovhmo393970-selector1;
- t=1779168295; v=1;
- b=UFOP7Az2HvV97XOHN24hXTEOXwcKw638Dahvu5kW2FGeAFxhhH9jciWpTpx1pOtKPt6tC9P3
- L0fMrUfMz+g05Mcvz8Ex+CHCSxLKYgw04BkyVlVvX24MYk8DsG/Eq0u5ndFNfAkNSsgVFqPxWEv
- kKLVLfuQWDggX52WYVFvNPe7+/2XDBBE3jH+xzVMbRSCFzyz+giwxUNMNq1UCEGESTmA+GgX/Ts
- /yngGTRZ6zvG0NJIjaAaIjrcIP9yWU0hp38FWiDH1PlPbOXoSdZyc7CA4PKf9QzCrTTP++Pk9pS
- tl2JcBbIthflsZaXYXtGKTToZHGxFuUCg7qtcXprRDjOg==
+Subject: Re: [PATCH v3 3/4] PCI: endpoint: Add API for DOE initialization and
+ setup in EPC core
+To: Manivannan Sadhasivam <mani@kernel.org>
+CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<kwilczynski@kernel.org>, <bhelgaas@google.com>, <corbet@lwn.net>,
+	<kishon@kernel.org>, <skhan@linuxfoundation.org>, <lukas@wunner.de>,
+	<cassel@kernel.org>, <alistair@alistair23.me>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>
+References: <20260427051725.223704-1-a-garg7@ti.com>
+ <20260427051725.223704-4-a-garg7@ti.com>
+ <m4z3q3pe3ro5vkl4uq4zkewpjdqccgeact2hj4tjnkonttx4vr@ndan37zzwgxc>
+ <3853ba15-d096-4cf4-b52f-8a2e5f50fe53@ti.com>
+ <mn7rnqdunp4mq45a7ypf26rfpzjr2gik7w4p7hpj4x3r3fzfzz@dlrsn27u5mbf>
+Content-Language: en-US
+From: Aksh Garg <a-garg7@ti.com>
+In-Reply-To: <mn7rnqdunp4mq45a7ypf26rfpzjr2gik7w4p7hpj4x3r3fzfzz@dlrsn27u5mbf>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000141:EE_|SA6PR10MB8088:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa36374d-a02e-4e12-8b84-08deb567d0af
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700016|1800799024|7416014|4143699003|22082099003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 0d20Qou4Hncj7dLx93uIGaUxWr1m00ZJBqcpW1sCplSp7V0grAuwt9C+LW/tCnIyUreCATztL7vkQc9A7WAZFsXxSzNC7dbNfIzaKKZVNLky/7EwwvLBc0ng6QUlACgNA023HUgSKCQIHCHqPvRM02PZ8gQIFGCj13nGh4Lq6fMQfmPzCjDtk3XmRZJUS+8PGjfz5RPqxu+63HpAVXtDkYgwKkcwSB/xNGTVfT8PEE4hIg+c46yFrMm1iAmedGXENrwpU2a37SM2reDol8WjLchoHtNbqGYlx+lfo8mMYwtq4byBxzEl+NrgJKyX1daiGYgPm7pKm9NsWdswNL3XIBY4kQ7ranwjqTNWkMm9hTkzsoOljUyWlKoi4gmB8agEPdaGnbXxuvmQUsin2dMIEDx5TfSwNLgepH9mgc0NSUX96xvtHhcXsfqFzw+itBCML2SMG6l4rbInifqJO3mjVKPMQ6W1pi7OEjWF+LqzHvd1Ghrs+AUdyeqlsEcNT8pfEao3JoQHSnlaA11/BpLHqD+IOMpOj8YpghsgiShhySJ/Q1h3p8KJkap2rI3vlTShoQ3UKJDLgPU9WzHSfNpX8aUyEp+B7QBLxzqRF4P1JElijKxpUc8rG+VVkgGoMySWougnNjIpAZcJavR1FusyAgONaYmNShd8jjeyndkKgtXoAA4MhkEapecgPKybTw15wpOn3EnHVJG+LAfhssMqd8/fjR485ih24AqZcLbD+9Q=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700016)(1800799024)(7416014)(4143699003)(22082099003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: I2CKBJVpBRzPyz8YqFCVIvQ8sONy/U8zZOY2Dtktj0RjbHQ6lpd532jFCpuBqzFeNs5eFxWxeKFKAIlRov+cUr+fPQjCo5eZf2KYwLTcxfjMqGWxvbr5mpvniJ7NsNC423i2eJMbjgX6lPUNxSfcVKzTjVvfxQJg8tmaB/DswCMGFO2ziv7YJMuz6tgtN/0NNPEU8g4lTxypjZa4VXUeJxQJSGubKqDKtKwQ9xBXrk9A0rfECXNOizakbzL73czGc+JgFzcQ8lBPijKvOMsauIvvMM7C5vv8mh/QWfY8kpRhq3XPquiUhd8ZIghSu+wQZHQG+vWUJifgOgIPcpHeyJ1gUPSwLafD76Pekg0bX3CwPZFYCVJdARV9NgadD3M1FanTzkoZaJ5q5ARTAwRgsw4eGldudcQBw+BnIpVwncuKYvAieny5pvA28t8GcHDY
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 05:31:01.9623
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa36374d-a02e-4e12-8b84-08deb567d0af
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000141.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR10MB8088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_222458_903673_4DF7D59B 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260518_223108_196532_CEE49CF2 
+X-CRM114-Status: GOOD (  25.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,58 +139,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/18/26 11:57, Chin-Ting Kuo wrote:
-> aspeed_spi_ast2600_optimized_timing() declared its buffer argument as a
-> variable-length array parameter (u8 buf[rows][cols]), which causes a
-> sparse warning. Replace the VLA parameter with a plain u8 * and compute
-> the 2-D index manually. The corresponding call site is also updated.
+
+
+On 15/05/26 18:17, Manivannan Sadhasivam wrote:
+> On Fri, May 15, 2026 at 10:21:52AM +0530, Aksh Garg wrote:
+>>
+>>
+>> On 14/05/26 13:38, Manivannan Sadhasivam wrote:
+>>> On Mon, Apr 27, 2026 at 10:47:24AM +0530, Aksh Garg wrote:
+>>>> Add pci_epc_setup_doe() API in EPC core driver to initialize and setup
+>>>> the DOE framework for an endpoint controller. The API discovers the DOE
+>>>> capabilities (extended capability ID 0x2E), and registers each discovered
+>>>> DOE mailbox for all the functions in the endpoint controller. This API
+>>>> should be invoked by the controller driver during probe based on the
+>>>> doe_capable feature.
+>>>>
+>>>> Add pci_epc_destroy_doe() API in EPC core driver for cleanup of DOE
+>>>> resources, which should be invoked by the controller driver during
+>>>> controller cleanup based on the doe_capable feature.
+>>>>
+>>>> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>>>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+>>>> Signed-off-by: Aksh Garg <a-garg7@ti.com>
+>>>> ---
+>>>>
+>>>> Changes from v2 to v3:
+>>>> - Rebased on 7.1-rc1.
+>>>>
+>>>> Changes since v1:
+>>>> - New patch added to v2 (not present in v1)
+>>>>
+>>>> v2: https://lore.kernel.org/all/20260401073022.215805-4-a-garg7@ti.com/
+>>>>
+>>>> This patch is introduced based on the feedback provided by Manivannan
+>>>> Sadhasivam at [1].
+>>>>
+>>>
+>>> Sweet! But I was expecting you to add atleast one EPC driver implementation to
+>>> make use of these APIs.
+>>>
+>>> Also, why can't you call these APIs from the EPC core directly? Maybe during
+>>> pci_epc_init_notify() once the register accesses become valid.
+>>
+>> Can we add the DOE initialization API to pci_epc_init_notify()? This
+>> API seems to be called to notify the EPF drivers that the EPC device's
+>> initialization has been completed, as the name and description suggests.
 > 
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202605180441.uD3toFRJ-lkp@intel.com/
-> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-> ---
->   drivers/spi/spi-aspeed-smc.c | 7 +++----
->   1 file changed, 3 insertions(+), 4 deletions(-)
+> That's correct. But there is no harm in calling something like
+> pci_epc_init_capabilities() inside its definition. Only concern would be that
+> pci_epc_init_notify() is mostly called from threaded IRQ handlers. So loading
+> the handler would not be recommended. But since it is threaded anyway and we
+> don't have a better place to call, it would be OK.
 > 
-> diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
-> index 808659a1f460..c5275700de3d 100644
-> --- a/drivers/spi/spi-aspeed-smc.c
-> +++ b/drivers/spi/spi-aspeed-smc.c
-> @@ -1467,8 +1467,7 @@ static int aspeed_spi_do_calibration(struct aspeed_spi_chip *chip)
->    * must contains the highest number of consecutive "pass"
->    * results and not span across multiple rows.
->    */
-> -static u32 aspeed_spi_ast2600_optimized_timing(u32 rows, u32 cols,
-> -					       u8 buf[rows][cols])
-> +static u32 aspeed_spi_ast2600_optimized_timing(u32 rows, u32 cols, u8 *buf)
->   {
->   	int r = 0, c = 0;
->   	int max = 0;
-> @@ -1478,7 +1477,7 @@ static u32 aspeed_spi_ast2600_optimized_timing(u32 rows, u32 cols,
->   		for (j = 0; j < cols;) {
->   			int k = j;
->   
-> -			while (k < cols && buf[i][k])
-> +			while (k < cols && buf[i * cols + k])
->   				k++;
->   
->   			if (k - j > max) {
-> @@ -1541,7 +1540,7 @@ static int aspeed_spi_ast2600_calibrate(struct aspeed_spi_chip *chip, u32 hdiv,
->   		}
->   	}
->   
-> -	calib_point = aspeed_spi_ast2600_optimized_timing(6, 17, calib_res);
-> +	calib_point = aspeed_spi_ast2600_optimized_timing(6, 17, &calib_res[0][0]);
->   	/* No good setting for this frequency */
->   	if (calib_point == 0)
->   		return -1;
+> We could've called this from pci_epc_{create/start}, but some controllers won't
+> allow accessing CSRs without REFCLK. So only after pci_init_notify(), CSRs can
+> be accessed.
+> 
+>> As 'pci_epc_doe_setup' is a part of EPC initialization, I thought the
+>> EPC drivers should call this API before calling the pci_epc_init_notify().
+>>
+>> However, I agree with your suggestion to call the DOE setup API directly
+>> from the EPC core instead of sprinkling over the EPC drivers. I would
+>> recommend renaming the pci_epc_init_notify() API (and hence the
+>> pci_epc_deinit_notify() as well) to something like pci_epc_init_complete(),
+>> and add the DOE setup API/logic just before the
+>> logic of notifying the EPF devices.
+>>
+> 
+> No need to rename this API. Just use as is:
+> 
+> 	pci_epc_init_notify()
+> 		-> pci_epc_init_capabilities()
+> 			-> pci_epc_init_doe()
+> 		-> epf->event_ops->epc_init()
 
+Thank you for the suggestion, I will incorporate these changes in v4 series.
 
+Regards,
+Aksh Garg
 
-Reviewed-by: Cédric Le Goater <clg@kaod.org>
-
-Thanks,
-
-C.
+> 
+> - Mani
+> 
 
 
