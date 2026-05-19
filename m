@@ -4,142 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FA6CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BBACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCsFOXuahiH06X0TYwoA0dnC9Xfz227rBqAGBKE3J7w=; b=Gp6jl6rVlHlwEtWHOi+WPBPOLI
-	0GZpN8vn+k1wFm4URRMqAaKa3ceX0ybSb1nyPAQa4boAl5O3XKhNHycKouXsypEP8QWE7brV+/B6K
-	v9b+K0RZNG6loepvNxLJMUUaS/rNSW2UBUZSBcmeYHBd1oOHlBKI6pSXVLG2i25B7GLtViDt/Dlbd
-	HJcFVbqJPagEyEwn4TNeoKqXS8w28rDPDZ2aXSQl+NR7TVCb7SdnhZqo6fjCshTxGXy25UGQxg/pK
-	JpiuRnGvV6ypDRdkWDamKhAJ59Dh7k32RLwJPav5uOYhXEB7cdIajnQ62MIjeK1CPvqK+B+w1yb86
-	R6a3uCmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=td7yo9XNS1lv1rXLaX8XcWtU3vhlD0VxXYz9PxW/V+o=; b=PsDktDF9L71xiSM7RJZpfbccAa
+	CDu5r5CO1bujcwoblM/zVnMumN+UkQV6ZnBC5UBJ3iTpKcMOqm5Z8SZ4sakk/OnAgc65vhDqtSfaB
+	XVphC/LCgRSA2HnrFG9HMSONvXVIkuEDZPKL1UlB5YfHxT0GpJxtGxblshNpQIx0Z7LXGbhIdx6HO
+	Oq2BUY8Fo77rRmkhpYkZHUy/3XkuK3q0NShfraXHNRJbN550xu+lhww30A7ZFzOkd17Uhrvs+tc2v
+	up1uoms4WlLdpc1OT7tS5GTAvIiAxkhYtvPp9pouhZwJa0NaZicq3mLbsvlZkiLgMo0hOlhETDNJD
+	DmXe45gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPI4U-00000001DLp-0tA8;
-	Tue, 19 May 2026 10:53:10 +0000
-Received: from mail-northeuropeazon11011071.outbound.protection.outlook.com ([52.101.65.71] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wPHsx-00000001ATm-49Qm;
+	Tue, 19 May 2026 10:41:15 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPI4R-00000001DIO-2muq
+	id 1wPHsT-00000001A03-1bXL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:53:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QM2NjAzRKkwW/2yxYUBRxJQNPYblcg9BPiwNGQiwR0UBAoQqNv4uVudVC9tlnuiQ5uN/DHAUU1MO3fPQqSbyntrg4J50wYWhAcuebOkJz5uyFkqswSWDEXaEXnfncp5kzTLYgV90hjT9X5N4WaiatI5Z7XG9qJ9fzDvWarME1LE0+C7uU9t+quWgpE3DMISJTVZZsWtacL/g3MDkJWgPAkcJ8Jaz1HujHy3X2EFq+vjQuus/VGCldFiQQUJGEKr4Jx2ACCuS3COVkfZoO7nvV/bBrRNIAzvofy5kxOIVMv+r7EOyZNP8PVA5UUg0bxMKioqLZTDrwN6oB+KBztpOBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iCsFOXuahiH06X0TYwoA0dnC9Xfz227rBqAGBKE3J7w=;
- b=ph2b0IpgefXUyonC/wEk0xdIe+lenweqOyae9UiTV0XKOJkmqYp05x2B7Tjk0SDs8QQwSmnK/AIzzzOQnh6Jm5ujKclxfu1oVEpVEHYvGzFQgsTpFrHo6U6EIdYCn2vr/nwxsjMmv522emc1YUh8s2kZkA8nmGLIc+ZcQr4i3IKJP5F3iTGV+o2QNRpKwVwIucWwYLkQpZnbvFdTkwVZfWz9ewUmcBhQbaZUEqzrqBolJpUzMM2GzQkbQLVdsSaUMl2jHAu77jJWFo2BIag6ZNUmghi+viRcLOm76CuJmlpVGEUwRQSwYCk+LYv1hqH1ktJ2ErYf53JZtM+12TLQaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iCsFOXuahiH06X0TYwoA0dnC9Xfz227rBqAGBKE3J7w=;
- b=ZA0Y4ffq2cWunUoquyOHBGTds9CbaH42z9aUCJfgGqZDgBw7WblpReMlLNnMgKOPPrqe/oyjaK8ZVV/kfmcyk504GqgQTJckh2YckI8iZAgGr7Z+Dx1m0h4oPhdYyyM6dkqpfL6/bKdHcyzAgLBD3JxeXXQL+iDVWH5yrRzfl7jl3QJ7U0NKy1jHdh9kn/bzLQtOmSpa3VAgdQUMqPBlGHlHmuavEoUqVuefv3Qmi3qrRQjUYqoE7sAX3f6w0xyVlis1Emgobws2YhPkNw0aL6yDPEN4oJKQvsrLXYzqFId8OjEMSeAfHWNODyoDAeVMMLdANtajLndba6ulga4VBg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com (2603:10a6:102:242::11)
- by GV2PR04MB11633.eurprd04.prod.outlook.com (2603:10a6:150:2b0::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Tue, 19 May
- 2026 10:53:00 +0000
-Received: from PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::cf3:c5b0:7a0c:d11b]) by PAXPR04MB9644.eurprd04.prod.outlook.com
- ([fe80::cf3:c5b0:7a0c:d11b%5]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 10:53:00 +0000
-From: alice.guo@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] arm64: dts: freescale: add ULP watchdog nodes for i.MX platforms
-Date: Tue, 19 May 2026 18:55:17 +0800
-Message-Id: <20260519105517.3638614-3-alice.guo@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260519105517.3638614-1-alice.guo@oss.nxp.com>
-References: <20260519105517.3638614-1-alice.guo@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5P287CA0308.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:21e::17) To PAXPR04MB9644.eurprd04.prod.outlook.com
- (2603:10a6:102:242::11)
+	Tue, 19 May 2026 10:40:54 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id E39FB1A362A;
+	Tue, 19 May 2026 10:40:43 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B014B606E9;
+	Tue, 19 May 2026 10:40:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C3AF107E8A20;
+	Tue, 19 May 2026 12:40:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1779187242; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=td7yo9XNS1lv1rXLaX8XcWtU3vhlD0VxXYz9PxW/V+o=;
+	b=yoXF7nFvbpPJi1a+qgsb8Y5Du8LSUfy41GDr8QvcHAxISWnIX/ZkkfKjHvzyCIc4ZwI3AD
+	XaCQD944dR8xIQP5vIlX6xYzD6G7Mxqz0EX9luiWXbwLlmGGTmSM8NMV+1sX+2IA7rD7Nr
+	tHcdOS0wuDCH8vlxN1U3lFasNn8/Mn4a/IFMEE5aDHNprKYIHWxyz/NVXe1oQyChI4NdxC
+	tM3BnpJYdIA1KUcgquVWYGanxcs8jXUQYIMXqdHlf/1yL4MmHhELy0Z+ijrtWXvnE5+5jZ
+	h91bR6v2ibkfIbulGOfoD/Ot8nMo97kZuoDoAkF05rscBR1apCZZ3jDLh0vQOg==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 19 May 2026 12:37:53 +0200
+Subject: [PATCH 36/37] drm/display: bridge-connector: handle bridge hotplug
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9644:EE_|GV2PR04MB11633:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60db5f78-9ce8-4f1a-1aa7-08deb594cb08
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|52116014|1800799024|38350700014|22082099003|18002099003|56012099003|11063799006|3023799003;
-X-Microsoft-Antispam-Message-Info: 6+8Bmpcvq3exVbTIGQn97IJr0HC7lFq7b9qXR3pf+frHypGNqHhcXOAtRuAcDaqC9X0fNK3z3hOu07EX1EFEq4MKQXgBk04bVJRS8J/9QeoMSDheXRTZWCpRO1UFhJoSnGlggetG0/jnV6NHrLebNa3e3JQbe3xwb2ij5y4h5WzFn4IEjcFh58/Fw3m4Qk1x0pIigjArXW3h2YQDMx7mfrQES2Uayha7OPpHvnJGqEtMdvS+iZUWHvCfwQ7N9ioUVDSZmjIYan8ObkRaGKPcXXRBGFMV7f84zEaBQ4BIOv4QzVwJwdzMjj0Syn5hCMuTsGDy7onFl5Mf2YhgooHk5o+NTvIo/oDaTwBSXRTa4/cY26rE8D5lLJCUTcLKGBIL9KepI6flYbP9KZseZlJe8xefeuHFpZ91h/+Ne6vFCGqJFTnGbW11491qNqdlZQupXh+jA/4uKFnziyLRqDs9Ba7U4p3vBSRG8LpScdVJFR4fSq8ukFGzOE19pq1shgtxG7BHbzPpIYV3Rvb1l9w16mna1nCHj5U8/s6PflYmDDNQ+fR8PLq0Z2psdRNBR7f+JwMTYen6HEJSjMws3LP/PyhMqBD2w4NnbpGvH6S4hfc/3tZr4McRkKoOxhBk1LXb2rsUBHKMtZN8KGLe9On0GQW3Vrtvtfq8ECDhwYwAUukTYEq4jUs9ewocWaH4a5diu8EACPG491hXkZeeTpbUCBr3TiXnMR3wUwtFEFQtz0LnmpNqPIzIvhFN0pVn0fOQ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(52116014)(1800799024)(38350700014)(22082099003)(18002099003)(56012099003)(11063799006)(3023799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RStLODhCdVR0cnFOb0lGVXlXeVpvUEkzL05YdVZoOHJUZHNyb044a3lBTzc0?=
- =?utf-8?B?eWRHTERkUnMvOXJCL09KUUZDN2R0Mmxkbmt6dVJpUCtVS1o4R0tYRFFWd1FH?=
- =?utf-8?B?VlY4UmZnK2hNS0IwQnpHYTBQMWYrQzRHQ0xnY2czb3YzcjNyTldld083Q3NO?=
- =?utf-8?B?ekxxaTErVktOSG1KMDNSNy9wMXMzNGREY25JU05ZWFRMcnJ6M3B2eG1GWmph?=
- =?utf-8?B?bVhkZ3FLbEdITHNnSUZwNXhWckhSSkFRSFNEaFB1aVBBQ1lVSnFMMzZVdTRr?=
- =?utf-8?B?YnQyaUJNZ0pTZ2ZQZ2tvNE42cG1va3RjUStSdHVJeTJ4TDFSMlA1ZTNzaTQ2?=
- =?utf-8?B?UmZBK0g1ZlFpa0VNc2V1TnBVRmRHaVowYzAxQ2RZTklJTHFPcmMrR2RWNG1w?=
- =?utf-8?B?NGN4ZE9RdXlDNTFZZnZYRlZGOW15SnlXbUQwQ0prY01UY2hOeTBYUmRDYngv?=
- =?utf-8?B?dDF2OHVVdUxWY2s1YW9PcXd3bGtUMUdjQjVnV2g2TmFxZ0tvaEc4bXcvQUVq?=
- =?utf-8?B?S3ZjTEpPT2I5M1QrMEZpY2lNQW5RVzFPT2F3VEcySTBOS3AyVWo3UVZjU0FL?=
- =?utf-8?B?NGhLcTdQZmtFN0ZPWFprZkRrckRZNUFBSjhKZVBWaENqaWhMeW9PcmFHRURr?=
- =?utf-8?B?d2dzdXo2bmV2YlNMZHA0MFIyZTVVTjl2V1N0Z25JQnhMQ0E2aXRrMGh1UVF2?=
- =?utf-8?B?bUJzT09BQ21lOW5IYmdUaW53WVBVWlkyenJVQ3VIWjRReGxURUQ2SnduREpV?=
- =?utf-8?B?bG0yN05sdmpuc0ZZMmM4dzVIa1BxbTNrcW9ISEF4OCtMT1lrNFh6OTgyTUQ3?=
- =?utf-8?B?SGpxR3o0SWNvWGdQc1JYek5oKzFHbk0zRzBWUk5PZzFvUDhuMXhabjF5cjA4?=
- =?utf-8?B?TGFGSWI3SEpoSDgxdHc3OTU2UXVac1ZiTUlCaTBvWUxnS2ZoZVh5L1ZIaFFq?=
- =?utf-8?B?UUl6QWJWWDRackFEaVVqbmtHbGhUVE1xYkhsV0g4Nm5kbUx2UDVFVVdtTVZI?=
- =?utf-8?B?UEpmZ25MeXJFc3FaRnZ0V3dsZklJWWxWU1Y5VTNWVGJEeklPWm1DVmpJSnhq?=
- =?utf-8?B?c3BSWThYc2psTkFDb3BHcmR3ZnRnaml1MVFuK0ljazdOeDYyMDdtMHh3dXFX?=
- =?utf-8?B?amd6WG9FZDE4VWlRT3o0SVVOdzRzVVAvZXJGQzRzblozdUJibjVhbFpBNzdI?=
- =?utf-8?B?T1hoVWxPOU1sWTBvSGJQcmFCQU1qQmF5Y3RiUjNnb3FpWnhkUVI0eTB1UGdW?=
- =?utf-8?B?cVlnU3NyL2NneXpWQUFma1ZYT0JML3NpZkdPbmZLbkF5ZXYvcEM4S2pZNzJy?=
- =?utf-8?B?dDViL0Z3TU9TclcxY2tRajZPZ0pYejlKSkhrSERXSmgwUDE1VDFGei9yWUQ5?=
- =?utf-8?B?U25OWkpyeXE0b1pxRzlqcmFac1JOUkU2ZzEzaks5OWpEV0FEK00ycVg1akZ0?=
- =?utf-8?B?UnkreXZEYmZ2Ym5WeDhHVVlrdFh6a1JvazFXM1l2R0hQeWhTQmw0UGFwL0tv?=
- =?utf-8?B?NkNhM1Z0L1F1b1JnVUtCV245Q0NIbzU3d2VVa0pvWVRUUTFNU1k5VndYMUFE?=
- =?utf-8?B?L2l6dDZiZFhmd2lQMERGQUJIZWdIY3FmblNvcmY2eVNCZXM0MHY2UjlqMnBW?=
- =?utf-8?B?V2trNVJ5U1JTcUVNdVBhNVRJaGZjdktoTEljeWc1K3ZVTjRaekZLaXdIcC9M?=
- =?utf-8?B?OExyV1BKaWtXdjBHbFBIY0FGZ0V5MEdma204Ui92OHFKNUQ1bGtTMEtTS1Fo?=
- =?utf-8?B?SUREYlJ6OTJuVTR1NjB5cVlMaWJBbjZaa1lnM3QzMUl4dVVrRnRPdVE4OTVH?=
- =?utf-8?B?L2wxb0VzcFBDOWFVZWlDMUlEUDgvaGRKM3FCVWdtUitsdDlMTW1pb2hZcEtj?=
- =?utf-8?B?d2V6bVA2aWdTdTlmZEtLalRJYitnckdEaG0rZTNiY3RyeHpPbEtWUDM0Q29D?=
- =?utf-8?B?QnpCS1RiVHJyUDhUdmVCMHR3OU5TVlQ2N3dNUnM3dlFwYnNwWHh4VlhXWXY2?=
- =?utf-8?B?K1pBUXZ0TUVSMkZFT2RCTHI1NkJnbjh1UmNiTGg3QlpJNjhFOU5wT2hhQXZk?=
- =?utf-8?B?N05yYmtzK2ZSUTBEbDJFM3d6YXlZT1NXcTdUaDhPMkVqRzd3NU80SDJQQlVG?=
- =?utf-8?B?LzdVRjl1UDNTVVlDK1hDZk5lNjZ2dXdLLzRRSHRHMmxUWlFxMys5TUZMRHcw?=
- =?utf-8?B?RVFBZ2FiK3ZUK0FJcGZ6VUpUOFEyQTNwdHF0NVZlWEw2RUNyRUNNZUxPcnhJ?=
- =?utf-8?B?Z1dldkZ3RDJ0ZTA0bUR5ZlZsb0xpS0tVNnlRZ1djSzlLbVludGU3YWZSMnB5?=
- =?utf-8?B?d0ZFTlFETSsxK2dFOXlRaUNvT2plM3pRNW1wNjJBVW9FTktvUG54UT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60db5f78-9ce8-4f1a-1aa7-08deb594cb08
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9644.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 10:53:00.1948
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7zCKDZMUuMKjTY/YvwfGHdVKGOD+eqI4yQX1kRzvGidgZUJGOm4krq06yq68Wf7Ek9lWTRst3LjvF+c0o6ePrA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11633
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260519-drm-bridge-hotplug-v1-36-45e2bdb3dfb4@bootlin.com>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_035307_705843_775655CB 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20260519_034045_758323_61B13435 
+X-CRM114-Status: GOOD (  29.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,109 +90,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alice Guo <alice.guo@nxp.com>
+The drm_bridge_connector is nowadays the recommended way to implement DRM
+connectors when a chain of bridges is used, and as such it is the ideal
+component to implement DRM bridge hotplug. Thus, let the
+drm_bridge_connector be created once for the whole drm_encoder lifetime (as
+it is now), but make it able of creating and destroying the DRM connector
+reacting on bridge hot(un)plug events.
 
-Add new ULP watchdog device tree nodes across multiple i.MX SoC device
-trees. These watchdog instances were previously missing from the device
-trees. All nodes are added with status disabled by default and include
-the bootph-all property.
+Unfortunately the current drm_bridge_connector_init() API is unable to
+support DRM bridge hotplug because it returns a drm_connector, and with
+hotplug the connector might start existing only later, and also be
+destroyed and recreated multiple times.
 
-Signed-off-by: Alice Guo <alice.guo@nxp.com>
+So add a new API which is similar but returns a pointer to the
+drm_bridge_connector, which is persistent, and supports bridge hotplug by
+creating and destroying the drm_connector based on hotplug events.
+
+Because drm_bridge_connector_init() is really a drmm function (it does only
+drmm allocations), but without a drmm_ prefix, take this as an opportunity
+to call the new function with the same name but a drmm_ prefix:
+drmm_bridge_connector_init(). The old API can be replaced over time when
+needed to support hotplug, and eventually be removed if unused.
+
+The new drmm_bridge_connector_init() API differs from the old one in a few
+aspects in order to support bridge hotplug:
+
+ * if the bridge chain is not (yet) complete, returns successfully without
+   adding a drm_connector (in this case the old API returns an error)
+ * registers an event notifier block to be able of reacting to events
+   related to bridge hotplug and create/destroy the drm_connector
+
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
 ---
- arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi    | 12 ++++++++++++
- arch/arm64/boot/dts/freescale/imx94.dtsi  | 11 +++++++++++
- arch/arm64/boot/dts/freescale/imx95.dtsi  | 10 ++++++++++
- arch/arm64/boot/dts/freescale/imx952.dtsi | 10 ++++++++++
- 4 files changed, 43 insertions(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-index 1355feda1aa7..892799e1fe85 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7ulp.dtsi
-@@ -325,6 +325,18 @@ smc1: clock-controller@40410000 {
- 			clock-names = "divcore", "hsrun_divcore";
- 		};
+I'm tempted to let drmm_bridge_connector_init() return int (0 or negative
+error) instead of a struct drm_bridge_connector *, but I'm not sure whether
+the drm_bridge_connector pointer may be useful in the future to invoke
+actions on the bridge_connector after its creation. Opnions about this
+would be welcome.
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c | 157 +++++++++++++++++++++++++
+ include/drm/drm_bridge_connector.h             |   2 +
+ 2 files changed, 159 insertions(+)
+
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index b83da529cc7a..2ce6c04e2fc7 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -20,6 +20,7 @@
+ #include <drm/drm_device.h>
+ #include <drm/drm_edid.h>
+ #include <drm/drm_managed.h>
++#include <drm/drm_event_notifier.h>
+ #include <drm/drm_modeset_helper_vtables.h>
+ #include <drm/drm_print.h>
+ #include <drm/drm_probe_helper.h>
+@@ -158,6 +159,10 @@ struct drm_bridge_connector {
+ 	 * destruction
+ 	 */
+ 	struct mutex dynconn_mutex;
++	/**
++	 * @drm_event_nb: notifier to receive DRM hotplug-related events
++	 */
++	struct notifier_block drm_event_nb;
+ };
  
-+		wdog2: watchdog@40430000 {
-+			compatible = "fsl,imx7ulp-wdt";
-+			reg = <0x40430000 0x10000>;
-+			interrupts = <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&pcc2 IMX7ULP_CLK_WDG2>;
-+			assigned-clocks = <&pcc2 IMX7ULP_CLK_WDG2>;
-+			assigned-clock-parents = <&scg1 IMX7ULP_CLK_FIRC_BUS_CLK>;
-+			timeout-sec = <40>;
-+			status = "disabled";
-+			bootph-all；
-+		};
-+
- 		pcc3: clock-controller@40b30000 {
- 			compatible = "fsl,imx7ulp-pcc3";
- 			reg = <0x40b30000 0x10000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-index b88975fa7c8d..190316d2a500 100644
---- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-@@ -1285,6 +1285,17 @@ wdog3: watchdog@49220000 {
- 				status = "disabled";
- 				bootph-all;
- 			};
-+
-+			wdog4: watchdog@49230000 {
-+				compatible = "fsl,imx94-wdt", "fsl,imx93-wdt";
-+				reg = <0x49230000 0x10000>;
-+				interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&scmi_clk IMX94_CLK_BUSWAKEUP>;
-+				timeout-sec = <40>;
-+				fsl,ext-reset-output;
-+				status = "disabled";
-+				bootph-all;
-+			};
- 		};
+ static struct drm_bridge_connector_dynconn *
+@@ -1037,6 +1042,19 @@ static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector_
+ 	return 0;
+ }
  
- 		usb3: usb@4c100000 {
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 8c0b590d6ccf..7caacdc819c4 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -798,6 +798,16 @@ wdog3: watchdog@42490000 {
- 				bootph-all;
- 			};
- 
-+			wdog4: watchdog@424a0000 {
-+				compatible = "fsl,imx93-wdt";
-+				reg = <0x424a0000 0x10000>;
-+				interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&scmi_clk IMX95_CLK_BUSWAKEUP>;
-+				timeout-sec = <40>;
-+				status = "disabled";
-+				bootph-all;
-+			};
++static bool drm_bridge_connector_pipeline_is_complete(struct drm_bridge_connector *bridge_connector)
++{
++	struct drm_bridge *last_bridge __free(drm_bridge_put) =
++		drm_bridge_chain_get_last_bridge(bridge_connector->encoder);
 +
- 			tpm3: pwm@424e0000 {
- 				compatible = "fsl,imx7ulp-pwm";
- 				reg = <0x424e0000 0x1000>;
-diff --git a/arch/arm64/boot/dts/freescale/imx952.dtsi b/arch/arm64/boot/dts/freescale/imx952.dtsi
-index 4d8ce92db483..59f829004000 100644
---- a/arch/arm64/boot/dts/freescale/imx952.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx952.dtsi
-@@ -352,6 +352,16 @@ wdog3: watchdog@420b0000 {
- 				bootph-all;
- 			};
- 
-+			wdog4: watchdog@420c0000 {
-+				compatible = "fsl,imx93-wdt";
-+				reg = <0x420c0000 0x10000>;
-+				interrupts = <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&scmi_clk IMX952_CLK_BUSWAKEUP>;
-+				timeout-sec = <40>;
-+				status = "disabled";
-+				bootph-all;
-+			};
++	if (!last_bridge || !drm_bridge_is_tail(last_bridge)) {
++		drm_dbg_driver(bridge_connector->drm, "pipeline not (yet) fully connected");
++		return false;
++	}
 +
- 			tpm3: pwm@42100000 {
- 				compatible = "fsl,imx7ulp-pwm";
- 				reg = <0x42100000 0x1000>;
++	return true;
++}
++
+ /**
+  * drm_bridge_connector_add_connector - add the drm_connector
+  * @bridge_connector: drm_bridge_connector to add the drm_connector to
+@@ -1153,6 +1171,79 @@ static int drm_bridge_connector_add_connector(struct drm_bridge_connector *bridg
+ 	return ret;
+ }
+ 
++/*
++ * Propagate the attach chain and possibly add a drm_connector after a new
++ * drm_bridge is hot-plugged.
++ *
++ * The connector is added only if the pipeline is now complete. This could
++ * not be the case for various reasons:
++ *
++ * - the new bridge is just unrelated to our encoder
++ * - the new bridge is not be the next one in the pipeline
++ * - the new bridge is the next in the pipeline but the pipeline is not yet
++ *   complete
++ *
++ * All these cases are normal, not an error.
++ */
++static void drm_bridge_connector_try_complete(struct drm_bridge_connector *bridge_connector)
++{
++	int err;
++
++	/*
++	 * drm_connector already present, the new bridge must be for
++	 * another card
++	 */
++	if (bridge_connector->dynconn)
++		return;
++
++	/* Propagate the attach call chain to newly hotplugged bridge(s) */
++	struct drm_bridge *last_bridge __free(drm_bridge_put) =
++		drm_bridge_chain_get_last_bridge(bridge_connector->encoder);
++
++	/* Encoder chain empty? */
++	if (!last_bridge)
++		return;
++
++	err = last_bridge->funcs->attach(last_bridge, bridge_connector->encoder,
++					 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (err)
++		return;
++
++	/* Add the connector if the pipeline is now complete */
++	if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
++		drm_bridge_connector_add_connector(bridge_connector);
++}
++
++static int drm_bridge_connector_handle_event(struct notifier_block *nb,
++					     unsigned long event, void *data)
++{
++	struct drm_bridge_connector *bridge_connector =
++		container_of(nb, struct drm_bridge_connector, drm_event_nb);
++
++	switch (event) {
++	case DRM_MIPI_DSI_ATTACHED:
++		/* One or more bridges hot-plugged, try adding the drm_connector */
++		drm_bridge_connector_try_complete(bridge_connector);
++		break;
++	case DRM_BRIDGE_DETACHED:
++	{
++		/*
++		 * A bridge was unplugged, remove the drm_connector if it's
++		 * part of the same pipeline
++		 */
++		struct drm_bridge *bridge = (struct drm_bridge *)data;
++
++		if (bridge_connector->dynconn &&
++		    bridge->encoder == bridge_connector->encoder)
++			drm_bridge_connector_dynconn_release(bridge_connector);
++		break;
++	}
++	default:
++	}
++
++	return NOTIFY_DONE;
++}
++
+ static void drm_bridge_connector_fini(struct drm_device *dev, void *res)
+ {
+ 	struct drm_bridge_connector *bridge_connector = (struct drm_bridge_connector *)res;
+@@ -1205,3 +1296,69 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 	return &bridge_connector->dynconn->connector;
+ }
+ EXPORT_SYMBOL_GPL(drm_bridge_connector_init);
++
++static void drm_bridge_connector_notifier_unregister(struct drm_device *dev, void *res)
++{
++	struct notifier_block *nb = (struct notifier_block *)res;
++
++	drm_event_notifier_unregister(nb);
++}
++
++/**
++ * drmm_bridge_connector_init - Initialise the bridge_connector for a chain
++ *                              of bridges, with bridge hotplug support
++ * @drm: the DRM device
++ * @encoder: the encoder where the bridge chain starts
++ *
++ * Allocate, initialise and register a &drm_bridge_connector with the @drm
++ * device. The connector is associated with a chain of bridges that starts at
++ * the @encoder. All bridges in the chain shall report bridge operation flags
++ * (&drm_bridge->ops) and bridge output type (&drm_bridge->type), and none of
++ * them may create a DRM connector directly.
++ *
++ * Also adds a drm_connector if the bridge chain is complete, otherwise the
++ * &drm_bridge_connector will still be successfully created but without
++ * adding a drm_connector. In both cases the &drm_bridge_connector will
++ * receive events notifying bridge hot-plug and hot-unplug and add or
++ * destroy the drm_connector accordingly.
++ *
++ * Returns a pointer to the new &drm_bridge_connector on success, or a
++ * negative error pointer otherwise.
++ */
++struct drm_bridge_connector *drmm_bridge_connector_init(struct drm_device *drm,
++							struct drm_encoder *encoder)
++{
++	struct drm_bridge_connector *bridge_connector;
++	int ret;
++
++	bridge_connector = drmm_kzalloc(drm, sizeof(*bridge_connector), GFP_KERNEL);
++	if (!bridge_connector)
++		return ERR_PTR(-ENOMEM);
++
++	mutex_init(&bridge_connector->dynconn_mutex);
++	bridge_connector->drm = drm;
++	bridge_connector->encoder = encoder;
++	bridge_connector->drm_event_nb.notifier_call = drm_bridge_connector_handle_event;
++
++	if (drm_bridge_connector_pipeline_is_complete(bridge_connector)) {
++		ret = drm_bridge_connector_add_connector(bridge_connector);
++		if (ret)
++			return ERR_PTR(ret);
++	}
++
++	ret = drmm_add_action_or_reset(drm, drm_bridge_connector_fini, bridge_connector);
++	if (ret)
++		return ERR_PTR(ret);
++
++	ret = drm_event_notifier_register(&bridge_connector->drm_event_nb);
++	if (ret)
++		return ERR_PTR(ret);
++
++	ret = drmm_add_action_or_reset(drm, drm_bridge_connector_notifier_unregister,
++				       &bridge_connector->drm_event_nb);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(drmm_bridge_connector_init);
+diff --git a/include/drm/drm_bridge_connector.h b/include/drm/drm_bridge_connector.h
+index 69630815fb09..1c78221c0857 100644
+--- a/include/drm/drm_bridge_connector.h
++++ b/include/drm/drm_bridge_connector.h
+@@ -10,6 +10,8 @@ struct drm_connector;
+ struct drm_device;
+ struct drm_encoder;
+ 
++struct drm_bridge_connector *drmm_bridge_connector_init(struct drm_device *drm,
++							struct drm_encoder *encoder);
+ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
+ 						struct drm_encoder *encoder);
+ 
+
 -- 
-2.34.1
+2.54.0
 
 
