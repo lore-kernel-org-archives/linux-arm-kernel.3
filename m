@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B07BCCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4718CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xetvvJm0CyCkW4uUGidOGUy6EOw6fN+9sEkHdb/4iOk=; b=VC6T1wZUQw/F5yc9wyxzjZUPdI
-	LsAyBoQ648D4aoOd94CsDIH7UqD615AEryAp2LsIUBiKvDAL9t5bF5AYQs6zgPrfeo7FUscUjih/H
-	hYkC0uIk+NETFdxNkXAicrGTV80ddOsdDy/VPmv+/W4sysMjPdOZWaNQ3KcpOy4s+Ouh0AwjET1qa
-	rlfZBd07b5v+5ZCP1X9N+MLdJ9vKqwZ0vg9rZCudNylu8ExhJ5DmNDaL/RlYnPe3Ts1rdnbUJ7SqF
-	1wBhweLzWm8MkdbSLvKrlnPjjrG46bQdI04fZjzzulZ7F3xKgUdEzUPAVc3t2XxNuqhmG3g/+aoar
-	Jxe51Glg==;
+	bh=x5nzMpG/GwW7Xqqy1mUFuuih69K6FrxFM6B9LYI2OFs=; b=hMxRLosk8Tp6hum76K9KDBX5Kh
+	fq8I3JEn/lul3Zg3Uz6Gh+VI9qF3T09k6VFHK+WRizOTifddnx8zi9fMx2v741h7EwjneeAlJvIUS
+	stQC8rv9Iy9KdQEI2qOd+Dzj2bxfbQvrZiKOIS9+uHlhuoQIoMKGfo0PdxcwpcQzzZQ0JXZGW1NU5
+	i88fPvNI7E14UMz++4J1obdUbntPBQKaqGF2m+H2cjpbkl0NGQbjWMTZpf7TDSsHMGAxY8jqA8cHl
+	royke8xKdl9pQuMVFdnvp3Oo5QyUVTgNj5dEQwdaJJkRPsCixQBwKQPn80s/jFLpfsZotG0T73WN5
+	WRUlx+dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMgZ-000000026wt-34M1;
-	Tue, 19 May 2026 15:48:47 +0000
+	id 1wPMgq-000000027Cp-1dRL;
+	Tue, 19 May 2026 15:49:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMgV-000000026rO-0PDZ
+	id 1wPMgf-0000000272u-20gV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:48:45 +0000
+	Tue, 19 May 2026 15:48:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9B9F244C;
-	Tue, 19 May 2026 08:48:35 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E344244C;
+	Tue, 19 May 2026 08:48:46 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 119923F632;
-	Tue, 19 May 2026 08:48:38 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E11B03F632;
+	Tue, 19 May 2026 08:48:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779205721; bh=gYtLnPv7rPiYhGOieebFzQQ+fCOZv3/9pQcWSgJHcrU=;
+	t=1779205731; bh=1v+4DtwiP426UnV9z8aEwX4WxDX0JQvRdZWfwFpb2yQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SP/yP4BBbign08XZv9VIVvZRqdzom3kdpnLEFQhsX99B3FpMyLnxU/7D2SlibZdAr
-	 19DA/so0zrg2Zeu2uOpqTkpswCGz4igWRwoA3ULrYsfr6km5m3dnp1AvRYO59msqkj
-	 YZOUaApWHjZebqrBEAQDh2iRlu/M0QeJJShlqeJk=
+	b=NbUPHIVVhidsc5+8k/YW6LlRprpwF2wRpSJA9j3FZeK82f79nggt2Hs7ddeseqf4g
+	 a0od+Yb48UVofcSlK6rrT3RNE6Uw3p4bam7Xcvh5jjVYALaVrML4e1ue8Qy5eI9Quu
+	 0dLgnt3Nj+zOp/BWVrE2R0LkqUcIR7Bjpt8HEv44=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -50,17 +50,17 @@ Cc: suzuki.poulose@arm.com,
 	leo.yan@arm.com,
 	jie.gan@oss.qualcomm.com,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v7 09/13] coresight: etm4x: missing cscfg_csdev_disable_active_config() in perf enable
-Date: Tue, 19 May 2026 16:48:08 +0100
-Message-Id: <20260519154812.254884-10-yeoreum.yun@arm.com>
+Subject: [PATCH v7 13/13] coresight: etm3x: remove redundant cpu online check on etm_enable_sysfs()
+Date: Tue, 19 May 2026 16:48:12 +0100
+Message-Id: <20260519154812.254884-14-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260519154812.254884-1-yeoreum.yun@arm.com>
 References: <20260519154812.254884-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_084843_259909_4064C45F 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260519_084853_644036_7BA58A01 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,77 +75,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the perf enable path, there are missing cases where
-cscfg_csdev_disable_active_config() is not called:
+cpu online() check is done in coresight_validate_source_sysfs() already.
+Therefore, remove redundant check in etm_enable_sysfs().
 
-  - Branch broadcast is selected but not supported by the hardware
-  - etm4_enable_hw() fails
-
-This can lead to a leak of config_desc->active_cnt.
-Fix this by properly calling cscfg_csdev_disable_active_config()
-in these error paths.
-
-Fixes: 810ac401db1f ("coresight: etm4x: Add complex configuration handlers to etmv4")
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- .../hwtracing/coresight/coresight-etm4x-core.c | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+ .../coresight/coresight-etm3x-core.c          | 31 ++++++++-----------
+ 1 file changed, 13 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index f0a9f2ef4b27..0889937811cb 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -899,6 +899,8 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 			 * Missing BB support could cause silent decode errors
- 			 * so fail to open if it's not supported.
- 			 */
-+			if (cfg_hash)
-+				cscfg_csdev_disable_active_config(csdev);
- 			ret = -EINVAL;
- 			goto out;
- 		} else {
-@@ -915,6 +917,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 			    struct coresight_path *path)
- {
- 	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-+	struct perf_event_attr *attr = &event->attr;
+diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+index ed27e35b42ec..9dbfe6a1dc4d 100644
+--- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+@@ -520,25 +520,20 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
+ 	struct etm_enable_arg arg = { };
  	int ret;
  
- 	if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
-@@ -926,7 +929,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 	/* Configure the tracer based on the session's specifics */
- 	ret = etm4_parse_event_config(csdev, event);
- 	if (ret)
--		goto out;
-+		goto err;
- 
- 	drvdata->trcid = path->trace_id;
- 
-@@ -935,16 +938,19 @@ static int etm4_enable_perf(struct coresight_device *csdev,
- 
- 	/* And enable it */
- 	ret = etm4_enable_hw(drvdata);
+-	/*
+-	 * Configure the ETM only if the CPU is online.  If it isn't online
+-	 * hw configuration will take place on the local CPU during bring up.
+-	 */
+-	if (cpu_online(drvdata->cpu)) {
+-		arg.drvdata = drvdata;
+-		arg.path = path;
 -
--out:
--	/* Failed to start tracer; roll back to DISABLED mode */
- 	if (ret) {
--		coresight_set_mode(csdev, CS_MODE_DISABLED);
--		return ret;
-+		if (ATTR_CFG_GET_FLD(attr, configid))
-+			cscfg_csdev_disable_active_config(csdev);
-+		goto err;
- 	}
- 
- 	csdev->path = path;
- 	return 0;
+-		raw_spin_lock(&drvdata->spinlock);
+-		arg.config = drvdata->config;
+-		raw_spin_unlock(&drvdata->spinlock);
+-
+-		ret = smp_call_function_single(drvdata->cpu,
+-					       etm_enable_sysfs_smp_call, &arg, 1);
+-		if (!ret)
+-			ret = arg.rc;
+-	} else {
++	arg.drvdata = drvdata;
++	arg.path = path;
 +
-+err:
-+	/* Failed to start tracer; roll back to DISABLED mode */
-+	coresight_set_mode(csdev, CS_MODE_DISABLED);
-+	return ret;
- }
++	raw_spin_lock(&drvdata->spinlock);
++	arg.config = drvdata->config;
++	raw_spin_unlock(&drvdata->spinlock);
++
++	ret = smp_call_function_single(drvdata->cpu,
++				       etm_enable_sysfs_smp_call, &arg, 1);
++
++	if (!ret)
++		ret = arg.rc;
++	else
+ 		ret = -ENODEV;
+-	}
  
- static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
+ 	if (!ret)
+ 		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
