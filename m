@@ -4,89 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2AFCD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DA3CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RapJmIm33RCWpt2jGkwySkStxOP5ayW5s+SF7qpxfO0=; b=ZAzGUb0Lu37oLYXBqs4PG3H9Oc
-	+cJH2KoEj2JitlPbGb8CY/BLqk7PIae2IP+3juAq9DCpQFYPGWDYV/RbTE60UebUEYcW02qMvrtSu
-	5SSZZCD5TPecm1sglJsyDbC5Mw1Jexubrqqr06zRdyU22Ngxv/5Rp0vACisWqWgFFoHqTulf59NO0
-	1XNwwPYNO8/OaQM+M1gmmIdnIma+ttq1I/TmwgAwm2Zl+CiHfpXR1XFb1Kv9+/xYQzq+r9P3fhPEP
-	aDwCguJgig93PlI8g3BTcTLklR7bLpQd/CrSMQ/zYiH7imvd34/mS6Asgu/oeTVFfw5fMEOaB39VZ
-	/STvwjtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BdY2bbbRX0dHnUUVJHe45hJDpJ0fuJbislf0WvTlD3c=; b=GLq+UVgjBj1dRoFdP34slAVqrH
+	6FNBz0KggsBGWrHO/W9F69WuO6qSX4cBXolu/Hw7Huldre6nCNrWYoSa67tbrrRkwePuatASghtS1
+	CMM4iLUFrc9GgBUEGutac1T4GLptptxwmN7S1Tc8qwLMj0ts6gVlBLDSaQDWRzQe6XwklEndIehy4
+	urS+ED/SCl886oi+hw9cSAODiLL/mGXMX9OisLj4UR9ADUQmJNYrE5V0SfRM0iaWrna/5XnMwyzTe
+	exVsJuUpAkO9FoileoaiBXCWzliCIWWRRKyOXuV7Be8B6NAsV9HkNdjgOHtdqP+n1t+dwn20UVlR/
+	7PaJxV8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLGp-00000001nNG-37JZ;
-	Tue, 19 May 2026 14:18:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPLMr-00000001oiv-0UeP;
+	Tue, 19 May 2026 14:24:21 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLGj-00000001nKz-0j8d
+	id 1wPLMo-00000001ohG-0yam
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:18:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8B109445E0;
-	Tue, 19 May 2026 14:17:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3CDC2BCB3;
-	Tue, 19 May 2026 14:17:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779200279;
-	bh=omX4jWGqSc4euJhfKZDzYDEyAA00xkxKBKP+MlYpCw8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=lTYt6sua65tkoXlE6Q2BlS8sWIBZa2T8L6x1+ychuvbjhIgKDes/YlNtctIs5MurS
-	 wD2Sl12rive3qkbqzpkk+tCLwkjQs/DxCrfGdUoXLC02uYIc1JCFEdy86S52d2uc9y
-	 g9FC2LhMSJtxI6g9uj7rH6gjLQpb0NEpM4k1SN6H2g7ngPyox//4uss4/gZtV+Ifkr
-	 HJA7XMc52oT9bXh/mEx/JXlwnYV1qcuMWkMR9VA/wBbF3wBtAG826RnNSvIIDkS5uY
-	 AZew3Mf53E71+ceTl7ybvn6GgsZDq0hT4sHTpN4L72FhePHSUiBlWNlbwgUDVM05nW
-	 MgRHtOceOiSng==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-In-Reply-To: <agxt7SFGT7OLMIah@google.com>
-References: <agSKQrSIhizCXKwx@google.com> <yq5ah5oaa63h.fsf@kernel.org>
- <agW5rhE9n2gDQ0w5@google.com> <yq5apl2y5f96.fsf@kernel.org>
- <agXaby-7L7yS3Vva@google.com> <yq5ah5oa59wy.fsf@kernel.org>
- <agxDxdxynp4KEovA@google.com> <20260519132911.GA7702@ziepe.ca>
- <agxolksC_1nfO34X@google.com> <yq5ah5o3sdn3.fsf@kernel.org>
- <agxt7SFGT7OLMIah@google.com>
-Date: Tue, 19 May 2026 19:47:48 +0530
-Message-ID: <yq5aecj7sctv.fsf@kernel.org>
+	Tue, 19 May 2026 14:24:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=x/9ZQP6+WgsryVRcK4T2nejgTtOHpF27IfWoGYkRjGB+DMwJRoxNodSGX/GqP00JnU/qux8238ysi5FtnryZc0SaIdNwg1SCczBVn4LSy7wfwGvellRr30R89rLOlm6O/aWA3r+ZdNr3USAkKUtCtfD/0pfVjeeWzaHzboAGKa5jF53muc1DT9zEKGgdTdef9QhVA2GcgOT2OJEAwpnJ1ngHH+R+k8MwgxauThb1NPOHJKPmOfcTnEbA4q17mqJInxcWVX8r6sGuYGtwHrnpvNCH82syvgGiscUzwQ0RFpngfKBDsonNbz23e7w0UZ4zp0OSslt90eTj3CV1Xan1pw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BdY2bbbRX0dHnUUVJHe45hJDpJ0fuJbislf0WvTlD3c=;
+ b=tPlMDWC0SZckbEjvNCEMKiJRbUi5Zy/BfVcV5MLLSVlyFaGy+McThOGC8uMdo7GhikSqiDTVjcpS+WzOazOxq6+bwD1SM81yoeq9QZqEO/Ik97z/+oLEYJi84sKxHjR+9e2JFTWt+sPBKF8wp+tjzkLL9/WRuI5jZizhCqK3d2PsyLFGNfjj1JPbNwVhMZNtHI8XaEjxtVq83jFDxMB1qoOZ7Px2focFPtCViHidrVSEsK7EzI+o7rLm/SZ4vynozH1QbQ5F64lypZqBm3w/zNNK+pR4iLeIJiUUSssBIgJ/mos3wsvmcSuKmlBDYT5lmD79uIx1/v9Q8935E/L/Jw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BdY2bbbRX0dHnUUVJHe45hJDpJ0fuJbislf0WvTlD3c=;
+ b=gNcVGvqX8b8uHMnkB66/5dGRmYAUZrgILCT+dCU1DUxHPglyPG8C6ue8CmbV8x+5SgngWe6FzPXZQ7sFExKL6kcD2vxxse9ba3HnJuI3l4jvr7gFDoC4xysBhdjpgIsQZhAC4NUYlQZE9K2CusnM6TaaX+My9++A9YXAxGKjJmo=
+Received: from CH3P221CA0008.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1e7::22)
+ by IA0PR10MB6697.namprd10.prod.outlook.com (2603:10b6:208:443::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 14:24:13 +0000
+Received: from BL02EPF00021F6D.namprd02.prod.outlook.com
+ (2603:10b6:610:1e7:cafe::3e) by CH3P221CA0008.outlook.office365.com
+ (2603:10b6:610:1e7::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Tue, 19
+ May 2026 14:24:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BL02EPF00021F6D.mail.protection.outlook.com (10.167.249.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 14:24:11 +0000
+Received: from DFLE211.ent.ti.com (10.64.6.69) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 19 May
+ 2026 09:23:46 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 19 May
+ 2026 09:23:46 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Tue, 19 May 2026 09:23:46 -0500
+Received: from moteen-ubuntu-desk.dhcp.ti.com (moteen-ubuntu-desk.dhcp.ti.com [10.24.50.20])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64JENgoT4183406;
+	Tue, 19 May 2026 09:23:43 -0500
+From: Moteen Shah <m-shah@ti.com>
+To: <krzk+dt@kernel.org>, <robh@kernel.org>, <conor+dt@kernel.org>,
+	<nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>, <gehariprasath@ti.com>,
+	<y-abhilashchandra@ti.com>, <m-shah@ti.com>
+Subject: [PATCH v4 0/2] Enable audio support for J721S2 EVM
+Date: Tue, 19 May 2026 19:53:39 +0530
+Message-ID: <20260519142341.2531948-1-m-shah@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6D:EE_|IA0PR10MB6697:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f1119fa-0f67-4df9-4099-08deb5b24be1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: se5kcEGdmiv8og3Wckf497cbsdrJsrij/iKJE9ZPyykQmX26ifL19LyWU+hAvW5eUuO8dK7bXsi8wHTIeJ1XOlzPo9E1lmtUu1eBjmBBvR+6WWK6/Vd7GgTqtWTaJ2M5x9iulAN031b+aa2xqr2tA2sz7Y+AU2iqTQLmUNfgEYp2JmkW5OlIglZZqZuNYMBxCBnOKSrVrrx/OarQ1wu4BsBp9mVPzAr5FWonuhswwCj6hIIR5OO5VOYFpVtVBzICODNhaVh6d4nk5stldplLju+buJh8EC/UZEawGnEylZzYhGX9V7opSlo4SM82vR5ehTIqRXduMcsnJ38pNxEyuqZQUWuVGYkVGZSQmfB7yxoUbp9u/lnXGOnxVlcRyvUIujCLW3NvGRQEDIuaXyqXcDifnORwp/x3c7/L1XolnI64MQsvOq/atpA/AUCKsNO3b4T07Fce8Dsem4llmmjm3Yp7+f0toAMyQEMDY0RjEffzkzqu/c9X8es53MpFP1cfh8MqRSkTQP9EoDa0/g3pV/reVR9Su/IHCbnxtfP4jucLwW5kzO54oytYt3FKu8t3b1ANAWNitXFMXAbSYHdshrUqHr0BfyCD6wEbhJNAWxsa+5r67Obp2HMHRh9THIH/bc5pTHYKqadkT59bA9/BaNEN678ukVpv73Fx292pfSVBGsgckxeYDf3uMElHGxq3
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 62wyp5RHuxphM2M+PI7HusoKUEyZEYWDqECVL1aQX5+7j0g/sCxnFBghLgWD80Wc+oABFX9EggZdoE/z+CwrHt7LH6TRufgVHkwxdLccR0QkIsXAoNhc5fxuAkQb/cbZFPsxKNQZWoLhM5ed6z9RaNASWchlbPIYl5u+e3lH+t1grWIR5nxlx+L4WnjgeYvdofUk3O7h3d9qUpoBGlTj5ujvDUoYiDp+DTrX9eTa6zHlChb8DwKTqqg/a2uuAD1fS2/4W6DcUfdXZ0fxQNnoN7sZxrz15kVFtELgjc8DvRLKntAE0QBedbhInHL4YJEmzP0dwWsr/Q5y25nfuLIBA71wKeXjzbBMcGr4VV2TbUHg65T5JTB6x3Y3pXRAG3itAog4VkXZDr1R119GCmtpGd1HCI7B8nMJ4THyLhlu2Nq/BXuNCOGqUO3EaLaG+9iu
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 14:24:11.3863
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f1119fa-0f67-4df9-4099-08deb5b24be1
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6D.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR10MB6697
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_071801_256708_FEE6914A 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20260519_072418_364099_FB09A806 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,55 +129,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mostafa Saleh <smostafa@google.com> writes:
+This patch series, adds support for analog audio on J721S2 EVM using
+device tree overlays.
 
-> On Tue, May 19, 2026 at 07:30:16PM +0530, Aneesh Kumar K.V wrote:
->> Mostafa Saleh <smostafa@google.com> writes:
->>=20
->> >> >=20
->> >> > I am still running more tests, but looking more into it. Setting
->> >> > force_dma_unencrypted() to true for pKVM guests is wrong, as the
->> >> > guest shouldn=E2=80=99t try to decrypt arbitrary memory as it can i=
-nclude
->> >> > sensitive information (for example in case of virtio sub-page
->> >> > allocation) and should strictly rely on the restricted-dma-pool
->> >> > for that.
->> >>=20
->> >> ??
->> >>=20
->> >> Where does force_dma_unencrypted() cause arbitary memory passed into
->> >> the DMA API to be decrypted? That should never happen???
->> >
->> > Sorry, maybe arbitrary is not the right expression again :)
->> > I mean that, with emulated devices that use the DMA-API under pKVM,
->> > they will map memory coming from other layers (VFS, net) through
->> > vitrio-block, virtio-net... These can be smaller than a page, and
->> >
->>=20
->> Don't we PAGE_ALIGN these requests?
->>=20
->> dma_direct_alloc
->> 	size =3D PAGE_ALIGN(size);
->>=20
->> iommu_dma_alloc_pages
->> 	size_t alloc_size =3D PAGE_ALIGN(size);
->>=20
->>=20
->
-> For allocation, yes, and that's fine because we bring memory from
-> the pool.
-> But not for mapping, as dma_direct_map_phys(), where the memory is
-> allocated from the driver or other parts in the kernel and the page
-> may be shared with other kernel components.
->
+Earlier version of the patchset sent upstream[0] was rejected as
+its dependency[1], which resolves the DTBS check errors introduced
+by [0] also got rejected on the grounds of ABI breakage.
 
-But if we are using restricted-dma-pool, we also have:
+Another solution to fix the DTBS check errors introduced by [0] is
+to modify the ti,j721e-system-controller.yaml binding to allow
+audio-refclk as clock-controller child. This is done in the first
+patch of this series.
 
-mem->force_bounce =3D true;
-mem->for_alloc =3D true;
+Changes sinve v3:
+Link to v3: https://lore.kernel.org/all/20260330094459.128648-1-m-shah@ti.com/
+- Changed compatible from simple items to oneOf to support both AM62 (legacy)
+  and J721S2 (primary SoC-specific) compatible strings.
+- Pick up missing R/B given in V2 of the patch series by Hari and Rob.
 
-So, will we use the swiotlb buffers for mapping and copy only the shared
-content into those swiotlb buffers?
+Link to v2: https://lore.kernel.org/all/20260205130707.2033197-1-m-shah@ti.com/
+Link to v1: https://lore.kernel.org/all/20260112104536.83309-1-m-shah@ti.com/
 
--aneesh
+Bootlogs: https://gist.github.com/Jamm02/f586087dad227450abe8637e8a688c68
+
+Jayesh Choudhary (1):
+  arm64: dts: ti: Add audio overlay for k3-j721s2-evm
+
+Moteen Shah (1):
+  dt-bindings: ti: Update audio-refclk binding and j721e system
+    controller
+
+ .../bindings/clock/ti,am62-audio-refclk.yaml  |   8 +-
+ .../soc/ti/ti,j721e-system-controller.yaml    |   6 +-
+ arch/arm64/boot/dts/ti/Makefile               |   4 +
+ .../boot/dts/ti/k3-j721s2-evm-audio.dtso      | 161 ++++++++++++++++++
+ 4 files changed, 175 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j721s2-evm-audio.dtso
+
+-- 
+2.34.1
+
 
