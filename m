@@ -4,116 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64429CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 720DDCD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtwfT6r39WqU1vxAeKYG9k5uq6DHBy2YCymS3YntXaw=; b=VSL2OiwtFoDobeCIU0tnqirI8e
-	9audbbahn7Q+l6METOKlvhasZDi9mK8ToCEtsuGyvuQCfbTAA2XGxiqctMJTvg5RgQaYRYLDHXQ1O
-	pdR+0xxbODLQ/CFNgYXs/oKKZYVrlU0y8CPFBlUhN73OGwtw1T98Jbs2sk6Fvmxjk+zyADS809yul
-	1NQfLBgIjs860mq91bVb+xc5DxavGJ/yhQ2a/Q4OduoBYVtZkNZE3y+diMw1J14hDzTNAnlz6CXEo
-	8WmE7EPl8ATeBp86NRPheuaVrRxtvhUcuxj/EKt4S52sT94OoDuPXkpIyVpx7FHaGeEKx1tXP6Ykv
-	FiEf9hRg==;
+	bh=p+hlBWVPQXy43hiRxqKhCnwnHHiHzFjw8+7rkTfE8vA=; b=JjbEe5A2QqxlXWAh04Gcyfnasz
+	9kIuhpfhpYewssPbweeqGyhgspMYXWtX2/TicmEn+h6VOq6Ceadl18hq9voWVH5qN9f5ivgHS/lsu
+	CDFiyCeqjmhXN0dgfrrZrN7egGZOfqdz+cA0OiPTNkpizJ26Xs9VxH6cbtMyF9gv1kAFzIBtCg+np
+	3N+xkKnSYJj80Ucb2IoH3Knb/+f5gO0uQkJElAn7T5KjnamJhhr1+8BiZknOKw/tVpp9PQ95+IXOa
+	zzK32VRmN3sslfvyJnLrHVZT10jTuafj4kebMdpxRh1nLYvf/+IDIo0wzZTKKpDTen/afiuJ3Dfmb
+	L6JSCfYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPFNj-00000000ap3-1hZI;
-	Tue, 19 May 2026 08:00:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPFPD-00000000bCb-3iG3;
+	Tue, 19 May 2026 08:02:23 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPFNi-00000000aod-17Qg
+	id 1wPFPB-00000000bBq-0fLs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 08:00:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 781A360208;
-	Tue, 19 May 2026 08:00:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27FD0C2BCB3;
-	Tue, 19 May 2026 08:00:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779177649;
-	bh=jq+Ic2o6+/T6R+6rKPEYUVCfMRGyHOvp7RzEZ9FUseg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I7vznwgLR82bFg5okwmiS44hagsTw2fpDtHv0dip23rZYyVv4Z5pV0JENKZenbEPY
-	 caLAFtNgxAyhxPdG12x510QK9CG3TrZLhkbICxRov/OQDkC0s4u377E1oMvrrXwpD0
-	 3EKxDFcB9Ep5YgHVziesBC27Eb10HYleQgaos3KsBrEEXh4kLkX4il/gSUs5ieJWF2
-	 xTbsEghuYQZwcY1VgRfOFjtAQnl34fSLoNXrbJE8TSkf8FQx2ojuS/rT2+Y61bn+G/
-	 X5e2Fd3WrZEKYAfmyYW26ySv7pM3wQ/gnB8Wl460a8i+L59que2/pHmk3jQl+hA1Vi
-	 v08NGy3tgOARA==
-Message-ID: <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
-Date: Tue, 19 May 2026 10:00:39 +0200
+	Tue, 19 May 2026 08:02:22 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b4583f0a1aso19979275ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 01:02:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779177740; x=1779782540; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p+hlBWVPQXy43hiRxqKhCnwnHHiHzFjw8+7rkTfE8vA=;
+        b=j99TJRW+yznjeqUCGLNPz4b7WJ0jVUGw1fQ3EPUMRYrNRvDuuCizpBjJasxTT/hiZJ
+         dkKlft5R6RZo6YmygfOmkBw0UFH053x6BpGqhFCBep44yhs1r4DfYGsdx8t9tKnqUx2G
+         OnNpt9NWPBeTbDbh79dBFJVy3yQRmCauge/IxT+0du6nEr4z35LAdV1OciOTnAohUXne
+         mp4/rjYaOTpeiZZw5ZTo7rsUCVR8rs74/UF+rzzKz5BjfvNhTfFINlG9HO9DhEkDBIT3
+         6Oo8Oo7CNf/RF5ufPn8h3oVr2dz6NjTj9r7TVAWj4LCUJOpBTYXN9oiqxqpTOgfvGyX5
+         DaKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779177740; x=1779782540;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=p+hlBWVPQXy43hiRxqKhCnwnHHiHzFjw8+7rkTfE8vA=;
+        b=hLhj8LM5668Pfu4Nil6W1WsnePmWFk+f62LkUi/hs6PZ+kpKS3wHkFYj2xuF+Q61OX
+         kv3BXKHhWTi686Yq0wgw8li4O1TSAiwWMUxEn3uAdH0HSiES0rd5o6HsqbPPn1hU8KL+
+         dquAJdvRiXYr+YeRU/5jcFILg0HTibL7qEOlxvFoFmD8XAWJWkq9uYks5yX7X0om8Ns5
+         YcB2XKDkcl65YMaf44w5JXC/toUnQSLymr6JGgjrKV7MGT8/FQY8ZdVMHZeGAJrVwWBe
+         QNjdQ6KBbvEs243Yt5ThNJ7jld04ISci3934OqK3k4eNKO7Mz86MxrD1RKE5T2Vo8P4K
+         pvDg==
+X-Forwarded-Encrypted: i=1; AFNElJ/p1tuFZbX/EfUXj+ypmkMWmvMBaDQLVISyUsXnzWllhMLcAZ1flzRpUp1bz32ndkqoBKnTuxvrA6mWNxHfaV55@lists.infradead.org
+X-Gm-Message-State: AOJu0YylamZhEtcupsgesDVWFup6Sw0mpe61W711ibP3dhilfZBy2J0K
+	BH0I0iY6XT2d2Ky3s1+C7xImffdu236GqmYNb1rtsFt2RQnzekDpjfkaqx59Ng==
+X-Gm-Gg: Acq92OE4AfNlGZ/Apvcx2oab9agly7av4eXIsGHEocZRsc9VLh7+R/zVYMmiPUoxuW5
+	rRDPJu41nP47WxpqDcByu7pgbbM5lrdl6ahagpIoHUw9xyFLIK3Z2IOM+OzLdvPNvE9j5t5Bw11
+	MmIiBjrFDihhMUrzlKYmhgABtmpmIHAgIwrMEv1qcY9WomZKTvyOCYsVLbHz5sjWXyrFuSHBEF6
+	ZSeEWMZHOB6zWSK2ghfKaXYEq6s8Ti9aOgDu60Kfx46zoOcSVT0KgaoS/ub0aqsvoFcMFhHPPyK
+	saBp6V0j0BWTLtdQ2+ZAsW/WvYSNvkIl1hdEhgKZNEKKNuSeWYzaX2kKSS58t/peiDzWRadSZKv
+	zb1afM6YRCuUM2XKE/zL0P8ju207nZNMAZ2kvWRaDLqsLUzzmpE5iER4VlduIa2cMJePGBbgeeV
+	bfvQkLK8wmG5dmheYJe1BXYnhfjZyfafTNxWLDVkr5TPMUr9to
+X-Received: by 2002:a17:902:7206:b0:2b7:aa20:3c61 with SMTP id d9443c01a7336-2bd7e8cb16bmr129248565ad.33.1779177739786;
+        Tue, 19 May 2026 01:02:19 -0700 (PDT)
+Received: from csl-conti-dell7858.ntu.edu.sg ([155.69.195.57])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5d0f8efesm181857735ad.55.2026.05.19.01.02.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 01:02:18 -0700 (PDT)
+From: Maoyi Xie <maoyixie.tju@gmail.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Neal Liu <neal_liu@aspeedtech.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@aj.id.au>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] usb: gadget: aspeed_udc: avoid past-the-end iterator in dequeue
+Date: Tue, 19 May 2026 16:02:13 +0800
+Message-Id: <20260519080213.1932516-1-maoyixie.tju@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260518073403.1285339-1-maoyi.xie@ntu.edu.sg>
+References: <20260518073403.1285339-1-maoyi.xie@ntu.edu.sg>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-To: Tejun Heo <tj@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
- Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
- <agtuPrgIDNKSu2Oo@slm.duckdns.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <agtuPrgIDNKSu2Oo@slm.duckdns.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_010221_199315_75B25678 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,58 +106,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/18/26 21:53, Tejun Heo wrote:
-> Hello,
-> 
-> On Mon, May 18, 2026 at 10:06:29AM +0200, David Hildenbrand (Arm) wrote:
->> On 5/17/26 23:12, Tejun Heo wrote:
->>> +static inline bool ptep_try_install(pte_t *ptep, pte_t new_pte)
->>> +{
->>> +	return false;
->>> +}
->>> +#endif
->>
->> Ehm, what?
->>
->> This is a very, very, very bad generic idea/interface.
->>
->> On which ptes is this supposed to be used? User ptes or kernel ptes?
->>
->> Surely we don't want this on user ptes.
-> 
-> Yeah, this is only for the BPF arena PTEs which are already managed in their
-> own way. I'd be happy to place / gate it however appropriate.
+ast_udc_ep_dequeue() declares the loop cursor `req` outside the
+list_for_each_entry(). After the loop it tests `&req->req != _req`
+to decide whether the request was found. If the queue holds no
+match, `req` is past-the-end. It then aliases
+container_of(&ep->queue, struct ast_udc_request, queue) via offset
+cancellation. Whether that synthetic address equals `_req` depends
+on heap layout. The function can return 0 without dequeueing
+anything.
 
+Walk the list with a separate `iter`. Set `req` only when a
+request matches. After the loop, `req` is NULL if nothing
+matched.
 
-So, we only use it within apply_to_page_range() with init_mm, where we don't use
-page table locks.
+Suggested-by: Alan Stern <stern@rowland.harvard.edu>
+Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
+---
+v2: Switch the loop body to Alan Stern's shape: test inside
+    the if, assign `req`, break. Same behaviour as v1.
+v1: https://lore.kernel.org/linux-usb/20260518073403.1285339-1-maoyi.xie@ntu.edu.sg/
 
-Usually we seem to grab the &arena->spinlock to protect the kernel page tables.
+ drivers/usb/gadget/udc/aspeed_udc.c | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
-And you're saying that we might get called from a page fault handler where that
-lock can already be held.
-
-Is that really possible? I'd much rather prefer to trylock and retry, unless
-that can really result in deadlocks. But I have the feeling that such deadlocks
-should be impossible here.
-
-Can you elaborate on the deadlock situation and how that can happen in valid
-scenarios?
-
-
-The thing is that ptep_try_install() relies on other page table walking and
-insertion code to do the right thing. Shaky.
-
-For example, staring at apply_range_set_cb(), what prevents:
-
-(1) apply_range_set_cb() finding pte_none(ptep_get(pte)
-(2) apply_range_set_scratch_cb() succeeding ptep_try_install()
-(3) apply_range_set_cb() overwriting the pte with set_pte_at()
-
-Between (2) and (3) CPUs could access the scratch PTE.
+--- a/drivers/usb/gadget/udc/aspeed_udc.c	2026-05-19 15:29:28.690931576 +0800
++++ b/drivers/usb/gadget/udc/aspeed_udc.c	2026-05-19 15:29:59.482953528 +0800
+@@ -692,26 +692,30 @@
+ {
+ 	struct ast_udc_ep *ep = to_ast_ep(_ep);
+ 	struct ast_udc_dev *udc = ep->udc;
+-	struct ast_udc_request *req;
++	struct ast_udc_request *req = NULL, *iter;
+ 	unsigned long flags;
+ 	int rc = 0;
+ 
+ 	spin_lock_irqsave(&udc->lock, flags);
+ 
+ 	/* make sure it's actually queued on this endpoint */
+-	list_for_each_entry(req, &ep->queue, queue) {
+-		if (&req->req == _req) {
+-			list_del_init(&req->queue);
+-			ast_udc_done(ep, req, -ESHUTDOWN);
+-			_req->status = -ECONNRESET;
++	list_for_each_entry(iter, &ep->queue, queue) {
++		if (&iter->req == _req) {
++			req = iter;
+ 			break;
+ 		}
+ 	}
+ 
+-	/* dequeue request not found */
+-	if (&req->req != _req)
++	if (!req) {
+ 		rc = -EINVAL;
++		goto out;
++	}
++
++	list_del_init(&req->queue);
++	ast_udc_done(ep, req, -ESHUTDOWN);
++	_req->status = -ECONNRESET;
+ 
++out:
+ 	spin_unlock_irqrestore(&udc->lock, flags);
+ 
+ 	return rc;
 
 -- 
-Cheers,
-
-David
+2.34.1
 
