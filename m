@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BCF6CD5BA9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B5ECD5BA3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:39:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Di2t9C3Wga7u13endyDgbNt60je3EfQ2HxxTrMzvD30=; b=cQ3Sm/uAu7G9Zj89Lc6i2pHeW6
-	dy99SXMYaqLqulnmLWuoYpkPhECHYvecPae40gyFHHcuNU+ZL5m8TYzhUx4SoRd9fmTYJ+qULWEDJ
-	Xp4XpeUtvwSHVdVyS5m32COp/ILYraTIm/eTv94100QST6+mMn5bjOj3wIE6O+7o2cxg+aisr7jiP
-	YD6pURvZwOQDN0w75apCKNmPPzQ4X8jeN2PNhTnE4Wkoj8bNdpfPGL7kZVccadf5oG1aKttDy8lsN
-	jJ9/KGFIrvwjsKbGjQFiW5MqQEZMWgdXJbqBlzYh9GxW9zvQZGHmw2PwVCC7y4Rv/tfokpGRAo57Q
-	yKWfiz5A==;
+	bh=ZsHKRRMUeu27tf1v274f8WMZN92s4xeRokkanZhzAqA=; b=Ld1jsvBbWXjrBoY3KMqdG+Du/1
+	9z/vXOcNxn4JOXDEGZWsh+OrMRdQ4dBU2IyPtxAm7j9JxUKYL0bLC6sdoaEX51kutS0je/Evz+8ef
+	I3+CZWyIFtt6Dv2ylYVsyaHzBLlZSlyz8RD1Q9PkMEzc1a7/LffHOARBOceXPV258fKoWg3OAcIjj
+	u00tmhrINl0qvOJh9yhDnxA+oE3j8Cuagvyp+xVAiPDNIDpEGNpSPJzBbxVix1KuwHLpNH9vjEN/P
+	RS5I9+IcRaq8J0gDdw5qmcIF/7gq4mNoiJUWp+NzvlNB58oXsHmlHGc/XSS059yh51zPauDxoxesE
+	XJVGBOSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHqk-000000017oY-2QIQ;
-	Tue, 19 May 2026 10:38:58 +0000
+	id 1wPHr0-000000018Ap-1Iqc;
+	Tue, 19 May 2026 10:39:14 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHqc-000000017eD-3fbm
+	id 1wPHql-000000017nY-1SQY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:38:52 +0000
+	Tue, 19 May 2026 10:39:02 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 5F898C2B9E5;
-	Tue, 19 May 2026 10:39:42 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id BC2B8C2B9DB;
+	Tue, 19 May 2026 10:39:50 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 33FF4606E9;
-	Tue, 19 May 2026 10:38:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 14C5C107E8AC3;
-	Tue, 19 May 2026 12:38:43 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 90BF0606E9;
+	Tue, 19 May 2026 10:38:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C29D107E8AD7;
+	Tue, 19 May 2026 12:38:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187127; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1779187136; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Di2t9C3Wga7u13endyDgbNt60je3EfQ2HxxTrMzvD30=;
-	b=mN29/H1dlWQgyTgztrhOqG93sBuV28HHJ43/F+Zd/4GyUw6vHmmtlBG693qH6KjfCe9QYw
-	OES8DUkhvsB+hi5YAUAP1XxlLr34ku+aUezCyP5G97iFnOddGtOuUhFf3SYDIw7Ndc0z1/
-	lMquoJcTfROUqySTdyM3vAT/xD3WR5FKIgrx9ikqzPk004e7B66XSWxbmnS+lsCFZfkYCK
-	hE8YhL0fFd485kmIbQ5Zb84nAJohjSJJgUeDg2XckAl7HIJFMmwUWr4VPUxB5oWE+ZqF1U
-	dr8cwuM4Y52/4ZEwWkki9n4TAgU4O6OWJSuLEGz6/EYbLRdEFlfNJDJCb2oWPg==
+	bh=ZsHKRRMUeu27tf1v274f8WMZN92s4xeRokkanZhzAqA=;
+	b=O3s+Psyf4Zu4itRxyHYLnWzhOGp9YTgdPLH/FoA1MJLe7MCR0AASwOwyBuGOx9TPSXHNO4
+	QKDh2+Qaf9CCmvXE4JrfAaSFfe00UZxQRXogi/O179EBZEy+i5Hj11ocVOrBpw0iR7XPj/
+	SRjRTptJJS2Rfp/grqwqVlS6BP1eqK2iQ0PMGDn9g11Owx+vPvU+UoyqeKF6RS7dkIZ4Ad
+	ek5axwNTgeru/q1xdMBI+29FKMxVAeH9oYWkwSTf8thEc+um+dv/0gLWCSYooiuG4u5I4H
+	wj9mHWB7ALGae5AXrmEEElVNwt87uCgXQ2spDIjHq0U4EZ6KVVsH0c/3HrctRQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:27 +0200
-Subject: [PATCH 10/37] drm/display: bridge-connector: return int from
- drm_bridge_connector_init_hdmi_audio_cec()
+Date: Tue, 19 May 2026 12:37:29 +0200
+Subject: [PATCH 12/37] drm/display: bridge-connector: hoist error
+ management to common code
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-10-45e2bdb3dfb4@bootlin.com>
+Message-Id: <20260519-drm-bridge-hotplug-v1-12-45e2bdb3dfb4@bootlin.com>
 References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,8 +75,9 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_033851_091970_B2A4BF71 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20260519_033859_629994_C3143C5F 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,79 +92,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This function returns a struct drm_bridge_connector * because this was the
-case in the origin of its code. In current code it does not make sense
-anymore: it can only return either the same pointer it received as input or
-a negative ERR_PTR.
-
-Simplify up error management by just returning an int (0 or negative
-error).
-
-No functional changes.
+In prepataion to add more error management code common to the HDMI and
+non-HDMI branches, move error management to be common to both cases.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index e6306e98a167..6066ca0c5624 100644
+index 982bc64d8361..defe29e339b0 100644
 --- a/drivers/gpu/drm/display/drm_bridge_connector.c
 +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -930,8 +930,7 @@ static int drm_bridge_connector_get_bridges(struct drm_bridge_connector *bridge_
- 	return 0;
- }
- 
--static struct drm_bridge_connector *
--drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector *bridge_connector)
-+static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector *bridge_connector)
- {
- 	int ret;
- 
-@@ -954,7 +953,7 @@ drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector *bridge_con
- 						    bridge->hdmi_audio_spdif_playback,
- 						    bridge->hdmi_audio_dai_port);
- 		if (ret)
--			return ERR_PTR(ret);
-+			return ret;
+@@ -1038,15 +1038,13 @@ static int drm_bridge_connector_add_connector(struct drm_bridge_connector *bridg
+ 					       connector_type, ddc,
+ 					       supported_formats,
+ 					       max_bpc);
+-		if (ret)
+-			return ret;
+ 	} else {
+ 		ret = drmm_connector_init(bridge_connector->drm, connector,
+ 					  &drm_bridge_connector_funcs,
+ 					  connector_type, ddc);
+-		if (ret)
+-			return ret;
  	}
- 
- 	if (bridge_connector->bridge_hdmi_cec &&
-@@ -965,7 +964,7 @@ drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector *bridge_con
- 								NULL,
- 								bridge->hdmi_cec_dev);
- 		if (ret)
--			return ERR_PTR(ret);
-+			return ret;
- 	}
- 
- 	if (bridge_connector->bridge_hdmi_cec &&
-@@ -978,10 +977,10 @@ drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector *bridge_con
- 						       bridge->hdmi_cec_available_las,
- 						       bridge->hdmi_cec_dev);
- 		if (ret)
--			return ERR_PTR(ret);
-+			return ret;
- 	}
- 
--	return bridge_connector;
-+	return 0;
- }
- 
- /**
-@@ -1051,9 +1050,9 @@ drm_bridge_connector_add_connector(struct drm_bridge_connector *bridge_connector
- 			return ERR_PTR(ret);
- 	}
- 
--	bridge_connector = drm_bridge_connector_init_hdmi_audio_cec(bridge_connector);
--	if (IS_ERR(bridge_connector))
--		return bridge_connector;
-+	ret = drm_bridge_connector_init_hdmi_audio_cec(bridge_connector);
 +	if (ret)
-+		return ERR_PTR(ret);
++		return ret;
  
- 	drm_connector_helper_add(connector, &drm_bridge_connector_helper_funcs);
- 
+ 	ret = drm_bridge_connector_init_hdmi_audio_cec(bridge_connector);
+ 	if (ret)
 
 -- 
 2.54.0
