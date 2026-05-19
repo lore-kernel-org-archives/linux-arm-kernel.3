@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B5CCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:39:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BE1CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWF5XfW9chsqGrjXYDJmzWSs3rM+V79PPtuBQCit/f8=; b=OV+5N4n2GSsmLoM+tBHaoMhGZr
-	selbt3HYL5FlEWzjziSPP0ncELDHS1oZODvXSF5orkb38FNyMxgmhxXivXtPiL2bhMCzlncwegk7e
-	mzVyk1QztNG4QFXyPi/wxjOjRuRY2VXS0AopB5YEtBK5dSHAy7GI8YYVoeBoVr0WtCmv5ArUU5J8v
-	XUoKHNVsj6nFQDpyhI9e5j2Il3EU0z+fr5Qr9D6EwnYgxbVxWUYHz8VSikXkc/5N4BNyP1b4M5zy0
-	1SCqgMivYXC6vBj5N9XBObZNU1Y9jhpM0FKX/PZfQzRm4fUxxtZUh503m0bxuCsIf98wIaPI/K4T9
-	+GI9VXWA==;
+	bh=b0rbd5r2XPU85ZjN9Z8MDWtjzmRcNTYnxCurh+UMIug=; b=dxKOE2vNhw7DnCxshAYSakdJnF
+	fvlbuBNm7QaeVeimB2EGrHdlpGzSh6sXi6hRbe5ojsB0ZmMdY2LjGcFcnMHMVYKH/GHfeKSQZktNl
+	IJglKpjzdFjucD5el88PURIG1Pue7kqZctN7UkbV66o/M1036jYJneut+x8XozklplWrr03Hlb1X4
+	kBUFzld0NaXj/KdJUzvD94mwr/jp/UZ7TJAt621i1tD/onsEKM1Tx4y5yip0GRwFpCdFx/RR9SyU0
+	Tv4bffLwFnutXpqcIdiPYhCMPkcr8mvbrXy1wSuNGzNQitoL9XAN3YOivlBJ9WNzDN5WU346U/03N
+	4l6aEzpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKfn-00000001gxo-2rF8;
-	Tue, 19 May 2026 13:39:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPKhk-00000001hMr-0C0R;
+	Tue, 19 May 2026 13:41:52 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKfl-00000001gwt-0Ctq;
-	Tue, 19 May 2026 13:39:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D9A943C24;
-	Tue, 19 May 2026 13:39:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70FE8C2BCB3;
-	Tue, 19 May 2026 13:39:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779197988;
-	bh=D+t330bY9theuHhQ7vQ9fk2hC/8pGFvUL2f87DQe0QQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZePrlUUjoJ6SRML9KTxFEObiSG/GUCVskJopia2OR/NHWF6W+fo2AUoXx/To3zWWb
-	 VdFfdF5cL7Dr7E5H6/FcZR0Mk/DI7CxgdxvQLx0rIlIz9/yGZtLcI+6fw3Px7X5xRS
-	 /+pxvp2iSCV6J2igJobyEQO5YqAqmSCe5Fdrd4BbRBbRPRUfOZzFXyT8bjqBKlkoGV
-	 FFVFOTFSR+yl/lIgyRxF273rU0nwoh/xIf98oDAucm/68fnhiB5diwWjSDoZ0rVmam
-	 MgNbD3EuMgIzR9wpMwcKmyM2IpEgfnF1Pv+9MLoF6/BTWGGcSu0LjK+iIfhejRQJxJ
-	 nEGvcqVGx0kUA==
-Date: Tue, 19 May 2026 14:39:38 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Yang Shi <shy828301@gmail.com>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
-	surenb@google.com, akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
-	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
-	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <agxnJ8R-G3CRjeTR@lucifer>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <CAHbLzkrOSoh-jmR=uaNvx73n_wn+vExoKY0UzH5zGcfdAiDbNg@mail.gmail.com>
- <agxfLNuLCAT3F4cW@lucifer>
+	id 1wPKhi-00000001hMI-0SWM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 13:41:51 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-67c1eea6b4dso38a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 06:41:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779198108; x=1779802908; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=b0rbd5r2XPU85ZjN9Z8MDWtjzmRcNTYnxCurh+UMIug=;
+        b=Or1GdQU8tUxQpjyXo2M7irm8SP4iRq6PC+icIpbYLaruMee9q3aS3VB4AkbGnR3Dfm
+         w73wQusN6xgaPlH0id6iClxRtixBnqrIwHl1NmLy08DtOsNemGtnrlPyu7uT4zpZlgYm
+         8Zet6GwfNGftvhMsPJX9Ao/2LXt2QgmMH9MebRElLlI+/GkUbffh8ptVG4hINt3F87Hx
+         e8eMFgFAFsnMxI3H0Df1ct9sgg/osl4miXpSn2OX1CQdsbQfP+Z+feUQQ50SAWXAv4V5
+         bj+rrCMbN3RZXeqJIVxf32PxjnIkrbto8d1kbzXF7TTlIS8aF/cwV/4VgY8GtUttNxho
+         BzDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779198108; x=1779802908;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=b0rbd5r2XPU85ZjN9Z8MDWtjzmRcNTYnxCurh+UMIug=;
+        b=mx4LRGEbOmDnDKN9jci81cEwnpO+Ed9oGe7g7vb2Z4iSkgGnAmdj7tn6pQRsR+EpMJ
+         fsHk7MHCTa57YanRmKJeb9JjCEwAwKqyNX2G1ysKqDmLCkD3qWGxa7ua5QdyBl3VJFIQ
+         mcm00VH64m7scTAP00f/HITe/OLnmA9yqtWGK/yKwy+m/SoO6w4ltfO/5kcOmN9GvRbg
+         /BnzZF+LsA905Nz0dj1bPoUS3BYWMjWjPHUGgvmk/WyrV33pHtnNZc7JzqRnOpsobZVP
+         B7JWb7JRjW8S8LeFwxh3tWWGDfHhT1yvFUMJ+oXMGHgJzDVmCQr/xgv+KQkYgouLRkUG
+         eO+Q==
+X-Forwarded-Encrypted: i=1; AFNElJ97kDOI38hE2VwvLGJ/T8WPYE6yWOE2RIKVfyvRu5mGLGGBg+Ta7kinc0YHVimDPIlBOXJFqkHMRv0avtO6wjLv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3uNs3Gy2ODOwS3RXm3sdY/GcR/IuoKDHldYf/zQLCxE2BgIbx
+	UVZC+exjan4opL9OiPnC5nvenEx0/sGRLqz+taSrAbYzvB8gAllAV33/qql5VC60jQ==
+X-Gm-Gg: Acq92OFJt547/Rt3h47TR52cRSjArdiE6GYW9DdSbPMqGfYKaVX20ZWrQySHwdi6sdI
+	gSRBDTxIeZi1D8pA8O3Ga35Wu/W0xwPI2llRGNOIuZrFCTa1kYIltibPta8+J1PkSD8eVTtHyMH
+	IgP5hF9jvKGpg51gWraPyiO0QY1iedx4Zkai3OUx2glYE/1XyeqSEvbZaQfmBy3PvsqEXbmVWB0
+	N7RFUgJF3dLOzTPZLhx7X3KTOTHv1w1KZcgt7LFIKbccb8AMOlAEfk0ygLSwuW1CS/YaV+F6dSs
+	ScWbHqTU0weG/sEM0rG4/kstEC/PgQ3L9rY3NvZ8M+mroTD9f54IC7kIeQws04S1g2SXuCn3ygs
+	U4TDsyLaPAJ/iNW6zP9laTzJP0Rf5F8096uy/H/bXrZki7N7ooeC3ohjqTpY6Ydoyrt6zAwiuoz
+	C8f8HaiZ6nmbXk+qg/eMFQUTJ2IstCjC0kKD6Lo47ZkCHEB2PunS2upGkPXYpYsFWX7H/Fl1BwO
+	ok=
+X-Received: by 2002:a05:6402:21d3:b0:672:9c8f:910a with SMTP id 4fb4d7f45d1cf-6848a7425fdmr177638a12.8.1779198107616;
+        Tue, 19 May 2026 06:41:47 -0700 (PDT)
+Received: from google.com (136.41.155.104.bc.googleusercontent.com. [104.155.41.136])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bd4f4ded942sm705903166b.36.2026.05.19.06.41.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 06:41:46 -0700 (PDT)
+Date: Tue, 19 May 2026 13:41:42 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+Message-ID: <agxolksC_1nfO34X@google.com>
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+ <20260512090408.794195-5-aneesh.kumar@kernel.org>
+ <agSKQrSIhizCXKwx@google.com>
+ <yq5ah5oaa63h.fsf@kernel.org>
+ <agW5rhE9n2gDQ0w5@google.com>
+ <yq5apl2y5f96.fsf@kernel.org>
+ <agXaby-7L7yS3Vva@google.com>
+ <yq5ah5oa59wy.fsf@kernel.org>
+ <agxDxdxynp4KEovA@google.com>
+ <20260519132911.GA7702@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <agxfLNuLCAT3F4cW@lucifer>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260519132911.GA7702@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_063949_129610_2DD88335 
-X-CRM114-Status: GOOD (  39.66  )
+X-CRM114-CacheID: sfid-20260519_064150_168617_2079008E 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,118 +131,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 02:12:10PM +0100, Lorenzo Stoakes wrote:
-> On Mon, May 18, 2026 at 02:21:14PM -0700, Yang Shi wrote:
-> > Maybe a little bit off topic. This is an interesting idea. It seems
-> > possible we don't have to take vma write lock unconditionally. IIUC
-> > the write lock is mainly used to serialize against page fault and
-> > madvise, right? I got a crazy idea off the top of my head. We may be
->
-> Err no, it serialises against literally any modification or read of any
-> characteristic of VMAs.
->
-> > able to just take vma write lock iff vma->anon_vma is not NULL.
->
-> Except if we don't take it and vma->anon_vma is NULL, then somebody can
-> anon_vma_prepare() and change vma->anon_vma midway through a fork and completely
-> screw up the anon_vma fork hierarchy.
+On Tue, May 19, 2026 at 10:29:11AM -0300, Jason Gunthorpe wrote:
+> On Tue, May 19, 2026 at 11:04:37AM +0000, Mostafa Saleh wrote:
+> > On Thu, May 14, 2026 at 08:13:25PM +0530, Aneesh Kumar K.V wrote:
+> > > >> 
+> > > >> What I meant was that we need a generic way to identify a pKVM guest, so
+> > > >> that we can use it in the conditional above.
+> > > >
+> > > > I have this patch, with that I can boot with your series unmodified,
+> > > > but I will need to do more testing.
+> > > >
+> > > 
+> > > Thanks, I can add this to the series once you complete the required testing.
+> > > 
+> > 
+> > I am still running more tests, but looking more into it. Setting
+> > force_dma_unencrypted() to true for pKVM guests is wrong, as the
+> > guest shouldn’t try to decrypt arbitrary memory as it can include
+> > sensitive information (for example in case of virtio sub-page
+> > allocation) and should strictly rely on the restricted-dma-pool
+> > for that.
+> 
+> ??
+> 
+> Where does force_dma_unencrypted() cause arbitary memory passed into
+> the DMA API to be decrypted? That should never happen???
 
-correction: this won't happen as per Barry (see - I managed to confuse myself
-here :), since for vma->anon_vma install we take the mmap read lock.
+Sorry, maybe arbitrary is not the right expression again :)
+I mean that, with emulated devices that use the DMA-API under pKVM,
+they will map memory coming from other layers (VFS, net) through
+vitrio-block, virtio-net... These can be smaller than a page, and
+using force_dma_unencrypted() will share the whole page.
+And as discussed, that leaks sensitive information to the untrusted
+host.
+I am currently investigating passing iova/phys/size
+to force_dma_unencrypted() and then we can share pages inplace only
+if possible without leaking extra information.
+I am trying to get some performance results first. But the tricky part
+is to get the semantics right, I believe in that case those devices
+shouldn’t use restricted-dma-pools as those should always force
+bouncing. Instead bouncing happens through the default SWIOTLB pool,
+if not possible to decrypt in place.
 
-BUT we also have to consider other cases.
+Thanks,
+Mostafa
 
->
-> So no.
->
-> >
-> > First of all, write mmap_lock is held, so the vma can't go or be
-> > changed under us.
->
-> vma->anon_vma can be changed.
-
-Correction: no it can't :)
-
->
-> >
-> > Secondly, if vma->anon_vma is NULL, it basically means either no page
-> > fault happened or no cow happened, so there is no page table to copy,
-> > this is also what copy_page_range() does currently. So we can shrink
-> > the critical section to:
->
-> Firstly, with no VMA write lock, !vma->anon_vma means a fault can race and
-> secondly copy_page_range() checks vma_needs_copy(), there are other cases - PFN
-> maps, mixed maps, UFFD W/P (ugh), guard regions.
->
-> So yeah this isn't sufficient.
-
-However this is true...
-
->
-> >
-> > if (vma->anon_vma) {
-> >     vma_start_write_killable(src_vma);
-> >     anon_vma_fork(dst_vma, src_vma);
-> >     copy_page_range(dst_vma, src_vma);
-> > }
->
-> Yeah that's totally broken fo reasons above as I said :)
->
-> >
-> > But page fault can happen before write mmap_lock is taken, when we
-> > check vma->anon_vma, it is possible it has not been set up yet. But it
-> > seems to be equivalent to page fault after fork and won't break the
-> > semantic.
->
-> It will totally break how the anon_vma hierarchy works :) See the links at the
-> top of https://ljs.io/talks for a link to various slides on anon_vma behaviour
-> (it's really a pain to think about because it's a super broken abstraction).
->
-> You could end up with a CoW mapping that's unreachable from rmap and you could
-> get some nasty issues with page table entries pointing at freed folios :)
-
-Correction: actually we should be safe given mmap read lock on anon_vma install.
-
->
-> >
-> > Anyway, just a crazy idea, I may miss some corner cases.
->
-> Yeah sorry to push back here but this is just not a viable approach.
->
-> And this is forgetting that we have relied on page faults being blocked by fork
-> _forever_, who knows what else has baked in assumptions about that
-> serialisation.
->
-> Forking is one of the nastiest parts of mm and has had multiple, subtle, corner
-> case breakages that have been a nightmare to deal with.
->
-> So I'm very much against changing this behaviour to try to fix something in the
-> fault path.
->
-> We should address the fault path issues in the fault path :)
-
-Above still all true though.
-
->
-> >
-> > Thanks,
-> > Yang
-> >
-> > }
-> >
-> > >
-> > > Based on the above, we may want to re-check whether fork()
-> > > can be blocked by page faults. At the same time, if Suren,
-> > > you, or anyone else has any comments, please feel free to
-> > > share them.
-> > >
-> > > Best Regards
-> > > Barry
-> > >
->
-> Cheers, Lorenzo
-
-So still a nope :)
-
-Cheers, Lorenzo
+> 
+> Jason
 
