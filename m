@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3128CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84AACD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n5zxrJzhz4zdnbyw+j6OnckVHPyDpmxi7LLakKPc0g0=; b=sbdwEFmmgY6/2GkBlpIuwjUI1W
-	ha2+j+DjyFlo65fjZ+B6mv5c00cBlFbxDXPGRhHzPC2K6vxzSKPoIcQstFOxb5oxaB+4I/PsF6WoG
-	WxKf42AUnjOn5Ybtuc1BMS1nhNhmFm1hxeLgYBK8sAqdMKIKgDn8GgscxvRg+dSVc0imWK+dlDMrO
-	lwGdjK4OpD+zREJHHF9nSlqQWL+CWopKf78C+Ccl9jsRFU3gwAHfiIBt6gWQ121gRM6mtNLQ32Nw7
-	YzuYvRIan4gNRm38qZcDoNBMmt9fqXYmqAh9Kg1Gfa6maCvWMnC/71JbUFa91Lr3V76qMbUjN69RF
-	bJI4xfnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bxzuN/rD6jIGcxo22N15Idh87xXDS54lN8ujBI5YFNw=; b=VjVXvrugowI5NUCZ6wD7JfmVXh
+	y2osgo+puGrnKiO4PcfNU8PoYuCP1sDGk0+ma1FpOjzY8CqZtA4aP9kaLma0pF8k5/D4A6Wqvl9NJ
+	tAdeIX9Ed7woRsGeh21b6WbOjg1wrDp5W0SblfnlmRr049v6Xv0169F4rC/lZcRHCuNBflNMYRSU/
+	+8tf5gB9S7Mhj9yGZ+zamJpO0UKgeGVAdrGTlD/iySYfVC62aRkjw1cQzjZiDzoaoPsy+1BstweIA
+	9Uoo2cugryshK1RaVItd9fyGv8cKyz1Ti2UQB4W6ZSwxMUM5BPkzVci/xabgTHm4tj+iWi2pBWTE0
+	9eX1XXeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJq6-00000001Wk0-2hoV;
-	Tue, 19 May 2026 12:46:28 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wPJs9-00000001XAA-33Rq;
+	Tue, 19 May 2026 12:48:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJq0-00000001Wh2-3WZk
+	id 1wPJs6-00000001X9T-40qD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 12:46:24 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-44985f4ab0fso1832883f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 05:46:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779194778; x=1779799578; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=n5zxrJzhz4zdnbyw+j6OnckVHPyDpmxi7LLakKPc0g0=;
-        b=X+1BZNhjLDKfTLFS9kzA1iShoD0MyZv3JVD8maxgMfsYV87MwDInf8OyOkbnLamI8E
-         +txGCT7UuRDtHHGcA0rAYlSAUm27QWaho7t1/jKch/DQmzYEBzDTctPT2cE7B2t/ovcj
-         98IDslfnkGps2SPM6RFZVk1DJ+IbOqW/uLKfUmJM5JR4HAscmiorGYUQuIe/rw/Yhh7f
-         WZljQRFhKsdN1XDCRToVb1+p3meONxX5pROG66eZTSXI1BJULN4opNXKnXI2g27Q2Gti
-         rliPjc3uEzNqP2ypdk2U5O7LveMtcGlJ77FUFSKuvHejxQEts4FY/POBF8x3ToccvSQE
-         sRDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779194778; x=1779799578;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=n5zxrJzhz4zdnbyw+j6OnckVHPyDpmxi7LLakKPc0g0=;
-        b=Z0R5z0b725x509q2hZHdlRTx3bIJuEUspxzcEdQGV/FE7/WDtce10SLruCYjt/iIif
-         WNHSxJGEMaikR5GwFSKCJSWGXIVrUg1WiT2xp8hD0NBjhoWfvMf4ADu5OcTqhm726xoa
-         okl8lDecFjCd9jTOS46l1wOOYoVLOYthja6dYUuECilWSatIBtSP9iv1OighrGLYJj48
-         V+MEfrNo/Covh9wfii3WOFu0M9lQ09h2xyI1J7Syqt8r38EIBOQGVDlEKC1fTMAChABA
-         KAX3h9pvcusUGjL5jw/EWNfUnpnQnk53K/6MvCcoE92WmPvGSz1VPWZP5sxcl/3lZ+7q
-         MygQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8ejB9JPhWSTfhWN6pr7wRdZ6+GFLlLVLa/2jqFWW5ZKHCq8YK9eJ8bSCnUkZVYFijMRKEY0iJVqKtXW32FK1VB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXe4sOebJAfvRjNaf9IgFg8GcuXKygADvji94VJb9ShJ1Ksrbw
-	L5Jto6ZafESN8oTVbsGa3YxezgRuvmfGOZbzd0Q4b46eIthx9Ej+pkIfCeyEOxG7r1I=
-X-Gm-Gg: Acq92OFOrqvBASFTEZxifCLo05SJWAsmUFQgfZsNpp1W1TcCCRG7XUlFgg7p6W9Iggc
-	QGuMNzaEmzctjyyOi9vOtBu3m4r5H3H3sjWUXw4Rp1IAaI6Lz+De7xxxASUlQVdGn+c5Jqkln/k
-	Kmb5/x/Ai5Exjku99Rd73CfjDmEMOy2Ea+zkkoxIvgzEtINb7S1su+/1d6c0u+ZsXsHyEJbe8Cs
-	rVbbu08AsM+rstVa/FYbkEi7W4bgdXR65DsC50UniwMtdBIM6EqSERyIYCzvACWjl+D6MS0Z5wP
-	jj8R3HWVvyphQBVGob/7bwajoDkAT8s3WssBdXQ3s6uBCYAi/PkWtrxThrFau7dANAnb5AkxNJd
-	4CuLf7lY8wWzDGpzNXJvKwD+w+68BF6gGKo1ZMSscf2UJFc6J5gwE9084+uJFoTdOVVyuvp3EGL
-	rv80wBMakp1p/PE5JHMd+OWk1ouV4DErSYwPOgYMA=
-X-Received: by 2002:a5d:49d2:0:b0:45e:739b:3e3b with SMTP id ffacd0b85a97d-45e739b3ed0mr14584891f8f.0.1779194778350;
-        Tue, 19 May 2026 05:46:18 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe13a7sm47525460f8f.29.2026.05.19.05.46.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 May 2026 05:46:17 -0700 (PDT)
-Message-ID: <6925146f-7250-40be-908d-9a210472654f@linaro.org>
-Date: Tue, 19 May 2026 13:46:16 +0100
+	Tue, 19 May 2026 12:48:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 364B940964;
+	Tue, 19 May 2026 12:48:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88452C2BCB3;
+	Tue, 19 May 2026 12:48:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779194910;
+	bh=SHZEkovLnemJnm2Y1dTh3AZOP+xurxZQh26q5EDvm8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pjOpqU5wEVxRg8SApIVukS4rWhzPdTGGnO31vrFpHC9SpiuiuUPODiTgShkP1LBkP
+	 ZVg0gTOPmKdH00J31qEBXlqSTnLEoHVk0I52fQxkHfs2izstv8CVR0E+zriXBHrc3/
+	 Z+lruAIANp7OlAfY9Q0rLaj5SvqpSjpX5QreCc+fhrisVTHxuJNU4BIMaHucVTXLr1
+	 F0SJ0SFzj91/w4DB4R4i2jEYUP75caGyrh0ehXlHhtnPUTfWLluaij+pStFLbwgfBu
+	 acJOXqg8Vek88ddM/MwGOmHNShx7n1UGEsBp0sVgrqmOivlvrYIjg/lezfUXrDvTDU
+	 jwtrgPU8heqSw==
+Date: Tue, 19 May 2026 13:48:23 +0100
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, punit.agrawal@oss.qualcomm.com,
+	rafael.j.wysocki@intel.com, fengchengwen@huawei.com,
+	chenl311@chinatelecom.cn, suzuki.poulose@arm.com, maz@kernel.org,
+	timothy.hayes@arm.com, lpieralisi@kernel.org,
+	mrigendra.chaubey@gmail.com, arnd@arndb.de, sudeep.holla@kernel.org,
+	yangyicong@hisilicon.com, jic23@kernel.org, pierre.gondois@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	james.morse@arm.com
+Subject: Re: [PATCH v2] cpu/hotplug: Fix NULL kobject warning in
+ cpuhp_smt_enable()
+Message-ID: <agxcF1bzmErb_lB9@willie-the-truck>
+References: <20260427023507.1247418-1-ruanjinjie@huawei.com>
+ <agIT0R4KV3YBYjlo@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: platform: defer connection counter increment
- until alloc succeeds
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-References: <20260511-fix-ref-count-issue-v1-1-99d647810d3c@oss.qualcomm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20260511-fix-ref-count-issue-v1-1-99d647810d3c@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <agIT0R4KV3YBYjlo@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_054620_916402_B471E292 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20260519_054831_018876_D564371F 
+X-CRM114-Status: GOOD (  20.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,83 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, May 11, 2026 at 06:37:21PM +0100, Catalin Marinas wrote:
+> On Mon, Apr 27, 2026 at 10:35:07AM +0800, Jinjie Ruan wrote:
+> > On arm64, when booting with `maxcpus` greater than the number of present
+> > CPUs (e.g., QEMU -smp cpus=4,maxcpus=8), some CPUs are marked as 'present'
+> > but have not yet been registered via register_cpu(). Consequently,
+> > the per-cpu device objects for these CPUs are not yet initialized.
+> [...]
+> > Fix this by:
+> > 
+> > 1. When booting with ACPI, checking the ACPI_MADT_ENABLED flag in the GICC
+> >    entry before calling set_cpu_present() during SMP initialization.
+> > 
+> > 2. Properly managing the present mask in acpi_map_cpu() and
+> >    acpi_unmap_cpu() to support actual CPU hotplug events, This aligns with
+> >    other architectures like x86 and LoongArch.
+> 
+> I had a chat with James earlier and IIUC the decision was to mark all
+> CPUs present and the GIC must be fully initialised. But digging through
+> the GICv3 code, I don't see it depending on cpu_present_mask but rather
+> on the "always on" MADT GICR description. So I think it should be safe
+> as long as we don't rely on the GICC gicr_base_address. But we should
+> update Documentation/arch/arm64/cpu-hotplug.rst to no longer state that
+> all online-capable vCPUs are marked as present by the kernel.
+> 
+> (or maybe I misunderstood all this)
 
+Jinjie, do you plan to respin with a documentation update as per
+Catalin's comment above?
 
-On 11/05/2026 5:19 am, Jie Gan wrote:
-> coresight_add_out_conn() increments nr_outconns before calling
-> devm_krealloc_array() and again before devm_kmalloc(). If either
-> allocation fails, the counter is already bumped while the corresponding
-> array entry is NULL or uninitialized garbage.
-> 
-> coresight_add_in_conn() has the same problem with nr_inconns and
-> devm_krealloc_array().
-> 
-> In both cases the probe returns -ENOMEM, which causes
-> coresight_get_platform_data() to call coresight_release_platform_data()
-> for cleanup. That function iterates up to nr_outconns (or nr_inconns)
-> entries and dereferences each pointer unconditionally, hitting the NULL
-> or garbage entry and panicking instead of failing gracefully.
-> 
-> Fix by moving the counter increments to after all allocations succeed,
-> so the struct is always consistent on any error path.
-> 
-> Fixes: 3d4ff657e454 ("coresight: Dynamically add connections")
-> Fixes: e3f4e68797a9 ("coresight: Store in-connections as well as out-connections")
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-> ---
->   drivers/hwtracing/coresight/coresight-platform.c | 12 ++++++------
->   1 file changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-platform.c b/drivers/hwtracing/coresight/coresight-platform.c
-> index e337b6e2bf32..93c2d075cad6 100644
-> --- a/drivers/hwtracing/coresight/coresight-platform.c
-> +++ b/drivers/hwtracing/coresight/coresight-platform.c
-> @@ -45,9 +45,8 @@ coresight_add_out_conn(struct device *dev,
->   		}
->   	}
->   
-> -	pdata->nr_outconns++;
->   	pdata->out_conns =
-> -		devm_krealloc_array(dev, pdata->out_conns, pdata->nr_outconns,
-> +		devm_krealloc_array(dev, pdata->out_conns, pdata->nr_outconns + 1,
->   				    sizeof(*pdata->out_conns), GFP_KERNEL);
->   	if (!pdata->out_conns)
->   		return ERR_PTR(-ENOMEM);
-> @@ -63,7 +62,8 @@ coresight_add_out_conn(struct device *dev,
->   	 * used right away.
->   	 */
->   	*conn = *new_conn;
-> -	pdata->out_conns[pdata->nr_outconns - 1] = conn;
-> +	pdata->out_conns[pdata->nr_outconns] = conn;
-> +	pdata->nr_outconns++;
->   	return conn;
->   }
->   EXPORT_SYMBOL_GPL(coresight_add_out_conn);
-> @@ -86,13 +86,13 @@ int coresight_add_in_conn(struct coresight_connection *out_conn)
->   			return 0;
->   		}
->   
-> -	pdata->nr_inconns++;
->   	pdata->in_conns =
-> -		devm_krealloc_array(dev, pdata->in_conns, pdata->nr_inconns,
-> +		devm_krealloc_array(dev, pdata->in_conns, pdata->nr_inconns + 1,
->   				    sizeof(*pdata->in_conns), GFP_KERNEL);
->   	if (!pdata->in_conns)
->   		return -ENOMEM;
-> -	pdata->in_conns[pdata->nr_inconns - 1] = out_conn;
-> +	pdata->in_conns[pdata->nr_inconns] = out_conn;
-> +	pdata->nr_inconns++;
->   	return 0;
->   }
->   EXPORT_SYMBOL_GPL(coresight_add_in_conn);
-> 
-> ---
-> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-> change-id: 20260511-fix-ref-count-issue-7c44ce39700f
-> 
-> Best regards,
-
+Will
 
