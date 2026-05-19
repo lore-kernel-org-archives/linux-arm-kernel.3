@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE73CD4F3C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8F2CD4F5B
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PeNX/sq3qAeE+0Jgb2gDcjXZ+vgfMIqyhOsW6MWEq5o=; b=hixvJ/5MHbFVx8lAgZPjtM+cdK
-	p7ki50Fxyj0SRPKRGuZZOgVTtd0qbBU8E09r7/l/M43ZtwZGp2ZUhwqcB6tGxp32YUEs+crTYZbrE
-	+VEAfhdCTsvF31y72RD67WNRhGBNyeLFRyJkgiumVRf40yy5IwpwuWNNucBHJzm95DNJiNVxek7Xz
-	JPaAdmPzuZwW1djKJHjVL8hjV5AY58zlCxDXo+VkyNNNqBPipWX/XGLPXbVbEURV7vYMBx8VvXMxx
-	LfMzyZ6RUONLxpz1/SpHYa2aYGdEC44DVmZHkWI+D2sj0ovqYrAzzwKHoCUIi342V4/x+XqVKZygT
-	Dk8HOUBg==;
+	bh=Qi1oGcfy2F/V9hqGyvfMuBPdpU5/rEAVHW7aQyISR+Q=; b=F4ejBegrGQE9jOcDmePBF6UOMW
+	WESPoQl/RP4KbCpl1elXJov+QrGtCuifzBeZtiQo4oSROLL/i5Cr7t7fjj9HPTllPKGg5axslfjUV
+	j15aTFcDO2bR3u4Jooe4HTk0vT+n2JF2Ek8bvuq5MmAxagM9MmaJGV/AlRSJYhLvBA1qQLGJ6SYYa
+	BgkptCj8fiHtsKjbn2vA5CpBk5MQxoMqm3kwNPJH8eNUKhqJSZunVd8vcO+HZ59+JJQw+h9limTbV
+	Hd8u0c+U1pLBATr4F6vr792irjwL8gikbS0ZXkj2+tQOTF+8PYb3tXAqWSed+Qnxxw3Qgz59savgN
+	uOPDZe0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMDd-00000001yyp-1Bu4;
+	id 1wPMDd-00000001yzA-1rbv;
 	Tue, 19 May 2026 15:18:53 +0000
 Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMDQ-00000001yir-42hD
+	id 1wPMDT-00000001yme-3Orw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:18:46 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-44d9ace59efso2440700f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:18:39 -0700 (PDT)
+	Tue, 19 May 2026 15:18:47 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-45aeac88af4so3096711f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:18:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779203918; x=1779808718; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779203921; x=1779808721; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PeNX/sq3qAeE+0Jgb2gDcjXZ+vgfMIqyhOsW6MWEq5o=;
-        b=GpsqG8+ZK1V64PaaLeOHUzqLKXJICVVkiXtoiggq/APg/dU3Mu+IPsVEVtjTSysPWi
-         q/5sgKJSbDS0Webqga3vefSCeVTxrkv5T8PtGCxarm6PxRRChxIi8l6xurQJcbnPl3tY
-         5uGtDdol88ApoQeVKsfXzqRuowM/m6Is1/R6JAVKDu7diHYBhIRAPdBbpKIW2P6U8tEI
-         6UPhzP/3hXAFVI9aLezoXEQ9uCX02C4ZcBDMoGhqe+wvCLaJd1eqejL6E0laRjRa2AGG
-         fVzLw0C9x3V9dXf1hCbmxY1TBhgPy8zURf3Lso6hDpMGKD+Lf0wEmywOezA0JDwaFZPN
-         26Yw==
+        bh=Qi1oGcfy2F/V9hqGyvfMuBPdpU5/rEAVHW7aQyISR+Q=;
+        b=iHTjMj0pMLFhreq8eGLBCSIpI3wF/Du5u7PHyxrgiCkcQhVf4uHRvnD1AYz6jVBp0Q
+         65fHniXEv6o39NWn9Bk7YjQlpMrJehkRHYEWpTH6vQbBfmkrQBm9x0CGETxRG7d6PbV+
+         GNB+gkRdwEnWXFwfGUQlqf6NJN9H+93s/6lW31sm3QZ6z1d6b2WrJR5qXODnY4PltDNF
+         6417hJ6qDO6RfM3cEg02BuM0p+obqpGgMhEG1/zn/tE0sLm16pL+7/KDC+pVJjDzBd5s
+         jSKTYtpq3FVj6X6w5fm3LNtZc+SKdpWt9qurTXnZPf/OPXCAFokbeuNypvAynYuJjuue
+         Bjnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779203918; x=1779808718;
+        d=1e100.net; s=20251104; t=1779203921; x=1779808721;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PeNX/sq3qAeE+0Jgb2gDcjXZ+vgfMIqyhOsW6MWEq5o=;
-        b=gwUx1S3Ru+qcUbQTjOOTktzw9NcprxEyhPXnnjgMPvquEhyneZU4BOXsPRf8qTVp90
-         CDM9447hE/8wkHrpa6aTmdL9DV2HPJuh5E6Fhj51wkG3vVuWCoq/G0jwkJOVldwaymiL
-         0+S1q9WFMBD5DPDioeSBGKH6HroVF0jlED0oWtuyeau4XKEfL5Luua+lgZYFXLBQegkS
-         xU777BR441l3ExgVZfRYoobDo/KsW53BtVGL2R9n+ometVnMgbZNqsP1EeF3lEeTjLUP
-         Mry8CyOKinY3yEu9aQwDbGVFXZvxGZj08j+3GJd2ViCmacv0NGdQgVmdkr3I1NLU6bJr
-         +zOQ==
-X-Gm-Message-State: AOJu0YzpLJFTF9vG6dXmfpeJ+oEhquvJm8ZF4XO28sAPYzZcvs8MZjWu
-	Y1FZ5G1yhnJ7URpQtHTtiEoPTEL5iSNNTJ7YtlpfwI46j8Trp/Ijvk5K6MJcp0R+1GKaF9m242N
-	E8vTMsL9IDf4z3JydcCrRAKSrU2hnBXVe6/WKtA/NpVRFtf4NIlzSmhXy3hdwtB0dC8pMKn1o1W
-	e7pt5u14VYpxRlT9d6FiyD80SaQuLKU39R0NEYwiuVsulc
-X-Received: from wrvg5.prod.google.com ([2002:a5d:5405:0:b0:45e:75ad:a480])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2dc2:b0:43d:1c4a:37c
- with SMTP id ffacd0b85a97d-45e5c5b39admr32448104f8f.4.1779203918084; Tue, 19
- May 2026 08:18:38 -0700 (PDT)
-Date: Tue, 19 May 2026 17:16:28 +0200
+        bh=Qi1oGcfy2F/V9hqGyvfMuBPdpU5/rEAVHW7aQyISR+Q=;
+        b=CrUgGrQpESrwLOYrMPvby65LhFPg47SMEIjJZyosywVr3MqcnJs1cEUuubeLRbNXmR
+         gM0Ogy4I3MFMxshaN0od1h8pmxSrvCYxLSe21pSWjUasCtKP0yViZaFwRAr9L/bChMVC
+         778F0LRe4dJdjn5FYW3z2Ehu09sRa8wo53WSdYAKXf8kqd4YT/pXvmif+xra9M6CSqCv
+         FxSS7DRtJ6kCGBPFpIYRdStYlAPDmqIGK1SbvPlohru+DgaWftqoq5uY5MOqrhnAjPq5
+         0HFiNcQFYdovj7rlz12g9r5XtiEXCh6f4FYrPd/4G0LnpHkjdJkjsefSRQipNy1sUnuu
+         wf4g==
+X-Gm-Message-State: AOJu0YyZTB7szrvSU9sU1znzzGdDsinbnFSIPUvHdX3R/JL4km1PVu8x
+	+1dPd7s/VqWtPR5KGy+8yIZTJ4nm0BBM7rKgb1bSXSRZ/2J5W/PSoir3g9WkJnWXAhEORMid4qp
+	l0KvSJZ82S6zwG4CXNFzwV2dThswrjhb9S7MhRLXaKompixhNGCGe21+1f0uPAMM+nMfdhjZBxS
+	GkBmGIWtLG6B1zaufWu2WeSP/MoWfV+zlR2owNQB4EKYhO
+X-Received: from wrsy5.prod.google.com ([2002:a5d:4ac5:0:b0:439:dad6:4846])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4305:b0:43c:fe66:43ec
+ with SMTP id ffacd0b85a97d-45e5c5af3e1mr33968405f8f.14.1779203920289; Tue, 19
+ May 2026 08:18:40 -0700 (PDT)
+Date: Tue, 19 May 2026 17:16:30 +0200
 In-Reply-To: <20260519151616.2557018-15-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20260519151616.2557018-15-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2478; i=ardb@kernel.org;
- h=from:subject; bh=MII6/zkHQg51STWxgZiHeZfac7n0lgddhJ/OqCE9V7w=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIYun7tKMjFO7jkszG8aGhd+QSjw303b/L077+SfKAjY8/
- 6G1aQ5zRykLgxgXg6yYIovA7L/vdp6eKFXrPEsWZg4rE8gQBi5OAZjIzniG/0F3vjE8XuemeP5j
- peqFf91N8ZO/FNi7BhXKyu7ySV6pZM7I0CP+aGHaheKW3W4s3w4K31V9s2v3jofeLfIF7f9+95p 8ZAMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3044; i=ardb@kernel.org;
+ h=from:subject; bh=osZl6uzkZYEkcghfaazSssjo1b/cuYAKEwUCEYJfinQ=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIYun7uqNOWVWU5/UXRVfylrTJVR488jUvCfS7J8uTnXol
+ rv8dKNpRykLgxgXg6yYIovA7L/vdp6eKFXrPEsWZg4rE8gQBi5OAZjIPx+Gfxa3bjaemqQ2QX2i
+ +ikrecMj36z+NBrzXBW6mWT11rhKfD4jw9WmHq2SKWv6PLaLbc0reKxz6lHq+tMT8qoXvdRc/Ph gHBcA
 X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260519151616.2557018-26-ardb+git@google.com>
-Subject: [PATCH v5 11/13] arm64: mm: Don't abuse memblock NOMAP to check for overlaps
+Message-ID: <20260519151616.2557018-28-ardb+git@google.com>
+Subject: [PATCH v5 13/13] arm64: mm: Unmap kernel data/bss entirely from the
+ linear map
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com, 
@@ -83,8 +84,8 @@ Cc: linux-kernel@vger.kernel.org, will@kernel.org, catalin.marinas@arm.com,
 	linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_081841_626898_D8121A61 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20260519_081843_907974_0E95F582 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +102,96 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Now that the DRAM mapping routines respect existing table mappings and
-contiguous block and page mappings, it is no longer needed to fiddle
-with the memblock tables to set and clear the NOMAP attribute in order
-to omit text and rodata when creating the linear map.
+The linear aliases of the kernel text and rodata are mapped read-only in
+the linear map as well. Given that the contents of these regions are
+mostly identical to the version in the loadable image, mapping them
+read-only and leaving their contents visible is a reasonable hardening
+measure.
 
-Instead, map the kernel text and rodata alias first with the desired
-attributes, so that they will not be remapped later with different
-attributes when mapping the memblocks.
+Data and bss, however, are now also mapped read-only but the contents of
+these regions are more likely to contain data that we'd rather not leak.
+So let's unmap these entirely in the linear map when the kernel is
+running normally.
+
+When going into hibernation or waking up from it, these regions need to
+be mapped, so map the region initially, and toggle the valid bit so
+map/unmap the region as needed. (While the hibernation snapshot logic
+seems able to map inaccessible pages as needed, it currently disregards
+non-present pages entirely.)
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/mm/mmu.c | 24 +++++++-------------
- 1 file changed, 8 insertions(+), 16 deletions(-)
+ arch/arm64/mm/mmu.c | 39 +++++++++++++++++---
+ 1 file changed, 34 insertions(+), 5 deletions(-)
 
 diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index d4ad9e4766a6..dcff1a538f20 100644
+index 136cfe0f7375..9b6d90deb6d5 100644
 --- a/arch/arm64/mm/mmu.c
 +++ b/arch/arm64/mm/mmu.c
-@@ -1148,12 +1148,15 @@ static void __init map_mem(void)
- 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+@@ -24,6 +24,7 @@
+ #include <linux/mm.h>
+ #include <linux/vmalloc.h>
+ #include <linux/set_memory.h>
++#include <linux/suspend.h>
+ #include <linux/kfence.h>
+ #include <linux/pkeys.h>
+ #include <linux/mm_inline.h>
+@@ -1040,6 +1041,29 @@ static void __init __map_memblock(phys_addr_t start, phys_addr_t end,
+ 				 end - start, prot, early_pgtable_alloc, flags);
+ }
  
++static void remap_linear_data_alias(bool unmap)
++{
++	set_memory_valid((unsigned long)lm_alias(__init_end),
++			 (unsigned long)(__bss_stop - __init_end) / PAGE_SIZE,
++			 !unmap);
++}
++
++static int arm64_hibernate_pm_notify(struct notifier_block *nb,
++				     unsigned long mode, void *unused)
++{
++	switch (mode) {
++	default:
++		break;
++	case PM_POST_HIBERNATION:
++		remap_linear_data_alias(true);
++		break;
++	case PM_HIBERNATION_PREPARE:
++		remap_linear_data_alias(false);
++		break;
++	}
++	return 0;
++}
++
+ void __init mark_linear_text_alias_ro(void)
+ {
  	/*
--	 * Take care not to create a writable alias for the
--	 * read-only text and rodata sections of the kernel image.
--	 * So temporarily mark them as NOMAP to skip mappings in
--	 * the following for-loop
-+	 * Map the linear alias of the [_text, __init_begin) interval
-+	 * as non-executable now, and remove the write permission in
-+	 * mark_linear_text_alias_ro() above (which will be called after
-+	 * alternative patching has completed). This makes the contents
-+	 * of the region accessible to subsystems such as hibernate,
-+	 * but protects it from inadvertent modification or execution.
- 	 */
--	memblock_mark_nomap(kernel_start, kernel_end - kernel_start);
-+	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL),
-+		       flags);
+@@ -1048,6 +1072,16 @@ void __init mark_linear_text_alias_ro(void)
+ 	update_mapping_prot(__pa_symbol(_text), (unsigned long)lm_alias(_text),
+ 			    (unsigned long)__init_begin - (unsigned long)_text,
+ 			    PAGE_KERNEL_RO);
++
++	remap_linear_data_alias(true);
++
++	if (IS_ENABLED(CONFIG_HIBERNATION)) {
++		static struct notifier_block nb = {
++			.notifier_call = arm64_hibernate_pm_notify
++		};
++
++		register_pm_notifier(&nb);
++	}
+ }
  
- 	/* map all the memory banks */
- 	for_each_mem_range(i, &start, &end) {
-@@ -1165,17 +1168,6 @@ static void __init map_mem(void)
+ #ifdef CONFIG_KFENCE
+@@ -1174,11 +1208,6 @@ static void __init map_mem(void)
  		__map_memblock(start, end, pgprot_tagged(PAGE_KERNEL),
  			       flags);
  	}
 -
--	/*
--	 * Map the linear alias of the [_text, __init_begin) interval
--	 * as non-executable now, and remove the write permission in
--	 * mark_linear_text_alias_ro() below (which will be called after
--	 * alternative patching has completed). This makes the contents
--	 * of the region accessible to subsystems such as hibernate,
--	 * but protects it from inadvertent modification or execution.
--	 */
--	__map_memblock(kernel_start, kernel_end, pgprot_tagged(PAGE_KERNEL), 0);
--	memblock_clear_nomap(kernel_start, kernel_end - kernel_start);
+-	/* Map the kernel data/bss read-only in the linear map */
+-	__map_memblock(init_end, kernel_end, PAGE_KERNEL_RO, flags);
+-	flush_tlb_kernel_range((unsigned long)lm_alias(__init_end),
+-			       (unsigned long)lm_alias(__bss_stop));
  }
  
  void mark_rodata_ro(void)
