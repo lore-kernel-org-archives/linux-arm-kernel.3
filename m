@@ -4,110 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88B4CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 21:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB890CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 21:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qePMA6zGQFViCPKpo7iLsKN1rs2GVcNovIIZ6LT/puc=; b=oLT42e8F5B5C2isNnj1PSbN298
-	P0KFGu9dXdLvs//CUi84ECgf6iF/miN8Sm1yfTCtpJwyF1T4DUzCtnrYRBCwXFTXv23S73rk8beKb
-	iZkcqTFb5/NqJfqW0Zeov626o12kuZgVyKdOLGyVrcdceB4xfcmOHBcy7lTL92ao4zS68uwjKx3wW
-	QGn59UHr2gpnaMf29WRot7Lf9HDfqwXoUdguC2iL5w7Hhe68HXVEPz2HD9f88ror4yi8aXcJjHqCZ
-	B1ppPIbAAg2hh2+eoqQBe6GOerGHP4yf6YY8QkoAV90DAKkY89RTvccxzUNDKFFmBOTqD7in/22tx
-	iwWb+3Sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u66R6+u6QEN5FG9jyQWIzz8+3zqABf7d9bn5ERNHxKo=; b=eIkIRnpLZFos2eCH+5X168Uirf
+	Yc1hQpqAJ9sO7PCeayGONfcXGvJUk5bg9ysEwdb/MjlKkeQVlhCQohhoWX8Lf/qxL6dgt1rGgYfrR
+	5iX1J4c7ncXBOgrIICxGoOAla4lBzQBrKaFJjDepDdLNXwTJBT0TfymifRIddv9U2ZjPSyeuvTQrQ
+	l9PdT+tdlWt+Ox99g6Phs+Ov4OhRg4blcftAl3B/jDhNgDpyLcuzCWSbFFn9NyuKigpoPhabT7s9o
+	fNmrilIHeS76teu6fb5cZ4oFB4wwxbd+ZlmVrfIGnRou/bwxd8Tu5LuqTbWrYRTe7CdIdxb+yAQHH
+	kPj5euxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSRf-00000002t2t-2ECT;
-	Tue, 19 May 2026 21:57:47 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1wPSS3-00000002t85-2sMx;
+	Tue, 19 May 2026 21:58:11 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSRd-00000002t1S-0lVu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 21:57:46 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-bd22b2abaa4so731804866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 14:57:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779227862; cv=none;
-        d=google.com; s=arc-20240605;
-        b=Hjq09vpfJ2Lw5K/q5fLJ1iGT54C26EBRBAicFmPha9XVTDqiMLyOCc+kSaVXEMgAnA
-         Yh0d0+VgpgQz/ON6ureWhz4DKa7Cs5N5tmBDF/AVzvDzLxGaF0Chs7Av5LeDRhqBqUve
-         qbh5OutU/xmbQMI8Gi64O0hleUjKLtOuMbUTfOxrX33rUWKPk/kdobLauwftKBNB2H1v
-         rMjvxD74Q3WyY3bW4rKgvLEEyqBtYnC0DBonXP+zwQFOzbwVaeQvGrCRG35W3RYeBNRf
-         VjqTvEspYH/lY4BQM95xRUv24Pfq1LFw7I32bJRJrj2NC6Xt74mhL/eh2tpGp57WPqgk
-         avQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qePMA6zGQFViCPKpo7iLsKN1rs2GVcNovIIZ6LT/puc=;
-        fh=EtEUti6KEYvxcyDQOxJyEfr2mCjMHqJr6/azLcDEcOU=;
-        b=WutHjEURflv4pMA/GziRLgMVe1TjpG7vv5JCQChAJhjTgHopihao6BT0sYSbKNO8t3
-         Wc1vNWGp9Zl/m12NAlwJHJ5BtuguXOg/W2/DNY1Ok30bex/rUG8cPPETe+163wCeF+zA
-         sqyF5ZERY/Pb2/0zbAu+I2yoX0lU+oYzBqFNIoAqyrizx3rjPicMuy79XFAS1wC2w0Cl
-         krJ7XEs76DqyS1i5OeGdgVy6xT/GsYe0R+V/U5reIBvRfvn4HRTUSEaO/xd6pWmHxlEN
-         qOp1AiTwg2C4QMo6kegtZyqwBkX94BfEVjFIedyPEr3IYqH+lLDqIYqT4mSUs8dAV4hw
-         HlIA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779227862; x=1779832662; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qePMA6zGQFViCPKpo7iLsKN1rs2GVcNovIIZ6LT/puc=;
-        b=FCRoFurAehsxwvuBrR5q2/+6TI9hZLqwijUh8LqnmD4c9Tc1+psfFV8lKDED/MpgTs
-         qnBOCwnOEm4MqoCL6kaqMPjgggIM5ABRvcIDgtFXDs36ONpySXVnxab5T6iUCMOoffrQ
-         2BT0K3wUownYo1x7B+jk/yst0t1YEExd0taaIoOpO0GlbRgEfPSUNaceylW8ojKORNYS
-         qFDJnlGINDBIDTTNNzQY8qBDG84wfNDY/oFUvX+P4OrlTduXSjtvyaQUJDt6SJeyXsp8
-         ocCR4KNhW79Nmgvy2rOJFv3uvAgU3NxWBJn0ejrIoupNl24Ce56dhhWmwavP4QppAk4s
-         Odlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779227862; x=1779832662;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qePMA6zGQFViCPKpo7iLsKN1rs2GVcNovIIZ6LT/puc=;
-        b=Of/F0bv0i0EO0DgdkWHOJqNm2Xnr4MSEFwpSKoq9Rd+wN6SpBccewsRVy5dKDTnfTe
-         fe/g3OVhcMXbMn73KUAHI3y9X4WfKt1wfmvM+6lckX3WqQhDLMAs70dF2VI/9MnP1yhJ
-         FPx+yQKEJjyEwNUJi3tStyFd8uzHg23VAovHMHHRkzkZBrkBvU0l8cSzfU5OWj8eQph6
-         LOh0aBG8lSl+zIBhV12s748LkSCqmNO6oUYA2hjLMA2nxnKWoCTLQ5o6thaMomnxeov5
-         I/2TjcSQeBxtNwAdNYlZ8nmTN3DjpJ/AZchY8Dvkv8LBHX5GIRJj7tya2G1sBN0dN29t
-         5a/g==
-X-Forwarded-Encrypted: i=1; AFNElJ8KqSRTkeSknoLfIXAQY0wqSnOHA3qxniINKymbX49fT+TNUrNmufG8wpMrMO4zpU/MALJ/ATBF8IP32vDRIlis@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw998mvztYktIvTYw/RoUjW95ZBs09Zbg1Xh8tUVpa7CDEYU6hM
-	vU3JDTbihn00felwH8Nkn+znZSfrLZXXtgbdZ8z+Y8Wu+hrwBYwk5lIuGYRXW9mdMlfSVMQhcVi
-	ZQFol9WKWe2r3eE3CvUaX48h6uTyZDxQ=
-X-Gm-Gg: Acq92OFtI6Bbe0Q6Moe/Eeo4wstn6gz+egx3L1HkhWI6R9dGvA75XUvdFPHYDX6hwqC
-	KWjWUGL5lp3qyYBOBOBmBMj4k9TTkqqlXR861+jahhxV2W4cqxPcO40/VwP7YKTPLrVs+QrJvBN
-	OIFBLBrfnSgkvNUM/0u3O5pIa1CEet6RX/hWxaq5X3jT/dgcHu9t8QNYsS22od3TClrX5OZD8nB
-	X6Z0UJUsVvvOp93Ir0UQQxe1VSS3h1q6nl68hBsW7ap1HTns03iRC/l8DzZ//use6DShbtEnz6h
-	c3/N3iB9O5LLRjcfzvdfcedOeRFJWssFmxCqLRk1vAb1Yu0UwPoLPDPzRVrRIlnJt85Zrtz/mVu
-	IL5tM5uKrsQkdjm3VnUKSDlLqj5W2LImoJvZZcZJVb1rVtU+ENmZDHl0XaQ==
-X-Received: by 2002:a17:907:1903:b0:bd0:bc5a:746 with SMTP id
- a640c23a62f3a-bd51797803cmr1264657266b.36.1779227862366; Tue, 19 May 2026
- 14:57:42 -0700 (PDT)
+	id 1wPSS2-00000002t7k-2vq9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 19 May 2026 21:58:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=u66R6+u6QEN5FG9jyQWIzz8+3zqABf7d9bn5ERNHxKo=; b=iXdabF8vRzpa30SCwM9ZIVYL50
+	Xo9R57ATnUd40A1HkfJA0P/fjEOYlYmiCBaSPh46PIMLcq52hiU9xk1P6JeoSaUeMGi9AbkSsKFfg
+	2sn38y+R9av4GHhtijOmphszq8tysbP2N7b7POKJHTvc8wV3U9CDoQ1W/AGmUwLZy9V4nzE+ZNsS6
+	bWIyYQJzki9liZI9LnVvCnBVsresY/Gvq8fjSECkDipj8rOCGTjVKwK+J0KOdi1WOOcHVkR2tLIDi
+	rDfERw9cqbeXzDYe12vcGJe+oZ9jLIkMdRlya3/mw7HGjemvHKCj89oVLn7xpuvuNJN7nUESKyvib
+	JXtsh/Sw==;
+Received: from 54-240-197-233.amazon.com ([54.240.197.233] helo=u09cd745991455d.ant.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPSRz-00000006KvO-0CEI;
+	Tue, 19 May 2026 21:58:07 +0000
+Message-ID: <1243d375846c4f4e20c229a6f09300126188fc8b.camel@infradead.org>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
+ compatibility expectations
+From: David Woodhouse <dwmw2@infradead.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Will
+ Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>,  kvm <kvm@vger.kernel.org>, Linux Doc Mailing
+ List <linux-doc@vger.kernel.org>, "Kernel Mailing List, Linux"
+ <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>,
+ Jim Mattson <jmattson@google.com>, Joey Gouly <joey.gouly@arm.com>, Suzuki
+ K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Raghavendra Rao Ananta
+ <rananta@google.com>, Eric Auger <eric.auger@redhat.com>, Kees Cook
+ <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,  Nathan Chancellor
+ <nathan@kernel.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>,  kvmarm@lists.linux.dev,
+ linux-kselftest <linux-kselftest@vger.kernel.org>
+Date: Tue, 19 May 2026 22:58:05 +0100
+In-Reply-To: <agzR2kaJsNa8X9lF@kernel.org>
+References: <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
+	 <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
+	 <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
+	 <agxFbniU_6eQ98t2@willie-the-truck>
+	 <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
+	 <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
+	 <86qzn7wp3y.wl-maz@kernel.org>
+	 <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
+	 <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
+	 <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
+	 <agzR2kaJsNa8X9lF@kernel.org>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-ZGJMbawr+MEa7CQO3eIx"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-References: <20260519010440.629290-1-rosenp@gmail.com> <61fa661f-0281-4b58-8042-f3f60cdc3407@sirena.org.uk>
-In-Reply-To: <61fa661f-0281-4b58-8042-f3f60cdc3407@sirena.org.uk>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Tue, 19 May 2026 14:57:30 -0700
-X-Gm-Features: AVHnY4J23bC0PIprMi7AoskRuLv549OzojT4O6f6SArUx72FsVkA9zMJisbtp4I
-Message-ID: <CAKxU2N9E0HE+4U28A2n5m1BODTEzkgeDKeiXYhcwuLR=fnNZJQ@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt2701: fix snprintf bounds
-To: Mark Brown <broonie@kernel.org>
-Cc: linux-sound@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_145745_234664_73BD7F59 
-X-CRM114-Status: GOOD (  15.06  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,24 +91,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 1:33=E2=80=AFAM Mark Brown <broonie@kernel.org> wro=
-te:
+
+--=-ZGJMbawr+MEa7CQO3eIx
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Tue, 2026-05-19 at 14:10 -0700, Oliver Upton wrote:
+> On Tue, May 19, 2026 at 03:13:30PM +0100, David Woodhouse wrote:
+> > On Tue, 2026-05-19 at 15:53 +0200, Paolo Bonzini wrote:
+> > > On Tue, May 19, 2026 at 3:00=E2=80=AFPM David Woodhouse <dwmw2@infrad=
+ead.org> wrote:
+> > > > Or some guest configurations which have only ever been tested under=
+ KVM
+> > > > could have a bug where they *rely* on the registers not being writa=
+ble,
+> > > > and write values which are inconsistent with the rest of their
+> > > > configuration. Which breaks the moment those registers become writa=
+ble.
+> > >=20
+> > > Yeah, just having guests that worked by utter chance - but you still
+> > > don't want to break them - is the case that is most likely. Crappy
+> > > code that runs only under emulation/virtualization appears with
+> > > probability 1 over time.
+> > >=20
+> > > Is this likely in this specific case---probably not, honestly.
+> > > Christoffer's patch dates back to 2018 (commit d53c2c29ae0d); *back
+> > > then* KVM/Arm was a lot less mature, and people developing for Arm on
+> > > vanilla upstream kernels have moved on from Linux 4.19.
+> >=20
+> > It's not really 2018 though. EC2 is still running kernels with that
+> > older commit reverted because of the breaking change that it
+> > introduced.
+> >=20
+> > So the behaviour corresponding to GICD_IIDR.implementation_rev=3D1 is
+> > still current for *millions* of guests.
+> >=20
+> > I'm now finding that revert in our tree during a *later* kernel upgrade
+> > and trying to eliminate it.=20
+>=20
+> Still, as far as upstream is concerned this is damn near a decade old.
+> Decisions that you or your peers made in the downstream doesn't change
+> that.
 >
-> On Mon, May 18, 2026 at 06:04:40PM -0700, Rosen Penev wrote:
-> > For whatever reason, GCC is unable to figure out that i2s_num is a
-> > single digit number, with MT2701_BASE_CLK_NUM being the maximum value i=
-t
-> > represents. Add a min() call to help it out and fix W=3D1 errors regard=
-ing
-> > snprintf bounds.
->
-> > +     i2s_num =3D min(MT2701_BASE_CLK_NUM, afe_priv->soc->i2s_num);
-> >       /* Get I2S related clocks */
-> > -     for (i =3D 0; i < afe_priv->soc->i2s_num; i++) {
-> > +     for (i =3D 0; i < i2s_num; i++) {
->
-> This makes the code rather obscure and will start silently failing if we
-> ever get more than 9 clocks, we should at least put a build time assert
-> or a warn on in there.
-how so? MT2701_BASE_CLK_NUM would increase.
+> > And sure, I have given the engineers responsible for that a very hard
+> > stare and suggested that they should have fixed it 'properly' in the
+> > first place with a patch like the one we're discussing right now.
+> >=20
+> > And they're looking at this thread and saying "haha no, if fixing
+> > things properly for Arm is this hard then we'll stick with the crappy
+> > approach".
+>=20
+> The appropriate time to ask for accomodation was a *very* long time ago.
+>=20
+> And in the absence of clear evidence of a guest depending on the broken
+> IGROUPR behavior, I don't see how the guest-side changes of Christoffer's
+> series are any different from the multitude of bug fixes that we take
+> every single release cycle. It is an unfortunate bug and I concur with
+> Marc that it doesn't seem like the sort of thing a guest could rely
+> upon.
+
+I find this concerning, because I've already explained this.
+
+There is a very real possibility of guests simply not *noticing* that
+they had bugs in this area, as it didn't *matter* what they wrote to
+these registers since it never worked.
+
+There is an even larger possibility of guests having worked around the
+original issue by *detecting* whether the registers were actually
+writable before choosing to use the alternative groups. And if such a
+guest launches on a new kernel and then needs to be rolled back to an
+older kernel, that will also break.
+
+> Because it is very much a bug fix, it should've happened without a
+> change to the revision number.
+
+No. Changing the revision number in conjunction with the guest-visible
+behaviour change is *absolutely* the right thing to do.
+
+> Now, the handling of GICD_IIDR itself is a separate issue. By my count,
+> the series broke UAPI on three separate occasions. Before b489edc36169
+> IIDR was RAZ/WI from userspace. And of course dd6251e463d3 and d53c2c29ae=
+0d
+> changed the revision with no way of restoring the old value.
+>=20
+> And really, IIDR should've *never* been used as a buy in for new UAPI
+> because it unnecessarily becomes guest visible. 49a1a2c70a7f ("KVM: arm64=
+:
+> vgic-v3: Advertise GICR_CTLR.{IR, CES} as a new GICD_IIDR revision") is
+> a much better example for IIDR going forward as it gates *guest-side*
+> behavior.
+
+Yes, 49a1a2c70a7f is the exemplar. The guest-visible behaviour changes,
+so we get a new IIDR revision and the ability to preserve the previous
+behaviour by setting IIDR to the old value. That is exactly how it
+should always be done.
+
+> > I do not want them to be right. I don't think any of us want that.
+> >=20
+> > > I would still lean towards accepting the code considering the limited
+> > > complexity of the addition (in fact I like it more now that it uses
+> > > IIDR instead of v2_groups_user_writable, but that's taste).=C2=A0
+> >=20
+> > I'm absolutely prepared to have a separate technical discussion about
+> > the v2_groups_user_writable thing for GICv2, which is the second part
+> > of that series.
+> >=20
+> > It seems like the right thing to do, and as far as I can tell, this
+> > code *never* worked with QEMU. But I'm not sure who even cares about
+> > GICv2 any more. I couldn't find hardware and I had to test the whole
+> > thing inside qemu-tcg.
+> >=20
+> > But the 'IIDR defaults to 3 but the *behaviour* doesn't match until you
+> > explicitly *set* it to 3' thing seemed so *egregiously* wrong to me,
+> > that I fixed it anyway.
+>=20
+> Wrong or not, this behavior is documented unambiguously. From the VGICv2
+> UAPI documentation:
+>=20
+> """
+> Userspace should set GICD_IIDR before setting any other registers (both
+> KVM_DEV_ARM_VGIC_GRP_DIST_REGS and KVM_DEV_ARM_VGIC_GRP_CPU_REGS) to ensu=
+re
+> the expected behavior. Unless GICD_IIDR has been set from userspace, writ=
+es
+> to the interrupt group registers (GICD_IGROUPR) are ignored.
+> """
+>=20
+> I'm not inclined to change that.
+
+That'll all very well... but as far as I can tell, QEMU *doesn't* set
+GICD_IIDR, so it still gets the bizarre behaviour where the *guest* can
+write the registers, but userspace can't. So it looks like it'll work
+except migration will fail. Am I missing something?
+
+But honestly, I don't care one iota about GICv2; I was only trying to
+do the cleanup while I was there. Feel free to drop that part entirely.
+
+>  As a way out of this whole mess, can we
+> instead:
+>=20
+> =C2=A0- Allow userspace to set IIDR.Revision to 1
+>=20
+> =C2=A0- Drop any bug emulation from the handling of IGROUPR registers
+
+It doesn't make sense to allow setting IIDR.Revision to 1 *without* the
+one-liner that actually implements the corresponding behaviour change
+in the IGROUPR registers. And as explained at least twice now, it's the
+behaviour change that's *important* here.
+
+The fact that it's a long-standing bug in KVM which downstream has been
+working around for a long time doesn't matter. The unconditional
+behavioural change *is* a bug and we should fix it.
+
+> =C2=A0- Special-case the stupid GICv2 UAPI where IGROUPR are only writabl=
+e if
+> =C2=A0=C2=A0 the VMM has written to IIDR and the revision >=3D 2
+
+That already *is* a special case, right? And you'd rather leave it as it is=
+?
+
+--=-ZGJMbawr+MEa7CQO3eIx
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxOTIxNTgw
+NVowLwYJKoZIhvcNAQkEMSIEIKbGBgZ3nv2ze+Txo23teSJzZh+CY/8E7ocgTMoa7yvZMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAStV8DJeMg+jS
+gQXWuet0RmAcWXA1PmtKdpNj/KL71M/t6D26Iz1oo1y7rf8XPSQFpLED01gkkIk03AohH6Tgb/HJ
+fHG527K9bIer82weqiezP/arU3m0ztOj6HEdO07whp+tRXgr34tD38l9zSDi4YeQUV2d/HJBb3/z
+gFlvC3F+ju5qYbX/pqrLH85CDbmeHwxII7/X4U8Y16veMIdF94pfjYlllrcFCsazr3OrKhW6UI7W
+iIZTGHqCO0fkoRUPHFUIEMDCeHXvz4VcWFUsyUvXmWbdLuD/CmMZfeEwXylVe6Frk23sbOQWOQ8v
+0pS6nw+LrZYhmrqFEkhS0+yfLlDwVZSDLeaAY4YX3Z3CQTpAracxiNL026ImL3ZRqfjvgzzqcn76
+XQo5QgqYbVULqid6Pue9EUEp2YZdO5VudBhQ/GOp50YTVJD8mfcJVqbGuCsETazWK9/DGv3aNeWn
+bLCpwyOfZWd1Pm+pIH65LWM1NUjE4tyY6d0NAkPxFZNjXKIVBVs/2tKU8KJDbyUlImvUgbRj44w4
+DA3bvbq27vZ/07Ya3YEOwnVfgb2hEw9yCG3BevIegkFPbRfJ2HitOaU8W2TYoYwNGnvVuQp7vgqQ
+/aX1YKxJXnajnw2PKKVXUePy2+suX+C6feLOFr4/3EONC67lExvm0EAGN389n9YAAAAAAAA=
+
+
+--=-ZGJMbawr+MEa7CQO3eIx--
 
