@@ -4,82 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A7CCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 21:11:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2AFCCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 21:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/J21S+Ld/hEhF27pPKSQ3l92mo4qOAr3o1Wi79JUnPo=; b=Mw3r+yoiS4wPGvruKf6wozM1SN
-	GsXGH8ery9S5r6y1nAJKvqeggWKmkiNTzeqK7eSu44zCGhPWImHVlgCAfRx9pfbKogmgnDTex+YEX
-	ui46V0OSGXRIbbzORhjjOI6LdhkZze9OoylgwYurASQzawBgxaW9vIFQBgXJezH+EoeYUGh7CM7C0
-	8Q0BIDkXiWaUk9pzOXWaIWWs827R28px1FdVBUfJse/3D5SkOxDfBe7fbnoR1mddutCV+oxN8oIPO
-	+3NCkivZ1vjx1akl0nloAP7paYmanUft786gnpxhmaEHmxCQ25ZmMvdQnzNQevgGnJapOq/7C+fO0
-	ATuufUmA==;
+	bh=AQuJpJaojP8QoNznDYUMwJHcjrNPOXnjpKVs+Zf6AHc=; b=qVUjuA7s14q5WbdFsn0K0yREWt
+	BEsYVyBNdZ7YmbC67ElvH+6CXndtaxnXVHYCmzK8EISlrW5z0vSJDcl3qN6qjLL84TKN09wURDBLd
+	AdNpWu+CcZxQFXqmtg181TAFgeXJOHYmNYCLATJMGLJ1hGv/SqTr8oeJPjnnae4EhmfbqT0NgCOex
+	g17Mm/U0r2pHXgsKy31SR8Zmp/pDsjpegtOh5KWZJIpmwIszGMtefcPOukpuoxtO4EE8sPed4k5mD
+	D1WpcXIWX/w5bo9w37VkS3o3FX/k27Zh4FK191RTHOrMjWEYBKZlkFLuCP8be+6mTSBGc2dk+qGlB
+	54aUSLaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPRiJ-00000002oIc-1LRO;
-	Tue, 19 May 2026 21:10:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPRph-00000002ovZ-0BSY;
+	Tue, 19 May 2026 21:18:33 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPRiI-00000002oIF-0hKL
+	id 1wPRpf-00000002ovD-1PNH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 21:10:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B533260216;
-	Tue, 19 May 2026 21:10:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C9C41F000E9;
-	Tue, 19 May 2026 21:10:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779225052;
-	bh=/J21S+Ld/hEhF27pPKSQ3l92mo4qOAr3o1Wi79JUnPo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PpF+/Qs+ycT4A8rWHJ/2DlTEDC2i0j/k3x9lrVRnSVvoqOOYYCaH5oDvCXXHRfgAW
-	 y1nzP4QlnoFKEjFtRVrSTHhl7gLvWebJ2lt1VrAbGbVEEEWhCzSXhkfe3kwZ+Tv91F
-	 WIkkGeNJsBlHxHEj9qdnVRmc3v6Jgi2dzvhHcT+JAmrlnsGeguE3WlCTEuB1tRZTud
-	 3bLAPhSMMQzLOaGYixd4SPKTsWHWm1bSqOWWUln6tiYSNTjaGkrRWYybGHryRNNsO7
-	 7lv/z7sGNzkLVvCxn2RZVMzjfDjStBmvCbEDlS5i7BNE0sCXMW1h+YsUFTlGgTtycQ
-	 bzBCjf8IrvBDg==
-Date: Tue, 19 May 2026 14:10:50 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Jim Mattson <jmattson@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	kvmarm@lists.linux.dev,
-	linux-kselftest <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
- expectations
-Message-ID: <agzR2kaJsNa8X9lF@kernel.org>
-References: <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
- <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
- <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
- <agxFbniU_6eQ98t2@willie-the-truck>
- <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
- <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
- <86qzn7wp3y.wl-maz@kernel.org>
- <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
- <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
- <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Tue, 19 May 2026 21:18:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kJ3WnsguAQm331xdTwyrGG6UZs9sJrxH0QcyMGBWIJkJuST9O7Wnog5dF74ZxlJ9mNJYXyF1nq2TZm2dFOsWFUOw4hATsUh7wJ1GLYf7xvfDEO0FhD7ALGz9H/DNGko+yP7IhyKr0eHL61rrl23E2LPcwAvTv5RiaRbK7nQRhTdO5HZ+Mfb80ApE8v8DoGKMQSop2DjO1uw9u5IE5JlojF6+j7wNXGcUOYU064hXPr4x3aPaaE4uZV12TR5FU3HHZK5VNpaqYkRKm5v9DHjhzDMom/1/lcmLgmIRFTnnh5kmN4ro8ioeE6myzS+j5lXUMJwhwJYqaKPlC3NLot/2ig==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=AQuJpJaojP8QoNznDYUMwJHcjrNPOXnjpKVs+Zf6AHc=;
+ b=dSomOtXN/0xaF52nVyf4FuQN8RFIP72ZxNj2giBdoE8yvLoHXEuRhSjbBRzLfVgZ8YuZL6vBAeJBAqRnMkc1nsbMMY6I++E/TtjT+96oUmGaS7eVl91mi9tQhqb0o2kgPfh47eE1H7BJltN3dC5RyaqpsogiUI4Gn457NEYsDD0Kf3Z5WnRAAWINZmKq4pPiU3NxVnpcRFiE9mcUD/RUMhrtMxDzEAcZYMr+21GthXKm8a+jen8u559i+t4WEoqkI7jlix1H2cwG+ix5/Sa2i/fxMV4RxreISpljeLp04D6KqL4j+HyimR15vhKe/032Eo6ml6hIAz2M8o1p1CqYyQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=AQuJpJaojP8QoNznDYUMwJHcjrNPOXnjpKVs+Zf6AHc=;
+ b=WusXRoQi5muct9/8BHt4RT7s8vl5RUIds/ROoiIwF5g9V9KDEzLwH+XPFsryIQpq2j6LvYzmTPIvUEU7pqHqRWz7NzS3/2bOdHmrU6mBUjTNsQXufARaHYX8mrfSNMwzMSAp6jrFLHov5YgX6eW9RbusGQSNJ3vizayd4VYJf1L65rGOgnHCGLGbV/3BEShzvONOeDKHu+xCk7H1VEhDo5dKEGRLH5gshRR1iZ9njv9+gnwFLLieyzIInkVHWXnhaa8cKbhpWmpxgcbKi5FRw4sUhXTzQm3m4IpG/wByPbezmvEPFu/qcVOzP3kUT+N5XdybzO+1AKRQRB3/VIQHNA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by BESPR04MB12564.eurprd04.prod.outlook.com (2603:10a6:b10:101::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Tue, 19 May
+ 2026 21:18:26 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0025.023; Tue, 19 May 2026
+ 21:18:25 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Antoine Gouby <antoine.gouby@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Antoine Gouby <antoine.gouby@toradex.com>
+Subject: Re: [PATCH] arm64: dts: freescale: imx95-toradex-smarc: replace deprecated gpio property
+Date: Tue, 19 May 2026 17:18:18 -0400
+Message-ID: <177922546724.3325441.3811377585257660736.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260508-replace-gpio-property-v1-1-ec67cc64e576@toradex.com>
+References: <20260508-replace-gpio-property-v1-1-ec67cc64e576@toradex.com>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
+X-ClientProxiedBy: SA1P222CA0148.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:3c2::14) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|BESPR04MB12564:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0f84f84d-7c9e-42ea-fecf-08deb5ec2a1c
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|1800799024|7416014|11063799006|56012099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 4iLc9VoNJxGm28vksaq/4a5jbWzlIT5Tz9TbfflR6jhQNW/w6xBdxZJgNbhA9MrqVRrkSDcl3KwzHftJHxWRzUVHw/5C44ipVPANlEbRN2qcUgwoc0SIN6rYqAbqE1CEZpC6sUM0jRgu6ouTI/m3KIz76KZJWLpdSLkmQcsufM780CVCF+Rx3rst4MHiPiCQ0W2Agp46B5fh/8ux2fVqjmEdg+BZMqehy8dc/Xd+3Y6+2BIByqHxBWzq6olb5f1A3TTKhey0pSXB9g/SDuhpd3RgyHlYamQ+HxeZ+4Es1sezFdAd87USAf1eIJplkAHTC45djiUVB+zk/m4Au8zW9zrGoc8y3RpIEBmNH2r+Ic4wdwR836RIPBgV2vxT81aT60CUz8H8bYCuEMlwjMUVcIfL5pXwIrycCzNLC7hUvSz9/7JURA1+n2VAveKee7ZdiG7wvGOMJzfnkVSnKYehCUZmeJCmcfOiBtU+q0G62aTGT/lrcLXS9iXV+ZO29f6Owz6GKPrp2WFghELgNWY3wkfO7B0nxpVdaZMY9UrXW8xzSoW9uUxWdywGDs70OLFYrWVzBmXLdIhsdrpruxe/5awJQ46C8mB68+4vqGP1pFBfmwWTebnR99HgF0PbIY7LSAHljqR1fcHvmNjBgU11VGVwvo4GWBFos/7/d6b8Qng0rje/3iHHQxDfK4zGqHSa
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(1800799024)(7416014)(11063799006)(56012099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVY5UDJXRGwyMzY5RnlDL1JFREpnZjcrMnU3ZjY0Q2ZaUW9URnk3ZitqWlc5?=
+ =?utf-8?B?SDg0dEd1QWlHb2JVazNXekY1aXllVCs1SnkzMDZCRThEN0lqSHFDOWdnbkQ5?=
+ =?utf-8?B?VTNLZUxWVVpmMEg5cFBwNXVGeEJHWVVCampIODE3YS9yTzI3SlRQT0R4SWs2?=
+ =?utf-8?B?S3kyMWdQT2NoYm1RMnRpSEJxRzZSZ0RJb3ZwUUYxNlIwN3pQN3AxRXY5d09j?=
+ =?utf-8?B?eXJJOEl6V0IwbFFrSTNWUjFjNWFyMXV1QmtzZWszOUplUmRwdUYrcW92ZDZk?=
+ =?utf-8?B?eDJ0ZEEzMzVONUYzWUluR3BCZWZMSGpIWjlLZ1kwQ0NVaVI1cG9EVjJpcTJl?=
+ =?utf-8?B?TkFkZWdoUFErQzRMZHJmbTYzelZTem5zVUF1NU1ZdkZiVThKMEFYcGNoZzZ0?=
+ =?utf-8?B?TGZVandCdVFjRCtyVFBmWEx2Ym16am16VkVVT0hQSm1RS1JNV1VZbFRoRCtF?=
+ =?utf-8?B?OVo5anFRZEpPRUVXeDNwMlhQdGV3MmIydlhZcHVwMU8zWmV3S1p1Y2c4dHFh?=
+ =?utf-8?B?YkJNb2wyYld6bXZLRFNnYzZaUWdYUzhVYVRSZjlQbklPYkN1Nlh1aGM2M3JP?=
+ =?utf-8?B?ODZnRFRsYnRRWXVmUTBVUnducWZ3SkRnMVloS0thdkhQdHpjRGVpb1JOV0My?=
+ =?utf-8?B?emRRNWRPakllZXJMdTNDc3NBQlhhNHByN3p2WFJhR2RxNkNBQ0d0U080aXJI?=
+ =?utf-8?B?MHY0ZjR3OE1ranFjUEtobW9DckliTEYwVlNSSjZWTWlMalp6NEk2VVlxY3g2?=
+ =?utf-8?B?RlkzMFNXOG5DbHBmUGpJU1NVNjRERFhDZTB4WDJ3Z2FBMzcvQllvWFdlVVRO?=
+ =?utf-8?B?d2hhcnRGSHN0TEVSWGtaMVdZOUppWGF2ekVsWXE2ZXBOS0JubGJZcnNDUnhC?=
+ =?utf-8?B?OWJlRkg0TVI1T2d2QWk2OEI0OVRPdytMNXJJOU0vbTNLeWREamplVU1xVHZJ?=
+ =?utf-8?B?ZUdlTHN0V3l3Q0w0VFdLS0VkMnluWWtkTDdFOVlpb1NhZm1BOEc1K0FqM0FS?=
+ =?utf-8?B?T0Rzc1pqY3JEbnV0VTNoakpuREM2ZGJVcGtuTGR4d2YxOHloU0l6MmYzR1RP?=
+ =?utf-8?B?NzJJRG1ndnpEcGhHbEhGVUp6akFKZWY3ZkpLSWtIdUU1dDVtK21WQUYyZnJv?=
+ =?utf-8?B?dXQzZElsNlJHdytDMDIvQ0lHVk1TSW12bzZrUjMrQTUrK2RRVGR2a3JPbWw1?=
+ =?utf-8?B?TWNDb2FzNERzeWJ3ZTQvNWhENHpRT3hYU3V4SEFOY0J4U0gxVWxnZmV0Q25j?=
+ =?utf-8?B?N1R0cVRkRWd1WTBIRlM0aFpSaE1oajNmTWRZYlIwdk03eXhGdmJ5bXVDVXJ0?=
+ =?utf-8?B?UXZZNWowR3crM0hVY3l5ZitxR1ZkSFlweG1qZEtFMFNLS1V1WWF2UEhsTnRJ?=
+ =?utf-8?B?Vmd6dE9VWWVLdVZnMW1VWGprdEtsUFRSc2V6a2h3K0xUaDh5R3ZlYUhCQVpt?=
+ =?utf-8?B?RDFhTUMxRlZ4VjlQYlBRRUNiUFlxYUkwMHU0ZzIxamQ4eS9DRmFNbG5rcjI1?=
+ =?utf-8?B?bkxYcUxtTUxydjNaOW4ycitYYlNxVXZZNzdsVEdsQ2RZWWExTTQ5TGNYWWRO?=
+ =?utf-8?B?WEVmZkoxTEFuanZVVGx1Qzh2R214UDdYSUY1V2dKWkJKMllya1hQVHZkNVAw?=
+ =?utf-8?B?eGtMS1hxN0JxdlZ0U05abGsrUFoxVjg1TmZldzBrWUROQW5odHE5aUFWQS9Z?=
+ =?utf-8?B?VTI0aTRkV2hNYmZGUVEzY2h1NUIraUdEa1l3MXRLZ2xoRXJsbkFOcDdORWY3?=
+ =?utf-8?B?OHZTcStQOWRyNWoxUWZ2MjVBblBUSHQwSzYrK1NVM09BOEZRc2MzTHVDeVg5?=
+ =?utf-8?B?RDdXWk1HNEorZkJzZ1JMSjBmUzA2UmFPOUh1NkZaWXliL2UzSGovUEV0Y2d1?=
+ =?utf-8?B?NU1SYk1GWmZHZUw5WUZuNHVOSFh1M1VnMm1zSkhBS2dUNDNHYzRFTWpQdGNh?=
+ =?utf-8?B?SUo3VUlIUU9ZT2ZMaU4vRzRpNXZaYUpwakNjWWJOM3IvTEdPZGdLZ25jaTIv?=
+ =?utf-8?B?MkgyV2REYzhodzQ3dmR5WEtmNHlqVWFudjZQR2JlekkzNzZBZEs0ZzNEdkVK?=
+ =?utf-8?B?MGVCT2l2THRSS1h1R2E2RFhEdldiZ3pNL29KVGhKQjYxM0pzM21XcGtiVFkv?=
+ =?utf-8?B?aVRhNlMrU1BWNGtvSi9tUzJOZXMwN2JISTlGYTkvOG5PS01kcnVsRjhlUndi?=
+ =?utf-8?B?dkcvcVZxUmtwbUk1WkhhVlc1MGxOcW13QnA2ckk1TVF5ZjAxL2FEMG94M2M3?=
+ =?utf-8?B?NmQ4TFVSK0ZzRmV4eW45S3dFR1V3ZTM5N3FSTjRLRFlHekc2Vyt4TzRjRjBt?=
+ =?utf-8?B?R3hFa2lsUnB4VGdyeCs5QWJJaGFxWkIreC9QTzdyYk0za3JURE1GRjk4Nm93?=
+ =?utf-8?Q?4/U+5Cwt7i8Vhv65IaeRejqOJKxSeHFsPwK76?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f84f84d-7c9e-42ea-fecf-08deb5ec2a1c
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 21:18:25.8991
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tNTI86p2Q1wvb81cTkccDC2LJfmDdy6aKxA5LabQVkvYpfk02BqIPSiQea5U+GjaBXEngbyM9kV7S27ZFC6jHJWuGXZ1z9jjpv66CmCPpcQxAaROcNhiK8uAgoXWz4gE
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR04MB12564
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_141831_384428_6633442C 
+X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,108 +159,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 03:13:30PM +0100, David Woodhouse wrote:
-> On Tue, 2026-05-19 at 15:53 +0200, Paolo Bonzini wrote:
-> > On Tue, May 19, 2026 at 3:00 PM David Woodhouse <dwmw2@infradead.org> wrote:
-> > > Or some guest configurations which have only ever been tested under KVM
-> > > could have a bug where they *rely* on the registers not being writable,
-> > > and write values which are inconsistent with the rest of their
-> > > configuration. Which breaks the moment those registers become writable.
-> > 
-> > Yeah, just having guests that worked by utter chance - but you still
-> > don't want to break them - is the case that is most likely. Crappy
-> > code that runs only under emulation/virtualization appears with
-> > probability 1 over time.
-> > 
-> > Is this likely in this specific case---probably not, honestly.
-> > Christoffer's patch dates back to 2018 (commit d53c2c29ae0d); *back
-> > then* KVM/Arm was a lot less mature, and people developing for Arm on
-> > vanilla upstream kernels have moved on from Linux 4.19.
-> 
-> It's not really 2018 though. EC2 is still running kernels with that
-> older commit reverted because of the breaking change that it
-> introduced.
-> 
-> So the behaviour corresponding to GICD_IIDR.implementation_rev=1 is
-> still current for *millions* of guests.
-> 
-> I'm now finding that revert in our tree during a *later* kernel upgrade
-> and trying to eliminate it. 
+From: Frank Li <Frank.Li@nxp.com>
 
-Still, as far as upstream is concerned this is damn near a decade old.
-Decisions that you or your peers made in the downstream doesn't change
-that.
 
-> And sure, I have given the engineers responsible for that a very hard
-> stare and suggested that they should have fixed it 'properly' in the
-> first place with a patch like the one we're discussing right now.
-> 
-> And they're looking at this thread and saying "haha no, if fixing
-> things properly for Arm is this hard then we'll stick with the crappy
-> approach".
+On Fri, 08 May 2026 13:26:36 +0200, Antoine Gouby wrote:
+> Replace deprecated "gpio" property with "gpios" in
+> regulator-vmmc-usdhc2 fixed regulator node.
 
-The appropriate time to ask for accomodation was a *very* long time ago.
+Applied, thanks!
 
-And in the absence of clear evidence of a guest depending on the broken
-IGROUPR behavior, I don't see how the guest-side changes of Christoffer's
-series are any different from the multitude of bug fixes that we take
-every single release cycle. It is an unfortunate bug and I concur with
-Marc that it doesn't seem like the sort of thing a guest could rely
-upon.
+[1/1] arm64: dts: freescale: imx95-toradex-smarc: replace deprecated gpio property
+      commit: f68aa04e6eda5c1c673c6bd1cd76447bee1d03f2
 
-Because it is very much a bug fix, it should've happened without a
-change to the revision number.
-
-Now, the handling of GICD_IIDR itself is a separate issue. By my count,
-the series broke UAPI on three separate occasions. Before b489edc36169
-IIDR was RAZ/WI from userspace. And of course dd6251e463d3 and d53c2c29ae0d
-changed the revision with no way of restoring the old value.
-
-And really, IIDR should've *never* been used as a buy in for new UAPI
-because it unnecessarily becomes guest visible. 49a1a2c70a7f ("KVM: arm64:
-vgic-v3: Advertise GICR_CTLR.{IR, CES} as a new GICD_IIDR revision") is
-a much better example for IIDR going forward as it gates *guest-side*
-behavior.
-
-> I do not want them to be right. I don't think any of us want that.
-> 
-> > I would still lean towards accepting the code considering the limited
-> > complexity of the addition (in fact I like it more now that it uses
-> > IIDR instead of v2_groups_user_writable, but that's taste). 
-> 
-> I'm absolutely prepared to have a separate technical discussion about
-> the v2_groups_user_writable thing for GICv2, which is the second part
-> of that series.
-> 
-> It seems like the right thing to do, and as far as I can tell, this
-> code *never* worked with QEMU. But I'm not sure who even cares about
-> GICv2 any more. I couldn't find hardware and I had to test the whole
-> thing inside qemu-tcg.
-> 
-> But the 'IIDR defaults to 3 but the *behaviour* doesn't match until you
-> explicitly *set* it to 3' thing seemed so *egregiously* wrong to me,
-> that I fixed it anyway.
-
-Wrong or not, this behavior is documented unambiguously. From the VGICv2
-UAPI documentation:
-
-"""
-Userspace should set GICD_IIDR before setting any other registers (both
-KVM_DEV_ARM_VGIC_GRP_DIST_REGS and KVM_DEV_ARM_VGIC_GRP_CPU_REGS) to ensure
-the expected behavior. Unless GICD_IIDR has been set from userspace, writes
-to the interrupt group registers (GICD_IGROUPR) are ignored.
-"""
-
-I'm not inclined to change that. As a way out of this whole mess, can we
-instead:
-
- - Allow userspace to set IIDR.Revision to 1
-
- - Drop any bug emulation from the handling of IGROUPR registers
-
- - Special-case the stupid GICv2 UAPI where IGROUPR are only writable if
-   the VMM has written to IIDR and the revision >= 2
-
-Thanks,
-Oliver
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
