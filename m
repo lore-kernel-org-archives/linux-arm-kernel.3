@@ -4,74 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1694CCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CF3CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s52T8OnJdKYXI50uhhF0DnRneaRKJPrHl5f5Mp7KVPE=; b=vaZ9kMD/BVVPSKkmxbn3lgjiMK
-	knHWljX8AEcP6+VHe6WxBI2X9yLp5T1QiSnO9UtSeHYe8mdiSP49RHfK+TWHMzrOolqKDPPkpCQcg
-	dE157iK0lQrYrpJwt8Vye8ziQRjf6O+zC8uh40UFyRYLWOMU8V+zL//9waugoTtJUprxtocKwQRdb
-	WORAKlQtcgIB+ePEYIegk2Twbv+xGw7xrEMAFAVQCuzW9KQnFVXyWg4s5qftT4iI1fOwUOffZpTab
-	vO7Zv57VGymMlWJMQbyq5bI1yyINA4LZDbERTH2/bGehD0C7lPJG2ZhSKB5mIOPlE4DO0OXLR6SDB
-	xWJKKWSg==;
+	bh=z31A+Yns+m44y72wILb74PxiG+hCd4u+Y123tfDJv0k=; b=hSEMODRrCaR5ky1vXHr0zE3pCw
+	Bkk79ug4YJVNySeANT7DJjVS94AVIWCqVzs15P8u6eSIyZXYHj15+bp68sBPbooZLecMrFQzj731g
+	eiuNhOtE4En2YeeiWJENAF4uJ5niaTv6B1/ErUF+IXzv41+I8xkK0czkasJKQ/PdsS2Vlln2sk49b
+	Dfm8OiDOXGvNE1ilLSY/544586FX3h4PZq9wzxKZtP893g1GEn38ZuBYiSbLVI28hUuTEshuJt2AJ
+	LD0eqJuw35ExBwpm18LayOSG+iMlEJsd2LP/VAOYTopeAc3MP30o9PVSlajSJwRBSl92WBHy9G02F
+	FZOqhhCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKiH-00000001hV8-0fdX;
-	Tue, 19 May 2026 13:42:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPKjc-00000001hqp-28DR;
+	Tue, 19 May 2026 13:43:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKiE-00000001hUN-3d0g;
-	Tue, 19 May 2026 13:42:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 332C041984;
-	Tue, 19 May 2026 13:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11DB5C2BCB3;
-	Tue, 19 May 2026 13:42:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779198142;
-	bh=EdZVTx8mq/+o6OdrLkwiHGmu7Bazb8bJvDYV4PghBGo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CxN08qtpOBJ8IAiYT1NGbATSMveN2VuvCz+XRydDhhXI+x5QqjrTyhe5UIS691Kb2
-	 bS9w1ztocYeYGUfpqcashfOVc/Pb/0rjFRC4zdEfjCwigY5cmMMgpzI1gKRdtA3pI4
-	 v/VV+NqUVSeovPsja64sp9wWP72hVhslEn03pxycaef5UGhc7dYBhy2FZ2/Av0j3h0
-	 1dh5UBOVeGESCRqbxSUbKDq9gTnfNXjfMTy6NPbKLtEkxHtIHeWDfR+iPX1ZvW7L/h
-	 LBrO+E3xuhU/cNw3kbOQoavYiADtcJMriOizeGdr3j5sT3HlIxKigegez3GS/kKTHd
-	 Rpyd30xJMvmFw==
-Date: Tue, 19 May 2026 14:42:11 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
-	surenb@google.com, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
-	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <agxok1UzYWhLu06G@lucifer>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <b65722ee-6476-4038-bfbb-44a32b3544fd@kernel.org>
+	id 1wPKjb-00000001hqT-1Z1Z;
+	Tue, 19 May 2026 13:43:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=z31A+Yns+m44y72wILb74PxiG+hCd4u+Y123tfDJv0k=; b=qa/YiFmPv+dFh6g0iu/Sue4aCf
+	RF/O65Z6cXvgeggoyevJozhaAOoXTD5KEZyyKnCTs7Zn52mhFc943m3nwgbORK2lYfHg0Wyo25H0/
+	QEQnDp070Q/ViP0UyolwSSIqqI2LeFttn5yITHHvn9XRlL5KKARlit+yL4ZuOIqjyB8EKfru7hRjx
+	nL/OmPEhFlyoOtCs1R9B9K8gy1wuJz5yKAn07jari/C6m2hKzZeoSD387GOdZj5kLUTZKrqnzsBU2
+	YgvaH0PmHPpCC1m/w4sZpmuWRtd+N3oe75o4GTwXSw5C35IdzUC6C4ytVbutH3S3N/KwCcSbkWuhO
+	kSvE2yHA==;
+Received: from mgamail.intel.com ([198.175.65.18])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPKjX-0000000EPAC-2d0e;
+	Tue, 19 May 2026 13:43:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779198224; x=1810734224;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=exV8hygySw1KI0J7oiVeWZSbjE1gtP4/UQEEL14ddOw=;
+  b=U7Tuj9zlvwSFFWeKNEuAQQEdVo0OwqKsAjK2hmE10lIqLlypc0p/LADi
+   x3W11DjbSvKXsTQToOD5Sk4kARSwLxsdoHUhT5VTMsd/NdtufdsnOMTds
+   oZiE5Ob+jLun31FeBovAQ/NvXsMgmeMk4hY9jO9LkHnRa2AsfMB7Jlt/R
+   /9gbzTjmGQK7qefqTpL2XTAJIHadW7saBEKeWa8Emj8kLweq3Ug6jje9z
+   544uIR5THtEOXP38CYBFswNMks6K+al5CGjhWeL4eKNqlM0T10qIziGsg
+   P6/IWElop8pydwsBo9ZaOJPJSTKALcWnGakTSgIF6lC5A0RWYkBKZWxAy
+   g==;
+X-CSE-ConnectionGUID: yCQyrrTZQqSZIp3kpYBZLg==
+X-CSE-MsgGUID: jlhuIiAXS7OR9C+QjhZlpQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11791"; a="80127263"
+X-IronPort-AV: E=Sophos;i="6.23,243,1770624000"; 
+   d="scan'208";a="80127263"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2026 06:43:35 -0700
+X-CSE-ConnectionGUID: JZZhgaONSbu9Kph92VzKig==
+X-CSE-MsgGUID: Yw2KK65NR8eVdiGAgLaHAQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,243,1770624000"; 
+   d="scan'208";a="263555729"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa001.fm.intel.com with ESMTP; 19 May 2026 06:43:27 -0700
+Received: by black.igk.intel.com (Postfix, from userid 1008)
+	id 7C24995; Tue, 19 May 2026 15:43:26 +0200 (CEST)
+Date: Tue, 19 May 2026 16:43:14 +0300
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Hugh Cole-Baker <sigmaris@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Subject: Re: [PATCH v15 0/9] Add Type-C DP support for RK3399 EVB IND board
+Message-ID: <agxo8ic94e81nQRx@kuha>
+References: <20260304094152.92-1-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <b65722ee-6476-4038-bfbb-44a32b3544fd@kernel.org>
+In-Reply-To: <20260304094152.92-1-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_064222_954355_6E81DB77 
-X-CRM114-Status: GOOD (  35.17  )
+X-CRM114-CacheID: sfid-20260519_144344_264070_DF75417A 
+X-CRM114-Status: GOOD (  40.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +127,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 11:53:37AM +0200, David Hildenbrand (Arm) wrote:
-> On 5/17/26 10:45, Barry Song wrote:
-> > On Sat, May 2, 2026 at 1:58 AM Matthew Wilcox <willy@infradead.org> wrote:
-> >>
-> >> On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
-> >>>
-> >>> It doesn’t have to involve unmapping or applying mprotect to
-> >>> the entire VMA—just a portion of it is sufficient.
-> >>
-> >> Yes, but that still fails to answer "does this actually happen".  How much
-> >> performance is all this complexity in the page fault handler buying us?
-> >> If you don't answer this question, I'm just going to go in and rip it
-> >> all out.
-> >>
-> >
-> > Hi Matthew (and Lorenzo, Jan, and anyone else who may be
-> > waiting for answers),
-> >
-> > As promised during LSF/MM/BPF, we conducted thorough
-> > testing on Android phones to determine whether performing
-> > I/O in `filemap_fault()` can block `vma_start_write()`.
-> > I wanted to give a quick update on this question.
-> >
-> > Nanzhe at Xiaomi created tracing scripts and ran various
-> > applications on Android devices with I/O performed under
-> > the VMA lock in `filemap_fault()`. We found that:
-> >
-> > 1. There are very few cases where unmap() is blocked by
-> >    page faults. I assume this is due to buggy user code
-> >    or poor synchronization between reads and unmap().
-> > So I assume it is not a problem.
-> >
-> > 2. We observed many cases where `vma_start_write()`
-> >    is blocked by page-fault I/O in some applications.
-> >    The blocking occurs in the `dup_mmap()` path during
-> >    fork().
-> >
-> > With Suren's commit fb49c455323ff ("fork: lock VMAs of
-> > the parent process when forking"), we now always hold
-> > `vma_write_lock()` for each VMA. Note that the
-> > `mmap_lock` write lock is also held, which could lead to
-> > chained waiting if page-fault I/O is performed without
-> > releasing the VMA lock.
-> >
-> > My gut feeling is that Suren's commit may be overshooting,
-> > so my rough idea is that we might want to do something like
-> > the following (we haven't tested it yet and it might be
-> > wrong):
-> >
-> > diff --git a/mm/mmap.c b/mm/mmap.c
-> > index 2311ae7c2ff4..5ddaf297f31a 100644
-> > --- a/mm/mmap.c
-> > +++ b/mm/mmap.c
-> > @@ -1762,7 +1762,13 @@ __latent_entropy int dup_mmap(struct mm_struct
-> > *mm, struct mm_struct *oldmm)
-> >         for_each_vma(vmi, mpnt) {
-> >                 struct file *file;
-> >
-> > -               retval = vma_start_write_killable(mpnt);
-> > +               /*
-> > +                * For anonymous or writable private VMAs, prevent
-> > +                * concurrent CoW faults.
-> > +                */
-> > +               if (!mpnt->vm_file || (!(mpnt->vm_flags & VM_SHARED) &&
-> > +                                       (mpnt->vm_flags & VM_WRITE)))
-> > +                       retval = vma_start_write_killable(mpnt);
->
-> Likely is_cow_mapping() is what you would want to check to handle VMAs that
-> could have anonymous pages in them.
+Hi,
 
-Yes :) I made pretty much the same comment though I forgot the correct helper :P
+On Wed, Mar 04, 2026 at 05:41:43PM +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> This series focuses on adding Type-C DP support for USBDP PHY and DP
+> driver. The USBDP PHY and DP will perceive the changes in cable status
+> based on the USB PD and Type-C state machines provided by TCPM. Before
+> this, the USBDP PHY and DP controller of RK3399 sensed cable state
+> changes through extcon, and devices such as the RK3399 Gru-Chromebook
+> rely on them. This series should not break them.
 
->
-> --
-> Cheers,
->
-> David
+What's the status with this series?
+Are these inteded to go via the DRM tree?
 
-Cheers, Lorenzo
+thanks,
+
+> ====
+> 1. DisplayPort HPD status notify
+> 
+> Before v7, I implemented a variety of DP HPD status notify. However,
+> they all had various problems and it was difficult to become a generic
+> solution.
+> 
+> Under the guidance of Heikki and Dmitry, a decoupled notification
+> method between the TypeC and DRM subsystems was introduced in v7.
+> First, a notification is sent when TypeC registers a new altmode.
+> Then, a generic DP AUX HPD bridge is implemented on the DRM side.
+> 
+> During v7-v10, we added a new notifier in typec to notify the altmode
+> device register event. With the help of Greg and Heikki, we implemented
+> the reuse of notifiers for the type bus itself in patch1 of v11.
+> 
+> The USB subsystem related parts have already been merged into the
+> usb-next branch in v13 [0][1]. Therefore, this series no longer includes
+> these patches starting from v14. Thanks to Greg and Heikki!
+> 
+> [0]: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=67ab45426215c7fdccb65aecd4cac15bbe4dfcbb
+> [1]: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/usb.git/commit/?h=usb-next&id=4dee13db29de6dd869af9b3827e1ff569644e838
+> 
+> That makes it redundant for each Type-C controller driver to implement
+> a similar DP AUX HPD bridge in embedded scenarios.
+> 
+> ====
+> 2. Altmode switching and orientation switching for USBDP PHY
+> 
+> For USB Type-C interfaces, an external Type-C controller chip assists
+> by detecting cable attachment, determining plug orientation, and
+> reporting USB PD message. The USB/DP combo PHY supports software
+> configurable pin mapping and DisplayPort lane assignment. Based on
+> these message, the combo PHY can perform both altmode switching and
+> orientation switching via software.
+> 
+> The RK3399 EVB IND board has a Type-C interface DisplayPort. It use
+> fusb302 chip as Type-C controller. The connection diagram is shown below:
+> 
+> fusb302 chip +---> USB2.0 PHY ----> DWC3 USB controller
+>              |
+>              +---> USB/DP PHY0 +--> CDN-DP controller
+>                                |
+>                                +--> DWC3 USB controller
+> 
+> ====
+> 3. Multiple bridge model for RK3399 CDN-DP
+> 
+> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
+> the CDN-DP can be switched to output to one of the PHYs.
+> 
+> USB/DP PHY0 ---+
+>                | <----> CDN-DP controller
+> USB/DP PHY1 ---+
+> 
+> In previous versions, if both PHY ports were connected to DP,
+> the CDN-DP driver would select the first PHY port for output.
+> 
+> On Dmitry's suggestion, we introduced a multi-bridge model to support
+> flexible selection of the output PHY port. For each PHY port, a
+> separate encoder and bridge are registered.
+> 
+> The change is based on the DRM AUX HPD bridge, rather than the
+> extcon approach. This requires the DT to correctly describe the
+> connections between the first bridge in bridge chain and DP
+> controller. And Once the first bridge is obtained, we can get the
+> last bridge corresponding to the USB-C connector, and then set the
+> DRM connector's fwnode to the corresponding one to enable HPD
+> notification.
+> 
+> ====
+> Patch1 add generic USB Type-C DP HPD bridge (Dmitry, Heikki).
+> Patch2 add new API drm_aux_bridge_register_from_node() (Neil) .
+> Patch3 add new Type-C mode switch for RK3399 USBDP phy binding (Krzysztof).
+> Patch4 add typec_mux and typec_switch for RK3399 USBDP PHY.
+> Patch5 add DRM AUX bridge support for RK3399 USBDP PHY (Neil).
+> Patch6 drops CDN-DP's extcon dependency when Type-C is present (Dmitry).
+> Patch7 add multiple bridges to support PHY port selection (Dmitry, Luca).
+> Patch8 add missing dp_out port for RK3399 CDN-DP.
+> Patch9 add Type-C DP support for RK3399 EVB IND board (Diederik, Peter).
+> 
+> Changes in v15:
+> - Link to V14: https://lore.kernel.org/all/20260119073100.143-1-kernel@airkyi.com/
+> - Improve clarity by inlining drm_bridge_get() in assignment (Luca).
+> 
+> Changes in v14:
+> - Link to V13: https://lore.kernel.org/all/20251208015500.94-1-kernel@airkyi.com/
+> - Drop the patches for the USB Type-C subsusytem part, as they have
+>   already been merged into usb-next.
+> 
+> Changes in v13:
+> - Link to V12: https://lore.kernel.org/all/20251204063109.104-1-kernel@airkyi.com/
+> - Only register drm dp hpd bridge for typec port altmode device.
+> 
+> Changes in v12:
+> - Link to V11: https://lore.kernel.org/all/20251128020405.90-1-kernel@airkyi.com/
+> - Add missing Signed-off-by line.
+> 
+> Changes in v11:
+> - Link to V10: https://lore.kernel.org/all/20251120022343.250-1-kernel@airkyi.com/
+> - Switch to using typec bus notifiers.
+> 
+> Changes in v10:
+> - Link to V9: https://lore.kernel.org/all/20251111105040.94-1-kernel@airkyi.com/
+> - Notify TYPEC_ALTMODE_UNREGISTERED when altmode removed. 
+> - Add drm_aux_bridge_register_from_node().
+> - Fix refcount usage of drm_bridge.
+> 
+> Changes in v9:
+> - Link to V8: https://lore.kernel.org/all/20251029071435.88-1-kernel@airkyi.com/
+> - Remove the exposed DRM_AUX_HPD_BRIDGE option, and select
+> DRM_AUX_HPD_TYPEC_BRIDGE when it is available.
+> - Add usb role switch for Type-C.
+> - Remove USB2 PHY in Type-C connection.
+> - ...
+> 
+> Changes in v8:
+> - Link to V7: https://lore.kernel.org/all/20251023033009.90-1-kernel@airkyi.com/
+> - Export all typec device types for identification.
+> - Merge generic DP HPD bridge into one module.
+> - Fix coding style.
+> 
+> Changes in v7:
+> - Link to V6: https://lore.kernel.org/all/20251016022741.91-1-kernel@airkyi.com/
+> - Add notifier functions for Type-C core.
+> - Add generic USB Type-C DP HPD bridge.
+> 
+> Changes in v6:
+> - Link to V5: https://lore.kernel.org/all/20251011033233.97-1-kernel@airkyi.com/
+> - Fix depend in Kconfig.
+> - Check DP svid in tcphy_typec_mux_set().
+> - Remove mode setting in tcphy_orien_sw_set().
+> - Rename some variable names.
+> - Attach the DP bridge to the next bridge.
+> 
+> Changes in v5:
+> - Link to V4: https://lore.kernel.org/all/20250922012039.323-1-kernel@airkyi.com/
+> - Remove the calls related to `drm_aux_hpd_bridge_notify()`.
+> - Place the helper functions in the same compilation unit.
+> - Add more comments about parent device.
+> - Add DRM AUX bridge support for RK3399 USBDP PHY
+> - By parsing the HPD bridge chain, set the connector's of_node to the
+> of_node corresponding to the USB-C connector.
+> - Return EDID cache when other port is already enabled.
+> 
+> Changes in v4:
+> - Link to V3: https://lore.kernel.org/all/20250729090032.97-1-kernel@airkyi.com/
+> - Add default HPD device for DisplayPort altmode.
+> - Introduce multiple bridges for CDN-DP.
+> - ...
+> 
+> Changes in v3:
+> - Link to V2: https://lore.kernel.org/all/20250718062619.99-1-kernel@airkyi.com/
+> - Add more descriptions to clarify the role of the PHY in switching.
+> - Fix wrong vdo value.
+> - Fix port node in usb-c-connector.
+> 
+> Changes in v2:
+> - Link to V1: https://lore.kernel.org/all/20250715112456.101-1-kernel@airkyi.com/
+> - Reuse dp-port/usb3-port in rk3399-typec-phy binding.
+> - Fix compile error when CONFIG_TYPEC is not enabled.
+> - Notify DP HPD state by USB/DP PHY.
+> - Ignore duplicate HPD events.
+> - Add endpoint to link DP PHY and DP controller.
+> - Fix devicetree coding style.
+> 
+> Chaoyi Chen (9):
+>   drm/bridge: Implement generic USB Type-C DP HPD bridge
+>   drm/bridge: aux: Add drm_aux_bridge_register_from_node()
+>   dt-bindings: phy: rockchip: rk3399-typec-phy: Support mode-switch
+>   phy: rockchip: phy-rockchip-typec: Add typec_mux/typec_switch support
+>   phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
+>   drm/rockchip: cdn-dp: Support handle lane info without extcon
+>   drm/rockchip: cdn-dp: Add multiple bridges to support PHY port
+>     selection
+>   arm64: dts: rockchip: Add missing dp_out port for RK3399 CDN-DP
+>   arm64: dts: rockchip: rk3399-evb-ind: Add support for DisplayPort
+> 
+>  .../phy/rockchip,rk3399-typec-phy.yaml        |   6 +
+>  arch/arm64/boot/dts/rockchip/rk3399-base.dtsi |  10 +-
+>  .../boot/dts/rockchip/rk3399-evb-ind.dts      | 147 +++++++
+>  drivers/gpu/drm/bridge/Kconfig                |  10 +
+>  drivers/gpu/drm/bridge/Makefile               |   1 +
+>  drivers/gpu/drm/bridge/aux-bridge.c           |  24 +-
+>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  |  49 +++
+>  drivers/gpu/drm/rockchip/Kconfig              |   1 +
+>  drivers/gpu/drm/rockchip/cdn-dp-core.c        | 349 +++++++++++++---
+>  drivers/gpu/drm/rockchip/cdn-dp-core.h        |  18 +-
+>  drivers/phy/rockchip/Kconfig                  |   3 +
+>  drivers/phy/rockchip/phy-rockchip-typec.c     | 373 +++++++++++++++++-
+>  include/drm/bridge/aux-bridge.h               |   6 +
+>  13 files changed, 913 insertions(+), 84 deletions(-)
+>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+> 
+> -- 
+> 2.51.1
+
+-- 
+heikki
 
