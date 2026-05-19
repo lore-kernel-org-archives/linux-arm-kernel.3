@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CF4CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8A0CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:24:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7cg1utYwfiTb+V6lhVagMJjsdqjHFS2DGhwaCOrRplE=; b=r2tS1sR/JWa6kDY+jKj4gcYp3n
-	MXBjsbpnbGRgmPCNwpNpAXYgi/u3LkxTBbhHUIcof3DMvUgv5b0oi8w1gOovGygPfPqTYMA9pNA9+
-	7+t4Ac1j7RladM4DQPU/kQmsZn3MT5zNZedQcD2sz6IZ9QrLLdhyxW8eCufcJHr29dLbYuBTyt+jx
-	B3q3mAjoWTzgcrJ2mhjC4nLptzljCDkkwR1usb0GWTRRXRWGBdiMo8eR0Zz/U3kDKXENF0oYmPg00
-	Rmp3LB7Y94JnAooYxal1JfA2S6F2zsbnGUW7vVPQhz9DA69yLPfGcx0dV5dqusUg30BpunCE/x4LN
-	0StUWycw==;
+	bh=detr1zoNhyOMY5amPMEIGBGb7MFv5skRutzC47CO9bw=; b=aPaUyj8Sv9I11p79UNBBS6Dnzl
+	c0UQrQD4Jp/nLtroIRjeoSJzhPpQIU46Mp6BgnWAsgXEN+78bCfKhMMbR5lmIlGAW+WGmoKZb72fA
+	g1+fkuChxUouPgR7kjOF21bma9nI9FEvcHq1EbY19JhAgyCalxoUZbrPVdCbfLNQwd/+tSUtp51Bv
+	4Ixp6kY9W75x54jutbTCNKx3sAX015Xkh2ux5SLAAWP+jwVmlV/zavFIcBV1yjynes2pWp8huflFu
+	f/5/6+3lBy6BuqCddu5jkAJEUOAhhkoEi3McSs9Pbeb94RsmE5VUR41IaJnqL/fZ5qHaXzVsqCPUD
+	dlHAAfWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIa-000000020mQ-1ZAz;
+	id 1wPMIa-000000020mc-20qG;
 	Tue, 19 May 2026 15:24:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIF-000000020bW-2FpM
+	id 1wPMII-000000020dj-0Zgz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:23:39 +0000
+	Tue, 19 May 2026 15:23:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC3326021D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 721D96020B;
+	Tue, 19 May 2026 15:23:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 158B3C2BCB8;
 	Tue, 19 May 2026 15:23:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 937E2C2BCB8;
-	Tue, 19 May 2026 15:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779204218;
-	bh=tKQBYpT3697CvR/eRR0KPRe6RFtDdAPupyrmFvryfL8=;
+	s=k20201202; t=1779204221;
+	bh=Yn9anD6S2sdeviR6DobfIVvn2ZavCIs6s3fiL/K+EFE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m4MbMa0g9LByzbaU+tBMRjuc9LJm6PxE81eiY/DnXxAlYyAb4F7WIoHlTuV8OrG98
-	 oRA2/3CossOVllXcQg8YprF5ijbIlHhY4o2IEsnCEkUlNWVdDRNsbKDkulx32W7mf1
-	 QmwyNNkC0BD0nXT3mZZ/84MY3uw5j+O1bNZvkL7I3Qo7amsxoiSdNJD6b55EmSywd9
-	 LuN07bgGmG/mNTixJXNOFLS1zztsEjUy21p6gH90ovOzwJrRDw102kNF0seU5Re/N6
-	 5FijeC7uB9zBB0G4xMupD1a1S3Fd4Jv7vQSSEdbo8JQ9ud3kMFTWY5b0E4WMGV22LK
-	 YzYmQE1fBySIQ==
+	b=Qyb/zaDkk0Kxc8Y+fiFGDHHWFnP4tzKZmSMEDXArE7dhcX8sAtLaT8yW9ehnS9ppJ
+	 AC1keOftP127xOq9iN139McgXqqOTEx0e8Ey00jaBiCQ0+FyaCbliWv6WN8ewFEIux
+	 WfwWP0M3ARPhI/z1SQt6RC+7WpIO2/WmsI5pTGmCKO3VWrGnh9J7jck6sk2U97MDmu
+	 fXuAjdvZXhM0/ekE3DwDi+dyF/tPLLPgdg7AU8mH32oF0mku5GJ+MWos2zpJphD8FM
+	 o1nuPu6Tza+gJnLxCDEmB8S2HPlv059UxhZ1hm+bdJ0i4yozSMCmB/0pwwA18Y1DD/
+	 0lt2lWbaV0Zmg==
 From: Will Deacon <will@kernel.org>
-To: Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	bibek.patro@oss.qualcomm.com
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Mark Brown <broonie@kernel.org>
+Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	srinivas.kandagatla@oss.qualcomm.com,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Shawn Guo <shengchao.guo@oss.qualcomm.com>
-Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Fix fastrpc compatible string in ACTLR client match table
-Date: Tue, 19 May 2026 16:22:54 +0100
-Message-ID: <177918570897.725893.17447458328924227845.b4-ty@kernel.org>
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v2 0/2] arm64: Implement support for 2025 dpISA extensions
+Date: Tue, 19 May 2026 16:22:55 +0100
+Message-ID: <177919551472.843780.18117053245871054269.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260423100230.3462214-1-bibek.patro@oss.qualcomm.com>
-References: <20260423100230.3462214-1-bibek.patro@oss.qualcomm.com>
+In-Reply-To: <20260518-arm64-dpisa-2025-v2-0-b3367b73bd00@kernel.org>
+References: <20260518-arm64-dpisa-2025-v2-0-b3367b73bd00@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -81,20 +76,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Apr 2026 15:32:30 +0530, bibek.patro@oss.qualcomm.com wrote:
-> The qcom_smmu_actlr_client_of_match table contained "qcom,fastrpc" as
-> the compatible string for applying ACTLR prefetch settings to FastRPC
-> devices. However, "qcom,fastrpc" is the compatible string for the parent
-> rpmsg channel node, which is not an IOMMU client — it carries no
-> "iommus" property in the device tree and is never attached to an SMMU
-> context bank.
+On Mon, 18 May 2026 16:07:28 +0100, Mark Brown wrote:
+> The 2025 dpISA extensions introduce a number of architecture features
+> all of which are fairly straightforward from a kernel point of view
+> since they only introduce new instructions, not any architecture state.
 > 
-> [...]
+> 
 
-Applied to iommu (arm/smmu/updates), thanks!
+Applied selftest update to arm64 (for-next/selftests), thanks!
 
-[1/1] iommu/arm-smmu-qcom: Fix fastrpc compatible string in ACTLR client match table
-      https://git.kernel.org/iommu/c/a6e1618a65d4
+[2/2] kselftest/arm64: Add 2025 dpISA coverage to hwcaps
+      https://git.kernel.org/arm64/c/7da70f41da81
 
 Cheers,
 -- 
