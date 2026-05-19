@@ -4,141 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FEFCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC19CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHd/seu6GWeewtLPWuKEX1k3PpnC+gd0X961ojf5+Tc=; b=HKgguryqncAn7QDgFukqL3GPz/
-	+WOw5l8gAKak2yQovYA+WTjeo0s/fSO41kFxK8gL0UzVlvBi3kwAodnCZBxUV/B0tfRcTXBIjaGUv
-	+oYJH1Q66jdsEkpgslUV7LmztxiZh9mpC/Bv1WtlN/XaVCvOMM4E75IGG1DuekKyPYn1OSUMni6zE
-	uKBN5cz9TLZuZk/7wZj2wxx5EBNjA8vpSfUVCIsLWRuljsHiHVJAwIAkZKP7KihHRgM+PnDO8qtPJ
-	ZbauG4f5a1gO7cp0zEgy2DxnkS0a3VX0AVmtNgOfVgqb6FhgGcc/z3OB5E8tSxrfFk5z2Plgu1OAl
-	4swc799g==;
+	bh=gMJunAX4GgTUnfdlT58BrIL66UezK+YQZcmeEHYrE2w=; b=Cg2ni9Seo57PDSOpK8864G8sFF
+	KZCsrWqBhsWfsV9/vCNulqz8T3DZkEiY2bwkX2dRKxKZrZnRZdBBk+Z0SdJ9CfQys7Osu3N3Mpw2J
+	O4ZJHTPLVT3CubIxjeC25cjFiWAzwhWn0DzFMLO1ZqLBw15a4qp4UXPY8om8ql4iEGbSQLhx9+l/8
+	zjTQA+uuIDOIksiWMu7IogfBuFHprIVnSIJQuhNSJaeJ1smrAihmlxqzhUVXzP4SPh21IYJbZX5uf
+	EWXia9zxEi8e+Uibw88TpQPSXcbmaIepP0HAwvo14bc926ihDn8nDlwCIoIL1VVss7xqVcUCyQc+w
+	I5z5pbTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKtC-00000001jN2-0YT0;
-	Tue, 19 May 2026 13:53:42 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wPKtO-00000001jQ3-13jZ;
+	Tue, 19 May 2026 13:53:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKt9-00000001jMU-2dQt
+	id 1wPKtL-00000001jPB-3OUa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 13:53:40 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64JCa5D91396708
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 13:53:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SHd/seu6GWeewtLPWuKEX1k3PpnC+gd0X961ojf5+Tc=; b=XBxhJYGQgHoNEFMl
-	89KArmF0aZ/h9a2LoUeXhUrYySj9Y1oaF8J8BR7JC1ZWz8QTTHnSksW4EhBh4Jbx
-	9OTdEZVwd735yccEBgkFaekYCtS0lESzk8YcOQAQsC/9J39+sSF5e87uI8Wwjj57
-	weG/UlD/ZpTD8XudL+6M8ErVvAKzawCgqfi0PMvU7lFe+4+Av3jE/+PvpdH6A6Ce
-	IQvAM7Sw8DTDoG63APSaxxA0faWxLTZU7ywBpi8xuezyMq9ggYz3s496JfVfVwsH
-	QEchz1Y19grGgFYd87dOHI+0Ji4EMTLBAFW4t5lm/yMpWafVph5RTGdfcZiU5X1J
-	Lvag9g==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e8r0q0axv-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 13:53:38 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3663d5e9bf4so3153602a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 06:53:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779198818; x=1779803618; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SHd/seu6GWeewtLPWuKEX1k3PpnC+gd0X961ojf5+Tc=;
-        b=EHQf5AW+ESt95Ysfi7P2o7E2NEDR5RxVtd5ZWX+ISKZTiaoY8wtFauvnzHU0b/trpC
-         lYO2PtYLrUW6FNz+RRfXZ0idPZ4fkYQxmYlaG/V0NCV8u8z96zxgPBbfnE9Lw2OsJIJw
-         P3GUS2b9iCkY36AXrnSL44zx/dfcMZx3vHljerWfZg4WvAgOLXtlx+bhMOdqXBJzeHtA
-         +oAirFEq/DXImMk44b3tWxJpIx5hBmS3EGeYo6AfysGsgClYLpfNQNJDz68Yt7MKN3gY
-         1+29jqg+UVXifBTyOZpWAJaADTxskMJ2ka8O/r4QrZZmIJnpojStemd1mqeoYL7UWs4Y
-         0YTw==
+	Tue, 19 May 2026 13:53:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779198830;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gMJunAX4GgTUnfdlT58BrIL66UezK+YQZcmeEHYrE2w=;
+	b=iAOyXM6oQKGCs3i0/y0cFzEni5dv8jqdIw6V7e2MBE0bkr3xUNRQbr9iHLp+yR5eaN4SqP
+	NqxK9BdUgdRY0+n+QnyRh3mFZTxJcTRDbRajQ4xnj6AEbG9oqqNdc6067SEQCBkqGGvFZ4
+	zpgi17kDbrbtBPPjwyJIMkKWNTkANfA=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-418-dhieIqW-PJeyP3QzOzjtiw-1; Tue, 19 May 2026 09:53:47 -0400
+X-MC-Unique: dhieIqW-PJeyP3QzOzjtiw-1
+X-Mimecast-MFC-AGG-ID: dhieIqW-PJeyP3QzOzjtiw_1779198826
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-490261c79fcso696005e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 06:53:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779198818; x=1779803618;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SHd/seu6GWeewtLPWuKEX1k3PpnC+gd0X961ojf5+Tc=;
-        b=TKZzhIBlR9wsgtIU2liSvbD3dBT9b0ZwxQ5u4snH1RD4c6Cl7pNPPGBoQaFKDSopSA
-         7YKIc2C9EVfd7DEdjfzmMew4mrDIlfUmNn4mgtF6O0Hg7D4Q2rtCyZ9+7FyTJeAAQ0/Y
-         iDRQeWLEPlV1pea++2KJUQqay+qh2V4SI+YPIrwhSItG+Bl5Ueuted0kNDMKaUdcEswY
-         4GFZ8so5N6Di0JRY1VY81/AHTrynxBtTjCiO5gABA0x330NQJQXEOvVLYIGoEbVCJFtq
-         rpB61OixA9Ocb2QB7QIVQei1mbbwjJkLGc4iOKO1dl9vYgJysoqBa5kdg66LggF6qv5v
-         PvGQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9atCiP6uvyQZY6P/mWaioDJ0xBa1aFqZlEGIivXAXAMkD57RHP9MlzcnLW9gPDU4XwZSTMzNPha2krOgnMj7kH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVdnZaIx+k6HzdnQhFNjeuyV0kvaEywEGXoqWlyMxW8LwYsdl7
-	IiYm8ohrMx1mqfscqVgSZg47xuvXSbS1CHrfaa1VVfOag35fNyYqmtq3EWVBo9Kz1EjOaLBjLh0
-	4Lmy0Y2Ot2G+0lCFOCK6NA076N8lwevaE2XMJAjUJmRjS9XZ0LEGr/9HNwGmWicjY4OY2Zpx5rT
-	fdeg==
-X-Gm-Gg: Acq92OGp0HAtIEXtqNYXUbYYKajn/Pwt71S8dD1rXLBpMlnsDe9ZFovgRcCtVRKvWWx
-	++xypC/QG/YCgJtgQ8/JS4VvcwT0YxLavgJy8e+J9w5yRCWsXaFYYnbUHnnUKWR782wUKn5kBS5
-	exvtqOqbXdyw1VWdWESDLfx0Wial3Lihc7IOedecrL43CbeK/J9/Fy/WIZ9/C1taJJKOuIoViXj
-	xSgjuMVuSbX30O9U3y7+OowXAF8TNa49eN7JIB14k9jzykLQYWGyVSsoy73w+mM45zByCL775Cg
-	q8IyEdNt5HVePHkkl9z0C9akAmIh/RIaAqMG8Qr0c0rD8U6tB0axZnldvgb5C3ynLmk573bOk14
-	yUKyA6aWP3tJmYONdElw+QrLuetUOPMIwv2sYwObLS0NpXmY1
-X-Received: by 2002:a17:90b:3505:b0:368:9da3:c496 with SMTP id 98e67ed59e1d1-36951ca7638mr19545333a91.24.1779198817947;
-        Tue, 19 May 2026 06:53:37 -0700 (PDT)
-X-Received: by 2002:a17:90b:3505:b0:368:9da3:c496 with SMTP id 98e67ed59e1d1-36951ca7638mr19545289a91.24.1779198817413;
-        Tue, 19 May 2026 06:53:37 -0700 (PDT)
-Received: from [10.219.56.98] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-369c4bb4d4dsm3568780a91.1.2026.05.19.06.53.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 May 2026 06:53:37 -0700 (PDT)
-Message-ID: <a437f9f9-3560-40f8-85ea-35433e33c428@oss.qualcomm.com>
-Date: Tue, 19 May 2026 19:23:09 +0530
+        d=1e100.net; s=20251104; t=1779198826; x=1779803626;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=gMJunAX4GgTUnfdlT58BrIL66UezK+YQZcmeEHYrE2w=;
+        b=SiRbNszZxJMGl4qWjV7Vst1taQhqDQBLphc+W3TfvYQJFXiaTjACSG2AIKelyld6sN
+         HwNpLIHEuG+C4hdVRrtS67ekRb8nh50RYJ9ltWB8xp3fH+Q5Y+yRgfNo+UH6cD76VTms
+         KlKNAZBD3CyowlaxUJNx/Vch8+mWGQnJjBefuSOw2wNY2/X6cXdPPu8fvmRG1FiJ8Eon
+         kSvX++9qeVOvogCwZu3Cdn4zC5ldQpKL+NFjBXpyzhLCbJSjAcklIs/hCsKNj70McN80
+         n3t9Qo5F3IT56QZ0mPVOvcf02TVkvUc1if2DVSOAF5CsTorrpFOGdhog0W5vcmhi7s98
+         k7HA==
+X-Forwarded-Encrypted: i=1; AFNElJ9DWsPVt55B/Ku24ffCSE9zi+zUNcIR99z5mTq9o2h666nBW9S5ktU78hmB0B2A1aQgZ68KKqW1uKP3SeeV7kQW@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRtDZIF4EX1jsN8W//ZHcqT14klCMR5bopHA4PnCMsQvO8EwLu
+	MK6BiuRwfNBnsVigx5DbKjxcHOFica9nbf93dMeRC6ETeNMVqkOHonef10CsDwW6O5r2RA5z8+H
+	Kmm/dJEU9gY2XgJK+xcdxj3HgPM0xUnvZ5NgLagccU+9dbl4q18VNPzQyPlT2imYs1g/MyNje2g
+	YknaVCytevurVaEJK0o3datbhx/URsxSAoHKd4mZ7qpjF/CRkJnzI=
+X-Gm-Gg: Acq92OGNSh0mJzVCfO5+ob5uFzgI/ZXoflXzz4243AKGzmWNbRFzxHcw7Nti2874f+u
+	AQwKxsBpPa3YPZz5DIVMDjsoGoSgncSFHY6hG+yKzMl5X6bh0DzR3cHYi982cQ0C9zcK6UjcoMW
+	AkZ+PHSJ38e/e2DZN33tb+IOvCIkFtT7FlHcWqmBq5TytnxJQDTiqgGN3JyyaJE/OUPyKwVdQka
+	9Ddykx4q/deCWiNUlBedvvPT+NZ56bj3Do6hLYoaJ5liDUqFqgMTH0M3mptLwO/e1BYTC76D71K
+	cFbDSQ==
+X-Received: by 2002:a05:600c:4851:b0:48a:79d8:a8d6 with SMTP id 5b1f17b1804b1-48feea99dc7mr159587295e9.7.1779198826440;
+        Tue, 19 May 2026 06:53:46 -0700 (PDT)
+X-Received: by 2002:a05:600c:4851:b0:48a:79d8:a8d6 with SMTP id
+ 5b1f17b1804b1-48feea99dc7mr159586875e9.7.1779198826081; Tue, 19 May 2026
+ 06:53:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: iommu: arm,smmu: Document optional
- interconnects property
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260516-smmu_interconnect_addition-v1-0-f889d933f5c1@oss.qualcomm.com>
- <20260516-smmu_interconnect_addition-v1-1-f889d933f5c1@oss.qualcomm.com>
- <20260518-mellow-robust-caterpillar-93fcaa@quoll>
-Content-Language: en-US
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-In-Reply-To: <20260518-mellow-robust-caterpillar-93fcaa@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTE5MDEzNyBTYWx0ZWRfX3N9mXVdxePiZ
- gj/BIFQ+G2YftYhz7Sne5h6M64W4lbz6gRKdqWieEtMYJXLV+YJLw7w/Et66dtBdXm3MkVQUL+M
- v8gOomFPzFapnZhKQXLeM4f44EJHXvTre52OVMiONRm8K5SC5jAXugm75HccnTpRP8OzrJTIfnh
- 9JHG/90Qjg3FTwlNq5rzstXTXr90Ucg65upclazgL0Zlm8a4hXqXz8j7AbQzRs8oeobtv0fau9l
- HWmrLEoq+Q9QOuVXJGUbAva1jdhLiAwTNba6gPbovSbk1rY7K3o3UbKfR/QGukBWTKgxTmomGVM
- vEVQ70zzAoK53sSPQBys0nnnOS0aZuAk0Qrw/J5vn2YeBEPDQYqpVa6IHuswQ7q84e+ea9Z71ou
- 8q5AgpT10NzsWoHwWG9Ryfk+AqFrOtRhce6TPAlSTq3vkPdqpyKpNgWR4UIMYFk7+n3Lo2O68xl
- n/zfuRmkCuDPoAQORvA==
-X-Proofpoint-GUID: 7ClvCHKsxjD00qVP2XuGIRg4b4Os-VNr
-X-Authority-Analysis: v=2.4 cv=Q6/iJY2a c=1 sm=1 tr=0 ts=6a0c6b62 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=EUspDBNiAAAA:8 a=E2rNws97cCCTNOQwQB8A:9 a=QEXdDO2ut3YA:10
- a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-ORIG-GUID: 7ClvCHKsxjD00qVP2XuGIRg4b4Os-VNr
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-19_03,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 spamscore=0
- phishscore=0 adultscore=0 lowpriorityscore=0 impostorscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605190137
+References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+ <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com> <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
+ <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com> <86h5obya2r.wl-maz@kernel.org>
+ <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
+ <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com> <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
+ <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
+ <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
+ <agxFbniU_6eQ98t2@willie-the-truck> <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
+ <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
+ <86qzn7wp3y.wl-maz@kernel.org> <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
+In-Reply-To: <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Date: Tue, 19 May 2026 15:53:19 +0200
+X-Gm-Features: AVHnY4J8OrpUxEzodEMJc7lM9sDn1bgq4nXZ_hmQu7D8CU-GrOTBpsMt27h0TJk
+Message-ID: <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility expectations
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>, 
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
+	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>, 
+	Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Raghavendra Rao Ananta <rananta@google.com>, 
+	Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Nathan Chancellor <nathan@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	kvmarm@lists.linux.dev, linux-kselftest <linux-kselftest@vger.kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -i4Qa7wn7ArpWQUfq6p3-y9DePCEgtEBOWMMhF2KvDo_1779198826
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_065339_695406_EE640FFF 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20260519_065351_918944_592F3280 
+X-CRM114-Status: GOOD (  16.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,56 +122,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, May 19, 2026 at 3:00=E2=80=AFPM David Woodhouse <dwmw2@infradead.or=
+g> wrote:
+> Or some guest configurations which have only ever been tested under KVM
+> could have a bug where they *rely* on the registers not being writable,
+> and write values which are inconsistent with the rest of their
+> configuration. Which breaks the moment those registers become writable.
 
+Yeah, just having guests that worked by utter chance - but you still
+don't want to break them - is the case that is most likely. Crappy
+code that runs only under emulation/virtualization appears with
+probability 1 over time.
 
-On 5/18/2026 6:03 PM, Krzysztof Kozlowski wrote:
-> On Sat, May 16, 2026 at 06:04:03PM +0530, Bibek Kumar Patro wrote:
->> Some SoC implementations require a bandwidth vote on an interconnect
-> 
-> Then this should be disallowed for other devices in "allOf:".
-> 
+Is this likely in this specific case---probably not, honestly.
+Christoffer's patch dates back to 2018 (commit d53c2c29ae0d); *back
+then* KVM/Arm was a lot less mature, and people developing for Arm on
+vanilla upstream kernels have moved on from Linux 4.19.
 
-As of now, we still are checking which all SoCs do not need this 
-interconnects field. So would we need to add the allOf here for now?
+I would still lean towards accepting the code considering the limited
+complexity of the addition (in fact I like it more now that it uses
+IIDR instead of v2_groups_user_writable, but that's taste).  However,
+there's a huge difference between setting expectations based on 2018
+vs 2026 maturity, and perhaps that's why Marc overall is inclined to
+put this in the category of pointless bug for bug compatibility?
 
->> path before the SMMU register space is accessible. Add the optional
->> 'interconnects' property to the binding to allow platform DT nodes
->> to describe this path.
->>
->> The arm-smmu driver uses these properties to vote for bandwidth before
->> accessing any SMMU registers and releases the vote on runtime suspend.
->>
->> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
->> ---
->>   Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 9 +++++++++
->>   1 file changed, 9 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
->> index 06fb5c8e7547cb7a92823adc2772b94f747376a6..5cbf944f2d3e178b3723d4dbaa19ee0d33446979 100644
->> --- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
->> +++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
->> @@ -243,6 +243,15 @@ properties:
->>       minItems: 1
->>       maxItems: 3
->>   
->> +  interconnects:
->> +    maxItems: 1
->> +    description:
->> +      Optional interconnect path to the SMMU register space. On some SoCs
->> +      the SMMU registers are only accessible after a bandwidth vote has been
-> 
-> Drivers are irrelevant here, drop. Also first sentence is redundant.
-> Schema says what is and what is not optional.
-> 
+In any case, there's no arguing over this documentation patch, which
+is already a good thing to know.
 
-Sure, got it. I will remove the "driver" quotation and "optional"
-wording from both binding description and commit text.
+Thanks,
 
-Thanks & regards,
-Bibek
+Paolo
 
-> Best regards,
-> Krzysztof
-> 
+> And those hypothetical cases *do* happen. All of the time. There's a
+> massive zoo of guest operating systems; not just the major players like
+> Linux, FreeBSD and Windows but a whole bunch of embedded home-grown and
+> network appliance kernels.
+>
+> Nobody is claiming that we shouldn't fix any bug ever.
 
 
