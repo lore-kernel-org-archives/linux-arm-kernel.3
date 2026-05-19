@@ -4,121 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E24A8CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B5CCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:39:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2jBYQyB5cOJsBc04yDDPLVV700aJQU8UB+xEqw7DWQ=; b=ZunNKXIwRzUzinSRtjZs3xZ91j
-	Jc4fHlcQL0gweWkR3TkiN7Lcw5me+In6sonomsQT8fGZF07Co/yLOgCRHD8Q309xCP0hqMrpqLbeG
-	cnwWEUh5vZDsqPiCygOxOCmPumO33+yXr+Dlmoc9WulbmJTGPSInl59D6Byq60YlFERrLaIThUT1+
-	RnWiQGqlz/hD91slFcXDawA3L5y9nlqOtzGoLL4hnrshDxdhdRGFNob/cTLQCZdTaescUavigcJLl
-	kyuBNszOD7CaDqKefJnW8AvBqIbEmY4GII0+VdkG6uke6AQf7iYlNV/KnPKTxoc+ZO4cP+FJT0m3o
-	T3QCHMQg==;
+	bh=gWF5XfW9chsqGrjXYDJmzWSs3rM+V79PPtuBQCit/f8=; b=OV+5N4n2GSsmLoM+tBHaoMhGZr
+	selbt3HYL5FlEWzjziSPP0ncELDHS1oZODvXSF5orkb38FNyMxgmhxXivXtPiL2bhMCzlncwegk7e
+	mzVyk1QztNG4QFXyPi/wxjOjRuRY2VXS0AopB5YEtBK5dSHAy7GI8YYVoeBoVr0WtCmv5ArUU5J8v
+	XUoKHNVsj6nFQDpyhI9e5j2Il3EU0z+fr5Qr9D6EwnYgxbVxWUYHz8VSikXkc/5N4BNyP1b4M5zy0
+	1SCqgMivYXC6vBj5N9XBObZNU1Y9jhpM0FKX/PZfQzRm4fUxxtZUh503m0bxuCsIf98wIaPI/K4T9
+	+GI9VXWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKfH-00000001gqc-0G9X;
-	Tue, 19 May 2026 13:39:19 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wPKfn-00000001gxo-2rF8;
+	Tue, 19 May 2026 13:39:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKfE-00000001gpu-0iez
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 13:39:17 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-50faeb8317bso33617911cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 06:39:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1779197955; x=1779802755; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y2jBYQyB5cOJsBc04yDDPLVV700aJQU8UB+xEqw7DWQ=;
-        b=XvU+rxoy84dgjsUACnxTS9g1kjtO6c19IQ6O0vlfRt06aDWPhC2bvfY5UmnpXGnfqD
-         7qGrYcK7Y1bnGJ8lcfrrBu99QLbPg8utUwW2rk9mNbclKm9hWf95UzsxRjTy7uufiLSE
-         NYiGGwB9gVveT8kG9sL2w1cjhB0B5Pttip9M2LdEYt9k2BICNaoZmNcfa3dVO1yhJFm5
-         qDKEVSNehijb/F8be3pXBbJedIqIjkOPEjbMzlvYtfgOl9jfnpaQQNYy+pqriWJupzmr
-         H9N0wIZFqLm1yWmJKlyUR1jZYckMlx2p9kJIkFzhF7xku0Gykk9R1zk0r1YmSahsFouh
-         OI0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779197955; x=1779802755;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Y2jBYQyB5cOJsBc04yDDPLVV700aJQU8UB+xEqw7DWQ=;
-        b=TfuUMaq2GGMaHOhB/iqHPlsyO78LvaTC2GEEWPAVL3GKQKJEDVNcXHqqm7mNjPILkN
-         +3QRj6N3JKXRvl/740cDlcHKzcxHW6ZFxdaHPq5EtzUYnFrBgLYekeTd6mYi0uvGx9BY
-         8+RDrPZNlwoL1fy7lpmfqsZEzhSTG5eRsyhHpxxsoCJWX/33oexRmRTXIM1EYJftszJd
-         2Kj0Cp1bTz19PPguu8wD7hjTpnJRX4efYMvKAdfb9LoYndIN3oKaXnJoqNwaM3ozjD6P
-         CPQ35Hu7UjH3NpvV71b8FW9y5ZUxcqUWNxAfVdnAVMACFB7EJQugAdxYIsEGbtFDmN2z
-         WrLQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9ReOLuzTm5vqFsqso0p7D/kMjL+v91McF38ehQ3QP93wl91w8QW5mdfqMWwAfnMBMxBpXKyMqyrm3oKGb3KLuf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjjQFn5Rj/yNpem1qEyyBirOAt8IGKD3D+GBhz02Aa0G/R2UsR
-	QnkBQgMjeij1sUrrcCwjeV8vcqkUEOlS61cufdzTgtc2gQ4/yTri/4dKxH5QaoJ5j3A=
-X-Gm-Gg: Acq92OGovEjDDSU0x7Uy2UeOOd5P5XWzyAjIecc+Xch3cx+CrVwTHI3xFoHK9kCqE1y
-	yGlg5U7lUR1t1IMwQ74yyaD/SA0Z63gC+IzHihhRkFl5GSr49HQ3R4RnrBQF5IizVZjDKlE5Iwh
-	kYZjKIkGyvDvyZfvpkOeU6iVOuhSfNkLtn/adr4F9a9q/ELORfdQHPbBB//XeWLL5tFpciwCW4+
-	HlxuSxxDwQ8RQfFU0I9Qg7aD2uYwnSsUOJSh3QG7CY1VaTi/Vs73rwl7ol5PdhYMizf4Z/x91eK
-	OPAiLrcLpow8patngURdYIDzXKMSk+ni95l+olbWfHX2LwPRKtu8gTuY/tdqNLTt7K68itF0gKs
-	2PYeHmVToJtG5kmGjxRC8goNNHCNPlB7Pdd3uMdiVSFRo+WcditnD6oEXiRRFX6f/Y1r2maL0tK
-	+sfmkwd7FapXfJsVkiDeeN8pcz1eXSkYPein+8lx/Y0G0/JxSD5gYPgMepYHXD6QE1+Tnl3HnpH
-	wtIFQ==
-X-Received: by 2002:a05:622a:50f:b0:50d:a6e3:ae1 with SMTP id d75a77b69052e-5165a03ee67mr270655651cf.17.1779197954757;
-        Tue, 19 May 2026 06:39:14 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-516514e0b91sm152289551cf.15.2026.05.19.06.39.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 06:39:14 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wPKfB-0000000Evg5-382Z;
-	Tue, 19 May 2026 10:39:13 -0300
-Date: Tue, 19 May 2026 10:39:13 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-Message-ID: <20260519133913.GB7702@ziepe.ca>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
- <20260512090408.794195-5-aneesh.kumar@kernel.org>
- <agSKQrSIhizCXKwx@google.com>
- <20260513172450.GR7702@ziepe.ca>
- <agW2lzJI-20DyJVe@google.com>
- <20260514123529.GZ7702@ziepe.ca>
- <agXfm3mS_M3fvRrN@google.com>
- <20260515225113.GN7702@ziepe.ca>
- <agxETC1rXBUSkWYg@google.com>
+	id 1wPKfl-00000001gwt-0Ctq;
+	Tue, 19 May 2026 13:39:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8D9A943C24;
+	Tue, 19 May 2026 13:39:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70FE8C2BCB3;
+	Tue, 19 May 2026 13:39:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779197988;
+	bh=D+t330bY9theuHhQ7vQ9fk2hC/8pGFvUL2f87DQe0QQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZePrlUUjoJ6SRML9KTxFEObiSG/GUCVskJopia2OR/NHWF6W+fo2AUoXx/To3zWWb
+	 VdFfdF5cL7Dr7E5H6/FcZR0Mk/DI7CxgdxvQLx0rIlIz9/yGZtLcI+6fw3Px7X5xRS
+	 /+pxvp2iSCV6J2igJobyEQO5YqAqmSCe5Fdrd4BbRBbRPRUfOZzFXyT8bjqBKlkoGV
+	 FFVFOTFSR+yl/lIgyRxF273rU0nwoh/xIf98oDAucm/68fnhiB5diwWjSDoZ0rVmam
+	 MgNbD3EuMgIzR9wpMwcKmyM2IpEgfnF1Pv+9MLoF6/BTWGGcSu0LjK+iIfhejRQJxJ
+	 nEGvcqVGx0kUA==
+Date: Tue, 19 May 2026 14:39:38 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Yang Shi <shy828301@gmail.com>
+Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
+	surenb@google.com, akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
+	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
+	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
+	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <agxnJ8R-G3CRjeTR@lucifer>
+References: <20260430040427.4672-1-baohua@kernel.org>
+ <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <CAHbLzkrOSoh-jmR=uaNvx73n_wn+vExoKY0UzH5zGcfdAiDbNg@mail.gmail.com>
+ <agxfLNuLCAT3F4cW@lucifer>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agxETC1rXBUSkWYg@google.com>
+In-Reply-To: <agxfLNuLCAT3F4cW@lucifer>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_063916_227756_50FD97C0 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260519_063949_129610_2DD88335 
+X-CRM114-Status: GOOD (  39.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,26 +86,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 11:06:52AM +0000, Mostafa Saleh wrote:
+On Tue, May 19, 2026 at 02:12:10PM +0100, Lorenzo Stoakes wrote:
+> On Mon, May 18, 2026 at 02:21:14PM -0700, Yang Shi wrote:
+> > Maybe a little bit off topic. This is an interesting idea. It seems
+> > possible we don't have to take vma write lock unconditionally. IIUC
+> > the write lock is mainly used to serialize against page fault and
+> > madvise, right? I got a crazy idea off the top of my head. We may be
+>
+> Err no, it serialises against literally any modification or read of any
+> characteristic of VMAs.
+>
+> > able to just take vma write lock iff vma->anon_vma is not NULL.
+>
+> Except if we don't take it and vma->anon_vma is NULL, then somebody can
+> anon_vma_prepare() and change vma->anon_vma midway through a fork and completely
+> screw up the anon_vma fork hierarchy.
 
-> > > One other interesting case for device-passthrough is non-coherent
-> > > devices which then require private pools for bouncing.
-> > 
-> > Why does shared/private matter for bouncing? Why do you need to bounce
-> > at all? Do cmo's not work in pkvm guests?
-> 
-> At the moment, in iommu_dma_map_phys(), if a non coherent device
-> tries to map an unaligned address or size it will be bounced.
+correction: this won't happen as per Barry (see - I managed to confuse myself
+here :), since for vma->anon_vma install we take the mmap read lock.
 
-Sure, that's fine.
+BUT we also have to consider other cases.
 
-> In pKVM, dma-iommu is used for assigned devices which operate on
-> private memory, so bouncing that through the SWIOTLB would leak
-> information from the guest as the SWIOTLB is decrypted.
+>
+> So no.
+>
+> >
+> > First of all, write mmap_lock is held, so the vma can't go or be
+> > changed under us.
+>
+> vma->anon_vma can be changed.
 
-Yes, a device that can do private access should not be using a shared
-SWIOTLB, that should be part of the selection logic inside the SWIOTLB
-stuff..
+Correction: no it can't :)
 
-Jason
+>
+> >
+> > Secondly, if vma->anon_vma is NULL, it basically means either no page
+> > fault happened or no cow happened, so there is no page table to copy,
+> > this is also what copy_page_range() does currently. So we can shrink
+> > the critical section to:
+>
+> Firstly, with no VMA write lock, !vma->anon_vma means a fault can race and
+> secondly copy_page_range() checks vma_needs_copy(), there are other cases - PFN
+> maps, mixed maps, UFFD W/P (ugh), guard regions.
+>
+> So yeah this isn't sufficient.
+
+However this is true...
+
+>
+> >
+> > if (vma->anon_vma) {
+> >     vma_start_write_killable(src_vma);
+> >     anon_vma_fork(dst_vma, src_vma);
+> >     copy_page_range(dst_vma, src_vma);
+> > }
+>
+> Yeah that's totally broken fo reasons above as I said :)
+>
+> >
+> > But page fault can happen before write mmap_lock is taken, when we
+> > check vma->anon_vma, it is possible it has not been set up yet. But it
+> > seems to be equivalent to page fault after fork and won't break the
+> > semantic.
+>
+> It will totally break how the anon_vma hierarchy works :) See the links at the
+> top of https://ljs.io/talks for a link to various slides on anon_vma behaviour
+> (it's really a pain to think about because it's a super broken abstraction).
+>
+> You could end up with a CoW mapping that's unreachable from rmap and you could
+> get some nasty issues with page table entries pointing at freed folios :)
+
+Correction: actually we should be safe given mmap read lock on anon_vma install.
+
+>
+> >
+> > Anyway, just a crazy idea, I may miss some corner cases.
+>
+> Yeah sorry to push back here but this is just not a viable approach.
+>
+> And this is forgetting that we have relied on page faults being blocked by fork
+> _forever_, who knows what else has baked in assumptions about that
+> serialisation.
+>
+> Forking is one of the nastiest parts of mm and has had multiple, subtle, corner
+> case breakages that have been a nightmare to deal with.
+>
+> So I'm very much against changing this behaviour to try to fix something in the
+> fault path.
+>
+> We should address the fault path issues in the fault path :)
+
+Above still all true though.
+
+>
+> >
+> > Thanks,
+> > Yang
+> >
+> > }
+> >
+> > >
+> > > Based on the above, we may want to re-check whether fork()
+> > > can be blocked by page faults. At the same time, if Suren,
+> > > you, or anyone else has any comments, please feel free to
+> > > share them.
+> > >
+> > > Best Regards
+> > > Barry
+> > >
+>
+> Cheers, Lorenzo
+
+So still a nope :)
+
+Cheers, Lorenzo
 
