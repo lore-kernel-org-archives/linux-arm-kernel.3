@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F216BCD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF26FCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jO8lU9nZfaIXvi4aM14Apu8W/4/KaBQAgvYJVbl8iHA=; b=JfDh1Pqhx+Ex4Xx/cABqMrAbqu
-	RhS0vx48I397TWh1gE3uPyOk/Hor2XHNK3bGCpJnxbRjs7Nh8qraENCBuTV1uP2K+DwllqXe/z3d7
-	6RH4w8+8lDLn4Gzwmr87Mg6w5pZJcfnLs9sZX7WhuO2pMrYMO18q/bXtUf/p23CdOMgi8iqoYdBcp
-	w7NV8XSSLaJlUD0RYwW4eNN1NTHPNuPB3qb6tI8m9Myrk7wyjbjHr/WYs9c2eRJ5Za1gk0o+Hjp3G
-	Nb2gyorZOd49nmD/2dKtxpl54Q3F40n7040pzPOng0CJCnEbRQ4fW5jwaPiTPyESjDTTeCAJEwY6c
-	jYBmLg1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ri11zf+v7SxgmYD6i7DvpHcfbDLj9WFbIP81D8nKxw0=; b=sMQgOHTTerKJBrYELP4GH03rW/
+	fmbg6xA1wInkUakNYoMifS1A5FXK4cRYIQYtzleAvvJqsyub/GgK0Fp2dQhLkFiaF827PtTndyA+b
+	B9zWm65y0zP1twcpp9rzOqLBucmEFWzwAYdw2GX8LumiUTv+ZVwAtKrt6e5GtQMXcqF0H4AHp/hQ9
+	rvtX1l0Ukbh23IpoqXisBCvvxIC/GqxkWFuJKA9/AOAJPs6+6MzfYBixGMJGYvLMYOKrCv6m9Q2Vu
+	svjtpO6QDTc1SOdx6URSOl6xj4Xb6cUKu2nCIIKMHT1lUHdgy03KYLEGaMvYxSbTMFvWzpGYZWTYw
+	kNK4aqow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJno-00000001Vxe-2NEC;
-	Tue, 19 May 2026 12:44:04 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPJo3-00000001W5w-0Daf;
+	Tue, 19 May 2026 12:44:19 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJnn-00000001Vx0-3F9B;
-	Tue, 19 May 2026 12:44:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 395EA60129;
-	Tue, 19 May 2026 12:44:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23CD8C2BCC6;
-	Tue, 19 May 2026 12:43:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779194642;
-	bh=kMUFbNwBqvJpO+Bjd3l9GBxXRf0w6ZacFORzSNgGrqw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bfo4BDRfvA9myn7305sBhrTH2J0JJJLZN41DyiCsBL5RaW4yJzwWoRjqEv4bw7XRu
-	 3sS6wrONgvzJAEmXQdyWNoxP7IRgXT+BwOJdEatfiHb5tGo3e7Wv57MRVS0Mfl/KwF
-	 x37oBTK95eNvN0DhfsqWoIm8NOxS3mlo/N7lra4/86d92nRL8dOyMRTzXe4aNafoSP
-	 zmYFhFt5OepkId8YyQ/JRMelvQ33s7dDez4kr7Q7tGi40FybpnQQzZ966Ac5xeTssH
-	 5GqAFt9tX2CAZo6ci+b6JD7q1AC8DXMlEmsrGOnNr7zIOL1N/xCP/W2AdAHZDtwZKR
-	 +0JGj8KZOVUKg==
-Date: Tue, 19 May 2026 13:43:52 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Barry Song <baohua@kernel.org>
-Cc: Matthew Wilcox <willy@infradead.org>, surenb@google.com, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, liam@infradead.org, 
-	vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
-	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <agxXPfG--tkoPynl@lucifer>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+	id 1wPJnz-00000001W27-1nyo
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 12:44:18 +0000
+Received: from ubuntu.. (unknown [202.112.113.208])
+	by APP-03 (Coremail) with SMTP id rQCowAC32N8RWwxqEC+KEQ--.16549S2;
+	Tue, 19 May 2026 20:44:06 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	leo.yan@arm.com,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	Ma Ke <make24@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v3] coresight: etm-perf: Fix reference count leak in etm_setup_aux
+Date: Tue, 19 May 2026 20:43:57 +0800
+Message-ID: <20260519124357.1656180-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+X-CM-TRANSID: rQCowAC32N8RWwxqEC+KEQ--.16549S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Kw4UAr17uF43tr4kJF48Crg_yoW8ZFy8pF
+	4jkws0yF98Gr40vws7Jr18Zay5uw4SvF4agryfKw4DuF4YqFW3ZFyjgryFyrn3CrZ5Kas0
+	g3WxtF409FWUJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
+	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8Jw
+	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAG
+	YxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7V
+	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
+	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
+	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
+	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
+	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUbQVy7UUUUU==
+X-Originating-IP: [202.112.113.208]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_054415_844390_20B9D7CA 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,237 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 07:25:54PM +0800, Barry Song wrote:
-> On Mon, May 18, 2026 at 5:47 PM Lorenzo Stoakes <ljs@kernel.org> wrote:
-> >
-> > On Sun, May 17, 2026 at 04:45:15PM +0800, Barry Song wrote:
-> > > On Sat, May 2, 2026 at 1:58 AM Matthew Wilcox <willy@infradead.org> wrote:
-> > > >
-> > > > On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
-> > > > > On Fri, May 1, 2026 at 10:57 PM Matthew Wilcox <willy@infradead.org> wrote:
-> > > > > >
-> > > > > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
-> > > > > > > 1. There is no deterministic latency for I/O completion. It depends on
-> > > > > > > both the hardware and the software stack (bio/request queues and the
-> > > > > > > block scheduler). Sometimes the latency is short; at other times it can
-> > > > > > > be quite long. In such cases, a high-priority thread performing operations
-> > > > > > > such as mprotect, unmap, prctl_set_vma, or madvise may be forced to wait
-> > > > > > > for an unpredictable amount of time.
-> > > > > >
-> > > > > > But does that actually happen?  I find it hard to believe that thread A
-> > > > > > unmaps a VMA while thread B is in the middle of taking a page fault in
-> > > > > > that same VMA.  mprotect() and madvise() are more likely to happen, but
-> > > > > > it still seems really unlikely to me.
-> > > > >
-> > > > > It doesn’t have to involve unmapping or applying mprotect to
-> > > > > the entire VMA—just a portion of it is sufficient.
-> > > >
-> > > > Yes, but that still fails to answer "does this actually happen".  How much
-> > > > performance is all this complexity in the page fault handler buying us?
-> > > > If you don't answer this question, I'm just going to go in and rip it
-> > > > all out.
-> > > >
-> > >
-> > > Hi Matthew (and Lorenzo, Jan, and anyone else who may be
-> > > waiting for answers),
-> > >
-> > > As promised during LSF/MM/BPF, we conducted thorough
-> > > testing on Android phones to determine whether performing
-> > > I/O in `filemap_fault()` can block `vma_start_write()`.
-> > > I wanted to give a quick update on this question.
-> > >
-> > > Nanzhe at Xiaomi created tracing scripts and ran various
-> > > applications on Android devices with I/O performed under
-> > > the VMA lock in `filemap_fault()`. We found that:
-> > >
-> > > 1. There are very few cases where unmap() is blocked by
-> > >    page faults. I assume this is due to buggy user code
-> > >    or poor synchronization between reads and unmap().
-> > > So I assume it is not a problem.
-> > >
-> > > 2. We observed many cases where `vma_start_write()`
-> > >    is blocked by page-fault I/O in some applications.
-> > >    The blocking occurs in the `dup_mmap()` path during
-> > >    fork().
-> > >
-> > > With Suren's commit fb49c455323ff ("fork: lock VMAs of
-> > > the parent process when forking"), we now always hold
-> > > `vma_write_lock()` for each VMA. Note that the
-> > > `mmap_lock` write lock is also held, which could lead to
-> > > chained waiting if page-fault I/O is performed without
-> > > releasing the VMA lock.
-> >
-> > Hm but did you observe this 'chained waiting'? And what were the latencies?
->
-> We have clearly observed that the `fork()` operations of many
-> popular Android apps, such as iQiyi, Baidu Tieba, and 10086,
-> end up waiting on page-fault (PF) I/O when the VMA lock is
-> held during I/O operations. This has already become a
-> practical issue. I also believe this can lead to chained
-> waiting, since the global `mmap_lock` blocks all threads that
-> need to acquire it.
+bus_find_device() returns a device with its reference count
+incremented. When a user-selected sink is obtained through
+coresight_get_sink_by_id(), etm_setup_aux() keeps using the returned
+sink while building the path and allocating the sink buffer.
 
-I asked about the chained waiting :) I'm aware you've observed contention on
-write lock, you said so in your LSF talk.
+Therefore the lookup reference must remain valid while etm_setup_aux()
+is still using the sink, otherwise the sink could be removed under the
+caller. Drop the lookup reference on the common exit path, after
+etm_setup_aux() no longer directly uses the user-selected sink.
 
-So have you observed that or is this a theory?
+The CoreSight path code takes the references it needs for built paths,
+so the initial lookup reference from coresight_get_sink_by_id() is no
+longer needed after setup_aux finishes.
 
->
->
-> >
-> > >
-> > > My gut feeling is that Suren's commit may be overshooting,
-> > > so my rough idea is that we might want to do something like
-> > > the following (we haven't tested it yet and it might be
-> > > wrong):
-> >
-> > Yeah I'm really not sure about that.
-> >
-> > Prior to the VMA locks, the mmap write lock would have guaranteed no concurrent
-> > page faults, which is really what Fb49c455323ff is about.
-> >
-> > So Suren's patch was essentially restoring the _existing_ forking behaviour, and
-> > now you're saying 'let's change the forking behaviour that's been like that for
-> > forever'.
->
->
-> I am afraid not. Before we introduced the per-VMA lock, we
-> were not performing I/O while holding `mmap_lock`. A page fault
-> that needed I/O would drop the `mmap_lock` read lock and allow
-> `fork()` to proceed.
+Found by code review.
 
-Err I'm talking about fork? The patch you reference is a change to fork?
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+Cc: stable@vger.kernel.org
+Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+---
+Changes in v3:
+- do not drop the lookup reference in coresight_get_sink_by_id(), as 
+that would return a sink pointer without keeping the device reference 
+while etm_setup_aux() is still using it.
+- dropped the lookup reference in etm_setup_aux on the common exit path, 
+as suggested by Suzuki.
+- updated the commit message to describe why the reference is kept 
+until etm_setup_aux() finishes using the sink.
+Changes in v2:
+- modified the patch as suggestions.
+---
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-So you're saying that Fb49c455323ff which explicitly takes the VMA write lock on
-fork, was somehow an addendum after fork didnt take the mmap write lock?
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f85dedf89a3f..d5116177c1b9 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -456,6 +456,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 		goto err;
+ 
+ out:
++	if (user_sink) {
++		put_device(&user_sink->dev);
++		user_sink = NULL;
++	}
++
+ 	return event_data;
+ 
+ err:
+-- 
+2.43.0
 
-I must be imagining
-https://elixir.bootlin.com/linux/v6.0/source/kernel/fork.c#L590 then in v6.0
-pre-vma locks :)
-
-I suspect that's _not_ what you're saying, so now what you're suggesting as I
-stated above, is to fundamentally change fork behaviour to account for the
-existing per-VMA lock behaviour on the fault path?
-
-Again I state - are you really sure you want to fundamentally change fork
-behaviour for this?
-
-I am extremely concerned about doing that.
-
->
-> Now, you are suggesting performing I/O while holding the VMA
-> lock, which changes the requirements and introduces this
-> problem.
->
-> >
-> > I think you would _really_ have to be sure that's safe. And forking is a very
-> > dangerous time in terms of complexity and sensitivity and 'weird stuff'
-> > happening so I'd tread _very_ carefully here.
->
-> Yep. I think my original proposal did not require any changes
-> to `fork()`, since it simply preserved the current behavior of
-> dropping the VMA lock before performing I/O. In that model,
-> `fork()` would not end up waiting on I/O at all.
->
-> What you are suggesting now appears to be performing I/O while
-> holding the VMA lock, which in turn introduces the need to
-> change `fork()`.
-
-Again, you're saying we should fundamentally change the way fork has worked
-forever to work around something else.
-
-At LSF I raised the fact that Josef himself suggested we simply drop this I/O
-waiting behaviour for file-backed mapppings. Isn't there a way forward that way
-rather than 'hey let's drop locks and hope for the best!'
-
-I am really reticent about this because we've seen HORRIBLE bugs come from fork
-behaviour, especially edge cases, and mm testing isn't great so I am basically
-opposed to this, and you're not really convincing me here.
-
->
-> >
-> > >
-> > > diff --git a/mm/mmap.c b/mm/mmap.c
-> > > index 2311ae7c2ff4..5ddaf297f31a 100644
-> > > --- a/mm/mmap.c
-> > > +++ b/mm/mmap.c
-> > > @@ -1762,7 +1762,13 @@ __latent_entropy int dup_mmap(struct mm_struct
-> > > *mm, struct mm_struct *oldmm)
-> > >         for_each_vma(vmi, mpnt) {
-> > >                 struct file *file;
-> > >
-> > > -               retval = vma_start_write_killable(mpnt);
-> > > +               /*
-> > > +                * For anonymous or writable private VMAs, prevent
-> > > +                * concurrent CoW faults.
-> > > +                */
-> >
-> > To nit pick I think the comment's confusing but also tells you you don't need to
-> > specific anon check - writable private is sufficient. And it's not really just
-> > CoW that's the issue, it's anon_vma population _at all_ as well as CoW.
-> >
-> > > +               if (!mpnt->vm_file || (!(mpnt->vm_flags & VM_SHARED) &&
-> > > +                                       (mpnt->vm_flags & VM_WRITE)))
-> > > +                       retval = vma_start_write_killable(mpnt);
-> >
-> > I think this has to be VM_MAYWRITE, because somebody could otherwise mprotect()
-> > it R/W.
-> >
-> > I also don't understand why !mpnt->vm_file for a read-only anon mapping (more
-> > likely PROT_NONE) is here, just do the second check?
-> >
-> > (Also please use the new interface, so !vma_test(mpnt, VMA_SHARED_BIT) &&
-> > vma_test(mpnt, VMA_MAYWRITE_BIT))
->
-> Yep, I can definitely refine the check further. But before
-> doing that, I'd first like to confirm that we are aligned on
-> the direction.
->
-> If you still intend to hold the VMA lock while performing I/O,
-> then I think we should fix `fork()` to avoid taking
-> `vma_start_write()`.
-
-Yeah or we could do something different, it isn't a case of you get to do one of
-two options you propose - the maintainers decide which way is appropriate.
-
-Of the two options dropping the lock on the fault path rather than this fork
-insanity is my preference but I wonder if we can't find another way.
-
-Let me read through the series and give more thoughts I guess.
-
->
-> >
-> > >                 if (retval < 0)
-> > >                         goto loop_out;
-> > >                 if (mpnt->vm_flags & VM_DONTCOPY) {
-> > >
-> > > Based on the above, we may want to re-check whether fork()
-> > > can be blocked by page faults. At the same time, if Suren,
-> > > you, or anyone else has any comments, please feel free to
-> > > share them.
-> > >
-> > > Best Regards
-> > > Barry
-> >
-> > Technical commentary above is sort of 'just cos' :) because I really question
-> > doing this honestly.
->
-> I think we either need to fix `fork()`, or keep the current
-> behavior of dropping the VMA lock before performing I/O.
-
-Yup you said :)
-
->
-> >
-> > I'd also like to get Suren's input, however.
->
-> Yes. of course.
->
-> >
-> > Thanks, Lorenzo
->
-> Best Regards
-> Barry
-
-Thanks, Lorenzo
 
