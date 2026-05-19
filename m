@@ -4,79 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D24CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A63CD5BA7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:39:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eS4OkpPo3Swd0wt5kHHS/3W+S57omlVkKazU9Pal7D8=; b=QexZ8xk3iT0NeWh2vPaIabk+Ma
-	iDmx7LBNrdCYvQSanrxoVe8BhuDR7A7PozGJaF4AleqMYqctBCzp2k6fObvZ1hdU1nWeLUGjkhRjO
-	lAPv1cTUe7GarD1cuGIT+QAPr3n6kl77r1MYNW4T/0NgcM4TepiQh9Z9+FZNp3QOsenoeD/Ugy3fP
-	+xKUAc345QHHE+tW5PA2RRM3rGnpdGOsD3+34Li5hPA0WOxsJXNM7ubR4Cwa8L/54++ItWsO3lgcR
-	r78bmHk4PnfkJICLSq7PmzJxUBxl6roRyj1uPDCwxnFPKKTpRLK3sTrN7DCMkc6IfCgqa8CLLoGZZ
-	5q6iKF8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i1IBx4keQFN9s/34L+0CKXHlf8MiVBJqaeJffu/liHo=; b=f7FstJGguVUVWW9kwBsxuTAO9M
+	lQpG1Olievo97xVP8SBGz+i+s6Idu3i9VmaYUo+K3WahZen0RgsVCQtqAXo89RLUgS6XjMaJG8S5u
+	KernC2ttHkPpa2GLq7H9DGEoXWvhWV6pVadGkh9DgwV08WcDkNCL5L79xtfMEIrWl5lUolMDXMAY8
+	dCw7KJ0W2+Hvt564GlQNUR47DuboyP55QencBvIJPPe7YlJoL8d4n/wBXbO9V05ngjKnMp5W1ch+J
+	GE6uK4+Y5pa2dGhaO8apkZkCU0UIlagKpe7GZSfzn/HXqtaSJVAqMbcWQAiOYeVBkUnl92qigH6V7
+	b88l6QPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHr7-000000018Jo-2Ycf;
-	Tue, 19 May 2026 10:39:21 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wPHrH-000000018WS-2BDe;
+	Tue, 19 May 2026 10:39:31 +0000
+Received: from mail-northeuropeazon11012070.outbound.protection.outlook.com ([52.101.66.70] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHqz-0000000188G-0jpm
+	id 1wPHr6-000000018GL-0Qj6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:39:16 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 9BFCDC2B9DB;
-	Tue, 19 May 2026 10:40:04 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 70AE2606E9;
-	Tue, 19 May 2026 10:39:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 68DB3107E8AE0;
-	Tue, 19 May 2026 12:39:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187149; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=eS4OkpPo3Swd0wt5kHHS/3W+S57omlVkKazU9Pal7D8=;
-	b=mtyRsCSzFmZ6Bh7It/Gd+7gkxzfBqnwhmdPUoj/0O6THnwURGcFPWO55bMlrEXQSk2igzA
-	2Wal0KRnYQtVANEGKW/uQOq94KwNeponq3N+oVxrzwspsjykLBty6JhVXINru8ikhQSSGb
-	X0/8Wge4LvUDfWPMpwTbeOiNknPPmF8La7NGB7xzkbOj8BpDkVVEqx1qpLZqyBZgs7O2Ba
-	A7BJUNL477G/WFs7iO3TZ48jgcMxChcO9GhA6c2/+ritutWMIirEE4z7aCv83BkPxL7/VH
-	8hYahm1ixjdAlHgjj8JiWpLfGY7Vk+oFdlX2rVExJqXKBtJs7t4JGDH8KtXcrw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:32 +0200
-Subject: [PATCH 15/37] drm/display: bridge-connector: allocate the
- connector dynamically
+	Tue, 19 May 2026 10:39:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jyanqfwM9uI+rohYDjoCAo4zv5nQUnfeiW3JXfaf0yhDBHO/r22f1Od8plA2/s8jbn9uyKVkaPFe3IqW/DZk5itnM5Ec17OkQ56BURKR9hP5R7aqQU0897FWK/Lwj3y+qzGiO9+GJpWHcB0Ii0jED+rkikIK1ZVXwjBzypmHwJlsTP2DgJMmPzypdP2DPHriGLVGeEDK+EK7TcGmbF+U0tkWUjciEe5fU7+LfmivU9gc+NKyA3a5y+NFPsZRDMcwMuT7DJoc7eoc/OFVqdZO+LzLLajRe8YBGCLYHwARzuNFcHWC5HOoX/2cmB7f5ytoVMAVocDL/EtVbEhJMRrlkw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i1IBx4keQFN9s/34L+0CKXHlf8MiVBJqaeJffu/liHo=;
+ b=hlltD35XE8hUsClqYY9tFKElwjHeXsaqnoHWsQoxOrOfbDQR6gYG0ESVpVumc42uFNG0z5zE7qI/cHM7E8Fd0GbhTE1F5VN3gLMLruSCjfTm+RqTYKHED7tE6NiCPANjVEYeWagBg+wpki0l6BGgxQU0zvK0XZf5hx6y7FIhm7vLGbEwtWpmH6U8xoYgKdRM/SWhA3EQKvvOqx88qjZEyblTrhjcjdxuaXxXOfMZikOTvomscOZK6V/HPIqQfHIZH86IBcPuOk5/whH2NJGL75NomZ2wJwvETh7roa9hkoFawYoxsc0Rtb6dL0SR9QlK65/AliqfBD2f7PgR9DIGvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i1IBx4keQFN9s/34L+0CKXHlf8MiVBJqaeJffu/liHo=;
+ b=MbuB4iV9LqQk/4nIigXooSmHU4AK0jUVVIgWSO4P1lQmZmDyXXwqd3Bi81nyqv8yFpaDUKVwIEcLDJgpaMjNw3q/3xFpyPGiDXM2P/kz+NFrvVZ7wbPxNQIEk9bdzTnNRPpE1qgl44D5oVgqJ4EIs8iH6gy0CWqkTUmojZjPq8OBm42Fmpy31LH1wNLYynEHQc7esw5D/k03foK1aK//pijrlCX7PaWE1lcyapQVw/AnubP9jQIeBKYl3JqCUoAbGekJs5qbs9jCELXKxRevyKa7uW6nBiO7rDUjPSb64wPIqs26ibMcaIsHTB85z8lvvw7Bbz1OgXz7f2R2xFOIGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by AS4PR04MB9337.eurprd04.prod.outlook.com (2603:10a6:20b:4e5::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 10:39:14 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0025.023; Tue, 19 May 2026
+ 10:39:14 +0000
+From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+To: aisheng.dong@nxp.com,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: carlos.song@nxp.com,
+	linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] i2c: imx-lpi2c: mark I2C adapter when hardware is powered down
+Date: Tue, 19 May 2026 18:41:06 +0800
+Message-ID: <20260519104106.2794103-1-carlos.song@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P191CA0028.EURP191.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d9::20) To AM0PR04MB6802.eurprd04.prod.outlook.com
+ (2603:10a6:208:184::17)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-15-45e2bdb3dfb4@bootlin.com>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
-In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|AS4PR04MB9337:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1d9d6177-1e87-4188-4f3d-08deb592de82
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|19092799006|56012099003|18002099003|11063799006|38350700014;
+X-Microsoft-Antispam-Message-Info: w+UvYlGW1zgULEJ6ExPcPFSBUm2KVaOSJ56hWSJUahmL0HGeCHVISsVKQ1h8yOQpuJ6ynaqkOESFMhJ1vEVsAEg6vLi7ndpVBRxu1xeyL7yZQhqiDbfQsQkjwhMWhQofHXHA41zDmtgL9IiOzJiMvgUtfvtjxeY+sD6iK6njDBiXqh11X6Y6NHhmrcM8I6pOq9PhhSn56FZGWNVkGe3EpQKoUNh3vv0ttpogZzMPP2nB0L3lRJhCRmEU2paYqrCWu3ipo7f9daKr+afxM3GcQVHEkpHhE6kk6I+v6+6O/9X03MPDmhoFlgWqVbksUF2KfrW6mjpXsLyDIb9Q+FQQTdV0mYUCOtGEn0vPt8CCyOJsDr7oMEHAhJc3ALVORX0PDMiURaRJ0NXDh5MuZlSXHhj8R1pM85/w2mI6WiCCSeSlxc2Ik+iXaget/YBMT4T3JCt4PPLPFeovvEcxiUkguF9a9pL0W+Bw0f3jVKMsmVf98r9fVV63n+rRO5O8kD6QSo0mgnBnKr3GQt8RzNW1KxAMwjS+Owy8nl+x9+CKl7hoOe4psrJvGepXf5O7NMGEGa1H1trO5n4g0RlBeoesQbOSrQ6DnI5133BVtbUak5xmcRbkiHsrDElK/xPXGUpIMmPCLb/2nNjf8ANOjQzUMsd3SiXufLNlg71JxNo8Yt3Oup0u4M411x3fW2EkIaaR3fnC7xNWTBZA7Iwuy1Zx7DunIEUqq8wq4DEgjiTGufW7qFAlnKhnMhQ9NL5SyTYx
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(19092799006)(56012099003)(18002099003)(11063799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?L/9vlTxqHMHATj4Z/lBdHAprrB5mZttxZVosQTriwlomdVhbsJgLuJ1EcC4j?=
+ =?us-ascii?Q?z4gPXkvLt3GTrJ6fqR/K+JCtDa/VwyAbN46/EA1SwgUF6oJZH21Ci29/IQ/h?=
+ =?us-ascii?Q?c4jOBEOnetMRvHJUCS9mdN/L1tJeGLBMZPbTMG35EpVdeg6PvB8sq6m7Uyek?=
+ =?us-ascii?Q?nRuArkwy68AuBrIDtrebD2XIovZg2Szn+6GrNEyvFD3/14Z627hlbaR35IkT?=
+ =?us-ascii?Q?34t4cuTSCGlqB3NnIxI+dEwdeaoHyIHviGBsb+krbxPEzGOYby4El/IzdACy?=
+ =?us-ascii?Q?zE78EKtNzm7X/IqwTYsrVptrZMJHaUX/m9UHf8BZwaxPPUWPIAdXSXCA9iQV?=
+ =?us-ascii?Q?qlOY71sDghNFVlSMyQrgK4mRyE1AErS4zDOvHepuvaViqADQK5B/rapXqDmd?=
+ =?us-ascii?Q?OW9ZrFfoVCpQzsHe+/Aq/og1iiCw6dQgaNvyYrEVZ0HHfrXW6mGTXTB9jECq?=
+ =?us-ascii?Q?ThkU1a9v9NjDfjim93WyomOhpfNBA62YxGb/2H4MNDEX+XvRvwbcfVRzSFzv?=
+ =?us-ascii?Q?KUt739rMPW9Mp46pyTyzumum7gNvil/cqieZt0YBW+0zyoZAPNluDKB5SyZX?=
+ =?us-ascii?Q?hLpfWJYWSnXrGILGGSbPOi87iTdA73bYRqNFGex25CzJstmXgcFQ1tSdnuQd?=
+ =?us-ascii?Q?22VFbPCVyq5rUQuJ/DOTxDeSuYd2aaQJDq/Ms9k2Y5cBkKKIAowG7zAgoX+k?=
+ =?us-ascii?Q?TQjDnVjzplf3J1sr6r/bE1r2b4jRSe0TnUl2ZD6x32j3LeGZ6XxTH2dGdnE7?=
+ =?us-ascii?Q?/q5+q2/DDXKf3kOrZO2p2rQ+KddSGbkRHfrr6RkmI6w/KZIRLOTLJNnQpoq1?=
+ =?us-ascii?Q?n/h3DEAbMQ4Ps2RuVJKpywHVJTllqDqzB0hMX2H5d1Z0Q7Bacnp+Z2nNAZ0a?=
+ =?us-ascii?Q?C87cNFNdIcybaaSBJR7BkiQoh7Zvli/7tvrI9ZEfy7mg2T1gDKDuijn9ORwk?=
+ =?us-ascii?Q?3baGtlvF0AZBm/YsgFCz9jCRapWIGHNTZv1TwkLNeJW+YOf2XyMnBPnVMhgO?=
+ =?us-ascii?Q?wJa6hh38uDsv62WA7Jh6eqByx3aGbU5F4OCO5o5S3xP1sGrIOaYSL311swQy?=
+ =?us-ascii?Q?4UOJBnyYaYXsY+KxWXBhcOZE6rG7RcKLnRW7M/XGi4j7ve35i3FFPOpVwozQ?=
+ =?us-ascii?Q?G95SjNZAq8lcPftol/b5POxnjGFbwfIfCh69qvHLnBAdwZlMXwe8d++5IW/c?=
+ =?us-ascii?Q?ILyGA3OJJql+IYYlMqevO6mFhhvjaoye7gv2O/bYRzNzgCg+Ics3MQH3o4Eb?=
+ =?us-ascii?Q?mrPdN1ittvdkLSTL3EJstHhOL8ADb+g1P7e+PZ9+8vnZhLLH35LmxwqD5QVM?=
+ =?us-ascii?Q?ZkZHRv7Cxj0ThQOF01fRNZzoFeW3WzdFt+g0hUG3SPHLo38b0OOeAE0Ig2nH?=
+ =?us-ascii?Q?ft8VmZkX5oEiXraNRLP9s70ymgBKkBqngBd2SC2TQ72dtlwL7AQqJrnCG/9s?=
+ =?us-ascii?Q?R+wKZjrLYArYCz2/gkdDBor5kUwPkyFFukkcuoIojToRtjutx5BJyL2aWmgn?=
+ =?us-ascii?Q?e/nczDFB0nuvx57Zl25M1nrGaL64lCcxgngtPekUiHjy5V7gqpPoPdLIoPkP?=
+ =?us-ascii?Q?giu7yupUeQ77dzd+VKf+e4xVyy751XllNkN8o0TDB5RaP2bnxEXQzT6qg7YA?=
+ =?us-ascii?Q?rLQJ9sDfSGj1RR2eyCKLv0ePfxVi89ci3BDZUSHXJz9bPyVvpbkYOZ/nuYFT?=
+ =?us-ascii?Q?32NlTEIweRb50n6DRSoJ7xt21m8BTE20GvQOKHf5TqX5NmNyn9HQOux0F4SC?=
+ =?us-ascii?Q?nqkXBw/cRg=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1d9d6177-1e87-4188-4f3d-08deb592de82
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 10:39:14.0055
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cOPrzjpglN2cvQcA8O7kZtcSHpXN/lJ44cG41WbIavmHVAok7d2hbZsJSQeIq3Xq6zdf9CRc+Ss6CLYg3u+BUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9337
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_033913_573761_9763CB87 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20260519_033920_198795_8E9CF9E3 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,343 +145,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the drm_bridge_connector has an embedded drm_connector, so their
-allocation lifetimes are tied to each other. This is insufficient to
-support DRM bridge hotplugging, which requires the connector to be added
-and removed dynamically at runtime multiple times based on hotplug/unplug
-events while the drm_bridge_connector is persistent.
+From: Carlos Song <carlos.song@nxp.com>
 
-Moreover the drm_connector is exposed to user space and thus an ongoing
-operation (e.g. an ioctl) might last for an arbitrarily long time even
-after the hardware gets removed. This means a new connector might have to
-be added when the previous one is still referenced by user space.
+Mark the I2C adapter as suspended during system suspend to block further
+transfers, and resume it on system resume. This prevents potential hangs
+when the hardware is powered down but clients still attempt I2C transfers.
 
-In preparation to handle hotplug, allocate the drm-connector dynamically,
-to allow:
-
- * creating and destroying a connector multiple times during a single
-   drm_bridge_connector lifetime
- * creating a new connector even though the previous one is still in use
-   and thus still refcounted and not yet freed
-
-This commit does not introduce the actions in the two bullets (it will
-happen in a later commit), it only moves to dynamic APIs for connector
-allocation and init.
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Fixes: 1ee867e465c1 ("i2c: imx-lpi2c: add target mode support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 156 ++++++++++++++++++-------
- 1 file changed, 114 insertions(+), 42 deletions(-)
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 1fd104f1647b..b4e2c8f1d32d 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -1,6 +1,8 @@
- // SPDX-License-Identifier: GPL-2.0+
- /*
-  * Copyright (C) 2019 Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-+ * Copyright (C) 2026 GE HealthCare
-+ * Author: Luca Ceresoli <luca.ceresoli@bootlin.com>
-  */
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index a01c23696481..bf8c1ce1c7ff 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -1635,7 +1635,16 @@ static int __maybe_unused lpi2c_runtime_resume(struct device *dev)
  
- #include <linux/export.h>
-@@ -53,13 +55,24 @@
-  */
- 
- /**
-- * struct drm_bridge_connector - A connector backed by a chain of bridges
-+ * drm_bridge_connector_dynconn - wrapper struct for the dynamically
-+ *                                created drm_connector
-  */
--struct drm_bridge_connector {
-+struct drm_bridge_connector_dynconn {
- 	/**
--	 * @base: The base DRM connector
-+	 * @bridge_connector: the owning bridge connector
- 	 */
--	struct drm_connector base;
-+	struct drm_bridge_connector *bridge_connector;
-+	/**
-+	 * @connector: the drm_connector exposed to user space
-+	 */
-+	struct drm_connector connector;
-+};
-+
-+/**
-+ * struct drm_bridge_connector - A connector backed by a chain of bridges
-+ */
-+struct drm_bridge_connector {
- 	/**
- 	 * @drm: The DRM device we belong to
- 	 */
-@@ -70,6 +83,10 @@ struct drm_bridge_connector {
- 	 * The encoder at the start of the bridges chain.
- 	 */
- 	struct drm_encoder *encoder;
-+	/**
-+	 * @dynconn: The DRM connector added by the drm_bridge_connector
-+	 */
-+	struct drm_bridge_connector_dynconn *dynconn;
- 	/**
- 	 * @bridge_edid:
- 	 *
-@@ -137,8 +154,13 @@ struct drm_bridge_connector {
- 	struct drm_connector_hdmi_funcs hdmi_funcs;
- };
- 
--#define to_drm_bridge_connector(x) \
--	container_of(x, struct drm_bridge_connector, base)
-+static struct drm_bridge_connector *to_drm_bridge_connector(const struct drm_connector *connector)
-+{
-+	const struct drm_bridge_connector_dynconn *dynconn =
-+		container_of(connector, struct drm_bridge_connector_dynconn, connector);
-+
-+	return dynconn->bridge_connector;
-+}
- 
- static void drm_bridge_connector_put_bridges(struct drm_bridge_connector *bridge_connector)
+ static int __maybe_unused lpi2c_suspend_noirq(struct device *dev)
  {
-@@ -152,13 +174,6 @@ static void drm_bridge_connector_put_bridges(struct drm_bridge_connector *bridge
- 	drm_bridge_put(bridge_connector->bridge_hdmi_cec);
- }
- 
--static void drmm_bridge_connector_put_bridges(struct drm_device *dev, void *data)
--{
--	struct drm_bridge_connector *bridge_connector = (struct drm_bridge_connector *)data;
--
--	drm_bridge_connector_put_bridges(bridge_connector);
--}
--
- /* -----------------------------------------------------------------------------
-  * Bridge Connector Hot-Plug Handling
-  */
-@@ -179,7 +194,7 @@ static void drm_bridge_connector_hpd_notify(struct drm_connector *connector,
- static void drm_bridge_connector_handle_hpd(struct drm_bridge_connector *bridge_connector,
- 					    enum drm_connector_status status)
- {
--	struct drm_connector *connector = &bridge_connector->base;
-+	struct drm_connector *connector = &bridge_connector->dynconn->connector;
- 	struct drm_device *dev = bridge_connector->drm;
- 
- 	mutex_lock(&dev->mode_config.mutex);
-@@ -299,6 +314,16 @@ static void drm_bridge_connector_reset(struct drm_connector *connector)
- 							 connector->state);
- }
- 
-+static void drm_bridge_connector_dynconn_destroy(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector_dynconn *dynconn =
-+		container_of(connector, struct drm_bridge_connector_dynconn, connector);
+-	return pm_runtime_force_suspend(dev);
++	struct lpi2c_imx_struct *lpi2c_imx = dev_get_drvdata(dev);
++	int ret;
 +
-+	drm_connector_cleanup(connector);
-+	drm_bridge_connector_put_bridges(dynconn->bridge_connector);
-+	kfree(dynconn);
-+}
-+
- static const struct drm_connector_funcs drm_bridge_connector_funcs = {
- 	.reset = drm_bridge_connector_reset,
- 	.detect = drm_bridge_connector_detect,
-@@ -308,6 +333,7 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
- 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
- 	.debugfs_init = drm_bridge_connector_debugfs_init,
- 	.oob_hotplug_event = drm_bridge_connector_oob_hotplug_event,
-+	.destroy = drm_bridge_connector_dynconn_destroy,
- };
- 
- /* -----------------------------------------------------------------------------
-@@ -777,7 +803,17 @@ static const struct drm_connector_hdmi_cec_funcs drm_bridge_connector_hdmi_cec_f
-  * Bridge Connector Initialisation
-  */
- 
--static int drm_bridge_connector_get_bridges(struct drm_bridge_connector *bridge_connector,
-+static void drm_bridge_connector_dynconn_release(struct drm_bridge_connector *bridge_connector)
-+{
-+	if (!bridge_connector->dynconn)
-+		return;
-+
-+	drm_connector_unregister(&bridge_connector->dynconn->connector);
-+	drm_connector_put(&bridge_connector->dynconn->connector);
-+	bridge_connector->dynconn = NULL;
-+}
-+
-+static int drm_bridge_connector_get_bridges(struct drm_bridge_connector_dynconn *dynconn,
- 					    int *connector_type,
- 					    unsigned int *supported_formats,
- 					    unsigned int *max_bpc,
-@@ -785,7 +821,8 @@ static int drm_bridge_connector_get_bridges(struct drm_bridge_connector *bridge_
- 					    struct drm_bridge **panel_bridge,
- 					    bool *support_hdcp)
- {
--	struct drm_connector *connector = &bridge_connector->base;
-+	struct drm_bridge_connector *bridge_connector = dynconn->bridge_connector;
-+	struct drm_connector *connector = &dynconn->connector;
- 
- 	/*
- 	 * TODO: Handle doublescan_allowed and stereo_allowed.
-@@ -937,6 +974,7 @@ static int drm_bridge_connector_get_bridges(struct drm_bridge_connector *bridge_
- 
- static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector *bridge_connector)
- {
-+	struct drm_connector *connector = &bridge_connector->dynconn->connector;
- 	int ret;
- 
- 	if (bridge_connector->bridge_hdmi_audio ||
-@@ -951,7 +989,7 @@ static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector
- 
- 		dev = bridge->hdmi_audio_dev;
- 
--		ret = drm_connector_hdmi_audio_init(&bridge_connector->base, dev,
-+		ret = drm_connector_hdmi_audio_init(connector, dev,
- 						    &drm_bridge_connector_hdmi_audio_funcs,
- 						    bridge->hdmi_audio_max_i2s_playback_channels,
- 						    bridge->hdmi_audio_i2s_formats,
-@@ -965,8 +1003,7 @@ static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector
- 	    bridge_connector->bridge_hdmi_cec->ops & DRM_BRIDGE_OP_HDMI_CEC_NOTIFIER) {
- 		struct drm_bridge *bridge = bridge_connector->bridge_hdmi_cec;
- 
--		ret = drmm_connector_hdmi_cec_notifier_register(&bridge_connector->base,
--								NULL,
-+		ret = drmm_connector_hdmi_cec_notifier_register(connector, NULL,
- 								bridge->hdmi_cec_dev);
- 		if (ret)
- 			return ret;
-@@ -976,7 +1013,7 @@ static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector
- 	    bridge_connector->bridge_hdmi_cec->ops & DRM_BRIDGE_OP_HDMI_CEC_ADAPTER) {
- 		struct drm_bridge *bridge = bridge_connector->bridge_hdmi_cec;
- 
--		ret = drmm_connector_hdmi_cec_register(&bridge_connector->base,
-+		ret = drmm_connector_hdmi_cec_register(connector,
- 						       &drm_bridge_connector_hdmi_cec_funcs,
- 						       bridge->hdmi_cec_adapter_name,
- 						       bridge->hdmi_cec_available_las,
-@@ -1009,13 +1046,20 @@ static int drm_bridge_connector_add_connector(struct drm_bridge_connector *bridg
- 	int connector_type;
- 	int ret;
- 
--	connector = &bridge_connector->base;
-+	struct drm_bridge_connector_dynconn *dynconn = kzalloc_obj(*dynconn);
-+	if (!dynconn)
-+		return -ENOMEM;
- 
--	ret = drm_bridge_connector_get_bridges(bridge_connector, &connector_type,
-+	dynconn->bridge_connector = bridge_connector;
-+	connector = &dynconn->connector;
-+
-+	ret = drm_bridge_connector_get_bridges(dynconn, &connector_type,
- 					       &supported_formats, &max_bpc, &ddc,
- 					       &panel_bridge, &support_hdcp);
--	if (ret)
-+	if (ret) {
-+		kfree(dynconn);
- 		return ret;
-+	}
- 
- 	if (bridge_connector->bridge_hdmi) {
- 		if (!connector->ycbcr_420_allowed)
-@@ -1035,25 +1079,34 @@ static int drm_bridge_connector_add_connector(struct drm_bridge_connector *bridg
- 			bridge_connector->hdmi_funcs.spd =
- 				drm_bridge_connector_hdmi_spd_infoframe;
- 
--		ret = drmm_connector_hdmi_init(bridge_connector->drm, connector,
--					       bridge_connector->bridge_hdmi->vendor,
--					       bridge_connector->bridge_hdmi->product,
--					       &drm_bridge_connector_funcs,
--					       &bridge_connector->hdmi_funcs,
--					       connector_type, ddc,
--					       supported_formats,
--					       max_bpc);
-+		ret = drm_connector_hdmi_dynamic_init(bridge_connector->drm, connector,
-+						      bridge_connector->bridge_hdmi->vendor,
-+						      bridge_connector->bridge_hdmi->product,
-+						      &drm_bridge_connector_funcs,
-+						      &bridge_connector->hdmi_funcs,
-+						      connector_type, ddc,
-+						      supported_formats,
-+						      max_bpc);
- 	} else {
--		ret = drmm_connector_init(bridge_connector->drm, connector,
--					  &drm_bridge_connector_funcs,
--					  connector_type, ddc);
-+		ret = drm_connector_dynamic_init(bridge_connector->drm, connector,
-+						 &drm_bridge_connector_funcs,
-+						 connector_type, ddc);
- 	}
--	if (ret)
-+	if (ret) {
-+		drm_bridge_connector_put_bridges(dynconn->bridge_connector);
-+		kfree(dynconn);
- 		return ret;
-+	}
-+
-+	/* From now on the connector is referenced and has to be put, not kfreed */
-+
-+	bridge_connector->dynconn = dynconn;
-+
-+	drm_bridge_connector_reset(connector);
- 
- 	ret = drm_bridge_connector_init_hdmi_audio_cec(bridge_connector);
- 	if (ret)
--		return ret;
-+		goto err_put;
- 
- 	drm_connector_helper_add(connector, &drm_bridge_connector_helper_funcs);
- 
-@@ -1072,9 +1125,25 @@ static int drm_bridge_connector_add_connector(struct drm_bridge_connector *bridg
- 
- 	ret = drm_connector_attach_encoder(connector, bridge_connector->encoder);
- 	if (ret)
--		return ret;
-+		goto err_put;
-+
-+	ret = drm_connector_dynamic_register(connector);
++	ret = pm_runtime_force_suspend(dev);
 +	if (ret)
-+		goto err_put;
++		return ret;
++
++	i2c_mark_adapter_suspended(&lpi2c_imx->adapter);
++
++	return 0;
+ }
  
+ static int __maybe_unused lpi2c_resume_noirq(struct device *dev)
+@@ -1655,6 +1664,8 @@ static int __maybe_unused lpi2c_resume_noirq(struct device *dev)
+ 	if (lpi2c_imx->target)
+ 		lpi2c_imx_target_init(lpi2c_imx);
+ 
++	i2c_mark_adapter_resumed(&lpi2c_imx->adapter);
++
  	return 0;
-+
-+err_put:
-+	drm_connector_put(connector);
-+	bridge_connector->dynconn = NULL;
-+	return ret;
-+}
-+
-+static void drm_bridge_connector_fini(struct drm_device *dev, void *res)
-+{
-+	struct drm_bridge_connector *bridge_connector = (struct drm_bridge_connector *)res;
-+
-+	drm_bridge_connector_dynconn_release(bridge_connector);
  }
  
- /**
-@@ -1104,10 +1173,6 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 	if (!bridge_connector)
- 		return ERR_PTR(-ENOMEM);
- 
--	ret = drmm_add_action(drm, drmm_bridge_connector_put_bridges, bridge_connector);
--	if (ret)
--		return ERR_PTR(ret);
--
- 	bridge_connector->drm = drm;
- 	bridge_connector->encoder = encoder;
- 
-@@ -1115,6 +1180,13 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 	if (ret)
- 		return ERR_PTR(ret);
- 
--	return &bridge_connector->base;
-+	ret = drmm_add_action_or_reset(drm, drm_bridge_connector_fini, bridge_connector);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	if (!bridge_connector->dynconn)
-+		return ERR_PTR(-EINVAL);
-+
-+	return &bridge_connector->dynconn->connector;
- }
- EXPORT_SYMBOL_GPL(drm_bridge_connector_init);
-
 -- 
-2.54.0
+2.43.0
 
 
