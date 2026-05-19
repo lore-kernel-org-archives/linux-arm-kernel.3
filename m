@@ -4,141 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 646BBCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:59:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8566DCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 16:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HpePE40wGI82tM/w9zn7Es2fznCGV1lRUmN0wU/lPE=; b=o3FumrjcFV/pkmW9PahXTo63H0
-	lqI7S7KLbkzWoZd59SnSYOHB0slnbl34pcgnslZms2IJd1g0g0hOBwVIhedaWaxtPTyvS/ZU5id/T
-	syDuC7zXVa0uysYhPu3YlqYRw78+GetT9ppRn8pA2zTVl274gtRuRsZMa09cOPJ7VH+aqExrhpsD1
-	LsUHAwD7aXnOlYI+uL2BIjDXTc3ai69urNbHjVdkb+lUt3uJX4uGpJJg+jfY/qNFW3doht3S8XgHF
-	OuCYjrVbZ/ObysXAeY3ZI0uOhCqyme3Us2PD5EWlEoNG4RT1WWq9vaNzsoqITEg0MsbihFVRIBSGb
-	CKJhyakg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6wqi2Qhq3MouIFt/EJ2cgZO+V0H5RQH70Oj6/kcDM0M=; b=hvEktZngF1wxrg8pqcPeXJqIxl
+	8xWVI6O5sSjZetQC9CxQjVTPUJUAZZdiSqBqD7Z4wEkI4HcyElbVtBXahe24Ao9lrA6Y9JXrlOONj
+	BDTkf6AYrY9s1Pl2eOE1zkSBuYseXBCTIVxu7ct3MU1YDqmpd91iagzz5DWPJxFx0BfATqOFw3NuD
+	ziWpFnb8WgjRVaZ+3W/BLubo/fah96oDjFqvYsUaL7Y3EXpmYLnRrwb6to/kfOwJDJMXnGMHvnhWg
+	3I7Jg+1UGpDtBQDZhAhI71X5KXvuQQazXlv9ADuUtqTob2cHRNjmZz5HMaaMvUREDjR30NqQ8i07f
+	YaXEs2uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMqw-000000029ND-4BHW;
-	Tue, 19 May 2026 15:59:31 +0000
-Received: from mail-northeuropeazon11010020.outbound.protection.outlook.com ([52.101.84.20] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMqs-000000029L0-0zyy
+	id 1wPMsw-000000029t6-2O89;
+	Tue, 19 May 2026 16:01:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPMsu-000000029rz-19Tb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:59:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I65pOM/Rl1BWsm0UUq5nLPyVoDtZLc9ZfvSBesJOu6SIuVpmMrS5BG/RrlJ65qYVgW7AifWROht1XNtvmnzbKGqlmJ3mfxpA0RB94NHvlBrBeZ8xcsK28kBZrRVmDbGnH+bBSBU9xKweRPnH1V5+I7JPwlrtopcgCl6GzhWvKR8PxdxElgH4Vt9+lTg3ey3qYb5EnzedCgdNRybjm8LngrorybdIUAd8dcbxbemXMDo6Wn+MMwufLCE0vV7xvPfZ/NJY1rgbqVi47M2LrE4KvFU1qQRdO91s2g1IXj+e446wTeXGGZFLU3a/7nkS1tbT7NiheRf3OqrYskOUzSkpkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3HpePE40wGI82tM/w9zn7Es2fznCGV1lRUmN0wU/lPE=;
- b=W1rJ70JMR+akIfh4X7PBoYjzj5lrO8UWN3eJayDApQWmdntr9jwfYzl/9y3nJKvVGzjoW1am5hnKQ3wM6BS7IQsgVdDEf8GKAhSP7Z++rQU+SvfUO+bLKCnwutg/kEq981Q9MbbhUldd1QgXla/N5gaggvXPrJazuAp5IIqTZiyWM2U9syf1xOrZZFO9I7bO4BnUlRH0XDOKLftlbfAEcVHEdTaoIkV9FHjOnuO3tIuc1UsjeprJDZJWB7hd+ZwJ2Aeu/3c/lDW9ouMGbRYb7w0RF46yb1PIlRcjI16s+35iRdJsE2F7b29t+dXLeuPMw2ynTUsxKJn6V1yuda9E1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3HpePE40wGI82tM/w9zn7Es2fznCGV1lRUmN0wU/lPE=;
- b=DSjDthIosVwZPYV/c2TJZ8Irw57fahmo2M17WGGMyg2//lXTUDIq3TpvRCH97+Ap78C9ZRov7xqF7Dq0K8OvLDHNVlhx0qzymWiAFUBTLBfoY9TM7WK2A0Sx4MRaymmqXd8McO6XBky6aPySJzzAgDE31XZ/fXBXdDy5NftlSHiPrg0j0pVL3mbwCpOFRR7SexUz45WXUwte65GMEOUSChLoq2W5k9dlQ4Pn467cMN5hHtSuQaQSMdKgjH2ymzyksm2tW0EqgQu3D/nP7XYKLY6w7HZ4afx8ZlcJyk+wNrGxuDfUvAhDuWFy09woWqHkd/q4gqtMgsSxYiob6EWR+Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB9884.eurprd04.prod.outlook.com (2603:10a6:800:1d0::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 15:59:18 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 15:59:18 +0000
-From: Frank.Li@oss.nxp.com
-To: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH RESEND] firmware: imx: sm-misc: Make scmi_imx_misc_ctrl_nb variable static
-Date: Tue, 19 May 2026 11:59:10 -0400
-Message-ID: <177920633842.2580086.3274264072199925864.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260428135732.102945-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260428135732.102945-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA1PR04CA0017.namprd04.prod.outlook.com
- (2603:10b6:806:2ce::22) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 19 May 2026 16:01:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8FBAF1E7D;
+	Tue, 19 May 2026 09:01:23 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C2573F632;
+	Tue, 19 May 2026 09:01:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779206488; bh=l3k6l8tzEhU7aoN40wF1AjQQ4RQ8MwaIM0lRFABoyMU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=B/3qVKhlZa/1n+owfIC+0x684FNqBADZ/dMvfdLEri1b+VSltivN1nq3LCCK8DDdR
+	 48EgkuSPddQu+TDvfRsbSdxD7ni9nMiG9R0GBPCdKypfwevQmvflKlv79We8i0I1x/
+	 P3+4+VkWyzYJq4JQnrUaUQtqSTfx9ni2KsgCLzP0=
+Message-ID: <f154f937-0b6a-4266-9073-977f25d00758@arm.com>
+Date: Tue, 19 May 2026 18:01:25 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB9884:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2738f401-68f2-4c21-3b80-08deb5bf9559
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|366016|1800799024|22082099003|18002099003|56012099003|11063799006;
-X-Microsoft-Antispam-Message-Info: LEKFyVI3XVXhWWm3pD7qVqIX8Vuna+Gov9Uk3gSvDHljaO1o5fobZelipHBPqGDRLDLB2LXYOncmA/sHmPZxyNUIcetlsgwyR47mGQyjdWakpa8NWEvJeKMJ9J6bywNetwBw3jp2V44d/hDeltKK9f3jdoTiuSLW43836OvFujzRrE17HWTLezBpiuDp7tzMwvVq/FBSYgY0wlv4jnYB+fOoHO6Io4jV0xUoFmy2AbCcO/dTfmVUbWf2RjTD55sE7fOsKqxpTIykKFInrmhz5SeumZlwlLI5iswLqDRZUMTj0lSZY9CRLI8fvv/ORPsX9SMJXI9B7O2CnWL9viF4z+g24Q6NNMWAkcGbqsaICQ0mcmvmEWbRpqqT9F74u/piBkp7j+6R8oJ9QQ3xRu4CsO3O5xZFQ0PolF8BtNu8/80+fF7oMRPQIvF+rv3ycD2T4DwaaQnPeJXtDw970VB0k0uXVRcjCKwZN7gS6aghMHoqZTL/A+bkTmLX4psYcVXtnBqR+L4deVgnomW55x1ZzjMFn2trXzthJstLf0h/srL/GdkZgFMvjhq9LkuxFjPhkxlhXo3CFeflgOy89lQWRlreVvCrJTnd5FKh0jhwfKYZYAqSEweU5Xc5tNmvOQ6qiPVvm6cOa6SiA7p0LVQHaWWkIll5yhCzU9LpapKW9gzTLL8Nrs+M2y9GTOIVSdiF
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(366016)(1800799024)(22082099003)(18002099003)(56012099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YjBKMXVNNFMvczhhZFVhMlF0VWhIYVBOS1lSdFRiOVRiSkRzalMwSVg4NXpy?=
- =?utf-8?B?eUk4M3ZTaTBGRS9NUVhqWllUQ3Y2N0tJdFJOQzNoWTBoWWZQbmtoVGxCcXMw?=
- =?utf-8?B?c0I2L29aVVpTazR4YzR2VGR1d2RNUWRxNFd6b0FUZ3VwTzZYMXhIQnJRRHhx?=
- =?utf-8?B?VmNwRmNEcDRRdW1MdktQNlkrODdaVW1HY21XMHpTeGo4aFVwaTNqNDczeHRR?=
- =?utf-8?B?dDlTV3FXcndkMXVqaXIyUUlwY3QxN1Y1dTJDbXAvS2cxR1YzSE1rbnVsaUJL?=
- =?utf-8?B?SWZRZlV2dDBuQ3VtQWEwT1dvOEtqRkpWNENFN0pxTXFHSStlYmUzOGRWVHd4?=
- =?utf-8?B?NWlOdTBxUThUVzQrNjQwaFpMa3pnQmhBMGF4WlkwUUQ0K0dmaHI1L2lUQjZE?=
- =?utf-8?B?SGVSZWtWaTVlR0ZJbVRaS09ZVkRPOHRsc1F5aDFaWHcwamZ3VlJLZHBVbmM0?=
- =?utf-8?B?WGJTZU9IcDVvc1BGcXBmbVFZYStadTgwZnYwdlZ0REJQTnc0NHBVT1NjVmtW?=
- =?utf-8?B?Z3F3NGk1VXZON0FtTjdPRStLbVpEWGZYV2VqQmlCV21yZW9xZFRZY0IrR1NM?=
- =?utf-8?B?aGxrNkN6Sk5jbHJpNnhuVnpJREpFK0xPSUNSRUJlYmNna2hNQThHSHJzdTZa?=
- =?utf-8?B?am1Rd3RMZnpKSnh4Zk8yTXZrL2RESDBObFJzSFpLVjlCV3JFY2UyRzVrL1Qw?=
- =?utf-8?B?M2ZSTXMwVnpUVE13Vkc3ZkZ4RXdibEd3YWh2cStubkVmbW9jazA0VWpUaW0y?=
- =?utf-8?B?R2lBS3ZaYldPRTF3VDdzTzhKcW1nWUdUOVdRdDNJQ2dJQWZPS1ErWHJiR0lv?=
- =?utf-8?B?a1N3MEFnbHdua2locWtlZXRhTEtRcUFnMmw4YVZWZGdjVmxaekY0ajY5Mkcr?=
- =?utf-8?B?TWxMbTV3MzROdmZKRklsY2lnVWw4R0hSSlpaR21WSmVRUWsxcFBSYnlOWjJx?=
- =?utf-8?B?SElXWTBzUzhQL3RmZ3ZlL1JLWDQrcHFPNlZGNTdZaWFQZDl5eEJrRHJiR2ZC?=
- =?utf-8?B?WDRQZytSRzhWTlVBek5QZEkxVENHcmJ0YUxNWXVEV1ZrdWRjZ1VvNUpxVmRD?=
- =?utf-8?B?U2NLYzFJN0IxM1Z5aXpxSGtKbkJ4RHU1dDZNMU0xZHNUSFBUOVVuR3I5ejdC?=
- =?utf-8?B?TUNtUTRIb0E2ODlOWkx2SmcrK2QrSHorTmx4SENnU1JHb1EzTVNTUVFJZ2RM?=
- =?utf-8?B?dnU1LzVOWThOczlQaWRzakQ2MWVHRURya244V2VkY0FiWWp4WVVOOVZhcW5Z?=
- =?utf-8?B?d3d2T2ppQngzaEl2RG1rejZvRjdsdGNUUjh6UTlnL1c2a0VDb1g0Rlkza3Rn?=
- =?utf-8?B?eUh2UkhkOFBGNWZMOG82V2ZyOGlJRm5KOVM3UTBJOWd4U0dPNjZjU3JSbmo5?=
- =?utf-8?B?ZWZBYmRVcUdQdC82VXZISzlGQ1hFMmFOM3ZpZTU1WmI5TmxoWlhpQXhseTNp?=
- =?utf-8?B?VTh5YXNsNGtnSXlKM0VPaWRUZ1YveDB6cURwOGFtVENmaktXbTBSakhGbEpZ?=
- =?utf-8?B?Vk9XVHdsQzVLcGN5ZWM0a0YvbVUyeXZSelpOSnpqS0pYcGhpQTkwOWJ4c2g5?=
- =?utf-8?B?cmpETit4VGE0Y09CeUZWaVUwdWRUbHQwYStKNVlBZU1TUjl2Q3J6TEViV1ZJ?=
- =?utf-8?B?YzY0c2xQdE5OZFdOZGVtSjI3VTVmTzd0ZHFYK0tVYkd6WTBMNzVuOEZkaE8y?=
- =?utf-8?B?QUdtZTdleFFyV09SWTMrenRIWk5UWTFuSEdRQ3QwRWlwbWlLYVYzUEhCdlIx?=
- =?utf-8?B?enFXNWhFS0lLTUh6TldmU0N3M25zRFZVemRHbE9zcis2blRuM3lLMXVhTzlr?=
- =?utf-8?B?ZmlXMjdRclg1RnBHVHA2c3k4VlhiRFUxTzJkKzB2YjZSTW4yS2VPRzNUVmRN?=
- =?utf-8?B?NzZSN3JLMFp5Tno2K3h5VDJmbCtMTUU3emZaREluUzBNRFZBK0JqOWhFR005?=
- =?utf-8?B?dnMva0dDSUFmSXp6cVVTaWtUWCtlaW5MWERCek1RY0VuRCtjNFMrVkxlcGls?=
- =?utf-8?B?QlF2ejBzUFRTVlhkdUYyMkIwZ1RKV2xIdnQ4WTFpNldhdEZHcUovR3NkbDQ5?=
- =?utf-8?B?SEhzMUFvZnFuOUxoc1dFeHBmTWpwaWJJS09Wd1cyT2w5bWZWMSs0Q2w4bTRx?=
- =?utf-8?B?M0hFbE9NalV5bm44Z243UTRxQ2hCeEdPS3VBQ2ovYlA5c1AxelNtNlhpQTE4?=
- =?utf-8?B?THNMaW5INDhhN3JOaTg0N0hpbWRuSlpUaG5RQS9odXVDL3hIaVdpckdHblhn?=
- =?utf-8?B?YW9VREdDR09ESW1KcUhyZHJMZkNVYlgzU0VHYUpiRlJKenhCK2dzNHVHT3VD?=
- =?utf-8?B?dTdEK2JPaG1rYmtsZURGbU50WG5vYS9RRlY5eUgrZHpQbGg4a3V3VWsyRTJO?=
- =?utf-8?Q?PbaG4+fODmlx9PFsYJ39Y5C9XsvYCdKhJh5PG?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2738f401-68f2-4c21-3b80-08deb5bf9559
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 15:59:18.4394
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U5dpRNkjm2fGCSTwDzv8jJuPbV6r2hL3To2O9NeTraQ1JZehtpMacdje2Mn8Oj1uf+t+NpzCbdX+KDAL+nLriMsz8iozC4H90h4r9H4ANCWHLCWGICaHLW6fSiHzIyW1
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9884
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: smccc: Fix Arm SMCCC SOC_ID name call
+To: Paul Benoit <paul@os.amperecomputing.com>,
+ Sudeep Holla <sudeep.holla@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250902172053.304911-1-andre.przywara@arm.com>
+ <20250903-great-savvy-bloodhound-38c1ca@sudeepholla>
+ <20250903-loutish-orangutan-of-experience-3dcfda@sudeepholla>
+ <cc8000c0-e457-4bfc-94de-aeeddacab23b@os.amperecomputing.com>
+ <20250904-powerful-futuristic-tench-bcebd4@sudeepholla>
+ <c0bcef12-6837-414a-960c-da3cf3948308@arm.com>
+ <c72b6d61-d532-48f0-add0-4f44051b4ae9@os.amperecomputing.com>
+ <506bf1b9-dfc4-4717-b26b-835c331d23c4@arm.com>
+ <2ec94be2-19f9-46c5-a2ad-78711ddfeef8@os.amperecomputing.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <2ec94be2-19f9-46c5-a2ad-78711ddfeef8@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_085926_280243_3864F4AC 
-X-CRM114-Status: UNSURE (   8.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_090132_583281_03EC13EF 
+X-CRM114-Status: GOOD (  45.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,21 +80,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi Paul, Sudeep,
 
-
-On Tue, 28 Apr 2026 15:57:33 +0200, Krzysztof Kozlowski wrote:
-> File-scope 'scmi_imx_misc_ctrl_nb' is not used outside of this unit, so
-> make it static to silence sparse warning:
+On 5/18/26 23:14, Paul Benoit wrote:
+> On 5/12/2026 10:09 AM, Andre Przywara wrote:
+>> Hi Paul,
+>>
+>> many thanks for the answer, and apologies for the delay (was on 
+>> holidays).
+>>
+>> On 5/1/26 22:14, Paul Benoit wrote:
+>>> On 4/30/2026 10:59 AM, Andre Przywara wrote:
+>>>> [You don't often get email from andre.przywara@arm.com. Learn why 
+>>>> this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>>
+>>>> Hi Paul,
+>>>>
+>>>> is there any update on this?
+>>>> One more thought below ...
+>>>>
+>>>
+>>> Hi Andre,
+>>>
+>>> Using the incorrect SMC32 vs. the correct SMC64 interface, for SOC_ID
+>>> Name, was addressed by Ampere firmware some months back.
+>>>
+>>> In addition to recent firmware now responding to a SMC64 CC SOC_ID Name
+>>> request, it will continue to respond to an incorrect/broken SMC32
+>>> request and return the SOC_ID Name string packed in 64-bit registers.
+>>> This will allow Linux kernels 6.15+, incorrectly using SMC32 to get the
+>>> SOC_ID Name, to continue to work with new Ampere firmware versions.
+>>
+>> OK, many thanks for the information, that seems to be a good solution.
+>>
+>>> In other words, unless any other vendors also implemented SOC_ID Name as
+>>> SMC32 in their firmware, I think we can let the Ampere firmware handle
+>>> the SMC32 vs. SMC64 mix-up and keep the handling of it out of the Linux
+>>> kernel.
+>>
+>> But I think availability of the machines predates the "some month 
+>> back" period you mention above?
+>> So it would only work if users would update the firmware?
 > 
->   sm-misc.c:19:23: warning: symbol 'scmi_imx_misc_ctrl_nb' was not declared. Should it be static?
+> Correct.  I had already discussed that case with colleagues at Ampere,
+> and, rather than having quirk/errata handling in the Linux kernel, we
+> are ok with requiring that systems, with older firmware, be updated
+> before running future Linux kernels.  That shouldn't pose a big risk/
+> problem as I'm not yet aware of anything besides some of my lscpu
+> experiments that use the newish SMC CC SOC_ID Name.
 
-Applied, thanks!
+Fair enough, it's indeed not breaking the world if the SOC_ID name call 
+doesn't work. And given that most other platforms would be broken, given 
+this bug, I guess there are not many people out there relying on it yet.
 
-[1/1] firmware: imx: sm-misc: Make scmi_imx_misc_ctrl_nb variable static
-      commit: 2430f2080f2a4e45b69befba26ef726d62180bba
+Sudeep, do you agree to just ignore that case? So the original patch 
+would be good to go, I think? Let me know if you need anything from me 
+still then.
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+>>> It should now be safe to make the SMC32->SMC64 SOC_ID Name change in
+>>> Linux.
+>>
+>> So I wonder if would still need a quirk for AmpereOne. I guess we 
+>> can't query the TF-A build version easily, and a DMI quirk probably 
+>> doesn't work either, judging by the dmidecode output of one machine I 
+>> looked at.
+>> So I was wondering if we should employ the following algorithm:
+>>
+>>      - do call with 64-bit FID
+>>      - if (ret == -1) && (soc_id == jep106:0a16:0004)
+>>          - try 32-bit FID
+>>
+>> Would that work? That checks for the SoC, not the firmware version, 
+>> but seems way easier to implement and would cover all cases.
+>>
+>> Thoughts?
+> 
+> If it is deemed necessary to have the SMC32 quirk/fallback handling in
+> the Linux kernel, then, yes, it would look something like the above.
+> That is the correct soc_id value that you would want for the check.
+
+Thanks for the confirmation! I had this coded up, and tested on the FVP, 
+by tweaking TF-A to emulate the Ampere firmware behaviour. But if we 
+don't need it, even better.
+
+Cheers,
+Andre
+
+>>
+>> Cheers,
+>> Andre
+>>
+>>>
+>>>
+>>>> On 9/4/25 16:29, Sudeep Holla wrote:
+>>>>> On Wed, Sep 03, 2025 at 05:38:44PM -0400, Paul Benoit wrote:
+>>>>>> On 9/3/2025 10:49 AM, Sudeep Holla wrote:
+>>>>>>> On Wed, Sep 03, 2025 at 03:23:58PM +0100, Sudeep Holla wrote:
+>>>>>>>> On Tue, Sep 02, 2025 at 06:20:53PM +0100, Andre Przywara wrote:
+>>>>>>>>> Commit 5f9c23abc477 ("firmware: smccc: Support optional Arm 
+>>>>>>>>> SMCCC SOC_ID
+>>>>>>>>> name") introduced the SOC_ID name string call, which reports a 
+>>>>>>>>> human
+>>>>>>>>> readable string describing the SoC, as returned by firmware.
+>>>>>>>>> The SMCCC spec v1.6 describes this feature as AArch64 only, 
+>>>>>>>>> since we rely
+>>>>>>>>> on 8 characters to be transmitted per register. Consequently 
+>>>>>>>>> the SMCCC
+>>>>>>>>> call must use the AArch64 calling convention, which requires 
+>>>>>>>>> bit 30 of
+>>>>>>>>> the FID to be set. The spec is a bit confusing here, since it 
+>>>>>>>>> mentions
+>>>>>>>>> that in the parameter description ("2: SoC name (optionally 
+>>>>>>>>> implemented for
+>>>>>>>>> SMC64 calls, ..."), but still prints the FID explicitly as 
+>>>>>>>>> 0x80000002.
+>>>>>>>>> But as this FID is using the SMC32 calling convention (correct 
+>>>>>>>>> for the
+>>>>>>>>> other two calls), it will not match what mainline TF-A is 
+>>>>>>>>> expecting, so
+>>>>>>>>> any call would return NOT_SUPPORTED.
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> Good catch and I must admit I completely missed it inspite of 
+>>>>>>>> discussing
+>>>>>>>> 32b vs 64b FID around the same time this was introduced.
+>>>>>>>>
+>>>>>>>>> Add a 64-bit version of the ARCH_SOC_ID FID macro, and use that 
+>>>>>>>>> for the
+>>>>>>>>> SoC name version of the call.
+>>>>>>>>>
+>>>>>>>>> Fixes: 5f9c23abc477 ("firmware: smccc: Support optional Arm 
+>>>>>>>>> SMCCC SOC_ID name")
+>>>>>>>>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>>>>>>>>> ---
+>>>>>>>>> Hi,
+>>>>>>>>>
+>>>>>>>>> as somewhat expected, this now fails on an Ampere machine, which
+>>>>>>>>> reported a string in /sys/devices/soc0/machine before, but is 
+>>>>>>>>> now missing
+>>>>>>>>> this file.
+>>>>>>>>> Any idea what's the best way to handle this? Let the code try 
+>>>>>>>>> the 32-bit
+>>>>>>>>> FID, when the 64-bit one fails? Or handle this as some kind of 
+>>>>>>>>> erratum?
+>>>>>>>>>
+>>>>>>>>
+>>>>>>>> Not sure about it yet. Erratum seems good option so that we can 
+>>>>>>>> avoid
+>>>>>>>> others getting it wrong too as they might just run the kernel 
+>>>>>>>> and be happy
+>>>>>>>> if the machine sysfs shows up as we decided to do fallback to 
+>>>>>>>> 32b FID.
+>>>>>>>>
+>>>>>>>> I will start a discussion to get the spec updated and pushed out 
+>>>>>>>> and see
+>>>>>>>> how that goes.
+>>>>>>>>
+>>>>>>>> The change itself looks good and happy to get it merged once we 
+>>>>>>>> know
+>>>>>>>> what is the best approach(erratum vs fallback).
+>>>>>>>>
+>>>>>>>
+>>>>>>> Looking at the SMCCC spec(DEN0028 v1.6 G Edition) ->
+>>>>>>> Section 7.4.6 Implementation responsibilities
+>>>>>>>
+>>>>>>> If implemented, the firmware:
+>>>>>>> ...
+>>>>>>> • must not implement SoC_ID_type == 2 for SMC32.
+>>>>>>> • can optionally implement SoC_ID_type == 2 for SMC64 (Function 
+>>>>>>> ID 0xC000_0002),
+>>>>>>> ...
+>>>>>>>
+>>>>>>> So Ampere is not spec conformant here and hence I prefer to 
+>>>>>>> handle it as
+>>>>>>> erratum. Hopefully we can use SOC_ID version and revision to keep 
+>>>>>>> the scope
+>>>>>>> of erratum confined to smallest set of platforms.
+>>>>>>>
+>>>>>>> Paul,
+>>>>>>>
+>>>>>>> Thoughts ?
+>>>>>>>
+>>>>>>
+>>>>>> Am I correctly understanding that, if the SMC64 SOC_ID Name call 
+>>>>>> fails,
+>>>>>> rather than an unconditional fallback to the SMC32 call, the SMC32
+>>>>>> fallback would only be occurring under the proposed erratum?
+>>>>>>
+>>>>>
+>>>>> Correct, if we have unconditional fallback to the SMC32 call, then 
+>>>>> there
+>>>>> is a chance that this issue gets carried into newer Ampere systems 
+>>>>> as f/w
+>>>>> gets copied as well as other vendors will also not notice the issue if
+>>>>> they make similar mistake as the kernel silent makes a SMC32 call.
+>>>>>
+>>>>> We do need details of  the SoC revision and version for which we 
+>>>>> need to
+>>>>> apply this workaround/erratum.
+>>>>
+>>>> So this looks more like a firmware erratum than a SoC specific one,
+>>>> right? So I wonder if any SoC specific IDs are really appropriate here.
+>>>> Is there some firmware version we can read via DMI or so to identify
+>>>> affected systems?
+>>>> Or shall we use a probably much easier SoC or even MIDR check anyway,
+>>>> since it's just a fallback? As in: try smc64, if that fails and if it's
+>>>> a core that ever shipped with that affected firmware, try smc32? I 
+>>>> think
+>>>> there is not much harm in trying those FIDs, so we just limit the scope
+>>>> to Ampere cores - even though that's technically not the right 
+>>>> method by
+>>>> the book?
+>>>>
+>>>> Cheers,
+>>>> Andre
+>>>>
+>>>>
+>>>>
+>>>>>
+>>>>>> I brought this issue up at a weekly team meeting today, and I'll 
+>>>>>> also be
+>>>>>> communicating with the Ampere Computing firmware team regarding this
+>>>>>> issue.
+>>>>>
+>>>>> Thanks!
+>>>>>
+>>>>
+>>>
+>>
+> 
+
 
