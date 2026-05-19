@@ -4,114 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D150CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED88ECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAopOieYCPilX2N9ha2ZGmBzVXcApKxQEegBcvzI5VI=; b=seEkJ+PYj9E49Nc3xrf1N/vZ1w
-	rOUe1jK45EfkC/q1z10cGaCpJtrKEQGkEv9hgOvL7sUdURR8nIqFK95lGmKkOqRT1vqNGYCviBCx7
-	MiPJ70GWvC3p4IuK3RNTARnBIMXZYWZZYIqpYhVX+jsmuR/w5EltkC40KE0yjWVPH1kNQCyuBJF0R
-	+MDdVnSiODmmYPMgUeJJL4aESRCjrcRUV7LFHB0FqaePxrHA98hw+w3iAxni8mAR85r3/ylHNGHEz
-	wc7YRk5utmTO3aiTpp5RzlR+NPbxOIBI2cXjl1FBXUPkB7/+JwASw84O/0THIim1Nvh+nkfRvsvP0
-	nQn609fw==;
+	bh=e5WP6Eouy15nIZrvEr0rRqjihJ4twYxvA4l62570y2E=; b=kFPbaocDgg72K2mRykRhTSviWQ
+	xL8D+sCz5FwXzayuf6aSYkCp8yE0H+4TEtMDmtQV8vnKCC6gDP5JZAU18mwKBrTO80aPkKsvnbMFa
+	AtQEsj0yFcLgEgNN59m8Lcb2E6gjS3ORO+45Kk3r+IFRgKFLQMyWUNwDy7g0hoim9fEOJ5iOhP3Ry
+	bJyrOO9/2JT9zJ8Dh57DaXg6k539bgICPV+nOoY31VBKnsfd/Cf5jwQfwOTszkjRkzUHLdmZS/+It
+	NrCDTb8P+WXd/HbaUeX3aP/Z2aoZ2z3Hjg27WzYv8lc63leNMsjsDVtx3rFo3B8LTQSdWiraJqON1
+	JNlN/kPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGfJ-00000000uFj-3ooe;
-	Tue, 19 May 2026 09:23:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPGM0-00000000p7N-0ekc;
+	Tue, 19 May 2026 09:03:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGfJ-00000000uFB-0Upp
+	id 1wPGLl-00000000onW-2uHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:23:05 +0000
+	Tue, 19 May 2026 09:02:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54BFA60208;
-	Tue, 19 May 2026 09:23:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E254C2BCF5;
-	Tue, 19 May 2026 09:22:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 233326020F;
+	Tue, 19 May 2026 09:02:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5073BC2BCB3;
+	Tue, 19 May 2026 09:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779182584;
-	bh=zoicHgt9O7RSwyA/8Yt8+UfNI+ddUfsokmOgEX1CF+Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pddg1vFTCh1TukRUY0V4DNXlP+8KxkotVm9cx5a5akZSkmQJ2odYwd7pIU7+gpN8o
-	 tjnTCiM6/13XkQQSXuYmQgFOrTGugiwyU3kRtQwS2IODoBrZ7q7zh7FOMKoDxx0rAC
-	 j90xHw17PtS7VJf8jLbE5Ip8FJ1I34Ecj92IuWCahEDAWSHrugL4oHETq6VF4I7apI
-	 7lnaIJeLEOkYQhkCLSJ0unrz036rF1qkVLag1PEMQzH3HpPi8I/AKnC5G2n+PxRCOj
-	 trB4WR4fNvfFR8Xi7XF1qaU6TzsDFqRnPEGBM0N2wC8Sl12aJtCDOew9X21WHmJL5V
-	 RkVR7MV9cgSLw==
-Message-ID: <d12b5738-ca14-40aa-930f-eddf3199818d@kernel.org>
-Date: Tue, 19 May 2026 11:22:55 +0200
+	s=k20201202; t=1779181372;
+	bh=jxSIny2eDy5UApT+259+z4ah0co5cF9vQfWozPSJv4g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=IOig0wHtQgljskr8D2A2ABitshcAzchAEQv+PNjkm6RmNhprEohxRSpD9e4jsCFqD
+	 zNRqHuTRhOwlHcowMw1UXHKXRCtfOJVMrur0pwJc++e+SVu6UG5sII0vIV87FKgQAj
+	 ijXmuCjTwKI25uSHYHOEGaQPrw/LkXqcvmfnKX/R0uRYMMM5jgtTkscw5ywLXL1zCk
+	 yTjDe/5A+rgqZl/5yiVaRUnYY+CjGIIsyyjQWFLtR/r6PByAlCoICMzENK4Aewsbug
+	 vAlfTm4Jin18KPSB1vdwXRWvXmmNyypa6avwIvjVLznef1GJQI4VsAEPow9Rfh5kYL
+	 8pyO0HgQmhz4Q==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 19 May 2026 11:01:58 +0200
+Subject: [PATCH v5 16/19] drm/mode-config: Create
+ drm_mode_config_create_initial_state()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 09/10] dt-bindings: firmware: add arm,ras-cper
-To: Ahmed Tiba <ahmed.tiba@arm.com>, rafael@kernel.org, bp@alien8.de,
- saket.dumbre@intel.com, will@kernel.org, xueshuai@linux.alibaba.com,
- mchehab@kernel.org, krzk+dt@kernel.org, dave@stgolabs.net,
- conor+dt@kernel.org, vishal.l.verma@intel.com, jic23@kernel.org,
- corbet@lwn.net, guohanjun@huawei.com, dave.jiang@intel.com,
- catalin.marinas@arm.com, lenb@kernel.org, tony.luck@intel.com,
- skhan@linuxfoundation.org, djbw@kernel.org, alison.schofield@intel.com,
- ira.weiny@intel.com, robh@kernel.org
-Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
- linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com,
- linux-cxl@vger.kernel.org, Michael.Zhao2@arm.com,
- acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org
-References: <20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-0-42698675ba61@arm.com>
- <20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-9-42698675ba61@arm.com>
- <5fb43b8d-e772-42af-ba78-d75abd87bd0c@kernel.org>
- <8bc812fd-cda5-485f-98d2-4901ec17c66f@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <8bc812fd-cda5-485f-98d2-4901ec17c66f@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260519-drm-mode-config-init-v5-16-388b03321e38@kernel.org>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6204; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=jxSIny2eDy5UApT+259+z4ah0co5cF9vQfWozPSJv4g=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk86gwSZy7+v6d6dt8lG+1JS95orwswdrizxOedwMUZu
+ 9aIxZtd7JjKwiDMySArpsjyRCbs9PL2xVUO9it/wMxhZQIZwsDFKQATWf2KsWFR4dn1+1kNIpbX
+ 6DZynlU6JjZ73Xytc4+Fz08PE9d55bVSzUeJO2iHhMTmviu3OJfOncnYcGvaom15KiyxZ0QdGKr
+ 7GLQzBN+xBwoHM8wVfxW7zKeVaTubHQMLp+mxduNzCyZfXpAPAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,29 +102,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2026 11:02, Ahmed Tiba wrote:
-> On 19/05/2026 08:04, Krzysztof Kozlowski wrote:
->> On 18/05/2026 13:57, Ahmed Tiba wrote:
->>> Describe the DeviceTree node that exposes the Arm firmware-first
->>> CPER provider and hook the file into MAINTAINERS so the
->>> binding has an owner.
->>>
->>> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
->>
->> Please implement previous comments.
-> 
-> Could you please clarify which previous DT comments you still see
-> as unaddressed?
-> 
-> My understanding was that I had addressed the earlier points on the YAML
-> description formatting, the `memory-region` description text, and the
-> example. If I missed a specific item beyond the one below, please point 
-> me to it.
+drm_mode_config_reset() can be used to create the initial state, but
+also to return to the initial state, when doing a suspend/resume cycle
+for example.
 
-You do not need other nodes for your device in the example. I asked why
-this is needed for the example, but there was no answer.
+It also affects both the software and the hardware, and drivers can
+choose to reset the hardware as well. Most will just create an empty
+state and the synchronisation between hardware and software states will
+effectively be done when the first commit is done.
 
+That dual role can be harmful, since some objects do need to be
+initialized but also need to be preserved across a suspend/resume cycle.
+drm_private_obj are such objects for example.
 
-Best regards,
-Krzysztof
+Thus, create another helper for drivers to call to initialize their
+state when the driver is loaded, so we can make
+drm_mode_config_reset() only about handling suspend/resume and similar.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/drm_atomic.c      | 13 +++++-
+ drivers/gpu/drm/drm_mode_config.c | 89 +++++++++++++++++++++++++++++++++++++++
+ include/drm/drm_mode_config.h     |  1 +
+ 3 files changed, 101 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
+index d98586d89bbe..ea021250925c 100644
+--- a/drivers/gpu/drm/drm_atomic.c
++++ b/drivers/gpu/drm/drm_atomic.c
+@@ -59,12 +59,21 @@
+  * preparing the update and kept alive as long as they are active in the
+  * device.
+  *
+  * Their respective lifetimes are:
+  *
+- * - at reset time, the object reset implementation will allocate a new
+- *   default state and will store it in the object state pointer.
++ * - at driver initialization time, the driver will call
++ *   drm_mode_config_create_initial_state() to allocate an initial,
++ *   pristine, state for each object and will store it in the objects
++ *   state pointer. Historically, this was one of
++ *   drm_mode_config_reset() job, so one might still encounter it in a
++ *   driver.
++ *
++ * - at reset time, for example during suspend/resume,
++ *   drm_mode_config_reset() will reset the software and hardware state
++ *   to a known default and will store it in the object's state pointer.
++ *   Not all objects are affected by drm_mode_config_reset() though.
+  *
+  * - whenever a new update is needed:
+  *
+  *   + A new &struct drm_atomic_commit is allocated using
+  *     drm_atomic_commit_alloc().
+diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+index 9d240817f8b6..f432f485a914 100644
+--- a/drivers/gpu/drm/drm_mode_config.c
++++ b/drivers/gpu/drm/drm_mode_config.c
+@@ -21,10 +21,11 @@
+  */
+ 
+ #include <linux/export.h>
+ #include <linux/uaccess.h>
+ 
++#include <drm/drm_atomic.h>
+ #include <drm/drm_drv.h>
+ #include <drm/drm_encoder.h>
+ #include <drm/drm_file.h>
+ #include <drm/drm_framebuffer.h>
+ #include <drm/drm_managed.h>
+@@ -314,10 +315,98 @@ void drm_mode_config_reset(struct drm_device *dev)
+ 	}
+ 	drm_connector_list_iter_end(&conn_iter);
+ }
+ EXPORT_SYMBOL(drm_mode_config_reset);
+ 
++/**
++ * drm_mode_config_create_initial_state - Allocates the initial state
++ * @dev: drm device
++ *
++ * This functions creates the initial state for all the objects. Drivers
++ * can use this in e.g. probe to initialize their software state.
++ *
++ * It has two main differences with drm_mode_config_reset(): the reset()
++ * hooks aren't called and thus the hardware will be left untouched, but
++ * also the &drm_private_obj structures will be initialized as opposed
++ * to drm_mode_config_reset() that skips them.
++ *
++ * Returns: 0 on success, negative error value on failure.
++ */
++int drm_mode_config_create_initial_state(struct drm_device *dev)
++{
++	struct drm_crtc *crtc;
++	struct drm_colorop *colorop;
++	struct drm_plane *plane;
++	struct drm_connector *connector;
++	struct drm_connector_list_iter conn_iter;
++	struct drm_private_obj *privobj;
++	int ret;
++
++	drm_for_each_privobj(privobj, dev) {
++		struct drm_private_state *privobj_state;
++
++		if (privobj->state)
++			continue;
++
++		if (!privobj->funcs->atomic_create_state)
++			continue;
++
++		privobj_state = privobj->funcs->atomic_create_state(privobj);
++		if (IS_ERR(privobj_state))
++			return PTR_ERR(privobj_state);
++
++		privobj->state = privobj_state;
++	}
++
++	drm_for_each_colorop(colorop, dev) {
++		struct drm_colorop_state *colorop_state;
++
++		if (colorop->state)
++			continue;
++
++		colorop_state = drm_atomic_helper_colorop_create_state(colorop);
++		if (IS_ERR(colorop_state))
++			return PTR_ERR(colorop_state);
++
++		colorop->state = colorop_state;
++	}
++
++	drm_for_each_plane(plane, dev) {
++		if (plane->state)
++			continue;
++
++		ret = drm_mode_config_plane_create_state(plane);
++		if (ret)
++			return ret;
++	}
++
++	drm_for_each_crtc(crtc, dev) {
++		if (crtc->state)
++			continue;
++
++		ret = drm_mode_config_crtc_create_state(crtc);
++		if (ret)
++			return ret;
++	}
++
++	drm_connector_list_iter_begin(dev, &conn_iter);
++	drm_for_each_connector_iter(connector, &conn_iter) {
++		if (connector->state)
++			continue;
++
++		ret = drm_mode_config_connector_create_state(connector);
++		if (ret) {
++			drm_connector_list_iter_end(&conn_iter);
++			return ret;
++		}
++	}
++	drm_connector_list_iter_end(&conn_iter);
++
++	return 0;
++}
++EXPORT_SYMBOL(drm_mode_config_create_initial_state);
++
+ /*
+  * Global properties
+  */
+ static const struct drm_prop_enum_list drm_plane_type_enum_list[] = {
+ 	{ DRM_PLANE_TYPE_OVERLAY, "Overlay" },
+diff --git a/include/drm/drm_mode_config.h b/include/drm/drm_mode_config.h
+index e584652ddf67..d8f5b7e9673e 100644
+--- a/include/drm/drm_mode_config.h
++++ b/include/drm/drm_mode_config.h
+@@ -1005,9 +1005,10 @@ int __must_check drmm_mode_config_init(struct drm_device *dev);
+ static inline int drm_mode_config_init(struct drm_device *dev)
+ {
+ 	return drmm_mode_config_init(dev);
+ }
+ 
++int drm_mode_config_create_initial_state(struct drm_device *dev);
+ void drm_mode_config_reset(struct drm_device *dev);
+ void drm_mode_config_cleanup(struct drm_device *dev);
+ 
+ #endif
+
+-- 
+2.54.0
+
 
