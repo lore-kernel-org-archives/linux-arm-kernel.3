@@ -4,108 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD323CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC5ECD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T4sIM5W7sb+vgXCeGk89INhm5L5HYFz3xkdbbX+NpWs=; b=Aj5XCUP5Mie9nZSU3OHtjdpR2h
-	CWza1t4xBDNqqfQNXRRo2Qs9Cl8fpX+49oO/C9SmNITpbwQ78GXNyrhMo0YAyueUFrihtWm35f4Pf
-	fWWFbiu8YU3dEc8oDG+xPVaJh80XsAZQGed6IIuM8UkIqzuppTTSh9P/8R50AHCbw4p+wC3IxgPVy
-	tn3vdSMvd4fTjMTZp/fakpg0nb48RyrTBhkAJshxlwrRmTKuK6AnUaHZi/CVjQNgeEoTnZodZm3nX
-	117eUHyhIvXaotpsjP1VgueRsaqUhGdqev9oeE9RrsRBdgoUrguVF3SkV2Sc72YZ5dKj68vc0P+Je
-	cIM4iJ7g==;
+	bh=iBApCPg0n7tudhe3UxqEQnkqzXLwbo5XP66QLoDtV30=; b=JGXoBHgjLJySefNBmI/TMxLPOR
+	e2U1ZEi/2fT26OVhczCd/BjDrNq0QTNeuDLtrO3QUitYVDTbVGi3yr9XJlKqtCCpDjWE0x/al8L7Z
+	Kgx8/+2wcMVd9RbHZXbeLCwZI7I2dzLQIAwdjk62/HK8x3YOMDhPOg5a2Be//mtEBjTu5p4Ol1yRC
+	oespKSFalLPkWPCRzQqbB/Y85VjF0TMlDRNjLRqpQgIWpS2FVYGuQ+oo25Thr9F3WD3dK8idoQ1Lv
+	gvV6hYHhVoxIXL3uOpM2zH0dtgMTVPMa+j1tZ6GL02km5FEOQWV3UtMzSC2yo/FakFdKhmxdhOFhR
+	oDgxbIug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJam-00000001TwW-1RDh;
-	Tue, 19 May 2026 12:30:36 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1wPJix-00000001V3b-0QjX;
+	Tue, 19 May 2026 12:39:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJaj-00000001TvK-3mXz
+	id 1wPJiv-00000001V38-381x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 12:30:35 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-515548f390fso101cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 05:30:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779193832; cv=none;
-        d=google.com; s=arc-20240605;
-        b=lPSaHA/A3PZ8+Kmw5iaHuzlVKwTNinxIXIHFJp2mlwQDdY04b9b0V/ZVZ/Z1+gq+uy
-         pTwGiS6H8y5Wx4ZTdNUYEW5/2yDXBfy1jhcxa2Z9tU8zDrXK2WSWzHi5BdBXNDfU48pM
-         xDIaODPqqSLjcZfXEbzNZp4NfrrVYkUS24I3FIIwDW/pVWOhfHvtL3KU++zLvPKXkuaE
-         qWcjfW+UQN/gp3wzrHLk6sGHjiDJ2s2syEtfGTEJ0wLYAkIzaezR3VUw0hOUELA7blUx
-         w6dzqPMN0FwUjdmgOX2BPZTohlb4lO9Dj5UBYaKKD6K3fc/56IxFsEkvq2RmnMVeJ+Yv
-         QqjQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=T4sIM5W7sb+vgXCeGk89INhm5L5HYFz3xkdbbX+NpWs=;
-        fh=b1FzLiJ9rLZ05wiEd1vgjPMYSz6q23+zb4LpyKCoxeE=;
-        b=DdEN0toJN0IGoO/4eOllVMZ4/aD+fQuGDDb85cbKiaXQCK3qmJLWcVUhCyzkTcADY/
-         dFg7Vm71V6Ig7yfgnf8t71XSlcpllTOUXoKO60aO4MU+cPOLwseZhM8XtLDZpsgrQsct
-         gOnBCy4SQ06jm4W+1svqts4X2hsPEKjRVU9VraJ0KUGcRmNFNMTbxa8rGPkMyuOWe8cp
-         oo71yHAWUkcT+zWkLvmWzBSmMdtAAE+ly3sts6EwlZSdswCpHXgr1tyPqd4AS0anFGDb
-         99C8l2Po7PJl2itAl/J5rK+C4v1DFj7mlFU6okz/rmn4rknmJzgyO5lUw0fIWrIUVE+G
-         jqDA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779193832; x=1779798632; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=T4sIM5W7sb+vgXCeGk89INhm5L5HYFz3xkdbbX+NpWs=;
-        b=bxs0y4isggLNqbPZA8CumnSFB4sA+bkaagRbJNzEk/WQv5Txr3xnq2TfexUyoT3tfB
-         kFqvOBxD40Qca1Jy5oa4U+Mujk33stri8xT4HERMCcMLia2FZCJJq0Bs3IsYLD2xzkSg
-         8XNdfMtn82bDBYhWMw1zF9fZSd3w0ANpqJrhjj1t8msCaSJZFxrRcGfqsAq41+M0oCSD
-         lgkkeOrPEDH04RJS/49m+Qd5yYldo7Ek28AONiddSxFfWh3ZZh/ikEE9ZjE/Ud8UkeRo
-         DBxe6YfU5UWExCfGrzyZoUCR34vpLJhnt6IbuHWVB6SDUZmvfGQOmnln6D1cw2GmBzts
-         xXUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779193832; x=1779798632;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T4sIM5W7sb+vgXCeGk89INhm5L5HYFz3xkdbbX+NpWs=;
-        b=c2a4+2xldL+it+/QcqoQiDZJG3NDUXZFLbWEAAPo5KCDwDj99BU3O7H5SOeGbkZt+K
-         vdM4sncmXnzVPYT9DM4qWGna3mUwd6syXFCRPlAKFGmJhmBCxmvGUQplwWdDm8RfxZrX
-         jUUFX492ta+cNpa88MBSymc8mmlZOl1QZVccr7F1kk11M55MkhtnbLhdjsW6wgM5kqCV
-         hZmdqp3bTlxw/uT4kBaBBXM76DOnQjX3+9UZGcAQp7jg9lHSEzn8318+ErTk7Lq/4UEp
-         xzp8DBK9H6RyeS9xYYdt8g6EYa2Rxdt4m7EPp+FiiqPeZwmBKfZPbmZRSxlGRqbbm2Iw
-         fIaQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/GszD6TtAYff80fwa+2GdOnuaSXZ4IJasVhv4JLNOPX9ZN9eDQnXb1xOD84S4bVuQA7rtqicWFf7SK8lp6nzyk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwspGDiihUULFK27gQiC4ZvAV/RMyv08F0f9NouA7qrHzxLi7OJ
-	7MwYlqg0Pj5y8GEEKJO9NEC2vGknhc3SSHHf0+ErG7MA2Z0g3ORKuUjqJqO1G0sc1V2OrfEqpQ6
-	4oD8gLTJLmILgzyQIJMe8oY4WxvJaNzabYNKBTApk
-X-Gm-Gg: Acq92OF14LSeGjFdqRsSwTwupL/may8mGm4gXFfvo+HNrdjSCHUyv25+u00BjpjCFj0
-	T9t92dXkPO+shCjvZzi8k6cFZMZbm0UfVl337rNK9nmEjedf33dmpvubs+cbgiiqP0mP9yRndW1
-	b1HWaLQ5BacQH/P+QuEnxK1H9HUB9BcYNnIf+Cz8Ln+B36xS2LcW+2+qju+580AXGG2rebb9FBn
-	us3K3VI4FldDt4CdON71ddncH90fOZMZvB59IcWasQa/5u4VeIiQ9fE0kraKg0z4+Pe70/ofCcA
-	DJay0k28qCrOEX5ibRTOtwe+svKhIm5v5wfmInI5yeh7nWYP
-X-Received: by 2002:a05:622a:258c:b0:516:4f62:85ef with SMTP id
- d75a77b69052e-516794623e8mr5463001cf.20.1779193830947; Tue, 19 May 2026
- 05:30:30 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260501-host-direct-messages-v6-0-3f4af727ed85@google.com> <20260501-host-direct-messages-v6-1-3f4af727ed85@google.com>
-In-Reply-To: <20260501-host-direct-messages-v6-1-3f4af727ed85@google.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 19 May 2026 13:29:53 +0100
-X-Gm-Features: AVHnY4JCKN8u315XEm5-PkCtuH_gksQn8y22bEYloMMa3Htlz66vFU5m6nvVvsQ
-Message-ID: <CA+EHjTyvc=cmx9pv34govtbxJ1TDd6RPDoCfMR-dxO-R1jzNMQ@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ in
- host handler
-To: perlarsen@google.com
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
-	Oliver Upton <oupton@kernel.org>, Armelle Laine <armellel@google.com>, 
-	Sebastien Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_053033_953112_CA7AD3F3 
-X-CRM114-Status: GOOD (  23.69  )
+	Tue, 19 May 2026 12:39:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35CF560126;
+	Tue, 19 May 2026 12:39:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1AF6C2BCB3;
+	Tue, 19 May 2026 12:39:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779194340;
+	bh=8vDTP3D8eciTBIALrAZgpZD5nbooGrzE+oayZi9KF0E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X6t7ol7k8hXaTj/jPvLJ4LNh/i0SOJnXHIXk5IZvumO7d/mN1CRjiMLm+KSTcCp01
+	 dpCgfb3aWuWfFvphoRRIUvocz42q1e+gPLCMrk98HK48+ExirdBV2p39MdspXradvs
+	 1S8OGLvyb2+JpsVe931jV07V3TurIWCZCvnNvmG/z9BrJiOSkahYsYOo1ZSNsKo2ra
+	 Y+gehhYjrv12Lm3yC01nrnbTOX6dWDkJ5zl5bn1iOKENlNlOCBFUr/hY7y5DGNyIh8
+	 j8dzCXa37aHLiHFr20/F7wIrW3FgI33uniFpprTdhEdwfVSdoMKI7k1UkTm0mh1dmW
+	 8eH0eWogRBXPQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPJis-00000003wup-1KJo;
+	Tue, 19 May 2026 12:38:58 +0000
+Date: Tue, 19 May 2026 13:38:57 +0100
+Message-ID: <86qzn7wp3y.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: David Woodhouse <dwmw2@infradead.org>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	kvm <kvm@vger.kernel.org>,
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Jim Mattson <jmattson@google.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Kees Cook <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	kvmarm@lists.linux.dev,
+	linux-kselftest <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility expectations
+In-Reply-To: <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
+References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+	<6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
+	<57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
+	<baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
+	<86h5obya2r.wl-maz@kernel.org>
+	<48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
+	<ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
+	<d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
+	<CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
+	<3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
+	<agxFbniU_6eQ98t2@willie-the-truck>
+	<cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
+	<CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, dwmw2@infradead.org, will@kernel.org, corbet@lwn.net, skhan@linuxfoundation.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, seanjc@google.com, jmattson@google.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, rananta@google.com, eric.auger@redhat.com, kees@kernel.org, arnd@arndb.de, nathan@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,101 +113,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Per and Seb,
+On Tue, 19 May 2026 13:13:41 +0100,
+Paolo Bonzini <pbonzini@redhat.com> wrote:
+>=20
+> On Tue, May 19, 2026 at 1:44=E2=80=AFPM David Woodhouse <dwmw2@infradead.=
+org> wrote:
+> > > > So... what next? Is one of the other KVM/arm64 maintainers going to
+> > > > speak up? Paolo would you consider taking the fixes through your tr=
+ee
+> > > > directly?
+>=20
+> I admit that my knowledge of Arm is really limited, and I do not
+> understand which IIDR values have architecturally allowed behaviors
+> and which (if any) were made up by KVM; but even if I cannot honestly
+> remark on the code or even the approach, a compatibility knob is the
+> right thing to have.  That's a userspace API design matter, not an Arm
+> or GIC matter.
 
-On Fri, 1 May 2026 at 06:34, Per Larsen via B4 Relay
-<devnull+perlarsen.google.com@kernel.org> wrote:
->
-> From: Sebastian Ene <sebastianene@google.com>
->
-> Allow direct messages to be forwarded from the host. The host should
-> not be sending framework messages so they are filtered out.
->
-> Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Per Larsen <perlarsen@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 26 ++++++++++++++++++++++++++
->  include/linux/arm_ffa.h       |  2 ++
->  2 files changed, 28 insertions(+)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 1af722771178..3a58e01d255f 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -862,6 +862,28 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
->         hyp_spin_unlock(&host_buffers.lock);
->  }
->
-> +static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
-> +                             struct kvm_cpu_context *ctxt)
-> +{
-> +       DECLARE_REG(u32, endp, ctxt, 1);
-> +       DECLARE_REG(u32, flags, ctxt, 2);
-> +
-> +       struct arm_smccc_1_2_regs *args = (void *)&ctxt->regs.regs[0];
-> +
-> +       if (FIELD_GET(FFA_SRC_ENDPOINT_MASK, endp) != HOST_FFA_ID) {
-> +               ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-> +               return;
-> +       }
-> +
-> +       /* filter out framework messages and validate SBZ/MBZ bits */
-> +       if (flags) {
-> +               ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
-> +               return;
-> +       }
-> +
-> +       arm_smccc_1_2_smc(args, res);
-> +}
-> +
->  bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->  {
->         struct arm_smccc_1_2_regs res;
-> @@ -920,6 +942,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
->         case FFA_PARTITION_INFO_GET:
->                 do_ffa_part_get(&res, host_ctxt);
->                 goto out_handled;
-> +       case FFA_MSG_SEND_DIRECT_REQ:
-> +       case FFA_FN64_MSG_SEND_DIRECT_REQ:
-> +               do_ffa_direct_msg(&res, host_ctxt);
-> +               goto out_handled;
->         }
+I agree that we can have the knob -- not having it is a userspace
+issue, and I have said that I was OK with preserving the userspace
+interface.
 
-The commit message says the host should not be sending framework
-messages, so they're filtered out. That filter is only installed for
-REQ. The RESP side is asymmetric: FFA_MSG_SEND_DIRECT_RESP is in the
-reject list, but FFA_FN64_MSG_SEND_DIRECT_RESP isn't. Should you add
-that too?
+>=20
+> I hope that Marc provides a better explanation of why he believes
+> https://lore.kernel.org/all/20260511113558.3325004-2-dwmw2@infradead.org/
+> shouldn't be accepted, because I am more than a bit puzzled about
+> *why* that patch is being rejected or (in v3) so far ignored. Marc in
+> this thread wrote: "If userspace is not a total joke, it will read all
+> the ID registers, and configure what it wants to see, assuming it is a
+> feature that can be configured (not everything can, because the
+> architecture itself is not fully backward compatible)".
 
-Sashiko [1] also flagged two issues here. Took a quick look and the
-tracing one seems to be worth a closer look. The upper-bits question
-is judgement but plausible.
+This was a more general comment on the full mechanism that we use to
+save/restore the state and at the same time configure the feature
+set. Which is what the GICD_IIDR does to some extent for the GIC.
 
-[1] https://sashiko.dev/#/patchset/20260501-host-direct-messages-v6-0-3f4af727ed85%40google.com
+> But in this case there's an ID register that tells KVM if userspace
+> wants the old or the new behavior, independent of whether that old
+> behavior is architecturally valid or not.
 
-Cheers,
-/fuad
+But the "old behaviour" makes no sense, and cannot be used by a guest:
 
->
->         if (ffa_call_supported(func_id))
-> diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-> index 81e603839c4a..f47d4bd51b2d 100644
-> --- a/include/linux/arm_ffa.h
-> +++ b/include/linux/arm_ffa.h
-> @@ -269,6 +269,8 @@ bool ffa_partition_check_property(struct ffa_device *dev, u32 property)
->         (ffa_partition_check_property(dev, FFA_PARTITION_DIRECT_REQ2_RECV) && \
->          !dev->mode_32bit)
->
-> +#define FFA_SRC_ENDPOINT_MASK  GENMASK(31, 16)
-> +
->  /* For use with FFA_MSG_SEND_DIRECT_{REQ,RESP} which pass data via registers */
->  struct ffa_send_direct_data {
->         unsigned long data0; /* w3/x3 */
->
-> --
-> 2.54.0.545.g6539524ca2-goog
->
->
->
+- either the guest doesn't use the alternative interrupt groups, then
+  it wasn't affected by the bug. That's 100% of the guests.
+
+- or the guest did try to use the alternative groups, and it *NEVER*
+  worked, as it wouldn't get any interrupt at all. What is the point
+  of preserving a "feature" that only results in a non-working guest?
+
+Given that, re-introducing a behaviour that cannot be used makes zero
+sense to me.
+
+> I will certainly take this patch, but I won't override Marc. However
+> I'd like to better understand his point of view, because right now I
+> just don't get it.
+
+I don't get it either, but for different reasons.
+
+>=20
+> > If KVM on arm64 doesn't aspire to maintain guest compatibility across
+> > host kernel changes =E2=80=94 regardless of whether the previous kernel=
+'s
+> > behaviour was "blessed" by the architecture specification or not =E2=80=
+=94 then
+> > it does not meet the expectation that we have of KVM implementations in
+> > the Linux kernel.
+>=20
+> I agree with the "aspire" wording. Even if it's not going to be 100%
+> achievable, KVM *needs* to aspire to maintain both guest compatibility
+> and architecture precision. Sometimes it's impossible, sometimes there
+> are constraints that require you to trade off one for another (e.g.
+> via quirks, or by breaking behavior that no sane guest would have
+> cared about). But in general as a maintainer you don't *get* to
+> choose.
+>=20
+> Paolo
+>=20
+> > Or indeed the standards that we've held for Linux kernel ABIs for the
+> > last 35 years.
+
+As I said before, I'd be OK with something that would restore IIDR to
+REV1. But not something that actively breaks the GIC emulation by
+reintroducing a bug. That's, by construction, dead code that will only
+bitrot, because there is no SW that can make use of this nonsense.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
