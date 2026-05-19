@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40677CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB10CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
-	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZpvAdTidzv5frFA2Fh59VQYe4hvOqmAQpFG53pkriM=; b=j+7m0C+9vDBuBSGUkejUZQWLCX
-	QPAp+2WKw2n9n786EazbAdEpKwUq2NK1GC2Dhgr+TZYHiqy3vwYiz9YGSQZvOFAmtMQcyfuN8J0/J
-	al9orlEtataRWIOQEWfxixnPU6NFs4x/sB/3v/t7tDvZBZwgYOQJ+ta3UfRBJLqwVUYLuCpY/Mq76
-	3innTYWmW/FVPD7PfuU6KHD6MGzMtrEJr4wRRlxHzkH5q/0KBI8OBpA1nMlIq4rQDinnnw3/E8sCr
-	pO4Q0lfdZu9Ha1c0K3ctcsAIhv0cNC+s05WSadyibtWX1OvNa4QvLgbGl4mI8WhqV64TfZMBnyAgd
-	OvhOGZvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OrfCIXJBWhTkI24x8GrkdNDgazLl82raIY/1L+zWYiI=; b=WT1szEpwDz9azKXkJ1Sm+JWI6a
+	5FCGlEmm0UetlyVmo4d2DjgOeGeL/ydv2ExWBkhcjLa0ftWaRD1DFck//aSB7AgExyDLmKkNgoYLo
+	QVhsIJ7cTHaziqQFgo0ePSWFEYYNJHWPAQvwmyr/xjTOrXtLdTsL4rL16OkF3Q61NdAcWDA9ptzTp
+	ZSqvB2/Gnw+9A7R4yVQPSjYg2pkUaJ7anC12qwbXWTekRp5MEGBJRxCl1i70qHgaaslbB+F8uGamf
+	hlQXBA2OGUl+0/OS1jYDmNE6M0aTNrSlMLZb8NsBxdYVovbqEBOZUUafBzkS79nGufb9YczO43uY2
+	XjKEngbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIJw-00000001GSJ-3bX4;
-	Tue, 19 May 2026 11:09:08 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wPIMa-00000001GzF-23zb;
+	Tue, 19 May 2026 11:11:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIJs-00000001GQk-3XcT
+	id 1wPIMZ-00000001Gz4-1LIh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 11:09:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 22CC91A3629;
-	Tue, 19 May 2026 11:09:01 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D99A0606E9;
-	Tue, 19 May 2026 11:09:00 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 115D5107E8B31;
-	Tue, 19 May 2026 13:08:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779188939; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rZpvAdTidzv5frFA2Fh59VQYe4hvOqmAQpFG53pkriM=;
-	b=lPPJ03+beU7EqTBcCvAJlMCYn4/SnelIvqTJz0zwMbjb08bZHBlSuK8JTIQ4+0DVnfCr46
-	yvyCl6mMLegw+jVfHXVbvNa7IiW1FgaGBLE6+7zJBeOKrD8zGLYlVYy7AkT6JFsJApPs0K
-	9+v70l4hOu8w7CIXxQAVLnQ5+UfxFJ1bk9goDmnsWq9qc5fPFXtpkC8eW+6ODZzAcp5ns5
-	7ya1T7M3Ozz4N7mOGMzhYeQY5GBha93i11thrrL6mpl2VY23vJON/iwSxeqjperT0VmeCM
-	i8QrljjzudkimZwllny+bcsjBmbZZpiea83vxwFXZHwRP4smcr6j/dExBvVBig==
+	Tue, 19 May 2026 11:11:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9343360126;
+	Tue, 19 May 2026 11:11:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EB23C2BCB3;
+	Tue, 19 May 2026 11:11:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779189110;
+	bh=yho1oY7rUwGUBK6N3ReIa8imE1mEl4Xep1Oe5MlRzKg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZIA+Mx511B2Utvn8fqrlK5XwSL8vqCOwjgfy/t0ERyQP2GgjcHBvxaBcaz/+rZ18J
+	 0CrpDV+n1qekubCKlZWpnJmE82yshPea4TnybMcHaE+QYIMwkljLEFlxIVTqMbq5dx
+	 p+bEZdKaRfP4JF3HO5II7EeaBytLydOBoJQe+Zs35ZNoMdXWzyeknmt3ZRISzIfQr2
+	 HPDKmcPWvg8kQiiPLq+VWUmTdcdgiXAsO6V2VXBl84LLkcAqZwz6qN9ws8wvRkwzMl
+	 aeqM9OuflbaGHxAGN6ds3muEW0LgDxQKUUbyaYUZxPKXW/BMGOIMin/d5MRp7xsP3r
+	 BRSjZhUoU2/xA==
+Date: Tue, 19 May 2026 12:11:42 +0100
+From: Will Deacon <will@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>,
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	kvmarm@lists.linux.dev,
+	linux-kselftest <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
+ expectations
+Message-ID: <agxFbniU_6eQ98t2@willie-the-truck>
+References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
+ <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
+ <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
+ <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
+ <86h5obya2r.wl-maz@kernel.org>
+ <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
+ <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
+ <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
+ <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
+ <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH v2 05/12] drm/bridge: synopsys: dw-dp: Add follow-up
- bridge support
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Damon Ding <damon.ding@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Alexey Charkov <alchark@gmail.com>, dri-devel@lists.freedesktop.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org
-In-Reply-To: <20260501-synopsys-dw-dp-improvements-v2-5-d7e7f6bac77f@collabora.com>
-References: <20260501-synopsys-dw-dp-improvements-v2-0-d7e7f6bac77f@collabora.com>
- <20260501-synopsys-dw-dp-improvements-v2-5-d7e7f6bac77f@collabora.com>
-Date: Tue, 19 May 2026 13:08:43 +0200
-Message-Id: <177918892313.537125.10814687633426590148.b4-review@b4>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_040905_297813_76938224 
-X-CRM114-Status: GOOD (  11.57  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,34 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 May 2026 00:20:32 +0200, Sebastian Reichel <sebastian.reichel@collabora.com> wrote:
+On Tue, May 19, 2026 at 11:41:26AM +0100, David Woodhouse wrote:
+> On Wed, 2026-05-13 at 18:24 +0200, Paolo Bonzini wrote:
+> > 
+> > > See commit https://git.kernel.org/torvalds/c/49a1a2c70a7f which adds a
+> > > new guest-visible feature in revision 3, but allowed userspace to
+> > > restore the old behaviour by setting it to revision 2. All my patch
+> > >  above does, is make it possible to set it to revision 1 as
+> > > well. Because https://git.kernel.org/torvalds/c/d53c2c29ae0d previously
+> > > changed the behaviour and bumped the default to 2 *without* allowing
+> > > userspace to restore the prior behaviour, and we've been carrying a
+> > > *revert* of that patch.
+> > > 
+> > > Why would we *not* accept such a patch?
+> > 
+> > Agreed. Even ignoring your revert, there's no reason why any upgrade
+> > past 49a1a2c70a7f has to be from after d53c2c29ae0d.
+> 
+> So where do we go from here?
+> 
+> I assume you'll be taking this Documentation patch via the KVM tree?
+> 
+> But what about the actual fix at 
+> https://lore.kernel.org/all/20260511113558.3325004-2-dwmw2@infradead.org/
+> 
+> This is a simple and unintrusive bug fix to make KVM/arm64 follow the
+> "common sense" requirement that the doc patch codifies, apparently
+> being rejected with the rather bizarre claim that KVM has no *need* to
+> maintain guest-visible compatibility across host kernel changes.
+> 
+> So... what next? Is one of the other KVM/arm64 maintainers going to
+> speak up? Paolo would you consider taking the fixes through your tree
+> directly? 
+> 
+> Does Arm not actually *care* whether AArch64 is considered a stable and
+> mature platform for KVM hosting?
 
-Hello Sebastian,
+Hey, come on. Marc cares more about this stuff than anybody else on the
+planet. He's been single-handedly maintaining the tree for the past
+couple of releases while Oliver was out and he's on the end of a _lot_
+of patches. I'm only cc'd on a fraction of the KVM/arm64 changes and
+it's bedlam.
 
->
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-dp.c b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> index fc4ddb7792d7..ccc55e40e81c 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-dp.c
-> @@ -2064,6 +2064,20 @@ struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
->  		goto unregister_aux;
->  	}
->  
-> +	next_bridge = devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
-
-devm_drm_of_get_bridge() looks for either a panel or a bridge. Is it
-possible to have a panel connected here?
-
-If it isn't, then using of_drm_get_bridge_by_endpoint() which has just been
-merged [0] would be much simpler and cleaner.
-
-[0] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/03d1078112fddd706b2c1e4a7d98cf18700eb5df
-
-Luca
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Will
 
