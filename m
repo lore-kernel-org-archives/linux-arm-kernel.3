@@ -4,89 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4E2CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8E4CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:14:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bqjUL/F3PkV7mQ5AZkxkB+XxR2b2VNgyAxYreLVSeSA=; b=O68uFtAsxWLCcQXgUnLTX8Ni83
-	riEA5rNzGtfn4rTsbQZDVzpdml0l7Uftz5JmTLmR4SCo6LMN9XINOJOjad0G/p54kNADLhnIgHQLH
-	LoLki+glWAn77UMvLL1dqCzKAPusab82g+RVwwPSQfKI/O8tjOTb0ocpzTlAJEUU6jVxNUTGU5s4F
-	cf9NZ1twsYxP5xjsDAsmG77W2Et4p7NzU6g8woc47wbGKSbL0utdW+aJQ6K4O95LE4kXDaoxIPScE
-	Dnk1jMHsOElFMcmkBcAgKTk1p/EZND+4d3rtz4mQ/tGrfiT2aUMUDMr06d68HFfljP2vivenKBKpk
-	RtvZlRXg==;
+	bh=pxZ/Typ0a9ooXMzf62/OLDdu2wBvs7yyqCqpQGVFNLQ=; b=cKc41bIerYuQKas0FKndaCxVz/
+	vbrfKLAldwq7olOyaWdipM50LXYde1RMYp0ORWL66EFoY98twuuKoCofNUazW9dq+6FQYqJMfYW/M
+	5q3Z6GXfOSUiN41v4T7Jv4jQFAoLW5Vh6qQp+RjoQaLkeJf/DCYhwkIp4GiV9X1za9KK4753BgXV0
+	MLfDuqCKvtheEPDCecSYaG8LJscIfTERfKJ7WhR5PDiKyhbK79uR8SY9BBYnHFFK4/YKe2CttNSHw
+	cGnnUopC2lU2QFYnQ4ptq77Cq8iAb+JJ63wdj5fs9GrfewHKsiHKR/qhWcWQH/ApMAthcrD2UHL22
+	hzwQ5lZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDi2-00000000I1v-1K4I;
-	Tue, 19 May 2026 06:13:42 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wPDiG-00000000I4T-1iNT;
+	Tue, 19 May 2026 06:13:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDi0-00000000I1H-029D
+	id 1wPDiE-00000000I3h-2fK5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 06:13:41 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48a7fe4f40bso38116575e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:13:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779171218; x=1779776018; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bqjUL/F3PkV7mQ5AZkxkB+XxR2b2VNgyAxYreLVSeSA=;
-        b=skOLHh3fDJgW+uAkMSKjEOQAheex1exxllmW1HbS5rZx43Ym1gjF/jtX/JcnItqIHu
-         q/SQq1emGs+N1i5RXaEA4TkDC1/vS61Bxb/MnWRtTv0iVxuCU+TCZURyTNlineu9mWfJ
-         J5WCRyyKU9VkvpyZX8u6vQ+YTM+TwyYXg+yb4XkGxn1GyJE5mVarX9hqPMtGMxjWIuT4
-         nrdEzC3pWqLCjqmz+sL0f7LC96amk9gen+XMFra0uiUseeJ95ztvcVmGn7cfoHDN25MI
-         NiULEqYqDf7jQEpbE51L/C6SNahlZ9yJgKUBWRlPIB8STDA5OfCtQMmf/6astPFnqbbA
-         ex6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779171218; x=1779776018;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bqjUL/F3PkV7mQ5AZkxkB+XxR2b2VNgyAxYreLVSeSA=;
-        b=geNr25/P4ybEmi1G2a5vpHIfAKEdwPjM/YPpoGun49DHxpuu48Aw7bPGUCjhiVZixa
-         yeXKOKJ+Ew8iZfIaXJH1i8PsLhEnGJNpkF92+GrE99WY8TUz+GCHoI24rnvhRCWbGwTt
-         Puu+GWuY9Oq5S3IG2dVPs0hgmQkbPw4Sc+Pt7MW+OYh2aT+uxykv53pi9I4XSn04FIkp
-         bs+flFk/3UyF6Vug5oQLwaapYZ+OW8T/ngdbwzythtkerAzLaN8J0qrvEfoJc+9D2xFZ
-         1x4+oLrMYsLSsjFTzJ+i5bR+uRNkj0GxyhJFpH61XQandMIXX6jenabzYmZcpTAN2y0e
-         AuVw==
-X-Forwarded-Encrypted: i=1; AFNElJ9N44baCd6I1Nu/RMVEZEW16hCLmPrSmVujdVIwpI6scVUwIXk8Wg6FFbad8E31mjBdNK2iv3W3MRTK93Lam99v@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjuWIrCYzQtBxT8xRFlZlGkZKpF6MIoh20a8mjrq2jPVBZAqjk
-	TRzqFIlMlHlQ6yZoY5z3FVHpKsVO1Nf0i7QPPVZZpDGK2PDpp/c1q14F
-X-Gm-Gg: Acq92OH/nXStG1nqWfuAwPK8Ngp1b55cxlMASB5gp6atjAowuKVSzhd7W+E/P2pmJR6
-	p6nakgmWQMD7T3B9pAn4PLQmwppaizPnd8wrpJoWBPJnqWgTVMscc9KECSk1i0B2wvFDv3W0rWU
-	NNlIZ2Ir/2Fja3RWdrPlpKnwmA5TdVaHyaHxXlWQ+madb/afJ6XncXmik5lAv9phwPezXoRHuoy
-	KxV7ywDukMIrxu2hz9Uw5F+CEmvNYkyUX4qvs83D/C2/yCTuLOLWet0TLpy5fwLEMZ4tKRxtjUv
-	r03gs3ln4z/JsoE5AHV15v8+FbzE3muZJd4HpqfiCP5EzHPJi3wSjZmhTqWDsLPofzvOcB14oga
-	bRmYzNvnGku3M37fJ/Gl9nGJOpprxaj5Aoa8OHdolb3PW/eCebLbWVFYYdrtHeNLnzC7sGtWv63
-	Z3vdoKkHCslxpbY4BCCnc=
-X-Received: by 2002:a05:6000:4021:b0:453:e3a1:6580 with SMTP id ffacd0b85a97d-45e5c5fd95dmr30269534f8f.25.1779171217859;
-        Mon, 18 May 2026 23:13:37 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9e768acesm45974707f8f.7.2026.05.18.23.13.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 23:13:37 -0700 (PDT)
-Date: Tue, 19 May 2026 09:13:34 +0300
-From: Dan Carpenter <error27@gmail.com>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Frieder Schrempf <frieder.schrempf@kontron.de>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH next] firmware: imx: fix use after free in
- init_device_context()
-Message-ID: <agv_jhP-2CNTfQXk@stanley.mountain>
+	Tue, 19 May 2026 06:13:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 51F5441AB1;
+	Tue, 19 May 2026 06:13:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53D55C2BCB3;
+	Tue, 19 May 2026 06:13:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779171234;
+	bh=eDdypLMdh0ABr1jXAwg8jwfBuFdkrNrWgQDaQkjnNC0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=go93WtE3I1mjggb2znt6NfuRg0nGZlaSlTbx8FhNDkk0Gpr6til29QgDJO63ydlw2
+	 wEjqN5hGTOzgsFyeq++wC32Sw7SGULtor58RhAI+8AIcwJH644OhpXZJclashP92s3
+	 VrrW3uD2BDjhA0fBSeYQTjYWCgWN3D9U7iCYzMxORpAv7jGUcq3SkN4z4YwayLFn5S
+	 3szWlGPCj7/ItQZTr8ZoeT/iVwHXrnq1Q8fO32f5jFOXzRAQnfSfriiYNn0n5wau+t
+	 GFRsIazCB1R9jg0Y9BibzcFJa0NyrgzazjRqWuCcJv0569oLs1bAAm/faz8QkOkvNF
+	 1H0FTcJOBvEqg==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] ACPI: Use LIST_HEAD() to initialize on stack list head
+Date: Tue, 19 May 2026 13:54:45 +0800
+Message-ID: <20260519055445.13122-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_231340_055697_6994A328 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20260518_231354_719774_A51CB920 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +76,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a missing return statement on the error path.  Otherwise we have a
-use after free when it dereferences "dev_ctx" on the next line.
+Use LIST_HEAD to initialize on stack list head. No intentional
+functional impact.
 
-Fixes: 63536a73a3bb ("firmware: drivers: imx: adds miscdev")
-Signed-off-by: Dan Carpenter <error27@gmail.com>
+Change generated with below coccinelle script:
+
+@@
+identifier name;
+@@
+- struct list_head name;
++ LIST_HEAD(name);
+... when != name
+- INIT_LIST_HEAD(&name);
+
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 ---
-This was in the original fix but I guess there was a merge problem.
-https://lore.kernel.org/all/20260514090457.2186933-1-pankaj.gupta@nxp.com/
+ drivers/acpi/acpi_apd.c   | 3 +--
+ drivers/acpi/arm64/amba.c | 3 +--
+ drivers/acpi/resource.c   | 3 +--
+ drivers/acpi/scan.c       | 3 +--
+ drivers/acpi/x86/lpss.c   | 3 +--
+ 5 files changed, 5 insertions(+), 10 deletions(-)
 
- drivers/firmware/imx/se_ctrl.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/firmware/imx/se_ctrl.c b/drivers/firmware/imx/se_ctrl.c
-index 9327d47e4312..010af8221dfe 100644
---- a/drivers/firmware/imx/se_ctrl.c
-+++ b/drivers/firmware/imx/se_ctrl.c
-@@ -486,6 +486,7 @@ static int init_device_context(struct se_if_priv *priv, int ch_id,
- 		kfree(dev_ctx->devname);
- 		kfree(dev_ctx);
- 		*new_dev_ctx = NULL;
-+		return ret;
+diff --git a/drivers/acpi/acpi_apd.c b/drivers/acpi/acpi_apd.c
+index bed0791c17fc..fa28acc541fe 100644
+--- a/drivers/acpi/acpi_apd.c
++++ b/drivers/acpi/acpi_apd.c
+@@ -68,14 +68,13 @@ static int fch_misc_setup(struct apd_private_data *pdata)
+ 	struct platform_device *clkdev;
+ 	struct fch_clk_data *clk_data;
+ 	struct resource_entry *rentry;
+-	struct list_head resource_list;
++	LIST_HEAD(resource_list);
+ 	int ret;
+ 
+ 	clk_data = devm_kzalloc(&adev->dev, sizeof(*clk_data), GFP_KERNEL);
+ 	if (!clk_data)
+ 		return -ENOMEM;
+ 
+-	INIT_LIST_HEAD(&resource_list);
+ 	ret = acpi_dev_get_memory_resources(adev, &resource_list);
+ 	if (ret < 0)
+ 		return -ENOENT;
+diff --git a/drivers/acpi/arm64/amba.c b/drivers/acpi/arm64/amba.c
+index 1350083bce5f..ec342404306b 100644
+--- a/drivers/acpi/arm64/amba.c
++++ b/drivers/acpi/arm64/amba.c
+@@ -39,7 +39,7 @@ static int amba_handler_attach(struct acpi_device *adev,
+ 	struct acpi_device *parent = acpi_dev_parent(adev);
+ 	struct amba_device *dev;
+ 	struct resource_entry *rentry;
+-	struct list_head resource_list;
++	LIST_HEAD(resource_list);
+ 	bool address_found = false;
+ 	int irq_no = 0;
+ 	int ret;
+@@ -55,7 +55,6 @@ static int amba_handler_attach(struct acpi_device *adev,
+ 		return -ENOMEM;
  	}
  
- 	list_add_tail(&dev_ctx->link, &priv->dev_ctx_list);
+-	INIT_LIST_HEAD(&resource_list);
+ 	ret = acpi_dev_get_resources(adev, &resource_list, NULL, NULL);
+ 	if (ret < 0)
+ 		goto err_free;
+diff --git a/drivers/acpi/resource.c b/drivers/acpi/resource.c
+index bc8050d8a6f5..ff78311c136b 100644
+--- a/drivers/acpi/resource.c
++++ b/drivers/acpi/resource.c
+@@ -1118,11 +1118,10 @@ EXPORT_SYMBOL_GPL(acpi_dev_filter_resource_type);
+ 
+ static int acpi_dev_consumes_res(struct acpi_device *adev, struct resource *res)
+ {
+-	struct list_head resource_list;
++	LIST_HEAD(resource_list);
+ 	struct resource_entry *rentry;
+ 	int ret, found = 0;
+ 
+-	INIT_LIST_HEAD(&resource_list);
+ 	ret = acpi_dev_get_resources(adev, &resource_list, NULL, NULL);
+ 	if (ret < 0)
+ 		return 0;
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 530547cda8b2..bd599d0a9348 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -1738,7 +1738,7 @@ static bool acpi_is_indirect_io_slave(struct acpi_device *device)
+ 
+ static bool acpi_device_enumeration_by_parent(struct acpi_device *device)
+ {
+-	struct list_head resource_list;
++	LIST_HEAD(resource_list);
+ 	bool is_serial_bus_slave = false;
+ 	static const struct acpi_device_id ignore_serial_bus_ids[] = {
+ 	/*
+@@ -1792,7 +1792,6 @@ static bool acpi_device_enumeration_by_parent(struct acpi_device *device)
+ 	if (!acpi_match_device_ids(device, ignore_serial_bus_ids))
+ 		return false;
+ 
+-	INIT_LIST_HEAD(&resource_list);
+ 	acpi_dev_get_resources(device, &resource_list,
+ 			       acpi_check_serial_bus_slave,
+ 			       &is_serial_bus_slave);
+diff --git a/drivers/acpi/x86/lpss.c b/drivers/acpi/x86/lpss.c
+index 0171eef00484..d33dc34a2894 100644
+--- a/drivers/acpi/x86/lpss.c
++++ b/drivers/acpi/x86/lpss.c
+@@ -615,7 +615,7 @@ static int acpi_lpss_create_device(struct acpi_device *adev,
+ 	const struct lpss_device_desc *dev_desc;
+ 	struct lpss_private_data *pdata;
+ 	struct resource_entry *rentry;
+-	struct list_head resource_list;
++	LIST_HEAD(resource_list);
+ 	struct platform_device *pdev;
+ 	int ret;
+ 
+@@ -627,7 +627,6 @@ static int acpi_lpss_create_device(struct acpi_device *adev,
+ 	if (!pdata)
+ 		return -ENOMEM;
+ 
+-	INIT_LIST_HEAD(&resource_list);
+ 	ret = acpi_dev_get_memory_resources(adev, &resource_list);
+ 	if (ret < 0)
+ 		goto err_out;
 -- 
 2.53.0
 
