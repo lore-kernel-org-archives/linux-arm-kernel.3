@@ -4,124 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDCD1CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A08BCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yokC8193KWkpebMQ1az54G0zsxOhiLKOwHw4A+DZb6E=; b=XqeTcwethkAY6Sbn0vu3xMfGz8
-	KvVvICT/fFEbw+rRdr7w3QhXn5MHlxd7UYpGdql2JAa+KhHvAq0ey9Ns2WqxWJCIqfC9bpIiVFQ+z
-	p5UqpkR96T4Yk2p4Dz0iPeXIfSXvtOIEdoxCZS2D/iRsjlj1PCpvlkmYE5tf+D3cw/Kg1mQzYEnkM
-	aLBk4YXv0kjFs1yHouHmu8JHHvdDzD2KxbpDwHCVM/krF7JtGl+xJcTP8eOM4eo6RR+uvezau+iSL
-	HOBbX3MsOdvLarFHRoNzNUmh6lf4dDZ8Dbc6aUVT2fPwPgW1+cOchK5jhZLOWxYAF/hr5mRyzVtJJ
-	jDRTtbQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oQZO5nTRmEQFRCy1SP5NN6DtrD69wZAHlR442WwrJB4=; b=C6wcpuB1+ZJienj3Rhp8aQtmYo
+	80Jvjog/2LTQ2LFkchmQML/l+AKOxtZF9egQU3iENtxtkLc/+9Mz/UivDLFxCcLxHVUf5WLMrD9lr
+	eK6n5ZpO6xxqD4FlI1jyr4jxJsCkQzRIu0OVl2mmVfEG4YQin6IN2BpdH9kEnaWq3S2GdY4ds4tYU
+	BdPHTCurG76qv3HhFaCXrYekjwB4t+ZIKame6dOyxZTLe4ylTkQ6gHBHJ1VmzkJWAaQ1W7ss2GEn7
+	v2KeEpzOyLiKX+bc8ApOjLA9pf/H2eARasB5PR48DxWoJt9Rr7omJCU2WmIq9tuZzLXoUT4789C0y
+	JwuP9rMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLSf-00000001pss-1Sa6;
-	Tue, 19 May 2026 14:30:21 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wPLXk-00000001qv7-09DS;
+	Tue, 19 May 2026 14:35:36 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLSZ-00000001pa2-34j4
+	id 1wPLXg-00000001qsi-0WvM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:30:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779201016; x=1810737016;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=gmoE1cqLQYiaRdtOUqn30NI9NnlES0TICUcupWfJ1t8=;
-  b=l2Hchh6HbUmf+u4Mch79aUU9GUrnpSJEXEYIqB/fMzaZYAUgYbjbx7sp
-   9ZJEOAbBl/goV1RCPiknu6PpYKzO6IjXvKlciAXGbLIcithpQOH3tvFo6
-   SBklyFsJUtegbuHw3fs/WM57JviXKu1Nb+kN+xv7ay6l1boEoFoTGFy+3
-   91riD3mjh7vRuJFfa3rvypXF2/2pzmCZa+wQ3lHtvbWZJWaXAzUX3afQA
-   dX3Svaock+cVm08cCw9rl7YyOVmXNC6g1HLbRUZDCYHYe50DwxdTcoADD
-   zzwtzBP2NZq/dPjoWg3yxn4vXToxrq0oS1Rn9MeT+0Yc/tQQNbrrJxb9V
-   g==;
-X-CSE-ConnectionGUID: dMRa0qFZSi2IIckfyGUhiA==
-X-CSE-MsgGUID: VyyR9yirTimTTrs2xfyFkQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11791"; a="91185032"
-X-IronPort-AV: E=Sophos;i="6.23,243,1770624000"; 
-   d="scan'208";a="91185032"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2026 07:28:14 -0700
-X-CSE-ConnectionGUID: gkZiOq+oQT2xUPW5hfvguA==
-X-CSE-MsgGUID: Pwhu5yPBQL2jL6Ks26xSxQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,243,1770624000"; 
-   d="scan'208";a="263293652"
-Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.125.109.111]) ([10.125.109.111])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2026 07:28:14 -0700
-Message-ID: <74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
-Date: Tue, 19 May 2026 07:28:17 -0700
+	Tue, 19 May 2026 14:35:35 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-90ea08cc5ceso640425485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:35:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1779201331; x=1779806131; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=oQZO5nTRmEQFRCy1SP5NN6DtrD69wZAHlR442WwrJB4=;
+        b=ODfXiHExGWetZvGu+sN0QE0Py3REX0PRQuCmCnhKdX7do93ryUyDj8zF319raDjV66
+         1ygZ0RIcMEg6RVSBnSURgO5rS/JTC+1cIlReiVWArjI7d2OGSCrioEuPzvhtKWXN4L5G
+         YMesi78XMcUZ5y4C+72Px29ww2XCo4fDnj8iA0O4JCrDgPrl8ABnrjinRKFOyJ/BWCJk
+         sNIAo1WoRlZpNbqNQL81NI6FNBFihqiRe4W44Ex8wYxnhLgpRcYbm40h4uXmxBwSLBpi
+         bkj0dQc9kqSMkKKlgJG2XBqsaqpYi2L+alQ3VvTd2K3HtfWzf3PDFmQ34bEhX4m4Q52b
+         dRmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779201331; x=1779806131;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oQZO5nTRmEQFRCy1SP5NN6DtrD69wZAHlR442WwrJB4=;
+        b=JD8Zd9Zx7e3Xl6yDFz+RxxdgztfVF5z5mcEgK6jb2xnfsiaHj9GLEnbHsOwsNCxfhd
+         r/71GvimOHjUHv6Vd7Tuq+YwFBJJP7z1Iz5BKwkbpotoxOPg9IUVrNiEtoJMqkGI/BPj
+         KhALnCsnQOUhTnmS+O76ZTVWKA/+aoWdceQGpgZzTruQ0EcD/bQ7v8Wzj9W3ezw8daoR
+         Xl08D+vn0IbyJlG2cH8QNg75ocQeSmXQpvNwqI/W4ncWCPg9hmNZ6wTcY5lU3FG/FNfm
+         DcioFz+kYfenQAlqVeGMybJkbahrmFIcG+9BdyVSOCPnIGdL6SuAa7WbMfU00Kd+LbIM
+         O1rQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/yT1g4L66qiZI+x8ecBiAOOkukH7QElBbaMEPVT0N/N4JzpdG/QYOsXLsEr9pNJAHvIUZ5cMp9YAA4ypNiO0GT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFUJrnNGqFkuQsiFwiE2aCU+L+Vlsafn6THhqBT37iEML1GBr5
+	LQDsglfwmTh4Y96r962LLkYfuV6/oGtgxG/fI7xYS4J3z8/fc/St5Gn59M0n8UytRpWUK5T6Yju
+	hVFwm
+X-Gm-Gg: Acq92OGo4bKnIfcG7M9gslFsmyN+FKobZdZ9ht/7zAHfEAtaOZSDWnXROsa3bGZ+vil
+	ZoV4LYy6SmKY/iv4ffssZWbcn7CdOd3m2WC+OollOxnI6OILo6boCVWrF7n+gwnOSriwAfFMNhJ
+	VgQtAhrDRF6LkGxLvBHzLkyn2eJC3FMFwhZgDDv9dD0ti4il6X6QZ6hGSbAkCjckCIVNz6eCfpt
+	Pse6nhHKPPkWyH4B2XwlXL9NmUb0i4kmEgoZEnOunt3i+hbg0WpvE0lEVNtQgOw3RZbC6Q4BaVp
+	YxhD8BSJrSylvXJLP4pPnVscZO5ZlLduL2eQGHTeNmDGuPPKZ3vaUaNPZ6/lsE/iCkv7Om4XWhT
+	oy757hFBE/a31V3zF+yHavoLea1F6YUzlJiTKFa4UIweXnGYUqSRhBMAfNdBSc4frMU1pZz+2xl
+	/lSDgMX3lPrMMZaJXMWSJe8U5kv/6qoa39rvRbZWVfXKTCjvDDrknzx0RQbJKc9Bc0Fx5Rnp2Dj
+	cF+Cg==
+X-Received: by 2002:a05:620a:d8a:b0:913:e5bb:3db6 with SMTP id af79cd13be357-913e5bb548amr1506341585a.31.1779201330581;
+        Tue, 19 May 2026 07:35:30 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-910bc83ff00sm1849026185a.26.2026.05.19.07.35.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 07:35:30 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wPLXd-0000000F7pa-1dCL;
+	Tue, 19 May 2026 11:35:29 -0300
+Date: Tue, 19 May 2026 11:35:29 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+Message-ID: <20260519143529.GD7702@ziepe.ca>
+References: <20260512090408.794195-5-aneesh.kumar@kernel.org>
+ <agSKQrSIhizCXKwx@google.com>
+ <yq5ah5oaa63h.fsf@kernel.org>
+ <agW5rhE9n2gDQ0w5@google.com>
+ <yq5apl2y5f96.fsf@kernel.org>
+ <agXaby-7L7yS3Vva@google.com>
+ <yq5ah5oa59wy.fsf@kernel.org>
+ <agxDxdxynp4KEovA@google.com>
+ <20260519132911.GA7702@ziepe.ca>
+ <agxolksC_1nfO34X@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC V2 01/14] mm: Abstract printing of pxd_val()
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, Mike Rapoport <rppt@kernel.org>,
- Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org
-References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
- <20260513044547.4128549-2-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Dave Hansen <dave.hansen@intel.com>
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20260513044547.4128549-2-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <agxolksC_1nfO34X@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_073015_840962_BE6FDB07 
-X-CRM114-Status: UNSURE (   6.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_073532_209003_08E04C5D 
+X-CRM114-Status: GOOD (  26.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,18 +136,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/12/26 21:45, Anshuman Khandual wrote:
->  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
-> -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
-> +		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx "\n",
-> +			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv));
->  		return;
->  	}
+On Tue, May 19, 2026 at 01:41:42PM +0000, Mostafa Saleh wrote:
+> On Tue, May 19, 2026 at 10:29:11AM -0300, Jason Gunthorpe wrote:
+> > On Tue, May 19, 2026 at 11:04:37AM +0000, Mostafa Saleh wrote:
+> > > On Thu, May 14, 2026 at 08:13:25PM +0530, Aneesh Kumar K.V wrote:
+> > > > >> 
+> > > > >> What I meant was that we need a generic way to identify a pKVM guest, so
+> > > > >> that we can use it in the conditional above.
+> > > > >
+> > > > > I have this patch, with that I can boot with your series unmodified,
+> > > > > but I will need to do more testing.
+> > > > >
+> > > > 
+> > > > Thanks, I can add this to the series once you complete the required testing.
+> > > > 
+> > > 
+> > > I am still running more tests, but looking more into it. Setting
+> > > force_dma_unencrypted() to true for pKVM guests is wrong, as the
+> > > guest shouldn’t try to decrypt arbitrary memory as it can include
+> > > sensitive information (for example in case of virtio sub-page
+> > > allocation) and should strictly rely on the restricted-dma-pool
+> > > for that.
+> > 
+> > ??
+> > 
+> > Where does force_dma_unencrypted() cause arbitary memory passed into
+> > the DMA API to be decrypted? That should never happen???
+> 
+> Sorry, maybe arbitrary is not the right expression again :)
+> I mean that, with emulated devices that use the DMA-API under pKVM,
+> they will map memory coming from other layers (VFS, net) through
+> vitrio-block, virtio-net... These can be smaller than a page, and
+> using force_dma_unencrypted() will share the whole page.
 
-That's not the most readable result. Could a printk() format specifier
-make this nicer? Maybe use "%pT"?
+force_dma_unencrypted() should only trigger swiotlb and that never
+memcpy's more than necessary?
 
-	pr_alert("pgd:%pT p4d:%pT\n", &pgd, &p4d);
+Where does it do otherwise? That sounds like a bug?
 
-I _think_ it could even get rid of the p??v variables.
+Jason
 
