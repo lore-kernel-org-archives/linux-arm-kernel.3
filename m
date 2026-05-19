@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A12ECD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4653FCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybKseu4uG1MNY6IQoD8TBrLpm9iKlKVO0I43NmR8gBU=; b=m4wlnY0j+SgzK9sCH8CI9W9LF7
-	YRhg6g24BkFsx+6BRGOJwJ7OAKYlOnafDTeCy1yHQI3XyM0zJdJn5XiuhY2h3gZZGv3tLatk7ayXM
-	oaKlwSEwrJ2/K77kw7t1uzzc3EVdFY3iz8Pc3KsoIoJYGtUXeqX+Qjfz2BoOfh/rgfW019AVArtwE
-	x/rkSzLylbnPV8brX8MacZOd9pek8rU35UZMJb+HJyxbzs32Z6waijwlW/WPi0go4Ug7u63fkqVd5
-	bB7NOsU0hVe9i618H6igiOmhO9TIlY5FRv6+Kj9HAAMfA7XBPvBVHZxlS3WtdcEXTfFdXEgsFPLkJ
-	mJDX/T7Q==;
+	bh=FhiHL8lJqMLwH/tA/yyEZXng5kcabiZPDcP4lU8JGSY=; b=0wlUg78jUfp4ljWBXsY0fACo28
+	nL9vD7MEuh6x2JRehYeCBbHVMFDPvpv/mBNmfxjoWlD6stzin1gNbCq4NsS/DLsT95mnszWje+ycV
+	3GXfgKg2MSCUFFyk7+vnFFDsdFFk1NibuFV7FavJCAeBRaLoW1p9zCA1LWZm8U4z8KwdDDwUczvGt
+	2t2n4byobcP/fCLHcpx9pe8dF4rwBEGQaVMV0J/QpT9SOYTg6Fc/2kQaxOJBiYirSmBDXMKu7D5io
+	p2SX4lLehMzZwDqL9+UCoK1EgizwrfwnTB6kPUv7XD+oVmgpHIc4G8a2Y4mheuTKJI0FMElP27mDD
+	+q3kiZ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMMp-000000023Hx-0CvG;
-	Tue, 19 May 2026 15:28:23 +0000
-Received: from mail-pl1-x661.google.com ([2607:f8b0:4864:20::661])
+	id 1wPMNd-000000023XB-1Awb;
+	Tue, 19 May 2026 15:29:13 +0000
+Received: from mail-yx1-xb161.google.com ([2607:f8b0:4864:20::b161])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMMm-000000023Gs-3Kt0
+	id 1wPMNa-000000023WF-44Np
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:28:22 +0000
-Received: by mail-pl1-x661.google.com with SMTP id d9443c01a7336-2b941cd869cso22436375ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:28:20 -0700 (PDT)
+	Tue, 19 May 2026 15:29:12 +0000
+Received: by mail-yx1-xb161.google.com with SMTP id 956f58d0204a3-65c21049dafso3263213d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:29:10 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779204500; x=1779809300;
+        d=1e100.net; s=20251104; t=1779204550; x=1779809350;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ybKseu4uG1MNY6IQoD8TBrLpm9iKlKVO0I43NmR8gBU=;
-        b=tRCeGGeW4uJ92H72XfnaQqdWTGfuUYdrHinBogGlWrN9elOwjXK3L9WR1czRwgrSO+
-         hIdZr/p6ob1ZHymLc7RmfPHjdbLNpOALvjSzBOQnrMlaShMLTqp7BnFe0NK1Bk6xJPu5
-         4zSBFux0kV0ogHs1Tk3AL4tFBQW4wMcpJJShlVnDWKgZtR7FKSu7Xsr8MDOWexz3Sy8q
-         gFMftaVv7tiE8ovjc96mjXEjBelZ9/C+RM1NRz/ihw3ZhVdjeMo6meJ3LQ+5McxiyV+i
-         overKcpEkc3ncGlRffjDja8JzpfEW6u43a+HZSQYWSaO0kwFhs91O6Fe4U3dpgtdeNqM
-         lGoQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9q+3VFyyW2RVLKu7FpI7J+crdQKmFlrGgtz0aZt4Qazl244v4G8oYmUTDfloiInLGHc8elTb62xifSrruUXT7H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2KMkRFUv/dhpWirUB+G3zw7+9r0jgRZ4ZnlhVENTcFf0zIyTQ
-	b9GYhIiuFGHsRVOg0Y++QBdJhPLAU0kzDIBfKVFSWevxiideoy/J1GWbhVLDd0DqtZJwtCRdPCs
-	i5EnUre2vNZj+UpNi95zEWGfIp9cG2oR+HQiji+JBMTcj/71Vs9vl96hMT/W4sqa4FyWBmME4ME
-	Iq8i3aJ63zSGa9N25TNa3IUxCzeRejfEM81KnXb93kMd4e0TjYElfflUnIvWQoazDKH84Kh3PI+
-	nsarsYGI8v9sI6hOVowyJDRy9t439kmoL8=
-X-Gm-Gg: Acq92OENPc/qy0qw8JSNfEDJ8YjDGdUL8Nd99K50zXZJ2ALJC7NzcQ2QwpAbDcTqYAn
-	ktJr2++8RGu+Fyo3EiBTLTSSQUZM3xO37s3b+KLVm4bOwfchwEM5DHOqU0CI03ZFzHhqR+ooaNI
-	EXeB3hL2615XAjExvjI0dBLgizkknS76xfNE8pDSKxwReIM9YT2YeP6sw58d/h4IwcYypRlsoGV
-	jE9cILbODZPDnuALbuJ6Q+zxMmfkjUTXhwInEQJbnsEk8zZcbsX5gdSsK+SS7XYwbVzzFuCmh7K
-	voUWgAvyYxHiHd9KF0/0uwNfCFpbzpEuyxnKoUr8kbRRrWkwwP87/YR5TPH4ZMF4R+y2/ZMFuy0
-	s/qXjrOCePhuhVMhfvAaHr4YeelVRGaByXYmt8caBDP4LbtkVoX90QQ7OUM0EuTOC2vN7pUvFqD
-	3UrMp8In3O/d/AxPsqXD7GHEM8nU76TFdTjuWlelTNll8Sl0c8nkLpq/JtME14NA==
-X-Received: by 2002:a17:902:ea03:b0:2bd:9c0a:32c with SMTP id d9443c01a7336-2bd9c0a065cmr163578325ad.19.1779204499741;
-        Tue, 19 May 2026 08:28:19 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-24.dlp.protect.broadcom.com. [144.49.247.24])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2bd5ced2ca3sm13497565ad.29.2026.05.19.08.28.19
+        bh=FhiHL8lJqMLwH/tA/yyEZXng5kcabiZPDcP4lU8JGSY=;
+        b=n0zLkBBvD1TYEbUJm4hcIQJ6bttSIRAq7jH+9DGOXfcd79jhHRtRX2cgFcBaLDl8ju
+         v/yVKjLIrqaPWCSMWJcKPVSUTAJynPunckIYrN89S7itfC41m6pTJt3nXFta5hUV40FW
+         sbTmgPWN32JI771Xhj7LCDMyZ3yF99bniblOhT0e5F8joIrLqibH4NXb0695KWN0aHVL
+         Qa98D93ujX251W/fQW8bb7nyf0pWAl7E2ABMgdmoNVcqHBgGSYNQkocpHfcrA4XtzGWe
+         z3UeEAilED3bU/p8UYxB9Zt9wZzGF4P06zLQA9qffFc+rtMjAv96D3yWfY0gQna94/GZ
+         YHTg==
+X-Forwarded-Encrypted: i=1; AFNElJ/x9ZpS6W0CSLdtTNEAFBBPBPqQvkr3r3qJ6TYfRElA0wNwpK9TaTNjLKmt3cJRQsdI1gemWx59XbQPUae8NcJe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtfCm+Ll2U1VYGUqRl1yZxDifjLi1l/L1q7xrxme5/dqpt+Q5z
+	c3MrOn3gnqy3lXFQgPeu5tyvXaSshmXX4In8kdhhkKhPXYOOOVedd4irCiqDZMlaEIQ3C2biAfN
+	PeEWmH//7daKQg6demw+JXMX+L4nau+jKGpZP4Ol8Me2vAB/h58ThPs3sdhrt7OLNy+TrtNBCra
+	sZbghNzBq32TrlP/EYHqEyB419menoVybmsdr53U+RNlOdYzEsORVte0Qvvn0eM9ODKO0U+fpAN
+	dxY3mnywHApa4oT+YpjfbiVz++eYy067DA=
+X-Gm-Gg: Acq92OGhkvFdK/hQ6q3/Ab0E515WMbgtNPnuQB4HAo5AHAA+Di7BLN8wWCqB3MRGiu9
+	Mn94y3Ss5JAb7ahXHVm4UfPuJGii6xcfsTNtb2ixBNcZtgKfGn5e5Pv/PGqsnuynfHbcJpuSdIS
+	rBIfNmaPTVkiXL5zl5+OvJ4wPVDKi6AWS2CMdrnyaQzXmyDLLe+M2V8hDjWqtCbBwVLdvs0XPhq
+	gVTe566JqPMhxSDxjSAQY9CEW7CiGlDiWOXbq1kniORGQkNYz6icvUKZZ3w9bEzMmWlNmIeM61I
+	jU8efImZeQ9eUmQ6LKPw4o3wWdDp/QuKBVuaJ8fwT9QQx0FCKxzmCBNCK13wFbJhap1nSHHakzR
+	DSbBHSjMUSQ0rW4KvjFkhMM5QJ9l0yQOxvIFEpz64QkcepvWwmBSvopSf72iElKb8/krdq2mUyd
+	+4nxOC0PezBqFWj4/Xdj2dmnbdJdo3aScC59lPDZEW/2VDHQixIvBuE2/1m0cRaA==
+X-Received: by 2002:a05:690e:418a:b0:654:54f2:9e50 with SMTP id 956f58d0204a3-65e226f5db4mr16967723d50.25.1779204549681;
+        Tue, 19 May 2026 08:29:09 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-21.dlp.protect.broadcom.com. [144.49.247.21])
+        by smtp-relay.gmail.com with ESMTPS id 956f58d0204a3-65e0daeede5sm1308713d50.23.2026.05.19.08.29.09
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 19 May 2026 08:28:19 -0700 (PDT)
+        Tue, 19 May 2026 08:29:09 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8b1f4478ca7so124851116d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:28:18 -0700 (PDT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-90f4bdebe77so753926585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:29:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1779204498; x=1779809298; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1779204549; x=1779809349; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ybKseu4uG1MNY6IQoD8TBrLpm9iKlKVO0I43NmR8gBU=;
-        b=KnMOX449KxYvSwZWt9KXLx+Yb6iW33ORWN/kBW/TKeOeyhhhJvt/iURxL8UJ/1laCW
-         U1m/SvWvmoPs54wfJBpTVOb1M8Y9J+G69NFmHMYA8/5RULemH7G/ARVYzF96UV+8IWoS
-         TKQxLCQSLHy1c/O8fwsuK+tyXeoXvee2ZKp6k=
-X-Forwarded-Encrypted: i=1; AFNElJ+Y0Lztm9rbA0D7/+Oz2fU5LxoChAZdUWXduBIEQUvKTgyqr3iJloriIC+Hr1dsDFwv5i5cnd65ltmIcymbPZIX@lists.infradead.org
-X-Received: by 2002:a05:6214:484a:b0:8bd:1f2e:7063 with SMTP id 6a1803df08f44-8ca0f643076mr294961726d6.5.1779204498138;
-        Tue, 19 May 2026 08:28:18 -0700 (PDT)
-X-Received: by 2002:a05:6214:484a:b0:8bd:1f2e:7063 with SMTP id 6a1803df08f44-8ca0f643076mr294960916d6.5.1779204497466;
-        Tue, 19 May 2026 08:28:17 -0700 (PDT)
+        bh=FhiHL8lJqMLwH/tA/yyEZXng5kcabiZPDcP4lU8JGSY=;
+        b=Wxw6dBoCJ6Mz1tmRa2pLGtpMaOXAqWhauQ7Zg3PaIY+3JwpRFhLKYt6yqLxGoeMKBu
+         2azUlvgogj4L0uDofrS+1RITD/N1liMHqJLUOT7YIrlqylbTEY9WX+deMc/ayTuG4jOa
+         IF+Yb+oPaWXCZyy+Vc/1CzXUVyThFKx3I9JLU=
+X-Forwarded-Encrypted: i=1; AFNElJ+gH9S9Z/0p6F5V/XNnXoK1gWkVV1YQ+uakp7FnXs5cEPgJhBO3MFxkYUNH41JDmY9IMQhY4PkGqhCfYdbX9OVm@lists.infradead.org
+X-Received: by 2002:a05:620a:4492:b0:8ef:3953:7ab with SMTP id af79cd13be357-911cea09723mr2975878785a.40.1779204548838;
+        Tue, 19 May 2026 08:29:08 -0700 (PDT)
+X-Received: by 2002:a05:620a:4492:b0:8ef:3953:7ab with SMTP id af79cd13be357-911cea09723mr2975869385a.40.1779204548070;
+        Tue, 19 May 2026 08:29:08 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ca3619c29asm93644856d6.34.2026.05.19.08.28.15
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-910bc83b85asm1860419685a.25.2026.05.19.08.29.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 May 2026 08:28:16 -0700 (PDT)
-Message-ID: <31af08eb-8299-4ba9-aaa7-3150ce31b523@broadcom.com>
-Date: Tue, 19 May 2026 08:28:14 -0700
+        Tue, 19 May 2026 08:29:07 -0700 (PDT)
+Message-ID: <edff09ba-f21e-4009-9b9f-4e7a9f630618@broadcom.com>
+Date: Tue, 19 May 2026 08:29:05 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] hwmon: raspberrypi: Add voltage input support
+Subject: Re: [PATCH v3 1/3] soc: bcm2835: raspberrypi-firmware: Add voltage
+ domain IDs
 To: Shubham Chakraborty <chakrabortyshubham66@gmail.com>,
  Guenter Roeck <linux@roeck-us.net>, Jonathan Corbet <corbet@lwn.net>
 Cc: Shuah Khan <skhan@linuxfoundation.org>,
@@ -99,7 +100,7 @@ Cc: Shuah Khan <skhan@linuxfoundation.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
  <20260517080445.103962-1-chakrabortyshubham66@gmail.com>
- <20260517080445.103962-3-chakrabortyshubham66@gmail.com>
+ <20260517080445.103962-2-chakrabortyshubham66@gmail.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -134,13 +135,14 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260517080445.103962-3-chakrabortyshubham66@gmail.com>
+In-Reply-To: <20260517080445.103962-2-chakrabortyshubham66@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_082820_843389_C6532259 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260519_082911_024295_0281C58D 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,31 +158,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 5/17/26 01:04, Shubham Chakraborty wrote:
-> Extend the raspberrypi-hwmon driver to expose firmware-provided
-> voltage measurements through the hwmon subsystem.
+> Add Raspberry Pi firmware voltage domain identifiers for the mailbox
+> property interface.
 > 
-> The driver now exports the following voltage inputs:
-> 
->    - in0_input (core)
->    - in1_input (sdram_c)
->    - in2_input (sdram_i)
->    - in3_input (sdram_p)
-> 
-> Voltage values returned by firmware are converted from microvolts
-> to millivolts as expected by the hwmon subsystem.
-> 
-> Update the documentation related to it.
-> 
-> The existing undervoltage sticky alarm handling is preserved and
-> associated with the first voltage channel.
-> 
-> Tested in -
-> - Raspberry Pi 3b+ (Linux raspberrypi 6.12.75+rpt-rpi-v8 #1 SMP PREEMPT
->    Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux)
+> Also add the voltage request structure used with
+> RPI_FIRMWARE_GET_VOLTAGE so firmware clients can share the common API
+> definition from the firmware header.
 > 
 > Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
 Florian
 
