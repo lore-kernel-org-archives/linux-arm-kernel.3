@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC25CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5282ACD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+dO0trv41tpEYlC9GXFlLRMexK8/u40t/Gzd0IBg7w=; b=FPUG6rL5I7Yb+Hj2mN5C6SpUAj
-	IkERWoSyV47hXxz1eSIc2sZW27Y2jRp6HLM7x8aM1rB7tfmYCMAL1GDeVfHihLHwHYkEsMrThC1jX
-	0IrpbSTwNtpDl6gV6+/SCgXaFaETCAhMD3vS7pSFFTCJ/pymt6L8srBk2R4UGzIMbU91pj5n0MPBp
-	yDDv/yPF08cSLKZZ8YDrtgsZdm4LfSa6qjN5LPV87Rq4lYWj2lByLOA3aO4t6prMAoSVh5DQRSnD+
-	VyRwATE9Gf5JXAQHUArbn58hxXFFF8NpKqZQQdR+yCEnsYA0oY2Py4QyTfOPtB8uhEIdtkRS+gx4B
-	p4uNwVKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MWTTnSfqXdKnwvkxIgz1Vius00wgWwYaIbfJKFoluEw=; b=B9NROstlnu1WMb6nFu3qoKHfm/
+	uqCZ93tgX7vCgLgX2p3QvLlm/ZGpyIB1FVa7U0T36VYaX9uHCv+BBrILOlmQicjom5K2prY0EXw1o
+	kX4fFPBk5a8m5CUKFZ3DfoUfgEG76teG+MZPeLW8BVdtPQcYIPllqVuW6PDLuIdiJ2QjrDLRkiBR6
+	exfhR3spqnW34yyrwXLryX8i1o1wb3tqWMXMEcfMR859xxoueEXNDXPnC1KE4VsWrRDm9gE9ybrV6
+	2YN35Ihd9ZaNF3FpXfMLM8mNXzxnVGPJNvXR68L0VhnZQKeHw9O5rvjH2vTQc5YEQLGPx+mKpuVF8
+	UgG2amGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHSh-000000013P0-2w5d;
-	Tue, 19 May 2026 10:14:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHSf-000000013Nz-0H5n
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:14:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 115AF2008;
-	Tue, 19 May 2026 03:13:56 -0700 (PDT)
-Received: from [10.57.21.217] (unknown [10.57.21.217])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 97A693F85F;
-	Tue, 19 May 2026 03:13:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779185641; bh=ShfBiW+vq91XcTgWSa/la50XGXIbPtfnzFO4ifOfID4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WCodZuKBHSvv0Lw3fiVNW9WTrXE9xTWRcDndU3xAfxrCnmh1baSZ9JZ66xgPSc+qB
-	 TCRqox8LoUDgWZQ3zD+MpXFsov7Di1fQzBYbxn0svpwebaQ2WTmTuAaIsjVlRToUJS
-	 GGa82phRLTPjd17dP+cJV0/D72gpzEOxokO9qGfU=
-Message-ID: <6681f10b-0966-42e2-ae04-4e1aef47ec4d@arm.com>
-Date: Tue, 19 May 2026 11:13:55 +0100
+	id 1wPHYm-00000001458-1Inz;
+	Tue, 19 May 2026 10:20:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPHYi-00000001445-49e8;
+	Tue, 19 May 2026 10:20:22 +0000
+Date: Tue, 19 May 2026 12:20:14 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1779186016;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MWTTnSfqXdKnwvkxIgz1Vius00wgWwYaIbfJKFoluEw=;
+	b=mMWJ/VskBn+dCVgGOj/O6xp4COr3uQ7KqJezywuRcQF9yire3SpT6hbuOzqzqr0kyypXix
+	6QRCsJZFrS3a3wzd9fTfk5abRZkItzx38U3XToeu4RnZrmhnntBocXhO5CyE1tyPlFv8pm
+	p9V3/Zg7xO9tTrwS6ScSVojGu3Mf3CZ6lTL6tzK6XVQWC0BQDUPG3BAt0OcKrGQu7ukSxO
+	bF5Iw3SG8qqBAXHy9G7pBJN2GKIcVN9EZFTlQHs/YiODKXFIGSoskV6mVzJS2tTzjEjb4v
+	FqEU0m2tk/uxEr1WZzVxORaHxsIoZ+YK7fZ1kXUTUOnTFqquQIoIm5vrbfLJKQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1779186016;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MWTTnSfqXdKnwvkxIgz1Vius00wgWwYaIbfJKFoluEw=;
+	b=a382yd6UYNBfmPCutP5L0kQcuDHEh9vJkj3DPvLL+Z7Sq+Mw4WTOtX5URKm3ibNcquTcZx
+	tHTKS6cqaPU0LHBQ==
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] nvmem: Add the Raspberry Pi OTP driver
+Message-ID: <bv4vwmkkjh23lahkrupwclqs7il4vxqeknalgqn52k3wc6ztsg@z5ukn774brtg>
+References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
+ <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
+ <20260519110041-2d8d92c2-d265-43d1-848f-bf9231a106c8@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 27/44] arm64: RMI: Set RIPAS of initial memslots
-Content-Language: en-GB
-To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
- Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-28-steven.price@arm.com> <yq5av7cjsonr.fsf@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <yq5av7cjsonr.fsf@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260519110041-2d8d92c2-d265-43d1-848f-bf9231a106c8@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_031405_183772_A95EF8F7 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260519_032021_173842_983D6216 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,80 +85,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/05/2026 11:02, Aneesh Kumar K.V wrote:
-> Steven Price <steven.price@arm.com> writes:
+On Tue, May 19, 2026 at 11:14:28AM +0200, Thomas Weißschuh wrote:
+> On Fri, May 08, 2026 at 04:42:45PM +0200, Gregor Herburger wrote:
+> > +config NVMEM_RASPBERRYPI_OTP
+> > +	tristate "Raspberry Pi OTP support"
+> > +	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
 > 
->> The memory which the realm guest accesses must be set to RIPAS_RAM.
->> Iterate over the memslots and set all gmem memslots to RIPAS_RAM.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->   
->   ...
->   
->> +static int set_ripas_of_protected_regions(struct kvm *kvm)
->> +{
->> +	struct kvm_memslots *slots;
->> +	struct kvm_memory_slot *memslot;
->> +	int idx, bkt;
->> +	int ret = 0;
->> +
->> +	idx = srcu_read_lock(&kvm->srcu);
->> +
->> +	slots = kvm_memslots(kvm);
->> +	kvm_for_each_memslot(memslot, bkt, slots) {
->> +		if (!kvm_slot_has_gmem(memslot))
->> +			continue;
->> +
->> +		ret = realm_init_ipa_state(kvm, memslot->base_gfn,
->> +					   memslot->npages);
->> +		if (ret)
->> +			break;
->> +	}
->> +	srcu_read_unlock(&kvm->srcu, idx);
->> +
->> +	return ret;
->> +}
->> +
->>   int kvm_arm_rmi_populate(struct kvm *kvm,
->>   			 struct kvm_arm_rmi_populate *args)
->>   {
->> @@ -890,6 +922,10 @@ int kvm_activate_realm(struct kvm *kvm)
->>   			return ret;
->>   	}
->>   
->> +	ret = set_ripas_of_protected_regions(kvm);
->> +	if (ret)
->> +		return ret;
->> +
->>   	ret = rmi_realm_activate(virt_to_phys(realm->rd));
->>   	if (ret)
->>   		return -ENXIO;
+> The '&& !RASPBERRYPI_FIRMWARE' clause looks weird, is it really necessary?
+
+Yes it does looks weird but I think it is necessary. Without this it would be
+possible to build RASPBERRYPI_FIRMWARE=m and NVMEM_RASPBERRYPI_OTP=y which
+results in linker errors.
 > 
-> relam guest already does.
-> 	for_each_mem_range(i, &start, &end) {
-> 		if (rsi_set_memory_range_protected_safe(start, end)) {
-> 			panic("Failed to set memory range to protected: %pa-%pa",
-> 			      &start, &end);
-> 		}
-> 	}
+> > +	help
+> > +	  This driver provides access to the Raspberry Pi OTP memory via the
+> > +	  nvmem subsystem. The driver supports the customer OTP as well as the
+> > +	  device specific private key OTP (BCM2712 only).
+> > +
+> > +	  This driver can also be built as a module. If so, the module
+> > +	  will be called raspberrypi-otp.
 > 
-> if so why is host required to do this ?
+> While we are here: The empty line here is now missing.
 
-Ideally this should be a call from the VMM (i.e., user). Irrespective of
-what the guest does (which the host has no knowledge about), the VMM/
-user is better aware of what to do for a given guest. We have done this
-implicitly in the KVM as a start, to keep the initial implementation
-simple. This could be moved out to the VMM as UABI, if there is
-sufficient demand for it.
+Oh. Thanks will add it again.
+> 
+> > +++ b/drivers/nvmem/raspberrypi-otp.c
+> > @@ -0,0 +1,130 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +
+> > +#include <linux/overflow.h>
+> 
+> This looks unused.
+> 
+> Instead maybe add linux/types.h, linux/align.h
+> 
+Thanks will drop it and add the suggested headers.
 
-TL,DR: This should be a host/deployer decision, not the Guest. There
-may other guest OS, which do not do RIPAS_RAM early enough.
+> > +struct rpi_otp_priv {
+> > +	struct rpi_firmware *fw;
+> > +	struct device *dev;
+> 
+> This looks unused.
+> 
+Thansk will remove.
 
-Suzuki
+> > +static int rpi_otp_read(void *context, unsigned int offset, void *buf, size_t bytes)
+> > +{
+> > +	struct rpi_otp_priv *priv = context;
+> > +	struct rpi_otp_header *fwbuf;
+> > +	u32 count;
+> > +	int ret;
+> > +
+> > +	if (!IS_ALIGNED(offset, 4) || !IS_ALIGNED(bytes, 4))
+> > +		return -EINVAL;
+> 
+> Isn't this already enforced by the nvmem core?
 
+Only for sysfs access through bin_attr_nvmem_read/bin_attr_nvmem_write. But
+there is an in-kernel API nvmem_device_read/nvmem_device_write which does not
+have alignment checks. So I added the check to be more defensive here.
 
+> > +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> > +	if (!priv)
+> > +		return -ENOMEM;
+> > +
+> > +	data = dev_get_platdata(dev);
+> > +	if (!data)
+> > +		return -ENODEV;
+> 
+> I would do this before the devm_kzalloc().
 
+Yes will change.
 
+> > +module_platform_driver(raspberry_otp_driver);
+> > +
+> > +MODULE_AUTHOR("Gregor Herburger <gregor.herburger@linutronix.de>");
+> > +MODULE_DESCRIPTION("Raspberry Pi OTP driver");
+> > +MODULE_LICENSE("GPL");
+> > +MODULE_ALIAS("platform:raspberrypi-otp");
+> 
+> Instead of the manual module alias here and the implicit matching of the
+> platform driver this should use an explicit matching table:
+> 
+> static const struct platform_device_id foo_id[] = {
+> 	{ "raspberrypi-otp" },
+> 	{}
+> };
+> MODULE_DEVICE_TABLE(platform, foo_id);
+> 
+> static struct platform_driver raspberry_otp_driver = {
+> 	...
+> 	.id_table = foo_id,
+> };
+> module_platform_driver(raspberry_otp_driver);
+> 
 
+Sounds right will change it.
+
+Regards
+Gregor
 
