@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313A7CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3165CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3lIDxJSaCajGTRzsdr7llad9+YDVYVX1WlfP1ZJZZC8=; b=U4qxlCGNV9hwKeTOAxl3ucFDwl
-	yjJ+8lTe+iKtQKpVHL2BHXyvop1ZWGmkNRNhRYtMmwLjvOEn/eBPX9nLKZjQTsm/jhfYtrNbhR4bP
-	ZJ1VmASpMdh9uZD/gvpbpQQ8nzZqpHYH9NvbikoqwOVjmWL26VMT6x3czgIhopVSr+UsAAQAh3gFJ
-	+CF1+oLNuzt7N5cqMeFkoAESV5ltPnFENLkNo+4NZRmsC2QAy8bJCXrflpM5G1UvLzYJTbcZbw5zp
-	u/xstmYW1/C2QiymzEpyBK6NKL0IHm5CWwRDg+dlucFG0ZlbmDF6ATA0BcE5qjgLV1R17U4UcDmBZ
-	cbrKzAxQ==;
+	bh=xh5rNiGnQTblRK3rc/aye/E+aQJsk9GxSiT3PR/DquA=; b=PzkPVznbGPvrbntJd6EbkELYVs
+	ewIfW7RnXuaAy7cCbrBTS6eQejX0Kp2Au1gw6eeJckrdXOWoHfKRFNwMYLzjPJBZ+XBVXy50xP9SN
+	UAw0EqJMG0dazt2TJmmH+FpkqU3drr61nsmed2SMROoG9+bilQjpAeeBlu1WDbohKkLsEZUhpXnIB
+	no4ZdFSbL0uvPrO+s2GdcLIRFTflmE1WM8ubYTgmMoo0vczpTkHHD2VzDr9AFdPz1zhnaL23HLcST
+	0GFD/7gl2vfvXp0r34DaHHAvbb+Wq3gEGNM+7HldAT7pZlxKAbRGnDwPaMJKQGjD9D0YO4FcsUaab
+	c3G6Mc5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP9xC-0000000HQsF-1gWg;
-	Tue, 19 May 2026 02:13:06 +0000
-Received: from esa12.hc1455-7.c3s2.iphmx.com ([139.138.37.100])
+	id 1wP9xQ-0000000HQvo-2U9O;
+	Tue, 19 May 2026 02:13:20 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP9x7-0000000HQrT-42lj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 02:13:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1779156782; x=1810692782;
+	id 1wP9xN-0000000HQuU-2qmj;
+	Tue, 19 May 2026 02:13:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779156798; x=1810692798;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=RptmMw58B7z2kp+LpO4yKtCECQzw5sRd637q2vcLyXs=;
-  b=OXAoOXicQD1KyA3Rl1QjRu+p/p/78lKdNBw61Azj8S6MZrNAV1E+nZDI
-   QAZ1tLtzccJI8QPEXOcSYk2an8vRenM/ZO+IWrTq4eM+y0009c5VBWrGl
-   KVd1grDtYCtGbmRqfh0+NgxL1BqwbAB4XgF8utjIPSIAZmFOyY9Og12kd
-   vbjTU7D/NQcft8sQT1dto9wXQV+0kkble1Wtm0qwi/5uMaWt13HWQ1CON
-   uSxfSCqmsComNTfYD+Pg98JzWh1nivrgbZtvUCsNtDEmwZ8+0Ov+fvkap
-   bw4VCKQ56h4omihIr1qX1Qjbkr1h+sgPx6LZlgCjq+ncTyLcneXxj2tPF
+  bh=KNEi9Z6fIzPPdjyS6gMZBxegnw+gYNTkMPxY7aoCyBE=;
+  b=CPA7sZ2QlwqqntRjfFAP4d/h7DTPrU+8CvviuvWPriZNo6rlpYKQZCMC
+   3BmhoxM7g3lKxeR7SDnjSKA9+bWmT8s/OATdkywTQR1wPjV93g8KTczXa
+   IPPsdGfbqKb9+dfEsdIpxG/2RUmd7+/Jo3CwOQ9zlI9j+aRBaqmOloRsd
+   dAAJoopIO+eOLkZkZ7jj9Pg8MbSbPkxGkJaoLVycezP+yMEInM2CQGbsE
+   ClFFBNmYSc+p7OqzfUmVxpgJmWUb9wamwqzt3Rh24AxYJo6ay2WF/Q9WQ
+   EK1K0VpwM9SsIWdofGpDFthlvtb4hjldt13YvMddeN9mqRuwUfEsNrHdu
    Q==;
-X-CSE-ConnectionGUID: MY2/WwjHQGmX/16uBoWbFA==
-X-CSE-MsgGUID: piNLvE80RhCf0rxjbL6e7g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="218720760"
-X-IronPort-AV: E=Sophos;i="6.23,243,1770562800"; 
-   d="scan'208";a="218720760"
-Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
-  by esa12.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2026 11:12:59 +0900
-Received: from az2nlsmgm2.o.css.fujitsu.com (unknown [10.150.26.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id AEEE21C000B1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 02:12:59 +0000 (UTC)
-Received: from az2nlsmom4.fujitsu.com (az2nlsmom4.o.css.fujitsu.com [10.150.26.201])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm2.o.css.fujitsu.com (Postfix) with ESMTPS id 660C41C0017C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 02:12:59 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.207.142])
-	by az2nlsmom4.fujitsu.com (Postfix) with SMTP id 7B3AB20000AA;
-	Tue, 19 May 2026 02:12:55 +0000 (UTC)
-Date: Tue, 19 May 2026 11:12:52 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, Sami Mujawar <sami.mujawar@arm.com>, 
-	Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] virt: arm-cca-guest: use raw variant of
- smp_processor_id() in arm_cca_report_new()
-Message-ID: <agvGi9nrQeslnvjM@FCCLS0092175.localdomain>
-References: <20260518033157.1865498-1-enju.kohei@fujitsu.com>
- <agsHBb9f3HkmJaIx@arm.com>
- <agsSyRT7z-F5iBIp@FCCLS0092175.localdomain>
- <agtKlvxAvCHXvX-z@arm.com>
+X-CSE-ConnectionGUID: XQY+8YmPSHuCz8m+JEc1BA==
+X-CSE-MsgGUID: /c8cbzFCTYOj+a7cKz6JeA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="79876133"
+X-IronPort-AV: E=Sophos;i="6.23,243,1770624000"; 
+   d="scan'208";a="79876133"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 May 2026 19:13:16 -0700
+X-CSE-ConnectionGUID: t7ZnljPdT/OSq+BVcp6Xlg==
+X-CSE-MsgGUID: L4xx6vjTS3WhirUt0xsi5A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,243,1770624000"; 
+   d="scan'208";a="235167793"
+Received: from lkp-server02.sh.intel.com (HELO 30e86e9c1927) ([10.239.97.151])
+  by fmviesa006.fm.intel.com with ESMTP; 18 May 2026 19:13:12 -0700
+Received: from kbuild by 30e86e9c1927 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wP9xF-00000000013-3rH0;
+	Tue, 19 May 2026 02:13:09 +0000
+Date: Tue, 19 May 2026 08:21:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>,
+	Minghsiu Tsai <minghsiu.tsai@mediatek.com>,
+	Houlong Wei <houlong.wei@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	Guangshuo Li <lgs201920130244@gmail.com>
+Subject: Re: [PATCH] media: mediatek: mdp: avoid double free on video
+ register failure
+Message-ID: <202605190845.KlMSPp80-lkp@intel.com>
+References: <20260518125500.1000083-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agtKlvxAvCHXvX-z@arm.com>
+In-Reply-To: <20260518125500.1000083-1-lgs201920130244@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_191302_493996_8EF4AC1D 
-X-CRM114-Status: GOOD (  29.83  )
+X-CRM114-CacheID: sfid-20260518_191317_729167_533E2641 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,67 +97,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/18 18:21, Catalin Marinas wrote:
-> Hi Kohei,
-> 
-> On Mon, May 18, 2026 at 10:38:53PM +0900, Kohei Enju wrote:
-> > On 05/18 13:33, Catalin Marinas wrote:
-> > > On Mon, May 18, 2026 at 12:31:31PM +0900, Kohei Enju wrote:
-> > > > diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > > > index 0c9ea24a200c..2d450caee3e4 100644
-> > > > --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > > > +++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-> > > > @@ -108,7 +108,7 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
-> > > >  	 * allocate outblob based on the returned value from the 'init'
-> > > >  	 * call and that cannot be done in an atomic context.
-> > > >  	 */
-> > > > -	cpu = smp_processor_id();
-> > > > +	cpu = raw_smp_processor_id();
-> > > 
-> > > That's just hiding the warning which might be genuine, irrespective of
-> > > what the comment says. Sashiko has some good points:
-> > > 
-> > > https://sashiko.dev/#/patchset/20260518033157.1865498-1-enju.kohei@fujitsu.com
-> > > 
-> > > Basically what guarantees that the cpu won't go offline? Can we use
-> > > migrate_disable() and ignore the smp_call_function_single() altogether?
-> > > It looks like a hack anyway.
-> [...]
-> > You've raised a very valid point about raw_smp_processor_id()
-> > potentially hiding a genuine issue. I agree this would be a concern in
-> > most contexts.
-> > 
-> > However, this implementation was intentionally designed not to block CPU
-> > hotplug:
-> > https://lore.kernel.org/linux-arm-kernel/7a83461d-40fd-4e61-8833-5dae2abaf82b@arm.com/
-> > 
-> > As mentioned in the thread above, the potential failure from the target
-> > CPU going offline (resulting in -ENXIO) is an expected and tolerated
-> > condition in this path.
-> > Using migrate_disable() would go against the non-blocking design goal.
-> > 
-> > Given the context, the debug warning looks false positive for our
-> > specific use case to me, and I believe raw_smp_processor_id() correctly
-> > reflects the design intent by simply acquiring a CPU number without
-> > debug checks.
-> 
-> Thanks, I wasn't aware of the old discussion. If user-space can
-> tolerate, than it's fine.
-> 
-> Would you mind updating the comment above the changed line? It talks
-> about not allocating memory in atomic context, so migrate_disable()
-> would solve this. Just mention that it can't block CPU hotplug events
-> either and user-space can handle spurious errors.
+Hi Guangshuo,
 
-Sure, I'm happy to do. Thank you for the suggestion.
-I'll work on v2.
+kernel test robot noticed the following build errors:
 
-Thanks,
-Kohei
+[auto build test ERROR on linuxtv-media-pending/master]
+[also build test ERROR on media-tree/master linus/master v7.1-rc4 next-20260518]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> 
-> With that:
-> 
-> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-> 
+url:    https://github.com/intel-lab-lkp/linux/commits/Guangshuo-Li/media-mediatek-mdp-avoid-double-free-on-video-register-failure/20260518-211648
+base:   https://git.linuxtv.org/media-ci/media-pending.git master
+patch link:    https://lore.kernel.org/r/20260518125500.1000083-1-lgs201920130244%40gmail.com
+patch subject: [PATCH] media: mediatek: mdp: avoid double free on video register failure
+config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260519/202605190845.KlMSPp80-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260519/202605190845.KlMSPp80-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605190845.KlMSPp80-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c:1217:33: error: expected ';' after expression
+    1217 |         video_device_release(mdp->vdev)
+         |                                        ^
+         |                                        ;
+   1 error generated.
+
+
+vim +1217 drivers/media/platform/mediatek/mdp/mtk_mdp_m2m.c
+
+  1172	
+  1173	int mtk_mdp_register_m2m_device(struct mtk_mdp_dev *mdp)
+  1174	{
+  1175		struct device *dev = &mdp->pdev->dev;
+  1176		int ret;
+  1177	
+  1178		mdp->variant = &mtk_mdp_default_variant;
+  1179		mdp->vdev = video_device_alloc();
+  1180		if (!mdp->vdev) {
+  1181			dev_err(dev, "failed to allocate video device\n");
+  1182			ret = -ENOMEM;
+  1183			goto err_video_alloc;
+  1184		}
+  1185		mdp->vdev->device_caps = V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING;
+  1186		mdp->vdev->fops = &mtk_mdp_m2m_fops;
+  1187		mdp->vdev->ioctl_ops = &mtk_mdp_m2m_ioctl_ops;
+  1188		mdp->vdev->release = video_device_release_empty;
+  1189		mdp->vdev->lock = &mdp->lock;
+  1190		mdp->vdev->vfl_dir = VFL_DIR_M2M;
+  1191		mdp->vdev->v4l2_dev = &mdp->v4l2_dev;
+  1192		snprintf(mdp->vdev->name, sizeof(mdp->vdev->name), "%s:m2m",
+  1193			 MTK_MDP_MODULE_NAME);
+  1194		video_set_drvdata(mdp->vdev, mdp);
+  1195	
+  1196		mdp->m2m_dev = v4l2_m2m_init(&mtk_mdp_m2m_ops);
+  1197		if (IS_ERR(mdp->m2m_dev)) {
+  1198			dev_err(dev, "failed to initialize v4l2-m2m device\n");
+  1199			ret = PTR_ERR(mdp->m2m_dev);
+  1200			goto err_m2m_init;
+  1201		}
+  1202	
+  1203		ret = video_register_device(mdp->vdev, VFL_TYPE_VIDEO, 2);
+  1204		if (ret) {
+  1205			dev_err(dev, "failed to register video device\n");
+  1206			goto err_vdev_register;
+  1207		}
+  1208		mdp->vdev->release = video_device_release;
+  1209	
+  1210		v4l2_info(&mdp->v4l2_dev, "driver registered as /dev/video%d",
+  1211			  mdp->vdev->num);
+  1212		return 0;
+  1213	
+  1214	err_vdev_register:
+  1215		v4l2_m2m_release(mdp->m2m_dev);
+  1216	err_m2m_init:
+> 1217		video_device_release(mdp->vdev)
+  1218		mdp->vdev = NULL;
+  1219	err_video_alloc:
+  1220	
+  1221		return ret;
+  1222	}
+  1223	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
