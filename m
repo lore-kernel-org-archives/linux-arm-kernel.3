@@ -4,121 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34055CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 945A9CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ooLIcyp8jGPM1dgMgXjHPa4JSLvbPx8HaTLf3Y0zykk=; b=AH+i13zFqGyTKanGsqoZALkn8q
-	sSVLDwAkh1WDb2fra4/XoDONEVXm5Gnhn99hl27CFmV+ROVjO2UIhDc5fHP5tLeNkBUVurEjdLQ3G
-	ZETNLXIpavTsVQJrPjHCYccqXY1tvelEg4KICAAAVi8FTqgQ+5arYUr/0eM5edyxM3VLnoiSc/nrH
-	KG76cxA6c523NQbgHZ/7zA5/R/U6+J/xxoQqUgb8fk2u7rwm6T3oiNQyuAQtTBap+sj4/dBYJ3Ee8
-	CqaCF1olQVGHExGnXcY7Zx23hyFiaLyCr4BS/a1Av2Ehrt59/C37pVIPTFWcDfgxyy1YrVp5ydoVH
-	NJ7yDNbA==;
+	bh=5iPQsDpXFreqn+HTJJE9Cfh7oPvo6yeobA2GeaD3Wso=; b=NmuUT6oKDh4juE+sIFGe2/S+PJ
+	oyCOQkeNIfxHf/OO5laTpb4GOsEL77VBG+EbJRGFYP9sLM1xCGexbJAaA4AlcThI/KKitVDFH1Q2I
+	gZFB5mIycjijYXH2p1ecwjvXBVuoulZs+EK0e7h4YGFnTBMi8Bf1amkPy6w0HMfaBN6QajEnpv9mF
+	iYehUG0TCnCOWPxK6yplWsvXqAtjbVJ9RtlBmciZzIqmc4/1RYd+S4dlFyWOY5n6Efrcp+784cMPI
+	HcwBAjE+x1JlZ3QfqOY+mBMZ9D10/ZoxOiUHib9mQq4k8PS1AbGtBQCive1LixtWetVjtK/o+FFHw
+	btFpFGCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGOu-00000000qpO-11Mk;
-	Tue, 19 May 2026 09:06:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGOr-00000000qoQ-1BKs
+	id 1wPGPG-00000000qv4-1SKB;
+	Tue, 19 May 2026 09:06:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPGPC-00000000qtp-151u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:06:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C05141399;
-	Tue, 19 May 2026 09:06:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EDE7C2BCB3;
-	Tue, 19 May 2026 09:05:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779181564;
-	bh=eTdLuDnHsDUa4+d8CN3QqITpwgtz45d0NMAl6PkTi0U=;
+	Tue, 19 May 2026 09:06:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E2EBE34FC;
+	Tue, 19 May 2026 02:06:18 -0700 (PDT)
+Received: from [10.57.21.217] (unknown [10.57.21.217])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EA3CC3F632;
+	Tue, 19 May 2026 02:06:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779181584; bh=YZ8qCa5hmacJ+0fwYw5u1WZFYIdWda7ROTjpCvycpWU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fk1sZfnXwK239b8OhkHY7kKck5wPW144TQcwkJ6rcmqXPKX5Zn3uf/bw8zR5zHAuo
-	 T/jAtCjslQrb/tSS0hNf6LAOFaoa6JNyaWaTCI8ZouNKSGUlpL22jUEQThBvqWRh2M
-	 hj+N7/6nruEGNoi3PlVi6BtR8/KyAyOjgtG2UvueZj8ZcXxVMwbvXsssgXXaN8L31S
-	 fpzFlTnfynFHlWLcwV5rMLegsqK0gSt7gnBsuN2GzO/9atwZmJHtWS6DCtmWGajxL1
-	 opF8cblZw00v2P15Q+J8/6IPHnQvcXDSwYCeSZwwdD7rI7n+U/OodrKF8OKaZzj8NZ
-	 EHUgt121mhI/A==
-Message-ID: <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
-Date: Tue, 19 May 2026 11:05:54 +0200
+	b=HOAofCaunu9kqKKbshr5Bv9mnrPJFV30N9w+YqVOHhLJs0wXjYRoT/gNbDEzKKw7R
+	 42xowttsiloJZMQ5bWdM7yhJbg5wuo0MKQNqqZyg3ZEdjnaqQjJLSMQQ5kr2l1Jsj1
+	 v5mjbnxM+YQuQGEBylikY81XL7JLvJD+65PxKLss=
+Message-ID: <26091753-3806-4c55-a953-3f3006160239@arm.com>
+Date: Tue, 19 May 2026 10:06:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-To: Tejun Heo <tj@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
- Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
- <agtuPrgIDNKSu2Oo@slm.duckdns.org>
- <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
- <297658c4ae2d6e7103f5968efc936224@kernel.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <297658c4ae2d6e7103f5968efc936224@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH] coresight: drop lookup reference in
+ coresight_get_sink_by_id()
+Content-Language: en-GB
+To: Ma Ke <make24@iscas.ac.cn>, mike.leach@arm.com, james.clark@linaro.org,
+ leo.yan@arm.com, alexander.shishkin@linux.intel.com,
+ mathieu.poirier@linaro.org, peterz@infradead.org, acme@redhat.com
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+ stable@vger.kernel.org
+References: <20260519084317.1472444-1-make24@iscas.ac.cn>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20260519084317.1472444-1-make24@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_020605_377627_59E48E26 
-X-CRM114-Status: GOOD (  20.68  )
+X-CRM114-CacheID: sfid-20260519_020626_357799_CA101DDA 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,63 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/19/26 10:58, Tejun Heo wrote:
-> Hello, David.
+On 19/05/2026 09:43, Ma Ke wrote:
+> bus_find_device() returns a device with its reference count
+> incremented. coresight_get_sink_by_id() only uses the returned device
+> to find the matching CoreSight sink by id and does not need to
+> transfer this lookup reference to its callers.
 > 
-> On Tue, May 19, 2026 at 10:00:39AM +0200, David Hildenbrand (Arm) wrote:
->> Is that really possible? I'd much rather prefer to trylock and retry, unless
->> that can really result in deadlocks. But I have the feeling that such deadlocks
->> should be impossible here.
+> Keeping the reference forces callers such as etm_setup_aux() to know
+> about the internal lookup implementation and to drop the reference
+> themselves. This is error-prone and led to a leaked reference when a
+> user-selected sink is used for perf AUX tracing.
 > 
-> I'm not well versed in either mm or BPF, so the BPF folks will have a
-> better take. But here's a scenario that seemed plausible to me:
+> Drop the reference inside coresight_get_sink_by_id() after converting
+> the device to the corresponding coresight_device. The CoreSight path
+> code takes device references it needs when building/using the path.
 > 
-> 1. A bpf prog calls bpf_arena_alloc_pages() on its arena. The kernel
->    takes arena->spinlock via raw_res_spin_lock_irqsave().
-> 2. Under the lock, the alloc path goes through bpf_map_alloc_pages()
->    -> alloc_pages_node(), which fires trace_mm_page_alloc().
-> 3. A BPF tracepoint program on mm_page_alloc that shares the arena
->    starts running with the lock still held.
-> 4. The tracepoint program calls a kfunc, passing an arena pointer
->    one entry past the array it meant to touch.
-> 5. The kfunc dereferences. The kernel-side address is unbacked, so
->    the CPU faults.
-> 
-> trylock + retry at 5 would A-A deadlock.
+> Found by code review.
 
-Okay, so removing that specific tracepoint (or rather, any tracpoints under the
-lock) would solve the problem, right?
+Thanks for the report. But..
+
 
 > 
->> For example, staring at apply_range_set_cb(), what prevents:
->>
->> (1) apply_range_set_cb() finding pte_none(ptep_get(pte)
->> (2) apply_range_set_scratch_cb() succeeding ptep_try_install()
->> (3) apply_range_set_cb() overwriting the pte with set_pte_at()
->>
->> Between (2) and (3) CPUs could access the scratch PTE.
+> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+> Cc: stable@vger.kernel.org
+> Fixes: 226443925887 ("coresight: Use event attributes for sink selection")
+
+I would rather drop the reference in the etm_setup_aux, to make sure we
+are still dealing with a valid device, that has not been removed under
+our feet.
+
+Suzuki
+
+
+
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c | 15 ++++++++++++++-
+>   1 file changed, 14 insertions(+), 1 deletion(-)
 > 
-> Scratch only gets installed when BPF passes an unallocated arena
-> address to the kernel side, which is itself the violation, reported
-> through the program's BPF stream. Behavior at that addr is then
-> undefined. For scx, the scheduler should be aborted and torn down.
-> 
-> The only requirements are that the kernel doesn't oops and the
-> violation gets caught. Beyond that, behavior at the address is
-> unspecified, and which installer wins the race doesn't matter as
-> long as kernel integrity holds.
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 46f247f73cf6..2cca4ed83e2c 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -624,11 +624,24 @@ static int coresight_sink_by_id(struct device *dev, const void *data)
+>   struct coresight_device *coresight_get_sink_by_id(u32 id)
+>   {
+>   	struct device *dev = NULL;
+> +	struct coresight_device *csdev;
+>   
+>   	dev = bus_find_device(&coresight_bustype, NULL, &id,
+>   			      coresight_sink_by_id);
+> +	if (!dev)
+> +		return NULL;
+> +
+> +	csdev = to_coresight_device(dev);
+> +
+> +	/*
+> +	 * bus_find_device() returns a device with its reference count
+> +	 * incremented. coresight_get_sink_by_id() only performs a lookup;
+> +	 * the CoreSight path code takes the references it needs when the
+> +	 * path is built, so drop the lookup reference here.
+> +	 */
+> +	put_device(dev);
+>   
+> -	return dev ? to_coresight_device(dev) : NULL;
+> +	return csdev;
+>   }
+>   
+>   /**
 
-You'll have inconsistent TLB state.
-
-I really don't like that approach.
-
-We should really try to just take the lock, and remove any code under the lock
-that could trigger such unpleasant deadlocks.
-
-Is that feasible?
-
--- 
-Cheers,
-
-David
 
