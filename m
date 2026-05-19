@@ -4,107 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152BCCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E189DCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ZaV7vAKmKkBxuUNmfjFmb5dle+6CQk6X/i0TW2Mc8g=; b=YsmR8Bueobqzh7OS/KI4AaON7N
-	Uoszq7uYo053nR/kXQXq+JYx7bsJWrVWobnK/yW7PeKs0sO5QsLRVd7ogG0FOsR09JeZaFhY9HFiU
-	LDl6U9l4Q+oWCDKmu3Uiys5ovO25zjSYK/4eZrZ4MUmx4Fvp7yHdaXlZBIVN4tIBuvbntJxK5qMjG
-	j/Q6xLc1MOClC+s1Nc7vkehZDK60QoOjC6gZw0UPhOpp3K3qD6epgzOLZ/M54c1THhlS8dE1RQyIl
-	5yHvH6lY8fSJjYopQbdxI7iM9fVH6WGi+2JIRldWz6LBFur5KwHk/ksxgkraTUXEIEoSNSds9lDpq
-	TZwm9nEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5pp6KOfWg43baNnR2me4Rs+LYAkNdu4Qu2ONWE2ITsw=; b=vgRTGTvguByRP8wgMhhJkixfQL
+	ZwDRkA2iO2Rj/q1gd/WaoWuRUFU5kpWTQNpUb36PT0mUDoXO4GeTzJorVpS3+9OdbDhy7wvOBBKe5
+	0S67Vs0A1z7m5BLqvRrcV1RZvnAvsS6Cbbg8t7BMdH6b1HtDXBpkMNIAxlmj80eEjwuQbp9t25zcE
+	5wcKq7HUgqAL+JwGo3o7WmurWTMmN2Dbh87MzITfI/6ola+VeSZPzjxfjZhgvAAcWUDAB/Ufsi3GN
+	FYdx7iRb3keTZAomq+ZhGJTcpvTfMVnJQdQHZrW/WFXCJbO8dW//ZOfQYQi8k+UJzI2JsyWsTZdY8
+	yFxjCnQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGvK-00000000xfp-2HaN;
-	Tue, 19 May 2026 09:39:38 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1wPGw8-00000000xrk-49gT;
+	Tue, 19 May 2026 09:40:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGvH-00000000xeB-2EhY
+	id 1wPGw6-00000000xr9-3rno
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:39:37 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id EFFDC7A0115;
-	Tue, 19 May 2026 05:39:31 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 19 May 2026 05:39:32 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1779183571;
-	 x=1779269971; bh=4ZaV7vAKmKkBxuUNmfjFmb5dle+6CQk6X/i0TW2Mc8g=; b=
-	Bq4jhxvY+mGa6dUdOF/JPP3YMOtzjWamKGMAJ2JGGyWkxJizfbJFP78FCEFXsZ7S
-	fBKbTQOe8g0+5FOLjVmhzCmMirsp04xqLFTCcyw/WKxus24S3bep7u5DReu5gSVr
-	ZX7SeVULV4znLu3tgej7qUw6PpU6wQMbb2F0baIbdq7eoF4ZFPJEP+SkzR3XfqmD
-	zXENispwzGZmNWhQ1KAXmgRfPO3vsYiRYlDKyfCNWRaLbnOQ6uwQxGMX7XoaryZo
-	kpqQbpwMaO9bdLOyJtgAP3aGX7W2bkM/KJ2eER1SIF10KNEoF97ZkGN0r4hC+38e
-	VYxh2+nPHInafvIpP5ZC3g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779183571; x=
-	1779269971; bh=4ZaV7vAKmKkBxuUNmfjFmb5dle+6CQk6X/i0TW2Mc8g=; b=X
-	zbKYsWMEYfVaBZJ88RUQhLmGj0A3gFtavphYY5//GuQyh1zME3eTKM+iNI2wJ3Fv
-	+oSYC/wpca9zLa9KG2Hq+jXjTfKAqVw/fgcnx4G8K7riII9Fb7lmOEPC4Agvgpfv
-	j7n0nP00tDrtlr7b0if6h1PFafbbl3fwZJmDLpB+LtQ81CgnIu5Mvr1aqrVlVSmp
-	7Vs0YjT1ABY9LR/XEfj0T0Ui3jSMtZm0ZzukEovFyJO0RBFqdL9/9SauvFfn4ZTZ
-	VvEFEHv0+Kwb0TwArBCtv41t95s0x+gCi+CZjcp0Bl+2YUOFTKsfaLzKWmvtW5Lg
-	4wHpucM8AlCn5D/5YZsJQ==
-X-ME-Sender: <xms:0y8Matt5SWE2PU2U61UXFruDi1eykIcki_JyujFVnuh0eLhv6TlO9w>
-    <xme:0y8MahR4NosB200FRqEMT2EZP9prh0JmLIBnOmzID_0T2c08y4KAiQlOmK58v_Wnx
-    U-_TT7bxvLSmmGBQrFC_4gCX2GKO7Rn3pLL2F7_psjaPR53MWYB9vE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddugedugeduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehrohgsvghrthdrjhgrrhiimhhikhesfhhrvggvrdhfrhdprhgtph
-    htthhopehhrghojhhirghnrdiihhhurghnghesghhmrghilhdrtghomhdprhgtphhtthho
-    pehlghhirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthhtohepsghrohhonhhivg
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghl
-    sehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgvrhgvgiesph
-    gvrhgvgidrtgiipdhrtghpthhtoheplhgsuhhlfigrhhhnsehrvgguhhgrthdrtghomhdp
-    rhgtphhtthhopehluhhkrghsrdgsuhhlfigrhhhnsehrvgguhhgrthdrtghomhdprhgtph
-    htthhopehtihifrghisehsuhhsvgdrtghomh
-X-ME-Proxy: <xmx:0y8MamraOtaVkKG1s7palY71qJXmkBDiFIov6LYmeiAOAvqufxwUoQ>
-    <xmx:0y8Map2Cgo2phVRuq2tClFmU_CWuz0suwuTl8cKTGnh7DmT6U_969Q>
-    <xmx:0y8MaukyETDLy_KbjwbkUMDDh8xxmHhDeOIQMg9PpTwt_wekhQp3lw>
-    <xmx:0y8MalZC-oVN81Az-hCMSdDpDANt52XgGkOxM8MgOdfIHUM0ur6wFw>
-    <xmx:0y8MauWSGZeKilyNML3fKNmN9tpShLKeq92_zMRJbAVMa7-m6-BRjfYQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 21FA6182007A; Tue, 19 May 2026 05:39:31 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 19 May 2026 09:40:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F84844537;
+	Tue, 19 May 2026 09:40:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 133BAC2BCB3;
+	Tue, 19 May 2026 09:40:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779183626;
+	bh=o4J6QqMYpGZvmNuQqLrqFIRgj7m9/fIFtO5TPzuauHo=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=oR6vMJHZ1hsZL72AJG0MkJgGa2n/YtUM32dpuHsbzYwF4H0uYIHfnCydwREwO3mQH
+	 59RSQhrNfCZ9mxSbqk5WMHbJUveqd+xhOze1mf48iur17h0NVmhS/TBosAJYib0beS
+	 Q2cxhihEbpbQk+aVfogepWt4oGWNxMu1MHlsUwZldkQkdf5Tj22UvVd7DF0pkdDwn1
+	 IMWaV/6K5CcQdDt6YPKJMDJxVSqgznIq9dKBwUQVRXW45M6M8Td3hUr0DTWfCzN7ji
+	 4aXAkmOwx8vMq+Vw8s0oQZFH7VeidG+bgPFc0LnB8ziEEvmaH7G2y4FZTGJMtP2M2r
+	 QCeG9vkaY2/Hg==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 23/44] arm64: RMI: Handle RMI_EXIT_RIPAS_CHANGE
+In-Reply-To: <20260513131757.116630-24-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-24-steven.price@arm.com>
+Date: Tue, 19 May 2026 15:10:11 +0530
+Message-ID: <yq5ay0hfspok.fsf@kernel.org>
 MIME-Version: 1.0
-X-ThreadId: A9I7lXiA-o73
-Date: Tue, 19 May 2026 11:39:10 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Lukas Bulwahn" <lbulwahn@redhat.com>, "Mark Brown" <broonie@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org
-Cc: "Daniel Mack" <daniel@zonque.org>,
- "Haojian Zhuang" <haojian.zhuang@gmail.com>,
- "Robert Jarzmik" <robert.jarzmik@free.fr>,
- "Liam Girdwood" <lgirdwood@gmail.com>, "Jaroslav Kysela" <perex@perex.cz>,
- "Takashi Iwai" <tiwai@suse.com>, kernel-janitors@vger.kernel.org,
- linux-kernel@vger.kernel.org, "Lukas Bulwahn" <lukas.bulwahn@redhat.com>
-Message-Id: <ae162faa-d42a-4075-829b-8d554b1c3064@app.fastmail.com>
-In-Reply-To: <20260519090720.301782-1-lukas.bulwahn@redhat.com>
-References: <20260519090720.301782-1-lukas.bulwahn@redhat.com>
-Subject: Re: [PATCH] MAINTAINERS: drop obsolete file entry in PXA2xx/PXA3xx SUPPORT
 Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_023935_834656_0B9D503F 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20260519_024026_975887_28D5660B 
+X-CRM114-Status: UNSURE (   7.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,21 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026, at 11:07, Lukas Bulwahn wrote:
-> From: Lukas Bulwahn <lukas.bulwahn@redhat.com>
->
-> Commit 42f67e1d1cba ("ASoC: pxa: integrate sound/arm/pxa2xx into
-> sound/soc/pxa2xx") moves all files matching sound/arm/pxa* into
-> sound/soc/pxa/. Hence, the file entry in referring to sound/arm/pxa* does
-> not match any file in the repository anymore. As the PXA2xx/PXA3xx SUPPORT
-> section already contains a file entry referring to sound/soc/pxa/, the
-> moved files are already matched by the existing file entries.
->
-> Simply drop the obsolete file entry in PXA2xx/PXA3xx SUPPORT.
->
-> Signed-off-by: Lukas Bulwahn <lukas.bulwahn@redhat.com>
+Steven Price <steven.price@arm.com> writes:
 
-Thanks!
+...
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+> +void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+> +			   unsigned long size, bool unmap_private,
+> +			   bool may_block)
+> +{
+> +	unsigned long end = start + size;
+> +	struct realm *realm = &kvm->arch.realm;
+> +
+> +	if (!kvm_realm_is_created(kvm))
+> +		return;
+> +
+> +	end = min(BIT(realm->ia_bits - 1), end);
+> +
+> +	realm_unmap_shared_range(kvm, start, end, may_block);
+> +	if (unmap_private)
+> +		realm_unmap_private_range(kvm, start, end, may_block);
+> +}
+> +
+ 
+kvm_gmem_invalidate_begin() indicates a private-only invalidation. How
+is that supported?
+
+-aneesh
 
