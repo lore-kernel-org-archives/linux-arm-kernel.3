@@ -4,74 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236E6CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 03:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68C5CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 03:39:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Djdiv4Vto2J6dw+SLyMd4Ddbo7EpMG2rn/QzqSFfqY8=; b=oITTGjnXxw9e1I
-	zACGjok4TJ4dhXV5CzAqAyuRAt65L7xpIaGWcQJVaicI9UzfMVV2e2mi/IspOULZfg22U3CVRUZa/
-	9WPeZlrrg053hmFPgcEemvufBpMt6XiLk46n/kQBpOQZhAtzKkbsKfWv/tU7dMPaZu+DiPwM4DAJe
-	Ddcu3h9HFR3pf08+wriNAgdLQpqeJxdMmSTylP3syUdXK+NtaFcD3b2EP2NKqUSssQldqLZVWQTEE
-	kU/Il1kQvsAa0mm4aR7F/5CqYx1zdbBxd7bgkl+HDgd79qBeD2we8otK/PMc6A3DuXVjfY+AZXFWk
-	BuXjOagQiIqo5vLN5+cQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8Iu6InZHPh+aN1mAqLQs/8UZLi6pyr1F4O5wZ2wuMvU=; b=P8Mq6oHIclkBvHlZ1cFkhGLjYU
+	dP7Dicjw5/CQHeNQrQWV9ManF+nk1k5s7IRrJfw5ALJwi1ifEdjf5yIbOwJ4cdlrufQYBxY+elmuC
+	Q/Wp6nxKBIRyMRZktIxRoogAZgMM2Hc4pa7luGn2f4rmJgx4Kd0LAFLnNdhMjLaWdYJ7/XAutFQxa
+	1QRnpmmIi/sneE2Pqo2yEZVXP5eoHgF8P/atmzAsDpSgzgPA0K3Z+I40i85Xa0WxLmyGUbh6H44Tq
+	r90vizAJPK6d874kuCYgGpxSE39XlbTF/1dllEdlkEcCdAtrQTCJ6QXvSirxnvcMZpyPZwTeMewcL
+	q2QBhbfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBDa-0000000Ha40-2CCb;
-	Tue, 19 May 2026 03:34:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPBJ4-0000000HakK-0BxF;
+	Tue, 19 May 2026 03:39:46 +0000
+Received: from mail-centralusazon11011008.outbound.protection.outlook.com ([52.101.62.8] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBDW-0000000Ha3Y-1iKD
+	id 1wPBJ1-0000000HajE-3msX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 03:34:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9F5F6442AD
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 03:34:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 812DFC2BCB8
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 03:34:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779161641;
-	bh=nqKg2vNqhpGy8mWBUrH5n648k2I71k6MfxdNSF69OdA=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=SjonHy3/Bl4JhFw48DynnSqz6PqlQC615bV+ELzdICsUebCLPeMjylDSbyEjSd+2R
-	 svvVgacwmgrWRH67NtJwCJPm7HhU+JSPuJ5jh+reA0mqhD+AhrD9IQJpZc6ZOBNKPz
-	 5XB9ShRumxfrAmHbhrBsE0mtlyzMx/tL9NO+4FMz0xs93WEFI5UqQyUdh36wZyV/jy
-	 yrTUSD/u6ZFvY320Dss8T4ynJOCUYfVGvLZkV5hub5MPZCSlMrwT15CErgx/ANGRyo
-	 Byghh8prXWAvBT9JO5JZ54QgKxm+u5tWxEdBdAPuhWKjfnENxRVIAD3PerwK4pAlTb
-	 ikyOEMBDaaqNw==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-393d07e8938so27568501fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 20:34:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/46pH3SQJUpJW7KXyX0KEW6NQMhBWLnUk3v63p2zW8Tn2aFmDelvExdqLzvoCimaGz/018ehfi4QWGZ66hSjOT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwqLB9bFSsM0npdc6Tf57r/ajBPhiDSn+SBnn5JrEFRMvCGqI7
-	Ymq71+LuGhmkz7ZwS0V+thPeU5/w6A1PW80GU3vjlP3XZ5D5fZHDp7khbsi9CKYNoobPBKRhFi2
-	CiCfecvNpEywFmZV5gSdwl7cG8HDHAH8=
-X-Received: by 2002:a2e:9854:0:b0:394:472e:e430 with SMTP id
- 38308e7fff4ca-39561c124d8mr40219351fa.18.1779161639815; Mon, 18 May 2026
- 20:33:59 -0700 (PDT)
+	Tue, 19 May 2026 03:39:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lpN8mSrg/GdQT2Zg1o+GNm5Hyp3DOLw4y2zHSUXhkjYu0VFQVhVCIbMWKaxfAr6F8dYjoKY5a5IXC/1KXPfXvns9fzoPVGO4ppwYIjEJed/97AKrWD6J6UcwLU9iZkUOLXLA71jvfIIfv48JlJX/f42nq4oJIsTFNUFWJOkABlVjTUQr2my/uBYtphPjZ/3ND2gipICPNJffT0h2c6CTtAZs2pP3kkfAzRjnzeNHSs/iM0RmVH87eteMWtuc6coPJmbgQBbeLkGww6SwEsr2jbgQvR8BUF4obyZBKWNORFuWVtwl5iTbBD7kKIAIrlq7Ynign3dDaAW0Mcm0/ohjnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8Iu6InZHPh+aN1mAqLQs/8UZLi6pyr1F4O5wZ2wuMvU=;
+ b=himzeb3PH4xwdZ0nOWj9tabSk4eJqPVk7QXyRW2lFZBJi4F3y3zSFb/M3BoogogdWXWGJRmyeYmYy+OJ+R4rXSxcrnCF4tw13x4oZGSdgpCKQQji2JFNiPAY8ZVgEpTmrmovQ99KQ3Z0JLlueuZY1Ezsf/BF7N32rbLhwBhCZYQGhPUdwmKOD7SOk8wdKFmr7pCKMU/u8RjiWPse6MF7icI79ux3U6f2PSAu3V+UcmzdRjg0aSsb+PldY5mSr3pspzKd6wm1K58yTW4POKTLe6SXY2iPZqevMN5pasDTL0HPRJWKtlfeoxe9qA+q+e8Y9CDB3x2LeeeQkkIcwNLKSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8Iu6InZHPh+aN1mAqLQs/8UZLi6pyr1F4O5wZ2wuMvU=;
+ b=tgo8WosJNyfjwWaqz14WI5mTDD3VPlUgBYyuNZ3Y74XUPfZy1DTTW3QHNQw96F+Ei+2CPORdUpGZwlnC6au1GyI30d7KdiBd1PrapnTH4xuTRE5isp9xuvdbF4R2CbjqPYStppw7s4upNX6q5AGD4HSLhknsDosoV4EKP4z+332rSRDjx4Gfb9rzpV7BDIYsj16OKM0qyrabvA3IrVzUdVycNYlrFsvdetQ8eteLyQn2K5WyuQ/4rVPUZ+lEWEDvASF8d1pNLrSNCq8j0dU4O9dkP6VX7benyAv/mMM3guaLphx+IgaNN6Hes9N8HNDB1XhKEikRUeVIw3x329DtSQ==
+Received: from DS1PR04CA0001.namprd04.prod.outlook.com (2603:10b6:8:44f::8) by
+ BL4PR12MB9721.namprd12.prod.outlook.com (2603:10b6:208:4ed::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 19 May
+ 2026 03:39:35 +0000
+Received: from DS2PEPF000061C3.namprd02.prod.outlook.com
+ (2603:10b6:8:44f:cafe::ab) by DS1PR04CA0001.outlook.office365.com
+ (2603:10b6:8:44f::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Tue, 19
+ May 2026 03:39:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS2PEPF000061C3.mail.protection.outlook.com (10.167.23.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:39:35 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
+ 2026 20:39:20 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
+ 2026 20:39:20 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Mon, 18 May 2026 20:39:19 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
+ Gunthorpe" <jgg@nvidia.com>
+CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Pranjal Shrivastava <praan@google.com>, Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+Subject: [PATCH v4 00/24] iommu/arm-smmu-v3: Quarantine device upon ATC invalidation timeout
+Date: Mon, 18 May 2026 20:38:43 -0700
+Message-ID: <cover.1779161849.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260510201644.4143710-1-alexander.sverdlin@gmail.com>
- <20260510201644.4143710-4-alexander.sverdlin@gmail.com> <agr9m_tidBr6Cu2h@collins>
- <04da68168f92b196cce4d49c766fc62702bf6472.camel@gmail.com> <aguIvpKQM18kX97T@shepard>
-In-Reply-To: <aguIvpKQM18kX97T@shepard>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 19 May 2026 11:33:47 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66C4o020Wj979O9Ms1yGrQ9mxTppex7L+i8F2=HobktCA@mail.gmail.com>
-X-Gm-Features: AVHnY4LLydhSeTMxsbAa_7rikkTlCp_XrE-66uJsZgTVHv70SiGFx9AM4k7da9Q
-Message-ID: <CAGb2v66C4o020Wj979O9Ms1yGrQ9mxTppex7L+i8F2=HobktCA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] arm64: dts: allwinner: A133: add support for
- Baijie Helper A133 board
-To: Paul Kocialkowski <paulk@sys-base.io>, Alexander Sverdlin <alexander.sverdlin@gmail.com>
-Cc: linux-sunxi@lists.linux.dev, Andre Przywara <andre.przywara@arm.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C3:EE_|BL4PR12MB9721:EE_
+X-MS-Office365-Filtering-Correlation-Id: d83c3118-d5a0-4832-1898-08deb5583f08
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|82310400026|18002099003|13003099007|11063799003|56012099003|3023799003;
+X-Microsoft-Antispam-Message-Info: dtBCFPq9/PBKZ9ev2zUM/iWp7/RqlhXkI/V3zENrfEDwZneAdvd4ZLFS64PTRobJSPHGiGMdrD6GR305RYJeKUSauPXmAcJlp2jEa/4t44lH1O5/0PYwN+GfgJT4vgue1UByGxro6YNt5o3WGuGiJa00ZcOeoHCPQK5yBT3KbAs45Q8X//qyfpIIRAg6WV8kVX8AlbIX1tzN2TLklBPoshXyG3nWt7ar3TKlrkimGBB6NTzDLKpML2JQggX/iNCkDBH+gUBFsPAgOUzI5iYMtHxRQzZWbQI+ERrVdUR1WYMSE9Frd+88I71jjw8jf6Id9kJPVS6QnMxeQJNn8cAiN0D6eVjkc+KYsQLk25Fuf6gQ1C2WKzLv2TunSKwXVXi6mb3yRip4IvRyhIA7Vg1oUYxBCubunE1jrEE+KS42U79EYJetCYUrKlwEQJKlyh96YjaDY2ZWoN9YvUt6N5BQKciy5VE+Gx2yvmXKFcaZmL4tqi41cYfmnvDPAU/g57QYCfX1V3t2FomWqTvnowfNa8mPKSsMVsPLYYxJhV+mNPLz+bkm89H4fxiitpBqetQDy3rMOu4WKwjwLbrg9xb5PzWBeeFm5P747HL6fdxJJbLYaCXOadvRLabZYpXrBhcRUTqW2nah/V0Biujx2vqX287qcky8Al+l4oDwjWUqvGzqSHawQp+7sonCOepcuEKIEvaTLi4XDNJ+OIQOUfu22V1j3UmxjkNd9koj890HjcA=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(82310400026)(18002099003)(13003099007)(11063799003)(56012099003)(3023799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: U90DfA5YZcBUG54r15mHzdezWpjTKCJ10sWaZhiUHXOdNv6uhvpz4xzqIH3gCy51hIuB35vK3PncfeB4KpXxvI4q4TJjDDkxZk4VRnEwJM0tPFvs55hOUv3x4fz8YeAFvRB0YcdsoD80LDeSVIczX/9THJCnsvwvPCAwbJ1VERez4Ec+BDfUTwDm69HD0ay87fIjMgMoKZnOG3TbL3jHhh1OIzQerYFSbHt2u+kO+gLZwNXa7B46Xd0EXgXVVBKUheBO9c1doBsmlad4gBVHLOfZMCKqW2LhgK3TT+FGlmY0dfsb/PkFyrE74sTtK1oHUA1dOKbiyW2G8gCguzV1Ru3c0y6lI8n/E38efpFK+p7WIOPt/0JYPPrMyR/DK+BuHsKdzAT32nY+w8s9yN4F22W9vkrTzhen/iEzoJhKvJtQ/kgMDEj4tTMCSkIjyEn9
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:39:35.0919
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d83c3118-d5a0-4832-1898-08deb5583f08
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C3.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR12MB9721
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_203402_495030_A6A706ED 
-X-CRM114-Status: GOOD (  44.14  )
+X-CRM114-CacheID: sfid-20260518_203943_956624_65A3BA1D 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,209 +128,143 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 5:46=E2=80=AFAM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
->
-> Hi Alexander,
->
-> On Mon 18 May 26, 22:05, Alexander Sverdlin wrote:
-> > Hi Paul,
-> >
-> > thanks for the review!
-> >
-> > On Mon, 2026-05-18 at 13:52 +0200, Paul Kocialkowski wrote:
-> > >
-> > > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.d=
-tsi b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
-> > > > new file mode 100644
-> > > > index 000000000000..65b094f30bf5
-> > > > --- /dev/null
-> > > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baije-core.dtsi
-> >
-> > []
-> >
-> > > You should add:
-> > >
-> > >     chosen {
-> > >             stdout-path =3D "serial0:115200n8";
-> > >     };
-> >
-> > I actually have it in .dts, but it's theoretically possible to deploy
-> > the core board in a way that serial0 is *not* a console, so the above
-> > probably will not be valid in all cases in .dtsi.
->
-> Yes I figured out later that it was in the board dts file and I initially
-> assumed it was missing entirely.
->
-> In practice both options are fine, although the reference software does
-> hardcode UART0 as debug serial.
->
-> > > > +&reg_dcdc2 {
-> > > > + regulator-always-on;
-> > > > + regulator-min-microvolt =3D <500000>;
-> > > > + regulator-max-microvolt =3D <1300000>;
-> > >
-> > > Should be:
-> > >     regulator-min-microvolt =3D <900000>;
-> > >     regulator-max-microvolt =3D <1300000>;
-> >
-> > 0.81..1.2v according to A133 Datasheet Revision 1.1 Jul.14, 2020?
->
-> I guess the initial values are taken from the allwinner-perf1 board dts.
->
-> The 900 mV-1.3 V range matches the CPU OPPs (although it really only goes=
- up
-> to 1.13 V). Maybe down to 810 mV does work, but we don't have an OPP for =
-it.
-> I think I took these values from the reference BSP for the board.
->
-> Also it would be good to add:
->
->         regulator-name =3D "vdd-cpux";
->
-> > >
-> > > > +&reg_dcdc4 {
-> > > > + regulator-always-on;
-> > > > + regulator-min-microvolt =3D <500000>;
-> > > > + regulator-max-microvolt =3D <1300000>;
-> > > > + regulator-name =3D "vdd-sys";
-> > >
-> > > Should be:
-> > >     regulator-min-microvolt =3D <810000>;
-> > >     regulator-max-microvolt =3D <990000>;
-> > >     regulator-name =3D "vcc-usb-sys";
-> >
-> > I'm a bit puzzled here: datasheet says 0.9..1.0v
-> > and it has no "Typ" value, similar to VDD_CPU, but
-> > VDD_SYS is not part of OPP tables, so who is going
-> > to adjust this? Or shall it be just
+Hi all,
 
-No one really. As long as the current voltage is within the range,
-the kernel will be happy. But ideally the DT just describes the
-acceptable range, and the bootloader programs the correct recommended
-voltage.
+This series addresses a critical vulnerability and stability issue where an
+unresponsive PCIe device failing to process ATC (Address Translation Cache)
+invalidation requests leads to silent data corruption and continuous SMMU
+CMDQ error spam.
 
-> > regulator-min-microvolt =3D <950000>;
-> > regulator-max-microvolt =3D <950000>;
-> >
-> > ?
->
-> Yes the reference BSP runs it at 950 mV, LGTM.
->
-> >
-> > >
-> > > > +};
-> > > > +
-> > > > +&reg_dcdc5 {
-> > > > + regulator-always-on;
-> > > > + regulator-min-microvolt =3D <800000>;
-> > > > + regulator-max-microvolt =3D <1840000>;
-> > > > + regulator-name =3D "vcc-dram";
-> > >
-> > > Should be:
-> > >     regulator-min-microvolt =3D <1100000>;
-> > >     regulator-max-microvolt =3D <1100000>;
-> > >     regulator-name =3D "vcc-dram-2";
-> > >
-> > > ALDO2 is the main DRAM supply, this is the second one.
-> >
-> > Core schematics mentions 1.1V/1.2/1.35/1.5 on this rail...
-> > Currently U-Boot has CONFIG_AXP_DCDC5_VOLT=3D1100, but potentially
-> > this is adjustable, right? At some point LPDDR4 chips they
-> > are soldering today will be unavailable. And in the current
-> > market it will happen rather sooner than later...
->
-> It is part of the LPDDR4 spec that the main voltage should be 1.8 V and
-> the second and I/O buffer ones should be 1.1 V. See JESD209-4D Table 180 =
-=E2=80=94
-> Recommended DC Operating Conditions.
->
-> Maybe they jsut copied this comment from a reference design that allows f=
-or
-> other types of DRAM too. In any case their BSP hardcodes 1.1 V anyway.
->
-> > >
-> > > > +};
-> > > > +
-> > > > +/* DCDC6 unused */
-> > > > +
-> > > > +&reg_dldo1 {
-> > > > + regulator-min-microvolt =3D <700000>;
-> > > > + regulator-max-microvolt =3D <3300000>;
-> > > > + regulator-enable-ramp-delay =3D <1000>;
-> > >
-> > > Should be:
-> > >     regulator-min-microvolt =3D <1800000>;
-> > >     regulator-max-microvolt =3D <1800000>;
-> > >     regulator-name =3D "vcc-pg";
-> >
-> > Do suggest to drop vendor's
-> >
-> > regulator-enable-ramp-delay =3D <1000>;
-> >
-> > in all cases?
->
-> Well we generally don't have the delays in the axp regulator definitions =
-and
-> it works well without them, but I guess they don't hurt either.
+[ As Jason pointed out, because this series fundamentally introduces a new
+  RAS feature to quarantine and recover from hardware faults and relies on
+  a recently accepted SMMU driver rework, it is not treated as a standard
+  bug fix. Thus, most of the patches here don't carry a "Fixes" tag. ]
 
-We should probably keep them if we know that they are properly measured
-values, and not just cargo-culted.
+Currently, when an ATC invalidation times out, the SMMUv3 driver skips the
+CMDQ_ERR_CERROR_ATC_INV_IDX error. This leaves the device's ATS cache state
+desynchronized from the SMMU: the device cache may retain stale ATC entries
+for memory pages that the OS has already reclaimed and reassigned, creating
+a direct vector for data corruption. Furthermore, the driver might continue
+issuing ATC_INV commands, resulting in constant CMDQ errors:
+    unexpected global error reported (0x00000001), this could be serious
+    CMDQ error (cons 0x0302bb84): ATC invalidate timeout
+    unexpected global error reported (0x00000001), this could be serious
+    CMDQ error (cons 0x0302bb88): ATC invalidate timeout
+    unexpected global error reported (0x00000001), this could be serious
+    CMDQ error (cons 0x0302bb8c): ATC invalidate timeout
+    ...
 
-> In practice many drivers will have a delay after a regulator power on any=
-way
-> because we generally expect that hardware needs some time to power up,
-> in addition to the regulator. So all in all it's rarely critical.
+To resolve this, introduce a mechanism to quarantine a broken device in the
+SMMUv3 driver and the IOMMU core. To achieve this, add preparatory changes:
+ - Pass in PCI reset result to pci_dev_reset_iommu_done()
+ - Co-clear pending CMDQ_ERR from the cmdq issuer under a raw_spinlock_t,
+   so an ATC_INV timeout flagged in cmdq->atc_sync_timeouts is definitive
+   when the issuer reads its bit after CMD_SYNC poll
+ - Introduce a reset_device_done op, allowing the core to signal the driver
+   when the physical hardware has been cleanly recovered (e.g., via AER or
+   a manual reset) so the quarantine can be lifted
+ - Utilize a per-group_device WQ via an iommu_report_device_broken() helper
 
-Those are two different things. Devices generally say "wait x ms" after
-power rail is at full voltage. The enable ramp delay is the time it
-takes the rail to get to full voltage. The latter depends on board
-design (capacitor rating) and PMIC settings.
+On the SMMUv3 driver side, retry the timedout ATC_INV batch to identify the
+faulty device(s). Perform a surgical STE update, and flag the ATS as broken
+to reject further ATS/ATC requests at HW level and suppress timeout spam.
 
+This is on Github:
+https://github.com/nicolinc/iommufd/commits/smmuv3_atc_timeout-v4
 
-ChenYu
+Changelog
+v4:
+ * Rebase on Joerg's IOMMU "fixes" branch
+ * Rebase on Jason's SMMUv3 cmd_ent series
+   https://lore.kernel.org/all/0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com/
+ * [PCI] Don't suspend IOMMU in probe mode
+ * [iommu] kfree_rcu() iommu_group
+ * [iommu] Convert gdev->blocked to enum gdev_blocked
+ * [iommu] Use disable_work_sync() to fix UAF and ref leak
+ * [iommu] Gate done() transitions to preserve BLOCKED_BROKEN
+ * [iommu] Decrement recovery_cnt when unplugging a blocked gdev
+ * [iommu] Drop racy dev_has_iommu() in iommu_report_device_broken()
+ * [iommu] Add gdev->broken_pending to skip worker after racing recovery
+ * [smmuv3] Add master->ats_invs scratch
+ * [smmuv3] Add arm_smmu_cmdq_batch_issue() wrapper
+ * [smmuv3] Force per-flush sync for has_ats batches
+ * [smmuv3] Serialize STE.EATS and ats_broken updates
+ * [smmuv3] Co-clear pending CMDQ_ERR from cmdq issuer
+ * [smmuv3] Add invs and has_ats to arm_smmu_cmdq_batch
+ * [smmuv3] Move arm_smmu_invs_for_each_entry to header
+ * [smmuv3] Set master->ats_broken after clearing STE.EATS
+ * [smmuv3] Issue CFGI_STE via arm_smmu_cmdq_issue_cmd_with_sync()
+ * [smmuv3] Keep "smmu" pointer in arm_smmu_inv but add "master" for ATS
+v3:
+ https://lore.kernel.org/all/cover.1776381841.git.nicolinc@nvidia.com/
+ * Rebase on arm/smmu/updates branch + bug fix
+ * Update commit messages and inline comments
+ * [iommu] Drop unnecessary ops validation
+ * [iommu] Add missed function stub when !CONFIG_IOMMU_API
+ * [iommu] Change iommu_report_device_broken() to per gdev
+ * [iommu] Separate quarantine from pci_dev_reset_prepare()
+ * [iommu] Check reset failure in pci_dev_reset_iommu_done()
+ * [smmuv3] Fix STE update with try_cmpxchg64()
+ * [smmuv3] Fix "continue" bug when skipping ATC commands
+ * [smmuv3] Replace atomic_t prod_err with a lockless bitmap
+ * [smmuv3] Drop master->invs_domain; disable ATS per-master directly
+ * [smmuv3] Return -EIO for ATC timeout v.s. -ETIMEDOUT for poll timeout
+ * [smmuv3] Replace INV_TYPE_ATS_DISABLED with per-master ats_broken flag
+v2:
+ https://lore.kernel.org/all/cover.1773774441.git.nicolinc@nvidia.com/
+ * Rebase on arm_smmu_invs-v13 series
+ * Bisect batched atc invalidation commands
+ * Drop the direct pci_reset_function() call
+ * Move the work queue from SMMUv3 to the core
+ * Proceed a surgical STE update to disable EATS
+ * Wait for pci_dev_reset_iommu_done() to signal a recovery
+v1:
+ https://lore.kernel.org/all/cover.1772686998.git.nicolinc@nvidia.com/
 
-> >
-> > > >
-> > > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helpe=
-r.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
-> > > > new file mode 100644
-> > > > index 000000000000..ccbca5d0a40c
-> > > > --- /dev/null
-> > > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-baijie-helper.dts
-> >
-> > []
-> >
-> > > > + aliases {
-> > > > +         serial0 =3D &uart0;
-> > >
-> > > The is best added to the core dtsi.
-> > >
-> > > > + };
-> > > > +
-> > > > + chosen {
-> > > > +         stdout-path =3D "serial0:115200n8";
-> > >
-> > > Ditto.
-> >
-> > But it only physically materializes in Helperboard, the carrier.
-> > Potentially this one can be left floating or used for something else.
->
-> Yes fair enough, I'm happy with having it on the helperboard dts file.
->
-> All the best,
->
-> Paul
->
-> --
-> Paul Kocialkowski,
->
-> Independent contractor - sys-base - https://www.sys-base.io/
-> Free software developer - https://www.paulk.fr/
->
-> Expert in multimedia, graphics and embedded hardware support with Linux.
+Thanks
+Nicolin
+
+Nicolin Chen (24):
+  PCI: Don't suspend IOMMU when probing reset capability
+  PCI: Propagate FLR return values to callers
+  iommu: Convert gdev->blocked from bool to enum gdev_blocked
+  iommu: Pass in reset result to pci_dev_reset_iommu_done()
+  iommu: Add reset_device_done callback for hardware fault recovery
+  iommu: Defer iommu_group free via kfree_rcu()
+  iommu: Defer __iommu_group_free_device() to be outside group->mutex
+  iommu: Change group->devices to RCU-protected list
+  iommu: Add group pointer to struct group_device
+  iommu: Add __iommu_group_block_device helper
+  iommu: Add iommu_report_device_broken() to quarantine a broken device
+  iommu/arm-smmu-v3: Mark ATC invalidate timeouts via lockless bitmap
+  iommu/arm-smmu-v3: Skip remaining GERROR causes on SFM
+  iommu/arm-smmu-v3: Introduce per-cmdq cmdq_err_handler callback
+  iommu/arm-smmu-v3: Co-clear pending CMDQ_ERR when CMD_SYNC times out
+  iommu/arm-smmu-v3: Co-clear pending CMDQ_ERR when queue_has_space()
+    fails
+  iommu/arm-smmu-v3: Add master in arm_smmu_inv for ATS entries
+  iommu/arm-smmu-v3: Introduce master->ats_broken flag
+  iommu/arm-smmu-v3: Add invs and has_ats to struct arm_smmu_cmdq_batch
+  iommu/arm-smmu-v3: Introduce arm_smmu_cmdq_batch_issue() wrapper
+  iommu/arm-smmu-v3: Move arm_smmu_invs_for_each_entry to header
+  iommu/arm-smmu-v3: Introduce master->ats_invs
+  iommu/arm-smmu-v3: Serialize STE.EATS and ats_broken updates
+  iommu/arm-smmu-v3: Block ATS upon an ATC invalidation timeout
+
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  72 +++-
+ include/linux/iommu.h                         |  18 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 387 ++++++++++++++---
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    |  36 +-
+ drivers/iommu/iommu.c                         | 406 ++++++++++++++----
+ drivers/pci/pci-acpi.c                        |   2 +-
+ drivers/pci/pci.c                             |  21 +-
+ drivers/pci/quirks.c                          |  43 +-
+ 8 files changed, 820 insertions(+), 165 deletions(-)
+
+-- 
+2.43.0
+
 
