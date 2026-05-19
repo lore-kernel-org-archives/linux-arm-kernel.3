@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151B1CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:18:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2AFCD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOG3vjg48Y2OExGcsPJnnxcSdeHB4GZLcBDULwcpd+s=; b=mMVoIseuRbV0sAi4rN9XXdEnBq
-	CQ2n2yd2LiWEXpx1qe1532N0z3yE8TBhb/kH6TvEiN0yB4q8FmGlGYSiEQSToboKmdPMB3H4bw7qP
-	1+OeX1ssz45NRH3XW87gFd5lb/6EQDWHwGTHuosLz/STnvRbnEDTlWQdt8K0RASdhMTcksfKiQlYk
-	NSEchzpDtBbgrGwjC63WmCWgzLPpboXUo3+uQEre7ozg7lmI2/gMsLDFk3V2MITp/gCH5fDr6Kb07
-	XaslKUz6BLsM66o35/ffvcNJ97xleX0adL8MfZnIZIniZsQ+90skAoxY07KjJTu8w4G3nBmA5ZS5e
-	rk57jT4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RapJmIm33RCWpt2jGkwySkStxOP5ayW5s+SF7qpxfO0=; b=ZAzGUb0Lu37oLYXBqs4PG3H9Oc
+	+cJH2KoEj2JitlPbGb8CY/BLqk7PIae2IP+3juAq9DCpQFYPGWDYV/RbTE60UebUEYcW02qMvrtSu
+	5SSZZCD5TPecm1sglJsyDbC5Mw1Jexubrqqr06zRdyU22Ngxv/5Rp0vACisWqWgFFoHqTulf59NO0
+	1XNwwPYNO8/OaQM+M1gmmIdnIma+ttq1I/TmwgAwm2Zl+CiHfpXR1XFb1Kv9+/xYQzq+r9P3fhPEP
+	aDwCguJgig93PlI8g3BTcTLklR7bLpQd/CrSMQ/zYiH7imvd34/mS6Asgu/oeTVFfw5fMEOaB39VZ
+	/STvwjtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLGc-00000001nIe-2M0m;
-	Tue, 19 May 2026 14:17:54 +0000
-Received: from [38.23.173.23] (helo=localhost)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLGV-00000001nH3-2Vp1;
-	Tue, 19 May 2026 14:17:47 +0000
-Date: Tue, 19 May 2026 10:17:34 -0400
-From: "Liam R. Howlett" <liam@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, vbabka@kernel.org, rppt@kernel.org, 
-	mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, 
-	chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
-References: <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+	id 1wPLGp-00000001nNG-37JZ;
+	Tue, 19 May 2026 14:18:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPLGj-00000001nKz-0j8d
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 14:18:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 8B109445E0;
+	Tue, 19 May 2026 14:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3CDC2BCB3;
+	Tue, 19 May 2026 14:17:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779200279;
+	bh=omX4jWGqSc4euJhfKZDzYDEyAA00xkxKBKP+MlYpCw8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=lTYt6sua65tkoXlE6Q2BlS8sWIBZa2T8L6x1+ychuvbjhIgKDes/YlNtctIs5MurS
+	 wD2Sl12rive3qkbqzpkk+tCLwkjQs/DxCrfGdUoXLC02uYIc1JCFEdy86S52d2uc9y
+	 g9FC2LhMSJtxI6g9uj7rH6gjLQpb0NEpM4k1SN6H2g7ngPyox//4uss4/gZtV+Ifkr
+	 HJA7XMc52oT9bXh/mEx/JXlwnYV1qcuMWkMR9VA/wBbF3wBtAG826RnNSvIIDkS5uY
+	 AZew3Mf53E71+ceTl7ybvn6GgsZDq0hT4sHTpN4L72FhePHSUiBlWNlbwgUDVM05nW
+	 MgRHtOceOiSng==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+In-Reply-To: <agxt7SFGT7OLMIah@google.com>
+References: <agSKQrSIhizCXKwx@google.com> <yq5ah5oaa63h.fsf@kernel.org>
+ <agW5rhE9n2gDQ0w5@google.com> <yq5apl2y5f96.fsf@kernel.org>
+ <agXaby-7L7yS3Vva@google.com> <yq5ah5oa59wy.fsf@kernel.org>
+ <agxDxdxynp4KEovA@google.com> <20260519132911.GA7702@ziepe.ca>
+ <agxolksC_1nfO34X@google.com> <yq5ah5o3sdn3.fsf@kernel.org>
+ <agxt7SFGT7OLMIah@google.com>
+Date: Tue, 19 May 2026 19:47:48 +0530
+Message-ID: <yq5aecj7sctv.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_071801_256708_FEE6914A 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,77 +101,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/05/19 05:14AM, Barry Song wrote:
-> On Tue, May 19, 2026 at 3:57 AM Suren Baghdasaryan <surenb@google.com> wrote:
-> >
-> > On Mon, May 18, 2026 at 4:26 AM Barry Song <baohua@kernel.org> wrote:
-> > >
-> > > On Mon, May 18, 2026 at 5:47 PM Lorenzo Stoakes <ljs@kernel.org> wrote:
-> > > >
-> > > > On Sun, May 17, 2026 at 04:45:15PM +0800, Barry Song wrote:
-> [...]
-> > >
-> > > I think we either need to fix `fork()`, or keep the current
-> > > behavior of dropping the VMA lock before performing I/O.
-> >
-> > I see. So, this problem arises from the fact that we are changing the
-> > pagefaults requiring I/O operation to hold VMA lock...
-> > And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
-> > is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
-> > anonymous and COW VMAs only while holding mmap_write_lock, preventing
-> > any VMA modification. On the surface, that looks ok to me but I might
-> > be missing some corner cases. If nobody sees any obvious issues, I
-> > think it's worth a try.
+Mostafa Saleh <smostafa@google.com> writes:
 
-From Barry's description, I think what he is saying is that the vma
-locking has caused the mmap_lock to become unfair?  I think what is
-implied is that the per-vma locking may stall mmap_lock writes for
-longer than if the mmap_lock was taken in read mode?  Barry, is that
-correct?
+> On Tue, May 19, 2026 at 07:30:16PM +0530, Aneesh Kumar K.V wrote:
+>> Mostafa Saleh <smostafa@google.com> writes:
+>>=20
+>> >> >=20
+>> >> > I am still running more tests, but looking more into it. Setting
+>> >> > force_dma_unencrypted() to true for pKVM guests is wrong, as the
+>> >> > guest shouldn=E2=80=99t try to decrypt arbitrary memory as it can i=
+nclude
+>> >> > sensitive information (for example in case of virtio sub-page
+>> >> > allocation) and should strictly rely on the restricted-dma-pool
+>> >> > for that.
+>> >>=20
+>> >> ??
+>> >>=20
+>> >> Where does force_dma_unencrypted() cause arbitary memory passed into
+>> >> the DMA API to be decrypted? That should never happen???
+>> >
+>> > Sorry, maybe arbitrary is not the right expression again :)
+>> > I mean that, with emulated devices that use the DMA-API under pKVM,
+>> > they will map memory coming from other layers (VFS, net) through
+>> > vitrio-block, virtio-net... These can be smaller than a page, and
+>> >
+>>=20
+>> Don't we PAGE_ALIGN these requests?
+>>=20
+>> dma_direct_alloc
+>> 	size =3D PAGE_ALIGN(size);
+>>=20
+>> iommu_dma_alloc_pages
+>> 	size_t alloc_size =3D PAGE_ALIGN(size);
+>>=20
+>>=20
+>
+> For allocation, yes, and that's fine because we bring memory from
+> the pool.
+> But not for mapping, as dma_direct_map_phys(), where the memory is
+> allocated from the driver or other parts in the kernel and the page
+> may be shared with other kernel components.
+>
 
-Since Android is doing something (according to Barry) that should not be
-done (according to Willy), both of these together are causing slow down?
+But if we are using restricted-dma-pool, we also have:
 
-> 
-> Thanks. Besides the creation of processes via fork(), I
-> am also beginning to worry about the death of processes.
-> 
-> One thing that came to my mind this morning
-> is that when lowmemorykiller decides to kill an app, we
-> want the memory to be released as quickly as possible so
-> the new app or user scenario can get memory sooner.
-> 
-> In that case, if the app being killed is performing I/O
-> while holding the VMA lock, the unmapping procedure
-> could end up being blocked as well.
-> 
-> If we release the VMA lock as we currently do, we allow
-> process exit to proceed.
-> 
-> I haven't thought it through very clearly yet, and I
-> may be wrong. I'd like to do more investigation. I hope
-> the apps being killed stay very still, but who knows—we
-> have so many applications in the market.
-> 
-> Meanwhile, if you have any comments regarding the death
-> of processes, they would be very welcome.
+mem->force_bounce =3D true;
+mem->for_alloc =3D true;
 
-The oom killer only cleans out anon/not shared vmas [1].  So, what this
-would hold up would be the actual process exit path.  Although that
-would have resources associated with it, the amount of resources should
-be relatively low compared to the amount freed by the oom reaper, right?
+So, will we use the swiotlb buffers for mapping and copy only the shared
+content into those swiotlb buffers?
 
-The other entry point that's mostly to do with android,
-process_mrelease() [2] will end up in the same  __oom_reap_task_mm()
-function.
-
-So, for the most part, the memory will be freed while the file backed
-vma completes IO and that sounds like the right thing to do anyways.
-
-Thanks,
-Liam
-
-[1]. https://elixir.bootlin.com/linux/v7.1-rc4/source/mm/oom_kill.c#L547
-[2]. https://elixir.bootlin.com/linux/v6.18.6/source/mm/oom_kill.c#L1210
-
+-aneesh
 
