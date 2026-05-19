@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB890CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 21:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11290CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 22:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u66R6+u6QEN5FG9jyQWIzz8+3zqABf7d9bn5ERNHxKo=; b=eIkIRnpLZFos2eCH+5X168Uirf
-	Yc1hQpqAJ9sO7PCeayGONfcXGvJUk5bg9ysEwdb/MjlKkeQVlhCQohhoWX8Lf/qxL6dgt1rGgYfrR
-	5iX1J4c7ncXBOgrIICxGoOAla4lBzQBrKaFJjDepDdLNXwTJBT0TfymifRIddv9U2ZjPSyeuvTQrQ
-	l9PdT+tdlWt+Ox99g6Phs+Ov4OhRg4blcftAl3B/jDhNgDpyLcuzCWSbFFn9NyuKigpoPhabT7s9o
-	fNmrilIHeS76teu6fb5cZ4oFB4wwxbd+ZlmVrfIGnRou/bwxd8Tu5LuqTbWrYRTe7CdIdxb+yAQHH
-	kPj5euxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RrgSUFMhpGIkWoOChuhQyLYVDUdtSZljRgOJt705GjA=; b=Y491LG3g0wb96wzRtKVB6VmC39
+	5l+NfPtWLPYXCaP0HQ4odijWcZSQ0EPIPTnL1ptXNCR2cNLntJUD66WZX582FG47BHUQdVMZ3liSJ
+	erIIKakGDoqRjDbnAz9MGAOxO6ppPN1WE4RTC8DyXVJQCxN4MRgiMhL5u4Mk7dMu/pY5r9aWpOxOi
+	w2dPQ6XbuCejrs9v9MjLoLuH/M/NaejrBTFbmO/vNFpeXTAqYmwUQAMvj1WSS7uU1ga82CvIM0NIy
+	nPawA8Ck/66UIvD2y5gdigAJa74PjdWr4mEjX8B6uSU+IvvCPmlGu+9kKTOXghR+UsJugQyVTq3Cn
+	9sth77KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSS3-00000002t85-2sMx;
-	Tue, 19 May 2026 21:58:11 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wPSVx-00000002tXs-0RW2;
+	Tue, 19 May 2026 22:02:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSS2-00000002t7k-2vq9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 19 May 2026 21:58:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=u66R6+u6QEN5FG9jyQWIzz8+3zqABf7d9bn5ERNHxKo=; b=iXdabF8vRzpa30SCwM9ZIVYL50
-	Xo9R57ATnUd40A1HkfJA0P/fjEOYlYmiCBaSPh46PIMLcq52hiU9xk1P6JeoSaUeMGi9AbkSsKFfg
-	2sn38y+R9av4GHhtijOmphszq8tysbP2N7b7POKJHTvc8wV3U9CDoQ1W/AGmUwLZy9V4nzE+ZNsS6
-	bWIyYQJzki9liZI9LnVvCnBVsresY/Gvq8fjSECkDipj8rOCGTjVKwK+J0KOdi1WOOcHVkR2tLIDi
-	rDfERw9cqbeXzDYe12vcGJe+oZ9jLIkMdRlya3/mw7HGjemvHKCj89oVLn7xpuvuNJN7nUESKyvib
-	JXtsh/Sw==;
-Received: from 54-240-197-233.amazon.com ([54.240.197.233] helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSRz-00000006KvO-0CEI;
-	Tue, 19 May 2026 21:58:07 +0000
-Message-ID: <1243d375846c4f4e20c229a6f09300126188fc8b.camel@infradead.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
- compatibility expectations
-From: David Woodhouse <dwmw2@infradead.org>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Will
- Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>,  kvm <kvm@vger.kernel.org>, Linux Doc Mailing
- List <linux-doc@vger.kernel.org>, "Kernel Mailing List, Linux"
- <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>,
- Jim Mattson <jmattson@google.com>, Joey Gouly <joey.gouly@arm.com>, Suzuki
- K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Raghavendra Rao Ananta
- <rananta@google.com>, Eric Auger <eric.auger@redhat.com>, Kees Cook
- <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,  Nathan Chancellor
- <nathan@kernel.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>,  kvmarm@lists.linux.dev,
- linux-kselftest <linux-kselftest@vger.kernel.org>
-Date: Tue, 19 May 2026 22:58:05 +0100
-In-Reply-To: <agzR2kaJsNa8X9lF@kernel.org>
-References: <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
-	 <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
-	 <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
-	 <agxFbniU_6eQ98t2@willie-the-truck>
-	 <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
-	 <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
-	 <86qzn7wp3y.wl-maz@kernel.org>
-	 <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
-	 <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
-	 <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
-	 <agzR2kaJsNa8X9lF@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-ZGJMbawr+MEa7CQO3eIx"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wPSVu-00000002tWx-0IoT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 22:02:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7A68244619
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 22:02:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 623B01F0089C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 22:02:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779228129;
+	bh=RrgSUFMhpGIkWoOChuhQyLYVDUdtSZljRgOJt705GjA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=EEiINEmV/ttnXkHREkmSNrg22w/pd85GQ24kGDom/qX0DitA92kwK7imrN1F7tfHP
+	 /WClIpIcz37rNq9FOtLY4huZKlhKLtBg/gq5tOO1/IYaKENgHCq8w5+Lnv5OFXdXSL
+	 2sIuISEhYHzkbmfjMHN6eKzTUmO8K/tDIrzQnMmRv3D90x14h5TzWDmjPA+zx7T0oZ
+	 IE8SbeYeLv8dhtCTOAuISA3eqbujACiE+Q9q0u8nfuITSR5e6vuWcd5Iclq1d5zdAT
+	 HF4oRjC7RA3KX6/I4zDoQ5jAmNSGhxJ1QKqkbIZT/JE9UU3XCdU3Y9b3mu/a4r3yR1
+	 lk/+recZ8aGvQ==
+Received: by mail-yx1-f48.google.com with SMTP id 956f58d0204a3-65c6a2158d3so2998485d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 15:02:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/tau/Gk/oN9gIU1NxIhiN3BzAGzqBk7kCp9SEuKPbJbSS8uPy3eBnni3AmAr1kVQ/2rh6qp9ZpP5lF52OZi666@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxwNGFp9lOoaGoIC9JPRc/7n4bgJk1uXJCT6gP6+ixLw/86YL5
+	/WLgurlo+HJT7PAS9P1MdA5Jos2ZSrhHw4JBegWWfIzgEUeSHESVTMVEGsO84WbarwVeSNeOO5x
+	5vyMbNkdQWsbcSTpDKWnZZOoE1AkalpM=
+X-Received: by 2002:a05:690c:38a:b0:7bd:9899:f904 with SMTP id
+ 00721157ae682-7c95c7ede6bmr245611007b3.39.1779228128311; Tue, 19 May 2026
+ 15:02:08 -0700 (PDT)
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+References: <afNM-gIqxpyJ6ro7@casper.infradead.org> <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <agrWuDNGddNmvMFD@lucifer> <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com> <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+In-Reply-To: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+From: Barry Song <baohua@kernel.org>
+Date: Wed, 20 May 2026 06:01:56 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+X-Gm-Features: AVHnY4KXMvR35lLgRvdk-7E8dkEjtOPBxVO6EaEmgpy8kErjRkXyQizjBsuo3fM
+Message-ID: <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: "Liam R. Howlett" <liam@infradead.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, Lorenzo Stoakes <ljs@kernel.org>, 
+	Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	david@kernel.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_150210_155218_3493C08B 
+X-CRM114-Status: GOOD (  41.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,260 +97,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-ZGJMbawr+MEa7CQO3eIx
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, 2026-05-19 at 14:10 -0700, Oliver Upton wrote:
-> On Tue, May 19, 2026 at 03:13:30PM +0100, David Woodhouse wrote:
-> > On Tue, 2026-05-19 at 15:53 +0200, Paolo Bonzini wrote:
-> > > On Tue, May 19, 2026 at 3:00=E2=80=AFPM David Woodhouse <dwmw2@infrad=
-ead.org> wrote:
-> > > > Or some guest configurations which have only ever been tested under=
- KVM
-> > > > could have a bug where they *rely* on the registers not being writa=
-ble,
-> > > > and write values which are inconsistent with the rest of their
-> > > > configuration. Which breaks the moment those registers become writa=
-ble.
-> > >=20
-> > > Yeah, just having guests that worked by utter chance - but you still
-> > > don't want to break them - is the case that is most likely. Crappy
-> > > code that runs only under emulation/virtualization appears with
-> > > probability 1 over time.
-> > >=20
-> > > Is this likely in this specific case---probably not, honestly.
-> > > Christoffer's patch dates back to 2018 (commit d53c2c29ae0d); *back
-> > > then* KVM/Arm was a lot less mature, and people developing for Arm on
-> > > vanilla upstream kernels have moved on from Linux 4.19.
-> >=20
-> > It's not really 2018 though. EC2 is still running kernels with that
-> > older commit reverted because of the breaking change that it
-> > introduced.
-> >=20
-> > So the behaviour corresponding to GICD_IIDR.implementation_rev=3D1 is
-> > still current for *millions* of guests.
-> >=20
-> > I'm now finding that revert in our tree during a *later* kernel upgrade
-> > and trying to eliminate it.=20
->=20
-> Still, as far as upstream is concerned this is damn near a decade old.
-> Decisions that you or your peers made in the downstream doesn't change
-> that.
+On Tue, May 19, 2026 at 10:17=E2=80=AFPM Liam R. Howlett <liam@infradead.or=
+g> wrote:
 >
-> > And sure, I have given the engineers responsible for that a very hard
-> > stare and suggested that they should have fixed it 'properly' in the
-> > first place with a patch like the one we're discussing right now.
-> >=20
-> > And they're looking at this thread and saying "haha no, if fixing
-> > things properly for Arm is this hard then we'll stick with the crappy
-> > approach".
->=20
-> The appropriate time to ask for accomodation was a *very* long time ago.
->=20
-> And in the absence of clear evidence of a guest depending on the broken
-> IGROUPR behavior, I don't see how the guest-side changes of Christoffer's
-> series are any different from the multitude of bug fixes that we take
-> every single release cycle. It is an unfortunate bug and I concur with
-> Marc that it doesn't seem like the sort of thing a guest could rely
-> upon.
+> On 26/05/19 05:14AM, Barry Song wrote:
+> > On Tue, May 19, 2026 at 3:57=E2=80=AFAM Suren Baghdasaryan <surenb@goog=
+le.com> wrote:
+> > >
+> > > On Mon, May 18, 2026 at 4:26=E2=80=AFAM Barry Song <baohua@kernel.org=
+> wrote:
+> > > >
+> > > > On Mon, May 18, 2026 at 5:47=E2=80=AFPM Lorenzo Stoakes <ljs@kernel=
+.org> wrote:
+> > > > >
+> > > > > On Sun, May 17, 2026 at 04:45:15PM +0800, Barry Song wrote:
+> > [...]
+> > > >
+> > > > I think we either need to fix `fork()`, or keep the current
+> > > > behavior of dropping the VMA lock before performing I/O.
+> > >
+> > > I see. So, this problem arises from the fact that we are changing the
+> > > pagefaults requiring I/O operation to hold VMA lock...
+> > > And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
+> > > is_cow_mapping(vma->vm_flags). So, we will be blocking page faults fo=
+r
+> > > anonymous and COW VMAs only while holding mmap_write_lock, preventing
+> > > any VMA modification. On the surface, that looks ok to me but I might
+> > > be missing some corner cases. If nobody sees any obvious issues, I
+> > > think it's worth a try.
+>
+> From Barry's description, I think what he is saying is that the vma
+> locking has caused the mmap_lock to become unfair?  I think what is
 
-I find this concerning, because I've already explained this.
+For now, we do not have this problem. Before per-VMA
+locks, we dropped mmap_lock before doing I/O in the
+page-fault path and then retried the page fault. After
+per-VMA locks, we dropped the VMA lock before doing I/O in
+the page-fault path and then retried the page fault.
 
-There is a very real possibility of guests simply not *noticing* that
-they had bugs in this area, as it didn't *matter* what they wrote to
-these registers since it never worked.
+The problem only starts to exist if we decide to perform
+I/O without releasing the VMA lock =E2=80=94 which is what Matthew
+is suggesting, because it would allow us to rip out a large
+amount of page-fault retry code.
 
-There is an even larger possibility of guests having worked around the
-original issue by *detecting* whether the registers were actually
-writable before choosing to use the alternative groups. And if such a
-guest launches on a new kernel and then needs to be rolled back to an
-older kernel, that will also break.
+> implied is that the per-vma locking may stall mmap_lock writes for
+> longer than if the mmap_lock was taken in read mode?  Barry, is that
+> correct?
 
-> Because it is very much a bug fix, it should've happened without a
-> change to the revision number.
+Not the case =E2=80=94 the actual situation is (if we modify the
+current kernel to perform I/O without releasing VMA read locks):
 
-No. Changing the revision number in conjunction with the guest-visible
-behaviour change is *absolutely* the right thing to do.
+thread 1 PF: lock vma1 read ----  IO ----- ;
+thread 2 PF: lock vma2 read ----- IO ----- ;
+thread 3 PF:  lock vma3 read ---- IO ----- ;
+thread 4 fork:  mmap_lock_write ---- lock vma1, vma2, vma3 write ;
+thread 5 :  take mmap_lock for any read/write reason
 
-> Now, the handling of GICD_IIDR itself is a separate issue. By my count,
-> the series broke UAPI on three separate occasions. Before b489edc36169
-> IIDR was RAZ/WI from userspace. And of course dd6251e463d3 and d53c2c29ae=
-0d
-> changed the revision with no way of restoring the old value.
->=20
-> And really, IIDR should've *never* been used as a buy in for new UAPI
-> because it unnecessarily becomes guest visible. 49a1a2c70a7f ("KVM: arm64=
-:
-> vgic-v3: Advertise GICR_CTLR.{IR, CES} as a new GICD_IIDR revision") is
-> a much better example for IIDR going forward as it gates *guest-side*
-> behavior.
+Now you can see that thread 4 has to wait for the I/O of
+VMA1, VMA2, and VMA3 to complete, and thread 5 then has to
+wait for thread 4 to release mmap_lock. Both thread 4 and
+thread 5 can become extremely slow, because I/O may be stuck
+anywhere in the bio/request queue or filesystem GC.
 
-Yes, 49a1a2c70a7f is the exemplar. The guest-visible behaviour changes,
-so we get a new IIDR revision and the ability to preserve the previous
-behaviour by setting IIDR to the old value. That is exactly how it
-should always be done.
+So now we have two choices:
 
-> > I do not want them to be right. I don't think any of us want that.
-> >=20
-> > > I would still lean towards accepting the code considering the limited
-> > > complexity of the addition (in fact I like it more now that it uses
-> > > IIDR instead of v2_groups_user_writable, but that's taste).=C2=A0
-> >=20
-> > I'm absolutely prepared to have a separate technical discussion about
-> > the v2_groups_user_writable thing for GICv2, which is the second part
-> > of that series.
-> >=20
-> > It seems like the right thing to do, and as far as I can tell, this
-> > code *never* worked with QEMU. But I'm not sure who even cares about
-> > GICv2 any more. I couldn't find hardware and I had to test the whole
-> > thing inside qemu-tcg.
-> >=20
-> > But the 'IIDR defaults to 3 but the *behaviour* doesn't match until you
-> > explicitly *set* it to 3' thing seemed so *egregiously* wrong to me,
-> > that I fixed it anyway.
->=20
-> Wrong or not, this behavior is documented unambiguously. From the VGICv2
-> UAPI documentation:
->=20
-> """
-> Userspace should set GICD_IIDR before setting any other registers (both
-> KVM_DEV_ARM_VGIC_GRP_DIST_REGS and KVM_DEV_ARM_VGIC_GRP_CPU_REGS) to ensu=
-re
-> the expected behavior. Unless GICD_IIDR has been set from userspace, writ=
-es
-> to the interrupt group registers (GICD_IGROUPR) are ignored.
-> """
->=20
-> I'm not inclined to change that.
+1. Change fork() to avoid taking the vma write lock for vma1/2/3 where poss=
+ible;
+2. Keep the current kernel behavior and drop the VMA lock before I/O:
 
-That'll all very well... but as far as I can tell, QEMU *doesn't* set
-GICD_IIDR, so it still gets the bizarre behaviour where the *guest* can
-write the registers, but userspace can't. So it looks like it'll work
-except migration will fail. Am I missing something?
+thread 1 PF: lock vma1 read; drop vma1 read_lock ----  IO ----- retry PF
+thread 2 PF: lock vma2 read; drop vma2 read_lock ----- IO ----- retry PF
+thread 3 PF:  lock vma3 read; drop vma3 read_lock ---- IO ----- retry PF
 
-But honestly, I don't care one iota about GICv2; I was only trying to
-do the cleanup while I was there. Feel free to drop that part entirely.
+Option 2 is what mainline is currently doing, and what this
+patchset also follows. The only difference in this patchset is
+that page faults are retried under the VMA read lock, rather
+than under mmap_lock as in the current kernel, which is causing
+mmap_lock contention.
 
->  As a way out of this whole mess, can we
-> instead:
->=20
-> =C2=A0- Allow userspace to set IIDR.Revision to 1
->=20
-> =C2=A0- Drop any bug emulation from the handling of IGROUPR registers
+>
+> Since Android is doing something (according to Barry) that should not be
+> done (according to Willy), both of these together are causing slow down?
 
-It doesn't make sense to allow setting IIDR.Revision to 1 *without* the
-one-liner that actually implements the corresponding behaviour change
-in the IGROUPR registers. And as explained at least twice now, it's the
-behaviour change that's *important* here.
+The only thing that would cause slowdown is holding the VMA
+lock while performing I/O in the page-fault path, which is not
+happening today. It would only happen if we insist on doing I/O
+under the VMA lock without changing fork().
 
-The fact that it's a long-standing bug in KVM which downstream has been
-working around for a long time doesn't matter. The unconditional
-behavioural change *is* a bug and we should fix it.
+>
+> >
+> > Thanks. Besides the creation of processes via fork(), I
+> > am also beginning to worry about the death of processes.
+> >
+> > One thing that came to my mind this morning
+> > is that when lowmemorykiller decides to kill an app, we
+> > want the memory to be released as quickly as possible so
+> > the new app or user scenario can get memory sooner.
+> >
+> > In that case, if the app being killed is performing I/O
+> > while holding the VMA lock, the unmapping procedure
+> > could end up being blocked as well.
+> >
+> > If we release the VMA lock as we currently do, we allow
+> > process exit to proceed.
+> >
+> > I haven't thought it through very clearly yet, and I
+> > may be wrong. I'd like to do more investigation. I hope
+> > the apps being killed stay very still, but who knows=E2=80=94we
+> > have so many applications in the market.
+> >
+> > Meanwhile, if you have any comments regarding the death
+> > of processes, they would be very welcome.
+>
+> The oom killer only cleans out anon/not shared vmas [1].  So, what this
+> would hold up would be the actual process exit path.  Although that
+> would have resources associated with it, the amount of resources should
+> be relatively low compared to the amount freed by the oom reaper, right?
+>
+> The other entry point that's mostly to do with android,
+> process_mrelease() [2] will end up in the same  __oom_reap_task_mm()
+> function.
+>
+> So, for the most part, the memory will be freed while the file backed
+> vma completes IO and that sounds like the right thing to do anyways.
 
-> =C2=A0- Special-case the stupid GICv2 UAPI where IGROUPR are only writabl=
-e if
-> =C2=A0=C2=A0 the VMM has written to IIDR and the revision >=3D 2
+Thanks very much for your valuable input!
+I=E2=80=99m going to run more experiments to dig deeper into this.
 
-That already *is* a special case, right? And you'd rather leave it as it is=
-?
+>
+> Thanks,
+> Liam
+>
+> [1]. https://elixir.bootlin.com/linux/v7.1-rc4/source/mm/oom_kill.c#L547
+> [2]. https://elixir.bootlin.com/linux/v6.18.6/source/mm/oom_kill.c#L1210
+>
 
---=-ZGJMbawr+MEa7CQO3eIx
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxOTIxNTgw
-NVowLwYJKoZIhvcNAQkEMSIEIKbGBgZ3nv2ze+Txo23teSJzZh+CY/8E7ocgTMoa7yvZMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAStV8DJeMg+jS
-gQXWuet0RmAcWXA1PmtKdpNj/KL71M/t6D26Iz1oo1y7rf8XPSQFpLED01gkkIk03AohH6Tgb/HJ
-fHG527K9bIer82weqiezP/arU3m0ztOj6HEdO07whp+tRXgr34tD38l9zSDi4YeQUV2d/HJBb3/z
-gFlvC3F+ju5qYbX/pqrLH85CDbmeHwxII7/X4U8Y16veMIdF94pfjYlllrcFCsazr3OrKhW6UI7W
-iIZTGHqCO0fkoRUPHFUIEMDCeHXvz4VcWFUsyUvXmWbdLuD/CmMZfeEwXylVe6Frk23sbOQWOQ8v
-0pS6nw+LrZYhmrqFEkhS0+yfLlDwVZSDLeaAY4YX3Z3CQTpAracxiNL026ImL3ZRqfjvgzzqcn76
-XQo5QgqYbVULqid6Pue9EUEp2YZdO5VudBhQ/GOp50YTVJD8mfcJVqbGuCsETazWK9/DGv3aNeWn
-bLCpwyOfZWd1Pm+pIH65LWM1NUjE4tyY6d0NAkPxFZNjXKIVBVs/2tKU8KJDbyUlImvUgbRj44w4
-DA3bvbq27vZ/07Ya3YEOwnVfgb2hEw9yCG3BevIegkFPbRfJ2HitOaU8W2TYoYwNGnvVuQp7vgqQ
-/aX1YKxJXnajnw2PKKVXUePy2+suX+C6feLOFr4/3EONC67lExvm0EAGN389n9YAAAAAAAA=
-
-
---=-ZGJMbawr+MEa7CQO3eIx--
+Best Regards
+Barry
 
