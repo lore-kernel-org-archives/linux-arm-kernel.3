@@ -4,112 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA96CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF28CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QJ8nHN/x2+au6HKocmUFU/jOzsdDqlRaRHUrINPn0Lk=; b=uJ/Du4N5eITiujnZ7SEOohTyjl
-	FDMvxh9edcpgIi8H6hnkbeBk13vIzMKG3Tveowx7QF8dos5sYCZGxupf549Fyc3s57zpif9q4GW+3
-	EOQovqRkbjxSBNG6UFmaIprBvxAazbbWeuuRb37HvkuneTKiQUEzhFBMMdMsk2N5ztJyFjFT1jmkI
-	p4WmMa4IO5adMG9SWfFcPWd3pGiMJxM+gdQ/S5qzHxVpvoXg5fdhAy/E5sfmG2Ez8WSBm/mkLzLDd
-	m4X98j67ibnta4/7TnV8RdESmm97LMB+KK2I020dJG0iUG7quZbvmOwm+u3lVcUe7WqJGoE+vpApb
-	XR7jW/4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=; b=xZcaia5O5jpymQ3y8G4EbjXfFI
+	p+f/OfopnuA4kus4WoHb4pGHIhe4a64aUnGokY0bBYHZi/KWGY0Y8mHv/umz4gQdrlmYMsfJFjYXt
+	jhOVus1CjelIyQVc7i2gxx+NLV6pseQ9T1wcljIvdH6o/omdrLA+KWBPMX/bCUFwP2Hn6rcPmqgPJ
+	AkpHrzkg4Ol0mUC2ocLG7IZx3KOcGpleLoLexaTA4bxYwZ3q3J1WfyldxB/xwnbd2UgQcX3nXbwAU
+	eFMrGvyi8WlS89t6/XZPOhvxCk5l3HGt9cuP74IKUAX0QzjWORy69LImfuxqsvy7SgUK5K2ByeleZ
+	iEGHNPdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJ3i-00000001OSK-3rea;
-	Tue, 19 May 2026 11:56:26 +0000
-Received: from mail-eastusazon11011056.outbound.protection.outlook.com ([52.101.52.56] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wPJ6y-00000001OqZ-1cfN;
+	Tue, 19 May 2026 11:59:48 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJ3f-00000001ORh-3hKT
+	id 1wPJ6v-00000001Opn-3H7n
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 11:56:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XVRyjc7ybee46wwmdKaktM2SLqrqJTgJb5uYxIT7HFsaOCz1bud7x6WsJf8TcRj9e5BIpGGS57mfiKYXy6Dta65DNLh+k1QwVIUoys92nhO03n4M5MoDOSosEiA1yJnfG3Lw1+s45O+Lw9r6x3Il4h9GiPhi4L3ot6vSHjxUP8G0gbnvHI/bKs2+Et6/CHAY0XmPqpbkHtBMEvNSkrPPwSXLSFZeaMMwhqdUwfErc7XaKpL4cB97Y/M1gskRqOFQ89SSwB0SibCZ1bLvZtz/BrtrGIYte3QZrX18ivzWSfeeOfaALD+dmHSuR1996ZQhbManSsY+C3jXwuFFJdWGMw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QJ8nHN/x2+au6HKocmUFU/jOzsdDqlRaRHUrINPn0Lk=;
- b=IbJOJPE8OJS04vF3GPlJkKr3C5cap2+6bVfwEhgR7tq8SRSOj0CHVbW3Nec4Cv7c68VDG7wFxj6AXxeNgyZHQUe34T1iXS6ETI6DylvgC7L9K5i/GCjqiXAkOkUqE9OBRiKML6MkY3xxnl+8Pi1OD76G47WrO0Ib9hclnMErWyILhAghIXCPbqKPeJ/U/6AySuaVKcgMUMxm1Fw5WcIngQ7ZIRcnmM6/l6rgx9zwDcFthxu08B6pVqYvq+3QkS1moe3FqmEpK68dDp5TIbT8zBAKdEOZ9qj5XAbqCfvq4D+AB95Sl8ZOCNYH2Z7aA2Lysz01uQUF/IgGuv2i0PI8SA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QJ8nHN/x2+au6HKocmUFU/jOzsdDqlRaRHUrINPn0Lk=;
- b=g/l7c2yPZVIcnKZPzYq7huKssYgvQn0yEuF2gsaiYybabaVf5bZDxs7zMkHtdcWbkH8EwKpk+Pe4pRD/TXdgk/huFjxR9IylDhEo0ktJrG2Tu9kuRq9vEALJnEYFq27P0ifmzPyGJKeHMgAymruAxJY27yHuiBj9J9W+Icb+TLs=
-Received: from SJ0PR13CA0217.namprd13.prod.outlook.com (2603:10b6:a03:2c1::12)
- by MN0PR12MB6030.namprd12.prod.outlook.com (2603:10b6:208:3ce::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 11:56:15 +0000
-Received: from BY1PEPF0001AE17.namprd04.prod.outlook.com
- (2603:10b6:a03:2c1:cafe::3) by SJ0PR13CA0217.outlook.office365.com
- (2603:10b6:a03:2c1::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Tue, 19
- May 2026 11:56:15 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BY1PEPF0001AE17.mail.protection.outlook.com (10.167.242.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 11:56:15 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 19 May
- 2026 06:56:14 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 19 May
- 2026 04:56:13 -0700
-Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Tue, 19 May 2026 06:56:10 -0500
-From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
-	<michal.simek@amd.com>
-CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>, Radhey Shyam Pandey
-	<radhey.shyam.pandey@amd.com>, <stable@vger.kernel.org>
-Subject: [PATCH v2] usb: dwc3: xilinx: fix error handling in zynqmp init error paths
-Date: Tue, 19 May 2026 17:25:29 +0530
-Message-ID: <20260519115529.2980421-1-radhey.shyam.pandey@amd.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 19 May 2026 11:59:47 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-50d864c23bdso16981cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 04:59:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779191984; cv=none;
+        d=google.com; s=arc-20240605;
+        b=NWD5kbCXOxEx79cdx3y4CByryj4AHXQBWOWB8D7nU6yrwPlmSW3TjOjj0ceRK3HgqH
+         IrXAUv1td4D4Vf70PbV73zA+iC/QN7/3LvU2VzL4VdXbqMXpA1aFeeyBCj9guajMDw+1
+         590S7ZurVcWmMmWSX+ztIc8lqtKdO0AuoPxcu8SObnheEBI3mLu8Yeb8jAwH6aAP7Fqj
+         32Mxh/azZLgY0/1+E4fD9Pz1B6CduwyOFJQrxp9nhy8b0MIMnpHPW8Itc98GryYqVmNM
+         5jyob8b7xqusM1j9sPoT8gDjmoZee03ZwVCEu0BSrel9b8v+PI+te8FQqd+GL/272t9j
+         3EMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=;
+        fh=ralYBd206bqwmNnQlCR7zFERoQ4JxSVqyx3CE5HucOc=;
+        b=cRtD+aRN4DpZRiqrYamYy0CEmSFgoSVA+7nl561UexB69SstmkfCFnpS/MXr+xMPMU
+         VaaAr43sVigvzfnzmFjFQDUXn7uugUaQQkMb3pbH+YtZ9Cm8VbVpeuHd8EKmJTKaWgQd
+         fQKzukyUdIG3bN4ReIn9t7xOG9yMdM6KpTJKhMlb2VWvfdwmI64boPV8bZ6R34y+clHn
+         9sANG/eUxsPx+RBAgMeSN26n+Y45zZJAtDDIhnvAavIewY5kvK9OGW6hMNpz+iy5V04W
+         PpEHZPKtdnohTG/NyyiR2jk9rjiNc61fEl2Q2W0nqTd2bcivTmrnaSiEwtGhSjYZNlQD
+         75Mw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779191984; x=1779796784; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=;
+        b=DCzLEg5wyKFyJ6agii0cZO93ZOLtwuIV/dzXGoORSsBZCxfUxjXRF/75lNUOGMv0mK
+         b+zDSQRKiM7SLYcPiC7tLYQRib0FpyKSKG8nI7cq18kpUYNr41T6vPM8MAM+xMu7TqMT
+         j+fQaEX1Wj/BwDfSbVb0toYxkRkJm6/4sahEX6TqkXuhHDYuNHgkbkDKgcrMkEMN6QQC
+         EHMNG+febdJa/ED7wMmlo/vFVy5OQlRX/yfYua76G2rlwsh/t4UmjB7Z7qh72tWobruK
+         lsz2b0O85skzb0TshosJ8HbnzWElputvC4OJdIWWLh0Z3N7xvidfzS/V4xRX3oCtS/c3
+         wkUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779191984; x=1779796784;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5EHisNFyKc4RDoQIbb7dFN77BBMtRwURYpatGZmAWVM=;
+        b=C6T7U7jpXHrOLpTeezSOzthodkThOeTBYHTt9o9I10BOZs5JMuSvCRS7xstgFBtcYn
+         KDi1RoEyI8qOgwbBZdSHZkSnnAB2KCCvxiy2OoBwy5r5t2M0jrOegKb/Uqi1gvorw3Iw
+         s1sgxkRn+0e9WlHiGLpJjBLQ6JMJNKdj2uR4dKanef69abuOKn56A5M2o8gOhvevODkv
+         pp70iSXs66qxvi2GPkZni2B75qu7x2uxyQ2u6WLFslhqj0unJJMawmQMNZzpaQy+hlJ7
+         +MambGPZ1erm/EVT5UJ+THYOnu2OVio6Gu3g3N90D9iIJ0G7/ZvfqsIELpRNqicm5e9b
+         yNoA==
+X-Forwarded-Encrypted: i=1; AFNElJ/MrVs0oiQPYA0FPP7XRBYbI3hEZ63oEVagdxLW/wiAXPQgx7m68XFJ03s2mCQmtp0LuW+05acSvJD3vuARDsFV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWD8eMv5wc7+qOKGNSUhdrWazjW6hCZSoJYFQZ7NGWA8/QPheV
+	VNX0lu7AJA1MRA/cGjn+bDpu8xLrC80nY6cpNWm4hZ/vuMaitwqO3P0KNtpnuhLL3XwIDA8aI84
+	Va4BLoKxH+kP77CldNj+QGso69S+2YnlTUsOSsDZwxfTKKTNKKhWMtKWJOK8=
+X-Gm-Gg: Acq92OFz65JafDG9UIcd3E9Qcvj1lG6X0vXzs5MtANhP+Ifm1r3swokTICPi6GvdT1y
+	Lkc2xsv12ENwsumk1t3ojYl6klCUhyRPi+X62A/xLA4fbJK28wj5AAHk6BWOFS0OBRAP1TXWVUf
+	dWGgBn98Tm06LQiddipFc+dQBFcwNHLcOcZQ424XRVcYpRFt7QfWTpDICEOtHmF5N6pShIkYeqK
+	29yLt6V26rNRcLI9LvKcmrpDSuG86kF2cVyxHUE0FEzeR0t8F0rHQ4r8+8+ClI8dbAA/eXdckjF
+	4YaYVtPkaznO5rgkmJ4wshAX+MWIM6NKRtH79hdfZFtObIZZ
+X-Received: by 2002:a05:622a:1f0c:b0:4f3:5475:6b10 with SMTP id
+ d75a77b69052e-5167937eeeamr27627991cf.8.1779191983904; Tue, 19 May 2026
+ 04:59:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE17:EE_|MN0PR12MB6030:EE_
-X-MS-Office365-Filtering-Correlation-Id: 690180ba-8a82-40b7-70a9-08deb59da11d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|11063799006|13003099007|56012099003|18002099003;
-X-Microsoft-Antispam-Message-Info: sMkjxdDAE6IcoNG3TWDWt5CFcTPGakTfr8zbEFrkMQKWriqnijp0qyIO7IRga0zRA4vditF4wzNigSQrYmmCsn+Tofnba2H6zXln61IncIOYdiRbMeno4foI5HmNynkbOpnClqU5xRt5qejdQzgB9FTH2M099e1LZxoD3iau8NQcA2rekHoeTXyRJ91pK7ISMWMAJdNxCtXA3JglnHupYWyJw2LkpQVJRxsY1cPEeGR7vUM0PpMFvzYBLTHn2RSCEaajQ/5Zojf7baAQGvnz5viZzlL9KFL4aq4zNZausJRoXYXO36bFrkIGKY8S5my0KJ0R+Wr7UB4/KqNSVnkZOH/7nxOCCcZJnTH2mYOxBdpL9Xq2LtUWaISu2XEDQafIhzNp+szK+Ty7brapDzkGoKtqxq/PUIg7Nv+Ilf9C8TVpDSo5AKa257cGdB7zdP4WFnkRDnxLUOwMVpfvhff2rUpHJN1KeUCvtT3h77HCOMNzuNQ65nypkniwZ5joFDVjCSuiI71VOi7OHifefzkBisDJgHYnItbouMmaQ92i5CjzFAZc0Ba8NbyOI6+e8Ec1Nons5Rh6CIA8zUBxcpbxj4ueZkWkCXtenbPzpyeSF6ILl4EXSvfEOJyese8IINvnLl/eRECG3G+luAOXMioB9Wqs2ysiBJVcXJjZq2CDxE4Nn8P5pJN5xm2CAPcHRaKGHLeP0NcEKubNjzbFxlZxskctV3z6gKSUlE9y5jp3LBc=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(11063799006)(13003099007)(56012099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: uE7VQ6S2FMMGz0d4urouZn9lelQoV6VCIC2gRUtyfLV6W2fwg5oV3It2/0EnJSRsYlcfwN344ASrXeFhsptfDwrlheI4P5Rtrd8q2LVuUfdqRbl046+1OfhykvhXGtle9X9peEz1gihx9D4a6LA/ePUfPJzZi6c7n3PBEEw1ZXOXsbz9P5KjmYRAOmqiuaXIf487oJpEQb44KC+/uIsohSfmG1CjefbL76rJhw5tBGYMg+PE9+cnu1rIOZo7uPILKj5yLnk2G6bBHIJybFnLjave5/eOsuxhuIRWRo1uSMYxn3L1/ZNcj+p7hhnwy0UjxzVOzUnqCgorp1alOOqc3pABQb1ZW7IMlLIp1jYmpKgSJPI/j0f5+/kFXvYNla/OluyXQDn7K0l/lisDJg7L757Ot9Q3OU5HfAyxxux4K8NEmwG4Po6jTLOw1/C8fJY5
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 11:56:15.0033
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 690180ba-8a82-40b7-70a9-08deb59da11d
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE17.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6030
+References: <20260501-host-direct-messages-v6-0-3f4af727ed85@google.com> <20260501-host-direct-messages-v6-2-3f4af727ed85@google.com>
+In-Reply-To: <20260501-host-direct-messages-v6-2-3f4af727ed85@google.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Tue, 19 May 2026 12:59:06 +0100
+X-Gm-Features: AVHnY4Ig1N0dpqVbGvtdmXRoPPpkiLAJ97bxEVMStEvo9zlm0QSTSGFeCOzGZhg
+Message-ID: <CA+EHjTyXHG05nGy5-7629vSmnctvMw0GDvjqYCMr_DisLaJewA@mail.gmail.com>
+Subject: Re: [PATCH v6 2/2] KVM: arm64: Support FFA_MSG_SEND_DIRECT_REQ2 in
+ host handler
+To: perlarsen@google.com
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+	Oliver Upton <oupton@kernel.org>, Armelle Laine <armellel@google.com>, 
+	Sebastien Ene <sebastianene@google.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_045623_926728_267CC079 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20260519_045945_837704_170DFD9D 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,97 +120,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix error handling and resource cleanup i.e remove invalid
-phy_exit() after failed phy_init(), route failures through
-proper cleanup paths and return 0 explicitly on success.
+Hi Per,
 
-Fixes: 84770f028fab ("usb: dwc3: Add driver for Xilinx platforms")
-Cc: stable@vger.kernel.org
-Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
----
-Changes for v2:
-- Split this functional fix into a separate patch.
-- Add Thinh Nguyen acked-by tag.
+On Fri, 1 May 2026 at 06:34, Per Larsen via B4 Relay
+<devnull+perlarsen.google.com@kernel.org> wrote:
+>
+> From: Per Larsen <perlarsen@google.com>
+>
+> FF-A 1.2 adds the DIRECT_REQ2 messaging interface which is similar to
+> the existing FFA_MSG_SEND_DIRECT_{REQ,RESP} functions and can use the
+> existing handler function. Add support for FFA_MSG_SEND_DIRECT_REQ2 in
+> the host ffa handler.
+>
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Signed-off-by: Per Larsen <perlarsen@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 17 ++++++++++++++---
+>  1 file changed, 14 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 3a58e01d255f..e5718c0f1c31 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -684,11 +684,12 @@ static bool ffa_call_supported(u64 func_id)
+>         case FFA_NOTIFICATION_GET:
+>         case FFA_NOTIFICATION_INFO_GET:
+>         /* Optional interfaces added in FF-A 1.2 */
+> -       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
+>         case FFA_MSG_SEND_DIRECT_RESP2:         /* Optional per 7.5.1 */
+>         case FFA_CONSOLE_LOG:                   /* Optional per 13.1: not in Table 13.1 */
+>         case FFA_PARTITION_INFO_GET_REGS:       /* Optional for virtual instances per 13.1 */
+>                 return false;
+> +       case FFA_MSG_SEND_DIRECT_REQ2:          /* Optional per 7.5.1 */
+> +               return hyp_ffa_version >= FFA_VERSION_1_2;
+>         }
+>
+>         return true;
+> @@ -865,6 +866,7 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
+>  static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
+>                               struct kvm_cpu_context *ctxt)
+>  {
+> +       DECLARE_REG(u64, func_id, ctxt, 0);
+>         DECLARE_REG(u32, endp, ctxt, 1);
+>         DECLARE_REG(u32, flags, ctxt, 2);
+>
+> @@ -875,8 +877,12 @@ static void do_ffa_direct_msg(struct arm_smccc_1_2_regs *res,
+>                 return;
+>         }
+>
+> -       /* filter out framework messages and validate SBZ/MBZ bits */
+> -       if (flags) {
+> +       /*
+> +        * filter out framework messages and validate SBZ/MBZ flag bits.
+> +        * FFA_MSG_SEND_DIRECT_REQ2 implies flag-less partition message.
+> +        */
+> +       if ((func_id == FFA_MSG_SEND_DIRECT_REQ ||
+> +            func_id == FFA_FN64_MSG_SEND_DIRECT_REQ) && flags) {
 
-Link to v1:
-https://lore.kernel.org/all/20260511160814.2904882-4-radhey.shyam.pandey@amd.com
----
- drivers/usb/dwc3/dwc3-xilinx.c | 27 +++++++++++++++------------
- 1 file changed, 15 insertions(+), 12 deletions(-)
+I don't have much experience with FFA, however, Sashiko flagged this
+[1], and I think it found a real issue.
 
-diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
-index f41b0da5e89d..9b9525592a85 100644
---- a/drivers/usb/dwc3/dwc3-xilinx.c
-+++ b/drivers/usb/dwc3/dwc3-xilinx.c
-@@ -184,15 +184,13 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	}
- 
- 	ret = phy_init(priv_data->usb3_phy);
--	if (ret < 0) {
--		phy_exit(priv_data->usb3_phy);
-+	if (ret < 0)
- 		goto err;
--	}
- 
- 	ret = reset_control_deassert(apbrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release APB reset\n");
--		goto err;
-+		goto err_phy_exit;
- 	}
- 
- 	if (priv_data->usb3_phy) {
-@@ -208,26 +206,24 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	ret = reset_control_deassert(crst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release core reset\n");
--		goto err;
-+		goto err_phy_exit;
- 	}
- 
- 	ret = reset_control_deassert(hibrst);
- 	if (ret < 0) {
- 		dev_err(dev, "Failed to release hibernation reset\n");
--		goto err;
-+		goto err_phy_exit;
- 	}
- 
- 	ret = phy_power_on(priv_data->usb3_phy);
--	if (ret < 0) {
--		phy_exit(priv_data->usb3_phy);
--		goto err;
--	}
-+	if (ret < 0)
-+		goto err_phy_exit;
- 
- 	/* ulpi reset via gpio-modepin or gpio-framework driver */
- 	reset_gpio = devm_gpiod_get_optional(dev, "reset", GPIOD_OUT_HIGH);
- 	if (IS_ERR(reset_gpio)) {
--		return dev_err_probe(dev, PTR_ERR(reset_gpio),
--				     "Failed to request reset GPIO\n");
-+		ret = PTR_ERR(reset_gpio);
-+		goto err_phy_power_off;
- 	}
- 
- 	if (reset_gpio) {
-@@ -237,6 +233,13 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
- 	}
- 
- 	dwc3_xlnx_set_coherency(priv_data, XLNX_USB_TRAFFIC_ROUTE_CONFIG);
-+
-+	return 0;
-+
-+err_phy_power_off:
-+	phy_power_off(priv_data->usb3_phy);
-+err_phy_exit:
-+	phy_exit(priv_data->usb3_phy);
- err:
- 	return ret;
- }
+handle_host_smc() in hyp-main.c clears ARM_SMCCC_CALL_HINTS from its
+local func_id and rejects calls with non-zero x0[63:32] before
+dispatching here, so the upper bits (u64) aren't the issue. The issue is
+that the hint-bit clear in handle_host_smc() only touches the local variable.
+host_ctxt->regs.regs[0] still carries whatever the host wrote.
 
-base-commit: ab5fce87a778cb780a05984a2ca448f2b41aafbf
--- 
-2.43.0
+The DECLARE_REG() you added re-reads the raw X0 from ctxt, so the
+SVE_HINT bit (0x10000) reappears. With the host setting that bit,
+func_id becomes 0x8401006F and the equality test against
+FFA_MSG_SEND_DIRECT_REQ (0x8400006F) falls through, skipping the
+flags check. Note this isn't u64-specific -- u32 would capture the
+same bit.
 
+I think it's safest to pass the canonicalised func_id from
+kvm_host_ffa_handler() rather than re-deriving here, matching the
+__do_ffa_mem_xfer() style.
+
+Cheers,
+/fuad
+
+https://sashiko.dev/#/patchset/20260501-host-direct-messages-v6-0-3f4af727ed85%40google.com
+
+
+
+>                 ffa_to_smccc_error(res, FFA_RET_INVALID_PARAMETERS);
+>                 return;
+>         }
+> @@ -942,6 +948,10 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+>         case FFA_PARTITION_INFO_GET:
+>                 do_ffa_part_get(&res, host_ctxt);
+>                 goto out_handled;
+> +       case FFA_MSG_SEND_DIRECT_REQ2:
+> +               if (!ffa_call_supported(func_id))
+> +                       goto out_not_supported;
+> +               fallthrough;
+>         case FFA_MSG_SEND_DIRECT_REQ:
+>         case FFA_FN64_MSG_SEND_DIRECT_REQ:
+>                 do_ffa_direct_msg(&res, host_ctxt);
+> @@ -951,6 +961,7 @@ bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
+>         if (ffa_call_supported(func_id))
+>                 return false; /* Pass through */
+>
+> +out_not_supported:
+>         ffa_to_smccc_error(&res, FFA_RET_NOT_SUPPORTED);
+>  out_handled:
+>         ffa_set_retval(host_ctxt, &res);
+>
+> --
+> 2.54.0.545.g6539524ca2-goog
+>
+>
+>
 
