@@ -4,49 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B8ABCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:36:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5787CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XA+T2AYLuY+wS/vEaiKUM+MGMILNCSr/Nor4MXreXVA=; b=ezwmxcv2/Tpq5L2oqZRFtITuMr
-	TYjwZb9HmDbzXnqjDdsrhcSRWGlr8t+GCkcQOHTRcklyoYgwBquQQjn9PRIZ1r01VoTqL5d6cVAzl
-	ClXCxjLJ8STiFKNbcWT9wLGypxUgWFXTFk7pEbbDmR1ImbUosFf+I+ghXz6ID5pUSjX6CroSZfrik
-	nkfgN7EsKjzxTGh1rkyXOjJmsA56ZnI2Ai1ETbnPAxOfk1NeYP8v+3YX1gy+WOv4cGX3z+gvs7frp
-	9tibsTa6c7aGcLWvOFPe3KsxPe3PvCP6NPSRRRCTfy0inr8goVjWQoOZnwzeyulwWrzl87oBvS8Ks
-	dp0OSF1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tF9Q1PEQPHzIP5zIlZRB1mj7+T4VfHMs95W00a6V1ZM=; b=jkmBv2WHZU2coQTw2emPuGXcs4
+	MW9tOrep2VEOXDcMDZ7NLIVRiqXjJ0AyIvBdUVFHrEewhJaxg4/DeAdnqZ0auTBPt5sI0nscunnBb
+	1fwAj1hCVsEULMeLrE03wDOS8DHMB5ij3K3bJew7zn/sXs8wuIHA+OaC4QkcYDsiGPG5pnnDQFuyj
+	VNidhFyzGqJRG2Z0bbQ5RHvja0FxqJ6BMldA/e5rTDYgWgo+UPYu9FsgEKpNwzGFLss/9WwpYxlFo
+	c5yJMR4I82YKnEr8VTCf8QrSr0m/smOiEiNr6aTXp/el8bUK2vm1mR/jPrq2lxqbVFZn+XyxYiKiU
+	zw4YmasQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHo8-000000016ZW-2o1m;
-	Tue, 19 May 2026 10:36:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPHoE-000000016d9-3Yg5;
+	Tue, 19 May 2026 10:36:22 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHo6-000000016YF-0JL3
+	id 1wPHoA-000000016a3-3b6z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:36:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 867A860126;
-	Tue, 19 May 2026 10:36:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D82DAC2BCB3;
-	Tue, 19 May 2026 10:36:11 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
+	Tue, 19 May 2026 10:36:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=r2mG5ecBwlb0pmDNtf7hFrUwmn/pPmAfIt0pA/lVBNi5e1aoBJ2EoRwK2k1qLiuJh6+gNixsu88lDQ4BWSDe/sgDHR3zvVjRqiInRPCA4rK5ByS18EWMuuzF7C+1mASK2wPLHCC/7VqyDx5yn3ufmN5tHufWn0Q0T+XG78PmwG7mCMi8pXmZETZ80fcHtuP/zQIPJl4vpy36UN7g6+2+muIA6SkinyR0mi3wrYqeaJ049WBb1twpF8xaEtZOcDmaVY+/2Vx5T5ZCqqbV0HtmnswsN2C99H0/srWlhOLD8Nc2MIKtzv+y7K1+mB5AHFqs1fhM429KOlCaxPQIfpiZhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tF9Q1PEQPHzIP5zIlZRB1mj7+T4VfHMs95W00a6V1ZM=;
+ b=QVQOSOJaKL6KbxcGUP0hnl10U5fy/VseGxs8kEyyEUmG7/kbsIf/mwDz1fpsTlioCNz6uhRrS4AfVev7kOQljSYwLKGQg7E2miysg0dCr9OCASH8yUq+6SYlaDkhMnJ4AR/uYVoqhiQ246o+CASrVKUhsbEUOreL3+3T1lemNejrE0ENmO3oqJQrxpGiyvpEHltR0/StigwBEqA0Dd1bYXsNg3wZPhijkWE08wpCkOiT4byC48KqbC/c8hvembxLE9yeLlEoxOKMDdjL4TqAMI3Z+sUJcMyqQ2l1LzRbLUrntFqcONCXRQIUIbY5KLZAQpEoyDsTkDONUj0QoBozeQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tF9Q1PEQPHzIP5zIlZRB1mj7+T4VfHMs95W00a6V1ZM=;
+ b=xS/ryIf28m92SI6+fZy0CNtaNdfv4MYAYdM//UIM7zwfIHYwLYIDs19jrmgBjHux8APzRslLRB/6tWJQc3MJbaVWEBqILY+Y5fSoH8vQKszXeb3ML33XDatO2JOD40n9deQLWpNfaH4cDqPkzrut4wiH4mc8dzoTGOZDbT9orXlKwgSRulpkfRF84iv0bThqz9CDJnpLcjUhtxTIeavorQWXFRBaNnFtvxS9XJJliOT+VVGswrnQ+Oje/ds+y8rAqOGcQzUMQuiaMqv/A3PWJtz8AVVX3bT1VZfief6IWHGDhNkcpdlQj8sY3d6yTC+9dpkQ88JuR3aMcPdfXksp8A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by DBBPR04MB7946.eurprd04.prod.outlook.com (2603:10a6:10:1ec::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
+ 2026 10:36:11 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0025.023; Tue, 19 May 2026
+ 10:36:10 +0000
+From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+To: o.rempel@pengutronix.de,
+	kernel@pengutronix.de,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	carlos.song@nxp.com,
+	haibo.chen@nxp.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 2/2] Renesas DTS updates for v7.2
-Date: Tue, 19 May 2026 12:35:59 +0200
-Message-ID: <cover.1779185462.git.geert+renesas@glider.be>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] i2c: imx: mark I2C adapter when hardware is powered down
+Date: Tue, 19 May 2026 18:38:15 +0800
+Message-ID: <20260519103815.2793953-1-carlos.song@oss.nxp.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1779185457.git.geert+renesas@glider.be>
-References: <cover.1779185457.git.geert+renesas@glider.be>
-MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM8P251CA0021.EURP251.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21b::26) To AM0PR04MB6802.eurprd04.prod.outlook.com
+ (2603:10a6:208:184::17)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|DBBPR04MB7946:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b9b5fec-de92-4f5a-037d-08deb592715b
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|19092799006|1800799024|366016|56012099003|18002099003|11063799006|38350700014;
+X-Microsoft-Antispam-Message-Info: xmXLCUdwtvZPOPfja9JFgxuItFepnAs+2IDXoKnG9kFdAaIez/h4TKXro6Ei/F7PL/ES5WnWFcyJTByg9CPhVytn0IF4YyVgUWwhsWe4aam532THxTfKm54BBF2lrto+5ZdNRiUiTFnRSHJoLIqlSB+wfgokoj4bCS1O48fJi7MFwpfpD7af3z8fz5G2GCO4xQS2xsk8NVHxZ5JJhYoSBmk3Iv4flgfweyyAymQG57iUkf05YKq03rPdxDSR83shdHSdeqa8nXxKV+pRd+bSBrSihdfSppwjus6/XYVP0aSQNJ6hrhV8cDF4uLJJSjkCcTuTUc7UJPdhnso8X8JTQsLikzGordcRBNuh2uLBXtEb7aobNjdX89nVN0Kv7wBHzNQOw8e4w0z9LpBjtd8ue+xyMHs+8Hi8GNhM+qH0EBkqNh9fmr76djP/EMQTDx6UMUnrxkoUWR2OA31LDa8golSz6YrpdjQrgz+UM+RNbcsQmaurFjJz486zWtLvPNlkUklpBvXZPOtrjrqXVZdboCc/FVJbHX6KHwOXzc+8Xlbr5lk4gcSqGfl91DU8q7Tu3zVhNxQjUk/ygwe4VlrQSjsRxeza0KhHxMzg0OE6scwX8yl2sk20amlaaWeQh9GjWPen2kCi5IIuypx9urUxjjQ/ZHqeSV8ufGElkDW/ujZy9I74Dc3wYAT+abci63HONBf6GPBp9t1DsZ18fWRDDtY5LKJoejlqAFBr+QPWkrWWwSlEfGff4gS0/u59ph5M
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(19092799006)(1800799024)(366016)(56012099003)(18002099003)(11063799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dGcSqyU953l4OFlcj0CWXWxD9Jv035450PalfgnC6/e4qiMdwsjOI0aAn92l?=
+ =?us-ascii?Q?/7N79hcBhFMqGgIkjxTdclylNH5zk0ElBvksG8P1NfUTgiJ4uNmSffkF/CPy?=
+ =?us-ascii?Q?YUh8khPwrL6CWHt7CSS8XbRbD3BlLtit+FxLiIDSVDlV28axHjLuZ9K29IoY?=
+ =?us-ascii?Q?rjN1ELd3ho3FAxvRVUF6/iYeYtmhshLGg+KHwYwu0rUkM2g5068+1niKhXcE?=
+ =?us-ascii?Q?yHRLqKjOi6SEMP4aI0kPVmfrwJ2sQ2UboVzWJ6pmsvPbxpnB2NPehkGzS19C?=
+ =?us-ascii?Q?Om21EhGX7McrrD6eH6g2YmjcfSEqRAEXDMLDaE++5zc1MqzdZ11LPvQkAneN?=
+ =?us-ascii?Q?8KGn3hrDwUpqO8tzbgnOaD0YzuqTfyqwWkChXshkmifdUeE+CiMhhyRoUpnd?=
+ =?us-ascii?Q?ZSRXXDcCYmOs+r5pSQUrnSil/l6Fy8SHSJfBvVg8ezlYRjp+nYnng8rdgqix?=
+ =?us-ascii?Q?RNpi31Rh449l2unRkW16lZMaB90XGxyN1uEIit7mq/IILsoely2KiDdO7F+J?=
+ =?us-ascii?Q?d8bdhyDGEV33EVkDH8d4pqXGspN6fItJEMcb+7SR16lFY1KUfKa0AIrTpP9S?=
+ =?us-ascii?Q?bdaJ80HbgRuU/JajuCVDQWoMnvn0OKxxFczTlBWbCvlWu6bOyivUn4U6xUDh?=
+ =?us-ascii?Q?ufS0yaUz+drK+EG4gFrNK75TsU3yWANbS7IkJ4sR43OoLkuKdbOFrqnICVfF?=
+ =?us-ascii?Q?9HQJzmLrK6aZVOFsh0aUSa3V62Drz0goRwMl6beIYjukWPcm+oTq1g1OM60E?=
+ =?us-ascii?Q?RbOX4Lop5Lhb2Eo6Mdvfog7XGsn2VWvvWMztZnlcMMk75+mbjVJxqDlnDX/7?=
+ =?us-ascii?Q?JWQf1t4Hg0n0/ww4K4VZQ7X0gI+L8o7NXky/rc+SXis9uyM/2rJxUk7ISEMC?=
+ =?us-ascii?Q?8++QuFiFcVmVC0e9C4eFR2fLbAR12Wp75HVTPnwbO0yZn0gCAD7uT2kCfrRh?=
+ =?us-ascii?Q?eGLuk59FVJyh9Qk69uPrsHuJL4V6DaB7XnZOs8OlSKAaWocV/RJ2rBySTEwt?=
+ =?us-ascii?Q?83+grMC7q13a4/SjmEYv7O6zZjurrEjkGxqsDygm2ZCAB0PW+1R8GtPtSXyd?=
+ =?us-ascii?Q?XZkF82Akl4EEWPXcCc+tYyZfWgBp8sAhlf2K6vd9j0iGfo4EAMlKnj6Xq04C?=
+ =?us-ascii?Q?HSPl9GogPB+qnNfa/fE6G2zCjmq2DfgcL/HjS6UbtdLkRWsfUAac0c0WU4Pl?=
+ =?us-ascii?Q?4mzihJcCwsTAxqyuv9x1SjldWwKGqS71f5IBJfKKcn3yyEdqdrsebFKqehKu?=
+ =?us-ascii?Q?py5ix7vSrFLpHbquriNINEgThzmKWe76N4gWHyeJihrfKoexPbMsEb26+QM7?=
+ =?us-ascii?Q?o1AoJEDb6YIl/NHTuuJufRzFBjk84UjN8ah29IOllO9cA3rH5H1RYDSXBlE1?=
+ =?us-ascii?Q?QjCRsGn2Omz4wpVYKfY6EIN8GCjSeej1Qw9svxwmnIctrl6+M3crGdgIiwLp?=
+ =?us-ascii?Q?0N4efOlBdNFZ0aTxx0i8WNCxB4eT1pH9T2ePpPdeoNicRtPrZSfUTBah3ikA?=
+ =?us-ascii?Q?fwFtRCg20z48GF8lS626jo2DzOFYUsJjKVYoKNwSom4BijUPt9pyHbarYksS?=
+ =?us-ascii?Q?LE6upN4yVwuGt9Hh9ueHJHuns2DA8huEOIMeHDEstqGJWcV1/YEIMXDfhOVW?=
+ =?us-ascii?Q?UPC6HG1TGomHv4ZATsGFYHFj8g+1q5VoW0dJpuJrF5QlfwQ5x3xxIh6Su84Y?=
+ =?us-ascii?Q?7vg/2HvXyiK4qe8haef/RkBfralmCT+o8bUK7r7GiV8NJESo7jVMoVgdgCk7?=
+ =?us-ascii?Q?f3AUUEm/Tw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b9b5fec-de92-4f5a-037d-08deb592715b
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 10:36:10.9154
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Gmp8p5tBjpGi8LMQYB0oGQskf87Xb8Ip/EWfhS9EMtmGAuBY0jxHsD7muQ/QP8zvrBMsGTN/lCEnSF1qSySb+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7946
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_033618_902409_31D3D078 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,130 +146,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 5d6919055dec134de3c40167a490f33c74c12581:
+From: Carlos Song <carlos.song@nxp.com>
 
-  Linux 7.1-rc3 (2026-05-10 14:08:09 -0700)
+Mark the I2C adapter as suspended during system suspend to block further
+transfers, and resume it on system resume. This prevents potential hangs
+when the hardware is powered down but clients still attempt I2C transfers.
 
-are available in the Git repository at:
+Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
+---
+ drivers/i2c/busses/i2c-imx.c | 32 ++++++++++++++++++++++++++++++--
+ 1 file changed, 30 insertions(+), 2 deletions(-)
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v7.2-tag1
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index a208fefd3c3b..3b19d4a424ca 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1913,6 +1913,34 @@ static int i2c_imx_runtime_resume(struct device *dev)
+ 	return ret;
+ }
+ 
++static int __maybe_unused i2c_imx_suspend_noirq(struct device *dev)
++{
++	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
++	int ret;
++
++	ret = pm_runtime_force_suspend(dev);
++	if (ret)
++		return ret;
++
++	i2c_mark_adapter_suspended(&i2c_imx->adapter);
++
++	return 0;
++}
++
++static int __maybe_unused i2c_imx_resume_noirq(struct device *dev)
++{
++	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
++	int ret;
++
++	ret = pm_runtime_force_resume(dev);
++	if (ret)
++		return ret;
++
++	i2c_mark_adapter_resumed(&i2c_imx->adapter);
++
++	return 0;
++}
++
+ static int i2c_imx_suspend(struct device *dev)
+ {
+ 	/*
+@@ -1946,8 +1974,8 @@ static int i2c_imx_resume(struct device *dev)
+ }
+ 
+ static const struct dev_pm_ops i2c_imx_pm_ops = {
+-	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+-				  pm_runtime_force_resume)
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend_noirq,
++				  i2c_imx_resume_noirq)
+ 	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
+ 	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
+ };
+-- 
+2.43.0
 
-for you to fetch changes up to 44f1ef06ceec55b7704c7d773d6136ca8b90f8b7:
-
-  ARM: dts: renesas: r8a73a4: Describe coresight on R-Mobile APE6 (2026-05-15 11:35:25 +0200)
-
-----------------------------------------------------------------
-Renesas DTS updates for v7.2
-
-  - Add GPU support for R-Car M3-W(+)-based ULCB and Salvator-X(S)
-    development boards,
-  - Add Ethernet, OPP table, interrupt, pin control, and watchdog
-    support for the RZ/G3L SoC and the RZ/G3L SMARC SoM board,
-  - Add Coresight support for the R-Mobile A1 and APE6 SoCs, and the
-    Armadillo-800 EVA and APE6EVM development boards,
-  - Miscellaneous fixes and improvements.
-
-Note that this (1) is based on v7.1-rc3, as PowerVR GPU enablement has a
-dependency on commit 26735dfdd8930d9e ("pmdomain: core: Fix detach
-procedure for virtual devices in genpd"), and (2) includes:
-  - Renesas SoC fixes for v7.1, which are already present in
-    soc/for-next, but not yet in v7.1-rc4,
-  - DT binding definition updates for the R-Mobile A1 and APE6 SoCs,
-    which are shared by the clock subsystem and DT source files,
-  - DT binding definitions for the RZ/G3L SoC, which are shared by the
-    pin control subsystem and DT source files.
-
-Thanks for pulling!
-
-----------------------------------------------------------------
-Biju Das (13):
-      dt-bindings: pinctrl: renesas,rzg2l-pinctrl: Document reset-names
-      dt-bindings: pinctrl: renesas: Document RZ/G3L SoC
-      arm64: dts: renesas: r9a08g046: Add GBETH nodes
-      arm64: dts: renesas: rzg3l-smarc-som: Enable eth0 (GBETH0) interface
-      arm64: dts: renesas: Add pinctrl reset-names for RZ/G2L and RZ/V2H family SoCs
-      arm64: dts: renesas: r9a08g046: Add OPP table
-      arm64: dts: renesas: r9a08g046: Add ICU node
-      arm64: dts: renesas: r9a08g046: Add pincontrol node
-      arm64: dts: renesas: r9a08g046l48-smarc: Add SCIF0 pincontrol
-      arm64: dts: renesas: rzg3l-smarc-som: Add pinctrl configuration for ETH0
-      arm64: dts: renesas: rzg3l-smarc-som: Enable eth1 (GBETH1) interface
-      arm64: dts: renesas: r9a08g046: Add wdt device node
-      arm64: dts: renesas: rzg3l-smarc-som: Enable watchdog
-
-Geert Uytterhoeven (5):
-      arm64: dts: renesas: r8a78000: Fix SCIF brg_int clocks
-      Merge tag 'renesas-fixes-for-v7.1-tag1' into renesas-dts-for-v7.2
-      Merge tag 'renesas-r8a7740-dt-binding-defs-tag1' into renesas-dts-for-v7.2
-      Merge tag 'renesas-r9a08g046-dt-binding-defs-tag2' into renesas-dts-for-v7.2
-      Merge tag 'renesas-r8a73a4-dt-binding-defs-tag1' into renesas-dts-for-v7.2
-
-Marek Vasut (24):
-      arm64: dts: renesas: draak/ebisu-panel: Fix missing cells and reg in DTO
-      arm64: dts: renesas: salvator-panel: Fix missing cells and reg in DTO
-      arm64: dts: renesas: rz-smarc-cru-csi-ov5645: Fix missing cells and reg in CSI2 subnode
-      arm64: dts: renesas: rz-smarc-du-adv7513-smarc: Fix missing cells and reg in DU subnode
-      ARM: dts: renesas: r8a7778: Add missing unit address to bus node
-      ARM: dts: renesas: r8a7779: Add missing unit address to bus node
-      ARM: dts: renesas: r8a7792: Add missing unit address to bus node
-      ARM: dts: renesas: r7s72100: Add missing unit address to bus node
-      ARM: dts: renesas: genmai: Drop superfluous cells
-      ARM: dts: renesas: rskrza1: Drop superfluous cells
-      dt-bindings: clock: renesas,cpg-clocks: Document ZT/ZTR trace clock on R-Mobile A1
-      arm64: dts: renesas: r8a77960-ulcb: Enable GPU support
-      arm64: dts: renesas: r8a77960-salvator-x: Enable GPU support
-      arm64: dts: renesas: r8a77960-salvator-xs: Enable GPU support
-      arm64: dts: renesas: r8a77961-ulcb: Enable GPU support
-      arm64: dts: renesas: r8a77961-salvator-xs: Enable GPU support
-      ARM: dts: renesas: r8a7740: Add ZT/ZTR trace clocks
-      ARM: dts: renesas: r8a7740: Describe coresight
-      arm64: dts: renesas: gray-hawk-single: Fix AVB0 PHY node alignment
-      arm64: dts: renesas: ebisu: Sort sound node
-      arm64: dts: renesas: salvator-common: Sort sound node
-      dt-bindings: clock: renesas,cpg-clocks: Document ZT/ZTR trace clock on R-Mobile APE6
-      ARM: dts: renesas: r8a73a4: Add ZT/ZTR trace clock on R-Mobile APE6
-      ARM: dts: renesas: r8a73a4: Describe coresight on R-Mobile APE6
-
-Tommaso Merciai (2):
-      arm64: dts: renesas: r9a09g057: Add #mux-state-cells to usb2{0,1}phyrst
-      arm64: dts: renesas: r9a09g056: Add #mux-state-cells to usb20phyrst
-
- .../bindings/clock/renesas,cpg-clocks.yaml         |   8 +-
- .../bindings/pinctrl/renesas,rzg2l-pinctrl.yaml    |  35 ++
- arch/arm/boot/dts/renesas/r7s72100-genmai.dts      |   3 -
- arch/arm/boot/dts/renesas/r7s72100-rskrza1.dts     |   2 -
- arch/arm/boot/dts/renesas/r7s72100.dtsi            |   2 +-
- arch/arm/boot/dts/renesas/r8a73a4.dtsi             | 114 +++++-
- arch/arm/boot/dts/renesas/r8a7740.dtsi             | 116 +++++-
- arch/arm/boot/dts/renesas/r8a7778.dtsi             |   2 +-
- arch/arm/boot/dts/renesas/r8a7779.dtsi             |   2 +-
- arch/arm/boot/dts/renesas/r8a7792.dtsi             |   2 +-
- .../dts/renesas/draak-ebisu-panel-aa104xd12.dtso   |   5 +
- arch/arm64/boot/dts/renesas/ebisu.dtsi             |  34 +-
- arch/arm64/boot/dts/renesas/gray-hawk-single.dtsi  |  10 +-
- .../arm64/boot/dts/renesas/r8a77960-salvator-x.dts |   4 +
- .../boot/dts/renesas/r8a77960-salvator-xs.dts      |   4 +
- arch/arm64/boot/dts/renesas/r8a77960-ulcb.dts      |   4 +
- .../boot/dts/renesas/r8a77961-salvator-xs.dts      |   4 +
- arch/arm64/boot/dts/renesas/r8a77961-ulcb.dts      |   4 +
- arch/arm64/boot/dts/renesas/r8a78000.dtsi          |   8 +-
- arch/arm64/boot/dts/renesas/r9a07g043.dtsi         |   1 +
- arch/arm64/boot/dts/renesas/r9a07g044.dtsi         |   1 +
- arch/arm64/boot/dts/renesas/r9a07g054.dtsi         |   1 +
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi         |   1 +
- arch/arm64/boot/dts/renesas/r9a08g046.dtsi         | 402 ++++++++++++++++++++-
- arch/arm64/boot/dts/renesas/r9a08g046l48-smarc.dts |  13 +
- arch/arm64/boot/dts/renesas/r9a09g047.dtsi         |   1 +
- arch/arm64/boot/dts/renesas/r9a09g056.dtsi         |   2 +
- arch/arm64/boot/dts/renesas/r9a09g057.dtsi         |   3 +
- .../boot/dts/renesas/rz-smarc-cru-csi-ov5645.dtsi  |   5 +
- .../boot/dts/renesas/rz-smarc-du-adv7513.dtsi      |   5 +
- arch/arm64/boot/dts/renesas/rzg3l-smarc-som.dtsi   | 132 +++++++
- arch/arm64/boot/dts/renesas/salvator-common.dtsi   |  26 +-
- .../boot/dts/renesas/salvator-panel-aa104xd12.dtso |   5 +
- include/dt-bindings/clock/r8a73a4-clock.h          |   2 +
- include/dt-bindings/clock/r8a7740-clock.h          |   2 +
- .../pinctrl/renesas,r9a08g046-pinctrl.h            |  38 ++
- 36 files changed, 945 insertions(+), 58 deletions(-)
- create mode 100644 include/dt-bindings/pinctrl/renesas,r9a08g046-pinctrl.h
 
