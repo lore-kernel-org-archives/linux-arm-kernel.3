@@ -4,127 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B117CCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33366CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:25:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IEuzuypOSbzs9ULkbb8JAlVLCOHOMYwOORuaqMSb8GE=; b=k6cU27hnda8UISIA/GIYFOSzAK
-	i0xBJ2ny22gc7r2kKS6OgcHxs+bd7rrdVMDVLVNE3YEm8zIxgqdCZI1KDM1doK9Bou/8CtSJ8oaLY
-	n3qZXmZNg762gi6Em+MHZLnEddKg5pATJMMoxsoOD1tFxOa3XwqBh6fnCAKXhw3NhQErDSd9g56pE
-	5+qh6k3aTl4JN1/WnZa+6ZcB7X++M8YZsUWBkXO+PsBJ/p1o/C91EYCA0DoUoUIddGjGgpZdcDl4R
-	SNnIiFOS9YWfQeq6YTIF93BALtIyBFJiL23IRlmX13wjRhgsfLj3N4LUU9bltwQSQ+gUH1Voxulaw
-	poRafmoQ==;
+	bh=XwOWnEeHG/j1dIISjUBQ3VGZjEvKu/Ve2bPF/FUDvjA=; b=Ogy9rPwysMJ5uK6fJShZ+O6lKl
+	6/suL8Ws87aXLSVQunFXTfwKmZ95tBueje6YwJyTbviidGwBihX+LZhVbIIB35NhGrFCa7/0VwPGI
+	+3MgYXZ82m9+f6hUC6Zw55c95n7DxVtIlI63QYqmOpFspNRJFt27mmUK0qx8iGOZVMO5XJt8Zwjj5
+	fGMJPcqJ1/bNhGs4QwaOFDLTkrP1/YdSo8OBWGDs0JWQrLSEh18QkfX2WJwexlH7KUCyDFLAa+vGp
+	NaCvms+ko/7eGpXpygiiQzitX+/g3qv728O+wkaFeBbu0pFRFVII8ZZR7I9/ZtjwuTQV4DeS/IQDz
+	4ojel5Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPCvu-00000000BgS-3gHt;
-	Tue, 19 May 2026 05:23:58 +0000
-Received: from mail-northcentralusazon11012003.outbound.protection.outlook.com ([40.107.200.3] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wPCww-00000000BrV-07fp;
+	Tue, 19 May 2026 05:25:02 +0000
+Received: from 5.mo534.mail-out.ovh.net ([54.36.140.176])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPCvs-00000000Bfp-1wQT
+	id 1wPCws-00000000Bq7-30Ar
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 05:23:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yYmfKldSXsS68MGvzF7dMDtcP9mV0Cq7xeumUfX00qfCuR/rIeAYWYQCwB43Cn8j2QeReO+pNVNuVA/qAPzHcBY65sxUtU5dRSR6hLC5GLsGLnU0WyrjeF0hgGqvpPXWAhtK5kKe1/TzysemRu2Sl/KTCIBRfzJgZJnR0a3J/S9mtO8M/jshLzR1R9TrNXRS+KugzqWS3yZ4IVGdxd/KHN6mK3wZ/h7RYOv2r6ySyEeakkNDkSvXB8LsW4cQgteIWZusrvLK4oAimQGKCBhHHGlHofk/18dLr8yFPcjioPd+1QF+dHUQyfmW4vKH3UKinmcfAFEkgKUbj+SRuDTTIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IEuzuypOSbzs9ULkbb8JAlVLCOHOMYwOORuaqMSb8GE=;
- b=yd4Rdc0snEjD+jM8zlwwD3JkUDf8smjHjeLvPH7OOr2I370EPOCqY/34MBf3gX2uJZEF1fAfxIuKCSzrqL9O8QavTMR0kWowDKbQku57X8q/Rbj/sNGdRYrsr5lmHkw0YI9gsbgMkZuMuWNHFYIbnitgPhLp/t81b8t5zzM8ffAIMnXgDCFORhOBtgRaDxE87/jxHax/ahQPHOFgdH3CgS8FnWQwHE/UZJnoRMh3ijdprYoP+KMJ04VroBQkx8T9iPfl4TyRQ8QmuHQ4D8TlkzUu53qwXT7WKvwPnBpFuYudrQA+x2isMrtObI+XM1WVsoc9cGvNbRcLkBb8rWjWAA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IEuzuypOSbzs9ULkbb8JAlVLCOHOMYwOORuaqMSb8GE=;
- b=Iaex5hli0do+mnFi58ityAEv7wT03v+9LCnEw6+ho5SZZ8nUyfjFxYsu5QPjwNBz38ZmrjxaG9hSnB4MvJjybMBtz9619BKwlMLV2nxtYJ+9NJipkiIkWA9O/H0qPLcnw/MId77+KSivoc/W3yPObLdxsF7h8prNWHzahfaw3V0=
-Received: from MN2PR08CA0025.namprd08.prod.outlook.com (2603:10b6:208:239::30)
- by SA1PR10MB6391.namprd10.prod.outlook.com (2603:10b6:806:257::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
- 2026 05:23:48 +0000
-Received: from BL6PEPF00020E5F.namprd04.prod.outlook.com
- (2603:10b6:208:239:cafe::ea) by MN2PR08CA0025.outlook.office365.com
- (2603:10b6:208:239::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
- May 2026 05:23:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- BL6PEPF00020E5F.mail.protection.outlook.com (10.167.249.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 05:23:47 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 19 May
- 2026 00:23:45 -0500
-Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 19 May
- 2026 00:23:45 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 19 May 2026 00:23:45 -0500
-Received: from [10.24.68.129] (a0507033-hp.dhcp.ti.com [10.24.68.129])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64J5Ne5Y3358948;
-	Tue, 19 May 2026 00:23:41 -0500
-Message-ID: <56aac7f9-0b85-49e6-8d48-a1fc3aee8b68@ti.com>
-Date: Tue, 19 May 2026 10:53:40 +0530
+	Tue, 19 May 2026 05:25:01 +0000
+Received: from director1.derp.mail-out.ovh.net (director1.derp.mail-out.ovh.net [51.68.80.175])
+	by mo534.mail-out.ovh.net (Postfix) with ESMTPS id 4gKNQv4ZXsz60B8;
+	Tue, 19 May 2026 05:24:55 +0000 (UTC)
+Received: from director1.derp.mail-out.ovh.net (director1.derp.mail-out.ovh.net. [127.0.0.1])
+        by director1.derp.mail-out.ovh.net (inspect_sender_mail_agent) with SMTP
+        for <BMC-SW@aspeedtech.com>; Tue, 19 May 2026 05:24:55 +0000 (UTC)
+Received: from mta3.priv.ovhmail-u2.ea.mail.ovh.net (unknown [10.110.43.211])
+	by director1.derp.mail-out.ovh.net (Postfix) with ESMTPS id 4gKNQv2J6Rz5vLW;
+	Tue, 19 May 2026 05:24:55 +0000 (UTC)
+Received: from kaod.org (unknown [10.1.6.6])
+	(Authenticated sender: clg@kaod.org)
+	by mta3.priv.ovhmail-u2.ea.mail.ovh.net (Postfix) with ESMTPSA id BAE3312E3B55;
+	Tue, 19 May 2026 05:24:53 +0000 (UTC)
+Authentication-Results: garm.ovh; auth=pass (GARM-111S0054c8bd1e3-d3ef-4284-ba4e-ebb5c026c5fa,
+                    A1C5BDF50025601E7F63D663DE463AD2E6007479) smtp.auth=clg@kaod.org
+X-OVh-ClientIp: 82.64.250.170
+Message-ID: <5d16a357-9acf-468b-bbca-0d615f50a8b0@kaod.org>
+Date: Tue, 19 May 2026 07:24:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] PCI: endpoint: Add DOE mailbox support for
- endpoint functions
-To: Manivannan Sadhasivam <mani@kernel.org>
-CC: <linux-pci@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<kwilczynski@kernel.org>, <bhelgaas@google.com>, <corbet@lwn.net>,
-	<kishon@kernel.org>, <skhan@linuxfoundation.org>, <lukas@wunner.de>,
-	<cassel@kernel.org>, <alistair@alistair23.me>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<s-vadapalli@ti.com>, <danishanwar@ti.com>, <srk@ti.com>
-References: <20260427051725.223704-1-a-garg7@ti.com>
- <20260427051725.223704-3-a-garg7@ti.com>
- <hohf2lui4dyu6fzypl7kkwfvgf73ldmvinok7dfukhaornhkqp@n336bwjkvb6f>
- <20dce1c6-d24d-4344-86a9-f434fe52038b@ti.com>
- <ies3cbldthjv4vgraibgo642pfuvcr3lsixgxeisqa34ygkpbf@dd2qstv5fiig>
-Content-Language: en-US
-From: Aksh Garg <a-garg7@ti.com>
-In-Reply-To: <ies3cbldthjv4vgraibgo642pfuvcr3lsixgxeisqa34ygkpbf@dd2qstv5fiig>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00020E5F:EE_|SA1PR10MB6391:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27112f32-9045-41bc-e7c4-08deb566cd6f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|36860700016|18002099003|22082099003|56012099003|3023799003|4143699003;
-X-Microsoft-Antispam-Message-Info: 0CCmWohtAQ350zPCMYlPNztzbvpS25hibeVllOrrrBItGsqBqawJ1TXqh+iQIpTvR8zt8nJIRt5N4VzIG3XVhGV8KSOe/PmPE3tOHN3YDp3zxn1rjC4ws6u/GqaKh4JFUla8NLAqaN5uQxh6n9tM/zFW3MMm7BBONWiulb7a+3s0x6trQQhH/Si40moHJS4VgnM3t+PV5LquEHyH3gQoOHIUQPNQC10+mcIDDvOl/3Fh42mkvSxcDHHbDHD3+czLABf8heBTrMj5cuOx6vmvNGrSan2pQrx+jZzFY9vNU1e+/HlgjF39zGiqbfHeU70XQl8Uj8X4KROm8ZCRebqLip6Q6q1LtvD5k/+BIJWanfMFqdDkOR2/8cPDyMnL7awJTiINFIN1im6vX4Nlly71ON5e6sRIf6hAaaGle/g9Drh47IEYqoz8NeSzP+YaAfo8OzjDyUhWrSWuZuw6zkcraBv2WGt640+fBiYuBsD+NxXe4h/Qb9Vp0dD3ku/SbgSVAkv1OAEaE72lv2in96qTtsfW0MoF9weFs8ltCkRQD0cLU8AB8sbaLSKbe332NCwSlLfXAiHv2GG+3/C0DoV2Zyb4BlZ1AG1YSxWPX6iJpeTHwYYv2YEoWqac22/jamaDMbnIMrUR+pc6tTcTgSmAJi7l9byOvDhOw1tYocY0N842dQALgEOKPTiS1uaGg8qx1zgnf+okkHMrv/Z1ZahI4qlIiOtOHiWXVHLo8dJfQo8=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(36860700016)(18002099003)(22082099003)(56012099003)(3023799003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: fAnVpEF6fOcoul6JS/3Zey4wux3ItjWsSXUNvH5yv9DrWQzA51iifbTQRzYi4c+Im4uxdKxTqNqjdftE/7ghxk1oMh+u8POz/qjVSN2Frif3Rf/uIdL4OEh41QnkWzMq+YF6k04eGzmR/W0NEbaXxnb4RNKUBN7vsUixTh6f61gwypvWObH/azUhP95gxGAhdNuxW6cf/PuvzXsX/avzExbocwCmiunJIHngXWrDZthBQZA51Z76iYaaCjF/dyBN5H9m+KAWhc0xQZlelbwbD80gInUVt22Ya0hwwKWbUsgBQsKF3f1svtm8CCsK0icOm3d1pvvjpvBwB6iOdqZIaaCEP8YD2A0ea5YIPU3xxJOrefirsbQONZuhR6326wgsAxfWaXjN8mUVkD77XOqC8183tpEPMNrxsMCrI1vUJuNLBAdKfFmabJoNOT/BKylj
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 05:23:47.0006
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27112f32-9045-41bc-e7c4-08deb566cd6f
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E5F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR10MB6391
+Subject: Re: [PATCH] spi: aspeed: Replace VLA parameter with flat pointer in
+ calibration helper
+To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, broonie@kernel.org,
+ joel@jms.id.au, andrew@codeconstruct.com.au, linux-aspeed@lists.ozlabs.org,
+ openbmc@lists.ozlabs.org, linux-spi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ BMC-SW@aspeedtech.com
+Cc: kernel test robot <lkp@intel.com>
+References: <20260518095708.2502537-1-chin-ting_kuo@aspeedtech.com>
+ <20260518095708.2502537-3-chin-ting_kuo@aspeedtech.com>
+Content-Language: en-US, fr
+From: =?UTF-8?Q?C=C3=A9dric_Le_Goater?= <clg@kaod.org>
+Autocrypt: addr=clg@kaod.org; keydata=
+ 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
+In-Reply-To: <20260518095708.2502537-3-chin-ting_kuo@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+x-ovh-tracer-id: 17593030472268033226
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: 0
+X-VR-SPAMCAUSE: dmFkZTE0iObQoePV2K1IhH/lNEfSblAOLwfgQuw3JoEnub5SozOtHYNazyv8nWJMCS9ATMcFGMTsyXaylTALoaNU765TsL1CA5M+JDrRdxbzWTERzO0GvgTfErFfsPFjmyGyvKtoi2sQKhyjk/3C6wk7rCMj9xft6HrUApWYeszRGEQxd49e8KdKWcQYqpUaAt/Plu4YtmK05kQh/EnFSVTwYzYZGyQyatwGRTjocDouBqYutoRycMSived2vCDkWh3UGftJ1HRoFqqq8YCrFwlx0kVJrdDSJcNZQHMTsgQzekmABOXgRbu2ZYwZKJfCsXvne3D+c3bMSXMSCOJTlPtJe2imD08vnxf4Uw7bPTw7XZOPZVOTHUD0yAbSk7GRDYH+qzAKV+CmWEVgu7df+EQMv8m+jhY9r0Dl1b2ABYbLZ1ViIu2vQmCQaw+pIUkLB3chSVb+BaceC7uKdJ/SwbCvlfD89qIfv1y/3RXt8f5EVPgfjUQ8Wxi3U7ZuuwD+Pp9zQPhRzSTxymqITYDfjWQCrYUDqEXZSv0rRt7SSARWIaPJywkmI18mIak/zAdh1sW0eTkaNunk0waDzJ5C4lMB2BxMR/tIvlhAk3W9+4hvHexGFX7Fp98b5cYpi4sVVTjGHDQM6lRxJjOfTMTuvQtBU4wrXRdcK86DGZEzhQjc5AG1Ag
+DKIM-Signature: a=rsa-sha256; bh=XwOWnEeHG/j1dIISjUBQ3VGZjEvKu/Ve2bPF/FUDvjA=;
+ c=relaxed/relaxed; d=kaod.org; h=From; s=ovhmo393970-selector1;
+ t=1779168295; v=1;
+ b=UFOP7Az2HvV97XOHN24hXTEOXwcKw638Dahvu5kW2FGeAFxhhH9jciWpTpx1pOtKPt6tC9P3
+ L0fMrUfMz+g05Mcvz8Ex+CHCSxLKYgw04BkyVlVvX24MYk8DsG/Eq0u5ndFNfAkNSsgVFqPxWEv
+ kKLVLfuQWDggX52WYVFvNPe7+/2XDBBE3jH+xzVMbRSCFzyz+giwxUNMNq1UCEGESTmA+GgX/Ts
+ /yngGTRZ6zvG0NJIjaAaIjrcIP9yWU0hp38FWiDH1PlPbOXoSdZyc7CA4PKf9QzCrTTP++Pk9pS
+ tl2JcBbIthflsZaXYXtGKTToZHGxFuUCg7qtcXprRDjOg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_222356_788465_520ECD38 
-X-CRM114-Status: GOOD (  36.69  )
+X-CRM114-CacheID: sfid-20260518_222458_903673_4DF7D59B 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,204 +133,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/05/26 18:10, Manivannan Sadhasivam wrote:
-> On Fri, May 15, 2026 at 11:05:29AM +0530, Aksh Garg wrote:
->>
->>
->> On 14/05/26 13:33, Manivannan Sadhasivam wrote:
->>> On Mon, Apr 27, 2026 at 10:47:23AM +0530, Aksh Garg wrote:
->>>> DOE (Data Object Exchange) is a standard PCIe extended capability
->>>> feature introduced in the Data Object Exchange (DOE) ECN for
->>>> PCIe r5.0. It provides a communication mechanism primarily used for
->>>> implementing PCIe security features such as device authentication, and
->>>> secure link establishment. Think of DOE as a sophisticated mailbox
->>>> system built into PCIe. The root complex can send structured requests
->>>> to the endpoint device through DOE mailboxes, and the endpoint device
->>>> responds with appropriate data.
->>>>
->>>> Add the DOE support for PCIe endpoint devices, enabling endpoint
->>>> functions to process the DOE requests from the host. The implementation
->>>> provides framework APIs for EPC core driver and controller drivers to
->>>> register mailboxes, and request processing with workqueues ensuring
->>>> sequential handling per mailbox, and parallel handling across mailboxes.
->>>> The Discovery protocol is handled internally by the DOE core.
->>>>
->>>> This implementation complements the existing DOE implementation for
->>>> root complex in drivers/pci/doe.c.
->>>>
->>>> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->>>> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
->>>> Signed-off-by: Aksh Garg <a-garg7@ti.com>
->>>> ---
->>>> +
->>>> +/*
->>>> + * Global registry of protocol handlers.
->>>> + * When a new DOE protocol, library is added, add an entry to this array.
->>>> + */
->>>> +static const struct pci_doe_protocol pci_doe_protocols[] = {
->>>> +	{
->>>> +		.vid = PCI_VENDOR_ID_PCI_SIG,
->>>> +		.type = PCI_DOE_FEATURE_DISCOVERY,
->>>> +		.handler = pci_ep_doe_handle_discovery,
->>>> +	},
->>>> +};
->>>> +
->>>> +/*
->>>> + * Combines function number and capability offset into a unique lookup key
->>>> + * for storing/retrieving DOE mailboxes in an xarray.
->>>> + */
->>>> +#define PCI_DOE_MB_KEY(func, offset) \
->>>> +	(((unsigned long)(func) << 16) | (offset))
->>>> +#define PCI_DOE_PROTOCOL_COUNT        ARRAY_SIZE(pci_doe_protocols)
->>>> +
->>>> +/**
->>>> + * pci_ep_doe_init() - Initialize the DOE framework for a controller in EP mode
->>>> + * @epc: PCI endpoint controller
->>>> + *
->>>> + * Initialize the DOE framework data structures. This only initializes
->>>> + * the xarray that will hold the mailboxes.
->>>> + *
->>>> + * RETURNS: 0 on success, -errno on failure
->>>
->>> kernel-doc format to describe return value is 'Return:' or 'Returns:".
->>
->> Thanks for pointing this out. I will update this.
->>
->>>
->>>> + */
->>>> +int pci_ep_doe_init(struct pci_epc *epc)
->>>> +{
->>>> +	if (!epc)
->>>> +		return -EINVAL;
->>>> +
->>>> +	xa_init(&epc->doe_mbs);
->>>> +	return 0;
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(pci_ep_doe_init);
->>>> +
->>
->> [...]
->>
->>>> +
->>>> +/**
->>>> + * pci_ep_doe_process_request() - Process DOE request on endpoint
->>>> + * @epc: PCI endpoint controller
->>>> + * @func_no: Physical function number
->>>> + * @cap_offset: DOE capability offset
->>>> + * @vendor: Vendor ID from request header
->>>> + * @type: Protocol type from request header
->>>> + * @request: Request payload in CPU-native format
->>>> + * @request_sz: Size of request payload (bytes)
->>>> + * @complete: Callback to invoke upon completion
->>>> + *
->>>> + * Asynchronously process a DOE request received on the endpoint. The request
->>>> + * payload should not include the DOE header (vendor/type/length). The protocol
->>>> + * handler will allocate the response buffer, which the caller (controller driver)
->>>> + * must free after use.
->>>> + *
->>>> + * This function returns immediately after queuing the request. The completion
->>>> + * callback will be invoked asynchronously from workqueue context once the
->>>> + * request is processed. The callback receives the function number and capability
->>>> + * offset to identify the mailbox, along with a status code (0 on success, -errno
->>>> + * on failure), and other required arguments.
->>>> + *
->>>> + * As per DOE specification, a mailbox processes one request at a time.
->>>> + * Therefore, this function will never be called concurrently for the same
->>>> + * mailbox by different callers.
->>>> + *
->>>> + * The caller is responsible for the conversion of the received DOE request
->>>> + * with le32_to_cpu() before calling this function.
->>>> + * Similarly, it is responsible for converting the response payload with
->>>> + * cpu_to_le32() before sending it back over the DOE mailbox.
->>>> + *
->>>> + * The caller is also responsible for ensuring that the request size
->>>> + * is within the limits defined by PCI_DOE_MAX_LENGTH.
->>>> + *
->>>> + * RETURNS: 0 if the request was successfully queued, -errno on failure
->>>> + */
->>>> +int pci_ep_doe_process_request(struct pci_epc *epc, u8 func_no, u16 cap_offset,
->>>> +			       u16 vendor, u8 type, const void *request, size_t request_sz,
->>>> +			       pci_ep_doe_complete_t complete)
->>>> +{
->>>> +	struct pci_ep_doe_mb *doe_mb;
->>>> +	struct pci_ep_doe_task *task;
->>>> +	int rc;
->>>> +
->>>> +	doe_mb = pci_ep_doe_get_mailbox(epc, func_no, cap_offset);
->>>> +	if (!doe_mb) {
->>>> +		kfree(request);
->>>> +		return -ENODEV;
->>>> +	}
->>>> +
->>>> +	task = kzalloc_obj(*task, GFP_KERNEL);
->>>> +	if (!task) {
->>>> +		kfree(request);
->>>> +		return -ENOMEM;
->>>> +	}
->>>> +
->>>> +	task->feat.vid = vendor;
->>>> +	task->feat.type = type;
->>>> +	task->request_pl = request;
->>>> +	task->request_pl_sz = request_sz;
->>>> +	task->response_pl = NULL;
->>>> +	task->response_pl_sz = 0;
->>>> +	task->complete = complete;
->>>> +
->>>> +	rc = pci_ep_doe_submit_task(doe_mb, task);
->>>> +	if (rc) {
->>>> +		kfree(request);
->>>> +		kfree(task);
->>>> +		return rc;
->>>> +	}
->>>> +
->>>> +	return 0;
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(pci_ep_doe_process_request);
->>>
->>> So who is supposed to call this API? EPC driver that receives the DOE interrupt?
->>
->> Yes, the EPC drivers that receive the DOE interrupts are expected to
->> call this API.
->>
->>> But I don't see the any callers of this and below exported APIs in this series.
->>> Either you should add the callers or limit this series just to adding the DOE
->>> skeleton implementation with a clear follow-up.
->>
->> I currently am working on the EPC driver implementation for a platform
->> which has not been up-streamed yet. I plan to use these APIs to support
->> the DOE feature for that driver. Currently, I am not aware of any
->> platform whose EPC driver supports DOE feature and its interrupts, hence
->> I see no real callers of these APIs to include in this patch series.
->>
->> Would it be appropriate to add a dummy [NOT-FOR-MERGING] demonstration
->> patch over an existing EPC driver, showing how these DOE APIs would be
->> integrated into an EPC driver?
->>
+On 5/18/26 11:57, Chin-Ting Kuo wrote:
+> aspeed_spi_ast2600_optimized_timing() declared its buffer argument as a
+> variable-length array parameter (u8 buf[rows][cols]), which causes a
+> sparse warning. Replace the VLA parameter with a plain u8 * and compute
+> the 2-D index manually. The corresponding call site is also updated.
 > 
-> Usually we don't add APIs without any callers. But if you have a realistic time
-> frame and guarantee that you are going to add EPC driver support soon, then we
-> can have these APIs merged first.
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202605180441.uD3toFRJ-lkp@intel.com/
+> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+> ---
+>   drivers/spi/spi-aspeed-smc.c | 7 +++----
+>   1 file changed, 3 insertions(+), 4 deletions(-)
 > 
+> diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
+> index 808659a1f460..c5275700de3d 100644
+> --- a/drivers/spi/spi-aspeed-smc.c
+> +++ b/drivers/spi/spi-aspeed-smc.c
+> @@ -1467,8 +1467,7 @@ static int aspeed_spi_do_calibration(struct aspeed_spi_chip *chip)
+>    * must contains the highest number of consecutive "pass"
+>    * results and not span across multiple rows.
+>    */
+> -static u32 aspeed_spi_ast2600_optimized_timing(u32 rows, u32 cols,
+> -					       u8 buf[rows][cols])
+> +static u32 aspeed_spi_ast2600_optimized_timing(u32 rows, u32 cols, u8 *buf)
+>   {
+>   	int r = 0, c = 0;
+>   	int max = 0;
+> @@ -1478,7 +1477,7 @@ static u32 aspeed_spi_ast2600_optimized_timing(u32 rows, u32 cols,
+>   		for (j = 0; j < cols;) {
+>   			int k = j;
+>   
+> -			while (k < cols && buf[i][k])
+> +			while (k < cols && buf[i * cols + k])
+>   				k++;
+>   
+>   			if (k - j > max) {
+> @@ -1541,7 +1540,7 @@ static int aspeed_spi_ast2600_calibrate(struct aspeed_spi_chip *chip, u32 hdiv,
+>   		}
+>   	}
+>   
+> -	calib_point = aspeed_spi_ast2600_optimized_timing(6, 17, calib_res);
+> +	calib_point = aspeed_spi_ast2600_optimized_timing(6, 17, &calib_res[0][0]);
+>   	/* No good setting for this frequency */
+>   	if (calib_point == 0)
+>   		return -1;
 
-Hi Mani,
 
-The expected timeline for adding the upstream support for the platform
-is by the end of Q3. Once it gets merged, we would post the patches to
-add its EPC as well as downstream driver support on top of it.
 
-> For demonstration purpose, you can just show the EPC integration as a snippet in
-> cover letter or point to the downstream driver for reference (if it is not a
-> secret sauce).
+Reviewed-by: Cédric Le Goater <clg@kaod.org>
 
-Sure, I will add a dummy EPC integration code in the cover letter to 
-demonstrate the usage of those APIs.
+Thanks,
 
-Thanks.
-
-> 
-> - Mani
-> 
+C.
 
 
