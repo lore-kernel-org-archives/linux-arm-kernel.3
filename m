@@ -4,137 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECEBECD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 23:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB77ECD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 23:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQfkFNQtW0voCafP3rIsWGDAT75gymOTMruIJ8hCZ0A=; b=nGDVu4q65HJUjrchpaqgrLfNjC
-	S1V6t9WgZWMWhZkfQPFnC7EjXa9jDFkt40I8yEvIvhBfI3M5uLpE2Qhtc1iCnus770vbloerNfQQs
-	2qfXB+wo3G6Rh4pTQNECmZYR0kLTL/f4jckhx8aILFwjshTBAKIA6E/4fOesdPJPyWO1ajrwQ5flL
-	p/rO+Wi+anTjP/Q/zRK7fGzNyXDthKC0T5+1NdEOyNxZIz4CkOEqBW0lRQwyAMFZhfFKPVe7F8gzv
-	YJPAWZLoZhoKMR802qik6oQ2010g6WHLx9H1tCkn9f0ehnuQkS6zEDxbQMxnl6jcrUJ25/cN3oaL4
-	QduDl7ZQ==;
+	bh=wToOAFFueTVGAcKCrvnJhfPLzohMujY5kkZvVSCYWIE=; b=zGUM+ooAkFlWL/7sZizDRQ3quP
+	DOGLNgrpTt1TOBXBul8oFEfdkHkDXLFqiUxhAceHT3/FCOT0HyZbn/8AuQ8+T+HimivXZsIsrpOYF
+	PWdifoQ8gtpsAAkwCAw5dxfJCNG9ugtzMmXQ/7hIQDrGpOx7M+hSonDlhzep/atfmcYj2LxkxlbIZ
+	0lwHnWV83YLSoZ+skchdp2WmOYbSuChTYXnuDb0GH8CpcgGPghlAgrbabcPy8hnCrOPVIAxeTiGhP
+	q/8zZrNevuE/gTi9suWe0j25gmggIQJ+6rAeJWtPI+q/Bvvcdowig1kM26zHCDzNGCraC7/d0a0HC
+	kA/reDEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPTS3-000000031ZE-2rNL;
-	Tue, 19 May 2026 23:02:15 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1wPTwk-000000034Ih-2IU5;
+	Tue, 19 May 2026 23:33:58 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPTS1-000000031Yf-2fsf
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 23:02:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S9i0xMaA+qopraGWrSFPWmuz16dlEOrTvBXcDrUl3eIkuuN6P9XaJWM/cz4OTxGo9uwhokZw+aNlSLbxUMmoIJc0L1Ddjr7823yvNJCKUI1dsw1IHtEk+u6Hr0uweUDnZuL1TkuQBRKmstX/hwD0kXIgxTsKneOyt6IHlowAp3rWcMTO+w7ZAP8IhWB6HgyXkVQG4Z9hRerFEs2GfWkVVwLu3mA2Sk8MOX3BO9jxI/PT4lhuBUd6obAR7Bow0C8hVJ2m8K4C1gwxm9RhvcZnjQZLxnR6aiEs4uGtS2YGsuk7abQ0HvIsuxY0g0yQq/0Upf0WRlR6v5ImBbgyakZgNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AQfkFNQtW0voCafP3rIsWGDAT75gymOTMruIJ8hCZ0A=;
- b=SEb/Cvimx8EDkZ4GsQBeLUrf7qBnvJ0ES31ktqDEkGjEya7tgTEqV1/Jf8eBaHBN/TUvYXP9QUBHj2gQrvVW5ZONrhQVg/8VAcrFFcRMPsGiIo3DVpAAnZuVj4rI1pgw5kQKrtnYIlGq9ON7E/0HxMe6E/p7TI1EJ+58FbI2Vl8wGttVPrnSY93zBBYdTJj81vY8nXEQi/ceI0/oZujB7xq7N3GBGofJ8d/OiklduXitjYZpOKUg6y9IjK4wNJgRMepHSy2U8/svuSNFYMJv25pjq9van54A+Bve6lETA2wwbFfEIoWU4Nyab51M287dDbkIrNR/0d4OVmVXGls8Vw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AQfkFNQtW0voCafP3rIsWGDAT75gymOTMruIJ8hCZ0A=;
- b=TcHOSRpZb4mDLZfvenss7CG51d6Spw7bC+RK79TfKu812amBOblTKvpRkN1ScsKla+tBqgByw6d5G3rx+C03GUEFGB7BvUiBgblP3flOEs9/028Obi/758O28KT7hlmO8qGqsuhqWHf4HC1lzM7DXQvJ9NEMEd0EHxmW1glFcpZ43Vwt++w+cTRz4Hl29N9JprpZLtdzuV2Oc/pf6qiLSFq9EG0u/aT7DgoI22EKTASbwKOJrdSZqyYW4ZK7XLsfHVgwv9A4POlpwsGADfUSfshNKkgj8HE+rLfMu98rvJ375H/+wiKuziothKi6Zjd9Z9UW88iefhfVBB+KP6FgwA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by MN0PR12MB6341.namprd12.prod.outlook.com (2603:10b6:208:3c2::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Tue, 19 May
- 2026 23:02:05 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Tue, 19 May 2026
- 23:02:05 +0000
-Date: Tue, 19 May 2026 20:02:04 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com,
-	Shuai Xue <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 11/24] iommu: Add iommu_report_device_broken() to
- quarantine a broken device
-Message-ID: <20260519230204.GM3602937@nvidia.com>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <745da1a819eb943f2519e660c8bcfde715885c6c.1779161849.git.nicolinc@nvidia.com>
- <20260519120737.GQ787748@nvidia.com>
- <agysAyreCY4huf0I@Asurada-Nvidia>
- <20260519191626.GJ3602937@nvidia.com>
- <agzkldmlG1cuDkj4@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <agzkldmlG1cuDkj4@Asurada-Nvidia>
-X-ClientProxiedBy: BL1P221CA0035.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:208:5b5::8) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1wPTwj-000000034IO-0PaY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 19 May 2026 23:33:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wToOAFFueTVGAcKCrvnJhfPLzohMujY5kkZvVSCYWIE=; b=RMMJ1ZPVZ6Gz64yllEe9b9vX9F
+	mwJyeyslKPxLYIsS1e61WgJ/g8f4vhQNJ7/01hYNztXxarO+RlUbaeurlUNJfobyBX1cLNJko1Sob
+	E7JAv8Uhy3YR6qjkVHR3hMS8eJb1o5THibFVET8yeRiIH9lciQB5Mda+ci/0wzVXOlcn1zxNqip8m
+	YyBLOHUSs/VMc5m1bg1KDXr6rWB15yonWeaVxQFAmmpmhQD5MJUmPB1yeShLVmO/qPxaho2dtOtCl
+	lNRwtRQFVDael+bXXX8ZiFZXIV5kvhwsbw/jdFhOqwRlvsivSrMcEoKXuw8Sw+BVvQkC97QX/wN8h
+	drxLUqsA==;
+Received: from 54-240-197-233.amazon.com ([54.240.197.233] helo=u09cd745991455d.ant.amazon.com)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPTwf-00000006R84-3Yfi;
+	Tue, 19 May 2026 23:33:54 +0000
+Message-ID: <add71b6f61edc6357e1fddad83273b2cba697d10.camel@infradead.org>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
+ compatibility expectations
+From: David Woodhouse <dwmw2@infradead.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, Will
+ Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>,  kvm <kvm@vger.kernel.org>, Linux Doc Mailing
+ List <linux-doc@vger.kernel.org>, "Kernel Mailing List, Linux"
+ <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>,
+ Jim Mattson <jmattson@google.com>, Joey Gouly <joey.gouly@arm.com>, Suzuki
+ K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Raghavendra Rao Ananta
+ <rananta@google.com>, Eric Auger <eric.auger@redhat.com>, Kees Cook
+ <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,  Nathan Chancellor
+ <nathan@kernel.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>,  kvmarm@lists.linux.dev,
+ linux-kselftest <linux-kselftest@vger.kernel.org>
+Date: Wed, 20 May 2026 00:33:52 +0100
+In-Reply-To: <agzq5kwzuJvd7Mh5@kernel.org>
+References: <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
+	 <agxFbniU_6eQ98t2@willie-the-truck>
+	 <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
+	 <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
+	 <86qzn7wp3y.wl-maz@kernel.org>
+	 <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
+	 <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
+	 <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
+	 <agzR2kaJsNa8X9lF@kernel.org>
+	 <1243d375846c4f4e20c229a6f09300126188fc8b.camel@infradead.org>
+	 <agzq5kwzuJvd7Mh5@kernel.org>
+Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
+	boundary="=-TAaU+Wf4Qs0Gd5EH9iBY"
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN0PR12MB6341:EE_
-X-MS-Office365-Filtering-Correlation-Id: b2fd50c5-8e76-45d1-b256-08deb5faa56a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|11063799006|4143699003|22082099003|18002099003|56012099003|3023799007;
-X-Microsoft-Antispam-Message-Info: tHYugFSJkbIHwSTurZ1K4NendiHHjPVKa9eGGCxMiz5FsB8ZUvyxzP4IpMkUq/DacTBt5WaqYb9z191kaX+n/LvPqNHRACI6GOfJ9ZaQMhYk+eMoYu60Hgs6AqAmPC5KFjfhzbAHPAoLZkJrQhf4ofOZRu5lhs6ShlSmvjgCcuh1tbdOokQS2XxasMyXF0N6vyxmUbDXqPz1Es5KAiMH2NzSFB2UDrHjnhWDKRVPzd5LkIW9ZJggw+bVWdkob5aspZVjqXlEx/vWsqSll7lJtgjPIL4iozwc0FB5zSJU272scfaL3yDfC3m5Btat+uGiuASksWwhDzfZwqBmy5lWyRAR3VoR6qPdzWexUeqbHeLT5rE/Jgedc7Dqref/Z0IBCRMMkKnbyWdQyyCtrkGkaTrCUz3Sgx7BRkYx1s/ZQEyYPYucIr+OVMljoGpIJKSe7MoS2nUmM8U85canyOmlvk9HFRfrRZENrvtH4bOd0QAO6AXwg5Prg7I3fle0CpJwp+CLa2x66kP36dcO9IVh245FWulUTCjkD4HirnnZ2RHyTgdzxcWyWHCXK+8cQ+T/g1QqlGqw7khjxLZAzBNBBVpbnjaWUdUi6ARuPvO81xvPmZ8XWy2cDs0ilyscp3a8qxbMUwaXTrhFVldHWAXqwzpKTTJCLoPWop9koRt9+0c0ZLxEkfDu8g6nyng0kdel
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(11063799006)(4143699003)(22082099003)(18002099003)(56012099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sPhVGxc8c3kA4eO/FNj3Lr7W+QCNzlEY1SsP69CnxhRv/i0u3i6pINjVln4i?=
- =?us-ascii?Q?T//tSbCmqTm0oPvbb1hGf5Yt2A70lPEsE/MRUHchdGJ/cOMsatyvaf/TBElT?=
- =?us-ascii?Q?hBZRE/W66FFGnvZCQj4KXB1AAXTe9p2mjsSVJ75GktnVE2ULL/B5smzC3aLx?=
- =?us-ascii?Q?DLMN9Tvu/aD0baExXkFJHSB/vU9tFMarRXpLEjst16NUFcCijniwtO1/Eukm?=
- =?us-ascii?Q?BtJSFyVu31gtPt0ULaDOeoQ4cxneUryyF+6xJPzc7dJULTllhThp1dD7ji1m?=
- =?us-ascii?Q?AnMI+cbBAjaW3t9LW9khvZg0N2gN8+b6L8/IbtWo+7ATeBl9mKcNYXHetx5H?=
- =?us-ascii?Q?phShWHKhLvr0FdrlQWdJoAJvdKFbtqzGwGTLlnJ9uyL+bk5Za32eOK7fsrzY?=
- =?us-ascii?Q?7Lx/e7qHNGGAC/izAtt18Oz6bJyD82Hg+49b02TDM/+6eGSQnUBVRo6LHH3P?=
- =?us-ascii?Q?GKtFd5D5yRFUPn88KlgBv97UzWkNQxMbyhNlotnwsAFrBiOx6ftEKmwsxFtE?=
- =?us-ascii?Q?c6vgbGrxabPcu//MiRLSJvh+BDhw5LelcVFCpl+iqabMhEQVge9+v9Y6fKRn?=
- =?us-ascii?Q?dO3cw5ma6CrBLV/Cz+qhhWmCDrFeNNUn1jqED241kZUaoavQtlVbqLmvQbMr?=
- =?us-ascii?Q?boMOCJKr6mFTRNamrS83lmQZDiD/7SZIAMfVhSKOKZDmltSlGEcUOuSu1LX9?=
- =?us-ascii?Q?RqztmLQn5KhYgyLP2JBo1ZngHEpgqrVTbbu8yWUz8EDwpEjHwuzyLBBt5SFV?=
- =?us-ascii?Q?5HVKfICiSZhe5torcXMujh2+Gr5NmEZ2D9l+GJTBwkEJZspteWqgaXMKtbg0?=
- =?us-ascii?Q?TqpniLFsKYynLXBXg5Trf02QvYtXSuL8zlT/RuXRIEBaNOzBwAHeMOJUvU/G?=
- =?us-ascii?Q?SYUWmtozHV5oxZyCxw+S8TsrKE6OrUkWrV+vfi+mcpCZtwwnaTT9/SbSb2po?=
- =?us-ascii?Q?h/M6Cibpg0hmXHIJFtlwakJJ1GLdK+45CRICNXsYEtSdaE9KyyFFowlVciDG?=
- =?us-ascii?Q?FZfpWDbeFHSB4QhCpBelbZeFQOKXKvenPY/Oabc3DUBCfhetlLhKqpenmbt4?=
- =?us-ascii?Q?XCF5iE7tktnvubARNaEs6Xge3sljso55QDw75ePHLpCO7KM3eZ5+PgAg4wHT?=
- =?us-ascii?Q?Z4LT+mGVbV3GcgzZvE3Dde+4YCutZARtLFA+B8fgPPs3voPIZj26weOVVnZN?=
- =?us-ascii?Q?nVLopJb1zL0apCAiXKqcc4sJjNAQ81evOL2ipkArX/GTrbAt7NHGf9vvFZqH?=
- =?us-ascii?Q?D6tHB63tN4hzGSFJPGBBT+bpKxSO2LI8t+D3bRG1jedPIR1Jpa+DX1WVm6M8?=
- =?us-ascii?Q?9WjgmghfayuPpw16ptNfxF5NkLyrfUa8XPOAO5yjb5GoA9Ii31C0ztfdOC5N?=
- =?us-ascii?Q?gPzyiY5t1mbWBeS5UzFrGobz1jPoahfsP2IAGIldKyEa+Hr0X7PNbly2n5JF?=
- =?us-ascii?Q?Q+Xc3vKdqpjuOwlpN+BddlNFhEOSmnz41AH1Zr+m9wJ5/5u8F2ADN3iLFJ7P?=
- =?us-ascii?Q?lwn+R5rDTOJQkOn8zP7pEj4vSJ6xpqkf9HPZPDOUVtASjlQBt+vZ3HhYnF+M?=
- =?us-ascii?Q?OGBc5mksEKMq3yp0XPW47p/yr/0QlIHNxdTuvN1nVqOGUplV94NVCGJ2v79F?=
- =?us-ascii?Q?lmSukbKwI/bl5aPyVVJs9NYyJgmyErZCdJqxOD+D4+YGRyr9ntx/PhgkOrvK?=
- =?us-ascii?Q?wFLDrrv5XkX9PMvDqfb7nXgLY+Cq/yMxwYY2/reinAsaJgM1?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b2fd50c5-8e76-45d1-b256-08deb5faa56a
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 23:02:05.6281
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: agKpmoXY2qOCTfLTPcQhTjc6NB+3Y9eoJMdUBGsSFKbncPbjhplcQCl7/J2WL8gK
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6341
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_160213_681506_C2F11C78 
-X-CRM114-Status: GOOD (  26.99  )
+X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,63 +91,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 03:30:45PM -0700, Nicolin Chen wrote:
-> On Tue, May 19, 2026 at 04:16:26PM -0300, Jason Gunthorpe wrote:
-> > On Tue, May 19, 2026 at 11:29:23AM -0700, Nicolin Chen wrote:
-> > > On Tue, May 19, 2026 at 09:07:37AM -0300, Jason Gunthorpe wrote:
-> > > > On Mon, May 18, 2026 at 08:38:54PM -0700, Nicolin Chen wrote:
-> > > Then, the core needs to block the device using the similar routine
-> > > to the reset prepare(). And that needs to hold group->mutex, so it
-> > > needs an async worker.
-> > > 
-> > > Do you see a much simpler way?
-> > 
-> > Put the work on the dev_iommu and forget about rcu.
-> > 
-> > But this is all probably better as some later series if at all. The
-> > driver can block the ATS and the expectation is something will FLR the
-> > device. The FLR will set the blocking and then restore the
-> > domain. None of this async work seems functionally necessary, though
-> > it would be a nice to have. Lets focus on the bare minimum here it, it
-> > is already a difficult enough problem without tacking on these
-> > extras..
-> 
-> OK. So you are suggesting a quarantine at the driver-level only:
-> 
-> 1. Driver detects ATC_INV timeout during an invalidation.
-> 2. Driver retries the commands to identify the master.
 
-I might argue to push even this out to a followup series given it is
-complex and I suspect it becomes much simpler after the batch
-removal...
+--=-TAaU+Wf4Qs0Gd5EH9iBY
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> 3. Driver calls pci_disable_ats() and clears STE.EATS.
-> 4. Driver marks domain->invs ATS entries as BROKEN.
->    (optional since pci_disable_ats() is done?)
+On Tue, 2026-05-19 at 15:57 -0700, Oliver Upton wrote:
+> On Tue, May 19, 2026 at 10:58:05PM +0100, David Woodhouse wrote:
+> > On Tue, 2026-05-19 at 14:10 -0700, Oliver Upton wrote:
+> > > And in the absence of clear evidence of a guest depending on the brok=
+en
+> > > IGROUPR behavior, I don't see how the guest-side changes of Christoff=
+er's
+> > > series are any different from the multitude of bug fixes that we take
+> > > every single release cycle. It is an unfortunate bug and I concur wit=
+h
+> > > Marc that it doesn't seem like the sort of thing a guest could rely
+> > > upon.
+> >=20
+> > I find this concerning, because I've already explained this.
+> >=20
+> > There is a very real possibility of guests simply not *noticing* that
+> > they had bugs in this area, as it didn't *matter* what they wrote to
+> > these registers since it never worked.
+> >=20
+> > There is an even larger possibility of guests having worked around the
+> > original issue by *detecting* whether the registers were actually
+> > writable before choosing to use the alternative groups. And if such a
+> > guest launches on a new kernel and then needs to be rolled back to an
+> > older kernel, that will also break.
+>=20
+> The onus is on you to substantiate this claim. I would imagine after
+> carrying the revert for so long that there must be at least one example
+> of such a guest?
 
-We need to stop sending invs otherwise there will be trouble making
-forward progress.
+What? No. We have *avoided* having the bug, specifically so that we do
+not find out the consequences of the bug.
 
-> 5. Driver sets master->ats_broken to fence concurrent attach:
->    arm_smmu_write_ste() and arm_smmu_ats_supported().
+> What ifs and maybes do not meet the bar, in my opinion, for preserving
+> bug emulation in KVM. Of course there could be a little flexibility with
+> that but we need to have some way of discriminating between bug fixes
+> and genuine guest expectations around the behavior of virtual hardware.
 
-Not sure this is needed, if we race some attach then the attach will
-re-set EATS, get another timeout and clear EATS. Doesn't seem worth
-trying to optimize for.
+I believe you have this completely backwards.
 
-> 6. Something external triggers an FLR (sysfs or AER).
-> 7. FLR goes through pci_dev_reset_iommu_prepare()/done(). done()
->    reverts 3+4 and calls the reset_device_done callback clearing
->    master->ats_broken (5).
+The expectation of KVM is that do not change guest visible behaviour if
+there's any reasonable chance that it might cause problems.
 
-It should restore core/driver/hw synchronization of EATS and the
-pci_enable_ats() by installing a blocking domain. Then it can go on to
-re-attach a translating domain and everything is back to correct.
+A stable and mature platform doesn't get to play in its ivory tower and
+randomly inflict breakage on guests because they "deserve it".
 
-We do need to push a pci error event (didn't see that in this series)
-so the driver can catch it and start the FLR process. I suppose that
-will still need to bounce through a workqueue, and once you have that
-it can also set the blocked domain prior to calling out to the driver.
+I've literally explained the potential failure modes, including the one
+on rollback if a guest *does* change the group configuration and then
+needs to be rolled back to the older kernel that doesn't support it.
 
-Jason
+And yes, "ifs and maybes" absolutely *are* the quality bar expected by
+KVM because =E2=80=94 again, as already explained more than once =E2=80=94 =
+as we
+accumulate a bunch of such "unlikely" breakages in a fleet upgrade
+from, say, 6.1 to 6.12, the likelihood of *one* of them actually
+turning out to afflict *one* of the zoo of guest operating systems
+approaches 1.
+
+We don't get to just YOLO it.
+
+> > > Wrong or not, this behavior is documented unambiguously. From the VGI=
+Cv2
+> > > UAPI documentation:
+> > >=20
+> > > """
+> > > Userspace should set GICD_IIDR before setting any other registers (bo=
+th
+> > > KVM_DEV_ARM_VGIC_GRP_DIST_REGS and KVM_DEV_ARM_VGIC_GRP_CPU_REGS) to =
+ensure
+> > > the expected behavior. Unless GICD_IIDR has been set from userspace, =
+writes
+> > > to the interrupt group registers (GICD_IGROUPR) are ignored.
+> > > """
+> > >=20
+> > > I'm not inclined to change that.
+> >=20
+> > That'll all very well... but as far as I can tell, QEMU *doesn't* set
+> > GICD_IIDR, so it still gets the bizarre behaviour where the *guest* can
+> > write the registers, but userspace can't. So it looks like it'll work
+> > except migration will fail. Am I missing something?
+>=20
+> That's exactly it, and why I said tying up UAPI opt-in with
+> guest-visible registers is a really bad idea.
+>=20
+> > But honestly, I don't care one iota about GICv2; I was only trying to
+> > do the cleanup while I was there. Feel free to drop that part entirely.
+> >=20
+> > > =C2=A0As a way out of this whole mess, can we
+> > > instead:
+> > >=20
+> > > =C2=A0- Allow userspace to set IIDR.Revision to 1
+> > >=20
+> > > =C2=A0- Drop any bug emulation from the handling of IGROUPR registers
+> >=20
+> > It doesn't make sense to allow setting IIDR.Revision to 1 *without* the
+> > one-liner that actually implements the corresponding behaviour change
+> > in the IGROUPR registers.
+>=20
+> As I described earlier, this whole IIDR crap inarguably broke UAPI and
+> obviously normal guest behavior (i.e. reading the register). At minimum
+> we need to permit previously-valid values for IIDR, even if they carry
+> no implied behaviors.
+
+But the whole *point* of IIDR is to preserve the behaviour. To set the
+IIDR and *not* have the corresponding behaviour is insanity.
+
+
+> > And as explained at least twice now, it's the
+> > behaviour change that's *important* here.
+> >=20
+> > The fact that it's a long-standing bug in KVM which downstream has been
+> > working around for a long time doesn't matter. The unconditional
+> > behavioural change *is* a bug and we should fix it.
+>=20
+> That is the nature of a bug fix. If you can provide some concrete
+> evidence of a guest depending on the RAZ/WI behavior then I agree we
+> need to preserve the old behavior.
+>=20
+> Otherwise I see this as a matter of principle in how we do bug fixes to
+> KVM. Even if upstream took the strictest possible stance towards behavior
+> changes we will invariably fail to account for some minutia.
+
+No. Don't pretend that this is hard. KVM on x86 has been quietly
+getting this right for years.
+
+Yes, there is sometimes *some* subjectivity around it, and it's
+sometimes reasonable to just unilaterally change behaviours. This is
+not, and was not, once of those cases.
+
+> > > =C2=A0- Special-case the stupid GICv2 UAPI where IGROUPR are only wri=
+table if
+> > > =C2=A0=C2=A0 the VMM has written to IIDR and the revision >=3D 2
+> >=20
+> > That already *is* a special case, right? And you'd rather leave it as i=
+t is?
+>=20
+> Left as documented, yes. With the exception that revision =3D=3D 1 writes
+> not be considered opt-in to restorable IGROUPR.
+
+Don't do that. Just leave it broken, with QEMU not even working. I'm
+beyond caring about GICv2 now.
+
+--=-TAaU+Wf4Qs0Gd5EH9iBY
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Transfer-Encoding: base64
+
+MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
+ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
+AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
+BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
+MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
+a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
+jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
+GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
+aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
+nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
+8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
+HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
+IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
+KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
+BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
+QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
+QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
+ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
+/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
+uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
+xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
+W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
+c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
+VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
+NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
+DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
+sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
+w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
+i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
+kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
+0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
+ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
+blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
+hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
+VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
+HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
+ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
+AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
+cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
+cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
+AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
+aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
+hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
+iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
+8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
+JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
+xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
+EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
+B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
+MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
+KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
+Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
+nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
+WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
+W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
+nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
+g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
+9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
+9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
+sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
+a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
+ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
+AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
+dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
+Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
+MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
+YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
+4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
+6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
+QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
+nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
+MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
+VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
+ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxOTIzMzM1
+MlowLwYJKoZIhvcNAQkEMSIEIN6inSCxRMXT5tpgmx0yDwHe+Fpm9NXqeYg7Cd/UJQdaMGQGCSsG
+AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
+cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
+VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
+cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAJy1gxgZxXtfk
+zejMPtSbl4XtkTuNk8ngRS+X1ZMVTeMDFFYsZhkvOmc1wEUVktEJ8e+bXljVtquUhA8w0igBCrz4
+7tIR9JVT2lTmiYvlc2xLyuKjO2rCez7rh7QZkkPApOe8RrBHX9ecSxTQnVIj2LM79mmsCYEjJERa
+pj8t5is2RkXHskJ+FDlbhVeAK+JNyS+ln/79HM4uKEkLP9ZYh/NBbMAbp78N/m9rIftCJltMjvG0
+HFRLtgTuEyuXakO9BatOfKCubwWSkQUXGDDESN6JMUIEWPPNBChXChV8+uZ4R6v6lATMWvJG8Bhh
+dNLzh4gulWYJDLLzu3jb0WbcbwpUJfW0cQ5hLvmFNBcN8bJLYYk6MSJ7hmT9SPw7Qde+fyMErNYh
+CXuscM6UKkqJafSpal13D18NBVhmo5SB/5cZdvouRLeOd0Cn+xNaYGro13FCUptuVJSXDarQzwSS
+vPHpzbndk9sehNWCWeFVls4OVew30B/Gz3GnU6FANX8T5pk2qYajC8zYTLmFdofU+cv89g+zppwG
+X5W8XJlCHNSTLNMgiwA53kG4HgbZ40kJiZm/LuimQQbav1MpeVGOHdBacEDv0cfwnI3ybUVnCXoX
+2eYnYzKQKRI1RS4kAtZ4BhPhmenbDPCQC4vNSoTWfvaXkqcaOtVMjaw/NezuuDUAAAAAAAA=
+
+
+--=-TAaU+Wf4Qs0Gd5EH9iBY--
 
