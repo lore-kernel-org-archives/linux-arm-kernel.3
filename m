@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0B4CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 07:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2BACD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 07:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2HpqAsJqhkXmdINnru0d/SC/CFZY9pELhZ8QcRDW0E=; b=N12olJazLRx4jDdsgqo/fAGPOL
-	XEIVpzNdcc8WhY05P6g0+O0bU0NswaRFkpOqu0MNsqasxY3ZOMdZyN5eDnHvZm1hNJL+uy8IgfAyi
-	o8wlEh6heLUOXiazeII+1M0AsFUW/WZ1NyxwFC7/4RBTlrgxah+LB+6Wx5S3FLC8xlc4WMM9h0u6M
-	22cCm3I3Hqmr1hZjSslxiMouMgElnQRoSbAKkgS03s9Q+H2RnstiAakaQMtjsVnUQHvD1DUzxCci6
-	4459qU7G2Rh7wuvsiXV8q/EX7eWFOjoLKUkUS0q+t0NSfs7RixSLTp9qZaA7FqRz+o415y1RCKaXF
-	4tvsl4Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0IYho2goDBTA3w2WPe9DSpHyyQ7ztapgGy+O6o4v7kg=; b=mossYBNC96TC8QZbBOwkMYhU2H
+	7qQVeodeLDe4Xo3aAZa4xSzfzYh8C18dTeG2RdWZxA1dRpZ5Px7FDOQdzEw0cd3eDJvsZ4Jg2ktmV
+	Rz/2nksHQ7gHYbkVpaeU5FT/0SCP4xZoLqOesKHt1TiYtDeP5/fxVhIRjBtXwDvc30CQBD8JhW9Zx
+	mOIg7Uy7I2glr9WcrDChEsG5oCu2G55LYT61AyBVw4sHF07P7o4GFFiRiQmY2jB/kABLh6/PHkd6J
+	Y7/LGLxa/3dsNDc0IppC/NTJBc0lG5Z7a/AEuEfKI0Oi9BV13QpPHiYoe7e5HowcIy7N/4OAxXypy
+	axsJPGXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPF18-00000000Wvx-2brp;
-	Tue, 19 May 2026 07:37:30 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1wPF3h-00000000XQW-3yDk;
+	Tue, 19 May 2026 07:40:09 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPF16-00000000Wuw-16wb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 07:37:29 +0000
-Received: from edelgard.fodlan.icenowy.me (unknown [112.94.102.150])
-	by APP-01 (Coremail) with SMTP id qwCowABXAGwuEwxq+0++EA--.3719S2;
-	Tue, 19 May 2026 15:37:19 +0800 (CST)
-Message-ID: <5b7b28558aece1d99e93c1d69ce2c381929813a2.camel@iscas.ac.cn>
-Subject: Re: [PATCH v2 2/4] drm/verisilicon: add model ID constants and DCU
- Lite chip identity
-From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
-To: Joey Lu <a0987203069@gmail.com>, maarten.lankhorst@linux.intel.com, 
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Tue, 19 May 2026 15:37:17 +0800
-In-Reply-To: <20260519055114.1886525-3-a0987203069@gmail.com>
-References: <20260519055114.1886525-1-a0987203069@gmail.com>
-	 <20260519055114.1886525-3-a0987203069@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 
+	id 1wPF3f-00000000XPW-0Kzk;
+	Tue, 19 May 2026 07:40:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779176402;
+	bh=NO+vmHISBoRKaTEO5YEriWd2N0PVf7URQEW8l+FSoO8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=b+ErxVrlXKCkecAO2bHYWT0FIsQ8wkngnlnLu47VjLJ6VokhnGkDbm7/VpjxQrlrA
+	 HXvWuPEPLeBCE+Ax773X/jQPMd0I6LduOzKwcZ6w+RSMoolZQ3Aig7grTGPWB13KEa
+	 KmhggnjGaaLgCRMkaF+59OxtYi7OxX1JZh9fNZ1xsaEoBlohsIE1OTyDL68CWgePtL
+	 6bQANazMuJoc1FLZy+POcxeFfDUVI3w3qH+EkPitqDCpOrLJlfLrHypH49lr4OMN5N
+	 WQs13+tY7qL4rpsCc8EI0nTs2oq/6G2VcDQ+oxWIndbicyXemIrDQsRy1iqQxY0+7R
+	 Pze5fS6GT+gZw==
+Received: from fedora (unknown [100.64.0.11])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4242817E05E5;
+	Tue, 19 May 2026 09:40:01 +0200 (CEST)
+Date: Tue, 19 May 2026 09:39:55 +0200
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Chia-I Wu <olvaffe@gmail.com>
+Cc: Liviu Dudau <liviu.dudau@arm.com>, Marcin =?UTF-8?B?xZpsdXNhcno=?=
+ <marcin.slusarz@arm.com>, Ketil Johnsen <ketil.johnsen@arm.com>, David
+ Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, Jonathan
+ Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Sumit
+ Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>,
+ John Stultz <jstultz@google.com>, "T.J. Mercier" <tjmercier@google.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>, Steven Price
+ <steven.price@arm.com>, Daniel Almeida <daniel.almeida@collabora.com>,
+ Alice Ryhl <aliceryhl@google.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, dri-devel@lists.freedesktop.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Florent Tomasin <florent.tomasin@arm.com>, nd@arm.com
+Subject: Re: [PATCH 4/8] drm/panthor: Add support for protected memory
+ allocation in panthor
+Message-ID: <20260519093955.448ff899@fedora>
+In-Reply-To: <CAPaKu7R9ET767qc3eppBUfG2RAeyrg7E-gE0turgp-u_FU4+Vg@mail.gmail.com>
+References: <20260505140516.1372388-1-ketil.johnsen@arm.com>
+	<20260505140516.1372388-5-ketil.johnsen@arm.com>
+	<20260505181523.49a3d85c@fedora>
+	<afxVIuVVPisBQ9p_@e129842.arm.com>
+	<20260507135356.5428d50d@fedora>
+	<agMvb_jeRsO7tSS-@e142607>
+	<20260512161111.0cb7000e@fedora>
+	<agNJasayW8VCHTiU@e142607>
+	<CAPaKu7QC7FdjL6m_OSb+E5aYKs6bmT-9DAHc5PC=XctCmRph2Q@mail.gmail.com>
+	<20260518091650.5a7a4f4a@fedora>
+	<CAPaKu7R9ET767qc3eppBUfG2RAeyrg7E-gE0turgp-u_FU4+Vg@mail.gmail.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowABXAGwuEwxq+0++EA--.3719S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3GF17JrW3Kr15ur4fZFWxCrg_yoW7XF4UpF
-	47AFWvk3yrA39aq3s7AryjkFyay3Z7Ja1fWr1kZrWYvr4rtw1UWry7X34Y9FWDXr97Ja4I
-	gFsakF47urW2yF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvvb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI
-	64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r15McIj6I8E87Iv67AKxVWUJVW8Jw
-	Am72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1l
-	c7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr
-	1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE
-	14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7
-	IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E
-	87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73Uj
-	IFyTuYvjxU7UDGUUUUU
-X-Originating-IP: [112.94.102.150]
-X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_003728_668166_C3062193 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260519_004007_273742_D00778C8 
+X-CRM114-Status: GOOD (  62.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,168 +101,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E5=9C=A8 2026-05-19=E4=BA=8C=E7=9A=84 13:51 +0800=EF=BC=8CJoey Lu=E5=86=99=
-=E9=81=93=EF=BC=9A
-> Introduce symbolic constants VSDC_MODEL_DC8200 and
-> VSDC_MODEL_DCU_LITE
-> to replace magic numbers in the hardware database and probe path.
+On Mon, 18 May 2026 17:36:40 -0700
+Chia-I Wu <olvaffe@gmail.com> wrote:
+
+> On Mon, May 18, 2026 at 12:16=E2=80=AFAM Boris Brezillon
+> <boris.brezillon@collabora.com> wrote:
+> >
+> > On Wed, 13 May 2026 12:31:32 -0700
+> > Chia-I Wu <olvaffe@gmail.com> wrote:
+> > =20
+> > > On Tue, May 12, 2026 at 8:39=E2=80=AFAM Liviu Dudau <liviu.dudau@arm.=
+com> wrote: =20
+> > > >
+> > > > On Tue, May 12, 2026 at 04:11:11PM +0200, Boris Brezillon wrote: =20
+> > > > > On Tue, 12 May 2026 14:47:27 +0100
+> > > > > Liviu Dudau <liviu.dudau@arm.com> wrote:
+> > > > > =20
+> > > > > > On Thu, May 07, 2026 at 01:53:56PM +0200, Boris Brezillon wrote=
+: =20
+> > > > > > > On Thu, 7 May 2026 11:02:26 +0200
+> > > > > > > Marcin =C5=9Alusarz <marcin.slusarz@arm.com> wrote:
+> > > > > > > =20
+> > > > > > > > On Tue, May 05, 2026 at 06:15:23PM +0200, Boris Brezillon w=
+rote: =20
+> > > > > > > > > > @@ -277,9 +286,21 @@ int panthor_device_init(struct pan=
+thor_device *ptdev)
+> > > > > > > > > >                     return ret;
+> > > > > > > > > >     }
+> > > > > > > > > >
+> > > > > > > > > > +   /* If a protected heap name is specified but not fo=
+und, defer the probe until created */
+> > > > > > > > > > +   if (protected_heap_name && strlen(protected_heap_na=
+me)) { =20
+> > > > > > > > >
+> > > > > > > > > Do we really need this strlen() > 0? Won't dma_heap_find(=
+) fail is the
+> > > > > > > > > name is "" already? =20
+> > > > > > > >
+> > > > > > > > If dma_heap_find() will fail, then the whole probe with fai=
+l too.
+> > > > > > > > This check prevents that. =20
+> > > > > > >
+> > > > > > > Yeah, that's also a questionable design choice. I mean, we can
+> > > > > > > currently probe and boot the FW even though we never setup the
+> > > > > > > protected FW sections, so why should we defer the probe here?=
+ Can't we
+> > > > > > > just retry the next time a group with the protected bit is cr=
+eated and
+> > > > > > > fail if we can find a protected heap? =20
+> > > > > >
+> > > > > > The problem we have with the current firmware is that it does a=
+ number of setup steps at "boot"
+> > > > > > time only. One of the steps is preparing its internal structure=
+s for when it enters protected
+> > > > > > mode and it stores them in the buffer passed in at firmware loa=
+ding. We cannot later run the
+> > > > > > process when we have a group with protected mode set. =20
+> > > > >
+> > > > > No, but we can force a full/slow reset and have that thing
+> > > > > re-initialized, can't we? I mean, that's basically what we do whe=
+n a
+> > > > > fast reset fails: we re-initialize all the sections and reset aga=
+in, at
+> > > > > which point the FW should start from a fresh state, and be able to
+> > > > > properly initialize the protected-related stuff if protected sect=
+ions
+> > > > > are populated. Am I missing something? =20
+> > > >
+> > > > Right, we can do that. For some reason I keep associating the reset=
+ with the
+> > > > error handling and not with "normal" operations. =20
+> > > I kind of hope we end up with either
+> > >
+> > >  - panthor knows the exact heap to use and fails with EPROBE_DEFER if
+> > > the heap is missing, or
+> > >  - panthor gets a dma-buf from userspace and does the full reset
+> > >    - userspace also needs to provide a dma-buf for each protected
+> > > group for the suspend buffer
+> > >
+> > > than something in-between. The latter is more ad-hoc and basically
+> > > kicks the issue to the userspace. =20
+> >
+> > Indeed, the second option is more ad-hoc, but when you think about it,
+> > userspace has to have this knowledge, because it needs to know the
+> > dma-heap to use for buffer allocation that cross a device boundary
+> > anyway. Think about frames produced by a video decoder, and composited
+> > by the GPU into a protected scanout buffer that's passed to the KMS
+> > device. Why would the GPU driver be source of truth when it comes to
+> > choosing the heap to use to allocate protected buffers for the video
+> > decoder or those used for the display? =20
+> I don't think the GPU driver is ever the source of truth. If the
+> system integrator wants to specify the source of truth (SoT) from
+> kernel space, they should use the device tree (or module params /
+> config options). If they want to specify the SoT in userspace, then we
+> don't really care how it is done other than providing an ioctl.
+> Panthor is always on the receiving end.
+
+Okay, we're on the same page then.
+
 >=20
-> Register the DCU Lite chip identity (model 0x0, revision 0x5560,
-> customer_id 0x305) in vs_chip_identities[], making the existing
-> vs_fill_chip_identity() path able to recognise Nuvoton MA35D1
-> hardware
-> purely through register reads.
+> If we don't want to delay this functionality, but it takes time to
+> converge on SoT, maybe a solution that is not a long-term promise can
+> work? Of the options on the table (dt, module params, kconfig options,
+> ioctls), a kconfig option, potentially marked as experimental, seems
+> like a good candidate.
 
-The HWDB change should be added in the end of the series, making it a
-gate to the newly added changes that is finally opened when
-everything's ready.
+If Panthor is only a consumer, I actually think it'd be easier to just
+let userspace pass the protected FW section as an imported buffer
+through an ioctl for now. It means we don't need any of the
+modifications to the dma_heap API in this series, and userspace is free
+to choose its SoT (efuse, DT, ...) and pass the info back to mesa/GBM
+somehow (envvar, driconf, ...). The only thing we need to ensure is if
+lazy protected FW section allocation is going to work, but given the
+current code purely and simply ignores those sections, and the FW is
+still able to boot and act properly (at least on v10-v13), I'm pretty
+confident this is okay, unless there's some trick the MCU can do to
+detect that the protected section isn't mapped (which I doubt, because
+the MCU doesn't know it lives behind an MMU).
+
+Of course, once we have a consensus on how to describe this in the DT,
+we can switch Panthor over to "protected dma_heap selection through DT",
+and reflect that through the ioctl that exposes whether protected
+support is ready or not (would be a DEV_QUERY), such that userspace can
+skip this "PROTM initialization" step.
+
+We're talking about an extra ioctl to set those buffers, and a
+DEV_QUERY to query the state (ready or not), the size of the global
+protected buffer (protected FW section) and the size of the protected
+suspend buffer. The protected suspend buffer would be allocated and
+passed at group creation time (extra arg passed to the existing
+GROUP_CREATE ioctl). So, overall, I don't consider it a huge liability
+in term of maintenance cost.
 
 >=20
-> Also add three register-level macros for forthcoming DCU Lite
-> support:
-> - VSDC_DISP_IRQ_VSYNC(n) in vs_crtc_regs.h, for per-output VSYNC IRQ
-> =C2=A0 bits used by the DCU Lite IRQ enable/status registers.
-> - VSDC_FB_CONFIG_ENABLE, VSDC_FB_CONFIG_VALID and
-> VSDC_FB_CONFIG_RESET
-> =C2=A0 in vs_primary_plane_regs.h, for the framebuffer enable and
-> =C2=A0 commit-cycle bits used by the DCU Lite plane update path.
+> > =20
+> > >
+> > > For the former, expressing the relation in DT seems to be the best,
+> > > but only if possible :-). Otherwise, a kconfig option (instead of
+> > > module param) should be easier to work with.
+> > >
+> > > Looking at the userspace implementation, can we also have an panthor
+> > > ioctl to return the heap to userspace? =20
+> >
+> > Yes, it's something we can add, but again, I'm questioning the
+> > usefulness of this: how can we ensure the heap used by panthor to
+> > allocate its protected FW buffers is suitable for scanout buffers
+> > (buffers that can be used by display drivers). There needs to be a glue
+> > leaving in usersland and taking the decision, and I'm not too sure
+> > trusting any of the component in the chain (vdec, gpu, display) is the
+> > right thing to do. =20
+> The heap returned by panthor is only for panfrost/panvk. It says
+> nothing about compatibility with other components on the system.
 
-Maybe you can split the register change=20
-
->=20
-> No behaviour change for existing DC8200 platforms.
->=20
-> Signed-off-by: Joey Lu <a0987203069@gmail.com>
-> ---
-> =C2=A0drivers/gpu/drm/verisilicon/vs_crtc_regs.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 |=C2=A0 1 +
-> =C2=A0drivers/gpu/drm/verisilicon/vs_hwdb.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 16 ++++++++++++--
-> --
-> =C2=A0drivers/gpu/drm/verisilicon/vs_hwdb.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 3 +++
-> =C2=A0.../gpu/drm/verisilicon/vs_primary_plane_regs.h=C2=A0 |=C2=A0 3 +++
-> =C2=A04 files changed, 19 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> index c7930e817635..d4da22b08cd5 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
-> @@ -54,6 +54,7 @@
-> =C2=A0#define VSDC_DISP_GAMMA_DATA(n)			(0x1460 +
-> 0x4 * (n))
-> =C2=A0
-> =C2=A0#define VSDC_DISP_IRQ_STA			0x147C
-> +#define VSDC_DISP_IRQ_VSYNC(n)			BIT(n)
-> =C2=A0
-> =C2=A0#define VSDC_DISP_IRQ_EN			0x1480
-> =C2=A0
-> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> index 09336af0900a..a25c4b16181d 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
-> @@ -90,7 +90,7 @@ static const struct vs_formats
-> vs_formats_with_yuv444 =3D {
-> =C2=A0
-> =C2=A0static struct vs_chip_identity vs_chip_identities[] =3D {
-> =C2=A0	{
-> -		.model =3D 0x8200,
-> +		.model =3D VSDC_MODEL_DC8200,
-
-I don't think such a macro is needed.
-
-> =C2=A0		.revision =3D 0x5720,
-> =C2=A0		.customer_id =3D ~0U,
-> =C2=A0
-> @@ -98,7 +98,7 @@ static struct vs_chip_identity vs_chip_identities[]
-> =3D {
-> =C2=A0		.formats =3D &vs_formats_no_yuv444,
-> =C2=A0	},
-> =C2=A0	{
-> -		.model =3D 0x8200,
-> +		.model =3D VSDC_MODEL_DC8200,
-> =C2=A0		.revision =3D 0x5721,
-> =C2=A0		.customer_id =3D 0x30B,
-> =C2=A0
-> @@ -106,7 +106,7 @@ static struct vs_chip_identity
-> vs_chip_identities[] =3D {
-> =C2=A0		.formats =3D &vs_formats_no_yuv444,
-> =C2=A0	},
-> =C2=A0	{
-> -		.model =3D 0x8200,
-> +		.model =3D VSDC_MODEL_DC8200,
-> =C2=A0		.revision =3D 0x5720,
-> =C2=A0		.customer_id =3D 0x310,
-> =C2=A0
-> @@ -114,13 +114,21 @@ static struct vs_chip_identity
-> vs_chip_identities[] =3D {
-> =C2=A0		.formats =3D &vs_formats_with_yuv444,
-> =C2=A0	},
-> =C2=A0	{
-> -		.model =3D 0x8200,
-> +		.model =3D VSDC_MODEL_DC8200,
-> =C2=A0		.revision =3D 0x5720,
-> =C2=A0		.customer_id =3D 0x311,
-> =C2=A0
-> =C2=A0		.display_count =3D 2,
-> =C2=A0		.formats =3D &vs_formats_no_yuv444,
-> =C2=A0	},
-> +	{
-> +		.model =3D VSDC_MODEL_DCU_LITE,
-
-The number is 0x0 and the whole public name of this IP is
-"DCUltraLite", w/o any numbers.
-
-I suggest leave it at 0x0 and add a comment saying this is DCUltraLite
--- Verisilicon people are abusing suffix for their IP names now.
-
-> +		.revision =3D 0x5560,
-> +		.customer_id =3D 0x305,
-> +
-> +		.display_count =3D 1,
-> +		.formats =3D &vs_formats_no_yuv444,
-> +	},
-> =C2=A0};
-> =C2=A0
-> =C2=A0int vs_fill_chip_identity(struct regmap *regs,
-> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> b/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> index 92192e4fa086..cca126bd2da5 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.h
-> @@ -9,6 +9,9 @@
-> =C2=A0#include <linux/regmap.h>
-> =C2=A0#include <linux/types.h>
-> =C2=A0
-> +#define VSDC_MODEL_DC8200 0x8200
-> +#define VSDC_MODEL_DCU_LITE 0x0
-> +
-> =C2=A0struct vs_formats {
-> =C2=A0	const u32 *array;
-> =C2=A0	unsigned int num;
-> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> index cbb125c46b39..67d4b00f294e 100644
-> --- a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
-> @@ -16,6 +16,9 @@
-> =C2=A0#define VSDC_FB_STRIDE(n)			(0x1408 + 0x4 * (n))
-> =C2=A0
-> =C2=A0#define VSDC_FB_CONFIG(n)			(0x1518 + 0x4 * (n))
-> +#define VSDC_FB_CONFIG_ENABLE			BIT(0)
-> +#define VSDC_FB_CONFIG_VALID			BIT(3)
-> +#define VSDC_FB_CONFIG_RESET			BIT(4)
-
-Should the new IRQ register to be added here too?
-
-Thanks,
-Icenowy
-
-> =C2=A0#define VSDC_FB_CONFIG_CLEAR_EN			BIT(8)
-> =C2=A0#define VSDC_FB_CONFIG_ROT_MASK			GENMASK(13,
-> 11)
-> =C2=A0#define VSDC_FB_CONFIG_ROT(v)			((v) << 11)
-
+Okay, if it's used only for internal buffers, I guess that's fine.
 
