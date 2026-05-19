@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894B4CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C06CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GB6q31k0LytJMcDQwueRs0FoTanae9kZTeJ8zDyM3+0=; b=eUODzp4UjiDhvvQmQOZe3az8l6
-	Xu2wcw1OHuuG3V0VOqzVdryzriKkr/5nNbP8D4B6JA791bokN3wxOi5aLw4Q3RZ4qsEwjcDgTHhbR
-	EMnx0ysstUCJttV+hRLggYI9xQxi4rFLQeC/KZKcAeRT5WD081jY1GJNxb0IbFYcJTsGoEVFwLR8p
-	YPX1gz3EYb+N8tWYcZRhwgsvSZttJhcNB6UU3hZH9vRrb990M6kktczxQ/DV4okh0H9k0PCvuBdfY
-	Bp7inzSH1JHMlWHHGF3PFRyY/KuLpBGs/ufoG16WSTlGLMkwd+9uCShsdgM5UjN35q2pirKpvrbmc
-	2RgHczcQ==;
+	bh=BpKk6Gij2WxsoBaa/RiasDHSglHxtZ5uMjAEt5+zsC8=; b=itxIahgZZfuSjdtwGnlkpOYhUX
+	97rKttz6eMxmRELhZhBdMO3Bv+ZolWwPSKtjkPlqKfh9l0QtBiDArgTGxgms/bJZMsEPsB8uaNyLT
+	WwvEQGSJfbNc6pMBOduk5l+SnOLNYWjZOV3jvICrJWz17G359Jvc67tV7SpgxoNx4fIgSngjr4zEb
+	/RUKPhiVemcAvI5dUvMTiK+YltnhhX3eBDUKxwZirCZjPCK7A/4llf1/NCWmzv/z7BYcBrYjN+85Q
+	TQPEiNWvHToc58WVsFGvKXVVMy96E2TEcY9KNmFy3/GZNPZyaqGLmTleIKbHjK1Ew55GG/CWiptRD
+	oNBzdEzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGhY-00000000uno-1UyS;
-	Tue, 19 May 2026 09:25:24 +0000
+	id 1wPGLx-00000000p2R-2mVU;
+	Tue, 19 May 2026 09:03:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGhX-00000000unS-1yKD;
-	Tue, 19 May 2026 09:25:23 +0000
+	id 1wPGLX-00000000oT5-2vBu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 09:02:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E637960126;
-	Tue, 19 May 2026 09:25:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CE13C2BCB3;
-	Tue, 19 May 2026 09:25:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 014426020B;
+	Tue, 19 May 2026 09:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBFC3C2BCFC;
+	Tue, 19 May 2026 09:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779182722;
-	bh=iFOBQrSNZ2nMXqB6+u+Z7u9D0GpUYhiWHSHlDRAvya8=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=PtiU1HzIPX56xJHRFwwtmKL97cZVTvmXImLcoWFP1yBckScaevop25n4pTqesy64/
-	 selgm52QCcN2EPKHzP0lwO88Qt8LnFsFXU8lGMg5x6JERsETeVLAv5Dp1hkNiWRvys
-	 5k0LIHV7dNyu+D1DQbOQXchnm87Zl5hVrOr9tjGU/vUfYNVR7c4LjkkU1BkjL4Fx4b
-	 3GC3ysia3+L86UjsM2P/2qB5L6PfeNdUQegN1VkzjbJHPZ1bStPgytyrOscaGgGqHh
-	 NVebStCNg4LOcsqGPFdhEA5/YlyXEi0fdtlQIvtRD/17yrJrSTFCgTg9V1UWb+3GLE
-	 FFSoCc7bWG+Lg==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Takashi Iwai <tiwai@suse.com>, 
- Jaroslav Kysela <perex@perex.cz>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Darren Ye <darren.ye@mediatek.com>, Cyril Chao <Cyril.Chao@mediatek.com>, 
- =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-Cc: linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20260517-asoc-mt8196-probe-cleanup-v1-1-a5d26949d7fe@gmail.com>
-References: <20260517-asoc-mt8196-probe-cleanup-v1-1-a5d26949d7fe@gmail.com>
-Subject: Re: [PATCH] ASoC: mediatek: mt8196: Fix probe resource cleanup
-Message-Id: <177912152253.31945.3862884738428622527.b4-ty@b4>
-Date: Mon, 18 May 2026 17:25:22 +0100
+	s=k20201202; t=1779181358;
+	bh=uLHaGHSP9UQjQQ5jBIAoXbBwJSEBPtjOM2YeKkN0O2Q=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=t2LHPG3Q9Nik41PwZlPpjT08Et0jB0u/UVuQMkl+kJuoZuM01Kwf21AZpXJyVFTPm
+	 TYr4ftoxHwDd0jmfEvp7McuWCq8wj29F0wnzggZK2iKyI87qlIzSYlWUzn4p2WHCtn
+	 89//F+DU9rzvJHVmw3S2n2NS7FrPQOWjSMPrnv2rRzdAYu7EGOMjlI4s2mkIXTHPVT
+	 ho9l7MCLsOgaXTl1XYdeWxyJtZo1XReRj44f2DudMHoDh4G/2Vy0TN3+f6/iUO1qfV
+	 JUm5njh2K+CUySC/WFHwnG1zh3aEYKDgI9vZnTEqgpEsUgGxi4qAj66/fAyev539/c
+	 pvClFr+bfO7yw==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 19 May 2026 11:01:53 +0200
+Subject: [PATCH v5 11/19] drm/atomic-state-helper: Rename
+ __drm_atomic_helper_crtc_state_reset()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1121; i=broonie@kernel.org;
- h=from:subject:message-id; bh=iFOBQrSNZ2nMXqB6+u+Z7u9D0GpUYhiWHSHlDRAvya8=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqDCx/ax2u9yF4K5DNV8lZ1HlfFlyY1FliDAHiO
- N41z+FGNIuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCagwsfwAKCRAk1otyXVSH
- 0No3B/sErmVf4EA1gqpVz6orSuSFtNRKz5nrNCdol8y9MjDvM/dQIllkshc0W9DuTaCeCm3ptFS
- +Tx3dsy9M3kZgWOBQldAzsDWDSh0exUzGFKPj7HDH30wiLbmPLwK0KCJBOc5HFA90DnmULlg14l
- ch7m8+I3P/ixjqtc2H2C6pVtA3Zas2X0G04pCRxFWrppBnVNTOpFUyTEBJ/bwHF55AlwkAKdDFU
- dpq+NZ5yHXJUOkpPBQpFIkBkuH6IG9xkJITNGoUwNKPhD6UaelcdcCe3miccB+X/CI+i0hgtbwg
- 1h0C8mrtqJ8T/QNG3oAghlSORygv/mXS9BUy5tGeLRaTaEA7
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260519-drm-mode-config-init-v5-11-388b03321e38@kernel.org>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4452; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=uLHaGHSP9UQjQQ5jBIAoXbBwJSEBPtjOM2YeKkN0O2Q=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk8av963GLrUkMDWNklvC1+ni5rqJ9/b7KjT3nIiqOZL
+ QsuX5jaMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACZSGM9YnzgtNbI2OO3NyeKd
+ Thuq41+/rd2n626y6O805hwNPuVw7+Ai6a1W924/641Yl77q6s+FjA1TI1UqXqye/03pVeFq+7q
+ Zb65dLHqmrv4soT4i2cLjv/9EZjPng7Jnmv4mu1opVnB79QEA
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +103,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 17 May 2026 23:41:07 -0300, Cássio Gabriel wrote:
-> ASoC: mediatek: mt8196: Fix probe resource cleanup
+__drm_atomic_helper_crtc_state_reset() is used to initialize a newly
+allocated drm_crtc_state, and is being typically called by the
+drm_crtc_funcs.reset implementation.
 
-Applied to
+Since we want to consolidate DRM objects state allocation around the
+atomic_create_state callback that will only allocate and initialize a
+new drm_crtc_state instance, we will need to call
+__drm_atomic_helper_crtc_state_reset() from both the reset and
+atomic_create hooks.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+To avoid any confusion, we can thus rename
+__drm_atomic_helper_crtc_state_reset() to
+__drm_atomic_helper_crtc_state_init().
 
-Thanks!
+Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/drm_atomic_state_helper.c | 10 +++++-----
+ drivers/gpu/drm/i915/display/intel_crtc.c |  2 +-
+ include/drm/drm_atomic_state_helper.h     |  2 +-
+ 3 files changed, 7 insertions(+), 7 deletions(-)
 
-[1/1] ASoC: mediatek: mt8196: Fix probe resource cleanup
-      https://git.kernel.org/broonie/sound/c/e38353138a09
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index ab171bfe6e86..b277f92f4532 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -61,25 +61,25 @@
+  * For other drivers the building blocks are split out, see the documentation
+  * for these functions.
+  */
+ 
+ /**
+- * __drm_atomic_helper_crtc_state_reset - reset the CRTC state
++ * __drm_atomic_helper_crtc_state_init - Initialize the CRTC state
+  * @crtc_state: atomic CRTC state, must not be NULL
+  * @crtc: CRTC object, must not be NULL
+  *
+  * Initializes the newly allocated @crtc_state with default
+  * values. This is useful for drivers that subclass the CRTC state.
+  */
+ void
+-__drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
+-				     struct drm_crtc *crtc)
++__drm_atomic_helper_crtc_state_init(struct drm_crtc_state *crtc_state,
++				    struct drm_crtc *crtc)
+ {
+ 	crtc_state->crtc = crtc;
+ 	crtc_state->background_color = DRM_ARGB64_PREP(0xffff, 0, 0, 0);
+ }
+-EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
++EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_init);
+ 
+ /**
+  * __drm_atomic_helper_crtc_reset - reset state on CRTC
+  * @crtc: drm CRTC
+  * @crtc_state: CRTC state to assign
+@@ -94,11 +94,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
+ void
+ __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
+ 			       struct drm_crtc_state *crtc_state)
+ {
+ 	if (crtc_state)
+-		__drm_atomic_helper_crtc_state_reset(crtc_state, crtc);
++		__drm_atomic_helper_crtc_state_init(crtc_state, crtc);
+ 
+ 	if (drm_dev_has_vblank(crtc->dev))
+ 		drm_crtc_vblank_reset(crtc);
+ 
+ 	crtc->state = crtc_state;
+diff --git a/drivers/gpu/drm/i915/display/intel_crtc.c b/drivers/gpu/drm/i915/display/intel_crtc.c
+index 03de219f7a64..7486f2dc60ef 100644
+--- a/drivers/gpu/drm/i915/display/intel_crtc.c
++++ b/drivers/gpu/drm/i915/display/intel_crtc.c
+@@ -179,11 +179,11 @@ struct intel_crtc_state *intel_crtc_state_alloc(struct intel_crtc *crtc)
+ void intel_crtc_state_reset(struct intel_crtc_state *crtc_state,
+ 			    struct intel_crtc *crtc)
+ {
+ 	memset(crtc_state, 0, sizeof(*crtc_state));
+ 
+-	__drm_atomic_helper_crtc_state_reset(&crtc_state->uapi, &crtc->base);
++	__drm_atomic_helper_crtc_state_init(&crtc_state->uapi, &crtc->base);
+ 
+ 	crtc_state->cpu_transcoder = INVALID_TRANSCODER;
+ 	crtc_state->master_transcoder = INVALID_TRANSCODER;
+ 	crtc_state->hsw_workaround_pipe = INVALID_PIPE;
+ 	crtc_state->scaler_state.scaler_id = -1;
+diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
+index 8d1ef268fdef..0bb72453464a 100644
+--- a/include/drm/drm_atomic_state_helper.h
++++ b/include/drm/drm_atomic_state_helper.h
+@@ -38,11 +38,11 @@ struct drm_connector_state;
+ struct drm_private_obj;
+ struct drm_private_state;
+ struct drm_modeset_acquire_ctx;
+ struct drm_device;
+ 
+-void __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *state,
++void __drm_atomic_helper_crtc_state_init(struct drm_crtc_state *state,
+ 					  struct drm_crtc *crtc);
+ void __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
+ 				    struct drm_crtc_state *state);
+ void drm_atomic_helper_crtc_reset(struct drm_crtc *crtc);
+ void __drm_atomic_helper_crtc_duplicate_state(struct drm_crtc *crtc,
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+-- 
+2.54.0
 
 
