@@ -4,93 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB0ECD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CA2CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N9lSel/09AkblmaVWdGZHXaGbI2zsZxvAoh/LlPTdKw=; b=2S8oy5ibb7YfZwrwggZzpR6jIj
-	ZnR66G7DKj9xWD8ZNYwvI6MG8xY6wo319y8Eixg5D+b61X1fMMFh9dMPoIpUkt2Z2QMYMR4ZbXH8G
-	VpC8BYy2jxNUXOshlLDxMlATqsZiNz4WM1XK/gVtqv5j3MhcQmQIyK7ykuCUwJWNdMVMhwTtzR4e2
-	bbydqhJZNXXxbOL6HUcYJ3ETwoUOu8/JVGM5b8PlKQzCsgFfRXRVxEVuO3WlYCRBKnIWuO+3ceWkm
-	YTH1VoMDUeU62YGeP2vUa/93P734ozKk+CjVCkYoDE/1oIbYuDeZLJquLrjI6CsrHTweKQjmsPhEi
-	30e83gVg==;
+	bh=MVeHNoDWn7iWUy6TuALWxxk4E8VGQG2H5OUTDtMjpHM=; b=c11NR74FrkOCCH/r3e27PQzGSG
+	91+dKk2z0A2FFED7RdHvfv1/i/cdOj/EtlRHbilIVN25wTt4b3eQWzSRb/iklD22szcqf3U8Swh68
+	RHB9nPr0tqx9PTWr43sutBBCYa/UVVy5UQkr13m0iyppsNEygBLECPaTHL/ovsF0gGV2ZiSMDr5Lf
+	qexPsFusw+bjsl/7bbzKnGA8UzvBiYhqlcrCVg4m01DVtg1zThSThYCqnfg6PYEVGyemk6cAx6J00
+	OkW1GuT6ONJ7QBA6xbtUbyH54tPaj6JmKPD1rDzNchArsrlpm25Vz4dXUnDF12ltoSdiilWISSzMX
+	5rmE/tqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPL9k-00000001m2x-0G9G;
-	Tue, 19 May 2026 14:10:48 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wPLA5-00000001m9W-06TY;
+	Tue, 19 May 2026 14:11:09 +0000
+Received: from mail-francecentralazon11013065.outbound.protection.outlook.com ([40.107.162.65] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPL9f-00000001m1Z-2ES0
+	id 1wPLA0-00000001m6f-32oL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:10:46 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-488b0e1b870so54179065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:10:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779199842; x=1779804642; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=N9lSel/09AkblmaVWdGZHXaGbI2zsZxvAoh/LlPTdKw=;
-        b=ZpKtpUAbkTiQN878/1mS3s55YA9frS8/JHD2b9rI42J6qjlUYakXIqaAjudEMQhEdS
-         EAt0VPq+Ax/sVm3B66tccnILT8mD1FNC1UlrlxxJHFQpl5f1fhvatiCzGYxQJPREuD2E
-         QM7ZsgMcC+ue/YcMFLn9vss6YJrppiKp9vqImzkdDGOUEF5FRFCbxPUqWGdTJ0beuFgS
-         bRUwWY1NTLXf+e+M/Kbak3fzyDqfveN++geREebiDrFIMsJ6zpF9RF6ao3rjOJJMlE6z
-         nfdiBXm9Di/kHTHkLfCFKKPLy5citldXi87IHyXeeZEBTbHtB9WoWTcdTe4bjSx4DSGH
-         wupg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779199842; x=1779804642;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N9lSel/09AkblmaVWdGZHXaGbI2zsZxvAoh/LlPTdKw=;
-        b=iF+Tr3FPuYm0NKoQNGQ+g1mF3JhN4Wh5X4bCpgJ4R2JDfZtwzk5QEkFnKbMEuI3VNH
-         Jchyjh7FbwEUQAP2crQmRId7cPgXqa8nLDoYxYTt2PoC7xG1XLEJd6+GQhxk7Znm8xO2
-         25ounftcaQDrY5SJwgwDUwDFISTf+iUBwa2VjkNazsp00nSAEYvRQ1gee9eeXtVg7Uow
-         /LuZcneQ9sHLb8tyFrzwQSWcBF8noaTajODkJyIukUurHGrcWCUgMDahsVErlLxaKaN9
-         OqU1zfXMAnOze8CevYg/4bPGlS6GsVCe8NEWniYSResz3d8BMzDRgXfLfkBwVsZwb4Zm
-         gPqQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+RWQWx93X6xY0mM+QfuIGyzS/avXRZWwNlTS7nZHre4RBLfZXRKko8+9QoAv3UtSeLyzCnCtuPlM0zV+jF++FC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHnXWgnPQY2nYzjFRy6n4wXnhHHUHEcHdK/9xngmTUsewEzJB5
-	ooblUHefYs+wKuD4bDxTDsHsF22/Y+DaI7bOjf6SzraUjkUeJD9bZsoMb8ywMQgZUUk=
-X-Gm-Gg: Acq92OFEj112PoWS/UsQzNTv8Xl8Lp4PZ+2apLST5ihsm24hhpK2VxTtpy7uULOKQqc
-	d+jiUJGoOXh1Xq/GBWTgNINcWav9zdg0spFl2KAzBwIwqDQ1d/y6er497ynqUACKc59B1f62ZAb
-	L9SBVCpFiQRfbFZViGBWqs15PfA96Vu4uX5g2xdfbivinOIBV0cs7kukZraw/87I+DrEk5Usoh+
-	vOF7jFHaEgLXmSRucLfCHN3TpsSduAx2GhbnV5XW4ertkoNnJ5DBk2DvBO9I5prV00FFBtQowNF
-	Nrf1o1DH2k6WcCp8gJkQYwXilWms91fqhd7PIqRCakSa2y4fXPttv+klFUcwqOEj6S8WNxDakx8
-	VGC/1EX2M5UwdCI8HZIXC7izxfi1jH0tVOFBAH9MfWg6/G0SHTau5mWVbDqZ+4HO8Lb0iZDa50L
-	FynHn8q0/Nwk0Io91J++MzRRiPHCwhBtJU0tCDdeJYYTD+VMvzvdCrHdMhdBQTSi8xpIwzPNfUE
-	Vu7HZOciHoXYts=
-X-Received: by 2002:a05:600c:34d3:b0:48e:6db3:ff3a with SMTP id 5b1f17b1804b1-48fe63270fdmr286980175e9.16.1779199841653;
-        Tue, 19 May 2026 07:10:41 -0700 (PDT)
-Received: from localhost (p200300f65f47db048a8dfcf61053817f.dip0.t-ipconnect.de. [2003:f6:5f47:db04:8a8d:fcf6:1053:817f])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48feb029180sm162671535e9.4.2026.05.19.07.10.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 07:10:41 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Thorsten Blum <thorsten.blum@linux.dev>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-crypto@vger.kernel.org,
+	Tue, 19 May 2026 14:11:07 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=JdK79mxR/Zvxk8FrbV2rieqvvRtIce3gQ4LpbO4W6F//9UhzFIsLIq5SSgQQjfiqH8URNABOBzy8uDQFvKAXjvhy7ZlvXLyU8YKjm8Rd6CsOtw6zEh2c0tgBoOl6E6DSJpak2GeAAkaF7yEMpyGzToBjzYVUR8RGsDn3HcCPe2E2Zpy5fD8kB0F0IV8NbYhFoon+UctkqXBUIywc8l8CXPRLFYpZQ/aH6AeW3xh6SvXtc02coCWnBJc/d3tUiy77pTQSvdIFWJCqwmDEu59zl5trO6coyeCWhZ2k+XRy1TJp1zRSkKe2nGJ/ejTMMT2BTHQnOt/ViXRgvn40u5vHdg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MVeHNoDWn7iWUy6TuALWxxk4E8VGQG2H5OUTDtMjpHM=;
+ b=xuTz80wEcLnxVW4QijeWH94VtYrUCNyziowzGQoN++dFBSHMThoLcPDq8V/Xcaj7A7mYWNcp6MG8msw1Zb/IgQ3cwxVuHNVT596BqbK4yLDWj3zkBrbgCyqjc+0Ik2TZKDjrRLJbxauPItad09vEFjBM3o6tjxf/dmwtDDMOG/SfwonZ61amV2/IHBLGZ2HWo7KbkDoTX8yIzg0CF5vC2FVveqhScry+HeRi64KxKOltD4Q0rKUgpsD9RhJtlOml/3qbrYuAXOB3p6U22Upd6YW0uOK1Q5UpMx2j/MeM5fg2UKISK/Y96R26RXHwY5Ff9PHenEWW+ttrQvUnimkhNw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.freedesktop.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MVeHNoDWn7iWUy6TuALWxxk4E8VGQG2H5OUTDtMjpHM=;
+ b=mpzR+jZd2yS+YtOAQ7sPPpH/Aw8N5ifmrFJNa3hgbLEybsYtU34oyXXJbCIq2OuirawukqfxDPaXpM3vUPEnY8qpil27fZrn2q0CMBlNADHP0l2+NHwPOPIr9d/3NP7FnIIj0CmeMqSLV1qLj0sqlTwk9c/+hekpxN2biRyXVbw=
+Received: from AS8PR04CA0203.eurprd04.prod.outlook.com (2603:10a6:20b:2f3::28)
+ by DU2PR08MB10016.eurprd08.prod.outlook.com (2603:10a6:10:49e::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 14:10:55 +0000
+Received: from AM3PEPF00009BA0.eurprd04.prod.outlook.com
+ (2603:10a6:20b:2f3:cafe::36) by AS8PR04CA0203.outlook.office365.com
+ (2603:10a6:20b:2f3::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
+ May 2026 14:10:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM3PEPF00009BA0.mail.protection.outlook.com (10.167.16.25) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.11
+ via Frontend Transport; Tue, 19 May 2026 14:10:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZHjj7aZXuuYiqaV6YR7zHoZnaZOjMM+obpbtkfvyHV71x1KTP/bod42b6Y6ZqrDUPceSWXm7NP6wcu9jFsSrRsPy5ZPiFJfdmqQuEKsfZdjfNyixkhBQwWFzDQsutY6o/iVpAmZJVIOwZOIUpZiJdiEbeR/ffQ0s1P3EatcSfc5l71gSxf01wK866I/t+R+kMb34CqLARW2fdyAT89IN3dXZFZCRdcD8PTXdxWYamOy6XqzE1EMgYwwa9fuCDmuS37e5Vlg3mYEUvYtEhWkCo6aZtrJnEuhgqq35lgqo9NrH6V6Qc2bL1UB6t4VRYOnGtzcjE3HCix2chG+0AsBOpQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MVeHNoDWn7iWUy6TuALWxxk4E8VGQG2H5OUTDtMjpHM=;
+ b=PpEibO+YSzXA+gHX0l/Z3cWDBHXIMt4aMHErsSj8I/4F7O57eZ0nuiVwczzVWjHZwbvCJP+4MhpIhfPcLNNl5yIxgOcFeauuVW//it9xeuVedCuPY/Ud7u9SRVfe2ZC91r0Hj3i5qc0HADD+WjpOKSkeg06nRy7GK1wwsz3YOrrt/uA0EgbcYj4XyV7VseGG7QMp/7tNwUiEldM0t17mT27lMtk0zwBLB3FTrIJWDRZeL52S+vD4Rq4smaaikisEfL+CNngMiXAB+mYKYPWKf7+85vrJQl/NIR5AMHw9adJp26CL066+PbUNsSfDXym6jvt5pqnj7Ryyq+2p52XN9w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MVeHNoDWn7iWUy6TuALWxxk4E8VGQG2H5OUTDtMjpHM=;
+ b=mpzR+jZd2yS+YtOAQ7sPPpH/Aw8N5ifmrFJNa3hgbLEybsYtU34oyXXJbCIq2OuirawukqfxDPaXpM3vUPEnY8qpil27fZrn2q0CMBlNADHP0l2+NHwPOPIr9d/3NP7FnIIj0CmeMqSLV1qLj0sqlTwk9c/+hekpxN2biRyXVbw=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
+ (2603:10a6:150:16f::10) by PAWPR08MB10209.eurprd08.prod.outlook.com
+ (2603:10a6:102:365::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Tue, 19 May
+ 2026 14:09:52 +0000
+Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
+ ([fe80::af66:6019:a08:d04]) by GV1PR08MB10455.eurprd08.prod.outlook.com
+ ([fe80::af66:6019:a08:d04%6]) with mapi id 15.21.0048.013; Tue, 19 May 2026
+ 14:09:51 +0000
+From: Bence Csokas <bence.csokas@arm.com>
+To: dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] crypto: Use named initializers for struct i2c_device_id
-Date: Tue, 19 May 2026 16:10:33 +0200
-Message-ID: <20260519141033.1586036-2-u.kleine-koenig@baylibre.com>
-X-Mailer: git-send-email 2.47.3
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2163; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=ElZSFnN/XM5YGAs1Zqnf8SqCzctIA5yODBWQ4Y3lhoU=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqDG9aX5GbUFVaEdcDLwiZcVrqdY0sNsGs+se1b CDirz8BN/CJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCagxvWgAKCRCPgPtYfRL+ TnHEB/sGsKnjrOQJ/f7IYTwCz+SmY4MBiiGushJDD2o4i41S/5LBbxncRtM6MeL1WnlJk29j1Qx smEi0rHK4EZQYLhTYr8vVdsmhkT0z5gR+DKhuG/en59JQgwkvBJYmg827Nxs5AjZks4mm7GqXOZ tlqXT+Q9H5mkHCFPO3JMN9Q1GyHoV7NG2XpAgu5cqy0bdFbBGwQShyutRmU1AR4HKcJYcri0O+M OCN76C6JdlPPA7xLwTqbPuwqwvqj2d0BroGr9VuX6fL4AxZbIu46fZ40Au6Xb/7Y096ePaFP6yi hORAnaXuigGSzvjU9ABYw4Uf8AcdxWpwu683hsNkxgo8EZq4
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+	linux-samsung-soc@vger.kernel.org
+Cc: Bence Csokas <bence.csokas@arm.com>,
+	Daniel Kiss <Daniel.Kiss@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Inki Dae <inki.dae@samsung.com>,
+	Seung-Woo Kim <sw0312.kim@samsung.com>,
+	Kyungmin Park <kyungmin.park@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Zack Rusin <zack.rusin@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Subject: [PATCH resend] drm: uapi: Add macro for chipset specific event ID region
+Date: Tue, 19 May 2026 16:05:48 +0200
+Message-ID: <20260519140548.28853-2-bence.csokas@arm.com>
+X-Mailer: git-send-email 2.54.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: LO4P123CA0429.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18b::20) To GV1PR08MB10455.eurprd08.prod.outlook.com
+ (2603:10a6:150:16f::10)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10455:EE_|PAWPR08MB10209:EE_|AM3PEPF00009BA0:EE_|DU2PR08MB10016:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8d052d74-22fc-4d67-b97e-08deb5b0714b
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|56012099003|11063799006;
+X-Microsoft-Antispam-Message-Info-Original: qgAEJ3H48+RUPReafObFRdlLEefTb+XjCOAgo53lndZkuFEeztzustG/f6utv00eR5ToJO9et1ik5s+CrFUSylgRUojdNyDNNhYbYjDuPlxFn3MHLubL9p0hwpUwshayQNtNxs9kvFNEm9LflIGxq3RK8oj2ELJIxYLM9vAu3WpPFnyMe41zv29UTufCLe6yzj+R4xjH23EU6VkXKS+EXq3o65GzxQUjrfy2pcoG1Oe9/75+hZw7njUuhYffMDm0nFMH1YzkkqwBDAxtAVl+f74FYwVDBgo5JJuMIEPD4cWNVxAYTGeBOz4SsFGpdz+offbhfrIbAv9wDnRYFBuSgIue/Mkj8M1iDXVd4e8duV9QZHRJXdFaeMS9QFEXo/H+h2MCe2DYoQVHIj7aYkApUNXBPtzSuBgBtoQSB4ECs0BSmRL+iZ86qjrvojgWUCbrJmbcQokHeOMZVxImqZiX7JIvCWmZUHzh7Uto5N/LZSPBeoOcOZO7bDsE/H9BWfThM4Mzl9iUwuOFworiFkjfMQm5hdE+8F/rLYEAqgUIeUl7ZvO3nFkHbEVOVk4LR8XBrl+dd7/w3/dOzoTvEkAdCqZtVYY/TJ61ujUBj7d7pAM9d3iGT8W9ZEkb7Wr8jLYG/o+D0hdwgEHjGj1+oW+A7A==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10455.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(56012099003)(11063799006);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: B3rm3+dYcTb7Sr1D9CcDuOuIuwlcFRbRLYb/5YQxdYVtPlwQ3K4N5TrWdoLW+088lwYfGDl9abFqHkkPDxbe1zz4/sIzT0CZv9LdbKRzgRX4em7VyvgIRVo6xfM9LlBP4OD/uBXEOcUtqRNjnXzlaOl0JGrRwC1JNFSgnbFv5RA0pHsEsS+TQuuHXm7XmOh63eDfTMo2vkaekDOoNfc5E2TfbZTpkVPtC4jRpCEvZUnKIplBvr4r+flUOFL3R+kv+KtjutLW66P7UXifQkmbkM5ndtkLljQP/pYFIWiMBgcAuOmUtjTPRpVsNyADLCmJT/pwdBwKqruy4t1FWwWnNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10209
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009BA0.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 0deef6e9-25e3-4ec8-3707-08deb5b04b52
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|1800799024|36860700016|82310400026|35042699022|7416014|376014|18002099003|56012099003|11063799006|13003099007;
+X-Microsoft-Antispam-Message-Info: Wcw3uWByz4ogflU3tLofQ0ImXot6OQHHy19kFzqyGcY/pH7bpeQXH3VvqR1NDcGUWkA4DiY4CE8U8AhBCQcT3fTmO5IkmWs6rczenHamEzloC+Mi2jSQ2MkOzj5a2XeKsetD3WzhkFpdPLJy9E2YQQGw121IlnKZNib4wMMScbmbEAKJbCnTYOoiNMHqzgaGgIVl+8ji5tOfTDtPUz7HReAsWvKOt89kIUKfY9XSJ1BOyg6fcD/dMDOXW2x3TDeurhzKZ1QHwBCWRMsRahTq3h+UEyCnDJbQuaOBeU+5wNKvh4HCkM37V9GgCmvwJbEbHt8oazSGoSJbKhbVQ5WDZVLpqsKYk2zsP9u1deg3MVc+bOfp1a8/mVeWS+YK6iqgTUHZohuW2RHC2GTHoGiwrv1EyK+QVepQhb5KEO4HpWHU6wggqDNz3DHOfERsuGoD5vb2iViZbfJto04JN8IIoIUm0UULKzU5hWiVaGSjDMOPIRyTYA8ytl1q2bRMkL1PffYjtJEYoGQbRiwGuJRz2cAwMhUVRPN4oZ9A3iHqAosR1US+4Rh0CJ1jEAuFQksF3abrSz++tqn9yGrNXAkDBgUiVKIUJra8NgjL41fPdXEJC0UjwaH1cjLrkS3sPv0A6DXsDLO3Q7IVx/O9krNtk6X7QPtiild0TK3A86FdKCAAAwEF6nDeNNujr4U9z88D
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(1800799024)(36860700016)(82310400026)(35042699022)(7416014)(376014)(18002099003)(56012099003)(11063799006)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: bAeWsYVvkBUpKs4uY+pQ/CLuH+t0N0zXNwszdLkfqDxJHhnvKhwHj9/ANhwLAwLECWRsnR8Qu0C5KaKMDfoQxt9NS6oUb7bzIjN5Uje9UjMvXEaKvsBYrg4e2gMS6UntRBxQ/Zk3sb4JZO3Bg8kMO8xQ97/cNHqwuNm14H/Uq6zShFOrPOuuUnrvqKCKHQBohBI9Pf9ZN3lTbwkK+8dKwOlzghNJJkQ+2fGQK8mr6uNb0TRThuvkr6YcQXSVz2OqF0Dq+ANRYRFHnlm61lmiyw/kn8CzKwRzbk2nDgm1ZNgIRjceL04l7UFUQBc1rs5I5TxPRARmZspI3xRyyEktUAY4GgUIv+QExSopUvWgNqNWhjQmm9jah8hGp2XtPlFxG/qlX47/vd+7+N5UbolXQRJJ3iiY6KU1DMbnWDna98hwht/mU+tCiDGFWK+DKXfu
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 14:10:55.1925
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8d052d74-22fc-4d67-b97e-08deb5b0714b
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009BA0.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR08MB10016
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_071043_593261_0C697DB2 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260519_071105_658551_C7DD862F 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,67 +165,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While being less compact, using named initializers allows to more easily
-see which members of the structs are assigned which value without having
-to lookup the declaration of the struct. And it's also more robust
-against changes to the struct definition.
+uapi/drm/drm.h states:
 
-This patch doesn't modify the compiled arrays, only their representation
-in source form benefits. The former was confirmed with x86 and arm64
-builds.
+    Event types 0 - 0x7fffffff are generic DRM events, 0x80000000 and
+    up are chipset specific.
 
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+However, this distinction was not put in the code. To elevate the contract
+between the generic DRM framework and the driver from the comment to code,
+put this in a macro for clarity and convenience.
+
+Cc: Daniel Kiss <Daniel.Kiss@arm.com>
+Signed-off-by: Bence Csokas <bence.csokas@arm.com>
 ---
-Hello,
+Link to v1:
+https://lore.kernel.org/lkml/20260408163608.361826-2-bence.csokas@arm.com
 
-this patch is part of a bigger quest to use named initializers for
-mainly struct i2c_device_id::driver_data to be able to modify
-i2c_device_id. See e.g.
-https://lore.kernel.org/all/20260518111203.639603-2-u.kleine-koenig@baylibre.com/
-for the details.
+ include/uapi/drm/drm.h         | 8 ++++++++
+ include/uapi/drm/exynos_drm.h  | 4 ++--
+ include/uapi/drm/virtgpu_drm.h | 2 +-
+ include/uapi/drm/vmwgfx_drm.h  | 2 +-
+ 4 files changed, 12 insertions(+), 4 deletions(-)
 
-This patch here isn't critical for this quest, as no driver makes use of
-.driver_data, so apart from the better readability this is only about
-consistency with other subsystems.
-
-Best regards
-Uwe
-
- drivers/crypto/atmel-ecc.c     | 2 +-
- drivers/crypto/atmel-sha204a.c | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 9c380351d2f9..56350454ac29 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -380,7 +380,7 @@ MODULE_DEVICE_TABLE(of, atmel_ecc_dt_ids);
- #endif
+diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
+index 27cc159c1d27..aa745e643ef4 100644
+--- a/include/uapi/drm/drm.h
++++ b/include/uapi/drm/drm.h
+@@ -1419,6 +1419,14 @@ struct drm_event {
+  * The event payload is a struct drm_event_crtc_sequence.
+  */
+ #define DRM_EVENT_CRTC_SEQUENCE	0x03
++/**
++ * DRM_EVENT_VENDOR_SPECIFIC - vendor/chipset specific event
++ *
++ * These event IDs are reserved for chipset and driver specific events.
++ *
++ * Refer to the chipset driver's header for details and payload struct.
++ */
++#define DRM_EVENT_VENDOR_SPECIFIC(_v) ((_v) | 0x80000000)
  
- static const struct i2c_device_id atmel_ecc_id[] = {
--	{ "atecc508a" },
-+	{ .name = "atecc508a" },
- 	{ }
- };
- MODULE_DEVICE_TABLE(i2c, atmel_ecc_id);
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index dbb39ed0cea1..0fcb4692494f 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -210,8 +210,8 @@ static const struct of_device_id atmel_sha204a_dt_ids[] __maybe_unused = {
- MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
+ struct drm_event_vblank {
+ 	struct drm_event base;
+diff --git a/include/uapi/drm/exynos_drm.h b/include/uapi/drm/exynos_drm.h
+index a51aa1c618c1..8d3156fb129c 100644
+--- a/include/uapi/drm/exynos_drm.h
++++ b/include/uapi/drm/exynos_drm.h
+@@ -395,8 +395,8 @@ struct drm_exynos_ioctl_ipp_commit {
+ 		DRM_EXYNOS_IPP_COMMIT, struct drm_exynos_ioctl_ipp_commit)
  
- static const struct i2c_device_id atmel_sha204a_id[] = {
--	{ "atsha204" },
--	{ "atsha204a" },
-+	{ .name = "atsha204" },
-+	{ .name = "atsha204a" },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
+ /* Exynos specific events */
+-#define DRM_EXYNOS_G2D_EVENT		0x80000000
+-#define DRM_EXYNOS_IPP_EVENT		0x80000002
++#define DRM_EXYNOS_G2D_EVENT		DRM_EVENT_VENDOR_SPECIFIC(0x0)
++#define DRM_EXYNOS_IPP_EVENT		DRM_EVENT_VENDOR_SPECIFIC(0x2)
+ 
+ struct drm_exynos_g2d_event {
+ 	struct drm_event	base;
+diff --git a/include/uapi/drm/virtgpu_drm.h b/include/uapi/drm/virtgpu_drm.h
+index 9debb320c34b..03e8a0c7f778 100644
+--- a/include/uapi/drm/virtgpu_drm.h
++++ b/include/uapi/drm/virtgpu_drm.h
+@@ -224,7 +224,7 @@ struct drm_virtgpu_context_init {
+  * effect.  The event size is sizeof(drm_event), since there is no additional
+  * payload.
+  */
+-#define VIRTGPU_EVENT_FENCE_SIGNALED 0x90000000
++#define VIRTGPU_EVENT_FENCE_SIGNALED DRM_EVENT_VENDOR_SPECIFIC(0x10000000)
+ 
+ #define DRM_IOCTL_VIRTGPU_MAP \
+ 	DRM_IOWR(DRM_COMMAND_BASE + DRM_VIRTGPU_MAP, struct drm_virtgpu_map)
+diff --git a/include/uapi/drm/vmwgfx_drm.h b/include/uapi/drm/vmwgfx_drm.h
+index 7d786a0cc835..5e5878384e60 100644
+--- a/include/uapi/drm/vmwgfx_drm.h
++++ b/include/uapi/drm/vmwgfx_drm.h
+@@ -715,7 +715,7 @@ struct drm_vmw_fence_arg {
+ /*
+  * The event type
+  */
+-#define DRM_VMW_EVENT_FENCE_SIGNALED 0x80000000
++#define DRM_VMW_EVENT_FENCE_SIGNALED DRM_EVENT_VENDOR_SPECIFIC(0x0)
+ 
+ struct drm_vmw_event_fence {
+ 	struct drm_event base;
 
-base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+base-commit: ab5fce87a778cb780a05984a2ca448f2b41aafbf
 -- 
-2.47.3
+2.54.0
 
 
