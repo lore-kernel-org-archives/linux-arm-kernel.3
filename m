@@ -4,68 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C9A8CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0843CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qXHsvjCQrWr3rqwFY5ZXhorh2fke7yZbuXuZictrkbY=; b=N9z7pYk5pyQUX7IAqPsSj/YGs7
-	5HhcN0zbK5kysc7gDfG/s9eIIi+XDhfmEmR2kw3VI/V9H9P3yqP2jPOjCvGZikYlB7JAPAf4A+CYB
-	YUzocm627jb4iMcsnic5cuPg84GDtrqsWARJHeJi4e4mvL3YIW85FkWf4CHKcxHrozPIHiBnZ3Cg3
-	o1DT7OtyrVHEpYLa0zFbtnDvzfN3gLgydZRyaTLYt2ntFNg7vyGue2pCZNbn5bb4jI4cAdcg+iSHa
-	mxOyoOBLsvzoRiEsDlHbruWWkq6qBmkN8+2RF1dmp1oEP+iXVkHzsa8xhnXAWrgFalxAQg2J5VJyf
-	CZcmZsRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lBHr+kluibzm8hBYk0cPesvKOKW0w5/7SfrYTTRUpoQ=; b=ofvg+/fBkQhurpGH1mZkZvYRXG
+	vVGpg1IgHcS+xvNUUiNYxKbClrYDMwQ6mdTo1sb3NqzUyUMmW8fG7Er7eRm3YXHVZwDEG6JA9B2F4
+	RsKfzBA64R53xgg7Gzw8Lpardz3+6FwxKp1VnbG9/e2JspXLasH92R9CN2sutWvGEo5YqxR6Cl7u7
+	1DMcBvlnJIzF/nTgubSXBnzOop9LgmIkFVDmgIHnq+6s44iKFE9Gz9EANlzDqm+AZoqGkn1WccCCN
+	IEBft8+7jiTXA+E2B8JIqvFadbl9uQBxWJQdvLmQAF1ymyKbPhATC/tk+pskx4yCf1/Wbr63ZRzVm
+	lsPCfdTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHLv-000000012TW-2Yng;
-	Tue, 19 May 2026 10:07:07 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wPHRD-00000001377-0yK5;
+	Tue, 19 May 2026 10:12:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHLs-000000012SU-2ulN;
-	Tue, 19 May 2026 10:07:06 +0000
-Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CF889296;
-	Tue, 19 May 2026 12:06:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1779185209;
-	bh=L5Slw9bkugmP424w3w1mHtahMW7LPmAk115Dd26N87s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i8vcf2PVYU0o28ZfJUaiUQPQ+mVn2Cn1EspcxVFTzDddWl6CN+fN0gpWseLQPC5TQ
-	 sCqJhQIuNV1sa7GDbwNEmgM4Wwx5rCV//PWl0C+E433U06Vr0XTEDX9qmEfzVVlbXB
-	 KWY++GWhR7x6HLG2D4hMnGiLYsx6fzfLedJQl4vs=
-Date: Tue, 19 May 2026 12:07:00 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Saravanan Sekar <sravanhome@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Woodrow Douglass <wdouglass@carnegierobotics.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Icenowy Zheng <icenowy@aosc.io>, linux-kernel@vger.kernel.org,
+	id 1wPHRC-0000000136t-2Kkb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 19 May 2026 10:12:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=lBHr+kluibzm8hBYk0cPesvKOKW0w5/7SfrYTTRUpoQ=; b=YV8MhUdxuCbcMDVVfQH3+ko5wX
+	nw7VQ1Dn7WttXF1dMX71PRxCMfdr6YViqnbxP/yGEiLjY6VF5yk9+4hphocpQlvjf2zkfTZEIu0Vb
+	JDn+vvO6pRey2JA0mWVu3dgCJOkPsa6X/Vldz/Nzcj+FUXMP4TRLe3MnILLXiGhbKVleTGzjTR3sL
+	nqXC4dtzd4rKEVntQQ7Qt0Fur9g30iACw5zJDa4VEFkq5ThomEhZMrNmItDYf0k4C20OvRCiMiGSz
+	BTsnLdsDVyM/M3AwRvyJTKmFwPu1Uj/gv+Os2+pTKgWT2lYIzeek7tA04YweLFG2sqduhtxl/GBkS
+	75W2Dnsg==;
+Received: from esa5.hc1455-7.c3s2.iphmx.com ([68.232.139.130])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPHR7-0000000DpF2-47Ae
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 10:12:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1779185550; x=1810721550;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=XbXV/u59QlTB1yroWERolTZUVyTmPxGfLT6lIIG12OI=;
+  b=J8UkN1evFehB3+KoIXllgXhiqWpTBhNYZMk+xZ5Ix+4ZJVB2S0LlznLx
+   TOXO4YqgVnHJ96U28jhlIj79wBT4AluqNr3IBTX5LkPO21bzbQNk9SGvj
+   gTmrIEIWVbpX29bYSPBEeiiOFbol5iUMX+N+G4i24rHbfL5C2PZWJFWpp
+   WquLD+Qwu9MtO8tK3qgelu8O1s5MqEV3idtpKp0IxNl6EYBlPHEw+wtqo
+   IQimWpo/nAdb+AhhUgO9Vq4ptlO4nlc3VADZKnyUmDc++yFToWkaKh1I0
+   KWIAmqnjyAe7s+D0pxBeQeZ8z+S9/SudkF1MdwiJ7i1rodv4HDtJqF+sT
+   A==;
+X-CSE-ConnectionGUID: LAcAOFhnSDWeG8V3Yq9Oeg==
+X-CSE-MsgGUID: pmNI5Jd5Q+OxwcbL5QlzNw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11790"; a="239225928"
+X-IronPort-AV: E=Sophos;i="6.23,243,1770562800"; 
+   d="scan'208";a="239225928"
+Received: from gmgwnl01.global.fujitsu.com ([52.143.17.124])
+  by esa5.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 May 2026 19:12:25 +0900
+Received: from az2nlsmgm1.o.css.fujitsu.com (unknown [10.150.26.203])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by gmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 5200A100036F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 10:12:25 +0000 (UTC)
+Received: from az2nlsmom1.o.css.fujitsu.com (az2nlsmom1.o.css.fujitsu.com [10.150.26.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm1.o.css.fujitsu.com (Postfix) with ESMTPS id 0795DC03841
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 10:12:25 +0000 (UTC)
+Received: from sm-x86-amd03.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by az2nlsmom1.o.css.fujitsu.com (Postfix) with ESMTP id E62508300B2;
+	Tue, 19 May 2026 10:12:20 +0000 (UTC)
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Sami Mujawar <sami.mujawar@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] regulator: Use named initializers for arrays of
- i2c_device_data
-Message-ID: <20260519100700.GC45952@killaraus.ideasonboard.com>
-References: <cover.1779184320.git.u.kleine-koenig@baylibre.com>
- <9a8bfc7286221873ef02eeba0727eeaeb9e504e8.1779184320.git.u.kleine-koenig@baylibre.com>
+	linux-kernel@vger.kernel.org,
+	Kohei Enju <enju.kohei@fujitsu.com>
+Subject: [PATCH v2] virt: arm-cca-guest: use raw variant of smp_processor_id() in arm_cca_report_new()
+Date: Tue, 19 May 2026 19:12:08 +0900
+Message-ID: <20260519101217.155740-1-enju.kohei@fujitsu.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9a8bfc7286221873ef02eeba0727eeaeb9e504e8.1779184320.git.u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_030704_874699_7F0F7BBD 
-X-CRM114-Status: GOOD (  21.38  )
+X-CRM114-CacheID: sfid-20260519_111231_003559_EE7425C8 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,136 +110,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 11:57:51AM +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> While being less compact, using named initializers allows to more easily
-> see which members of the structs are assigned which value without having
-> to lookup the declaration of the struct. And it's also more robust
-> against changes to the struct definition.
-> 
-> The mentioned robustness is relevant for a planned change to struct
-> i2c_device_id that replaces .driver_data by an anonymous union.
-> 
-> While touching all these arrays, unify usage of whitespace and commas.
-> 
-> This patch doesn't modify the compiled arrays, only their representation
-> in source form benefits. The former was confirmed with x86 and arm64
-> builds.
-> 
-> Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
-> ---
->  drivers/regulator/88pg86x.c            |  4 +--
->  drivers/regulator/ad5398.c             |  4 +--
->  drivers/regulator/da9121-regulator.c   | 20 +++++++--------
->  drivers/regulator/da9210-regulator.c   |  4 +--
->  drivers/regulator/da9211-regulator.c   | 18 +++++++-------
->  drivers/regulator/fan53880.c           |  4 +--
->  drivers/regulator/isl9305.c            |  4 +--
->  drivers/regulator/lp3971.c             |  2 +-
->  drivers/regulator/lp3972.c             |  2 +-
->  drivers/regulator/lp872x.c             | 34 +++++++++++++-------------
->  drivers/regulator/lp8755.c             |  4 +--
->  drivers/regulator/ltc3589.c            |  6 ++---
->  drivers/regulator/ltc3676.c            |  2 +-
->  drivers/regulator/max1586.c            |  2 +-
->  drivers/regulator/max20086-regulator.c |  8 +++---
->  drivers/regulator/max20411-regulator.c |  2 +-
->  drivers/regulator/max77503-regulator.c |  2 +-
->  drivers/regulator/max77675-regulator.c |  2 +-
->  drivers/regulator/max77826-regulator.c |  2 +-
->  drivers/regulator/max77838-regulator.c |  2 +-
->  drivers/regulator/max77857-regulator.c |  8 +++---
->  drivers/regulator/max8649.c            |  2 +-
->  drivers/regulator/max8893.c            |  2 +-
->  drivers/regulator/max8952.c            |  2 +-
->  drivers/regulator/mcp16502.c           |  2 +-
->  drivers/regulator/mp5416.c             |  6 ++---
->  drivers/regulator/mp8859.c             |  4 +--
->  drivers/regulator/mp886x.c             |  6 ++---
->  drivers/regulator/mpq7920.c            |  4 +--
->  drivers/regulator/mt6311-regulator.c   |  4 +--
->  drivers/regulator/pf530x-regulator.c   |  6 ++---
->  drivers/regulator/pf8x00-regulator.c   |  8 +++---
->  drivers/regulator/pv88060-regulator.c  |  4 +--
->  drivers/regulator/pv88080-regulator.c  |  8 +++---
->  drivers/regulator/pv88090-regulator.c  |  4 +--
->  drivers/regulator/slg51000-regulator.c |  4 +--
->  drivers/regulator/sy8106a-regulator.c  |  2 +-
->  drivers/regulator/sy8824x.c            |  8 +++---
->  drivers/regulator/sy8827n.c            |  4 +--
->  drivers/regulator/tps6286x-regulator.c | 10 ++++----
->  drivers/regulator/tps6287x-regulator.c | 10 ++++----
->  41 files changed, 118 insertions(+), 118 deletions(-)
+With CONFIG_DEBUG_PREEMPT=y, smp_processor_id() becomes an alias of
+debug_smp_processor_id(). This debug function complains when certain
+conditions that ensure CPU ID stability are not met, specifically when
+it's called from a preemptible context.
 
-[snip]
+In arm_cca_report_new(), which runs in a preemptible context,
+smp_processor_id() triggers a splat [0] due to this.
 
-> diff --git a/drivers/regulator/lp872x.c b/drivers/regulator/lp872x.c
-> index 942f37082cb1..779df653338a 100644
-> --- a/drivers/regulator/lp872x.c
-> +++ b/drivers/regulator/lp872x.c
-> @@ -796,24 +796,24 @@ static const struct regmap_config lp872x_regmap_config = {
->  #define LP872X_VALID_OPMODE	(REGULATOR_MODE_FAST | REGULATOR_MODE_NORMAL)
->  
->  static struct of_regulator_match lp8720_matches[] = {
+However, the CPU ID obtained here is used as the target CPU for
+smp_call_function_single() to designate a specific CPU for subsequent
+operations, not to assert that the current thread will continue to
+execute on the same CPU. Therefore, snapshotting the CPU ID itself is
+correct, and thus there's no actual harm except for the splat.
 
-This is unrelated to the commit message that only mentions
-i2c_device_id.
+Use raw_smp_processor_id() instead, to directly retrieve the current CPU
+ID without the debug checks, avoiding the unnecessary warning message
+while preserving the correct functional behavior.
 
-With this chunk dropped,
+Note that while migrate_disable() would pin the task to the current CPU,
+this path should not block CPU hotplug events. Therefore, we snapshot
+the current CPU ID and accept that smp_call_function_single() may fail
+if the CPU goes offline.
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+[0]
+ BUG: using smp_processor_id() in preemptible [00000000] code: cca-workload-at/134
+ caller is debug_smp_processor_id+0x20/0x2c
+ CPU: 0 UID: 0 PID: 134 Comm: cca-workload-at Not tainted 7.0.0-rc1-gc74a64d12073 #1 PREEMPT
+ Hardware name: linux,dummy-virt (DT)
+ Call trace:
+  [...]
+  check_preemption_disabled+0xf8/0x100
+  debug_smp_processor_id+0x20/0x2c
+  arm_cca_report_new+0x54/0x230
+  tsm_report_read+0x184/0x260
+  tsm_report_outblob_read+0x18/0x38
+  configfs_bin_read_iter+0xf4/0x1dc
+  vfs_read+0x230/0x31c
+  [...]
 
-> -	{ .name = "ldo1", .driver_data = (void *)LP8720_ID_LDO1, },
-> -	{ .name = "ldo2", .driver_data = (void *)LP8720_ID_LDO2, },
-> -	{ .name = "ldo3", .driver_data = (void *)LP8720_ID_LDO3, },
-> -	{ .name = "ldo4", .driver_data = (void *)LP8720_ID_LDO4, },
-> -	{ .name = "ldo5", .driver_data = (void *)LP8720_ID_LDO5, },
-> -	{ .name = "buck", .driver_data = (void *)LP8720_ID_BUCK, },
-> +	{ .name = "ldo1", .driver_data = (void *)LP8720_ID_LDO1 },
-> +	{ .name = "ldo2", .driver_data = (void *)LP8720_ID_LDO2 },
-> +	{ .name = "ldo3", .driver_data = (void *)LP8720_ID_LDO3 },
-> +	{ .name = "ldo4", .driver_data = (void *)LP8720_ID_LDO4 },
-> +	{ .name = "ldo5", .driver_data = (void *)LP8720_ID_LDO5 },
-> +	{ .name = "buck", .driver_data = (void *)LP8720_ID_BUCK },
->  };
->  
->  static struct of_regulator_match lp8725_matches[] = {
-> -	{ .name = "ldo1", .driver_data = (void *)LP8725_ID_LDO1, },
-> -	{ .name = "ldo2", .driver_data = (void *)LP8725_ID_LDO2, },
-> -	{ .name = "ldo3", .driver_data = (void *)LP8725_ID_LDO3, },
-> -	{ .name = "ldo4", .driver_data = (void *)LP8725_ID_LDO4, },
-> -	{ .name = "ldo5", .driver_data = (void *)LP8725_ID_LDO5, },
-> -	{ .name = "lilo1", .driver_data = (void *)LP8725_ID_LILO1, },
-> -	{ .name = "lilo2", .driver_data = (void *)LP8725_ID_LILO2, },
-> -	{ .name = "buck1", .driver_data = (void *)LP8725_ID_BUCK1, },
-> -	{ .name = "buck2", .driver_data = (void *)LP8725_ID_BUCK2, },
-> +	{ .name = "ldo1", .driver_data = (void *)LP8725_ID_LDO1 },
-> +	{ .name = "ldo2", .driver_data = (void *)LP8725_ID_LDO2 },
-> +	{ .name = "ldo3", .driver_data = (void *)LP8725_ID_LDO3 },
-> +	{ .name = "ldo4", .driver_data = (void *)LP8725_ID_LDO4 },
-> +	{ .name = "ldo5", .driver_data = (void *)LP8725_ID_LDO5 },
-> +	{ .name = "lilo1", .driver_data = (void *)LP8725_ID_LILO1 },
-> +	{ .name = "lilo2", .driver_data = (void *)LP8725_ID_LILO2 },
-> +	{ .name = "buck1", .driver_data = (void *)LP8725_ID_BUCK1 },
-> +	{ .name = "buck2", .driver_data = (void *)LP8725_ID_BUCK2 },
->  };
->  
->  static struct lp872x_platform_data
-> @@ -935,8 +935,8 @@ static const struct of_device_id lp872x_dt_ids[] __maybe_unused = {
->  MODULE_DEVICE_TABLE(of, lp872x_dt_ids);
->  
->  static const struct i2c_device_id lp872x_ids[] = {
-> -	{"lp8720", LP8720},
-> -	{"lp8725", LP8725},
-> +	{ .name = "lp8720", .driver_data = LP8720 },
-> +	{ .name = "lp8725", .driver_data = LP8725 },
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(i2c, lp872x_ids);
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Fixes: 7999edc484ca ("virt: arm-cca-guest: TSM_REPORT support for realms")
+Signed-off-by: Kohei Enju <enju.kohei@fujitsu.com>
+---
+ drivers/virt/coco/arm-cca-guest/arm-cca-guest.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-[snip]
-
+diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+index 0c9ea24a200c..b463bf35bf30 100644
+--- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
++++ b/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+@@ -107,8 +107,15 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
+ 	 * instead of simply calling get_cpu() because of the need to
+ 	 * allocate outblob based on the returned value from the 'init'
+ 	 * call and that cannot be done in an atomic context.
++	 *
++	 * While migrate_disable() would pin the task to the current CPU,
++	 * this path should not block CPU hotplug events. Therefore, we
++	 * snapshot the current CPU ID and accept that
++	 * smp_call_function_single() may fail if the CPU goes offline.
++	 * Any resulting error is propagated to user-space, which is
++	 * expected to handle it.
+ 	 */
+-	cpu = smp_processor_id();
++	cpu = raw_smp_processor_id();
+ 
+ 	info.challenge = desc->inblob;
+ 	info.challenge_size = desc->inblob_len;
 -- 
-Regards,
+2.47.3
 
-Laurent Pinchart
 
