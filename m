@@ -4,67 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413AACD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326D2CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O6bJZDYJT83Yengys4nY8WqNTTAiIaKBsz2clDdAmEE=; b=W+KATonT2hff5dU0yIo+XK9vLP
-	ruQgxSKQl19Dng59x3OjK77Jf4sCGi/s8d53F2WIxiLLLTomJ4xmtAXUoZvJ9CrvGy9I18RQpK2bI
-	Oap9jzLazoT7IX21MjlmgEYjoDySxRnMrm/bTGl0s+kBgHmNEeqXYAG8q/vg5HnTIyON6b8oIo82L
-	ZBywSVdXTO2Yi1PKOgvJ8UP9lmYVEDV6hLvVI+4URd0ve7K0FgIn7WSOBNczXLB52kuPF6L29CzRv
-	Ui3Ncb/1hMKNVgccKuSqE0JckIAtZXiC+Q0AMsamIdczPNmtI37WrpLAq7vo9L97mKVpr59YkRO69
-	DVlPG0EQ==;
+	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eJ+COE47TCHOzRJeglSqxOxxNZ8lIMv/9xSnCNeoVAA=; b=FRtfkPimsU2uSxPq6w4G88r6uS
+	1H5xmCmyv2aRtzJXV9eIKftvnQrrQRMviAyxVn4ZsqGe2/rPxiYx+327jB/yRF389CwbhX1JQxWl/
+	ALSjbp2ckRTo6Z2uWLsQm5z3b/kv2lNJOMnuzPA4kO72AzNRivkEE0tX46DzoAZjUqqI2PLwxH2+W
+	3alc/rX0lBLyM6z2oRhGJvAtuxK6oj52RWwZR00OjzjFDttECsIeEm/9Dk8yM5Xh/Kt6IARFdWEI7
+	JKc766h+MObkrVC2xRv0DXQcbFXkcqId6rgA0BPylNecWQswLo57frYgQ/JlMdvpJuLyjJO7QRHDX
+	QfgP7zhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPE62-00000000Mvt-1Agh;
-	Tue, 19 May 2026 06:38:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPECC-00000000NyK-18Se;
+	Tue, 19 May 2026 06:44:52 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPE60-00000000MvP-2oYk;
-	Tue, 19 May 2026 06:38:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 21A3460052;
-	Tue, 19 May 2026 06:38:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2782BC2BCB3;
-	Tue, 19 May 2026 06:38:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779172707;
-	bh=cjYVbPJQCGhm17FuSh8gv8edfxPU3cXLLZYrNXSnF3o=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=YL27wRlQWuRGTjLPbFmIwp65kOtw/48RGsAWfmBZzvFHgtx9fGauj2FzjYQEv4Lc9
-	 T1vK6/kpRGSyvmYiL1h8RzPxBTPaofkURJrt/wi9Z+kxZ8uo/f8Db8qpsqmeK66NVW
-	 FuBsRENvddT7ULqmvMWCWpVpLDCRUT/1RefPk4CfJw89JPoD7qtOSqxRx02xu/YfjF
-	 NyC2lHHO9qxm01QZb20IkIT1H+Qi/RPpwRcKM8oKOAzGlW9s1mHDId/dz3DK5FdxIT
-	 CPkkPSsq08y8HBc1IInhFG+4u2y6VqgxoL1Aw0Yt0Q+Viq/iW1Ha/rfv7c9aGjMfNc
-	 ZJhG1edm+zKZA==
-Message-ID: <0133e67b-0c85-4805-87a6-7fe30f9856f2@kernel.org>
-Date: Tue, 19 May 2026 08:38:23 +0200
+	id 1wPEC9-00000000NxQ-0JcC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 06:44:50 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-44e5624c053so1816737f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:44:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1779173086; x=1779777886; darn=lists.infradead.org;
+        h=content-transfer-encoding:autocrypt:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=eJ+COE47TCHOzRJeglSqxOxxNZ8lIMv/9xSnCNeoVAA=;
+        b=LpoIc/QZEoP+dkiH4TgnUwUAttPTzDamMCRYncfpaYEWH48HGEDgMAghO5Ra1A6ref
+         Tbj9x5iEke9LgrT75vK7tWSUMUYJK5zFwD8Jdas08mE7wkgJR77kLk2yjCCa2N8enKc5
+         2tfKxOO+m8aMFjEyjeyhRAaMBtpmZTaab7UUNbm8JJsQzCniN3fsOJPTcLP0g1Xr3uJ+
+         /wwrQ2ZckWgfqmoB2vElPuPLV2AIR+foOfDYj6uFI7K+8ohq4D+yD9lXAHNG52DPkmUP
+         ri+mFSDLlrmpGEs+XO2MTFyIyeLfo+/V7H/ThBRo6PHs5k5Cy0aE5mv22fvUp+x0aT0e
+         /sag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779173086; x=1779777886;
+        h=content-transfer-encoding:autocrypt:subject:from:cc:to
+         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=eJ+COE47TCHOzRJeglSqxOxxNZ8lIMv/9xSnCNeoVAA=;
+        b=DxsGwv5vkWn9ajfgnuNnnJ+rmdCGiWAQKswNMBS2NJHQhNeV/isYlOb9f/rqrOhLjR
+         gW+XIRXRSsG9Cl46LgFDQVgFhHIuoOX+rs94jeYYVPslYQ/OTJHwryVqlBRNO1SuzkRP
+         Xanl40FOf0JhWOrKll0sSB5/8+O5auis5fegmhyCtc1QxkJ7X7bQbrJRVuL+GTRlVgKh
+         FZkr9NM4soGJhzq3W+sWaXeuKZyzPDIlYf5/0h70mHP0YLM34EZ0jGtBHBXOnGaSP4I2
+         ZTi7sJE4uFLWU7Hw1l9UBb3kl7vJGxqDRjj72vDMJJofnqQAXVYGsFt/nbs1sEko0Y8d
+         /UMQ==
+X-Gm-Message-State: AOJu0Yy3lIBykmfVHFQl7Zu9UR0RYXTOK/P9Gm7cjJ8uEKXwPOUA47vb
+	5uv8HEduCFmYtukR4uPm4mA9OzaeGiaop8qvglZ3tlYPUu2lZ3Vm6jV76xu9UWZ5Z3UChDzyxXB
+	abLI=
+X-Gm-Gg: Acq92OFBKyUSqGrq9GsTS3G28cjl2lDPc+WwqJe37YpAvTbLLw0UTyXkgW6zmuYy7Ra
+	hpsbbO/xhAG/jt56/FHyeZohGMH/byxM9btpHED/+TD1rDnNi+YwKyQDgeAYJuVp1Ds45tv6pIj
+	CoKt13LEUsBJXiVALcBKoBuTHYz8rEQ+IeRabDEtd5EfiqDorfKSnUHFQVv31XytVoQMYQUNRnD
+	ZN+4+YbN5LHcXjoOZdF9ks6uaPGkLGLrAOCsALsIPEHBLtiaQ+fwHKCEILYXwGifId0wL0jIsCe
+	y5yXw2aD9OoHW9CMoSSvXX/llH4IDgdHTJEOfCk0EYMvX5rsGnm12CBOoiqbdH97DI/TwY8XTzm
+	ZZJ/nPC1IjXXfq0agirfC9JrkrZdjazL3pDpGDFDqFmK0CruJDUfpaDAonwOMRoTdchutoocTDG
+	wK1gUq2DJb4SYNKB16uXQkNGhsJvJzPH3mIK7/ljpkVUZfl6ZmZ35/agqQ2ePLWqE4rz6u9ezBQ
+	WS/My0Mm3Xh5y0=
+X-Received: by 2002:a5d:5850:0:b0:44a:a729:9f51 with SMTP id ffacd0b85a97d-45e5c58fb1dmr27522030f8f.3.1779173086560;
+        Mon, 18 May 2026 23:44:46 -0700 (PDT)
+Received: from [10.156.60.236] (ip-037-024-206-209.um08.pools.vodafone-ip.de. [37.24.206.209])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe13a7sm45046613f8f.29.2026.05.18.23.44.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 May 2026 23:44:45 -0700 (PDT)
+Message-ID: <58a1862e-3702-4ba9-965b-2eb248c05c60@suse.com>
+Date: Tue, 19 May 2026 08:44:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH 06/13] drm/meson: encoder_hdmi: Use bridge connector CEC
- notifier
-To: Jonas Karlman <jonas@kwiboo.se>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Heiko Stuebner <heiko@sntech.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20260518194744.2483580-1-jonas@kwiboo.se>
- <20260518194744.2483580-7-jonas@kwiboo.se>
-Content-Language: en-US, nl
-In-Reply-To: <20260518194744.2483580-7-jonas@kwiboo.se>
+Content-Language: en-US
+To: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>
+Cc: Russell King <linux@armlinux.org.uk>
+From: Jan Beulich <jbeulich@suse.com>
+Subject: Arm32: correct string.h functions for "int" -> "unsigned char"
+ conversion
+Autocrypt: addr=jbeulich@suse.com; keydata=
+ xsDiBFk3nEQRBADAEaSw6zC/EJkiwGPXbWtPxl2xCdSoeepS07jW8UgcHNurfHvUzogEq5xk
+ hu507c3BarVjyWCJOylMNR98Yd8VqD9UfmX0Hb8/BrA+Hl6/DB/eqGptrf4BSRwcZQM32aZK
+ 7Pj2XbGWIUrZrd70x1eAP9QE3P79Y2oLrsCgbZJfEwCgvz9JjGmQqQkRiTVzlZVCJYcyGGsD
+ /0tbFCzD2h20ahe8rC1gbb3K3qk+LpBtvjBu1RY9drYk0NymiGbJWZgab6t1jM7sk2vuf0Py
+ O9Hf9XBmK0uE9IgMaiCpc32XV9oASz6UJebwkX+zF2jG5I1BfnO9g7KlotcA/v5ClMjgo6Gl
+ MDY4HxoSRu3i1cqqSDtVlt+AOVBJBACrZcnHAUSuCXBPy0jOlBhxPqRWv6ND4c9PH1xjQ3NP
+ nxJuMBS8rnNg22uyfAgmBKNLpLgAGVRMZGaGoJObGf72s6TeIqKJo/LtggAS9qAUiuKVnygo
+ 3wjfkS9A3DRO+SpU7JqWdsveeIQyeyEJ/8PTowmSQLakF+3fote9ybzd880fSmFuIEJldWxp
+ Y2ggPGpiZXVsaWNoQHN1c2UuY29tPsJgBBMRAgAgBQJZN5xEAhsDBgsJCAcDAgQVAggDBBYC
+ AwECHgECF4AACgkQoDSui/t3IH4J+wCfQ5jHdEjCRHj23O/5ttg9r9OIruwAn3103WUITZee
+ e7Sbg12UgcQ5lv7SzsFNBFk3nEQQCACCuTjCjFOUdi5Nm244F+78kLghRcin/awv+IrTcIWF
+ hUpSs1Y91iQQ7KItirz5uwCPlwejSJDQJLIS+QtJHaXDXeV6NI0Uef1hP20+y8qydDiVkv6l
+ IreXjTb7DvksRgJNvCkWtYnlS3mYvQ9NzS9PhyALWbXnH6sIJd2O9lKS1Mrfq+y0IXCP10eS
+ FFGg+Av3IQeFatkJAyju0PPthyTqxSI4lZYuJVPknzgaeuJv/2NccrPvmeDg6Coe7ZIeQ8Yj
+ t0ARxu2xytAkkLCel1Lz1WLmwLstV30g80nkgZf/wr+/BXJW/oIvRlonUkxv+IbBM3dX2OV8
+ AmRv1ySWPTP7AAMFB/9PQK/VtlNUJvg8GXj9ootzrteGfVZVVT4XBJkfwBcpC/XcPzldjv+3
+ HYudvpdNK3lLujXeA5fLOH+Z/G9WBc5pFVSMocI71I8bT8lIAzreg0WvkWg5V2WZsUMlnDL9
+ mpwIGFhlbM3gfDMs7MPMu8YQRFVdUvtSpaAs8OFfGQ0ia3LGZcjA6Ik2+xcqscEJzNH+qh8V
+ m5jjp28yZgaqTaRbg3M/+MTbMpicpZuqF4rnB0AQD12/3BNWDR6bmh+EkYSMcEIpQmBM51qM
+ EKYTQGybRCjpnKHGOxG0rfFY1085mBDZCH5Kx0cl0HVJuQKC+dV2ZY5AqjcKwAxpE75MLFkr
+ wkkEGBECAAkFAlk3nEQCGwwACgkQoDSui/t3IH7nnwCfcJWUDUFKdCsBH/E5d+0ZnMQi+G0A
+ nAuWpQkjM1ASeQwSHEeAWPgskBQL
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260518_234449_141547_72406161 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,200 +124,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/05/2026 21:47, Jonas Karlman wrote:
-> The dw-hdmi bridge detect() func now updates EDID and CEC phys addr for
-> the connector and any registered generic CEC notifier.
-> 
-> Replace the open-coded CEC notifier handling with use of the bridge CEC
-> notifier op.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+While Arm64 does so uniformly, for Arm32 only strchr() currently handles
+this properly. Add the necessary conversion also to strrchr(), memchr(),
+and memset().
 
-Acked-by: Hans Verkuil <hverkuil+cisco@kernel.org>
+As to the placement in memset(): Putting the new insn at the beginning
+of the function could perhaps be deemed more "obvious", but the code
+reachable without ever making it to the "1" label only ever does byte
+stores.
 
-Regards,
+Signed-off-by: Jan Beulich <jbeulich@suse.com>
 
-	Hans
-
-> ---
->  drivers/gpu/drm/meson/Kconfig              |  1 +
->  drivers/gpu/drm/meson/meson_encoder_hdmi.c | 85 +++++-----------------
->  2 files changed, 19 insertions(+), 67 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/meson/Kconfig b/drivers/gpu/drm/meson/Kconfig
-> index 417f79829cf8..0dc5ca21e4fc 100644
-> --- a/drivers/gpu/drm/meson/Kconfig
-> +++ b/drivers/gpu/drm/meson/Kconfig
-> @@ -13,6 +13,7 @@ config DRM_MESON
->  	select REGMAP_MMIO
->  	select MESON_CANVAS
->  	select CEC_CORE if CEC_NOTIFIER
-> +	select DRM_DISPLAY_HDMI_CEC_NOTIFIER_HELPER if CEC_NOTIFIER
->  
->  config DRM_MESON_DW_HDMI
->  	tristate "HDMI Synopsys Controller support for Amlogic Meson Display"
-> diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> index 1b9a1d9ed3d3..45104ef35344 100644
-> --- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> +++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> @@ -16,8 +16,6 @@
->  #include <linux/regulator/consumer.h>
->  #include <linux/reset.h>
->  
-> -#include <media/cec-notifier.h>
-> -
->  #include <drm/drm_atomic_helper.h>
->  #include <drm/drm_bridge.h>
->  #include <drm/drm_bridge_connector.h>
-> @@ -41,7 +39,6 @@ struct meson_encoder_hdmi {
->  	struct drm_connector *connector;
->  	struct meson_drm *priv;
->  	unsigned long output_bus_fmt;
-> -	struct cec_notifier *cec_notifier;
->  };
->  
->  #define bridge_to_meson_encoder_hdmi(x) \
-> @@ -57,14 +54,6 @@ static int meson_encoder_hdmi_attach(struct drm_bridge *bridge,
->  				 &encoder_hdmi->bridge, flags);
->  }
->  
-> -static void meson_encoder_hdmi_detach(struct drm_bridge *bridge)
-> -{
-> -	struct meson_encoder_hdmi *encoder_hdmi = bridge_to_meson_encoder_hdmi(bridge);
-> -
-> -	cec_notifier_conn_unregister(encoder_hdmi->cec_notifier);
-> -	encoder_hdmi->cec_notifier = NULL;
-> -}
-> -
->  static void meson_encoder_hdmi_set_vclk(struct meson_encoder_hdmi *encoder_hdmi,
->  					const struct drm_display_mode *mode)
->  {
-> @@ -321,27 +310,9 @@ static int meson_encoder_hdmi_atomic_check(struct drm_bridge *bridge,
->  	return 0;
->  }
->  
-> -static void meson_encoder_hdmi_hpd_notify(struct drm_bridge *bridge,
-> -					  struct drm_connector *connector,
-> -					  enum drm_connector_status status)
-> -{
-> -	struct meson_encoder_hdmi *encoder_hdmi = bridge_to_meson_encoder_hdmi(bridge);
-> -
-> -	if (!encoder_hdmi->cec_notifier)
-> -		return;
-> -
-> -	if (status == connector_status_connected)
-> -		cec_notifier_set_phys_addr(encoder_hdmi->cec_notifier,
-> -					   connector->display_info.source_physical_address);
-> -	else
-> -		cec_notifier_phys_addr_invalidate(encoder_hdmi->cec_notifier);
-> -}
-> -
->  static const struct drm_bridge_funcs meson_encoder_hdmi_bridge_funcs = {
->  	.attach = meson_encoder_hdmi_attach,
-> -	.detach = meson_encoder_hdmi_detach,
->  	.mode_valid = meson_encoder_hdmi_mode_valid,
-> -	.hpd_notify = meson_encoder_hdmi_hpd_notify,
->  	.atomic_enable = meson_encoder_hdmi_atomic_enable,
->  	.atomic_disable = meson_encoder_hdmi_atomic_disable,
->  	.atomic_get_input_bus_fmts = meson_encoder_hdmi_get_inp_bus_fmts,
-> @@ -374,9 +345,9 @@ int meson_encoder_hdmi_probe(struct meson_drm *priv)
->  
->  	meson_encoder_hdmi->bridge.next_bridge = of_drm_find_and_get_bridge(remote);
->  	if (!meson_encoder_hdmi->bridge.next_bridge) {
-> -		ret = dev_err_probe(priv->dev, -EPROBE_DEFER,
-> -				    "Failed to find HDMI transceiver bridge\n");
-> -		goto err_put_node;
-> +		of_node_put(remote);
-> +		return dev_err_probe(priv->dev, -EPROBE_DEFER,
-> +				     "Failed to find HDMI transceiver bridge\n");
->  	}
->  
->  	/* HDMI Encoder Bridge */
-> @@ -384,6 +355,13 @@ int meson_encoder_hdmi_probe(struct meson_drm *priv)
->  	meson_encoder_hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
->  	meson_encoder_hdmi->bridge.interlace_allowed = true;
->  
-> +	pdev = of_find_device_by_node(remote);
-> +	of_node_put(remote);
-> +	if (pdev) {
-> +		meson_encoder_hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI_CEC_NOTIFIER;
-> +		meson_encoder_hdmi->bridge.hdmi_cec_dev = &pdev->dev;
-> +	}
-> +
->  	drm_bridge_add(&meson_encoder_hdmi->bridge);
->  
->  	meson_encoder_hdmi->priv = priv;
-> @@ -391,30 +369,24 @@ int meson_encoder_hdmi_probe(struct meson_drm *priv)
->  	/* Encoder */
->  	ret = drm_simple_encoder_init(priv->drm, &meson_encoder_hdmi->encoder,
->  				      DRM_MODE_ENCODER_TMDS);
-> -	if (ret) {
-> -		dev_err_probe(priv->dev, ret, "Failed to init HDMI encoder\n");
-> -		goto err_put_node;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(priv->dev, ret, "Failed to init HDMI encoder\n");
->  
->  	meson_encoder_hdmi->encoder.possible_crtcs = BIT(0);
->  
->  	/* Attach HDMI Encoder Bridge to Encoder */
->  	ret = drm_bridge_attach(&meson_encoder_hdmi->encoder, &meson_encoder_hdmi->bridge, NULL,
->  				DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> -	if (ret) {
-> -		dev_err_probe(priv->dev, ret, "Failed to attach bridge\n");
-> -		goto err_put_node;
-> -	}
-> +	if (ret)
-> +		return dev_err_probe(priv->dev, ret, "Failed to attach bridge\n");
->  
->  	/* Initialize & attach Bridge Connector */
->  	meson_encoder_hdmi->connector = drm_bridge_connector_init(priv->drm,
->  							&meson_encoder_hdmi->encoder);
-> -	if (IS_ERR(meson_encoder_hdmi->connector)) {
-> -		ret = dev_err_probe(priv->dev,
-> -				    PTR_ERR(meson_encoder_hdmi->connector),
-> -				    "Unable to create HDMI bridge connector\n");
-> -		goto err_put_node;
-> -	}
-> +	if (IS_ERR(meson_encoder_hdmi->connector))
-> +		return dev_err_probe(priv->dev,
-> +				     PTR_ERR(meson_encoder_hdmi->connector),
-> +				     "Unable to create HDMI bridge connector\n");
->  
->  	/*
->  	 * We should have now in place:
-> @@ -437,32 +409,11 @@ int meson_encoder_hdmi_probe(struct meson_drm *priv)
->  	/* Handle this here until handled by drm_bridge_connector_init() */
->  	meson_encoder_hdmi->connector->ycbcr_420_allowed = true;
->  
-> -	pdev = of_find_device_by_node(remote);
-> -	of_node_put(remote);
-> -	if (pdev) {
-> -		struct cec_connector_info conn_info;
-> -		struct cec_notifier *notifier;
-> -
-> -		cec_fill_conn_info_from_drm(&conn_info, meson_encoder_hdmi->connector);
-> -
-> -		notifier = cec_notifier_conn_register(&pdev->dev, NULL, &conn_info);
-> -		if (!notifier) {
-> -			put_device(&pdev->dev);
-> -			return -ENOMEM;
-> -		}
-> -
-> -		meson_encoder_hdmi->cec_notifier = notifier;
-> -	}
-> -
->  	priv->encoders[MESON_ENC_HDMI] = meson_encoder_hdmi;
->  
->  	dev_dbg(priv->dev, "HDMI encoder initialized\n");
->  
->  	return 0;
-> -
-> -err_put_node:
-> -	of_node_put(remote);
-> -	return ret;
->  }
->  
->  void meson_encoder_hdmi_remove(struct meson_drm *priv)
-
+--- a/arch/arm/lib/memchr.S
++++ b/arch/arm/lib/memchr.S
+@@ -12,6 +12,7 @@
+ 	.text
+ 	.align	5
+ ENTRY(memchr)
++	and	r1, r1, #0xff
+ 1:	subs	r2, r2, #1
+ 	bmi	2f
+ 	ldrb	r3, [r0], #1
+--- a/arch/arm/lib/memset.S
++++ b/arch/arm/lib/memset.S
+@@ -24,7 +24,8 @@ UNWIND( .fnstart         )
+ /*
+  * we know that the pointer in ip is aligned to a word boundary.
+  */
+-1:	orr	r1, r1, r1, lsl #8
++1:	and	r1, r1, #0xff
++	orr	r1, r1, r1, lsl #8
+ 	orr	r1, r1, r1, lsl #16
+ 	mov	r3, r1
+ 7:	cmp	r2, #16
+--- a/arch/arm/lib/strrchr.S
++++ b/arch/arm/lib/strrchr.S
+@@ -12,6 +12,7 @@
+ 		.text
+ 		.align	5
+ ENTRY(strrchr)
++		and	r1, r1, #0xff
+ 		mov	r3, #0
+ 1:		ldrb	r2, [r0], #1
+ 		teq	r2, r1
 
