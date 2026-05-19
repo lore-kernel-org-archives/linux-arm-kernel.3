@@ -4,103 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69EDDCD4F4A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 18 May 2026 23:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617B1CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 00:27:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eJpF8zNQx3fuLJ61e34VmvRInkcEmUUj8JXY5zhxM5M=; b=rj6vP3/2rz5ZYqFUXMX+wnCYd7
-	dhU2pDOTwB4DRFaRd+dXUQVUt9qn/Q2l5bLWz5LoKFPRb3sHxdqIjl2gL80LIqUkyxSM0wa4CBLW0
-	KTdtC2LWP7aRpsLkNEKjrRr8qoaPkTdOB6Ezk2ZfWmJC6ZZaJwVGLNflCjIuZ6CYfqEl8FHy2Xm2N
-	UC/y4ntHDwLe6ojLEV7Y0/9v+B8NIzXsTZH9yfcOJx/Yg6eFnLST1oCb/2OjBXDHrrGEaedgXSGAB
-	nlyQZY2KTz1FCTPvyZH1ZaRgMcrqUyxzKMPQQTGuPNzmuqIu6i5e3eDoOlWtn7xGWnL1YBaL6yAlE
-	f9oxkIWw==;
+	bh=IO1oTJwzLNJtEnpvkOX47eamVFbSKbRcWswCg+dtq2s=; b=dNjrIghu79v/IdtJfjo5pt/JqJ
+	LfZdeFUNCTUJzFci5ncpW41OwsxxtloABL24TXGWhAzJvWMpqVPZFF4Z/5QzobIY7T/aPsSDyvggF
+	1UqqmFrf8a3Z0MBZjvY6q6tAitANjoGHmbQhSvQEf61MTh5ua5vLV4Lb4RVMlPTBuj/3VI4asX5R+
+	rWJMrQbXcT6Doh4/alFxjcP9zVKBOVmB2QWstN+1LvoyeG22nfU0nabwt/8x57P6WzBIydPwo6zxO
+	qCd+KVorhw7Le1wic8Lqav22pXgyWvFrm1dPQTryNgvFgIvHpK0TiCaa+zDU5lzguiBjRYwQzbUNH
+	gElIoT7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP7Lm-0000000HBV0-0nI8;
-	Mon, 18 May 2026 23:26:18 +0000
+	id 1wP8Ik-0000000HGW9-2QRJ;
+	Tue, 19 May 2026 00:27:14 +0000
 Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP7Lj-0000000HBUO-0CsT
+	id 1wP8Ih-0000000HGVT-3q9b
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 18 May 2026 23:26:16 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-65e170f1ca5so2981467d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 16:26:14 -0700 (PDT)
+	Tue, 19 May 2026 00:27:13 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-65e170f1ca5so3015132d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 17:27:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779150430; cv=none;
+        d=google.com; s=arc-20240605;
+        b=S4nbs8L6UgTQTlSOn71breslVBuk4rJ+1G3BMQZ4j0brbSoDyiHhjkwydU+8PWYN/I
+         sD+rZYVS26Uz+yl7rEJBzF5aX7kDVoqgN4zE0GSF2bOIpvpWw9NeP50kdPzovHryCQaO
+         ieOalXrieCyWGTwgmwqgVp+3zMgcNjbzuAOiYYTWQT88z/PXs6miYtTGU1yjnVMaMtZC
+         1O/mpfaVbCjuePVGqxNKhV7kc0WaWSlna9Fxraay3fOrNpdRUmVa5RCR4MDkq51j6s76
+         +rP+Uzhf3MvL0L+6mscGLfB9FF5Y2RgKIKfzKoWGSc0t7aArFABhR7U4l7XQ7yLi8xNt
+         sDOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=IO1oTJwzLNJtEnpvkOX47eamVFbSKbRcWswCg+dtq2s=;
+        fh=9J/TxxZO4DSN1ki/6YVT8qu+O4SU+V9tsEzhzyZn9fc=;
+        b=WquPPd59sYjZeyfI+rBLa+ZziduJWwLl25JAveelA6upnd52IRKH3vLKoV39Le7LsD
+         hZk3d0TGxA4G23YY+tLm5rtYScVRNgIgm8X5G5NHWvrtyTzF0Atit2dhMY2dgwHR8Gi6
+         ifu258Bx6eOWclNGVPzB9AUZUnWh7QPYBNHOP+T/KJFdLL82KuOiyQYwiLntF4Ebdkuk
+         5MqiMXB9KcMtkDMN/6m6LadA8uAioQM8wvhOgvM/16O75T2ngUgUVR3xOoM86aJMBo+K
+         DMPhS6ucATVq8Rl72PLIebHPAeQHQ0IbYTNaHUUkg0OTjaKVIpvkZnHSxOVa1h+lVG6T
+         TfIA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779146773; x=1779751573; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779150430; x=1779755230; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eJpF8zNQx3fuLJ61e34VmvRInkcEmUUj8JXY5zhxM5M=;
-        b=mRtIZm0Aa58SQATIo/uxpdlNajXlHBzkhOAneLGEtVY1vUYN6fY9CXz5Nli2Id5j6I
-         72QjUmztOM9+4Q/9V9IDA0UFdkYYkRE0eqTWEMPt7Qmit94FZ7cm/nNFEDNrngTv8RXC
-         5QDrh6QzSE9SPhy9yeoR952kloJPg1WgulW87TNeWS0WSoTaLKDTYZEdWEYDragblSps
-         1JwcMHPFaSqh8HPpR+ngSfo8SnRDSHJkYnctiG3OVN2a6ltJjF/2Dlp6CgKyPS/7Oedf
-         4ZSqvIDeY8ewwVq4N0XrzHmLhuQODW+hvVSUUIe552ck0YKITSDVrOOLiGn2hvwaThPQ
-         /BGA==
+        bh=IO1oTJwzLNJtEnpvkOX47eamVFbSKbRcWswCg+dtq2s=;
+        b=DBQEDmSQfhBdwTHQkB22Gy7sTPXbIrnS/3yVMn8fjgpdcI3K67MUkYUqLcy+9L+xpk
+         IxhuOpMnRSBg4DGeDOI4PkkSyR904JuEwQzI5MPIafOium3jW2/eE80bNdtZw99i52oM
+         bIuoCJAymCCt8r3yWSVHzxJzjYcV5I/DRcpeE4vKDxZfGNp1JS9x3oic5/IrNrr9yDuZ
+         +jMIAsv0LFuR0GzaXNP1mwtQ9WWw/t2E/YZJY28281h6B1kjNelAqTjUI2AFcgYc38Kt
+         Vo51SZPkzn6YLqcIexhhEi+Aiv5/TXxn5Ae2Ii8OXMd6oGUMK5gydx8ZkP0vs/+tPy5R
+         SimA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779146773; x=1779751573;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=eJpF8zNQx3fuLJ61e34VmvRInkcEmUUj8JXY5zhxM5M=;
-        b=gb3U1mLYkrdN/wo+JNhAhoysIURSjPV6NgAFVN3sdZNqSkqZ0kPT7aFUTHr1wcJykv
-         LhfTXk3KfRsyvtkn5VMDcD1cuvARGFYLDnPwJ5OIpzX1tSNA3hZvMiEGzxH7W5wrJ9j7
-         7ktbtn6To9Ob24QRtjsO52fs5TroV2fkFfZ3Puua6DXAVmxL0E61ha3eqeQjFikU3hS/
-         aMFGFbPp8kGTHHFr3EfEmt27mSJ7vjF4FrpY4D1JmvLayYg7wC5i3qKcpYYidY1vooLy
-         7ewUW7Pj+Qv10ptKZ0Sfs6uXF2x9Ir950EChKf4Q/014+WqQrOjfxjqNFWGjOXJyI75r
-         jkGg==
-X-Forwarded-Encrypted: i=1; AFNElJ+GE+zge3YZhi/vp3v4ChXShbPlppxkzfUnfzJ4yEmRPqiKCKeZqHM3YG3JBSPw/IIDehbeRLD/LfWYBVrs6wx1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSoveN/VhKb42MxG+GRhRfTYB88KZf4p2b3uBBi6nzVA/xTVTJ
-	DKeAXczKnlycsrQo/v5X6oO+JaunyB7dDO5f1rD2f+CSId23wU3L0ZrA
-X-Gm-Gg: Acq92OG1Vw8v/y6+LpIcTOPf+y6aGE00WEGCHV9mM70XBOW/unN4FKIctfPOivFcZkh
-	F7yX23ZJW8PxmjePY707ovuGdTONN15h5/BIJRNorKg+VJaDhSE5d9p+r5HPDnrK58LzZPidl/X
-	f9ykkjzSA2eZhpCuCmJz/pHq8fFkOClDHN8otfphUBzNDAiwjsbx8ESjDTS1oLblxiZm2jF1dnR
-	Zd5GiROowyoJQtLw6CoWgR+cBo67DfR54YErTxKpOwAAsCWINgIsJDpBudKbedWp2gQ1auRwldq
-	Lyrm52AFtsaOLepsAD4qRiMM5PGJQaVfx4W2gvxZ8NUhI0gSfNElb9OxUyWZk/QcwtI7kxTUVTy
-	hyMKuJ9+FlRezAgPG7lRNHwHpPfjBGWFpkXf34eEt+scwZMPwZA+8Tioa2ciGy6cHIlydEvcJWO
-	7hIJSNYZ/IU8ZZ0AdjWqiKXcYxJzwmWit8PBsF76EbpRToojDKpowxQHH9ondUlUcfkR6Y1xc1j
-	Ewlfi5+lvvifoB2Yw==
-X-Received: by 2002:a05:690e:14c9:b0:65e:438e:c025 with SMTP id 956f58d0204a3-65e438edademr10259078d50.19.1779146773245;
-        Mon, 18 May 2026 16:26:13 -0700 (PDT)
-Received: from localhost ([2a03:2880:f806:52::])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-65e0db0aa51sm7022713d50.12.2026.05.18.16.26.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2026 16:26:12 -0700 (PDT)
-Mime-Version: 1.0
+        d=1e100.net; s=20251104; t=1779150430; x=1779755230;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IO1oTJwzLNJtEnpvkOX47eamVFbSKbRcWswCg+dtq2s=;
+        b=VyfNaGohomBSH5xg3h36cRs2Q2PExSmMe/ZXEhWjPcSci8ewY+TKxk9HY9a34phJ+N
+         6aUgwtnerZkdVlvDbflWqX63/pDUG9Jesvi7R0I4if8PQ0jqSX3wvQO0MXVMpyOwHU4F
+         SUU3j5Yv/DRXpwq6S+A1Upnbfb5c802YrT8VruQoYdzsHWRlwf64czAa1J7ztV4aGp3e
+         3lao2dRnW/Nx1Dc3+gm30cDTZWYNZMfMaA+678nnN2GnBpCy1VJcRd/GwN2eXFs8FTYk
+         Ob00paIX8XzBWgY4or2sEN8ObI/K56fbZw6hzoBiDn8zsXeZjE5wIW9SIRqOiEXsA5kr
+         a6AQ==
+X-Forwarded-Encrypted: i=1; AFNElJ82sAWQj0ZZWDZCqGy9yszOEUIhToh7WyIbCZdCB6IKqbKIcMKprCHr54JegKuUOUd22MLlVQgqBF3tgWvdkbUL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHrsjoB+3NKfXAAV6mGCbU4zurQyQ6zjdOkJce+BCHphtD9JTU
+	o0aOoF10MQY2F6vNVxzk/1sER7kMHDG3Dftb/E8/N6OimQ41lCZMYrsu1Iu8kkMM4KabZlC18g6
+	5F6YWhMqvH7NlWCT+IgVVpph//TPgYZA=
+X-Gm-Gg: Acq92OFOyefozj7mChmv6A3Vr50lv+AuKoLgIoTdp44MmP/ju6vrL2x9mZeaviQgS2u
+	zzPUBsa0JqHx3VGwFViPVU887VEfAWpcCbq/OXWij4jv+JFDUs3bUCTlQ6c8FNTOY5wC+HddBFR
+	zgjp7Jw9zEO8S/QgwpTxXIbLfl+65Wu+9smZrDi5wv2luRvicvFbmLlNdq1Nn4cViJln+kdZ20i
+	lytBf3nYYG8f+1YjFEedoT+u06NXIFEQ50TQxFlXgXngPyLNmpc9DyU9txojAQFEdlJUnz+s1tx
+	wpZwMkWe24OgDDb6KRyOQsdpFIcyKen8U9woWkQlTZxMVog=
+X-Received: by 2002:a05:690e:138a:b0:65e:4447:da64 with SMTP id
+ 956f58d0204a3-65e4447db02mr9902073d50.50.1779150430274; Mon, 18 May 2026
+ 17:27:10 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260517181331.367676-1-michael.bommarito@gmail.com> <outz3fxn7c5tkfz3adoilikhtyjbii7qwxmknh2l4pdf4kv5bj@54lpduy2fuj4>
+In-Reply-To: <outz3fxn7c5tkfz3adoilikhtyjbii7qwxmknh2l4pdf4kv5bj@54lpduy2fuj4>
+From: Michael Bommarito <michael.bommarito@gmail.com>
+Date: Mon, 18 May 2026 20:26:58 -0400
+X-Gm-Features: AVHnY4Ku9jWfRwvIo7-h4T7kNEOsQvNYU_4O2yUmyt-qJls2SXN9VP3G8jsJ6CI
+Message-ID: <CAJJ9bXyHRVqnL_n6wwyAXDK=1GmaKgDy41tjMRhXjTObbft7gg@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: vgic: free private_irqs when init fails after allocation
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 18 May 2026 16:26:11 -0700
-Message-Id: <DIM6W7GRZK2N.14AH43S1XTFCG@gmail.com>
-Cc: "David Vernet" <void@manifault.com>, "Andrea Righi" <arighi@nvidia.com>,
- "Changwoo Min" <changwoo@igalia.com>, "Alexei Starovoitov"
- <ast@kernel.org>, "Andrii Nakryiko" <andrii@kernel.org>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Kumar
- Kartikeya Dwivedi" <memxor@gmail.com>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand"
- <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Emil Tsalapatis"
- <emil@etsalapatis.com>, <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>,
- <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 7/8] sched_ext: Sub-allocator over kernel-claimed BPF
- arena pages
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Tejun Heo" <tj@kernel.org>, "Peter Zijlstra" <peterz@infradead.org>
-X-Mailer: aerc
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-8-tj@kernel.org>
- <20260518072042.GP3102624@noisy.programming.kicks-ass.net>
- <agtt2dEjS4Qg7a_P@slm.duckdns.org>
-In-Reply-To: <agtt2dEjS4Qg7a_P@slm.duckdns.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_162615_096880_297EE6B7 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20260518_172711_990830_9929F44F 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,31 +120,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon May 18, 2026 at 12:51 PM PDT, Tejun Heo wrote:
-> Hello,
+On Mon, May 18, 2026 at 1:31=E2=80=AFAM Yao Yuan <yaoyuan@linux.alibaba.com=
+> wrote:
+> Ah. One thing I forgot to say:
 >
-> On Mon, May 18, 2026 at 09:20:42AM +0200, Peter Zijlstra wrote:
-> ...
->> Should this really be part of scx rather than be part of the bpf-arena
->> thing proper?
->
-> It's just a layer on top of arena. If bpf folks are okay with it, I don't
-> see why it can't be a common utility thing on the bpf side.
+> Do we need a fixes: tag here ?
 
-Well, this gen_pool based allocator of arena memory is a temporary hack.
-It's ok for rare allocation like in this at scx init time, but not suitable
-for active arena management. We don't need to expose it beyond scx.
-Having said that the fast and generic allocator for arena is definitely nee=
-ded.
-This break through with scratch page and bpf_arena_handle_page_fault()
-cannot be overstated. It is a huge improvement for kernel <-> bpf interacti=
-on.
-Not only kfuncs can now read arena without ugly __get_kernel_nofault(),
-but we can reuse mm/slub.c to manage arena memory!
-The key idea is simply this:
-get_freepointer() {
-  if (s->flags & SLAB_BPF_ARENA)
-    return (void *)(s->arena_kern_vm_start | (u32)(unsigned long)ptr);
-}
-I'm sloping a prototype.
+I struggled with that a bit.  Will's sister commit in 250f25367b58
+didn't have a Fixes: tag, but if I had to pick, it would probably be
+this:
+Fixes: 03b3d00a70b5 ("KVM: arm64: vgic: Allocate private interrupts on dema=
+nd")
+
+If you agree, I can send v2 with that added
+
+Thanks,
+Mike
 
