@@ -4,147 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E491DCD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B46CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g0kkTptQexzAPoXWTkOTOvi7rZoHtCxRdSTU+/xBQzY=; b=xrjThVa2NYtuY0L4kdZG1wU8J3
-	UXEcDN2unEAliXaUhGvK3/1Bp/1QiGJCMHiKceybTdX14Smt1YsBmWTnpuGW0/Q1UFsML/Coy390T
-	pGMwIOLG+X6gZR73/YzZtF3zSSSYcRimiNX+wV8lOsp00/y4HpzJbJSOS0AIlAp/ILJa7mQwnuHJg
-	wvWxUC+jYU8MitVCxt2MWmRzKLen+Z7Ft49LEWcKLep8xrqkQ4S/GF0iH2AEvxBqkSATbf5/hAUhl
-	TqugobKqdpBtSQWyeZ+rlMsvJRHImCMZ4OlomKEm4ZS24JhjX9TUIhz85uscBEL58YlsdtlVGZVV+
-	8tTHr4Cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vDiwcUS7KKcAuA9zQ93RHRaPkFaMupzoLqaQVImJgAo=; b=qv3dbu8C4wb4awbMiW5oREwDCS
+	s2oolnywHt26aG3RZFQv6K0RgR2Yr/TQVQonb8ca+zIFLoDFLAfZhl2ihPZmrSCYj2yeK2E41aqCY
+	/jqTGZfYaIbYjz94eX4VIjKopQgf7EmtDXL05PZivLO7zuEXR4Eh6UeR3AxAg1v7BqQljtzHTCQUK
+	zq8HQ3wJN/HJEKZ7oQF1ta5ZPuTL2Y7uM35BR70xsdvvQ0QrSvo73+v3f7yRygz7tAFeEcAFJ+lw1
+	9PMScMwujcMKMbI7xxit6CqLc3QHrBHkgpkdsd6UoFxQ4r8161ERiHTP6aKaxSwz8+ozzMXVBVdTm
+	MzaYZiVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGZc-00000000sxP-2sVV;
-	Tue, 19 May 2026 09:17:12 +0000
-Received: from mail-francecentralazon11013071.outbound.protection.outlook.com ([40.107.162.71] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wPGeq-00000000u3d-2Aw2;
+	Tue, 19 May 2026 09:22:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGZZ-00000000svR-2l0n
+	id 1wPGep-00000000u2X-09Zv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 19 May 2026 09:22:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=vDiwcUS7KKcAuA9zQ93RHRaPkFaMupzoLqaQVImJgAo=; b=YoCJYmwqWshd3foFM1+8HgObxE
+	LFvYybWn7OHJcydCio04mPE4DZfoxjg9h1GyTUjSdS0oPLRwhIlBpr5pmrgXNDMnB/FkNvG8aUj8T
+	b380xcJ3+Fc4HzcMHdnWUpeEan2SWpiyfLb8x+rvSCOjneGGGzJAqm2M0esx5MjQCIX0kXtEHy1o/
+	cUGhrcZjl/1qBecFARxzAR8h+tj/CaqgalOb0yargKHzLtbgnImO5wv434wXLP1BcJOsC89KwWAbi
+	HXT3Vm8YgGLXa3f89DFnM35iGWSuzdkWOPaXvniYyw//SjKlhfuVgviEKfpCiFaK7lg7Y4QDM5Tzw
+	rXMWNVDw==;
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPGek-0000000DgpU-3H0d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:17:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kzgkReqWbPmWSdvqOkVdfX5wvuuSSRycyHUNvUIu6hLzu0WhcJclpCQbDZVQpMzHbNaZl/DDcz/z/F6MqD24ds+2NiPw00tl6zyL3g3tcvFxKmPoVSnKLZCI6Pn0CbfmAqFgEvDeJZ5q/QzOiYrvxamxFoy6aXnhNJGIXRUl28k2G2oFtobdD4HVX3wYIVrH4lSOqw2e0yrzV40gxAZiOb44zd/7xjGA+skUs9IxcbYI2/WPd/ha/z23Nt5Y7uPyl1wwAPx4SU6ZnlsHHSU52DtVC5vNMKTh/xeNI2Mz2jUBafdBT6kW+LPpieI6glP7rgLqcUpS0IEy89ESUr++Nw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g0kkTptQexzAPoXWTkOTOvi7rZoHtCxRdSTU+/xBQzY=;
- b=XEx94bjZnGtj2b7ZnhZO4xOTPl+yekK7VhxCFP7+FKD4iQf0SVD6brVjahknzl/U1369SZOE71/CpLDHVBPK+UA5tDIl42DwEo1QnFFvrv/s0xx6AgEM992FHQ/titnUbVYO6qaAcyPhzqahePguY+HCNOoKnBRtqlk2igijbLoxXW/OBaslVa/OLzGLld1cqevnAH9jWfizNmgZxoLmcqInoKEczwCSXyizKzn/2ylLE0QjTh6qvT2VNucSs/vRiQJrRAXx+HHKcToH6fi8gtvvnqohUQ9KUDg2ungpWihN9vtyoft9+vg6WN2f/FvwdKKYYW+QTtz1Cf/tDev8BQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g0kkTptQexzAPoXWTkOTOvi7rZoHtCxRdSTU+/xBQzY=;
- b=cRADPzuUdHjjz6txiQ29B9JO3l8V3a0dAwPpfpi1WYLfSgDi4NqjcXhhzq/VDg4gONag9ex8kodk6jJasUy1VBPdI9LGsvEfS8R5IGFbMlEk5n1y8wFe6Y+zUSRlEd9lbcdRK382AiBzkuiHAmf0qPGWm9wb42e/QFOOuVDEUbp2OMkk5AeRjqyCAuRy62zjaj4KxwG5/DkVGeaM9ajeS7+SgZqIt6P67D10yvWZmSIe46uqCiC5SheQlHNiML7uvSwOwwey+pUDQtiLsKtF5XxlkPLFc2GpVOpSYmg/esaKCd4zQYgAFvqJB+HdaPGNVK7VtUptzcfA++6ajwRaBA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI1PR04MB6861.eurprd04.prod.outlook.com (2603:10a6:803:13c::9)
- by AM8PR04MB7475.eurprd04.prod.outlook.com (2603:10a6:20b:1d4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 09:17:03 +0000
-Received: from VI1PR04MB6861.eurprd04.prod.outlook.com
- ([fe80::7f96:4bde:2e55:cd5]) by VI1PR04MB6861.eurprd04.prod.outlook.com
- ([fe80::7f96:4bde:2e55:cd5%6]) with mapi id 15.21.0048.013; Tue, 19 May 2026
- 09:17:03 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-Date: Tue, 19 May 2026 17:19:18 +0800
-Subject: [PATCH v2] clk: imx: Add audio PLL debugfs for K-divider control
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-imx8m_pll_debugfs-v2-1-20e1d88526b0@nxp.com>
-X-B4-Tracking: v=1; b=H4sIABUrDGoC/22NywqDMBBFf0Vm3ZTMkNrHyv8oIo2OOuCLpA0Wy
- b83tdsuz4F77gaenbCHW7aB4yBe5ikBHTKo+8fUsZImMZCmXBtCJeN6GatlGKqG7atrvSKTN7q
- 11uZ4hrRbHLey7s17mbgX/5zde78I+LW/2gnpTy2gQsXIxlhCy1ddTOtyrOcRyhjjB1d5NWawA
- AAA
-X-Change-ID: 20260421-imx8m_pll_debugfs-246d0fbbb617
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Jacky Bai <ping.bai@nxp.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779182399; l=7846;
- i=ping.bai@nxp.com; s=20250804; h=from:subject:message-id;
- bh=j9ylyrWJorSM9if96OTFkI6gxqHLqmxq/5hPUIOvt0s=;
- b=LQUwpsonM7p7+BA5BdQIQzRE+ryNI/rE8JmFhmyPmjnp+6qOIw2m1+JrlwAc1Kcpkm5jgSqLW
- OwpmGKR3KL1AlSeTp+a8xn8s3cQB1kT/V4SqroRKP6vDxpqQfsT3Ub7
-X-Developer-Key: i=ping.bai@nxp.com; a=ed25519;
- pk=ckFjCfRynXBjQGmSmzOVI5hggMD9XnnNlwj/jcO/j1U=
-X-ClientProxiedBy: MA5PR01CA0015.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:177::8) To AM7PR04MB6853.eurprd04.prod.outlook.com
- (2603:10a6:20b:107::18)
+	Tue, 19 May 2026 09:22:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=vDiw
+	cUS7KKcAuA9zQ93RHRaPkFaMupzoLqaQVImJgAo=; b=K16NRXKGWgwSp/DERPis
+	kGb8sfRsH6tY2Iax1PPnAlDP7JGg1DqyIPCp1pkacciz63ayYD+1LpAiMM9PbTZC
+	rNce/Vodq9K6BDhsrKjaZB9TlXWMgQygCcpMPEQv6GSp+kCm+ijVAhxTcsExRv5p
+	H8LgtA3WLNPvphIMfh7yi+M+JOocr4frblYKNwr4OT4IWvxRX6OiFBUW0UxjpBiY
+	PYnJ3ymCxCCIMGzACtEVqo/4uFArp/FsMkj4ztaSvAk02qjGmtAQyEwFWECM3E2A
+	dsoXQOBFtLhK6XPs1rKFXggtmvK6b5TL8+aJppapbUlV/KU1H+xWZnMbNK0nXDGV
+	Jg==
+Received: (qmail 201991 invoked from network); 19 May 2026 11:22:25 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 19 May 2026 11:22:25 +0200
+X-UD-Smtp-Session: l3s3148p1@TtmWNyhSU4tUszca
+Date: Tue, 19 May 2026 11:22:24 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Kalle Niemi <kaleposti@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Len Brown <lenb@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Wolfram Sang <wsa@kernel.org>, driver-core@lists.linux.dev,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	Allan Nielsen <allan.nielsen@microchip.com>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Daniel Machon <daniel.machon@microchip.com>,
+	Steen Hegelund <steen.hegelund@microchip.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Saravana Kannan <saravanak@google.com>
+Subject: Re: [PATCH v7 1/3] Revert "treewide: Fix probing of devices in DT
+ overlays"
+Message-ID: <agwr0BE3EdYx70XA@shikoro>
+References: <20260511155755.34428-1-herve.codina@bootlin.com>
+ <20260511155755.34428-2-herve.codina@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1PR04MB6861:EE_|AM8PR04MB7475:EE_
-X-MS-Office365-Filtering-Correlation-Id: 29ec65b1-9a77-4cb6-1238-08deb5876389
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|52116014|18002099003|56012099003|11063799006|38350700014;
-X-Microsoft-Antispam-Message-Info: sajWqcFY6btsX7EeP5gaeRZ7HRJ+HQNYbbaZO4e0kc0TDiOcbyJtain7Xwu+7yKbX1GzSDy4Phs5OGUCjbqNGzP2i3LBYWAy+djfs4l7LDvAkMPSWvORj8d4kiWR0xQarH9ffA+jxe0hN7WF2ugAZMf6tr2jyjBQ+ZKNfFtKatuvuikJvNgVZPL33/INdIkqxOgU0UnhOASGavIsI8EzZ16itsotbV9SoGu2Hb7SgHQJotvfYQY6ul/ozUe1cXme5WxbUHoL2jkVfflbmIsWfRExK9ae9+GX3OVTBB6pRHJfNBjiCgT6IqumJwSYeauxkNDLI5ItfivHkysXZ1EVNSjO/x8bjPgRji2bK4gAPI76u8Uki0FZmVL32xt/vf2AABoZDSjZlb4/jbTndYgnw0zzz8r1htemKK/LqRZiXH24gUca/K02hUfS0pwh10lHqaKEhteJNKrrKWbydyJMBgfl9BA1bdidGEl3/4OOaYE/uPjMKGkTii0pGZGMA2P4O9NRkPfWWBTlzELm1KicvnX4jNXsSe+Ksvbgc34aBZXo7G3Ty3o7bUn1k3lp2WySGRy3f2vp8IqHzg/a99gvPEJM/rngEroHR2IAKNUNzHQYs0pOKgnBxEFCEdH9sjgoBdpxKk+fJg8s07z1GYvSEZf/uzWxElPXKq/PZkm88DF8/BG+h+wyRWjhsUrQ+tim/HNv/bXorKBmLJ9fZ3GqvfLj0QGAQaKELDuzWnJb38WmR+kQEmdauzAiA2tmRm76
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB6861.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(52116014)(18002099003)(56012099003)(11063799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VVpqMXROejdxWmJnRys2KzkxVDBZYlhaNnBBcWYrNVBmNlI3bWZNUms0dTdZ?=
- =?utf-8?B?YWJ1Mk1TYmdmOEIyVU9ZOHpvelVXbGZBQVU0UVpHME1FbDV3NW1kcmppSlN0?=
- =?utf-8?B?dU10Ull5cWh1NGRuMjBGdWF2WGlKTGsxRmsvNjNHdGJSbndEVDcwYS9KeTdy?=
- =?utf-8?B?cHI1TGl4Wk1xNmRpTS9rNkZJV3R3MGRYZUtFeDdqQjcvUGxrSTRPa1ZzTHZU?=
- =?utf-8?B?eEQzRE5Wd1RIRXowcHMvdkFyWjhTdzByS0lQMWpwOFFPOW5pZDYrZEdhOW5B?=
- =?utf-8?B?U0h3NXd6RDFVVTNOY245ck1CemY5MmFIQVdVbGRPWUFrRGRTbDVTZXRRcVNy?=
- =?utf-8?B?WEFEWjI4UGdPSTV5WlRFM2hlUkczZGhJd3E2eDY5NENHWWpCL1lhSHhzdVhH?=
- =?utf-8?B?dFZuRGxQWWM3ZFFnenNkdkJEZGZQZkRuOWZxbkI5dmp3eTFrMU1STEVSbFNB?=
- =?utf-8?B?emU1UTRjTW14QmtOWFIwRnI2SGFnS3BMb1N6dnRLdUs1eGpnaEdkWmxKWUpD?=
- =?utf-8?B?MnYzTGxaTnczRTd3SngrTlVEYlNXRmlXTlpOMUxXT09ISURyb0gvbjVkTVgv?=
- =?utf-8?B?cHBvOXhxcW16L1JOL1IyMkFCeEFNWVhpWWM1QUNRdTJKV2JycDJzaWg1Z01L?=
- =?utf-8?B?ZzlqWm9ENnMwK2RiSkM1N0xVL1Q0dmJ5SVcwdEVsZFN2Nm1jMGcrV241elZO?=
- =?utf-8?B?Ulh2MnZiNmtNc2ptWXZuWVBPM1JtQU84TWllcFErVHU3SmZkU1ZCeXMvcDA2?=
- =?utf-8?B?TVROamEyTFVING1BR3d0TmFIS1NtUkpyOVFNdjU1YTlPUk5NN0JDcmsrejl1?=
- =?utf-8?B?NlhYQlAxU0I4TUl1QWFrcGpVNHdhUzRIVy9lMUZMWlBIVHpac21TZzdiOWpR?=
- =?utf-8?B?aTJyOU44aC9Ia1AyTzZrVk9wdTVkMFMyLzZKRkc3Qi85U2dxbmV3VnVEVG5H?=
- =?utf-8?B?dVU4b291WTNsUGhXOXpEM21TZWl6djdvR1NBdkFuMGtzaGc5dmxUYnk4UDhz?=
- =?utf-8?B?NDI5elNKUE4wejQrVHIraHduWjJOOEhhNkoxekNXWmVZd2JMNWcrb0F3NXFT?=
- =?utf-8?B?TGtEaU5tUXllb1hhYTR5MzJXY0U1bXhKRVlvV2YyK25KYkxIUHJLY28wZlV4?=
- =?utf-8?B?eitRYytaVjU4WVVjNzNIZlc4dkZocFBBUzg5akpJQitjbVVlTk5Vam9xR2lV?=
- =?utf-8?B?eGVaMWIrY2UxTS9SWTZ1cXNqNVozaHNxWGhEaVB3YUgwcUV3OWJxSEphRHE1?=
- =?utf-8?B?ZzdIZHVHNEFxbzFMNkY3bDJQMEhpMVdjWmd4YVoyZHR2NFI5bjFkUWlZKzd0?=
- =?utf-8?B?RzVyVG8zYlNzSTg5ejZINzFOMUJqamVFb2kvWndQb3YvdlZEc0JnQ1N6V3F5?=
- =?utf-8?B?emYrVXJtdkN3YlB2SEI4dE1OVW9sV3BPWGZJRjBBdzF5R3lRZ1lCTlo2TGp4?=
- =?utf-8?B?Z0JSR3A3bFd2Zy9lWVEyTG5wUGFGWDltaFlIdUx1OUlQN2Ryc3NJakpZL0xw?=
- =?utf-8?B?anRTTmdZTnVZeVRzZXAzQVA4TE5yK0NNOVRqTkJsNFFYUHRPNUxnNGNMUVkw?=
- =?utf-8?B?b0o1NVJZMlV5RlhlTUE2M01lbXNhZUltQXNuM0pqU3BJQTVtWXFLdU9qTm5B?=
- =?utf-8?B?QWFEdHhVUHZvRFpMWmozcE5VYU9Sb0ZodloyeFZHSWJJZnB5a01iWlIxWS9P?=
- =?utf-8?B?cUk4elhmaTZFQWNjYXlSS2NIRnRRRlBZMUFVek12RkZSYkYrL0RZS0VMSlhW?=
- =?utf-8?B?ZTUxUzF3Ri9oeHQzcW80bUJxRmhmVnMwMDR3ZVRzVUdsYnJreWVCTmdWSFhl?=
- =?utf-8?B?NWloODM4TGdtWFVBcm1XT0FNc2J1cmZ2WUFnY1pwV2lQNWdKbEtScktlWExJ?=
- =?utf-8?B?S1RvOElxYkxUTUx2SkdPaUdVS1lHcUVoUDJsZlJmaC81bjlMc1BwNnJITFNy?=
- =?utf-8?B?b0tFWVZrU09HUUhhU3QzSDgxdFQxMk41L3g5U1NrQ3hicEJLWTR4NmJrZjha?=
- =?utf-8?B?S1A1SnFiTTkwVkREcDY4NkNqb0hKaTV6WHZ0ampkY0lJVVBUcm93K2tickJn?=
- =?utf-8?B?OWQ1bnpDVTROcUc3SlRIQzVvRXUvRFBtd0tGNnpkOExDNFhGZXpmRTg1YjZo?=
- =?utf-8?B?c0xWZkdDbTdOSVhkcGVEcW9jRnMzeFpPTVZuMlVaU2hDRE5uY25oSmZsMkR1?=
- =?utf-8?B?dDNLM0VqVzZsZ1lSNDVBTWQvNDhMV3JaQXJkTXgwenZIeS91ZlNBamlHaGRZ?=
- =?utf-8?B?RUViejBGS3BPdHBSdWp2d2ZwNDJkME0xbEVyd2dLQ2FjTHJRUittNU9YUjlt?=
- =?utf-8?Q?i9ClA4bUq3SsRbFMWg?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 29ec65b1-9a77-4cb6-1238-08deb5876389
-X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB6853.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 09:17:03.4114
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xqBd2pscpbjK3mNqGoamRpiTOdi4GBXjYfyaY2UjMASUzEXiWRMqdKl+OcUKBy6wCNfiurhWz4jJdeTQN2TIUg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7475
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260511155755.34428-2-herve.codina@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_021709_857266_D5DC4AC5 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20260519_102231_241003_24CFB37D 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,241 +112,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add debugfs support for runtime tuning of the audio PLL K divider,
-which enables fine-grained frequency adjustments for audio PLL.
-This is used for:
-  - Audio clock calibration and testing
-  - Debugging audio synchronization issues
+On Mon, May 11, 2026 at 05:57:48PM +0200, Herve Codina wrote:
+> From: Saravana Kannan <saravanak@google.com>
+> 
+> This reverts commit 1a50d9403fb90cbe4dea0ec9fd0351d2ecbd8924.
+> 
+> While the commit fixed fw_devlink overlay handling for one case, it
+> broke it for another case. So revert it and redo the fix in a separate
+> patch.
+> 
+> Fixes: 1a50d9403fb9 ("treewide: Fix probing of devices in DT overlays")
+> Reported-by: Herve Codina <herve.codina@bootlin.com>
+> Closes: https://lore.kernel.org/lkml/CAMuHMdXEnSD4rRJ-o90x4OprUacN_rJgyo8x6=9F9rZ+-KzjOg@mail.gmail.com/
+> Closes: https://lore.kernel.org/all/20240221095137.616d2aaa@bootlin.com/
+> Closes: https://lore.kernel.org/lkml/20240312151835.29ef62a0@bootlin.com/
+> Signed-off-by: Saravana Kannan <saravanak@google.com>
+> Link: https://lore.kernel.org/lkml/20240411235623.1260061-2-saravanak@google.com/
+> 
+> [Herve: Fix conflicts due to f72e77c33e4b ("device property: Make
+> modifications of fwnode "flags" thread safe")]
+> 
+> Signed-off-by: Herve Codina <herve.codina@bootlin.com>
+> Acked-by: Mark Brown <broonie@kernel.org>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Two debug interfaces are exported to userspace:
-  - delta_k: It is used to adjust the K divider in PLL based on small
-    steps
-  - pll_parameter: It is used for get PLL's current M-divider,
-    P-divider, S-divider & K-divider setting in PLL register
-
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
----
-Changes in v2:
-- remove the examples from commit log.
-- refine the comments blocks
-- add delta_k read back support
-- resolve the comments from Sashiko AI
-- add prefix to audio_pll_debug_init API
-- Link to v1: https://lore.kernel.org/r/20260512-imx8m_pll_debugfs-v1-1-e1e44b21be90@nxp.com
----
- drivers/clk/imx/clk-imx8mm.c  |   6 +++
- drivers/clk/imx/clk-pll14xx.c | 107 ++++++++++++++++++++++++++++++++++++++++++
- drivers/clk/imx/clk.h         |   1 +
- 3 files changed, 114 insertions(+)
-
-diff --git a/drivers/clk/imx/clk-imx8mm.c b/drivers/clk/imx/clk-imx8mm.c
-index 319af4deec01c188524807d39dff92bbd08f3601..f080a4dcead359f9494b289ebd277ef2dfdf72cd 100644
---- a/drivers/clk/imx/clk-imx8mm.c
-+++ b/drivers/clk/imx/clk-imx8mm.c
-@@ -298,6 +298,7 @@ static struct clk_hw **hws;
- 
- static int imx8mm_clocks_probe(struct platform_device *pdev)
- {
-+	struct clk_hw *audio_pll_hws[2];
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = dev->of_node;
- 	void __iomem *base;
-@@ -610,6 +611,11 @@ static int imx8mm_clocks_probe(struct platform_device *pdev)
- 
- 	imx_register_uart_clocks();
- 
-+	/* Add debug interface for audio PLLs */
-+	audio_pll_hws[0] = hws[IMX8MM_AUDIO_PLL1];
-+	audio_pll_hws[1] = hws[IMX8MM_AUDIO_PLL2];
-+	imx_audio_pll_debug_init(audio_pll_hws, ARRAY_SIZE(audio_pll_hws));
-+
- 	return 0;
- 
- unregister_hws:
-diff --git a/drivers/clk/imx/clk-pll14xx.c b/drivers/clk/imx/clk-pll14xx.c
-index 39600ee22be3066683b562aa6f2a8b750d19c4cc..b00529cb196a22ad0444b1efdbc3b53d0e11c20b 100644
---- a/drivers/clk/imx/clk-pll14xx.c
-+++ b/drivers/clk/imx/clk-pll14xx.c
-@@ -8,11 +8,13 @@
- #include <linux/bitfield.h>
- #include <linux/bits.h>
- #include <linux/clk-provider.h>
-+#include <linux/debugfs.h>
- #include <linux/err.h>
- #include <linux/export.h>
- #include <linux/io.h>
- #include <linux/iopoll.h>
- #include <linux/slab.h>
-+#include <linux/spinlock.h>
- #include <linux/jiffies.h>
- 
- #include "clk.h"
-@@ -40,6 +42,8 @@ struct clk_pll14xx {
- 	enum imx_pll14xx_type		type;
- 	const struct imx_pll14xx_rate_table *rate_table;
- 	int rate_count;
-+	s16 delta_k;
-+	spinlock_t lock;
- };
- 
- #define to_clk_pll14xx(_hw) container_of(_hw, struct clk_pll14xx, hw)
-@@ -361,6 +365,7 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- {
- 	struct clk_pll14xx *pll = to_clk_pll14xx(hw);
- 	struct imx_pll14xx_rate_table rate;
-+	unsigned long flags;
- 	u32 gnrl_ctl, div_ctl0;
- 	int ret;
- 
-@@ -374,9 +379,13 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 		div_ctl0 |= FIELD_PREP(SDIV_MASK, rate.sdiv);
- 		writel_relaxed(div_ctl0, pll->base + DIV_CTL0);
- 
-+		spin_lock_irqsave(&pll->lock, flags);
-+
- 		writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv),
- 			       pll->base + DIV_CTL1);
- 
-+		spin_unlock_irqrestore(&pll->lock, flags);
-+
- 		return 0;
- 	}
- 
-@@ -394,8 +403,12 @@ static int clk_pll1443x_set_rate(struct clk_hw *hw, unsigned long drate,
- 		   FIELD_PREP(SDIV_MASK, rate.sdiv);
- 	writel_relaxed(div_ctl0, pll->base + DIV_CTL0);
- 
-+	spin_lock_irqsave(&pll->lock, flags);
-+
- 	writel_relaxed(FIELD_PREP(KDIV_MASK, rate.kdiv), pll->base + DIV_CTL1);
- 
-+	spin_unlock_irqrestore(&pll->lock, flags);
-+
- 	/*
- 	 * According to SPEC, t3 - t2 need to be greater than
- 	 * 1us and 1/FREF, respectively.
-@@ -508,6 +521,8 @@ struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
- 	if (!pll)
- 		return ERR_PTR(-ENOMEM);
- 
-+	spin_lock_init(&pll->lock);
-+
- 	init.name = name;
- 	init.flags = pll_clk->flags;
- 	init.parent_names = &parent_name;
-@@ -551,3 +566,95 @@ struct clk_hw *imx_dev_clk_hw_pll14xx(struct device *dev, const char *name,
- 	return hw;
- }
- EXPORT_SYMBOL_GPL(imx_dev_clk_hw_pll14xx);
-+
-+/*
-+ * Debugfs interface for Audio PLL runtime monitoring and control
-+ *
-+ * This interface allows dynamic adjustment of the Audio PLL
-+ * K-divider for precise frequency tuning, particularly useful
-+ * for audio applications.
-+ *
-+ * examples for the usage of the two interfaces:
-+ *   1): Get the current PLL setting of dividers
-+ *     cat /sys/kernel/debug/audio_pll_monitor/audio_pll1/pll_parameter
-+ *
-+ *   2): Adjust the K-divider by a small delta_k
-+ *     echo 1 > /sys/kernel/debug/audio_pll_monitor/audio_pll1/delta_k;
-+ */
-+#ifdef CONFIG_DEBUG_FS
-+static int pll_delta_k_get(void *data, u64 *val)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(data);
-+	*val = pll->delta_k;
-+	return 0;
-+}
-+
-+static int pll_delta_k_set(void *data, u64 val)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(data);
-+	unsigned long flags;
-+	u32 div_ctl1;
-+	s16 kdiv, delta_k;
-+
-+	delta_k = (s16)clamp_t(long, val, KDIV_MIN, KDIV_MAX);
-+	pll->delta_k = delta_k;
-+
-+	spin_lock_irqsave(&pll->lock, flags);
-+
-+	div_ctl1 = readl_relaxed(pll->base + DIV_CTL1);
-+	kdiv = (s16)FIELD_GET(KDIV_MASK, div_ctl1);
-+	kdiv = (s16)clamp_t(s32, (s32)kdiv + delta_k, KDIV_MIN, KDIV_MAX);
-+	writel_relaxed(FIELD_PREP(KDIV_MASK, kdiv), pll->base + DIV_CTL1);
-+
-+	spin_unlock_irqrestore(&pll->lock, flags);
-+
-+	return 0;
-+}
-+DEFINE_DEBUGFS_ATTRIBUTE_SIGNED(delta_k_fops, pll_delta_k_get, pll_delta_k_set, "%lld\n");
-+
-+static int pll_setting_show(struct seq_file *s, void *data)
-+{
-+	struct clk_pll14xx *pll = to_clk_pll14xx(s->private);
-+	u32 div_ctl0, div_ctl1;
-+	u32 mdiv, pdiv, sdiv, kdiv;
-+
-+	div_ctl0 = readl_relaxed(pll->base + DIV_CTL0);
-+	div_ctl1 = readl_relaxed(pll->base + DIV_CTL1);
-+
-+	mdiv = FIELD_GET(MDIV_MASK, div_ctl0);
-+	pdiv = FIELD_GET(PDIV_MASK, div_ctl0);
-+	sdiv = FIELD_GET(SDIV_MASK, div_ctl0);
-+	kdiv = FIELD_GET(KDIV_MASK, div_ctl1);
-+
-+	seq_printf(s, "Mdiv: 0x%x; Pdiv: 0x%x; Sdiv: 0x%x; Kdiv: 0x%x\n",
-+		   mdiv, pdiv, sdiv, kdiv);
-+
-+	return 0;
-+}
-+DEFINE_SHOW_ATTRIBUTE(pll_setting);
-+
-+void imx_audio_pll_debug_init(struct clk_hw *hws[], unsigned int num_plls)
-+{
-+	struct dentry *rootdir, *audio_pll_dir;
-+	const char *pll_name;
-+	int i;
-+
-+	rootdir = debugfs_create_dir("audio_pll_monitor", NULL);
-+
-+	for (i = 0; i < num_plls; i++) {
-+		if (!IS_ERR_OR_NULL(hws[i])) {
-+			pll_name = clk_hw_get_name(hws[i]);
-+			audio_pll_dir = debugfs_create_dir(pll_name, rootdir);
-+			debugfs_create_file_unsafe("delta_k", 0600, audio_pll_dir,
-+					hws[i], &delta_k_fops);
-+			debugfs_create_file("pll_parameter", 0444, audio_pll_dir,
-+					hws[i], &pll_setting_fops);
-+		}
-+	}
-+}
-+#else /* !CONFIG_DEBUG_FS */
-+void imx_audio_pll_debug_init(struct clk_hw *hws[], unsigned int num_plls)
-+{
-+}
-+#endif /* CONFIG_DEBUG_FS */
-+EXPORT_SYMBOL_GPL(imx_audio_pll_debug_init);
-diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
-index aa5202f284f3d1b7c1b4bf65e2329831832b43a5..16e0bafa0c9b99cb4eee37a216e0a274d27f11fc 100644
---- a/drivers/clk/imx/clk.h
-+++ b/drivers/clk/imx/clk.h
-@@ -487,4 +487,5 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
- 			       u32 reg, const char **parent_names,
- 			       u8 num_parents, const u32 *mux_table, u32 mask);
- 
-+void imx_audio_pll_debug_init(struct clk_hw **hws, unsigned int num_plls);
- #endif
-
----
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-change-id: 20260421-imx8m_pll_debugfs-246d0fbbb617
-
-Best regards,
--- 
-Jacky Bai <ping.bai@nxp.com>
+Acked-by: Wolfram Sang <wsa+renesas@sang-engineering.com> # for I2C
 
 
