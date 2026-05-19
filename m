@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE333CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1045BCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQT8Go+v6QRkVLHg9RG8/VCGJuJtzBP7WUy8rbdfvpQ=; b=C3F8mcUAS4XTbobRri3cEO0xrd
-	K6a/6l3J+Pv1/7r/2MgExiX3httrU9btn6O44HxXDYVyxDWOokQUrrNTU4TYMEHRKEjZUD2zL7bhi
-	5PkdAoiVDwc/6VqO2f0mQ3XDm7h2vkmF3L290XFpzgBGeWQwM+HEmi0eYfiy9xpo1B8qeTKJEJ7pW
-	Zee73drP3io/g7nhu940yP3Bu2MqtBkiOQnlPgPee3BygHeRMKFx2IsZIdoUPPXttwT8pe5CYSRDC
-	VbZvhC98rfMPK8hyylgpJMpyfgur9nqa6/en2XHMh31GmrOKDtnc8zvlE2FZL/mu21q1D1dM11U5E
-	SKypP5HQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UysSrWx2IaBnmq7p+RKc3cNjOUxboHqJt85KySMdL0U=; b=Xwiy0Sq1rKNRXWqHBzS241+XZW
+	q1WTz/u/vzgXqftH5MAfy/ffIHVabbDfc3jdGKGOuHqtdHqGwlFjkTqVi95hW3fsuisEO4lqMkIe8
+	Gelwzb0dSD0X11Co602MCucLgkc26MBq5Qi+cU72gIhrKKfTkOGYmF3nkcgbg4nPZr4LwCA2k76Qt
+	ag9LQRgSQoi7OlX6h70XG2/6CdDDvc7fLUPp+bxAbcyk6PPUGNkEQ7zO4CGPVNVHukgfgXoIE2ETv
+	IfwIM57CV+gyAbluju/cwu1eBMqWMRKVuo+z4BRlqnYuCmENjfIyfpgj1gWu6m1mUZYBC1fI+2jLm
+	SvBUZ6gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMDb-00000001yvI-0Nwo;
-	Tue, 19 May 2026 15:18:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wPMEA-00000001zW9-45oI;
+	Tue, 19 May 2026 15:19:26 +0000
+Received: from smtp.forwardemail.net ([121.127.44.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMDK-00000001yco-39is
+	id 1wPME1-00000001zIE-3JPE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:18:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779203911;
-	bh=dlTcJ0ukscF7NUiOKGS0cBKBGDiqOOgRWDmZi2AcUkI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=q0dcKdCXZ5HVJhDJieIazk7XPmFm2ygrXpB/nqWG8oC4Y/XCtrpSABBPKUHrdDhNE
-	 ATk9OBxefXWaD8Ixx3dHvbXN9yB9c5sRnUof2ugdVXQ03/dVc2E1ZgTaFbXiUXkCJv
-	 q6QjgMMq1NAkVxnwMeEt+gwN/oLnxcYVGmhMa8SQViQIPdBF5d4ROAGdNwIMtkUP1y
-	 09AcMowXJ9uKXJn6NgSykPiaNev9K5+QEAo1W8VzKqILYSFJtb6MCP8tFyVvkbEQn2
-	 7h3WQgGPXSsz52JGu4aiGZ62jzSbCLWE2azgWaAv5EKJLKsC397yALIpPqTxElHjCB
-	 ntseTUe7mRRSw==
-Received: from [100.64.0.214] (unknown [100.64.0.214])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AA6DF17E0234;
-	Tue, 19 May 2026 17:18:29 +0200 (CEST)
-Message-ID: <689495bda73de063506d0a63de79b9e099747aa8.camel@collabora.com>
-Subject: Re: [PATCH 06/16] media: v4l2-common: Add missing tiled format info
- block sizes
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai
- <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Greg Kroah-Hartman	
- <gregkh@linuxfoundation.org>, Arash Golgol <arash.golgol@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Date: Tue, 19 May 2026 11:18:28 -0400
-In-Reply-To: <20260518102451.417971-7-paulk@sys-base.io>
-References: <20260518102451.417971-1-paulk@sys-base.io>
-	 <20260518102451.417971-7-paulk@sys-base.io>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-TG6IA7MczaywLWJwvwWo"
-User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
+	Tue, 19 May 2026 15:19:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1779203952;
+ bh=UysSrWx2IaBnmq7p+RKc3cNjOUxboHqJt85KySMdL0U=;
+ b=UP71aKD8jd1h2ABdkRMuqSjeKMKE2+D8oa02GQBNh9X5rGBdo6uOsYq3oy1ElrqvlenRAEAiz
+ CGCqBXI3ieXzvP1GnaC9PaDosGMkQlhsHxWwRVzJtUy90/yD0KvBYtIHGTO0C6dkoSDQlGeLsB4
+ KrOH8da4hUgG2jZ03AzC0AgcTE+LMsLh8v6bfN8wKQUjpXcrUpnXlXcVVhEzaDZxEcQ+GaFsIRB
+ 577zEv7HkHUtpucSsQ/fO6qinR669sPIf4BPebdwUxeboN9AvJIEvUV1ULOh6DGbFrFZ7DW803C
+ 64cEm//xCVfShj+y8nXpkhapzppzI2vzA41b/C+e6A/Q==
+X-Forward-Email-ID: 6a0c7f56b6cbacb3a8d0c696
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.66
+X-Forward-Email-Version: 2.8.12
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <e90eddfc-2f57-418a-ae05-43a411d72b99@kwiboo.se>
+Date: Tue, 19 May 2026 17:18:40 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 04/23] drm: bridge: dw_hdmi: Hold bridge ref until
+ connector cleanup
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>, Liu Ying <victor.liu@nxp.com>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Christian Hewitt
+ <christianshewitt@gmail.com>, Diederik de Haas <diederik@cknow-tech.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260518180206.2480119-1-jonas@kwiboo.se>
+ <20260518180206.2480119-5-jonas@kwiboo.se>
+ <177919241969.545972.18169905222569864569.b4-review@b4>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <177919241969.545972.18169905222569864569.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_081834_942607_6E85A327 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20260519_081923_799417_B474994A 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,85 +96,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Luca,
 
---=-TG6IA7MczaywLWJwvwWo
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 5/19/2026 2:06 PM, Luca Ceresoli wrote:
+> On Mon, 18 May 2026 18:01:40 +0000, Jonas Karlman <jonas@kwiboo.se> wrote:
+> 
+> Hello Jonas,
+> 
+>>
+>> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+>> index b7bfc0e9a6b2..9d795c550f8a 100644
+>> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+>> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
+>> @@ -2600,10 +2609,14 @@ static int dw_hdmi_connector_create(struct dw_hdmi *hdmi)
+>>  
+>>  	drm_connector_helper_add(connector, &dw_hdmi_connector_helper_funcs);
+>>  
+>> -	drm_connector_init_with_ddc(hdmi->bridge.dev, connector,
+>> -				    &dw_hdmi_connector_funcs,
+>> -				    DRM_MODE_CONNECTOR_HDMIA,
+>> -				    hdmi->ddc);
+>> +	ret = drm_connector_init_with_ddc(hdmi->bridge.dev, connector,
+>> +					  &dw_hdmi_connector_funcs,
+>> +					  DRM_MODE_CONNECTOR_HDMIA,
+>> +					  hdmi->ddc);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	drm_bridge_get(&hdmi->bridge);
+> 
+> I'm not fully following the code paths, but both the report and the fix
+> make sense to me. Only I'd move the drm_bridge_get() before
+> drm_connector_init_with_ddc(), to avoid a short window where no reference
+> is held and the bridge might be destroyed before drm_bridge_get() is
+> called. I'm not sure this can happen, but it's better to write the code in
+> a way that clearly makes it impossible.
 
-Le lundi 18 mai 2026 =C3=A0 12:24 +0200, Paul Kocialkowski a =C3=A9crit=C2=
-=A0:
-> Some YUV420 tiled format info definitions are missing block sizes.
-> Add the missing block sizes (they are all 4x4).
->=20
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
-> =C2=A0drivers/media/v4l2-core/v4l2-common.c | 6 ++++--
-> =C2=A01 file changed, 4 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
-ore/v4l2-common.c
-> index 77a0daa92c2b..e142d40c71b9 100644
-> --- a/drivers/media/v4l2-core/v4l2-common.c
-> +++ b/drivers/media/v4l2-core/v4l2-common.c
-> @@ -307,10 +307,12 @@ const struct v4l2_format_info *v4l2_format_info(u32=
- format)
-> =C2=A0		{ .format =3D V4L2_PIX_FMT_GREY,=C2=A0=C2=A0=C2=A0 .pixel_enc =3D=
- V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 1, .bpp =3D { 1, 0=
-, 0, 0 }, .bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 1, .vdiv =3D 1 },
-> =C2=A0
-> =C2=A0		/* Tiled YUV formats */
-> -		{ .format =3D V4L2_PIX_FMT_NV12_4L4, .pixel_enc =3D V4L2_PIXEL_ENC_YUV=
-, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bpp_div =
-=3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
-> +		{ .format =3D V4L2_PIX_FMT_NV12_4L4, .pixel_enc =3D V4L2_PIXEL_ENC_YUV=
-, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bpp_div =
-=3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
-> +		=C2=A0 .block_w =3D { 4, 4, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
+dw_hdmi_connector_create() is only called from dw_hdmi_bridge_attach()
+so the bridge should already have a ref for the lifetime of this call.
 
-.block_w =3D { 4, 2, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
+I explicitly chose the placement after drm_connector_init_with_ddc()
+to ensure ref count is correctly balanced without having to add a
+drm_bridge_put() call in any error path. I.e. connector destroy() is
+only called when drm_connector_init_with_ddc() succeeds.
 
-> =C2=A0		{ .format =3D V4L2_PIX_FMT_NV15_4L4, .pixel_enc =3D V4L2_PIXEL_EN=
-C_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 5, 10, 0, 0 }, .bp=
-p_div =3D { 4, 4, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
-> =C2=A0		=C2=A0 .block_w =3D { 4, 4, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
-> -		{ .format =3D V4L2_PIX_FMT_P010_4L4, .pixel_enc =3D V4L2_PIXEL_ENC_YUV=
-, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 2, 4, 0, 0 }, .bpp_div =
-=3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
-> +		{ .format =3D V4L2_PIX_FMT_P010_4L4, .pixel_enc =3D V4L2_PIXEL_ENC_YUV=
-, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 2, 4, 0, 0 }, .bpp_div =
-=3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
-> +		=C2=A0 .block_w =3D { 4, 4, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
+This code/call is also planned to be removed in a future series, so I do
+not think moving drm_bridge_get() is necessary unless you think we need
+to protect against possible bad behavior from DRM core?
 
-.block_w =3D { 4, 2, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
+Regards,
+Jonas
 
-This one is speecial, this format does not exists. I believe Jernej made th=
-at
-one based on assumptions, the actual HW should produce NV15 4L4, but I don'=
-t own
-that hardware, and so I never managed remove that last "user" of it, which =
-is I
-believe H6 VP9 decoder.
+> 
+> Otherwise looks good.
+> 
+> Luca
+> 
 
-Nicolas
-
-> =C2=A0
-> =C2=A0		/* YUV planar formats, non contiguous variant */
-> =C2=A0		{ .format =3D V4L2_PIX_FMT_YUV420M, .pixel_enc =3D V4L2_PIXEL_ENC=
-_YUV, .mem_planes =3D 3, .comp_planes =3D 3, .bpp =3D { 1, 1, 1, 0 }, .bpp_=
-div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
-
---=-TG6IA7MczaywLWJwvwWo
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCagx/RAAKCRDZQZRRKWBy
-9FG0AQCmk+1TScHghmIvvWe/dPiMpOsOio1Y+H/dE2nbMFgLAwD/eHkfQJdQ+yQJ
-J+iyq2+WOkh1bcV9Wd6fSThZhpuCtAc=
-=B75G
------END PGP SIGNATURE-----
-
---=-TG6IA7MczaywLWJwvwWo--
 
