@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E86CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEA99CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JS2dIVjCN4rsLbtzA8+v0rhcj6IymxrZeXALoVnbIv0=; b=oTXMMcX4GIvQb1NymCGgC9Pqh1
-	J3YB1nt04MCPRG1HXk2NEVog6Me1IFJk3fDkWl0s+zGLFPNN26dWT/YMA/VZ9fA9Yvf/j7cc5j0Yn
-	zoKZ8ftAIpZvENZixk/IgI6JyNCTFv67WpLb0vkCm7AaY6Cr/f8KZC62lH7Hb7WdGHF+k1CnWxDWL
-	eHw0b2XpvN3FxrryufKEvLRSOis7kGtMMHam0o6r1PH5fTsdIoutsiVCkxBdsaoLljILEkBWC5iWL
-	7CTEtWsnjCmschhVjq+FjWpg5EU1cZPoWUVRiNjlXgi3eCmu/PhBaisSblC20MriKtn53iLEDAfGm
-	ea/X8R1A==;
+	bh=JTiRIOvyrnbBe56DNVUfZzfjuOs0jdrr1NH4cMoTGyM=; b=20p9AljIdfJimwO8RA5dchZSyN
+	oIf8+mJal1kbEBHQ2XCuKxVaZk9G0QPCaDkKDZJMWOWM2kiI8DCDjpMZRxDCrrd6MenCZITazBNGN
+	VtdllcMBQzIwkBkopSHRdXTvY7AhAHJeIePVkIzx3Q1SoSVQpx4h0JoDbAzqYC1AQxP5WjnKzavoH
+	Uu5iaxJl9PbXHhSG3NqPd1agaxyiKxRmoePTVCIPnYLO/0+k5WoqzZKO/0xBA0cbHgNAtmNucSv5K
+	RtfGurCN1rWC0VnYEGCxmHgUvCeRr11Iid22GW6SM0XrcLTXWK3jn7cHmFzldA6Dg9u42ZhX+n53R
+	HfoOqElA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGU9-00000000rtC-2Uom;
-	Tue, 19 May 2026 09:11:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPGXC-00000000sMz-0Aqw;
+	Tue, 19 May 2026 09:14:42 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGU6-00000000rsX-34Rb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:11:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B4BEA418B8;
-	Tue, 19 May 2026 09:11:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CACCC2BCC6;
-	Tue, 19 May 2026 09:11:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779181889;
-	bh=GA/ws2LYv6piWac5ud42DGFv9hbkBVI/O7uf0WPkcHU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=D8pO5iWXD7wstIaOm88fc3dpYMmginT3MjYyVFjpzR0bthityzXSo6FXg/NY5f5Fy
-	 18+YpnLIUeJh9n2F8ncJGMuK8X5ZyjTnxBRPJtN2MZNDTbfwQ7jqu/Fr1s1kRHkUMl
-	 A+p3BCbRqc4GC2i3zOlDF8ji+Jjk8ZjZuVv/6cE+QOPnR29kwmFrcd/2S5UJ+ijVjQ
-	 AKLwSeHntG+7nbkr/YFHefC3/Q29CkZq7oKA2i1bmHQmrJdWJ3cHMfXgsHc7h+OwKW
-	 d8ej1Ut3ugQHcznZqEzDNy1zm/TqjFFkbs5Cojq0V9fD7MHaze6dwAnxoCRXVNYPGC
-	 w/5+M9GTHVqUg==
-Date: Tue, 19 May 2026 11:11:24 +0200
-From: Helge Deller <deller@kernel.org>
-To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org,
-	Russell King <linux@armlinux.org.uk>
-Subject: Re: [PATCH] ARM: mach-rpc: fix zImage build after recent
- font-related changes
-Message-ID: <agwpPFGkN3zHKdCj@carbonx1>
-References: <20260510023941.190396-1-enelsonmoore@gmail.com>
- <d0bb399f-1285-495b-babe-8bae608729e8@gmx.de>
+	id 1wPGX8-00000000sM0-3bOi;
+	Tue, 19 May 2026 09:14:40 +0000
+Date: Tue, 19 May 2026 11:14:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1779182074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JTiRIOvyrnbBe56DNVUfZzfjuOs0jdrr1NH4cMoTGyM=;
+	b=uFdOrz+GgwEtLYeIM+wqq0pdhsZG3lN7XAJlA1KS9vnj3pKHHX/LTAMFavpc07ShXcv8KX
+	MV5xgkv/AP7PGQhddTKgPpCzVhUXR2ybLV39NeptPLv6/+dhQoao7uDMC81nnak1YNK9gu
+	KT39jzZNwp9wj8D2+FJklrfjbe1lSdrLHO5r4Tfdf3dVzaez6NK7qr060KpxISVkItW/AF
+	3TdgrOcRA8EniPuISHgOhqtD9aX0zGbVzbWMgWcCzEyvJLFpbMJwL64q5Ta5zvbZNrT6Dp
+	yJHq+lzQNtggOng2EjWQKgN30TrV9DzpceLFrfA7GUcEc3zeQqMbb23pfjU56Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1779182074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JTiRIOvyrnbBe56DNVUfZzfjuOs0jdrr1NH4cMoTGyM=;
+	b=MoJiPS4UpagsPqF4WAMNPHpPn5nNqYyVRaH9bgZ10wI5dxKm1fB0sX8i14FUGA8ZFZQsCk
+	VqQlNxT4zisXVhAQ==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Gregor Herburger <gregor.herburger@linutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] nvmem: Add the Raspberry Pi OTP driver
+Message-ID: <20260519110041-2d8d92c2-d265-43d1-848f-bf9231a106c8@linutronix.de>
+References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
+ <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <d0bb399f-1285-495b-babe-8bae608729e8@gmx.de>
+In-Reply-To: <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_021130_821919_75950729 
-X-CRM114-Status: GOOD (  23.07  )
+X-CRM114-CacheID: sfid-20260519_021439_041913_A7B7D685 
+X-CRM114-Status: GOOD (  29.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +81,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-* Helge Deller <deller@gmx.de>:
-> On 5/10/26 04:39, Ethan Nelson-Moore wrote:
-> > The text display code used in the Risc PC kernel image decompression
-> > code uses arch/arm/boot/compressed/font.c, which includes
-> > lib/fonts/font_acorn_8x8.c, which further includes <linux/font.h>.
-> > 
-> > Since commit 97df8960240a ("lib/fonts: Provide helpers for calculating
-> > glyph pitch and size") <linux/font.h> contains inline functions that
-> > require __do_div64, which is not linked into the ARM kernel
-> > decompressor. This makes Risc PC zImages fail to build.
-> > 
-> > Resolve this issue in the least intrusive way possible by preventing
-> > the inclusion of <linux/font.h> (and the definition of a struct that
-> > relies on it) when the decompressor is being built.
+On Fri, May 08, 2026 at 04:42:45PM +0200, Gregor Herburger wrote:
+> Raspberry Pis have OTP registers which can be accessed through the
+> videocore firmware. Add a nvmem driver to support these OTP registers.
 > 
-> I don't think we really require 64-bit integer support/division in the
-> font code, as 32-bit should be sufficient.
-> Can't you try to find out where this 64-bit division is done, and fix
-> this instead?
+> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> ---
+>  drivers/nvmem/Kconfig                      |  10 +++
+>  drivers/nvmem/Makefile                     |   1 +
+>  drivers/nvmem/raspberrypi-otp.c            | 130 +++++++++++++++++++++++++++++
+>  include/soc/bcm2835/raspberrypi-firmware.h |   9 ++
+>  4 files changed, 150 insertions(+)
+> 
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index 74ddbd0f79b0..aac31f43385e 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -483,4 +483,14 @@ config NVMEM_QORIQ_EFUSE
+>  	  This driver can also be built as a module. If so, the module
+>  	  will be called nvmem_qoriq_efuse.
+>  
+> +config NVMEM_RASPBERRYPI_OTP
+> +	tristate "Raspberry Pi OTP support"
+> +	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
 
-Ethan, does this compile-only-tested patch fix the issue?
-Maybe only the first hunk is necessary.
+The '&& !RASPBERRYPI_FIRMWARE' clause looks weird, is it really necessary?
 
-Helge
+> +	help
+> +	  This driver provides access to the Raspberry Pi OTP memory via the
+> +	  nvmem subsystem. The driver supports the customer OTP as well as the
+> +	  device specific private key OTP (BCM2712 only).
+> +
+> +	  This driver can also be built as a module. If so, the module
+> +	  will be called raspberrypi-otp.
 
+While we are here: The empty line here is now missing.
 
-diff --git a/include/linux/font.h b/include/linux/font.h
-index 6845f02d739a..c8f3d6ef54c8 100644
---- a/include/linux/font.h
-+++ b/include/linux/font.h
-@@ -35,7 +35,7 @@ struct console_font;
-  */
- static inline unsigned int font_glyph_pitch(unsigned int width)
- {
--	return DIV_ROUND_UP(width, 8);
-+	return (width + 7) >> 3;
- }
- 
- /**
-diff --git a/lib/fonts/fonts.c b/lib/fonts/fonts.c
-index f5d5333450a0..5bd7af5f2111 100644
---- a/lib/fonts/fonts.c
-+++ b/lib/fonts/fonts.c
-@@ -71,24 +71,24 @@ static void font_data_free(font_data_t *fd)
- font_data_t *font_data_import(const struct console_font *font, unsigned int vpitch,
- 			      u32 (*calc_csum)(u32, const void *, size_t))
- {
--	unsigned int pitch = console_font_pitch(font);
--	unsigned int h = font->height;
--	unsigned int charcount = font->charcount;
-+	uint8_t pitch = console_font_pitch(font);
-+	uint8_t h = font->height;
-+	uint16_t charcount = font->charcount;
- 	const unsigned char *data = font->data;
- 	u32 csum = 0;
- 	struct font_data *font_data;
--	int size, alloc_size;
-+	unsigned long size, alloc_size;
- 	unsigned int i;
- 	font_data_t *fd;
- 
--	/* Check for integer overflow in font-size calculation */
--	if (check_mul_overflow(h, pitch, &size) ||
--	    check_mul_overflow(size, charcount, &size))
-+	/* size-check user provided font values */
-+	if ((pitch != console_font_pitch(font)) ||
-+	    (h != font->height) ||
-+	    (charcount != font->charcount))
- 		return ERR_PTR(-EINVAL);
- 
--	/* Check for overflow in allocation size calculation */
--	if (check_add_overflow(sizeof(*font_data), size, &alloc_size))
--		return ERR_PTR(-EINVAL);
-+	size = h * pitch;
-+	alloc_size = size + sizeof(*font_data);
- 
- 	font_data = kmalloc(alloc_size, GFP_USER);
- 	if (!font_data)
+>  endif
+> diff --git a/drivers/nvmem/Makefile b/drivers/nvmem/Makefile
+> index 7252b8ec88d4..8ca2095e068f 100644
+> --- a/drivers/nvmem/Makefile
+> +++ b/drivers/nvmem/Makefile
+> @@ -95,3 +95,4 @@ obj-$(CONFIG_NVMEM_ZYNQMP)		+= nvmem_zynqmp_nvmem.o
+>  nvmem_zynqmp_nvmem-y			:= zynqmp_nvmem.o
+>  obj-$(CONFIG_NVMEM_QORIQ_EFUSE)		+= nvmem-qoriq-efuse.o
+>  nvmem-qoriq-efuse-y			:= qoriq-efuse.o
+> +obj-$(CONFIG_NVMEM_RASPBERRYPI_OTP)	+= raspberrypi-otp.o
+> diff --git a/drivers/nvmem/raspberrypi-otp.c b/drivers/nvmem/raspberrypi-otp.c
+> new file mode 100644
+> index 000000000000..393640cb9e32
+> --- /dev/null
+> +++ b/drivers/nvmem/raspberrypi-otp.c
+> @@ -0,0 +1,130 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +
+> +#include <linux/overflow.h>
+
+This looks unused.
+
+Instead maybe add linux/types.h, linux/align.h
+
+> +#include <linux/module.h>
+> +#include <linux/nvmem-provider.h>
+> +#include <linux/platform_device.h>
+> +#include <soc/bcm2835/raspberrypi-firmware.h>
+> +
+> +struct rpi_otp_priv {
+> +	struct rpi_firmware *fw;
+> +	struct device *dev;
+
+This looks unused.
+
+> +	u32 read_tag;
+> +	u32 write_tag;
+> +};
+> +
+> +struct rpi_otp_header {
+> +	__le32 start;
+> +	__le32 count;
+> +	__le32 data[] __counted_by_le(count);
+> +};
+> +
+> +static int rpi_otp_read(void *context, unsigned int offset, void *buf, size_t bytes)
+> +{
+> +	struct rpi_otp_priv *priv = context;
+> +	struct rpi_otp_header *fwbuf;
+> +	u32 count;
+> +	int ret;
+> +
+> +	if (!IS_ALIGNED(offset, 4) || !IS_ALIGNED(bytes, 4))
+> +		return -EINVAL;
+
+Isn't this already enforced by the nvmem core?
+
+(...)
+
+> +static int rpi_otp_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct nvmem_device *nvmem;
+> +	struct rpi_otp_priv *priv;
+> +	const struct rpi_otp_driver_data *data;
+> +	struct nvmem_config config = {
+> +		.read_only = false,
+> +		.word_size = 4,
+> +		.stride = 4,
+> +		.reg_read = rpi_otp_read,
+> +		.reg_write = rpi_otp_write,
+> +		.id = NVMEM_DEVID_NONE,
+> +	};
+> +
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +
+> +	data = dev_get_platdata(dev);
+> +	if (!data)
+> +		return -ENODEV;
+
+I would do this before the devm_kzalloc().
+> +
+> +	priv->fw = dev_get_drvdata(dev->parent);
+> +	priv->dev = dev;
+> +	priv->read_tag = data->read_tag;
+> +	priv->write_tag = data->write_tag;
+> +	config.dev = dev;
+> +	config.priv = priv;
+> +	config.name = data->name;
+> +	config.size = data->size;
+> +
+> +	nvmem = devm_nvmem_register(dev, &config);
+> +	if (IS_ERR(nvmem))
+> +		return dev_err_probe(dev, PTR_ERR(nvmem), "error registering nvmem config\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static struct platform_driver raspberry_otp_driver = {
+> +	.probe	= rpi_otp_probe,
+> +	.driver = {
+> +		.name	= "raspberrypi-otp",
+> +	},
+> +};
+> +module_platform_driver(raspberry_otp_driver);
+> +
+> +MODULE_AUTHOR("Gregor Herburger <gregor.herburger@linutronix.de>");
+> +MODULE_DESCRIPTION("Raspberry Pi OTP driver");
+> +MODULE_LICENSE("GPL");
+> +MODULE_ALIAS("platform:raspberrypi-otp");
+
+Instead of the manual module alias here and the implicit matching of the
+platform driver this should use an explicit matching table:
+
+static const struct platform_device_id foo_id[] = {
+	{ "raspberrypi-otp" },
+	{}
+};
+MODULE_DEVICE_TABLE(platform, foo_id);
+
+static struct platform_driver raspberry_otp_driver = {
+	...
+	.id_table = foo_id,
+};
+module_platform_driver(raspberry_otp_driver);
+
+(...)
 
