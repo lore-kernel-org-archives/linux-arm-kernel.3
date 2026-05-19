@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082DFCD4851
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317F6CD5BA3
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Easx6MEkAooafG++iP85OK9RycPakB2ZfY18ObvhjbE=; b=mkslBkGw4sQEmdhsOFxPWvshko
-	6j2FtMT6umM/rg0nUgJQ2x68AjHJrVm/4MLaxZSENrehMKRiquwKwAB6xH495jdqO6/tuEnFLQ+4C
-	2iV/PK+pkWQNS+y3+4oj5SF9xVKrq3xDC8X5Yy4H7HL1c1TJavawKWO3o4DFaefmdZG6RttJZV/Aw
-	QvAjbL9PzQ0jjLXuWb+NEGZqJkUqa4w5LsKVCFksiOwwfTd6JzoJW7L/bn1sNF4FLZy1vhC4hEiRI
-	b1Md1WsWIXXY43oJauq3a/26/2cHlJfuviiN5DnCa4PEVXfbDJO6HnANwhG1K8okKbDuqxs2g0bxL
-	6wpJ8CQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nrcKi47WYQp5yx8o26i5BI9HVOuq7uN7+XfvO362VYk=; b=ng+UFo8CTFZj2csH1VI62j15rX
+	Nd3I3pMinKMZKCbEiDnRq8ErEfB6WYAR5ZfizUD0bYKREg+ttLnhJ8dtoTS47RPuPqY5mW4lv95Ez
+	g+c81p6FUiRt/o6NZ6wI8MAQJr3YvJ1F3/cuCWno3kHFOMgxmkY70Ndc6x3kxlum4EREX/Tr0WnB6
+	G4zniO3C8FQcyDEqkoZ7k3wlzvUA/Xhhk/g/4rFDlaY8ghcSCKBWeybQL/Y9mq1Q+ZVj0ugc+b4vF
+	CJGiye67SUJOxkSf28CFqrojEq006RmifbZsimZgQgEPiYA7KiuCuujmbGv0tA9L1HUYtRl/7g8sC
+	pzxy+Qaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHrp-000000019Cv-460c;
-	Tue, 19 May 2026 10:40:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPHrq-000000019DG-0eTx;
+	Tue, 19 May 2026 10:40:06 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHrd-000000018xn-2AUs
+	id 1wPHrg-0000000190M-2xpo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:39:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BAACB4090D;
-	Tue, 19 May 2026 10:39:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E141CC2BCFC;
-	Tue, 19 May 2026 10:39:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779187192;
-	bh=6i4/xeWkK24ypQxmT6m5p4TT5PjCbVhVZs0lIiIGkgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=spCwoyYEQDrT/gY9lYLFiqwhE8K4xkItRrq0RrZF4GtD3AANM+SH/HH+LpIVOItgM
-	 QeQj9UkPp+WdF5HGnOoMonn8Vl2nuePuiKbJCa8dzgHrgh7I4wo3ofv/zpIEUJqFiH
-	 pJgMidlsdsCVxF6nSs81jYoyxGA+NmSHCw9EL0NuaIOhqGC86n3ShwBRQEupPBF2Vq
-	 U3vV5hKNMLETtfcMAU98vc24/1/WZxEaBjLHm7hfeJZUbdNH2MKKgEiOLeQimJU5kR
-	 ThNpDQnSODuoqR2YRWsK2tIxMtfnSlhILFvQkfIJfpY1NCSx3YluadUFTuSQaIzl2/
-	 gA1K2YYPcwIww==
-Date: Tue, 19 May 2026 11:39:46 +0100
-From: Will Deacon <will@kernel.org>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: mark.rutland@arm.com, catalin.marinas@arm.com, kernel-team@meta.com,
-	leitao@debian.org, leo.yan@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	palmer@dabbelt.com, paulmck@kernel.org, puranjay@kernel.org,
-	rmikey@meta.com, usama.arif@linux.dev
-Subject: Re: [PATCH] arm64/daifflags: Make local_daif_*() helpers
- __always_inline
-Message-ID: <agw98k7XVGNCR4RM@willie-the-truck>
-References: <ae9f6_MSCMfgG8VT@J2N7QTR9R3.cambridge.arm.com>
- <20260427140125.1773574-2-leo.bras@arm.com>
+	Tue, 19 May 2026 10:40:00 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1F6E6C2B9E5;
+	Tue, 19 May 2026 10:40:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E9A7E606E9;
+	Tue, 19 May 2026 10:39:54 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BD79F107E8AF9;
+	Tue, 19 May 2026 12:39:49 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1779187193; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=nrcKi47WYQp5yx8o26i5BI9HVOuq7uN7+XfvO362VYk=;
+	b=QLmUQNf7MbkIWl1kuqlHzQfsuyJO71uIlJ1t92LXPPLZqQ0VmSYsUDG1xpnpTVaC8HBP1I
+	mkQgOveyFqhCocgfdvpiHsk8KsXpGv+PcrxOkBBrwcNa5xyo3o5NWvgKGrSr1w6COOWuTk
+	oriZI0xKXoiNN9rPWtlWkeYDCdtvwBd4dXK9vzO/vyYTwvuVr1ZN2zoA7d6SXFphbQVJFu
+	Rwi5paf4tLAWI3RGp5ug1t++EZnlANi6YB+Wrvo24k4+T1SsErx2hx3JXkafeUT36dbkVG
+	p8tjoLD3I67aS/5PK3wpXFUTegM3Aw7TB81/apSDm5ub/1+O/8lXr1EGDLqTRQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Tue, 19 May 2026 12:37:42 +0200
+Subject: [PATCH 25/37] drm/bridge: shutdown and cleanup on bridge unplug
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260427140125.1773574-2-leo.bras@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260519-drm-bridge-hotplug-v1-25-45e2bdb3dfb4@bootlin.com>
+References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
+ Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_033953_595385_F76B1356 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260519_033956_944134_FB0A5765 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,18 +90,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 27, 2026 at 03:01:26PM +0100, Leonardo Bras wrote:
-> Make sure those helpers are always inlined and instrumentation safe.
-> 
-> Signed-off-by: Leonardo Bras <leo.bras@arm.com>
-> ---
->  arch/arm64/include/asm/daifflags.h | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
+With the upcoming support for DRM bridge hot(un)plugging, bridges can be
+removed at any time withotu tearing down the entire card. When this
+happens, shutdown the pipeline and detach from the encoder chain the bridge
+being removed along with all the following ones.
 
-b4 really doesn't like this patch being a reply to another one, so I'm
-just replying to say that I've picked it up manually.
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/drm_bridge.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Cheers,
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 7f2d1a81d730..d45fb74ec8c2 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -462,9 +462,17 @@ EXPORT_SYMBOL(devm_drm_bridge_add);
+  * it won't be found by users via of_drm_find_and_get_bridge(), and add it
+  * to the lingering bridge list, to keep track of it until its allocated
+  * memory is eventually freed.
++ *
++ * If the bridge is attached, also disable the active output and detach
++ * this bridge and the following ones.
+  */
+ void drm_bridge_remove(struct drm_bridge *bridge)
+ {
++	if (bridge->encoder) {
++		drm_atomic_shutdown(bridge->dev);
++		drm_encoder_cleanup_from(bridge->encoder, bridge);
++	}
++
+ 	mutex_lock(&bridge_lock);
+ 	list_move_tail(&bridge->list, &bridge_lingering_list);
+ 	mutex_unlock(&bridge_lock);
 
-Will
+-- 
+2.54.0
+
 
