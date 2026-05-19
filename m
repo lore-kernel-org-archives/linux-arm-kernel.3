@@ -4,73 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8EF7CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BFCDCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s4MkTPmyiSjKWeSibYiZlPl0g8Ut9Fvq2fUKdqqLp7M=; b=KNHCEQhx/MgsFo/e9tYVHdAVsk
-	aWS7496FANOsBzRYXGvK1CBd7iUdIJNNb0MHoAXkqKixhLggwumXwcdEGH4OrZ4cU1jESlzysXwbE
-	wijmIQIX6rf00kPSHoO77JEHtdPh4He2Nwl8tbw6eDO+J3SW16pXCff5qRzQIW4WTpr5bCd4h5iUD
-	p/zTRy/rg0ROepW6tff0yGPzhCo9Vz59ZlrISJ9h4j0h6yi9/rCorsaieQuecUWSRIj6Xo9zOwveI
-	3r4zUZOl6ZQ1epGU7cw5dHV5P4G3cS0D0Y5tcVbVAtIYpK2ePemjjubY55Ag01Xxn/6m9SBPxzzFG
-	PFN3KLvQ==;
+	bh=7H68l4OcBjtpjeaF6z5PFn99IQuPZnYdgMG4q7QTLc4=; b=DbqRIPe7iYh7cMUjAoeYFWVbgq
+	d0pe+GZyG1uWQl6nlOATSb8/C2bmwIRZM6cP5mP6E/kiMux1N2ZnY8pyGoH3b3KwSqaZvWDpx/WQP
+	5h7JxX65X1wpcUtd0tHpFSWwI7RqdMTTksxUoqHhKM6Evrjmsitmu2c9ZtFp97bXiq2aYgtLSozZ9
+	aRHfZvZ5D1qM7nOhEAO0IfVZf5nsYo9tAfogGqPAY35ZT45i2d1t97mXkALWErsiqRXNu6afmVB7J
+	nOeI3OVvGDtLU2geUIo1xW3VaSOF89tF4R7sf50J93x0PmJaEhDigZfoKoeHwALSQFGeIwByKmycF
+	pBKKsf2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHZu-000000014IV-2Yp7;
-	Tue, 19 May 2026 10:21:34 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wPHbL-000000014YO-07dR;
+	Tue, 19 May 2026 10:23:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHZs-000000014HW-2tFB;
-	Tue, 19 May 2026 10:21:33 +0000
-Date: Tue, 19 May 2026 12:21:29 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1779186090;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s4MkTPmyiSjKWeSibYiZlPl0g8Ut9Fvq2fUKdqqLp7M=;
-	b=p7yTZpopgx8qnMg4xfVsSTSxF6ntf61gKVRBMVDrWWByYCjn9DbH0fEtWWzY6DyDF0CHqL
-	y4g2myTR32tiSuF/sn7PERojYEiV9HUPR5zopjMHtx6jokqyq/yqaPyXvXZpLHpbbcyO7J
-	QLdVOlc5fErj4vqz2vdFbVJCXblNIdF+zZ/m3OhI/QoZh+3Wp6k/TMY3SXT771ggVZ3fc3
-	Gmw6MfsdlP6vyPNaDtVq0MMl79dJyO3tliSPAd9NwarbI/5R4TgRbt5GtYAZDDDm4HIFjy
-	WNCgKKS37/VnD+G0JSy0AXBDcT3oU+9/fSvWdr/rwnOuQAUx1dfjCFxLlAV9Mw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1779186090;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s4MkTPmyiSjKWeSibYiZlPl0g8Ut9Fvq2fUKdqqLp7M=;
-	b=rOprURbuQNXUITboV4Vnp0PhwG+5hleZXLEpmvS+rTaOzBv6nAaYU6iVcmgDdc9Jhx3rn+
-	npcpxFZO1dHEw1AQ==
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
-	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v4 3/5] firmware: raspberrypi: register nvmem driver
-Message-ID: <itr6h3qqjcv5k6mwfj5sgmwviusq2sni35qfkvrq4fu2dyqclx@z734js7deviq>
-References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
- <20260508-rpi-otp-driver-v4-3-cf8d725d8821@linutronix.de>
- <20260519111442-f1e6d418-9a92-4934-8a9c-c5f7827f853e@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260519111442-f1e6d418-9a92-4934-8a9c-c5f7827f853e@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_032132_867436_C1805EB3 
-X-CRM114-Status: GOOD (  12.46  )
+	id 1wPHbJ-000000014Xx-3yOH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 10:23:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F2DA660219;
+	Tue, 19 May 2026 10:23:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A94DAC2BCB3;
+	Tue, 19 May 2026 10:23:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779186180;
+	bh=dJqprahTyxpYNUn6AwqHfPXuovfDD8ZbTCYM1ACl1RM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Q/fBj+NlM1QXg6cYP9E/cUcU9PkApK4IBpvWBL/OWD6zlG1VjGo+sQynkZ66uGKh7
+	 y02lUQCdhSnZ4ccWZDGP523e3xOIAuITQxam3+OLLJX1k5uHMcJ27mkSbFAzz3UyVY
+	 eYrFk1RJ+It7ZBvQNkQkxOibpGAX6i3WfNvnEf2zUIWYy8eg/F9ajF/40H680urVgx
+	 +g2qBmMSw/N+Pkl6qeJeEpydZIJZCkbW+0urapOFoHtFZJ1orJcSRyNcrUgU5PXVAU
+	 t1mO+ju4NkfIENmzyN+TjgtoXQGlpfgnkz+f+hw5jQDpp9oqODZcDLmj6bXqFRU10c
+	 opn7BpsWT9y7A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPHbG-00000003tLL-1SCO;
+	Tue, 19 May 2026 10:22:58 +0000
+Date: Tue, 19 May 2026 11:22:57 +0100
+Message-ID: <86se7nwvem.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] arm64: cpucaps: Keep entries sorted
+In-Reply-To: <20260519092243.7278-1-will@kernel.org>
+References: <20260519092243.7278-1-will@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: will@kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 11:15:59AM +0200, Thomas Weißschuh wrote:
-> On Fri, May 08, 2026 at 04:42:46PM +0200, Gregor Herburger wrote:
-> > The Raspberry Pi firmware exposes two regions with otp registers. The
-> > first region called "customer otp" is available on all Raspberry Pi
-> > models. The second is only available on the Raspberry Pi 5 (bcm2712).
+On Tue, 19 May 2026 10:22:42 +0100,
+Will Deacon <will@kernel.org> wrote:
 > 
-> (...)
+> The cpucaps list is supposed to be sorted, even though the awk script
+> which processes it doesn't really care. Since this isn't enforced or
+> relied upon and because the alphabet is hard, the list has gradually
+> developed an ordering of its own.
 > 
-> > @@ -327,12 +371,25 @@ static void rpi_firmware_remove(struct platform_device *pdev)
-> >  	rpi_hwmon = NULL;
-> >  	platform_device_unregister(rpi_clk);
-> >  	rpi_clk = NULL;
-> > +	platform_device_unregister(rpi_otp_customer);
-> > +	rpi_otp_customer = NULL;
-> > +	if (rpi_otp_private)
+> Re-sort the file.
 > 
-> This check looks unnecessary.
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+> Reported-by: Marc Zyngier <maz@kernel.org>
+> Signed-off-by: Will Deacon <will@kernel.org>
+> ---
+> 
+> Marc pointed out that HAS_BBML2_NOABORT was in the wrong place but, on
+> closer inspection, there are a bunch of misplaced entries here. I
+> honestly don't like the churn of re-sorting it, so an alternative is
+> to live with it and remove the comment at the top asking people to keep
+> it sorted it. Any preferences?
 
-Looking at platform_device_unregister again it does not do anything when
-rpi_otp_private is NULL so i will drop the if.
+I'm not sold on the requirement for keeping this sorted, TBH. The
+commit message says "to minimise conflicts", which I can understand as
+it avoids people adding entries at the end all the time, but it is
+obvious that we (especially myself) can't manage to do that.
 
-> 
-> > +		platform_device_unregister(rpi_otp_private);
-> > +
-> > +	rpi_otp_private = NULL;
-> >  
-> >  	rpi_firmware_put(fw);
-> >  }
+If we want to keep this sorted for $reasons, let's actively enforce it
+in the generation script:
 
-Regards
-Gregor
+diff --git a/arch/arm64/tools/gen-cpucaps.awk b/arch/arm64/tools/gen-cpucaps.awk
+index 2f4f61a0af17e..2e06768ff432e 100755
+--- a/arch/arm64/tools/gen-cpucaps.awk
++++ b/arch/arm64/tools/gen-cpucaps.awk
+@@ -20,10 +20,14 @@ BEGIN {
+ 	print ""
+ 	print "/* Generated file - do not edit */"
+ 	cap_num = 0
++	previous = ""
+ 	print ""
+ }
+ 
+ /^[vA-Z0-9_]+$/ {
++	if (cap_num > 0 && previous > $0)
++		fatal("unsorted cap " $0)
++	previous = $0
+ 	printf("#define ARM64_%-40s\t%d\n", $0, cap_num++)
+ 	next
+ }
+
+although that results in a different sorting order (my awk-foo is limited).
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
