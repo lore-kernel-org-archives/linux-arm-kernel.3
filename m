@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CF6ECD5BA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD5FCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=31ncBWdHqHsdjEKSp4vtUwOjKggaE/FUwi7+sB64GTA=; b=ZWzw1Z4isdMXx1CKVZzFCWZ4nI
-	6qSiimycxmMaFahtDVq+osy86Ear+9C4uCdCrsT+eMmkIyPtRZS8wa/Yvl7fyAp3ExRS3xujMPX9P
-	QsmvYBt8RMgkN+rNe7t3Uba4S3vpAqqfwXzFZ+0vqtMcostvvpchNLRJr5uvz78ij0aUeANGyfm+h
-	p6jqNch6Rj+XdmSCUzvazjnGKaO9yIJDB4wL50Nr4QR6BycARCImyLZIxg3ByI2S6ThK7FkIrtjq5
-	22TPv0zX4YL1lsx+j+lRsIyKCmQHwee1gQ09SliaFWCO9R2hPn8nXOqizOwJw0URtNlNlTypnHd/n
-	XzVcNuIw==;
+	bh=rgVp93a1hHl6rSGJFgiMk/ReFa5XUVMfUAt1b53bH5w=; b=Rzhh72GAly4IGxqzGaHDw3lQKY
+	VQjEr5MWq3Pt4JXobthyEgYivPlD7+f8RN6aCI4CVmUDAy755BOK7YRSld0uTlK/+V0qKagkLuxcJ
+	eN69rbiAi0gUWa6gETCcZXAfYt+kvw0A84VfX0Cbl+dyGjwDHZtqrG2fNjKE7VLuh/hWeHAGYGbXe
+	hgDcClMsQ9Yg0wfZoucehq89K6yZfP6K4BTIIGSd3vzIc5fgBffsHvBxA+DCQAWwJQlGT/2WmpD5E
+	VBfNVgJCsX67iAm2iQ34dakfEz+86VjI38XT79BLwnNnb7skxaa5wZARvtY/7wA6+vgOarbffBj63
+	l8d5/qpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHsS-00000001A1A-3y57;
-	Tue, 19 May 2026 10:40:44 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wPHsw-00000001ASX-1rHt;
+	Tue, 19 May 2026 10:41:14 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHsG-000000019j8-2H9s
+	id 1wPHsP-000000019uf-17jW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:40:37 +0000
+	Tue, 19 May 2026 10:40:46 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id EDF7C4E42CF4;
-	Tue, 19 May 2026 10:40:30 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6FB0EC2B9E9;
+	Tue, 19 May 2026 10:41:32 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C19AB606E9;
-	Tue, 19 May 2026 10:40:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5BEFB107E8AF0;
-	Tue, 19 May 2026 12:40:25 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 457F5606E9;
+	Tue, 19 May 2026 10:40:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0FFE3107E8AF0;
+	Tue, 19 May 2026 12:40:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187229; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1779187237; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=31ncBWdHqHsdjEKSp4vtUwOjKggaE/FUwi7+sB64GTA=;
-	b=MWJTDn5rArD4HU8/88qXnibhNRKlApYd92dhmLobr0VRJBSg9i4Nmt6jrwGXpugMvv5OmY
-	TpUfO/dBOabgxWRFrU/10zDCAXFxbLEZqFMDOe9SMZ+IWfixPQSIzlnfZPdcq/IlO/VGIr
-	dFET0eus81/DZyOLH05lag+6WmQfcgQnsk9qalj79k6mddr5R/6pKyUA6GZXb+BAR3V3S1
-	23cN1nXngjKQfI+YmsdZ5lezoxal0KuUEipbhLwhHbrw/NnM5TGhNO3cytPQaGQ/MYB3KT
-	wOl5qttM4Y1u2RSkUny+veut8wkeTbVCYw/TqNDZb1xMDLD4atb2o1XR1eJ69A==
+	bh=rgVp93a1hHl6rSGJFgiMk/ReFa5XUVMfUAt1b53bH5w=;
+	b=Ca/rGiQg938bz1xHEi3N1mdoEG0gO/+dhsaW5WudwhKrLxZKtdJeh/FP46bPv06UUzPkZS
+	vw6+d5tFKyw+v3v+BIuKiT6sWzeiR0caRTTKjlTPQar7QH7O90q4l1MSNyR9RdSnwQqkQv
+	4rjQB5aiqIWEb8loCgfKmXpxFV58zO0eMmlE0E2VZuKq3/LzS9qV50ID3fnfpBVMnFqyLl
+	52CdMOKuiEVQiKOmVLjMoiBvaFte2B0PvLDFy5sVb/8jknXtYuG68CefLmo+aAbnJrHSKo
+	qCVuAq2tQVQfvX/Jcm5qdqgcAvInfOU3+zhviS4FEGDwJ5lw7bst0GD43jsSyg==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:50 +0200
-Subject: [PATCH 33/37] drm/bridge: samsung-dsim: implement .is_tail
+Date: Tue, 19 May 2026 12:37:52 +0200
+Subject: [PATCH 35/37] drm/bridge: drm_bridge_attach(): don't fail on
+ -EPROBE_DEFER
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-33-45e2bdb3dfb4@bootlin.com>
+Message-Id: <20260519-drm-bridge-hotplug-v1-35-45e2bdb3dfb4@bootlin.com>
 References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -74,9 +75,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_034032_752412_23F64334 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_034041_516354_020D6995 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,45 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This bridge is never a tail bridge, i.e. it always needs a following bridge
-to complete the pipeline. Add a is_tail func to expose this.
+With bridge hotplug support, when a bridge attach func returns
+-EPROBE_DEFER it means the following bridge is not yet connected, but it
+could be later on. In this case don't fail the entire attach operation, so
+the card can probe (without a connector) and be ready to handle a future
+hotplug that completes the pipeline.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/samsung-dsim.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/gpu/drm/drm_bridge.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/samsung-dsim.c b/drivers/gpu/drm/bridge/samsung-dsim.c
-index 3c70a45c5dce..55f4b0f16ade 100644
---- a/drivers/gpu/drm/bridge/samsung-dsim.c
-+++ b/drivers/gpu/drm/bridge/samsung-dsim.c
-@@ -1716,6 +1716,11 @@ static const u32 samsung_dsim_pixel_output_fmts[] = {
- 	MEDIA_BUS_FMT_RGB888_1X24,
- };
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 2b539c9749a6..05702ece77c9 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -593,7 +593,7 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
  
-+static bool samsung_dsim_is_tail(struct drm_bridge *bridge)
-+{
-+	return false;
-+}
-+
- static bool samsung_dsim_pixel_output_fmt_supported(u32 fmt)
- {
- 	int i;
-@@ -1836,6 +1841,7 @@ static int samsung_dsim_attach(struct drm_bridge *bridge,
- }
- 
- static const struct drm_bridge_funcs samsung_dsim_bridge_funcs = {
-+	.is_tail			= samsung_dsim_is_tail,
- 	.atomic_duplicate_state		= drm_atomic_helper_bridge_duplicate_state,
- 	.atomic_destroy_state		= drm_atomic_helper_bridge_destroy_state,
- 	.atomic_reset			= drm_atomic_helper_bridge_reset,
-@@ -2225,6 +2231,7 @@ int samsung_dsim_probe(struct platform_device *pdev)
- 
- 	pm_runtime_enable(dev);
- 
-+	dsi->bridge.ops = DRM_BRIDGE_OP_IS_TAIL;
- 	dsi->bridge.of_node = dev->of_node;
- 	dsi->bridge.type = DRM_MODE_CONNECTOR_DSI;
+ 	if (bridge->funcs->attach) {
+ 		ret = bridge->funcs->attach(bridge, encoder, flags);
+-		if (ret < 0)
++		if (ret < 0 && ret != -EPROBE_DEFER)
+ 			goto err_reset_bridge;
+ 	}
  
 
 -- 
