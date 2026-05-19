@@ -4,122 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F7ECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5F6CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MIrObDOfXFbZhi/VTwXhO6qhI6xDdMal5EyvLao9RFM=; b=2mSarLO1TW4VTg8YqvQjyJnpZV
-	ueNxni3BMv3Dg0VDh0R//WQkiDwV/lHyazqRz0VS5d/urSJrvUl73wNNKs/VZKEkzGICwHth1Zx29
-	gwA5NitHhxYQ9h5ZO7QJdph1Uhfp0Rq0GslC7OQVYwKblo3l81+bAkPj/2D0jORoAmjZjhC+RMvj7
-	DuQq06r0LHUjXCQIp3niIbubWTdtxLNhtxGo/X1s5xyEphXtAXCaYl0uQx8yaEcJEpOfK2wESNRIN
-	dAEmvLRz908QLG/7t8cTQ9wrCP1i3fUSBfQgwLkX9FIxYQAT5HiTpnWdW/RVxIajFQ/GrtlZMEfKn
-	/ByOSoOw==;
+	bh=NNcsfpFL5AXyCLIStvdr24JH+mlgdzXSo7VmilEiYxg=; b=43gyQNyjpQNVs8OB06bd2+iQZ9
+	TMJte1BAw5UR32d6xP/djAxDRAFXPtLI/9szTbzWwzYfz7qNwqMDtfw5RgmoBd6pWTFbAVzCnZqiV
+	p+WdzRWiKHYAFRjVrI1a80T8T1fpiZRnWolKNDwg+S9MneTXeAQWKrBTPSVjhsfG2qQHbjLb8C//X
+	gqIMcY650bZrMX/L3ThClRJJoOLXvKZ7H02H/WzyGqdXsoQVzOffFhffcQ+e2WhtSeBsi9nFaEFrM
+	fGP3jgoSYxuHcPVYiVOmUPNq/2Qfok3qe07qLcDH/CNm22do6huanPCaosMxGGgxGXYg5QPggGwIj
+	kaIZcWcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGwd-00000000y2E-0q6N;
-	Tue, 19 May 2026 09:40:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPGLy-00000000p4o-3Vtb;
+	Tue, 19 May 2026 09:03:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGwa-00000000y1F-1b4f
+	id 1wPGLg-00000000ogE-196A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:40:58 +0000
+	Tue, 19 May 2026 09:02:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 06F5041531;
-	Tue, 19 May 2026 09:40:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5028DC2BCB3;
-	Tue, 19 May 2026 09:40:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ADF5D60212;
+	Tue, 19 May 2026 09:02:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06BC5C2BCC6;
+	Tue, 19 May 2026 09:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779183655;
-	bh=fkmrgQQrDeNLvc7UDu335ZGUAhYjlNgB6Tk2RSRZEeY=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=uhx90dnE2FxSA1Q+pm9JvVN1iC6B44MyYb2rgxqeF/jFZZvJnGvxX/RrMmMGlpiAD
-	 z8QqfdXed3V1eWPHiuooTxUNB0Y/uXpHXH2nmVTBz5KeS04T0iSmkIemcc+0zlm/eh
-	 QxDDEW7LtG49E+rRDf0qC8dnFLgvsJVtnbB8BVSEqOluCl9EU6lTqHYSC4/hNSq4vr
-	 BYeaMktKuUf+zZNNuqvZzyH3EVXZyJTQeiac2BnOHdR3Vm2JDTjWSAUCk+maErkUhZ
-	 Fis5VxTYy5VHxo24pyKKrgJsaIvBZ3cIu4NEeBEmEY34qRWOaG+VRXfqU40Mn0njLS
-	 n7tmGSmkK0D3g==
-Message-ID: <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
-Date: Tue, 19 May 2026 11:40:48 +0200
+	s=k20201202; t=1779181367;
+	bh=+roR9EKY5P3KByKKPZTrAIusl8O7nRXXLQS93qqd3OQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=hjoUP0iGozWVSHBYS3GJDTGqcTNY1RGvhlMC4LikD5Yf29PwTqjKHdaW3LbE6WDvT
+	 QdBtXDdfCabxVWtN0MJbGHLiDcY51J1Ip9voDK8HLLc3XDmhmV9VO9qq1E6+y9Opu5
+	 VMqa1PyQ6D8lmR+m2gbWvgZCEUafHekCV0OciX6twENJmlSpzmrmXTWyW3f4Ld37N3
+	 SHgJnFCmCkuwDklyohXYKlwg94bbZakgFCSVMi2iPEHvrcot9MDt4twLfFbRZPbkgn
+	 p7Qw+Tmmq++iYYDubZbXBbEf++w7IZlE/tlbHjptqfcbNHKgfNqlzwCDdheCYn3y1i
+	 JTwuma1Vuc2/Q==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 19 May 2026 11:01:56 +0200
+Subject: [PATCH v5 14/19] drm/hdmi: Rename
+ __drm_atomic_helper_connector_hdmi_reset()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-To: Tejun Heo <tj@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
- Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf@vger.kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
- <agtuPrgIDNKSu2Oo@slm.duckdns.org>
- <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
- <297658c4ae2d6e7103f5968efc936224@kernel.org>
- <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_024057_372889_F6F81F42 
-X-CRM114-Status: GOOD (  21.44  )
+Message-Id: <20260519-drm-mode-config-init-v5-14-388b03321e38@kernel.org>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7569; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=+roR9EKY5P3KByKKPZTrAIusl8O7nRXXLQS93qqd3OQ=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk8av/XVUTm6cQXvNZeu0q4bvpxjb1eb4wu9RS/EHdev
+ +LA4Qd+HVNZGIQ5GWTFFFmeyISdXt6+uMrBfuUPmDmsTCBDGLg4BWAi1lyMdeb2qzNL/3nqNJ1K
+ 2L/ll1fSzN0WKy9GJm2c9eF39FUPlaR4w+y5F988mtWtJ2k7wzQ7lrGGQ/b6+ulRfkLtPzVOt23
+ b0BHW8FrgmHaBXeAEkd/tYQ2G8bph7n77Flgpek9OfMNXyAgA
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,68 +103,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/19/26 11:05, David Hildenbrand (Arm) wrote:
-> On 5/19/26 10:58, Tejun Heo wrote:
->> Hello, David.
->>
->> On Tue, May 19, 2026 at 10:00:39AM +0200, David Hildenbrand (Arm) wrote:
->>> Is that really possible? I'd much rather prefer to trylock and retry, unless
->>> that can really result in deadlocks. But I have the feeling that such deadlocks
->>> should be impossible here.
->>
->> I'm not well versed in either mm or BPF, so the BPF folks will have a
->> better take. But here's a scenario that seemed plausible to me:
->>
->> 1. A bpf prog calls bpf_arena_alloc_pages() on its arena. The kernel
->>    takes arena->spinlock via raw_res_spin_lock_irqsave().
->> 2. Under the lock, the alloc path goes through bpf_map_alloc_pages()
->>    -> alloc_pages_node(), which fires trace_mm_page_alloc().
->> 3. A BPF tracepoint program on mm_page_alloc that shares the arena
->>    starts running with the lock still held.
->> 4. The tracepoint program calls a kfunc, passing an arena pointer
->>    one entry past the array it meant to touch.
->> 5. The kfunc dereferences. The kernel-side address is unbacked, so
->>    the CPU faults.
->>
->> trylock + retry at 5 would A-A deadlock.
-> 
-> Okay, so removing that specific tracepoint (or rather, any tracpoints under the
-> lock) would solve the problem, right?
-> 
->>
->>> For example, staring at apply_range_set_cb(), what prevents:
->>>
->>> (1) apply_range_set_cb() finding pte_none(ptep_get(pte)
->>> (2) apply_range_set_scratch_cb() succeeding ptep_try_install()
->>> (3) apply_range_set_cb() overwriting the pte with set_pte_at()
->>>
->>> Between (2) and (3) CPUs could access the scratch PTE.
->>
->> Scratch only gets installed when BPF passes an unallocated arena
->> address to the kernel side, which is itself the violation, reported
->> through the program's BPF stream. Behavior at that addr is then
->> undefined. For scx, the scheduler should be aborted and torn down.
->>
->> The only requirements are that the kernel doesn't oops and the
->> violation gets caught. Beyond that, behavior at the address is
->> unspecified, and which installer wins the race doesn't matter as
->> long as kernel integrity holds.
-> 
-> You'll have inconsistent TLB state.
-> 
-> I really don't like that approach.
-> 
-> We should really try to just take the lock, and remove any code under the lock
-> that could trigger such unpleasant deadlocks.
-> 
-> Is that feasible?
-> 
+__drm_atomic_helper_connector_hdmi_reset() is typically used to
+initialize a newly allocated drm_connector_state when the connector is
+using the HDMI helpers, and is being called by the
+drm_connector_funcs.reset implementation.
 
-... or can we run into similar problems with kprobes? (I am obviously no bpf
-expert ...)
+Since we want to consolidate DRM objects state allocation around the
+atomic_create_state callback that will only allocate and initialize a
+new drm_connector_state instance, we will need to call
+__drm_atomic_helper_connector_hdmi_reset() from both the reset and
+atomic_create hooks.
+
+To avoid any confusion, we can thus rename
+__drm_atomic_helper_connector_hdmi_reset() to
+__drm_atomic_helper_connector_hdmi_state_init().
+
+Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/display/drm_bridge_connector.c     |  4 ++--
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    | 15 ++++++++-------
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c             |  2 +-
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c |  2 +-
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     |  2 +-
+ include/drm/display/drm_hdmi_state_helper.h        |  4 ++--
+ 6 files changed, 15 insertions(+), 14 deletions(-)
+
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 649969fca141..50408af746d8 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -270,12 +270,12 @@ static void drm_bridge_connector_reset(struct drm_connector *connector)
+ 	struct drm_bridge_connector *bridge_connector =
+ 		to_drm_bridge_connector(connector);
+ 
+ 	drm_atomic_helper_connector_reset(connector);
+ 	if (bridge_connector->bridge_hdmi)
+-		__drm_atomic_helper_connector_hdmi_reset(connector,
+-							 connector->state);
++		__drm_atomic_helper_connector_hdmi_state_init(connector,
++							      connector->state);
+ }
+ 
+ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+ 	.reset = drm_bridge_connector_reset,
+ 	.detect = drm_bridge_connector_detect,
+diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+index 4867edbf2622..a331ebdd65af 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+@@ -304,29 +304,30 @@
+  *		--kunitconfig=drivers/gpu/drm/tests \
+  *		drm_atomic_helper_connector_hdmi_*
+  */
+ 
+ /**
+- * __drm_atomic_helper_connector_hdmi_reset() - Initializes all HDMI @drm_connector_state resources
++ * __drm_atomic_helper_connector_hdmi_state_init() - Initialize all HDMI @drm_connector_state resources
+  * @connector: DRM connector
+- * @new_conn_state: connector state to reset
++ * @new_conn_state: connector state to initialize
+  *
+  * Initializes all HDMI resources from a @drm_connector_state without
+  * actually allocating it. This is useful for HDMI drivers, in
+- * combination with __drm_atomic_helper_connector_reset() or
+- * drm_atomic_helper_connector_reset().
++ * combination with __drm_atomic_helper_connector_state_init(),
++ * drm_atomic_helper_connector_reset(), or
++ * drm_atomic_helper_connector_create_state().
+  */
+-void __drm_atomic_helper_connector_hdmi_reset(struct drm_connector *connector,
+-					      struct drm_connector_state *new_conn_state)
++void __drm_atomic_helper_connector_hdmi_state_init(struct drm_connector *connector,
++						   struct drm_connector_state *new_conn_state)
+ {
+ 	unsigned int max_bpc = connector->max_bpc;
+ 
+ 	new_conn_state->max_bpc = max_bpc;
+ 	new_conn_state->max_requested_bpc = max_bpc;
+ 	new_conn_state->hdmi.broadcast_rgb = DRM_HDMI_BROADCAST_RGB_AUTO;
+ }
+-EXPORT_SYMBOL(__drm_atomic_helper_connector_hdmi_reset);
++EXPORT_SYMBOL(__drm_atomic_helper_connector_hdmi_state_init);
+ 
+ static enum hdmi_colorspace
+ output_color_format_to_hdmi_colorspace(const struct drm_connector *connector,
+ 				       enum drm_output_color_format fmt)
+ {
+diff --git a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+index 07e2afcb4f95..3cad8f9bc529 100644
+--- a/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
++++ b/drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c
+@@ -283,11 +283,11 @@ sun4i_hdmi_connector_detect(struct drm_connector *connector, bool force)
+ }
+ 
+ static void sun4i_hdmi_connector_reset(struct drm_connector *connector)
+ {
+ 	drm_atomic_helper_connector_reset(connector);
+-	__drm_atomic_helper_connector_hdmi_reset(connector, connector->state);
++	__drm_atomic_helper_connector_hdmi_state_init(connector, connector->state);
+ }
+ 
+ static const struct drm_connector_funcs sun4i_hdmi_connector_funcs = {
+ 	.detect			= sun4i_hdmi_connector_detect,
+ 	.fill_modes		= drm_helper_probe_single_connector_modes,
+diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+index c9819c3fc635..e89e1af7a811 100644
+--- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
++++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
+@@ -166,11 +166,11 @@ static const struct drm_connector_helper_funcs dummy_connector_helper_funcs = {
+ };
+ 
+ static void dummy_hdmi_connector_reset(struct drm_connector *connector)
+ {
+ 	drm_atomic_helper_connector_reset(connector);
+-	__drm_atomic_helper_connector_hdmi_reset(connector, connector->state);
++	__drm_atomic_helper_connector_hdmi_state_init(connector, connector->state);
+ }
+ 
+ static const struct drm_connector_funcs dummy_connector_funcs = {
+ 	.atomic_destroy_state	= drm_atomic_helper_connector_destroy_state,
+ 	.atomic_duplicate_state	= drm_atomic_helper_connector_duplicate_state,
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index a161d3b00a25..74dce4be0c00 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -506,11 +506,11 @@ static int vc4_hdmi_connector_atomic_check(struct drm_connector *connector,
+ }
+ 
+ static void vc4_hdmi_connector_reset(struct drm_connector *connector)
+ {
+ 	drm_atomic_helper_connector_reset(connector);
+-	__drm_atomic_helper_connector_hdmi_reset(connector, connector->state);
++	__drm_atomic_helper_connector_hdmi_state_init(connector, connector->state);
+ 	drm_atomic_helper_connector_tv_margins_reset(connector);
+ }
+ 
+ static const struct drm_connector_funcs vc4_hdmi_connector_funcs = {
+ 	.force = drm_atomic_helper_connector_hdmi_force,
+diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
+index 0adc30c55ec9..13375bd0f4ae 100644
+--- a/include/drm/display/drm_hdmi_state_helper.h
++++ b/include/drm/display/drm_hdmi_state_helper.h
+@@ -9,12 +9,12 @@ struct drm_connector_state;
+ struct drm_display_mode;
+ struct hdmi_audio_infoframe;
+ 
+ enum drm_connector_status;
+ 
+-void __drm_atomic_helper_connector_hdmi_reset(struct drm_connector *connector,
+-					      struct drm_connector_state *new_conn_state);
++void __drm_atomic_helper_connector_hdmi_state_init(struct drm_connector *connector,
++						   struct drm_connector_state *new_conn_state);
+ 
+ int drm_atomic_helper_connector_hdmi_check(struct drm_connector *connector,
+ 					   struct drm_atomic_commit *state);
+ 
+ int drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector *connector,
 
 -- 
-Cheers,
+2.54.0
 
-David
 
