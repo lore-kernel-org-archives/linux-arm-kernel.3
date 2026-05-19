@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7829CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3574CD5BA6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjEyGA9Kg8mSbftaYSZM9v+ClyMwRZd6xLu2RTl/IwY=; b=4VJ1SJoB3jK04aekNA4b+CG6eq
-	ZQon28xphVLuSMczYPRGbmwDOblExx5nP6EjbkbOJvWnxID2loPDjzEAOtPOeqSlxRjCfDTQuvTTx
-	M+pTf8ld32C0SVh7VPVKbNeuWLu6hIkkNDS1QSaHiOpM4/9faLzjjfSrJU6ZzjY7mNuPsInTILxUQ
-	T2yDTGjmD9m5x38ovhXSg/+Z3xxIlt4/WKqo7cUHujb75DQZzR/7xLvNt5USqfnIAig8KsqXQQEYH
-	6MsClydHuv6kZ2C1WcJPjtQJi803z8osb/PwU0VypBqMnd44jf0iVz80PJ6RUUA0sZxE2ZlobS3xm
-	toAhRxLA==;
+	bh=+x/+hMZvd/mY+TDvxza1mQa1Krz1zW9d6N4aDdm3aVo=; b=z0GLZ/9wjUEfNUQbQTRLTqZnR6
+	BWLRaC6cTINX1AJDxTnYJ0sC7W0o9a7zzWrh2P2KmS8SmE/bZewW6htI4HBA70/tgPM5LYZCRwBym
+	+byqUSblV8Jlyz9oBgsU6eqoHvnsBdZG/FmpaocjKhqZnXXqi1PrMS92bjYr5ceWlNGAutrTqUySD
+	3dQGogvtM6W43I7425bcBlXxIp2MLTGQm2vYNR6E/xSEJ++8Z+h7mXxR+yp2NJZIPTt/N2UfW9sdw
+	HquCdCSvqLBODd9Jh6RXQxaBAqT/RbC5xcjpgg1FAnxZT5Ng8OMc8kl1sNdmPimWPjAhTIkEqYeLU
+	RWoy8nXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHsD-000000019gj-3RTT;
-	Tue, 19 May 2026 10:40:29 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wPHsE-000000019iJ-3jZH;
+	Tue, 19 May 2026 10:40:30 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHs2-000000019P2-2ie3
+	id 1wPHs7-000000019Wk-11V2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:40:20 +0000
+	Tue, 19 May 2026 10:40:26 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3BF884E42CF3;
-	Tue, 19 May 2026 10:40:17 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B5536C2B9DB;
+	Tue, 19 May 2026 10:41:14 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 0734F606E9;
-	Tue, 19 May 2026 10:40:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 259D8107E8AF0;
-	Tue, 19 May 2026 12:40:11 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 89DB0606E9;
+	Tue, 19 May 2026 10:40:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 00428107E8AE7;
+	Tue, 19 May 2026 12:40:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187215; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1779187219; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=QjEyGA9Kg8mSbftaYSZM9v+ClyMwRZd6xLu2RTl/IwY=;
-	b=JyGilfpW6FF1WDd5YDkDrD/vjp5+5QLCqzdWjH565wNY7ZdIU4yqAWiMG3RVEiHoG6NIDH
-	pnG04pxYIb7esTWPif0QLgtjb63//f7fyHW8SYSTPFHH8Es8ZL39TGeZMIcu76hamGFwtz
-	YMcTus4OewSgxrY3/OeIr48MuO/M7t5MUXlvyOFjNsyPi4fMKNC7k8vrkdGB8kEVn8LZOT
-	ZitG3yNOnFvL50kshS60cHBnvkRXlMbRa4TWGEo5UwoH6efMX1//UHDeAGfj6fpoR3wuH4
-	Xm7+S8pPdmQT5H5HQrUMymtpNFrU27vN2ktjMFgWxcJB6qQhMJS7Ys3w2Y3Hdw==
+	bh=+x/+hMZvd/mY+TDvxza1mQa1Krz1zW9d6N4aDdm3aVo=;
+	b=WBwRoQB2t0CAFsznoKOix9Z+FB3ieKpmwoYJe2twTcy+zrteCXP0AgYjTvwyQ+qDJGu2wT
+	L+fP1EFHkAMtjbPmdXt46zuZ4zim0qERMoM26egm1+ZR1WickXPEDb7WpmX5Y0osWAGXEA
+	aciEyB09WzQnr72p76ZOvtoLlwBrEm+havQfRZotfkG8ZsG4e3W65g78XPYvujZfM1Crmh
+	ATBR9qXlaUAQzz/RVbLkX1fslGsbSyFntJRvKnyVmMMoK3aXEaAds3eP/f1aNFxrVTY/P5
+	I2yAzeW0APKtbE77qMXAugpfEEhtpa+DzGyyNjtLeqzheYIc+a3SyDHHfzkC1w==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:47 +0200
-Subject: [PATCH 30/37] drm/bridge: add drm_bridge_is_tail() to know whether
- a bridge completes the pipeline
+Date: Tue, 19 May 2026 12:37:48 +0200
+Subject: [PATCH 31/37] drm/bridge: panel: implement .is_tail
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-30-45e2bdb3dfb4@bootlin.com>
+Message-Id: <20260519-drm-bridge-hotplug-v1-31-45e2bdb3dfb4@bootlin.com>
 References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -75,8 +74,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_034019_086108_1BE17E21 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260519_034023_480960_E264818D 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,108 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For bridge hotplug we need to successfully probe a card with an incomplete
-bridge chain, i.e. a chain whose last bridge currently in bridge_chain
-needs a next_bridge to work. Such a card would have no connector, and be
-able to add one as soon as the followong bridges are added up to the tail
-bridge (e.g. a panel_bridge or a connector_bridge).
-
-Currently common DRM code is unable to tell whether the last bridge
-currently in the chain is the tail bridge (= the pipeline is complete) or
-not.
-
-Add drm_bridge_is_tail(), and a .is_tail func for it to rely on, so common
-code can know whether a bridge is a tail bridge or needs a next_bridge.
+This bridge is always a tail bridge, i.e. it never needs a following bridge
+to complete the pipeline. Add a is_tail func to expose this.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/drm_bridge.c | 28 ++++++++++++++++++++++++++++
- include/drm/drm_bridge.h     | 19 +++++++++++++++++++
- 2 files changed, 47 insertions(+)
+ drivers/gpu/drm/bridge/panel.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-index c62d17e84d4f..2b539c9749a6 100644
---- a/drivers/gpu/drm/drm_bridge.c
-+++ b/drivers/gpu/drm/drm_bridge.c
-@@ -646,6 +646,34 @@ void drm_bridge_detach(struct drm_bridge *bridge)
- 	drm_bridge_put(bridge);
- }
- 
-+/**
-+ * drm_bridge_is_tail - check whether the bridge is the last required to
-+ *                      have a full pipeline
-+ * @bridge: the bridge to check
-+ *
-+ * Tell whether this is a tail bridge, i.e. a bridge that does not need a
-+ * next bridge to work. E.g. a panel_bridge is final, a DSI-to-LVDS bridge
-+ * is not.
-+ *
-+ * In case of hotplug the last bridge currently in the chain (as in
-+ * drm_bridge_chain_get_last_bridge()) might not be final, and be waiting
-+ * for a pipeline tail to be connected.
-+ *
-+ * Return: true if this bridge does not need a next bridge to work, false
-+ * otherwise
-+ */
-+bool drm_bridge_is_tail(struct drm_bridge *bridge)
-+{
-+	if (!(bridge->ops & DRM_BRIDGE_OP_IS_TAIL)) {
-+		drm_warn_once(bridge->dev, "is_tail func not implemented by bridge %ps!",
-+			      bridge->funcs);
-+		return false;
-+	}
-+
-+	return bridge->funcs->is_tail(bridge);
-+}
-+EXPORT_SYMBOL(drm_bridge_is_tail);
-+
- /**
-  * DOC: bridge operations
-  *
-diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
-index 4ba3a5deef9a..d783a6fb93a0 100644
---- a/include/drm/drm_bridge.h
-+++ b/include/drm/drm_bridge.h
-@@ -78,6 +78,19 @@ struct drm_bridge_funcs {
- 	int (*attach)(struct drm_bridge *bridge, struct drm_encoder *encoder,
- 		      enum drm_bridge_attach_flags flags);
- 
-+	/**
-+	 * @is_tail:
-+	 *
-+	 * Returns true if this is a tail bridge, i.e. it does not need a
-+	 * next bridge to work. E.g. a panel_bridge is a tail bridge, a
-+	 * DSI-to-LVDS bridge is not a tail bridge (no matter whether the
-+	 * next bridge is present or not).
-+	 *
-+	 * The @is_tail callback is optional but it is required if the
-+	 * bridge is part of a pipeline with hot-pluggable components.
-+	 */
-+	bool (*is_tail)(struct drm_bridge *bridge);
-+
- 	/**
- 	 * @destroy:
- 	 *
-@@ -1092,6 +1105,11 @@ enum drm_bridge_ops {
- 	 * &drm_bridge_funcs->hdmi_clear_spd_infoframe callbacks.
- 	 */
- 	DRM_BRIDGE_OP_HDMI_SPD_INFOFRAME = BIT(10),
-+	/**
-+	 * @DRM_BRIDGE_OP_IS_TAIL: The bridge implements the
-+	 * &drm_bridge_funcs->is_tail callback.
-+	 */
-+	DRM_BRIDGE_OP_IS_TAIL = BIT(11),
+diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/panel.c
+index 4978ec98a082..102f987b1235 100644
+--- a/drivers/gpu/drm/bridge/panel.c
++++ b/drivers/gpu/drm/bridge/panel.c
+@@ -58,6 +58,11 @@ static const struct drm_connector_funcs panel_bridge_connector_funcs = {
+ 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
  };
  
- /**
-@@ -1323,6 +1341,7 @@ void drm_bridge_remove(struct drm_bridge *bridge);
- int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
- 		      struct drm_bridge *previous,
- 		      enum drm_bridge_attach_flags flags);
-+bool drm_bridge_is_tail(struct drm_bridge *bridge);
++static bool panel_bridge_is_tail(struct drm_bridge *bridge)
++{
++	return true;
++}
++
+ static int panel_bridge_attach(struct drm_bridge *bridge,
+ 			       struct drm_encoder *encoder,
+ 			       enum drm_bridge_attach_flags flags)
+@@ -206,6 +211,7 @@ static void panel_bridge_debugfs_init(struct drm_bridge *bridge,
+ }
  
- #ifdef CONFIG_OF
- struct drm_bridge *of_drm_find_and_get_bridge(struct device_node *np);
+ static const struct drm_bridge_funcs panel_bridge_bridge_funcs = {
++	.is_tail = panel_bridge_is_tail,
+ 	.attach = panel_bridge_attach,
+ 	.detach = panel_bridge_detach,
+ 	.atomic_pre_enable = panel_bridge_atomic_pre_enable,
+@@ -297,7 +303,7 @@ struct drm_bridge *drm_panel_bridge_add_typed(struct drm_panel *panel,
+ 	panel_bridge->panel = panel;
+ 
+ 	panel_bridge->bridge.of_node = panel->dev->of_node;
+-	panel_bridge->bridge.ops = DRM_BRIDGE_OP_MODES;
++	panel_bridge->bridge.ops = DRM_BRIDGE_OP_MODES | DRM_BRIDGE_OP_IS_TAIL;
+ 	panel_bridge->bridge.type = connector_type;
+ 	panel_bridge->bridge.pre_enable_prev_first = panel->prepare_prev_first;
+ 
 
 -- 
 2.54.0
