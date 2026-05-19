@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D811CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 00:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D3C6CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 01:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GZL8R42vUa8OZgmzVrA9ew7tVcpkru1FmRyxgoHHAOI=; b=c+Mz0uXNULojM8b6pj2FC6njru
-	uj99Gtr0G4lB9bxcrIv0BOAj0EBtol9+TRwhB2nIW1+Ft4DWj+41ShNk67ia26fm0/zmrB5NB0WhG
-	YOsB/OQFAaS6T2y8sqVwdCYbZYd8Fqj94Ie35NJCUKUDnrtm8QeO2ixY7QG9QRUPGtYkktgYt0k3L
-	5dMWR9o/++rZB0DcmFJDkDFfzoRfMDo3yqfRlkOeTL2CmI8LN1ErHtcATIC+P1vpQvC2zheNcckrL
-	pbxaskTjD0OSts0M261UswY33uijnUFxY8Ap+KxDte4MUwonXFeIUdgk8b63eNXrt+9qed7SuIweh
-	ZWFANxZg==;
+	bh=oXHtsnBY1AjSAv+HlUFo/FYDsuTcP65qwKVLI9BrKvM=; b=HWPFBPW7gPF1N4B+5rOjH0e4q2
+	porZlUvDEDSKvEAXX/vHa+QI1ynZC/ZplXdMf/TS2jBUNjs3baurlweyUqG2/blHMn053ZiQB4Y/r
+	Df+T3GmtdfxCRdBv/bWB5oZ3LVP4Iwr9kvY86POHzXuw0hf5B3m+Y5yLp3dJ4yJ182LWHrxSaxZ4d
+	JqKuJ/x43ohveCUrgbi63FJ9755PYnZfWPcqa9+a6/pmSxa2qCv9pfRbx8YY2wQws5+pV32fMUds9
+	qZidyjQZL9oRUl2pbOnsFyrJYvt4yYBx47gv84GdMFacP7yxKBeqDlzZy8rgAjPpJ3KR6on0jPfzK
+	YjmIMLQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP8VH-0000000HHpu-1Ryt;
-	Tue, 19 May 2026 00:40:11 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1wP8st-0000000HJnA-0OGN;
+	Tue, 19 May 2026 01:04:35 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wP8VF-0000000HHpU-2Mmm
+	id 1wP8sq-0000000HJmL-1NOP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 00:40:10 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-c7ffe8eeaf2so1194321a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 17:40:09 -0700 (PDT)
+	Tue, 19 May 2026 01:04:33 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-36974221f93so1341626a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 18:04:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779151209; x=1779756009; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779152671; x=1779757471; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GZL8R42vUa8OZgmzVrA9ew7tVcpkru1FmRyxgoHHAOI=;
-        b=ma9GFah2Xfra7AqhDCQ3AIpRMjl8w9zNzftMOCCmEAk0D47TbGDirWVWi2uYoiPACS
-         ejd7UAyW/xCr1jD/UNuSXLepiWsbfoz1mn/ZFZ+mWCmQf5ydOJeAucAqmxUU8SiPROwK
-         BNxusa7mJ7rcCendmOrq4eFZYs6QzN3KdHCs4x3tLM4K5jn608dztAdFJpyUd8tll67U
-         09l6R+rBaEnubqk4iZelSB01KeBHkZRGUj/qg6EOHS4F40Y4qAFO4wE4c41xhRkydARP
-         DVR3Gg2cs8is3EFhMd8pZpL9MJlLGuwHDnXIn8jFZwolWxICQbbX4frS/WmHu3U0Uk0G
-         zBbw==
+        bh=oXHtsnBY1AjSAv+HlUFo/FYDsuTcP65qwKVLI9BrKvM=;
+        b=X0ceMouUvIFgcqs68Exy9vY25ThTUd4MExwKsbj3R4WrseTAI1iNPBeU3Dqo9dJJGk
+         1YeV11RA2F6c8fhhO3Z4gXIWIsJf61J7DQQx70omTn7lr44Q4W3diRs5Dqiybs7yx/vv
+         a+5VP9EfF9f45JEdZ/CsPVgm+wfO74hsgHMQaHHKmF2/KH/tRdvR7C+yVNLfgNVfFota
+         w8o7jFB7eyxxjWI+ajjJ/XHUx/2DPirEh2m2cwx2F4G5BsgRz/erzfSlVsPyUCUKq9Oj
+         8LsFbo5Jr+O/QFO9+vpfju/5VUn6JzEeLSCd3TZYQM0q/mApI9Ih4hu+FMrSvlnhrQjI
+         M9ZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779151209; x=1779756009;
+        d=1e100.net; s=20251104; t=1779152671; x=1779757471;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GZL8R42vUa8OZgmzVrA9ew7tVcpkru1FmRyxgoHHAOI=;
-        b=Pca9igJDaflzYaLqDPPlSZktPi/AlamQZWeDk6TSQwKQp6qnwUDxvLopt+qT/T2iMx
-         ZFXKaL26f02RI4+rc95y5Yc7Y36XJh8zaXePWg+M1ErLs7ZnZYEChv/cDPYqwj5Q0lqv
-         Vql1dxI2FnLy0TzkDaY5ZlFIExOa/jbENFwh6Af//6Lly89R3qR8/APZLei4P78WIFWh
-         11ktQsA6CDkl5xZGsELurfvsCGusXJ9tvZVTHjLFuHrum5ppl0ja9fhiYL+PvC/T1Gs6
-         FO4mSJKuHiiEHgdho9javEomhu4Pv709K+tmQVDRCVZA3r4DyVXmnMEHdWg99TN6EEMB
-         4TSA==
-X-Forwarded-Encrypted: i=1; AFNElJ9033d55kMI5SNzJVCYIMgIsNY0m8IXNq2Lo2jcGMGMa9XqUUl6GmxqeGMNxMhXsg5M88T/yC10WirZMwL+y1Lh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/5hazR0FASWrFAmkDxW3SqtUeMvsg38+XOFM4h4s8IpKs90bD
-	AdsQV7chv4lEdFqNplnI/JFwRFghDkPzbKR9ufx4GxstnDv7bvATAXJn
-X-Gm-Gg: Acq92OElRWe8qbw4btp4ZP0mr2RNeMcxJ0GfREA6CAjF+3sk1L5uQtN8MVqL8FUqJ87
-	aTx0g3g3wer20clvpMkVSnZTE8TbF4hAbClVLo+o8vWQdy3MNOfe1gYgHiuzAXTLaMH0VKx6qVQ
-	2TqaCGPLUnPRhbxmMJBv+Cghe+2EF2RDhU5DwlW65M6vHfLByAmYGQQ05EUVIc03NLWn+Y9qr5m
-	UIi60eCGsh0HiUisJMuwht8vZVZBh8fsncjerlOaKTwXA9wIgcSaV1puxodmcj43dyiNfVndXgP
-	ZXcEF8ynAguNWUalWDK0YnYb7ZCC0NuIPzwDNF3M7KAv1IxaAk4bIJhKtZz7bDjoBnS95x8DN3F
-	ZngsSu74U+m8MHINXin94FnR+rAalxpGDfbnEShBsdIJ+ENifBLKxYRZTyfc8Bld+ogTXPwb9cx
-	LigQQNUn5cK4Z4nv7watDDaIw6IN0/fBMBaF/SZU4e4abHHY6DjcD5gLx4GSyIVfVKhAQxO+ODc
-	0UxAXIjx85u/GmxXyz6jI3WHlBxciPvSGiZwjTjTSQjug==
-X-Received: by 2002:a05:6a20:72ab:b0:3a3:171f:6aff with SMTP id adf61e73a8af0-3b22e6685edmr20892462637.2.1779151208559;
-        Mon, 18 May 2026 17:40:08 -0700 (PDT)
+        bh=oXHtsnBY1AjSAv+HlUFo/FYDsuTcP65qwKVLI9BrKvM=;
+        b=kreEHJPpgDjYPLsLGUizhxDfBB2DHUXuQ/0ZSAIScAcAll+bSBFp240h/Dd9W8SQ3w
+         mAtF091m6byUxnH5HK27MvXbeYaiNCU3vVmiayaYgdqggcrjX0eAQvuM8/XRwtJ4sXgd
+         DH4+dDKmcog247htSxA9MOqDQ6Y68ODgslFnRHBdSmPK+bHdCywJPlvjukmw7vp6DADD
+         TCzMI5x+pRRnam2xQsDgKmXs9PMzw6WAeBISvdlsEzO+j5FC2fwDTjQ9I5hAM8YXNHXV
+         MWtl5AHB39cDnxqZDZREn04HxpalMhloimL3Wf0iZJ+9tGlLVCSTDy8HuvkjdewjOpYg
+         EtaQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8b2BkI9PbJrmXMxZi2h9ySWwUmIIfzV+IT3EQeOG2GTzvAR04Ld8JmpRvX8PfcA0ka6a5S+0ZRWw4ljz+cmfXP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnG4TavwlMosm9TebXBJLPaGGBs52SCCCNjQ1/6DPKqIX4w8WS
+	87aW8JS/yLzZqiD67t3NtJpwAcPcbn56AZ0XlzVR0/ZGiuGc0YBzPIMwd+j9CIPW
+X-Gm-Gg: Acq92OFpGud9ERcxUQInPBB85p3WuDT/fIBIPkCqwRZSKg6C47IZfVB1MbUTVkLXZDr
+	SiFQzLlY2Rv5UTnYrNS2Pd/1TqZ89Ci9zbnvoIWVoLvVnw4R7XQNIAV/r+ICcZqXYxnuaFMBG0r
+	dVnGe47VIQPxzMnrMAkkGwHe4ohW307FPAjcOxCwKy+DyfzNrQxZaCNSEWbO0r+ZtQRJY14Ek8q
+	jrO6IxjkrPOcsSwWHtD82igqibbopLJGypD79FKYu1T/RwvlsBDFi+7krPMIdbhTgvGp4FY3KJd
+	SGrzDix3KdpU+5LpjJ6JGyJGeQVGkfLR177KwNQdBess8lpAxUtZrLxBG7fjgBP1YUyPe/4RVQb
+	t8YHCmKFYAgNMI3wQzULKKl1pnAmbsLCPO8uRlxOyeYRyBqZS4s3pZ4E1e4LS2ahBF5+e2T0Zj8
+	Xf/2NrdA/T8xJwca8efAp+xEC8w6oVCO9osC3nRSGrrG3siRcb+Wm02elsWAnfWULfCopuLyiWg
+	G2+41di7p35Q01sP94Kbe+VZlPP/gOWisyk3kuwT7e9fQ==
+X-Received: by 2002:a17:90b:4a:b0:35d:a0b7:9608 with SMTP id 98e67ed59e1d1-369519feb17mr16805439a91.7.1779152671266;
+        Mon, 18 May 2026 18:04:31 -0700 (PDT)
 Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb062695sm14473479a12.4.2026.05.18.17.40.07
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36951278e7fsm12177196a91.8.2026.05.18.18.04.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 17:40:08 -0700 (PDT)
+        Mon, 18 May 2026 18:04:30 -0700 (PDT)
 From: Rosen Penev <rosenp@gmail.com>
-To: linux-clk@vger.kernel.org
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
-	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH] clk: sunxi-ng: Use of_device_get_match_data()
-Date: Mon, 18 May 2026 17:39:50 -0700
-Message-ID: <20260519003950.626727-1-rosenp@gmail.com>
+To: linux-sound@vger.kernel.org
+Cc: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
+	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
+Subject: [PATCH] ASoC: mediatek: mt2701: allocate i2s_path with priv
+Date: Mon, 18 May 2026 18:04:13 -0700
+Message-ID: <20260519010413.629214-1-rosenp@gmail.com>
 X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_174009_605045_607D54FF 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260518_180432_373098_BE9F645F 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,47 +103,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use of_device_get_match_data() to fetch the RTC CCU match data directly
-instead of open-coding an of_match_device() lookup.
+Use a flexible array member to combine allocations.
 
-This also lets the driver drop the of_device.h include.
+Clean up surrounding code and allocate based on afe_priv and not
+platform_priv which is a void pointer. struct_size needs a properly
+typed pointer to work.
 
-Assisted-by: Codex:GPT-5.5
 Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ sound/soc/mediatek/mt2701/mt2701-afe-common.h |  2 +-
+ sound/soc/mediatek/mt2701/mt2701-afe-pcm.c    | 21 ++++++++-----------
+ 2 files changed, 10 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index f6bfeba009e8..a3cf0dde05be 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -9,7 +9,6 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of.h>
--#include <linux/of_device.h>
-
- #include <linux/clk/sunxi-ng.h>
-
-@@ -353,14 +352,12 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+diff --git a/sound/soc/mediatek/mt2701/mt2701-afe-common.h b/sound/soc/mediatek/mt2701/mt2701-afe-common.h
+index 8b6f3a200048..c9477bc24ee9 100644
+--- a/sound/soc/mediatek/mt2701/mt2701-afe-common.h
++++ b/sound/soc/mediatek/mt2701/mt2701-afe-common.h
+@@ -89,7 +89,6 @@ struct mt2701_soc_variants {
+ };
+ 
+ struct mt2701_afe_private {
+-	struct mt2701_i2s_path *i2s_path;
+ 	struct clk *base_ck[MT2701_BASE_CLK_NUM];
+ 	struct clk *mrgif_ck;
+ 	struct clk *hadds2pll_ck;
+@@ -99,6 +98,7 @@ struct mt2701_afe_private {
+ 	bool mrg_enable[MTK_STREAM_NUM];
+ 
+ 	const struct mt2701_soc_variants *soc;
++	struct mt2701_i2s_path i2s_path[];
+ };
+ 
+ #endif
+diff --git a/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c b/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
+index bb459faa6e05..d56b498e8c0c 100644
+--- a/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
++++ b/sound/soc/mediatek/mt2701/mt2701-afe-pcm.c
+@@ -1593,6 +1593,7 @@ static int mt2701_afe_runtime_resume(struct device *dev)
+ 
+ static int mt2701_afe_pcm_dev_probe(struct platform_device *pdev)
  {
- 	const struct sun6i_rtc_match_data *data;
- 	struct clk *ext_osc32k_clk = NULL;
--	const struct of_device_id *match;
-
- 	/* This driver is only used for newer variants of the hardware. */
--	match = of_match_device(sun6i_rtc_ccu_match, dev);
--	if (!match)
-+	data = of_device_get_match_data(dev);
-+	if (!data)
- 		return 0;
-
--	data = match->data;
- 	have_iosc_calibration = data->have_iosc_calibration;
-
- 	if (data->have_ext_osc32k) {
---
++	const struct mt2701_soc_variants *soc;
+ 	struct mtk_base_afe *afe;
+ 	struct mt2701_afe_private *afe_priv;
+ 	struct device *dev;
+@@ -1602,23 +1603,19 @@ static int mt2701_afe_pcm_dev_probe(struct platform_device *pdev)
+ 	if (!afe)
+ 		return -ENOMEM;
+ 
+-	afe->platform_priv = devm_kzalloc(&pdev->dev, sizeof(*afe_priv),
+-					  GFP_KERNEL);
+-	if (!afe->platform_priv)
++	soc = of_device_get_match_data(&pdev->dev);
++	afe_priv = devm_kzalloc(&pdev->dev,
++			struct_size(afe_priv, i2s_path, soc->i2s_num),
++			GFP_KERNEL);
++	if (!afe_priv)
+ 		return -ENOMEM;
+ 
+-	afe_priv = afe->platform_priv;
+-	afe_priv->soc = of_device_get_match_data(&pdev->dev);
++	afe_priv->soc = soc;
++
++	afe->platform_priv = afe_priv;
+ 	afe->dev = &pdev->dev;
+ 	dev = afe->dev;
+ 
+-	afe_priv->i2s_path = devm_kcalloc(dev,
+-					  afe_priv->soc->i2s_num,
+-					  sizeof(struct mt2701_i2s_path),
+-					  GFP_KERNEL);
+-	if (!afe_priv->i2s_path)
+-		return -ENOMEM;
+-
+ 	irq_id = platform_get_irq_byname(pdev, "asys");
+ 	if (irq_id < 0)
+ 		return irq_id;
+-- 
 2.54.0
 
 
