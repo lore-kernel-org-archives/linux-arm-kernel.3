@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C99CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E40EACD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:23:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=diM7kSaVoG0aSFuDn4c6brLhayWAcGIqnwHFiCCKOCc=; b=3ox1UtCZuA7aLTx+eXGA77WPFW
-	S/KHSs9Ojeh1Nk/cOz2djGh23Y3hdiR5l7hVSaJA0YoNpbUILPn88QYNwdErTUe6yd+LClVUHeOXU
-	L270IEQ9rmVLJIaYgQAR94+wksDw4JISlkjnuiShUe+N3mbMYBsXLL7fQZXLcQ5pZCUGIQYzBOC76
-	z67ZBhRX4/v0MMltewdb8eTzL/RKHFinzXRQ3fDJbXTb5ZIR5ACIZ/VFibfK82ItBNcgzr785KFLp
-	g1sJKV2dkDhRvmkWCfge310yKw2xKsYnCqkp8MTrOtmQFTmlGQLfsKzKvny0TU1btlt+SXDJ0/SH3
-	1uSy/Zxg==;
+	bh=ZSQiAncsQWf8R8kZC3aoAD6VLonlemrZP2XhwDoBZI8=; b=IvzfAYE97CNjNPfkSeqBlkdvvx
+	jQUQ/CkYUb+uPQHG3Ya8H4etrNdYX9oOT2y1C6kCH9wW2NMkEeGSe6I+SHTHgHXRG471EsG5TdQC6
+	mIeksMezOwfRy6B1twx9HFrs/yIxh7rVj8+2PkNXdJG5z0qG5DmLswD3eBkqMm7d1I7Z64XkKtOm4
+	6tvh1nmTMyG9Rgc2VF+wfvSnis5JE0Kp5DxBIImmW3gpfXG7wVGTxEwfDBlCnSg6Ljm8Nz1QAew08
+	q9v9DvYgbV5onveupj7xPb5v11RrRaQq+b6dzoewO2/0n2R+f5iLl3ixoXNI6pGHKaWuddtjLXiMA
+	JYF0pHHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIE-000000020ap-14kc;
+	id 1wPMIE-000000020a7-0JEA;
 	Tue, 19 May 2026 15:23:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIB-000000020Yv-2IkE
+	id 1wPMI9-000000020Xz-0W3r
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:23:36 +0000
+	Tue, 19 May 2026 15:23:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 202FF40296;
-	Tue, 19 May 2026 15:23:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49531C2BCB3;
-	Tue, 19 May 2026 15:23:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D4F8C417AA;
+	Tue, 19 May 2026 15:23:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 548A0C2BCB3;
+	Tue, 19 May 2026 15:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779204215;
-	bh=zzrMG+Oed4wFut9FgmQqZOqaJbLiQiciSLvfm8Ta4lI=;
+	s=k20201202; t=1779204212;
+	bh=aMA6CgWGVgRaYAjNVWdhULx2b3EFtXV+By0rfZRxQNQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y/Pny1CknB8V3C/Exxy5OebrcELQVxP5W42kE/gUkhnnrE+H0wvxPHSU0TNERW3lK
-	 ihDWhNQuVui71vuABeUmVWMEQhJQ5O/GeMFR4gk0EIJMKYIsDNH5lilhO5/54Z7aFY
-	 +Qk5X5LVftDBsiC1gV5h99Yd3AVqWFIZeeoQNAI5FSIF3NBxzHI1VJxNRV94cU3w8/
-	 eNtBFU9clSYscj2C5IeVYImP671VVCZGdBDvcj3Nz51zZpGxiXEbG6ZaIVtxNoEHqR
-	 wbcjICtRooCb2W8mdRFq0a0hOgd4uOV78lxJnZ85/WgA4zk6rmqGBpzhmwnYj8mM/s
-	 Od3bsUSO/gaoQ==
+	b=R0ZaDTEPbJxRfn5XodR1rT73cXUjtKTkvkRrFMHXis/rhfUs0WjRZq2dDZuxkY/rV
+	 ozAWtcwRBeVBHlElOosG77B801f8oE/LqFAPM9NZGFg/VLPUH8hCDE7S7vmBVpVBbL
+	 bhCHzXrbtnk6NQRe+NIWxniNnH+/TjwTasQLNsqHrQG0ShXjVmEsPmdX/F60jfKpUf
+	 iin7gCwNFll2HpYcNIn4ZKjNtftAEj7Lpg+F10Z8FiKalH0HEGCFhdT5bPjOzj/Bse
+	 5ujp7zEF9QHX1a5RiUFrlsLizKutHNtETs2MY6KbayVuKYMThItsuOFQZLPoMyhDXF
+	 cwJ2yPN58IQGQ==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Anna Maniscalco <anna.maniscalco2000@gmail.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/mm: Replace BUG_ON() with VM_WARN_ON_ONCE()
-Date: Tue, 19 May 2026 16:22:53 +0100
-Message-ID: <177918741146.742564.1285426625063261807.b4-ty@kernel.org>
+	iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Rob Clark <rob.clark@oss.qualcomm.com>
+Subject: Re: [PATCH v3] iommu: arm-smmu-qcom: Ensure smmu is powered up in set_ttbr0_cfg
+Date: Tue, 19 May 2026 16:22:52 +0100
+Message-ID: <177919116291.814652.1720687887970998122.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260430053859.890613-1-anshuman.khandual@arm.com>
-References: <20260430053859.890613-1-anshuman.khandual@arm.com>
+In-Reply-To: <20260507-qcom_smmu_pmfix-v3-1-af8cd05831a2@gmail.com>
+References: <20260507-qcom_smmu_pmfix-v3-1-af8cd05831a2@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_082335_604264_FF864414 
-X-CRM114-Status: UNSURE (   6.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_082333_184857_E94138FF 
+X-CRM114-Status: GOOD (  12.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 30 Apr 2026 06:38:59 +0100, Anshuman Khandual wrote:
-> Avoid BUG_ON() while checking for inconsistent page table state conditions
-> and instead replace them with VM_WARN_ON_ONCE().
+On Thu, 07 May 2026 17:43:15 +0200, Anna Maniscalco wrote:
+> arm_smmu_write_context_bank() assumes it is being called with RPM
+> active, but it turns out that is not guaranteed in the path from
+> qcom_adreno_smmu_set_ttbr0_cfg(), so it's possible for the register
+> writes to get lost when configuring the context bank while the GPU is
+> idle, leading to page faults later.
+> Add the RPM calls here to make sure the SMMU is active before we touch
+> it.
 > 
-> 
+> [...]
 
-Applied to arm64 (for-next/mm), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[1/1] arm64/mm: Replace BUG_ON() with VM_WARN_ON_ONCE()
-      https://git.kernel.org/arm64/c/13d0fdc09016
+[1/1] iommu: arm-smmu-qcom: Ensure smmu is powered up in set_ttbr0_cfg
+      https://git.kernel.org/iommu/c/8a0aab012b52
 
 Cheers,
 -- 
