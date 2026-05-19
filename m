@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F7BCD4F3C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4651ACD4F54
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 03:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=df/mkGvazYYmooHOlct6HA0s/98Am3Slm04EgkXdYn0=; b=D66DuUZhczyIlLVgK+8MgBnKSr
-	wqHREjPRB6O8bE4CjpSmxFkdwD+yi/Of9f3pHSzcvpyviuMbtbq0YZUnx8wbYFaxolkfUQT2C9dTJ
-	gkfv25USzgYDXORs48IUjjuUizxXlexCL+CFsQRlV5pteH/Fna1obkRGcYCowWG6oRHJc5GiCN1nF
-	WmfeTdZpBzrzntsEpMiQbryVT8tf3P+JaaxwbonA9CHfd9gFi3FSKLHS/Q5Wy8/Q1Vi711Gow5m7B
-	aOqf4V2Djqk+5hjlYf9zx5ZZL33HYjwgHudzeZxJMEtgWvylJaOw9odjobCYG6IN1eGpdztAvl7Js
-	fkqZvkMw==;
+	bh=quwaOu+qLKkbG41XJ5rQSZHAWoNWdbQTlWdvWH5/B+c=; b=haMHA4AvdQK1p6adMUCRjioR8s
+	qqXtirHZC5vyKkvP0cwvU/mna0XzNDpWUm6E8x7tfQ0S4IAugDs1bIzPY/ybeCdbcygksH+wHdOsE
+	N2dDK8Rh8EWDn/9o+3H+sLlAyF5TdGx/lIwu6foo5vmkHxrg/k8Ge5JBJIv+OTPftz2xCn6PkdP00
+	5O5SEaRiUqJuGLB+alp+ZHYYr3VdmZLs3vLmYlbr1Z4wl6qzjZEV1/sTwW1tJBjYPSHYc2ivpC6g9
+	q3U8knnSLssFzXkY2uOisjjbloii6ZV8iGE+3BbMmkUL018U1EI7taifVt4KAtYRCfhsz/rEq91vf
+	DLx0V8Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBJG-0000000HatR-2ieL;
+	id 1wPBJG-0000000Hat8-2Dra;
 	Tue, 19 May 2026 03:39:58 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+Received: from mail-eastus2azon11010060.outbound.protection.outlook.com ([52.101.56.60] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBJC-0000000Hapj-0S5p
+	id 1wPBJ9-0000000HamS-1lfb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 03:39:55 +0000
+	Tue, 19 May 2026 03:39:52 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RSIcGPizVRy6ATjAZGJjb97MFNhRORapg2doN/j7BH5Zl+iQUEx9HnFz8gc8rI8Vn+48gCVmni/c4+AFGR7OnXY0t/y4kHUKbhQqpIz9nGi6xv/Dw00EnYFoiA422rg9VZT/u/XgLHcGH1N64T4uazZDEHDLJI+2wMu7rVE5A6WBDUEE9dA4VjY6IIJ0ihpJZ7CP6Rrk68iVROvJUc6T5IWIq7fR6BttXFeS91r2BeXT+UgNFzCvdXfhpJjUCxtgYgx1yscEwk+vxDHzEiZLes/D+La4n8tTr10NtrZOUbrA/w+i/ojPtLgtHN3KNvNwJCO44CyzTS0YozZLGK+7sw==
+ b=gNM5XuuYuqWm8oO/aYjjsVZ6issfvSgPPO8d4lBTqMegj4kW34cpXOj8QH+0M1qs/a/Ia7wS8U1g34oFNG7dRi9hzNXasbXBGaLeM5/bDNGlI807zJIyMJo2TmQG3r1A0kdRH3jws7+zbWiWP1fhzbopERhD9wysuKeB8TJwgeNv/HNxL3wc/YcJt2Fx9yYjMAeHw7XS+Xplu5OIUnUWeSYDYbTkr4vLuXzZidabrVP+cJQ2Lo8DaeLN8EwlfXw56AGDcLfVbiXsP+HNjqa7x+dFBlMwLKO7c7ipLmqaeHj+9Dmay1i80WEMiKUHtALpd74CXTuXu+rX8g2w5VmLwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=df/mkGvazYYmooHOlct6HA0s/98Am3Slm04EgkXdYn0=;
- b=UHamXF9Y9J1cJ2U1uUdg8FhGGYvFpM4dk1RDzGrbXw2VXxngxF4fcoCVd4n8HKbmFYTaj3erDAtsa5I6tepI6jWTVUnikgfLvPnIQQc/0sTTLoRo0JvkEEMvTasUgME6t3ThRgvtgzEvdxYVWwcz1zYJQK4o3cBIxbItVJplC/TgLkMp7r7wmYOMBn2YCq31WVRiZQaLC+vRqUbLLdwx2pV/WQiZVYgnOzOiSR2p/ULRHnHc3NnPJHAJXeyTQM7PX8OEKIyH8Y//pgcKn2EWnMkD5KdjMMA2VKVF7AJs/m12BqogW/6GTd0cxPUHt7c0PCuYzBwY7YmKhm2HYMIs0A==
+ bh=quwaOu+qLKkbG41XJ5rQSZHAWoNWdbQTlWdvWH5/B+c=;
+ b=Tvuzb74PRXlrnWywWRsVtoaYtcE1hsS2pAZa89K6gyf7yIPoO0xcdAlmFbLTSlC5MuiG/+4WRYd/N88U66V1MvxgunCcEaLXm0Ggm5F+eB8ppoXpifTqQ3Rj6CLB9cUcGpqXX60pAa/Q6hmkwJuXwq/ZFZOZ76DNMhpDW+YK6BFTl/EICemesPnKN6C2dhyqDPvZEPP7GfN3DicWSso/p6DKMUXS5Rb/Z8VYih3EeMYfcnSxdhKYLQT9GzrC0bFutrLqrCuM//TtE/lKItJ4ShIlpYQ/jajSuS7GZfPE4NPdddrBrb1cgNFelUQKbFAmiyWq2X0EFDaQJ3bFd0S2Uw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=df/mkGvazYYmooHOlct6HA0s/98Am3Slm04EgkXdYn0=;
- b=CM1RuQoVnI4oNLPdgxB9Q3RJzj3DmKNj1FtKtRmsL8Bq7GE87hr+XldPZ0ScSt2mK8e5RvLdSv0ZwtFUI68dEdkYdSwLL9SkEaK5bIKAkzcA4wIO9ZXdAQOOnrxvZKZosGlcQpZNkW9VtVdtwawA9njjZyvq20STtXMjuqoeOsLCHljv5cfX7nkm81UGd26dIlraTKibrUrduezKND0ewvIs8sp8D3XuZ1BdkTRuK5xJq00xbDVEMtsGwZC/fvRS/7idHgA+0gybVSB0f717JNTVvVzl0tN0psgEwNV9tW0YDqINlxQ5uNjuBOH5NMAREH9vl6TXHooCHwJQ8AIXmw==
-Received: from DS1PR04CA0002.namprd04.prod.outlook.com (2603:10b6:8:44f::16)
- by CH3PR12MB8210.namprd12.prod.outlook.com (2603:10b6:610:129::19) with
+ bh=quwaOu+qLKkbG41XJ5rQSZHAWoNWdbQTlWdvWH5/B+c=;
+ b=mTWNI4GOXzM3sjY2G5NU5vCbIClqrJ0lJnQTcl6VwxgCSHmh+2X4k3H/eF1+xkPoB2FqrsPQKhNE1XbtHa0htTQn/U2SVu/weE1wmW4di3h2EjJe/GsdAvgGxC1OKJh+fIWVY0Hat90ab811XW+ykAHRDWZENsck2T+RdRe1EZ8n2MBEYopwHwoqYebu9RuFmqFucEi7mg4IFE7UcXawpkqemB24O4J+lwG5JyT6mnIHaZnggFF/wYzwhAmVVWGWZi47vfjn6WChpL98aRSvaj3WLiIn+x1lvPcldOAfAWuZxoT6xbHqM+uWW0LrjgBk8roEiuUOM+cBSXy49whliA==
+Received: from DM6PR07CA0093.namprd07.prod.outlook.com (2603:10b6:5:337::26)
+ by SA0PR12MB4398.namprd12.prod.outlook.com (2603:10b6:806:9f::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 03:39:44 +0000
-Received: from DS2PEPF000061C3.namprd02.prod.outlook.com
- (2603:10b6:8:44f:cafe::29) by DS1PR04CA0002.outlook.office365.com
- (2603:10b6:8:44f::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
+ 2026 03:39:41 +0000
+Received: from DS2PEPF000061C4.namprd02.prod.outlook.com
+ (2603:10b6:5:337:cafe::b4) by DM6PR07CA0093.outlook.office365.com
+ (2603:10b6:5:337::26) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
- May 2026 03:39:44 +0000
+ May 2026 03:39:40 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +60,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- DS2PEPF000061C3.mail.protection.outlook.com (10.167.23.70) with Microsoft
+ DS2PEPF000061C4.mail.protection.outlook.com (10.167.23.71) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:39:44 +0000
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:39:40 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
- 2026 20:39:29 -0700
+ 2026 20:39:26 -0700
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
- 2026 20:39:29 -0700
+ 2026 20:39:26 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 18 May 2026 20:39:28 -0700
+ Transport; Mon, 18 May 2026 20:39:25 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
  Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
@@ -85,9 +85,9 @@ CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
 	<xueshuai@linux.alibaba.com>
-Subject: [PATCH v4 06/24] iommu: Defer iommu_group free via kfree_rcu()
-Date: Mon, 18 May 2026 20:38:49 -0700
-Message-ID: <a65846f5514fd3b7ef6c19e060ed3a25af75bf03.1779161849.git.nicolinc@nvidia.com>
+Subject: [PATCH v4 04/24] iommu: Pass in reset result to pci_dev_reset_iommu_done()
+Date: Mon, 18 May 2026 20:38:47 -0700
+Message-ID: <9bb23f793445e7f49663d3a67599e49d611d3a4b.1779161849.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1779161849.git.nicolinc@nvidia.com>
 References: <cover.1779161849.git.nicolinc@nvidia.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF000061C3:EE_|CH3PR12MB8210:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9244b3e8-542d-4e3a-7e9d-08deb558446c
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C4:EE_|SA0PR12MB4398:EE_
+X-MS-Office365-Filtering-Correlation-Id: c5f4180b-130b-4f9c-7fd3-08deb5584263
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|18002099003|22082099003|56012099003|11063799003;
-X-Microsoft-Antispam-Message-Info: tbA8GZCndwQZkrzb7uZx44Aatpe+e+5pa+LPqxZ1GOGgJDDaBavI0M3QKdRmoD2UXz4X1UBVrO1BPqH5aIusJJFUZVFrA6weUFNwKq9nIUcJwiUCBCj4W3kfnyxrdXuWyZDGqR99GUkTA8Qd/rBFq7Nl/y53aDKaNw0M2gEfnKITvGDatTwPNbgpFdTOpJI2ac7e7Akn5mXlb3wQL4XyPWSey7fSVjmFnwmorZgg3wXr9l7ou6oiyEQox7rdifUZhc0iWsnOIDdrIMylY06bkw8g/NsEbgcen8NKiRdgMRxVw0tm2dQkISx5Zs9sSBKZHWrSP1tb5mk0ZPey2L1cnAu4PlVz2zUjXHSNTVHv3idX2ss5kofeZ6qKycLb3LMGhdfOHTpG2myVDW/CgI9VYJoUHob3MGJZd6CPmqZbhWe1PDYNZAm21goYs0U6zGygt9jwYb5KIHDpe2RyrBD7R6Cht8rQhlVEQz/BiKDx8toHHNw8Mr/wtlsjtDpvt18lON7f1xhDD8T6NKXG8GbIY92miLB+efITfFRurV9jsvZH7oohcamVGHlxNVQwYHdIgnDpbzQ6vHFnsOdiWOtTtQITuwP5jSs5yY7Llqh5ghch3tYs6nYbleZmfEyCW5u5JbqUi9hCmmfTnxoCsBjWzLYIAmgEeZp1ptd9fAa8WQpR3rplA8zoX8LR1VJLP6lenZomQDzwiqjRtLkQjn5rYjQrsXTlg1OIql3PmogGhqY=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(18002099003)(22082099003)(56012099003)(11063799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|1800799024|22082099003|56012099003|18002099003|11063799003;
+X-Microsoft-Antispam-Message-Info: ujYrAgL0c7sNK3ZjS/5IAv/xGcTrNbChHeTGYkHoPTCfVdFniTUSHLFB0u1yhR4FWngP7lwcGoExonVnJfWyjSc1ZILpZdu7P87D6efqcuJUghE6FwtGuBu2ZXCq27f5kxEECHbfQyuFlguby/a5EKmFXel5w6TbBqSq0TpbsC/aBOWxD+qqGytdEUjcuFSkwoAgY3kdv937v2KkLvJMgpgi0nOj/KR/swOQGYzDk5qjRLd3hKwuGcq2RTpcVcsnbcT0QrTbusuriBEY04BIr3VsQ5xFdemKWYIFbJ6wCsSs4rs19EqoKJcZnHoacbzaXKkH7TWEG6Qg5SnNbYRaT+bpAGh40czAR8u555MyG8+rYRpPamMCDc39I/RJGDeQDZhDGe7K26t49WDX2JxTir+9bTcfIPlEiw4CHAbsS1BovZ22JfCrhnPdBY0ysesSfZZO+uJ1kVg8IIuVj4KzJ5EPJVLC7qWEF+p5drdxzZ5za5CmwHd/imjjiqCPsYgXrSwc551UA94ACBkSUX2PXDhTZVuOsenjX91rpoEL4T+6Tf2cPv3QsrKaPBaN97gcKmgl2Fn6K5uTR3+ZNLanDQhnwoFygEgPnREd5Cb2CpAKzE/zUUUvAJjcsMlyQQECMUAl4ctHlwcvvJP7CuD7sdKTpT7/kLaQQ82MzbEv8gun0mJXBrFuf9yzTpj4fV7NOSqaZ1PeJnioKUZTUMDnuMPTBmMbapVeuTGpEqUrc88=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(1800799024)(22082099003)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: elS+npFLbi9AFYb8StXOLGM4q4lGAOj2ItY4j/o+6WkZ86S0hh2jDkpOVOWuCgxWsmjZLraYnTVD3a1+GPjCQr+ANg9czTydwk4f2Q6fN5izKZs3Ti6vb1sGIWva0A27LUlLLes7zhm2wr4D/CsRaVWkRYhxBYX2EarZgWYuQNB9omhg02ZVql/zudZ+HhZsqimh4L/1mp7mBFL4lYJVk0QDzxJgJ5Le5JyqiqshCsYnA6UiUchuoCaRUdCGLFBwlcpKsL54v4pmuPROEhRv32eiP+JRHGyIdA+FXTccaVtq7EahqvlRFYGXzPf0upkktbKmZq+dEo407SKyIgneYM+DMoNYX0ksnejUxJOeLJt40RPfmRZC9GLxN0ZUmrSjbnCMCERv0LLk7YqVgrXCFazwWBRKaRajLOc2M5Fgih347/0WG2cysWdLCv64ZsuZ
+X-MS-Exchange-AntiSpam-MessageData-0: Z0m4/aB28g/VgUC9GFyCknKrX2xRUjp3jdtqqHlTdnbAxh/l6kk0tAkpdJVHBFgny34tmfdst0K+Qhe1j7y8GFhNR8qVJPxtQtBuubMyvfq7sE6oRnCKWq2eRQz89PI12kXc79HJ+IEMbJ+vdZyMLHEp7M9gklBzqRjWBdyQ1XmY3EXeR+FQ3p9sT7yPhxGG6eaYtimvszZEwc1+LTgNPW7lian1I3OeOV7PswEndjBWxKzfUe88eSdp1/9y5D6xzM78Uu/RAWahX7H79mxzvA7m1DASqeY8r+06nCuIQ0+Cj2ivLQromhCKYOPhxUs0Fgcc912tTfGSKX1GalIT9lNf91H/SJAm88on4IInCVvFv4oKIgWKLvGWttLlxCh0VZGX8SA/h35ut0jAa74tu4Nx+lDIFyvP1xeCIUZsshprTFdpFYJm/FPyWKiggbeI
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:39:44.1320
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:39:40.7176
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9244b3e8-542d-4e3a-7e9d-08deb558446c
+X-MS-Exchange-CrossTenant-Network-Message-Id: c5f4180b-130b-4f9c-7fd3-08deb5584263
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C3.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C4.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8210
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4398
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_203954_151718_BBC98D82 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260518_203951_611614_BF125EB4 
+X-CRM114-Status: GOOD (  29.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,100 +133,286 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-dev->iommu_group will be read in an ISR-context to look up a group_device
-for fault reporting, in which case mutex cannot be used. For that read to
-be safe, two things are needed:
+IOMMU drivers handle ATC cache maintenance. They may encounter ATC-related
+errors (e.g., ATC invalidation timeout), indicating that the ATC cache may
+have stale entries that can corrupt the memory. In this case, IOMMU driver
+has no choice but to block the device's ATS function and wait for a device
+recovery.
 
- (1) The iommu_group memory that dev->iommu_group points to must outlive
-     any in-flight rcu_read_lock section. Add rcu_head to iommu_group and
-     switch iommu_group_release() to calling kfree_rcu().
+The pci_dev_reset_iommu_done() called at the end of a reset function could
+serve as a reliable signal to the IOMMU subsystem that the physical device
+cache is completely clean. However, the function is called unconditionally
+even if the reset operation had actually failed, which would re-attach the
+faulty device back to a normal translation domain. And this will leave the
+system highly exposed, creating vulnerabilities for data corruption:
+    IOMMU blocks RID/ATS
+    pci_reset_function():
+        pci_dev_reset_iommu_prepare(); // Block RID/ATS
+        __reset(); // Failed (ATC is still stale)
+        pci_dev_reset_iommu_done(); // Unblock RID/ATS (ah-ha)
 
- (2) The publication of dev->iommu_group must pair with rcu_dereference()
-     at the upcoming reader (cannot hold mutex but rcu_read_lock), so the
-     writers must use rcu_assign_pointer().
+Instead, pass in @reset_result to pci_dev_reset_iommu_done() from callers:
+    IOMMU blocks RID/ATS
+    pci_reset_function():
+        pci_dev_reset_iommu_prepare(); // Block RID/ATS
+        rc = __reset();
+        pci_dev_reset_iommu_done(rc); // Unblock or quarantine
 
-Existing readers do not use rcu_dereference(); they retain their current
-synchronization model. Apply a __rcu __force cast at the writer sites to
-satisfy sparse without forcing every reader to convert.
+On a successful reset, done() restores the device to its RID/PASID domains
+and decrements group->recovery_cnt. On failure, the device remains blocked,
+and concurrent domain attachment will be rejected until a successful reset.
 
-New reader added by the subsequent change uses rcu_dereference() only, to
-reach group->devices for a list lookup. And it does not touch group->name
-and other fields. The kfree_rcu() here is supposed to keep group->devices
-alive across the read-side critical section; other fields will not affect
-the reader.
+Note: -ENOTTY is overloaded with different meanings by PCI reset functions.
+Some of them indicate "reset was not attempted", while others indicate "try
+the next reset method and the current method failed". IOMMU that must react
+these two outcomes separately has no choice but to keep the device blocked
+on -ENOTTY as well. Leave an inline FIXME and warning.
 
-Note: this change alone does not yet make group->devices iteration safe
-under rcu_read_lock(); a subsequent change will convert the group_device
-list to RCU and switch struct group_device to kfree_rcu().
+This introduces a new situation where a blocked device is being unplugged.
+Decrement the group->recovery_cnt accordingly.
 
-Assisted-by: Claude:claude-opus-4-7
+Suggested-by: Kevin Tian <kevin.tian@intel.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/iommu.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ include/linux/iommu.h  |  5 ++--
+ drivers/iommu/iommu.c  | 62 ++++++++++++++++++++++++++++++++++++++++--
+ drivers/pci/pci-acpi.c |  2 +-
+ drivers/pci/pci.c      | 10 +++----
+ drivers/pci/quirks.c   |  2 +-
+ 5 files changed, 69 insertions(+), 12 deletions(-)
 
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index e587d4ac4d331..e191d30d228ac 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -1195,7 +1195,7 @@ void iommu_free_global_pasid(ioasid_t pasid);
+ 
+ /* PCI device reset functions */
+ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev);
+-void pci_dev_reset_iommu_done(struct pci_dev *pdev);
++void pci_dev_reset_iommu_done(struct pci_dev *pdev, int reset_result);
+ #else /* CONFIG_IOMMU_API */
+ 
+ struct iommu_ops {};
+@@ -1525,7 +1525,8 @@ static inline int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
+ 	return 0;
+ }
+ 
+-static inline void pci_dev_reset_iommu_done(struct pci_dev *pdev)
++static inline void pci_dev_reset_iommu_done(struct pci_dev *pdev,
++					    int reset_result)
+ {
+ }
+ #endif /* CONFIG_IOMMU_API */
 diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index e68c7b142ad5a..6727b6f7797bd 100644
+index c40f4bfc93352..6c92b7a2b14cc 100644
 --- a/drivers/iommu/iommu.c
 +++ b/drivers/iommu/iommu.c
-@@ -71,8 +71,12 @@ struct iommu_group {
- 	 */
- 	unsigned int recovery_cnt;
- 	void *owner;
-+	struct rcu_head rcu;
- };
- 
-+#define dev_iommu_group_rcu(dev) \
-+	(*((struct iommu_group __rcu __force **)&(dev)->iommu_group))
-+
+@@ -76,6 +76,7 @@ struct iommu_group {
  enum gdev_blocked {
  	BLOCKED_NO = 0, /* Not blocked */
  	BLOCKED_RESETTING, /* PCI reset in flight */
-@@ -531,7 +535,7 @@ static int iommu_init_device(struct device *dev)
- 		ret = PTR_ERR(group);
- 		goto err_unlink;
- 	}
--	dev->iommu_group = group;
-+	rcu_assign_pointer(dev_iommu_group_rcu(dev), group);
++	BLOCKED_RESET_FAILED, /* PCI reset failed */
+ };
  
- 	dev->iommu->max_pasids = dev_iommu_get_max_pasids(dev);
- 	if (ops->is_attach_deferred)
-@@ -613,7 +617,7 @@ static void iommu_deinit_device(struct device *dev)
- 	}
+ struct group_device {
+@@ -763,6 +764,9 @@ static void __iommu_group_remove_device(struct device *dev)
+ 		if (device->dev != dev)
+ 			continue;
  
- 	/* Caller must put iommu_group */
--	dev->iommu_group = NULL;
-+	rcu_assign_pointer(dev_iommu_group_rcu(dev), NULL);
- 	module_put(ops->owner);
- 	dev_iommu_free(dev);
- #ifdef CONFIG_IOMMU_DMA
-@@ -772,7 +776,7 @@ static void __iommu_group_remove_device(struct device *dev)
++		/* Must drop the recovery_cnt when removing a blocked device */
++		if (device->blocked && !WARN_ON(group->recovery_cnt == 0))
++			group->recovery_cnt--;
+ 		list_del(&device->list);
+ 		__iommu_group_free_device(group, device);
  		if (dev_has_iommu(dev))
- 			iommu_deinit_device(dev);
- 		else
--			dev->iommu_group = NULL;
-+			rcu_assign_pointer(dev_iommu_group_rcu(dev), NULL);
- 		break;
- 	}
- 	mutex_unlock(&group->mutex);
-@@ -1059,7 +1063,7 @@ static void iommu_group_release(struct kobject *kobj)
- 	WARN_ON(group->blocking_domain);
+@@ -4036,7 +4040,12 @@ EXPORT_SYMBOL_NS_GPL(iommu_replace_group_handle, "IOMMUFD_INTERNAL");
+  * reset is finished, pci_dev_reset_iommu_done() can restore everything.
+  *
+  * Caller must use pci_dev_reset_iommu_prepare() with pci_dev_reset_iommu_done()
+- * before/after the core-level reset routine, to decrement the recovery_cnt.
++ * before/after the core-level reset routine. On a successful reset, done() will
++ * decrement group->recovery_cnt and restore domains. On a failure, recovery_cnt
++ * is left intact and the device stays blocked.
++ *
++ * Callers must skip pci_dev_reset_iommu_prepare/done() entirely when no reset
++ * is attempted (e.g. probe mode).
+  *
+  * Return: 0 on success or negative error code if the preparation failed.
+  *
+@@ -4066,6 +4075,10 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
+ 	if (gdev->reset_depth++)
+ 		return 0;
  
- 	kfree(group->name);
--	kfree(group);
-+	kfree_rcu(group, rcu);
++	/* Device might be already blocked for a quarantine */
++	if (gdev->blocked)
++		return 0;
++
+ 	ret = __iommu_group_alloc_blocking_domain(group);
+ 	if (ret) {
+ 		gdev->reset_depth--;
+@@ -4147,20 +4160,28 @@ static bool group_device_dma_alias_is_blocked(struct iommu_group *group,
+ /**
+  * pci_dev_reset_iommu_done() - Restore IOMMU after a PCI device reset is done
+  * @pdev: PCI device that has finished a reset routine
++ * @reset_result: Return code from the reset routine
+  *
+  * After a PCIe device finishes a reset routine, it wants to restore its IOMMU
+  * activity, including new translation and cache invalidation, by re-attaching
+  * all RID/PASID of the device back to the domains retained in the core-level
+  * structure.
+  *
+- * Caller must pair it with a successful pci_dev_reset_iommu_prepare().
++ * This is a pairing function for pci_dev_reset_iommu_prepare(). Caller passes
++ * the reset return value to @reset_result. On a failed reset, the device will
++ * remain blocked as a quarantine measure, with group->recovery_cnt intact, to
++ * protect system memory until a subsequent successful reset.
++ *
++ * Callers must skip pci_dev_reset_iommu_prepare/done() entirely when no reset
++ * is attempted (e.g. probe mode).
+  *
+  * Note that, although unlikely, there is a risk that re-attaching domains might
+  * fail due to some unexpected happening like OOM.
+  */
+-void pci_dev_reset_iommu_done(struct pci_dev *pdev)
++void pci_dev_reset_iommu_done(struct pci_dev *pdev, int reset_result)
+ {
+ 	struct iommu_group *group = pdev->dev.iommu_group;
++	enum gdev_blocked old_gdev_blocked;
+ 	struct group_device *gdev;
+ 	unsigned long pasid;
+ 	void *entry;
+@@ -4183,6 +4204,37 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
+ 	if (WARN_ON(!group->blocking_domain))
+ 		return;
+ 
++	/*
++	 * A reset failure implies that the device might be unreliable. E.g. its
++	 * device cache might retain stale entries, which might result in memory
++	 * corruption. Thus, do not unblock the device until a successful reset.
++	 */
++	if (reset_result) {
++		/*
++		 * FIXME: the int-return values from the PCI reset functions are
++		 * not consistent: some reset functions use -ENOTTY to indicate
++		 * "no reset was attempted" (in which case IOMMU should revert a
++		 * prepare), while others use -ENOTTY to indicate "reset failed;
++		 * try the next reset method" (in which case IOMMU should keep
++		 * the device blocked). Without fixing the PCI return result, we
++		 * cannot tell the difference between the two cases. Warn it.
++		 */
++		if (reset_result == -ENOTTY)
++			dev_warn_ratelimited(
++				&pdev->dev,
++				"Reset may have been skipped. Keep it blocked conservatively\n");
++		else
++			dev_err_ratelimited(
++				&pdev->dev,
++				"Reset failed. Keep it blocked to protect memory\n");
++		if (gdev->blocked == BLOCKED_RESETTING)
++			gdev->blocked = BLOCKED_RESET_FAILED;
++		return;
++	}
++
++	if (WARN_ON(!gdev->blocked))
++		return;
++
+ 	if (group_device_dma_alias_is_blocked(group, gdev)) {
+ 		/*
+ 		 * FIXME: DMA aliased devices share the same RID, which would be
+@@ -4213,6 +4265,7 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
+ 	 * the correct domain in iommu_driver_get_domain_for_dev() that might be
+ 	 * called in a set_dev_pasid callback function.
+ 	 */
++	old_gdev_blocked = gdev->blocked;
+ 	gdev->blocked = BLOCKED_NO;
+ 
+ 	/*
+@@ -4234,6 +4287,9 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev)
+ 
+ 	if (!WARN_ON(group->recovery_cnt == 0))
+ 		group->recovery_cnt--;
++
++	if (old_gdev_blocked > BLOCKED_RESETTING)
++		pci_info(pdev, "Device is unblocked after successful reset\n");
+ }
+ EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_done);
+ 
+diff --git a/drivers/pci/pci-acpi.c b/drivers/pci/pci-acpi.c
+index 4d0f2cb6c695b..280d7193cb4ca 100644
+--- a/drivers/pci/pci-acpi.c
++++ b/drivers/pci/pci-acpi.c
+@@ -977,7 +977,7 @@ int pci_dev_acpi_reset(struct pci_dev *dev, bool probe)
+ 		ret = -ENOTTY;
+ 	}
+ 
+-	pci_dev_reset_iommu_done(dev);
++	pci_dev_reset_iommu_done(dev, ret);
+ 	return ret;
  }
  
- static const struct kobj_type iommu_group_ktype = {
-@@ -1344,7 +1348,7 @@ int iommu_group_add_device(struct iommu_group *group, struct device *dev)
- 		return PTR_ERR(gdev);
+diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+index d0af8b5eca2ce..b71e3e10c7b52 100644
+--- a/drivers/pci/pci.c
++++ b/drivers/pci/pci.c
+@@ -4355,7 +4355,7 @@ int pcie_flr(struct pci_dev *dev)
  
- 	iommu_group_ref_get(group);
--	dev->iommu_group = group;
-+	rcu_assign_pointer(dev_iommu_group_rcu(dev), group);
+ 	ret = pci_dev_wait(dev, "FLR", PCIE_RESET_READY_POLL_MS);
+ done:
+-	pci_dev_reset_iommu_done(dev);
++	pci_dev_reset_iommu_done(dev, ret);
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(pcie_flr);
+@@ -4433,7 +4433,7 @@ static int pci_af_flr(struct pci_dev *dev, bool probe)
  
- 	mutex_lock(&group->mutex);
- 	list_add_tail(&gdev->list, &group->devices);
+ 	ret = pci_dev_wait(dev, "AF_FLR", PCIE_RESET_READY_POLL_MS);
+ done:
+-	pci_dev_reset_iommu_done(dev);
++	pci_dev_reset_iommu_done(dev, ret);
+ 	return ret;
+ }
+ 
+@@ -4487,7 +4487,7 @@ static int pci_pm_reset(struct pci_dev *dev, bool probe)
+ 	pci_dev_d3_sleep(dev);
+ 
+ 	ret = pci_dev_wait(dev, "PM D3hot->D0", PCIE_RESET_READY_POLL_MS);
+-	pci_dev_reset_iommu_done(dev);
++	pci_dev_reset_iommu_done(dev, ret);
+ 	return ret;
+ }
+ 
+@@ -4929,7 +4929,7 @@ static int pci_reset_bus_function(struct pci_dev *dev, bool probe)
+ 	rc = pci_parent_bus_reset(dev, probe);
+ done:
+ 	if (!probe)
+-		pci_dev_reset_iommu_done(dev);
++		pci_dev_reset_iommu_done(dev, rc);
+ 	return rc;
+ }
+ 
+@@ -4974,7 +4974,7 @@ static int cxl_reset_bus_function(struct pci_dev *dev, bool probe)
+ 		pci_write_config_word(bridge, dvsec + PCI_DVSEC_CXL_PORT_CTL,
+ 				      reg);
+ 
+-	pci_dev_reset_iommu_done(dev);
++	pci_dev_reset_iommu_done(dev, rc);
+ 	return rc;
+ }
+ 
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index 6cded18c9a687..39b1c6250a4d0 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -4274,7 +4274,7 @@ static int __pci_dev_specific_reset(struct pci_dev *dev, bool probe,
+ 
+ 	ret = i->reset(dev, probe);
+ 	if (!probe)
+-		pci_dev_reset_iommu_done(dev);
++		pci_dev_reset_iommu_done(dev, ret);
+ 	return ret;
+ }
+ 
 -- 
 2.43.0
 
