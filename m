@@ -4,67 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A8FCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863EBCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9v9SkFwl/ve+JKrXB6vX0OhxF4yTcqiGTFvwt+d7IhY=; b=JxXvIIXpvk6/F/oe2zoSEICi60
-	Yln3YV4Ata7to8CvE1wn0seAu/WTNClXusszghT9jN7iLiqrVKjtkNfAPpKFrS7mpcHFycCOx4HcH
-	q0t5wvLp0sIjA8kifREG1CAdwa2pAk/LlY4yZv02HPldv7iD20QA8nW97yj07YFSPm/8ddSF7N3vI
-	PCGsx4embKEzaF97PPBP/oDHr0zs99W5WPiUh6C14iiQHi2SwuvBXWk2VHq0G6xh3GNlwSHsAYV5P
-	EdKmRvAK00CV49KQPBIr1Nxu7sEkfmRJg7zHaI7CboOn5LuYdTf8yTGSjm0q5IzbCZrYISvR6MAPv
-	si/tXUmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yUcArKvUj1jkcs2OK6MvhEPcHSKMY4c3Dv90/tfztKo=; b=OkE7lp4ukFadlr45dZpfzi5D3x
+	tFcSzgnkvkqA8UI0C/VudmU54eKfgOzYkxynH9a8VFWUY+wAuSCYjwxGTaIT5eoaojkir8/M6Gg/W
+	tY1OHBByn9y+foJVG88yGRYJPb+KC8Pb4m8+8BH3VhOJmV/dE7ftqgQWwm1Y735blN7I4RyyuRhS9
+	sdIi1Jx5oyrgBtKiZrXCRoU222VL1tA9SKmR0Wy0IZRdHI+FQWOkykC3fFc1mbPLSh5knyiOdiBhD
+	5kZmtg0+1KMIn1VjFdc1FQJBvF2VeSIon9L6LhD0Ywo4kyuP+MDGoIJ5yG0q2ubXrq2+qVUWqMvws
+	mvl3sVsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKoN-00000001idJ-1xAr;
-	Tue, 19 May 2026 13:48:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPKqb-00000001izS-2vcU;
+	Tue, 19 May 2026 13:51:01 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKoK-00000001icg-3VK2
+	id 1wPKqZ-00000001iyv-28Ut
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 13:48:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 374C1439B7;
-	Tue, 19 May 2026 13:48:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 097D7C2BCB3;
-	Tue, 19 May 2026 13:48:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779198520;
-	bh=FVOuV8wf9sDM1YaPL2xSfJNpfl3qVq5yw5xsV8IJn6k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UKwfVucYoqBDygenr8Akgjc5r7KOUdujiqdNYti/LwjOIL1htVXoi+pWK3qloDJ1t
-	 ON9Ux+efzXO3pELn8xOxlH0ZCCwgo2+ieZJk/p7fhqZLVpWvIHwGIeUtdo0hpvuzy2
-	 54Qjcf1mSysaQwRk6JP90HhbX2pS/4KCHgwqJaqirGO/CdfTsvIxDD0ePBpUcGBVkv
-	 OWj1dtZSx9X2QJGLES/pqx4hwuIg4s4XTUQMDigmZ5IlDxqh1m4OHcmW8eA/v7JrcL
-	 SKqsyKhnVd57Cuj+4bF2rOSgYmjmfG5G25Hd3OY/LuPKG8uB2Ya+9FRBZjyq7ODPVg
-	 KJcQRCjKh/DEw==
-Date: Tue, 19 May 2026 14:48:35 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Ryan Wanner <ryan.wanner@microchip.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Radu Pirea <radu.pirea@microchip.com>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Wenyou Yang <wenyou.yang@atmel.com>, linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] spi: atmel: fix DMA channel and bounce buffer leaks
-Message-ID: <b6f36521-a33f-4a2a-8018-d95b890e2147@sirena.org.uk>
-References: <20260517-atmel-v2-1-36c836be6345@gmail.com>
+	Tue, 19 May 2026 13:51:00 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-50d876329bbso37025831cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 06:50:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779198658; x=1779803458; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yUcArKvUj1jkcs2OK6MvhEPcHSKMY4c3Dv90/tfztKo=;
+        b=o1g1aM2mrofWF+PHu6QFC13msUZbqQGRSKjPUgzjiYG2OG2QOUMTBBLb85GyvqsVz0
+         kAmt60Kog/BcSNrWyIZtzuG8y85elUBe4NG8aDnyn/AAsKs7k7hUBUIWNcH7HiLYPBSI
+         ZfvyYtaERqfVqnPPVKC3l9DobMcfuATk0lKYpxrGb4qpMEqihuP26j1w86frZRM/yDSh
+         S20vua6SUYrtLY/0rPpm/5OVe6ulkjqthtVVb0luXEczxjpq5xLrDFjfZbtxmMWZAgMV
+         pM0zEekjaX3fvCC6QM52UH8SNtEhDFfm8XafmFUOl817e/03OLARaQVfVvVortIV1vII
+         7AKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779198658; x=1779803458;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yUcArKvUj1jkcs2OK6MvhEPcHSKMY4c3Dv90/tfztKo=;
+        b=i+7BksOF8d+Ct2IHWiaTe02q9S+/KJoH8GuySQ6t4NUZKLaH63E9Q3wQcNKxX+7UmK
+         F4zctUGUfACrtuV7cfPtUxl2luIy2H603aEty/Z1+/Pjq/eBIwRnI9PUY5+QvofGwLpH
+         DnKQ3E1/qFHe2evCEDbN/U8dLdkXqYvvT9f/LRAuPDJsHXbJl6fmiFGMaKyEuTKo1DtD
+         1AuLZGkdN4R4MabWJzSN7c3ufquNn2YHkHcS+TQS2P59lUEqEvlMp2j81AFsvUl2zJyE
+         hWcYl6q/+ZS4KHRN1m7xMKRFA0IgomQ+48CldoB509uTwHFRTpedOAXByLKDSKhzlSMH
+         OPOw==
+X-Forwarded-Encrypted: i=1; AFNElJ/AUTv90NOR/MhT8hUM3+uSXCyf4COxbI2QBxDss4ULexjC1dZDN9Siai+Q6itL7cwWxNZsIBAfLbvPAMEV+ODv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyolQCGMi+nVUnRedppcIS/6ZqqdTMCsKvn1ruagMKcCeh4g1tV
+	Yg6B1Nui/SyE39ENfoLPOScj2jZ+DQ8YC8/J+Eb6zemUO0laU8SU51As
+X-Gm-Gg: Acq92OFNP+m4QnhrYsqITnLD1pQm18bBXtrOgkIUCrUy/z/kDkTea4nhXzw13CyazUQ
+	1OTl1438MlfHG3VOcgLm4Mh5js1/aSJv2rKu+nlxbHnfQmBZII1WsKgwyRx3sAtiFDORKhqhRuz
+	JXGTgX/mQBoI+3tB4Pc8QTTlovv7bToLD0eJbBfugI7ZYBtlVN+jhaTjVLdjdzfdofuyyFVwMkP
+	H3LRl5hPtF5vuRvQRX/3VmBVjUST55jVZjrg0DjG9neQAZNT48xA/6M425ekEAw7S2MlRm+lCrp
+	yrCFCZ2P5e6VFdSXH/Dy8+X7XvUSdz/Qn0mg84nTUTaHYISN+IcD+nvKJPlSxcYNOYBBR6VZRd5
+	TtwJWr/jpHYT7YtUJuZ+V4HMVKgeyJyCdIOiOpr1wGv+XoQ7OzwT8+uHamTqOW082KnrV9Jfis8
+	XLY2jK8ks1mubVKkhcg1IiknfYOJZKY/kWy+hHAQ4xE5Q50kYcAPbCyo2FNoMm0NQy7LSejflhP
+	PBjwqowcD9pXACvgvlv
+X-Received: by 2002:a05:622a:5e16:b0:50b:445a:4139 with SMTP id d75a77b69052e-5165a30cb12mr283906821cf.54.1779198658020;
+        Tue, 19 May 2026 06:50:58 -0700 (PDT)
+Received: from server0 (c-68-48-65-54.hsd1.mi.comcast.net. [68.48.65.54])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-516457da48dsm162585401cf.17.2026.05.19.06.50.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 06:50:57 -0700 (PDT)
+From: Michael Bommarito <michael.bommarito@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] KVM: arm64: vgic: free private_irqs when init fails after allocation
+Date: Tue, 19 May 2026 09:50:42 -0400
+Message-ID: <20260519135042.2219239-1-michael.bommarito@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260517181331.367676-1-michael.bommarito@gmail.com>
+References: <20260517181331.367676-1-michael.bommarito@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="USxQfCqMN9ynMD/J"
-Content-Disposition: inline
-In-Reply-To: <20260517-atmel-v2-1-36c836be6345@gmail.com>
-X-Cookie: <<<<< EVACUATION ROUTE <<<<<
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_064840_894944_4B218157 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20260519_065059_558468_E06E8DAA 
+X-CRM114-Status: GOOD (  13.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,63 +108,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Companion to commit 250f25367b58 ("KVM: arm64: Tear down vGIC on
+failed vCPU creation"), which added the missing kvm_vgic_vcpu_destroy()
+call to the kvm_share_hyp() failure path in kvm_arch_vcpu_create(). The
+kvm_vgic_vcpu_init() failure path immediately above it has the same
+shape and still needs the same cleanup.
 
---USxQfCqMN9ynMD/J
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Call kvm_vgic_vcpu_destroy() when kvm_vgic_vcpu_init() fails so private
+IRQs allocated before a redistributor iodev registration failure are
+released before the failed vCPU is freed.
 
-On Sun, May 17, 2026 at 06:39:54PM +0800, Felix Gu wrote:
+Fixes: 03b3d00a70b5 ("KVM: arm64: vgic: Allocate private interrupts on demand")
+Cc: stable@vger.kernel.org
+Cc: Will Deacon <will@kernel.org>
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Michael Bommarito <michael.bommarito@gmail.com>
+---
+Changes in v2:
+- Add the Fixes tag Marc agreed with.
+- Add Yao's Reviewed-by tag.
+- Trim the commit message.
 
-> Changes in v2:
-> - Switch to devm-managed variants to fix Claudiu Beznea's comment.
+ arch/arm64/kvm/arm.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-The switch to devm is possibly a bit enthusiastic.
-
-> -	host->dma_tx = dma_request_chan(dev, "tx");
-> +	host->dma_tx = devm_dma_request_chan(dev, "tx");
->  	if (IS_ERR(host->dma_tx)) {
-
-> -	host->dma_rx = dma_request_chan(dev, "rx");
-> +	host->dma_rx = devm_dma_request_chan(dev, "rx");
->  	if (IS_ERR(host->dma_rx)) {
->  		err = PTR_ERR(host->dma_rx);
->  		/*
-> @@ -580,12 +581,27 @@ static int atmel_spi_configure_dma(struct spi_controller *host,
->  		 * requested tx channel.
->  		 */
->  		dev_dbg(dev, "No RX DMA channel, DMA is disabled\n");
-> -		goto error;
-> +		host->dma_rx = NULL;
-> +		return err;
->  	}
-
-If the rx allocation fails then instead of jumping to cleanup we'll
-return, and since the driver supports PIO operation it'll still be able
-to probe...
-
-> -error:
-> -	if (!IS_ERR(host->dma_rx))
-> -		dma_release_channel(host->dma_rx);
-> -	if (!IS_ERR(host->dma_tx))
-> -		dma_release_channel(host->dma_tx);
-
-...with the tx DMA channel still allocated.  This is very much an edge
-case though, how much it matters is very questionalble.
-
---USxQfCqMN9ynMD/J
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoMajIACgkQJNaLcl1U
-h9CmEgf/QakNzbInpiu4NTqeeVvIoWpIy5d3bZjZxD4S3uYpZjqCFqFGwEaVhp6q
-OuLIqkR8yMPbb6TSSSfuysRodTqRwCnKcumkMjAIWkGavZHTSkD7G2REk1hMyPhz
-gxWJjR0cOdHivysmKvBYjTaeIV+rDaFR7ygCwYXaX/9wFoB/IFJ7rESApmGT/NcM
-kkJWwDtUfh9b4V5hax+S5t2du00PLeuJK3+utumG8MW7IsRpK4F5XLik/0T6kM4l
-I5R0TlN5a0beK6JNfA5ui/EhFbDSkthanKVQdjyyh128r6tZzx9u/4/BRN9kqyrq
-oGfifMIztXUNb4iZcaIAGKwsFO2zfw==
-=kR06
------END PGP SIGNATURE-----
-
---USxQfCqMN9ynMD/J--
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 176cbe8baad30..5d5e2f81b9c94 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -554,8 +554,10 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
+ 	kvm_destroy_mpidr_data(vcpu->kvm);
+ 
+ 	err = kvm_vgic_vcpu_init(vcpu);
+-	if (err)
++	if (err) {
++		kvm_vgic_vcpu_destroy(vcpu);
+ 		return err;
++	}
+ 
+ 	err = kvm_share_hyp(vcpu, vcpu + 1);
+ 	if (err)
+-- 
+2.53.0
 
