@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CCA0CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA726CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=086D5frAOVBWnalU1CQBdAMt78W31bnAcSL8E1jh81w=; b=TGMdR/iuctvymocOdfJiq9giQw
-	nmK1hotC8AJE4RZzU6s6tIQhQGZnsSyNS7OxyxVyb/VRDtLqlRhIwFKnNFLFELoEuRsMMfmR7svXo
-	2DdNnWh7amJjqIiMc0X+2STbODOwWzD3q7ymgnOWP/nnXcgPGDqM3SI9Sj9i0q5QiMgd6TsuRlQ+s
-	QZSY82TLRpNlahkM7jjDf3ITxV93WM87rnYpHCRCe4m4b+4oFyeiWFUdOFr5nfrBPzPGx2qqT1lUi
-	l7mT4SjFoJoDwtCoVoJhA7CXExf9pFnCiubOQqnjzK0AEsydqdtk8NpND+z6UxTU/K/tMfoHE/C1s
-	Ktn3Vfjg==;
+	bh=fuSeZSHQhNTMs2JVzo5tb7dyAIfn+chP1MhDuKP4yrE=; b=CUIRXDcnj9zM4EBm3pubRRBHaj
+	tX0B2/sVsbavyX8dY0Q9KsgltF2LptgHmPHfJbocgw2He22Zhk6BL1kGZJlrp8wAK5A2RPEYqkEsJ
+	HPt9G0uxaTCfDiy+1jN4U0UBNb+tDT/+5Jh4oNM/RYSZWZOzPagC6rUmTfFF2EjV212GSnN+7EMah
+	KX8cCKkWQMNuS0cvKSBPrlSojESqZKrFGaC7xgroRJjCIZNnKYeC6Tg88kcjeKWN9sgSGF2B7nUtG
+	JuFSwu5nduKqo+9YlBtxgK/JuJmelhCElgSi3v5f4Eyl+5xpOgyFjXwTgnQimOWz2lAgyZSrM/Cao
+	bd5ktlzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEHV-00000000Oa8-2NgP;
-	Tue, 19 May 2026 06:50:21 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1wPEHM-00000000OVA-3d9h;
+	Tue, 19 May 2026 06:50:12 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEHM-00000000OUf-37Sg
+	id 1wPEHI-00000000OT4-22S8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 06:50:13 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-83eefe4867eso1881059b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:50:11 -0700 (PDT)
+	Tue, 19 May 2026 06:50:10 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-368edd5fec4so3525535a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:50:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779173411; x=1779778211; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779173407; x=1779778207; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=086D5frAOVBWnalU1CQBdAMt78W31bnAcSL8E1jh81w=;
-        b=cGqQ1OV9nOSSjzWKGK/YPKjewT9gOdXHOZ4/A6IeD6UzJOS/lSyykgYFcQU/jopi1d
-         o1CRpVzWFstOfYzUgLfIbuwPlSte61eUm+rSkMdEzNdLa7BjR/mqxNEfZ5ecEp80MXMz
-         qn6eSTQYVVrgWLSXvqcgRmOXBWiKARDAJkA3rrcfC0AL5UZYeQQT9dJB1ustscNzoAYV
-         lglM3hSyvkRmyK0+Pgqm2hYnfD7IBnbmEqzD3d5FzfuvxQylxeSRQBMcS+EbUvZDagMl
-         owFoRmAkmkzo2iXdiUrWjdjL2xVlIL+xIKKc4GruwtwUUD+iy9xIVmbQgGdDLKKt9/Qs
-         keww==
+        bh=fuSeZSHQhNTMs2JVzo5tb7dyAIfn+chP1MhDuKP4yrE=;
+        b=Zs7fOBAYH+6KT2HDbLm17mNlX7xPzYO8R4Zz6w2j9YhqqXPsqE2Mi+DcVyy+6Crahb
+         wrVLb3dTbNfT9P900GDWaSf1sf9ejvfbXM+o0WPRjDjWSz7QAE12Wa6b+PtfLN7Ef5xT
+         91ph41OvmB3tRV0G7VceRYxXz+sxRX4G4jZmk2Vi8YbEphPwGbScdclWYJ/gs6SFuVy0
+         TL7lKVhsHQajqLxNK7soIf4oqrQJ8JuE1S9KXP0T559Ejh1AZggIY9ILOf+8K2iPIWmW
+         tWzOqYo0+lcVr+Dy18C3IRMemi5181Tyg/ccRNCVw5LJt1t5aNfyztp2rytoPc9NGS/x
+         Il1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779173411; x=1779778211;
+        d=1e100.net; s=20251104; t=1779173407; x=1779778207;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=086D5frAOVBWnalU1CQBdAMt78W31bnAcSL8E1jh81w=;
-        b=KDu4JLWlFnQMKNEnHuKN920WCvDAqsaeohK4RFkzZVKdPpeI9ndCs6p2LA0D+rDqoj
-         5fqbQsS8gHFTOR5iCLgcyREt2lzefN7OCi8lqI68h9sIvQZaPbFLXDazn30pkz327fb6
-         sIs3BeJtgceamxHyZxHC4gEC719inxVEGOtppNssDrACg0YpFkDYJNBN9obGf3ZuKcOs
-         U75U/MwFdubvytCBa2zjBn4NF/ZfS+XOFnWYHuLCM86qxTT3JVnDm+u95w9ctairgoyP
-         hPV86IAhw7mwsE2BV3IoAifTAYkNEbKLhoBVNSix43ZxOboP5UxPLSDd4KI81nxRhaBq
-         XD5A==
-X-Forwarded-Encrypted: i=1; AFNElJ/nvo9jree8v7+rkJGegYLV9sjFK9K4ZdeX7GWDFWww73wZHeVg0TnhFP+31TI7LABex/CuVd2JK3IhUj4XBB3R@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx980Uos6tiAJktmIyr/KI/5sqzDdf3SlegfPbY4x21MSaTm1J7
-	e8NL9RV3wQ7x6lDRyyACoV7JjOh8G2SMujasFfQYKgCUe1xs2y5UclIdNi3gzv9TSFK/esP/ZTS
-	ECWEV6XMNJpxvwirGaTh2ZN57eg==
-X-Received: from pfoo3.prod.google.com ([2002:a05:6a00:1a03:b0:82f:d8c0:fef8])
+        bh=fuSeZSHQhNTMs2JVzo5tb7dyAIfn+chP1MhDuKP4yrE=;
+        b=QuvyeleZTZ7WbtvmlGTOKwAFhoqlVHAmq3MwCcF0mb8AZxIGBZHtEFAXwy+2AyKMmo
+         RsXkFgDpjrgbEA+/DUow7dTilCXbBobVho2WQIxB+YuVu8wkTUy8jMbjHg8k/LGZKIvx
+         fBk8AuBVkW40YdP3X1PXRrosEVLPD6JXH6UAt0O59lK28goIZdyyP7nwFk1/bhXu6q/W
+         fhnoaVZF5qahutNUmliBXOjV+FQEJEqQbN67I66t0I6Y96UTuYUCPNuEj5jdBoplBvaJ
+         zf7PKflIcqqPVBAStXBo4+FXr5gxFX0B+Qal3PbfGXPKuDxs0htxeTu7hMA/k5MTVnub
+         eh7w==
+X-Forwarded-Encrypted: i=1; AFNElJ+XvfDhy6rcIVa5xDJW1w0NQ9EH47u8BA/txc31PXP70HSrlIroVtqvWJvC3ONIstlXn+//tK5iyweepYnbfidU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxT+U85d675Pt+aPJ00FA/SlYxSdfj3jD8zO5Jah5Q/Z+GsSR7a
+	Nxd6r5m9/hXrmf2MkGAkpiHrg1lR1KJVhPvhJf+b48QxWusGBW1qJtVL9qp6ZbxV0xF06dLQgD/
+	tAeBFOOnLmxEqBEMmIJNptF8h3g==
+X-Received: from pgbcq5.prod.google.com ([2002:a05:6a02:4085:b0:c79:8a8e:b046])
  (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:e11:b0:837:a211:4ed0 with SMTP id d2e1a72fcca58-83f33de8025mr17898871b3a.41.1779173410955;
- Mon, 18 May 2026 23:50:10 -0700 (PDT)
-Date: Tue, 19 May 2026 06:49:44 +0000
+ 2002:a05:6a20:394b:b0:3a3:5726:7e39 with SMTP id adf61e73a8af0-3b22e7c63camr20789443637.23.1779173406773;
+ Mon, 18 May 2026 23:50:06 -0700 (PDT)
+Date: Tue, 19 May 2026 06:49:42 +0000
 In-Reply-To: <20260519064950.493949-1-dylanbhatch@google.com>
 Mime-Version: 1.0
 References: <20260519064950.493949-1-dylanbhatch@google.com>
 X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
-Message-ID: <20260519064950.493949-4-dylanbhatch@google.com>
-Subject: [PATCH v6 3/9] arm64: entry: add unwind info for call_on_irq_stack()
+Message-ID: <20260519064950.493949-2-dylanbhatch@google.com>
+Subject: [PATCH v6 1/9] sframe: Allow kernelspace sframe sections
 From: Dylan Hatch <dylanbhatch@google.com>
 To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
 	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
@@ -81,8 +81,8 @@ Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.micro
 	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_235012_792299_3F3244D2 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260518_235008_576293_9B294628 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,79 +97,982 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Weinan Liu <wnliu@google.com>
+Generalize the sframe lookup code to support kernelspace sections. This
+is done by defining a SFRAME_LOOKUP option that can be activated
+separate from HAVE_UNWIND_USER_SFRAME, as there will be other client to
+this library than just userspace unwind.
 
-DWARF CFI (Call Frame Information) specifies how to recover the return
-address and callee-saved registers at each PC in a given function.
-Compilers are able to generate the CFI annotations when they compile
-the code to assembly language. For handcrafted assembly, we need to
-annotate them by hand.
+Sframe section location is now tracked in a separate sec_type field to
+determine whether user-access functions are necessary to read the sframe
+data. Relevant type delarations are moved and renamed to reflect the
+non-user sframe support.
 
-Frame pointers alone are usually sufficient to recover stack frames
-(without CFI), except at the exception boundary, where more information
-is needed to determine if the LR is live.
-
-Since an exception can be taken from call_on_irq_stack(), annotate it
-with CFI. The actual entry assembly functions are left untouched, since
-they are not expected to take exceptions themselves.
-
-Signed-off-by: Weinan Liu <wnliu@google.com>
-Suggested-by: Jens Remus <jremus@linux.ibm.com>
 Reviewed-by: Jens Remus <jremus@linux.ibm.com>
 Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 ---
- arch/arm64/kernel/entry.S | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ MAINTAINERS                                   |   2 +-
+ arch/Kconfig                                  |   4 +
+ .../{unwind_user_sframe.h => unwind_sframe.h} |   6 +-
+ arch/x86/include/asm/unwind_user.h            |  12 +-
+ include/linux/sframe.h                        |  48 ++--
+ include/linux/unwind_types.h                  |  46 +++
+ include/linux/unwind_user_types.h             |  41 ---
+ kernel/unwind/Makefile                        |   2 +-
+ kernel/unwind/sframe.c                        | 270 ++++++++++++------
+ kernel/unwind/user.c                          |  45 +--
+ 10 files changed, 295 insertions(+), 181 deletions(-)
+ rename arch/x86/include/asm/{unwind_user_sframe.h => unwind_sframe.h} (50%)
+ create mode 100644 include/linux/unwind_types.h
 
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index e0db14e9c843..5f4172ba4274 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -30,6 +30,12 @@
- #include <asm/asm-uaccess.h>
- #include <asm/unistd.h>
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 6812f581d44b..54613c683fdb 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -27858,7 +27858,7 @@ F:	Documentation/driver-api/uio-howto.rst
+ F:	drivers/uio/
+ F:	include/linux/uio_driver.h
  
-+/*
-+ * Do not generate .eh_frame.  Only generate .debug_frame and optionally
-+ * .sframe (via assembler option --gsframe[-N]).
-+ */
-+	.cfi_sections .debug_frame
+-USERSPACE STACK UNWINDING
++STACK UNWINDING
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
+ M:	Steven Rostedt <rostedt@goodmis.org>
+ S:	Maintained
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 78dad97bf2a4..6eeafd86347b 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -486,6 +486,9 @@ config AS_SFRAME3
+ 	def_bool $(as-instr,.cfi_startproc\n.cfi_endproc,-Wa$(comma)--gsframe-3)
+ 	select AS_SFRAME
+ 
++config UNWIND_SFRAME_LOOKUP
++	bool
 +
- 	.macro	clear_gp_regs
- 	.irp	n,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29
- 	mov	x\n, xzr
-@@ -870,6 +876,7 @@ NOKPROBE(ret_from_fork)
-  * Calls func(regs) using this CPU's irq stack and shadow irq stack.
-  */
- SYM_FUNC_START(call_on_irq_stack)
-+	.cfi_startproc
- 	save_and_disable_daif x9
- #ifdef CONFIG_SHADOW_CALL_STACK
- 	get_current_task x16
-@@ -880,6 +887,9 @@ SYM_FUNC_START(call_on_irq_stack)
- 	/* Create a frame record to save our LR and SP (implicit in FP) */
- 	stp	x29, x30, [sp, #-16]!
- 	mov	x29, sp
-+	.cfi_def_cfa 29, 16
-+	.cfi_offset 29, -16
-+	.cfi_offset 30, -8
+ config UNWIND_USER
+ 	bool
  
- 	ldr_this_cpu x16, irq_stack_ptr, x17
+@@ -496,6 +499,7 @@ config HAVE_UNWIND_USER_FP
+ config HAVE_UNWIND_USER_SFRAME
+ 	bool
+ 	select UNWIND_USER
++	select UNWIND_SFRAME_LOOKUP
  
-@@ -895,9 +905,13 @@ SYM_FUNC_START(call_on_irq_stack)
+ config SFRAME_VALIDATION
+ 	bool "Enable .sframe section debugging"
+diff --git a/arch/x86/include/asm/unwind_user_sframe.h b/arch/x86/include/asm/unwind_sframe.h
+similarity index 50%
+rename from arch/x86/include/asm/unwind_user_sframe.h
+rename to arch/x86/include/asm/unwind_sframe.h
+index d828ae1a4aac..44d42e6ffde4 100644
+--- a/arch/x86/include/asm/unwind_user_sframe.h
++++ b/arch/x86/include/asm/unwind_sframe.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _ASM_X86_UNWIND_USER_SFRAME_H
+-#define _ASM_X86_UNWIND_USER_SFRAME_H
++#ifndef _ASM_X86_UNWIND_SFRAME_H
++#define _ASM_X86_UNWIND_SFRAME_H
+ 
+ #ifdef CONFIG_X86_64
+ 
+@@ -9,4 +9,4 @@
+ 
+ #endif
+ 
+-#endif /* _ASM_X86_UNWIND_USER_SFRAME_H */
++#endif /* _ASM_X86_UNWIND_SFRAME_H */
+diff --git a/arch/x86/include/asm/unwind_user.h b/arch/x86/include/asm/unwind_user.h
+index b80f0ec0f7a7..1c7e31ca5d8e 100644
+--- a/arch/x86/include/asm/unwind_user.h
++++ b/arch/x86/include/asm/unwind_user.h
+@@ -54,30 +54,30 @@ static inline int unwind_user_get_reg(unsigned long *val, unsigned int regnum)
+ 
+ #define ARCH_INIT_USER_FP_FRAME(ws)			\
+ 	.cfa		= {				\
+-		.rule		= UNWIND_USER_CFA_RULE_FP_OFFSET,\
++		.rule		= UNWIND_CFA_RULE_FP_OFFSET,\
+ 		.offset		=  2*(ws),		\
+ 			},				\
+ 	.ra		= {				\
+-		.rule		= UNWIND_USER_RULE_CFA_OFFSET_DEREF,\
++		.rule		= UNWIND_RULE_CFA_OFFSET_DEREF,\
+ 		.offset		= -1*(ws),		\
+ 			},				\
+ 	.fp		= {				\
+-		.rule		= UNWIND_USER_RULE_CFA_OFFSET_DEREF,\
++		.rule		= UNWIND_RULE_CFA_OFFSET_DEREF,\
+ 		.offset		= -2*(ws),		\
+ 			},				\
+ 	.outermost	= false,
+ 
+ #define ARCH_INIT_USER_FP_ENTRY_FRAME(ws)		\
+ 	.cfa		= {				\
+-		.rule		= UNWIND_USER_CFA_RULE_SP_OFFSET,\
++		.rule		= UNWIND_CFA_RULE_SP_OFFSET,\
+ 		.offset		=  1*(ws),		\
+ 			},				\
+ 	.ra		= {				\
+-		.rule		= UNWIND_USER_RULE_CFA_OFFSET_DEREF,\
++		.rule		= UNWIND_RULE_CFA_OFFSET_DEREF,\
+ 		.offset		= -1*(ws),		\
+ 			},				\
+ 	.fp		= {				\
+-		.rule		= UNWIND_USER_RULE_RETAIN,\
++		.rule		= UNWIND_RULE_RETAIN,\
+ 			},				\
+ 	.outermost	= false,
+ 
+diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+index b79c5ec09229..0cb2924367bc 100644
+--- a/include/linux/sframe.h
++++ b/include/linux/sframe.h
+@@ -3,37 +3,46 @@
+ #define _LINUX_SFRAME_H
+ 
+ #include <linux/mm_types.h>
++#include <linux/unwind_types.h>
+ #include <linux/srcu.h>
+-#include <linux/unwind_user_types.h>
+ 
+-#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
++#ifdef CONFIG_UNWIND_SFRAME_LOOKUP
++
++enum sframe_sec_type {
++	SFRAME_KERNEL,
++	SFRAME_USER,
++};
+ 
+ struct sframe_section {
+-	struct rcu_head	rcu;
++	struct rcu_head  rcu;
+ #ifdef CONFIG_DYNAMIC_DEBUG
+-	const char	*filename;
++	const char		*filename;
+ #endif
+-	unsigned long	sframe_start;
+-	unsigned long	sframe_end;
+-	unsigned long	text_start;
+-	unsigned long	text_end;
+-
+-	unsigned long	fdes_start;
+-	unsigned long	fres_start;
+-	unsigned long	fres_end;
+-	unsigned int	num_fdes;
+-
+-	signed char	ra_off;
+-	signed char	fp_off;
++	enum sframe_sec_type	sec_type;
++	unsigned long		sframe_start;
++	unsigned long		sframe_end;
++	unsigned long		text_start;
++	unsigned long		text_end;
++
++	unsigned long		fdes_start;
++	unsigned long		fres_start;
++	unsigned long		fres_end;
++	unsigned int		num_fdes;
++
++	signed char		ra_off;
++	signed char		fp_off;
+ };
+ 
++#endif /* CONFIG_UNWIND_SFRAME_LOOKUP */
++
++#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
++
+ #define INIT_MM_SFRAME .sframe_mt = MTREE_INIT(sframe_mt, 0),
+ extern void sframe_free_mm(struct mm_struct *mm);
+ 
+ extern int sframe_add_section(unsigned long sframe_start, unsigned long sframe_end,
+ 			      unsigned long text_start, unsigned long text_end);
+ extern int sframe_remove_section(unsigned long sframe_addr);
+-extern int sframe_find(unsigned long ip, struct unwind_user_frame *frame);
+ 
+ static inline bool current_has_sframe(void)
+ {
+@@ -42,6 +51,8 @@ static inline bool current_has_sframe(void)
+ 	return mm && !mtree_empty(&mm->sframe_mt);
+ }
+ 
++extern int sframe_find_user(unsigned long ip, struct unwind_frame *frame);
++
+ #else /* !CONFIG_HAVE_UNWIND_USER_SFRAME */
+ 
+ #define INIT_MM_SFRAME
+@@ -52,9 +63,10 @@ static inline int sframe_add_section(unsigned long sframe_start, unsigned long s
+ 	return -ENOSYS;
+ }
+ static inline int sframe_remove_section(unsigned long sframe_addr) { return -ENOSYS; }
+-static inline int sframe_find(unsigned long ip, struct unwind_user_frame *frame) { return -ENOSYS; }
+ static inline bool current_has_sframe(void) { return false; }
+ 
++static inline int sframe_find_user(unsigned long ip, struct unwind_frame *frame) { return -ENOSYS; }
++
+ #endif /* CONFIG_HAVE_UNWIND_USER_SFRAME */
+ 
+ #endif /* _LINUX_SFRAME_H */
+diff --git a/include/linux/unwind_types.h b/include/linux/unwind_types.h
+new file mode 100644
+index 000000000000..08bcb0aa04aa
+--- /dev/null
++++ b/include/linux/unwind_types.h
+@@ -0,0 +1,46 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_UNWIND_TYPES_H
++#define _LINUX_UNWIND_TYPES_H
++
++#define UNWIND_RULE_DEREF			BIT(31)
++
++enum unwind_cfa_rule {
++	UNWIND_CFA_RULE_SP_OFFSET,		/* CFA = SP + offset */
++	UNWIND_CFA_RULE_FP_OFFSET,		/* CFA = FP + offset */
++	UNWIND_CFA_RULE_REG_OFFSET,	/* CFA = reg + offset */
++	/* DEREF variants */
++	UNWIND_CFA_RULE_REG_OFFSET_DEREF =	/* CFA = *(reg + offset) */
++		UNWIND_CFA_RULE_REG_OFFSET | UNWIND_RULE_DEREF,
++};
++
++struct unwind_cfa_rule_data {
++	enum unwind_cfa_rule rule;
++	s32 offset;
++	unsigned int regnum;
++};
++
++enum unwind_rule {
++	UNWIND_RULE_RETAIN,		/* entity = entity */
++	UNWIND_RULE_CFA_OFFSET,		/* entity = CFA + offset */
++	UNWIND_RULE_REG_OFFSET,		/* entity = register + offset */
++	/* DEREF variants */
++	UNWIND_RULE_CFA_OFFSET_DEREF =	/* entity = *(CFA + offset) */
++		UNWIND_RULE_CFA_OFFSET | UNWIND_RULE_DEREF,
++	UNWIND_RULE_REG_OFFSET_DEREF =	/* entity = *(register + offset) */
++		UNWIND_RULE_REG_OFFSET | UNWIND_RULE_DEREF,
++};
++
++struct unwind_rule_data {
++	enum unwind_rule rule;
++	s32 offset;
++	unsigned int regnum;
++};
++
++struct unwind_frame {
++	struct unwind_cfa_rule_data cfa;
++	struct unwind_rule_data ra;
++	struct unwind_rule_data fp;
++	bool outermost;
++};
++
++#endif /* _LINUX_UNWIND_TYPES_H */
+diff --git a/include/linux/unwind_user_types.h b/include/linux/unwind_user_types.h
+index 059e5c76f2f3..646e5fb774db 100644
+--- a/include/linux/unwind_user_types.h
++++ b/include/linux/unwind_user_types.h
+@@ -27,47 +27,6 @@ struct unwind_stacktrace {
+ 	unsigned long	*entries;
+ };
+ 
+-#define UNWIND_USER_RULE_DEREF			BIT(31)
+-
+-enum unwind_user_cfa_rule {
+-	UNWIND_USER_CFA_RULE_SP_OFFSET,		/* CFA = SP + offset */
+-	UNWIND_USER_CFA_RULE_FP_OFFSET,		/* CFA = FP + offset */
+-	UNWIND_USER_CFA_RULE_REG_OFFSET,	/* CFA = reg + offset */
+-	/* DEREF variants */
+-	UNWIND_USER_CFA_RULE_REG_OFFSET_DEREF =	/* CFA = *(reg + offset) */
+-		UNWIND_USER_CFA_RULE_REG_OFFSET | UNWIND_USER_RULE_DEREF,
+-};
+-
+-struct unwind_user_cfa_rule_data {
+-	enum unwind_user_cfa_rule rule;
+-	s32 offset;
+-	unsigned int regnum;
+-};
+-
+-enum unwind_user_rule {
+-	UNWIND_USER_RULE_RETAIN,		/* entity = entity */
+-	UNWIND_USER_RULE_CFA_OFFSET,		/* entity = CFA + offset */
+-	UNWIND_USER_RULE_REG_OFFSET,		/* entity = register + offset */
+-	/* DEREF variants */
+-	UNWIND_USER_RULE_CFA_OFFSET_DEREF =	/* entity = *(CFA + offset) */
+-		UNWIND_USER_RULE_CFA_OFFSET | UNWIND_USER_RULE_DEREF,
+-	UNWIND_USER_RULE_REG_OFFSET_DEREF =	/* entity = *(register + offset) */
+-		UNWIND_USER_RULE_REG_OFFSET | UNWIND_USER_RULE_DEREF,
+-};
+-
+-struct unwind_user_rule_data {
+-	enum unwind_user_rule rule;
+-	s32 offset;
+-	unsigned int regnum;
+-};
+-
+-struct unwind_user_frame {
+-	struct unwind_user_cfa_rule_data cfa;
+-	struct unwind_user_rule_data ra;
+-	struct unwind_user_rule_data fp;
+-	bool outermost;
+-};
+-
+ struct unwind_user_state {
+ 	unsigned long				ip;
+ 	unsigned long				sp;
+diff --git a/kernel/unwind/Makefile b/kernel/unwind/Makefile
+index 146038165865..c5f9f8124564 100644
+--- a/kernel/unwind/Makefile
++++ b/kernel/unwind/Makefile
+@@ -1,2 +1,2 @@
+  obj-$(CONFIG_UNWIND_USER)		+= user.o deferred.o
+- obj-$(CONFIG_HAVE_UNWIND_USER_SFRAME)	+= sframe.o
++ obj-$(CONFIG_UNWIND_SFRAME_LOOKUP)	+= sframe.o
+diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+index 5400f481b05d..a2ab9a3e07b4 100644
+--- a/kernel/unwind/sframe.c
++++ b/kernel/unwind/sframe.c
+@@ -13,8 +13,8 @@
+ #include <linux/string_helpers.h>
+ #include <linux/sframe.h>
+ #include <linux/syscalls.h>
+-#include <asm/unwind_user_sframe.h>
+-#include <linux/unwind_user_types.h>
++#include <linux/unwind_types.h>
++#include <asm/unwind_sframe.h>
+ #include <uapi/linux/stacktrace.h>
+ 
+ #include "sframe.h"
+@@ -46,8 +46,6 @@ struct sframe_fre_internal {
+ 	unsigned char	dw_size;
+ };
+ 
+-DEFINE_STATIC_SRCU(sframe_srcu);
+-
+ static __always_inline unsigned char fre_type_to_size(unsigned char fre_type)
+ {
+ 	if (fre_type > 2)
+@@ -62,6 +60,77 @@ static __always_inline unsigned char dataword_size_enum_to_size(unsigned char da
+ 	return 1 << dataword_size;
+ }
+ 
++#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
++
++DEFINE_STATIC_SRCU(sframe_srcu);
++
++#define UNSAFE_USER_COPY(to, from, size, label)				\
++	unsafe_copy_from_user(to, (void __user *)from, size, label)
++
++#define UNSAFE_USER_GET(to, from, type, label)				\
++	unsafe_get_user(to, (type __user *)from, label)
++
++#else /* !CONFIG_HAVE_UNWIND_USER_SFRAME */
++
++#define UNSAFE_USER_COPY(to, from, size, label) do {			\
++	(void)to; (void)from; (void)size;				\
++	goto label;							\
++} while (0)
++
++#define UNSAFE_USER_GET(to, from, type, label) do {			\
++	(void)to; (void)from;						\
++	goto label;							\
++} while (0)
++
++#endif /* !CONFIG_HAVE_UNWIND_USER_SFRAME */
++
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++
++#define KERNEL_COPY(to, from, size, label) memcpy(to, (void *)from, size)
++#define KERNEL_GET(to, from, type, label) ({ (to) = *(type *)(from); })
++
++#else /* !CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
++
++#define KERNEL_COPY(to, from, size, label) do {				\
++	(void)(to); (void)(from); (void)size;				\
++	goto label;							\
++} while (0)
++
++#define KERNEL_GET(to, from, type, label) do {				\
++	(void)(to); (void)(from);					\
++	goto label;							\
++} while (0)
++
++#endif /* !CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
++
++#define DATA_COPY(sec, to, from, size, label)			\
++({								\
++	switch (sec->sec_type) {				\
++	case SFRAME_KERNEL:					\
++		KERNEL_COPY(to, from, size, label);		\
++		break;						\
++	case SFRAME_USER:					\
++		UNSAFE_USER_COPY(to, from, size, label);	\
++		break;						\
++	default:						\
++		goto label;					\
++	}							\
++})
++
++#define DATA_GET(sec, to, from, type, label)			\
++({								\
++	switch (sec->sec_type) {				\
++	case SFRAME_KERNEL:					\
++		KERNEL_GET(to, from, type, label);		\
++		break;						\
++	case SFRAME_USER:					\
++		UNSAFE_USER_GET(to, from, type, label);		\
++		break;						\
++	default:						\
++		goto label;					\
++	}							\
++})
++
+ static __always_inline int __read_fde(struct sframe_section *sec,
+ 				      unsigned int fde_num,
+ 				      struct sframe_fde_internal *fde)
+@@ -71,8 +140,8 @@ static __always_inline int __read_fde(struct sframe_section *sec,
+ 	struct sframe_fda_v3 _fda;
+ 
+ 	fde_addr = sec->fdes_start + (fde_num * sizeof(struct sframe_fde_v3));
+-	unsafe_copy_from_user(&_fde, (void __user *)fde_addr,
+-			      sizeof(struct sframe_fde_v3), Efault);
++	DATA_COPY(sec, &_fde, fde_addr,
++		  sizeof(struct sframe_fde_v3), Efault);
+ 
+ 	func_addr = fde_addr + _fde.func_start_off;
+ 	if (func_addr < sec->text_start || func_addr >= sec->text_end)
+@@ -81,8 +150,8 @@ static __always_inline int __read_fde(struct sframe_section *sec,
+ 	fda_addr = sec->fres_start + _fde.fres_off;
+ 	if (fda_addr + sizeof(struct sframe_fda_v3) > sec->fres_end)
+ 		return -EINVAL;
+-	unsafe_copy_from_user(&_fda, (void __user *)fda_addr,
+-			      sizeof(struct sframe_fda_v3), Efault);
++	DATA_COPY(sec, &_fda, fda_addr,
++		  sizeof(struct sframe_fda_v3), Efault);
+ 
+ 	fde->func_addr	= func_addr;
+ 	fde->func_size	= _fde.func_size;
+@@ -104,21 +173,21 @@ static __always_inline int __find_fde(struct sframe_section *sec,
+ 				      struct sframe_fde_internal *fde)
+ {
+ 	unsigned long func_addr_low = 0, func_addr_high = ULONG_MAX;
+-	struct sframe_fde_v3 __user *first, *low, *high, *found = NULL;
++	struct sframe_fde_v3 *first, *low, *high, *found = NULL;
+ 	int ret;
+ 
+-	first = (void __user *)sec->fdes_start;
++	first = (void *)sec->fdes_start;
+ 	low = first;
+ 	high = first + sec->num_fdes - 1;
+ 
+ 	while (low <= high) {
+-		struct sframe_fde_v3 __user *mid;
++		struct sframe_fde_v3 *mid;
+ 		s64 func_off;
+ 		unsigned long func_addr;
+ 
+ 		mid = low + ((high - low) / 2);
+ 
+-		unsafe_get_user(func_off, (s64 __user *)mid, Efault);
++		DATA_GET(sec, func_off, mid, s64, Efault);
+ 		func_addr = (unsigned long)mid + func_off;
+ 
+ 		if (ip >= func_addr) {
+@@ -156,47 +225,47 @@ static __always_inline int __find_fde(struct sframe_section *sec,
+ 	return -EFAULT;
+ }
+ 
+-#define ____UNSAFE_GET_USER_INC(to, from, type, label)			\
++#define ____GET_INC(sec, to, from, type, label)				\
+ ({									\
+ 	type __to;							\
+-	unsafe_get_user(__to, (type __user *)from, label);		\
++	DATA_GET(sec, __to, from, type, label);				\
+ 	from += sizeof(__to);						\
+ 	to = __to;							\
+ })
+ 
+-#define __UNSAFE_GET_USER_INC(to, from, size, label, u_or_s)		\
++#define __GET_INC(sec, to, from, size, label, u_or_s)			\
+ ({									\
+ 	switch (size) {							\
+ 	case 1:								\
+-		____UNSAFE_GET_USER_INC(to, from, u_or_s##8, label);	\
++		____GET_INC(sec, to, from, u_or_s##8, label);		\
+ 		break;							\
+ 	case 2:								\
+-		____UNSAFE_GET_USER_INC(to, from, u_or_s##16, label);	\
++		____GET_INC(sec, to, from, u_or_s##16, label);		\
+ 		break;							\
+ 	case 4:								\
+-		____UNSAFE_GET_USER_INC(to, from, u_or_s##32, label);	\
++		____GET_INC(sec, to, from, u_or_s##32, label);		\
+ 		break;							\
+ 	default:							\
+ 		return -EFAULT;						\
+ 	}								\
+ })
+ 
+-#define UNSAFE_GET_USER_UNSIGNED_INC(to, from, size, label)		\
+-	__UNSAFE_GET_USER_INC(to, from, size, label, u)
++#define GET_UNSIGNED_INC(sec, to, from, size, label)			\
++	__GET_INC(sec, to, from, size, label, u)
+ 
+-#define UNSAFE_GET_USER_SIGNED_INC(to, from, size, label)		\
+-	__UNSAFE_GET_USER_INC(to, from, size, label, s)
++#define GET_SIGNED_INC(sec, to, from, size, label)			\
++	__GET_INC(sec, to, from, size, label, s)
+ 
+-#define UNSAFE_GET_USER_INC(to, from, size, label)				\
+-	_Generic(to,								\
+-		 u8 :	UNSAFE_GET_USER_UNSIGNED_INC(to, from, size, label),	\
+-		 u16 :	UNSAFE_GET_USER_UNSIGNED_INC(to, from, size, label),	\
+-		 u32 :	UNSAFE_GET_USER_UNSIGNED_INC(to, from, size, label),	\
+-		 u64 :	UNSAFE_GET_USER_UNSIGNED_INC(to, from, size, label),	\
+-		 s8 :	UNSAFE_GET_USER_SIGNED_INC(to, from, size, label),	\
+-		 s16 :	UNSAFE_GET_USER_SIGNED_INC(to, from, size, label),	\
+-		 s32 :	UNSAFE_GET_USER_SIGNED_INC(to, from, size, label),	\
+-		 s64 :	UNSAFE_GET_USER_SIGNED_INC(to, from, size, label))
++#define GET_INC(sec, to, from, size, label)				\
++	_Generic(to,							\
++		 u8 :	GET_UNSIGNED_INC(sec, to, from, size, label),	\
++		 u16 :	GET_UNSIGNED_INC(sec, to, from, size, label),	\
++		 u32 :	GET_UNSIGNED_INC(sec, to, from, size, label),	\
++		 u64 :	GET_UNSIGNED_INC(sec, to, from, size, label),	\
++		 s8 :	GET_SIGNED_INC(sec, to, from, size, label),	\
++		 s16 :	GET_SIGNED_INC(sec, to, from, size, label),	\
++		 s32 :	GET_SIGNED_INC(sec, to, from, size, label),	\
++		 s64 :	GET_SIGNED_INC(sec, to, from, size, label))
+ 
+ static __always_inline int
+ __read_default_fre_datawords(struct sframe_section *sec,
+@@ -209,19 +278,19 @@ __read_default_fre_datawords(struct sframe_section *sec,
+ 	s32 cfa_off, ra_off, fp_off;
+ 	unsigned int cfa_regnum;
+ 
+-	UNSAFE_GET_USER_INC(cfa_off, cur, dataword_size, Efault);
++	GET_INC(sec, cfa_off, cur, dataword_size, Efault);
+ 	dataword_count--;
+ 
+ 	ra_off = sec->ra_off;
+ 	if (!ra_off && dataword_count) {
+ 		dataword_count--;
+-		UNSAFE_GET_USER_INC(ra_off, cur, dataword_size, Efault);
++		GET_INC(sec, ra_off, cur, dataword_size, Efault);
+ 	}
+ 
+ 	fp_off = sec->fp_off;
+ 	if (!fp_off && dataword_count) {
+ 		dataword_count--;
+-		UNSAFE_GET_USER_INC(fp_off, cur, dataword_size, Efault);
++		GET_INC(sec, fp_off, cur, dataword_size, Efault);
+ 	}
+ 
+ 	if (dataword_count)
+@@ -257,17 +326,17 @@ __read_flex_fde_fre_datawords(struct sframe_section *sec,
+ 
+ 	if (dataword_count < 2)
+ 		return -EFAULT;
+-	UNSAFE_GET_USER_INC(cfa_ctl, cur, dataword_size, Efault);
+-	UNSAFE_GET_USER_INC(cfa_off, cur, dataword_size, Efault);
++	GET_INC(sec, cfa_ctl, cur, dataword_size, Efault);
++	GET_INC(sec, cfa_off, cur, dataword_size, Efault);
+ 	dataword_count -= 2;
+ 
+ 	ra_off = sec->ra_off;
+ 	ra_ctl = ra_off ? 2 : 0; /* regnum=0, deref_p=(ra_off != 0), reg_p=0 */
+ 	if (dataword_count >= 2) {
+-		UNSAFE_GET_USER_INC(ra_ctl, cur, dataword_size, Efault);
++		GET_INC(sec, ra_ctl, cur, dataword_size, Efault);
+ 		dataword_count--;
+ 		if (ra_ctl) {
+-			UNSAFE_GET_USER_INC(ra_off, cur, dataword_size, Efault);
++			GET_INC(sec, ra_off, cur, dataword_size, Efault);
+ 			dataword_count--;
+ 		} else {
+ 			/* Padding RA location info */
+@@ -278,10 +347,10 @@ __read_flex_fde_fre_datawords(struct sframe_section *sec,
+ 	fp_off = sec->fp_off;
+ 	fp_ctl = fp_off ? 2 : 0; /* regnum=0, deref_p=(fp_off != 0), reg_p=0 */
+ 	if (dataword_count >= 2) {
+-		UNSAFE_GET_USER_INC(fp_ctl, cur, dataword_size, Efault);
++		GET_INC(sec, fp_ctl, cur, dataword_size, Efault);
+ 		dataword_count--;
+ 		if (fp_ctl) {
+-			UNSAFE_GET_USER_INC(fp_off, cur, dataword_size, Efault);
++			GET_INC(sec, fp_off, cur, dataword_size, Efault);
+ 			dataword_count--;
+ 		} else {
+ 			/* Padding FP location info */
+@@ -355,11 +424,11 @@ static __always_inline int __read_fre(struct sframe_section *sec,
+ 	if (fre_addr + addr_size + 1 > sec->fres_end)
+ 		return -EFAULT;
+ 
+-	UNSAFE_GET_USER_INC(ip_off, cur, addr_size, Efault);
++	GET_INC(sec, ip_off, cur, addr_size, Efault);
+ 	if (fde_pctype == SFRAME_FDE_PCTYPE_INC && ip_off > fde->func_size)
+ 		return -EFAULT;
+ 
+-	UNSAFE_GET_USER_INC(info, cur, 1, Efault);
++	GET_INC(sec, info, cur, 1, Efault);
+ 	dataword_count = SFRAME_V3_FRE_DATAWORD_COUNT(info);
+ 	dataword_size  = dataword_size_enum_to_size(SFRAME_V3_FRE_DATAWORD_SIZE(info));
+ 	if (!dataword_size)
+@@ -382,7 +451,7 @@ static __always_inline int __read_fre(struct sframe_section *sec,
+ }
+ 
+ static __always_inline int
+-sframe_init_cfa_rule_data(struct unwind_user_cfa_rule_data *cfa_rule_data,
++sframe_init_cfa_rule_data(struct unwind_cfa_rule_data *cfa_rule_data,
+ 			  u32 ctlword, s32 offset)
+ {
+ 	bool deref_p = SFRAME_V3_FLEX_FDE_CTRLWORD_DEREF_P(ctlword);
+@@ -393,13 +462,13 @@ sframe_init_cfa_rule_data(struct unwind_user_cfa_rule_data *cfa_rule_data,
+ 
+ 		switch (regnum) {
+ 		case SFRAME_REG_SP:
+-			cfa_rule_data->rule = UNWIND_USER_CFA_RULE_SP_OFFSET;
++			cfa_rule_data->rule = UNWIND_CFA_RULE_SP_OFFSET;
+ 			break;
+ 		case SFRAME_REG_FP:
+-			cfa_rule_data->rule = UNWIND_USER_CFA_RULE_FP_OFFSET;
++			cfa_rule_data->rule = UNWIND_CFA_RULE_FP_OFFSET;
+ 			break;
+ 		default:
+-			cfa_rule_data->rule = UNWIND_USER_CFA_RULE_REG_OFFSET;
++			cfa_rule_data->rule = UNWIND_CFA_RULE_REG_OFFSET;
+ 			cfa_rule_data->regnum = regnum;
+ 		}
+ 	} else {
+@@ -407,7 +476,7 @@ sframe_init_cfa_rule_data(struct unwind_user_cfa_rule_data *cfa_rule_data,
+ 	}
+ 
+ 	if (deref_p)
+-		cfa_rule_data->rule |= UNWIND_USER_RULE_DEREF;
++		cfa_rule_data->rule |= UNWIND_RULE_DEREF;
+ 
+ 	cfa_rule_data->offset = offset;
+ 
+@@ -415,27 +484,27 @@ sframe_init_cfa_rule_data(struct unwind_user_cfa_rule_data *cfa_rule_data,
+ }
+ 
+ static __always_inline void
+-sframe_init_rule_data(struct unwind_user_rule_data *rule_data,
++sframe_init_rule_data(struct unwind_rule_data *rule_data,
+ 		      u32 ctlword, s32 offset)
+ {
+ 	bool deref_p = SFRAME_V3_FLEX_FDE_CTRLWORD_DEREF_P(ctlword);
+ 	bool reg_p = SFRAME_V3_FLEX_FDE_CTRLWORD_REG_P(ctlword);
+ 
+ 	if (!ctlword && !offset) {
+-		rule_data->rule = UNWIND_USER_RULE_RETAIN;
++		rule_data->rule = UNWIND_RULE_RETAIN;
+ 		return;
+ 	}
+ 	if (reg_p) {
+ 		unsigned int regnum = SFRAME_V3_FLEX_FDE_CTRLWORD_REGNUM(ctlword);
+ 
+-		rule_data->rule = UNWIND_USER_RULE_REG_OFFSET;
++		rule_data->rule = UNWIND_RULE_REG_OFFSET;
+ 		rule_data->regnum = regnum;
+ 	} else {
+-		rule_data->rule = UNWIND_USER_RULE_CFA_OFFSET;
++		rule_data->rule = UNWIND_RULE_CFA_OFFSET;
+ 	}
+ 
+ 	if (deref_p)
+-		rule_data->rule |= UNWIND_USER_RULE_DEREF;
++		rule_data->rule |= UNWIND_RULE_DEREF;
+ 
+ 	rule_data->offset = offset;
+ }
+@@ -443,7 +512,7 @@ sframe_init_rule_data(struct unwind_user_rule_data *rule_data,
+ static __always_inline int __find_fre(struct sframe_section *sec,
+ 				      struct sframe_fde_internal *fde,
+ 				      unsigned long ip,
+-				      struct unwind_user_frame *frame)
++				      struct unwind_frame *frame)
+ {
+ 	unsigned char fde_pctype = SFRAME_V3_FDE_PCTYPE(fde->info);
+ 	struct sframe_fre_internal *fre, *prev_fre = NULL;
+@@ -503,40 +572,18 @@ static __always_inline int __find_fre(struct sframe_section *sec,
+ 	return 0;
+ }
+ 
+-int sframe_find(unsigned long ip, struct unwind_user_frame *frame)
++static __always_inline int __sframe_find(struct sframe_section *sec,
++					 unsigned long ip,
++					 struct unwind_frame *frame)
+ {
+-	struct mm_struct *mm = current->mm;
+-	struct sframe_section *sec;
+ 	struct sframe_fde_internal fde;
+ 	int ret;
+ 
+-	if (!mm)
+-		return -EINVAL;
+-
+-	guard(srcu)(&sframe_srcu);
+-
+-	sec = mtree_load(&mm->sframe_mt, ip);
+-	if (!sec)
+-		return -EINVAL;
+-
+-	if (!user_read_access_begin((void __user *)sec->sframe_start,
+-				    sec->sframe_end - sec->sframe_start))
+-		return -EFAULT;
+-
+ 	ret = __find_fde(sec, ip, &fde);
+ 	if (ret)
+-		goto end;
+-
+-	ret = __find_fre(sec, &fde, ip, frame);
+-end:
+-	user_read_access_end();
+-
+-	if (ret == -EFAULT) {
+-		dbg_sec("removing bad .sframe section\n");
+-		WARN_ON_ONCE(sframe_remove_section(sec->sframe_start));
+-	}
++		return ret;
+ 
+-	return ret;
++	return __find_fre(sec, &fde, ip, frame);
+ }
+ 
+ #ifdef CONFIG_SFRAME_VALIDATION
+@@ -661,20 +708,23 @@ static int sframe_validate_section(struct sframe_section *sec) { return 0; }
+ #endif /* !CONFIG_SFRAME_VALIDATION */
+ 
+ 
+-static void free_section(struct sframe_section *sec)
+-{
+-	dbg_free(sec);
+-	kfree(sec);
+-}
+-
+ static int sframe_read_header(struct sframe_section *sec)
+ {
+ 	unsigned long header_end, fdes_start, fdes_end, fres_start, fres_end;
+ 	struct sframe_header shdr;
+ 	unsigned int num_fdes;
+ 
+-	if (copy_from_user(&shdr, (void __user *)sec->sframe_start, sizeof(shdr))) {
+-		dbg_sec("header usercopy failed\n");
++	switch (sec->sec_type) {
++	case SFRAME_USER:
++		if (copy_from_user(&shdr, (void __user *)sec->sframe_start, sizeof(shdr))) {
++			dbg_sec("header usercopy failed\n");
++			return -EFAULT;
++		}
++		break;
++	case SFRAME_KERNEL:
++		shdr = *(struct sframe_header *)sec->sframe_start;
++		break;
++	default:
+ 		return -EFAULT;
+ 	}
+ 
+@@ -721,6 +771,45 @@ static int sframe_read_header(struct sframe_section *sec)
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_HAVE_UNWIND_USER_SFRAME
++
++int sframe_find_user(unsigned long ip, struct unwind_frame *frame)
++{
++	struct mm_struct *mm = current->mm;
++	struct sframe_section *sec;
++	int ret;
++
++	if (!mm)
++		return -EINVAL;
++
++	guard(srcu)(&sframe_srcu);
++
++	sec = mtree_load(&mm->sframe_mt, ip);
++	if (!sec)
++		return -EINVAL;
++
++	if (!user_read_access_begin((void __user *)sec->sframe_start,
++				    sec->sframe_end - sec->sframe_start))
++		return -EFAULT;
++
++	ret = __sframe_find(sec, ip, frame);
++
++	user_read_access_end();
++
++	if (ret == -EFAULT) {
++		dbg_sec("removing bad .sframe section\n");
++		WARN_ON_ONCE(sframe_remove_section(sec->sframe_start));
++	}
++
++	return ret;
++}
++
++static void free_section(struct sframe_section *sec)
++{
++	dbg_free(sec);
++	kfree(sec);
++}
++
+ int sframe_add_section(unsigned long sframe_start, unsigned long sframe_end,
+ 		       unsigned long text_start, unsigned long text_end)
+ {
+@@ -757,6 +846,7 @@ int sframe_add_section(unsigned long sframe_start, unsigned long sframe_end,
+ 	if (!sec)
+ 		return -ENOMEM;
+ 
++	sec->sec_type		= SFRAME_USER;
+ 	sec->sframe_start	= sframe_start;
+ 	sec->sframe_end		= sframe_end;
+ 	sec->text_start		= text_start;
+@@ -877,3 +967,5 @@ SYSCALL_DEFINE5(stacktrace_setup, int, op, unsigned long, addr_start,
+ 	}
+ 	return -EINVAL;
+ }
++
++#endif /* CONFIG_HAVE_UNWIND_USER_SFRAME */
+diff --git a/kernel/unwind/user.c b/kernel/unwind/user.c
+index 3d596da588d0..5670579e3990 100644
+--- a/kernel/unwind/user.c
++++ b/kernel/unwind/user.c
+@@ -8,6 +8,7 @@
+ #include <linux/unwind_user.h>
+ #include <linux/uaccess.h>
+ #include <linux/sframe.h>
++#include <linux/unwind_types.h>
+ 
+ #define for_each_user_frame(state) \
+ 	for (unwind_user_start(state); !(state)->done; unwind_user_next(state))
+@@ -28,7 +29,7 @@ get_user_word(unsigned long *word, unsigned long base, int off, unsigned int ws)
+ }
+ 
+ static int unwind_user_next_common(struct unwind_user_state *state,
+-				   const struct unwind_user_frame *frame)
++				   const struct unwind_frame *frame)
+ {
+ 	unsigned long cfa, fp, ra;
+ 
+@@ -40,16 +41,16 @@ static int unwind_user_next_common(struct unwind_user_state *state,
+ 
+ 	/* Get the Canonical Frame Address (CFA) */
+ 	switch (frame->cfa.rule) {
+-	case UNWIND_USER_CFA_RULE_SP_OFFSET:
++	case UNWIND_CFA_RULE_SP_OFFSET:
+ 		cfa = state->sp;
+ 		break;
+-	case UNWIND_USER_CFA_RULE_FP_OFFSET:
++	case UNWIND_CFA_RULE_FP_OFFSET:
+ 		if (state->fp < state->sp)
+ 			return -EINVAL;
+ 		cfa = state->fp;
+ 		break;
+-	case UNWIND_USER_CFA_RULE_REG_OFFSET:
+-	case UNWIND_USER_CFA_RULE_REG_OFFSET_DEREF:
++	case UNWIND_CFA_RULE_REG_OFFSET:
++	case UNWIND_CFA_RULE_REG_OFFSET_DEREF:
+ 		if (!state->topmost || unwind_user_get_reg(&cfa, frame->cfa.regnum))
+ 			return -EINVAL;
+ 		break;
+@@ -58,7 +59,7 @@ static int unwind_user_next_common(struct unwind_user_state *state,
+ 		return -EINVAL;
+ 	}
+ 	cfa += frame->cfa.offset;
+-	if (frame->cfa.rule & UNWIND_USER_RULE_DEREF &&
++	if (frame->cfa.rule & UNWIND_RULE_DEREF &&
+ 	    get_user_word(&cfa, cfa, 0, state->ws))
+ 		return -EINVAL;
+ 
+@@ -76,19 +77,19 @@ static int unwind_user_next_common(struct unwind_user_state *state,
+ 
+ 	/* Get the Return Address (RA) */
+ 	switch (frame->ra.rule) {
+-	case UNWIND_USER_RULE_RETAIN:
++	case UNWIND_RULE_RETAIN:
+ 		if (!state->topmost || unwind_user_get_ra_reg(&ra))
+ 			return -EINVAL;
+ 		break;
+ 	/*
+-	 * UNWIND_USER_RULE_CFA_OFFSET doesn't make sense for RA.
++	 * UNWIND_RULE_CFA_OFFSET doesn't make sense for RA.
+ 	 * A return address cannot legitimately be a stack address.
  	 */
- 	mov	sp, x29
- 	ldp	x29, x30, [sp], #16
-+	.cfi_restore 29
-+	.cfi_restore 30
-+	.cfi_def_cfa 31, 0
- 	scs_load_current
- 	restore_irq x9
- 	ret
-+	.cfi_endproc
- SYM_FUNC_END(call_on_irq_stack)
- NOKPROBE(call_on_irq_stack)
+-	case UNWIND_USER_RULE_CFA_OFFSET_DEREF:
++	case UNWIND_RULE_CFA_OFFSET_DEREF:
+ 		ra = cfa + frame->ra.offset;
+ 		break;
+-	case UNWIND_USER_RULE_REG_OFFSET:
+-	case UNWIND_USER_RULE_REG_OFFSET_DEREF:
++	case UNWIND_RULE_REG_OFFSET:
++	case UNWIND_RULE_REG_OFFSET_DEREF:
+ 		if (!state->topmost || unwind_user_get_reg(&ra, frame->ra.regnum))
+ 			return -EINVAL;
+ 		ra += frame->ra.offset;
+@@ -97,24 +98,24 @@ static int unwind_user_next_common(struct unwind_user_state *state,
+ 		WARN_ON_ONCE(1);
+ 		return -EINVAL;
+ 	}
+-	if (frame->ra.rule & UNWIND_USER_RULE_DEREF &&
++	if (frame->ra.rule & UNWIND_RULE_DEREF &&
+ 	    get_user_word(&ra, ra, 0, state->ws))
+ 		return -EINVAL;
  
+ 	/* Get the Frame Pointer (FP) */
+ 	switch (frame->fp.rule) {
+-	case UNWIND_USER_RULE_RETAIN:
++	case UNWIND_RULE_RETAIN:
+ 		fp = state->fp;
+ 		break;
+ 	/*
+-	 * UNWIND_USER_RULE_CFA_OFFSET is currently not used for FP
++	 * UNWIND_RULE_CFA_OFFSET is currently not used for FP
+ 	 * (e.g. SFrame cannot represent this rule).
+ 	 */
+-	case UNWIND_USER_RULE_CFA_OFFSET_DEREF:
++	case UNWIND_RULE_CFA_OFFSET_DEREF:
+ 		fp = cfa + frame->fp.offset;
+ 		break;
+-	case UNWIND_USER_RULE_REG_OFFSET:
+-	case UNWIND_USER_RULE_REG_OFFSET_DEREF:
++	case UNWIND_RULE_REG_OFFSET:
++	case UNWIND_RULE_REG_OFFSET_DEREF:
+ 		if (!state->topmost || unwind_user_get_reg(&fp, frame->fp.regnum))
+ 			return -EINVAL;
+ 		fp += frame->fp.offset;
+@@ -123,7 +124,7 @@ static int unwind_user_next_common(struct unwind_user_state *state,
+ 		WARN_ON_ONCE(1);
+ 		return -EINVAL;
+ 	}
+-	if (frame->fp.rule & UNWIND_USER_RULE_DEREF &&
++	if (frame->fp.rule & UNWIND_RULE_DEREF &&
+ 	    get_user_word(&fp, fp, 0, state->ws))
+ 		return -EINVAL;
+ 
+@@ -139,13 +140,13 @@ static int unwind_user_next_fp(struct unwind_user_state *state)
+ 	struct pt_regs *regs = task_pt_regs(current);
+ 
+ 	if (state->topmost && unwind_user_at_function_start(regs)) {
+-		const struct unwind_user_frame fp_entry_frame = {
++		const struct unwind_frame fp_entry_frame = {
+ 			ARCH_INIT_USER_FP_ENTRY_FRAME(state->ws)
+ 		};
+ 		return unwind_user_next_common(state, &fp_entry_frame);
+ 	}
+ 
+-	const struct unwind_user_frame fp_frame = {
++	const struct unwind_frame fp_frame = {
+ 		ARCH_INIT_USER_FP_FRAME(state->ws)
+ 	};
+ 	return unwind_user_next_common(state, &fp_frame);
+@@ -153,10 +154,10 @@ static int unwind_user_next_fp(struct unwind_user_state *state)
+ 
+ static int unwind_user_next_sframe(struct unwind_user_state *state)
+ {
+-	struct unwind_user_frame frame;
++	struct unwind_frame frame;
+ 
+ 	/* sframe expects the frame to be local storage */
+-	if (sframe_find(state->ip, &frame))
++	if (sframe_find_user(state->ip, &frame))
+ 		return -ENOENT;
+ 	return unwind_user_next_common(state, &frame);
+ }
 -- 
 2.54.0.563.g4f69b47b94-goog
 
