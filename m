@@ -4,60 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 874BDCD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F3ECD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sPTHzm/3bNsWVUZ2tOWYcZZC9hA8O3zorDQzoFPkZ94=; b=qLuKJoERhFYdWbWwoL1KvNRv0P
-	T6HStmIZDv5+izTHyqtIa4IXtgAao7i0/HIExTBnXEi3OYYGknIIW078IgGjiQI7ndI+JGALqKqTb
-	FJhIyA8jv7EYLlUAIr7boOD2tplc9BpeVLSEQRHb/XrGGzErdwUUWrADCCprY66crKwOG1HhTMFMv
-	o2vgxMTSwEgzO26oRmGrW9KtYUslOnFHyNWXx9UwWiYBpJkWAynrDex2wamSxz8OGdx/uUQ2ANk6N
-	BrQaOyMJ2DM6Ae9GrhLMxpJW/DWsX1qAsXwrNOQiiknOX1y6rHZFTRvDNuLif/bfY4nToNmW0H/t+
-	SrEZ7uQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6mXu1FH/Aw1PvVMwnfo1s0uUcahyud8na+pl3qvboPU=; b=TyALRaFLiQK1oH3Y1RRM1vWC/J
+	UdwZSUfgwZt9RSc8qu8CTn4AWRHln92XzZPGYyu9CDB78dIVmpq29Tvu/NuJzxgP7mWq/5X8ZGQz+
+	hFM3NyGUlVhkIaT8A2VBg+exp+FLtRtbfAF10aNI7zDcO8DN00APJFSiJVoI7YHb+Iqqc2ycA/9Ap
+	hi1bgLXn1vy7+P9703VgLhRqRSaE5x0fE+U6xRmav5g3DykWKo0ls0PU+U4FN8XnzdqNkocerNOQT
+	2w7eaZP9Ypfc6VNpCGg5WEVjbLW4dVOeajQpPMl1dPCHX3Jc4PgN192HxREm76kpgrV30l4hT5+e3
+	d1O6C/nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMJY-000000021ii-1wrz;
-	Tue, 19 May 2026 15:25:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPMJW-000000021dz-0z17;
+	Tue, 19 May 2026 15:24:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMJE-000000021OY-2yG3
+	id 1wPMJ0-000000021DU-30js
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:24:42 +0000
+	Tue, 19 May 2026 15:24:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2CE256021C;
-	Tue, 19 May 2026 15:24:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39E56C2BCB3;
-	Tue, 19 May 2026 15:24:38 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2DBA960224;
+	Tue, 19 May 2026 15:24:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96B56C2BCC6;
+	Tue, 19 May 2026 15:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779204279;
-	bh=ZpDPEyrHHGSEIW/Lk4hpvpfy/+NDSsltJfIB8NnQOKE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vMLyGIE1zDz7NIASBpV6KbBPyd5xb2HjOeJPCgEHRlFT+TNaInQb+b3uKbmpngnXF
-	 zd2uvG9TiUEPzLgHY7blf8fGMO07AS60F2OprZ52E74Lm/hvq69Yyc0XgW03l/etF1
-	 vHYF1l/ts6bMekTy8Xu/f0ES67uIVpOxyFaXZLtxhxO2QgqgGj1tshcEHvOBxcFxGS
-	 HCIf+4DWCGl8arZloEFXAn3FpfxceAYfEhG2tSVOtk1F19VNBfIDzvqetXF2OPT4cN
-	 ha6vhOu1zwgCU1LBAWY3ebLC0jpDiGKUMBqiMjILmugn5i/1jtwcDoAEx+adO3TqyY
-	 h1CcaCpRTyXyQ==
-Date: Tue, 19 May 2026 16:24:35 +0100
+	s=k20201202; t=1779204265;
+	bh=NdOUL5avdJ53YrYyOtF2DkkZOJM8fSDtqHFyLACNZKM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uYkDp7FgO3eDMJMDt9NOaoOPK5G6pmBotNf9bwWQnDePS0zLSCob0T4nGQOXU3+bB
+	 KyNQoGl/U2k4KvppE5Gk5o/wTCA1m0wZ7gNcbooH5PHVI3GYIGLnqbzpHqYgREXy0C
+	 I9LMXntzdZkfhyet3IzFL1V8W1EwojSUVxVGabKyW53LoXOMG/k8/VEkDqrkrm6L7D
+	 ddONNzlbdk0IkzZ2YzHPSd77xoHNTrlE/J1eP3reriu0YNJW9Ldgd0OaBOabPrOgcc
+	 0ofHfHXQnsqJw2guab1Ud437eQdj7/1hebj6RTacT5Sx9+F8srT279CKGd0at08MY8
+	 VlnemLO4+SZEQ==
 From: Will Deacon <will@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64/cpufeature: Define hwcaps for 2025 dpISA
- features
-Message-ID: <agyAs0UXGulhFXga@willie-the-truck>
-References: <20260518-arm64-dpisa-2025-v2-0-b3367b73bd00@kernel.org>
- <20260518-arm64-dpisa-2025-v2-1-b3367b73bd00@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	shechenglong <shechenglong@xfusion.com>,
+	Zenghui Yu <zenghui.yu@linux.dev>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Jonathan Marek <jonathan@marek.ca>,
+	Jinqian Yang <yangjinqian1@huawei.com>,
+	Thorsten Blum <thorsten.blum@linux.dev>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: proton-pack: use sysfs_emit in sysfs show functions
+Date: Tue, 19 May 2026 16:23:10 +0100
+Message-ID: <177918937253.754805.7037838371679179364.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260513115756.447661-2-thorsten.blum@linux.dev>
+References: <20260513115756.447661-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260518-arm64-dpisa-2025-v2-1-b3367b73bd00@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,60 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 04:07:29PM +0100, Mark Brown wrote:
-> The features added by the 2025 dpISA are all straightforward instruction
-> only features so there is no state to manage, we can just expose hwcaps to
-> let userspace know they are available.
+On Wed, 13 May 2026 13:57:55 +0200, Thorsten Blum wrote:
+> Replace sprintf() with sysfs_emit() in sysfs show functions, which is
+> preferred for formatting sysfs output because it provides safer bounds
+> checking.
 > 
-> F16MM is slightly odd in that the feature is FEAT_F16MM but it is discovered
-> via ID_AA64FPFR0_EL1.F16MM2. We follow the feature name.
+> While the current code only emits fixed strings that fit easily within
+> PAGE_SIZE, use sysfs_emit() to follow secure coding best practices.
 > 
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  Documentation/arch/arm64/elf_hwcaps.rst | 24 ++++++++++++++++++++++++
->  arch/arm64/include/uapi/asm/hwcap.h     |  8 ++++++++
->  arch/arm64/kernel/cpufeature.c          | 11 +++++++++++
->  arch/arm64/kernel/cpuinfo.c             |  8 ++++++++
->  4 files changed, 51 insertions(+)
-> 
-> diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-> index 97315ae6c0da..07ff9ea1d605 100644
-> --- a/Documentation/arch/arm64/elf_hwcaps.rst
-> +++ b/Documentation/arch/arm64/elf_hwcaps.rst
-> @@ -451,6 +451,30 @@ HWCAP3_LS64
->      of CPU. User should only use ld64b/st64b on supported target (device)
->      memory location, otherwise fallback to the non-atomic alternatives.
->  
-> +HWCAP3_SVE_B16MM
-> +    Functionality implied by ID_AA64ZFR0_EL1.B16B16 == 0b0011
-> +
-> +HWCAP3_SVE2P3
-> +    Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0100
-> +
-> +HWCAP3_SME_LUT6
-> +    Functionality implied by ID_AA64SMFR0_EL1.LUT6 == 0b1
-> +
-> +HWCAP3_SME2P3
-> +    Functionality implied by ID_AA64SMFR0_EL1.SMEver == 0b0100
-> +
-> +HWCAP3_F16MM
-> +    Functionality implied by ID_AA64FPFR0_EL1.F16MM2 == 0b1
-> +
-> +HWCAP3_F16F32DOT
-> +    Functionality implied by ID_AA64ISAR0_EL1.FHM == 0b0010
-> +
-> +HWCAP3_F16F32MM
-> +    Functionality implied by ID_AA64ISAR0_EL1.FHM == 0b0011
-> +
-> +HWCAP3_SVE_LUT6
-> +    Functionality implied by ID_AA64ISAR2_EL1.LUT == 0b0010 and
-> +    ID_AA64PFR0_EL1.SVE == 0b0001.
+> [...]
 
-I've queued this, but I'm curious why you've called out the
-'ID_AA64PFR0_EL1.SVE == 0b0001' part here and not for any of the other
-SVE caps you're adding? It's also formatted inconsistently from
-pre-existing entries (such as HWCAP2_SVE_B16B16) which put the
-ID_AA64PFR0_EL1.SVE part of the antecedent first.
+Applied to arm64 (for-next/errata), thanks!
 
+[1/1] arm64: proton-pack: use sysfs_emit in sysfs show functions
+      https://git.kernel.org/arm64/c/243c1d75a01e
+
+Cheers,
+-- 
 Will
+
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
