@@ -4,56 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27EBCD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D150CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TrOqFEs/qjHZn8ZSzFpj6cM7rfHT/d6Uh5nHkGiq0Zc=; b=BsEOmD1QI9I/2BcnANs4ZBgcTr
-	hGg9luBEBqt1bHwPkC7xmSc67Bmy3657xkzy3amWcu0lEXQQz3EfAdIzKaB5/aNcH1pgRTqtq341h
-	mGIimNKo2p/l7iQsKuU0VFm+SLjqLxwYIjLLZioxZXeXAsQSYXZRL/K7DUWhybsZK+l7y+lupiCkR
-	EF56ur60wINTEfTb+KjrPFX0sMnFqDAqcIpa07fQ473vTRHKKti73YhyzFQheM2dAm4syxdxBCpTa
-	yq5YWdN0Nwe4ls1Wus4hTn/raKsSsanv5vgZPDfSYl+FsTmUf+hwoE1ktSgtvFOcXuSZggJE+2O1P
-	wTJ9QRYg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kAopOieYCPilX2N9ha2ZGmBzVXcApKxQEegBcvzI5VI=; b=seEkJ+PYj9E49Nc3xrf1N/vZ1w
+	rOUe1jK45EfkC/q1z10cGaCpJtrKEQGkEv9hgOvL7sUdURR8nIqFK95lGmKkOqRT1vqNGYCviBCx7
+	MiPJ70GWvC3p4IuK3RNTARnBIMXZYWZZYIqpYhVX+jsmuR/w5EltkC40KE0yjWVPH1kNQCyuBJF0R
+	+MDdVnSiODmmYPMgUeJJL4aESRCjrcRUV7LFHB0FqaePxrHA98hw+w3iAxni8mAR85r3/ylHNGHEz
+	wc7YRk5utmTO3aiTpp5RzlR+NPbxOIBI2cXjl1FBXUPkB7/+JwASw84O/0THIim1Nvh+nkfRvsvP0
+	nQn609fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGf9-00000000uAy-3Q9a;
-	Tue, 19 May 2026 09:22:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPGfJ-00000000uFj-3ooe;
+	Tue, 19 May 2026 09:23:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGf7-00000000uAK-4Bz6
+	id 1wPGfJ-00000000uFB-0Upp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:22:54 +0000
+	Tue, 19 May 2026 09:23:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73575600AE;
-	Tue, 19 May 2026 09:22:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6CB4C2BCB3;
-	Tue, 19 May 2026 09:22:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 54BFA60208;
+	Tue, 19 May 2026 09:23:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E254C2BCF5;
+	Tue, 19 May 2026 09:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779182573;
-	bh=dSWXSDRgwt/i2Je4bS2WZkMTPFrKtsEjnJXano8qZys=;
-	h=From:To:Cc:Subject:Date:From;
-	b=MnVWDC/UBBnRQuG7h7qIr4PHpzSzEch62mRboBh1Bi3JWgiHFBYdJNWoOwBPJ98Rg
-	 XavLXDKLKHo4eoj/78UweqissDnqbzkPqQ+urE2ro6DDflHCMWgNQcMxI1oItlIh4C
-	 Ghi6L8Mul30++0gz1vwowGwPqQYBuAgsUwQ4UIou2ckf+LB+nmLye4X98PRhmFf1JF
-	 qCimFCdozKCgn3mrLtHeYXN/5asr6Yy32zfhcaUEBy5MW+38eTvUuzpmia6Q6AMkOd
-	 nwrgSg1fvo7P226j/VusUNOk0JgIMDPr9620JMmt8W8CenRCffZK+I5eaNKQ7rQUOf
-	 odhcZSNyliz9g==
-From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH] arm64: cpucaps: Keep entries sorted
-Date: Tue, 19 May 2026 10:22:42 +0100
-Message-ID: <20260519092243.7278-1-will@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1779182584;
+	bh=zoicHgt9O7RSwyA/8Yt8+UfNI+ddUfsokmOgEX1CF+Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pddg1vFTCh1TukRUY0V4DNXlP+8KxkotVm9cx5a5akZSkmQJ2odYwd7pIU7+gpN8o
+	 tjnTCiM6/13XkQQSXuYmQgFOrTGugiwyU3kRtQwS2IODoBrZ7q7zh7FOMKoDxx0rAC
+	 j90xHw17PtS7VJf8jLbE5Ip8FJ1I34Ecj92IuWCahEDAWSHrugL4oHETq6VF4I7apI
+	 7lnaIJeLEOkYQhkCLSJ0unrz036rF1qkVLag1PEMQzH3HpPi8I/AKnC5G2n+PxRCOj
+	 trB4WR4fNvfFR8Xi7XF1qaU6TzsDFqRnPEGBM0N2wC8Sl12aJtCDOew9X21WHmJL5V
+	 RkVR7MV9cgSLw==
+Message-ID: <d12b5738-ca14-40aa-930f-eddf3199818d@kernel.org>
+Date: Tue, 19 May 2026 11:22:55 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 09/10] dt-bindings: firmware: add arm,ras-cper
+To: Ahmed Tiba <ahmed.tiba@arm.com>, rafael@kernel.org, bp@alien8.de,
+ saket.dumbre@intel.com, will@kernel.org, xueshuai@linux.alibaba.com,
+ mchehab@kernel.org, krzk+dt@kernel.org, dave@stgolabs.net,
+ conor+dt@kernel.org, vishal.l.verma@intel.com, jic23@kernel.org,
+ corbet@lwn.net, guohanjun@huawei.com, dave.jiang@intel.com,
+ catalin.marinas@arm.com, lenb@kernel.org, tony.luck@intel.com,
+ skhan@linuxfoundation.org, djbw@kernel.org, alison.schofield@intel.com,
+ ira.weiny@intel.com, robh@kernel.org
+Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com,
+ linux-cxl@vger.kernel.org, Michael.Zhao2@arm.com,
+ acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org
+References: <20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-0-42698675ba61@arm.com>
+ <20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-9-42698675ba61@arm.com>
+ <5fb43b8d-e772-42af-ba78-d75abd87bd0c@kernel.org>
+ <8bc812fd-cda5-485f-98d2-4901ec17c66f@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <8bc812fd-cda5-485f-98d2-4901ec17c66f@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,136 +126,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cpucaps list is supposed to be sorted, even though the awk script
-which processes it doesn't really care. Since this isn't enforced or
-relied upon and because the alphabet is hard, the list has gradually
-developed an ordering of its own.
+On 19/05/2026 11:02, Ahmed Tiba wrote:
+> On 19/05/2026 08:04, Krzysztof Kozlowski wrote:
+>> On 18/05/2026 13:57, Ahmed Tiba wrote:
+>>> Describe the DeviceTree node that exposes the Arm firmware-first
+>>> CPER provider and hook the file into MAINTAINERS so the
+>>> binding has an owner.
+>>>
+>>> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+>>
+>> Please implement previous comments.
+> 
+> Could you please clarify which previous DT comments you still see
+> as unaddressed?
+> 
+> My understanding was that I had addressed the earlier points on the YAML
+> description formatting, the `memory-region` description text, and the
+> example. If I missed a specific item beyond the one below, please point 
+> me to it.
 
-Re-sort the file.
+You do not need other nodes for your device in the example. I asked why
+this is needed for the example, but there was no answer.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Reported-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Will Deacon <will@kernel.org>
----
 
-Marc pointed out that HAS_BBML2_NOABORT was in the wrong place but, on
-closer inspection, there are a bunch of misplaced entries here. I
-honestly don't like the churn of re-sorting it, so an alternative is
-to live with it and remove the comment at the top asking people to keep
-it sorted it. Any preferences?
-
- arch/arm64/tools/cpucaps | 28 ++++++++++++++--------------
- 1 file changed, 14 insertions(+), 14 deletions(-)
-
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 811c2479e82d..0fc05b5026eb 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -5,6 +5,7 @@
- ALWAYS_BOOT
- ALWAYS_SYSTEM
- BTI
-+HAFT
- # Unreliable: use system_supports_32bit_el0() instead.
- HAS_32BIT_EL0_DO_NOT_USE
- HAS_32BIT_EL1
-@@ -14,6 +15,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
- HAS_ADDRESS_AUTH_IMP_DEF
- HAS_AMU_EXTN
- HAS_ARMv8_4_TTL
-+HAS_BBML2_NOABORT
- HAS_CACHE_DIC
- HAS_CACHE_IDC
- HAS_CNP
-@@ -26,41 +28,40 @@ HAS_ECV
- HAS_ECV_CNTPOFF
- HAS_EPAN
- HAS_EVT
--HAS_FPMR
- HAS_FGT
- HAS_FGT2
-+HAS_FPMR
- HAS_FPSIMD
- HAS_GCS
- HAS_GENERIC_AUTH
- HAS_GENERIC_AUTH_ARCH_QARMA3
- HAS_GENERIC_AUTH_ARCH_QARMA5
- HAS_GENERIC_AUTH_IMP_DEF
-+HAS_GIC_PRIO_MASKING
-+HAS_GIC_PRIO_RELAXED_SYNC
- HAS_GICV3_CPUIF
- HAS_GICV5_CPUIF
- HAS_GICV5_LEGACY
--HAS_GIC_PRIO_MASKING
--HAS_GIC_PRIO_RELAXED_SYNC
--HAS_ICH_HCR_EL2_TDIR
- HAS_HCR_NV1
- HAS_HCX
-+HAS_ICH_HCR_EL2_TDIR
- HAS_LDAPR
- HAS_LPA2
--HAS_LSE_ATOMICS
- HAS_LS64
- HAS_LS64_V
-+HAS_LSE_ATOMICS
- HAS_LSUI
- HAS_MOPS
- HAS_NESTED_VIRT
--HAS_BBML2_NOABORT
- HAS_PAN
- HAS_PMUV3
--HAS_S1PIE
--HAS_S1POE
--HAS_SCTLR2
- HAS_RAS_EXTN
- HAS_RASV1P1_EXTN
- HAS_RNG
-+HAS_S1PIE
-+HAS_S1POE
- HAS_SB
-+HAS_SCTLR2
- HAS_STAGE2_FWB
- HAS_TCR2
- HAS_TIDCP1
-@@ -69,7 +70,6 @@ HAS_VA52
- HAS_VIRT_HOST_EXTN
- HAS_WFXT
- HAS_XNX
--HAFT
- HW_DBM
- KVM_HVHE
- KVM_PROTECTED_MODE
-@@ -83,10 +83,10 @@ MTE_STORE_ONLY
- SME
- SME_FA64
- SME2
-+SPECTRE_BHB
- SPECTRE_V2
- SPECTRE_V3A
- SPECTRE_V4
--SPECTRE_BHB
- SSBS
- SVE
- UNMAP_KERNEL_AT_EL0
-@@ -110,9 +110,6 @@ WORKAROUND_4193714
- WORKAROUND_4311569
- WORKAROUND_AMPERE_AC03_CPU_38
- WORKAROUND_AMPERE_AC04_CPU_23
--WORKAROUND_TRBE_OVERWRITE_FILL_MODE
--WORKAROUND_TSB_FLUSH_FAILURE
--WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
- WORKAROUND_CAVIUM_23154
- WORKAROUND_CAVIUM_27456
- WORKAROUND_CAVIUM_30115
-@@ -128,3 +125,6 @@ WORKAROUND_REPEAT_TLBI
- WORKAROUND_SPECULATIVE_AT
- WORKAROUND_SPECULATIVE_SSBS
- WORKAROUND_SPECULATIVE_UNPRIV_LOAD
-+WORKAROUND_TRBE_OVERWRITE_FILL_MODE
-+WORKAROUND_TRBE_WRITE_OUT_OF_RANGE
-+WORKAROUND_TSB_FLUSH_FAILURE
--- 
-2.54.0.563.g4f69b47b94-goog
-
+Best regards,
+Krzysztof
 
