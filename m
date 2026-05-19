@@ -4,154 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00375CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3B19CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4XCGrrXjQqg8YuImuqKz2THBt+Kl+10S20qTfl+JZY=; b=RVFspYVfW3o+HBPowTBsNZasMw
-	7kpMWEjRP2mcaSG8kR/WUhrtd9KlcHnDsfi6rNjYsu/3YN+F8Wa5zYSJ0moAR6ziD2JOIZCeI325V
-	Li/7vCwTga5ZGsm81+P1BZ3JkDL4hlmQ5AkbtTtlJsIzk/LiAcKw5RRTdOpqTqf5ZDXt+5lMn3At3
-	9AMmsV5vZ4HLYLwogm47xkoMoHp74an094q3XGgaPyMmnXGrWpj8t1R8In2KK9/C6IbZBrJqBTYcu
-	liAfWWg2a7GZFkVzC9HKVmSoYJ04k90lZmMVYbR26j+9MZfQxJ4RdeOLQ6J/QWgz4sHKs7p8ubzN5
-	avC/C9MA==;
+	bh=wg2Lrup6O+yYlrsohm5/5oPyrPJp3ye8TWSmHs86r9Y=; b=rUBx+pGX4rpKgszhoAQ0ENo5aN
+	jENcwNeETeag0MmewUdrU7Hhyz4U1lwHTP9cvx3hi5Zrtmn/sag17eU7c3bn4yDoCK3BCoXQdSb1Z
+	yZuIPEQbU5FM012IbSwMeKvXXH1N4fw1rvidGuawZtpWTxaByecNEbuDb0deWpbrsadeQAcdbKDpL
+	6R7ZgNygTyZQTVTQ1zW/dFvwxI8ys4x9ZcUmjUICUv+hD+gKWqhq6QnRlefKel3kqClMgAptUzYde
+	5Ayq4ZksExBq0BgWpOvi7xeYwmL9KuW2NqOgykbC8kfDTj7pzeApbATVv2uWNxFgZ0AZlAm8AE7ry
+	pTAR6NHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMH3-000000020Gb-2oBB;
-	Tue, 19 May 2026 15:22:25 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wPMHh-000000020Nq-3Lij;
+	Tue, 19 May 2026 15:23:05 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMH1-000000020Fy-2ww0
+	id 1wPMHf-000000020Mz-3UNn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:22:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LN3LQTvu14FCbhlYoGeJZEkR/v84UJpaZ59wuOtN9TmiI8FVeaAm6x0BsOI83Vvi8dMrLkhCZ8cJufVsQOR33Riw6mU5fkGgyv9eHYkc96Cgwc3gLzbL6bVA3DD1UsrL2hfbXL1reL1pVoTkF1dtfuKb4eFjwLeIyEIQgU38G4S1x5YanKRKRVl37++vkQMughIj6qd2R/vXLmG2NgtHoSs/Qnq3xYsLxfUL/RyDd2RMrb7uXzdbIDa/9FuvxiEmdzd/Fvkedj39UUGmF2o0AWSRvWq8VXFotkTHnuHsInvwkTAdH4WCnNWNSXyMY6yHLTqj7KkMhpwcW93z/3F8kg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N4XCGrrXjQqg8YuImuqKz2THBt+Kl+10S20qTfl+JZY=;
- b=AauGLQZhVuU9EXgk+OMMOK+QTY//Wz3Fjj4NC+0xSx8MrmODiQi7LoXobJ3KIOE/LgwEksyemrQU3mq4wgHuPyDtL4lT6sY+gLGmaZ1MhyZ+qA/pScxVCGaTlJfum0/v9VPi+XAwtAvJziVXh35E9FXG5J5BEjMxSxqtFQWY6GX639XGpzufveTkuZ902b0UQQlVKdKeufP4JBp2KzVDQMmnRKfY2zVdgBJdkoZo+qKg4DyW67gyvbdrppM7exFVL9ZWqEVUvo/c2O9LjB/0CPOj1ksH+seRpHporSMwJSA2XK8PrDzFSH5GvSB2NSI2gWs4Fm+1vPSM6gmHi5FncQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N4XCGrrXjQqg8YuImuqKz2THBt+Kl+10S20qTfl+JZY=;
- b=Xu9JdgiKPC7a1uBS2UcaYQTS/nUcDc+AZwVBM+cUXvhOE9mH0rxkd3n5LtcpheBB3QViXjhtP1s9mFWbjuG+4jrAc1FVYJWPWD3/dWQW9HWus8rPOF50aTM1nY8uQ5WPtgy9hGcXDcG0hnnd5a3i1dvJxx6G8jGlx4p90HOJRM0kET8lPsonKQvSdQ1LopcWiOpkMOwu9Z9LBRxKiXUdwn24sv0bxUKuvXCyoRnmpITR0NoBCn/evj44kk3A8llaqBEzMDbdktCYcehHko07zhoclapChjnECkmQYUn9IobjzbFQbk2sZDtzOdive3O/bdDAuEDN73e+8DDeWwYaVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AM9PR04MB7618.eurprd04.prod.outlook.com (2603:10a6:20b:2dc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 15:22:16 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 15:22:16 +0000
-From: Frank.Li@oss.nxp.com
-To: Lee Jones <lee@kernel.org>,
-	Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Pavel Machek <pavel@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Maud Spierings <maudspierings@gocontroll.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH v8 0/4] backlight: add new max25014 backlight driver
-Date: Tue, 19 May 2026 11:22:08 -0400
-Message-ID: <177920411775.2493788.16026675003480715688.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260407-max25014-v8-0-14eac7ed673a@gocontroll.com>
-References: <20260407-max25014-v8-0-14eac7ed673a@gocontroll.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH0P220CA0022.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::21) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 19 May 2026 15:23:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779204180;
+	bh=BwzlO1jv0/xoa5/nDtcFzfIYRReMTjtaUSLG2NPq+pA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=jxIzF2JARvKB9MMdsdYEdIFzITAzDfQ0zAb2TYEm3noqEGS+q8FnO3Rb2W3N0ZGoe
+	 A5cqNO9r5DQw7zM1B6//sf0AY9KrTqjDYR7mMNZORrWa08DZZ9FvDzBsLfhpc7yzeX
+	 sSxsCozglLsnvuZ4lrNOZZel0IrAMZgc415wQ2qm1ClX8Dl/2TzyMXFGXENq+/u4xN
+	 ub95GPHlGtk85j7HrKQmr4VOm5xeEDAeW7lr3AK2guhyAGd4GQkg1fiOYaVGaxFphx
+	 3cu9RN2tQI1EF96G8oFFxLgF6CZSh9dlwXlH71qxaHARdtEqyCK6WMAIvhs6mUIg5d
+	 l/tE8yJII349A==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3579317E0234;
+	Tue, 19 May 2026 17:22:59 +0200 (CEST)
+Message-ID: <77a0553dc48c270768525a53854b3d32abcbf642.camel@collabora.com>
+Subject: Re: [PATCH 07/16] media: v4l2-common: Add NV12_16L16 pixel format
+ to v4l2 format info
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Paul Kocialkowski <paulk@sys-base.io>, linux-media@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-staging@lists.linux.dev
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai
+ <wens@kernel.org>,  Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
+ Holland <samuel@sholland.org>, Greg Kroah-Hartman	
+ <gregkh@linuxfoundation.org>, Arash Golgol <arash.golgol@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Date: Tue, 19 May 2026 11:22:58 -0400
+In-Reply-To: <20260518102451.417971-8-paulk@sys-base.io>
+References: <20260518102451.417971-1-paulk@sys-base.io>
+	 <20260518102451.417971-8-paulk@sys-base.io>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-3jaEoSmnM5AxWGabWN4z"
+User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AM9PR04MB7618:EE_
-X-MS-Office365-Filtering-Correlation-Id: b97b2140-4ba3-4dc0-5a93-08deb5ba68a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|22082099003|18002099003|56012099003|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: ycoqj1wxUpEjZt9JljCoRRcsPsjp+I1MV25wOdlQ14AUWBJJmZJFMKCSba2b8++kYbpYmEy8Ilpdfy6fPPtE66HuPnYDHT08PUlB92jhbIJQQ48+fPSNs71/BU3mGXzh/6wHw4d7hl2tCon4YqXIlVTiyooZvX80+lBjPqs79tyHuE9nl5j5c71yUI+1J0gasSAOif5hLJaBIEpWIEOjK9Xu65U/KnlQ3mTsrzKJbMzuDOl6F0wRSNAn9yn19p9pEp9HHnkASlHLKcqQxrUyU5GTKgjfIcBPpK7jB6vdmW34IuWIntqw8sbLk1VX9WF46GqMH5qSrJ+DqeYR2sjAJAGMr94nJ4ySCSJsgWvUaJ9++9E98tF7XKda8aWHvq/kmu8kywNtgQo0De7EmHwNd3wkZZA+LM8FgAPc09mH1T208qUmq05DuY2XnFQP1IL+h5UOVvv9Xw1j1+8Q3r8krSvJ2H0FbHnfDF5F9ISbF1nh5TeM85ih1Je1ZDwpcx6APy4Ms6i1vmB7AMTYhHTQuIuWJi6edsmno5WkKcXXs7Cw5PxsgwkI3fENbGByfRWtaFoZNrlgqTKoIZ2JQ+GOtpCuFOEic9eMNIe+yPuxQWqMv0JAWnevt/tQDqwGuddvrcGGxJN0Qe6ArlIp0XJGhJD/eYegvKxhMRUbY1OA3UGpnIVOl25u3cOUxFkPDW6n1N0dmyKWhTx0fhtMl0X2Y1kc4PigrULJUW4a+UHU4Hg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(22082099003)(18002099003)(56012099003)(11063799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eUZVUzZ4OVlPQkRLNG1KQ2FpWTM1ZHdWblRva1ovK2tjREtwWFV4b3NVMk9S?=
- =?utf-8?B?S09GQk9jZnRTN25rczg0RnkzSFBJYlVacEw5NTMvbElXWjN6Tmp2bnh6cS9v?=
- =?utf-8?B?ZE52VjlKQ1BRb3dSQ256bWJ2TmpJSWVwYURxY2RoYStad3VwZzRRUThUWisy?=
- =?utf-8?B?RTJxU2lsOXRWSW5FZGxmWi9aYW9BUC9rZkVTZkZDb0duYjRLcDlCRVhFL1V3?=
- =?utf-8?B?ZzhjL3VJTGFIb2dqUlF1LzdHbzYxNFQrb0RqVC9Ucm95RVBjUTJ6YXh6UjNn?=
- =?utf-8?B?a0hkQXUrWVgzbGJtMkxkcGQxZzVGTXpnR1JwTVVCRGx6VVFiMWZoQThhTkc1?=
- =?utf-8?B?TmZaUzhnamt4NVRER2xQMWo0b0NNQ0lsdTNzeXcxa2NWQWxLWjRxU25PZXlQ?=
- =?utf-8?B?c3VJTS92U0ljYXVYaHQycVprampWNTBEM2gzOFhHMlBSVG9EWDlSd2tyQTNJ?=
- =?utf-8?B?b3pnV2cyT09jdWkxU0xHV2JnWlNkdFdSYkNOZHkrcW90eE9tYjQvV2liSU9U?=
- =?utf-8?B?Y215VGtFTHg1OWJsZFhOMVNYckdkUGVlL2VQNzlLU1paZ3dVSFRCSDBlMzdw?=
- =?utf-8?B?bjRxWDNuaHJrRnhnaVZlNTlHYTRJYUkvbXpWNTVoYW9oRDc5M3RNZ1JEM3Zu?=
- =?utf-8?B?Z042YXB5UHhzcmpPR2tUV0NoZTJhM1AxQzMvL1dtZUJHdGlTbCt2dmFEdlR1?=
- =?utf-8?B?amNCaHJWUXlBVDEwTEhnZnQrTlVtY2UyOStqbFRXc1VETW5sMU5DdHBQb1Uz?=
- =?utf-8?B?eE4zZU5TendGaGZiUUw3VTVwaGRoSEJsSUZSczNaL1RFMXd0L3BaS2JMc0Fa?=
- =?utf-8?B?RSttSTFBemJNbkFDMkt5eURUaGxhRDl6OThITUlmeW55Um9HbWQzSFk5eUsy?=
- =?utf-8?B?RFkzTE1JbkZBaFp1MDNDUzhDSFRjTlJkWEppSHllanZ2dklHeHFMQ3k0R3dB?=
- =?utf-8?B?aUlWbmRTWEFrckxZQjllUnpqQWlmdkFjNkxBRUY2bjhJMVVIUUlTeFZ0R0VG?=
- =?utf-8?B?bnNHbnZRL0pwM2wwOTY2aGhhTFhKYkNKSXB5UVB5M090a3BsOU9xdUVPVCty?=
- =?utf-8?B?dUNxald4L0hpaUgxekN3a0VLRFV0TlFvZVJBMUQ2anJuS3pwZDRtaExwZ1Bv?=
- =?utf-8?B?STRSNzNES2xyRlBMbURBS3dQdHMzbzZXZ1ljMldxUU1MdTVBK1R6bFV1ME15?=
- =?utf-8?B?UWpBaEkwMjJubkxhZHpwRzY3K1dVWHpLYnlJOXJ5NFRzSzJzWmZuaUJWcVVW?=
- =?utf-8?B?Z1pzbVBibFNZK1lGWWEvMVlPSHVPcCt4c29jMGpUZURTMCtnM1VLTHF0bHZJ?=
- =?utf-8?B?Tyt5WDJpVlJlN0VDY0dvTHQzd3ZVVGE1a290VHVzRkY4Qm04R1E5U3U4QVQz?=
- =?utf-8?B?K3dnZ0U3N2lIbVBNMk5NNlRLclNnbXFCazZQYUtyaUtrb29qT3hxaW9CZDVo?=
- =?utf-8?B?TGRhOWMwZkNydklxMjg3SVV0SmJZWFRKdk9MckVsU1FCcUtQVFNzcEpwVndV?=
- =?utf-8?B?NUZjUkJCWG90VWRBZGFtWEFEWlF0bkxJanBFcXlqdFViWkY3alFYYkR0UWRN?=
- =?utf-8?B?Q0cvNEozS3V4QUJnZkl0Ynh2SDJkWkpZVnR4aXhaM2xGakE3em15RjJkWFJ0?=
- =?utf-8?B?V0tuWG1wbkVNN2Y5Zi9UU1BHQ1lOWS9nV3hTb0hOSk5TeFZHT2hKUmcwcU1B?=
- =?utf-8?B?WXE5VTNNWXhmTERiK3NWOEdtYk9wSTFIVkFJRmhtenp1S0h1MEFiQXY5UFEv?=
- =?utf-8?B?UlRoZEVjbW5mdnd0b1R6Zm15cGl6U2lwaVpES2o5cXRMakZxS0kxdktJanEx?=
- =?utf-8?B?OXJOdUg3dHd0K0JlOEVSQi9tVXBVdmp2M054QStLaCtMMVRXdDAzaWxLamtO?=
- =?utf-8?B?bEp3L1RVT0VsSWNPYWEwOUdQaTIrd1VkNy9EbkptdDkzbFRTdGhmUHBkS3Jj?=
- =?utf-8?B?THVKa1EzV3FCMUZKc2gxdURrc0VmK0U1UnpQcHJkYXlQY1h5c05qT2FGUWcx?=
- =?utf-8?B?YXpjSFNaa2RVVVlzK1FTOWZhUXpBM2RBbUczUGRnUXpFNnRPL1ViUXIzQ25K?=
- =?utf-8?B?NlRrWU5sZnBMVXZMaUY5UDJoeFd3MGZxUlZJKzd4SjA1d1dMdlBCeU5CQkZB?=
- =?utf-8?B?UU9xOEdFQzhNSjN5U2F3NzBOUFBHbENLWXFzdTdhSytXWUFCdi9mNUtVSWFY?=
- =?utf-8?B?bjZwLy9FbGN3bStJQ1loWkFMMWRUSUEzUHlmZFpjMDNHYjd6WEwzYU9qVzN4?=
- =?utf-8?B?Y3ZrYndMK21BK1cyMUxpS013eVJocjN5Q0RqR2g3Mlpyc3oyc0N1SWoxeE9H?=
- =?utf-8?B?Ni9LVmNUWVRuV2hTVWNLd1ErVE9MQ0JzckNSc3BoVENhMk04UmVYem9Bci9S?=
- =?utf-8?Q?3hoUYrYxccMJw32zYCpgzwP5Ho/PUps6ag46l?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b97b2140-4ba3-4dc0-5a93-08deb5ba68a4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 15:22:15.9154
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zgj5tSa9MWblnYRe4LsVF7dP+NI6Cq5lWF3dAxFWriEkNT9UzQE/yx3uf/BOo3RohKiL0oauY3a5x7DfRdkPTD2003IIcCy9uO50Npe6Qt7JZO4+1CwJao9ZC/A5GyK5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7618
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_082223_785005_9BB4E535 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20260519_082304_019126_F0BA26EB 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,27 +95,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+
+--=-3jaEoSmnM5AxWGabWN4z
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le lundi 18 mai 2026 =C3=A0 12:24 +0200, Paul Kocialkowski a =C3=A9crit=C2=
+=A0:
+> Represent the NV12_16L16 pixel format in the v4l2 format info table.
+> This is a 16x16 tiled version of NV12.
+>=20
+> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
+> ---
+> =C2=A0drivers/media/v4l2-core/v4l2-common.c | 2 ++
+> =C2=A01 file changed, 2 insertions(+)
+>=20
+> diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-c=
+ore/v4l2-common.c
+> index e142d40c71b9..6194d6eb9c56 100644
+> --- a/drivers/media/v4l2-core/v4l2-common.c
+> +++ b/drivers/media/v4l2-core/v4l2-common.c
+> @@ -313,6 +313,8 @@ const struct v4l2_format_info *v4l2_format_info(u32 f=
+ormat)
+> =C2=A0		=C2=A0 .block_w =3D { 4, 4, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_P010_4L4, .pixel_enc =3D V4L2_PIXEL_EN=
+C_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 2, 4, 0, 0 }, .bpp=
+_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+> =C2=A0		=C2=A0 .block_w =3D { 4, 4, 0, 0 }, .block_h =3D { 4, 4, 0, 0 }},
+> +		{ .format =3D V4L2_PIX_FMT_NV12_16L16,	.pixel_enc =3D V4L2_PIXEL_ENC_Y=
+UV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2, 0, 0 }, .bpp_di=
+v =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
+> +		=C2=A0 .block_w =3D { 16, 16, 0, 0 }, .block_h =3D { 16, 16, 0, 0 }},
+
+I suspect this is:
+
++		{ .format =3D V4L2_PIX_FMT_NV12_16L16,	.pixel_enc =3D
+V4L2_PIXEL_ENC_YUV, .mem_planes =3D 1, .comp_planes =3D 2, .bpp =3D { 1, 2,=
+ 0, 0 },
+.bpp_div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2,
++		  .block_w =3D { 16, 8, 0, 0 }, .block_h =3D { 16, 16, 0, 0 }},
 
 
-On Tue, 07 Apr 2026 16:41:41 +0200, Maud Spierings wrote:
-> The Maxim MAX25014 is an automotive grade backlight driver IC. Its
-> datasheet can be found at [1].
-> 
-> With its integrated boost controller, it can power 4 channels (led
-> strings) and has a number of different modes using pwm and or i2c.
-> Currently implemented is only i2c control.
-> 
-> [...]
+This was introduced for the Samsung MFC decoders on Exynos 5, has been matc=
+hed
+to V4L2_PIX_FMT_HM12, but I don't how it was tested though. But in this err=
+a,
+all the tiling was fixes dimensions in bytes, where your definition would m=
+ake
+the UV tiles twice the size of Y tiles.
 
-Applied, thanks!
+Nicolas
 
-[3/4] arm64: dts: freescale: moduline-display-av101hdt-a10: add backlight
-      commit: 10fd5ba8fae66d60c65ec4bdb51fbbe5e34d9d83
-[4/4] arm64: dts: freescale: moduline-display-av123z7m-n17: add backlight
-      commit: 159746425710c94befb317132816f5eece4ea25d
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> =C2=A0
+> =C2=A0		/* YUV planar formats, non contiguous variant */
+> =C2=A0		{ .format =3D V4L2_PIX_FMT_YUV420M, .pixel_enc =3D V4L2_PIXEL_ENC=
+_YUV, .mem_planes =3D 3, .comp_planes =3D 3, .bpp =3D { 1, 1, 1, 0 }, .bpp_=
+div =3D { 1, 1, 1, 1 }, .hdiv =3D 2, .vdiv =3D 2 },
+
+--=-3jaEoSmnM5AxWGabWN4z
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCagyAUgAKCRDZQZRRKWBy
+9IajAP9qTPEgo5Hv9psPbr8R5uHkMx1r0b+TgKSHeDmgfQrILwEAuZsp1gb44Xug
+Jx13TfSlNfWxumQomxxNJE9qwF6d2gI=
+=3jLk
+-----END PGP SIGNATURE-----
+
+--=-3jaEoSmnM5AxWGabWN4z--
 
