@@ -4,130 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FE98CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 07:15:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44489CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 07:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Va0iJQ3QkztTydIHP6G79UQcuYZ9DLCUZfSNk2pPJs0=; b=fa6JcVm4lTPzNcoGv8MtBHbcbw
-	Ub+htDZgOye1jW1crHwcTaVsYfUuQoDbDu1RHoNK7A79AeKKbFKDRsQhqXtCKutL+Ks3VtMaAjTtb
-	SxzWpRgn+AaoHtC1GPVfNhAwr+/Z6+JGhjL0lfdWBHTqCu6AHq2LUNwQkPbv76AcyS1NVnT7Fo3m0
-	/ZxPvEO2Iv983Fjs2F5717g6uMY5jLenbz8oJ9mS5EMMcobJ9aXekmyLJfEKIbFg6PaBrJ3IziESX
-	otw3GvoQb08iJcG15wlcJTEY37kYsysWVl0L9jyl4lnk/fWyX6wEw8l/fO+6h6qrGzrCsUCXSO/VI
-	UIChW57g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3OKDn3irXxkoNpNbFP+MgIX3i55bASKNugifIVvfI/8=; b=o+0VnrHPf074A6ZqifN8eYJScJ
+	aH58QyVyrYDhlG6z5VDA4IdJFHj5XJxFl/1IY3Nf1cKY/XtA2lDscr9XmdSo4xICtZPuK8m7fdHHS
+	1sGlW9DcabmWXXfkAtSiyTODtspNZUpjC9/IhOA1RnI2ZDB/His1mjTnC3NfTnyPrp0/OZ9n01skY
+	9SBZkxgP6e92ihXBVTU8ofkxVQVlzWCkZCmRLrZoYSN5Ap6qKqqmOPTctslJq6/1Vu2zQzXqGWukO
+	wQEHqGULbTfp/2ZhFjpD1iEjaQvl/pos+ViijQVN1R7P4rLDkTdzPZv8SOLBbMktb0pD4/fpXFFpw
+	ejuh3OTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEfW-00000000SI0-0mKr;
-	Tue, 19 May 2026 07:15:10 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wPEHV-00000000Oan-3NRc;
+	Tue, 19 May 2026 06:50:21 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEfT-00000000SGU-1nhb
+	id 1wPEHP-00000000OWt-3gBj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 07:15:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q4WTyzL2KyUf3G1f6p94x8lDH2PBNJxn641wBRGfgTr953pFjSaQJmjOy7JYeXX+w+nJfBtvu4J0aOziCVuDCcYBzBMh0vQpggi8nw5eSU5+k3hMuurPHtIl+Mo5s98o3nKr5IpySHVISWz4UWs3TFACv8/8dN3ogILwMsOpqrsJ2bso/npuPDRkohp+yIZT6se6Xa0694iVd2ruQume+3p2s9qJohVfI5Q+HfZCzp7JaE3uAaZppGivO7RrCD3hUyx2LxpORJaZloLQIOTSeN6xvk75rQvYGuU85Rmb3bTDRHZSXzgScsTDNPY9/ytH8A94OIcphyy8s3a/X8kz1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Va0iJQ3QkztTydIHP6G79UQcuYZ9DLCUZfSNk2pPJs0=;
- b=oSc3ntLG/9bwTF0b/RHFgn6J67w1ns2GGn/Xd20YKWZtRCdR2Y39Hau5zG7aRVeKtHyPl9Xif1/Q/8+BpFq+valfgaFMZ7M9UY+SJdm5IyE9d/3BkfyXLOp0z+WW8ZkcKdW07BHvgilgwZmFdyl9OAiH0Fp/A0zdrgktZ2PbiutZin1js3C+9vSfIMQIluk3MJcMo94tqYepprVMKx2pntM25DkzFYzGjO2xl8pUPRPc7o7h7gJkW3OKrUjQRzsza25IlDU6CW8paqLJEhZYqlme7xyWwggf7DAoLm/j5m/8AL0iFRUj6souaOl+HxT9RS3BS9+s6ehHDXDeNJ1P0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Va0iJQ3QkztTydIHP6G79UQcuYZ9DLCUZfSNk2pPJs0=;
- b=cjFrOguG3uvVSs6VflfQeg1W5DEaUs66QPlAPeDuDovdWwfbJCMjaFTOdw0kVFP6QPteV3ukM5BUxt6z4G3kDUxlV2C+hRxSkAVa0zVd1xde2PLv2p/K7m6DRRsQ3Wm2XSB3rjqTAVvbJf5MtRjjxBPS8gfp+hWMBeQwGXNLzlztbP2CNmSkMEQ3y6asZQwev4evW8zsfMnWN4CWsvx8GZBauuFG+8UPCV8yFG/bv79aQVIJTc7aFpjoMzJUO5RE+wg7HLCc8wX1bgF4AUFphjTZdMr9cAKRucrngf4bqrnb97jtijUdSkIvG0tOU1e51bENtOjb9DRD8OeCbfew/A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14) by DU0PR04MB9273.eurprd04.prod.outlook.com
- (2603:10a6:10:354::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 07:00:15 +0000
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 07:00:15 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v6] arm64: dts: imx95: Correct PCIe outbound address space configuration
-Date: Tue, 19 May 2026 15:02:23 +0800
-Message-Id: <20260519070223.361106-1-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0216.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f3::6) To GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12019:EE_|DU0PR04MB9273:EE_
-X-MS-Office365-Filtering-Correlation-Id: da4e66d9-c899-42e4-bca7-08deb5744721
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|52116014|38350700014|56012099003|18002099003|11063799003;
-X-Microsoft-Antispam-Message-Info: UUXkEpjClb4QqQruMKk2sF0r7wai0P5I/r6U1AmD9q5AC5cWn83EXD97qBSYnpG/kWUt3MWaZoHRJkrydX16zi6ArsE0K6wQ5DGDcd9rgPjCAZW74h02umU2PQ9gfhoJTs+/m3f2ktV64U9D5fU5AlalBENvqQUFRIFvdfu2+DmQ5JxGoDg8kqQLCnxudPg024jdRKzhSQg3IOnU03/sTkAnIGbztXS6i5Y2wheLydII/Bzd25BwLJ0ro+w5rqD0aErz4MYt9R+jSMiLSP/fTPj75ev9fiOY2/kONo+d46Vj3QvND3GAV3jyRf0O3KdIThupAZ1M5z+mr9oPfpkNDMCMbi415o0ARvYWzXBn8DnoQqBzXyvb/ojXI+UrUPZuZr4tm0kKojqEcTdGENBdSG/9z1xHN39xirtlbhhgI6KAbgcsVHtwHE5q89yvKrmMYTyt2V7IUgn8Paenjp2jCmJtoEgsCzvO93nYgDjSJMBF30AIVv9QuVb6QJmriSQCip8/Lg5Z50J5GpYJOcYs4g/5X/U2Tlq81FS0Wf0nws+y2wx0gdMdJDy8xLVZk4AszEOpCbdDY+8gPExFN+JtNuxMZR9nBlm7wuAenRS5xlQD8Tb7x3waizP/eEmrfmlPPsoeuSlMRtDdQOPKwtWIOfGqM18hM5FeZJmPnfTIFdtZDAgSQiwZwbDjycwKNmCh+GMfdUYGVBjCsFOTnbQFA165hRahAvNmqCHbfy+WMPpP1OoFbCiaSsKQoOXxZ52j
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(52116014)(38350700014)(56012099003)(18002099003)(11063799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?urZmM+ly6yO84sBZdvVuPKJVPdAafTp5QsWB8pSUrbLZaK3tRcUIcqx7CZd+?=
- =?us-ascii?Q?5G5ACZsEeMOeA5AwOSs97OcO9NNdPslKS1DTsnsDkAdfjxL/YCowj9/zOSql?=
- =?us-ascii?Q?D5xyrkVCP2eggE62iLPDbNR/4J9fPI+ethukSbPIoRcBmb5czTFYx8BBLO5L?=
- =?us-ascii?Q?gr29PsBZtuTrK4gqubS6TckiD0h5lZzIDmON+s/osAPe7w0HkPK9kj9tmx8j?=
- =?us-ascii?Q?dSYVqnkkXIwGY2kc1D12OgNMrvSbwxdUuJxlqK73E8A/50oM0UFJumK+qvhM?=
- =?us-ascii?Q?dtB+5MegtWP2l890KXbbHK+Yzazbe/tXCLVuOYF7/aORmHOTQ8bDV/9U9woG?=
- =?us-ascii?Q?9G9I8lIOHTb8MgnUwK9BPYb1RzKiHU8lR84+/MsQSLUJJDyH5mwsD9vKyJuJ?=
- =?us-ascii?Q?KMSnAbx56lPDIwU+XrbBIoeW+IvGd6h/cu7X46QCwH3bT2rNj6w8jGxGAdrK?=
- =?us-ascii?Q?OlLsNN07xo7cCbi2kp1UohuDMq6BjYuY97AUX5u6XaAF1g7Gf2imFALhXKQF?=
- =?us-ascii?Q?SR+U8Op8G89cDwH9U3hGMilr+IPtz1YvqXUVZktFFPtdOz4wmQ+ebxiI/LbT?=
- =?us-ascii?Q?I31OCAJNehOEbZR7F1f6CmblYJmUGXno1yPaKQjTciJBMQA80Ra0mumL3Sm7?=
- =?us-ascii?Q?ZZ++BNqSVdfbQHJeugUDVksVsg8dXTEFpIXOL1IF4Micc0Uuiml2KtGkYF/t?=
- =?us-ascii?Q?tTwqA13UGlMn0ox+LMuHHVF046w2+cWBU3tPZQdxkdn4qjEum/COe7gDaelp?=
- =?us-ascii?Q?t+cNzNlWUqpE1EHQwko70QyzXrB+LZOlw8SqXikc3UjOsC8xWilIupVdw/zf?=
- =?us-ascii?Q?zn5wf6u7Wjyr6pUt2ZpGZ1gVZKbx56AlAiZTgYY3kSZxAQHDALuGaAsNoCDy?=
- =?us-ascii?Q?lfegKJGkon6mekYXWftfzD2ESHaMNyqcsvHu3uPv3xJq1/lZ0xSkJVYxz2zK?=
- =?us-ascii?Q?HyNtIWftoHo3cPxk0RAXt0zsVTAb3wZv/sj62jauSxanpnoqTGI1gsIvNEnC?=
- =?us-ascii?Q?Zm/h/cBt0lwTuivB+MnvTFKDr8xOWTHsF5RI3gTexRf2WRf1nmCfcCO5EAM/?=
- =?us-ascii?Q?wynPEkfxEx9YqacrjIQ2uUmy3aGU4SiA+rwrfFbHrPcyjM/tnEKvcT4ZDrdy?=
- =?us-ascii?Q?S4ZIZ+xvvAkPa1/TR0YG90LbxAHf3MxSjQXwHycD7T+0OIxnN/FyAVP0cYRZ?=
- =?us-ascii?Q?RwBH01Cv6i2kVulucyFFGALVJG6DoFNjVRrQDPiAfrExM5cuhce2aXGIvgdf?=
- =?us-ascii?Q?n57hcZjuBmSONutpT7OARak7as+/XdqEW/EweysCxXv1txxL3624buFBxxAN?=
- =?us-ascii?Q?zrcFkBk3guqEsqS2Ivw6Yxo/enCXmuzqBDfOrQDehn5R4F+Qq6Kzek4oQe2r?=
- =?us-ascii?Q?KFXrxlby9ludFQ7B7PWklTywOzAeBoyZpS30u6v95R32qZM5KuWBqO8RGDDJ?=
- =?us-ascii?Q?oluSyy4ueN5X3P9FotpeMCpcyMqyjLIRyegQ3plXtT20znHyzA7O5+IK324e?=
- =?us-ascii?Q?A8BKjRoBN8EsXBoglaSoeLFwwBMD0M6I6ifL/o3tReYPcIiYIoumuaugbAUV?=
- =?us-ascii?Q?fJI3OfXJAZ2vLbVh4HUk4tiQzd0V/q+rhiF0ONm1zJ41BXOWwgKfD4rVkTAl?=
- =?us-ascii?Q?XGnCIC07AbeNi4sEgcioSYi1NAEHLg+oMs1FMCgUl8yIH42As3hqscs/A+Ax?=
- =?us-ascii?Q?QO4hRkNVuuBxEtgGTLJSag56s4413wkqdJmeBZAkZYf6Vmeibzd9WZ07oY7g?=
- =?us-ascii?Q?VzvrPERHoQ=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da4e66d9-c899-42e4-bca7-08deb5744721
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 07:00:15.0083
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p9m9zQgwGK45PUgK04hcUtOrJuU0BvgofpHim0eoCoiLGmhaayAy1RGSp6/Jhcgv6LJrwQ4qsgqz0LRb8j/q4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9273
+	Tue, 19 May 2026 06:50:16 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-82fa2165c3eso2048660b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:50:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779173415; x=1779778215; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3OKDn3irXxkoNpNbFP+MgIX3i55bASKNugifIVvfI/8=;
+        b=PwnEZI66JgtvvQ/lLP0NTv7HDe5gt2G+9uFNclj8VXnvqMQgmTjFSXVayxJUIgk/lg
+         xcvCwWU77leVTIduZT/8vgn1ALuyyzI2l8Ehg3PvhSOJmE0wxME8TjjvwPUZ8uKcz37k
+         GMle6x3JsHiETbo77R0VU+W9Wcvp2Z5vhsHhrltPPqXYIcudu2saFhsPzTZumvIneuNV
+         DkJRwIMcEQApZq3fp4CtYc37+fYE486YrO6bUXWlR3lbvlCGvqveHmn8UFZEjjsllepX
+         iSIOHPkobcSEfXlG2KkO4EA1q7MP5uvjThxhZhJ7BztSslzwK4iijUaTx9gg63KuChXk
+         vf+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779173415; x=1779778215;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3OKDn3irXxkoNpNbFP+MgIX3i55bASKNugifIVvfI/8=;
+        b=R8yVJheIXatExyiygdUizUU2hwZnxuz91yniTIpkoYIiPzzgqb8P8+qQw+4LQoWvC0
+         2r0Gm3hNawAD0oZDXoJmuwiT4z8H6B3Kknn4oI76C7jp2HFHl/VcctAn5MTiZ+8loe3/
+         GvEIgnGwG9rIRb65L36nWUwUJI18x1GQQhR6CHQPixNn1LV7TLAIVtuecMFaqOun013P
+         oYNitTibmc3qHrv/Qz3x6feRQELO4g7vwNEZp8k1XiUr6KQ5OV8ey9IhH4mKQ9ruQKZf
+         k0bVzV/QUGzmFXbg3qBf2J1dgNUUna6BNwI3G6aq7nKzU32myGpKKDAXQ0GaVFuUIOqp
+         /2Lw==
+X-Forwarded-Encrypted: i=1; AFNElJ9zcPPCiakshmdxXTZXcGtm+4f39YulYBiyVjE4rlgkMXLyvlTeqOepLbzAmEOfw5qNQMLRuGrSovjyfTo1tcdV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwulpHQ+Sf7TuVZmkywRYg8INIRdNiJ0eQTVhCk5zqLsqobPLnS
+	qAwX5pKTJTpO7LuYOrojHuxBvXDhrcqBp2wtaN4DAZgTsgtHh3Xi1BGuWzaElZTPpmN5iCn4njv
+	cei8Xa9GfQG7+e6ycAEW5vP7lSQ==
+X-Received: from pfbcm24.prod.google.com ([2002:a05:6a00:3398:b0:82f:a139:b084])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:98d:b0:835:4447:69cf with SMTP id d2e1a72fcca58-83f33d27819mr18277938b3a.27.1779173414630;
+ Mon, 18 May 2026 23:50:14 -0700 (PDT)
+Date: Tue, 19 May 2026 06:49:46 +0000
+In-Reply-To: <20260519064950.493949-1-dylanbhatch@google.com>
+Mime-Version: 1.0
+References: <20260519064950.493949-1-dylanbhatch@google.com>
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+Message-ID: <20260519064950.493949-6-dylanbhatch@google.com>
+Subject: [PATCH v6 5/9] sframe: Provide PC lookup for vmlinux .sframe section
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>, joe.lawrence@redhat.com, 
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Randy Dunlap <rdunlap@infradead.org>, Mostafa Saleh <smostafa@google.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_001507_468999_4744B34E 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260518_235015_920745_804B38F3 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,72 +97,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the PCIe outbound memory ranges for both pcie0 and pcie1
-controllers on i.MX95.
+With HAVE_UNWIND_KERNEL_SFRAME, read in the .sframe section at boot.
+This provides unwind data as an alternative/supplement to frame pointer
+based unwinding.
 
-The memory window size was incorrectly set to 256MB during initial
-bring-up, but the hardware supports up to 4GB of outbound address space
-per controller. Expand the memory region from 256MB (0x10000000) to
-~3840MB (0xf0000000), starting at the base of each controller's
-assigned CPU address range (0x9_00000000 for pcie0, 0xa_00000000 for
-pcie1).
-
-Additionally, ECAM cannot be mapped as I/O space. Use a memory region
-to map the I/O space instead, and relocate the 1MB I/O region to
-immediately follow the memory region at offset 0xf0000000 within each
-window.
-
-Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
 ---
- arch/arm64/boot/dts/freescale/imx95.dtsi | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
----
-Changes in v6:
-- Set the PCI I/O bus address starting at 0x0000_0000, while keeping the
-CPU-side mapping at 0x9_f000_0000.
+ arch/arm64/kernel/setup.c |  2 ++
+ include/linux/sframe.h    | 14 ++++++++++++++
+ kernel/unwind/sframe.c    | 36 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 52 insertions(+)
 
-Changes in v5:
-- Expand the outbound address space from 256MB to 3840MB, starting at the
-base of each controller's assigned CPU address range.
-- Use a memory region to map the I/O space.
-
-Changes in v4:
-Update the flag from 0x82000000 to 0x83000000 to declare a 64-bit PCI space.
-
-Changes in v3:
-Update the commit message, and set the region size to the max hardware-supported memory space 4G.
-
-Changes in v2:
-Add the Fixes tag, and rebase to latest imx/dt64 branch.
-
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index adcc0e1d3696..18eeb6286db7 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -1939,8 +1939,8 @@ pcie0: pcie@4c300000 {
- 			      <0 0x4c360000 0 0x10000>,
- 			      <0 0x4c340000 0 0x4000>;
- 			reg-names = "dbi", "config", "atu", "app";
--			ranges = <0x81000000 0x0 0x00000000 0x0 0x6ff00000 0 0x00100000>,
--				 <0x82000000 0x0 0x10000000 0x9 0x10000000 0 0x10000000>;
-+			ranges = <0x82000000 0x0 0x00000000 0x9 0x00000000 0x0 0xf0000000>,
-+				 <0x81000000 0x0 0x00000000 0x9 0xf0000000 0x0 0x00100000>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -2014,8 +2014,8 @@ pcie1: pcie@4c380000 {
- 			      <0 0x4c3e0000 0 0x10000>,
- 			      <0 0x4c3c0000 0 0x4000>;
- 			reg-names = "dbi", "config", "atu", "app";
--			ranges = <0x81000000 0 0x00000000 0x8 0x8ff00000 0 0x00100000>,
--				 <0x82000000 0 0x10000000 0xa 0x10000000 0 0x10000000>;
-+			ranges = <0x82000000 0x0 0x00000000 0xa 0x00000000 0x0 0xf0000000>,
-+				 <0x81000000 0x0 0x00000000 0xa 0xf0000000 0x0 0x00100000>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
+diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+index 23c05dc7a8f2..4a633bc7aefb 100644
+--- a/arch/arm64/kernel/setup.c
++++ b/arch/arm64/kernel/setup.c
+@@ -32,6 +32,7 @@
+ #include <linux/sched/task.h>
+ #include <linux/scs.h>
+ #include <linux/mm.h>
++#include <linux/sframe.h>
+ 
+ #include <asm/acpi.h>
+ #include <asm/fixmap.h>
+@@ -375,6 +376,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
+ 			"This indicates a broken bootloader or old kernel\n",
+ 			boot_args[1], boot_args[2], boot_args[3]);
+ 	}
++	init_sframe_table();
+ }
+ 
+ static inline bool cpu_can_disable(unsigned int cpu)
+diff --git a/include/linux/sframe.h b/include/linux/sframe.h
+index 0cb2924367bc..5b7341b61a7c 100644
+--- a/include/linux/sframe.h
++++ b/include/linux/sframe.h
+@@ -69,4 +69,18 @@ static inline int sframe_find_user(unsigned long ip, struct unwind_frame *frame)
+ 
+ #endif /* CONFIG_HAVE_UNWIND_USER_SFRAME */
+ 
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++
++void __init init_sframe_table(void);
++void sframe_module_init(struct module *mod, void *sframe, size_t sframe_size,
++			void *text, size_t text_size);
++
++extern int sframe_find_kernel(unsigned long ip, struct unwind_frame *frame);
++
++#else
++
++static inline void __init init_sframe_table(void) {}
++
++#endif /* CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
++
+ #endif /* _LINUX_SFRAME_H */
+diff --git a/kernel/unwind/sframe.c b/kernel/unwind/sframe.c
+index a2ab9a3e07b4..c8ec1e9989fc 100644
+--- a/kernel/unwind/sframe.c
++++ b/kernel/unwind/sframe.c
+@@ -16,10 +16,20 @@
+ #include <linux/unwind_types.h>
+ #include <asm/unwind_sframe.h>
+ #include <uapi/linux/stacktrace.h>
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++#include <linux/kallsyms.h>
++#endif
+ 
+ #include "sframe.h"
+ #include "sframe_debug.h"
+ 
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++
++static bool sframe_init __ro_after_init;
++static struct sframe_section kernel_sfsec __ro_after_init;
++
++#endif /* CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
++
+ struct sframe_fde_internal {
+ 	unsigned long	func_addr;
+ 	u32		func_size;
+@@ -969,3 +979,29 @@ SYSCALL_DEFINE5(stacktrace_setup, int, op, unsigned long, addr_start,
+ }
+ 
+ #endif /* CONFIG_HAVE_UNWIND_USER_SFRAME */
++
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++
++int sframe_find_kernel(unsigned long ip, struct unwind_frame *frame)
++{
++	if (!frame || !sframe_init)
++		return -EINVAL;
++
++	return  __sframe_find(&kernel_sfsec, ip, frame);
++}
++
++void __init init_sframe_table(void)
++{
++	kernel_sfsec.sec_type		= SFRAME_KERNEL;
++	kernel_sfsec.sframe_start	= (unsigned long)__start_sframe;
++	kernel_sfsec.sframe_end		= (unsigned long)__end_sframe;
++	kernel_sfsec.text_start		= (unsigned long)_stext;
++	kernel_sfsec.text_end		= (unsigned long)_etext;
++
++	if (WARN_ON(sframe_read_header(&kernel_sfsec)))
++		return;
++
++	sframe_init = true;
++}
++
++#endif /* CONFIG_HAVE_UNWIND_KERNEL_SFRAME */
 -- 
-2.37.1
+2.54.0.563.g4f69b47b94-goog
 
 
