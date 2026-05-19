@@ -4,105 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7425CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 20:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36D9CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 20:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DirUaProdGmmZxWP10QTDxw/St3Z8Ta0SL+hLPOUxc=; b=Uouv84IkiA5iFAeCopA9X8ksZs
-	+NHZkocPMyg5CYNNOtMfk8G8LXjYw2mpYMlginMZEoTxku1DqqBJYdPOsYFFjL9/DYTLUg2omhGQ0
-	IAEwamTEjDqwP32tgk6rBRTIVyRymYMK9Czvim1wl3yNkLwP1QdxcFJqpp6cmaiI7AwmF20qSJprx
-	Ws8KqtuTnmVD5vf65sOWImhztW8i4SNTRzUfMDoP9Ziv73LvMM+629Qik9mNJ3G6Yvtp7ajT5LgZV
-	YrdAybr2wVHj305UnziZrZc+zKFuTDEQGhr7FBF2dUM2gdVNBlkAPoAl/itVD2UCvgTftTQUqSJMh
-	0PkfJW/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ae+dijTOTo/8e3HvGN3FEZCQc/7H0q/1pnPZoGZAADo=; b=eoOa3swHnNtVBCCubjLJePRJ+s
+	Jd683E3ONqE2tY15M7lj2JFBtzBA7vSZfNQVzkA61mXhMjnTryGrNeBTyLypMpVyj4x9eBxUxmM3k
+	MLBCOEJRHDH+7QAod5SJBatHw93PZiC7vGLaFoqbUlHIBt5XOmqY77IufpX1Ezi6lSbpuAvKvdS24
+	+xJlPxzG2LWCRi6x/OEMtPQe9XpE7JsKd87sA86/1CSCXjR7CQnkFXdi8A9J7g51Bv2C0mKYXfhjO
+	5v28HkaFnSO2gAhGxLgJTjFyUYkx+F9ZL12vRx32ZqWUnsuxwa2TblYE3kWk0uAUDTE4RMBornfaY
+	HpeEcZHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPRNI-00000002m0O-0xd8;
-	Tue, 19 May 2026 20:49:12 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1wPRRa-00000002mYD-11v4;
+	Tue, 19 May 2026 20:53:38 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPRMb-00000002lKW-2WJX
+	id 1wPRRE-00000002mW5-3NTU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 20:48:31 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-7bdc2868319so3889007b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 13:48:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779223708; cv=none;
+	Tue, 19 May 2026 20:53:37 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-67e9e343b22so6129960a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 13:53:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779223995; cv=none;
         d=google.com; s=arc-20240605;
-        b=Li5NUrXYrxTF7cFJUSsg6zduHTqY7kRTDH+8aMNn9TJTLC+UcmiJ8kIvcAS37RCvTK
-         hTh4+mmuAC9ErYXn7SuUn8J4mVPjk5lD3uRqPHYMMyMLEa+LrtRbSHOGFa+STKVyCJYG
-         tpcTba8TZ/4iHEW0/6j1Zd0O0Wi6ZCQsDQUhk9mcr88EKTep3hiyve5pXWaV9ZV/YBrF
-         UZ++cSGNal3XuxhY0P7lG8XGGABm467Mce4qaMr7NRTRm9A0fcVPa69ITr+WmN77TftM
-         1nqZ/S2rUFDU2mAaTmdJJqP2EMGyBH7Mxa4iBgwnBfmMOpGjEGfvTyX2ohqXJBZQffMl
-         1NBA==
+        b=Qdo1IzlvRWqmwm8RQIvEFOzE9A/jtDZNdhqG3qu7Evc+lCbs/g/s8PgA6pKMGrFV+g
+         KLb9BUlQ36/qoJsDmjA39ez+Rh39tsUO4lAROPy8QFF1v1YrMAhJC4CHWfr9aPG9AfGk
+         6l1F1Ww7ueOY1kAyCSLFNvEFgSY7wCNUSBlURFk1FsfbqsZMK/RByJb5+Sx/URuF7bg4
+         C+mc6pCtqXY8uyroJv3SItNmcVhO4+kSPpV/xZAyQrpp9JWbqvp388LpTW8bjcUVGK+g
+         FVEYR9KmlB/ZdOvh2ZI6h6Rpbzv36t55JWo0Li0vHps5ceQ7mULO2nP2jQMEdyZulluh
+         yJ7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=6DirUaProdGmmZxWP10QTDxw/St3Z8Ta0SL+hLPOUxc=;
-        fh=iDAa6fdT8bp6od+pgiD+REmwgfnWwwxWeCcbgEkraRY=;
-        b=c2fwEbEYWgAYeEfIaldD58tru/mAlAvgA80bU9B+in8sYUc6dhU8vl8aJj53PzdZRe
-         Co0+lY8gLZVG+KlYB3JsJmxXSJKDhBHtbwAL5lhrxP9CSjZy6XYoBM9/+FBemv30pS0V
-         QAV7AFS5oRSZxJsXpCNZaeNTXB24cFE4c5JP4X5+34cJSP/odqnQ8ZYTnmidStnGJ9wv
-         uYpYiJwqkDOA5d4FWaorYUlLYWqGgjIkXITxZY/ZLWxnKizLE+q/ZOu4/Kn0CVhRVk/4
-         +X3vRQ7L+f2O8atRhOrLhFz2J3IIcaG8KDvTDNqhW38pX/JL5RSpNtA73ByTekPIw9cp
-         67Uw==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ae+dijTOTo/8e3HvGN3FEZCQc/7H0q/1pnPZoGZAADo=;
+        fh=dnZ23eaU2ugj4/dkNF1qlzh0uAgAe+2l/fv/Q9jUnDg=;
+        b=W0ojPGRAxndELhMtgZgZFAT0sDDHzP/FyUMEgLQacg8gbKEQ3mBYDUOjYSIXKg0Le4
+         X6vO4tJzbQGrtc38e4kMkirdWWPzVdBXPqeMV9mKQ+3VLlAIZPlIpOfKR/zRHDP+u+QS
+         uXqXLWjXWHd3/OfrUYQGYmsjfmqbJIf+nmRf7j+hnnRbvoAsbNSKclSr0dh6g7EclwVE
+         bPHo3pLsp47uBiO0pZMFyf0R9IQObc1Uc45fO0n6XoxztSeu+1X8r3zQPzl9Zk8ROEZE
+         fGQol12EizSbegVv44w2P41WKq/E1vzleLYUC9uVDq8/x+vbtTC8OhL4BigNQb8byq2M
+         7E+A==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779223708; x=1779828508; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=6DirUaProdGmmZxWP10QTDxw/St3Z8Ta0SL+hLPOUxc=;
-        b=FLo5IBOTl9ukpkc2pCFZqu5Y1vt77ZZrGvdzgklPDKbn9S4eLNBwbwq73BX1B8VaAK
-         Ub7jqAsaWtiGmL/Lb4glk4qQ1N1yUbEyANlBRrKF27XQQH9OO4r2Nbsbeu4GKqD2Si49
-         EM4v/9hem9I/Zk0mvq/LboSfInAqKlfFdp5TugQ8xo0gXfqSz00RKFmFhsNSe550JIKl
-         d9brWFoSYBgRFvmNNwmNC6dxZr+bfuMYMqHbqFCjIiGCxLy0wd4WwQCkxxgxOKd3LyeX
-         1VYOpF+aM9yN1KGryT+eZVlGMGQeePC6nPGCRguYbMhCoIjgi7m3+qaaNiy3yBxEj3dz
-         GFjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779223708; x=1779828508;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779223995; x=1779828795; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=6DirUaProdGmmZxWP10QTDxw/St3Z8Ta0SL+hLPOUxc=;
-        b=fxqbLrMc5oDk+QvSPHiE3NPbnsRdhK1ar/9767QRYuAy2VpBuJhTSA6e5nS/F6tpPP
-         ROgPYgl+1SGEo3UjyhtTeMk7k82yotZNOqLKvCXmg1bltuDnRKYiG+YEk0/NvEUrF8fE
-         CybAx05rPAf82b2GmdxHLtIMxgnffjTw3qazF3jJcj3EbRdUwM3Qadi1G6nTQTSi2fPo
-         bmxkvOaA7FhWEfFXF90OmnpEkwtl3ZpUX/Wrc7t6VTANS3ILT2462PMHYXhXoMzJzMiS
-         Ot14mX9IpdgOakO+r4Wr5rJtm68vcq3QPMklCOTNx++wApeqFjyCBFoNZ6qPwMrZhlWT
-         FtFw==
-X-Forwarded-Encrypted: i=1; AFNElJ/ZwLai5bdsvTjVviolzyFgtpb1u/ZCMdPG4K9wBsWOZAl9Ojfba/VtBGIb4GrhX/ePOP2PGzIALHBYenVaP+jv@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj9rSfEYxxvIo3Li1MFl/KdzpF9yC3h5CI7xtCL3RQDCIi/HwU
-	6TMfyb7yPw0S0+RcoZsg5xHxFsMicE2+mKa9rZF0y35SUy/2JXQkbzUDSVMD0U6mtm0ekhinQTR
-	bgtrgFjyKW8KItnDwwu9oSUaXBIBFRPg=
-X-Gm-Gg: Acq92OHQBkzZq3Ys5Tb9RaUtjCsbxYtDbO0t0tBftkH/zRdLsMjSQQunm7g0Vi1d1Ir
-	6IaVM61grCjeqxSdUCrVOfj8Swdmb8f12Ee7UmdmRLC+1gvXOTzFe1d14IBIh030BOqWxiloWcs
-	xM80wtfzmMt5A2Z1IEp8UjzAZ7ocKK1ayqNG+JoPgAWfl8T3fhE12Sbk3E128ufTjpSb/CmNHBn
-	SkY4AcDyezCPQ9YFpl0a7zS07IxLjn7Xg3EtHQzATLCxkxnv1oTtiTXv9rY3pvYT2FohEy2ltCA
-	txTSs3ZXCmY6j5E=
-X-Received: by 2002:a05:690e:1206:b0:653:9e2:1059 with SMTP id
- 956f58d0204a3-65e223a1712mr13831799d50.0.1779223707773; Tue, 19 May 2026
- 13:48:27 -0700 (PDT)
+        bh=ae+dijTOTo/8e3HvGN3FEZCQc/7H0q/1pnPZoGZAADo=;
+        b=IrVp+opXrNxLUTK8wwjUs9X7y0WaYj3sHXbm+aBMdzgE39kjItaUaJd+6xFIPl1SqR
+         m5wbzgxIrGLynAjrxA8oDWX84bHemnqF5XSqWF3KwIpYtkGz8UDukyCq0l5h/+tsO3n/
+         QqUMnq9N0MquFEhtJr+1ozlC5tClT/QwOSWwEWeQEAIlMnxS+QNa0a2mlSNUg3M0dHb6
+         fMVHoulXkv4Lu9VFEpT2VKTKi4Wd4UxsNHvJJuFqJrBJOrbAyTAsht6OWDdfMBdIPrCJ
+         7nwyW/5qNtexOBWAZ3wvc35djXMhl8ep8Wi6nyb/YSwBghfxCuI30fMnCAohwyU05Sb6
+         TCRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779223995; x=1779828795;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ae+dijTOTo/8e3HvGN3FEZCQc/7H0q/1pnPZoGZAADo=;
+        b=fXNZUefBdbTMWLVMfwzQy26xeQ1yYdmZGPGMHIRJCEAf0KkgKfjNhM1MLtVXkuhrAU
+         JzQkI+EtIG4tu7YXSEXygdkgpVRA9cUreLSABybtUQkM6EeX+J9Eaqxs3u32bbedEoBG
+         U2yl1UCRX3a4SXcfvKqv92L0c6PrQCLpRGmaV03HGdKl9u88hcDXCiLuwF98tqw9lc+Z
+         pwdDXB+tZZCkJqzSZPlHtV3n1nxtL62XyPbigEVTArPlenKEB4FK59+Mgpz/WH8cPYm+
+         gcDtd2gWWoMW/ZuYT4IdT5EfMmuIG5F74QxELmWstlV3l3ch4L6DvqBzhsD7Yf5OwMKH
+         Wvgg==
+X-Forwarded-Encrypted: i=1; AFNElJ9bwAI5b4/pO3epIOwtXSk+lhq1XM2wTcS/Qc1c7lDsXTgEkhiXDuIGOdvGcUo+Jr+4i4QI8e0pUI8VZN/ychpK@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKQRE2HOBpjOBjI596j79ouZC1Vrt1MowELF2lSh7LQ7n7U7u5
+	AhGMdmrMwYci0xuypjvFq891DmUxqrU4lOXcnqaMWZO7FGcWGAIh5UOANOhq+BAOriIv/fOQZ5Q
+	/GdqvapZnQqT0rUjBcGlLF1gLr3WLAP4=
+X-Gm-Gg: Acq92OGekxVcAP1w5lWX/otfIcSzx3qimUxIFDW027F+EqpIgMu1CD6jVbonqEur5rA
+	hP502oesmgrJJmYKrHFdJOgxlWONyFbWsUdF4FbZPhN9vlmpHOBUThAiIm2XJZPjAEIzi4hTeHI
+	+a6UrbjIbfgZnhiPIkotaLIn0DwnQFsGQkSTEU6r4WJX8CAybqTlznNVzoCOYCKMTzIP/57m4vD
+	OTbIknV6INDU6Q8KUCp+VbGbM7pp5KvK6q/eaIE6dFKZPxBkIcT7CXqzD0RsU6mNh72BLXEgJck
+	MPPB/nq+/g==
+X-Received: by 2002:a05:6402:24ce:b0:683:1cc8:84b5 with SMTP id
+ 4fb4d7f45d1cf-683bc1b7472mr10554792a12.4.1779223994390; Tue, 19 May 2026
+ 13:53:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260512224349.64621-1-l.rubusch@gmail.com> <agYnpsiG8bNeVw57@linux.dev>
-In-Reply-To: <agYnpsiG8bNeVw57@linux.dev>
-From: Lothar Rubusch <l.rubusch@gmail.com>
-Date: Tue, 19 May 2026 22:47:51 +0200
-X-Gm-Features: AVHnY4KL7hK9v69b2jAE6nqIga-EyoAH1fUmSKUmwNEyNhkKgyfTVvx-PntyOZY
-Message-ID: <CAFXKEHa0zgT24JqU3MzQPFdfodxjPREQyJ_-gk5iXcj6W1fqzQ@mail.gmail.com>
-Subject: Re: [PATCH 00/12] crypto: atmel - refactor common i2c support and add
- SHA256 ahash support
-To: Thorsten Blum <thorsten.blum@linux.dev>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <CAHbLzkrOSoh-jmR=uaNvx73n_wn+vExoKY0UzH5zGcfdAiDbNg@mail.gmail.com>
+ <CAGsJ_4w_-Y8qNLDeLX9OWpLpK01YG2bF-N6_mGypgsauvfCvkA@mail.gmail.com> <CAHbLzkpbQ4Ca0xC74BJ6iJUVKdpH90qE+E=g7HkDXvcNH1+8+w@mail.gmail.com>
+In-Reply-To: <CAHbLzkpbQ4Ca0xC74BJ6iJUVKdpH90qE+E=g7HkDXvcNH1+8+w@mail.gmail.com>
+From: Yang Shi <shy828301@gmail.com>
+Date: Tue, 19 May 2026 13:53:03 -0700
+X-Gm-Features: AVHnY4IimOZqeIRblNaSy2KsMS8vB_GzCmlGYie_zXnP_ZtHrsCb1dPTmYJGNBE
+Message-ID: <CAHbLzkp7WcXA6Zey2QjBDrcs1w2hP4dhBoda2G3XF+Q0h_hwsQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Barry Song <baohua@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>, surenb@google.com, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, david@kernel.org, ljs@kernel.org, liam@infradead.org, 
+	vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz, 
+	pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_134829_764742_0559BFFA 
-X-CRM114-Status: GOOD (  52.30  )
+X-CRM114-CacheID: sfid-20260519_135316_899202_95B4B08D 
+X-CRM114-Status: GOOD (  65.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,837 +131,223 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thorsten,
-
-(...)
+On Tue, May 19, 2026 at 11:50=E2=80=AFAM Yang Shi <shy828301@gmail.com> wro=
+te:
 >
-> Sashiko [1] also reviewed the series and found potential regressions
-> that might be helpful to consider.
+> On Tue, May 19, 2026 at 4:07=E2=80=AFAM Barry Song <baohua@kernel.org> wr=
+ote:
+> >
+> > On Tue, May 19, 2026 at 5:21=E2=80=AFAM Yang Shi <shy828301@gmail.com> =
+wrote:
+> > >
+> > > On Sun, May 17, 2026 at 1:45=E2=80=AFAM Barry Song <baohua@kernel.org=
+> wrote:
+> > > >
+> > > > On Sat, May 2, 2026 at 1:58=E2=80=AFAM Matthew Wilcox <willy@infrad=
+ead.org> wrote:
+> > > > >
+> > > > > On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
+> > > > > > On Fri, May 1, 2026 at 10:57=E2=80=AFPM Matthew Wilcox <willy@i=
+nfradead.org> wrote:
+> > > > > > >
+> > > > > > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
+> > > > > > > > 1. There is no deterministic latency for I/O completion. It=
+ depends on
+> > > > > > > > both the hardware and the software stack (bio/request queue=
+s and the
+> > > > > > > > block scheduler). Sometimes the latency is short; at other =
+times it can
+> > > > > > > > be quite long. In such cases, a high-priority thread perfor=
+ming operations
+> > > > > > > > such as mprotect, unmap, prctl_set_vma, or madvise may be f=
+orced to wait
+> > > > > > > > for an unpredictable amount of time.
+> > > > > > >
+> > > > > > > But does that actually happen?  I find it hard to believe tha=
+t thread A
+> > > > > > > unmaps a VMA while thread B is in the middle of taking a page=
+ fault in
+> > > > > > > that same VMA.  mprotect() and madvise() are more likely to h=
+appen, but
+> > > > > > > it still seems really unlikely to me.
+> > > > > >
+> > > > > > It doesn=E2=80=99t have to involve unmapping or applying mprote=
+ct to
+> > > > > > the entire VMA=E2=80=94just a portion of it is sufficient.
+> > > > >
+> > > > > Yes, but that still fails to answer "does this actually happen". =
+ How much
+> > > > > performance is all this complexity in the page fault handler buyi=
+ng us?
+> > > > > If you don't answer this question, I'm just going to go in and ri=
+p it
+> > > > > all out.
+> > > > >
+> > > >
+> > > > Hi Matthew (and Lorenzo, Jan, and anyone else who may be
+> > > > waiting for answers),
+> > > >
+> > > > As promised during LSF/MM/BPF, we conducted thorough
+> > > > testing on Android phones to determine whether performing
+> > > > I/O in `filemap_fault()` can block `vma_start_write()`.
+> > > > I wanted to give a quick update on this question.
+> > > >
+> > > > Nanzhe at Xiaomi created tracing scripts and ran various
+> > > > applications on Android devices with I/O performed under
+> > > > the VMA lock in `filemap_fault()`. We found that:
+> > > >
+> > > > 1. There are very few cases where unmap() is blocked by
+> > > >    page faults. I assume this is due to buggy user code
+> > > >    or poor synchronization between reads and unmap().
+> > > > So I assume it is not a problem.
+> > > >
+> > > > 2. We observed many cases where `vma_start_write()`
+> > > >    is blocked by page-fault I/O in some applications.
+> > > >    The blocking occurs in the `dup_mmap()` path during
+> > > >    fork().
+> > > >
+> > > > With Suren's commit fb49c455323ff ("fork: lock VMAs of
+> > > > the parent process when forking"), we now always hold
+> > > > `vma_write_lock()` for each VMA. Note that the
+> > > > `mmap_lock` write lock is also held, which could lead to
+> > > > chained waiting if page-fault I/O is performed without
+> > > > releasing the VMA lock.
+> > > >
+> > > > My gut feeling is that Suren's commit may be overshooting,
+> > > > so my rough idea is that we might want to do something like
+> > > > the following (we haven't tested it yet and it might be
+> > > > wrong):
+> > > >
+> > > > diff --git a/mm/mmap.c b/mm/mmap.c
+> > > > index 2311ae7c2ff4..5ddaf297f31a 100644
+> > > > --- a/mm/mmap.c
+> > > > +++ b/mm/mmap.c
+> > > > @@ -1762,7 +1762,13 @@ __latent_entropy int dup_mmap(struct mm_stru=
+ct
+> > > > *mm, struct mm_struct *oldmm)
+> > > >         for_each_vma(vmi, mpnt) {
+> > > >                 struct file *file;
+> > > >
+> > > > -               retval =3D vma_start_write_killable(mpnt);
+> > > > +               /*
+> > > > +                * For anonymous or writable private VMAs, prevent
+> > > > +                * concurrent CoW faults.
+> > > > +                */
+> > > > +               if (!mpnt->vm_file || (!(mpnt->vm_flags & VM_SHARED=
+) &&
+> > > > +                                       (mpnt->vm_flags & VM_WRITE)=
+))
+> > > > +                       retval =3D vma_start_write_killable(mpnt);
+> > > >                 if (retval < 0)
+> > > >                         goto loop_out;
+> > > >                 if (mpnt->vm_flags & VM_DONTCOPY) {
+> > >
+> > > Maybe a little bit off topic. This is an interesting idea. It seems
+> > > possible we don't have to take vma write lock unconditionally. IIUC
+> > > the write lock is mainly used to serialize against page fault and
+> > > madvise, right? I got a crazy idea off the top of my head. We may be
+> > > able to just take vma write lock iff vma->anon_vma is not NULL.
+> > >
+> > > First of all, write mmap_lock is held, so the vma can't go or be
+> > > changed under us.
+> > >
+> > > Secondly, if vma->anon_vma is NULL, it basically means either no page
+> > > fault happened or no cow happened, so there is no page table to copy,
+> > > this is also what copy_page_range() does currently. So we can shrink
+> > > the critical section to:
+> > >
+> > > if (vma->anon_vma) {
+> > >     vma_start_write_killable(src_vma);
+> > >     anon_vma_fork(dst_vma, src_vma);
+> > >     copy_page_range(dst_vma, src_vma);
+> > > }
+> > >
+> > > But page fault can happen before write mmap_lock is taken, when we
+> > > check vma->anon_vma, it is possible it has not been set up yet. But i=
+t
+> > > seems to be equivalent to page fault after fork and won't break the
+> > > semantic.
+> >
+> > Re-reading Suren's commit log for fb49c455323ff8
+> > ("fork: lock VMAs of the parent process when forking"),
+> > it seems that vm_start_write() is used to protect
+> > against a race where anon_vma changes from NULL to
+> > non-NULL during fork. In that scenario, we hold the
+> > mmap_lock write lock, but not vma_start_write(), so a
+> > concurrent anon_vma_prepare() could still install an
+> > anon_vma.
+> >
+> > "    A concurrent page fault on a page newly marked read-only by the pa=
+ge
+> >     copy might trigger wp_page_copy() and a anon_vma_prepare(vma) on th=
+e
+> >     source vma, defeating the anon_vma_clone() that wasn't done because=
+ the
+> >     parent vma originally didn't have an anon_vma, but we now might end=
+ up
+> >     copying a pte entry for a page that has one.
+> > "
+> >
+> > If that is the case, then your change does not work.
+> >
+> > Nowadays, nobody calls anon_vma_prepare(vma) directly.
+> > Instead, vmf_anon_prepare() is used, and we always
+> > require the mmap_lock read lock before calling
+> > __anon_vma_prepare(). As a result, anon_vma cannot
+> > transition from NULL to non-NULL during fork.
+> >
+> > So the original race condition has effectively
+> > disappeared.
+>
+> anon_vma_prepare() has some usecases too, but it seems like it
+> requires taking read mmap_lock too if I read the code correctly.
+>
+> >
+> > You also mentioned the madvise() case. If I understand
+> > correctly, madvise() should take mmap_lock before
+> > modifying anon_vma. Only some parts of madvise() can
+> > support per-VMA locking. Therefore, we probably do not
+> > need:
+> >
+> > if (vma->anon_vma) {
+> > vma_start_write_killable(src_vma);
+> > ...
+> > }
+>
+> I think we still need write vma lock to serialize anon_vma fork
+> otherwise we may see:
+>
+>         CPU 0                                                 CPU 1
+> fork                                                       page fault
+>    src vma has no anon_vma
+>        skip vma fork
+>
+> allocate anon_vma for src vma
+> vma_needs_copy() sees anon_vma
+> copy page
+>
+> Then we may end up being no anon_vma for dst vma, but with pages mapped i=
+n it.
+
+Sorry, this should not happen because creating anon_vma in page fault
+needs to take mmap_lock.
+
+Thanks,
+Yang
+
 >
 > Thanks,
-> Thorsten
+> Yang
 >
-> [1] https://sashiko.dev/#/patchset/20260512224349.64621-1-l.rubusch%40gmail.com
-
-FYI
-
-As you asked to consider the Sashiko output, I will paste here the sashiko
-review feedback and inlined my answers down below. I may continue with this
-still some more iterations against AI/sashiko bot, no problem. How eventually
-can I signal you (guys), when I need someone more "human" / maintainer?
-What exciting times, we're living in... - let me know, if I use this tool wrong.
-
-[PATCH 01/12] crypto: atmel-ecc - rename driver_data before moving it
-into atmel-i2c
-> commit 0ed25c0f5044cd5112cafff9ff8ab8248d0e2676
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel-ecc - rename driver_data before moving it into atmel-i2c
-> This commit renames the local driver_data instance to atmel_i2c_mgmt
-> to prepare for moving shared I2C client management infrastructure into
-> the atmel-i2c core driver. No functional changes are intended.
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index 9660f6426a849..c9f798ebf44fe 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> [ ... ]
-> > @@ -323,16 +323,16 @@ static int atmel_ecc_probe(struct i2c_client *client)
 > >
-> >      i2c_priv = i2c_get_clientdata(client);
+> > >
+> > > Anyway, just a crazy idea, I may miss some corner cases.
 > >
-> > -    spin_lock(&driver_data.i2c_list_lock);
-> > +    spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> >      list_add_tail(&i2c_priv->i2c_client_list_node,
-> > -              &driver_data.i2c_client_list);
-> > -    spin_unlock(&driver_data.i2c_list_lock);
-> > +              &atmel_i2c_mgmt.i2c_client_list);
-> > +    spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> >
-> >      ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
-> This isn't a bug introduced by this patch, but does adding i2c_priv to the
-
-It is IMHO not very helpful to flag a(ll) particular patch(es) for regressions
-in the existing code aside, but ok. Perhaps I can fix something.
-
-> global list before crypto_register_kpp() create a use-after-free risk?
-> If algorithm registration fails, the error path removes the client from the
-> list and returns an error, leading the driver core to free the i2c_priv
-> memory.
-> However, during the brief window it was on the list, a concurrent
-> atmel_ecc_i2c_client_alloc() could discover the client and assign it to an
-> active crypto request.
-> When the probe fails and memory is freed, would the concurrent crypto
-> request operate on freed memory?
-> Also, does calling crypto_register_kpp() with a single static global
-> algorithm structure cause memory corruption if multiple devices are probed?
-> The crypto core modifies the algorithm structure before taking locks, which
-> would corrupt the state of the active algorithm registered by the first
-> device.
-> The second probe would also fail, breaking the multiple-device load-balancing
-> design. Unregistering a single device also unconditionally unregisters the
-> shared algorithm.
-
-As soon as being registered, the struct `atmel_ecdh_nist_p256` will require to
-access the `atmel_i2c_mgmt.i2c_client_list`. Being it for the selftests, or a
-consumer. Thus I cannot simply change the order. I added a ready/state flag to
-address the use-after-free risk.
-
-> >      if (ret) {
-> > -        spin_lock(&driver_data.i2c_list_lock);
-> > +        spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> >          list_del(&i2c_priv->i2c_client_list_node);
-> > -        spin_unlock(&driver_data.i2c_list_lock);
-> > +        spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> [ ... ]
-> > @@ -363,9 +363,9 @@ static void atmel_ecc_remove(struct i2c_client *client)
-> >
-> >      crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-> >
-> > -    spin_lock(&driver_data.i2c_list_lock);
-> > +    spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> >      list_del(&i2c_priv->i2c_client_list_node);
-> > -    spin_unlock(&driver_data.i2c_list_lock);
-> > +    spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> >  }
-> This isn't a bug introduced by this patch, but does the lockless check of
-
-Sure, let's continue drive-by-reviewing...
-
-> tfm_count earlier in atmel_ecc_remove() introduce a race condition?
-> A concurrent atmel_ecc_i2c_client_alloc() could acquire the list lock and
-> increment tfm_count immediately after the check, causing the device to be
-> freed while a new session is starting.
-> Additionally, if tfm_count is detected as greater than zero, the driver
-> initially returns early. This leaves the freed i2c_priv on the global list
-> which leads to list corruption and use-after-free on subsequent allocations.
-> Returning from remove does not prevent the driver core from freeing the
-> devres-managed memory. Should this synchronously block until tfm_count
-> reaches zero to safely unbind?
-> The dangling list pointer issue is fixed later in the series by commit
-> "crypto: atmel-ecc - simplify remove path and relax busy handling", but the
-> underlying active-user use-after-free remains unfixed.
-
-I added a global lock with refcnting to address this.
-
-[PATCH 02/12] crypto: atmel - rename atmel_ecc_driver_data to
-atmel_i2c_client_mgmt
-> Result:
-> No issues found.
-
-[PATCH 03/12] crypto: atmel - move i2c client management instance into
-core driver
-> commit 81ed08d3b64ea6591f1cadc2ccdca81d40c20205
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel - move i2c client management instance into core driver
-> This commit moves the atmel_i2c client management instance from the ecc
-> driver into the atmel-i2c core driver. This prepares for consolidating
-> shared i2c client tracking infrastructure in the core.
-> [ ... ]
-> > diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
-> > index 0e275dbdc8c55..db24f65ae90e8 100644
-> > --- a/drivers/crypto/atmel-i2c.c
-> > +++ b/drivers/crypto/atmel-i2c.c
-> > @@ -21,6 +21,12 @@
-> >  #include <linux/workqueue.h>
-> >  #include "atmel-i2c.h"
-> >
-> > +struct atmel_i2c_client_mgmt atmel_i2c_mgmt = {
-> > +    .i2c_list_lock = __SPIN_LOCK_UNLOCKED(atmel_i2c_mgmt.i2c_list_lock),
-> > +    .i2c_client_list = LIST_HEAD_INIT(atmel_i2c_mgmt.i2c_client_list),
-> > +};
-> > +EXPORT_SYMBOL_GPL(atmel_i2c_mgmt);
-> While this regression wasn't introduced by this patch, does exposing this
-
-Sure..
-
-> globally shared list allow for a time-of-check to time-of-use race in
-> atmel_ecc_remove() that can result in a use-after-free?
-> In atmel_ecc_remove(), the check if (atomic_read(&i2c_priv->tfm_count)) is
-> performed without holding the i2c_list_lock.
-> If the count is 0, the function proceeds to call crypto_unregister_kpp().
-> During this algorithm unregistration window, the client remains accessible on
-> the globally shared atmel_i2c_mgmt.i2c_client_list.
-> If a concurrent thread calls crypto_alloc_kpp(), it triggers the .init callback
-> atmel_ecdh_init_tfm(), which calls atmel_ecc_i2c_client_alloc().
-> The allocator acquires the list lock, discovers the dying client still on the
-> list, increments tfm_count, and returns it.
-> Then, atmel_ecc_remove() acquires the list lock, removes the client from the
-> list, and returns.
-> Returning from the remove function causes the devres framework to automatically
-> free i2c_priv, leaving the concurrent thread with a tfm bound to freed memory.
-> Can this sequence lead to memory corruption?
-
-The two additional patches will cover the remove function.
-
-[PATCH 04/12] crypto: atmel-ecc - simplify probe error handling
-> commit 3bca954bd7e39050b3fe5381aad35c915da883f3
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel-ecc - simplify probe error handling
-> This commit refactors the error path in atmel_ecc_probe to use a goto
-> statement instead of duplicating the list removal code. It also claims to
-> add comments clarifying client list insertion and algorithm registration.
-> > crypto: atmel-ecc - simplify probe error handling
-> >
-> > Replace early return in atmel_ecc_probe() with explicit error handling
-> > using a goto-based cleanup path.
-> >
-> > Add comments to clarify client list insertion and algorithm registration
-> > steps.
-> This isn't a bug, but the commit message states it replaces an early
-> return and adds comments, yet the diff doesn't show any comments being
-> added or an early return being removed. Should the commit message be
-> updated to reflect the actual changes?
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index 76fb1d0cf0753..696ab1d51fc67 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> > @@ -328,17 +328,20 @@ static int atmel_ecc_probe(struct i2c_client *client)
-> >
-> >      ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
-> Is it safe to register the static global atmel_ecdh_nist_p256 algorithm
-> structure here directly from the probe function? If multiple devices are
-> probed, a second call to crypto_register_kpp with the same static struct
-> could cause crypto_check_alg to reset the active algorithm's reference
-> count, and __crypto_register_alg to re-initialize the cra_users list,
-> potentially causing a regression that corrupts the state for active
-> crypto users.
-> >      if (ret) {
-> > -        spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> > -        list_del(&i2c_priv->i2c_client_list_node);
-> > -        spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> > -
-> >          dev_err(&client->dev, "%s alg registration failed\n",
-> >              atmel_ecdh_nist_p256.base.cra_driver_name);
-> > +        goto err_list_del;
-> By moving the list removal to a goto block after the dev_err call, does this
-> code introduce a regression by widening the window for a race condition?
-> Since the client is added to the global atmel_i2c_mgmt.i2c_client_list earlier
-> in the probe, if registration fails, a concurrent task might find and use the
-> failed client. Executing a potentially slow console log before removing the
-> client from the list seems to worsen the window for a use-after-free when
-> devres cleans up i2c_priv.
-> [ ... ]
-
-Patch replaced and merged
-
-[PATCH 05/12] crypto: atmel - factor out i2c client unregistration helper
-> commit 67148be9a0cfbd189723055fbc1cdfa19bd244ad
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel - factor out i2c client unregistration helper
-> This commit moves the i2c client removal logic into a dedicated helper
-> function in the atmel-i2c core. It also converts the ECC driver remove
-> path to use this new helper.
-> >     Convert ECC driver remove path to use the new helper and
-> >     ensure queue flushing is performed after removing the device
-> >     from the shared client list.
-> Is this description accurate? Looking at the implementation below, the queue
-> flushing is performed before removing the device from the list.
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index 696ab1d51fc67..e5dd77008b97f 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> [ ... ]
-> > @@ -364,9 +364,8 @@ static void atmel_ecc_remove(struct i2c_client *client)
-> >
-> >      crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-> >
-> > -    spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> > -    list_del(&i2c_priv->i2c_client_list_node);
-> > -    spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +    atmel_i2c_flush_queue();
-> > +    atmel_i2c_unregister_client(i2c_priv);
-> >  }
-> While crypto_unregister_kpp() prevents new lookups, concurrent threads that
-> already resolved the algorithm can still execute atmel_ecdh_init_tfm().
-> Because atmel_i2c_flush_queue() is called first, it will sleep waiting for
-> the workqueue to drain while the client is still present in the global
-> atmel_i2c_mgmt.i2c_client_list.
-> Could a concurrent atmel_ecdh_init_tfm() call atmel_i2c_client_alloc(),
-> find the still-linked client, increment its tfm_count, and assign it to
-> ctx->client?
-> Once the flush completes, atmel_i2c_unregister_client() removes the client,
-> the driver returns, and the device core frees the i2c_priv memory.
-> Would this result in a use-after-free on subsequent crypto operations since
-> ctx->client now points to freed memory?
-
-Replaced by a more comprehensive dealing with the teardown, patch replaced.
-
-[PATCH 06/12] crypto: atmel-sha204a - add i2c hw client list and
-improve probe error handling
-> commit 14fd691f797c32576c19b57c937cd6cf75be5ef8
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel-sha204a - add i2c hw client list and improve probe error handling
-> This patch adds registration of the sha204a i2c client into the shared
-> atmel_i2c client management list during probe. This allows the driver to
-> participate in the common hardware selection infrastructure.
-> > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-> > index 6e6ac4770416e..cdfdcf2e43a7d 100644
-> > --- a/drivers/crypto/atmel-sha204a.c
-> > +++ b/drivers/crypto/atmel-sha204a.c
-> > @@ -173,6 +173,13 @@ static int atmel_sha204a_probe(struct i2c_client *client)
-> >
-> >      i2c_priv = i2c_get_clientdata(client);
-> >
-> > +    /* add to client list */
-> > +    spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +    list_add_tail(&i2c_priv->i2c_client_list_node,
-> > +              &atmel_i2c_mgmt.i2c_client_list);
-> > +    spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> Is it possible for another thread to discover this client before the rest of
-> the probe completes?
-> If another thread like atmel_i2c_client_alloc() grabs a reference to this
-> client from the shared list, and then a subsequent initialization step fails,
-> the error path will fail the probe. The devres cleanup will free i2c_priv,
-> but the concurrent user will be left with a dangling pointer.
-> Also, since the shared atmel_i2c_mgmt.i2c_client_list is used by the
-> atmel-ecc driver for hardware selection, could adding the sha204a device
-> here cause the atmel-ecc driver to incorrectly dispatch ecdh/ecdsa
-> operations to this device?
-> Since the selection logic picks the client with the lowest active workload,
-> it might select this device and the hardware would reject unsupported
-> commands. This was addressed later in the series by commit "crypto: atmel -
-> add capability-based i2c client selection".
-> Additionally, if the atmel-sha204a module is loaded first, could loading the
-> atmel-ecc module later completely wipe out this shared list?
-> If the atmel-ecc initialization blindly uses INIT_LIST_HEAD() on this list,
-> it would orphan the sha204a clients. This was fixed later in the series by
-> commit "crypto: atmel-ecc - switch to module_i2c_driver".
-> > +
-> > +    /* register rng */
-> >      memset(&i2c_priv->hwrng, 0, sizeof(i2c_priv->hwrng));
-> >
-> >      i2c_priv->hwrng.name = dev_name(&client->dev);
-> > @@ -183,15 +190,24 @@ static int atmel_sha204a_probe(struct i2c_client *client)
-> >          i2c_priv->hwrng.quality = *quality;
-> >
-> >      ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
-> > -    if (ret)
-> > +    if (ret) {
-> >          dev_warn(&client->dev, "failed to register rng (%d)\n", ret);
-> > +        goto err_list_del;
-> > +    }
-> >
-> >      ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
-> >      if (ret) {
-> >          dev_err(&client->dev, "failed to register sysfs entry\n");
-> > -        return ret;
-> > +        goto err_list_del;
-> >      }
-> Is it possible for userspace to queue an asynchronous non-blocking read
-> between devm_hwrng_register() and this sysfs_create_group() call?
-> If an async rng read is queued to atmel_wq and work_data is allocated, and
-> then sysfs_create_group() fails, devres will unwind allocations and free
-> i2c_priv.
-> Without calling atmel_i2c_flush_queue() in the error path, the pending work
-> would execute after i2c_priv is freed. This would also leak the dynamically
-> allocated work_data.
-> >
-> > +    return ret;
-> > +
-> > +err_list_del:
-> > +    spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +    list_del(&i2c_priv->i2c_client_list_node);
-> > +    spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +
-> >      return ret;
-> >  }
-> Does the atmel_sha204a_remove() function need an update to remove the i2c
-> client from the global list?
-> Since the client is added during probe, it appears it would be left dangling
-> in the list when the device is unbound and devres frees i2c_priv,
-> potentially causing a crash if the list is traversed later.
-> This was fixed later in the series by commit "crypto: atmel-sha204a -
-> switch to module_i2c_driver".
-
-Chronologically this is the wrong order. I moved this patch down to the end.
-The issue should be fully covered. In this way, Atmel SHA204a devices are
-added to the i2c list, when they can configure not being available for ECDH
-operations. This is a preparation for future capabilities
-(as in the initial roughly splitted series).
-
-[PATCH 07/12] crypto: atmel-sha204a - switch to module_i2c_driver
-> commit e46024ee80d35e3759c2e5365d027bec6fb2ea51
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel-sha204a - switch to module_i2c_driver
-> Replace custom module init/exit functions with module_i2c_driver() for
-> driver registration. Update remove path to unregister the client from the
-> shared I2C management list before flushing pending work and cleaning up
-> sysfs and hwrng resources.
-> > Update remove path to unregister the client from the shared I2C management
-> > list before flushing pending work and cleaning up sysfs and hwrng
-> > resources.
-> >
-> > No functional change intended.
-> This isn't a bug, but this patch appears to fix a list corruption regression.
-> Before this patch, unloading the module would leave a freed i2c_priv structure
-> linked into the shared atmel_i2c_mgmt.i2c_client_list. Does adding the
-> atmel_i2c_unregister_client() call fix this dangling pointer issue, making
-> the "No functional change intended" claim inaccurate?
-> > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-> > index cdfdcf2e43a7d..613ed5e7b3f61 100644
-> > --- a/drivers/crypto/atmel-sha204a.c
-> > +++ b/drivers/crypto/atmel-sha204a.c
-> > @@ -216,6 +216,8 @@ static void atmel_sha204a_remove(struct i2c_client *client)
-> >      struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-> >
-> >      devm_hwrng_unregister(&client->dev, &i2c_priv->hwrng);
-> > +
-> > +    atmel_i2c_unregister_client(i2c_priv);
-> The commit message states the intent to unregister the client from the shared
-> list before cleaning up hwrng resources. Since devm_hwrng_unregister()
-> blocks until active synchronous readers complete, does placing
-> atmel_i2c_unregister_client() after it leave the client exposed in the shared
-> list while the device is actively being torn down?
-> Could another subsystem discover and bind to this partially removed client
-> during the blocking window, resulting in memory corruption once the unbind
-> completes?
-> Should atmel_i2c_unregister_client() be moved to the beginning of the remove
-> function to match the design described in the commit message?
-> >      atmel_i2c_flush_queue();
-> >
-> >      sysfs_remove_group(&client->dev.kobj, &atmel_sha204a_groups);
-> Additionally, I noticed a potential use-after-free regression in the probe
-> error path.
-> In atmel_sha204a_probe(), if sysfs_create_group() fails, the function
-> returns an error:
-> drivers/crypto/atmel-sha204a.c:atmel_sha204a_probe() {
-> [ ... ]
->     ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
->     if (ret) {
->         dev_warn(&client->dev, "failed to register RNG (%d)\n", ret);
->         goto err_list_del;
->     }
->     ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
->     if (ret) {
->         dev_err(&client->dev, "failed to register sysfs entry\n");
->         goto err_list_del;
->     }
->     return ret;
-> err_list_del:
->     spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
->     list_del(&i2c_priv->i2c_client_list_node);
->     spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
->     return ret;
-> }
-> At this point, the RNG has already been registered and exposed to user-space
-> via devm_hwrng_register(). A concurrent user-space read could have initiated
-> an asynchronous read, which queues a work item onto atmel_wq.
-> When probe() returns an error, devres will immediately unregister the RNG and
-> free the i2c_priv structure. Since the pending work on atmel_wq is never
-> flushed or canceled, will it dereference the freed i2c_priv when it
-> eventually executes?
-> Should atmel_i2c_flush_queue() be explicitly called in the probe error path,
-> just as it is in remove()?
-> I also noticed a potential kernel heap memory leak to user-space in the
-> asynchronous read path.
-> In atmel_sha204a_rng_done(), if an asynchronous I2C transaction fails,
-> the buffer is unconditionally cached:
-> drivers/crypto/atmel-sha204a.c:atmel_sha204a_rng_done() {
-> [ ... ]
->     if (status)
->         dev_warn_ratelimited(&i2c_priv->client->dev,
->                      "i2c transaction failed (%d)\n",
->                      status);
->     rng->priv = (unsigned long)work_data;
-> [ ... ]
-> }
-> If status != 0, the work_data->cmd.data buffer is left uninitialized or
-> partially written.
-> On the next call to atmel_sha204a_rng_read_nonblocking(), the code blindly
-> copies up to 32 bytes of this buffer:
-> drivers/crypto/atmel-sha204a.c:atmel_sha204a_rng_read_nonblocking() {
-> [ ... ]
->     if (rng->priv) {
->         work_data = (struct atmel_i2c_work_data *)rng->priv;
->         max = min(RANDOM_RSP_SIZE - CMD_OVERHEAD_SIZE, max);
->         memcpy(data, &work_data->cmd.data[RSP_DATA_IDX], max);
->         rng->priv = 0;
->     } else {
->         work_data = kmalloc_obj(*work_data, GFP_ATOMIC);
-> [ ... ]
-> }
-> Because work_data is allocated without zeroing memory, does this copy
-> uninitialized kernel heap memory into the hwrng output data buffer?
-> Could this allow an attacker to leak kernel heap memory to user-space via
-> /dev/hwrng by inducing I2C read failures?
-
-Chronologically this is the wrong order. I moved this patch down to the end.
-Add different error labels in probe to address failing sysfs_create_group().
-Fix kernel heap information leak in a separate patch.
-
-[PATCH 08/12] crypto: atmel-ecc - switch to module_i2c_driver
-> commit 1156053e97f2cc049a62750ad595b29dc8a4e921
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> Date:   Sun May 17 18:06:35 2026 +0000
->     crypto: atmel-ecc - switch to module_i2c_driver
+> > To me, it seems that we could remove vma_start_write()
+> > entirely now. Or is that an even crazier idea?
 >
->     Replace custom module init/exit functions with module_i2c_driver() for
->     simplified driver registration.
 >
->     Initialization of the shared I2C client management structure is handled by
->     the core driver and no longer performed in the ECC module init path.
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index e5dd77008b97f..dcfc09d244973 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> > @@ -392,21 +392,7 @@ static struct i2c_driver atmel_ecc_driver = {
-> >      .id_table    = atmel_ecc_id,
-> >  };
 > >
-> > -static int __init atmel_ecc_init(void)
-> > -{
-> > -    spin_lock_init(&atmel_i2c_mgmt.i2c_list_lock);
-> > -    INIT_LIST_HEAD(&atmel_i2c_mgmt.i2c_client_list);
-> > -    return i2c_add_driver(&atmel_ecc_driver);
-> > -}
-> > -
-> > -static void __exit atmel_ecc_exit(void)
-> > -{
-> > -    atmel_i2c_flush_queue();
-> > -    i2c_del_driver(&atmel_ecc_driver);
-> > -}
-> > -
-> > -module_init(atmel_ecc_init);
-> > -module_exit(atmel_ecc_exit);
-> > +module_i2c_driver(atmel_ecc_driver);
-> While this change simplifies driver registration, does this driver have a
-> pre-existing regression involving a use-after-free in its remove path?
-
-again, "pre-existing regression". I already addressed this topic above.
-
-> Looking at the driver's remove path, it can return early if the client is
-> busy:
-> drivers/crypto/atmel-ecc.c:atmel_ecc_remove() {
->     struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
->     if (atomic_read(&i2c_priv->tfm_count)) {
->         dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
->         return;
->     }
->     ...
-> }
-> When atmel_ecc_remove() returns, the driver core unconditionally frees all
-> devres-managed memory, including i2c_priv, which is allocated via
-> devm_kmalloc() during probe.
-> If there are open crypto transforms holding pointers to this freed memory,
-> will subsequently closing a busy transform cause atmel_ecdh_exit_tfm() to
-> access the freed i2c_priv->tfm_count and trigger a use-after-free of
-> i2c_priv?
-> Furthermore, does the early return leave the atmel_ecdh_nist_p256 algorithm
-> permanently registered with dangling pointers to module text?
-> Additionally, could a time-of-check to time-of-use race occur here?
-> If atmel_ecc_remove() sees tfm_count == 0, a concurrent transform allocation
-> might acquire the client just before it is removed from the global list,
-> leading to the same devres use-after-free.
-> Note that later commits like "crypto: atmel-ecc - simplify remove path and
-> relax busy handling" remove the early return, but the fundamental
-> use-after-free persists because devres still frees i2c_priv while active
-> transforms hold references to it.
-> Is there also a pre-existing regression in the probe error path that can lead
-> to a use-after-free?
-> The client is added to the global atmel_i2c_mgmt.i2c_client_list before
-> crypto_register_kpp() is called:
-> drivers/crypto/atmel-ecc.c:atmel_ecc_probe() {
->     ...
->     spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
->     list_add_tail(&i2c_priv->i2c_client_list_node,
->               &atmel_i2c_mgmt.i2c_client_list);
->     spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
->     ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
->     if (ret) {
->     ...
->         goto err_list_del;
->     }
->     ...
-> }
-> If registration fails (for example, because another device already registered
-> the algorithm), the error path removes the client from the list and returns
-> an error. This causes the driver core to free the devm-allocated i2c_priv.
-> While the client was briefly in the global list, could a concurrent transform
-> allocation acquire it via atmel_ecc_i2c_client_alloc()?
-> This would leave the concurrent transform holding a dangling pointer to the
-> freed i2c_priv memory, resulting in a use-after-free when cryptographic
-> operations are submitted.
-> >
-> >  MODULE_AUTHOR("Tudor Ambarus");
-> >  MODULE_DESCRIPTION("Microchip / Atmel ECC (I2C) driver");
-
-All of the issues are supposed to be already addressed here. Let's have a look
-into next Sahiko iteration. Patch updated.
-
-[PATCH 09/12] crypto: atmel-ecc - simplify remove path and relax busy handling
-> commit e814c428ad784badd861d6adbe0e2dbf99beae12
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel-ecc - simplify remove path and relax busy handling
-> This commit simplifies the removal path of the atmel-ecc driver by removing
-> the early exit logic when active transform users are detected. Instead, it
-> issues a warning and continues with the full teardown of the crypto
-> registration and device cleanup.
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index dcfc09d244973..ce7a2e750ba88 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> > @@ -346,21 +346,14 @@ static int atmel_ecc_probe(struct i2c_client *client)
-> >
-> >  static void atmel_ecc_remove(struct i2c_client *client)
-> >  {
-> > -    struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-> > +    struct atmel_i2c_client_priv *i2c_priv;
-> >
-> > -    /* Return EBUSY if i2c client already allocated. */
-> > -    if (atomic_read(&i2c_priv->tfm_count)) {
-> [ ... ]
-> > -        dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
-> > +    i2c_priv = i2c_get_clientdata(client);
-> > +    if (WARN_ON(!i2c_priv))
-> >          return;
-> > -    }
-> > +
-> > +    if (atomic_read(&i2c_priv->tfm_count))
-> > +        dev_warn(&client->dev, "Device is busy, remove it anyhow\n");
-> Could this still lead to a use-after-free on i2c_priv?
-> The i2c_priv structure is allocated using devres during probe. When
-> atmel_ecc_remove() completes, the Linux device model automatically triggers
-> devres cleanup, which unconditionally frees i2c_priv.
-> If active crypto transforms (indicated by tfm_count > 0) retain pointers to
-> the device context, won't they dereference the freed i2c_priv when enqueuing
-> new crypto operations or when they are eventually closed?
-> >      crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-> Does unregistering the statically allocated crypto algorithm while busy
-> trigger a warning and corrupt its reference count?
-> Because the atmel_ecdh_nist_p256 structure is statically allocated, it has
-> no cra_destroy callback. Calling crypto_unregister_alg() while active
-> transforms exist (cra_refcnt > 1) deterministically hits the safety check
-> WARN_ON(!alg->cra_destroy && refcount_read(&alg->cra_refcnt) != 1) in
-> crypto/algapi.c.
-> Additionally, if the device is subsequently re-probed, crypto_register_kpp()
-> will overwrite the structure's cra_refcnt to 1. When the original, orphaned
-> transforms finally close and call crypto_alg_put(), they will decrement the
-> newly reset refcount to 0. Future allocations of the algorithm would then
-> trigger refcount_inc() on a zeroed refcount, permanently corrupting the
-> algorithm's state.
-> >
-> > -    atmel_i2c_flush_queue();
-
-Patch dropped.
-
-[PATCH 10/12] crypto: atmel-sha204a - guard remove path against
-missing client data
-> commit 940da01227a9a17cd454a0d965228cb8cdc7880a
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel-sha204a - guard remove path against missing client data
-> This commit attempts to prevent dereferencing invalid client state during
-> driver removal by adding a NULL check for the I2C client private data.
-> It also mentions retrieving the data only after sysfs cleanup.
-> > Retrieve the I2C client private data in atmel_sha204a_remove() only
-> > after sysfs cleanup and add a NULL check before continuing device
-> > teardown.
-> Is this description accurate? The patch places the i2c_get_clientdata()
-> call at the top of the function and leaves sysfs_remove_group() at the
-> bottom, which does not appear to reorder these operations.
-> > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-> > --- a/drivers/crypto/atmel-sha204a.c
-> > +++ b/drivers/crypto/atmel-sha204a.c
-> > @@ -213,7 +213,11 @@ static int atmel_sha204a_probe(struct i2c_client *client)
-> >
-> >  static void atmel_sha204a_remove(struct i2c_client *client)
-> >  {
-> > -    struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-> > +    struct atmel_i2c_client_priv *i2c_priv;
-> > +
-> > +    i2c_priv = i2c_get_clientdata(client);
-> > +    if (WARN_ON(!i2c_priv))
-> > +        return;
-> Since the driver core guarantees atmel_sha204a_remove() is only called if
-> atmel_sha204a_probe() completed successfully, can i2c_priv ever actually be
-> NULL here?
-> If this early return were to trigger, would it skip the rest of the teardown
-> sequence?
-> Bypassing mandatory cleanup like sysfs_remove_group() and
-> atmel_i2c_flush_queue() would leave dangling sysfs files and uncancelled
-> work queues.
-> Could the crash this patch attempts to mitigate actually be caused by a
-> pre-existing issue in the probe() error path?
-> If sysfs_create_group() fails after devm_hwrng_register() succeeds in
-> atmel_sha204a_probe(), the function returns an error and devres cleans up
-> i2c_priv.
-> However, if a concurrent non-blocking read queued asynchronous work to
-> atmel_wq, this work is not flushed because atmel_i2c_flush_queue() is
-> omitted from the probe error path.
-> When atmel_i2c_work_handler() executes later, would it dereference the
-> already freed i2c_priv structure?
-
-Patch dropped.
-
-[PATCH 11/12] crypto: atmel - move i2c client selection to core driver
-> commit ec87e048a52b48d6d9799216ee15e9f3c0e86cbc
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel - move i2c client selection to core driver
-> Moves the I2C client selection logic from the ECC-specific driver into the
-> shared Atmel I2C core. This allows the load-balancing logic to be reused
-> across other Atmel crypto drivers.
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > index ce7a2e750ba88..f877f236552f7 100644
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> [ ... ]
-> > -static struct i2c_client *atmel_ecc_i2c_client_alloc(void)
-> > -{
-> [ ... ]
-> > -    return client;
-> > -}
-> > -
-> >  static void atmel_ecc_i2c_client_free(struct i2c_client *client)
-> >  {
-> >      struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
-> > @@ -249,7 +214,7 @@ static int atmel_ecdh_init_tfm(struct crypto_kpp *tfm)
-> This isn't a bug, but the patch exports atmel_i2c_client_alloc() to share
-> allocation logic while leaving the corresponding free function static here.
-> Since the goal is for other Atmel crypto drivers to use the new shared
-> allocation API, won't they be forced to manually access i2c_priv->tfm_count
-> to decrement the counter? Should we also move and export a shared free
-> function to create a symmetric API lifecycle?
-> > diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
-> > index 861af52d7a88b..4beab68997c4f 100644
-> > --- a/drivers/crypto/atmel-i2c.c
-> > +++ b/drivers/crypto/atmel-i2c.c
-> [ ... ]
-> > +struct i2c_client *atmel_i2c_client_alloc(void)
-> > +{
-> > +    struct atmel_i2c_client_priv *i2c_priv, *min_i2c_priv = NULL;
-> > +    struct i2c_client *client = ERR_PTR(-ENODEV);
-> > +    int min_tfm_cnt = INT_MAX;
-> > +    int tfm_cnt;
-> > +
-> > +    spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +
-> > +    if (list_empty(&atmel_i2c_mgmt.i2c_client_list)) {
-> > +        spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +        return ERR_PTR(-ENODEV);
-> > +    }
-> > +
-> > +    list_for_each_entry(i2c_priv, &atmel_i2c_mgmt.i2c_client_list,
-> > +                i2c_client_list_node) {
-> > +        tfm_cnt = atomic_read(&i2c_priv->tfm_count);
-> > +        if (tfm_cnt < min_tfm_cnt) {
-> > +            min_tfm_cnt = tfm_cnt;
-> > +            min_i2c_priv = i2c_priv;
-> > +        }
-> > +        if (!min_tfm_cnt)
-> > +            break;
-> > +    }
-> > +
-> > +    if (min_i2c_priv) {
-> > +        atomic_inc(&min_i2c_priv->tfm_count);
-> > +        client = min_i2c_priv->client;
-> > +    }
-> > +
-> > +    spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-> > +
-> > +    return client;
-> > +}
-> Could this result in a use-after-free if the device is unbound?
-> If the underlying I2C device is asynchronously unbound while a crypto
-> transformation is active, the driver's remove callback executes. The remove
-> callback unregisters the algorithm to prevent new transformations, but it
-> does not block waiting for active ones to be freed.
-> When remove returns, the I2C subsystem frees the i2c_client structure, and
-> devres automatically frees the allocated i2c_priv structure. The active
-> transformation would retain the dangling ctx->client pointer. Any subsequent
-> crypto operation would enqueue a work item that dereferences the freed client
-> and accesses freed memory.
-> Should we take a reference on the device via get_device(&client->dev) before
-> returning it here to ensure it stays alive?
-
-No. atmel_ecc_remove() was reworked, this issue should be addressed now.
-
-> > +EXPORT_SYMBOL(atmel_i2c_client_alloc);
-> This isn't a bug, but this function internally acquires locks and iterates
-> over atmel_i2c_mgmt, which is exported via EXPORT_SYMBOL_GPL.
-> Does exporting this as a non-GPL symbol allow non-GPL modules to bypass the
-> GPL restriction of the underlying shared data structure? Should this be
-> exported using EXPORT_SYMBOL_GPL to maintain consistency?
-
-Renamed patch title. I changed to EXPORT_SYMBOL_GPL. The alloc and free
-functions are now migrated.
-
-[PATCH 12/12] crypto: atmel - add capability-based I2C client selection
-> commit 67dd11917ea1c6943f1088bb31e4aa5da0cb31f4
-> Author: Lothar Rubusch <l.rubusch@gmail.com>
-> crypto: atmel - add capability-based I2C client selection
-> This commit introduces capability-based filtering for the I2C client
-> allocator. Devices now advertise supported features during probe, and the
-> allocator selects clients that match the requested capabilities. This
-> prepares the driver for using the hardware beyond a single algorithm type.
-> > diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-> > --- a/drivers/crypto/atmel-ecc.c
-> > +++ b/drivers/crypto/atmel-ecc.c
-> [ ... ]
-> > @@ -286,6 +286,8 @@ static int atmel_ecc_probe(struct i2c_client *client)
-> >
-> >      i2c_priv = i2c_get_clientdata(client);
-> >
-> > +    i2c_priv->caps = BIT(ATMEL_CAP_ECDH);
-> > +
-> >      spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-> >      list_add_tail(&i2c_priv->i2c_client_list_node,
-> >                &atmel_i2c_mgmt.i2c_client_list);
-> This problem wasn't introduced by this patch, but there appears to be a race
-
-Sure
-
-> condition if a device probe fails.
-> In atmel_ecc_probe(), the i2c_priv object is added to the global list before
-> all initialization steps are complete:
-> atmel_ecc_probe()
->     list_add_tail(&i2c_priv->i2c_client_list_node, ...)
->     ...
->     ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
->     if (ret) {
->         goto err_list_del;
-> If multiple Atmel ECC devices are present, the second device will fail to
-> register the same static algorithm and return an error.
-> During this window, could a concurrent call to atmel_i2c_client_alloc()
-> select this incompletely probed device for a new crypto transformation?
-> If so, when the probe function hits the error path, removes the device from
-> the list, and devres frees i2c_priv, the crypto transformation would be left
-> with a dangling pointer, potentially causing a use-after-free on subsequent
-> operations. This same pattern also appears to be present in
-> atmel_sha204a_probe().
-> > diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
-> > --- a/drivers/crypto/atmel-i2c.c
-> > +++ b/drivers/crypto/atmel-i2c.c
-> [ ... ]
-> > @@ -73,6 +73,9 @@ struct i2c_client *atmel_i2c_client_alloc(void)
-> >
-> >      list_for_each_entry(i2c_priv, &atmel_i2c_mgmt.i2c_client_list,
-> >                  i2c_client_list_node) {
-> > +        if (!(i2c_priv->caps & BIT(cap)))
-> > +            continue;
-> > +
-> >          tfm_cnt = atomic_read(&i2c_priv->tfm_count);
-> >          if (tfm_cnt < min_tfm_cnt) {
-> This problem wasn't introduced by this patch, but it seems active
-
-Already mentioned...
-
-> cryptographic transformations might not properly secure the lifetime of the
-> underlying I2C device.
-> The atmel_i2c_client_alloc() function increments a local tfm_count to track
-> active references, but does not pin the device structure itself or delay its
-> destruction.
-> If a device is hot-unplugged or manually unbound via sysfs, the driver's
-> remove callback executes. Since i2c_priv is tied to the device's lifecycle
-> via devres, it will be automatically freed upon returning from the remove
-> function. The unbind process does not block waiting for tfm_count to drop to
-> zero.
-> Does this mean any concurrently active crypto TFM previously allocated via
-> atmel_i2c_client_alloc() will maintain a dangling pointer to these freed
-> structures?
-> When the TFM is later destroyed or performs an operation, it might
-> dereference the freed client and execute atomic_dec() on freed memory.
-
-The time-of-check to time-of-use situation should be addressed, as also the
-multiple hardware devices competing for the algo structure.
-
-Best,
-L
+> > Thanks
+> > Barry
 
