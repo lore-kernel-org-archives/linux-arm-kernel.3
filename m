@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D27CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:55:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14EDCCD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ttEEnCBEgUK+wfN1BWs0jMhy7eonfn0k5yN/j3m945E=; b=NmEJ+uVu8gVsLNEG6ZgYPz2/lT
-	HaeWUk+GpyXQeDtO8sHwqF10NckplGdlqVLK//wCintdmmFOarWlCSjyWMw3rIYp/JIhUNZI37Acg
-	yl8zZ+4UxrBthDdBevwjMSSqICzK71e6BPISGMHMGVGEbClp8o70xVOUKtKcKWuRtiwGF2n4ygwU1
-	Oms4eTBDkcNO0zD++rbpiduvzih36QFcMdrpMFC+8nWpHwy6FEBpoXpgwI6EklXTwijUEtW87K50Y
-	FZEb1JHu46D033AqDuqVEMA7RmxVoe+JlNZPu1EuariIyRl897iRTcc5fc1h9oWMXjTzQZwQP0VOz
-	7mOosWfA==;
+	bh=7SH+YPF95/zLwMr5N6vP1dVxD0qTdJr5+mf2xNfP+q0=; b=LPKn14WehCBAqfFRhyHqBESbBP
+	khEgYsdeBkeD7i/+TyUzSP8iKhLyWFvwX1mH7ZrFZWXt1UWYrBJC+ew6jZli4q7RzDg411ja0v8c4
+	4BtMnanrH+9wWOXEYX65V8aHmHFjMUp8W1sWvw0Vo3hbFdJqn36wJayFIkK4jFxIiFA2xa4i6rPy+
+	hKTarZg9ST/EFrJ1XDdYGjjHum/S8ZM/G7Rew+/mniFs1/S2Mz4WFqEJcoPFi3Rsa+PwH9cxxlXFu
+	arvP6hZsnQLMa3su2E3BP1Nal60NKHI0l9HJB0mUvgYvD0Jgd5PLjda3sM3biFEXMge0D5Y7oKLbt
+	7cQBeJ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGEC-00000000la4-1xck;
-	Tue, 19 May 2026 08:55:04 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wPGHH-00000000mAd-0M2l;
+	Tue, 19 May 2026 08:58:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGEA-00000000lZ6-18pL
+	id 1wPGHG-00000000mAD-02cZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 08:55:04 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-43d734223e4so2041865f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 01:55:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779180900; x=1779785700; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ttEEnCBEgUK+wfN1BWs0jMhy7eonfn0k5yN/j3m945E=;
-        b=Z8VNptisn8uHBsr8G2Pohe8BQsErkMqF35yl2JTZlcgClvrSwlv5oCctvioE6Fp449
-         kTT0H5jKShdimyYgeIkFEJriFtGrVZr9Xe4o7TU5/B0nafOGljosMUuMB96Slu1QihR5
-         AGJuDhYIK2Z/rsLxpdvYRGtu7Q9bU/wk5BOVVieEpbwHhbXEQ20wcLGoupPpCIvXvL1n
-         vMfFqWdQPKigmNunjAYFAk1vNuuWe51QCQBtqpZQMYmjsUSgtWuy23sGzTQpRyxv9+TY
-         JUimcCAuax90gZPvznZn75qEKUUE1GYS0QUp9BDoD8mYtcVBnRpfCeaH5KDk7J3mWMfb
-         sH/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779180900; x=1779785700;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ttEEnCBEgUK+wfN1BWs0jMhy7eonfn0k5yN/j3m945E=;
-        b=eIIa53tlvaZbl6RH1mJ8nCDJ5n/EZH/pUi6hyXe+xffneGenZ8ZerMstdI6nhhXusV
-         Eqpa4b3JuzlYvtNKQEvEXkDwE5TxeYg2SPHDEGi89pGCfeWWJ3lS2SrovdJDqFl0WzQ1
-         Hmjo0MsJxt9JNz7BzP2ZBmV+RIcOpK+rfD/TiIZfDLeIiXA11gU+VMxbc3InC8HmN/Tl
-         EFOoMxics8PV4QIHek+15GoHnGaMzThGlNMQcUkGzW9clC0LPGqniRUElGpNPewIlk1D
-         FVsX0GmKIw/SHmUT5fpmHFk6idm+4zaRLmO7V1g0e+uAch6sCZkQJ5GQ05qFLAxi9bRV
-         k9mw==
-X-Forwarded-Encrypted: i=1; AFNElJ8DihR1qsdz1XMoXWcINfuLg3z1Y1ruYfPZ4egxy9zS35yT+Iz66FvnNiQ2IgnoHN/Pu8qJ3cEGjNeKhbp0zcNO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7gveOvcueoOW/Q1frX5u2km1vHzHXozCwEVgNhWHKSOXIR/+J
-	Garx9grIWghZZXWkkrnh1Sb6MZPGEIKlJOaXHRwD+CiZ/EY6NBSukJ87
-X-Gm-Gg: Acq92OGcEvm8yuVzNAcXeExxXa3uszcXgXd8jo0dgixYTPg1FN9iwIqq+dbxejSwo2W
-	97udiVf0PxGr31qjCFXA2ebQvVP6oCHVM7sDnFwBLX4dPybHbG/+Y06x4ylIfRCPTWQcOkQr+EI
-	kavHcem1379qTRKHNh4waGQKWZnIiBVzwX/hZNLwLzx3OHYcfejTlKBpwjk04hQ1Cfg9Oi5ZWE5
-	CKenpBWRtm3Ad17nwdFgErX3n4UMYZSgUDCKHgaLYvKH5WlVPxVXTpsoMsyo250C27iYrI8Jv4b
-	Z5vB2BF15RspVPCs/F+mo5aNCNx9ioBBR1CaRWKQRci0fZdm4wJsDAlt0YaECOR6S6OM3Jz4INI
-	w7Vb9fURAqvs4BMGnOZotdm3cYnSrqj011av8NFI+b6Hq2bC7F2oOmouosE/LfkZ8nF8f9fWjcd
-	ttV6kz3/hyLsV36PQpRGI9ths2W7zh0H2uInbutnC2ysrYirWxTEL+JYVKFtqtUH04hi7crWAtM
-	R3Dby8kzpV/jqPsq+p8Of0VMM9pmBcRuajCfEn2k5gHtwhNHBWcDlWUMBRkDSld9K9VIN1Hl8M=
-X-Received: by 2002:a05:6000:4404:b0:448:908a:398b with SMTP id ffacd0b85a97d-45d9288b8c2mr25159333f8f.14.1779180899971;
-        Tue, 19 May 2026 01:54:59 -0700 (PDT)
-Received: from franzs-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a17ec2sm41021489f8f.24.2026.05.19.01.54.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 01:54:59 -0700 (PDT)
-Date: Tue, 19 May 2026 10:54:58 +0200
-From: Franz Schnyder <fra.schnyder@gmail.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: Thinh.Nguyen@synopsys.com, gregkh@linuxfoundation.org, 
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, 
-	festevam@gmail.com, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jun.li@nxp.com, 
-	Francesco Dolcini <francesco@dolcini.it>
-Subject: Re: [PATCH v3 3/3] usb: dwc3: imx8mp: disable auto suspend for host
- role
-Message-ID: <6btg6x2bsgu6jzzxds3koyha3ucaf37apbshhfgpu2vxdgb5oz@npvm7tkg3bxh>
-References: <20260108081433.2119328-1-xu.yang_2@nxp.com>
- <20260108081433.2119328-3-xu.yang_2@nxp.com>
- <k2sxmwhrv3tivustfnpz54ehuufkcrcruu2uuukuyugqtqljzl@5roxndm5fn5u>
- <jjwlrgusucoacaye75uqfuh76a4jhdv3ivzjuemgusw3trwseb@mymuy62cptxp>
- <hsyy2owzbt7tsljktlrz5g4bnrnecznvcyy6zxt7gfyxb4xvgi@ysko6xe6h2zm>
- <5zz6yhc4ymoccovibmjlse2l2d6y3g3dwu5r5a677rplpfdnwu@fo2ed54hqzeh>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5zz6yhc4ymoccovibmjlse2l2d6y3g3dwu5r5a677rplpfdnwu@fo2ed54hqzeh>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_015502_458107_C3EF5572 
-X-CRM114-Status: GOOD (  14.07  )
+	Tue, 19 May 2026 08:58:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 35E59600AE;
+	Tue, 19 May 2026 08:58:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8029C2BCB3;
+	Tue, 19 May 2026 08:58:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779181092;
+	bh=gauNbmJGhz8SMUOs2xoEyEo5YiMVdKM4Tk3hN8N4jDY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OIQ+VgifWcStlS5toMmZGu84EdGLCtmmnLn3Ob3jognZffsMTzc/DJEggAgX+G8GF
+	 gfXNpBlOAUMaNuJe9AtOT/v5b/oebVSMZIx3zMHhjtWXCiv7fi10XdKZkOB2uy6vB0
+	 efEsR/C9/1Yi/v/sOFKfbAf3ry0bfSdYJ++0AuKQwIqLG+z057qPvsDwpVQXffOll/
+	 KOaJDFoh8mi0pv5pkUtjWLO+6PnBcJ0+oBFBk11sntZi7sVHF8Qr13ZiGb7Pxi+jZS
+	 SggTQz761MHciv8LbGkZHWQ+0ROYb8U0S0OUmBVl3yj/UjdDwGaZBKr0hvRoiMoU4x
+	 EO+uDPznm51EA==
+Date: Mon, 18 May 2026 22:58:11 -1000
+Message-ID: <297658c4ae2d6e7103f5968efc936224@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: David Vernet <void@manifault.com>,
+ Andrea Righi <arighi@nvidia.com>,
+ Changwoo Min <changwoo@igalia.com>,
+ Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Mike Rapoport <rppt@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ sched-ext@lists.linux.dev,
+ bpf@vger.kernel.org,
+ x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot installs
+In-Reply-To: <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
+References: <20260517211232.1670594-1-tj@kernel.org>
+ <20260517211232.1670594-2-tj@kernel.org>
+ <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
+ <agtuPrgIDNKSu2Oo@slm.duckdns.org>
+ <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,224 +90,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Xu
+Hello, David.
 
-On Tue, May 12, 2026 at 05:53:57PM +0800, Xu Yang wrote:
-> 
-> OK. I mean, does dwc3_imx8mp_probe() still succeed after the kernel dumps
-> at the end?
-Ah yes, afterwards it still succeeds.
+On Tue, May 19, 2026 at 10:00:39AM +0200, David Hildenbrand (Arm) wrote:
+> Is that really possible? I'd much rather prefer to trylock and retry, unless
+> that can really result in deadlocks. But I have the feeling that such deadlocks
+> should be impossible here.
 
-> 
-> OK. More debug information will be helpful.
-> 
+I'm not well versed in either mm or BPF, so the BPF folks will have a
+better take. But here's a scenario that seemed plausible to me:
 
-I've attached the logs below with and without the commit. looking at 
-what happens before the warning I think the problem is that after probe
-deferral the depopulate path races with the device link state changes 
-from the fw_devlink cycle fixup.
+1. A bpf prog calls bpf_arena_alloc_pages() on its arena. The kernel
+   takes arena->spinlock via raw_res_spin_lock_irqsave().
+2. Under the lock, the alloc path goes through bpf_map_alloc_pages()
+   -> alloc_pages_node(), which fires trace_mm_page_alloc().
+3. A BPF tracepoint program on mm_page_alloc that shares the arena
+   starts running with the lock still held.
+4. The tracepoint program calls a kfunc, passing an arena pointer
+   one entry past the array it meant to touch.
+5. The kfunc dereferences. The kernel-side address is unbacked, so
+   the CPU faults.
 
-One important thing to mention is, that we build dwc3 and typec as modules.
-If I build them as built-in I can't reproduce the kernel warning so far. 
+trylock + retry at 5 would A-A deadlock.
 
-Logs whith commit present and when the warning appears:
+> For example, staring at apply_range_set_cb(), what prevents:
+>
+> (1) apply_range_set_cb() finding pte_none(ptep_get(pte)
+> (2) apply_range_set_scratch_cb() succeeding ptep_try_install()
+> (3) apply_range_set_cb() overwriting the pte with set_pte_at()
+>
+> Between (2) and (3) CPUs could access the scratch PTE.
 
-  [    6.405710] device: '4c100000.usb': device_add
-  [    6.414620] ----- cycle: start -----
-  [    6.414626] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.414640] ----- cycle: start -----
-  [    6.414643] /soc/phy@4c1f0040: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.414661] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/phy@4c1f0040
-  [    6.414671] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.414680] ----- cycle: end -----
-  [    6.414683] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: Fixed dependency cycle(s) with /soc/usb@4c010010/usb@4c100000
-  [    6.414700] device: 'platform:4c100000.usb--i2c:1-0052': device_add
-  [    6.414783] i2c 1-0052: Linked as a sync state only consumer to 4c100000.usb
-  [    6.414790] ----- cycle: start -----
-  [    6.414793] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.414805] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.414814] ----- cycle: end -----
-  [    6.414816] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.414827] ----- cycle: start -----
-  [    6.414829] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.414839] /soc/phy@4c1f0040: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.414857] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/phy@4c1f0040
-  [    6.414864] ----- cycle: end -----
-  [    6.414866] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/phy@4c1f0040
-  [    6.414880] device: 'platform:4c1f0040.phy--platform:4c100000.usb': device_add
-  [    6.414943] platform 4c100000.usb: Linked as a sync state only consumer to 4c1f0040.phy
-  [    6.414947] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /soc/phy@4c1f0040
-  [    6.414956] platform 4c100000.usb: Not linking /interrupt-controller@48000000 - might never become dev
-  [    6.414962] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /interrupt-controller@48000000
-  [    6.414979] device: 'scmi_protocol:scmi_dev.7--platform:4c100000.usb': device_add
-  [    6.415027] devices_kset: Moving 4c100000.usb to end of list
-  [    6.415032] platform 4c100000.usb: Linked as a consumer to scmi_dev.7
-  [    6.415035] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /firmware/scmi/protocol@14
-  [    6.416216] imx8mp-dwc3 4c010010.usb: error -EPROBE_DEFER: failed to get dwc3 platform data
-  [    6.416310] platform 4c100000.usb: Dropping the link to scmi_dev.7
-  [    6.416317] device: 'scmi_protocol:scmi_dev.7--platform:4c100000.usb': device_unregister
-  [    6.416680] platform 4c100000.usb: Dropping the link to 4c1f0040.phy
-  [    6.416687] device: 'platform:4c1f0040.phy--platform:4c100000.usb': device_unregister
-  [    6.416892] i2c 1-0052: Dropping the link to 4c100000.usb
-  [    6.416898] device: 'platform:4c100000.usb--i2c:1-0052': device_unregister
-  [    6.419266] devices_kset: Moving 4c010010.usb to end of list
-  [    6.454423] device: 'phy-4c1f0040.phy.0': device_add
-  [    6.454545] device: '4c100000.usb': device_add
-  [    6.454659] ----- cycle: start -----
-  [    6.454664] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.454680] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.454689] ----- cycle: end -----
-  [    6.454692] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: Fixed dependency cycle(s) with /soc/usb@4c010010/usb@4c100000
-  [    6.454706] device: 'platform:4c100000.usb--i2c:1-0052': device_add
-  [    6.454763] i2c 1-0052: Linked as a sync state only consumer to 4c100000.usb
-  [    6.454770] ----- cycle: start -----
-  [    6.454773] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.454786] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.454795] ----- cycle: end -----
-  [    6.454797] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.455132] imx8mp-dwc3 4c010010.usb: error -EPROBE_DEFER: failed to get dwc3 platform data
-  [    6.455211] i2c 1-0052: Dropping the link to 4c100000.usb
-  [    6.455215] device: 'platform:4c100000.usb--i2c:1-0052': device_unregister
-  [    6.455831] devices_kset: Moving 4c010010.usb to end of list
-  [    6.456354] device: '4c100000.usb': device_add
-  [    6.456458] ----- cycle: start -----
-  [    6.456463] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.456479] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.456488] ----- cycle: end -----
-  [    6.456491] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: Fixed dependency cycle(s) with /soc/usb@4c010010/usb@4c100000
-  [    6.456505] device: 'platform:4c100000.usb--i2c:1-0052': device_add
-  [    6.456563] i2c 1-0052: Linked as a sync state only consumer to 4c100000.usb
-  [    6.456571] ----- cycle: start -----
-  [    6.456573] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.456586] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.456595] ----- cycle: end -----
-  [    6.456598] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.456940] imx8mp-dwc3 4c010010.usb: error -EPROBE_DEFER: failed to get dwc3 platform data
-  [    6.457022] i2c 1-0052: Dropping the link to 4c100000.usb
-  [    6.457026] device: 'platform:4c100000.usb--i2c:1-0052': device_unregister
-  [    6.474614] devices_kset: Moving 4c010010.usb to end of list
-  [    6.522012] device: '4c100000.usb': device_add
-  [    6.522299] ----- cycle: start -----
-  [    6.522317] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.522335] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.522347] ----- cycle: end -----
-  [    6.522454] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: Fixed dependency cycle(s) with /soc/usb@4c010010/usb@4c100000
-  [    6.533826] device: 'platform:4c100000.usb--i2c:1-0052': device_add
-  [    6.534139] i2c 1-0052: Linked as a sync state only consumer to 4c100000.usb
-  [    6.534164] ----- cycle: start -----
-  [    6.534169] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-  [    6.534192] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.534203] ----- cycle: end -----
-  [    6.534207] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.545615] device: 'regulator:regulator.4--platform:4c1f0040.phy': device_add
-  [    6.548513] devices_kset: Moving 4c1f0040.phy to end of list
-  [    6.548537] devices_kset: Moving phy-4c1f0040.phy.0 to end of list
-  [    6.548547] imx8mq-usb-phy 4c1f0040.phy: Linked as a consumer to regulator.4
-  [    6.549386] device: '4c1f0040.phy-switch': device_add
-  [    6.549395] imx8mp-dwc3 4c010010.usb: error -EPROBE_DEFER: failed to get dwc3 platform data
-  [    6.558846] /soc/phy@4c1f0040 Dropping the fwnode link to /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-  [    6.568591] imx_usb 4c200000.usb: Linked as a consumer to regulator.5
-  [    6.575430] ------------[ cut here ]------------
-  [    6.580063] WARNING: drivers/base/core.c:1640 at device_del+0x2bc/0x38c, CPU#1: kworker/u24:7/85
-  [    6.588847] Modules linked in: tcpci(+) tcpm gf128mul aead snd_soc_fsl_sai(+) fsl_imx9_ddr_perf ci_hdrc_imx(+) ina2xx(+) amc6821(+) imx_pcm_dma
-  snd_soc4
-  [    6.636591] CPU: 1 UID: 0 PID: 85 Comm: kworker/u24:7 Not tainted 7.1.0-rc4+ #14 PREEMPT
-  [    6.644767] Hardware name: Aquila iMX95 on Aquila Development Board (DT)
-  [    6.651466] Workqueue: events_unbound deferred_probe_work_func
-  [    6.657300] pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-  [    6.664250] pc : device_del+0x2bc/0x38c
-  [    6.668094] lr : device_del+0x18c/0x38c
-  [    6.671934] sp : ffff800080b0b9b0
-  [    6.675237] x29: ffff800080b0b9d0 x28: 0000000000000000 x27: 0000000000000000
-  [    6.682372] x26: 0000000000000000 x25: 0000000000000000 x24: ffff000086c15cc8
-  [    6.689504] x23: ffff000086c15cc0 x22: ffff000080a71010 x21: 0000000004208060
-  [    6.696637] x20: ffffd5f0e544ab58 x19: ffff000086c15c10 x18: 0000000000000000
-  [    6.703770] x17: 0000000000000000 x16: 0000000000000003 x15: 0000000000000400
-  [    6.710902] x14: ffff000081b3e7d0 x13: 0000000000000000 x12: ffff00008316d380
-  [    6.718035] x11: ffff00008012d910 x10: ffff00008316d240 x9 : 0000000000000017
-  [    6.725175] x8 : ffff800080b0b8f8 x7 : 0000000000000000 x6 : fefefefefefeff64
-  [    6.732301] x5 : 0000000000000001 x4 : 0000000000000000 x3 : ffff00008746ff00
-  [    6.739433] x2 : ffff000081b3e740 x1 : 0000000000000003 x0 : ffff000086c15800
-  [    6.746573] Call trace:
-  [    6.749024]  device_del+0x2bc/0x38c (P)
-  [    6.752857]  platform_device_del+0x2c/0x9c
-  [    6.756947]  platform_device_unregister+0x14/0x3c
-  [    6.761652]  of_platform_device_destroy+0xf0/0x100
-  [    6.766438]  device_for_each_child_reverse+0x70/0xc8
-  [    6.771402]  of_platform_depopulate+0x34/0x78
-  [    6.775761]  dwc3_imx8mp_probe+0x234/0x3c0 [dwc3_imx8mp]
-  [    6.781073]  platform_probe+0x5c/0xa4
-  [    6.784738]  really_probe+0xc0/0x3dc
-  [    6.788312]  __driver_probe_device+0x88/0x1a0
-  [    6.792663]  driver_probe_device+0x3c/0x11c
-  [    6.796840]  __device_attach_driver+0xbc/0x17c
-  [    6.801281]  bus_for_each_drv+0x88/0xe8
-  [    6.805108]  __device_attach+0x9c/0x1cc
-  [    6.808939]  device_initial_probe+0x54/0x60
-  [    6.810462] ci_hdrc ci_hdrc.0: EHCI Host Controller
-  [    6.813112]  bus_probe_device+0x34/0xa0
-  [    6.821216] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
-  [    6.821796]  deferred_probe_work_func+0xa8/0x104
-  [    6.821802]  process_one_work+0x15c/0x2a0
-  [    6.821810]  worker_thread+0x18c/0x300
-  [    6.821814]  kthread+0x118/0x124
-  [    6.821822]  ret_from_fork+0x10/0x20
-  [    6.833454] ---[ end trace 0000000000000000 ]--
+Scratch only gets installed when BPF passes an unallocated arena
+address to the kernel side, which is itself the violation, reported
+through the program's BPF stream. Behavior at that addr is then
+undefined. For scx, the scheduler should be aborted and torn down.
 
-Log with commit reverted:
+The only requirements are that the kernel doesn't oops and the
+violation gets caught. Beyond that, behavior at the address is
+unspecified, and which installer wins the race doesn't matter as
+long as kernel integrity holds.
 
-[    6.370196] device: '4c100000.usb': device_add
-[    6.378088] ----- cycle: start -----
-[    6.378095] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.378109] ----- cycle: start -----
-[    6.378111] /soc/phy@4c1f0040: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.378129] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/phy@4c1f0040
-[    6.378138] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-[    6.378148] ----- cycle: end -----
-[    6.378151] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: Fixed dependency cycle(s) with /soc/usb@4c010010/usb@4c100000
-[    6.378166] device: 'platform:4c100000.usb--i2c:1-0052': device_add
-[    6.378233] i2c 1-0052: Linked as a sync state only consumer to 4c100000.usb
-[    6.378240] ----- cycle: start -----
-[    6.378243] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-[    6.378255] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.378265] ----- cycle: end -----
-[    6.378267] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.378277] ----- cycle: start -----
-[    6.378280] /soc/bus@44000000/i2c@44350000/tcpc@52/connector: cycle: depends on /soc/usb@4c010010/usb@4c100000
-[    6.378289] /soc/phy@4c1f0040: cycle: depends on /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.378298] /soc/usb@4c010010/usb@4c100000: cycle: depends on /soc/phy@4c1f0040
-[    6.378305] ----- cycle: end -----
-[    6.378307] /soc/usb@4c010010/usb@4c100000: Fixed dependency cycle(s) with /soc/phy@4c1f0040
-[    6.378317] device: 'platform:4c1f0040.phy--platform:4c100000.usb': device_add
-[    6.378365] platform 4c100000.usb: Linked as a sync state only consumer to 4c1f0040.phy
-[    6.378369] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /soc/phy@4c1f0040
-[    6.378378] platform 4c100000.usb: Not linking /interrupt-controller@48000000 - might never become dev
-[    6.378383] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /interrupt-controller@48000000
-[    6.378402] device: 'scmi_protocol:scmi_dev.7--platform:4c100000.usb': device_add
-[    6.378448] devices_kset: Moving 4c100000.usb to end of list
-[    6.378454] platform 4c100000.usb: Linked as a consumer to scmi_dev.7
-[    6.378457] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /firmware/scmi/protocol@14
-[    6.412551] imx8mp-dwc3 4c010010.usb: Dropping the link to 4c1f0040.phy
-[    6.420383] device: 'platform:4c1f0040.phy--platform:4c010010.usb': device_unregister
-[    6.448740] /soc/phy@4c1f0040 Dropping the fwnode link to /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.455463] /soc/usb@4c010010/usb@4c100000 Dropping the fwnode link to /soc/bus@44000000/i2c@44350000/tcpc@52/connector
-[    6.466316] wm8904 1-001a: Linked as a consumer to regulator.2
-[    6.467099] device: 'phy-4c1f0040.phy.0': device_add
-[    6.467280] device: 'regulator:regulator.4--platform:4c1f0040.phy': device_add
-[    6.469337] devices_kset: Moving 4c1f0040.phy to end of list
-[    6.477641] devices_kset: Moving phy-4c1f0040.phy.0 to end of list
-[    6.477672] imx8mq-usb-phy 4c1f0040.phy: Linked as a consumer to regulator.4
-[    6.477755] device: '4c1f0040.phy-switch': device_add
-[    6.479392] imx_usb 4c200000.usb: Linked as a consumer to regulator.5
-[    6.653448] spi-nor spi0.0: Linked as a consumer to regulator.0
-[    6.655937] device: 'phy:phy-4c1f0040.phy.0--platform:4c100000.usb': device_add
-[    6.656027] devices_kset: Moving 4c100000.usb to end of list
-[    6.656039] dwc3 4c100000.usb: Linked as a consumer to phy-4c1f0040.phy.0
-[    6.662812] device: '4c100000.usb': device_add
-[    6.665219] device: '4c100000.usb-role-switch': device_add
+Thanks.
 
-
-Kind regards,
-
-Franz
+--
+tejun
 
