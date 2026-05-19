@@ -4,83 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB10CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1BBCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OrfCIXJBWhTkI24x8GrkdNDgazLl82raIY/1L+zWYiI=; b=WT1szEpwDz9azKXkJ1Sm+JWI6a
-	5FCGlEmm0UetlyVmo4d2DjgOeGeL/ydv2ExWBkhcjLa0ftWaRD1DFck//aSB7AgExyDLmKkNgoYLo
-	QVhsIJ7cTHaziqQFgo0ePSWFEYYNJHWPAQvwmyr/xjTOrXtLdTsL4rL16OkF3Q61NdAcWDA9ptzTp
-	ZSqvB2/Gnw+9A7R4yVQPSjYg2pkUaJ7anC12qwbXWTekRp5MEGBJRxCl1i70qHgaaslbB+F8uGamf
-	hlQXBA2OGUl+0/OS1jYDmNE6M0aTNrSlMLZb8NsBxdYVovbqEBOZUUafBzkS79nGufb9YczO43uY2
-	XjKEngbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oXsqNQngsEDaEw4yQ657tilzkdXWVYHvbpp2A/ZUbBk=; b=kXqWeD0JdlR/65snkvUbr/LHWW
+	kC/uxX7azJVYVDIiBs+FZkyqheKny+pibEzRAQAYzNwbh3LAwEhW1YbYpJ0uJ+smBr8o7AuzCkoh6
+	NJ9j2ZSpxqkzrtTZ2lt3f3BlITr15Y7wKryKz4D8FZTe8NBKgP5S8T7Dtx0m/bn7HMiDFGhh3N1Ll
+	zOjrMbAFKyxywBaPsKPvcA4HbYjCzUoHLBDluqsJkkXs48a+5isoQc/rcFHkjLTR5YvQybY/WEHYA
+	oFQUAdF83+JedvNe242lHLcVTe7IYvo2Xh2tI0kz59UwusdMNGF7hSmN635i5cgw/ZsvrYZNa1XPr
+	C4YrAZbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIMa-00000001GzF-23zb;
-	Tue, 19 May 2026 11:11:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPINc-00000001HFF-2i60;
+	Tue, 19 May 2026 11:12:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIMZ-00000001Gz4-1LIh
+	id 1wPINa-00000001HEA-0dMZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 11:11:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9343360126;
-	Tue, 19 May 2026 11:11:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EB23C2BCB3;
-	Tue, 19 May 2026 11:11:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779189110;
-	bh=yho1oY7rUwGUBK6N3ReIa8imE1mEl4Xep1Oe5MlRzKg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZIA+Mx511B2Utvn8fqrlK5XwSL8vqCOwjgfy/t0ERyQP2GgjcHBvxaBcaz/+rZ18J
-	 0CrpDV+n1qekubCKlZWpnJmE82yshPea4TnybMcHaE+QYIMwkljLEFlxIVTqMbq5dx
-	 p+bEZdKaRfP4JF3HO5II7EeaBytLydOBoJQe+Zs35ZNoMdXWzyeknmt3ZRISzIfQr2
-	 HPDKmcPWvg8kQiiPLq+VWUmTdcdgiXAsO6V2VXBl84LLkcAqZwz6qN9ws8wvRkwzMl
-	 aeqM9OuflbaGHxAGN6ds3muEW0LgDxQKUUbyaYUZxPKXW/BMGOIMin/d5MRp7xsP3r
-	 BRSjZhUoU2/xA==
-Date: Tue, 19 May 2026 12:11:42 +0100
-From: Will Deacon <will@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	kvmarm@lists.linux.dev,
-	linux-kselftest <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
- expectations
-Message-ID: <agxFbniU_6eQ98t2@willie-the-truck>
-References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
- <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
- <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
- <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
- <86h5obya2r.wl-maz@kernel.org>
- <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
- <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
- <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
- <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
- <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
+	Tue, 19 May 2026 11:12:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779189171;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oXsqNQngsEDaEw4yQ657tilzkdXWVYHvbpp2A/ZUbBk=;
+	b=PWwMGAMLHUIlLTk6dYx/URA/ZmtB5UH5Pnv+7N6za9jAnAVfqR5+WVpoBrddddAZV+b9Tm
+	VZ6xld7Si9gJ6xZ+xq73tWMLuUz5760veqJMap0zcoTyIJ4vOsJNmKRkPYaS9VtgeEsHSo
+	A9T0gR6VFfK7rlK7eSH2bgYhpSYjFqs=
+Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
+ [209.85.167.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-593-paDEGgUXOW-tQwBkaZwhUQ-1; Tue, 19 May 2026 07:12:50 -0400
+X-MC-Unique: paDEGgUXOW-tQwBkaZwhUQ-1
+X-Mimecast-MFC-AGG-ID: paDEGgUXOW-tQwBkaZwhUQ_1779189168
+Received: by mail-lf1-f71.google.com with SMTP id 2adb3069b0e04-5a89d5f42ebso91075e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 04:12:49 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779189168; x=1779793968;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=oXsqNQngsEDaEw4yQ657tilzkdXWVYHvbpp2A/ZUbBk=;
+        b=dmKPVKszDaLR/37ZSrvKY2DwyCI0C9c5qY5rTlV6R8HY6v9G91miRzCGrWK3bXP4Jz
+         ckaXLkKoT2Itquh0H9LMbqqvXTRFuUwnb+/bf6GR7xCyQuFnzjgQgaZCW3+GHl9NhbEP
+         3vY531TADSyDLPGbWKp5g9ysx1sbBXEn9+91h3vAWS21HDuVPpXXElIQ6ZkHoDZA1HQM
+         WYDMPpXh7VNDkF5ml+3M3XbrClDSm9aYz7ERmvoS0iE0D/LCT20DyGgky5BCG3/bv/xG
+         gmoKoWzihgrUPnhR69emw7gbhLBWDXH8McLVPHuFH+QO0ibNAuRcfGoIIgPylZnaBwjg
+         f5ig==
+X-Forwarded-Encrypted: i=1; AFNElJ+AjjTujp28Yh6NkHPvZZSMzgOz7g+wUaWbA+S38PlakQYPGX73Ac+r6mhY1h4TFGqdsaCN50SiFRZ9YsnHliS2@lists.infradead.org
+X-Gm-Message-State: AOJu0YysSusZA0WIChytKwOsD9ZT2pocMIkbnVyD+9rQQF+n1ArzChd9
+	ny5ewOZc/oSjkSWs52X7VjPUKSVU0XOALKI2YoDiE2bmoF8be2mnJcg96uzAh5lgkz3QIXTVwlB
+	i6SFBVG83EkgcRl8ZOAohrqDVDyNZpBit0C/MrcYudCnp6Xtl87wCJzt9896Qp63KaqBkiscoQZ
+	A/hisIFSH5BkVy7ScfDXpyjLyL75vRdNGeB7goMIXQUc/D9PIQGG8=
+X-Gm-Gg: Acq92OEDtJdPT9qK703X4475bz2qsfXIDQp/AL780O6JjTC0i/rlrswqxSs8I8NN4P4
+	sgVZRsagJekHdnRnoVG34o1/FuKLq5DBA7RE67E53JBGc+yyM1pvIUs4ACqLfD7HdksskN4kMBZ
+	OYRWahrlkUYuKvl4tnKp+NSYy8mFyYIZlI0G19P5xKo+Wyd1cYnkJSsJhLAj6y1Z356J3ihJ05n
+	BbasA==
+X-Received: by 2002:a05:651c:4119:b0:390:f0e8:a0a6 with SMTP id 38308e7fff4ca-39561eca6a3mr18209691fa.7.1779189168299;
+        Tue, 19 May 2026 04:12:48 -0700 (PDT)
+X-Received: by 2002:a05:651c:4119:b0:390:f0e8:a0a6 with SMTP id
+ 38308e7fff4ca-39561eca6a3mr18209371fa.7.1779189167744; Tue, 19 May 2026
+ 04:12:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
+References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com> <20260504131148.3622697-2-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260504131148.3622697-2-khristineandreea.barbulescu@oss.nxp.com>
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+Date: Tue, 19 May 2026 13:12:35 +0200
+X-Gm-Features: AVHnY4IysE9Si0e6LCWrqXrdQ4CUJp9E0s70DE65f5jtBnVk_MehFj_WtyF0KyM
+Message-ID: <CALE0LRs5XwjwVXkc+WGtkucs5WGjoHu-Dcd8fLBmqQjz16XdDw@mail.gmail.com>
+Subject: Re: [PATCH v9 1/7] pinctrl: s32cc: use dev_err_probe() and improve
+ error messages
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
+	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 5LmtBdlfVivO0Q7NVAlgt-IsTxRQPCmGfM5z3utyWJE_1779189168
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_041254_258847_9955595D 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +117,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 11:41:26AM +0100, David Woodhouse wrote:
-> On Wed, 2026-05-13 at 18:24 +0200, Paolo Bonzini wrote:
-> > 
-> > > See commit https://git.kernel.org/torvalds/c/49a1a2c70a7f which adds a
-> > > new guest-visible feature in revision 3, but allowed userspace to
-> > > restore the old behaviour by setting it to revision 2. All my patch
-> > >  above does, is make it possible to set it to revision 1 as
-> > > well. Because https://git.kernel.org/torvalds/c/d53c2c29ae0d previously
-> > > changed the behaviour and bumped the default to 2 *without* allowing
-> > > userspace to restore the prior behaviour, and we've been carrying a
-> > > *revert* of that patch.
-> > > 
-> > > Why would we *not* accept such a patch?
-> > 
-> > Agreed. Even ignoring your revert, there's no reason why any upgrade
-> > past 49a1a2c70a7f has to be from after d53c2c29ae0d.
-> 
-> So where do we go from here?
-> 
-> I assume you'll be taking this Documentation patch via the KVM tree?
-> 
-> But what about the actual fix at 
-> https://lore.kernel.org/all/20260511113558.3325004-2-dwmw2@infradead.org/
-> 
-> This is a simple and unintrusive bug fix to make KVM/arm64 follow the
-> "common sense" requirement that the doc patch codifies, apparently
-> being rejected with the rather bizarre claim that KVM has no *need* to
-> maintain guest-visible compatibility across host kernel changes.
-> 
-> So... what next? Is one of the other KVM/arm64 maintainers going to
-> speak up? Paolo would you consider taking the fixes through your tree
-> directly? 
-> 
-> Does Arm not actually *care* whether AArch64 is considered a stable and
-> mature platform for KVM hosting?
+Hi,
 
-Hey, come on. Marc cares more about this stuff than anybody else on the
-planet. He's been single-handedly maintaining the tree for the past
-couple of releases while Oliver was out and he's on the end of a _lot_
-of patches. I'm only cc'd on a fraction of the KVM/arm64 changes and
-it's bedlam.
+On Mon, May 4, 2026 at 3:12=E2=80=AFPM Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> wrote:
+>
+> Change dev_err&return statements into dev_err_probe throughout the driver
+> on the probing path.
+>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
+oss.nxp.com>
+> ---
+>  drivers/pinctrl/nxp/pinctrl-s32cc.c | 64 ++++++++++++++---------------
+>  1 file changed, 30 insertions(+), 34 deletions(-)
+>
+> diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pi=
+nctrl-s32cc.c
+> index fe7cd641fddd..56be6e8d624e 100644
+> --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
+> @@ -2,7 +2,7 @@
+>  /*
+>   * Core driver for the S32 CC (Common Chassis) pin controller
+>   *
+> - * Copyright 2017-2022,2024 NXP
+> + * Copyright 2017-2022,2024-2025 NXP
+>   * Copyright (C) 2022 SUSE LLC
+>   * Copyright 2015-2016 Freescale Semiconductor, Inc.
+>   */
+> @@ -236,10 +236,10 @@ static int s32_dt_group_node_to_map(struct pinctrl_=
+dev *pctldev,
+>         }
+>
+>         ret =3D pinconf_generic_parse_dt_config(np, pctldev, &cfgs, &n_cf=
+gs);
+> -       if (ret) {
+> -               dev_err(dev, "%pOF: could not parse node property\n", np)=
+;
+> -               return ret;
+> -       }
+> +       if (ret)
+> +               return dev_err_probe(dev, ret,
+> +                                    "%pOF: could not parse node property=
+\n",
+> +                                    np);
+>
 
-Will
+Nitpick: I think this is not part of the probe path but is called when
+a consumer requests a pin group, so using dev_err_probe is slightly
+misleading here, although I think it's harmless.
+
+In any case, with or without that change it looks good to me, so
+
+Reviewed-by: Enric Balletbo i Serra <eballetb@redhat.com>
+
+>         if (n_cfgs)
+>                 reserve++;
+> @@ -763,15 +763,15 @@ static int s32_pinctrl_parse_groups(struct device_n=
+ode *np,
+>         grp->data.name =3D np->name;
+>
+>         npins =3D of_property_count_elems_of_size(np, "pinmux", sizeof(u3=
+2));
+> -       if (npins < 0) {
+> -               dev_err(dev, "Failed to read 'pinmux' property in node %s=
+.\n",
+> -                       grp->data.name);
+> -               return -EINVAL;
+> -       }
+> -       if (!npins) {
+> -               dev_err(dev, "The group %s has no pins.\n", grp->data.nam=
+e);
+> -               return -EINVAL;
+> -       }
+> +       if (npins < 0)
+> +               return dev_err_probe(dev, -EINVAL,
+> +                                    "Failed to read 'pinmux' in node %s\=
+n",
+> +                                    grp->data.name);
+> +
+> +       if (!npins)
+> +               return dev_err_probe(dev, -EINVAL,
+> +                                    "The group %s has no pins\n",
+> +                                    grp->data.name);
+>
+>         grp->data.npins =3D npins;
+>
+> @@ -812,10 +812,9 @@ static int s32_pinctrl_parse_functions(struct device=
+_node *np,
+>         /* Initialise function */
+>         func->name =3D np->name;
+>         func->ngroups =3D of_get_child_count(np);
+> -       if (func->ngroups =3D=3D 0) {
+> -               dev_err(info->dev, "no groups defined in %pOF\n", np);
+> -               return -EINVAL;
+> -       }
+> +       if (func->ngroups =3D=3D 0)
+> +               return dev_err_probe(info->dev, -EINVAL,
+> +                                    "No groups defined in %pOF\n", np);
+>
+>         groups =3D devm_kcalloc(info->dev, func->ngroups,
+>                                     sizeof(*func->groups), GFP_KERNEL);
+> @@ -886,10 +885,9 @@ static int s32_pinctrl_probe_dt(struct platform_devi=
+ce *pdev,
+>         }
+>
+>         nfuncs =3D of_get_child_count(np);
+> -       if (nfuncs <=3D 0) {
+> -               dev_err(&pdev->dev, "no functions defined\n");
+> -               return -EINVAL;
+> -       }
+> +       if (nfuncs <=3D 0)
+> +               return dev_err_probe(&pdev->dev, -EINVAL,
+> +                                    "No functions defined\n");
+>
+>         info->nfunctions =3D nfuncs;
+>         info->functions =3D devm_kcalloc(&pdev->dev, nfuncs,
+> @@ -919,18 +917,17 @@ static int s32_pinctrl_probe_dt(struct platform_dev=
+ice *pdev,
+>  int s32_pinctrl_probe(struct platform_device *pdev,
+>                       const struct s32_pinctrl_soc_data *soc_data)
+>  {
+> -       struct s32_pinctrl *ipctl;
+> -       int ret;
+> -       struct pinctrl_desc *s32_pinctrl_desc;
+> -       struct s32_pinctrl_soc_info *info;
+>  #ifdef CONFIG_PM_SLEEP
+>         struct s32_pinctrl_context *saved_context;
+>  #endif
+> +       struct pinctrl_desc *s32_pinctrl_desc;
+> +       struct s32_pinctrl_soc_info *info;
+> +       struct s32_pinctrl *ipctl;
+> +       int ret;
+>
+> -       if (!soc_data || !soc_data->pins || !soc_data->npins) {
+> -               dev_err(&pdev->dev, "wrong pinctrl info\n");
+> -               return -EINVAL;
+> -       }
+> +       if (!soc_data || !soc_data->pins || !soc_data->npins)
+> +               return dev_err_probe(&pdev->dev, -EINVAL,
+> +                                    "Wrong pinctrl info\n");
+>
+>         info =3D devm_kzalloc(&pdev->dev, sizeof(*info), GFP_KERNEL);
+>         if (!info)
+> @@ -965,10 +962,9 @@ int s32_pinctrl_probe(struct platform_device *pdev,
+>         s32_pinctrl_desc->owner =3D THIS_MODULE;
+>
+>         ret =3D s32_pinctrl_probe_dt(pdev, ipctl);
+> -       if (ret) {
+> -               dev_err(&pdev->dev, "fail to probe dt properties\n");
+> -               return ret;
+> -       }
+> +       if (ret)
+> +               return dev_err_probe(&pdev->dev, ret,
+> +                                    "Fail to probe dt properties\n");
+>
+>         ipctl->pctl =3D devm_pinctrl_register(&pdev->dev, s32_pinctrl_des=
+c,
+>                                             ipctl);
+> --
+> 2.34.1
+>
+
 
