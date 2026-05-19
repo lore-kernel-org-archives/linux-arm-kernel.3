@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E10CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F02CD4F58
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFHqRuATmPbaGVZexZcisMNqWxtDcoKZS/vBDt5crY0=; b=FTOwmIpdar67a0UjfRi3WcHsca
-	vC3hsng0lgcpnQZs2UQByI0ZThrR7W0gQ5iLnmzvAZLT7ghEomcJ2XhhSwyKNYHKe4VVjELUCfHbG
-	buI24ZomGvMBg5eJB1yW1J6sP9+SGlwtL/wJsryqngcZgvztZF2sJD5n7WF8QqSbuQERPBJ7LBimb
-	nr+45bwivMEJGZZ4lO8fFeBtAWsMCFvOmvT8/we5yA8G9LhTiBweorftcL/ECArr9Zyjew209XmZp
-	SXbk0wCDUmVAAaZ3JwAOIy9G66gIxV8saJMfFTuYSn8V7irOEQsYPGVdgm9cAHfFDDLTan74d2lA3
-	OOXvTGvA==;
+	bh=qtX47EwXH9Xw59B6eB1b2VBmN1wnu7ZBE05akEL/Pm0=; b=MGbsyXsRw2XpwenQ5H625c0JmF
+	CLD44w//7EIiqTpYmT8m8baA9Vpd2CS1tF8bT/837+tJVWvaoYXJ8GWTHddM9a2vLmVuBhSwLgRR2
+	VyZpYklt17L6X/aj3a2G/QdZYS6Ogh9mhQhroBxDFvdow/q4UBM2AXqg2ItlEKjo3dug/MhIO3Yei
+	MZbwJDBPSqtTKEVdeljjmPV9edRd19eDCSBHOWVqzJhT5xpDJgQxewnJV732nci4JWdjX6keusLe9
+	7rm78DU9mKsyCmlLA+H+PXeHNdXNmsJwykOF2RvieDWG80vIR4zvDk8A1cn30/7iNtgIdhI7kw/H1
+	HRhtbhyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPE3A-00000000MKP-1gVV;
-	Tue, 19 May 2026 06:35:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPE4W-00000000Mck-3SEb;
+	Tue, 19 May 2026 06:36:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPE39-00000000MK7-02yo;
-	Tue, 19 May 2026 06:35:31 +0000
+	id 1wPE4V-00000000Mc7-079c;
+	Tue, 19 May 2026 06:36:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7D3860052;
-	Tue, 19 May 2026 06:35:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A48AC2BCB3;
-	Tue, 19 May 2026 06:35:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 78EF260052;
+	Tue, 19 May 2026 06:36:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 915E7C2BCB3;
+	Tue, 19 May 2026 06:36:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779172529;
-	bh=PRsYzknanFyATavLtM7cL+hf9VvsO0oo90C5CxicR8E=;
+	s=k20201202; t=1779172614;
+	bh=7AaeSvfyqPMp9R+dhmGlKn/SXtEA+e23F3uNc8wGbDU=;
 	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=PSNqpumrg6dYiiQYEmynbnixtWYpoeBtue8tnZKdS6qB5He5qHUutjvNLBuZJScPT
-	 K1YQ6nDd+8DbQDcjZkfN4hcr0VnYElD8W+jpwAAXcG0RwxKfNeQvvMnaIPSnUVhSwM
-	 5/bk/7/DgiM4Jd3kWs15hlvvWuqabW69r7hRymqbQADCeyh7gL7iR/AZMyAY3VTX/D
-	 +N71z7FTLu2IomD1junPsiCBeG3ZPXQPRquV9lBmerq7Hu9oDE8jvPnZpGKo8clMuI
-	 lFzu529xv3zIDVyPSljZHahvq+sjcZTRc3jX4vwXpu1Y7U36tNXlNbJxRVSp1es5ZN
-	 R31nkIMZqs4Ow==
-Message-ID: <3672b556-e66d-471d-90f9-ef1078527929@kernel.org>
-Date: Tue, 19 May 2026 08:35:23 +0200
+	b=sxKuhoutbBtK0thy7g5VaN56hzdcLoA0tILrxGQOek5+j+K/xXcdlk7QLBdLhYcJd
+	 ON7Izh0cieqjaKKnzTWscuOox14dF0WZROd5EZ1b0Dge0P2DhT+XCTnym3s1ZZjGJX
+	 KQHPS3qrU+Z30q3sodjyEBu1OI28g5L1IvExI3ZE0KU8QBGPcSc8drqsaNTsEZ7TWd
+	 ycoA5MW5zdgtgaeSr8GQqSNHrnPLUHm5G3x/vzRN6sMUSDJP5qFnWeksX3Sgd5fT/W
+	 238OQVJtmsy0ggkXFLpOOs+8wfxS0WZd62q7RsjV2L8zsYusvz1yKgUQ+c5KZSZShu
+	 Gon7WAJKaUpew==
+Message-ID: <48fdaecd-a8b9-473d-aad2-35f5e459f161@kernel.org>
+Date: Tue, 19 May 2026 08:36:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH v7 17/23] drm: bridge: dw_hdmi: Declare bridge CEC
- notifier support
-To: Jonas Karlman <jonas@kwiboo.se>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
+Subject: Re: [PATCH 05/13] drm/meson: encoder_hdmi: Use CEC phys addr from
+ display_info
+To: Jonas Karlman <jonas@kwiboo.se>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Heiko Stuebner <heiko@sntech.de>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: Liu Ying <victor.liu@nxp.com>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@kernel.org>,
- Christian Hewitt <christianshewitt@gmail.com>,
- Diederik de Haas <diederik@cknow-tech.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-sunxi@lists.linux.dev, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260518180206.2480119-1-jonas@kwiboo.se>
- <20260518180206.2480119-18-jonas@kwiboo.se>
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+References: <20260518194744.2483580-1-jonas@kwiboo.se>
+ <20260518194744.2483580-6-jonas@kwiboo.se>
 Content-Language: en-US, nl
-In-Reply-To: <20260518180206.2480119-18-jonas@kwiboo.se>
+In-Reply-To: <20260518194744.2483580-6-jonas@kwiboo.se>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -87,13 +79,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/05/2026 20:01, Jonas Karlman wrote:
-> EDID and CEC phys addr is now being updated in bridge detect() func,
-> making it possible to have CEC notifier support using the bridge
-> connector.
+On 18/05/2026 21:47, Jonas Karlman wrote:
+> The dw-hdmi bridge detect() func now updates EDID for the connector.
+> Something that ensures that display_info.source_physical_address has an
+> updated CEC phys addr when the hpd_notify() func is called.
 > 
-> Add the CEC notifier bridge op to instruct the bridge connector to make
-> use of the generic CEC notifier helpers.
+> Change to use display_info source_physical_address directly instead of
+> re-reading EDID to set the CEC phys addr at HPD interrupt.
 > 
 > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
@@ -104,26 +96,45 @@ Regards,
 	Hans
 
 > ---
-> v7: Only declare CEC notifier support when CEC device register succeeds
-> v6: New patch
-> ---
->  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  drivers/gpu/drm/meson/meson_encoder_hdmi.c | 26 ++++------------------
+>  1 file changed, 4 insertions(+), 22 deletions(-)
 > 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> index 0c4388e7aa5e..5dacb8a99715 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> @@ -3515,6 +3515,10 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
->  		pdevinfo.dma_mask = 0;
+> diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> index 55c0601df3c6..1b9a1d9ed3d3 100644
+> --- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> +++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
+> @@ -330,28 +330,10 @@ static void meson_encoder_hdmi_hpd_notify(struct drm_bridge *bridge,
+>  	if (!encoder_hdmi->cec_notifier)
+>  		return;
 >  
->  		hdmi->cec = platform_device_register_full(&pdevinfo);
-> +		if (!IS_ERR(hdmi->cec)) {
-> +			hdmi->bridge.ops |= DRM_BRIDGE_OP_HDMI_CEC_NOTIFIER;
-> +			hdmi->bridge.hdmi_cec_dev = hdmi->dev;
-> +		}
->  	}
+> -	if (status == connector_status_connected) {
+> -		const struct drm_edid *drm_edid;
+> -		const struct edid *edid;
+> -
+> -		drm_edid = drm_bridge_edid_read(encoder_hdmi->bridge.next_bridge,
+> -						encoder_hdmi->connector);
+> -		if (!drm_edid)
+> -			return;
+> -
+> -		/*
+> -		 * FIXME: The CEC physical address should be set using
+> -		 * cec_notifier_set_phys_addr(encoder_hdmi->cec_notifier,
+> -		 * connector->display_info.source_physical_address) from a path
+> -		 * that has read the EDID and called
+> -		 * drm_edid_connector_update().
+> -		 */
+> -		edid = drm_edid_raw(drm_edid);
+> -
+> -		cec_notifier_set_phys_addr_from_edid(encoder_hdmi->cec_notifier, edid);
+> -
+> -		drm_edid_free(drm_edid);
+> -	} else
+> +	if (status == connector_status_connected)
+> +		cec_notifier_set_phys_addr(encoder_hdmi->cec_notifier,
+> +					   connector->display_info.source_physical_address);
+> +	else
+>  		cec_notifier_phys_addr_invalidate(encoder_hdmi->cec_notifier);
+>  }
 >  
->  	drm_bridge_add(&hdmi->bridge);
 
 
