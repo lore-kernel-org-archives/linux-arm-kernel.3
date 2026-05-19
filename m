@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972B4CD4F5E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D418CD4F54
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 03:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOaeA6CWTcUjj73i6ZiNoPFenzMXO59WLh4V+4tbu70=; b=mAG859DLbphmbPsDY742HSOwZh
-	mi0MlwZ3Mj55ULleelZB0E1alrkHjj5ZZ9oxEJSCCdP6RB6jngMGqmfBTkfWt9lQ1w/xADIAg96tL
-	rikwKoAhc/tFINwZx8cmlzFkga4p+IS77HnPuSbn1puRHeu0H9mxPi0zxfEy8yLpPS1cLGxRjNfC+
-	O1JbHsRANgj2MJm2Bd/HYVuiUXEQrjq4jyXg0tlUXE+gdqra2Y0PmZaYcAiOMd9dXgiQnKDJQfnPu
-	ZsQnNPiDvImDlsAm33egh4UAsSLkFa1RKXLm/GGT5HJPYcrKYwnfK1+pBM3Kg/yInbgYq7iZs4VS8
-	X/lug2qQ==;
+	bh=P1TkWI/MIw/boaSzLsiIu7OVjl/6Mx9M9JMEqgTG8F8=; b=ND/TRJG9XHZersZsMQW6NlSRZP
+	miY9JHV8aOlpqhqA89sav+AYDuQXbIeYKfBsc5n14yQMsP5x4qm2l24s1HCrqoftBdnlItDjkBa4A
+	MesftTXwBlHPJOEywRq+SaY6QNXVYAdA3/t+caFybhom5lHnhEfXd6VZVf7H4EHO/JeMnQghfRqu/
+	6zCxk/DSFT19BCVgOlB5xcKQpTP6UtiA0QM9k09X4PQUX53V7ew/JSmi0oZfMUZWp9RiQEgQo467J
+	Xm51op2YZuVs2Qo1RbtU2DnNuoJ1Brf3NOxD0lJuUk6rD3nLURwyu54pR4lGwhqSku+8LaajMcQuQ
+	LNAiIb8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBJj-000000000S0-00Od;
+	id 1wPBJj-000000000SH-0e3H;
 	Tue, 19 May 2026 03:40:27 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+Received: from mail-northcentralusazon11010007.outbound.protection.outlook.com ([52.101.193.7] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPBJW-0000000008Z-1AKw
+	id 1wPBJW-0000000Hb6I-2FqH
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 19 May 2026 03:40:16 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=genJlgPsbi2SH8UQJ26GcxEP4Ma547z/xXzOgNVDebjIskTiPv3ig4Xv5YxEfDbOkwUUe3e1/khTeDYGRNTsSAZyWqep3Z+DYWA8uKHc8xymmDqj8wgACWJIICZketUjg1OoqowManXiVhAPVuFnA2aYbHZ506YMsSs+1GY8nV6w81ixdVYB9OjBPtE7yyMyk6SDw6BfxwRtRZl/XGbuRYCh5F6r5YgYKb0dacIN3vDVgKU+il9K35eQ8XJlr/q1UM60H+J6uy/D9M/rGKd+fNZzVPyZTGGQ7a/k2z1ydqNA1YaSbTGYVpUnywMHWcVLGr6esBiqVk3Ek4uO7jr1Nw==
+ b=sWsQmnZOuGsm9vHAU2juVGa8Ck7PzHivVLR4nG6wyLZ6g3NAJ0q5RXwZirqLNisYEiYm9xV8LEBgHW1cg27a91vurqt6f9y5J/FXauXBUZTxpYP+RuCgI8TQZE3CMfZmPnRqDK8iPMIZL8LOzQ83ZX9JlcvvMHhg1ysFbJsEl74PQkord270m7EsSWnk0seFzHIrc7qA9+74RlwjEfn1OKsR7wQyeI1+nvE7dny6kDMBi/sNIj8B5A12CIFoWTPQ9blkWTv4rQKyWBGZQ4XRapOc7g+vfnhgMAX5VueJ+AD33xLu4JZBsUpfzxlkY3Ea6Z0YfJxvvmabFkpd0Ot5jw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UOaeA6CWTcUjj73i6ZiNoPFenzMXO59WLh4V+4tbu70=;
- b=dKwtsiEDC09mQhq5lMavwWSHF0s5VvtjzX9XhG5AFa5g5VUNM7A1qM1A+NF/8L+5PT5En/fnKU6yfUnJehsRU4axPX2JeTWqOntuxWkTv+G57JuScj1fdGE4vrP110cXrfobP134dmJ+mzBfRktCFIiMkKjd23O+JUAPtWpuBTGZu1WzjhvogMVZUwszw/Y5TBpeV8DluilMQvZ8S5iffnDz+Ldb+ycNKsa4EeuylkS3pmHCduFoFThUBC1dTWX6XzhPTZ+dVjRsGGv/aAwBWj0TcczvlDSHMiCcBS/9LYMWJqS+x3P2bwqoIdfxdRvoIYuLwi/cprk8oRRjUW0Djw==
+ bh=P1TkWI/MIw/boaSzLsiIu7OVjl/6Mx9M9JMEqgTG8F8=;
+ b=TR3LpYVN1ozcvY2pkGpw/ydG15+0UxsWWUP00+QrKRiXylIYzhHnHow4hRU3P2+OjWclp28mpXZWyhCXmRYudYq9xoHO24goGrwNCnuXW5le/uTwVInh3aqj1Grzgau/aOpb4F3t6kB0M7wwr/q90nHv6AUzkRg+mKXtm6jurRdfw6LNNnXE2ZcJhZ71tuQz3fJCvEoIC3QWEHk9eKophoWOcsDZ6O9C/lgJmTalzGGqGy84plYowEbeFsYLWC//3zZvTECdZHI2LJ0ktIc0dJi+JP/AYd8vpL5TDr84wxvlGc21/zPjW2hh1uBDryFqU5dClGzLhi4YHvU1YE8HLQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UOaeA6CWTcUjj73i6ZiNoPFenzMXO59WLh4V+4tbu70=;
- b=rx3K5UK+lHvfmzwjQ+UHI0nbR1Ew9zIP+xiEQ7F84woY0/Wp3hlDssbvfwr1SI0zLel60lzycS7BM9/O831ib1OCaUm/f7a5gy56GxdO+rfFvgsiPpMcJ/Frs5fRRogZY//M1is08ihFE69DW7IKjyudQwpDNCt1SmwuWjI/op7KX8Uj3bR1G+iyupnIPb3WisM08Fm6bJKaPGrjqLhrR6Vm4m8/xF4mN74nFQvJOtAh3F2y+pGjtjP+oCs3kT3PbJArGqMlWvTdoCGv7Q9sNiUUj8tOpr+sv0/YJMK8I18LDYzTBq0Wu/8NqGTWbttGougRgeSsRCJ2WES2FT+YxA==
-Received: from CY5P221CA0030.NAMP221.PROD.OUTLOOK.COM (2603:10b6:930:b::36) by
- SA1PR12MB9545.namprd12.prod.outlook.com (2603:10b6:806:45b::20) with
+ bh=P1TkWI/MIw/boaSzLsiIu7OVjl/6Mx9M9JMEqgTG8F8=;
+ b=DzrbpIPLJRdB/q+oX89ruz8ru6uu7Y7C5Tz5uah3kDPM3REJrHNSKos3cRdRv54yEalmErrgy8fCQYL4o3ufDBBNBXsSZtEdtqhvFUbjKEISB9tGL5WAFrRCZpyc4t6cSTqVVMceVv+MNlMVyC2rqNECWTZiXg+cprHsc1puvEeZXAMzvTp7655K5gFtDdosiabAvGZ9S0Htrt+TIyAMmfnUfc2MF6PXc1WM1XyuN2IuGohrYQirtgiRJEc2jvGMVcOIikm2waMqt8aOOtFnrE6ig2YUH8XssNCKEtf2/oI2XnGXqNyi04TLcXnYlr9izfV764k5+aN6xdBkLfz+aA==
+Received: from DS1PR04CA0014.namprd04.prod.outlook.com (2603:10b6:8:44f::12)
+ by LVUPR12MB999160.namprd12.prod.outlook.com (2603:10b6:408:3a4::19) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.19; Tue, 19 May
- 2026 03:40:07 +0000
-Received: from DS2PEPF000061C8.namprd02.prod.outlook.com
- (2603:10b6:930:b:cafe::a) by CY5P221CA0030.outlook.office365.com
- (2603:10b6:930:b::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
- May 2026 03:40:06 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Tue, 19 May
+ 2026 03:39:50 +0000
+Received: from DS2PEPF000061C3.namprd02.prod.outlook.com
+ (2603:10b6:8:44f:cafe::27) by DS1PR04CA0014.outlook.office365.com
+ (2603:10b6:8:44f::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.25 via Frontend Transport; Tue, 19
+ May 2026 03:39:49 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +60,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- DS2PEPF000061C8.mail.protection.outlook.com (10.167.23.75) with Microsoft
+ DS2PEPF000061C3.mail.protection.outlook.com (10.167.23.70) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:40:06 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 03:39:49 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
- 2026 20:39:51 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 20:39:35 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 18 May
- 2026 20:39:51 -0700
+ 2026 20:39:34 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 18 May 2026 20:39:50 -0700
+ Transport; Mon, 18 May 2026 20:39:33 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
  Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
@@ -85,9 +85,9 @@ CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
 	<xueshuai@linux.alibaba.com>
-Subject: [PATCH v4 21/24] iommu/arm-smmu-v3: Move arm_smmu_invs_for_each_entry to header
-Date: Mon, 18 May 2026 20:39:04 -0700
-Message-ID: <4d68f61ffabc1fca799543e77e4c0b845889e24e.1779161849.git.nicolinc@nvidia.com>
+Subject: [PATCH v4 10/24] iommu: Add __iommu_group_block_device helper
+Date: Mon, 18 May 2026 20:38:53 -0700
+Message-ID: <3c376e5915a1e7d700425be119aa84dde6af89db.1779161849.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1779161849.git.nicolinc@nvidia.com>
 References: <cover.1779161849.git.nicolinc@nvidia.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF000061C8:EE_|SA1PR12MB9545:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9024e538-8b12-4b6c-9494-08deb55851ec
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C3:EE_|LVUPR12MB999160:EE_
+X-MS-Office365-Filtering-Correlation-Id: 754b0f59-0011-4b05-b376-08deb55847a5
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|36860700016|82310400026|11063799003|32116099003|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: 3NCpUtofLUQUkWNnkEEa6TXpzUlgXvN4hXmR33c0GL0TuDCc3XhtXaO2TevZX2CkBI/39pa3zuolY6bRZ4F8Fwxa2MCqNLTeWSbAlhZp+zrtvlYecjXVaDWxGgJjDMiqX1LxwOAd0ArEjzwI/3YhSMNx7NuPzglbQMztxWswF1+oMawcUfa4404cAXJZM8MkR2R/p2j3AzoXAXWboUTRh1xpqblYpWQVnRYUcog5eYr/JkGfVbMwyDeox8vOywdCAbFQe0KR94XoTGEYmKxczTJHuqoldwNsawT8UR4MVfkrRCJgWlejcYcp9NX66qiAKVLmAPU358CzCK4cPDp9Uq0+m7MESO5W/5MSm4mbU4XH7ai4ulGPwlOCPJ8vKkMzkdEon3Du5OvALWUTMQ8N3J65sSgjV721QuXznLzNPctPpvCn0welq61MN8jRmThURqZsVgsQ4OSXPJ5xC8f3s48YcPfpL33GNxe/JKWx0Q1MNPV9TEzI1kpGNPgjtF/KqOfcLq9xWt68bl5+14JAtQsRlGUFh9ycg7Cgzth305AaAUVLAHArcXB36DfVJvHeaKi1C83UJDsg6w2VjgiimieY0UaBpGwkAgl58v/IrP9Sot933PAbwvMBdtAVwNrVjl/fqoAIg1mT62c+w3dTNBgchVXQ1txb41OSMu7uWzthZqH4bNIRs9tftWC3HkHGHabWRp4qXEB1f7jHfm/MBzzqViuJ7J5smg13Fsqkprg=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(36860700016)(82310400026)(11063799003)(32116099003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|11063799003|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: FAuEv6XkXp4yKZKx/aA5YB2ZNekmwdYy3kesHG1Za6EugEpz98b4Ki1xcXgUY+F8mepHNb/2UzYxIa4oZL8hnFWkD56VglLbjJXArg2/NePcA3DnihL/w1589pZ0+YArPzte1b/xQy2bFJv/mJoj2mRp4XVh/F1Rx0akuXVu3Tz2poSijv4jZM7KYfYzPXQACieHNlkwhZWfFU1pYV0SF+Ab3FgDaBFd7ck1ej30idWf3XwcPTT9n7yhKfpBC2bQo7q/uMiIO7nqZBPH/LebInwAvH9ojeUExzZZ3MAdsK2x7qNgmVItRIdXZpmNm0SrG5vLy+2oPXys6fis7vY2qsuVDPrJHPepmSg701dQb+ubKvzfGFgSQJ5kX81pPeijPHtxyp7ec5BLBqBR1JYK4PQ1OcsVp5liroxNUSAkErBJS8eb3T6L1QDetYnnYSB24+aOQ/CqfZCqBqCiWD5NfHE/XJke8QPxJafPn4tEZIyX8IbOmcttIYycvm64Cp8n+tfXSQA5e5lZpgAOUfcw2lgQ2b+cgx5Xg0z8U/t9+q3huwY/jj8ndQkPpCy/J8WETIm3z7uE0nudCH2pAICxqp1JMsOOTPOrBBUUFkLispqk+nRL9ZLxajM1fhQkdCb6IxnUEptr4K0W8AoSmdg8+DIcTKT0xlA9jCk6XjW6BMZn3Bq415EbgDNYotgcgK8lnR3fRn/GiWA4LMLrU1PIxpnKq+22W7RBKBdCOLVjWiQ=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(11063799003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 5G9u2hxSDfat6Ztj7ypwOddR07Y9bK7KEvErQFsYCsGdkbSDZ6cMsOXCuclv5cBQeL0BhSkC+uVPFzprsxV09cXF01VhTfquatVMtMLqWhGBtvjcPNwX2TfFVyJg/jONRU5Itsv9yUjfuOqeXJok7ZQbX+3cxqvbkfn6KrW90v4SYJoyAcU3QF3OAWEgO1vkr942vkFO/xjxou/11TRgh6Hs3DGQUKRtOOg2K52li3A3jzaAOjh/E/OP7CFsUyxnbN5cKn+xzDP4FmqDNPljHmQZOa+NYVl885wV3hDae9lgl6GI3UflgLlxEJNpJPHo47CUmno+Ed11bVNYoXRLu8Z4GNnjXWmhrplIggCAh8f4Af407URPAZJSIy0GjAMQmyoxTqSS4TOJbkqoUtZBUafrHQXLOlZCpTGSXvQpYOKmBoL2+gMUlhAB3gdWXusu
+X-MS-Exchange-AntiSpam-MessageData-0: W0I5Z6W4xDJPBeOPmAYopwfRfnwwfqsEotfkdafEccNwPCmUFM8L5fa24kiZtif6/qyh7LeRlHYOTXNKfiX2fJxvsEaVXY24zXsh+DeULO2S4n/YBXXKeIUGSosks5z1u3yu3J1aNs+/T+iOM8MSrX8eoA1SvYkKE6HJ9BsrCQx87IHCSy+tvw4I6t5QqYWgm4u0kIPMizwNd2Bj/vJA3LDz6oYVlKya8j+U6Q4TGjYg5zKOyBruNu1BISx8lkrE7cDkY4yw7iEHWZpkVXiBVEbWVqS7gAw7fP8KP7JQI51fUzV8GfxA37o5Ekp00zlQpp9rND0lWPG/p/kiPeUhWTAe3K04twDPfViGBi3/luZzozLEeismuXKrFrnhPJzjH+SnrA0N0uk5NvAGFrGsffLf3KVGadA0Lgzwb07+3Dn6d2xQKLPDiiZrQiHnpViE
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:40:06.7770
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 03:39:49.5358
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9024e538-8b12-4b6c-9494-08deb55851ec
+X-MS-Exchange-CrossTenant-Network-Message-Id: 754b0f59-0011-4b05-b376-08deb55847a5
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C8.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C3.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9545
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVUPR12MB999160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_204014_344726_8C8AA451 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20260518_204014_585512_81F3E9E9 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,95 +133,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A subsequent change will use this helper in a lockless context. Since this
-this is a macro, move it to the header file so other functions can use it.
+Move the RID/PASID blocking routine into a separate helper, which will be
+reused by a new function to quarantine the device but does not bother the
+gdev->reset_depth counter.
 
-Also, add READ_ONCE to invs->num_invs for lockless use.
+Also, document the severity ordering at enum gdev_blocked.
 
+No functional changes.
+
+Suggested-by: Kevin Tian <kevin.tian@intel.com>
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 28 +++++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 28 ---------------------
- 2 files changed, 28 insertions(+), 28 deletions(-)
+ drivers/iommu/iommu.c | 106 ++++++++++++++++++++++++------------------
+ 1 file changed, 60 insertions(+), 46 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 2074814534fef..b5ace01c05a5d 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -803,6 +803,34 @@ struct arm_smmu_invs {
- 	struct arm_smmu_inv inv[] __counted_by(max_invs);
- };
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index f745083c032d6..b150d22d8015f 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -77,6 +77,7 @@ struct iommu_group {
+ #define dev_iommu_group_rcu(dev) \
+ 	(*((struct iommu_group __rcu __force **)&(dev)->iommu_group))
  
-+/* Invalidation array manipulation functions */
-+static inline struct arm_smmu_inv *
-+arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next, size_t *idx)
++/* A bigger number indicates a higher severity */
+ enum gdev_blocked {
+ 	BLOCKED_NO = 0, /* Not blocked */
+ 	BLOCKED_RESETTING, /* PCI reset in flight */
+@@ -4053,6 +4054,62 @@ int iommu_replace_group_handle(struct iommu_group *group,
+ }
+ EXPORT_SYMBOL_NS_GPL(iommu_replace_group_handle, "IOMMUFD_INTERNAL");
+ 
++/* Caller can use this function on a blocked @gdev just to update the @reason */
++static int __iommu_group_block_device(struct group_device *gdev,
++				      enum gdev_blocked reason)
 +{
-+	while (true) {
-+		if (next >= READ_ONCE(invs->num_invs)) {
-+			*idx = next;
-+			return NULL;
-+		}
-+		if (!READ_ONCE(invs->inv[next].users)) {
-+			next++;
-+			continue;
-+		}
-+		*idx = next;
-+		return &invs->inv[next];
++	struct iommu_group *group = gdev->group;
++	unsigned long pasid;
++	void *entry;
++	int ret;
++
++	lockdep_assert_held(&group->mutex);
++
++	/* Device might be already blocked for a quarantine */
++	if (gdev->blocked) {
++		/* Escalate the severity */
++		gdev->blocked = max(gdev->blocked, reason);
++		return 0;
 +	}
++
++	ret = __iommu_group_alloc_blocking_domain(group);
++	if (ret)
++		return ret;
++
++	/* Stage RID domain at blocking_domain while retaining group->domain */
++	if (group->domain != group->blocking_domain) {
++		ret = __iommu_attach_device(group->blocking_domain, gdev->dev,
++					    group->domain);
++		if (ret)
++			return ret;
++	}
++
++	/*
++	 * Update gdev->blocked upon the domain change, as it is used to return
++	 * the correct domain in iommu_driver_get_domain_for_dev() that might be
++	 * called in a set_dev_pasid callback function.
++	 */
++	gdev->blocked = reason;
++
++	/*
++	 * Stage PASID domains at blocking_domain while retaining pasid_array.
++	 *
++	 * The pasid_array is mostly fenced by group->mutex, except one reader
++	 * in iommu_attach_handle_get(), so it's safe to read without xa_lock.
++	 */
++	if (gdev->dev->iommu->max_pasids > 0) {
++		xa_for_each_start(&group->pasid_array, pasid, entry, 1) {
++			struct iommu_domain *pasid_dom =
++				pasid_array_entry_to_domain(entry);
++
++			iommu_remove_dev_pasid(gdev->dev, pasid, pasid_dom);
++		}
++	}
++
++	group->recovery_cnt++;
++	return 0;
 +}
 +
-+/**
-+ * arm_smmu_invs_for_each_entry - Iterate over all non-trash entries in invs
-+ * @invs: the base invalidation array
-+ * @idx: a stack variable of 'size_t', to store the array index
-+ * @cur: a stack variable of 'struct arm_smmu_inv *'
-+ */
-+#define arm_smmu_invs_for_each_entry(invs, idx, cur)                           \
-+	for (cur = arm_smmu_invs_iter_next(invs, 0, &(idx)); cur;              \
-+	     cur = arm_smmu_invs_iter_next(invs, idx + 1, &(idx)))
-+
- static inline struct arm_smmu_invs *arm_smmu_invs_alloc(size_t num_invs)
+ /**
+  * pci_dev_reset_iommu_prepare() - Block IOMMU to prepare for a PCI device reset
+  * @pdev: PCI device that is going to enter a reset routine
+@@ -4086,8 +4143,6 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
  {
- 	struct arm_smmu_invs *new_invs;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 4f2b23b1e8163..c95297acf2cfe 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -979,34 +979,6 @@ static void arm_smmu_page_response(struct device *dev, struct iopf_fault *unused
- 	 */
- }
+ 	struct iommu_group *group = pdev->dev.iommu_group;
+ 	struct group_device *gdev;
+-	unsigned long pasid;
+-	void *entry;
+ 	int ret;
  
--/* Invalidation array manipulation functions */
--static inline struct arm_smmu_inv *
--arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next, size_t *idx)
--{
--	while (true) {
--		if (next >= invs->num_invs) {
--			*idx = next;
--			return NULL;
--		}
--		if (!READ_ONCE(invs->inv[next].users)) {
--			next++;
--			continue;
--		}
--		*idx = next;
--		return &invs->inv[next];
+ 	if (!pci_ats_supported(pdev) || !dev_has_iommu(&pdev->dev))
+@@ -4102,49 +4157,9 @@ int pci_dev_reset_iommu_prepare(struct pci_dev *pdev)
+ 	if (gdev->reset_depth++)
+ 		return 0;
+ 
+-	/* Device might be already blocked for a quarantine */
+-	if (gdev->blocked)
+-		return 0;
+-
+-	ret = __iommu_group_alloc_blocking_domain(group);
+-	if (ret) {
++	ret = __iommu_group_block_device(gdev, BLOCKED_RESETTING);
++	if (ret)
+ 		gdev->reset_depth--;
+-		return ret;
 -	}
--}
 -
--/**
-- * arm_smmu_invs_for_each_entry - Iterate over all non-trash entries in invs
-- * @invs: the base invalidation array
-- * @idx: a stack variable of 'size_t', to store the array index
-- * @cur: a stack variable of 'struct arm_smmu_inv *'
-- */
--#define arm_smmu_invs_for_each_entry(invs, idx, cur)                           \
--	for (cur = arm_smmu_invs_iter_next(invs, 0, &(idx)); cur;              \
--	     cur = arm_smmu_invs_iter_next(invs, idx + 1, &(idx)))
+-	/* Stage RID domain at blocking_domain while retaining group->domain */
+-	if (group->domain != group->blocking_domain) {
+-		ret = __iommu_attach_device(group->blocking_domain, &pdev->dev,
+-					    group->domain);
+-		if (ret) {
+-			gdev->reset_depth--;
+-			return ret;
+-		}
+-	}
 -
- static int arm_smmu_inv_cmp(const struct arm_smmu_inv *inv_l,
- 			    const struct arm_smmu_inv *inv_r)
- {
+-	/*
+-	 * Update gdev->blocked upon the domain change, as it is used to return
+-	 * the correct domain in iommu_driver_get_domain_for_dev() that might be
+-	 * called in a set_dev_pasid callback function.
+-	 */
+-	gdev->blocked = BLOCKED_RESETTING;
+-
+-	/*
+-	 * Stage PASID domains at blocking_domain while retaining pasid_array.
+-	 *
+-	 * The pasid_array is mostly fenced by group->mutex, except one reader
+-	 * in iommu_attach_handle_get(), so it's safe to read without xa_lock.
+-	 */
+-	if (pdev->dev.iommu->max_pasids > 0) {
+-		xa_for_each_start(&group->pasid_array, pasid, entry, 1) {
+-			struct iommu_domain *pasid_dom =
+-				pasid_array_entry_to_domain(entry);
+-
+-			iommu_remove_dev_pasid(&pdev->dev, pasid, pasid_dom);
+-		}
+-	}
+-
+-	group->recovery_cnt++;
+ 	return ret;
+ }
+ EXPORT_SYMBOL_GPL(pci_dev_reset_iommu_prepare);
+@@ -4256,8 +4271,7 @@ void pci_dev_reset_iommu_done(struct pci_dev *pdev, int reset_result)
+ 			dev_err_ratelimited(
+ 				&pdev->dev,
+ 				"Reset failed. Keep it blocked to protect memory\n");
+-		if (gdev->blocked == BLOCKED_RESETTING)
+-			gdev->blocked = BLOCKED_RESET_FAILED;
++		WARN_ON(__iommu_group_block_device(gdev, BLOCKED_RESET_FAILED));
+ 		return;
+ 	}
+ 
 -- 
 2.43.0
 
