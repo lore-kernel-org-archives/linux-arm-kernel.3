@@ -4,112 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 326D2CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EE83CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:50:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eJ+COE47TCHOzRJeglSqxOxxNZ8lIMv/9xSnCNeoVAA=; b=FRtfkPimsU2uSxPq6w4G88r6uS
-	1H5xmCmyv2aRtzJXV9eIKftvnQrrQRMviAyxVn4ZsqGe2/rPxiYx+327jB/yRF389CwbhX1JQxWl/
-	ALSjbp2ckRTo6Z2uWLsQm5z3b/kv2lNJOMnuzPA4kO72AzNRivkEE0tX46DzoAZjUqqI2PLwxH2+W
-	3alc/rX0lBLyM6z2oRhGJvAtuxK6oj52RWwZR00OjzjFDttECsIeEm/9Dk8yM5Xh/Kt6IARFdWEI7
-	JKc766h+MObkrVC2xRv0DXQcbFXkcqId6rgA0BPylNecWQswLo57frYgQ/JlMdvpJuLyjJO7QRHDX
-	QfgP7zhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iRKRd4x/pwAScmiYrTs7DHQemJERJH4e04G6xMVKSnw=; b=JSvMGqiVweOzj8HoEEkeKmXZIr
+	gywS2omzOq6No3xPs3T3sKz3RF7rxTXHnv0zxWh05X7lq82xLD9BNCYn+ZesqxN4dI1Ylal5wv5xR
+	wLw842tZgal+dyj7HAThf/Buc33O/jY62CxEM8+aGNvrf3RVmAlGWU5suPr5s+oYrn543bf3fnfUH
+	bCy2iAH43SCidhn+dSKtow1MLnk6M7JQpamJ/+YOrPY9M7ldsBhx2oOgTjXWuakSL89NIZ0IyGLf9
+	njnHX5K7788GJduCeJ+X7i7JAK1UMS4xGTJEeAVzjgcOY9zeLgd6GbAELHwFg0Kr1x93kQyUXj6I4
+	6sPJqASA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPECC-00000000NyK-18Se;
-	Tue, 19 May 2026 06:44:52 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wPEHN-00000000OVR-00Qg;
+	Tue, 19 May 2026 06:50:13 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPEC9-00000000NxQ-0JcC
+	id 1wPEHK-00000000OTw-3ONK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 06:44:50 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-44e5624c053so1816737f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:44:47 -0700 (PDT)
+	Tue, 19 May 2026 06:50:12 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-83cecc22d5fso1700557b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 23:50:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1779173086; x=1779777886; darn=lists.infradead.org;
-        h=content-transfer-encoding:autocrypt:subject:from:cc:to
-         :content-language:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eJ+COE47TCHOzRJeglSqxOxxNZ8lIMv/9xSnCNeoVAA=;
-        b=LpoIc/QZEoP+dkiH4TgnUwUAttPTzDamMCRYncfpaYEWH48HGEDgMAghO5Ra1A6ref
-         Tbj9x5iEke9LgrT75vK7tWSUMUYJK5zFwD8Jdas08mE7wkgJR77kLk2yjCCa2N8enKc5
-         2tfKxOO+m8aMFjEyjeyhRAaMBtpmZTaab7UUNbm8JJsQzCniN3fsOJPTcLP0g1Xr3uJ+
-         /wwrQ2ZckWgfqmoB2vElPuPLV2AIR+foOfDYj6uFI7K+8ohq4D+yD9lXAHNG52DPkmUP
-         ri+mFSDLlrmpGEs+XO2MTFyIyeLfo+/V7H/ThBRo6PHs5k5Cy0aE5mv22fvUp+x0aT0e
-         /sag==
+        d=google.com; s=20251104; t=1779173409; x=1779778209; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=iRKRd4x/pwAScmiYrTs7DHQemJERJH4e04G6xMVKSnw=;
+        b=YjN1GWp2YYiG22hyyWQXEC0tmnVpQzE1kDVwDx4iTifz5xq797JSrTmrfAIu3CzkP9
+         88hbLAqsJVpQT0SU4syRsj9mHA+ow2KvCemcd9Pju7rN0V1MEBtSOqdBIhii/hvm33SZ
+         Z39Km+o995lDsNHPASMipS7Wv3tfNfbH5vC1YocNgAnXx6STLeSDBYWOamrR+fCYflfo
+         w9eQ1jsPlRwakVWIMmeU2uml2ihidLzVefmMJ2oie3Jwo9cX4qQtyvbum7maTM9zIMsv
+         fG3Xc4IUdgVfqXlTeJTHpcb/i/LNWnJrovn5Q5zIpHASZ8zLVYq6hEZ+0xEj7KXmghBB
+         mT4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779173086; x=1779777886;
-        h=content-transfer-encoding:autocrypt:subject:from:cc:to
-         :content-language:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eJ+COE47TCHOzRJeglSqxOxxNZ8lIMv/9xSnCNeoVAA=;
-        b=DxsGwv5vkWn9ajfgnuNnnJ+rmdCGiWAQKswNMBS2NJHQhNeV/isYlOb9f/rqrOhLjR
-         gW+XIRXRSsG9Cl46LgFDQVgFhHIuoOX+rs94jeYYVPslYQ/OTJHwryVqlBRNO1SuzkRP
-         Xanl40FOf0JhWOrKll0sSB5/8+O5auis5fegmhyCtc1QxkJ7X7bQbrJRVuL+GTRlVgKh
-         FZkr9NM4soGJhzq3W+sWaXeuKZyzPDIlYf5/0h70mHP0YLM34EZ0jGtBHBXOnGaSP4I2
-         ZTi7sJE4uFLWU7Hw1l9UBb3kl7vJGxqDRjj72vDMJJofnqQAXVYGsFt/nbs1sEko0Y8d
-         /UMQ==
-X-Gm-Message-State: AOJu0Yy3lIBykmfVHFQl7Zu9UR0RYXTOK/P9Gm7cjJ8uEKXwPOUA47vb
-	5uv8HEduCFmYtukR4uPm4mA9OzaeGiaop8qvglZ3tlYPUu2lZ3Vm6jV76xu9UWZ5Z3UChDzyxXB
-	abLI=
-X-Gm-Gg: Acq92OFBKyUSqGrq9GsTS3G28cjl2lDPc+WwqJe37YpAvTbLLw0UTyXkgW6zmuYy7Ra
-	hpsbbO/xhAG/jt56/FHyeZohGMH/byxM9btpHED/+TD1rDnNi+YwKyQDgeAYJuVp1Ds45tv6pIj
-	CoKt13LEUsBJXiVALcBKoBuTHYz8rEQ+IeRabDEtd5EfiqDorfKSnUHFQVv31XytVoQMYQUNRnD
-	ZN+4+YbN5LHcXjoOZdF9ks6uaPGkLGLrAOCsALsIPEHBLtiaQ+fwHKCEILYXwGifId0wL0jIsCe
-	y5yXw2aD9OoHW9CMoSSvXX/llH4IDgdHTJEOfCk0EYMvX5rsGnm12CBOoiqbdH97DI/TwY8XTzm
-	ZZJ/nPC1IjXXfq0agirfC9JrkrZdjazL3pDpGDFDqFmK0CruJDUfpaDAonwOMRoTdchutoocTDG
-	wK1gUq2DJb4SYNKB16uXQkNGhsJvJzPH3mIK7/ljpkVUZfl6ZmZ35/agqQ2ePLWqE4rz6u9ezBQ
-	WS/My0Mm3Xh5y0=
-X-Received: by 2002:a5d:5850:0:b0:44a:a729:9f51 with SMTP id ffacd0b85a97d-45e5c58fb1dmr27522030f8f.3.1779173086560;
-        Mon, 18 May 2026 23:44:46 -0700 (PDT)
-Received: from [10.156.60.236] (ip-037-024-206-209.um08.pools.vodafone-ip.de. [37.24.206.209])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe13a7sm45046613f8f.29.2026.05.18.23.44.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 18 May 2026 23:44:45 -0700 (PDT)
-Message-ID: <58a1862e-3702-4ba9-965b-2eb248c05c60@suse.com>
-Date: Tue, 19 May 2026 08:44:44 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>
-Cc: Russell King <linux@armlinux.org.uk>
-From: Jan Beulich <jbeulich@suse.com>
-Subject: Arm32: correct string.h functions for "int" -> "unsigned char"
- conversion
-Autocrypt: addr=jbeulich@suse.com; keydata=
- xsDiBFk3nEQRBADAEaSw6zC/EJkiwGPXbWtPxl2xCdSoeepS07jW8UgcHNurfHvUzogEq5xk
- hu507c3BarVjyWCJOylMNR98Yd8VqD9UfmX0Hb8/BrA+Hl6/DB/eqGptrf4BSRwcZQM32aZK
- 7Pj2XbGWIUrZrd70x1eAP9QE3P79Y2oLrsCgbZJfEwCgvz9JjGmQqQkRiTVzlZVCJYcyGGsD
- /0tbFCzD2h20ahe8rC1gbb3K3qk+LpBtvjBu1RY9drYk0NymiGbJWZgab6t1jM7sk2vuf0Py
- O9Hf9XBmK0uE9IgMaiCpc32XV9oASz6UJebwkX+zF2jG5I1BfnO9g7KlotcA/v5ClMjgo6Gl
- MDY4HxoSRu3i1cqqSDtVlt+AOVBJBACrZcnHAUSuCXBPy0jOlBhxPqRWv6ND4c9PH1xjQ3NP
- nxJuMBS8rnNg22uyfAgmBKNLpLgAGVRMZGaGoJObGf72s6TeIqKJo/LtggAS9qAUiuKVnygo
- 3wjfkS9A3DRO+SpU7JqWdsveeIQyeyEJ/8PTowmSQLakF+3fote9ybzd880fSmFuIEJldWxp
- Y2ggPGpiZXVsaWNoQHN1c2UuY29tPsJgBBMRAgAgBQJZN5xEAhsDBgsJCAcDAgQVAggDBBYC
- AwECHgECF4AACgkQoDSui/t3IH4J+wCfQ5jHdEjCRHj23O/5ttg9r9OIruwAn3103WUITZee
- e7Sbg12UgcQ5lv7SzsFNBFk3nEQQCACCuTjCjFOUdi5Nm244F+78kLghRcin/awv+IrTcIWF
- hUpSs1Y91iQQ7KItirz5uwCPlwejSJDQJLIS+QtJHaXDXeV6NI0Uef1hP20+y8qydDiVkv6l
- IreXjTb7DvksRgJNvCkWtYnlS3mYvQ9NzS9PhyALWbXnH6sIJd2O9lKS1Mrfq+y0IXCP10eS
- FFGg+Av3IQeFatkJAyju0PPthyTqxSI4lZYuJVPknzgaeuJv/2NccrPvmeDg6Coe7ZIeQ8Yj
- t0ARxu2xytAkkLCel1Lz1WLmwLstV30g80nkgZf/wr+/BXJW/oIvRlonUkxv+IbBM3dX2OV8
- AmRv1ySWPTP7AAMFB/9PQK/VtlNUJvg8GXj9ootzrteGfVZVVT4XBJkfwBcpC/XcPzldjv+3
- HYudvpdNK3lLujXeA5fLOH+Z/G9WBc5pFVSMocI71I8bT8lIAzreg0WvkWg5V2WZsUMlnDL9
- mpwIGFhlbM3gfDMs7MPMu8YQRFVdUvtSpaAs8OFfGQ0ia3LGZcjA6Ik2+xcqscEJzNH+qh8V
- m5jjp28yZgaqTaRbg3M/+MTbMpicpZuqF4rnB0AQD12/3BNWDR6bmh+EkYSMcEIpQmBM51qM
- EKYTQGybRCjpnKHGOxG0rfFY1085mBDZCH5Kx0cl0HVJuQKC+dV2ZY5AqjcKwAxpE75MLFkr
- wkkEGBECAAkFAlk3nEQCGwwACgkQoDSui/t3IH7nnwCfcJWUDUFKdCsBH/E5d+0ZnMQi+G0A
- nAuWpQkjM1ASeQwSHEeAWPgskBQL
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+        d=1e100.net; s=20251104; t=1779173409; x=1779778209;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=iRKRd4x/pwAScmiYrTs7DHQemJERJH4e04G6xMVKSnw=;
+        b=Ov0CgQG13ZUtWdAkvcUzIYxQ93Z9iNq0WBVU9FriXpPhbudYaQUAxoCR6v9wk3NHyn
+         XECoSG7mwF25Q+TOnjoY7xtKorvMAMc1dIRL6nTYoCU+QQa14/y0tz2pTmyYLwlh3tbd
+         hDZiwMYVjunRiGtEVVBbkJu7ekpq60BS0C12fLErKIU9U0D3yXqXMEelPBm7L1fJoh01
+         UfuerCxAHBWu7G3TuQzQEpLjuahT5YPtdO0Tv3vSQ6NPTXQ1s/yxwH2x1I9PEAjnLNhh
+         ZFBPe3DmzMV4OlzYHNCHLOvOBq4dFYR/Pdw6PlZuKLt0idFS7/Z4z5+iBh4Gb+/5ntjy
+         fI5A==
+X-Forwarded-Encrypted: i=1; AFNElJ+lMN1ueBQfak/Ny/OwFgiaPSFO/wgblR+kyChZOpxtc6XRAblMOb+Rn7lORSGq5uqJynKtucC1vdbrMnyS1DEK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yysj47AeiHZFGSao9QZ/ICHcefbRZnDurXdqIH4rf+WX8fxnk+v
+	/Bbga3RRqrdjt/ySsQbLxV06KJVsM8VmfXO5axJkcUfV0btnHU9pc0Wvuz+DTd8eLfct8JeDLQf
+	PcJD6SQrEOWyDSOipn7IJccSCAw==
+X-Received: from pfnw18.prod.google.com ([2002:aa7:8592:0:b0:83f:64cf:fda3])
+ (user=dylanbhatch job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a00:35ce:b0:82f:cfd2:6ca0 with SMTP id d2e1a72fcca58-83f33ccd7acmr18266477b3a.40.1779173408976;
+ Mon, 18 May 2026 23:50:08 -0700 (PDT)
+Date: Tue, 19 May 2026 06:49:43 +0000
+In-Reply-To: <20260519064950.493949-1-dylanbhatch@google.com>
+Mime-Version: 1.0
+References: <20260519064950.493949-1-dylanbhatch@google.com>
+X-Mailer: git-send-email 2.54.0.563.g4f69b47b94-goog
+Message-ID: <20260519064950.493949-3-dylanbhatch@google.com>
+Subject: [PATCH v6 2/9] arm64, unwind: build kernel with sframe V3 info
+From: Dylan Hatch <dylanbhatch@google.com>
+To: Roman Gushchin <roman.gushchin@linux.dev>, Weinan Liu <wnliu@google.com>, 
+	Will Deacon <will@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	Indu Bhagat <ibhagatgnu@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Jiri Kosina <jikos@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Jens Remus <jremus@linux.ibm.com>
+Cc: Dylan Hatch <dylanbhatch@google.com>, Prasanna Kumar T S M <ptsm@linux.microsoft.com>, 
+	Puranjay Mohan <puranjay@kernel.org>, Song Liu <song@kernel.org>, joe.lawrence@redhat.com, 
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	live-patching@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Randy Dunlap <rdunlap@infradead.org>, Mostafa Saleh <smostafa@google.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_234449_141547_72406161 
-X-CRM114-Status: UNSURE (   7.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_235010_863284_B4F92325 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,47 +97,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While Arm64 does so uniformly, for Arm32 only strchr() currently handles
-this properly. Add the necessary conversion also to strrchr(), memchr(),
-and memset().
+Build with -Wa,--gsframe-3 flags to generate a .sframe section. This
+will be used for in-kernel reliable stacktrace in cases where the frame
+pointer alone is insufficient.
 
-As to the placement in memset(): Putting the new insn at the beginning
-of the function could perhaps be deemed more "obvious", but the code
-reachable without ever making it to the "1" label only ever does byte
-stores.
+Currently, the sframe format only supports arm64, x86_64 and s390x
+architectures.
 
-Signed-off-by: Jan Beulich <jbeulich@suse.com>
+Signed-off-by: Weinan Liu <wnliu@google.com>
+Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
+Reviewed-by: Jens Remus <jremus@linux.ibm.com>
+Signed-off-by: Dylan Hatch <dylanbhatch@google.com>
+---
+ MAINTAINERS                            |  2 +-
+ Makefile                               |  8 ++++++++
+ arch/Kconfig                           | 21 +++++++++++++++++++++
+ arch/arm64/Kconfig                     |  1 +
+ arch/arm64/include/asm/unwind_sframe.h |  8 ++++++++
+ arch/arm64/kernel/vdso/Makefile        |  2 +-
+ include/asm-generic/sections.h         |  4 ++++
+ include/asm-generic/vmlinux.lds.h      | 15 +++++++++++++++
+ 8 files changed, 59 insertions(+), 2 deletions(-)
+ create mode 100644 arch/arm64/include/asm/unwind_sframe.h
 
---- a/arch/arm/lib/memchr.S
-+++ b/arch/arm/lib/memchr.S
-@@ -12,6 +12,7 @@
- 	.text
- 	.align	5
- ENTRY(memchr)
-+	and	r1, r1, #0xff
- 1:	subs	r2, r2, #1
- 	bmi	2f
- 	ldrb	r3, [r0], #1
---- a/arch/arm/lib/memset.S
-+++ b/arch/arm/lib/memset.S
-@@ -24,7 +24,8 @@ UNWIND( .fnstart         )
- /*
-  * we know that the pointer in ip is aligned to a word boundary.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 54613c683fdb..046d06dcdb86 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -27862,8 +27862,8 @@ STACK UNWINDING
+ M:	Josh Poimboeuf <jpoimboe@kernel.org>
+ M:	Steven Rostedt <rostedt@goodmis.org>
+ S:	Maintained
++F:	arch/*/include/asm/unwind_sframe.h
+ F:	arch/*/include/asm/unwind_user.h
+-F:	arch/*/include/asm/unwind_user_sframe.h
+ F:	include/asm-generic/unwind_user.h
+ F:	include/linux/sframe.h
+ F:	include/linux/unwind*.h
+diff --git a/Makefile b/Makefile
+index 9f88dcaae382..227fda16deb1 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1147,6 +1147,14 @@ endif
+ # Ensure compilers do not transform certain loops into calls to wcslen()
+ KBUILD_CFLAGS += -fno-builtin-wcslen
+ 
++# build with sframe table
++ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++CC_FLAGS_SFRAME := -Wa,--gsframe-3
++KBUILD_CFLAGS	+= $(CC_FLAGS_SFRAME)
++KBUILD_AFLAGS	+= $(CC_FLAGS_SFRAME)
++export CC_FLAGS_SFRAME
++endif
++
+ # change __FILE__ to the relative path to the source directory
+ ifdef building_out_of_srctree
+ KBUILD_CPPFLAGS += -fmacro-prefix-map=$(srcroot)/=
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 6eeafd86347b..f931b5848593 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -520,6 +520,27 @@ config SFRAME_VALIDATION
+ 
+ 	  If unsure, say N.
+ 
++config ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
++	bool
++	help
++	  An architecture can select this if it enables the SFrame (Simple
++	  Frame) unwinder for unwinding kernel stack traces. It uses an unwind
++	  table that is directly generated by the toolchain based on DWARF CFI
++	  information.
++
++config HAVE_UNWIND_KERNEL_SFRAME
++	bool "Sframe unwinder"
++	depends on AS_SFRAME3
++	depends on 64BIT
++	depends on ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
++	select UNWIND_SFRAME_LOOKUP
++	help
++	  This option enables the SFrame (Simple Frame) unwinder for unwinding
++	  kernel stack traces. It uses unwind an table that is directly
++	  generated by the toolchain based on DWARF CFI information. In
++	  practice, this can provide more reliable stacktrace results than
++	  unwinding with frame pointers alone.
++
+ config HAVE_PERF_REGS
+ 	bool
+ 	help
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index fe60738e5943..c3ef478469e5 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -86,6 +86,7 @@ config ARM64
+ 	select ARCH_SUPPORTS_SCHED_SMT
+ 	select ARCH_SUPPORTS_SCHED_CLUSTER
+ 	select ARCH_SUPPORTS_SCHED_MC
++	select ARCH_SUPPORTS_UNWIND_KERNEL_SFRAME
+ 	select ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+ 	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+ 	select ARCH_WANT_DEFAULT_BPF_JIT
+diff --git a/arch/arm64/include/asm/unwind_sframe.h b/arch/arm64/include/asm/unwind_sframe.h
+new file mode 100644
+index 000000000000..876412881196
+--- /dev/null
++++ b/arch/arm64/include/asm/unwind_sframe.h
+@@ -0,0 +1,8 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_ARM64_UNWIND_SFRAME_H
++#define _ASM_ARM64_UNWIND_SFRAME_H
++
++#define SFRAME_REG_SP	31
++#define SFRAME_REG_FP	29
++
++#endif /* _ASM_ARM64_UNWIND_SFRAME_H */
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index 7dec05dd33b7..c60ef921956f 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -38,7 +38,7 @@ ccflags-y += -DDISABLE_BRANCH_PROFILING -DBUILD_VDSO
+ CC_FLAGS_REMOVE_VDSO := $(CC_FLAGS_FTRACE) -Os $(CC_FLAGS_SCS) \
+ 			$(RANDSTRUCT_CFLAGS) $(KSTACK_ERASE_CFLAGS) \
+ 			$(GCC_PLUGINS_CFLAGS) \
+-			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) \
++			$(CC_FLAGS_LTO) $(CC_FLAGS_CFI) $(CC_FLAGS_SFRAME) \
+ 			-Wmissing-prototypes -Wmissing-declarations
+ 
+ CC_FLAGS_ADD_VDSO := -O2 -mcmodel=tiny -fasynchronous-unwind-tables
+diff --git a/include/asm-generic/sections.h b/include/asm-generic/sections.h
+index 0755bc39b0d8..336d27011a58 100644
+--- a/include/asm-generic/sections.h
++++ b/include/asm-generic/sections.h
+@@ -31,6 +31,7 @@
+  *	__irqentry_text_start, __irqentry_text_end
+  *	__softirqentry_text_start, __softirqentry_text_end
+  *	__start_opd, __end_opd
++ *	__start_sframe, __end_sframe
   */
--1:	orr	r1, r1, r1, lsl #8
-+1:	and	r1, r1, #0xff
-+	orr	r1, r1, r1, lsl #8
- 	orr	r1, r1, r1, lsl #16
- 	mov	r3, r1
- 7:	cmp	r2, #16
---- a/arch/arm/lib/strrchr.S
-+++ b/arch/arm/lib/strrchr.S
-@@ -12,6 +12,7 @@
- 		.text
- 		.align	5
- ENTRY(strrchr)
-+		and	r1, r1, #0xff
- 		mov	r3, #0
- 1:		ldrb	r2, [r0], #1
- 		teq	r2, r1
+ extern char _text[], _stext[], _etext[];
+ extern char _data[], _sdata[], _edata[];
+@@ -53,6 +54,9 @@ extern char __ctors_start[], __ctors_end[];
+ /* Start and end of .opd section - used for function descriptors. */
+ extern char __start_opd[], __end_opd[];
+ 
++/* Start and end of .sframe section - used for stack unwinding. */
++extern char __start_sframe[], __end_sframe[];
++
+ /* Start and end of instrumentation protected text section */
+ extern char __noinstr_text_start[], __noinstr_text_end[];
+ 
+diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinux.lds.h
+index 60c8c22fd3e4..6aeed39097dd 100644
+--- a/include/asm-generic/vmlinux.lds.h
++++ b/include/asm-generic/vmlinux.lds.h
+@@ -491,6 +491,8 @@
+ 		*(.rodata1)						\
+ 	}								\
+ 									\
++	SFRAME								\
++									\
+ 	/* PCI quirks */						\
+ 	.pci_fixup        : AT(ADDR(.pci_fixup) - LOAD_OFFSET) {	\
+ 		BOUNDED_SECTION_PRE_LABEL(.pci_fixup_early,  _pci_fixups_early,  __start, __end) \
+@@ -904,6 +906,19 @@
+ #define TRACEDATA
+ #endif
+ 
++#ifdef CONFIG_HAVE_UNWIND_KERNEL_SFRAME
++#define SFRAME							\
++	/* sframe */						\
++	.sframe : AT(ADDR(.sframe) - LOAD_OFFSET) {		\
++		__start_sframe = .;			\
++		KEEP(*(.sframe))				\
++		KEEP(*(.init.sframe))				\
++		__end_sframe = .;			\
++	}
++#else
++#define SFRAME
++#endif
++
+ #ifdef CONFIG_PRINTK_INDEX
+ #define PRINTK_INDEX							\
+ 	.printk_index : AT(ADDR(.printk_index) - LOAD_OFFSET) {		\
+-- 
+2.54.0.563.g4f69b47b94-goog
+
 
