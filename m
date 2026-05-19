@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C6ECD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB2ECCD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1E2ImGYWsJpjvC3hIVC90B9twJKei/PQnia+pdh80iU=; b=JQQ4xrg+KFAW9bobaAC5hrCVuR
-	Xpxhiouy0Qt1cterdEo3MzIpAn1U8/Yf9jfIOiAaIkx/nuLgilBrmSntHw3jw9SUcSMMhNsn3WfhA
-	DIe3FTlCDx8B3YxuiM+64tc4HVQFc0dWmbTEjQHgNCh3r3HcXsAScJqkc6hQ3s/YOCHIsDTW3exAT
-	bL3WkOEmGSEcy+Z7cyvFB9td1inMKTglttrp0MqVmcuVXVUfHO54WFRXPOegVCdc38Qg7QI9QnepS
-	YAehqWHTyCAW/OeQcaIyWdENIpA1OmPvK8ttsJlr2oNCb/U5rWp+L+IPLRh5tNF8fU58sCQi9jN2X
-	3VHH0Ueg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ptbmMIOAdFt8BwqaadDYqNNx+RpR3u9xuziAA/vIwXs=; b=1hOrd3LFMFgUJW6rFAuwjIzN2V
+	JXIMCIXjK2WYL2FKZrtmDnXTr0IZNZ2kvner9tcO8m0aam7sOHBfRxKejY9oVhxdYidJ/uf/9GaW1
+	YhSQNv5qIi75GY/v3KmCJaUF/bMASGKR53VJqKOeh0CYA6rXVTCE/6Un5kt0q6WHj99JzR50JVOIr
+	otOEqsFgQPbloVX/WgapQu/PsbG170pk+oV3FrCVRTg6TqPdFodlvllT8Y9DBpq1PbPGSzMeTgWsy
+	9cwuFVVom73f0OzED0rvNikV4se6sRDUPmj53RJmsw6AVcADAIj6mN7u/38VNHcu5uPopVSECHUgo
+	SUd+iHSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGI0-00000000n3t-3FYd;
-	Tue, 19 May 2026 08:59:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPGKt-00000000nxO-2pSy;
+	Tue, 19 May 2026 09:01:59 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGHm-00000000mme-2uwV;
-	Tue, 19 May 2026 08:58:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5936240DFF;
-	Tue, 19 May 2026 08:58:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3DA6C2BCF5;
-	Tue, 19 May 2026 08:58:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779181126;
-	bh=kIZ7hSTUwleZoENzPyp+m6OfOT2FDYmUobikUdJcGFc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jMb/JSaPqDZV6oxNIbKf9yWe5bo5/ol7/nzazi+OlaTPtwHG43EpIJRVrxDbpvTDq
-	 QwcCrmy8HD7TkGITgX8p5O9vrjt6c159m/RSVVJ671qJ4NmnuukYPXU9iT8e6g5RiH
-	 AuE5xRPHcB8CZ2fCbXFZ628zpN/gMzCb/i/gMj34zGr9JZP6lSUbEaf0AXNxNszIUK
-	 6a6280pQhO1ylsSeX9KPEN3+TEUz2+YIcnhH0BaTK669y2ItXHY58MwZ8eLYMDNN9O
-	 IB+zOkRGplzCI6Y+zW3YUT3PHqTQNZXQZD6Qe3CAp0Z6uQpc6uDybNn4nprTH33Bv4
-	 KDq/zFFty40lQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 19 May 2026 10:57:53 +0200
-Subject: [PATCH net-next v8 10/10] net: airoha: Support multiple LAN/WAN
- interfaces for hw MAC address configuration
+	id 1wPGKs-00000000nx0-0tte
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 09:01:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1779181318; x=1810717318;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=bVqS1Abfd3XhxVTJJMr1uiuME/oE+EUAC30jYZW157c=;
+  b=AVNLzRIsj+4opuCYWE9Vk0sCASWGgVJ9vvLLxHLkKmieJD2YZoRAQfq5
+   KhRvjnb6HfwzlQVZsR8oapxgphEtifppHFpSrQmEwHfNTKJZlCWzI+KOn
+   Qw88uFgrZty0r5pnPcPAKYPIc2uyukKnbEMtSzOQp0hSDWrAZvWMn9X1O
+   4S2ifvWNCzsWGUfcsFli/cig6h6HhhqPepDI27mu3O91HCQxdyeT1D5uY
+   LqtJuriBKFvgF7sBdSNerWmb5Fi3PLO6bNZf7YlGmmh9BDpSuSGXvkK+9
+   eB3A+Grf8opyChgnpTZ2bfss7t4jjcb7O7Yqs+vLWV3/4mMSptdto6Ozc
+   Q==;
+X-CSE-ConnectionGUID: ax/201G4TeWRIhxu7tRlag==
+X-CSE-MsgGUID: Sj3WJHEnQjSuGAIDTdsJ8Q==
+X-IronPort-AV: E=Sophos;i="6.23,243,1770620400"; 
+   d="scan'208";a="289088331"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 May 2026 02:01:55 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 19 May 2026 02:01:55 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 19 May 2026 02:01:51 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <manikandan.m@microchip.com>
+Subject: [PATCH 0/8] drm: atmel-hlcdc: fix clock handling and add LVDS support
+Date: Tue, 19 May 2026 14:31:27 +0530
+Message-ID: <20260519090135.1188405-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-airoha-eth-multi-serdes-v8-10-6bd70e329df6@kernel.org>
-References: <20260519-airoha-eth-multi-serdes-v8-0-6bd70e329df6@kernel.org>
-In-Reply-To: <20260519-airoha-eth-multi-serdes-v8-0-6bd70e329df6@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>, 
- Benjamin Larsson <benjamin.larsson@genexis.eu>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- Madhur Agrawal <madhur.agrawal@airoha.com>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_015846_810171_B05E7B98 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20260519_020158_262227_D422D500 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,185 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The EN7581 and AN7583 SoCs provide registers to configure hardware LAN/WAN
-MAC addresses, used to determine whether received traffic is destined for
-this host or should be forwarded to another device.
-The SoC hardware design assumes all interfaces configured as LAN (or WAN)
-share a common upper MAC address, which is programmed into the
-REG_FE_{LAN,WAN}_MAC_H register. The lower bytes of 'local' addresses can
-be expressed as a range via the REG_FE_MAC_LMIN and REG_FE_MAC_LMAX
-registers.
-Previously, only a single interface was considered when programming these
-registers. Extend the logic to derive the correct minimum and maximum
-values for REG_FE_MAC_LMIN/REG_FE_MAC_LMAX when two or more interfaces are
-configured as LAN or WAN.
+This series fixes several issues in the atmel-hlcdc CRTC clock handling
+and adds LVDS display support for XLCDC-based SoCs.
 
-Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 77 +++++++++++++++++++++++++++-----
- drivers/net/ethernet/airoha/airoha_eth.h |  2 +-
- drivers/net/ethernet/airoha/airoha_ppe.c |  4 +-
- 3 files changed, 68 insertions(+), 15 deletions(-)
+The first patch fixes a pre-existing off-by-one error in the vertical
+back porch register calculation. The following patches progressively
+clean up the clock divider logic by introducing DIV_ROUND_CLOSEST,
+defining a named maximum divider constant, and extracting clock setup
+into a dedicated helper. Clock bypass support is then added for XLCDC
+hardware when the computed divider is less than 2.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 328f94fef2e2..9ae1ba433309 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -71,20 +71,69 @@ static void airoha_qdma_irq_disable(struct airoha_irq_bank *irq_bank,
- 	airoha_qdma_set_irqmask(irq_bank, index, mask, 0);
- }
- 
--static void airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
-+static int airoha_set_macaddr(struct airoha_gdm_dev *dev, const u8 *addr)
- {
-+	u8 ref_addr[ETH_ALEN] __aligned(2);
- 	struct airoha_eth *eth = dev->eth;
--	u32 val, reg;
-+	u32 reg, val, lmin, lmax;
-+	int i;
-+
-+	eth_zero_addr(ref_addr);
-+	lmin = (addr[3] << 16) | (addr[4] << 8) | addr[5];
-+	lmax = lmin;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		struct airoha_gdm_port *port = eth->ports[i];
-+		int j;
-+
-+		if (!port)
-+			continue;
-+
-+		for (j = 0; j < ARRAY_SIZE(port->devs); j++) {
-+			struct airoha_gdm_dev *iter_dev;
-+			struct net_device *netdev;
-+
-+			iter_dev = port->devs[j];
-+			if (!iter_dev || iter_dev == dev)
-+				continue;
-+
-+			if (airoha_is_lan_gdm_dev(iter_dev) !=
-+			    airoha_is_lan_gdm_dev(dev))
-+				continue;
-+
-+			netdev = iter_dev->dev;
-+			if (netdev->reg_state != NETREG_REGISTERED)
-+				continue;
-+
-+			ether_addr_copy(ref_addr, netdev->dev_addr);
-+			val = (netdev->dev_addr[3] << 16) |
-+			      (netdev->dev_addr[4] << 8) | netdev->dev_addr[5];
-+			if (val < lmin)
-+				lmin = val;
-+			if (val > lmax)
-+				lmax = val;
-+		}
-+	}
-+
-+	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-+		/* According to the HW design, hw mac address MS bits
-+		 * must be the same for each net_device with the same
-+		 * LAN/WAN configuration.
-+		 */
-+		netdev_err(dev->dev, "wrong mac addr for shared GDM port\n");
-+		return -EINVAL;
-+	}
- 
- 	reg = airoha_is_lan_gdm_dev(dev) ? REG_FE_LAN_MAC_H : REG_FE_WAN_MAC_H;
- 	val = (addr[0] << 16) | (addr[1] << 8) | addr[2];
- 	airoha_fe_wr(eth, reg, val);
- 
--	val = (addr[3] << 16) | (addr[4] << 8) | addr[5];
--	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), val);
--	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), val);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMIN(reg), lmin);
-+	airoha_fe_wr(eth, REG_FE_MAC_LMAX(reg), lmax);
- 
--	airoha_ppe_init_upd_mem(dev);
-+	airoha_ppe_init_upd_mem(dev, addr);
-+
-+	return 0;
- }
- 
- static void airoha_set_gdm_port_fwd_cfg(struct airoha_eth *eth, u32 addr,
-@@ -1824,13 +1873,18 @@ static int airoha_dev_stop(struct net_device *netdev)
- static int airoha_dev_set_macaddr(struct net_device *netdev, void *p)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+	struct sockaddr *addr = p;
- 	int err;
- 
--	err = eth_mac_addr(netdev, p);
-+	err = eth_prepare_mac_addr_change(netdev, p);
- 	if (err)
- 		return err;
- 
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, addr->sa_data);
-+	if (err)
-+		return err;
-+
-+	eth_commit_mac_addr_change(netdev, p);
- 
- 	return 0;
- }
-@@ -1935,6 +1989,7 @@ static int airoha_dev_init(struct net_device *netdev)
- {
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_gdm_port *port = dev->port;
-+	int err;
- 
- 	switch (port->id) {
- 	case AIROHA_GDM3_IDX:
-@@ -1959,12 +2014,12 @@ static int airoha_dev_init(struct net_device *netdev)
- 	}
- 
- 	airoha_dev_set_qdma(dev);
--	airoha_set_macaddr(dev, netdev->dev_addr);
-+	err = airoha_set_macaddr(dev, netdev->dev_addr);
-+	if (err)
-+		return err;
- 
- 	if (!airoha_is_lan_gdm_dev(dev) &&
- 	    (port->id == AIROHA_GDM3_IDX || port->id == AIROHA_GDM4_IDX)) {
--		int err;
--
- 		err = airoha_set_gdm2_loopback(dev);
- 		if (err)
- 			return err;
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index a2241520f2e2..364ca76eb3a6 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -684,7 +684,7 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- int airoha_ppe_setup_tc_block_cb(struct airoha_ppe_dev *dev, void *type_data);
- int airoha_ppe_init(struct airoha_eth *eth);
- void airoha_ppe_deinit(struct airoha_eth *eth);
--void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev);
-+void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr);
- u32 airoha_ppe_get_total_num_entries(struct airoha_ppe *ppe);
- struct airoha_foe_entry *airoha_ppe_foe_get_entry(struct airoha_ppe *ppe,
- 						  u32 hash);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 194cd50b2c74..531ce33528b9 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -1482,12 +1482,10 @@ void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *skb,
- 	airoha_ppe_foe_insert_entry(ppe, skb, hash, rx_wlan);
- }
- 
--void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev)
-+void airoha_ppe_init_upd_mem(struct airoha_gdm_dev *dev, const u8 *addr)
- {
- 	struct airoha_gdm_port *port = dev->port;
--	struct net_device *netdev = dev->dev;
- 	struct airoha_eth *eth = dev->eth;
--	const u8 *addr = netdev->dev_addr;
- 	u32 val;
- 
- 	val = (addr[2] << 24) | (addr[3] << 16) | (addr[4] << 8) | addr[5];
+The final two patches introduce LVDS PLL clock support, configuring the
+PLL to 7x the pixel clock rate before the timing engine is programmed,
+and add an LVDS output mode handler to map LVDS bus formats to the
+appropriate display output modes.
+
+Manikandan Muralidharan (7):
+  drm: atmel-hlcdc: Fix off-by-one in vertical back porch setting
+  drm: atmel-hlcdc: simplify clock divider selection with
+    DIV_ROUND_CLOSEST
+  drm: atmel-hlcdc: define ATMEL_HLCDC_CLKDIV_MAX and fix divider
+    fallback
+  drm: atmel-hlcdc: extract clock setup into a dedicated helper
+  drm: atmel-hlcdc: add XLCDC clock bypass support for small dividers
+  drm: atmel-hlcdc: add and configure LVDS PLL clock support
+  drm: atmel-hlcdc: add LVDS output mode support
+
+Ryan Wanner (1):
+  drm: atmel-hlcdc: reorder timing register writes after clock setup
+
+ .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 190 +++++++++++++-----
+ include/linux/mfd/atmel-hlcdc.h               |   2 +
+ 2 files changed, 139 insertions(+), 53 deletions(-)
 
 -- 
-2.54.0
+2.25.1
 
 
