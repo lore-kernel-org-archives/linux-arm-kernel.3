@@ -4,132 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83994CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654F3CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vhhz8Jk/e0c5NgJuWPlb15BKdi0hQoxAx01QkMQ2sBE=; b=brS4eRiYWndd95bQ/yj1ysWT21
-	RBDuCvm8aqVVegeAPvY4DkVz0q3fmggAgrI+X5ISLWSxgcP3ICN7EiWXasSmsW8rB5AzUHTOkjy9Y
-	QHUGvHzTp8/+EXuU7gLIUpKXIiTLUfba3cq4akc2UuCFdph78ftsknXlUpZeY4H3omQYoRTFUiiSI
-	2K+xi8mdcuzgY/WW3fvqQk47WKGIogCY+2/aUQ5Zga9TVzgiT16ilOTuHG+1ZxEk+f6DYdurcmi63
-	Sg8Vp4Zbg52lN8kkMyKYcloyGGJ4LnaUxiP9i5nPx1hc1uDR4K1XfSRuzGR+whrlbPjU8BARJOKNI
-	qWJgTEjg==;
+	bh=tTmUevHKEyxyrlgPbEFR20h8G1o1wC9B5qO2QBE1SeI=; b=pqOUDvIOyBTXsbL6LX5msv8An1
+	Y4EDHXE6JIYRvufXQMETK30bq9D4KK5en5BqPmQl8i7UeljpJC6iVsKZQtZF5FRuWHt46eFoy4CLo
+	HifTQvimhDBDf7kID9xSaQ6dXoOHLhj8JtSHVMVNvikPjPRnel9qsosbJdvF/b+eztIuvrOIbXgdw
+	iGDNso6cKuSOT0f5+q1PxU1MX5vpga6hdifxMCUem7a8JXgMl8EN1FLQhXC8ngxEnl04V8ZhBJKnN
+	9J2IUDG+ZCWujVpyOo8fTV0t2zX3q2F7BiC8LSesdcwcG7t5tyLNuosVPuge6V8Hdn/mTF32HCYIy
+	fQXSrR+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPInI-00000001M0D-2yaV;
-	Tue, 19 May 2026 11:39:28 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wPIpG-00000001MRF-07BP;
+	Tue, 19 May 2026 11:41:30 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPInF-00000001LzL-3H0k
+	id 1wPIpD-00000001MQF-0E5A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 11:39:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LeC9IftA19bG4NEZN3Sk970o5z8U0UbM+xZhmm0rKE09HOYTYU6S8r4PAn16TsDp2e/nT/HR4pMUtOG2xfkk/xRa02LOjd0FyD57MybWRduNTtk5IZxTnKgVWo+4uczseit6vnZtVXGFJUrF/SIphiI0MAiyTQUeDO+cMvAjS1HiDCiN644YSA11eX2APfkq0PEY3qFGLN/51nGh+FD9UYbqIdgVSI0+Ce0aCY31CmSpqgansziUbM3XphFHb/EB7Um2c4dx+vs9fYeWZpCAH3YL1fNI3PytPRCaqI1ZCXh8iFz4VATlh1HwcxdJjYvzzod8spIJnCHtfYAAsiLwpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Vhhz8Jk/e0c5NgJuWPlb15BKdi0hQoxAx01QkMQ2sBE=;
- b=LcRcpUZxERECrttv7Oo+nJaU3CrOSoSDGUJWEXyhkE07P0NxfjUCA70uexYtCGyzafG50MKlRiCXAvrJ18qbi+6buWRRFKt2QZhPTPGKoW+TRRWg+TJ5MKMkMT4t4k5+ab0D1IQMJEo2zq9XTmrYVYjFQTQT7fncILb3IpmWapVa2VG/094tKXqAlvwY6yur1oSssUngbxiqFtQ8xLgtD2cvf6HuRvnVQBozeHdBbZ+vHKbazf/EC5CZ8BJBqcon+rCIR5UtXF5x6PamQnQi6pes4an30hhHik/WnjvpCpmbajIUeXVsBLh6vcvuGVr/SV23NLkLhrbxVZTpf3+Ysg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vhhz8Jk/e0c5NgJuWPlb15BKdi0hQoxAx01QkMQ2sBE=;
- b=t0ykYH8FlbqiC6gqAfVZR18Tz8XKNiyjpwiv1ePymXF5HAVDrhf93TsWsMqZZH+vPwSyBjqKHVTedrmyfco0fLUM/Hxz2hUPAGRsMpFIPb8Sh0kQe/HDI784JcqGJienZUUbPhF5kOOwOzC6IwNtt8t/njoYK3SseNwOa5h7Y+U8sdxKSGaGt0rk6akcGcCLjbtejSj2UUOI66duc/p9B15Jqq6l0zNoldKlPOG9kIb+07zG8/sGEPdtE8MyDEZKVpwZbwBylQbszWNgFw7ak2qYTBH8K47jGUJiUYuHga94/AhBPDYUJ9uWUGIFx/rfGunzY+Yh3PJyypJ7H3XzPA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB5687.namprd12.prod.outlook.com (2603:10b6:510:13e::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.25; Tue, 19 May
- 2026 11:39:17 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Tue, 19 May 2026
- 11:39:17 +0000
-Date: Tue, 19 May 2026 08:39:16 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-pci@vger.kernel.org, vsethi@nvidia.com,
-	Shuai Xue <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 06/24] iommu: Defer iommu_group free via kfree_rcu()
-Message-ID: <20260519113916.GO787748@nvidia.com>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <a65846f5514fd3b7ef6c19e060ed3a25af75bf03.1779161849.git.nicolinc@nvidia.com>
+	Tue, 19 May 2026 11:41:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D70E2440FB;
+	Tue, 19 May 2026 11:41:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9821C2BCB3;
+	Tue, 19 May 2026 11:41:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779190884;
+	bh=ib9xuq7mz9wkkR2wofm2oAut+oQGRmrHathVnbHHYCc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jJcFlSg2TV6X8YwiNcBW42WILMCCnQupCHhrJ3QN7QQnx6L+SH+oiqdGZ9234bE/J
+	 vNG1CSLznWklaAr1qP5KlYIn8iqkxGp1/zfv9D2ZG1/kzmgXuaSXB25RpMLooYey9h
+	 KRX7/ow9cMP0BGqlBcHuhbH9dpNvh2NT4A3NGzyxH+xuEHQkETewvOaFotpNYXU5r2
+	 BGpykkfz7cpjmxBKi+OiFcXrqNlu+RuTM81ZeRR1k5OPN7Az+uObP5Buo+EUHbJgIe
+	 h56GkplHJtSObDS6VVF6kIyj9iAsljGE5Aqi/SPdn8xov881rRbWbuCGzCaP3hAuZq
+	 JtM2i7JwrrRDw==
+Date: Tue, 19 May 2026 12:41:18 +0100
+From: Will Deacon <will@kernel.org>
+To: Besar Wicaksono <bwicaksono@nvidia.com>
+Cc: mark.rutland@arm.com, james.clark@linaro.org, yangyccccc@gmail.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org, treding@nvidia.com,
+	jonathanh@nvidia.com, vsethi@nvidia.com, rwiley@nvidia.com,
+	sdonthineni@nvidia.com, mochs@nvidia.com, nirmoyd@nvidia.com,
+	skelley@nvidia.com
+Subject: Re: [PATCH v4] perf/arm_pmu: Skip PMCCNTR_EL0 on NVIDIA Olympus
+Message-ID: <agxMXsznrU3mvcfE@willie-the-truck>
+References: <20260504175204.3122979-1-bwicaksono@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a65846f5514fd3b7ef6c19e060ed3a25af75bf03.1779161849.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: MN2PR16CA0061.namprd16.prod.outlook.com
- (2603:10b6:208:234::30) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB5687:EE_
-X-MS-Office365-Filtering-Correlation-Id: 78692564-c769-4fe4-23d3-08deb59b4266
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|11063799006|22082099003|18002099003|56012099003|4143699003;
-X-Microsoft-Antispam-Message-Info: H5pj88I9EZ+W9pSsqGqyqW22UiLeaosz33UaBTmMMx4gPFpK2rgEoxR2QBtgRE2BgGIuUkRwvHuFPddF1ACA5tAgEOxNEbeJjtEguw4zq3hPUKOYh4eMeGO/+9A2wH1W+ea6FML7ACPN4OWJWJ3/MVJLFujVoSKhuJrJQ1BbqjpiVJq2+Sv+vYFaU/HTNy2Zg3MxQG3gqYxF+Le260H1uSpUuwbXXfknq/7dTbbkU+eyAMyLOmKZQMlrNdmzEpg2WR5JNbD8hzyxyMrzE54cR9116QI2pOKE/W2O1S/zAUG75nzRZ/WDf+Kq1Y8Rm4HOPzYmed96ZY0CNK7KzvSIKXpAlPg10lJ1ZKsoJOSdtUJmTmAvaZIUoVXXVNeg8rCcUUtxNB6jcE2t9+ii6vOX8zvevRoT6jw80MJnGu7QsjM3K/PaHEY7mq3ar4MG2fvUyMWCmmEMnXAFF3KnvyUnz26gqz/d452ztl6Pxtk3nnU8UjG8/7UZ1TGOENAEFh60D6t1zz7/gkKwsgB2XFhjOK2SE4EpEZcsMvj7YcdorqLNbmtgDgEVwzKaC/eSDgG9DxbML6BwX7e2dhwHKgEZpLo+uakfPamqwr2d4cuOM/maHIkzmwgUn+z2Ourh+mbS8OcGY1fcehbuin4yNTtAMol2Na9OlODMr4V+jXHsGqiqgvKIGg4yqpdW03SkH2vn
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(11063799006)(22082099003)(18002099003)(56012099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rXkILSzgrBr+8t/bi+SkrGc3Bx+vrQyzZ0BtNAU0PMvJBnlkEUhunuk4OA97?=
- =?us-ascii?Q?dNK/DPJK3xasPGzbuTO9BoziRAo9YKl3UxaRzqw4QmFtKlATOrYhHxxyuJNS?=
- =?us-ascii?Q?i8b4UtGwyXPos624LR91+bA9C7RoaYPeXM5x1joCjkItUG5wUtKcnJeZHvQe?=
- =?us-ascii?Q?PNWdDJyJBeDID9nbD2duPtLPNOqMIbkxK+CiLbqxhmKAEvHleOCO7GqWOXIC?=
- =?us-ascii?Q?Hnq8oYhKQZzOwTJwj36X5Qc/2Z8T6qYzSMsGfcLV7lOrYTsov5kF3UHon4gH?=
- =?us-ascii?Q?kC5f3HV9r6jsebcIDCbok8jL0K12/AYI2T+XJHE28k/jQ6R2/gS8OEdOS6BP?=
- =?us-ascii?Q?S6Pd/fN7dX3cYozbZcrXlYAfWJ/RkMTl6R+v6mwVEsbnDDkUCL8az9oe8L9y?=
- =?us-ascii?Q?YU4haC1giPvKt+NWzQhVO7XW+mgehEBsvi/kQcvErdqZRvbgDyP+sHCed9+c?=
- =?us-ascii?Q?yw8jzXzBC37/ml3gX3eYbJswC4E4KUCA8t+vlshC5hjyuJljbsy9fpj8bXMm?=
- =?us-ascii?Q?mMc90QYs4xUmDF7gQqeoI+b5YfpmXKZrWWTfFvt7VK03OxLC6wvbPShTdgF1?=
- =?us-ascii?Q?/H9d3xClXNDgRVpKZ6ru+MmYQBPRImddIX0HkgMRgKj5Rsme6Ew1Uef6YEJq?=
- =?us-ascii?Q?6xQUbJUrUoAPwamJqDDW25U3P9y3hPPRgHauQ5g3GmX9ucYZAusQaMN7c/Yk?=
- =?us-ascii?Q?UQrKYcUlVhAl1t+kJAgCSDxDbFdKVG2zEbhHltxXUiXnc/pH876fPXyee4DZ?=
- =?us-ascii?Q?t/Zdlu312uEGmOwI1QaJuyGCJIezGcF4JEP20sLwQczuOsjzGQLar4MncMhK?=
- =?us-ascii?Q?L90gU4OQfC0GDTJNrmv1aTaau7O3X+oSkLK/fOk85uglOlPnP6x9YYwYw6cO?=
- =?us-ascii?Q?0sQY1YWTZOErX5Cqp7RB2cHZUVg3Vq/cTPyhgZqL2HzcvrV+8g2kTs0Rf68f?=
- =?us-ascii?Q?fyuM+/WxSg64oZjBcrFp0iBtn4KRys9n3X3X70EFfnMi4QlSEAxAdV/f2m6F?=
- =?us-ascii?Q?FBYJzVLMR/rOk9DaHFn6PceCy8HRC3mJnFWjZcTQBKrGQ7n5Qg8jbhfeGpQV?=
- =?us-ascii?Q?VEcNasndTQInrr5DGchcIp0XZSdGpcmlVuxmzCu65NC4Hlxqrhf63rLs1g1t?=
- =?us-ascii?Q?j9hMeW+CN48KCfUVc1OSDeaPeGv8aBwqWL7e6WMKOEL6j1BgOPXqFH59dO1B?=
- =?us-ascii?Q?K+BOt2C8SHXAck1WG96ZkhBpthS+1t4ratVo5xi9fSiconBAoOp7+7BgsQWl?=
- =?us-ascii?Q?5UMJg+pfHW3WJtnGuMtKv+A0ox69WgOT3ewsV+Me/NcTPnCffBDco/JT386P?=
- =?us-ascii?Q?fyKYXzJMOHNyDbVR3iGE5rahkgPA3lMauBMjHPGrL/kRqvIC8GmUFS2HMNrZ?=
- =?us-ascii?Q?fCMfmFIkaJgXaG+frG2RrudgEA9mnXmFOtOpPAdFj80W3526Cf0ErEVPepjR?=
- =?us-ascii?Q?2QXyNsAbXqDBKrWNjyQjpRKa55IuuydXRQNoz8hiIJra3YtCZ39YonNKnk13?=
- =?us-ascii?Q?8vjhZZFeI/CQ2CSjUU7mrWdq9SDuXwXhWsxoM4B3OLNflZFv7YM09ftXwH1t?=
- =?us-ascii?Q?1cfzV8DF7L+7NweQMtG6exmUD3SWts6fS4lX0MvCGHGu7M4cvxi7tW2DaEw6?=
- =?us-ascii?Q?lCYAyB7TaVIPms0CUEn6XMynRbe3lBMCH8jbKAW1qKtnFMhePit9zjo4BJ5I?=
- =?us-ascii?Q?Q7nn1rCUeN1zgtx0AddRmAb6ZBra1gbBOpTL+ub2FrwkuLIf?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78692564-c769-4fe4-23d3-08deb59b4266
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 11:39:17.5760
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VOGnj9fbiwCxF0zWb92wiJ+6v/9tdLw7TLoJcI4dF24yyYkKx3AC65Tpq8riIj6g
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5687
+In-Reply-To: <20260504175204.3122979-1-bwicaksono@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_043925_821070_F02B2420 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20260519_044127_287018_F5152EAA 
+X-CRM114-Status: GOOD (  40.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,28 +75,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 18, 2026 at 08:38:49PM -0700, Nicolin Chen wrote:
-> dev->iommu_group will be read in an ISR-context to look up a group_device
-> for fault reporting, in which case mutex cannot be used. For that read to
-> be safe, two things are needed:
+On Mon, May 04, 2026 at 05:52:04PM +0000, Besar Wicaksono wrote:
+> PMCCNTR_EL0 may continue to increment on NVIDIA Olympus CPUs while the
+> PE is in WFI/WFE. That does not necessarily match the CPU_CYCLES event
+> counted by a programmable counter, so using PMCCNTR_EL0 for cycles can
+> give results that differ from the programmable counter path.
+> 
+> Extend the existing PMCCNTR avoidance decision from the SMT case to
+> also cover Olympus. Store the result in the common arm_pmu state at
+> registration time, so arm_pmuv3 can keep using a single flag when
+> deciding whether CPU_CYCLES may use PMCCNTR_EL0.
+> 
+> Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
+> ---
+> 
+> Changes from v1:
+>   * add CONFIG_ARM64 check to fix build error found by kernel test robot
+>   * add explicit include of <asm/cputype.h>
+> v1: https://lore.kernel.org/linux-arm-kernel/20260406232034.2566133-1-bwicaksono@nvidia.com/
+> 
+> Changes from v2:
+>   * Move the Olympus PMCCNTR avoidance check from arm_pmuv3.c to the
+>     common arm_pmu registration path.
+>   * Replace the PMUv3-only has_smt flag with avoid_pmccntr, covering both
+>     the existing SMT restriction and the Olympus MIDR restriction.
+>   * Use the cached per-CPU MIDR from cpu_data instead of calling
+>     is_midr_in_range_list() from armv8pmu_can_use_pmccntr().
+>   * Add the required asm/cpu.h include for cpu_data.
+> v2: https://lore.kernel.org/linux-arm-kernel/20260421203856.3539186-1-bwicaksono@nvidia.com/#t
+> 
+> Changes from v3:
+>   * Move avoidance check based on MIDR to __armv8pmu_probe_pmu() to make sure
+>     the MIDR is retrieved from the correct online CPU.
+> v3: https://lore.kernel.org/linux-arm-kernel/20260429215614.1793131-1-bwicaksono@nvidia.com/
+> 
+> ---
+>  drivers/perf/arm_pmu.c       |  7 ++++-
+>  drivers/perf/arm_pmuv3.c     | 51 +++++++++++++++++++++++++++++++-----
+>  include/linux/perf/arm_pmu.h |  2 +-
+>  3 files changed, 51 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+> index 939bcbd433aa..aa1dac0b440f 100644
+> --- a/drivers/perf/arm_pmu.c
+> +++ b/drivers/perf/arm_pmu.c
+> @@ -931,8 +931,13 @@ int armpmu_register(struct arm_pmu *pmu)
+>  	/*
+>  	 * By this stage we know our supported CPUs on either DT/ACPI platforms,
+>  	 * detect the SMT implementation.
+> +	 * On SMT CPUs, the PMCCNTR_EL0 increments from the processor clock rather
+> +	 * than the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
+> +	 * counting on a WFI PE if one of its SMT sibling is not idle on a
+> +	 * multi-threaded implementation. So don't use it on SMT cores.
+>  	 */
+> -	pmu->has_smt = topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
+> +	pmu->avoid_pmccntr |=
+> +		topology_core_has_smt(cpumask_first(&pmu->supported_cpus));
+>  
+>  	if (!pmu->set_event_filter)
+>  		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+> diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+> index 8014ff766cff..1ee4a09d0dcc 100644
+> --- a/drivers/perf/arm_pmuv3.c
+> +++ b/drivers/perf/arm_pmuv3.c
+> @@ -8,6 +8,7 @@
+>   * This code is based heavily on the ARMv7 perf event code.
+>   */
+>  
+> +#include <asm/cputype.h>
+>  #include <asm/irq_regs.h>
+>  #include <asm/perf_event.h>
+>  #include <asm/virt.h>
+> @@ -1002,13 +1003,7 @@ static bool armv8pmu_can_use_pmccntr(struct pmu_hw_events *cpuc,
+>  	if (has_branch_stack(event))
+>  		return false;
+>  
+> -	/*
+> -	 * The PMCCNTR_EL0 increments from the processor clock rather than
+> -	 * the PE clock (ARM DDI0487 L.b D13.1.3) which means it'll continue
+> -	 * counting on a WFI PE if one of its SMT sibling is not idle on a
+> -	 * multi-threaded implementation. So don't use it on SMT cores.
+> -	 */
+> -	if (cpu_pmu->has_smt)
+> +	if (cpu_pmu->avoid_pmccntr)
+>  		return false;
+>  
+>  	return true;
+> @@ -1299,6 +1294,41 @@ static int armv8_vulcan_map_event(struct perf_event *event)
+>  				       &armv8_vulcan_perf_cache_map);
+>  }
+>  
+> +#ifdef CONFIG_ARM64
+> +/*
+> + * List of CPUs that should avoid using PMCCNTR_EL0.
+> + */
+> +static struct midr_range armv8pmu_avoid_pmccntr_cpus[] = {
+> +	/*
+> +	 * The PMCCNTR_EL0 in Olympus CPU may still increment while in WFI/WFE state.
+> +	 * This is an implementation specific behavior and not an erratum.
+> +	 *
+> +	 * From ARM DDI0487 D14.4:
+> +	 *   It is IMPLEMENTATION SPECIFIC whether CPU_CYCLES and PMCCNTR count
+> +	 *   when the PE is in WFI or WFE state, even if the clocks are not stopped.
 
-What driver does this? iommu_report_device_fault() has to be called in
-a sleepable context - usually a threaded IRQ handler. So mutex is no
-problem.
+So surely the weird part here is that Olypmus chose one behaviour for
+PMCCNTR and another for the CPU_CYCLES event? The Arm ARM text isn't
+clear to me as to whether that's permitted but I think we should call
+it out here.
 
-This seems like Sashiko slop - iommu_group does not change while a
-driver is attached and a driver is not permitted to do any "fault
-handling" after it has detached, it must flush and synchronize its
-IRQ if it is using this from a hard IRQ for some bad reason.
+> +	 * From ARM DDI0487 D24.5.2:
+> +	 *   All counters are subject to any changes in clock frequency, including
+> +	 *   clock stopping caused by the WFI and WFE instructions.
+> +	 *   This means that it is CONSTRAINED UNPREDICTABLE whether or not
+> +	 *   PMCCNTR_EL0 continues to increment when clocks are stopped by WFI and
+> +	 *   WFE instructions.
+> +	 */
+> +	MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+> +	{}
+> +};
+> +
+> +static bool armv8pmu_is_in_avoid_pmccntr_cpus(void)
+> +{
+> +	return is_midr_in_range_list(armv8pmu_avoid_pmccntr_cpus);
+> +}
+> +#else
+> +static bool armv8pmu_is_in_avoid_pmccntr_cpus(void)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +
+>  struct armv8pmu_probe_info {
+>  	struct arm_pmu *pmu;
+>  	bool present;
+> @@ -1348,6 +1378,13 @@ static void __armv8pmu_probe_pmu(void *info)
+>  	else
+>  		cpu_pmu->reg_pmmir = 0;
+>  
+> +	/*
+> +	 * On some CPUs, PMCCNTR_EL0 does not match the behavior of CPU_CYCLES
+> +	 * programmable counter, so avoid routing cycles through PMCCNTR_EL0 to
+> +	 * prevent inconsistency in the results.
+> +	 */
+> +	cpu_pmu->avoid_pmccntr |= armv8pmu_is_in_avoid_pmccntr_cpus();
 
-You need to be alot more critical about the noise that Sashiko
-generates, alot is useful, alot is not. It is a not a tool you want to
-have 0 reports, complaining about hallucinations is expected.
+Do we also want to hide the cycle counter from userspace? It sounds like
+it's going to get very confused if it tries to use it...
 
-> +#define dev_iommu_group_rcu(dev) \
-> +	(*((struct iommu_group __rcu __force **)&(dev)->iommu_group))
-
-Don't do things like this.
-
-Jason
+Will
 
