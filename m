@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C5ECD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D587CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hi0Lpb7+ajQvg7rhxnw1FE+ra/clMpc2Zg/OZkolwL8=; b=U7FJHJ4ssGurw3+zHkb4+nbrzf
-	hbFbNCf2MSwMvyPh28L1lHtWXu0gbRcRPdii/TtDHMf+j8CzgLadUz1sGs/cjb4rzfb1qoQn8adrx
-	vHvhkzBDqA4z/zTUnjZpturuEBin/OMd8A6gAsMF1/NOHEoSs5gIdYy0bK1bKrTng2N2HKxTLorac
-	9o6B2kR+sUMzJeZHYiCO3M93fcZNgSW6Jf4HYD677fi2ET3jO53iCDG3ZKvJViN0HEewBveCsAexd
-	9k6FNTo7oAPh1Jakea2fKWw8U+fETmhvcCzjulNIbzfFH+jfFmJXpXFVdEbLxzO+tKtKggKWSRhsg
-	LO6LFcPg==;
+	bh=rOD0s3+Nm7YrRVW4EuyNWoyOgd63/WffAsBvv24U6I0=; b=GONPLs6QTRtldGfsrkpk8eigam
+	GihdHPmm94Hk271rs4nzdSD7J42A42+KisKk4HxdX3g37rpNeJeVCtmEbzxOJqPPmDmp2CozsoKLt
+	aWpGMOBzeXWB2dfykvUwVHET241KB1BOWcV8JIeeNCpdo/912AQJyBubgq2a846WFGSBifkBal3+F
+	/+XqReIu3h7L20/i4j793Z6HEhiwC5ntENyit8FdAnn5nwk8flj4J8o3FYJ/eKjfUCk2j8+ztSxBn
+	HFiDSNd6/yM1ZUellaju4VbHDahwiVbMvhM+cV5jMyvxZihxBrMW493x5FoeakgZJgvzj5GVybkgD
+	fwTtpbig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIa-000000020nQ-3XYR;
-	Tue, 19 May 2026 15:24:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPMIb-000000020oh-1Vsc;
+	Tue, 19 May 2026 15:24:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIS-000000020ib-1kH0
+	id 1wPMIY-000000020lX-2QnZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:23:53 +0000
+	Tue, 19 May 2026 15:23:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26EBF43616;
-	Tue, 19 May 2026 15:23:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CD92C2BCB3;
-	Tue, 19 May 2026 15:23:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 108AE60221;
+	Tue, 19 May 2026 15:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39324C2BCB3;
+	Tue, 19 May 2026 15:23:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779204232;
-	bh=EcYgGA7+qxpGDVJn+BOWyz9F6ILNNr7DE0ak3LTgO3g=;
+	s=k20201202; t=1779204237;
+	bh=I+IjMYlDv1l4GPKm44lgcCi3BwfRmTlX+eKtPHhhqsw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uwVnXFU0sfkq9f5+QC+fiz9RkLgBmIu78FNEThTdjkRihuLffFJD+bjCOtRBBF4Tu
-	 qxYaQo0oLYzphwHooYty8/w2PUsj1WdRBUvmEBBXfjxLnmEAB9EK1Ic3faW9h1aInA
-	 SFvHAdif9+B8ooFvTohsIEQxdi1UFiZdejEOiL2KpBp42+qJuTVxndR19UVRpKEMpC
-	 5SYqYaNnlO9Oh2WR6rmfXVCkGzupA4IdHJiCa/suAhYyKPzFRRrJ6xT7kxBTCOpEgc
-	 ZKQNncFlTuZXJlLCvCu4UUILTCsK57QB7AA8xF8XkmIzWOdVh1K+1oWeimhB7aboX4
-	 roEEhF26lB/YQ==
+	b=KYZnYUNq9Tu1sJ42jVFYrVmNjc4OMw6j4rHkWc8RCHgSKRCcftXwoeNUIWSz9+OS0
+	 r0c02nrsnqNc6/JQjsTHsaeU37UrpfA8nClHDw5XOtuH5Kvf56lKMLFliBfQlkLWRY
+	 rOnOly7/E/NAF2d3srHRek71+aoEYVHDdMQWp6krJsvzXg66vIfvRxx5RA6asbk2CJ
+	 cGHQ0O/3wJY3ev9zpJ5G2P4UdLdtdWLML8qCUsnXmR/PIxXpQ740UUg7yaVjVlgxjm
+	 OEkCYc8tl/MiNQl1JgFj77G3Ko+KFlK1zIH03Olc8YqjhtuFhozw9FJ7ZutA73ebha
+	 sEYUKk1vNmAWQ==
 From: Will Deacon <will@kernel.org>
-To: iommu@lists.linux.dev,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org,
-	Robin Murphy <robin.murphy@arm.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>
+To: linux-arm-kernel@lists.infradead.org,
+	Kevin Brodsky <kevin.brodsky@arm.com>
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v2 0/9] Remove SMMUv3 struct arm_smmu_cmdq_ent
-Date: Tue, 19 May 2026 16:22:58 +0100
-Message-ID: <177919957385.1012282.14787407041669291032.b4-ty@kernel.org>
+	Andrew Morton <akpm@linux-foundation.org>,
+	"David Hildenbrand (Arm)" <david@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] POE sigreturn fix and extra tests
+Date: Tue, 19 May 2026 16:23:00 +0100
+Message-ID: <177918804505.746149.6023931077901684027.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
-References: <0-v2-47b2bf710ad5+716ac-smmu_no_cmdq_ent_jgg@nvidia.com>
+In-Reply-To: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
+References: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_082352_481106_C585C0CE 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,37 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 20:57:39 -0300, Jason Gunthorpe wrote:
-> [ This is part of the patch pile to move SMMUv3 over to the generic page
-> table:
-> 1) Introduction of new gather items and RISCV usage
->   https://patch.msgid.link/r/0-v2-b5156f657dc1+25f-iommu_riscv_inv_jgg@nvidia.com
-> 2) Remove SMMUv3 struct arm_smmu_cmdq_ent
-> 3) Organize the SMMUv3 invalidation flow so iommupt can use it
-> 4) Use the generic iommu page table for SMMUv3
+On Mon, 27 Apr 2026 13:03:32 +0100, Kevin Brodsky wrote:
+> Commit 2e8a1acea859 ("arm64: signal: Improve POR_EL0 handling to
+> avoid uaccess failures") introduced special handling for EL0 registers
+> that impact uaccess. This did not however handle the case where a signal
+> handler removes the relevant record (poe_context for POE) from the
+> signal frame; this is clearly not typical behaviour but it is legal.
+> That commit resulted in arbitrary data from the kernel stack being
+> written to POR_EL0 in that case.
 > 
 > [...]
 
-Applied to iommu (arm/smmu/updates), thanks!
+Applied selftest updates to arm64 (for-next/selftests), thanks!
 
-[1/9] iommu/arm-smmu-v3: Add struct arm_smmu_cmd to represent the HW format command
-      https://git.kernel.org/iommu/c/bf00a29234a4
-[2/9] iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in cmdq selection functions
-      https://git.kernel.org/iommu/c/f59c5b6858d8
-[3/9] iommu/arm-smmu-v3: Use the HW arm_smmu_cmd in cmdq submission functions
-      https://git.kernel.org/iommu/c/d455e3a7bf0a
-[4/9] iommu/arm-smmu-v3: Convert arm_smmu_cmdq_batch cmds to struct arm_smmu_cmd
-      https://git.kernel.org/iommu/c/27e02ca61552
-[5/9] iommu/arm-smmu-v3: Remove CMDQ_OP_CFGI_CD_ALL from arm_smmu_cmdq_build_cmd()
-      https://git.kernel.org/iommu/c/c5758947cb7b
-[6/9] iommu/arm-smmu-v3: Directly encode simple commands
-      https://git.kernel.org/iommu/c/6e771be45e8a
-[7/9] iommu/arm-smmu-v3: Directly encode CMDQ_OP_ATC_INV
-      https://git.kernel.org/iommu/c/2eedb906f9c6
-[8/9] iommu/arm-smmu-v3: Directly encode CMDQ_OP_SYNC
-      https://git.kernel.org/iommu/c/c3f84707ad4f
-[9/9] iommu/arm-smmu-v3: Directly encode TLBI commands
-      https://git.kernel.org/iommu/c/be0d0b858861
+[2/5] selftests/mm: Fix resv_sz when parsing arm64 signal frame
+      https://git.kernel.org/arm64/c/c364aa56d673
+[3/5] kselftest/arm64: Add POE as a feature in the signal tests
+      https://git.kernel.org/arm64/c/42c21954063e
+[4/5] kselftest/arm64: Move/add POE helpers to test_signals_utils.h
+      https://git.kernel.org/arm64/c/925a082ec2a0
+[5/5] kselftest/arm64: Add tests for POR_EL0 save/reset/restore
+      https://git.kernel.org/arm64/c/f2db075234c8
 
 Cheers,
 -- 
