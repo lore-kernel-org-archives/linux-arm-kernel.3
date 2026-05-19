@@ -4,90 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E425DCD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB1DCD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEr3iPwRObKJowloUJW4WxsQKxN8Ps+5d8i/rmcNqpo=; b=4Dih+ZwUSIj7OV13uJIkunTtT7
-	S/kCMe9MsCe+Ldm9l5ic9lc6h7XcHB/buDfeJoGJ7wSNo3QzczZk2uyAWKZu/Y+oQXBmCj55yvWYB
-	rcBRVvbhNbk5FtHsPR/tCGA3a+MDEWQaPVu2DfaB6vB/Q+jqasdvnH5tSXjT1GHjET72V/H+xoE2x
-	ZkR7WgCq31klP9iY/ATPPzuXxycFLqnj2UgWfoW79cmZsBoorQ+jPIdJcIcnkS/srE+42QipOXHZD
-	0Q+iG7TXQBhp+KPLfJdQ4R8Lk6HEqsKNshEXfm0N3fKT4zglu8w/RQjRibzOQMnb9V1Zb74Tel9ac
-	ZnOV3Qqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kj5KxujXxqJExzeLk6Rjs4MHS+ALBzegkOb28PBEkjI=; b=yBRxZem1VV1HeN7VRonwIDD8wv
+	jXZSPCz9sT66OX7/E6tBQx1FC8wJ1k0RgtLRDtVoyMqsTI7/og4sxhJFwneklhvdfahBAKUr4wu7o
+	UOMXp2rOJ/aOuAEWQlxELvO7AsG2j/Ttx7SbLpMxAyNNjuzKsCUcciBM1KWvhUshg0ZjNV0B2j14X
+	HCTXXqDsLqG+TBvvPt4wCFDchVAObACsmeeOcn2Wl0yP4QxFBRFopnvua7cUp3b+BrRklqW8yo0y4
+	HzrX9tX9Ty1o1vwGAaVJ7iPtnvhxpSrS40UbWWfIOLrohiIOH8dChyxShmhNNw2uS28qsiKxFoL9Q
+	/5RB+wYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGLz-00000000p5l-0rJK;
-	Tue, 19 May 2026 09:03:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPGMf-00000000qA0-49Nq;
+	Tue, 19 May 2026 09:03:49 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGLj-00000000ojq-05Ho
+	id 1wPGMV-00000000ptm-3P7b
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:02:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76F7960213;
-	Tue, 19 May 2026 09:02:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A721FC2BCF5;
-	Tue, 19 May 2026 09:02:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779181370;
-	bh=uXScKmQXTA4/PBXBORAst/A25hfbJf23qbwIMutfmzc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=thJnlpHoGugq6AfMObTL5BaPWQNC6iThMiw9phsUDQQ3id9vjuqGtAmWa4CuIwfxV
-	 SflGDXh00uUPXkbmK9wJMmfxjQO0u7bYCP/0pZCUdhZ5RjSh7W1lvcnSiQbuPPFZ0L
-	 1538whxKZqQle4ApdAF9I5nFrlCt3HSxx1Yq16kz0gkvZM16DjvsBPzQgn4GEG62BQ
-	 wjjw51O+a9smIAZx8fkf3bqO+TEoP3CDgtpliyY9QztR1+31MpQii+3cdlcYFHk4UY
-	 Dx6C0hJwP/xR4hW+Nzl3rgk5fp5qP7UoM7ayJj6q1dvsQQ4ur8foMlwMveYPggO/so
-	 lL0LQ6SPAXpdQ==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 19 May 2026 11:01:57 +0200
-Subject: [PATCH v5 15/19] drm/connector: Add new atomic_create_state
- callback
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	Tue, 19 May 2026 09:03:43 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=KbcwnRha+zqalpImX9vkCl2XGOgmxo00Tv04XXd21LYlXkJ/voHznZOs2SwdFFXOvuuVvyeD+QMUFrhKvfYpnFLWchxjcWuoy9qyzkoWs4UP/pxJr832FfNHGBxWdQzsVO5fHMUvutZXlVbOKVP0VmaRWgQ3XN98aSrcnVcUM5RFGg07tBa5C50B+Z3Tyow5i/jpdDgJ6/qOQDuxEQLWHf/HfSikX12fDRnrv1ew+ZIA74MoLQmKIsf1gMOjGpQSsOLDoaw62/9ZgCojKB60Zs0fR7VVNOrXjPMAqsrLMyCEOfz0dlSaxXkV8DWbhv3ckUhO7ABYOclBjpwL06C5CA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kj5KxujXxqJExzeLk6Rjs4MHS+ALBzegkOb28PBEkjI=;
+ b=eb/HykXv8x83cjpdwQiBzz0aDlbBw90opYQS+l0lISBeVtayCoS2jEXxtLY620uvcNknhXQlNs5g1rgHKEbnvNITw95g7gjr9fgxjL4eFgeVpPnqsvcvv6ipyuKIpYotgZwGKNdOmaOk4MVybTWWmqxj6LFoaltEvHIQLNgVogsY311olqXJxxBfEqUiIpBOvR9MlovlaFQ0973+FzOq46iK1gfffDSs4rKuhRLRoZtZEh0gbY3HOEDpVeBm8cuMsp5T8P2N7dkov8SLENdv1ZoMmyQ0ucqGUZYaApxNX4XnHNyfEykGUrg1I37b03gD9eOO50psI3VHiPWMkE2KRg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kj5KxujXxqJExzeLk6Rjs4MHS+ALBzegkOb28PBEkjI=;
+ b=ltuXLKWxIo5jVU9jsEo5CM1ALDOXLmGAUuf+zU4Q+xUaXSB7axtlJwJ+FFVneiLZedCApbQiTkwPEsFZpSF1mUaLAzMTjb6I0TgxpqNLlBOv//oo2wACucL/qV+FE6ZMB+Osz9l1J57Y6XQxNcZLFdaHke/QF7e0uW2hC9c0I5A=
+Received: from CW1P123CA0010.GBRP123.PROD.OUTLOOK.COM (2603:10a6:400:293::12)
+ by GV1PR08MB8426.eurprd08.prod.outlook.com (2603:10a6:150:8a::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
+ 2026 09:03:28 +0000
+Received: from AMS0EPF000001A9.eurprd05.prod.outlook.com
+ (2603:10a6:400:293:cafe::82) by CW1P123CA0010.outlook.office365.com
+ (2603:10a6:400:293::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
+ May 2026 09:03:28 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF000001A9.mail.protection.outlook.com (10.167.16.149) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.11
+ via Frontend Transport; Tue, 19 May 2026 09:03:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lYhaz53CM3xUu+/jwlp+c6Bulx6n+DMK65tt9iWp8uNLuDMHkqVpa0ISi09mHpoDw4Y70246vg9CtKAu1QEzNzba2kl9k0P8H74v252cvq4NRKP9FKXcPyteh844CCDoDvGde+jeNhFeoGUzaStlutLjlqGuwmydEnQ52GfhXcekwN9E/8MJdlg/8m9ABluWWXd6wy1CQE3etxOo2hChFQ8V7g0iAyb8xre8JdH6ql/VR9j16540dkKmjxSORnqAUhhzQiMDZPgvXfdMEemSIC7G5M5oeM/xeq0NnG7PcXxAiJ4NlmxlhAuk+kxAqNveMvffCopZLloBj+iSYOo1xw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kj5KxujXxqJExzeLk6Rjs4MHS+ALBzegkOb28PBEkjI=;
+ b=G9vN3VGXYxe9UcUOC9yYPDohvJ6Q2ILkfw7E+eJuMOIYF253GZGccyZ6OkHRJFnVjInAYgSlnmGrDn52QotPeIS/R7/aXr+Py2lZvo+yVp9UendugtsSACebGNIwj50i2sEf/zrO1q/8ZZuOtiormA2mRMfr+bMgHQWbpoWr04v3M2Tti7BhEtBl1FqU2/bV+JeLmlK6oRZ3N0oWbJwaq2cxe4sAxOLcVeVw9J/S8Zgd6/r4p0O5Cn0HgxXnqI47EB7XAzLsfJw7hjCfk04OB36voAL/Sa+MsEs0VWwDQqr8MiJd5SmfjB6QzNbBx60VkIEskd8oOKC7flopzRLQtw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kj5KxujXxqJExzeLk6Rjs4MHS+ALBzegkOb28PBEkjI=;
+ b=ltuXLKWxIo5jVU9jsEo5CM1ALDOXLmGAUuf+zU4Q+xUaXSB7axtlJwJ+FFVneiLZedCApbQiTkwPEsFZpSF1mUaLAzMTjb6I0TgxpqNLlBOv//oo2wACucL/qV+FE6ZMB+Osz9l1J57Y6XQxNcZLFdaHke/QF7e0uW2hC9c0I5A=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from VI0PR08MB11823.eurprd08.prod.outlook.com (2603:10a6:800:324::5)
+ by DBBPR08MB6106.eurprd08.prod.outlook.com (2603:10a6:10:202::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 09:02:25 +0000
+Received: from VI0PR08MB11823.eurprd08.prod.outlook.com
+ ([fe80::694c:3790:be1a:8ddd]) by VI0PR08MB11823.eurprd08.prod.outlook.com
+ ([fe80::694c:3790:be1a:8ddd%5]) with mapi id 15.21.0025.023; Tue, 19 May 2026
+ 09:02:24 +0000
+Message-ID: <8bc812fd-cda5-485f-98d2-4901ec17c66f@arm.com>
+Date: Tue, 19 May 2026 10:02:21 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 09/10] dt-bindings: firmware: add arm,ras-cper
+Content-Language: en-GB
+To: Krzysztof Kozlowski <krzk@kernel.org>, rafael@kernel.org, bp@alien8.de,
+ saket.dumbre@intel.com, will@kernel.org, xueshuai@linux.alibaba.com,
+ mchehab@kernel.org, krzk+dt@kernel.org, dave@stgolabs.net,
+ conor+dt@kernel.org, vishal.l.verma@intel.com, jic23@kernel.org,
+ corbet@lwn.net, guohanjun@huawei.com, dave.jiang@intel.com,
+ catalin.marinas@arm.com, lenb@kernel.org, tony.luck@intel.com,
+ skhan@linuxfoundation.org, djbw@kernel.org, alison.schofield@intel.com,
+ ira.weiny@intel.com, robh@kernel.org
+Cc: devicetree@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com,
+ linux-cxl@vger.kernel.org, Michael.Zhao2@arm.com,
+ acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org
+References: <20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-0-42698675ba61@arm.com>
+ <20260518-topics-ahmtib01-ras_ffh_arm_internal_review-v4-9-42698675ba61@arm.com>
+ <5fb43b8d-e772-42af-ba78-d75abd87bd0c@kernel.org>
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+In-Reply-To: <5fb43b8d-e772-42af-ba78-d75abd87bd0c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-mode-config-init-v5-15-388b03321e38@kernel.org>
-References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
-In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8295; i=mripard@kernel.org;
- h=from:subject:message-id; bh=uXScKmQXTA4/PBXBORAst/A25hfbJf23qbwIMutfmzc=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk8av81S/frb2/uVlFRUul78M9CbccDfcaK2W5/C/X2X
- I5bsdamYyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAEwkxZCx4XGt1pvd3GavJzdV
- hU/LbmRZd0jq+QTeV3u3mPitW6ky64lz0Ju3wWEBTl5HEpx9viauY2x4u2S5ppyqshpP9Y6CZxV
- aE3Kr9Dl0BBj/x102enQmSZuXhZe/Q8J0zi+F7pooBZb30wA=
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-ClientProxiedBy: LO6P265CA0021.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2ff::14) To VI0PR08MB11823.eurprd08.prod.outlook.com
+ (2603:10a6:800:324::5)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: VI0PR08MB11823:EE_|DBBPR08MB6106:EE_|AMS0EPF000001A9:EE_|GV1PR08MB8426:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5649d244-01cc-461f-dd04-08deb5857df5
+X-LD-Processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr,ExtAddr
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|22082099003|18002099003|56012099003|11063799006|921020|3023799003|4143699003;
+X-Microsoft-Antispam-Message-Info-Original: ydcQdu/Qoyu8+0kWxRU2FvTo7rpyNtdeD+WEVAC0E6WJtNgOzRGQWiqwYSe22hYul7R+2DO+fAJ1pCM5F2DW7mO/kahEJf8qeVT+G3U+PLiv7A8zTU9+FYDMErazCOOhqqjMCf1r76zGxC4lyNIIxkPGPcSO9sXbwERY0fDLv3HCAu7vu67WXdHv1NiyKVr5JsWo8AUp1yINsB2UoGfcEYuZkgbmvWLU2ODRuj866dK3kkL2aT30V5ElJD61aEnWukyCV28lISW8bfH/wmE4vfL3LSWnJYQe4OdaocDeu3qlbqMyNmI3Dd3F4L7tVi4CkqmVcqca25SfZhw8kiXDWhLh7Ojt5KH1wXtLJ63Q+VXvouDvMGuq8R9Gn651AUQsYHAqC/RzGYABdgcQxG+0m9Lq2PwzKjAh5V+ikHV/0ktU3/v7qb9538RrxdqK1TvQiid18lEcSzGs/Os2XysAE+szyGTxva60NcNFyujchXfyY1gUj0hviZ0aIkHmWS4I1CavHfYyjR46D0+wiqL6aJihXcnyJ+VnFhBwEMIRiyw8PFVL7ibWdp1N9ZcbCvq+RNU4AjVEQAJ59McJRrkI2vvZ64XXNhh5MLDQJNxQuaON97HwrOy1X0jYKQsxDoTn+aZM9D1cQ3TmYSyV6ZeunkTaTs5jRwEkXQVhWAphUA6ITbIPBwlU6fKX3uwKr49H
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR08MB11823.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(22082099003)(18002099003)(56012099003)(11063799006)(921020)(3023799003)(4143699003);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: cDNgjw8K+wNG21YZUB3uRiXcHMFRp393Ye+QcdYlSyo21iGkckvhnCJ8dlXibh2GJ0OHX6CuyFHI5rKzIq4VigGHg/U5uhHy2+XNvHX370+NryOZSNwfipYCSPnLD8OuBU2ow/UqiP3kJNIyOJgtHU8ThWTkVQ7j8T50/Xa6lZmi0l2Sfqsimn3WOXD5s2aZGCkkCnpl7zLZCPl2MYK+7YhKndOfCaYsFZzddspwwz0BuU5qeSfDQ9oZJPVq7k1Qh7NnoM6Flq5A8F6W272ooMcTEwvM3uoEBgDU6+oj9IVhidL+e4srOLfbaQgeLgyAbukUtKk51KrDlbekIR1RCw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6106
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A9.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 89954c39-e097-4971-dbb6-08deb585577f
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|35042699022|14060799003|7416014|376014|3023799003|4143699003|11063799006|921020|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 1ndbh0La1zvWNsLGrWGJ/95H1DL5kppjLmkSo4rwtCy7LO9rZqQXgiD997RB3jmA18xp4VxrDS/RwqxGxFBn/SwTi37+cFFdTP6B2x9iF3w7tNMS3XamVZXhnZQKkXUDb0+D30R0mDiVypyadhFumsreggBibXg/HKK+Ka9WcQ+muE66MSbz7j3kGuO0a1gaftVWNXGhi/5oRP3Ld7wjCHYO99unrDipGnavg7lOJOJ85JsERN8wAph264wFByPITIRgQ13kP7XSLPAwpzI9QClpEk6CZl2mxvv/FR3nh/8etYrVwU45n7q1v/mYYucZSfwxwWrVgA0U/GToXYY6THKuSQ6OwUwFhJ4Tm+BGbBtHRuEM3a3mlCyDONTLezUJiSQ3xjy+C5sm3m+vqV/9uoL5y+n8PUJfDJKEqeL1VVRakZUHGkLGKsTsHKzIqN7e+Nm6+VKnPlV3XpzeoQgIHpQz8gLQgISlCx8wIhfFRFv4DXcTS3accBJLUSapgvsPBgWZZqoGqB5Zw2cNnaNVyQ4cF/ZBu0J2qAsMMJ7ErqyIreWYhIl9/Bs6wz6io2YPeWuppCuoTcKAIKnjfU0UaswlLeyAGUZF5hrkIHAPjsKrMBTTZHxlDe5mamnm5CcT7XH6sPxt9mpaJ7A1UgG3e+61o7GHzg4Xf2NispkQ4dkK8ls7hIt42FxFzORr3EiIn5B8c3rSxyeg53XGCKi6GGxgzMN5d7AqtJkYztkirBI=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(35042699022)(14060799003)(7416014)(376014)(3023799003)(4143699003)(11063799006)(921020)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 7OtWAaXJeb0wNyp15QLReeztbs67gHznDn+Y287vkZc47ID8VwRBvkVyHyxSMnHAQN02EffKFjfLil7qDWXHdRbHtHtBxa6CX/oBrzCvkMzQNjRXxzFN9cMBsToxAFjzK9q2tN4o+ErKexpsZ5ldOhy8G+65tEdcqROlAIEXiwLxZg04baRaUs36RP4pDemhe7Dv9/DdmtAK3yjGwdc+Dc4uTbvG5Tw+9bmcAx3niJ2D9gnCmTj9ePdzGk50uNYkS6ALhObZCIgKPS9bfl3A6zS7PN3ZgGUvGf5ZdZjVymbp611ApVi9H+LpyvtcPksPNXivaqpSJjyX9dujG+78iwefFQ+5ufQzt9lDlzU9Hen9Y6/SeEPrBRGO9p2IstZkIZVpj/qItXYTRv4PstpPq66lilNMl/TIwMfW8E0BJeGLhX5tZ5kHwOWYO8F7N8or
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 09:03:28.0842
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5649d244-01cc-461f-dd04-08deb5857df5
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A9.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8426
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_020339_943980_75BF877B 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,223 +166,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
-to drm_private_obj") introduced a new pattern for allocating drm object
-states.
+On 19/05/2026 08:04, Krzysztof Kozlowski wrote:
+> On 18/05/2026 13:57, Ahmed Tiba wrote:
+>> Describe the DeviceTree node that exposes the Arm firmware-first
+>> CPER provider and hook the file into MAINTAINERS so the
+>> binding has an owner.
+>>
+>> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> 
+> Please implement previous comments.
 
-Instead of relying on the reset() callback, it created a new
-atomic_create_state hook. This is helpful because reset is a bit
-overloaded: it's used to create the initial software state, reset it,
-but also reset the hardware.
+Could you please clarify which previous DT comments you still see
+as unaddressed?
 
-It can also be used either at probe time, to create the initial state
-and possibly reset the hardware to an expected default, but also during
-suspend/resume.
+My understanding was that I had addressed the earlier points on the YAML
+description formatting, the `memory-region` description text, and the
+example. If I missed a specific item beyond the one below, please point 
+me to it.
 
-Both these cases come with different expectations too: during the
-initialization, we want to initialize all states, but during
-suspend/resume, drm_private_states for example are expected to be kept
-around.
+> 
+>> ---
+>>   .../devicetree/bindings/firmware/arm,ras-cper.yaml | 71 ++++++++++++++++++++++
+>>   MAINTAINERS                                        |  5 ++
+>>   2 files changed, 76 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
+>> new file mode 100644
+>> index 000000000000..81dc37390af5
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/firmware/arm,ras-cper.yaml
+>> @@ -0,0 +1,71 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/firmware/arm,ras-cper.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Arm RAS CPER provider
+>> +
+>> +maintainers:
+>> +  - Ahmed Tiba <ahmed.tiba@arm.com>
+>> +
+>> +description:
+>> +  Arm Reliability, Availability and Serviceability (RAS) firmware can expose
+>> +  a firmware-first CPER error source directly via DeviceTree. Firmware
+>> +  provides the CPER Generic Error Status block and notifies the OS through
+>> +  an interrupt.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: arm,ras-cper
+>> +
+>> +  memory-region:
+>> +    oneOf:
+>> +      - items:
+>> +          - description:
+>> +              CPER Generic Error Status block exposed by firmware
+>> +      - items:
+>> +          - description:
+>> +              CPER Generic Error Status block exposed by firmware.
+> 
+> Also, this is just a list with minItems. No need for oneOf.
+> 
+Understood, I will drop the oneOf and use a plain list with minItems
 
-reset() also isn't fallible, which makes it harder to handle
-initialization errors properly. This is only really relevant for some
-drivers though, since all the helpers for reset only create a new
-state, and don't touch the hardware at all.
 
-It was thus decided to create a new hook that would allocate and
-initialize a pristine state without any side effect:
-atomic_create_state to untangle a bit some of it, and to separate the
-initialization with the actual reset one might need during a
-suspend/resume.
-
-Continue the transition to the new pattern with connectors.
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/drm_atomic_state_helper.c | 26 ++++++++++++++++++++++++++
- drivers/gpu/drm/drm_connector.c           | 10 +++++++++-
- drivers/gpu/drm/drm_mode_config.c         | 31 ++++++++++++++++++++++++++++++-
- include/drm/drm_atomic_state_helper.h     |  2 ++
- include/drm/drm_connector.h               | 16 ++++++++++++++++
- 5 files changed, 83 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index e2e5a1b8a820..07686e94aae0 100644
---- a/drivers/gpu/drm/drm_atomic_state_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-@@ -532,10 +532,36 @@ void drm_atomic_helper_connector_reset(struct drm_connector *connector)
- 	kfree(connector->state);
- 	__drm_atomic_helper_connector_reset(connector, conn_state);
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_reset);
- 
-+/**
-+ * drm_atomic_helper_connector_create_state - default &drm_connector_funcs.atomic_create_state hook for connectors
-+ * @connector: connector object
-+ *
-+ * Allocates and  initializes pristine @drm_connector_state.
-+ *
-+ * This is useful for drivers that don't subclass @drm_connector_state.
-+ *
-+ * RETURNS:
-+ * Pointer to new connector state, or ERR_PTR on failure.
-+ */
-+struct drm_connector_state *
-+drm_atomic_helper_connector_create_state(struct drm_connector *connector)
-+{
-+	struct drm_connector_state *state;
-+
-+	state = kzalloc_obj(*state);
-+	if (!state)
-+		return ERR_PTR(-ENOMEM);
-+
-+	__drm_atomic_helper_connector_state_init(state, connector);
-+
-+	return state;
-+}
-+EXPORT_SYMBOL(drm_atomic_helper_connector_create_state);
-+
- /**
-  * drm_atomic_helper_connector_tv_margins_reset - Resets TV connector properties
-  * @connector: DRM connector
-  *
-  * Resets the TV-related properties attached to a connector.
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 3fa4d2082cd7..a0b132c658a1 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -616,11 +616,19 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 
- 	/*
- 	 * drm_connector_attach_max_bpc_property() requires the
- 	 * connector to have a state.
- 	 */
--	if (connector->funcs->reset)
-+	if (connector->funcs->atomic_create_state) {
-+		struct drm_connector_state *state;
-+
-+		state = connector->funcs->atomic_create_state(connector);
-+		if (IS_ERR(state))
-+			return PTR_ERR(state);
-+
-+		connector->state = state;
-+	} else if (connector->funcs->reset)
- 		connector->funcs->reset(connector);
- 
- 	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
- 	connector->max_bpc = max_bpc;
- 
-diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
-index 2e2cd18a14b4..9d240817f8b6 100644
---- a/drivers/gpu/drm/drm_mode_config.c
-+++ b/drivers/gpu/drm/drm_mode_config.c
-@@ -235,10 +235,36 @@ static int drm_mode_config_crtc_reset_with_create_state(struct drm_crtc *crtc)
- 	}
- 
- 	return drm_mode_config_crtc_create_state(crtc);
- }
- 
-+static int drm_mode_config_connector_create_state(struct drm_connector *connector)
-+{
-+	struct drm_connector_state *conn_state;
-+
-+	if (!connector->funcs->atomic_create_state)
-+		return 0;
-+
-+	conn_state = connector->funcs->atomic_create_state(connector);
-+	if (IS_ERR(conn_state))
-+		return PTR_ERR(conn_state);
-+
-+	connector->state = conn_state;
-+
-+	return 0;
-+}
-+
-+static int drm_mode_config_connector_reset_with_create_state(struct drm_connector *connector)
-+{
-+	if (connector->state) {
-+		connector->funcs->atomic_destroy_state(connector, connector->state);
-+		connector->state = NULL;
-+	}
-+
-+	return drm_mode_config_connector_create_state(connector);
-+}
-+
- /**
-  * drm_mode_config_reset - call ->reset callbacks
-  * @dev: drm device
-  *
-  * This functions calls all the crtc's, encoder's and connector's ->reset
-@@ -278,13 +304,16 @@ void drm_mode_config_reset(struct drm_device *dev)
- 	drm_for_each_encoder(encoder, dev)
- 		if (encoder->funcs && encoder->funcs->reset)
- 			encoder->funcs->reset(encoder);
- 
- 	drm_connector_list_iter_begin(dev, &conn_iter);
--	drm_for_each_connector_iter(connector, &conn_iter)
-+	drm_for_each_connector_iter(connector, &conn_iter) {
- 		if (connector->funcs->reset)
- 			connector->funcs->reset(connector);
-+		else if (connector->funcs->atomic_create_state)
-+			drm_mode_config_connector_reset_with_create_state(connector);
-+	}
- 	drm_connector_list_iter_end(&conn_iter);
- }
- EXPORT_SYMBOL(drm_mode_config_reset);
- 
- /*
-diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-index 9634a70e0401..f4b6d8833bc2 100644
---- a/include/drm/drm_atomic_state_helper.h
-+++ b/include/drm/drm_atomic_state_helper.h
-@@ -73,10 +73,12 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
- void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
- 					       struct drm_connector *connector);
- void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
- 					 struct drm_connector_state *conn_state);
- void drm_atomic_helper_connector_reset(struct drm_connector *connector);
-+struct drm_connector_state *
-+drm_atomic_helper_connector_create_state(struct drm_connector *connector);
- void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
- int drm_atomic_helper_connector_tv_check(struct drm_connector *connector,
- 					 struct drm_atomic_commit *state);
- void drm_atomic_helper_connector_tv_margins_reset(struct drm_connector *connector);
- void
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 5ad62c207d00..529755c2e862 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -1569,10 +1569,26 @@ struct drm_connector_funcs {
- 	 * when a connector is being hot-unplugged for drivers that support
- 	 * connector hotplugging (e.g. DisplayPort MST).
- 	 */
- 	void (*destroy)(struct drm_connector *connector);
- 
-+	/**
-+	 * @atomic_create_state:
-+	 *
-+	 * Allocate a pristine, initialized, state for the connector
-+	 * object and return it. This callback must have no side
-+	 * effects: in particular, the returned state must not be
-+	 * assigned to the object's state pointer and it must not affect
-+	 * the hardware state.
-+	 *
-+	 * RETURNS:
-+	 *
-+	 * A new, pristine, connector state instance or an error pointer
-+	 * on failure.
-+	 */
-+	struct drm_connector_state *(*atomic_create_state)(struct drm_connector *connector);
-+
- 	/**
- 	 * @atomic_duplicate_state:
- 	 *
- 	 * Duplicate the current atomic state for this connector and return it.
- 	 * The core and helpers guarantee that any atomic state duplicated with
-
--- 
-2.54.0
+Best regards,
+Ahmed
 
 
