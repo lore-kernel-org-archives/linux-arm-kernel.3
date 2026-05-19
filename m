@@ -4,81 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73217CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A8FCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:25:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sr/q5W97G/GgreOLLhjVOht+bOtir9rNZPxS86m4SlA=; b=VGJC7A6ssgG5Jun1cu9Cc0UpkY
-	qp2qp2C48oD34tnsIhvlNqnWOqIS5hCvnTWOrFqC6rhHeZQh9cGFBLlb2smg+hEpRkQcjddD9ymB7
-	Iz5UIZ46syxAIDyoapPAtNeSKkVmspmvlWcXQMShnW3hhNdofZkwiKH1dryC2COoWdJNhROyjNR4h
-	1o2wv8s6Dsca8iyzxeapNHhNAhURQvQvxuI1+Vtb2OiA8MohuXcbgbhH8eLryvyBcmnlyqJ9neQu6
-	/apaCiw9bKUHyT2e3a/LNMAcXdraHyMQ5v2Va99vJoTf5FjYTBcCKewOao5I6oY+pvXCs4jVEPOmr
-	/Pnb1Low==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yFek1k0mWh/Ty3927Ox1UTfk318qie1Wk1ylGq+Jroc=; b=jHSPt9ewQfXRDWT6NxTN1buDc8
+	Xph/QqP+sKey9c3JaRa4QqxcACVJJL5Zf8wcJRJWnd2TzUJF7Pq2m6+12sLN2skGJFcIO2zN+5HJy
+	poVMnsCG6oVnfPHXGcb6kwXe4Ypylxai01ABfgyonu9eynWT4M/4s0QPilFaCr2bz9mItcKHLrVBC
+	FAaO3La7IWvd8IW6MbWDdhsd2Vffb/P5dXmr9LncDxRAwE8y+72OPa7iY0OWMWXmrT8dWizzzZG8Q
+	a9VqImgnewQH6AzfWLwuhTbROVSu0JJ7iqy+hrZOTmb6wxvXRoiyW5XkhonKDBMk2tI/f7Zmpy8Po
+	B5JSsU+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKQt-00000001e1h-3kVJ;
-	Tue, 19 May 2026 13:24:27 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wPKS1-00000001eKn-0enw;
+	Tue, 19 May 2026 13:25:37 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKQs-00000001e0q-34CM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 19 May 2026 13:24:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=sr/q5W97G/GgreOLLhjVOht+bOtir9rNZPxS86m4SlA=; b=QXwOGOsikJnjZClBeiKtd6LG1b
-	wv8w5Oxzb7HhDgWaLqk0sKyDSG0IUSz9gBIkVUe1tdzyLkbuMlk+WzcSsnHgSQuOhQW/IVLbZD0l/
-	NmvxFoyi1VDa86vmf2nA7JkYnR/MAWyFw8dx0xISVgI0K7JbH5MwDmB0NMMtgh9BlLyRTYRMWI+rD
-	4eh49nv03fDUilF/Ye8eooS7HPvhhpCyJErMa6FzsZwc7JwH06qmzY1AWI+cpjP8lwrtIjqVSsw3c
-	vHkyVH3Z9HuC1iiR4cnH4Xi5y/97V6SSxqIfsuXAESKQl4PgEjla6E3BBAv+q4sSlq7EHkVy3kG1G
-	xWCK01bg==;
-Received: from 54-240-197-233.amazon.com ([54.240.197.233] helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPKQo-00000005wmo-3B2S;
-	Tue, 19 May 2026 13:24:22 +0000
-Message-ID: <ce8cfd87d2bc2bab190127deecc170c77db9168d.camel@infradead.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
- compatibility expectations
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>, Linux Doc
- Mailing List <linux-doc@vger.kernel.org>, "Kernel Mailing List, Linux"
- <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>,
- Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>, Joey
- Gouly <joey.gouly@arm.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Raghavendra Rao Ananta <rananta@google.com>,
- Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>,  Nathan Chancellor <nathan@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
- kvmarm@lists.linux.dev, linux-kselftest <linux-kselftest@vger.kernel.org>
-Date: Tue, 19 May 2026 14:24:21 +0100
-In-Reply-To: <86pl2rwoat.wl-maz@kernel.org>
-References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
-	 <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
-	 <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
-	 <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
-	 <86h5obya2r.wl-maz@kernel.org>
-	 <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
-	 <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
-	 <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
-	 <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
-	 <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
-	 <agxFbniU_6eQ98t2@willie-the-truck>
-	 <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
-	 <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
-	 <86qzn7wp3y.wl-maz@kernel.org> <86pl2rwoat.wl-maz@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-zKDurwcbWVveeC9GNtML"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wPKRy-00000001eKM-48hl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 13:25:36 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-8b7dccd6fe4so35057036d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 06:25:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779197134; x=1779801934; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yFek1k0mWh/Ty3927Ox1UTfk318qie1Wk1ylGq+Jroc=;
+        b=KSQgSfUAZxOsDAW3S7CH/qBpH1+Hxaqyqcz0FEGBjMvATHQpnfDUEwWe0IlyUhH0WH
+         JDWqBrpeJbLgheUpcSmMlXidm22JDCqT+LDqYZTyOFtR7kaKpLRHgYGU1I5ysqBdqWGi
+         5Wob6bc0/yfAcHSvHLxJF7OEMlLh9NZ0shXLaYNGUkvUBSblVSKDZLuiV7vI3v3og4HL
+         PucD1yOWl3DjhqocjwqN8M6yUFkgKerq1PUXXBQ912+sIMeQCR+/xC9+j+f9Ia93eJy+
+         Wc33BS9SwBygkSkiLFxpzO106PuJ2pi/k2psZNATYs6i4lXjJ0f88+9A+mhbjIgjAFyB
+         NRJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779197134; x=1779801934;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yFek1k0mWh/Ty3927Ox1UTfk318qie1Wk1ylGq+Jroc=;
+        b=pRRETzbExx2yDlRbtDB3XEMmsIQqbuq/8heR3zaTVSAXcHmOA6xj9LSJ992e0pqi0B
+         D1wROM386zo/TNmudxJDKIZvhxsmlJ+FFUEnM/YtM7uQLYeFaN9jfW4mZLp7G/xEf73A
+         Dmn36vHLuHaJRoBgJbWsgDtssIk+/W5ciwDvYyY1mAmwY6+BYeYkKlIRN56yj6YyVDw7
+         4M5g7Xigp3h3/BbfqxUNVMLJJN0Q3oJSPtRFKGf9ioKrxBgcTJHFHlSp0fOWYBENE+Tw
+         t/IW55x1QQq/U0WPo01er0Az6c5BV57b4ehjwb3RR0Mau8xGM48iL59TuDbYWE+NM8OL
+         J6Gw==
+X-Forwarded-Encrypted: i=1; AFNElJ9QEuV7ng62G84FlmXVmW9vvVWZHcuQ/TyZSYsgG5ap9ITDBEAzsh6/yurTWblSPG0uuXk9FVeC2YX64o6Rt+3I@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDu8tpf4q7CHcOC4x1NdZ1JWIr/TV5LIIte5go5b7INr4pRB0y
+	Zk+wOI1EhHNqx5a1N9Ok6HEwFbimlH72n+euyU6TMH+KeYffDz6NYxVE
+X-Gm-Gg: Acq92OEYue+TD2AJLRyWXy8t2uJiSHZlNZJsw82pCvDolL/C4XTd1J5doonnbnQGkiO
+	LZTvoBYzOtz6fYAZvPoPwcSccx5sXKnkHAghNuMvWuE398So9GsBsTo4qPGm5EQ5E4a1YeIU6xc
+	XGNuBSecoTTXgsnn2rdkaX1b/UCzfvqZ7DopomAvL8NpOOTxN8GkIWg44emCwZ6NovIr10BGUi/
+	PMPa6k8SiBUWljP3lV+n9l+vJ7k6Bz/M8ydNL0vkxkfD7tqQNnGC6Yz2VgZpY6baMhd/3S47yiJ
+	cZHBqlw39YvV3wKe4hVABq8OpaHatxqrJmNPQTXsaOgz/L4PK2dBR9dPilhCGaaSMlB0LDnZ0Fz
+	hvNawVmAao/Yx7D4GW6j5J1IGjYnwg9lzA4Ia4qxtsey8PwX1mB2ipbCWYsv0qFrT5TusB+mmL5
+	HX3Qp1/qVKRgxUodhA+I80VoEROPM7rj2GFU8kMSFasYUeLJ8JXu3ig/+m7g0SiDfOvi6pWj69D
+	SXVGIjpudNj53ni5g+bLUb1Q3DonUw=
+X-Received: by 2002:a0c:f08f:0:b0:895:498e:e9dd with SMTP id 6a1803df08f44-8ca0f64306bmr262712696d6.2.1779197133608;
+        Tue, 19 May 2026 06:25:33 -0700 (PDT)
+Received: from server0 (c-68-48-65-54.hsd1.mi.comcast.net. [68.48.65.54])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8ca36097a26sm90563716d6.17.2026.05.19.06.25.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 06:25:33 -0700 (PDT)
+From: Michael Bommarito <michael.bommarito@gmail.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] KVM: arm64: vgic-its: reject restored DTE with out-of-range num_eventid_bits
+Date: Tue, 19 May 2026 09:25:19 -0400
+Message-ID: <20260519132519.2142458-1-michael.bommarito@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260517174955.273004-1-michael.bommarito@gmail.com>
+References: <20260517174955.273004-1-michael.bommarito@gmail.com>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_062535_037997_404A008E 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,152 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Userspace can restore an ITS Device Table Entry whose Size field encodes
+more EventID bits than the virtual ITS supports.  The live MAPD path
+rejects that state, but vgic_its_restore_dte() accepts it and stores the
+out-of-range value in dev->num_eventid_bits.
 
---=-zKDurwcbWVveeC9GNtML
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Reject restored DTEs with num_eventid_bits > VITS_TYPER_IDBITS before
+allocating the device.  This mirrors the MAPD check and prevents the
+restored state from reaching vgic_its_restore_itt(), where the unchecked
+value can be converted into an oversized scan_its_table() range.
 
-On Tue, 2026-05-19 at 13:56 +0100, Marc Zyngier wrote:
-> On Tue, 19 May 2026 13:38:57 +0100,
-> Marc Zyngier <maz@kernel.org> wrote:
-> >=20
-> > As I said before, I'd be OK with something that would restore IIDR to
-> > REV1. But not something that actively breaks the GIC emulation by
-> > reintroducing a bug. That's, by construction, dead code that will only
-> > bitrot, because there is no SW that can make use of this nonsense.
->=20
-> I will also add that if we make it a policy to preserve buggy
-> behaviours that the guest cannot be relying on, then I question
-> whether we should be fixing anything at all.
+Fixes: 57a9a117154c ("KVM: arm64: vgic-its: Device table save/restore")
+Assisted-by: Claude:claude-opus-4-7
+Signed-off-by: Michael Bommarito <michael.bommarito@gmail.com>
+---
+Changes in v2:
+- Trim the commit message to the root cause and fix.
+- Shorten the in-code comment as suggested by Marc.
+- Keep the validation logic unchanged.
 
-I think we just have a different understanding of what it practically
-means to have behaviour "that the guest cannot be relying on", as in
-the examples I just described for the IIDR issue.
+ arch/arm64/kvm/vgic/vgic-its.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> For example, 6.19 fixed a totally buggy behaviour where a guest
-> couldn't not have more than (on most HW) 4 interrupts in flight at any
-> given time. This was obviously totally bogus, and this was fixed
-> unconditionally, as legitimate guests could experience gold-platted
-> lock-ups.
-
-And marked with a Fixes: tag and backported to stable, one presumes?
-
-I'm confused that you think this is relevant. Can you contrive a
-situation where a guest actually relied on this bug and *survived*,
-like the situations I just explained for the IIDR issue?
-
-You can nit-pick my hypotheticals as unlikely =E2=80=94 and they are. But i=
-f we
-always just YOLO it and change guest-visible behaviour on the basis
-that it's "unlikely" to break anyone, and there are many such changes
-in a given kernel deployment (e.g. from v6.6 to v6.18), then the
-cumulative probability of being bitten by one of those "unlikely"
-problems approaches 1.
-
-There's a reason we do a *huge* amount of testing of what the guest
-sees as we move from one kernel to the next, and back again, and
-endeavour to eliminate all those differences.
-
-And once the new kernel *is* deployed and won't be rolled back, of
-course, all new launches can get the newer behaviour (and the latest
-version of PSCI, etc...)
-
-
---=-zKDurwcbWVveeC9GNtML
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxOTEzMjQy
-MVowLwYJKoZIhvcNAQkEMSIEIM5nz438GcEGUnpva46HvYeQ21c8Q2jJkUw2JY4YSKbsMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAUOTWStJj/72e
-qlvit12EItLB9cZHOu1YmdUukSsRixNEeWheSjXlRgS+Q27+BNnPVgl896kyT8Y92YIkKNzpsb8M
-rsRH29QOs7WK6k0j8mlN3xmcV9XaceVqhhYPNPACw4aKAGXaxN+lPNUbLdHESGagb8AMhJ2Z1C3k
-T0t/8xYkeDz5ynrfFTSNlGriXv0YVl1ExqDyyKwN5E/fJjE0L0FhP5Iuwu3wON0fZDQGDeCanKEO
-7qpLMqTAbZ7hQEpEajhLbnUfLlnYgeS/aUYlJdM7HemrflDDb5gJiugBjQPVTYnVTfxe0N33ng29
-oDLCSQ5t3ADn81HPPjVdLHSBOva5N+kvQ+UCuQ7KU+o72EMg6pnZjSwogXVOvjhe6ta5gpXnobmt
-AUkbsLFuT8vMUUuZJoThla+nCjgfE7InhaZEg2o8EzHF6WM8COOaGBEQ/8sHn98QO926eU4nDbFc
-IRmtWE/Rii6VlLb2GwK8DcBtV4Bhi1R66h6+QkoNcVQBOtSXTrPCglKCcZG3oR7muvTBw0R8a7Pz
-Q0xJFEIU3nltPshDsrbPtF6oFNpsKyJfuRV3XJGecqzj1xIgGgOM6N156qAwU9jjxofBlwzVkTut
-vLUW0fL37xcdeqXPV5uRLrjVmLVpMrI2KJIuKbOkxvP9lEBecPTk6UzhGzIzqM0AAAAAAAA=
-
-
---=-zKDurwcbWVveeC9GNtML--
+diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
+index 2ea9f1c7ebcd0..1d7e5d560af4c 100644
+--- a/arch/arm64/kvm/vgic/vgic-its.c
++++ b/arch/arm64/kvm/vgic/vgic-its.c
+@@ -2307,6 +2307,10 @@ static int vgic_its_restore_dte(struct vgic_its *its, u32 id,
+ 	/* dte entry is valid */
+ 	offset = (entry & KVM_ITS_DTE_NEXT_MASK) >> KVM_ITS_DTE_NEXT_SHIFT;
+ 
++	/* Mimic the MAPD behaviour and reject invalid EID bits. */
++	if (num_eventid_bits > VITS_TYPER_IDBITS)
++		return -EINVAL;
++
+ 	if (!vgic_its_check_id(its, baser, id, NULL))
+ 		return -EINVAL;
+ 
+-- 
+2.53.0
 
