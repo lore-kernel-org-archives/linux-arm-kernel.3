@@ -4,137 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46708CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F216BCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AGj0sTowS8OtAol5/o5IjX31B5Juykb8s+SHROGnJGQ=; b=WB/eSY4wxoJLlzwY4N1UQY1Ar4
-	1cwqUiNAnSP5i1nNUuFYZ4RGPNLCv0Rfe42hJ0W0P+QIohr3f22VSdc5DkZox/kHtK2q0bx/p0DFJ
-	PR57oV/afnI4Iu64WF1vnm3EzzwbBmtppnFZCRGWwKH+8AUoIdhxbMgYo4b/IGAjGaXiCgBkyizSB
-	cK9d3nx7HxsNnjDbhhRJHr/vCE1xG4Y8hfV0pZjPruMmMuciMrkK3acG8PNKQPD1t39DdfjOT08cv
-	xb8FT3kVHBNXe/4GeHw10I1+BQlo4FKp8rIMsGtnSd6aWC3SNjVSPHhdBpREDjaNB2oSdpCSeuMCy
-	QndhSUuQ==;
+	bh=jO8lU9nZfaIXvi4aM14Apu8W/4/KaBQAgvYJVbl8iHA=; b=JfDh1Pqhx+Ex4Xx/cABqMrAbqu
+	RhS0vx48I397TWh1gE3uPyOk/Hor2XHNK3bGCpJnxbRjs7Nh8qraENCBuTV1uP2K+DwllqXe/z3d7
+	6RH4w8+8lDLn4Gzwmr87Mg6w5pZJcfnLs9sZX7WhuO2pMrYMO18q/bXtUf/p23CdOMgi8iqoYdBcp
+	w7NV8XSSLaJlUD0RYwW4eNN1NTHPNuPB3qb6tI8m9Myrk7wyjbjHr/WYs9c2eRJ5Za1gk0o+Hjp3G
+	Nb2gyorZOd49nmD/2dKtxpl54Q3F40n7040pzPOng0CJCnEbRQ4fW5jwaPiTPyESjDTTeCAJEwY6c
+	jYBmLg1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJnf-00000001Vu4-1fKZ;
-	Tue, 19 May 2026 12:43:55 +0000
-Received: from mail-japanwestazon11022133.outbound.protection.outlook.com ([40.107.75.133] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1wPJno-00000001Vxe-2NEC;
+	Tue, 19 May 2026 12:44:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJnd-00000001VsZ-2KGA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 12:43:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kCpTv1aFUShPScQeH1JKe1ugkPeJHoGLqW5+T7q661wZY9ziQVTh95PdXXfaIKvP+GLg5yG9RAx/5VSeQux+sfl7X4KBdDt3/VeGCY57J6BVA1JzihGBpdCQEThDEfxdQWlrGxv5kpdtY/d9EKxYUopxQA2MCSkiztu2D+uvcHUCdLFScJKEtFhtzIrCOGgwIJh2XAuoLncTckWKuvGp0P+gMVqajZPY3CYhce14q5mxyOU5nSK0FQBZWm3nEB/2IQEzR7JwbQk3gSAkuLe/Ryl2kBQnp3aaFXd/EVZR9Vh39ramPfg+EPtjag33goEM5Qpdy2GtjS2e+8PGKaR/LQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AGj0sTowS8OtAol5/o5IjX31B5Juykb8s+SHROGnJGQ=;
- b=aldcNP6QxBZRWPSKc2+CBSN6fuRiix6+gzriPhePvJgHiXD6A3Qw1MAU9SxJtNSxmWG7syW81MxkWUwcajslp69G9gQCQHf4JUB59Jw2Xo/cZw2E+NuIZz4Sb060mVGAktmgf6uXf4bXIGVhVxiOR1R80H99D3Tn2UJMi4ukEVoWR2nC5fnxMO92furLRexocIxmLKKiBF+1GadZlPKhnAgKRldmDRZ9XCh0dWcWfktTLlCRQGbu88TUrnV+YLwoYmrsJVJ3jxr2ANHNw6LQS6nbJq6mRRXcCJeI3mNLZGWfORX69Rdn25dHZ0eCJHZ0gmPIW+bTLWsLydBY4nRhjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AGj0sTowS8OtAol5/o5IjX31B5Juykb8s+SHROGnJGQ=;
- b=ZdbudEHJJd+5GTc3R3YthC8v/YrkZ0eAzFJ+ydAupGiRLlo2saNpeqxvai0rBNHjDzySWfI9oFtis48/Tkgt5nXDoZHL1bDZJ9gPeUh/LcwBvLJQWopOL0PEXsQLCin4DytyrWlVSvSahklgBMXgOZSOHTL8FkW3hjTRMaoNWTPY7QkzLVI9gs3C9ymQ1uI0e/Q+mNuaSiyW7b0Ysd3CrbeS9/2aJO9X+jLIFGuAi7FOJnksOQOu6AqPft5H0EbQdX4TCJhhRk/c0UJzh7tLZEVRIDnkzOD3wicXhpKlw8p9HOiuQn2WbdMKPQInxO+MPzJQqKVncpez1fAECIlcNw==
-Received: from TYZPR06MB5203.apcprd06.prod.outlook.com (2603:1096:400:1f9::9)
- by SE3PR06MB8617.apcprd06.prod.outlook.com (2603:1096:101:335::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 12:43:44 +0000
-Received: from TYZPR06MB5203.apcprd06.prod.outlook.com
- ([fe80::e25a:ec7b:633d:7489]) by TYZPR06MB5203.apcprd06.prod.outlook.com
- ([fe80::e25a:ec7b:633d:7489%3]) with mapi id 15.21.0025.023; Tue, 19 May 2026
- 12:43:44 +0000
-From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-To: Mark Brown <broonie@kernel.org>
-CC: "clg@kaod.org" <clg@kaod.org>, "joel@jms.id.au" <joel@jms.id.au>,
-	"andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
-	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>, kernel test
- robot <lkp@intel.com>
-Subject: RE: [PATCH] spi: aspeed: Replace VLA parameter with flat pointer in
- calibration helper
-Thread-Topic: [PATCH] spi: aspeed: Replace VLA parameter with flat pointer in
- calibration helper
-Thread-Index: AQHc5qyzvJxCjvMx2EefRm4IMWbGfrYVMP+AgAAbHzA=
-Date: Tue, 19 May 2026 12:43:44 +0000
-Message-ID: <TYZPR06MB520319C6F48144C8B8470740B2002@TYZPR06MB5203.apcprd06.prod.outlook.com>
-References: <20260518095708.2502537-1-chin-ting_kuo@aspeedtech.com>
- <20260518095708.2502537-3-chin-ting_kuo@aspeedtech.com>
- <659a6593-0223-4a26-830b-1390326b84e5@sirena.org.uk>
-In-Reply-To: <659a6593-0223-4a26-830b-1390326b84e5@sirena.org.uk>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR06MB5203:EE_|SE3PR06MB8617:EE_
-x-ms-office365-filtering-correlation-id: 1ea2d6c9-c150-4c3f-5da7-08deb5a443b0
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021|4143699003|18002099003|22082099003|56012099003;
-x-microsoft-antispam-message-info: au2IFNXjyUadmschPXuF66E/JSOIG8chmy4LWrml1dXDsr8N9sFUIdb8SONgFBL0cGJ/Nox8kX+no1A9/XGvlKt0ua1R63B6saF/a0Lx7iELdh/JQWDm6RrsKSBLeqdkN7Hj1HeBxCS2UF8/DEKkGam1moNyusDm20kPrH2LgKgTMSYSqMHqDlXMCJ5sXxGvRxb/b6Jv8jFRlBm9EOlRlcfp/xOAlYoOtY8EMUZQ9VCivjp3fq1XalYuP9Lkgplkkm7DZ/hs1tlc5XauiYCnxHObH6PpwvAXibA2vK4QFgx/cmNN9KJXFZb1IbL3GPVYH36c+lwfhmu6mwB61Bla/ZjDJvOmXBBXaf5mmI45JoM2PTyF9pN7N/R3wZVjliH1s53dOTYRklDTQVa1qQRgEuYILRDwDsUn3gkcR7YyoM+t99aQkk6FRgGVxXLdfD+23Zg3kGTxGH+r64vh1yk4tbtBTgCzbfaSDpKpWjWvdF1cWwzByDUegMcBnwZ4jFmwp+LhE3zFORu7iZoTL+lA4uRbwqUOtdNUep+dOGi7fLPRX6o+9KMJGJNN+S5CnfMlC2diqih/sHdxls60AoLLj+tIDWDGEgTLlrbnjzLuIMxmwENzJemJpSIQGZEiFO0W8eaPSmWYprf2f8guRXgNerK/gLRS3zwYglVsFQ2QJ0yqbZAHDQoZLoh/cv7F7AJfFZDLcxm47/IOmMTGIHrMoCoMS1DE6PHqvI1dqg4d6RSb60WZR5sFpuZL5Yznir0G
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB5203.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021)(4143699003)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?LARz6+PxKlBhM9rnsTT6KWWkf/AM9JL8Q5wocdc80io1p/UZY5rF5K1AEDF0?=
- =?us-ascii?Q?v4PEYxINKkwswaBLVo7NHxYwSTQfzZB7AzUOE78CKoB080NpsoCh826Ieml6?=
- =?us-ascii?Q?40r2M0aOGi1PIkkpqyPv4gmBPrRO8zlrtvBSJXPErDJ30N8Qd9w+cFipAToi?=
- =?us-ascii?Q?OZt65E5Ki+9UCSpKiydT554BAVRpdIX1Dvvw9WfGSjKH1FZDRT15qofD8UJj?=
- =?us-ascii?Q?zhByLJG6eGNM1orinIOzG3bzdbgefFh91g6cnsfQbc+al0hKDD5TbJRPJ7jS?=
- =?us-ascii?Q?BWqlRNPDDiL5eZi5trwH2y/Lw5JNF7MOGNB4m9z58cEtkI0pkVLAcxundJwD?=
- =?us-ascii?Q?lex2AGNBOkiJ77kacLh4AAGs80jZri8PdrAE6V4iS2EYfW5mdiUsdpJVe+in?=
- =?us-ascii?Q?TFFmfZJn9rOQslnGM4J3CBnN53i7Xx6mMuqywo9Uty9II5U7cZ2GEwOfPS4c?=
- =?us-ascii?Q?vzh/CFl38/cnvWvfX9DovQnxzEZtDZ/Zoln7KUY6fcD2oupDsePhHD9o6e6b?=
- =?us-ascii?Q?kVyJ2Xm0srQcBYIQgQkr+z86k5ByELhE9pyHjtfL+mYIxMDqHexTZ42s7Lrd?=
- =?us-ascii?Q?2hpaMo3/mIi4L40EB4TPLia5Ar6Wp0cbQuDkZ9LLn4ckIwi36yn91pE4+s1q?=
- =?us-ascii?Q?gJy/wEZmJ4PWbEtqW3y6F9FGqCYU3iyZl6/vVvU9Y/wT+qQpf6LOgLO3Liap?=
- =?us-ascii?Q?gREubHUaXR7q4sNV4PalTTh8oIH7xDSs5pBjumPrXqbG5q7j6RB0fZknUDWu?=
- =?us-ascii?Q?P0BTGbxXzMmj9zFqvkLmVeZDf6J4D6zF6a7f5QLRVWETU/4baJQA4Xu42U+q?=
- =?us-ascii?Q?kEQ931NdcQ87qjH88Nn9aVTIIMEku1cw8M1a+AM3ZoYEp/+iUt87wX8OCXXA?=
- =?us-ascii?Q?D1AJaC9cnZfQg9aUzPmMBwErBh4AVLpzP3GSmZOnJlkpOfZJpIFxgNJYuaTP?=
- =?us-ascii?Q?2Q/s6zFwsT4jd4unw5z8RmTCEI1/0azxTRu0Oz+UVm8gqYx3fIoI9vsm3K6p?=
- =?us-ascii?Q?KpScPPFdL40Hv4kry9HpF8qIhaneevVtPrlf2PpVDjiFA9xFlJ4RzutNI7+Q?=
- =?us-ascii?Q?17K+8wn2cOa2YlDGOIAXjb2lS6zmdMcZV8X85KyAc5Ioqh47at3Xwj7jey/r?=
- =?us-ascii?Q?TtYnVVzdZWGjIX0Y+U8+RUgwo2sbCALncPXtHQtEtCeiocoPvHiOXPDHcwxd?=
- =?us-ascii?Q?mYMUvprE0g3WWyQV5SNBDzCQvxOl9Ipj0sV4Sf7uZ0XwxjzQIuKO6MZW/i1z?=
- =?us-ascii?Q?bnJSEMnYpv7GHn+bt3JXEFJF+IOcognd6aX+OIP7rHPEhngpUbCw7LNqJrXP?=
- =?us-ascii?Q?FgF02zxsmJcU0qXayVjeypBiaLhRY91KRn0qwd5pUUQ01ousmGD8Jt9DqCCb?=
- =?us-ascii?Q?l0eC9c4JbokAeZgZRVqSLcpCZG4FgZQbWLZuPbljpfyCPTWSbJXa4iJK6A2R?=
- =?us-ascii?Q?N74LYTCfFM1pgbD3tXDUgBeaTiJy/W82W+ZUS+igUauz7QSFpgtvkx+Q4Oij?=
- =?us-ascii?Q?xHgeV2g6xnJbs1u4cjhJEBNdDGA9Xcy6K0iVZlU5pqvpxObM8jlJFR+qx1oX?=
- =?us-ascii?Q?+nbBsdWW/ED9wJKOITwKiGJADo1AwNl/KMBKLlBTsW57C8rJvSRK/2p9zv23?=
- =?us-ascii?Q?DeRybHB3AEisoHMkA/meHVvsKzkYu9kOHRYyWTjm6f4DEKvQyHZGATnP/2k0?=
- =?us-ascii?Q?Di5iZ9Y87wFP2C8JstkSNw3+IE/ukM4xEKqTJWLTKAyxIQI/7g9uE1qj1C7k?=
- =?us-ascii?Q?AbdyzOvKQxfQX4DJH6nZxgkOs8qu9pg=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1wPJnn-00000001Vx0-3F9B;
+	Tue, 19 May 2026 12:44:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 395EA60129;
+	Tue, 19 May 2026 12:44:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23CD8C2BCC6;
+	Tue, 19 May 2026 12:43:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779194642;
+	bh=kMUFbNwBqvJpO+Bjd3l9GBxXRf0w6ZacFORzSNgGrqw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bfo4BDRfvA9myn7305sBhrTH2J0JJJLZN41DyiCsBL5RaW4yJzwWoRjqEv4bw7XRu
+	 3sS6wrONgvzJAEmXQdyWNoxP7IRgXT+BwOJdEatfiHb5tGo3e7Wv57MRVS0Mfl/KwF
+	 x37oBTK95eNvN0DhfsqWoIm8NOxS3mlo/N7lra4/86d92nRL8dOyMRTzXe4aNafoSP
+	 zmYFhFt5OepkId8YyQ/JRMelvQ33s7dDez4kr7Q7tGi40FybpnQQzZ966Ac5xeTssH
+	 5GqAFt9tX2CAZo6ci+b6JD7q1AC8DXMlEmsrGOnNr7zIOL1N/xCP/W2AdAHZDtwZKR
+	 +0JGj8KZOVUKg==
+Date: Tue, 19 May 2026 13:43:52 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Barry Song <baohua@kernel.org>
+Cc: Matthew Wilcox <willy@infradead.org>, surenb@google.com, 
+	akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, liam@infradead.org, 
+	vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
+	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
+	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <agxXPfG--tkoPynl@lucifer>
+References: <20260430040427.4672-1-baohua@kernel.org>
+ <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <agrWuDNGddNmvMFD@lucifer>
+ <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB5203.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1ea2d6c9-c150-4c3f-5da7-08deb5a443b0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 May 2026 12:43:44.7002
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: jNbRfnZgI66JTu3IZrDs3WN1WsEeGV1Ykyec4QWtyXWyhv5WPfe+H2Ud9SJdr3rIk2pyeMXFoEM3m6I7SV9ArfxY4iAor2hCzvVIRHENff4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE3PR06MB8617
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_054353_601680_852A4C7D 
-X-CRM114-Status: GOOD (  13.03  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,29 +84,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Mon, May 18, 2026 at 07:25:54PM +0800, Barry Song wrote:
+> On Mon, May 18, 2026 at 5:47 PM Lorenzo Stoakes <ljs@kernel.org> wrote:
+> >
+> > On Sun, May 17, 2026 at 04:45:15PM +0800, Barry Song wrote:
+> > > On Sat, May 2, 2026 at 1:58 AM Matthew Wilcox <willy@infradead.org> wrote:
+> > > >
+> > > > On Sat, May 02, 2026 at 01:44:34AM +0800, Barry Song wrote:
+> > > > > On Fri, May 1, 2026 at 10:57 PM Matthew Wilcox <willy@infradead.org> wrote:
+> > > > > >
+> > > > > > On Fri, May 01, 2026 at 06:49:58AM +0800, Barry Song wrote:
+> > > > > > > 1. There is no deterministic latency for I/O completion. It depends on
+> > > > > > > both the hardware and the software stack (bio/request queues and the
+> > > > > > > block scheduler). Sometimes the latency is short; at other times it can
+> > > > > > > be quite long. In such cases, a high-priority thread performing operations
+> > > > > > > such as mprotect, unmap, prctl_set_vma, or madvise may be forced to wait
+> > > > > > > for an unpredictable amount of time.
+> > > > > >
+> > > > > > But does that actually happen?  I find it hard to believe that thread A
+> > > > > > unmaps a VMA while thread B is in the middle of taking a page fault in
+> > > > > > that same VMA.  mprotect() and madvise() are more likely to happen, but
+> > > > > > it still seems really unlikely to me.
+> > > > >
+> > > > > It doesn’t have to involve unmapping or applying mprotect to
+> > > > > the entire VMA—just a portion of it is sufficient.
+> > > >
+> > > > Yes, but that still fails to answer "does this actually happen".  How much
+> > > > performance is all this complexity in the page fault handler buying us?
+> > > > If you don't answer this question, I'm just going to go in and rip it
+> > > > all out.
+> > > >
+> > >
+> > > Hi Matthew (and Lorenzo, Jan, and anyone else who may be
+> > > waiting for answers),
+> > >
+> > > As promised during LSF/MM/BPF, we conducted thorough
+> > > testing on Android phones to determine whether performing
+> > > I/O in `filemap_fault()` can block `vma_start_write()`.
+> > > I wanted to give a quick update on this question.
+> > >
+> > > Nanzhe at Xiaomi created tracing scripts and ran various
+> > > applications on Android devices with I/O performed under
+> > > the VMA lock in `filemap_fault()`. We found that:
+> > >
+> > > 1. There are very few cases where unmap() is blocked by
+> > >    page faults. I assume this is due to buggy user code
+> > >    or poor synchronization between reads and unmap().
+> > > So I assume it is not a problem.
+> > >
+> > > 2. We observed many cases where `vma_start_write()`
+> > >    is blocked by page-fault I/O in some applications.
+> > >    The blocking occurs in the `dup_mmap()` path during
+> > >    fork().
+> > >
+> > > With Suren's commit fb49c455323ff ("fork: lock VMAs of
+> > > the parent process when forking"), we now always hold
+> > > `vma_write_lock()` for each VMA. Note that the
+> > > `mmap_lock` write lock is also held, which could lead to
+> > > chained waiting if page-fault I/O is performed without
+> > > releasing the VMA lock.
+> >
+> > Hm but did you observe this 'chained waiting'? And what were the latencies?
+>
+> We have clearly observed that the `fork()` operations of many
+> popular Android apps, such as iQiyi, Baidu Tieba, and 10086,
+> end up waiting on page-fault (PF) I/O when the VMA lock is
+> held during I/O operations. This has already become a
+> practical issue. I also believe this can lead to chained
+> waiting, since the global `mmap_lock` blocks all threads that
+> need to acquire it.
 
-Thanks for the review.
+I asked about the chained waiting :) I'm aware you've observed contention on
+write lock, you said so in your LSF talk.
 
-> -----Original Message-----
-> From: Mark Brown <broonie@kernel.org>
-> Sent: Tuesday, May 19, 2026 7:04 PM
-> Subject: Re: [PATCH] spi: aspeed: Replace VLA parameter with flat pointer=
- in
-> calibration helper
->=20
-> On Mon, May 18, 2026 at 05:57:08PM +0800, Chin-Ting Kuo wrote:
->=20
-> > -			while (k < cols && buf[i][k])
-> > +			while (k < cols && buf[i * cols + k])
->=20
-> This really needs () to make it clear what's going on; the precedence is =
-well
-> defined but not everyone is going to know that off the top of their head.
+So have you observed that or is this a theory?
 
-Okay, below change will be added in the next patch version.
-while (k < cols && buf[(i * cols) + k])
+>
+>
+> >
+> > >
+> > > My gut feeling is that Suren's commit may be overshooting,
+> > > so my rough idea is that we might want to do something like
+> > > the following (we haven't tested it yet and it might be
+> > > wrong):
+> >
+> > Yeah I'm really not sure about that.
+> >
+> > Prior to the VMA locks, the mmap write lock would have guaranteed no concurrent
+> > page faults, which is really what Fb49c455323ff is about.
+> >
+> > So Suren's patch was essentially restoring the _existing_ forking behaviour, and
+> > now you're saying 'let's change the forking behaviour that's been like that for
+> > forever'.
+>
+>
+> I am afraid not. Before we introduced the per-VMA lock, we
+> were not performing I/O while holding `mmap_lock`. A page fault
+> that needed I/O would drop the `mmap_lock` read lock and allow
+> `fork()` to proceed.
 
+Err I'm talking about fork? The patch you reference is a change to fork?
 
-Chin-Ting
+So you're saying that Fb49c455323ff which explicitly takes the VMA write lock on
+fork, was somehow an addendum after fork didnt take the mmap write lock?
+
+I must be imagining
+https://elixir.bootlin.com/linux/v6.0/source/kernel/fork.c#L590 then in v6.0
+pre-vma locks :)
+
+I suspect that's _not_ what you're saying, so now what you're suggesting as I
+stated above, is to fundamentally change fork behaviour to account for the
+existing per-VMA lock behaviour on the fault path?
+
+Again I state - are you really sure you want to fundamentally change fork
+behaviour for this?
+
+I am extremely concerned about doing that.
+
+>
+> Now, you are suggesting performing I/O while holding the VMA
+> lock, which changes the requirements and introduces this
+> problem.
+>
+> >
+> > I think you would _really_ have to be sure that's safe. And forking is a very
+> > dangerous time in terms of complexity and sensitivity and 'weird stuff'
+> > happening so I'd tread _very_ carefully here.
+>
+> Yep. I think my original proposal did not require any changes
+> to `fork()`, since it simply preserved the current behavior of
+> dropping the VMA lock before performing I/O. In that model,
+> `fork()` would not end up waiting on I/O at all.
+>
+> What you are suggesting now appears to be performing I/O while
+> holding the VMA lock, which in turn introduces the need to
+> change `fork()`.
+
+Again, you're saying we should fundamentally change the way fork has worked
+forever to work around something else.
+
+At LSF I raised the fact that Josef himself suggested we simply drop this I/O
+waiting behaviour for file-backed mapppings. Isn't there a way forward that way
+rather than 'hey let's drop locks and hope for the best!'
+
+I am really reticent about this because we've seen HORRIBLE bugs come from fork
+behaviour, especially edge cases, and mm testing isn't great so I am basically
+opposed to this, and you're not really convincing me here.
+
+>
+> >
+> > >
+> > > diff --git a/mm/mmap.c b/mm/mmap.c
+> > > index 2311ae7c2ff4..5ddaf297f31a 100644
+> > > --- a/mm/mmap.c
+> > > +++ b/mm/mmap.c
+> > > @@ -1762,7 +1762,13 @@ __latent_entropy int dup_mmap(struct mm_struct
+> > > *mm, struct mm_struct *oldmm)
+> > >         for_each_vma(vmi, mpnt) {
+> > >                 struct file *file;
+> > >
+> > > -               retval = vma_start_write_killable(mpnt);
+> > > +               /*
+> > > +                * For anonymous or writable private VMAs, prevent
+> > > +                * concurrent CoW faults.
+> > > +                */
+> >
+> > To nit pick I think the comment's confusing but also tells you you don't need to
+> > specific anon check - writable private is sufficient. And it's not really just
+> > CoW that's the issue, it's anon_vma population _at all_ as well as CoW.
+> >
+> > > +               if (!mpnt->vm_file || (!(mpnt->vm_flags & VM_SHARED) &&
+> > > +                                       (mpnt->vm_flags & VM_WRITE)))
+> > > +                       retval = vma_start_write_killable(mpnt);
+> >
+> > I think this has to be VM_MAYWRITE, because somebody could otherwise mprotect()
+> > it R/W.
+> >
+> > I also don't understand why !mpnt->vm_file for a read-only anon mapping (more
+> > likely PROT_NONE) is here, just do the second check?
+> >
+> > (Also please use the new interface, so !vma_test(mpnt, VMA_SHARED_BIT) &&
+> > vma_test(mpnt, VMA_MAYWRITE_BIT))
+>
+> Yep, I can definitely refine the check further. But before
+> doing that, I'd first like to confirm that we are aligned on
+> the direction.
+>
+> If you still intend to hold the VMA lock while performing I/O,
+> then I think we should fix `fork()` to avoid taking
+> `vma_start_write()`.
+
+Yeah or we could do something different, it isn't a case of you get to do one of
+two options you propose - the maintainers decide which way is appropriate.
+
+Of the two options dropping the lock on the fault path rather than this fork
+insanity is my preference but I wonder if we can't find another way.
+
+Let me read through the series and give more thoughts I guess.
+
+>
+> >
+> > >                 if (retval < 0)
+> > >                         goto loop_out;
+> > >                 if (mpnt->vm_flags & VM_DONTCOPY) {
+> > >
+> > > Based on the above, we may want to re-check whether fork()
+> > > can be blocked by page faults. At the same time, if Suren,
+> > > you, or anyone else has any comments, please feel free to
+> > > share them.
+> > >
+> > > Best Regards
+> > > Barry
+> >
+> > Technical commentary above is sort of 'just cos' :) because I really question
+> > doing this honestly.
+>
+> I think we either need to fix `fork()`, or keep the current
+> behavior of dropping the VMA lock before performing I/O.
+
+Yup you said :)
+
+>
+> >
+> > I'd also like to get Suren's input, however.
+>
+> Yes. of course.
+>
+> >
+> > Thanks, Lorenzo
+>
+> Best Regards
+> Barry
+
+Thanks, Lorenzo
 
