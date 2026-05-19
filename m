@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52DF2CD5BAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5576CD5BAC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,57 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndIkVrmoSV8hIr4nCccDNKvXr7BAPOMsRKaGaN3/PY0=; b=sLSIorAKLyv7EFa0bsETQQi/GZ
-	pTJRU37+4cmr4mYoH76Xvr+6Gbeb24ELxBz1SKoaYaia7+tJh7A3jdBo7eRyQiUOREGEZJL1X8IbD
-	4XMcZ5uRYZZLFWnakXroNCvhol//Se/drhJZikFVJsYKBLvzh7aH3mWmOTCWPTJ5EsSFHDxSQgds9
-	nLk2n9CB4sijQRIFoWRmuW1dYokGInZI+HF1zcThHsHfpclqqL/ajetjj+M3bW2yzhXIMCIukD/Uv
-	ab7Bbp3aJ7+ggX7m17SzMq53Pf3DEaLFwpEFUNaRXuXcf4pWpEIzHa2m9v9tUhaKHsyjxPHDWWH0x
-	sR+0tmCA==;
+	bh=pQmOvPos882hivcElru/VLZpdKXi2WDI4lUV3z38/qw=; b=k7zYGpFNxWtM5OoS/PqvSOFGxM
+	lJsqD9Pw5ze2dLPp/RhCrwKCDSgSy9389gJQvLM2wOH+f6iFezBxTErnZA8OI10fl5WfR8zvmqU/6
+	UtOCicbUzbmYR3IeLQyIsoh2l6zQ3LilkxIqfiXRuaKl4uQnCJKAbpBhjrioMVEmis0N1MUrq4TWN
+	b1/Ytyw/vk0ppyZRMwGEWsYyLubOD2vI4q9+6FeSrqv10Gj85pe7bjNHMcqZJBl30ClfjLo/kdtLf
+	LzHXpSYnvUuQXtsSrGEB7LnFuowF58Fkq5g8hrrIL0/pCgyFOT9cNFqL1vvlW3B7rzTLwhvJaQ2Sj
+	2BTI2exg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMJU-000000021bd-3YjU;
-	Tue, 19 May 2026 15:24:56 +0000
+	id 1wPMJV-000000021cw-2RcP;
+	Tue, 19 May 2026 15:24:57 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIq-0000000215S-0ndp
+	id 1wPMIv-0000000218p-44Xl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:24:20 +0000
+	Tue, 19 May 2026 15:24:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A43776021D;
-	Tue, 19 May 2026 15:24:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5721C2BCB3;
-	Tue, 19 May 2026 15:24:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D0EC6021D;
+	Tue, 19 May 2026 15:24:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DE9AC2BCB3;
+	Tue, 19 May 2026 15:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779204255;
-	bh=6yzeZKjIY7KncVYLNHjU8B1TmRbz+P56hztlrktOXjw=;
+	s=k20201202; t=1779204261;
+	bh=g6wFFESjTSNXvwgWRPzOHxgpnotAl76JdKDkRbi+4R8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ds4cLQmrolBcjcmaH2fKTelUol+Rtg41iRm6WbzrtsN2vJzZzGQaJAE7IkSLAlNUn
-	 AJBhs3E9v2YsYhImXYanmD7ioIZE+7pptRxkFVilZGbyuWo7bHA8FAIufYJN6ifcSS
-	 0xT0w3/uiqN+Psyd7vpEFFtiBgJBkbMR2C2JSJiUQKTKH1sBtPXkzqdnikuNQ2OIjm
-	 LzAi339N1zyZ/MBxgRw6xdaAk0PjDAx5MX3CpBmPVlybm0mnOodfTByss4VSwT2uZt
-	 0Ye9ir0C2jE1pXIrMxmyMYSUHqK7POgWOrFEZHqSMuVp7fMA51n+zS0yE6nwy5X6k7
-	 GZ4C6k34JTJ5g==
+	b=CWFjMppIquo3NagmRnyMy9vO9YkLJ8XlntsvQaJ0TA65U7XJY17dfQEvJMIK7DYiI
+	 Kt7IE9gtQ+0w/dEnhXvSnX+j2Cm52HSDuOJOx9eZUueCQeDLmSoFE+/0ixgxFu0gwk
+	 bL9R7Ka3NkwKe+2FV+Bt+ed0SLZO3HrOZPTf8uUuhUi9aFsMz9cadGBJqKMdfRJiMl
+	 Xws10vXKsJ6/UdYoJyUd9LLjLrOFMEUomdONxfEd85FhvW5N6LjEjR1mn5Sd8bp+ET
+	 DuMoWyCX9ql5BQSheWk1dRFqSJFKnnM98EuQ0xIZ4rba74EGF8p2gPT2k8JTRrjIae
+	 sU4tmVfFf7j3A==
 From: Will Deacon <will@kernel.org>
-To: Joerg Roedel <joro@8bytes.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Robin Murphy <Robin.Murphy@arm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryo Takakura <ryotkkr98@gmail.com>,
+	Breno Leitao <leitao@debian.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: arm-smmu: qcom: Add Hawi compatible for Application processor
-Date: Tue, 19 May 2026 16:23:06 +0100
-Message-ID: <177918729848.741670.14409258656864671686.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2] arm64: panic from init_IRQ if IRQ handler stacks cannot be allocated
+Date: Tue, 19 May 2026 16:23:08 +0100
+Message-ID: <177919003152.809113.14381397697687715929.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260427174915.3639641-1-mukesh.ojha@oss.qualcomm.com>
-References: <20260427174915.3639641-1-mukesh.ojha@oss.qualcomm.com>
+In-Reply-To: <20260326225755.50297-1-osama.abdelkader@gmail.com>
+References: <20260326225755.50297-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,20 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 23:19:15 +0530, Mukesh Ojha wrote:
-> Commit 5e8323c3d528 ("dt-bindings: arm-smmu: qcom: Add compatible for
-> Hawi SoC") was intended for the APSS SMMU but was mistakenly placed
-> under the Adreno GPU SMMU section. Since that compatible is also valid
-> for the Hawi GPU SMMU, keep that commit as-is and add proper
-> documentation for the Hawi APSS SMMU here.
+On Thu, 26 Mar 2026 23:57:52 +0100, Osama Abdelkader wrote:
+> init_irq_stacks() and init_irq_scs() may fail when arch_alloc_vmap_stack
+> or scs_alloc return NULL. Return -ENOMEM from both and call panic() once
+> from init_IRQ(), covering per-CPU IRQ stacks and shadow IRQ stacks
+> consistently.
 > 
 > 
-> [...]
 
-Applied to iommu (arm/smmu/bindings), thanks!
+Applied to arm64 (for-next/misc), thanks!
 
-[1/1] dt-bindings: arm-smmu: qcom: Add Hawi compatible for Application processor
-      https://git.kernel.org/iommu/c/c3f9dabf58bb
+[1/1] arm64: panic from init_IRQ if IRQ handler stacks cannot be allocated
+      https://git.kernel.org/arm64/c/7dc6922f7fdd
 
 Cheers,
 -- 
