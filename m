@@ -4,121 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BEAFCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1228CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:43:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xoUre0ZHh111UbHEIDXHq8nedRN8EZ+gBdSl0fms4oE=; b=IsUG5lQ1QeCsI5b6knGEEcXcer
-	sVSPUJHrPHd3FQIui296l+RzvWlKSQun6Wg4sRvk3qHl8ZZ+1UY9Bq/075Fge4TDmzZgfkfkFu8RI
-	05gJfGjk0Z9EoTC12Z0Up0meMLOoGr57NHpmKLMBZwXfYfABqZX7nZSXiWu7m5vjtxBCe0+0ewdpz
-	3vFgA47a0boVtdHYYqrm/AjAl0A/gOQWiesp3MJey3RUQ9Q7IK5vBcb/T1KFLCVve0EFjRpKFdYuB
-	9GM2BbmE9ra6QZrNB5qJ1wHD70m/KgntHvuqEYT+iEo9jyTXAISeXzgTk2yRWh7TE02XvHf2iApjf
-	IsOpSY6Q==;
+	bh=CMGlyrCBop3la0imMgYJeakA2V0whVzG/+pLGAlldu8=; b=MsC8WrJvVSC0+95Lz96qrawdGA
+	GVbNs0gx/xL/PbnBa289h0U7ocr6M25KIP7dLnZ4z0U04NWfnRe6ZVqnGlVxLss3ilqkSkUnxwhya
+	G+VdNmQ7lmAieVRch9ZGihGkLYDWZaGhrVwGX+D0YE3dHZFF8aU8kFKAeZCElgd8J/a8fUc2ysNLE
+	1BjZSQ/edtOWE/tvb3PGDBuOleLCFVWKlNaiZfkvtc7SeQ4BcrG9pp3G3QjHlIHc3j66ch3+AT2V2
+	QT5wTvkjrtR7mjCeNtdONxXiKKp7jArhSTI7vVI6JCHpUdwiPIgSPcRvXdkl/6qmOWZknftoEU3OX
+	QrkA17cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLZw-00000001rXn-1e3X;
-	Tue, 19 May 2026 14:37:52 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wPLew-00000001s7l-3mO0;
+	Tue, 19 May 2026 14:43:02 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLZu-00000001rXC-1c9o
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:37:51 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-50faf8ed9c5so18442271cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:37:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1779201469; x=1779806269; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xoUre0ZHh111UbHEIDXHq8nedRN8EZ+gBdSl0fms4oE=;
-        b=fEhpVl8ZD2+i1CVdHHJ/J6zbVU8LHnlPHbMhlMa9G9jQZHVUXvJEmSZXK605k3euge
-         L9WwHT6gPRAq0G+trknSu56xnur12Gzd6eRiThmg+vtXrnhDObuWuLVChLThY6FQRxYv
-         tkvPScGaynuZhzwIuneeEcaQFzLQuhEmneUwN/wLE7xro4BdOswq/OXJElItQW1My8rh
-         KbKUuuc61dGXCi6/3s+k1sLEm7IrU7LaXjNcU/2kKGvnJ+wHolbXXkXJmhwxXidmEy5h
-         gz0wsCgfUlOSeZCg3wlaaVZ7opmHhS4oMh4bn0hYQnY0uBOYRuYPL1HV/9DHUCerpO72
-         hgHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779201469; x=1779806269;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xoUre0ZHh111UbHEIDXHq8nedRN8EZ+gBdSl0fms4oE=;
-        b=DE8jFoCfsak0ekm/MC8MBalTMUf4emL5X1uEE/ZKDrytiABst9U7ZsIqxaJIgcMw/x
-         RWKDIgJSjWbPocj2Aejou9xQofitLh2cdZAE/Uaehv5FMjCqGV14a5XC6c+bimCm4EHx
-         uy/+Awqhg9rWIDzPICaoWPjS3heEGLcQ8z+XFk9Lq8NnFyWASf7v/4wjoQHlFh1hspdL
-         AAUgMKjuEdWr7xB2jv8FE6N0dr9tz1CHZDqMbIz7DLK4vShv8pH+p7aog6+1Mi0tO5hz
-         1YGVwYBWEA6Pw3V8OAy7UfMLWXmrA8FXnC7lS3GiYlMlG8OxvYkzym+TFTjdp8SkM029
-         5DvQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8vy3VczFYuL8e7+CygXMUirEsiU/LlKE3TiqSzFFdPTcagP0bqBehMbvq2RreTL0QUA7YphoAtHiXQOSHdO8bz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxepuEFoYDbKqcYNKqKhdqNdpCV3qUpzZd+rXAogJzX8S12BOtU
-	GTkcqdv4xEon6y542gewiR/FULDLFUTUPpf+qkmFRvW6tgzR6ZgF/14LgJiSjeE05Qw=
-X-Gm-Gg: Acq92OFZkf33a5gpHUcqdweCE4zx54V3jOfh9etKXd1H9AvoP+Vkmj/nZw/osdd90zU
-	32mfjJ7kHy4gs7+HaIvVefaA5BM3k6Mb+L2hYxPkMsoJPjToj73LzynMdN3LbjNSh9Rdko/FGpH
-	q/ULZZHIVVsUesIhILs7AHyBpg0WpVoSOsbWfv2t+1OMk+J0utyrjpoScTtp71+Gt3LcGrnyqZK
-	AO/vUwpnFN4YyFVzYovvPsQ8izfsidlHkyCOw/ZhVTR/jtqj8cqRH/SXbPkMoj/0d6QZ+QFmOEl
-	Nse6YzJCJQa0bVJAbDZQPukABhIlUtVmooiSQZQ5DGmFtSmSDXxmvZd77C81uUGzXcW3k+PXR5/
-	Z12LsgPNd4ksUkSyhJEM7xBzZRzp0rar+WsDEeOxNVzYyFjCNSgNA8URkZTza6LnT0/mJpWzRTY
-	9orqqIbBNwwUqHILukHQEa2h2SG4eRNsZlxkTLMYOEyWP3hKF2AG8hg52ckTWdV1mRO9dWqGh1W
-	ovHSbl4WpZ4Q2Wt
-X-Received: by 2002:ac8:584d:0:b0:50f:c26d:f31f with SMTP id d75a77b69052e-5165a046334mr283700431cf.19.1779201468969;
-        Tue, 19 May 2026 07:37:48 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-516456b6856sm165713481cf.7.2026.05.19.07.37.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 07:37:48 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wPLZr-0000000F80e-38LO;
-	Tue, 19 May 2026 11:37:47 -0300
-Date: Tue, 19 May 2026 11:37:47 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-Message-ID: <20260519143747.GE7702@ziepe.ca>
-References: <yq5apl2y5f96.fsf@kernel.org>
- <agXaby-7L7yS3Vva@google.com>
- <yq5ah5oa59wy.fsf@kernel.org>
- <agxDxdxynp4KEovA@google.com>
- <20260519132911.GA7702@ziepe.ca>
- <agxolksC_1nfO34X@google.com>
- <yq5ah5o3sdn3.fsf@kernel.org>
- <agxt7SFGT7OLMIah@google.com>
- <yq5aecj7sctv.fsf@kernel.org>
- <agxzanDBmIP54hUz@google.com>
+	id 1wPLeu-00000001s6s-1pKf;
+	Tue, 19 May 2026 14:43:01 +0000
+Date: Tue, 19 May 2026 16:42:56 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1779201777;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CMGlyrCBop3la0imMgYJeakA2V0whVzG/+pLGAlldu8=;
+	b=OH+Qgj+tzCHqtO+cprnzOIC4l4VI6aeYCO5YXg4tv8XLtgRrzbBKmzIgaxPNqQ67DC2/21
+	IeyERJwhSv4TCCjZHXnd88+eyhmLSnOO3vIOS7GfxIZ3hG4zfmdAJa++f9wqGI+bbxN6pv
+	SB4Z37YA4jUmWwgNHkwr2zmMv9LHTQfwfe29oHnvLZt0M1IqRMqJi07XNMPtpMP72aTKby
+	KYoQ4utgevUG+o03QCXw1uW9MXA02ljj9N4gAF/P7HJ1nQ/X2T+H7vkn9xqztLuB699/JD
+	jIPbNTQnyD1KWSZc682vV9RR2dApXmLWBbezCchY/2QhYQ5YGZCo++c+dPr4ug==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1779201777;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CMGlyrCBop3la0imMgYJeakA2V0whVzG/+pLGAlldu8=;
+	b=3B2kVHX1Tw0rd+7jn56ZQDjP9WpyGeprzdwvSyiyokdmGpVza++UDyU4p1CHwUUy1ZP0Gr
+	9uGwBCTd22SA/IAA==
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v4 2/5] nvmem: Add the Raspberry Pi OTP driver
+Message-ID: <v3trqljork46ao3haew4abeky4q5ghjhf2uvkttpptlqgn46ht@kmgbgv6h7qqj>
+References: <20260508-rpi-otp-driver-v4-0-cf8d725d8821@linutronix.de>
+ <20260508-rpi-otp-driver-v4-2-cf8d725d8821@linutronix.de>
+ <20260519110041-2d8d92c2-d265-43d1-848f-bf9231a106c8@linutronix.de>
+ <bv4vwmkkjh23lahkrupwclqs7il4vxqeknalgqn52k3wc6ztsg@z5ukn774brtg>
+ <20260519123911-0a9ca1dc-7fee-425f-ba0f-e86368596e55@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <agxzanDBmIP54hUz@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260519123911-0a9ca1dc-7fee-425f-ba0f-e86368596e55@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_073750_450703_806A9678 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20260519_074300_613724_3B45857D 
+X-CRM114-Status: GOOD (  25.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,17 +87,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 02:27:54PM +0000, Mostafa Saleh wrote:
-> However, as I mentioned to Jason, I think with some tweaks to
-> force_dma_unencrypted() we can make it work under pKVM for aligned
-> memory which eliminates some of the bouncing.
-> I am currently investigating that.
+On Tue, May 19, 2026 at 12:47:31PM +0200, Thomas Weißschuh wrote:
+> On Tue, May 19, 2026 at 12:20:14PM +0200, Gregor Herburger wrote:
+> > On Tue, May 19, 2026 at 11:14:28AM +0200, Thomas Weißschuh wrote:
+> > > On Fri, May 08, 2026 at 04:42:45PM +0200, Gregor Herburger wrote:
+> > > > +config NVMEM_RASPBERRYPI_OTP
+> > > > +	tristate "Raspberry Pi OTP support"
+> > > > +	depends on RASPBERRYPI_FIRMWARE || (COMPILE_TEST && !RASPBERRYPI_FIRMWARE)
+> > > 
+> > > The '&& !RASPBERRYPI_FIRMWARE' clause looks weird, is it really necessary?
+> > 
+> > Yes it does looks weird but I think it is necessary. Without this it would be
+> > possible to build RASPBERRYPI_FIRMWARE=m and NVMEM_RASPBERRYPI_OTP=y which
+> > results in linker errors.
+> 
+> Fair enough. I would prefer the solution below, though.
+> It would cleanly solve the issues also for other (future) drivers.
+> 
+> diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
+> index 17595a96e90b..0efd479ffced 100644
+> --- a/include/soc/bcm2835/raspberrypi-firmware.h
+> +++ b/include/soc/bcm2835/raspberrypi-firmware.h
+> @@ -188,7 +188,7 @@ struct rpi_otp_driver_data {
+>         int size;
+>  };
+>  
+> -#if IS_ENABLED(CONFIG_RASPBERRYPI_FIRMWARE)
+> +#if IS_REACHABLE(CONFIG_RASPBERRYPI_FIRMWARE)
+>  int rpi_firmware_property(struct rpi_firmware *fw,
+>                           u32 tag, void *data, size_t len);
+>  int rpi_firmware_property_list(struct rpi_firmware *fw,
+> 
+> (...)
+> 
+Yes this should work. Will change it in the next version.
 
-force_dma_unencrypted() literally means that memory passed into the
-DMA API *without* DMA_ATTR_CC_SHARED cannot be DMA'd from.
+> > > > +static int rpi_otp_read(void *context, unsigned int offset, void *buf, size_t bytes)
+> > > > +{
+> > > > +	struct rpi_otp_priv *priv = context;
+> > > > +	struct rpi_otp_header *fwbuf;
+> > > > +	u32 count;
+> > > > +	int ret;
+> > > > +
+> > > > +	if (!IS_ALIGNED(offset, 4) || !IS_ALIGNED(bytes, 4))
+> > > > +		return -EINVAL;
+> > > 
+> > > Isn't this already enforced by the nvmem core?
+> > 
+> > Only for sysfs access through bin_attr_nvmem_read/bin_attr_nvmem_write. But
+> > there is an in-kernel API nvmem_device_read/nvmem_device_write which does not
+> > have alignment checks. So I added the check to be more defensive here.
+> 
+> The other drivers don't seem to check this explicitly. It looks like an
+> accident waiting to happen.
 
-It should not mean anything else. The DMA API should never decrypt
-passed in memory. You always have to bounce.
+Indeed, I will have a look at nvmem core and see if I can find a proper solution
+for this.
 
-Jason
+Gregor
 
