@@ -4,119 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE8FCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 18:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBEACD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 18:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sgMtJYuaR0izLLaK1FUWPlLIzmxQrZ1MxrGID/mYXGU=; b=ye5ydTW5ASHs2gAfU8+rMkLuLK
-	TOqccOFDN8wPOJExPEPxaSooZwXwvlDmPSf4mSnRUTo9oQ+3v7dp9Z5q2BOwCt+FUW8BBBQs+BUFU
-	mb2Q2D3HDkdJqBzL0qk/bXGKdTFWtdoh20TJTASz3afXrqgXvj7TxhlnLJpTjxry+aDyoeuBwCtOm
-	I27zlyfN+JDeogm+sHwA0U3UneEmvRyORS+7rUMnUAKgPLPrRtVX8qqggWab8dSDuJxiebhiXkeBJ
-	rdvlCB88B317gWGbEdZH4GD2cIZGuUIInJSVrpF9wOQ9qk6o+WifzUaraFXnR7rnp8jz+Wzku9+VL
-	DNe5l13g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3v5i/VQzeZda8e72rOElvfNQ/7bY81p38PRQFqgFKzo=; b=o4WpuwTvuf8GVP5yJwx0sn4qfb
+	0QdmFHsu9whpPKKPNbElHMl8VldQZ9/FIUiUxOlb+djVQqXtItMDUt7IvLON+AvGNjfk29JfK0iW7
+	GIJ+N+Jmv7qlnwOrskbI+6EsSn84jnfjIqnCbuS+VrSWxp9r9h1vfY6/I0JdWQkx80veXEOSmhcM4
+	rZnWij74t0Vo2GX18OV+2d3wK0bevpaPgohqZvSQuN5OKsv5elZgW+PKtEnlbwNlnMwWGVRViuODY
+	RlWW91hxPTNxSHGHJ5AVLk+nV2VKlE9x3RrWwf3IsDZ4XiEkfzN0Rv1sRBbC5dviD6IZOIFEghQrh
+	JGY6JUQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPPNz-00000002Wd9-47UB;
-	Tue, 19 May 2026 18:41:47 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1wPPRF-00000002XAj-286Y;
+	Tue, 19 May 2026 18:45:09 +0000
+Received: from mail-francecentralazon11013006.outbound.protection.outlook.com ([40.107.162.6] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPPNx-00000002Wbb-28M6
+	id 1wPPRC-00000002X9s-3vhl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 18:41:47 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-67c1e0229acso6583232a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 11:41:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779216103; cv=none;
-        d=google.com; s=arc-20240605;
-        b=i9ATsfQVYEm6EDVwQgu2mmaZd76qtvLYf1OiVgR2Tr7xLWFzyMxZRQNfFBe/C8dgXf
-         Y2zw5m5kbBzv0fJ3C8j8bic8TK1qQj+RinTXLLWI56eOA4L9coaLlbWxXRTtuYXdsCsM
-         gjCxK9hTAjmpXVzhxL6zKxb2yz/mlRMzzNRfdD5hrusj+jz924o+GVH2VAxfxlqufGeu
-         IQVvrbFbS56tur3uBbR5xofYocNyQqHv7dNtfQRR32blINwN1a/niRNaNLotsPIdzbCT
-         LSyiITmNf4dovQLl3M0hq1TPLiUy/OI2eR1vQrGIMUjuq1WgssZH1pZcFdDylvL32JuP
-         vEOA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=sgMtJYuaR0izLLaK1FUWPlLIzmxQrZ1MxrGID/mYXGU=;
-        fh=br4iHTlwCItntd99HefCPUUhzqJ/BVHY9PVI5rjjBN0=;
-        b=QNVOtuM2jDkwYjMz4pGfDqTfswOMBGyQhxnEh+7giNmiD3RmU+5Qm10bL73U/jknTc
-         YfY9kdHpT1zu4mL2cs5NjqDPXEOZWkUggW2TgI5Q8ot1jYnX5cT1Qe9va6vY8545s0E5
-         DMrB6p3p8kwIfbL7bB/3Gp/TTx4gOpZkYuQeEK7rU0J3LluXz5GjaYsNLtVymye6JEX4
-         EYhtX+SrSTWf+415qvyc62Hf/6+Prstis2MFzSlDNBrj+zH2YcP3ncvq0sOqbPb7eWV0
-         CLjzsQ70ovNjAisIiK/hSNKh8ie6T4kzrQcfSWj9P04KNrHUwg/supNnSW1eeNI+A/5u
-         LyGQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779216103; x=1779820903; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=sgMtJYuaR0izLLaK1FUWPlLIzmxQrZ1MxrGID/mYXGU=;
-        b=CMwLadoItiNjtGsthSArzS+1itMH1ZyKDR4uEQfHfQ7h49n/Fw3Wg8ng7faw1fyoGt
-         Pjf4WHU0slSwGjBqV7rdIZyFCxHoUM3EJct4jtai2q0AAYTnNycPdsZC6tHfFXFgPFvd
-         zwYoQVbVx5/1lvSp3eMWiMxNl1jMWY+6fatuLPq9kSoxlHJUWqgDZYlU+tASzrU/Id2T
-         bQQPcLbFDbZgbiAjw3oyDuNvyQxA/66NPNfYV7qFSREJpYboQ9N4yTZZb/wmWo2XNJhI
-         VaEE25n+b4Q2rfqEfoYa55UVi4eMK2yLZmjQZFdS7G6Gw4aa24gGn3q9lAUE1ygA3GLH
-         DnQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779216103; x=1779820903;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=sgMtJYuaR0izLLaK1FUWPlLIzmxQrZ1MxrGID/mYXGU=;
-        b=PGq2SxLEEreuo5MRCIgbeLGAWRkjqXPEBOJviqf0b+73E97vue7DBYMT6u8i50ImgZ
-         NeaxcJe5qJEkYWf75SrNLdXa+I2DuyBiGpX6/i+iYYPiogaxQCnhyOU7MYAxZlGt0ppp
-         CP48Sd4DHPJwrUVvdbMUuuQc8zuxCUVdFHTjBs1/j5J1niv4xa5cruZWvunU/p+9WCUK
-         3fIquP8tcCMjbSgxfvn1/bge0aeU2rfOLxKFM8Udn18sqxLA3+xHkpVN3Zm7SGZn99m6
-         H3ePfCSQCz+Dc5MIhpkuiN7K/w2wcSXJK+k/6XWERW37Fhp4CCO2TdGyEBYrvHrx/HG0
-         C4lg==
-X-Forwarded-Encrypted: i=1; AFNElJ9IiF/fx9J2ecbAqJRt8nsh11EsryrUz/xw9DMVqkr0RVqKVG06k6AGVBmvvggzfbFC1SoqWrECIroKnathCE/s@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6L2mN+2BCHsZIotbm3gcuw/XVPhQ1P80gDAgn34JIPbKVUksZ
-	tqbqtQ/LR2oLgVP3+3M0wMqS1dBwyhyzgwCoRosqMfd4zYh63ffFRZiQUIl9Btt2SQZQJJjNLnq
-	6CEvCL0Ab6igJ2usUEl7YxiidnLHKr2E=
-X-Gm-Gg: Acq92OH9pk9XI+5a+RXCchqEsPD7zzmUVv3rC9K0hs1fCyLBa9037ZrfGUb+aiqxqB0
-	6+T81iMv87QzeRsM843awcpzqGuwmVA5hdqFyxT14ycr6FCMUzBd0QjF0kXH8Vuk/VaAp2MnU8c
-	cPZkWjaPUSYY3vKQDQuWBYrBkS0fWgQE5srEZmKkH4yqG6IJJEoDufTh8QsPDkjafZ/mR5eZGWf
-	iqitHGc3tW4cS2/iJ2KY5np4d4VUTSnPTuhJeFc5AlKHB6L+zIqVq/IhHutNQXIQuwfpbk4FbsG
-	lSBwNK8i3w==
-X-Received: by 2002:a05:6402:524c:b0:67c:96e7:3427 with SMTP id
- 4fb4d7f45d1cf-683bad350f8mr10588073a12.0.1779216103209; Tue, 19 May 2026
- 11:41:43 -0700 (PDT)
+	Tue, 19 May 2026 18:45:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SyR50rJ5d5KFtjVD+EjK/1qPAnjZwG4MEa8hHlpHjb7O+n4VZGlum3/eUluiwI8tuSmEcvCliGc1HdQ2k9BtSULjTG4FhVrtHz0n6x4EMR/iYHbvmUeyptoxYT0jsvMZC0my/f5dc5meOuCl8yT6VfFuO0NO5eSFQuYMhIy8rCKgP+55Rn0HbOaTwE3Sj0CbLINF5lnlglQBa0eZSsdDMTxUIEdiFlkQWk69yrniLPZ65haiHJN1Y+RqXjqCazEdzrf39/zZbSLvs3CnA92TW83f988EFIDrn1j4yEHqkn/C3PF/juhTWsHpWzw7L7z7BoB/xlMxjOCdNwZJUfkbLg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3v5i/VQzeZda8e72rOElvfNQ/7bY81p38PRQFqgFKzo=;
+ b=mnWNng6UtHWN4hzwvpmKmWV2uUeSthPXp7b0uUSYRqqOX6AXU3dnNHOr9NhYPMB2IUZrKZVZ22pcd80MuI39+vo9mhmYClEJUvB597jRMXF2wkzOgTgvrT8FV6grakIJihqgJt7l2x7kIDhPBhWdbkTzxZTOzGYNDc0a7Ir2NTBO9L63EwKCxuAYQkE4pBTzDRGZOXh1VPzr3q5uIDGFSC1osJoN55CoV3vqE8NYsPmbYEVRhk8C6O1qYR9R52oTJY0MC3UtZ333fyvNLmSBjPbCKvjGujG4iSz4oe8L6vvU/o5eaCG0yLRTxkF8YdjTDdHJOUBRz1DGEIhgdcmcRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3v5i/VQzeZda8e72rOElvfNQ/7bY81p38PRQFqgFKzo=;
+ b=HH8i2N986LObiybkB7P4VDRj1jERzSJuYeg6ORqGSJK27VC2i6p0UD2KBP9LSnSgS7kKhdqBypsoKby0aysFIQVZmzDybV+Fi2WgWEQX5oBwyWW3jwcVuTrDYOLu2z0PCCE4dPBsJQHy8m7HzudZdalg9Acy3MKexsp0c5i7xR+2VzFNUWEtLD7kV/bTUFXevJayfeHPr3JWCFTALppk+5UkTOrfEPnrLdeA2/WUm0pvf7FgiP06xY7CIM8fkMz0wbkNVaBmZdTJ3niMCfxe0CLu0CVr7nWhB1pV1cPJs4z3WY6qHh5nmmznxomj7qDuLyXLKLMciAQqPsgdUpvh4A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by PA1PR04MB10227.eurprd04.prod.outlook.com (2603:10a6:102:456::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 18:45:00 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0048.013; Tue, 19 May 2026
+ 18:45:00 +0000
+Date: Tue, 19 May 2026 14:44:49 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Paul Gerber <paul.gerber@tq-group.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: add initial device tree for
+ TQMa8MPQS with i.MX8MP
+Message-ID: <agyvoSFG9IQxOpo3@lizhi-Precision-Tower-5810>
+References: <20260505063346.1799500-1-alexander.stein@ew.tq-group.com>
+ <20260505063346.1799500-2-alexander.stein@ew.tq-group.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260505063346.1799500-2-alexander.stein@ew.tq-group.com>
+X-ClientProxiedBy: SJ0PR13CA0015.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::20) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <CAHbLzkrOSoh-jmR=uaNvx73n_wn+vExoKY0UzH5zGcfdAiDbNg@mail.gmail.com>
- <agxfLNuLCAT3F4cW@lucifer> <agxnJ8R-G3CRjeTR@lucifer>
-In-Reply-To: <agxnJ8R-G3CRjeTR@lucifer>
-From: Yang Shi <shy828301@gmail.com>
-Date: Tue, 19 May 2026 11:41:30 -0700
-X-Gm-Features: AVHnY4KjLtyViRy-FP1MJx-LYZJZfACCXodkXf2RGwVY3_NriDPxFvXtK5Jn_zQ
-Message-ID: <CAHbLzkpjOLrdRSUF3-G4d9uz6tn6QYwgB66UU9bud5WHr5FWEw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>, surenb@google.com, 
-	akpm@linux-foundation.org, linux-mm@kvack.org, david@kernel.org, 
-	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
-	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
-	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	Nanzhe Zhao <nzzhao@126.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|PA1PR04MB10227:EE_
+X-MS-Office365-Filtering-Correlation-Id: beedb05b-e953-4731-5558-08deb5d6bb2a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|376014|7416014|52116014|3023799007|38350700014|11063799006|56012099003|22082099003|4143699003|18002099003;
+X-Microsoft-Antispam-Message-Info: bBwV6S8vFvg8+FJxI9jlcrpaVEauXwwHgVYCnu4RXtv9ChCG8NuA66nOfTug/iWW/nPjt3YHTvCGucTXchEOvIlX+tOutTqwTCnbBuIPmSvD5swgn5WVwb9lfox6mm4JZaPDHf+M+2z8MfFmtZo1UARQ/ixRxmxandGrgkgs41CWzI3NpMRAn8vdoSIYy3N/Odm+H0D1B3rqfWjnjFdtX3DnfEMVyYaMluxbk9fWBBJuH0k6Nv+5WJx4g0f/u492CTSwjTdzg8b2UCK/Yc8AoODFQdn48VRJRljHlG0r1dsFc+mP4a2sewYflbI9hbjQG3RNxIYeUlccdMEAcba7SCk7/IfzVN24HmL1s+QY8L9d3Ai8B2B9OfsFaI2/8Ct+KLh2altB80OfDRF9toCWHoZVXurXUuzjgka9KQbFAygBrxbxNIzWvNnv2pQ2Kq0VObdUC9RW7vbziLewJWG/IRqZXvUyR8z6CHMvx4Hnndvm6EQCU9XylvAxVfyrK9v8xTrBuIeWKadbNu/b4zSo5s3sMk8CvRL5IgBYX6MT7LUmatOdzzpdMumpm1XKesG202ZKKCRM5B5YEuWmhJjY+OzDPuqZ1C2XYhnL2I03/VqMwJiRfFpjTLKmNliJSpiTKsgmpYKnGKedbh8VKeofIg8Ww79B5VHMLxM9aSeCH60JJqaUT5yKhaaMXN7qo7wPDIQJ8LRgUxY+S6JEQr0+/wMqXt9YOG7+SKBrRnlKMxUPitME26H36znE+yD5ocXx
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(376014)(7416014)(52116014)(3023799007)(38350700014)(11063799006)(56012099003)(22082099003)(4143699003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JkRAJHulefbWZDFBf0kXw/vcaVVhbG0R4VPoe91f+rmSuUP9CpLKvIo0llvQ?=
+ =?us-ascii?Q?IqiY6YlAmDxwPHfspoUTQH5Iq1TSVvWXOPAcNj0YXO/jOjPSmX/EzH1h6ANw?=
+ =?us-ascii?Q?Ju/5CiFci7aiuthLM3W0IYSZKznNAimld1bjJAi/XjyvmII0jWZ1MPlm/W3y?=
+ =?us-ascii?Q?F7d9vyiQNeQRpvZQufv9sYLGbT05vqGa7FXjJ/2xau6ZTszlIikgDR1OvhOp?=
+ =?us-ascii?Q?sI1exVg+zinKnP1TZtUXIWELo5HYRy0uWgZCpVXgPWP/dysPIVCvkmlAfLVR?=
+ =?us-ascii?Q?F3mXUofuaakrepw0CWF1bPFivy9ARvjga1y23OFpEfPZX+qbp+kGXQGPPejG?=
+ =?us-ascii?Q?ZNXajjmdF1CQPRmzxAdERV4esKDiihPj2M2mbLvde6c/pXQ8DWBjMFXas71R?=
+ =?us-ascii?Q?gxfnthV/+VnkRSBAX3VuCyGUA/eaNqJyzji0mMamlYS8HrkMttjQQlnamarf?=
+ =?us-ascii?Q?dVAQ1IHpj4SNS3eIdXeqOmmh9tue0pnzvjnJBxA7THYFlXxtvMY++WNrS5Jj?=
+ =?us-ascii?Q?DcjCHir3HWrYqdAxHE5cPYqX2mktHzg2pZQ/sm7se6L45DekjLX/52Qzl6L0?=
+ =?us-ascii?Q?y7STvgqusJeZIGJsdSHDXfdj+HlD8We/p7cRm0X137JLp2wGXnadL1iVfEG1?=
+ =?us-ascii?Q?7ME9kRTJTLghm3W6JidIe4C53DAAZ+cUQg9oylownZ8yVT1pPEXhI5Y6B9m3?=
+ =?us-ascii?Q?hVxU1LgEIEENvYGDaH6FWhHijJONHhJuNyjwx2zcwCFWmBgWXVGfsf8Gm7LN?=
+ =?us-ascii?Q?VlmyRXhU9COQmO0lUzzLso9/PiBwhhCiMO/srtx+Yo9k3pb/FQZ8MFMzGWDB?=
+ =?us-ascii?Q?etdGyFvfDyL/QOWDRP1sxzDwbqB6UkL9IUrfIZCbEfwPmyGOOGeNbWChMm0y?=
+ =?us-ascii?Q?L4Rbrvg3g0bO8U/FdYgxKwlkoMsMEX/JUbPplh4HgsnvxS4fcreoOAgE4nIh?=
+ =?us-ascii?Q?xSVsjRtmgbB1sAGOKwFc4I70gvUVF/8rdoMtMhyQ8CQAL2lJqIQ9iN0PlXsi?=
+ =?us-ascii?Q?GdTobL69kBsiRrzK6jQfJB21m5f9fHjCBSjCP4OTfSNGQtPxDy11otOOFdBJ?=
+ =?us-ascii?Q?aMwK04b0P8fbMSNVwxzLx0x2GMrI4FSwDcCYgfQNWnZ6FxPKXDkN9eTrUhhR?=
+ =?us-ascii?Q?SpvbJV2s8tPseWXx1MowZQAXwqhOxJ1VeyOaL/cwf4obikNeBlMwuvMcZJRv?=
+ =?us-ascii?Q?+qi583v4rrZP3sGWuXjcs03hMB5d0bLxt8zJnkwcKI/INcSx+JjwfJtAOIX6?=
+ =?us-ascii?Q?7xVZcc5AUUJBIuDxVSNvV601r3JQgbl5c5AbGbAYDuqbik2PLjuMmdPCO1vZ?=
+ =?us-ascii?Q?KIOuM7vJw1c0UAuIm0a4iiZh0jUZ3lTpWWJojfL++dNIAqI12KxlhdYIH3jp?=
+ =?us-ascii?Q?X9lZ0hXjnR3J3Znmu1MR2QL2eE60koUb/SWanq6WBkgIWF+O+kEGtXxsQ4ox?=
+ =?us-ascii?Q?72Cm850u/YHTrxb3Q27dwqvTzpwfchyjc0LLAGTkZs4+sJH04CVqTk8fbyHD?=
+ =?us-ascii?Q?RSFrQ+B4lb3tNFW2hyenK9pSD+XVIs5LGn+ZcyXKzk21VZBkNJub5RZaP6hn?=
+ =?us-ascii?Q?S8ud8upLGZq7lGmzwV2Q/I+cC+EsIchn84TeSJ/LqRcHxXTLlbjs8Uz3Ich4?=
+ =?us-ascii?Q?xTsqKWYz6K7Ogc6tvFRKmkg++an59Q77AKGxY59JomNND3iFJACF7mNLIYQR?=
+ =?us-ascii?Q?2RJGYqStR2ohvmoRWqrmyP9OahMBmfxIZLZNqYF211bO2Sfh?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: beedb05b-e953-4731-5558-08deb5d6bb2a
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 18:45:00.7810
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kUBZ8HV40zcPsT3AaP4Kv0HGYmtbs9q5QNibZUMWgNmydnKRP7aaO9SPBrKqQcN9PyilMP5kurlL8Z5EOrvUpg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10227
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_114145_698576_9F7B0864 
-X-CRM114-Status: GOOD (  50.15  )
+X-CRM114-CacheID: sfid-20260519_114506_980713_52F921D9 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,177 +145,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 6:39=E2=80=AFAM Lorenzo Stoakes <ljs@kernel.org> wr=
-ote:
+On Tue, May 05, 2026 at 08:33:44AM +0200, Alexander Stein wrote:
+> From: Paul Gerber <paul.gerber@tq-group.com>
 >
-> On Tue, May 19, 2026 at 02:12:10PM +0100, Lorenzo Stoakes wrote:
-> > On Mon, May 18, 2026 at 02:21:14PM -0700, Yang Shi wrote:
-> > > Maybe a little bit off topic. This is an interesting idea. It seems
-> > > possible we don't have to take vma write lock unconditionally. IIUC
-> > > the write lock is mainly used to serialize against page fault and
-> > > madvise, right? I got a crazy idea off the top of my head. We may be
-> >
-> > Err no, it serialises against literally any modification or read of any
-> > characteristic of VMAs.
-
-If I remember correctly, you are not supposed to change VMA
-flags/size/mm pointer/vm_file/pgoff/prot, etc, under read vma lock or
-read mmap_lock.
-
-> >
-> > > able to just take vma write lock iff vma->anon_vma is not NULL.
-> >
-> > Except if we don't take it and vma->anon_vma is NULL, then somebody can
-> > anon_vma_prepare() and change vma->anon_vma midway through a fork and c=
-ompletely
-> > screw up the anon_vma fork hierarchy.
+> This adds support for TQMa8MPQS module on MB-SMARC-2 board.
 >
-> correction: this won't happen as per Barry (see - I managed to confuse my=
-self
-> here :), since for vma->anon_vma install we take the mmap read lock.
->
-> BUT we also have to consider other cases.
->
-> >
-> > So no.
-> >
-> > >
-> > > First of all, write mmap_lock is held, so the vma can't go or be
-> > > changed under us.
-> >
-> > vma->anon_vma can be changed.
->
-> Correction: no it can't :)
+> Signed-off-by: Paul Gerber <paul.gerber@tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> ---
+...
+> +
+> +&usb3_0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_usb0>;
+> +	fsl,over-current-active-low;
+> +	maximum-speed = "high-speed";
 
-Yes, vma->anon_vma change should require taking read mmap_lock.
+arch/arm64/boot/dts/freescale/imx8mp-tqma8mpqs-mb-smarc-2.dtb: usb@32f10100 (fsl,imx8mp-dwc3): 'maximum-speed' does not match any of the regexes: '^pinctrl-[0-9]+$', '^usb@[0-9a-f]+$'
+	from schema $id: http://devicetree.org/schemas/usb/fsl,imx8mp-dwc3.yaml
 
->
-> >
-> > >
-> > > Secondly, if vma->anon_vma is NULL, it basically means either no page
-> > > fault happened or no cow happened, so there is no page table to copy,
-> > > this is also what copy_page_range() does currently. So we can shrink
-> > > the critical section to:
-> >
-> > Firstly, with no VMA write lock, !vma->anon_vma means a fault can race =
-and
-> > secondly copy_page_range() checks vma_needs_copy(), there are other cas=
-es - PFN
-> > maps, mixed maps, UFFD W/P (ugh), guard regions.
-> >
-> > So yeah this isn't sufficient.
->
-> However this is true...
+It will reduce review time if run CHECK_DTBS locally before post
 
-Yes, fault can race with fork. Basically this is actually the purpose
-of this idea. We can have improved page fault scalability. In my
-proposal (take write vma lock if vma->anon_vma is not NULL), the race
-just happens on the VMAs which page fault has not happened on before.
-vma_needs_copy() also skips the VMAs which don't have vma->anon_vma.
-So there is basically no difference in semantics other than more page
-fault races IIUC. It should be safe as long as we can guarantee there
-is no writable PTE point to a shared page after fork.
-
-For guard regions, it can be serialized by vma write lock if
-vma->anon_vma exists. If vma->anon_vma is NULL, it will prepare
-anon_vma, which will take read mmap_lock if I read the code correctly.
-
-I have not investigated UFFD yet.
-
->
-> >
-> > >
-> > > if (vma->anon_vma) {
-> > >     vma_start_write_killable(src_vma);
-> > >     anon_vma_fork(dst_vma, src_vma);
-> > >     copy_page_range(dst_vma, src_vma);
-> > > }
-> >
-> > Yeah that's totally broken fo reasons above as I said :)
-> >
-> > >
-> > > But page fault can happen before write mmap_lock is taken, when we
-> > > check vma->anon_vma, it is possible it has not been set up yet. But i=
-t
-> > > seems to be equivalent to page fault after fork and won't break the
-> > > semantic.
-> >
-> > It will totally break how the anon_vma hierarchy works :) See the links=
- at the
-> > top of https://ljs.io/talks for a link to various slides on anon_vma be=
-haviour
-> > (it's really a pain to think about because it's a super broken abstract=
-ion).
-> >
-> > You could end up with a CoW mapping that's unreachable from rmap and yo=
-u could
-> > get some nasty issues with page table entries pointing at freed folios =
-:)
->
-> Correction: actually we should be safe given mmap read lock on anon_vma i=
-nstall.
->
-> >
-> > >
-> > > Anyway, just a crazy idea, I may miss some corner cases.
-> >
-> > Yeah sorry to push back here but this is just not a viable approach.
-
-No worries. Thanks for all the feedback. Just tried to explore whether
-such an idea is feasible or not.
-
-> >
-> > And this is forgetting that we have relied on page faults being blocked=
- by fork
-> > _forever_, who knows what else has baked in assumptions about that
-> > serialisation.
-> >
-> > Forking is one of the nastiest parts of mm and has had multiple, subtle=
-, corner
-> > case breakages that have been a nightmare to deal with.
-
-Yes, this might be the biggest concern. The page fault can race with
-fork. If some applications rely on such subtle behavior, it may break,
-but such applications are fragile too.
-
-> >
-> > So I'm very much against changing this behaviour to try to fix somethin=
-g in the
-> > fault path.
-> >
-> > We should address the fault path issues in the fault path :)
-
-Yeah, this idea was inspired by Barry's "not take vma read lock
-unconditionally" idea. Maybe irrelevant to Barry's priority inversion
-problem, just an idea for further optimization on page fault
-scalability. This probably should be a separate topic.
-
-Thanks,
-Yang
-
->
-> Above still all true though.
->
-> >
-> > >
-> > > Thanks,
-> > > Yang
-> > >
-> > > }
-> > >
-> > > >
-> > > > Based on the above, we may want to re-check whether fork()
-> > > > can be blocked by page faults. At the same time, if Suren,
-> > > > you, or anyone else has any comments, please feel free to
-> > > > share them.
-> > > >
-> > > > Best Regards
-> > > > Barry
-> > > >
-> >
-> > Cheers, Lorenzo
->
-> So still a nope :)
->
-> Cheers, Lorenzo
+Frank
 
