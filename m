@@ -4,108 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21019CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2BF6CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=; b=T4tJBbVThKTXhLuUKlGWk57rYK
-	lY1bA71u5NB9Ma8SJr4fgft3yQzMS6kaHpX5Difd6MjtOqkSCEYgyDjIgq60irzkNJkq5VH8RwDCh
-	j2KpxIjUotdUAv9IGA6lbQdl6VxUmeatb2C6NgncrsFULv0SQvNuk7tAkz2+MikNNy8XDrB6kD1aY
-	KIY3ZlrHivHlW02fOaNWMtM1N6RMaSMKbqzMEWalpBsv7ff5PIsw6voJpuBkuMU4VtVBwEb/7AkDd
-	SQWbmu6TwjKjuByaNBeQvCfOEcJht8YxfWti0uYfy1dt+/RykC7C72W4QBm/Y+J+I4J+VZUpdI36o
-	Tr06XV7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QsID7ws4fVr+aLcNw3M5NI70HA1odCS1dpeAYMn6EKo=; b=pK/l0TRGxjKPnYprinWppjxUFt
+	SFQJsPxva7ICQd+rixECMk9grcRss7igCNoF8TT+4l63QNnWL7v9t31R5FvkNaodTVgXIr96To8ZF
+	8EIWPVXR9151XAEFkfwalQAc94gNvHnXLGXVl4NyI4L0sjWiC7hAess68ELYDgoq5q0IMHacb7R8e
+	RYRKmnYQBebf7mxnPydaA0OGWsNw4pKvCG/AxbTgDMNqClCIW5WrUcbtmjrUImUl4VdpjLPGRSXpn
+	MqCa1bchwxeadHLIqWnGZdc49oeO8a0n6aDDyw9No+vD3TTz4BE2r6RY64VqnH5zwGN9tSRXUs0u7
+	D5LJZPLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPAUI-0000000HVen-3VVE;
-	Tue, 19 May 2026 02:47:18 +0000
-Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
+	id 1wPAdI-0000000HWPm-3H36;
+	Tue, 19 May 2026 02:56:36 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPAUG-0000000HVe8-1YJQ
+	id 1wPAdE-0000000HWP3-2qPz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 02:47:17 +0000
-Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38e7d983f91so32654781fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 19:47:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779158834; cv=none;
-        d=google.com; s=arc-20240605;
-        b=es3Z8np1xUkBr45EWXYWpaWdCkehoZRKHBgQG0Rx98po3S6tA8+/C2x6C//y7bKJIe
-         /bKDksMrXs53cIo8UWcai4CnujbJfJt+bawJ+7JePkAypADYhujt76l0kUNH31wWYblW
-         uRTTRHpM1xVSQJOR3FXKb5RH7P+IZYp3It4UDfjOcM83xjmw36zUh9sDmI8RV+vu1NqG
-         VMjgK6pMD2NL6OZE3r6yqE7jPlpIGu5pSL48g4wK5FaSXNmkpseIvRnexhB99LvMGhed
-         sMEGW6XcSq84kzrf5jigQiKZCF8NP5AXgBqzlQMvqZcR36KCW7T809/aYH1EYsPGPxyW
-         GRog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=;
-        fh=5dnz1XebJU8e14eXQFQWgzgwOHacz1ddUxA/mPCXxTQ=;
-        b=gUNeYZVZbv2E4YeAuBMtUYM7VPhG7ZKtFIJhi+dxfO4vDvI7kTklxzZDfys9Odpgbh
-         G54lktHJ/mdL8029S2HahENoFqXBY3o03wMaGh0fSftyvwPUFa71uwTLc6i8mLc44LWI
-         HVSfvQrAasrwKv9HGh99sWS7lkH1skZSO+uq31BKLITOAYKs3c96wFoG6k2N2fQz4Aiu
-         qb9wU4fOcnnfqtnIA5NvvAbEXvBq5/yfRfin/ppyo3vOLDc679ypI7yWnht/fw4gXkrG
-         LQVbaWa7N3Y359lcCbyATQF/bvNjAJeyJY+oK0Qoers4BM6OMulgM0vCwoEowZ6HtQXn
-         eHCw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779158834; x=1779763634; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=;
-        b=OIGZ6gvz0sYAINy114zyJelEI+4Ili1rh0KJvyiUfdiQurfhpGcFqVeRISS/ewueZs
-         I2b861YDd73sOIRYWysbKxNSU05el/k3VKZMZ6GiONmFszaf7REw6doVq3X+TEZqrWtD
-         K0gnZnwAD/nfyJmb4Hwa61v7To3DV6eJWMgcJYv4lJ4B2tr5cM0ExXlM/dCxe7OWabij
-         awLyquuItJMHnk2vaAAffDIaWuTdEEmVZSKeKNNJBbBuwUKdyjQExEBLJivOOVxy+Ji3
-         2FAH8kzc/6SyIiOyH3ljj0J+eN9G07xQFw9EfQZmnR3v1TGB7Bi+OTS4JD9wmFqDZjfH
-         NwSw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779158834; x=1779763634;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=;
-        b=RUKFsv5aWEzqUBojYvC+C9D3FEjpUcRgTSl/s9N773FLiFAL5OV9khsfOr7SX4TGaF
-         If+lW9oONMPqGOakqtbzpNRGHmdAmfaSsN0eKh/8Nj3jZykCYGQsryTKETBpl6XLIauA
-         KhLm43orJVyHmIXDzUJYIG87uOOLq1HBCh0j/rk1WzKhyeXzpzTxggX5oCW6vck1dTgo
-         V5OI6os3zozQSYDqJEy9DN6Evsv5oOxbyP5JrcfPJ++UPT1QJJviWtY0ldY1yluw5KNw
-         dcqtHz/einaGuHda8j1yUdkjHDF3RAcM3ugidNgNzlLeeTubQ2yan//SPShuvYY+8GyL
-         Y47A==
-X-Forwarded-Encrypted: i=1; AFNElJ8ZWi3htvDpwUfM7ZuD6ksGnk22lFLlmFsuvsGc5mwaYE7J8AlfzECM2t32zCDg3GQPRQx4fRTNrlKUu8P4gjBQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqHLpg5HVZXdhzHYL+HGB5Dv4AcbxxGrvR1m/o5Y+d7c/IEOy8
-	LDXzfZG12qbFTszT2KoYRIpuqSm9IHt+P8noWRLwc73IDVacN3SF8DFW+rJ6iPsXgsdQsUNzcIn
-	sUsSp/LRTztyF/YbH6vnb0KcQAd3nmUI=
-X-Gm-Gg: Acq92OHp/LRePLIE4urMfLelrXTojsLH5mjWR5EX62kotNHTEXSBk2il1E6vtYdexLj
-	rBD6CysHfz+i0jO7j42hRdMYK/KCRwqoUy0p8a3RBs23uwpCXYsPjPXoEDAH1dPSwYDOicXSE1p
-	1Ob4Sjof2ByWvbmnYPYuGPN0qZW0XE+72qO0GoXWmvJAdoclNjrmCGEwr1r+hok7UR/teRQ9a2p
-	F38gXbqzuXrVUGLvzaDrG2ZZTYgGWI5e7KMtON7wq56uwFkhrbNkbQg+H3MyVSfntks/7ws92+t
-	ckB7DfIUUIKysMKGoVY=
-X-Received: by 2002:a2e:bc20:0:b0:38a:45d6:c246 with SMTP id
- 38308e7fff4ca-39561c36019mr54660351fa.8.1779158833823; Mon, 18 May 2026
- 19:47:13 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260424-ventura2_initial_dts-v4-0-806b00ea4314@gmail.com>
- <20260424-ventura2_initial_dts-v4-2-806b00ea4314@gmail.com>
- <39b9a80fe4f49d72cefb8d3f8f1bb3776b9c4226.camel@codeconstruct.com.au> <CAF7HswPn65kvTAyYDj_o=nSn3YhQhKqBaak7nt11x-8bZ7M6vg@mail.gmail.com>
-In-Reply-To: <CAF7HswPn65kvTAyYDj_o=nSn3YhQhKqBaak7nt11x-8bZ7M6vg@mail.gmail.com>
-From: Kyle Hsieh <kylehsieh1995@gmail.com>
-Date: Tue, 19 May 2026 10:48:19 +0800
-X-Gm-Features: AVHnY4KpR8_SQLN5ycWULCDf5UkEJu74K_EZDZzPg05Smr9riqQITU4BSYjRqBM
-Message-ID: <CAF7HswNLqxZA2-2Mh49zk+mV=oTbyw4UrmJTVe3HESZqCL9rGg@mail.gmail.com>
-Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 19 May 2026 02:56:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bzG17UL6KRjj+fnsO0REr+v3hiTJIBVhGoVTBCwNMAJKdPgXJXZMXt0KiMCGEylEjDbVUMAo6jV1LvYviub7ecsagQZ1FZgjHEVO45pyQHuETH4Ly0blhP78XzQrabu8Vz7b3eelVoDepzbyWQ/IG5jE5DWOyo8l/tMF9OnaHjDa4ph55sddK4gENbpEItzacTGMlyk9Vf6UWcD3E0jLIfwj7my0lmptcVIdv0y22jbyZs6/aX6ES5aYAlNaUL616PUZvd4fyFDQTJsp7v/eKyNzlq1HmZQ5qqVY+MGrLlBXzFVzS4vZDrg4gwMV5Amw6EOTiEqihK+ANivB8SSKvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=QsID7ws4fVr+aLcNw3M5NI70HA1odCS1dpeAYMn6EKo=;
+ b=d3xjpAyDMUw6lKAlbIqh0vI+s4ndz2uen6CI3LbkseXo6UdtTjDdhnhpSnz/FGaPW44IxYVCultUsDLedS6JcGkaIn+iYoBOgsTNnD/Gdede19/eWSHCIZO2rPETdrCo+0AC/hbOqzMnnaOIt7UY54JjfW6IdMcEQYnDzB0mwGWD+BzEiRgFxgSecGdimn9aTNc6e/Bf+x8vCvqF2WkHlgv8Rd8ypV4pd7rxvijCWT+tayLNPXfRfyiQSPcaY9skNw7LVr1qXbr5CydqIZXPkzFzMwu/pPSAYmW3DUjlBI1UESZq/Ofr3H5RHhFFM9bjfVng/S1r9WREape01910Xg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=QsID7ws4fVr+aLcNw3M5NI70HA1odCS1dpeAYMn6EKo=;
+ b=HRx7+HU041RN/8Ca/bx8x8LK0Ro8KgSKf4cfn9JHaoOMf1z0l2+SIz7kT9iQwM5r0ECJVGgnPit/3iWXjv8kNebkagKr8e9wOQeNhLY8zdqOHb/Xk66o6r5WVv95vM+Bg70j/m/Zs/2To1Hsqbjie7gi8zMKiBhbDsZCjSsQKcPVN52rjCJml/0owJBc1SZ+3nb3zUHwIQN++LlHwGpkGBykZlaemAKC3tSAcSrFp6kjgarQHsDjxlo3vy2N4aLStTaWT28bqflct5FxiRc25opk3XSqsJ1EndtdQbenHg/lgAmpJafkBbCX56t7jLQHkqP8/uKb5P2oEOCx1RI/iw==
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by GV2PR04MB12213.eurprd04.prod.outlook.com (2603:10a6:150:336::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.13; Tue, 19 May
+ 2026 02:56:25 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.20.9870.023; Tue, 19 May 2026
+ 02:56:24 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li
+	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>
+Subject: RE: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector
+ binding
+Thread-Topic: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector
+ binding
+Thread-Index: AQHc5zsU/NqCypptskSrs2h09QI2ww==
+Date: Tue, 19 May 2026 02:56:24 +0000
+Message-ID: <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
+References: <20260509024846.2094049-1-chancel.liu@nxp.com>
+ <20260509024846.2094049-3-chancel.liu@nxp.com>
+ <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
+ <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
+In-Reply-To: <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8353:EE_|GV2PR04MB12213:EE_
+x-ms-office365-filtering-correlation-id: 4673c762-e119-4e9a-6229-08deb5523713
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|1800799024|366016|4143699003|11063799003|38070700021|3023799003|22082099003|18002099003|56012099003;
+x-microsoft-antispam-message-info: 01mQgD10AGm89Rv0pOUqku1YlFLrbFIQFePnoCQf8TS7vM1BcRaB20FRk+gXDSQHxxk/DKMqio25FCQSaY3uQP2ixpNk4T613kqIOWmDQiKFDumRNo3qdmPC9rmJeAhKRxFldU4lG2FkDpGBJPNr/BpdKG4GMMWHQfBOdlARZvlmG7ZhI95UgFTvtaFTMAr1xSL/79E6HJ0PioX2KbvuyulAPZ+HH4ACeeVL0fhfxBMmaIQHmKyPyYtgda13Xdgr5WiBapH2uOVoiCwLwYNMDhA9hYhu1Vj7XeDdHbbLyzk2jL+RMpFWYKuBkNaEHAQ0+coRyU1p7o6NxvRooB5FZLOhWwr1iZ6U4LfI8X03XUpvAWg17ETmhkx6ndTfUfDjCOABqJBXaJjUXnnyf5GOvx5EScBnSAOaS130mRVpMjYBVskvYh7DSzcWJPYEJu8hCryZLIHEdDErspTPwCmQ++tIRCsdxy8nVURKPLssyLRBvsTV8N/SSz5lhGdkx/ldUzIQaCBMLI4cCZKg/sB5jvYUNBzGioQKVh9X6ZUi2SJBx1B9oMM+HIElEDGRULMOYYZOFHCzpndzOGFltndTJEAHs7UHDD/sq2ieqhs421zYQCeCDtNwxu57+6JFwGIp31oJcpqtaL8Pf2mQfVy1/toHB5auH/mahVTI5eSRMrkk9642em0F9ThaW0TMYk/fh4XD9NYQQ63FTbiVEmfqew==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(1800799024)(366016)(4143699003)(11063799003)(38070700021)(3023799003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?NThqckpDczJxRnQvdmlTNERPT0t1Uko5L0UxZjRPa09VdGQ5anh3dWkz?=
+ =?iso-2022-jp?B?VUN5cmVQcm8zUHJzcGhEenI0MWlubzc5SEp2YXZCeE5SQnJhWlk3Qm1E?=
+ =?iso-2022-jp?B?VGY5bTUzOXBoMnYwT3VXa08reEpMWjhIbVNnYkhyamRnMHNkUkptN2lu?=
+ =?iso-2022-jp?B?QU4zb3BWbUl6akQrTFJJcWZRRG9mY0laeGVWOE13c1dJRGE3dS8xUW5W?=
+ =?iso-2022-jp?B?VmN4eEZxbW1GUWsvc2E1YUE3YkhvQzgvV0pGT0pnVFZPQ2VDR1llUlhS?=
+ =?iso-2022-jp?B?QS9qMjhJYjJFbnFqM0JxSFk1eTl0VUJzdkhNNzh1QlRMa2hwcGZLWHlK?=
+ =?iso-2022-jp?B?ZFJ1V1NMaHFaWENPQXpOcHU4SmsyMXczZ3NvVktLaFNmV2p2UHh1RkRD?=
+ =?iso-2022-jp?B?SGZrZXM4aUNGOE5IWEdpa1kySllqZGx5ZFF6Z0lMNHN6OGhCQzhFVWNC?=
+ =?iso-2022-jp?B?amNZbDVZeDl1c29JMnBGbHY5Qk5JZEtiSkpkV2FqYTVGV3JIZm1TbExM?=
+ =?iso-2022-jp?B?NFlHcXI1MVpGS29vT1ZmNmpJK0ZkNzZJU0RpdHNYTlZQVFA2dHAwZDhu?=
+ =?iso-2022-jp?B?U0Vrd1RXSHA0NFZKWVRPeGdXMDdYak9qeDNlUEsxOFBWb0NwU1FqckRX?=
+ =?iso-2022-jp?B?NWdjejNmTmljbjZ5NUlzTityR1RERUxLVUgyYTc5cnc1bVBqMTUyUml1?=
+ =?iso-2022-jp?B?Y3ZBWC9aR21idHZHNHJpcDNxdVhCZXNmLzEwWHFkK1NrRktrb3d3bkdT?=
+ =?iso-2022-jp?B?anBMeDVFRGFJYURXektiZ0FhU2FGZHpzRVJRU00wNlJ1N3lZRzJhV2Nj?=
+ =?iso-2022-jp?B?aURwSU1nT0RwTlBKVlpteEkvYzNMSExlM3pQZlRXWG5ZQUNrSGVjSEUz?=
+ =?iso-2022-jp?B?WE5SQkdRL1VJeWptY3dqWjMzQm9yZ3cvajh0bGpJVjB1OFVsb1owL2VV?=
+ =?iso-2022-jp?B?eEpMUFNiWXp6RFBScE1GZVZLQmhkOWJ4aDNmaWhKa29sZTMzMDFzZUFB?=
+ =?iso-2022-jp?B?UDVsakVrZlpuNnExODJ5QkJoQW56bUhvZ2s5UjByTWtyNWNyT3U0R3N6?=
+ =?iso-2022-jp?B?TzhFblpFUmdEejNwVFRqc25Ua083NWRucStyejh1UWdpaUJ6V04yNTJP?=
+ =?iso-2022-jp?B?d3NrVjVNN2tjQk1xV1hsNkdGcnRYQS9GSGJ1a21RK2hMeFUvd29xdWtx?=
+ =?iso-2022-jp?B?cVN0dzZ5bXRhbzZvTk5vRy9JYlBSOE42alROYk5RWWRJdVJFd1pKSUpy?=
+ =?iso-2022-jp?B?MkVWdlJpWUtpaXRtL2haVVNHSmNXL1N5bDhLdzlJQnA3eGIyNldCSG5H?=
+ =?iso-2022-jp?B?RE9HcnFZRmM4UWszM2E3SUo3WkV5Z0JuNldCVjY4UEhPcnQ3UEdNL3VY?=
+ =?iso-2022-jp?B?dTB1VnJzM1RRL3djU1dGVTZ2OFc5NTVCZkhZbjNIVjNJR080b1UwVVRu?=
+ =?iso-2022-jp?B?UFRCaDB3L1o3a3pIeDdJL3kwdGhIZjV3ZjByOWU2VDI1cVdzMy9kWFdO?=
+ =?iso-2022-jp?B?VlFLc1h4cjJPRmVjQWZ2cVJsRkVKdGsyNk55ZzBuaGRDYUlLV3h6alV2?=
+ =?iso-2022-jp?B?ek5QVXd1Tno1a29xakdmT0c1b0dhUWEvTmpCcHl0UzZrSGhSVnU0RGpF?=
+ =?iso-2022-jp?B?SllBQ09iT2NNb1BXV09XYmNrVHd0MzJ3SzJTbFFwL2wyQVN0bTBLTXBV?=
+ =?iso-2022-jp?B?WUtlR0RTUE1BZWxNNkhjOU5hdW13TS9veHlMRnhvYmRCWEFKbjFkdWVw?=
+ =?iso-2022-jp?B?WFR6amIydWYxNkFQSmFjZ2RxVkt5Z0M1TjZrNWZHU1VDYUtJWk1pNGdn?=
+ =?iso-2022-jp?B?bVhlaDA3aTNNa1VvODQ1VHpvNWswelBRVnFDQXY4VGZxK25YNXB5OHhH?=
+ =?iso-2022-jp?B?cjdQbWxRVEFyYnRWaGhhTG83cU5hc2wyWmFSR0xnTlcvdVNnZmNmcGhZ?=
+ =?iso-2022-jp?B?VGROY2NrcGVkNUhoMFRqc0xOdzhycyt2U2lDN2toSnI0Q2FWYmFVQThJ?=
+ =?iso-2022-jp?B?U3Y1b3dGY1ZtbGJybUdsTlpWUkRIcWwzY0Vsd0tkR1JINC9iT1QvZTdo?=
+ =?iso-2022-jp?B?bExSSVVMU1NqQjVJbC9saDYyMkJUUkMvRW9LakEyWng2WFlHMzhqUWMv?=
+ =?iso-2022-jp?B?b242amQ2NDFpNEcxNzc2Y2V1b3dZRSt0dmIvdjJhaktQcHczOFBoQUdL?=
+ =?iso-2022-jp?B?VysxekVEaCtGRTFvcHpFNmVCMk1rMnlVcWdYMkdiYmZ5NHJkTkt2V0dG?=
+ =?iso-2022-jp?B?eFJaVGZkVzZBMFE0TG8xNFdrZS9ZNzZ3YXJTTE5kVlVzekY4S0JraTR5?=
+ =?iso-2022-jp?B?VjJqK0tjZnJxQ3d4b2RFb2RwTVlJbDVsd3RQNEgyeUNnOWRLeER1MW4x?=
+ =?iso-2022-jp?B?TGEyWnhXOG04b0tYS1lpMnpuVDFFMUF1UStwWUd3eEdTaFY2cHc5M3Z4?=
+ =?iso-2022-jp?B?citHZzVuOEV6VnN6cVhRcDNXZXFLazU2VTJxMDFMaHJpYW1mSzFiOHQ3?=
+ =?iso-2022-jp?B?ODkrQ0lP?=
+Content-Type: text/plain; charset="iso-2022-jp"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4673c762-e119-4e9a-6229-08deb5523713
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 May 2026 02:56:24.9107
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: g+LwTJK1bnW40quUZkIWU5mPj6MqFLOcCsdo4sMX4lbX+X6/eSCmxzyUkfZij2CSrFf6WsjWkdl/rH+5HUDeoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12213
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_194716_630535_C475BEC9 
-X-CRM114-Status: GOOD (  35.14  )
+X-CRM114-CacheID: sfid-20260518_195632_867650_D514B280 
+X-CRM114-Status: GOOD (  28.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,637 +164,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-On Tue, May 19, 2026 at 10:38=E2=80=AFAM Kyle Hsieh <kylehsieh1995@gmail.co=
-m> wrote:
->
-> On Mon, May 18, 2026 at 3:18=E2=80=AFPM Andrew Jeffery
-> <andrew@codeconstruct.com.au> wrote:
-> >
-> > Hi Kyle,
-> >
-> > Firstly, are you trying to represent multiple revisions of the hardware
-> > design in this devicetree? I'm curious due to the 'legacy' labels
-> > below.
-> >
-> In the previous Ventura hardware generation, these pins were
->  implemented as a set of direct, native physical GPIO signals. In the V2
->  design, we introduced alternative interfaces and routed these paths
-> through the CPLD to convert them into GPIOs before reaching the
-> BMC.
->
-> We chose to retain the 'legacy' prefix to maintain backward
-> compatibility with our existing userspace software stack and scripts
-> that transitioned from the previous Ventura platform. Altering these
-> labels now would break compatibility with applications that rely on
-> these specific naming conventions. I will add comments in the DTS to
-> clarify this context.
-Please allow me to add a crucial hardware detail to my previous
- explanation regarding the 'legacy' prefix.
-I missed mentioning the most important point: on this specific ventura2
-board, we actually have two distinct sets of IO expanders physically
-present at the same time to support both new and older tray interfaces.
-
-The new design utilizes the PCA9698 at gpio@40, which is already
-labeled as prsnt_io_expander0. However, to maintain hardware
-backward compatibility with older trays, the board also physically
-retains the previous PCA9555 expanders at gpio@11.
-
-Therefore, since the prsnt_io_expander0 label is already occupied, the
-legacy_ prefix is strictly necessary to avoid
-devicetree label collisions and to explicitly differentiate the two
-physical hardware paths.
-
-I will make sure this hardware context is clearly documented in the
-DTS comments in the v5 patch.
-
-> > On Fri, 2026-04-24 at 17:30 +0800, Kyle Hsieh wrote:
-> > > Add linux device tree entry related to the Meta(Facebook) rmc-node.
-> > > The system use an AT2600 BMC.
-> > > This node is named "ventura2".
-> > >
-> > > Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> > > ---
-> > >  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
-> > >  .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2925 ++++++++++=
-++++++++++
-> > >  2 files changed, 2926 insertions(+)
-> > >
-> > > diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/as=
-peed/Makefile
-> > > index 9adf9278dc94..6b96997629d4 100644
-> > > --- a/arch/arm/boot/dts/aspeed/Makefile
-> > > +++ b/arch/arm/boot/dts/aspeed/Makefile
-> > > @@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
-> > >       aspeed-bmc-facebook-minipack.dtb \
-> > >       aspeed-bmc-facebook-santabarbara.dtb \
-> > >       aspeed-bmc-facebook-tiogapass.dtb \
-> > > +     aspeed-bmc-facebook-ventura2.dtb \
-> > >       aspeed-bmc-facebook-wedge40.dtb \
-> > >       aspeed-bmc-facebook-wedge100.dtb \
-> > >       aspeed-bmc-facebook-wedge400-data64.dtb \
-> > > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dt=
-s b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> > > new file mode 100644
-> > > index 000000000000..8d4ddb473862
-> > > --- /dev/null
-> > > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-> > > @@ -0,0 +1,2925 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +// Copyright (c) 2023 Facebook Inc.
-> > > +/dts-v1/;
-> > > +
-> > > +#include "aspeed-g6.dtsi"
-> > > +#include <dt-bindings/i2c/i2c.h>
-> > > +#include <dt-bindings/gpio/aspeed-gpio.h>
-> > > +
-> > > +/ {
-> > > +     model =3D "Facebook Ventura2 RMC";
-> > > +     compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
-> > > +     aliases {
-> > > +             serial2 =3D &uart3;
-> > > +             serial4 =3D &uart5;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 0-0077, pca9548, 8 child channels assigne=
-d
-> > > +              * with bus number 16-23.
-> > > +              */
-> > > +             i2c16 =3D &i2c0mux0ch0;
-> > > +             i2c17 =3D &i2c0mux0ch1;
-> > > +             i2c18 =3D &i2c0mux0ch2;
-> > > +             i2c19 =3D &i2c0mux0ch3;
-> > > +             i2c20 =3D &i2c0mux0ch4;
-> > > +             i2c21 =3D &i2c0mux0ch5;
-> > > +             i2c22 =3D &i2c0mux0ch6;
-> > > +             i2c23 =3D &i2c0mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 1-0077, pca9548, 8 child channels assigne=
-d
-> > > +              * with bus number 24-31.
-> > > +              */
-> > > +             i2c24 =3D &i2c1mux0ch0;
-> > > +             i2c25 =3D &i2c1mux0ch1;
-> > > +             i2c26 =3D &i2c1mux0ch2;
-> > > +             i2c27 =3D &i2c1mux0ch3;
-> > > +             i2c28 =3D &i2c1mux0ch4;
-> > > +             i2c29 =3D &i2c1mux0ch5;
-> > > +             i2c30 =3D &i2c1mux0ch6;
-> > > +             i2c31 =3D &i2c1mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 4-0077, pca9548, 8 child channels assigne=
-d
-> > > +              * with bus number 32-39.
-> > > +              */
-> > > +             i2c32 =3D &i2c4mux0ch0;
-> > > +             i2c33 =3D &i2c4mux0ch1;
-> > > +             i2c34 =3D &i2c4mux0ch2;
-> > > +             i2c35 =3D &i2c4mux0ch3;
-> > > +             i2c36 =3D &i2c4mux0ch4;
-> > > +             i2c37 =3D &i2c4mux0ch5;
-> > > +             i2c38 =3D &i2c4mux0ch6;
-> > > +             i2c39 =3D &i2c4mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 5-0077, pca9548, 8 child channels assigne=
-d
-> > > +              * with bus number 40-47.
-> > > +              */
-> > > +             i2c40 =3D &i2c5mux0ch0;
-> > > +             i2c41 =3D &i2c5mux0ch1;
-> > > +             i2c42 =3D &i2c5mux0ch2;
-> > > +             i2c43 =3D &i2c5mux0ch3;
-> > > +             i2c44 =3D &i2c5mux0ch4;
-> > > +             i2c45 =3D &i2c5mux0ch5;
-> > > +             i2c46 =3D &i2c5mux0ch6;
-> > > +             i2c47 =3D &i2c5mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 8-0077, pca9548, 8 child channels assigne=
-d
-> > > +              * with bus number 48-55.
-> > > +              */
-> > > +             i2c48 =3D &i2c8mux0ch0;
-> > > +             i2c49 =3D &i2c8mux0ch1;
-> > > +             i2c50 =3D &i2c8mux0ch2;
-> > > +             i2c51 =3D &i2c8mux0ch3;
-> > > +             i2c52 =3D &i2c8mux0ch4;
-> > > +             i2c53 =3D &i2c8mux0ch5;
-> > > +             i2c54 =3D &i2c8mux0ch6;
-> > > +             i2c55 =3D &i2c8mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 11-0077, pca9548, 8 child channels assign=
-ed
-> > > +              * with bus number 56-63.
-> > > +              */
-> > > +             i2c56 =3D &i2c11mux0ch0;
-> > > +             i2c57 =3D &i2c11mux0ch1;
-> > > +             i2c58 =3D &i2c11mux0ch2;
-> > > +             i2c59 =3D &i2c11mux0ch3;
-> > > +             i2c60 =3D &i2c11mux0ch4;
-> > > +             i2c61 =3D &i2c11mux0ch5;
-> > > +             i2c62 =3D &i2c11mux0ch6;
-> > > +             i2c63 =3D &i2c11mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 13-0077, pca9548, 8 child channels assign=
-ed
-> > > +              * with bus number 64-71.
-> > > +              */
-> > > +             i2c64 =3D &i2c13mux0ch0;
-> > > +             i2c65 =3D &i2c13mux0ch1;
-> > > +             i2c66 =3D &i2c13mux0ch2;
-> > > +             i2c67 =3D &i2c13mux0ch3;
-> > > +             i2c68 =3D &i2c13mux0ch4;
-> > > +             i2c69 =3D &i2c13mux0ch5;
-> > > +             i2c70 =3D &i2c13mux0ch6;
-> > > +             i2c71 =3D &i2c13mux0ch7;
-> > > +
-> > > +             /*
-> > > +              * i2c switch 15-0077, pca9548, 8 child channels assign=
-ed
-> > > +              * with bus number 72-79.
-> > > +              */
-> > > +             i2c72 =3D &i2c15mux0ch0;
-> > > +             i2c73 =3D &i2c15mux0ch1;
-> > > +             i2c74 =3D &i2c15mux0ch2;
-> > > +             i2c75 =3D &i2c15mux0ch3;
-> > > +             i2c76 =3D &i2c15mux0ch4;
-> > > +             i2c77 =3D &i2c15mux0ch5;
-> > > +             i2c78 =3D &i2c15mux0ch6;
-> > > +             i2c79 =3D &i2c15mux0ch7;
-> >
-> > Can you please add comments justifying why all of these aliases are
-> > necessary given a number of them are for busses with no devices
-> > described under them?
-> These I2C aliases are pre-allocated because these empty channels are
->  strictly reserved for future hardware feature expansions, which will
-> interface with add-on boards. I will add clear comments in the code to
-> justify their necessity in the next patch.
-> >
-> > > +     };
-> > > +
-> > > +     chosen {
-> > > +             stdout-path =3D "serial4:57600n8";
-> > > +     };
-> > > +
-> > > +     fan_leds {
-> > > +             compatible =3D "gpio-leds";
-> > > +
-> > > +             led-0 {
-> > > +                     label =3D "fcb0fan0_ledd1_blue";
-> >
-> > Given the labels are exposed to userspace and is something applications
-> > likely consume, is the double 'd' in led intentional?
-> Yes, the double 'd' in "ledd1" is intentional. It aligns with our hardwar=
+> >>> +description:
+> >>> +  The NXP I/O connector represents a physically present I/O
+> >>> +connector on the
+> >>> +  base board. It acts as a nexus that exposes a constrained set of
+> >>> +I/O
+> >>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
+> >>> +fixed
+> >>> +  electrical wiring. All actual hardware providers reside on the bas=
 e
->  schematic design naming convention, where these specific onboard
-> indicators are designated as LEDD1, LEDD2, etc.
+> board.
+> >>> +  The connector node only defines index-based mappings to those
+> >> providers.
+> >>> +
+> >>> +properties:
+> >>> +  compatible:
+> >>> +    const: fsl,io-connector
+> >>
+> >> Everything is IO. Everything is connector, so your compatible does
+> >> not match requirements from writing bindings.
+> >>
 > >
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander0 0 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-1 {
-> > > +                     label =3D "fcb0fan1_ledd2_blue";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander0 1 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-2 {
-> > > +                     label =3D "fcb0fan2_ledd3_blue";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander1 0 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-3 {
-> > > +                     label =3D "fcb0fan3_ledd4_blue";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander1 1 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-4 {
-> > > +                     label =3D "fcb0fan0_ledd1_amber";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander0 4 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-5 {
-> > > +                     label =3D "fcb0fan1_ledd2_amber";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander0 5 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-6 {
-> > > +                     label =3D "fcb0fan2_ledd3_amber";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander1 4 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +
-> > > +             led-7 {
-> > > +                     label =3D "fcb0fan3_ledd4_amber";
-> > > +                     default-state =3D "off";
-> > > +                     gpios =3D <&fan_io_expander1 5 GPIO_ACTIVE_LOW>=
-;
-> > > +             };
-> > > +     };
-> > > +
-> >
-> > ...
-> >
-> > > +
-> > > +&fmc {
-> > > +     status =3D "okay";
-> > > +     flash@0 {
-> > > +             status =3D "okay";
-> > > +             m25p,fast-read;
-> > > +             label =3D "bmc";
-> > > +             spi-max-frequency =3D <50000000>;
-> > > +             #include "openbmc-flash-layout-128.dtsi"
-> > > +     };
-> > > +     flash@1 {
-> > > +             status =3D "okay";
-> > > +             m25p,fast-read;
-> > > +             label =3D "alt-bmc";
-> > > +             spi-max-frequency =3D <50000000>;
-> >
-> > Perhaps include the alternate flash layout dtsi here?
-> The `flash@1` (`alt-bmc`) node is intentionally left unpartitioned
->  without the layout DTSI.
+> > Yes, this compatible is too generic. I will rename the compatible to
+> > fsl,aud-io-connector.
+>=20
+> aud is not much better. Which boards have it? What's the pinout? What's
+> standard? Is it described anywhere? If so, provide reference to spec/docs=
+.
 >
-> In our dual-flash design, `flash@1` serves as the secondary/backup
-> flash chip. Keeping it without sub-partitions allows the kernel and
-> userspace tools to treat this flash as a single, contiguous raw MTD
-> device. This is required by our firmware update mechanism, which
-> flashes a single, full-size composite image directly to the entire
-> backup flash.
+
+This is not an industry standard electrical interface. This connector
+is present on i.MX95-19x19-EVK and i.MX952-EVK. For example, the
+"i.MX 95 19mm x 19mm Evaluation Kit" homepage[1] publicly documents an
+audio board connection through which IMX-AUD-IO card is connected. The
+detailed user manual (UM12022) is listed as official documentation[2],
+but it is behind an NXP login, so it is not suitable as a public
+reference for upstream. Therefore I list it here to illustrate it's
+mechanism:
+
++-----------------------------+                     =20
+|        Base Board           |                     =20
+|   +-----+      +---------+  |           +---------+
+|   | SPI +------+         |  |           |         |
+|   +-----+      |         |  | GPIO MAP  |         |
+|                |         +--|-----------+         |
+|   +-----+      |         |  |           |         |
+|   | I2C +------+         |  |           |         |
+|   +-----+      |         |  | CLOCK MAP |  AUD-IO |
+|                |connector+--|-----------+   CARD  |
+|   +-----+      |         |  |           |         |
+|   | I2S +------+         |  |           |         |
+|   +-----+      |         |  |           |         |
+|                |         |  | INT MAP   |         |
+|   +-----+      |         +--|-----------+         |
+|   | I/O +------+         |  |           |         |
+|   +-----+      +---------+  |           +---------+
++-----------------------------+                     =20
+
+[1]https://www.nxp.com/design/design-center/development-boards-and-designs/=
+IMX95LPD5EVK-19
+[2]https://docs.nxp.com/bundle/UM12022/page/topics/pcie_interface1.html
+
+> >
+> >>> +
+> >>> +  gpio-controller: true
+> >>> +
+> >>> +  '#gpio-cells':
+> >>> +    const: 2
+> >>> +
+> >>> +  gpio-map:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> >>
+> >> You do not need to redefine the types. You need constraints, though.
+> >>
+> >
+> > OK. I will add proper constraints.
+> >
+> >>> +
+> >>> +  gpio-map-mask:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> >>> +
+> >>> +  gpio-map-pass-thru:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> >>> +
+> >>> +  '#clock-cells':
+> >>> +    const: 1
+> >>> +
+> >>> +  clock-map:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> >>> +
+> >>> +  clock-map-mask:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> >>> +
+> >>> +  clock-map-pass-thru:
+> >>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> >>
+> >> I do not see these defined anywhere. I also checked cover letter for
+> >> references for pulls to dtschema.
+> >>
+> >
+> > Nexus nodes are already in the device-tree specification=1B$B!'=1B(B
+> > https://github.com/devicetree-org/devicetree-specification/blob/v0.4/so=
+urce/chapter2-devicetree-basics.rst#nexus-nodes-and-specifier-mapping
+> > For reference, current kernel has supported it:
+> > * Nexus OF support:
+> > commit bd6f2fd5a1d5 ("of: Support parsing phandle argument lists
+> > through a nexus node")
+> > * GPIO adoption:
+> > commit c11e6f0f04db ("gpio: Support gpio nexus dt bindings")
+> > * PWM adoption:
+> > commit e71e46a6f19c ("pwm: Add support for pwm nexus dt bindings")
+> > Clock adoption is ongoing:
+> > https://lore.kernel.org/all/20260327-schneider-v7-0-rc1-crypto-v1-10-5e=
+6ff7853994@bootlin.com/
 >
-> This structure follows the existing upstream pattern established in
-> `aspeed-bmc-facebook-yosemite5.dts`.
-> >
-> > > +     };
-> > > +};
-> > > +
-> > > +&peci0 {
-> >
-> > Can you please order the nodes alphabetically. P is not between F and
-> > G.
-> I will ensure all nodes are strictly sorted in alphabetical order in
-> the next version.
-> >
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > >
-> >
-> > ...
-> >
-> > > +
-> > > +&i2c10 {
-> > > +     status =3D "okay";
-> > > +
-> > > +     legacy_prsnt_io_expander0: gpio@11 {
-> >
-> > Why 'legacy'?
-> >
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x11>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_PRSNT1_N_BUF_R", "TRAY_PRSNT2_N_BUF_R",
-> > > +                     "TRAY_PRSNT3_N_BUF_R", "TRAY_PRSNT4_N_BUF_R",
-> > > +                     "TRAY_PRSNT5_N_BUF_R", "TRAY_PRSNT6_N_BUF_R",
-> > > +                     "TRAY_PRSNT7_N_BUF_R", "TRAY_PRSNT8_N_BUF_R",
-> > > +                     "TRAY_PRSNT9_N_BUF_R", "TRAY_PRSNT10_N_BUF_R",
-> > > +                     "TRAY_PRSNT11_N_BUF_R", "TRAY_PRSNT12_N_BUF_R",
-> > > +                     "TRAY_PRSNT13_N_BUF_R", "TRAY_PRSNT14_N_BUF_R",
-> > > +                     "TRAY_PRSNT15_N_BUF_R", "TRAY_PRSNT16_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_prsnt_io_expander1: gpio@12 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x12>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_PRSNT17_N_BUF_R", "TRAY_PRSNT18_N_BUF_R",
-> > > +                     "TRAY_PRSNT19_N_BUF_R", "TRAY_PRSNT20_N_BUF_R",
-> > > +                     "TRAY_PRSNT21_N_BUF_R", "TRAY_PRSNT22_N_BUF_R",
-> > > +                     "TRAY_PRSNT23_N_BUF_R", "TRAY_PRSNT24_N_BUF_R",
-> > > +                     "TRAY_PRSNT25_N_BUF_R", "TRAY_PRSNT26_N_BUF_R",
-> > > +                     "TRAY_PRSNT27_N_BUF_R", "TRAY_PRSNT28_N_BUF_R",
-> > > +                     "TRAY_PRSNT29_N_BUF_R", "TRAY_PRSNT30_N_BUF_R",
-> > > +                     "TRAY_PRSNT31_N_BUF_R", "TRAY_PRSNT32_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_prsnt_io_expander2: gpio@13 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x13>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_PRSNT33_N_BUF_R", "TRAY_PRSNT34_N_BUF_R",
-> > > +                     "TRAY_PRSNT35_N_BUF_R", "TRAY_PRSNT36_N_BUF_R",
-> > > +                     "TRAY_PRSNT37_N_BUF_R", "TRAY_PRSNT38_N_BUF_R",
-> > > +                     "TRAY_PRSNT39_N_BUF_R", "TRAY_PRSNT40_N_BUF_R",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "";
-> > > +     };
-> > > +
-> > > +     power-monitor@14 {
-> > > +             compatible =3D "infineon,xdp710";
-> > > +             reg =3D <0x14>;
-> > > +     };
-> > > +
-> > > +     legacy_pwrgd_io_expander1: gpio@15 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x15>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_PWRGD17_N_BUF_R", "TRAY_PWRGD18_N_BUF_R",
-> > > +                     "TRAY_PWRGD19_N_BUF_R", "TRAY_PWRGD20_N_BUF_R",
-> > > +                     "TRAY_PWRGD21_N_BUF_R", "TRAY_PWRGD22_N_BUF_R",
-> > > +                     "TRAY_PWRGD23_N_BUF_R", "TRAY_PWRGD24_N_BUF_R",
-> > > +                     "TRAY_PWRGD25_N_BUF_R", "TRAY_PWRGD26_N_BUF_R",
-> > > +                     "TRAY_PWRGD27_N_BUF_R", "TRAY_PWRGD28_N_BUF_R",
-> > > +                     "TRAY_PWRGD29_N_BUF_R", "TRAY_PWRGD30_N_BUF_R",
-> > > +                     "TRAY_PWRGD31_N_BUF_R", "TRAY_PWRGD32_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_pwrgd_io_expander2: gpio@16 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x16>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_PWRGD33_N_BUF_R", "TRAY_PWRGD34_N_BUF_R",
-> > > +                     "TRAY_PWRGD35_N_BUF_R", "TRAY_PWRGD36_N_BUF_R",
-> > > +                     "TRAY_PWRGD37_N_BUF_R", "TRAY_PWRGD38_N_BUF_R",
-> > > +                     "TRAY_PWRGD39_N_BUF_R", "TRAY_PWRGD40_N_BUF_R",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "";
-> > > +     };
-> > > +
-> > > +     legacy_leak_io_expander0: gpio@17 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x17>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_LEAK_DETECT1_N_BUF_R", "TRAY_LEAK_DETECT2=
-_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT3_N_BUF_R", "TRAY_LEAK_DETECT4=
-_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT5_N_BUF_R", "TRAY_LEAK_DETECT6=
-_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT7_N_BUF_R", "TRAY_LEAK_DETECT8=
-_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT9_N_BUF_R", "TRAY_LEAK_DETECT1=
-0_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT11_N_BUF_R", "TRAY_LEAK_DETECT=
-12_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT13_N_BUF_R", "TRAY_LEAK_DETECT=
-14_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT15_N_BUF_R", "TRAY_LEAK_DETECT=
-16_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_leak_io_expander1: gpio@18 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x18>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_LEAK_DETECT17_N_BUF_R", "TRAY_LEAK_DETECT=
-18_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT19_N_BUF_R", "TRAY_LEAK_DETECT=
-20_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT21_N_BUF_R", "TRAY_LEAK_DETECT=
-22_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT23_N_BUF_R", "TRAY_LEAK_DETECT=
-24_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT25_N_BUF_R", "TRAY_LEAK_DETECT=
-26_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT27_N_BUF_R", "TRAY_LEAK_DETECT=
-28_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT29_N_BUF_R", "TRAY_LEAK_DETECT=
-30_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT31_N_BUF_R", "TRAY_LEAK_DETECT=
-32_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_leak_io_expander2: gpio@19 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x19>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_LEAK_DETECT33_N_BUF_R", "TRAY_LEAK_DETECT=
-34_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT35_N_BUF_R", "TRAY_LEAK_DETECT=
-36_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT37_N_BUF_R", "TRAY_LEAK_DETECT=
-38_N_BUF_R",
-> > > +                     "TRAY_LEAK_DETECT39_N_BUF_R", "TRAY_LEAK_DETECT=
-40_N_BUF_R",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "";
-> > > +     };
-> > > +
-> > > +     legacy_small_leak_io_expander0: gpio@1a {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x1a>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_SMALL_LEAK1_N_BUF_R", "TRAY_SMALL_LEAK2_N=
-_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK3_N_BUF_R", "TRAY_SMALL_LEAK4_N=
-_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK5_N_BUF_R", "TRAY_SMALL_LEAK6_N=
-_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK7_N_BUF_R", "TRAY_SMALL_LEAK8_N=
-_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK9_N_BUF_R", "TRAY_SMALL_LEAK10_=
-N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK11_N_BUF_R", "TRAY_SMALL_LEAK12=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK13_N_BUF_R", "TRAY_SMALL_LEAK14=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK15_N_BUF_R", "TRAY_SMALL_LEAK16=
-_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_small_leak_io_expander1: gpio@1b {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x1b>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_SMALL_LEAK17_N_BUF_R", "TRAY_SMALL_LEAK18=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK19_N_BUF_R", "TRAY_SMALL_LEAK20=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK21_N_BUF_R", "TRAY_SMALL_LEAK22=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK23_N_BUF_R", "TRAY_SMALL_LEAK24=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK25_N_BUF_R", "TRAY_SMALL_LEAK26=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK27_N_BUF_R", "TRAY_SMALL_LEAK28=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK29_N_BUF_R", "TRAY_SMALL_LEAK30=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK31_N_BUF_R", "TRAY_SMALL_LEAK32=
-_N_BUF_R";
-> > > +     };
-> > > +
-> > > +     legacy_small_leak_io_expander2: gpio@1c {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x1c>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_SMALL_LEAK33_N_BUF_R", "TRAY_SMALL_LEAK34=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK35_N_BUF_R", "TRAY_SMALL_LEAK36=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK37_N_BUF_R", "TRAY_SMALL_LEAK38=
-_N_BUF_R",
-> > > +                     "TRAY_SMALL_LEAK39_N_BUF_R", "TRAY_SMALL_LEAK40=
-_N_BUF_R",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "",
-> > > +                     "", "";
-> > > +     };
-> > > +
-> > > +     legacy_pwrgd_io_expander0: gpio@28 {
-> > > +             compatible =3D "nxp,pca9555";
-> > > +             reg =3D <0x28>;
-> > > +             gpio-controller;
-> > > +             #gpio-cells =3D <2>;
-> > > +             interrupt-parent =3D <&sgpiom0>;
-> > > +             interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
-> > > +
-> > > +             gpio-line-names =3D
-> > > +                     "TRAY_PWRGD1_N_BUF_R", "TRAY_PWRGD2_N_BUF_R",
-> > > +                     "TRAY_PWRGD3_N_BUF_R", "TRAY_PWRGD4_N_BUF_R",
-> > > +                     "TRAY_PWRGD5_N_BUF_R", "TRAY_PWRGD6_N_BUF_R",
-> > > +                     "TRAY_PWRGD7_N_BUF_R", "TRAY_PWRGD8_N_BUF_R",
-> > > +                     "TRAY_PWRGD9_N_BUF_R", "TRAY_PWRGD10_N_BUF_R",
-> > > +                     "TRAY_PWRGD11_N_BUF_R", "TRAY_PWRGD12_N_BUF_R",
-> > > +                     "TRAY_PWRGD13_N_BUF_R", "TRAY_PWRGD14_N_BUF_R",
-> > > +                     "TRAY_PWRGD15_N_BUF_R", "TRAY_PWRGD16_N_BUF_R";
-> > > +     };
-> > > +
-> >
-> > ...
-> >
-> > > +
-> > > +&mdio0 {
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > > +&peci0 {
-> > > +     status =3D "okay";
-> > > +};
-> >
-> > Ah, so the earlier peci node is redundant. Can you please remove it?
-> Got it. I will remove the redundant peci0 node and ensure all nodes
->  are strictly sorted in alphabetical order in the next version.
-> >
-> > Andrew
+> DT spec only mentions nexuses, but it is only a spec. Each property from
+> the spec must be defined in dtschema or kernel bindings.
+>=20
+> I do not see any dependency mentioned in the cover letter, so how do you
+> think we can figure out where is this definition of clock nexus?
+>=20
+>=20
+
+I initially tried to add support for clock nexus dt bindings in patch 1,
+but I noticed there is already an ongoing series doing the same thing.
+([PATCH 10/16] clk: Add support for clock nexus dt bindings). Since that
+work is in progress, I think it's better not duplicate it here.
+
+I think we can add a dedicated binding defining the clock nexus
+properties(#clock-cells, clock-map, clock-map-mask, clock-map-pass-thru),
+in reference of existing pwm-nexus-node.yaml.
+
+In the next revision I will also update the cover letter to explicitly
+mention that clock nexus support is ongoing.
+
+> Best regards,
+> Krzysztof
+
+Regards,=20
+Chancel Liu
 
