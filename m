@@ -4,97 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A462CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 22:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C3B9CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 22:39:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNDI0lLPNRldsjOACKAWSwRc2mbScMYD4jMMM2OXl2o=; b=O9rWVSGrOiIGIesdqwS36TM+9+
-	LWIxCeyBk+ED4+XF5ru6uBjtFqgLvTHEmljbhNwwkw68aJsvuu1pAKyZ6f5G29QtJ18hwXRHed5LK
-	jphMj4Npwv63j0QTNb6Zbug5ZoQ+Bb6Z6Y8QQATypTqTUExKbo4Dcu7KVm+rq1TUctXj72Ijswhac
-	KWpsc/KVpUWYPwC26nYne9rvIQYrcZt0gtorE9FrW0fyfmv00Ec/X86RFPWPmAe3UNtJtw7LIXQj8
-	TYmvkIlDv240XmELAAFGyS300cayKh/ZLO3LkKYcFuW0uYtp9/b8ILXQYNsjDUw64CruojHcrHeWE
-	wsLD8lQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=uhGMUkYK7lJN21Y0KILAaLJAxufhyTf8mTQiKOdsg6M=; b=Cq7dmJ/3kv4iPi
+	rCs7eVyPdikpJgUqox/7RegE4ch8mJK7XjY2XfB0kPkAIcRPHSmulHQHEuEvHE/HyDYwpdaZhxcMv
+	Rp61xgeR6gDMHUC6+pBNfocgjLKHu1gab8qq+YN2LUtRUYRf+x6fTpxjItZuu8VSOV4Q5HcO9dPRb
+	xQhyaKhVBeSxavHfFT0DcvJql5oaGZ8LyQ9Hq+aZDXq+0GgJIQOyx75Oz2hMWXDXbpefxlN54Np+N
+	vmvKOXE+97NTkvGpJlXzHcRvJH6J7IRYQyqn/+zkAjhO/MjiCDB85MO0xoTbjBrDJqbe3IX07A2nW
+	zaCh9qLluTf+9ihMSE3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPT05-00000002y8g-0QkV;
-	Tue, 19 May 2026 22:33:21 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1wPT5d-00000002z9V-1A3E;
+	Tue, 19 May 2026 22:39:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPT00-00000002y2K-2FtO
+	id 1wPT5b-00000002z9L-3LSy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 22:33:17 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-43fe608cb92so2587630f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 15:33:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779229994; x=1779834794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZNDI0lLPNRldsjOACKAWSwRc2mbScMYD4jMMM2OXl2o=;
-        b=ikaNCtpuFMZc/2Q+BUtvIGKdtSt/sE0NYtz84krslUFBoeNP9SDgvZFEL75aIbx0mc
-         ehzdtqfTLKSo0OtxME1TVSTe7mm0P++rxgQ2pbLb0lFmpbX5gMoizeNFVT4EQWN9vn9A
-         A3djALA0i9baOPyapSS7dDw0PpPveIBOCvtYQbUxgdGQfWoHmhw12ANIBtorB1qBix6v
-         2QMXx8igF7x+44OEbKJNWV7hL5ukrKCwv2qtpbzOR6H4jxWvmAC13qrLfFduCdbgn/+S
-         fM/wvb5DXHmq1V6UIdJASqib8KVKTRSTblKPVT+ozFY0dORGB35gi+dKK4BVQmnU6BRA
-         A3+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779229994; x=1779834794;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZNDI0lLPNRldsjOACKAWSwRc2mbScMYD4jMMM2OXl2o=;
-        b=BOrHxs2aP0enC/1fZNJBo5C0JpsiAiZyILeqGIdqWphzxUOewkWhk7mJsKSo7IhFS5
-         4QBu0p4PEoRRVDAXW7GjNKkjajyV3OCVMmZp7I1nk7tBhzU0pTYgfY6T2Hk+TpWuyxA5
-         J7YMiu6CSr/AxzJSbn0SCgVKpaw0th845prH1sTDoyG4od8i0FcUYz5kX5L6xFiVz/be
-         bWUn3SMzU+fCTOvUrNT9+6Kz87OdPhSOq/7L8k7UL9BI608h0QZpQVRLfwsZ2iISfuFL
-         RGIWQHnQc+4dTF2wxdGRpV0i/QZIXx+cRiekK5ghL3BsEEPFpXupaCKcj6ZGiUNXJ08u
-         6esA==
-X-Forwarded-Encrypted: i=1; AFNElJ9N3U6Aq+JIhA5/OiZkcMTm5zOpjIQYVkrgqAF11Zvyt6b1v5859TJnfYkycBbc0oXG8fbG8h0WCSEPPtYLGtXv@lists.infradead.org
-X-Gm-Message-State: AOJu0YztfCdGOvTVR0I/xV2td9AJzXGfzSqxPYBs8LgYv9g2F00ijnld
-	DYI9ie8+J0NM7dfWhGqORyiSgGH6O3WIS1NIgrBJSw2UJ4VcWs3taEv/
-X-Gm-Gg: Acq92OGLAw6rPn8g9hzHqTCRjz7vgdXoNVErrq9waUuatiX03pjWj4V7uwRSddSoJl3
-	zd1cZB0fOZkTQZI6EdZ9x2mh3C5Wor1PFAjBshKukPDcaBYELJR3scfDegwbq8jn/CZhCMVmYaM
-	AdO4gFVA8R7vdX2fRdfHpeJ4WS1OTTIBFfBJ9q2dyH+TL3cXwW8+NMHQd9YvLiEU+k0Qycb63mS
-	JuUOvaz1/vcTV+mZO/OvMtPE4X/fOMfgHrQo1DiBZ/vIZNhgNmbbiT7g5y8sjYyRpVKZDFTunqT
-	Rh4oJOcTw7ADnylP88Og+9el0SCkJdBtpqu436tzM0Fp2U/CMGgqztCMbdrgD5wlOIGdb7aEaJs
-	8vbBrgpOm0tpQyG9VAwee5hKdI4HHklZs0+5ESoYHEeeVpkIAK6Ilk13PU1Om8zI/9jxzRNUtm6
-	R8Ms915peXOWent7mFgA0zY1sMFStWb1NgZ6U6xT8MXhk9PeBRvV3/8jNi+PDZMtacU+8InT47I
-	f5gX1i5vQ==
-X-Received: by 2002:a05:600c:310f:b0:48f:d346:e646 with SMTP id 5b1f17b1804b1-48fe60d5693mr310445495e9.10.1779229994584;
-        Tue, 19 May 2026 15:33:14 -0700 (PDT)
-Received: from Ansuel-XPS24 (host-82-55-252-101.retail.telecomitalia.it. [82.55.252.101])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-48fe4c88495sm346659955e9.4.2026.05.19.15.33.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 15:33:14 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Stefan Roese <sr@denx.de>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Christian Marangi <ansuelsmth@gmail.com>
-Subject: [PATCH v3 5/5] i2c: mt7621: make device reset optional
-Date: Wed, 20 May 2026 00:32:47 +0200
-Message-ID: <20260519223253.1093-6-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260519223253.1093-1-ansuelsmth@gmail.com>
-References: <20260519223253.1093-1-ansuelsmth@gmail.com>
+	Tue, 19 May 2026 22:39:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id E85DF60216;
+	Tue, 19 May 2026 22:39:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5BCC01F000E9;
+	Tue, 19 May 2026 22:39:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779230342;
+	bh=uhGMUkYK7lJN21Y0KILAaLJAxufhyTf8mTQiKOdsg6M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=acjyTicaIjtkUEZL6fJWCBm/HWBLjz/+5c58S36X8fn7b9V2iaJDRcH/VWXAa4o2p
+	 8ZTg5jzqMHREg4YJRclKWkeX4leIONH8badx1nbph3Y+XhUnr8dR+DRl3QQhfFCjvH
+	 Bv8mVmjDhfnDV/+TBS6dgBSclWGF9ft8dhu1/hnoQNmUxNhiaZOirESnQ6vl+Tf5zv
+	 3gpemJ9qYTHhC66Cb92r/tqqqyV4YMFElRT7YWxmsebbOzsb5HeNbOddjId5hsv71/
+	 5AnjBPliF3pt/lpE/NifwxsIZoBGfMSVlJdVY1aa1Xns6CSy88KLPsZPQa/o/0XLxc
+	 bmwIHWhYeC48Q==
+Date: Tue, 19 May 2026 17:39:01 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
+	bjorn.andersson@oss.qualcomm.com
+Subject: Re: [PATCH v5 1/5] PCI: host-common: Add helper to determine host
+ bridge D3cold eligibility
+Message-ID: <20260519223901.GA20376@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_153316_617257_96062A81 
-X-CRM114-Status: GOOD (  13.49  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429-d3cold-v5-1-89e9735b9df6@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,28 +75,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Airoha SoC that makes use of the same Mediatek I2C driver/logic doesn't
-have reset line for I2C so use optional device_reset variant.
+On Wed, Apr 29, 2026 at 12:12:23PM +0530, Krishna Chaitanya Chundru wrote:
+> Add a common helper, pci_host_common_d3cold_possible(), to determine
+> whether PCIe devices under host bridge can safely transition to D3cold.
+> 
+> This helper is intended to be used by PCI host controller drivers to
+> decide whether they may safely put the host bridge into D3cold based on
+> the power state and wakeup capabilities of downstream endpoints.
+> 
+> The helper walks all devices on the all bridge buses and only allows
+> the devices to enter D3cold if all PCIe endpoints are already in
+> PCI_D3hot. This ensures that we do not power off the host bridge while
+> any active endpoint still requires the link to remain powered.
+> 
+> For devices that may wake the system, the helper additionally requires
+> that the device supports PME wake from D3cold (via WAKE#). Devices that
+> do not have wakeup enabled are not restricted by this check and do not
+> block the devices under host bridge from entering D3cold.
+> 
+> Devices without a bound driver and with PCI not enabled via sysfs are
+> treated as inactive and therefore do not prevent the devices under host
+> bridge from entering D3cold. This allows controllers to power down more
+> aggressively when there are no actively managed endpoints.
+> 
+> Some devices (e.g. M.2 without auxiliary power) lose PME detection when
+> main power is removed. Even if such devices advertise PME-from-D3cold
+> capability, entering D3cold may break wakeup. So, return PME-from-D3cold
+> capability via an output parameter so PCIe controller drivers can apply
+> platform-specific handling to preserve wakeup functionality.
+> 
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  drivers/pci/controller/pci-host-common.c | 71 ++++++++++++++++++++++++++++++++
+>  drivers/pci/controller/pci-host-common.h |  2 +
+>  2 files changed, 73 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index d6258c1cffe5..09432d69175c 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -17,6 +17,9 @@
+>  
+>  #include "pci-host-common.h"
+>  
+> +#define PCI_HOST_D3COLD_ALLOWED        BIT(0)
+> +#define PCI_HOST_PME_D3COLD_CAPABLE    BIT(1)
+> +
+>  static void gen_pci_unmap_cfg(void *ptr)
+>  {
+>  	pci_ecam_free((struct pci_config_window *)ptr);
+> @@ -106,5 +109,73 @@ void pci_host_common_remove(struct platform_device *pdev)
+>  }
+>  EXPORT_SYMBOL_GPL(pci_host_common_remove);
+>  
+> +static int __pci_host_common_d3cold_possible(struct pci_dev *pdev, void *userdata)
+> +{
+> +	u32 *flags = userdata;
+> +	int type;
+> +
+> +	/* Ignore conventional PCI devices */
+> +	if (!pci_is_pcie(pdev))
+> +		return 0;
+> +
+> +	type = pci_pcie_type(pdev);
+> +	if (type != PCI_EXP_TYPE_ENDPOINT &&
+> +	    type != PCI_EXP_TYPE_LEG_END &&
+> +	    type != PCI_EXP_TYPE_RC_END)
+> +		return 0;
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
----
- drivers/i2c/busses/i2c-mt7621.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+From https://sashiko.dev/#/patchset/20260429-d3cold-v5-0-89e9735b9df6%40oss.qualcomm.com:
 
-diff --git a/drivers/i2c/busses/i2c-mt7621.c b/drivers/i2c/busses/i2c-mt7621.c
-index 3cde43c57a2b..fb9d9701bb10 100644
---- a/drivers/i2c/busses/i2c-mt7621.c
-+++ b/drivers/i2c/busses/i2c-mt7621.c
-@@ -91,7 +91,7 @@ static void mtk_i2c_reset(struct mtk_i2c *i2c)
- 	u32 reg;
- 	int ret;
- 
--	ret = device_reset(i2c->adap.dev.parent);
-+	ret = device_reset_optional(i2c->adap.dev.parent);
- 	if (ret)
- 		dev_err(i2c->dev, "I2C reset failed!\n");
- 
--- 
-2.53.0
+  If the topology contains an active conventional PCI device or an
+  intermediate PCIe switch in PCI_D0, returning 0 here allows
+  pci_walk_bus() to continue without clearing the
+  PCI_HOST_D3COLD_ALLOWED flag.
 
+  Does this create a situation where the host bridge might
+  aggressively power off the link, dropping power to these active
+  components?
+
+I guess this is intentional, since you have comment about ignoring
+conventional PCI devices.  But this does seem like a potential
+problem.  Why should we ignore switches here?  And I think it's still
+fairly common to have a PCIe-to-PCI bridge leading to a conventional
+PCI device, and I don't know why we should ignore them.
+
+The commit log consistently refers to "PCIe" devices and endpoints, so
+maybe there's some reason that I'm missing.
+
+There are other sashiko comments on this series that I think should
+also be looked at.
+
+> +
+> +	if (!pdev->dev.driver && !pci_is_enabled(pdev))
+> +		return 0;
+> +
+> +	if (pdev->current_state != PCI_D3hot)
+> +		goto exit;
+> +
+> +	if (device_may_wakeup(&pdev->dev)) {
+> +		if (!pci_pme_capable(pdev, PCI_D3cold))
+> +			goto exit;
+> +		else
+> +			*flags |= PCI_HOST_PME_D3COLD_CAPABLE;
+> +	}
+> +
+> +	return 0;
+> +
+> +exit:
+> +	*flags &= ~PCI_HOST_D3COLD_ALLOWED;
+> +
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +/**
+> + * pci_host_common_d3cold_possible - Determine whether the host bridge can transition the
+> + *				     devices into D3Cold.
+> + *
+> + * @bridge: PCI host bridge to check
+> + * @pme_capable: Pointer to update if there is any device which is capable of generating
+> + *		 PME from D3cold.
+> + *
+> + * Walk downstream PCIe endpoint devices and determine whether the host bridge
+> + * is permitted to transition the devices into D3cold.
+> + *
+> + * Devices under host bridge can enter D3cold only if all active PCIe endpoints are in
+> + * PCI_D3hot and any wakeup-enabled endpoint is capable of generating PME from D3cold.
+> + * Inactive endpoints are ignored.
+> + *
+> + * The @pme_capable output allows PCIe controller drivers to apply
+> + * platform-specific handling to preserve wakeup functionality.
+> + *
+> + * Return: %true if the host bridge may enter D3cold, otherwise %false.
+> + */
+> +bool pci_host_common_d3cold_possible(struct pci_host_bridge *bridge, bool *pme_capable)
+> +{
+> +	u32 flags = PCI_HOST_D3COLD_ALLOWED;
+> +
+> +	pci_walk_bus(bridge->bus, __pci_host_common_d3cold_possible, &flags);
+> +
+> +	*pme_capable = !!(flags & PCI_HOST_PME_D3COLD_CAPABLE);
+> +
+> +	return !!(flags & PCI_HOST_D3COLD_ALLOWED);
+> +}
+> +EXPORT_SYMBOL_GPL(pci_host_common_d3cold_possible);
+> +
+>  MODULE_DESCRIPTION("Common library for PCI host controller drivers");
+>  MODULE_LICENSE("GPL v2");
+> diff --git a/drivers/pci/controller/pci-host-common.h b/drivers/pci/controller/pci-host-common.h
+> index b5075d4bd7eb..7eb5599b9ce4 100644
+> --- a/drivers/pci/controller/pci-host-common.h
+> +++ b/drivers/pci/controller/pci-host-common.h
+> @@ -20,4 +20,6 @@ void pci_host_common_remove(struct platform_device *pdev);
+>  
+>  struct pci_config_window *pci_host_common_ecam_create(struct device *dev,
+>  	struct pci_host_bridge *bridge, const struct pci_ecam_ops *ops);
+> +
+> +bool pci_host_common_d3cold_possible(struct pci_host_bridge *bridge, bool *pme_capable);
+>  #endif
+> 
+> -- 
+> 2.34.1
+> 
 
