@@ -4,65 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D783CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F396DCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pkn43UvNGw6BE5zjZWg8ESNySvNLqNay7t6miFcYPts=; b=hE5KveVVAD3qy/XwRnO0TWwnw4
-	i1ooSKC5ZZlBsHk6clMr7MTrku6o2Ky8CtDCft4cficBuHdyRRlyaqMfca/bwKZNlxyA0y5iEM9iR
-	0tzSXpDJ9vJvk3og2igaWCKUpjhD6LKoyBZ6/gg2A+yYjDGjeEKyVs+y3giYnse5HkN3Q9yjTE447
-	9EaPpHc67tjuTDV6rTk1pBNTPREhasq5MpVWbzRyoNhUNHW3rHh2Pedf1JLuX8Of7mWTMl6Kk2hqE
-	FtJltwDDaGVvQSC8vqsRHB10XLO8IfZI8AdUh7fmzth18pBZV1ynha0jiiwnLa9BbL5wtDyn6gcMc
-	GBmo582w==;
+	bh=giGCMqDpZvOYaPXFHvByTdWlAM3FpvuXoYiriOAx8IA=; b=UhigvE8xcU++tMchwCQjbkQYYy
+	DmAZ3xeaPNnYG8W61df/SjiCRTgJUpMNLB/aCoxBX/Is2abXDQyOBvQB/UfePcXkFs/D2wU9iKxN4
+	9bIqzd6n1gmI/CEJgDpqaMFXoZNBBm4pqRI1fotaW1GTTxwFNM7vwrQ1B9Ds+2Vjra29SZqZH9EVM
+	dRRG4q3Hsp5lHvZlZm/ZxphiKm668+MYJ7GMcTZoLTUz4SB1/mSIFxAEwrv382GulbJRAp1JRA3po
+	ZXb76Hkhg0tnQxOOZe4+Gn37QdyZU3ac4DEa+PdWTmg2WuCJIjdQ/UOxV/Ie/CRLPrIdJ1y0F3rZN
+	F3lnNWJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJRv-00000001SQg-4BFT;
-	Tue, 19 May 2026 12:21:28 +0000
-Received: from m16.mail.163.com ([117.135.210.3])
+	id 1wPJY8-00000001TNA-3ku7;
+	Tue, 19 May 2026 12:27:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJRr-00000001SOe-1xLj
+	id 1wPJY7-00000001TMe-2Xnb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 12:21:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
-	Content-Type; bh=Pkn43UvNGw6BE5zjZWg8ESNySvNLqNay7t6miFcYPts=;
-	b=VZJ846qKlOsYHg/yLUb/3dNMvHg/l6AMwX3W5afN0zcb6T+X8AzIT8Uzux4xuA
-	t4M/R5ZfEDpEhmaaYS/QmOz4GZGMbGcQFcD96QI1EEQRRlOWQKJ4uru0xHpoYEde
-	MUxt/Cx8o9V9zZvTeqhqTQievT6yp52uUdEcnmbtVo/t4=
-Received: from [192.168.50.71] (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDHJy+cVQxqHS7ODw--.243S2;
-	Tue, 19 May 2026 20:20:47 +0800 (CST)
-Message-ID: <941b93d9-2251-4222-8914-73bb7d4e6ac7@163.com>
-Date: Tue, 19 May 2026 20:20:43 +0800
+	Tue, 19 May 2026 12:27:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BAFC60126;
+	Tue, 19 May 2026 12:27:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32C3FC2BCB3;
+	Tue, 19 May 2026 12:27:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779193670;
+	bh=oh5xPm7aO87/jnT+7JZsE59suIMOg+uwG7kUANkSuuI=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=s3oeSiK56KkasaDy21lXdRfQDszSI3yWcCMnoLlKn+41S+6zU+PAJqEy2hv5A8k+E
+	 GtFnA/KesjHZTSVPVbtE0+H6iwxJYXPK16SxOeloY4HxuZnWheY5jMOXopVGzmD/tX
+	 x0estu0/tyUMY5mo9AOcnX4J4MK/2WrIN/uHZSCL9536avpyokio0u8SsTUgEz0JZS
+	 krheaIjJ+T0JM9+sgG7PVkxCYbXPfMPvZiIraW7/42ON+11dSoUaWtXRmITP+pQZ6v
+	 MR6kg+qxSRKziQEl05pFMLwJ1RLRLf5uTVMWAk0hWiC8FQd6nHG9rmr97bALIPojqF
+	 8G/bTvvjCUjWw==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
+ honor DMA_ATTR_CC_SHARED
+In-Reply-To: <agxDxdxynp4KEovA@google.com>
+References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
+ <20260512090408.794195-5-aneesh.kumar@kernel.org>
+ <agSKQrSIhizCXKwx@google.com> <yq5ah5oaa63h.fsf@kernel.org>
+ <agW5rhE9n2gDQ0w5@google.com> <yq5apl2y5f96.fsf@kernel.org>
+ <agXaby-7L7yS3Vva@google.com> <yq5ah5oa59wy.fsf@kernel.org>
+ <agxDxdxynp4KEovA@google.com>
+Date: Tue, 19 May 2026 17:57:39 +0530
+Message-ID: <yq5amrxvshxg.fsf@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] iommu/arm-smmu: Use FIELD_MODIFY() for bitfield
- operations
-To: Will Deacon <will@kernel.org>
-Cc: robin.murphy@arm.com, joro@8bytes.org, iommu@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260430164545.49637-1-18255117159@163.com>
- <agxAvl02rcPoEHaq@willie-the-truck>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <agxAvl02rcPoEHaq@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: PigvCgDHJy+cVQxqHS7ODw--.243S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZr4UKF1xZr15GF43ZFykAFb_yoWkKFg_Xr
-	18Ja1kXr15JFyakr4fCF1fZrnxt39rJFy2v390qay7JasxZFW5JFZ3CF95C3W7Wws2kFy7
-	KFZ8ZwsYqFy29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRRUGYtUUUUU==
-X-Originating-IP: [140.206.53.66]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wAbvmoMVaBgwwAA3+
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_052125_474575_46966CEF 
-X-CRM114-Status: GOOD (  11.98  )
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,43 +98,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Mostafa Saleh <smostafa@google.com> writes:
+
+> On Thu, May 14, 2026 at 08:13:25PM +0530, Aneesh Kumar K.V wrote:
+>> >>=20
+>> >> What I meant was that we need a generic way to identify a pKVM guest,=
+ so
+>> >> that we can use it in the conditional above.
+>> >
+>> > I have this patch, with that I can boot with your series unmodified,
+>> > but I will need to do more testing.
+>> >
+>>=20
+>> Thanks, I can add this to the series once you complete the required test=
+ing.
+>>=20
+>
+> I am still running more tests, but looking more into it. Setting
+> force_dma_unencrypted() to true for pKVM guests is wrong, as the
+> guest shouldn=E2=80=99t try to decrypt arbitrary memory as it can include
+> sensitive information (for example in case of virtio sub-page
+> allocation) and should strictly rely on the restricted-dma-pool
+> for that.
+>
+> However, with my patch and setting force_dma_unencrypted() to false
+> on top of this series, it fails on pKVM due to a missing shared
+> attribute as Alexey mentioned, as now SWIOTLB rejects non shared
+> attrs, so, the DMA-API has to pass it. With that, I can boot again:
+>
+> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
+> index 5103a04df99f..b19aeec03f27 100644
+> --- a/kernel/dma/direct.c
+> +++ b/kernel/dma/direct.c
+> @@ -286,6 +286,8 @@ void *dma_direct_alloc(struct device *dev, size_t siz=
+e,
+>  	}
+>=20=20
+>  	if (is_swiotlb_for_alloc(dev)) {
+> +		attrs |=3D DMA_ATTR_CC_SHARED;
+> +
+>  		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
+>  		if (page) {
+>  			/*
+> @@ -449,6 +451,8 @@ struct page *dma_direct_alloc_pages(struct device *de=
+v, size_t size,
+>  						  &cpu_addr, gfp, attrs);
+>=20=20
+>  	if (is_swiotlb_for_alloc(dev)) {
+> +		attrs |=3D DMA_ATTR_CC_SHARED;
+> +
+>  		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
+>  		if (!page)
+>  			return NULL;
+> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
+> index 4e35264ab6f8..8ee5bbf78cfb 100644
+> --- a/kernel/dma/direct.h
+> +++ b/kernel/dma/direct.h
+> @@ -92,6 +92,7 @@ static inline dma_addr_t dma_direct_map_phys(struct dev=
+ice *dev,
+>  		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+>  			return DMA_MAPPING_ERROR;
+>=20=20
+> +		attrs |=3D DMA_ATTR_CC_SHARED;
+>  		return swiotlb_map(dev, phys, size, dir, attrs);
+>  	}
+>=20=20
+> --
+>
+
+How about the below?
+
+modified   kernel/dma/direct.c
+@@ -278,6 +278,10 @@ void *dma_direct_alloc(struct device *dev, size_t size,
+ 	}
+=20
+ 	if (is_swiotlb_for_alloc(dev)) {
++
++		if (dev->dma_io_tlb_mem->unencrypted)
++			attrs |=3D DMA_ATTR_CC_SHARED;
++
+ 		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
+ 		if (page) {
+ 			/*
+@@ -451,6 +455,10 @@ struct page *dma_direct_alloc_pages(struct device *dev=
+, size_t size,
+ 						  &cpu_addr, gfp, attrs);
+=20
+ 	if (is_swiotlb_for_alloc(dev)) {
++
++		if (dev->dma_io_tlb_mem->unencrypted)
++			attrs |=3D DMA_ATTR_CC_SHARED;
++
+ 		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
+ 		if (!page)
+ 			return NULL;
+modified   kernel/dma/direct.h
+@@ -92,6 +92,9 @@ static inline dma_addr_t dma_direct_map_phys(struct devic=
+e *dev,
+ 		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
+ 			return DMA_MAPPING_ERROR;
+=20
++		if (dev->dma_io_tlb_mem->unencrypted)
++			attrs |=3D DMA_ATTR_CC_SHARED;
++
+ 		return swiotlb_map(dev, phys, size, dir, attrs);
+ 	}
+=20
 
 
-On 5/19/26 18:51, Will Deacon wrote:
-> On Fri, May 01, 2026 at 12:45:43AM +0800, Hans Zhang wrote:
->> Replace open-coded bitfield modifications with the standard FIELD_MODIFY()
->> macro. This improves code readability and adds type/range checking without
->> functional changes.
-> 
-> Does it _really_ improve the readability? '&=' and '|=' patterns are
-> pretty idiomatic C code, if you ask me.
-> 
->> FIELD_MODIFY() internally performs the same mask-clear + set operation but
->> eliminates repetitive boilerplate.
->>
->> ---
->> Hi, If the Maintainers think it's not necessary, please ignore it.
-> 
-> I don't really mind the code either way, so I think I'd prefer to leave
-> it as-is unless somebody wants to convince me otherwise...
-> 
-> Will
+>
+>
+> I will keep testing and let you know how it goes. If there is nothing
+> else required to convert pKVM guests to CC, I can just post the patch
+> separately as it has no dependency on this series.
+>
 
-Hi Will,
+That would be useful. I can then carry the patch as a dependent change,
+which can also be merged separately
 
-It's not like that. Please take a look at the accepted patch below.
-
-
-
-https://lore.kernel.org/linux-pci/20260505165436.GA737933@bhelgaas/
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=42ec65b46a4fc7565d48daa42bf025fdc67800eb
-
-https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=5fd6f2154734f447e83b6de9a08d16848605191e
-
-
-Best regards,
-Hans
-
-
+>
+> Re force_dma_unencrypted(), I am looking into a safe way to use it
+> for pKVM as I beleive it will be useful to eliminate some bouncing.
+> However, that=E2=80=99s not critical for this series and can be added lat=
+er
+> as I am still investigating it, if I reach something I can post it
+> along the pKVM patch above.
+>
+> Thanks,
+> Mostafa
+>
+>>=20
+>>=20
+>> -aneesh
 
