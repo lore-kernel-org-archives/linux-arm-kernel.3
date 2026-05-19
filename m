@@ -4,126 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0968ACD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 22:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEBC8CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 22:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nW4Szj4mnbVsl2PmOZmFHj1we67HfxwbNdZ3ENqEt1s=; b=jaBFBcsLgfQa47t0qNittNBMc8
-	nWkCcBmm1BZU6fz/3Q0ze3SbPwdDCSTQNIkC3EXOiKzx56E4dkmHArXGfjoiQggC5bciUktk604wX
-	NfAhe5JUCWg67vYqiYLzeBZfC4VZzfaUYVbR9aB1w0ai4eXq7/q48emy8Jeq2w6yezTIsT3rkCxTn
-	f8RyhaauLLs0a/bZT06p+VlXapOi/rqBYcDOpU7EOjqQMrmJw6bzv302Qpw8CDQQ2SlKfbTanxegM
-	GRAQeOheAizmUVL7ZrVHUwyjvg0llddphxWDwXR5uhpZ2dT81y3Ot8LF7zQ0yHa1jMAZ2lJQh+cqe
-	yfzUA20g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pqcbLvgzPg/aacFxA3Sf3HYOKcvPcXokYWVGRv6DhFQ=; b=aFAP1Z7gQLW0gaqYJhpSd++nVm
+	n3m9onvBvvuzFx7t237Y1EtL4ipMKujPo9RSqx/W9pPGT9oi0ZI9jF/l5gJf+ruRSGjHuMbQVDfYf
+	W9zg3XpqpIO27hThbUHkUHutEArXmsYHdAIYDpU6Ew1+H0oXDxzsb8Am9oupng3PNKdzT9awOQRUW
+	UAo6k2pn9rl7dL+MrHUZdEcNPuNjA6ExfHDzKrycYicP5O9ZpY8x0mDxHnYgbGICU4CLgn5xj92E1
+	T754BDAuVyS+lPBDNI/8eeRSnH9IXFEusN8CWg+3jEW8tbvgUzVeXlFc8JKvcAPnpj5lfxNgIRs4W
+	4f/x0+Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSyM-00000002xag-3nFI;
-	Tue, 19 May 2026 22:31:34 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1wPSzu-00000002xxV-0gn9;
+	Tue, 19 May 2026 22:33:10 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPSyJ-00000002xZs-2Mtz
+	id 1wPSzs-00000002xvz-11l3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 22:31:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=St/bLQWxmlK0bJ1swtUS+O97+qBnMQUSLxGIzwXuoGkgqrn8fJgbv/T6EqzpQsVXpaHV7j1YZUIc91xLESxS+D70zFnr2MdjuBgxBQrTew5eNO+FY4kQPz7oscNNFFMr/zu/fSbdtuD5AEykLcZ0dkLbI3aOKtmZSut0JvaecPxFQrP+kVyI7NGhKEaYlIZmNbEBmeF6V05/HafXff7JcA8KdI77WPdTkHyamO3Z/XP+RN524XntOEUe9MLkeSW72FSOPyLv2d6kvpe9renPmyJIZo7f/Uo3u9CBuYo6st6XHgquSSMRyVnew7skSaeq/sq/aFJeGan9WEDOANHyDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nW4Szj4mnbVsl2PmOZmFHj1we67HfxwbNdZ3ENqEt1s=;
- b=afDRyUMSQ992FmfwQ4du/c4b34PgJvzOB9g+gEKmSi2sxkVqt+4sXJGmFduVAFAbv+/Wx6I6xMdHaQAVrnwFgqMfgq37xNPJkaDLwLB5grhPsC8xRccIeJelFpPghx/c2jzc8iwOKWjf5JKzavsb8vUo91LX2I3mXmLNwRl8sREDezZz1NvevYsql89Ij1IOvbPwBV7EHkV1NjkYRMNBqAr6XFfhi7S8M//CjuFwiGGkKEq/8dVzool9xyZWijFDJ+7CwVs0sXdMdu6J7XSsmmRJz7mxqBReFL+SW7lZwyZU7+C8BbkfL5Y8qesuN36/Adlse1lfevE5IeUpx9eZ4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nW4Szj4mnbVsl2PmOZmFHj1we67HfxwbNdZ3ENqEt1s=;
- b=kllsOHq2N/1S7lLAH4Lx0f9y6CknnG6FRBPAlsiwzy8AgXtvJXpxFyiVhZMPcVIwnuOQngha6gsG0KKDeRcIgABbVQG7cNrjQTu4xYrYGI0KG3EbewK1eGIqqw2MuQhb6b/kkGJgQOzS6DPxRVNc360//bVtDAkZDGzEw4FAspUT54ZhTHO+EA/x5gp9+IAHhhSSuRKjc8uZm4tkHYLKhqysnb9Ugj9OA9P+4xytqeKnVdkbNG6+M0wyIvaE3ljTmfQOn+a4Bs1TK0yRzwGZL50yzFMQIjAl9bot5Royv4L5964tNenUhJFW62Vt/RzVHlYXZ4dCV/6yQOLR/Lsa+Q==
-Received: from CH5P221CA0015.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:1f2::9)
- by PH8PR12MB6772.namprd12.prod.outlook.com (2603:10b6:510:1c7::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Tue, 19 May
- 2026 22:31:21 +0000
-Received: from CH1PEPF0000AD7E.namprd04.prod.outlook.com
- (2603:10b6:610:1f2:cafe::39) by CH5P221CA0015.outlook.office365.com
- (2603:10b6:610:1f2::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Tue, 19
- May 2026 22:31:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH1PEPF0000AD7E.mail.protection.outlook.com (10.167.244.87) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 22:31:20 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 19 May
- 2026 15:30:48 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 19 May
- 2026 15:30:47 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 19 May 2026 15:30:46 -0700
-Date: Tue, 19 May 2026 15:30:45 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Rafael J .
- Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, "Pranjal
- Shrivastava" <praan@google.com>, Mostafa Saleh <smostafa@google.com>, Lu
- Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 11/24] iommu: Add iommu_report_device_broken() to
- quarantine a broken device
-Message-ID: <agzkldmlG1cuDkj4@Asurada-Nvidia>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <745da1a819eb943f2519e660c8bcfde715885c6c.1779161849.git.nicolinc@nvidia.com>
- <20260519120737.GQ787748@nvidia.com>
- <agysAyreCY4huf0I@Asurada-Nvidia>
- <20260519191626.GJ3602937@nvidia.com>
+	Tue, 19 May 2026 22:33:09 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-488a8ca4aadso41052645e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 15:33:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779229986; x=1779834786; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pqcbLvgzPg/aacFxA3Sf3HYOKcvPcXokYWVGRv6DhFQ=;
+        b=PaglNPmeSvsif/5jGfFP3PZi/b5ryuWZ2RGZOHuwHffxuGnbrSQXt69z9qqyyeovKr
+         278FDBYzaBC2JZ6BtqqsXLdXJRgrV/C9iJAOddfp79LGYjgGQUqubdyjtRaz2plusTQJ
+         FwYkYPQASf6u19aMZNRGWlsTiyK0R76guTTncjQi0URDmZIBsGJ2MZO/s4V90udJQpWy
+         AnEFteBHx8vytWJ62QcztjHQf3X8WSJO2Tnx60d5BpctmbJqxTg2TX8pZ5IVdogXkmNC
+         GVVs8RrzavhntJN6E/TfLwpOjBaf4CPSE+++JtstTbRC47w9ShPP+L1532N6vZEn858s
+         mUnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779229986; x=1779834786;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pqcbLvgzPg/aacFxA3Sf3HYOKcvPcXokYWVGRv6DhFQ=;
+        b=sm5ZecVNF4fJoJ5bM97g0NY9Twztxad+ZCeHcemotn2rgvxkEe3QFl71eDrirTOVjX
+         yH2T79ZjFAAj28M1V7Wg5m0GNejBS+FkT1/5PiFqy4PsP/PYnU4Yp+/d8He5M6dZYa/D
+         53McJuKysr61AeCyXwQZ/Wh6OGxRZIOvIRjSxRBXUoB8jOLgDONusgrxFmf6NizqBU1X
+         /V+AGelu/wJKu9RaqfsdRv2FjjUtnasMSAy3YwlrLLev1kTexQxw4nI3oXZiY9gMNpr+
+         lX5HuUe3D2ZG+UTJm3XEGpDeoCebzXe60IFRKwR3vPllYR0r97iAlgE/mOUdrd98NlQC
+         BYXg==
+X-Forwarded-Encrypted: i=1; AFNElJ8voD2/7ldXM6NzwGVV3tH9kb4jnBVVmdk+TSWwOV8Vy+IZVS7lLhaI2vLBkP3Qne4vyvDOLUWxZs1RWlryeSl9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEiNwKbNdKJ/WifidQah/6rckVJ+ttA6qRrLlj4m0yR6sEyCZp
+	LqBvoBHhy3nv38553JOKXC3jcTjNU0sjJfNV2OHczxjz0qaz179vE95n
+X-Gm-Gg: Acq92OEW5uyBkUzNZ5cEW9ADiXIUHbL4hN/S9A6lraqe8i5g2tnylbYIivyKv7wDxpY
+	Nqx8Vr/k/pKEgIoQ/8ZG9rF313gx99F5+bsBTBLe0LJhmZt3pJULeOxM2jLx3oUoKAoZ7WtJh3O
+	sbGEl8iiJ6h+FjskCXW1WQjF+2drl04jH1KTnt2aHlQbhi8o9aNwdIleCPNaCzdmHV4z3CNOGy3
+	eIqBZTOZs7LzVNUy/dYuEnUsy579z+gnXTxYBiXzP1AK9oF3SxioTXvhGnlIOdF6ELevzK0iaU5
+	ORj85LTsHx2GvhoDz245y4XIq9UkTg9/gXTEaugFqJhHGnPxmPwdOhFvXI71ngohMK0Aeycuexs
+	vXgd4tGKrznzvmuO6NmuWQjjuHauie+jC4dnJ0I9Nn5E7Kaqv0m77bnHQXw5MJNArAgM7iRvxFg
+	/lESQYDXjdah7Ts1Bgmejr3gLlCv/HZowFgzpVHf2BLilqDGnJ4dO3n1qbrpCBxLOCoCOclAA=
+X-Received: by 2002:a05:600c:4e47:b0:48f:d835:e0ff with SMTP id 5b1f17b1804b1-48fe63265a1mr361523155e9.17.1779229986180;
+        Tue, 19 May 2026 15:33:06 -0700 (PDT)
+Received: from Ansuel-XPS24 (host-82-55-252-101.retail.telecomitalia.it. [82.55.252.101])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-48fe4c88495sm346659955e9.4.2026.05.19.15.33.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 19 May 2026 15:33:05 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Stefan Roese <sr@denx.de>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Christian Marangi <ansuelsmth@gmail.com>
+Subject: [PATCH v3 0/5] i2c: mt7621: improve support for Airoha
+Date: Wed, 20 May 2026 00:32:42 +0200
+Message-ID: <20260519223253.1093-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260519191626.GJ3602937@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7E:EE_|PH8PR12MB6772:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94734e0e-7581-442b-1c16-08deb5f659bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|376014|4143699003|22082099003|18002099003|56012099003|3023799007|11063799006;
-X-Microsoft-Antispam-Message-Info: /AJe6KzXprmcQyA6o9GtbCeayRznLaKrkzioenGpbfLFpyOn2ezjXONK9mdVVB4rZr1W055Ki23z3XMJqLAZUfljS6b6cLGq4A3ESzuGOPFvjLUhgKDshyXp0rxVQEQsgZ+HOY+JEMnaEuM+HHlC8pwKhKsppfphqzNjAde1P0hNPVJZnBNen5bCf2Nk1J4+721a5/4H/n2Bl8tllOO9HDEQZGh7W3Mrki0AENrJ7lBo8KzZFq54txOmBX6dt07y29SW9JLOHqiwtwulFWO09AQ920xfUygwf/6nJUKbITZ2KFjUY9z8u0DDaMHe0k9GRx72JYhpBxOn+CxL9UudgI55+hAhGhenKRIieISHMrF9/TgVpv9eaSlT3MGBdJO60shvz83V+au36knGQANNDSkSXXI1F1EFbTy+587BSf33Q1A/vxyw++o7h9rn2Mu/fxHZEZtTIUJeEx2ODA6LLA+soonzr8ngH+y7ec+jFM/nodQkqswjd4cIqq7aAb3LR2AgLd/mk1LmpSwlcsGasp7r1Q7C2xonuZ8yJ+hb6jr4r45VkbLyv9K3axGmi+yx7XW1nZKFdn5lbPgcMNjaJ2o3V8eCCxgqcNLNwsCleb8AHr3Ps1DSUxpuUBw7sujO+4s6pwwdUv3KAJgENq2YIo5wOga4hzcFE+Hnf4mhUtDiKxr4YbzRNq6QhtUwuAzNBVb743kjhb/KP/zLgkEPRn/4JW3LQFi+yI5XI3litH0=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(376014)(4143699003)(22082099003)(18002099003)(56012099003)(3023799007)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4VTI7+PZWP56DCQqDlppE+K8r1oJHib2bZt54GHJ+xX5TfkJcWnMrIBMq1+x5KDJWQBx6lv22cny7JDxw/1TLoh9vyCmpBvhOkPHcd3Ljf5Eee3E1e5ijs21Xv0NH1bGq4em9SujwKWrBnN7iAVeR/GHwA7LK1fSxM5oZcs/dgYF2EQD+pvdLYd4DygocH8dYLA83bi/aFwifzeA12jraW3w9JLvLFeGl9+7GGaX/Qnh/aVR9Nvwzjz9EqXXgmoJcaPg8qKH2jhRunWo7YyAPGYowGezsUkSmK8oRYa8IVO2tgmbvJ/IMb8nGEzaQR69L5o+KTkQhFAnJc2i3+7o+dIlz5sdage1g2Vp5bX4OXFcBfUuSV075sZrCjAKbQDXiw/BqGiClA5iUMmyuF9d0QbvfjS+dty4EdLGTpgEvx7ul+12qG6cQllhzp6CB+aO
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 22:31:20.3634
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94734e0e-7581-442b-1c16-08deb5f659bc
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7E.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6772
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_153131_608781_461551BB 
-X-CRM114-Status: GOOD (  18.52  )
+X-CRM114-CacheID: sfid-20260519_153308_289883_4A6B980E 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,43 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 04:16:26PM -0300, Jason Gunthorpe wrote:
-> On Tue, May 19, 2026 at 11:29:23AM -0700, Nicolin Chen wrote:
-> > On Tue, May 19, 2026 at 09:07:37AM -0300, Jason Gunthorpe wrote:
-> > > On Mon, May 18, 2026 at 08:38:54PM -0700, Nicolin Chen wrote:
-> > Then, the core needs to block the device using the similar routine
-> > to the reset prepare(). And that needs to hold group->mutex, so it
-> > needs an async worker.
-> > 
-> > Do you see a much simpler way?
-> 
-> Put the work on the dev_iommu and forget about rcu.
-> 
-> But this is all probably better as some later series if at all. The
-> driver can block the ATS and the expectation is something will FLR the
-> device. The FLR will set the blocking and then restore the
-> domain. None of this async work seems functionally necessary, though
-> it would be a nice to have. Lets focus on the bare minimum here it, it
-> is already a difficult enough problem without tacking on these
-> extras..
+This small series improve support for Airoha SoC that use the
+same MT7621 implementation. Some additional tweak are required
+to better support it.
 
-OK. So you are suggesting a quarantine at the driver-level only:
+Also we add support for atomic variant of .xfer required for
+some attached pheriperals on the Airoha SoC.
 
-1. Driver detects ATC_INV timeout during an invalidation.
-2. Driver retries the commands to identify the master.
-3. Driver calls pci_disable_ats() and clears STE.EATS.
-4. Driver marks domain->invs ATS entries as BROKEN.
-   (optional since pci_disable_ats() is done?)
-5. Driver sets master->ats_broken to fence concurrent attach:
-   arm_smmu_write_ste() and arm_smmu_ats_supported().
-6. Something external triggers an FLR (sysfs or AER).
-7. FLR goes through pci_dev_reset_iommu_prepare()/done(). done()
-   reverts 3+4 and calls the reset_device_done callback clearing
-   master->ats_broken (5).
+Changes v3:
+- Rebase on top of linux-next
+Changes v2:
+- Fix compatible order for schema patch
 
-Right?
+Christian Marangi (5):
+  i2c: mt7621: rework cmd/wait OPs to support atomic afer variant
+  i2c: mt7621: clear pending interrupt on i2c reset
+  dt-bindings: i2c: mt7621: Document an7581 compatible
+  i2c: mt7621: limit SCL_STRETCH only to Mediatek SoC
+  i2c: mt7621: make device reset optional
 
-Then, we'll have very limited work in the core for this series.
+Christian Marangi (5):
+  i2c: mt7621: rework cmd/wait OPs to support atomic afer variant
+  i2c: mt7621: clear pending interrupt on i2c reset
+  dt-bindings: i2c: mt7621: Document an7581 compatible
+  i2c: mt7621: limit SCL_STRETCH only to Mediatek SoC
+  i2c: mt7621: make device reset optional
 
-Nicolin
+ .../bindings/i2c/mediatek,mt7621-i2c.yaml     | 14 +++-
+ drivers/i2c/busses/i2c-mt7621.c               | 70 +++++++++++++------
+ 2 files changed, 62 insertions(+), 22 deletions(-)
+
+-- 
+2.53.0
+
 
