@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1D99CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B74CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 06:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fDUb5wllfZTf/t6wsoMQEEce9T5suMuho2M4U8byo6M=; b=MOmoGr/UqYMqL6naQfB8LbHfwF
-	JPBxZPKzJB1viLWqHQ9j+Nhxo0cfTp9/YmNWF4D7jbvYv+r6eZp78bwHVLnRSMEUYByLEaVy+qHOm
-	bFjs9mu1WS6Wcn3c2nY4WoPYixDkQLijtBUO3e4n3o55FECDAZqDQDDQcof1cTSvQams5AdILzL1V
-	OHQhVlwPJcOyjbpWgRAGY+4oDloM2RZE32+130gqVqIJmosV3433Rnm3ZQyi1AAjvZjeMgAR3nq2w
-	GwLldTW0ZsXNh4Sugbwvch4jqbPiDi2q7GaZqmCGi3DDjmeLntCyeWozpUx/dhik4xs0f6CC852+K
-	b5lYP+dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CynKzDdTOEhf6qIY8m0R3RAcsN7AysDJ4Yn/0e6qABo=; b=jWCUzBxSItUgLjanLxQn/hv+/H
+	fBGhmz1qsD+saxJpF7ouF+kcQaAY/Pbpd9UVeMWII1wPnwxzLP3V6AIggt/p2iBNXc5nmEn1yG+Zt
+	rZG+8JKueACguns8syT7wi0F29rqxkoWG2eCOUXOj15UZ1SXqfqJI03GXM+iTZhQKaSIiJT1k8Ceb
+	JPD8wJtvRnbDDTaunbFJyor7kvjlomja0tDAFSekMrb7kVMO+/bXLjpPZK9jPh6wSxyTWdUT0pwGF
+	Bf5PhjYSWwm9hQJaBJx1iRwVTVIoF0q50KYIJykciklaw1Q0LEyC2ViYDzWBhvswtWCWEdHcejC6a
+	BYRiAszg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDRG-00000000G5C-3zJA;
-	Tue, 19 May 2026 05:56:22 +0000
-Received: from out-182.mta1.migadu.com ([95.215.58.182])
+	id 1wPDX5-00000000Gfs-2n1P;
+	Tue, 19 May 2026 06:02:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDRD-00000000G3l-47mT
+	id 1wPDX4-00000000Gfk-2RAj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 05:56:21 +0000
-Date: Tue, 19 May 2026 07:55:55 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1779170174;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fDUb5wllfZTf/t6wsoMQEEce9T5suMuho2M4U8byo6M=;
-	b=JmnoS6YkymUjv5x1woBoN7AX65oKlCbRuqVZaYKNPDvlFcEISydaMEn9eUrvSy17Gal4Ul
-	3yjnk5MEtQQLKK7jFO834FSFiXy9WI9MshO8HC+h42iUbC8d2nWTYUVieYUyJnbcC+fbcy
-	dmcbRF4bkF1xgNkUpmYJdOMHkxrgrhQ=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Luka Gejak <luka.gejak@linux.dev>
-To: Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
- Felix Maurer <fmaurer@redhat.com>
-CC: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Roger Quadros <rogerq@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Meghana Malladi <m-malladi@ti.com>, Jacob Keller <jacob.e.keller@intel.com>,
- David Carlier <devnexen@gmail.com>,
- Vadim Fedorenko <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
- netdev@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Vladimir Oltean <vladimir.oltean@nxp.com>, luka.gejak@linux.dev
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_net-next_v2_2/2=5D_net=3A_ti=3A?=
- =?US-ASCII?Q?_icssg=3A_Add_HSR_and_LRE_PA_statistics?=
-In-Reply-To: <20260518184506.694c584e@kernel.org>
-References: <20260514075605.850674-1-danishanwar@ti.com> <20260514075605.850674-3-danishanwar@ti.com> <20260518184506.694c584e@kernel.org>
-Message-ID: <E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
+	Tue, 19 May 2026 06:02:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 418E360052;
+	Tue, 19 May 2026 06:02:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73AC3C2BCB3;
+	Tue, 19 May 2026 06:02:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779170541;
+	bh=22gkf18a8yg0K51zlDRHlTrUxxq1tyaqoQ1aURojOp8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=p0xABhC0+b/gMmHS41oCAyCaMr4Q8ic65LXFQdch2Em4bqB2mWye0pa7rHQtncifD
+	 5kEwuJnu7Bw1f4qkiOen91eN437m2ZbtKC5ZSCRdTRRwOSAbFKKE9ZlJZl745QjQut
+	 4o6zsp62hCKLieLc0+5b0qJcUxWZeRIB4HVjHyZUOCsjNuY7byW5KXXb2sTUZ3M/ht
+	 a41mM4IMvThbC+pJIkzDKT5sTEpCFxPjNE9/EkLONPv0ejXTCcOH5MjfJfdwITzhzE
+	 2SSqFLCoGyvr+BbcUGWnvQABVso4Jtr4tmMldgFedmv+xJZ1FrV3dwPBfBFFqpnXpN
+	 CA98XskqU7iIw==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 10/44] arm64: RMI: Add support for SRO
+In-Reply-To: <20260513131757.116630-11-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-11-steven.price@arm.com>
+Date: Tue, 19 May 2026 11:32:11 +0530
+Message-ID: <yq5a7bp0szrw.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_225620_688670_E0029B15 
-X-CRM114-Status: GOOD (  12.48  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +87,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On May 19, 2026 3:45:06 AM GMT+02:00, Jakub Kicinski <kuba@kernel=2Eorg> wr=
-ote:
->On Thu, 14 May 2026 13:26:05 +0530 MD Danish Anwar wrote:
->> Add new firmware PA statistics counters for HSR and LRE to the ethtool
->> statistics exposed by the ICSSG driver=2E
->>=20
->> New statistics added:
->>  - FW_HSR_FWD_CHECK_FAIL_DROP: Packets dropped on the HSR forwarding pa=
-th
->>  - FW_HSR_HE_CHECK_FAIL_DROP: Packets dropped on the HSR host egress pa=
-th
->>  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES: Frames with duplicate discard
->>    skipped
->>  - FW_LRE_CNT_UNIQUE/DUPLICATE/MULTIPLE_RX: LRE duplicate detection
->>    counters
->>  - FW_LRE_CNT_RX/TX: LRE per-port frame counters
->>  - FW_LRE_CNT_OWN_RX: Own HSR tagged frames received
->>  - FW_LRE_CNT_ERRWRONGLAN: Frames with wrong LAN identifier (PRP)
->>=20
->> Document the new HSR/LRE statistics in icssg_prueth=2Erst=2E
+Steven Price <steven.price@arm.com> writes:
+
+> +static unsigned long donate_req_to_size(unsigned long donatereq)
+> +{
+> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
+> +
+> +	switch (unit_size) {
+> +	case 0:
+> +		return PAGE_SIZE;
+> +	case 1:
+> +		return PMD_SIZE;
+> +	case 2:
+> +		return PUD_SIZE;
+> +	case 3:
+> +		return P4D_SIZE;
+> +	}
+> +	unreachable();
+> +}
 >
->To an untrained eye these stats look like stuff that could=20
->be standardized across drivers=2E=20
+> +
+> +static void rmi_smccc_invoke(struct arm_smccc_1_2_regs *regs_in,
+> +			     struct arm_smccc_1_2_regs *regs_out)
+> +{
+> +	struct arm_smccc_1_2_regs regs = *regs_in;
+> +	unsigned long status;
+> +
+> +	do {
+> +		arm_smccc_1_2_invoke(&regs, regs_out);
+> +		status = RMI_RETURN_STATUS(regs_out->a0);
+> +	} while (status == RMI_BUSY || status == RMI_BLOCKED);
+> +}
+> +
+> +int free_delegated_page(phys_addr_t phys)
+> +{
+> +	if (WARN_ON(rmi_undelegate_page(phys))) {
+> +		/* Undelegate failed: leak the page */
+> +		return -EBUSY;
+> +	}
+> +
+> +	free_page((unsigned long)phys_to_virt(phys));
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_sro_ensure_capacity(struct rmi_sro_state *sro,
+> +				   unsigned long count)
+> +{
+> +	if (WARN_ON_ONCE(sro->addr_count > RMI_MAX_ADDR_LIST))
+> +		return -EOVERFLOW;
+> +
+> +	if (count > RMI_MAX_ADDR_LIST - sro->addr_count)
+> +		return -ENOSPC;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_sro_donate_contig(struct rmi_sro_state *sro,
+> +				 unsigned long sro_handle,
+> +				 unsigned long donatereq,
+> +				 struct arm_smccc_1_2_regs *out_regs,
+> +				 gfp_t gfp)
+> +{
+> +	unsigned long unit_size = RMI_DONATE_SIZE(donatereq);
+> +	unsigned long unit_size_bytes = donate_req_to_size(donatereq);
+> +	unsigned long count = RMI_DONATE_COUNT(donatereq);
+> +	unsigned long state = RMI_DONATE_STATE(donatereq);
+> +	unsigned long size = unit_size_bytes * count;
+> +	unsigned long addr_range;
 >
->Luka, Felix, others on CC, do you think we should expose these
->from HSR over netlink as "standard" offload stats different drivers=20
->can plug into or not worth it?
 
-Hi Jakub,
-I think there is a case for standardizing part of this, but I would=20
-not standardize the whole set as-is=2E
+Looking at above and the related code, I am wondering whether we should
+use u64 instead of unsigned long for everything that the specification
+defines as 64-bit.
 
-The LRE counters look generic enough to me, especially:
- - unique rx
- - duplicate rx
- - multiple rx
- - rx / tx
- - own rx
- - wrong LAN, PRP only
-
-Those are protocol/LRE concepts rather than TI firmware details, so
-exposing them from the HSR/PRP layer sounds useful=2E I would expect=20
-both the software implementation and offloaded implementations to be=20
-able to provide at least some of them, with unsupported counters=20
-omitted or reported as not available=2E
-I would not put the firmware check/drop counters in the same standard
-bucket, though:
- - FW_HSR_FWD_CHECK_FAIL_DROP
- - FW_HSR_HE_CHECK_FAIL_DROP
- - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES
-
-Those sound more like implementation/debug counters for the ICSSG
-firmware pipeline=2E They are still useful in ethtool driver stats, but=20
-I would be hesitant to bake their exact semantics into HSR UAPI=2E
-So my preference would be:
- 1=2E Keep driver-private ethtool stats for the full firmware counter set=
-=2E
- 2=2E Add a small HSR/PRP standard stats set separately, limited to
-    well-defined LRE counters=2E
- 3=2E Make the HSR layer expose them, with offload drivers plugging in via
-    an optional callback or offload stats op=2E
- 4=2E Define the counters carefully, including whether they are per-HSR
-    device or per-port A/B, and what PRP-only counters mean for HSR=2E
-
-I do not think this patch should blindly become the UAPI definition,=20
-but I do think it points at a useful follow-up=2E If we want to avoid=20
-adding driver-private names first and then standardizing different=20
-names later, then it may be worth asking Danish to split the=20
-protocol-level LRE counters out and route those through a common HSR=20
-stats interface=2E
-
-Best regards,
-Luka Gejak
+-aneesh
 
