@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7140ECD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:00:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0109FCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 13:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oo7P3J2lPKnxh0ard7ivOkuTgp+n+5ilNxlLp9wqvgA=; b=AasDGNsI/HaOFHXlCNkS+/xhgg
-	AFG7wZPziau/dqnyMBs/Vi7M96ON2kKPX4yje1+ds24EWhdi1UlaYHGL5uv5+WMjRuzDuPfTXpDyq
-	TCgehfIGKJxb1XUvKYDGBw55KHz4KUK1/dbpq5gugRnaYmHDcWieuXZT+8SiBqTmut45mqXf2F2UN
-	p3YkytwFCHrsChNkXZQIIdMJs+OVCzBgUgvvu5/JsCjDg9/x5+DxyWy8JLhXfT3SveFdGEAa9k3/t
-	Oxn9jKMR+jJ2Jp9LcyEHBfgzP68dwOe+Fl4StjVwHdbT6EikD4x6nCuQQ/0FzWrWEvvakgxnCXJjr
-	dZGtea5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lOkNWBAZkGKo7viWU2Qk1mWVMlFpqvUUKWuw5O+LCN0=; b=pbI5i1vayQAIcqXd5bsXkjwDyM
+	ZvJYk+8EvaRsJ8hhBhTrxe+ZPXYECViKg1iLqwyWVXttkLTl27NtSW/y/NlOPJ572jj2na5dPT5Kg
+	F3LUuN+DtAMlMhopazaovbYmSxtxDqkqvAlnuuSBnLHSdUG5xT9b0hj+OFwuLl55eub2fvgY9QcCY
+	hG2BzicUQhjJQKqLjKvKKrfmMSvV8FI4Kpn0GU4KcbL/se5pYtY8QJeGM8sQw0aQCIpQraSTsQf/h
+	f51vN5p55Rc5lfzvQN0AailIq+VVew0CGqROc4QjpMi80wnq3PsJXdkAEDqLB98r7JyRFiSib97mT
+	0zC8aWpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPK3G-00000001ZRO-0VcD;
-	Tue, 19 May 2026 13:00:02 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wPK7N-00000001ZyX-0P6B;
+	Tue, 19 May 2026 13:04:17 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPK3E-00000001ZQl-25MR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 19 May 2026 13:00:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=oo7P3J2lPKnxh0ard7ivOkuTgp+n+5ilNxlLp9wqvgA=; b=tnC2K3WLgHL8AYX97vzYiME6Jp
-	LMzXao+hOy4jOUVecYxaDlkvi+djH0q0O0FE1jxI2NeN4Vucnxn/+LLPuip2tYAIfqt1q+a47sWwu
-	Kvk/chfktNu0W/Yy5Bs4+JckTvHBajDY5UPlW/d0YgftgQS9fAtruj6YtQ0iDSCzo4VSsCrJn/X1W
-	V7oOWaaOGT4rxQfc9SboJouZ1qH/PFj2Xio2IIo8ScrWGFLFc7VTHHNwsYQs5Sehp6AOA1rJP4DNb
-	JNBTvj/d4YLO6NeGFCRZaZxFkm1QYQiaZxhJ4rFNUoclfykNnQhbgYiKtBJQMOjt+b0TBx7SMRKdG
-	dkTSX0IQ==;
-Received: from 54-240-197-233.amazon.com ([54.240.197.233] helo=u09cd745991455d.ant.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPK3C-00000005vR9-230Y;
-	Tue, 19 May 2026 12:59:58 +0000
-Message-ID: <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible
- compatibility expectations
-From: David Woodhouse <dwmw2@infradead.org>
-To: Marc Zyngier <maz@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>, Linux Doc
- Mailing List <linux-doc@vger.kernel.org>, "Kernel Mailing List, Linux"
- <linux-kernel@vger.kernel.org>, Sean Christopherson <seanjc@google.com>,
- Jim Mattson <jmattson@google.com>, Oliver Upton <oupton@kernel.org>, Joey
- Gouly <joey.gouly@arm.com>,  Suzuki K Poulose <suzuki.poulose@arm.com>,
- Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Raghavendra Rao Ananta <rananta@google.com>,
- Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>,  Nathan Chancellor <nathan@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
- kvmarm@lists.linux.dev, linux-kselftest <linux-kselftest@vger.kernel.org>
-Date: Tue, 19 May 2026 13:59:57 +0100
-In-Reply-To: <86qzn7wp3y.wl-maz@kernel.org>
-References: <6856b269d2af706eae397e0cf9c1231f89d9a932.camel@infradead.org>
-	 <6afc4b95-3c15-4d71-877d-19b84e91ce05@redhat.com>
-	 <57bc082f4824d6114d3156744c25986effc29aca.camel@infradead.org>
-	 <baff82ca-6321-4b16-aa61-b2d6d60b6535@redhat.com>
-	 <86h5obya2r.wl-maz@kernel.org>
-	 <48b06e5655d56ff6eda30e563b34894fa0eb2f07.camel@infradead.org>
-	 <ba08dfe9-932b-40c3-9fdf-fc891d52e1d8@redhat.com>
-	 <d9d4471a7f5ec1e297b3ca07f42a59090aa91e15.camel@infradead.org>
-	 <CABgObfaM-JtNn2MuYXaiadQnLfAhTEaoHAcTG9=J6LkMcQCJ3A@mail.gmail.com>
-	 <3f9d731c3d26b0367600f1069e6425099bc34eac.camel@infradead.org>
-	 <agxFbniU_6eQ98t2@willie-the-truck>
-	 <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
-	 <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
-	 <86qzn7wp3y.wl-maz@kernel.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-hA914rn3EHlaahFdTxVS"
-User-Agent: Evolution 3.52.3-0ubuntu1.1 
+	id 1wPK7J-00000001ZxZ-3ZtM;
+	Tue, 19 May 2026 13:04:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779195844; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GB+WerbFMRkWy3I183W9x9oxiqbtOkF8YJSBGgsP7LVhBU/CAYTLaZME51m8NWLT1+Gol882JysK/jrexMuBRRYzQZoY/oKBo8pVaFnLnIT/QhRxF41zsX3Wr2PmwND+pYkGm6+VsK8t3fbiEAlbHs23QRLEVdD45D62tkDPZ5o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1779195844; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=lOkNWBAZkGKo7viWU2Qk1mWVMlFpqvUUKWuw5O+LCN0=; 
+	b=kIFtLlvHQCnXwq35vCcWiQCZe+QeVCCX+Ji49rDqo+zUgDwad3rIyQhS34qBhcHuLXwgYtdkBVhR8hAuf4p48xi2s8fxIPubXYtY8UFMfoDR9Um+Efk0sroQyEqTawOiwuKeeGcHzrdz7xwlNMFmpS/uRdZHDSijpR5wrRppmH4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779195844;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=lOkNWBAZkGKo7viWU2Qk1mWVMlFpqvUUKWuw5O+LCN0=;
+	b=cbR5tVSX8wMXtX/ZasIAJ/lGo/nm6CUO9dbwNfZLPZh9lmk/uPHwnOXI8PjX5DPk
+	oMBfggbZ9Fkz8YeDPSla1OYUaXePJ5VxUDjpiK8BjJqpviXj5cKebsaZAb24OVrfGOG
+	RDRXzvLRZAftuJ8AUfNOH44iQH+fqsLdNMAnHbQU=
+Received: by mx.zohomail.com with SMTPS id 1779195842519140.95091862880702;
+	Tue, 19 May 2026 06:04:02 -0700 (PDT)
+Message-ID: <67bd72ba-6dab-4bdb-a391-27545e287e94@collabora.com>
+Date: Tue, 19 May 2026 09:04:00 -0400
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: rkvdec: hevc: cap EXT SPS RPS control counts
+ before descriptor assembly
+To: Michael Bommarito <michael.bommarito@gmail.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, linux-media@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260513181922.2075438-1-michael.bommarito@gmail.com>
+Content-Language: en-US
+From: Detlev Casanova <detlev.casanova@collabora.com>
+In-Reply-To: <20260513181922.2075438-1-michael.bommarito@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_060413_958223_061AB593 
+X-CRM114-Status: GOOD (  37.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,145 +82,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Michael,
 
---=-hA914rn3EHlaahFdTxVS
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On 5/13/26 14:19, Michael Bommarito wrote:
+> V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS and
+> V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS are registered as dynamic-size
+> controls with a per-control element cap of 65. The V4L2 control core
+> enforces only the payload-element cap. It does not bound the spec-derived
+> count fields that the rkvdec HEVC helper later uses to walk fixed hardware
+> descriptor tables and temporary helper arrays:
+>
+>    - struct rkvdec_rps::refs[32]
+>    - struct rkvdec_rps::short_term_ref_sets[64]
+>    - struct calculated_rps_st_set::delta_poc_s0[16] / delta_poc_s1[16]
+Still, did you try just changing the cap to 64 (.cfg.dims = { 64 },) ?
+You'd need a test that sets the control from userspace though.
 
-On Tue, 2026-05-19 at 13:38 +0100, Marc Zyngier wrote:
->=20
-> > But in this case there's an ID register that tells KVM if userspace
-> > wants the old or the new behavior, independent of whether that old
-> > behavior is architecturally valid or not.
->=20
-> But the "old behaviour" makes no sense, and cannot be used by a guest:
->=20
-> - either the guest doesn't use the alternative interrupt groups, then
-> =C2=A0 it wasn't affected by the bug. That's 100% of the guests.
->=20
-> - or the guest did try to use the alternative groups, and it *NEVER*
-> =C2=A0 worked, as it wouldn't get any interrupt at all. What is the point
-> =C2=A0 of preserving a "feature" that only results in a non-working guest=
-?
+It should refuse setting the control if there are more than 64 elements, 
+therefore the hevc decoder will not run any function using the count 
+values from the SPS (See  rkvdec-vdpu381-hevc.c:601)
+> A userspace V4L2 client that can open the Rockchip RKVDEC m2m decoder node
+> may submit SPS/RPS controls whose counts exceed those capacities or whose
+> prediction reference index underflows. rkvdec_hevc_assemble_hw_rps() then
+> walks past the descriptor table or temporary-array bounds.
+>
+> KASAN under a small KUnit harness wrapping the real helper reports
+> slab-out-of-bounds in all of:
+>
+>    - num_short_term_ref_pic_sets = 65 (write past short_term_ref_sets[64])
+>    - num_long_term_ref_pics_sps = 33  (write past refs[32], intra-struct)
+>    - ext_sps_st_rps[i].num_negative_pics or num_positive_pics > 16
+>      (write past delta_poc_s0[16] inside calculated_rps_st_set)
+>    - INTER_REF_PIC_SET_PRED with delta_idx_minus1 + 1 > i
+>      (u8 ref_rps_idx underflow then OOB read on calculated_rps_st_sets)
+>
+> Validate the SPS/RPS counts before calling the assembly helpers. The cap
+> values match both the HEVC spec ranges (num_short_term_ref_pic_sets <= 64,
+> num_long_term_ref_pics_sps <= 32) and the fixed driver descriptor and
+> helper-array capacities. Reject controls whose counts exceed those, and
+> reject prediction entries whose reference index would underflow.
+>
+> Fixes: c9a59dc2acc7 ("media: rkvdec: Add HEVC support for the VDPU381 variant")
+> Signed-off-by: Michael Bommarito <michael.bommarito@gmail.com>
+> Assisted-by: Claude:claude-opus-4-7
+> ---
+>
+> I don't have a RK3588 / RK3576 board to confirm this through a real
+> /dev/videoN request path yet, but was convinced enough by:
+>
+>    1. Static reach: registration of EXT_SPS_ST_RPS / EXT_SPS_LT_RPS with
+>       .dims = { 65 } at drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>       :239-287, the SPS-count-driven loops in rkvdec-hevc-common.c
+>       :213-225 and :228-251, and v4l2-ctrls-core.c :1213-1277, which
+>       validates only EXT RPS flags and not the spec-derived count fields.
+>
+>    2. A KUnit harness (separate, not in this patch) that allocates one
+>       struct rkvdec_rps + a single calculated_rps_st_sets element via
+>       kunit_kzalloc / kzalloc and calls the real
+>       rkvdec_hevc_assemble_hw_rps() helper. Under UML + KASAN_GENERIC with
+>       the kasan_multi_shot boot param, on a stock tree it produces these
+>       reports:
+>
+>         BUG: KASAN: slab-out-of-bounds in
+>           rkvdec_hevc_assemble_hw_rps+0xb0c/0x1080
+>           (num_short_term_ref_pic_sets = 65, write of size 36 0 bytes past
+>           the rps allocation)
+>
+>         BUG: KASAN: slab-out-of-bounds in
+>           rkvdec_hevc_assemble_hw_rps (num_negative_pics = 64, write past
+>           the single-element kzalloc'd calculated_rps_st_sets buffer)
+>
+>         BUG: KASAN: slab-use-after-free / slab-out-of-bounds reads via
+>           u8 ref_rps_idx underflow at calculated_rps_st_sets[255]
+>           (INTER_REF_PIC_SET_PRED with delta_idx_minus1 = 0, idx = 0)
+>
+>       The num_long_term_ref_pics_sps = 33 case is invisible to KASAN
+>       (the OOB write lands inside struct rkvdec_rps) but corrupts
+>       short_term_ref_sets[0]; the harness asserts that case explicitly.
+>
+>    3. Same harness on the patched tree: all five cases (four adversarial
+>       plus a legitimate-limit regression with ST=64, LT=32, num_neg=1)
+>       pass clean, no KASAN reports.
+>
+> If hardware-side validation actually does reject these counts before
+> rkvdec_hevc_assemble_hw_rps() runs and this patch is unnecessary, please
+> say so and I will withdraw it. If it is reachable, I will follow up with
+> a runtime hardware splat once the Orange Pi board I bought arrives.
+>
+> Let me know if you want a patch set with the KUnit harnesses too.
+>
+> checkpatch.pl: 0 errors / 0 warnings.
+>
+>   .../rockchip/rkvdec/rkvdec-hevc-common.c      | 49 +++++++++++++++++++
+>   1 file changed, 49 insertions(+)
+>
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+> index 3119f3bc9f98..895fb16bc572 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+> @@ -408,9 +408,58 @@ static void rkvdec_hevc_prepare_hw_st_rps(struct rkvdec_hevc_run *run, struct rk
+>   	memcpy(cache, run->ext_sps_st_rps, sizeof(struct v4l2_ctrl_hevc_ext_sps_st_rps));
+>   }
+>   
+> +/*
+> + * V4L2 caps the EXT_SPS RPS payload length but not the SPS-derived counts
+> + * that the helpers walk. Caps match the HEVC spec ranges.
+> + */
+> +#define RKVDEC_HEVC_MAX_SHORT_TERM_REF_PIC_SETS	64
+> +#define RKVDEC_HEVC_MAX_LONG_TERM_REF_PICS_SPS	32
+> +#define RKVDEC_HEVC_MAX_RPS_NEG_POS_PICS	16
+> +
+> +static int rkvdec_hevc_validate_rps_ctrls(struct rkvdec_hevc_run *run)
+> +{
+> +	const struct v4l2_ctrl_hevc_sps *sps = run->sps;
+> +
+> +	if (run->ext_sps_lt_rps &&
+> +	    sps->num_long_term_ref_pics_sps >
+> +	    RKVDEC_HEVC_MAX_LONG_TERM_REF_PICS_SPS)
+> +		return -EINVAL;
+> +
+> +	if (run->ext_sps_st_rps) {
+> +		unsigned int i;
+> +
+> +		if (sps->num_short_term_ref_pic_sets >
+> +		    RKVDEC_HEVC_MAX_SHORT_TERM_REF_PIC_SETS)
+> +			return -EINVAL;
+> +
+> +		for (i = 0; i < sps->num_short_term_ref_pic_sets; i++) {
+> +			const struct v4l2_ctrl_hevc_ext_sps_st_rps *r =
+> +				&run->ext_sps_st_rps[i];
+> +
+> +			if (r->num_negative_pics >
+> +			    RKVDEC_HEVC_MAX_RPS_NEG_POS_PICS ||
+> +			    r->num_positive_pics >
+> +			    RKVDEC_HEVC_MAX_RPS_NEG_POS_PICS)
+> +				return -EINVAL;
+> +
+> +			if ((r->flags &
+> +			     V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED) &&
+> +			    (unsigned int)r->delta_idx_minus1 + 1 > i)
+> +				return -EINVAL;
+> +		}
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   void rkvdec_hevc_assemble_hw_rps(struct rkvdec_hevc_run *run, struct rkvdec_rps *rps,
+>   				 struct v4l2_ctrl_hevc_ext_sps_st_rps *st_cache)
+>   {
+> +	if (rkvdec_hevc_validate_rps_ctrls(run)) {
+> +		pr_err_ratelimited("rkvdec: rejecting HEVC SPS/RPS controls with out-of-range counts\n");
+> +		return;
+> +	}
+> +
+>   	rkvdec_hevc_prepare_hw_st_rps(run, rps, st_cache);
+>   	rkvdec_hevc_assemble_hw_lt_rps(run, rps);
+>   }
 
-Given how long this bug existed in KVM, it's entirely feasible that
-some guests *check* for it and refrain from trying to use the
-alternative groups if the registers aren't actually writable.
-
-If such a guest boots on the new kernel and *does* use alternative
-groups, and then the kernel is rolled back, it breaks.
-
-Or some guest configurations which have only ever been tested under KVM
-could have a bug where they *rely* on the registers not being writable,
-and write values which are inconsistent with the rest of their
-configuration. Which breaks the moment those registers become writable.
-
-Even in that latter case, when we're hosting customer guests under KVM
-and we make a change which breaks things, we don't get to tell
-customers "you deserved it".
-
-And those hypothetical cases *do* happen. All of the time. There's a
-massive zoo of guest operating systems; not just the major players like
-Linux, FreeBSD and Windows but a whole bunch of embedded home-grown and
-network appliance kernels.
-
-Nobody is claiming that we shouldn't fix any bug ever.
-
---=-hA914rn3EHlaahFdTxVS
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI2MDUxOTEyNTk1
-N1owLwYJKoZIhvcNAQkEMSIEIFnxe5BeKRwiLXSbhvRrjFAcQBbv3hrgmq8gFL+mpyHiMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAHDJJ0qCBBL+j
-ZvyZWMOctXiROaA2UBab64EnCKf5ullOYMLcL40HKj8NAsNyMnUneZM0YSS4d5RHmRdkjfmLQF5s
-R2BQpzf1XETuThBCIkR/lFhTFhTYzdvzrcZ+HwI1t/Y+qkc84IwubJaf7FJWlYAXpjRqgmU/cp/F
-m2zmtAqH8OXcxJ9sbBLAMTZVVKTuCBONU494UpXRfZeRniBvRFGRw3I5Yb0ZPNdSEWY03KXZk689
-cYzv6/lgkTB0dWbzTcF+GIQleoHCsA84/Qx2oqLdNDjI3Um4HzbVjl4zczFPR5ZmE6dpU6/0vRjl
-KFPrbo/ndHFSsTmuEBukRDeIiB/Yt0FCWF3zbIpnow7vOr+j2W3cuDCvMFghsUIDrIhXCWQJ9EeP
-LFLb1ItTjZVRZmpb1hZf4yBFfoJvxBy+lfrNrTOTozAPiJU9G1uRY6QWWn2zIoGtpKCLnwPQkCK9
-IAzuTN7KRHkpweINTIbIyIprJlLM62cWaCwVpOvJDCFRvensQ9lFwJ34c+ncBjodOb/t96gN8Fpw
-GZrfTQrYO7DsnLUCjzuW8bS8+MVujTvlj2OcOG8EUA/kaXEannUB/LmK5ndPMX0NtyDz8K9kONZH
-a5FoDfurfFYaJ6agExOe2VjVEM6+2KKo7+kaNKvYIAecbm2jy+0UweuoqYXLxiEAAAAAAAA=
-
-
---=-hA914rn3EHlaahFdTxVS--
 
