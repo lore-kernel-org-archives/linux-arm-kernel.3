@@ -4,78 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BBACD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35B4CD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=td7yo9XNS1lv1rXLaX8XcWtU3vhlD0VxXYz9PxW/V+o=; b=PsDktDF9L71xiSM7RJZpfbccAa
-	CDu5r5CO1bujcwoblM/zVnMumN+UkQV6ZnBC5UBJ3iTpKcMOqm5Z8SZ4sakk/OnAgc65vhDqtSfaB
-	XVphC/LCgRSA2HnrFG9HMSONvXVIkuEDZPKL1UlB5YfHxT0GpJxtGxblshNpQIx0Z7LXGbhIdx6HO
-	Oq2BUY8Fo77rRmkhpYkZHUy/3XkuK3q0NShfraXHNRJbN550xu+lhww30A7ZFzOkd17Uhrvs+tc2v
-	up1uoms4WlLdpc1OT7tS5GTAvIiAxkhYtvPp9pouhZwJa0NaZicq3mLbsvlZkiLgMo0hOlhETDNJD
-	DmXe45gQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUFo6hIuf2ZxDrSoEBKNJqzPv5wXEukq1eF4NrWaHmc=; b=OKtXP25JUY4kjJY4BIuZ1r9g28
+	TkTpHq127T6xliB8kY/61stbqa7hy0khhHdgkZOrcHmvDwjKH1ZbkYm7qt1a3luVIr5PnTJSmcL6Z
+	iYbIZ0eBP0KYyIbO1gBROJ1Y2Zv/xNR+JxpzMSrET5jKZJtRZ46j3E/KAhzNgMhFdZzNwPoWqMfAN
+	dxQvKnRVJV4QpBYgB4CA/pKTvoyKP6EDpdN+wtpp3vj7s7XEi2mtLQ4NPGw8Lj13T8sUxQyDcgnRg
+	gbfzVd1X5s6dp8PIYWaf3yBxXWe7tQyLgXBEQGYUpUTy/IHL9HdBzqfIS+7lXsHTdDhGEdFEpAART
+	kxIzmhNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHsx-00000001ATm-49Qm;
-	Tue, 19 May 2026 10:41:15 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wPI50-00000001DdJ-1pGi;
+	Tue, 19 May 2026 10:53:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHsT-00000001A03-1bXL
+	id 1wPI4y-00000001Dbz-07bA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:40:54 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id E39FB1A362A;
-	Tue, 19 May 2026 10:40:43 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B014B606E9;
-	Tue, 19 May 2026 10:40:43 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C3AF107E8A20;
-	Tue, 19 May 2026 12:40:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187242; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=td7yo9XNS1lv1rXLaX8XcWtU3vhlD0VxXYz9PxW/V+o=;
-	b=yoXF7nFvbpPJi1a+qgsb8Y5Du8LSUfy41GDr8QvcHAxISWnIX/ZkkfKjHvzyCIc4ZwI3AD
-	XaCQD944dR8xIQP5vIlX6xYzD6G7Mxqz0EX9luiWXbwLlmGGTmSM8NMV+1sX+2IA7rD7Nr
-	tHcdOS0wuDCH8vlxN1U3lFasNn8/Mn4a/IFMEE5aDHNprKYIHWxyz/NVXe1oQyChI4NdxC
-	tM3BnpJYdIA1KUcgquVWYGanxcs8jXUQYIMXqdHlf/1yL4MmHhELy0Z+ijrtWXvnE5+5jZ
-	h91bR6v2ibkfIbulGOfoD/Ot8nMo97kZuoDoAkF05rscBR1apCZZ3jDLh0vQOg==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:53 +0200
-Subject: [PATCH 36/37] drm/display: bridge-connector: handle bridge hotplug
+	Tue, 19 May 2026 10:53:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779188019;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AUFo6hIuf2ZxDrSoEBKNJqzPv5wXEukq1eF4NrWaHmc=;
+	b=Dn+b9WGT49zKGcfdmlw30u9FJLr7ChSQ8EvOsYsS0HVL64/krNeqCAWoWQln4IxRmWBfGl
+	K3Zq3DPflturKbFi2sTjGkGc8KC3Lr6+u2p1P4VwURFSVXcjFklKiQNylskcBxXvPbRhoh
+	4o0ajeRdEG0Hfs0D9T/J08KIJ2KQRtk=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-582-5d8tKgVuNA6J8QibVxgKfA-1; Tue, 19 May 2026 06:53:35 -0400
+X-MC-Unique: 5d8tKgVuNA6J8QibVxgKfA-1
+X-Mimecast-MFC-AGG-ID: 5d8tKgVuNA6J8QibVxgKfA_1779188014
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-48fd33b4921so24398365e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 03:53:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779188014; x=1779792814;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=AUFo6hIuf2ZxDrSoEBKNJqzPv5wXEukq1eF4NrWaHmc=;
+        b=h5K+UJhJyIX6t146tWAy+YFbZd5kgMd4SMXeMCzPklSyEpcrbRrQaDqpGZlAuI+/ul
+         O8IPKlSFs0VlAod6fb4LFMu2ZsUKIeK3wBcIMfTmGHefxOF4DL4mNtve75mGy6ToxXnt
+         c70Fzx7/J692OduUP67uBQNi1feRD4lCY7G7V7taShcaXesFY7miZoBQMOV08RSxysek
+         mAVn7WgfQwCG860wKBf9QDcDlhI+aykRwI/vxMQFHv4PEtULtwK6WcBV/tk07r4xDj7O
+         ZB5btwOzS1Y88egcQ9SLu03n5X4N6f3QevW9ZOY2KweTJYuE7FtAKJk3Np9kzv2kYQLN
+         +yCQ==
+X-Forwarded-Encrypted: i=1; AFNElJ88Rua1aT7yLfb8XTnTFtIPzjbNVruVkkY2Wc+HPJ0OC0Sb2JVo3tPQLcXFpo02+bIHg1t4AC8dk+TBqq2om+cH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3XbSkdWPSL9jcnbN75HA0vhEN0gbxCz8oYWqNa5dtjvinm9zG
+	LEY6Qg0rZeU5TbSQCst/bbiu6O4UJ7aBw2FyiLYdejLPIWRN9pUOMqpkfz4PdDDAjk4QzK6UFWj
+	QX7pc53WWHuvnxJ/jGUs+PZevXHU+Wj3niJI5J6Gp8gKzFZvPsBB79eC+jru191Ku9zkmHvVgWd
+	YN
+X-Gm-Gg: Acq92OFXax0tacolnJOaWW9Aiuc/iGo5TsN6a18yjJGYht+dOVVjr/3XcU3Y153XbUx
+	FhRDmceAhYY5oTgUKv1fQ44h1IfbYXz7WuPKwgQPq/GXe6VmNBYlT109e0n9yZ/J2fPXrZrjQ7A
+	b+TERwrG/frA6N+PgsM6y302YB40yqfb/hypUdXs3vwr5lZrht+g7jIRmAum2OaFgMC9aFTBSDV
+	s7+cQ+n98gbryOGxwMtdUk21D+hye8xzok3V+blhCIOd0wHoPmDS3hruy+qVCbzT7u2MGIMMRyz
+	ZFoCsabuH0VYJX/Xg+ptGg2/mgGafK84NhClLLuK6oOuKMNPWxtH3IMCmW0cCYPO77lufkzV2Zb
+	0smB9Iky2o3+7KGZg1SNKljqBV1XX2RkkB7tp730Wsg4ALRgdGLISnL+jdtnSgd4bWA==
+X-Received: by 2002:a05:600c:8b45:b0:489:1ba8:5bf0 with SMTP id 5b1f17b1804b1-48fe63253f3mr282542375e9.21.1779188014444;
+        Tue, 19 May 2026 03:53:34 -0700 (PDT)
+X-Received: by 2002:a05:600c:8b45:b0:489:1ba8:5bf0 with SMTP id 5b1f17b1804b1-48fe63253f3mr282541945e9.21.1779188014000;
+        Tue, 19 May 2026 03:53:34 -0700 (PDT)
+Received: from [192.168.88.32] ([150.228.25.33])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe78aadsm101525975e9.29.2026.05.19.03.53.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2026 03:53:33 -0700 (PDT)
+Message-ID: <3a390dee-38e9-4df1-a94d-7128cd4eb834@redhat.com>
+Date: Tue, 19 May 2026 12:53:31 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 4/5] net: dsa: mt7530: clear flood flags on bridge
+ leave
+To: Daniel Golle <daniel@makrotopia.org>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ DENG Qingfang <dqfext@gmail.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Sean Wang <sean.wang@mediatek.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <cover.1778766629.git.daniel@makrotopia.org>
+ <cc8d2f494dd202304a6f68332f3a90ea0a8a4618.1778766629.git.daniel@makrotopia.org>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <cc8d2f494dd202304a6f68332f3a90ea0a8a4618.1778766629.git.daniel@makrotopia.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: TqGaJY5OlsdbivavC2Hen7MIxPfhImEyLcJmsw5RSwI_1779188014
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-36-45e2bdb3dfb4@bootlin.com>
-References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
-In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Inki Dae <inki.dae@samsung.com>, Jagan Teki <jagan@amarulasolutions.com>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, Marek Vasut <marex@denx.de>, 
- Stefan Agner <stefan@agner.ch>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.15.2
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_034045_758323_61B13435 
-X-CRM114-Status: GOOD (  29.57  )
+X-CRM114-CacheID: sfid-20260519_035340_149817_4552E0DF 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,258 +121,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The drm_bridge_connector is nowadays the recommended way to implement DRM
-connectors when a chain of bridges is used, and as such it is the ideal
-component to implement DRM bridge hotplug. Thus, let the
-drm_bridge_connector be created once for the whole drm_encoder lifetime (as
-it is now), but make it able of creating and destroying the DRM connector
-reacting on bridge hot(un)plug events.
+On 5/14/26 4:05 PM, Daniel Golle wrote:
+> Flood flags set by port_bridge_flags persist after a port leaves the
+> bridge, causing unknown unicast to be forwarded to standalone ports.
+> 
+> Clear UNU_FFP, UNM_FFP and BC_FFP in port_bridge_leave so that the
+> port returns to its initial state without flooding.
+> 
+> Fixes: 5a30833b9a16 ("net: dsa: mt7530: support MDB and bridge flag operations")
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> ---
+> v2: no changes
+> 
+>  drivers/net/dsa/mt7530.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index 752ba92b0851..5b58e42bfda9 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -1767,6 +1767,11 @@ mt7530_port_bridge_leave(struct dsa_switch *ds, int port,
+>  	mt7530_rmw(priv, MT7530_PCR_P(port), PCR_PORT_VLAN_MASK,
+>  		   MT7530_PORT_MATRIX_MODE);
+>  
+> +	/* Clear flood flags so they don't persist across bridge leave */
+> +	mt7530_clear(priv, MT753X_MFC,
+> +		     UNU_FFP(BIT(port)) | UNM_FFP(BIT(port)) |
+> +		     BC_FFP(BIT(port)));
 
-Unfortunately the current drm_bridge_connector_init() API is unable to
-support DRM bridge hotplug because it returns a drm_connector, and with
-hotplug the connector might start existing only later, and also be
-destroyed and recreated multiple times.
-
-So add a new API which is similar but returns a pointer to the
-drm_bridge_connector, which is persistent, and supports bridge hotplug by
-creating and destroying the drm_connector based on hotplug events.
-
-Because drm_bridge_connector_init() is really a drmm function (it does only
-drmm allocations), but without a drmm_ prefix, take this as an opportunity
-to call the new function with the same name but a drmm_ prefix:
-drmm_bridge_connector_init(). The old API can be replaced over time when
-needed to support hotplug, and eventually be removed if unused.
-
-The new drmm_bridge_connector_init() API differs from the old one in a few
-aspects in order to support bridge hotplug:
-
- * if the bridge chain is not (yet) complete, returns successfully without
-   adding a drm_connector (in this case the old API returns an error)
- * registers an event notifier block to be able of reacting to events
-   related to bridge hotplug and create/destroy the drm_connector
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+I think sashiko has a point here:
 
 ---
-
-I'm tempted to let drmm_bridge_connector_init() return int (0 or negative
-error) instead of a struct drm_bridge_connector *, but I'm not sure whether
-the drm_bridge_connector pointer may be useful in the future to invoke
-actions on the bridge_connector after its creation. Opnions about this
-would be welcome.
+Will these cleared flags be immediately overwritten by the DSA core?
+When a port leaves a bridge, the DSA core's dsa_port_bridge_leave()
+broadcasts the DSA_NOTIFIER_BRIDGE_LEAVE event, which triggers this
+callback and clears the bits.
+However, immediately after the broadcast returns,
+dsa_port_bridge_leave() unconditionally calls
+dsa_port_switchdev_unsync_attrs(), which calls
+dsa_port_clear_brport_flags().
+This explicitly configures standalone ports to flood everything by
+setting the BR_FLOOD, BR_MCAST_FLOOD, and BR_BCAST_FLOOD flags to 1, and
+then invokes the driver's port_bridge_flags callback.
+As a result, mt7530_port_bridge_flags() processes this call and executes
+mt7530_rmw() to turn the UNU_FFP, UNM_FFP, and BC_FFP bits right back to
+1 for the port.
+Does this leave the isolation bug unfixed since the register clearing is
+reverted before the DSA bridge leave sequence fully completes?
 ---
- drivers/gpu/drm/display/drm_bridge_connector.c | 157 +++++++++++++++++++++++++
- include/drm/drm_bridge_connector.h             |   2 +
- 2 files changed, 159 insertions(+)
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index b83da529cc7a..2ce6c04e2fc7 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -20,6 +20,7 @@
- #include <drm/drm_device.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_managed.h>
-+#include <drm/drm_event_notifier.h>
- #include <drm/drm_modeset_helper_vtables.h>
- #include <drm/drm_print.h>
- #include <drm/drm_probe_helper.h>
-@@ -158,6 +159,10 @@ struct drm_bridge_connector {
- 	 * destruction
- 	 */
- 	struct mutex dynconn_mutex;
-+	/**
-+	 * @drm_event_nb: notifier to receive DRM hotplug-related events
-+	 */
-+	struct notifier_block drm_event_nb;
- };
- 
- static struct drm_bridge_connector_dynconn *
-@@ -1037,6 +1042,19 @@ static int drm_bridge_connector_init_hdmi_audio_cec(struct drm_bridge_connector_
- 	return 0;
- }
- 
-+static bool drm_bridge_connector_pipeline_is_complete(struct drm_bridge_connector *bridge_connector)
-+{
-+	struct drm_bridge *last_bridge __free(drm_bridge_put) =
-+		drm_bridge_chain_get_last_bridge(bridge_connector->encoder);
-+
-+	if (!last_bridge || !drm_bridge_is_tail(last_bridge)) {
-+		drm_dbg_driver(bridge_connector->drm, "pipeline not (yet) fully connected");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
- /**
-  * drm_bridge_connector_add_connector - add the drm_connector
-  * @bridge_connector: drm_bridge_connector to add the drm_connector to
-@@ -1153,6 +1171,79 @@ static int drm_bridge_connector_add_connector(struct drm_bridge_connector *bridg
- 	return ret;
- }
- 
-+/*
-+ * Propagate the attach chain and possibly add a drm_connector after a new
-+ * drm_bridge is hot-plugged.
-+ *
-+ * The connector is added only if the pipeline is now complete. This could
-+ * not be the case for various reasons:
-+ *
-+ * - the new bridge is just unrelated to our encoder
-+ * - the new bridge is not be the next one in the pipeline
-+ * - the new bridge is the next in the pipeline but the pipeline is not yet
-+ *   complete
-+ *
-+ * All these cases are normal, not an error.
-+ */
-+static void drm_bridge_connector_try_complete(struct drm_bridge_connector *bridge_connector)
-+{
-+	int err;
-+
-+	/*
-+	 * drm_connector already present, the new bridge must be for
-+	 * another card
-+	 */
-+	if (bridge_connector->dynconn)
-+		return;
-+
-+	/* Propagate the attach call chain to newly hotplugged bridge(s) */
-+	struct drm_bridge *last_bridge __free(drm_bridge_put) =
-+		drm_bridge_chain_get_last_bridge(bridge_connector->encoder);
-+
-+	/* Encoder chain empty? */
-+	if (!last_bridge)
-+		return;
-+
-+	err = last_bridge->funcs->attach(last_bridge, bridge_connector->encoder,
-+					 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (err)
-+		return;
-+
-+	/* Add the connector if the pipeline is now complete */
-+	if (drm_bridge_connector_pipeline_is_complete(bridge_connector))
-+		drm_bridge_connector_add_connector(bridge_connector);
-+}
-+
-+static int drm_bridge_connector_handle_event(struct notifier_block *nb,
-+					     unsigned long event, void *data)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		container_of(nb, struct drm_bridge_connector, drm_event_nb);
-+
-+	switch (event) {
-+	case DRM_MIPI_DSI_ATTACHED:
-+		/* One or more bridges hot-plugged, try adding the drm_connector */
-+		drm_bridge_connector_try_complete(bridge_connector);
-+		break;
-+	case DRM_BRIDGE_DETACHED:
-+	{
-+		/*
-+		 * A bridge was unplugged, remove the drm_connector if it's
-+		 * part of the same pipeline
-+		 */
-+		struct drm_bridge *bridge = (struct drm_bridge *)data;
-+
-+		if (bridge_connector->dynconn &&
-+		    bridge->encoder == bridge_connector->encoder)
-+			drm_bridge_connector_dynconn_release(bridge_connector);
-+		break;
-+	}
-+	default:
-+	}
-+
-+	return NOTIFY_DONE;
-+}
-+
- static void drm_bridge_connector_fini(struct drm_device *dev, void *res)
- {
- 	struct drm_bridge_connector *bridge_connector = (struct drm_bridge_connector *)res;
-@@ -1205,3 +1296,69 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 	return &bridge_connector->dynconn->connector;
- }
- EXPORT_SYMBOL_GPL(drm_bridge_connector_init);
-+
-+static void drm_bridge_connector_notifier_unregister(struct drm_device *dev, void *res)
-+{
-+	struct notifier_block *nb = (struct notifier_block *)res;
-+
-+	drm_event_notifier_unregister(nb);
-+}
-+
-+/**
-+ * drmm_bridge_connector_init - Initialise the bridge_connector for a chain
-+ *                              of bridges, with bridge hotplug support
-+ * @drm: the DRM device
-+ * @encoder: the encoder where the bridge chain starts
-+ *
-+ * Allocate, initialise and register a &drm_bridge_connector with the @drm
-+ * device. The connector is associated with a chain of bridges that starts at
-+ * the @encoder. All bridges in the chain shall report bridge operation flags
-+ * (&drm_bridge->ops) and bridge output type (&drm_bridge->type), and none of
-+ * them may create a DRM connector directly.
-+ *
-+ * Also adds a drm_connector if the bridge chain is complete, otherwise the
-+ * &drm_bridge_connector will still be successfully created but without
-+ * adding a drm_connector. In both cases the &drm_bridge_connector will
-+ * receive events notifying bridge hot-plug and hot-unplug and add or
-+ * destroy the drm_connector accordingly.
-+ *
-+ * Returns a pointer to the new &drm_bridge_connector on success, or a
-+ * negative error pointer otherwise.
-+ */
-+struct drm_bridge_connector *drmm_bridge_connector_init(struct drm_device *drm,
-+							struct drm_encoder *encoder)
-+{
-+	struct drm_bridge_connector *bridge_connector;
-+	int ret;
-+
-+	bridge_connector = drmm_kzalloc(drm, sizeof(*bridge_connector), GFP_KERNEL);
-+	if (!bridge_connector)
-+		return ERR_PTR(-ENOMEM);
-+
-+	mutex_init(&bridge_connector->dynconn_mutex);
-+	bridge_connector->drm = drm;
-+	bridge_connector->encoder = encoder;
-+	bridge_connector->drm_event_nb.notifier_call = drm_bridge_connector_handle_event;
-+
-+	if (drm_bridge_connector_pipeline_is_complete(bridge_connector)) {
-+		ret = drm_bridge_connector_add_connector(bridge_connector);
-+		if (ret)
-+			return ERR_PTR(ret);
-+	}
-+
-+	ret = drmm_add_action_or_reset(drm, drm_bridge_connector_fini, bridge_connector);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	ret = drm_event_notifier_register(&bridge_connector->drm_event_nb);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	ret = drmm_add_action_or_reset(drm, drm_bridge_connector_notifier_unregister,
-+				       &bridge_connector->drm_event_nb);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(drmm_bridge_connector_init);
-diff --git a/include/drm/drm_bridge_connector.h b/include/drm/drm_bridge_connector.h
-index 69630815fb09..1c78221c0857 100644
---- a/include/drm/drm_bridge_connector.h
-+++ b/include/drm/drm_bridge_connector.h
-@@ -10,6 +10,8 @@ struct drm_connector;
- struct drm_device;
- struct drm_encoder;
- 
-+struct drm_bridge_connector *drmm_bridge_connector_init(struct drm_device *drm,
-+							struct drm_encoder *encoder);
- struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 						struct drm_encoder *encoder);
- 
+Since the other fixes are independent, I'm applying them.
 
--- 
-2.54.0
+/P
 
 
