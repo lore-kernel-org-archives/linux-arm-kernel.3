@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABDD0CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6CD0CD5BA3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:40:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eMMNp/n3p6D7/d1i7CLA1wHwPUN8RjNJitJFok8w0VQ=; b=fIS7Q7soIDZig1cSw7j7a2IIIS
-	NKaOw7Ubxbmimt9m2lMoib4iJDMUWT6+1w037aGZNXnGxWzPYbsJrSZDUpq3lvDRZZmhah1LElKUO
-	KVPS92y63BORhl/3odQdHwyVgHO3IpdnoAH5GS1qMZTK9aHsJ41qiLPikQSAldbn9iDL+DkSe8Xul
-	2+Iq5b111VM0k37RhP2wbBjM08M9xkEAAhSkWRBlmWQy/09JMGaJToqvtBOTGSI0J0R1OTGw3h+tw
-	eR1BlE6YYhUhTJ2joiTGx97xm6JeufBFrfD9Bgcib9MxMpwDcMWAGEc24eYljI6w+QBLT9LOgUy+e
-	sacPk94w==;
+	bh=p0IuXkiCS7FheF9fCBR2Egdn9vM94EkW7JUn03rjXhw=; b=eRnQ39wNjR1Fnaptv0w39ozBA6
+	QSoyuBy1LNycimzCzoYW9ocztfDNvn0GNEYplDRvalvU0VayVYSlXeLq1+SO8/bP8C76NNUzszwCG
+	mFAGgSQ7vIvAKFZ4EWWpMYMO3IUHdNgl5bWLW7Cvg41vXyVjdnMWgvr3dgJwBPvAmGJbCZ6MJn6lh
+	EzykAKi0oxrO/PBVtzRhd4U2+aO5Ku4TDJZLV+GC0gzIfUrLVsoKpOhWFa8V+mLNlpIYXbhOXAxnP
+	mfqcEDPRf/WnjmhcfvDC5w4Jc4KAZRmRHuKe8a1tb2bTst0X8Y8o+xp0FGIJOwfg2dzRGX7CRERou
+	r5xxzhJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHrg-0000000191t-2QvC;
+	id 1wPHrg-0000000191L-1T5q;
 	Tue, 19 May 2026 10:39:56 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHrX-000000018pk-44VL
+	id 1wPHrT-000000018k9-2htV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:39:50 +0000
+	Tue, 19 May 2026 10:39:45 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 6D26C1A3628;
-	Tue, 19 May 2026 10:39:46 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 398A01A3628;
+	Tue, 19 May 2026 10:39:42 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3EB72606E9;
-	Tue, 19 May 2026 10:39:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1F69D107E8ABA;
-	Tue, 19 May 2026 12:39:40 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0D027606E9;
+	Tue, 19 May 2026 10:39:42 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5A921107E8AF0;
+	Tue, 19 May 2026 12:39:36 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779187184; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1779187180; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=eMMNp/n3p6D7/d1i7CLA1wHwPUN8RjNJitJFok8w0VQ=;
-	b=oMYhhapbTf/xv1jqhd3O5ZMDHcFtGbuJ4GPXMfSMaKyskYDXknckT4kB4/y+E68DiLQEEa
-	9/ot4vTV+jGcRaDYjZZ8Kl2C1WgS1psI+tNLBmOoBrYfdlflkg18HdQ4OflvpN+hVOnG6A
-	zfkukksT45OdKDwX+MnWrqVfjwoSAICaT+2pvooJtpbwABEd+R4VKdeNV2OSuP3efp4Ufp
-	gxGppUIztvzn1CNoy5Gc3XqAaCva2pVUtMHDZzZusJ2ZfBGMp/4EKLz8Ct/q14RsJeGjhW
-	gPP9aJbg8Rmo0F7fxakHkG2f3q8ZIxr8/ZIL7Hd3lXgEa9k8QlEdo7UT6rgIgA==
+	bh=p0IuXkiCS7FheF9fCBR2Egdn9vM94EkW7JUn03rjXhw=;
+	b=OybRVAMD2dO5fEMHg+Ev8VfZfB393AXUj4FLlrljUsRJQHHiiYj7MDk4ipxam8JTFP3FA9
+	RzFONZ9yfdIjX5nSYrHKQnXZUGVIQn+JV/DhU6LHPyYaHtlLzHyaZfNBYcxztckjpV1nJf
+	TeHsEwUkb+CjPlqEnpnmy6iNdp7cmk1ALITCy007I4oDe+DbuO1a61Dy1Z99RS6bCTO3FG
+	ElClQJttBn+xNYstMVLugFy1HT1e5m8fe1HfWIHJ/Tnn7qgotdFzqHjycPdWfIP3OVJgfR
+	zjPJ+OVWtlL0Ok3zVm4eea64LzTmD9WDrIFgS0ek2oNtEErgdoKz0HiIS4gVqw==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 19 May 2026 12:37:40 +0200
-Subject: [PATCH 23/37] drm/encoder: add drm_encoder_cleanup_from()
+Date: Tue, 19 May 2026 12:37:39 +0200
+Subject: [PATCH 22/37] drm/bridge: initialize chain_node list head on
+ detach and attach errors
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-bridge-hotplug-v1-23-45e2bdb3dfb4@bootlin.com>
+Message-Id: <20260519-drm-bridge-hotplug-v1-22-45e2bdb3dfb4@bootlin.com>
 References: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 In-Reply-To: <20260519-drm-bridge-hotplug-v1-0-45e2bdb3dfb4@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -74,8 +75,8 @@ Cc: Hui Pu <Hui.Pu@gehealthcare.com>, Ian Ray <ian.ray@gehealthcare.com>,
 X-Mailer: b4 0.15.2
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_033948_211765_CC943977 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20260519_033943_841854_9A5B1335 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,99 +91,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Supporting hardware whose final part of the DRM pipeline can be physically
-removed requires the ability to detach all bridges from a given point to
-the end of the pipeline.
+When a bridge is detached it is removed from the encoder bridge_chain list,
+but the bridge::chain_node list head is not cleared. This is going to be
+problematic with the upcoming hotplug bridge support because if a bridge is
+detached from the encoder chain but not yet removed, when later detaching
+it the encoder code may think it is still attached, thus trying to detach
+it twice.
 
-Introduce a variant of drm_encoder_cleanup() for this.
+Avoid this by clearing the list head on detach, so there's a clear and
+simple way to know when a bridge is not attached anymore.
 
-Take care to not try detaching non-attached bridges. This is needed because
-when two or more bridges are removed not in the backwards order,
-drm_encoder_cleanup_from() is called more than once for bridges closer to
-the panel.
+Do the same in the error management code in drm_bridge_attach(), so that
+chain_node is always empty [as in list_empty()] when it is not
+(yet|anymore) in the bridge chain.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
 ---
+ drivers/gpu/drm/drm_bridge.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Note: in theory drm_encoder_cleanup() is now a superset of
-drm_encoder_cleanup_from() and may be simplified to just call
-drm_encoder_cleanup_from() and then do the extra actions. However the
-common code is subtly different in terms of locking and checks, so this
-would complicate the code in this patch and has thus been kept separate for
-the time being to make reviewing sompler. Reimplementing
-drm_encoder_cleanup() by using drm_encoder_cleanup_from() cvacn be done
-later on.
-
-A much simpler and now obsolete version of this patch (missing locking and
-checks) previously appeared in
-https://lore.kernel.org/lkml/20250206-hotplug-drm-bridge-v6-13-9d6f2c9c3058@bootlin.com/
----
- drivers/gpu/drm/drm_encoder.c | 38 ++++++++++++++++++++++++++++++++++++++
- include/drm/drm_encoder.h     |  1 +
- 2 files changed, 39 insertions(+)
-
-diff --git a/drivers/gpu/drm/drm_encoder.c b/drivers/gpu/drm/drm_encoder.c
-index 0d5dbed06db4..40ece477b302 100644
---- a/drivers/gpu/drm/drm_encoder.c
-+++ b/drivers/gpu/drm/drm_encoder.c
-@@ -179,6 +179,44 @@ int drm_encoder_init(struct drm_device *dev,
+diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+index 657f6609d7b1..7f2d1a81d730 100644
+--- a/drivers/gpu/drm/drm_bridge.c
++++ b/drivers/gpu/drm/drm_bridge.c
+@@ -598,7 +598,7 @@ int drm_bridge_attach(struct drm_encoder *encoder, struct drm_bridge *bridge,
+ 	bridge->dev = NULL;
+ 	bridge->encoder = NULL;
+ 	mutex_lock(&encoder->bridge_chain_mutex);
+-	list_del(&bridge->chain_node);
++	list_del_init(&bridge->chain_node);
+ 	mutex_unlock(&encoder->bridge_chain_mutex);
+ 
+ 	if (ret != -EPROBE_DEFER)
+@@ -629,7 +629,7 @@ void drm_bridge_detach(struct drm_bridge *bridge)
+ 	if (bridge->funcs->detach)
+ 		bridge->funcs->detach(bridge);
+ 
+-	list_del(&bridge->chain_node);
++	list_del_init(&bridge->chain_node);
+ 	bridge->dev = NULL;
+ 	drm_bridge_put(bridge);
  }
- EXPORT_SYMBOL(drm_encoder_init);
- 
-+/**
-+ * drm_encoder_cleanup_from - remove a given bridge and all the following
-+ * @encoder: encoder whole list of bridges shall be pruned
-+ * @bridge: first bridge to remove
-+ *
-+ * Removes from an encoder all the bridges starting with a given bridge
-+ * and until the end of the chain.
-+ *
-+ * Does nothing if the bridge is not attached to an encoder chain.
-+ *
-+ * This should not be used in "normal" DRM pipelines. It is only useful for
-+ * devices whose final part of the DRM chain can be physically removed and
-+ * later reconnected (possibly with different hardware).
-+ */
-+void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm_bridge *bridge)
-+{
-+	struct drm_bridge *next;
-+	LIST_HEAD(tmplist);
-+
-+	/*
-+	 * We need the bridge_chain_mutex to modify the chain, but
-+	 * drm_bridge_detach() will call DRM_MODESET_LOCK_ALL_BEGIN() (in
-+	 * drm_modeset_lock_fini()), resulting in a possible ABBA circular
-+	 * deadlock. Avoid it by first moving all the bridges to a
-+	 * temporary list holding the lock, and then calling
-+	 * drm_bridge_detach() without the lock.
-+	 */
-+	mutex_lock(&encoder->bridge_chain_mutex);
-+	if (!list_empty(&bridge->chain_node))
-+		list_for_each_entry_safe_from(bridge, next, &encoder->bridge_chain, chain_node)
-+			list_move_tail(&bridge->chain_node, &tmplist);
-+	mutex_unlock(&encoder->bridge_chain_mutex);
-+
-+	while (!list_empty(&tmplist))
-+		drm_bridge_detach(list_first_entry(&tmplist, struct drm_bridge, chain_node));
-+}
-+EXPORT_SYMBOL(drm_encoder_cleanup_from);
-+
- /**
-  * drm_encoder_cleanup - cleans up an initialised encoder
-  * @encoder: encoder to cleanup
-diff --git a/include/drm/drm_encoder.h b/include/drm/drm_encoder.h
-index eded7c34481a..d2a59f95692f 100644
---- a/include/drm/drm_encoder.h
-+++ b/include/drm/drm_encoder.h
-@@ -324,6 +324,7 @@ static inline struct drm_encoder *drm_encoder_find(struct drm_device *dev,
- }
- 
- void drm_encoder_cleanup(struct drm_encoder *encoder);
-+void drm_encoder_cleanup_from(struct drm_encoder *encoder, struct drm_bridge *bridge);
- 
- /**
-  * drm_for_each_encoder_mask - iterate over encoders specified by bitmask
 
 -- 
 2.54.0
