@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D587CD5BAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CF4CD5BAC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,56 +12,58 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rOD0s3+Nm7YrRVW4EuyNWoyOgd63/WffAsBvv24U6I0=; b=GONPLs6QTRtldGfsrkpk8eigam
-	GihdHPmm94Hk271rs4nzdSD7J42A42+KisKk4HxdX3g37rpNeJeVCtmEbzxOJqPPmDmp2CozsoKLt
-	aWpGMOBzeXWB2dfykvUwVHET241KB1BOWcV8JIeeNCpdo/912AQJyBubgq2a846WFGSBifkBal3+F
-	/+XqReIu3h7L20/i4j793Z6HEhiwC5ntENyit8FdAnn5nwk8flj4J8o3FYJ/eKjfUCk2j8+ztSxBn
-	HFiDSNd6/yM1ZUellaju4VbHDahwiVbMvhM+cV5jMyvxZihxBrMW493x5FoeakgZJgvzj5GVybkgD
-	fwTtpbig==;
+	bh=7cg1utYwfiTb+V6lhVagMJjsdqjHFS2DGhwaCOrRplE=; b=r2tS1sR/JWa6kDY+jKj4gcYp3n
+	MXBjsbpnbGRgmPCNwpNpAXYgi/u3LkxTBbhHUIcof3DMvUgv5b0oi8w1gOovGygPfPqTYMA9pNA9+
+	7+t4Ac1j7RladM4DQPU/kQmsZn3MT5zNZedQcD2sz6IZ9QrLLdhyxW8eCufcJHr29dLbYuBTyt+jx
+	B3q3mAjoWTzgcrJ2mhjC4nLptzljCDkkwR1usb0GWTRRXRWGBdiMo8eR0Zz/U3kDKXENF0oYmPg00
+	Rmp3LB7Y94JnAooYxal1JfA2S6F2zsbnGUW7vVPQhz9DA69yLPfGcx0dV5dqusUg30BpunCE/x4LN
+	0StUWycw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIb-000000020oh-1Vsc;
-	Tue, 19 May 2026 15:24:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPMIa-000000020mQ-1ZAz;
+	Tue, 19 May 2026 15:24:00 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMIY-000000020lX-2QnZ
+	id 1wPMIF-000000020bW-2FpM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:23:59 +0000
+	Tue, 19 May 2026 15:23:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 108AE60221;
-	Tue, 19 May 2026 15:23:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39324C2BCB3;
-	Tue, 19 May 2026 15:23:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC3326021D;
+	Tue, 19 May 2026 15:23:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 937E2C2BCB8;
+	Tue, 19 May 2026 15:23:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779204237;
-	bh=I+IjMYlDv1l4GPKm44lgcCi3BwfRmTlX+eKtPHhhqsw=;
+	s=k20201202; t=1779204218;
+	bh=tKQBYpT3697CvR/eRR0KPRe6RFtDdAPupyrmFvryfL8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KYZnYUNq9Tu1sJ42jVFYrVmNjc4OMw6j4rHkWc8RCHgSKRCcftXwoeNUIWSz9+OS0
-	 r0c02nrsnqNc6/JQjsTHsaeU37UrpfA8nClHDw5XOtuH5Kvf56lKMLFliBfQlkLWRY
-	 rOnOly7/E/NAF2d3srHRek71+aoEYVHDdMQWp6krJsvzXg66vIfvRxx5RA6asbk2CJ
-	 cGHQ0O/3wJY3ev9zpJ5G2P4UdLdtdWLML8qCUsnXmR/PIxXpQ740UUg7yaVjVlgxjm
-	 OEkCYc8tl/MiNQl1JgFj77G3Ko+KFlK1zIH03Olc8YqjhtuFhozw9FJ7ZutA73ebha
-	 sEYUKk1vNmAWQ==
+	b=m4MbMa0g9LByzbaU+tBMRjuc9LJm6PxE81eiY/DnXxAlYyAb4F7WIoHlTuV8OrG98
+	 oRA2/3CossOVllXcQg8YprF5ijbIlHhY4o2IEsnCEkUlNWVdDRNsbKDkulx32W7mf1
+	 QmwyNNkC0BD0nXT3mZZ/84MY3uw5j+O1bNZvkL7I3Qo7amsxoiSdNJD6b55EmSywd9
+	 LuN07bgGmG/mNTixJXNOFLS1zztsEjUy21p6gH90ovOzwJrRDw102kNF0seU5Re/N6
+	 5FijeC7uB9zBB0G4xMupD1a1S3Fd4Jv7vQSSEdbo8JQ9ud3kMFTWY5b0E4WMGV22LK
+	 YzYmQE1fBySIQ==
 From: Will Deacon <will@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	bibek.patro@oss.qualcomm.com
 Cc: catalin.marinas@arm.com,
 	kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	"David Hildenbrand (Arm)" <david@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] POE sigreturn fix and extra tests
-Date: Tue, 19 May 2026 16:23:00 +0100
-Message-ID: <177918804505.746149.6023931077901684027.b4-ty@kernel.org>
+	Dmitry Baryshkov <lumag@kernel.org>,
+	iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	srinivas.kandagatla@oss.qualcomm.com,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Shawn Guo <shengchao.guo@oss.qualcomm.com>
+Subject: Re: [PATCH v2] iommu/arm-smmu-qcom: Fix fastrpc compatible string in ACTLR client match table
+Date: Tue, 19 May 2026 16:22:54 +0100
+Message-ID: <177918570897.725893.17447458328924227845.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
-References: <20260427-poe_signal-v2-0-2bd9d6f16ab4@arm.com>
+In-Reply-To: <20260423100230.3462214-1-bibek.patro@oss.qualcomm.com>
+References: <20260423100230.3462214-1-bibek.patro@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,27 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 27 Apr 2026 13:03:32 +0100, Kevin Brodsky wrote:
-> Commit 2e8a1acea859 ("arm64: signal: Improve POR_EL0 handling to
-> avoid uaccess failures") introduced special handling for EL0 registers
-> that impact uaccess. This did not however handle the case where a signal
-> handler removes the relevant record (poe_context for POE) from the
-> signal frame; this is clearly not typical behaviour but it is legal.
-> That commit resulted in arbitrary data from the kernel stack being
-> written to POR_EL0 in that case.
+On Thu, 23 Apr 2026 15:32:30 +0530, bibek.patro@oss.qualcomm.com wrote:
+> The qcom_smmu_actlr_client_of_match table contained "qcom,fastrpc" as
+> the compatible string for applying ACTLR prefetch settings to FastRPC
+> devices. However, "qcom,fastrpc" is the compatible string for the parent
+> rpmsg channel node, which is not an IOMMU client — it carries no
+> "iommus" property in the device tree and is never attached to an SMMU
+> context bank.
 > 
 > [...]
 
-Applied selftest updates to arm64 (for-next/selftests), thanks!
+Applied to iommu (arm/smmu/updates), thanks!
 
-[2/5] selftests/mm: Fix resv_sz when parsing arm64 signal frame
-      https://git.kernel.org/arm64/c/c364aa56d673
-[3/5] kselftest/arm64: Add POE as a feature in the signal tests
-      https://git.kernel.org/arm64/c/42c21954063e
-[4/5] kselftest/arm64: Move/add POE helpers to test_signals_utils.h
-      https://git.kernel.org/arm64/c/925a082ec2a0
-[5/5] kselftest/arm64: Add tests for POR_EL0 save/reset/restore
-      https://git.kernel.org/arm64/c/f2db075234c8
+[1/1] iommu/arm-smmu-qcom: Fix fastrpc compatible string in ACTLR client match table
+      https://git.kernel.org/iommu/c/a6e1618a65d4
 
 Cheers,
 -- 
