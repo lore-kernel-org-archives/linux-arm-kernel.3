@@ -4,116 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D429CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8126CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BdhlnYeYNj9B2/Sn88AKPaPWZbTenhSivsBzEhx8Yns=; b=jgbBum2Hx8IXl8hagD3+zEniw5
-	UBrcTaBJBwE73+f44br2aYBclT+mPTjf+fr9o0aM62rCPuj3bdUuNVpSXQM+HTUe2JamqANMBwFDB
-	tLRGfxc986S/yubfu5/AHEnECOx1PYJ2JAAqJdYcpJ+k1q80MZhD7vGX0twa0tw7c/gaxFTZfzbWU
-	NlU7JeQna3NFlUnzQbzi3tYyvizDe8qVbpKyCcasgJDk5bH7yN8Dh4P2pyQYbchcD4kXT4A0OrzfY
-	0VGc/Q8k6eVxWK4r7dNxzeNVjjOAwjwN3xvMGTNymbfpXgHyX3A8eLdSjaNQbO+t1QSo2W4wSB4g/
-	vHbcy/mA==;
+	bh=l0uRAKmoTcdWxVl0y1aWEcfZ605CPR74dshkiJ4lpGE=; b=iA5YedrVnmoHVMJs/gkCYktWP8
+	WTUhGX8Zgso5TB6R8g6ma8Qj9Oao4BvUM1V768CXBD0ab5W2cf1yCWErb29+sRprK5w9YRBjtRLgW
+	jwSCPzQWTXZDBLBWSDo1/2ts68JgGY02wFx0oKlbjEtRCgO/jQOSnm0lIwwOv/ByIsX24VTmcrdeO
+	Qf8j0oSSdKvl06GyK9Qlrm1VcuSpPSJ7VGq5f8GfmrvSh+JtU32cw3LHGLqtZds1ol76tZgTK1o6I
+	K1bQW+ncrvStAkxzaJBNJkQIPu8YdKcQN+9p4YXSb98MhZ40yhGkjVepAxPHaIhnwrq8dv6RnqMPo
+	e2E0uwGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGuw-00000000xYy-0MtI;
-	Tue, 19 May 2026 09:39:14 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wPGLy-00000000p47-1pnL;
+	Tue, 19 May 2026 09:03:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGus-00000000xXe-3GIy
+	id 1wPGLd-00000000ocE-2JIu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:39:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WkHk2eU74Pm3fg6YTKv522ZQMaqDv4SLYIftaoUwx1XJ8mQTcuNQeA+WGD3/RB7X+nqNNUfpaEQUEMLNrbLAydlrL2dM+T428bZ9vBIe6FQPP/pzAQyfNNMmoIyf4dI7XtgcBgp5C4/XdQXUeSLJXhVfF5vhWFk/uT9UFqEyTBiuyYg4YygGYS4s1qg3UtkUtJoOgMYsT6/5k5GoSU+u3Nl4vVALArigaN6kKmPncq4fFtc/mb94bR9IsuCcq3fltj9l4tpxzWFrV0rlO118UB+TGiVd8lg7kG9FwkSS9qZG5PVSzCp1P2MFZNWGMiICizJc4Y78bhOvOkTspLwo+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BdhlnYeYNj9B2/Sn88AKPaPWZbTenhSivsBzEhx8Yns=;
- b=Gcqs4yc+EaGpVqd0IwnFvnHDaWkICC3S8SU+vokCdK4KVpySqCHsORQ5kcDatUhYReWdnnvm8SLWvTkkL+pq+jsbefd4fA+p2EccO5SYO6acE+/x+w1UOMsev6IqAwixROoQ9jNqFyWjws7oF2FhA/bX2IbA8UxdHvGSsSb579ewGqsZf0548sbSZtncEvagBwCFiZa5mk6QdgKxoWgkfrGRc+rxKeowcpBtYJY8wWtmjPb3/FlcwugwdAPkC9unxZVBsm3bm8vXE39CJp466ngj2v+CeTNDjcXDjMbuCTui0PPL9GYd3fA6EZrce6IWowdP0jM4v2hXdG2tT4e9pQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=baylibre.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BdhlnYeYNj9B2/Sn88AKPaPWZbTenhSivsBzEhx8Yns=;
- b=efK0PN45BVBIjiwaRzqkdbdP1ogNafWAHUILecmI6t84atRjAyEJRPioceSEpQSeg2/jlOt6vPfL29OsdPgfmgpODowyyr5HgqYrkQM5cYv5UWnq4bLAQMlyFfd1HOBC13IvoUNS3HTJ2TuyU4J3cP/X+V+3HjfDZ99RXPZfpDJxNMF1pg7o0wy/v31zRDPCswd1HDB1nooPoRL4nwUx/vut3YRi7y/FPX6OCY8qLozDrNE/laPw5F6o2/EFeBAYibnBWfu7H52ObOMwfHG4CkYtXoNWdg9x4MPC2HxZ72Ovjut6Op2o1Qb2c5ozONnY0d48CQK1LW3s3HpPM2mkLA==
-Received: from DB8PR06CA0061.eurprd06.prod.outlook.com (2603:10a6:10:120::35)
- by AM0PR10MB3123.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:208:18b::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
- 2026 09:39:05 +0000
-Received: from DB5PEPF00014B95.eurprd02.prod.outlook.com
- (2603:10a6:10:120:cafe::56) by DB8PR06CA0061.outlook.office365.com
- (2603:10a6:10:120::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.25.24 via Frontend Transport; Tue, 19
- May 2026 09:39:05 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DB5PEPF00014B95.mail.protection.outlook.com (10.167.8.233) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Tue, 19 May 2026 09:39:05 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 19 May
- 2026 11:42:57 +0200
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 19 May
- 2026 11:39:03 +0200
-Message-ID: <09d3d997-6b4c-43e8-b153-7eb31f17192c@foss.st.com>
-Date: Tue, 19 May 2026 11:39:03 +0200
+	Tue, 19 May 2026 09:02:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F0BDC6021A;
+	Tue, 19 May 2026 09:02:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 299EDC2BCF6;
+	Tue, 19 May 2026 09:02:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779181364;
+	bh=qaSP70ZhrUcMPjOf7+v4uq6SslBv0gdUuCOqJYZwmRw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=DhsPAFh1HLHamNZIy+/qK6AOk3u2H5FFVxjmUrdmAw62Qf4lwLqdsDa1i+4objsVr
+	 VmRKOzadgdAzYFU/Ffe7OOVhLRSUliyaeWRuti3RLGoQwCCNYYIZDghyGNRnYnHRfz
+	 I7StC58LnoC99Zxkld/j+mbzWE4JUVB/PSGSwjCItpHTkujIHPO9N4vd3hh4npmVkX
+	 r4/kmpJ7VsQHlMkrzAiK5id5Z/2OfFjnbd/BOqRrvv88l75aW6kYwq9c7v/77hlukk
+	 vk9qlIKKVlmU5/6wZEcRbFzAyMeUM/bekeSzLDRhOKDuh84RFAdd6SjSlpZfJlqDhk
+	 FaWDMisYla4RQ==
+From: Maxime Ripard <mripard@kernel.org>
+Date: Tue, 19 May 2026 11:01:55 +0200
+Subject: [PATCH v5 13/19] drm/atomic-state-helper: Rename
+ __drm_atomic_helper_connector_state_reset()
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] ARM: dts: stm32: add board pin documentation
- stm32mp135f-dk
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>
-CC: <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20260420204647.1713944-2-u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20260420204647.1713944-2-u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB5PEPF00014B95:EE_|AM0PR10MB3123:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e43d9c5-bbea-496c-dfdc-08deb58a77b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|376014|1800799024|11063799006|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: MPbrlK3rOnjw9idjj0DgRA8qbaZjcS6qBF8/5eowhQY1Q8yNEt6XKunzqWUwsmv/ITjSKSBpkaZ3/F7fQSQq5etZz2S62T8XcJ8dHZg9826/KDimIHcJYUDzcp3WOfFqDt9PUSM4daMbCamULc6xqukQRhBm1jpLuXcFwQ+oIhTFrKZxmtTfb+PkCxdGK7CJtvbYlrf2dpvXVwN/MUyzIa07mjn2UXJsVIGKiDfYyJvwzTRZW+K4h4rmo35l7SnqKrAlcRj8SFNno0pXOHLo+dVmV4DWhmNIUB0BiyDujMvV8RyjufFNOifVIxnpK8iYGdwQ0GQ3MA+O5h8S2Ih7RQx8h6LQgGq1//wWRFDo+juvmvF52RDKvg5+4RvLsCB2TSNYpBhRwCjYS33yGHUGDt+AXXTeG4joUbD9RESaaJCvAgljb+3jOVCvIWyjKNQ+AEIIg++hnf+S78A7ZzKQVrtXGKlmiGVnNBXOVCaF/9S04u6L1R7Hh3Of+pzeVJjlT546WNiS9ASEx4EiCAKKAzGcFymr3VROFSgYSgwQaLclLTQi51gSZobTldqnTARHDD0SJhIIwznqz0oRZgxi6lcGG+Ur7MxxkkpO5Jkz6ySck4Ft6/vsnLSx/T/V+Vo05u3GrSqS6qIHNwf7HXNY15eB7vkn7JNkZK9PbDZOv9g=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(376014)(1800799024)(11063799006)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 9FCNVyLeVL8cufqaciNNYGXUxXaFoNJ3B8PBhGDcFSMH6LiwO12GqEg5WE9c46tVA0bCkgbp0ot/rSWf27nRqLSXeJDpWrV0NiLhPdzb+lFnCRTbnS4qlw64HmNRxKazQRz2l2g4jd3O5WPojPBeKS9166MP+4T7Z3AXe45+TMvghORFeZIGn74AASWN7S0dL+nxn/LWBFj3wvR79Wt9HZuFt4vqQC9zzBXtXNQwz9uLoxp5ME6UrrCmF45IajM4n6kVAUhrBKSZlL61b4o7y/uawqPSvw4NLplqAyFqrlmgo00gxiiE3C+7xsXzm5v9nWQAiSp8cQCLLoj0bf+fPA/N3sJ3sWFnNOHoef/RWY6z9TNlml1xg8lvnj2xbwV/bUuAyCkM2hJ+W4tJr5yZYjWsnuQmYXd4SIHavjaqvC8ZeQdo048RHmEikDPigG8A
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 09:39:05.0281
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e43d9c5-bbea-496c-dfdc-08deb58a77b1
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B95.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR10MB3123
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_023910_817931_133AE791 
-X-CRM114-Status: GOOD (  10.97  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260519-drm-mode-config-init-v5-13-388b03321e38@kernel.org>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Maxime Ripard <mripard@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4078; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=qaSP70ZhrUcMPjOf7+v4uq6SslBv0gdUuCOqJYZwmRw=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk8av8mCG4N23pu3v+oI4suc61e/9Fi+53cgEC51qXvp
+ H5s9a2a3DGVhUGYk0FWTJHliUzY6eXti6sc7Ff+gJnDygQyhIGLUwAmcu0QY8NFrpS+pdP2dG/5
+ tbLwMd/Ch9+fKuQfrFlUJ1Yua1m8cuK1EvYpBr7PFCv4G7L3vbo3pY+x4cjkPpmTPbdNc+QnVm7
+ bnMg3t0xO1lpyhaPdvGWlL28dze+w3rRqrq3ZUaEQVYdvttttAA==
+X-Developer-Key: i=mripard@kernel.org; a=openpgp;
+ fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,31 +103,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe
+__drm_atomic_helper_connector_state_reset() is used to initialize a
+newly allocated drm_connector_state, and is being typically called by
+the drm_connector_funcs.reset implementation.
 
-On 4/20/26 22:46, Uwe Kleine-König wrote:
-> Relate the devices defined in the device tree to the SoC ports and pins
-> and labels available on the board.
-> 
-> Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
-> ---
-> Hello,
-> 
-> my (implicit) v1 was reviewed by sashiko, see
-> https://sashiko.dev/#/patchset/20260416110218.594911-2-u.kleine-koenig%40baylibre.com
-> 
-> The findings were good, this v2 addresses these.
-> 
-> Best regards
-> Uwe
-> 
->   arch/arm/boot/dts/st/stm32mp135f-dk.dts | 28 +++++++++++++++++++++----
->   1 file changed, 24 insertions(+), 4 deletions(-)
+Since we want to consolidate DRM objects state allocation around the
+atomic_create_state callback that will only allocate and initialize a
+new drm_connector_state instance, we will need to call
+__drm_atomic_helper_connector_state_reset() from both the reset and
+atomic_create hooks.
 
-Applied on stm32-next.
+To avoid any confusion, we can thus rename
+__drm_atomic_helper_connector_state_reset() to
+__drm_atomic_helper_connector_state_init().
 
-regards
-Alex
+Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Signed-off-by: Maxime Ripard <mripard@kernel.org>
+---
+ drivers/gpu/drm/drm_atomic_state_helper.c | 12 ++++++------
+ include/drm/drm_atomic_state_helper.h     |  2 +-
+ 2 files changed, 7 insertions(+), 7 deletions(-)
 
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index 8762171c9432..e2e5a1b8a820 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -474,24 +474,24 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+ 	kfree(state);
+ }
+ EXPORT_SYMBOL(drm_atomic_helper_plane_destroy_state);
+ 
+ /**
+- * __drm_atomic_helper_connector_state_reset - reset the connector state
++ * __drm_atomic_helper_connector_state_init - Initialize the connector state
+  * @conn_state: atomic connector state, must not be NULL
+- * @connector: connectotr object, must not be NULL
++ * @connector: connector object, must not be NULL
+  *
+  * Initializes the newly allocated @conn_state with default
+  * values. This is useful for drivers that subclass the connector state.
+  */
+ void
+-__drm_atomic_helper_connector_state_reset(struct drm_connector_state *conn_state,
+-					  struct drm_connector *connector)
++__drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
++					 struct drm_connector *connector)
+ {
+ 	conn_state->connector = connector;
+ }
+-EXPORT_SYMBOL(__drm_atomic_helper_connector_state_reset);
++EXPORT_SYMBOL(__drm_atomic_helper_connector_state_init);
+ 
+ /**
+  * __drm_atomic_helper_connector_reset - reset state on connector
+  * @connector: drm connector
+  * @conn_state: connector state to assign
+@@ -506,11 +506,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_connector_state_reset);
+ void
+ __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+ 				    struct drm_connector_state *conn_state)
+ {
+ 	if (conn_state)
+-		__drm_atomic_helper_connector_state_reset(conn_state, connector);
++		__drm_atomic_helper_connector_state_init(conn_state, connector);
+ 
+ 	connector->state = conn_state;
+ }
+ EXPORT_SYMBOL(__drm_atomic_helper_connector_reset);
+ 
+diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
+index 213f7e298008..9634a70e0401 100644
+--- a/include/drm/drm_atomic_state_helper.h
++++ b/include/drm/drm_atomic_state_helper.h
+@@ -68,11 +68,11 @@ struct drm_plane_state *
+ drm_atomic_helper_plane_duplicate_state(struct drm_plane *plane);
+ void __drm_atomic_helper_plane_destroy_state(struct drm_plane_state *state);
+ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+ 					  struct drm_plane_state *state);
+ 
+-void __drm_atomic_helper_connector_state_reset(struct drm_connector_state *conn_state,
++void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+ 					       struct drm_connector *connector);
+ void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+ 					 struct drm_connector_state *conn_state);
+ void drm_atomic_helper_connector_reset(struct drm_connector *connector);
+ void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
+
+-- 
+2.54.0
 
 
