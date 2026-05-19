@@ -4,105 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60F7FCD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D783CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77H7TnQmMiN3GvqWNTTNkz57RsqvNScZ9ZhdVrNecWs=; b=mlhlw77gTdPNh/01f7lRneM41F
-	xVbni9CvsrBSLngg432SR376lLUUbQVx9VApmvy5VkVrVMTOCIitW3+4zz9wGkrTdGWtcbNpM/G2E
-	fzoqSZVERRCUXRv7S3HyliOVPoJuMWfBOMsy4gyhvsfMuUKK1zXMjA9t8QTojVUH5YzOfd5qQSXrh
-	jmhz79XAdCECQ1f3+YHp/OgpQrcB9pKwHoxjJKSkwKKAko4QjdGk29U8cvr8EJ+wBzOkk6vcELcZm
-	g0vBuJRKF4z+JRC+AtL25HVUcJjzSUnoBYMz0jlJiBeWnrtX12ssMpwAq66W2LpQaF5pY/8s2jYXN
-	0DzaZx+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pkn43UvNGw6BE5zjZWg8ESNySvNLqNay7t6miFcYPts=; b=hE5KveVVAD3qy/XwRnO0TWwnw4
+	i1ooSKC5ZZlBsHk6clMr7MTrku6o2Ky8CtDCft4cficBuHdyRRlyaqMfca/bwKZNlxyA0y5iEM9iR
+	0tzSXpDJ9vJvk3og2igaWCKUpjhD6LKoyBZ6/gg2A+yYjDGjeEKyVs+y3giYnse5HkN3Q9yjTE447
+	9EaPpHc67tjuTDV6rTk1pBNTPREhasq5MpVWbzRyoNhUNHW3rHh2Pedf1JLuX8Of7mWTMl6Kk2hqE
+	FtJltwDDaGVvQSC8vqsRHB10XLO8IfZI8AdUh7fmzth18pBZV1ynha0jiiwnLa9BbL5wtDyn6gcMc
+	GBmo582w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJMw-00000001RlH-1DAP;
-	Tue, 19 May 2026 12:16:18 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1wPJRv-00000001SQg-4BFT;
+	Tue, 19 May 2026 12:21:28 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJMu-00000001Rkk-1N4V
+	id 1wPJRr-00000001SOe-1xLj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 12:16:17 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-6948d7ccfbbso1154953eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 05:16:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779192975; cv=none;
-        d=google.com; s=arc-20240605;
-        b=QPR7O+28ky8Ggryp+M1sNYgz11LJmvC0NBdSJYBzIrlAcTIq7YfnClY+3Ek3MlYQmw
-         504SCoMhequldcwwh2gVn0E4pRU3eza7amnjoxY5ypdivHFSdihZPooBfgyIz4GjbpbJ
-         mMOlkKlNyJWSJqW7+nSSh+zKaXszOLjeZKDSO6x9flavD9CROhq03Y0f10ZBQwLCCAoA
-         TvF0+BFN+NMJph2/Am2+Aa+/97sh9ZTrxGnHphG8Wgns6TqaJDwRS5CQHTu+6XGFFrYJ
-         +gxxG61rDsCGdSjZk2qrmph6lvqFCQcrzSdWqlh/dgQy8QqlOFHJH0hiQUFWsWVrB5hj
-         PcgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=77H7TnQmMiN3GvqWNTTNkz57RsqvNScZ9ZhdVrNecWs=;
-        fh=AgTZUr5sQCusji7Tdnc2KgzTAF+WkpNE2DDNTOSPVcY=;
-        b=hcMgCOb4fDtgzEf8zOFliL6y8GHgmHGLa4thRNvXbNSl+uMMxeqUht/WTSDT5ekyPc
-         9vywklrQH0vTmlBXnEWEtrsvxIKVPD9nbpZ4oJk94Z3YImXbPEmi5xqYeN6vwQwBTviU
-         yItH8aQGD0p5400n08p6QXRaGZr1Vc0j+y+146tBAuVgdv2f1KQWrU9KJItx0O4mEnLV
-         dI23N/CzKDExHOpaN1lWN10TczUzxLoe/U5BlZmVZ5xaj4ZU4A/UnE89kcEoC1SMXbeH
-         1OQToTE/bJFi8uhpP3vc9PlUtf/PjTy95ZVKhygqQke4sGPBRPgGJnj/9C9o0Cyal/+7
-         BXng==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779192975; x=1779797775; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=77H7TnQmMiN3GvqWNTTNkz57RsqvNScZ9ZhdVrNecWs=;
-        b=ED7d/KixahI/KndZESvU+30whKgCNUOnWsy8mfM7NFBRHT8Yw3zBxhmRZYw4fVdJ5K
-         7M+yzWCfsDuoD2+fX9tZQ5hWVJlQKfrmQpKJWu372yXJNNOIz4txmFt5xGYydycUzaIy
-         JpGzREFlzmWdTIwqFrNmFVD4Xky5zpBqrABkzWaJhHYPcx4pn1a7Ot9IoVtbQtt52sa2
-         CDfNTt3Ywhog5u64+yAquQbtkDp65Bdf3DiFy7dTktfZtoWJ6dYN9ZhUgOGd42vVkjGW
-         CyNuyhN5HB8fey+p+Bfw3BRoeczlrFJwodVi5SvT6adviNLdBQ3PTlOTYeJe0dhPXN1t
-         qWjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779192975; x=1779797775;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=77H7TnQmMiN3GvqWNTTNkz57RsqvNScZ9ZhdVrNecWs=;
-        b=aV59p2AKuJd7rWEsEzJ5EAx/ps2xzfho1Yrw/9wb/2G/MMhSkMOy5lQ0VogXCtndDb
-         UMxCBpC3w1tk+W7iQHsV77njmHJ+NuqQiAVmvmUFeI78ncguGiWTXeDv2JhkFBivCZRv
-         1gMCbJz84sGR+UnXklGXThSREHymymsWFBnGvwL3uaFZ1WhCpnsIFVBadm8XcbMx6ltw
-         OMD5U7BB5slH82QeTXA7Vm6cM3tfxdh1tZ2DxwmbFPE9G600OIucneQaGUMcouuVFEfI
-         sZGfe0eBtE06NQ9ZDJjaK3g9UlEwkt0KSdPHrgT6OGBxnZqTWHRHb157fzke7q+deL94
-         qQFg==
-X-Forwarded-Encrypted: i=1; AFNElJ9QGlaI3F1Rq9ljJLfMvulMPA/ZOeWTshOCQeWHYeUctiTzj9/ZqKozOrd49JtBagb4khRkhGogTsxaJG0YYr1y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3QLYRebPqNDYIifwwgdd5uWQ41uj3m8tfrfmXZVffuXNkUrnF
-	LhhWg0dDC2HvBZj0wzG3yzd3JFRgfSPWBJG3/uRpbW9Im3mdbAiXGcFaR3Umiihp+8EQMI5Fvkb
-	PybhI7fPeQDpo11gN9Ww5oM/sK1woYgo=
-X-Gm-Gg: Acq92OHtTBzmE9Hs3ybYyUVZcoTM06ZrgwVaO+auu1QPM8qLQRvW99sbwp7Zrb1xifT
-	kXoze9+ar9ZnF4OZ6fQND2PUqxY9y1xRFjszkP7RJWTXhPMNwJkg/rpySMNEuFPwGeROidUGAuK
-	Pi8hfI2MW1YOFU8ZBTxQPLBk0UVlSpVV/eaJXS2pBwnS9Ch5n2mBA5uBUDo1rz6jMZstP8YbVsq
-	ZJ8y2X9619qmYCFUWVicGcJ+wdt9QQyslFiJrvRULvFKRufYX2hMyfYD1Cvs7nKf/ux632cUSq7
-	wG2vFKBY
-X-Received: by 2002:a05:6820:6ae5:b0:694:96ff:d4b with SMTP id
- 006d021491bc7-69c9437169fmr10976123eaf.26.1779192974696; Tue, 19 May 2026
- 05:16:14 -0700 (PDT)
+	Tue, 19 May 2026 12:21:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=Pkn43UvNGw6BE5zjZWg8ESNySvNLqNay7t6miFcYPts=;
+	b=VZJ846qKlOsYHg/yLUb/3dNMvHg/l6AMwX3W5afN0zcb6T+X8AzIT8Uzux4xuA
+	t4M/R5ZfEDpEhmaaYS/QmOz4GZGMbGcQFcD96QI1EEQRRlOWQKJ4uru0xHpoYEde
+	MUxt/Cx8o9V9zZvTeqhqTQievT6yp52uUdEcnmbtVo/t4=
+Received: from [192.168.50.71] (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgDHJy+cVQxqHS7ODw--.243S2;
+	Tue, 19 May 2026 20:20:47 +0800 (CST)
+Message-ID: <941b93d9-2251-4222-8914-73bb7d4e6ac7@163.com>
+Date: Tue, 19 May 2026 20:20:43 +0800
 MIME-Version: 1.0
-References: <20260407081700.2658011-1-pkleequanta@gmail.com>
- <20260407081700.2658011-3-pkleequanta@gmail.com> <e5d1cbdb34dddf17b4d474446fb9cebddc0894d9.camel@codeconstruct.com.au>
-In-Reply-To: <e5d1cbdb34dddf17b4d474446fb9cebddc0894d9.camel@codeconstruct.com.au>
-From: "P.K. Lee" <pkleequanta@gmail.com>
-Date: Tue, 19 May 2026 20:16:04 +0800
-X-Gm-Features: AVHnY4L7K4x70Eyzw-ceGNz7gtwZlHIdfr8MBYBkZzbIBsM_VdfexOP6IXVvRJE
-Message-ID: <CAK8yEOCQEYh4smL9bu2T3gHmtaSoPrGX6VMwO2pVk=QdAQT86w@mail.gmail.com>
-Subject: Re: [PATCH v13 2/2] arm: dts: aspeed: ventura: add Meta Ventura BMC
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, conor+dt@kernel.org, 
-	joel@jms.id.au, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, Jason-Hsu@quantatw.com, p.k.lee@quantatw.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] iommu/arm-smmu: Use FIELD_MODIFY() for bitfield
+ operations
+To: Will Deacon <will@kernel.org>
+Cc: robin.murphy@arm.com, joro@8bytes.org, iommu@lists.linux.dev,
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260430164545.49637-1-18255117159@163.com>
+ <agxAvl02rcPoEHaq@willie-the-truck>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <agxAvl02rcPoEHaq@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: PigvCgDHJy+cVQxqHS7ODw--.243S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZr4UKF1xZr15GF43ZFykAFb_yoWkKFg_Xr
+	18Ja1kXr15JFyakr4fCF1fZrnxt39rJFy2v390qay7JasxZFW5JFZ3CF95C3W7Wws2kFy7
+	KFZ8ZwsYqFy29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRRUGYtUUUUU==
+X-Originating-IP: [140.206.53.66]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wAbvmoMVaBgwwAA3+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_051616_372052_5BC648A8 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20260519_052125_474575_46966CEF 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,46 +77,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > +     model = "Facebook ventura RMC";
->
-> I suggest capitalising 'Ventura'.
->
-> ...
->
-> > +             i2c47 = &i2c2mux0ch7;
->
-> Many of the buses aliased here don't have any devices described below
-> them. Can you add some commentary about why it's necessary to enable
-> and alias each of these?
->
-> ...
->
-> > +                     // Fan Board 1 FRU
->
-> I'd rather we pick one commenting style (/* */). Can you please fix
-> that throughout?
->
-> ...
->
-> > +
-> > +                             //fan 0 IL
->
-> Can you please add a space between the comment marker and the comment
-> itself? This needs fixing throughout.
->
-> ...
->
-> > +&mdio0 {
-> > +     status = "okay";
-> > +     /* * Intentionally left empty.
->
-> The comment is a bit busted here. Can you please fix it?
->
-> Andrew
->
 
-Thank you for your suggestions. I will address them in the next
-revision of the DTS patch.
 
-P.K.
+On 5/19/26 18:51, Will Deacon wrote:
+> On Fri, May 01, 2026 at 12:45:43AM +0800, Hans Zhang wrote:
+>> Replace open-coded bitfield modifications with the standard FIELD_MODIFY()
+>> macro. This improves code readability and adds type/range checking without
+>> functional changes.
+> 
+> Does it _really_ improve the readability? '&=' and '|=' patterns are
+> pretty idiomatic C code, if you ask me.
+> 
+>> FIELD_MODIFY() internally performs the same mask-clear + set operation but
+>> eliminates repetitive boilerplate.
+>>
+>> ---
+>> Hi, If the Maintainers think it's not necessary, please ignore it.
+> 
+> I don't really mind the code either way, so I think I'd prefer to leave
+> it as-is unless somebody wants to convince me otherwise...
+> 
+> Will
+
+Hi Will,
+
+It's not like that. Please take a look at the accepted patch below.
+
+
+
+https://lore.kernel.org/linux-pci/20260505165436.GA737933@bhelgaas/
+
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=42ec65b46a4fc7565d48daa42bf025fdc67800eb
+
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=5fd6f2154734f447e83b6de9a08d16848605191e
+
+
+Best regards,
+Hans
+
+
 
