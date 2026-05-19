@@ -4,101 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53F7CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151B1CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WrmbyndpK9nGCZ/GyDIT140wuqKj2glshGplDtAamKU=; b=0C8FL6/xK/DQk+IePg5tk9W0TK
-	fUHPUrB83iV02DIPI0povwbYAQnWPHE/TGbnNfjY1b1AH2WjUj/eSf8R5VWcwu1CiLVHTvMlv5nNb
-	Zd5B8WhbDQhgoqVb3D5zBGiJ6FOqdMDwlDc24hlF+fW8HsjniljBQvAfU08JpmU9jqd4mwlDXzSFb
-	rt7JmmCM9czswI97F0nSzxhvmSAbks+2DDzjcjI1eofcSI3qYmVy5png2z1P8DonKWQJCegtyuvVp
-	AqWtVcrx3YQA3QTiGgjcNwTLlekzVRBb1ALk3/Sw+M+VuKcBHnbLrgL6WmLan0gaj9ySiPqi8nY1r
-	Y5JYFU9A==;
+	bh=EOG3vjg48Y2OExGcsPJnnxcSdeHB4GZLcBDULwcpd+s=; b=mMVoIseuRbV0sAi4rN9XXdEnBq
+	CQ2n2yd2LiWEXpx1qe1532N0z3yE8TBhb/kH6TvEiN0yB4q8FmGlGYSiEQSToboKmdPMB3H4bw7qP
+	1+OeX1ssz45NRH3XW87gFd5lb/6EQDWHwGTHuosLz/STnvRbnEDTlWQdt8K0RASdhMTcksfKiQlYk
+	NSEchzpDtBbgrGwjC63WmCWgzLPpboXUo3+uQEre7ozg7lmI2/gMsLDFk3V2MITp/gCH5fDr6Kb07
+	XaslKUz6BLsM66o35/ffvcNJ97xleX0adL8MfZnIZIniZsQ+90skAoxY07KjJTu8w4G3nBmA5ZS5e
+	rk57jT4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLFs-00000001nC7-1mIy;
-	Tue, 19 May 2026 14:17:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLFp-00000001nBU-42j7
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:17:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779200224;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WrmbyndpK9nGCZ/GyDIT140wuqKj2glshGplDtAamKU=;
-	b=itIgTz/+wv8tRREe2ADoqvkwLffglWOzvL2yh0o/9WQMx74qAfzNUJsnAURDQ4kyT6EkAc
-	cihJ2k7oVIhBuI1SHaam8GFAsevxJqsr5c5wIPLGJhey2epRxDbA9tkWY1BeGZUr/Pgdlv
-	jptw8tNrO6ctcncQXcYvd2Om9Aqkov4=
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com
- [209.85.161.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-564-ocTJV9BQObuS7WiZuOgWEw-1; Tue, 19 May 2026 10:16:58 -0400
-X-MC-Unique: ocTJV9BQObuS7WiZuOgWEw-1
-X-Mimecast-MFC-AGG-ID: ocTJV9BQObuS7WiZuOgWEw_1779200217
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-69b8c3e1516so7674561eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:16:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779200217; x=1779805017;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WrmbyndpK9nGCZ/GyDIT140wuqKj2glshGplDtAamKU=;
-        b=PMqtrcFVdrlkrDyqKJflAoOFt12G/N3J5p6jbiCLj6B283tGAvtCyOqT5eKXlabg5y
-         hI72ti/us0cUKNbtGkSzccL7A+vQbWWoQ2CVSULr1bGTaxiJ9e8o6/DrsTg8gcXFYhyY
-         IHNyPvqhkKoE/q5yamjVnfK+x19ZFWrosKKtM/X/RYvzhhaWxxvNTvP1Uu4abXTCI9PM
-         higR028pcsNtbFMOaETLroJf+Ak0pT8DU0QTjKo4hmroIaldi3lHPtezaDUPjIRValZg
-         0omozUpeNajXSsAx9mE6WiQU41bK70NbU1jSigPqDOmTAuImq7jKtBqVQvfDm8/Vs6sh
-         Pj3w==
-X-Forwarded-Encrypted: i=1; AFNElJ9Ps0tY6P6xOoBlw0SHSS8dovvdWvhIuWVK5uNS80lfy3SaFLRz6lUUzEGRTHe+B8koAugn/PvZ6xNvWWWzq2PP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOYFweQmXU8xrweQBYtSF0olRqwECddZzw3avwTWICmRf0dGIE
-	ucKIR3y7h09j1cPAsJ8bDtTuryTJheXrqqWlJQXon+QUHJcyKNful1S9Fs0MHynYnRKMWdROlrX
-	BPE9GrCdz8EfPH3Sd01F90hyZmCjCIRzcMH2s/EGOZVspoc4CxJMajPpqJ/VTL2bkTY37xJfXk8
-	7J
-X-Gm-Gg: Acq92OGzC1OykviaNTByHuZa1m9VSdrOgIWqkwa68kWEBa6sHwwYsLLWHiv1tCFHoJ1
-	ynvjrKalxn0pq7zLHTgvTQj044TKIbyFSYOuRTYHcUh3or7/3IdtVw+rLVlkBcGTS3f8HUsKumF
-	5qyLzel2thmjWDogZiOSiEfb8ym+ZzA+ffk9QH3OUjWlEdkJKvBFdrRFi/dfjqCdhBoHtSVhRhg
-	PGUWxN2OtkV2MidpWbT2Qt6Ec6n3Po0jv6zOTtJrLMOHc/UyVc4+NW5bTxnpmiHJYGVlyT1KH+P
-	msOm2RrNgmkS8eJ1kQGpSEfsy5+YdGkdaY6l0UtaXLkExicYYTeREWP81mV08/vq535Ns1gglVJ
-	Jf/99ZR7jdF9afQINIqwKZ6kyY3cn1qZg7XBviEnwd60EzOM2ucTG0WNB
-X-Received: by 2002:a05:6830:4704:b0:7dc:e090:68a with SMTP id 46e09a7af769-7e4de651649mr13481229a34.0.1779200217232;
-        Tue, 19 May 2026 07:16:57 -0700 (PDT)
-X-Received: by 2002:a05:6830:4704:b0:7dc:e090:68a with SMTP id 46e09a7af769-7e4de651649mr13481185a34.0.1779200216870;
-        Tue, 19 May 2026 07:16:56 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51645856d4esm163498791cf.27.2026.05.19.07.16.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 07:16:56 -0700 (PDT)
-Date: Tue, 19 May 2026 10:16:54 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-clk@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] clk: sunxi-ng: Use of_device_get_match_data()
-Message-ID: <agxw1glcXB2fpA-s@redhat.com>
-References: <20260519003950.626727-1-rosenp@gmail.com>
+	id 1wPLGc-00000001nIe-2M0m;
+	Tue, 19 May 2026 14:17:54 +0000
+Received: from [38.23.173.23] (helo=localhost)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPLGV-00000001nH3-2Vp1;
+	Tue, 19 May 2026 14:17:47 +0000
+Date: Tue, 19 May 2026 10:17:34 -0400
+From: "Liam R. Howlett" <liam@infradead.org>
+To: Barry Song <baohua@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, david@kernel.org, vbabka@kernel.org, rppt@kernel.org, 
+	mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, 
+	chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
+	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+References: <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <agrWuDNGddNmvMFD@lucifer>
+ <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20260519003950.626727-1-rosenp@gmail.com>
-User-Agent: Mutt/2.3.1 (2026-03-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xImYcxESw3ejRFvA6idcUsG-RlOsIXLKmqQDwGb0kls_1779200217
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_071706_118615_971E5AE5 
-X-CRM114-Status: GOOD (  21.30  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,58 +70,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rosen,
+On 26/05/19 05:14AM, Barry Song wrote:
+> On Tue, May 19, 2026 at 3:57 AM Suren Baghdasaryan <surenb@google.com> wrote:
+> >
+> > On Mon, May 18, 2026 at 4:26 AM Barry Song <baohua@kernel.org> wrote:
+> > >
+> > > On Mon, May 18, 2026 at 5:47 PM Lorenzo Stoakes <ljs@kernel.org> wrote:
+> > > >
+> > > > On Sun, May 17, 2026 at 04:45:15PM +0800, Barry Song wrote:
+> [...]
+> > >
+> > > I think we either need to fix `fork()`, or keep the current
+> > > behavior of dropping the VMA lock before performing I/O.
+> >
+> > I see. So, this problem arises from the fact that we are changing the
+> > pagefaults requiring I/O operation to hold VMA lock...
+> > And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
+> > is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
+> > anonymous and COW VMAs only while holding mmap_write_lock, preventing
+> > any VMA modification. On the surface, that looks ok to me but I might
+> > be missing some corner cases. If nobody sees any obvious issues, I
+> > think it's worth a try.
 
-On Mon, May 18, 2026 at 05:39:50PM -0700, Rosen Penev wrote:
-> Use of_device_get_match_data() to fetch the RTC CCU match data directly
-> instead of open-coding an of_match_device() lookup.
-> 
-> This also lets the driver drop the of_device.h include.
-> 
-> Assisted-by: Codex:GPT-5.5
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-> index f6bfeba009e8..a3cf0dde05be 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-> @@ -9,7 +9,6 @@
->  #include <linux/io.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> -#include <linux/of_device.h>
-> 
->  #include <linux/clk/sunxi-ng.h>
-> 
-> @@ -353,14 +352,12 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
->  {
->  	const struct sun6i_rtc_match_data *data;
->  	struct clk *ext_osc32k_clk = NULL;
-> -	const struct of_device_id *match;
-> 
->  	/* This driver is only used for newer variants of the hardware. */
-> -	match = of_match_device(sun6i_rtc_ccu_match, dev);
-> -	if (!match)
-> +	data = of_device_get_match_data(dev);
+From Barry's description, I think what he is saying is that the vma
+locking has caused the mmap_lock to become unfair?  I think what is
+implied is that the per-vma locking may stall mmap_lock writes for
+longer than if the mmap_lock was taken in read mode?  Barry, is that
+correct?
 
-sun6i_rtc_ccu_match becomes unused after this change. It'll use the
-table associated the dev from drivers/rtc/rtc-sun6i.c.
+Since Android is doing something (according to Barry) that should not be
+done (according to Willy), both of these together are causing slow down?
 
-Brian
+> 
+> Thanks. Besides the creation of processes via fork(), I
+> am also beginning to worry about the death of processes.
+> 
+> One thing that came to my mind this morning
+> is that when lowmemorykiller decides to kill an app, we
+> want the memory to be released as quickly as possible so
+> the new app or user scenario can get memory sooner.
+> 
+> In that case, if the app being killed is performing I/O
+> while holding the VMA lock, the unmapping procedure
+> could end up being blocked as well.
+> 
+> If we release the VMA lock as we currently do, we allow
+> process exit to proceed.
+> 
+> I haven't thought it through very clearly yet, and I
+> may be wrong. I'd like to do more investigation. I hope
+> the apps being killed stay very still, but who knows—we
+> have so many applications in the market.
+> 
+> Meanwhile, if you have any comments regarding the death
+> of processes, they would be very welcome.
 
+The oom killer only cleans out anon/not shared vmas [1].  So, what this
+would hold up would be the actual process exit path.  Although that
+would have resources associated with it, the amount of resources should
+be relatively low compared to the amount freed by the oom reaper, right?
 
-> +	if (!data)
->  		return 0;
-> 
-> -	data = match->data;
->  	have_iosc_calibration = data->have_iosc_calibration;
-> 
->  	if (data->have_ext_osc32k) {
-> --
-> 2.54.0
-> 
+The other entry point that's mostly to do with android,
+process_mrelease() [2] will end up in the same  __oom_reap_task_mm()
+function.
+
+So, for the most part, the memory will be freed while the file backed
+vma completes IO and that sounds like the right thing to do anyways.
+
+Thanks,
+Liam
+
+[1]. https://elixir.bootlin.com/linux/v7.1-rc4/source/mm/oom_kill.c#L547
+[2]. https://elixir.bootlin.com/linux/v6.18.6/source/mm/oom_kill.c#L1210
 
 
