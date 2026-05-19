@@ -4,178 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1706FCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21019CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 02:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsB+Zo2MmrB8UXgoxLVo+yR4exUfO4gMYvExK/bgMMg=; b=KvNzUZ/gMpd0MMTlIBmV312dXE
-	GU9lykaKGYWHg6QUJg9m3sj1DhGJ7Y5We/hGC99o8b11lmdMdLa2HK6L2A0NDL3f69D09QHYamKBq
-	uiSzWgty2oTvcfV7PMz6ryfOOwmzI2ob0wYxtepYALarTTfpG+2XAIpX8txDYdfgygOk2TM2TbBKt
-	OzBu0DMA/9e1AL+ayFB7AT0SaaTFf1CLzSbQHDM3J01U9TBAWkfY7tDwa7sGD4cZwFBI68EwIYV/Y
-	XvFOcr5hC9HqFB4TNwUW8Q2xAzpeBG/xg9uejZA5BK00D9IUx65aAqVQvxypOcx8EIqh7VfSDhgRP
-	4+UtvGZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=; b=T4tJBbVThKTXhLuUKlGWk57rYK
+	lY1bA71u5NB9Ma8SJr4fgft3yQzMS6kaHpX5Difd6MjtOqkSCEYgyDjIgq60irzkNJkq5VH8RwDCh
+	j2KpxIjUotdUAv9IGA6lbQdl6VxUmeatb2C6NgncrsFULv0SQvNuk7tAkz2+MikNNy8XDrB6kD1aY
+	KIY3ZlrHivHlW02fOaNWMtM1N6RMaSMKbqzMEWalpBsv7ff5PIsw6voJpuBkuMU4VtVBwEb/7AkDd
+	SQWbmu6TwjKjuByaNBeQvCfOEcJht8YxfWti0uYfy1dt+/RykC7C72W4QBm/Y+J+I4J+VZUpdI36o
+	Tr06XV7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPAQ6-0000000HVDE-1LV2;
-	Tue, 19 May 2026 02:42:58 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wPAUI-0000000HVen-3VVE;
+	Tue, 19 May 2026 02:47:18 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPAQ3-0000000HVCZ-3Fyh;
-	Tue, 19 May 2026 02:42:56 +0000
-X-UUID: 6bf1af08532c11f1afed4741b24580c9-20260518
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=LsB+Zo2MmrB8UXgoxLVo+yR4exUfO4gMYvExK/bgMMg=;
-	b=hU22TInhEW5CiElaJUSvNeAslD5RUx4+iGUdAjH8KxeWwbPLxpQdubJv2bpHom9j6XxNJ2+x4LJd+TOZL7HEVvTADvx44qbfYWAg286UTs7xJpcJT3o2DsRe/qO3PdznTpm7RmOmu+mKvPmumj0gayWwgRuqv3hBIr5/ODXYYuk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.14,REQID:e5f03ac2-5442-43f6-8411-f3886e7be304,IP:0,U
-	RL:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-5
-X-CID-META: VersionHash:9091e75,CLOUDID:5722f11e-023f-4f87-9e9c-6c116c694fb3,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
-	898,TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:ni
-	l,BEC:-1,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 6bf1af08532c11f1afed4741b24580c9-20260518
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1691466938; Mon, 18 May 2026 19:42:47 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Tue, 19 May 2026 10:42:45 +0800
-Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Tue, 19 May 2026 10:42:45 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KkDLFmVEDtY0FKiU7i6F9y5lwK3OgIQ4pO+CnVakY5bhyJ84k0F9U4583fO7qX3EiqrXjZxJQg69nfRZh+LUygcFrtAWVdBwmcM4Bkek3xkRYlQ/G/TegfnJsE+ieHZlc6vbdPLkovDwJOl4hulCLjEuprP9Oe2470VkzOed5C5LOWChB1yzBh/eYVg5mLY02fLeCdFMvQc2yetyMc40X2evAZy3zvE4Jl3C7bflsiur2GSxva31lO3vUVuza85dt4eqXIA/lAWVpiH0LeiTMl4691Dml7Vv9DfxRb/GAAzjr9RMtKHLIxC/nA9B/dQF5aT9rv0bkn2hKRDgY+cleg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LsB+Zo2MmrB8UXgoxLVo+yR4exUfO4gMYvExK/bgMMg=;
- b=dpQv1wzSmgro6u6OjV7KX5aueZJy3q6rhWtGYu9Ykp6tMgTsuiuOpvyW4b2g2fDuy5gXznnylIkv+dP+yo/iPy/NknmN19szA2w3Occm2P005AZWxgu0sx+A/7WmJd8ctjISielzM+LgMsg//QOrQdShenkZDF72ICda98GkbvNpqeKTI6fgkFdwQeuZXB1X7Z+ZeyVqvL6UA2q58TjF18hwfcfPwgGxiiG7HJ6zsTIr7mGUkPE6JsoIfptqw4HiIVRK4RKl4tugo28DOy8HH5YnmoR8iNRrw4eRXPtcTYdn127dnvvlFe9WkY/s2JYL8P1CUgmii6HocT3TGPC5kQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1wPAUG-0000000HVe8-1YJQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 02:47:17 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-38e7d983f91so32654781fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 19:47:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779158834; cv=none;
+        d=google.com; s=arc-20240605;
+        b=es3Z8np1xUkBr45EWXYWpaWdCkehoZRKHBgQG0Rx98po3S6tA8+/C2x6C//y7bKJIe
+         /bKDksMrXs53cIo8UWcai4CnujbJfJt+bawJ+7JePkAypADYhujt76l0kUNH31wWYblW
+         uRTTRHpM1xVSQJOR3FXKb5RH7P+IZYp3It4UDfjOcM83xjmw36zUh9sDmI8RV+vu1NqG
+         VMjgK6pMD2NL6OZE3r6yqE7jPlpIGu5pSL48g4wK5FaSXNmkpseIvRnexhB99LvMGhed
+         sMEGW6XcSq84kzrf5jigQiKZCF8NP5AXgBqzlQMvqZcR36KCW7T809/aYH1EYsPGPxyW
+         GRog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=;
+        fh=5dnz1XebJU8e14eXQFQWgzgwOHacz1ddUxA/mPCXxTQ=;
+        b=gUNeYZVZbv2E4YeAuBMtUYM7VPhG7ZKtFIJhi+dxfO4vDvI7kTklxzZDfys9Odpgbh
+         G54lktHJ/mdL8029S2HahENoFqXBY3o03wMaGh0fSftyvwPUFa71uwTLc6i8mLc44LWI
+         HVSfvQrAasrwKv9HGh99sWS7lkH1skZSO+uq31BKLITOAYKs3c96wFoG6k2N2fQz4Aiu
+         qb9wU4fOcnnfqtnIA5NvvAbEXvBq5/yfRfin/ppyo3vOLDc679ypI7yWnht/fw4gXkrG
+         LQVbaWa7N3Y359lcCbyATQF/bvNjAJeyJY+oK0Qoers4BM6OMulgM0vCwoEowZ6HtQXn
+         eHCw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LsB+Zo2MmrB8UXgoxLVo+yR4exUfO4gMYvExK/bgMMg=;
- b=daLjw9oiuqIvyRhSEjiEVP+Q6OnRqw576A4jPjn4qiEZKEUiU8U/jmsTImgjbu7pJ5Go807SZu9ofHB3g8OoeyGmB6q+dOZ6hLuO+0BbpLQ84Vn0TbndZqRQiT/tpkIxHdS1a3dgnY/bpRazuOVZx6Pg1ia24yOPKOZPd6i3Bow=
-Received: from SE2PPF5449A096D.apcprd03.prod.outlook.com
- (2603:1096:108:1::499) by TYZPR03MB9719.apcprd03.prod.outlook.com
- (2603:1096:405:399::12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.13; Tue, 19 May
- 2026 02:42:41 +0000
-Received: from SE2PPF5449A096D.apcprd03.prod.outlook.com
- ([fe80::1ceb:53b1:b0d:c0f7]) by SE2PPF5449A096D.apcprd03.prod.outlook.com
- ([fe80::1ceb:53b1:b0d:c0f7%6]) with mapi id 15.21.0025.012; Tue, 19 May 2026
- 02:42:40 +0000
-From: =?utf-8?B?Smlhbmh1YSBMaW4gKOael+W7uuWNjik=?= <jianhua.lin@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "mchehab@kernel.org" <mchehab@kernel.org>,
-	"nicolas@ndufresne.ca" <nicolas@ndufresne.ca>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	=?utf-8?B?VmluY2UtV0wgTGl1ICjlionmlofpvo0p?= <Vince-WL.Liu@mediatek.com>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	=?utf-8?B?SmggSHN1ICjoqLHluIzlrZwp?= <Jh.Hsu@mediatek.com>,
-	Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	=?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>
-Subject: Re: [PATCH v7 0/3] Mediatek MT8189 JPEG support
-Thread-Topic: [PATCH v7 0/3] Mediatek MT8189 JPEG support
-Thread-Index: AQHczlHM+fE69yjkf0GyH4vSa6tgdrXjQC+AgDGVeYA=
-Date: Tue, 19 May 2026 02:42:40 +0000
-Message-ID: <b351ce79b9b815df88cc2245d4c1157469b31fa3.camel@mediatek.com>
-References: <20260417100519.1043-1-jianhua.lin@mediatek.com>
-	 <5b4cf8f7951cc2766901b09f2e886ef73d48671b.camel@ndufresne.ca>
-In-Reply-To: <5b4cf8f7951cc2766901b09f2e886ef73d48671b.camel@ndufresne.ca>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SE2PPF5449A096D:EE_|TYZPR03MB9719:EE_
-x-ms-office365-filtering-correlation-id: 92dd12e3-916e-4570-5d60-08deb5504be2
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|18002099003|56012099003|22082099003|11063799003|4143699003|3023799003|38070700021;
-x-microsoft-antispam-message-info: pfv8ue7ZK3/M/N3CGhgW210SX4tNWOdYM9YvIgR64cX7FVh2eBlJeHj/qSdLXCliwb4g1cGCBA1DWCeuVzGkIXlRNz3Qw6cOAhvkNqt/I39zH0xUAmlfVii4wHcMDugjesD78uuoqX9YGv+DAfW0XMNKJ1xUmjUyzIaKbraeBbT2NzvGNCqWgC9tdSRlVX2MTyI4phNwHrE30p1P9AY9lCi/+3WDkTrvhJAJ8Gc/PizcS3W5f/+N8ZPz3LJWmeteVnIBZwq9f6u3N19zJipjm04HsGEYn5lqi0wdHOJ6poibZebCN0VvLnsVG23+kgfgZhmiKPSSL/kKGDT5Vx9LcitfcY8SNinaJxxicv76RLjq61wz2bpJBHkGTUaX4jkYJO4jpujxQftXotDLxdAPATO6HtHsxPKRI4o+LxSBb3X025xoVBlkrTr8j1CfDytG+GOKBhgNjJM6Ah8huDTbCQpgRQ2y7XLI4QVwe6EHPKhJa1no+xLVdbBFDVWwXdeZufbTbf+Uaj4YfuscokQOnYnQUXkHA7NBEbAJzVX5sOhLg7SqWujsaXvbFjuNR5iNObAt6iqRpP/jAu+Ebys8UUFO3044sKKV12/9QxdS+zP1cq5dkqq+ZVwkHeYkV91M+FnTxwHsbD15D+CY/CZ7mfav9mHFmjv7sNqoIkn67b/W8xi+DC0oNVHijtx5aKEyJdV8emHtr0xZTomjBIrRtCrd9maN9zJIIypOfNpwnNeCzu2hXqOgguNXrDH1fVoH
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SE2PPF5449A096D.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(18002099003)(56012099003)(22082099003)(11063799003)(4143699003)(3023799003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VGd5WnZmZ0pCZlFCbUZSd2hZb3RyUCtRcms5MG1PeGZEKzlnbUJtQTQ3Z3py?=
- =?utf-8?B?T0NPSFpESGRrRnV5c21XcnFUcWhTSjhDMVhoY0M2UTVuUVE5OHJTYXg1VzUw?=
- =?utf-8?B?Zzh1NVF2Zkg5WkxrSHQreUFvRWZCc29BbG15N21VNmg2MFdGR1Q3L3pVK3BB?=
- =?utf-8?B?S1ljOEJoZnFZcjl2TEQxTkd5VnV4Y2JUU216RnVFYkRxUVFjOTVFcEhtOHRW?=
- =?utf-8?B?bTZ5aWVTaTVKSVJ4VDN5UEZyTmZLYTZlQUE3UmdFNUs1TUkzOTlvNm5hV3Zl?=
- =?utf-8?B?VXpVMy91MTRSb3QwcExpckhZWjB5QWlXZXZ6UXNJMWt0YVF0Y0ZoWnV3K2tr?=
- =?utf-8?B?U2xaR0xHWkRXKy83cERobTV3ZzVrd0I4K2ZRR3hSckZXTlB4a3kwM2g2Wjlo?=
- =?utf-8?B?WE54MmV0aVFqT2tlVTlpTk1TRW5sM09Lc2tzNVRyR0NZWXZ0NUR3cTVrb2pN?=
- =?utf-8?B?M2JvdnpDU2FiQ2ZSOUswZUo2RVROVHd5M0Y3V2pqbXpVS3NaZ2RiZ25JRlJs?=
- =?utf-8?B?VVNHMmlYZllVcUNiYktqV0lJNlgvQkpYNmR2bXZZK1B4Vm5VekdWU0NNWnh6?=
- =?utf-8?B?ZFNFaUp2ZUpyaWQxeTZwQ29OK0ZadjRCNDZnMFNzbU96K0dYRkQyUi9iYXpy?=
- =?utf-8?B?SXl0clV0c3JTaENRSzFNaU9QZHV6Z2FMeUcxWFBVbi9HeHh1VjdLQzM4OTA5?=
- =?utf-8?B?WFNabkt6MGhNUEV2bzIwcjR4RjZ0TDQyRE52WnVhdHBGRHF6RnVKM2dwN2JL?=
- =?utf-8?B?azBwU0JyRTUvOUJDNktQK3ZwT2I2YkdQVkVGWkpEZjU4WG9tdm1naDd1TEZy?=
- =?utf-8?B?RGJQNU1iMituK2pET2toL05pYVlqUys0Tkp5ckRBSVhQQ3l0bjRRUFRlaWdV?=
- =?utf-8?B?V0NMYy83cUxCVkF2MDR4WkZHcjVIT2hPQ2VBcnE4Y0ZSdlQxcUcvc0dGdUpG?=
- =?utf-8?B?cGFFazNQWGk5TDVrSWtBUUthd1RINjcrWDFkOGRLbzMxMzR2a0VpaDlXM01E?=
- =?utf-8?B?SmoycEk2L3FKZHdNc3pwOTVuSEpiREUwNVRhKzhVZHUzU0xCWGtFS0UzWktJ?=
- =?utf-8?B?bWFPekRuRjU0N0lTckplZzhKdC9hRTNyeTI5R2pvekhrblExNm8vcUp5NkY2?=
- =?utf-8?B?ZHBuaUlEUDR5aW0rRy81VVB1UkNDdWtoOXIzb3lVU3QrOGJFQ2JUZkptTG5k?=
- =?utf-8?B?enpIdmhCUVlDdGxuOTF0Zy9SUUhJbHVpSmVIRVAxRyt3bjFlRU1JZzZlRFkv?=
- =?utf-8?B?ZVFwRzJOWDltNVVVSGVKajZUNElyQzVGck45dkJTVG1lM3hHTjBzZnUrVU5H?=
- =?utf-8?B?dHowelJEdW5CTTJiaElnSi93cUU4cUw0MVFBRHBrTkk2TDlxSFdTR09ZU2tI?=
- =?utf-8?B?TUZXZ1FLRnI1QlRxc3UzaDBqQWQ2cmFkOHZrMGZieEQxYjRYQjNrQStzMGNV?=
- =?utf-8?B?THJQN04xM2M1ak0rV1N3ZkNNTGJWU2tFbmM0RXdTZjZyYWllYy8xMlZqcFpJ?=
- =?utf-8?B?WE1oSENBUEo0WjhIVDhaa1FMTFhRWUpmeFk2bVdkcWRaZTVQYlN6UDFUeXIv?=
- =?utf-8?B?ckw1eU5KTmJQSDFnYkRuYmMrK2ZGcGdhVHVtR2loWXRJSlRCenhUWkVIR2Y0?=
- =?utf-8?B?QXd5dlFwanBETWZqVkNkMmxnYjBhcE51bXBsNURSZlIzd1RvQ21aLzZmRzNt?=
- =?utf-8?B?M01QMysvajI1ZHlvbXVJSGdjbDdZdG9KYzBkdDlFbFJQaC96d2FlN3pGVnY2?=
- =?utf-8?B?RU9tZDdMai8zOCtCcG1ad3Y3ZEduOHVoZDNFdmhWc2dneFVmbHFMMGNZdSty?=
- =?utf-8?B?NGR2ejVEV3krV3Y0VTNFNU1PMElvUmxEeFlTeFl4dmRPaVNORENBQVRlRklP?=
- =?utf-8?B?ODM5Yi9kVXVwUzdpY0t6bk5iUFZPdytFOTUxdUNhTTYrNXUyMkpHQnpDYU5Q?=
- =?utf-8?B?M0FFRWxWUjBKd0dVdjBFKzdoK3dmcmJMMmFUb1NwVDVqMGhZeTlFZmJuUHBT?=
- =?utf-8?B?eFVLNDN5L1ZjWGR2QnB5RjcrL040RjlOTWhsZjdFL2dMakp6cTQ0bnRNSUpx?=
- =?utf-8?B?NUxZanhBV2ZFWVdRTlZDWGlhK0xlMFFmVUk4dGN2dW1sYjY0QVByeHEzV0oz?=
- =?utf-8?B?NkpmM0dCZ294TGtDVkpLbmw1bGdBTHdVVmdGbUNVRXBTRjdzVWRITG5QSm82?=
- =?utf-8?B?NFU4N2M2VWVOY1pGbFJ3alpRMk5PYmp0OHFwV1hEV3pyV0ErNUZwN2hBSG5l?=
- =?utf-8?B?Z1VGcFhIZmhibEtidTRZdEpLaW9BMnJ0c2cxMURCbWJzS1Bodm1yWm9UWW9Q?=
- =?utf-8?B?V2tiWHZsd1dtM0FvVm9EaHZRTFZrQ2hYZ0JGWGZVMGQ3S1VxdDdudz09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <AB9A1AEBBE50174EAC33D1E893E26170@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=gmail.com; s=20251104; t=1779158834; x=1779763634; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=;
+        b=OIGZ6gvz0sYAINy114zyJelEI+4Ili1rh0KJvyiUfdiQurfhpGcFqVeRISS/ewueZs
+         I2b861YDd73sOIRYWysbKxNSU05el/k3VKZMZ6GiONmFszaf7REw6doVq3X+TEZqrWtD
+         K0gnZnwAD/nfyJmb4Hwa61v7To3DV6eJWMgcJYv4lJ4B2tr5cM0ExXlM/dCxe7OWabij
+         awLyquuItJMHnk2vaAAffDIaWuTdEEmVZSKeKNNJBbBuwUKdyjQExEBLJivOOVxy+Ji3
+         2FAH8kzc/6SyIiOyH3ljj0J+eN9G07xQFw9EfQZmnR3v1TGB7Bi+OTS4JD9wmFqDZjfH
+         NwSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779158834; x=1779763634;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RQP6saiiXAQJTpPARLrRFM0Ns2dwyXRFEWBvIe0BZcE=;
+        b=RUKFsv5aWEzqUBojYvC+C9D3FEjpUcRgTSl/s9N773FLiFAL5OV9khsfOr7SX4TGaF
+         If+lW9oONMPqGOakqtbzpNRGHmdAmfaSsN0eKh/8Nj3jZykCYGQsryTKETBpl6XLIauA
+         KhLm43orJVyHmIXDzUJYIG87uOOLq1HBCh0j/rk1WzKhyeXzpzTxggX5oCW6vck1dTgo
+         V5OI6os3zozQSYDqJEy9DN6Evsv5oOxbyP5JrcfPJ++UPT1QJJviWtY0ldY1yluw5KNw
+         dcqtHz/einaGuHda8j1yUdkjHDF3RAcM3ugidNgNzlLeeTubQ2yan//SPShuvYY+8GyL
+         Y47A==
+X-Forwarded-Encrypted: i=1; AFNElJ8ZWi3htvDpwUfM7ZuD6ksGnk22lFLlmFsuvsGc5mwaYE7J8AlfzECM2t32zCDg3GQPRQx4fRTNrlKUu8P4gjBQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqHLpg5HVZXdhzHYL+HGB5Dv4AcbxxGrvR1m/o5Y+d7c/IEOy8
+	LDXzfZG12qbFTszT2KoYRIpuqSm9IHt+P8noWRLwc73IDVacN3SF8DFW+rJ6iPsXgsdQsUNzcIn
+	sUsSp/LRTztyF/YbH6vnb0KcQAd3nmUI=
+X-Gm-Gg: Acq92OHp/LRePLIE4urMfLelrXTojsLH5mjWR5EX62kotNHTEXSBk2il1E6vtYdexLj
+	rBD6CysHfz+i0jO7j42hRdMYK/KCRwqoUy0p8a3RBs23uwpCXYsPjPXoEDAH1dPSwYDOicXSE1p
+	1Ob4Sjof2ByWvbmnYPYuGPN0qZW0XE+72qO0GoXWmvJAdoclNjrmCGEwr1r+hok7UR/teRQ9a2p
+	F38gXbqzuXrVUGLvzaDrG2ZZTYgGWI5e7KMtON7wq56uwFkhrbNkbQg+H3MyVSfntks/7ws92+t
+	ckB7DfIUUIKysMKGoVY=
+X-Received: by 2002:a2e:bc20:0:b0:38a:45d6:c246 with SMTP id
+ 38308e7fff4ca-39561c36019mr54660351fa.8.1779158833823; Mon, 18 May 2026
+ 19:47:13 -0700 (PDT)
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: FbBp3BYhfoJ4Qg2LXPxCPLBFMoi6GX6DZh3STlHNnM2hXOoLLFzT8by+XE95bWbslelttNyeKpz7ma3XNVnRjtmntrzD5XJAsupsmtInoem8+OKXOzkz2WVZ4rxVHIoIXFfHwmxK7STDHIbufd6As066Yzycyfi23EflrKJfc1e1zbwPZs7OYR9cJH+Z7IEvynwpcYNYGr2viURr9JdjKTlRxQEF6eF/oer6AXWCUfbIV9gihI3F9H4IE7mayyx6hCe1zn/SpmrnsN4jOEtN85MdOYfdw3Ch1KJBMPSYShTdj329h9rxXPMDZ2BRElUQSFvNXIvTKkt5HSWTar0K4Q==
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SE2PPF5449A096D.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 92dd12e3-916e-4570-5d60-08deb5504be2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 May 2026 02:42:40.8233
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: lVJJ1Izycc1ylZPs9AvMEAJJ5sND6XsDn2/ynUULf7Lk/uaVjNOIh8++wNI8tagspmPe5GiEMrHucYGJO8ykYStMR+f4m8VMVnJqrJzI18E=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB9719
+References: <20260424-ventura2_initial_dts-v4-0-806b00ea4314@gmail.com>
+ <20260424-ventura2_initial_dts-v4-2-806b00ea4314@gmail.com>
+ <39b9a80fe4f49d72cefb8d3f8f1bb3776b9c4226.camel@codeconstruct.com.au> <CAF7HswPn65kvTAyYDj_o=nSn3YhQhKqBaak7nt11x-8bZ7M6vg@mail.gmail.com>
+In-Reply-To: <CAF7HswPn65kvTAyYDj_o=nSn3YhQhKqBaak7nt11x-8bZ7M6vg@mail.gmail.com>
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Date: Tue, 19 May 2026 10:48:19 +0800
+X-Gm-Features: AVHnY4KpR8_SQLN5ycWULCDf5UkEJu74K_EZDZzPg05Smr9riqQITU4BSYjRqBM
+Message-ID: <CAF7HswNLqxZA2-2Mh49zk+mV=oTbyw4UrmJTVe3HESZqCL9rGg@mail.gmail.com>
+Subject: Re: [PATCH v4 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_194255_834353_B8102840 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20260518_194716_630535_C475BEC9 
+X-CRM114-Status: GOOD (  35.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,87 +120,637 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgTmljb2xhcw0KDQpUaGlzIHNlcmllcyBkZXBlbmRzIG9uIGNvbW1pdCA3NTYwMzQ5ZWUwZDkg
-KCJtZWRpYTogbWVkaWF0ZWs6IGpwZWc6DQpzdXBwb3J0IDM0Yml0cyIpLCB3aGljaCBpbnRyb2R1
-Y2VkIHRoZSAnc3VwcG9ydF8zNGJpdCcgZmllbGQgaW4gJ3N0cnVjdA0KbXRrX2pwZWdfdmFyaWFu
-dCcuIFRoYXQgY29tbWl0IGhhcyBhbHJlYWR5IGJlZW4gbWVyZ2VkIHZpYSB0aGUgbWVkaWENCnRy
-ZWUgYW5kIGlzIHByZXNlbnQgaW4gbGludXgtbmV4dCBhcyBvZiBuZXh0LTIwMjYwNDEwLlRoZXJl
-Zm9yZSwgdGhpcw0Kc2VyaWVzIGlzIGJhc2VkIG9uIGxpbnV4LW5leHQvbWFzdGVyIHJhdGhlciB0
-aGFuIG1lZGlhLWNvbW1pdHRlcnMvbmV4dA0KdG8gZW5zdXJlIHRoZSBkZXBlbmRlbmN5IGlzIGF2
-YWlsYWJsZS4NCg0KVGhlIGR0LWJpbmRpbmdzIHNjaGVtYSB3YXMgdmFsaWRhdGVkIGFnYWluc3Qg
-bGludXgtbmV4dCB0YWcgbmV4dC0NCjIwMjYwNDEwLiBKUEVHIGVuY29kZXIgYW5kIGRlY29kZXIg
-ZnVuY3Rpb25hbGl0eSB3YXMgdmVyaWZpZWQgb24gTVQ4MTg5DQpoYXJkd2FyZS4NCg0KUmVnYXJk
-cywNCkppYW5odWEgTGluDQoNCk9uIEZyaSwgMjAyNi0wNC0xNyBhdCAwOTozMCAtMDQwMCwgTmlj
-b2xhcyBEdWZyZXNuZSB3cm90ZToNCj4gSGksDQo+IA0KPiBMZSB2ZW5kcmVkaSAxNyBhdnJpbCAy
-MDI2IMOgIDE4OjA1ICswODAwLCBKaWFuaHVhIExpbiBhIMOpY3JpdCA6DQo+ID4gVGhpcyBzZXJp
-ZXMgaXMgYmFzZWQgb24gdGFnOiBuZXh0LTIwMjYwNDEwLCBsaW51eC1uZXh0L21hc3Rlcg0KPiAN
-Cj4gV2hhdCBkZXBlbmRlbmNpZXMganVzdGlmeSBub3Qgc3VibWl0dGluZyBiYXNlZCBvbiBtZWRp
-YS0NCj4gY29tbWl0dGVycy9uZXh0IGFzIHVzdWFsDQo+ID8gSXRzIGZpbmUgdG8gc2F5IHlvdSB0
-ZXN0ZWQgYWdhaW5zdCBsaW51eC1uZXh0IG9mIGNvdXJzZSwgYW5kIGlmIGl0cw0KPiBvbmx5DQo+
-IHdvcmtpbmcgdGhlcmUsIGl0cyByZWFsbHkgbmljZSB0byBleHBsYWluIHdoeS4NCj4gDQo+IE5p
-Y29sYXMNCj4gDQo+ID4gDQo+ID4gQ2hhbmdlcyBjb21wYXJlZCB3aXRoIHY2Og0KPiA+IC0gUGF0
-Y2hlcyAxLzMgKGR0LWJpbmRpbmdzOiBkZWNvZGVyKToNCj4gPiAgIHVwZGF0ZSB0aGUgZXhpc3Rp
-bmcgYGFsbE9mYCBjb25kaXRpb24gZm9yIG1lZGlhdGVrLG10ODE4OS1qcGdkZWMNCj4gPiB0bw0K
-PiA+ICAgbWFrZSB0aGUgJ21lZGlhdGVrLGxhcmInIHByb3BlcnR5IHN0cmljdGx5IHJlcXVpcmVk
-IGZvciBNVDgxODkNCj4gPiBTb0MuDQo+ID4gLSBQYXRjaGVzIDIvMyAoZHQtYmluZGluZ3M6IGVu
-Y29kZXIpOg0KPiA+ICAgQWRkIGFuIGBhbGxPZmAgY29uZGl0aW9uIHRvIGVuZm9yY2UgdGhhdCB0
-aGUgYG1lZGlhdGVrLGxhcmJgDQo+ID4gcHJvcGVydHkNCj4gPiAgIGlzIHN0cmljdGx5IHJlcXVp
-cmVkIHdoZW4gdGhlIGNvbXBhdGlibGUgc3RyaW5nIGNvbnRhaW5zDQo+ID4gICBtZWRpYXRlayxt
-dDgxODktanBnZW5jLg0KPiA+IA0KPiA+IENoYW5nZXMgY29tcGFyZWQgd2l0aCB2NToNCj4gPiAt
-IFBhdGNoZXMgMS8zIChkdC1iaW5kaW5nczogZGVjb2Rlcik6DQo+ID4gICAtIERyb3AgdG9wLWxl
-dmVsIG1pbkl0ZW1zL21heEl0ZW1zIGZvciBjbG9jay1uYW1lcyBwZXINCj4gPiBLcnp5c3p0b2Yn
-cw0KPiA+ICAgICByZXZpZXcuDQo+ID4gICAtIFJlZmluZSBhbGxPZiBibG9jayB0byBzdHJpY3Rs
-eSBlbmZvcmNlIGNsb2NrIGNvbnN0cmFpbnRzLg0KPiA+IA0KPiA+IENoYW5nZXMgY29tcGFyZWQg
-d2l0aCB2NDoNCj4gPiAtIFJlZmluZXMgdGhlIGRldmljZSB0cmVlIGJpbmRpbmdzIGZvciBKUEVH
-IGRlY29kZXIgYW5kIGVuY29kZXIuDQo+ID4gICAtIFBhdGNoZXMgMS8zIChkdC1iaW5kaW5nczog
-ZGVjb2Rlcik6DQo+ID4gICAgIE1vdmVkIHRoZSBzdGFuZGFsb25lIGNvbXBhdGlibGUgc3RyaW5n
-IG1lZGlhdGVrLG10ODE4OS1qcGdkZWMNCj4gPiAgICAgaW50byB0aGUgZmlyc3Qgb25lT2YgZW50
-cnkgYWxvbmcgd2l0aCBtdDI3MDEgYW5kIG10ODE3MywgYXMNCj4gPiAgICAgc3VnZ2VzdGVkIGJ5
-IFJvYiBIZXJyaW5nLiBUaGlzIGNvcnJlY3RseSBncm91cHMgYWxsIGluZGVwZW5kZW50DQo+ID4g
-ICAgIElDcyBhbmQgcmVtb3ZlcyB0aGUgcmVkdW5kYW50IGl0ZW1zIHdyYXBwZXIuDQo+ID4gICAt
-IFBhdGNoZXMgMi8zIChkdC1iaW5kaW5nczogZW5jb2Rlcik6DQo+ID4gICAgIEFwcGxpZWQgdGhl
-IHNhbWUgbG9naWMgc3VnZ2VzdGVkIGJ5IFJvYiBIZXJyaW5nIHRvIHRoZSBlbmNvZGVyDQo+ID4g
-ICAgIGJpbmRpbmcuIFJlc3RydWN0dXJlZCB0aGUgY29tcGF0aWJsZSBwcm9wZXJ0eSB0byBjbGVh
-cmx5DQo+ID4gICAgIGRpc3Rpbmd1aXNoIGJldHdlZW4gdGhlIHN0YW5kYWxvbmUgSUMgKG1lZGlh
-dGVrLG10ODE4OS1qcGdlbmMpDQo+ID4gICAgIGFuZCB0aGUgSUNzIHRoYXQgbXVzdCBmYWxsYmFj
-ayB0byBtZWRpYXRlayxtdGstanBnZW5jLg0KPiA+IA0KPiA+IENoYW5nZXMgY29tcGFyZWQgd2l0
-aCB2MzoNCj4gPiAtIFRoZSB2NCBpcyByZXNlbmRpbmcgdGhlIGNvdmVyLWxldHRlciwgYmVjYXVz
-ZSB0aGUgdjMgY292ZXItbGV0dGVyIA0KPiA+IHdhcw0KPiA+ICAgbm90IHNlbnQgc3VjY2Vzc2Z1
-bGx5Lg0KPiA+IA0KPiA+IENoYW5nZXMgY29tcGFyZWQgd2l0aCB2MjoNCj4gPiAtIERyb3BwZWQg
-dGhlIGR0cyBwYXRjaCAoYXJtNjQ6IGR0czogbXQ4MTg4OiB1cGRhdGUgSlBFRw0KPiA+IGVuY29k
-ZXIvZGVjb2Rlcg0KPiA+ICAgY29tcGF0aWJsZSkgYXMgaXQgYmVsb25ncyB0byBhIGRpZmZlcmVu
-dCB0cmVlL3Nlcmllcy4NCj4gPiAtIFBhdGNoZXMgMS8zIChkdC1iaW5kaW5nczogZGVjb2Rlcik6
-DQo+ID4gICAtIENoYW5nZWQgdGhlIE1UODE4OSBjb21wYXRpYmxlIHRvIGJlIGEgc3RhbmRhbG9u
-ZSBgY29uc3RgDQo+ID4gaW5zdGVhZCBvZg0KPiA+ICAgICBhbiBgZW51bWAuDQo+ID4gICAtIEFk
-ZGVkIGFuIGBhbGxPZmAgYmxvY2sgd2l0aCBjb25kaXRpb25hbCBjaGVja3MgdG8gZW5mb3JjZSB0
-aGUNCj4gPiBzaW5nbGUNCj4gPiAgICAgY2xvY2sgKCJqcGdkZWMiKSByZXF1aXJlbWVudCBmb3Ig
-TVQ4MTg5LCB3aGlsZSBwcmVzZXJ2aW5nIHRoZQ0KPiA+ICAgICB0d28tY2xvY2sgcmVxdWlyZW1l
-bnQgZm9yIG9sZGVyIFNvQ3MuDQo+ID4gICAtIFVwZGF0ZWQgY29tbWl0IG1lc3NhZ2UgdG8gcmVm
-bGVjdCB0aGUgc2NoZW1hIHN0cnVjdHVyZSBjaGFuZ2VzDQo+ID4gYW5kDQo+ID4gICAgIGhhcmR3
-YXJlIGRpZmZlcmVuY2VzLg0KPiA+IC0gUGF0Y2hlcyAyLzMgKGR0LWJpbmRpbmdzOiBlbmNvZGVy
-KToNCj4gPiAgIC0gQ2hhbmdlZCB0aGUgTVQ4MTg5IGNvbXBhdGlibGUgdG8gYmUgYSBzdGFuZGFs
-b25lIGBjb25zdGANCj4gPiBpbnN0ZWFkIG9mDQo+ID4gICAgIGFuIGBlbnVtYCBpbnNpZGUgdGhl
-IGBpdGVtc2AgbGlzdCwgYXMgaXQgZG9lcyBub3QgZmFsbGJhY2sgdG8NCj4gPiAgICAgIm1lZGlh
-dGVrLG10ay1qcGdlbmMiIGR1ZSB0byAzNC1iaXQgSU9WQSByZXF1aXJlbWVudHMuDQo+ID4gICAt
-IFVwZGF0ZWQgY29tbWl0IG1lc3NhZ2UgdG8gZXhwbGFpbiB0aGUgc3RhbmRhbG9uZSBjb21wYXRp
-YmxlDQo+ID4gZGVzaWduLg0KPiA+IC0gUGF0Y2hlcyAzLzMgKG1lZGlhOiBtZWRpYXRlazoganBl
-Zyk6DQo+ID4gICAtIFJlZmluZWQgY29tbWl0IG1lc3NhZ2UgZm9yIGJldHRlciBjbGFyaXR5IHJl
-Z2FyZGluZyAzNC1iaXQgSU9WQQ0KPiA+IGFuZA0KPiA+ICAgICBzaW5nbGUgY2xvY2sgY29uZmln
-dXJhdGlvbi4NCj4gPiANCj4gPiBDaGFuZ2VzIGNvbXBhcmVkIHdpdGggdjE6DQo+ID4gLSBQYXRj
-aGVzIDEvNDoNCj4gPiAgIC0gVXBkYXRpbmcgY29tbWl0IG1lc3NhZ2UNCj4gPiAtIFBhdGNoZXMg
-Mi80LCAzLzQ6IA0KPiA+ICAgLSBVcGRhdGluZyBjb21taXQgbWVzc2FnZQ0KPiA+ICAgLSBBZGp1
-c3RlZCBwcm9wZXJ0eSBkZXNjcmlwdGlvbnMgYWNvcnJkaW5nIHRvIGhhcmR3YXJlDQo+ID4gcmVx
-dWlyZW1lbnRzDQo+ID4gICAtIEltcHJvdmVkIGZvcm1hdHRpbmcgZm9yIGJldHRlciByZWFkYWJp
-bGl0eSBhbmQgY29uc2lzdGVuY3kNCj4gPiAtIFBhdGNoZXMgNC80Og0KPiA+ICAgLSBVcGRhdGlu
-ZyBjb21taXQgbWVzc2FnZQ0KPiA+IA0KPiA+IEppYW5odWEgTGluICgzKToNCj4gPiAgIGR0LWJp
-bmRpbmdzOiBtZWRpYTogbWVkaWF0ZWstanBlZy1kZWNvZGVyOiBhZGQgTVQ4MTg5IGNvbXBhdGli
-bGUNCj4gPiAgICAgc3RyaW5nDQo+ID4gICBkdC1iaW5kaW5nczogbWVkaWE6IG1lZGlhdGVrLWpw
-ZWctZW5jb2RlcjogYWRkIE1UODE4OSBjb21wYXRpYmxlDQo+ID4gICAgIHN0cmluZw0KPiA+ICAg
-bWVkaWE6IG1lZGlhdGVrOiBqcGVnOiBhZGQgY29tcGF0aWJsZSBmb3IgTVQ4MTg5IFNvQw0KPiA+
-IA0KPiA+ICAuLi4vYmluZGluZ3MvbWVkaWEvbWVkaWF0ZWstanBlZy1kZWNvZGVyLnlhbWwgfCA0
-OA0KPiA+ICsrKysrKysrKysrKysrKy0tLS0NCj4gPiAgLi4uL2JpbmRpbmdzL21lZGlhL21lZGlh
-dGVrLWpwZWctZW5jb2Rlci55YW1sIHwgMjkgKysrKysrKystLS0NCj4gPiAgLi4uL3BsYXRmb3Jt
-L21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29yZS5jICAgIHwgNDQNCj4gPiArKysrKysrKysrKysr
-KysrKw0KPiA+ICAzIGZpbGVzIGNoYW5nZWQsIDEwNyBpbnNlcnRpb25zKCspLCAxNCBkZWxldGlv
-bnMoLSkNCg==
+Hi Andrew,
+
+On Tue, May 19, 2026 at 10:38=E2=80=AFAM Kyle Hsieh <kylehsieh1995@gmail.co=
+m> wrote:
+>
+> On Mon, May 18, 2026 at 3:18=E2=80=AFPM Andrew Jeffery
+> <andrew@codeconstruct.com.au> wrote:
+> >
+> > Hi Kyle,
+> >
+> > Firstly, are you trying to represent multiple revisions of the hardware
+> > design in this devicetree? I'm curious due to the 'legacy' labels
+> > below.
+> >
+> In the previous Ventura hardware generation, these pins were
+>  implemented as a set of direct, native physical GPIO signals. In the V2
+>  design, we introduced alternative interfaces and routed these paths
+> through the CPLD to convert them into GPIOs before reaching the
+> BMC.
+>
+> We chose to retain the 'legacy' prefix to maintain backward
+> compatibility with our existing userspace software stack and scripts
+> that transitioned from the previous Ventura platform. Altering these
+> labels now would break compatibility with applications that rely on
+> these specific naming conventions. I will add comments in the DTS to
+> clarify this context.
+Please allow me to add a crucial hardware detail to my previous
+ explanation regarding the 'legacy' prefix.
+I missed mentioning the most important point: on this specific ventura2
+board, we actually have two distinct sets of IO expanders physically
+present at the same time to support both new and older tray interfaces.
+
+The new design utilizes the PCA9698 at gpio@40, which is already
+labeled as prsnt_io_expander0. However, to maintain hardware
+backward compatibility with older trays, the board also physically
+retains the previous PCA9555 expanders at gpio@11.
+
+Therefore, since the prsnt_io_expander0 label is already occupied, the
+legacy_ prefix is strictly necessary to avoid
+devicetree label collisions and to explicitly differentiate the two
+physical hardware paths.
+
+I will make sure this hardware context is clearly documented in the
+DTS comments in the v5 patch.
+
+> > On Fri, 2026-04-24 at 17:30 +0800, Kyle Hsieh wrote:
+> > > Add linux device tree entry related to the Meta(Facebook) rmc-node.
+> > > The system use an AT2600 BMC.
+> > > This node is named "ventura2".
+> > >
+> > > Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
+> > > ---
+> > >  arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+> > >  .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2925 ++++++++++=
+++++++++++
+> > >  2 files changed, 2926 insertions(+)
+> > >
+> > > diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/as=
+peed/Makefile
+> > > index 9adf9278dc94..6b96997629d4 100644
+> > > --- a/arch/arm/boot/dts/aspeed/Makefile
+> > > +++ b/arch/arm/boot/dts/aspeed/Makefile
+> > > @@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) +=3D \
+> > >       aspeed-bmc-facebook-minipack.dtb \
+> > >       aspeed-bmc-facebook-santabarbara.dtb \
+> > >       aspeed-bmc-facebook-tiogapass.dtb \
+> > > +     aspeed-bmc-facebook-ventura2.dtb \
+> > >       aspeed-bmc-facebook-wedge40.dtb \
+> > >       aspeed-bmc-facebook-wedge100.dtb \
+> > >       aspeed-bmc-facebook-wedge400-data64.dtb \
+> > > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dt=
+s b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
+> > > new file mode 100644
+> > > index 000000000000..8d4ddb473862
+> > > --- /dev/null
+> > > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
+> > > @@ -0,0 +1,2925 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +// Copyright (c) 2023 Facebook Inc.
+> > > +/dts-v1/;
+> > > +
+> > > +#include "aspeed-g6.dtsi"
+> > > +#include <dt-bindings/i2c/i2c.h>
+> > > +#include <dt-bindings/gpio/aspeed-gpio.h>
+> > > +
+> > > +/ {
+> > > +     model =3D "Facebook Ventura2 RMC";
+> > > +     compatible =3D "facebook,ventura2-rmc", "aspeed,ast2600";
+> > > +     aliases {
+> > > +             serial2 =3D &uart3;
+> > > +             serial4 =3D &uart5;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 0-0077, pca9548, 8 child channels assigne=
+d
+> > > +              * with bus number 16-23.
+> > > +              */
+> > > +             i2c16 =3D &i2c0mux0ch0;
+> > > +             i2c17 =3D &i2c0mux0ch1;
+> > > +             i2c18 =3D &i2c0mux0ch2;
+> > > +             i2c19 =3D &i2c0mux0ch3;
+> > > +             i2c20 =3D &i2c0mux0ch4;
+> > > +             i2c21 =3D &i2c0mux0ch5;
+> > > +             i2c22 =3D &i2c0mux0ch6;
+> > > +             i2c23 =3D &i2c0mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 1-0077, pca9548, 8 child channels assigne=
+d
+> > > +              * with bus number 24-31.
+> > > +              */
+> > > +             i2c24 =3D &i2c1mux0ch0;
+> > > +             i2c25 =3D &i2c1mux0ch1;
+> > > +             i2c26 =3D &i2c1mux0ch2;
+> > > +             i2c27 =3D &i2c1mux0ch3;
+> > > +             i2c28 =3D &i2c1mux0ch4;
+> > > +             i2c29 =3D &i2c1mux0ch5;
+> > > +             i2c30 =3D &i2c1mux0ch6;
+> > > +             i2c31 =3D &i2c1mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 4-0077, pca9548, 8 child channels assigne=
+d
+> > > +              * with bus number 32-39.
+> > > +              */
+> > > +             i2c32 =3D &i2c4mux0ch0;
+> > > +             i2c33 =3D &i2c4mux0ch1;
+> > > +             i2c34 =3D &i2c4mux0ch2;
+> > > +             i2c35 =3D &i2c4mux0ch3;
+> > > +             i2c36 =3D &i2c4mux0ch4;
+> > > +             i2c37 =3D &i2c4mux0ch5;
+> > > +             i2c38 =3D &i2c4mux0ch6;
+> > > +             i2c39 =3D &i2c4mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 5-0077, pca9548, 8 child channels assigne=
+d
+> > > +              * with bus number 40-47.
+> > > +              */
+> > > +             i2c40 =3D &i2c5mux0ch0;
+> > > +             i2c41 =3D &i2c5mux0ch1;
+> > > +             i2c42 =3D &i2c5mux0ch2;
+> > > +             i2c43 =3D &i2c5mux0ch3;
+> > > +             i2c44 =3D &i2c5mux0ch4;
+> > > +             i2c45 =3D &i2c5mux0ch5;
+> > > +             i2c46 =3D &i2c5mux0ch6;
+> > > +             i2c47 =3D &i2c5mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 8-0077, pca9548, 8 child channels assigne=
+d
+> > > +              * with bus number 48-55.
+> > > +              */
+> > > +             i2c48 =3D &i2c8mux0ch0;
+> > > +             i2c49 =3D &i2c8mux0ch1;
+> > > +             i2c50 =3D &i2c8mux0ch2;
+> > > +             i2c51 =3D &i2c8mux0ch3;
+> > > +             i2c52 =3D &i2c8mux0ch4;
+> > > +             i2c53 =3D &i2c8mux0ch5;
+> > > +             i2c54 =3D &i2c8mux0ch6;
+> > > +             i2c55 =3D &i2c8mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 11-0077, pca9548, 8 child channels assign=
+ed
+> > > +              * with bus number 56-63.
+> > > +              */
+> > > +             i2c56 =3D &i2c11mux0ch0;
+> > > +             i2c57 =3D &i2c11mux0ch1;
+> > > +             i2c58 =3D &i2c11mux0ch2;
+> > > +             i2c59 =3D &i2c11mux0ch3;
+> > > +             i2c60 =3D &i2c11mux0ch4;
+> > > +             i2c61 =3D &i2c11mux0ch5;
+> > > +             i2c62 =3D &i2c11mux0ch6;
+> > > +             i2c63 =3D &i2c11mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 13-0077, pca9548, 8 child channels assign=
+ed
+> > > +              * with bus number 64-71.
+> > > +              */
+> > > +             i2c64 =3D &i2c13mux0ch0;
+> > > +             i2c65 =3D &i2c13mux0ch1;
+> > > +             i2c66 =3D &i2c13mux0ch2;
+> > > +             i2c67 =3D &i2c13mux0ch3;
+> > > +             i2c68 =3D &i2c13mux0ch4;
+> > > +             i2c69 =3D &i2c13mux0ch5;
+> > > +             i2c70 =3D &i2c13mux0ch6;
+> > > +             i2c71 =3D &i2c13mux0ch7;
+> > > +
+> > > +             /*
+> > > +              * i2c switch 15-0077, pca9548, 8 child channels assign=
+ed
+> > > +              * with bus number 72-79.
+> > > +              */
+> > > +             i2c72 =3D &i2c15mux0ch0;
+> > > +             i2c73 =3D &i2c15mux0ch1;
+> > > +             i2c74 =3D &i2c15mux0ch2;
+> > > +             i2c75 =3D &i2c15mux0ch3;
+> > > +             i2c76 =3D &i2c15mux0ch4;
+> > > +             i2c77 =3D &i2c15mux0ch5;
+> > > +             i2c78 =3D &i2c15mux0ch6;
+> > > +             i2c79 =3D &i2c15mux0ch7;
+> >
+> > Can you please add comments justifying why all of these aliases are
+> > necessary given a number of them are for busses with no devices
+> > described under them?
+> These I2C aliases are pre-allocated because these empty channels are
+>  strictly reserved for future hardware feature expansions, which will
+> interface with add-on boards. I will add clear comments in the code to
+> justify their necessity in the next patch.
+> >
+> > > +     };
+> > > +
+> > > +     chosen {
+> > > +             stdout-path =3D "serial4:57600n8";
+> > > +     };
+> > > +
+> > > +     fan_leds {
+> > > +             compatible =3D "gpio-leds";
+> > > +
+> > > +             led-0 {
+> > > +                     label =3D "fcb0fan0_ledd1_blue";
+> >
+> > Given the labels are exposed to userspace and is something applications
+> > likely consume, is the double 'd' in led intentional?
+> Yes, the double 'd' in "ledd1" is intentional. It aligns with our hardwar=
+e
+>  schematic design naming convention, where these specific onboard
+> indicators are designated as LEDD1, LEDD2, etc.
+> >
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander0 0 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-1 {
+> > > +                     label =3D "fcb0fan1_ledd2_blue";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander0 1 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-2 {
+> > > +                     label =3D "fcb0fan2_ledd3_blue";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander1 0 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-3 {
+> > > +                     label =3D "fcb0fan3_ledd4_blue";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander1 1 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-4 {
+> > > +                     label =3D "fcb0fan0_ledd1_amber";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander0 4 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-5 {
+> > > +                     label =3D "fcb0fan1_ledd2_amber";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander0 5 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-6 {
+> > > +                     label =3D "fcb0fan2_ledd3_amber";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander1 4 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +
+> > > +             led-7 {
+> > > +                     label =3D "fcb0fan3_ledd4_amber";
+> > > +                     default-state =3D "off";
+> > > +                     gpios =3D <&fan_io_expander1 5 GPIO_ACTIVE_LOW>=
+;
+> > > +             };
+> > > +     };
+> > > +
+> >
+> > ...
+> >
+> > > +
+> > > +&fmc {
+> > > +     status =3D "okay";
+> > > +     flash@0 {
+> > > +             status =3D "okay";
+> > > +             m25p,fast-read;
+> > > +             label =3D "bmc";
+> > > +             spi-max-frequency =3D <50000000>;
+> > > +             #include "openbmc-flash-layout-128.dtsi"
+> > > +     };
+> > > +     flash@1 {
+> > > +             status =3D "okay";
+> > > +             m25p,fast-read;
+> > > +             label =3D "alt-bmc";
+> > > +             spi-max-frequency =3D <50000000>;
+> >
+> > Perhaps include the alternate flash layout dtsi here?
+> The `flash@1` (`alt-bmc`) node is intentionally left unpartitioned
+>  without the layout DTSI.
+>
+> In our dual-flash design, `flash@1` serves as the secondary/backup
+> flash chip. Keeping it without sub-partitions allows the kernel and
+> userspace tools to treat this flash as a single, contiguous raw MTD
+> device. This is required by our firmware update mechanism, which
+> flashes a single, full-size composite image directly to the entire
+> backup flash.
+>
+> This structure follows the existing upstream pattern established in
+> `aspeed-bmc-facebook-yosemite5.dts`.
+> >
+> > > +     };
+> > > +};
+> > > +
+> > > +&peci0 {
+> >
+> > Can you please order the nodes alphabetically. P is not between F and
+> > G.
+> I will ensure all nodes are strictly sorted in alphabetical order in
+> the next version.
+> >
+> > > +     status =3D "okay";
+> > > +};
+> > > +
+> > >
+> >
+> > ...
+> >
+> > > +
+> > > +&i2c10 {
+> > > +     status =3D "okay";
+> > > +
+> > > +     legacy_prsnt_io_expander0: gpio@11 {
+> >
+> > Why 'legacy'?
+> >
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x11>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_PRSNT1_N_BUF_R", "TRAY_PRSNT2_N_BUF_R",
+> > > +                     "TRAY_PRSNT3_N_BUF_R", "TRAY_PRSNT4_N_BUF_R",
+> > > +                     "TRAY_PRSNT5_N_BUF_R", "TRAY_PRSNT6_N_BUF_R",
+> > > +                     "TRAY_PRSNT7_N_BUF_R", "TRAY_PRSNT8_N_BUF_R",
+> > > +                     "TRAY_PRSNT9_N_BUF_R", "TRAY_PRSNT10_N_BUF_R",
+> > > +                     "TRAY_PRSNT11_N_BUF_R", "TRAY_PRSNT12_N_BUF_R",
+> > > +                     "TRAY_PRSNT13_N_BUF_R", "TRAY_PRSNT14_N_BUF_R",
+> > > +                     "TRAY_PRSNT15_N_BUF_R", "TRAY_PRSNT16_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_prsnt_io_expander1: gpio@12 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x12>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_PRSNT17_N_BUF_R", "TRAY_PRSNT18_N_BUF_R",
+> > > +                     "TRAY_PRSNT19_N_BUF_R", "TRAY_PRSNT20_N_BUF_R",
+> > > +                     "TRAY_PRSNT21_N_BUF_R", "TRAY_PRSNT22_N_BUF_R",
+> > > +                     "TRAY_PRSNT23_N_BUF_R", "TRAY_PRSNT24_N_BUF_R",
+> > > +                     "TRAY_PRSNT25_N_BUF_R", "TRAY_PRSNT26_N_BUF_R",
+> > > +                     "TRAY_PRSNT27_N_BUF_R", "TRAY_PRSNT28_N_BUF_R",
+> > > +                     "TRAY_PRSNT29_N_BUF_R", "TRAY_PRSNT30_N_BUF_R",
+> > > +                     "TRAY_PRSNT31_N_BUF_R", "TRAY_PRSNT32_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_prsnt_io_expander2: gpio@13 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x13>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <40 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_PRSNT33_N_BUF_R", "TRAY_PRSNT34_N_BUF_R",
+> > > +                     "TRAY_PRSNT35_N_BUF_R", "TRAY_PRSNT36_N_BUF_R",
+> > > +                     "TRAY_PRSNT37_N_BUF_R", "TRAY_PRSNT38_N_BUF_R",
+> > > +                     "TRAY_PRSNT39_N_BUF_R", "TRAY_PRSNT40_N_BUF_R",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "";
+> > > +     };
+> > > +
+> > > +     power-monitor@14 {
+> > > +             compatible =3D "infineon,xdp710";
+> > > +             reg =3D <0x14>;
+> > > +     };
+> > > +
+> > > +     legacy_pwrgd_io_expander1: gpio@15 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x15>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_PWRGD17_N_BUF_R", "TRAY_PWRGD18_N_BUF_R",
+> > > +                     "TRAY_PWRGD19_N_BUF_R", "TRAY_PWRGD20_N_BUF_R",
+> > > +                     "TRAY_PWRGD21_N_BUF_R", "TRAY_PWRGD22_N_BUF_R",
+> > > +                     "TRAY_PWRGD23_N_BUF_R", "TRAY_PWRGD24_N_BUF_R",
+> > > +                     "TRAY_PWRGD25_N_BUF_R", "TRAY_PWRGD26_N_BUF_R",
+> > > +                     "TRAY_PWRGD27_N_BUF_R", "TRAY_PWRGD28_N_BUF_R",
+> > > +                     "TRAY_PWRGD29_N_BUF_R", "TRAY_PWRGD30_N_BUF_R",
+> > > +                     "TRAY_PWRGD31_N_BUF_R", "TRAY_PWRGD32_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_pwrgd_io_expander2: gpio@16 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x16>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_PWRGD33_N_BUF_R", "TRAY_PWRGD34_N_BUF_R",
+> > > +                     "TRAY_PWRGD35_N_BUF_R", "TRAY_PWRGD36_N_BUF_R",
+> > > +                     "TRAY_PWRGD37_N_BUF_R", "TRAY_PWRGD38_N_BUF_R",
+> > > +                     "TRAY_PWRGD39_N_BUF_R", "TRAY_PWRGD40_N_BUF_R",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "";
+> > > +     };
+> > > +
+> > > +     legacy_leak_io_expander0: gpio@17 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x17>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_LEAK_DETECT1_N_BUF_R", "TRAY_LEAK_DETECT2=
+_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT3_N_BUF_R", "TRAY_LEAK_DETECT4=
+_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT5_N_BUF_R", "TRAY_LEAK_DETECT6=
+_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT7_N_BUF_R", "TRAY_LEAK_DETECT8=
+_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT9_N_BUF_R", "TRAY_LEAK_DETECT1=
+0_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT11_N_BUF_R", "TRAY_LEAK_DETECT=
+12_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT13_N_BUF_R", "TRAY_LEAK_DETECT=
+14_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT15_N_BUF_R", "TRAY_LEAK_DETECT=
+16_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_leak_io_expander1: gpio@18 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x18>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_LEAK_DETECT17_N_BUF_R", "TRAY_LEAK_DETECT=
+18_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT19_N_BUF_R", "TRAY_LEAK_DETECT=
+20_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT21_N_BUF_R", "TRAY_LEAK_DETECT=
+22_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT23_N_BUF_R", "TRAY_LEAK_DETECT=
+24_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT25_N_BUF_R", "TRAY_LEAK_DETECT=
+26_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT27_N_BUF_R", "TRAY_LEAK_DETECT=
+28_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT29_N_BUF_R", "TRAY_LEAK_DETECT=
+30_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT31_N_BUF_R", "TRAY_LEAK_DETECT=
+32_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_leak_io_expander2: gpio@19 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x19>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <46 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_LEAK_DETECT33_N_BUF_R", "TRAY_LEAK_DETECT=
+34_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT35_N_BUF_R", "TRAY_LEAK_DETECT=
+36_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT37_N_BUF_R", "TRAY_LEAK_DETECT=
+38_N_BUF_R",
+> > > +                     "TRAY_LEAK_DETECT39_N_BUF_R", "TRAY_LEAK_DETECT=
+40_N_BUF_R",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "";
+> > > +     };
+> > > +
+> > > +     legacy_small_leak_io_expander0: gpio@1a {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x1a>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_SMALL_LEAK1_N_BUF_R", "TRAY_SMALL_LEAK2_N=
+_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK3_N_BUF_R", "TRAY_SMALL_LEAK4_N=
+_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK5_N_BUF_R", "TRAY_SMALL_LEAK6_N=
+_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK7_N_BUF_R", "TRAY_SMALL_LEAK8_N=
+_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK9_N_BUF_R", "TRAY_SMALL_LEAK10_=
+N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK11_N_BUF_R", "TRAY_SMALL_LEAK12=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK13_N_BUF_R", "TRAY_SMALL_LEAK14=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK15_N_BUF_R", "TRAY_SMALL_LEAK16=
+_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_small_leak_io_expander1: gpio@1b {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x1b>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_SMALL_LEAK17_N_BUF_R", "TRAY_SMALL_LEAK18=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK19_N_BUF_R", "TRAY_SMALL_LEAK20=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK21_N_BUF_R", "TRAY_SMALL_LEAK22=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK23_N_BUF_R", "TRAY_SMALL_LEAK24=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK25_N_BUF_R", "TRAY_SMALL_LEAK26=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK27_N_BUF_R", "TRAY_SMALL_LEAK28=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK29_N_BUF_R", "TRAY_SMALL_LEAK30=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK31_N_BUF_R", "TRAY_SMALL_LEAK32=
+_N_BUF_R";
+> > > +     };
+> > > +
+> > > +     legacy_small_leak_io_expander2: gpio@1c {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x1c>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <44 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_SMALL_LEAK33_N_BUF_R", "TRAY_SMALL_LEAK34=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK35_N_BUF_R", "TRAY_SMALL_LEAK36=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK37_N_BUF_R", "TRAY_SMALL_LEAK38=
+_N_BUF_R",
+> > > +                     "TRAY_SMALL_LEAK39_N_BUF_R", "TRAY_SMALL_LEAK40=
+_N_BUF_R",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "",
+> > > +                     "", "";
+> > > +     };
+> > > +
+> > > +     legacy_pwrgd_io_expander0: gpio@28 {
+> > > +             compatible =3D "nxp,pca9555";
+> > > +             reg =3D <0x28>;
+> > > +             gpio-controller;
+> > > +             #gpio-cells =3D <2>;
+> > > +             interrupt-parent =3D <&sgpiom0>;
+> > > +             interrupts =3D <42 IRQ_TYPE_LEVEL_LOW>;
+> > > +
+> > > +             gpio-line-names =3D
+> > > +                     "TRAY_PWRGD1_N_BUF_R", "TRAY_PWRGD2_N_BUF_R",
+> > > +                     "TRAY_PWRGD3_N_BUF_R", "TRAY_PWRGD4_N_BUF_R",
+> > > +                     "TRAY_PWRGD5_N_BUF_R", "TRAY_PWRGD6_N_BUF_R",
+> > > +                     "TRAY_PWRGD7_N_BUF_R", "TRAY_PWRGD8_N_BUF_R",
+> > > +                     "TRAY_PWRGD9_N_BUF_R", "TRAY_PWRGD10_N_BUF_R",
+> > > +                     "TRAY_PWRGD11_N_BUF_R", "TRAY_PWRGD12_N_BUF_R",
+> > > +                     "TRAY_PWRGD13_N_BUF_R", "TRAY_PWRGD14_N_BUF_R",
+> > > +                     "TRAY_PWRGD15_N_BUF_R", "TRAY_PWRGD16_N_BUF_R";
+> > > +     };
+> > > +
+> >
+> > ...
+> >
+> > > +
+> > > +&mdio0 {
+> > > +     status =3D "okay";
+> > > +};
+> > > +
+> > > +&peci0 {
+> > > +     status =3D "okay";
+> > > +};
+> >
+> > Ah, so the earlier peci node is redundant. Can you please remove it?
+> Got it. I will remove the redundant peci0 node and ensure all nodes
+>  are strictly sorted in alphabetical order in the next version.
+> >
+> > Andrew
 
