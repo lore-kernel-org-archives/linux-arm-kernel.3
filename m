@@ -4,104 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FBC6CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C99CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 15:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cNEYJ0/3OL6V5KtaRvLweTOXbANv4SgmKSvooy29LIM=; b=zLwKX8NT+q87zku9WhpR1Z48tJ
-	1ZWz9/a0mz16uACigwqfZFem4nDzCaafydIA4Bv3sdkqmKkdwp7Ctwo/wXzqQKv0fSezbnkiGmGWb
-	6v4kNkYolEkCN7vSufPW6covrSENAkz1KzgOdySrcgxP27xe0zq+TCcss1TkxB7sfmxgaXJ0eeQ+k
-	48LWafiSEylohGUWYtp+1yGiwE5+XvkGMh44OKVm0d2PH6VLisz+cVBAg6kbuNSy+b1yMuPyKWsh1
-	PWVhkuLM3EJ8a5EZ9AASnObq15vUS1KRv66POEC38dp1ZUH65UsmOnodbrOi5t9fWWBrSYZ3KYuvO
-	zZLDEE9w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q6ZybV9ffBO+bF3KFjdl75FHenuA3vvB4POjGhUbYG8=; b=KTKp/2jyg8ODKjhpofoybk7xoN
+	PxGCQZNJ1PlLIk+OkGoONUdmSl7vsDXOUKZ2yFYvzYqHWjm3coQyB+JHBvHTdiI6KUCBMk2LoRndm
+	Zvz3uyZKqTYrhwJmKNgFCLKQLSuj7237xlPBgFRYWYQrCz1eWXhVFJdNUpyGOXoSGrO3aE+TNKosH
+	6XZ9nkCxkyJ8zlvq/orqES9XOAvY51DEkynaARlHV/+rz62NyJWFlDS9mOcXAHigj3ClYfmzWY1DK
+	MDz1RUCUhh7O09AGt+cFEHWVqzAmLBKq6dlqAmH14EYbdp67/ENZv7Mqav0BxhiIJPxTZnfQ35ITZ
+	y/k8tvNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMeE-000000026My-1jdM;
-	Tue, 19 May 2026 15:46:22 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPMeC-000000026MS-2aRI
+	id 1wPMg8-000000026az-2amE;
+	Tue, 19 May 2026 15:48:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPMg6-000000026aV-3CVM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 15:46:21 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-48fe26a177cso27700165e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 08:46:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779205578; x=1779810378; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=cNEYJ0/3OL6V5KtaRvLweTOXbANv4SgmKSvooy29LIM=;
-        b=K2Rvpo9HrF7L50IuWh9whgk7ULLNEbY/rfhO0tvA1Iq9qsi0upfsOjTZcklrLq0xU8
-         UGsHs4gYKmpbQwrY0oTRVmcUg0v3rShoFIqFM7LAa4oND/Ar5j31YinNf8QKJ2lz4E1Y
-         5pIlUDU4aqmfhlcOYVpwDx2gB1v8RrExD1bvzGiYYPuJhe0qTOZyXCDb+fwshj8r6vYR
-         33a9o0CyFoZqbK2hj5bd8rthGzHprBcICAtiCoJvlCE/t5HfVPt0hegy97utvv5Ap5hT
-         sKgTCLph4AAuM09kDdizz0SklrXkEI1sjBYl0zAsj6NUZ4ZBBNT/zl+8vj5MDvZNk5xc
-         WXXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779205578; x=1779810378;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=cNEYJ0/3OL6V5KtaRvLweTOXbANv4SgmKSvooy29LIM=;
-        b=LDwLheKd+FSbXl1DbQbdhpSlbQYqRq/swaBZSFWx0iyB8OJLIrcWtIN+WzBzN0hzMI
-         vck3SfZ9oQ8wpuo6C99D4SSkR+bxtXOoDlHSA4BVfs80CtqB5+09uOSieAqe6ZMUoiij
-         cApuBD0TyR4rgxJFDKbo6pvIG983MCA9rT+VnL/UUL4oFuq2i8O5Wev1kRloyXE7Z+rx
-         LUDQgiLGroAqvK7rhW1jrWkgmXouqU80bynDa1xq1Hz524zzrp7gR7PZAFBh+ghp6EQc
-         3H5I8m/efzIpcbD6UVkZA3lahgMo9FCCjCVH66N+mRkCVX5x+T4xJ+5lnCXKZUyH4Nx7
-         il/w==
-X-Forwarded-Encrypted: i=1; AFNElJ95pmUlu3hMjh70RhveiLovh6LJ+6QOk/96NCmNiXUuliwIP6hoDUQ5N02yzVOX8bpaR63i8xmL6et2GkQA+4J+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvlYo1XeW7G9rWV6jnp35/5myp7KHGkqyAXrxzb15P2KswXvae
-	l9tKksR5KLmzABHUUb69sHENe4Y2UGTMG3g5pkeg74J4AVrn3x8ArBXl3emVUHq6Rlc=
-X-Gm-Gg: Acq92OGoEyXEYUHCDzJHRCqZwo6hpBiJ+k4/t0fpu4qQVOpYPOW819CSdecK36WQ/eU
-	18EmUzTLpzogUzNrrbx0C9VlikZW1FEWQVmHhU4nXHO1IIWHpITEbKJA+hI416nCaJvOTNfgwda
-	+O9qafDg62mNr82TaeX3CjqnWc0mm1WMELlcGBl6InspafhqG+N81sGzerXgs5SQhE1dcTtlKlI
-	rL820bSp62XCHxMag6ZmmlF3R6vahkUc7sy40TkiJm/lnnuxHc1I/AZEL/eDteWtUKpIq8oecUD
-	Vko/hlVDRx6aR4Rf0BimQ4gzH4tCN1fuCzJ+pZv0IcBRXA3WHY8iZAW7Wv0ZdGh85aVg9Su3beG
-	/MPIa1zzpHux2GiTumMnrSHGuTmVFE9fnwn72Njyp8v+SXaDmwmdux6NskmXfv4KeZETc/flrTp
-	CKAQJy1+ppX4A858oDwTCXm4rUN4DeOMA=
-X-Received: by 2002:a05:600c:34cc:b0:48e:60a3:220a with SMTP id 5b1f17b1804b1-48fe59af1cemr336906785e9.0.1779205578122;
-        Tue, 19 May 2026 08:46:18 -0700 (PDT)
-Received: from [10.11.12.109] ([82.76.215.73])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe4862209sm333119405e9.0.2026.05.19.08.46.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 May 2026 08:46:17 -0700 (PDT)
-Message-ID: <73f18a2c-e729-45d7-9376-7c0e60ed35c7@linaro.org>
-Date: Tue, 19 May 2026 18:46:14 +0300
+	Tue, 19 May 2026 15:48:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38E9E1682;
+	Tue, 19 May 2026 08:48:12 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2725E3F632;
+	Tue, 19 May 2026 08:48:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779205697; bh=pQR0h+3TV82ZXu9JbMLqnWp60TwJw+934MZ9CAfLymk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=WKYdvX4cW+aWIq0y6DNBIDu/0sQax1E6W2Wults7ZQi3sRbN659aZXsKvcgIEzSf8
+	 1m6JHyJLPpjzcKO3bksMkpgJaSOzRIqO/TkY/a4tz7U3WQCZmh7/3L+xi+OPVyUSJw
+	 tc+orqZQtEdN9LDoCSPpHMe7Syle4+OGiThQVaN4=
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: suzuki.poulose@arm.com,
+	mike.leach@arm.com,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	leo.yan@arm.com,
+	jie.gan@oss.qualcomm.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v7 00/13] fix several inconsistencies with sysfs configuration in etmX
+Date: Tue, 19 May 2026 16:47:59 +0100
+Message-Id: <20260519154812.254884-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] firmware: samsung: acpm: Add TMU protocol support
-To: Alexey Klimov <alexey.klimov@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Lee Jones <lee@kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- peter.griffin@linaro.org, jyescas@google.com, kernel-team@android.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
- <20260506-acpm-tmu-helpers-v1-5-a9cd5daf8355@linaro.org>
- <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
- <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
- <DIFVKM72KZDI.14EVGUMQ0NV9S@linaro.org>
- <a55690fc-7727-401d-9b3c-06bf3c2852d0@linaro.org>
- <DILRJBWU9SKV.2P7EJN7ECEJB7@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <DILRJBWU9SKV.2P7EJN7ECEJB7@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_084620_683600_4961283D 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20260519_084818_881620_F6FFC5B1 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,31 +73,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Alexey,
+The current ETMx configuration via sysfs can lead to the following
+inconsistencies:
 
-On 5/18/26 2:24 PM, Alexey Klimov wrote:
-> Thinking further about this I'd humbly suggest that even
-> 
-> 	if (fw_err >= 0)
-> 		return 0;
-> 
-> 	pr_debug_ratelimited("ACPM tmu call returned: %x\n", fw_err);
-> 	or pr_debug(...);
-> 
-> 	if (fw_err == -1)
-> 		return -EACCES;
-> 
-> some debug message would do.
-> Perhaps we need some convertation, for instance as it is done in scmi
-> code (scmi_to_linux_errno(), scmi_linux_errmap[]). But I don't have any
-> data for mapping acpm errors to some human meanings.
+  - If a configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ between before
+    a sched-out and after a subsequent sched-in.
 
-I did that for the pmic helpers. I don't need any debug prints for
-gs101 TMU as I have clear instructions from firmware: 0 for success,
--1 for error.
+  - If a perf session and sysfs session tries to enable concurrently,
+    configuration from configfs could be corrupted (etm4).
 
-You may update it for e850 later on if you need it.
+  - There is chance to corrupt drvdata->config if perf session tries
+    to enabled among handling cscfg_csdev_disable_active_config()
+    in etm4_disable_sysfs() (etm4).
 
-Cheers,
-ta
+To resolve these inconsistencies, the configuration should be separated into:
+
+  - active_config, which is applied configuration for the current session
+  - config, which stores the settings configured via sysfs.
+
+and apply configuration from configfs after taking a mode.
+
+Also, This patch set includes some small fixes:
+  - missing trace id release in etm4x.
+  - underflow issue for nrseqstate.
+  - wrong check in etm4x_sspcicrn_present().
+  - missing call of cscfg_csdev_disable_active_config()
+
+This patch based on coresight tree's next
+
+Patch History
+=============
+from v6 to v7:
+  - rebase on coresight/next
+  - add ETM_MAX_SEQ_TRANSITIONS define
+  - remove redundant patch relavent cpu-hotplug as coresight-pm patch
+    merged.
+  - https://lore.kernel.org/all/20260422132203.977549-1-yeoreum.yun@arm.com/
+
+from v5 to v6:
+  - fix missing of calling cscfg_csdev_disable_active_config()
+  - add rb & fixes tags.
+  - add ss_status field in etm4x_drvdata to expose STATUS and PENDING bits.
+  - https://lore.kernel.org/all/20260415165528.3369607-1-yeoreum.yun@arm.com/
+
+from v4 to v5:
+  - add rb-tag.
+  - fix underflow issue for nrseqstate.
+  - fix wrong check in etm4_sspcicrn_present().
+  - remove redundant fields on etmv4_save_state.
+  - rename caps->ss_status to ss_cmp.
+  - fix wrong location of etm4_release_trace_id.
+  - https://lore.kernel.org/all/20260413142003.3549310-1-yeoreum.yun@arm.com/
+
+from v3 to v4:
+  - change etm_drvdata->spinlock type to raw_spin_lock_t
+  - remove redundant call etmX_enable_hw() with starting_cpu() callsback.
+  - fix missing trace id release.
+  - add missing docs.
+  - https://lore.kernel.org/all/20260412175506.412301-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - fix build error for etm3x.
+  - fix checkpatch warning.
+  - https://lore.kernel.org/all/20260410074310.2693385-1-yeoreum.yun@arm.com/
+
+from v1 to v2
+  - rebased to v7.0-rc7.
+  - introduce etmX_caps structure to save etmX's capabilities.
+  - remove ss_status from etmv4_config.
+  - modify active_config after taking a mode (perf/sysfs).
+  - https://lore.kernel.org/all/20260317181705.2456271-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (13):
+  coresight: etm4x: fix wrong check of etm4x_sspcicrn_present()
+  coresight: etm4x: fix underflow for nrseqstate
+  coresight: etm4x: introduce ETM_MAX_SEQ_TRANSITIONS
+  coresight: etm4x: introduce struct etm4_caps
+  coresight: etm4x: exclude ss_status from drvdata->config
+  coresight: etm4x: remove redundant fields in etmv4_save_state
+  coresight: etm4x: fix leaked trace id
+  coresight: etm4x: fix inconsistencies with sysfs configuration
+  coresight: etm4x: missing cscfg_csdev_disable_active_config() in perf
+    enable
+  coresight: etm3x: change drvdata->spinlock type to raw_spin_lock_t
+  coresight: etm3x: introduce struct etm_caps
+  coresight: etm3x: fix inconsistencies with sysfs configuration
+  coresight: etm3x: remove redundant cpu online check on
+    etm_enable_sysfs()
+
+ drivers/hwtracing/coresight/coresight-etm.h   |  46 ++-
+ .../coresight/coresight-etm3x-core.c          |  96 ++---
+ .../coresight/coresight-etm3x-sysfs.c         | 159 ++++----
+ .../hwtracing/coresight/coresight-etm4x-cfg.c |   5 +-
+ .../coresight/coresight-etm4x-core.c          | 379 ++++++++++--------
+ .../coresight/coresight-etm4x-sysfs.c         | 202 ++++++----
+ drivers/hwtracing/coresight/coresight-etm4x.h | 195 ++++-----
+ 7 files changed, 592 insertions(+), 490 deletions(-)
+
+
+base-commit: a5dd853fb7774c9543aed272a8614c15ebce3173
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
