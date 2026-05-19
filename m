@@ -4,79 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A010CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:35:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8182CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UKwXDW+7hb58mPBed45GUx0hIJvFOx7kJoYQzf+VD4=; b=sTKZsFFTAZBi0y5LIx/MGybIw8
-	ZC1DWXaGUGstfms+MIb4LLwiCorbmP9rmo7ZDaB7SrECmx+GkKF14Y2P9XbnhdwDKbepyKmIKQyhm
-	060dCwnwfV1MICchIxki5PvcFR7o+diAp3wDHeBHY/f+/f5q/XtueIRjStulAaMKeMXUKJlvhUtvB
-	0VOZDVeLfqPhPzaCehUkVMSrh/ij+S7e9qzuww5UZy0UIKhMdwOSZu/x4EppH1SWmErXdabz6DUfy
-	4dYYrsZ8SrnMx9Bvjogoixwd97a3SM3cn+m5OJ3s0khS10fW9/FWqxFjWDv7Ai8KJrQqXV/Vd8Uv6
-	U0uQmtnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=naZwd1JZSyBYhgd7minIyu1AvCdnzPklhz+cjyeWltU=; b=4HJE2J4ASeg3YxzOub0/wqwpaq
+	jb8foZbAufkdiyVksAvBbnJKVRxrNklakbv7q8wF1g9cLVaAk+AFDOC2xq/Fl24zTKnJPs+lsZY7z
+	1hBk6xIgsF+YEvRbo0Ux2ECXDpu/a5S8nIY95mmne4adOx8raZmgi/vuM0EuHttYL+PpUNCyJiuug
+	UCXM5ydVQgBDsn5xTF7cqNmijb06RCUa4sn3Ba+qdJ64VIHg1gzC3Lw4tvlwyRDYDWRBte19pRzcC
+	6RTvuR4ho8Vc+ckOwd0JQSe3fNfnRx6/urGaiLVzJkSz+wdSCWestui0T+iFiloGJ7vl1aAB8K7ex
+	j3vZu7vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPD7A-00000000Cxw-11mO;
-	Tue, 19 May 2026 05:35:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPD9H-00000000DFw-2fEz;
+	Tue, 19 May 2026 05:37:47 +0000
+Received: from mail-northeuropeazon11010064.outbound.protection.outlook.com ([52.101.84.64] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPD78-00000000CxX-0OOK
+	id 1wPD9D-00000000DF1-3jeJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 05:35:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 67EB1405BD;
-	Tue, 19 May 2026 05:35:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1908FC2BCB3;
-	Tue, 19 May 2026 05:35:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779168933;
-	bh=rP9RzIPHI8dCnBjHtIv/y8xFe4w0kc8tSuhI6pYZh4E=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=TmPhvEP+EV1rsncpjT3wPHyPBm6X0H7DE38LSE7TRfUiD5uiNuDbbf7Z6GIY/J732
-	 tZYU5Zrf3nKGmTdXvGkjcZcmPIRzURLUPo5iW/o3kWpNhrz9Imr6pqGQqKH02OT5bi
-	 GV94tpcX+G0ea47kVAEDqwuSbgGGThL2N9O02eY+CkNRCbfXyGSJx3JJdyZRcz8VQC
-	 8BFrVXYCoeDYNgFTJtGTOr37P/2r7jd7JI6DvO8qdQ2liiPnOwnZZpdLRaZhUmvu71
-	 bfbViwK+gz3rGm/kdTYVhKjKbSvqEvHnnUwjhnXGua5wLHunAkaiJn8z2X35XQP2pF
-	 G0npnvxEopUSw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Tue, 19 May 2026 05:37:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M8fpBF/Ob9oyXhQfG08aDqjv/ipVcP7L2LjOKethnxX/+jGgcR5F80HJ2LYTteGbNKozSucZNYNBd12tdkBUJCIo0rZvkTS0yTUiYHwRIIX6UhJUBOfIOH5XLjFdGQWLrqWT1cL7a3Co+pbAFnld9Jk3DueyljXI+OSFahbZcER2QGmEccICGiDzYthVl61Lgb035oxJeF/gdPHAmSvSf6YonwhVXI2LZ2l6py3baAKGSX2P3Na/mp4ey4nadL03nvDvqPFsJJEwpNpJURD9YcpQ6ixx1P8VfSyaB4ZDUZc9EVYxE27Mle+mgwL98ujks+2p3dVL3CUcEplKQf3LDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=naZwd1JZSyBYhgd7minIyu1AvCdnzPklhz+cjyeWltU=;
+ b=MNbDVxDQaZjQNG4voqA+PGLIFKtX8DgCwc1fzKgpuk14QtXQczFhH+fK6t1YLmDBtjvJUgL5mVlDNfr+mDzlCl0QVQ3xM30YlpxnlFQBxMswti89ItRtVA1bepKBfO7//APWFG8Zre7SjZ31M/fypIse81z0ZwyRUXW5rnQwDW78J2B6bIOlLbMsw3OWQayHUvDDoOaXU3zNeaIJY2b5bLLozI68DXuqCS+tcap4PbXwzzPYncgXnt8JMpxvW+I5NghE4SAcZ3esrjxEkL8QVhJO747vpv9Pyo3bTrhvWXiYHUG0Hi0UssWnz53UH9+VWs1pdqoWt5wB+vXlIoTf8A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=naZwd1JZSyBYhgd7minIyu1AvCdnzPklhz+cjyeWltU=;
+ b=PywDpHdtnNmEnGOpLxfxbIwWtMIAQFEuHOeM/bujr3SyYesQBXQglp3w+PbncHI8hhcVlFTVhjixNprpq0gbDGzPYsywEy+PUu0upzix9TVVJ/WTGNVr9IhHMfp8xJS0Y/J1cHhOUgeDDcXnYStulZnT+zEmoEJDuW6CZooaoVEvwNLKTyGmuv8QxG9sUALM5qiz3oK2E05wK39p9KKktV1k3qNygmMk+6an5OQLsFGokkGELY81Vqm1k+eZcb/TKJWhySGipS3MROH8ZsolMEuEszYpDOkK29bZbbokdHCKCwyKlHUF53I9B4xCA27GnYENI4t/Rcu/1Di4Z+lIsQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by PAXPR04MB9325.eurprd04.prod.outlook.com
+ (2603:10a6:102:2b9::11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Tue, 19 May
+ 2026 05:37:35 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0025.022; Tue, 19 May 2026
+ 05:37:35 +0000
+From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
+To: Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 05/44] arm64: RMI: Add wrappers for RMI calls
-In-Reply-To: <20260513131757.116630-6-steven.price@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-6-steven.price@arm.com>
-Date: Tue, 19 May 2026 11:05:22 +0530
-Message-ID: <yq5aecj8t10l.fsf@kernel.org>
-MIME-Version: 1.0
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx943-evk-sdwifi: add a new dtso to support SDIW612 WiFi
+Date: Tue, 19 May 2026 13:39:42 +0800
+Message-Id: <20260519053942.249129-1-sherry.sun@oss.nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
+X-ClientProxiedBy: MA5P287CA0350.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:21f::18) To VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0PR04MB12114:EE_|PAXPR04MB9325:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed79bd60-b264-45c3-1efd-08deb568bb26
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|376014|7416014|366016|38350700014|11063799003|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info: R1rHGNeYP+E8DxXOX6DUFqeEH8UY2jgVaLECUAjb8zauu3yecutHdbghLuEOMuA/nrPMVGyg14vHVg6dMcsb6c4i08J3w/wnDv+2nIGkwV+PGLtjg7yiR3f1sLGxFId5ZHnhoTFJjcsRzv68zUDUy+yFnSUsT6imvcESr2i3lpIIzcafR+7EBQ/ogxs8taLHQK7bP7m83gMeZVm7iCZGBG5rSPILwISOFDiuTrXLQWNjRNUhOzO1vlxKLr11OvWK1YH0/1l6OrALoSFBV8XPj17zGP5cAJlty4zEuX1pHcGJnYCNMPCOpXd6yqT3FvkVIokx8pQnQg63uRPlulR6pgaATYyE36E92SyM62qgwU9MAi1XHsfgDI1J+xBV2UMfdQhlUSZHOYv7Q4Z8B/VwqRaodT+Md6Yvc4vQxgezxBIoXOVurV6evyvV4B+kFZpXHGQzSYRVDz+srwyCosd/oFn5r/o43/Wrfr+BLMVcvbNrM5ex/WtAv06+qJqBg2uvAHBV5trXyTIg1dOYC/nhNAHDxCGeNEoVlwnV0Q4zamDnQzSUQ2FdP6mn+pNsKI6smSTxphVtBp7NtZ0df315HXYLpJnsKywXr9oIoRTlFds2TGMIeTS2DxH6E0uEW3axqSECkfBejlYCE/EJsa2nvDnlmqxFkCo9hXcFqjb/gRighXpB9RSVP13nvNVyIaZnIwQR3JZk91glmDxMny6UKWFlhVkTPG3iBiMe2X5VXttV/xjXvxKtfP8iHiFyPIsS
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(376014)(7416014)(366016)(38350700014)(11063799003)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IWhetETBKXp93FmFMMNJbBTkyxwxgxOyebTLrFoakG57dDLx2dV7ROQG1lKy?=
+ =?us-ascii?Q?uuU7S4gn6Mcoi50GdOF74cBBecRPlPSE8I+TJN4b4r6iCQBANUOAepEfuT4g?=
+ =?us-ascii?Q?d6PC6RbMph6hFT4w5NnLx0wvzijSCipKVWifWkrrQQ5PlWV2Q8ugmvMoy4zo?=
+ =?us-ascii?Q?tD5zjrdJW5GKW3mmLn9XqLGR2p1VtbRcU98Hc0vHtQ6e51CK9R+Fh2xIPROw?=
+ =?us-ascii?Q?9t2jBwiGZq8nKf1tl5+n6UB4w5QNP3cU3ygpy9vLLnyte7KubO9nZGaefXby?=
+ =?us-ascii?Q?MoyOaXeC5mBYhgP6uzg8EQAl+8EyAbsczB3/OvggUzWjonlqITfIW/yPkE6X?=
+ =?us-ascii?Q?wpQhHaFaHhJx8lo3x2WkjNVwJeKYusb39bMWawW+/pRpPuxLTaXjoDAUcbfd?=
+ =?us-ascii?Q?/YZJtYckjb0ZQoJQrdAI6Ygfk1A78GvOBNVe0tfdq/E97TJAj0xC7S/dMvtV?=
+ =?us-ascii?Q?JrBwQkC0EmI7jHsV54l7FevAnGq7B217F3WZeVaxqaZu5vs+E65BwTzOF6Um?=
+ =?us-ascii?Q?g0NV/HQNqZUbposV0cPxpUx4ke4yF0Kfv+z7TioZB79rmleAzsPTpEiXA1bC?=
+ =?us-ascii?Q?USE01QH/M4pSggan6JzMONayN9UAbzmO3uXppde7WRaKDz6Vi9Mm7pp5e8pm?=
+ =?us-ascii?Q?4SocbbtNigYwbjzky0ClC10uWN01L7ziv4ecS7oWxH4/6QNLZXwtaQYmv6wi?=
+ =?us-ascii?Q?LOcL++kGrATEGkbLF26TyiFwvBoMKsu4mEBWMLi3Q9xVMZ8ijQdn3TPOaJ2m?=
+ =?us-ascii?Q?jjHoMalpg7NIuNcjYNTfmreTA60hJHYg9juozuzFBrwtQ/kcLa7l9sBO6YOV?=
+ =?us-ascii?Q?ck5IssYQFa9pj0GodhXh2GbduNgdJpcVtm0oT3YO/3MEQUvXPdrC47jQpWgJ?=
+ =?us-ascii?Q?TzosbUUThkVt62gGgsbRAHAcqecycFrSC7ZcrZGBQRXrwtinms9dE20ZYcev?=
+ =?us-ascii?Q?22BnSJYWkFcnKcNlmNrnA+n79ddchK7VBbDihPvWNyf22WiUGkDP+l56afwn?=
+ =?us-ascii?Q?/w5APzavrAMy4sQ8jWJSnNfj11ZZ/euEPrxchoEvNBuyzBvRgl3AomZCF1rZ?=
+ =?us-ascii?Q?mSHkDNLZoF+2kzLxEw8Zr3m0tmEIh2Vpe+3sA40Luxr6KN2UNUfaPMSZ5fF2?=
+ =?us-ascii?Q?Ep5ptORDUhpRaRwgEE+x2pDLthfF1e65lsKxr6ytySBMrnrExNtB98pWK3ZY?=
+ =?us-ascii?Q?fMWj59mKpP5wnMQ0zzHvxidO1qKC+BHYfiEAIiEEFpRtFS/XdOgRG3Knrabk?=
+ =?us-ascii?Q?GNTO2TbAxjSkh0LwiNrMqDezaMy9Vb8B89KdmJnhRYeqQZNbnu4utNDgXMCZ?=
+ =?us-ascii?Q?r6ZbT7KMwThVJgrGv3UlZjGGUr1Pr35CH4QxPZd6Ji0i447oy796+M9Vf2k2?=
+ =?us-ascii?Q?nOrJcnQt3JU7hqS/wgLKAOzRKyewXYfSDABB2yu0PQbBB+WlH8LZZwNnAIWl?=
+ =?us-ascii?Q?tpHk3VNVbrK8+Ned04rSPk1Kjqj2qwaMf/YQloRsw/BGxlISMVyC6XOmfwgP?=
+ =?us-ascii?Q?DQBRd1n3ujYzlYF1077MB+9udVAqzA+SMCjqDL0Bw6HkXmUDDYiTkJxpKEUd?=
+ =?us-ascii?Q?magfoHD8c55wom+Rka5eeSoIsyJJaF2nlVwLbelnzY36udJ6qsKy8j/2vcuW?=
+ =?us-ascii?Q?HKDv4cfZ1iDbrcpUG899iqwJj8gfVmQw2PEOPRIWJXfNhdANfk42W/Yf+aPv?=
+ =?us-ascii?Q?PJH5kEViCPJFf/5BRF84hMPykFUjTseUA4YL7FRU23CCIoeqv6mAogm79yyn?=
+ =?us-ascii?Q?6wn+aPw2xQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed79bd60-b264-45c3-1efd-08deb568bb26
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 05:37:35.7268
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AdUnYMuBXiqmaqUGLdb8nzgqvm8NPdxU8uTReCeGmwsmng10G8R5SHIp5NFr/t6B5y6Kt0LkC310/JILjuMvxA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9325
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_223534_152714_F9B8CDE0 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260518_223743_942376_6C3420AC 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,20 +144,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Steven Price <steven.price@arm.com> writes:
+From: Sherry Sun <sherry.sun@nxp.com>
 
-> The wrappers make the call sites easier to read and deal with the
-> boiler plate of handling the error codes from the RMM.
->
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> +#define rmi_smccc(...) do {						\
-> +	arm_smccc_1_1_invoke(__VA_ARGS__);				\
-> +} while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
-> +	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
-> +
+Add a new imx943-evk-sdwifi.dtso to support SDIW612 WiFi chip on
+imx943-evk board, the default imx943-evk.dtb is used to support PCIE
+AW693 WiFi.
 
-I guess this is not used. Also, that would require the call site to have a struct arm_smccc_res res.
+Use separate dts for SDIW612 and PCIe AW693 WiFi to avoid the shared
+regulator between SDIO and PCIe buses, the random probe order between
+the two buses may break the PCIe initialization sequence which cause
+AW693 has probability of failing to detect.
 
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/Makefile            |  3 +++
+ .../boot/dts/freescale/imx943-evk-sdwifi.dtso     | 15 +++++++++++++++
+ arch/arm64/boot/dts/freescale/imx943-evk.dts      |  2 +-
+ 3 files changed, 19 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso
 
--aneesh
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 0a4dabac5de4..657e0915ca69 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -516,6 +516,9 @@ imx943-evk-pcie0-ep-dtbs += imx943-evk.dtb imx-pcie0-ep.dtbo
+ imx943-evk-pcie1-ep-dtbs += imx943-evk.dtb imx-pcie1-ep.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx943-evk-pcie0-ep.dtb imx943-evk-pcie1-ep.dtb
+ 
++imx943-evk-sdwifi-dtbs := imx943-evk.dtb imx943-evk-sdwifi.dtbo
++dtb-$(CONFIG_ARCH_MXC) += imx943-evk-sdwifi.dtb
++
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso b/arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso
+new file mode 100644
+index 000000000000..59cc1c27b9b9
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx943-evk-sdwifi.dtso
+@@ -0,0 +1,15 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2026 NXP
++ */
++
++/dts-v1/;
++/plugin/;
++
++&pcie0 {
++	status = "disabled";
++};
++
++&usdhc3 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+index fe4fc512d95d..1346a6a56883 100644
+--- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
++++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+@@ -1153,7 +1153,7 @@ &usdhc3 {
+ 	keep-power-in-suspend;
+ 	non-removable;
+ 	wakeup-source;
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &wdog3 {
+
+base-commit: 5f9e9f83aee0fa8f2124c6f192505de2cdf7c5dc
+-- 
+2.37.1
+
 
