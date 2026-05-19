@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF475CD5BA9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:02:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E404ECD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RWXphynXEva1QU5MlNjAJspWGq7NF0t3Fti2JEJUh5c=; b=4+8DsZDwOzOtuPOSM+E4KP0Tal
-	iAX9SEaejEO6/akPAaLRPKGIIbCzmfuBzxvXKdFImVMVuRwGTJeIbkxGmu0Cp3g8ngxxe561w1E2x
-	z/VQbjq/+JPG2fNqQIkBarxWGaveyGlO6bm8GBFLuJoK8GgYnJduzYtN6ryDXa8zdNUQVpmiodFYF
-	qgkaQJudyIkZSQjW2cibXflDspmYP9FL/MCP/IQdnySv8mi1OBc4apwaY7ztMduB7lRY75h4jEHup
-	r6hL9GCpjRvtIO6tVIeaMfrn9BppYw4QrYm98HeudZkHeIAqeGzBCTP0/iBunRC0IrZZEj8jCWrVd
-	Mp6SyiKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CrigC20nd8UA32B5f6ZhE33n1HPv41Ag+a4xch3uSkw=; b=Za6XNG0VpAKNHtdQwFF4g/hyrR
+	xVQjRhelxqiyuKtEjucFIvRMDUpO/0hyXI2HvhKEYf3rHm+Ww6mmhxy+XeVvlzVWrCHd8UHttsA+r
+	W+iWImr/J47hCqHIXPDv7xmlOtnmGYCWvo9WsZuxpf2P8vLDmnjukYL4Aw2GqUXRGKgMbz76K3D67
+	EIGiV2GduNc5+pixhemqH5CiTTiLLNSHPByMIRdB8dJnJJbl6n3C3kwAiWsoaOhFjZzoOa8t+66Ug
+	/0BVQzPNJTIycHzIBg1OkVCJlEA2TrXYyI3iDDoXdpbvZfPssPUZOlRckbjNfe2+d36dsmT3L4+50
+	WFjME/+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGLU-00000000oMq-0HWR;
+	id 1wPGLU-00000000oNh-1Xxe;
 	Tue, 19 May 2026 09:02:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGLI-00000000oDf-2ctg
+	id 1wPGLM-00000000oHw-48uu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:02:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4B681438E8;
-	Tue, 19 May 2026 09:02:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68C59C2BCB3;
-	Tue, 19 May 2026 09:02:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779181344;
-	bh=+FwSG1hlg7MTNqbAOkk9ReNx69b57yw8164zI/GpPzc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GJJuESuuTJSD3Xy+RXwiOWIpi3eO79nEAXdWyS+c6Gd0LN0wvbuI+nayeQFi27vPl
-	 5VEDlsje8AxDEB1stb7w3RMVZ3yX8ODw++5dyefJ+KNDil4+G3dcyp4UCmzZRfkJ3m
-	 +mjgAfEo40bv7I0wUZxlVVN6HR4Sue4bNe5+0ihgOrj69WRq6kFAHrQ+NYecWBJyXq
-	 FFgMk4gHsXCSy/S70Xvcv4m1K8LrPoznqORald8Ug/43mtkr+aRsxhtZUr9eqEei8x
-	 3U61YjJZw9sRUhwJ1X0DgCv4awOO+Wo3nTY3wMxxXJLhoCq7NEoh1WuLq8XhAVY+mA
-	 B5h64F+VMA93Q==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 19 May 2026 11:01:48 +0200
-Subject: [PATCH v5 06/19] drm/colorop: Rename __drm_colorop_state_reset()
+	Tue, 19 May 2026 09:02:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1779181348; x=1810717348;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=jMsgCKlmkEe87bVAn7RqMCuhljgwv9IJFsxQpoWrUvM=;
+  b=z21DReGMxzbNtibI7Vm/xnKogX3T71X1IZla+OsOM9eruRuFht6E/VlI
+   +KoEnnMmDSg9DU5tkEVDpFD9Ud/BDkqRaX/LnKo8xkwi1xCdjiU8DwjUz
+   dnUBEmq755vz+3eurAv1EMiwhX2j1rQROM0lowm6U/BsgOYOeU2Dj2vmI
+   LufjclPBoHZ0e+fUDMuDUJEqBta6CFrMeX4+7l8sMTM1uJ+C38hWnNIt/
+   I8G+auzxTOHTLH0W/vizXRv/SoMpDGYEryL4kfYnrlbHRBaA/N4Ibs82k
+   5juOBgFOMCieDAgH19dO6JTIWZDdQj/lPcookjM9tE3iVJKfPvPAb74mP
+   g==;
+X-CSE-ConnectionGUID: UhwUzNcxQYenxhztrBU4xA==
+X-CSE-MsgGUID: sBXINErWS3GRAFZWhBEO9Q==
+X-IronPort-AV: E=Sophos;i="6.23,243,1770620400"; 
+   d="scan'208";a="289088359"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 19 May 2026 02:02:28 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 19 May 2026 02:02:28 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 19 May 2026 02:02:23 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: <manikandan.m@microchip.com>
+Subject: [PATCH 6/8] drm: atmel-hlcdc: add XLCDC clock bypass support for small dividers
+Date: Tue, 19 May 2026 14:31:33 +0530
+Message-ID: <20260519090135.1188405-7-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20260519090135.1188405-1-manikandan.m@microchip.com>
+References: <20260519090135.1188405-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-mode-config-init-v5-6-388b03321e38@kernel.org>
-References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
-In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2371; i=mripard@kernel.org;
- h=from:subject:message-id; bh=+FwSG1hlg7MTNqbAOkk9ReNx69b57yw8164zI/GpPzc=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk8ar9Z0xL2xTJ4iAZeOTrzXqhCw1lB6VucygsWujx+t
- HSNmMeijqksDMKcDLJiiixPZMJOL29fXOVgv/IHzBxWJpAhDFycAjCRpAeMDV+tXgtoPxBU5ZuV
- /MODZdqqkxsNGYqS72x6e8TXPEwvt/PO6yItv1NBPDf2Xf31IMw6hLFh4y990/LqttlfGaPeBmb
- q55zeFXb77B+OkxEhT+0qf52ZJCezo7DyKed8QwMTLeXTKpYA
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_020224_736820_8D227C24 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260519_020229_035651_288CE5FA 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__drm_colorop_state_reset() is used to initialize a newly allocated
-drm_colorop_state, and is being typically called by drm_colorop_reset().
+Define ATMEL_XLCDC_CLKBYP and set the clock bypass bit on XLCDC
+hardware when the computed divider is less than 2, avoiding an
+invalid divider value. Non-XLCDC hardware retains the existing
+minimum divider clamp of 2.
 
-Since we want to consolidate DRM objects state allocation around the
-atomic_create_state callback that will only allocate and initialize a
-new drm_colorop_state instance, we will need to call
-__drm_colorop_state_reset() from both the reset and atomic_create paths.
-
-To avoid any confusion, we can thus rename __drm_colorop_state_reset()
-to __drm_colorop_state_init().
-
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 ---
- drivers/gpu/drm/drm_colorop.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c | 7 +++++++
+ include/linux/mfd/atmel-hlcdc.h                | 1 +
+ 2 files changed, 8 insertions(+)
 
-diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
-index 48d0b7ae3fc9..4c4d0a953e35 100644
---- a/drivers/gpu/drm/drm_colorop.c
-+++ b/drivers/gpu/drm/drm_colorop.c
-@@ -498,19 +498,19 @@ void drm_colorop_atomic_destroy_state(struct drm_colorop *colorop,
- 	__drm_atomic_helper_colorop_destroy_state(state);
- 	kfree(state);
- }
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
+index 6da428361c19..f837684654ea 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
+@@ -87,6 +87,13 @@ static int atmel_hlcdc_crtc_setup_clock(struct atmel_hlcdc_crtc *crtc,
  
- /**
-- * __drm_colorop_state_reset - resets colorop state to default values
-+ * __drm_colorop_state_init - Initializes colorop state to default values
-  * @colorop_state: atomic colorop state, must not be NULL
-  * @colorop: colorop object, must not be NULL
-  *
-  * Initializes the newly allocated @colorop_state with default
-  * values. This is useful for drivers that subclass the colorop state.
-  */
--static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
--				      struct drm_colorop *colorop)
-+static void __drm_colorop_state_init(struct drm_colorop_state *colorop_state,
-+				     struct drm_colorop *colorop)
- {
- 	u64 val;
+ 	div = DIV_ROUND_CLOSEST(prate, mode_rate);
+ 	if (div < 2) {
++		/* XLCDC: bypass divider when div < 2 */
++		if (crtc->dc->desc->is_xlcdc) {
++			*cfg  |= ATMEL_XLCDC_CLKBYP;
++			*mask |= ATMEL_XLCDC_CLKBYP;
++			return 0;
++		}
++		/* Enforce minimum divider for non-XLCDC */
+ 		div = 2;
+ 	} else if (ATMEL_HLCDC_CLKDIV(div) & ~ATMEL_HLCDC_CLKDIV_MASK) {
+ 		/* The divider ended up too big, try a lower base rate. */
+diff --git a/include/linux/mfd/atmel-hlcdc.h b/include/linux/mfd/atmel-hlcdc.h
+index 8e86219293b7..1463c7db0e64 100644
+--- a/include/linux/mfd/atmel-hlcdc.h
++++ b/include/linux/mfd/atmel-hlcdc.h
+@@ -44,6 +44,7 @@
+ #define ATMEL_XLCDC_HEO_UPDATE		BIT(3)
  
- 	colorop_state->colorop = colorop;
- 	colorop_state->bypass = true;
-@@ -537,11 +537,11 @@ static void __drm_colorop_state_reset(struct drm_colorop_state *colorop_state,
-  */
- static void __drm_colorop_reset(struct drm_colorop *colorop,
- 				struct drm_colorop_state *colorop_state)
- {
- 	if (colorop_state)
--		__drm_colorop_state_reset(colorop_state, colorop);
-+		__drm_colorop_state_init(colorop_state, colorop);
- 
- 	colorop->state = colorop_state;
- }
- 
- void drm_colorop_reset(struct drm_colorop *colorop)
-
+ #define ATMEL_HLCDC_CLKPOL		BIT(0)
++#define ATMEL_XLCDC_CLKBYP		BIT(1)
+ #define ATMEL_HLCDC_CLKSEL		BIT(2)
+ #define ATMEL_HLCDC_CLKPWMSEL		BIT(3)
+ #define ATMEL_HLCDC_CGDIS(i)		BIT(8 + (i))
 -- 
-2.54.0
+2.25.1
 
 
