@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D77CD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849EFCD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 10:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cT9F7VO3Mh/HgtfFN9iVa+SKSz+PTsYe1tSp0B8YcnU=; b=duR9FDESxl0q99q5yRk5wZmqYP
-	mOyO7mXw6OKDS/VwNTSPhKu5ZMwGZHafhNtI0kwK5rxbL0+TbF2DPrr9JLoXlTrq2toWEePloftjk
-	cvFDLCIk0sEPjrxZEXnc2RMVqKX8Dtu0Tc/sB3QmIMg/mXgJ37CsLQSgT9yB8hVnB6tyGRWYj5aUU
-	OPpig5BfRNd2VInZFi7BzA/g0n1+Cq9uJhzGtMI+g1ZYKA4YN1XPj0kRXtQgDy+yRD0WlX1664bU5
-	rZORZ4nL/XiZvkjczr2x7y6aq+yMuIV+5ECnyiHl0alXE/BCcHx9xTYvYUHP2gE2QX9R5l1I4Pldz
-	j3SIdNQQ==;
+	bh=+uYAZ5xpTdukFx6n1PPLkaWN4RJ0DPcWf9/7eQpm6NU=; b=DW4DiQcpKQ13k1DQkYPYpQp5a6
+	MFgv2bLHcGY5aIMQqc15GDJY47phQ/0cOmfj59SUCXyvuVLt/NREn1H2EaN9SpcfuSoB3PPsE4J2e
+	aHDUtmem99PSrvrNWtBNCdWY13MnHEqWEF7df7NMpldSsYHxNdRrXRKmsWeSNMgjRLAIPqyMHOwHT
+	kfPTkh6FT7wlgM6ONcuD/ewHmYnbwszg51O8uu1UL9m+Lxmjeuzt8A6VUnrSd5m5UYrAv8sEq/m1f
+	KOKxTH0CJFGHCq21yZoewYMFbo9ghWhoW8AeIJ3h2VxtNMj4Fm6tltxY9Qzw064qhovdnrplQSK+6
+	8hTgQFAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHHS-000000011kt-3iL5;
-	Tue, 19 May 2026 10:02:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPHHR-000000011kc-3SBq
+	id 1wPHJh-00000001256-0u1D;
+	Tue, 19 May 2026 10:04:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPHJe-0000000124c-36yI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 10:02:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E675560126;
-	Tue, 19 May 2026 10:02:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BDF4C2BCB3;
-	Tue, 19 May 2026 10:02:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779184948;
-	bh=5CY+IUXkmbYVoZqzVuKhQ3pZoZ4Pk6BK8MnYzDSzr7E=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=FCjRvMHJals+Nn6CQNjvcIFda8xr7o7GvV7HXOOaPv+oBEkbfHumyHVdTzBWmzMJX
-	 9y/9he4/VJ3Bs5eMQhEVcbDIlBmi+HBcoI12ORsQymuciY5S/osY3WzwQ2FjVbKMR5
-	 oM9V8EMF6BOeoyf0r4MV0B3CNksvJqT0q3VjjYBO6unRdMEaVHsdWzBQ1sXpEEendH
-	 /U/O6if5goDue3gM21oIUeqmenUE3zkhzrsVLvLMYrqjbA2aeQ3ghJeTj416jFfesO
-	 pskTY1BS6PFCLAXcdtu6H6hIbMztjmp6g8bGSBXOKRVvrP+CEcVaojmEzKq/SZF/aD
-	 hdsusPyjxEdkg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 27/44] arm64: RMI: Set RIPAS of initial memslots
-In-Reply-To: <20260513131757.116630-28-steven.price@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-28-steven.price@arm.com>
-Date: Tue, 19 May 2026 15:32:16 +0530
-Message-ID: <yq5av7cjsonr.fsf@kernel.org>
+	Tue, 19 May 2026 10:04:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 418112008;
+	Tue, 19 May 2026 03:04:40 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 76AE03F85F;
+	Tue, 19 May 2026 03:04:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779185085; bh=ch2K1is+ZokQ/np75YnpANDr6DrQEd/ob6OQOR/rCxM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RQlhvxXI4yYI0XE8Pwic2nBsFTHhpGvQZ/xyF0louoF6SuIJwF+hJmMH42wj+Fm9h
+	 rJqhd7Xv4zFUDZdl0sfLkJAkaXOO65sj8PWfGrc4lX3Oo0eCGUjZakEWbpjusDw+CI
+	 a524l2Z6XazJ19jH8N2oLpMYv30/PHqPm3ac0Zlc=
+Date: Tue, 19 May 2026 11:04:41 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/4] firmware: arm_scmi: Validate Powercap domains before
+ state access
+Message-ID: <agw1ueCQ0WjoBX7-@pluto>
+References: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
+ <20260517-scmi_fixes-v1-4-d86daec4defd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260517-scmi_fixes-v1-4-d86daec4defd@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_030446_884610_0A55797F 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,64 +70,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Steven Price <steven.price@arm.com> writes:
+On Sun, May 17, 2026 at 08:02:43PM +0100, Sudeep Holla wrote:
+> Powercap protocol v2 keeps local enable and last-cap state per
+> domain. Some public operations indexed that state before checking that
+> the supplied domain id was valid, and cap_enable_get() updated it even
+> when cap_get() failed.
+> 
+> Validate the domain before touching the per-domain state and only
+> refresh cached enable state after a successful cap_get().
+> 
 
-> The memory which the realm guest accesses must be set to RIPAS_RAM.
-> Iterate over the memslots and set all gmem memslots to RIPAS_RAM.
->
-> Signed-off-by: Steven Price <steven.price@arm.com>
+Hi,
+
+> Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 > ---
- 
- ...
- 
-> +static int set_ripas_of_protected_regions(struct kvm *kvm)
-> +{
-> +	struct kvm_memslots *slots;
-> +	struct kvm_memory_slot *memslot;
-> +	int idx, bkt;
-> +	int ret = 0;
-> +
-> +	idx = srcu_read_lock(&kvm->srcu);
-> +
-> +	slots = kvm_memslots(kvm);
-> +	kvm_for_each_memslot(memslot, bkt, slots) {
-> +		if (!kvm_slot_has_gmem(memslot))
-> +			continue;
-> +
-> +		ret = realm_init_ipa_state(kvm, memslot->base_gfn,
-> +					   memslot->npages);
-> +		if (ret)
-> +			break;
-> +	}
-> +	srcu_read_unlock(&kvm->srcu, idx);
-> +
-> +	return ret;
-> +}
-> +
->  int kvm_arm_rmi_populate(struct kvm *kvm,
->  			 struct kvm_arm_rmi_populate *args)
->  {
-> @@ -890,6 +922,10 @@ int kvm_activate_realm(struct kvm *kvm)
->  			return ret;
->  	}
+>  drivers/firmware/arm_scmi/powercap.c | 25 ++++++++++++++++++-------
+>  1 file changed, 18 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+> index ab9733f4458b..eb5c35cad026 100644
+> --- a/drivers/firmware/arm_scmi/powercap.c
+> +++ b/drivers/firmware/arm_scmi/powercap.c
+> @@ -453,10 +453,14 @@ static int scmi_powercap_cap_set(const struct scmi_protocol_handle *ph,
+>  		return -EINVAL;
 >  
-> +	ret = set_ripas_of_protected_regions(kvm);
-> +	if (ret)
-> +		return ret;
+>  	/* Just log the last set request if acting on a disabled domain */
+> -	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x2 &&
+> -	    !pi->states[domain_id].enabled) {
+> -		pi->states[domain_id].last_pcap = power_cap;
+> -		return 0;
+> +	if (PROTOCOL_REV_MAJOR(ph->version) >= 0x2) {
+> +		if (!scmi_powercap_dom_info_get(ph, domain_id))
+> +			return -EINVAL;
 > +
->  	ret = rmi_realm_activate(virt_to_phys(realm->rd));
->  	if (ret)
->  		return -ENXIO;
+> +		if (!pi->states[domain_id].enabled) {
+> +			pi->states[domain_id].last_pcap = power_cap;
+> +			return 0;
+> +		}
+>  	}
 
-relam guest already does. 
-	for_each_mem_range(i, &start, &end) {
-		if (rsi_set_memory_range_protected_safe(start, end)) {
-			panic("Failed to set memory range to protected: %pa-%pa",
-			      &start, &end);
-		}
-	}
+Yes, definitely better.
 
-if so why is host required to do this ?
+>  
+>  	return __scmi_powercap_cap_set(ph, pi, domain_id,
+> @@ -637,6 +641,9 @@ static int scmi_powercap_cap_enable_set(const struct scmi_protocol_handle *ph,
+>  	if (PROTOCOL_REV_MAJOR(ph->version) < 0x2)
+>  		return -EINVAL;
+>  
+> +	if (!scmi_powercap_dom_info_get(ph, domain_id))
+> +		return -EINVAL;
+> +
+>  	if (enable == pi->states[domain_id].enabled)
+>  		return 0;
+>  
+> @@ -678,16 +685,20 @@ static int scmi_powercap_cap_enable_get(const struct scmi_protocol_handle *ph,
+>  	if (PROTOCOL_REV_MAJOR(ph->version) < 0x2)
+>  		return 0;
+>  
+> +	if (!scmi_powercap_dom_info_get(ph, domain_id))
+> +		return -EINVAL;
+> +
 
--aneesh
+Ok.
+
+>  	/*
+>  	 * Report always real platform state; platform could have ignored
+>  	 * a previous disable request. Default true on any error.
+>  	 */
+>  	ret = scmi_powercap_cap_get(ph, domain_id, &power_cap);
+> -	if (!ret)
+> +	if (!ret) {
+>  		*enable = !!power_cap;
+>  
+> -	/* Update internal state with current real platform state */
+> -	pi->states[domain_id].enabled = *enable;
+> +		/* Update internal state with current real platform state */
+> +		pi->states[domain_id].enabled = *enable;
+> +	}
+
+Mmm, this changes the logic as stated in the above comments...now the
+problem is recalling WHY I adopted this logic :<
+
+Thanks,
+Cristian
 
