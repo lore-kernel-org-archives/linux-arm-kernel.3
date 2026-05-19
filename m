@@ -4,91 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C06CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37CAECD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 09:29:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BpKk6Gij2WxsoBaa/RiasDHSglHxtZ5uMjAEt5+zsC8=; b=itxIahgZZfuSjdtwGnlkpOYhUX
-	97rKttz6eMxmRELhZhBdMO3Bv+ZolWwPSKtjkPlqKfh9l0QtBiDArgTGxgms/bJZMsEPsB8uaNyLT
-	WwvEQGSJfbNc6pMBOduk5l+SnOLNYWjZOV3jvICrJWz17G359Jvc67tV7SpgxoNx4fIgSngjr4zEb
-	/RUKPhiVemcAvI5dUvMTiK+YltnhhX3eBDUKxwZirCZjPCK7A/4llf1/NCWmzv/z7BYcBrYjN+85Q
-	TQPEiNWvHToc58WVsFGvKXVVMy96E2TEcY9KNmFy3/GZNPZyaqGLmTleIKbHjK1Ew55GG/CWiptRD
-	oNBzdEzA==;
+	bh=WltqGyX6LSgbCxoNJFtaPsurvESE3OwLgIknpaUUGUA=; b=YRo//IKH+m7F01hF2dnpkJ1v1g
+	X9/5NXacafUsc4btMn2T/u02+AgJI7m/ez8+p3eYgcFS7QLZbY13jrDwfk7eQZrtOpnKOyeLRsThl
+	elnfWA2VX71WKZIzNiJL5W5ImJHbZMq0eo54HR6U7zg7kPoJhMxr6ihswI3Rp82B5jqBjj3y/rRnO
+	HlHIRJB6e4PIBXxVQDe3Prs8J/u7+HK0Z9Y5oAl8AqK1ulon45zGbZbEuPDxkBnMio7d8FcfaqEiw
+	B6UNnLw78OTdZu7BcX49ZMLmN3Mtj4XL+cMqCydkPkM3R/5I4TYdd4lznxEheORIYPC1U/cCZtIUY
+	CZMcK3Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGLx-00000000p2R-2mVU;
-	Tue, 19 May 2026 09:03:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPGlF-00000000van-0fx0;
+	Tue, 19 May 2026 09:29:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPGLX-00000000oT5-2vBu
+	id 1wPGlC-00000000vZv-1ym7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 09:02:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 014426020B;
-	Tue, 19 May 2026 09:02:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBFC3C2BCFC;
-	Tue, 19 May 2026 09:02:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779181358;
-	bh=uLHaGHSP9UQjQQ5jBIAoXbBwJSEBPtjOM2YeKkN0O2Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=t2LHPG3Q9Nik41PwZlPpjT08Et0jB0u/UVuQMkl+kJuoZuM01Kwf21AZpXJyVFTPm
-	 TYr4ftoxHwDd0jmfEvp7McuWCq8wj29F0wnzggZK2iKyI87qlIzSYlWUzn4p2WHCtn
-	 89//F+DU9rzvJHVmw3S2n2NS7FrPQOWjSMPrnv2rRzdAYu7EGOMjlI4s2mkIXTHPVT
-	 ho9l7MCLsOgaXTl1XYdeWxyJtZo1XReRj44f2DudMHoDh4G/2Vy0TN3+f6/iUO1qfV
-	 JUm5njh2K+CUySC/WFHwnG1zh3aEYKDgI9vZnTEqgpEsUgGxi4qAj66/fAyev539/c
-	 pvClFr+bfO7yw==
-From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 19 May 2026 11:01:53 +0200
-Subject: [PATCH v5 11/19] drm/atomic-state-helper: Rename
- __drm_atomic_helper_crtc_state_reset()
+	Tue, 19 May 2026 09:29:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779182948;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WltqGyX6LSgbCxoNJFtaPsurvESE3OwLgIknpaUUGUA=;
+	b=JU0IsAGEINz0CEAfbOfTkDf6hzX/JeipydLv+gWZ771bS8g6+j6uzWca7fu3i8XT7O81od
+	UHAiWVFNKxaBQm7EUrgOo+BlNz82CA9STrqjBgrdSz7KfFrlqa8TmOJJTU8LVvJ1zPZKlz
+	FU0/1f0ly3Um4Vbla/BqP0e1/LpBx+o=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-631-08iLp3woPquopntoCMjQ1w-1; Tue, 19 May 2026 05:29:06 -0400
+X-MC-Unique: 08iLp3woPquopntoCMjQ1w-1
+X-Mimecast-MFC-AGG-ID: 08iLp3woPquopntoCMjQ1w_1779182945
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-48fe44ce385so28181445e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 02:29:06 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779182945; x=1779787745;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WltqGyX6LSgbCxoNJFtaPsurvESE3OwLgIknpaUUGUA=;
+        b=CdWgIY1FyparxV8Dz4WoCyYcvFtBrIbLa515UVGEXsYDRm6PbBrWYcvC5g7+AuybI3
+         92J3q8sL8fJTWOcT2PBub7Cm05zo3YfEfcCjY+6kPMNMlFwuiMo+l0yAdnXgJLE+aCcC
+         yfIgnIMv0D+wHxUS2l+LvDYaI8YdFBAJpNgDqcKyPM6oY7PbeoxxtswM4d2lkm0WjayM
+         d7uqSZ15ez73ZtlPQ1YuzdHW6cyNaleM07LD1g+QVvmrG8b478TBUMwxE8jBb+pwoNrX
+         zpkwHnxXS80yfPkJgvxJHiNaIhGSvHcL1+cpzI9fqTm0y8RG6XSmdj71M1e8BJ0rf9hC
+         PhHw==
+X-Forwarded-Encrypted: i=1; AFNElJ81HSkCbQj8SCSmzze8AID5L2vdhpiwQznspOCu9ot107wjGpTUjjhfhv7dCwecaLb/iDjm6jKIGyNhxYzr6HFR@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLA6yT9spB0t0wgQ5Gama/tOEMPqRePV4/Wpqsa4RULtZVpTny
+	Nsl1w13gKiTOk3j6lFLz8wA8kYVsBmIoC2V67IbUklqIzhfWSN4vANXikSDzqWo4J3ZQxjtPg45
+	Tjtd0s7oPOQkt2sRTlsSqeJjQFfKzZ9ZACov0AXw8d+42oPFhbP6zOJms7nVHARoVIaQfR66uUR
+	Mw
+X-Gm-Gg: Acq92OEtNQVEn1Ju7s1slPjhxEx/y3wWJ50infTIFZvH+s3JBMbXHd2jt/mEOS++xYD
+	/Gu4xQUCtEcPbPA7rKyU1cDXkbgBew2ZNjuK4U+TarnFuyabxzJzD7KH/wl/+IlPtkmvvumxI+H
+	ev6tduels106WjRkdiA5RR0irU9xrIdvPs81Po/7lLQ4pEyIWt2Ihp5afmGAVQ3WzEIr8EtVsYI
+	6xaAFgK5FGwLDhVG9S78GaiwA4YB7j7wB2Qf23HZJWSJR3Eefra4Px2Wlmh2Oxt9j4JJmRjgSgX
+	U7Lx8+tpgQeuLkUiPPUg6YvAtDzgtpbk+L61igZgLVfseIzbiOD7zZvi9KeUJkmcLUMHPN5EmJm
+	8QsPUlzHLVTJKkRvd+iKSLjbcMbgivHC2k/RCNGvK/hUGivSAeqfFy9w=
+X-Received: by 2002:a05:600c:34cc:b0:48e:635a:18d7 with SMTP id 5b1f17b1804b1-48fe59b047bmr317369535e9.0.1779182945098;
+        Tue, 19 May 2026 02:29:05 -0700 (PDT)
+X-Received: by 2002:a05:600c:34cc:b0:48e:635a:18d7 with SMTP id 5b1f17b1804b1-48fe59b047bmr317368795e9.0.1779182944663;
+        Tue, 19 May 2026 02:29:04 -0700 (PDT)
+Received: from [192.168.88.32] ([150.228.25.33])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febf81970sm144760595e9.8.2026.05.19.02.29.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2026 02:29:04 -0700 (PDT)
+Message-ID: <b0e8121c-e2aa-476b-b8b0-3c799e712e90@redhat.com>
+Date: Tue, 19 May 2026 11:29:01 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg: Add HSR and LRE PA
+ statistics
+To: MD Danish Anwar <danishanwar@ti.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Roger Quadros <rogerq@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ Meghana Malladi <m-malladi@ti.com>, Jacob Keller <jacob.e.keller@intel.com>,
+ David Carlier <devnexen@gmail.com>,
+ Vadim Fedorenko <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>
+Cc: netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Vladimir Oltean <vladimir.oltean@nxp.com>
+References: <20260514075605.850674-1-danishanwar@ti.com>
+ <20260514075605.850674-3-danishanwar@ti.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260514075605.850674-3-danishanwar@ti.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 2L780kMO061Xxx69XE1-mE6ecFhKDf1ZpU8xC6UzIUM_1779182945
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260519-drm-mode-config-init-v5-11-388b03321e38@kernel.org>
-References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
-In-Reply-To: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Jyri Sarha <jyri.sarha@iki.fi>, 
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>, 
- Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>, 
- Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Maxime Ripard <mripard@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4452; i=mripard@kernel.org;
- h=from:subject:message-id; bh=uLHaGHSP9UQjQQ5jBIAoXbBwJSEBPtjOM2YeKkN0O2Q=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFk8av963GLrUkMDWNklvC1+ni5rqJ9/b7KjT3nIiqOZL
- QsuX5jaMZWFQZiTQVZMkeWJTNjp5e2LqxzsV/6AmcPKBDKEgYtTACZSGM9YnzgtNbI2OO3NyeKd
- Thuq41+/rd2n626y6O805hwNPuVw7+Ai6a1W924/641Yl77q6s+FjA1TI1UqXqye/03pVeFq+7q
- Zb65dLHqmrv4soT4i2cLjv/9EZjPng7Jnmv4mu1opVnB79QEA
-X-Developer-Key: i=mripard@kernel.org; a=openpgp;
- fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_022910_585172_C1203E76 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,113 +122,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-__drm_atomic_helper_crtc_state_reset() is used to initialize a newly
-allocated drm_crtc_state, and is being typically called by the
-drm_crtc_funcs.reset implementation.
+On 5/14/26 9:56 AM, MD Danish Anwar wrote:
+> @@ -201,6 +201,16 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
+>  	ICSSG_PA_STATS(FW_HOST_TX_PKT_CNT),
+>  	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_PRE_OVERFLOW),
+>  	ICSSG_PA_STATS(FW_HOST_EGRESS_Q_EXP_OVERFLOW),
+> +	ICSSG_PA_STATS(FW_HSR_FWD_CHECK_FAIL_DROP),
+> +	ICSSG_PA_STATS(FW_HSR_HE_CHECK_FAIL_DROP),
+> +	ICSSG_PA_STATS(FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES),
 
-Since we want to consolidate DRM objects state allocation around the
-atomic_create_state callback that will only allocate and initialize a
-new drm_crtc_state instance, we will need to call
-__drm_atomic_helper_crtc_state_reset() from both the reset and
-atomic_create hooks.
+Sashiko noted that this statistic name exceed the ethtool string limit.
 
-To avoid any confusion, we can thus rename
-__drm_atomic_helper_crtc_state_reset() to
-__drm_atomic_helper_crtc_state_init().
-
-Suggested-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-Signed-off-by: Maxime Ripard <mripard@kernel.org>
----
- drivers/gpu/drm/drm_atomic_state_helper.c | 10 +++++-----
- drivers/gpu/drm/i915/display/intel_crtc.c |  2 +-
- include/drm/drm_atomic_state_helper.h     |  2 +-
- 3 files changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
-index ab171bfe6e86..b277f92f4532 100644
---- a/drivers/gpu/drm/drm_atomic_state_helper.c
-+++ b/drivers/gpu/drm/drm_atomic_state_helper.c
-@@ -61,25 +61,25 @@
-  * For other drivers the building blocks are split out, see the documentation
-  * for these functions.
-  */
- 
- /**
-- * __drm_atomic_helper_crtc_state_reset - reset the CRTC state
-+ * __drm_atomic_helper_crtc_state_init - Initialize the CRTC state
-  * @crtc_state: atomic CRTC state, must not be NULL
-  * @crtc: CRTC object, must not be NULL
-  *
-  * Initializes the newly allocated @crtc_state with default
-  * values. This is useful for drivers that subclass the CRTC state.
-  */
- void
--__drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *crtc_state,
--				     struct drm_crtc *crtc)
-+__drm_atomic_helper_crtc_state_init(struct drm_crtc_state *crtc_state,
-+				    struct drm_crtc *crtc)
- {
- 	crtc_state->crtc = crtc;
- 	crtc_state->background_color = DRM_ARGB64_PREP(0xffff, 0, 0, 0);
- }
--EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
-+EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_init);
- 
- /**
-  * __drm_atomic_helper_crtc_reset - reset state on CRTC
-  * @crtc: drm CRTC
-  * @crtc_state: CRTC state to assign
-@@ -94,11 +94,11 @@ EXPORT_SYMBOL(__drm_atomic_helper_crtc_state_reset);
- void
- __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
- 			       struct drm_crtc_state *crtc_state)
- {
- 	if (crtc_state)
--		__drm_atomic_helper_crtc_state_reset(crtc_state, crtc);
-+		__drm_atomic_helper_crtc_state_init(crtc_state, crtc);
- 
- 	if (drm_dev_has_vblank(crtc->dev))
- 		drm_crtc_vblank_reset(crtc);
- 
- 	crtc->state = crtc_state;
-diff --git a/drivers/gpu/drm/i915/display/intel_crtc.c b/drivers/gpu/drm/i915/display/intel_crtc.c
-index 03de219f7a64..7486f2dc60ef 100644
---- a/drivers/gpu/drm/i915/display/intel_crtc.c
-+++ b/drivers/gpu/drm/i915/display/intel_crtc.c
-@@ -179,11 +179,11 @@ struct intel_crtc_state *intel_crtc_state_alloc(struct intel_crtc *crtc)
- void intel_crtc_state_reset(struct intel_crtc_state *crtc_state,
- 			    struct intel_crtc *crtc)
- {
- 	memset(crtc_state, 0, sizeof(*crtc_state));
- 
--	__drm_atomic_helper_crtc_state_reset(&crtc_state->uapi, &crtc->base);
-+	__drm_atomic_helper_crtc_state_init(&crtc_state->uapi, &crtc->base);
- 
- 	crtc_state->cpu_transcoder = INVALID_TRANSCODER;
- 	crtc_state->master_transcoder = INVALID_TRANSCODER;
- 	crtc_state->hsw_workaround_pipe = INVALID_PIPE;
- 	crtc_state->scaler_state.scaler_id = -1;
-diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
-index 8d1ef268fdef..0bb72453464a 100644
---- a/include/drm/drm_atomic_state_helper.h
-+++ b/include/drm/drm_atomic_state_helper.h
-@@ -38,11 +38,11 @@ struct drm_connector_state;
- struct drm_private_obj;
- struct drm_private_state;
- struct drm_modeset_acquire_ctx;
- struct drm_device;
- 
--void __drm_atomic_helper_crtc_state_reset(struct drm_crtc_state *state,
-+void __drm_atomic_helper_crtc_state_init(struct drm_crtc_state *state,
- 					  struct drm_crtc *crtc);
- void __drm_atomic_helper_crtc_reset(struct drm_crtc *crtc,
- 				    struct drm_crtc_state *state);
- void drm_atomic_helper_crtc_reset(struct drm_crtc *crtc);
- void __drm_atomic_helper_crtc_duplicate_state(struct drm_crtc *crtc,
-
--- 
-2.54.0
+/P
 
 
