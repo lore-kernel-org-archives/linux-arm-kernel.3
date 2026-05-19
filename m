@@ -4,119 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B097DCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B1DCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 14:49:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7Nz6XFDKFDcI1TVcowrB8v0PKJyf/qnRnOMl+2I2pU=; b=AW2nQvsn7aaWn0rWfA+/OxYryF
-	H3tZv6GGzhLhQDNaI7Xlg+pu64cS1bqwoqhH2n3x2/m89hP2R8N5DP9RPzzjubaa5v/3IloWoasoa
-	axafAzpO9ciMTX1wpf9TRfm42vIIec2iadUPimpftzqCY3DnmW2OD1aQ0S+5v/Z4YQXsSRTvTBpGk
-	W51izVJU+MwdPx60UYnLa105ko+uk2QovW+/TJzVdj1ugc2OMcImvzeAAQ6pAfEO72ASgeZLChRDO
-	b9HDZpLsd4Tj1k3gWJqBTz5d2Xh8+78+QbzqveLwCe2JUjBcprccpGMgRbky2MZFPOjc7IJikGRrZ
-	dmdNIRIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ac46A5tx5N3WaVtwsY4RrFV9ou6PtDA5opWWhwSNYcE=; b=jcB1kC98pf6dcgkmxwMswoUNa7
+	tpW0BgRDTCXsuJC4hX42zWgTSPpUNQ6ZSaD6oWbQtJPQs9yfvE8F6MpMzXBF02TwKcTUTc0D8k2xs
+	A7hjavlKGzaCFHzJIzZgHhqy1wTn1jxkgS6/zmE0hpyLWFhUTU7iXwHDoJjBcUDsbGv2M6PC3PGXc
+	zlXOvwBXdaUVyR977xfn2jeYNWgEIr8HPOhtMwyYbwRlut21OrLF6gAO7nUsLkMxNXeeEd9OUgvO4
+	iREbO2HkBFYdZHqCMIbLYCMMO0EaGJoII7rOWXdG3ffiDpfJHY98ydrtA/elZ9zhwmuDKKSx4k8Cs
+	yfOO1BsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLhY-00000001tCy-2qcB;
-	Tue, 19 May 2026 14:45:44 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1wPLko-00000001tcA-0Ccp;
+	Tue, 19 May 2026 14:49:06 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPLhW-00000001tC7-0TDQ
+	id 1wPLkl-00000001tay-181D
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 14:45:43 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4891b4934ffso655e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:45:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779201940; x=1779806740; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=h7Nz6XFDKFDcI1TVcowrB8v0PKJyf/qnRnOMl+2I2pU=;
-        b=Luq0/sC34DvXUpWRvFtdDi2/bUFspKFw5gkYSmsK4C8dr6lsBJxkHpNajLdx+Krrzz
-         2zcWT+BRSlUX88BJnwgE906nBCeiudHZpQ/CTkkqqcUzGuWsWv3KvVG8gM6GSF5MHC+6
-         VXmXpsu/b51V00jn0UVgeobcRTVBpsFXJFHJ+VbDkYSZvF6buVOv1HbkPixY2mREmI98
-         un/NI9ecgUYl8LmDU6UKx2lswFnLoZ+ykanhXwjpu2oJreyVkUlcGl/5kiXo3xor/+mR
-         aOjnSllZGmT+MCIClRMPAhYWQE6uf780uTP3XZbQcV1l+KfQzZqsVjrqr9RgP6UEMKb5
-         qSuw==
+	Tue, 19 May 2026 14:49:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779202141;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Ac46A5tx5N3WaVtwsY4RrFV9ou6PtDA5opWWhwSNYcE=;
+	b=gKyyfhMhw1GTX3gaCVRcGwH9waVBhhGgRNxWi17IF73R1fnnBKfm/BPGfUKuP8NKYSRYec
+	kQ6Oy4nY9HlsTTWLfmnP/tSPB2SlioaUo2gbRfwPpMR8Xly11xxgEqS3edh/I3ZMDJeTpe
+	1XbvNSRqul5MT7eolfrKmzrMSaBn0xM=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-554-bgqc7MzNN9-9CktfE1HQBA-1; Tue, 19 May 2026 10:47:24 -0400
+X-MC-Unique: bgqc7MzNN9-9CktfE1HQBA-1
+X-Mimecast-MFC-AGG-ID: bgqc7MzNN9-9CktfE1HQBA_1779202043
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-48a589c7879so30830065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 07:47:24 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779201940; x=1779806740;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=h7Nz6XFDKFDcI1TVcowrB8v0PKJyf/qnRnOMl+2I2pU=;
-        b=tTFlakH9o5R365qYJmO7tvSd2CFkyboiqHAn/sXUHzX0jp9XkIrKuel8WisAcpP9jO
-         NSONUt2xZq+tVKB/KzNtzUFGJE/Ieb1x/HbFEtv+5dA5C8dagOYOVI1fG/yb56Mes9ut
-         gXgkMoWUiEKi0L8ROFGwRPqt4k3u2WH1QgBE9w4H2ywJUW7vCNHjCF5vcn5ooHNlOXPu
-         nNCJdTmORL3fsLd25JCPBXbQX+gFHRFgBkCdhxfhgLa1oSjF3bx3Bo0te8RJbqVjSm4V
-         JIL6jErZ1hxonVuOCF/6BzEHCvBinxEZW0gpU31CkfI1ZaS46QcTvuLsbbkKRxYjqMcq
-         O3Ag==
-X-Forwarded-Encrypted: i=1; AFNElJ9NFu/O1OOO0d7MG7OMqEHPaWsgAp10yrksUo9E+VRbhxd2rUEPop2jMsLA+z/JQRNgEBEY2XDhxn6aqnc+IH1S@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP1cwFKno7LTv8OKqm7WmC22qG/K5OMaxe8VojCFm1Gq2LRx82
-	B32KhI7ZNYUMGB2DO9CgEWGjSMq8Mn3fNzg18JQ+kP7BC0ergBKN+MX0EBnVnG5+xA==
-X-Gm-Gg: Acq92OESfq3Jrkmc0JMolgHWyzuN1u1wm7uaLUI0NpAJlPCQoP9fYQ9vSoPYaD8JvxG
-	1T8zI4WHwBrsJPmP2bB169YgfDHw7+mhdIFY1LMkTCwiKz7UugqxNvQBYLaDfcsLJN73OcSyPxl
-	frQO7588U7l6szueqN/hl1rB76ItnajGQHnhM797jl3WniG1Awo/7wZ26Gdjc9uEKzfkHjyYC51
-	J3SfzXjvi75m65tNbwhuTS9jFuExvbeHJxiAGv1tA/iwLPey/4Eu+DCwkkZgRV4A88rZKjDHPaS
-	aOtKx2wDwTzc2Ugs+fjh8v0CTyBSWNJgYCZLJz6GDzfBkji1QO6gC8CxGC4Iffid/NfNsc1K9uD
-	DPayI/PeJkwnHg4xYFrWgpwl1PSWs+8oB7ag9hMiV3TfBPlKasU+xuviKQqQPHoX6SjI7PRECqg
-	tmfFXLr5wNZPLYTIGocGwcCliQ8kmDhmv5Qhxs/z4kX3E10kVfDOPN1e8Wdh/dpbSvYq8/z904O
-	pc=
-X-Received: by 2002:a05:600d:6401:20b0:489:1f6a:4ac0 with SMTP id 5b1f17b1804b1-48ffa0627e7mr3099895e9.0.1779201939945;
-        Tue, 19 May 2026 07:45:39 -0700 (PDT)
-Received: from google.com (136.41.155.104.bc.googleusercontent.com. [104.155.41.136])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a178adsm48721081f8f.18.2026.05.19.07.45.39
+        d=1e100.net; s=20251104; t=1779202043; x=1779806843;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ac46A5tx5N3WaVtwsY4RrFV9ou6PtDA5opWWhwSNYcE=;
+        b=HGRfImaae0rtdvg75R0v09Fm9edMDdE1RmVRZY4dfTfJE83vBhf3y17tShbBZ56V4c
+         3qSmyYpuYdxRJIvl5NLHUqWV92wfzkSReRixY9XXYvOEg0N29a6U51R1VaW3E9JCEDVK
+         gNwfaPD9Mh1rO9AWeAr9qWmBAjSOfu0nb6qgm/Ds0oECctIe/j5OvLUev5F9Az8rNQeC
+         m0w02Z4RIgOcmTOHrC3y2Qwul+xbMo+evvbrjwdUEd/cqLONXU7c1jWRj1kaK+WeAOuZ
+         wmbNFfM5ApVzrSiWYooyd7luhBqnWzZ07poSQqg5fWH8Iiesjdmsf+d0a+hUfu8llU3H
+         oeFQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8znUmO+lkmwb6af8CGes19KY5yzn1WLX01MLJ1dOLm9iiPG6ZQMXv11IGrxPzZRNEOtG9Ky+KjUoM8OK3npmoE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDNAr2fFPvE7kKMM3vNfla8J6mHEE76kLMjNo2m4HQGGE6Oogy
+	emytjG4zVBWnuGYcUS7SMCCA4bt7lFyUcY9d896RGKt/k04qUCIg2g8ACFyOS+MbuSOlrWjTSIW
+	nVXnscW7dNUqU9iz22+dV8AtWKw6GozJVKKJXOG+1SE+aOmk4EMX2ld953al38V83maKReR/JDp
+	En
+X-Gm-Gg: Acq92OHosyCe/fZGiyEuYD2PrS2ZSDJuDgNEtmx8tgB1byq6xStw0mvydjxsllkcUuj
+	yspRQwFIHxH2ZjSbwQ0xZB/NqATyLGY4vwnC6Sn8635FreDl3n1KKz10vKB3zSieMCOi9ArMlnb
+	Xcxjzfh24m4vGC3G62/oWVtZjyhRld7x96TUS/vvX+QCFUSnVxMltXCnIjVZlmF7VBQlzbWaTFo
+	sHHNigYLcptItxucONhYLt+3Esd+llt05ojh3sRcgl7kLg3c2YVKIdDCStgdRVsx8umGBB1mLTu
+	++yYgHBab4X7pEPcjnQ2CpV61cZf1s3XQLSx/oahB8tQVLxe8dg90YPVdgJP1ed0iFL/Ht1s+JQ
+	oMgD/MMOQ551MXzv0tduuWEMdjYLfboAgPUG3DR7zYJtnaZVNEBepv0tNWA==
+X-Received: by 2002:a05:600d:8:b0:48f:e044:927d with SMTP id 5b1f17b1804b1-48fe537fa84mr260381875e9.10.1779202043358;
+        Tue, 19 May 2026 07:47:23 -0700 (PDT)
+X-Received: by 2002:a05:600d:8:b0:48f:e044:927d with SMTP id 5b1f17b1804b1-48fe537fa84mr260381215e9.10.1779202042898;
+        Tue, 19 May 2026 07:47:22 -0700 (PDT)
+Received: from localhost (62-151-111-63.jazzfree.ya.com. [62.151.111.63])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe53767ecsm298800115e9.10.2026.05.19.07.47.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 07:45:39 -0700 (PDT)
-Date: Tue, 19 May 2026 14:45:35 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-Message-ID: <agx3j6Oc8QivZ3RG@google.com>
-References: <agSKQrSIhizCXKwx@google.com>
- <yq5ah5oaa63h.fsf@kernel.org>
- <agW5rhE9n2gDQ0w5@google.com>
- <yq5apl2y5f96.fsf@kernel.org>
- <agXaby-7L7yS3Vva@google.com>
- <yq5ah5oa59wy.fsf@kernel.org>
- <agxDxdxynp4KEovA@google.com>
- <20260519132911.GA7702@ziepe.ca>
- <agxolksC_1nfO34X@google.com>
- <20260519143529.GD7702@ziepe.ca>
+        Tue, 19 May 2026 07:47:22 -0700 (PDT)
+From: Javier Martinez Canillas <javierm@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: Javier Martinez Canillas <javierm@redhat.com>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Alain Volmat <alain.volmat@foss.st.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Daniel Stone <daniels@collabora.com>,
+	David Airlie <airlied@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jani Nikula <jani.nikula@intel.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Raphael Gallais-Pou <rgallaispou@gmail.com>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robert Foss <rfoss@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Sean Paul <sean@poorly.run>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH 0/8] drm/display: hdmi: Add common TMDS character rate constants
+Date: Tue, 19 May 2026 16:46:56 +0200
+Message-ID: <20260519144712.1418302-1-javierm@redhat.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jybchn8fnPLm9Uo5wcew-GGgGsNm24wYBpmkKKNVgn8_1779202043
+X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260519143529.GD7702@ziepe.ca>
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_074542_166464_72876B9A 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20260519_074903_376705_63E0CD98 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,57 +145,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 11:35:29AM -0300, Jason Gunthorpe wrote:
-> On Tue, May 19, 2026 at 01:41:42PM +0000, Mostafa Saleh wrote:
-> > On Tue, May 19, 2026 at 10:29:11AM -0300, Jason Gunthorpe wrote:
-> > > On Tue, May 19, 2026 at 11:04:37AM +0000, Mostafa Saleh wrote:
-> > > > On Thu, May 14, 2026 at 08:13:25PM +0530, Aneesh Kumar K.V wrote:
-> > > > > >> 
-> > > > > >> What I meant was that we need a generic way to identify a pKVM guest, so
-> > > > > >> that we can use it in the conditional above.
-> > > > > >
-> > > > > > I have this patch, with that I can boot with your series unmodified,
-> > > > > > but I will need to do more testing.
-> > > > > >
-> > > > > 
-> > > > > Thanks, I can add this to the series once you complete the required testing.
-> > > > > 
-> > > > 
-> > > > I am still running more tests, but looking more into it. Setting
-> > > > force_dma_unencrypted() to true for pKVM guests is wrong, as the
-> > > > guest shouldn’t try to decrypt arbitrary memory as it can include
-> > > > sensitive information (for example in case of virtio sub-page
-> > > > allocation) and should strictly rely on the restricted-dma-pool
-> > > > for that.
-> > > 
-> > > ??
-> > > 
-> > > Where does force_dma_unencrypted() cause arbitary memory passed into
-> > > the DMA API to be decrypted? That should never happen???
-> > 
-> > Sorry, maybe arbitrary is not the right expression again :)
-> > I mean that, with emulated devices that use the DMA-API under pKVM,
-> > they will map memory coming from other layers (VFS, net) through
-> > vitrio-block, virtio-net... These can be smaller than a page, and
-> > using force_dma_unencrypted() will share the whole page.
-> 
-> force_dma_unencrypted() should only trigger swiotlb and that never
-> memcpy's more than necessary?
-> 
-> Where does it do otherwise? That sounds like a bug?
+Several DRM drivers define their own local macros or use magic numbers for
+the standard HDMI TMDS character rate limits. Maxime Ripard suggested that
+instead these common rate constants could be included to a shared header.
 
-Agh, I got confused and thought that it can be triggered from dma_map()
-too. I need to figure out why that made pKVM guests boot with broken
-restricted-dma-pool then.
+This series introduces these constants to the <drm/display/drm_hdmi_helper.h>
+header and replaces the local defined constants or magic numbers in drivers.
 
-However, it should not alway use SWIOTLB? It can trigger decryption for
-any memory returned from __dma_direct_alloc_pages() which can come
-from alloc_pages_node().
-
-Thanks,
-Mostafa
+I split the changes as one patch per driver, so that these can be reviewed
+individually and merged at their own pace.
 
 
-> 
-> Jason
+Javier Martinez Canillas (8):
+  drm/display: hdmi: Add common TMDS character rate constants
+  drm/bridge: dw-hdmi: Use the common TMDS char rate constant
+  drm/bridge: dw-hdmi-qp: Use the common TMDS char rate constant
+  drm/bridge: inno-hdmi: Use the common TMDS char rate constant
+  drm/sti: hdmi: Use the common TMDS char rate constants
+  drm/sun4i: hdmi: Use the common TMDS char rate constant
+  drm/msm/hdmi: Use the common TMDS char rate constants in 8996 PHY
+  drm/msm/hdmi: Use the common TMDS char rate constants in 8998 PHY
+
+ drivers/gpu/drm/bridge/inno-hdmi.c           |  4 +---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c |  6 ++----
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi.c    | 10 ++++------
+ drivers/gpu/drm/msm/hdmi/hdmi_phy_8996.c     |  9 +++++----
+ drivers/gpu/drm/msm/hdmi/hdmi_phy_8998.c     |  9 +++++----
+ drivers/gpu/drm/sti/sti_hdmi_tx3g4c28phy.c   |  5 +++--
+ drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c       |  4 ++--
+ include/drm/display/drm_hdmi_helper.h        |  6 ++++++
+ 8 files changed, 28 insertions(+), 25 deletions(-)
+
+-- 
+2.54.0
+
+base-commit: fa81649af168a4d6d5260ed0fa9bbb5f6db3f11c
+branch: add-common-tmds-rates
+
 
