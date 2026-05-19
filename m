@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1AB9CD4851
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20E2CD4851
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 05:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uErCr9zi75Tnls+mLi86yEzEO9RwxFHR5lw/x24Nf98=; b=EdbJj8Haizy6ggzWXyjO2C8HnE
-	AnGhS6BwnrZ70aTME7k2aDWuxk/4CAH2WL4UUNP6j/wGDudxulhSNeXvVkdQDhW3x6dPx7uWy1br+
-	Wajkwqc5OmZOds3WE48iHRbLO5gbfjGTky9mz5B2NqgCy//HH1a66D46sG2iJI3ku+9biHbFLXwPe
-	B2S1jrJZRSB5MQhu+RrfFH32cKDvad0Vuv8l7Iqr/Og8Up7JiV6rWBFU8RlxcOQwxpfVUPsfREK/S
-	H6/2yohbAx+w24LPKBAiB074PWEIjw2pMwDvXPxntpTJXHJ9V7rQMZw9ZtTn2xCUAi1KMR3bmmzyh
-	mN0zt14A==;
+	bh=f0iPmr2FZaFpGbv5xE0HK6353ex2Wmyxrb+8vBjR4oM=; b=L1VRCoVCKiRBW5CtuaR24uQGEd
+	sVhPKcsOomwLvuXIDYxpIrLxLSwxdRRUdPvrwwTxwkP/YPRAUHASDjPTqfATtjKBg6LGVPwhyd4sz
+	27AiKHfIuCkmbhaAivL9uZHuDsHKOZFxmiM5JNm/Tzqvqt/sOotS/ugGpuPNeWDZYhQ//hR3GbG73
+	FMH2au15t7HIaAuZFC7yhmPH/+zxSkLC7FzhQ/J1YFvKFhaIEUV+QC8pK61UbD2fqqTeeBg8VS+Ge
+	tXXCnWzdQUyGt7Gnjj/SF/jv8xVzkBPp75fxM4QSV+qiQnJNLP0KF2z/gByP5Xgh8LHthBZUK3Vpy
+	OyS6NxHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDN8-00000000F1F-1r9w;
-	Tue, 19 May 2026 05:52:06 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1wPDNB-00000000F2U-2eY7;
+	Tue, 19 May 2026 05:52:09 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPDN4-00000000Ezn-1hOd
+	id 1wPDN7-00000000F0w-43fm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 05:52:03 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-83ef8b48f94so2341654b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 22:52:02 -0700 (PDT)
+	Tue, 19 May 2026 05:52:07 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-8354461da74so1322805b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 18 May 2026 22:52:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779169921; x=1779774721; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779169925; x=1779774725; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uErCr9zi75Tnls+mLi86yEzEO9RwxFHR5lw/x24Nf98=;
-        b=rm2gMYF6Nls7+ZK5XHRLiv4GiE//0CjfdxwaWOXH9DDCaQJyvCXpQCUwBvytx3CDvL
-         OpgSylk4521lTgx6xqKLSYBhAEJnA4C/vbwGOdYSs4B8lQh9rO6grY0wYTMhjddCEm67
-         Y75232Glp/wB2uWk4A9wC7ZeKiJDwmAkmm4p1QGHgLIIBmz8J1E0C+dQQ0ABgC8lsj27
-         4qegkMWEPBAQ2Lvv6tmsQJB4/LiI1/8RpOdK5p8LMibAfPBXC+JBup6gHcOxHHWTdJ/3
-         ZalSu1OXl+AecVS0F5iizjpS/WJAFwzJUomaHCn2MKOw4utVmh6akeoU8MKmZh/XfT3V
-         bk5A==
+        bh=f0iPmr2FZaFpGbv5xE0HK6353ex2Wmyxrb+8vBjR4oM=;
+        b=lvJ4/ng1wzy+1+hW8PnujCr0JQeKyl8nkIbLhWWJgS7AG9Ocxh8wFW53cDu07GLq3U
+         2eFyuunDWDzfwa+ch186d78pUm15BSO5XWDQ+L8NgRhCtDloUvYzya1YHDgxpGmybFy0
+         CAoBxSIRW2NvM89h08rGOsOq42dhkwsGIDhtvjenW3gQ7xaV+SEYsAwCjndePxTi+oxs
+         am21NhpBbohS7DnJOTA51QXeyHAiE9uPTKn3FyGGg8fwRGNniBCw6AxeDT2mRfuDGEZ0
+         IefQhJ7WOv7QZ/nnG2SgE/sShFjC9LNS1+ISoMTkU9ZhRdFnl7MmPwTlK5R0tIUroGNf
+         fPbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779169921; x=1779774721;
+        d=1e100.net; s=20251104; t=1779169925; x=1779774725;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=uErCr9zi75Tnls+mLi86yEzEO9RwxFHR5lw/x24Nf98=;
-        b=jObrE5Pfyatw98y7OIVHOfp++5sIuN/QiFccUiFhGvTnUIqUuKe8SqORmMVoEICVCq
-         tcYYvu580CI6U0EjoWGfibA1nXAKBOMQ3YU8sE1TzPXtnb6LvrQd3RFQPcnJNhU88UAm
-         QA/P52foEHK134diCF7Q2pIAhmbuU2PVnwy9rOYntlGUO4i7NhW3LT3Wdm4bJ+/kbh94
-         1pVX65JnIvTUq/11YlVf79ZGojK5YEWMfBz6doosMMOdvnM/FXX0uy4kntW8XIdFKGVm
-         K+tVGU5Kod4GMDbMdm2pK8bil4jrckliUH85FQ4Xjbqlxj2CojTDzXtw9yU8yo5r0x5m
-         BVsw==
-X-Forwarded-Encrypted: i=1; AFNElJ9U0x72N7I+PSdoLILkIN277OZILU86tH5kDjmo8yMP4Q9T3sYhkvewSD5AoX5xoucVt8QCogRCgXzzynPCdrfl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzs47GY+xJs/irafnmuzZ90Gt553c/GCzpnqCPHVx/3Ps9L7Niv
-	MNBNvYZpDGtyGHEDelr71GkC94HVJJkUeJoClbrgaXDz9dv3YJhZDkik
-X-Gm-Gg: Acq92OHaMic4GyGEjuwWjNvs4K1kmbb4rAflvJbCXpikKTOMOz1k2ud7D2nqvn03QMb
-	9sVeUTSztG9c2ypp1LprUa5226W9YT+7mJbdb3SJkVIPsviMwyfa7B/sQyVd2xgmzESEPVeAZQ6
-	sglTr2ZSM/inZvMfchsbKyQhvzV9u312LTGCURGGqPSw+YlHrcsHH8duEV4XohEvB5dZ2nytc1Y
-	azR1PIvP08URWwIk+ov/KGcE7PFFIm7xrBLS2V0V7kaW6qRHwP7FNlD9XNielC1tJq99Dpdg5J0
-	t5WViHbJBxjqynpCF7uGIUO8kEuiuPHRsDRT+qdWIcQAgk8Udg0RiBlAtqzD4WXwjFFk2dQPsBp
-	MRWrnOC5zT1S+ZvxEc3RLpeauI/vus+cXkrNwXf0FQNOGbqG0TgY5byQC5BiJP6B9K7lSM7wp8H
-	whUquDYGG8FpwLcfhjmc8ChdVYh876mHPH43cqzypXVDG37zM8Vta03rDfUiCkmkixoQyDp1Pn5
-	s7/upd7FCeg
-X-Received: by 2002:a05:6a00:299a:b0:83b:c487:43d2 with SMTP id d2e1a72fcca58-83f33df451fmr18417039b3a.36.1779169921605;
-        Mon, 18 May 2026 22:52:01 -0700 (PDT)
+        bh=f0iPmr2FZaFpGbv5xE0HK6353ex2Wmyxrb+8vBjR4oM=;
+        b=UXodZ0Qoqvxpf5GDM1q6hyHAVNCQH4j4TrjFSvOPiU/aI+8xTk2hod6aGTvQ6ekPEV
+         eNT4+sBFaERgWxoKTnLen//SOfJPz7ymUH1n1BsAieZ2JZ6APDAggodX6N08Ab4is0xM
+         jraCyXZnA9nq1hQ3ZhscnUR5kTlw/H3BeGr2+J8IS/oTIUNUetP3wRy+k6D99WX+wHlG
+         XjkGzMKZeUdM2Auta392pfdP+A6zSZijMSs4gHLH0v8hjeXWGNkA3nkljaPtl8UgMHa4
+         PFA8U3UjStFNnSvAgJ1C01FOJVTm+SH8/nqntAbMqPNYLY3WVIcTH5YzshwtGqm8OZMi
+         V7iQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8RmqWetpp0EtQopoTRCAlUiSL3s1hGNal+3gMdOVMoNle6gU0K6IzvsvXz4rSQC+jvmb5VvARYnAwbYp33XW0x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0xl/Jzu8lfdw3bJjQqWxF4inaQANW5oMoorpC7ukGvCFojgva
+	VbAPnFPJ939dsgCUU1K7LSHlULNfVfqnjSwRDxiR8QX0ZIXAEh7rKE5M
+X-Gm-Gg: Acq92OEAwPvA6YOp3P0v0bCfTqsUojAcZGyvtRhXTvh9Wr2EetN5tpke2lDKpogwluv
+	U/naMIvWtsQa8W46EC8hMib2GX/unqFeIJ2ZoqeaokCz9nL1wY9n2txBjWhIT6OSrYxa+20UY9l
+	VYS2XwHESfZOTZV71fNSKKVPIufIgB/rAzbG3uK1ETg954bC1YiHfDk4wRPAVGcAfRRb5Hiu+Tc
+	oHR0ZDgy5EaLf5/SAycHn6h0ZgSLuD+/QBBjxMgom9PYzgrUPtI4PcPbM8k0yxxX6VWbM8JTMpG
+	e7vQvsghHMe6ahaYNVUvI50WNiEj1tLSgZqy1jPPm4qDwWot3A7XsDNiFHtszl2nkdder9JUdpE
+	O4ac88ktGD2PhsDiKczVT/4z/9k8YvO70E33leELSbthzmAp98I+CJ+VlEPYjwlfSFFuJ3eDb+o
+	xWjLjLSBck8BF7tZuzpyHkbD2pUcE/JeTGUAiPklc2eOOBF9qOuogRWQ1eA0w/OIdpVepVrNd71
+	Ef76e7sLsJu
+X-Received: by 2002:a05:6a00:2d0d:b0:83e:cc87:58f4 with SMTP id d2e1a72fcca58-83f339b425amr15909280b3a.0.1779169925063;
+        Mon, 18 May 2026 22:52:05 -0700 (PDT)
 Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f8b9c2ea5sm2641252b3a.13.2026.05.18.22.51.58
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f8b9c2ea5sm2641252b3a.13.2026.05.18.22.52.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 May 2026 22:52:01 -0700 (PDT)
+        Mon, 18 May 2026 22:52:04 -0700 (PDT)
 From: Joey Lu <a0987203069@gmail.com>
 To: zhengxingda@iscas.ac.cn,
 	maarten.lankhorst@linux.intel.com,
@@ -88,17 +88,17 @@ Cc: ychuang3@nuvoton.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Joey Lu <a0987203069@gmail.com>
-Subject: [PATCH v2 1/4] dt-bindings: display: verisilicon,dc: generalize for  single-output variants
-Date: Tue, 19 May 2026 13:51:06 +0800
-Message-ID: <20260519055114.1886525-2-a0987203069@gmail.com>
+Subject: [PATCH v2 2/4] drm/verisilicon: add model ID constants and DCU Lite chip identity
+Date: Tue, 19 May 2026 13:51:07 +0800
+Message-ID: <20260519055114.1886525-3-a0987203069@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260519055114.1886525-1-a0987203069@gmail.com>
 References: <20260519055114.1886525-1-a0987203069@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260518_225202_448669_F8220098 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260518_225206_013042_3C4BDA33 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,218 +113,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing schema assumes a fixed clock/reset topology and dual-output
-port structure matching the DC8200 IP block.  This prevents reuse for
-single-output variants such as the Verisilicon DCU Lite used in the
-Nuvoton MA35D1 SoC.
+Introduce symbolic constants VSDC_MODEL_DC8200 and VSDC_MODEL_DCU_LITE
+to replace magic numbers in the hardware database and probe path.
 
-Rework the schema so that variant-specific constraints are expressed
-via allOf/if-then-else:
+Register the DCU Lite chip identity (model 0x0, revision 0x5560,
+customer_id 0x305) in vs_chip_identities[], making the existing
+vs_fill_chip_identity() path able to recognise Nuvoton MA35D1 hardware
+purely through register reads.
 
-- The thead,th1520-dc8200 compatible keeps its existing five-clock,
-  three-reset, dual-port requirements.
+Also add three register-level macros for forthcoming DCU Lite support:
+- VSDC_DISP_IRQ_VSYNC(n) in vs_crtc_regs.h, for per-output VSYNC IRQ
+  bits used by the DCU Lite IRQ enable/status registers.
+- VSDC_FB_CONFIG_ENABLE, VSDC_FB_CONFIG_VALID and VSDC_FB_CONFIG_RESET
+  in vs_primary_plane_regs.h, for the framebuffer enable and
+  commit-cycle bits used by the DCU Lite plane update path.
 
-- A standalone verisilicon,dc compatible covers IPs whose identity is
-  discovered entirely through hardware registers; these have flexible
-  clock and reset counts, a single 'port' property, and no 'ports'
-  requirement.
-
-Changes to the base schema:
-- Replace the fixed clock/reset items lists with minItems/maxItems
-  ranges; variant sub-schemas tighten the constraints via if-then-else.
-- Add a 'port' property (graph.yaml single-port alias) alongside the
-  existing 'ports', for single-output variants.
-- Drop the unconditional 'ports' requirement; each if-branch enforces
-  its own port topology.
-- Tighten additionalProperties to unevaluatedProperties to allow
-  per-variant schemas to add their own constraints cleanly.
-- Fix a stray space in the port@0 description.
-- Add a DT example for the generic verisilicon,dc compatible
-  (Nuvoton MA35D1 DCU Lite).
+No behaviour change for existing DC8200 platforms.
 
 Signed-off-by: Joey Lu <a0987203069@gmail.com>
 ---
- .../bindings/display/verisilicon,dc.yaml      | 135 ++++++++++++++----
- 1 file changed, 108 insertions(+), 27 deletions(-)
+ drivers/gpu/drm/verisilicon/vs_crtc_regs.h       |  1 +
+ drivers/gpu/drm/verisilicon/vs_hwdb.c            | 16 ++++++++++++----
+ drivers/gpu/drm/verisilicon/vs_hwdb.h            |  3 +++
+ .../gpu/drm/verisilicon/vs_primary_plane_regs.h  |  3 +++
+ 4 files changed, 19 insertions(+), 4 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-index 9dc35ab973f2..3a814c2e083e 100644
---- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-+++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
-@@ -14,10 +14,12 @@ properties:
-     pattern: "^display@[0-9a-f]+$"
+diff --git a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+index c7930e817635..d4da22b08cd5 100644
+--- a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
++++ b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+@@ -54,6 +54,7 @@
+ #define VSDC_DISP_GAMMA_DATA(n)			(0x1460 + 0x4 * (n))
  
-   compatible:
--    items:
--      - enum:
--          - thead,th1520-dc8200
--      - const: verisilicon,dc # DC IPs have discoverable ID/revision registers
-+    oneOf:
-+      - items:
-+          - enum:
-+              - thead,th1520-dc8200
-+          - const: verisilicon,dc
-+      - const: verisilicon,dc  # DC IPs have discoverable ID/revision registers
+ #define VSDC_DISP_IRQ_STA			0x147C
++#define VSDC_DISP_IRQ_VSYNC(n)			BIT(n)
  
-   reg:
-     maxItems: 1
-@@ -26,32 +28,24 @@ properties:
-     maxItems: 1
+ #define VSDC_DISP_IRQ_EN			0x1480
  
-   clocks:
--    items:
--      - description: DC Core clock
--      - description: DMA AXI bus clock
--      - description: Configuration AHB bus clock
--      - description: Pixel clock of output 0
--      - description: Pixel clock of output 1
-+    minItems: 2
-+    maxItems: 5
+diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+index 09336af0900a..a25c4b16181d 100644
+--- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
++++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+@@ -90,7 +90,7 @@ static const struct vs_formats vs_formats_with_yuv444 = {
  
-   clock-names:
--    items:
--      - const: core
--      - const: axi
--      - const: ahb
--      - const: pix0
--      - const: pix1
-+    minItems: 2
-+    maxItems: 5
+ static struct vs_chip_identity vs_chip_identities[] = {
+ 	{
+-		.model = 0x8200,
++		.model = VSDC_MODEL_DC8200,
+ 		.revision = 0x5720,
+ 		.customer_id = ~0U,
  
-   resets:
--    items:
--      - description: DC Core reset
--      - description: DMA AXI bus reset
--      - description: Configuration AHB bus reset
-+    minItems: 1
-+    maxItems: 3
+@@ -98,7 +98,7 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.formats = &vs_formats_no_yuv444,
+ 	},
+ 	{
+-		.model = 0x8200,
++		.model = VSDC_MODEL_DC8200,
+ 		.revision = 0x5721,
+ 		.customer_id = 0x30B,
  
-   reset-names:
--    items:
--      - const: core
--      - const: axi
--      - const: ahb
-+    minItems: 1
-+    maxItems: 3
-+
-+  port:
-+    $ref: /schemas/graph.yaml#/properties/port
-+    description: Single video output port for single-output variants.
+@@ -106,7 +106,7 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.formats = &vs_formats_no_yuv444,
+ 	},
+ 	{
+-		.model = 0x8200,
++		.model = VSDC_MODEL_DC8200,
+ 		.revision = 0x5720,
+ 		.customer_id = 0x310,
  
-   ports:
-     $ref: /schemas/graph.yaml#/properties/ports
-@@ -59,7 +53,7 @@ properties:
-     properties:
-       port@0:
-         $ref: /schemas/graph.yaml#/properties/port
--        description: The first output channel , endpoint 0 should be
-+        description: The first output channel, endpoint 0 should be
-           used for DPI format output and endpoint 1 should be used
-           for DP format output.
+@@ -114,13 +114,21 @@ static struct vs_chip_identity vs_chip_identities[] = {
+ 		.formats = &vs_formats_with_yuv444,
+ 	},
+ 	{
+-		.model = 0x8200,
++		.model = VSDC_MODEL_DC8200,
+ 		.revision = 0x5720,
+ 		.customer_id = 0x311,
  
-@@ -75,9 +69,75 @@ required:
-   - interrupts
-   - clocks
-   - clock-names
--  - ports
+ 		.display_count = 2,
+ 		.formats = &vs_formats_no_yuv444,
+ 	},
++	{
++		.model = VSDC_MODEL_DCU_LITE,
++		.revision = 0x5560,
++		.customer_id = 0x305,
++
++		.display_count = 1,
++		.formats = &vs_formats_no_yuv444,
++	},
+ };
  
--additionalProperties: false
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: thead,th1520-dc8200
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: DC Core clock
-+            - description: DMA AXI bus clock
-+            - description: Configuration AHB bus clock
-+            - description: Pixel clock of output 0
-+            - description: Pixel clock of output 1
-+
-+        clock-names:
-+          items:
-+            - const: core
-+            - const: axi
-+            - const: ahb
-+            - const: pix0
-+            - const: pix1
-+
-+        resets:
-+          items:
-+            - description: DC Core reset
-+            - description: DMA AXI bus reset
-+            - description: Configuration AHB bus reset
-+
-+        reset-names:
-+          items:
-+            - const: core
-+            - const: axi
-+            - const: ahb
-+
-+      required:
-+        - ports
-+
-+    else:
-+      properties:
-+        clocks:
-+          items:
-+            - description: Bus clock that gates register access
-+            - description: Pixel clock divider for display timing
-+
-+        clock-names:
-+          items:
-+            - const: core
-+            - const: pix0
-+
-+        resets:
-+          maxItems: 1
-+          description:
-+            Reset line for the display controller.
-+
-+        reset-names:
-+          items:
-+            - const: core
-+
-+      required:
-+        - port
-+
-+      not:
-+        required:
-+          - ports
-+
-+unevaluatedProperties: false
+ int vs_fill_chip_identity(struct regmap *regs,
+diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.h b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+index 92192e4fa086..cca126bd2da5 100644
+--- a/drivers/gpu/drm/verisilicon/vs_hwdb.h
++++ b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+@@ -9,6 +9,9 @@
+ #include <linux/regmap.h>
+ #include <linux/types.h>
  
- examples:
-   - |
-@@ -120,3 +180,24 @@ examples:
-         };
-       };
-     };
++#define VSDC_MODEL_DC8200 0x8200
++#define VSDC_MODEL_DCU_LITE 0x0
 +
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
-+    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
-+
-+    display@40260000 {
-+        compatible = "verisilicon,dc";
-+        reg = <0x40260000 0x20000>;
-+        interrupts = <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH>;
-+        clocks = <&clk DCU_GATE>, <&clk DCUP_DIV>;
-+        clock-names = "core", "pix0";
-+        resets = <&sys MA35D1_RESET_DISP>;
-+        reset-names = "core";
-+
-+        port {
-+            dpi_out: endpoint {
-+                remote-endpoint = <&panel_in>;
-+            };
-+        };
-+    };
+ struct vs_formats {
+ 	const u32 *array;
+ 	unsigned int num;
+diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+index cbb125c46b39..67d4b00f294e 100644
+--- a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
++++ b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+@@ -16,6 +16,9 @@
+ #define VSDC_FB_STRIDE(n)			(0x1408 + 0x4 * (n))
+ 
+ #define VSDC_FB_CONFIG(n)			(0x1518 + 0x4 * (n))
++#define VSDC_FB_CONFIG_ENABLE			BIT(0)
++#define VSDC_FB_CONFIG_VALID			BIT(3)
++#define VSDC_FB_CONFIG_RESET			BIT(4)
+ #define VSDC_FB_CONFIG_CLEAR_EN			BIT(8)
+ #define VSDC_FB_CONFIG_ROT_MASK			GENMASK(13, 11)
+ #define VSDC_FB_CONFIG_ROT(v)			((v) << 11)
 -- 
 2.43.0
 
