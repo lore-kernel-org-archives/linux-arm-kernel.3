@@ -4,86 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F396DCD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F042CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 12:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=giGCMqDpZvOYaPXFHvByTdWlAM3FpvuXoYiriOAx8IA=; b=UhigvE8xcU++tMchwCQjbkQYYy
-	DmAZ3xeaPNnYG8W61df/SjiCRTgJUpMNLB/aCoxBX/Is2abXDQyOBvQB/UfePcXkFs/D2wU9iKxN4
-	9bIqzd6n1gmI/CEJgDpqaMFXoZNBBm4pqRI1fotaW1GTTxwFNM7vwrQ1B9Ds+2Vjra29SZqZH9EVM
-	dRRG4q3Hsp5lHvZlZm/ZxphiKm668+MYJ7GMcTZoLTUz4SB1/mSIFxAEwrv382GulbJRAp1JRA3po
-	ZXb76Hkhg0tnQxOOZe4+Gn37QdyZU3ac4DEa+PdWTmg2WuCJIjdQ/UOxV/Ie/CRLPrIdJ1y0F3rZN
-	F3lnNWJg==;
+	Content-Type:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=om82qKwrc/AIC3/1p1oC7XNBF2pxoCEEOVi39Yh6YnU=; b=DHLpLzgJXyXSBnlH+heFI8ScAy
+	nLTGO4BLx1RJ1eSW7OMMHfwbddQfTaA3Ce/tKqJCAowvrrsAxZwy8rcjytX6iG1lueHBh5q9uj0j6
+	UKOmE0IJmtrxPOi4JbaVElSPvEt/RPZA2ajHHZ8vv+xA/LzHLspIwVcbJSnKSPQcZFyu4AVCfhGbQ
+	Polq2IsN1lTThDfvg2zHsxuPg9uzw2KD/La5HSTc7PK58fcFHpgzf6SQVBEr61o1f9z/cgoFNQq6K
+	ZFns32xLmbaU1HV8HxbhZSvX6NWy1Zg1CeC9MYIaauvgs9rIibds2PpwdF10g9hlaSI9v1Q4+8Bt/
+	8laZYIEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJY8-00000001TNA-3ku7;
-	Tue, 19 May 2026 12:27:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPJZE-00000001Tau-0C04;
+	Tue, 19 May 2026 12:29:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPJY7-00000001TMe-2Xnb
+	id 1wPJZC-00000001Ta8-0YkK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 12:27:51 +0000
+	Tue, 19 May 2026 12:28:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7BAFC60126;
-	Tue, 19 May 2026 12:27:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32C3FC2BCB3;
-	Tue, 19 May 2026 12:27:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9414C44545
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 12:28:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D50C2BCC6;
+	Tue, 19 May 2026 12:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779193670;
-	bh=oh5xPm7aO87/jnT+7JZsE59suIMOg+uwG7kUANkSuuI=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=s3oeSiK56KkasaDy21lXdRfQDszSI3yWcCMnoLlKn+41S+6zU+PAJqEy2hv5A8k+E
-	 GtFnA/KesjHZTSVPVbtE0+H6iwxJYXPK16SxOeloY4HxuZnWheY5jMOXopVGzmD/tX
-	 x0estu0/tyUMY5mo9AOcnX4J4MK/2WrIN/uHZSCL9536avpyokio0u8SsTUgEz0JZS
-	 krheaIjJ+T0JM9+sgG7PVkxCYbXPfMPvZiIraW7/42ON+11dSoUaWtXRmITP+pQZ6v
-	 MR6kg+qxSRKziQEl05pFMLwJ1RLRLf5uTVMWAk0hWiC8FQd6nHG9rmr97bALIPojqF
-	 8G/bTvvjCUjWw==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 04/13] dma: swiotlb: track pool encryption state and
- honor DMA_ATTR_CC_SHARED
-In-Reply-To: <agxDxdxynp4KEovA@google.com>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
- <20260512090408.794195-5-aneesh.kumar@kernel.org>
- <agSKQrSIhizCXKwx@google.com> <yq5ah5oaa63h.fsf@kernel.org>
- <agW5rhE9n2gDQ0w5@google.com> <yq5apl2y5f96.fsf@kernel.org>
- <agXaby-7L7yS3Vva@google.com> <yq5ah5oa59wy.fsf@kernel.org>
- <agxDxdxynp4KEovA@google.com>
-Date: Tue, 19 May 2026 17:57:39 +0530
-Message-ID: <yq5amrxvshxg.fsf@kernel.org>
+	s=k20201202; t=1779193737;
+	bh=om82qKwrc/AIC3/1p1oC7XNBF2pxoCEEOVi39Yh6YnU=;
+	h=Date:From:Subject:To:From;
+	b=Hy5by4aSmLi293uNgLpLKupJfFptICD2qBOtSaKua8wTqQ4gthmC36wsOJCnGs5P7
+	 u3VAhwIAtEka/vtQWFmTzE4hvpxQNl60UerWTRwB0VKLvc5Ic/FuCShnomzl7NG1cP
+	 Tpot1GMxbV6q+EhlLLSW0niGOlv+IoOeLhD0Y1seDf/8Yqh/obnJedvof+rReU/jf+
+	 ZrfvS/HLCf2FbtGo4+MH3t6zT8Va0/ZgluZ191LI8g/Y89ywaUMqCN+7Nj62yUMuBn
+	 YBKSJ7nOidM8nbwJ6yg3Y8ZzD/AKYCSyxnniSlci5ZIbzP7rxcWvgp611WnoC6vH5T
+	 o3qPMaIeI2eYQ==
+Message-ID: <1668071d-6e18-4379-bf44-b82065731148@kernel.org>
+Date: Tue, 19 May 2026 14:28:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Subject: [ANNOUNCEMENT / CFP] LPC 2026 Devicetree Microconference CFP
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+To: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor@kernel.org>, imx@lists.linux.dev,
+ linux-kernel@vger.kernel.org, devicetree-compiler@vger.kernel.org,
+ devicetree-spec@vger.kernel.org
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260519_052858_217248_8FBC504B 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,136 +117,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mostafa Saleh <smostafa@google.com> writes:
+Hey there,
 
-> On Thu, May 14, 2026 at 08:13:25PM +0530, Aneesh Kumar K.V wrote:
->> >>=20
->> >> What I meant was that we need a generic way to identify a pKVM guest,=
- so
->> >> that we can use it in the conditional above.
->> >
->> > I have this patch, with that I can boot with your series unmodified,
->> > but I will need to do more testing.
->> >
->>=20
->> Thanks, I can add this to the series once you complete the required test=
-ing.
->>=20
->
-> I am still running more tests, but looking more into it. Setting
-> force_dma_unencrypted() to true for pKVM guests is wrong, as the
-> guest shouldn=E2=80=99t try to decrypt arbitrary memory as it can include
-> sensitive information (for example in case of virtio sub-page
-> allocation) and should strictly rely on the restricted-dma-pool
-> for that.
->
-> However, with my patch and setting force_dma_unencrypted() to false
-> on top of this series, it fails on pKVM due to a missing shared
-> attribute as Alexey mentioned, as now SWIOTLB rejects non shared
-> attrs, so, the DMA-API has to pass it. With that, I can boot again:
->
-> diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-> index 5103a04df99f..b19aeec03f27 100644
-> --- a/kernel/dma/direct.c
-> +++ b/kernel/dma/direct.c
-> @@ -286,6 +286,8 @@ void *dma_direct_alloc(struct device *dev, size_t siz=
-e,
->  	}
->=20=20
->  	if (is_swiotlb_for_alloc(dev)) {
-> +		attrs |=3D DMA_ATTR_CC_SHARED;
-> +
->  		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
->  		if (page) {
->  			/*
-> @@ -449,6 +451,8 @@ struct page *dma_direct_alloc_pages(struct device *de=
-v, size_t size,
->  						  &cpu_addr, gfp, attrs);
->=20=20
->  	if (is_swiotlb_for_alloc(dev)) {
-> +		attrs |=3D DMA_ATTR_CC_SHARED;
-> +
->  		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
->  		if (!page)
->  			return NULL;
-> diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
-> index 4e35264ab6f8..8ee5bbf78cfb 100644
-> --- a/kernel/dma/direct.h
-> +++ b/kernel/dma/direct.h
-> @@ -92,6 +92,7 @@ static inline dma_addr_t dma_direct_map_phys(struct dev=
-ice *dev,
->  		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
->  			return DMA_MAPPING_ERROR;
->=20=20
-> +		attrs |=3D DMA_ATTR_CC_SHARED;
->  		return swiotlb_map(dev, phys, size, dir, attrs);
->  	}
->=20=20
-> --
->
+There will be a dedicated Devicetree Microconference on Linux Plumbers
+2026 in October in Prague. Call For Papers is currently open.
 
-How about the below?
-
-modified   kernel/dma/direct.c
-@@ -278,6 +278,10 @@ void *dma_direct_alloc(struct device *dev, size_t size,
- 	}
-=20
- 	if (is_swiotlb_for_alloc(dev)) {
-+
-+		if (dev->dma_io_tlb_mem->unencrypted)
-+			attrs |=3D DMA_ATTR_CC_SHARED;
-+
- 		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
- 		if (page) {
- 			/*
-@@ -451,6 +455,10 @@ struct page *dma_direct_alloc_pages(struct device *dev=
-, size_t size,
- 						  &cpu_addr, gfp, attrs);
-=20
- 	if (is_swiotlb_for_alloc(dev)) {
-+
-+		if (dev->dma_io_tlb_mem->unencrypted)
-+			attrs |=3D DMA_ATTR_CC_SHARED;
-+
- 		page =3D dma_direct_alloc_swiotlb(dev, size, attrs);
- 		if (!page)
- 			return NULL;
-modified   kernel/dma/direct.h
-@@ -92,6 +92,9 @@ static inline dma_addr_t dma_direct_map_phys(struct devic=
-e *dev,
- 		if (attrs & (DMA_ATTR_MMIO | DMA_ATTR_REQUIRE_COHERENT))
- 			return DMA_MAPPING_ERROR;
-=20
-+		if (dev->dma_io_tlb_mem->unencrypted)
-+			attrs |=3D DMA_ATTR_CC_SHARED;
-+
- 		return swiotlb_map(dev, phys, size, dir, attrs);
- 	}
-=20
+https://lpc.events/event/20/contributions/2317/
 
 
->
->
-> I will keep testing and let you know how it goes. If there is nothing
-> else required to convert pKVM guests to CC, I can just post the patch
-> separately as it has no dependency on this series.
->
+The Devicetree Microconference focuses on discussing and solving
+problems present in the systems using Devicetree as firmware
+representation. This notably is Linux kernel and U-Boot, which share the
+Devicetree bindings and sources, but also can cover topics relevant to
+Zephyr or System Devicetrees.
 
-That would be useful. I can then carry the patch as a dependent change,
-which can also be merged separately
 
->
-> Re force_dma_unencrypted(), I am looking into a safe way to use it
-> for pKVM as I beleive it will be useful to eliminate some bouncing.
-> However, that=E2=80=99s not critical for this series and can be added lat=
-er
-> as I am still investigating it, if I reach something I can post it
-> along the pKVM patch above.
->
-> Thanks,
-> Mostafa
->
->>=20
->>=20
->> -aneesh
+Topics suggested for discussion are mentioned in "Ongoing problems" in
+session description (link above), but of course are not limited to
+these. Topics should obviously follow standard Microconference
+expectation, that is to be discussion oriented.
+
+We discuss and try to solve actual problems, thus if one wants to
+present his new patchset, then that patchset must have been already
+reviewed on the list with inconclusive result thus having another
+discussing in person would be beneficial.
+
+Allocated time per slot will be between 15 to 30 minutes (20 minutes
+last year).
+
+
+CFP end is not fixed yet, but it will be some time after end of "Kernel
+Summit" CFP, so *probably middle of July*. I will confirm that later.
+
+
+Proposals can be submitted here:
+https://lpc.events/event/20/abstracts/
+
+Please remember to choose "Devicetree MC" as the track.
+
+Best regards,
+Krzysztof
+
 
