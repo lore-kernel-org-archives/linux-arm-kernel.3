@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A88BCD5BA6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 20:48:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE35CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 20:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46bxzW7AWDk4uXlyHvKMVMwj/OyP1y7/MWcuxerPlBc=; b=KGTLJyMSFTGF78aARUOmsVAKGg
-	HgmrTAChp17sbl0p0aeO35NSIXvRp4Yl7PnNFbfeIzHTkYbMK7HLNZOhgVQ4Qrkg3KFXbVN68kiWV
-	QFlmiEtyFDG3Qc36qTl0j1P4L3fuZLfUXqCXavoUd+m7VPJwo4mkAg0z/e4sslwNVDr1xk91P+GNw
-	+b7cRlpN0csmbAL2b81SxEOXpeXC8lbGJUM7eYVHB7onQuApeOrSj0jWoCLTg0mRRtmLZfPr8FOGS
-	4UjDoKAA1anYg/UGtPYYE4oed+Cxorbe9zZ+mQ/jnV3IlPDjYSjIca8SQbaDQk8jQMJMhff1LdHyB
-	mS1SiuTg==;
+	bh=dlj4B3tCS1LCg0o2cK8faWQWBMDw4ejqDx0TgeFPOz4=; b=RTDudf8bZa9pBWMhs78QP6L9Z9
+	I00qUw14b+6iXIHVQT1TPM838g1cQqWBMJFfz0zEpKC+3uaZqWNbbxj3h/+3LigMzReUfaYnd81IN
+	NXWtSCN/tyLMLQh+DAzd6GmsTewBvIG13XKx296KgUj+Sr83IJQBAcqgiiIRyk3DRVetuxQSZgA3X
+	IcG0DYGyVLfIOt168E0ARZ71atEk6TpfF0nJS+cieEwqTukf5GWcHRSz+PIQUZeWUMFIplbn3LgvJ
+	7YPc5s44J0NksISUONXNHaspwEZj4rmaTkhsxO521OpYFvvimlcAIGxvy5xMvmk7rYBI6zHqsoGq1
+	P3Cb6KMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPRMR-00000002lDL-0V64;
-	Tue, 19 May 2026 20:48:19 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wPRMe-00000002lNw-2Uyt;
+	Tue, 19 May 2026 20:48:32 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPRMM-00000002l9T-1Qej
+	id 1wPRMO-00000002lAZ-1ZjP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 20:48:15 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4493cf2f982so250114f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 13:48:13 -0700 (PDT)
+	Tue, 19 May 2026 20:48:17 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4891cd5927dso4338235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 13:48:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779223692; x=1779828492; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779223694; x=1779828494; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=46bxzW7AWDk4uXlyHvKMVMwj/OyP1y7/MWcuxerPlBc=;
-        b=AjZKe3aBHznCTMsVkjVkogqzjcbhNwgowXYne3RTAT1RlWFiCCOL5aqRGdKvZadUEp
-         ZmuNACUhQktX4N0OZAoBt3V/8nYx3KfzWIVNHWn5U+jQDgRbpprF3DFDYlowpWql2yWn
-         lFYqCl3OKsnAY7/Y1ke7adKBaW0Gy2lYkyFqNNiSt6/0xbU71LzzYiEb19l9ja6D40Qr
-         /iqETUJ0HGBcpiZeDgynbThC/JzoEld6cIQrDtnC7DABM5+43P/nw6il2Eh6FafSSi8f
-         eoh2imudRNQG/H4LHXRKS/wva5dfTNWDnMohlEboV6sW5T1bdsAqGe6Nop9w7deeMQee
-         OBDQ==
+        bh=dlj4B3tCS1LCg0o2cK8faWQWBMDw4ejqDx0TgeFPOz4=;
+        b=kTJeSfvf1ISZgtR4unx2yuW/pN4XJNGGyxt56WbkV3DxHoHBDfTSvD7nM8v8Uok7h3
+         yjnKQ54tOFV94Ai4jdh+3G87CEevwE03IxqhibTrBoDaqKPGp7xMk8cQfbMGa6DX2fEY
+         rFGnD9gmVsONMb2ET9XaKnrifrev78IINuXaDyp37xx4smsougF/uTNYtrXTO6gTVKYe
+         CtMIL6Ni5IOiX2nYBi8LaLdbdpQkkR/7a7M7tbdT3gdD09MfM5/lPSyblVNSNcvvx4y6
+         fwD47r3ch3brVEnbIgjAdZ4lH3obv2DwuVen99TeZJlSX8y15Ex1w8KU2Uaki8pJ9Z7I
+         7MbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779223692; x=1779828492;
+        d=1e100.net; s=20251104; t=1779223694; x=1779828494;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=46bxzW7AWDk4uXlyHvKMVMwj/OyP1y7/MWcuxerPlBc=;
-        b=rFc/gzju2RTLj2zRwZMNLgdEsw1z1C8qF60zAteKaB4HL9SkV9WY6LdwWJyMpABVqI
-         HqiU5+clLzTUE/LGwZ/9kAcI9rxIir+O3HQW2FLj3iaYWG1FNIAxrHLYcskl3I5vviXw
-         gTZWOkrJnARuWd3U9bQIz25aM8ANf3Krafd3aLOhH2K+Kmp5AUyLbnth7tPY1ndPFdZ0
-         ciRUJI32qze5WrAcZBOrJAGhHhFDPoExbx8KF661oPhYAoNpzCWnc+jUV/DfxV8De4Hl
-         6v4dYzoX9Kv1uugg6kj/XLmwKIKhCAraGpTqqE7X3L6pvZVOoYunlHQXpVG0WifGl//I
-         81Xg==
-X-Forwarded-Encrypted: i=1; AFNElJ8yrraPeN5w3+Y65Ge1NPf5vQEfl1bq8Ot2EIGXkmnf/TXZIovNNFWI1+YSSZ6AJp7EcPHfoSeIn/PX43fSLaRh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhTb1sZlz4aW2k74vLlGkILQXUKNwYyow+McrfCGzli8MyHTc1
-	zGSYNf4OUoKv9tBcaUvd19WpqD4RB5ZsXv8WsPHa+1Ldrb8r1eU8AHb0
-X-Gm-Gg: Acq92OFencmT0maC+0rVrs979ha3Aub2/bR08Kf/3Mg5smGNb+84E+M1BHLOsnt3ZN6
-	a2YSvQQEgDFHRKIVL0aypGPQeExsZpz0xrXq8fxVI+BfAj6rOZm7xMzRJDLuFxB9iQpy631u/Oa
-	ZVXSmhArbW478zCXQ3s+GWUUnYfIiCD0POKPXZNIzTE1ZxPdoLxV6SjR5CeWEX5sutTIcTjlRag
-	owPwQfSI7o53+05/Weu4okvIc7JkD1fM32tLjOymp9nMKe+imiJplUh0thUq63aZ2G9oRFgQeHk
-	boQGlU5cfY+q25dkpLuB1mXYnp724aSEKdnsREKEYramPvHch2egmtNtpPHsBDdkWVi4WAsg4/E
-	xfh6cN+o+Qqj7ggLdw0aALxmjkBd2ol7QHjrm8SSl/yiycBMTGdus76aWAJbvZfRNjhPPwxPptM
-	pk3AoNi/od0sQ2+4o+bBXDa77VYH/mTgfEj7Zs4DasXm4biejCtBnTvxfSkSZDC4M=
-X-Received: by 2002:a05:600c:8b25:b0:490:6ab:406a with SMTP id 5b1f17b1804b1-49006ab40f1mr111033255e9.8.1779223692230;
-        Tue, 19 May 2026 13:48:12 -0700 (PDT)
+        bh=dlj4B3tCS1LCg0o2cK8faWQWBMDw4ejqDx0TgeFPOz4=;
+        b=gZ0EJfGO45SS1Rifirg38Vzu38LQ2dv9mpzc3g/lgU4ATt2MP7McfymNwCfXb+pcDY
+         9pof2IlM6vhi+DNeZZHHayaFacwaFkxQNx0fw8mbj8nq6LJZTjnrMNc2ZzWDXbL9dz4q
+         +838foWBQnbdffb9Oq+iC/0EYgoQ04pb8kNm4uaG3hAsH6T2vVhkelg0+hUWPX/KLevk
+         hETpnWcdhox5+tZvPLUxmK63qoJs1IPn0fbnAMGG6sfQMJNd4Vv+Dh3HYON0I083KhTt
+         E5bmCc1bUvtEvwOYmvN4p8dCCWtRUUy8QSqyAzEe7Ttt7Qq7Zkrihz+di7h1ooKqxSaE
+         9K1w==
+X-Forwarded-Encrypted: i=1; AFNElJ82McdSzy3NqXU6UMw9QNkKFpB8sXqzTDo2IPVfC0XUAQrY66+AIdF7QaCECOsaGKLBC+dfevE2m+9XtsMf8roR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy32iy4ZGnFwGffQ1sJJbEah6NAbclO73+2dH8yogbngc/ZCAIe
+	OERQYxoAUoG7BX9NgvN01X+2OCzld3I4UytpF8fXN5uTmg8sgmO/38tR
+X-Gm-Gg: Acq92OHyAguNLVvUTptW02cl6Yaeh99N2NG+Gej4ez2jWA1F85Lc8h6ETMFXG6efJ8p
+	rydvDXv8Z7+DcOxViA5z95/D+ZVUE3HQRQt4atmCI+VaLXoZuYTMoL7rDj1mLgZbC5rkN5fzN9d
+	vCUqnZ6cTjHYHZYRdlDlvHUq0fYj1mmcTf5nJ74VnY3ui5AbDrQ6vvhJJ+GbxNl14wte2h3FaH6
+	iz52Sl6WJnGcQcEQeNFAgoih0py3moI+kSS0X/y67EMlqDtLlalSREAT6QB+5JNNLnnufrNX52D
+	+UCtDKTrvT/VHmWVEBfz4DdCORxNeRnnGlH8/BWiOaqywlCRIq1cG08LsrI4CaoJUmqlEUHRnPB
+	h+PnqRQmZ/8zAyaVAKGMeRpipA+X7tD4O91bKpxDrr2jOnfeHeWZfQKFjFZJlQzJQBA2xMI+BBl
+	ZLfl/y6z56Mxk4Krj1vi7Ii9Q09Yq35+n9KcBmrkvmZ2N7U7ca+FsJf8A1t5jBwfI=
+X-Received: by 2002:a05:600c:3ba5:b0:488:7e7b:dbc2 with SMTP id 5b1f17b1804b1-48fe61f7b16mr195362275e9.3.1779223694200;
+        Tue, 19 May 2026 13:48:14 -0700 (PDT)
 Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe4dac000sm356457755e9.0.2026.05.19.13.48.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48fe4dac000sm356457755e9.0.2026.05.19.13.48.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 13:48:11 -0700 (PDT)
+        Tue, 19 May 2026 13:48:13 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: thorsten.blum@linux.dev,
 	herbert@gondor.apana.org.au,
@@ -80,17 +80,17 @@ Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	l.rubusch@gmail.com
-Subject: [PATCH v2 03/12] crypto: atmel-ecc - fix multi-device kpp registration
-Date: Tue, 19 May 2026 20:47:54 +0000
-Message-Id: <20260519204803.17034-4-l.rubusch@gmail.com>
+Subject: [PATCH v2 05/12] crypto: atmel-i2c - move client management instance into core
+Date: Tue, 19 May 2026 20:47:56 +0000
+Message-Id: <20260519204803.17034-6-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260519204803.17034-1-l.rubusch@gmail.com>
 References: <20260519204803.17034-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_134814_405286_603F2051 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20260519_134816_435845_E50B1019 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,121 +105,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In a scenario where multiple such devices are attached, the following
-situation may arise (finding by sashiko):
+Move the global 'atmel_i2c_mgmt' tracking instance out of the ECC driver
+and into the atmel-i2c core library.
 
-Device 1 Probes:
-Calls crypto_register_kpp(&atmel_ecdh_nist_p256). The Crypto Core modifies
-fields inside this global structure to link it into the system-wide
-algorithm list. Registration succeeds.
+This change consolidates the shared I2C client infrastructure into a
+central core driver. This centralization allows both the ECC and
+upcoming SHA204A driver modules to access and reference a unified,
+common device-management context.
 
-Device 2 Probes (Minutes later, on a system with two of these I2C chips):
-It executes the exact same line of code. It passes the exact same global
-&atmel_ecdh_nist_p256 memory address to crypto_register_kpp().
+As part of this relocation, replace the explicit runtime initialization
+calls inside the module init block with static, compile-time macros
+(__SPIN_LOCK_UNLOCKED and LIST_HEAD_INIT). Export the tracking structure
+via EXPORT_SYMBOL_GPL() to make it available to dependent sub-modules.
 
-The Disaster:
-The Crypto Core tries to register it again. It overwrites the internal
-fields that Device 1 was already using. This corrupts the Linux crypto
-subsystem's internal linked lists, usually leading to an immediate kernel
-panic or silent memory corruption.
+No functional change intended.
 
-Introduce a global mutex and reference counter to ensure that the static
-kpp algorithm is registered only once by the first probing device, and
-unregistered only when the last matching device is removed.
-
-Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- drivers/crypto/atmel-ecc.c | 55 +++++++++++++++++++++-----------------
- 1 file changed, 30 insertions(+), 25 deletions(-)
+ drivers/crypto/atmel-ecc.c | 4 ----
+ drivers/crypto/atmel-i2c.c | 6 ++++++
+ drivers/crypto/atmel-i2c.h | 1 +
+ 3 files changed, 7 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index 19d5435aa42b..e5dd166fd785 100644
+index aa2dde99b2b1..33b90667c872 100644
 --- a/drivers/crypto/atmel-ecc.c
 +++ b/drivers/crypto/atmel-ecc.c
-@@ -23,6 +23,9 @@
- #include <crypto/kpp.h>
- #include "atmel-i2c.h"
+@@ -26,8 +26,6 @@
+ static DEFINE_MUTEX(atmel_ecc_kpp_lock);
+ static int atmel_ecc_kpp_refcnt;
  
-+static DEFINE_MUTEX(atmel_ecc_kpp_lock);
-+static int atmel_ecc_kpp_refcnt;
-+
- static struct atmel_ecc_driver_data atmel_i2c_mgmt;
- 
+-static struct atmel_i2c_client_mgmt atmel_i2c_mgmt;
+-
  /**
-@@ -331,23 +334,30 @@ static int atmel_ecc_probe(struct i2c_client *client)
- 		      &atmel_i2c_mgmt.i2c_client_list);
- 	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+  * struct atmel_ecdh_ctx - transformation context
+  * @client     : pointer to i2c client device
+@@ -411,8 +409,6 @@ static struct i2c_driver atmel_ecc_driver = {
  
--	ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
--	if (ret) {
--		spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
--		list_del(&i2c_priv->i2c_client_list_node);
--		spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-+	mutex_lock(&atmel_ecc_kpp_lock);
-+	if (atmel_ecc_kpp_refcnt == 0) {
-+		ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
-+		if (ret) {
-+			spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-+			list_del(&i2c_priv->i2c_client_list_node);
-+			spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
- 
--		dev_err(&client->dev, "%s alg registration failed\n",
--			atmel_ecdh_nist_p256.base.cra_driver_name);
--		return ret;
--	} else {
--		dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
-+			dev_err(&client->dev, "%s alg registration failed\n",
-+				atmel_ecdh_nist_p256.base.cra_driver_name);
-+
-+			mutex_unlock(&atmel_ecc_kpp_lock);
-+			return ret;
-+		}
- 	}
-+	atmel_ecc_kpp_refcnt++;
-+	mutex_unlock(&atmel_ecc_kpp_lock);
- 
- 	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
- 	i2c_priv->ready = true;
- 	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
- 
-+	dev_info(&client->dev, "atmel ecc algorithms registered in /proc/crypto\n");
-+
- 	return ret;
+ static int __init atmel_ecc_init(void)
+ {
+-	spin_lock_init(&atmel_i2c_mgmt.i2c_list_lock);
+-	INIT_LIST_HEAD(&atmel_i2c_mgmt.i2c_client_list);
+ 	return i2c_add_driver(&atmel_ecc_driver);
  }
  
-@@ -359,21 +369,16 @@ static void atmel_ecc_remove(struct i2c_client *client)
- 	i2c_priv->ready = false;
- 	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
+index 0e275dbdc8c5..db24f65ae90e 100644
+--- a/drivers/crypto/atmel-i2c.c
++++ b/drivers/crypto/atmel-i2c.c
+@@ -21,6 +21,12 @@
+ #include <linux/workqueue.h>
+ #include "atmel-i2c.h"
  
--	/* Return EBUSY if i2c client already allocated. */
--	if (atomic_read(&i2c_priv->tfm_count)) {
--		/*
--		 * After we return here, the memory backing the device is freed.
--		 * That happens no matter what the return value of this function
--		 * is because in the Linux device model there is no error
--		 * handling for unbinding a driver.
--		 * If there is still some action pending, it probably involves
--		 * accessing the freed memory.
--		 */
--		dev_emerg(&client->dev, "Device is busy, expect memory corruption.\n");
--		return;
--	}
--
--	crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-+	/*
-+	 * Note, the Linux Crypto Core automatically blocks until all active
-+	 * transformations utilizing that specific algorithm structure
-+	 * are fully freed and closed.
-+	 */
-+	mutex_lock(&atmel_ecc_kpp_lock);
-+	atmel_ecc_kpp_refcnt--;
-+	if (atmel_ecc_kpp_refcnt == 0)
-+		crypto_unregister_kpp(&atmel_ecdh_nist_p256);
-+	mutex_unlock(&atmel_ecc_kpp_lock);
++struct atmel_i2c_client_mgmt atmel_i2c_mgmt = {
++	.i2c_list_lock = __SPIN_LOCK_UNLOCKED(atmel_i2c_mgmt.i2c_list_lock),
++	.i2c_client_list = LIST_HEAD_INIT(atmel_i2c_mgmt.i2c_client_list),
++};
++EXPORT_SYMBOL_GPL(atmel_i2c_mgmt);
++
+ static const struct {
+ 	u8 value;
+ 	const char *error_text;
+diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
+index 30ed816814af..d54bd836e0f5 100644
+--- a/drivers/crypto/atmel-i2c.h
++++ b/drivers/crypto/atmel-i2c.h
+@@ -119,6 +119,7 @@ struct atmel_i2c_client_mgmt {
+ 	struct list_head i2c_client_list;
+ 	spinlock_t i2c_list_lock;
+ } ____cacheline_aligned;
++extern struct atmel_i2c_client_mgmt atmel_i2c_mgmt;
  
- 	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
- 	list_del(&i2c_priv->i2c_client_list_node);
+ /**
+  * atmel_i2c_client_priv - i2c_client private data
 -- 
 2.39.5
 
