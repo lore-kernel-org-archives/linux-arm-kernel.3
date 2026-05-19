@@ -4,97 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83ECCD4F57
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BC7CCD4F57
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 11:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nbjFHJj+U7uIM+Cg25ETbUEUNoe3mdFwTNg+mtbLNPk=; b=VhFSVlMnFinczmXX/TCZygAo+c
-	74C9LiH98Tuk8nFAl0nsmHx69d72mNbZtVZ57zMaLhb9+ng4WKSQUOacnSe5ufjoYV8jRtnBzYKLm
-	IXHalyNyLZYtrgWhTDgR0rcasawFeXejeYG0XWDoOZGDKC/P+RtxN6rE+YPVfKNmK/ag3le0R/hB6
-	b4kda86PUvDp18WzH52l5TjFYTcTNMP2vlyxlWHQSMLXFXk2tz/VLsGYo+XQc0tXxT62faoixlWAL
-	N/exOdZA8F2Y8TZgYTbK3WQFZcqMcoxznfyI+BuFjDmhyyvfXyYF6apJRsjkwMHW/GZoWaJzSaNRn
-	aUgj7Pkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FUfaaZJQU0OAuavpsKG/PH4aZOGRFz/KRjOmEESCYDA=; b=qeewmW7NI9wOP2TFTgtG4JsZCJ
+	tMm5dV5860xBcp572bvhS6s8xNHJxi9h66E7Tl48x8DUahsbt+j13xxOCpyl9Wxbfi0g/b919vLnK
+	vYeO2rRtL4pdyhytc92nO5Mqz7Ta3DJhz1qJYKL9qOVYRrbJiwXFP0TUZc3PU/UwuAfi0uSPn3J/Z
+	d22EoO6DY9odRB5SoJ842HQ8y6AugX2okKBA7V+v0kYvaUqpgjtr8R8qehPEly9BMSRw3kJmHZNBb
+	76t5j/NOxtMg87W8bQDqNGApO7OMV5HTLVd1w3RBxvueEpW8Mxxujcc6VWmYghyW4zuBo+iVoMCoH
+	eM9czz0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIth-00000001N8Y-3Czv;
-	Tue, 19 May 2026 11:46:05 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wPIuw-00000001NP6-03lw;
+	Tue, 19 May 2026 11:47:22 +0000
+Received: from mail-northcentralusazon11012046.outbound.protection.outlook.com ([40.107.200.46] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPIte-00000001N7N-3XNN
+	id 1wPIuu-00000001NOa-0fPJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 11:46:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779191161;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nbjFHJj+U7uIM+Cg25ETbUEUNoe3mdFwTNg+mtbLNPk=;
-	b=KRURCMUx/Iuim+oP8FZ8oKjJ9VwZg/mSOMwcAXyd0z5Ai/oPwCNRLPLP8I/RnL8A2Zun2p
-	rc1s0cXK2j9akytPkCNEOoMokY9JL7HuZMyr8+vV0mK2CQEg1VlIXgeSNPB3O4yrrUdwRx
-	RICDyV9u7ftXT4mEtI6cquGQsyEFqlc=
-Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
- [209.85.167.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-199-Ei9qAnlMP4eGamkVUpQwuQ-1; Tue, 19 May 2026 07:45:57 -0400
-X-MC-Unique: Ei9qAnlMP4eGamkVUpQwuQ-1
-X-Mimecast-MFC-AGG-ID: Ei9qAnlMP4eGamkVUpQwuQ_1779191156
-Received: by mail-lf1-f71.google.com with SMTP id 2adb3069b0e04-5a870f93c99so321245e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 04:45:57 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779191156; x=1779795956;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nbjFHJj+U7uIM+Cg25ETbUEUNoe3mdFwTNg+mtbLNPk=;
-        b=JvQl83hnNHVlT2Mv2doUZ36qHSKN4NaprI00YUonVbt4g0GfaOavTpt1lxCF84PGwU
-         AZWaOVJYyqoj8dpJvu81YmrLUWDhGvHZElFNa0kdvf0SCm3mZGHT6R/jKGJcHaCGxvbC
-         N3J6IyoRTbOpfkENJBLWw/P2fH+mZQhOfU4761mF6dWkPlQMhPUA0vUzAvehKpM/RPyt
-         DYIdiAhJM4Io57xv0RAnyHD8Z/+k+rkEriAoNu3MBLdnOAJ6wjQb4PVnO/bojoS+DasF
-         LUZlwOpoR9/I5M3Wp3v7do9SoM/1UUs3OlryjhNMTFslHoVncu7ftgjQ0Ci5F4/s8lsj
-         CxdQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+zB6OPZDRLNj6Mg1/pjjcCl82By3PSupaEdUcldJi+l/5OQuICuJjIQBhJyNnqmsn7UIoncOy6OCIrsF2cjb5R@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMeIfbIPdXN1gA/+RPnXaT+LC8kgr0GdJde2Vy4iaL4/Qc0Wxc
-	Pzvkz4DxQD5j0BTAJci4vQwNye2ZeYI78p3vrpP0CLWMdw+ip+phfI2A1GSNjLi8+gU8BFuxWFS
-	McUEwSu+dNxYUFhhLi4J46kSY0B0m4Uzuh+VohO/mnpH9MB7lybSMN3eNvXU8mKW5KkF6SPUlH2
-	uO7R3lG1hGqt7mPHqGDb9+jDcqfnVpgDKy/VeGrrc2rV/cGHyjZY8=
-X-Gm-Gg: Acq92OHiLbRlxlK0SMS/hoXeOkLz9VBmV7TqbR1Jv6XFOibRL9+2Rnm/ef5wIoJNXwZ
-	wsOihC1PAQvMzdhV42gheKZj5merpeVVVmTjgviXyf4y8nisbI27fTbZugehEVsHOG2HPfJElor
-	mqII/oPXz/tvS476AA4Q/aFYKWYtppdRt24XjoZIRKEFqAaiOc4SbqH4lAH2TJIxXtptAmkhwuf
-	Yktpw==
-X-Received: by 2002:a05:651c:548:b0:393:9110:fbac with SMTP id 38308e7fff4ca-39561d12c2cmr26805831fa.1.1779191156014;
-        Tue, 19 May 2026 04:45:56 -0700 (PDT)
-X-Received: by 2002:a05:651c:548:b0:393:9110:fbac with SMTP id
- 38308e7fff4ca-39561d12c2cmr26805691fa.1.1779191155534; Tue, 19 May 2026
- 04:45:55 -0700 (PDT)
+	Tue, 19 May 2026 11:47:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BVxo43Wh+OCpEnQNw/9K4Furvv53rhN2ZFtjDYxnVc1ijZH9oupY3oK2n9ILFrgzF8dShKEPraotuptqqG7zfVyibddBbJKmPg/GvqB6mTK65ktJbohukEsDMbntpt2eMCIpxFVSLfZMfpM6XXa2NfhlajJTP0TaZcGC05BxEUtBnuyI1nmqq/8v3MRfdlFaIBkmeV2RFlAnIE+igRK46A0TlB/km7zL6DcpxpXnNxTYt7K2OwLquQY2RnKLEDxuDg4of+KHuF6GaF8zq0XILnucFYA7lqKMM95bBftSjjB75Sp9daHRUJat0hJhGSA380esWqhBwa1AUEgTNVjBWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FUfaaZJQU0OAuavpsKG/PH4aZOGRFz/KRjOmEESCYDA=;
+ b=AHyB8HyRa1bIVsKNXp4N+YtzRvTHoUmf0Oum37JsAkIMj9p6h62XkWaiUc7lci1dHdaH3ByasdZ+VZENE3ijDcEa1uK9XVPXUae6RJqUsMqOtE3C2zgUoihyy03Sej0Nm785T2HctKPy/qoDiTiJtJzz3DMaxRD4SPwl9ZC0+3zdZVcofz0RH/VuoJBilsOeRD7UqA831OpOGEPUXhsgrxOo16cRrSEB2xXgnfLX43jDHcdaRZj7EtPNmyVCOZ/25+G/WXxoGQ82wDAmfboWMYVl3Y0WemjiACVrySQCWqf7TMyEGXwiXbZj/AiLdGkvtiB1njULOk9sv8MnfCJxTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FUfaaZJQU0OAuavpsKG/PH4aZOGRFz/KRjOmEESCYDA=;
+ b=hs8YesVjpGqxwynki71NJrTMwqjdyageSmlIC/HD03TXxCINxYDxfYl8TBYsb9aKgRidrRicIGBsp2hrvN55jei8wPD74Uzul60DhAUmxeICm5hU+xWCUjMB1FKbEYQAMzOXNtVGyHr/ak4JooVEkEYGK26ik/bLgEEN7V2yjYZ1S/K4tjBTP+G6LsQG3fFBo9ftiAqIHm1m9xzkBzVWf1AYutQCy6GDiBfiJORclwPHCy6ut9mHVbIs23gLDyysU34mtMIRQ1UCd1DrKZHyLzsSeA9jQ14jLc8xLUOoaQ1kwfA+9jPjsqCZfHKDzkOoQrjhoIcwpkkgaHwe3ZhsLg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH8PR12MB6673.namprd12.prod.outlook.com (2603:10b6:510:1c0::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Tue, 19 May
+ 2026 11:47:11 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Tue, 19 May 2026
+ 11:47:11 +0000
+Date: Tue, 19 May 2026 08:47:09 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, vsethi@nvidia.com,
+	Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v4 07/24] iommu: Defer __iommu_group_free_device() to be
+ outside group->mutex
+Message-ID: <20260519114709.GP787748@nvidia.com>
+References: <cover.1779161849.git.nicolinc@nvidia.com>
+ <bae489d600425a014bfed1c2290ee7c0c657f198.1779161849.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <bae489d600425a014bfed1c2290ee7c0c657f198.1779161849.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0217.namprd13.prod.outlook.com
+ (2603:10b6:208:2bf::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <20260518061522.2884441-1-khristineandreea.barbulescu@oss.nxp.com> <20260518061522.2884441-2-khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20260518061522.2884441-2-khristineandreea.barbulescu@oss.nxp.com>
-From: Enric Balletbo i Serra <eballetb@redhat.com>
-Date: Tue, 19 May 2026 13:45:44 +0200
-X-Gm-Features: AVHnY4IsU7fSSnNgUDdmrpcWXb8rpRp3nIWviV63aNNWwk4kg6ZdkU34h4HNbeA
-Message-ID: <CALE0LRtt8w6cAoCqKt-9YCuvjbVE95NdQPq3gXqRg-jhxKO4HA@mail.gmail.com>
-Subject: Re: [PATCH 1/1] arm64: dts: Add usbphynop and usbotg pinctrl for S32G platforms
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1yPqcCBksw_F3IZFI3G_nooixcMh6380dmXStci-1Ls_1779191156
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH8PR12MB6673:EE_
+X-MS-Office365-Filtering-Correlation-Id: 46616802-ac51-4724-6c14-08deb59c5cc8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|11063799006|18002099003|22082099003|56012099003|4143699003;
+X-Microsoft-Antispam-Message-Info: 5aR1GcB1/ClWzTS2sNhvOgF8FYsPFNfkkFJUrLqG5V6m0VeJh7Wgr15HLJ5KfmnGB43TkIpKm+sqf5lV/6F7yVd2Td9q+gxgUf7jtBYnOpEJYOB4yELO90uxgV0+sJUE9sflT4WFuxpHeJ2aVcQz8I80X25xhjrFg8TfbzQNCLrQI7HFVmF0cnExd7l6Or0ajwDgd0iiB36ez5H/PI6n1JZGuxjKWKH5XYCb8p+/HtnMo99xsg1yJTC9364FPk6X+ElUrrWajS3PNYZ/B4wxKFkVsSR0Bj/qw1w6d1sVtRD0P6NBmOV1syVz/BThkU6ZWc/ZDDmMZ+JQPY2QyJhX+nWGDuf5y/s7Al8aTP4QzYicdF3P1RycK+SBEvtSjwmyxmuTAXLAPTKKzI+Oj2O+Q9ejg82N0EYGT1W6OT0qxzhhwAfx5CIwAuaZMKT37N4e1bhbH2/WBdO75ylErOxqrHjkAYtEkdubAeTZQdN/2xb8epQcjj+orPritAshl2Cfow0Pu8LsOkFtxawxeh45alozg/y9eWVw33JlZ0ApwlUXaieTRWtwy79efFPJv080fuY8YOXM3Bv3woJCqGC2VuGoNfQH7iJyRruO8GfRlDGgkNBKJ5bPtpzsH1YWt0YSLD8m5cUiPMGtF2ELxm0zHP3+AmhIr9qBgVLG0uwYPiV/GipajgcciSVICGeHD1Pr
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(11063799006)(18002099003)(22082099003)(56012099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QpdxjBXxC4lU03xEyMpQkdbMB5XjTjidQzM4olJlUljjdef3ZVc4r5/YplDg?=
+ =?us-ascii?Q?3dEz3A/XsOgieiIpa0TJyTWm83Yqdpy8N3FszFK5AJ6I1wp8iVwCeprD4USL?=
+ =?us-ascii?Q?4mMNpFLJLumgd7MSMwU7CGYzLpyJaOR6E8g5D1DYe68zDO0ENCvKY3qXDDcs?=
+ =?us-ascii?Q?jKAWwFqtuq6WOl8iOvCp8sm7s/gdVywXjK7fAxQqYfUa9mccfCw7KLW6xXeU?=
+ =?us-ascii?Q?tjLB+iNyhjSwiDAv17eIt4pANAQ+vqQ5OMoOhyGSxcmUtsjRkQCRRfv9/ns0?=
+ =?us-ascii?Q?6I8l8WDn2NOTLGMxIR1ds0hS+HScmuk8UTXP0aWwVPEkN3u3P+8Brd4dsHLN?=
+ =?us-ascii?Q?DQxc6xvegXWISFAZU+gdA8OeGuvosz+Ig/5fV6xE2YwtO5rUdU96YErz3Pca?=
+ =?us-ascii?Q?bNc+pLMJgTHZkwWj4txeYJn74oH8gOoHsir9gCJ0cULlIBeqbNhNCxy9Rodo?=
+ =?us-ascii?Q?Lij5LmMtTJ8hzWv0fsr4qIzCGcMoIIHrnmJ33pcFxfQBJjR3TOHJh3wguYjG?=
+ =?us-ascii?Q?Ak8EsxuqfS/vB80UCqDcUg+tbYqC8sN2CYG4opJswHrJOB+0P1aYDnOwU4aM?=
+ =?us-ascii?Q?/iiY3cxgboylcl5s1rahLsH3zjeZqtL/bxQO0o+P8yoRDmesjGntMQSzrgvT?=
+ =?us-ascii?Q?QYboXujQiKnv5ypRwKyG88NTJF25yNE+Bq5GwjAuuJTbKmrNEavnB8Ze8Koe?=
+ =?us-ascii?Q?saT+P2KmHQJ5ytOgvj/+zwbGZaJTKHjNv5vDDhwBhRm4OQDVQ5/5qAzt67vu?=
+ =?us-ascii?Q?pWp+iQGcffiUOD0ng9zx/eHtKD1tYnhcrg1DGJhNHtWlivEVPL6KDUPbWa3T?=
+ =?us-ascii?Q?96KyZRdmF0beuA/9tdHOxMsCxH9qwzARe1dMCkbdYZgA7o5nonwq5ZdHsPAg?=
+ =?us-ascii?Q?+qi86OARXh1pTNRtDS0X0cLaNjSK6BUqVf2fXkNOW0kb0C/t7PUJyn7PtmBi?=
+ =?us-ascii?Q?laboBcCf8L5EXl/bZ3AwGmYsXYp5k1x+u0WH8LKI4UHcK+j53+2lficanuJF?=
+ =?us-ascii?Q?1DpzUyhLOst1H1ujPqfG9YtRileMIH+Z2kJzXjXeXHK13e86N0VN/fyJ9Utu?=
+ =?us-ascii?Q?TOi1/aedMvMbi0yF3zt3anWJNRXBPMERSsCYMt1WijzI6YBplNJ+wK7XjWOy?=
+ =?us-ascii?Q?b2HiSDpZOjML11fKmxz6uqyNZYrG17STvOZVwyzZXAJCSroaVWXHoFaYBJk/?=
+ =?us-ascii?Q?5YosJv2qh0ott04WUCel13nseAp8JX9p458VojFkTfmdBCuA7Pgx3gHb6lMM?=
+ =?us-ascii?Q?t072UdI+y03O4KhLuxhtf9oSS/dJfpBqAdJxdTaNWuLgwclD90NoM3aZc4M2?=
+ =?us-ascii?Q?oyYmWQ7vL70YX1MSeOnEQg2YflvyPaSOGJPlqecSaSrfftBxA6dgd8ojAfNO?=
+ =?us-ascii?Q?BZVO9esOkqptNy1JyIn6OFJWqACTbeju67OAl8wDCyqDbAo+1lqC4fRnbrjZ?=
+ =?us-ascii?Q?ShQwUMoJwBOp9c1woq8ty9axw/tq+tupGNK/mjrXBHf9VVliZk0wsuiaSyNw?=
+ =?us-ascii?Q?1ZRwJM4oiGxoboqqxkqdx7+uAlxrBwVqOEHh7PhNivjANe74sqUNvz8+FrDh?=
+ =?us-ascii?Q?/U/z8qNg5y5CR8kABZgjFDmxV+C3mNJxGndVlXkD9QgMGuMD/rY5Bx4agb49?=
+ =?us-ascii?Q?gdrpt9ltpSRNg7yzut8Y1ga97PHdv5z2aGJq6FrNqb1IqbytSRcLehOzMoZl?=
+ =?us-ascii?Q?7TL0wiVEBv6oIlXl1NYKu+nyAOD+vVpBfrd2qA5WpcDdQ2P5?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46616802-ac51-4724-6c14-08deb59c5cc8
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 May 2026 11:47:11.2171
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Hwv/CgRw/V7wNbvFTplNe/mpcgvcb82mVrtUiIWhwz83jTq8OFuNPhrJF+OVkVHL
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6673
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_044603_372752_FF116641 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20260519_044720_200639_515AD32D 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,218 +145,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, May 18, 2026 at 08:38:50PM -0700, Nicolin Chen wrote:
+> __iommu_group_remove_device() holds group->mutex across the entire call to
+> __iommu_group_free_device() that performs sysfs removals, tracing, and the
+> final kfree(). But in fact, most of these operations don't really need the
+> group->mutex.
 
-Thank you for the patch.
+Are you sure? sysfs requires unique names, and this mutex is providing
+a guarentee that will happen. While it shouldn't be possible to race
+remove and attach, it is easier to reason about if we don't have to
+make this assumption.
 
-On Mon, May 18, 2026 at 8:15=E2=80=AFAM Khristine Andreea Barbulescu
-<khristineandreea.barbulescu@oss.nxp.com> wrote:
->
-> Add the usbphynop node and the usbotg pinctrl
-> support for the S32G2 and S32G3 SoCs.
->
-> This enables the USB controller to reference the
-> generic PHY and use the required pinmux for USB OTG ops.
->
-> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
-oss.nxp.com>
-> ---
->  .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 53 ++++++++++++++++++-
->  .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 53 ++++++++++++++++++-
->  2 files changed, 104 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi b/arch/arm64=
-/boot/dts/freescale/s32gxxxa-evb.dtsi
-> index 803ff4531077..d096744cdb0f 100644
-> --- a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
-> @@ -1,12 +1,19 @@
->  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
->  /*
-> - * Copyright 2024 NXP
-> + * Copyright 2024, 2026 NXP
->   *
->   * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->   *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
->   *          Larisa Grigore <larisa.grigore@nxp.com>
->   */
->
-> +/ {
-> +       usbphynop: usbphynop {
-> +               compatible =3D "usb-nop-xceiv";
-> +               #phy-cells =3D <0>;
-> +       };
-> +};
+> Subsequent changes will introduce sleepable operations to this function:
+>  + synchronize_rcu() to defer the gdev->dev put past a grace period.
 
-I'm wondering if it it would be more appropriate in the SoC-level dtsi
-(s32g2.dtsi/s32g3.dtsi), similar to other Freescale boards,it doesn't
-represent any board-specific hardware but a virtual NOP transceiver
-used by the SoC.
+I'm not keen on that at all.
 
-> +
->  &pinctrl {
->         can0_pins: can0-pins {
->                 can0-grp0 {
-> @@ -245,6 +252,39 @@ dspi5-grp4 {
->                         bias-pull-up;
->                 };
->         };
-> +
-> +       usbotg_pins: usbotg_pins {
-> +               usbotg_grp0 {
-
-The label can remain usbotg_pins but node names should use hyphens
-
-usbotg_pins: usbotg-pins {
-    usbotg-grp0 {
-
-You can run this to catch this kind of issues:
-
-make W=3D1 CHECK_DTBS=3Dy ARCH=3Darm64 CROSS_COMPILE=3Daarch64-linux-gnu-
-freescale/s32g399a-rdb3.dtb
-
-
-> +                       pinmux =3D <0x3802>, <0x3812>,
-> +                               <0x3822>, <0x3832>,
-> +                               <0x3842>, <0x3852>,
-> +                               <0x3862>, <0x3872>,
-> +                               <0x37f2>, <0x3882>,
-> +                               <0x3892>;
-> +               };
-> +
-> +               usbotg_grp1 {
-> +                       pinmux =3D <0x3e1>, <0x3f1>,
-> +                               <0x401>, <0x411>,
-> +                               <0xbc1>, <0xbd1>,
-> +                               <0xbe1>, <0x701>;
-> +                       output-enable;
-> +                       input-enable;
-> +                       slew-rate =3D <208>;
-> +               };
-> +
-> +               usbotg_grp2 {
-> +                       pinmux =3D <0xb80>, <0xb90>, <0xbb0>;
-> +                       input-enable;
-> +                       slew-rate =3D <208>;
-> +               };
-> +
-> +               usbotg_grp3 {
-> +                       pinmux =3D <0xba1>;
-> +                       output-enable;
-> +                       slew-rate =3D <208>;
-> +               };
-> +       };
->  };
->
->  &can0 {
-> @@ -304,3 +344,14 @@ &spi5 {
->         pinctrl-names =3D "default";
->         status =3D "okay";
->  };
-> +
-> +&usbmisc {
-> +       status =3D "okay";
-> +};
-> +
-> +&usbotg {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&usbotg_pins>;
-> +       fsl,usbphy =3D <&usbphynop>;
-
-According to the binding this option is deprecated. Could you use
-"phys" instead?
-
-> +       status =3D "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64=
-/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> index 979868f6d2c5..b756bcf6469d 100644
-> --- a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
-> @@ -1,12 +1,19 @@
->  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
->  /*
-> - * Copyright 2024 NXP
-> + * Copyright 2024, 2026 NXP
->   *
->   * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
->   *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
->   *          Larisa Grigore <larisa.grigore@nxp.com>
->   */
->
-> +/ {
-> +       usbphynop: usbphynop {
-> +               compatible =3D "usb-nop-xceiv";
-> +               #phy-cells =3D <0>;
-> +       };
-> +};
-> +
->  &pinctrl {
->         can0_pins: can0-pins {
->                 can0-grp0 {
-> @@ -199,6 +206,39 @@ dspi5-grp4 {
->                         bias-pull-up;
->                 };
->         };
-> +
-> +       usbotg_pins: usbotg_pins {
-> +               usbotg_grp0 {
-
-ditto
-
-> +                       pinmux =3D <0x3802>, <0x3812>,
-> +                               <0x3822>, <0x3832>,
-> +                               <0x3842>, <0x3852>,
-> +                               <0x3862>, <0x3872>,
-> +                               <0x37f2>, <0x3882>,
-> +                               <0x3892>;
-> +               };
-> +
-> +               usbotg_grp1 {
-> +                       pinmux =3D <0x3e1>, <0x3f1>,
-> +                               <0x401>, <0x411>,
-> +                               <0xbc1>, <0xbd1>,
-> +                               <0xbe1>, <0x701>;
-> +                       output-enable;
-> +                       input-enable;
-> +                       slew-rate =3D <208>;
-> +               };
-> +
-> +               usbotg_grp2 {
-> +                       pinmux =3D <0xb80>, <0xb90>, <0xbb0>;
-> +                       input-enable;
-> +                       slew-rate =3D <208>;
-> +               };
-> +
-> +               usbotg_grp3 {
-> +                       pinmux =3D <0xba1>;
-> +                       output-enable;
-> +                       slew-rate =3D <208>;
-> +               };
-> +       };
->  };
->
->  &can0 {
-> @@ -257,3 +297,14 @@ &i2c4 {
->         pinctrl-1 =3D <&i2c4_gpio_pins>;
->         status =3D "okay";
->  };
-> +
-> +&usbmisc {
-> +       status =3D "okay";
-> +};
-> +
-> +&usbotg {
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&usbotg_pins>;
-> +       fsl,usbphy =3D <&usbphynop>;
-
-ditto
-
-> +       status =3D "okay";
-> +};
-> --
-> 2.34.1
->
-
+Jason
 
