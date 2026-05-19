@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA67CD4F52
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C34A5CD4F52
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 08:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oG454rn5zmojbp+/mRa6q5csxSPlmItodqAgss5SisY=; b=lK0B9mvlPtEI3EdSzzT519mQJl
-	u4/WqnqXXpTeF/Wi90poTcdOIjuw6cVNsqczflUnHQ+iC0NVuM7mQquZ43puLcbo3fRtwpQF9gLj4
-	94jXuIPFrO/alKyOKTeubDeW2VYncbQS0pPOG8Gx9WgnSc4RHUDSFxBMc4f2hha30V87bPF3jAT6E
-	yuriG9xDlz4EKqniqwETixvIaofIqibVMahfeFA7MvfGlCztserx1XTdu9mMVxx6Zb1XDps4FFN3e
-	g+MRRkSMG2CtBWm1QBY/tkQDajYYBL5BBXlgM2/G/h+Ugg2yak5LmA4WO8NuwxY60lU7UROatoln3
-	z5RIsQKw==;
+	bh=UtXi7ksR6za75HHkRrUPh2YRUWd5B3kE8GkjiT7ewOQ=; b=KtCYHWtJRMNR3PSjQ8q0HLBUvt
+	E4Ppy+heJ+yZGUFIzPSDFKNGXtGwSyOad/10qNUKSMWMZTdTchEALOKcH6B/4aFX/gt3J+3McRSF3
+	sze70LGybjwQcC7SV/10MUyuFxsuALMBamFm5yDLwJvNvcFCcdh8IIQHxZvM6q3JxPjvq2FFwFrHx
+	kQiyk5q3LDf2hTlF8G7SZ+lk7cTrLL2k68FYj8VYbmkV7AkLJjOYK/PLlcJxxxHQ29+uKhJs+ZukH
+	sq/i6XGbauS+tXCaPqOarBvpZ6HQCEPbPtiSYTG9wwG0oNi0NkpoQds5n3XhvW1zt2b6gGf1ycoUb
+	0/g185Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPFsy-00000000ggx-3uql;
-	Tue, 19 May 2026 08:33:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPFsw-00000000gfx-1trl;
-	Tue, 19 May 2026 08:33:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E1C724027D;
-	Tue, 19 May 2026 08:33:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4B2BC2BCB3;
-	Tue, 19 May 2026 08:33:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779179585;
-	bh=6TGMMTE0u83WGBGyaqlbzGcDa5UQfun90gQgRnrOvk8=;
+	id 1wPFwi-00000000hNj-1qwH;
+	Tue, 19 May 2026 08:37:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPFwf-00000000hMw-2ctf
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 19 May 2026 08:36:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A5C01E5E;
+	Tue, 19 May 2026 01:36:49 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 035AE3F85F;
+	Tue, 19 May 2026 01:36:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779179814; bh=cURbMm2okKUDguBxbYSJRZ9JHQhDdBDG/WbOFz3bvQg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UpkB90Y3Oz6tTQ+vY8ZH4rWEgyk2v7mcacbSqK/O10gGaK8t5QuPKcqL0ogFiOHER
-	 F5BjUw/ZEFq9ECeSspnZM77VZKWP0zJ5BakuXhS8PvcczTDxxiGvEQ/LDMhiyESwrV
-	 gn0Ji5Xz3xjUdZI8DzvD0KZ6/fZB6iMg/yh0co2WfgPStjDT1CSiIwJtZq3P6UDKVB
-	 5kmJ+JYvU70no82Pn282yrqYwYEgaW1QgBCKhQCyHVxezo3qRRpvsY93T19h6d5Jli
-	 nwqLxZtcmD5V7pyKfFFvmvbozH8RB3xgFqIZpzhi+6ob4NRnmtnTB2ZNgEOaVB2LLL
-	 t/w0VUH0j1Ygw==
-Date: Tue, 19 May 2026 09:33:01 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-sound@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH] ASoC: mediatek: mt2701: fix snprintf bounds
-Message-ID: <61fa661f-0281-4b58-8042-f3f60cdc3407@sirena.org.uk>
-References: <20260519010440.629290-1-rosenp@gmail.com>
+	b=J49n4wDk9qpghf5622OsChKbMNxP1ppkvk6334034/IMUHveTqtL2Opa/uFTArrvU
+	 eh0vDsoxhOPUMW2SMJsfSsuAFyWegJTU0XKRFGWFjxQVOZC8lWGfbG5ifguzIADOHA
+	 WMEo+fOedq3HwzCMyRp3aWSj8+SASHbZuXnKDzg0=
+Date: Tue, 19 May 2026 09:36:40 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Dan Carpenter <error27@gmail.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] firmware: arm_scmi: Fix OOB in scmi_power_name_get()
+Message-ID: <agwhGERAdaKepqgT@pluto>
+References: <75caae28bdffb55199a0bc6cac5df112a966c608.1778838987.git.geert+renesas@glider.be>
+ <agb1Q6mrGyDwFdmO@stanley.mountain>
+ <CAMuHMdXreO-6xQ+e88AKQ_vSiwMPMnx=t8h5JChBAtuV4UDMEw@mail.gmail.com>
+ <agcHnzzdhV36j9eH@pluto>
+ <CAMuHMdVVAioAk_3K4y-7T0MCa7L++sVcWGRfdj_ESHau0ov9eA@mail.gmail.com>
+ <agcNULwGvCACUYx2@pluto>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bRbs8QHSgrH1Itrk"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260519010440.629290-1-rosenp@gmail.com>
-X-Cookie: Huh?
+In-Reply-To: <agcNULwGvCACUYx2@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_013306_514327_568238D2 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20260519_013658_053047_703B4BD3 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +75,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 15, 2026 at 01:10:56PM +0100, Cristian Marussi wrote:
+> On Fri, May 15, 2026 at 02:00:24PM +0200, Geert Uytterhoeven wrote:
+> > Hi Cristian,
+> > 
+> > On Fri, 15 May 2026 at 13:46, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > On Fri, May 15, 2026 at 01:29:27PM +0200, Geert Uytterhoeven wrote:
+> > > > On Fri, 15 May 2026 at 12:28, Dan Carpenter <error27@gmail.com> wrote:
+> > > > > On Fri, May 15, 2026 at 11:59:15AM +0200, Geert Uytterhoeven wrote:
+> > > > > > scmi_power_name_get() does not validate the domain number passed by the
+> > > > > > external caller, which may lead to an out-of-bounds access.
+> > > > >
+> > > > > Is an external caller an out of tree caller?  So far as I can see this
+> > > >
+> > > > I meant a caller outside drivers/firmware/arm_scmi/.
+> > > >
+> > > > > is only called by scmi_pm_domain_probe().
+> > > > >
+> > > > >         scmi_pd->name = power_ops->name_get(ph, i);
+> > > > >
+> > > > > where i < num_domains.
+> > > >
+> > > > You are right. But this seems to be only API implementation in
+> > > > drivers/firmware/arm_scmi/ that does not validate the passed domain
+> > > > number.
+> > >
+> > > Yes we tend to validate protocol operations calls even if apparently
+> > > safe from teh caller perspective...indeed I have this fixed locally
+> > > since ages in an horrible patch, that does a lot more, and that I
+> > > never posted :P
+> > >
+> > > Usually, if it is worth, we also build an internal domain get helper to
+> > > reuse across the protocol unit...but here really there are only 2 call-sites.
+> > >
+> > > What I am not sure is what to return: "unknown" is safer as of now than NULL
+> > > for sure, but really, what happened is NOT that the name was "unknown" (which
+> > > by itself would be out-of-spec behaviour) it is more that the whole domain that
+> > > was referred to that was invalid and NOT existent...
+> > >
+> > > ....mmm I suppose we are opening another can of worms here :P
+> > 
+> > Like scmi_perf_info_get() returning ERR_PTR(-EINVAL) instead of NULL,
+> > and scmi_perf_domain_probe() never checking the return value anyway?
+> 
+> ...oh probably more than that...and related vendor FW that already exploits
+> these missing checks here and there to arbitrarily skip domains and return
+> out-of-spec non-contigous sets of domains becasue they cannot bother to
+> implement properly the spec (or they have simply forked their codebase from
+> an old drop and never updated it again...)...so that any kernel-side fix
+> you made along the road carries the risk of breaking something and a string
+> of possibly needed quirks...
 
---bRbs8QHSgrH1Itrk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Anyway, it is the safest option on the table until proper checks are in place.
 
-On Mon, May 18, 2026 at 06:04:40PM -0700, Rosen Penev wrote:
-> For whatever reason, GCC is unable to figure out that i2s_num is a
-> single digit number, with MT2701_BASE_CLK_NUM being the maximum value it
-> represents. Add a min() call to help it out and fix W=1 errors regarding
-> snprintf bounds.
+Reviewed-by: Cristian Marussi <cristian.marussi@arm.com>
 
-> +	i2s_num = min(MT2701_BASE_CLK_NUM, afe_priv->soc->i2s_num);
->  	/* Get I2S related clocks */
-> -	for (i = 0; i < afe_priv->soc->i2s_num; i++) {
-> +	for (i = 0; i < i2s_num; i++) {
-
-This makes the code rather obscure and will start silently failing if we
-ever get more than 9 clocks, we should at least put a build time assert
-or a warn on in there.
-
---bRbs8QHSgrH1Itrk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoMIDwACgkQJNaLcl1U
-h9ApDQf8CKbgltfBHlqjDjL8rukX2pWSsSamJye6jR/FaVEZcCEq1DGkd+gBUaTQ
-Wmeyqpn6s+OawHMTL1yuTrXcAApnXmWVeKrOhW7h7TnfHnJvyTEJZ69lkQXrk/yf
-V+DF2QZNJzwzp87cluUEvhDUgQFhLkZV8bxdmYIfPRPPlAsAar3brLsVNx5Vlp5/
-sEGYJ29q1Na6/DrqWuUv3JGMfNBwp73VSVC9SzQ4IZbaCqngsdUEdIMCxK0RWkVy
-YhXFQqA6/+tDc4L0WoKxsmgGsumRn3GfYlyTG9W4kpakrCklVTOgzoXXobAbhwDP
-fF/+U/Qc2VKq414MKCdyoAA9Fhoorg==
-=GZfX
------END PGP SIGNATURE-----
-
---bRbs8QHSgrH1Itrk--
+Thanks,
+Cristian
 
