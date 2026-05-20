@@ -4,153 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EE1CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 14:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A422ECD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 14:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nqnho9d3n0Mc3dfYHNxqYOQNtijksR/m5fgVFiA60Tc=; b=RuGqHGuOOP8GVEgwg8p0inNZn8
-	GDkbAbBXgOgqdhtnNi1WTlhDC+xa86ocr38kvXsbtzdtzxwBvek0cuw0ppJ2dJwvmLihOQWQLUKZi
-	LY2BF0/kgdAg96z4KjfdfguDh1bbh0QHEAkpuGrlhVgW+WcC40/UKkfmp5cRCW+e1gJRVhJ4TLQsl
-	adZw8ohztL7EqvDE4WJSCmD71aWYDmaL5c12g9ngb69mVjZQD1VmWqA66YFgdzwhOE0StxVjSF5eH
-	r+M0ImDzpVGO0cw9fgyJEGgXggsSb1jks5ROXilG76aH2uH5btA/g++gU/txgqp62LuiGyQ3l9HP/
-	MaxUu88g==;
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gomqtA7MohlPsGo78Shb4CHwZGfAzd1cFgNsNMMMyaI=; b=mkA+GIh3Sg8mD3V/Caj9Qspdha
+	xNmDYCeoJWjemhXg6Yz9HQEkm8I78jDqqEBhiudPBcfm03dPw34WAsllLy3EEbvBjr3Wyd2LAh0hV
+	R6IyBWsIicUqscyg7qUE+GPwgIEfIM5J8RDTiI+eeFZG6zJBKq6JFwmagiZ1iZwR6G6swm/Mcun29
+	PfXB/wEhsdzaVmRPGhytyIYQybQrdGLzH/Vwl9gTX1TsO+Nsm2LV9oto2x7vE0U4iF0x4YGc4QLu5
+	zXWOI+exa0m6SzFPUHkC1N58z/kYY7NkQTn13Md5YlCWBnr9Cms6lgM1e/4TP+fCskkaePpkkZRmp
+	p6zDbHNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPhzT-00000004pw9-0SBP;
-	Wed, 20 May 2026 14:33:43 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wPi05-00000004q7x-1eP8;
+	Wed, 20 May 2026 14:34:21 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPhzP-00000004pu4-1j6F
+	id 1wPi02-00000004q5s-1gpN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 14:33:41 +0000
+	Wed, 20 May 2026 14:34:19 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RleDAGmdC3mwByWL96dKKuw91CNnsAJY53RVyKXIh0AAm+Ni7Sj5x54eDx+aAYUVYvSRNyYrY2xemcVL76v5HqgQvVyasS9153lZTBi9jgesagCPeQ4pies0nZ7t/i4gd5Dl8K6uu5hkn2pCvSG93s7v8AGzE3mCHE2XmLHirwAaEzFDmgoFLzIA/XfZnbz79tQElWRVisRXa/z1X7YJmNvRDXfbhb+b62nwpnCg0wUsPJ+dCEop5u60ThpEwCn1zJAySFKcdQOx8XlN7uH/w5D53ub6g0YOmCRkRWvX6j9UDy3FR/1QYGRKLoYcRKtwLR+uwjYleSan4bZWKoLMvQ==
+ b=Rn5S6yQ/e3GCWu1bXBg3VH6xxEYrOWRyazCiMfGxdzyXJIR9B77HnFs4LO3v4XM7km/3B2cJLY6b5Qka6jtuz0C76BRXEW7BtmUIF8+4QaMg22F3vmQY4gnxiw4sHUcw3/f3L3S98GyunLkKd9IMwIUuoaRwmLXRTy+KvAk0d/Xy1hwhBJfFx3z8nuG/cUsYzrcOtQ6FfQTwypPaXKx+RdKA5CZM7ZO9CwigsWYzsuCqktCR+dZpKRP9RVnpCyohLpmc/W5Anh5AYSTPWFbSY9JSm6bMeoUO0Y2rqdltEk701nc0XPnsBEMvDLAUIHrovQlXVGuIaX9SEENgcGMmmg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nqnho9d3n0Mc3dfYHNxqYOQNtijksR/m5fgVFiA60Tc=;
- b=iGptMGkPJ5rLj9PtiilmSmNycnxp3sDvmOgfXYnmSxntsj7pBfCweJ+0N3mW3rO4pA/nEZgJi76f7rUvKwP8oLM72yeJNgtRs3rXimnwlbYpDyi9ko+XwWu0gwnH/FGWrUKxVQMrBflqhPHQNcyOSErykZkbGy+RtsKQuaXNEXEXjjjvtUc+V7sd+FzjpjS4EXFw1BnayHl23pz8bfeWrhHy8x1Xx16NYJiUUNUOaWqhz2lHuSv8USavOBz1qMTZylh235AuXLVrda3npnxUrU4u0x2h479HzmQyPhugHqCFRmHDIvqDIFwzlR8X9d22gMPWM4Zi27iXymPCPtaORA==
+ bh=gomqtA7MohlPsGo78Shb4CHwZGfAzd1cFgNsNMMMyaI=;
+ b=F3V224YA94F/mjLDyLe/tV0fWIm0BvzLR29/gUoyPv0lXmBDwlrB4n8U62xMf44FVIEo3Le2gDmvOMgyZBb+JPj8hne4fbaso0mYUIemxXglj3P9NrU9a6obL8vnNkYPut2j4p3UpHoX1wVUppjU5q8oonF05AIOaQOjUVxNIt2twUPECAMnzqXijxQvDPZqycuXvpabi5iMuPZ9d4Nw18+Vqp9beigg2kF/tjn8+dmF/G61CU+4E52Eyyh9tOEHf2dSB5CKbt+/q12z7KXA8wXzBhWBdBUWHQPD5sQTNh1mzn41ErsCny8/DxobgQ7dBZ+fBiwE+yeFhgGyoN7gQg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nqnho9d3n0Mc3dfYHNxqYOQNtijksR/m5fgVFiA60Tc=;
- b=aDCa/o0PWaXXfrpZo9mq5a3RkTcIAcpjPdpB/ySyqIN1ZI1H/cOs/PXSzvh1hPuS470pR4K5UHkuiutXf0itH/ryTeLVcwT/g8LMqYTBzmjgDQIfaPInuHBuH3OEVnf0HbAuiXednUVlZpkXN+ddoAGRVQ/rDRn1ou7Xi3we+evfGTTD3agG2WFGl3O0meYV2EmcrQpsVHAXWn/3r9FpYZzR8wdsQgpqhcqAz4VyYeoPT6Ra4oFfqk1ERkFIKauP84NxFqVvEL6J/iXheHNAG/j+V6wiJCnN5GTqxP3KaKEv3dCL/JlMa6/ixczpT5Yb8ZAJwputECMmeULD2wyGRQ==
+ bh=gomqtA7MohlPsGo78Shb4CHwZGfAzd1cFgNsNMMMyaI=;
+ b=piarjOPBsg/tNYoPww1U8MOJO/vh6AYLXNHG84MDP++Jb7PBdhezenWgJyAJHFF2XN1zw0/aiw7T4PQUBs3IF0v3PK/AILmpmHwRNWQh2TK5LWtTLwNMBJyYamSKrDkzOjcdPxTaLo0FNUBXJnET1VSzYuIUEnqw5wp6oXZeSJQJwwpexXDlI3Oc0IKO98u0lSaSXO+zFAmoQ0dtdtWRCHZHhS5aYDbOUuSSrNZZ9KP+1hj6eut9gUAR2UFvEkjz7qyiH/cyANYKxGnx8eyejsydP6AVUMSwo54LczXAqKYjZzGgraGp1xlvHQXh4heh43dE9kCSRCDPaUqhWO59nw==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
- by VI0PR04MB10566.eurprd04.prod.outlook.com (2603:10a6:800:268::10) with
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by IA1PR12MB8310.namprd12.prod.outlook.com (2603:10b6:208:3ff::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
- 2026 14:33:29 +0000
-Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
- ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0048.013; Wed, 20 May 2026
- 14:33:29 +0000
-Date: Wed, 20 May 2026 10:33:21 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
-	Chancel Liu <chancel.liu@nxp.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"mturquette@baylibre.com" <mturquette@baylibre.com>,
-	"sboyd@kernel.org" <sboyd@kernel.org>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
-Message-ID: <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
-References: <20260509024846.2094049-1-chancel.liu@nxp.com>
- <20260509024846.2094049-3-chancel.liu@nxp.com>
- <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
- <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
- <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <20260519-macho-degu-from-nibiru-960af2@quoll>
- <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
-Content-Type: text/plain; charset=utf-8
+ 2026 14:34:11 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 14:34:11 +0000
+Date: Wed, 20 May 2026 11:34:10 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Yi Liu <yi.l.liu@intel.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, bhelgaas@google.com, joro@8bytes.org,
+	praan@google.com, baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
+	jonathan.cameron@huawei.com, vsethi@nvidia.com,
+	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260520143410.GV3602937@nvidia.com>
+References: <cover.1777269009.git.nicolinc@nvidia.com>
+ <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
+ <e8337102-aecd-48e8-9a2d-10f41ed43c5b@intel.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
-X-ClientProxiedBy: SN7PR04CA0080.namprd04.prod.outlook.com
- (2603:10b6:806:121::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+In-Reply-To: <e8337102-aecd-48e8-9a2d-10f41ed43c5b@intel.com>
+X-ClientProxiedBy: BN0PR07CA0028.namprd07.prod.outlook.com
+ (2603:10b6:408:141::27) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB10566:EE_
-X-MS-Office365-Filtering-Correlation-Id: 97c4ab84-623f-4fc2-174b-08deb67cc2aa
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA1PR12MB8310:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2f6df79d-b7f1-465c-e73f-08deb67cdbaa
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|366016|1800799024|6133799002|38350700014|56012099003|18002099003|22082099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: UI9e2Xjq1BPWD7sRK6JeXfXgox2r2N3fJykhw1mcre3Hfwr2KzXJ5EFrm0vSZChFAU7kuEro1zOZYqSu/adfVWuIzh1jKKVAjqYoj8FRYqdrpAdlsDFfSfhEOux3+DkrfGXx8wH1qn3P2uSp4Drf2xZdsvm9V8NHx70xZabKxRnU8F7AM0gLp+xf5u5F3m6W+4Un5mpumfazmgTLL00MlDmA0BTqdad2J02wt3yOyT+5kmv5HbDtQW2wz9h+sV14eWjJfXAFl496FfiiNv6kdGdMh52x4MZ/elOneIs+ZZhQVYVZ1F9xj14TNRDlyM9fa60E1GanJIoGV1a1qW1qTtyxDMZTWo9nCslSJABhwgNsAtTp22ioOkV0yIntF+ME1nSg3nuzypSDJ9OR0u7NHes9xTM6F9IDzxoBSC+KMe4DxqiB6/CILKvWOi4I9YqyB8mztTq5ihy1TwI++rAjq6T2rmIHztZOyP7+x+JZrhwixLLVWPnP1le4aD5KBGhyXlIplgOcCnHoamzZDl4jcrsjNyZpbxMXHSAnF7pGuQphNEkDsGQ7/DgbYJNsoZgfkPejcfXQniKM7XJp0vMqCknmtxqnFZP02DJCYtz8Z4NbvkVLSuEnlsRjNmZGQZPim8tZPdsujAZKiUSiXJmWXtixEdJosXt5AK+wUHDHQ/urApIMTGcvfhEs6WtfeVjv881y0T4o3ZdwFlu9H1QhGNWhIQ5oQvsX33apfmmg2LXXyhdOQMw8UZKqJl5uhnj0
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(366016)(1800799024)(6133799002)(38350700014)(56012099003)(18002099003)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|56012099003|22082099003|18002099003|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: U2kaZMYHeV4alMAHkKEVijDHcg9oCefxEF5o+Vr+JzisQCClTdp0a85HNwe+BEYtYjanmPWDKZzAsZWp+i+V3YO+O96106SLAkFqG1gMlY0e1RBVRZVWvVsQbFDNYEPLw9BtdxtSrWwSza2Le4LYai5sWJynPesJSXfx5hlAmsWDCAxeKceRuql5q2aE5PhjZq+SE2HKuDCpm/Z6sr64oE/lRnWX3J3pS21lWduxqWmQlr2O4u3K1KQom1gUL1CNYQ1qKYrUesJJy4s7/b2mFVgyBXPvnbR1wmRxTwPQ0BlRPDZW15jgr0itFAtaasqj5SjbBspErn6JTw4KBO32mzRwnWKx+Pv4Q68vGWNLVwuxsMAu32u0LLGZnRtUkyBPpfzpxU//YPRmhok6CeRN/qa4b3sTCdjtqKdVy/TMCsefQ63COykr1cF8W4qgfkqSCrfFC+0yKaAFqGLfGk6y7mM94/6HUI70htSyO8BC7bsxP3INrI2FtR/eMczt5JKtdEvIABvv9++qZco0HW9CHF4T32q9pVOLzppG/ODvnn4YlxdOizAsQjzSGYELsYHIE5GUP0v9ZU+Nl/1RtKvykwgB8DiTH7m2X01Vf1aWW/i24Jo3F8JT/mMJv10FionefFA6nMX6i9teA2q6SGmfOfvWEeX4V+QqOLNKJSgrQ6SdHivHGSQW6KmIq4lWuvRx
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(56012099003)(22082099003)(18002099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U0tBY2txNWlsVllBSjRNVThoTHJXQk9pdHBaN0VqVktmT0N1aERLSWJtc1R5?=
- =?utf-8?B?RUsxTmQ4SXk4Yk9RZURVVTJaYmFQKzFBZkhyWnprY012RkM5Qk9BeU1ISUlP?=
- =?utf-8?B?UlFzQVJtTmJZRXdXaml5RW5USkxIbWVuUzhaZlBxNTBvM3F6bUlvWGpFbDU3?=
- =?utf-8?B?MTlLd3A4YUFhUzhEL0RHS1I0eXZGR2p0bzFmQ2ZMeUhOQmticHRnd3FZZnZ0?=
- =?utf-8?B?RC9qZ1gyeVhiMW9XTUg0UHVUSEJKdHpVUS9pOGF5Um9FYVZ0OHVNbndmMGxJ?=
- =?utf-8?B?SXo1bUNCZ2lWSEJFVVlMakNEanZkWGp4RVZmdmwvVlh2STVUTmF3UFY0Tlpi?=
- =?utf-8?B?MkRoS0lQMlRRZnR3YmFMdGZ5VERDTmNEYnppa2dzOHlTWitHbHQyZ0FIcys5?=
- =?utf-8?B?YnN1MGlHWDNUdTRvRDl2UGZPYXl0S3NHVmRiZ1cvKzBBR2tUaVZsTmJvbHdI?=
- =?utf-8?B?bElzMjY2eHFXcGRvK3ZybUM2dDRVRzVHOU80QW1DTytKZUZCUGRua0dWaE1s?=
- =?utf-8?B?YUFSM3dMR3NsT2ROMGtTSjlqa2owZHh4eUdOS2xOR1ZNOXpXRXFjT3Y4SE5h?=
- =?utf-8?B?WDZtTzdpS0pOUCtTcVk4ajhDbWkvYVNVTmF0MSsvTkdXdlNBM2cyUkZ5ZDIz?=
- =?utf-8?B?ajc0dVc1eW1rRUtXcGZGQWZGdXRNRjNlb2VpeTlFWkpmbmNVdXhQNWlJWWh2?=
- =?utf-8?B?Q01Gd0YxOWVyb3dlaTdkV1FCN2RHMTJ0SlIrYkMyWlhtMXFuNjYzZlZEc3kw?=
- =?utf-8?B?RFZTN1JIa1JERTd5c2pmYkd1UTZnbXovYUdCZ2FOVnlscnQ0M0doWHBVWGlj?=
- =?utf-8?B?bEFUcFJZOFZqZGRvOW8wQW5STzNMbGM5ZGRFUzFEb1c3UG5zeWxRaFFhalF1?=
- =?utf-8?B?azBUUFhBK1hOdjQ1OUd5RjJuTFE4OHdTdVBjSDN1bGsrR3VDd3RpVWFDTGxk?=
- =?utf-8?B?d0pnVy9zd3hQTlR2S0o2TlplUjlxK3pyR2pPSEI1TzI0TVpXaFRnczZXS3NI?=
- =?utf-8?B?YU1Wb0dEZXFlVEJrRWNuZngxTnF2UURvcVBvWTNNUitJL285cGhoTEFSeU1l?=
- =?utf-8?B?YmdLdGphNHNBZTc5WjRRZ2hyTXhYM0Y5U0JUMmVJODBOcnNVcFlycVYySW96?=
- =?utf-8?B?OTNwWlJBZUtBQlZLLzgydlJzZEI3VHQyeTdnaDI3bGo2eGtWeGVpMUxBRDls?=
- =?utf-8?B?Zm1GamVlTm5Ma0s5YTJiWGNyVm51ZFlpbWcrK1RXekVuSGk0Wk1Rc1puSkZv?=
- =?utf-8?B?YkNlSUVvMC9md2Z5MEpZVEdwTE1DdVVrMVJ4RFI1UGFUc0pHWDRkS0ViU0Ri?=
- =?utf-8?B?a1gzOFpTY2JObzFXMzc2TDFIZVdRVHBueEZQWXhaVUZ2NTBMMGlwdEhsTDY1?=
- =?utf-8?B?NEQvWGZuUXAvUU1TaVpsV2pvVDI2enF4K3hhbE5mNEV1R0lJeVRqdURhUFI1?=
- =?utf-8?B?RkhaUjlnYTVtQWFxVVU4U0diUCsyYldqdzVzQXNBYWxjalFUTW5PVEdhelBq?=
- =?utf-8?B?Y1pPOEQycHpkbS85LzVpVk5BSlp4djNmK2YzRGUxM0lkNnl2S3V6Y3ZIOVgv?=
- =?utf-8?B?N3U1by91RkhjdkVsS2VTRU5rWnp4N2NVT3puUGF3ckJieFN3Nm0weVRPL0J6?=
- =?utf-8?B?cFNmamVIS0lBb29RWTVFblFmMTA2M0MxWmN2enlaRFpQZ3FtNDdxM1grSy9N?=
- =?utf-8?B?Wi9nenIzcnNlaUVwbGd2OThpdnFZY1VoMnFsNGdiU3VSd0R4YnE0dGpCRDNz?=
- =?utf-8?B?RmJkejYzTTczMFJKYmxsMDBtRUo0d2ZJQTVLRHVHczlQQWxnSjhYU2czazFz?=
- =?utf-8?B?YkpnYWtsaEs5THRQSFhrUGZvd3RWbGFsSy9QRzJLVW02dEtoaWU5U0tHcDVo?=
- =?utf-8?B?R2lON01Ib2VnbU5Ib2lTdC9taDh2cVZYSFdhTzRrQVJmUktWbG1vTnBPQS9N?=
- =?utf-8?B?WUNzM3lIcFAwL1V4d3hYVy81K1ZpOVVzSkRrVXBWU2luVkVuUG9NYjhZNlpL?=
- =?utf-8?B?WlpKYmFFOThBcWVGRG51ekNxR0d3SUNMendnb1FGYytrQ3pBcUFmUHIvamVu?=
- =?utf-8?B?MVJIUFRseS9EZ0FLa3Z5bFFQcUx3aFZ1ejdkeHMrYjBJeVU0WGpzS0FaUVE5?=
- =?utf-8?B?RkxEME1tUHlTNkRKZ1JMYzR0bHg0REpuTEYyaXdCTFNmUXF1T1ArRU8zVm11?=
- =?utf-8?B?UU9PdmFIVENPQ2ZvZWQ4U0drREZXRGQ3d1VZVkJsZEswdUpBWGtRNEFaZk4v?=
- =?utf-8?B?WHBBVUhWQTR0aGkzRmg2SDVZTDRzVUEwTlp3T09BUXBTVFpmMk9yNmFpOUFZ?=
- =?utf-8?Q?L2h8mVm52C6DxUCwJs?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 97c4ab84-623f-4fc2-174b-08deb67cc2aa
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ttf4ICuiouhoT/YpBzARJmvBjAbyfceAx3pBPXpqcx8bTkYXUWKlSYJUB7qR?=
+ =?us-ascii?Q?bQGWEKOAwYRW5CildeSlGWaTsGRm7VLMFIQElkwE/BfljlIAGOZKKLeQWwb1?=
+ =?us-ascii?Q?njXPM51v5yq5keS5GBsV7rvZl8UCT3IzhCk4ntLw6gajAT3Mm/nc96urq7uP?=
+ =?us-ascii?Q?g+CWOJa7OUh14fm329JdHCej2MCO5BPR5BDl7sEjPKIpD35H1nDCAaVEXZZI?=
+ =?us-ascii?Q?oOGarkv0Yi7J1XAg9BCddGel5ll7/jp29kDUXK5nZFQnYu9i5QX/POsr/RM3?=
+ =?us-ascii?Q?QusCtAVny5R4dIEG6Fk+Uqg3esHyeuBsHAMKIV3Sob8BGHaTJTqRT+nwNevQ?=
+ =?us-ascii?Q?YP8za2skLCEe/lrhqHNqbLW2tGzc7QoYwlmeBYE0Q1fY90pghWmK+Tx2sRkk?=
+ =?us-ascii?Q?2nZsL+fciYFOltuFaO+Ng7rkM0n5aURD9v+ibAucO/yB2l3yTqPwjXYL8611?=
+ =?us-ascii?Q?FZeTKjHnkHJEwWBRR6M12EuHQWBBTtGNBaq/QiPf7MRStq9ZkbM5s0OQ7m/e?=
+ =?us-ascii?Q?wXDOrbACbGhYXjMXiKUf/Sd/maOb5pNW8Tp0Ee5jjpqvciKxv/L+jBkxIaWZ?=
+ =?us-ascii?Q?romrT6rzbV+sYuOHJezbAb63IKuhGU4nIAnzgTLpIVIeKdhv2Le1+dcnQPzc?=
+ =?us-ascii?Q?0pnXrh5h2vxzP04fIQVnN1eEGuwmZ90QunFhWs0ET6J1/1rUU+F6wxC7EjYh?=
+ =?us-ascii?Q?syrEZe6b5YZ+ZVt1D9xAbn1MP9e6Ngd5oQBsrQNAQGDQ9XuveKYYh4qliYmt?=
+ =?us-ascii?Q?Ff561sqociPlf6GrpOhOyId9RgIhGxx20IhlTkfdDDCW0ZQiUQKidXzTT16P?=
+ =?us-ascii?Q?9zuVFpKBib2wc5wrVyQrJeumdmYhkFuXQyLJjfpfe9rWZ+dHL+qxYKOsBu1h?=
+ =?us-ascii?Q?CLNCPIFPKDMruPf/BAqw290xfzD+FexQpoQVEqODwOag7TPFc1JUo+eSlNbE?=
+ =?us-ascii?Q?UjxwsZLT7yCjDfbmuUo+AF5lDV1/AyKHwHz5wGE0NesHwjW/dhTdkgI7iFzS?=
+ =?us-ascii?Q?IrrZfFoeTsFN4z4493hOgLh2SAnXw9UP71TIm+TsKsN/KdNZd2HZbMGV3RIo?=
+ =?us-ascii?Q?uaxysBs4P0FcP/wu0tCz1RFDwf81aMrmlT4+bIJ5I9Jx2OL2L1Zen4avFQ5y?=
+ =?us-ascii?Q?krmDqk+dep3kIOjrBa+j4BURQrLZCo5eyEpv/DpH5TA1ND61qtRiiqJB+19+?=
+ =?us-ascii?Q?IMnKTBxwQiLyw+Qj+HXUSLQlfkPLszFIeoNxs0uIfTMRW780GQj4suVmDXTb?=
+ =?us-ascii?Q?ihC/3jTtpVWcCVZBIjOKTCfHX+NitpwqVR7FnftmnEDUP3TeL+AXw3tQwdNF?=
+ =?us-ascii?Q?wir9kk01ZzSJ969hiMcFm/XcsY0OGkKxCx1QFW3BIs3uULWSewdNc4qENiLW?=
+ =?us-ascii?Q?5Z75AhMDGgTyhdBeY5gjhOJrGl+q1JR7UPXXuM+QRDsIxvDtRqCdradEuHJg?=
+ =?us-ascii?Q?BSsPIquPnKH14KBAuK+9J2LL7DG/iFLK3lcdVAXTaTmx6vok6gfqSeKB3iQn?=
+ =?us-ascii?Q?jONA7XZ7FTN9+b2ONqogvw2U106ckCq7OaN9zUOAWGzRo+UVMgkVoqT6l/CU?=
+ =?us-ascii?Q?v/mv9lIcycSlLSEtHxdYw+WPitaXakrjdhEiaoKWbjwFYLlS19KxLDGOJw7N?=
+ =?us-ascii?Q?tJawnaEcTrzAh1RXKUtv2UC32hvnVvicZFY5B7yZmK62JdeMMCDVpO+vscRH?=
+ =?us-ascii?Q?X1k8ysku9b4ryYcajPNELyiwTGmVDSdZ0K6bGzBH54LlQtfC?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2f6df79d-b7f1-465c-e73f-08deb67cdbaa
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 14:33:29.3004
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 14:34:11.2518
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DgAfGpfGi8w/WN1MyBYAggWsyACe9gDWMat36f31bqe+OZlZDytgQ0U82FKjKkDi8vYtVUOO3bbDsbdS63foEg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10566
+X-MS-Exchange-CrossTenant-UserPrincipalName: wW4RDHiEtinXs7kSbo0ttt0krlbqrDDGl/EIeKQLnRAINIi31FgVWi2JWGPhEGgq
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_073340_031891_AE08F35C 
-X-CRM114-Status: GOOD (  32.08  )
+X-CRM114-CacheID: sfid-20260520_073418_443313_411599BD 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,100 +143,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 09:08:42AM +0200, Krzysztof Kozlowski wrote:
-> On 20/05/2026 07:02, Chancel Liu (OSS) wrote:
-> >>>>>>> +description:
-> >>>>>>> +  The NXP I/O connector represents a physically present I/O
-> >>>>>>> +connector on the
-> >>>>>>> +  base board. It acts as a nexus that exposes a constrained set
-> >> of
-> >>>>>>> +I/O
-> >>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
-> >>>>>>> +fixed
-> >>>>>>> +  electrical wiring. All actual hardware providers reside on the
-> >> base
-> >>>> board.
-> >>>>>>> +  The connector node only defines index-based mappings to those
-> >>>>>> providers.
-> >>>>>>> +
-> >>>>>>> +properties:
-> >>>>>>> +  compatible:
-> >>>>>>> +    const: fsl,io-connector
-> >>>>>>
-> >>>>>> Everything is IO. Everything is connector, so your compatible does
-> >>>>>> not match requirements from writing bindings.
-> >>>>>>
-> >>>>>
-> >>>>> Yes, this compatible is too generic. I will rename the compatible to
-> >>>>> fsl,aud-io-connector.
-> >>>>
-> >>>> aud is not much better. Which boards have it? What's the pinout?
-> >> What's
-> >>>> standard? Is it described anywhere? If so, provide reference to
-> >> spec/docs.
-> >>>>
-> >>>
-> >>> This is not an industry standard electrical interface. This connector
-> >>
-> >> Then if you do not have standard, then you have board specific layouts
-> >> thus you need board-specific compatibles. You can use fallbacks. Generic
-> >> fallback could work, but both io-connector and aud-io-connector are just
-> >> too generic. Every connector is "connector" and "io", thus absolutely
-> >> anything can be "io-connector". "aud" improves it only a bit, thus
-> >> honestly I would go with board specific fallback as well.
-> >>
-> >
-> > How about board specific + common fallback compatible like this:
-> >   compatible:
-> >     items:
-> >       - enum:
-> >           - fsl,imx95-19x19-evk-aud-io-connector
-> >           - fsl,imx952-evk-aud-io-connector
-> >       - const: fsl,imx-aud-io-connector
-> > Since the daughter board is named “IMX-AUD-IO” in publicly available
->
-> I don't think it is named like that.
->
-> git grep -i imx-aud-io
->
-> > documentation, common compatible clearly indicates that this connector
-> > is intended for that.
-> >
-> > Also, I want to talk about the topic of generic connector. It's a common
-> > design that daughter board is connected to base board through a
-> > connector. This connector more often acts as a nexus that exposes a
-> > constrained subset of GPIO, clock, PWM and interrupt resources to the
-> > daughter board. Can we document this kind of connector as a generic
-> > binding?
->
-> So this binding is the connector between carrier and some addon? Then
-> you don't get a compatible for that at all, because it is not necessary,
-> not useful and NEVER used. Do you see socket LGA "connector" bindings? No.
+On Wed, May 20, 2026 at 09:12:31PM +0800, Yi Liu wrote:
+> On 4/27/26 13:54, Nicolin Chen wrote:
+> > Controlled by the IOMMU driver, ATS is usually enabled "on demand" when a
+> > given PASID on a device is attached to an I/O page table. This is working
+> > even when a device has no translation on its RID (i.e., the RID is IOMMU
+> > bypassed).
+> 
+> nit: this description seems not accurate. Intel iommu driver enables ATS
+> in the probe_device() phase. mind tweak a bit to avoid misleading
+> message. :)
 
-Not exactly. Any connector connects a carrier board with an add-on board.
-The key point here is that this connector type is reused across different
-boards, even though it is not an industry-standard connector. Both the
-signal definitions and the mechanical layout are defined.
+It probably shouldn't do this, it should follow ARM and have it
+dynamic during domain attach.
 
-The same add-on boards can therefore be reused across different base boards
-that use this type of connector.
+For security we need ATS disabled for blocking domains at a minimum.
 
-There are also GPIO mappings involved. For example, pin 1 on the connector
-may represent reset-gpios, but it could be connected to GPIO0 on board A
-and GPIO1 on board B.
-
-Without a connector definition layer, this would create an N × M
-combination problem. The Nexus node discussion already covered this topic:
-https://osseu2025.sched.com/event/25Vrw
-
-An LGA socket is a CPU socket, where the signals are completely transparent
-to software, so it is not a good comparison. A PCIe M.2 Key-M/E connector
-would be a more appropriate comparison.
-
-Frank
-
->
->
-> Best regards,
-> Krzysztof
+Jason
 
