@@ -4,138 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8639DCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECDCCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NotSxDzkLl3XodU6+tmsSytnAicz7VFdyjsxTvFPwdI=; b=Ft2M69tkg/yurfe1Ez8F2FJ1JL
-	mF311aqGBkRR7ieEz/fmDGKzO5OMA6fLE7RKZbBPdX0mUhA0Uj8XR9nQ1O4AsNHHav3kB1HwEINXw
-	IjDvfnn0O3+sl1sxl4Z7wIKNpx3AmrPXbO52efxK4792Ikk8I2eTTJG2ChY2XvSgrosaI5x1dTnnj
-	6pu2447mUN9PspXfcfEhAiaBmgmJabTSZUFE7SkOHoxixxfg63eAOQfS/BNF97oGKsElNRZjtfPON
-	BShvGvDNNoZpkTXBvqpbs0EF2qf52sxvwHL3ysEm4UAhpwvVqyrOhu1v7+Wqes89qz68z/MuZET9H
-	L55Cfawg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dV55hNI6EFsCh0TJuXeJvYgBE3bNmnFm/eqFrRlpVIA=; b=buWqa3tFs51VtoEdraIBkI0bwe
+	lK+MW5CXoOKqg6uAe5XkLJGq8hfsbv7yJuCeNz4Sl+dnvqUjSPDDEf8h9FgclbRg1L9LHPKDvdJmT
+	AnWwL2lXl4QeQOEaRbXb1GP12I0iA3dGDPAPzKfJvQARCNj/Q9DRav6SPNa3+O1eUWdruHoI0Mv6b
+	Hr/za2cCjGG8Lqa59hKTdTIUHtTntuiFY0EE0tLT6/VKGAPuGWqcn1bvOvRMpeyOsM0qnbWWS7utC
+	giw6uXA697Qf7KVsR8ss0gzvqcGg40Pmg6DltUnZG9rJvw6haXCA20rpBYxFTUwf7bAhid6HDWeYm
+	d9X/LLKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPca1-000000040Fn-1eko;
-	Wed, 20 May 2026 08:47:05 +0000
-Received: from mail-westeuropeazon11013039.outbound.protection.outlook.com ([52.101.72.39] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wPcaN-000000040Oa-2mAT;
+	Wed, 20 May 2026 08:47:27 +0000
+Received: from mail-koreacentralazon11023087.outbound.protection.outlook.com ([40.107.44.87] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcZx-000000040Eh-1zjv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 08:47:02 +0000
+	id 1wPcaK-000000040Mm-34fN;
+	Wed, 20 May 2026 08:47:25 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pFndW2Vrb2OnxGWugJaHOf/boHsUo+ehgXv8M9JJSj/tbN0WmsYDXzH6keVMCeXYD5uN8FcDEqmuqiINJUVdmYEvIv+hO1cj5wbZBk0BJUGiI3JwByOVIsbS8FVU/hj/nZZWFtMADrLhjk9AambF5xrovpPdgslTdb789+PyKPhdqEXgtb6vIiRz7DLbHT3NPxVuwHnypYgQkmyrOg+DibLNdAzAbBbgA37RjnmLskU/gdsA4I7QkEUBaVtd2XOnS1QCAqBvLBrszynjYLkGB2TPheh4pY4Gmc0cvWjLVoTQXP4vd/Ffoigpc9rZnKxTFCpGYrn6h2/14kPLYPHuZQ==
+ b=gje6xpFR8lS5tAOJDZBpKR+jb7NdnOs4cINocehqa6BqH3MAj841iMCtwhNTPNgpiTjznFlGha2QyNA6AOd8jyMp4U8VEBPipM1wu4tTEOJFSZw/xgtE+x75KAFRF8ZSPFFzbHx7fs71hsnfX6qADtVkXIrwa+IBwcd8yfjM1VjNUzPEzZrZpGM0xmT3Mk3azJ+eqLrwiQMRQp41cjG5MVP8J/wk5NQdTYHRi8xUO6vjTIHM7wEAiNmUsH/4OgKTsu/ic91m+7Ive5+ExLbKPPa3F1cAZDeX0uqyxg3RJUBcVk81zU2IUK89d5OkCdp7rtPnPupoKNHcQUE4fexGTg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NotSxDzkLl3XodU6+tmsSytnAicz7VFdyjsxTvFPwdI=;
- b=cwZ/D9eddkvlMnvJ84sg8NUOQMpIvBbicsfuSlcmwlBC1yZkRzNV+z67qXN1n5u0S+f9KTOp3uAzpKWE0jl4H35myIJ3kUNkoe1CIfRFV6IG6avDfyeKOHSd2IMXPfV2vId3Y6mfh0mSQ79FoSewtEVwU4ETIBYNeGNHilkaO+TrNbF0sBnakifWJdtzCUt1+NOsiCgspJK2iA0XbZrNYjeZwg+jJQaQ/5NxZvRIzweY/CmSiNvpWpoqnkK4pyGf01Ib7Z24oZGiH+TYZwGlripJAoZPlDdYFsGelvRWhgCRhNFEsjBrAMgQ1EDtqMQV4B1VfUspb2YExTZt2TVabg==
+ bh=dV55hNI6EFsCh0TJuXeJvYgBE3bNmnFm/eqFrRlpVIA=;
+ b=F4xLrJ0mfeD7RH638iRJNstd/+zR2ileIdrcLHZCWNfl/UzOL4fCc7cGK8XLt5zo2UInLqvj8GGVq04bmiQ04/XILs2XO/qv/NomVaSJAYFYGOV8mnl6gNquESWpU3WhwzGM2rgE1p9pI3j70pcHxkJ4dSecEPkEAVpdgA1EFEP4808CTCsPFsgLATdcbOOHJ8P5uL3b1joO8gBJc1qPkJUlrIvLjjZo+e0iuxC+RYoLlgWBuar4V/8xelUtKT6lfAMk1VoRxVjamf5zx6yycrIiUi6egCS7NAaClU5Sgi9MtzQPxCFwT8tcythH8pBzXhPDwictEpn1Np8m3d9ExA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NotSxDzkLl3XodU6+tmsSytnAicz7VFdyjsxTvFPwdI=;
- b=VA3Ahtkmgrz4VLk/UeOmS2W2o6I9J9oqOztI5PiWkgYDWrUBTxbs3vhG5FTb2TWuOTMeqhAhuYyEstFk4Z80gwr2j5D9budkbSePSJCvJz5smwmSJApw0QOJDSOExiAH/xnFlaSrsQ1s8gOPYK25T6lao/gnRj6JUX6qlw+Vrg2kJJXER3VCCvfqdFKNIMq0tzE+D/5D6HMGGOcA48QKZJZ/odOWCDTdOTsZHHrIyv89kgzXHbzr3DyyIN/mLeJwuj7RrwID8OtGHBEgif5bbxI17WUl0b8C+QLXmLkiCuwFQaOkp3OOkypSgjasDbFMHZ9aNtEqjKp+hlMyL3Z3Ag==
+ bh=dV55hNI6EFsCh0TJuXeJvYgBE3bNmnFm/eqFrRlpVIA=;
+ b=WpbDPoM620iy1YWQMweEAvdLnerHrck/s1hEy5MHLT9yykRMNm7FBnvkGvArxfn/uZQ+VJ8r2lq/NFE5uWpfq4n6VsILmKRZKu+fMJdf/VlvBg1h/nAr71Q+yVZUq3YNYIBSUs+TPcAEpGs13DlWscClDv+WqfTsI8+vOW4Cq9DLXditVB1QtdXhd9DSGd13y0SRzLRGDv8hYr8v6ZDcg6EO1WQ+l3VJHJ8hMrpBgaPKwgyk14Fr+gX274lc0C4KG2TT6bcAJBm/hTFhDycw1aBuqaSgpfLOSay7PQL+aweakBh2ghhpdgMMwVnWaEoDxkBQnXX804l9dscdPpsTsA==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
- by AM8PR04MB7442.eurprd04.prod.outlook.com (2603:10a6:20b:1d8::11) with
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SEZPR03MB7034.apcprd03.prod.outlook.com (2603:1096:101:e0::11) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Wed, 20 May
- 2026 08:46:55 +0000
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be%2]) with mapi id 15.21.0048.013; Wed, 20 May 2026
- 08:46:55 +0000
-From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sherry.sun@nxp.com
-Subject: [PATCH V3 0/8] PCI: imx6: Integrate pwrctrl API and update device trees
-Date: Wed, 20 May 2026 16:48:56 +0800
-Message-Id: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5P287CA0201.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:1aa::9) To VI2PR04MB11276.eurprd04.prod.outlook.com
- (2603:10a6:800:296::7)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.15; Wed, 20 May
+ 2026 08:47:05 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0048.010; Wed, 20 May 2026
+ 08:47:02 +0000
+Message-ID: <1bea1b19-635a-49ba-9859-3074607eefad@amlogic.com>
+Date: Wed, 20 May 2026 16:46:59 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/10] clk: amlogic: PLL l_detect signal supports
+ active-high configuration
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman
+ <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+ <20260511-b4-a9_clk-v1-5-41cb4071b7c9@amlogic.com>
+ <1jse7u6n3q.fsf@starbuckisacylon.baylibre.com>
+ <d023303e-e785-4b60-85cd-c83cc3f890e4@amlogic.com>
+ <1jwlwy5ysj.fsf@starbuckisacylon.baylibre.com>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <1jwlwy5ysj.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SEWP216CA0014.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2b4::9) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|AM8PR04MB7442:EE_
-X-MS-Office365-Filtering-Correlation-Id: 55136acb-a06d-43d8-438a-08deb64c5821
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB7034:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e656081-f206-4fb3-54b5-08deb64c5d05
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|376014|7416014|366016|921020|56012099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: 1wz2hbQKQnmXxFL6uFPmmW/z8jvNZFxUSlDNBR0LhW8ML0ekJO20BWKv0iNY6sR/vdNAumRHgokMJUBVNQO0/FtgiYrGkeOm1wJ1hX6w7uQrm1MDwTx4zqpzF8PPa/y5K9IAQpyfpPYW4EYUJYn1sQmt27Wb+qVG81w6w8N72cU/N5n2HQrsiXSeeP9U7r9KVfNRK2j8WUM4lrvpuh50TNH5V6IbaiGZIkRELmD436Hp9lWF/7DK+IQW91ZBS9+dFnnS4GNIMF4v1kYk4CtxPS4fj4oMzxmSIKXWbUGWug2+Bris9HAcUhCCr0Q8B5y46+AOSDSie7hWgk/OJhq1mSD7PeJMEk18OhFVhnkekrIgzLYv1LBD4jPkyoodjFL1lPxV7lZd4XR5sc3MLC7wfuwIgv2U9QjdZc0Q38uvtt+UBlHSeGtSqJNNPZkSrXkrGv/88rb8I9ARfgXCQfBGdJlZrfsHZdBexTlavnzxtj55XqctSo+Sp7xRnHpYRZiqV3tcQ6eTFieB0He5HkIqDKeYtYTB5YmmNmrxhvDnvYIlQx8We/rnJFpaiydtmQoYiXieHl/JmytMf15czaMEcRcUNe0sVs8uSFRnB/npWHG7JQCAbCokLCuTnwpU7N9/poMduz4YLRGYSPN/KX6/3n+v+FkZB6f4wDl40D8CFh8jUOw8RIERo8pSIvAUvxS3mzr5HJn9DxlwmtufQA6VRD4uga2na9iUp68foE/sPow=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(7416014)(366016)(921020)(56012099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|18002099003|22082099003|56012099003|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info: 5KZqxxclDi4Teb+T7w/f6JaDizYcdA0sEhFCPSZYJu6xOwRFN6TX881TNSiGYTd2H0PG0D+uTMcbZIyuYXA2Gt8imqHQnGwdFF+t9nQtpy3Yami/lG0M8INkpCxuhkfL4nL8EefkI5TDbMOV9TgDngAlqpKt6QkBAsCDArqGibTjCs3E0/vK24X6AdVShUMnOjyaNzpb51Q2zVxz1TuPJGOputn2KHr81VZNUhaIhczoCaWfA1+KVm0S+V1AUHdZgeuKdPq5mE0C3bM6jE2ATLE/QEXl3pF0NkT/XRz4F67Om/C1pPNUppajEzdVSMJc9tBi5cb44n3eFtDMTGHaJabu8YIsUAenkk2W6a3tf2s/qRZ4MMomUEf6+QkQ2u/423Y2QflZliKVm//2mZVxmTHkI7ZnVu9P92o2LvWl4vPWF+dom/4wgBW6giWhT+x2JfK+JGEvaihccvEVNmV3jZX8eiOO+k8QK2eIkqy6RC+1k3KMK2hkazlIqgnPHya+vDLcaktY6Rad6OUHdmfEuUe9VfR3oBOKu0fGKEirV5FDRLvBJ2aMIOpxCG1V6XxizaXFnuFMbn9yUZ7X9IBh0np+kM88HmVuLJThc2sqnX1Y4wsopzyd0cDgJjMmxi7GwRTfeddp7b0VI5SeMOtB7C4bjMeSgfSj9FEn5Su9CSs3BG35s33fTwi2JddGPfdQ
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(18002099003)(22082099003)(56012099003)(11063799006)(4143699003);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JuD5Dy1Kn3BX3KIuLYmmOs8xvhmueBElUWF5lxmlewsjDAuXy+ZI5xp7ZCn3?=
- =?us-ascii?Q?yUugmQtMPRWzAtdMGzec3ShVCG+JIJrjR0h/J20NsmRvmKKlcI2tHEgzostP?=
- =?us-ascii?Q?lHm7QwR71W+NtbxhGszqO0G0mBleG80DCUYHFQuBtkqXGl5mZpapqmqH64r1?=
- =?us-ascii?Q?dOYC/jGu4pleOIvU0291Qgrx/iug5dBq+xeeOTLg61BDcVMkCFtAtUrMYMBk?=
- =?us-ascii?Q?/cnFzfBDIdlpr4hvM6pj0UdTDErjNiM82dcxUUXKvkZZUQn34PL2AQ5IUcM/?=
- =?us-ascii?Q?po4r48v14dk+do6Qw1L9DYIn3E4LK9GgY+r4Si/ITh6g3XQzjrIY3e8R65gp?=
- =?us-ascii?Q?hALTaDVp3mw2nLYmt7SYR8Fjl7rIqhUug7OS/dpd8nPOFI54KlYDQm8eMLxw?=
- =?us-ascii?Q?h9/+KQM1r0iR58ccX9ssGn1I8Thq4bn5GT8fOHtvsBqhZEa3Fdqt40aU72xH?=
- =?us-ascii?Q?X+d5/Mfux7WMtHdVRvFkyaXPZ/YpJPCSl/lhwLJ5XdGJr98s8ptmsT24Nc8F?=
- =?us-ascii?Q?D4TcKBd5+7TLbBnZOVj9Qs9AqC8CFvbCuVkl0FhlM+UpWOO9nQUMDETdRzJp?=
- =?us-ascii?Q?lMWRQEo05kD31HiQYX6rJKJk23zBIMNEX4nwmG8wNPwyKiJeqHBtz+sBNn7h?=
- =?us-ascii?Q?+jWCf5VYqd1UNZRR1Y8VuIcTfhGCt6XUI7PSkYI62PUJFcYLJ9gkS8+hR9uv?=
- =?us-ascii?Q?ZypKckOHWGFCCHXC8qMSB/V1Vin2FBUBjhNTEtADIXUjtheWP8IHHdV68qI4?=
- =?us-ascii?Q?faVW/48ERugiUMfRd7g+LeBlZZhrw4p78Zfo55Mdplyp9vDhPEShNZLRPMxZ?=
- =?us-ascii?Q?buwe5Mosg2hLPDhaE9U8LLT10i+zM8qEzKirqFSjFoWjRYpdiCRumoxPt2QD?=
- =?us-ascii?Q?RBaC4g1EO7qBrGVInW+xv3ZR4CNVPI7BgEZYVLZwbFDC45sSYQrXLH1x3LaJ?=
- =?us-ascii?Q?R3zROtcwV/04PNHIR9cS3hOlbthOR1tPb1cVJE9TrvfiSunaDs87vP1zS2ED?=
- =?us-ascii?Q?2UN9Vojs/k2nDC6jRTGFawXdFHHy4s4V6MeGatPbTlOTbdyj7IzCoC+cKlsp?=
- =?us-ascii?Q?hlV1tC0RlHmRbJSGF87d+LOF627NHuuVqTeMy6I7a/zHVfLMISM6KlXsG8jE?=
- =?us-ascii?Q?hq1pMfqCqrdlCPGx2TVPAv10gsOwFo3LFmP+yvf5TSZHfULKhS8PDVi2CQaW?=
- =?us-ascii?Q?rbbeZks5hqCSSzRm4ryORjpzzBkDI9oG5p4tCyXVrQqCXHipU9xBgRPTypPb?=
- =?us-ascii?Q?7wtf5twMRoqgZNO/yYS4HYuA1x7yqNXB5pX1d73kmbHMZkPQUs7KNzzuPm+Z?=
- =?us-ascii?Q?l4LxRxB9oW4eQPn6zq2ETIzqFUNuZCxmwem5ksZpSxdZhLVnuKvyJQ3Lkkbw?=
- =?us-ascii?Q?3SUVj7UG72tOk9CGg/MyAfK03dOdRiGx5XNPl31B5bRrXMUekrqq4tmPuy+k?=
- =?us-ascii?Q?5PNTtreFjMikgiuN52AxmZ7WJ4kNxVmrfSW06nByrfeqKQ1cfacPDeNXYLUp?=
- =?us-ascii?Q?fXhHAZrKRkkb5NmJ4jNIoMPwSym+HjNEjrbNxB+nw6yWUGiNzTzuWNooqvpk?=
- =?us-ascii?Q?qPDyqxP+afCD+re0xiTVADDTsgBgoOSMKwIHiK/w+OJnXXrnhS+KqL6ZHDK/?=
- =?us-ascii?Q?TiGO/PCZ6Rli4eOrMKmPPLaBaSATmuo3pz3klSq8dShpCvK5qP9TMyOk6FrD?=
- =?us-ascii?Q?0phWMm9aI04CbMW3Q78ZU+LpJl/sibs7Q0WZnIihz3oGlUsKRmSLdTJBZmAN?=
- =?us-ascii?Q?g2QLCpqBhaanaCDMVoSy2xCFgOa0CfUO6DssRcI2AzIs3HOmWr4u?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 55136acb-a06d-43d8-438a-08deb64c5821
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2JsWnkrTVVlc01QQXNQS2lPenR4ZXE4RkE3cjlwbDg5VXJGZUJQajJQeVVp?=
+ =?utf-8?B?SytyNkF0QjBOVXNhaU1aTTFRdHdmZzZIWmduSW11RDF6YmtQS1drdDUvRHJl?=
+ =?utf-8?B?TXpGdU9DdWRvTkNGQzgvNUxtM0RhbjJlSmw5dXo5V2p5M09vbkIwUDFPcHE0?=
+ =?utf-8?B?N2R3TWtUaU1DN01hN1ZUOGFiYTM2UGNKZjdQcTFZNlRzcm1tWHRNWWRSTmZI?=
+ =?utf-8?B?eExWRk10MTcraFBzRVdtMWtFSTJQT2l6OXY0bUwzdmpWVU0wMk5LanFuS0la?=
+ =?utf-8?B?dzNkSkY1bWdXRnVVVkc0bWFqTEdveTFGeUd1bjZOZkVGZVVESUNYME9RSklk?=
+ =?utf-8?B?VEZVZFU2UTRuQXFETEl6ZXdWVndmbkpKSW84dzhOd20rNXB0SWtVR1JNSmY1?=
+ =?utf-8?B?TC9UVmpjKzE2ZklzQ1VndXVkOEt0UWZmNG43Znl3ckdYYXlCMDdHcVhyeXFO?=
+ =?utf-8?B?Nlk3UTgwdGExL3lmSFFHSkplNEZ0bitjZmE1ZDZUQVVzK3Nzb2VkS21LMmZL?=
+ =?utf-8?B?cTNWSVl0V0huUENjQXhSS1JrczZrOWszWEY1OFpzSlVEVEVBbnRzdWJWMEJz?=
+ =?utf-8?B?MFVENFRjOEE5Y2xyZFZHVnZ2TlVtVWRob2RYcmJ1dk1hMktkSlpON3F1RjB4?=
+ =?utf-8?B?WnU3aTBBU0QwK1pxZGp3cWRlWG12aUFUeUZzOTlNRW96QjArZWxPWXJlbVVo?=
+ =?utf-8?B?cVhQcW00bVhCNXdqUUhOa0QrTloxRmg3Q1hQSzhWRE9MakMrV2ZTVG9mZ2k5?=
+ =?utf-8?B?SS9penRSaTRpOFRTRk9OOTFFL3R6YitTa01LTVJodXJxeExmRVVhak56bXJP?=
+ =?utf-8?B?UG5nNXdaempweUVBVWljckp5a1VuZkY2aEpNeC9WUlZLYXJCSjdKU3JzSElE?=
+ =?utf-8?B?Q2FBTnk5RlJHL0FhYVJHY3RWZHBLdTE4eTJCK0EvTGhhUmEwNXBJY1ZYMGZQ?=
+ =?utf-8?B?d0o4cldxeDZhdFFaL1hYRmtvb3FRMVg4ckZ5eUo3K25lSGZ4ajJ3LzNtTHNE?=
+ =?utf-8?B?Rkh0NW9CU1AyWTVXVmFtLzJrVFpWQThWdkhqTmhMY2ljeGdKcEhoUis3bVBS?=
+ =?utf-8?B?Z3E0UW1paUUwZVdEL25nRklJMEcrU3hScUhIWkptRjg5YUp0ZHRodFdKNEM5?=
+ =?utf-8?B?VjZGOFc2SVZiN2g2c0RJeXR2WmZDSkI1YUh2cVdCTWs1VkJ3ZEFIQ2NUdm11?=
+ =?utf-8?B?cUFxeXJNa0c5T1FQZ0t3NzFDSHB5MDJCYlVrSGJORWJ6OVV2YklJZ3RkWG1S?=
+ =?utf-8?B?S1JicC9CbzhmTVhtMEJTZ0ZjM2pxT3k2ZCsyTXUzM0l2UHpURHFaSCtSSUIw?=
+ =?utf-8?B?d1JrY0RDUkZndTFlOGxDL2tjbnp5dTVlRHFaeTFmWDdWUjJ4Mm1LSSt2OTd6?=
+ =?utf-8?B?UEw4SHFSK2hGY3UxZ3QwaGxzK1k5a0RSY1MyYmEwTmdMOCtjV3JFTW1jSThk?=
+ =?utf-8?B?SkUwQ296YTF6NHZFbEdjNlA0OFhjdEtSdHlOSDBGWlpBUkc2VjRTalA4RERo?=
+ =?utf-8?B?R1ZRaUhJUUVEWEZhUmN5bmR1ZGJNZTViSHIvWmE0OGYyL2hSYUcvWE9qcDE1?=
+ =?utf-8?B?YTVZQ1J5SEFVYm1qeE4xY24yOGpIV1lwY1JHc0Q3U3NVS3Yva1kzWGtBcDVT?=
+ =?utf-8?B?K2oyeG1BaEoya1pvZkZwbFdWZFdxWGxEMEQ3TUhmQU9sMEtCcmhIUU00NzNE?=
+ =?utf-8?B?cG5sLy90Y0JXVm1BYzRDeE13bFVITEpOZlhMOHhXdEw0VkthUVRpckZPMTM3?=
+ =?utf-8?B?VWJHa24zZ0RFZy94SW9oTVcwb2hua2tiMVp1NTJkajZYc2poczJtbi9KUTdl?=
+ =?utf-8?B?aG9kNGlQM0ZpVGtwUUdNdjVMdXVZQXZJYmE0R0JZc1g3QVhTbGszTWtpcEc4?=
+ =?utf-8?B?SjBiait5bkhtZU44VVhPdm9Wbmt5Rjl2VEpaeE9kL3RjYkNMZ1NVWkdYNmFT?=
+ =?utf-8?B?SU5LQlVCYnlSVDEwN0U3bklvamdVQjBWb0NTY2RhSEV0cG1SMHJDTTNVMnVh?=
+ =?utf-8?B?N1YzRDc5WUFGR3lkREVYUGkyeWNNbjFJcFJYSEtxREREVXhjVmZ0L1BtUTUw?=
+ =?utf-8?B?YzNRRXNaQ1ExRWhZNHd6OC8vdTYxZFRmQW5XbkNQTnlJRXM5c2FNRDBuM1E1?=
+ =?utf-8?B?RU9RQm1ldFpQQXZRaGRPblhKRTU2N3JGWmhXYng3R3k4ekhRTjRpSHF2T3hW?=
+ =?utf-8?B?MmhqZUllS2F2U0QwcFB3Z0lLa3dUQnNjZVBFUHJOR3FNSXFxQnBDUDNQTHRh?=
+ =?utf-8?B?dUcvS2tITlovR1lQNDZlUkRnTlhvVlROUEZCRnN5M3hra0gvZUIzWVYyeDYr?=
+ =?utf-8?B?bk5vL2JsKytXTHhSblBybzNXUnovQmhKamdaRGFsUHo3Y29SUFlZUT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e656081-f206-4fb3-54b5-08deb64c5d05
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 08:46:54.9743
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 08:47:02.9082
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: x2FGHZU/ioypPoSuP8Y93qb0UkrXc1zMldYCryKNusn+OOv4XQ/ht88Z8Y5MKIpinvTZdBG4sHNS7eAZ0G3HtN4E7i03ZGtV7NwUmq83vHu+lcxRfms7PjLNMY6cclvi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7442
+X-MS-Exchange-CrossTenant-UserPrincipalName: IyuDU7I91wJiQPWnsEc4xU9A/3e6BmXoQBQn/Dv782TKI4XAKLRf1cglXTgimyoduub5X5lKBmuxAlQiBzNd8Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7034
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_014701_526046_065979B5 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20260520_014724_783826_89A0BC3F 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,68 +158,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sherry Sun <sherry.sun@nxp.com>
+On 5/20/2026 3:24 PM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On mer. 20 mai 2026 at 11:25, Jian Hu <jian.hu@amlogic.com> wrote:
+>
+>> On 5/14/2026 11:13 PM, Jerome Brunet wrote:
+>>> [ EXTERNAL EMAIL ]
+>>>
+>>> On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+>>>
+>>>> From: Jian Hu <jian.hu@amlogic.com>
+>>>>
+>>>> l_detect controls the enable/disable of the PLL lock-detect module.
+>>>>
+>>>> For A9, the l_detect signal is active-high:
+>>>> 0 -> Disable lock-detect module;
+>>>> 1 -> Enable lock-detect module.
+>>>>
+>>>> Here, a flag CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH is added to handle cases
+>>>> like A9, where the signal is active-high.
+>>>>
+>>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>>> ---
+>>>>    drivers/clk/meson/clk-pll.c | 9 +++++++--
+>>>>    drivers/clk/meson/clk-pll.h | 2 ++
+>>>>    2 files changed, 9 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+>>>> index 1ea6579a760f..5a0bd75f85a9 100644
+>>>> --- a/drivers/clk/meson/clk-pll.c
+>>>> +++ b/drivers/clk/meson/clk-pll.c
+>>>> @@ -388,8 +388,13 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+>>>>         }
+>>>>
+>>>>         if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
+>>>> -             meson_parm_write(clk->map, &pll->l_detect, 1);
+>>>> -             meson_parm_write(clk->map, &pll->l_detect, 0);
+>>>> +             if (pll->flags & CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH) {
+>>>> +                     meson_parm_write(clk->map, &pll->l_detect, 0);
+>>>> +                     meson_parm_write(clk->map, &pll->l_detect, 1);
+>>>> +             } else {
+>>>> +                     meson_parm_write(clk->map, &pll->l_detect, 1);
+>>>> +                     meson_parm_write(clk->map, &pll->l_detect, 0);
+>>>> +             }
+>>> I'm not a fan of this code duplication.
+>>> Use the introduced CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH to compute the
+>>> first value, then flip the bit.
+>>
+>> Ok, I will update this in the next version.
+>>
+>> Here is the updated code:
+>>
+>>          if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
+>>                          meson_parm_write(clk->map, &pll->l_detect,
+>>                          !(pll->flags &
+>> CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH));
+>>                          meson_parm_write(clk->map, &pll->l_detect,
+>>                          !!(pll->flags &
+>> CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH));
+> Please use a variable. Make it clean
 
-This series integrates the PCI pwrctrl framework into the pci-imx6
-driver and updates i.MX EVK board device trees to support it.
 
-Patches 2-8 update device trees for i.MX EVK boards which maintained
-by NXP to move power supply properties from the PCIe controller node
-to the Root Port child node, which is required for pwrctrl framework.
-Affected boards:
-- i.MX6Q/DL SABRESD
-- i.MX6SX SDB
-- i.MX8MM EVK
-- i.MX8MP EVK
-- i.MX8MQ EVK
-- i.MX8DXL/QM/QXP EVK
-- i.MX95 15x15/19x19 EVK
+Ok, I will use a variable for it.
 
-The driver maintains legacy regulator handling for device trees that
-haven't been updated yet. Both old and new device tree structures are
-supported.
+>>          }
+>>
+>>>>         }
+>>>>
+>>>>         if (meson_clk_pll_wait_lock(hw))
+>>>> diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
+>>>> index 949157fb7bf5..97b7c70376a3 100644
+>>>> --- a/drivers/clk/meson/clk-pll.h
+>>>> +++ b/drivers/clk/meson/clk-pll.h
+>>>> @@ -29,6 +29,8 @@ struct pll_mult_range {
+>>>>
+>>>>    #define CLK_MESON_PLL_ROUND_CLOSEST  BIT(0)
+>>>>    #define CLK_MESON_PLL_NOINIT_ENABLED BIT(1)
+>>>> +/* l_detect signal is active-high */
+>>>> +#define CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH   BIT(2)
+>>>>
+>>>>    struct meson_clk_pll_data {
+>>>>         struct parm en;
+>>> --
+>>> Jerome
+>> Best regards,
+>>
+>> Jian
+> --
+> Jerome
+Best regards,
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
-Changes in V3:
-1. Rebased on top of latest 7.1.0-rc4
-
-Changes in V2:
-1. After commit 2d8c5098b847 ("PCI/pwrctrl: Do not power off on pwrctrl
-   device removal"), the pwrctrl drivers no longer power off devices
-   during removal. Update pci-imx6 driver's shutdown callback in patch#1
-   to explicitly call pci_pwrctrl_power_off_devices() before 
-   pci_pwrctrl_destroy_devices() to ensure devices are properly powered
-   off.
----
-
-Sherry Sun (8):
-  PCI: imx6: Integrate new pwrctrl API for pci-imx6
-  arm: dts: imx6qdl-sabresd: Move power supply property to Root Port
-    node
-  arm: dts: imx6sx-sdb: Move power supply property to Root Port node
-  arm64: dts: imx8mm-evk: Move power supply property to Root Port node
-  arm64: dts: imx8mp-evk: Move power supply properties to Root Port node
-  arm64: dts: imx8mq-evk: Move power supply properties to Root Port node
-  arm64: dts: imx8dxl/qm/qxp: Move power supply properties to Root Port
-    node
-  arm64: dts: imx95: Move power supply properties to Root Port node
-
- .../arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  2 +-
- arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi     |  2 +-
- arch/arm64/boot/dts/freescale/imx8dxl-evk.dts |  4 ++--
- arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi |  2 +-
- arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  4 ++--
- arch/arm64/boot/dts/freescale/imx8mq-evk.dts  |  4 ++--
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts  |  4 ++--
- arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |  4 ++--
- .../boot/dts/freescale/imx95-15x15-evk.dts    |  4 ++--
- .../boot/dts/freescale/imx95-19x19-evk.dts    |  8 +++----
- drivers/pci/controller/dwc/Kconfig            |  1 +
- drivers/pci/controller/dwc/pci-imx6.c         | 24 ++++++++++++++++++-
- 12 files changed, 43 insertions(+), 20 deletions(-)
-
--- 
-2.37.1
-
+Jian
 
