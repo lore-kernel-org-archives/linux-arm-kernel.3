@@ -4,120 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C042CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 22:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0507CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 22:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8R+vswJ6B/a/bfANrGQJ4skhXbq7vCocbOo563BvdI=; b=uX7sTLME3/ipELfe/FMl1mtYQZ
-	ex3M9C8ymDzrOOzPs+egWkeqWXG96F9dssbZhX/BYp47w5i/WJAtIM/S81AnHoxvK3bILAsFp1mMt
-	/IX+Q+WlDwEBYRVKeSyebMgEAzbs0bQE0qYyu7/hta4BvDCWkoThLJl2NjRvKrNgRSVB3k/CHZn4g
-	8XWzlcs8BesN8dZN+ntsPvBNhhKLlecxKB2zF91TNhtqMc5vGkRdvHskwf0Mq6wRExA3JxcRH4Xfp
-	aTTiVqUcW6O9kFdgrj+mBjoC9HueoSBMsizOMPQKX5YRmw+MZ0rhDqQZX3DKAoyg6Bm3phKGNF8Wc
-	WMuWCQpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j7Ez3Gvxk46GLtRbrf5uSPZVpMhdMrXSSqJHfTrasok=; b=uO6YGB0oml17uyA9qNSvxqWjLm
+	mC0XHWfMSHQZqzk/ZgV1+b5efPBdg0l7Oj1xQFcjgSqXfDUagK6JHMnhFL9ylyTXyZbNsiHiQJXMv
+	GhVZq8DFooPkE+lNh3nJz1DCfnpu0YXui+H6/khK4DzVEStYbnRYNqes/pHVXlJkLRr1L+blDWU3l
+	ED0bfZSOrDnxRv392e+0ag/u2kuHj1B+ChB3yy4HjJZKAbxPiVea6JyiH7RtvNE2As8d/VQ4WQpgD
+	UJXQiK0rIbkogdWfkrYc9ra1qN3kxVHR1MGJjKw/SKfS13LrZlKTqmiSauWXxi9o5N6eZK44vRgdN
+	j2LtYbqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPpWH-00000005zlF-2uiI;
-	Wed, 20 May 2026 22:36:05 +0000
-Received: from mail-centralusazon11011008.outbound.protection.outlook.com ([52.101.62.8] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wPpeV-000000060Y6-26Ov;
+	Wed, 20 May 2026 22:44:36 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPpWE-00000005zkU-2w6b
+	id 1wPpeS-000000060WR-2uL5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 22:36:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EYpq6wlYWEdavdSoDdHiEA1ku6dQjrRy5HFVll8/s72OHeoa8we/S50TVeX0QXiSFPhqwf2s8nvGGY6GTZBDDoF8dp/tCpGnKyC7/bgMBf2WBMjH6FLfgL7pYEPZ6+WFZjxfriIbWP6xQcH9A5lKjKbun5EUUvqhyZtcOAJbt5pu6KCepze/B14M3qJhRuwzDx8ySOCDsgqK/3OYBu0GpPE0Md+hU434huE6JEO+DZZPScWkLhFUhDKPBywNtMaJRIzeqKCCTTxQ0iwwgBBbBacKvjye+t4EmUafboTdoA32dWH91fEkI3tywMJcc6wDZ30mz0DED1je2m+eEBBYuA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G8R+vswJ6B/a/bfANrGQJ4skhXbq7vCocbOo563BvdI=;
- b=C9MGwDHt/4K0S/B6O5DL70LCFSMQGM1LpeBCoxTnB8DqqMnEY2mQz9YOWdqoMtwe0caNHVoUWlbhQaIhGR1AcF6afJwqmWQqkI0JiqmI0uuU5l1Ju2RY+wRHYZpkp9hLtEuhbh/IvLiDpFIrOJY1m2pSdzCNoLPCwoGU9/GjTqqW8g3j0E4X8DcnKj37p7L1RumYFmgPakaU4J1NQhh5KoexAB9Rp8G95wTTWowuZFEZGYZVzsoOq00id9h5kT0y7tbwP9IqBpau7GMXJiOyLAne+5Rdfw2AzDb9kc9zPx5ZWui7Gh0A3H67EZ5it+ZaOlptDhVZ8pZAipnbxnKsHw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G8R+vswJ6B/a/bfANrGQJ4skhXbq7vCocbOo563BvdI=;
- b=OnBB1lS2Ta+zhzWWH652cyTNsOSZAMSs0FZ1bf6OgzOCeSULmX6GDMwSqbq7IvFQMi94AF2ZXqKatqfEwCbo5o/W7nNfQsPnecLAW85rNRLLMiRP/2h5GIuCvfBAhP8Oe0OGV1PYuT4qy/5YWFXQ65mHhE6e2HWgCgidQXkGRexBNezSja8rZTFPvDolaEd78lEgP/vXmyKuokYMdSJ9WQ2if6+VntEWoHfMbybsJyHtzXXx+d+dKBBVRF75w+wvg3xlNxmeYKCZvIrvrjNhjNklaa/pdLmrPJ4Rrj98zsqnh/XLkiBe2kirM9D8xDum/lz6q9q7gZRRwv7oSTufvA==
-Received: from BN9PR03CA0298.namprd03.prod.outlook.com (2603:10b6:408:f5::33)
- by CH2PR12MB4309.namprd12.prod.outlook.com (2603:10b6:610:a4::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.16; Wed, 20 May
- 2026 22:35:51 +0000
-Received: from BN1PEPF00004683.namprd03.prod.outlook.com
- (2603:10b6:408:f5:cafe::50) by BN9PR03CA0298.outlook.office365.com
- (2603:10b6:408:f5::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.16 via Frontend Transport; Wed, 20
- May 2026 22:35:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN1PEPF00004683.mail.protection.outlook.com (10.167.243.89) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 22:35:49 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
- 2026 15:35:34 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 20 May 2026 15:35:34 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 20 May 2026 15:35:33 -0700
-Date: Wed, 20 May 2026 15:35:32 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>, <joro@8bytes.org>,
-	<bhelgaas@google.com>
-CC: <robin.murphy@arm.com>, <praan@google.com>, <baolu.lu@linux.intel.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<dan.j.williams@intel.com>, <jonathan.cameron@huawei.com>,
-	<vsethi@nvidia.com>, <linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
-Subject: Re: [PATCH v5 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <ag43NP4UiS7Z9T6q@Asurada-Nvidia>
-References: <cover.1779304390.git.nicolinc@nvidia.com>
- <b6d2f24356621c504e47633d9e96a7274c2859f3.1779304390.git.nicolinc@nvidia.com>
+	Wed, 20 May 2026 22:44:34 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1wPpeL-0005vy-DY; Thu, 21 May 2026 00:44:25 +0200
+From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Thu, 21 May 2026 00:44:06 +0200
+Subject: [PATCH v7 01/28] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <b6d2f24356621c504e47633d9e96a7274c2859f3.1779304390.git.nicolinc@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00004683:EE_|CH2PR12MB4309:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed822cb6-97ea-4028-3bb6-08deb6c024a6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|11063799006|4143699003|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: bIiDJmC66iLkAC+/qub1CFIBbYT2PE3skvZl2yH9qemuKL2zOoA+dDqMDr+Uma/JO8DCw90Q2Clsw+IGY/P0fGmjoRHsDOqLStk8iRzmtw6KSXEt0qgq7ics6yzRZfzb4HujwHSiWJMmARJOCeSGqEV14mEM+ffD37hsjKrgAML5xTzqScjfT0eiXH5/BUNVRVZoeMVjAlozQgxlEpHL9V7qjrgOdy4JCLT/nyuArFryvnkBcAyzTC8093U9gJuVIKK4whlSxU9H67SVTBdZ6OYNDplozPOQKyKUlabe25A5LKYxkDINWsYbahM0ksE8IO4fzXnYQX8BXS6fm5JM7riZep/MranxiVfiwVEBlrD/qeu9zKCHNuDm6Og4sFqkYnC8KL07dWEpTd96jiU60YVwhok11XuEophacO/z7e92Pa4bk52el2/VwnQ99+rh7Xd5aEILlbA6j42Fafocg+UWfs0xV37itWV9mzusZ7q62ZAP/p02mkfD/Q5wSUsfFbXiNPEfjxRIHs9Zt9MB9HNcmePQgVbNV6ssLWwa7fqd+yuHK8NQXXKfdlBuoLWOLDorgaF8cXcEmucd9dIr8J+W2Vh+DlpocZiffDJtIzsNmRL8DN8S3yxn9YJIRofUCBuPWf80Y2LuFVXq89TJeVYcHGXJ7NvzRy2Ix1tgGEVUaAxzRGub4ZlD0M5osi9/fEDHFd5dVNiRto7y75pwR/44OcZbMvVY5dqGQ88Gs64=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(11063799006)(4143699003)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: WFOOLKkGeZmAi1SzdRnNOrrJlMR7847bAaENdsoovoqGKxFrQ6xP4a4kDM/+RnLRwRjWqSnUsCXbtsYCqu2v+BeBA4ByszPAyG7lgUsUqyosUxs5hbpQJRRpc5YqQALPpOxsCliW7pZKHX9u6Oe/R01qn8wj53VVUufWBBQ5tBI09OWaxhCc4l4RwAZFX8cW+Y3VT4SfRtyum/L5/t+yi8+DOiVjbMVQhpMy18sB9USOBxXH54laQBm8tpn/dV+iap3CiIJacklRUI/bD57dUFhUD27HtZHU7zDTY68k0uC8vkwq2N24K07Lv7PgvnHFZy6bz3Kl6B/uBP7lSOWjEPBHRWQZLTNUFxg3J/zDqcZKmlvCdNtj8yrmXMm/nL1vp3iP1c+7hJ8TNbPb2yKPybfcJu390I8n8QFIRABEnxvGc8omOkmUxMM9et78cdoh
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 22:35:49.5565
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed822cb6-97ea-4028-3bb6-08deb6c024a6
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004683.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4309
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260521-spu-rga3-v7-1-3f33e8c7145f@pengutronix.de>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+In-Reply-To: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+To: Jacob Chen <jacob-chen@iotwrt.com>, 
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, kernel@pengutronix.de, nicolas@ndufresne.ca, 
+ sebastian.reichel@collabora.com, m.tretter@pengutronix.de, 
+ p.zabel@pengutronix.de, 
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+X-Mailer: b4 0.15.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_153602_745793_22F38854 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20260520_154432_730658_C8002CC5 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,108 +75,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
+peripheral found on the RK3588 SoC. Also specify an iommu property,
+as the RGA3 contains the generic rockchip iommu. While other versions
+also have an iommu, it's usually specific to them.
 
-Sashiko pointed a couple of valid points.
+The RK3588 contains one RGA2-Enhance core (also contained on the RK3399)
+and two RGA3 cores. Both feature a similar functionality of scaling,
+cropping and rotating of up to two input images into one output image.
+Key differences of the RGA3 are:
 
-On Wed, May 20, 2026 at 12:46:10PM -0700, Nicolin Chen wrote:
-> @@ -3851,7 +3870,8 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
->  	 * When the last user of the CD table goes away downgrade the STE back
->  	 * to a non-cd_table one, by re-attaching its sid_domain.
->  	 */
-> -	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
-> +	if (!master->ats_always_on &&
-> +	    !arm_smmu_ssids_in_use(&master->cd_table)) {
->  		struct iommu_domain *sid_domain =
->  			iommu_driver_get_domain_for_dev(master->dev);
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
 
-Here the detach path doesn't check sid_domain's type, mismatching..
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+Changed in v3/v4:
+- Dropped Acked-by: Krzysztof Kozlowski due to the added iommus property
+  and description adjustments.
+---
+ Documentation/devicetree/bindings/media/rockchip-rga.yaml | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-> @@ -3875,6 +3895,8 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
->  		.old_domain = old_domain,
->  		.ssid = IOMMU_NO_PASID,
->  	};
-> +	bool ats_always_on = master->ats_always_on &&
-> +			     s1dss != STRTAB_STE_1_S1DSS_TERMINATE;
-[...]
-> -	if (arm_smmu_ssids_in_use(&master->cd_table)) {
-> +	if (ats_always_on || arm_smmu_ssids_in_use(&master->cd_table)) {
+diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+index ac17cda65191b..7bd92f7336664 100644
+--- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+@@ -9,7 +9,11 @@ title: Rockchip 2D raster graphic acceleration controller (RGA)
+ description:
+   RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
+   graphics operations, such as point/line drawing, image scaling, rotation,
+-  BitBLT, alpha blending and image blur/sharpness.
++  BitBLT, alpha blending and image blur/sharpness. There exist many versions
++  of this unit that differ in the supported inputs/output formats,
++  the attached IOMMU and the supported operations on the input. As some SoCs
++  include multiple RGA units with different versions, a more specific
++  compatible name to differentiate the concrete unit is used for them.
+ 
+ maintainers:
+   - Jacob Chen <jacob-chen@iotwrt.com>
+@@ -20,6 +24,7 @@ properties:
+     oneOf:
+       - const: rockchip,rk3288-rga
+       - const: rockchip,rk3399-rga
++      - const: rockchip,rk3588-rga3
+       - items:
+           - enum:
+               - rockchip,rk3228-rga
+@@ -45,6 +50,9 @@ properties:
+   power-domains:
+     maxItems: 1
+ 
++  iommus:
++    maxItems: 1
++
+   resets:
+     maxItems: 3
+ 
 
-.. the attach path where it only applies to IOMMU_DOMAIN_IDENTITY.
+-- 
+2.54.0
 
-I am addressing this with:
-
-@ -3870,13 +3870,15 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
-         * When the last user of the CD table goes away downgrade the STE back
-         * to a non-cd_table one, by re-attaching its sid_domain.
-         */
--       if (!master->ats_always_on &&
--           !arm_smmu_ssids_in_use(&master->cd_table)) {
-+       if (!arm_smmu_ssids_in_use(&master->cd_table)) {
-                struct iommu_domain *sid_domain =
-                        iommu_driver_get_domain_for_dev(master->dev);
-+               bool ats_always_on = master->ats_always_on &&
-+                                    sid_domain->type != IOMMU_DOMAIN_BLOCKED;
-+               bool downgrade = sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
-+                                sid_domain->type == IOMMU_DOMAIN_BLOCKED;
-
--               if (sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
--                   sid_domain->type == IOMMU_DOMAIN_BLOCKED)
-+               if (!ats_always_on && downgrade)
-                        sid_domain->ops->attach_dev(sid_domain, dev,
-                                                    sid_domain);
-        }
-
-> +static int arm_smmu_master_prepare_ats(struct arm_smmu_master *master)
-> +{
-> +	bool s1p = master->smmu->features & ARM_SMMU_FEAT_TRANS_S1;
-> +	unsigned int stu = __ffs(master->smmu->pgsize_bitmap);
-> +	struct pci_dev *pdev;
-> +	int ret;
-> +
-> +	if (!arm_smmu_ats_supported(master))
-> +		return 0;
-> +
-> +	pdev = to_pci_dev(master->dev);
-> +
-> +	if (!pci_ats_required(pdev))
-> +		goto out_prepare;
-> +
-> +	/*
-> +	 * S1DSS is required for ATS to be always on for identity domain cases.
-> +	 * However, the S1DSS field is ignored if !IDR0_S1P or !IDR1_SSIDSIZE.
-> +	 */
-> +	if (!s1p || !master->smmu->ssid_bits) {
-> +		dev_info_once(master->dev,
-> +			      "SMMU doesn't support ATS to be always on\n");
-> +		goto out_prepare;
-> +	}
-> +
-> +	master->ats_always_on = true;
-> +
-> +	ret = arm_smmu_alloc_cd_tables(master);
-> +	if (ret)
-> +		return ret;
-> +
-> +out_prepare:
-> +	pci_prepare_ats(pdev, stu);
-> +	return 0;
-> +}
-
-Another issue is: arm_smmu_master_prepare_ats() here doesn't guard
-against cases when !arm_smmu_ats_supported() && pci_ats_required().
-
-"!s1p || !master->smmu->ssid_bits" also needs to fail the function.
-
-Actually, this function does not return error at all. This reminds
-me of the !pci_prepare_ats() issue Pranj is fixing. For this series,
-at least we should propagate the pci_prepare_ats() return value to
-the caller.
-
-I see this single patch is getting large. Maybe it's a good idea to
-split a bit. I will keep the reviewed parts into patches that retain
-the given reviewed-by tags.
-
-Thanks
-Nicolin
 
