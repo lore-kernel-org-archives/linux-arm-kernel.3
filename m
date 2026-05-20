@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A39CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B34CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:40:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xNZ6LFpDqSiliRDQZffjOR3z3XDTMAtPwuRo7ubH7Vo=; b=qfxiWtNek05fHFRSk8OaTDmjQq
-	d5lAG70BU8do9PBYXTufUnXz67x4CDSeCdia5tnUXdeIB/Ij4Xr8Fd9KgHoQ5FxAmh58HK4m6MqhI
-	byvXCQcDj7JmO3SfHYtCWZX+kS4ff7pRrtOM9bBwxBQZHFEY+nEfM28Pi3zrluLpOQ+UlXiWGtVpF
-	5i0cQdfzJ8STbT6Igdbo0ycF+BxmBLaWwsKUuZuDNvgJWwD1HF09rNb1dX6rXXglfqVHVw6JMxTQO
-	1Zpbl7evb//zXEqHdbCbF7OCFB8Y4TWiHUW3U6KI6NRDp4RzfMBozcrLfsExSeaea/Jr2O9/D6FCu
-	FAO+1ajQ==;
+	bh=02+6d8dOXhR9E+F29QDQjM2pWkqHo3wDZDJjMa+yUu0=; b=m6kZ2ka3hEI2lc8HBc16FUF8Ca
+	J1TY2olP8+WOnRRuH6jaFriPqwXNUCfvGB+khUzZ3wpM2VzzbN6PR+si0tOO91gbZJygKylijCQEV
+	1G9ahtwxmWu/6L4ha4vrAfpg+xgkk1/guCOi7n+G7b1JPR/PLgjfuc1ExP8kXIOuobI4XrQspUWJf
+	o/dxtX91OfUoHS923cKYM0nZTlxbjNytnJZy3mbiaf9XhF+df9JchWfFIuI6Dxxof6bWq0pQZShVo
+	U5jGOFc8mRFbBzqqGo6ADcgTnIE7yLYr1WdYyoq9FSLb/6RCTZBX9Pjw6Nfmqo90v+nNAC9qTl3Nl
+	6v1HscfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlpu-00000005VOm-0pTT;
-	Wed, 20 May 2026 18:40:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPlq6-00000005VeB-3PDV;
+	Wed, 20 May 2026 18:40:18 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlpn-00000005VDj-2MYT
+	id 1wPlpv-00000005VQP-1MA0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 18:39:59 +0000
+	Wed, 20 May 2026 18:40:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E66E360220;
+	by sea.source.kernel.org (Postfix) with ESMTP id EECC94025C;
+	Wed, 20 May 2026 18:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B121F0089A;
 	Wed, 20 May 2026 18:39:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8E881F00894;
-	Wed, 20 May 2026 18:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779302398;
-	bh=xNZ6LFpDqSiliRDQZffjOR3z3XDTMAtPwuRo7ubH7Vo=;
+	s=k20260515; t=1779302406;
+	bh=02+6d8dOXhR9E+F29QDQjM2pWkqHo3wDZDJjMa+yUu0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fxl+zUsGxVFhG/PBg4Zy8jA+vL8kZdsM59y/NtRfPOp7u/r/LABun0NFwYqtoCLxJ
-	 oItN3JvNyGnPnk2pYUmY0QD+rpHJXhT6IPSHV/0E2KWzxkSoGcqjFsdapG3hn4TS5i
-	 cto8atcvmCtdhnYhh7qxKXci7nMrRI3qeqwHmZF70tRPs9PkleaVlOEfDvFQs4HOZC
-	 kpbbjeYFjfO2xROIXOd5Yvej42l57BYPpRoSGk1wyCzRLl82f/cP2fNGrvjXdAsSyQ
-	 M3wcIkyvpYUAb4VY3eAlV3sRxNwRfVLyLh4X10HOmxql3sXhmPVx86tuyiCD8y+BA5
-	 6naBM/eFbkhuw==
+	b=TxJsYXWdfmza+UhP3R5pB3RwB3VkdHYGSwnVCeXIfZWjcwPv5hyYy1pozAEtav9zc
+	 ST23wnlxbaQNSejo3rEHwIRi3+Vsb+rGxZgXDu6Wg2SRyCm1gKgYG9kyT1s0+eLdMh
+	 jLq+3jUpE8uIKfQfhWYcZI1RUu3KhaTsvYTa7fcRh4jeGeHIn1KWH1IQXk1A+GPle+
+	 /fk//MJVx/io/TegeiPOyqkC6PuFHo2UABrmL27yz5Omg47Zm8XFMz0oUKynX/ZKE6
+	 XwChghHVCC5r3gWZlyQSDgbWCdunVnBYtGrwFl8Zgn+l6bnK9CSl/JfztXE0nTPRKy
+	 fbtvXvNZAq/IQ==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -82,16 +82,18 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-sh@vger.kernel.org,
 	linux-input@vger.kernel.org,
 	linux-leds@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [PATCH 09/10] [v6 omap] ARM: dts: omap2: add stlc4560 spi-wireless node
-Date: Wed, 20 May 2026 20:38:14 +0200
-Message-Id: <20260520183815.2510387-10-arnd@kernel.org>
+	netdev@vger.kernel.org
+Subject: [PATCH 10/10] gpiolib: turn off legacy interface by default
+Date: Wed, 20 May 2026 20:38:15 +0200
+Message-Id: <20260520183815.2510387-11-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260520183815.2510387-1-arnd@kernel.org>
 References: <20260520183815.2510387-1-arnd@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_114007_415583_4293DA28 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,62 +110,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Converted from the platform_device creation in board-n8x0.c.
+All users of the legacy interface now select CONFIG_GPIOLIB_LEGACY,
+so it can be turned off by default and only get built on platforms
+that still have one unconverted driver.
 
-Link: https://lore.kernel.org/all/20230314163201.955689-1-arnd@kernel.org/
-Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Allow turning it on manually for compile testing, in order to keep
+the build coverage of the legacy drivers in allmodconfig and
+randconfig.
+
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-v6: no changes
-v1 through v5: adaptations that correspond to the binding updates
----
- arch/arm/boot/dts/ti/omap/omap2.dtsi                |  4 ++++
- arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi | 12 ++++++++++++
- 2 files changed, 16 insertions(+)
+ drivers/gpio/Kconfig | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/ti/omap/omap2.dtsi b/arch/arm/boot/dts/ti/omap/omap2.dtsi
-index afabb36a8ac1..fdc1790adf43 100644
---- a/arch/arm/boot/dts/ti/omap/omap2.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap2.dtsi
-@@ -129,6 +129,8 @@ i2c2: i2c@48072000 {
- 		};
+This patch depends on patches 1 through 9 to be applied first.
+
+diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
+index 00fcab5d09a4..eec17089eaa6 100644
+--- a/drivers/gpio/Kconfig
++++ b/drivers/gpio/Kconfig
+@@ -4,7 +4,14 @@
+ #
  
- 		mcspi1: spi@48098000 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			compatible = "ti,omap2-mcspi";
- 			ti,hwmods = "mcspi1";
- 			reg = <0x48098000 0x100>;
-@@ -140,6 +142,8 @@ mcspi1: spi@48098000 {
- 		};
+ config GPIOLIB_LEGACY
+-	def_bool y
++	bool "Legacy GPIO interfaces" if COMPILE_TEST
++	help
++	  There are a few legacy platforms that use the traditional GPIO
++	  number based interfaces instead of GPIO descriptors.
++	  Say Y here to enable build testing drivers that are specific
++	  to those platforms.
++
++	  If unsure, say N.
  
- 		mcspi2: spi@4809a000 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
- 			compatible = "ti,omap2-mcspi";
- 			ti,hwmods = "mcspi2";
- 			reg = <0x4809a000 0x100>;
-diff --git a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-index 63b0b4921e4e..fe9dd8bbfc85 100644
---- a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-+++ b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
-@@ -109,3 +109,15 @@ partition@5 {
- 		};
- 	};
- };
-+
-+&mcspi2 {
-+	status = "okay";
-+
-+	wifi@0 {
-+		reg = <0>;
-+		compatible = "st,stlc4560";
-+		spi-max-frequency = <48000000>;
-+		interrupts-extended = <&gpio3 23 IRQ_TYPE_EDGE_RISING>;
-+		powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>; /* gpio 97 */
-+	};
-+};
+ config HAVE_SHARED_GPIOS
+ 	bool
 -- 
 2.39.5
 
