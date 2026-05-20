@@ -4,60 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77EACD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 20:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73211CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 20:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=hkMOwuQXaNBAdYLtFjUMiH4zzAgLe4SfdAgQtA8NLEY=; b=z5gl9lilIH/6wh
-	jwv2t4YHVcwa/HwlQ+tCZKbE4Qao7873X5ITI+LdSrc9aIG0HXWM8xTFtypz6wo9LrvFwt9qKenY3
-	780gugSxQ0HsPhlvRGauxC8Oh5ecqoB1Niolf74Ktr/VB9NEOvihvMqCBMled3jyghna0QWf1RBN0
-	zxuitQPDh2Sjbq6QiL9eoS5W0m6YWl8LVmRaf63TpQxmNOXTJhAFuE8HpzqRwlb9uAMGP9nY17zKO
-	RBuvxBgxUhmStqswLGqDn6IFpCSjoScoD+7pcdxhLyqe3gZpiw8+7WP1824Mjk7sFwNUd7MCGfWpl
-	7xM10fVeJLO1N5zZlOrQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+RH5zBbrHey7ErpAuSOg8WE/nVbhSTHW02XjRi3wR/4=; b=0dtWLLtgScOr14KZc6mhJsninm
+	q6a3BI+quVbJUVOEVmxfRRTz+1yt4hKDZmr5upjRI/PCT79oBXtcIXIDRlm2oFZz6JQe6fUEXStah
+	DX4z7RxmPFkuq0UQbFg81UTM5YOgG1pXEMrgicTJ7N2vO+UmLWenkeA8889g46vdPqDXrjGYNGvpp
+	tWdmTCmywVeJTgzvj4S1sv2vft83/a45yLjuok9Z3xeb4nhBrzN+32qSKfsVvFQVlg8/n8pKlp72y
+	mb8mS9m7Du5OxjQmiPfQeyv0ZAA6xWRAHTtoVuQBmH7WjCQWpA0Twm1v2IkMIlqTALBpR5dY14X8V
+	7z5xIf4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPn9J-00000005gt3-4BOE;
-	Wed, 20 May 2026 20:04:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPnQ7-00000005iDw-3uBo;
+	Wed, 20 May 2026 20:21:35 +0000
+Received: from mail-westcentralusazon11010065.outbound.protection.outlook.com ([40.93.198.65] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPn9H-00000005gsY-42hD
+	id 1wPnQ5-00000005iDF-0AF5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 20:04:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id 17CBE60213;
-	Wed, 20 May 2026 20:04:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 999201F000E9;
-	Wed, 20 May 2026 20:04:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779307450;
-	bh=hkMOwuQXaNBAdYLtFjUMiH4zzAgLe4SfdAgQtA8NLEY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=H6U0xPSL3mETPkYNlEvHXd+V/epjsiYOkKELhJ+VQ9RxenRE6BNg7pkfU1zPZKMce
-	 1l4kmN6pNKwx2DCM1QGjczc+7XVwj06EZrTwQvDDAgRSifS8kdbqKnkIS9XL99wsYn
-	 LjE8vw9aCHscUVLrdyrKGXkwKlYTkDNAKeTfw37GQyiiYa9NaflukSnvD8LXtWo49s
-	 XquntM5MidXCOJCEfTyd2xeCLUFpJsxob22wG7S9AW1OeJYIiSuX0hFETsMgJ21oAG
-	 sYw67xgEonHFKy5rJgRx8kSsYRqFryywGDI803ygEQfOo8vPmVxEv7BVkaTQsNfZcw
-	 m5RCk7+T+Pcyw==
-Date: Wed, 20 May 2026 15:04:09 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, will@kernel.org, joro@8bytes.org, bhelgaas@google.com,
-	robin.murphy@arm.com, praan@google.com, baolu.lu@linux.intel.com,
-	kevin.tian@intel.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	dan.j.williams@intel.com, jonathan.cameron@huawei.com,
-	vsethi@nvidia.com, linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
-Subject: Re: [PATCH v5 2/3] PCI: Allow ATS to be always on for pre-CXL devices
-Message-ID: <20260520200409.GA88687@bhelgaas>
+	Wed, 20 May 2026 20:21:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gc0G7RbraxCVCalnFezqK80yZzhXVSvQKDYHwPAfURGStdULFAtU0E4V4L1nl0nVu6skbnfbkuRrHvyhcw8jRnHxZtDxQ47+l+/savdcitdh9DuPcbvtT7VM0+5Lr4umXo8rOeO361GACqo5Pl6o3y/K1pKKhqkuayIOl5CyNlcRHZuuMoNVdxJin2UpIaKWuSMC+fjjpOdS9WjiCQSMQaezg2ouns0d0hcTfuYFW3zp+kx3jczSyYEiGrPvfXquzKK3K0b7numtm9dXezMBB2geVMncrXf3rnqSgFEI7gMkz9xpYEh59/jp/B1R2rRYbceMYzuWipOP53NReYWpbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+RH5zBbrHey7ErpAuSOg8WE/nVbhSTHW02XjRi3wR/4=;
+ b=T5Vv0dpIV2hEc1tVmybxAKmguBdiXnzbusLD0xFB37fVX1TV6CB5NgjHTwYymLMgfP0lu6gShRF4ULo1zLbIFNwImXWC4N5DAgDEvkOVhULl8ErEbUO0Ah2HSwwfYLJWA9ujDDkZlsM8SJx5/A2+p3I9l+5WXMfRMT9wUiTqJXwPnQqyaMrPhUUJxTTqa1bIRAgg0CAgOcVtlHqbhDirg19R0cKFWkSr2isNVAuruBblzAIoFrhmqkeUxtD9IAbLrzttNjVdiu+VivSEqex6Z2lBR86Wfd+7Od0r0aLoibEnM9JrPPw9l81rr4633JT9UiFtYNY0oaBSeOq/x3iayA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+RH5zBbrHey7ErpAuSOg8WE/nVbhSTHW02XjRi3wR/4=;
+ b=p/b2Yidf7ZP9fc6bupkLqCkdU9wAziOIvXqGc2ZPR8jszl6JCzUwBe/mXl/eO+MDXVOQddfCxfmw0AW1MyiS0nJQIGrsN4GOE+/HYIhvbuaNoACemu3pn6sytM0enBEcvLF9+MsOaMAqYuLME1f+8cLgZ0XyqMLQuOeob5wdE1wNblp3zO0jsqgNuhuQTG7vtugoS4E66qpQ4zOXl5iV55KOm1REnSbQlp1A4nBlIsbDJt/6Oeh6yqOjN3sCgBXNdyarH4pNhr/7luwGvba/8KYTX/bPOk/08eH2gHGcJyaOeR7KkGLlybJRy6Qj87badwdoyqTxnKuUPBX9XAy7Kg==
+Received: from DS1P223CA0005.NAMP223.PROD.OUTLOOK.COM (2603:10b6:8:453::13) by
+ BN7PPF7F4CD71A4.namprd12.prod.outlook.com (2603:10b6:40f:fc02::6d6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Wed, 20 May
+ 2026 20:21:21 +0000
+Received: from DS3PEPF000099E2.namprd04.prod.outlook.com
+ (2603:10b6:8:453:cafe::93) by DS1P223CA0005.outlook.office365.com
+ (2603:10b6:8:453::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.16 via Frontend Transport; Wed, 20
+ May 2026 20:21:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS3PEPF000099E2.mail.protection.outlook.com (10.167.17.201) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 20:21:21 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
+ 2026 13:20:59 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
+ 2026 13:20:58 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 20 May 2026 13:20:57 -0700
+Date: Wed, 20 May 2026 13:20:56 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <jgg@nvidia.com>, <will@kernel.org>, <joro@8bytes.org>,
+	<bhelgaas@google.com>, <robin.murphy@arm.com>, <praan@google.com>,
+	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
+	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
+	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
+Subject: Re: [PATCH v5 1/3] PCI: Add pci_ats_required() for CXL.cache capable
+ devices
+Message-ID: <ag4XqCJ/HW0IZ4BI@Asurada-Nvidia>
+References: <9e01e6d39deff2bf751da3e1abb43f35a9169194.1779304390.git.nicolinc@nvidia.com>
+ <20260520200327.GA88349@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <35e75bf0abfa48f76bc87d73a772a3faf6271a9f.1779304390.git.nicolinc@nvidia.com>
+In-Reply-To: <20260520200327.GA88349@bhelgaas>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099E2:EE_|BN7PPF7F4CD71A4:EE_
+X-MS-Office365-Filtering-Correlation-Id: 38e7a6f2-4b0a-4b31-6f71-08deb6ad5b62
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|7416014|4143699003|56012099003|22082099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: PchQzq3qE5Dd/GhetMUBW+Z//GcEPPmJVhvJbRiy/INE3jCg7kMNb1vr4LAQ3fMSTuc67vDQlBfymX0tcodQiRqCreV+gWxKebAxESxkFHXayodVa2J2X09hP9fj2BzzSsdm3AeY+TMBmawgXwf2gDKhr4kkDHmmR4nc+/U+qELEtOQaLigTzm0XjckbxjRgjOExLyx0E0igj5JBE2/JDrSG8LURgNi9PVwrCFQb3wSGPoRRS32Bq5CI5sj/Rff9WJmCmR7iLUwQ6SeySfKDqlu/X0kxSSQdB2Jrs3oHblT7/iwO22otoIFa6kG58rTUlkK9rmwbqasr412u33RWxbRRHEAi8wHaBmG8RerNpXT/hWjrdhm9o/wlZur6rSAEZBglxRDw1j3tEXLJevjhrvNsdAepbYiAAK+SX/rTXGkBitcSHYiWEgDbXh8G/QS5POkHAMZF31VD9AmBfdU7iYCE0TPmAFRCHXektb14cM7gH1t6iP7aQo9QjWQJoFIVBzAWjMIhAy3WHcEayLyn1ABuaD8nBTSErav5MfABqF9czfjXk9JWfYVTkCKsb0yUho06znIBfFj7tsoZB/JI0yf3WBUsvnZb92FuXCSpWxtsh7ILyhCx6tAxQGzmWzHIyH4yngqX+F1oUrdaXUYQgJUVNwLgoIEFZWEmKS3RipeClo/L4WjiVIlEyGgh66Tj4AAxMRhN3VmGy+CbKn1x7Zruj+oCnhwyVqtFKOiPuaU=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(7416014)(4143699003)(56012099003)(22082099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: sy/Am6Rc2e0ig+G37KAzR4v8CiN8SCT59b/zu+CmXroCcFUg9Su0Y8Pr+S0XqLGzPIp84pMdo08H0eVMGlYtD8xFVRLkmJG9cbValxeriW9Tc1hynf7qbrfs/vFwJSBmGIWfNcfl5fltD/GZ4sP0mlsnmVxFpvLiz/TlkeJ6B2RZmk6sRrdyp3w6aqgdmT+NGjZxViYYOxQ0hnQA/9qi4ZLBXJP0q6U/84+gMyz66s6PKfOstoauIx65gNpN2Kxxx4bHfRqbHlUDU44MJIz95p8S2x6OGQdP+yXz9gWu8tKVjPtd92ZdYoZN5D5FHvqpVShYaopnenZ4vEtVpG8bfhg+UpemVFsvkK8ffhTmBB7r2MA3T7r64cpoJh+cXB0O7AQ0CS6LlLlWs9ZsNHFo4+X2Q/CHter5GRMhq6XYxODmGfXGSUXydpApIlJR8BCQ
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 20:21:21.0462
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 38e7a6f2-4b0a-4b31-6f71-08deb6ad5b62
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099E2.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PPF7F4CD71A4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_132133_085842_0087E7E4 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,122 +134,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 12:46:09PM -0700, Nicolin Chen wrote:
-> Some NVIDIA GPU/NIC devices, though they don't implement CXL config space,
-> have many CXL-like properties. Call this kind "pre-CXL".
+On Wed, May 20, 2026 at 03:03:27PM -0500, Bjorn Helgaas wrote:
+> On Wed, May 20, 2026 at 12:46:08PM -0700, Nicolin Chen wrote:
+> > +bool pci_ats_required(struct pci_dev *pdev)
+> > +{
+> > +	if (pci_ats_disabled() || !pci_ats_supported(pdev))
+> > +		return false;
 > 
-> Similar to CXL.cache capability, these pre-CXL devices also require the ATS
-> function even when their RIDs are IOMMU bypassed, i.e. keep ATS "always on"
-> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use cases.
-> 
-> Introduce pci_dev_specific_ats_required() quirk function to scan a list of
-> IDs for these devices. Then, include it in pci_ats_required().
-> 
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Nirmoy Das <nirmoyd@nvidia.com>
-> Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Reviewed-by: Dave Jiang <dave.jiang@intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> I still have the question about whether it's necessary to test
+> pci_ats_disabled() here.  I think pci_ats_supported() should return
+> false if pci_ats_disabled() returns true.
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Sorry, it fell through the crack.
 
-> ---
->  drivers/pci/pci.h    |  9 +++++++++
->  drivers/pci/ats.c    |  3 ++-
->  drivers/pci/quirks.c | 42 ++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 53 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> index 4a14f88e543a2..e8ad27abb1cfe 100644
-> --- a/drivers/pci/pci.h
-> +++ b/drivers/pci/pci.h
-> @@ -1155,6 +1155,15 @@ static inline int pci_dev_specific_reset(struct pci_dev *dev, bool probe)
->  }
->  #endif
->  
-> +#if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_PCI_ATS)
-> +bool pci_dev_specific_ats_required(struct pci_dev *dev);
-> +#else
-> +static inline bool pci_dev_specific_ats_required(struct pci_dev *dev)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->  #if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_ARM64)
->  int acpi_get_rc_resources(struct device *dev, const char *hid, u16 segment,
->  			  struct resource *res);
-> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-> index ebdf761843867..3a04d5b04c883 100644
-> --- a/drivers/pci/ats.c
-> +++ b/drivers/pci/ats.c
-> @@ -247,7 +247,8 @@ bool pci_ats_required(struct pci_dev *pdev)
->  	if (pdev->is_virtfn)
->  		pdev = pci_physfn(pdev);
->  
-> -	return pci_cxl_ats_required(pdev);
-> +	return pci_cxl_ats_required(pdev) ||
-> +	       pci_dev_specific_ats_required(pdev);
->  }
->  EXPORT_SYMBOL_GPL(pci_ats_required);
->  
-> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-> index caaed1a01dc02..c0242f3e9f063 100644
-> --- a/drivers/pci/quirks.c
-> +++ b/drivers/pci/quirks.c
-> @@ -5715,6 +5715,48 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1457, quirk_intel_e2000_no_ats);
->  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1459, quirk_intel_e2000_no_ats);
->  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145a, quirk_intel_e2000_no_ats);
->  DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145c, quirk_intel_e2000_no_ats);
-> +
-> +static bool quirk_nvidia_gpu_ats_required(struct pci_dev *pdev)
-> +{
-> +	switch (pdev->device) {
-> +	case 0x2e00 ... 0x2e3f: /* GB20B */
-> +		return true;
-> +	}
-> +	return false;
-> +}
-> +
-> +static const struct pci_dev_ats_required {
-> +	u16 vendor;
-> +	u16 device;
-> +	bool (*ats_required)(struct pci_dev *dev);
-> +} pci_dev_ats_required[] = {
-> +	/* NVIDIA GPUs */
-> +	{ PCI_VENDOR_ID_NVIDIA, PCI_ANY_ID, quirk_nvidia_gpu_ats_required },
-> +	/* NVIDIA CX10 Family NVlink-C2C */
-> +	{ PCI_VENDOR_ID_MELLANOX, 0x2101, NULL },
-> +	{ 0 }
-> +};
-> +
-> +/*
-> + * Some NVIDIA devices do not implement CXL config space, but present as PCIe
-> + * devices that can issue CXL-like cache operations like CXL.cache. Thus, they
-> + * require ATS to obtain host physical addresses, like pci_cxl_ats_required().
-> + */
-> +bool pci_dev_specific_ats_required(struct pci_dev *pdev)
-> +{
-> +	const struct pci_dev_ats_required *i;
-> +
-> +	for (i = pci_dev_ats_required; i->vendor; i++) {
-> +		if (i->vendor != pdev->vendor)
-> +			continue;
-> +		if (i->ats_required && i->ats_required(pdev))
-> +			return true;
-> +		if (!i->ats_required && i->device == pdev->device)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
->  #endif /* CONFIG_PCI_ATS */
->  
->  /* Freescale PCIe doesn't support MSI in RC mode */
-> -- 
-> 2.43.0
-> 
+And you are right that. pci_ats_disabled() seems redundant.
+
+I can respin a v6.
+
+Thanks
+Nicolin
 
