@@ -4,126 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D53FCD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:39:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C772CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYHpRvmHgyd2r+qwGHW4DPX/jne+mtmdMxHFrz6XWZw=; b=Ql8isPloAhrU1KEmwS++Cij0QT
-	7LsjmHLbe58ZtsuCI6SOxDBy7Xzom6XfAfkgm9fuf6qyjxnJ+PM4LuzqbEoVTLH+o3vg1qhfa8bmb
-	gtvVoDpFZcIRapCpWnESmgG6sswxXg1hxQcjDybnI0jY7TiH5xCJTrQqwzIGbrd5e7bg2x0em7MbP
-	8yDuVrHWgV4VdtSf4xRQeTMjpRtQeemz0jzQiuAIH66FDsli2/Lep4DjfbKhx1JDwDymrpKRykz+H
-	MlC4qcMholBVKLgv/oB/6huDRwMLHBv71M45LbMm6aK9sfmLdOEYdBO/9fP0RYByJxHX2uw0rCIhG
-	RlGdy2+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IMkepDCVc2TLY2VZbej5xOqxbCMgq8RcQd0nxJHbH2o=; b=BwNSHCu6vHG9WJCR0YH9vqA5iQ
+	R9NOqX5Yrt4o7oKnpEf2agEmp1vk0pLpwcCLlLJ6kyxpUue673N8vwjfTEVOEZYKLFb61zAazQOYz
+	x17ni+DfNX6BHqmthMgC/Abxl1VVfsNwQjOPwMRCKGke5tAa5epxPuVnj9bcnGaGEE9fJV555UmL/
+	8qU9Yo4NlcL03PSPZ9j6plCEgwbe9FtZltvzwCg4LKKMu1x8ZIlbxMjnU6C3ATpMHoqUiEeGx7mLW
+	6Q/WkGm97V8YreS9TWwFipoBtjJli9fMSlwUNhp6Cz4ya91bx1fbWZGVw0AYXFIA2pBExhlcKKnRW
+	+oPWR7Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaaH-00000003gTK-39oy;
-	Wed, 20 May 2026 06:39:13 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1wPaaa-00000003gYJ-3uln;
+	Wed, 20 May 2026 06:39:33 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaaE-00000003gSX-40h0
+	id 1wPaaU-00000003ftN-3Xij
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 06:39:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m8ysso2vXNyoXRj84evfctTxgaMUgeGQgEWMLOL5xm7Pf0qAc7OB8yUc6lDeFHdkJYmbtdKY1DIO2Zd0vHbtD7MUzSzTaaC3TdnxXPlxGkT3EkPbHrtLqhAy7laeRJaix/dsfVUoRBiSh/g22IOpslIe+3U5F3McEppEZo4MwkSQkYHSn4/tOuCA73ZEc6xgfBAswRy3ooJUc5rfDdk4SSq9LSJwM5vCedSqlUD3aCuA8HoDoglhRVfK36th3NOJ5NawK9gvSE+3b6YKMmumsOFsHttyl/+fH//SlJSAmSeolEK+o4f17ue+l+/qYtINrX8hP/BrXa2i+glijfZwfQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yYHpRvmHgyd2r+qwGHW4DPX/jne+mtmdMxHFrz6XWZw=;
- b=kfaRyxix+3CzoyR6Qui49UhLwuyjtoOkEGPK2nnbj9iTqoifgKypBRrh3jlQHUfZ4PqMfpqinuViU/8827cmNoyj9oS2KnvMG0QbExC14EEQpxiVkLkuSC3ZC2nO1459V5TbMR1qFGoNDiLYMSLE8Ihpyvk1cOOtQD0wOBe+nqGFEk1ZgI8ckj7vYFNEtu92TgzaBJYNv9s3zns6tBXofcipEhHqKsNIzgy0JOPhrLSQinFZVm+3eRn8qOzaI5NCskEtez3gFVLzmXcLJJtRdVdmuvu9IuKFqGsPExc0dhwpqI2RtFID3hiiowJCeU5Yl41hvPJBePRS4ECZ3Flefg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yYHpRvmHgyd2r+qwGHW4DPX/jne+mtmdMxHFrz6XWZw=;
- b=MPxz3Z62Ye2fqlQVrioM/ClEfSw4+DEx0/xgfDKDOaxnPFMhHNRJsT8zbQi3gGWYNcb9G7RNmOOJZHBLIOoVQENkxpYVv3ZmOBPsLy7m/gAWRdfiusx4FGD2emLeAzGZDQo/m5yUgCuirnlBU2YWElrIU956yrUtysBvE/bQxGBqm+7iJBbXy15PCsetiPnoG0XM9aqRv2N+YV/vuuCPOjp9j3kre0fZmSB3fLMfja8TtqEhpV5qjOYWvp2/bHg3EhsOPBarwOwj0dNNL4yGxcF0Z7E53iidHDyTNvY/4FIRJVuBsTDly3dHK/9uTwwYEhSCFrzto/TxA3a56PioUQ==
-Received: from BL1P223CA0006.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:2c4::11)
- by DM6PR12MB4092.namprd12.prod.outlook.com (2603:10b6:5:214::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Wed, 20 May
- 2026 06:38:59 +0000
-Received: from BN3PEPF0000B36D.namprd21.prod.outlook.com
- (2603:10b6:208:2c4:cafe::3f) by BL1P223CA0006.outlook.office365.com
- (2603:10b6:208:2c4::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Wed, 20
- May 2026 06:38:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN3PEPF0000B36D.mail.protection.outlook.com (10.167.243.164) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.0 via Frontend Transport; Wed, 20 May 2026 06:38:58 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 19 May
- 2026 23:38:38 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 19 May
- 2026 23:38:38 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 19 May 2026 23:38:37 -0700
-Date: Tue, 19 May 2026 23:38:35 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
- Gunthorpe" <jgg@nvidia.com>, "Rafael J . Wysocki" <rafael@kernel.org>, "Len
- Brown" <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>, "Mostafa
- Saleh" <smostafa@google.com>, Lu Baolu <baolu.lu@linux.intel.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, Vikram Sethi <vsethi@nvidia.com>, Shuai Xue
-	<xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH v4 00/24] iommu/arm-smmu-v3: Quarantine device upon ATC
- invalidation timeout
-Message-ID: <ag1W6xFSdWMH65Zc@Asurada-Nvidia>
-References: <cover.1779161849.git.nicolinc@nvidia.com>
- <BN9PR11MB52761E126A213C6CD2CF77D68C012@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Wed, 20 May 2026 06:39:31 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=IMkepDCVc2TLY2VZbej5xOqxbCMgq8RcQd0nxJHbH2o=;
+	b=e/ehfqYcuRj5vCkhJu+aFkoz6KYv3jLv2fDoFIQtEt73SO1JwX3M+SEtxaamrD55m0QphFpbY
+	BgG+OFcQHH6rc2vpas0AFiUfJ8EigVHJwaUxqY4xOr5PKINa9FigAk7HPBeb7n7zpkUMYfX39Z1
+	C+R5q6eVm8GgT1I46IeRW5g=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gL1q33dCrzmV7Z;
+	Wed, 20 May 2026 14:29:35 +0800 (CST)
+Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
+	by mail.maildlp.com (Postfix) with ESMTPS id 04C8940561;
+	Wed, 20 May 2026 14:37:18 +0800 (CST)
+Received: from localhost.huawei.com (10.90.31.46) by
+ kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 20 May 2026 14:37:17 +0800
+From: Qinxin Xia <xiaqinxin@huawei.com>
+To: <robin.murphy@arm.com>, <nicolinc@nvidia.com>, <will@kernel.org>,
+	<jpb@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<xiaqinxin@huawei.com>, <wangzhou1@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
+	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH 2/5] iommu/arm-smmu-v3: Add register display to debugfs
+Date: Wed, 20 May 2026 14:37:08 +0800
+Message-ID: <20260520063714.2440584-2-xiaqinxin@huawei.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <20260328101706.3448655-1-xiaqinxin@huawei.com>
+References: <20260328101706.3448655-1-xiaqinxin@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52761E126A213C6CD2CF77D68C012@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36D:EE_|DM6PR12MB4092:EE_
-X-MS-Office365-Filtering-Correlation-Id: f636b2f9-1e0a-43dd-7471-08deb63a790f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|30052699003|82310400026|22082099003|18002099003|56012099003|13003099007|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: HX7l02A34/zG+Ecv+RDvSKB0k2++6jkwEAThbmcd8yY4HgApiDNLkk+5KWZRJWpKlOM023P0ysaIK4WW/qYrBrzj2fDUXoWEPr+dlzcWJUJtusdxglX/C+Tei14S8qlDfVBZgpTNW8EQVOGejYFCLKZdedqqTIYVhY0HJui3UmucdLq4l1CCB9epmqRnP0IJSwIkWlRkEVF4s4VNyE1+44Hr9LkxjIGO0ZWk6KEMGC0lfV70yH8x78lVl8XSFfTwOsH1QqB9ziTFkeBsRM2pZOVUEv79eg7BV9mVUYHiuR4joRrgw0OUo7HfL05oP1kCW3J3wko/c4/OlmBYSkwQy4a/vTPCKxJ3hI1XJKtMoMx+LfgFx1G4flbpEvgKNm22Z7UdcWGfvaSBMFH3bsR4sdtmFbOKC/TECKDNjwqg9MhZxvffh+lsp4tYOeapHXsQu0+YEZhu4rfeGkVR7D6MzxrWYmu4+8ub3kCCKPiqs6W+TXK7/VfOAVTmi7kYqDVRpgEoHaMV0VI+UTPG89qNUIM7/Ru5U/dxx2iX43+sxJa2f3/tJdvuCXUxxMxOtbavYQEQUfMl+SoRHd66M2fkuuIGwQh792Cygq3tWRTKPgLOLbXbRJXmFwnFqax1x2NOA626xhu848VrZNH/rQ2KfJL9OVkHaGkctR35TVbMsGSy2RVPua+ppVHntRTGrHgoO9U83W88fgSlpUKaEBP0b8QlFqDxtmvshVify5XelkG3R/1ouIcB9qABoMDNCcFG
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(30052699003)(82310400026)(22082099003)(18002099003)(56012099003)(13003099007)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: ZJmd1JsB9PhYnTsvNa+ALOe9taQSZq075qsodcivGwY9FqackR/KibDQ+OaSvCHwbjTGs92oqW/IhliAzBkE4SGORf8t854hNGTzTT5p9ukP47Xcq9TAN/51we4ycJg5FJa29CD4HPqA2R4PbMJKogMfDzNDQXZAEFSzpg1WxZhMT+YA8pQ+cGqf8rwN9xwBWoKWEFfQAuZIcZJCVlprnaVbx8yxnx+MArtpzxrJxsKfhZjzCorzevP595CgvBQFnvjzxqlXr7+6S3CGv/qcR4u1rFLq7Sen2qD3KQD77QyMxt1nw68wRjiGzBBLV0Fo3FiYimKt5R8ejv3hO08cEge4e4Th7nmRecD40/ERs9I1s6LYUUviRyYHFySD9Ge9EoY4BQQzf2fc3ABx3Yc4APpqBxngXOJ+F6RRJ7VeDwNzC/B97rBAcr4tTSe1qF7d
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 06:38:58.6701
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f636b2f9-1e0a-43dd-7471-08deb63a790f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B36D.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4092
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_233911_000833_9F4C4A8D 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260519_233927_310389_2F40C427 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,46 +81,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 03:59:43AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Tuesday, May 19, 2026 11:39 AM
-> >
-> > Changelog
-> > v4:
-> >  * Rebase on Joerg's IOMMU "fixes" branch
-> >  * Rebase on Jason's SMMUv3 cmd_ent series
-> >    https://lore.kernel.org/all/0-v2-47b2bf710ad5+716ac-
-> > smmu_no_cmdq_ent_jgg@nvidia.com/
-> >  * [PCI] Don't suspend IOMMU in probe mode
-> >  * [iommu] kfree_rcu() iommu_group
-> >  * [iommu] Convert gdev->blocked to enum gdev_blocked
-> >  * [iommu] Use disable_work_sync() to fix UAF and ref leak
-> >  * [iommu] Gate done() transitions to preserve BLOCKED_BROKEN
-> >  * [iommu] Decrement recovery_cnt when unplugging a blocked gdev
-> >  * [iommu] Drop racy dev_has_iommu() in iommu_report_device_broken()
-> >  * [iommu] Add gdev->broken_pending to skip worker after racing recovery
-> >  * [smmuv3] Add master->ats_invs scratch
-> >  * [smmuv3] Add arm_smmu_cmdq_batch_issue() wrapper
-> >  * [smmuv3] Force per-flush sync for has_ats batches
-> >  * [smmuv3] Serialize STE.EATS and ats_broken updates
-> >  * [smmuv3] Co-clear pending CMDQ_ERR from cmdq issuer
-> >  * [smmuv3] Add invs and has_ats to arm_smmu_cmdq_batch
-> >  * [smmuv3] Move arm_smmu_invs_for_each_entry to header
-> >  * [smmuv3] Set master->ats_broken after clearing STE.EATS
-> >  * [smmuv3] Issue CFGI_STE via arm_smmu_cmdq_issue_cmd_with_sync()
-> >  * [smmuv3] Keep "smmu" pointer in arm_smmu_inv but add "master" for
-> > ATS
-> 
-> Not check the detail yet, but this v4 more than doubles the number of
-> patches in v3. Are they all necessary to be in one series? any chance to
-> split to ease the review...
+Add register display functionality to debugfs.This allows reading
+and displaying key SMMU register values including control registers
+and queue pointers.
 
-Ah, sorry. Mostly these are dealing with racing and corner cases in
-the async design...
+The registers file shows:
+- CR0, CR1, CR2 control registers
+- Command and Event queue pointers
 
-Jason has suggested to drop quite a few things. So, I will respin a
-v5 that should be much smaller. Let's ignore this v4 for now.
+Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
+---
+ .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 82 +++++++++++++++++++
+ 1 file changed, 82 insertions(+)
 
-Thanks
-Nicolin
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+index 1fc2cd1651b4..a541476b7427 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+@@ -6,12 +6,17 @@
+  * /sys/kernel/debug/iommu/arm_smmu_v3/
+  * └── smmu<ioaddr>/
+  *     ├── capabilities    # SMMU feature capabilities and configuration
++ *     ├── registers       # SMMU Key registers
+  *
+  * The capabilities file provides detailed information about:
+  * - translation stage support (Stage1/Stage2)
+  * - System coherency, ATS, and PRI feature availability
+  * - Stream table size and command/event queue depths
+  *
++ * The registers display provides crucial visibility into:
++ * - CR0, CR1, CR2 control registers
++ * - Command and Event queue pointers
++ *
+  * Copyright (C) 2026 HiSilicon Limited.
+  * Author: Qinxin Xia <xiaqinxin@huawei.com>
+  */
+@@ -95,6 +100,80 @@ static const struct file_operations smmu_debugfs_capabilities_fops = {
+ 	.release = smmu_debugfs_capabilities_release,
+ };
+ 
++/**
++ * smmu_debugfs_registers_show() - Display SMMU register values
++ * @seq: seq_file to write to
++ * @unused: unused parameter
++ *
++ * Errors are reported via seq_puts, the function always returns 0
++ */
++static int smmu_debugfs_registers_show(struct seq_file *seq, void *unused)
++{
++	struct arm_smmu_device *smmu = seq->private;
++	void __iomem *base;
++
++	if (!smmu || !smmu->base) {
++		seq_puts(seq, "SMMU not available\n");
++		return 0;
++	}
++
++	base = smmu->base;
++
++	seq_puts(seq, "SMMUv3 Key Registers:\n");
++
++	/* 32-bit control registers */
++	seq_printf(seq, "CR0: 0x%08x\n", readl_relaxed(base + ARM_SMMU_CR0));
++	seq_printf(seq, "CR1: 0x%08x\n", readl_relaxed(base + ARM_SMMU_CR1));
++	seq_printf(seq, "CR2: 0x%08x\n", readl_relaxed(base + ARM_SMMU_CR2));
++
++	/* 32-bit queue pointer registers */
++	seq_printf(seq, "CMDQ_PROD: 0x%08x\n",
++		   readl_relaxed(base + ARM_SMMU_CMDQ_PROD));
++	seq_printf(seq, "CMDQ_CONS: 0x%08x\n",
++		   readl_relaxed(base + ARM_SMMU_CMDQ_CONS));
++	seq_printf(seq, "EVTQ_PROD: 0x%08x\n",
++		   smmu->page1 ? readl_relaxed(smmu->page1 + ARM_SMMU_EVTQ_PROD) : 0);
++	seq_printf(seq, "EVTQ_CONS: 0x%08x\n",
++		   smmu->page1 ? readl_relaxed(smmu->page1 + ARM_SMMU_EVTQ_CONS) : 0);
++
++	return 0;
++}
++
++static int smmu_debugfs_registers_open(struct inode *inode, struct file *file)
++{
++	struct arm_smmu_device *smmu = inode->i_private;
++	int ret;
++
++	if (!smmu || !get_device(smmu->dev))
++		return -ENODEV;
++
++	ret = single_open(file, smmu_debugfs_registers_show, smmu);
++	if (ret)
++		put_device(smmu->dev);
++
++	return ret;
++}
++
++static int smmu_debugfs_registers_release(struct inode *inode, struct file *file)
++{
++	struct seq_file *seq = file->private_data;
++	struct arm_smmu_device *smmu = seq->private;
++
++	single_release(inode, file);
++	if (smmu)
++		put_device(smmu->dev);
++
++	return 0;
++}
++
++static const struct file_operations smmu_debugfs_registers_fops = {
++	.owner   = THIS_MODULE,
++	.open    = smmu_debugfs_registers_open,
++	.read    = seq_read,
++	.llseek  = seq_lseek,
++	.release = smmu_debugfs_registers_release,
++};
++
+ /**
+  * arm_smmu_debugfs_setup() - Initialize debugfs for SMMU device
+  * @smmu: SMMU device to setup debugfs for
+@@ -142,6 +221,9 @@ int arm_smmu_debugfs_setup(struct arm_smmu_device *smmu, const char *name)
+ 	debugfs_create_file("capabilities", 0444, smmu_dir, smmu,
+ 			    &smmu_debugfs_capabilities_fops);
+ 
++	debugfs_create_file("registers", 0444, smmu_dir, smmu,
++			    &smmu_debugfs_registers_fops);
++
+ 	dev_dbg(smmu->dev, "debugfs initialized for %s\n", name);
+ 	return 0;
+ }
+-- 
+2.33.0
+
 
