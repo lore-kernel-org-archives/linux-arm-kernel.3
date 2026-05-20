@@ -4,119 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF9FCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 14:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EE1CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 14:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+wF22bF5EmTZVPtYuYx3YYi/+1MmDMRoeQxqbotBDA=; b=Q78zzlL8jcNBzpr8smCQbx1H/3
-	THg0WD2t3RYhFfJ2ae634FPty8V5zpq3SjkKnVwEmU++uKUYVr9f1fi/TiOZTHAUldvE7pLYPMuI9
-	yiDsVAnXtL19N7MHSOTF96aZeSoBPCNyJ3YrkIqQ/VVgZBLGv0SeW/ywO9VLmIloVBHbL9ltANG3Y
-	Y/sFyxhyWoVjUkmwAkcQ0acvItQgepE7JTrFYFD/rMReAFnY7WeJIg18tUn3KGyMXqbjxnxw+Jatg
-	cchvpbO8lEs3TvC4ARvcDPemEa3z0hfieO3AcjjoDcUdMnlUtxOcZMCQJv3kvKoLEUYMDZ76EoNvU
-	Pv0UutMA==;
+	bh=nqnho9d3n0Mc3dfYHNxqYOQNtijksR/m5fgVFiA60Tc=; b=RuGqHGuOOP8GVEgwg8p0inNZn8
+	GDkbAbBXgOgqdhtnNi1WTlhDC+xa86ocr38kvXsbtzdtzxwBvek0cuw0ppJ2dJwvmLihOQWQLUKZi
+	LY2BF0/kgdAg96z4KjfdfguDh1bbh0QHEAkpuGrlhVgW+WcC40/UKkfmp5cRCW+e1gJRVhJ4TLQsl
+	adZw8ohztL7EqvDE4WJSCmD71aWYDmaL5c12g9ngb69mVjZQD1VmWqA66YFgdzwhOE0StxVjSF5eH
+	r+M0ImDzpVGO0cw9fgyJEGgXggsSb1jks5ROXilG76aH2uH5btA/g++gU/txgqp62LuiGyQ3l9HP/
+	MaxUu88g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPhxY-00000004pWh-39HW;
-	Wed, 20 May 2026 14:31:44 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wPhzT-00000004pw9-0SBP;
+	Wed, 20 May 2026 14:33:43 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPhxW-00000004pVx-3DSg
+	id 1wPhzP-00000004pu4-1j6F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 14:31:43 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-449de065cb3so4579325f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 07:31:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779287500; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NVp7kJgAZ3OJ0xW0wInJLceZfbekoCbYPAmxeTg3HLWGyUtSWjP6PZDW7zx777L9EM
-         +x9ER9/IdBiBw7KhVAYesf9s8M3k49lYVEQjT/ooQV3cONN8dmWu4EaiSqo+/wjzKemv
-         2FG0h+uHQvG+vUWtmN40sdNKPisoScQsghy195odVFfGR1DvZp6xu8gb4zMJWRsEyk7o
-         R49crsJLIMTTDKKlDhn+zPkHDcj5NEMG9ljVxuMZ5g+bMKWGw+dcwkrrblDkA86Ilpft
-         a0ywViKLV0Ow3WusS3ztIf2EUpNErwnpcgXKdpJoqGpHDmZ9IoEqDZpWeZrANeQeXL7G
-         GbQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=l+wF22bF5EmTZVPtYuYx3YYi/+1MmDMRoeQxqbotBDA=;
-        fh=GZ58q7r6aN2i2o13BYeCH8w/y7a0Nvkom+5YhbJotkI=;
-        b=R5n6xacrDUwMfcR0mBe5M/mshcgkRqNA8bvfsRAPma5tTkqLIF6JTp1+1w+DVPQfVY
-         X68DLozvtmbopdmfVcRWPS1ORxRkIVUJsEXuwB8OAPs0jREzVgabAm6JqnL6+NrsxAh1
-         qDitbJzfxFW4We3UPUwWTDw86Ov3q0nB5IWp/CLSdQWH5/hnlOIib7y4HyyJ8wXJ1sy7
-         54wFBMBzJhOvy7WAdXdoDHThoxayWMdEt6kV2t0+to8pumTffpa3vqMGgZ+lQ0/Q8Bjs
-         ll76AMeVjPyhe6WpS4W29vZ+qezAPzylmqYM+1xMcrpoCmGiyhCGyrCWx5MGdOSePbpm
-         l4iw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779287500; x=1779892300; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=l+wF22bF5EmTZVPtYuYx3YYi/+1MmDMRoeQxqbotBDA=;
-        b=XppHlFUGlJWkBmpsBYrxLLC2tstOPbkX4mkAPZlIOYwguDPRg6TjMw0qJA7Ohz8y0M
-         ZhtL0HKjtlPGygpjVayzkQ7A0NQpVku3P/K3mYYhZW1GQQnQxBZC8ixNi7J4FHCmHoQ1
-         qMKT2hXX+OBXR1DfCqzkqbv7txAkYz9OAvKrdn3naFCt2RIAgvhobI8WJblCMXIJvwrf
-         ZfoPlWq6HdFd1N6bnhIZKtPrYF1AEaNIvF2kl7gXdKpi8SJT202p64uG1g+WCVPWsuqC
-         l0Yj8iiKISLEvfFuZ8KUVpKm+UHojwSD2j55ROHEw/gsnFoLwqRRVtfeyNjqkvCdNJci
-         GVwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779287500; x=1779892300;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=l+wF22bF5EmTZVPtYuYx3YYi/+1MmDMRoeQxqbotBDA=;
-        b=NTO6vMsYkpJTSMuicomTVbvfdeNKWzhJ19nhx1fMxrCMOS98RKaolSz6wnG1qZAse6
-         IbdkR7zD/FcY9LH6L+PZVU7VO8udZmTLjeSCu0Jv/SQ5f+QlMRGs/IT0VYhwmMzBHGGu
-         J2bT+KMHtdEXiRbnnTlNItiYGrByHl3gpY6pQ5wusJ355rIt1YEYJenyxtXHor/922qx
-         5Z8KkNIrKi+2kAQ7XEoULvzyYMr0tgmE5D1JYxF3+V1/lXwxo9Nk4ijy74eiMbnb65gx
-         sP0XtaOh4xKQ3MOQOBFgyQcMrq7KtlRcvBnW3HniGk/FZBmmJ2tcOhBykS/7wMe99ReU
-         qvYg==
-X-Forwarded-Encrypted: i=1; AFNElJ/fhckN3mdFORdmZxRkOO0y2qneQWSldsdQa5J7UYA1zB25Js2lHNdtzpxAMXwiusvX+mamC56Bdh+UJs2z4SP2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3eaIrLFfHfueU5/vAIfSWhkwnqCiLjBZ8kvVCRFIFn9d5J+rM
-	RBPOn3Iv4Kq3Nidn6n7lrNvJNNU7HrEhyVjEQjSTdPhlj1nTOMHW0E3VUPf0Q1X+NU37SXztqFZ
-	/aT/XsjvCA78B92yEtIWZOaEBqJweVgwYviq9rU0=
-X-Gm-Gg: Acq92OE8pFb3wuK5tJGuJpaJzoKRlV1mcoVfBoUCzyt+cegmBnf2GwPuws2hRJsT8LI
-	ldi0qEHEjMD0LAImgORJrcnS5VH1lArrPg9UtnXkMM5dvVSfcJhtuJ08JPlSVBoGJxv//0jhDfE
-	Kn7Ooo3LFW0smsgXc39Sv+IvgL2OGOM8PxpnNE8x2bOZ/A5IZ/1vSYOHTHvt+OQuJnokkKzwqqh
-	YREJfBZLR1DNGsv2J8fCK2Ob7HvKNwcf5DZYVmnPeu2zyPPPp9yhcb2cEJAiRr4d+WQuTRv5Ook
-	3ZVL7Zj1ycTnfFzSLPW6ros8gdWiYyKFjkWnZS1y6DO0b5hDXAKkQAS5s2OkvK6frqcZyG550Pp
-	+FSw=
-X-Received: by 2002:a05:6000:2489:b0:441:36b7:725f with SMTP id
- ffacd0b85a97d-45e5c57d4c7mr39111981f8f.5.1779287500133; Wed, 20 May 2026
- 07:31:40 -0700 (PDT)
+	Wed, 20 May 2026 14:33:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RleDAGmdC3mwByWL96dKKuw91CNnsAJY53RVyKXIh0AAm+Ni7Sj5x54eDx+aAYUVYvSRNyYrY2xemcVL76v5HqgQvVyasS9153lZTBi9jgesagCPeQ4pies0nZ7t/i4gd5Dl8K6uu5hkn2pCvSG93s7v8AGzE3mCHE2XmLHirwAaEzFDmgoFLzIA/XfZnbz79tQElWRVisRXa/z1X7YJmNvRDXfbhb+b62nwpnCg0wUsPJ+dCEop5u60ThpEwCn1zJAySFKcdQOx8XlN7uH/w5D53ub6g0YOmCRkRWvX6j9UDy3FR/1QYGRKLoYcRKtwLR+uwjYleSan4bZWKoLMvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nqnho9d3n0Mc3dfYHNxqYOQNtijksR/m5fgVFiA60Tc=;
+ b=iGptMGkPJ5rLj9PtiilmSmNycnxp3sDvmOgfXYnmSxntsj7pBfCweJ+0N3mW3rO4pA/nEZgJi76f7rUvKwP8oLM72yeJNgtRs3rXimnwlbYpDyi9ko+XwWu0gwnH/FGWrUKxVQMrBflqhPHQNcyOSErykZkbGy+RtsKQuaXNEXEXjjjvtUc+V7sd+FzjpjS4EXFw1BnayHl23pz8bfeWrhHy8x1Xx16NYJiUUNUOaWqhz2lHuSv8USavOBz1qMTZylh235AuXLVrda3npnxUrU4u0x2h479HzmQyPhugHqCFRmHDIvqDIFwzlR8X9d22gMPWM4Zi27iXymPCPtaORA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nqnho9d3n0Mc3dfYHNxqYOQNtijksR/m5fgVFiA60Tc=;
+ b=aDCa/o0PWaXXfrpZo9mq5a3RkTcIAcpjPdpB/ySyqIN1ZI1H/cOs/PXSzvh1hPuS470pR4K5UHkuiutXf0itH/ryTeLVcwT/g8LMqYTBzmjgDQIfaPInuHBuH3OEVnf0HbAuiXednUVlZpkXN+ddoAGRVQ/rDRn1ou7Xi3we+evfGTTD3agG2WFGl3O0meYV2EmcrQpsVHAXWn/3r9FpYZzR8wdsQgpqhcqAz4VyYeoPT6Ra4oFfqk1ERkFIKauP84NxFqVvEL6J/iXheHNAG/j+V6wiJCnN5GTqxP3KaKEv3dCL/JlMa6/ixczpT5Yb8ZAJwputECMmeULD2wyGRQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by VI0PR04MB10566.eurprd04.prod.outlook.com (2603:10a6:800:268::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 14:33:29 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 14:33:29 +0000
+Date: Wed, 20 May 2026 10:33:21 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
+	Chancel Liu <chancel.liu@nxp.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"mturquette@baylibre.com" <mturquette@baylibre.com>,
+	"sboyd@kernel.org" <sboyd@kernel.org>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
+Message-ID: <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
+References: <20260509024846.2094049-1-chancel.liu@nxp.com>
+ <20260509024846.2094049-3-chancel.liu@nxp.com>
+ <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
+ <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
+ <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <20260519-macho-degu-from-nibiru-960af2@quoll>
+ <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
+X-ClientProxiedBy: SN7PR04CA0080.namprd04.prod.outlook.com
+ (2603:10b6:806:121::25) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-References: <20260517211232.1670594-1-tj@kernel.org> <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org> <agtuPrgIDNKSu2Oo@slm.duckdns.org>
- <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org> <297658c4ae2d6e7103f5968efc936224@kernel.org>
- <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org> <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
- <agyZxmHoueGwBAQg@slm.duckdns.org> <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
- <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
-In-Reply-To: <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Wed, 20 May 2026 07:31:28 -0700
-X-Gm-Features: AVHnY4Jfl2x_h-7nV11QrGsQRKElNx9baYm9fCq6a9rlTD86qFRr9_qH0Fp83GM
-Message-ID: <CAADnVQ+j4o0Xy+cykSdx9txSqCouy0yHFaA09qTJp3OVF3VaRA@mail.gmail.com>
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot installs
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
-	Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Mike Rapoport <rppt@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev, 
-	bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
-	LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|VI0PR04MB10566:EE_
+X-MS-Office365-Filtering-Correlation-Id: 97c4ab84-623f-4fc2-174b-08deb67cc2aa
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|366016|1800799024|6133799002|38350700014|56012099003|18002099003|22082099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: UI9e2Xjq1BPWD7sRK6JeXfXgox2r2N3fJykhw1mcre3Hfwr2KzXJ5EFrm0vSZChFAU7kuEro1zOZYqSu/adfVWuIzh1jKKVAjqYoj8FRYqdrpAdlsDFfSfhEOux3+DkrfGXx8wH1qn3P2uSp4Drf2xZdsvm9V8NHx70xZabKxRnU8F7AM0gLp+xf5u5F3m6W+4Un5mpumfazmgTLL00MlDmA0BTqdad2J02wt3yOyT+5kmv5HbDtQW2wz9h+sV14eWjJfXAFl496FfiiNv6kdGdMh52x4MZ/elOneIs+ZZhQVYVZ1F9xj14TNRDlyM9fa60E1GanJIoGV1a1qW1qTtyxDMZTWo9nCslSJABhwgNsAtTp22ioOkV0yIntF+ME1nSg3nuzypSDJ9OR0u7NHes9xTM6F9IDzxoBSC+KMe4DxqiB6/CILKvWOi4I9YqyB8mztTq5ihy1TwI++rAjq6T2rmIHztZOyP7+x+JZrhwixLLVWPnP1le4aD5KBGhyXlIplgOcCnHoamzZDl4jcrsjNyZpbxMXHSAnF7pGuQphNEkDsGQ7/DgbYJNsoZgfkPejcfXQniKM7XJp0vMqCknmtxqnFZP02DJCYtz8Z4NbvkVLSuEnlsRjNmZGQZPim8tZPdsujAZKiUSiXJmWXtixEdJosXt5AK+wUHDHQ/urApIMTGcvfhEs6WtfeVjv881y0T4o3ZdwFlu9H1QhGNWhIQ5oQvsX33apfmmg2LXXyhdOQMw8UZKqJl5uhnj0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(366016)(1800799024)(6133799002)(38350700014)(56012099003)(18002099003)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?U0tBY2txNWlsVllBSjRNVThoTHJXQk9pdHBaN0VqVktmT0N1aERLSWJtc1R5?=
+ =?utf-8?B?RUsxTmQ4SXk4Yk9RZURVVTJaYmFQKzFBZkhyWnprY012RkM5Qk9BeU1ISUlP?=
+ =?utf-8?B?UlFzQVJtTmJZRXdXaml5RW5USkxIbWVuUzhaZlBxNTBvM3F6bUlvWGpFbDU3?=
+ =?utf-8?B?MTlLd3A4YUFhUzhEL0RHS1I0eXZGR2p0bzFmQ2ZMeUhOQmticHRnd3FZZnZ0?=
+ =?utf-8?B?RC9qZ1gyeVhiMW9XTUg0UHVUSEJKdHpVUS9pOGF5Um9FYVZ0OHVNbndmMGxJ?=
+ =?utf-8?B?SXo1bUNCZ2lWSEJFVVlMakNEanZkWGp4RVZmdmwvVlh2STVUTmF3UFY0Tlpi?=
+ =?utf-8?B?MkRoS0lQMlRRZnR3YmFMdGZ5VERDTmNEYnppa2dzOHlTWitHbHQyZ0FIcys5?=
+ =?utf-8?B?YnN1MGlHWDNUdTRvRDl2UGZPYXl0S3NHVmRiZ1cvKzBBR2tUaVZsTmJvbHdI?=
+ =?utf-8?B?bElzMjY2eHFXcGRvK3ZybUM2dDRVRzVHOU80QW1DTytKZUZCUGRua0dWaE1s?=
+ =?utf-8?B?YUFSM3dMR3NsT2ROMGtTSjlqa2owZHh4eUdOS2xOR1ZNOXpXRXFjT3Y4SE5h?=
+ =?utf-8?B?WDZtTzdpS0pOUCtTcVk4ajhDbWkvYVNVTmF0MSsvTkdXdlNBM2cyUkZ5ZDIz?=
+ =?utf-8?B?ajc0dVc1eW1rRUtXcGZGQWZGdXRNRjNlb2VpeTlFWkpmbmNVdXhQNWlJWWh2?=
+ =?utf-8?B?Q01Gd0YxOWVyb3dlaTdkV1FCN2RHMTJ0SlIrYkMyWlhtMXFuNjYzZlZEc3kw?=
+ =?utf-8?B?RFZTN1JIa1JERTd5c2pmYkd1UTZnbXovYUdCZ2FOVnlscnQ0M0doWHBVWGlj?=
+ =?utf-8?B?bEFUcFJZOFZqZGRvOW8wQW5STzNMbGM5ZGRFUzFEb1c3UG5zeWxRaFFhalF1?=
+ =?utf-8?B?azBUUFhBK1hOdjQ1OUd5RjJuTFE4OHdTdVBjSDN1bGsrR3VDd3RpVWFDTGxk?=
+ =?utf-8?B?d0pnVy9zd3hQTlR2S0o2TlplUjlxK3pyR2pPSEI1TzI0TVpXaFRnczZXS3NI?=
+ =?utf-8?B?YU1Wb0dEZXFlVEJrRWNuZngxTnF2UURvcVBvWTNNUitJL285cGhoTEFSeU1l?=
+ =?utf-8?B?YmdLdGphNHNBZTc5WjRRZ2hyTXhYM0Y5U0JUMmVJODBOcnNVcFlycVYySW96?=
+ =?utf-8?B?OTNwWlJBZUtBQlZLLzgydlJzZEI3VHQyeTdnaDI3bGo2eGtWeGVpMUxBRDls?=
+ =?utf-8?B?Zm1GamVlTm5Ma0s5YTJiWGNyVm51ZFlpbWcrK1RXekVuSGk0Wk1Rc1puSkZv?=
+ =?utf-8?B?YkNlSUVvMC9md2Z5MEpZVEdwTE1DdVVrMVJ4RFI1UGFUc0pHWDRkS0ViU0Ri?=
+ =?utf-8?B?a1gzOFpTY2JObzFXMzc2TDFIZVdRVHBueEZQWXhaVUZ2NTBMMGlwdEhsTDY1?=
+ =?utf-8?B?NEQvWGZuUXAvUU1TaVpsV2pvVDI2enF4K3hhbE5mNEV1R0lJeVRqdURhUFI1?=
+ =?utf-8?B?RkhaUjlnYTVtQWFxVVU4U0diUCsyYldqdzVzQXNBYWxjalFUTW5PVEdhelBq?=
+ =?utf-8?B?Y1pPOEQycHpkbS85LzVpVk5BSlp4djNmK2YzRGUxM0lkNnl2S3V6Y3ZIOVgv?=
+ =?utf-8?B?N3U1by91RkhjdkVsS2VTRU5rWnp4N2NVT3puUGF3ckJieFN3Nm0weVRPL0J6?=
+ =?utf-8?B?cFNmamVIS0lBb29RWTVFblFmMTA2M0MxWmN2enlaRFpQZ3FtNDdxM1grSy9N?=
+ =?utf-8?B?Wi9nenIzcnNlaUVwbGd2OThpdnFZY1VoMnFsNGdiU3VSd0R4YnE0dGpCRDNz?=
+ =?utf-8?B?RmJkejYzTTczMFJKYmxsMDBtRUo0d2ZJQTVLRHVHczlQQWxnSjhYU2czazFz?=
+ =?utf-8?B?YkpnYWtsaEs5THRQSFhrUGZvd3RWbGFsSy9QRzJLVW02dEtoaWU5U0tHcDVo?=
+ =?utf-8?B?R2lON01Ib2VnbU5Ib2lTdC9taDh2cVZYSFdhTzRrQVJmUktWbG1vTnBPQS9N?=
+ =?utf-8?B?WUNzM3lIcFAwL1V4d3hYVy81K1ZpOVVzSkRrVXBWU2luVkVuUG9NYjhZNlpL?=
+ =?utf-8?B?WlpKYmFFOThBcWVGRG51ekNxR0d3SUNMendnb1FGYytrQ3pBcUFmUHIvamVu?=
+ =?utf-8?B?MVJIUFRseS9EZ0FLa3Z5bFFQcUx3aFZ1ejdkeHMrYjBJeVU0WGpzS0FaUVE5?=
+ =?utf-8?B?RkxEME1tUHlTNkRKZ1JMYzR0bHg0REpuTEYyaXdCTFNmUXF1T1ArRU8zVm11?=
+ =?utf-8?B?UU9PdmFIVENPQ2ZvZWQ4U0drREZXRGQ3d1VZVkJsZEswdUpBWGtRNEFaZk4v?=
+ =?utf-8?B?WHBBVUhWQTR0aGkzRmg2SDVZTDRzVUEwTlp3T09BUXBTVFpmMk9yNmFpOUFZ?=
+ =?utf-8?Q?L2h8mVm52C6DxUCwJs?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 97c4ab84-623f-4fc2-174b-08deb67cc2aa
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 14:33:29.3004
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DgAfGpfGi8w/WN1MyBYAggWsyACe9gDWMat36f31bqe+OZlZDytgQ0U82FKjKkDi8vYtVUOO3bbDsbdS63foEg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10566
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_073142_830495_E0A72C22 
-X-CRM114-Status: GOOD (  28.93  )
+X-CRM114-CacheID: sfid-20260520_073340_031891_AE08F35C 
+X-CRM114-Status: GOOD (  32.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,83 +165,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 10:41=E2=80=AFAM David Hildenbrand (Arm)
-<david@kernel.org> wrote:
->
-> On 5/19/26 21:04, Alexei Starovoitov wrote:
-> > On Tue, May 19, 2026 at 10:11=E2=80=AFAM Tejun Heo <tj@kernel.org> wrot=
-e:
-> >>
-> >> On Tue, May 19, 2026 at 11:40:48AM +0200, David Hildenbrand (Arm) wrot=
-e:
-> >> ...
-> >>
-> >> Wouldn't it still be either or with both cases being okay?
-> >>
+On Wed, May 20, 2026 at 09:08:42AM +0200, Krzysztof Kozlowski wrote:
+> On 20/05/2026 07:02, Chancel Liu (OSS) wrote:
+> >>>>>>> +description:
+> >>>>>>> +  The NXP I/O connector represents a physically present I/O
+> >>>>>>> +connector on the
+> >>>>>>> +  base board. It acts as a nexus that exposes a constrained set
+> >> of
+> >>>>>>> +I/O
+> >>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
+> >>>>>>> +fixed
+> >>>>>>> +  electrical wiring. All actual hardware providers reside on the
+> >> base
+> >>>> board.
+> >>>>>>> +  The connector node only defines index-based mappings to those
+> >>>>>> providers.
+> >>>>>>> +
+> >>>>>>> +properties:
+> >>>>>>> +  compatible:
+> >>>>>>> +    const: fsl,io-connector
+> >>>>>>
+> >>>>>> Everything is IO. Everything is connector, so your compatible does
+> >>>>>> not match requirements from writing bindings.
+> >>>>>>
+> >>>>>
+> >>>>> Yes, this compatible is too generic. I will rename the compatible to
+> >>>>> fsl,aud-io-connector.
+> >>>>
+> >>>> aud is not much better. Which boards have it? What's the pinout?
+> >> What's
+> >>>> standard? Is it described anywhere? If so, provide reference to
+> >> spec/docs.
+> >>>>
 > >>>
-> >>> ... or can we run into similar problems with kprobes? (I am obviously=
- no bpf
-> >>> expert ...)
+> >>> This is not an industry standard electrical interface. This connector
 > >>
-> >> Yeah, I mean, that was just the first TP I found scanning the code. An=
-y
-> >> kprobes or other TPs in the path would behave the same.
+> >> Then if you do not have standard, then you have board specific layouts
+> >> thus you need board-specific compatibles. You can use fallbacks. Generic
+> >> fallback could work, but both io-connector and aud-io-connector are just
+> >> too generic. Every connector is "connector" and "io", thus absolutely
+> >> anything can be "io-connector". "aud" improves it only a bit, thus
+> >> honestly I would go with board specific fallback as well.
 > >>
-> >> When this fault triggers, the BPF program has already malfunctioned, s=
-o it's
-> >> not going to be a high frequency path and performance isn't a primary
-> >> consideration. So, anything that can ensure that the kernel doesn't cr=
-ash or
-> >> lock up would be fine. Any better ideas?
 > >
-> > As you guys already figured out the trylock is not an option.
+> > How about board specific + common fallback compatible like this:
+> >   compatible:
+> >     items:
+> >       - enum:
+> >           - fsl,imx95-19x19-evk-aud-io-connector
+> >           - fsl,imx952-evk-aud-io-connector
+> >       - const: fsl,imx-aud-io-connector
+> > Since the daughter board is named “IMX-AUD-IO” in publicly available
 >
-> And that should be carefully documented.
+> I don't think it is named like that.
+>
+> git grep -i imx-aud-io
+>
+> > documentation, common compatible clearly indicates that this connector
+> > is intended for that.
+> >
+> > Also, I want to talk about the topic of generic connector. It's a common
+> > design that daughter board is connected to base board through a
+> > connector. This connector more often acts as a nexus that exposes a
+> > constrained subset of GPIO, clock, PWM and interrupt resources to the
+> > daughter board. Can we document this kind of connector as a generic
+> > binding?
+>
+> So this binding is the connector between carrier and some addon? Then
+> you don't get a compatible for that at all, because it is not necessary,
+> not useful and NEVER used. Do you see socket LGA "connector" bindings? No.
 
-+1
+Not exactly. Any connector connects a carrier board with an add-on board.
+The key point here is that this connector type is reused across different
+boards, even though it is not an industry-standard connector. Both the
+signal definitions and the mechanical layout are defined.
+
+The same add-on boards can therefore be reused across different base boards
+that use this type of connector.
+
+There are also GPIO mappings involved. For example, pin 1 on the connector
+may represent reset-gpios, but it could be connected to GPIO0 on board A
+and GPIO1 on board B.
+
+Without a connector definition layer, this would create an N × M
+combination problem. The Nexus node discussion already covered this topic:
+https://osseu2025.sched.com/event/25Vrw
+
+An LGA socket is a CPU socket, where the signals are completely transparent
+to software, so it is not a good comparison. A PCIe M.2 Key-M/E connector
+would be a more appropriate comparison.
+
+Frank
 
 >
-> At least in apply_range_clear_cb() one could similarly switch to
-> ptep_try_install() to at least have both these paths handle races in a
-> reasonable way. (having to handle when ptep_try_install() is not really i=
-mplemented)
-
-You mean to use ptep_get_and_clear() ?
-Makes sense to me.
-
-Also noticed bogus defensive check there that should be removed:
-+ if (unlikely(!d))
-+   return 0;
-
-
-> Anyhow, the documentation of ptep_try_install() must clearly spell out th=
-at this
-> must be used very carefully, and only in special kernel page tables, neve=
-r user
-> page tables. There are likely other scenarios we should document (caller =
-must
-> prevent concurrent page table teardown somehow, and must be prepared to h=
-andle
-> races if other code is not using atomics).
 >
-> To highlight that, we should likely consider adding a "kernel" in the nam=
-e, like
-> "ptep_try_install_kernel()".
->
-> I am also not sure if "install" is the right terminology and whether it s=
-hould
-> instead be "ptep_try_set()". (set_pte_at is the non-atomic interface righ=
-t now)
-
-I suggested using the ptep_try_set() name too :)
-
-> Further note that last time I talked to Linus about arch helpers, he pref=
-erred
->
-> #define ptep_try_install ptep_try_install
->
-> over __HAVE_ARCH_PTEP_TRY_INSTALL
-
-ok.
-I guess __HAVE_ARCH_PTEP_GET_AND_CLEAR is legacy ?
+> Best regards,
+> Krzysztof
 
