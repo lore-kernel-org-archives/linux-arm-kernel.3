@@ -4,140 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05481CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45694CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lfd+t/VDfW0CTViOEI8E6HH1Ron2HFKCeV05pH+LYvA=; b=VoePvlr+2jsM0yFjK8d4l9IJv9
-	15KjpC69RpLOvrlzyQPMMP8E9rGi6JJuWzYQuZ8mZmik5mB0oEZIWC142WiVJUvFtKlO38yN7RNX+
-	iiI3FZCu+FJn8wfqMc5Mx2+bX5jx3E/KSwkv4MiewhAS/RDwoQ7KMwbn/fFhyvWrgHpN2x61rtMu2
-	BNIwsE/pPDl+eu8XqEnGCuJ82JUUEEfmFSd/IV6D33YXYOwOzUiGBe+wkeg76YNywKypajynA2+W2
-	Xl0X9Hugna90M10bBNQfcEOktYtv4Hft07G208qyI4oQpYeW6zJPVxqrQkajnRFJd2OW/WAoC1Bbc
-	+A4OSQ1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dUGv8oIgE91WwfwK6ezX3xvVxWVU55LwkhTCXk2cXTo=; b=3I54nkwl4+l4AJFIKEU9kACDUB
+	V558k3EORAUAJjvToRfSw6Q6wAL49j0/xEZPobs/Z7YcaES39yBp3haVVBc4awQ3NleLunwX5vtEy
+	xm6gJcIUKq5f5HQ6QejrvA/W9VqtyFQidbukqzgdsnKTrQsO5/0NH/9DlaAxHox6DAIOQBPkpFHuU
+	YgPBd+Plmsb4NGrvrKvgm/lfYARL6a8UXsRVM3sVMKQ1q7j20sCFhytJoYEO/XTlikdQ3uP6bLAy7
+	oei7FJod0f7m/bnnIQjY5iao1xo3Flf5NoUGQtETPSJNuR0l3Yc7kjXi9t/wAv/BOmXMNiDs9ZcaW
+	fRwZ6Bsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcbK-000000040zB-2ONI;
-	Wed, 20 May 2026 08:48:26 +0000
-Received: from mail-westeuropeazon11011024.outbound.protection.outlook.com ([52.101.70.24] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wPcdk-000000041Yx-03QS;
+	Wed, 20 May 2026 08:50:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcbG-000000040uq-1ERS
+	id 1wPcdi-000000041YH-2CIi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 08:48:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RiFV2Zg5/YDVNiDMBn2VIwQviFYS2U3dOs4iWxN5GumWT6KXBwwdBqSC8JKLQAamqlsk3OSW547yuQPSgrEMfNW7bwZPzPUlDEoVLSSj6RSF48xzOZs0NHuKM0a/kLIk75mXtQrVPdQX+cAmX8nLK2SJLjt3DtdqnXbjKLNyW7v1tlajrYRAZn9BX6ZhOSRPPKMzsx5nQKTcIuUe1gbqU41eGeNrXP6yA1Y8RlMB6/RCDdgWaIGei8X6eFp6RBkLPTk9+nkA5Eq1KT4pcmQNseztLSqVrUBuHLUVGzpEvHoZES608MzmNpvyQBVoNmDyBFM4F2JI1tPu75FvrseeoQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Lfd+t/VDfW0CTViOEI8E6HH1Ron2HFKCeV05pH+LYvA=;
- b=g55hIR3ZRheHckVwVdraBQYEghjeehlZt8pEkQcy9T8L87mr4M7td6RyUGgTSGmFxQD9VOFaJJjsmekeNsWEODK1uan9DyzV+PVSRPt6BGkXsgvr72xctjW3HpzF+oFIYBDMRfkQPkUqPVE0DsSNasTM7TjGas8jBUCLzgbRFnocvG4qgBZlwOvW7iObtTEBPqS6Y1gAmb+c24e5w4+W+QRm66RhY7I619nYiO0FQb8xXqohvu5S30m4PvRnItzXPwblBqi92e0DOZacfFXl5Oe9dgMT/vKYjmLA0Esxc9exzrFPAS3k/coF3w/Mn1qwjGLpZCsIkksGn0c3//CH1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Lfd+t/VDfW0CTViOEI8E6HH1Ron2HFKCeV05pH+LYvA=;
- b=BFmbhUYjCo447FPSeSLojgaN5gthSZpJynn41ESj6az13iJBRjIsNo0e61fenaZnIk8srTqUHsn16qa5meYBURave7fcWzK8NiwxOSReQrDehNFC00Bk79dwBW6OUWkvulX2ytxZm+YjGaElCgXpYNumhINLz6S5anhfIj8++qFddIiMIVUMkBam0HphcntEYhtyG65+/TOYKwzGmHW0SlojOBAzDvOisZp0gBLWexwjtl4iog4M1eQHHnXvpRv2t+1MIehAEuQS465QcQJExDW+g8YDI1vfLqopxbYtBx5ScKhBX2n5Tu06ZvskOE+K7gM5iakGBOaIf4alU4gOuQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
- by BESPR04MB12564.eurprd04.prod.outlook.com (2603:10a6:b10:101::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
- 2026 08:48:19 +0000
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be%2]) with mapi id 15.21.0048.013; Wed, 20 May 2026
- 08:48:19 +0000
-From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
+	Wed, 20 May 2026 08:50:54 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 917FE600CB;
+	Wed, 20 May 2026 08:50:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4526C1F00893;
+	Wed, 20 May 2026 08:50:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779267053;
+	bh=dUGv8oIgE91WwfwK6ezX3xvVxWVU55LwkhTCXk2cXTo=;
+	h=From:To:Cc:Subject:Date;
+	b=lyr7vTrzuEUPWYUQ1jyu+OJJxxIVAGUJcGTeWIUwu3vddGICaHXpzg9T3BiSnU50T
+	 MtXziZRZWx/SPAc9D9F42VyHthyOkdUPnbEdaao+2R3OBi2iP0tcTcAfs3bQ474Ikn
+	 Viy48D6BATML9M42plqZn1GdvEKAYSKYYDMTGY/XyjiuSP+Y6WSGo5DHzyib7g6g7x
+	 c0QMunuEebH8hZTdwnD5tnJPbFe6oIIQxlHCyDFDvyjhMQaIc5v1PmKra8jdDcQk+u
+	 UOPjDQQoapoIBC+yVngONgJO7ebB/H3UxH9nivfUvZ9toMLdAEbTyqSlfKXdRRxzd6
+	 L23gHqJDnDclA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPcdf-00000004Hno-0fBo;
+	Wed, 20 May 2026 08:50:51 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sherry.sun@nxp.com
-Subject: [PATCH V3 8/8] arm64: dts: imx95: Move power supply properties to Root Port node
-Date: Wed, 20 May 2026 16:49:04 +0800
-Message-Id: <20260520084904.2424253-9-sherry.sun@oss.nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
-References: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR06CA0001.apcprd06.prod.outlook.com
- (2603:1096:4:186::21) To VI2PR04MB11276.eurprd04.prod.outlook.com
- (2603:10a6:800:296::7)
+	kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v2 0/2] KVM: arm64: nv: Reduce FP/SVE overhead on exception/exception return
+Date: Wed, 20 May 2026 09:50:34 +0100
+Message-ID: <20260520085036.541666-1-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|BESPR04MB12564:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5b0cfb23-a472-4f9d-8ed5-08deb64c8a6e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|22082099003|18002099003|56012099003|921020|11063799006;
-X-Microsoft-Antispam-Message-Info: 3XUHzfVHgFfNW2Vrkdida8KbHnYkC9d/Ts6SH8wSnOQc2KU3p108Ok8etP38hGawEkxAkHWzM7xIbkFc8q+H8amTiAchsSHL5Y39Nnon8C6I++i8DeG2amtH7rGlPOjK9UsnOFRttoLRXkFk1uLZllPVgmpKHlWW++YSiUXIgqN9qvA/G4foiZ4XsEmrpHbPiKSC8yiXegeroPxyDzfiUzSunqnQ2Gh2tJcwoPMXN086Z9g5H7YRb39jIz2UU0QMEy1UDEnD97NUUedRx8HXGlPGKuEQ0VZ/hXeUnDlzB3QkRbu4+B7YbrHg+jSpNb/x3/aChWr/JpXaoDT93FRLTXQT36FN/EKMMVP7jB/PtB60SfBNi7iwhFkIavFPhT25ZBr3LNDrmG6mRroNjFCb0QU7wOVJgFAUGEBQBTPfpQERYF2QzxQAYiybi7cev0aHItu2/txrPyVTgTMX+IdPh8jVeVVxTbHuNGLP2CL03BhMkFE0H7x1FF1fYxzAc1oqL0t63FCkTnS72fNm3KjP2Z4fkZp55uVWBjh+Eh/dQJQs414PGMamL2Nd9j8wjr+I71uXVVx77a9ECvmFEsxpOCmMssOlxsbooOdmGxAG2/cIbpFzeLsHeUQv26K0L7GzlnNKTa8uOX076UrJSb5wAu03R6DUXZO690OZqqN9WOz1z0Gg/Rr1GUxLetk3jwFxs18Yqv+nNnOfSdAkTyeLG+HFIt/iDFMX4JNm3djOPn8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(22082099003)(18002099003)(56012099003)(921020)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zdgQ/2sUXh6e+ZlLOPrqAJtukV2Gzvlvaq73+r7tKrkagJs4KrOstyOUtoYj?=
- =?us-ascii?Q?i3yXRT0X9ePyhpHGyTJd4ABDVuHMyQ3wXeb8r262LTZZcS+UgdSawZbR7IJF?=
- =?us-ascii?Q?jhHw4aFgD2Nkp5ZfhJdW3F9xanbBmnISWMUGVow2cuVg7tucLN21UlWoZN3L?=
- =?us-ascii?Q?91PLEH4wXEC+jzW1h7AhevTnclYYL8lhQOkj2kw109v7cxKKEVxlfKY72rBZ?=
- =?us-ascii?Q?5JqDBDXQX2Bbp//clk3CtPoOBgQz3aspECmcfIR1tqdNi6y61vTx+l0FJjbD?=
- =?us-ascii?Q?oZwOQoxJNbMriVQElZCmZSpyJoDRtTLl8bZyVXuEAV6zxSRBHsOikh7+yMnY?=
- =?us-ascii?Q?0ridQeWyKnQfZCsxzuZsekaK4blxDUydpqdCHBztQoFcvScZ7GG5Qr4+ek+u?=
- =?us-ascii?Q?s3MDiUioFd3KF9b8Jug6DR2b2F9OxmyVCd+yfFkgsZTEJjTIY0DJULmcV+8T?=
- =?us-ascii?Q?eUunQMX4LwehhhMQ+i2ue0oxj5mYAA2MwEnAA4g3LZBzLxFRAWxD0ojMFQ/d?=
- =?us-ascii?Q?GSW27iPKZt6xtbU/2OrTJ1rk6c56l9eLhE3uB42vlEvUMKiRmt2wXBQfrEui?=
- =?us-ascii?Q?5GZS0EvW4atlbAqEUkEX99WIzcVPN2yVeJQGtYwHOiLVfOT3SUUqAPXYpQEX?=
- =?us-ascii?Q?2RSqOj9eIpn4kTlyJ3mS+Tk22Zd7FLXGamZS89LlQAkEinKVFnJJwjfMvj+2?=
- =?us-ascii?Q?eWD8sPH1fdBB3/gbicajKsJCcJHO054Wunhhui3iwrvlJyIJbmd2ydAfkqYr?=
- =?us-ascii?Q?bWN3iP6igvAvV/gmrep4D8YCT7lDQwO7KXdA/MCkqk93SJ/Cut3FmbQHERok?=
- =?us-ascii?Q?Z9eRnu+wigIxhBGCsZpEDYPCuUPCJUKjK0yzFJeJD2BrywWmGft8IdQcfSS9?=
- =?us-ascii?Q?wI8Zh+IJyzg4kk7YuGeWjrRrO3KTmtNmptlDle1mrD48OjR4kIJeocWso2a6?=
- =?us-ascii?Q?ljjugWgth2juofxXZ+fK61K1XjTnO3o7AFHNapPNjVPUbSPkFg3EPnlpF2zK?=
- =?us-ascii?Q?M6o4//xZkL0sU2UDODzXYAUIbEnl2lrt1bB1ktrE0sA2EoBmtjWSC9HctKT+?=
- =?us-ascii?Q?Xv3g4xAAsp9v4bKl+uezQ2Ly+lpCMhSmdr83k91qRGV//wNIDj5A16uW3fAm?=
- =?us-ascii?Q?WFpJkmeg19Azaw3e5ZB+g0Xnogy4AelPjLSnf8ZmQjD3itFZdkIMC1G1Wc0n?=
- =?us-ascii?Q?DBuTr+6xuta7qIrGAXqyXFXpRNQ5NBwKnYmEWf4bwmKXaaD8HRrWerdCvGc4?=
- =?us-ascii?Q?tZ7ZHRhfkIOojBM4YkpGo27uNxbbmxrl7qpWtwQy/9fDbMPxGpLg5akY3U3J?=
- =?us-ascii?Q?kSzXXhrvrlvAR/yk+gU/GLc6H8e0PRcxySLrs6MxW5c30JS3U5cbHHTaSN8V?=
- =?us-ascii?Q?bo5WYJ82NAmBmb3LxVdvHHOKaoiAgIr4O91+r0dmfaBGtJU5nmXsN34K1Z9/?=
- =?us-ascii?Q?7yRH05KlgnJ+0KCuiEXzgqsQw5tKlQQQZQoMD6BBiymL0fZqZgv+Qg8Z6KVT?=
- =?us-ascii?Q?f1A5qmM+rZ+8tY8dHey62z6WFFWGiJle7mpNNujVq6nN3J6S5jJjiu/Hl9lU?=
- =?us-ascii?Q?lq0kD4AbezZeDpKYn5T9OSfEmkmyczleTicrSSQwC5ZeAR0fc2IlkUTW6eKK?=
- =?us-ascii?Q?qFrkSbxVBaJDkpZZvsxQQW64rftfaZIRIMxUrwWOCJvZm7JkPYNandjkNQn7?=
- =?us-ascii?Q?Zm38JGW2WU4/a93HFpSb8uWC928+Bls1k7mdjIlBlCXW7N8jdBNLeU52XQp4?=
- =?us-ascii?Q?bHbvLzob+V0cwpbJe6tfbaXAwPle10KtzBIcR3DJSRFppexx3W9H?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5b0cfb23-a472-4f9d-8ed5-08deb64c8a6e
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 08:48:19.1388
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: H3w2FFd8bgCdk+lC/QX18jarQH6vQOK9L/lPGB24t8oyLrCbpm7SVSuKqG1rv9OivvX9Gk2AkF+61Pz91x4rqNO4vRqIOFwfVkxlJzj/wa+bbJTHVl30WpLOA2RyZBbi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BESPR04MB12564
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_014822_493996_51097B08 
-X-CRM114-Status: GOOD (  11.31  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,81 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sherry Sun <sherry.sun@nxp.com>
+This is the second version of this short series optimising away a lot
+of unnecessary FPSIMD/SVE context switch with NV.
 
-Move the vpcie-supply and vpcie3v3aux-supply properties from the PCIe
-controller nodes to the Root Port child nodes to support the new PCI
-pwrctrl framework.
+* From v1 [1]:
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 4 ++--
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 8 ++++----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+  - New commit message on patch #2 (Mark)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-index 7d820a0f80b2..0d1cdfd54cce 100644
---- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-@@ -555,8 +555,6 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_m2_pwr>;
--	vpcie3v3aux-supply = <&reg_m2_pwr>;
- 	supports-clkreq;
- 	status = "disabled";
- };
-@@ -570,6 +568,8 @@ &pcie0_ep {
- 
- &pcie0_port0 {
- 	reset-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_m2_pwr>;
-+	vpcie3v3aux-supply = <&reg_m2_pwr>;
- };
- 
- &sai1 {
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index 2e463bc7c601..c08731dfb1ee 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -542,8 +542,6 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_pcie0>;
--	vpcie3v3aux-supply = <&reg_pcie0>;
- 	supports-clkreq;
- 	status = "okay";
- };
-@@ -557,6 +555,8 @@ &pcie0_ep {
- 
- &pcie0_port0 {
- 	reset-gpios = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_pcie0>;
-+	vpcie3v3aux-supply = <&reg_pcie0>;
- };
- 
- &pcie1 {
-@@ -564,8 +564,6 @@ &pcie1 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_slot_pwr>;
--	vpcie3v3aux-supply = <&reg_slot_pwr>;
- 	status = "okay";
- };
- 
-@@ -578,6 +576,8 @@ &pcie1_ep {
- 
- &pcie1_port0 {
- 	reset-gpios = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_slot_pwr>;
-+	vpcie3v3aux-supply = <&reg_slot_pwr>;
- };
- 
- &sai1 {
+  - Additional comments and WARN_ON_ONCE() (Mark)
+
+If nobody screams, I'll stick that into -next.
+
+Thanks,
+
+	M.
+
+[1] https://lore.kernel.org/r/20260512140755.3676306-1-maz@kernel.org
+
+Marc Zyngier (2):
+  KVM: arm64: nv: Track L2 to L1 exception emulation
+  KVM: arm64: nv: Don't save/restore FP register during a nested ERET or
+    exception
+
+ arch/arm64/include/asm/kvm_host.h |  3 ++-
+ arch/arm64/kvm/emulate-nested.c   |  4 ++++
+ arch/arm64/kvm/fpsimd.c           | 23 +++++++++++++++++++++++
+ 3 files changed, 29 insertions(+), 1 deletion(-)
+
 -- 
-2.37.1
+2.47.3
 
 
