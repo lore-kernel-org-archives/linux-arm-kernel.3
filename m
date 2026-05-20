@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F1FCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD724CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C2rQSJVvjpA3TIcOEEbzxe+P6jyCaAHuQ+JLxMjjLCU=; b=EuGexw9dMwGUdFFSzHgy2otjK3
-	bGICDSDG0l8FVagfMogvyvp/kM7y28ttUb4gV7/9HOPvcxYsFMlfvOAEFitJ46AT66qRldxABFlrZ
-	mPDcfAFx6+Hlt0lmKjZr5I1FV9MjD5mGU1VkL8TECdhIOGsOvGCQXv9t2k1PmYNr+VFiU+ca257Vk
-	aJqCArIzDriIRLIr7i4+rngrCyZoV2TzIUZBSQkYHNWl0x/RmdIXYRbxioeIgrLnZdJnFxcwAzwK7
-	hWIUVK42ZFT3KUOE/cDAZqev/2O+aJUFMGydwp8qf9FWNQu/nK5ZZIXX1TKgbvM1zQlv1I/WnmfYn
-	BJKd9KLQ==;
+	bh=Q3RI1+/2H56YkJDtcezUmII1Yq8aR4tFKPY9/LOGyk8=; b=KzKuFz0nHsQhxujvGFyZnjvT2c
+	LBaNvVwR1tG0IqB3Jat9uxl7tgb6AHDUsHu5bIgtTKLlsyRy+Rci9zrTVsJJy015h/oYQzCqMIr+H
+	tv+FYuhA55CDsqjYP/uedqeWH0Hjt9n2kM9H4TALHADUYPjikUc2lVBYbgtNpSMRagXJcaT6/H2aA
+	/nCXMVAgMCYDrxwiRkWpZekYloJNBsM/yb2KC+qrWejyC8E8uOg7zKnh5SKX0AJbpfJMq7E26Hy9E
+	fk9xkzlmXPFkpn7eVESfDAqIDJJO7W2d62Y+WiXkkNZ2B4/LH9KBluc1dyIPRgRNqsjHztmvMHW8X
+	ViV6lqCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoPz-00000005ple-1FFK;
-	Wed, 20 May 2026 21:25:31 +0000
+	id 1wPoQF-00000005pwH-2u4i;
+	Wed, 20 May 2026 21:25:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoPr-00000005pjC-31T2
+	id 1wPoQ9-00000005pr9-0Lm5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 21:25:26 +0000
+	Wed, 20 May 2026 21:25:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 378AB490F;
-	Wed, 20 May 2026 14:25:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BA27490F;
+	Wed, 20 May 2026 14:25:33 -0700 (PDT)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4FC9B3F632;
-	Wed, 20 May 2026 14:25:16 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6C5B23F632;
+	Wed, 20 May 2026 14:25:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779312321; bh=r8V64ma/khBLpgBDTKurOIXVzyLkvQSiYa1X5F8HYgI=;
+	t=1779312338; bh=HuDH+O2SQLbsIBtPT5saZJQQU5z/m6EyZpBJ/qbFbJI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BfVqcWi2iypOGgh/kELrHZhCLrFfa4opMGa8AvEaIT1pmaQu19iDt+KYgwiRY7Gdv
-	 PGfdR8O3Vh78XPZHnVf3Zimc+/iQ5HHlZwUR5RqDdYKW3G/XhqwX0m6mYalWDHvX11
-	 Lr47kzYgdUHpFeoACSyuIfKhC/wqvelN1Bk5nM/c=
+	b=RU1f4TIJ4zv3AUaSc/lPUTsjnmtikkgwyA5GrUXc+PJrvuWMaseYIL1a3i6qlcCzs
+	 1LlIzW81j8aG7fFE4xvX5z7XYR13wcSl8u469csALZTg6On6hV2guBf/WkPLb7SUpQ
+	 TNRyrEjK3pmxAhzqTpMh5sQL4aiYN8EghY1EQDV8=
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,19 +67,18 @@ Cc: amitsinght@marvell.com,
 	xhao@linux.alibaba.com,
 	zengheng4@huawei.com,
 	x86@kernel.org,
-	Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>,
 	Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v4 1/5] arm_mpam: resctrl: Pick classes for use as MBM counters
-Date: Wed, 20 May 2026 22:24:54 +0100
-Message-ID: <20260520212458.1797221-2-ben.horgan@arm.com>
+Subject: [PATCH v4 4/5] arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()
+Date: Wed, 20 May 2026 22:24:57 +0100
+Message-ID: <20260520212458.1797221-5-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260520212458.1797221-1-ben.horgan@arm.com>
 References: <20260520212458.1797221-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_142524_022019_4363E40A 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20260520_142541_339804_594BCBA6 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,82 +95,151 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-resctrl has two types of bandwidth counters, NUMA-local and global. MPAM
-can only count globally; either using MSC at the L3 cache or in the memory
-controllers. When global and local equate to the same thing continue just
-to call it global.
+When used in 'mbm_event' mode, ABMC emulation, resctrl uses arch hooks to
+read and reset the memory bandwidth utilization (MBWU) counters.
 
-Pick the corresponding MPAM classes to back the MBM counters. As resctrl
-requires all monitors to be at the L3 cache, we can only use the counters
-at the memory controllers when they have the same topology as the L3 cache
-and the traffic they see if the same. In particular, for the bandwidth
-counters at the memory controllers to be exposed to resctrl it is required
-there is a single L3 cache and a single NUMA node as otherwise cross NUMA
-traffic will be counted at the wrong instance.
+Add these.
 
-Tested-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
-Tested-by: Zeng Heng <zengheng4@huawei.com>
-Reviewed-by: Shaopeng Tan <tan.shaopeng@jp.fujitsu.com>
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
 Changes since rfc v1:
-Move finding any_mon_comp into monitor boilerplate patch
-Move mpam_resctrl_get_domain_from_cpu() into monitor boilerplate
-Remove free running check
-Trim commit message
+Move __reset_mon() and reset_mon_cdp_safe() helpers here
+support mbwu in __read_mon()
+Mention mbm_event mode in commit message
 
 Changes since v3:
-Extra paragraph in commit message
+USE_PREALLOCATED_IDX, separate h/w counters are needed for code and data
+when cdp_enabled is true
 ---
- drivers/resctrl/mpam_resctrl.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 99 +++++++++++++++++++++++++++++-----
+ 1 file changed, 86 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 226ff6f532fa..f70fa65d39e4 100644
+index 1f9a8ae157ca..d236ecd38aa3 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -606,6 +606,16 @@ static bool cache_has_usable_csu(struct mpam_class *class)
- 	return true;
+@@ -121,19 +121,6 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_l3_mon_domain *d
+ {
  }
  
-+static bool class_has_usable_mbwu(struct mpam_class *class)
+-void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+-			     u32 closid, u32 rmid, int cntr_id,
+-			     enum resctrl_event_id eventid)
+-{
+-}
+-
+-int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
+-			   u32 unused, u32 rmid, int cntr_id,
+-			   enum resctrl_event_id eventid, u64 *val)
+-{
+-	return -EOPNOTSUPP;
+-}
+-
+ bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
+ {
+ 	return (r == &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res);
+@@ -463,6 +450,14 @@ static int __read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_c
+ 	/* Shift closid to account for CDP */
+ 	closid = resctrl_get_config_index(closid, cdp_type);
+ 
++	if (mon_idx == USE_PRE_ALLOCATED) {
++		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
++
++		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
++		if (mon_idx == -1)
++			return -ENOENT;
++	}
++
+ 	if (irqs_disabled()) {
+ 		/* Check if we can access this domain without an IPI */
+ 		return -EIO;
+@@ -535,6 +530,84 @@ int resctrl_arch_rmid_read(struct rdt_resource *r, struct rdt_domain_hdr *hdr,
+ 				 closid, rmid, val);
+ }
+ 
++/* MBWU counters when in ABMC mode */
++int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			   u32 closid, u32 rmid, int mon_idx,
++			   enum resctrl_event_id eventid, u64 *val)
 +{
-+	struct mpam_props *cprops = &class->props;
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
++	struct mpam_resctrl_dom *l3_dom;
++	struct mpam_component *mon_comp;
 +
-+	if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
-+		return false;
++	if (!mpam_is_enabled())
++		return -EINVAL;
 +
-+	return true;
++	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
++		return -EINVAL;
++
++	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
++	mon_comp = l3_dom->mon_comp[eventid];
++
++	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu,
++				 USE_PRE_ALLOCATED, closid, rmid, val);
++}
++
++static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
++			int mon_idx,
++			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
++{
++	struct mon_cfg cfg = { };
++
++	if (!mpam_is_enabled())
++		return;
++
++	/* Shift closid to account for CDP */
++	closid = resctrl_get_config_index(closid, cdp_type);
++
++	if (mon_idx == USE_PRE_ALLOCATED) {
++		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
++
++		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
++	}
++
++	if (mon_idx == -1)
++		return;
++	cfg.mon = mon_idx;
++	mpam_msmon_reset_mbwu(mon_comp, &cfg);
++}
++
++static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
++			       int mon_idx, u32 closid, u32 rmid)
++{
++	if (cdp_enabled) {
++		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
++		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
++	} else {
++		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
++	}
++}
++
++/* Reset an assigned counter */
++void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_l3_mon_domain *d,
++			     u32 closid, u32 rmid, int cntr_id,
++			     enum resctrl_event_id eventid)
++{
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
++	struct mpam_resctrl_dom *l3_dom;
++	struct mpam_component *mon_comp;
++
++	if (!mpam_is_enabled())
++		return;
++
++	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
++		return;
++
++	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
++	mon_comp = l3_dom->mon_comp[eventid];
++
++	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
 +}
 +
  /*
-  * Calculate the worst-case percentage change from each implemented step
-  * in the control.
-@@ -983,6 +993,22 @@ static void mpam_resctrl_pick_counters(void)
- 				break;
- 			}
- 		}
-+
-+		if (class_has_usable_mbwu(class) &&
-+		    topology_matches_l3(class) &&
-+		    traffic_matches_l3(class)) {
-+			pr_debug("class %u has usable MBWU, and matches L3 topology and traffic\n",
-+				 class->level);
-+
-+			/*
-+			 * We can't distinguish traffic by destination so
-+			 * we don't know if it's staying on the same NUMA
-+			 * node. Hence, we can't calculate mbm_local except
-+			 * when we only have one L3 and it's equivalent to
-+			 * mbm_total and so always use mbm_total.
-+			 */
-+			counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID, class);
-+		}
- 	}
- }
- 
+  * The rmid realloc threshold should be for the smallest cache exposed to
+  * resctrl.
 -- 
 2.43.0
 
