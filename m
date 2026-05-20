@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D91ACD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:37:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBD2CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbh0U2CJNS6rjWyK+D0W274Ocmy9rhlndaWq+7vgBUM=; b=JyMREb0GGdLTgQ/SlwjSJl2eu7
-	0BfpEMalvM5Ic+WgLqqftIGzlUttV8r+eNNXHJtJz5WY7C1fp0RmOEsNlw+HSl53rlsobPt7rwJ48
-	Uusce9dOlNYOSbyvh51Pc7UBcNUP80qb+rLqoal3AdndUOwCmIcaL5N/ayK6PBexMLMkKO9jB+pyT
-	optXkw6oo0Z1NkSxzUKSl2OVUCKb0qi0Kp8zcrUZibBv3Wcc8yv4IAAH+OYGh/VrhmY8Ig/zDSuZE
-	gLWlnllXHZvS6JTmGSqbFWITsBdfmVvFzbloslDXRJcE6lHZdL25EeT50ELgFSLmoUVLyjI3/+eZf
-	cc9yJV4Q==;
+	bh=Vu3EZBeWinYUHPBmY/X090V8/6NEcv7XCtOXv6H294Q=; b=3GEFDRkfcb/N4VzcsorL/LxYsr
+	j4C+khbMmiNozRFGW6ZbEgAPv14Mv04wxJjeziX39yJMPlsel+FcBweuB6J9UNeifPEXoaB9BWRf8
+	ZhlyuhCKL8Q2cGxJ9EalIHq/JTjsMbB+jir7m862N8DsFgnBMZFZ1P/XFPKZ00ViF7NjA5qUviVYe
+	9Zk0lDAeA1Ez1X5NjeF8duIoHMcgLFcVb0IBVz+mvbTd65xjNO51AjRKj4VydrpZ6sJvMZJGBiGQc
+	laFMkACOczkxzpGMUp+AIq3yKe5trem5zHhsOv8Y4YwySd5MJqFmWRFtyvCkcrrEBctInTiuoVdCA
+	kYcDg8Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaYd-00000003fv3-0paD;
-	Wed, 20 May 2026 06:37:31 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wPaYm-00000003fya-1au3;
+	Wed, 20 May 2026 06:37:40 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaYZ-00000003ftP-1DuR
+	id 1wPaYd-00000003fu3-0DxN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 06:37:29 +0000
+	Wed, 20 May 2026 06:37:32 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=sbh0U2CJNS6rjWyK+D0W274Ocmy9rhlndaWq+7vgBUM=;
-	b=3xsa1KGAoe0kiq/G5OjSoKFmVBQ+fv2AF8HkxXKxB7qDPf94rh0OrTHCIpVIqgmkaRL4UEcc2
-	JICC6S+W6zhZ7iIkrdLau/b1BdqinZLLNrm8/KvlXv9tLafUbvAyTLpyLkoO0h7k/W1ElcTk//g
-	b0oBd0MGSgUdgtc6DonQ0GE=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gL1q442JjzmVD0;
-	Wed, 20 May 2026 14:29:36 +0800 (CST)
+	bh=Vu3EZBeWinYUHPBmY/X090V8/6NEcv7XCtOXv6H294Q=;
+	b=DTUgcXX0QCOxzf8m0FRgEYq6mHvJ8fm5/LaunYVYwK8xC/eRMYpl+bJhsuFUryDpThYXxX4SD
+	zD5E2giVkd242GleR1g//3guxL955J3f6aBVzlkV2nSgD1kadg92DnjwG042X0ideouW+DMHrsE
+	PjSrMIPTDI/RKohWj9cLQ1I=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gL1qt6q77z12LDX;
+	Wed, 20 May 2026 14:30:18 +0800 (CST)
 Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 14B1C40572;
-	Wed, 20 May 2026 14:37:19 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 307AB40537;
+	Wed, 20 May 2026 14:37:20 +0800 (CST)
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 20 May 2026 14:37:18 +0800
+ 15.2.1544.11; Wed, 20 May 2026 14:37:19 +0800
 From: Qinxin Xia <xiaqinxin@huawei.com>
 To: <robin.murphy@arm.com>, <nicolinc@nvidia.com>, <will@kernel.org>,
 	<jpb@kernel.org>
@@ -52,9 +52,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
 	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 3/5] iommu/arm-smmu-v3: Add Stream Table Entry display to debugfs
-Date: Wed, 20 May 2026 14:37:09 +0800
-Message-ID: <20260520063714.2440584-3-xiaqinxin@huawei.com>
+Subject: [PATCH 4/5] iommu/arm-smmu-v3: Add device symlink in stream table debugfs
+Date: Wed, 20 May 2026 14:37:10 +0800
+Message-ID: <20260520063714.2440584-4-xiaqinxin@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260328101706.3448655-1-xiaqinxin@huawei.com>
 References: <20260328101706.3448655-1-xiaqinxin@huawei.com>
@@ -65,8 +65,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_233728_061496_7A9AD715 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20260519_233731_412663_47C8E25C 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,367 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Stream Table Entry (STE) display functionality to debugfs.
-This allow inspecting STE contents for each device stream including:
-- STE validity and configuration
-- Stage 1 and Stage 2 context pointers
-- Raw STE data
+Add a symlink named  under each stream table entry directory pointing to
+the sysfs directory of the actual device. This aids debugging
+by providing direct access to device attributes.
 
 /sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
 └── <sid>/
-    └─── ste
+    ├─── ste
+    └─── <dev_name>
 
 Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 235 ++++++++++++++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  11 +-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  17 ++
- 3 files changed, 261 insertions(+), 2 deletions(-)
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-index a541476b7427..a5866f34264f 100644
+index a5866f34264f..9babc7d640fd 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-@@ -7,6 +7,9 @@
-  * └── smmu<ioaddr>/
-  *     ├── capabilities    # SMMU feature capabilities and configuration
-  *     ├── registers       # SMMU Key registers
-+ *     ├── stream_table
-+ *         ├── <sid>/                                # Stream ID
-+ *             ├── ste                               # Stream Table Entry
+@@ -10,6 +10,7 @@
+  *     ├── stream_table
+  *         ├── <sid>/                                # Stream ID
+  *             ├── ste                               # Stream Table Entry
++ *             ├── <dev_name>                         # Symlink to device sysfs directory
   *
   * The capabilities file provides detailed information about:
   * - translation stage support (Stage1/Stage2)
-@@ -17,6 +20,11 @@
-  * - CR0, CR1, CR2 control registers
-  * - Command and Event queue pointers
-  *
-+ * The STE Information Displayed:
-+ * - STE validity and configuration
-+ * - Stage 1 and Stage 2 context pointers
-+ * - Raw STE data
-+ *
-  * Copyright (C) 2026 HiSilicon Limited.
-  * Author: Qinxin Xia <xiaqinxin@huawei.com>
-  */
-@@ -174,6 +182,231 @@ static const struct file_operations smmu_debugfs_registers_fops = {
- 	.release = smmu_debugfs_registers_release,
- };
+@@ -31,6 +32,7 @@
  
-+/**
-+ * smmu_debugfs_ste_show() - Dump STE details to seq_file
-+ * @seq: seq_file to write to
-+ * @unused: unused parameter
-+ *
-+ * Errors are reported via seq_puts, the function always returns 0
-+ */
-+static int smmu_debugfs_ste_show(struct seq_file *seq, void *unused)
-+{
-+	struct ste_context *ctx = seq->private;
-+	struct arm_smmu_master *master = ctx->master;
-+	struct arm_smmu_device *smmu;
-+	struct arm_smmu_ste *ste;
-+	u32 sid, cfg;
-+	int i;
+ #include <linux/cleanup.h>
+ #include <linux/debugfs.h>
++#include <linux/kobject.h>
+ #include <linux/slab.h>
+ #include "arm-smmu-v3.h"
+ 
+@@ -314,6 +316,7 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
+ 	struct dentry *stream_dir, *dev_dir;
+ 	struct arm_smmu_master *master;
+ 	struct ste_context *ctx;
++	char *path = NULL, *full_path;
+ 	char name[64];
+ 	u32 sid;
+ 	int i;
+@@ -338,6 +341,9 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
+ 	if (!master || !master->num_streams)
+ 		return -ENODEV;
+ 
++	/* Get device sysfs path once, reuse for all streams */
++	path = kobject_get_path(&dev->kobj, GFP_KERNEL);
 +
-+	if (!master) {
-+		seq_puts(seq, "No SMMU master data\n");
-+		return 0;
-+	}
+ 	for (i = 0; i < master->num_streams; i++) {
+ 		sid = master->streams[i].id;
+ 		snprintf(name, sizeof(name), "%u", sid);
+@@ -357,8 +363,19 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
+ 		spin_unlock(&smmu->debugfs->stream_lock);
+ 		debugfs_create_file("ste", 0444, dev_dir, ctx,
+ 				    &smmu_debugfs_ste_fops);
 +
-+	smmu = master->smmu;
-+	guard(mutex)(&smmu->streams_mutex);
-+
-+	sid = ctx->sid;
-+
-+	if (!arm_smmu_sid_in_range(smmu, sid)) {
-+		seq_printf(seq, "Invalid Stream ID: %u (max %u)\n",
-+			   sid, (1 << smmu->sid_bits) - 1);
-+		return 0;
-+	}
-+
-+	ste = arm_smmu_get_step_for_sid(smmu, sid);
-+	if (!ste) {
-+		seq_printf(seq, "STE not available for SID %u\n", sid);
-+		return 0;
-+	}
-+
-+	seq_printf(seq, "STE for Stream ID %u\n", sid);
-+	seq_printf(seq, "  Valid: %s\n",
-+		   le64_to_cpu(ste->data[0]) & STRTAB_STE_0_V ? "Yes" : "No");
-+
-+	seq_puts(seq, "  Config: ");
-+
-+	cfg = FIELD_GET(STRTAB_STE_0_CFG, le64_to_cpu(ste->data[0]));
-+
-+	switch (cfg) {
-+	case STRTAB_STE_0_CFG_BYPASS:
-+		seq_puts(seq, "BYPASS\n");
-+		break;
-+	case STRTAB_STE_0_CFG_S1_TRANS:
-+		seq_puts(seq, "only S1_TRANS\n");
-+		break;
-+	case STRTAB_STE_0_CFG_S2_TRANS:
-+		seq_puts(seq, "only S2_TRANS\n");
-+		break;
-+	case STRTAB_STE_0_CFG_NESTED:
-+		seq_puts(seq, "S1+S2_TRANS\n");
-+		break;
-+	case STRTAB_STE_0_CFG_ABORT:
-+		seq_puts(seq, "ABORT\n");
-+		break;
-+	default:
-+		seq_puts(seq, "UNKNOWN\n");
-+	}
-+
-+	if (cfg == STRTAB_STE_0_CFG_S1_TRANS || cfg == STRTAB_STE_0_CFG_NESTED) {
-+		seq_printf(seq, "  S1ContextPtr: 0x%016llx\n",
-+			   le64_to_cpu(ste->data[0]) & STRTAB_STE_0_S1CTXPTR_MASK);
-+	}
-+
-+	if (cfg == STRTAB_STE_0_CFG_S2_TRANS || cfg == STRTAB_STE_0_CFG_NESTED) {
-+		seq_printf(seq, "  S2TTB: 0x%016llx\n",
-+			   le64_to_cpu(ste->data[3]) & STRTAB_STE_3_S2TTB_MASK);
-+	}
-+
-+	/* Display raw STE data */
-+	seq_puts(seq, "  Raw Data:\n");
-+	for (i = 0; i < STRTAB_STE_DWORDS; i++)
-+		seq_printf(seq, "    STE[%d]: 0x%016llx\n", i,
-+			   le64_to_cpu(ste->data[i]));
-+
-+	return 0;
-+}
-+
-+static int smmu_debugfs_ste_open(struct inode *inode, struct file *file)
-+{
-+	struct ste_context *ctx = inode->i_private;
-+	int ret;
-+
-+	if (!ctx || !get_device(ctx->master->dev))
-+		return -ENODEV;
-+
-+	ret = single_open(file, smmu_debugfs_ste_show, ctx);
-+	if (ret)
-+		put_device(ctx->master->dev);
-+
-+	return ret;
-+}
-+
-+static int smmu_debugfs_ste_release(struct inode *inode, struct file *file)
-+{
-+	struct seq_file *seq = file->private_data;
-+	struct ste_context *ctx = seq->private;
-+
-+	single_release(inode, file);
-+	if (ctx)
-+		put_device(ctx->master->dev);
-+	return 0;
-+}
-+
-+static const struct file_operations smmu_debugfs_ste_fops = {
-+	.owner   = THIS_MODULE,
-+	.open    = smmu_debugfs_ste_open,
-+	.read    = seq_read,
-+	.llseek  = seq_lseek,
-+	.release = smmu_debugfs_ste_release,
-+};
-+
-+/**
-+ * arm_smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
-+ * @smmu: SMMU device
-+ * @dev: device to create entries for
-+ *
-+ * Return: 0 on success, negative error code on failure
-+ */
-+int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
-+					 struct device *dev)
-+{
-+	struct dentry *stream_dir, *dev_dir;
-+	struct arm_smmu_master *master;
-+	struct ste_context *ctx;
-+	char name[64];
-+	u32 sid;
-+	int i;
-+
-+	if (!smmu->debugfs)
-+		return -ENODEV;
-+
-+	scoped_guard(mutex, &arm_smmu_debugfs_lock) {
-+		if (!smmu->debugfs->stream_dir) {
-+			stream_dir = debugfs_create_dir("stream_table",
-+							smmu->debugfs->smmu_dir);
-+			if (IS_ERR(stream_dir))
-+				return PTR_ERR(stream_dir);
-+
-+			smmu->debugfs->stream_dir = stream_dir;
-+		} else {
-+			stream_dir = smmu->debugfs->stream_dir;
++		/* Create a symlink to the device's sysfs directory */
++		if (path) {
++			full_path = kasprintf(GFP_KERNEL, "/sys%s", path);
++			if (full_path) {
++				debugfs_create_symlink(dev_name(dev), dev_dir,
++						       full_path);
++				kfree(full_path);
++			}
 +		}
-+	}
-+
-+	master = dev_iommu_priv_get(dev);
-+	if (!master || !master->num_streams)
-+		return -ENODEV;
-+
-+	for (i = 0; i < master->num_streams; i++) {
-+		sid = master->streams[i].id;
-+		snprintf(name, sizeof(name), "%u", sid);
-+		dev_dir = debugfs_create_dir(name, stream_dir);
-+		if (IS_ERR(dev_dir))
-+			continue;
-+
-+		/* Create STE file */
-+		ctx = kzalloc_obj(*ctx);
-+		if (!ctx)
-+			continue;
-+
-+		ctx->master = master;
-+		ctx->sid = sid;
-+		spin_lock(&smmu->debugfs->stream_lock);
-+		list_add_tail(&ctx->node, &smmu->debugfs->stream_list);
-+		spin_unlock(&smmu->debugfs->stream_lock);
-+		debugfs_create_file("ste", 0444, dev_dir, ctx,
-+				    &smmu_debugfs_ste_fops);
-+	}
-+
-+	return 0;
-+}
-+
-+/**
-+ * arm_smmu_debugfs_remove_stream_table() - Remove debugfs entries for stream table
-+ * @smmu: SMMU device
-+ * @dev: device to remove entries for
-+ *
-+ * This function removes the debugfs directories created by
-+ * arm_smmu_debugfs_create_stream_table().
-+ */
-+void arm_smmu_debugfs_remove_stream_table(struct arm_smmu_device *smmu,
-+					  struct device *dev)
-+{
-+	struct dentry *stream_dir, *dev_dir;
-+	struct arm_smmu_master *master;
-+	struct ste_context *ctx, *tmp;
-+	char name[64];
-+	int i;
-+
-+	/* Check if stream_table directory exists */
-+	if (!smmu->debugfs || !smmu->debugfs->stream_dir)
-+		return;
-+
-+	stream_dir = smmu->debugfs->stream_dir;
-+	master = dev_iommu_priv_get(dev);
-+	if (!master)
-+		return;
-+
-+	/* Remove directories for each stream ID */
-+	for (i = 0; i < master->num_streams; i++) {
-+		snprintf(name, sizeof(name), "%u", master->streams[i].id);
-+		dev_dir = debugfs_lookup(name, stream_dir);
-+		debugfs_remove_recursive(dev_dir);
-+		dput(dev_dir);
-+	}
-+
-+	/* Free stream context */
-+	spin_lock(&smmu->debugfs->stream_lock);
-+	list_for_each_entry_safe(ctx, tmp, &smmu->debugfs->stream_list, node) {
-+		if (ctx->master->dev == dev) {
-+			list_del(&ctx->node);
-+			kfree(ctx);
-+		}
-+	}
-+	spin_unlock(&smmu->debugfs->stream_lock);
-+}
-+
- /**
-  * arm_smmu_debugfs_setup() - Initialize debugfs for SMMU device
-  * @smmu: SMMU device to setup debugfs for
-@@ -215,6 +448,8 @@ int arm_smmu_debugfs_setup(struct arm_smmu_device *smmu, const char *name)
  	}
  
- 	debugfs->smmu_dir = smmu_dir;
-+	INIT_LIST_HEAD(&debugfs->stream_list);
-+	spin_lock_init(&debugfs->stream_lock);
- 	smmu->debugfs = debugfs;
- 
- 	/* Create capabilities file */
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 929b8ead95b0..ca0fa043c2ce 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2992,7 +2992,7 @@ static int arm_smmu_domain_finalise(struct arm_smmu_domain *smmu_domain,
++	kfree(path);
  	return 0;
  }
  
--static struct arm_smmu_ste *
-+struct arm_smmu_ste *
- arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid)
- {
- 	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
-@@ -4090,7 +4090,7 @@ struct arm_smmu_device *arm_smmu_get_by_fwnode(struct fwnode_handle *fwnode)
- 	return dev ? dev_get_drvdata(dev) : NULL;
- }
- 
--static bool arm_smmu_sid_in_range(struct arm_smmu_device *smmu, u32 sid)
-+bool arm_smmu_sid_in_range(struct arm_smmu_device *smmu, u32 sid)
- {
- 	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB)
- 		return arm_smmu_strtab_l1_idx(sid) < smmu->strtab_cfg.l2.num_l1_ents;
-@@ -4269,6 +4269,10 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
- 		pci_prepare_ats(to_pci_dev(dev), stu);
- 	}
- 
-+#ifdef CONFIG_ARM_SMMU_V3_DEBUGFS
-+	arm_smmu_debugfs_create_stream_table(smmu, dev);
-+#endif
-+
- 	return &smmu->iommu;
- 
- err_free_master:
-@@ -4282,6 +4286,9 @@ static void arm_smmu_release_device(struct device *dev)
- 
- 	WARN_ON(master->iopf_refcount);
- 
-+#ifdef CONFIG_ARM_SMMU_V3_DEBUGFS
-+	arm_smmu_debugfs_remove_stream_table(master->smmu, dev);
-+#endif
- 	arm_smmu_disable_pasid(master);
- 	arm_smmu_remove_master(master);
- 	if (arm_smmu_cdtab_allocated(&master->cd_table))
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 8e1c19b6831c..9c9be63dc9e2 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -821,12 +821,29 @@ struct arm_smmu_impl_ops {
- };
- 
- #ifdef CONFIG_ARM_SMMU_V3_DEBUGFS
-+struct ste_context {
-+	struct arm_smmu_master		*master;
-+	u32				sid;
-+	struct list_head		node;
-+};
-+
- struct arm_smmu_debugfs {
-+	struct list_head stream_list;
-+	spinlock_t stream_lock;
- 	struct dentry *smmu_dir;
-+	struct dentry *stream_dir;
- };
- 
- int arm_smmu_debugfs_setup(struct arm_smmu_device *smmu, const char *name);
- void arm_smmu_debugfs_remove(struct arm_smmu_device *smmu);
-+int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
-+					 struct device *dev);
-+void arm_smmu_debugfs_remove_stream_table(struct arm_smmu_device *smmu,
-+					  struct device *dev);
-+
-+struct arm_smmu_ste *
-+arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid);
-+bool arm_smmu_sid_in_range(struct arm_smmu_device *smmu, u32 sid);
- #endif
- 
- /* An SMMUv3 instance */
 -- 
 2.33.0
 
