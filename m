@@ -4,118 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40747CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 05:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9506CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 05:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gt9LoBM9h0v+gvRnQ1bJjfV7wmkEM4+ijibPUWac/Iw=; b=yD1yiZdxZz/HFx1HaJIft7jxRN
-	raB/mu2zmUO1+eneOwqSql/mEwBkrPOnAHUhQyc+4GfnW1opE4xGmgTEwnLuLjKt3zJuuOmjVk6qf
-	tpDSkhm8X6L7GHFBXaaKczCne/EdfpA4dmAKl2XsnNqMikMVT3blK9ie/uZVDBDS6/lC95DpcD3xZ
-	LiGUClFT3AWsy8VCh0Q8rGwWrM8e2Jy1Uw7bI+k++9SUgb+Z8/+jlKxlUkD4n5AX3KGy7YY6Aw5DJ
-	2RPf/wu+k4yJGWsRoSEHmHnBCVuRSzElXVfYn5KV8VVm6rs2gu8hC5Tt77CavOAxTs0Q+f24w61MX
-	nHLUEbwA==;
+	bh=xMPSO73IWGk2hZS1TCz+JCCfIYv2zI+oGe5qmaNSKhE=; b=0/YsBAnOqYr6RtIN3wxlm2dl6N
+	iJNGodzW7sF8j6MqafFfLvMCJtj4/RyGjHfsU/AUtlofSc1fIJbQzNQQIkkKlvPsa9NjNlq/65re3
+	8h8Bgfv6uJ+Ox4YYLoPz3iJLq3oZB3Xl4awNJv/J2UJcq2sBB8tRiQK3gGMQZQOPL5CbClu0UJVk+
+	mXkorAASPXAm63Cyf/Hpgt4oVD5rkkaw061q2SwATUQQxNm08BH/WIg2rUKA+MiguiXijXU1ZVWVM
+	TCODCPMGtC8HZEIerpou4t7HDsbn0C+eHkQd9G8ZdDjYWfyUgYxk118a5ja9R8EBS+ytbQ1yaPchz
+	2uKE3dRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPZqH-00000003bFz-3Q47;
-	Wed, 20 May 2026 05:51:41 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1wPZtd-00000003bjF-2UpI;
+	Wed, 20 May 2026 05:55:09 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPZqE-00000003bEv-0FVE
+	id 1wPZtZ-00000003bhp-1YLE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 05:51:39 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-50d864c23bdso15411cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 22:51:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779256296; cv=none;
-        d=google.com; s=arc-20240605;
-        b=CQ6m1b/0DwZKYBsHHJ9mjCKAwdNMYYT1KSpWz4MyEbfE0UDmWZGWljr1hJYYSQ2+O+
-         sdLNjUhuYsKs3OMHv4R329xXXzQStogeF8hoQq4iH4gEe99hwvceNP10cdwJKv9D0U3c
-         NCXWcQbKSurwQgGZhlIK20fAmV6BPNU3pnZFEv7qRVVzSlIGkaJplivo3ad8fyLHFAn9
-         eWp3/Tpwjcfau8aV+9lK75Kr2eJOXxudkoXQHxv3+9FZ/5OpmicPJbOJGiGO7ur7Fojy
-         vD8vFgeyJniRGRJ7IRguWsl96bjgI0JSNX4Kl0+QQQ8Z4FL6ZSZuefz16KlAkNFydRDl
-         JBBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Gt9LoBM9h0v+gvRnQ1bJjfV7wmkEM4+ijibPUWac/Iw=;
-        fh=SwPg+mtrOAfcJuP3H+ndz6+BqXAJknxiGAvWhRnzjqE=;
-        b=Uf/DfodtvZ9Z1RnoHiKk4AMWWyMFJqGklFFdgv5Q264DxHkGKyYVGfapEaiXPhW8iz
-         EpjW2hGTEPzYd5pjMC5MTDaT4NFHabT8gWEQf/Fuq4DjjgspJeHSEPFVbvEmVqGQgQ2i
-         2umV43AzTFhN4V0cV9KQFMVOqy8zHw9YhMWhMXmQ0sP5zH4+7xb4n3dY/JIk3046mR4q
-         zpsHIb50id1QFNEBi+B1oRSoYXRST/DayBvIBOR5IhUD9h0edq1okzXPlEUVTjYo9gIG
-         xxFV/DmV8bCvLYMtxbiHQNOZ3y3JKn4kciw/1nZtyrNQx6CWacEVQPRbJRud9gDitgrf
-         Yp7w==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Wed, 20 May 2026 05:55:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779256296; x=1779861096; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Gt9LoBM9h0v+gvRnQ1bJjfV7wmkEM4+ijibPUWac/Iw=;
-        b=mTuXwjhPHWIKm/JeMIASGiz9m95DmTVJbOvkMm2A4MQDpBb4+KfRGXkXbVt0lHVNjw
-         fITpUJVYnlgAlKNRa/ZISmhxtGWBDBkkk+iFDCayBkPBU6pJx9GYazEq/CiSLCd2im3u
-         FOyKmlVl1kaOIZGE9muqz2Xh1tQV1lyv6rCrCfXm9/mLDfMlIfEn4f58aDUQzNvy1NHD
-         RpDOIKZEqa3Jb5BL8FduTyiGePHamwi+0D9vIl5bfBGqZ51ESdSpiM98OcGglzt4YGcr
-         Weg7xvxRKvyvV29GNrYjEsJEbiS50MTuL6/SNNfs2YC9f9sx6PWTb0UIlvGg7xhNL9iW
-         bVnw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779256296; x=1779861096;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Gt9LoBM9h0v+gvRnQ1bJjfV7wmkEM4+ijibPUWac/Iw=;
-        b=sjl3nlizQ1mCxtfGHdnP+CqZpwFJzxpeVFEPBYAOtQSU1LXeze3i1Iy4G3F51dW3ap
-         oaC9qK2KO5RJMWT0yProHZ5qb/1o1KRGeHS3pVIrxp01pCLGr4bIvu1iUVooz+o5IM+N
-         CHNt4fWkdtdhUP8scAKcH4nTteoyI10RJb4qVrl8OUvILGVWyHn7CY8LUi4MKIh0T3nO
-         phNe6CfyhchyIjPP+ucNWZ8DqEuc2faVF1X0y/lpzxjFJHrOfIITbamiWkDhjM6WMIop
-         ckvs+ja/nmpT0AHcaGJibgAD8jpE/o+PjhnbpcgQVzEb5PWHjR9DXXEGFgvkzj3HxVVU
-         h+pw==
-X-Forwarded-Encrypted: i=1; AFNElJ+YigqAn4eEV6PtbQbz8VzEqdx9IVBnK1uUUYE+Dy08FyfPIZ8VHdu7f/WgWFfjlJpRXNeDYWZOSc/Jz/QktSh5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvVHM2hn4+C2J7a84gvBlHEFRAULbMHEoE8gLXkbtjwvKFQAt3
-	TVUKkVTlSQA/tL/r519nDWMZTEQlpD6SbV52TmQAyb+QCe9ITYPxa4o074QLvNdAjoUfWOBZuo9
-	RiS4RglXooaRQboD6rOBbel6RMY1nOggqqVzJTwXv
-X-Gm-Gg: Acq92OGFKQd9J7JGD/FuZZ+7cIp2WTWdccaI5IhozvqeN2Cc9k5fHieEIuOySX1Ka7w
-	SCKuVSpf911lxMdaIflu/V7jkWDHJbMZ3yd0vLkCMWxjcYfXBTIJDNegSSn7vFrx2lj2TLvon2g
-	tsMsZlD9gjyIlq3dQa80zWwRQZppGw8Po8EykGxA3QrN20/EdxRaatBlts+cx/2tq94cV6oa8Vu
-	X/a/U8SIcBh+vKZE7rN1C62r49CmqX/JUh5t5E0oOrhZMVOq/J1zvA+N00KqstOrYYpVl7fvwJW
-	DT/5GTYMTGNiTgdOcl/38WvdgzsNip5QIGVkcuVHDUE+FA==
-X-Received: by 2002:a05:622a:1920:b0:514:b17e:86f3 with SMTP id
- d75a77b69052e-51679461795mr15633081cf.12.1779256295164; Tue, 19 May 2026
- 22:51:35 -0700 (PDT)
+	d=linux.alibaba.com; s=default;
+	t=1779256499; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=xMPSO73IWGk2hZS1TCz+JCCfIYv2zI+oGe5qmaNSKhE=;
+	b=Q2j8RGf5iz7YghnM4OYULsfwQ3NS/Dp9sr2ju/PMYJSsiJ5bKsi1uDykfk745uGN0F5ONhKVMRzD8Om0394sGjP+f+hiM1CJfnlA97Cws05tMa+dY6WUe6A6xmKHszNmB/bGbf0PBYymj05Po4efMOskTIx3+gBCT+cRx6XjDzI=
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033045133197;MF=tianruidong@linux.alibaba.com;NM=1;PH=DS;RN=21;SR=0;TI=SMTPD_---0X3Hek0d_1779256496;
+Received: from 30.74.144.211(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0X3Hek0d_1779256496 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 20 May 2026 13:54:57 +0800
+Message-ID: <3715e240-0a86-4011-a55b-a8b6d85ac4a1@linux.alibaba.com>
+Date: Wed, 20 May 2026 13:54:56 +0800
 MIME-Version: 1.0
-References: <20260430040427.4672-1-baohua@kernel.org> <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer> <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com> <agxbq1TxJdniMQT3@lucifer>
-In-Reply-To: <agxbq1TxJdniMQT3@lucifer>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Wed, 20 May 2026 05:51:23 +0000
-X-Gm-Features: AVHnY4KMccW5pUeVLxDyTF9Gnh50gzRE3EOZpgiKFqqXipSU5KPE9rQdYzJrFBQ
-Message-ID: <CAJuCfpG2Zmpf5N_ejB6ZDv8LDjpVtTfA_tYQ6sW+Noc9Y+XhdA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Lorenzo Stoakes <ljs@kernel.org>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/8] ras: aest: extend AEST support to Device Tree
+ frontend
+To: Umang Chheda <umang.chheda@oss.qualcomm.com>,
+ Tony Luck <tony.luck@intel.com>, Borislav Petkov <bp@alien8.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, catalin.marinas@arm.com,
+ will@kernel.org, lpieralisi@kernel.org, rafael@kernel.org,
+ mark.rutland@arm.com, Sudeep Holla <sudeep.holla@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-edac@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Faruque Ansari <faruque.ansari@oss.qualcomm.com>
+References: <20260505-aest-devicetree-support-v1-0-d5d6ffacf0a5@oss.qualcomm.com>
+ <8f1529af-f6fe-44bc-a4b1-c47a19824d1e@linux.alibaba.com>
+ <f95584f8-220f-4bd1-a189-dc05ffd2a9bc@oss.qualcomm.com>
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+In-Reply-To: <f95584f8-220f-4bd1-a189-dc05ffd2a9bc@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_225138_230196_9C9A3288 
-X-CRM114-Status: GOOD (  31.12  )
+X-CRM114-CacheID: sfid-20260519_225506_293090_76B3B31C 
+X-CRM114-Status: GOOD (  25.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,97 +77,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 12:53=E2=80=AFPM Lorenzo Stoakes <ljs@kernel.org> w=
-rote:
->
-> On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
->
-> > >
-> > > I think we either need to fix `fork()`, or keep the current
-> > > behavior of dropping the VMA lock before performing I/O.
-> >
-> > I see. So, this problem arises from the fact that we are changing the
-> > pagefaults requiring I/O operation to hold VMA lock...
-> > And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
-> > is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
-> > anonymous and COW VMAs only while holding mmap_write_lock, preventing
-> > any VMA modification. On the surface, that looks ok to me but I might
-> > be missing some corner cases. If nobody sees any obvious issues, I
-> > think it's worth a try.
->
-> Not sure if you noticed but I did raise concerns ;)
-
-Sorry, I didn't realize your first comment was a conceptual objection
-to this approach of allowing page faults to race with the fork.
 
 
->
-> I wonder if you've confused the fault path and fork here, as I think Barr=
-y has
-> been a little unclear on that.
->
-> What's being suggested in this thread is to fundamentally change fork beh=
-aviour
-> so it's different from the entire history of the kernel (or - presumably =
-- at
-> least recent history :) and permit concurrent page faults to occur on a f=
-orking
-> process.
->
-> I absolutely object to this for being pretty crazy. I mean I'm not sure w=
-e
-> really want to be simultaneously modifying page tables while invoking
-> copy_page_range()? No?
->
-> OK you cover anon and MAP_PRIVATE file-backed but hang on there's
-> VM_COPY_ON_FORK too.. so PFN mapped, mixed map and (the accursed) UFFD W/=
-P as
-> well as possibly-guard region containing VMAs now can have page tables ra=
-ced.
+在 2026/5/12 14:45, Umang Chheda 写道:
+> Hi Ruidong,
+> 
+> 
+> On 5/6/2026 1:40 PM, Ruidong Tian wrote:
+>> Hi Umang,
+>>
+>> Thanks for your patch.
+>>
+>> Would it be okay if I include this patch in the next version of the AEST
+>> patch series? I will make sure to add your Signed-off-by line.
+> 
+> 
+> Yes, you can include this patch in the next version - we will represent
+> it and respond to all of the queries received on DT specific patches.
+> 
+> How should I be sharing the patch fixes based on comments received from
+> maintainers to you ? so that you can include in your patch series ?
+> 
+> Also, when is your plan to post the next version fixing the comments
+> received ?
+> 
+> 
+> Thanks,
+> Umang
 
-Ugh, yeah, I realize now this is a minefield. Resolving all possible
-races there would not be trivial and might introduce other performance
-issues.
+Hi Umang,
 
->
-> That's not to mention anything else that relies on serialisation here (th=
-is
-> would be changing how forking has been done in general) that we may or ma=
-y not
-> know about.
->
-> The risk level is high, for what amounts to a hack to work around the fau=
-lt
-> issue.
->
-> I suggest that if we have a problem with the fault path, let's look at th=
-e fault
-> path :)
->
-> So yeah I'm very opposed to this unless I'm somehow horribly mistaken her=
-e or a
-> very convincing argument is made.
+Thanks for your feedback.
 
-So, current approach of dropping locks during I/O sounds like still
-the best solution.
+I plan to complete the development of the next version within the next 
+two weeks. During this period, there may still be some issues or 
+questions, and I will bring them up for discussion as they arise.
 
->
->
-> >
-> >
-> >
-> >
-> > >
-> > > >
-> > > > I'd also like to get Suren's input, however.
-> > >
-> > > Yes. of course.
-> > >
-> > > >
-> > > > Thanks, Lorenzo
-> > >
-> > > Best Regards
-> > > Barry
->
-> Cheers, Lorenzo
+Once all the comments and related issues are resolved, I will post the 
+updated version of the patch series.
+
+Best regards,
+Ruidong
+> 
+> 
+>>
+>> Best regards,
+>> Ruidong
+>>
+>> 在 2026/5/5 20:23, Umang Chheda 写道:
+>>> This series extends Tian Ruidong’s [1] ACPI-based AEST support series
+>>> to also cover Device Tree based platforms.
+>>>
+>>> While the existing AEST driver relies on the AEST ACPI table [3], many
+>>> embedded Arm platforms use Device Tree exclusively and cannot use the
+>>> driver today. This series adds a DT frontend that mirrors the ACPI
+>>> implementation and feeds the same core driver, keeping ACPI and DT
+>>> paths functionally equivalent.
+>>>
+>>> Along the way, several correctness issues were identified in the core
+>>> driver and are fixed in the first part of this series.
+>>>
+>>> The DT frontend is mutually exclusive with ACPI and does not introduce
+>>> any DT-specific logic into the core.
+>>>
+>>> How to test with QEMU
+>>> --------------------------
+>>> Tian Ruidong's QEMU fork [2] emulates AEST MMIO error records on the
+>>> virt machine.  To test the DT frontend:
+>>>
+>>> 1. Build QEMU:
+>>>
+>>>        git clone https://github.com/winterddd/qemu.git
+>>>        cd qemu
+>>>        git checkout c5e2d5dec9fd62ba622314c40bff0fbecb4dfb34
+>>>        ./configure --target-list=aarch64-softmmu
+>>>        make -j$(nproc)
+>>>
+>>> 2. Build the kernel with:
+>>>
+>>>        CONFIG_OF_AEST=y
+>>>        CONFIG_AEST=y
+>>>        CONFIG_ARM64_RAS_EXTN=y
+>>>        CONFIG_RAS=y
+>>>
+>>> 3. Add the following DT node to your virt machine DTB.  The QEMU
+>>>      fork maps DRAM error records at 0x090d0000 (SPI 44) and CMN
+>>>      vendor records at 0x090e0000 (SPI 45):
+>>>
+>>>        aest {
+>>>            compatible = "arm,aest";
+>>>            #address-cells = <2>;
+>>>            #size-cells = <2>;
+>>>            ranges;
+>>>            interrupt-parent = <&gic>;
+>>>
+>>>            /* DRAM memory node — MMIO at 0x090d0000, SPI 44 */
+>>>            aest-dram0@90d0000 {
+>>>                compatible               = "arm,aest-memory";
+>>>                arm,interface-type       = <1>;
+>>>                arm,group-format         = <0>;
+>>>                arm,interface-flags      = <0x22>;
+>>>                arm,num-records          = <4>;
+>>>                arm,record-impl          = /bits/ 64 <0x0>;
+>>>                arm,status-report        = /bits/ 64 <0x0>;
+>>>                arm,addr-mode            = /bits/ 64 <0x0>;
+>>>                arm,proximity-domain     = <0>;
+>>>                reg                      = <0x0 0x090d0000 0x0 0x1000>,
+>>>                                           <0x0 0x090d0800 0x0 0x200>,
+>>>                                           <0x0 0x090d0e00 0x0 0x100>;
+>>>                reg-names                = "errblock", "fault-inject",
+>>>                                           "err-group";
+>>>                interrupts               = <GIC_SPI 44
+>>> IRQ_TYPE_LEVEL_HIGH>;
+>>>                interrupt-names          = "fhi";
+>>>            };
+>>>      };
+>>>
+>>> 4. Boot QEMU with acpi=off:
+>>>
+>>>        ./qemu-system-aarch64 \
+>>>          -machine virt,accel=tcg,gic-version=3 \
+>>>          -cpu cortex-a57 -m 2G -smp 4 \
+>>>          -kernel Image -dtb virt-aest.dtb \
+>>>          -append "console=ttyAMA0 acpi=off earlycon" \
+>>>          -nographic
+>>>
+>>> 5. Verify probe:
+>>>
+>>>        dmesg | grep "DT AEST"
+>>>        # Expected: DT AEST: registered 1 AEST error source(s) from DT
+>>>        ls /sys/kernel/debug/aest/
+>>>
+>>> 6. Inject a CE error via the QEMU MMIO fault injection registers.
+>>>      The QEMU device accepts 64-bit accesses only (use devmem with
+>>>      the 64-bit width flag):
+>>>
+>>>        devmem 0x090d0808 64 0x80000040   # CDOFF | CE inject
+>>>
+>>>      This triggers QEMU's error_record_inj_write() which sets
+>>>      ERR<n>STATUS.V=1 and asserts the IRQ.  The kernel driver's
+>>>      aest_irq_func() fires, reads the status, and logs:
+>>>
+>>>        AEST: {1}[Hardware Error]: Hardware error from AEST memory.90d0000
+>>>        AEST: {1}[Hardware Error]: Error from memory at SRAT proximity
+>>> domain 0x0
+>>>
+>>> Testing
+>>> -------
+>>> - Validated on Qualcomm's lemans-evk and monaco-evk board with DT boot.
+>>> - Validated CE and UE injection via debugfs soft_inject.
+>>> - Tested ACPI path is unaffected: ACPI boot continues to use
+>>>     drivers/acpi/arm64/aest.c unchanged.
+>>>
+>>> [1] https://lore.kernel.org/lkml/20260122094656.73399-1-
+>>> tianruidong@linux.alibaba.com/
+>>> [2] https://github.com/winterddd/qemu/tree/error_record
+>>> [3] https://developer.arm.com/documentation/den0085/0200/
+>>>
+>>> Signed-off-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
+>>> ---
+>>> Umang Chheda (8):
+>>>         ras: aest: Fix shared processor node handling and error log
+>>> messages
+>>>         ras: aest: Fix CE/UE error counts not incrementing in debugfs
+>>>         ras: aest: Skip unimplemented records in debugfs
+>>>         ras: aest: Add panic_on_ue module parameter
+>>>         dt-bindings: arm: ras: Introduce bindings for ARM AEST
+>>>         ras: aest: Add DT frontend for ARM AEST RAS error sources
+>>>         arm64: dts: qcom: lemans: add AEST error nodes
+>>>         arm64: dts: qcom: monaco: add AEST error nodes
+>>>
+>>>    .../devicetree/bindings/arm/arm,aest.yaml          | 406 +++++++++++++
+>>>    arch/arm64/boot/dts/qcom/lemans.dtsi               |  41 ++
+>>>    arch/arm64/boot/dts/qcom/monaco.dtsi               |  41 ++
+>>>    drivers/ras/aest/Kconfig                           |  15 +-
+>>>    drivers/ras/aest/Makefile                          |   2 +
+>>>    drivers/ras/aest/aest-core.c                       |  63 +-
+>>>    drivers/ras/aest/aest-of.c                         | 673 +++++++++++
+>>> ++++++++++
+>>>    drivers/ras/aest/aest-sysfs.c                      |  27 +-
+>>>    drivers/ras/aest/aest.h                            |  15 +-
+>>>    include/dt-bindings/arm/aest.h                     |  43 ++
+>>>    10 files changed, 1310 insertions(+), 16 deletions(-)
+>>> ---
+>>> base-commit: a67b7fd0dd1f6ccf3d128dc2099cdb07af1f6a09
+>>> change-id: 20260505-aest-devicetree-support-a3722d90e1f5
+>>> prerequisite-message-id: <20260122094656.73399-1-
+>>> tianruidong@linux.alibaba.com>
+>>> prerequisite-patch-id: c5a7c6431c6c1e6351241e694ee053800039d41d
+>>> prerequisite-patch-id: 1f6e2c20829eee41a210dd8a538f1e8efcc65872
+>>> prerequisite-patch-id: 5556287e3f46c2ed2c0431c53c7782e87bcbd866
+>>> prerequisite-patch-id: 2edae0a136d7779b8f686181720e71d044a73311
+>>> prerequisite-patch-id: b5190b2844dcb01e72f87a59f3a29548795fdb82
+>>> prerequisite-patch-id: 7ba848583708b2ae776a7ce847bb056e3de7f77b
+>>> prerequisite-patch-id: 397e5b22802b67942435f4f2968f0b1e210ba0e8
+>>> prerequisite-patch-id: 2169f4b65537eecbd0ccbd2ad6b28c64ec44655d
+>>> prerequisite-patch-id: b626f85d98747595b3240bc49e6ad9c9dd5c0fa9
+>>> prerequisite-patch-id: 1323dfd2eebad2ef6514dbbce58ba08e8859f894
+>>> prerequisite-patch-id: 95b826e5e329408437a3ef336c4f45d4d74f82bb
+>>> prerequisite-patch-id: b60ff489a5a33c5d5220fa8144af7b7511769cba
+>>> prerequisite-patch-id: 43f35a52b8a3d13c938ff08083403c1d3bd0df8b
+>>> prerequisite-patch-id: c55d4e9117ca36d3c2cba82d550a618cb82bb745
+>>> prerequisite-patch-id: 3885e10f318ae8101d6909b35d92a976cc359e3c
+>>> prerequisite-patch-id: 92958cde05577f069c5659018a274bb39cfb6b24
+>>>
+>>> Best regards,
+>>> -- 
+>>> Umang Chheda <umang.chheda@oss.qualcomm.com>
+>>>
+>>
+
 
