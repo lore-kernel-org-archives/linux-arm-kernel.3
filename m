@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB6ECD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 23:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE56CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 23:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMhH/6NUdUsOwZ43W9GcUBGpE2q5j2slg3yaBUnYIhk=; b=05AkfcHnpq501HQYcjA4NQ2BOa
-	3HRKgphKB8NuMFMRAkMbHi+hq43z1u+NP4uROwNlHnPKg1flArCEywzB9jw4mKlpcMp02GXuLqCxT
-	rMp3PpIwxuPIoOiQnbrngSWQlpDeay+B2pggkSS5/hY40VtwtfLOa5WN1oHyxfaG1VXrmspGqDtFN
-	UPLDWjbw+5VfF0somD0QAmCCtb0Sn530zAoip2rVVwfTE8cwTaBmZUFFJlPum3VMmi64iJBf8vGH7
-	Jbso01dE6pJFB7sqK1VrkHto9TX3aLWzXdE6lkPB0OuVK7i0A6QPBOwn7fC/NHf2QyzjbksvKWNUW
-	zS2HZluw==;
+	bh=C5B01WmAERz0FAb+2U36sWTc4ic5I5yhwvS5EjBXihQ=; b=kjiBCmOYNEHOXAjYS1nfcNnI8f
+	/zykj6Qg4gzWRBRm2D9K268ZUX8AhZpeJCS3IguCc4R3Ke/on8agv+elkUmhnZz9I44K7lq+7CfyM
+	ZJEPz8A4TNX5x8I+P4nYCmUI8TnwmysTBae7pl61Rc/Q45W0pM/grwpH+a4X7rV2MEdfvmvvWmwDI
+	q6AoUz04a9z2ajoIFjmYlOO+YMCrAANm7bvo6riGIgPrWIXVbtAUQxbkmMD9QcTxRNK+vB3dDOMVO
+	EGVuRd2vS9vtI0nDTV4BxVKJp2msya+vMJf1E0eTUzG6m4i/oNlruHuRRBLAwyJmtbbyaGXvOW2kG
+	9ml1VEAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPqgt-00000006Cio-0POw;
-	Wed, 20 May 2026 23:51:07 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPqgs-00000006ChL-1Wep;
+	Wed, 20 May 2026 23:51:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPqgn-00000006Cf2-3byS
+	id 1wPqgl-00000006Cdz-0rXx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 23:51:03 +0000
+	Wed, 20 May 2026 23:50:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7805F40AFB;
-	Wed, 20 May 2026 23:51:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E6651F00A3A;
-	Wed, 20 May 2026 23:51:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A56E360218;
+	Wed, 20 May 2026 23:50:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 350261F00A3D;
+	Wed, 20 May 2026 23:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779321061;
-	bh=yMhH/6NUdUsOwZ43W9GcUBGpE2q5j2slg3yaBUnYIhk=;
+	s=k20260515; t=1779321058;
+	bh=C5B01WmAERz0FAb+2U36sWTc4ic5I5yhwvS5EjBXihQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZuuX3/V3xRj61c4UO4p/uU1G8dcy6y2KTeqb5VH9n+x4Xz3f372IZCL8iV76rMwoZ
-	 tnioUcaU2bz4nsaSFZWVhApS556BOk+w/2FpHM1FFHgfRwIcmrO+4CXkPOIz6eigZJ
-	 DzwbEEqWtJYeEkXrs93b9p3y9JkvbOAjtlwNc6jfckiNJzyWZj9yYJnEr3OqL4qnOs
-	 MDOvTC9qB49PmaNaf2/HY20zTVMQbiaZyZQRpdZ5Ka+HFKFFoK5xrarIqmXa2fsyfY
-	 zh7ELUzF7SKDYOQ7IIXgj77Q22587Bd6X4LmSUC46vsB0VhoEbTUhHq6v6d1RJf/at
-	 RqhMdfi7l4UwA==
+	b=CarpkMgwagcPzBChV2WOC+aDWnTKcWssSXw9EDJxPeAftz6tZwWo0Hee4ZFSXUQ3I
+	 HnhTDCKYTNW7RWkzmNZVWawH18BBPDqse6XoOT5OlE+jn8MKg5ZDLp/2vZgiCx/QyK
+	 0+Zdj+kKCM7BbZXKYq4DduZ7FP+WaMchuCP6MkeEudGYAoY262qZ3w8acPGyMpAHyN
+	 7RtOIxSsW3gI171HgViaiKPiVljtkUNyF99FHCszdkRNsZqP5T8csPiBfFRiVnfwfc
+	 f9lmVHGPx7XdDcAvI89S4O65OlQCXdZF9tKGfQ+h4e5Jo3EOpm5Um6rBY2kWgKGPeF
+	 ezXYZohGzAvlg==
 From: Tejun Heo <tj@kernel.org>
 To: David Vernet <void@manifault.com>,
 	Andrea Righi <arighi@nvidia.com>,
@@ -69,17 +69,14 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	Tejun Heo <tj@kernel.org>
-Subject: [PATCH 8/8] sched_ext: Convert ops.set_cmask() to arena-resident cmask
-Date: Wed, 20 May 2026 13:50:52 -1000
-Message-ID: <20260520235052.4180316-9-tj@kernel.org>
+Subject: [PATCH 5/8] bpf/arena: Add bpf_arena_map_kern_vm_start() and bpf_prog_arena()
+Date: Wed, 20 May 2026 13:50:49 -1000
+Message-ID: <20260520235052.4180316-6-tj@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260520235052.4180316-1-tj@kernel.org>
 References: <20260520235052.4180316-1-tj@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_165102_361094_19557F14 
-X-CRM114-Status: GOOD (  27.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,300 +91,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ops_cid.set_cmask() expects a cmask. The kernel couldn't write into the
-arena, so it translated cpumask -> cmask in kernel memory and passed the
-result as a trusted pointer. The BPF cmask helpers all operate on arena
-cmasks though, so the BPF side had to word-by-word probe-read the kernel
-cmask into an arena cmask via cmask_copy_from_kernel() before any helper
-could touch it. It works, but is clumsy.
+struct bpf_arena is opaque to callers outside arena.c. Add two helpers
+for struct_ops subsystems that need to reach into an arena:
 
-With direct kernel-side arena access now in place, build the cmask in the
-arena. The kernel writes to it through the kern_va side of the dual mapping;
-BPF directly dereferences it via an __arena pointer like any other arena
-struct.
+  bpf_arena_map_kern_vm_start(struct bpf_map *map)
+    returns @map's kern_vm_start. A sched_ext follow-up needs this
+    to translate kern_va <-> uaddr.
 
+  bpf_prog_arena(struct bpf_prog *prog)
+    returns the bpf_map of the arena referenced by @prog (NULL if
+    @prog references no arena). The verifier enforces at most one
+    arena per program. Used by struct_ops callers that auto-discover
+    an arena from a member prog and need to take a map reference.
+
+Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 Signed-off-by: Tejun Heo <tj@kernel.org>
 ---
- kernel/sched/ext.c                    | 68 +++++++++++++++++++++++++--
- kernel/sched/ext_cid.c                | 20 +-------
- kernel/sched/ext_internal.h           | 10 +++-
- tools/sched_ext/include/scx/cid.bpf.h | 52 --------------------
- tools/sched_ext/scx_qmap.bpf.c        |  5 +-
- 5 files changed, 75 insertions(+), 80 deletions(-)
+ include/linux/bpf.h |  2 ++
+ kernel/bpf/arena.c  | 26 ++++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
 
-diff --git a/kernel/sched/ext.c b/kernel/sched/ext.c
-index fb91079c1244..94562e3350c6 100644
---- a/kernel/sched/ext.c
-+++ b/kernel/sched/ext.c
-@@ -621,11 +621,16 @@ static inline void scx_call_op_set_cpumask(struct scx_sched *sch, struct rq *rq,
- 		update_locked_rq(rq);
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 5b99d786e98c..e1ba57c10aaa 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -618,6 +618,8 @@ void bpf_rb_root_free(const struct btf_field *field, void *rb_root,
+ 		      struct bpf_spin_lock *spin_lock);
+ u64 bpf_arena_get_kern_vm_start(struct bpf_arena *arena);
+ u64 bpf_arena_get_user_vm_start(struct bpf_arena *arena);
++u64 bpf_arena_map_kern_vm_start(struct bpf_map *map);
++struct bpf_map *bpf_prog_arena(struct bpf_prog *prog);
+ int bpf_obj_name_cpy(char *dst, const char *src, unsigned int size);
  
- 	if (scx_is_cid_type()) {
--		struct scx_cmask *cmask = this_cpu_ptr(scx_set_cmask_scratch);
--
--		lockdep_assert_irqs_disabled();
--		scx_cpumask_to_cmask(cpumask, cmask);
--		sch->ops_cid.set_cmask(task, cmask);
-+		struct scx_cmask *kern_va = *this_cpu_ptr(sch->set_cmask_scratch);
-+		unsigned long uaddr = (unsigned long)kern_va -
-+			bpf_arena_map_kern_vm_start(sch->arena_map);
-+		/*
-+		 * Build the per-CPU arena cmask and hand BPF the uaddr. Caller
-+		 * holds the rq lock with IRQs disabled, which makes us the sole
-+		 * user of the scratch area.
-+		 */
-+		scx_cpumask_to_cmask(cpumask, kern_va);
-+		sch->ops_cid.set_cmask(task, (struct scx_cmask *)uaddr);
- 	} else {
- 		sch->ops.set_cpumask(task, cpumask);
- 	}
-@@ -4949,6 +4954,48 @@ static const struct attribute_group scx_global_attr_group = {
- static void free_pnode(struct scx_sched_pnode *pnode);
- static void free_exit_info(struct scx_exit_info *ei);
+ struct bpf_offload_dev;
+diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
+index a811cf6170fa..51b9ae36feb6 100644
+--- a/kernel/bpf/arena.c
++++ b/kernel/bpf/arena.c
+@@ -84,6 +84,32 @@ u64 bpf_arena_get_user_vm_start(struct bpf_arena *arena)
+ 	return arena ? arena->user_vm_start : 0;
+ }
  
-+static s32 scx_set_cmask_scratch_alloc(struct scx_sched *sch)
++/**
++ * bpf_arena_map_kern_vm_start - kern_vm_start lookup by struct bpf_map *
++ * @map: a BPF_MAP_TYPE_ARENA map
++ *
++ * Return @map's kern_vm_start.
++ */
++u64 bpf_arena_map_kern_vm_start(struct bpf_map *map)
 +{
-+	size_t size = struct_size_t(struct scx_cmask, bits,
-+				    SCX_CMASK_NR_WORDS(num_possible_cpus()));
-+	int cpu;
-+
-+	if (!sch->is_cid_type || !sch->arena_pool)
-+		return 0;
-+
-+	sch->set_cmask_scratch = alloc_percpu(struct scx_cmask *);
-+	if (!sch->set_cmask_scratch)
-+		return -ENOMEM;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct scx_cmask **slot = per_cpu_ptr(sch->set_cmask_scratch, cpu);
-+
-+		*slot = scx_arena_alloc(sch, size);
-+		if (!*slot)
-+			return -ENOMEM;
-+		scx_cmask_init(*slot, 0, num_possible_cpus());
-+	}
-+	return 0;
++	return bpf_arena_get_kern_vm_start(container_of(map, struct bpf_arena, map));
 +}
 +
-+static void scx_set_cmask_scratch_free(struct scx_sched *sch)
++/**
++ * bpf_prog_arena - return the bpf_map of the arena referenced by @prog
++ * @prog: a loaded BPF program
++ *
++ * The verifier enforces at most one arena per program and stores it in
++ * prog->aux->arena. Return that arena's underlying bpf_map, or NULL if
++ * @prog does not reference an arena.
++ */
++struct bpf_map *bpf_prog_arena(struct bpf_prog *prog)
 +{
-+	size_t size = struct_size_t(struct scx_cmask, bits,
-+				    SCX_CMASK_NR_WORDS(num_possible_cpus()));
-+	int cpu;
++	struct bpf_arena *arena = prog->aux->arena;
 +
-+	if (!sch->set_cmask_scratch)
-+		return;
-+
-+	for_each_possible_cpu(cpu) {
-+		struct scx_cmask **slot = per_cpu_ptr(sch->set_cmask_scratch, cpu);
-+
-+		scx_arena_free(sch, *slot, size);
-+	}
-+	free_percpu(sch->set_cmask_scratch);
-+	sch->set_cmask_scratch = NULL;
++	return arena ? &arena->map : NULL;
 +}
 +
- static void scx_sched_free_rcu_work(struct work_struct *work)
+ static long arena_map_peek_elem(struct bpf_map *map, void *value)
  {
- 	struct rcu_work *rcu_work = to_rcu_work(work);
-@@ -5003,6 +5050,7 @@ static void scx_sched_free_rcu_work(struct work_struct *work)
- 
- 	rhashtable_free_and_destroy(&sch->dsq_hash, NULL, NULL);
- 	free_exit_info(sch->exit_info);
-+	scx_set_cmask_scratch_free(sch);
- 	scx_arena_pool_destroy(sch);
- 	if (sch->arena_map)
- 		bpf_map_put(sch->arena_map);
-@@ -7162,6 +7210,12 @@ static void scx_root_enable_workfn(struct kthread_work *work)
- 		goto err_disable;
- 	}
- 
-+	ret = scx_set_cmask_scratch_alloc(sch);
-+	if (ret) {
-+		cpus_read_unlock();
-+		goto err_disable;
-+	}
-+
- 	for (i = SCX_OPI_CPU_HOTPLUG_BEGIN; i < SCX_OPI_CPU_HOTPLUG_END; i++)
- 		if (((void (**)(void))ops)[i])
- 			set_bit(i, sch->has_op);
-@@ -7484,6 +7538,10 @@ static void scx_sub_enable_workfn(struct kthread_work *work)
- 	if (ret)
- 		goto err_disable;
- 
-+	ret = scx_set_cmask_scratch_alloc(sch);
-+	if (ret)
-+		goto err_disable;
-+
- 	if (validate_ops(sch, ops))
- 		goto err_disable;
- 
-diff --git a/kernel/sched/ext_cid.c b/kernel/sched/ext_cid.c
-index 0c91b951fd33..808c6390da5a 100644
---- a/kernel/sched/ext_cid.c
-+++ b/kernel/sched/ext_cid.c
-@@ -7,14 +7,6 @@
-  */
- #include <linux/cacheinfo.h>
- 
--/*
-- * Per-cpu scratch cmask used by scx_call_op_set_cpumask() to synthesize a
-- * cmask from a cpumask. Allocated alongside the cid arrays on first enable
-- * and never freed. Sized to the full cid space. Caller holds rq lock so
-- * this_cpu_ptr is safe.
-- */
--struct scx_cmask __percpu *scx_set_cmask_scratch;
--
- /*
-  * cid tables.
-  *
-@@ -54,8 +46,6 @@ static s32 scx_cid_arrays_alloc(void)
- 	u32 npossible = num_possible_cpus();
- 	s16 *cid_to_cpu, *cpu_to_cid;
- 	struct scx_cid_topo *cid_topo;
--	struct scx_cmask __percpu *set_cmask_scratch;
--	s32 cpu;
- 
- 	if (scx_cid_to_cpu_tbl)
- 		return 0;
-@@ -63,25 +53,17 @@ static s32 scx_cid_arrays_alloc(void)
- 	cid_to_cpu = kzalloc_objs(*scx_cid_to_cpu_tbl, npossible, GFP_KERNEL);
- 	cpu_to_cid = kzalloc_objs(*scx_cpu_to_cid_tbl, nr_cpu_ids, GFP_KERNEL);
- 	cid_topo = kmalloc_objs(*scx_cid_topo, npossible, GFP_KERNEL);
--	set_cmask_scratch = __alloc_percpu(struct_size(set_cmask_scratch, bits,
--						       SCX_CMASK_NR_WORDS(npossible)),
--					   sizeof(u64));
- 
--	if (!cid_to_cpu || !cpu_to_cid || !cid_topo || !set_cmask_scratch) {
-+	if (!cid_to_cpu || !cpu_to_cid || !cid_topo) {
- 		kfree(cid_to_cpu);
- 		kfree(cpu_to_cid);
- 		kfree(cid_topo);
--		free_percpu(set_cmask_scratch);
- 		return -ENOMEM;
- 	}
- 
- 	WRITE_ONCE(scx_cid_to_cpu_tbl, cid_to_cpu);
- 	WRITE_ONCE(scx_cpu_to_cid_tbl, cpu_to_cid);
- 	WRITE_ONCE(scx_cid_topo, cid_topo);
--	for_each_possible_cpu(cpu)
--		scx_cmask_init(per_cpu_ptr(set_cmask_scratch, cpu),
--			       0, npossible);
--	WRITE_ONCE(scx_set_cmask_scratch, set_cmask_scratch);
- 	return 0;
- }
- 
-diff --git a/kernel/sched/ext_internal.h b/kernel/sched/ext_internal.h
-index ff7e882bd67a..9bb65367f510 100644
---- a/kernel/sched/ext_internal.h
-+++ b/kernel/sched/ext_internal.h
-@@ -1124,6 +1124,14 @@ struct scx_sched {
- 	struct bpf_map		*arena_map;
- 	struct gen_pool		*arena_pool;
- 
-+	/*
-+	 * Per-CPU arena cmask used by scx_call_op_set_cpumask() to hand a cmask
-+	 * to ops_cid.set_cmask(). The kernel writes through the stored kern_va;
-+	 * the BPF-arena uaddr handed to BPF is recovered by subtracting the
-+	 * arena's kern_vm_start.
-+	 */
-+	struct scx_cmask * __percpu *set_cmask_scratch;
-+
- 	DECLARE_BITMAP(has_op, SCX_OPI_END);
- 
- 	/*
-@@ -1480,8 +1488,6 @@ enum scx_ops_state {
- extern struct scx_sched __rcu *scx_root;
- DECLARE_PER_CPU(struct rq *, scx_locked_rq_state);
- 
--extern struct scx_cmask __percpu *scx_set_cmask_scratch;
--
- /*
-  * True when the currently loaded scheduler hierarchy is cid-form. All scheds
-  * in a hierarchy share one form, so this single key tells callsites which
-diff --git a/tools/sched_ext/include/scx/cid.bpf.h b/tools/sched_ext/include/scx/cid.bpf.h
-index e281c88fa824..70f2a3829af4 100644
---- a/tools/sched_ext/include/scx/cid.bpf.h
-+++ b/tools/sched_ext/include/scx/cid.bpf.h
-@@ -675,56 +675,4 @@ static __always_inline void cmask_from_cpumask(struct scx_cmask __arena *m,
- 	}
- }
- 
--/**
-- * cmask_copy_from_kernel - probe-read a kernel cmask into an arena cmask
-- * @dst: arena cmask to fill; must have @dst->base == 0 and be sized for @src.
-- * @src: kernel-memory cmask (e.g. ops.set_cmask() arg); @src->base must be 0.
-- *
-- * Word-for-word copy; @src and @dst must share base 0 alignment. Triggers
-- * scx_bpf_error() on probe failure or precondition violation.
-- */
--static __always_inline void cmask_copy_from_kernel(struct scx_cmask __arena *dst,
--						   const struct scx_cmask *src)
--{
--	u32 base = 0, nr_cids = 0, nr_words, wi;
--
--	if (dst->base != 0) {
--		scx_bpf_error("cmask_copy_from_kernel requires dst->base == 0");
--		return;
--	}
--
--	if (bpf_probe_read_kernel(&base, sizeof(base), &src->base)) {
--		scx_bpf_error("probe-read cmask->base failed");
--		return;
--	}
--	if (base != 0) {
--		scx_bpf_error("cmask_copy_from_kernel requires src->base == 0");
--		return;
--	}
--
--	if (bpf_probe_read_kernel(&nr_cids, sizeof(nr_cids), &src->nr_cids)) {
--		scx_bpf_error("probe-read cmask->nr_cids failed");
--		return;
--	}
--
--	if (nr_cids > dst->nr_cids) {
--		scx_bpf_error("src cmask nr_cids=%u exceeds dst nr_cids=%u",
--			      nr_cids, dst->nr_cids);
--		return;
--	}
--
--	nr_words = CMASK_NR_WORDS(nr_cids);
--	cmask_zero(dst);
--	bpf_for(wi, 0, CMASK_MAX_WORDS) {
--		u64 word = 0;
--		if (wi >= nr_words)
--			break;
--		if (bpf_probe_read_kernel(&word, sizeof(u64), &src->bits[wi])) {
--			scx_bpf_error("probe-read cmask->bits[%u] failed", wi);
--			return;
--		}
--		dst->bits[wi] = word;
--	}
--}
--
- #endif /* __SCX_CID_BPF_H */
-diff --git a/tools/sched_ext/scx_qmap.bpf.c b/tools/sched_ext/scx_qmap.bpf.c
-index 7e77f22674ea..8a2d6a8ebd8e 100644
---- a/tools/sched_ext/scx_qmap.bpf.c
-+++ b/tools/sched_ext/scx_qmap.bpf.c
-@@ -919,14 +919,15 @@ void BPF_STRUCT_OPS(qmap_update_idle, s32 cid, bool idle)
- }
- 
- void BPF_STRUCT_OPS(qmap_set_cmask, struct task_struct *p,
--		    const struct scx_cmask *cmask)
-+		    const struct scx_cmask *cmask_in)
- {
-+	struct scx_cmask __arena *cmask = (struct scx_cmask __arena *)(long)cmask_in;
- 	task_ctx_t *taskc;
- 
- 	taskc = lookup_task_ctx(p);
- 	if (!taskc)
- 		return;
--	cmask_copy_from_kernel(&taskc->cpus_allowed, cmask);
-+	cmask_copy(&taskc->cpus_allowed, cmask);
- }
- 
- struct monitor_timer {
+ 	return -EOPNOTSUPP;
 -- 
 2.54.0
 
