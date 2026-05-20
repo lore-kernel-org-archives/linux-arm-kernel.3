@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624C5CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 02:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CAACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 03:06:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BWviZjjto1yMbr31/bRcxfE0EG6NBe9FcUa0M9S8NIQ=; b=N7VCWsKQ9rz873QSHeO1RPDD8x
-	6X4HuTZZNWsYAsYF2hFdwKZ0HNSbVJUFM76mCsa+2kTBGB1ylpf5Ev50b3YLqrG3TTZbdAwOD7wIO
-	qy1YrhxjKbR7yN0nelahLSWekTa8Wj5PxmQABp/x3gM6eMpqu/BY8Y1IpBfVvWFLkB2IaUzc+zzKn
-	vrpCte58j8/pUCg+9ZJ4kqBNLBNOzzaY5E08ZKIOyoL4qWyjbVAFI/bZbp1OOkLZnRPF25h7OyNuk
-	4Ip3/9hKIfQZR4V/Oy6rUHiOg4x8I5wO2BVgALkwx+z4CFq+GKAkvfvPqqf+gGVo+JWjUKEpmUAHY
-	VNoJ1xTw==;
+	bh=nIAQ9DaAotLVRz2iB1AFoG5yBrv9qo1aI5uct5Q5rhg=; b=SoeatcgAqDGHOV3BXM+45lAXGw
+	Z/ITzC1iyxcRu1MAuv1Zl/55BT+MbQpwqV6FthgN5faYWfStNzLcxHenxYaTv3Cyilbvrs990Sm4W
+	IHdjn/a1fsZUK885CEPgKzQjOF0ghyCK7UxDwdc7+O2NR0crH6oodSSpjWVmgQAVwfNhy/LiyitUB
+	j7VwGb/wjlq1d4JTP/ZBMCdQPNihUPO7H/pD5X1OfNtE2r2LUIBZZaRIwYSGe/jM0Fok2YL8/ObMy
+	aobwV4ejVpHtV7madOqmzia+zmqKcklnRRwftoaGAGLbylFGeMLDfcIQ8pHK8hE9KUBYppcJ3KtMu
+	WTWTbYbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPX6T-00000003La2-19Pg;
-	Wed, 20 May 2026 02:56:13 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wPXGE-00000003MSu-1iXp;
+	Wed, 20 May 2026 03:06:18 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPX6P-00000003LYs-0ajg
+	id 1wPXG9-00000003MRs-1JEq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 02:56:12 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=BWviZjjto1yMbr31/bRcxfE0EG6NBe9FcUa0M9S8NIQ=;
-	b=J5NIh9A8MN5cskdCn1evrZmIx8Lf9Tt5gNdTZZoRlA2govlmA45MNU8QNpEjtIcQSd9s8SVTl
-	pDOSy/blsBC06wlkc0rMlaVTEosk3cQJXX7NAEuZlknRuD0CvMnV2HLelemEMyOulgyLuf1mcL+
-	nqb7yB5xiv+hXh/dgVkERzA=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gKwvf1XgLzmV6b;
-	Wed, 20 May 2026 10:48:14 +0800 (CST)
-Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
-	by mail.maildlp.com (Postfix) with ESMTPS id 966E8402AB;
-	Wed, 20 May 2026 10:55:56 +0800 (CST)
-Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
- (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 20 May
- 2026 10:55:55 +0800
-Message-ID: <443104e2-ba6e-454e-8469-909f35817a99@huawei.com>
-Date: Wed, 20 May 2026 10:55:54 +0800
+	Wed, 20 May 2026 03:06:16 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-367c26471f5so2686199a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 20:06:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779246372; x=1779851172; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nIAQ9DaAotLVRz2iB1AFoG5yBrv9qo1aI5uct5Q5rhg=;
+        b=MpWg5spkO0vqZScZsi1CV196FJOwvRaEOtQuGqRls5bVotM8xg3vqbHdplUQuNuyTD
+         PgTvVC30HCEMndFF3tK0392hvrrkYUOqsvuWQcBUTe8s+167cafjSLe9CSUt6lYkkWTO
+         Pz5TcqljYpAejI/x7D+MVMhSrzrInGxtbezCPu0ZCbTiWWUBTsj1QMOjvHZMAdt6WZ8G
+         v4vItyRfqvZld5m1C1fR2ivj4A0vAFg0y8/HcP+l4B9OHDe/F5aujhp9zMb6Lvn1Imjw
+         RFjN3jmX/6TJ4u27bPo7MozKrKM1sUQ+nRNXbhNPQojtECuNmEON18UzDsqkgQhTnbnv
+         70bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779246372; x=1779851172;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nIAQ9DaAotLVRz2iB1AFoG5yBrv9qo1aI5uct5Q5rhg=;
+        b=EEX/MMi2OEQ17LK6eebdEE34uuNIAWC7r3Nng/a8SbGutFslJr6+RS0ps+KXM5cYv4
+         3aCJLS0dZ3CnR/nYaPXdqNf9zE87VYCZ1DXeHsudLnDyp+NAh2YC+D+FcBB7/s29dyVS
+         74aheWk7oRz1/ipWhZG+M226BKqaB0O57IvE1MV8j7+z8hwBMeSyKIL8sTvl/4l0ocF1
+         lrksBXfnBTYFOW4lCkmhfq1cp5+olwP9Wt0vWBVkdC3ZhUOR2bjlsVY+eK7tKATSrNN6
+         7eNlzLQg6+qUsqyB2EvffqGLuV2lA8uH50fEhGYfUT9TlciNk8WObC+JKYd30Gy+O6bd
+         AOAQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9L0MAKHEpd6BCIaJ+8CYnn1JZ3UKi2vWeK43oWtyrBYp6mk3A5QgkRaYdlv2GlbmTfVanONITgVj/1YRmeTwZX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2kqSotdm1Jt9FdOYglvxdgC8+D3bjr5r6sRzT49WkaHZU53Yh
+	qisQYWzYluo0SAq8iP2g6Jq01sSF4iwh+sIMLe/1jQZ2QlWZA66Ewta/
+X-Gm-Gg: Acq92OGSUd/SzLsqequwGC9mNW6EYhGZScX0ezfV4wuRaoD6whUfbZdyPGslGVWC0Ov
+	DRlstNxT+JRYZsjLi1qLJNJy7YzzwxWe2wVlGWQkupIVcw1twAhywIyIqjROx3G4Vu+W4SHd8rm
+	M2rDkdX4v3xMFfXrLQHJh4eAhp+W3o4OAi/SVNPvrIRCtJO24SXos4VkFm4RfEze3VrjAkNfaGV
+	cXmbXtDirnCmTtZ4khcBHOi6J4yFlMXZJmXFn/o60Vw6aWHs3lx0NNM/AmjgS9RBClY1wUF4OR2
+	Us0giSu1hVtCO5mlf1LSdyRBXGgmcyZc4If+q++UQ9UxSO4vOtIgER1VTUHk9WNBfQLVfjDfa7/
+	/rIEftUIzU/9QLslPSj2OPWG8Hf1EWRTCBtTa1PWD10T8agE0PCMYFhdDLClPQmJocRqxD8kqqE
+	2bBgBRuRDLL16xHlmMiZWguQtkZE6xDpW/9DBgSjpybB7a52TDCiLUC4jI5cwtx5i7b2kjuGEHJ
+	r52uJ8iTzi3LWs=
+X-Received: by 2002:a17:90b:1fce:b0:368:5367:d679 with SMTP id 98e67ed59e1d1-369519cb5d1mr21310800a91.9.1779246371983;
+        Tue, 19 May 2026 20:06:11 -0700 (PDT)
+Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-369514361b6sm15491821a91.12.2026.05.19.20.06.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 May 2026 20:06:11 -0700 (PDT)
+Message-ID: <a112cb8b-21fb-4c33-89a3-14a4feb5e3f9@gmail.com>
+Date: Wed, 20 May 2026 11:06:05 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] CPPC: reduce FFH feedback-counter sampling skew on
- arm64
-To: Will Deacon <will@kernel.org>
-CC: <catalin.marinas@arm.com>, <rafael@kernel.org>, <lenb@kernel.org>,
-	<robert.moore@intel.com>, <beata.michalska@arm.com>,
-	<zhenglifeng1@huawei.com>, <zhanjie9@hisilicon.com>, <sumitg@nvidia.com>,
-	<cuiyunhui@bytedance.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<acpica-devel@lists.linux.dev>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<wanghuiqiang@huawei.com>, <xuwei5@huawei.com>, <lihuisong@huawei.com>,
-	<yubowen8@huawei.com>, <wangzhi12@huawei.com>, <ionela.voinescu@arm.com>,
-	<jeremy.linton@arm.com>
-References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
- <aa1284c1-ea26-48ca-a7d7-022027c8228a@huawei.com>
- <agw_1IYaY4zeobZE@willie-the-truck>
-From: Pengjie Zhang <zhangpengjie2@huawei.com>
-In-Reply-To: <agw_1IYaY4zeobZE@willie-the-truck>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v2 1/4] dt-bindings: display: verisilicon, dc: generalize
+ for single-output variants
+To: Conor Dooley <conor@kernel.org>, Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260519055114.1886525-1-a0987203069@gmail.com>
+ <20260519055114.1886525-2-a0987203069@gmail.com>
+ <a66cc60fe163167e30e42f0b4be996cae1170a5e.camel@iscas.ac.cn>
+ <20260519-fretful-blush-1aac18fa1360@spud>
+Content-Language: en-US
+From: Joey Lu <a0987203069@gmail.com>
+In-Reply-To: <20260519-fretful-blush-1aac18fa1360@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.62]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_195610_071181_2175F6F4 
-X-CRM114-Status: GOOD (  24.06  )
+X-CRM114-CacheID: sfid-20260519_200615_131132_453014AC 
+X-CRM114-Status: GOOD (  28.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,131 +110,281 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 5/19/2026 6:47 PM, Will Deacon wrote:
-> On Thu, Apr 30, 2026 at 06:00:44PM +0800, zhangpengjie (A) wrote:
->> Hi all,
+On 5/20/2026 12:47 AM, Conor Dooley wrote:
+> On Tue, May 19, 2026 at 03:26:58PM +0800, Icenowy Zheng wrote:
+>> 在 2026-05-19二的 13:51 +0800，Joey Lu写道：
+>>> The existing schema assumes a fixed clock/reset topology and dual-
+>>> output
+>>> port structure matching the DC8200 IP block.  This prevents reuse for
+>>> single-output variants such as the Verisilicon DCU Lite used in the
+>>> Nuvoton MA35D1 SoC.
+>>>
+>>> Rework the schema so that variant-specific constraints are expressed
+>>> via allOf/if-then-else:
+>>>
+>>> - The thead,th1520-dc8200 compatible keeps its existing five-clock,
+>>>    three-reset, dual-port requirements.
+>>>
+>>> - A standalone verisilicon,dc compatible covers IPs whose identity is
+>>>    discovered entirely through hardware registers; these have flexible
+>>>    clock and reset counts, a single 'port' property, and no 'ports'
+>>>    requirement.
+>>>
+>>> Changes to the base schema:
+>>> - Replace the fixed clock/reset items lists with minItems/maxItems
+>>>    ranges; variant sub-schemas tighten the constraints via if-then-
+>>> else.
+>>> - Add a 'port' property (graph.yaml single-port alias) alongside the
+>>>    existing 'ports', for single-output variants.
+>>> - Drop the unconditional 'ports' requirement; each if-branch enforces
+>>>    its own port topology.
+>>> - Tighten additionalProperties to unevaluatedProperties to allow
+>>>    per-variant schemas to add their own constraints cleanly.
+>>> - Fix a stray space in the port@0 description.
+>>> - Add a DT example for the generic verisilicon,dc compatible
+>>>    (Nuvoton MA35D1 DCU Lite).
+>>>
+>>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>>> ---
+>>>   .../bindings/display/verisilicon,dc.yaml      | 135 ++++++++++++++--
+>>> --
+>>>   1 file changed, 108 insertions(+), 27 deletions(-)
+>>>
+>>> diff --git
+>>> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>> index 9dc35ab973f2..3a814c2e083e 100644
+>>> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+>>> @@ -14,10 +14,12 @@ properties:
+>>>       pattern: "^display@[0-9a-f]+$"
+>>>   
+>>>     compatible:
+>>> -    items:
+>>> -      - enum:
+>>> -          - thead,th1520-dc8200
+>> You should add a fallback compatible here for your SoC, in case its
+>> integration gets something quirky; this compatible is usually not
+>> consumed by the driver (see how thead,th1520-dc8200 exists in the
+>> binding but not the driver).
+> s/fallback compatible/soc-specific compatible/, but yes.
+> NAK to what's been done here, especially after the discussions on
+> earlier versions of this verisilicon binding.
+> pw-bot: changes-requested
+Understood. I will add `nuvoton,ma35d1-dcu` as the SoC-specific 
+compatible string paired with `verisilicon,dc` as the generic fallback, 
+matching the pattern used for `thead,th1520-dc8200`. The standalone 
+`verisilicon,dc` compatible will be removed from the binding. The driver 
+match table is not changed since hardware detection is done via ID 
+registers.
+>>> -      - const: verisilicon,dc # DC IPs have discoverable ID/revision
+>>> registers
+>>> +    oneOf:
+>>> +      - items:
+>>> +          - enum:
+>>> +              - thead,th1520-dc8200
+>>> +          - const: verisilicon,dc
+>>> +      - const: verisilicon,dc  # DC IPs have discoverable
+>>> ID/revision registers
+>>>   
+>>>     reg:
+>>>       maxItems: 1
+>>> @@ -26,32 +28,24 @@ properties:
+>>>       maxItems: 1
+>>>   
+>>>     clocks:
+>>> -    items:
+>>> -      - description: DC Core clock
+>>> -      - description: DMA AXI bus clock
+>>> -      - description: Configuration AHB bus clock
+>>> -      - description: Pixel clock of output 0
+>>> -      - description: Pixel clock of output 1
+>>> +    minItems: 2
+>>> +    maxItems: 5
+>>>   
+>>>     clock-names:
+>>> -    items:
+>>> -      - const: core
+>>> -      - const: axi
+>>> -      - const: ahb
+>>> -      - const: pix0
+>>> -      - const: pix1
+>>> +    minItems: 2
+>>> +    maxItems: 5
+>>>   
+>>>     resets:
+>>> -    items:
+>>> -      - description: DC Core reset
+>>> -      - description: DMA AXI bus reset
+>>> -      - description: Configuration AHB bus reset
+>>> +    minItems: 1
+>>> +    maxItems: 3
+>>>   
+>>>     reset-names:
+>>> -    items:
+>>> -      - const: core
+>>> -      - const: axi
+>>> -      - const: ahb
+>>> +    minItems: 1
+>>> +    maxItems: 3
+>>> +
+>>> +  port:
+>>> +    $ref: /schemas/graph.yaml#/properties/port
+>>> +    description: Single video output port for single-output
+>>> variants.
+>> Maybe the endpoint numbering rule needs a move to here? (I am not very
+>> sure).
+I will add a description to the `port` property noting that endpoint 0 
+is used for DPI output, which is the only output type for DCUltraLite.
+>>>   
+>>>     ports:
+>>>       $ref: /schemas/graph.yaml#/properties/ports
+>>> @@ -59,7 +53,7 @@ properties:
+>>>       properties:
+>>>         port@0:
+>>>           $ref: /schemas/graph.yaml#/properties/port
+>>> -        description: The first output channel , endpoint 0 should be
+>>> +        description: The first output channel, endpoint 0 should be
+>>>             used for DPI format output and endpoint 1 should be used
+>>>             for DP format output.
+>>>   
+>>> @@ -75,9 +69,75 @@ required:
+>>>     - interrupts
+>>>     - clocks
+>>>     - clock-names
+>>> -  - ports
+>>>   
+>>> -additionalProperties: false
+>>> +allOf:
+>>> +  - if:
+>>> +      properties:
+>>> +        compatible:
+>>> +          contains:
+>>> +            const: thead,th1520-dc8200
+>>> +    then:
+>>> +      properties:
+>>> +        clocks:
+>>> +          items:
+>>> +            - description: DC Core clock
+>>> +            - description: DMA AXI bus clock
+>>> +            - description: Configuration AHB bus clock
+>>> +            - description: Pixel clock of output 0
+>>> +            - description: Pixel clock of output 1
+>>> +
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: core
+>>> +            - const: axi
+>>> +            - const: ahb
+>>> +            - const: pix0
+>>> +            - const: pix1
+>>> +
+>>> +        resets:
+>>> +          items:
+>>> +            - description: DC Core reset
+>>> +            - description: DMA AXI bus reset
+>>> +            - description: Configuration AHB bus reset
+>>> +
+>>> +        reset-names:
+>>> +          items:
+>>> +            - const: core
+>>> +            - const: axi
+>>> +            - const: ahb
+>>> +
+>>> +      required:
+>>> +        - ports
+>>> +
+>>> +    else:
+>>> +      properties:
+>>> +        clocks:
+>>> +          items:
+>>> +            - description: Bus clock that gates register access
+>>> +            - description: Pixel clock divider for display timing
+>> Please don't make compatible-specific description strings for
+>> individual compatibles, and keep these descriptions outside of the if.
+>> The compatible-specific part should be used to specify what's required
+>> for the specific SoC, for dt validation purpose.
 >>
->> Gentle ping on this thread. It has been a while since I posted it.
->>
->> Could someone please take a look when you have time? If there is anything
->> I should revise or any additional information needed, I'd be happy to
->> update it.
-> It's hard to find active folks who have contributed meaningfully to the
-> cppc_acpi driver... I've added Ionella and Jeremy, in case they can take
-> a look.
+>> BTW if the clock is both the working clock and bus clock for the
+>> controller, I suggest listing it twice, except if the IP core is
+>> provided without a dedicated core clock (in the case I suggest to use
+>> "bus" only).
+> I agree. If the same clock is provided to two+ ports on the IP, that
+> should still be two+ clocks in the devicetree.
 >
-> Will
-Thanks Will, and thanks for adding Ionela and Jeremy.
+>> Here's an example for "listing it twice":
+>> ```
+>> clocks = <&clk DCU_GATE>, <&clk DCU_GATE>, <&clk DCUP_DIV>;
+>> clock-names = "core", "bus", "pix0";
+>> ```
+>>
+>> Well nonetheless the name "core" does not match the description "Bus
+>> clock that gates register access".
+>>
+>> Thanks,
+>> Icenowy
 
-While waiting for further comments, I would like to add some
-test data to make the effect of this series clearer.
+Understood. I will remove all description strings from the if/else 
+branches; the if/then clauses will only constrain clock-names and 
+reset-names items (name values only, no descriptions). Regarding clock 
+naming: DCU_GATE on MA35D1 is a peripheral gate clock without a separate 
+dedicated core working clock, so I will keep "core" as the name and drop 
+the misleading description "Bus clock that gates register access". The 
+description mismatch was entirely in the if/else strings which are now 
+removed.
 
-On the test platform, the maximum frequency reported by the platform
-is 2300000. I sampled cpuinfo_cur_freq before and after applying this 
-series.
+Thanks.
 
-Before applying the series, the samples showed visible transient outliers.
-  The minimum value was 2154583 and the maximum value was 2491071.
-There were 8 samples above 2400000 and 8 samples below 2200000.
-The largest value exceeded the platform maximum by about 8.3%.
-
-After applying the series, the samples became much more stable.
-The minimum value was 2290243 and the maximum value was 2306310.
-There were no samples above 2400000 and no samples below 2200000.
-The largest value exceeded the platform maximum by only about 0.27%.
-
-A summary of the 96 samples is:
-
-                     before          after
-min              2154583         2290243
-max              2491071         2306310
-range             336488           16067
-average          2298436.4       2298479.4
-stddev             55184.1          2868.2
-samples > 2300000  26 / 96         16 / 96
-samples > 2400000   8 / 96          0 / 96
-samples < 2200000   8 / 96          0 / 96
-
-So this series does not try to clamp the value to the platform maximum.
-  Instead, it reduces the sampling skew between the delivered and reference
-feedback counters. The remaining small deviation around 2300000 is
-  much smaller than the previous transient spikes.
-
-One concern that may come up is that an FFH read may cause an idle
-target CPU to be woken, depending on the platform/vendor implementation.
-However, that behavior is not introduced by this series. It is already part
-of how FFH counter reads are implemented on such platforms. This series
-only changes the sampling form for the FFH feedback counters: when both
-delivered and reference counters are FFH counters, read them together
-instead of issuing two separate FFH reads.
-
-If the target CPU has to be involved for an FFH read, doing one paired
-read should be no worse than doing two separate reads, and it also
-narrows the sampling window between the two counters.
-
-If there is any concern about the generic hook or the arm64 implementation,
-I would be happy to revise it.
-
-The raw data is as follows:
-before:
-2303809 2294827 2300000 2293643 2290740 2300000 2297228 2296082
-2301707 2295354 2296601 2303163 2296766 2296543 2295412 2298394
-2297387 2300000 2308274 2301882 2297752 2418568 2491071 2300000
-2183264 2296238 2434731 2296721 2439777 2302159 2301773 2298226
-2300000 2305936 2301133 2297511 2300000 2300000 2294408 2298494
-2295011 2302721 2295955 2301505 2298064 2297419 2298933 2189595
-2298058 2296046 2300000 2301449 2414908 2296559 2305251 2166666
-2296626 2173303 2300000 2298806 2411389 2301822 2297291 2300000
-2423831 2297902 2300000 2435730 2302433 2295353 2298898 2296043
-2321868 2294907 2300000 2157841 2296052 2206530 2300000 2297811
-2297920 2294382 2297767 2157230 2302564 2298504 2296822 2300000
-2296868 2294866 2154583 2290888 2302542 2292549 2300000 2184259
-
-after:
-2303738 2296153 2298087 2295607 2301373 2298076 2300000 2295081
-2297788 2300000 2300000 2295238 2301449 2300000 2298488 2297911
-2301477 2298507 2294976 2296852 2293689 2294077 2293887 2292619
-2300000 2300000 2298072 2300000 2291943 2300000 2295370 2300000
-2301873 2304645 2300000 2296766 2300000 2300000 2290243 2297954
-2297183 2306310 2300000 2296889 2300000 2303800 2301970 2296888
-2300000 2301354 2300000 2298405 2298202 2296767 2298663 2302522
-2297821 2302471 2300000 2303233 2298226 2298698 2300000 2297291
-2296470 2300000 2298398 2300000 2295681 2300000 2300000 2296344
-2300000 2296008 2302375 2297977 2298447 2296519 2295565 2294866
-2297945 2300000 2294978 2303595 2300000 2300000 2294930 2301096
-2296271 2296086 2294482 2300000 2294843 2300000 2296803 2295708
->> On 4/10/2026 5:41 PM, Pengjie Zhang wrote:
->>> The legacy CPPC feedback-counter path reads the delivered and reference
->>> performance counters separately.
->>>
->>> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
->>> served through a cross-CPU counter read helper. Reading the counters
->>> separately therefore widens the sampling window between them and can
->>> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
->>> load, the skew is observable as transient values that may exceed the
->>> platform maximum, as discussed in [1] and [2].
->>>
->>> This series adds a small generic hook for architectures that can obtain
->>> both FFH feedback counters in one operation, while preserving the
->>> existing per-register read path as the fallback.
->>>
->>> Patch 1 adds the generic CPPC hook and uses it from cppc_get_perf_ctrs().
->>> Patch 2 implements the hook on arm64 by sampling both AMU counters in a
->>> single operation on the target CPU.
->>>
->>> [1] https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
->>> [2] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
->>>
->>> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
->>>
->>> Pengjie Zhang (2):
->>>     ACPI: CPPC: add paired FFH feedback-counter read hook
->>>     arm64: topology: read CPPC FFH feedback counters in one operation
->>>
->>>    arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
->>>    drivers/acpi/cppc_acpi.c     | 58 +++++++++++++++++++++++++---
->>>    include/acpi/cppc_acpi.h     |  7 ++++
->>>    3 files changed, 127 insertions(+), 13 deletions(-)
->>>
+>>
+>>> +
+>>> +        clock-names:
+>>> +          items:
+>>> +            - const: core
+>>> +            - const: pix0
+>>> +
+>>> +        resets:
+>>> +          maxItems: 1
+>>> +          description:
+>>> +            Reset line for the display controller.
+>>> +
+>>> +        reset-names:
+>>> +          items:
+>>> +            - const: core
+>>> +
+>>> +      required:
+>>> +        - port
+>>> +
+>>> +      not:
+>>> +        required:
+>>> +          - ports
+>>> +
+>>> +unevaluatedProperties: false
+>>>   
+>>>   examples:
+>>>     - |
+>>> @@ -120,3 +180,24 @@ examples:
+>>>           };
+>>>         };
+>>>       };
+>>> +
+>>> +  - |
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
+>>> +    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
+>>> +
+>>> +    display@40260000 {
+>>> +        compatible = "verisilicon,dc";
+>>> +        reg = <0x40260000 0x20000>;
+>>> +        interrupts = <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH>;
+>>> +        clocks = <&clk DCU_GATE>, <&clk DCUP_DIV>;
+>>> +        clock-names = "core", "pix0";
+>>> +        resets = <&sys MA35D1_RESET_DISP>;
+>>> +        reset-names = "core";
+>>> +
+>>> +        port {
+>>> +            dpi_out: endpoint {
+>>> +                remote-endpoint = <&panel_in>;
+>>> +            };
+>>> +        };
+>>> +    };
 
