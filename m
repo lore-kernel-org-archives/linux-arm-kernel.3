@@ -4,69 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43003CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA82CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+9GMhHowlViOnH7+R9rmivmHqr2sB1gmzk/fG1Uco0=; b=XMtOaomEexDwybmWhG+DbGemnZ
-	T/WIKcCZTm+AvUCIgGzmwYNshJAqE0BlFZb2dvEiXqGXsyXPNKi3XHXwtiLNzmuhiV5S1Ihg/OrM4
-	c2E+hXGsPqqj9or4BnGkZFVpOMV57QL64pS8zqIEG8FEzXyTPraHc0XxJ/ShIAvUIx3x/rxrKBSna
-	fvADTeDfaQeY7qTWJRt3KQ3Gg4w7J5EFn0cpQB1qdkaqCKWHRmxGyLbqZ5pyqkhhs0i6c2PbOI/Jy
-	80KHM0E4EpNI0X/bvhTho3Cn4mVjpk14vxlWEc+vMUgUfa3tdPfcwyO6e+JV0XKGEswvvNfr3XwNR
-	kgOvGu4w==;
+	bh=/XU1KJEIpJD7sz0WHWX8jsl8435fYv6zL2ltBSoQIW8=; b=CB5++YhPi5WivnmT+tD6y4W2Qz
+	JKcjtkGr3+tRdBiOAKgoUNXCujuBntrVvk7s7x51ss7mB9nTDCBwSieMoxt3SSUvegxZeUvahME3U
+	rzvo6YWkwTyF+MaUwAYp4952AxJnJZHQiiwAh2qOD/PKNr0Q4IFyrbcZPcqA7X/+IGj/g9zmBNvE4
+	P/PrjL+ErdInO/srxZkx5NX7/TmnnDbM1Ymofl7lDNFb09Ha2tWmvFOM3v0QXs+fZu3a/xGqlyfoI
+	98rDTisLvFQ4boBONx+d3VeJsuYAfh7rQG8eOD6SaAsKh4WMHrYY58XXC4Q+IBI9+F+du0AhG5jPS
+	9ftm2i6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaaf-00000003gaI-2mrt;
-	Wed, 20 May 2026 06:39:37 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wPafI-00000003hIn-0I2s;
+	Wed, 20 May 2026 06:44:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaaZ-00000003ftb-3pAA
+	id 1wPafG-00000003hIc-3vEe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 06:39:33 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=A+9GMhHowlViOnH7+R9rmivmHqr2sB1gmzk/fG1Uco0=;
-	b=JP0H/hcbSFdYwsZD0y/WqrbQ/tzGa8skOHjGDlyMM26YfHsUUglbpIbKwyZp3qvRLTM/vFpTo
-	3HCy15p48E/Drxodqr2XwBNXeS97tlHjEveIXS+m62aOKUO8yxOEOfK+UDypixYU0bCkWRDf4gc
-	v5gacV3Ab6oangMQznj6aY8=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gL1qg5S4VzpT03;
-	Wed, 20 May 2026 14:30:07 +0800 (CST)
-Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5915B4048F;
-	Wed, 20 May 2026 14:37:21 +0800 (CST)
-Received: from localhost.huawei.com (10.90.31.46) by
- kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 20 May 2026 14:37:20 +0800
-From: Qinxin Xia <xiaqinxin@huawei.com>
-To: <robin.murphy@arm.com>, <nicolinc@nvidia.com>, <will@kernel.org>,
-	<jpb@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<xiaqinxin@huawei.com>, <wangzhou1@hisilicon.com>,
-	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
-	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 5/5] iommu/arm-smmu-v3: Add Context Descriptor display to debugfs
-Date: Wed, 20 May 2026 14:37:11 +0800
-Message-ID: <20260520063714.2440584-5-xiaqinxin@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260328101706.3448655-1-xiaqinxin@huawei.com>
-References: <20260328101706.3448655-1-xiaqinxin@huawei.com>
+	Wed, 20 May 2026 06:44:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EF7F60129;
+	Wed, 20 May 2026 06:44:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916611F000E9;
+	Wed, 20 May 2026 06:44:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779259461;
+	bh=/XU1KJEIpJD7sz0WHWX8jsl8435fYv6zL2ltBSoQIW8=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=ozmZTUjWFWt99kP2+KjNWiH2zgJafxakMIw0IOcmg0FpvHTYgdWwZBFXAzcsO1WEE
+	 TrSHQPczsIthEY3Y6kHOE4CCdxZYBN5ZiOxSea6/ZwBMd7QNzeC7TKEubbeQaV2pLi
+	 c5ACGh3MezgaB3SWK6u7t8gUTgWrfy69xEf7YS8wS8JYWeAWLHDQwI3MOaxLLISP/P
+	 ul/Okbif8ZmTaPe4bS/1bUdSOy0TLIvXvph5ud9Ognn45A67P5sPqWQK4gbSaMsfVE
+	 QXjwjVvg+eQridave7D+WMhO+Eo6JAxBlhs546GQH2N1dMGsG7zclnUofNXFjCLyKn
+	 ELIufQJ/y9veg==
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfauth.phl.internal (Postfix) with ESMTP id B46D6F40084;
+	Wed, 20 May 2026 02:44:20 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-01.internal (MEProxy); Wed, 20 May 2026 02:44:20 -0400
+X-ME-Sender: <xms:RFgNamKwEMr56_MZsB0rJLrqLo9mTMHz7oUajwELiRJhDD2W-JFgDA>
+    <xme:RFgNao_5eXkQ-RB4L579oFItpKUyRhpxBjd6mx_eKds2yPYAVckbtPjZRBaSDHKfi
+    cJYo7QzRRv-A_jQ6mQSsgxY0OyWuBMI50rZbHXbqjpTun02tK4QuFc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddugeefleegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtqhertdertdejnecuhfhrohhmpedftehrugcu
+    uehivghshhgvuhhvvghlfdcuoegrrhgusgeskhgvrhhnvghlrdhorhhgqeenucggtffrrg
+    htthgvrhhnpeefhefgtefgkefhgfdvffdukeejheeuvedthfdtiefhleejhfefjeffieeu
+    jeefteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomheprghrugdomhgvshhmthhprghuthhhphgv
+    rhhsohhnrghlihhthidqudeijedthedttdejledqfeefvdduieegudehqdgrrhgusgeppe
+    hkvghrnhgvlhdrohhrghesfihorhhkohhfrghrugdrtghomhdpnhgspghrtghpthhtohep
+    uddtpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehurdhklhgvihhnvgdqkhhovg
+    hnihhgsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgs
+    vghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvh
+    gvmhhlohhfthdrnhgvthdprhgtphhtthhopehhvghrsggvrhhtsehgohhnughorhdrrghp
+    rghnrgdrohhrghdrrghupdhrtghpthhtohepthhhohhrshhtvghnrdgslhhumheslhhinh
+    hugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishht
+    shdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehnihgtohhlrghsrdhfvghrrh
+    gvsehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtoheptghlrghuughiuhdrsggviihn
+    vggrsehtuhigohhnrdguvghvpdhrtghpthhtoheplhhinhhugidqtghrhihpthhosehvgh
+    gvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:RFgNanvJG5sya091gFvdSd_PKlx3lHUJvyL3znodAG7glX0fYIVQ8A>
+    <xmx:RFgNakUeImDMwdrinZ2SrqXFu9XhcHw5f6r7WE7XlEM0ADZ-udLfDQ>
+    <xmx:RFgNanz8HyOcRulfnmChXHaMK8dw6NXyqZSMf4Z-xsTY7JLJmtyt1Q>
+    <xmx:RFgNarFT97jvAlkyHQee9xD2iuGOBJk-ldnLQ_Cz9G_m7LUrS3FVRQ>
+    <xmx:RFgNasvh_GPgvwexsFeXBe4i90XykWYnaGW7bZtxw7iIIMJn1yMeCrdh>
+Feedback-ID: ice86485a:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 8FE65182007E; Wed, 20 May 2026 02:44:20 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.90.31.46]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemj200003.china.huawei.com (7.202.194.15)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_233932_258611_72EF45D7 
-X-CRM114-Status: GOOD (  14.72  )
+Date: Wed, 20 May 2026 08:43:59 +0200
+From: "Ard Biesheuvel" <ardb@kernel.org>
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>,
+ "Thorsten Blum" <thorsten.blum@linux.dev>,
+ "Herbert Xu" <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Claudiu Beznea" <claudiu.beznea@tuxon.dev>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <fa73cb3b-df9a-4070-b525-29c640f81230@app.fastmail.com>
+In-Reply-To: <20260519141033.1586036-2-u.kleine-koenig@baylibre.com>
+References: <20260519141033.1586036-2-u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v1] crypto: Use named initializers for struct i2c_device_id
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,157 +111,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Context Descriptor (CD) display functionality to debugfs.
-This allow inspecting CD contents for all Substream IDs including:
-- CD validity and translation parameters
-- TTBR0 and TCR configurations
-- Raw CD data
 
-/sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
-└── <sid>/
-    ├─── ste
-    ├─── cd
-    └─── <dev_name>
+On Tue, 19 May 2026, at 16:10, Uwe Kleine-K=C3=B6nig (The Capable Hub) w=
+rote:
+> While being less compact, using named initializers allows to more easi=
+ly
+> see which members of the structs are assigned which value without havi=
+ng
+> to lookup the declaration of the struct. And it's also more robust
+> against changes to the struct definition.
+>
+> This patch doesn't modify the compiled arrays, only their representati=
+on
+> in source form benefits. The former was confirmed with x86 and arm64
+> builds.
+>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koeni=
+g@baylibre.com>
+> ---
+> Hello,
+>
+> this patch is part of a bigger quest to use named initializers for
+> mainly struct i2c_device_id::driver_data to be able to modify
+> i2c_device_id. See e.g.
+> https://lore.kernel.org/all/20260518111203.639603-2-u.kleine-koenig@ba=
+ylibre.com/
+> for the details.
+>
+> This patch here isn't critical for this quest, as no driver makes use =
+of
+> .driver_data, so apart from the better readability this is only about
+> consistency with other subsystems.
+>
+> Best regards
+> Uwe
+>
+>  drivers/crypto/atmel-ecc.c     | 2 +-
+>  drivers/crypto/atmel-sha204a.c | 4 ++--
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+>
 
-Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
----
- .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 101 ++++++++++++++++++
- 1 file changed, 101 insertions(+)
+Acked-by: Ard Biesheuvel <ardb@kernel.org>
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-index 9babc7d640fd..567749de5537 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-@@ -10,6 +10,7 @@
-  *     ├── stream_table
-  *         ├── <sid>/                                # Stream ID
-  *             ├── ste                               # Stream Table Entry
-+ *             ├── cd                                 # Context Descriptor
-  *             ├── <dev_name>                         # Symlink to device sysfs directory
-  *
-  * The capabilities file provides detailed information about:
-@@ -26,6 +27,12 @@
-  * - Stage 1 and Stage 2 context pointers
-  * - Raw STE data
-  *
-+ * CD Information Displayed:
-+ * - T0SZ: Input address space size configuration
-+ * - EPD0/EPD1: Stage 1 translation enable flags
-+ * - TTBR0: Stage 1 translation table base address
-+ * - Raw Data: Complete CD structure in hexadecimal format
-+ *
-  * Copyright (C) 2026 HiSilicon Limited.
-  * Author: Qinxin Xia <xiaqinxin@huawei.com>
-  */
-@@ -303,6 +310,97 @@ static const struct file_operations smmu_debugfs_ste_fops = {
- 	.release = smmu_debugfs_ste_release,
- };
- 
-+/**
-+ * smmu_debug_dump_cd() - Dump a single Context Descriptor
-+ * @seq: seq_file to write to
-+ * @cd: pointer to the Context Descriptor to dump
-+ */
-+static void smmu_debug_dump_cd(struct seq_file *seq, struct arm_smmu_cd *cd)
-+{
-+	u64 data;
-+	int i;
-+
-+	/* CD 0 */
-+	data = le64_to_cpu(cd->data[0]);
-+	seq_printf(seq, "  T0SZ: 0x%llx\n", data & CTXDESC_CD_0_TCR_T0SZ);
-+	seq_printf(seq, "  EPD0: %s\n", data & CTXDESC_CD_0_TCR_EPD0 ? "Yes" : "No");
-+	seq_printf(seq, "  EPD1: %s\n", data & CTXDESC_CD_0_TCR_EPD1 ? "Yes" : "No");
-+
-+	/* CD 1 */
-+	data = le64_to_cpu(cd->data[1]);
-+	seq_printf(seq, "  TTBR0: 0x%016llx\n", data & CTXDESC_CD_1_TTB0_MASK);
-+
-+	/* Display raw CD data */
-+	seq_puts(seq, "  Raw Data:\n");
-+	for (i = 0; i < CTXDESC_CD_DWORDS; i++)
-+		seq_printf(seq, "    CD[%d]: 0x%016llx\n", i,
-+			   le64_to_cpu(cd->data[i]));
-+}
-+
-+static int smmu_debugfs_cd_show(struct seq_file *seq, void *unused)
-+{
-+	struct device *dev = seq->private;
-+	struct arm_smmu_master *master;
-+	u32 max_ssids, ssid;
-+
-+	guard(mutex)(&arm_smmu_asid_lock);
-+
-+	master = dev_iommu_priv_get(dev);
-+	if (!master) {
-+		seq_puts(seq, "No master data\n");
-+		return 0;
-+	}
-+
-+	max_ssids = 1 << master->ssid_bits;
-+	seq_printf(seq, "Context Descriptors for device (max SSIDs: %u):\n",
-+		   max_ssids);
-+
-+	for (ssid = 0; ssid < max_ssids; ssid++) {
-+		struct arm_smmu_cd *cd = arm_smmu_get_cd_ptr(master, ssid);
-+
-+		if (cd && (le64_to_cpu(cd->data[0]) & CTXDESC_CD_0_V)) {
-+			seq_printf(seq, "\n--- SSID %u ---\n", ssid);
-+			smmu_debug_dump_cd(seq, cd);
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int smmu_debugfs_cd_open(struct inode *inode, struct file *file)
-+{
-+	struct device *dev = inode->i_private;
-+	int ret;
-+
-+	if (!dev || !get_device(dev))
-+		return -ENODEV;
-+
-+	ret = single_open(file, smmu_debugfs_cd_show, dev);
-+	if (ret)
-+		put_device(dev);
-+
-+	return ret;
-+}
-+
-+static int smmu_debugfs_cd_release(struct inode *inode, struct file *file)
-+{
-+	struct seq_file *seq = file->private_data;
-+	struct device *dev = seq->private;
-+
-+	single_release(inode, file);
-+	if (dev)
-+		put_device(dev);
-+	return 0;
-+}
-+
-+static const struct file_operations smmu_debugfs_cd_fops = {
-+	.owner   = THIS_MODULE,
-+	.open    = smmu_debugfs_cd_open,
-+	.read    = seq_read,
-+	.llseek  = seq_lseek,
-+	.release = smmu_debugfs_cd_release,
-+};
-+
- /**
-  * arm_smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
-  * @smmu: SMMU device
-@@ -373,6 +471,9 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
- 				kfree(full_path);
- 			}
- 		}
-+
-+		/* Create CD file to dump all valid Context Descriptors */
-+		debugfs_create_file("cd", 0444, dev_dir, dev, &smmu_debugfs_cd_fops);
- 	}
- 
- 	kfree(path);
--- 
-2.33.0
-
+> diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+> index 9c380351d2f9..56350454ac29 100644
+> --- a/drivers/crypto/atmel-ecc.c
+> +++ b/drivers/crypto/atmel-ecc.c
+> @@ -380,7 +380,7 @@ MODULE_DEVICE_TABLE(of, atmel_ecc_dt_ids);
+>  #endif
+>=20
+>  static const struct i2c_device_id atmel_ecc_id[] =3D {
+> -	{ "atecc508a" },
+> +	{ .name =3D "atecc508a" },
+>  	{ }
+>  };
+>  MODULE_DEVICE_TABLE(i2c, atmel_ecc_id);
+> diff --git a/drivers/crypto/atmel-sha204a.c=20
+> b/drivers/crypto/atmel-sha204a.c
+> index dbb39ed0cea1..0fcb4692494f 100644
+> --- a/drivers/crypto/atmel-sha204a.c
+> +++ b/drivers/crypto/atmel-sha204a.c
+> @@ -210,8 +210,8 @@ static const struct of_device_id=20
+> atmel_sha204a_dt_ids[] __maybe_unused =3D {
+>  MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
+>=20
+>  static const struct i2c_device_id atmel_sha204a_id[] =3D {
+> -	{ "atsha204" },
+> -	{ "atsha204a" },
+> +	{ .name =3D "atsha204" },
+> +	{ .name =3D "atsha204a" },
+>  	{ /* sentinel */ }
+>  };
+>  MODULE_DEVICE_TABLE(i2c, atmel_sha204a_id);
+>
+> base-commit: 254f49634ee16a731174d2ae34bc50bd5f45e731
+> --=20
+> 2.47.3
 
