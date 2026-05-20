@@ -4,128 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84067CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75791CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+FvKgT5pG95JgT3TscKBF5hGUKTEVSajCnC+nu0Y4WM=; b=tI3ghJrlJUqcBR+3tg8SPysxSb
-	gFEZ3YKqB2rkEyh6Ws9bZ6gXfhTe9pNhMMfm28YqvJmAWl4IKWq/vij4moxFY5s5wYdTfcmtt9UzH
-	ZLJjQQNHYtp/8IS6YYcvlC6w1Vj8LHQQ/6CuqgYdaSUKAKYV5tIqX1GJOfRT2cU90gZnaZrVxJzyn
-	cgkTI1zB5pkmCKaxLFt/ZTVpuFsPH77o8IjpnxygcRVCjY+uSjmB1+dvRBQbxMaog5NtI0cxIZgEZ
-	pJyB2otnUz4wiII8DXY3u/LUSd4bx/l8/sUEiipVGb4bD0Th31sdcanUeMbcVOxP21ImFjfyXfirT
-	hQBJo+hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/bLyphypA1bQrSmcNBlSpy1DCgy1sVFHHKyyTcWj0IE=; b=jElfGN6Zgslt6Hz+zgrQH51rgR
+	eeREYYWTsTiAl7363aDmHaJsODxdktflvDiMjXYlkTrUDlUA8xgmbbR9TikCKanVyCYlJxHlENT19
+	XcQduw5KtuEnV0s54qZVQaUjweVBnXHiinvC3tld4TRTxXOEJjpMdphsV+Ry3fe744oHe6DuTWnoR
+	XtguV6HVU3f6btE5NRTsiUWYb8Vxrb+fKgpMHzpCA+2ny7A1+Udt1WIRabNUB/JIkueU6YBlpXD/h
+	ARVLD7Rs0NBddPsmlmwONB2Wr4o2pz3RrMOmWe/CNmfMtpPZ9elT3gpXMqAQNQkAAvjUFfYYCyk2y
+	HiozoKKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoTf-00000005qgU-1w6u;
-	Wed, 20 May 2026 21:29:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPoXW-00000005r1P-45Xd;
+	Wed, 20 May 2026 21:33:18 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoTd-00000005qg0-1JrN
+	id 1wPoXT-00000005r0o-3mZi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 21:29:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85ECA40178;
-	Wed, 20 May 2026 21:29:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE26B1F000E9;
-	Wed, 20 May 2026 21:29:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779312556;
-	bh=+FvKgT5pG95JgT3TscKBF5hGUKTEVSajCnC+nu0Y4WM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=XQc39hnvCdkTlJIa8y9YfgGkIJQb1cHVaoOkJ7pbNHFepqyzWDGV4Wxa5w7n7maGc
-	 X+b9cmNIXD1NNy46RiDLbrSNZKSvWZkVvzOf5pjYkd9GkeQ8uWitOK7rbabbOpRsMR
-	 cU2Dzy2Z/oHVXA1L7GHzimHqACLluo7QZV4M3RKQ0VSW0gAsm/ALa1Jg6hl3P+lCuJ
-	 2OikXfZRe0W52IcmQMM/se/XYc5GpkRUpXmiQI7394jKgEDAK8kQbIZmBYmRb/oRNk
-	 R3bs2GEMBeAjc+i/0X3bVd97RkREIJ/H5nw8+YdfehKMnRuPgqE+f2PNVK0PTE1sZc
-	 eCBD5LIKuDCGA==
-Message-ID: <210d140d-c78a-47be-8046-caae359db6db@kernel.org>
-Date: Wed, 20 May 2026 23:29:07 +0200
+	Wed, 20 May 2026 21:33:17 +0000
+Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CCB7C42B;
+	Wed, 20 May 2026 23:32:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1779312779;
+	bh=L/KHVtTDW88QxjxlnEFS3VYmEGhFfqA/+fZQrK+UQoQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pPW3ypHbJo5+ceeia8lepbKyFjdpFKAQy9hXuyC+lKEDGPgm7jVYeBw9+Evjs/Qm1
+	 QLY+YWPzkAdUjouo6v9VSJl5ASsANjFBIdU9Ocsv2Jr4XTJ230Ws5nMkoq8/qf13Pg
+	 Qiympsnp+IgQ/sva+hZS9Vz1OaUwQJNaFw33zhsM=
+Date: Wed, 20 May 2026 23:33:12 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	imx@lists.linux.dev, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v7 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
+ bindings
+Message-ID: <20260520213312.GD9017@killaraus.ideasonboard.com>
+References: <20260518-csi_formatter-v7-0-562b750557e3@oss.nxp.com>
+ <20260518-csi_formatter-v7-1-562b750557e3@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-To: Tejun Heo <tj@kernel.org>
-Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
- David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
- Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
-References: <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
- <agtuPrgIDNKSu2Oo@slm.duckdns.org>
- <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
- <297658c4ae2d6e7103f5968efc936224@kernel.org>
- <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
- <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
- <agyZxmHoueGwBAQg@slm.duckdns.org>
- <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
- <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
- <ag3_qpKObFOLKgbR@slm.duckdns.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <ag3_qpKObFOLKgbR@slm.duckdns.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260518-csi_formatter-v7-1-562b750557e3@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_142917_403659_81275EFC 
-X-CRM114-Status: GOOD (  23.48  )
+X-CRM114-CacheID: sfid-20260520_143316_092244_F423513E 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,65 +77,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/20/26 20:38, Tejun Heo wrote:
-> On Wed, May 20, 2026 at 10:41:15AM +0200, David Hildenbrand (Arm) wrote:
->> And that should be carefully documented.
+Hi Guoniu,
+
+Thank you for the patch.
+
+On Mon, May 18, 2026 at 10:19:46AM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
-> Will do.
+> The i.MX95 CSI pixel formatting module uses packet info, pixel and
+> non-pixel data from the CSI-2 host controller and reformat them to
+> match Pixel Link(PL) definition.
 > 
->>> The fault handler has to install _some_ page and let kernel continue.
->>> Scratch page or arena page doesn't matter. Potentially different CPUs
->>> will see different page. It's not a concern at all.
->>> bpf prog is buggy, but the kernel will continue to work without a glitch.
->>> bpf runtime will disable and unload misbehaving prog.
->>
->> Having one page table walker overwrite a scratch page on race is just rather ...
->> questionable locking design, that just screams for problems long-term, really.
->>
->> At least in apply_range_clear_cb() one could similarly switch to
->> ptep_try_install() to at least have both these paths handle races in a
->> reasonable way. (having to handle when ptep_try_install() is not really implemented)
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+> Changes in v7:
+> - Change compatible to imx95-csi-formatter as IP is i.MX95 specific per Marco's suggestion
+>   Link: https://lore.kernel.org/linux-media/20260511-csi_formatter-v6-0-01028e312e2b@oss.nxp.com/T/#mcd135b3de179b3cb69daa1fd6e0e8e27c85b3332
+> ---
+>  .../bindings/media/fsl,imx95-csi-formatter.yaml    | 87 ++++++++++++++++++++++
+>  1 file changed, 87 insertions(+)
 > 
-> Hmm... wouldn't that be more confusing on apply_range_clear_cb() side?
-> Whether it maintains the current behavior (if collide with scratch, try
-> again with scratch as the original value) or flip the behavior (fail if
-> scratch), that extra logic is spurious, and those tend to confuse people as
-> they force asking why it has to be that specific way. If the goal is
-> documenting the subtlety, wouldn't a detailed comment serve the purpose
-> better?
+> diff --git a/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
+> new file mode 100644
+> index 000000000000..28adea06c494
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/fsl,imx95-csi-formatter.yaml
+> @@ -0,0 +1,87 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/fsl,imx95-csi-formatter.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: i.MX95 CSI Pixel Formatter
+> +
+> +maintainers:
+> +  - Guoniu Zhou <guoniu.zhou@nxp.com>
+> +
+> +description:
+> +  The CSI pixel formatting module found on i.MX95 uses packet info, pixel
+> +  and non-pixel data from the CSI-2 host controller and reformat them to
+> +  match Pixel Link(PL) definition.
+> +
+> +properties:
+> +  compatible:
+> +    const: fsl,imx95-csi-formatter
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: MIPI CSI-2 RX IDI interface
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
 
-I would let all operations that can happen concurrently work with atomics, not
-just a single one.
+What properties defined in video-interfaces.yaml do you expect ? The
+example below does not use any, and the driver in 2/2 doesn't appear to
+parse any either.
 
-Alexei correctly concluded that ptep_get_and_clear() might be one option that
-should do on x86 and arm64 from a quick glimpse.
-
-> 
->> Anyhow, the documentation of ptep_try_install() must clearly spell out that this
->> must be used very carefully, and only in special kernel page tables, never user
->> page tables. There are likely other scenarios we should document (caller must
->> prevent concurrent page table teardown somehow, and must be prepared to handle
->> races if other code is not using atomics).
->>
->> To highlight that, we should likely consider adding a "kernel" in the name, like
->> "ptep_try_install_kernel()".
->>
->> I am also not sure if "install" is the right terminology and whether it should
->> instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
-> 
-> So, ptep_try_set_kernel()?
-
-I guess we could do that, but we don't have a lot of existing functions that are
-specific to kernel page tables ... only pte_offset_kernel() and
-pte_alloc_one_kernel()/pte_free_kernel().
-
-The most important part is getting the documentation right.
-
-We should probably document that code concurrently clearing PTEs should be using
-ptep_get_and_clear().
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/properties/port
+> +        description: Pixel Link Interface
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - power-domains
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
+> +
+> +    formatter@20 {
+> +        compatible = "fsl,imx95-csi-formatter";
+> +        reg = <0x20 0x100>;
+> +        clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
+> +        power-domains = <&scmi_devpd 3>;
+> +
+> +        ports {
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +
+> +            port@0 {
+> +                reg = <0>;
+> +
+> +                endpoint {
+> +                    remote-endpoint = <&mipi_csi_0_out>;
+> +                };
+> +            };
+> +
+> +            port@1 {
+> +                reg = <1>;
+> +
+> +                endpoint {
+> +                    remote-endpoint = <&isi_in_2>;
+> +                };
+> +            };
+> +        };
+> +    };
 
 -- 
-Cheers,
+Regards,
 
-David
+Laurent Pinchart
 
