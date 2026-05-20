@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2145ECD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D3BCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jd91yp639XQ14bFokkoWB7YDnxNd0wxZV9sOx0Y2+4c=; b=d9kAYTI//FTiqCo504f6UktWi0
-	qkUnlx4zeM7lCB1yK8KmteH1e/F07awewJiyid4HGQn0bWoc3IKYvzzk5dkzEDSUKzxb42moKeoH/
-	pAxslWSm2rc442BUzrWPwsZ0jX8v1g/QgIflL0JAEw6dcg5GNWeuUSHeu0gqnncmTU0lYsCR0APvT
-	U22BKw2vMuyFFFT+JrH3yoA0Xne8yEBsZXK9aEq1nFbT3DMVdVhTF96aD81mZJb8mrhIIB30m9ugp
-	mgC0xAB+VwuIXXG3krWl1fL6Y5Gbi3SiUlcJzlCqhsXVk3zNvGtIzh79G3N6D0iisep6wTlWuO6+C
-	C3YF9wmg==;
+	bh=t9GJjxz7MXEZbqV6+5d9dAOL2Akoh9f4mOaXvcGs6WQ=; b=uq5VU1LR3OcZjN4Nr3Xvb5xIrm
+	BOP3YZMgUsnEIcV+dffgU5nZ1g0FF9ydOw5LLeymr46968S6IF3kJq2EHLG5KBMDfWna8bCCB+8Ai
+	+tbhb5kiXdHjUSheWoP4n10GEU/xfXiqjRTrrPF0UkJEzX3j63zH1neECpZKEv37dSxyYfzZIaBu7
+	M6C15DKAeEPpg30+3TIOen9DKKnGw2iasUeKMjtlqpjaAZNGJw//0LA9uhK1QbBFor5VmPlwu15Ty
+	LpyNNHNXSWbQ54rOp7Enyex8JXgbQCHVK1MIN+xY7xhd1tohYPu3YyGtWqct9MthaBcOwNsUgmDaH
+	m032xa9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPey9-00000004Qmk-3zGv;
-	Wed, 20 May 2026 11:20:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPeyn-00000004Qvh-3GbW;
+	Wed, 20 May 2026 11:20:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPey7-00000004QmC-086c
+	id 1wPeyk-00000004Quz-3gc4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 11:20:08 +0000
+	Wed, 20 May 2026 11:20:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EA9240704;
-	Wed, 20 May 2026 11:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF3831F00893;
-	Wed, 20 May 2026 11:20:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 96D6340824;
+	Wed, 20 May 2026 11:20:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33D9A1F000E9;
+	Wed, 20 May 2026 11:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779276006;
-	bh=Jd91yp639XQ14bFokkoWB7YDnxNd0wxZV9sOx0Y2+4c=;
+	s=k20260515; t=1779276046;
+	bh=t9GJjxz7MXEZbqV6+5d9dAOL2Akoh9f4mOaXvcGs6WQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=grJ+58kyRnbATQD3AWMWh87yn3b/R+nEKPPQAHMnln4Bju85dikTVJRu4N5srF/pt
-	 QVyrezaGYAEujcQ2+FWJyjnnf32qnzc/lgiiotLVpTX10rpXRnZvheV2ccvK+0/vy9
-	 4Ujx7yAjO0pEa3Ru+b/47FjxYIZfJPo9AMV9wgRVi0YUriyb93SncXbcZH2dWo8LHb
-	 lmgxx2QJKKRD2iAGovIV3h4vXA7+xBozz2WQ+xolSpDWdDiyWaTxE5hkJgZxCPsGgc
-	 sb4gSkTYLyaNpZUP9ylkTyw5NnmLlJC57HN+sCPxMQZpbwrweH0yqsvAnV9OhtK4Av
-	 Y26/uBRFYZQnw==
+	b=JodNbabahQ4KYNtVtaEeBI4WLvAJ/LGW2bWd64MPM8do1ht2NHdkP6+pUwVEkSnGc
+	 4x4wkRN+xAdjUVeK+rOhWvKzJqngVW8TN6jq5mN8OfujT12OtLkPxPOv4RLRBTl2Bz
+	 ZDDe5ePuZWLHr063elD3jN+l1gZjzuprCfnfLLoVcVGIUKKHvxhwRdnexsrAKLzoZ2
+	 PQwapcqW/eEBrp4VlGnOtABMC5rvTDsghWaKGxZjK18fR1vPntGb02pxyp0jzNHaCm
+	 3anYNVPhLafF/SJQaT8/PhHre5wsRmiIiQNShU6dQ/E+XXabMYjlp8nB/3wz6+Ptlh
+	 +4iRUfbEyw9RQ==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Helge Deller <deller@gmx.de>,
 	Sasha Levin <sashal@kernel.org>,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
+	Frank.Li@nxp.com,
+	linux-fbdev@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH AUTOSEL 7.0-6.12] KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
-Date: Wed, 20 May 2026 07:18:47 -0400
-Message-ID: <20260520111944.3424570-15-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 7.0-5.10] fbdev: ipu-v3: clean up kernel-doc warnings
+Date: Wed, 20 May 2026 07:19:15 -0400
+Message-ID: <20260520111944.3424570-43-sashal@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260520111944.3424570-1-sashal@kernel.org>
 References: <20260520111944.3424570-1-sashal@kernel.org>
@@ -67,8 +68,8 @@ X-stable-base: Linux 7.0.9
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_042007_126153_03BAB0AB 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20260520_042046_965921_109EB673 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,288 +84,330 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wei-Lin Chang <weilin.chang@arm.com>
+From: Randy Dunlap <rdunlap@infradead.org>
 
-[ Upstream commit 8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c ]
+[ Upstream commit f1fb23a0a0fcbdb66672da51d7d63a259f6396ca ]
 
-When running an nVHE L1, TCR_EL2 is mapped to TCR_EL1. Writes to the
-register are trapped and written to TCR_EL1 after a translation.
-Booting an nVHE L1 with 52-bit VA isn't working because the translation
-was ignoring the DS bit set by the guest, hence causing repeating level
-0 faults. Add it in the translation function.
+Correct all kernel-doc warnings:
+- fix a typedef kernel-doc comment
+- mark a list_head as private
+- use Returns: for function return values
 
-Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-Link: https://patch.msgid.link/20260505144735.1496530-1-weilin.chang@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Warning: include/video/imx-ipu-image-convert.h:31 struct member 'list' not
+ described in 'ipu_image_convert_run'
+Warning: include/video/imx-ipu-image-convert.h:40 function parameter
+ 'ipu_image_convert_cb_t' not described in 'void'
+Warning: include/video/imx-ipu-image-convert.h:40 expecting prototype for
+ ipu_image_convert_cb_t(). Prototype was for void() instead
+Warning: include/video/imx-ipu-image-convert.h:66 No description found for
+ return value of 'ipu_image_convert_verify'
+Warning: include/video/imx-ipu-image-convert.h:90 No description found for
+ return value of 'ipu_image_convert_prepare'
+Warning: include/video/imx-ipu-image-convert.h:125 No description found for
+ return value of 'ipu_image_convert_queue'
+Warning: include/video/imx-ipu-image-convert.h:163 No description found for
+ return value of 'ipu_image_convert'
+
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Signed-off-by: Helge Deller <deller@gmx.de>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Stable Backport Analysis
+## Phase 1: Commit Message Forensics
+Step 1.1 Record: subsystem `fbdev: ipu-v3`; action verb `clean up`;
+intent is to correct kernel-doc warnings in `include/video/imx-ipu-
+image-convert.h`.
 
-### Phase 1: Commit Message Forensics
+Step 1.2 Record: tags in committed message are `Signed-off-by: Randy
+Dunlap <rdunlap@infradead.org>`, `Reviewed-by: Philipp Zabel
+<p.zabel@pengutronix.de>`, and `Signed-off-by: Helge Deller
+<deller@gmx.de>`. No `Fixes:`, `Reported-by:`, `Tested-by:`, `Acked-
+by:`, `Link:`, or `Cc: stable@vger.kernel.org` tag is present in the
+committed message.
 
-Step 1.1 Record: Subsystem is `KVM: arm64: nv`; action verb is
-“Consider”; intent is to preserve the `DS` bit when translating
-`TCR_EL2` into `TCR_EL1` for nested virtualization.
+Step 1.3 Record: the described problem is seven kernel-doc warnings: one
+undocumented/private list member, malformed typedef documentation, and
+missing `Returns:` sections. The visible symptom is documentation
+tooling warnings, not a runtime crash, hang, data corruption, or
+security issue. No affected kernel version is stated. Root cause is
+incorrect kernel-doc comment syntax.
 
-Step 1.2 Record: Tags present are:
-- `Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>`
-- `Link: https://patch.msgid.link/20260505144735.1496530-1-
-  weilin.chang@arm.com`
-- `Signed-off-by: Marc Zyngier <maz@kernel.org>`
+Step 1.4 Record: this is not a hidden runtime bug fix. The body and diff
+both show a documentation/comment-only cleanup.
 
-No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-by:`,
-or `Cc: stable@vger.kernel.org` tags are present.
+## Phase 2: Diff Analysis
+Step 2.1 Record: one file changed: `include/video/imx-ipu-image-
+convert.h`, 11 insertions and 5 deletions. Modified documentation covers
+`struct ipu_image_convert_run`, `ipu_image_convert_cb_t`,
+`ipu_image_convert_verify()`, `ipu_image_convert_prepare()`,
+`ipu_image_convert_queue()`, and `ipu_image_convert()`. Scope is single-
+file, header-only, surgical.
 
-Step 1.3 Record: The bug is that an nVHE L1 guest using 52-bit VA cannot
-boot because trapped writes to `TCR_EL2` are translated to `TCR_EL1`
-without carrying over the guest’s `DS` bit. The recorded failure mode is
-repeated level 0 faults. No affected kernel version is stated in the
-message. Root cause is an incomplete EL2-to-EL1 TCR translation.
+Step 2.2 Record: hunk behavior:
+- `struct ipu_image_convert_run`: before, `list` was documented neither
+  as a member nor private; after, `/* private: */` tells kernel-doc to
+  ignore it as an API member.
+- `ipu_image_convert_cb_t`: before, kernel-doc treated the typedef
+  comment as a function prototype mismatch; after, it is marked as a
+  typedef comment.
+- Return docs: before, several returns were plain prose or missing;
+  after, they use kernel-doc `Returns:` syntax.
+- `ipu_image_convert_prepare()`: before, the V4L2 usage note followed
+  the return prose; after, the return section is last and formatted for
+  kernel-doc.
 
-Step 1.4 Record: This is not hidden as cleanup; it is a direct
-correctness fix for guest boot failure.
+Step 2.3 Record: bug category is documentation/kernel-doc warning
+cleanup. No error-path, synchronization, refcount, memory-safety,
+initialization, type, logic, or hardware workaround change exists.
 
-### Phase 2: Diff Analysis
+Step 2.4 Record: fix quality is high for the stated documentation issue:
+small, obviously correct kernel-doc syntax changes. Runtime regression
+risk is effectively zero because no C declarations, types, function
+bodies, data layout, or APIs are changed. Documentation rendering risk
+is very low.
 
-Step 2.1 Record: One file changed:
-`arch/arm64/include/asm/kvm_nested.h`, 1 insertion, 0 deletions.
-Function modified: `translate_tcr_el2_to_tcr_el1()`. Scope is a single-
-file surgical fix.
+## Phase 3: Git History Investigation
+Step 3.1 Record: `git blame` shows the affected header comments and
+declarations came from `cd98e85a6b786d` by Steve Longerbeam, dated
+2016-09-17. `git describe --contains cd98e85a6b786d` reports it as
+present by `v4.9-rc1~41^2~24^2`.
 
-Step 2.2 Record: Before, `translate_tcr_el2_to_tcr_el1()` preserved
-`TBI`, physical size, granule, cacheability, shareability, and `T0SZ`,
-but ignored `TCR_EL2_DS`. After, it adds `TCR_DS` to the EL1 value when
-`TCR_EL2_DS` is set. This affects the normal path where KVM programs the
-physical EL1 `TCR` while running an nVHE L1.
+Step 3.2 Record: no `Fixes:` tag is present, so there is no tagged
+introducing commit to follow. Blame identifies `cd98e85a6b786d` as the
+source of the documented preimage; `git show` confirms that commit added
+queued IPU image conversion support and the API documentation.
 
-Step 2.3 Record: Bug category is logic/correctness. The specific
-mechanism is a missing architectural bit translation: `TCR_EL2_DS` is
-bit 32, while `TCR_EL1.DS` is bit 59, so it cannot be preserved by the
-existing mask-copy operations and must be explicitly mapped.
+Step 3.3 Record: recent local history for the file shows `96e9d754b35e8`
+removing unused `ipu_image_convert_*` functions, `c942fddf8793b` adding
+SPDX boilerplate conversion, and `cd98e85a6b786d` adding the header/API.
+No prerequisite commit is needed for this documentation-only patch.
 
-Step 2.4 Record: The fix is obviously correct and minimal. Regression
-risk is very low: it only sets `TCR_EL1.DS` when the guest already set
-the corresponding `TCR_EL2.DS` bit.
+Step 3.4 Record: `git log --author='Randy Dunlap'` under fbdev/include
+areas shows Randy has related cleanup/documentation work such as `fbdev:
+hgafb: fix kernel-doc comments` and `fbdev: fbmon: fix function name in
+kernel-doc`. The patch was reviewed by Philipp Zabel and committed by
+Helge Deller, verified from the commit and lore thread.
 
-### Phase 3: Git History Investigation
+Step 3.5 Record: no dependencies found. The diff changes only comments
+and applies locally with `git apply --check`.
 
-Step 3.1 Record: `git blame` shows `translate_tcr_el2_to_tcr_el1()` was
-introduced by `3606e0b2e46216` (“KVM: arm64: nv: Add non-VHE-EL2->EL1
-translation helpers”), first contained in `v6.8-rc1`. The buggy omission
-is long-lived relative to current stable trees.
+## Phase 4: Mailing List And External Research
+Step 4.1 Record: `b4 dig -c f1fb23a0a0fcbdb66672da51d7d63a259f6396ca`
+failed to find a lore match by patch-id, author/subject, or in-body
+From. External fetch found the v3 discussion at
+`https://yhbt.net/lore/dri-
+devel/20260427183236.656902-1-rdunlap@infradead.org/T/`. The v3 thread
+has Helge Deller replying “applied to fbdev git tree.” Web search/fetch
+also found v2 and a v2 ping. No NAKs or objections were found.
 
-Step 3.2 Record: No `Fixes:` tag is present, so there is no tagged
-introducer to follow. The blame commit above is the practical introducer
-of the incomplete translation.
+Step 4.2 Record: `b4 dig -w` also failed for the same reason. The v3
+lore mirror shows recipients included `dri-devel`, Philipp Zabel, DRM
+maintainers, `imx`, `linux-arm-kernel`, Helge Deller, and `linux-fbdev`.
 
-Step 3.3 Record: Recent history of `arch/arm64/include/asm/kvm_nested.h`
-shows active nested-virt development, including 52-bit PA/LPA2 related
-work. No prerequisite patch for this one-line change was identified
-beyond the existing definitions already present in stable tags checked.
+Step 4.3 Record: no `Reported-by:` or bug-report `Link:` tags exist. No
+external crash/security bug report applies.
 
-Step 3.4 Record: Wei-Lin Chang has multiple recent `KVM: arm64`/nested-
-virt commits. Marc Zyngier, listed in `MAINTAINERS` as a KVM/arm64
-maintainer, committed the patch.
+Step 4.4 Record: this is a standalone one-patch documentation cleanup.
+v2 added the reviewed-by and updated Cc list; v3 rebased and resent.
 
-Step 3.5 Record: `git log --grep=translate_tcr_el2_to_tcr_el1` found no
-other commits mentioning the helper. The patch applies cleanly to the
-current checked-out stable tree with `git apply --check`.
+Step 4.5 Record: direct `lore.kernel.org/stable` fetch was blocked by
+Anubis. Web search for the exact subject plus `stable` found patch-
+thread results but no stable-specific discussion or stable nomination.
 
-### Phase 4: Mailing List And External Research
+## Phase 5: Code Semantic Analysis
+Step 5.1 Record: modified documented symbols are
+`ipu_image_convert_run`, `ipu_image_convert_cb_t`,
+`ipu_image_convert_verify()`, `ipu_image_convert_prepare()`,
+`ipu_image_convert_queue()`, and `ipu_image_convert()`.
 
-Step 4.1 Record: `b4 dig -c 8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c`
-found the original submission at the provided patch link. `b4 dig -a`
-found only v1. The thread includes Marc Zyngier’s “Applied to fixes”
-reply and no objections.
+Step 5.2 Record: `rg` found callers in `drivers/staging/media/imx/imx-
+media-csc-scaler.c` for `ipu_image_convert_abort()`,
+`ipu_image_convert_queue()`, `ipu_image_convert_adjust()`,
+`ipu_image_convert_unprepare()`, and `ipu_image_convert_prepare()`.
+Runtime callers are unaffected because only comments changed.
 
-Step 4.2 Record: `b4 dig -w` shows the patch was sent to `linux-arm-
-kernel`, `kvmarm`, `linux-kernel`, and KVM/arm64 maintainers/reviewers
-including Marc Zyngier, Oliver Upton, Joey Gouly, Suzuki K Poulose,
-Zenghui Yu, Catalin Marinas, and Will Deacon.
+Step 5.3 Record: reading `drivers/gpu/ipu-v3/ipu-image-convert.c`
+confirms the documented functions perform image format
+adjustment/verification, context allocation, queueing, abort/unprepare,
+and single conversion setup. None of those function bodies are touched.
 
-Step 4.3 Record: No separate bug report or syzbot report was found in
-the commit tags or b4 thread. The commit message itself gives the
-observed boot failure.
+Step 5.4 Record: runtime path is reachable through IPU image conversion
+users, but the patch changes no runtime path. The affected path for the
+fix is kernel-doc/documentation generation.
 
-Step 4.4 Record: The patch is standalone, single-patch v1; no multi-
-patch series dependency was found.
+Step 5.5 Record: no related same-header kernel-doc fix was found by `git
+log --grep='kernel-doc' -- include/video/imx-ipu-image-convert.h`.
 
-Step 4.5 Record: No stable-specific discussion was found. WebFetch to
-lore was blocked by Anubis, but b4 successfully retrieved the thread.
+## Phase 6: Stable Tree Analysis
+Step 6.1 Record: version tags `v5.10`, `v5.15`, `v6.1`, `v6.6`, `v6.12`,
+`v6.15`, `v6.16`, and `v6.17` all contain `include/video/imx-ipu-image-
+convert.h` with the old kernel-doc text. The API was introduced before
+`v4.9-rc1`, so active stable trees checked contain the documentation
+issue.
 
-### Phase 5: Code Semantic Analysis
+Step 6.2 Record: expected backport difficulty is clean or minor. `git
+apply --check` succeeds against the current local tree, and the checked
+stable tags contain representative preimage lines. Full per-stable
+worktree application was not run.
 
-Step 5.1 Record: Modified function: `translate_tcr_el2_to_tcr_el1()`.
+Step 6.3 Record: no related stable fix for this header was found in
+local `git log --grep` searches.
 
-Step 5.2 Record: Callers found:
-- `locate_register()` maps `TCR_EL2` to `TCR_EL1` with this translation
-  for loaded nVHE hyp context.
-- `__sysreg_restore_vel2_state()` restores nVHE virtual EL2 state by
-  translating guest `TCR_EL2` before writing physical `SYS_TCR`.
+## Phase 7: Subsystem Context
+Step 7.1 Record: subsystem is fbdev/gpu IPU-v3 image conversion
+documentation in an include header. Runtime criticality is
+peripheral/driver-specific; documentation-build criticality is low.
 
-Step 5.3 Record: Key callees are `tcr_el2_ps_to_tcr_el1_ips()` and the
-bit definitions/macros for `TCR_EL2_*` and `TCR_*`. The function has no
-allocation, locking, or complex side effects; it returns a composed
-register value.
+Step 7.2 Record: local subsystem history shows ongoing cleanup/removal
+activity in `drivers/gpu/ipu-v3` and the header, including unused-
+function removals and treewide cleanup. This patch is not part of a
+required functional series.
 
-Step 5.4 Record: Reachability is verified through guest sysreg traps:
-`ESR_ELx_EC_SYS64` goes to `kvm_handle_sys_reg()`, then
-`perform_access()`, then the `TCR_EL2` descriptor with `access_rw()`,
-then `vcpu_write_sys_reg()`, which applies `loc.xlate()` when the mapped
-register is loaded. This is reachable by an L1 guest using EL2.
+## Phase 8: Impact And Risk
+Step 8.1 Record: affected population is kernel documentation builders,
+maintainers, and users consuming generated kernel-doc. Runtime users of
+IPU-v3 are not affected by behavior.
 
-Step 5.5 Record: Similar translation helpers exist for `SCTLR_EL2`,
-`CPTR_EL2`, and `TTBR0_EL2`; this patch fixes the missing special-case
-bit in the TCR helper. `TCR_EL1.DS` and `TCR_EL2.DS` are at different
-bit positions, so the existing mask copying cannot handle it.
+Step 8.2 Record: trigger is running kernel-doc/documentation tooling
+over this header. It is not triggered by boot, device probe, syscalls,
+or ordinary runtime use. Unprivileged runtime trigger does not apply.
 
-### Phase 6: Stable Tree Analysis
+Step 8.3 Record: failure mode is documentation warnings only. Severity
+is LOW. I did not verify any configuration where these warnings are
+fatal, so that does not drive the decision.
 
-Step 6.1 Record: The helper commit is present in checked tags `v6.12`,
-`v6.18`, `v6.19`, and `v7.0`. The LPA2 DS field definitions are also
-present in those tags. The 52-bit PA helper commit checked is present in
-`v6.18`, `v6.19`, and `v7.0`, but not `v6.12`.
+Step 8.4 Record: benefit is low but real under the documentation-fix
+exception: it makes stable documentation builds cleaner. Risk is
+extremely low because only comments change. Risk/benefit is favorable if
+stable accepts documentation corrections.
 
-Step 6.2 Record: Expected backport difficulty is low for trees with this
-helper. `b4 am` reported “Base: applies clean to current tree”, and `git
-apply --check` succeeded on the current `v7.0.9` checkout.
+## Phase 9: Final Synthesis
+Step 9.1 Record: evidence for backporting: pure documentation
+correction, explicitly fixes listed kernel-doc warnings, tiny single-
+file patch, reviewed by Philipp Zabel, applied by Helge Deller, old text
+exists in active stable tags checked, and documentation/comment fixes
+are an allowed stable exception. Evidence against: no runtime bug, no
+crash/security/data-corruption impact, no stable nomination found, and
+b4 could not match the thread. Unresolved: direct stable-lore search was
+blocked; full apply checks on every stable branch were not run.
 
-Step 6.3 Record: No related fix for “Consider the DS bit” is in `v7.0`
-or `v7.0.9`; `git merge-base --is-ancestor` returned absent for the
-candidate in those tags.
+Step 9.2 Record:
+1. Obviously correct and tested? Mostly yes for documentation syntax;
+   reviewed and applied, but no `Tested-by`.
+2. Fixes a real bug that affects users? Yes, a real kernel-doc warning
+   issue; not a runtime bug.
+3. Important issue? No runtime severity; LOW documentation-build
+   severity.
+4. Small and contained? Yes, 11 additions and 5 deletions in one header.
+5. No new features or APIs? Yes, comments only.
+6. Can apply to stable trees? Likely yes; local apply check passed and
+   stable tags checked contain the preimage.
 
-### Phase 7: Subsystem And Maintainer Context
+Step 9.3 Record: exception category applies: documentation/comment fix.
+This is the main reason to accept despite lack of runtime impact.
 
-Step 7.1 Record: Subsystem is KVM/arm64 nested virtualization.
-Criticality is IMPORTANT: it affects ARM64 KVM users running nested
-virtualization with nVHE L1 guests and 52-bit VA.
-
-Step 7.2 Record: Subsystem is actively maintained; recent
-`arch/arm64/kvm` history contains multiple KVM/arm64 fixes, and
-`MAINTAINERS` marks KVM/arm64 as maintained by Marc Zyngier and Oliver
-Upton.
-
-### Phase 8: Impact And Risk Assessment
-
-Step 8.1 Record: Affected population is platform/config-specific: ARM64
-KVM users with nested virtualization and an nVHE L1 using 52-bit VA.
-
-Step 8.2 Record: Trigger is booting or running such an nVHE L1 with
-`TCR_EL2.DS` set. The path is guest-triggerable through EL2 sysreg
-writes, but only for VMs configured with nested virtualization support.
-
-Step 8.3 Record: Failure mode is repeated level 0 faults and failed L1
-boot. Severity is HIGH for affected users because the guest hypervisor
-cannot boot correctly.
-
-Step 8.4 Record: Benefit is high for affected nested virtualization
-users. Risk is very low: one line, no API change, no locking, no data
-structure change, and only changes behavior when the guest sets
-`TCR_EL2_DS`.
-
-### Phase 9: Final Synthesis
-
-Step 9.1 Record:
-Evidence for backporting:
-- Fixes a real boot failure for nVHE L1 guests with 52-bit VA.
-- One-line, contained architectural bit translation.
-- Existing definitions verify this is a required bit-position mapping,
-  not a feature addition.
-- Maintainer applied it to the KVM/arm64 fixes branch.
-- Applies cleanly to the current stable checkout.
-- Buggy helper exists in active stable-era tags checked.
-
-Evidence against backporting:
-- No `Fixes:`, `Reported-by:`, `Tested-by:`, or explicit stable tag.
-- Affected population is narrower than core KVM users.
-- Exact user-visible 52-bit VA nested scenario was not fully proven for
-  every older stable branch, especially `v6.12`.
-
-Unresolved:
-- I did not build-test or boot-test.
-- I did not verify clean application to every stable branch
-  individually.
-- WebFetch could not read lore directly due Anubis, though b4 retrieved
-  the thread.
-
-Step 9.2 Stable rules:
-1. Obviously correct and tested? Obviously correct by code inspection;
-   no explicit Tested-by found.
-2. Fixes a real bug? Yes, commit message and code path verify a missing
-   required register bit translation causing L1 boot failure.
-3. Important issue? Yes, boot failure/repeated translation faults for
-   affected nested virtualization guests.
-4. Small and contained? Yes, 1 line in one helper.
-5. No new features/APIs? Yes.
-6. Can apply to stable trees? Yes for current checked stable tree;
-   likely straightforward for trees containing this helper.
-
-Step 9.3 Exception category: None. This is not a device ID, quirk, DT,
-build, or documentation exception; it is a direct bug fix.
-
-Step 9.4 Decision: Backport. The fix is small, technically clear, and
-corrects an architectural register translation bug that prevents a
-supported nested-virtualization configuration from booting.
+Step 9.4 Decision: backporting is appropriate under the stable
+documentation-fix exception. It is not a stability/security fix, but it
+is a correct, reviewed, zero-runtime-risk cleanup of real kernel-doc
+warnings in code present across active stable trees.
 
 ## Verification
-
-- Phase 1: Parsed `git show` for candidate
-  `8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c`; confirmed subject, body,
-  and tags.
-- Phase 2: Inspected exact diff; confirmed 1 insertion in
-  `translate_tcr_el2_to_tcr_el1()`.
-- Phase 2: Verified `TCR_EL2_DS` is bit 32 in
-  `arch/arm64/include/asm/kvm_arm.h`.
-- Phase 2: Verified `TCR_EL1.DS` is bit 59 in `arch/arm64/tools/sysreg`
-  and `TCR_DS` aliases it in `arch/arm64/include/asm/pgtable-hwdef.h`.
-- Phase 3: `git blame` identified `3606e0b2e46216` as introducer of the
-  helper.
-- Phase 3: `git describe --contains 3606e0b2e46216` reported first
-  containment at `v6.8-rc1`.
-- Phase 3: `git log` on affected files found related nested-virt/LPA2
-  activity and no required adjacent patch.
-- Phase 4: `b4 dig -c` found the original patch by patch-id.
-- Phase 4: `b4 dig -a` found only v1.
-- Phase 4: `b4 dig -w` confirmed KVM/arm64 maintainers and lists were
-  included.
-- Phase 4: `b4 mbox -c -o -` retrieved Marc Zyngier’s applied-to-fixes
-  reply.
-- Phase 5: `rg` found callers in `sys_regs.c` and `hyp/vhe/sysreg-sr.c`.
-- Phase 5: Read trap path from `handle_exit.c`, `sys_regs.c`, and
-  `arm.c`; verified guest sysreg traps can reach the translation.
-- Phase 6: `git merge-base --is-ancestor` confirmed the helper and DS
-  definitions are present in `v6.12`, `v6.18`, `v6.19`, and `v7.0`.
-- Phase 6: `git apply --check` succeeded on the current stable checkout.
-- Phase 7: Read `MAINTAINERS`; confirmed Marc Zyngier and Oliver Upton
-  maintain KVM/arm64.
-- Phase 8: Failure mode verified from commit message and code path;
-  exact boot reproduction was not run.
-- UNVERIFIED: No build or boot test was performed.
-- UNVERIFIED: Clean application to every individual stable branch was
-  not tested.
-- UNVERIFIED: Exact impact on older stable trees lacking later 52-bit PA
-  helper work was not fully established.
+- Phase 1: fetched and inspected committed metadata for
+  `f1fb23a0a0fcbdb66672da51d7d63a259f6396ca`; confirmed tags and
+  message.
+- Phase 2: `git show --stat --patch` confirmed one header, 11
+  insertions, 5 deletions, comments only.
+- Phase 3: `git blame` confirmed changed comment preimage from
+  `cd98e85a6b786d`; `git describe --contains` placed it before
+  `v4.9-rc1`; `git show cd98e85a6b786d` confirmed original API addition.
+- Phase 3: `git log` on the header/subsystem found no prerequisite
+  functional series.
+- Phase 4: `b4 dig`, `b4 dig -a`, and `b4 dig -w` all failed to match;
+  recorded as a tool limitation/failure.
+- Phase 4: WebFetch of the v3 lore mirror confirmed the patch thread and
+  Helge Deller’s applied reply; Spinics fetch confirmed v2 and a later
+  ping.
+- Phase 5: `rg` found runtime users; `ReadFile` of implementation
+  confirmed function bodies exist but are not changed.
+- Phase 6: tag checks confirmed the header and old doc text in `v5.10`,
+  `v5.15`, `v6.1`, `v6.6`, `v6.12`, `v6.15`, `v6.16`, and `v6.17`; `git
+  apply --check` succeeded locally.
+- Phase 8: severity/risk assessment is derived from the verified
+  comments-only diff.
+- UNVERIFIED: direct `lore.kernel.org/stable` search content was blocked
+  by Anubis; no actual `make htmldocs` run was performed; full patch
+  application against every individual stable branch was not performed.
 
 **YES**
 
- arch/arm64/include/asm/kvm_nested.h | 1 +
- 1 file changed, 1 insertion(+)
+ include/video/imx-ipu-image-convert.h | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
-index 091544e6af442..dc2957662ff20 100644
---- a/arch/arm64/include/asm/kvm_nested.h
-+++ b/arch/arm64/include/asm/kvm_nested.h
-@@ -23,6 +23,7 @@ static inline u64 tcr_el2_ps_to_tcr_el1_ips(u64 tcr_el2)
- static inline u64 translate_tcr_el2_to_tcr_el1(u64 tcr)
- {
- 	return TCR_EPD1_MASK |				/* disable TTBR1_EL1 */
-+	       ((tcr & TCR_EL2_DS) ? TCR_DS : 0) |
- 	       ((tcr & TCR_EL2_TBI) ? TCR_TBI0 : 0) |
- 	       tcr_el2_ps_to_tcr_el1_ips(tcr) |
- 	       (tcr & TCR_EL2_TG0_MASK) |
+diff --git a/include/video/imx-ipu-image-convert.h b/include/video/imx-ipu-image-convert.h
+index 003b3927ede5c..6b77968a6a150 100644
+--- a/include/video/imx-ipu-image-convert.h
++++ b/include/video/imx-ipu-image-convert.h
+@@ -27,12 +27,13 @@ struct ipu_image_convert_run {
+ 
+ 	int status;
+ 
++	/* private: */
+ 	/* internal to image converter, callers don't touch */
+ 	struct list_head list;
+ };
+ 
+ /**
+- * ipu_image_convert_cb_t - conversion callback function prototype
++ * typedef ipu_image_convert_cb_t - conversion callback function prototype
+  *
+  * @run:	the completed conversion run pointer
+  * @ctx:	a private context pointer for the callback
+@@ -60,7 +61,7 @@ void ipu_image_convert_adjust(struct ipu_image *in, struct ipu_image *out,
+  * @out:	output image format
+  * @rot_mode:	rotation mode
+  *
+- * Returns 0 if the formats and rotation mode meet IPU restrictions,
++ * Returns: 0 if the formats and rotation mode meet IPU restrictions,
+  * -EINVAL otherwise.
+  */
+ int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
+@@ -77,11 +78,11 @@ int ipu_image_convert_verify(struct ipu_image *in, struct ipu_image *out,
+  * @complete:	run completion callback
+  * @complete_context:	a context pointer for the completion callback
+  *
+- * Returns an opaque conversion context pointer on success, error pointer
++ * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
++ *
++ * Returns: an opaque conversion context pointer on success, error pointer
+  * on failure. The input/output formats and rotation mode must already meet
+  * IPU retrictions.
+- *
+- * In V4L2, drivers should call ipu_image_convert_prepare() at streamon.
+  */
+ struct ipu_image_convert_ctx *
+ ipu_image_convert_prepare(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
+@@ -122,6 +123,8 @@ void ipu_image_convert_unprepare(struct ipu_image_convert_ctx *ctx);
+  * In V4L2, drivers should call ipu_image_convert_queue() while
+  * streaming to queue the conversion of a received input buffer.
+  * For example mem2mem devices this would be called in .device_run.
++ *
++ * Returns: 0 on success or -errno on error.
+  */
+ int ipu_image_convert_queue(struct ipu_image_convert_run *run);
+ 
+@@ -155,6 +158,9 @@ void ipu_image_convert_abort(struct ipu_image_convert_ctx *ctx);
+  * On successful return the caller can queue more run requests if needed, using
+  * the prepared context in run->ctx. The caller is responsible for unpreparing
+  * the context when no more conversion requests are needed.
++ *
++ * Returns: pointer to the created &struct ipu_image_convert_run that has
++ * been queued on success; an ERR_PTR(errno) on error.
+  */
+ struct ipu_image_convert_run *
+ ipu_image_convert(struct ipu_soc *ipu, enum ipu_ic_task ic_task,
 -- 
 2.53.0
 
