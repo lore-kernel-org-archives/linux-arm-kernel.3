@@ -4,176 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900A3CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDE5CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:12:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9stA/ITgyis5XPKe7CPSEsHrkGE5ax5pyjoaUOZPOA=; b=UDEN+UvAUzN6MqWhW0e0+naVoT
-	NKyaVj5dv2Uhq0CMDI9iHXFBVsV6onZy9ug4HuLtlB82eE9uK5jIM9RxAyzJI3UHzVgj1qx4dVeBZ
-	BkOzQV6CHWIdgJWOHStZhaV2Y6u75E1YWoHnBS2PONwM0L52T9pNoMo713Rd/NHOK+W1eyhY/VS8X
-	oT/lgH3rbLdpHvi0NiphN2IXfZz+4rOMDPOy9wrdzb+I8ol8wqBvZApcUUWK6GXhPP5Q5R2w3d3Ot
-	AinH7BYd3CvSqbnaYlmEFQEhB5pADY6HUdiCh0KFwq9Mxfdq6nhmFB0thEdVHTbV/6laISoa9kfD4
-	RWL9fO6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mUsifWX6aK2jxqZvUw8q1yQUjx3vnN/cEOO8Ykzq3n4=; b=fvOOju5RWQKhbOFJ+SFegHUILX
+	BPbGkoSsbwqk+3GwRzoBI3TKTYF5hImaa6sxim+i66XnfYTTfeq9Fs36QlrLCzNrqtSNH2Nm6jqL1
+	/qB+iKeS3Q5ecLseJlFsug3Wpi6LblpPIXmL90jb5ou+Wos+utpUvq48Tf2/mNT4MyU8yw/b+xP1E
+	7wg55LNzrXDZ7r0RHPrCID+LiTsFAY29dRZWV02uFbbGWRDH7F/8O6mPqzsFpFooSmxKROe6wHp3b
+	4kC6wWc/sHf1S4lfpkYulAWHGAIwJPaBvQ5kn4mXUOU4iYMOf9obGqXO+Of6EoSnrGepfAP2MJ5Sc
+	pP3x7F/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgbM-00000004dSS-24cc;
-	Wed, 20 May 2026 13:04:44 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1wPgiX-00000004eFn-245T;
+	Wed, 20 May 2026 13:12:09 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgbF-00000004dRH-3lEq
+	id 1wPgiU-00000004eEa-3Pxg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 13:04:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779282278; x=1810818278;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=egk/WDyxe2/X5HdnnMAr6fZh4abDtTk07ibq0SiUmi0=;
-  b=RtwjMre6/4s1R0rodltMLDLx7gw6sEopEXwhG/8QjjSXP+qjf/t6k4uy
-   kQvl7AXzpbpJ6YXwmZZPAj5C9DHv8xi++WoD4krm0OwyVt+3OWF/vVQWR
-   ljXGvpiyMF3ckKppuF2pJnUzJ9SMgoVAztriYzHpk22vl+1BjRj2gYKOX
-   kD7EP1mM6GsS9rUpSRDtAxtcGb6idr50PCU/0y/SwfjYWDZtEIk7ky3Fv
-   Sh8MgOUq8sXQaZTscb+ZzpKWNfDcTpzl8TPdmpUlfSoI1eSnF4gQZylYB
-   4nFh64oB+YHPPp3Bd5E+YT0t3T+PlSw7exgbhQRZo/yW19C8oYdLOCkwc
-   g==;
-X-CSE-ConnectionGUID: r1wNTtFzTAqKWUuIhzPYqA==
-X-CSE-MsgGUID: 6ktTI8ftTh+F+Dyyafsnbg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11792"; a="91571176"
-X-IronPort-AV: E=Sophos;i="6.23,244,1770624000"; 
-   d="scan'208";a="91571176"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 May 2026 06:04:37 -0700
-X-CSE-ConnectionGUID: o/0PFuOiQpmoKiBHHaqR0Q==
-X-CSE-MsgGUID: vK9jevOmRxGHB5bOlGym2A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,244,1770624000"; 
-   d="scan'208";a="235910659"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 May 2026 06:04:36 -0700
-Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 20 May 2026 06:04:35 -0700
-Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Wed, 20 May 2026 06:04:35 -0700
-Received: from CO1PR03CU002.outbound.protection.outlook.com (52.101.46.63) by
- edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Wed, 20 May 2026 06:04:35 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HnoZFJW35O0pdvVixvJZ86+goFDrIrV9rnYJF2hv2aB8/6Hie75J9O+sORnO0Bjm7XRum2LKu2D2G6xkIzKJZglb6AJNS7sq9VLgCYg/iQoTnaGRi9HLHIkQQzyIy3ozRgMnZWZg3Lywy47ylcsJa1QFHc/aSLwOpVIwpZcsuJnwBXr4MC2x3zFYnDnCp902leQZZcMm/QzaPRtGMtLEy7d5gT40W04Zi8nxMTiObC0xMPNLuTmLZLTcUJ3v/ysdUj6pAXE7nFez29IqOy2pep9hMO2RDlUG3j46f7a95URlGjM6WM3Jau5bTcgXlaLLQni325hOuJ62HETyDdL+XQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s9stA/ITgyis5XPKe7CPSEsHrkGE5ax5pyjoaUOZPOA=;
- b=AMsySWtW24tWAMw83AB6RbQKf8bxRPfF2hhBmYkLeB3eCzYfoNSKLK+2jXknz6WGFmFSNczI8z0beh9FVDW8AYWs0GmVkEVcBv3rAOKosf9dPhKMoCSDpjH9GI1CjacwLXk/SMG1iGAp9+yA67R7X+xYxagViOJzm7fVoepaR0RC3rqE/1sO5mHOh2TKrrRghxf1odpMyMPenhUUsFz3VACTLswHOJqy8WN1hy3gLw/pzoKZ6P0akwD/RianOcELHuzg5pMq5AB5eJU8+W8tcFX1ikNICj1YkgJG6SQ9IaMdCimugm6Ts3uY5ohXL5BrRKFzPA4WjzHPCxxUjEvQ/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV8PR11MB8509.namprd11.prod.outlook.com (2603:10b6:408:1e6::15)
- by MN0PR11MB6134.namprd11.prod.outlook.com (2603:10b6:208:3ca::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Wed, 20 May
- 2026 13:04:30 +0000
-Received: from LV8PR11MB8509.namprd11.prod.outlook.com
- ([fe80::f5bd:4dde:4f2f:20b7]) by LV8PR11MB8509.namprd11.prod.outlook.com
- ([fe80::f5bd:4dde:4f2f:20b7%5]) with mapi id 15.21.0025.022; Wed, 20 May 2026
- 13:04:30 +0000
-Message-ID: <a0bf2324-c198-4fce-97fc-db884f6e0f58@intel.com>
-Date: Wed, 20 May 2026 21:12:35 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/3] PCI: Allow ATS to be always on for pre-CXL devices
-To: Nicolin Chen <nicolinc@nvidia.com>, <jgg@nvidia.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <bhelgaas@google.com>
-CC: <joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<dan.j.williams@intel.com>, <jonathan.cameron@huawei.com>,
-	<vsethi@nvidia.com>, <linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
-References: <cover.1777269009.git.nicolinc@nvidia.com>
- <1a8cf5e88051ab5c10417edb94df598ecbc810cf.1777269009.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Yi Liu <yi.l.liu@intel.com>
-In-Reply-To: <1a8cf5e88051ab5c10417edb94df598ecbc810cf.1777269009.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TP0P295CA0030.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:910:5::15) To LV8PR11MB8509.namprd11.prod.outlook.com
- (2603:10b6:408:1e6::15)
+	Wed, 20 May 2026 13:12:07 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-452169ae568so3123647f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 06:12:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779282725; x=1779887525; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mUsifWX6aK2jxqZvUw8q1yQUjx3vnN/cEOO8Ykzq3n4=;
+        b=TlIuVGhTGVsvdr8CEpjeD3UYlf2sPabc0Ft7IIwxu125bdhTatVij/cq3U+dBpaxcY
+         NcaDnbTGOzZMSUYOEk34dlI0pZTM9/8Jaaz9+Iz9CU/opsc3ZNuPkmuZpsMMdECycZP/
+         ewjRqNnn19PE4AEDdPgyXP2Ig5H2Xj8Y7JHmZP9wqT3jPAKV8vNdCXaR9aiRCywx2329
+         fGrpjqNd7koSIPp2VMmAgqjkzRPWKA8+6PYakIOfa5uEuJOJkJhvjN5rrZkzsthu09WF
+         PvEhwu8CoMvZRlBRmVUHTa/wHZ6pc2+HtxTcfVPyXtHGMeHaTMPXPkWCvksL4hT0NdxS
+         C2kA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779282725; x=1779887525;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mUsifWX6aK2jxqZvUw8q1yQUjx3vnN/cEOO8Ykzq3n4=;
+        b=RYdp5CLJL/J5976SweT15mukc7ea+FEwo3hJHi7yXRs84DN7m+s0FHzVMJlRNm5GPj
+         WfsmxdJSCcPWkbRgi6CJN1OvCFHbXyKIbHjkTDbaTz4dAOPOcLpdQMOiIC96xFnTs6Im
+         DbSkrxicydM2UKNfES0uKl/eG6zxB/6hO++bJQPAMBSJrFHeouJV1iFcmVA95ho9brFG
+         tRTd8VWhk0jFZXatT5wxC+gSXcjkJUWZOt25RjfR5WJW68/cWMBNokIqlsWQRaIQWZxw
+         k5/tyLia290dpNNpczYdrx92/jEy3GSshUhOwqLHi0oUH9SgTak8DyMviU+QKpWt8uwK
+         YS2A==
+X-Forwarded-Encrypted: i=1; AFNElJ/LJEQc68TAUh3TpWtesjWssqNBJ8ycBbks1WQtKHKCpDocimMMBPdoPFAiwmjzdpEgMilNvnCC/1xqbrGPool9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMWfI7zhZU0IzC09ODmtkuMpa2O+0X4AYDbNfz/1+htsbZajWr
+	RSlWHOCWTxuWJbKE6KDurK5SuJQdSPDEzO6pBAN+0NBbXDcayRk+hx/s
+X-Gm-Gg: Acq92OGvM5Up9n+DeGuHSfsQSfDsYFCfmA4aoxfL+COj5zE8j1L/dMQr0mw9J9cloHg
+	uIIGk4qwEydzfg1lL2ncToDYSVsnsxoYodaw5UeEVrI4XMPs4JmWMCv3dhPUnfPzyfikS2ljkn0
+	FWwfBaW+x7m0rjoxD0EJm0Ar8PubHbKQ0rnuj8cQj0xk+W5Fy82IK1wKsUJAxIoIulonWyBlg9A
+	K5PK4NGadoM82+K6VvwaFRQO66Fynnkxa2/aUtQv/DhzAmxeHHhy4bTGEb0RFVvR/QqNEsI89He
+	iJiRMeunYB+2fFiSna7J7XRGAmtIPwb++bZAJoT71B9mysivKBBTh5a3Bi4RX/tv1/xaULlkOZj
+	a9SGlfwClJYudZkk6G+oC+AgzAuQbS7Uj/BQoJI4tmovUyXqgOLeZ2fclCbrveHHn0stdlen3WY
+	cceK7JNgBGYiKCys785ATV8e9mmbNYaI2WJUXwa5jaM8utqiKkhJmldoo6zRL+G3tT
+X-Received: by 2002:a05:6000:1844:b0:45e:98ed:bde5 with SMTP id ffacd0b85a97d-45e98edbeb5mr3627217f8f.24.1779282724547;
+        Wed, 20 May 2026 06:12:04 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0fe13a7sm56345921f8f.29.2026.05.20.06.12.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 06:12:04 -0700 (PDT)
+Date: Wed, 20 May 2026 14:12:02 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Rosen Penev <rosenp@gmail.com>
+Cc: linux-sound@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, Mark
+ Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
+ <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
+ linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC
+ support), linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek
+ SoC support)
+Subject: Re: [PATCH] ASoC: mediatek: mt2701: fix snprintf bounds
+Message-ID: <20260520141202.1803aa7d@pumpkin>
+In-Reply-To: <20260519010440.629290-1-rosenp@gmail.com>
+References: <20260519010440.629290-1-rosenp@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR11MB8509:EE_|MN0PR11MB6134:EE_
-X-MS-Office365-Filtering-Correlation-Id: f8283658-34f3-4903-2635-08deb670542a
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|42112799006|1800799024|376014|366016|7416014|11063799006|22082099003|4143699003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: rhm46yPSc/I0x76Pz79FQIs0BnmJDgmaOG8kS2p3hym7qTBZtNAY6F5Rgm2Q70QphA0+qkshzFLL6K/CEtWRBAL8g1woBuJBBCbsQCHNfkICuDwFEupyoqZcicsinQq6lTRaVQz5CMhmjUtiOYClqLdjtVX/oFHEPgrLxMmU4KXRN8VSO/iMpUsOeBr90AXIufyJtPfvTbBRbSEeer03NPoaI+XmJ7KBImRuDnO8DeCl19PxrLACrC0lCgbTaZZm7p4BWSU4/hxnWd7Lua+jl+Qdszp4TiOeMOhBfcYgD3BzWel3mcywHdAr9OV1GGsHRV4dJjg7YSmog7nViaeKTesGZDZmvVFi1DKKoNQaZVWq0n+Syp1JdsYgcy+w5ewlCCqHQ8zK/4W3RheeWG5YL3mvtjaz2u6fYbqMcWBaX2P72XtJSi74/gmi4t2jJZOEauvCT+fulo0cPgGF7VYKLmyXWZXx9ezLh58WWFxEhGIbeTM/+gyt88ECH5JVT9PeTh+TZmr+Ow3iHRaY9+MxfoZ3ctlgFz+5p4qzwdoW0ruuaWsCIFk4VOS8uYw14etLztR0GoCJZBsoUFs68mQ/jDr6AinwH4J896RTJqyHqV0XOmF0KQK5TKg+hiPUeB+cnIcLYnb/AkW8ebjAQRwKSQJO+HQfTjrG3RraDvF2GjcuzpfZQcQPc3XmmuVtwkN8
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR11MB8509.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(376014)(366016)(7416014)(11063799006)(22082099003)(4143699003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VUM4bUZvK0RDZmtyTlNBRDNhZWNJcjZ0ejBudE4wU0ZvRnV5S3Y0SEZYTFpy?=
- =?utf-8?B?ZFh2dVZxNnl1bStvY0VlUmg2WXJUVVJjZDU3TkFleUJsNHpuWElyYm5JWkZw?=
- =?utf-8?B?SWJCQy9ubFZtNXJGQi9abWg1K2ZzS3RYQVQybHpBS1d6KzRreW1yUzJnM1NZ?=
- =?utf-8?B?Z0ZkNVZpOS9VSW8wRFl4ZTZLOWhVbDRJVVY4RmlMd2VzMy92T0FhZThnblZp?=
- =?utf-8?B?Z21CNkJoMi9HZlNxQXU1Vkp2MmZ6MkZsYTAwSGhqS1YrcERDeEh3TlhTRVhl?=
- =?utf-8?B?OHNrMUcyU0VTeHUxVlRYNDd0Y2lMTEZZRll1OXowR0pwZVg5Nkpnb1ZDcDNr?=
- =?utf-8?B?aEs3eWZqcVFpaTN3Q2xjTFRJNXJSUFJ1MTBrRVJZKy9SSjhiNEw5eTlRc1cx?=
- =?utf-8?B?bnBMZmJBdjJGUW0wQ2hyZUxRL3NXaXpsYUJhMjRWVFduTi9tQjRuMjJrcElW?=
- =?utf-8?B?WjFJeTNuVFFOWTdmREMreVptbUJYTllBN21GVzN3cjZHZjNyL2hSQlNkaVpR?=
- =?utf-8?B?QmhuT3FMZjVOSVduV2hINHdBUzV1V3daY3g5L1FMRXpYTGNlcFZ2QW1VSnJy?=
- =?utf-8?B?L1Zqb3VYanhVL2hiZkVaYjkwaGxwMzZDaTJOTjRJVmJiN2YxUXBxcXRuMlJr?=
- =?utf-8?B?SFNnYmMxd1JsZWZTa2Z3dUMyZkxDNXFXTXVFWWlmTkR3RnR3WEQzS0FvM2I3?=
- =?utf-8?B?QVFjc2xxdUQ4dENkeXR3U0ZIS3dCbi82OS9KOWhnSVdET2w0YW5NZFdCTlp0?=
- =?utf-8?B?REMvZDVVS21zOHYwZnVRNzlZbXRBTHk3Z2pIWG5oTlJPaHJZN2FPQmJNYWVR?=
- =?utf-8?B?a3ZwcE9KV2VnUWNhVldhek1iRGYvaDYzVjJrRk5zZ1BDYzJsSnFYQklmL0F3?=
- =?utf-8?B?MjZzUE9YeGZaRS85Y3JldjBHM2o3QkFGb24yRjh2TERLcStDdFA5MGxVWmZh?=
- =?utf-8?B?Y2NmUFVKTDdjNmpEc2NqNFAzK25tRjYyVkNYelRQYlpBNno0SG4waTJ6YVNp?=
- =?utf-8?B?dWQxYi9welBpU2NEYmZUVGpSNWgrS0RYdmtyNDdBeWlzY09rSi9sZ003UkpZ?=
- =?utf-8?B?ZkJ0N0xBeW5ZdHgwM0ZiNUluM00yZEplTHVRV05pZkZ2SFNwTllPcjR6dFZD?=
- =?utf-8?B?NGErbDQyU3Z2UlNpekNGckdORmdkVUwwamZudjhHREVwa3E5NjhGVnN5SFhh?=
- =?utf-8?B?R09jOWwzelBNb21yU1ZPUThxV2Z4cjR4cCtnMXVmbWtsUEJHVXMwOE5WZzBO?=
- =?utf-8?B?d1dWLzF1MVlJQjFCU1lYUWFYYVFpbzZoWVBTYSt0QmxtcXZJVVJqRUVjT1NL?=
- =?utf-8?B?QWpRaVJMcFFYOElNZVAzKzhvYm45UTNGcE04SG9jbGo4ZzRqakwrajFVd3dN?=
- =?utf-8?B?eE9oZHZzRExTTzN2NmVGZHRYOFUzNFl2MDlZTUx3WkdRY3loc2l1WGRnalJi?=
- =?utf-8?B?UTdHOEVGa1d1OEVVdzlCRE56WURjMnl0eVk3a0VtZ09IRHVUT1dXMzdSWGdu?=
- =?utf-8?B?TUpRQnhjMjh5Q1VLb1p0SEhwTEcvRmRxZ0xZeERsZXpicldYU1ZtUXBSTmlV?=
- =?utf-8?B?N1hsODFXNmYrb0ZoaEhOWmxKTG9IcEY2UzRKTnVUT0psU1NKVmRseTNDSkJN?=
- =?utf-8?B?Q2treUp5V0VhVktRRlE2S1RjQmlmaGpxRnA4d3VmOTBnY0FqY0g3cmFhT2xk?=
- =?utf-8?B?eWZUb25tNCtVaDJZQ0F2WlZjSmRjbzF4dXV4UEVlQlhFMFAzeU53MExWVWRO?=
- =?utf-8?B?Z0U4SUNqV01OUWZwL3c0RkJ0SzloY0hCZlRmSEJraDd5VDdrYm90c1Y2a3Bu?=
- =?utf-8?B?SUsyU0RUZlVJdjRDR0dxMFFvcUFzYkZ3T0ZRTVZia2dNV0hyQURNLzVVOWtK?=
- =?utf-8?B?UlVBdXR6NXZnTzR6cXRaL3pxbUREUkNJNXN1YXZwaHZ0djVGUzJHMHdlUHdI?=
- =?utf-8?B?bmRkVjY0U0ZwQjQ0MjNFNEJRQTJxQVFmUFVYNFQ1K0M3UG9LRExvOU5OdVFv?=
- =?utf-8?B?WlVyL2tPZm10WHRyazFxTGV5ZjJXdmZzNTZaQVlQclh2ZUFYN2huN1laTSs3?=
- =?utf-8?B?NE1UTnFrNmpiL1ExZ3pJK0dMM3JEYTNlQ0R4by9nQk1BVDlDR1BZcE9FNlB2?=
- =?utf-8?B?ZUNBUzlweW4zeVNlbU5IUHVrZk1BYSt5bTFyUHdQQWFudFI3TVNBY01jZ1do?=
- =?utf-8?B?QUVRU0oxVTZWRVNiblhnTy9ySmNSdGZ2amIvZDNoL1VLYlF2RDMxUTUzblR0?=
- =?utf-8?B?QUg2R2grVzRGc1FaSFJLM3E2dzF4RFo2Q1VwaDJkVnZ4M29RL1dBeFpiSHZv?=
- =?utf-8?B?SzN6V2l5ZWNrdEdHZHNYa3hzWDFNbnhoYWhaVEdkcXVkaWhtc2VLUT09?=
-X-Exchange-RoutingPolicyChecked: JVV9ARNRb3Q7Zr9qY8cPtQUpeSMxF/Wjp943m0dSn97rAfQpdIbOfvwvWjDpW2fw9647HbXvWOqLkWmtWrayUqvSANiLXHN+CTYqk+t2NvUzGpTryCFcu9y1Ae4RHGWBr6Fygl6ScPHonBeOX089fewQKutYcFt34IY9FHfT8IfWxQASAJu0kwO087q2t4ajXKRRVcE1NUETdbHjmjL7mgI8OS8xZPsJe5b+0qHksUe1Np8+9U2ewSIuVLArpoqhUKNgBlqEOWBP0l8MNpa9FBlocK7YORnnUHPsZR4OR6QHloFb9EA8FJsThCp8/LGTZ5UvOhk/LPiZ2BpZQ+Y2zQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: f8283658-34f3-4903-2635-08deb670542a
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR11MB8509.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 13:04:30.1480
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Xk6erEXiw3SaZuV+CylacJv34cQ/Fu4QXHaFuGHWWT2N4gHriW97y9MzjPu6vZeFJOP+KXotfXSDRqgDfOxvrA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6134
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_060437_972802_A044F37D 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20260520_061206_876081_2649E792 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,114 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/27/26 13:54, Nicolin Chen wrote:
-> Some NVIDIA GPU/NIC devices, though they don't implement CXL config space,
-> have many CXL-like properties. Call this kind "pre-CXL".
+On Mon, 18 May 2026 18:04:40 -0700
+Rosen Penev <rosenp@gmail.com> wrote:
+
+> For whatever reason, GCC is unable to figure out that i2s_num is a
+> single digit number, with MT2701_BASE_CLK_NUM being the maximum value it
+> represents. Add a min() call to help it out and fix W=1 errors regarding
+> snprintf bounds.
 > 
-> Similar to CXL.cache capability, these pre-CXL devices also require the ATS
-> function even when their RIDs are IOMMU bypassed, i.e. keep ATS "always on"
-> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use cases.
-> 
-> Introduce pci_dev_specific_ats_always_on() quirk function to scan a list of
-> IDs for these devices. Then, include it in pci_ats_always_on().
-> 
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Nirmoy Das <nirmoyd@nvidia.com>
-> Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Rosen Penev <rosenp@gmail.com>
 > ---
->   drivers/pci/pci.h    |  9 +++++++++
->   drivers/pci/ats.c    |  3 ++-
->   drivers/pci/quirks.c | 38 ++++++++++++++++++++++++++++++++++++++
->   3 files changed, 49 insertions(+), 1 deletion(-)
+>  sound/soc/mediatek/mt2701/mt2701-afe-clock-ctrl.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/sound/soc/mediatek/mt2701/mt2701-afe-clock-ctrl.c b/sound/soc/mediatek/mt2701/mt2701-afe-clock-ctrl.c
+> index 5a2bcf027b4f..43157f218409 100644
+> --- a/sound/soc/mediatek/mt2701/mt2701-afe-clock-ctrl.c
+> +++ b/sound/soc/mediatek/mt2701/mt2701-afe-clock-ctrl.c
+> @@ -25,6 +25,7 @@ static const char *const base_clks[] = {
+>  int mt2701_init_clock(struct mtk_base_afe *afe)
+>  {
+>  	struct mt2701_afe_private *afe_priv = afe->platform_priv;
+> +	int i2s_num;
+>  	int i;
+>  
+>  	for (i = 0; i < MT2701_BASE_CLK_NUM; i++) {
+> @@ -35,8 +36,9 @@ int mt2701_init_clock(struct mtk_base_afe *afe)
+>  		}
+>  	}
+>  
+> +	i2s_num = min(MT2701_BASE_CLK_NUM, afe_priv->soc->i2s_num);
 
-Reviewed-by: Yi Liu <yi.l.liu@intel.com>
+To me that is backwards, like an 'if' put the variable before the limit.
 
-> diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
-> index 4a14f88e543a2..4e0077478cd7a 100644
-> --- a/drivers/pci/pci.h
-> +++ b/drivers/pci/pci.h
-> @@ -1155,6 +1155,15 @@ static inline int pci_dev_specific_reset(struct pci_dev *dev, bool probe)
->   }
->   #endif
->   
-> +#if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_PCI_ATS)
-> +bool pci_dev_specific_ats_always_on(struct pci_dev *dev);
-> +#else
-> +static inline bool pci_dev_specific_ats_always_on(struct pci_dev *dev)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->   #if defined(CONFIG_PCI_QUIRKS) && defined(CONFIG_ARM64)
->   int acpi_get_rc_resources(struct device *dev, const char *hid, u16 segment,
->   			  struct resource *res);
-> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-> index fc871858b65bc..3846447ea322f 100644
-> --- a/drivers/pci/ats.c
-> +++ b/drivers/pci/ats.c
-> @@ -244,7 +244,8 @@ bool pci_ats_always_on(struct pci_dev *pdev)
->   	if (pdev->is_virtfn)
->   		pdev = pci_physfn(pdev);
->   
-> -	return pci_cxl_ats_always_on(pdev);
-> +	return pci_cxl_ats_always_on(pdev) ||
-> +	       pci_dev_specific_ats_always_on(pdev);
->   }
->   EXPORT_SYMBOL_GPL(pci_ats_always_on);
->   
-> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-> index caaed1a01dc02..887babba97cc7 100644
-> --- a/drivers/pci/quirks.c
-> +++ b/drivers/pci/quirks.c
-> @@ -5715,6 +5715,44 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1457, quirk_intel_e2000_no_ats);
->   DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x1459, quirk_intel_e2000_no_ats);
->   DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145a, quirk_intel_e2000_no_ats);
->   DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_INTEL, 0x145c, quirk_intel_e2000_no_ats);
-> +
-> +static bool quirk_nvidia_gpu_ats_always_on(struct pci_dev *pdev)
-> +{
-> +	switch (pdev->device) {
-> +	case 0x2e00 ... 0x2e3f: /* GB20B */
-> +		return true;
-> +	}
-> +	return false;
-> +}
-> +
-> +static const struct pci_dev_ats_always_on {
-> +	u16 vendor;
-> +	u16 device;
-> +	bool (*ats_always_on)(struct pci_dev *dev);
-> +} pci_dev_ats_always_on[] = {
-> +	/* NVIDIA GPUs */
-> +	{ PCI_VENDOR_ID_NVIDIA, PCI_ANY_ID, quirk_nvidia_gpu_ats_always_on },
-> +	/* NVIDIA CX10 Family NVlink-C2C */
-> +	{ PCI_VENDOR_ID_MELLANOX, 0x2101, NULL },
-> +	{ 0 }
-> +};
-> +
-> +/* Some pre-CXL devices require ATS when it is IOMMU-bypassed */
-> +bool pci_dev_specific_ats_always_on(struct pci_dev *pdev)
-> +{
-> +	const struct pci_dev_ats_always_on *i;
-> +
-> +	for (i = pci_dev_ats_always_on; i->vendor; i++) {
-> +		if (i->vendor != pdev->vendor)
-> +			continue;
-> +		if (i->ats_always_on && i->ats_always_on(pdev))
-> +			return true;
-> +		if (!i->ats_always_on && i->device == pdev->device)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
->   #endif /* CONFIG_PCI_ATS */
->   
->   /* Freescale PCIe doesn't support MSI in RC mode */
+>  	/* Get I2S related clocks */
+> -	for (i = 0; i < afe_priv->soc->i2s_num; i++) {
+> +	for (i = 0; i < i2s_num; i++) {
+
+Caching the limit also stops the compiler having to read it every iteration.
+
+-- David
+
+>  		struct mt2701_i2s_path *i2s_path = &afe_priv->i2s_path[i];
+>  		struct clk *i2s_ck;
+>  		char name[13];
 
 
