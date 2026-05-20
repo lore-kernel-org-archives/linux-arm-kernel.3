@@ -4,61 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACE1CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:22:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1570ACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wu7BYcpdKEhy5UQgW642CFskRoCZsZvWAmVlK7nXB84=; b=UUeVwiLzijqwSq3fOx98BaCGSg
-	Mcrf/cAPqG0XfnV59q5keIc38fkxc+uU1Edo7bXu8SKl3B06Ff1OTigMTMbStLP3GleGSo1W+mpRg
-	vxATTQDE7CpNcCH4vQdvKW+oCukVYHsqYmQFf/+LRbSgIzPQBNGgtNQqUE42lt3sqP7eMAgFZfo6A
-	YPL883p5Q44d6gAalu7ICyVXBYPKSGtxMGVPDM7mzjFERL1i/nHJG48U+1XDyVbaFQh/Esa7yzqv7
-	TcZItL7N+4pUki0kRL459NFWGX3NAGSE1r6y1kRU4nAg9M9i3tMR6nnCkWbqYn9jcpgPdJxjPCUUy
-	i66IK1Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZD8qPPFqgaVsJrT+bNhoJDKlvxEOAlYooRCBoZWKDeg=; b=ypsFoVwVto6zxQkHk7XrpIMtKA
+	b8MKQdw55N0m1BKvIBxjr+CQ91LtsooyOiHQ8nsxqCmo4kEgnfwlfaHMViuBDfrc3rbVr4TGLf2Vg
+	xdGwaQhesKTKxtsGBJtFkFoCmag1y4Lo57Cz95cADxy8W8Cr31891eYi4IB8wwrwQLDPltZYzkUAe
+	5Z+8ouydVngoxqITSt5XN0HHjv9zTUrTAq/ORioz0T8qaPWGLU6jhyUDSGIVcBB7Os83QFEfLjB4e
+	JZ9UIO3rHwZRzenfir8CF20wDA//5HabXxlJBrjNXs4U48ejdVriT9kVD0qBusfv3eKWg1Hs2OeUR
+	4i+hPvuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoMg-00000005pC2-2FTa;
-	Wed, 20 May 2026 21:22:06 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wPoNR-00000005pLN-3Gbd;
+	Wed, 20 May 2026 21:22:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoMe-00000005pBH-04Qt
+	id 1wPoNO-00000005pKO-41X7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 21:22:05 +0000
-Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9607642B;
-	Wed, 20 May 2026 23:21:48 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1779312108;
-	bh=Y1rMEzlaiUJ1fqWI8kiFvjdxUfnUCtEhmT0b78R7Io8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RTzdR8+KDBxDyElJVu8oBC2z5QLYgeD3vaVIDqGEx6VjXeojnOaxldKOm/0p1JZ47
-	 XyKKljc2WLcRBhbSmGk35C4DXFzY37rvnIqjuLVNao+NEp0xwKB1CwNuU91zrnSS0m
-	 /KC2l5BZ4EMItojYybETV1GlaY4ouGprNRHBzBw8=
-Date: Wed, 20 May 2026 23:22:01 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH v4 2/2] media: nxp: imx8-isi: Implement get_frame_desc
- for crossbar subdev
-Message-ID: <20260520212201.GC9017@killaraus.ideasonboard.com>
-References: <20260508-isi_vc-v4-0-feee39c63939@oss.nxp.com>
- <20260508-isi_vc-v4-2-feee39c63939@oss.nxp.com>
+	Wed, 20 May 2026 21:22:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EEDD43A22;
+	Wed, 20 May 2026 21:22:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71DFD1F000E9;
+	Wed, 20 May 2026 21:22:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779312170;
+	bh=ZD8qPPFqgaVsJrT+bNhoJDKlvxEOAlYooRCBoZWKDeg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=S5yhYWvBFRRzb7ajya43HMybpM6sLW0lPBQvPDR2wRsGnCzAsRKRuTyzVUhdCHS/m
+	 hXcSTjHoDGmfM05SPuXedm3o/TZXUnAsNvOndmOJdzLlTJAHoYuk/3UfgELKFcN6Pg
+	 vx+ThFNX3B1KnL2tBIsHjGZNwt7Gmn+CildY2rgO9eEuEMr7YS8FR8tEjHtY8htC6g
+	 UlzPdcM08Xww1Ekb4vltqOkE9lVLpR6QWjdei0XFf54taKesaUUqu+xliTluF0NZw7
+	 CMyrZ6NaetCNwkoCITv8jwuuQPQSTcgmutsq7EdubZMntf92fEkFYC7vfPwLlnbBuG
+	 M3tf5YcnSuX8A==
+Message-ID: <029df55b-5542-4f8a-bf13-7649bd9454cd@kernel.org>
+Date: Wed, 20 May 2026 23:22:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260508-isi_vc-v4-2-feee39c63939@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
+ installs
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
+ Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>,
+ Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+ bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
+References: <20260517211232.1670594-1-tj@kernel.org>
+ <20260517211232.1670594-2-tj@kernel.org>
+ <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
+ <agtuPrgIDNKSu2Oo@slm.duckdns.org>
+ <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
+ <297658c4ae2d6e7103f5968efc936224@kernel.org>
+ <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
+ <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
+ <agyZxmHoueGwBAQg@slm.duckdns.org>
+ <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
+ <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
+ <CAADnVQ+j4o0Xy+cykSdx9txSqCouy0yHFaA09qTJp3OVF3VaRA@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
+ dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
+ QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
+ XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
+ Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
+ PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
+ WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
+ UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
+ jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
+ B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
+ ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
+ AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
+ 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
+ g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
+ ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
+ 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
+ /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
+ jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
+ DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
+ HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
+ 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
+ LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
+ 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
+ VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
+ /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
+ iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
+ 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
+ zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
+ azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
+ FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
+ sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
+ 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
+ EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
+ IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
+ 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
+ Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
+ sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
+ yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
+ 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
+ r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
+ 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
+ CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
+ qIws/H2t
+In-Reply-To: <CAADnVQ+j4o0Xy+cykSdx9txSqCouy0yHFaA09qTJp3OVF3VaRA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_142204_200719_3B084C20 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20260520_142251_051290_78B700A4 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,158 +141,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Guoniu,
-
-Thank you for the patch.
-
-On Fri, May 08, 2026 at 11:05:41AM +0800, Guoniu Zhou wrote:
-> From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
+>>
+>> At least in apply_range_clear_cb() one could similarly switch to
+>> ptep_try_install() to at least have both these paths handle races in a
+>> reasonable way. (having to handle when ptep_try_install() is not really implemented)
 > 
-> Implement the get_frame_desc pad operation for the crossbar subdevice
-> to propagate frame descriptor information from the source subdevice to
-> downstream ISI channels.
-> 
-> This allows the ISI driver to retrieve virtual channel information and
-> other stream parameters from the connected upstream, which is required
-> for proper virtual channel routing on platforms supporting multiple VCs.
+> You mean to use ptep_get_and_clear() ?
+> Makes sense to me.
+Yes, using also an atomic to replace it.
 
-Have you looked at v4l2_subdev_get_frame_desc_passthrough(), could it be
-used instead of a manual implementation ? This could be either direct
-usage of v4l2_subdev_get_frame_desc_passthrough(), or with minor
-additional customization (first calling the unlocked helper
-__v4l2_subdev_get_frame_desc_passthrough() and updating the descriptors.
+I recall that ptep_get_and_clear() might not be atomic, but I guess it is on the
+architectures where ptep_try_install() is currently implemented.
 
-> Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
-> ---
-> Changes in v4:
-> - Use %d instead of %u for ret variable in error messages
-> - Fix potential -ENOIOCTLCMD leak by resetting ret to 0 on continue
 > 
-> Changes in v3:
-> - New patch added based on feedback from Laurent Pinchart
-> ---
->  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 98 ++++++++++++++++++++++
->  1 file changed, 98 insertions(+)
+>> Anyhow, the documentation of ptep_try_install() must clearly spell out that this
+>> must be used very carefully, and only in special kernel page tables, never user
+>> page tables. There are likely other scenarios we should document (caller must
+>> prevent concurrent page table teardown somehow, and must be prepared to handle
+>> races if other code is not using atomics).
+>>
+>> To highlight that, we should likely consider adding a "kernel" in the name, like
+>> "ptep_try_install_kernel()".
+>>
+>> I am also not sure if "install" is the right terminology and whether it should
+>> instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
 > 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> index 605a45124103..b5eff191b2d5 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> @@ -306,6 +306,103 @@ static int mxc_isi_crossbar_set_fmt(struct v4l2_subdev *sd,
->  	return 0;
->  }
->  
-> +static int mxc_isi_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
-> +				  struct v4l2_mbus_frame_desc *fd)
-> +{
-> +	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
-> +	struct device *dev = xbar->isi->dev;
-> +	struct v4l2_subdev_route *route;
-> +	struct v4l2_subdev_state *state;
-> +	int ret = 0;
-> +
-> +	if (pad < xbar->num_sinks)
-> +		return -EINVAL;
-> +
-> +	memset(fd, 0, sizeof(*fd));
-> +
-> +	state = v4l2_subdev_lock_and_get_active_state(sd);
-> +
-> +	/*
-> +	 * Iterate over all active routes. For each route going through the
-> +	 * requested source pad, get the frame descriptor from the connected
-> +	 * source subdev, find the corresponding stream entry, and add it to
-> +	 * the output frame descriptor with the routed stream ID.
-> +	 */
-> +	for_each_active_route(&state->routing, route) {
-> +		struct v4l2_mbus_frame_desc source_fd;
-> +		struct v4l2_subdev *remote_sd;
-> +		struct media_pad *remote_pad;
-> +		unsigned int i;
-> +
-> +		if (route->source_pad != pad)
-> +			continue;
-> +
-> +		/* Find the remote subdev connected to this sink pad */
-> +		remote_pad = media_pad_remote_pad_first(&xbar->pads[route->sink_pad]);
-> +		if (!remote_pad) {
-> +			dev_dbg(dev, "no remote pad connected to crossbar input %u\n",
-> +				route->sink_pad);
-> +			continue;
-> +		}
-> +
-> +		remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
-> +		if (!remote_sd) {
-> +			dev_err(dev, "no subdev connected to crossbar input %u\n",
-> +				route->sink_pad);
-> +			ret = -EPIPE;
-> +			goto out_unlock;
-> +		}
-> +
-> +		/* Get frame descriptor from the remote subdev */
-> +		ret = v4l2_subdev_call(remote_sd, pad, get_frame_desc,
-> +				       remote_pad->index, &source_fd);
-> +		if (ret == -ENOIOCTLCMD) {
-> +			dev_dbg(dev, "%s:%u does not support frame descriptors\n",
-> +				remote_sd->entity.name, remote_pad->index);
-> +			ret = 0;
-> +			continue;
-> +		}
-> +		if (ret < 0) {
-> +			dev_err(dev, "failed to get frame desc from %s:%u: %d\n",
-> +				remote_sd->entity.name, remote_pad->index, ret);
-> +			goto out_unlock;
-> +		}
-> +
-> +		if (fd->num_entries == 0)
-> +			fd->type = source_fd.type;
-> +
-> +		/* Find the source frame descriptor entry matching the sink stream */
-> +		for (i = 0; i < source_fd.num_entries; i++) {
-> +			if (source_fd.entry[i].stream == route->sink_stream)
-> +				break;
-> +		}
-> +
-> +		if (i == source_fd.num_entries) {
-> +			dev_err(dev, "stream %u not found in frame desc from %s:%u\n",
-> +				route->sink_stream, remote_sd->entity.name,
-> +				remote_pad->index);
-> +			ret = -EPIPE;
-> +			goto out_unlock;
-> +		}
-> +
-> +		if (fd->num_entries >= ARRAY_SIZE(fd->entry)) {
-> +			dev_err(dev, "frame descriptor is full\n");
-> +			ret = -ENOSPC;
-> +			goto out_unlock;
-> +		}
-> +
-> +		/* Copy the entry and update the stream ID */
-> +		fd->entry[fd->num_entries] = source_fd.entry[i];
-> +		fd->entry[fd->num_entries].stream = route->source_stream;
-> +		fd->num_entries++;
-> +	}
-> +
-> +out_unlock:
-> +	v4l2_subdev_unlock_state(state);
-> +
-> +	return ret;
-> +}
-> +
->  static int mxc_isi_crossbar_set_routing(struct v4l2_subdev *sd,
->  					struct v4l2_subdev_state *state,
->  					enum v4l2_subdev_format_whence which,
-> @@ -404,6 +501,7 @@ static const struct v4l2_subdev_pad_ops mxc_isi_crossbar_subdev_pad_ops = {
->  	.enum_mbus_code = mxc_isi_crossbar_enum_mbus_code,
->  	.get_fmt = v4l2_subdev_get_fmt,
->  	.set_fmt = mxc_isi_crossbar_set_fmt,
-> +	.get_frame_desc = mxc_isi_get_frame_desc,
->  	.set_routing = mxc_isi_crossbar_set_routing,
->  	.enable_streams = mxc_isi_crossbar_enable_streams,
->  	.disable_streams = mxc_isi_crossbar_disable_streams,
+> I suggested using the ptep_try_set() name too :)
+> 
+>> Further note that last time I talked to Linus about arch helpers, he preferred
+>>
+>> #define ptep_try_install ptep_try_install
+>>
+>> over __HAVE_ARCH_PTEP_TRY_INSTALL
+> 
+> ok.
+> I guess __HAVE_ARCH_PTEP_GET_AND_CLEAR is legacy ?
+
+Yeah ... and we have plenty of legacy around :)
 
 -- 
-Regards,
+Cheers,
 
-Laurent Pinchart
+David
 
