@@ -4,89 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5143CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B579FCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2UP4oEFhHFvYNaDQ1RBxMdab/kp2FfRq8HctTWxTnI=; b=x3+0dIDPkeNA/hc5pzTDWeC1qZ
-	n4g9Mt1se9jCDq+IyRR16ufr3d7mJ3j/6eprggv31V8fKEVXTscSinKN0K8vB8CBy3RGEgN+Df4gf
-	yY4b9VYk3exup7mB64Kf/29y0U0bGYCSNSk88zdc168JmdI0Thq2vsWDRRBAm2uwofrMOyReo4ZFe
-	BIxHgajcd30E19PVhTqQD99xk8bLlBaqD6/XI1IqnUz0eF1xxOiCwrXQT7cd7WcsO3mYhHYViv8eK
-	JoMfRJWtbgpVfNc2Wlm7tkYBjCbpAuruS9RPAjJTQFQ4PNH+irtiajOQQEDgo/XC2igXxYRJ1t0ch
-	Z1rhne0A==;
+	bh=yF4iEePz0efKjWWczqPvkzIUeB6xqHtDsvairyfmeUg=; b=QZFDmM/gQsRcdqDxKjlyz4fu5p
+	LE/L/RmD5U7DBTUUMSCjY5G1jfxNfBRmgmHeBwIZVNQUFud+tGdFgLgCjlAtIFFZDcSASqGAO0wJg
+	v0R78jtOVwhXdlZBYcGAtZyLEgDcjSBXqsHGhsSaXaaPLf1xN6hzCRqqRUIFn0Mz2VojBf0yhZwA2
+	t1ZC5RiZgBaHTQWt/YFqAu5vLiiubfVs83bjyWyg9mqvJBEtyJx7qCi3B5hwNFXJ/0uMV84BtigaO
+	ugJ2RVz6JUCiRfVHrQh58iUyMGY+q6bMx/40EDLDMt+pzLCG8UVea5KBmjJx5XuEoczTFUjthESje
+	XmC34zLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6T-000000047ad-2cl9;
-	Wed, 20 May 2026 09:20:37 +0000
+	id 1wPd6U-000000047cE-0c6v;
+	Wed, 20 May 2026 09:20:38 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6J-000000047JG-0M5m
+	id 1wPd6K-000000047N3-3I5E
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 May 2026 09:20:27 +0000
+	Wed, 20 May 2026 09:20:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=m2UP4oEFhHFvYNaDQ1RBxMdab/kp2FfRq8HctTWxTnI=; b=ILzxWx+JDREjHHIV+R5qRn/l8c
-	HZBzE1NfIMLiv8bOmoQ0X0KygvfJ0Wbu2jvdEqUEZnit6sdxUo8BqjOrF50ukBdKsNz7DddWq/HEm
-	wmk9mrJd6u+RDBIULhWs7SZVA+NP+BuzSJuNkd/qZt1j7ZsZWJ8ymD9d6QJvbLQ95B03BaNqMv+HP
-	0h8A79ZYlojFZOx6eFadFB4kZtuiMV6EDIbFvp4eB0tide+7UQiURBdYVcMvwknuAWDoKD5SHQI/a
-	C36xoN1wM0pRa4J/q2l/Tvt8clZGaKTtBX53QQWo9tf8Tjo5j91AfHjK1tQlOXjP03m7CILmmYbza
-	8tqwVgFQ==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	bh=yF4iEePz0efKjWWczqPvkzIUeB6xqHtDsvairyfmeUg=; b=g7Onznvcs0XhzERHUBYQ5fneOI
+	Kci/WuD4GoqOEDksbr6f9weov2DXXKGpp7pfJCpqzuXddRJ2ReK0n501uPiXDcY8QMfNfz73sHmr4
+	XGdMBMY72xbK1Bku5RLInnB0Fv5W9UrjxNNJtweTNM1fllz3f5zxf/WbstH94DrwJV70EesJgXGCx
+	CA0ORTLikzX5zJWdLk6uTN9YdSUi4keiS6koGPcqhvuIvc2vZMCnFzEAB5bqowTc7tHnSlz2Ng7//
+	1yH9fwOCZ7JrveVPPgyccxaoieUwaT6ZWU4CefWx7+cAwTvZJcrVwR1DHcs8jRgPckxlObUu6WqZu
+	ml8JpfKw==;
+Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
 	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6F-00000006xOd-2EPn
+	id 1wPd6H-00000006xPc-3l9w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C5222445D4;
-	Wed, 20 May 2026 09:20:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A70261F0089A;
-	Wed, 20 May 2026 09:20:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779268814;
-	bh=m2UP4oEFhHFvYNaDQ1RBxMdab/kp2FfRq8HctTWxTnI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Wkg4zVqILB+Pkp2Zhk+T+wByBZtsYuRPm44HzAq5pO02+XqHuzJY0VmVBKdPbXX9e
-	 IU0WRqDomb6/bCTSkhQ3zF8FNY2sAeWS7BpS1Su/PaFpSy3qoh7K3J/ICJODQASluH
-	 QjI4iN6nd+CoB5A7JJWGpFVE9QMRjO81zXbAxLPDN4zMepDgApNKAtsUBe2PUIt6We
-	 Zw6A4P9tnKcjCHLUmYvj5S/bkSbMdJfD7JtySASTzzSC2dmqc716BPIKaJbWK2dNbC
-	 xkbaEESY0yObA4VrBaGMDVFNL85dU8wbq5mlJAz4WWtFi0LlWor1tA4X60wTpZeHLR
-	 R42TD3eUWf4mA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wPd64-00000004IaV-3uY6;
-	Wed, 20 May 2026 09:20:12 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH v2 13/18] KVM: arm64: selftests: Cleanup unused vars in GICv5 PPI selftest
-Date: Wed, 20 May 2026 10:19:44 +0100
-Message-ID: <20260520091949.542365-14-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
-References: <20260520091949.542365-1-maz@kernel.org>
+	Wed, 20 May 2026 09:20:27 +0000
+Received: by mail-pg1-x541.google.com with SMTP id 41be03b00d2f7-c80167f56cdso2051724a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 02:20:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779268823; x=1779873623; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yF4iEePz0efKjWWczqPvkzIUeB6xqHtDsvairyfmeUg=;
+        b=aatzxvewVTZFD6z/0FjgUJlHl0hc782ArKybEwJhH75negObd/2TaWh+JUvNhNX/cv
+         4Jv0JbE2bbrs73srqlxtZgud9lSSyVuiksd7MTpafngRc05UR4hzQCutjU++nP8zKJrP
+         sD7aOZTzqpilHsAKY2NNvrRhgd3PXTdeJvmc6HpnXSrci+z1Vdphhuw9ufrSXkaqd0UL
+         sQp0LBdkrNwcEfvvl/WNHIo7mz/qw+T1NCrC+kH7yU9sSctRFIpiV+uM7gtdeAN0GCRM
+         gFRfZG6uxuEAsSCvdxHCiIL8qmaP41feDK0y8ur2S1YMYVzDRuTN6PGuEVrmViqeMtr1
+         4eig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779268823; x=1779873623;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yF4iEePz0efKjWWczqPvkzIUeB6xqHtDsvairyfmeUg=;
+        b=Fp3L4p+qnq9N12/rN00erXKfiblh9e0s+aXXibwVEESeY6aOPd+LxUUjbK0dcx/8yP
+         aFUBhjL7tYA2IazKRLswgzU7C5ACFL+bXe1la3pV5UHmrxQv2BND8TKnPxS/GQ7sEB+W
+         XSzwFrWPVmbHgA0vxDvNx4YhAMtWnqQsS+PXXsjvtXG9fYUeJWz4eXdeM9e09t1cHx8w
+         twmWqYA6gQecw7mOfphY1MB6LAlXoSd97V9fZKgsTaXkVgyR6v6/5m8HDHKLWScuxBwq
+         FcBhSoP0By/dgvjuz/vZrh+Tl0hStB/D4xVa5ZD7F5XUD0AZ5QpOd5O5ZBLfgwloxuPn
+         2doQ==
+X-Gm-Message-State: AOJu0YyO+4oAvbBW3i7DPpiEZ1y2w+NElr6Y2AbUsCxlaLOXpggaeUAZ
+	wtnZVCB7KN0wHQekvV0dy8tgBNjc+brc6QAoQR/cGgErARej1XlovI5K1iffG0OrSHYp+Ixh
+X-Gm-Gg: Acq92OHQ8/nlQJd5ioiBhrpj7aqhjHSlurXcqmKJaQulabYjn/WTdj1fPLOg066wBjK
+	1a5DEMOEolu6MWGnnxWJequwd7YBa++ElEfEG9ZXc/UVFx44yKE6zRYxQms2mrQVyYeDbDJbHid
+	vKm837i8y+xFPY4LdDrluwvSSDFrwpqzQYYxyGTIusVC/a4bh1YpElArP/iaVt5casFGN2AfOjY
+	EgV7uXa6JtDM1e8vB4BXTBY9G2OUQv5mKSd/5GB8aK2urmRM5Rb245J1kDvzjzYFmZHYizRoh61
+	KEdGqIpgYyW5voS5uNSIO2+Y0R5FcteBUkxS9X6xuUysLMt2JkFJz7M6UAdkVFPSOZwL1vfmKhc
+	pPrmxD5ANNunE903rAG2MbqA7xt6FygzU2Sfg2l21lXV8L+WzFYVpdxm7ZMrfYruxZ1Ux4wd2O9
+	eaDizFqieIVtKK0n1f6xM//kLQiBSyt1nDrGiaXg==
+X-Received: by 2002:a05:6a00:2e9f:b0:82f:6e7:152d with SMTP id d2e1a72fcca58-83f33c391cfmr24600140b3a.21.1779268822961;
+        Wed, 20 May 2026 02:20:22 -0700 (PDT)
+Received: from intel.company.local ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f63bb986dsm10208967b3a.48.2026.05.20.02.20.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 02:20:22 -0700 (PDT)
+From: Wandun Chen <chenwandun1@gmail.com>
+X-Google-Original-From: Wandun Chen <chenwandun@lixiang.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	iommu@lists.linux.dev,
+	zhaomeijing@lixiang.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	robh@kernel.org,
+	saravanak@kernel.org,
+	akpm@linux-foundation.org,
+	bhe@redhat.com,
+	rppt@kernel.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	ruirui.yang@linux.dev,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com,
+	leitao@debian.org,
+	kees@kernel.org,
+	coxu@redhat.com,
+	tangyouling@kylinos.cn,
+	songshuaishuai@tinylab.org
+Subject: [PATCH v2 8/8] loongarch: kdump: exclude non-dumpable reserved memory regions from vmcore
+Date: Wed, 20 May 2026 17:18:44 +0800
+Message-ID: <20260520091844.592753-9-chenwandun@lixiang.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260520091844.592753-1-chenwandun@lixiang.com>
+References: <20260520091844.592753-1-chenwandun@lixiang.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_102023_788611_E4E20024 
-X-CRM114-Status: GOOD (  10.92  )
+X-CRM114-CacheID: sfid-20260520_102026_095516_550A39AE 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +141,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sascha Bischoff <sascha.bischoff@arm.com>
+From: Wandun Chen <chenwandun1@gmail.com>
 
-Clean up a set of unused variables around the size of the guest's PA
-space as they are completely irrelevant for GICv5 when only
-considering PPIs.
+From: Wandun Chen <chenwandun@lixiang.com>
 
-Fixes: 0a9f38bf612b ("KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest")
-Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Apply the same non-dumpable reserved memory filtering to LoongArch
+kdump as was done for arm64. Use of_reserved_mem_kdump_exclude() to
+drop flagged regions from the elfcorehdr PT_LOAD segments, and
+of_reserved_mem_kdump_nr_ranges() to pre-size the crash_mem array.
+
+Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
 ---
- tools/testing/selftests/kvm/arm64/vgic_v5.c | 6 ------
- 1 file changed, 6 deletions(-)
+ arch/loongarch/kernel/machine_kexec_file.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-index d785b660d8476..a8707120de0d8 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-@@ -20,8 +20,6 @@ struct vm_gic {
- 	u32 gic_dev_type;
- };
+diff --git a/arch/loongarch/kernel/machine_kexec_file.c b/arch/loongarch/kernel/machine_kexec_file.c
+index 5584b798ba46..c5cead362d2d 100644
+--- a/arch/loongarch/kernel/machine_kexec_file.c
++++ b/arch/loongarch/kernel/machine_kexec_file.c
+@@ -14,6 +14,7 @@
+ #include <linux/kernel.h>
+ #include <linux/kexec.h>
+ #include <linux/memblock.h>
++#include <linux/of_reserved_mem.h>
+ #include <linux/slab.h>
+ #include <linux/string.h>
+ #include <linux/types.h>
+@@ -67,6 +68,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 	nr_ranges = 2; /* for exclusion of crashkernel region */
+ 	for_each_mem_range(i, &start, &end)
+ 		nr_ranges++;
++	nr_ranges += of_reserved_mem_kdump_nr_ranges();
  
--static u64 max_phys_size;
--
- #define GUEST_CMD_IRQ_CDIA	10
- #define GUEST_CMD_IRQ_DIEOI	11
- #define GUEST_CMD_IS_AWAKE	12
-@@ -208,13 +206,9 @@ void run_tests(u32 gic_dev_type)
- int main(int ac, char **av)
- {
- 	int ret;
--	int pa_bits;
+ 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
+ 	if (!cmem)
+@@ -91,6 +93,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
+ 			goto out;
+ 	}
  
- 	test_disable_default_vgic();
++	ret = of_reserved_mem_kdump_exclude(cmem);
++	if (ret < 0)
++		goto out;
++
+ 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
  
--	pa_bits = vm_guest_mode_params[VM_MODE_DEFAULT].pa_bits;
--	max_phys_size = 1ULL << pa_bits;
--
- 	ret = test_kvm_device(KVM_DEV_TYPE_ARM_VGIC_V5);
- 	if (ret) {
- 		pr_info("No GICv5 support; Not running GIC_v5 tests.\n");
+ out:
 -- 
-2.47.3
+2.43.0
 
 
