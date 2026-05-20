@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 213FCCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 14:41:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA5CCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 14:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iBEbE+camjUKBlwCJLf2N5rzNs637OGXYU74gPqV2Gs=; b=oKPxw+JWX+r47WB7fA76RO7VWO
-	jMX3geZyDaIzc9CJiudN3ssz+OI5AT5b2Z1mRRyk4C0Munztk4mpuwcD0qIbWrRRM83shDVau3+h4
-	xzymeJEnsIRATgqf310ifq9VsyUrGLHovXCOLfzSQzBg4v4G3fsiovkReyn8AVnT0qRZer66OI9Co
-	DhhvlVkBirP4q3k5FNMt5ZmxZwRKk6ZCMxwMI1d56xK71uLR2gSnE50EBtthPmZ/nBdbTAwkDDmg8
-	lRNDN/OfdcqrtVsBKYxx1Qw3iR8v0Utt+kH5FkbZvboDPOF7E2XbK1QNQzYJp04D/3ifStmXsHctb
-	kkIyz3HA==;
+	bh=WvcSANqXYxSuWMv70aiwowoFinc31+uKPSBaTXt6+oY=; b=Y8qETida4RXsF+/7f8CD8KRDT7
+	8whymoRrsdiIQcP1HHh8aOYyzM2ZX/ApCcs1jKzQz1fEDhWCDleTt+mL0tded32r1sYkw1wyCa2vS
+	vd/uraik3ejEwA/CdAsLOirRvSir1s7opHQdGgngqAch+MVICefpT2Aqu8WsJfVLJkvneOXA3qAk2
+	D0jLdKw1O5i3IwyaLsGmummB2+RyrH7bAjEd0prUptD8GP+lxXlO3VDaMQ+3anGhhxH9dUf9b2fhJ
+	1A0X7D0/V41nlcl0bHHp0s5SFiCvnOs7s4wc6iYuWMklu7Y4ZZ58BVniwCe5s4Pfr5HmdjwUJslET
+	ET7c1Gdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPi6U-00000004r8c-0b22;
-	Wed, 20 May 2026 14:40:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPi78-00000004rHp-1Jg9;
+	Wed, 20 May 2026 14:41:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPi6T-00000004r8I-0vVs;
-	Wed, 20 May 2026 14:40:57 +0000
+	id 1wPi75-00000004rGr-3pQC;
+	Wed, 20 May 2026 14:41:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5860360008;
-	Wed, 20 May 2026 14:40:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 518441F000E9;
-	Wed, 20 May 2026 14:40:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 02EF743BFB;
+	Wed, 20 May 2026 14:41:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C88C1F000E9;
+	Wed, 20 May 2026 14:41:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779288056;
-	bh=iBEbE+camjUKBlwCJLf2N5rzNs637OGXYU74gPqV2Gs=;
+	s=k20260515; t=1779288094;
+	bh=WvcSANqXYxSuWMv70aiwowoFinc31+uKPSBaTXt6+oY=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=YwNTL7Di1i10LxrXKrgPrBkT/a0mF+W44BHvguh46QEVvWVQhe0w+ull5XI4rpvl2
-	 xj7C4ZwWYw2a4mHGNQlMI0kNuXVTLmxMOsFqIFOGImN0/Ky2idXrx4n/KSAHG8YAOC
-	 ceNvoEmEppM7aJdswGqOMQ7vOMKSJd3hzJ2TaDhZq5/Cvk8QN7w0xGxXtN99ntUlig
-	 CQqeKfTybxHPUrK+Q/yxN+uUEJG4xzA1b88pZuFhXOlw9QSPhEiTTd10Fq2uZwRU86
-	 eQIowsSmbhCuQ9Wm5pbWGSiknzkmBJ/eA0BljqC0rmAIWxyGmdEIW7NcUJrzXOwDwD
-	 J32BMNelRQr9g==
+	b=BuERah6+47YW5iWHKhsEZ0zroxGvV206KQVRRtyhyJ2M/YpxiMGutiYbh5ugB9fwY
+	 zCKwU+mGl9fPFVQlk7eXA2D2OmlkQU5VSiU0JBovDYH4rJL55BnH6sh1gNbDHswI+B
+	 TPHu0VrR1cRuvoePktMUvVYKgHYBK4QLIrTstkZZP1bMenKulFt4Cs0g3lCF5xelzh
+	 QKCXVuqZ2mwSb4Vix2KcGtnYFTDoLY+Owf7rGv/H2UCs/E1lm2eadm4YriBAi+7aiz
+	 n7HsyG3uA3SnODbgQVV1n0lT2KCJyZuQftDhxUrNaMv5UBIyD8K4Dh3eb8se/BlTV3
+	 Lp1kM/UEe3Lrg==
 From: Lee Jones <lee@kernel.org>
 To: Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
  Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
@@ -58,16 +58,20 @@ Cc: kernel@collabora.com, linux-pm@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-input@vger.kernel.org, linux-iio@vger.kernel.org
-In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-1-6f43838be92f@collabora.com>
-References: <20260429-mediatek-genio-mt6365-cleanup-v1-1-6f43838be92f@collabora.com>
-Subject: Re: (subset) [PATCH 1/9] dt-bindings: mfd: mediatek: mt6397: Add
- rtc for MT6359
-Message-Id: <177928805103.2819461.14868445480011643756.b4-ty@b4>
-Date: Wed, 20 May 2026 15:40:51 +0100
+In-Reply-To: <20260429-mediatek-genio-mt6365-cleanup-v1-2-6f43838be92f@collabora.com>
+References: <20260429-mediatek-genio-mt6365-cleanup-v1-2-6f43838be92f@collabora.com>
+Subject: Re: (subset) [PATCH 2/9] dt-bindings: mfd: mediatek: mt6397: Add
+ MT6365 PMIC support
+Message-Id: <177928809004.2820600.8127364744264482549.b4-ty@b4>
+Date: Wed, 20 May 2026 15:41:30 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailer: b4 0.16-dev-ad80c
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_074135_968148_F735516C 
+X-CRM114-Status: UNSURE (   6.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,15 +86,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Apr 2026 11:44:14 +0200, Louis-Alexis Eyraud wrote:
-> The rtc block of MT6359 PMIC is compatible with the one found in MT6358
-> but this compatibility was never expressed in the dt-bindings, so add
-> the missing compatible string for the rtc subnode.
+On Wed, 29 Apr 2026 11:44:15 +0200, Louis-Alexis Eyraud wrote:
+> MT6365 PMIC is compatible with MT6359, so add the compatible strings
+> for the main and sub devices (regulator, rtc, audio codec).
 
 Applied, thanks!
 
-[1/9] dt-bindings: mfd: mediatek: mt6397: Add rtc for MT6359
-      commit: 4edf75f835bad0b7e7ac022594b129f9dbf8698c
+[2/9] dt-bindings: mfd: mediatek: mt6397: Add MT6365 PMIC support
+      commit: 5a7c6466133eee4370995ad5ccf4c377011a381e
 
 --
 Lee Jones [李琼斯]
