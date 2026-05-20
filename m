@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45293CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E30CD5BA6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Aaw5mD9iL8recbssNlmMEcgLUSzQXou6BmaYITDAlA=; b=sbd0RhQFpJEYiu4ru2ubQyWAio
-	f9g8dNAMCXfpoVU5i/hWNNF8NwMYdab8noehnj5xr8+oNgP7XikPCQs7qzE6c+0JpMziGzg7GplM6
-	XMMfaJYeezR+n3TaKqpot+uRl/tb54VowWtiM/xSojKTfNDYDK1nogI7IEmySm8eNfInISZw4e4Gs
-	Wz0JBZ/lVlMbtPn7CS28beBLNOWpDC6Po2WAjPa59fKFIyH/5EuWgF+5v78O2y49vuFwJeSfte3ir
-	ZWzuDMVLM26jRCUojeSlFscYqy3a6mQaMRsmA8zdjx/8VOUeyg84Sj5RkbdmbvxqnJPvyT+fnuXFB
-	VfjjD31A==;
+	bh=qdQpPp2MoHg9tBaiDFbCeeRZQ0f811blbdA5CVHPU1Q=; b=0fl1TVG0rtQwPB1XNkWJQNakDw
+	pyyAsZ2ryjp94wXAIAhYeCqmQowUm1cpKcrR4qH7LZG+SAs8lEa++FV64Ga3ZVsRmp0t18TWyRKu6
+	+a1BLdgusLywRX5kbNiYTlVUwZ6str/GrSX+scp9dK9T6m9wweC/KuY5ROHiU77QxbrnW64HeUOeO
+	JmW/42jGFaZGOeRV2Cw4A03UUHGLdSUXzqWHdM/qPLAYcWj6Jg0Hzo/h8kZ+M5OApVWL9TQlBh01k
+	UyqREpgMvbyI73liBkUGH191QnemXGF+Dq5+gnrWa1ek2vTSyJAoUbYReqh67XPxuedy9e0YLlVIU
+	3vjSb5IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd7Q-000000048oa-0fTT;
+	id 1wPd7Q-000000048pa-20Hj;
 	Wed, 20 May 2026 09:21:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6Y-000000047iN-1mPj
+	id 1wPd6a-000000047lR-03t7
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 May 2026 09:20:42 +0000
+	Wed, 20 May 2026 09:20:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=+Aaw5mD9iL8recbssNlmMEcgLUSzQXou6BmaYITDAlA=; b=jXcIz6c/qfhPTdGUdHv8DoVNcu
-	IMgoFfgsoJ08+GkAFmwpCkkL0MlKtZIoR9CsXhiCwdn2u0PJccgI8O7+G1ZdfBVCB829hq2l+q7hF
-	TKVSZehE7axIoG8Eybh9zxXMwKx77me5sOGtrrYVr8NQgCl5oyUlxdIaYU/5Xy5CnUq28fi3p7Cnn
-	mBAVdxqv/t/Qs1zUiVmxrksYz0q1wJY3BR+M1DxGFFRsR/ZPY28zSyaQmkjWIDg4wMUXJeIem/6JX
-	pVNUrMeEQV4VD1q2OSrcBTLQzLz7Nf5cNF+FGS28Mh3efEDrrs7/13QTqGKzMK/mcv2564rMn1+4j
-	jvfDrnQQ==;
+	bh=qdQpPp2MoHg9tBaiDFbCeeRZQ0f811blbdA5CVHPU1Q=; b=iaNUZTX3VolkN9V3RLlLkbW4XB
+	61Q4M3ee9ZOAXNJ0d1lGHEQQLQLgOq2gqXdv6m+xNu9LeawX1nUByPTYMwHZQ5G0cjmG+LIJTMv/G
+	Lyh0t7+k6aNzY2zHHYfNIzCH8yX6nbtAG97lRlQOueo9g2Q8ox7FsMHQVD34dy6MfHavkeaV1yOhk
+	Dj5RDg4E2Dp1HP0SBt0A8CMKf7yWHZLVNM/L0DYwJYw1/DjdwqGsRnxabMMdPujZgjLhTO6CXs//o
+	9fSF161yOjeGiZ1Pst+t3DROEkrTKD7qbhhnPmq5Jv+YodnoMp1faapKMHyJi+B9C3+COEX2nkHIk
+	upXhqHKQ==;
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6E-0000000GKXD-0E0k
+	id 1wPd6E-0000000GKXh-3HqD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:40 +0000
+	Wed, 20 May 2026 09:20:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8000744570;
+	by sea.source.kernel.org (Postfix) with ESMTP id E558940619;
 	Wed, 20 May 2026 09:20:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 659011F00894;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAC8E1F0089D;
 	Wed, 20 May 2026 09:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1779268814;
-	bh=+Aaw5mD9iL8recbssNlmMEcgLUSzQXou6BmaYITDAlA=;
+	bh=qdQpPp2MoHg9tBaiDFbCeeRZQ0f811blbdA5CVHPU1Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DD+e1+L6qpqNXQcVgtena1YUtrPaRkpEyjE4dnQ9oBdZDR6f+31IHX4s33+VJyyeB
-	 +M4R6tbXJpr3ceaRagBfocQqO8ajN1FhdWuCHwdVyiKISCsmwAszkRctDbQzWOoMjH
-	 COzCtkVhAKODsI9WPZVw7GK0BpjRDbJjj/GcjWdwKuKBjIiJNMzO1SHCKWhsmL6o8l
-	 252fm8Lzm96sYfFkHFDZKprdaEAk2xXlY4gL29QwyG1YFo0D9kXiHpIUu6VIKxjXL+
-	 KC2uE9NrcSd9kX3BoTHsGe0d91AipP7rCz/G6u+X9iUmMqXYKfFMShbJA1iQxYZS5t
-	 qufKOX5rgvi2Q==
+	b=M4Eydw2MHLQ6nnrbpkxYc0S/zlpd3CST5tGg8K0HwIEb2TErQyr6VChgzYagjBLiS
+	 e8OgriXWXarVffWOi6mlyR/AxBjna4IPc6YnXmODegrxtzlfjwiTsbJpO0tomMn2zI
+	 VIcnY1pSdljTD6xcRoJlIgb/NwRp0TKNshUISk2rIDs/pJpCIhbcpLJAbqMC2fV2kl
+	 WbgFGNLNOKmEEAmeT+QGc1jp883/iq0JBeIWTODgZpwyFfqHccITUNp/wh+4DI+1Qz
+	 REpj3o+BHe7v7Y3RueyUXo8RafMGE+iMStdQh63VRwJhUHonOY71Hrq2TnVQJFTyVK
+	 RUKZXDTAAHBKQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPd64-00000004IaV-31KH;
-	Wed, 20 May 2026 09:20:12 +0000
+	id 1wPd65-00000004IaV-0Xgc;
+	Wed, 20 May 2026 09:20:13 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -72,9 +72,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH v2 12/18] KVM: arm64: selftests: Add missing GIC CDEN to no-vgic-v5 selftest
-Date: Wed, 20 May 2026 10:19:43 +0100
-Message-ID: <20260520091949.542365-13-maz@kernel.org>
+Subject: [PATCH v2 14/18] KVM: arm64: selftests: Improve error handling for GICv5 PPI selftest
+Date: Wed, 20 May 2026 10:19:45 +0100
+Message-ID: <20260520091949.542365-15-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
 References: <20260520091949.542365-1-maz@kernel.org>
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_102036_967217_8FC6516A 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20260520_102036_619271_D6BD9C79 
+X-CRM114-Status: GOOD (  12.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +103,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sascha Bischoff <sascha.bischoff@arm.com>
 
-The selftest mistakenly omitted the GIC CDEN instruction from the
-testing. Add it in.
+Cases where the KVM_RUN ioctl returned an error were wrongly reported
+as incorrect ucalls. Furthermore, potential failures when calling
+KVM_IRQ_LINE were being hidden.
 
-Fixes: ce29261ec648 ("KVM: arm64: selftests: Add no-vgic-v5 selftest")
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Improve the error handling to correctly propagate the error in both
+cases.
+
+Fixes: 0a9f38bf612b ("KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest")
+Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/no-vgic.c | 1 +
- 1 file changed, 1 insertion(+)
+ tools/testing/selftests/kvm/arm64/vgic_v5.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/no-vgic.c b/tools/testing/selftests/kvm/arm64/no-vgic.c
-index 25b2e3222f685..ab57902ce4293 100644
---- a/tools/testing/selftests/kvm/arm64/no-vgic.c
-+++ b/tools/testing/selftests/kvm/arm64/no-vgic.c
-@@ -159,6 +159,7 @@ static void guest_code_gicv5(void)
- 	check_gicv5_gic_op(CDAFF);
- 	check_gicv5_gic_op(CDDI);
- 	check_gicv5_gic_op(CDDIS);
-+	check_gicv5_gic_op(CDEN);
- 	check_gicv5_gic_op(CDEOI);
- 	check_gicv5_gic_op(CDHM);
- 	check_gicv5_gic_op(CDPEND);
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+index a8707120de0d8..96cfd6bb32f6f 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+@@ -129,6 +129,8 @@ static void test_vgic_v5_ppis(u32 gic_dev_type)
+ 
+ 	while (1) {
+ 		ret = run_vcpu(vcpus[0]);
++		if (ret)
++			break;
+ 
+ 		switch (get_ucall(vcpus[0], &uc)) {
+ 		case UCALL_SYNC:
+@@ -144,7 +146,7 @@ static void test_vgic_v5_ppis(u32 gic_dev_type)
+ 				irq = FIELD_PREP(KVM_ARM_IRQ_NUM_MASK, 3);
+ 				irq |= KVM_ARM_IRQ_TYPE_PPI << KVM_ARM_IRQ_TYPE_SHIFT;
+ 
+-				_kvm_irq_line(v.vm, irq, level);
++				kvm_irq_line(v.vm, irq, level);
+ 			} else if (uc.args[1] == GUEST_CMD_IS_AWAKE) {
+ 				pr_info("Guest skipping WFI due to pending IRQ\n");
+ 			} else if (uc.args[1] == GUEST_CMD_IRQ_CDIA) {
 -- 
 2.47.3
 
