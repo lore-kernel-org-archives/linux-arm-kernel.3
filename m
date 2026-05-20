@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0B6CD5BAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A39CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:40:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zBKnbJ1ea1Z90t+GzmUXY9pAo9IwWEqoCQVtXT4GR4o=; b=MU96zUpp5UVXDnirJH+weY9Y39
-	aIM9LHYnxcSCbvasusSbSrS1z76qx3TydYxuRkFdT8MixmA0fxwIruM1uL9yXNjkJKZeaOXHMD3Ck
-	ZrE9dr94tJyUDXz9kqSFTx0h+ZLuXxY+Rm1y3VUhhgS6G2Lgh/oByRg/D3oCar+djnA5TJ/732zhE
-	lqEeuVmAaOZvT2kXXThSnk3h7A9irX5PmJWd5I3bRddvdlPfAp9rqku2GIADjtFnz7s9A7lfNwepI
-	v3lsaBOAO8oJnTHuydJcL9+2VM3r7bJAu7rQXdS0I21fabMMStDHZXkmVJQnuuLZ7ZXmqBdoC3Xk4
-	IhDbVc5w==;
+	bh=xNZ6LFpDqSiliRDQZffjOR3z3XDTMAtPwuRo7ubH7Vo=; b=qfxiWtNek05fHFRSk8OaTDmjQq
+	d5lAG70BU8do9PBYXTufUnXz67x4CDSeCdia5tnUXdeIB/Ij4Xr8Fd9KgHoQ5FxAmh58HK4m6MqhI
+	byvXCQcDj7JmO3SfHYtCWZX+kS4ff7pRrtOM9bBwxBQZHFEY+nEfM28Pi3zrluLpOQ+UlXiWGtVpF
+	5i0cQdfzJ8STbT6Igdbo0ycF+BxmBLaWwsKUuZuDNvgJWwD1HF09rNb1dX6rXXglfqVHVw6JMxTQO
+	1Zpbl7evb//zXEqHdbCbF7OCFB8Y4TWiHUW3U6KI6NRDp4RzfMBozcrLfsExSeaea/Jr2O9/D6FCu
+	FAO+1ajQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlpj-00000005V67-42yj;
-	Wed, 20 May 2026 18:39:55 +0000
+	id 1wPlpu-00000005VOm-0pTT;
+	Wed, 20 May 2026 18:40:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPloz-00000005TcI-0wbf
+	id 1wPlpn-00000005VDj-2MYT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 18:39:09 +0000
+	Wed, 20 May 2026 18:39:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34B7760237;
-	Wed, 20 May 2026 18:39:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93A241F0089A;
-	Wed, 20 May 2026 18:38:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E66E360220;
+	Wed, 20 May 2026 18:39:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8E881F00894;
+	Wed, 20 May 2026 18:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779302347;
-	bh=zBKnbJ1ea1Z90t+GzmUXY9pAo9IwWEqoCQVtXT4GR4o=;
+	s=k20260515; t=1779302398;
+	bh=xNZ6LFpDqSiliRDQZffjOR3z3XDTMAtPwuRo7ubH7Vo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HKpc212v1htgkd2muuhHOLKo7sEU0dSVAxRvPcXa/MBPcSliJPv7GUDyfwo3U4Htk
-	 GvzDJofIJw75L/nBdmuwi+uS/dbsuBQR3R4HdtjmjO3FoDWGtsSw+U61bhyFu4n2qE
-	 bUVMbBgBCE1iEh6PuFZs1CxOT4IN6AdO39k2B9JrXaJmTJCdv46yqqkKaSqimAy29e
-	 MmP3HotLS6MdZBB6cczDXlQlmIiPhXZAx74SWcH8Vx5+YlJPWXbzN2eYRBMpiZLOOH
-	 ajeAbHFeh9chkBiAAl/RN+Uqx7xvkaCRP/WKdkZ3pJVCEsw9jt/eEtbzXQaVE2aX58
-	 e5h/8CVaLx9lA==
+	b=fxl+zUsGxVFhG/PBg4Zy8jA+vL8kZdsM59y/NtRfPOp7u/r/LABun0NFwYqtoCLxJ
+	 oItN3JvNyGnPnk2pYUmY0QD+rpHJXhT6IPSHV/0E2KWzxkSoGcqjFsdapG3hn4TS5i
+	 cto8atcvmCtdhnYhh7qxKXci7nMrRI3qeqwHmZF70tRPs9PkleaVlOEfDvFQs4HOZC
+	 kpbbjeYFjfO2xROIXOd5Yvej42l57BYPpRoSGk1wyCzRLl82f/cP2fNGrvjXdAsSyQ
+	 M3wcIkyvpYUAb4VY3eAlV3sRxNwRfVLyLh4X10HOmxql3sXhmPVx86tuyiCD8y+BA5
+	 6naBM/eFbkhuw==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -83,11 +83,10 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-input@vger.kernel.org,
 	linux-leds@vger.kernel.org,
 	netdev@vger.kernel.org,
-	Takashi Iwai <tiwai@suse.de>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH 03/10] [v2] x86/olpc: select GPIOLIB_LEGACY
-Date: Wed, 20 May 2026 20:38:08 +0200
-Message-Id: <20260520183815.2510387-4-arnd@kernel.org>
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [PATCH 09/10] [v6 omap] ARM: dts: omap2: add stlc4560 spi-wireless node
+Date: Wed, 20 May 2026 20:38:14 +0200
+Message-Id: <20260520183815.2510387-10-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260520183815.2510387-1-arnd@kernel.org>
 References: <20260520183815.2510387-1-arnd@kernel.org>
@@ -109,61 +108,62 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The OLPC GPIO controller sets up a fixed number space that is used
-by at least two drivers:
+Converted from the platform_device creation in board-n8x0.c.
 
-arch/x86/platform/olpc/olpc-xo1-sci.c: In function 'setup_ec_sci':
-arch/x86/platform/olpc/olpc-xo1-sci.c:358:13: error: implicit declaration of function 'gpio_request' [-Wimplicit-function-declaration]
-  358 |         r = gpio_request(OLPC_GPIO_ECSCI, "OLPC-ECSCI");
-      |             ^~~~~~~~~~~~
-sound/pci/cs5535audio/cs5535audio_olpc.c: In function 'olpc_analog_input':
-sound/pci/cs5535audio/cs5535audio_olpc.c:41:9: error: implicit declaration of function 'gpio_set_value'; did you mean 'gpiod_set_value'? [-Wimplicit-function-declaration]
-   41 |         gpio_set_value(OLPC_GPIO_MIC_AC, on);
-
-The AMD Geode platform that this is based on is now marked as
-'Orphaned' in Kconfig, and it is likely that there are no XO1
-users on modern kernels, but so far there is no consensus on
-removing it entirely.
-
-Select CONFIG_GPIOLIB_LEGACY for this platform and make sure the
-sound driver portion cannot be compiled without this.
-
-Acked-by: Borislav Petkov (AMD) <bp@alien8.de>
-Acked-by: Takashi Iwai <tiwai@suse.de>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Link: https://lore.kernel.org/all/20230314163201.955689-1-arnd@kernel.org/
+Reviewed-by: Krzysztof Kozlowski <krzk@kernel.org>
 Reviewed-by: Linus Walleij <linusw@kernel.org>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-v2: update changelog text
+v6: no changes
+v1 through v5: adaptations that correspond to the binding updates
 ---
- arch/x86/Kconfig  | 1 +
- sound/pci/Kconfig | 1 +
- 2 files changed, 2 insertions(+)
+ arch/arm/boot/dts/ti/omap/omap2.dtsi                |  4 ++++
+ arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi | 12 ++++++++++++
+ 2 files changed, 16 insertions(+)
 
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index f24810015234..69089d2f5dad 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -2978,6 +2978,7 @@ config OLPC
- 	bool "One Laptop Per Child support"
- 	depends on !X86_PAE
- 	select GPIOLIB
-+	select GPIOLIB_LEGACY
- 	select OF
- 	select OF_PROMTREE
- 	select IRQ_DOMAIN
-diff --git a/sound/pci/Kconfig b/sound/pci/Kconfig
-index e0996a9d90b0..6366f72b3667 100644
---- a/sound/pci/Kconfig
-+++ b/sound/pci/Kconfig
-@@ -300,6 +300,7 @@ config SND_CS5535AUDIO
- 	tristate "CS5535/CS5536 Audio"
- 	depends on X86_32 || MIPS || COMPILE_TEST
- 	depends on HAS_IOPORT
-+	depends on GPIOLIB_LEGACY || !OLPC
- 	select SND_PCM
- 	select SND_AC97_CODEC
- 	help
+diff --git a/arch/arm/boot/dts/ti/omap/omap2.dtsi b/arch/arm/boot/dts/ti/omap/omap2.dtsi
+index afabb36a8ac1..fdc1790adf43 100644
+--- a/arch/arm/boot/dts/ti/omap/omap2.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap2.dtsi
+@@ -129,6 +129,8 @@ i2c2: i2c@48072000 {
+ 		};
+ 
+ 		mcspi1: spi@48098000 {
++			#address-cells = <1>;
++			#size-cells = <0>;
+ 			compatible = "ti,omap2-mcspi";
+ 			ti,hwmods = "mcspi1";
+ 			reg = <0x48098000 0x100>;
+@@ -140,6 +142,8 @@ mcspi1: spi@48098000 {
+ 		};
+ 
+ 		mcspi2: spi@4809a000 {
++			#address-cells = <1>;
++			#size-cells = <0>;
+ 			compatible = "ti,omap2-mcspi";
+ 			ti,hwmods = "mcspi2";
+ 			reg = <0x4809a000 0x100>;
+diff --git a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
+index 63b0b4921e4e..fe9dd8bbfc85 100644
+--- a/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
++++ b/arch/arm/boot/dts/ti/omap/omap2420-n8x0-common.dtsi
+@@ -109,3 +109,15 @@ partition@5 {
+ 		};
+ 	};
+ };
++
++&mcspi2 {
++	status = "okay";
++
++	wifi@0 {
++		reg = <0>;
++		compatible = "st,stlc4560";
++		spi-max-frequency = <48000000>;
++		interrupts-extended = <&gpio3 23 IRQ_TYPE_EDGE_RISING>;
++		powerdown-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>; /* gpio 97 */
++	};
++};
 -- 
 2.39.5
 
