@@ -4,96 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1484CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B422ACD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Auptu0K+asnu6CU+7KJoQdTihUUvVzhdRIPr56LBhZc=; b=Vr/G5BJqqKL/PAiuZQJsD6/wjC
-	to1/U8XpAs54Vy43/9BH5BtgWeNCoaDMQY96F+dDztOq1deQrzDPHHhCny5Ngbi1PCFt/NBxvCshk
-	8TI9sc9sHhIAIkBGI/PTpGISB4g0HNc1Ye3dbrnCRhFcmBBxicRut3q9+fKV0CvfVF3y/hNcNR7n+
-	XJtsEBsbCWXKANcgRx42TNBOEz2NibiFrsB5uZUeTR8mcZH/sEAvSXl+L5fbsGQKC+4gbXS/75luM
-	yqGV99lU0+7PBSCXt2gxEYt9iUFMhmgytmE9X3rmC1T32OTW2p1YSBBePfaZm8xgyF0nJaeF92FJx
-	+cm4o45A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l6kOsKjpcCNvCmXxwOH93ZURdxywG3QWkIOA9Gg2afA=; b=Epq9rflVFKM2De+bkJ5gpCNmzw
+	mZMhPuDgFPck9yACupYEqExS0KlOzYCRBRuGb+IG4eEy/Tij0/Sde7yxdxe2rb7ubI+proatCPWcQ
+	/lSN7pblvzB4M4KLXp86cf58DoqhCXJ+Ayu6SEfxVFf4U5ASLCSBsrioBQ/PFJ+b4DPdKAIdav2eq
+	Rnfgtlh8kn6bWUn1nChHNy87B5GaK0J+8qPcM0A2rICfxAZhADIOq1zDVT6L2nkga25dCebHUwd25
+	O99nFOK3HlMVmYLHr+QEZCUbKX4TLkl/zMAi7pz2E6gHOtTcGi9zFRnbPntVYrtdC+lvgwJSfqAUM
+	XOEvHPCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlpN-00000005UUC-2wwq;
-	Wed, 20 May 2026 18:39:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPlpV-00000005UfP-2Dob;
+	Wed, 20 May 2026 18:39:41 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlop-00000005TGB-3bj5
+	id 1wPlou-00000005TRZ-2l2M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 18:39:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3EF6C40BC5;
-	Wed, 20 May 2026 18:38:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51C5D1F00897;
-	Wed, 20 May 2026 18:38:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779302339;
-	bh=Auptu0K+asnu6CU+7KJoQdTihUUvVzhdRIPr56LBhZc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gu3hqgNXSSBWSAzl/z5ypBW6SYI9CfaDgDSK+ol9/yh3aXlQqypeyxw5U0WBnSPdp
-	 2iiS8Xhxq8S9lt0lcYHEfu5LP5ONnku5RNmA56DjbtuA9NEblnYvnKQPP+9ev+vn9p
-	 bUcoLs3Gx0/qfFzNGjiaz+szHCox6BJoGmac9lWtkK6jpILryIfbPFBRU7BS4PBCLg
-	 J81yFkxfiWCP+HCQaY1nrR9iqiguW6REipqVDMOOyry/Gt0/VcQ6teqSz7EfN4HIp1
-	 1n6VbeTwTsDVVJBTKewkiBwr7cG7zNyX2VwF7BF/+UJ/DnJbOQh46qHApQCUufqTrt
-	 51N8Flosokb+Q==
-From: Arnd Bergmann <arnd@kernel.org>
-To: linux-gpio@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Christian Lamparter <chunkeey@googlemail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Andreas Kemnade <andreas@kemnade.info>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Tony Lindgren <tony@atomide.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Matti Vaittinen <mazziesaccount@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-wireless@vger.kernel.org,
-	linux-omap@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH 02/10] [v3] input: gpio-keys: make legacy gpiolib optional
-Date: Wed, 20 May 2026 20:38:07 +0200
-Message-Id: <20260520183815.2510387-3-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260520183815.2510387-1-arnd@kernel.org>
-References: <20260520183815.2510387-1-arnd@kernel.org>
+	Wed, 20 May 2026 18:39:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UuldstZ/N7K55kxaRpLTkguVum9ZuvQzDBpH2u4GE2ccnhoqjTHxkfNXchC30m5RAffCooGhO00G1Ual4L8DxA3hwozdevPYBMg4KlZwGwvPsBXynWGVQUSpcE3CfMVAJ1Y07zjms2Pf8E9QyVdM9tIwuLGXjvttJpeZe4xOtDhMWi3Ff0/QUq4XJIJyM9Vs1YzSZIT61t6QwJ1qYN4u115hwT6jK9zbnREwi1GtUMwDWJLu9dfsxIpwv8HX+ubmPRP5CDn3jn9nmYoI761svJ7Z4hZVMVOIvZgjuq5bEVjeWsbpznQ2EUwe+OrolOJbidBGyVENSURnxL8wXbjoFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=l6kOsKjpcCNvCmXxwOH93ZURdxywG3QWkIOA9Gg2afA=;
+ b=nHPMmCxmRUWN+q2Z79tqhWBZucn15J0y9dyx3o5IANiGcHw1BfMBkWaHOCu3SljVw8JslINZd8SQ0Eo/rho9FHbXqoN6tOZiMMmQ3ZDXmDrprc3XfV8YjMQV4hWaaAvyV2a1SVLJGQs7dZLDiEQL71LZBQlxwwWrx5QKzZ6v27k+nNsq51REWhFlr3T9BZ3T0drbpAKqOP9/W16AjPnAsTXMoyGkReCF/6SiIGp/PzHFFwH9pv1RtTl352a62iQPNxoJ21ppAQriTyMZITrvPIZeJH3k9X+El4lRwMjrFaH9xgm1bHu3LPa62cEfmTtqGWwKJphdIoKR2uSKxucW3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=l6kOsKjpcCNvCmXxwOH93ZURdxywG3QWkIOA9Gg2afA=;
+ b=C6UGr9oBrxQjGLLPYsU6WuYUnSwykB5Fdx7L6gDkOzgbkHKvMaFLsJHnLGMeV0ZiZSu1mkO8Z93TScPS16Dc5nXZApjd4s8VaVj/zVQu2fOkcNMRo6kevllMfcfKKZEfofDomn1MxIhyczD8jXwPMZkAd23mYvyMy5LbHRtZ13hHtjtlpep86c+e4k09vcxW+AtWeXFxy3Dsf50GRdsMYnB+Z8SDIv7MYFgW6034ui0ocujsg6JiPyCqi3UQNaUVIwD7hhk/7jBgxqIv9qDhTP2BSfjhbm/wIqXZRdR00u4IeIK2d3zmvxXSNuxu323Hfen/6Nx8cnoJFNEhPA+Jtw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by AMBPR04MB12312.eurprd04.prod.outlook.com (2603:10a6:20b:723::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Wed, 20 May
+ 2026 18:39:00 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 18:39:00 +0000
+Date: Wed, 20 May 2026 14:38:48 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	bhelgaas@google.com, hongxing.zhu@nxp.com, l.stach@pengutronix.de,
+	imx@lists.linux.dev, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, sherry.sun@nxp.com
+Subject: Re: [PATCH V3 1/8] PCI: imx6: Integrate new pwrctrl API for pci-imx6
+Message-ID: <ag3_uFchYZoE9sMn@lizhi-Precision-Tower-5810>
+References: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
+ <20260520084904.2424253-2-sherry.sun@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260520084904.2424253-2-sherry.sun@oss.nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0132.namprd05.prod.outlook.com
+ (2603:10b6:a03:33d::17) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|AMBPR04MB12312:EE_
+X-MS-Office365-Filtering-Correlation-Id: 851392eb-62a8-4f1d-c127-08deb69f0ec7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|52116014|7416014|1800799024|11063799006|22082099003|56012099003|18002099003|38350700014|4143699003;
+X-Microsoft-Antispam-Message-Info: avd2O8kc1c+9jqhHOLGpqfDcorN79YIYbOz9BeOIZD/uCvIRdFQc0Hh4DPhoYiGSVV2VPKCbywxGKPpuJnP3AXNDavxT2V6lQHf3DkDWKG8Xpu2A0GnBI8XZc0fUNSANpadOLWqqQ+QansSleM0vKj+ZCE7rtUgL4m0i4PEFUN/dDMO5G8Z/hSfhl36XjqFUX7IEtDNcFl9hDqvnBxnnFv/dxQTNQB+SkrSa/dXTuTlSzEr2pMgjCFTN5h2EeKkfDlpAz7SaoProBBQP3oIuOPLMaB578mMZLEz+vVDvF0rOQraptq5glMyp5j8uPglQzk7piNR0AMI7njnNvd22APRa4qtOrXZBi2oTpgDgFSWkCuMcZOow62dILsTaGslgqKyU2ZdX+VwXe8l0GjpWJHZQTZw+WD/ACmJevAAFuTTEUP0eb6bpXiP/Rcqtwm4B0HVbMuV+n97qE9CAd7nPXsU2xMmR6AmhtbJvhREgypkcH2CTWtRXrfKYT7V4YHKxQxE4XDtD9SI1MxBA+3mXUqiCDWJTlo6IrGxRfiglG45OsqmcJmQxwH9hDKHcdRqufXNQaHyB2Hu4XZkJEwv5FCZVD6XdRc/emRdea25JuQvT0I9aFg+iL0pPBg4xbkFWut1cGlL0RTk8pzuehykbyIL/Vy3rUQxpNbxbrGI1NmQt7dOQjcWcps8ByKhxwA8X+j2JiLnEZbSfIv5OvEMkiAtmf7s1mb/i78D+IK59bNoTTDRbeWpz4GjRhgvj22mg
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(52116014)(7416014)(1800799024)(11063799006)(22082099003)(56012099003)(18002099003)(38350700014)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2kklEzewmn34FV3bIExavHzho0OWr4DmCleh1c4DUNHefThcyAotU5VHXbBn?=
+ =?us-ascii?Q?8avloLC6Gip7mfJ9dKvbM96aV4eBlfrrRpoM5ZkjtpXH0OoOvn83sFf1KLIY?=
+ =?us-ascii?Q?rhlI2GkE+A+pjgZXwBDVrxHT68uNQ/Y9+50b7bLP4zWln6H8rt5lY0LtmQG5?=
+ =?us-ascii?Q?Q8kzrbnz7PZn372VPevE2EJpvLiIL6dJFQauelNKbqz36BljSyQ27rdiE0pV?=
+ =?us-ascii?Q?PjjCwzA7XzC3oIUY/EI3rSnwGJ4xkTGwq7SZRC4CoeVWWI2/+1LyZNp4DRAm?=
+ =?us-ascii?Q?OnWA1Lf/kaTg2PMCL3Fsmt/v+QZIFB8w8ZMFzVFG618+uxHepNYG8t9vVxt2?=
+ =?us-ascii?Q?sx2uEo7lmrj+bJ3LZXFE3rpgzBglap+uBqa1t5GvtYNjBe5zfjXceuxBF84h?=
+ =?us-ascii?Q?UVt6Ve+1hOuOQ3cAtYdox8hI2SfF2zWpP//0kW9KLx5zO2GPHW/2R1gMcRC3?=
+ =?us-ascii?Q?B7MmAGehv2iQxaXriiF80iMBpmyoRdufKSjZ9x4vVtVtYLuUf9S+AzXamZBJ?=
+ =?us-ascii?Q?jxd/DGXHlFlP69gNy2N9wWP1AY24HG89QYV+0/vf2vEGMQdjluZI0phgV0pk?=
+ =?us-ascii?Q?k4VENNZfjOmRV61gRRumqHyWG+R/vJ4UZ2zXGr8uLzqnMpm8CGzEg76M74Tf?=
+ =?us-ascii?Q?KToPMy8c2rTN2CfQxEG7ZdorHtJsuoESiO1U/VKPOFveaIo+Ku6agPSWsa4Z?=
+ =?us-ascii?Q?VpTqr7Jw2QK4Fv81mvvl3Zl6V8iR/YW2NV0R4+2JPT1BaQqUnqazOFtDBg7y?=
+ =?us-ascii?Q?UjnHPONdFWwHOlGQw0XvTXwXmqHbK/pBAKpmoN/Q+vY0wf6h/EJkYOZmiP9b?=
+ =?us-ascii?Q?ccTGkPBFVvtHV8uraVkduo+QUkxWYQm9jGalhSlaSXICLGHCSJMCeRehMOL3?=
+ =?us-ascii?Q?/PPEZeuuFncraNmu2Z2pjvYaRDmLrZrpJkcvfsv8RjUJIna0OGSZIhkJHPDv?=
+ =?us-ascii?Q?KP26KP5NXPYRtWWHByShSIfZIjOsAjpK4Mc85ospgNqOkc+pIUYW+OV8lifN?=
+ =?us-ascii?Q?pwEBSuJ5q36hAntu/4XO92K15XLzpypju7W9IrSKrkAAIjt0QnGs9wSRP86N?=
+ =?us-ascii?Q?3ciGJ886FXO8i9I8DX5hF7swhuRQP3qUm/7k2gD+xfAgQUyCTI0U+BcQiTZr?=
+ =?us-ascii?Q?yv7B1qZ3LDzAmJksW+iuuA0+ZCI8GBr8dUPp13CQyRcNAc+7u6CoLBEuNK3I?=
+ =?us-ascii?Q?AebxRhrxH4korUyB+dY59kDj/YqvYXfpvGvVc1d/sS0bpeNT2p8/3swvScXY?=
+ =?us-ascii?Q?n1QBVgftSPdAdUeAhzHnUAKj+dXFqy4Z5CHuoTWs8RPzkrNTa+fAKLwUsUiB?=
+ =?us-ascii?Q?lE03CoIbpmuDLpbAZudmsAULgl2l4SM3J6anmj45YuysSufsdH/TVQ2CqBVr?=
+ =?us-ascii?Q?rEsAKRoO7eZPSvs1PtRBMoO7qnpELcsHehFZK4CiSzTv6itK/kbLehabBl3S?=
+ =?us-ascii?Q?sU4KbDh62EavQ4t+kiCzOHDcmvmf4oGlC50HQvCC9a03YuuI/tP7N0WV9vQD?=
+ =?us-ascii?Q?sUHb8LeBwhMqtyewGhHJhUdD7LHBbd+rMA2BfnAhBIryLlP5v9+KUZP91aTP?=
+ =?us-ascii?Q?RQ/QB94yiPyWJfJNJeE4ENr3Ir/hhwnqcrAiH5Y12U0k2iTTA7gp9mbyxH3L?=
+ =?us-ascii?Q?v0A2a7M5ywe65jWootXyM//K9BDGFI65kDe0l2qOYnizqxnd7CyxDrU+n4XC?=
+ =?us-ascii?Q?QeS8hg3LmoiQ+y9ZBzB2cTCg343L3krLYTLFsbEPIOup3wdqoIUakKZReEVp?=
+ =?us-ascii?Q?6QcVhpVe1Q=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 851392eb-62a8-4f1d-c127-08deb69f0ec7
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 18:38:59.9963
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: n1v454oHBaEehe/G3iPdzIFKctcjBYD1gAuxGhOKniG+uEx6tjMd65Kk6HxzpMD5OVJIZOcsw24GKkpf5XpWrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12312
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_113859_949900_FEC064C8 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20260520_113904_732241_618B1978 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,133 +140,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Wed, May 20, 2026 at 04:48:57PM +0800, Sherry Sun (OSS) wrote:
+> From: Sherry Sun <sherry.sun@nxp.com>
+>
+> Integrate the PCI pwrctrl framework into the pci-imx6 driver to provide
+> standardized power management for PCIe devices.
+>
+> Legacy regulator handling (vpcie-supply at controller level) is
+> maintained for backward compatibility with existing device trees.
+> New device trees should specify power supplies at the Root Port
+> level to utilize the pwrctrl framework.
+>
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
 
-Most users of gpio-keys and gpio-keys-polled use modern gpiolib
-interfaces, but there are still number of ancient sh, arm32 and x86
-machines that have never been converted.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Add an #ifdef block for the parts of the driver that are only used on
-those legacy machines.
-
-The two Rohm PMIC drivers use a gpio-keys device without an actual GPIO,
-passing an IRQ number instead. In order to keep this working both with
-and with CONFIG_GPIOLIB_LEGACY, change the gpio-keys driver to ignore
-the gpio number if an IRQ is passed.
-
-Link: https://lore.kernel.org/all/b3c94552-c104-42e3-be15-7e8362e8039e@gmail.com/
-Link: https://lore.kernel.org/all/afJXG4_rtaj3l2Dk@google.com/
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
-v3: resend
-v2: skip the fake GPIO number passing from mfd
-
-The removal of the arm platforms using this is not yet going to happen
-for 7.2, and Dmitry's changes for the Rohm drivers have not yet
-made it into linux-next as of 2026-05-20, so for the moment I
-would still like to see this patch get merged, even if we are
-closing in on completely removing the legacy gpio support in
-the gpio_keys driver, so we can make CONFIG_GPIOLIB_LEGACY
-default-disabled sooner.
----
- drivers/input/keyboard/gpio_keys.c        | 7 ++++---
- drivers/input/keyboard/gpio_keys_polled.c | 2 ++
- drivers/mfd/rohm-bd71828.c                | 1 -
- drivers/mfd/rohm-bd718x7.c                | 1 -
- include/linux/gpio_keys.h                 | 2 ++
- 5 files changed, 8 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/input/keyboard/gpio_keys.c b/drivers/input/keyboard/gpio_keys.c
-index e19617485679..d748a54dc51c 100644
---- a/drivers/input/keyboard/gpio_keys.c
-+++ b/drivers/input/keyboard/gpio_keys.c
-@@ -528,7 +528,8 @@ static int gpio_keys_setup_key(struct platform_device *pdev,
- 			 */
- 			bdata->gpiod = NULL;
- 		}
--	} else if (gpio_is_valid(button->gpio)) {
-+#ifdef CONFIG_GPIOLIB_LEGACY
-+	} else if (!button->irq && gpio_is_valid(button->gpio)) {
- 		/*
- 		 * Legacy GPIO number, so request the GPIO here and
- 		 * convert it to descriptor.
-@@ -546,6 +547,7 @@ static int gpio_keys_setup_key(struct platform_device *pdev,
- 
- 		if (button->active_low ^ gpiod_is_active_low(bdata->gpiod))
- 			gpiod_toggle_active_low(bdata->gpiod);
-+#endif
- 	}
- 
- 	if (bdata->gpiod) {
-@@ -583,8 +585,7 @@ static int gpio_keys_setup_key(struct platform_device *pdev,
- 			if (irq < 0) {
- 				error = irq;
- 				dev_err_probe(dev, error,
--					      "Unable to get irq number for GPIO %d\n",
--					      button->gpio);
-+					      "Unable to get irq number for GPIO\n");
- 				return error;
- 			}
- 			bdata->irq = irq;
-diff --git a/drivers/input/keyboard/gpio_keys_polled.c b/drivers/input/keyboard/gpio_keys_polled.c
-index e6707d72210e..0ae0e53910ea 100644
---- a/drivers/input/keyboard/gpio_keys_polled.c
-+++ b/drivers/input/keyboard/gpio_keys_polled.c
-@@ -301,6 +301,7 @@ static int gpio_keys_polled_probe(struct platform_device *pdev)
- 				return dev_err_probe(dev, PTR_ERR(bdata->gpiod),
- 						     "failed to get gpio\n");
- 			}
-+#ifdef CONFIG_GPIOLIB_LEGACY
- 		} else if (gpio_is_valid(button->gpio)) {
- 			/*
- 			 * Legacy GPIO number so request the GPIO here and
-@@ -323,6 +324,7 @@ static int gpio_keys_polled_probe(struct platform_device *pdev)
- 
- 			if (button->active_low ^ gpiod_is_active_low(bdata->gpiod))
- 				gpiod_toggle_active_low(bdata->gpiod);
-+#endif
- 		}
- 
- 		bdata->last_state = -1;
-diff --git a/drivers/mfd/rohm-bd71828.c b/drivers/mfd/rohm-bd71828.c
-index a79f354bf5cb..df6dad762ec9 100644
---- a/drivers/mfd/rohm-bd71828.c
-+++ b/drivers/mfd/rohm-bd71828.c
-@@ -39,7 +39,6 @@
- 
- static struct gpio_keys_button button = {
- 	.code = KEY_POWER,
--	.gpio = -1,
- 	.type = EV_KEY,
- 	.wakeup = 1,
- };
-diff --git a/drivers/mfd/rohm-bd718x7.c b/drivers/mfd/rohm-bd718x7.c
-index ff714fd4f54d..dd774aa8828b 100644
---- a/drivers/mfd/rohm-bd718x7.c
-+++ b/drivers/mfd/rohm-bd718x7.c
-@@ -20,7 +20,6 @@
- 
- static struct gpio_keys_button button = {
- 	.code = KEY_POWER,
--	.gpio = -1,
- 	.type = EV_KEY,
- };
- 
-diff --git a/include/linux/gpio_keys.h b/include/linux/gpio_keys.h
-index 80fa930b04c6..e8d6dc290efb 100644
---- a/include/linux/gpio_keys.h
-+++ b/include/linux/gpio_keys.h
-@@ -25,7 +25,9 @@ struct device;
-  */
- struct gpio_keys_button {
- 	unsigned int code;
-+#ifdef CONFIG_GPIOLIB_LEGACY
- 	int gpio;
-+#endif
- 	int active_low;
- 	const char *desc;
- 	unsigned int type;
--- 
-2.39.5
-
+>  drivers/pci/controller/dwc/Kconfig    |  1 +
+>  drivers/pci/controller/dwc/pci-imx6.c | 24 +++++++++++++++++++++++-
+>  2 files changed, 24 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index 216ede0a867e..aa0b784c85b4 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -114,6 +114,7 @@ config PCI_IMX6_HOST
+>  	depends on PCI_MSI
+>  	select PCIE_DW_HOST
+>  	select PCI_IMX6
+> +	select PCI_PWRCTRL_GENERIC
+>  	help
+>  	  Enables support for the PCIe controller in the i.MX SoCs to
+>  	  work in Root Complex mode. The PCI controller on i.MX is based
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 773ab65b2afa..b137551871fc 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -20,6 +20,7 @@
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+>  #include <linux/pci.h>
+> +#include <linux/pci-pwrctrl.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/regmap.h>
+>  #include <linux/regulator/consumer.h>
+> @@ -1331,6 +1332,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  			return ret;
+>  	}
+>
+> +	/* Legacy regulator handling for DT backward compatibility. */
+>  	if (imx_pcie->vpcie) {
+>  		ret = regulator_enable(imx_pcie->vpcie);
+>  		if (ret) {
+> @@ -1340,10 +1342,22 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  		}
+>  	}
+>
+> +	ret = pci_pwrctrl_create_devices(dev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to create pwrctrl devices\n");
+> +		goto err_reg_disable;
+> +	}
+> +
+> +	ret = pci_pwrctrl_power_on_devices(dev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to power on pwrctrl devices\n");
+> +		goto err_pwrctrl_destroy;
+> +	}
+> +
+>  	ret = imx_pcie_clk_enable(imx_pcie);
+>  	if (ret) {
+>  		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
+> -		goto err_reg_disable;
+> +		goto err_pwrctrl_power_off;
+>  	}
+>
+>  	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
+> @@ -1402,6 +1416,11 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+>  	phy_exit(imx_pcie->phy);
+>  err_clk_disable:
+>  	imx_pcie_clk_disable(imx_pcie);
+> +err_pwrctrl_power_off:
+> +	pci_pwrctrl_power_off_devices(dev);
+> +err_pwrctrl_destroy:
+> +	if (ret != -EPROBE_DEFER)
+> +		pci_pwrctrl_destroy_devices(dev);
+>  err_reg_disable:
+>  	if (imx_pcie->vpcie)
+>  		regulator_disable(imx_pcie->vpcie);
+> @@ -1420,6 +1439,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+>  	}
+>  	imx_pcie_clk_disable(imx_pcie);
+>
+> +	pci_pwrctrl_power_off_devices(pci->dev);
+>  	if (imx_pcie->vpcie)
+>  		regulator_disable(imx_pcie->vpcie);
+>  }
+> @@ -1931,6 +1951,8 @@ static void imx_pcie_shutdown(struct platform_device *pdev)
+>  	/* bring down link, so bootloader gets clean state in case of reboot */
+>  	imx_pcie_assert_core_reset(imx_pcie);
+>  	imx_pcie_assert_perst(imx_pcie, true);
+> +	pci_pwrctrl_power_off_devices(&pdev->dev);
+> +	pci_pwrctrl_destroy_devices(&pdev->dev);
+>  }
+>
+>  static const struct imx_pcie_drvdata drvdata[] = {
+> --
+> 2.37.1
+>
 
