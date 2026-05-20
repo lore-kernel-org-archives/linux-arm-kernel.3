@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFA1CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF7D0CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFavJwHYbSM6FE0lfLUET7tWipL+OnMgDcLdxX5CbdE=; b=GzGxyL8LeIKqwTwygAnLUxzd5M
-	/pUiaLLNakwVIdhoTj3iDFHH2XvqvQgWGcKCn0pEL7cbpodB/zXudxDbjCP8JelMDr5cvcv8RlGHa
-	y4Ly0mKLsCIBOx7qOB6P27dj/l4XYFZ9cpruQH2K4mTr1kEUIiTjbb1UD0a0FRErXnF4dcQPASVLR
-	Z8YOb99l1WsGMGzgOsZ4O1f4q8MZNxFypRoKdODJ61nhEh36yO3VDjFmVTMkO8EojhBH00qD2v9Pq
-	pSRUUauTxcoV+4AaXCCE1roCDhJqVsa4gJ1HDT3pZ7J/jM+hBqMK42vybjDQ10+hXsBjcv1pf5Bob
-	U1F0HItQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DYdgcm/vWN2I8yVr+k4yh1FcDS21+U9vfHPjdUVDhrc=; b=XKL61VNYiCOF+4GkQdux3zNsf2
+	NmN9tYDLw2JOwOanua4MtYHNtaXMY01fYrZ8L7ToXmWmSRjn1p4n8KlOyUijUHveuGgPL/2PV9e5X
+	VDbd06jD413hAGydlBGR7sdcSUGxxMtWG3DFkSwyJjU8puAjrWOke1/kcrm5ygkQKBI4mAi++Ay3Y
+	IYy/AGyRFaVrJ3az6bX32iSQrKbsjSFfncYnSIJlRP3Da2lNDeW2XAxiNg/HzsmTM2J/uJrif1EH4
+	HG+BP9hRnjOj4aIjlIMM/B/cDbDoMR5Ma1SqWrc/ztSp2KZ8MtRvrJ29otfK23oJ7wOYdYS4MJRhf
+	3S83wfgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPinm-00000004ygT-14cD;
-	Wed, 20 May 2026 15:25:42 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1wPipL-00000004z0C-0dXp;
+	Wed, 20 May 2026 15:27:19 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPinj-00000004yfn-1KCE
+	id 1wPipI-00000004yyn-2iGM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 15:25:41 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-488ad135063so40900275e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:25:38 -0700 (PDT)
+	Wed, 20 May 2026 15:27:17 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fd64c32e8so33300215e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:27:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779290737; x=1779895537; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=oFavJwHYbSM6FE0lfLUET7tWipL+OnMgDcLdxX5CbdE=;
-        b=IVTwGk7pmHXykzzWBbQ6+8oT8eIOalGKec+pNZUAybz5JlPR70ni3hQZX2e7iqRfR/
-         LPPEI6dCP76xFbNV19AI0LK522jqKA4D6LbtYlfEb2ewbEbR673tyDvu+liQqxuUhaP2
-         od1lYpjC26VgY796P9BIBQ4qJVoVfe7GHWPiGNBziSC171dZIS9sH6ZZ+cbOjKECO2cC
-         m0Nag9EWolTBobgeaCCx1oyb1dGoThRDQtD28PIy134kScjobbOpsKnVsIH5W+jxdZE1
-         FIq4ZZ0WLY92+ybXrbhO8Pnl+c0l3AApYJ3QOeKH6pW0/yFty8VswQBI4do/kU8GlpSA
-         jE+g==
+        d=google.com; s=20251104; t=1779290834; x=1779895634; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=DYdgcm/vWN2I8yVr+k4yh1FcDS21+U9vfHPjdUVDhrc=;
+        b=i10tf98oYnBqZjIWqxTJV/lh2UUNTpyTFB8fqVTSEZYRVrEpDD+q8B7PnNsRbzCTjY
+         NgYHbsPOJZ+hubiRYlO2oemh3dIPvbsMMOEgEd8BcgnzL2DyXpKxaqaknTyrXF0xWsWM
+         Xa8+2qES007mbNfe0he0UnymmQQN3qkQe1gRirzSnv/pX+qn2VZMAtA8aUB8ct49KJ5e
+         0zbwx6lYV3lkccDwcWhszkmMXrlRM4RQsSswdKh/ohyWJBNIaDxzK/Rx5D09QJQb9eSo
+         Q1rtLbp+iQRRyVwMswu82bsH2J7gz4eDUuTf4qGAYrB9I5IJQNQAiCiv0PrT+EJFimWp
+         nFVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779290737; x=1779895537;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oFavJwHYbSM6FE0lfLUET7tWipL+OnMgDcLdxX5CbdE=;
-        b=NLpIrOzTsp6PSjSY7PIqn49aUjMK7OUCuFdmKd6NYc2xrawbgri4oXU/szM73WYpK9
-         YuR6vwmfpaZLCBwmoKx5TlojBjxPf5aJpKFaU5PpSEC4lrsLB+kM7Ob4rwpeZbpU1MnX
-         6j5DCd5J3KkhEJ5c2Lys22wcfKMDN+GubjbtvIWvSn9CwELaoHFMThUPeOY21y5SshfD
-         D8GFzDw5j9u61IU8NsoqSkugDGggTqYfQ1viD04hzm//CW/DhJezXh4cl9oGwW9up9MI
-         P2bNQE3FBwRa+MaJUn8xzFiRO5MeIh39K5SoFQUV//mSmo9t0XTbX+wQpTvrUnuEgwBX
-         jAjQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+nU7befVhjtJlQSepsjiAwyGMMB6N66iMbpqyZH/D06UuaUMB2FpvPZpqwJXVbKfqhM0MLJb83XeuUwLVYk3NF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOWkKLIKHECrQqgsaLGD1cO9GhpRRp+JwzCzNr3qMUBcvMtI49
-	yTuu6Dr29nnspM6ci7zbcCuiN+r3QI0hl4a5P1fzE6ZEFz3ytU9JcUJl3iOYBLO+4JY=
-X-Gm-Gg: Acq92OH/B5IqFRi9v/lxbmjnYXUifpAVUuWfihFSLUUnUM/V30o0fjSeapXN0rNPlqT
-	3QndJ2rZwYU2qWO95q6+B9FAcAk1SPu6p4i4dg/yzZl6ALS0zDWAeRM1OuwdTJB2LWwKOed5wnT
-	dTCoA5GAHoGJ8Wf09y5TrZM0nxVdFEVMAdDZyfOUVAeRxDw8Lzr19AuEjN1xda7hd7PyzjoDA0J
-	y62T0eAZ2tRYmjJGG0Oyzo+yoJBs2MHfjCTasx7ooaHiF5sx3qS42duoPZc4fcuzzTWDzK4avE8
-	QPqCt7iZ7S0rq0LTcpcpMYIOx53fM05Y82kHrdigoFdkTMzqAucDsZ9lB5w8rsc2od2iqSGuROg
-	kjJDKmRvVORo4IjXdqZmC9CUWHQw9ehHQQhilEo/b/DWkoLHqX0Gk0eLssn6sLmzmn/OtBZBQer
-	fPr3DHDtcM+T0Xu8hFH9QaGCdCN2Lnm82+MQ8hTEAfu9iXbbQ4EdymvVN+5lvUtl63gRzuzMfru
-	jMmwWWlkZxBv/PvoscLv39/SA==
-X-Received: by 2002:a05:600c:4e13:b0:490:31e:d6fd with SMTP id 5b1f17b1804b1-490031ed899mr279492645e9.25.1779290737373;
-        Wed, 20 May 2026 08:25:37 -0700 (PDT)
-Received: from localhost (p200300f65f47db04e561655f2aa05c7f.dip0.t-ipconnect.de. [2003:f6:5f47:db04:e561:655f:2aa0:5c7f])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-48fffb9aac4sm544034675e9.9.2026.05.20.08.25.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 08:25:36 -0700 (PDT)
-Date: Wed, 20 May 2026 17:25:35 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Thorsten Blum <thorsten.blum@linux.dev>, 
-	Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] crypto: atmel-sha204a - Drop of_device_id data
-Message-ID: <ag3RTQEC_HyUM3K4@monoceros>
-References: <cover.1779260113.git.u.kleine-koenig@baylibre.com>
- <d0fc3069860f9e31122c1af635a1114dd2c443cf.1779260113.git.u.kleine-koenig@baylibre.com>
- <46130020-eaa5-44ad-9c6d-62ccb30c19d9@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lntws6wrfne5ipt2"
-Content-Disposition: inline
-In-Reply-To: <46130020-eaa5-44ad-9c6d-62ccb30c19d9@app.fastmail.com>
+        d=1e100.net; s=20251104; t=1779290834; x=1779895634;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DYdgcm/vWN2I8yVr+k4yh1FcDS21+U9vfHPjdUVDhrc=;
+        b=IfEaASPaVC4LM0+QkHDed3U05SmHFfTK7AyuZVk8yNRRY14H99vhFJ7kf1CL8/GfA+
+         qPqa8Qk8rHYNnAeKMJW5kt1NhvmQdMZX3UlcmrnBuZO83T2SKenzFwb0caOdrXoEFp8L
+         STAhgWc8w/FEcREc79M1SsTfHFFznGGl0Ii7sVXjZ1mX2yWRvQMcFoIXsVZcDAJ/LFQE
+         Fo0macB7zlALLmm3UqjI2KZ4qorT4oSgu/pTka5hDUHb/FBSrpXx4+pjyPcPD6ilRhTm
+         EVIJmWF7mOn9eIVo77oHMkkBAUj6rjugOwDdl+i95DHHnbI0hC47axhwdNLKQa9vhGdQ
+         jpxg==
+X-Gm-Message-State: AOJu0Yz0yGvAcvHxFPEkiZy5Nu+MB6RSK/iyNtKR0acaeaHkxEf2fK1e
+	p2Ubnq1BazhiPSkY2kKugWQ0RsNdql4R62/JF+zdgoxLLnZNUOwrofSw+c+qv1Zmdg52veiGkqq
+	PXgyoU11S46XECIJ2OkHS6g==
+X-Received: from wmbjd23.prod.google.com ([2002:a05:600c:68d7:b0:48a:5e23:da86])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:885:b0:489:c57:7836 with SMTP id 5b1f17b1804b1-48fe6517fdfmr235377385e9.27.1779290833937;
+ Wed, 20 May 2026 08:27:13 -0700 (PDT)
+Date: Wed, 20 May 2026 16:26:33 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.631.ge1b05301d1-goog
+Message-ID: <20260520152650.4107895-1-vdonnefort@google.com>
+Subject: [PATCH 00/17] KVM: arm64: Introduce pKVM hypervisor heap allocator
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, qperret@google.com, tabba@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_082539_681622_DB283395 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20260520_082716_710657_726B5102 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,102 +88,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+pKVM historically lacked a dynamic memory allocator: all hypervisor-side
+VM and VCPU structures had to be sized on the host, allocated as
+contiguous pages and donated to the hypervisor.
 
---lntws6wrfne5ipt2
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/3] crypto: atmel-sha204a - Drop of_device_id data
-MIME-Version: 1.0
+This design tightly coupled the hypervisor's memory footprint to
+host-side constraints, complicated memory reclaim, and severely
+restricted VM scalability.
 
-Hello Ard,
+This patch series introduces a dynamically-mapped custom heap allocator
+(hyp_allocator) to the pKVM hypervisor. The initial users are the
+pkvm_hyp_vm and pkvm_hyp_vcpu structs, and the hypervisor tracing
+metadata.
 
-On Wed, May 20, 2026 at 09:49:49AM +0200, Ard Biesheuvel wrote:
-> On Wed, 20 May 2026, at 09:01, Uwe Kleine-K=F6nig (The Capable Hub) wrote:
-> > The driver binds to i2c devices only and thus in the absence of an
-> > assignment for .data in the of_device_id array i2c_get_match_data()
-> > falls back to .driver_data from the i2c_device_id array. So only provide
-> > &atsha204_quality once to reduce duplication.
-> >
-> > Signed-off-by: Uwe Kleine-K=F6nig (The Capable Hub) <u.kleine-koenig@ba=
-ylibre.com>
-> > ---
-> >  drivers/crypto/atmel-sha204a.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha2=
-04a.c
-> > index 6e6ac4770416..f17e1f6af1a3 100644
-> > --- a/drivers/crypto/atmel-sha204a.c
-> > +++ b/drivers/crypto/atmel-sha204a.c
-> > @@ -208,8 +208,8 @@ static void atmel_sha204a_remove(struct i2c_client =
-*client)
-> >  }
-> >=20
-> >  static const struct of_device_id atmel_sha204a_dt_ids[] =3D {
-> > -	{ .compatible =3D "atmel,atsha204", .data =3D &atsha204_quality },
-> > -	{ .compatible =3D "atmel,atsha204a", },
-> > +	{ .compatible =3D "atmel,atsha204" },
-> > +	{ .compatible =3D "atmel,atsha204a" },
-> >  	{ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, atmel_sha204a_dt_ids);
->=20
-> Just trying to figure out how this is supposed to work:
->=20
-> i2c_get_match_data()
->   data =3D device_get_match_data(&client->dev);
->   ... returns NULL ...
->   if (!data) {
->     match =3D i2c_match_id(driver->id_table, client);
->     ... compares client->name with { "atsha204", "atsha204a" }
->=20
-> So we will be relying on client->name having been set to either=20
-> "atsha204" or "atsha204a" on the DT probe path before
-> i2c_match_data() is called, but I am struggling to see where
-> that might happen.
+In the near future, this heap allocator is expected to be leveraged to
+support SVE in protected VMs and in the distant future, it will also
+support dynamic device assignment.
 
-That happens when the client is created. Relevant are:
+By moving to a hypervisor-managed dynamic allocator, we also allow
+deduplicating the donation/reclaim path of EL2-private structures.
 
-int of_i2c_get_board_info(struct device *dev, struct device_node *node,
-	...
-{
-	...
-	if (of_alias_from_compatible(node, info->type, sizeof(info->type)) < 0) {
-		...
-}
+The main building blocks for this series are:
 
-which sets info->type from .compatible with the vendor part skipped.
-Then
+1. pkvm_hyp_req:
+----------------
+When the hypervisor heap allocator goes out of memory (-ENOMEM), it
+suspends the hypercall, embeds a PKVM_HYP_REQ_HYP_ALLOC top-up request
+into the SMCCC HVC return registers, and exits back to the host.
 
-static struct i2c_client *of_i2c_register_device(...)
-{
-	...
-	ret =3D of_i2c_get_board_info(&adap->dev, node, &info);
-	...
-	client =3D i2c_new_client_device(adap, &info);
-	...
-}
+This building block will also be useful for the future huge-mapping
+support in protected guests, allowing EL2 to raise requests such as
+block splitting back to the host.
 
-where i2c_new_client_device() uses info->type to populate client->name.
+2. hyp_allocator:
+----------------
+This heap allocator manages a reserved VA space range, dynamically
+mapping and unmapping physical pages on-demand to minimise the pKVM
+hypervisor footprint. As memory is reclaimed and relinquished to the
+host, unmapped holes are introduced within the VA space. To prevent
+orphan mapped regions, neighboring unused chunks cannot be merged if
+they are separated by an unmapped region.
 
-Best regards
-Uwe
+The allocator chunk metadata is stored directly into the VA space range.
+To minimize metadata overhead, chunks only link to each other via a
+relative 32-bit offset.
 
---lntws6wrfne5ipt2
-Content-Type: application/pgp-signature; name="signature.asc"
+A simple hardening of the metadata is added via a simple 32-bit hash.
 
------BEGIN PGP SIGNATURE-----
+3. shrinker:
+------------
+As the heap allocator isn't reclaimed actively on VM or tracing
+teardown, a shrinker is added to allow the host to reclaim unused memory
+from the hypervisor when the host is under heavy memory pressure.
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoN0m0ACgkQj4D7WH0S
-/k7WaQf9FYK31sTuNaQNBScs4kD7Q1pEw2ipCPpXIU2XiiieMxxHqSTb9UAHQPAU
-R50AQz2QB1R+nHVvN1KhLjwmTNwShQpRY3YCZhTiWBiw4nq9o7dBh4vs7FTyAV4p
-AuDChDsDeU7FKwOvZhmEu7eaUmp037fw3pA44EHyNn/jn75pP7842GFfVuZwvwtT
-+IjPrcDiGej30I9uhligYc2ZkohnbHEVumD8KmMskUAJogOFajcKOpxiiAJoPfEy
-v5thRa17jUPi04sePMKGcrEyzlOQwep37FP52bdP/cfOB8TJqMpA4uJTDR47YHAv
-oUPaSopOv4qFqmH7fPfoI7FM64YYJA==
-=vjzT
------END PGP SIGNATURE-----
+Vincent Donnefort (17):
+  KVM: arm64: Add __pkvm_private_range_pa
+  KVM: arm64: Add pkvm_remove_mappings
+  KVM: arm64: Add __hyp_allocator_map for the pKVM hyp
+  KVM: arm64: Add a heap allocator for the pKVM hyp
+  KVM: arm64: Allow kvm_hyp_memcache usage outside of stage-2
+  KVM: arm64: Add topup interface for the pKVM heap allocator
+  KVM: arm64: Add pkvm_hyp_req infrastructure
+  KVM: arm64: Handle PKVM_HYP_REQ_HYP_ALLOC request
+  KVM: arm64: Add reclaim interface for the pKVM heap alloc
+  KVM: arm64: Add selftests for the pKVM heap allocator
+  KVM: arm64: Add a shrinker for pKVM
+  KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
+  KVM: arm64: Move hyp_vm refcount into the structure
+  KVM: arm64: Use noclear for PGD in __pkvm_init_vm error path
+  KVM: arm64: Alloc pkvm_hyp_vm using pKVM heap allocator
+  KVM: arm64: Alloc pkvm_hyp_vcpu using pKVM heap allocator
+  KVM: arm64: Alloc simple_buffer_page using pKVM hyp allocator
 
---lntws6wrfne5ipt2--
+ arch/arm64/include/asm/kvm_asm.h        |    4 +
+ arch/arm64/include/asm/kvm_host.h       |   14 +-
+ arch/arm64/include/asm/kvm_mmu.h        |    3 +
+ arch/arm64/include/asm/kvm_pkvm.h       |  104 ++
+ arch/arm64/kvm/arm.c                    |   24 +
+ arch/arm64/kvm/hyp/hyp-constants.c      |    2 -
+ arch/arm64/kvm/hyp/include/nvhe/alloc.h |   24 +
+ arch/arm64/kvm/hyp/include/nvhe/mm.h    |    3 +
+ arch/arm64/kvm/hyp/include/nvhe/pkvm.h  |   19 +-
+ arch/arm64/kvm/hyp/nvhe/Makefile        |    2 +-
+ arch/arm64/kvm/hyp/nvhe/alloc.c         | 1233 +++++++++++++++++++++++
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  123 ++-
+ arch/arm64/kvm/hyp/nvhe/mm.c            |   33 +
+ arch/arm64/kvm/hyp/nvhe/pkvm.c          |  111 +-
+ arch/arm64/kvm/hyp/nvhe/setup.c         |    5 +
+ arch/arm64/kvm/hyp/nvhe/trace.c         |   69 +-
+ arch/arm64/kvm/hyp_trace.c              |   16 +-
+ arch/arm64/kvm/mmu.c                    |    4 +-
+ arch/arm64/kvm/pkvm.c                   |  130 ++-
+ arch/arm64/kvm/trace_pkvm.h             |   37 +
+ 20 files changed, 1808 insertions(+), 152 deletions(-)
+ create mode 100644 arch/arm64/kvm/hyp/include/nvhe/alloc.h
+ create mode 100644 arch/arm64/kvm/hyp/nvhe/alloc.c
+ create mode 100644 arch/arm64/kvm/trace_pkvm.h
+
+
+base-commit: 5d6919055dec134de3c40167a490f33c74c12581
+-- 
+2.54.0.631.ge1b05301d1-goog
+
 
