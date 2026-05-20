@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A634CD4F3D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF59ECD5BAA
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:40:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7ad9YS8GKFX6PUFbYIYBW6JWmL7J5wY6hoTgHoU3QQ=; b=eybb2Mwqj+TSQRPQE+L90YnlJN
-	/RczIKEFUMI+OTpPONR3X4IGg6f3iZUgpEoU/a5PFAnh7b5nIQG8RUhZb1NmthvLHPWCeKZPvJTch
-	s1Dfp6t+H+cTJvJ9uhaRshqYjqyTP1Wao3s6s5SH80oqVuYwK8VqyQRRg2x7A4759VmTWzux0f2j3
-	UFMZe4mP4T6jxqGvoGv+Sh0tzu68OcdVg9o/o7nA7TceN2dkGB6oQ6FA7VMNk2SaQQbTcVY3vqlBk
-	d7nuB06L/qqttSQgd9cQp1oH/0fyqXoZmviFSSQbJp48MEhBuOMN176ucYArnaf22s6fi4PcCGlIC
-	d6VgyOqA==;
+	bh=mIbLYIR4qOinVPSLahPalENeT18/s9zq2XWQrVCVaRU=; b=AV64+ap6oHEydSnN+bMFRR2f6H
+	+kS/oBemO1I8Gqf3kjUg4Z1EPK56cTGpjxNkXhsYmWCbLdcN6kD62zhVDksB2zaex3Y20/V3ATk/m
+	/iRA/Ti6bNthde0MWF8Iyj1VUhm40G9LCsS3RwhrI4kGmZAzw+cAcPBtfCpB0YhlmHtH2Jld39qV0
+	aziuB+FA0Baz96orL4HhooIaR81pGNYA1wrh8slpf+ptLlkDelFH/YjqaIxPr19TOLuyeYtLlKBc0
+	EqoQuT4QzJHdgN46tJsgbGRjxph5aah/0NYTKxaCVGNXhXvcCOb8+S0utVvAGjjzXu/d+n0Q0hMkz
+	DvVKPsKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlpm-00000005VAx-0cbP;
-	Wed, 20 May 2026 18:39:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPlpl-00000005V8b-0bLQ;
+	Wed, 20 May 2026 18:39:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlpO-00000005UU1-0plc
+	id 1wPlp7-00000005Tw2-0GeW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 18:39:34 +0000
+	Wed, 20 May 2026 18:39:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6578860222;
-	Wed, 20 May 2026 18:39:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 103C51F00896;
-	Wed, 20 May 2026 18:39:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7372960220;
+	Wed, 20 May 2026 18:39:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B2541F00896;
+	Wed, 20 May 2026 18:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779302373;
-	bh=y7ad9YS8GKFX6PUFbYIYBW6JWmL7J5wY6hoTgHoU3QQ=;
+	s=k20260515; t=1779302356;
+	bh=mIbLYIR4qOinVPSLahPalENeT18/s9zq2XWQrVCVaRU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=M/QzPQdcsRJdC6Ljg5UpTwgWtuxhkJstW01aGvTw4RUpEjn4DFc4JGJpClJWMiTyX
-	 Uax1ukCuzqo2DkHStJzSrNzBoOhBtgAf3d6pbUgvxDAaC5mAvLB0WWupx2hCr+raMW
-	 0bT1SX3UQeTWwOp/CHqXdJ30GDCmBaZ6F8y2ndgaKy3NoIGD7FTS7rWNHDqHaZu016
-	 ldOM8cp2fpMe0/Kbnxdc4R5EzBeQ99FWzB9/fhSXFDKlN7MNCjxGtX9jtGpn3Lnew3
-	 uTm16eyJm403jVRTftzcSx//sTI5vPNcxIfQg5Kw1FqrlqBH74zoUjxqbeeJqhRyHp
-	 8DIOJqZ2M2Aqg==
+	b=CqMa3b0K6yilhMP8W6/z8wMrypYc8Bx3ZdaOFKtCffLHlXg6yDY4Uf4N9Yh4Otc+r
+	 0czwFzNB+xyJSwDOfoq+kfnNnGx/6SFS4Y5+Y0oB65KBe4R4XoROpy/hzeSI1r+Or7
+	 h4ZQ7eGVSNOfAPhXVrjb2Urbghf/Whrbl26oESPLWHlpgZY5fPPR5fDcuzZw56Jph3
+	 eap+xYP1AcFJy7mrot9mcJs/Pn48b4MD6EZdOYZuUhPv1zVMgxk1m8HdZssHE6fLJG
+	 f5GuqEvoG+Vt0o/Fv8y5DwaW9MdkgLlRlaEGURyv7e2LXyJZqY+D4TdACo+R4aYlUZ
+	 ZW3tF7mNaDaUA==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-gpio@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -82,12 +82,10 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-sh@vger.kernel.org,
 	linux-input@vger.kernel.org,
 	linux-leds@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Subject: [PATCH 06/10] [v4] leds: gpio: make legacy gpiolib interface optional
-Date: Wed, 20 May 2026 20:38:11 +0200
-Message-Id: <20260520183815.2510387-7-arnd@kernel.org>
+	netdev@vger.kernel.org
+Subject: [PATCH 04/10] [v2] sh: select legacy gpiolib interface
+Date: Wed, 20 May 2026 20:38:09 +0200
+Message-Id: <20260520183815.2510387-5-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260520183815.2510387-1-arnd@kernel.org>
 References: <20260520183815.2510387-1-arnd@kernel.org>
@@ -109,143 +107,140 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-There are still a handful of ancient mips/armv5/sh boards that use the
-gpio_led:gpio member to pass an old-style gpio number, but all modern
-users have been converted to gpio descriptors.
+Many board files on sh reference the legacy gpiolib interfaces that
+are becoming optional. To ensure the boards can keep building, select
+CONFIG_GPIOLIB_LEGACY on each of the boards that have one of the
+hardcoded calls.
 
-While the CONFIG_GPIOLIB_LEGACY option that guards devm_gpio_request_one()
-and related helpers is currently turned on in all kernel builds,
-the plan is to only enable it on the few platforms that actually
-pass gpio numbers in any platform_data.
-
-Split out the legacy portion of the platform_data handling into a custom
-helper function that is guarded with in #ifdef block, to allow the
-the leds-gpio driver to compile cleanly when CONFIG_GPIOLIB_LEGACY
-gets turned off. Once the last user is converted, this function can
-be removed.
-
-Link: https://lore.kernel.org/all/e9252384-a55c-4a91-9c61-06e05a0b2ce4@app.fastmail.com/
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-v4: whitespace changes only
-v3: simplify gpio_led_get_gpiod
-v2: rework a little bit to keep the legacy code path more separate,
-    extend changelog description
-
-Related to this, we may also want to remove support for passing
-a gpio descriptor in the ->gpiod flag. The only user doing this
-at the moment was introduced in commit 1892e87a3e91 ("powerpc/warp:
-switch to using gpiod API").
+v2: no changes. Adrian said he'll pick it up for 7.2, but so
+    far the patch is not in linux-next yet, so I'm including it
+    for completeness here.
 ---
- drivers/leds/leds-gpio.c | 51 ++++++++++++++++++++++++++--------------
- include/linux/leds.h     |  2 ++
- 2 files changed, 36 insertions(+), 17 deletions(-)
+ arch/sh/Kconfig                        | 1 +
+ arch/sh/boards/Kconfig                 | 8 ++++++++
+ arch/sh/boards/mach-highlander/Kconfig | 1 +
+ arch/sh/boards/mach-rsk/Kconfig        | 3 +++
+ 4 files changed, 13 insertions(+)
 
-diff --git a/drivers/leds/leds-gpio.c b/drivers/leds/leds-gpio.c
-index a3428b22de3a..d6a0369eeb92 100644
---- a/drivers/leds/leds-gpio.c
-+++ b/drivers/leds/leds-gpio.c
-@@ -212,7 +212,6 @@ static struct gpio_desc *gpio_led_get_gpiod(struct device *dev, int idx,
- 					    const struct gpio_led *template)
- {
- 	struct gpio_desc *gpiod;
--	int ret;
+diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
+index d5795067befa..d60f1d5a94c0 100644
+--- a/arch/sh/Kconfig
++++ b/arch/sh/Kconfig
+@@ -462,6 +462,7 @@ config CPU_SUBTYPE_SHX3
+ 	select CPU_SHX3
+ 	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select PINCTRL
  
- 	/*
- 	 * This means the LED does not come from the device tree
-@@ -221,18 +220,30 @@ static struct gpio_desc *gpio_led_get_gpiod(struct device *dev, int idx,
- 	 * the GPIO from there.
- 	 */
- 	gpiod = devm_gpiod_get_index_optional(dev, NULL, idx, GPIOD_OUT_LOW);
--	if (IS_ERR(gpiod))
--		return gpiod;
--	if (gpiod) {
-+	if (!IS_ERR(gpiod))
- 		gpiod_set_consumer_name(gpiod, template->name);
--		return gpiod;
--	}
+ # SH4AL-DSP Processor Support
+diff --git a/arch/sh/boards/Kconfig b/arch/sh/boards/Kconfig
+index 1af93be61b1f..d89b74177233 100644
+--- a/arch/sh/boards/Kconfig
++++ b/arch/sh/boards/Kconfig
+@@ -80,6 +80,7 @@ config SH_7724_SOLUTION_ENGINE
+ 	select SOLUTION_ENGINE
+ 	depends on CPU_SUBTYPE_SH7724
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+ 	imply SND_SOC_AK4642 if SND_SIMPLE_CARD
+ 	help
+@@ -199,6 +200,7 @@ config SH_SH7757LCR
+ 	bool "SH7757LCR"
+ 	depends on CPU_SUBTYPE_SH7757
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
  
--	/*
--	 * This is the legacy code path for platform code that
--	 * still uses GPIO numbers. Ultimately we would like to get
--	 * rid of this block completely.
--	 */
-+	return gpiod;
-+}
-+
-+#ifdef CONFIG_GPIOLIB_LEGACY
-+/*
-+ * This is the legacy code path for platform code that still uses
-+ * GPIO numbers, mainly MIPS and SuperH board files.
-+ * Ultimately we would like to get rid of this block completely.
-+ *
-+ * ppc44x-warp sets the template->gpiod directly instead of
-+ * adding a lookup table or device properties. This is not
-+ * much better.
-+ */
-+static struct gpio_desc *gpio_led_get_legacy_gpiod(struct device *dev, int idx,
-+						   const struct gpio_led *template)
-+{
-+	struct gpio_desc *gpiod;
-+	int ret;
-+
-+	if (template->gpiod)
-+		return template->gpiod;
+ config SH_SH7785LCR
+@@ -226,6 +228,7 @@ config SH_URQUELL
+ 	bool "Urquell"
+ 	depends on CPU_SUBTYPE_SH7786
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select HAVE_PCI
+ 	select NO_IOPORT_MAP if !PCI
  
- 	/* skip leds that aren't available */
- 	if (!gpio_is_valid(template->gpio))
-@@ -252,6 +263,13 @@ static struct gpio_desc *gpio_led_get_gpiod(struct device *dev, int idx,
+@@ -233,6 +236,7 @@ config SH_MIGOR
+ 	bool "Migo-R"
+ 	depends on CPU_SUBTYPE_SH7722
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+ 	help
+ 	  Select Migo-R if configuring for the SH7722 Migo-R platform
+@@ -242,6 +246,7 @@ config SH_AP325RXA
+ 	bool "AP-325RXA"
+ 	depends on CPU_SUBTYPE_SH7723
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+ 	help
+ 	  Renesas "AP-325RXA" support.
+@@ -251,6 +256,7 @@ config SH_KFR2R09
+ 	bool "KFR2R09"
+ 	depends on CPU_SUBTYPE_SH7724
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+ 	help
+ 	  "Kit For R2R for 2009" support.
+@@ -259,6 +265,7 @@ config SH_ECOVEC
+ 	bool "EcoVec"
+ 	depends on CPU_SUBTYPE_SH7724
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+ 	imply SND_SOC_DA7210 if SND_SIMPLE_CARD
+ 	help
+@@ -329,6 +336,7 @@ config SH_MAGIC_PANEL_R2
+ 	bool "Magic Panel R2"
+ 	depends on CPU_SUBTYPE_SH7720
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+ 	help
+ 	  Select Magic Panel R2 if configuring for Magic Panel R2.
+diff --git a/arch/sh/boards/mach-highlander/Kconfig b/arch/sh/boards/mach-highlander/Kconfig
+index b0abd03cac4e..cd3a553ce30c 100644
+--- a/arch/sh/boards/mach-highlander/Kconfig
++++ b/arch/sh/boards/mach-highlander/Kconfig
+@@ -20,6 +20,7 @@ config SH_R7785RP
+ 	bool "R7785RP board support"
+ 	depends on CPU_SUBTYPE_SH7785
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
  
- 	return gpiod;
- }
-+#else
-+static struct gpio_desc *gpio_led_get_legacy_gpiod(struct device *dev, int idx,
-+						   const struct gpio_led *template)
-+{
-+	return template->gpiod ?: ERR_PTR(-ENOENT);
-+}
-+#endif
+ endchoice
  
- static int gpio_led_probe(struct platform_device *pdev)
- {
-@@ -270,14 +288,13 @@ static int gpio_led_probe(struct platform_device *pdev)
- 			const struct gpio_led *template = &pdata->leds[i];
- 			struct gpio_led_data *led_dat = &priv->leds[i];
+diff --git a/arch/sh/boards/mach-rsk/Kconfig b/arch/sh/boards/mach-rsk/Kconfig
+index f0299bc4416f..3810937aa5d4 100644
+--- a/arch/sh/boards/mach-rsk/Kconfig
++++ b/arch/sh/boards/mach-rsk/Kconfig
+@@ -12,16 +12,19 @@ config SH_RSK7201
+ config SH_RSK7203
+ 	bool "RSK7203"
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	depends on CPU_SUBTYPE_SH7203
  
--			if (template->gpiod)
--				led_dat->gpiod = template->gpiod;
--			else
-+			led_dat->gpiod = gpio_led_get_gpiod(dev, i, template);
-+			if (!led_dat->gpiod)
- 				led_dat->gpiod =
--					gpio_led_get_gpiod(dev, i, template);
-+					 gpio_led_get_legacy_gpiod(dev, i, template);
- 			if (IS_ERR(led_dat->gpiod)) {
--				dev_info(dev, "Skipping unavailable LED gpio %d (%s)\n",
--					 template->gpio, template->name);
-+				dev_info(dev, "Skipping unavailable LED gpio %s\n",
-+					 template->name);
- 				continue;
- 			}
+ config SH_RSK7264
+ 	bool "RSK2+SH7264"
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	depends on CPU_SUBTYPE_SH7264
  
-diff --git a/include/linux/leds.h b/include/linux/leds.h
-index b16b803cc1ac..e646bffcd8e7 100644
---- a/include/linux/leds.h
-+++ b/include/linux/leds.h
-@@ -676,8 +676,10 @@ typedef int (*gpio_blink_set_t)(struct gpio_desc *desc, int state,
- struct gpio_led {
- 	const char *name;
- 	const char *default_trigger;
-+#ifdef CONFIG_GPIOLIB_LEGACY
- 	unsigned 	gpio;
- 	unsigned	active_low : 1;
-+#endif
- 	unsigned	retain_state_suspended : 1;
- 	unsigned	panic_indicator : 1;
- 	unsigned	default_state : 2;
+ config SH_RSK7269
+ 	bool "RSK2+SH7269"
+ 	select GPIOLIB
++	select GPIOLIB_LEGACY
+ 	depends on CPU_SUBTYPE_SH7269
+ 
+ endchoice
 -- 
 2.39.5
 
