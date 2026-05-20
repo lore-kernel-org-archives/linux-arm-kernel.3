@@ -4,166 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22306CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1293DCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mc/+ti7MrgQz8y3VEqUCtk+lZgtdhsk+7nKCgcRoRzc=; b=kcWwjJNqcBtHcyFfagl2lnII8e
-	KcrSUFwu4BOz/pFGwTZT7Bg6BTxo7f+1ffmOUFD6WOKlgZQDDKsM3IPLDSP61UFoW2/9ZFz0Tsqjy
-	lyKBF2UFcBSv21S/Y6V1/65J2NO7LIM44X+Y46KU7Ov0UsafAMScPT3EiskViPjXhiEvIqjCFqP65
-	J1otVhNfACCJ7LGDrr9Z28fW4t740zjerWW3g8qohXQgH8e4mWf+URFs2UX2vy+cEpQDE6suZZ9oL
-	IRIDP2/4+xlqTvTKtl55t+35Sg00wjdGk5Mv7WLbgWh6fiN99YiLBaaScv2vKDMHjADGqyRXp61dR
-	Aw+38tnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1RHI3T04WVx4klEuwSec5bejMZ7Dt3KXut4T+UVNNsg=; b=X24NLvZKCZcYrilDQR0Cvq31DN
+	xfQRZ8z2eL/3Nj9NS+678KcfAYfmV1LAa3qzvT/TtLOoH2gOa7NK/pH3IFBc6U6JkZ25kSrjbKgrX
+	EOgiHAoGUVDBGp2/HpUlzWNSc93MWdCksZPm8ZpjrBIoQs6CfL7aiHSirVE2KaUtHejYCdqHIiL92
+	o27V/62W+OqNyqAaUzjD0nUG5EZbgYVDy093W2MOgkVer1eFpHrrZ7Oqt/6Eqc9jxAfrbsRsaSXFg
+	5N7BLiwfS0g5iN7j8N8elJq2lHyWEa/rg5LERSU4dyPMRgMOiWWpUPPOIHzy0geGTqmVj/9RuYNqr
+	FFTiNO7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl4i-00000005MKk-2Unh;
-	Wed, 20 May 2026 17:51:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wPl53-00000005MS6-32is;
+	Wed, 20 May 2026 17:51:41 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl4g-00000005MJK-0Tyy
+	id 1wPl50-00000005MOf-2dX1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 17:51:19 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64KBZT0q3084922
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:51:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mc/+ti7MrgQz8y3VEqUCtk+lZgtdhsk+7nKCgcRoRzc=; b=QM+UTv5OhjXtuCSi
-	KN1xd8tqFVIXPKAg5jpokGrnXAf0a1U4PUDSH3RX5ZcUSIfS/ljobzI66f/YMPd5
-	OeW7owetPzdc/VIDYIMFX5XxBnVHgbg1qEhvVvggSHh2Dt/Ai4ugHZN/Td7jCcq9
-	qyP882YaEvZp+IISYEfjT1pwzbZU9wdrEhAxs/IPN1KoC3Hi34gmT1kRn4vpCfso
-	bFoTCdn+DayrQ9/LCEQJ/yNsLfAEbMpX8BsqZXr3sSIunXz2D9AyUARKzHRV8lI0
-	3pkoMnRs95y7EPSnM6BdMWD7BEOab50OdNnC7yFkBK9+Zeqi1ejGSw4ewFaAHUWU
-	uy/sAw==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9c7f1k5e-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:51:16 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2ba3245a43dso53764645ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 10:51:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779299475; x=1779904275; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mc/+ti7MrgQz8y3VEqUCtk+lZgtdhsk+7nKCgcRoRzc=;
-        b=i/Hm/WyvvnvUvPXS90lHCs9h6Nhj7pm8FwIDsYQksVGJ2TUICSHqA67IxIuX1It9zb
-         qTBq4Xn7nK9VATy+kE6dSUNdNzESHttaG76b8nQ/KIoqamVdvQHTUWnHYINWTFAhEgVI
-         8oERdgn3qpiYgS4f3dRJ4U6stovLpzpWuyx7253+D0fLqjcmS0h1CNbgXSc/3MjOqa3p
-         CcIoCGaqN87YW6ioApcnKrDMU29C82+QKtERWrs7HunGTPPZBkS3ifQg6MWBuSxUfXlE
-         y0ywyo78gwevUF6F1zqHb7q3t3kA7Z2xW6VPzSjw4pfIwesmfWYfLGoNYy/UjWiOleIw
-         9LOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779299475; x=1779904275;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=mc/+ti7MrgQz8y3VEqUCtk+lZgtdhsk+7nKCgcRoRzc=;
-        b=ik64MNbC5wIlgtSw/A2nftetG3GmPkawY1C9U57OxFUTPpwZ3NLIuk8R27Q+pmglSI
-         Lza2bMyfv80Z61g24xyTbdLUESkTA3NOnVKrAFEvUP6A43ibnfUfxhjmjZWNmtSXTEXH
-         771+JRFM27U9wMef+PYK8NDwFhlltj5EoewuZO6NpSQXEOESihXbJclrwTUAO/I2yvyt
-         2IAQg/tPBgw0noz90KG+5EgZsNvB6FONiPDZ4eCoafk6ixiSIZsafECTx/eVQOmZBbWd
-         3/fNc4TfRXgFyzUSVBTu+8sxqDpNfCkeLI7BQXPFScfOnfqMDFCxaq5HHtB3G3FV8q2V
-         lHkA==
-X-Forwarded-Encrypted: i=1; AFNElJ/gQ+k2IO8sansOd9cHQQo4GVFDjw4MeqVhTLUsqn4tAlodTUReMFdeBU0wQrvzGg8bVxaOfq2/7NyzDG76DBVA@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmE8N9wpubkKU60UBKfyczRUWXM5gLIxGMk86c7bmR4hyiZb44
-	SiGJ1sOspyShC//QndRxytqETr5d8kEWlS95wTDebQdSFpGShGeWU3wZOSEdYdSbYMhIR2V4Cc6
-	ljm264OORZcOX2iB1XVGoJJ+aZFVqJBaXKWQV5dMvRPjqqWUfHEEOQzKt5xV0lX7eVo4YCpylOo
-	AFNQ==
-X-Gm-Gg: Acq92OG93xmW1PjjJk8ubb5AmalveqyT0yzLMTH13wSEHAJowi65rHhGMt7lYYCbMbQ
-	eruY0abT8RnttyFTPu8AcmeR8CsUlYLAjDRgbsl1lGlt6WLZwW70ofnyBmOnEwErOmV1O7fhZgb
-	jT6TVnX8/tKBQUJRWB0mnIjpkb6Yw59sSI5lYa78Y+crCk2qfECbnqy98Rufp/OKqa0i/3LOdoJ
-	A50MwFupK8EmZsoZ8VjKY4KjVsWdGLbLsGwdHLiEEROUqZoB5QPzvvcQBEiPEogLL/Vq8l/vCOo
-	Lko4m1v2eP/QOIJTQ++SRLhL9jQ/puim0Ux0obIyiTu1EDhSMerqTasgIE6ZDhtmPxtOU7W37KG
-	A+sO2BmnkXmWmeYkzHo0H/aC4Ae3JNSd08/Zah1JbhlD3EmUvNTuWLnmKU/OCvrY6dbypqXTAPS
-	cBVBTmP9yPnuQg+7Z2
-X-Received: by 2002:a17:903:2ecb:b0:2bd:936c:8155 with SMTP id d9443c01a7336-2bd936c85b3mr230398595ad.13.1779299475104;
-        Wed, 20 May 2026 10:51:15 -0700 (PDT)
-X-Received: by 2002:a17:903:2ecb:b0:2bd:936c:8155 with SMTP id d9443c01a7336-2bd936c85b3mr230398345ad.13.1779299474561;
-        Wed, 20 May 2026 10:51:14 -0700 (PDT)
-Received: from ?IPV6:2405:201:c408:b079:35d3:6970:1f3c:72e2? ([2405:201:c408:b079:35d3:6970:1f3c:72e2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5bd5f2dcsm225979395ad.13.2026.05.20.10.51.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 10:51:14 -0700 (PDT)
-Message-ID: <b16ab4d5-40d0-4438-8fab-6cff3fa6845c@oss.qualcomm.com>
-Date: Wed, 20 May 2026 23:21:02 +0530
+	Wed, 20 May 2026 17:51:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cT/PX8r+RHfI/Rvwsq7e/1I1ldFEDxjVBskMbDB/4w72Hkos6+Kxn3V83/JFQrfpo3KZaZuWOoj3+Ei8sgXS6gh0toleHaZqNbz15OLq9DH0GGHncssEcHEAAepIHlDvpBB1heKQN2xWzZalNpBb2Tfne29NnbJOgUqki5U+K48Xrv9AXt9RUZzb6mFoiTT5iIkV92XVJTIPdazI4DTxUCnL7ZD2mjHtKnw5UUqE/9h76ENHfGCvwfKTjR4HZVdOyM444lWokoDL5gqglNlLTOpXoAS6lJ7Zv+8/L+KWbSp4RlG9PveQEVSNpERewJzYg+VAatVuRe/NdCtBX00vuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1RHI3T04WVx4klEuwSec5bejMZ7Dt3KXut4T+UVNNsg=;
+ b=ggHm5k4hK6MeU6zCqPK1DWVkkXNhPVwN6HSoHkQPVJvOAltc7XyMQR/U3GHXoxO8jkmAwfcvGCAEiqueptPPES7FHcIMdHhaDDXP+HaRUM3GsiXIlYT1qYlOf2PSttUrcpx1LcQ2OCC5hVUVtQIACMT1Ab8asKuqiCaeaIjuy4U5YpGr3WvC/gMsDOdGRyJzhMleIRQmK3DwxgAZOKWqtuxYG2O/IdaCRR6P3GIvpqHn4D+OpajowcB32Z9Frav2tGoXzGpjB5SVH/tQ5xIrsAd09V0x2ee/vcuA92An7+7m/ex0mVu5l89gz/jwYEOQ2WC3XOBxQP5TlthfvvF+1Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1RHI3T04WVx4klEuwSec5bejMZ7Dt3KXut4T+UVNNsg=;
+ b=qychlFndoRspVBROPaSi7t0lPXhtnSQ+smOomzjo0uCqf7LZI/MwXyzbVwwFR0lz88Z5+yK0kwnCu8GL7qsLp4d8JOhKuetsoHD4/q+M8SNcV1Mwq4x35L+Oksm9AIy95OveHPjSUTKTrXCTy/3U2fTU4jwWpWIdtpZabOp5m5SDXvyqB+Cyphza3i53r2Fy9WbdRk+PaTVvUtP8n0ulYU4XMhU2iDRmtKQXkoBuBn0fwqnhS2jafLk41b6RmLdvLLhonTO5oztylV0+twItCL0YQV2J8+Kv9m3yu3VZj2WliYzQAZFzzA5X1cyech9NXCr5HzoKv2QjcpQNaJV19Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by CYXPR12MB9319.namprd12.prod.outlook.com (2603:10b6:930:e8::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 17:51:25 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 17:51:24 +0000
+Date: Wed, 20 May 2026 14:51:23 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, vsethi@nvidia.com,
+	Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v4 11/24] iommu: Add iommu_report_device_broken() to
+ quarantine a broken device
+Message-ID: <20260520175123.GZ3602937@nvidia.com>
+References: <cover.1779161849.git.nicolinc@nvidia.com>
+ <745da1a819eb943f2519e660c8bcfde715885c6c.1779161849.git.nicolinc@nvidia.com>
+ <20260519120737.GQ787748@nvidia.com>
+ <agysAyreCY4huf0I@Asurada-Nvidia>
+ <20260519191626.GJ3602937@nvidia.com>
+ <agzkldmlG1cuDkj4@Asurada-Nvidia>
+ <20260519230204.GM3602937@nvidia.com>
+ <agz+kL2S8kcgHywG@Asurada-Nvidia>
+ <20260520003023.GR3602937@nvidia.com>
+ <ag1guf1fHg4fE7Lw@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ag1guf1fHg4fE7Lw@Asurada-Nvidia>
+X-ClientProxiedBy: BLAPR03CA0085.namprd03.prod.outlook.com
+ (2603:10b6:208:329::30) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD
- cells
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-To: Bartosz Golaszewski <brgl@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        devicetree@vger.kernel.org,
-        Florian Fainelli
- <florian.fainelli@broadcom.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Andre Draszik <andre.draszik@linaro.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Sebastian Reichel <sre@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano <daniel.lezcano@kernel.org>,
-        Christian Loehle <christian.loehle@arm.com>,
-        Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Matthias Brugger
- <matthias.bgg@gmail.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        Sudeep Holla <sudeep.holla@kernel.org>
-References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
- <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
- <CAMRc=Mde7Y3CQ3yi=U+999JyHTNacebiK8jJhHuYBGaqn59yYg@mail.gmail.com>
- <f604833d-b333-4514-91fa-3cf95f99f9e7@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <f604833d-b333-4514-91fa-3cf95f99f9e7@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=c/ibhx9l c=1 sm=1 tr=0 ts=6a0df494 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=UQidBoyNrwidYc1BrrYA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: d5Nm21mVlRUNiKYtIpFU09kZHr0_grbs
-X-Proofpoint-ORIG-GUID: d5Nm21mVlRUNiKYtIpFU09kZHr0_grbs
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIwMDE3MiBTYWx0ZWRfX1MhFKoN/2pF/
- 4025TFf3ZrJSQ5HTX3sv4vHB5p/vltv6s9deCK9MBwjtrHlxFj/IpnqHNEQjbryCjjajZKSAq3m
- nuY/mkS8/VTtYQg3T7jr04UwKKiTvyuQNZ3t6uu6GOmmVNVn3TlB8b9FkbHY/r/LHrQS0yonIoI
- IYufBoJP/BPtIWLUwjh+QJKE+LuvU44atorkPfFtu3+oiJGcXWO9wKl9qRrBE/G9m3nV2Y6Vzfg
- ff9lvx5HrFSdGjTaXVhtDsGaVr9SGC8ColBrrEbGuLdDE4Q0ggWORfBj/j0gx6qJIZF74OX3gEw
- VTdLeP8p5S/KYFU//W8KluFEObqa7BZvx2B7Qt798WLl1prMHcGsG7FVc8QTaNuh/PYztqcvRQE
- aM0gFbiWNXtGbkKQ/+lyuNASaYcIHlZ3nx6bw1H2PTrSi8ffjzoexmH11JlxR1EJVcDki00pRql
- j05GdG/DoNNgfIdeU2Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-20_03,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 priorityscore=1501 phishscore=0 bulkscore=0
- clxscore=1015 malwarescore=0 adultscore=0 suspectscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605200172
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|CYXPR12MB9319:EE_
+X-MS-Office365-Filtering-Correlation-Id: f88478e2-024a-45ef-67b0-08deb698690d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|56012099003|22082099003|18002099003|11063799006|6133799003|4143699003|3023799007;
+X-Microsoft-Antispam-Message-Info: 59TNYz3tKwHKgMu1vQTg6D9+14o87g+vQlq4xbrUgdv3j56G1Nb/JMmBguhoDEvWX6HXMHnHWbjIQf6RHYa0f4nDQczqNdqSlxl3QEmIX65od6brMf9ttEKc7j8UPWnnztDLdlJ2qAPjh3g3i3fT7nKcLWV78Kpev8xS/ucMdqeU8qxNEkeOQctlZjGnm4Tm3IhHsAbuvo/IM3s4iiDKAFhlJyqHrXIhm1E+NhH+oWLfl5AZGAjpyXeMelKdtQ7WW2vaEPtiXCAbX9BRfDTg1+r7R/VkLoQQ7EoxpD+ns1UnJWn1dbdlJsExzAThctbt7/POoFnKrMUAP8qI7ksl1mEYDAQjWobgR+2iKYVGNIW8sAP6JbmMOkaBsBvMfVC4Xm5bb+EVf9nNuJrLNvhEHM40bxbFfjO5cdtlsIpUA5AhyK5IyUxZdqljd/DKrKlLq7gO8JtLGiAamJXS2q5ktHPum7DzEnHe9zNfGGd5R/2NgECH9qxBIZgNvRM6m1a0/aqvuWwQgGlF/uKBZy3rsA49egiWA+TmdHuRWxKUx4om7XEA3Zhk4mBLBuHWxONf7MJ1iDgrxV1/hBqrLwYjjqx+Trg7bgFQ9GaTHifdC1BItYTwjZq/H7MDlRa11AsEIHXIg5HHpltev6f/aoZcHQhMasz/1R1PabZLkITMNUB3jVGdqPksH/9plOgspaY9
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(56012099003)(22082099003)(18002099003)(11063799006)(6133799003)(4143699003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zCtDsokfrMe5M3uoKPwBGW7JscD6RM28KSuFw1kaAL/A5Ge8+cYZNQuV4CXv?=
+ =?us-ascii?Q?i7ER4yHyHr+9qZCk++ebpAwDbFYisRWDpSccWT0/SpcEln7aqg7tFclFhOak?=
+ =?us-ascii?Q?g2JIUlm6QZlIloQkXiAcwln15Q6LmsswbHfq1NU2MNk0vWL7tEULzP7T1idw?=
+ =?us-ascii?Q?yID27CQk76Rr64GCO236lZ51NwnnC7VDdEdseNN8nRk/aVE+kRqvCf1hzSG3?=
+ =?us-ascii?Q?UhrRVNGO6KSSWIMR1KSIypsOhWwZIX59uKfq6W5d48VKu/yJVdqubl782S+B?=
+ =?us-ascii?Q?blC4ZTEVXHxKsye07Begs1j6hPsH95dDcBEI+XOhgtdiC0HsDP4AaCNV7YOK?=
+ =?us-ascii?Q?pkqfcipk8YnMStehWsuzHQPY4tkvbnOwbsig0ZrBUTkHM++Tr9CgbU/mCMkK?=
+ =?us-ascii?Q?eZQ/gweytMpoWmt5upETlSDCSP4KOsVxoN+qf/IsLa+RDfV/XZjZ/PP6stZb?=
+ =?us-ascii?Q?zqXLb2mmtoWRP8+aNZZq/QeR1mDC4/G47nJT+ZxLfrQaBWUUuWB/GQYw3L5C?=
+ =?us-ascii?Q?55LYxqStxjeU5ZIKFI1yPLbABWMcxhngYhgWeRHL4eKu+pogLdWJZ7+tPSa3?=
+ =?us-ascii?Q?q0mLA7F6YF5q4C4F8JjUGielvJuvWNL+aWotsTpHDkeNOzjEDl/JX72BY+vY?=
+ =?us-ascii?Q?xG0EClJd6VVDQev3f7CsGYgHIPlWBi1qsPIQddcKrs6ZjzCN1dNAjkkg84nA?=
+ =?us-ascii?Q?wkyvOMGTKlZP062ePy2ZvTk0o98icdX55N8nK7dSyOmU/L/Nwj840qTk9Q3W?=
+ =?us-ascii?Q?TqwaS/VmW9oVdx7/cQdKtJficOJEI7ojWyFo7o7jU0JESXomIUk7EoXtOu34?=
+ =?us-ascii?Q?d95CQdCmVhMOj9NTx8feQzREndF7DGb+c0Nd5J33HDIXZwKK/zZr4I5drlJI?=
+ =?us-ascii?Q?TIlV9ew2GvbKb1hVbdwt5yfT5FV+VdWdeaG54XxbvsBJ2NtdG40bT+JesXAu?=
+ =?us-ascii?Q?fr7m8xiMTBBYx5PLKe8ASJNEX5evR9bQJ2wiB3vDIlDXmkVufFhCYOorGwDA?=
+ =?us-ascii?Q?5cIsM1WOyVSTIvgm3ePcSK+qhEQt1w6uhFJj+4zJu82dcKWA7TTfvNyrCRIz?=
+ =?us-ascii?Q?Z+Sg36HKFQX5Oh1hkZ8CPxgwqsxsiDqfcCy7TTL9lFYVvfcRpPagXT4B35QP?=
+ =?us-ascii?Q?BI0fcd6lTpdEp4bXIRmzl+hS7MO8YVz7amTCWPWP0B/VzBeIDNU6Nqtz0BGI?=
+ =?us-ascii?Q?SPjE07qNHDLleuiFYmp3ozTSF2lo1H17uKyPVAFeBYMtAHit8ZFUcnrA8jNW?=
+ =?us-ascii?Q?nfVlI6OweAHr8I6rJX47zqtOImKeOGUZIePM2Pa7Z9x14kbxx+X6TOm2n2wI?=
+ =?us-ascii?Q?n8f+8129G8/pda2QRPNvurGCmZ49atrf2k5lDBQuKEPoqSQ6cSGFONMBVnks?=
+ =?us-ascii?Q?pwv5UJFLcQDWvNDEfZ0oH22HSyUekllFyaH9YEWEmH3GcrsY1KFkDG+cj3VC?=
+ =?us-ascii?Q?04oAJhaGj8vwNVWpz1GKMF6qOaUUvztx8dU4S/wCJpy8Lz/UM2L8EGrmYsbl?=
+ =?us-ascii?Q?xUZ06q/M/SsKxYue5UekYWFlt0tFKRaKhVRfDH54xBrYRoGempHM8Ok1+nYC?=
+ =?us-ascii?Q?32Bz2PyOfCosreziat4ri+uMXQ0nbmILsUYynZ5AFdN6dTSSler0IfUEDeWG?=
+ =?us-ascii?Q?rpJ5LCsM0NimgHhOudN4Cp5OsgN7x08Y9pLISMnpq3eoNtBOwvrCKXL2HG9z?=
+ =?us-ascii?Q?Wg/qAHiBn7gDe/KSBW+6Sc4GBgO+SclL5VZHh1Sdwi74XcdW?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f88478e2-024a-45ef-67b0-08deb698690d
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 17:51:24.9191
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ct5RBfrK4mx6k1OYniNIxP9lHOs6GI2old7can+I/ib/N3BOVtuA4RFCSuRSdLby
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR12MB9319
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_105118_287751_48D844B1 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20260520_105138_680414_D65FB4AC 
+X-CRM114-Status: GOOD (  30.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,118 +153,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 18-05-2026 22:11, Shivendra Pratap wrote:
+On Wed, May 20, 2026 at 12:20:25AM -0700, Nicolin Chen wrote:
+> > > I see you suggest to treat the entire batch as ATS-broken. Just to
+> > > confirm: without per-SID retry, that might falsely block a healthy
+> > > device in the ATC batch, right? The driver now batches all ATC_INV
+> > > commands via arm_smmu_invs_end_batch().
+> > 
+> > Yes, it is not good, but a giant complex series is not reviewable. So
+> > I'd start with trashing all the devices, then come with a narrowing.
 > 
+> I can take that path for now and leave a FIXME.
 > 
-> On 18-05-2026 14:27, Bartosz Golaszewski wrote:
->> On Thu, 14 May 2026 16:25:49 +0200, Shivendra Pratap
->> <shivendra.pratap@oss.qualcomm.com> said:
->>> MFD core has no way to register a child device using an explicit 
->>> firmware
->>> node. This prevents drivers from registering child nodes when those 
->>> nodes
->>> do not define a compatible string. One such example is the PSCI
->>> "reboot-mode" node, which omits a compatible string as it describes
->>> boot-states provided by the underlying firmware.
->>>
->>> Extend struct mfd_cell with a callback that allows drivers to provide an
->>> explicit firmware node. The node is added to the MFD child device during
->>> registration when none is assigned by device tree, ACPI, or software
->>> matching.
->>>
->>> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->>> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->>> ---
->>>   drivers/mfd/mfd-core.c   | 30 ++++++++++++++++++++++++++++++
->>>   include/linux/mfd/core.h | 14 ++++++++++++++
->>>   2 files changed, 44 insertions(+)
->>>
->>> diff --git a/drivers/mfd/mfd-core.c b/drivers/mfd/mfd-core.c
->>> index 
->>> 7aa32b90cf1eb7fa0a05bf3dc506e60a262c9850..cc2a2a924d6d3044e29a9f864b536ee325ed797b 100644
->>> --- a/drivers/mfd/mfd-core.c
->>> +++ b/drivers/mfd/mfd-core.c
->>> @@ -10,6 +10,7 @@
->>>   #include <linux/kernel.h>
->>>   #include <linux/platform_device.h>
->>>   #include <linux/acpi.h>
->>> +#include <linux/fwnode.h>
->>>   #include <linux/list.h>
->>>   #include <linux/property.h>
->>>   #include <linux/mfd/core.h>
->>> @@ -148,6 +149,11 @@ static int mfd_match_of_node_to_dev(struct 
->>> platform_device *pdev,
->>>       return 0;
->>>   }
->>>
->>> +static void mfd_child_fwnode_put(void *data)
->>> +{
->>> +    fwnode_handle_put(data);
->>> +}
->>
->> Ah, this seems to answer my previous question, but...
->>
->>> +
->>>   static int mfd_add_device(struct device *parent, int id,
->>>                 const struct mfd_cell *cell,
->>>                 struct resource *mem_base,
->>> @@ -156,6 +162,7 @@ static int mfd_add_device(struct device *parent, 
->>> int id,
->>>       struct resource *res;
->>>       struct platform_device *pdev;
->>>       struct mfd_of_node_entry *of_entry, *tmp;
->>> +    struct fwnode_handle *fwnode;
->>>       bool disabled = false;
->>>       int ret = -ENOMEM;
->>>       int platform_id;
->>> @@ -224,6 +231,29 @@ static int mfd_add_device(struct device *parent, 
->>> int id,
->>>
->>>       mfd_acpi_add_device(cell, pdev);
->>>
->>> +    if (!pdev->dev.fwnode && cell->get_child_fwnode) {
->>> +        fwnode = cell->get_child_fwnode(parent);
->>> +        if (fwnode) {
->>> +            device_set_node(&pdev->dev, fwnode);
->>> +
->>> +            /*
->>> +             * platform_device_release() drops only of_node refs.
->>
->> Which is a separate problem we're discussing elsewhere. It should 
->> probably drop
->> the fwnode reference it holds, not the one of of_node.
->>
->>> +             * Track non-OF fwnodes explicitly so they are put on
->>> +             * all teardown paths.
->>> +             */
->>> +            if (!to_of_node(fwnode)) {
->>> +                ret = devm_add_action(&pdev->dev,
->>> +                              mfd_child_fwnode_put,
->>> +                              fwnode);
->>
->> What if the device never gets bound to the driver? The release will 
->> never be
->> called, this is why it's wrong to schedule devres actions for unbound 
->> devices
->> and one of the reasons for patch 1 in this series.
->>
->> What I suggest for now is: in tear-down path: see if the cell has the
->> get_child_fwnode() callback and - if so - drop the reference. Add a 
->> big, fat
->> comment saying that this must be removed if we decide to switch to 
->> dropping the
->> device's fwnode reference in platform driver core which may happen soon.
+> Another option is to not batch multiple devices, until we support
+> retry (which shouldn't be hard to add since we've already done the
+> coding)?
+
+That's an interesting idea, it undoes some of the meaningful
+optimization we have recently done though :\
+
+> > We cannot eliminate parallel ATS invalidation. Two threads could be
+> > concurrently processing the invs list. So it has handle it, the driver
+> > is going to have to tolerate a number of redundant error events.
 > 
-> Ack. sure. lets me work it out.
+> OK. That sounds like we still need a flag or locking so that at
+> least pci_disable_ats() would not be called again. I will see
+> what I can do.
 
-Hi Lee,
+I think we can call pci_disable_ats() as many times as we want, we
+mostly need the driver to merge multiple error notifications for the
+same event.
 
-While planning to address this for the next spin, it would be helpful if 
-you could review and share any additional comments that should be taken 
-care in next spin.
+> > It depends on the driver, mlx5 has a FLR RAS flow for instance.
+> 
+> I assume a driver like that would trigger FLR flow on its own?
 
-thanks,
-Shivendra
+Yes
+ 
+> > A driver with a device that can blow up ATS should implement the FLR
+> > flow if it wants automatic RAS. It requires driver co-ordination.
+> 
+> Or FLR via sysfs, which I have been doing...
+
+Yes
+ 
+> > But I wasn't thinking we can rely on existing AER events here, yes
+> > probably there will be AERs associated with the device exploding so
+> > badly it cannot do ATS, but also maybe not..
+> 
+> So, should I put the AER injection on hold for a future work? To
+> be honest, I am still not very clear how AER injection could help
+> here; or is it for a case where ATC times out while device isn't
+> aware of any AER fault?
+
+Right, if we don't get an AER fault then we should ensure the ATC is
+surfaced, but you have a reasonable point that it isn't so likely the
+get an ATC invalidation timeout without a corresponding related AER..
+
+Still, I'd feel better if it is was definititive and we didn't rely on
+this. This further points that the driver has to merge multiple error
+notifications if it gets some AERs and a new "ATC ERROR" all for the
+same key event.
+
+Jason
 
