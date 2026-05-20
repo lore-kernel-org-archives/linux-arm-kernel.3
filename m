@@ -4,101 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5CBCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD22CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZIImJajPM9fYtSPEthXg6jhil34ku8GvsFFkCo+lnSY=; b=JT6TJ/7/0A9dkKBe4Bx5MS19+l
-	KPp1sgNSXXNxeC54EqILgpxWDnw7hJoJBL2jBZ9zqKv+57pSftpv8x0j8RCQeJjF2lZx1NpQ14Gna
-	1ucOTGVZXMaqrX6VndgNAJ+XUpqoRMywr0q1fB5U7xaxi+vs3c0bxMTldyNmw1RfeJHm3bm+n3hqI
-	c9jdcqeJ79AaP/Z9R0dihI86sw+0MWpF7QZY91R6Cffphl8HL5+b/rXnqIwCKkp1qoK9Nx7z6XAIL
-	mc10jvqz3llQpXLusxAde+/282WVWiZV7S6EOZmi3FpG0v+O/v0tmd6U0VAaTXN6mK7AihyN2Nh7r
-	WwWsyVbA==;
+	bh=aCb65PPgVcRobY0yH5IOaSFWaUsgF41FkRsrX3Cll+M=; b=3477or9Xps0DDLsCSV1FYuJOhS
+	KOpUEbtMMa6KS1Jc7cU++E0ObQFK9YWO+Upt8ezFBrP7kpesXNFVkrsBLPqPY72BGo33Qm/xodJ0n
+	Jz8B9YcORQWT1VnHQYnwmW5p3nJBZTmHTkICEDbPbXWcl3kjsNqBIDZ6nvHEK0UYyf0NTJ/dYJHRi
+	ADUiNEaIAFLjuhw7CQeFdw3JGIO94DNnMlhOBBgYIQAwlQ+jllVHrtiwYYzPV6AxC4Mg2hUggMP19
+	CO2ZqWSKA9xUGcJulGrcUvuQVLuAoZZIJmqjGniCEBUvzc/HFkbPxVj+OOGpEAiQNRh9zLa/jjPvT
+	sGTTziww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPits-0000000510b-3zV4;
-	Wed, 20 May 2026 15:32:00 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wPix0-000000051Wy-1bIk;
+	Wed, 20 May 2026 15:35:14 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPitp-000000050z8-0SB3
+	id 1wPiwz-000000051Wh-0PUm
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 20 May 2026 15:35:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=aCb65PPgVcRobY0yH5IOaSFWaUsgF41FkRsrX3Cll+M=; b=p+P90J36Fs61sod7KdxoLjyDQl
+	hbhrylhPKnBT+QPIPrUleQROH1s3vPpkQCB0awh6ifEYVBQ4JhjQaouy67ISCfFT78HGzFi8rPthi
+	jkWsHR+OJCD43GQCslYY91YRwBHQjbhmP8xPqzMXULBVqaPm3hDmcuvMTOTOp32QJH7G+x2YxCCUK
+	2uT9wYHhKiO0kdGPgwfsTZpJO9fNkNtsFlxG8ml9HurIv6nPnhq9gBJxu2/Y77kg64gCUwLYuHdoe
+	guaQCGkJJjQROq9qa5P/uLgvazJknMr9bLQhL1lm56SDC1seyIc0MFRHC6pbShnhUqlEUBbgUvZle
+	wboRA5Ww==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPiws-0000000HFVo-41fg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 15:31:58 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-44e5624c053so3095515f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:31:56 -0700 (PDT)
+	Wed, 20 May 2026 15:35:10 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64K9oZKY1178265
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:35:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	aCb65PPgVcRobY0yH5IOaSFWaUsgF41FkRsrX3Cll+M=; b=d2sGmmerqvMmdFQh
+	BICjFbRpkZtg8XA1a0GfQ/DqoV24Fe2dZyAiEeR/7ZZRJCXRwDpQbt6kdwFMcWWy
+	YJQZaRSMc1PIMCPZEPlmPgOXtd4WR9+yPj8Z/pJ6WWVat3y4/YAeUWnVHITP57H0
+	xJS7hqDkruXeJ0rFNTh5QtjmfRCuqF2YCFQ9Q0jd/NfPxVhegGlo3/2vYqpoJLg7
+	ll2CLT7biH7kqzzv4/zeNdIZCpFNWGONgCIAks9fnvO5H6ERW/iClGzcmN4nWeic
+	inZRKXYKxWk5IYhwuuc07eDLuwd8zL8iKkVNfs1D0ORVGzWFfEwjEBE5CowVMQhh
+	DpbPFw==
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9ap6s9w7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:35:02 +0000 (GMT)
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-6314daf0053so2780934137.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:35:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779291115; x=1779895915; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1779291302; x=1779896102; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZIImJajPM9fYtSPEthXg6jhil34ku8GvsFFkCo+lnSY=;
-        b=qj0JtHMH/vJncWgoVPal6t/me3cOfs4tNknE9m1dshoynsyBmjPU/DizKQ4HWjH4zH
-         TRg3fisYltyMsg07v3/Su1V3gkAYkcTo1oXFtq1J/6VJ77SjMwY57sU+konEDCGHmJM5
-         PXB6lja2G4ygqB4iWq/KdWD5aJrpzI31g9yR4Oujl5VAWbzuA8vEWx7qpw3GtewQ5zO8
-         +cLbMqKXKiR/tZogfVc8Zyj+LFraYFSHOE3JB/tDRfJjxtCkw2nL6E3t4VO0aMz9n1Pl
-         gRGJUfPp6F1Cxguv2qP+CLhHEo2VZ1A1UEq92OV8+K7vjjTNI1AGZeFAYuSI56UGkxMj
-         qHoA==
+        bh=aCb65PPgVcRobY0yH5IOaSFWaUsgF41FkRsrX3Cll+M=;
+        b=ItFCzvGIenFNZd3fLmSUE43s5Si6YKPZhEQLSD3knK/iELfXhVLEzi0vtECSZRwsUl
+         szK5ErSVRAS76YEyNxZ/zHxGM542kBD6iR9AJYrJzvC7vGzxiKMKt5dQOCfN3HgjaZNq
+         JfgzY33WQuyGgMY8Baa6ynBZmR/PscdkmFpm4iFfvyqF1Fh2H951Z3DWwaYj1NCiB6iT
+         aRAxVyx0vWWwg+uJ2IqKjqMbqrekejXq+7m4u+DIxWxW6TMr0sn39eNcCeqeC/yv742f
+         wr4FzpWZlSWTbRlqFJD6BmuwlD5kYoYIp88+DiUBDucHXateavBO9xVvo7MfPFmQxY2x
+         d/mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779291115; x=1779895915;
+        d=1e100.net; s=20251104; t=1779291302; x=1779896102;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZIImJajPM9fYtSPEthXg6jhil34ku8GvsFFkCo+lnSY=;
-        b=ezgApgsxyJdWU979GNtOBgACDpCK6+mV5f21PZe7z8yvPHCNBCijW1Vpa0Fb7BjDFJ
-         9Zr0T1M+D7xmsaOIWWjsWIxA/YNkTFceRZ99i4wki02+GfcG7EWnrCKM1cZp5PEbIVW6
-         t73eK+DsG6lM0N7NRn1hdAAAbdpKbi1xoXdeOrG6UevuudJ2eOHXgmZXy8R3TErQu1Xz
-         Op9SXNvqCgftOUc5BGzTJwXh+9XAIdBav1aJnMkUKsqiwxb9rSZEEuieoRkEUcXuUyDD
-         spSG2esa+6Oo+1iBjAncT3BnLZMZoAm8B9IpJ4pliQOTFhnO3k0u3idxfhsqw/GR4oL+
-         gCEw==
-X-Forwarded-Encrypted: i=1; AFNElJ+vap46O1zawNFM69Mq5HIHEcZYpMuheTH2Vrh9e99ITCRcPMc9w/hqKVS/TipPEwRA7xnqqP0xVPyqOgkDOZa8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1Kz19t05WIdJYHoeI+dC+0i1Rgg9IiEuep1An9I5z//68kCk0
-	s+oIb0nANzuyMAdvYOGiF1rhszO/kU3o1DBMls/H4b8QoaVBEbRz6Krj3I58dtue3c4=
-X-Gm-Gg: Acq92OGIJGpKwwOyN6bgLgZpKXr/Wg2kVuUD5LXYcM+j3pmgHbK5TNCHx7TdB+wgN1H
-	Kpn7s5bQYokSDmsVw0npJhEKkpleiKZ3CFVWKElSsAPbewYwa8dfzYqD5KAX6Oo6BbHgye80HxO
-	YfJIv+2aM7qefkr2KE8rronbHyv2JaM4qb07ChuTrzXZzeDOxW2U+QKf+D1UsWBTkJRUkLjfK9Q
-	HjNu6M4xL3bvPIQv3UWGfDUc0A1TTpLZb7Mb26BOA7tLEfzFY1Z6MfgIVRrrcLTVtLX3wVljX9j
-	oe52/9/Gtui4WoA4l7nkMxsUEcU5W8XFjKq+aQ2twV/MW4anI2FAbKWqQ+XvlM2rmgoi++TNy3P
-	W5Hj0a5c/dUeRgP2URqcgimYBD/oHwk1HsOsrLo9AtdZqHhwp8I4frfh/1cviEKl7+MSoY4nvIA
-	gMnL+p5jdBkngUkGmB9KocrGY+pn6a
-X-Received: by 2002:a05:6000:2508:b0:441:239e:2bb8 with SMTP id ffacd0b85a97d-45e5c58fe44mr38877967f8f.7.1779291114659;
-        Wed, 20 May 2026 08:31:54 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45d9ed2ffdfsm50958669f8f.15.2026.05.20.08.31.53
+        bh=aCb65PPgVcRobY0yH5IOaSFWaUsgF41FkRsrX3Cll+M=;
+        b=DkmTKq7go5CgZbbfOGA8ZGS1UT3MAbgprcP19K78dOfDUxqwZe7bhzAW7FDhF+QulH
+         3VWtogwH9R6OXrt8L5/VZhrFZkXSnUpKWYIqmP8Lm3S61czI2YmeftXkaUcady2LIs29
+         766fSDGCXxQaxMnUeTVlqLyv6US0CWy91ptf12aqiJfUUjHLUqKRkv5RUtM5hU/vCCeR
+         KoZfv1+kyC0JUOPig3NIDgq7wXUTWlZatSjMPYMl+mpI7djiqt03S2E+RfW80vRbcb2K
+         5UlvKDLG0PNy2dp5qaNk11yTk/vmXhD0vE6jM0OlhmQ2g5sqgfjDu/B9NKLRLQ5ikTOH
+         Tmhw==
+X-Forwarded-Encrypted: i=1; AFNElJ8bnyfI+i2Dsmysg12WY8rbJwg2lsfMuIV4+A3iZicT1DKpBaNc4xzHyJW034+g/NLcOMqHQB6+KfDE9InwD1Ab@lists.infradead.org
+X-Gm-Message-State: AOJu0YwufZuMaH/almwOV2eQCXI0XSkgV0DYpnvpmy9TiuPlxIc5Hw+q
+	XIRB00u7W0hsTamk+H5XgXOHSblaLrErg34d8ar/hRTdvm7wyOYlbt4ojUm6KdFD5t2OWd2DdAN
+	v3Lou7xlGfXXsHSKMritii82XA5woB9yNqA/ZWHoLWDf+2wSoVcdK5CUu08iSkWc7w7Ly3mG5kl
+	gO1w==
+X-Gm-Gg: Acq92OHfT2YL81tct9oo111WiAOnFtGw3ZlfxK33SCnKKRBTPQV9/P7ClxqD1/xTwpt
+	L86j/YQq9p7HogJgevlTcTUh8+h3jUJgXIY+VQdvFoNUO40Sh4P2YR2mitI/tHKJHaTDoMTC58f
+	Oug5I2OUS4tALwQFusI76sEP+wmzCRZ2mDzJi2cYoSN5j5EzqGtKtRojEFZg6Ktsw3flUqpR7Fd
+	TIcueVh6A6ZOLzgsJ/fWZk9CeKBEp3jj3OXxLxo4F4o2xiwhuVZtPu+WY6f1pVZBRfklDsbPZvF
+	vTHdMXezGsvmiSwrDAF4x2GVrvt9Y0UtBpZHSshUYCb5OwHARxXvRNGbG14vR7kibZZYXhCoZ2G
+	l4VSVUlzMgDaQUv4iT9okx79X0ajoR8fIqfuYs2FyQO82oIrJ1bDCblP/lIY=
+X-Received: by 2002:a05:6102:598d:b0:633:2389:3a84 with SMTP id ada2fe7eead31-63a3fc964a2mr11421071137.24.1779291301943;
+        Wed, 20 May 2026 08:35:01 -0700 (PDT)
+X-Received: by 2002:a05:6102:598d:b0:633:2389:3a84 with SMTP id ada2fe7eead31-63a3fc964a2mr11421006137.24.1779291301435;
+        Wed, 20 May 2026 08:35:01 -0700 (PDT)
+Received: from [192.168.68.112] ([5.133.47.210])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-48fe5cab818sm421761775e9.14.2026.05.20.08.35.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 08:31:54 -0700 (PDT)
-Message-ID: <463a9739-60c8-4f85-8293-b5a1197a2802@linaro.org>
-Date: Wed, 20 May 2026 16:31:53 +0100
+        Wed, 20 May 2026 08:35:00 -0700 (PDT)
+Message-ID: <81b15533-3258-48a8-8d5a-0dcec7027254@oss.qualcomm.com>
+Date: Wed, 20 May 2026 15:34:59 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: fix resource leaks on path build failure
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <Mike.Leach@arm.com>
-Cc: "coresight@lists.linaro.org" <coresight@lists.linaro.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Suzuki Poulose <Suzuki.Poulose@arm.com>, Leo Yan <Leo.Yan@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, nd <nd@arm.com>
-References: <20260513-fix-memory-leak-issue-v1-1-49822d7bc7d4@oss.qualcomm.com>
- <f347bad3-4a11-4f65-b35f-f59c6360ac5b@linaro.org>
- <5b3785a1-0f53-4b61-bc18-880091c2ce12@oss.qualcomm.com>
- <dea28a56-a5d8-46ef-a782-a95073714377@linaro.org>
- <PAVPR08MB9674C4C58210122F3A6E07AB8C012@PAVPR08MB9674.eurprd08.prod.outlook.com>
- <c819c469-0ac4-49d7-aff2-d3863a44e35d@oss.qualcomm.com>
+Subject: Re: [PATCH 2/2] ASoC: mt8173-max98090: use standard callback to set
+ jack
+To: Mark Brown <broonie@kernel.org>
+Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
+        matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+        sharq0406@gmail.com, kuninori.morimoto.gx@renesas.com,
+        ckeepax@opensource.cirrus.com, linux-sound@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org
+References: <20260520132930.54333-1-srinivas.kandagatla@oss.qualcomm.com>
+ <20260520132930.54333-3-srinivas.kandagatla@oss.qualcomm.com>
+ <5990fbb1-286f-482d-b02a-d0637494f435@sirena.org.uk>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <c819c469-0ac4-49d7-aff2-d3863a44e35d@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+In-Reply-To: <5990fbb1-286f-482d-b02a-d0637494f435@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 5wSYpQc4N4oYr7qHZTffb2QxpzRLNe2i
+X-Proofpoint-ORIG-GUID: 5wSYpQc4N4oYr7qHZTffb2QxpzRLNe2i
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIwMDE1MCBTYWx0ZWRfX1cW6LmpZIqx9
+ bBuq0x8m+WcX0xeauaQCp2jcPrhFymRDenZ0POKmQwmyyxqEl+W31DjcDAPQPeS5sTbcE/j7pXk
+ I4EyPvxQvJSUUc2t39AZ0Jqtw7oVuzMtXz571xqjWUkjMaOHCmjgVSDBCi6wVA6OUmaJJUJAZuM
+ 1QiBAiMN9nZ3CvvF1mqX49XU3GjowrkmSHWe6Wq14ESxXecRBwe02CLLcgvFyGm1y3u7pKJ+G1k
+ V1e9L07gDsRrkxeiJQSBUrqc0j7B8kCi4edptG7D7X0eiUDCuZDFDttDoCG0cDWE6wqUOFDt6JB
+ ValIrDNYH9XUqCbVthckFtpQw9SBqrpeTxD6DDWH7aMrfKRvuFeCoMOW1WQuyK0K/2b+qaF2ue5
+ hXRfBXYRJZMLTy1swOJbE4AxyoJxyYxXtpzUveqnG0KHDQ/ZR2d4vyPSv2nfgQFZ2cKkvfkVJt0
+ SDdNKxV2QkrQJG9jK+A==
+X-Authority-Analysis: v=2.4 cv=FesHAp+6 c=1 sm=1 tr=0 ts=6a0dd4a7 cx=c_pps
+ a=5HAIKLe1ejAbszaTRHs9Ug==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=Zl4mUG8r6ouv1iOMoRsA:9 a=QEXdDO2ut3YA:10 a=gYDTvv6II1OnSo0itH1n:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-20_03,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ bulkscore=0 suspectscore=0 malwarescore=0 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605200150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_083157_212181_67D9BFBA 
-X-CRM114-Status: GOOD (  34.14  )
+X-CRM114-CacheID: sfid-20260520_163509_021038_D5771D6D 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,183 +166,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/20/26 1:42 PM, Mark Brown wrote:
+> On Wed, May 20, 2026 at 01:29:30PM +0000, Srinivas Kandagatla wrote:
+>> use snd_soc_component_set_jack() instead of custom callback to
+>> max98090 codec.
+> 
+> This needs to be squashed into the first commit, otherwise the first
+> commit will cause a build break.
+I had them in opposite order in my local setup, which is why it did not
+break the build for me, I can send out a squashed version.
 
-
-On 20/05/2026 11:13 am, Jie Gan wrote:
-> 
-> 
-> On 5/20/2026 5:27 PM, Mike Leach wrote:
->>
->>
->>> -----Original Message-----
->>> From: James Clark <james.clark@linaro.org>
->>> Sent: Wednesday, May 20, 2026 9:38 AM
->>> To: Jie Gan <jie.gan@oss.qualcomm.com>
->>> Cc: coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.org; 
->>> linux-
->>> kernel@vger.kernel.org; Suzuki Poulose <Suzuki.Poulose@arm.com>; Mike
->>> Leach <Mike.Leach@arm.com>; Leo Yan <Leo.Yan@arm.com>; Alexander
->>> Shishkin <alexander.shishkin@linux.intel.com>; Mathieu Poirier
->>> <mathieu.poirier@linaro.org>; Tingwei Zhang
->>> <tingwei.zhang@oss.qualcomm.com>; Greg Kroah-Hartman
->>> <gregkh@linuxfoundation.org>
->>> Subject: Re: [PATCH] coresight: fix resource leaks on path build failure
->>>
->>>
->>>
->>> On 20/05/2026 2:55 am, Jie Gan wrote:
->>>>
->>>>
->>>> On 5/19/2026 9:57 PM, James Clark wrote:
->>>>>
->>>>>
->>>>> On 13/05/2026 2:32 am, Jie Gan wrote:
->>>>>> Two related leaks when _coresight_build_path() encounters an error 
->>>>>> after
->>>>>> coresight_grab_device() has already incremented the pm_runtime,
->>> module,
->>>>>> and device references for a node:
->>>>>>
->>>>>> 1. In _coresight_build_path(), if kzalloc_obj() for the path node 
->>>>>> fails
->>>>>>      after coresight_grab_device() succeeds, 
->>>>>> coresight_drop_device() was
->>>>>>      never called, permanently leaking all three references.
->>>>>>
->>>>>> 2. In coresight_build_path(), on failure the partial path was 
->>>>>> freed with
->>>>>>      kfree(path) instead of coresight_release_path(path).  kfree() 
->>>>>> only
->>>>>>      frees the coresight_path struct itself; it does not iterate
->>>>>> path_list
->>>>>>      to call coresight_drop_device() and kfree() for each 
->>>>>> coresight_node
->>>>>>      already added by deeper recursive calls, leaking both the
->>>>>> pm_runtime,
->>>>>>      module, and device references and the node memory for every 
->>>>>> element
->>>>>>      on the partial path.
->>>>>>
->>>>>> Fix both by adding coresight_drop_device() in the OOM unwind of
->>>>>> _coresight_build_path(), and replacing kfree(path) with
->>>>>> coresight_release_path(path) in coresight_build_path().
->>>>>>
->>>>>> Fixes: 32b0707a4182 ("coresight: Add try_get_module() in
->>>>>> coresight_grab_device()")
->>>>>> Fixes: b3e94405941e ("coresight: associating path with session rather
->>>>>> than tracer")
->>>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>>>> ---
->>>>>>    drivers/hwtracing/coresight/coresight-core.c | 6 ++++--
->>>>>>    1 file changed, 4 insertions(+), 2 deletions(-)
->>>>>>
->>>>>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/
->>>>>> hwtracing/coresight/coresight-core.c
->>>>>> index 46f247f73cf6..c1354ea8e11d 100644
->>>>>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>>>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>>>>> @@ -825,8 +825,10 @@ static int _coresight_build_path(struct
->>>>>> coresight_device *csdev,
->>>>>>            return ret;
->>>>>>        node = kzalloc_obj(struct coresight_node);
->>>>>> -    if (!node)
->>>>>> +    if (!node) {
->>>>>> +        coresight_drop_device(csdev);
->>>>>>            return -ENOMEM;
->>>>>> +    }
->>>>>>        node->csdev = csdev;
->>>>>>        list_add(&node->link, &path->path_list);
->>>>>> @@ -851,7 +853,7 @@ struct coresight_path
->>>>>> *coresight_build_path(struct coresight_device *source,
->>>>>>        rc = _coresight_build_path(source, source, sink, path);
->>>>>>        if (rc) {
->>>>>> -        kfree(path);
->>>>>> +        coresight_release_path(path);
->>>>>>            return ERR_PTR(rc);
->>>>>>        }
->>>>>>
->>>>>> ---
->>>>>> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
->>>>>> change-id: 20260513-fix-memory-leak-issue-034b4a45265e
->>>>>>
->>>>>> Best regards,
->>>>>
->>>>> Looks good to me, but sashiko is complaining: https://sashiko.dev/#/
->>>>> patchset/20260513-fix-memory-leak-issue-
->>>>> v1-1-49822d7bc7d4%40oss.qualcomm.com
->>>>>
->>>>> I'm trying to understand why it's saying that, but I think the
->>>>> scenario is that if there are multiple correct paths to a sink, when
->>>>> one path partially fails and a second path succeeds you could get a
->>>>> path_list with some garbage entries in it.
->>>>
->>>> I think the coresight_release_path is added to address this situation.
->>>> We suffered the path partially failure, and we need release all nodes
->>>> already added to the path.
->>>>
->>>
->>> It wouldn't call coresight_release_path() in this case though. If one
->>> path ends up building to success but a parallel path partially failed
->>> then _coresight_build_path() still returns success. During the search it
->>> would have still added the nodes from the partially failed path to the
->>> path_list. This is only an issue if there are multiple correct paths.
->>>
-> 
-> The point here is there are multiple routes from the same source device 
-> to the same sink device, am right?
-> 
-> I have no experience on this scenario. So with the scenario, the 
-> build_path may succeeded in one route and failed in another route, but 
-> finally, the _coresight_build_path still returns success, is that correct?
-> 
->>>>>
->>>>> That's kind of a different and existing issue to the one you've fixed,
->>>>> and assumes that multiple paths to one sink are possible, which I'm
->>>>> not sure is supported?
->>>>
->>>> Each path is unique. We only deal with the issue path for balancing the
->>>> reference count.
->>>>
->>>> Thanks,
->>>> Jie
->>>>
->>>
->>> I'm not exactly sure what you mean by unique, but the same source and
->>> sink could potentially be connected through two different sets of links.
->>>
->>
->> Multiple paths between a source and sink are not permitted under the 
->> CoreSight spec.
->>
-> 
-> As Mike mentioned, my understanding is that a source device is only 
-> allowed to be added to one valid path—this is what I mean by “unique.”
-> 
-> Thanks,
-> Jie
-> 
-
-That's ok then we can ignore this for this patch. But it would be good 
-to enforce that in _coresight_build_path() with some kind of assert. Or 
-at least add a comment to appease the AI reviewers.
-
->> If such a system was to be built - then a fix would need to be in the 
->> declaration of connections - e.g. miss one path out in the device tree 
->> for example. Not up to the Coresight drivers to handle out of 
->> specification hardware.
->>
->> Mike
->>
->>
->>>>>
->>>>> It might be as easy as breaking the loop early for any return value
->>>>> other than -ENODEV, but I'll leave it to you to decide whether to do
->>>>> that here or not.
->>>>>
->>>>> Reviewed-by: James Clark <james.clark@linaro.org>
->>>>>
->>>>
->>
-> 
+--Srini
 
 
