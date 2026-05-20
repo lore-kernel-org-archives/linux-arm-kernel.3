@@ -4,95 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F07CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE41CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYOJ9GFvOFI2LL52SOYreIR2jRncnDyPiCnAUZkvQc4=; b=VjH/vEPuAHIyDaRQpqg8PfEdya
-	JWXmjzOySSRbR3Ne8ymHwJyc87BpFqF4LirRgdZGOEYuCbIopAp6IyVRTA/lk0LV5bftGdNYZ1Sd5
-	OUn1cltxDoOpPCv6uGaPZKtOVVhPrKVO9t44FdeCps1hTftxFgeImEebVzGNgaokzN5tpteXuvswJ
-	lEgljiGOhh66CZ8YQ/AY7GHt1FpMTD8Nu2Vba6zbvR7RBirM8LLtQwZKE3UmnfSLsRE83bfhCXTdW
-	2NB2RDhdoYOzoDpu9wuAbbh7OSDIP3kIFormkpololrcxi9BNpGS1OlxsBRTY/hexobR9EvW7DDhE
-	PFNICRug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tvh0wIco7kYYWYvMmKN0sPfccTPBnSRz0UdS2KXrzhU=; b=kLOuGAqdSAAtiExtHGD5llzJR0
+	wEVFyCcQzfHNTRYg4HtlUEb2760tJrXlGdM2iM9QRF9jXAb9CPn7jVI1MB4W8pClY23Uk3t2Da47f
+	sRaGwFvSeI4pTBijefUh9qtNgbO68SDfHDp5G1uvrqjDsit2Y8oDv3eVkaC1C1/bAFKXfKpNJApub
+	cAacApusFIyjQjkm6s2POP/rrNxheZ9j7FDWpXWYZXQEBUK8CVbTtK2yv1ykIbCy29mOiBXLiLOnC
+	e4R8brIJ+XXVa9q17IkKIapPoW3eujXuihMvfPM3viV4qFLSn7dRctfbUJJpbF9K0EdUPPwvKccKC
+	0Tt0uMsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPb9B-00000003lf3-21XJ;
-	Wed, 20 May 2026 07:15:17 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1wPbEG-00000003mAx-0NUx;
+	Wed, 20 May 2026 07:20:32 +0000
+Received: from mail-westeuropeazon11010001.outbound.protection.outlook.com ([52.101.69.1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPb96-00000003lcz-22XK
+	id 1wPbE9-00000003mAD-3enV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 07:15:15 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5a8704dc3a8so4835822e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 00:15:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779261308; x=1779866108; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=tYOJ9GFvOFI2LL52SOYreIR2jRncnDyPiCnAUZkvQc4=;
-        b=cicIYQnXo30Wh81SfQdesHFtDUxmN3VTwRZ0wi3/axNrxYT1V40avrnkj9UizsqfK8
-         vTLHw1cS9KQs+uWdPFD55AEbMgceenRMlquh59TE+GLdymc4ryES1/x4FouhyAb4rIac
-         7+cTydm9GD7JvmRxxp1tyQ97XLIIYJ+a6FeRvJS67KvbieJ5Agsc6LnBZSWdXv4ajdBT
-         Pz6MGeGfRbtUQdZ56YwnkzrYGNrBrSnDms/eHqAAZ2FcVrLzynAafqEVbIwD6tNDxV8r
-         NWyHsoZD5H7E1fWwu8Jnj0/C5arGVYWCypMIm4PRKNtIbiu1CWc8eF/cb5blbQBAUAPg
-         WeSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779261308; x=1779866108;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tYOJ9GFvOFI2LL52SOYreIR2jRncnDyPiCnAUZkvQc4=;
-        b=ETzZGdwJI0059SO6tWNIlaabMr7F3L89JZN7UFx5FYXijEO+httU2WxH2J6eEZt4fY
-         HN0SUtCxhQUGJUPPBaxSlWOEPrW68+XN8hRPK7VlYyMxNLR4tpD5xmeDtah8AnNyjhV8
-         MliWmkSqgm9ovG2eAABZj8xId5WSgtK9rO9EI2+yeDNso60drVqE5Fu0cm6Xu8z7yoNb
-         8d6xqvn1lOnMyrNtDVTroDcyzhfp3hn6MAzXzpdPWu7iEkcaUP36pTFavGKoOpURWiBr
-         kL4fZKhilV7kC3Iu8hVW5Tx7UXbjNWhh0xFaU7u99ejLYpNymHYga+M32lKhlZUvMTZt
-         hjQw==
-X-Forwarded-Encrypted: i=1; AFNElJ/t9leP8bPfZDDwhum2TlJePd275846NksOEeS4LYdvL0sMs5gYDaNyTd+XxtinG3iaq8sqHA8Ux0c7WxcTaSTV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1mq//qf7jF8F11+0gcky7VYAF1MWZyMGWeZmJgAQj8/+BHF9L
-	IMzqawgUOeCZ+D9IEaHfxl0rYnuuHbNvzIMYPAWbWeYR0JmgsBMlrRC1
-X-Gm-Gg: Acq92OFYJCGJeanYHt5lGfDtR0eXasRCiRfuZa0A8Ed/K0GUp7Iq5ArDi77pNRrCC2w
-	yqNbcr7xVoVGKqFTkb4s+73x6adWtTX8xfqk9uhg51lQ84DSJu5u4WyBoX/4gOzXWfidorE58AI
-	wih5WjAIFbbBgOTnSoJ7PzM80vSxeBsoV2TuLdqU3n/4+NW/wBpYg7MNOCH5Xii2agxR6a7XLrV
-	Jzrr7RNvuheFwuBjBpPI8idJ9s6JgPvbLh4HX9FKH1XJefqFPodsYqYOU3LT33bBvw2dY18nFOO
-	MNs4KAOXggXR41tvYY4QqNUYbkKLVFWiW9isVsJfcsWqzTCl/uadsEU31sRFJhgLyiLGPWMZVqi
-	nz6DQM7QzZdN0pOXlV8EtrWn516nRKAkZFDc539hsOftkqVAkt3fiZumCmcGrVpitg771PdNA1w
-	k=
-X-Received: by 2002:a05:6512:695:b0:5a8:f984:1541 with SMTP id 2adb3069b0e04-5aa0e7640c7mr6248441e87.37.1779261307775;
-        Wed, 20 May 2026 00:15:07 -0700 (PDT)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a90f10c944sm4837460e87.6.2026.05.20.00.15.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 00:15:07 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Wed, 20 May 2026 09:15:05 +0200
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, urezki@gmail.com, baohua@kernel.org,
-	Xueyuan.chen21@gmail.com, dev.jain@arm.com, rppt@kernel.org,
-	david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
-	ajd@linux.ibm.com, linux-kernel@vger.kernel.org,
-	Wen Jiang <jiangwen6@xiaomi.com>
-Subject: Re: [PATCH v2 0/7] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-Message-ID: <ag1feQwK38vd9i72@milan>
-References: <20260514094108.2016201-1-jiangwen6@xiaomi.com>
- <20260519131738.11a78ba88e1be28ba5cb26eb@linux-foundation.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Wed, 20 May 2026 07:20:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=waPrQCba/JKJf4sMH/aLmbIoSR7IIL8KoqWJBML3Ivmy3z7XFtFx/4pOKr+GS855CfHECOvpBjw8cfd3vsQRn7ctBqXt7ClBGjU1wgeRIaz2gcjKef068Wit6PNnPKkQumhTJih85SxqK4XLFCzrUjKWQHi1gLrkYS+fyMBKm5UGzy2PKrbnwEh+x+kmfX4u/53rLGInnwwY+Vmr1d3ugDcSg3ab+6Va8dRR/FYmM7S5NsI3RJiAg3ix96Kaws4q72xJYe545JqwwOhYr6FG8GZaVxtOce+EuR8JCdcv4mEQg95h2ro9DPAw7WjgRGnAKpEej51yvOCpJeflEBzkeg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tvh0wIco7kYYWYvMmKN0sPfccTPBnSRz0UdS2KXrzhU=;
+ b=FfYcnEuF/MKBIp25AV5PTdMA8wj9yHCMBpNuPXYRZwMVq3hfLMcl17CvrsDydOixMzgRzik1ohYkjPAzvsvtwlAwT1PR11b9Awuo5nr3e+4gx8LAPfmkjGiHaBgWFG3GQRBN4W3d6WFcYItoZ9igRrjbzxEzlRokwHiVoTtqNra6bmpcyHsizsoyvGO9SHM5kexLfPq7pfSg7cD9AxFJBIFaxGkbfQvSDnwhB25vPZgHlzuBnktFDjRYSUMFLwmMb1/xKL/RLcPnKR3cqnMXBs+dOXk+abv/uhGz/oxVrj11z98fbGObbZ+wAXC7XJJ5MvURkvs2+6862Dig5lu/pQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tvh0wIco7kYYWYvMmKN0sPfccTPBnSRz0UdS2KXrzhU=;
+ b=GphoN63sBAkCjGHTmjZGz4bj4Efgklvi1Fc0lAZ6aacI3GW9XvpoKxUULY9yqwb26IePsAgQCZHgnSQNOfls0iMVPHYotvtJUl/T81rFy2s2QbV00222F2mK7yjkimDYDJIfax2ylpQzQudR0CebrUyGued5BfDMkXZAMlu1b3PmLgOfxkLynNoEpx2u2nT1k4tImfBluzFTHxNFILzajoL/ul6W7jgFEgyv62zs+DnHEFCd8HtzcKGMJ9Q22yKBxPg+KO92Rg5Agu4uv6VkatRrtYKjITLi01MQQdOaxjXP9IFbIPeS1lCMktU5HbACULGf0U88QUuhqaYFHgISCQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14) by VI0PR04MB10392.eurprd04.prod.outlook.com
+ (2603:10a6:800:21b::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 07:20:18 +0000
+Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
+ ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 07:20:18 +0000
+From: Richard Zhu <hongxing.zhu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	frank.li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com
+Cc: kernel@pengutronix.de,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v8] arm64: dts: imx95: Correct PCIe outbound address space configuration
+Date: Wed, 20 May 2026 15:22:28 +0800
+Message-Id: <20260520072228.2274790-1-hongxing.zhu@nxp.com>
+X-Mailer: git-send-email 2.37.1
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260519131738.11a78ba88e1be28ba5cb26eb@linux-foundation.org>
+Content-Type: text/plain
+X-ClientProxiedBy: MA5PR01CA0240.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:1f4::12) To GV2PR04MB12019.eurprd04.prod.outlook.com
+ (2603:10a6:150:30c::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB12019:EE_|VI0PR04MB10392:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b1ec807-1c4a-45f6-a43e-08deb6403efe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|52116014|38350700014|11063799006|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: s+jGk1p2s0jntGe4VzC0PxY6XnkJ6eoNEb1F/0n1JQf/D7hmGNA+8FPpvSiiWSLsn1ORs1O6pWk3lhKY0WU/9k68+RugSLlsFxr+1djeUdQZucmlAPKPOXAyg2mGLFot7mshmlNXVGwscmwWfF0bPqqw1yheFHC7IPnq/LS60B+nT+RLXFIQcNzCCDlpCtIGpno2pYxTfqrNCvF5tk3zYLRkvJ7iXz1281k9XEKJWW6ct/nDMJZaHJeQPdJMKPQx4TC7WG+NojB8KuRzNuqzoGP+GfsgCa+/qh7ueWiKTGo29iKLkINq9/WhLZtKffnJD+JpCJSIqSh/xkO+aQEEyEDITl/YvHgkQ+eAVUhNYfwWOjYG7d9o6mHnRkNZxlVQjTjbY1EBjKQYCNTq0jtyZG0VoOdEBWs9mlv8yaFge66jKUjfw9QFHFaaRLMz1cMAZok0Co9nB6TgjW6K7QX4ArlKLOR+nRZBNSulK5bp5qLiVQiVWdp6KOcB3+8MmUewRr3k336GOhP9IBQjVvFdfag/4hWu+V8eqBMbsrR4WcKWf9mjdPe6PCG0XW4upCGAstbKmdYuJUAiVw3Dsu3z+MBGVslMldOUxRDxT06oOQol3XL53CNpKpgfOUA/AFw1CMzSYv0VuvLLdf1JFK4mKdmgv4YgP3iZUcJUw0QlTDmEMisyAANUKSfIEiUpnzwV5S/luG6zJYZbLzKAcYxZLTZd6+gWTDiG0tMlgglCyUPQJ2mjhWUWx2kVwup0Nyju
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(52116014)(38350700014)(11063799006)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4oO2sf0sMpmEH5P9WKQq/84HTWoCWC1qGMIGlC0cPv5sWSC3+l6Nhmv+YQqv?=
+ =?us-ascii?Q?Hv1c6cTiO2f3Xphdw4xITpjxEm7nhIiwwYAw88LR4HEsqptox10S+6ZF+uew?=
+ =?us-ascii?Q?arDWQq0cgJfahW/XkC0I5d4zoFsUgX7WIDdVepC0RhiCSqoWs0abqrL5DLEp?=
+ =?us-ascii?Q?HMEPhBeiYmND6m14RuLjkqZXhmDKXsAwFh47krgl3BqV57utAm/LvtAxxOor?=
+ =?us-ascii?Q?bbRmfr6gM1gD6DH9NhLDhe5babd6LuSfe+HnquIhRLr7+s2zNiTIzjSqIV8F?=
+ =?us-ascii?Q?512A34Yb/gGoYKyV38xHPQxH1p9JlTBjkRloNEIRgH+ysyuAIW4hZ6pp+AVA?=
+ =?us-ascii?Q?mL9k9uaJwhPau2ueIjGXN36GQumsrMAGsUKnI5oxvnltEx+G7ZBb65/Zan5n?=
+ =?us-ascii?Q?lHM9r2pEKd+XbGyjRv/TuDZLEY8sQ986aO8dZr30dgRwO0h7xG0oc1CCPe5v?=
+ =?us-ascii?Q?o6QJtIeLk/LDiFLyDYyRDbRwGqQQBJvnQUqorOBZ1uI6dt0H3a5xzPuD/nwI?=
+ =?us-ascii?Q?TKZeiyiynrgZ57xYCj/yCY8TMfmaDdsvB66R1WB2moU4ys6wEcsXw9L/Ik8u?=
+ =?us-ascii?Q?PC0gC+HeZgjY1mDoq2BX+pfYw63W0x/BjlQVVQ9wYATOdtzkTBq5elxMbJLJ?=
+ =?us-ascii?Q?/6rroclBC5PvXH3b9bKy8XF0SdYOYu7ZkL9UBrr3QHzk08i8cR2qPFdwLkb4?=
+ =?us-ascii?Q?GqzCCn2o7rWZrlIYcZw78Bi11ZnvYd5ujzFMa9Q75G6ptmqD6LCQz+4NJjvG?=
+ =?us-ascii?Q?Fou1cZABkhZSmi9e7DhCi1grtesh9r+/18K63R+WIFV7oyLh/82x6jzPnPsV?=
+ =?us-ascii?Q?sAN/VP6gN1TGUJS0CH+ObYJ7de0OAT7m1tcqGXzZhNr8ViM1UERveSrniC+L?=
+ =?us-ascii?Q?xzG/IYUI1IeYxrDHXjqE+cOiV8c7//6nDDGpten05WlnhsH5z1ABtXRNoZ3c?=
+ =?us-ascii?Q?e/FMmlX+7cwabcSD7kLaWvN8M41V12LqVJDUg6P7dw4+WwvaCF8dHGO3Hfjn?=
+ =?us-ascii?Q?y/HVzbwjd1jh1F+V4sRj4JF/aHNYt2b19WuTqhOs1hqcQ35sDqhjchBiOI8k?=
+ =?us-ascii?Q?GDOZZybHb4EFb1LdVx+sZs9FippPQH7il3exw78Li39mMzYdaMAkoyVzLhIc?=
+ =?us-ascii?Q?Ty4QfUYZOFXnWGJEBXro7Dfp7UN8tjHXLEktz+w83N0KksRLEEn3+Y1Ll4mW?=
+ =?us-ascii?Q?QXzA3HEEy9PrrRXlAk5zKqdCuDaSq5FgoXVzAzjXTTSWSNl00FrAslc3emOn?=
+ =?us-ascii?Q?xQrNftdOe356ktXzOaTjpj9PmgR0UaNRlUzD0jlJnmXhPcnJhfUuYbN/nW+i?=
+ =?us-ascii?Q?rN2x4lJ2tlbe+HMKUGyftSBc92nD9OpksbkD5oq9QQm2SbncM+lmLHnD3zkR?=
+ =?us-ascii?Q?7E/We61ftrGbXvhtjyeWAqK5CUrzTV5deK1K4qhXJytHeaZRac4Qw6JgwUkS?=
+ =?us-ascii?Q?uVhQzMeKy5U5Aj7sMPzRZ0x0tU/MKlFsExFksFoUv03XsAf1e/wRuBwHM4sU?=
+ =?us-ascii?Q?MSqSW+MjJMFta6ImG2rGEV8A+CNtHer+WbtVfC5MAsTeTqUli4rgU5XpEl4A?=
+ =?us-ascii?Q?RO5HSE6IH4MjmPZLgoeoOcLKAeRohThPdPZdetYQWa3HLDszYUWrh0ptjfzm?=
+ =?us-ascii?Q?+w1ugDgmIN3Ng+UhcKOUUShrc0oesSpmOAb61qS5pYK2t/AaDvuCNx482zn0?=
+ =?us-ascii?Q?VjuJ8itFDCbYtgCZQ9PT3ALT345uWgFtG1yX3IQv6u06HYXIayshKAW41Uiw?=
+ =?us-ascii?Q?zPHQ4wEUHw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b1ec807-1c4a-45f6-a43e-08deb6403efe
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 07:20:18.5672
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AhZpB8cKgK/rf9VYEhOyNUhIvzKEMijo5vWda5md3YjkoRCBzM/9dNi2cEVLIJl2aQq12VMjUScJdi4/vrDsKg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10392
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_001512_549070_694A46B3 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20260520_002026_947970_163E2A4E 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +142,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 01:17:38PM -0700, Andrew Morton wrote:
-> On Thu, 14 May 2026 17:41:01 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
-> 
-> > This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> > is physically fully or partially contiguous.
-> > 
-> > ...
-> > 
-> > On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
-> > the performance CPUfreq policy enabled, benchmark results:
-> > 
-> > * ioremap(1 MB): 1.35× faster (3407 ns -> 2526 ns)
-> > * vmalloc(1 MB) mapping time (excluding allocation) with
-> >   VM_ALLOW_HUGE_VMAP: 1.42× faster (5.00 us -> 3.53us)
-> > * vmap(100MB) with order-8 pages: 8.3× faster (1235 us -> 149 us)
-> 
-> Nice.
-> 
-> AI review found a bunch of things to ask about:
-> 	https://sashiko.dev/#/patchset/20260514094108.2016201-1-jiangwen6@xiaomi.com
-> 
-> It doesn't appear that you'll be getting any more review on this
-> series, so please check the above questions and resend?
-> 
-Actually i keep an eye on it and i have done some stability testing.
-So, just need some time. Fixing AI sounds good.
+Fix the PCIe outbound memory ranges for both pcie0 and pcie1
+controllers on i.MX95.
 
---
-Uladzislau Rezki
+The memory window size was incorrectly set to 256MB during initial
+bring-up, but the hardware supports up to 4GB of outbound address space
+per controller.
+
+Additionally, the ECAM region cannot be mapped as I/O space. Use a
+memory-mapped region for I/O space instead, and relocate the 1MB I/O
+region to immediately follow the memory region at offset 0xf0000000
+within each window.
+
+Update the outbound address space layout per controller as follows:
+
+  - 3.5GB  64-bit prefetchable memory
+  - 256MB  32-bit non-prefetchable memory
+  - 1MB    I/O
+
+Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+---
+Changes in v8:
+- Keep low address free, set the 32-bit non-prefetchable memory regioin
+starting at 0xe0000000. Since PCI address 0x0 might break inbound DMA.
+
+Changes in v7:
+- Map the large outbound window into 64-bit PCI address, to eliminates both
+the  inbound DMA routing conflict and the IOVA exhaustion problem.
+
+Changes in v6:
+- Set the PCI I/O bus address starting at 0x0000_0000, while keeping the
+CPU-side mapping at 0x9_f000_0000.
+
+Changes in v5:
+- Expand the outbound address space from 256MB to 3840MB, starting at the
+base of each controller's assigned CPU address range.
+- Use a memory region to map the I/O space.
+
+Changes in v4:
+Update the flag from 0x82000000 to 0x83000000 to declare a 64-bit PCI space.
+
+Changes in v3:
+Update the commit message, and set the region size to the max
+hardware-supported memory space 4G.
+
+Changes in v2:
+Add the Fixes tag, and rebase to latest imx/dt64 branch.
+
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index adcc0e1d3696..60bf0932c6f7 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -1939,8 +1939,9 @@ pcie0: pcie@4c300000 {
+ 			      <0 0x4c360000 0 0x10000>,
+ 			      <0 0x4c340000 0 0x4000>;
+ 			reg-names = "dbi", "config", "atu", "app";
+-			ranges = <0x81000000 0x0 0x00000000 0x0 0x6ff00000 0 0x00100000>,
+-				 <0x82000000 0x0 0x10000000 0x9 0x10000000 0 0x10000000>;
++			ranges = <0x43000000 0x9 0x00000000 0x9 0x00000000 0x0 0xe0000000>,
++				 <0x82000000 0x0 0xe0000000 0x9 0xe0000000 0x0 0x10000000>,
++				 <0x81000000 0x0 0x00000000 0x9 0xf0000000 0x0 0x00100000>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+ 			device_type = "pci";
+@@ -2014,8 +2015,9 @@ pcie1: pcie@4c380000 {
+ 			      <0 0x4c3e0000 0 0x10000>,
+ 			      <0 0x4c3c0000 0 0x4000>;
+ 			reg-names = "dbi", "config", "atu", "app";
+-			ranges = <0x81000000 0 0x00000000 0x8 0x8ff00000 0 0x00100000>,
+-				 <0x82000000 0 0x10000000 0xa 0x10000000 0 0x10000000>;
++			ranges = <0x43000000 0xa 0x00000000 0xa 0x00000000 0x0 0xe0000000>,
++				 <0x82000000 0x0 0xe0000000 0xa 0xe0000000 0x0 0x10000000>,
++				 <0x81000000 0x0 0x00000000 0xa 0xf0000000 0x0 0x00100000>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+ 			device_type = "pci";
+-- 
+2.37.1
+
 
