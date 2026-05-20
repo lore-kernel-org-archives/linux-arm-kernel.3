@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE573CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 01:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451F1CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 01:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Puww1BH0j/oGm+Paq7ifcsE10dx5Hg0yZyciu4GUl4o=; b=1R7E2hLZxbKRL6klryLu1+rS0L
-	suAnHYHtyr5fZfom5UYzBQEO/mZCua6hj9xnQuzj3QjNi2ozBh0wlMCegCWilbaAg1FjgUORzE8ut
-	d318ZJb6NjGzc9j/OTmUBSQ3y8v2CoEkLqZGiJzgcsVc0m0CG/nTZp4FLqb44c2yT2bBrVPr+2fSM
-	8osV2nJqR4RQsUabT2ChJEC1cGXHRFGLRgGDskV4C6YlAskbMc9CLtqUmQarQeyRyw3OLXFb0Iwd9
-	qKD+G0DjkbOuSK4U+NEyk5LHjkxbY/YZnzOrPpDewdq07nrVTiI5mfO5+NiiYbztRLPCmjTfjZ9oO
-	9U7i4SjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eIofd1xtrK4btstbNiN4J94kE4L4h8Yh6La0sO/crgY=; b=uYa2nNge1JtDiVNX4hq11cKE4V
+	bLamT72uT7WAbekXdg1GWKrThN/XF3koeiP2oIbxPG5gNmtPDa0v2rG8+HYPhiHClChgukM3KNA3m
+	E+ICho0WllXHqO2hPDRxS6p35XE0cu2AH/cVUbQ+79hlARO3o9AH9gFbDYc4q+MCIl+sKfRtJmjVM
+	8B/6RTlvZ1fNnhmBR2yf4hc+8i3wd0rDXDJVwIWZUmM3sYMC+kH7KtCS9Uf7RcPZJrMqRGIvCHqbQ
+	OLov7PuANa8jRfrLen69augFvmBkzY9v2LFWDV+GRLFxjAFDPN3b4LfSsVo7gNf0Ss5zLCgAw6SxX
+	Nbnu9OIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPVVZ-00000003D2G-0i5N;
-	Wed, 20 May 2026 01:14:01 +0000
-Received: from mail-m60156.netease.com ([210.79.60.156])
+	id 1wPVc6-00000003DYX-3ZSh;
+	Wed, 20 May 2026 01:20:46 +0000
+Received: from mail.alien8.de ([2a01:4f9:3051:3f93::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPVVV-00000003D0u-1DiI;
-	Wed, 20 May 2026 01:13:59 +0000
-Received: from [172.16.12.51] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3f0f4bf32;
-	Wed, 20 May 2026 09:13:41 +0800 (GMT+08:00)
-Message-ID: <c0bc4796-afe5-40ff-8816-9605a6114d23@rock-chips.com>
-Date: Wed, 20 May 2026 09:13:25 +0800
+	id 1wPVc2-00000003DWl-1I7Y
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 01:20:45 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 97F0740E016D;
+	Wed, 20 May 2026 01:20:27 +0000 (UTC)
+X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
+Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
+	header.d=alien8.de
+Received: from mail.alien8.de ([127.0.0.1])
+	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id b4ahgT49SlYh; Wed, 20 May 2026 01:20:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
+	t=1779240016; bh=eIofd1xtrK4btstbNiN4J94kE4L4h8Yh6La0sO/crgY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZL1OtJn57FIIFdO7GEQPe/sHRUTp9zK6bc08BFKWUc0jxhXihhYpylSNsmpmKhUvR
+	 Ex+1lLWhxk9dDZg9aY2mUTiwfQN5eOiKm/TfHX9qbBcjtsJ3TU2B6VRaKvu75d7v81
+	 s97AvhNDYr6pkWQ+s0RiRrFOSetRPGQQ+e81q91LARPq5XIPrY+gwQM+fb3Y8ZHeKZ
+	 5dB9jH8BQwU83ZiJNHPjStCWuQljKk6RzqBO5Xs/xV+U4CpLohSsz2P292P6fCLUMq
+	 lStVOF4bWTskWFhoyJhqB4FPXe/NETQUJUfcqB7vPK1rrL7IoAiBhWZhGdfY/DK1L5
+	 Syf3ua5fPRY/eZdVPewM+j/lyhYbJxz6TZrSZ1QqOFWuMKv+U1/r4J7vbzuodj5mg/
+	 6qVvrkpNuGRdmUdP2O5tTQRk4LFFC7S0LRULNxWIuCslWnqygLNPaNvhrNkZ5x71G1
+	 dzaEyLpiIRSxmK3JAfe0pWjLl9cHbfaOHvV6ZUp9t6/A5A2i64r0Y2RgmF40dt6kAm
+	 lu7vZJ3LBXgDTJiaXt9OoeW5QtiMPWMRmn26FrRngzAPpYlrclQDVtFKCm/x0wl50o
+	 hXhWGBiMgp+SonHgjg8QdQV4zfyZnL4S35eXzUFwnNGZGT+UVrXXkTUGxKu4CgN9ky
+	 EOo0jDFv8IoehIuRunwrB3w8=
+Received: from stx.tnic (unknown [IPv6:2600:1700:38ca:c00:8116:5be8:f847:a2b4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id C11F440E0032;
+	Wed, 20 May 2026 01:20:09 +0000 (UTC)
+Date: Tue, 19 May 2026 18:20:07 -0700
+From: Borislav Petkov <bp@alien8.de>
+To: Dinh Nguyen <dinguyen@kernel.org>
+Cc: muhammad.nazim.amirul.nazle.asmade@altera.com, tony.luck@intel.com,
+	linux-edac@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] EDAC/altera: Guard SDRAM irq2 retrieval for Arria10
+ only
+Message-ID: <20260520011932.GBag0MJA5NQkiMl3lc@fat_crate.local>
+References: <20260515050444.10380-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <c3af86b8-7187-4299-973a-d89ca0d52e9a@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 0/9] Add Type-C DP support for RK3399 EVB IND board
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org
-References: <20260304094152.92-1-kernel@airkyi.com> <agxo8ic94e81nQRx@kuha>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <agxo8ic94e81nQRx@kuha>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e42f214cf03abkunmde1056153a93c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDQkoaVhhOGE9LGE9LQ01JTFYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pPSExVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=gwTF78PPuLUm1sysWyZUVBaAIEKd3WixyNY3bmjSc5enP6t3T7LjW1vDPot1Ro5hpeJzDUUuaKmRf3Cz6DX9uu/L1JxbBv2q7RmlverbAPspYQqTopSj5X3/+EdlkoFK2PHIs+UdzLX137UjUapaHB2spXQq0d9N+RLByQu9LFk=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=Puww1BH0j/oGm+Paq7ifcsE10dx5Hg0yZyciu4GUl4o=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <c3af86b8-7187-4299-973a-d89ca0d52e9a@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_181357_878603_EB04483E 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20260519_182043_083411_B2A7CA17 
+X-CRM114-Status: GOOD (  22.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,35 +88,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heikki,
+On Fri, May 15, 2026 at 06:41:05AM -0500, Dinh Nguyen wrote:
+> 
+> 
+> On 5/15/26 00:04, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> > From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> > 
+> > Guard the irq2 retrieval with an of_machine_is_compatible() check so
+> > that platform_get_irq(pdev, 1) is only called on Arria10 platforms.
+> > 
+> > Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> > ---
+> > v3: Fix commit header formatting to follow EDAC/altera: prefix
+> >      convention as per maintainer feedback.
+> > v2: Move irq2 = platform_get_irq(pdev, 1) inside the existing
+> >      of_machine_is_compatible("altr,socfpga-arria10") block instead of
+> >      adding a separate duplicate guard around it.
+> > ---
+> >   drivers/edac/altera_edac.c | 6 +++---
+> >   1 file changed, 3 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/drivers/edac/altera_edac.c b/drivers/edac/altera_edac.c
+> > index 4edd2088c2db..ee6ced033f2c 100644
+> > --- a/drivers/edac/altera_edac.c
+> > +++ b/drivers/edac/altera_edac.c
+> > @@ -347,9 +347,6 @@ static int altr_sdram_probe(struct platform_device *pdev)
+> >   		return irq;
+> >   	}
+> > -	/* Arria10 has a 2nd IRQ */
+> > -	irq2 = platform_get_irq(pdev, 1);
+> > -
+> >   	layers[0].type = EDAC_MC_LAYER_CHIP_SELECT;
+> >   	layers[0].size = 1;
+> >   	layers[0].is_virt_csrow = true;
+> > @@ -395,6 +392,9 @@ static int altr_sdram_probe(struct platform_device *pdev)
+> >   	/* Only the Arria10 has separate IRQs */
+> >   	if (of_machine_is_compatible("altr,socfpga-arria10")) {
+> > +		/* Arria10 has a 2nd IRQ */
+> > +		irq2 = platform_get_irq(pdev, 1);
+> > +
+> >   		/* Arria10 specific initialization */
+> >   		res = a10_init(mc_vbase);
+> >   		if (res < 0)
+> 
+> Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 
-On 5/19/2026 9:43 PM, Heikki Krogerus wrote:
-> Hi,
-> 
-> On Wed, Mar 04, 2026 at 05:41:43PM +0800, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> This series focuses on adding Type-C DP support for USBDP PHY and DP
->> driver. The USBDP PHY and DP will perceive the changes in cable status
->> based on the USB PD and Type-C state machines provided by TCPM. Before
->> this, the USBDP PHY and DP controller of RK3399 sensed cable state
->> changes through extcon, and devices such as the RK3399 Gru-Chromebook
->> rely on them. This series should not break them.
-> 
-> What's the status with this series?
-> Are these inteded to go via the DRM tree?
-> 
-> thanks,
-> 
-
-Thank you very much for your continued attention to this series.
-The maintainers seem quite busy... Despite there being no further review
-comments, this series have yet to be merged into the DRM tree. 
-
-And some of my other patches are in the same situation. 
-Do you happen to know what the next steps should be? Thank you.
+https://sashiko.dev/#/patchset/20260515050444.10380-1-muhammad.nazim.amirul.nazle.asmade%40altera.com
 
 -- 
-Best, 
-Chaoyi
+Regards/Gruss,
+    Boris.
+
+https://people.kernel.org/tglx/notes-about-netiquette
 
