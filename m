@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525B1CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:48:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E60CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=QokDhHnAKqLWHjogTXLoR4DHLEoCdHeJVwDfmUpDWFI=; b=CNVfir/l0MpR+L
-	nLeEnKFionnyyzZO2dskAUsGnLXnB86oOhZRPwvm8boPRelM9sFHfivKY04kY00qQJWcQrJvwsyml
-	Va0A2AQWIM1zXo2z1Cn49t+GGDseG4gd9VUgSWu4+b5gC9GKC6PjQNHozjF9JPgvXl9gIiRMH5l5j
-	aq8efbJMSGYVfzgT1tKs53/0Y/Jd9S/O/u4f65L7LUvz36f2pVccD2DFOXffHa00m8M8y7WxeAea3
-	yY8V9/QHWXJ1wo51xjLVGrQwlW5yw7BZbnycoVVuzU4IPUDi1q5mYF9fle/SIz1u0M14E6UoOKCA2
-	KfyQZbeGrFNGsA4RKyyA==;
+	List-Owner; bh=R0zqzL14QP54GH3jHTaO1SQNTYgp8+cLjLzjCAobAGk=; b=FAq+HZqVPDtcQc
+	2ubkV1QEgH73erLYVh5weW6i4h+wlAoRJsLr9UzrY09ZS/p3Lu9L82wudc47g25ShZzQRJCGGOWFq
+	VD4IcK3eqRLa7a+MZbMXvA6KDQjd3uIz5EITttzW/I5a4hWBZeSjLWBJdTWFlIqg5U2JkADU2m8wM
+	3phCZmbLiKdLxNj1x1lnSFa0NzhnRTTiqfagpf8a3ewtGIGW79ImIVOpoExcmK4nJMnrBjDQ1orR0
+	8OaLZZMsXYHjLzTBxhI0+Na34AoNBgwx1zyMwNSzpQCnIqadMHgLsZ9UGQ+6CGsMStkNFazjNMO0J
+	s7/dNpnuWj1dYRosCXig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl1W-00000005LV6-38Fq;
-	Wed, 20 May 2026 17:48:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPl3w-00000005M3E-1u1X;
+	Wed, 20 May 2026 17:50:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl1V-00000005LUd-1gES
+	id 1wPl3u-00000005M1u-1DbN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 17:48:01 +0000
+	Wed, 20 May 2026 17:50:31 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id 6250E60129;
-	Wed, 20 May 2026 17:48:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E55DC1F000E9;
-	Wed, 20 May 2026 17:47:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id AD974443FD;
+	Wed, 20 May 2026 17:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 67E7F1F00894;
+	Wed, 20 May 2026 17:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779299280;
-	bh=QokDhHnAKqLWHjogTXLoR4DHLEoCdHeJVwDfmUpDWFI=;
+	s=k20260515; t=1779299429;
+	bh=R0zqzL14QP54GH3jHTaO1SQNTYgp8+cLjLzjCAobAGk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=X59zp2JT2ThlWcF8Vwx5hipnuU3pVcb+NfDjk2Z2sHtYDjkv+g3dJ0zZr2SGgl213
-	 1C0hCo1gnbyqdhUCR+J6gzpc8QSsRa50+ECq21EUTPKSlop5c2ppovIB2kN3lPYiDQ
-	 GR1Ypw4utLINVSrZVNL5Ysm4lJlrsSdcXXrYlEYy81+++le0P7+ckaH3kTfZIPhd/h
-	 G5L5/+OpcbEO3IC+73xXcXcYHpivSRqU3jGXcMYQKbRNtlDpVoDXwc8ETE1DGBGa/B
-	 FzvalrcDibzcUjSlRfzL+b/TJhLoq8ZU6IGme8BJScJjxXYhD+VHvlU8uda6mLonKz
-	 zFY9Io0VLlY6A==
-Date: Wed, 20 May 2026 12:47:58 -0500
+	b=o04FxFSeEu2JsqhZx5OZM3BDhGPv6QRlZ3tyjx7QyJCNH4PgvpbY6crWRP0ySi/Bk
+	 eoFlnOUTyjrv3TfWKUA17ZP154W66QqbDBz8+f8TimC+9g0o1DU/zBKtezMnpUJyiw
+	 2D9ME/z+rrqUOp5eXspuvuC+1uS6d6LTPE2Pav4/DhwzGb+1h9RI5VlNl5KgvJ4D1O
+	 bN++qKkiaa1yIh5e5QK1md2NiLHH4tSBGFwkXF2S7ihdKUJSh5EbNPF+E0vNfMR8JL
+	 HG2/UCVDv7Cfwlg6DbemkAm9EBFvu6ow8EhGcaBk9grywLGOf6AW4ZlfQVkqHH/rEg
+	 rl9W0y+gl3nAg==
+Date: Wed, 20 May 2026 12:50:26 -0500
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>, will@kernel.org, robin.murphy@arm.com,
+Cc: jgg@nvidia.com, will@kernel.org, robin.murphy@arm.com,
 	bhelgaas@google.com, joro@8bytes.org, praan@google.com,
 	baolu.lu@linux.intel.com, kevin.tian@intel.com,
 	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
@@ -53,13 +53,15 @@ Cc: Jason Gunthorpe <jgg@nvidia.com>, will@kernel.org, robin.murphy@arm.com,
 	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
 	jonathan.cameron@huawei.com, vsethi@nvidia.com,
 	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
-Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260520174758.GA66039@bhelgaas>
+Subject: Re: [PATCH v4 2/3] PCI: Allow ATS to be always on for pre-CXL devices
+Message-ID: <20260520175026.GA67027@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ag3vb4SWIfuw++vp@Asurada-Nvidia>
+In-Reply-To: <1a8cf5e88051ab5c10417edb94df598ecbc810cf.1777269009.git.nicolinc@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_105030_354243_20B9536A 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,44 +76,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 10:29:19AM -0700, Nicolin Chen wrote:
-> On Wed, May 20, 2026 at 11:20:43AM -0300, Jason Gunthorpe wrote:
-> > On Tue, May 19, 2026 at 06:04:18PM -0700, Nicolin Chen wrote:
-> > 
-> > > > Yeah, that's fair, so let's rename it to 
-> > > > 
-> > > > pci_translated_required()
-> > > > 
-> > > > ie the device requires translated requests to function. This is what
-> > > > CXL.cache implies (IIRC I was told the spec specifically says this)
-> > > > 
-> > > > Requiring translated requests implies you have to enable ATS in the
-> > > > system.
-> > > 
-> > > Perhaps we could let IOMMU drivers check:
-> > >   pci_cxl_is_cache_capable() || pci_dev_specific_is_pre_cxl()
-> > > directly?
-> > 
-> > I'd rather have a single function.
+On Sun, Apr 26, 2026 at 10:54:01PM -0700, Nicolin Chen wrote:
+> Some NVIDIA GPU/NIC devices, though they don't implement CXL config space,
+> have many CXL-like properties. Call this kind "pre-CXL".
 > 
-> OK. Can we use pci_ats_required()?
+> Similar to CXL.cache capability, these pre-CXL devices also require the ATS
+> function even when their RIDs are IOMMU bypassed, i.e. keep ATS "always on"
+> v.s. "on demand" when a non-zero PASID line gets enabled in SVA use cases.
+> ...
+
+> +/* Some pre-CXL devices require ATS when it is IOMMU-bypassed */
+
+I guess these devices are purely PCIe, with no actual CXL
+transactions, so a hint here about what leads to the ATS requirement
+would be useful.  It sounds like an actual functional requirement, not
+just a performance optimization.
+
+> +bool pci_dev_specific_ats_always_on(struct pci_dev *pdev)
+> +{
+> +	const struct pci_dev_ats_always_on *i;
+> +
+> +	for (i = pci_dev_ats_always_on; i->vendor; i++) {
+> +		if (i->vendor != pdev->vendor)
+> +			continue;
+> +		if (i->ats_always_on && i->ats_always_on(pdev))
+> +			return true;
+> +		if (!i->ats_always_on && i->device == pdev->device)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+>  #endif /* CONFIG_PCI_ATS */
+>  
+>  /* Freescale PCIe doesn't support MSI in RC mode */
+> -- 
+> 2.43.0
 > 
-> CXL spec explicitly used "ATS" when stating the requirement of
-> CXL.cache). And it'd fit into the existing pci_ats_ functions.
-
-OK by me.
-
-You already have a comment in the code about the CXL.cache
-requirement; thanks for that.
-
-I don't know enough about CXL to know what's behind the ATS
-requirement.  It sounds like it's more than a simple performance
-optimization.  If you happen to know the reason, it might be worth
-a short comment about that too.
-
-Please add a one-line comment in the code about why we check
-Cache_Capable instead of Cache_Enable, i.e., even if CXL.cache is not
-enabled now, it may be enabled later.
-
-Bjorn
 
