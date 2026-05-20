@@ -4,124 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35A7CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABF50CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5sJis8pObID1kGXbTsB3IgBpTH0zVnG6Ljg/eY2IOOw=; b=Q2RYzTRWlw2ez0sX/P1+nEJjtL
-	Kz+fSuaIIERqKdNAdtGG/tOGTWpiiOsrq3y4jRkxXxQ0lQLI7CR96wt1RDCOwfuGKbC856LwYhjYs
-	RL08+OSXibgf7bhp8QGoy/rR3G/nHKxGs1HgW1BpXSpvjDhYU7Vn4Iev7TrVn87CudjjlsuWVAxoE
-	zh6Vb9+dKtjYEoKYXhi4gjtNY2NyrfEsir2pm3tzWx8t6lxdbn6JK6HBkwHOCe+/T1W43koPRdNyp
-	V3v/y4S04WotAhhWRViRPPWK6Wvenzc5hmEHv/zqtiKN691uHuLsCNXlFcCPBZlxtnAf5A7SwVpsE
-	a2EzWzPw==;
+	bh=PMvBUpEgXSeKRNncOVDBP9O0vPsscPTWuBykm2sSqXM=; b=JkLHxGAWXKfLK2hbnig/2Ls31x
+	QzwnBqGOPujhYkol9zycrTmbYXCzyxCpTgPZddmg6FDAo3D3OKdC7mBT2VkOipu1bOEHq2bsYaRnj
+	tZil0bphod0DcchY46j5bqNS045GznX7g9gl7iAnJpdzDge53RPO39PdDgn+PMtw0FXUm1FewTWgS
+	TqbItHzOKLc/RtNBx0/Sz+2EfNH7ec5J4kshECJoOQpo+ULBZKFzO1Sd8I8JoToEND5n9TTZmelW3
+	QhIiw/6GpWtWrrzN4ojaRHzZFo3B2F7LpZhrUoNvUEnV3ob7IwawUxdBizLQIlMiWpwmEBTbPqhPy
+	C8457sPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPb2x-00000003kq3-17VB;
-	Wed, 20 May 2026 07:08:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPb82-00000003lL7-04Gv;
+	Wed, 20 May 2026 07:14:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPb2u-00000003kp6-3dYK
+	id 1wPb7w-00000003lKH-1wrP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 07:08:50 +0000
+	Wed, 20 May 2026 07:14:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DEC6439CA;
-	Wed, 20 May 2026 07:08:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4391F000E9;
-	Wed, 20 May 2026 07:08:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E3D314042B;
+	Wed, 20 May 2026 07:13:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52111F000E9;
+	Wed, 20 May 2026 07:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779260928;
-	bh=5sJis8pObID1kGXbTsB3IgBpTH0zVnG6Ljg/eY2IOOw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=A9Bu3nZDhvaFcfELXf4UkmdvoHWG8zM8SVVoHH7y6l+aB2QgVl8ziyb6OuCzbkNyF
-	 5UIZamzIkBLHtjR6dG+v9RE+0sfdwvGqQ4ZABQFXrHKtZ7e9Wsz8Nyv0Gh/9suiH58
-	 9Z/uuZdPald2ZugknTF69bFdLoqzoPSwGRbNU4+UAIfTrF4o5UKmmzV62LLo7gx71B
-	 uH+M69vBBd2wuT98G+aEoquU/Txyr825E2Lv9AJjia5z2fF3NQ60Gw01SIi7t6LVEe
-	 gUuc5o7RNTlNTvxtKtS5r3MCQIqXIJmyI420QmmU62ZW1N2dGmpg0HrL+PoAfPnN34
-	 Dc40T4gV6/cbg==
-Message-ID: <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
-Date: Wed, 20 May 2026 09:08:42 +0200
+	s=k20260515; t=1779261239;
+	bh=PMvBUpEgXSeKRNncOVDBP9O0vPsscPTWuBykm2sSqXM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=baOEhpPlP87qch1i34tnXPikTwZ14iuIjurWtLg2BhEAknkpBqeLqLcvSJvQpGGuu
+	 g2Qz9J1zlkP3vSrG0jmXKSHIkXcPa41Ui1v/TDuTNUqYYeXtfYU9jgECrA+2LkwIpM
+	 nR+CAQZ9ryEnYdOIqYPfyfRSdO0Q3eA8j/5gW4PAxWWMs0ylUubPZbQtQ25thAyZhE
+	 SNPMYzmk/M+tbBR9JuGqTtEJsMOZJlP65RBV7RxKrvBGT5DJbnZ8ROONzc7myuuHtj
+	 l5gDaTAkWWX5z8+bnP+d7xMRgFdHsg2Occ84BR3zs1NEawb/qczW4hVaZ5n0+n5gBW
+	 SLCpAzAr8DygQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=localhost.localdomain)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPb7t-00000004FYd-3Ou3;
+	Wed, 20 May 2026 07:13:57 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>,
+	Michael Bommarito <michael.bommarito@gmail.com>
+Cc: Yao Yuan <yaoyuan@linux.alibaba.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] KVM: arm64: vgic-its: reject restored DTE with out-of-range num_eventid_bits
+Date: Wed, 20 May 2026 08:17:09 +0100
+Message-ID: <177926141814.52935.2813857161910568316.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260519132519.2142458-1-michael.bommarito@gmail.com>
+References: <20260517174955.273004-1-michael.bommarito@gmail.com> <20260519132519.2142458-1-michael.bommarito@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
-To: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
- Chancel Liu <chancel.liu@nxp.com>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-References: <20260509024846.2094049-1-chancel.liu@nxp.com>
- <20260509024846.2094049-3-chancel.liu@nxp.com>
- <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
- <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
- <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <20260519-macho-degu-from-nibiru-960af2@quoll>
- <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, michael.bommarito@gmail.com, yaoyuan@linux.alibaba.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_000848_946010_EAB6A14E 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20260520_001400_948209_0EFA6577 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,76 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2026 07:02, Chancel Liu (OSS) wrote:
->>>>>>> +description:
->>>>>>> +  The NXP I/O connector represents a physically present I/O
->>>>>>> +connector on the
->>>>>>> +  base board. It acts as a nexus that exposes a constrained set
->> of
->>>>>>> +I/O
->>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
->>>>>>> +fixed
->>>>>>> +  electrical wiring. All actual hardware providers reside on the
->> base
->>>> board.
->>>>>>> +  The connector node only defines index-based mappings to those
->>>>>> providers.
->>>>>>> +
->>>>>>> +properties:
->>>>>>> +  compatible:
->>>>>>> +    const: fsl,io-connector
->>>>>>
->>>>>> Everything is IO. Everything is connector, so your compatible does
->>>>>> not match requirements from writing bindings.
->>>>>>
->>>>>
->>>>> Yes, this compatible is too generic. I will rename the compatible to
->>>>> fsl,aud-io-connector.
->>>>
->>>> aud is not much better. Which boards have it? What's the pinout?
->> What's
->>>> standard? Is it described anywhere? If so, provide reference to
->> spec/docs.
->>>>
->>>
->>> This is not an industry standard electrical interface. This connector
->>
->> Then if you do not have standard, then you have board specific layouts
->> thus you need board-specific compatibles. You can use fallbacks. Generic
->> fallback could work, but both io-connector and aud-io-connector are just
->> too generic. Every connector is "connector" and "io", thus absolutely
->> anything can be "io-connector". "aud" improves it only a bit, thus
->> honestly I would go with board specific fallback as well.
->>
+On Tue, 19 May 2026 09:25:19 -0400, Michael Bommarito wrote:
+> Userspace can restore an ITS Device Table Entry whose Size field encodes
+> more EventID bits than the virtual ITS supports.  The live MAPD path
+> rejects that state, but vgic_its_restore_dte() accepts it and stores the
+> out-of-range value in dev->num_eventid_bits.
 > 
-> How about board specific + common fallback compatible like this:
->   compatible:
->     items:
->       - enum:
->           - fsl,imx95-19x19-evk-aud-io-connector
->           - fsl,imx952-evk-aud-io-connector
->       - const: fsl,imx-aud-io-connector
-> Since the daughter board is named “IMX-AUD-IO” in publicly available
-
-I don't think it is named like that.
-
-git grep -i imx-aud-io
-
-> documentation, common compatible clearly indicates that this connector
-> is intended for that.
+> Reject restored DTEs with num_eventid_bits > VITS_TYPER_IDBITS before
+> allocating the device.  This mirrors the MAPD check and prevents the
+> restored state from reaching vgic_its_restore_itt(), where the unchecked
+> value can be converted into an oversized scan_its_table() range.
 > 
-> Also, I want to talk about the topic of generic connector. It's a common
-> design that daughter board is connected to base board through a
-> connector. This connector more often acts as a nexus that exposes a
-> constrained subset of GPIO, clock, PWM and interrupt resources to the
-> daughter board. Can we document this kind of connector as a generic
-> binding?
+> [...]
 
-So this binding is the connector between carrier and some addon? Then
-you don't get a compatible for that at all, because it is not necessary,
-not useful and NEVER used. Do you see socket LGA "connector" bindings? No.
+Applied to fixes, thanks!
+
+[1/1] KVM: arm64: vgic-its: reject restored DTE with out-of-range num_eventid_bits
+      commit: 9ce754ed8e7ab4e3999767ce1505f85c449ccb07
+
+Cheers,
+
+	M.
+-- 
+Jazz isn't dead. It just smells funny.
 
 
-Best regards,
-Krzysztof
 
