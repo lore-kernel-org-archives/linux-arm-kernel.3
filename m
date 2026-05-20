@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45694CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:51:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3F1CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dUGv8oIgE91WwfwK6ezX3xvVxWVU55LwkhTCXk2cXTo=; b=3I54nkwl4+l4AJFIKEU9kACDUB
-	V558k3EORAUAJjvToRfSw6Q6wAL49j0/xEZPobs/Z7YcaES39yBp3haVVBc4awQ3NleLunwX5vtEy
-	xm6gJcIUKq5f5HQ6QejrvA/W9VqtyFQidbukqzgdsnKTrQsO5/0NH/9DlaAxHox6DAIOQBPkpFHuU
-	YgPBd+Plmsb4NGrvrKvgm/lfYARL6a8UXsRVM3sVMKQ1q7j20sCFhytJoYEO/XTlikdQ3uP6bLAy7
-	oei7FJod0f7m/bnnIQjY5iao1xo3Flf5NoUGQtETPSJNuR0l3Yc7kjXi9t/wAv/BOmXMNiDs9ZcaW
-	fRwZ6Bsg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VDBmjuJ+rWa0IDhvw3r57tfbWDtrJcWqibH33Xm9FGo=; b=3ExOu9SXAeXeJsjItdpy3x88fW
+	z8xCETu29/PVdnNA7ORI6KbHwn6SGdSDdinZ7VqpUHe6nqdsUXAX9iJNhWEc4Tpv7gOOhFi3Eq+hk
+	yxu4VezkcCTzpOjv9ulMfBWiD3obuJf0O1eiZbu5SJ1GTxcHyVrmCTeWkjSa7mLdamYHhtYgdmDYf
+	Yd3K5nAlnmOx71iTHqHJNMiAlh44aZWE786goMDz9pOvyAQ64APEY+A2tzLmdUtYczAEKgxmFlGzt
+	ptC0uD6Yw9qQZwRLtLB4ZFtTarQLGF5wfpgJO5Lk8kNaXjHRJKo0jIro+OIpeelBxDxvvhPWUOqeY
+	bkXJZcBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcdk-000000041Yx-03QS;
+	id 1wPcdk-000000041Z9-0fdO;
 	Wed, 20 May 2026 08:50:56 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcdi-000000041YH-2CIi
+	id 1wPcdi-000000041YJ-2CE7
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 20 May 2026 08:50:54 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 917FE600CB;
+	by tor.source.kernel.org (Postfix) with ESMTP id A05BF60129;
 	Wed, 20 May 2026 08:50:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4526C1F00893;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FACA1F00894;
 	Wed, 20 May 2026 08:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1779267053;
-	bh=dUGv8oIgE91WwfwK6ezX3xvVxWVU55LwkhTCXk2cXTo=;
-	h=From:To:Cc:Subject:Date;
-	b=lyr7vTrzuEUPWYUQ1jyu+OJJxxIVAGUJcGTeWIUwu3vddGICaHXpzg9T3BiSnU50T
-	 MtXziZRZWx/SPAc9D9F42VyHthyOkdUPnbEdaao+2R3OBi2iP0tcTcAfs3bQ474Ikn
-	 Viy48D6BATML9M42plqZn1GdvEKAYSKYYDMTGY/XyjiuSP+Y6WSGo5DHzyib7g6g7x
-	 c0QMunuEebH8hZTdwnD5tnJPbFe6oIIQxlHCyDFDvyjhMQaIc5v1PmKra8jdDcQk+u
-	 UOPjDQQoapoIBC+yVngONgJO7ebB/H3UxH9nivfUvZ9toMLdAEbTyqSlfKXdRRxzd6
-	 L23gHqJDnDclA==
+	bh=VDBmjuJ+rWa0IDhvw3r57tfbWDtrJcWqibH33Xm9FGo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=T5b3pvrXQyes9UnPVF76hgu9mCuUnFOOS07ZXqXCdGNPUHnnSLCfN6fVz1XUCsfLm
+	 buGYD1UOoml80g1bteuljnVFvaUPf5a23p9eG5iD3b49XzQQ+02wam3iHHTlADEWRj
+	 9r3zUyZ5Ta8fmtE9wRBLJrkXIVdfBRhkUkKlPLfTJfvWLRc11XpY4YFVDPJXt7Y/Gr
+	 uAPM2xg3A/XSj0HcPzIq0lCFTFeS4E0BF7hYF+Oy6uRmmnXk4mSDnsf0bp7iB0XGDj
+	 div0V+jq6ofMAF7I8YeUu4VzwrZlFs4K45nSoU95hFAU1eS1J+X20puPfhMEFQ94n/
+	 Jwxv+QXaA95PA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPcdf-00000004Hno-0fBo;
+	id 1wPcdf-00000004Hno-20vj;
 	Wed, 20 May 2026 08:50:51 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -60,10 +60,12 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 0/2] KVM: arm64: nv: Reduce FP/SVE overhead on exception/exception return
-Date: Wed, 20 May 2026 09:50:34 +0100
-Message-ID: <20260520085036.541666-1-maz@kernel.org>
+Subject: [PATCH v2 1/2] KVM: arm64: nv: Track L2 to L1 exception emulation
+Date: Wed, 20 May 2026 09:50:35 +0100
+Message-ID: <20260520085036.541666-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260520085036.541666-1-maz@kernel.org>
+References: <20260520085036.541666-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -84,33 +86,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the second version of this short series optimising away a lot
-of unnecessary FPSIMD/SVE context switch with NV.
+While we currently track that we are emulating a nested ERET from
+L1 to L2, we currently don't track the reverse direction (an exception
+going from L2 to L1).
 
-* From v1 [1]:
+Add a new vcpu state flag for this purpose, which will see some
+use shortly.
 
-  - New commit message on patch #2 (Mark)
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_host.h | 3 ++-
+ arch/arm64/kvm/emulate-nested.c   | 4 ++++
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-  - Additional comments and WARN_ON_ONCE() (Mark)
-
-If nobody screams, I'll stick that into -next.
-
-Thanks,
-
-	M.
-
-[1] https://lore.kernel.org/r/20260512140755.3676306-1-maz@kernel.org
-
-Marc Zyngier (2):
-  KVM: arm64: nv: Track L2 to L1 exception emulation
-  KVM: arm64: nv: Don't save/restore FP register during a nested ERET or
-    exception
-
- arch/arm64/include/asm/kvm_host.h |  3 ++-
- arch/arm64/kvm/emulate-nested.c   |  4 ++++
- arch/arm64/kvm/fpsimd.c           | 23 +++++++++++++++++++++++
- 3 files changed, 29 insertions(+), 1 deletion(-)
-
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 65eead8362e0b..c79747d5f4dd1 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1112,7 +1112,8 @@ struct kvm_vcpu_arch {
+ #define IN_NESTED_ERET		__vcpu_single_flag(sflags, BIT(7))
+ /* SError pending for nested guest */
+ #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
+-
++/* KVM is currently emulating an L2 to L1 exception */
++#define IN_NESTED_EXCEPTION	__vcpu_single_flag(sflags, BIT(9))
+ 
+ /* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
+ #define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index dba7ced74ca5e..15c691a6266d5 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2862,6 +2862,8 @@ static int kvm_inject_nested(struct kvm_vcpu *vcpu, u64 esr_el2,
+ 
+ 	preempt_disable();
+ 
++	vcpu_set_flag(vcpu, IN_NESTED_EXCEPTION);
++
+ 	/*
+ 	 * We may have an exception or PC update in the EL0/EL1 context.
+ 	 * Commit it before entering EL2.
+@@ -2884,6 +2886,8 @@ static int kvm_inject_nested(struct kvm_vcpu *vcpu, u64 esr_el2,
+ 	__kvm_adjust_pc(vcpu);
+ 
+ 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
++	vcpu_clear_flag(vcpu, IN_NESTED_EXCEPTION);
++
+ 	preempt_enable();
+ 
+ 	if (kvm_vcpu_has_pmu(vcpu))
 -- 
 2.47.3
 
