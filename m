@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219ACCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:50:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E26CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:53:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eAXC32rcH/MXwVcTVnicyCI3VrxkYUmRb1s0L548h0c=; b=DRcgJXZ0ML7Tm8k4xZfqKzj78p
-	dhuI2dAHJ2vAu4A2KgFxIEz2wI3vHZF8hnF2jpwmovXVOSW5z5SyhQP4urLF8bDdjMS5eALn2ywv2
-	+xS5AZJz3ZHrTpv2JY4I3Gg1WFWvZSzfFClX+roLdSo/rMQkFhcVjwx1VwDLMNrdfqV5IFgsbLwFD
-	3WFkRngHpVvIkIA+cr+vmvSZyXj7nc30eZ+VDHSytEMIzZwReMSp3VLfBYWQphIAScGgrOFHM0agf
-	sA52y54IQZtPW3aPmeSYNQk5Vh6cskDlXrSJwpcJZvhqtrf4xh7KDFr+Qb3fiVsQ2wndlAZh+atXt
-	u6chSIqg==;
+	bh=j9XOX2F++5Jy6GzgJFgn3hfr14wEnUQqIZdtQ1XgXtY=; b=svW9B8O6yUQnOsyF2H7f7cWmK5
+	nNY6rs3XdCAKmEzFBL4js41rW9U8nErWI9Z4gNzLgqrrzHFdPvsUXPdOT7mwo6Yl+0QVXnPn7x9FR
+	FyIDeYUFTLFJkyrgLVqeh8tcB21kux8sT8adPC8Nx9Fw7GhfEItl6D+qtWsXyw7v3sQP1QoUJZ82B
+	qwUiWXACEnrwHL0PLjsHnw3e2gQZWREPG8NB/mZ31S8JzJOUz2Q2QOLktwUNHxWslXEiZI9Mussq5
+	mPiMSIozhUH8hVUdikWws/ZMS1IfLF2GjSipk9qSVYfoC+OD5FHHJRcKaKqJYUrHlFPrt6ObRaZ7W
+	JGmFtMQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfRM-00000004Tyd-1aCj;
-	Wed, 20 May 2026 11:50:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfRK-00000004Ty6-2ZHA
+	id 1wPfUV-00000004UNm-3VnA;
+	Wed, 20 May 2026 11:53:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPfUT-00000004UMt-1aOm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 11:50:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A70783597;
-	Wed, 20 May 2026 04:50:12 -0700 (PDT)
-Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B1433F632;
-	Wed, 20 May 2026 04:50:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779277817; bh=hPKT3WzdkwMamGhokWO/Li0K/EjbItHBpVmy/rZjq6Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u8V4vwUykvL5GS+hJov9hbaKLBze2jIIkaSFpdN/x3vZlkx7Ci/BQDyoP0lTp0vz6
-	 zXb33XaRUTNgUIsOOrUcLcDc96098hMKEIDhKFF3wS+5B91qJOVcitEcMFbCLbax7W
-	 dbutQ6rjU2xakgYSJ8KrErCxKpgEmR3Cmx7YF2y8=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH 1/2] KVM: arm64: Introduce S2 walker SKIP return options
-Date: Wed, 20 May 2026 12:49:56 +0100
-Message-ID: <ag2f5C3i3LBGSPS5@devkitleo>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <agzUZS1l-uHQoodG@kernel.org>
-References: <20260515195904.2466381-1-leo.bras@arm.com> <20260515195904.2466381-2-leo.bras@arm.com> <agq-RyKhBy4CIThm@kernel.org> <agrTQMw4QJX6HGrm@willie-the-truck> <agsYF-Dav2bpxWK4@devkitleo> <agxa-TydN1PoKsYn@willie-the-truck> <agxeEA14cP3yMV1m@devkitleo> <agxifbKzGcYQivBz@willie-the-truck> <agx1J1tQFn0cdtBf@devkitleo> <agzUZS1l-uHQoodG@kernel.org>
+	Wed, 20 May 2026 11:53:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 45E7940E12;
+	Wed, 20 May 2026 11:53:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 798391F000E9;
+	Wed, 20 May 2026 11:53:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779278012;
+	bh=j9XOX2F++5Jy6GzgJFgn3hfr14wEnUQqIZdtQ1XgXtY=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=S3qna9hOPwZdjH4QtJO2kgB1qbUJ4wj1oeonxPxui8dl3Fx9in7i0o1YfNDywTuPQ
+	 kfidCEzlcl8wW+NLjEc3FzA6YNREIXrfJLl5qopM8yE7UQ0kVCkWdGZmax8/pFpCb9
+	 t42z4SqwJPmEw1bnUWn0eahENt0X5q2P3opBiJyvvuKeSM0fn86fOLfQya62aW3FgC
+	 MedAp+RnfnvN/inXhpODfFzCbhdZAPG1+GVAJplqW+quv7lWuii65ck3a2/u6aaH3S
+	 IlrS6PlXOyuR4nKlOnDUVQ0GfUGl+nvVRFrgjfT+2bzeV0sUXTAxcvWAEW2BpsoHHB
+	 4zTGISwQhpgfg==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v2 4/7] mm/vmalloc: Extend page table walk to support
+ larger page_shift sizes and eliminate page table rewalk
+From: Mike Rapoport <rppt@kernel.org>
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+ catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
+ urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com, 
+ dev.jain@arm.com, rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com, 
+ anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org, 
+ Wen Jiang <jiangwen6@xiaomi.com>
+In-Reply-To: <20260514094108.2016201-5-jiangwen6@xiaomi.com>
+References: <20260514094108.2016201-1-jiangwen6@xiaomi.com>
+ <20260514094108.2016201-5-jiangwen6@xiaomi.com>
+Date: Wed, 20 May 2026 14:53:16 +0300
+Message-Id: <177927799624.3551615.1232032128494296554.b4-review@b4>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1373; i=rppt@kernel.org;
+ h=from:subject:message-id; bh=bCtY3KU6h249ANRsmgcaVTs6KjwNWS62y3TRFsQSYpI=;
+ b=owGbwMvMwMVoydymdprv70TG02pJDFm8CzbuT6zdfuz7T7nMN6UzLVpXdu/99mXvTSHNnT0pu
+ yb8tTh8tZPRmIWBkYtBVkyRpeJpROjSmfrzSy6ufwkziJUJZAoDF6cATOTjQQ6G7l/GBmWGC9Nk
+ rrsvqM2R+7X4scUHboapzkcuM2X0d2ueOFdz041piaGC0fz5u3YuOlx9+uOciDOn+//5ZZ8KZNz
+ dw/Dtdb+u/J/iDk5hxrXfbbcllt46/cbXy5epb+3+R9vPr6+K4ZmtmvhfmKHcJWdql92aJ7sFOX
+ 4oRJdYb35cI6drvCmikKMqhrHtOu9xxkC/GCVX2R1cwayR541NJir6/mXNi71zLOOybJ07R/W+j
+ pzeVBMhxTkSYYtF6ra3Pi+6/SHUztxE0ymZZ/k8W0c98ZPRG5Yb/M84qPrt3/5T1Ts489QbfeNy
+ y+USrMJcTv/hk/b+HG3M+TN+vXrol13eArnFiW1d52N7AA==
+X-Developer-Key: i=rppt@kernel.org; a=openpgp;
+ fpr=B8E96E880C4A40C3C1255AA8C532392DE6DA7CE9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_045018_734385_E1D45EC8 
-X-CRM114-Status: GOOD (  43.41  )
+X-CRM114-CacheID: sfid-20260520_045333_442559_ACA73908 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,106 +89,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 02:21:41PM -0700, Oliver Upton wrote:
-> On Tue, May 19, 2026 at 03:35:19PM +0100, Leonardo Bras wrote:
-> > On Tue, May 19, 2026 at 02:15:41PM +0100, Will Deacon wrote:
-> > > On Tue, May 19, 2026 at 01:56:48PM +0100, Leonardo Bras wrote:
-> > > > On Tue, May 19, 2026 at 01:43:37PM +0100, Will Deacon wrote:
-> > > > > > > I was wondering along similar lines, but maybe it would be useful just
-> > > > > > > to pass a maximum level to the walker logic? That feels like the most
-> > > > > > > general case without complicating the existing logic.
-> 
-> FWIW, I had considered this too but decided that it requires a bit more
-> churn since we cannot rely on zero initialization in the existing
-> callsites (level 0 is a valid level).
-> 
-> But that's extremely minor.
-> 
-> > > > > > This proposal seems simpler for me to understand, and indeed looks like a 
-> > > > > > better solution than what I have proposed, taking care of  the 
-> > > > > > 'already split' case with better performance, as it don't even walk a 
-> > > > > > single level-3 entry. 
-> > > > > > 
-> > > > > > On the 'splitting' case, it also works flawlessly if the memory is given in 
-> > > > > > level-2 blocks. There is only one case that I would like to address here:
-> > > > > > 
-> > > > > > - Memory given in level-1 blocks (say 1GB)
-> > > > > > - Walker flag says 'walk down to level-2 only'
-> > > > > > - Split Walker on level-1 will break page down to (up to) level-3 entries.
-> > > > > > - Walker will continue to be called on level-2 entries, even though it's 
-> > > > > >   not necessary.
-> > > > > 
-> > > > > If you're only visiting leaves, why would it be called on the level-2
-> > > > > table entries?
-> > > > > 
-> > > > 
-> > > > Because once the leaf is turned into a table by the splitting walker, it 
-> > > > gets reloaded and walked. This is an excerpt of __kvm_pgtable_visit():
-> > > 
-> > > Sorry, I was musing about the semantics after adding something to limit
-> > > the maximum level. I don't dispute what the current code would do.
-> > > 
-> > > > Example:
-> > > > - Split this level-1 leave:
-> > > >   - Walker creates the whole structure up to given level (currently 3)
-> > > >   - Walker returns, gets reloaded, table detected, go down on that one
-> > > >   - Level 2 entries walked (which is unnecessary)
-> > > > 
-> > > > Please let me know if I am misunderstanding something.
-> > > 
-> > > I just don't grok why this would happen if we limited the maximum level
-> > > to '2' _and_ said we only wanted to visit the leaf entries. In that
-> > > case, I wouldn't expect to descend into any of the L2 table entries
-> > > (because that would imply going beyond level 2) and I wouldn't expect to
-> > > be called for the table entries either (because we're only interested in
-> > > leaves).
-> > 
-> > Agree, if we specify to skip level-3 entries, it would only walk up to 
-> > level-2 entries, but take above example in detail:
-> > - Split these level-1 leaves, up to level-3 leaves (regular)
-> >   - INFO: kvm_pgtable_walk will call walker:
-> >     - only up to level-2 entries (skip level-3)
-> >     - only on leaf entries
-> >   - Walk first level-1 leaf, calls walker
-> >     - walker will split the level-1 leaf in level-3 leaves
-> >     - walker return from that first level-1 leaf
-> >   - level-1 leaf is reloaded as a table
-> >     - level-2 entries of that table are also walked (unnecessary)
-> >     - on each of the level-2 table entries, level-3 entries are skipped
-> > 
-> > To avoid the unecessary walk of the level-2 entries above, we would need to 
-> > specify 'skip level-2' that could be an issue if we have a mix of level-1 
-> > and level-2 leaves, as the level-2 leaves in that case would not be split.
-> > 
-> > That's why I suggest something like "skip recently created table" as a flag 
-> > as well, so we can guarantee no newly created table gets walked 
-> > unecessarily.
-> > 
-> > Please help me if I am missing something important.
-> 
-> I'm not sure the added complexity of handling this case perfectly results
-> in a measurable performance improvement. Just avoiding the level 3
-> tables would be an exponential reduction (~ 512-8192x) in the number of
-> walk steps.
-> 
+On Thu, 14 May 2026 17:41:05 +0800, Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
 
-Humm, I agree most of the improvement is due to skipping level-3 walks.
+Hi,
 
-The added complexity would be, appart from a new flag, just a single line 
-change:
+> vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflush())
+> provides a clean interface by taking struct page **pages and mapping them
+> via direct PTE iteration. This avoids the page table rewalk seen when
+> using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
+> 
+> Extend it to support larger page_shift values, and add PMD- and
+> contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_walk()
+> since it now handles more than just small pages.
+> 
+> For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
+> iterate over pages one by one via vmap_range_noflush(), which would
+> otherwise lead to page table rewalk. The code is now unified with the
+> PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
 
----
-        if (!table && (ctx.flags & KVM_PGTABLE_WALK_LEAF)) {
-                ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_LEAF);
--               reload = true;
-+               /* Do not reload if flagged to skip new table */
-+               reload = !(ctx.flags & KVM_PGTABLE_WALK_SKIP_NEW_TABLE);
-        }
---- 
+After this patch we have two very simalar page table walkers:
+vmap_pages_range_noflush_walk() and vmap_range_noflush().
 
-Even then, do you think it would not be worth having it?
+The subtly differ at what levels they try huge mappings, how they
+account page table modifucations and, at last vmap_range_noflush() is
+left without support for contiguous mappings.
 
-Thanks!
-Leo
- 
+Is there a fundamental reason to have two page walkers?
+Is there a reason not to support contiguous mappings in
+vmap_range_noflush()?
+
+-- 
+Sincerely yours,
+Mike.
+
 
