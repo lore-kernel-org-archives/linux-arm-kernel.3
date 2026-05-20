@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C772CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43003CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMkepDCVc2TLY2VZbej5xOqxbCMgq8RcQd0nxJHbH2o=; b=BwNSHCu6vHG9WJCR0YH9vqA5iQ
-	R9NOqX5Yrt4o7oKnpEf2agEmp1vk0pLpwcCLlLJ6kyxpUue673N8vwjfTEVOEZYKLFb61zAazQOYz
-	x17ni+DfNX6BHqmthMgC/Abxl1VVfsNwQjOPwMRCKGke5tAa5epxPuVnj9bcnGaGEE9fJV555UmL/
-	8qU9Yo4NlcL03PSPZ9j6plCEgwbe9FtZltvzwCg4LKKMu1x8ZIlbxMjnU6C3ATpMHoqUiEeGx7mLW
-	6Q/WkGm97V8YreS9TWwFipoBtjJli9fMSlwUNhp6Cz4ya91bx1fbWZGVw0AYXFIA2pBExhlcKKnRW
-	+oPWR7Pw==;
+	bh=A+9GMhHowlViOnH7+R9rmivmHqr2sB1gmzk/fG1Uco0=; b=XMtOaomEexDwybmWhG+DbGemnZ
+	T/WIKcCZTm+AvUCIgGzmwYNshJAqE0BlFZb2dvEiXqGXsyXPNKi3XHXwtiLNzmuhiV5S1Ihg/OrM4
+	c2E+hXGsPqqj9or4BnGkZFVpOMV57QL64pS8zqIEG8FEzXyTPraHc0XxJ/ShIAvUIx3x/rxrKBSna
+	fvADTeDfaQeY7qTWJRt3KQ3Gg4w7J5EFn0cpQB1qdkaqCKWHRmxGyLbqZ5pyqkhhs0i6c2PbOI/Jy
+	80KHM0E4EpNI0X/bvhTho3Cn4mVjpk14vxlWEc+vMUgUfa3tdPfcwyO6e+JV0XKGEswvvNfr3XwNR
+	kgOvGu4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaaa-00000003gYJ-3uln;
-	Wed, 20 May 2026 06:39:33 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1wPaaf-00000003gaI-2mrt;
+	Wed, 20 May 2026 06:39:37 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaaU-00000003ftN-3Xij
+	id 1wPaaZ-00000003ftb-3pAA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 06:39:31 +0000
+	Wed, 20 May 2026 06:39:33 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=IMkepDCVc2TLY2VZbej5xOqxbCMgq8RcQd0nxJHbH2o=;
-	b=e/ehfqYcuRj5vCkhJu+aFkoz6KYv3jLv2fDoFIQtEt73SO1JwX3M+SEtxaamrD55m0QphFpbY
-	BgG+OFcQHH6rc2vpas0AFiUfJ8EigVHJwaUxqY4xOr5PKINa9FigAk7HPBeb7n7zpkUMYfX39Z1
-	C+R5q6eVm8GgT1I46IeRW5g=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gL1q33dCrzmV7Z;
-	Wed, 20 May 2026 14:29:35 +0800 (CST)
+	bh=A+9GMhHowlViOnH7+R9rmivmHqr2sB1gmzk/fG1Uco0=;
+	b=JP0H/hcbSFdYwsZD0y/WqrbQ/tzGa8skOHjGDlyMM26YfHsUUglbpIbKwyZp3qvRLTM/vFpTo
+	3HCy15p48E/Drxodqr2XwBNXeS97tlHjEveIXS+m62aOKUO8yxOEOfK+UDypixYU0bCkWRDf4gc
+	v5gacV3Ab6oangMQznj6aY8=
+Received: from mail.maildlp.com (unknown [172.19.163.104])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gL1qg5S4VzpT03;
+	Wed, 20 May 2026 14:30:07 +0800 (CST)
 Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 04C8940561;
-	Wed, 20 May 2026 14:37:18 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 5915B4048F;
+	Wed, 20 May 2026 14:37:21 +0800 (CST)
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 20 May 2026 14:37:17 +0800
+ 15.2.1544.11; Wed, 20 May 2026 14:37:20 +0800
 From: Qinxin Xia <xiaqinxin@huawei.com>
 To: <robin.murphy@arm.com>, <nicolinc@nvidia.com>, <will@kernel.org>,
 	<jpb@kernel.org>
@@ -52,9 +52,9 @@ CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
 	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/5] iommu/arm-smmu-v3: Add register display to debugfs
-Date: Wed, 20 May 2026 14:37:08 +0800
-Message-ID: <20260520063714.2440584-2-xiaqinxin@huawei.com>
+Subject: [PATCH 5/5] iommu/arm-smmu-v3: Add Context Descriptor display to debugfs
+Date: Wed, 20 May 2026 14:37:11 +0800
+Message-ID: <20260520063714.2440584-5-xiaqinxin@huawei.com>
 X-Mailer: git-send-email 2.33.0
 In-Reply-To: <20260328101706.3448655-1-xiaqinxin@huawei.com>
 References: <20260328101706.3448655-1-xiaqinxin@huawei.com>
@@ -65,8 +65,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_233927_310389_2F40C427 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20260519_233932_258611_72EF45D7 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,132 +81,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add register display functionality to debugfs.This allows reading
-and displaying key SMMU register values including control registers
-and queue pointers.
+Add Context Descriptor (CD) display functionality to debugfs.
+This allow inspecting CD contents for all Substream IDs including:
+- CD validity and translation parameters
+- TTBR0 and TCR configurations
+- Raw CD data
 
-The registers file shows:
-- CR0, CR1, CR2 control registers
-- Command and Event queue pointers
+/sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
+└── <sid>/
+    ├─── ste
+    ├─── cd
+    └─── <dev_name>
 
 Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
 ---
- .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 82 +++++++++++++++++++
- 1 file changed, 82 insertions(+)
+ .../arm/arm-smmu-v3/arm-smmu-v3-debugfs.c     | 101 ++++++++++++++++++
+ 1 file changed, 101 insertions(+)
 
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-index 1fc2cd1651b4..a541476b7427 100644
+index 9babc7d640fd..567749de5537 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-@@ -6,12 +6,17 @@
-  * /sys/kernel/debug/iommu/arm_smmu_v3/
-  * └── smmu<ioaddr>/
-  *     ├── capabilities    # SMMU feature capabilities and configuration
-+ *     ├── registers       # SMMU Key registers
+@@ -10,6 +10,7 @@
+  *     ├── stream_table
+  *         ├── <sid>/                                # Stream ID
+  *             ├── ste                               # Stream Table Entry
++ *             ├── cd                                 # Context Descriptor
+  *             ├── <dev_name>                         # Symlink to device sysfs directory
   *
   * The capabilities file provides detailed information about:
-  * - translation stage support (Stage1/Stage2)
-  * - System coherency, ATS, and PRI feature availability
-  * - Stream table size and command/event queue depths
+@@ -26,6 +27,12 @@
+  * - Stage 1 and Stage 2 context pointers
+  * - Raw STE data
   *
-+ * The registers display provides crucial visibility into:
-+ * - CR0, CR1, CR2 control registers
-+ * - Command and Event queue pointers
++ * CD Information Displayed:
++ * - T0SZ: Input address space size configuration
++ * - EPD0/EPD1: Stage 1 translation enable flags
++ * - TTBR0: Stage 1 translation table base address
++ * - Raw Data: Complete CD structure in hexadecimal format
 + *
   * Copyright (C) 2026 HiSilicon Limited.
   * Author: Qinxin Xia <xiaqinxin@huawei.com>
   */
-@@ -95,6 +100,80 @@ static const struct file_operations smmu_debugfs_capabilities_fops = {
- 	.release = smmu_debugfs_capabilities_release,
+@@ -303,6 +310,97 @@ static const struct file_operations smmu_debugfs_ste_fops = {
+ 	.release = smmu_debugfs_ste_release,
  };
  
 +/**
-+ * smmu_debugfs_registers_show() - Display SMMU register values
++ * smmu_debug_dump_cd() - Dump a single Context Descriptor
 + * @seq: seq_file to write to
-+ * @unused: unused parameter
-+ *
-+ * Errors are reported via seq_puts, the function always returns 0
++ * @cd: pointer to the Context Descriptor to dump
 + */
-+static int smmu_debugfs_registers_show(struct seq_file *seq, void *unused)
++static void smmu_debug_dump_cd(struct seq_file *seq, struct arm_smmu_cd *cd)
 +{
-+	struct arm_smmu_device *smmu = seq->private;
-+	void __iomem *base;
++	u64 data;
++	int i;
 +
-+	if (!smmu || !smmu->base) {
-+		seq_puts(seq, "SMMU not available\n");
++	/* CD 0 */
++	data = le64_to_cpu(cd->data[0]);
++	seq_printf(seq, "  T0SZ: 0x%llx\n", data & CTXDESC_CD_0_TCR_T0SZ);
++	seq_printf(seq, "  EPD0: %s\n", data & CTXDESC_CD_0_TCR_EPD0 ? "Yes" : "No");
++	seq_printf(seq, "  EPD1: %s\n", data & CTXDESC_CD_0_TCR_EPD1 ? "Yes" : "No");
++
++	/* CD 1 */
++	data = le64_to_cpu(cd->data[1]);
++	seq_printf(seq, "  TTBR0: 0x%016llx\n", data & CTXDESC_CD_1_TTB0_MASK);
++
++	/* Display raw CD data */
++	seq_puts(seq, "  Raw Data:\n");
++	for (i = 0; i < CTXDESC_CD_DWORDS; i++)
++		seq_printf(seq, "    CD[%d]: 0x%016llx\n", i,
++			   le64_to_cpu(cd->data[i]));
++}
++
++static int smmu_debugfs_cd_show(struct seq_file *seq, void *unused)
++{
++	struct device *dev = seq->private;
++	struct arm_smmu_master *master;
++	u32 max_ssids, ssid;
++
++	guard(mutex)(&arm_smmu_asid_lock);
++
++	master = dev_iommu_priv_get(dev);
++	if (!master) {
++		seq_puts(seq, "No master data\n");
 +		return 0;
 +	}
 +
-+	base = smmu->base;
++	max_ssids = 1 << master->ssid_bits;
++	seq_printf(seq, "Context Descriptors for device (max SSIDs: %u):\n",
++		   max_ssids);
 +
-+	seq_puts(seq, "SMMUv3 Key Registers:\n");
++	for (ssid = 0; ssid < max_ssids; ssid++) {
++		struct arm_smmu_cd *cd = arm_smmu_get_cd_ptr(master, ssid);
 +
-+	/* 32-bit control registers */
-+	seq_printf(seq, "CR0: 0x%08x\n", readl_relaxed(base + ARM_SMMU_CR0));
-+	seq_printf(seq, "CR1: 0x%08x\n", readl_relaxed(base + ARM_SMMU_CR1));
-+	seq_printf(seq, "CR2: 0x%08x\n", readl_relaxed(base + ARM_SMMU_CR2));
-+
-+	/* 32-bit queue pointer registers */
-+	seq_printf(seq, "CMDQ_PROD: 0x%08x\n",
-+		   readl_relaxed(base + ARM_SMMU_CMDQ_PROD));
-+	seq_printf(seq, "CMDQ_CONS: 0x%08x\n",
-+		   readl_relaxed(base + ARM_SMMU_CMDQ_CONS));
-+	seq_printf(seq, "EVTQ_PROD: 0x%08x\n",
-+		   smmu->page1 ? readl_relaxed(smmu->page1 + ARM_SMMU_EVTQ_PROD) : 0);
-+	seq_printf(seq, "EVTQ_CONS: 0x%08x\n",
-+		   smmu->page1 ? readl_relaxed(smmu->page1 + ARM_SMMU_EVTQ_CONS) : 0);
++		if (cd && (le64_to_cpu(cd->data[0]) & CTXDESC_CD_0_V)) {
++			seq_printf(seq, "\n--- SSID %u ---\n", ssid);
++			smmu_debug_dump_cd(seq, cd);
++		}
++	}
 +
 +	return 0;
 +}
 +
-+static int smmu_debugfs_registers_open(struct inode *inode, struct file *file)
++static int smmu_debugfs_cd_open(struct inode *inode, struct file *file)
 +{
-+	struct arm_smmu_device *smmu = inode->i_private;
++	struct device *dev = inode->i_private;
 +	int ret;
 +
-+	if (!smmu || !get_device(smmu->dev))
++	if (!dev || !get_device(dev))
 +		return -ENODEV;
 +
-+	ret = single_open(file, smmu_debugfs_registers_show, smmu);
++	ret = single_open(file, smmu_debugfs_cd_show, dev);
 +	if (ret)
-+		put_device(smmu->dev);
++		put_device(dev);
 +
 +	return ret;
 +}
 +
-+static int smmu_debugfs_registers_release(struct inode *inode, struct file *file)
++static int smmu_debugfs_cd_release(struct inode *inode, struct file *file)
 +{
 +	struct seq_file *seq = file->private_data;
-+	struct arm_smmu_device *smmu = seq->private;
++	struct device *dev = seq->private;
 +
 +	single_release(inode, file);
-+	if (smmu)
-+		put_device(smmu->dev);
-+
++	if (dev)
++		put_device(dev);
 +	return 0;
 +}
 +
-+static const struct file_operations smmu_debugfs_registers_fops = {
++static const struct file_operations smmu_debugfs_cd_fops = {
 +	.owner   = THIS_MODULE,
-+	.open    = smmu_debugfs_registers_open,
++	.open    = smmu_debugfs_cd_open,
 +	.read    = seq_read,
 +	.llseek  = seq_lseek,
-+	.release = smmu_debugfs_registers_release,
++	.release = smmu_debugfs_cd_release,
 +};
 +
  /**
-  * arm_smmu_debugfs_setup() - Initialize debugfs for SMMU device
-  * @smmu: SMMU device to setup debugfs for
-@@ -142,6 +221,9 @@ int arm_smmu_debugfs_setup(struct arm_smmu_device *smmu, const char *name)
- 	debugfs_create_file("capabilities", 0444, smmu_dir, smmu,
- 			    &smmu_debugfs_capabilities_fops);
- 
-+	debugfs_create_file("registers", 0444, smmu_dir, smmu,
-+			    &smmu_debugfs_registers_fops);
+  * arm_smmu_debugfs_create_stream_table() - Create debugfs entries for stream table
+  * @smmu: SMMU device
+@@ -373,6 +471,9 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
+ 				kfree(full_path);
+ 			}
+ 		}
 +
- 	dev_dbg(smmu->dev, "debugfs initialized for %s\n", name);
- 	return 0;
- }
++		/* Create CD file to dump all valid Context Descriptors */
++		debugfs_create_file("cd", 0444, dev_dir, dev, &smmu_debugfs_cd_fops);
+ 	}
+ 
+ 	kfree(path);
 -- 
 2.33.0
 
