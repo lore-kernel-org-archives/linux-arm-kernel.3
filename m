@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30BFCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 23:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D122CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 23:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aw33Msv3FojgQ5PJ/yDlSFo5ZWq8iJm1lg3DrSxILRI=; b=GXST7mOwpBErprRTmMGycQ8cSm
-	D8+pF0oLcKbVhtR4LIYn4QC755jOSDCNNNLUD+7cjQ+7lIuM6yJWSJcUm2p3RVpgVufg/PXKQIPXS
-	JKO9MYYOTZHC6JEeKpG1wVJpriBSy0lRHkXUjsax53HcLcs+fmsjnRKqlNZUvdMsIFqkwokbR2dtg
-	EzjiHhpMn8VpLIqSt/6KZdQr/vs4Poy97YJaQA5F0MyZeW4p20dKc72U4B8Em9TxELyiPcQrUy9CZ
-	ze39UQYqnb4HEba/UuV9hMaOoNAE49/elYKtaGjeJW/5RMl9uL6j6axN9zAKMXrrGa8Mvc/8VswLW
-	i2J1tcfA==;
+	bh=xK8/4hQ0j9g1pID7Vdqyu8/i/yh91hlV7Ni1mBkOJ+0=; b=0hKWxXwTq5e7A4Mh+QsIbEjOmm
+	N5pj4WRrLsj2d3egQB13npU2F9G8XZCu/POTot1Kckf5ftKOt4DluVB9pWzxjRVLSo8qCAhSg8SdH
+	jTgYiSSzsQodwpPopgZJ8NFP+1wtOKaV+3PInQCaRWPdalNftXu8SI+U1+KMH8ABtAzqszE7Yqj3K
+	V4tx/jruRzjkiSZu1i8b8pSLuXoecJJxGPwoPzD7xXCssnloZ4eEqs7Qu88GM7crERn8sZ5VgWfHL
+	XHV4bxeqaPZvwmJxY+/83u3WjCC/jX92mByrt5Y82FYSM7f0zRg7bS41D6hRsxILCNaaxKyg1ftLJ
+	4Lr0WTEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPqgs-00000006Cgh-0Ttz;
+	id 1wPqgs-00000006Cgx-0x6L;
 	Wed, 20 May 2026 23:51:06 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPqgj-00000006CdT-2JM9
+	id 1wPqgk-00000006Cdo-1jEQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 23:50:57 +0000
+	Wed, 20 May 2026 23:50:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB9D460212;
-	Wed, 20 May 2026 23:50:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B20F1F00A3B;
-	Wed, 20 May 2026 23:50:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BACC160215;
+	Wed, 20 May 2026 23:50:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464B71F00A3E;
+	Wed, 20 May 2026 23:50:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779321056;
-	bh=aw33Msv3FojgQ5PJ/yDlSFo5ZWq8iJm1lg3DrSxILRI=;
+	s=k20260515; t=1779321057;
+	bh=xK8/4hQ0j9g1pID7Vdqyu8/i/yh91hlV7Ni1mBkOJ+0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jqG8AojYZewGiX1VPBblXeH2xbBlmCgwhm2F9sG4b3VbkvEPFatCTKKt/Wv2NNsNS
-	 RAWf8aClxV6wxK166QAMSqq5Wa8cFx9ZNwaXbOf0Zaxq1PiwmOcD587FFogsTZmWJX
-	 ll3jQAiMX7Sxk6DdvZyYKCi9RF6MdpxgnHbB1vphmKzgoJheiscV6ugheU1ZrSQPsN
-	 2T0G+6iV2O7H4vejiABwq/xNuResfnv67r198fWG3c9entRW8XZT0fzdNziQ6OVako
-	 lMrY4wHGG4hzdyrI0sjndDSmOrycc/bK0tlNMpF98hrz2lMlG39HYEFQhb1m5ms+VN
-	 FvAkbQ2ZO/RIg==
+	b=APzU+iQv4rh0acB52YSaIyInFGYquGdEFeHHg3Fl9plQlL7b7DbLT+9iJfSaFsLcx
+	 MkmbH9ysihwjXG9bUD1tTnDPczpxmmhKRbNEU0fDa3OcDDPhVzxSUohYpXiDJhAdo4
+	 7WfnC7nLPVEt2oHSckKZRJFvHnoqdCw3llehZ7zK4wnPubZuOnW/3UZDe46a0Nn/Vb
+	 x0C57aQKa2p/VbfZEu01bvgSVUCCwQvIb6tfiYimIML+VtIeGozykQeicAk1xDrEV0
+	 uvgLtPjdtbNZ7J5c02Neqnf+iayG22GobtiwFjl1JbKJKk6uEIWNUYLuPOgGnoXdse
+	 W+asDJLa6Of8g==
 From: Tejun Heo <tj@kernel.org>
 To: David Vernet <void@manifault.com>,
 	Andrea Righi <arighi@nvidia.com>,
@@ -69,9 +69,9 @@ Cc: Peter Zijlstra <peterz@infradead.org>,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org,
 	Tejun Heo <tj@kernel.org>
-Subject: [PATCH 3/8] bpf: Add sleepable variant of bpf_arena_alloc_pages for kernel callers
-Date: Wed, 20 May 2026 13:50:47 -1000
-Message-ID: <20260520235052.4180316-4-tj@kernel.org>
+Subject: [PATCH 4/8] bpf: Add bpf_struct_ops_for_each_prog()
+Date: Wed, 20 May 2026 13:50:48 -1000
+Message-ID: <20260520235052.4180316-5-tj@kernel.org>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260520235052.4180316-1-tj@kernel.org>
 References: <20260520235052.4180316-1-tj@kernel.org>
@@ -91,71 +91,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing kernel-side export of bpf_arena_alloc_pages is _non_sleepable
-only - it's used by the verifier to inline the kfunc when the call site is
-non-sleepable. There is no sleepable equivalent for kernel callers; the
-kfunc bpf_arena_alloc_pages itself is BPF-only.
+Add a helper that walks the member progs of the struct_ops map
+containing a given @kdata vmtable. struct_ops ->reg() callbacks (and
+similar) sometimes need to inspect the loaded BPF programs, e.g. to
+discover maps they reference via prog->aux->used_maps.
 
-sched_ext needs sleepable kernel-side allocs for its arena pool init/grow
-paths. Add bpf_arena_alloc_pages_sleepable() mirroring the _non_sleepable
-wrapper but passing sleepable=true to arena_alloc_pages().
+The implementation mirrors bpf_struct_ops_id(): container_of @kdata
+to recover the bpf_struct_ops_map, then iterate st_map->links[i]->prog
+for i in [0, funcs_cnt). Same access pattern, no new locking - by the
+time ->reg() fires st_map is fully populated and stable.
+
+A sched_ext follow-up walks the member progs of a cid-form scheduler's
+struct_ops map, reads prog->aux->arena directly, and requires all member
+progs to reference exactly one arena, without requiring the BPF program
+to call a registration kfunc.
 
 Signed-off-by: Tejun Heo <tj@kernel.org>
 ---
- include/linux/bpf.h |  8 ++++++++
- kernel/bpf/arena.c  | 13 +++++++++++++
- 2 files changed, 21 insertions(+)
+ include/linux/bpf.h         |  3 +++
+ kernel/bpf/bpf_struct_ops.c | 36 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 39 insertions(+)
 
 diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index 831996c411cf..64968ca6db51 100644
+index 64968ca6db51..5b99d786e98c 100644
 --- a/include/linux/bpf.h
 +++ b/include/linux/bpf.h
-@@ -679,6 +679,8 @@ int bpf_dynptr_from_file_sleepable(struct file *file, u32 flags,
- void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign, u32 page_cnt, int node_id,
- 					  u64 flags);
- void bpf_arena_free_pages_non_sleepable(void *p__map, void *ptr__ign, u32 page_cnt);
-+void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32 page_cnt, int node_id,
-+				      u64 flags);
- #else
- static inline void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign, u32 page_cnt,
- 							int node_id, u64 flags)
-@@ -689,6 +691,12 @@ static inline void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr
- static inline void bpf_arena_free_pages_non_sleepable(void *p__map, void *ptr__ign, u32 page_cnt)
- {
- }
-+
-+static inline void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32 page_cnt,
-+						    int node_id, u64 flags)
-+{
-+	return NULL;
-+}
- #endif
+@@ -2129,6 +2129,9 @@ int bpf_prog_assoc_struct_ops(struct bpf_prog *prog, struct bpf_map *map);
+ void bpf_prog_disassoc_struct_ops(struct bpf_prog *prog);
+ void *bpf_prog_get_assoc_struct_ops(const struct bpf_prog_aux *aux);
+ u32 bpf_struct_ops_id(const void *kdata);
++int bpf_struct_ops_for_each_prog(const void *kdata,
++				 int (*cb)(struct bpf_prog *prog, void *data),
++				 void *data);
  
- extern const struct bpf_map_ops bpf_map_offload_ops;
-diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-index 1c0b87ecc817..a811cf6170fa 100644
---- a/kernel/bpf/arena.c
-+++ b/kernel/bpf/arena.c
-@@ -934,6 +934,19 @@ void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign, u32 pag
- 
- 	return (void *)arena_alloc_pages(arena, (long)addr__ign, page_cnt, node_id, false);
+ #ifdef CONFIG_NET
+ /* Define it here to avoid the use of forward declaration */
+diff --git a/kernel/bpf/bpf_struct_ops.c b/kernel/bpf/bpf_struct_ops.c
+index 05b366b821c3..16aec18ed31b 100644
+--- a/kernel/bpf/bpf_struct_ops.c
++++ b/kernel/bpf/bpf_struct_ops.c
+@@ -1203,6 +1203,42 @@ u32 bpf_struct_ops_id(const void *kdata)
  }
-+
-+void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32 page_cnt,
-+				      int node_id, u64 flags)
+ EXPORT_SYMBOL_GPL(bpf_struct_ops_id);
+ 
++/**
++ * bpf_struct_ops_for_each_prog - Invoke @cb for each member prog
++ * @kdata: kernel-side struct_ops vmtable (the @kdata arg to ->reg/->update/->unreg)
++ * @cb: callback invoked once per member prog; non-zero return stops iteration
++ * @data: opaque argument passed to @cb
++ *
++ * Walks the struct_ops member progs registered on the map containing @kdata.
++ * Intended for use from struct_ops ->reg() callbacks (and similar) that need to
++ * inspect the loaded BPF programs (for example to discover maps they reference
++ * via @prog->aux->used_maps).
++ *
++ * Return 0 if iteration completed, otherwise the first non-zero @cb return.
++ */
++int bpf_struct_ops_for_each_prog(const void *kdata,
++				 int (*cb)(struct bpf_prog *prog, void *data),
++				 void *data)
 +{
-+	struct bpf_map *map = p__map;
-+	struct bpf_arena *arena = container_of(map, struct bpf_arena, map);
++	struct bpf_struct_ops_value *kvalue;
++	struct bpf_struct_ops_map *st_map;
++	u32 i;
++	int ret;
 +
-+	if (map->map_type != BPF_MAP_TYPE_ARENA || flags || !page_cnt)
-+		return NULL;
++	kvalue = container_of(kdata, struct bpf_struct_ops_value, data);
++	st_map = container_of(kvalue, struct bpf_struct_ops_map, kvalue);
 +
-+	return (void *)arena_alloc_pages(arena, (long)addr__ign, page_cnt, node_id, true);
++	for (i = 0; i < st_map->funcs_cnt; i++) {
++		if (!st_map->links[i])
++			continue;
++		ret = cb(st_map->links[i]->prog, data);
++		if (ret)
++			return ret;
++	}
++	return 0;
 +}
++EXPORT_SYMBOL_GPL(bpf_struct_ops_for_each_prog);
 +
- __bpf_kfunc void bpf_arena_free_pages(void *p__map, void *ptr__ign, u32 page_cnt)
+ static bool bpf_struct_ops_valid_to_reg(struct bpf_map *map)
  {
- 	struct bpf_map *map = p__map;
+ 	struct bpf_struct_ops_map *st_map = (struct bpf_struct_ops_map *)map;
 -- 
 2.54.0
 
