@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486EDCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 04:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDBDCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 04:07:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e1OWgpFFIxOk3dfWQqvqIcjTsWA7OcstglsC81FCqyY=; b=elX9TONdgkwo1yke8x4WShsQz+
-	5rAk8FuxHoxkXEzwpQDsfhy3B2c5o1gIb14C6M7AkxJTkzwKTXJ0lLCySOwPHppEHqAuAG/rNrypS
-	LNHiHKiMpFIPO9+cgn3SGxURABEEV1wMPUeW2At/A+AcMZSc/bch8VFFdgfifRi2+/+4BcdmDN+pC
-	dpAiLoR8GXU9+gIr7Emzvjxd2KIJFz7TelOx7uLmqFXUMudTlwJXYsHBWodMQEjt4Mql9v6AF8HpY
-	BiE9SR8qgyUt4N5jKhvDseFVoXe2kLPcwEX2nLtoI/mIXAuhTuMQvKKClCP0qoML21lMGlsMrU1Sp
-	z5i48Phw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gp6xx4lrq7cky21Snk4hohuVusyGXGaKTdVgk3mOlXA=; b=lLkfBpoyhm4xH0ziWuohL4LoHL
+	yn/zcPcP+eNuy1Bx78IIsch6aHOU1UvX5o6OBVJwx6QH/KZ4GuaZ8LZSDt+UwUMuOPQX5iv3e1NOf
+	0Qo0NIpR3eIkB4M3RszjHi00+DEfe0pz2gOTWb1M2+zFiPO8wjFhfCGtSl8InoM+XiQQ2ffWZX/In
+	Se5qoGegDfHz7EsyVYF4xv96lcrjZ+i3v3q/T2ls3xoV8oODKEF5b7UlPUdMnSblq9zRSTYUqougC
+	5wxU323I5gsz4n1Gre8T7+K0jtN1iuO+ztlWh8sUAgel36ph6j1n/EF+hn3FA3VhmFx1EM3u0ge3x
+	xfSRb2AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPY9T-00000003Rlt-1kKC;
-	Wed, 20 May 2026 04:03:23 +0000
-Received: from mail-qv1-xf41.google.com ([2607:f8b0:4864:20::f41])
+	id 1wPYDK-00000003S7k-3mub;
+	Wed, 20 May 2026 04:07:22 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPY9Q-00000003RlA-1WiF
+	id 1wPYDG-00000003S6m-0BHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 04:03:21 +0000
-Received: by mail-qv1-xf41.google.com with SMTP id 6a1803df08f44-8acb3daf2aaso76676616d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 21:03:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779249797; cv=none;
-        d=google.com; s=arc-20240605;
-        b=HZ4258bk/jlcq4sqpg+Lg34keUzkDZQpPVLaTaZyi+IjyIEYriRPCaz0yl+C50UFDV
-         EdzzYrL6552jAt+Dm+ePeZkVJUL4I7s9WwvYv2Jr7gkgPGS5fkh795b5+K8gYt74VrXI
-         yGGqB4N/uO4z3+3lUZnTuwbz79ahjKEEbbhqVBOVu78RlI06ozIgx0/AYYgV+jPldT4K
-         KdjDjZgyX1jCUn5NmFQZQBuYJuoATHMOw/yO45aJnujrSISgu2dy2Y79bXUoI88jix3+
-         MDx6CGjnov8gAN1MZu5Q2GQCpSh/XnXBmcUugWV+GolcsTivxIid+SE3IfDMlcxrC4en
-         UCow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=e1OWgpFFIxOk3dfWQqvqIcjTsWA7OcstglsC81FCqyY=;
-        fh=0HdCF94co/Cf9jak/Z3t5wEQVpA3tiUvXuxmZJWPZI0=;
-        b=Tj8OZfDwKLq24KQPMXGJJ72bQpAAU51we/Tu364ZhL9EAR9x0aPpf5Spc3MMTDOX+Y
-         32ibSeAUb0YERApB7dLkZOzSYEQqQynWyK7W63v7bdXVAaeJ0v7elVfIRRKQ3rcdneN3
-         chXBxmNwFs4EjSA5gTWCFZ7rFpNKY47leSxBzvZz4003aR27Ve/ExdZn88bTuJNqrWSR
-         /+V10Uq55hK2vD1ePEK/BepA8y/Yl9lc1R/sp4+uMd8zE/igxIyuMBOixDlMab0YuHNA
-         N4wh5CBiwPh9y+4KPpWSa+i7FsVLweZaLtgOXPEnzM/09CCS3uHwVP1bCXzncTosmWJl
-         XHXQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779249797; x=1779854597; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e1OWgpFFIxOk3dfWQqvqIcjTsWA7OcstglsC81FCqyY=;
-        b=BTKj7SW9KPS+1VTax9K1OEBUrUcJYx9fnfgEfuGYTY4enTE/3jj7kqp3b+8RtMWbs0
-         18o9I6BqWllcav7//Nw6Nf6HgovLTpPV2Ji5hFTsPwfHsqCSOyMxgi2Q8W4SSx/hVu+E
-         pqew8Aw6S6IM5V1xQSMv5pk3vRPBd427npkhO+onVUoKCo6u3mi0+aCx6cvhaiC1pr0N
-         KxYTbkFA+h/jLQvUNTlQH+Wewja/2+bLNdoenwbhboQOQpSZgRgaH3KxXz7/Gq0BtWI3
-         sIQ2+VxmJEwwpR0rZcR1s52OcDHjTQTwXCiRm7bsB0yGz+Fu/fstQ7iQfbiTwhcNS25v
-         exPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779249797; x=1779854597;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=e1OWgpFFIxOk3dfWQqvqIcjTsWA7OcstglsC81FCqyY=;
-        b=lWR8qEgTuVWZZlYHdCJn0Xc25jwufxsxmvWGKDoRj95CQanhJ7XKIbfNsT8Jgdli08
-         MJlcVn1c0LPgVVfLe4hiB/loDFa9Ej1j9kD8f+JsmNW/1tjKsgVlf/Drp/EnZyyHMni9
-         9+6/QqezjJxfee2a3GIRM48WHpBWQbtitzsA0/kvEvyOOo790zHcIHRaAtBp+79mSL02
-         4GczQvop/pPgiUdeUqczqo2QwAyFgfhVPh/h/tWd8IavuZde+rX/s7R9UXc+vgroIpk4
-         CJLygoad9qGv6pxMVyKkGjaHdXeiPWbTJBqgys/prY77L0UOO/d2yJ+CmmVB9cAwJTzX
-         aRkQ==
-X-Gm-Message-State: AOJu0YxVtnLOw0ZX4zGSCCREPzxcsCIAJISJbAohztMcsXF3mm4kODmm
-	Sk0nxQ8IWAqvnZKdgjMnUfvvI34ywUBRVIa4ObS7Hqkc7taJkxawer0js/pcAASFxPBvOLeC8md
-	5lZztgU0d1AqSKoEaRAMix+6JYpywbjk59QFJaOZGVA==
-X-Gm-Gg: Acq92OHwi3xS6K4pYhsF9EtNCbFOCUXczusBj2BS4MNGfMqeOW2DjHHiKQimMXHMf1N
-	Uq2endIXzs+0wc35DSfDI6pghAmdpSQxp+bGvmn/Z1lelh90FW2fXKaNxvDhgd3DaBAgoHUrVNI
-	y2Pi28YwGbRv64wKsFUV9C+HU/WgLJCAWGxcaKIwEuXJExF4nh3sPSDZ3iaGd45Y0zg+UdOKtr6
-	LUYAiNMwNHMBgrt9EMqkw6aHwEablhg3zngQav6TuOj6ODrnAKyzH9GT/IqD6ZAn+Q6IfNlmNFA
-	74RYWMnScOtS/KtdokLPilVhIo8llEWUaig+P+tscVZDqH1l+mEmgDgISJBte7qaDARs
-X-Received: by 2002:a05:6214:4389:b0:8cb:e63e:2a3c with SMTP id
- 6a1803df08f44-8cbe63e3005mr34797466d6.1.1779249797374; Tue, 19 May 2026
- 21:03:17 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260517025348.96906-1-enelsonmoore@gmail.com> <agxToDJ6y_ciI1Oj@willie-the-truck>
-In-Reply-To: <agxToDJ6y_ciI1Oj@willie-the-truck>
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Tue, 19 May 2026 21:03:06 -0700
-X-Gm-Features: AVHnY4IY_fMI--BuZa7VRLVP5pFmw-knlMw-E4eUheCxJXohulDPvypeyMWMXpQ
-Message-ID: <CADkSEUgoQvEHak-wxp0mJok_6_PgraxqZcDL4aut_MHhpYXoVw@mail.gmail.com>
-Subject: Re: [PATCH] ARM64: remove unnecessary architecture-specific <asm/device.h>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Catalin Marinas <catalin.marinas@arm.com>
+	Wed, 20 May 2026 04:07:21 +0000
+Received: from edelgard.fodlan.icenowy.me (unknown [112.94.100.115])
+	by APP-03 (Coremail) with SMTP id rQCowABXddxrMw1q8pmgEQ--.8708S2;
+	Wed, 20 May 2026 12:07:08 +0800 (CST)
+Message-ID: <47a06094541da642cabcb6b7d2f92d5125d365ea.camel@iscas.ac.cn>
+Subject: Re: [PATCH v2 1/4] dt-bindings: display: verisilicon, dc:
+ generalize for single-output variants
+From: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+To: Joey Lu <a0987203069@gmail.com>, Conor Dooley <conor@kernel.org>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, 	airlied@gmail.com, simona@ffwll.ch, robh@kernel.org,
+ krzk+dt@kernel.org, 	conor+dt@kernel.org, ychuang3@nuvoton.com,
+ schung@nuvoton.com, yclu4@nuvoton.com, 	dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 20 May 2026 12:07:06 +0800
+In-Reply-To: <a112cb8b-21fb-4c33-89a3-14a4feb5e3f9@gmail.com>
+References: <20260519055114.1886525-1-a0987203069@gmail.com>
+	 <20260519055114.1886525-2-a0987203069@gmail.com>
+	 <a66cc60fe163167e30e42f0b4be996cae1170a5e.camel@iscas.ac.cn>
+	 <20260519-fretful-blush-1aac18fa1360@spud>
+	 <a112cb8b-21fb-4c33-89a3-14a4feb5e3f9@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 
+MIME-Version: 1.0
+X-CM-TRANSID: rQCowABXddxrMw1q8pmgEQ--.8708S2
+X-Coremail-Antispam: 1UD129KBjvAXoW3Zr45Wry5Aw4ruw1rXrykAFb_yoW8Jry8Jo
+	W7Kr1fJr15Xr1UWryUJw4DGr13tw18JrnrtryUGry7Ar1Iy3WUA3y8AryUtay7Gr18GF1U
+	J34UJ34UAFyUZF1fn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
+	AaLaJ3UjIYCTnIWjp_UUUYa7k0a2IF6w4kM7kC6x804xWl14x267AKxVW5JVWrJwAFc2x0
+	x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj4
+	1l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0
+	I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwV
+	C2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC
+	0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr
+	1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7
+	MxkF7I0En4kS14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
+	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
+	67AKxVW8ZVWrXwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
+	x0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
+	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
+	UI43ZEXa7IUYsSdPUUUUU==
+X-Originating-IP: [112.94.100.115]
+X-CM-SenderInfo: x2kh0wp0lqwv3d6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_210320_411676_612B54C0 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260519_210718_643570_540BDB88 
+X-CRM114-Status: GOOD (  42.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,17 +88,409 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Will,
+=E5=9C=A8 2026-05-20=E4=B8=89=E7=9A=84 11:06 +0800=EF=BC=8CJoey Lu=E5=86=99=
+=E9=81=93=EF=BC=9A
+> On 5/20/2026 12:47 AM, Conor Dooley wrote:
+> > On Tue, May 19, 2026 at 03:26:58PM +0800, Icenowy Zheng wrote:
+> > > =E5=9C=A8 2026-05-19=E4=BA=8C=E7=9A=84 13:51 +0800=EF=BC=8CJoey Lu=E5=
+=86=99=E9=81=93=EF=BC=9A
+> > > > The existing schema assumes a fixed clock/reset topology and
+> > > > dual-
+> > > > output
+> > > > port structure matching the DC8200 IP block.=C2=A0 This prevents
+> > > > reuse for
+> > > > single-output variants such as the Verisilicon DCU Lite used in
+> > > > the
+> > > > Nuvoton MA35D1 SoC.
+> > > >=20
+> > > > Rework the schema so that variant-specific constraints are
+> > > > expressed
+> > > > via allOf/if-then-else:
+> > > >=20
+> > > > - The thead,th1520-dc8200 compatible keeps its existing five-
+> > > > clock,
+> > > > =C2=A0=C2=A0 three-reset, dual-port requirements.
+> > > >=20
+> > > > - A standalone verisilicon,dc compatible covers IPs whose
+> > > > identity is
+> > > > =C2=A0=C2=A0 discovered entirely through hardware registers; these =
+have
+> > > > flexible
+> > > > =C2=A0=C2=A0 clock and reset counts, a single 'port' property, and =
+no
+> > > > 'ports'
+> > > > =C2=A0=C2=A0 requirement.
+> > > >=20
+> > > > Changes to the base schema:
+> > > > - Replace the fixed clock/reset items lists with
+> > > > minItems/maxItems
+> > > > =C2=A0=C2=A0 ranges; variant sub-schemas tighten the constraints vi=
+a if-
+> > > > then-
+> > > > else.
+> > > > - Add a 'port' property (graph.yaml single-port alias)
+> > > > alongside the
+> > > > =C2=A0=C2=A0 existing 'ports', for single-output variants.
+> > > > - Drop the unconditional 'ports' requirement; each if-branch
+> > > > enforces
+> > > > =C2=A0=C2=A0 its own port topology.
+> > > > - Tighten additionalProperties to unevaluatedProperties to
+> > > > allow
+> > > > =C2=A0=C2=A0 per-variant schemas to add their own constraints clean=
+ly.
+> > > > - Fix a stray space in the port@0 description.
+> > > > - Add a DT example for the generic verisilicon,dc compatible
+> > > > =C2=A0=C2=A0 (Nuvoton MA35D1 DCU Lite).
+> > > >=20
+> > > > Signed-off-by: Joey Lu <a0987203069@gmail.com>
+> > > > ---
+> > > > =C2=A0=C2=A0.../bindings/display/verisilicon,dc.yaml=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 | 135
+> > > > ++++++++++++++--
+> > > > --
+> > > > =C2=A0=C2=A01 file changed, 108 insertions(+), 27 deletions(-)
+> > > >=20
+> > > > diff --git
+> > > > a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > > b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > > index 9dc35ab973f2..3a814c2e083e 100644
+> > > > ---
+> > > > a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > > +++
+> > > > b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
+> > > > @@ -14,10 +14,12 @@ properties:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pattern: "^display@[0-9a-f]+$"
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 compatible:
+> > > > -=C2=A0=C2=A0=C2=A0 items:
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - thead,th1=
+520-dc8200
+> > > You should add a fallback compatible here for your SoC, in case
+> > > its
+> > > integration gets something quirky; this compatible is usually not
+> > > consumed by the driver (see how thead,th1520-dc8200 exists in the
+> > > binding but not the driver).
+> > s/fallback compatible/soc-specific compatible/, but yes.
+> > NAK to what's been done here, especially after the discussions on
+> > earlier versions of this verisilicon binding.
+> > pw-bot: changes-requested
+> Understood. I will add `nuvoton,ma35d1-dcu` as the SoC-specific=20
+> compatible string paired with `verisilicon,dc` as the generic
+> fallback,=20
+> matching the pattern used for `thead,th1520-dc8200`. The standalone=20
+> `verisilicon,dc` compatible will be removed from the binding. The
+> driver=20
 
-On Tue, May 19, 2026 at 5:12=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+No, please don't remove compatible strings from existing binding, and
+the generic compatible is still used for driver binding.
+
+The SoC-specific compatible is informative here, it needs to exist, but
+it doesn't supersede "verisilicon,dc" .
+
+In addition, the SoC-specific compatible is also used for verification
+of the SoC device tree, which is the reason if clauses exist with
+compatible match and additional constraints (e.g. for the nuvoton DCU
+it's invalid to have a 2nd output port).
+
+> match table is not changed since hardware detection is done via ID=20
+> registers.
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: verisilicon,dc # DC IPs ha=
+ve discoverable
+> > > > ID/revision
+> > > > registers
+> > > > +=C2=A0=C2=A0=C2=A0 oneOf:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - enum:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0 - thead,th1520-dc8200
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ve=
+risilicon,dc
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: verisilicon,dc=C2=A0 # DC =
+IPs have discoverable
+> > > > ID/revision registers
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 reg:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > > @@ -26,32 +28,24 @@ properties:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 clocks:
+> > > > -=C2=A0=C2=A0=C2=A0 items:
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: DC Core clock
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: DMA AXI bus clock
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Configuration AHB bu=
+s clock
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Pixel clock of outpu=
+t 0
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Pixel clock of outpu=
+t 1
+> > > > +=C2=A0=C2=A0=C2=A0 minItems: 2
+> > > > +=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 clock-names:
+> > > > -=C2=A0=C2=A0=C2=A0 items:
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: core
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ahb
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: pix0
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: pix1
+> > > > +=C2=A0=C2=A0=C2=A0 minItems: 2
+> > > > +=C2=A0=C2=A0=C2=A0 maxItems: 5
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 resets:
+> > > > -=C2=A0=C2=A0=C2=A0 items:
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: DC Core reset
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: DMA AXI bus reset
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - description: Configuration AHB bu=
+s reset
+> > > > +=C2=A0=C2=A0=C2=A0 minItems: 1
+> > > > +=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 reset-names:
+> > > > -=C2=A0=C2=A0=C2=A0 items:
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: core
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: axi
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: ahb
+> > > > +=C2=A0=C2=A0=C2=A0 minItems: 1
+> > > > +=C2=A0=C2=A0=C2=A0 maxItems: 3
+> > > > +
+> > > > +=C2=A0 port:
+> > > > +=C2=A0=C2=A0=C2=A0 $ref: /schemas/graph.yaml#/properties/port
+> > > > +=C2=A0=C2=A0=C2=A0 description: Single video output port for singl=
+e-output
+> > > > variants.
+> > > Maybe the endpoint numbering rule needs a move to here? (I am not
+> > > very
+> > > sure).
+> I will add a description to the `port` property noting that endpoint
+> 0=20
+> is used for DPI output, which is the only output type for
+> DCUltraLite.
+
+Please note that DC8000 exists, which is single-port but supports both
+DPI and DP.
+
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0=C2=A0 ports:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $ref: /schemas/graph.yaml#/propertie=
+s/ports
+> > > > @@ -59,7 +53,7 @@ properties:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 port@0:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 $ref: /schem=
+as/graph.yaml#/properties/port
+> > > > -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 description: The first =
+output channel , endpoint 0
+> > > > should be
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 description: The first =
+output channel, endpoint 0
+> > > > should be
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+used for DPI format output and endpoint 1 should be
+> > > > used
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =
+for DP format output.
+> > > > =C2=A0=20
+> > > > @@ -75,9 +69,75 @@ required:
+> > > > =C2=A0=C2=A0=C2=A0 - interrupts
+> > > > =C2=A0=C2=A0=C2=A0 - clocks
+> > > > =C2=A0=C2=A0=C2=A0 - clock-names
+> > > > -=C2=A0 - ports
+> > > > =C2=A0=20
+> > > > -additionalProperties: false
+> > > > +allOf:
+> > > > +=C2=A0 - if:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 contains:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ const: thead,th1520-dc8200
+> > > > +=C2=A0=C2=A0=C2=A0 then:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: DC Core clock
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: DMA AXI bus clock
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: Configuration AHB bus clock
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: Pixel clock of output 0
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: Pixel clock of output 1
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: core
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: axi
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: ahb
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: pix0
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: pix1
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: DC Core reset
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: DMA AXI bus reset
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: Configuration AHB bus reset
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: core
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: axi
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: ahb
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ports
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0 else:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 properties:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: Bus clock that gates register
+> > > > access
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - description: Pixel clock divider for display
+> > > > timing
+> > > Please don't make compatible-specific description strings for
+> > > individual compatibles, and keep these descriptions outside of
+> > > the if.
+> > > The compatible-specific part should be used to specify what's
+> > > required
+> > > for the specific SoC, for dt validation purpose.
+> > >=20
+> > > BTW if the clock is both the working clock and bus clock for the
+> > > controller, I suggest listing it twice, except if the IP core is
+> > > provided without a dedicated core clock (in the case I suggest to
+> > > use
+> > > "bus" only).
+> > I agree. If the same clock is provided to two+ ports on the IP,
+> > that
+> > should still be two+ clocks in the devicetree.
+> >=20
+> > > Here's an example for "listing it twice":
+> > > ```
+> > > clocks =3D <&clk DCU_GATE>, <&clk DCU_GATE>, <&clk DCUP_DIV>;
+> > > clock-names =3D "core", "bus", "pix0";
+> > > ```
+> > >=20
+> > > Well nonetheless the name "core" does not match the description
+> > > "Bus
+> > > clock that gates register access".
+> > >=20
+> > > Thanks,
+> > > Icenowy
+>=20
+> Understood. I will remove all description strings from the if/else=20
+> branches; the if/then clauses will only constrain clock-names and=20
+> reset-names items (name values only, no descriptions). Regarding
+> clock=20
+
+Well I think a required properties list is also needed in the if/then
+clause, to prevent DT's from lacking properties.
+
+> naming: DCU_GATE on MA35D1 is a peripheral gate clock without a
+> separate=20
+> dedicated core working clock, so I will keep "core" as the name and
+
+Do you mean there's no seperate dedicated bus clock? I find that in the
+clock driver dcu_gate has no parent as bus clocks -- its parent is
+dcu_mux, and dcu_mux's 2 parents are both pll ("epll_div2" and
+"syspll").
+
+Thanks,
+Icenowy
+
+> drop=20
+> the misleading description "Bus clock that gates register access".
+> The=20
+> description mismatch was entirely in the if/else strings which are
+> now=20
+> removed.
+>=20
+> Thanks.
+>=20
+> > >=20
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: core
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: pix0
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 description=
 :
-> Do we need to add a generic-y entry to arch/arm64/include/asm/Kbuild
-> so that we pick up the asm-generic variant?
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ Reset line for the display controller.
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 items:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ - const: core
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - port
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 not:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ports
+> > > > +
+> > > > +unevaluatedProperties: false
+> > > > =C2=A0=20
+> > > > =C2=A0=C2=A0examples:
+> > > > =C2=A0=C2=A0=C2=A0 - |
+> > > > @@ -120,3 +180,24 @@ examples:
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > +
+> > > > +=C2=A0 - |
+> > > > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/interrupt-controller/arm-=
+gic.h>
+> > > > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/clock/nuvoton,ma35d1-clk.=
+h>
+> > > > +=C2=A0=C2=A0=C2=A0 #include <dt-bindings/reset/nuvoton,ma35d1-rese=
+t.h>
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0 display@40260000 {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible =3D "verisil=
+icon,dc";
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reg =3D <0x40260000 0x2=
+0000>;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 interrupts =3D <GIC_SPI=
+ 20 IRQ_TYPE_LEVEL_HIGH>;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clocks =3D <&clk DCU_GA=
+TE>, <&clk DCUP_DIV>;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 clock-names =3D "core",=
+ "pix0";
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 resets =3D <&sys MA35D1=
+_RESET_DISP>;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reset-names =3D "core";
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 port {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ dpi_out: endpoint {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 remote-endpoint =3D <&panel_in>;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ };
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 };
+> > > > +=C2=A0=C2=A0=C2=A0 };
 
-No, we don't, because device.h is in the list of mandatory headers in
-include/asm-generic/Kbuild, which means a header including the generic
-version will automatically be generated if an architecture-specific
-version does not exist.
-
-Ethan
 
