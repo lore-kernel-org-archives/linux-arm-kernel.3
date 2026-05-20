@@ -4,62 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D800CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA523CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:03:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=myH6l19COiuNxA88SGcAoxY80RbljnN31DfGVhs7s9s=; b=qimfoMDkFElH3UAiKoL+TIoirL
-	veoEPpUHNz+WxIHVbZ8HAoYvKC3veqPUGwhUIvQbs8OnUsw9mQEgdcZqOlAAzl+baleFXOsdxumg5
-	M6jCrjCe8wlHR0InA0s/J0FSpEloW54jL7AvlorL4eXILKLf5rfd/9WwxWLGeoTnwr75ID+IgY/Is
-	ABIlWfN5leKeEuHTI3AkBlarEjoI82GgW5SyRJ+A9knyhP5oqgKR3poJ5SfoeByaCub3+U5Jm6Giq
-	EK9/iR/RB1nkoaLjrmKmWY43gT2AGUSJm44Z9tfCtmn3iSoOlrVCwK2C7AgGM31deEwOvFKxuELga
-	4yssDkyw==;
+	bh=0pSVK+9EQxqVMM7Yjv49ZmJRac0skbNKar4/N2MFVSo=; b=Kc2qOeHM5LWxI40G/HBXZuZTwr
+	4qdbZjndPz1auz2awUI7alFvs5NAIJnSYQM1UFsJz3en2SRrXWGYvSnN5V4rj2hPTcRDfQxDtLGdq
+	KJGtu7WsIyOZ1dhKu/W7JsSTPxRcZQ/8fcUPrac4+5SXETe3n1TkvL8nkimcZ3+NzTHdPwYAGLAZV
+	PWbHQ6zb0ich1rHFfdFnf4nk+2PQqwdnDbdBIywn/oPZ5WWigyK5iK2KUw+45O5jSnCxZs+7y5Xa1
+	pX9cCMyP0Tg5vZLIE0fXRG4voYi+qvR2FpH4U0MWSi1Y0S4eRNFuTMSp2IySPOVH6rATPoba1ZpzJ
+	HLEY+uVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPehL-00000004Oki-141e;
-	Wed, 20 May 2026 11:02:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPehI-00000004OkJ-15Ix
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 11:02:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0DEE175A;
-	Wed, 20 May 2026 04:02:34 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CFCC3F85F;
-	Wed, 20 May 2026 04:02:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779274960; bh=+7+/q8LAlMzLlWk1znO+lD248Sp+weOvZS73ENKy0kk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=klKpCENeYWVeS8V9assoUHjXrxQPA4+oCwfz857IRdqVxqQLfPyvVl4yqxb4K/YcR
-	 fEAdP4ISyjfLCwKMIuGSjsfMn8k/s7nhn3wy486zgkUtepNstLit8PmKt82OUaqZZy
-	 R8egHGygvWRT9MV+aNt4Zpb9/HXcanyY8pZkV9n4=
-Date: Wed, 20 May 2026 12:02:31 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register
- during a nested ERET or exception
-Message-ID: <20260520110231.GA4005903@e124191.cambridge.arm.com>
-References: <20260520085036.541666-1-maz@kernel.org>
- <20260520085036.541666-3-maz@kernel.org>
+	id 1wPei5-00000004OsQ-24vn;
+	Wed, 20 May 2026 11:03:33 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPei2-00000004OrF-2YMw;
+	Wed, 20 May 2026 11:03:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=0pSVK+9EQxqVMM7Yjv49ZmJRac0skbNKar4/N2MFVSo=; b=RYBTev16Cq3YvXNlWCcs0wFF69
+	eDsv+adZLd1yT5ULefQtKo+X44tNcAfUl7t5o/+u1cHreJ/abr4bRZAV5wiboCua7jRg8cb4PKW8+
+	iV8dK9Iwn/0DzGNqFo9QYDao4UtZXXZN4gEdvRcrawQmjOn4gaeea5dZino47REa62XIqncgRRbG4
+	WHmyxcV/KDsnFDUSbfsKoZ3kLMCN6lQS9L3ky99UPpD9mHwBimd7B0+XIZPHeACsIgJ/cfmCa5MJ6
+	rVJ/9tdrUlRY+PFZTbKHebAYyizsnFaclzUbWe2lc3+DVt34ghHvhSYC3+iRF3wrpIix+IcQ+vHFc
+	9xKGG2CQ==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Chaoyi Chen <kernel@airkyi.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Peter Chen <hzpeterchen@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v15 0/9] Add Type-C DP support for RK3399 EVB IND board
+Date: Wed, 20 May 2026 13:03:00 +0200
+Message-ID: <4958503.687JKscXgg@phil>
+In-Reply-To: <c0bc4796-afe5-40ff-8816-9605a6114d23@rock-chips.com>
+References: <20260304094152.92-1-kernel@airkyi.com> <agxo8ic94e81nQRx@kuha>
+ <c0bc4796-afe5-40ff-8816-9605a6114d23@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520085036.541666-3-maz@kernel.org>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_040244_418133_B89D1B78 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20260520_040330_647635_CF2C20BA 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,112 +88,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi,
 
-On Wed, May 20, 2026 at 09:50:36AM +0100, Marc Zyngier wrote:
-> When switching between L1 and L2, we save the old state using
-> kvm_arch_vcpu_put(), mutate the state in memory, then load the new
-> state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
-> and unbound, such that it can be lazily restored on a subsequent trap.
-> 
-> The FPSIMD/SVE state is shared by exception levels, and only a handful
-> of related control registers need to be changed when transitioning
-> between L1 and L2. The save/restore of the common state is needless
-> overhead, especially as trapping becomes exponentially more expensive
-> with nesting.
-> 
-> Avoid this overhead by leaving the common FPSIMD/SVE state live on the
-> CPU, and only switching the state that is distinct for L1 and L2:
+Am Mittwoch, 20. Mai 2026, 03:13:25 Mitteleurop=C3=A4ische Sommerzeit schri=
+eb Chaoyi Chen:
+> Hello Heikki,
+>=20
+> On 5/19/2026 9:43 PM, Heikki Krogerus wrote:
+> > Hi,
+> >=20
+> > On Wed, Mar 04, 2026 at 05:41:43PM +0800, Chaoyi Chen wrote:
+> >> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> >>
+> >> This series focuses on adding Type-C DP support for USBDP PHY and DP
+> >> driver. The USBDP PHY and DP will perceive the changes in cable status
+> >> based on the USB PD and Type-C state machines provided by TCPM. Before
+> >> this, the USBDP PHY and DP controller of RK3399 sensed cable state
+> >> changes through extcon, and devices such as the RK3399 Gru-Chromebook
+> >> rely on them. This series should not break them.
+> >=20
+> > What's the status with this series?
+> > Are these inteded to go via the DRM tree?
+> >=20
+> > thanks,
+> >=20
+>=20
+> Thank you very much for your continued attention to this series.
+> The maintainers seem quite busy... Despite there being no further review
+> comments, this series have yet to be merged into the DRM tree.=20
+>=20
+> And some of my other patches are in the same situation.=20
+> Do you happen to know what the next steps should be? Thank you.
 
-To make sure I understand this part:
-	
-	L1 sets up L2's FP state live on the CPU 
-	L1 erets
-	eret traps to L0/host
-	preemption disabled
-	kvm_arch_vcpu_put()
-	    kvm_arch_vcpu_put_fp() <-- actually saves the state of the live registers
-	.. set elr etc ..
-	kvm_arch_vcpu_load()
-	    kvm_arch_vcpu_load_fp() <-- doesn't actually restore state, but ensures
-                                        the CPTR trap will be set
-        .. returns to L2 (traps on first use of FP and state will be restored)
-	
-So this patch is (effectively) removing the put_fp()/load_fp(), because the FP
-state is common/shared between L1 and L2, so whatever L1 put into that state
-before the eret, L2 was going to see.
+=46or this series, I would think it'd be best to split it a bit.
 
-If my understanding is correct:
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+=2D Make patches 1, 2, 5-7 its own series
+  * patch 5 _should_ be included here, needs an Ack from the phy-maintainer
+    to go through the drm-tree. It does look independent from the other
+    phy changes (code changes themself), but needs the function from patch =
+2.
 
-Thanks,
-Joey
+=2D Make patches 3+4 its own series, so that phy maintainers notice
+  The code-changes themself seem independent of the rest
+  * Reference the drm-series and explicity note that the phy-patch in it
+    needs an Ack from the phy maintainer to through the drm-tree
+    Hopefully helps to get that
+  * patch 1 has a Reviewed-by from the type-c side, but needs someone
+    knowing drm-bridge internals to agree
 
-> 
-> - the trap controls: the effective values are recomputed on each entry
->   into the guest to take the EL into account and merge the L0 and L1
->   configuration if in a nested context, or directly use the L0 configuration
->   in non-nested context (see __activate_traps()).
-> 
-> - the VL settings: the effective values are are also recomputed on each
->   entry into the guest (see fpsimd_lazy_switch_to_guest()).
-> 
-> Since we appear to cover all bases, use the vcpu flags indicating the
-> handling of a nested ERET or exception delivery to avoid the whole FP
-> save/restore shenanigans. SME will have to be similarly dealt with when
-> it eventually gets supported.
-> 
-> For an EL1 L3 guest where L1 and L2 have this optimisation, this
-> results in at least a 10% wall clock reduction when running an I/O
-> heavy workload, generating a high rate of nested exceptions.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/fpsimd.c | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-> index 15e17aca1dec0..aca98752a6e42 100644
-> --- a/arch/arm64/kvm/fpsimd.c
-> +++ b/arch/arm64/kvm/fpsimd.c
-> @@ -28,6 +28,20 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
->  	if (!system_supports_fpsimd())
->  		return;
->  
-> +	/*
-> +	 * Avoid needless save/restore of the guest's common
-> +	 * FPSIMD/SVE/SME regs during transitions between L1/L2.
-> +	 *
-> +	 * These transitions only happens in a non-preemptible context
-> +	 * where the host regs have already been saved and unbound. The
-> +	 * live registers are either free or owned by the guest.
-> +	 */
-> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
-> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
-> +		WARN_ON_ONCE(host_owns_fp_regs());
-> +		return;
-> +	}
-> +
->  	/*
->  	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
->  	 * that the host kernel is responsible for restoring this state upon
-> @@ -102,6 +116,15 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
->  {
->  	unsigned long flags;
->  
-> +	/*
-> +	 * See comment in kvm_arch_vcpu_load_fp().
-> +	 */
-> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
-> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
-> +		WARN_ON_ONCE(host_owns_fp_regs());
-> +		return;
-> +	}
-> +
->  	local_irq_save(flags);
->  
->  	if (guest_owns_fp_regs()) {
-> -- 
-> 2.47.3
-> 
+=2D Makes patches 8+9 its own series, reference both series from above
+  as dependencies.
+
+
+That would be my take here, to have the right maintainers notice they
+should do something.
+
+
+Heiko
+
+
 
