@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1BDCD5BA6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F3C6CD4F54
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y73/712ucFBf0Y4l8UyabCLqbd4ZcvBJJwObvbr5Gwo=; b=MOD0HN+AcYVvWTT5Fg8ADsL0T+
-	Jv1CTt6WPs6lxYrjIt6+rWP3Hqm0kIAAX4a5H3I+wOyWKm2utCEuv7TU/XoUn5oe/SLoMpsosv4eU
-	cWwSIt48IeZGXrvhjCzaobtbMpzhmKmO/f8UejqXLndU4PLaYMUlx54fYs7w9ds99d2efD2bz6d5H
-	T2aKE7UyM5TVQOD1lpGcEGEHlggccnxKAZvkmU6rCsdLOimDwSHVXJvDGOSZfsy8gYHNtLcnKmwU0
-	uA4uWkKwsLNmAJv98avMf4WVdW4CIGYkO+KEvJb2hmfJSL1F7AAOOhLWxlesPGbEvSE7P0N6dYYEI
-	j/eH9n0w==;
+	bh=kqQFClT82XrGpGP+eCWxLur1RYyxjshGCfc9InJnvnA=; b=Zxdf8GfO7rDYpmODFdyfy8o8Tw
+	BJRvNi3iqNKW8J7FV6uEPkTwc+sCGzT6HHF4uPKP5ARebvaXIEucA7x81mniJsiCtGva5BzYxjw8y
+	Khs7G7YKouA82Xc+fDq76WEzfVo+NcEcttnujrIvVkfDoYtrcl5dsUT+wkfVLgGX/bxWH3unFTlHN
+	qcYBkG+mocPbkzRWslpXmsQVozDUVOUxh4p6oCD/Gic3tpaQmEpoCyexLz108AG180hbVYv90jwa3
+	TxENX0LIwgbtKRe5miSNtUeEh+B+M8EChnpMhaf8nbiCQR++aEKO5vj9vq1QH/ATt/T1bn9UuJUjR
+	7R70nfkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6G-000000047FL-2ODO;
-	Wed, 20 May 2026 09:20:24 +0000
+	id 1wPd6H-000000047Gh-1E6M;
+	Wed, 20 May 2026 09:20:25 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd67-00000004764-0ga6
+	id 1wPd67-00000004776-3uQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:15 +0000
+	Wed, 20 May 2026 09:20:16 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C5D9600CB;
-	Wed, 20 May 2026 09:20:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50AF61F00893;
-	Wed, 20 May 2026 09:20:14 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B6F060121;
+	Wed, 20 May 2026 09:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12CC51F008A0;
+	Wed, 20 May 2026 09:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779268814;
-	bh=Y73/712ucFBf0Y4l8UyabCLqbd4ZcvBJJwObvbr5Gwo=;
+	s=k20260515; t=1779268815;
+	bh=kqQFClT82XrGpGP+eCWxLur1RYyxjshGCfc9InJnvnA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=WdqPYev4RKpxkjPdnUoKTYgTJ6CCx5iyuXSvynvIT7xPJmh/igebYdS23I2FIw/Ld
-	 sboGJKLqQt5/8Oe51J7rkzngQio1M8MLOFaxVikK9fDAO9IT1/Vu6d20J+P9ABcwg6
-	 oogdRufGiU1NvydjJHWo7xsVgrItXQUVG70wzC4Dp5y99agDpt2wGO1kWNvmvR9PGg
-	 r2blA3+QvNsbvGaAI0uhK1w1q09dqFyrhfV+3g3MHXKDCFHy1FsQJPowZmSuwelKLD
-	 wZ/FRWbWlZJbX/Tx33B+7VtoiB9ZKovN/CGC3T0aIVvaJnw0TqwYJqapcOSUlruc+c
-	 ZOhclw1KbpEQQ==
+	b=BH29QoBv9xFqeEkJBUcWWt3/hRdJezMKmbKfI0NozczrqR+G+U0h5Fbjqpy+qcpvX
+	 P5Twe9gF9Mm2no2R0ZbR49lFawxwnBGVM3Yok6UM/kcn+HoorhN/dXVloKkTlcsqye
+	 iVpDBxnMMPNOT3Ey1+//xje49lFJ8aDH27LHourGpbmcGlQvz03dEhdGGk/yDvWy1S
+	 Vkydqap48mJacth4bM9LCpItyms6JYVhjFuSODEUqv7Y7qKEbT5JN/zH0IgJBYnTLW
+	 NIkGIvyekcCbbRa8+WIKmFcyJPznsw5ZqZfQwpHr9QSWXqz8Wg63ugi2ablrItgfln
+	 qlg085FJiIYnw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPd64-00000004IaV-21VV;
-	Wed, 20 May 2026 09:20:12 +0000
+	id 1wPd65-00000004IaV-1UPx;
+	Wed, 20 May 2026 09:20:13 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH v2 11/18] KVM: arm64: vgic-v5: Atomically assign bits to PPI DVI bitmap
-Date: Wed, 20 May 2026 10:19:42 +0100
-Message-ID: <20260520091949.542365-12-maz@kernel.org>
+Subject: [PATCH v2 15/18] Documentation: KVM: Fix typos in VGICv5 documentation
+Date: Wed, 20 May 2026 10:19:46 +0100
+Message-ID: <20260520091949.542365-16-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
 References: <20260520091949.542365-1-maz@kernel.org>
@@ -85,41 +85,41 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Sascha Bischoff <sascha.bischoff@arm.com>
 
-For GICv5 guests we make use of the DVI mechanism for PPIs where
-possible.  When mapping a virtual irq to a physical one for a GICv5
-guest, the corresponding bit in the DVI bitmap is set. When unmapping,
-said bit is cleared again. The key user of this mechanism is the arch
-timer.
+Fix two typos in the VGICv5 documentation.
 
-The existing code used the non-atomic __assign_bit() rather than doing
-the update atomically. This could technically result in losing state
-if a second PPI's DVI bit were being manipulated concurrently. Each
-individual bit within the DVI bitmap is guarded using
-vgic_irq->irq_lock, but there's no locking for the overall
-bitmap. Therefore, switch to using the atomic assign_bit() function
-instead.
-
-Fixes: 5a98d0e17e59 ("KVM: arm64: gic-v5: Implement direct injection of PPIs")
+Fixes: d51c978b7d3e ("KVM: arm64: gic-v5: Communicate userspace-driveable PPIs via a UAPI")
+Fixes: eb3c4d2c9a4d ("Documentation: KVM: Introduce documentation for VGICv5")
 Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
 Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-v5.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ Documentation/virt/kvm/devices/arm-vgic-v5.rst | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 7916bd8d564ef..d4789ff3e7402 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -272,7 +272,7 @@ void vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, struct vgic_irq *irq, bool dvi)
- 	lockdep_assert_held(&irq->irq_lock);
+diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
+index 29335ea823fc5..70b9162755c7e 100644
+--- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
++++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
+@@ -12,8 +12,8 @@ Only one VGIC instance may be instantiated through this API.  The created VGIC
+ will act as the VM interrupt controller, requiring emulated user-space devices
+ to inject interrupts to the VGIC instead of directly to CPUs.
  
- 	ppi = vgic_v5_get_hwirq_id(irq->intid);
--	__assign_bit(ppi, cpu_if->vgic_ppi_dvir, dvi);
-+	assign_bit(ppi, cpu_if->vgic_ppi_dvir, dvi);
- }
+-Creating a guest GICv5 device requires a host GICv5 host.  The current VGICv5
+-device only supports PPI interrupts.  These can either be injected from emulated
++Creating a guest GICv5 device requires a GICv5 host.  The current VGICv5 device
++only supports PPI interrupts.  These can either be injected from emulated
+ in-kernel devices (such as the Arch Timer, or PMU), or via the KVM_IRQ_LINE
+ ioctl.
  
- static const struct irq_ops vgic_v5_ppi_irq_ops = {
+@@ -25,7 +25,7 @@ Groups:
+       request the initialization of the VGIC, no additional parameter in
+       kvm_device_attr.addr. Must be called after all VCPUs have been created.
+ 
+-   KVM_DEV_ARM_VGIC_USERPSPACE_PPIs
++   KVM_DEV_ARM_VGIC_USERSPACE_PPIS
+       request the mask of userspace-drivable PPIs. Only a subset of the PPIs can
+       be directly driven from userspace with GICv5, and the returned mask
+       informs userspace of which it is allowed to drive via KVM_IRQ_LINE.
 -- 
 2.47.3
 
