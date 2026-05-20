@@ -4,85 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01111CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84067CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:29:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qmEE7iNYWBNham++FnbyMc6zEayeEgsCBZ4p5g6XN5M=; b=0knD3+we59B50GCJgrXgNILfyn
-	WEadZx0DUrSKsW6ruCjCJKomSz6Rd5jf/5aRGlnqdmg8lDLgaVD8q8Twc7i8aL9SuWad8KZfXgaEv
-	OnP28sb6MVjTvwiJTaM7WivVZXr1514+JBC4R6KA3UoeFZoaEHH770mrE7OBW6SqNMblGaD8j6AoZ
-	4jyYA6gWCwpTjgaojA/kIghMfCmJ6jr70K8mA2YeHO34k27vBTrRGJT1jNSq2jvvMqP9tErZuXBJD
-	1awucaIALq5+8Og4Y2nf6VRIym8Vd7XlG7W827MeWC7I/eskOv3naOqErZ1cezJoiZAqoTQfEDoR5
-	JfGbbn4A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+FvKgT5pG95JgT3TscKBF5hGUKTEVSajCnC+nu0Y4WM=; b=tI3ghJrlJUqcBR+3tg8SPysxSb
+	gFEZ3YKqB2rkEyh6Ws9bZ6gXfhTe9pNhMMfm28YqvJmAWl4IKWq/vij4moxFY5s5wYdTfcmtt9UzH
+	ZLJjQQNHYtp/8IS6YYcvlC6w1Vj8LHQQ/6CuqgYdaSUKAKYV5tIqX1GJOfRT2cU90gZnaZrVxJzyn
+	cgkTI1zB5pkmCKaxLFt/ZTVpuFsPH77o8IjpnxygcRVCjY+uSjmB1+dvRBQbxMaog5NtI0cxIZgEZ
+	pJyB2otnUz4wiII8DXY3u/LUSd4bx/l8/sUEiipVGb4bD0Th31sdcanUeMbcVOxP21ImFjfyXfirT
+	hQBJo+hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoRK-00000005qRV-0Xm3;
-	Wed, 20 May 2026 21:26:54 +0000
-Received: from mail-dy1-x1344.google.com ([2607:f8b0:4864:20::1344])
+	id 1wPoTf-00000005qgU-1w6u;
+	Wed, 20 May 2026 21:29:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoRI-00000005qQd-1A8Q
+	id 1wPoTd-00000005qg0-1JrN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 21:26:53 +0000
-Received: by mail-dy1-x1344.google.com with SMTP id 5a478bee46e88-2f3c623322bso4130783eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 14:26:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779312411; x=1779917211; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=qmEE7iNYWBNham++FnbyMc6zEayeEgsCBZ4p5g6XN5M=;
-        b=sL3VqIDEsFu64yWzKA88E9ivNFjZtltMOsgZXYC8Z54UvqfAFWfPNrZLoeJiRs4f+P
-         W4bEM1aAmnl+E414jk9g4Ct6n1iZN/3SfIKeTlnchYjPKWMtBX+Gd6X+kU73d1+8ww3r
-         GmwHmiYERTNitwawXqSJKWh5XhZtJybTNgI0YNsfdBbweGoHBG4vIs0oVb8J3xYi7XMU
-         cA8XWqTgWO3+3F1o8KoWi9DAhA9wRtzO4KvYgiiXHZjt0X9xnwHadMr2jWqpYpTlJatG
-         fvvKzPgUBG7I7vvAP5T8nkUCfznFvdU4oUUL40t+FrgzdTGtH5xG6MCDs5v6RpFcw00R
-         B/dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779312411; x=1779917211;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qmEE7iNYWBNham++FnbyMc6zEayeEgsCBZ4p5g6XN5M=;
-        b=ak2+R0L3mOB2/TuKtp8+nDogLHflYfg8qD3izdm3bI0J69s+O9hWMAC8FR1h3X7TLX
-         AVZYAXa1azuJtgT/MpsEMrhNRe7ekTalwST6yMGVfhg2xvzXWVkXorPT0+35kS4w6iZo
-         lwD143iPaITnb0t7nuKH0MWD6cEXP3V9Jgiq5yLGXMEPcwD5ePpEKqqJyGjbI1Mfy2aY
-         B2aLbFSEio1CB5yP8n/ogaIpMSgmGSfWu4SVE8niH08W5aOb4TkZzzLpl0EW1WZ/BkO1
-         bFeZ7Z/2/4lrwsibmBm3qbROHtCW1LQYJykgJxEeRxxs4fF+ntPrcLQ3RyP7FuT7jlJO
-         kqUw==
-X-Gm-Message-State: AOJu0YzlPgK/sJrb4dBhyrtxgiFi1K6UiEJJuyoQihTfgXTk1Cv/nXJ0
-	SkC6PSwG6qiVB5oetdknIAziP7XJUT7qldfv4crQ1gpT2GJqeYg8bN1qiSNDWNmo06Y=
-X-Gm-Gg: Acq92OEhb1hCEf6aTehBCqzcVRF4fiLS1YpyIJdaigxDuwUwdMjAHA3Mn2arh9giPWN
-	tcYcMFKXYAfzETBX9K0OUVghz976TWe4T2gZOGLOYX3P2J4MHJYVhWsROKb5om6bZJPXqkBwZhw
-	olhB8Qr/9CWTfFJUX/LCcfIeCbZP0oOtz/R1rHw+qYykcWJ+egW6G8SpB/E9KjvRdIOnBI9+oJ5
-	UWuI2Kzy3D7uSlJqCYBPyUDOPwMZ0aPoKHBRct70Os6hxcFVwxfol7VefMcj5tLlquPaEjubVEh
-	CGVHLSFK4+o1+rhoTFgG8XWlNDNlU+3brewzmLZZLSupy+hZf9y7I1x22tCqkWkaZwpgtgm5wsH
-	TeTNpRSju8iFeloAQvC9BMhRExv7pByu/MAeyhYene+7q0sGUIRX/K9fTmVnZSx9sVtPVzVOSHH
-	n+rqsS1JOpiQ7ufG1hhaSqPLOb9oA3hhBR7rzFTawbi43y6EcYrw2ilVSyy6QAmplMnae1TGYcM
-	2gxOb7MS8BeLIi4NZRPDvej1MEdPAg2kOBA739JKswz0JTz4wnRNJOBpGvSkAIiyjtoeZMjUPEK
-	5qC6XK3uvVlwlLYhfSFMV1VdhDB1
-X-Received: by 2002:a05:7300:2316:b0:2ea:ed3e:13b7 with SMTP id 5a478bee46e88-3042f5c8adbmr207252eec.7.1779312411351;
-        Wed, 20 May 2026 14:26:51 -0700 (PDT)
-Received: from ethan-latitude5420.. (host-127-24.cafrjco.fresno.ca.us.clients.pavlovmedia.net. [68.180.127.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30428d4ede2sm1024485eec.6.2026.05.20.14.26.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 14:26:51 -0700 (PDT)
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Russell King <linux@armlinux.org.uk>
-Subject: [PATCH] ARM: footbridge: remove redundant checks for CONFIG_NEW_LEDS
-Date: Wed, 20 May 2026 14:26:06 -0700
-Message-ID: <20260520212607.21216-1-enelsonmoore@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 20 May 2026 21:29:18 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 85ECA40178;
+	Wed, 20 May 2026 21:29:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE26B1F000E9;
+	Wed, 20 May 2026 21:29:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779312556;
+	bh=+FvKgT5pG95JgT3TscKBF5hGUKTEVSajCnC+nu0Y4WM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XQc39hnvCdkTlJIa8y9YfgGkIJQb1cHVaoOkJ7pbNHFepqyzWDGV4Wxa5w7n7maGc
+	 X+b9cmNIXD1NNy46RiDLbrSNZKSvWZkVvzOf5pjYkd9GkeQ8uWitOK7rbabbOpRsMR
+	 cU2Dzy2Z/oHVXA1L7GHzimHqACLluo7QZV4M3RKQ0VSW0gAsm/ALa1Jg6hl3P+lCuJ
+	 2OikXfZRe0W52IcmQMM/se/XYc5GpkRUpXmiQI7394jKgEDAK8kQbIZmBYmRb/oRNk
+	 R3bs2GEMBeAjc+i/0X3bVd97RkREIJ/H5nw8+YdfehKMnRuPgqE+f2PNVK0PTE1sZc
+	 eCBD5LIKuDCGA==
+Message-ID: <210d140d-c78a-47be-8046-caae359db6db@kernel.org>
+Date: Wed, 20 May 2026 23:29:07 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
+ installs
+To: Tejun Heo <tj@kernel.org>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+ Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+ bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
+References: <20260517211232.1670594-2-tj@kernel.org>
+ <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
+ <agtuPrgIDNKSu2Oo@slm.duckdns.org>
+ <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
+ <297658c4ae2d6e7103f5968efc936224@kernel.org>
+ <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
+ <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
+ <agyZxmHoueGwBAQg@slm.duckdns.org>
+ <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
+ <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
+ <ag3_qpKObFOLKgbR@slm.duckdns.org>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <ag3_qpKObFOLKgbR@slm.duckdns.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_142652_315919_35503EC9 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20260520_142917_403659_81275EFC 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +140,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Code in mach-footbridge checks for both CONFIG_NEW_LEDS and
-CONFIG_LEDS_CLASS. CONFIG_LEDS_CLASS depends on CONFIG_NEW_LEDS, and
-therefore checking for both is unnecessary. Remove the checks for
-CONFIG_NEW_LEDS.
+On 5/20/26 20:38, Tejun Heo wrote:
+> On Wed, May 20, 2026 at 10:41:15AM +0200, David Hildenbrand (Arm) wrote:
+>> And that should be carefully documented.
+> 
+> Will do.
+> 
+>>> The fault handler has to install _some_ page and let kernel continue.
+>>> Scratch page or arena page doesn't matter. Potentially different CPUs
+>>> will see different page. It's not a concern at all.
+>>> bpf prog is buggy, but the kernel will continue to work without a glitch.
+>>> bpf runtime will disable and unload misbehaving prog.
+>>
+>> Having one page table walker overwrite a scratch page on race is just rather ...
+>> questionable locking design, that just screams for problems long-term, really.
+>>
+>> At least in apply_range_clear_cb() one could similarly switch to
+>> ptep_try_install() to at least have both these paths handle races in a
+>> reasonable way. (having to handle when ptep_try_install() is not really implemented)
+> 
+> Hmm... wouldn't that be more confusing on apply_range_clear_cb() side?
+> Whether it maintains the current behavior (if collide with scratch, try
+> again with scratch as the original value) or flip the behavior (fail if
+> scratch), that extra logic is spurious, and those tend to confuse people as
+> they force asking why it has to be that specific way. If the goal is
+> documenting the subtlety, wouldn't a detailed comment serve the purpose
+> better?
 
-Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
----
- arch/arm/mach-footbridge/ebsa285.c      | 2 +-
- arch/arm/mach-footbridge/netwinder-hw.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+I would let all operations that can happen concurrently work with atomics, not
+just a single one.
 
-diff --git a/arch/arm/mach-footbridge/ebsa285.c b/arch/arm/mach-footbridge/ebsa285.c
-index a65554b1c1d8..2e23c35a4f28 100644
---- a/arch/arm/mach-footbridge/ebsa285.c
-+++ b/arch/arm/mach-footbridge/ebsa285.c
-@@ -19,7 +19,7 @@
- #include "common.h"
- 
- /* LEDs */
--#if defined(CONFIG_NEW_LEDS) && defined(CONFIG_LEDS_CLASS)
-+#ifdef CONFIG_LEDS_CLASS
- #define XBUS_AMBER_L	BIT(0)
- #define XBUS_GREEN_L	BIT(1)
- #define XBUS_RED_L	BIT(2)
-diff --git a/arch/arm/mach-footbridge/netwinder-hw.c b/arch/arm/mach-footbridge/netwinder-hw.c
-index a33f4c3b9505..14989d557ebf 100644
---- a/arch/arm/mach-footbridge/netwinder-hw.c
-+++ b/arch/arm/mach-footbridge/netwinder-hw.c
-@@ -701,7 +701,7 @@ static void netwinder_restart(enum reboot_mode mode, const char *cmd)
- }
- 
- /* LEDs */
--#if defined(CONFIG_NEW_LEDS) && defined(CONFIG_LEDS_CLASS)
-+#ifdef CONFIG_LEDS_CLASS
- struct netwinder_led {
- 	struct led_classdev     cdev;
- 	u8                      mask;
+Alexei correctly concluded that ptep_get_and_clear() might be one option that
+should do on x86 and arm64 from a quick glimpse.
+
+> 
+>> Anyhow, the documentation of ptep_try_install() must clearly spell out that this
+>> must be used very carefully, and only in special kernel page tables, never user
+>> page tables. There are likely other scenarios we should document (caller must
+>> prevent concurrent page table teardown somehow, and must be prepared to handle
+>> races if other code is not using atomics).
+>>
+>> To highlight that, we should likely consider adding a "kernel" in the name, like
+>> "ptep_try_install_kernel()".
+>>
+>> I am also not sure if "install" is the right terminology and whether it should
+>> instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
+> 
+> So, ptep_try_set_kernel()?
+
+I guess we could do that, but we don't have a lot of existing functions that are
+specific to kernel page tables ... only pte_offset_kernel() and
+pte_alloc_one_kernel()/pte_free_kernel().
+
+The most important part is getting the documentation right.
+
+We should probably document that code concurrently clearing PTEs should be using
+ptep_get_and_clear().
+
 -- 
-2.43.0
+Cheers,
 
+David
 
