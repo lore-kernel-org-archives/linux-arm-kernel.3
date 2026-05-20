@@ -4,62 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB5FCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01CB4CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fmc0UBFCeNbgxZ/HVnRCiKiV+eLG7UsGLkScWP+yos=; b=agyDpD1cItqBwaw+qLXUOqGXa/
-	5uMg9E1+OiATZrSpfxerKOeTi/fj9peJseNOQC77jRQ5/u7rfVR4m62U/pC2M3FnsUZ6VClCugZ73
-	+//y+fod9LY12bMf7Z42H9e7KJNAtx5WJ5cJKCqMXAQqDNiHULHrSxztsak+3YS8lV3MO6j6O7QO0
-	1wZ9EHcN75i2SxE8nGpO4cSDwpay2EbwnIeQV/y8TLnT4jHqRlNp3yUz5XfgbEEEG7o4mUA5a3kbK
-	xz6872lbnU5CAquWt3mYR3PfZh8iOa9vo+stHOCOp48QsCm5oSWvscqssaMqqsFyLMWkGSGLjME2U
-	ebEa3yzQ==;
+	bh=P5BertsErcOZ4NtJHX+Ny1VQdLQYQnVLfEZBuZGlEBU=; b=t/VOE35xAxhWBEqE1WGhq4VbJY
+	FjbBhhoA7thDAmTWwvaenYpJQQEO8dHSUbI7MAhfLuKi7awl/u6uu0Y7ClKz5If+H5fWHgiIhrHGr
+	I6glULrXgaEW+KyzTlvzqMKla8eHL2CjHhd5+Fso3fGXz502O7rVg52vIC3Gl6JZk6s+Xd4oIluNu
+	Hw6g/icvFsf2ArQghD0PSFv+APood40yHBarP9c8HQkPiMr+xcRcpp6Oc0OoRUF3OPiY2QaM0UmFM
+	2kJfUNEBX0SMBFvh2tmte6ZRgpQJa05cMlsA4LX6Xx6m7+exmhlmFgoUI6brw/gurGxn3J9De0iil
+	s8Z0T/yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgZE-00000004dCp-0KQ8;
-	Wed, 20 May 2026 13:02:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgZB-00000004dCB-3PTb
+	id 1wPgb9-00000004dPF-1HEY;
+	Wed, 20 May 2026 13:04:31 +0000
+Received: from mgamail.intel.com ([192.198.163.11])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPgb7-00000004dOl-16wE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 13:02:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62A691516;
-	Wed, 20 May 2026 06:02:20 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E18A3F85F;
-	Wed, 20 May 2026 06:02:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779282145; bh=EouBC0yqkVKdLRVBmbSVOwjS0lsH3zO5YOwcji/96BI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SOF+eZMXF24B1OFynsRWIEETVfZ0f67BmjjkvJRHBGxpQrmojbkVsqClEWUipTkch
-	 t+BKe5MqCoHhbo6wv2ohysbnGpMe3aZPxCwR4fRh5SAzhvyWgo9pbK19+xcNFQhHcC
-	 X2zZhkc2C4d7z7D27aVI2NQ5p/qsqU/0+vWT3u/4=
-Date: Wed, 20 May 2026 14:02:08 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register
- during a nested ERET or exception
-Message-ID: <ag2w0G34NycT2456@J2N7QTR9R3.cambridge.arm.com>
-References: <20260520085036.541666-1-maz@kernel.org>
- <20260520085036.541666-3-maz@kernel.org>
+	Wed, 20 May 2026 13:04:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779282269; x=1810818269;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=PP2VqOFUo3U4+tB741dkWlrK+ykS/5pPFuA0d5uetSI=;
+  b=RSDzst0+KdyLS/49yMY9gy6cR0g1FYsjv8ZNT8x3dg1zggl60xUUK8ML
+   CWWw4d1zSsgol9uAVsqYfLKQ3SA8+AiRN2Fh7Hf3I4RyvZDwFTPBQeMdn
+   OMEOIa2EMzJYbOpG4BnPIYC+ttKYnjmHmI0sh2TXg6n02LZ2DRyffLwwE
+   BCXu1GGMIlltWvF78HTb9b01Kd4htYuPSzhqhlP1J3Pspf+C+uuirPUIg
+   cz4o5LgDBb03EAquXjLN3fJCaeT0z0KHpqF/UkmCW5/XA/NewKlaf6xrV
+   bL1JDIbtg7AO6OeCMjNcm7/DN2fS8NuQsFw68W5sfADjss8qjqWqw0cvZ
+   g==;
+X-CSE-ConnectionGUID: GaSPaXRNQ2monZDgajATjg==
+X-CSE-MsgGUID: mJM87qx3R3Kl7MF7vrvw8g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11792"; a="90755169"
+X-IronPort-AV: E=Sophos;i="6.23,244,1770624000"; 
+   d="scan'208";a="90755169"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 May 2026 06:04:28 -0700
+X-CSE-ConnectionGUID: ViUowP4tThKk8tiIX6D1Nw==
+X-CSE-MsgGUID: 50aRtqj3TgOMXPcEBv4YZg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.23,244,1770624000"; 
+   d="scan'208";a="241984273"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 May 2026 06:04:27 -0700
+Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 20 May 2026 06:04:27 -0700
+Received: from ORSEDG901.ED.cps.intel.com (10.7.248.11) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37 via Frontend Transport; Wed, 20 May 2026 06:04:27 -0700
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (40.93.195.31)
+ by edgegateway.intel.com (134.134.137.111) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.37; Wed, 20 May 2026 06:04:27 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kLYUwiZzq07mTB9xu5uFpRHA0DY1F+i5MRqB1/QAXoXtc7TlJaLXJnxElKDfdNIVz3aPVrLChulwjAPz0PVjfIb8uwxuKdiTajrPrK5GLzYG+mXILPklE1tbeUnO1d5mm9TcyqU4DJoYsK+P9Rqg3otpPkPi/siIfe8hW/XhBtQNxp6pXMJvQrScmAu7a8m/VKxDZ+FsHAyT+1zZwk7CWyyi6bPmV97SDqYILj5BKcZgxL/sTAAMGJptEvItM7PE/Szs+kv63Za3CgS1C8kbBCGno2i9fSjEpzWuo7BZRL6u1UABUg2xenOUkHLVY6GjE5k+omD/6zj1I9LMyaOCTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P5BertsErcOZ4NtJHX+Ny1VQdLQYQnVLfEZBuZGlEBU=;
+ b=enlmwEuQBdiJFuG+3sFUfPAQ122lmRx8ki/rK8oNL0S9uGNIP6XMQM12u6SCHPT4KwCdzQzp0IYtRb2GxjkObCB4uvU5gRXs2PShg6lC5W8W2ZLUTpJ6FoOhAfIyjVXwIW55sdJYAFrH0PUQkHzyXD2Y3KGZNy/NWjrNT9wA5GhLmJa+ZFsKmE0Feho/JZ+NBTn4cIEq3hxWuJoTthoKL/UTPkDMyqxHoOj5RCEHvGsyjRyTW9CfmC8uQPg4dQNc1I2LRrtizR0xB7IsmK5hnNCHRpnbHOqWKydpcG5bVkFzy7zt85+LuWt8JLQ6+RB584GhB2WT+Wu92jCVCUv+sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV8PR11MB8509.namprd11.prod.outlook.com (2603:10b6:408:1e6::15)
+ by MN0PR11MB6134.namprd11.prod.outlook.com (2603:10b6:208:3ca::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Wed, 20 May
+ 2026 13:04:24 +0000
+Received: from LV8PR11MB8509.namprd11.prod.outlook.com
+ ([fe80::f5bd:4dde:4f2f:20b7]) by LV8PR11MB8509.namprd11.prod.outlook.com
+ ([fe80::f5bd:4dde:4f2f:20b7%5]) with mapi id 15.21.0025.022; Wed, 20 May 2026
+ 13:04:24 +0000
+Message-ID: <e8337102-aecd-48e8-9a2d-10f41ed43c5b@intel.com>
+Date: Wed, 20 May 2026 21:12:31 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+To: Nicolin Chen <nicolinc@nvidia.com>, <jgg@nvidia.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <bhelgaas@google.com>
+CC: <joro@8bytes.org>, <praan@google.com>, <baolu.lu@linux.intel.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<dan.j.williams@intel.com>, <jonathan.cameron@huawei.com>,
+	<vsethi@nvidia.com>, <linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
+References: <cover.1777269009.git.nicolinc@nvidia.com>
+ <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Yi Liu <yi.l.liu@intel.com>
+In-Reply-To: <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TP0P295CA0030.TWNP295.PROD.OUTLOOK.COM
+ (2603:1096:910:5::15) To LV8PR11MB8509.namprd11.prod.outlook.com
+ (2603:10b6:408:1e6::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520085036.541666-3-maz@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR11MB8509:EE_|MN0PR11MB6134:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2e284111-7c8c-4e49-e344-08deb670508f
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|42112799006|1800799024|376014|366016|7416014|11063799006|5023799004|22082099003|4143699003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: BzxxO34EURM8sBfLGQYQGd6giAkzlsiZqODnpclzcJD1k5ENg4a7KnWMPD6EMIk77TjE2B2p2fjGTNXYiva0QsZI48oLrwjPYjUrvi6F9K96LAmeAkK1DFYCmJalwycektzr7xCPC+cuvAesQ2WDXSMpOUkDQUEg6yV2/dbcDtjckSq62y7LxzPtplTMleN/g6nfy/VgV9tdiTC5mHbZ4Ll37JEzqOifOuvzbHAgL05NYeHCtJyKfwRes5N5r10SeukUC5h919RsvPTu3DcDOLpmtCCcHYzp9mRRC0b7aO43X62Mlmj/uTK+hTwSPs0XKAXfuGWrdB6AMowCBCMRvpBHti5MEv6IuE1xQ+djQKCQuGTF6K1RnoHT2czv4zApCCARZjD94/DjpJohi7xwmbrbJH6b0RxNRMoyJkEH4js98cB6M9GtWleDM7boc4w3jnU8aOO0kbVczDYDp8bJ5aDXmEOLhBbu6x2mmzABCEn06jUoIxVmzWbWRIiD8wLAbMFOaysd9Z+hKSl166T8LbGgnFAUie9Y8qi4rldaiV/l6ZbPIJ/6BgPyFjy8hXLNofPTU+gHkUqukk7OIpFx0ErWq6Lwbx8lBuptMZiIU77DZ5uFUQXvvWAr3Hwd3u3j6foaqv6/fC+sxIE9Uhqw0Z/pvlsKZ2sReDcPIx511zC1tFcbtiCbe3Nf5mphgDQ0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR11MB8509.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(376014)(366016)(7416014)(11063799006)(5023799004)(22082099003)(4143699003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QmRiY3NpN1gyVm8zNlJQOWd5TG83ZXJyelc2eVJaaU5SK0o5eFdOZTN0c1Fk?=
+ =?utf-8?B?NjFCREVlUUhIb1BJbnlkSlNaQUlCUURnemIrMmhpRDY3SkFJb1V3MXkvc3RJ?=
+ =?utf-8?B?a1dKTVNNbjlUWmQ5dHF6Mkg0R1FsZ0lFSm1tRktxdENrOTFYNm5yemtqZll2?=
+ =?utf-8?B?YUhwUWYwRG9kcnJuMnd6dXpBa1NmdGptVjlIRnpwVEhYUjJZTEpPSkVxbkc4?=
+ =?utf-8?B?NEZXMHMzTi96TityVWE3RzdQbEczS1JVSVoxNHFnWGFUWVplK3FzOERBVk9R?=
+ =?utf-8?B?VEcrSWpTQW9FUTJrelAxakM1NzVYQUJZV3lydE45NmhPeDhxOHkvRjZPMDJ1?=
+ =?utf-8?B?TzRvUXR4SW5ucStUQ2w2aDFESE5hRmJRdWZwbHRIQTFwbWpxWjBxQmRSQU5v?=
+ =?utf-8?B?S28vaFBOMXBpUTZkaGJjaFJQSTA0QVFrNWhNRi9SbzJGUGVaN2M0MHVmTnpM?=
+ =?utf-8?B?YklJNWZCNWtFN3o2cnMxcGJBL1ZmR25neEhQR0JSaXZxN3hCR1JmSm8wcmFl?=
+ =?utf-8?B?WTl5MTVIVWNmY2lCMG0xaGxQdThmbmE1TlZPQ2JuWmd4MzB2K3VxSUFWUjdn?=
+ =?utf-8?B?bzczRlA0MGkxbDBzdU1FbnNMRk1DTW9DY0o0NFNiRmdES2JiU0IzdFBaRnZ4?=
+ =?utf-8?B?Y3hxVDZmd0JzMjNnbVRqQ29GZ3VBc1hnU3BTdjgrdHEzcUZNS2Y4YTNXU2N5?=
+ =?utf-8?B?NWFxUEQraVlKVndYbWZZRGZsZWtkZlYvcmFrVGJKWUxYbU56UnhUR0N4cEVO?=
+ =?utf-8?B?RnZkalJUbUg1aFFJaHNXNkxTVlRUaWFKdTNySXVlU09SVUVSUFBqOXJ4SGY4?=
+ =?utf-8?B?akF5S3B4d3BWRDF1OHZ5dUl1UkwyeEgrajhkQWhodDVpUG1mbkxlMVpzQkVO?=
+ =?utf-8?B?OXo0eFhQTVhmUElUQmVmblBaL3pnOXREU1VLMEtYUG5vSVZuT3gwdTRGdkx6?=
+ =?utf-8?B?bXpVM2FmNmVpWGtaUlZiY040NHZIOFN4Z2tTeEhsanh1amk2czdQc1BBWC82?=
+ =?utf-8?B?Y2tlTXdJUUl5dzRHYmNSMExLNEM5anNHcmRlRHMva1Z0VmpTZ2xnK0w3cUFv?=
+ =?utf-8?B?VjJaTjN6b2lnNzVKL2FhblFtVjVXa2VXTkxZM3lFT2hyR24raS9GTFgvNzhW?=
+ =?utf-8?B?YmZUYWN3aThSSGo1UUpxNjBPZUtXSGlCM0lqSkFHcWlEazU4dkFYN294M2Fi?=
+ =?utf-8?B?OVIwUVVNVHVIczNqY29XMWVXaEpiQlh5dGh4WFZiMGdFZDJTc2xYOVRiMk0z?=
+ =?utf-8?B?eWR1SEh1VlViWWMwSExZME1pR1lLeGxIMHZaUEI4YlFOaVdFOG9aUW54dE1R?=
+ =?utf-8?B?SXk3MlhEd29JdlFpNTlvVUkrRHQ1S3hNcXNEUEpWODJQamlycm5KdEgvcXdL?=
+ =?utf-8?B?aHJKRlRIME9BL1ArZWttSWZyY2pDbVBVc2c2OVBlSnBUSkdTVEdZaG92SG5Q?=
+ =?utf-8?B?WDdkM084MG1JdmRZRDFTa3g1VG0yZElZb05aRXpsTTRaR2tSdVNvbzRDMnk5?=
+ =?utf-8?B?YTN1UmhWZjdWeGlpdTI4dlpBUFlYUElOcGJSMWlNQkovRTFrdzF3N0lzQTBU?=
+ =?utf-8?B?UW5QcEs0OXRNbktxSnBBS0ltY2JhQmpGRnVxaDUyOFJ2MEtEbzFUMGdvTWRm?=
+ =?utf-8?B?OEY1Ym1wZlZGWW16S1JyS1RoR0ozNVBqVFIvYzNhWHlXZGRNWWZydkNqbGY3?=
+ =?utf-8?B?N01tY1pUVng4bW5iYllyM0tyOENQRFBjZGtyendGblFwR0NZWjNrbndmR0hK?=
+ =?utf-8?B?T2t4R3dOZDNDbEplNEo3bTVGUlVMczVUVWFZNVNLUElYY1JyMWFtT1I1VE1G?=
+ =?utf-8?B?NGZzeExEVCtoeFBmNm40U1dHWkloSkxYNThiTGVlcXdTY0ZXQ0F4N25XZHdB?=
+ =?utf-8?B?VXFDbk1NZGk1b00vdDJSbC9zM25yN2dyaW5OdGJmZVNHUWIxUXRpakYweUQx?=
+ =?utf-8?B?Szk3RTNUdjg5dVRuQ0V0WCtyNnUveDJnalhNZk9uOWEwWWJrREdibkc2QVh2?=
+ =?utf-8?B?WGtSYnVWdG9wR1kzYU9VR2dCRml1QzF5STB6QTRwQjhIdHFPN2EyeVBRWTlK?=
+ =?utf-8?B?WnJYMzdlVmdHZlJWd29PdlJWeFIyVzNmYUdaREFmZytNQ2I3OHJsT2Z3TWF6?=
+ =?utf-8?B?dzgxd0tEQXNZWW1SUkxreERDQUdFY1l3ekFLZ0RFQjNMUitRS29XV0hqZWd6?=
+ =?utf-8?B?SE95KzhhT1A1dzZkRUVhaFFPcnJxcGsrRDFPTjJoNzFWVEU0V01kRXdMdDVI?=
+ =?utf-8?B?bTY0b3JWQmprQzM0SExzTkVmdkNRS2d2YUNoV3QxaTNDM3ZtMUltRGlpZEl2?=
+ =?utf-8?B?REwvU2dJUWltR3dGekRZTWpKVU4zcS84cEY4TUNOUVFlMmx3ZUR5QT09?=
+X-Exchange-RoutingPolicyChecked: vmaYb5fsLjeyiNt1LdkpqVsLsNe99lEUGU7wTOBvEG68S0UhQnFqFx0rtTVmrhHKEMX6htvvDImA8bUlTzq0kpwUhDAy0qIIexW63Op2TPFmQsaJfXp1DFSHdiQCxhm2R65rdL3OAGmRqL4WpH/5ly2oUsbf3xi3XNufFK/fG9JvfQF2DIqWYI4FSIc027juGRFToD0PsI/6V7ZQiV/Z2Fyt6B8QcHzzk7dskHS3pABt6tOo/ky3BZlUy40XRqZ7ut0vp1lliyR27ypLxt52nq4yG7wHbbTQumBB5+VfU1Q3U5yz3fdbz9zjPcVc7INHk7FT6qLANoKz97nfYmFL0g==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2e284111-7c8c-4e49-e344-08deb670508f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR11MB8509.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 13:04:24.0544
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: /bhwaOTBG/gproVfp31DiWWN+mJkn1xzZ9e7c8tkeU7lDHlHzEkEM32wZvKK4S0axxpuCFM/gkOUo3jtu5J06g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6134
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_060229_983784_9C8C887E 
-X-CRM114-Status: GOOD (  33.46  )
+X-CRM114-CacheID: sfid-20260520_060429_353498_B6497FF1 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,104 +189,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 09:50:36AM +0100, Marc Zyngier wrote:
-> When switching between L1 and L2, we save the old state using
-> kvm_arch_vcpu_put(), mutate the state in memory, then load the new
-> state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
-> and unbound, such that it can be lazily restored on a subsequent trap.
+On 4/27/26 13:54, Nicolin Chen wrote:
+> Controlled by the IOMMU driver, ATS is usually enabled "on demand" when a
+> given PASID on a device is attached to an I/O page table. This is working
+> even when a device has no translation on its RID (i.e., the RID is IOMMU
+> bypassed).
+
+nit: this description seems not accurate. Intel iommu driver enables ATS
+in the probe_device() phase. mind tweak a bit to avoid misleading
+message. :)
+
+> However, certain PCIe devices require non-PASID ATS on their RID even when
+> the RID is IOMMU bypassed. Call this "always on".
 > 
-> The FPSIMD/SVE state is shared by exception levels, and only a handful
-> of related control registers need to be changed when transitioning
-> between L1 and L2. The save/restore of the common state is needless
-> overhead, especially as trapping becomes exponentially more expensive
-> with nesting.
+> For example, CXL spec r4.0 notes in sec 3.2.5.13 Memory Type on CXL.cache:
+>   "To source requests on CXL.cache, devices need to get the Host Physical
+>    Address (HPA) from the Host by means of an ATS request on CXL.io."
 > 
-> Avoid this overhead by leaving the common FPSIMD/SVE state live on the
-> CPU, and only switching the state that is distinct for L1 and L2:
+> In other words, the CXL.cache capability requires ATS; otherwise, it can't
+> access host physical memory.
 > 
-> - the trap controls: the effective values are recomputed on each entry
->   into the guest to take the EL into account and merge the L0 and L1
->   configuration if in a nested context, or directly use the L0 configuration
->   in non-nested context (see __activate_traps()).
+> Introduce a new pci_ats_always_on() helper for the IOMMU driver to scan a
+> PCI device and shift ATS policies between "on demand" and "always on".
 > 
-> - the VL settings: the effective values are are also recomputed on each
->   entry into the guest (see fpsimd_lazy_switch_to_guest()).
->
-> Since we appear to cover all bases, use the vcpu flags indicating the
-> handling of a nested ERET or exception delivery to avoid the whole FP
-> save/restore shenanigans. SME will have to be similarly dealt with when
-> it eventually gets supported.
+> Add the support for CXL.cache devices first. Pre-CXL devices will be added
+> in quirks.c file.
 > 
-> For an EL1 L3 guest where L1 and L2 have this optimisation, this
-> results in at least a 10% wall clock reduction when running an I/O
-> heavy workload, generating a high rate of nested exceptions.
+> Note that pci_ats_always_on() validates against pci_ats_supported(), so we
+> ensure that untrusted devices (e.g. external ports) will not be always on.
+> This maintains the existing ATS security policy regarding potential side-
+> channel attacks via ATS.
+> 
 
-There's on additional thing that's important, but I forgot to mention
-last time: in the window between kvm_arch_vcpu_put() and
-kvm_arch_vcpu_load(), it's possible to take an interrupt, and for a
-softirq handler to try to use kernel mode NEON.
+Reviewed-by: Yi Liu <yi.l.liu@intel.com>
 
-Due to that, kvm_arch_vcpu_put() must leave the L1 guest's maximum VL
-configured in the host's ZCR_ELx, such that the guest's state can be
-saved.
-
-That value is configured by fpsimd_lazy_switch_to_host(), so we just
-need to make sure that kvm_arch_vcpu_put() doesn't clobber it. I *think*
-that's fine today, but maybe that warrants a comment somewhere.
-
-Other than that, this all looks good to me:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Mark.
-
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Cc: linux-cxl@vger.kernel.org
+> Suggested-by: Vikram Sethi <vsethi@nvidia.com>
+> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Kevin Tian <kevin.tian@intel.com>
+> Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
+> Acked-by: Nirmoy Das <nirmoyd@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 > ---
->  arch/arm64/kvm/fpsimd.c | 23 +++++++++++++++++++++++
->  1 file changed, 23 insertions(+)
+>   include/linux/pci-ats.h       |  3 +++
+>   include/uapi/linux/pci_regs.h |  1 +
+>   drivers/pci/ats.c             | 43 +++++++++++++++++++++++++++++++++++
+>   3 files changed, 47 insertions(+)
 > 
-> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-> index 15e17aca1dec0..aca98752a6e42 100644
-> --- a/arch/arm64/kvm/fpsimd.c
-> +++ b/arch/arm64/kvm/fpsimd.c
-> @@ -28,6 +28,20 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
->  	if (!system_supports_fpsimd())
->  		return;
->  
-> +	/*
-> +	 * Avoid needless save/restore of the guest's common
-> +	 * FPSIMD/SVE/SME regs during transitions between L1/L2.
-> +	 *
-> +	 * These transitions only happens in a non-preemptible context
-> +	 * where the host regs have already been saved and unbound. The
-> +	 * live registers are either free or owned by the guest.
-> +	 */
-> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
-> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
-> +		WARN_ON_ONCE(host_owns_fp_regs());
-> +		return;
-> +	}
+> diff --git a/include/linux/pci-ats.h b/include/linux/pci-ats.h
+> index 75c6c86cf09dc..d14ba727d38b3 100644
+> --- a/include/linux/pci-ats.h
+> +++ b/include/linux/pci-ats.h
+> @@ -12,6 +12,7 @@ int pci_prepare_ats(struct pci_dev *dev, int ps);
+>   void pci_disable_ats(struct pci_dev *dev);
+>   int pci_ats_queue_depth(struct pci_dev *dev);
+>   int pci_ats_page_aligned(struct pci_dev *dev);
+> +bool pci_ats_always_on(struct pci_dev *dev);
+>   #else /* CONFIG_PCI_ATS */
+>   static inline bool pci_ats_supported(struct pci_dev *d)
+>   { return false; }
+> @@ -24,6 +25,8 @@ static inline int pci_ats_queue_depth(struct pci_dev *d)
+>   { return -ENODEV; }
+>   static inline int pci_ats_page_aligned(struct pci_dev *dev)
+>   { return 0; }
+> +static inline bool pci_ats_always_on(struct pci_dev *dev)
+> +{ return false; }
+>   #endif /* CONFIG_PCI_ATS */
+>   
+>   #ifdef CONFIG_PCI_PRI
+> diff --git a/include/uapi/linux/pci_regs.h b/include/uapi/linux/pci_regs.h
+> index 14f634ab9350d..6ac45be1008b8 100644
+> --- a/include/uapi/linux/pci_regs.h
+> +++ b/include/uapi/linux/pci_regs.h
+> @@ -1349,6 +1349,7 @@
+>   /* CXL r4.0, 8.1.3: PCIe DVSEC for CXL Device */
+>   #define PCI_DVSEC_CXL_DEVICE				0
+>   #define  PCI_DVSEC_CXL_CAP				0xA
+> +#define   PCI_DVSEC_CXL_CACHE_CAPABLE			_BITUL(0)
+>   #define   PCI_DVSEC_CXL_MEM_CAPABLE			_BITUL(2)
+>   #define   PCI_DVSEC_CXL_HDM_COUNT			__GENMASK(5, 4)
+>   #define  PCI_DVSEC_CXL_CTRL				0xC
+> diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
+> index ec6c8dbdc5e9c..fc871858b65bc 100644
+> --- a/drivers/pci/ats.c
+> +++ b/drivers/pci/ats.c
+> @@ -205,6 +205,49 @@ int pci_ats_page_aligned(struct pci_dev *pdev)
+>   	return 0;
+>   }
+>   
+> +/*
+> + * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source requests on
+> + * CXL.cache, devices need to get the Host Physical Address (HPA) from the Host
+> + * by means of an ATS request on CXL.io.
+> + *
+> + * In other words, CXL.cache devices cannot access host physical memory without
+> + * ATS.
+> + */
+> +static bool pci_cxl_ats_always_on(struct pci_dev *pdev)
+> +{
+> +	int offset;
+> +	u16 cap;
 > +
->  	/*
->  	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
->  	 * that the host kernel is responsible for restoring this state upon
-> @@ -102,6 +116,15 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
->  {
->  	unsigned long flags;
->  
-> +	/*
-> +	 * See comment in kvm_arch_vcpu_load_fp().
-> +	 */
-> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
-> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
-> +		WARN_ON_ONCE(host_owns_fp_regs());
-> +		return;
-> +	}
+> +	offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
+> +					   PCI_DVSEC_CXL_DEVICE);
+> +	if (!offset)
+> +		return false;
 > +
->  	local_irq_save(flags);
->  
->  	if (guest_owns_fp_regs()) {
-> -- 
-> 2.47.3
-> 
+> +	if (pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap))
+> +		return false;
+> +
+> +	return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
+> +}
+> +
+> +/**
+> + * pci_ats_always_on - Whether the PCI device requires ATS to be always enabled
+> + * @pdev: the PCI device
+> + *
+> + * Returns true, if the PCI device requires ATS for basic functional operation.
+> + */
+> +bool pci_ats_always_on(struct pci_dev *pdev)
+> +{
+> +	if (pci_ats_disabled() || !pci_ats_supported(pdev))
+> +		return false;
+> +
+> +	/* A VF inherits its PF's requirement for ATS function */
+> +	if (pdev->is_virtfn)
+> +		pdev = pci_physfn(pdev);
+> +
+> +	return pci_cxl_ats_always_on(pdev);
+> +}
+> +EXPORT_SYMBOL_GPL(pci_ats_always_on);
+> +
+>   #ifdef CONFIG_PCI_PRI
+>   void pci_pri_init(struct pci_dev *pdev)
+>   {
+
 
