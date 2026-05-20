@@ -4,91 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E28CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 724C4CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+FrgwpGM2Ey9DAqvdXlbg9+ub1m+pVkWeD4ut37zc88=; b=TsqTqvYdHJ9MPY65cZu3fneIKy
-	S46noDNk30mnSkC0ae/c7ZJZVi+lUZUA8tmLbTnbFSbc5IY0DFM4+ZeW77NDiavnC8PjyLwMW65+F
-	51Lad2cH2m8HKLecPLUMh/L/RwczrqrDQ94qc3o1SbwuzvwSIEC0KPRwyWtT1NX6wvwykDAGvR7QD
-	3nihaBZoYpFgoDzg2ubaSAZdJw1ctRttCA0tu9gcAp9ZOqh/w3jZYwZvwJCrlBABe9ft+nj2CEDRa
-	YaSkZJvEmlYbsbzOvBFnwu5hF496L+r8BWBrG0gk6q+6jzPUbXNOLjnVUAQl2zNGbMcjcAgrQ+xs2
-	OLTRqhmA==;
+	bh=uGF4VWsFW4c9p1rIOgeYQzAbpK3/GpsFKflbJkpZYmc=; b=ns73I5uQtnhgfjMzOAsn0U4MJW
+	YPvhPAFFuTjM95SUEbrB3JSQTeMsSycWtZICkHkTpDUwx6hQ+YEVh+CeHXEUdP9//9TDeumPrHfhA
+	owXk18XcpMliIFZL9l2wPZtWaf/5qjPs7z1BeBisZJmQhIKT/N0xZutLBd+2PcmwL0wIQHpN1vdxz
+	2qECk2hTYmZZr9Qu+AWcu+8E0cJsl8M2Ovs833P569+KP8K7CYZ85BLq06NnV5JwMdV/pT8RjZYE6
+	fhjsBrzH//I2tm/yPlgRMnYp/pOnxXksJBedYhkjsItjWDjC2KNY5HiSkOYsD5abisInbfpV4TMHk
+	6kO/UIuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPbPr-00000003o2m-2oWg;
-	Wed, 20 May 2026 07:32:31 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1wPbQx-00000003oHJ-0BV7;
+	Wed, 20 May 2026 07:33:39 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPbPm-00000003o1P-3A7i
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 07:32:30 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5a8891f0c51so5014166e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 00:32:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779262345; x=1779867145; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+FrgwpGM2Ey9DAqvdXlbg9+ub1m+pVkWeD4ut37zc88=;
-        b=eJyHnL3J37CinMUp9Hq2vjB0eRGWfTCklRwTyVjSXnRZhbfQuTPZScbgUViuzQ7BpO
-         apmtMkUgFikyLhuGzzfZ/2IGRjXTIwvRaPuIsfDSiM9eSHv2V3p9Maq6qO/0L6L3uF2w
-         uwzvhNG3ZKrSdY2KyLjwzdOnYLds/+BlY+DQVeeaTGS7XISe08DQnWxZcKAAAk6Vq/TT
-         mROJwiD2dGuCQ7QKXHQQg9LdCXiuRcw0nKDozhBAu81DQYa8PI/cOcQhY/e28sm4UnTO
-         YXDnCaNLgv8e9kwbQ1UxY2yvVPRjX0r2sXa0WhuJ2LmexczAP6qZc7hAUuTPJj+4/xR9
-         8s2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779262345; x=1779867145;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+FrgwpGM2Ey9DAqvdXlbg9+ub1m+pVkWeD4ut37zc88=;
-        b=e2uiElQW5zHsnMgXurmrBQZcaWx0ZPLNxMQc+DyJhLc6ihXWpJo7QjCcCOR/MC13e1
-         tgZ8CPd79VVmsbcYoXpqKIFPAEV4iewrWgauYp5yo/6A90+zbVs9OiHLg28mmEOaVET5
-         4ZBPfVcpmelzOrmu0yL8DoOLoXfwNVhs53u9F7i5z4v4kR24ZXuk9tEyZ7He8DGemw9S
-         i+t8pxgE5S14pDae4hZ9gCX48Tjk0qPE2K5EFAqGXISbM7DFAqATPtIAZvCD4WNqGDlS
-         Z4jd5le7bImOlJkMe6Jcu83Yye9j6J0JtpRfbUW+wFbhNknQCoi19ZpCE1JtpjXKDi+b
-         DRoA==
-X-Forwarded-Encrypted: i=1; AFNElJ/aeFJiCHkP5ZeACSpAsCC4EPit9/LYGuqOAKWv5g/vYYbUArvGaRozVzefcjSvzz31x7Py9q7z2cREgzJhErfk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3PM9fZYKbnyS0ZCyfe3sjZH3tkOB4O7BX3rDmiwQKTwBcqU3b
-	k1zuvLCbtZ2M/GwHBi6t5RHxfjwAQAiyQoReu4P2x6MFGQpN33j6lmjC
-X-Gm-Gg: Acq92OFNeVPlnQuoRVeuLAjoOzvKu+ISgMKi8C6BweThsuGl1TPss9dIgWSq1r2cfQE
-	x9Qx2NGOXXFM5HM2giFz19+b8iejvrXuuz9JDr+pG/DkYphsHipydV5DLnFPWXe1a34MG4owi0m
-	MRUyoslqjGcSNX3uBOVqtFu2NEnfR3o1CUJ3DuRm9KD2U9wpmoBD1wK/UQgBUZxw0wAIdN4tTZq
-	LVCuVBHzbzQ/4jpaL6cTA5bquh2aqb6WfQn54my9IzQ0Bpdxhb0zcXi41+as4OKm5QdgO5+lwRf
-	SNt/QpoRfmqOXdOPFRBGVWQge2cLcqWp6YBxuVOkFtrTcKW5VjA/NTJb8xzEN7cyWgHR0E9SUL6
-	tMnW3vVgdizb6t9EETBoRhUo8mBHYElqRfbVnBDvnbON62SXsVeIG33638BwtLK5K
-X-Received: by 2002:a05:6512:1291:b0:5a3:fcb2:c6a1 with SMTP id 2adb3069b0e04-5aa0e614047mr7302936e87.13.1779262344292;
-        Wed, 20 May 2026 00:32:24 -0700 (PDT)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a9164bc462sm4733129e87.45.2026.05.20.00.32.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 00:32:23 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Wed, 20 May 2026 09:32:22 +0200
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
-	dev.jain@arm.com, rppt@kernel.org, david@kernel.org,
-	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com,
-	linux-kernel@vger.kernel.org, Wen Jiang <jiangwen6@xiaomi.com>
-Subject: Re: [PATCH v2 6/7] mm/vmalloc: align vm_area so vmap() can batch
- mappings
-Message-ID: <ag1jhrWivbasi8Jq@milan>
-References: <20260514094108.2016201-1-jiangwen6@xiaomi.com>
- <20260514094108.2016201-7-jiangwen6@xiaomi.com>
+	id 1wPbQu-00000003oFz-1Mes;
+	Wed, 20 May 2026 07:33:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZgMwizqgTdL+D3FJL/eWUSEkEc2GjEsDo9LiXsY8pYDP9fVV1V/n6UzMSdn3MWnNLAM04kPLsSEqC3OGw1IVB+Ir06NpNjNDF6BIMAwC9pXW4xIN7LJFIjimMyzK/pPq8xR0EkYv8Kezz6+xB5QfPnSlCqGYagPwXNlFEw6XdU7jiRFBjd3+XWbX4GtvZnEmIMZwGI0FIThR2VO/uZp3s6WZtFnK91vPnZXEXfOyA8TlF/7cnDy/NysjcRiftam7HPnCHICYXGlk/y+jaid4HUnwxZzvOKPs2m7p64mTGognyxLvU1YGMGHa6G2xYr15wOG6joTB75oZYWIvay+wGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uGF4VWsFW4c9p1rIOgeYQzAbpK3/GpsFKflbJkpZYmc=;
+ b=kaw4IBsSqIlK3ETjld8j+T53mCxXqlZkQ1aHx0ydQo9AE2UKYf8Nv7xNcSHRF+hqbtW1KFJyS9VAQgpsmSBgkzWBGEHrU4AuBcpiS7JsgQplsDHD2VDj9gb6Z/z8ib0Y0k+6+Nqvhj0wN7BUEm3OZKWRym6zX7c9fZR4z3MejV+c9IGkj8yN6Y+gUXE+NsPOBip9sSGT/0HxA0UmCC/gE+Hg53X1Fe0vpzVO/CptL181xKhnbeemX6x/L2/+gbHVPmRgUfHbKW7splfuSDhYHW9klwlvyHQOSDyYHn2QheOsUy1GUYjBULwmj09vBXkLHHa67YcG+6aQUcE45ymvKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uGF4VWsFW4c9p1rIOgeYQzAbpK3/GpsFKflbJkpZYmc=;
+ b=C18ETXcdnpDk5sIpauvCZq189YV+YbuypwFCDmpb+kkTQZkcWyc5Vr+uc7g9qHvqQXB/+DK2AcMN0i1l9/wpyA2t6cWYZqvCVTreCc8Tqo52cM2n5AqFpRhZ12kT+E0OcrUm9rc3DiCuUwJiwQJMpACFc1xGdmU8WOzvCwbNEfOUSMgd8388KeGc9Fh8suwWPJXq38tg/bqyZa9usSRcumxoxfkooNWTKDGePmJJGq9ytPBklGif8m+CwQ88DoWRjwzYRamn9s6AyN5VMd6LhqXCb6K6VBqAfCldk+doM/tdSvPyNMHdQzKszU9H95dlCJBz9g8f+ByESQJPe0x0wg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by PUZPR03MB7042.apcprd03.prod.outlook.com (2603:1096:301:11d::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.15; Wed, 20 May
+ 2026 07:33:10 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0048.010; Wed, 20 May 2026
+ 07:33:09 +0000
+Message-ID: <96aac0a2-7531-4a40-8a55-630e92012bb5@amlogic.com>
+Date: Wed, 20 May 2026 15:33:07 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/10] clk: amlogic: Add A9 PLL clock controller driver
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman
+ <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+ <20260511-b4-a9_clk-v1-8-41cb4071b7c9@amlogic.com>
+ <1jh5oa6kcm.fsf@starbuckisacylon.baylibre.com>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <1jh5oa6kcm.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2PR02CA0131.apcprd02.prod.outlook.com
+ (2603:1096:4:188::6) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260514094108.2016201-7-jiangwen6@xiaomi.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|PUZPR03MB7042:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8b372eed-4866-4d9a-16e5-08deb6420ab0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|4143699003|18002099003|22082099003|56012099003|11063799006|3023799007|5023799004;
+X-Microsoft-Antispam-Message-Info: IGgAWCxWUF++kqkqbcHH+8GvXqCluDtWho8MxCw9GLaXPb7ICNrChi9hHG6D3twg+oao9wQVIMM+NmHbh1KoScBBrAckOCDiEAnUkWvbNVa3SVLUVb9WL03khu7BEcWlI65evivzSbq+rtSJt02Six6q9WhyBKJL6d7OwViUPgWQP/8yBuOIZtihX1uun9ZFSZE79f8TJUg3yp2eL6qIcdLlZdHU3r8hELmkw+dkjA3y5lzo+UlqfS89Yww7GKk03VyxDMUuApIUIA8alO5cjb3DbYSFlsnl/+knM4UaupwMgcadVggbHdhcaamvEBdnLV+NuCtX0Z9yR/08e0RtSYryALkVAXrCQb77ZLoHhf+FLDozQQ69fzBmaIWErNPmZmTOO3nWqglPhLuFWjhl20BGcS+DXT9luDUNrkDtzGFpqXHdYQDAWWv+t/fmBEaTvGvneFW4WyJzcKasWK2BGl0vJ8PVYC9E+CFQjYQAJVkftx4MMD8iZTsDCcyyAq+edWXRRml1Ghhq+yvb3jpQAxItYHqPwBQ+BOwx5ssTAt+FdTQvf4S/HrAf7xFGhp1c3H4bZYQwjfvCpjLfC0lK04hK9CccquwjTiecN+Mru67oQFfiSiGJCkn4pi3cTJat7Hmotd3nqcXdfTQ1LmqXiZE0M86uRsNbyvmU+nX4Oaac4brZdetKnDvV5mBSR0Kp
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(4143699003)(18002099003)(22082099003)(56012099003)(11063799006)(3023799007)(5023799004);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MWZPSWNZQmM5S29GK1RzR1RZd2o2elQwRXdxTG5vM3ltUGxsZHhBdTlEdHFa?=
+ =?utf-8?B?a2tsc2Y3QkgrN1FXRFoxKzU2TE90aEpkWkNSUUgzR09EQzBCb0ovMVpyQ24x?=
+ =?utf-8?B?eU00bFRsbVpMcU1MNGludkdRVUZadldINkxoZzZacTR1MEhCTzg3SmFSNWVQ?=
+ =?utf-8?B?bmwxME8wT2M3NWlVNWJ0aFNjd1hxeTBPQ2Q5MjFEYUdaYzlzRjN3dkdIVFJn?=
+ =?utf-8?B?QTZhdCtRQVlKTHhiOGVvbzN6OTkvWjNqWHZRY0JJQ1lldS92SFBpVDVMRVkv?=
+ =?utf-8?B?RWQ1ZHpzaFlQUURWMmg5bHZ5UXN0WG1maG9LY3RjN2FWQ0lHVG9LNlVoSUI5?=
+ =?utf-8?B?dTFXd3lVNkJZeWgvU2lvQ0tBUDJxcjVwdVl5SDU2UjdyaG1kRXNRV0lFcVk4?=
+ =?utf-8?B?aUlPUDR2UXJ0TzRpZFJtWkd5MkkyMFJkNDVTZnNUdk1QMzV3Q2lnNGNuUytX?=
+ =?utf-8?B?OWNOU01MWlpJeXRSZ2t6ZGhzR3IwQ1lVZ25KMnloNHkyUkZYU002VDltZGdv?=
+ =?utf-8?B?RTJxby9xckZ4dVM2MjhRQkNaTkUwM0tjSVRiT1p0TkhVNmhQMlRTaGVzczgr?=
+ =?utf-8?B?T3JwckpDdEhlaUtUWjc5R1doYyswNHN6TVRyUXUvdjFxNmZUK21mQlNKUm8y?=
+ =?utf-8?B?MSthL1R5MCtQL1FScTNWUW9ROFhob082aTlpakRFYUhPdThMNWVXUHI4ZEQr?=
+ =?utf-8?B?R0ZZMjd5OU8yc3kvZlRuV3psVVJZWGZvZFNKSU92WXp4ZzIwajZ1aGJkOWJ3?=
+ =?utf-8?B?RFZnRUZib21jRFZGYmM0NWlrYU44dWphWnZjMi95V1I5Y1E1aFhlTGpiUVhZ?=
+ =?utf-8?B?T21udTQxWjdqaENkdUhwOTgrcDRKZTNRbXlybGk1VnhMZmZNWER6SE1oVmhI?=
+ =?utf-8?B?Rk1odXBoRDZVRUFWU0JxUmc3NUljSDhQSHRWS3czZTZBN2k0WGtaZ0R6c3ZE?=
+ =?utf-8?B?STJ1VjhsOE1PSHhMUXBQM0ErY3ZyaXZDdE9ZNnVwWUJHZ0NWb3o3MDdDdmZH?=
+ =?utf-8?B?WlN0SjIrbnFaSGVFUnZpTEtkcS9WWVA1VjlCWGVkZjB5SjkrOEtjZUlIZkk5?=
+ =?utf-8?B?Y2pHeWxjQ0ZYMi9JcGdidEFCN29RcVRHMDkzT3BZbVhJdjRKd2l4R1ByVk1n?=
+ =?utf-8?B?RCszUU1odHdudTlKV0lSSGgvYXIxL3hZMlZUd0tOOUlkblZabFV2NUNIYW1S?=
+ =?utf-8?B?a1UwTEdwQWhtUVZCd1dCN2NqOHU1dDE0b0pvRGpGNjdTV2xpamlMY1ZGQ01W?=
+ =?utf-8?B?VXRId0tQRzdTd2hTUUtvaFljUXUxQlpXKzJGM0JBUG44TXk2RU1Jdmg3RG8x?=
+ =?utf-8?B?UGdtcHMrcW9hamNkYmh3Z3dVRUFNOVVpbHdsWXc4NjAxbFVSRElaT0dQekE0?=
+ =?utf-8?B?dHppM3FTajRnOGwyMWFFOVU3ZnRWaWg3TnFNbHBmNkNWL3VSdkZPL0ZMazRO?=
+ =?utf-8?B?ODhrbzZOdmpHM2xiYitlVDZmWU9MTzAxRVRTWFZlYlVMdk1PcHFrRmNPOC8r?=
+ =?utf-8?B?T0lRRjJ0elNqZ0Z5ak80Wk9SdkZpdVRtdXI5cFY5RFVMQWNTdnB2RlpBVmxw?=
+ =?utf-8?B?YnkyK2FoYnMxaVJuMEhVa0IxUU9TR3lITnFqTWtjMGtHc3d5V3BicTM0R0Jl?=
+ =?utf-8?B?clhaUTRBVzdoS2UwMmNFbkI5SkJRNXVjejM0OUkzRUx6L1FnSjJMYXRFNlVH?=
+ =?utf-8?B?R2lva2lGZnR4cDhSMmNYK3pCaG5Sc3lxWjRpNFVsbUhCT21rR2dYRythbzRm?=
+ =?utf-8?B?SGYrL1BJM3g5K25QYWNhcW83MWh1eVhaWlhwM0ZqQkxjdXQ1bGtOb0pjV1dW?=
+ =?utf-8?B?WTlLcm4xNzV1RGNPQ0k2SWh2c01GTDVaNXJKQ0w0NElvNmx5WXZvcVBBM3cv?=
+ =?utf-8?B?bkh2Y012M3Rma3J3ZHpCTFVWWW1Ld0U1aEJkRnp1Z0Fvb2hqbUFsc3c2enZQ?=
+ =?utf-8?B?RWU3a3RpR0U1dm5MdC80Zm01d1NhY0ZnSDdEKzRLRGdnZGNyWjIwMkVSbkFw?=
+ =?utf-8?B?Q1paYkRZQmFYU3FkRUYrN1pnL1FLZEM0NEVTMXRsSmc1VksxdXgrdEZjS1cr?=
+ =?utf-8?B?QzlRMEltVmplcmxCUDhSRmlTZEhSQnpNSUZBRXNtdzdQWUMrVzBwNWVKQnRC?=
+ =?utf-8?B?S3haVnEvUW9VM25pYm9CQ0s4S0RpRHg3TVJJcklCTDBJMmlwRmo0R3cyeWZE?=
+ =?utf-8?B?bWREOVZEbExCbDJOMGxyQUVoa1Ryb1BLRlZxaE54QnZSc0k2dVA4VzM5MU5U?=
+ =?utf-8?B?N3FLZFdOOXF4SllHVmdwRk9wbUtlZzJKU3YvaEhWK01CZE9GSnAzRmJQUHZP?=
+ =?utf-8?B?SmZlTDVwY2M4VXhVYUtaYnRveW82ZXlGTGN6bHZ3SVRPcGoxL2FvUT09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8b372eed-4866-4d9a-16e5-08deb6420ab0
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 07:33:09.7831
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: w5L2PryTh20ie53Y9DgAGRQsbkY8XWWgoVHXwSsFYEMfSqsu/NW9+V2zVFAJGmUiHNKYOSpXtfkb0L1ATzXVYw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR03MB7042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_003226_808309_1388705E 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20260520_003336_516167_93FB324F 
+X-CRM114-Status: GOOD (  19.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +155,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 14, 2026 at 05:41:07PM +0800, Wen Jiang wrote:
-> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> 
-> Try to align the vmap virtual address to PMD_SHIFT or a
-> larger PTE mapping size hinted by the architecture, so
-> contiguous pages can be batch-mapped when setting PMD or
-> PTE entries.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  mm/vmalloc.c | 31 ++++++++++++++++++++++++++++++-
->  1 file changed, 30 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index c30a7673e..b3389c8f1 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3591,6 +3591,35 @@ static int __vmap_huge(unsigned long addr, unsigned long end,
->  	return err;
->  }
->  
-> +static struct vm_struct *get_aligned_vm_area(unsigned long size, unsigned long flags)
-> +{
-> +	unsigned int shift = (size >= PMD_SIZE) ? PMD_SHIFT :
-> +				arch_vmap_pte_supported_shift(size);
-> +	struct vm_struct *vm_area = NULL;
-> +
-> +	/*
-> +	 * Try to allocate an aligned vm_area so contiguous pages can be
-> +	 * mapped in batches.
-> +	 */
-> +	while (1) {
-> +		unsigned long align = 1UL << shift;
-> +
-> +		vm_area = __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-> +				VMALLOC_START, VMALLOC_END,
-> +				NUMA_NO_NODE, GFP_KERNEL,
-> +				__builtin_return_address(0));
-> +		if (vm_area || shift <= PAGE_SHIFT)
-> +			goto out;
-> +		if (shift == PMD_SHIFT)
-> +			shift = arch_vmap_pte_supported_shift(size);
-> +		else if (shift > PAGE_SHIFT)
-> +			shift = PAGE_SHIFT;
-> +	}
-> +
-> +out:
-> +	return vm_area;
-> +}
-> +
-IMO, we should get rid of this while(1) loop. It looks like you need to
-handle just few cases. 3?
+On 5/15/2026 12:12 AM, Jerome Brunet wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
+>
+>> From: Jian Hu <jian.hu@amlogic.com>
+>>
+>> Add the PLL clock controller driver for the Amlogic A9 SoC family.
+>>
+>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+[...]
+>> +
+>> +/*
+>> + * Compared with previous SoC PLLs, the A9 PLL input path has an inherent
+>> + * 2-divider. The N pre-divider follows the same calculation rule as OD,
+>> + * where the pre-divider ratio equals 2^N.
+>> + *
+>> + * A9 PLL is composed as follows:
+>> + *
+>> + *                      PLL
+>> + *         +---------------------------------+
+>> + *         |                                 |
+>> + *         |             +--+                |
+>> + *  in/2 >>---[ /2^N ]-->|  |      +-----+   |
+>> + *         |             |  |------| DCO |----->> out
+>> + *         |  +--------->|  |      +--v--+   |
+>> + *         |  |          +--+         |      |
+>> + *         |  |                       |      |
+>> + *         |  +--[ *(M + (F/Fmax) ]<--+      |
+>> + *         |                                 |
+>> + *         +---------------------------------+
+>> + *
+>> + * out = in / 2  * (m + frac / frac_max) / 2^n
+>> + */
+>> +
+>> +static struct clk_fixed_factor a9_gp0_in_div2_div = {
+>> +     .mult = 1,
+>> +     .div = 2,
+>> +     .hw.init = &(struct clk_init_data){
+>> +             .name = "gp0_in_div2_div",
+>> +             .ops = &clk_fixed_factor_ops,
+>> +             .parent_data = &(const struct clk_parent_data) {
+>> +                     .fw_name = "in0",
+>> +             },
+>> +             .num_parents = 1,
+>> +     },
+>> +};
+>> +
+>> +static struct clk_regmap a9_gp0_in_div2 = {
+>> +     .data = &(struct clk_regmap_gate_data) {
+>> +             .offset = GP0PLL_CTRL0,
+>> +             .bit_idx = 27,
+>> +     },
+>> +     .hw.init = &(struct clk_init_data) {
+>> +             .name = "gp0_in_div2",
+>> +             .ops = &clk_regmap_gate_ops,
+>> +             .parent_hws = (const struct clk_hw *[]) {
+>> +                     &a9_gp0_in_div2_div.hw
+>> +             },
+>> +             .num_parents = 1,
+>> +     },
+>> +};
+> When document something, be sure it matches what you are doing
+> afterward. It is confusing otherwise. Your comments above clearly miss
+> this gate.
+>
+> A fixed 2 divider followed by a power of 2 divider ? Is it actually how
+> the HW works or your modelisation power of 2 that's shifted by 1,
+> mapping :
+>   * 0 -> 2
+>   * 1 -> 4
+>   * etc ...
+>
+> ?
 
 
-shift min value is PAGE_SHIFT, could you please clarify when it can be less?
+Sorry for missing the gate in PLL block diagram, above block diagram 
+focuses on mathematical formulas.
 
---
-Uladzislau Rezki
+
+A9 PLL is composed as follows in fact, M and frac have a 0.5 weight factor:
+
+                        PLL
+           +-----------------------------------------------------+
+           |                                                     |
+           |             +--+                                    |
+    in   >>---[ /N ]-->  |  |                     +-----+       |
+           |             |  |---------------------| DCO | |----->> out
+           |  +--------->|  |                     +--v--+ |
+           |  |          +--+                        |           |
+           |  |                                      |           |
+           |  +--[ *(M + (F/Fmax) ] * 0.5 + Enable<--+  |
+           |                                                     |
+           +-----------------------------------------------------+
+
+
+         out = in  * (M + frac / frac_max) * 0.5 / N
+
+
+  If we ignore frac and set N = 1, it simplifies to:
+
+         out = in  * M  * 0.5
+
+This can be rewritten as:
+
+         out = (in / 2) * M
+
+The 0.5 weight is hardware-controlled:
+
+         For GP0/HIFI PLL: controlled by CTRL0 bit27 (gate)
+         For MCLK PLL: enabled by default, no gate bit
+
+To model this in the clock tree, we add:
+
+         A fixed /2 divider after input clock to represent the 0.5 weight
+         A gate clock to represent the enable control
+
+The resulting structure is:
+         input --> fixed div2 --> gate--> dco
+
+I would appreciate your guidance If this is not appropriate.
+
+
+>> +
+>> +/* The output frequency range of the A9 PLL_DCO is 1.4 GHz to 2.8 GHz. */
+>> +static const struct pll_mult_range a9_pll_mult_range = {
+>> +     .min = 117,
+>> +     .max = 233,
+>> +};
+> If PLL restriction is actually the DCO output rate, and only the reason
+> to keep the pre-devider in the range above, I would definitely welcome a
+> rework to express the constraints properly and split the pre-divider out.
+>
+>> +
+>> +static const struct reg_sequence a9_gp0_pll_init_regs[] = {
+>> +     { .reg = GP0PLL_CTRL0, .def = 0x00010000 },
+>> +     { .reg = GP0PLL_CTRL1, .def = 0x11480000 },
+>> +     { .reg = GP0PLL_CTRL2, .def = 0x1219b010 },
+>> +     { .reg = GP0PLL_CTRL3, .def = 0x00008010 }
+>> +};
+>> +
+>> +static struct clk_regmap a9_gp0_pll_dco = {
+>> +     .data = &(struct meson_clk_pll_data) {
+>> +             .en = {
+>> +                     .reg_off = GP0PLL_CTRL0,
+>> +                     .shift   = 28,
+>> +                     .width   = 1,
+>> +             },
+>> +             .m = {
+>> +                     .reg_off = GP0PLL_CTRL0,
+>> +                     .shift   = 0,
+>> +                     .width   = 9,
+>> +             },
+>> +             .n = {
+>> +                     .reg_off = GP0PLL_CTRL0,
+>> +                     .shift   = 12,
+>> +                     .width   = 3,
+>> +             },
+>> +             .frac = {
+>> +                     .reg_off = GP0PLL_CTRL1,
+>> +                     .shift   = 0,
+>> +                     .width   = 17,
+>> +             },
+>> +             .l = {
+>> +                     .reg_off = GP0PLL_CTRL0,
+>> +                     .shift   = 31,
+>> +                     .width   = 1,
+>> +             },
+>> +             .rst = {
+>> +                     .reg_off = GP0PLL_CTRL0,
+>> +                     .shift   = 29,
+>> +                     .width   = 1,
+>> +             },
+>> +             .l_detect = {
+>> +                     .reg_off = GP0PLL_CTRL0,
+>> +                     .shift   = 30,
+>> +                     .width   = 1,
+>> +             },
+>> +             .range = &a9_pll_mult_range,
+>> +             .init_regs = a9_gp0_pll_init_regs,
+>> +             .init_count = ARRAY_SIZE(a9_gp0_pll_init_regs),
+>> +             .flags = CLK_MESON_PLL_RST_ACTIVE_LOW |
+>> +                      CLK_MESON_PLL_N_POWER_OF_TWO |
+>> +                      CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH,
+>> +     },
+>> +     .hw.init = &(struct clk_init_data) {
+>> +             .name = "gp0_pll_dco",
+>> +             .ops = &meson_clk_pll_ops,
+>> +             .parent_hws = (const struct clk_hw *[]) {
+>> +                     &a9_gp0_in_div2.hw
+>> +             },
+>> +             .num_parents = 1,
+>> +     },
+>> +};
+>> +
+>> +/* For gp0, hifi and mclk pll, the maximum value of od is 4. */
+>> +static const struct clk_div_table a9_pll_od_table[] = {
+>> +     { 0,  1 },
+>> +     { 1,  2 },
+>> +     { 2,  4 },
+>> +     { 3,  8 },
+>> +     { 4,  16 },
+>> +     { /* sentinel */ }
+>> +};
+>> +
+>> +static struct clk_regmap a9_gp0_pll = {
+>> +     .data = &(struct clk_regmap_div_data) {
+>> +             .offset = GP0PLL_CTRL0,
+>> +             .shift = 20,
+>> +             .width = 3,
+>> +             .table = a9_pll_od_table,
+>> +     },
+>> +     .hw.init = &(struct clk_init_data) {
+>> +             .name = "gp0_pll",
+>> +             .ops = &clk_regmap_divider_ops,
+>> +             .parent_hws = (const struct clk_hw *[]) {
+>> +                     &a9_gp0_pll_dco.hw
+>> +             },
+>> +             .num_parents = 1,
+>> +             .flags = CLK_SET_RATE_PARENT,
+>> +     },
+>> +};
+>> +
+>> +static struct clk_fixed_factor a9_hifi0_in_div2_div = {
+>> +     .mult = 1,
+>> +     .div = 2,
+>> +     .hw.init = &(struct clk_init_data){
+>> +             .name = "hifi0_in_div2_div",
+>> +             .ops = &clk_fixed_factor_ops,
+>> +             .parent_data = &(const struct clk_parent_data) {
+>> +                     .fw_name = "in0",
+>> +             },
+>> +             .num_parents = 1,
+>> +     },
+>> +};
+>> +
+>> +static struct clk_regmap a9_hifi0_in_div2 = {
+>> +     .data = &(struct clk_regmap_gate_data) {
+>> +             .offset = HIFIPLL_CTRL0,
+>> +             .bit_idx = 27,
+>> +     },
+>> +     .hw.init = &(struct clk_init_data) {
+>> +             .name = "hifi0_in_div2",
+>> +             .ops = &clk_regmap_gate_ops,
+>> +             .parent_hws = (const struct clk_hw *[]) {
+>> +                     &a9_hifi0_in_div2_div.hw
+>> +             },
+>> +             .num_parents = 1,
+>> +     },
+>> +};
+>> +
+>> +static const struct reg_sequence a9_hifi0_pll_init_regs[] = {
+>> +     { .reg = HIFIPLL_CTRL0, .def = 0x00010000 },
+>> +     { .reg = HIFIPLL_CTRL1, .def = 0x11480000 },
+>> +     { .reg = HIFIPLL_CTRL2, .def = 0x1219b010 },
+>> +     { .reg = HIFIPLL_CTRL3, .def = 0x00008010 }
+>> +};
+> It look like GP0 and HIFI PLL are exactly the same IP, you've even
+> documented it as such. Yet all the code is duplicated. That's not OK.
+>
+> I understand that way we statically declared the clocks so far pushed
+> you in that direction. That's something I'd like to fix properly
+> someday.
+>
+> In the meantime, you could at least duplicate the memory at runtime to
+> avoid copy/pasting the code. A minor change to clkc utils as suggested
+> at the end of this message could help you do so.
+>
+> Same probably applies to mclks.
+
+
+You're right, the GP0 and HIFI PLLs are indeed the same IP, differing 
+only by frac_max:
+     GP0: frac_max = 2^17
+     HIFI: frac_max = 100000
+
+
+Each clock requires its own clk_regmap and clk_hw structure, though the 
+data in
+clk_regmap can be shared between HIFI0 and HIFI1.
+
+
+I have tried duplicating HIFI1's clock structure from HIFI0 at runtime.
+Most members of clk_init_data (except parent_hws / parent_data) can be 
+easily copied.
+
+
+However, I have a question regarding dynamic parent assignment:
+For example:
+Clock B is created dynamically, and its parent is clock A (also created 
+dynamically).
+How should I properly assign this parent relationship?
+
+
+Furthermore, how to handle more complex parent configurations dynamically?
+For example:
+Clock D has three parents: C, B, A (in an irregular order).
+
+
+I would appreciate your guidance on how to handle these dynamic clock 
+relationships properly.
+
+>
+>
+[...]
+
+
+Best regards,
+
+Jian
+
+
 
