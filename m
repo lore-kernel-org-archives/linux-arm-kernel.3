@@ -4,76 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFBE5CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:54:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE332CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5eTSeZ5/INzlyx7Q7Ron661bJq93J7lYUHh531vFftI=; b=qy6Yesz57Nbpe9MLF7PVkqBXV7
-	ebn2e1cICp7hDHONmLuAJhpvMjguF5/Jc5YloQg5fAzhagnBMvlOVwPqxT+WF5Z0Z3D8kO8de0CuG
-	GHgtDCq4IeCnVeB1o6yKstg+tbCUsDdcaoks2/DHjuf76Gg2ITViFtem3vxuwCggLT5dwGvbL82q0
-	CMJ0VbigJ6mZuZLgcUn2o9Auf4Gahdvc43NA7nP25A9OvKMfCDAtXpPXVMIQF1121IgFz9+udsSsU
-	Y8IyhdyhU2U3m6Po+vo1z7K+yFd0OYxe60NBDzVKqRVA6JgXyFrDfLldjSOvywoaOEmE1TXOKoCOF
-	VO0lM7KA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WH1TYXWpwAW4Y4n28ukZw5TCIsuM9Hh1NUaGOvqdngU=; b=RrMkSz100TQuQW6HqQAmCH27Dx
+	xkSzzlCsBMFsvbVoUKNSUA/WZ+vmmkE4mOBdrLZTFAjvFELD9G4RkRkZQY9vzr6hg5eefw1pozCH3
+	O5OneB8WEDJHwZVCe6dA57Cbk0ob9BF+NTqoM6OF4LtyxeJksuFS4i2wVpBA4K48PhhiY4sfnoYee
+	tBzNh5Ww66yuml2T7EIvwazUqnzu4v0q53YbBYzKLDXBN8ORVITxwbKXajewAYqb30aHr7ahV9yRY
+	CyQAua6UgtJnTCU2ME+CfZmO0WVZS2kaj4tbkGivGPxnSByNCY9Out+OIB8H8D0sFgqqnSzYhzBff
+	+gItFjQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfUw-00000004UVu-05fb;
-	Wed, 20 May 2026 11:54:02 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wPfX4-00000004UtQ-20k8;
+	Wed, 20 May 2026 11:56:14 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfUs-00000004USu-07yS
+	id 1wPfX1-00000004UsX-2gHV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 11:54:00 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=5eTSeZ5/INzlyx7Q7Ron661bJq93J7lYUHh531vFftI=;
-	b=bptxa4rzjbPaOPZE0hm1alyNRaSi8Ac0q1OUqneRwVLqoplCHvCnpS3zT8Nzmm583wfibhOQs
-	PJfaD4MAcwZDnI/DfRJkmIsQnFkTkrzYS/V/QvaWfNotEWMbLeIECjluE4CSZ3eIMHZBWut+dMP
-	yiYK+dHU2dLQpyD0Qvj02QY=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gL8rm5sDyzpStM;
-	Wed, 20 May 2026 19:46:32 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id CB4254048F;
-	Wed, 20 May 2026 19:53:46 +0800 (CST)
-Received: from kwepemn100009.china.huawei.com (7.202.194.112) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 20 May 2026 19:53:46 +0800
-Received: from [10.67.121.59] (10.67.121.59) by kwepemn100009.china.huawei.com
- (7.202.194.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Wed, 20 May
- 2026 19:53:45 +0800
-Message-ID: <d719462f-3430-47c1-9b9d-1068b3c4e429@huawei.com>
-Date: Wed, 20 May 2026 19:53:45 +0800
-MIME-Version: 1.0
+	Wed, 20 May 2026 11:56:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=g5+eTfHfCpXGv8pIM+5XJ6WJREZtMnef4zi5d7krvhnjX9EIGXz7KeKs9cFa6K9PMUuw+DcvggNHae+zUW3devsdz32ReQAoTV7mSno2uUtpQZGD6ZqQvGZGdbXXf0/Xo+0qLEY6LrwrHWE7BmO9uAJ0x2rFdnY/3XkKd1+yiRMwiUWwMj8m7/25tynM4Qf+NhYeKKxqdo+fr5gSS+wgd6Nf27oSSnfqk1pMC0a9dcAVH8MdjuqGSsE5h2cXIQFNsdmSj0x+LKRhR95brYSpoUnjBGDh2ONdjH3YFOCQCi4ZJwptDxidHtiB02a0hmquL/nYbd7Yy5rrJDQhgDv0hg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WH1TYXWpwAW4Y4n28ukZw5TCIsuM9Hh1NUaGOvqdngU=;
+ b=Oj0qz0kGbckAFlJEgv32U1qDwfV8sSlmZfZqm6+sgcLD9f+V/PSXtrWERX9KFwKaLaMMhYrLCHptI7hOZbw+qMhbWCr1QPYepRJ6wyirTTvod03uYBCbdUyw4Vk1QZZ4OZMXsMKSQJbW0uFCVnBsr9dQe9RNJHh1FZrX/waLqBkfZDsjYOyEcE50y3agqxkMJxnFd8GxJqv6NKd2y85MHUiXmxNouLCFOQSmU5QP3oPDk5xpFj1sQLUiqnzjK/qOvcopkFcd4mhlMenOHm3c52FsP+e9drj/jyShy5U4gKoFifPgR8LnhogfbMbvhem5ZqvTsHG9+65l2llBhh5+DQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WH1TYXWpwAW4Y4n28ukZw5TCIsuM9Hh1NUaGOvqdngU=;
+ b=H5r2gIzI7kWJj7d0S61yNwBw8xyGvBddnGk7CSXsSFrpfez0FBxVfM/zQotca2y1PsjICpPv1UtLgMcdDEPA9S/KN48K3p7ZmFFU725RrIAby6G1Lt3E8pDoJxaYYddwbuwCGyHoIyUlhjYOCB0QeoBK5GJdQQO01ckguhpVnkE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by MW6PR12MB8960.namprd12.prod.outlook.com (2603:10b6:303:23e::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 11:56:02 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 11:56:02 +0000
+Message-ID: <acff898d-529b-4a24-9173-ad21cea08d45@amd.com>
+Date: Wed, 20 May 2026 17:25:53 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v02] mailbox: pcc: report errors for PCC clients
-To: Sudeep Holla <sudeep.holla@kernel.org>
-CC: Adam Young <admiyo@os.amperecomputing.com>, Jassi Brar
-	<jassisinghbrar@gmail.com>, <linux-kernel@vger.kernel.org>,
-	<linux-hwmon@vger.kernel.org>, "Rafael J . Wysocki" <rafael@kernel.org>, "Len
- Brown" <lenb@kernel.org>, <linux-acpi@vger.kernel.org>, Andi Shyti
-	<andi.shyti@kernel.org>, Guenter Roeck <linux@roeck-us.net>, MyungJoo Ham
-	<myungjoo.ham@samsung.com>, Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>, <linux-arm-kernel@lists.infradead.org>
-References: <20260518193006.27425-1-admiyo@os.amperecomputing.com>
- <881ec4ba-44ce-498d-b0c4-8c1d51b13cc3@huawei.com>
- <20260519-outgoing-rough-fox-04daab@sudeepholla>
-From: "lihuisong (C)" <lihuisong@huawei.com>
-In-Reply-To: <20260519-outgoing-rough-fox-04daab@sudeepholla>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3-xilinx: Add MMI USB support
+ on Versal Gen2 platform
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Cc: gregkh@linuxfoundation.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, michal.simek@amd.com, Thinh.Nguyen@synopsys.com,
+ p.zabel@pengutronix.de, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, git@amd.com
+References: <20260429173050.1772377-1-radhey.shyam.pandey@amd.com>
+ <20260429173050.1772377-2-radhey.shyam.pandey@amd.com>
+ <20260503-enchanted-galago-of-relaxation-dcda7f@quoll>
+ <f9f25ef4-a541-45a2-b98c-4a411239993b@amd.com>
+ <a51d0e53-3134-475d-a19f-67d7d0695cfe@kernel.org>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <a51d0e53-3134-475d-a19f-67d7d0695cfe@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.59]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemn100009.china.huawei.com (7.202.194.112)
+X-ClientProxiedBy: PN4PR01CA0096.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:2af::8) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|MW6PR12MB8960:EE_
+X-MS-Office365-Filtering-Correlation-Id: ade7141d-93b8-4649-64f5-08deb666c3d4
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|3023799007|11063799006|22082099003|56012099003|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: JlqMILnIIYrwfckDK7/+1LNHflPkXvOX8O8Css/iihdX+/exneVXAo23A/DJV5wFQjivToSILdd8HVfwW6uMsEW4XO0aHa1nF+9b9ufnzz02n4zHivWh6AoEw0dr0OMEeNH5t3tv9JdO8pmvGfFO9XhxpLdv648HvtYelIvy2Lj12zLhcsjVpFzwMPGMC3RLDGGD4szW/u5jXSmaIqKi98lgW+CI7vjE9UD0rCeJBchXJW6HRM8bE6paF4qzZJHIPm9WIMHEGDHjXmS4uR4n/shRrpBXtoY4Z2Dg6VZQddyjopS7k6i0SY6JoCIlVwIPmQqkMyXkEZar/QDml3o+pbJsoCFlVfBgkbEhqQSp9An+1RCNQ1qPlvbdOZ6ce5Twt2d6uY9haARkq6+Kn8Hg8l1F+t8wvBn046HRsM9Yz8sbyKpCM0TpnLXWHWNYwwTetMNDz2S27gJJPOdvIirR/3FwyKc9ofQd6KtFeN2raAkRs4rxNG/Aacp70ayMztglPVC4EJMur6b5CHwRrnjaieEcyhZbWPn07vkVp3Ukq7PxVlGGsZmKlaX2vLUzjMaunHJ+eFMcmmYLLCUF1iSOp5YFofjj2DQ7zmgVzl1t8RVK5Tu9HB5gXJtbcVCYlXq3RzpV0wtuIZz7ghpO4WfHZSZVTwmgtDabVpHhq7rrJIUU9iyBaCCtojJlZ0PO0cDE
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(3023799007)(11063799006)(22082099003)(56012099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R3F0SnUvQmprTlk0OEg3L0NHZERRQ3crMDFKUk1KT29jellKbmhZTC9yVEVS?=
+ =?utf-8?B?bytuRXBNQVVyTlNENWVKVDMvK0k3US8zZzdDbCtNVGpmbUZhMTFLRGhCOG1S?=
+ =?utf-8?B?RWhtdFl4eEkvaWFOL2ptOUZQS3JEejJiSU5xV2lYMUc3dThQSXU2MjBNbExK?=
+ =?utf-8?B?OGNLRC83VzY5dUJSWHY0NmwyMjd2WmRMMjRRbFdBd1FjUzVnL3dqK3J0SXZp?=
+ =?utf-8?B?cUdHUmtZTXJHV1FmSmVFK1NmLytHRHppYXhYUk4xRHYwUWdUT2FURHFEN2hz?=
+ =?utf-8?B?aTE1cVJsOVdjWTNPZ0xSNEx4WnNxSFEzSlkxUU1hYmF6VGlhRGtsVzlId0Jx?=
+ =?utf-8?B?UVZmeXhYVXZieDFTSXY5WEdkQXo5QlhTb3ZMZVViOTdzRWNvNmRVdEs5VVNp?=
+ =?utf-8?B?MHVJZ0lQVEtJWGFhNDdwcnNWcW1qNjVKVUp3MzhHK055OFk0YlRwa3N3Nkpy?=
+ =?utf-8?B?RXpyQUhRTzJkdmczOVVnb29DVjBLTWoybFFCQndTdTRVRmdoTXlDSWlibGp4?=
+ =?utf-8?B?ZGdWTmtBVlR4cVV5YzUwTVJ5OUxncFI1SmQzV1FyT0hkV0lRNjJZa2l4SzZO?=
+ =?utf-8?B?ZTRpNW1LTU9tbUtYS3IrSlBTcURmNDJJcWhhbEh6UGxjZzFOZkdnN09kTVJn?=
+ =?utf-8?B?RVRWL2IwcmVjTlhFcGJ2cnlKdVpFNUNLbHVaNkVobmkyUFo5Wk5QZVhXN2Zi?=
+ =?utf-8?B?NDZjUVc1Z2ZEZFl3TUIrZk9uWHF5enYzWnJjY0llWkI0SGQ1TzEyckd6NnpN?=
+ =?utf-8?B?djNESVM3WTFVQ1FDVC9KSVpZZFlTRSthZlVEUVJxUy8rSHdYTUJSdEJTMnR1?=
+ =?utf-8?B?ZzlZeTlzQ2ZLV2NzV0dRYlNBZE9TU1FRcWtVRVl2OHhQQmZUdUtEZkZibHdM?=
+ =?utf-8?B?S21YU1hMM1IvaytTNWdOL2xXQjRtZWxFQzZJWnBxS0U3VWNXQWFFYnB0OWEv?=
+ =?utf-8?B?QmVxRy9IRjlvQlROZFpuRm9DN0hEV1NObG9PVGYrMXh5VjJhQ0xSejNOVk8z?=
+ =?utf-8?B?QnRsY2I4WXZMeUxUbStKK1hHUzRXSmh0TEFNL3ZMRTNuK04zaG03MDM3QzUv?=
+ =?utf-8?B?K2ZHYWdCYnQ2Vlk1bWV2dUpjU3d6SVFaQ0hTdnZwVm5UMGkxcjhQYXZXTGNw?=
+ =?utf-8?B?dUE5RTh5b092VU9EOENoQllIbmVLS3FkMkJoSjAra3ZXMGJ1MlAyUDBFQVdI?=
+ =?utf-8?B?TWM5NWl1K3U0T0VxMFBROTVIbUlJL21yNk5sM0N6dGE1RS9ZOWxUQTJ4eTc3?=
+ =?utf-8?B?TEErM3BZTkZiWk5ML3JXMjBKL2lFU0NGZTU5TWVTTmMrNzAwdFN1c1VJbFlQ?=
+ =?utf-8?B?dEt6Y1VjY3ovREgrYjdXWjlMaHhlYnRwRXAzZmFKTmhIWkpuNElibllSQ1J2?=
+ =?utf-8?B?RnBrYVdSRGR6dkgxMWtrVlJQM05LWUdVK3JtWDA4Qk1wT3pubmFSYkVxMmEw?=
+ =?utf-8?B?bGNxV0g4bjJTQVc1QmQxejU5cWUvdXB4d2N0eStwVnF2NzFKREpGUEN4YWxY?=
+ =?utf-8?B?VzRlOXNLQVExRzNBM1A3SVZENVEzYllONFpITmFSRzZySVlmazRxWndOdXEr?=
+ =?utf-8?B?eVBmZEwvZ0UxeWZTUVVkT05hVnNDM3hCdzQ4VmZyaDcreDcxSThjMHJiTEVy?=
+ =?utf-8?B?MUlGSkdDWFFSM29vUi9lY3RNMEpuR0J4KzR3cGJKQlF4bkhVQlR0dzZSUllJ?=
+ =?utf-8?B?VTNpSjVaRnBzOXJvSlc3cDgra3RKNjNRT2l2QkZXaXppUVEzRGNUZG1ROHB2?=
+ =?utf-8?B?YnhXNjFOOWtwdXNRQTMrcVJGMENtNE1XL3J0U25jYVRKODFQSXBSUUNqYUU2?=
+ =?utf-8?B?NjlsMWI1TWFYT0oyWTJNbGdBNFcvTmVMWlBzdkJnT3dHcGtXMGoxTnZWWDFP?=
+ =?utf-8?B?ajVPMTlKZU9tZnBScFdtSk0vNVJQRllQMlM4ay85VXVYRzhGc2tFK2NBS1k1?=
+ =?utf-8?B?Vndveit0d1RvRXF2bWpiT1pGYTF4WW5DTkRlUGY1MEh2bERtUy8ydmUydFZO?=
+ =?utf-8?B?SFcyL2xaVmZkTWhjcE9XZUdoV01RWXQxaUcwMXZQOE1JMXd0WjRTam9jU3pQ?=
+ =?utf-8?B?L0ltK3hPRkZ1WjRMNjdwb3JMZndtVE9VNlpqRWVxOTNJUSs2bG8yYm51UUNE?=
+ =?utf-8?B?NlQ1TFVST1dSNjlrZ1hBQUVMYVRBYnVId1NnaWIvcnlKaG1JVDgySk8zSldJ?=
+ =?utf-8?B?R3d6ZDNqSGZVcVE2cWdvRjdHdy90NUxRS0J4dWk5V1R4UTJsVWlTTGdSNzVh?=
+ =?utf-8?B?bmUySjBtYXNJVWNmOGNDYWFKZk04c1ZaN1F6dmNRalFXWnJ4WEwvQU15OXFR?=
+ =?utf-8?B?TkpBUGszcnRpZWFnaE5lTkhQMXU4QWJTNGpmWTkyQ3V3MW4wcDB6dz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ade7141d-93b8-4649-64f5-08deb666c3d4
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 11:56:02.4769
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U88nrXllRBktbFvM22P9UPW9nk7DXMrbF2oip9t68HXUX9T5U0FaDxovm+qpgoK2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_045359_143105_A86A87D3 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20260520_045611_682270_566BB50B 
+X-CRM114-Status: GOOD (  23.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,114 +155,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 5/20/2026 12:25 AM, Sudeep Holla wrote:
-> On Tue, May 19, 2026 at 09:54:47PM +0800, lihuisong (C) wrote:
->> On 5/19/2026 3:30 AM, Adam Young wrote:
->>> The tx_done callback function has a return code (rc) parameter
->>> that the tx_done callback can use to determine how to handle an error.
->>> However the IRQ handler was not setting that value if there is an error.
+On 5/14/2026 9:30 PM, Krzysztof Kozlowski wrote:
+> On 07/05/2026 21:01, Pandey, Radhey Shyam wrote:
+>>> On Wed, Apr 29, 2026 at 11:00:47PM +0530, Radhey Shyam Pandey wrote:
+>>>>    additionalProperties: false
+>>>>    
+>>>>    examples:
+>>>> @@ -156,3 +193,30 @@ examples:
+>>>>                };
+>>>>            };
+>>>>        };
+>>>> +  - |
+>>>> +    #include <dt-bindings/power/xlnx-zynqmp-power.h>
+>>>> +    #include <dt-bindings/reset/xlnx-zynqmp-resets.h>
+>>>> +    #include <dt-bindings/phy/phy.h>
+>>>> +    usb {
+>>>> +        #address-cells = <1>;
+>>>> +        #size-cells = <1>;
+>>> Please follow DTS coding style.
+>> Thanks for the review. will fix it in next version.
+>>>> +        compatible = "xlnx,versal2-mmi-dwc3";
+>>> I really doubt that DWC3 block comes without addressing space
+>>> (registers), so either you just misrepresented things, like created a
+>>> fake block and syscon, or forgot to combine DWC3 with the wrapper.
 >>>
->>> The following clients are affected:
->>>
->>> drivers/acpi/cppc_acpi.c
->>> drivers/i2c/busses/i2c-xgene-slimpro.c
->>> drivers/hwmon/xgene-hwmon.c
->>> drivers/soc/hisilicon/kunpeng_hccs.c
->>> drivers/devfreq/hisi_uncore_freq.c
->>>
->>> All of these only use the error code to report, so they
->>> are expecting an error code to come thorugh, but they
->>> do not modify behavior based on this code.
->>>
->>> In the case of an error code in the IRQ, the handler was returning
->>> IRQ_NONE which is not correct:  the IRQ handler was matched
->>> to the IRQ.  This mean that multiple error codes returned from
->>> a PCC triggered interrupt would end up disabling the device.
->>>
->>> In addition, if the error code IRQ was coming from a Type4 Device that was
->>> expecting an IRQ response, that device would then be hung.
->>>
->>> Fixes: c45ded7e1135 ("mailbox: pcc: Add support for PCCT extended PCC subspaces(type 3/4)")
->> Not fix above commit.
->> mbox_chan_txdone() was added in below patch.
->> Fixes: 9c753f7c953c (mailbox: pcc: Mark Tx as complete in PCC IRQ handler)
->>> Signed-off-by: Adam Young <admiyo@os.amperecomputing.com>
->>>
->>> ---
->>> ---
->>>    drivers/mailbox/pcc.c | 9 +++++----
->>>    1 file changed, 5 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/drivers/mailbox/pcc.c b/drivers/mailbox/pcc.c
->>> index 636879ae1db7..16b9ce087b9e 100644
->>> --- a/drivers/mailbox/pcc.c
->>> +++ b/drivers/mailbox/pcc.c
->>> @@ -314,6 +314,7 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
->>>    {
->>>    	struct pcc_chan_info *pchan;
->>>    	struct mbox_chan *chan = p;
->>> +	int rc;
->>>    	pchan = chan->con_priv;
->>> @@ -327,8 +328,7 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
->>>    	if (!pcc_mbox_cmd_complete_check(pchan))
->>>    		return IRQ_NONE;
->>> -	if (pcc_mbox_error_check_and_clear(pchan))
->>> -		return IRQ_NONE;
->>> +	rc = pcc_mbox_error_check_and_clear(pchan);
->> I think it is not necessary. This function just return -EIO on failure.
+>>> And if you built with W=1 your DTS you would see errors. How do you see
+>>> it now? Where do you place it? Wrapper must be outside of soc, but DWC3
+>>> child must be inside. Did you read submitting patches and writing
+>>> bindings documents?
+>> Apologies for missing the DTS sanity check earlier. I am summarizing the
+>> problem statement and possible solution. Please review.
 >>
->>>    	/*
->>>    	 * Clear this flag after updating interrupt ack register and just
->>> @@ -337,8 +337,9 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
->>>    	 * required to avoid any possible race in updatation of this flag.
->>>    	 */
->>>    	pchan->chan_in_use = false;
->>> -	mbox_chan_received_data(chan, NULL);
->>> -	mbox_chan_txdone(chan, 0);
->>> +	if (!rc)
->>> +		mbox_chan_received_data(chan, NULL);
->>> +	mbox_chan_txdone(chan, rc);
->> @Sudeep, I have always had doubts about the addition of this line of code in
->> the
->>   commit 9c753f7c953c (mailbox: pcc: Mark Tx as complete in PCC IRQ handler).
->> The patch seems to avoid the timeouts in the mailbox core according to its
->> commit log.
->> Regardless of whether the command succeeds or fails, each mbox client
->> driver, like cppc_acpi/acpi_pcc，kunpeng_hccs and so on, is responsible to
->> call mbox_chan_txdone() to tell mailbox core.
-> Few controller drivers do have mbox_chan_txdone(), so Tx complete is detected
-Which controller driver?
-> by PCC, so not sure why you think this is not the right place to do. The irq
-Because many mbox client drivers call mbox_chan_txdone() after running 
-rx_callback() in mbox_chan_received_data().
-These drivers doesn't set chan->cl->tx_block to true.
-It seems that the client driver having tx_block need to set 
-chan->tx_complete in tx_tick().
-Do you add this code for them?
-> is to indicate the completion. I am confused as why you think otherwise.
-> It is defined in include/linux/mailbox_controller.h for the same reason.
->
-> The client drivers can you mbox_client_txdone() if they wish to as defined
-> in include/linux/mailbox_client.h
-mbox_client_txdone() is used in the case that txdone_method is 
-MBOX_TXDONE_BY_ACK.
-And mbox clinte driver using IRQ method need to use mbox_chan_txdone().
-It seems that all the current client drivers are used in this way.
-These interface internal would verify chan->txdone_method.
+>> For MMI USB in current implementation it need a parent/child
+>> representation. However, the parent IP is shared across DP, USB,
+>> and HDCP, so it cannot have a USB-dedicated parent reg space.
+>>
+>> 1. Versal platform
+>>     - Parent: USB wrapper IP → has its own I/O space
+>>     - Child: USB DWC3
+>>
+>> 2. Versal Gen2 platform - MMI USB
+>>     - Parent subsystem combines DP, USB, and HDCP in a single I/O space
+>>     - Children:
+>>       - USB DWC3
+>>       - DP
+>>       - HDCP
+>>
+>> To model the Versal Gen2 MMI USB parent register space, I introduced
+>> xlnx,usb-syscon, allowing the DWC3 driver to access parent registers
+>> via a syscon handle, addressing the v1 review comment.
+> 
+> Syscon phandle is not to express such relationsship.
+> 
+>>
+>> However, making reg optional satisfies schema validation but fails
+>> DTB checks.
+>>
+>> versal2.dtsi:1: Warning (simple_bus_reg):
+>> /axi/mmi-usb: missing or empty reg/ranges property
+> 
+> Yep, exactly.
+> 
+>>
+>> To fix it i think we can switch from parent/child representation to
+>> flat DT representation for the Versal Gen2 platform, similar to
+>> existing implementations in qcom,snps-dwc3 and Google Tensor G5 DWC3
+>> bindings[1].
+>>
+>> The Google Tensor DWC3 binding uses a syscon phandle to access USB
+>> configuration registers, which aligns well with the Versal Gen2 MMI
+> 
+> Not true. Just read the binding. If you refer to Tensor, then to access
+> A FEW configuration registers. If you refer to LGA, then it has address
+> space.
+> 
+>> USB IP, where wrapper subsystem shares a common register space for
+>> USB along with other IPs.
+> 
+> 
+> 
+>>
+>> If this approach looks fine , will create binding for MMI USB using
+>> this flat representation and send out next version.
+>>
+>> usb@fe200000 {
+>> compatible = "xlnx,versal2-mmi-dwc3";
+>> reg = <0xfe200000 0x40000>;
+>> xlnx,usb-syscon = <&udh_slcr 0x005c 0x0070 0x00c4 0x00f8>;
+>> <snip>
+>> };
+> 
+> So I am confused. We ask, since long time, to have unified child.
+> Several platforms were already converted. What are you discussing with
+> in such case?
+> 
+> Are you going to have unified node or not?
+> 
 
-In addition, I find that you also modify the txdone_irq/poll in the 
-commit 3349f800609e (mailbox: pcc: Set txdone_irq/txdone_poll based on 
-PCCT flags).
-The txdone_method will change from MBOX_TXDONE_BY_ACK to 
-MBOX_TXDONE_BY_POLL on the platform using poll mode.
-This may lead to the original mbox client driver printing exceptions in 
-mbox_client_txdone.
-I haven't observed it based on the latest code yet, it's just code 
-analysis.
->
->> This is done after executing mbox_chan_received_data(). So I think this line
->> in this function is redundant.
-> No, I think otherwise, see details above.
->
+
+Yes, in next version will switch to a unified node representation for
+Versal Gen2 MMI USB.
+
+Based on your feedback:
+
+-the fake wrapper hierarchy will be removed.
+-parent node without reg will be dropped.
+-syscon will not be used to model hierarchy.
+
+Instead, I will introduce a separate unified-node binding for Versal
+Gen2 MMI USB where: the USB controller register space is described
+directly in the USB node, auxiliary USB configuration registers in
+UDH SLCR are accessed through a syscon phandle only for sideband
+configuration access.
+
+New DT representation using single unified node.
+
+usb@0xedec0000 {
+     compatible = "xlnx,versal2-mmi-dwc3", "snps,dwc3";
+     reg = <...>;
+
+     xlnx,usb-syscon = <&udh_slcr>;
+     <snip>
+};
+
+Thanks,
+Radhey
+
 
