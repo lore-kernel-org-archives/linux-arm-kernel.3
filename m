@@ -4,93 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A286DCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B563CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ccZEEEBlnDZ7RGFHJwE5hSCMMi66BiukOOfPa72Eyrc=; b=36u7b5T/jod5kzWaNwp3pbwU8H
-	Mq8LA78NVwUmxCZMVKLeMSzB8GBYGzy+srxFSCWDoCn97LA86tO86Si91TzJ0CT9rKZtHFDyprkXt
-	6NC3i8I20bQRDDk4xf5I1LWDQFGQ2ROgZtyYICBEYWfq0if9sJrCjEB8ouAKIrQbwdP+xyqDuEtfu
-	BluIi1Z0WfEVzTmARDsF0I/a0inAo8eNloxLCRgXvC/UrYWgQdF0cI7DwPNkajXPjy7xXIKwhYpr8
-	0mwQG/AeGvdUQnS+2zl90+J2x0h0UoAV6hP3HYD7wlFLMisOIsw6euexdQ2b2K9uvE7GLYhAiRtfT
-	vAMTGVvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mkW91SkV0pxRKcye1NH7wqUvPh4aFckQs7BkyPzGA48=; b=D/16miEYbC4HU0gYafH8KJhfZD
+	2mvOhucNAXP3GtTaJNCw+kdolLdLBFQ/07lsY5K/tvT6gm/y3j1K3BAfoiLxQcSNcYfehxzbf/rM1
+	enlUpkG0brDjbt7cncRheCvgseDo0K5GQ/h9+kDX0GNnP8FdBRof/o5CLJ/qt/HvBT3dPXtkjpYC/
+	AREUoE56nWnR7vJj2EMqYRaAYR9OgaNToJBGQxtjAZE3/WmQk0Rs3i9BzF0xTf2y3iaED+bdW+XIc
+	T1cbUpgzXjjwntF+P8fX2I5vj/RtqZoc/OOv+G5OHULtK0uitA94xLcaopL/nKvaRvm6M0y5m/KL3
+	/ZK9kD5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPidR-00000004wqK-24PU;
-	Wed, 20 May 2026 15:15:01 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wPiik-00000004xTE-1p82;
+	Wed, 20 May 2026 15:20:30 +0000
+Received: from mail-swedencentralazon11013001.outbound.protection.outlook.com ([52.101.83.1] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPidN-00000004wp4-41uL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 15:14:59 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49021532ebdso19245805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:14:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779290096; x=1779894896; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:to
-         :from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ccZEEEBlnDZ7RGFHJwE5hSCMMi66BiukOOfPa72Eyrc=;
-        b=kXUgqBIf6jQ+LE2eNU2SxsEsAr8qs8OrcrIJD1t0lb0RwvpHcD+io5e6UlBAh9v3Ka
-         qs67wVFPu4ph1w87ffx5rZzz3XHzY8Nyuw+E0OzYZ7FHALu5Grwycuzy4Nu6PB7LS/s4
-         yMOFGeDM1d8DKVhYR0Bwfzs+pASzPKbuu+QkHUcpYG6pq9xesbaIrUe34Tx4OpADEeVc
-         wNBMzxm1P/1vxvSRzi04EVuPTY4pDr9Ejidr9quHvbTw5ueYznFp3N0tJfkSrKc8pksI
-         IMWOMWTQCYivB9WhbsmRTzDkbLtRIFqc8mkITbA2Xq/7HBgHVBeANrSGy7VWYKKNDG3z
-         vE0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779290096; x=1779894896;
-        h=in-reply-to:content-disposition:mime-version:references:subject:to
-         :from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ccZEEEBlnDZ7RGFHJwE5hSCMMi66BiukOOfPa72Eyrc=;
-        b=Kw288G2ZDB5XVqOD9pwZ5u6Na3HuMv0ao1Y6rxkryP7hgMMEPkcg+og084zISv22IA
-         YzK8kI/dfXHsAZad8BCtkAoCU6drD9RN+KZ7kU/4PORK8jYqC74WLI0y4hQUGEblntVG
-         Jr9dn4JFJkejFLhAuBPyupFc4e2fXSx9rkpO74UXpPIr2JLFjmjJ/SgSwpoJVWR54tAj
-         PQuUoZbKO+0Tdm+G4puCQIHuchAnX71WRYVKH4R6vkwttMS9n459VDI/XAOrdEDQ+OQY
-         vQ6nmLIDPIi7DfhUWRZwtI3uMZ2wYbrtRCHmkyBo+jm8xGTSJpUhtgwsduQc6fYWMnOc
-         QVPg==
-X-Forwarded-Encrypted: i=1; AFNElJ/Xjzj5I1AsSIMAl7YixlFOGCxLVpW534ycUH/psx5KiAneslfXJvSgMsw2oYim9udxs1XYTKitIjCCAuf4X1CR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjFQ8Z3H5JPy0bhufcHIhoJFTIxq13Y8Kvbm8EET/oNCbP3XFm
-	FOSOG1LZNC6Fs3vaXUw+nwS6e3JDK/3mGNAXMXTQcpCVterji06rSr5AMgIIVQ==
-X-Gm-Gg: Acq92OEXYYLmQJRyuRnCdIdvnP8aWe+NWxpXjLPSBndw8cSR7Z24jd6MEBVEGgrIayT
-	SxEJWHx4Up0jIlO2ZL29/pEJDLYZ7zXg+wJserEBqD5ksdBGqhckf9aL1KLdSIZxtl3YfShj9f/
-	VvgRBYWEBrmVQseK7/VN/VBthE4Gzik0/yecGnbDZvG3Kj5UKYhZX08NMGHCSXBSuuW2oHCFPZG
-	YJ26VF0f8TAEcRwI5cJmpcjTyIPjwTX9q2Yi7wiuKjH3s+Frp/yKvG5hpCQmdGXBvCwNw1M0TSy
-	allh3x11up0mWeg4t4qbZTPVEyJ54b+E+hjwVcKMJfNmOKymcgW0EoJuaaw2Ke9X0Sxx786BZlN
-	RM8VbC3hsfn5R68cTf8/NWCzIdPTvwlEfhjFbnYJpctQalThBRJNWnA1O1uCUUMuhf3/moH6VUg
-	duwuJchJXH7i24eXVhfOyJYnPd2UHV5ERGFavQg+pgxuJsaHEwwPufXwWS0YoX2A==
-X-Received: by 2002:a05:600c:a405:b0:48a:52ce:a4b1 with SMTP id 5b1f17b1804b1-48fe60dd5e8mr371333235e9.15.1779290095645;
-        Wed, 20 May 2026 08:14:55 -0700 (PDT)
-Received: from Ansuel-XPS. (host-79-22-5-99.retail.telecomitalia.it. [79.22.5.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe585absm136106415e9.19.2026.05.20.08.14.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 08:14:55 -0700 (PDT)
-Message-ID: <6a0dcfef.b6ded719.106719.1acd@mx.google.com>
-X-Google-Original-Message-ID: <ag3P62h_xNArpB2V@Ansuel-XPS.>
-Date: Wed, 20 May 2026 17:14:51 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	id 1wPiii-00000004xS3-0i7U;
+	Wed, 20 May 2026 15:20:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aA+JXsQik2/65dKKvYoYr1R+s8ZSAkh6iypCTHshK+iogywfx6hkYDRX5VM+B4zXupEWK04lHy5FP/BHFapQs7N4aCL5sh38lFY4yJryc0OoTavixnFkV52tRwBok2kg8vgMpEwFq2Qq7lsc0s4aIt0APR5A8Te7rfpe8msFTX1qwMPMjBUPgEwimgjevWsAqWaHJBiB0OycN+GTRT1kbbqPyoiB852AQvix8FqjFL4kh37ACSnNib5uhTCV4QrCz3Ix/I8BvROl2h/5z+jtOQJa8bQf6F9N/2PU8cghT90DuoPFkGxryVPAjC3wRf9KclpkJARKF6hKDh971fQBKA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mkW91SkV0pxRKcye1NH7wqUvPh4aFckQs7BkyPzGA48=;
+ b=oJRIDflWs9ypVQjuOP1tV2WULzNWrBtenuMMJomTvzQRY+VgMQqLDSG3JJ8qeYp6TV1UCbboOYMsY+O3AxNSU3MwRC9xlz+VcrbeL0y0LzADB0V4WcNsZQOy74ouUuopRt7M4n1y61vqlkv6NKrqvlSEH9gGLkH+Hid1rvRfvQto+kDr5+1dRzNGHHNdOKWAZ/llJDEy7CU5pbKgtsA/x+1HWBZMASur0/bux+i/f75gr2yAxcbWtpe23HQhOZ7PNYhlSlFgHSJdeGPdhxfE92QGvTXrY78gtrw0puRW3OjL2SeMmu74bhvQwiXyMRCXHqU5fpH3Sebwsc32pgSuOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mkW91SkV0pxRKcye1NH7wqUvPh4aFckQs7BkyPzGA48=;
+ b=OQRypaQMCjAzSX0eywA8LNtnOT2VZoWmNWA0Nkb3P1YysAG4BffxJM9k7Z3/R+m1slXLZu5rtpxbsTZf0zxLEeYlqKLDwmEvlhbaYZRdExIz/eyfyAUnwaBhPwWSCxVNg16DHKSAFvEwGb22h3o43KBPU27+L35MbR5PFDfQwqoW33EPvUXB84lKq1xf4/4+FbIM/tpiBN9/ySRa/QOfa/VMbfg1CIi7PIb5PMftnKS66iFR/lkBbGK5AySk7KREiuj5AN/aOx/7xZkBuTQnQyRrKMtd2DsOuBiSTY/mzi3vDPC9eNgbDf0Qj7UbJMz2rWpJMMj8/vCyl2TY/vnjYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
+ by VI0PR04MB10808.eurprd04.prod.outlook.com (2603:10a6:800:261::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 15:20:18 +0000
+Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
+ ([fe80::7fda:8431:ca1b:b023%5]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 15:20:17 +0000
+Date: Wed, 20 May 2026 18:20:12 +0300
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-phy@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v8 0/5] airoha: an7581: USB support
-References: <20260520150912.11614-1-ansuelsmth@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-can@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-ide@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-scsi@vger.kernel.org,
+	linux-sunxi@lists.linux.dev, linux-tegra@vger.kernel.org,
+	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+	spacemit@lists.linux.dev, UNGLinuxDriver@microchip.com,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Subject: Re: [PATCH v8 phy-next 15/31] drm/rockchip: dw_hdmi: avoid direct
+ dereference of phy->dev.of_node
+Message-ID: <20260520152012.acf6xpe7hvrdzn2u@skbuf>
+References: <20260505100523.1922388-1-vladimir.oltean@nxp.com>
+ <20260505100523.1922388-16-vladimir.oltean@nxp.com>
+ <3758596.1xdlsreqCQ@phil>
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20260520150912.11614-1-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3758596.1xdlsreqCQ@phil>
+X-ClientProxiedBy: WA1PEPF00005B93.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d8::631) To AM0PR04MB6900.eurprd04.prod.outlook.com
+ (2603:10a6:208:17d::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|VI0PR04MB10808:EE_
+X-MS-Office365-Filtering-Correlation-Id: c385c8c1-b3c8-4655-82ec-08deb6834c8f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|10070799003|366016|11063799006|5023799004|6133799003|56012099003|22082099003|18002099003|4143699003;
+X-Microsoft-Antispam-Message-Info: y6VMH6By2VJoIZ5ieBzCRsombvv6k3m1LLawVi98Fb0P4dpJygu7ekSLtmwIiRHbUJ5TqjcQHt+TfBIXZz4uHqR5IVMruCx7MMkt6zGjL2TZ83RrFa1T+YjUw6Fg4N9GlD3wrmkKOdtbti0rc6X16vdCTLSTd0dNX7ygXO0P9C9vkVimI6+AbXnbSRy0cZUOjbB/aGrUzN82UhgrtYlGFS1o6BbtYTqrFG2cJTO+SLjBstzCoJeR1QQKhujIEWYld3reDZOYZSuft9fl98numemuPhRABZIn/FJHkxu9Tl1q7/+UY6iQjz5oq/Mgf+rwnFDewsmvzrZmYhdUDjT0EUU/tjej8/h+ijOkSno0CtycIARjpbjIGmivdJ0NcORWrNK7nnvOawbqMJMOvhrpgt604+eXjXEg9tIKCReaTZ4g821ZVoVFInj4eLtljkUEj4lLIw5X4odI7zsIxyRJWpjIhA9GTBDxBI000Bmn+xALPDpOD2cQFPb8Rn5ITpufTh+buBJ1meivFtmZyHyDUL6fC17HxMmycZJD304Ke5tdFhLB2xaRckMQtOZpxYcU4A3flvBWamOBbrtHY6kAL0E/0Nu+ZqG0MEM7vCOeTBeu6o14sPf51v2hCwJLpgCXr7sUguoZfh4AsrdpThDo6JNZpMVmK2Sfx89VEFMVMIGN/3qiOdg0xo08pWy/Rw9WM6j0gPfW7iFWsYZNSgX7zA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(10070799003)(366016)(11063799006)(5023799004)(6133799003)(56012099003)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?w+bzZsFe3eKKjCLyiZMDhiUaw1usTpGN0A/VGIJbnAU/L1jz2NnkRTkuQ1?=
+ =?iso-8859-1?Q?SjdVO4XPOp46xKNJy9SxbrSI9zktykp5eHFoLj48iqNmgMU1kvBTKaZ6vB?=
+ =?iso-8859-1?Q?7Ji/LWZghZhprNPfJN11bum8PZazaRAey61lyzgFq81RyyTlgmJN6ndjZG?=
+ =?iso-8859-1?Q?lnhCcU3ktE/a1YO5XjUxUN9SmJWTIctpKyJToJjKUP/J1wibcRMGDJcq0T?=
+ =?iso-8859-1?Q?utmqq3sQKkA1KLJ59UsIeEkpVrlUSJ5+kUL9Mh4DHECvEOHpfmzXs91z6T?=
+ =?iso-8859-1?Q?DT9SXcOnS00uSDxbEp2RvjHLlkKvdn6AYeAIRumT6MkQpI9PH3vyO5oIOR?=
+ =?iso-8859-1?Q?G79iwJnowCwlPIkNhdawGMCmlVlnMe8ZdMbsnCD4gssgqwYEW/zMOirjf+?=
+ =?iso-8859-1?Q?C2IY70OgNKDP7wiPCqw7P4rRiVHTS141vBDt2KD1EBcEUNHiiwgdH9hKRU?=
+ =?iso-8859-1?Q?RzRvFPMTwjQUjWMLPoz/CA8W8iI+Q5Ao0VRX/3sgg4KKHc81hgFW8ItliE?=
+ =?iso-8859-1?Q?flMuxNs0dW7/j/4hgQ6vTkc7JrDSuACRLyKjAN5WaHlkzj3fVdqRqMoZ19?=
+ =?iso-8859-1?Q?KZ0ZLD8a3ktt7DIoys1iQu8ONhAEqiLNgUPDcjbXS7l/TweaFAQqortR8a?=
+ =?iso-8859-1?Q?MToSXs3XO5DkzK58HXlm+JSsVj99hN0EhOZaoZA1bq14VbbmFobFcNw2lo?=
+ =?iso-8859-1?Q?wDkQSunXeFwIyhk2m5Nc7cvRT+9+KRUBGd7Vg3AWmW6MpdmGu69wpx6Okm?=
+ =?iso-8859-1?Q?zhJT78p2vGIM/i8cGDgXPjniF0OKHWuChaJ12Jo58DdEthOp747khVlFIG?=
+ =?iso-8859-1?Q?buDlmVNxKyYB/b6+S2O6IOnJTy3wY7d88hSPCoF0GTaIbemd4kfvHyZ+zm?=
+ =?iso-8859-1?Q?aucQwWXAWUJnhLTzbVkZGDbhftTRPW0Ns6ARX91zOEpriOS2s6urvpioW5?=
+ =?iso-8859-1?Q?PswradQ3uKdChmxqIA1eU+Vkul8MlzS9/E0npsVNK0f7X6GrfsRfMuD3IP?=
+ =?iso-8859-1?Q?SZSoH9EtVxW+ktkQnL5UxbEmf75RNuiJqfrX5jttAutoCcVqGYOuOsgQR1?=
+ =?iso-8859-1?Q?vTiXCa8H8qAzH88MbiO7Mnl9eISERZTfscEIFgqJoO3F7gzy8Okp2r0FLz?=
+ =?iso-8859-1?Q?YJkq70v1uRvDEYIA78yI7lQ1+l25rEUOZzZ2A6xN8TtHlgnuD2dMPF47Ex?=
+ =?iso-8859-1?Q?voOt28Z7pocAYhQjs4xFf9Zisf/B/BJdZtH5soWUyCA85tRB+xkJPiktNq?=
+ =?iso-8859-1?Q?kUT+fxM8BMhSK0aqju1NdZiF/dpMZ3ZCtkGRN4zbeAltjrI9Lm9/6W0Ra6?=
+ =?iso-8859-1?Q?4zzTh/88P4X5g6G/1e/WcbQOyULO2Tn2QtjvFWAo5/45sjmlUWBGkcpC5v?=
+ =?iso-8859-1?Q?qcq+0adp6u2F3qq5UMpZfuIAuig9XLWCPQEGa9m2C1VH5mdRMC+hXejJP5?=
+ =?iso-8859-1?Q?lp+wWWZaRSidsHzl25ajbOYMSv6BbxVw+FQ2PKC0XmkgXeq4jlm+NTRY/D?=
+ =?iso-8859-1?Q?9/OdIwsIXsHhZ8fC9310VsVXjW6s04Fcglex5f4k06b4SUIx5F2S5A5I2y?=
+ =?iso-8859-1?Q?+YgtCeOcj0X/LxCRbTc9s4/pnlvVj67GsYP73bRmnkPf14mHn6WiTKFdHT?=
+ =?iso-8859-1?Q?TRpiVjFxKiScw6UxbVloY2HIco9czRJsQzO+j73zrXZqjBxRG6AujOV5KC?=
+ =?iso-8859-1?Q?uTeD9DTaA0L/7i62meoJhVgEDESNAOy53Ck3g89w4cwPvxiqTgNHmK6vOC?=
+ =?iso-8859-1?Q?mRDE+zFDSlrVE33FApjom1COBgFnNlVMUG0TpKNwN9RM3bKY+jwn7iBFUe?=
+ =?iso-8859-1?Q?YmBm3XuW6GqH/uV25VqE7ARzchddWnf3l6A53jPVEpbsyPZsqmuYFpiFTh?=
+ =?iso-8859-1?Q?JF?=
+X-MS-Exchange-AntiSpam-MessageData-1: HLlipyHbu6yqYg==
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c385c8c1-b3c8-4655-82ec-08deb6834c8f
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 15:20:17.6180
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eTVm/2d3fCQSmd5fytap+wEqwJac+az9a+yuKziHQ+ZvOOwWG065tCPWUtheZHYzEZHW/7dhoMsqYnslhvOdPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10808
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_081458_037302_C6C20CB0 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20260520_082028_216027_5C085A78 
+X-CRM114-Status: GOOD (  20.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,110 +157,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 05:09:05PM +0200, Christian Marangi wrote:
-> This is a major rework of the old v2 series.
-> 
-> The SoC always support USB 2.0 but for USB 3.0 it needs additional
-> configuration for the Serdes port. Such port can be either configured
-> for USB usage or for PCIe lines or HSGMII and these are configured
-> in the SCU space.
-> 
-> The previous implementation of a dedicated SSR driver was too
-> complex and fragile for the simple task of configuring a register
-> hence it was dropped and the handling is entirely in the PHY driver.
-> 
-> Everything was reducted to the dt-bindings to describe the Serdes line.
-> 
-> Also the property for the PHY are renamed to a more suitable name and
-> everything is now mandatory to simplify the implementation.
-> (the PHY are always present and active on the SoC)
-> 
-> Also other unrelated patch are dropped from this series.
-> 
-> Changes v8:
-> - Squash header to clk Documentation patch
-> - Address comments from AI Bot
-> 
-> Changes v7:
-> - Rework to double PHY implementation
->   (suggested by Rob)
->   Now the clk driver expose a PHY for Serdes port
->   USB PHY driver selects it
-> - Rebase on top of linux-next
->   Link: https://lore.kernel.org/all/20260306190156.22297-1-ansuelsmth@gmail.com/
+Hi Heiko,
 
-Typo for the link. It's:
+On Wed, May 20, 2026 at 04:21:24PM +0200, Heiko Stuebner wrote:
+> Hi Vladimir,
+> 
+> Am Dienstag, 5. Mai 2026, 12:05:07 Mitteleuropäische Sommerzeit schrieb Vladimir Oltean:
+> > The dw_hdmi-rockchip driver validates pixel clock rates against the
+> > HDMI PHY's internal clock provider on certain SoCs like RK3328.
+> > This is currently achieved by dereferencing hdmi->phy->dev.of_node
+> > to obtain the provider node, which violates the Generic PHY API's
+> > encapsulation (the goal is for struct phy to be an opaque pointer
+> > with a hidden definition, to be interacted with only using API
+> > functions or NULL pointer checks, for the case where optional variants
+> > of phy_get() did not find a PHY).
+> > 
+> > Refactor dw_hdmi_rockchip_bind() to perform a manual phandle lookup
+> > on the "hdmi" PHY index within the controller's DT node. This provides
+> > a parallel path to the clock provider's OF node without relying on the
+> > internal structure of the struct phy handle.
+> > 
+> > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> > Reviewed-by: Heiko Stueber <heiko@sntech.de>
+> 
+> there is now already more stuff depending on this change [0], and
+> the change itself also is sort of independent of the whole
+> phy-series. And somehow this series itself sadly hasn't gotten
+> much review yet.
+> 
+> So would you be ok with me just picking this one patch for the
+> drm-misc-tree?
+> 
+> 
+> Thanks
+> Heiko
+> 
+> [0] https://lore.kernel.org/dri-devel/20260518193748.2482823-1-jonas@kwiboo.se/
 
-  Link: https://lore.kernel.org/all/20260519220813.28468-1-ansuelsmth@gmail.com/
-
-> 
-> Changes v6:
-> - Fix kernel test robot (sparse warning)
->   Link: https://lore.kernel.org/all/20260306190156.22297-1-ansuelsmth@gmail.com/
-> 
-> Changes v5:
-> - Add Ack and Review tag from Connor
-> - Implement Ethernet support in the USB driver
->   (testing support for this Serdes on a special reference board)
-> - Use an7581 prefix for USB PHY driver
->   Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
-> 
-> Changes v4:
-> - Rename PCIe and USB PHY to AN7581
-> - Drop airoha,scu (handled directly in driver)
-> - Drop dt-bindings for monitor clock in favor of raw values
-> - Better describe the usage of airoha,usb3-serdes
-> - Simplify values of dt-bindings SSR SERDES
->   Link: https://lore.kernel.org/all/20251107160251.2307088-1-ansuelsmth@gmail.com/
-> 
-> Changes v3:
-> - Drop clk changes
-> - Drop SSR driver
-> - Rename property in Documentation
-> - Simplify PHY handling
-> - Move SSR handling inside the PHY driver
->   Link: https://lore.kernel.org/all/20251029173713.7670-1-ansuelsmth@gmail.com/
-> 
-> Changes v2:
-> - Drop changes for simple-mfd
-> - Rework PHY node structure to single node
-> - Drop port-id property in favor of serdes-port and
->   usb2-monitor-clock-sel
-> - Make the SSR driver probe from the clock driver
-> 
-> Christian Marangi (5):
->   dt-bindings: clock: airoha: Add PHY binding for Serdes port
->   dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
->   clk: en7523: Add support for selecting the Serdes port in SCU
->   phy: move and rename Airoha PCIe PHY driver to dedicated directory
->   phy: airoha: Add support for Airoha AN7581 USB PHY
-> 
->  .../bindings/clock/airoha,en7523-scu.yaml     |   9 +
->  .../bindings/phy/airoha,an7581-usb-phy.yaml   |  62 ++
->  MAINTAINERS                                   |  11 +-
->  drivers/clk/Kconfig                           |   1 +
->  drivers/clk/clk-en7523.c                      | 216 ++++++-
->  drivers/phy/Kconfig                           |  11 +-
->  drivers/phy/Makefile                          |   4 +-
->  drivers/phy/airoha/Kconfig                    |  24 +
->  drivers/phy/airoha/Makefile                   |   4 +
->  .../phy-an7581-pcie-regs.h}                   |   2 +-
->  .../phy-an7581-pcie.c}                        |   6 +-
->  drivers/phy/airoha/phy-an7581-usb.c           | 554 ++++++++++++++++++
->  include/dt-bindings/soc/airoha,scu-ssr.h      |  11 +
->  13 files changed, 894 insertions(+), 21 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
->  create mode 100644 drivers/phy/airoha/Kconfig
->  create mode 100644 drivers/phy/airoha/Makefile
->  rename drivers/phy/{phy-airoha-pcie-regs.h => airoha/phy-an7581-pcie-regs.h} (99%)
->  rename drivers/phy/{phy-airoha-pcie.c => airoha/phy-an7581-pcie.c} (99%)
->  create mode 100644 drivers/phy/airoha/phy-an7581-usb.c
->  create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
-> 
-> -- 
-> 2.53.0
-> 
-
--- 
-	Ansuel
+I am currently out of office, so I can't look very closely, but yes,
+I did agree with Vinod to try to reduce the size of this series by
+submitting some of the changes this cycle to individual subsystems, and
+the cross-tree remainder the following cycle. So yes, feel free to pick
+from this series and I'll submit to dri-devel whatever remains when I
+return to this activity.
 
