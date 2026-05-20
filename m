@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC085CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 19:47:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8EBCD5BA6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 19:47:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UfIF4w8GC+r+Epup0nTeG37KPilOK7+R6/+ivq5REdc=; b=k88QIyZ0nXSAhL2Hep+ivNWjs9
-	EevQHn+Ocg+Df4VWeVuwMx5BQ11NspIa7VSbIY8Zmx+ikJpk1l/SYAKNaVInIWPXtECWwYKuFEgY4
-	8yAp1K3E6xaYyk4y8Xt4LUvyW0E44JBTJN/CM+hOiOPtzvCZ3lXdoqNllWTNJDUXGjyzXDlbzxIu8
-	v9V4vqmWxFJKcodrZGxC73B/VuKY6eF6RGK2KMJkcqG+B7tfjQ512RK3inqsKfB7JGh8GCvtTXVVf
-	FCR1q5F9y26gWqoJzk53eN6jUAKz7ZNjhQG9dz8ZDGAB+fHFGiPyVsqWj7ORi2+4e4EMDfDD4Vkoh
-	LLy3tebQ==;
+	bh=/m/jdYLRKbRkOwHs29D8L7wx6k3gXHQK3PEXRGOq01E=; b=I+bc5jV8p/eLFh0+gTMDK60Dv2
+	L/Fs3tOxdF0gpOFIa8F8m5LizGeqeiVhNKt9sfCfYGh6ahVO2PLwE+509xyuiEWs1MeLmml8aWctd
+	daxSjwwrRK/wxHpP9OifuHkUl2lRdf+1HJico7ekRk/wWOU5cE55eRYkzjVXoCDyAj4EWgj4TwtoO
+	/Ilmx/l8lXqyEmIRK1OjO7JajWfgcYcreiYgC7Mwc4Kr/J68v5CrP2FEJF3Rl5bgK2siXATD2WHgH
+	40jk7mp9uPZzhbXUx2l4g1yQk3Uzwjxe1uDVvHJehyO7kf/pojklaXYnkv8UYjrOxMq6vMwpUIraL
+	5bpBldJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPmsd-00000005eSi-32uE;
-	Wed, 20 May 2026 19:46:59 +0000
-Received: from mail-westus2azon11010055.outbound.protection.outlook.com ([52.101.46.55] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1wPmsi-00000005eVf-3V81;
+	Wed, 20 May 2026 19:47:04 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPmsa-00000005eQG-3rqv
+	id 1wPmsd-00000005eRu-21sN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 19:46:58 +0000
+	Wed, 20 May 2026 19:47:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=buprNaJWM7KbOG3SeEhfpT7Hcmch2ttmP9kJKJSm1ORh3Xhc1v3fOOFbnAbTDAvVEFlTLv41Cbwxw3KbLdm98VQrACE4H4CXf7vh1kfnBWxj2q9ZT3hV16RwJRbpqK5KT4FOLxVheuhN1Ir6qgC+q1z4Ry2PM5dXNa05jbA/hnRFkkGZBryXFhbCuIJwkzrrxO0lbO7Zkz9n0kUgAnWNPm48wqXaKNsQNsYjMf+uoDn6wQKIpigxDuo3vEetqlVtUfq8uOptqV7pPKuhSEqPYVI388aR90V/M2qiFKxV3bWSAGEYkXrLYK+F1pEIX7s/yrv48rdkWxn4JUcMH8JPoA==
+ b=UpMD/MhcP8UvrLX9n9nfD1CJP5gnkjTTHvZ/nJXNNLKdHza2AfJTxQX592BcWE7uwH10yPD88BxkWnDc5vUGecs3mYOuerd0PoacJtGrt+6BPmjg4dcJ9ItY2etXVePxajAoKG8NKxqECIh76PzaVpNH5bDqJa1Zv4YGAXQ0arFZlQ7B0wwQdfEd4qCfE0MhBBBanAtuy8TqenPHrFudGBQvfJ9kiYnhmjW1YzKQs8llh22mreTqeKIMeYtbFRaQfdEznUAGG3uHCKAFLIR6Vkw6I49X7aANOPRwoqac0wzBCXHZQKizgBK/8CY33aZRkRHTfbXqHiZLA3p1pGIZ3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UfIF4w8GC+r+Epup0nTeG37KPilOK7+R6/+ivq5REdc=;
- b=JGD/qHkHdfTh5G6vNMJaTgy9hIUpNChd4eQrfxtC4xEpOUEXT2tlQfPF3bb3ioseHQr3wPaXfnJVkLFv5c78SzNwtrMQvsA2/qSFwD15Q2rCPwNdGCJRvjxgo5bq6ECEvzVbg6V5MVjdwZatCghGOXUHuyNwakalBYU+NcmwS4yzmyTfGiAexZmBaI+x6UPeFNeHPDTa0kA6oVOHRR4xAQ8VExbUVtuvh6jwDqMCiOTNorerjMKvNGjIedpYt+9Z4MXrua/NMChD+imY20wA2CE40agyJI/NZOYtAzdagBV8i+jih3Jzz6Cj145jxxPNWszE3IE3nb90QeCnHXLNeQ==
+ bh=/m/jdYLRKbRkOwHs29D8L7wx6k3gXHQK3PEXRGOq01E=;
+ b=F4j3YJSNib+YDUP6cp7qU3ZPJYpJwuogIMB9fyl+W51auZV8H2EF1Yo57C8vVyXPhjCuPwgdjL6/4J7R3ypdOVDC/lNXEyqYB3ssUqNtTuauI4vTkJjdx6mqGTP91VyhZW17BFRfnwZ9LUe0NqftEDJF0zY0SGYrrJVqq4ath0QyR+dr5LEtQ3aNjHe+A4uVf+V7HDE0LBJL+1jY98NAD/nPeUPYkZ5fx7qPdo5GgbEyOS6rMLO0Jfd2Y7/diR/O8Z8TP+tO5uVHyZ31cJnD9qpLRF4G+gfWv39qta1B0lWdPyRTRSfVljEY8rLLEj0hy2An3l68fjZzGvdZCXxlZA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.233) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UfIF4w8GC+r+Epup0nTeG37KPilOK7+R6/+ivq5REdc=;
- b=g6IUpUdtqNoLe6gopfmm13hD2KAZ/ZQwbSCXZzx9/Cz+KzyUIHfYs9bn33jp9xi6vMXzHeiXjQP9mkDU6CBTzYE5h1IaCQ+QLPO4tRzdMBW4a3wOzhUetF8N8rUMrf9owOU7kgqITyLVDpDnYNrm6hNwM5jwiLtHddJQ9GDhpfq0MfpjnxvpefWalzhbH0L5VZ/EdXDnJu5L+gxBNew+qj48x8ccQJlYvghf+4pFs1otlVWNmvNSLCtPLZUvymGYStK7/LDsec+LZ5dms7y/sap2S/tloIulCiolvJlVp4ufiKLe+f8YeE7t5IamCPW/2IcWR/HqLCe2SlXngXYMqw==
-Received: from PH7P220CA0171.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:33b::32)
- by CH8PR12MB9743.namprd12.prod.outlook.com (2603:10b6:610:27a::8) with
+ bh=/m/jdYLRKbRkOwHs29D8L7wx6k3gXHQK3PEXRGOq01E=;
+ b=CB9ZBNHEOKD7IsTC447EOuuRQvfvlSM0yjxeffF4L5IMGDNp1S/u5f1E208V9b26teB3PtuQyb83X8bpFe7ZZFHSts+8d/hhJjm+llNcbhLVRZJrZhYTt+hJ/szAkSgyw/mwX05lZPbUFNqCqbQSuvrr1j2414S3mgvwVH0Bljv+4japdWymb+so0Qdx+2jqmluoGH759Fj8ZPUspOe++SDylcJE1Lz8gEoFPoN8UUG7zMjNgacrwVv3W3D1+OpEYLkqpTOCkU9aXSCXRdGNPPb8U2O0bV+Pjd4XxbfLXenODHlGCzFS0FxF/V8ThVjgy99YRnm8FDf51xY+YaCLpQ==
+Received: from SA9P223CA0007.NAMP223.PROD.OUTLOOK.COM (2603:10b6:806:26::12)
+ by DM4PR12MB6039.namprd12.prod.outlook.com (2603:10b6:8:aa::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Wed, 20 May
- 2026 19:46:48 +0000
-Received: from SN1PEPF000397B1.namprd05.prod.outlook.com
- (2603:10b6:510:33b:cafe::6b) by PH7P220CA0171.outlook.office365.com
- (2603:10b6:510:33b::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 19:46:45 +0000
+Received: from SN1PEPF000397B2.namprd05.prod.outlook.com
+ (2603:10b6:806:26:cafe::b5) by SA9P223CA0007.outlook.office365.com
+ (2603:10b6:806:26::12) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.16 via Frontend Transport; Wed, 20
- May 2026 19:46:43 +0000
+ May 2026 19:46:44 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +60,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.233 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.233) by
- SN1PEPF000397B1.mail.protection.outlook.com (10.167.248.55) with Microsoft
+ SN1PEPF000397B2.mail.protection.outlook.com (10.167.248.56) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 19:46:42 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 19:46:44 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
  (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
- 2026 12:46:24 -0700
+ 2026 12:46:26 -0700
 Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 20 May 2026 12:46:24 -0700
+ 15.2.2562.20; Wed, 20 May 2026 12:46:26 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.9) by mail.nvidia.com
  (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Wed, 20 May 2026 12:46:23 -0700
+ Transport; Wed, 20 May 2026 12:46:25 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <jgg@nvidia.com>, <will@kernel.org>, <joro@8bytes.org>,
 	<bhelgaas@google.com>
@@ -83,9 +83,9 @@ CC: <robin.murphy@arm.com>, <praan@google.com>, <baolu.lu@linux.intel.com>,
 	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
 	<dan.j.williams@intel.com>, <jonathan.cameron@huawei.com>,
 	<vsethi@nvidia.com>, <linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
-Subject: [PATCH v5 1/3] PCI: Add pci_ats_required() for CXL.cache capable devices
-Date: Wed, 20 May 2026 12:46:08 -0700
-Message-ID: <9e01e6d39deff2bf751da3e1abb43f35a9169194.1779304390.git.nicolinc@nvidia.com>
+Subject: [PATCH v5 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
+Date: Wed, 20 May 2026 12:46:10 -0700
+Message-ID: <b6d2f24356621c504e47633d9e96a7274c2859f3.1779304390.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1779304390.git.nicolinc@nvidia.com>
 References: <cover.1779304390.git.nicolinc@nvidia.com>
@@ -95,28 +95,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B1:EE_|CH8PR12MB9743:EE_
-X-MS-Office365-Filtering-Correlation-Id: d78930dd-1ed0-4764-805d-08deb6a88456
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397B2:EE_|DM4PR12MB6039:EE_
+X-MS-Office365-Filtering-Correlation-Id: 352f1114-590c-47b9-4183-08deb6a88569
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|36860700016|376014|1800799024|22082099003|11063799006|56012099003|5023799004|18002099003;
-X-Microsoft-Antispam-Message-Info: HHQQpoUnVGEq3oFKV1msyRUHCCXS0DpTCPJaE4BdTmNzOOPGgr0BjX0H6OoQtBe6jqFp2y9PikFJoIdSr0iobPPSwAMRrPgxDXmFxWgti0woLjicuZNXqvH+K3aT2TVr6XtimDgQSFJSzQ/XiKkqGTn33JO30O8Eagt6p+IVZm9t9NuQX80UBaR/QgvfHjL06pEY/pMwqT1lyIBWNf4YqD/DH3g8pQiQs2ITmdVqK4leXR1D32scva5qXwHVgKgVOGCjLGxM5/2Sn9RWdxki/faOC/SJsDMEHtmfPZ+ea3SYKQmgJ4w+KJ8PsaIQUreCd8ytkrRs24trurhLeY9i6X5ftcJTIoHVHFTOvB7D3O0Rv3usk16ELNp4Xvd3kSXz5i6QIhhsJ1k4EjwQzceTvJwH9Wk+FAzemFwHUcTBHlp2XFIqSBP1j6Nzr26lu41uFhLI9ioTLDrsiFmxIZW/citzD1MpEiO9uaa//K19c0yqumQk9cb22aJuW5uUO192sxWQqs/ViYjh4yT0QheR2zwJuRH36NY1nJZdpvhVH7VwWpinnuE1SMt7Y/18prjbJkP5/JQ6s1rujIbsCZ/7sgtMaUcFfD/LrAyxdBP7lB+tGb7byf+VNqEfDJ9G8vItK33OUBowutzmcV1anBv3YH9vc/OLfVb0sSceIM6LIpSsjUR11MqadT4KmBxWfK0X7cz0mNvCwTD7z/aIqpzDUji0zos8rjhsP91slcGsdRs=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(36860700016)(376014)(1800799024)(22082099003)(11063799006)(56012099003)(5023799004)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|376014|7416014|82310400026|11063799006|22082099003|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: 4iz44O936WoXyo1nI+/jn0b//rgQ8hBS45ofW+KqL7U/kaVbVpy1mvkMEX4Sio92NrsXJ7PjqRh3VBbdCit0XW+fJXLgzC31IpG0Uds/gIcbBzrV1YI+intFibLuuIMyT4o0fWGV7ujtlBy2xW5pP9DCpxIaoDlxpGBDL4QK7SjG3iAFk9ZU3FZ9KXKeCekduuX9YGaaxucbUddged+JwPT1mBSx6LRqhI7avaXpyWr+lUYipjxEcDhkGgLH5Kl3CKYPtfiMSXwB1ipG6S2hhFgDBiUbWEBCZ8D0rNR2muTAscbSf2K8ixQWjOZ3Sp5i35eJXJkLw66vzsJeOB053rbhrDhT2CLLDFR3uBm9PILY1nOzGJmR5XnsHQa44/KKE9bxJidS1J24BpbgfzuGRH4rnRrSN5Bw7W660U5fnEVwjSAiF+5YWT/wlkCAubL7mRPuYGDXHuVDX+bHFtwDaBNW6wVXnCWYg3Lg9/loPhoY16temrzQC6ZFtCKLUiUfvnzNFsvt0Skq6PFw2jJ1kcqpH5irpH6RXHip88ao+8ujTCNreuVXRGWDLPA1fdRJmTprPK7t89WcpLlzlbqMDHapIo8SggHmdqkg3JdzfFaO4GE7k9G8A6pipntGMRq2lYs+M0/YNjHTd9+ZZXfIN3WLroGqgBwjQNF4VwzAF3a27Uribav4BrAgRaszngHpRSSP/i/IzooPp7yhEq4EB7APcPOVHIrTQo6LHM5FnDg=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(376014)(7416014)(82310400026)(11063799006)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: nbgOOoMmcr9fUeo0AlWV3nRm87UTkb5dqQ6WMHljULBRuvTREm8ceW4QGMoPajmGpnY53XxlLP8i4tWWVDllSN6/LBc6cZ7lY54bxTMs0HTtFyvYQn9W65eEq3R4jhj4iHT/0VU0vVNmK+sTE8/p8L60Lq/0OynEmJpevYkkXsRDdxatz5t8yBCsIIREX0TodMMuJcydf/HBonL0Z8P5YfdMJs4i1z4tFQFz0Dd9fRcAzqP3hcGLw/e0TQ+R6I/UDsBG1qswRJVhGT3Mdjq7EW12/p9R5siybfiyrPY5s64exC91uaNjs8KUSjKMvFq1ooRBO8OhWhXMpOSsDhdTl0Wip5YgluNius/StqeC/AArBvtOzXbIJZyHuaU/WO+fqpSXpBO8yvc2t6orHUI/drdmx+nDCT2Plyu0wxH5rZltqpjZNb3gNSI7vQK0jai2
+X-MS-Exchange-AntiSpam-MessageData-0: ZAYCgotm7nJ9/4NpXVkDef+drb5M99Ip5UYi93oJodSBNOmf0FUiS8EYTFGoEn8xE30sC3qfPEJDmwSfC0FJ8SivmFbqj+ut2rP0K42n0VZNHTFnx86hnxBiLvUV8A8vsVqkdtNgS4/jMP0+7fKpXMqEDANbcDe+r9YpBdyNG3b6qvPD+WBAGuUtv/oCvqBT7fEfFIZ8wNGDbUVv50Eh2wA76Bwvqg5LTCWaUSffJOWRN1OiLs05sZY0x4dn4jtMbRmf6ftkuM17pNq4n904D0vG3XkUgsnN6P0j5ivYoFGKx1q859JoAk1RiiqOWhxTPRJCL4UCjRnoKd44ItF/7gcwKA7BsBwPnjzu8SjzH1t8tBDdgLZqqZVq2Rg6/5rml06fTXmZyEpP58a4zcM151f0cHhvd4+5z/6M9nYqrq6dh6jKkJCn9Wo9VDdi19kj
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 19:46:42.2901
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 19:46:44.0897
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d78930dd-1ed0-4764-805d-08deb6a88456
+X-MS-Exchange-CrossTenant-Network-Message-Id: 352f1114-590c-47b9-4183-08deb6a88569
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B1.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B2.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9743
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_124656_963543_14CAE483 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20260520_124659_574655_DE230096 
+X-CRM114-Status: GOOD (  32.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,138 +131,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Controlled by the IOMMU driver, ATS is usually enabled "on demand" when a
-given PASID on a device is attached to an I/O page table. This is working
-even when a device has no translation on its RID (i.e., the RID is IOMMU
-bypassed).
+When a device's default substream attaches to an identity domain, the SMMU
+driver currently sets the device's STE between two modes:
 
-However, certain PCIe devices require non-PASID ATS on their RID even when
-the RID is IOMMU bypassed. Call this "ATS always on" in IOMMU term.
+  Mode 1: Cfg=Translate, S1DSS=Bypass, EATS=1
+  Mode 2: Cfg=bypass (EATS is ignored by HW)
 
-For example, CXL spec r4.0 notes in sec 3.2.5.13 Memory Type on CXL.cache:
- "To source requests on CXL.cache, devices need to get the Host Physical
-  Address (HPA) from the Host by means of an ATS request on CXL.io."
+When there is an active PASID (non-default substream), mode 1 is used. And
+when there is no PASID support or no active PASID, mode 2 is used.
 
-In other words, the CXL.cache capability requires ATS; otherwise, it can't
-access host physical memory.
+The driver will also downgrade an STE from mode 1 to mode 2, when the last
+active substream becomes inactive.
 
-Introduce a new pci_ats_required() helper for the IOMMU driver to scan a
-PCI device and shift ATS policies between "on demand" and "always on".
+However, there are PCIe devices that demand ATS to be always on. For these
+devices, their STEs have to use the mode 1 as HW ignores EATS with mode 2.
 
-Add the support for CXL.cache devices first. Pre-CXL devices will be added
-in quirks.c file.
+Change the driver accordingly:
+  - always use the mode 1
+  - never downgrade to mode 2
+  - allocate and retain a CD table (see note below)
 
-Note that pci_ats_required() validates against pci_ats_supported(), so we
-ensure that untrusted devices (e.g. external ports) will not be always on.
-This maintains the existing ATS security policy regarding potential side-
-channel attacks via ATS.
+Note that these devices might not support PASID, i.e. doing non-PASID ATS.
+In such a case, the ssid_bits is set to 0. However, s1cdmax must be set to
+a !0 value in order to keep the S1DSS field effective. Thus, when a master
+requires ats_always_on, set its s1cdmax to at least 1, meaning that the CD
+table will have a dummy entry (SSID=1) that will never be used.
 
-Cc: linux-cxl@vger.kernel.org
-Suggested-by: Vikram Sethi <vsethi@nvidia.com>
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Now for these devices, arm_smmu_cdtab_allocated() will always return true,
+v.s. false prior to this change. When its default substream is attached to
+an IDENTITY domain, its first CD is NULL in the table, which is a totally
+valid case. Thus, add "!master->ats_always_on" to the condition.
+
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 Tested-by: Nirmoy Das <nirmoyd@nvidia.com>
 Acked-by: Nirmoy Das <nirmoyd@nvidia.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 Reviewed-by: Dave Jiang <dave.jiang@intel.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- include/linux/pci-ats.h       |  3 +++
- include/uapi/linux/pci_regs.h |  1 +
- drivers/pci/ats.c             | 46 +++++++++++++++++++++++++++++++++++
- 3 files changed, 50 insertions(+)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 75 ++++++++++++++++++---
+ 2 files changed, 68 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/pci-ats.h b/include/linux/pci-ats.h
-index 75c6c86cf09dc..f3723b6861294 100644
---- a/include/linux/pci-ats.h
-+++ b/include/linux/pci-ats.h
-@@ -12,6 +12,7 @@ int pci_prepare_ats(struct pci_dev *dev, int ps);
- void pci_disable_ats(struct pci_dev *dev);
- int pci_ats_queue_depth(struct pci_dev *dev);
- int pci_ats_page_aligned(struct pci_dev *dev);
-+bool pci_ats_required(struct pci_dev *dev);
- #else /* CONFIG_PCI_ATS */
- static inline bool pci_ats_supported(struct pci_dev *d)
- { return false; }
-@@ -24,6 +25,8 @@ static inline int pci_ats_queue_depth(struct pci_dev *d)
- { return -ENODEV; }
- static inline int pci_ats_page_aligned(struct pci_dev *dev)
- { return 0; }
-+static inline bool pci_ats_required(struct pci_dev *dev)
-+{ return false; }
- #endif /* CONFIG_PCI_ATS */
- 
- #ifdef CONFIG_PCI_PRI
-diff --git a/include/uapi/linux/pci_regs.h b/include/uapi/linux/pci_regs.h
-index 14f634ab9350d..6ac45be1008b8 100644
---- a/include/uapi/linux/pci_regs.h
-+++ b/include/uapi/linux/pci_regs.h
-@@ -1349,6 +1349,7 @@
- /* CXL r4.0, 8.1.3: PCIe DVSEC for CXL Device */
- #define PCI_DVSEC_CXL_DEVICE				0
- #define  PCI_DVSEC_CXL_CAP				0xA
-+#define   PCI_DVSEC_CXL_CACHE_CAPABLE			_BITUL(0)
- #define   PCI_DVSEC_CXL_MEM_CAPABLE			_BITUL(2)
- #define   PCI_DVSEC_CXL_HDM_COUNT			__GENMASK(5, 4)
- #define  PCI_DVSEC_CXL_CTRL				0xC
-diff --git a/drivers/pci/ats.c b/drivers/pci/ats.c
-index ec6c8dbdc5e9c..ebdf761843867 100644
---- a/drivers/pci/ats.c
-+++ b/drivers/pci/ats.c
-@@ -205,6 +205,52 @@ int pci_ats_page_aligned(struct pci_dev *pdev)
- 	return 0;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index ef42df4753ec4..8c3600f4364c5 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -943,6 +943,7 @@ struct arm_smmu_master {
+ 	bool				ats_enabled : 1;
+ 	bool				ste_ats_enabled : 1;
+ 	bool				stall_enabled;
++	bool				ats_always_on;
+ 	unsigned int			ssid_bits;
+ 	unsigned int			iopf_refcount;
+ };
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index e8d7dbe495f03..5c9d4bb542249 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -1742,8 +1742,11 @@ void arm_smmu_clear_cd(struct arm_smmu_master *master, ioasid_t ssid)
+ 	if (!arm_smmu_cdtab_allocated(&master->cd_table))
+ 		return;
+ 	cdptr = arm_smmu_get_cd_ptr(master, ssid);
+-	if (WARN_ON(!cdptr))
++	if (!cdptr) {
++		/* Only ats_always_on allows a NULL CD on default substream */
++		WARN_ON(!master->ats_always_on || ssid);
+ 		return;
++	}
+ 	arm_smmu_write_cd_entry(master, ssid, cdptr, &target);
  }
  
-+/*
-+ * CXL r4.0, sec 3.2.5.13 Memory Type on CXL.cache notes: to source requests on
-+ * CXL.cache, devices need to get the Host Physical Address (HPA) from the Host
-+ * by means of an ATS request on CXL.io.
-+ *
-+ * In other words, CXL.cache devices cannot access host physical memory without
-+ * ATS.
-+ *
-+ * Check Cache_Capable instead of Cache_Enable because CXL.cache may be enabled
-+ * after the caller uses this to make its ATS decision.
-+ */
-+static bool pci_cxl_ats_required(struct pci_dev *pdev)
+@@ -1756,6 +1759,22 @@ static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master)
+ 	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
+ 
+ 	cd_table->s1cdmax = master->ssid_bits;
++
++	/*
++	 * When a device doesn't support PASID (non default SSID), ssid_bits is
++	 * set to 0. This also sets S1CDMAX to 0, which disables the substreams
++	 * and ignores the S1DSS field.
++	 *
++	 * On the other hand, if a device demands ATS to be always on even when
++	 * its default substream is IOMMU bypassed, it has to use EATS that is
++	 * only effective with an STE (CFG=S1translate, S1DSS=Bypass). For such
++	 * use cases, S1CDMAX has to be !0, in order to make use of S1DSS/EATS.
++	 *
++	 * Set S1CDMAX no lower than 1. This would add a dummy substream in the
++	 * CD table but it should never be used by an actual CD.
++	 */
++	if (master->ats_always_on)
++		cd_table->s1cdmax = max_t(u8, cd_table->s1cdmax, 1);
+ 	max_contexts = 1 << cd_table->s1cdmax;
+ 
+ 	if (!(smmu->features & ARM_SMMU_FEAT_2_LVL_CDTAB) ||
+@@ -3851,7 +3870,8 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
+ 	 * When the last user of the CD table goes away downgrade the STE back
+ 	 * to a non-cd_table one, by re-attaching its sid_domain.
+ 	 */
+-	if (!arm_smmu_ssids_in_use(&master->cd_table)) {
++	if (!master->ats_always_on &&
++	    !arm_smmu_ssids_in_use(&master->cd_table)) {
+ 		struct iommu_domain *sid_domain =
+ 			iommu_driver_get_domain_for_dev(master->dev);
+ 
+@@ -3875,6 +3895,8 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
+ 		.old_domain = old_domain,
+ 		.ssid = IOMMU_NO_PASID,
+ 	};
++	bool ats_always_on = master->ats_always_on &&
++			     s1dss != STRTAB_STE_1_S1DSS_TERMINATE;
+ 
+ 	/*
+ 	 * Do not allow any ASID to be changed while are working on the STE,
+@@ -3886,7 +3908,7 @@ static void arm_smmu_attach_dev_ste(struct iommu_domain *domain,
+ 	 * If the CD table is not in use we can use the provided STE, otherwise
+ 	 * we use a cdtable STE with the provided S1DSS.
+ 	 */
+-	if (arm_smmu_ssids_in_use(&master->cd_table)) {
++	if (ats_always_on || arm_smmu_ssids_in_use(&master->cd_table)) {
+ 		/*
+ 		 * If a CD table has to be present then we need to run with ATS
+ 		 * on because we have to assume a PASID is using ATS. For
+@@ -4215,6 +4237,42 @@ static void arm_smmu_remove_master(struct arm_smmu_master *master)
+ 	kfree(master->build_invs);
+ }
+ 
++static int arm_smmu_master_prepare_ats(struct arm_smmu_master *master)
 +{
-+	int offset;
-+	u16 cap;
++	bool s1p = master->smmu->features & ARM_SMMU_FEAT_TRANS_S1;
++	unsigned int stu = __ffs(master->smmu->pgsize_bitmap);
++	struct pci_dev *pdev;
++	int ret;
 +
-+	offset = pci_find_dvsec_capability(pdev, PCI_VENDOR_ID_CXL,
-+					   PCI_DVSEC_CXL_DEVICE);
-+	if (!offset)
-+		return false;
++	if (!arm_smmu_ats_supported(master))
++		return 0;
 +
-+	if (pci_read_config_word(pdev, offset + PCI_DVSEC_CXL_CAP, &cap))
-+		return false;
++	pdev = to_pci_dev(master->dev);
 +
-+	return cap & PCI_DVSEC_CXL_CACHE_CAPABLE;
++	if (!pci_ats_required(pdev))
++		goto out_prepare;
++
++	/*
++	 * S1DSS is required for ATS to be always on for identity domain cases.
++	 * However, the S1DSS field is ignored if !IDR0_S1P or !IDR1_SSIDSIZE.
++	 */
++	if (!s1p || !master->smmu->ssid_bits) {
++		dev_info_once(master->dev,
++			      "SMMU doesn't support ATS to be always on\n");
++		goto out_prepare;
++	}
++
++	master->ats_always_on = true;
++
++	ret = arm_smmu_alloc_cd_tables(master);
++	if (ret)
++		return ret;
++
++out_prepare:
++	pci_prepare_ats(pdev, stu);
++	return 0;
 +}
 +
-+/**
-+ * pci_ats_required - Whether the PCI device requires ATS
-+ * @pdev: the PCI device
-+ *
-+ * Returns true, if the PCI device requires ATS for basic functional operation.
-+ */
-+bool pci_ats_required(struct pci_dev *pdev)
-+{
-+	if (pci_ats_disabled() || !pci_ats_supported(pdev))
-+		return false;
-+
-+	/* A VF inherits its PF's requirement for ATS function */
-+	if (pdev->is_virtfn)
-+		pdev = pci_physfn(pdev);
-+
-+	return pci_cxl_ats_required(pdev);
-+}
-+EXPORT_SYMBOL_GPL(pci_ats_required);
-+
- #ifdef CONFIG_PCI_PRI
- void pci_pri_init(struct pci_dev *pdev)
+ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
  {
+ 	int ret;
+@@ -4263,14 +4321,15 @@ static struct iommu_device *arm_smmu_probe_device(struct device *dev)
+ 	    smmu->features & ARM_SMMU_FEAT_STALL_FORCE)
+ 		master->stall_enabled = true;
+ 
+-	if (dev_is_pci(dev)) {
+-		unsigned int stu = __ffs(smmu->pgsize_bitmap);
+-
+-		pci_prepare_ats(to_pci_dev(dev), stu);
+-	}
++	ret = arm_smmu_master_prepare_ats(master);
++	if (ret)
++		goto err_disable_pasid;
+ 
+ 	return &smmu->iommu;
+ 
++err_disable_pasid:
++	arm_smmu_disable_pasid(master);
++	arm_smmu_remove_master(master);
+ err_free_master:
+ 	kfree(master);
+ 	return ERR_PTR(ret);
 -- 
 2.43.0
 
