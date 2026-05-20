@@ -4,72 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC43DCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 10:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FCACCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 10:41:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1LDWtyaODcbYP5iCV92+/8GVnwUqEJ5fHGR9cz0/w+U=; b=Ei8Nrc778DN6Z3NJJg8nZ1EYmM
-	5flfeVlWFRT7v2L/sM0V6qNxMDzdA/20Dl4p7AxPyQd4RhN9NrUM7Cau/zbNZJaotbuW8FDEl9o64
-	EWluK3dDXDkoaJEEOdC49bT9krF2ZeTzQlHYcMRDpSFIqmz3Tc/br58guDInRG6nyzg2h30T6ikda
-	sFmg1fNYRVkeIl1ssLV7gqFNGLg25Ajh+PTeet/w+SjG3lzAfAMZpS6XEpJ+xrFyAnTlplqrEBGxO
-	CBYa3FsfUFmawJkmwYzprEAxcjsR+SOiRA1g071I3uXL5w+jmxUW4rAL1OO+A/sqyl9A9L0w8ZRDW
-	m4Dy/CIw==;
+	bh=fyWr+KcV0xbK8BeY/Tq82S3QHBk4hm+zEvAPjwjFLlQ=; b=zcKn3cSulYF78b1QNXyE3QiFJB
+	bpxxnHdXyRnU3w4m7KNEzQD/ilB6IJeSxmDT+dnjdy4974HCqFQfCfNTbrBa8u3BDeHUsYlR69e+k
+	OYsILV2xjMOzOrsEkpILVzIplc1jrGHihH1GtlBgm03qy4YdoJN5H13tzJGoljZ8NuSJ45KpMvnZ0
+	3npM8ZfOJzjfO6UNkpj5gpSWPrSW/+wipSx90wbkkPvUaJK4fGKHhUesprnZSgqTfBHalepTOGsRb
+	1OpXn9LLfFJecwHBufO/e4jVd3pxxkQstPw4jQr5hLQuEpAhmo8AsxiTRjLFfzOTfHnCQjB9AmOdv
+	pSxRD5Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPeFh-00000004LHn-0lMA;
-	Wed, 20 May 2026 10:34:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPeMy-00000004MOp-0Aeq;
+	Wed, 20 May 2026 10:41:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPeFf-00000004LHB-01GX;
-	Wed, 20 May 2026 10:34:12 +0000
+	id 1wPeMw-00000004MOS-3wek
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 10:41:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA14843649;
-	Wed, 20 May 2026 10:34:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C1841F000E9;
-	Wed, 20 May 2026 10:33:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1A2DA600CB;
+	Wed, 20 May 2026 10:41:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D23A1F000E9;
+	Wed, 20 May 2026 10:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779273249;
-	bh=1LDWtyaODcbYP5iCV92+/8GVnwUqEJ5fHGR9cz0/w+U=;
+	s=k20260515; t=1779273701;
+	bh=fyWr+KcV0xbK8BeY/Tq82S3QHBk4hm+zEvAPjwjFLlQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=k0S3S/keSBLaGmyqupwK3Z1mvr66dN2JMGWF3ieVRlx99hH1pXaQueAW+z7vgQZ43
-	 FLddevi4zJjipFoHV8RO/xzDu2eW9Ph1tnMl9S5JrNxSfKr4IyUkNNUz/TuOjmvQ9P
-	 TfQSYdlPaCepQYkAi1wuPiRy349QjRGU+zQCiB3bmhODCk48llGycLn/gBzTK7mkYK
-	 eFYbb7rydTwhcEVglxFxRS1oGV5dyfP6l0CptCFYZUnF9mX1EEI1icTLZvmR+2Ap2G
-	 yD8FRNrZRvT5G47Y74X4p4e0ovLOLp6kYC3eA6xjU58ieE3ACOpqv7VnYaRg3b780f
-	 K35saKMpZRS4Q==
-Message-ID: <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
-Date: Wed, 20 May 2026 12:33:56 +0200
+	b=GZlgz0kLFA7K+2vxdMyBecJFXMM+40kznp26wQBdVvDMoZaU4tyQidhckg0yunKH9
+	 RoR59GwrRIeZf33pz/SYRQAtcurrynC+u9UAV/0p3KXsjrAWeGjOUi9uRqZdEcJavG
+	 nI4hFa25iUYLPyxIhzipJapASCZDlAWb6Tvl+0Uo2Wy0nbRyog63ABlw002vPtw/2e
+	 d7B15oCDuW1d1ErKGvMZA19Snxn87iK1TD5WGewO8Jeu8jKl4keztzr/YA5ojev0S9
+	 QFV/JDk1W0gNJzAR0M/t/Wcps7QZlv1S2JWdZ2JQJfGlqczxbPLEzvhkeImSHt7cYB
+	 ClZBugpGLPPGg==
+Message-ID: <b976ec4e-d5cb-4856-885d-dd301b3ddd83@kernel.org>
+Date: Wed, 20 May 2026 12:41:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>
-Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>,
- akpm@linux-foundation.org, linux-mm@kvack.org, liam@infradead.org,
- vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz,
- pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
- lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
- chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
- nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Nanzhe Zhao <nzzhao@126.com>
-References: <20260430040427.4672-1-baohua@kernel.org>
- <afNM-gIqxpyJ6ro7@casper.infradead.org>
- <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <agxbq1TxJdniMQT3@lucifer>
+Subject: Re: [RFC V2 01/14] mm: Abstract printing of pxd_val()
+To: Dave Hansen <dave.hansen@intel.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+ <20260513044547.4128549-2-anshuman.khandual@arm.com>
+ <74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -116,12 +105,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <agxbq1TxJdniMQT3@lucifer>
+In-Reply-To: <74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_033411_090970_D9C2D1ED 
-X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,46 +122,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/19/26 14:53, Lorenzo Stoakes wrote:
-> On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
+On 5/19/26 16:28, Dave Hansen wrote:
+> On 5/12/26 21:45, Anshuman Khandual wrote:
+>>  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
+>> -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
+>> +		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx "\n",
+>> +			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv));
+>>  		return;
+>>  	}
 > 
->>>
->>> I think we either need to fix `fork()`, or keep the current
->>> behavior of dropping the VMA lock before performing I/O.
->>
->> I see. So, this problem arises from the fact that we are changing the
->> pagefaults requiring I/O operation to hold VMA lock...
->> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
->> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
->> anonymous and COW VMAs only while holding mmap_write_lock, preventing
->> any VMA modification. On the surface, that looks ok to me but I might
->> be missing some corner cases. If nobody sees any obvious issues, I
->> think it's worth a try.
+> That's not the most readable result. Could a printk() format specifier
+> make this nicer? Maybe use "%pT"?
 > 
-> Not sure if you noticed but I did raise concerns ;)
+> 	pr_alert("pgd:%pT p4d:%pT\n", &pgd, &p4d);
 > 
-> I wonder if you've confused the fault path and fork here, as I think Barry has
-> been a little unclear on that.
-> 
-> What's being suggested in this thread is to fundamentally change fork behaviour
-> so it's different from the entire history of the kernel (or - presumably - at
-> least recent history :) 
-I don't want fork() to become different in that regard.
+> I _think_ it could even get rid of the p??v variables.
 
-There is already a slight difference with vs. without per-VMA locks, because
-there is a window in-between us taking the write mmap_lock and all the per-VMA
-locks. I raised that previously [1] and assumed that it is probably fine.
-
-I also raised in the past why I think we must not allow concurrent page faults,
-at least as soon as anonymous memory is involved [2].
-
-... and I raised that this is pretty much slower by design right now: "Well, the
-design decision that CONFIG_PER_VMA_LOCK made for now to make page faults fast
-and to make blocking any page faults from happening to  be slower ..." [3]
-
-[1] https://lore.kernel.org/all/970295ab-e85d-7af3-76e6-df53a5c52f8b@redhat.com/
-[2] https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
-[3] https://lore.kernel.org/all/2efa2c89-3765-721d-2c3c-00590054aa5b@redhat.com/
+That would be nicer indeed, if that works.
 
 -- 
 Cheers,
