@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D69CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219ACCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u0lWDGQPsgD8Yt+SND0PZatIJxC14109hDfaKdLRGZc=; b=mEm8tCwPLLlei0mbRCuA26VA8v
-	XPy4PATrrnWmp9cwID8hPsiziqNrff/vG/ClH+nar6mynkdgcibsoV6IRuOR1ogswXttseDfxlRjJ
-	Ia+yTS4CQ6QLU8TUEF7YNrvNA2eqI6uYOs5nrKVDSZteCWd8MBLvjrCg9mcu8kLZsxRvLJ12GQm70
-	tvhsX2EzE/flHumqTRsHLqxFtXrU8lXSJw3+a/DGmuVQIfPyQWdUwcMOwwkJRxwMhpA3VaHI2yyEM
-	p1SJ7FQsoMb3ugvSTru+wVDcn5Rtcq/+L++mlK1ZhstEMSaZ+Zgwfq9e4KtiO5ssdH4alfl+pUW4a
-	oPTkKqPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eAXC32rcH/MXwVcTVnicyCI3VrxkYUmRb1s0L548h0c=; b=DRcgJXZ0ML7Tm8k4xZfqKzj78p
+	dhuI2dAHJ2vAu4A2KgFxIEz2wI3vHZF8hnF2jpwmovXVOSW5z5SyhQP4urLF8bDdjMS5eALn2ywv2
+	+xS5AZJz3ZHrTpv2JY4I3Gg1WFWvZSzfFClX+roLdSo/rMQkFhcVjwx1VwDLMNrdfqV5IFgsbLwFD
+	3WFkRngHpVvIkIA+cr+vmvSZyXj7nc30eZ+VDHSytEMIzZwReMSp3VLfBYWQphIAScGgrOFHM0agf
+	sA52y54IQZtPW3aPmeSYNQk5Vh6cskDlXrSJwpcJZvhqtrf4xh7KDFr+Qb3fiVsQ2wndlAZh+atXt
+	u6chSIqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfP0-00000004Tgm-0bC3;
-	Wed, 20 May 2026 11:47:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPfOz-00000004TgQ-2A3I
+	id 1wPfRM-00000004Tyd-1aCj;
+	Wed, 20 May 2026 11:50:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPfRK-00000004Ty6-2ZHA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 11:47:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B7546600CB;
-	Wed, 20 May 2026 11:47:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C29D1F000E9;
-	Wed, 20 May 2026 11:47:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779277672;
-	bh=u0lWDGQPsgD8Yt+SND0PZatIJxC14109hDfaKdLRGZc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bOFCMVGJXFHkVeFNfzqsvgVmMLrcUtaCiVj1Y7yJ1pOPV9H/G+h2qeXk6km5b7MpQ
-	 v2n5pWvHXYW+qs78HBeFlxsLKMtZJs+42RdZcHqWzkc/0v3Pf8lO9qOl5rc49Gxl3I
-	 ROZYhYEySzTKD4OERMpijGA8BoMH9dFv9cbZYRRQagM3LC9foWUzqYNDTiJBPRmRX+
-	 ctetoItSkshyFzA3B21q2QfjUSeMpgY5yfinoqAxG3ELfqo5Y8ZTPQQwuGpIcvHPOm
-	 apuh7k1/sh7QNvdzuV8NtzaPloSps9JQZPHRF/5Va0X/GL2Sjsmg7eDtGRlpCSq86q
-	 PGuISNquSI0FQ==
-Date: Wed, 20 May 2026 12:47:45 +0100
-From: Lee Jones <lee@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
-	Pavel Machek <pavel@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-fbdev@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: (subset) [PATCH v8 1/4] dt-bindings: backlight: Add max25014
- support
-Message-ID: <20260520114745.GX305027@google.com>
-References: <20260407-max25014-v8-1-14eac7ed673a@gocontroll.com>
- <177755722019.2606736.10749503716773482329.b4-ty@b4>
- <agyxLnTYstqRwGva@lizhi-Precision-Tower-5810>
+	Wed, 20 May 2026 11:50:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A70783597;
+	Wed, 20 May 2026 04:50:12 -0700 (PDT)
+Received: from devkitleo.cambridge.arm.com (devkitleo.cambridge.arm.com [10.1.196.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B1433F632;
+	Wed, 20 May 2026 04:50:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779277817; bh=hPKT3WzdkwMamGhokWO/Li0K/EjbItHBpVmy/rZjq6Y=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=u8V4vwUykvL5GS+hJov9hbaKLBze2jIIkaSFpdN/x3vZlkx7Ci/BQDyoP0lTp0vz6
+	 zXb33XaRUTNgUIsOOrUcLcDc96098hMKEIDhKFF3wS+5B91qJOVcitEcMFbCLbax7W
+	 dbutQ6rjU2xakgYSJ8KrErCxKpgEmR3Cmx7YF2y8=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH 1/2] KVM: arm64: Introduce S2 walker SKIP return options
+Date: Wed, 20 May 2026 12:49:56 +0100
+Message-ID: <ag2f5C3i3LBGSPS5@devkitleo>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <agzUZS1l-uHQoodG@kernel.org>
+References: <20260515195904.2466381-1-leo.bras@arm.com> <20260515195904.2466381-2-leo.bras@arm.com> <agq-RyKhBy4CIThm@kernel.org> <agrTQMw4QJX6HGrm@willie-the-truck> <agsYF-Dav2bpxWK4@devkitleo> <agxa-TydN1PoKsYn@willie-the-truck> <agxeEA14cP3yMV1m@devkitleo> <agxifbKzGcYQivBz@willie-the-truck> <agx1J1tQFn0cdtBf@devkitleo> <agzUZS1l-uHQoodG@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <agyxLnTYstqRwGva@lizhi-Precision-Tower-5810>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_045018_734385_E1D45EC8 
+X-CRM114-Status: GOOD (  43.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,26 +80,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 May 2026, Frank Li wrote:
-
-> On Thu, Apr 30, 2026 at 02:53:40PM +0100, Lee Jones wrote:
-> > On Tue, 07 Apr 2026 16:41:42 +0200, Maud Spierings wrote:
-> > > The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> > > with integrated boost controller.
-> >
-> > Applied, thanks!
-> >
-> > [1/4] dt-bindings: backlight: Add max25014 support
-> >       commit: 5fcbbedec9dfce78044eee922bf2030e1bd03faa
+On Tue, May 19, 2026 at 02:21:41PM -0700, Oliver Upton wrote:
+> On Tue, May 19, 2026 at 03:35:19PM +0100, Leonardo Bras wrote:
+> > On Tue, May 19, 2026 at 02:15:41PM +0100, Will Deacon wrote:
+> > > On Tue, May 19, 2026 at 01:56:48PM +0100, Leonardo Bras wrote:
+> > > > On Tue, May 19, 2026 at 01:43:37PM +0100, Will Deacon wrote:
+> > > > > > > I was wondering along similar lines, but maybe it would be useful just
+> > > > > > > to pass a maximum level to the walker logic? That feels like the most
+> > > > > > > general case without complicating the existing logic.
 > 
-> Lee Jones:
+> FWIW, I had considered this too but decided that it requires a bit more
+> churn since we cannot rely on zero initialization in the existing
+> callsites (level 0 is a valid level).
 > 
-> 	I have not seen it in linux-next. Anything wrong?
+> But that's extremely minor.
+> 
+> > > > > > This proposal seems simpler for me to understand, and indeed looks like a 
+> > > > > > better solution than what I have proposed, taking care of  the 
+> > > > > > 'already split' case with better performance, as it don't even walk a 
+> > > > > > single level-3 entry. 
+> > > > > > 
+> > > > > > On the 'splitting' case, it also works flawlessly if the memory is given in 
+> > > > > > level-2 blocks. There is only one case that I would like to address here:
+> > > > > > 
+> > > > > > - Memory given in level-1 blocks (say 1GB)
+> > > > > > - Walker flag says 'walk down to level-2 only'
+> > > > > > - Split Walker on level-1 will break page down to (up to) level-3 entries.
+> > > > > > - Walker will continue to be called on level-2 entries, even though it's 
+> > > > > >   not necessary.
+> > > > > 
+> > > > > If you're only visiting leaves, why would it be called on the level-2
+> > > > > table entries?
+> > > > > 
+> > > > 
+> > > > Because once the leaf is turned into a table by the splitting walker, it 
+> > > > gets reloaded and walked. This is an excerpt of __kvm_pgtable_visit():
+> > > 
+> > > Sorry, I was musing about the semantics after adding something to limit
+> > > the maximum level. I don't dispute what the current code would do.
+> > > 
+> > > > Example:
+> > > > - Split this level-1 leave:
+> > > >   - Walker creates the whole structure up to given level (currently 3)
+> > > >   - Walker returns, gets reloaded, table detected, go down on that one
+> > > >   - Level 2 entries walked (which is unnecessary)
+> > > > 
+> > > > Please let me know if I am misunderstanding something.
+> > > 
+> > > I just don't grok why this would happen if we limited the maximum level
+> > > to '2' _and_ said we only wanted to visit the leaf entries. In that
+> > > case, I wouldn't expect to descend into any of the L2 table entries
+> > > (because that would imply going beyond level 2) and I wouldn't expect to
+> > > be called for the table entries either (because we're only interested in
+> > > leaves).
+> > 
+> > Agree, if we specify to skip level-3 entries, it would only walk up to 
+> > level-2 entries, but take above example in detail:
+> > - Split these level-1 leaves, up to level-3 leaves (regular)
+> >   - INFO: kvm_pgtable_walk will call walker:
+> >     - only up to level-2 entries (skip level-3)
+> >     - only on leaf entries
+> >   - Walk first level-1 leaf, calls walker
+> >     - walker will split the level-1 leaf in level-3 leaves
+> >     - walker return from that first level-1 leaf
+> >   - level-1 leaf is reloaded as a table
+> >     - level-2 entries of that table are also walked (unnecessary)
+> >     - on each of the level-2 table entries, level-3 entries are skipped
+> > 
+> > To avoid the unecessary walk of the level-2 entries above, we would need to 
+> > specify 'skip level-2' that could be an issue if we have a mix of level-1 
+> > and level-2 leaves, as the level-2 leaves in that case would not be split.
+> > 
+> > That's why I suggest something like "skip recently created table" as a flag 
+> > as well, so we can guarantee no newly created table gets walked 
+> > unecessarily.
+> > 
+> > Please help me if I am missing something important.
+> 
+> I'm not sure the added complexity of handling this case perfectly results
+> in a measurable performance improvement. Just avoiding the level 3
+> tables would be an exponential reduction (~ 512-8192x) in the number of
+> walk steps.
+> 
 
-I don't know why Backlight hasn't been added to Linux Next.
+Humm, I agree most of the improvement is due to skipping level-3 walks.
 
-Rest assured, it's applied to the Backlight tree.
+The added complexity would be, appart from a new flag, just a single line 
+change:
 
--- 
-Lee Jones
+---
+        if (!table && (ctx.flags & KVM_PGTABLE_WALK_LEAF)) {
+                ret = kvm_pgtable_visitor_cb(data, &ctx, KVM_PGTABLE_WALK_LEAF);
+-               reload = true;
++               /* Do not reload if flagged to skip new table */
++               reload = !(ctx.flags & KVM_PGTABLE_WALK_SKIP_NEW_TABLE);
+        }
+--- 
+
+Even then, do you think it would not be worth having it?
+
+Thanks!
+Leo
+ 
 
