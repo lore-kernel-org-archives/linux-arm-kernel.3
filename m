@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16E4CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 19 May 2026 23:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F36CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 00:02:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYWbA7j46aueWZEJm8bnihGWxOjtMrOMmpHf9Fu5Y7A=; b=wVuxE4V/92ejzgnfFzIdBRMBp0
-	LpcomNbXeKkblYpctbWYIkY19yCfeIGF7P8IQmCy+x18AO7VgV2STQirqOXf87IF56xbftWY00RTg
-	zbLdBCj9b68h7sq8YptYfNbqqdpNG3VtLd5WPghHqtVfahBxDXjCUH55jpnDULwkE8Y3kwI9+vm68
-	kmzjaUOhEgNule6089YPV3lP+vSdPwcApOqjZzDu30NOF2WIefo/m/fzzI/BmVAUSkwEfW0oUHt+O
-	VTeXEfQ9O/CdsokUyBKJYsCoha6vZJokwa9ISdphL26BnNorbz4cfFIGRHwqXuX6ytCdwe9/66ooA
-	kU9gmk1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=z5+d8X1xsrZ2nYFL0/wXdETl3fdxdqG4T8Y5iYJSXk8=; b=zBgupdzaiqh0l5
+	kFDhyu8MHBg4uXGfYLnYqne0yOCgNEy87u9wXjIcMVIJRo3vHW+lqV7vKfuZPhl7eFV7Cx0URUbrA
+	TLkNVZtxM+bjqdQWOhbYa04qXqD9GGue7x8T9f2DnilQCrgQe5MhV+x9a1E6rK/aclhZT7K0mqXeC
+	eGe4XRW0tAueXPszw7D3uLWlpnalk1M6QjfqxNP4nU/PW8TAI0NZOFx9TycGOhSrSPJBIJF458tRe
+	y78t1wX7FOHtvZxFruQXTvWbV8YG1dqyqOwhLwB+Qhy7J8puuD9V6Bwf5njfIvZF8eRgDRkM2vHRu
+	bJZk/e/sjj04AtBE5OAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPUIt-000000036HJ-2L6c;
-	Tue, 19 May 2026 23:56:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPUNp-000000036lm-1AjR;
+	Wed, 20 May 2026 00:01:57 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPUIq-000000036Gh-3yXF
+	id 1wPUNn-000000036lR-3hOc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 19 May 2026 23:56:50 +0000
+	Wed, 20 May 2026 00:01:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4815540510;
-	Tue, 19 May 2026 23:56:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 458CC1F000E9;
-	Tue, 19 May 2026 23:56:47 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id D444A60216;
+	Wed, 20 May 2026 00:01:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 5AA991F000E9;
+	Wed, 20 May 2026 00:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779235008;
-	bh=yYWbA7j46aueWZEJm8bnihGWxOjtMrOMmpHf9Fu5Y7A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=INtNDhNNwgCAkz3ew87JMcdeZl6c+E1ryD+QFvS0NJQGxosUfkWGVZgyOiriYretc
-	 Y0AyKreTS1Ey0kji8T8wdYsuU1aUND9pI4BtwVhxE5Nh7XIscCq+4ICKXho4j0dn6K
-	 BZRkQoQRub0KZUMvFEB+Th0vMXgmiX5RNvtHPaFb/zOd5MgQPRHL907oVn5Zt3n7bL
-	 3X/A72M3Ub7C/EqQ86i6FtCOZWj2MYTwGJoJlXmr+LbG1dG3cqIabGsEchb1dno/Im
-	 bc0JnXGz1TW8HIipXfAy0B8T7OPqSfeb9cmLFLoRm6u0kFDttm3AD79iki7P2H8GKU
-	 RtO/BLJ2FDRXA==
-Date: Tue, 19 May 2026 16:56:46 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Luka Gejak <luka.gejak@linux.dev>
-Cc: MD Danish Anwar <danishanwar@ti.com>, Felix Maurer <fmaurer@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Roger Quadros <rogerq@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Meghana Malladi <m-malladi@ti.com>, Jacob Keller
- <jacob.e.keller@intel.com>, David Carlier <devnexen@gmail.com>, Vadim
- Fedorenko <vadim.fedorenko@linux.dev>, Kevin Hao <haokexin@gmail.com>,
- netdev@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Vladimir Oltean <vladimir.oltean@nxp.com>
-Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg: Add HSR and LRE PA
- statistics
-Message-ID: <20260519165646.09b0783f@kernel.org>
-In-Reply-To: <E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
-References: <20260514075605.850674-1-danishanwar@ti.com>
-	<20260514075605.850674-3-danishanwar@ti.com>
-	<20260518184506.694c584e@kernel.org>
-	<E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
+	s=k20260515; t=1779235314;
+	bh=z5+d8X1xsrZ2nYFL0/wXdETl3fdxdqG4T8Y5iYJSXk8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=G53BZT2ogWRbd4EK6NCrK36i40EUGvN8gVZ9AQzXfJbz+k/c6muGGqY2K2uRxQI2Z
+	 oHtRBPyvZ4yiJNwH6s3ZR9oFskiQ2jpNCSaptOBDmC5dRVvexsYBR8muO6j90axEI2
+	 JTzQ4UNWatAohlQlWe7mOqe5to1IAMedjkpmVUHQ9tITlgxYnelNsNSaCPsz1OEh5D
+	 PJSJGiJ5Zxp+fDurVTzVRbx5NjPkVfiIZb7TzySDJZDl5+IvUYN3m3JeaxPFoR4saK
+	 guoMPuoJHhMDi9wPTdk4dXrFJf7I5d0/ttdW6j++W0OBwtb9MmKypiheK2+bUq+wJS
+	 EgBVdOE16wt2A==
+Date: Tue, 19 May 2026 19:01:53 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
+	bjorn.andersson@oss.qualcomm.com, Frank Li <Frank.Li@nxp.com>,
+	linux-pm@vger.kernel.org
+Subject: Re: [PATCH v5 4/5] PCI: dwc: Use common D3cold eligibility helper in
+ suspend path
+Message-ID: <20260520000153.GA14400@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_165649_038679_542A09F2 
-X-CRM114-Status: GOOD (  30.48  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260429-d3cold-v5-4-89e9735b9df6@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,81 +76,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 May 2026 07:55:55 +0200 Luka Gejak wrote:
-> On May 19, 2026 3:45:06 AM GMT+02:00, Jakub Kicinski <kuba@kernel.org> wrote:
-> >On Thu, 14 May 2026 13:26:05 +0530 MD Danish Anwar wrote:  
-> >> Add new firmware PA statistics counters for HSR and LRE to the ethtool
-> >> statistics exposed by the ICSSG driver.
-> >> 
-> >> New statistics added:
-> >>  - FW_HSR_FWD_CHECK_FAIL_DROP: Packets dropped on the HSR forwarding path
-> >>  - FW_HSR_HE_CHECK_FAIL_DROP: Packets dropped on the HSR host egress path
-> >>  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES: Frames with duplicate discard
-> >>    skipped
-> >>  - FW_LRE_CNT_UNIQUE/DUPLICATE/MULTIPLE_RX: LRE duplicate detection
-> >>    counters
-> >>  - FW_LRE_CNT_RX/TX: LRE per-port frame counters
-> >>  - FW_LRE_CNT_OWN_RX: Own HSR tagged frames received
-> >>  - FW_LRE_CNT_ERRWRONGLAN: Frames with wrong LAN identifier (PRP)
-> >> 
-> >> Document the new HSR/LRE statistics in icssg_prueth.rst.  
-> >
-> >To an untrained eye these stats look like stuff that could 
-> >be standardized across drivers. 
-> >
-> >Luka, Felix, others on CC, do you think we should expose these
-> >from HSR over netlink as "standard" offload stats different drivers 
-> >can plug into or not worth it?  
+[+cc Frank, linux-pm]
+
+On Wed, Apr 29, 2026 at 12:12:26PM +0530, Krishna Chaitanya Chundru wrote:
+> Previously, the driver skipped putting the link into L2/device state in
+> D3cold whenever L1 ASPM was enabled, since some devices (e.g. NVMe) expect
+> low resume latency and may not tolerate deeper power states.
+
+I think "some devices expect low resume latency and may not tolerate
+deeper power states" conveys the wrong message.  It's not that NVMe
+has a mysterious acceptable resume latency number that we have to meet
+or that NVMe has some inherent aversion to D3cold or L1SS or whatever
+"deeper power states" refers to.
+
+It could be that ASPM L1 was configured incorrectly (e.g., an L1->L0
+transition didn't happen within the advertised exit latency, leading
+to some device access failure) or a device lost internal context when
+the driver didn't expect it (e.g., the Qcom problem where L1SS exit
+takes too long and results in a link-down and device reset [1]).
+
+It sounds to me like the ASPM L1 check was a way to avoid problems
+like that, but I don't think we ever really had a root cause.
+
+[1] https://lore.kernel.org/linux-pci/20260519-l1ss-fix-v2-0-b2c3a4bdeb15@oss.qualcomm.com/
+
+> However, such devices typically remain in D0 and are already covered
+> by the new helper's requirement that all endpoints be in D3hot
+> before the devices under host bridge may enter D3cold.
+
+If we put the host bridge in D3cold, I assume the hierarchy below is
+either put in D3cold as well, or at least every device in the
+hierarchy will be reset as a consequence of the Root Port link going
+down.
+
+If the driver doesn't manage the device power state itself, I assume
+we have the freedom to put the hierarchy in D3cold or reset it.
+
+Do we have the same freedom if the driver *does* manage the power
+state itself?  What if the driver put the device in D3hot, expecting
+it to *stay* in D3hot?
+
+I think pci_host_common_d3cold_possible() will see the device in D3hot
+and decide that D3cold is possible.
+
+(I'm looking at https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/power/pci.rst?id=v7.0#n746)
+
+> So, replace the local L1/L1SS-based check in dw_pcie_suspend_noirq() with
+> the shared pci_host_common_d3cold_possible() helper to decide whether the
+> devices under host bridge can safely transition to D3cold.
 > 
-> I think there is a case for standardizing part of this, but I would 
-> not standardize the whole set as-is.
+> In addition, propagate PME-from-D3cold capability information from the
+> helper and record it in skip_pwrctrl_off. Some devices (e.g. M.2 cards
+> without auxiliary power) may lose PME detection when main power is
+> removed, even if they advertise PME-from-D3cold support. This allows
+> controller power-off to be skipped when required to preserve wakeup
+> functionality.
 > 
-> The LRE counters look generic enough to me, especially:
->  - unique rx
->  - duplicate rx
->  - multiple rx
->  - rx / tx
->  - own rx
->  - wrong LAN, PRP only
+> Update the suspended flag in dw_pcie_resume_noirq() only after the PCIe
+> link resumes successfully, to avoid marking the controller active when
+> link resume fails.
 > 
-> Those are protocol/LRE concepts rather than TI firmware details, so
-> exposing them from the HSR/PRP layer sounds useful. I would expect 
-> both the software implementation and offloaded implementations to be 
-> able to provide at least some of them, with unsupported counters 
-> omitted or reported as not available.
-> I would not put the firmware check/drop counters in the same standard
-> bucket, though:
->  - FW_HSR_FWD_CHECK_FAIL_DROP
->  - FW_HSR_HE_CHECK_FAIL_DROP
->  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES
-
-Thanks for the breakdown!
-
-> Those sound more like implementation/debug counters for the ICSSG
-> firmware pipeline. They are still useful in ethtool driver stats, but 
-> I would be hesitant to bake their exact semantics into HSR UAPI.
-> So my preference would be:
->  1. Keep driver-private ethtool stats for the full firmware counter set.
->  2. Add a small HSR/PRP standard stats set separately, limited to
->     well-defined LRE counters.
->  3. Make the HSR layer expose them, with offload drivers plugging in via
->     an optional callback or offload stats op.
->  4. Define the counters carefully, including whether they are per-HSR
->     device or per-port A/B, and what PRP-only counters mean for HSR.
+> Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> ---
+>  drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++--------
+>  drivers/pci/controller/dwc/pcie-designware.h      |  1 +
+>  2 files changed, 8 insertions(+), 8 deletions(-)
 > 
-> I do not think this patch should blindly become the UAPI definition, 
-
-Not at all, the unique / multiple stats gave me pause. We should
-only put in the standard API what can be easily and unambiguously
-defined given the protocol spec.
-
-> but I do think it points at a useful follow-up. If we want to avoid 
-> adding driver-private names first and then standardizing different 
-> names later, then it may be worth asking Danish to split the 
-> protocol-level LRE counters out and route those through a common HSR 
-> stats interface.
-
-As a general policy we ask for standard stats to be added first and
-ethtool to only contain what didn't fit in the standard ones.
-There are some technical reasons but it's mostly a mindset thing.
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index c9517a348836..9e409a1909e6 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -16,9 +16,11 @@
+>  #include <linux/msi.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_pci.h>
+> +#include <linux/pci.h>
+>  #include <linux/pci_regs.h>
+>  #include <linux/platform_device.h>
+>  
+> +#include "../pci-host-common.h"
+>  #include "../../pci.h"
+>  #include "pcie-designware.h"
+>  
+> @@ -1218,18 +1220,14 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+>  
+>  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  {
+> -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> +	bool pme_capable = false;
+>  	int ret = 0;
+>  	u32 val;
+>  
+>  	if (!dw_pcie_link_up(pci))
+>  		goto stop_link;
+>  
+> -	/*
+> -	 * If L1SS is supported, then do not put the link into L2 as some
+> -	 * devices such as NVMe expect low resume latency.
+> -	 */
+> -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
+> +	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
+>  		return 0;
+>  
+>  	if (pci->pp.ops->pme_turn_off) {
+> @@ -1273,6 +1271,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+>  	udelay(1);
+>  
+>  stop_link:
+> +	pci->pp.skip_pwrctrl_off = pme_capable;
+>  	dw_pcie_stop_link(pci);
+>  	if (pci->pp.ops->deinit)
+>  		pci->pp.ops->deinit(&pci->pp);
+> @@ -1290,8 +1289,6 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+>  	if (!pci->suspended)
+>  		return 0;
+>  
+> -	pci->suspended = false;
+> -
+>  	if (pci->pp.ops->init) {
+>  		ret = pci->pp.ops->init(&pci->pp);
+>  		if (ret) {
+> @@ -1313,6 +1310,8 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
+>  	if (pci->pp.ops->post_init)
+>  		pci->pp.ops->post_init(&pci->pp);
+>  
+> +	pci->suspended = false;
+> +
+>  	return 0;
+>  
+>  err_stop_link:
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index 3e69ef60165b..e759c5c7257e 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -450,6 +450,7 @@ struct dw_pcie_rp {
+>  	bool			ecam_enabled;
+>  	bool			native_ecam;
+>  	bool                    skip_l23_ready;
+> +	bool			skip_pwrctrl_off;
+>  };
+>  
+>  struct dw_pcie_ep_ops {
+> 
+> -- 
+> 2.34.1
+> 
 
