@@ -4,133 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CF4CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:17:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B0C3CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MQM11Mg1okAZbmmFPoevnMUA1OvrXb8LaWj00KaDlLQ=; b=iS1wWgRRlkAfEWpoWKX2Sqp/7h
-	sNhQVj+cIoi+g8wLV6Dl9IkXIKN4Y3YPWukd461iYxrK/CBlYCBnbAIBqtpLWSC7efFBtGE7feDh6
-	7d1UfhWhBu0zNL4AgCfSnyTSceb/RuyFwqbyGQnfSdGQRx8209lK483+VVX+vPs2BUKkpHyICVHxH
-	OHsUMEMXxp60dcDRgOdeNVZsmBNtPw/4zcsgXpWxtHg4fANrd5vvXJ5yt6MHqKlFFxW49Rdxwo5Uz
-	ilBazh8+7cYhlK5Zl1YUzeBMBEi17OhR41G0ZYdbNJgrt0niEUH1pwtlnrROBXfu0nQ3NmbSyjwr2
-	RA2sFGaQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mxzEWL1R2sDou1abx9yR2WoOGdqqnaGEsR/cU7KUoPM=; b=K7jcuagoNgcT2FmkX2bAZfSVDg
+	5/iJZc+A5BUs79otM3KwHWqDj4Miv7SbHdcxvfN5AsnLfVWaMqk22KDEZlzOg8GEBxivDY+HmFQoq
+	nEKJ7VYDbvoGVO6RviSigWIxRvrIO/Akf+5EcH+/Ud3vlIFF03m6jbjrYF9zI2Qd+MKn2WqGR0D5D
+	4Ie87+dPZLNcSO/U8j4IxDgI63FV5AdI8rHZ8HN20Qf98DnHeyPU+Bk+B+lYfwlYhN+L0hf39/cJV
+	onr0CHKY4KOqGGbd7HzWd0VXTaCamXQhuIBKTt+b13q6yknGKzqorxAI09WaNkv/BptTEYJ3A1kGJ
+	ACUSZqZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd3I-000000045hd-3Pqj;
-	Wed, 20 May 2026 09:17:20 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wPd4z-0000000469g-1fhR;
+	Wed, 20 May 2026 09:19:05 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd3G-000000045gH-401i
+	id 1wPd4v-0000000467q-32Hi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:17:20 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-488af9fdaa7so22482425e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 02:17:18 -0700 (PDT)
+	Wed, 20 May 2026 09:19:04 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-83538fbd0b2so1858702b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 02:19:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779268637; x=1779873437; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MQM11Mg1okAZbmmFPoevnMUA1OvrXb8LaWj00KaDlLQ=;
-        b=Sezn03KNPCREoWEjuCTUKTGe5Nl1WMBF3L0fAIgsnuqz4p5IFy8x92zfIdcfiYs5Ur
-         z2wkiwIoN3pW+q94Pc5WPshvz1pr04ZOMLmTurxtrPw18fb5UwBc42q69mmZc/TeZLje
-         PjJ8aLdiGAVay07ttcITHyuvYLCcRN09vFcPFrkXZKnFM/X3aNtXVYQcXf5iMtJ9UeCs
-         3HCIt1TNyzCz10oFMLstyydfUw+IT3WbxAleTWqX0SaqUvSdthwI6wBmzLpDlvL1r29O
-         lvslnGqumR8rSy8nYgATkoqEcm/A38mk7xrMGCZRSS1o5FdHDptTncVqh3dVYN+tTe5/
-         yLwQ==
+        d=gmail.com; s=20251104; t=1779268740; x=1779873540; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mxzEWL1R2sDou1abx9yR2WoOGdqqnaGEsR/cU7KUoPM=;
+        b=rThKbcT7/XKF2v96OpBMLALAgvHsj0e1EvJKpNrLrsrhTovLRYGr8hVlcwlnVetKah
+         haGYjWFwW+tTTcnGwUvQjD/g6MmbsZRagSRBMH+OkkJafy6ZuvxT82E/qkPRBjfbWWdj
+         dkcWmuLRTYNiztqHlXlC1Hg6AcRtdBW4gr1C/Wp9692E2GhwhE2A1cLZFZ8mQwFsH3Zk
+         nor5Ts7yrzV9oNv8GJfoiA1dPpgVkE7LkcFwAfV3AJorBY3EXZRol0vTOPKhmkf/Zfc2
+         eAK5x7/dVJ8xBxhngMnZepI06aAcoatREgd8NzrgFNQZWUT83OBzElEt6blOK4aFwcoT
+         z6bw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779268637; x=1779873437;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MQM11Mg1okAZbmmFPoevnMUA1OvrXb8LaWj00KaDlLQ=;
-        b=qVm4o+EgCRXPsyd8NB5wwaJqY1oACNjK3fsGhC8YiyapVoNhUhqbC6b7o+cyZT+JHl
-         qFb9Bhd/Le1rjUs6x4z9quzeuWjMkiP0yo2AMe7xkHd1qX850iNGZv4Lzf2lhE2L2nZu
-         6+9eeDGERYOgr6tIlCdEacsryjZC1QJPsrfRCSVHFFX4Gwtw+g1YC3rnSkeABX4BXWM9
-         9ZaVshfra7+8O9S/wkx0P3VHuYWEpZrqfn4JPVjoqyRD+v65pqzLYbZgVyR1U7KrpqHv
-         xMiVy7V09mNwqzyOJyjnf8X/u3kRYDgh4/U+gK0pE2oY5RG9YyZGM53I2N3VGoqpkGDd
-         ZmFg==
-X-Forwarded-Encrypted: i=1; AFNElJ9sk8oTTwS/bmTAnmPKw5H4wUfN/qf+2YrZybIo2QC6rmdmuCIH6U0eUpmy2FAuanXaG2xljsp7HDDXAT+mQjEf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzza4LU/BNrmX+H5y34XYD01SL368PbZ2BC1z0uzDCdYGAHdJ6L
-	+Q1hm7vELcpEw8PthdCo3K5daenWjvDm98nyNw/Iou+zCsjyWfQfh6hjOlk3EMlUvzc=
-X-Gm-Gg: Acq92OFITK0OGFifftFUmuQwsTD3irQYTTdlD0liLrtWmIA5uDHwZ6AXlr3t2PlxAs6
-	cAWRllz8k5NXGFBk5TMwJ4EqvvtsU8sMPTf/Ug4EkhAgy934SfqflCbK1OU/QvkPpavvJlN8yy4
-	CB3ATQsRgrDfbat8F9Rrbd4bZObUfbhMgFiPu7kpEJ/+0YujKWrdwU8ZXG7T78m8LdZLHR+XQaX
-	wALBlwW9dGqlt0S6AmtkHBxULUc2I77+huSJhkBuWHqt3AMOfrJw0IoLaYpsOQgrDX3jQ2BizbA
-	fflQEUrcEJ+89AkO2WemrY4jZULpKtLHneQg693gj8zCltl7Ox0N0m8NoSQ2MHlX4W+YFROEmE/
-	FNww0podnkFFiAR4oiVMRbGWc8OcVZEQ0D4HeU4jdHUNvPn340DkrFq3IqKddC1kzBKyBU3lGh3
-	Ybfcg3XzvfCOie4SU+hTDAy6EyUeH1wQZg9eiKNzuxn8G1p60mcAw4i7uXYyWcwqvPULzu1sjml
-	yld
-X-Received: by 2002:a05:600c:4e87:b0:48a:768b:eea9 with SMTP id 5b1f17b1804b1-48fe60e51bamr379132105e9.4.1779268636948;
-        Wed, 20 May 2026 02:17:16 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:5dda:3751:f88e:6ff? ([2a01:e0a:106d:1080:5dda:3751:f88e:6ff])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe7543asm127859995e9.28.2026.05.20.02.17.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 02:17:16 -0700 (PDT)
-Message-ID: <b9499456-3fd5-4c0b-a0a4-7a6344f21708@linaro.org>
-Date: Wed, 20 May 2026 11:17:15 +0200
+        d=1e100.net; s=20251104; t=1779268740; x=1779873540;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mxzEWL1R2sDou1abx9yR2WoOGdqqnaGEsR/cU7KUoPM=;
+        b=R5Dlrkcu/K7zzyIc/2+nx9RcxtUc1rdYgt79UbdccFXaFXhccpmRamm7zCDDYblgKx
+         3XLx6nI2/uz/86yrOVOwHIJj5QxAP4ojhPKzAsKyak/7qxqowLEEgD4LmSXaQ/eOJ7+Q
+         Wbr5mmdit6h+w2bUeYdRaTzdcDjPu83Rx96iM/sHHB+5wCMLVll001HI5q8dNfE2dH6e
+         u4NWRDScZBc6wKvRAft7feoBPxExnG5KlfvX1Ss1hIloCU4l2vjyHxzLMonFfaotY/BJ
+         67yh/4cbJTg4VqWGgZOqL163nuZcuS6dTHsFzMDAok1EUYBN7+KT8wxr0o8vIGTgaUwy
+         95wA==
+X-Gm-Message-State: AOJu0YyaOLiX4UrnKLbhcbxzLI8N6r7vnhUIaO4MVm715IBSPgvudDcH
+	iLiN6k8D2zP4vNBm5kF0cQBoUsQJhnw76LVfliSkQkxMdbZ3qOxejSxZkMBmMK3lRDzg2W+Z
+X-Gm-Gg: Acq92OHcEXPrhovhfwbv8lzYRVAKn9/DzpoCwlu+Y66qQxWk71yTajGaAGQ+BbLvWA3
+	gwLv1FYHWaz8Aq1CXqRdiNVNLDDnAT4wKRQUCAXLTXTA5xpsca1YgZ+2t41q7853sHpn3YHKJr+
+	VkWn1yX4rVJ+UcGYBDh8aHIEBVVrh2Tmm/qULVamuExHC3GJDzvIkzPX3zEaE4eurCJOQKTseAy
+	OF1ge7P0GtvNIB8PUZBis1NP0PUYcXZYDUJpqpvol4d8sYvkWT07E38vwRpW3VZdUW4nuNTDwNA
+	IoYIMfOII0E+0wGoqCy5Gwf9VYqHjii6ukNMQi+AyRtKUT+4OOx9jXqAXfwxH6Do5xzlG3Nb2Iq
+	O+wYGqMJ9/tD/mAN9+YyZd3hH4SI3nf/UHf2/5WpY3oH79qWSY+GBpuKPzvnPSkv0VP0C4GYhzt
+	BrcOA8bQogdfV9KpQ1Lfh/2y7txzCFgmt7vqpR6g==
+X-Received: by 2002:a05:6a00:2c95:b0:82c:e816:4135 with SMTP id d2e1a72fcca58-83f33de9724mr22532227b3a.47.1779268740373;
+        Wed, 20 May 2026 02:19:00 -0700 (PDT)
+Received: from intel.company.local ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f63bb986dsm10208967b3a.48.2026.05.20.02.18.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 02:18:59 -0700 (PDT)
+From: Wandun Chen <chenwandun1@gmail.com>
+X-Google-Original-From: Wandun Chen <chenwandun@lixiang.com>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	iommu@lists.linux.dev,
+	zhaomeijing@lixiang.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	robh@kernel.org,
+	saravanak@kernel.org,
+	akpm@linux-foundation.org,
+	bhe@redhat.com,
+	rppt@kernel.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	ruirui.yang@linux.dev,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com,
+	leitao@debian.org,
+	kees@kernel.org,
+	coxu@redhat.com,
+	tangyouling@kylinos.cn,
+	songshuaishuai@tinylab.org
+Subject: [PATCH v2 0/8] kdump: reduce vmcore size and capture time
+Date: Wed, 20 May 2026 17:18:36 +0800
+Message-ID: <20260520091844.592753-1-chenwandun@lixiang.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: Re: [PATCH v7 16/23] drm: bridge: dw_hdmi: Update EDID and CEC phys
- addr in bridge detect()
-To: Jonas Karlman <jonas@kwiboo.se>, Andrzej Hajda <andrzej.hajda@intel.com>,
- Robert Foss <rfoss@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: Liu Ying <victor.liu@nxp.com>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@kernel.org>,
- Christian Hewitt <christianshewitt@gmail.com>,
- Diederik de Haas <diederik@cknow-tech.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-amlogic@lists.infradead.org,
- linux-sunxi@lists.linux.dev, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20260518180206.2480119-1-jonas@kwiboo.se>
- <20260518180206.2480119-17-jonas@kwiboo.se>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <20260518180206.2480119-17-jonas@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_021719_032776_2C43A71D 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20260520_021901_765169_77DB7E9C 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,62 +120,66 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/18/26 20:01, Jonas Karlman wrote:
-> Update EDID and CEC phys addr in the bridge detect() func to closely
-> match the behavior of a bridge connector with a HDMI bridge attached
-> and the dw-hdmi connector.
-> 
-> This change introduce a slight delay to the bridge connector detect()
-> and get_modes() funcs due to multiple EDID reads. This is an acceptable
-> added delay to help ensure EDID and CEC phys addr always are correct.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
-> v7: Update commit message
-> v6: New patch
-> 
-> This is a temporary change until dw-hdmi is fully converted into a
-> HDMI bridge in a future part of this multi-series effort.
-> 
-> The patch "drm/bridge-connector: Use cached connector status in
-> .get_modes()" [1] can help remove one unnecessary EDID read until
-> dw-hdmi is fully converted into a HDMI bridge.
-> 
-> [1] https://lore.kernel.org/dri-devel/20260426-dw-hdmi-qp-scramb-v5-3-d778e70c317b@collabora.com/
-> ---
->   drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 11 ++++++++++-
->   1 file changed, 10 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> index 37406555af7b..0c4388e7aa5e 100644
-> --- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> +++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-> @@ -2947,8 +2947,17 @@ static enum drm_connector_status
->   dw_hdmi_bridge_detect(struct drm_bridge *bridge, struct drm_connector *connector)
->   {
->   	struct dw_hdmi *hdmi = bridge->driver_private;
-> +	enum drm_connector_status status;
->   
-> -	return dw_hdmi_detect(hdmi);
-> +	status = dw_hdmi_detect(hdmi);
-> +
-> +	/*
-> +	 * Update EDID and CEC phys addr to match the behavior of a bridge
-> +	 * connector with a HDMI bridge attached and the dw-hdmi connector.
-> +	 */
-> +	dw_hdmi_connector_status_update(hdmi, connector, status);
-> +
-> +	return status;
->   }
->   
->   static const struct drm_edid *dw_hdmi_bridge_edid_read(struct drm_bridge *bridge,
+This is v2 of the vmcore size optimization series.
 
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+The original v1 [1] contains two parts of work:
+ - Bug fixes and small cleanups about reserved memory.
+ - A vmcore size optimization that excludes reserved memory out of
+   vmcore.
 
-Thanks,
-Neil
+For the convenience of review, I have split it into two independent
+patchsets. This patchset focuses on the vmcore size optimization.
+
+Motivation
+==========
+
+On SoCs that carve out large firmware-owned reserved memory (GPU
+firmware, DSP, modem, camera ISP, NPU, ...), kdump currently dumps
+those carveouts as part of system RAM even though their contents are
+firmware state that is not useful for kernel crash analysis.
+
+This series excludes /reserved-memory regions from vmcore by default,
+and also for /memreserve/ firmware regions. The corresponding kdump
+time has decreased, and the vmcore size has become smaller.
+
+v1 --> v2:
+1. v1 added an opt-out DT property ('linux,no-dump'). Per Rob's
+   feedback [2], v2 drop that property and exclude reserve memory
+   by default.
+2. Split some prepared patches from the original patches.
+3. Address coding-style comments on patch 5 from Rob.
+
+[1] https://lore.kernel.org/lkml/20260429065831.1510858-1-chenwandun@lixiang.com/
+[2] https://lore.kernel.org/lkml/20260506144542.GA2072596-robh@kernel.org/
+
+Wandun Chen (8):
+  of: reserved_mem: handle NULL name in of_reserved_mem_lookup()
+  kexec/crash: provide crash_exclude_mem_range() stub when
+    CONFIG_CRASH_DUMP=n
+  of: reserved_mem: add dumpable flag to opt-in vmcore
+  of: reserved_mem: save /memreserve/ entries into the reserved_mem
+    array
+  of: reserved_mem: add kdump helpers to exclude non-dumpable regions
+  arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
+  riscv: kdump: exclude non-dumpable reserved memory regions from vmcore
+  loongarch: kdump: exclude non-dumpable reserved memory regions from
+    vmcore
+
+ arch/arm64/kernel/machine_kexec_file.c     |  6 ++
+ arch/loongarch/kernel/machine_kexec_file.c |  6 ++
+ arch/riscv/kernel/machine_kexec_file.c     |  4 +
+ drivers/of/fdt.c                           |  5 ++
+ drivers/of/of_private.h                    |  2 +
+ drivers/of/of_reserved_mem.c               | 92 +++++++++++++++++++++-
+ include/linux/crash_core.h                 |  6 ++
+ include/linux/of_reserved_mem.h            | 15 ++++
+ kernel/dma/contiguous.c                    |  1 +
+ 9 files changed, 136 insertions(+), 1 deletion(-)
+
+-- 
+2.43.0
+
 
