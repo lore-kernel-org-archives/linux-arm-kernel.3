@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36D9CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356BACD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GBFFGkFdfckErYoEXWb+kPuoHFw2RVA+L0aYz+HJKO4=; b=AotXoKlGXXv3nmfzSKGPgghFrx
-	tLYjLCqBvPZLYeqEBYhHeKBTO1oWiOLlfYAtQYefMJEFVw3+g5V4/ygTrWGmN29MvTbnVa5F8p5D4
-	FNqHS4rTiqZU8CB6HwtA9hbBaRNpZ05Z1BFwJbA6hxX4xrF9RNWUdjwizdKWchYGsihuGfVWqK3kE
-	eOsFdZh28iOKH7/veUbEt5k+bnhCwBUlN9xSY4AF/B/uOeLICMLjGUgp/tCkOcJi++NPD2dwE60Zm
-	mQKUBqa3wiydsfHcKZDh39YYIh9nFG7T0rH+G1JrxAZ7DZIooodujNca/ly8ufOBCDvSYT0PIMY0s
-	ejVPw+Yg==;
+	bh=7pajX5xu6ZpNcsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=; b=nxfzTHGvm5egNOQWgb0z9fCr0J
+	IGgMMAgTNq9XMlrIS9zoWv/eOQJpV3UcskoUcQ3dek2h5pZkQ9vYNm7sT331Zyk4mk2E6GHQjSROY
+	/s3c2wfJN4U2WbAKtuTNMRPDhjcwaow2Lf5WdfOoEwUGgA7vzWDDVCQdP0KiinUpjLzzKmYR3+3yP
+	fVCfeRvfF0SHixrXo1NxM09Nu+5E3ke6Ssp2C9eexb7sQl6wybYlZKmzmH8LyJH3vwlkWSVVBVC+b
+	f4IAsfj/zbsrJliHt8EJG5U1w8UapZa5EZLXherB+KFgEBdWVXbWjlaMJ/zeSIZMRXMighN0PH+Rf
+	p+29iXiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjBY-0000000542X-3q7P;
-	Wed, 20 May 2026 15:50:16 +0000
+	id 1wPjBZ-0000000543D-0ZVw;
+	Wed, 20 May 2026 15:50:17 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjBQ-000000053wW-2Oik
+	id 1wPjBU-000000053zR-120M
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 15:50:09 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64K9nYg4446952
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:50:07 GMT
+	Wed, 20 May 2026 15:50:14 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64KEFY9P963697
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:50:11 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=GBFFGkFdfck
-	ErYoEXWb+kPuoHFw2RVA+L0aYz+HJKO4=; b=IQ+bcpSSVcDoooGZBqHLlt7+nag
-	jP49nyhb2InE2RI0qGdIAYPM70jBlKJwgGwlKBkKDpWUH4iwfiXxGpO2QEphGgD2
-	3qPQcnEONPha/gcfJdn8/W5Tn9tK9p8frttVV8xNGLMgwDEqoXGGAziAlsC2jhyn
-	vQcKp9qYnNXnti4FBsAqhm19YElYvcCvaF7RW+SUGNV7732n7QOZh9NEWvWuCK8U
-	iHmAh5+j9Bp9PwqEfElBu29TcVipQ630zEEz+h1Oqpd6boYaERJo2fNUVvOf2VGM
-	S9X/Nn50t0OBk02lz0l6wzCwSinROsMWVtkcqvxGKH/KG+L75Kn/xt1MNwA==
-Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9anrhcq9-1
+	:mime-version:references:subject:to; s=qcppdkim1; bh=7pajX5xu6Zp
+	Ncsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=; b=ph0F43BPpiJ3LSL7PyxFoDj884Z
+	zYdQ6LHVh5DQADqWnvGTquoS5NYVMLmTSlWoOEjvqxzS7r6u9L3S77BsFL4JYdt0
+	YqCCbrGLib2lrUqLMyi5rgLviAdrD4XrE4/bGbG99H1uURi7jAx2toiMGlxLkHFi
+	Ens/6Sb5B4kKoVS3TGhaHGS91PnxY9OOskTWtsp9CpexXacnZjl3hKSwdwWmiuzE
+	keWwzFI8xPvj0r618tNgu6hSsm1awffSgbn5izcpuDcdAcuXRcKU0tMbTRGdE1SB
+	jNQ+a+jzDw5sIA5HjOGHG1KB7xSiR2n1VAhK9QEqx3oXy+XgWpfHXZDPfRQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9ejh0d6h-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:50:07 +0000 (GMT)
-Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-95ce6d50ea7so2044424241.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:50:07 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:50:11 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50fb3403e99so27657191cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:50:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779292207; x=1779897007; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1779292210; x=1779897010; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GBFFGkFdfckErYoEXWb+kPuoHFw2RVA+L0aYz+HJKO4=;
-        b=BPdsr1ubDZPbiOfYO57BC7CqaPi/5TiSKp1HjjwtvK3la590k8L2MDjVUU5NlZSP9N
-         XjI4QnSwd1cVxLUUgeMGVb5SYIDGdyv8QrbIbi4oPO5DFJUPk0Vk7ATvp+uhAWM1R++G
-         mlMOJaWafal+VlAPjl37upn+KCkiWLXfr/jhhoEYUTW/ymkR+BguTAZrA/8ab51G0r9d
-         53LCHyhMz+Y3JHLT4JSH/AMt7JZKwWeq2Qhhk6/HcVgUD7H33S5XkVUHRP4KGXrexZFd
-         0ApJmDW63oZrgUcTyCEIqFpztWhgbvYkdZDSFYK15pZ60MKdV2qzjcOW0vX3k7Hyerqj
-         M/jA==
+        bh=7pajX5xu6ZpNcsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=;
+        b=CQtYaQsk4cY89p/vZGleNc/OKo1NSSiLGED/yC+HZFDKNHI0ChlVmwUbJ2fqqH6rjn
+         LupKQT2keFDqHBdLQb2CEAHMkXi9KBoit2BOS3IS+RndzbRjoovgQbIkHuPtNqRnKKoE
+         FeMkBRzQhs+Cl4b5WHeSIaI4zHOzPBQBPmO/tqQiQqEVfROGCNnlSQjq0c9kbm1uMbUL
+         nicg7psLhfC8nE4+w923M9wx7rtxNLaETqyz/ffmdlxBBcvZ4FqASjrkqjClLXA5leLY
+         trQw8aPsfQye/61rwv17wdo5DNLINZE6CcbeX8a21gpFil72VNEtG8tVGe91es7/tAMZ
+         ouDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779292207; x=1779897007;
+        d=1e100.net; s=20251104; t=1779292210; x=1779897010;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=GBFFGkFdfckErYoEXWb+kPuoHFw2RVA+L0aYz+HJKO4=;
-        b=SppOddT8pbM+9D6f45X6HExQWVhI3E645l2K2RTFGmjqdrCCOo/g8InJneNWiMILGt
-         5z6oc9r5b/hYG4vAbERK/nJe0eLFP8r63yCfytsicJQGpKL/YFjaRfXk1YA3XIN9CxoC
-         T9uNXwWR6BoZuIgIlq88kizDGNh/GtaowRNCNHAoN+141C4933mkwnMRWcucfdx97N8F
-         6PZ39nUC7NYv8/caprQXvvHQtugd6kXZ6GH8DmjXAkFtkgDYQ8a0xFMQLMkUO6VGLFQk
-         PoSfmMiipY8N7gFl0f9FYfeJpLzRduqa6n/tqIjgdxqMxWtLVCmcwpoVEWGVZNyZFSPy
-         DhQg==
-X-Forwarded-Encrypted: i=1; AFNElJ8b/g6094A9gsvnJJ8O+NclmFwXH2WMMURRZZZu48HcKNJnWZajMahRxnOX47N5qelTOKb4MpMQkgolElmqpSqJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPhp1xr0AnRfqr2TldH1jUzksamsMXQO6apsac1VXDedndO30W
-	Stx0F2T6WEICuahY8k/xkHmKSpt9kumQesme6pyBlQAzCLay6APaJY75y2btvbfdpmqHqxemHPM
-	jsNruaFRhvZnnjXC47Za8hFZenUEokH/KsqGNImnJvRFVcEAo8Ry7fIj+O0LZqjjsRPRQ5Zc3ve
-	EY9Q==
-X-Gm-Gg: Acq92OHbyw0JuWxakE9F0AaRwFsBn1t6BjyD1J7e80RHrg+m/2gWMzYoAi2N2CZFU54
-	KX8EYJGkowc0fkFJrKn5aji6B+lP/EzHV8h+whGnZuqGchKXTaftoUPlCG92s+YdajJgn+1Ss08
-	eUXbNm9JP6LePb1FAJ/9Jou1LpZy9WbQ04+uZH2Og+TZkcvuDFulfgKRNG+1C+ZN1nSH00ic5dU
-	aLnbWjLlCBxkz4sZMtt9WfdlHcca5E+wEq7dR2iCS/PYHCrTIZDIay5uXsAccCj1tXk4vWEHLlE
-	IYcUW0UBWOikflcZ1IP0b+kxWmwedgSP7jLPTm1Egerz7NAJNcUk3s9GY+DlYefxr2KrIo0T8Kd
-	LzJOHY8wCNLHeqmimjlB0EXWoOsK4+JHvRIuIsjQufidTpWKA1bMzeQE=
-X-Received: by 2002:a05:6102:6051:b0:639:6533:65a0 with SMTP id ada2fe7eead31-63a3ee7eb93mr11334753137.18.1779292206998;
-        Wed, 20 May 2026 08:50:06 -0700 (PDT)
-X-Received: by 2002:a05:6102:6051:b0:639:6533:65a0 with SMTP id ada2fe7eead31-63a3ee7eb93mr11334723137.18.1779292206579;
-        Wed, 20 May 2026 08:50:06 -0700 (PDT)
+        bh=7pajX5xu6ZpNcsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=;
+        b=AAh8t1hCzz8Ni1arusJWXOYOdzu3i2mXgMO1KAshY82PndDhbaAzoX+WYWgtl6fmG0
+         jskaxfSw2W9WOafCAE6GRp4ogNkruMR26c4DCo6JRcl1vriBFGCm403WKoeyAizRCg/G
+         ED4OlETInDHSWf9Jo410sjOAFzXEJzVZ2QArH/N0E4mx4a+PxUKM1SrpCOBFmyCtsx08
+         81U6sn7abEcaoH0ROB/UDv8rdkhDeLL7ia1LY5jjBMNYeV7VAx5vK69l7+X692aED+l+
+         JwLRM/TzXIIRGEcVvoRdlt76LnEXBDWDptl1de9aCp+5e2mG4QpUnmNvw2c5jw9CQBHN
+         4K7A==
+X-Forwarded-Encrypted: i=1; AFNElJ8xMEh7Ly0yUpCvKg8DjaQ6M2Kiyu+gQXK6inE7g/7FugiRKUZPCpDTdLx8lZUGWsqEEXWoqypZ8nZVapJMnAEy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ9mZNY7RQfbxqGchqTq1WLu+CJasIPMUfeIJ0mc3F0Y1g1bTj
+	OCiHvWPEfsHbiIKSYGpDPS8DvPFqejgCed4J9OCu66Ux5z9ZZ/p0EWNyf6nBELjZN8fKNjXRkXM
+	KR15rAO8m8mLhv22/JE1XtAYu+DdOKlRttvQCftaicAio3lUOJNKt210dDXN9gxl6ogOzDfF10X
+	RXyA==
+X-Gm-Gg: Acq92OERb848ak7V5iO60/oXXisTbUCt11EbvGn7b0KnMFMYTMsKyTyPha7yMaV4Sm7
+	zgsyzHegyNcW4czYGNiSDDe0ljkzNCeolDg55puSpVdXWXdDimMn7/P1kElbl6OCR+Oqgn0FkaX
+	D8JlpaZdYpmWGMLoFVtpA1pdVLVu/+YgrCzFaqHwsdmijz0zi0k/A7PacoglWqQvHsMPHfqdvEP
+	xd+/4LD1p1aPlMaVAHOwbVSM6BbxbPk0qzry8+n+8gaDJwQvR1OUaQcDWAdEEIbH0hDSyJrVU+l
+	Jit80qm25w7u2hv6fL7JOHjTgDF/bt+p70XdQa9Emt/l+C2XgF36vz8FOPbXAU9Eh8+ufo/F9E9
+	BXltig4jvLurFWQNvt0GJp+L5tVLICKidk3sd9sb1OSSWVEI/JLNG8BlmZlhV+3oSsQ==
+X-Received: by 2002:ac8:7f8e:0:b0:50f:b9e7:3031 with SMTP id d75a77b69052e-51659fde5fcmr353912911cf.7.1779292209951;
+        Wed, 20 May 2026 08:50:09 -0700 (PDT)
+X-Received: by 2002:ac8:7f8e:0:b0:50f:b9e7:3031 with SMTP id d75a77b69052e-51659fde5fcmr353910841cf.7.1779292208033;
+        Wed, 20 May 2026 08:50:08 -0700 (PDT)
 Received: from localhost.localdomain ([5.133.47.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe585absm136746445e9.19.2026.05.20.08.50.05
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe585absm136746445e9.19.2026.05.20.08.50.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 08:50:05 -0700 (PDT)
+        Wed, 20 May 2026 08:50:07 -0700 (PDT)
 From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
 To: broonie@kernel.org
 Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
@@ -97,41 +97,41 @@ Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
         linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 1/2] ASoC: mt8173-max98090: use standard callback to set jack
-Date: Wed, 20 May 2026 15:50:01 +0000
-Message-ID: <20260520155002.145306-2-srinivas.kandagatla@oss.qualcomm.com>
+Subject: [PATCH v2 2/2] ASoC: codecs: max98090: use component set_jack callback
+Date: Wed, 20 May 2026 15:50:02 +0000
+Message-ID: <20260520155002.145306-3-srinivas.kandagatla@oss.qualcomm.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520155002.145306-1-srinivas.kandagatla@oss.qualcomm.com>
 References: <20260520155002.145306-1-srinivas.kandagatla@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: RrRa3Vk121OTifT93l8JzBMkK7ZPHtMV
-X-Proofpoint-ORIG-GUID: RrRa3Vk121OTifT93l8JzBMkK7ZPHtMV
-X-Authority-Analysis: v=2.4 cv=UuJT8ewB c=1 sm=1 tr=0 ts=6a0dd82f cx=c_pps
- a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
+X-Authority-Analysis: v=2.4 cv=QptuG1yd c=1 sm=1 tr=0 ts=6a0dd833 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
  a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=EUspDBNiAAAA:8
- a=eZ2NLjhSbWgmPKGfaEYA:9 a=TD8TdBvy0hsOASGTdmB-:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIwMDE1MyBTYWx0ZWRfX4upHqKXM7CSC
- z1K4iEqTTKudxAFvyQMa938yr4cAMdbwETYuXMyBtd4Ac1wiS0+DcuGOpYOZIeDU+y5gV66qGhS
- t7ICh3tRn+oJaBWl+J+Stj4sC246u7GrRyc03s/1mb3dEgNYYLeON/WOg3of4byuau2O6Jmc0Wa
- EMOqnjBwPRcub+BhRloUXInJnH7290NJ88zs6UWYhKome/8pHY2GROGfK6+UGFYcBHcDce6w3uZ
- nXjvk6akNhQZIm5EqlOMeGcwGaov93BLprjZMQ/nkrTExdP6ZPNPtY1W11V/zkOM5kXEWEW0A6L
- 7BRMhmpvF4bJs50fOXAXAe76BIeGjqhSxr14TfVKbnS+VgYA7jNuCSWKvRF3WrgH2g5mcapoOS8
- Bgpkq1BCFHFJYfP0MEPSf6Qf8BwH5XqRN8Bbt4WoROOpJgD+uo8edacvcJhL2g65hK7FWyQkVhY
- j2BGF/CAigIaOhtkdhA==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=yuX1osHPGoIBqVCarmwA:9 a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIwMDE1MyBTYWx0ZWRfX0ycRrNl7NNIV
+ uCrpGYm7IGkALX8/RC4U8Pl7t4p8judBZDb32A7yWXLNzVD8FgQBdOG+VeKUKV+hP3ryMwwymrM
+ UxI7S0thEdFIhaWOhYgXZ+vvBLgbNJdCJRpTElJzn/j0s0sRufuz/VE7m76qCsD+fuzHS4kioSU
+ bL65cswWCZMCoQ2KGzwRMUtG0TLrCs/KijePoJHsKHa6ViIXUug2x/+Vo9QwP79k3szh70590d+
+ pIwSfuo5b1mRKzhODoYhsbWpNTyScYqoU8KpAiri9VxYhHOmoMo9Q0AfEkmXoihdTjf8EfOBFWC
+ gwFR2EfkJuNfotoKP1sOOMUiBLswOCZ8Y58Qupu6XKw/2sXhBGonyd2boinXscH8CNhJ4SdNyO8
+ lOj5wYkx9jQboVTpQkPdCz6+N6GNb61tuENP71eoQ9TeqcvlQqWoSS7XcP904MRrrXFJ9RssKJy
+ IfBnzijP6HcKdCKX/8A==
+X-Proofpoint-GUID: 6P0_ZdsdKEGfoKsPCUvyE-yCpuJaSVcL
+X-Proofpoint-ORIG-GUID: 6P0_ZdsdKEGfoKsPCUvyE-yCpuJaSVcL
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-20_03,2026-05-18_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 lowpriorityscore=0 impostorscore=0
- priorityscore=1501 suspectscore=0 spamscore=0 malwarescore=0 bulkscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
- definitions=main-2605200153
+ spamscore=0 adultscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501
+ clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605200153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_085008_726754_5A0CE95F 
-X-CRM114-Status: GOOD (  17.32  )
+X-CRM114-CacheID: sfid-20260520_085013_399472_B3003A9E 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,43 +146,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-use snd_soc_component_set_jack() instead of custom callback to
-max98090 codec.
+The MAX98090 driver provides a custom max98090_mic_detect() helper for
+machine drivers to register a jack.
 
-This will help other drivers using the standard callback to exercise
-the standard path instead of custom callback.
+This can be implemented using the standard component set_jack callback
+instead. Doing so allows machine drivers to use
+snd_soc_component_set_jack(), which is also the interface used by
+machine drivers including Qualcomm ones.
+
+Convert max98090_mic_detect() to a component set_jack callback and remove
+the exported helper.
 
 Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
 ---
- sound/soc/mediatek/mt8173/mt8173-max98090.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ sound/soc/codecs/max98090.c | 10 +++++-----
+ sound/soc/codecs/max98090.h |  3 ---
+ 2 files changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/sound/soc/mediatek/mt8173/mt8173-max98090.c b/sound/soc/mediatek/mt8173/mt8173-max98090.c
-index 49ebb67c818a..7533c6e4955b 100644
---- a/sound/soc/mediatek/mt8173/mt8173-max98090.c
-+++ b/sound/soc/mediatek/mt8173/mt8173-max98090.c
-@@ -1,3 +1,4 @@
-+
- // SPDX-License-Identifier: GPL-2.0
- /*
-  * mt8173-max98090.c  --  MT8173 MAX98090 ALSA SoC machine driver
-@@ -9,7 +10,6 @@
- #include <linux/module.h>
- #include <sound/soc.h>
- #include <sound/jack.h>
--#include "../../codecs/max98090.h"
- 
- static struct snd_soc_jack mt8173_max98090_jack;
- 
-@@ -78,7 +78,7 @@ static int mt8173_max98090_init(struct snd_soc_pcm_runtime *runtime)
- 		return ret;
- 	}
- 
--	return max98090_mic_detect(component, &mt8173_max98090_jack);
-+	return snd_soc_component_set_jack(component, &mt8173_max98090_jack, NULL);
+diff --git a/sound/soc/codecs/max98090.c b/sound/soc/codecs/max98090.c
+index 13a15459040f..bd3bfa1d3402 100644
+--- a/sound/soc/codecs/max98090.c
++++ b/sound/soc/codecs/max98090.c
+@@ -2337,7 +2337,7 @@ static irqreturn_t max98090_interrupt(int irq, void *data)
  }
  
- SND_SOC_DAILINK_DEFS(playback,
+ /**
+- * max98090_mic_detect - Enable microphone detection via the MAX98090 IRQ
++ * max98090_set_jack - Enable microphone detection via the MAX98090 IRQ
+  *
+  * @component:  MAX98090 component
+  * @jack:   jack to report detection events on
+@@ -2349,12 +2349,12 @@ static irqreturn_t max98090_interrupt(int irq, void *data)
+  *
+  * If no jack is supplied detection will be disabled.
+  */
+-int max98090_mic_detect(struct snd_soc_component *component,
+-	struct snd_soc_jack *jack)
++static int max98090_set_jack(struct snd_soc_component *component,
++			     struct snd_soc_jack *jack, void *data)
+ {
+ 	struct max98090_priv *max98090 = snd_soc_component_get_drvdata(component);
+ 
+-	dev_dbg(component->dev, "max98090_mic_detect\n");
++	dev_dbg(component->dev, "%s\n", __func__);
+ 
+ 	max98090->jack = jack;
+ 	if (jack) {
+@@ -2377,7 +2377,6 @@ int max98090_mic_detect(struct snd_soc_component *component,
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL_GPL(max98090_mic_detect);
+ 
+ #define MAX98090_RATES SNDRV_PCM_RATE_8000_96000
+ #define MAX98090_FORMATS (SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S24_LE)
+@@ -2554,6 +2553,7 @@ static const struct snd_soc_component_driver soc_component_dev_max98090 = {
+ 	.remove			= max98090_remove,
+ 	.seq_notifier		= max98090_seq_notifier,
+ 	.set_bias_level		= max98090_set_bias_level,
++	.set_jack		= max98090_set_jack,
+ 	.idle_bias_on		= 1,
+ 	.use_pmdown_time	= 1,
+ 	.endianness		= 1,
+diff --git a/sound/soc/codecs/max98090.h b/sound/soc/codecs/max98090.h
+index 6ce8dd176e48..048af4a1376f 100644
+--- a/sound/soc/codecs/max98090.h
++++ b/sound/soc/codecs/max98090.h
+@@ -1543,7 +1543,4 @@ struct max98090_priv {
+ 	bool shdn_pending;
+ };
+ 
+-int max98090_mic_detect(struct snd_soc_component *component,
+-	struct snd_soc_jack *jack);
+-
+ #endif
 -- 
 2.47.3
 
