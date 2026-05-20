@@ -4,129 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1570ACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:23:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FC41CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:25:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZD8qPPFqgaVsJrT+bNhoJDKlvxEOAlYooRCBoZWKDeg=; b=ypsFoVwVto6zxQkHk7XrpIMtKA
-	b8MKQdw55N0m1BKvIBxjr+CQ91LtsooyOiHQ8nsxqCmo4kEgnfwlfaHMViuBDfrc3rbVr4TGLf2Vg
-	xdGwaQhesKTKxtsGBJtFkFoCmag1y4Lo57Cz95cADxy8W8Cr31891eYi4IB8wwrwQLDPltZYzkUAe
-	5Z+8ouydVngoxqITSt5XN0HHjv9zTUrTAq/ORioz0T8qaPWGLU6jhyUDSGIVcBB7Os83QFEfLjB4e
-	JZ9UIO3rHwZRzenfir8CF20wDA//5HabXxlJBrjNXs4U48ejdVriT9kVD0qBusfv3eKWg1Hs2OeUR
-	4i+hPvuA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AZBqLfOaYXAUBlPVoGskbhQECOkougJkS5KT9vxEYB4=; b=fy3Mf5r6Qf1/9xLNXg6X0o/tlA
+	ejVfoibQowvdDARPShL4GtbnTEwCMn/Np3PzULLVilyjMagRPZA4gPr2UDemHm42X3XiCTV+Lu5Dv
+	AW2GFDz/wY9Fc68w8ZXM9xTeMKQ3DLZ6njU7S9pmA6ZXlWw1Qp3ex6Qz5rMztPkpixbjK9IrLuoh+
+	/x/NDlpNiDKLMiKztrujQWHqmghzylz3S0zbb24asD1kmDMPSKsiVUlPZumlCcE1l4b77z+78zSFD
+	uirz/sSzzgcXznGHRyNriSU+O648FO/X9NepWvpW7bP8w3OpRClSyYMBe/CvteHGKjbC3HYfhTRKx
+	k58LM5Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoNR-00000005pLN-3Gbd;
-	Wed, 20 May 2026 21:22:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoNO-00000005pKO-41X7
+	id 1wPoPu-00000005pk4-0rYl;
+	Wed, 20 May 2026 21:25:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPoPq-00000005pi4-20XC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 21:22:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EEDD43A22;
-	Wed, 20 May 2026 21:22:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71DFD1F000E9;
-	Wed, 20 May 2026 21:22:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779312170;
-	bh=ZD8qPPFqgaVsJrT+bNhoJDKlvxEOAlYooRCBoZWKDeg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=S5yhYWvBFRRzb7ajya43HMybpM6sLW0lPBQvPDR2wRsGnCzAsRKRuTyzVUhdCHS/m
-	 hXcSTjHoDGmfM05SPuXedm3o/TZXUnAsNvOndmOJdzLlTJAHoYuk/3UfgELKFcN6Pg
-	 vx+ThFNX3B1KnL2tBIsHjGZNwt7Gmn+CildY2rgO9eEuEMr7YS8FR8tEjHtY8htC6g
-	 UlzPdcM08Xww1Ekb4vltqOkE9lVLpR6QWjdei0XFf54taKesaUUqu+xliTluF0NZw7
-	 CMyrZ6NaetCNwkoCITv8jwuuQPQSTcgmutsq7EdubZMntf92fEkFYC7vfPwLlnbBuG
-	 M3tf5YcnSuX8A==
-Message-ID: <029df55b-5542-4f8a-bf13-7649bd9454cd@kernel.org>
-Date: Wed, 20 May 2026 23:22:40 +0200
+	Wed, 20 May 2026 21:25:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFCDA4907;
+	Wed, 20 May 2026 14:25:10 -0700 (PDT)
+Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D722C3F632;
+	Wed, 20 May 2026 14:25:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779312315; bh=uV0pitMgYy72xTsnWhGhkJam9QAMerA/pmeVRo4nAhg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=S0lK/ZMs4dQNtegohCdmqCi/jjNJzm3oeXflLwBbd2TZmPC4sSZS5eZH4ENhckCGC
+	 whpPOO/7MhFYEX6uqpFY46xWDKCqgxvfqdE9XP1xxMBPPnM8l22kmGceLbVsFTAg9f
+	 WSKF7jc6sGACBm1cFzJLJwEeWq/iYg2B1dUQ1YCI=
+From: Ben Horgan <ben.horgan@arm.com>
+To: ben.horgan@arm.com
+Cc: amitsinght@marvell.com,
+	baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com,
+	carl@os.amperecomputing.com,
+	dave.martin@arm.com,
+	david@kernel.org,
+	dfustini@baylibre.com,
+	fenghuay@nvidia.com,
+	gshan@redhat.com,
+	james.morse@arm.com,
+	jic23@kernel.org,
+	kobak@nvidia.com,
+	lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	peternewman@google.com,
+	punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com,
+	reinette.chatre@intel.com,
+	rohit.mathew@arm.com,
+	scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com,
+	tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com,
+	zengheng4@huawei.com,
+	x86@kernel.org
+Subject: [PATCH v4 0/5] arm_mpam: resctrl: Counter Assignment (ABMC)
+Date: Wed, 20 May 2026 22:24:53 +0100
+Message-ID: <20260520212458.1797221-1-ben.horgan@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Tejun Heo <tj@kernel.org>, David Vernet <void@manifault.com>,
- Andrea Righi <arighi@nvidia.com>, Changwoo Min <changwoo@igalia.com>,
- Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
- <agtuPrgIDNKSu2Oo@slm.duckdns.org>
- <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
- <297658c4ae2d6e7103f5968efc936224@kernel.org>
- <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
- <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
- <agyZxmHoueGwBAQg@slm.duckdns.org>
- <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
- <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
- <CAADnVQ+j4o0Xy+cykSdx9txSqCouy0yHFaA09qTJp3OVF3VaRA@mail.gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
- dBrn+lhhOYjjNefFQou6478faXE6o2AhmebqT4KiQoUQFV4R7y1KMEKoSyy8hQaK1umALTdL
- QZLQMzNE74ap+GDK0wnacPQFpcG1AE9RMq3aeErY5tujekBS32jfC/7AnH7I0v1v1TbbK3Gp
- XNeiN4QroO+5qaSr0ID2sz5jtBLRb15RMre27E1ImpaIv2Jw8NJgW0k/D1RyKCwaTsgRdwuK
- Kx/Y91XuSBdz0uOyU/S8kM1+ag0wvsGlpBVxRR/xw/E8M7TEwuCZQArqqTCmkG6HGcXFT0V9
- PXFNNgV5jXMQRwU0O/ztJIQqsE5LsUomE//bLwzj9IVsaQpKDqW6TAPjcdBDPLHvriq7kGjt
- WhVhdl0qEYB8lkBEU7V2Yb+SYhmhpDrti9Fq1EsmhiHSkxJcGREoMK/63r9WLZYI3+4W2rAc
- UucZa4OT27U5ZISjNg3Ev0rxU5UH2/pT4wJCfxwocmqaRr6UYmrtZmND89X0KigoFD/XSeVv
- jwBRNjPAubK9/k5NoRrYqztM9W6sJqrH8+UWZ1Idd/DdmogJh0gNC0+N42Za9yBRURfIdKSb
- B3JfpUqcWwE7vUaYrHG1nw54pLUoPG6sAA7Mehl3nd4pZUALHwARAQABzS5EYXZpZCBIaWxk
- ZW5icmFuZCAoQ3VycmVudCkgPGRhdmlkQGtlcm5lbC5vcmc+wsGQBBMBCAA6AhsDBQkmWAik
- AgsJBBUKCQgCFgICHgUCF4AWIQQb2cqtc1xMOkYN/MpN3hD3AP+DWgUCaYJt/AIZAQAKCRBN
- 3hD3AP+DWriiD/9BLGEKG+N8L2AXhikJg6YmXom9ytRwPqDgpHpVg2xdhopoWdMRXjzOrIKD
- g4LSnFaKneQD0hZhoArEeamG5tyo32xoRsPwkbpIzL0OKSZ8G6mVbFGpjmyDLQCAxteXCLXz
- ZI0VbsuJKelYnKcXWOIndOrNRvE5eoOfTt2XfBnAapxMYY2IsV+qaUXlO63GgfIOg8RBaj7x
- 3NxkI3rV0SHhI4GU9K6jCvGghxeS1QX6L/XI9mfAYaIwGy5B68kF26piAVYv/QZDEVIpo3t7
- /fjSpxKT8plJH6rhhR0epy8dWRHk3qT5tk2P85twasdloWtkMZ7FsCJRKWscm1BLpsDn6EQ4
- jeMHECiY9kGKKi8dQpv3FRyo2QApZ49NNDbwcR0ZndK0XFo15iH708H5Qja/8TuXCwnPWAcJ
- DQoNIDFyaxe26Rx3ZwUkRALa3iPcVjE0//TrQ4KnFf+lMBSrS33xDDBfevW9+Dk6IISmDH1R
- HFq2jpkN+FX/PE8eVhV68B2DsAPZ5rUwyCKUXPTJ/irrCCmAAb5Jpv11S7hUSpqtM/6oVESC
- 3z/7CzrVtRODzLtNgV4r5EI+wAv/3PgJLlMwgJM90Fb3CB2IgbxhjvmB1WNdvXACVydx55V7
- LPPKodSTF29rlnQAf9HLgCphuuSrrPn5VQDaYZl4N/7zc2wcWM7BTQRVy5+RARAA59fefSDR
- 9nMGCb9LbMX+TFAoIQo/wgP5XPyzLYakO+94GrgfZjfhdaxPXMsl2+o8jhp/hlIzG56taNdt
- VZtPp3ih1AgbR8rHgXw1xwOpuAd5lE1qNd54ndHuADO9a9A0vPimIes78Hi1/yy+ZEEvRkHk
- /kDa6F3AtTc1m4rbbOk2fiKzzsE9YXweFjQvl9p+AMw6qd/iC4lUk9g0+FQXNdRs+o4o6Qvy
- iOQJfGQ4UcBuOy1IrkJrd8qq5jet1fcM2j4QvsW8CLDWZS1L7kZ5gT5EycMKxUWb8LuRjxzZ
- 3QY1aQH2kkzn6acigU3HLtgFyV1gBNV44ehjgvJpRY2cC8VhanTx0dZ9mj1YKIky5N+C0f21
- zvntBqcxV0+3p8MrxRRcgEtDZNav+xAoT3G0W4SahAaUTWXpsZoOecwtxi74CyneQNPTDjNg
- azHmvpdBVEfj7k3p4dmJp5i0U66Onmf6mMFpArvBRSMOKU9DlAzMi4IvhiNWjKVaIE2Se9BY
- FdKVAJaZq85P2y20ZBd08ILnKcj7XKZkLU5FkoA0udEBvQ0f9QLNyyy3DZMCQWcwRuj1m73D
- sq8DEFBdZ5eEkj1dCyx+t/ga6x2rHyc8Sl86oK1tvAkwBNsfKou3v+jP/l14a7DGBvrmlYjO
- 59o3t6inu6H7pt7OL6u6BQj7DoMAEQEAAcLBfAQYAQgAJgIbDBYhBBvZyq1zXEw6Rg38yk3e
- EPcA/4NaBQJonNqrBQkmWAihAAoJEE3eEPcA/4NaKtMQALAJ8PzprBEXbXcEXwDKQu+P/vts
- IfUb1UNMfMV76BicGa5NCZnJNQASDP/+bFg6O3gx5NbhHHPeaWz/VxlOmYHokHodOvtL0WCC
- 8A5PEP8tOk6029Z+J+xUcMrJClNVFpzVvOpb1lCbhjwAV465Hy+NUSbbUiRxdzNQtLtgZzOV
- Zw7jxUCs4UUZLQTCuBpFgb15bBxYZ/BL9MbzxPxvfUQIPbnzQMcqtpUs21CMK2PdfCh5c4gS
- sDci6D5/ZIBw94UQWmGpM/O1ilGXde2ZzzGYl64glmccD8e87OnEgKnH3FbnJnT4iJchtSvx
- yJNi1+t0+qDti4m88+/9IuPqCKb6Stl+s2dnLtJNrjXBGJtsQG/sRpqsJz5x1/2nPJSRMsx9
- 5YfqbdrJSOFXDzZ8/r82HgQEtUvlSXNaXCa95ez0UkOG7+bDm2b3s0XahBQeLVCH0mw3RAQg
- r7xDAYKIrAwfHHmMTnBQDPJwVqxJjVNr7yBic4yfzVWGCGNE4DnOW0vcIeoyhy9vnIa3w1uZ
- 3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
- CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
- qIws/H2t
-In-Reply-To: <CAADnVQ+j4o0Xy+cykSdx9txSqCouy0yHFaA09qTJp3OVF3VaRA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_142251_051290_78B700A4 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20260520_142523_169947_6231F7F7 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,46 +91,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>
->> At least in apply_range_clear_cb() one could similarly switch to
->> ptep_try_install() to at least have both these paths handle races in a
->> reasonable way. (having to handle when ptep_try_install() is not really implemented)
-> 
-> You mean to use ptep_get_and_clear() ?
-> Makes sense to me.
-Yes, using also an atomic to replace it.
+Version 4 of this series addresses a few review comments and some concerns
+of the sashiko bot.
 
-I recall that ptep_get_and_clear() might not be atomic, but I guess it is on the
-architectures where ptep_try_install() is currently implemented.
+From the cover letter of v3:
 
-> 
->> Anyhow, the documentation of ptep_try_install() must clearly spell out that this
->> must be used very carefully, and only in special kernel page tables, never user
->> page tables. There are likely other scenarios we should document (caller must
->> prevent concurrent page table teardown somehow, and must be prepared to handle
->> races if other code is not using atomics).
->>
->> To highlight that, we should likely consider adding a "kernel" in the name, like
->> "ptep_try_install_kernel()".
->>
->> I am also not sure if "install" is the right terminology and whether it should
->> instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
-> 
-> I suggested using the ptep_try_set() name too :)
-> 
->> Further note that last time I talked to Linus about arch helpers, he preferred
->>
->> #define ptep_try_install ptep_try_install
->>
->> over __HAVE_ARCH_PTEP_TRY_INSTALL
-> 
-> ok.
-> I guess __HAVE_ARCH_PTEP_GET_AND_CLEAR is legacy ?
+Removing the rfc tag as the resctrl precursors [1] have been queued in tip
+x86/cache. Due to that dependency, it would be good for this to also go through
+x86/cache.
 
-Yeah ... and we have plenty of legacy around :)
+This series adds support for memory bandwidth monitoring.
+
+Please review and test.
+
+Changelogs in patches.
+
+[1] https://lore.kernel.org/all/20260506082855.3694761-1-ben.horgan@arm.com/
+
+Description from the initial cover letter:
+
+The MPAM counter assignment (ABMC emulation) changes that were dropped from
+the resctrl glue series due to some missing precursors in resctrl. Counter
+assignment enables bandwidth monitoring in systems that have fewer
+monitors than resctrl monitor groups.
+
+rfc v1: https://lore.kernel.org/lkml/20260225205436.3571756-1-ben.horgan@arm.com/
+rfc v2: https://lore.kernel.org/lkml/20260319165540.381410-1-ben.horgan@arm.com/
+v3: https://lore.kernel.org/linux-arm-kernel/20260511154147.557481-1-ben.horgan@arm.com/
+
+The code can be found at:
+https://gitlab.arm.com/linux-arm/linux-bh.git mpam_abmc_v4
+
+Ben Horgan (2):
+  arm_mpam: resctrl: Pre-allocate assignable monitors
+  arm64: mpam: Add memory bandwidth usage (MBWU) documentation
+
+James Morse (3):
+  arm_mpam: resctrl: Pick classes for use as MBM counters
+  arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use
+  arm_mpam: resctrl: Add resctrl_arch_cntr_read() &
+    resctrl_arch_reset_cntr()
+
+ Documentation/arch/arm64/mpam.rst |  17 ++
+ drivers/resctrl/mpam_internal.h   |   6 +-
+ drivers/resctrl/mpam_resctrl.c    | 308 +++++++++++++++++++++++++++---
+ 3 files changed, 308 insertions(+), 23 deletions(-)
 
 -- 
-Cheers,
+2.43.0
 
-David
 
