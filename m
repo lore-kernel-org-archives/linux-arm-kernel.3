@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DA4CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 20:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04769CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 20:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=Sf1SMQC28bDRL9mfOLMubwubEk1ClyBVQ/X/6xOLHzc=; b=ptV6GCuBoiTb9U
-	i/vJrrvUYRm/uzjykJCwcuzTYFYXtPaDX3pA7sh3YjXMdr1vWeFjRtzkHH15aamtEK79n5jfF+rXx
-	5vEuibe65DB7lk4aUsCrqllhSVYT1B0FfhuxLvRbzOKsstxyiDVUDd5t6+OMY4gpOQ7wVboeOHCkL
-	ZzTBQjIwe6Y+csRWHSreofeyQd0HwwZNH9ZdJOw3lGKIgMVeitaCbxuj6fm5pGV8kpU7Umf5Pih5R
-	Mia7xjMKZvJFPXeMwl7gDPe55yeT7kye3LaPxBL65ia7jJtZeE2ZFEKVkkOWBx9ninMABATI5ElVT
-	beMFMXFAwzF1vcg67nUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1EyYbR+jhGOTsmqCZIrtN6+oCATdrHEFLzp24eY2naY=; b=UEhTd2KISl6CRQD/aIATLEVux1
+	E+aG/2i0Vn9XTcRwR8KCZpaOfn1iTVJHt174tFYemi5Gs3FO9UAGYYsRfMUxI6rZu0dN4K7YChU7o
+	/Oc/2p7Uh0z4RVNfgDaVQloKciI1B5jqrQ/CNQC5UwveZtY7oxy5SRqAbjbu4asWMAXrZedry3w4p
+	syHbrvKSJl7LwgzafiD3XCHU0QHXkHJZ0/HRdC+4Wejfq7p52STwUckkiFxl2HjUA1O5tkjKIbDn0
+	6owCfoEuMQM+hppWHRHh8nxbqmvADde2BUB7+gmonjbo0W8W7ofoYznTlRIWiBPuzUURKMwUxxbaK
+	xWEQNTdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPnWJ-00000005iuL-3iAY;
-	Wed, 20 May 2026 20:27:59 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPnoz-00000005kpp-2l6t;
+	Wed, 20 May 2026 20:47:17 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPnWH-00000005itW-2rFC
+	id 1wPnov-00000005koc-2AMj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 20:27:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id E8C114456F;
-	Wed, 20 May 2026 20:27:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 9C32C1F000E9;
-	Wed, 20 May 2026 20:27:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779308876;
-	bh=Sf1SMQC28bDRL9mfOLMubwubEk1ClyBVQ/X/6xOLHzc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=Tzb1Ret77ExKLvkEHhl993AAxmn1PQZDUTwx1VawQJyrOOaiXEOcOhOUXf4DIQxVg
-	 xBtX0U8pNf9//BzKJH6MzU6mvOMjZiqc6gcibTTnVMyFFttt/mGxPG23JhfredhdtC
-	 gHofPsuO6hd3CxCZE+fqiEawS+IeZgoZ5XyhksIeYLSi17kBZmGYcR9c/k0ThnMxef
-	 hA/in1OvY9BzhpP3Tf8n4DHdPKNnG+OF1WCv0K3JBl91IrM53Ojf81RZ298bR6C4eR
-	 bHD9eFR/fXqfcBw2VYfh/e6mMt/pS8p1NKwgTopsZyOMq/04ZW2BgRVHwv2ru2o26W
-	 4LS/8EHAyDBNg==
-Date: Wed, 20 May 2026 15:27:55 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
-	bjorn.andersson@oss.qualcomm.com
-Subject: Re: [PATCH v5 1/5] PCI: host-common: Add helper to determine host
- bridge D3cold eligibility
-Message-ID: <20260520202755.GA120626@bhelgaas>
+	Wed, 20 May 2026 20:47:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779310032;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=1EyYbR+jhGOTsmqCZIrtN6+oCATdrHEFLzp24eY2naY=;
+	b=bivighCTSauvD+Mo4qeGi1/Y4U8RC/Lo9WAiCh5051c3AnQFWQGoXnQpHvaNQQz9RK1A/1
+	QBij2IqtjRA7nILeAQr6S7mdbw6fTJFvHTgC6OzpwH8wKR5reNQjqrBhELYbCQ76t1yE/+
+	sGGfcmXrQIgRp7JNdRlj8W/EblNEPMI=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-581-V_6Urf5lOjC4rh9_O4x6YQ-1; Wed,
+ 20 May 2026 16:47:06 -0400
+X-MC-Unique: V_6Urf5lOjC4rh9_O4x6YQ-1
+X-Mimecast-MFC-AGG-ID: V_6Urf5lOjC4rh9_O4x6YQ_1779310024
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6E2F8195605B;
+	Wed, 20 May 2026 20:47:02 +0000 (UTC)
+Received: from llong-thinkpadp16vgen1.westford.csb (unknown [10.22.64.248])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EB07730001A2;
+	Wed, 20 May 2026 20:46:58 +0000 (UTC)
+From: Waiman Long <longman@redhat.com>
+To: Marc Zyngier <maz@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R. Howlett" <liam@infradead.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-rt-devel@lists.linux.dev,
+	Waiman Long <longman@redhat.com>
+Subject: [PATCH 1/2] gfp_types: Introduce a new GFP_ATOMIC_RT gfp flag
+Date: Wed, 20 May 2026 16:46:27 -0400
+Message-ID: <20260520204628.933654-1-longman@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260519223901.GA20376@bhelgaas>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Mimecast-MFC-PROC-ID: utxkZ58gPKtSPXX3Jh6FX91XCl_JASTWENmtxrYxr1g_1779310024
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_132757_744649_8F221FAE 
-X-CRM114-Status: GOOD (  21.66  )
+X-CRM114-CacheID: sfid-20260520_134713_622235_3F529432 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +97,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 05:39:01PM -0500, Bjorn Helgaas wrote:
-> On Wed, Apr 29, 2026 at 12:12:23PM +0530, Krishna Chaitanya Chundru wrote:
-> > Add a common helper, pci_host_common_d3cold_possible(), to determine
-> > whether PCIe devices under host bridge can safely transition to D3cold.
-> ...
+The GFP_ATOMIC flag is to be used in atomic context where user cannot
+sleep and need the allocation to succeed. However, it does not support
+contexts where preemption or interrupt is disabled under PREEMPT_RT
+like raw_spin_lock_irqsave() or plain preempt_disable().
 
-> > +static int __pci_host_common_d3cold_possible(struct pci_dev *pdev, void *userdata)
-> > +{
-> > +	u32 *flags = userdata;
-> > +	int type;
-> > +
-> > +	/* Ignore conventional PCI devices */
-> > +	if (!pci_is_pcie(pdev))
-> > +		return 0;
-> > +
-> > +	type = pci_pcie_type(pdev);
-> > +	if (type != PCI_EXP_TYPE_ENDPOINT &&
-> > +	    type != PCI_EXP_TYPE_LEG_END &&
-> > +	    type != PCI_EXP_TYPE_RC_END)
-> > +		return 0;
-> 
-> From https://sashiko.dev/#/patchset/20260429-d3cold-v5-0-89e9735b9df6%40oss.qualcomm.com:
-> 
->   If the topology contains an active conventional PCI device or an
->   intermediate PCIe switch in PCI_D0, returning 0 here allows
->   pci_walk_bus() to continue without clearing the
->   PCI_HOST_D3COLD_ALLOWED flag.
-> 
->   Does this create a situation where the host bridge might
->   aggressively power off the link, dropping power to these active
->   components?
-> 
-> I guess this is intentional, since you have comment about ignoring
-> conventional PCI devices.  But this does seem like a potential
-> problem.  Why should we ignore switches here?  And I think it's still
-> fairly common to have a PCIe-to-PCI bridge leading to a conventional
-> PCI device, and I don't know why we should ignore them.
-> 
-> The commit log consistently refers to "PCIe" devices and endpoints, so
-> maybe there's some reason that I'm missing.
-> 
-> There are other sashiko comments on this series that I think should
-> also be looked at.
+With the advance of the ALLOC_TRYLOCK allocation flag in the v7.1
+kernel, it is possible to allocate memory under such contexts by using
+spin_trylock to acquire the spinlock in the memory allocation path. This
+does increase the chance that the allocation can fail due to the presence
+of concurrent memory allocation requests. So its users must be able to
+handle such memory allocation failure gracefully.
 
-This series is all in pci/next, so you and Mani can decide on whether
-any sashiko comments need to be addressed.
+The ALLOC_TRYLOCK flag will only be enabled if none of the
+___GFP_DIRECT_RECLAIM and ___GFP_KSWAPD_RECLAIM flags are set.
 
-Even if there's no code change, I think it'd be nice to have a brief
-comment here about why conventional PCI and switches are ignored.
+Introduce a new GFP_ATOMIC_RT gfp flag for those PREEMPT_RT
+atomic contexts.  This new flag will fall back to GFP_ATOMIC in
+non-PREEMPT_RT kernel. GFP_ATOMIC can continue to be used in contexts
+where preemption and interrupt are not disabled in PREEMPT_RT kernel
+like spin_lock_irqsave().
+
+Signed-off-by: Waiman Long <longman@redhat.com>
+---
+ include/linux/gfp_types.h | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+index cd4972a7c97c..ac30882b6cd4 100644
+--- a/include/linux/gfp_types.h
++++ b/include/linux/gfp_types.h
+@@ -316,6 +316,13 @@ enum {
+  * preempt_disable() - see "Memory allocation" in
+  * Documentation/core-api/real-time/differences.rst for more info.
+  *
++ * %GFP_ATOMIC_RT is similar to %GFP_ATOMIC with the addition that it can also
++ * be used in context where preemption and/or interrupt is disabled under
++ * PREEMPT_RT, but not in NMI or hardirq contexts. The allocation is more
++ * likely to fail under PREEMPT_RT due to the spin_trylock() nature of lock
++ * acquisition. So the caller must be ready to handle memory allocation failure
++ * gracefully.
++ *
+  * %GFP_KERNEL is typical for kernel-internal allocations. The caller requires
+  * %ZONE_NORMAL or a lower zone for direct access but can direct reclaim.
+  *
+@@ -388,4 +395,10 @@ enum {
+ 			 __GFP_NOMEMALLOC | __GFP_NOWARN) & ~__GFP_RECLAIM)
+ #define GFP_TRANSHUGE	(GFP_TRANSHUGE_LIGHT | __GFP_DIRECT_RECLAIM)
+ 
++#ifdef CONFIG_PREEMPT_RT
++# define GFP_ATOMIC_RT	__GFP_HIGH
++#else
++# define GFP_ATOMIC_RT	GFP_ATOMIC
++#endif
++
+ #endif /* __LINUX_GFP_TYPES_H */
+-- 
+2.54.0
+
 
