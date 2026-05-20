@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBD2CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:37:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD0CCD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 06:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vu3EZBeWinYUHPBmY/X090V8/6NEcv7XCtOXv6H294Q=; b=3GEFDRkfcb/N4VzcsorL/LxYsr
-	j4C+khbMmiNozRFGW6ZbEgAPv14Mv04wxJjeziX39yJMPlsel+FcBweuB6J9UNeifPEXoaB9BWRf8
-	ZhlyuhCKL8Q2cGxJ9EalIHq/JTjsMbB+jir7m862N8DsFgnBMZFZ1P/XFPKZ00ViF7NjA5qUviVYe
-	9Zk0lDAeA1Ez1X5NjeF8duIoHMcgLFcVb0IBVz+mvbTd65xjNO51AjRKj4VydrpZ6sJvMZJGBiGQc
-	laFMkACOczkxzpGMUp+AIq3yKe5trem5zHhsOv8Y4YwySd5MJqFmWRFtyvCkcrrEBctInTiuoVdCA
-	kYcDg8Ag==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zm93bQ5t5C8w3D4+hr9H/ydh/Ma2k3/VoNQRmowXLsA=; b=0757umE9XKMzz+Z6J1GJaiq/As
+	EZosN3Xadzs4L5vKugGzbImDiczC1mq6VQV0WdLuE0IXSeNYYl2UYK74x7JUS7LepFKiPCYfTl77w
+	OE1fVfJSsevPZ6qSuEjOJdq8ViReMlujtRwRej0p9tI7t4xB0yPZeLbZcHGMQ2uZlb4Q1rNsiZRh9
+	vQRwhB00gFjZUDjkmadyeJ/Ytdo2QasrRukPt9UNY5mL40j3BEWxMROnKZDIJGnSNJYRgErUkVAHO
+	Ywa5ud8gobxAVjoxKgxAGVcLVohvHiR2aspgWIISdhez5E44RipLuwaI6dpopM2kuDSc5vYZiktB5
+	OOTUzzMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaYm-00000003fya-1au3;
-	Wed, 20 May 2026 06:37:40 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wPaYd-00000003fv7-1CHW;
+	Wed, 20 May 2026 06:37:31 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPaYd-00000003fu3-0DxN
+	id 1wPaYa-00000003ftO-1aFJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 06:37:32 +0000
+	Wed, 20 May 2026 06:37:30 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=Vu3EZBeWinYUHPBmY/X090V8/6NEcv7XCtOXv6H294Q=;
-	b=DTUgcXX0QCOxzf8m0FRgEYq6mHvJ8fm5/LaunYVYwK8xC/eRMYpl+bJhsuFUryDpThYXxX4SD
-	zD5E2giVkd242GleR1g//3guxL955J3f6aBVzlkV2nSgD1kadg92DnjwG042X0ideouW+DMHrsE
-	PjSrMIPTDI/RKohWj9cLQ1I=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gL1qt6q77z12LDX;
-	Wed, 20 May 2026 14:30:18 +0800 (CST)
+	bh=Zm93bQ5t5C8w3D4+hr9H/ydh/Ma2k3/VoNQRmowXLsA=;
+	b=QT1059j1BWnvmMdNIVY6DikiGb3SFgT693wP6J7Rc0fFQUKsEwpd4IkCOcew3jEjEvIYFPNPV
+	nCBUs2EnyUYBspugMmQr5/p8U4A0g0xgU9dDy3JKkgBhDqSnxkMsx7A5EjTHfMvBJeUGiz6c/cm
+	gG9b1vPjZ++9HQH2mi3qh+k=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gL1q03gV5zmVD0;
+	Wed, 20 May 2026 14:29:32 +0800 (CST)
 Received: from kwepemj200003.china.huawei.com (unknown [7.202.194.15])
-	by mail.maildlp.com (Postfix) with ESMTPS id 307AB40537;
-	Wed, 20 May 2026 14:37:20 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 08E0F40572;
+	Wed, 20 May 2026 14:37:15 +0800 (CST)
 Received: from localhost.huawei.com (10.90.31.46) by
  kwepemj200003.china.huawei.com (7.202.194.15) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 20 May 2026 14:37:19 +0800
+ 15.2.1544.11; Wed, 20 May 2026 14:37:14 +0800
 From: Qinxin Xia <xiaqinxin@huawei.com>
 To: <robin.murphy@arm.com>, <nicolinc@nvidia.com>, <will@kernel.org>,
 	<jpb@kernel.org>
@@ -52,21 +52,19 @@ CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
 	<prime.zeng@hisilicon.com>, <fanghao11@huawei.com>,
 	<jonathan.cameron@huawei.com>, <wuyifan50@huawei.com>, <linuxarm@huawei.com>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH 4/5] iommu/arm-smmu-v3: Add device symlink in stream table debugfs
-Date: Wed, 20 May 2026 14:37:10 +0800
-Message-ID: <20260520063714.2440584-4-xiaqinxin@huawei.com>
+Subject: [PATCH 0/5] Add debugfs support for ARM SMMUv3
+Date: Wed, 20 May 2026 14:37:06 +0800
+Message-ID: <20260328101706.3448655-1-xiaqinxin@huawei.com>
 X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260328101706.3448655-1-xiaqinxin@huawei.com>
-References: <20260328101706.3448655-1-xiaqinxin@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
  kwepemj200003.china.huawei.com (7.202.194.15)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_233731_412663_47C8E25C 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20260519_233728_868485_DAAAF1C7 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,80 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20260520063706.OZy2VlaLCfxiKwmjF7ONYoyIxuPlgKI2zqELkvCgREA@z>
 
-Add a symlink named  under each stream table entry directory pointing to
-the sysfs directory of the actual device. This aids debugging
-by providing direct access to device attributes.
+Add a comprehensive debugfs framework to the ARM SMMUv3 driver,
+providing visibility into internal hardware state for debugging
+and performance analysis. The debugfs entries are organized under
+/sys/kernel/debug/iommu/arm_smmu_v3/, with per-SMMU instance directories
+and per-device stream table entries.
+
+Each SMMU instance provides:
+- capabilities – static SMMU features and queue sizes.
+- registers – SMMU key registers.
+- stream_table/ – a directory per device with subdirectories per Stream ID.
+
+Each Stream ID subdirectory contains:
+- ste – the Stream Table Entry in decoded and raw format.
+- cd – all valid Context Descriptors (Stage 1 translation tables) associated with the device.
+- a symlink named with the device's BDF/name pointing to its sysfs directory for easy navigation.
 
 /sys/kernel/debug/iommu/arm_smmu_v3/smmu0/stream_table/
-└── <sid>/
-    ├─── ste
-    └─── <dev_name>
+    ├── <sid>/
+    │   ├── ste
+    │   ├── cd
+    │   └── <dev_name>
 
-Signed-off-by: Qinxin Xia <xiaqinxin@huawei.com>
----
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+Changes since RFCv2:
+  Address review comments from Nicolin Chen, kernel test robot, and Sashiko
+  automated review:
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-index a5866f34264f..9babc7d640fd 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
-@@ -10,6 +10,7 @@
-  *     ├── stream_table
-  *         ├── <sid>/                                # Stream ID
-  *             ├── ste                               # Stream Table Entry
-+ *             ├── <dev_name>                         # Symlink to device sysfs directory
-  *
-  * The capabilities file provides detailed information about:
-  * - translation stage support (Stage1/Stage2)
-@@ -31,6 +32,7 @@
- 
- #include <linux/cleanup.h>
- #include <linux/debugfs.h>
-+#include <linux/kobject.h>
- #include <linux/slab.h>
- #include "arm-smmu-v3.h"
- 
-@@ -314,6 +316,7 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
- 	struct dentry *stream_dir, *dev_dir;
- 	struct arm_smmu_master *master;
- 	struct ste_context *ctx;
-+	char *path = NULL, *full_path;
- 	char name[64];
- 	u32 sid;
- 	int i;
-@@ -338,6 +341,9 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
- 	if (!master || !master->num_streams)
- 		return -ENODEV;
- 
-+	/* Get device sysfs path once, reuse for all streams */
-+	path = kobject_get_path(&dev->kobj, GFP_KERNEL);
-+
- 	for (i = 0; i < master->num_streams; i++) {
- 		sid = master->streams[i].id;
- 		snprintf(name, sizeof(name), "%u", sid);
-@@ -357,8 +363,19 @@ int arm_smmu_debugfs_create_stream_table(struct arm_smmu_device *smmu,
- 		spin_unlock(&smmu->debugfs->stream_lock);
- 		debugfs_create_file("ste", 0444, dev_dir, ctx,
- 				    &smmu_debugfs_ste_fops);
-+
-+		/* Create a symlink to the device's sysfs directory */
-+		if (path) {
-+			full_path = kasprintf(GFP_KERNEL, "/sys%s", path);
-+			if (full_path) {
-+				debugfs_create_symlink(dev_name(dev), dev_dir,
-+						       full_path);
-+				kfree(full_path);
-+			}
-+		}
- 	}
- 
-+	kfree(path);
- 	return 0;
- }
- 
--- 
-2.33.0
+  Build & kerneldoc fixes (patches 1-3):
+   - Add missing @unused parameter description to kerneldoc comments to fix
+     clang W=1 warnings reported by kernel test robot.
+   - Fix commit message: "driver.This" -> "driver. This" (patch 1).
 
+  Correctness fixes:
+   - Fix integer overflow: 1 << sid_bits -> 1ULL << sid_bits with %llu format,
+     preventing undefined behavior when SIDSIZE = 32 (patch 1).
+   - Fix EVTQ register access: use smmu->page1 instead of smmu->base for
+     EVTQ_PROD/EVTQ_CONS, which reside in register page 1 (patch 2).
+   - Fix STE config bit test: use proper cfg comparison instead of bitwise AND
+     on non-mask enumeration values, and extract S1ContextPtr from data[0]
+     instead of data[1] (patch 3).
+
+  Resource leak fixes (patches 1-5):
+   - Fix device reference leak: call put_device() when single_open() fails in
+     all open() callbacks (capabilities, registers, ste, cd).
+   - Fix dentry reference leak: add missing dput() after debugfs_lookup() in
+     stream table remove path (patch 3).
+   - Move kobject_get_path() outside the per-stream loop to avoid repeated
+     allocation (patch 4).
+
+  Locking & concurrency fixes:
+   - arm_smmu_debugfs_remove(): use scoped_guard() and move
+     debugfs_remove_recursive() outside the lock to avoid blocking other SMMU
+     instances on active VFS operations (patch 1).
+   - smmu_debugfs_ste_show(): change scoped_guard to guard(mutex) since the
+     entire function body is within the lock scope (patch 3).
+   - smmu_debugfs_cd_show(): change manual mutex_lock/unlock to
+     guard(mutex)(&arm_smmu_asid_lock) (patch 5).
+
+  Error handling fixes:
+   - Replace if (!debugfs_create_dir(...)) with IS_ERR() checks throughout,
+     since debugfs_create_dir() returns ERR_PTR on failure, not NULL
+     (patches 1, 3).
+   - Add NULL check for smmu->debugfs before dereference in stream table
+     create path (patch 3).
+   - Add NULL check for kzalloc_obj() result (patch 3).
+
+  Code style & cleanup:
+   - Directory tree comment: use ├── for last entry to avoid churn on
+     subsequent patches (patches 1-5).
+   - Fix tab/space alignment in directory tree comments (patches 1, 2).
+   - Reorder function parameters: @smmu first, @dev second (patch 3).
+   - Fix return statement indentation (patch 3).
+   - Move function declarations from #ifndef-static pattern to header file
+     (patch 3).
+   - Move char name[32] and snprintf() to function top for reuse by
+     iommu_device_sysfs_add() regardless of CONFIG_ARM_SMMU_V3_DEBUGFS
+     (patch 1).
+   - Adopt non-tab-aligned style for new struct members (patches 1, 3).
+   - Remove useless comments: "DebugFS Info" and "Reserved for future
+     extensions" (patches 1, 3).
+   - Remove spurious blank line (patch 3).
+
+- Link: https://lore.kernel.org/all/20260328101706.3448655-1-xiaqinxin@huawei.com/
+
+Qinxin Xia (5):
+  iommu/arm-smmu-v3: Add basic debugfs framework
+  iommu/arm-smmu-v3: Add register display to debugfs
+  iommu/arm-smmu-v3: Add Stream Table Entry display to debugfs
+  iommu/arm-smmu-v3: Add device symlink in stream table debugfs
+  iommu/arm-smmu-v3: Add Context Descriptor display to debugfs
+
+ drivers/iommu/Kconfig                              |  11 +
+ drivers/iommu/arm/arm-smmu-v3/Makefile             |   1 +
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c    | 609 +++++++++++++++++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c        |  27 +-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h        |  30 +
+ 5 files changed, 675 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-debugfs.c
+
+--
+2.51.0
 
