@@ -4,79 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D490CCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 00:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C52CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 00:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pm9GaObJx0pUzTbnogMJxTLRSXqMju3ZiH9MXVqRNoc=; b=LKADPu4qwk6LxHIxEzHBxfm2a4
-	yY1/kI3bTL9CuPol4yBb6LF4XNcxd8xt0nK+bqthAZcuC2znWcazwIDXLnDPnRzbvKNUmwuN0/Lrk
-	KRdr2jpMbv7DzDYhwjujFmUKcrOjCYe8H87Cw5kFTBZDCYhos0y03JpCIZReCoY7E+XddqhYnBZ6G
-	vbnLkb+Sla96wfx33EmX9C9qCdC9+VClTW5RH367gHNgxp9vQZqOk6D4VYo9l1N2WpKujP5pmk3YX
-	FAml6PSuoZNn4qacNs3Yg/F2eat+pBtXcCADtSs0bz1v0VQ/kRtrGKNF/hJKN7Qjj6GKZFds19ME0
-	BlVh9Z/w==;
+	bh=Rzd99xfaAKx5SF48hdqihGWMFwtKCZKDsgmOXAR9fhY=; b=F9MHCWYclogbTwbs1nIXJSWCWS
+	1nh+yHB7F9Z0P954i0xm/MUBTHIRge3g4eU7q/BynXanSCQeRWV+8Sl9TT6K4Ryqy+NXZlhVGXUvW
+	wBDBWoxuMieFlVEHWWp5/M6Bm+3nMD/S0Kb5jOU1sBZLXTvRtEAZAc86B1rM1wmeufYVvT/1KMVvR
+	a6uL9YvVO26U3C+cF1RqEbzxLm52nQcFw9/9SxRA4cqz3cSBhE2oqh819ilGyNbnASGpFljMX7t1Y
+	RE5S0VVOKvBXygZDDkCULIxFyxKy+MKJ4FzRjx4f528LdLF8MTQ6XGC9UD9j/1ghhpunFHB3XFbdb
+	eAcv9FMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPUlD-000000038ev-2zBy;
-	Wed, 20 May 2026 00:26:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wPUpb-000000039Dx-0tBT;
+	Wed, 20 May 2026 00:30:39 +0000
+Received: from mail-northcentralusazon11013032.outbound.protection.outlook.com ([40.107.201.32] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPUlA-000000038eU-0zka
+	id 1wPUpY-000000039DB-16Al
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 00:26:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779236761;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pm9GaObJx0pUzTbnogMJxTLRSXqMju3ZiH9MXVqRNoc=;
-	b=MDKDS7E8FVLVRvjpOk4i3vmKZaErqV7JiPLFBrwAEhhDRBXmPpCv1IblnV2hr3vIFTXHgX
-	9USg9wHobWZ0ywMH48eidPNJBDwDIos79OqkHPQyG989E8N4hRi4uaC/69b/OXYZ9XQ1Qj
-	ePQVkKgoCwhGxClKtTeMKdGPFzmZdjo=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-609-3-li6haoPeCFkJKbXxi6Kg-1; Tue,
- 19 May 2026 20:23:47 -0400
-X-MC-Unique: 3-li6haoPeCFkJKbXxi6Kg-1
-X-Mimecast-MFC-AGG-ID: 3-li6haoPeCFkJKbXxi6Kg_1779236625
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 01E0318005B2;
-	Wed, 20 May 2026 00:23:45 +0000 (UTC)
-Received: from localhost (unknown [10.22.64.8])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2738B30001A2;
-	Wed, 20 May 2026 00:23:42 +0000 (UTC)
-Date: Tue, 19 May 2026 21:23:41 -0300
-From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-To: Waiman Long <longman@redhat.com>,
-	Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH] arm64/entry: Don't disable preemption in
- debug_exception_enter() with RT kernel
-Message-ID: <agz_DYGnUsimJ3xL@redhat.com>
-References: <20260519222524.886454-1-longman@redhat.com>
-MIME-Version: 1.0
-In-Reply-To: <20260519222524.886454-1-longman@redhat.com>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: zdYYWlTYIYN-wxqUgg7MrHkN6YX5-fCdzS8jH6rxMAU_1779236625
-X-Mimecast-Originator: redhat.com
+	Wed, 20 May 2026 00:30:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FkwoapLSWjsp1NGZ7rE0YrnyxOVHyB9gPOngY3LWh6507sHPoUwg1fzyyMlX/0IxTQFvQUKyaDT1hyAstt1qXeMh3C/plbPdWURdTz6KqRgnuYSqclrWRzsGEhRZ6fEh3Y1kDPyQNHBsOPJ1ycbOy0RBt9PSasen4HkzIjwqp+N9alfWv6x7uwGGAj6suQbWvpQm0b6dfT13+P482fmcIyMJYCxR4BTtN5wAm/wHMzVpStgPuYQRX+buZNvWPWoAPC/pPYEsg+igZT2c9isz9m7M0q3TyQne/yC+zFAR3SfgA7ixb6p6TAnk/bN37xWv9SD0/xwfnBGoh2OsL05wrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rzd99xfaAKx5SF48hdqihGWMFwtKCZKDsgmOXAR9fhY=;
+ b=lVEYE5VpBjbXLmkvv7CTZ0LYjjFB0Rf38AH79q2OffPcsdftnHAOlnoMrMOWWq5nbwFlY0QNHZ7PbjVH/U6/aLFgmtYtGxDKi6PJZS1j9NJYCPdH+5KaGf9aQ4C4tpuzdYU5MhQQaCHXiLwzrczDdCC1+rFSFHt8C6ft7/SYnPGpwK4HzmvTGHynIVeEUqVeS8cX6BsCD768chY7GNBVUkEuHWiWd9WQWgRaXxIMGWabcZAlPq0Lkzq1taMPVbKsPwNQKmDziPEp0TLIHpgeDMT+fp6exGufQzmCkHjBS3T4vL/m4pPbICgt29qdIt4shsiqkQgwwz2WCyymfA06qQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rzd99xfaAKx5SF48hdqihGWMFwtKCZKDsgmOXAR9fhY=;
+ b=fLHoYdiV9LkfG/UtdPuny2TXp8VnzVqJv2YCm2nPL814e0xs2q+ycVMCtXIQ20licsZ+T5rAr4Hk5Zz+GRgktQXe1UdYhy+2HZzevXan43zD4rZ7EK9MReegq2TQA7PA5Iqqa0ZQVyyL6TBgaHfs8pDh2Rncu6R46WnTcHJ6lFM7hq9UV3WYykHxy7O0KT0UV9nr6lb9usFeBdd8kwuK8f5M810GKELypSkR9S7gUjV0r3LlBmcfW/1uyVY6YwHUcqNl64aEiU6yjDYyCXOeFsX4HKmGQXnOAgmHRz93CswAafJ/aunJfbM1YOOOTvVgq+W3BDtJwu6KDOfRT7Xe9Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by DM4PR12MB7527.namprd12.prod.outlook.com (2603:10b6:8:111::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.24; Wed, 20 May
+ 2026 00:30:24 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 00:30:24 +0000
+Date: Tue, 19 May 2026 21:30:23 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Pranjal Shrivastava <praan@google.com>,
+	Mostafa Saleh <smostafa@google.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org, vsethi@nvidia.com,
+	Shuai Xue <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v4 11/24] iommu: Add iommu_report_device_broken() to
+ quarantine a broken device
+Message-ID: <20260520003023.GR3602937@nvidia.com>
+References: <cover.1779161849.git.nicolinc@nvidia.com>
+ <745da1a819eb943f2519e660c8bcfde715885c6c.1779161849.git.nicolinc@nvidia.com>
+ <20260519120737.GQ787748@nvidia.com>
+ <agysAyreCY4huf0I@Asurada-Nvidia>
+ <20260519191626.GJ3602937@nvidia.com>
+ <agzkldmlG1cuDkj4@Asurada-Nvidia>
+ <20260519230204.GM3602937@nvidia.com>
+ <agz+kL2S8kcgHywG@Asurada-Nvidia>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <agz+kL2S8kcgHywG@Asurada-Nvidia>
+X-ClientProxiedBy: BL1PR13CA0359.namprd13.prod.outlook.com
+ (2603:10b6:208:2c6::34) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM4PR12MB7527:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5cc68b74-ce38-4947-b15a-08deb606fb9f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|22082099003|4143699003|18002099003|56012099003|3023799007|11063799006;
+X-Microsoft-Antispam-Message-Info: /uksNHkH7ywpwmailEcn+VY6oPMUfzg+fBbJtFyxQ1G5m8PbmiuKRd3urfnTPfyhnPABV39ET2ZNBoSaa+O/RvjapiZwRoaWiKCfcsus8Is1kFdTc+SIY/mzkAv78wfmVl4rGozGfRNxzFeBbgFdgsIuRArJK4UfrWxRy4IEUNLfPn/g3Fo97qXQIsEKUA+BZnd71xQmQ9PfXdVjpzkI5c99P0fuySOAVu0CDkaEVN5N0TSsExiqskE5LrKkSTiHWnh+QPtsiIrmOdkg3T+KmjZzMSELGvdp4GmZyl4sJOgP+LINVyl/K3Tchlv3mJitCkT6xb8Pm6z6Pw+M7v7d8le5ovMxGNh1KmDOybS+qPB7q3uQtaEaerLa/KJbf1x710l8N8kAVUYaEptABnk18adqfwbehsDi1eoa8WCt7gMosW3wrJ9vyuv/LHMlRavk0HdGgropK73ybiVtavPI8THhbYDVLixeGHr+y6B/wA/r06yE0oEckObcZRpBxEBb1YbWe2UuXiAIUp0UR/+hfXxwV0Lqj6bHLQXfWO8AxsNVEKI99gdT10o64r0d8EI7iWTKzCwn3tKMKx2M50Xe+Ez+GCeb6P41kFYt+WlyP67a6QKu7Uex4+vU47J3QapKGH20tdcM6h3jQ+jDWAt2qp8XckO5NXobrZ4bEIU1fLkxnYjKVmhpifBb4R6pVvnN
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(22082099003)(4143699003)(18002099003)(56012099003)(3023799007)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ka1nVKno18tOws1z2lkVj9VZqiIgf29Pq4nweJLwouV/45RolsJdCFfB7Gn3?=
+ =?us-ascii?Q?bJ+KOTALD64teoOrxvd65FA2c4FJqR9XKV7q3CJhYdvHau48ABuUnfFTxkfU?=
+ =?us-ascii?Q?6Zdy5UTn7QKL82LeqVRqJ7lUahiz5H1PlRGkmkg+2Gz61pOphcQMhhjFQrkL?=
+ =?us-ascii?Q?0mxdvH9fXWyuvqjcmZcp+NpFRtNVNE/0AmPhuFturAlXpTvRlZF4sve/nf+y?=
+ =?us-ascii?Q?zR/0rtojVRwEw0EF0nB8nsC/mep0Fh8piVn9e9M4u0PqtBa/eap7p1RMouz+?=
+ =?us-ascii?Q?g9cFcFRy9p7dhEbjoVYoznmE8xrYw6xXsP8QNOhRHr5nxE66p4LdUcZi7OMD?=
+ =?us-ascii?Q?KHzZ3qBiChsr4Ixs9E32+6p3OVaRG2TubvvVc+5lbZ/in+KnqcCzpHIkihkI?=
+ =?us-ascii?Q?YhxFvdHbnfkpJ+KmQMx0ZUlJwTXUdY7wMYNv5yQhPpupzbvV32dQo2yzhpTM?=
+ =?us-ascii?Q?GmDXK33aFykr8ocBciMUo90xgdoaCZRvZ+9DkvOwx07mksS3mDTi8v9bZ3lt?=
+ =?us-ascii?Q?xWtKMal5KuGG2+JTKNeoRa3h2+Wky2easG+ms+XwX8zPaGp4Zjff24/Vajuc?=
+ =?us-ascii?Q?WCO13Nc0pO+TCnHiBieGf3spl5K6CJ1NPEuj8g3eifXFgdoARuwazJqzbgxH?=
+ =?us-ascii?Q?BNEPen4K6thIXBUDaToHZ8bknPzLU4diF+fMAeE25s8NdCXRUB7x6sKZuao3?=
+ =?us-ascii?Q?UhAFrBJ7jsQAoiBr3dt4KW7efHkgaJutPodqMotsylHPlNlbtFZbpUbYySuA?=
+ =?us-ascii?Q?vUY2pEZvTj66QWCo/751iAJxyxl0iVWwieo6nT3tz3RiH57OYQuIR+EudoCe?=
+ =?us-ascii?Q?eCOmbDzOu0I+pjNWB1raONJyksVr3yA2ed6u6YrMACK3kf5tFMo/ZD4isAxl?=
+ =?us-ascii?Q?znB8cMQvQnHw0frVwBDWC6ieis3abhuKmva3slE2y+U6fRRw9/Vxmx+HtSJd?=
+ =?us-ascii?Q?roRqEL9ovBOvjxRKwDzR8wnXc8E/LJ0E2my2caGanqj0D7H2SOHdJzieTNVk?=
+ =?us-ascii?Q?9zf1MYq1h5SRv/nFE2T5gyxaWt1i8EDWVWi9ptDOx7F7MUwmVwj/2CDPtvEX?=
+ =?us-ascii?Q?788fp25QSp9u4xVCeZL9nSqiBpHtS9gVbfwgcUm50/rkYmR/AjSE+MtyIU4p?=
+ =?us-ascii?Q?Qf1SsMp917YxsBsPDVi2Sulvo56reiy+NLcOGdIasrKRdsK41wXWRCoXgqCL?=
+ =?us-ascii?Q?TWUEid1CAzPwy/BgCIa7FVTA+hkLMYhEHviPjiFKqHwuGJpB4qS+lBvWkgbc?=
+ =?us-ascii?Q?6Cmz51eHUiYzRfMPOUhbNc9pMF+LLDEXCAxyw4VURdk6Y4ptCLWD8WZ+owV7?=
+ =?us-ascii?Q?cuOvjbkt4W8yr/unf9a7gCuH4pNt6JGfzsKLmhscHR0TWPH6o8tqYFJTIKCc?=
+ =?us-ascii?Q?OXLKRS4s3uz0ofQOopyrkTdCRcoMRwEh1Ucm7nM0+erhzJY7nE1eg6/X3/KT?=
+ =?us-ascii?Q?Aq0SDbe6/HM+upLUmsOy370DMkrikT+jPEHXDjOtUNLkb23nTl/X/9m/9JL+?=
+ =?us-ascii?Q?Gkcup1/FvjPxTiQGgt27dKeFqKrw0kQYPRZBVHUwH82PzPoO4W0AuCUEfVbd?=
+ =?us-ascii?Q?RvoUpq+lpekDoC+QOIf5QmpY7AjkJmFNejPnT3SZ873bwVZ8eF06aq1fW9yb?=
+ =?us-ascii?Q?0e3CJyhU7M1Z63DY+qeS1Z9uR5FZM+Hob44UPp2bvyFVvcOcP9OtwSZRR88B?=
+ =?us-ascii?Q?DLlIITgMPhFqMgLYI56xliuBFxeUgweJy1RUNxj2p8psUkjM?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5cc68b74-ce38-4947-b15a-08deb606fb9f
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 00:30:24.2455
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZlSGsBBHd06koJVy9fkTtasQalOfIcM45KmCLtyvuYOBpU3nnafEsaAC4swsf0A8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7527
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_172604_350109_CC880154 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20260519_173036_317620_2D8188E9 
+X-CRM114-Status: GOOD (  34.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,101 +151,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 06:25:24PM -0400, Waiman Long wrote:
-> Commit d8bb6718c4db ("arm64: Make debug exception handlers visible from
-> RCU") introduces debug_exception_enter() and debug_exception_exit()
-> where preemption is explicitly disabled. With a PREEMPT_RT debug kernel,
-> the following bug report can happen.
+On Tue, May 19, 2026 at 05:21:36PM -0700, Nicolin Chen wrote:
+> On Tue, May 19, 2026 at 08:02:04PM -0300, Jason Gunthorpe wrote:
+> > > OK. So you are suggesting a quarantine at the driver-level only:
+> > > 
+> > > 1. Driver detects ATC_INV timeout during an invalidation.
+> > > 2. Driver retries the commands to identify the master.
+> > 
+> > I might argue to push even this out to a followup series given it is
+> > complex and I suspect it becomes much simpler after the batch
+> > removal...
 > 
->   BUG: sleeping function called from invalid context at kernel/locking/spinlock_rt.c:48
->   in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 15255, name: gdb_app
->   preempt_count: 1, expected: 0
->   RCU nest depth: 0, expected: 0
->   1 lock held by gdb_app/15255:
->   #0: ffff10007f41b7d8 (&sighand->siglock){..}-{3:3}, at: force_sig_info_to_task+0x34/0x130
->   Preemption disabled at:
->   [<ffff800080081ea8>] debug_exception_enter+0x18/0x70
->     :
->   Call trace:
->   dump_backtrace+0xac/0x130
->   show_stack+0x1c/0x24
->   dump_stack_lvl+0xa0/0xe0
->   dump_stack+0x14/0x2c
->   __might_resched+0x178/0x230
->   rt_spin_lock+0x58/0x120
->   force_sig_info_to_task+0x34/0x130
->   force_sig_fault+0x58/0x80
->   arm64_force_sig_fault+0x44/0x70
->   send_user_sigtrap+0x5c/0xa0
->   brk_handler+0x38/0x5c
->   do_debug_exception+0x78/0x110
->   el0_dbg+0x50/0x1e0
->   el0t_64_sync_handler+0x114/0x150
->   el0t_64_sync+0x17c/0x180
+> I see you suggest to treat the entire batch as ATS-broken. Just to
+> confirm: without per-SID retry, that might falsely block a healthy
+> device in the ATC batch, right? The driver now batches all ATC_INV
+> commands via arm_smmu_invs_end_batch().
+
+Yes, it is not good, but a giant complex series is not reviewable. So
+I'd start with trashing all the devices, then come with a narrowing.
+
+> > > 5. Driver sets master->ats_broken to fence concurrent attach:
+> > >    arm_smmu_write_ste() and arm_smmu_ats_supported().
+> > 
+> > Not sure this is needed, if we race some attach then the attach will
+> > re-set EATS, get another timeout and clear EATS. Doesn't seem worth
+> > trying to optimize for.
 > 
-> Fix that by blocking the preempt_disable()/preempt_enable_no_resched()
-> calls when CONFIG_PREEMPT_RT is enabled.
-
-Hi Waiman!
-
-Last year Ada Couprie Diaz wrote a patcheseries that enhanced greatly the
-ARM64 debug exception code. In the cover letter there is a discussion about
-the effect of the patches on RT[0] (look for PREEMPT_RT), explaining that
-there are a few remaining known bugs and briefly discussing the best way to
-fix then. There is also a discussion[1] about the specific issue you reported.
-
-I took the liberty of adding Ada to the thread.
-
-Best regards,
-Luis
-
-[0] https://lore.kernel.org/all/20250707114109.35672-1-ada.coupriediaz@arm.com/
-[1] https://lore.kernel.org/linux-arm-kernel/e86c5c3a-6666-46a7-b7ec-e803212a81a1@arm.com/
- 
-> Signed-off-by: Waiman Long <longman@redhat.com>
-> ---
->  arch/arm64/kernel/entry-common.c | 11 +++++++----
->  1 file changed, 7 insertions(+), 4 deletions(-)
+> I didn't see that coming. master->ats_enabled && state->ats_enabled
+> in the commit() for a concurrent attachment would issue an ATC that
+> may timeout again to re-start the step 1.
 > 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index c7a23f7c2212..191441b22b7c 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -290,15 +290,17 @@ static __always_inline void fpsimd_syscall_exit(void)
->  }
->  
->  /*
-> - * In debug exception context, we explicitly disable preemption despite
-> - * having interrupts disabled.
-> + * In debug exception context, we explicitly disable preemption except for
-> + * PREEMPT_RT kernel as rt_spin_lock() can be called.
-> + *
->   * This serves two purposes: it makes it much less likely that we would
->   * accidentally schedule in exception context and it will force a warning
->   * if we somehow manage to schedule by accident.
->   */
->  static void debug_exception_enter(struct pt_regs *regs)
->  {
-> -	preempt_disable();
-> +	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> +		preempt_disable();
->  
->  	/* This code is a bit fragile.  Test it. */
->  	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
-> @@ -307,7 +309,8 @@ NOKPROBE_SYMBOL(debug_exception_enter);
->  
->  static void debug_exception_exit(struct pt_regs *regs)
->  {
-> -	preempt_enable_no_resched();
-> +	if (!IS_ENABLED(CONFIG_PREEMPT_RT))
-> +		preempt_enable_no_resched();
->  }
->  NOKPROBE_SYMBOL(debug_exception_exit);
->  
-> -- 
-> 2.54.0
+> And since arm_smmu_atc_inv_master() doesn't use domain->invs, it is
+> not affected by INV_TYPE_ATS_BROKEN. So, ATC_INV can continue to be
+> issued in this case.
 > 
-> 
----end quoted text---
+> Ah, I feel that we are walking in the mine field where every single
+> step could be a kaboom. But your insight is clearly a safe pathway.
 
+We cannot eliminate parallel ATS invalidation. Two threads could be
+concurrently processing the invs list. So it has handle it, the driver
+is going to have to tolerate a number of redundant error events. It's
+OK if the unlikely case of parallel attach also generates redundant
+error events.
+
+> > We do need to push a pci error event (didn't see that in this series)
+> > so the driver can catch it and start the FLR process. I suppose that
+> > will still need to bounce through a workqueue, and once you have that
+> > it can also set the blocked domain prior to calling out to the driver.
+> 
+> In the specific case that I am trying to tackle with this series, I
+> do see AER error prints from the device already but there is no FLR
+> process. 
+
+It depends on the driver, mlx5 has a FLR RAS flow for instance.
+
+A driver with a device that can blow up ATS should implement the FLR
+flow if it wants automatic RAS. It requires driver co-ordination.
+
+But I wasn't thinking we can rely on existing AER events here, yes
+probably there will be AERs associated with the device exploding so
+badly it cannot do ATS, but also maybe not..
+
+This is also a problem if we shoot healthy devices as the first stage,
+there will not be an AER from heathly..
+
+So I guess we need to decide which is better to tackle, the dedicated
+event or the single invalidation sequence..
+
+Jason
 
