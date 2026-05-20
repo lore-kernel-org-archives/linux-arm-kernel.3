@@ -4,134 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 356BACD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A088CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7pajX5xu6ZpNcsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=; b=nxfzTHGvm5egNOQWgb0z9fCr0J
-	IGgMMAgTNq9XMlrIS9zoWv/eOQJpV3UcskoUcQ3dek2h5pZkQ9vYNm7sT331Zyk4mk2E6GHQjSROY
-	/s3c2wfJN4U2WbAKtuTNMRPDhjcwaow2Lf5WdfOoEwUGgA7vzWDDVCQdP0KiinUpjLzzKmYR3+3yP
-	fVCfeRvfF0SHixrXo1NxM09Nu+5E3ke6Ssp2C9eexb7sQl6wybYlZKmzmH8LyJH3vwlkWSVVBVC+b
-	f4IAsfj/zbsrJliHt8EJG5U1w8UapZa5EZLXherB+KFgEBdWVXbWjlaMJ/zeSIZMRXMighN0PH+Rf
-	p+29iXiw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sTdz/Q/V1ezxHBxxkTwCW/MFW2KhgBZJoQk8ObwQ99w=; b=HsgbLNiFCh2aiA3xvQW8FMmwt/
+	frT2NUTa72v+4wpo89C8xxlwQy6CyMinRlpI+cbMCDrNYOnN9UiWkcDCFDtp7AkFd/riTF9hsAC4z
+	wodLSoT62j7zx5Ms/J6y/xA/PS3ScYcVPdJ54Tuiose+HJiw0RCjlEOJzNAlq+8yF5ijA+wv8XFf5
+	Z+FkWrFRGBTFCpYD4OocT4RZvmE98uTdYd5brqAgiFz759rggo3tK4ilDw87oCKStaq4tXLGK/SJ1
+	ju98gtWoQ/GkaN5bknJLVV5J3X+q7QUs57gEtRXWOMZtpncmAOs7Cjxd/dGmqPN6EajMUcq4NDlMc
+	QeM0LMDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjBZ-0000000543D-0ZVw;
-	Wed, 20 May 2026 15:50:17 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wPjIG-000000055DN-23hI;
+	Wed, 20 May 2026 15:57:12 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjBU-000000053zR-120M
+	id 1wPjIE-000000055Ca-0i45
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 15:50:14 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64KEFY9P963697
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:50:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=7pajX5xu6Zp
-	Ncsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=; b=ph0F43BPpiJ3LSL7PyxFoDj884Z
-	zYdQ6LHVh5DQADqWnvGTquoS5NYVMLmTSlWoOEjvqxzS7r6u9L3S77BsFL4JYdt0
-	YqCCbrGLib2lrUqLMyi5rgLviAdrD4XrE4/bGbG99H1uURi7jAx2toiMGlxLkHFi
-	Ens/6Sb5B4kKoVS3TGhaHGS91PnxY9OOskTWtsp9CpexXacnZjl3hKSwdwWmiuzE
-	keWwzFI8xPvj0r618tNgu6hSsm1awffSgbn5izcpuDcdAcuXRcKU0tMbTRGdE1SB
-	jNQ+a+jzDw5sIA5HjOGHG1KB7xSiR2n1VAhK9QEqx3oXy+XgWpfHXZDPfRQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9ejh0d6h-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 15:50:11 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-50fb3403e99so27657191cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:50:11 -0700 (PDT)
+	Wed, 20 May 2026 15:57:11 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-44b729aa7c5so481486f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 08:57:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779292210; x=1779897010; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7pajX5xu6ZpNcsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=;
-        b=CQtYaQsk4cY89p/vZGleNc/OKo1NSSiLGED/yC+HZFDKNHI0ChlVmwUbJ2fqqH6rjn
-         LupKQT2keFDqHBdLQb2CEAHMkXi9KBoit2BOS3IS+RndzbRjoovgQbIkHuPtNqRnKKoE
-         FeMkBRzQhs+Cl4b5WHeSIaI4zHOzPBQBPmO/tqQiQqEVfROGCNnlSQjq0c9kbm1uMbUL
-         nicg7psLhfC8nE4+w923M9wx7rtxNLaETqyz/ffmdlxBBcvZ4FqASjrkqjClLXA5leLY
-         trQw8aPsfQye/61rwv17wdo5DNLINZE6CcbeX8a21gpFil72VNEtG8tVGe91es7/tAMZ
-         ouDw==
+        d=gmail.com; s=20251104; t=1779292628; x=1779897428; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sTdz/Q/V1ezxHBxxkTwCW/MFW2KhgBZJoQk8ObwQ99w=;
+        b=U78Lw4z2bh+qEAhCvEdjs+0Sw6qjKwBBYGe8e3GF17ptBoLkZZubYmwXcozpCuzscJ
+         EpUOvmbhEEqasw1N+ck652bBQWtf49Mh6ujkxyGE0XEj7CNWoG7Gr5yF+UT170mbfu/x
+         403PhLqas0xpyumjCYvIdNKyuZ6kwcvdXdMPbngCkP9lv1i2bJnNz7fBtsKuFVVblOuA
+         s/Xdg7TOBIgP8x6NoGfzRqoHFEQ1gUx3e3ZKhU7UnAWngYsXRSnDvTwkkOz+n17EvPlj
+         wEl+EY/UZjVpFoqxwNQgfy+Qi2TikpRWDEf8uloZIXrd3+0taW2+4EcP8QwnC8W590Ww
+         fmFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779292210; x=1779897010;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7pajX5xu6ZpNcsmp1hBoCRrNWBQ+y3y7lGXM9b2dJyw=;
-        b=AAh8t1hCzz8Ni1arusJWXOYOdzu3i2mXgMO1KAshY82PndDhbaAzoX+WYWgtl6fmG0
-         jskaxfSw2W9WOafCAE6GRp4ogNkruMR26c4DCo6JRcl1vriBFGCm403WKoeyAizRCg/G
-         ED4OlETInDHSWf9Jo410sjOAFzXEJzVZ2QArH/N0E4mx4a+PxUKM1SrpCOBFmyCtsx08
-         81U6sn7abEcaoH0ROB/UDv8rdkhDeLL7ia1LY5jjBMNYeV7VAx5vK69l7+X692aED+l+
-         JwLRM/TzXIIRGEcVvoRdlt76LnEXBDWDptl1de9aCp+5e2mG4QpUnmNvw2c5jw9CQBHN
-         4K7A==
-X-Forwarded-Encrypted: i=1; AFNElJ8xMEh7Ly0yUpCvKg8DjaQ6M2Kiyu+gQXK6inE7g/7FugiRKUZPCpDTdLx8lZUGWsqEEXWoqypZ8nZVapJMnAEy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQ9mZNY7RQfbxqGchqTq1WLu+CJasIPMUfeIJ0mc3F0Y1g1bTj
-	OCiHvWPEfsHbiIKSYGpDPS8DvPFqejgCed4J9OCu66Ux5z9ZZ/p0EWNyf6nBELjZN8fKNjXRkXM
-	KR15rAO8m8mLhv22/JE1XtAYu+DdOKlRttvQCftaicAio3lUOJNKt210dDXN9gxl6ogOzDfF10X
-	RXyA==
-X-Gm-Gg: Acq92OERb848ak7V5iO60/oXXisTbUCt11EbvGn7b0KnMFMYTMsKyTyPha7yMaV4Sm7
-	zgsyzHegyNcW4czYGNiSDDe0ljkzNCeolDg55puSpVdXWXdDimMn7/P1kElbl6OCR+Oqgn0FkaX
-	D8JlpaZdYpmWGMLoFVtpA1pdVLVu/+YgrCzFaqHwsdmijz0zi0k/A7PacoglWqQvHsMPHfqdvEP
-	xd+/4LD1p1aPlMaVAHOwbVSM6BbxbPk0qzry8+n+8gaDJwQvR1OUaQcDWAdEEIbH0hDSyJrVU+l
-	Jit80qm25w7u2hv6fL7JOHjTgDF/bt+p70XdQa9Emt/l+C2XgF36vz8FOPbXAU9Eh8+ufo/F9E9
-	BXltig4jvLurFWQNvt0GJp+L5tVLICKidk3sd9sb1OSSWVEI/JLNG8BlmZlhV+3oSsQ==
-X-Received: by 2002:ac8:7f8e:0:b0:50f:b9e7:3031 with SMTP id d75a77b69052e-51659fde5fcmr353912911cf.7.1779292209951;
-        Wed, 20 May 2026 08:50:09 -0700 (PDT)
-X-Received: by 2002:ac8:7f8e:0:b0:50f:b9e7:3031 with SMTP id d75a77b69052e-51659fde5fcmr353910841cf.7.1779292208033;
-        Wed, 20 May 2026 08:50:08 -0700 (PDT)
-Received: from localhost.localdomain ([5.133.47.210])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe585absm136746445e9.19.2026.05.20.08.50.06
+        d=1e100.net; s=20251104; t=1779292628; x=1779897428;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sTdz/Q/V1ezxHBxxkTwCW/MFW2KhgBZJoQk8ObwQ99w=;
+        b=ZWC1sxQJaRNO6VXg1w3IVfSBCcQ6KyNwUq/ZnOE+ymh4VRMdDJoFqQHm0+b2PCIva2
+         6c+50w5omjD6ygkEGFdD+Crz9YPG1/JUBmHhDK686mniO1i2ey+9ad/SHiHT2qHBpz0R
+         D8v71+IV+rTA3RuS7I/U7ph1vfj4WRa+HTCnqtAcVRNkOyGglODH2eO6HU/v2brBnZZs
+         TeharpZpv6VJ2/NENOtj4ndteEFmv99ErV8uWgzh/OOZQHZo0gDVYHHYuwaNikwR5MjV
+         P1uQfO5E5hJnYgoxxu3Gx35I7v3o+wr983uQOEqqdcA+AR7U59fba4tSyYG4YXyXsR/R
+         Nybw==
+X-Forwarded-Encrypted: i=1; AFNElJ9+I41fVlks9sqSZ3N4hPqOxBu2zjGEWh/jV6YboM2th4U6XIYaOo8Pb3R/8cl+8/z49LhfwDHG11SEAFNrNs/B@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0XWFOUceTYLyiGVhtoUyASidx7JAo0KinlwmoVvov6d6nbTk1
+	w3CZsDBd+piGYnBLcJeyiFo7a3rPYXib7Y2JayKV9FFtxyzHgldV+5Jm
+X-Gm-Gg: Acq92OElwDe1I4S6kzL1yFufSKpM6F2CxJgjO3burG7rXhu16gDn3Kyj/2qsAnrWJ8Q
+	meA1HoVES5fkEcqTRFRvr4vS4AY6wKeMQG5a4XnL1dRdd7oNbCKCer18H/xiMvKHqsQbji+zKuJ
+	GkptBk0dBCZnfAzQ5qsYfkn+CMkr2KCWoQmKU3xRzQAWkezSYevpd8EyB2mh4ZqwlZcwq6epX8D
+	xNJUbvesmzOf1i7hYLtcCewUTzgNzmNWhlSc+UaRwc7vuWfiJfDZ74pMkUL0uI/Ovaq1RjEVizR
+	39YLRwDmx6TAmsf8X7IPNCfgeiV7kdNw8DXxp00Y99dhojzbD7D0ohFC9LzRDOusPU/NXBuw0Qm
+	r6QrPMOxa6HOR11/LhqoqGfx/P/Q0Snu5Ej/FuQmmT1lhjPUILAd2e0wSaOhr1oAhLTpJ/VwozE
+	A83FJIZAGSSRUm5/2h75glfG7ACHPItgyQaRsrz6csL/aQq3I8r7dIVeF4VbdO9qg=
+X-Received: by 2002:a05:600c:4f8f:b0:486:f634:f2e with SMTP id 5b1f17b1804b1-48fe66423e1mr168095645e9.4.1779292628000;
+        Wed, 20 May 2026 08:57:08 -0700 (PDT)
+Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-48febe79ce3sm137216715e9.31.2026.05.20.08.57.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 08:50:07 -0700 (PDT)
-From: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-To: broonie@kernel.org
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
-        matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-        sharq0406@gmail.com, kuninori.morimoto.gx@renesas.com,
-        ckeepax@opensource.cirrus.com, srinivas.kandagatla@oss.qualcomm.com,
-        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/2] ASoC: codecs: max98090: use component set_jack callback
-Date: Wed, 20 May 2026 15:50:02 +0000
-Message-ID: <20260520155002.145306-3-srinivas.kandagatla@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260520155002.145306-1-srinivas.kandagatla@oss.qualcomm.com>
-References: <20260520155002.145306-1-srinivas.kandagatla@oss.qualcomm.com>
+        Wed, 20 May 2026 08:57:06 -0700 (PDT)
+From: Lothar Rubusch <l.rubusch@gmail.com>
+To: thorsten.blum@linux.dev,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev,
+	tudor.ambarus@linaro.org,
+	ardb@kernel.org,
+	linusw@kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	l.rubusch@gmail.com
+Subject: [PATCH v3 00/12] crypto: atmel - introduce shared i2c core client management and capability-based selection framework
+Date: Wed, 20 May 2026 15:56:51 +0000
+Message-Id: <20260520155703.23018-1-l.rubusch@gmail.com>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=QptuG1yd c=1 sm=1 tr=0 ts=6a0dd833 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=ZsC4DHZuhs/kKio7QBcDoQ==:17
- a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=yuX1osHPGoIBqVCarmwA:9 a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIwMDE1MyBTYWx0ZWRfX0ycRrNl7NNIV
- uCrpGYm7IGkALX8/RC4U8Pl7t4p8judBZDb32A7yWXLNzVD8FgQBdOG+VeKUKV+hP3ryMwwymrM
- UxI7S0thEdFIhaWOhYgXZ+vvBLgbNJdCJRpTElJzn/j0s0sRufuz/VE7m76qCsD+fuzHS4kioSU
- bL65cswWCZMCoQ2KGzwRMUtG0TLrCs/KijePoJHsKHa6ViIXUug2x/+Vo9QwP79k3szh70590d+
- pIwSfuo5b1mRKzhODoYhsbWpNTyScYqoU8KpAiri9VxYhHOmoMo9Q0AfEkmXoihdTjf8EfOBFWC
- gwFR2EfkJuNfotoKP1sOOMUiBLswOCZ8Y58Qupu6XKw/2sXhBGonyd2boinXscH8CNhJ4SdNyO8
- lOj5wYkx9jQboVTpQkPdCz6+N6GNb61tuENP71eoQ9TeqcvlQqWoSS7XcP904MRrrXFJ9RssKJy
- IfBnzijP6HcKdCKX/8A==
-X-Proofpoint-GUID: 6P0_ZdsdKEGfoKsPCUvyE-yCpuJaSVcL
-X-Proofpoint-ORIG-GUID: 6P0_ZdsdKEGfoKsPCUvyE-yCpuJaSVcL
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-20_03,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501
- clxscore=1015 impostorscore=0 phishscore=0 malwarescore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605200153
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_085013_399472_B3003A9E 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20260520_085710_233240_B748F1F7 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,81 +105,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MAX98090 driver provides a custom max98090_mic_detect() helper for
-machine drivers to register a jack.
+This patch series introduces a staged refactoring of the Atmel crypto I2C
+drivers in preparation for a shared core-based architecture. The goal is to
+consolidate I2C client management and selection logic into a common
+atmel-i2c core driver while keeping ECC (ECDH) and SHA204A client drivers
+functionally separate but interoperating through shared infrastructure.
 
-This can be implemented using the standard component set_jack callback
-instead. Doing so allows machine drivers to use
-snd_soc_component_set_jack(), which is also the interface used by
-machine drivers including Qualcomm ones.
+The series moves existing ECC-specific client tracking into a shared
+management structure, relocates allocation and selection logic, and
+introduces capability-based filtering for hardware selection. This allows
+individual crypto drivers to request hardware clients based on supported
+features while still benefiting from a unified least-loaded selection
+strategy.
 
-Convert max98090_mic_detect() to a component set_jack callback and remove
-the exported helper.
+Subsequent patches extend this base by:
+- migrating client management fully into the core driver,
+- introducing explicit capability advertisement by each hardware client,
+- updating ECC and SHA204A drivers to participate in capability-aware allocation,
+- and cleaning up probe/remove paths to ensure consistent lifecycle handling.
 
-Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
+No functional behavioral changes are intended at this stage beyond internal
+refactoring and preparation for future feature expansion. The series is
+designed to preserve existing crypto functionality while gradually
+centralizing shared logic in the atmel-i2c core layer, reducing duplication
+and improving maintainability across all Atmel crypto drivers.
+
+Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- sound/soc/codecs/max98090.c | 10 +++++-----
- sound/soc/codecs/max98090.h |  3 ---
- 2 files changed, 5 insertions(+), 8 deletions(-)
+v2 -> v3:
+- sashiko feedback[2]
+- ecc: reorder setting ready flag in probe()
+- i2c: unconditionally call flush in unregister client function, to avoid UAF for multiple devices
+- i2c: fixed a sleep-in-atomic bug by moving atmel_i2c_flush_queue() outside the spin_lock section
+- sha204a: reorder calls in remove() avoid UAF flagged risk
+- sha204a: rephrase commit messages
+[2] https://sashiko.dev/#/patchset/20260519204803.17034-1-l.rubusch%40gmail.com
 
-diff --git a/sound/soc/codecs/max98090.c b/sound/soc/codecs/max98090.c
-index 13a15459040f..bd3bfa1d3402 100644
---- a/sound/soc/codecs/max98090.c
-+++ b/sound/soc/codecs/max98090.c
-@@ -2337,7 +2337,7 @@ static irqreturn_t max98090_interrupt(int irq, void *data)
- }
- 
- /**
-- * max98090_mic_detect - Enable microphone detection via the MAX98090 IRQ
-+ * max98090_set_jack - Enable microphone detection via the MAX98090 IRQ
-  *
-  * @component:  MAX98090 component
-  * @jack:   jack to report detection events on
-@@ -2349,12 +2349,12 @@ static irqreturn_t max98090_interrupt(int irq, void *data)
-  *
-  * If no jack is supplied detection will be disabled.
-  */
--int max98090_mic_detect(struct snd_soc_component *component,
--	struct snd_soc_jack *jack)
-+static int max98090_set_jack(struct snd_soc_component *component,
-+			     struct snd_soc_jack *jack, void *data)
- {
- 	struct max98090_priv *max98090 = snd_soc_component_get_drvdata(component);
- 
--	dev_dbg(component->dev, "max98090_mic_detect\n");
-+	dev_dbg(component->dev, "%s\n", __func__);
- 
- 	max98090->jack = jack;
- 	if (jack) {
-@@ -2377,7 +2377,6 @@ int max98090_mic_detect(struct snd_soc_component *component,
- 
- 	return 0;
- }
--EXPORT_SYMBOL_GPL(max98090_mic_detect);
- 
- #define MAX98090_RATES SNDRV_PCM_RATE_8000_96000
- #define MAX98090_FORMATS (SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S24_LE)
-@@ -2554,6 +2553,7 @@ static const struct snd_soc_component_driver soc_component_dev_max98090 = {
- 	.remove			= max98090_remove,
- 	.seq_notifier		= max98090_seq_notifier,
- 	.set_bias_level		= max98090_set_bias_level,
-+	.set_jack		= max98090_set_jack,
- 	.idle_bias_on		= 1,
- 	.use_pmdown_time	= 1,
- 	.endianness		= 1,
-diff --git a/sound/soc/codecs/max98090.h b/sound/soc/codecs/max98090.h
-index 6ce8dd176e48..048af4a1376f 100644
---- a/sound/soc/codecs/max98090.h
-+++ b/sound/soc/codecs/max98090.h
-@@ -1543,7 +1543,4 @@ struct max98090_priv {
- 	bool shdn_pending;
- };
- 
--int max98090_mic_detect(struct snd_soc_component *component,
--	struct snd_soc_jack *jack);
--
- #endif
+v1 -> v2:
+- going over Sashiko feedback[1]
+- rephrasing commit messages and titles
+- fix: introduce a ready/state flag to address the UAF risk
+- fix: add kpp lock and refcnt to impede overwriting global driver struct
+- fix: explicitely clearing rng cached buffer in return branch
+- unregistering ready state by dedicated function
+- reorder Atmel ECC related things and atmel I2C at beginning
+- reorder Atmel SHA204a related things behind introduction of cap
+- patches dropped: NULL checks in remove functions
+- changed to EXPORT_SYMBOL_GPL
+- additionally to alloc hw client also migrate freeing it to core driver
+[1] https://sashiko.dev/#/patchset/20260517180639.9657-1-l.rubusch%40gmail.com
+---
+Lothar Rubusch (12):
+  crypto: atmel-ecc - rename driver_data before moving it into atmel-i2c
+  crypto: atmel-ecc - fix use after free situation
+  crypto: atmel-ecc - fix multi-device kpp registration
+  crypto: atmel - rename atmel_ecc_driver_data to atmel_i2c_client_mgmt
+  crypto: atmel-i2c - move client management instance into core
+  crypto: atmel-i2c - introduce shared teardown helpers and fix queue
+    flush
+  crypto: atmel-ecc - switch to module_i2c_driver
+  crypto: atmel-i2c - move shared client allocation logic to core
+  crypto: atmel-i2c - implement capability-based client selection
+  crypto: atmel-sha204a - integrate into core management tracking
+  crypto: atmel-sha204a - fix heap info leak on I2C transfer failure
+  crypto: atmel-sha204a - switch to module_i2c_driver
+
+ drivers/crypto/atmel-ecc.c     | 133 ++++++++++-----------------------
+ drivers/crypto/atmel-i2c.c     |  76 +++++++++++++++++++
+ drivers/crypto/atmel-i2c.h     |  17 ++++-
+ drivers/crypto/atmel-sha204a.c |  51 ++++++++-----
+ 4 files changed, 166 insertions(+), 111 deletions(-)
+
+
+base-commit: 6c9dddeb582fde005360f4fe02c760d45ca05fb5
 -- 
-2.47.3
+2.39.5
 
 
