@@ -4,127 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 681C5CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B8ECD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwkmkiBD9C6AzEumXzl36+9Ya4pNjd8VrP4O4E2jgTk=; b=v59/R30MuZyGZKFSKoy3Vhg1Au
-	XER2tbk58Jc5ZMraGpS3qAPfDYltAg5iwanbe6ECBLi4N8ktj+tnMOm4+cxTtQFgN+42jJVzRdiRL
-	Qom0kJqavrrWCiIlwN60REagxOiACzyqBOkG5HTevBNJTRlHHDUKMRa39Bff42UXm88luGdFoPHuT
-	M/coZarNGEwIDbaoVoPF3S2FsheOlI++1cntVJ0oQ4famZDgHd/ecn0Kvk0Dxg9J7oZ34AOp/alEi
-	G6Wvezno9V5PcbrPeQ/g1NywkUOmDkQAIez+BkO9IMFFzg7IaUnR08oeEJ2IbVYwqbBwABpyIfhms
-	VRLZf67g==;
+	bh=KVGbQSGJqboMkQGEaBuh2n5D9Rw1MUG1r1v6327U8ig=; b=lPyeO+DgzBP1s1pvjPBteZYCLQ
+	sZfXZogTdns++Sl72LQG7E/taVM5p32bqtaP4x/ZuQBCJOUmGkeDTBzQZJvLwD7Ic3S1A0+1WQLh6
+	ekXVKwHHhW6hS0Ls7SkfDHeHJ/Cjzf/onkmHRpHOq+PyMGyYS5WoDdJB+vKmeQA6X/OhdQof5HZ6d
+	MA0Hynw1ggzz8l82On6e7Eu+FGQcsMfv5ZzD9N1cdxPgoCmzF1A50BCjGA4Y8xdVXiZB6336rzAja
+	Mu7YSDdEs2NT7twCOAD79iaLGGkg/Z9RrVCpGuLXzZyuf6pjz5e49KzPg8fR8Z4lPtmw0cgXKOibL
+	f9RjjYnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcUa-00000003zGV-1k3e;
-	Wed, 20 May 2026 08:41:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPcWf-00000003zhi-3RZM;
+	Wed, 20 May 2026 08:43:37 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcUY-00000003zFo-28IQ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 08:41:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD4AC439DF;
-	Wed, 20 May 2026 08:41:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C9B61F000E9;
-	Wed, 20 May 2026 08:41:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779266485;
-	bh=mwkmkiBD9C6AzEumXzl36+9Ya4pNjd8VrP4O4E2jgTk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=kBH6DuUG4C6QpVo6IiVACT2i/nABs96Pm8EXIE6G5MoFBJNZBOvGKp/Oyu0Amgxpm
-	 AQZtxq8C8ev68/W96+ygmw+2NDWB6NV9S6FV1uhN+HTSDW161E+4qVogmxpHzTKSRO
-	 HunFITy+sQ4iu+TxSc86dzLqFmxjKGjICt/Pk0DfFWHyOxoHRGtTrKUfu4YEMUbgOa
-	 mpUaH5il65pXDbUqBpzkNREI7z5e4dbX9HyRRk/Wt+c8N55wOzfUHiWP0hlERF3ti9
-	 m+T/rb5IILdceVqvDTmErOeSitmqtJw+UdpA5GiLt/I7CpujzjBUxY8ADuObrsSRN+
-	 pmxZvHMr2boZQ==
-Message-ID: <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
-Date: Wed, 20 May 2026 10:41:15 +0200
+	id 1wPcWb-00000003zgK-2xyC;
+	Wed, 20 May 2026 08:43:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.com;
+	s=s31663417; t=1779266490; x=1779871290; i=quwenruo.btrfs@gmx.com;
+	bh=KVGbQSGJqboMkQGEaBuh2n5D9Rw1MUG1r1v6327U8ig=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=EvpRYishcdZk67Wh9wQNUukQEGSMTh3LeuhbPSXJ2qlRtFUX0HnzOMz9+4Zr6Qj7
+	 gnjQdK9oPj03fT+wBBsNd85hBqjAvkJZyWR0MrSrIJjd89wAoaXK549bm4yU9X8FD
+	 1j2Z1ScTWcYRQrDtBB967afu8jjJjTnXJPZ0ts/A39IxKeTXh3U3ONbHA2vybY/Nj
+	 AgKhnNiHHdtgn8c0zlPAcXysh2EquxJ8FG4mnF7CK+bwR0akDtPLghlyl70CFX01D
+	 VrLq5JnLQ5x0W5aP711DNi8q4HG5ahPNDJ5y3ZNcrzqHLuQsRuXnSpK19p923QYsi
+	 dvaXtRVt/ztAg3bKxQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
+ [212.227.17.184]) with ESMTPSA (Nemesis) id 1MZTqW-1wtkYJ26tS-00KAV0; Wed, 20
+ May 2026 10:41:30 +0200
+Message-ID: <f46636c8-80ba-4802-a6a0-74cbc35e7bee@gmx.com>
+Date: Wed, 20 May 2026 18:11:09 +0930
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
- installs
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
- Tejun Heo <tj@kernel.org>
-Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
- Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
- Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@linux.dev>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
+To: Christoph Hellwig <hch@lst.de>, "H. Peter Anvin" <hpa@zytor.com>
+Cc: kreijack@inwind.it, David Sterba <dsterba@suse.cz>,
+ Andrew Morton <akpm@linux-foundation.org>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
- bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
-References: <20260517211232.1670594-1-tj@kernel.org>
- <20260517211232.1670594-2-tj@kernel.org>
- <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
- <agtuPrgIDNKSu2Oo@slm.duckdns.org>
- <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
- <297658c4ae2d6e7103f5968efc936224@kernel.org>
- <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
- <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
- <agyZxmHoueGwBAQg@slm.duckdns.org>
- <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+ Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
+ David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+ Song Liu <song@kernel.org>,
+ Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
+ Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
+ linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-raid@vger.kernel.org
+References: <20260512052230.2947683-1-hch@lst.de>
+ <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz>
+ <20260513054742.GA1018@lst.de>
+ <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it>
+ <20260515043705.GA3855@lst.de>
+ <34C16854-1065-4542-8836-DDED58EC1844@zytor.com>
+ <20260518051207.GB9374@lst.de>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: Qu Wenruo <quwenruo.btrfs@gmx.com>
+Autocrypt: addr=quwenruo.btrfs@gmx.com; keydata=
+ xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
+ 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
+ 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
+ 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
+ gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
+ AAHNIlF1IFdlbnJ1byA8cXV3ZW5ydW8uYnRyZnNAZ214LmNvbT7CwJQEEwEIAD4CGwMFCwkI
+ BwIGFQgJCgsCBBYCAwECHgECF4AWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCZxF1YAUJEP5a
+ sQAKCRDCPZHzoSX+qF+mB/9gXu9C3BV0omDZBDWevJHxpWpOwQ8DxZEbk9b9LcrQlWdhFhyn
+ xi+l5lRziV9ZGyYXp7N35a9t7GQJndMCFUWYoEa+1NCuxDs6bslfrCaGEGG/+wd6oIPb85xo
+ naxnQ+SQtYLUFbU77WkUPaaIU8hH2BAfn9ZSDX9lIxheQE8ZYGGmo4wYpnN7/hSXALD7+oun
+ tZljjGNT1o+/B8WVZtw/YZuCuHgZeaFdhcV2jsz7+iGb+LsqzHuznrXqbyUQgQT9kn8ZYFNW
+ 7tf+LNxXuwedzRag4fxtR+5GVvJ41Oh/eygp8VqiMAtnFYaSlb9sjia1Mh+m+OBFeuXjgGlG
+ VvQFzsBNBFnVga8BCACqU+th4Esy/c8BnvliFAjAfpzhI1wH76FD1MJPmAhA3DnX5JDORcga
+ CbPEwhLj1xlwTgpeT+QfDmGJ5B5BlrrQFZVE1fChEjiJvyiSAO4yQPkrPVYTI7Xj34FnscPj
+ /IrRUUka68MlHxPtFnAHr25VIuOS41lmYKYNwPNLRz9Ik6DmeTG3WJO2BQRNvXA0pXrJH1fN
+ GSsRb+pKEKHKtL1803x71zQxCwLh+zLP1iXHVM5j8gX9zqupigQR/Cel2XPS44zWcDW8r7B0
+ q1eW4Jrv0x19p4P923voqn+joIAostyNTUjCeSrUdKth9jcdlam9X2DziA/DHDFfS5eq4fEv
+ ABEBAAHCwHwEGAEIACYCGwwWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCZxF1gQUJEP5a0gAK
+ CRDCPZHzoSX+qHGpB/kB8A7M7KGL5qzat+jBRoLwB0Y3Zax0QWuANVdZM3eJDlKJKJ4HKzjo
+ B2Pcn4JXL2apSan2uJftaMbNQbwotvabLXkE7cPpnppnBq7iovmBw++/d8zQjLQLWInQ5kNq
+ Vmi36kmq8o5c0f97QVjMryHlmSlEZ2Wwc1kURAe4lsRG2dNeAd4CAqmTw0cMIrR6R/Dpt3ma
+ +8oGXJOmwWuDFKNV4G2XLKcghqrtcRf2zAGNogg3KulCykHHripG3kPKsb7fYVcSQtlt5R6v
+ HZStaZBzw4PcDiaAF3pPDBd+0fIKS6BlpeNRSFG94RYrt84Qw77JWDOAZsyNfEIEE0J6LSR/
+In-Reply-To: <20260518051207.GB9374@lst.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:dvYkZM9TiFDCY/a0OvC9eApZvlSwcJd3UwtLDS5MwAZMjs7M4Nd
+ LicIaUhdRQfptJSOREFXlXXwIu6efRES75IROjxURvlDWzg8rXGNi60K4CTQXbKTh9THL/c
+ wJ3/QeMKkDZW8kmACTTO7VjjFLSoLau+o3l06KjnXZ62BokkLWYoMVcl2p/DM4z+IpoUtZb
+ i5VmwtojDyLUB+n1WFCOg==
+UI-OutboundReport: notjunk:1;M01:P0:nxybJh+AjPQ=;zxC+YYRPhBUn8mdIUZXysQ0mHvG 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 KgyfcA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_014126_595193_F8D4E9CA 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20260520_014334_115904_7521792E 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,65 +135,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/19/26 21:04, Alexei Starovoitov wrote:
-> On Tue, May 19, 2026 at 10:11 AM Tejun Heo <tj@kernel.org> wrote:
+
+
+=E5=9C=A8 2026/5/18 14:42, Christoph Hellwig =E5=86=99=E9=81=93:
+> On Fri, May 15, 2026 at 12:59:34PM -0700, H. Peter Anvin wrote:
+>> I don't think this is a good idea. Error out; it is the btrfs maintaine=
+rs' job to ensure user data isn't lost.
 >>
->> On Tue, May 19, 2026 at 11:40:48AM +0200, David Hildenbrand (Arm) wrote:
->> ...
+>> The RAID-6 code has *never* supported only 3 units, and if it ever work=
+ed for *any* of the implementations it was purely by accident. Speaking as=
+ the original author I should know; this was deliberate as in some cases t=
+he degenerate case (3) would have required extra trays in the code to no u=
+ser benefit.
 >>
->> Wouldn't it still be either or with both cases being okay?
->>
->>>
->>> ... or can we run into similar problems with kprobes? (I am obviously no bpf
->>> expert ...)
->>
->> Yeah, I mean, that was just the first TP I found scanning the code. Any
->> kprobes or other TPs in the path would behave the same.
->>
->> When this fault triggers, the BPF program has already malfunctioned, so it's
->> not going to be a high frequency path and performance isn't a primary
->> consideration. So, anything that can ensure that the kernel doesn't crash or
->> lock up would be fine. Any better ideas?
-> 
-> As you guys already figured out the trylock is not an option.
+>> I would not be surprised if the kernel crashed or corrupted the page ca=
+che in that case.
+>=20
+> It does, that's why I wanted to exclude it.  Anyway, for the about to be
+> resent version I'll drop this btrfs patch over the stated objection and
+> will otherwise not change anything.  This means the (IMHO hypothetical)
+> users of this configuration will get a WARN_ON_ONCE triggered, but
+> otherwise keep working (or rather not working) as before.
+>=20
 
-And that should be carefully documented.
+For the btrfs part, I believe I can get the current 2-disk-raid5 and=20
+3-disk-raid6 to fallback to raid1 inside btrfs.
 
-> The fault handler has to install _some_ page and let kernel continue.
-> Scratch page or arena page doesn't matter. Potentially different CPUs
-> will see different page. It's not a concern at all.
-> bpf prog is buggy, but the kernel will continue to work without a glitch.
-> bpf runtime will disable and unload misbehaving prog.
+I hope the btrfs part can be finished and reach the next merge window,=20
+but I'm not 100% sure.
 
-Having one page table walker overwrite a scratch page on race is just rather ...
-questionable locking design, that just screams for problems long-term, really.
+What is the planned cycle to merge this raid5/6 cleanup?
 
-At least in apply_range_clear_cb() one could similarly switch to
-ptep_try_install() to at least have both these paths handle races in a
-reasonable way. (having to handle when ptep_try_install() is not really implemented)
-
-
-Anyhow, the documentation of ptep_try_install() must clearly spell out that this
-must be used very carefully, and only in special kernel page tables, never user
-page tables. There are likely other scenarios we should document (caller must
-prevent concurrent page table teardown somehow, and must be prepared to handle
-races if other code is not using atomics).
-
-To highlight that, we should likely consider adding a "kernel" in the name, like
-"ptep_try_install_kernel()".
-
-I am also not sure if "install" is the right terminology and whether it should
-instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
-
-
-Further note that last time I talked to Linus about arch helpers, he preferred
-
-#define ptep_try_install ptep_try_install
-
-over __HAVE_ARCH_PTEP_TRY_INSTALL
-
--- 
-Cheers,
-
-David
+Thanks,
+Qu
 
