@@ -4,106 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497E4CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52607CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=; b=K7oz9Nu4V67wcfiJXXmQ23jVYG
-	Jq/jb2+Hr4frDFQJrYsmfM+VgXcJ/NVBc0veDBVBCl9Fg7WYDZ6KuZDhwbLBDLqTX0Zn4aSoWRePA
-	PtbTl8tBLF0CNYJaBJm43wR6mCuUGYz9NQzTgcn6cQTeTE4j2BfrZ+eCqw1U1sYVLUGXB88RGEHF7
-	SvA7hNbIOU/2dm60LkIf5DbhczzMbr9OXdlJuscan/oG8U8tpTv5bhtoH+DPSye7BCNDpI9PEOGX+
-	PkOCvuO0h6p7E4K6um17IXTQWvZK0wpHqENdZddXvF2Z8D9qagrTA1meWXd6H3bQcHsilJWV9OjGQ
-	G6z+UqMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IHcIhsCGtp+zFimfYJhlVXiifBlHPpWiDOsOVHQEJSk=; b=REX00Gw7YhtCF4gBLxRPHJcx4c
+	Aym9v22i+zwUzhx7bJ9zkNc2VlxHjQyuYl0yJBdhAlMLyo7itGUplsVEZdrTHti/HOazBTIsfVO7G
+	CeKeoyHwcGLgODG+FUd2xPXALOH7UXAbdRAaEUUT0/jEiGq57LHCCXnlGcaAKqXE2+GB7xOCeBDIp
+	zVl3H46aStVVprZe+6NdJwdmbADuCO0aIEHeYq9JzyVQxtC8QMnrDZGe31mPP0srElcIqXcGcUpX0
+	Z0hO5Donkzcuuru5yySbGwRQwp0hzevXBqL6CqtuMjV+tmUX43WiZDJxly6ES1wiybZEGvfSc3M9E
+	zVsFOUxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgSv-00000004cOe-4BCo;
-	Wed, 20 May 2026 12:56:01 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1wPgT7-00000004cRH-0PXI;
+	Wed, 20 May 2026 12:56:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgSs-00000004cNL-3gII
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 12:56:00 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-65c6a2158d3so3450905d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 05:55:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779281757; cv=none;
-        d=google.com; s=arc-20240605;
-        b=gAKGI/m7MnKSj0VLcM2Ne3FRpr0l7iSmcD+Mt1truPhO0Jo5QaPWk0F5e5EvMjmBQs
-         TPa/P8i+G7ALlj1roej9utlKmIg9TZFt1ic7DsyzxCLD71HKjLjQIjAAt/sq24VJ0R5d
-         nVX6Wi+rtePiE5wE4oqpC/otgBGfM2UovF4bdYSbnD2mL23ZkhETW90LIKKiiIXpPeDF
-         3QW/3UkJDOzcUKA+rmxRPpKJMNBgURdWDBoUm0zVrDKKCBO5RDr29xz71fJo2X6lBi14
-         azE2IhxzMHjc7ZSeIss2dxC4FL7dcoQUBFDl9/p0+fgyDIJVDvsC1uWfrte79oanKtzN
-         Rv3g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=;
-        fh=Jr3jj6jdA6/fw0WFxL9seeA8cN42JwbpHBLOoCDyl/w=;
-        b=c8Sb84v2ZdhGhNLOz4RoiqnOEe435IdQaqRvltfg5fxC6kx2gq0sVTX9SBxmDRQw56
-         FW0C/obikgMkHUufHbcwzKPyjWfESrwIccpBWPeS7lpuSLFTtmC9+J302iMO9/HzltTJ
-         afS7Z78gdj8A9uA61y/rs71mSsvSf1GxlwumwZGzCtJBqPc+T7ea8q+fqcoNXh2rOXCi
-         fwWZYYTQJxie2D/jAOL0SudPgC/R6j3j+lRucXgz06JXmp/ph8mJzbsJh7ep9EXpVFX7
-         L5NNZ/xSnWA/G0A59VdvcHUmuGIOwXpY63CfoRckjrbg+KDldikpIrRrq8wMJFvW2Ty4
-         tliA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779281757; x=1779886557; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=;
-        b=LkKFTERuWHDYJcBtUmLZo/4UVOcUjSdVkH+UphlXjhX4HTC5Pr4KDgfE/8hSMKkmYM
-         +3wvEDPH4ElegW2bZlZraf5SLP2PtvQOjIeDMFWH+K8Rb0E/NlYMw+LTFgycoseKIVDS
-         71NiZluRJkVntDAQIONsGAv0iR8ofiBPBkQ9hYKVjaXGRmr6ZDUcrofTKmKTJ2Svzx4k
-         JamQsgcUCnu3mrCzwLYD4eWXAkNi6Csqrla70+HgwW8t+eDeDGWo0kTWgq88StJ/3ozU
-         Cms6luTnJ2LvluA9gh98G+31WppCv3Yml9MDq6FQjg1ifAelFO6LgxQRxRkDWNwKYQXE
-         mGIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779281757; x=1779886557;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=;
-        b=jnEuD7wRmdPKai4snYQYNlITqcHooUi+DTGy0UOBy40B8IotfmvoS0jm3Kx8x9gRE7
-         IVuMupj7Uy0CPw6XUUXxjtv/t74LEAum/0MWHfaxSqgcbFl059At577YsHV55N07MpOI
-         3Q/suWH8wkY6BzliBfidAYyvwuUzNexRsFy5usT7ck3dlmUIf/qMcnOwK4cJx4pEMbIW
-         TOH/aW5CTjom9MgQTCt/B5xDPD4i1SZl7BMYGdHQC1R9Sv+hl1aTAQOCMFHabeHGouEv
-         AGI9Am155/jMhzKttNRG95inItU3iBEIBoh3sjnoBfenDVcQgagCB3Xbp9ix4HBE9KHO
-         7UQQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9pHCvkoeVDHqwYSj9I1oHcUSDcHQBgVEUxW/EWkNDQuaNGgHyBR/aj2K0/q2Zj/XRVgUfIIyalvIny+fEiZ9M4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+Y2Zo62qWfEzpVGzLy4nw2aTMVY5dp5Yg+ppC1MusMRK4+G4g
-	A1ukdYBOFEW/EFwyZLTUHGa+LdJCxzIfAQIhNHFxri6Yg2C0OA6Zufus/MOWQEo0+NRvKgVTcU9
-	un9KchTJuWDvczZOkJNmr/uC4faEZCsQ=
-X-Gm-Gg: Acq92OGZJsid8AmQcmYL0wL0zdvNS4MArs18kuk4/DuzSPjLcjg7ThNMm5k5pH+xxfM
-	5R91+rWAc6+I5XJrjElBj7oNxr52tJGLwSMKFJQHk48n/lPHIZtI9Y2I3kK2oiNhNbC+0qEbfdW
-	m3xGtxx7iyDNrxNB43CnUb7IxSY7XoTgcZLCX2K8q5ll+4IzYQNqT+Bj6MwafykIINJtkdSEd35
-	cttIA/cgND9aVgK+8RXcDSeetkeFaqETYR166WawtVvU6UKIV4lX66C8D3+BrNuNZNCXRqL+3lh
-	wklymdu898ZtsN0Oe2nEJW9eTsDkwv+YScTrvzLSku378aHIKsYOHe/mmN9ckZTYFJ97og==
-X-Received: by 2002:a05:690e:4293:10b0:653:f72:f482 with SMTP id
- 956f58d0204a3-65e2275e8fbmr18516144d50.22.1779281756819; Wed, 20 May 2026
- 05:55:56 -0700 (PDT)
+	id 1wPgT3-00000004cQE-3snd;
+	Wed, 20 May 2026 12:56:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C1BEF4184E;
+	Wed, 20 May 2026 12:56:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 195301F000E9;
+	Wed, 20 May 2026 12:56:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779281768;
+	bh=IHcIhsCGtp+zFimfYJhlVXiifBlHPpWiDOsOVHQEJSk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=odw+ysF2fSGs0CYgREQtSvLkA7C1vnjLq+yTGH8uUyZQL5gIwy8l0sgOhMQFrvR/U
+	 uhiwWUqoaRwvkgB0dpBHlc/BUJ1q5+UUOAqod11j8iXpTYoTcMdKWbeJzuR6xMAqQ+
+	 OvTmgxH6iYYQP1hB8J7APtE6URdQBmktp1g/AVzlcWRxqXXJ8L/XVRnaqQo7zC7Xng
+	 ETzTvLZhkt1SvKxjfJTjvTYcMABci75fb1o2/YPfIpAPbJkiRERe++WMYYQiw7kmc/
+	 0b+T91xT73D5pkQltTZRR+EMWtVC4246AhUUcvutCmfPfiXeX8053NtPz89QYDfQc2
+	 xRaHqWoL1+79g==
+Date: Wed, 20 May 2026 13:55:58 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>, Barry Song <baohua@kernel.org>, 
+	Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
+	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
+	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <ag2vKm3K00wCiwUV@lucifer>
+References: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <agrWuDNGddNmvMFD@lucifer>
+ <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <agxbq1TxJdniMQT3@lucifer>
+ <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
 MIME-Version: 1.0
-References: <20260520021500.13504-1-liujiajia@kylinos.cn>
-In-Reply-To: <20260520021500.13504-1-liujiajia@kylinos.cn>
-From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Date: Wed, 20 May 2026 08:55:46 -0400
-X-Gm-Features: AVHnY4JAx00s9RY77VuK7Nfrn9COGaPLhAAlt5GNCqKcZP_N4w4YPkGy2JQbhi4
-Message-ID: <CABBYNZLLNFNuSv0UBNQ7C2HTTg5W2m41hBTNpPw822GMAVNuhQ@mail.gmail.com>
-Subject: Re: [PATCH] Bluetooth: btmtk: remove extra copy in cmd array init
-To: Jiajia Liu <liujiajia@kylinos.cn>
-Cc: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-bluetooth@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_055558_924098_03223B7B 
-X-CRM114-Status: GOOD (  18.13  )
+X-CRM114-CacheID: sfid-20260520_055610_014858_CAB80005 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,46 +87,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiajia,
+On Wed, May 20, 2026 at 12:33:56PM +0200, David Hildenbrand (Arm) wrote:
+> On 5/19/26 14:53, Lorenzo Stoakes wrote:
+> > On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
+> >
+> >>>
+> >>> I think we either need to fix `fork()`, or keep the current
+> >>> behavior of dropping the VMA lock before performing I/O.
+> >>
+> >> I see. So, this problem arises from the fact that we are changing the
+> >> pagefaults requiring I/O operation to hold VMA lock...
+> >> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
+> >> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
+> >> anonymous and COW VMAs only while holding mmap_write_lock, preventing
+> >> any VMA modification. On the surface, that looks ok to me but I might
+> >> be missing some corner cases. If nobody sees any obvious issues, I
+> >> think it's worth a try.
+> >
+> > Not sure if you noticed but I did raise concerns ;)
+> >
+> > I wonder if you've confused the fault path and fork here, as I think Barry has
+> > been a little unclear on that.
+> >
+> > What's being suggested in this thread is to fundamentally change fork behaviour
+> > so it's different from the entire history of the kernel (or - presumably - at
+> > least recent history :)
+> I don't want fork() to become different in that regard.
+>
+> There is already a slight difference with vs. without per-VMA locks, because
+> there is a window in-between us taking the write mmap_lock and all the per-VMA
+> locks. I raised that previously [1] and assumed that it is probably fine.
+>
+> I also raised in the past why I think we must not allow concurrent page faults,
+> at least as soon as anonymous memory is involved [2].
+>
+> ... and I raised that this is pretty much slower by design right now: "Well, the
+> design decision that CONFIG_PER_VMA_LOCK made for now to make page faults fast
+> and to make blocking any page faults from happening to  be slower ..." [3]
 
-On Tue, May 19, 2026 at 10:15=E2=80=AFPM Jiajia Liu <liujiajia@kylinos.cn> =
-wrote:
+Thanks for the background will read through! :)
+
+But yeah I think the transition from !vma->anon_vma -> vma->anon_vma being a bit
+slow is kinda ok most page faults will of course have anon_vma populated.
+
+Be interesting with CoW context, because we won't need to mmap read lock there
+at all :)
+
 >
-> In btmtk_setup_firmware_79xx, the data length indicated by wmt_params.dle=
-n
-> in the cmd buffer is MTK_SEC_MAP_NEED_SEND_SIZE + 1. Except for the first
-> byte, the remaining length is MTK_SEC_MAP_NEED_SEND_SIZE. memcpy copied o=
-ne
-> more byte to cmd + 1 than the remaining length. Align the length passed t=
-o
-> memcpy to avoid exceeding current section map.
+> [1] https://lore.kernel.org/all/970295ab-e85d-7af3-76e6-df53a5c52f8b@redhat.com/
+> [2] https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
+> [3] https://lore.kernel.org/all/2efa2c89-3765-721d-2c3c-00590054aa5b@redhat.com/
 >
-> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
-> ---
->  drivers/bluetooth/btmtk.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
-> index ea7a031000cd..53cba71cb07f 100644
-> --- a/drivers/bluetooth/btmtk.c
-> +++ b/drivers/bluetooth/btmtk.c
-> @@ -188,7 +188,7 @@ int btmtk_setup_firmware_79xx(struct hci_dev *hdev, c=
-onst char *fwname,
->                                        MTK_FW_ROM_PATCH_GD_SIZE +
->                                        MTK_FW_ROM_PATCH_SEC_MAP_SIZE * i =
-+
->                                        MTK_SEC_MAP_COMMON_SIZE,
-> -                                      MTK_SEC_MAP_NEED_SEND_SIZE + 1);
-> +                                      MTK_SEC_MAP_NEED_SEND_SIZE);
->
->                                 wmt_params.op =3D BTMTK_WMT_PATCH_DWNLD;
->                                 wmt_params.status =3D &status;
 > --
-> 2.53.0
+> Cheers,
 >
+> David
 
-Have you tested this on the actual hardware? If not we need a Tested-by.
-
---=20
-Luiz Augusto von Dentz
+Cheers, Lorenzo
 
