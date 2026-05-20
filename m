@@ -4,108 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 284DACD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F7ACD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RVDXLgZcWUdOJudfln+3132bH3PdmBQDTl58aH5R0jM=; b=zC2sKv571Cm3maMX4K/g+XmsrY
-	C9Voqyehw10oS7LdV/iVWUJInWtDKI+sIfN4E41iavTfxiXvVkW89HzSSsVD8mYpBxxGBb1VEd919
-	AGbYG/rTNXfx0zOrUvcvx6nEmp7UI2pexSEuL+WTnNxZ9riqxvA2/2gmK2bukw7F1RMzuVkqRzpwp
-	EX5J455YJc1qKBGx7vQIsfqu5tLXXKEO4id8CURfQZfUmq00YpO7+XsKMO9OEevRQEZIY2pjPOSKd
-	x28yyp/+76NOci9Amic4iuLasVxS3QWhdNr2Om34y5k13LwiGtcCsff7bHCKfGJSYxVkX4bTgAbbg
-	m8NphkVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CB/Z4bzbsyrd+gSXXFc5hMEcaetYVQ+7kd0CfM+SH9M=; b=0mTMA++H89gwkDSDAl0/VG3vyL
+	nRFh6bHZBlp18RSTV3JbSIdoiKAvRV98xU2Y+89xXq5ZlKIRn6dkmqKTi0yjGr2uYCwkOX0pe8OOb
+	OdukHHcQroeNvCb5nLffZgAnst/N2D86VHIFW7GCRilFZ2kjAEzD6BDQvUvSLb/SjZZVKfmILhCcA
+	/NetWEk161IqTqSwpyXxxKQUB9VlR0d9qLQYWJ3Y67VFLazWKuSKecRK+orzeLUJT9CcxvqgK8EO7
+	GLWd/F0lIK6GG9daLMwSl8Bgsb9oKK4W7uLcmcWlRPs6HUJ41vncrtF63D6PMWGy5xEquFPeRDeT2
+	hHnC48uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPg3y-00000004Z6d-3P0I;
-	Wed, 20 May 2026 12:30:14 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wPg6Y-00000004ZUA-0vNG;
+	Wed, 20 May 2026 12:32:54 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPg3v-00000004Z6B-146T
+	id 1wPg6V-00000004ZT9-2zIt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 12:30:13 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-43d75312379so3972876f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 05:30:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779280209; cv=none;
-        d=google.com; s=arc-20240605;
-        b=NNzRGDhc5yN8Ve0fEaPXGXXsSIIbVAtYZachAbm0g0dXHfAuNd4kjAsZVfKGg0NZ0J
-         Wl6LpdgiF64HT6gbsiLL85dV2HeaBBX7B9suf9wZW2EuqpyR/DckcBpJOPC74yUXVWGJ
-         m9h9ROxmcOXu75xs9inaN5qTAXwqbg0vEUp9fULNqqaHXo/dPDOhIKCbyszKJqbC5kYh
-         r759peyoYnTmUn2evyyq6Rk5Q5jc00clb2lvuMr1An9CwlLpeBPmAT3sp0V8y9u7VNK6
-         KjAqEqsX4xA2mdlAc0igM3ZE8vwpCrbk6SGxXh4nPm7H4BcTJySkjiQ891MUSsngpvwb
-         AXhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RVDXLgZcWUdOJudfln+3132bH3PdmBQDTl58aH5R0jM=;
-        fh=MJg9ZQAHbJKH3GdnqpQ31Y4EkbliEwO9K6f0kGHTeLI=;
-        b=ZqzyYUcTtrcuxpx6LnpMD/98JFBqcYvZGecgwoKKHeP2m55aX6b/fp7/KagNAvW2xG
-         7IVO/czpp3rqKSUupvjF8qGkI6VbTe2CChbXpW0XHFnhAgfffX9HYTIe6UruEGYMUHGM
-         27lZSPkOoi/jXgJ5n6K1/l26QpKRHx64l4drgWOaZK8on3Ojp5jHthDX0x4KAanl2ktq
-         aYQNm/IclcZ9eofNn2bGSIfwcObY0tF2mHqeFgGdQDnCbft2BOkKlmbCKW064lxdSkN1
-         pYWu47xdTSv/izeyb5JUqAzdDpBD6fSoBSZbHz8YuHG9RLXbrYT3snzRPeUu73/7tPl0
-         HKMw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779280209; x=1779885009; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RVDXLgZcWUdOJudfln+3132bH3PdmBQDTl58aH5R0jM=;
-        b=JxOQPZAdmVhbKkvbORzHpofofVEHEuV25jhYzEzgF7aLy80OhR6OhKyzcjteGnj2/0
-         1zFUP4yVARvsOFwAG4QPNcqLfpFp1JwjeYq7YN0KSgi0YrJhKvN+XHVyshcpUcPvRczy
-         bC9GPcnI0do2nVOqN+kXkTefdnsmH+TM2Y/0WVVV+scJckaOo8Y2OqWXUrLdJD8xWCK0
-         TXtpTADdf0evD5hIhjcm8z7V5O4tn7BMwKD9tF72YwCSm/vo0pNlpgLLsS7FEs8CO3hr
-         uDh8fawQYuR4YYMMihdH6hhpvktpp2KdyPF6DkPA1s/+4YFf+JRVrGfXl9tUFXlrj9hT
-         A2wQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779280209; x=1779885009;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RVDXLgZcWUdOJudfln+3132bH3PdmBQDTl58aH5R0jM=;
-        b=PhLseazLRGu45q/vFvd83vv3WoGR2tmw0gcIKGkqkANRLqkbarJZGOMp013Ab0wYVn
-         FgBU0Gf3F2DkCviFI/80oKmAO2X0iC7k8EcLVIslcihrxOvoRz5DPAkyNkk5H/d8SsUi
-         iiIdF1jDaKqlV7KbvMrGFGnWsNmwjBVmrELNAJfX/tTM0CrZfZ6P7CjCqwVsV9hc+ArB
-         kjyezvWSupoSBAGwjybsngDoPbaXfiURIX57zW/B8l2AXC4V4oycjwyf46+0ZaT3+fSO
-         Mp79c2qiBTRPpPCpzwCJVt7X0d7g7nO4TKeDRlGJkeLOAJRzHytIK4kPVn8XHC0k9vZV
-         U8mw==
-X-Forwarded-Encrypted: i=1; AFNElJ96EV/tEMG/r9GdKPslEARg0nnIo56OI/rQHHBpy1fJAxDrbvdIXxuS4jwnbNtqTF0lSY1bnXAKAhF5IwFa1xvb@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/ZXgTd1AwlvpjMfLwYJxHPNYv/nvnwJLShyB8QXtPgx+3S/jl
-	PlgmiKVT36d+4fugytaPzQmlMMugP0FqKVC6fpBM8TdXobh4jRNjSSf0Ngk3AxZuWgXAE0P8usx
-	hxk1aZByKwufLj7R9y+VHsduVeUTubFY=
-X-Gm-Gg: Acq92OG1ftFyj+fqGa5wWXJsiAgNENf595ApKoF/8BPuOieqHhrhQhGexJH3iHGqsJl
-	J8EOEnEDr4nHQ0KviI25pPyPufQDIPbwhaMugA+PKXYjKSoDDHpspUVE8ujZSPMA9UFPrLvMmCo
-	zuxiR/dY/FOxUKQZTToSAMnTcjQgoRb4koqheg6J0BG1C4UHmXW99J2RrvEwEMci5CTmpYLs064
-	B2iLuA73C8hzojJH0u4S7U2Ybs+j/JTuHRR1/lwZwXqua15a65OKMxyCsgz/ojWjBSzR9BzUmuH
-	uQmn6i60LBCnCmteUOo=
-X-Received: by 2002:a05:6000:1885:b0:45e:88f5:cd01 with SMTP id
- ffacd0b85a97d-45e88f5cf39mr11767823f8f.24.1779280209043; Wed, 20 May 2026
- 05:30:09 -0700 (PDT)
+	Wed, 20 May 2026 12:32:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779280368;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CB/Z4bzbsyrd+gSXXFc5hMEcaetYVQ+7kd0CfM+SH9M=;
+	b=VWbNaaJSOypZLncC0ZxScuqtuizzh8UtOSSdMf8MfSRtrK7kWDgwD+J+xqBLOZLFR89Z1k
+	aPnwSw393OhtSJN6RFsOW8dA06o6rHayfseV4mfizad+G8oSHBJPlbs8UrB4lz174LFWLe
+	HwKwGpHevLfFgIURNOHfzHQk8cdbasE=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-553-OFz8t6rZN3-_6eMhLI993A-1; Wed,
+ 20 May 2026 08:31:13 -0400
+X-MC-Unique: OFz8t6rZN3-_6eMhLI993A-1
+X-Mimecast-MFC-AGG-ID: OFz8t6rZN3-_6eMhLI993A_1779280271
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3E3A1956096;
+	Wed, 20 May 2026 12:31:09 +0000 (UTC)
+Received: from thinkpad (dhcp-64-111.muc.redhat.com [10.32.64.111])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 271F01800465;
+	Wed, 20 May 2026 12:31:03 +0000 (UTC)
+Date: Wed, 20 May 2026 14:31:00 +0200
+From: Felix Maurer <fmaurer@redhat.com>
+To: Luka Gejak <luka.gejak@linux.dev>
+Cc: Jakub Kicinski <kuba@kernel.org>, MD Danish Anwar <danishanwar@ti.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Roger Quadros <rogerq@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Meghana Malladi <m-malladi@ti.com>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	David Carlier <devnexen@gmail.com>,
+	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Kevin Hao <haokexin@gmail.com>, netdev@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Vladimir Oltean <vladimir.oltean@nxp.com>
+Subject: Re: [PATCH net-next v2 2/2] net: ti: icssg: Add HSR and LRE PA
+ statistics
+Message-ID: <ag2phK4k7PuyBo5B@thinkpad>
+References: <20260514075605.850674-1-danishanwar@ti.com>
+ <20260514075605.850674-3-danishanwar@ti.com>
+ <20260518184506.694c584e@kernel.org>
+ <E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
 MIME-Version: 1.0
-References: <20260514094108.2016201-1-jiangwen6@xiaomi.com> <20260519131738.11a78ba88e1be28ba5cb26eb@linux-foundation.org>
-In-Reply-To: <20260519131738.11a78ba88e1be28ba5cb26eb@linux-foundation.org>
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-Date: Wed, 20 May 2026 20:29:57 +0800
-X-Gm-Features: AVHnY4JRofC4Z9W1Vip22g--k2HQT2-LeN--T0Ui5FZTEy2X-VIsk0rnAhQpIDg
-Message-ID: <CAHKocdHVDhGAP=DXiYW5tF+3cjBR48=x6YFhCpFARjtt6fjstg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/7] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, urezki@gmail.com, baohua@kernel.org, 
-	Xueyuan.chen21@gmail.com, dev.jain@arm.com, rppt@kernel.org, david@kernel.org, 
-	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com, 
-	linux-kernel@vger.kernel.org, Wen Jiang <jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <E30AAC96-01D2-4A23-B562-126087DEB7FA@linux.dev>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+X-Mimecast-MFC-PROC-ID: XXSdtmYdulHZBqS_sXpwPBKByXhTmfUrEZKWQn_A9dM_1779280271
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_053012_403075_ED5D2A16 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20260520_053251_819858_19585EC9 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,62 +101,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi everyone,
 
-I've reviewed all the Sashiko findings:
+On Tue, May 19, 2026 at 07:55:55AM +0200, Luka Gejak wrote:
+> On May 19, 2026 3:45:06 AM GMT+02:00, Jakub Kicinski <kuba@kernel.org> wrote:
+> >On Thu, 14 May 2026 13:26:05 +0530 MD Danish Anwar wrote:
+> >> Add new firmware PA statistics counters for HSR and LRE to the ethtool
+> >> statistics exposed by the ICSSG driver.
+> >>
+> >> New statistics added:
+> >>  - FW_HSR_FWD_CHECK_FAIL_DROP: Packets dropped on the HSR forwarding path
+> >>  - FW_HSR_HE_CHECK_FAIL_DROP: Packets dropped on the HSR host egress path
+> >>  - FW_HSR_SKIP_HOST_DUP_DISCARD_FRAMES: Frames with duplicate discard
+> >>    skipped
+> >>  - FW_LRE_CNT_UNIQUE/DUPLICATE/MULTIPLE_RX: LRE duplicate detection
+> >>    counters
+> >>  - FW_LRE_CNT_RX/TX: LRE per-port frame counters
+> >>  - FW_LRE_CNT_OWN_RX: Own HSR tagged frames received
+> >>  - FW_LRE_CNT_ERRWRONGLAN: Frames with wrong LAN identifier (PRP)
+> >>
+> >> Document the new HSR/LRE statistics in icssg_prueth.rst.
+> >
+> >To an untrained eye these stats look like stuff that could
+> >be standardized across drivers.
+> >
+> >Luka, Felix, others on CC, do you think we should expose these
+> >from HSR over netlink as "standard" offload stats different drivers
+> >can plug into or not worth it?
+>
+> Hi Jakub,
+> I think there is a case for standardizing part of this, but I would
+> not standardize the whole set as-is.
+>
+> The LRE counters look generic enough to me, especially:
+>  - unique rx
+>  - duplicate rx
+>  - multiple rx
+>  - rx / tx
+>  - own rx
+>  - wrong LAN, PRP only
 
-- Patch 2 (fls() truncation risk): Will fix. Replace fls() with
-  __fls() to accept unsigned long directly.
+I'm very much in favor of having standardized stats for hsr hardware
+offloads that the drivers can supply. The list above looks about right,
+I'd add "frames with errors" and "(proxy) node table entry count" as
+well and that "own rx" is HSR only.
 
-- Patch 4 (nr overflow risk): Pre-existing type choice.
+In general, I don't think we need to standardize this ourselves but can
+adapt to the counters that the SNMP MIB for IEC 62439-3 [1] already has.
+It's part of the standard and IMHO we should gather these counters from
+offloads (and later supply the same set from our sw implementation, but
+the current netlink interface for hsr is quite messy). For reference,
+the list in the MIB is (no need to fully adopt this naming):
+- lreCntTx{A,B,C}: Sent frames per-port (for A,B only tagged frames)
+- lreCntRx{A,B,C}: Received frames per-port (for A,B only tagged frames)
+- lreCntErrWrongLan{A,B}: Received frames per-port with wrong LAN ID
+  (only for PRP)
+- lreCntErrWrongLanC: Received frames on interlink port of HSR-PRP
+  RedBox with wrong LAN ID
+- lreCntErrors{A,B,C}: Received frames with errors per-port
+- lreCnt{,Proxy}Nodes: Nodes in the (proxy) node table
+- lreCntUnique{A,B,C}: Frames only received once, per-port
+- lreCntDuplicate{A,B,C}: Frames received with exactly one duplicate,
+  per-port
+- lreCntMulti{A,B,C}: Frames received with more than one duplicate,
+  per-port
+- lreCntOwnRx{A,B}: Frames received per-port (A,B) that originated from
+  this node, only for HSR rings
 
-- Patch 4 (missing NULL check before page_to_phys): Will fix.
-  Add defensive checks consistent with vmap_pages_pte_range().
+Note that we can not currently completely distinguish
+Unique/Duplicate/Multi in the kernel implementation and their meaning is
+not entirely clear to me from the MIB.
 
-- Patch 5 (flush_cache_vmap with empty range): Valid point. Will
-  save the original start address and use it for the final flush.
-
-- Patch 5 (virtual address alignment not checked): Addressed by
-  Patch 6 in this series.
-
-- Patch 6 (caller tracking loss and while(1) loop): Valid point.
-  Will pass caller as a parameter and restructure per Uladzislau's
-  suggestion to replace while(1) with explicit sequential attempts.
-
-- Patch 7 (partial cache flush on early break): Same root cause as
-  the Patch 5 flush issue.
-
-Will resend V3 shortly.
+The explanations in the MIB in [1] are otherwise quite explicit for each
+of the counters but we may want to adapt the meaning of "port C" to the
+counters. For example, there is lreCntRx{A,B,C} for received HSR/PRP
+tagged frames (by the LRE). Port A and B are clear, but for port C the
+meaning is "number of frames received from the application interface of
+a DANP or DANH or the number of number of frames received on the
+interlink of a RedBox". IMHO, we should consider separating "application
+interface" (what the kernel calls master) and the interlink port because
+these two are not mutually exclusive in the kernel (nor in the NICs that
+support hardware offload).
 
 Thanks,
-Wen
+   Felix
 
-On Wed, 20 May 2026 at 04:17, Andrew Morton <akpm@linux-foundation.org> wro=
-te:
->
-> On Thu, 14 May 2026 17:41:01 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> w=
-rote:
->
-> > This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> > is physically fully or partially contiguous.
-> >
-> > ...
-> >
-> > On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
-> > the performance CPUfreq policy enabled, benchmark results:
-> >
-> > * ioremap(1 MB): 1.35=C3=97 faster (3407 ns -> 2526 ns)
-> > * vmalloc(1 MB) mapping time (excluding allocation) with
-> >   VM_ALLOW_HUGE_VMAP: 1.42=C3=97 faster (5.00 us -> 3.53us)
-> > * vmap(100MB) with order-8 pages: 8.3=C3=97 faster (1235 us -> 149 us)
->
-> Nice.
->
-> AI review found a bunch of things to ask about:
->         https://sashiko.dev/#/patchset/20260514094108.2016201-1-jiangwen6=
-@xiaomi.com
->
-> It doesn't appear that you'll be getting any more review on this
-> series, so please check the above questions and resend?
->
+
+[1]: you can find it for example here: https://mibbrowser.online/mibdb_search.php?mib=IEC-62439-3-MIB
+
 
