@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C718CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91F4CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s8BoFCt0pkUBMnLRpJ4UVI49v07JwiXpXVvsRBKBXi8=; b=Aa2vGqtKwUYDLB
-	PlbQKhTGnyMS4/IaV17It+VK0xfN75uKW7f40DrjEX7bJqUoJAT4shJsnTymD8msZftwfoTJfcv+o
-	4d2wMgyeRyQKeJw56HFg778DhD5YFx3MhRE67c+c16WSh1T3lgArIyLG2oMlyVffw5p009emO6oK1
-	IAhycIvlC44za1kJ96prmGk+YLwOo0fPeAlOiKN2lElGUCF591lgLiloaob6aNWEhA/kUPZkbHOx6
-	v5fcPHBYB8XT0xQsJH9Q0GOqNDSvfUnuMKzaJCqV8JMamH5DiIxDAUIxLWeTTzULNTZZj/lhOduPX
-	ecboWiPV4WSsAQa6mwnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=neaiS3v6Ee0wnOpS6Uq6OxdGxu6XYh+uZ3ykA7gR8Z4=; b=kkQqquhYpOcJ88n1mzraT9gA07
+	D6ee91QTIH+bjVzF77PuevROl/oBKnf7O0P5wAtERWLd0oiY+IYkLKUNPFRAd4tuxh7RkIPtsrGfO
+	eNzB6EnJgWDQ3wbv7uK3WnYnvtag/nkRQOu8Wf3KVDIu6MSpbFhRXMNNODVKsoEHHTHSKcVj7UB96
+	ewVcbo+k7rYGY+7czf5DfJVikfl3DxDXLSXy8nG2lo9shxeWGNogBYUlk8+Krwg0d7cQbGEprJjct
+	/Mz0tKOEfoo1dvEEvjoZpkTFjwmGjCvCJGdVa5Hb/6jKqh09KnkSGqPj4NaB2/mGPGFWvIJcdWg53
+	EhldPPxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPf1u-00000004RNN-2PTV;
-	Wed, 20 May 2026 11:24:02 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wPf4Y-00000004RmG-44fZ;
+	Wed, 20 May 2026 11:26:46 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPf1s-00000004RMa-3eDP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 11:24:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779276239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=s8BoFCt0pkUBMnLRpJ4UVI49v07JwiXpXVvsRBKBXi8=;
-	b=bB2o1a2KIFIiKwBE3Z1zsrMtasLqz0KwBy9fRFrAqi2Ai/aCXGl2GeyT+Bk1Arw3j+kRmO
-	jKD8GLzHKL2pepC47Lmkj+y6HcL8OoP/DQxL13qdevP5KT2SMN44lYG4H3cwDTaSnA142r
-	QBBr84BHHPNOmcp8+OI6dveyvoEDlI0=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-517-J6PPBFReMm-ii0ZMEBLQ7w-1; Wed,
- 20 May 2026 07:23:55 -0400
-X-MC-Unique: J6PPBFReMm-ii0ZMEBLQ7w-1
-X-Mimecast-MFC-AGG-ID: J6PPBFReMm-ii0ZMEBLQ7w_1779276234
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0AA031956095;
-	Wed, 20 May 2026 11:23:53 +0000 (UTC)
-Received: from localhost (unknown [10.22.64.8])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4FBD630002E4;
-	Wed, 20 May 2026 11:23:51 +0000 (UTC)
-Date: Wed, 20 May 2026 08:23:49 -0300
-From: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: Re: [PATCH] arm64/entry: Don't disable preemption in
- debug_exception_enter() with RT kernel
-Message-ID: <ag2ZxTA9YR-okKrU@redhat.com>
-References: <20260519222524.886454-1-longman@redhat.com>
- <20260520061920.XCqBHe0x@linutronix.de>
+	id 1wPf4W-00000004Rkv-0Juu;
+	Wed, 20 May 2026 11:26:45 +0000
+X-UUID: c2dd124a543e11f1acbe4559397dec65-20260520
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=neaiS3v6Ee0wnOpS6Uq6OxdGxu6XYh+uZ3ykA7gR8Z4=;
+	b=EOJLNiP41QCWkOta+YNBWlQSohWA1ZQa1Rsd9VD8V+/nB3H6s8z1swEp1csAxZtwoLYeR/tAcHq1xZDKPtgIJLka2GOCZ4ZTaOesoa2rNNTEaK+r84+it8kjub+XfTQyFWUjUc6+AI/Vf4m67odIQkkugIne8d2PxbFsdnq809g=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.14,REQID:9d2a6d9a-e69a-4e21-865e-dc2775b013bf,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:9091e75,CLOUDID:72bd2322-bef7-463f-902c-5f40f7404c33,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|865|888|898,TC:-5,Content:0|
+	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0
+	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: c2dd124a543e11f1acbe4559397dec65-20260520
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <arnab.layek@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 644099158; Wed, 20 May 2026 04:26:35 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 20 May 2026 19:26:33 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 20 May 2026 19:26:33 +0800
+From: Arnab Layek <arnab.layek@mediatek.com>
+To: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
+CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<andersson@kernel.org>, <mathieu.poirier@linaro.org>,
+	<linux-remoteproc@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Arnab Layek
+	<arnab.layek@mediatek.com>
+Subject: [PATCH v4 0/1] dt-bindings: remoteproc: mtk,scp: Allow multiple memory regions for MT8188
+Date: Wed, 20 May 2026 19:26:28 +0800
+Message-ID: <20260520112629.3420612-1-arnab.layek@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-In-Reply-To: <20260520061920.XCqBHe0x@linutronix.de>
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: J0-QtM5542ss-KKqLN2UzgWh6ZylmszNHOWr0soFoNo_1779276234
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_042400_976629_08D4C35D 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20260520_042644_129413_657DDC69 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +86,54 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, linux-rt-devel@lists.linux.dev, linux-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, linux-arm-kernel@lists.infradead.org, Waiman Long <longman@redhat.com>, Will Deacon <will@kernel.org>, Clark Williams <clrkwllms@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 08:19:20AM +0200, Sebastian Andrzej Siewior wrote:
-> On 2026-05-19 18:25:24 [-0400], Waiman Long wrote:
-> > Commit d8bb6718c4db ("arm64: Make debug exception handlers visible from
-> > RCU") introduces debug_exception_enter() and debug_exception_exit()
-> > where preemption is explicitly disabled. With a PREEMPT_RT debug kernel,
-> > the following bug report can happen.
-> …
-> 
-> What kernel is this? I have backport (which is being tested) for v6.6
-> and v6.12, the patches are from v6.17-rc1.
+This patch updates the mtk,scp dt-binding schema to support MT8188's
+requirement for 1-2 memory regions while maintaining strict backward
+compatibility for other MediaTek SoCs.
 
-Sebastian, hardware breakpoint and watchpoint handlers still call
-debug_exception_exit() and disable preemption on aarch64. That should
-happen on v7.1-rc4 indeed. The suggestion was to mimic what x86_64 does
-with notify_die() -> hw_breakpoint_exceptions_notify(). In ARM
-hw_breakpoint_exceptions_notify() is a stub that always returns
-NOTIFY_DONE.
+The MT8188 SCP requires a main SRAM region and optionally supports an
+L1TCM (Level 1 Tightly Coupled Memory) region for performance
+optimization. L1TCM is optional because basic SCP functionality works
+with only SRAM, but L1TCM provides faster memory access when the board
+hardware configuration includes it.
 
-Luis
+The base schema uses minItems: 1, maxItems: 2 (permissive range),
+following the pattern established in other MediaTek dt-bindings like
+mediatek,vcodec-encoder.yaml where the base accommodates all variants.
+Conditionals then narrow the constraints per device.
 
-> Sebastian
-> 
----end quoted text---
+Changes in v4:
+- Improved commit message clarity per kernel submission guidelines:
+  * Added bullet-point explanation of the two memory regions
+  * Explained WHY L1TCM is optional (performance optimization, not
+    required for basic functionality)
+  * Explicitly listed which SoCs remain single-region
+  * Clarified the two-conditional approach
+  * Explained how minItems: 1 allows board-specific configuration
+- Cover letter updated to explain L1TCM optional reasoning
 
+Changes in v3:
+- Removed "Tested on..." line (bindings cannot be tested)
+- Added minItems: 1 to MT8188 conditional to make L1TCM truly optional
+- Referenced mediatek,vcodec-encoder.yaml iommus pattern explicitly
+- Base schema: minItems: 1, maxItems: 2 (permissive range)
+- Non-MT8188: explicitly restricted to maxItems: 1
+- MT8188: documented with item descriptions for both regions
+
+Changes in v2:
+- Added conditional schema for MT8188 to allow 1-2 memory regions
+- Added descriptions for each memory region
+- Did not work: base maxItems: 1 conflicted with conditional
+
+Arnab Layek (1):
+  dt-bindings: remoteproc: mtk,scp: Allow multiple memory regions for
+    MT8188
+
+ .../bindings/remoteproc/mtk,scp.yaml          | 45 ++++++++++++++++++-
+ 1 file changed, 43 insertions(+), 2 deletions(-)
+
+-- 
+2.45.2
 
