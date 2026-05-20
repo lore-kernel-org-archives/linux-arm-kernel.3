@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1924CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578E7CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7zmf+DQBrj5oBxKGDaplnoUfyJDtyQHm5LPs+rfdPc=; b=zUm6sErgDnUqBT0DYOuINYI7Ln
-	S3DSHeKZaO6u0ks0Bc+m3cra+AGq9wlax69KSqw6uA09r2lszWOCS2PzcnWh45TpBzfqxF4Ogn25X
-	8KSMi1WFXSxP+wzXI6TZifSTMfTVu2aKwin4AovVMrAy1AmfIWX7OqlDfpI6DBNuPPCEdBLnZxYQE
-	QI6iN2bJ1Spa1h8skRiOLNk5R3HbAxT6pbAU4uLqv0/ED11WztvQadZZoDXzsf9wYX5pmgvEktzTX
-	128brARItpsrqnQCFQvobK6LoT76lf331C3Q+4Zkh+0NROfJWbwd5n5LfggpY390YR4XO7rpu/xnX
-	0L/OvwLQ==;
+	bh=ViRW9Nz3r6hXUk4I8QEt3nB7VpqxM71bV390oMtx5Ug=; b=O09P7R/YVHfVgCYDsJbqGEcszq
+	btgws4wQNHEeWd2OpJWPfRrVZ/7p3dL+wj1QC8yfmiZ3RuuOfuDFOV1J2t+ojuZP5xs2O2fkHvwZv
+	UVmlYMec9lWCLHldKzsSxrd30pJKIKPm6AyEbpKXXqlDEG9CdignUZ2QqDe8+5UJdxK3D8B8TrSj5
+	LgTuy4vJLeoDLlqRAbGHUXgY9qXqmJw5HhCO5n7NZkrfOXpwx1IztnTmwPqV86JOg2QHHlGUkmfIl
+	g94n6pjK2zhfTxxC9b98CD6isFIPGHwAerVGulYEy75IhC68Wul5/xWKAMK9hZJAo/S9FL+eY0Q6t
+	Sk/0rnWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPkvE-00000005KlN-0eze;
-	Wed, 20 May 2026 17:41:33 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1wPl12-00000005LQM-2YQT;
+	Wed, 20 May 2026 17:47:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPkvB-00000005Kk7-2mLZ
+	id 1wPl10-00000005LPs-1UVw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 17:41:31 +0000
-Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4142642B;
-	Wed, 20 May 2026 19:41:14 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1779298874;
-	bh=iTxehStzlB1GozKYMCfNJeZ67nC8BTcSqdK5qvQx330=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZL8/nn9I+dEVKV+TvrU0ZHScVI4DiFx5+tExY2OgzDi+5DYB8ozCjW4c8O9WM/AeW
-	 m4jyPNsizBE19NFwzuudLRPG+GKWYyWCaimyvmSzH65E3VyCa0HH8hQvj12dCuo7+q
-	 05LuqYpvTeqX2mRugW2qRi7/yovvPXR+5DUEL3uo=
-Date: Wed, 20 May 2026 19:41:26 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>,
-	Frank Li <frank.li@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>,
-	linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/2] media: nxp: imx8-isi: Fix potential out-of-bounds
- issues
-Message-ID: <20260520174126.GA12108@killaraus.ideasonboard.com>
-References: <20260323-isi-v3-0-8df53b24e622@oss.nxp.com>
- <20260323-isi-v3-1-8df53b24e622@oss.nxp.com>
+	Wed, 20 May 2026 17:47:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 82B2441B16;
+	Wed, 20 May 2026 17:47:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F8F31F000E9;
+	Wed, 20 May 2026 17:47:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779299249;
+	bh=ViRW9Nz3r6hXUk4I8QEt3nB7VpqxM71bV390oMtx5Ug=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=E+KqHORQPEi2v/ovg1wnEqFr8oDWY997yhhY4R1PG1PuSPUJYkhb8VagSOppZB+Rr
+	 A0FKrrZGSqhwUfPDPtXnkAmbqErhn1IZufP64ETA4qqpXvH0pe86apDIE60MBNjwEw
+	 RUfd9pOaiDymD8/T/FWXj7CZcBRvZOPScWM1lK0JYwdnAeWm7tQE1Tsmsl9tTiCRFI
+	 3siFught71zBG4B2SLyJfjVwSEg4UUGfukHiuNBzw5P/8kKwSKZ4x2cHIxbPEaZHgh
+	 C1XP0RZ0Sepvw0ts72eLscxXwx0QJPfuGnmsqMkMRKBDOTHd1f1hMZbWHQJHylmkgs
+	 J70Laujzm+ZXA==
+Date: Wed, 20 May 2026 10:47:27 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>,
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Jim Mattson <jmattson@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	kvmarm@lists.linux.dev,
+	linux-kselftest <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
+ expectations
+Message-ID: <ag3zr7-11FO3k-Wv@kernel.org>
+References: <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
+ <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
+ <86qzn7wp3y.wl-maz@kernel.org>
+ <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
+ <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
+ <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
+ <agzR2kaJsNa8X9lF@kernel.org>
+ <1243d375846c4f4e20c229a6f09300126188fc8b.camel@infradead.org>
+ <agzq5kwzuJvd7Mh5@kernel.org>
+ <add71b6f61edc6357e1fddad83273b2cba697d10.camel@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260323-isi-v3-1-8df53b24e622@oss.nxp.com>
+In-Reply-To: <add71b6f61edc6357e1fddad83273b2cba697d10.camel@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_104129_849042_4CE6E20A 
-X-CRM114-Status: GOOD (  27.12  )
+X-CRM114-CacheID: sfid-20260520_104730_435825_C81BC5C2 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,140 +96,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 23, 2026 at 04:33:30PM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+On Wed, May 20, 2026 at 12:33:52AM +0100, David Woodhouse wrote:
+> On Tue, 2026-05-19 at 15:57 -0700, Oliver Upton wrote:
+> > What ifs and maybes do not meet the bar, in my opinion, for preserving
+> > bug emulation in KVM. Of course there could be a little flexibility with
+> > that but we need to have some way of discriminating between bug fixes
+> > and genuine guest expectations around the behavior of virtual hardware.
 > 
-> The maximum downscaling factor supported by ISI can be up to 16. Add
-> minimum value constraint before applying the setting to hardware.
-> Otherwise, the process will not respond even when Ctrl+C is executed.
-> 
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
-> Changes in v3:
-> - Replace CLAMP_DOWNSCALE_16 macro with inline function
-> - Adjust downscale threshold from 0x4000 to 0x2000
-> - Clarify downscaling limit in comment
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 16 ++++++++++++++++
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c   |  2 +-
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c  | 11 ++++++++---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c | 13 ++++++++-----
->  4 files changed, 33 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> index 3cbd35305af0..822466445b72 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
-> @@ -11,6 +11,7 @@
->  #define __MXC_ISI_CORE_H__
->  
->  #include <linux/list.h>
-> +#include <linux/math.h>
->  #include <linux/mutex.h>
->  #include <linux/spinlock.h>
->  #include <linux/types.h>
-> @@ -413,4 +414,19 @@ static inline void mxc_isi_debug_cleanup(struct mxc_isi_dev *isi)
->  }
->  #endif
->  
-> +/*
-> + * ISI scaling engine works in two parts: it performs pre-decimation of
-> + * the image followed by bilinear filtering to achieve the desired
-> + * downscaling factor.
-> + *
-> + * The decimation filter provides a maximum downscaling factor of 8, and
-> + * the subsequent bilinear filter provides a maximum downscaling factor
-> + * of 2. Combined, the maximum scaling factor can be up to 16.
-> + */
-> +static inline unsigned int
-> +mxc_isi_clamp_downscale_16(unsigned int val, unsigned int max_val)
-> +{
-> +	return clamp(val, max(1U, DIV_ROUND_UP(max_val, 16)), max_val);
-> +}
-> +
->  #endif /* __MXC_ISI_CORE_H__ */
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> index 9225a7ac1c3e..37e59d687ed7 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
-> @@ -11,7 +11,7 @@
->  #include "imx8-isi-core.h"
->  #include "imx8-isi-regs.h"
->  
-> -#define	ISI_DOWNSCALE_THRESHOLD		0x4000
-> +#define	ISI_DOWNSCALE_THRESHOLD		0x2000
+> I believe you have this completely backwards.
 
-This should be split to a separate patch as it's a separate fix.
+No, I really don't.
 
->  static inline u32 mxc_isi_read(struct mxc_isi_pipe *pipe, u32 reg)
->  {
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> index a39ad7a1ab18..a0e2061f4344 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
-> @@ -508,10 +508,15 @@ __mxc_isi_m2m_try_fmt_vid(struct mxc_isi_m2m_ctx *ctx,
->  			  struct v4l2_pix_format_mplane *pix,
->  			  const enum mxc_isi_video_type type)
->  {
-> +	const struct v4l2_pix_format_mplane *format =
-> +		&ctx->queues.out.format;
+Leaving every bugfix that could _possibly_ have a guest-visible impact
+subject to drive-by scrutiny many years after the dust has settled is
+not an acceptable working dynamic. Especially since it would appear
+that the rest of the ecosystem has long since moved on from this
+particular issue.
 
-This can go in the 'if' below.
+If this matters to you so deeply then please, be part of the solution
+instead. You may find that reviewing patches leads to better outcomes
+than getting belligerent with the arm64 folks every time you guys
+decide to rebase your kernel. Hell, hypotheticals actually have a lot
+more weight in the context of a review. And if your testing is extensive
+enough to catch these sort of subtleties, don't you think it's better
+done against mainline?
 
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Maybe it's just me but I am left feeling disappointed that we all
+haven't found a productive way of working together. I've tried to bridge
+the gap here; we obviously need to do something that at least fixes the
+UAPI breakage. Although apparently we don't even care to meet that low
+of bar.
 
-I'll take this patch without the ISI_DOWNSCALE_THRESHOLD change in my
-tree, and will send a separate patch for ISI_DOWNSCALE_THRESHOLD.
+> A stable and mature platform doesn't get to play in its ivory tower and
+> randomly inflict breakage on guests because they "deserve it".
 
-> +
->  	if (type == MXC_ISI_VIDEO_M2M_CAP) {
-> -		/* Downscaling only  */
-> -		pix->width = min(pix->width, ctx->queues.out.format.width);
-> -		pix->height = min(pix->height, ctx->queues.out.format.height);
-> +		/* Downscaling only, by up to 16. */
-> +		pix->width = mxc_isi_clamp_downscale_16(pix->width,
-> +							format->width);
-> +		pix->height = mxc_isi_clamp_downscale_16(pix->height,
-> +							 format->height);
->  	}
->  
->  	return mxc_isi_format_try(ctx->m2m->pipe, pix, type);
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> index a41c51dd9ce0..b290821d03d2 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
-> @@ -641,16 +641,19 @@ static int mxc_isi_pipe_set_selection(struct v4l2_subdev *sd,
->  			/* Composing is supported on the sink only. */
->  			return -EINVAL;
->  
-> -		/* The sink crop is bound by the sink format downscaling only). */
-> +		/*
-> +		 * The ISI supports downscaling only, with a factor up to 16.
-> +		 * Clamp the compose rectangle size accordingly.
-> +		 */
->  		format = mxc_isi_pipe_get_pad_format(pipe, state,
->  						     MXC_ISI_PIPE_PAD_SINK);
->  
->  		sel->r.left = 0;
->  		sel->r.top = 0;
-> -		sel->r.width = clamp(sel->r.width, MXC_ISI_MIN_WIDTH,
-> -				     format->width);
-> -		sel->r.height = clamp(sel->r.height, MXC_ISI_MIN_HEIGHT,
-> -				      format->height);
-> +		sel->r.width = mxc_isi_clamp_downscale_16(sel->r.width,
-> +							  format->width);
-> +		sel->r.height = mxc_isi_clamp_downscale_16(sel->r.height,
-> +							   format->height);
->  
->  		rect = mxc_isi_pipe_get_pad_compose(pipe, state,
->  						    MXC_ISI_PIPE_PAD_SINK);
-> 
+Really? Aren't you asking for us to emulate something completely broken
+for you?
 
--- 
-Regards,
-
-Laurent Pinchart
+Thanks,
+Oliver
 
