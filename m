@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58D88CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9172CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1TIzKuY83q97U1U+0f8lUwk8XwQIwJ6OrTSRAlmEejI=; b=jGMRsluoxPvDm/cf7fRCrZx2Rc
-	BT5xIa9h8rugAdUZ+KKddHBiVl4AFePhKI5NcjCNxtXqGOPP8W7eT1oIlELJDDDlZgohC9rY6NFj0
-	GR0LcI1t4xTG0blhggDx/VdfMM7V03Ph6F98D6+WJcsBDEn2mP55ASSNCgZCGwfcZzTscpZ9MEGPH
-	ljZSClDO9LWfgYmIqjPu8qmWOXrQYz74YESYsO+k9OnjOEDbZSoevFVcj3yjqpfOZ6bmjE1GFPW1F
-	3pAGqmUcBlPQTgASl7pVKJKoNtYJgD7rqvXeEjCesznSa9CPODa+m5V0rJVv7A7Rycwyyof74mzDN
-	p7KEXBNA==;
+	bh=VTLxlivkME/czNHyhw9EkvAVtPi+VjAelN5GZKQJJEQ=; b=DRF9hUsWPRCW4zuc0ndMdiynNs
+	nPzosKtgnLFey2xS8Al5AkR2fjjWdHRj+ke5G5+DB0W9pvSJKPYVJuP1AMG1c2O0a2+Ri2WI86Gzo
+	UWiSmyP02LA4z4eb9yrBbg6Qv5rKyj+0Vl4ADBgCYUpBaRzEYUceivpvc373Rk3AeHK8a/hG5nHYa
+	+Uc0mZmgFqfI4SV3k8L7nXJJRDWEl2ckzRvm91dzYJoKaQ2IzrnKGSVMmBk8sWZSZ/p8IJb05+Afs
+	kZO75wEkjBX9/9ZSqt5Xb+aMnsZj2cl0z8pkI6sldBvD14UKZTSJ+5aGoj14mvTULzGBHUjcSxoXQ
+	g6POtWjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6Z-000000047nA-3ou5;
-	Wed, 20 May 2026 09:20:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wPd6X-000000047hL-0G0g;
+	Wed, 20 May 2026 09:20:41 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6Q-000000047U3-3VLp
+	id 1wPd6L-000000047NW-2g94
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 May 2026 09:20:34 +0000
+	Wed, 20 May 2026 09:20:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=1TIzKuY83q97U1U+0f8lUwk8XwQIwJ6OrTSRAlmEejI=; b=JC1CijkvHqEuqHa2Sqk+/qjQNX
-	w1ZeuxPWDtvs69HcvHLBk2lj6m++JysdPzs0OjC+BhAl5cvAMoAZHI9Ni7GPcSnfRJZxGuNbRnyVy
-	AtfdouVkF6JAM7Qg86p8GWT4MNqLHgH+x2rkOTrqnK2o+xhUyKxTtCwL4u5zuj7E5k6t85TA+wBPo
-	oDQpg+ggAsbm3Frj4Y6JFVt56xI/qtmrFi/06J1OKf8kS1OzFwnqquZT08wNqKGq8jUWRJsUBh7jp
-	mXyXGhMDWc56fGAn/3LBGsA/n1dRVaRtXlbtEnUR4ZMyHAxeBMF5mZpic/1vRVQM//lOQTWfpF9uh
-	T3yi7TPA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd66-0000000GKUL-16lH
+	bh=VTLxlivkME/czNHyhw9EkvAVtPi+VjAelN5GZKQJJEQ=; b=HU4ABVPVu8d7hgIeJc1+/bZuYs
+	umnlDWbjc2EEa+ivkscC7VFltM2LPvgRI5j4xPoUrXZX2Y9pnfVfk2qW3vpypUtSaK5rm6n/Ldeff
+	7pJ27B2yNS++qmV6iCgY7RTK7rNTfSDByxbHk5SgaGsYVBDWLWF/8c/SCAsbeD3kQppoPQmJ+bJes
+	n6xC22IuBv/sxUSBTz5VSr9iCJxGWeAjRDqE48DL9/qvdk2zBG4C35mO+PJlCtS4u1q8LYzP1gF3c
+	+IyspdV2hHo2gNVz81zrEYWonE9dljqVok8z5a+0yrv8WcfWNLLQWK4s+JF6GxlpLv3mHjFguf/if
+	/LxpoPqA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPd6I-00000006xOd-1XrR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:20 +0000
+	Wed, 20 May 2026 09:20:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 471FC40A20;
-	Wed, 20 May 2026 09:20:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2984F1F00898;
-	Wed, 20 May 2026 09:20:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C3E6C44509;
+	Wed, 20 May 2026 09:20:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA3F71F000E9;
+	Wed, 20 May 2026 09:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779268813;
-	bh=1TIzKuY83q97U1U+0f8lUwk8XwQIwJ6OrTSRAlmEejI=;
+	s=k20260515; t=1779268815;
+	bh=VTLxlivkME/czNHyhw9EkvAVtPi+VjAelN5GZKQJJEQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cLV3pc9/PX5HDAD/BE3FqjE0SYANog0dx37qTlsgIML1uUo11+E71W5YzJ9XnCPG1
-	 TgwBt95CzdT+hVKA/Tv0pbL1IMGMHu8Drxyzj9uPOArpi1W8az8LvkX+PAD5zYbbRP
-	 169iYbXYnc3pBqNBVQpj4GGO7/TNyDiMaMLAeNI8aKjeG+SfErvAW2WnDMcKuGWNk2
-	 o6QO/csRcuXIrb7B8v//rLRtI2KhfMAF15EagxYoJ6EFgmGflXDSZcRFy2HjZFIEnF
-	 r/hdLJcoZeF7A++kkc1X/+zba4o7l69zghrCUYhXVBVk9NpDpUFNPdgLNb5HVhRiSc
-	 LM5ighT0q3nqA==
+	b=jazC8r9ZUguaHrDqiZC3qIUTt/z79p629oMA+INQYk+AkhcWivGvOcSFz55+35Vyk
+	 XvXHowM4z2+uGpyTxsrQBKshN616XU9bxS4mLNlE/zWk7yiofe+HX3euoeflRoZ2Yf
+	 BRSR/VJ64i1puZS26MCfLW6pnbINB8F3YslRLAtulaH3+0bO/7SthdcdB+TmLntAdA
+	 8KYVLatZNSYmD1j3ZwoEXfHItwP9VVRk9/18kRL+I86npZ98OIWf0fVmREljv8SEdw
+	 qysgd74ImyTHu8HEA9DLnPCXYFBkEQP9BnwOfo37c/SUrCdKor211fJHZoMvItpCSe
+	 cI/HvsaQmLsEg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPd63-00000004IaV-1nFT;
-	Wed, 20 May 2026 09:20:11 +0000
+	id 1wPd65-00000004IaV-45ow;
+	Wed, 20 May 2026 09:20:14 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -72,9 +72,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH v2 06/18] KVM: arm64: vgic: Consolidate vgic_allocate_private_irqs_locked()
-Date: Wed, 20 May 2026 10:19:37 +0100
-Message-ID: <20260520091949.542365-7-maz@kernel.org>
+Subject: [PATCH v2 18/18] KVM: arm64: Fix arch timer interrupts for GICv3-on-GICv5 guests
+Date: Wed, 20 May 2026 10:19:49 +0100
+Message-ID: <20260520091949.542365-19-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
 References: <20260520091949.542365-1-maz@kernel.org>
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_102015_931601_2A25E5B5 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20260520_102026_775081_0D1A9BE3 
+X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,107 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vgic_allocate_private_irqs_locked() calls two helpers, oddly named
-vgic_{,v5_}allocate_private_irq().
+From: Sascha Bischoff <sascha.bischoff@arm.com>
 
-Not only these helpers don't allocate anything, but they also
-contain duplicate init code that would be better placed in the
-caller.
+When running on a GICv5 host, we push an arch-timer-specific interrupt
+domain for the timer interrupts. This interrupt domain is used to mask
+the host interrupt when a GICv5 guest is running. However, this
+interrupt domain is still in place when running with a GICv3 guest on
+GICv5 hardware. The result is that some interrupt state changes are
+not correctly propragated to the host irqchip driver for legacy
+guests.
 
-Consolidate the common init code in the caller, rename the helpers
-to vgic_{,v5_}setup_private_irq(), and pass the irq pointer around
-instead of the index of the interrupt.
+Explicitly pass irqchip state changes though to the host irqchip
+driver when running a GICv3-based guest on a GICv5 host. This bypasses
+all masking, and thereby operates just as a native GICv3 guest would,
+with the exception of having an additional irq domain in the
+hierarchy.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Fixes: 9491c63b6cd7 ("KVM: arm64: gic-v5: Enlighten arch timer for GICv5")
+Suggested-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/vgic/vgic-init.c | 45 +++++++++++++--------------------
- 1 file changed, 18 insertions(+), 27 deletions(-)
+ arch/arm64/kvm/arch_timer.c | 17 +++++++----------
+ 1 file changed, 7 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 933983bb20052..907057881b26a 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -271,18 +271,12 @@ int kvm_vgic_vcpu_nv_init(struct kvm_vcpu *vcpu)
- 	return ret;
- }
- 
--static void vgic_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
-+static void vgic_setup_private_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq,
-+				   u32 type)
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index f003df76fdda7..53b67b4d0bf24 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -1294,7 +1294,12 @@ static int timer_irq_set_vcpu_affinity(struct irq_data *d, void *vcpu)
+ static int timer_irq_set_irqchip_state(struct irq_data *d,
+ 				       enum irqchip_irq_state which, bool val)
  {
--	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-+	irq->intid = irq - &vcpu->arch.vgic_cpu.private_irqs[0];
+-	if (which != IRQCHIP_STATE_ACTIVE || !irqd_is_forwarded_to_vcpu(d))
++	bool passthrough = which != IRQCHIP_STATE_ACTIVE ||
++		!irqd_is_forwarded_to_vcpu(d) ||
++		(kvm_vgic_global_state.type == VGIC_V5 &&
++		 vgic_is_v3(kvm_get_running_vcpu()->kvm));
++
++	if (passthrough)
+ 		return irq_chip_set_parent_state(d, which, val);
  
--	INIT_LIST_HEAD(&irq->ap_list);
--	raw_spin_lock_init(&irq->irq_lock);
--	irq->vcpu = NULL;
--	irq->target_vcpu = vcpu;
--	refcount_set(&irq->refcount, 0);
--
--	irq->intid = i;
--	if (vgic_irq_is_sgi(i)) {
-+	if (vgic_irq_is_sgi(irq->intid)) {
- 		/* SGIs */
- 		irq->enabled = 1;
- 		irq->config = VGIC_CONFIG_EDGE;
-@@ -303,18 +297,11 @@ static void vgic_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
- 	}
- }
+ 	if (val)
+@@ -1307,15 +1312,7 @@ static int timer_irq_set_irqchip_state(struct irq_data *d,
  
--static void vgic_v5_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
-+static void vgic_v5_setup_private_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq)
+ static void timer_irq_eoi(struct irq_data *d)
  {
--	struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
--	u32 intid = vgic_v5_make_ppi(i);
--
--	INIT_LIST_HEAD(&irq->ap_list);
--	raw_spin_lock_init(&irq->irq_lock);
--	irq->vcpu = NULL;
--	irq->target_vcpu = vcpu;
--	refcount_set(&irq->refcount, 0);
-+	int i = irq - &vcpu->arch.vgic_cpu.private_irqs[0];
- 
--	irq->intid = intid;
-+	irq->intid = vgic_v5_make_ppi(i);
- 
- 	/* The only Edge architected PPI is the SW_PPI */
- 	if (i == GICV5_ARCH_PPI_SW_PPI)
-@@ -323,7 +310,7 @@ static void vgic_v5_allocate_private_irq(struct kvm_vcpu *vcpu, int i, u32 type)
- 		irq->config = VGIC_CONFIG_LEVEL;
- 
- 	/* Register the GICv5-specific PPI ops */
--	vgic_v5_set_ppi_ops(vcpu, intid);
-+	vgic_v5_set_ppi_ops(vcpu, irq->intid);
- }
- 
- static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
-@@ -349,15 +336,19 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
- 	if (!vgic_cpu->private_irqs)
- 		return -ENOMEM;
- 
 -	/*
--	 * Enable and configure all SGIs to be edge-triggered and
--	 * configure all PPIs as level-triggered.
+-	 * On a GICv5 host, we still need to call EOI on the parent for
+-	 * PPIs. The host driver already handles irqs which are forwarded to
+-	 * vcpus, and skips the GIC CDDI while still doing the GIC CDEOI. This
+-	 * is required to emulate the EOIMode=1 on GICv5 hardware. Failure to
+-	 * call EOI unsurprisingly results in *BAD* lock-ups.
 -	 */
- 	for (i = 0; i < num_private_irqs; i++) {
-+		struct vgic_irq *irq = &vcpu->arch.vgic_cpu.private_irqs[i];
-+
-+		INIT_LIST_HEAD(&irq->ap_list);
-+		raw_spin_lock_init(&irq->irq_lock);
-+		irq->vcpu = NULL;
-+		irq->target_vcpu = vcpu;
-+		refcount_set(&irq->refcount, 0);
-+
- 		if (vgic_is_v5(vcpu->kvm))
--			vgic_v5_allocate_private_irq(vcpu, i, type);
-+			vgic_v5_setup_private_irq(vcpu, irq);
- 		else
--			vgic_allocate_private_irq(vcpu, i, type);
-+			vgic_setup_private_irq(vcpu, irq, type);
- 	}
+-	if (!irqd_is_forwarded_to_vcpu(d) ||
+-	    kvm_vgic_global_state.type == VGIC_V5)
++	if (!irqd_is_forwarded_to_vcpu(d))
+ 		irq_chip_eoi_parent(d);
+ }
  
- 	return 0;
 -- 
 2.47.3
 
