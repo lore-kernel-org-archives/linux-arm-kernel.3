@@ -4,146 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ECDCCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524DECD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dV55hNI6EFsCh0TJuXeJvYgBE3bNmnFm/eqFrRlpVIA=; b=buWqa3tFs51VtoEdraIBkI0bwe
-	lK+MW5CXoOKqg6uAe5XkLJGq8hfsbv7yJuCeNz4Sl+dnvqUjSPDDEf8h9FgclbRg1L9LHPKDvdJmT
-	AnWwL2lXl4QeQOEaRbXb1GP12I0iA3dGDPAPzKfJvQARCNj/Q9DRav6SPNa3+O1eUWdruHoI0Mv6b
-	Hr/za2cCjGG8Lqa59hKTdTIUHtTntuiFY0EE0tLT6/VKGAPuGWqcn1bvOvRMpeyOsM0qnbWWS7utC
-	giw6uXA697Qf7KVsR8ss0gzvqcGg40Pmg6DltUnZG9rJvw6haXCA20rpBYxFTUwf7bAhid6HDWeYm
-	d9X/LLKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2oDxro81v+Vc1W7/bZAyjtXY5aLkxh7HiW8YlWVODYw=; b=P1DUoQEqK/dAnhIg+vMZachf3g
+	snyCtgEbb8C5KsUi6y5HXqUndWoNA2w3FxsNovKnidbHyW06zohUV7wOFQHdSNvWfUVD7IK1o7bIH
+	V5YlNWi8ht8aVsUQ2adHFsDA2TGJh6HXoRcsNAmqJ+uo/XF6vJfscR8vb4uuoLnd/Qb1UTbllCO/F
+	vgMgUtsORSQV5T074rD/DKEp2SQ3TGUiSL9gXsGfV96eztH2+PvwGyCpX6e1rpTILM8706k96fZLP
+	W49jOEXXKHKjJL1fAQY5+P/VktCIdsYYm5s6gcXzi0yWJQ7x0EFXCT+jtUsOBSC4RcwDdTvp3tsAo
+	AaTHPp2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcaN-000000040Oa-2mAT;
-	Wed, 20 May 2026 08:47:27 +0000
-Received: from mail-koreacentralazon11023087.outbound.protection.outlook.com ([40.107.44.87] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wPcaa-000000040UY-3Hf2;
+	Wed, 20 May 2026 08:47:40 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcaK-000000040Mm-34fN;
-	Wed, 20 May 2026 08:47:25 +0000
+	id 1wPcaM-000000040Nc-3DQJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 08:47:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gje6xpFR8lS5tAOJDZBpKR+jb7NdnOs4cINocehqa6BqH3MAj841iMCtwhNTPNgpiTjznFlGha2QyNA6AOd8jyMp4U8VEBPipM1wu4tTEOJFSZw/xgtE+x75KAFRF8ZSPFFzbHx7fs71hsnfX6qADtVkXIrwa+IBwcd8yfjM1VjNUzPEzZrZpGM0xmT3Mk3azJ+eqLrwiQMRQp41cjG5MVP8J/wk5NQdTYHRi8xUO6vjTIHM7wEAiNmUsH/4OgKTsu/ic91m+7Ive5+ExLbKPPa3F1cAZDeX0uqyxg3RJUBcVk81zU2IUK89d5OkCdp7rtPnPupoKNHcQUE4fexGTg==
+ b=KC+GWNF1Cr79AdkC7MseKeVN9Yzk0qQqegyrbwkLkZeCwFr37ClOpi2MbGIsan7tW8qrUUHxqKCLWEL6v2hxz+fkFleReKVW3BKWUmoxrrkSWn9AmgdBapthTvozdqD7vp42uH888nxh6kpnTpjxx0g1DZOYNCa4YmpaowUtkjWqHV8TnvkZU9R8OQHyOJgUW1/X4hDTM9ODmpQNpzhXii7ZoReaYXQiNgKsHevXvlNXoN7aKztv7IzuQ56shiFsxkeug89apAwG2t0rPC0ZarketzfqJ0LsArldGfvbLTQ1nhBjwfVhTFp9BKkmdmOddiMINQKY0v3ncmztG+rXjA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dV55hNI6EFsCh0TJuXeJvYgBE3bNmnFm/eqFrRlpVIA=;
- b=F4xLrJ0mfeD7RH638iRJNstd/+zR2ileIdrcLHZCWNfl/UzOL4fCc7cGK8XLt5zo2UInLqvj8GGVq04bmiQ04/XILs2XO/qv/NomVaSJAYFYGOV8mnl6gNquESWpU3WhwzGM2rgE1p9pI3j70pcHxkJ4dSecEPkEAVpdgA1EFEP4808CTCsPFsgLATdcbOOHJ8P5uL3b1joO8gBJc1qPkJUlrIvLjjZo+e0iuxC+RYoLlgWBuar4V/8xelUtKT6lfAMk1VoRxVjamf5zx6yycrIiUi6egCS7NAaClU5Sgi9MtzQPxCFwT8tcythH8pBzXhPDwictEpn1Np8m3d9ExA==
+ bh=2oDxro81v+Vc1W7/bZAyjtXY5aLkxh7HiW8YlWVODYw=;
+ b=i2RWDsqlvYHOzkVv5JKBJtvT3j8ypcAc6hBbqmtPSkz9LnSrQcVzGHxycwrS4XTdOcSHtrljXRyLEYrG4TRntWNVJ9DYZ7WZy9st0SEQdJ+MjvOqE+maLiGMdPaM2laEx2uTL98RINc+d2fnJUTflmlEhqkp48Zlzq9DDREQw/RdlqjmejmogKjFeBpJk9dP4m8dT/Xs/lFjHcCNoOzqdMG+kzPDR5GSObFRYGat/NmDczYVsHl8u/xN3agaAlNXdWAQ2ck+sWGWI6Evc8hQx8cTTNvoMun+GGJAbyoL56200Sf1SaNXZCgtTcnqqjfZL4UFWm+I+vGJc7u+F7uG+g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dV55hNI6EFsCh0TJuXeJvYgBE3bNmnFm/eqFrRlpVIA=;
- b=WpbDPoM620iy1YWQMweEAvdLnerHrck/s1hEy5MHLT9yykRMNm7FBnvkGvArxfn/uZQ+VJ8r2lq/NFE5uWpfq4n6VsILmKRZKu+fMJdf/VlvBg1h/nAr71Q+yVZUq3YNYIBSUs+TPcAEpGs13DlWscClDv+WqfTsI8+vOW4Cq9DLXditVB1QtdXhd9DSGd13y0SRzLRGDv8hYr8v6ZDcg6EO1WQ+l3VJHJ8hMrpBgaPKwgyk14Fr+gX274lc0C4KG2TT6bcAJBm/hTFhDycw1aBuqaSgpfLOSay7PQL+aweakBh2ghhpdgMMwVnWaEoDxkBQnXX804l9dscdPpsTsA==
+ bh=2oDxro81v+Vc1W7/bZAyjtXY5aLkxh7HiW8YlWVODYw=;
+ b=HRMMz3LiVOoyVGQVDg3/f7s6TneSKKwDxv9QPXFApzSDnfFP3ODA/+AIG4U4JkfuHc9G8F8F0t5x+9LsknHekl/GhA7AmAc8A7Qif8EUC2kWMuUKBrklDlm+QQevy9kskavW3Aewvun24a2jmRF2RGgU8Kg0AwsS8FpkmT3a9Tm36PtiAvCzoxxpQMSW4127KNLhTMNiaCS2TiFporJhVk7EiRukbRKqJdRICSKb7gKTsfu9NbAMsBBpbej6PP68zX0Zb3LZJlf7RU/vNa1xNOCEv4ixDpprdjERNuv6vW80mVtk4h1OYXea09dBkTOTwAKfJXTGeInxsZKUBz9lQw==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by SEZPR03MB7034.apcprd03.prod.outlook.com (2603:1096:101:e0::11) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
+ by DUZPR04MB9796.eurprd04.prod.outlook.com (2603:10a6:10:4e1::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.15; Wed, 20 May
- 2026 08:47:05 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0048.010; Wed, 20 May 2026
- 08:47:02 +0000
-Message-ID: <1bea1b19-635a-49ba-9859-3074607eefad@amlogic.com>
-Date: Wed, 20 May 2026 16:46:59 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/10] clk: amlogic: PLL l_detect signal supports
- active-high configuration
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Xianwei Zhao <xianwei.zhao@amlogic.com>, Kevin Hilman
- <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
- <20260511-b4-a9_clk-v1-5-41cb4071b7c9@amlogic.com>
- <1jse7u6n3q.fsf@starbuckisacylon.baylibre.com>
- <d023303e-e785-4b60-85cd-c83cc3f890e4@amlogic.com>
- <1jwlwy5ysj.fsf@starbuckisacylon.baylibre.com>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <1jwlwy5ysj.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SEWP216CA0014.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2b4::9) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
+ 2026 08:47:21 +0000
+Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
+ ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
+ ([fe80::60d7:a8e5:eb88:9be%2]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 08:47:21 +0000
+From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	bhelgaas@google.com,
+	hongxing.zhu@nxp.com,
+	l.stach@pengutronix.de
+Cc: imx@lists.linux.dev,
+	linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sherry.sun@nxp.com
+Subject: [PATCH V3 1/8] PCI: imx6: Integrate new pwrctrl API for pci-imx6
+Date: Wed, 20 May 2026 16:48:57 +0800
+Message-Id: <20260520084904.2424253-2-sherry.sun@oss.nxp.com>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
+References: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MAXPR01CA0099.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a00:5d::17) To VI2PR04MB11276.eurprd04.prod.outlook.com
+ (2603:10a6:800:296::7)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB7034:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e656081-f206-4fb3-54b5-08deb64c5d05
+X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|DUZPR04MB9796:EE_
+X-MS-Office365-Filtering-Correlation-Id: a81dc7d9-1562-4316-5eb6-08deb64c67f7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|18002099003|22082099003|56012099003|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: 5KZqxxclDi4Teb+T7w/f6JaDizYcdA0sEhFCPSZYJu6xOwRFN6TX881TNSiGYTd2H0PG0D+uTMcbZIyuYXA2Gt8imqHQnGwdFF+t9nQtpy3Yami/lG0M8INkpCxuhkfL4nL8EefkI5TDbMOV9TgDngAlqpKt6QkBAsCDArqGibTjCs3E0/vK24X6AdVShUMnOjyaNzpb51Q2zVxz1TuPJGOputn2KHr81VZNUhaIhczoCaWfA1+KVm0S+V1AUHdZgeuKdPq5mE0C3bM6jE2ATLE/QEXl3pF0NkT/XRz4F67Om/C1pPNUppajEzdVSMJc9tBi5cb44n3eFtDMTGHaJabu8YIsUAenkk2W6a3tf2s/qRZ4MMomUEf6+QkQ2u/423Y2QflZliKVm//2mZVxmTHkI7ZnVu9P92o2LvWl4vPWF+dom/4wgBW6giWhT+x2JfK+JGEvaihccvEVNmV3jZX8eiOO+k8QK2eIkqy6RC+1k3KMK2hkazlIqgnPHya+vDLcaktY6Rad6OUHdmfEuUe9VfR3oBOKu0fGKEirV5FDRLvBJ2aMIOpxCG1V6XxizaXFnuFMbn9yUZ7X9IBh0np+kM88HmVuLJThc2sqnX1Y4wsopzyd0cDgJjMmxi7GwRTfeddp7b0VI5SeMOtB7C4bjMeSgfSj9FEn5Su9CSs3BG35s33fTwi2JddGPfdQ
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(18002099003)(22082099003)(56012099003)(11063799006)(4143699003);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|56012099003|18002099003|22082099003|921020|11063799006;
+X-Microsoft-Antispam-Message-Info: fvk4BkZ4NIgBO33QoOHRuq1YeOxqpt/DC4/P4Ju1IjYdedCuY+it6HtRsh6hqmnPwyq78IyxgNMV1sucvYkRw0OiUUYoCjLbj7Q6tNdF0OPcQEJ3U1/ZvenT7+2RE7nd+v2hH80NK5buxqJ/8IP05Yuj1hFSgIJRwtm+XZorVFsVELzb7zxFxnj5XgucxRyL1rgfwYEeBEuauQEGDg62odWgkpLs6rvLpSOiacebFrAzGyc4Ws5eBUBsF7Cfx+4EHtPzHuN3ciIYwkWgOHKDF2ZPJvLOf7hcoD0PQxbpixo/hJTl2+ELemCce+TMxqzyBZMDFe0nDgFqKvEmFpp2xmE//qJ9NFWGzITi7cG8vsqBJOjBD2EU2lkhPOrpCIRYJRycM0xYsW+QOeRTAhxKJeXRuylVgLcLoVK0ZL8LqP4DElRX/QfNaQORX2yhSV9yWaAD/5xnZ5KEixmIz82X6Q/0ZojGODCCBVSPOn5baPNACDWUaacbY/FtkEkc0nSN6Hqye2V02t5jkh6QYrVfFiZvP0BeJHZZAP503T274TaGO6dIsTZC6gZJQmqg89OIMegWeTtc46XWju1gjz5xvwSYv2TCOEBVyTgb8ik5FcmpldZY8gTEy7JDzgZ7nEUroc5Dfjv8S+eWNzeR/lECXPJWPI5celhCbFE5tbHIfOoAl+DRzOOV7tSFLre09PEC9YoFuOsTuz51iSRiNy87RFcupVc9oK5xS/pn65wEmnk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(56012099003)(18002099003)(22082099003)(921020)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M2JsWnkrTVVlc01QQXNQS2lPenR4ZXE4RkE3cjlwbDg5VXJGZUJQajJQeVVp?=
- =?utf-8?B?SytyNkF0QjBOVXNhaU1aTTFRdHdmZzZIWmduSW11RDF6YmtQS1drdDUvRHJl?=
- =?utf-8?B?TXpGdU9DdWRvTkNGQzgvNUxtM0RhbjJlSmw5dXo5V2p5M09vbkIwUDFPcHE0?=
- =?utf-8?B?N2R3TWtUaU1DN01hN1ZUOGFiYTM2UGNKZjdQcTFZNlRzcm1tWHRNWWRSTmZI?=
- =?utf-8?B?eExWRk10MTcraFBzRVdtMWtFSTJQT2l6OXY0bUwzdmpWVU0wMk5LanFuS0la?=
- =?utf-8?B?dzNkSkY1bWdXRnVVVkc0bWFqTEdveTFGeUd1bjZOZkVGZVVESUNYME9RSklk?=
- =?utf-8?B?VEZVZFU2UTRuQXFETEl6ZXdWVndmbkpKSW84dzhOd20rNXB0SWtVR1JNSmY1?=
- =?utf-8?B?TC9UVmpjKzE2ZklzQ1VndXVkOEt0UWZmNG43Znl3ckdYYXlCMDdHcVhyeXFO?=
- =?utf-8?B?Nlk3UTgwdGExL3lmSFFHSkplNEZ0bitjZmE1ZDZUQVVzK3Nzb2VkS21LMmZL?=
- =?utf-8?B?cTNWSVl0V0huUENjQXhSS1JrczZrOWszWEY1OFpzSlVEVEVBbnRzdWJWMEJz?=
- =?utf-8?B?MFVENFRjOEE5Y2xyZFZHVnZ2TlVtVWRob2RYcmJ1dk1hMktkSlpON3F1RjB4?=
- =?utf-8?B?WnU3aTBBU0QwK1pxZGp3cWRlWG12aUFUeUZzOTlNRW96QjArZWxPWXJlbVVo?=
- =?utf-8?B?cVhQcW00bVhCNXdqUUhOa0QrTloxRmg3Q1hQSzhWRE9MakMrV2ZTVG9mZ2k5?=
- =?utf-8?B?SS9penRSaTRpOFRTRk9OOTFFL3R6YitTa01LTVJodXJxeExmRVVhak56bXJP?=
- =?utf-8?B?UG5nNXdaempweUVBVWljckp5a1VuZkY2aEpNeC9WUlZLYXJCSjdKU3JzSElE?=
- =?utf-8?B?Q2FBTnk5RlJHL0FhYVJHY3RWZHBLdTE4eTJCK0EvTGhhUmEwNXBJY1ZYMGZQ?=
- =?utf-8?B?d0o4cldxeDZhdFFaL1hYRmtvb3FRMVg4ckZ5eUo3K25lSGZ4ajJ3LzNtTHNE?=
- =?utf-8?B?Rkh0NW9CU1AyWTVXVmFtLzJrVFpWQThWdkhqTmhMY2ljeGdKcEhoUis3bVBS?=
- =?utf-8?B?Z3E0UW1paUUwZVdEL25nRklJMEcrU3hScUhIWkptRjg5YUp0ZHRodFdKNEM5?=
- =?utf-8?B?VjZGOFc2SVZiN2g2c0RJeXR2WmZDSkI1YUh2cVdCTWs1VkJ3ZEFIQ2NUdm11?=
- =?utf-8?B?cUFxeXJNa0c5T1FQZ0t3NzFDSHB5MDJCYlVrSGJORWJ6OVV2YklJZ3RkWG1S?=
- =?utf-8?B?S1JicC9CbzhmTVhtMEJTZ0ZjM2pxT3k2ZCsyTXUzM0l2UHpURHFaSCtSSUIw?=
- =?utf-8?B?d1JrY0RDUkZndTFlOGxDL2tjbnp5dTVlRHFaeTFmWDdWUjJ4Mm1LSSt2OTd6?=
- =?utf-8?B?UEw4SHFSK2hGY3UxZ3QwaGxzK1k5a0RSY1MyYmEwTmdMOCtjV3JFTW1jSThk?=
- =?utf-8?B?SkUwQ296YTF6NHZFbEdjNlA0OFhjdEtSdHlOSDBGWlpBUkc2VjRTalA4RERo?=
- =?utf-8?B?R1ZRaUhJUUVEWEZhUmN5bmR1ZGJNZTViSHIvWmE0OGYyL2hSYUcvWE9qcDE1?=
- =?utf-8?B?YTVZQ1J5SEFVYm1qeE4xY24yOGpIV1lwY1JHc0Q3U3NVS3Yva1kzWGtBcDVT?=
- =?utf-8?B?K2oyeG1BaEoya1pvZkZwbFdWZFdxWGxEMEQ3TUhmQU9sMEtCcmhIUU00NzNE?=
- =?utf-8?B?cG5sLy90Y0JXVm1BYzRDeE13bFVITEpOZlhMOHhXdEw0VkthUVRpckZPMTM3?=
- =?utf-8?B?VWJHa24zZ0RFZy94SW9oTVcwb2hua2tiMVp1NTJkajZYc2poczJtbi9KUTdl?=
- =?utf-8?B?aG9kNGlQM0ZpVGtwUUdNdjVMdXVZQXZJYmE0R0JZc1g3QVhTbGszTWtpcEc4?=
- =?utf-8?B?SjBiait5bkhtZU44VVhPdm9Wbmt5Rjl2VEpaeE9kL3RjYkNMZ1NVWkdYNmFT?=
- =?utf-8?B?SU5LQlVCYnlSVDEwN0U3bklvamdVQjBWb0NTY2RhSEV0cG1SMHJDTTNVMnVh?=
- =?utf-8?B?N1YzRDc5WUFGR3lkREVYUGkyeWNNbjFJcFJYSEtxREREVXhjVmZ0L1BtUTUw?=
- =?utf-8?B?YzNRRXNaQ1ExRWhZNHd6OC8vdTYxZFRmQW5XbkNQTnlJRXM5c2FNRDBuM1E1?=
- =?utf-8?B?RU9RQm1ldFpQQXZRaGRPblhKRTU2N3JGWmhXYng3R3k4ekhRTjRpSHF2T3hW?=
- =?utf-8?B?MmhqZUllS2F2U0QwcFB3Z0lLa3dUQnNjZVBFUHJOR3FNSXFxQnBDUDNQTHRh?=
- =?utf-8?B?dUcvS2tITlovR1lQNDZlUkRnTlhvVlROUEZCRnN5M3hra0gvZUIzWVYyeDYr?=
- =?utf-8?B?bk5vL2JsKytXTHhSblBybzNXUnovQmhKamdaRGFsUHo3Y29SUFlZUT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e656081-f206-4fb3-54b5-08deb64c5d05
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EzoO79otvkczF0euSy8xHhiVLDgmcxHIiPjUWpS7qOUrh6I/9YcUBDSILBIN?=
+ =?us-ascii?Q?zFzkBXNpSYn8HsgVUhP+TD3u75gzyinxZa9DdQyl2go9Wiz46YKs+q/nGpD4?=
+ =?us-ascii?Q?mjOaz3r+67klSCtKXOYGjSew0yu3H3Dgick8La7nvmHDpac/nfA8U4qMU6aF?=
+ =?us-ascii?Q?qwlZX0pCZH3dAfQki5YlKU4C4ntd8Qt4oTqWAg8rQN4y6iZoqvGNSl5GkLQw?=
+ =?us-ascii?Q?4YsbSgZTOCsEOXkk3KtyUOxcR7Ix4NTFebJcD9Xz9R75UcBYKNZOg+xfg3qL?=
+ =?us-ascii?Q?x8+GbsPUKml/Com+9znKJShndJyfW0W7nAnODzwSZCNbUcTwqyLlMMt8lFRF?=
+ =?us-ascii?Q?0H5uoeNI/b9wEAaH/53u7NAy/B4kbJMPC8nABHcHXO9YMpCgH3M1IE8S5vmb?=
+ =?us-ascii?Q?T++1OmEJkPmOIlWZfMZ2Du3lD40SJiRQi7geBVwHWCNvykbzS7pNtxhmnjMU?=
+ =?us-ascii?Q?JKC61RGCHn4l4CN2wfpJ5Rjz8FS02mr/npZp2StZjeMZKjk0PUU8vialiGEM?=
+ =?us-ascii?Q?JAJa4HhvPjy36WY9b0ZCHuJj34QplEtfduSEx3/JAbAvozgDvV7u3hmC2BEh?=
+ =?us-ascii?Q?7tvhT7uDU3/kIe4a524jgjLuYrVIknWBpNliwucq0FOgcem/OjaB0pePtRoR?=
+ =?us-ascii?Q?wDZzvvUWJz1uynpDt/KcYuOLAVXbTNrrc6StZ0xzFTLcYqfkM1HfmP/WZzAP?=
+ =?us-ascii?Q?TNtRuzdNdOfgUmOl2meH+1uUNbP6Q3geELFXlSTiW6XYcXndg2yHiMj4QnNr?=
+ =?us-ascii?Q?dBvLEoO+1VXF42Yph83VKvi/dk7LussHaQESPv1+FR7u923idHYmPITDl8lb?=
+ =?us-ascii?Q?lGRTjoPTN8ebFdI3U1CDuNxAt28g5UhR/4BzScPM2MuklMZCXQ9iuBLH3kJs?=
+ =?us-ascii?Q?C4drUWjPr7SimqYhPtPa6n5HQZI3Kfeh8lSfIKuVRtOJm4EgT2cJWBnt1gUL?=
+ =?us-ascii?Q?8RS53v4lwmrDM4oSFVDtFLn9UbVbAA3aVUDQP2YoR9Di/D6UTneckdkYU0Wc?=
+ =?us-ascii?Q?HFUdJsn3Z6auuyD0fvGPusOx8pteEQ4umiFpxKSijUv7ytof0QBPPNOOnZBp?=
+ =?us-ascii?Q?OLoYky9/tytyvvWQrd2RMnXnIRkmB4PdPh6uvsxyjZSyEsAYkrojPNCgvcuu?=
+ =?us-ascii?Q?9y/mt2ZDxPgMlNTYhdHcfFsKOwtEaTFr0/Zs5hiQ50zgrg9xFF376aPgXvsG?=
+ =?us-ascii?Q?riMXYA3MISCUNdsdZvs1q3S/Lj4W3Z8z13wOaE+0B0ZRGkY42x7BlR7J9hcm?=
+ =?us-ascii?Q?2OLQ1maqohybMqtimi1FLUQuIt2AjXVEZlvP1niZHmmgUF4iV9e4piiQ36XZ?=
+ =?us-ascii?Q?gNOkOPHHfSPnZrJOuvqoVz0qt0r/btGIXTWYXy8Ndtro7Rrye2lDfaqpNQHr?=
+ =?us-ascii?Q?qY7QyibaMPG3NFIsmbwd7YajUKTdsPsencg1cAHofUcc6lQqjqpF7o9DfDmK?=
+ =?us-ascii?Q?TVNPZRYP/JAQj+SZR0FsxTdaoiD5mNHOrBgH9o9tEs9yXED75LjmT/NZXQXg?=
+ =?us-ascii?Q?26gYJ/KWFiahGykof54aMCpR/+OK+VOcPKlLJeVAgV86/JeUeEPWAIv1LieG?=
+ =?us-ascii?Q?QpHPKMrKx0Kz2KHmdB80YT8nQK3vYGIosrOd9scXvt5vZ5UxsgT3gA57gDkF?=
+ =?us-ascii?Q?3E9Yvf3xiInrSSNxHh65Z4jzEIZ9erQbsUAVAGm/W/a2BhVXgwHlIE95GHFy?=
+ =?us-ascii?Q?ZpTQn/BEtBSxYoyTgyPEzGkTdbQbtITuoWRavKPBWGRMgP+ivztAHQIXgY4E?=
+ =?us-ascii?Q?Q6AHEGKdIKRXz9U6VJc6CUo/rzLI4CwEP1HByjdsum/uVJqmMWxc?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a81dc7d9-1562-4316-5eb6-08deb64c67f7
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 08:47:02.9082
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 08:47:21.4964
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IyuDU7I91wJiQPWnsEc4xU9A/3e6BmXoQBQn/Dv782TKI4XAKLRf1cglXTgimyoduub5X5lKBmuxAlQiBzNd8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7034
+X-MS-Exchange-CrossTenant-UserPrincipalName: oZYiCoimiqew8su1mTH8RZg/isrNGY8Wd287+0TTlzbBBLvImAIVGVWvcapYC7idsQI4o9sQwCKsrRl0Pw1ih0j8sXotAC0g8AzM2Qx76qA5YqIVybjVY11mSAfNyQUi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9796
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_014724_783826_89A0BC3F 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20260520_014726_817598_9CACD9DE 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,96 +152,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/20/2026 3:24 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On mer. 20 mai 2026 at 11:25, Jian Hu <jian.hu@amlogic.com> wrote:
->
->> On 5/14/2026 11:13 PM, Jerome Brunet wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On lun. 11 mai 2026 at 20:47, Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org> wrote:
->>>
->>>> From: Jian Hu <jian.hu@amlogic.com>
->>>>
->>>> l_detect controls the enable/disable of the PLL lock-detect module.
->>>>
->>>> For A9, the l_detect signal is active-high:
->>>> 0 -> Disable lock-detect module;
->>>> 1 -> Enable lock-detect module.
->>>>
->>>> Here, a flag CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH is added to handle cases
->>>> like A9, where the signal is active-high.
->>>>
->>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>>> ---
->>>>    drivers/clk/meson/clk-pll.c | 9 +++++++--
->>>>    drivers/clk/meson/clk-pll.h | 2 ++
->>>>    2 files changed, 9 insertions(+), 2 deletions(-)
->>>>
->>>> diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
->>>> index 1ea6579a760f..5a0bd75f85a9 100644
->>>> --- a/drivers/clk/meson/clk-pll.c
->>>> +++ b/drivers/clk/meson/clk-pll.c
->>>> @@ -388,8 +388,13 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
->>>>         }
->>>>
->>>>         if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
->>>> -             meson_parm_write(clk->map, &pll->l_detect, 1);
->>>> -             meson_parm_write(clk->map, &pll->l_detect, 0);
->>>> +             if (pll->flags & CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH) {
->>>> +                     meson_parm_write(clk->map, &pll->l_detect, 0);
->>>> +                     meson_parm_write(clk->map, &pll->l_detect, 1);
->>>> +             } else {
->>>> +                     meson_parm_write(clk->map, &pll->l_detect, 1);
->>>> +                     meson_parm_write(clk->map, &pll->l_detect, 0);
->>>> +             }
->>> I'm not a fan of this code duplication.
->>> Use the introduced CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH to compute the
->>> first value, then flip the bit.
->>
->> Ok, I will update this in the next version.
->>
->> Here is the updated code:
->>
->>          if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
->>                          meson_parm_write(clk->map, &pll->l_detect,
->>                          !(pll->flags &
->> CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH));
->>                          meson_parm_write(clk->map, &pll->l_detect,
->>                          !!(pll->flags &
->> CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH));
-> Please use a variable. Make it clean
+From: Sherry Sun <sherry.sun@nxp.com>
 
+Integrate the PCI pwrctrl framework into the pci-imx6 driver to provide
+standardized power management for PCIe devices.
 
-Ok, I will use a variable for it.
+Legacy regulator handling (vpcie-supply at controller level) is
+maintained for backward compatibility with existing device trees.
+New device trees should specify power supplies at the Root Port
+level to utilize the pwrctrl framework.
 
->>          }
->>
->>>>         }
->>>>
->>>>         if (meson_clk_pll_wait_lock(hw))
->>>> diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
->>>> index 949157fb7bf5..97b7c70376a3 100644
->>>> --- a/drivers/clk/meson/clk-pll.h
->>>> +++ b/drivers/clk/meson/clk-pll.h
->>>> @@ -29,6 +29,8 @@ struct pll_mult_range {
->>>>
->>>>    #define CLK_MESON_PLL_ROUND_CLOSEST  BIT(0)
->>>>    #define CLK_MESON_PLL_NOINIT_ENABLED BIT(1)
->>>> +/* l_detect signal is active-high */
->>>> +#define CLK_MESON_PLL_L_DETECT_ACTIVE_HIGH   BIT(2)
->>>>
->>>>    struct meson_clk_pll_data {
->>>>         struct parm en;
->>> --
->>> Jerome
->> Best regards,
->>
->> Jian
-> --
-> Jerome
-Best regards,
+Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+---
+ drivers/pci/controller/dwc/Kconfig    |  1 +
+ drivers/pci/controller/dwc/pci-imx6.c | 24 +++++++++++++++++++++++-
+ 2 files changed, 24 insertions(+), 1 deletion(-)
 
-Jian
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index 216ede0a867e..aa0b784c85b4 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -114,6 +114,7 @@ config PCI_IMX6_HOST
+ 	depends on PCI_MSI
+ 	select PCIE_DW_HOST
+ 	select PCI_IMX6
++	select PCI_PWRCTRL_GENERIC
+ 	help
+ 	  Enables support for the PCIe controller in the i.MX SoCs to
+ 	  work in Root Complex mode. The PCI controller on i.MX is based
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 773ab65b2afa..b137551871fc 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -20,6 +20,7 @@
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+ #include <linux/pci.h>
++#include <linux/pci-pwrctrl.h>
+ #include <linux/platform_device.h>
+ #include <linux/regmap.h>
+ #include <linux/regulator/consumer.h>
+@@ -1331,6 +1332,7 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 			return ret;
+ 	}
+ 
++	/* Legacy regulator handling for DT backward compatibility. */
+ 	if (imx_pcie->vpcie) {
+ 		ret = regulator_enable(imx_pcie->vpcie);
+ 		if (ret) {
+@@ -1340,10 +1342,22 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 		}
+ 	}
+ 
++	ret = pci_pwrctrl_create_devices(dev);
++	if (ret) {
++		dev_err(dev, "failed to create pwrctrl devices\n");
++		goto err_reg_disable;
++	}
++
++	ret = pci_pwrctrl_power_on_devices(dev);
++	if (ret) {
++		dev_err(dev, "failed to power on pwrctrl devices\n");
++		goto err_pwrctrl_destroy;
++	}
++
+ 	ret = imx_pcie_clk_enable(imx_pcie);
+ 	if (ret) {
+ 		dev_err(dev, "unable to enable pcie clocks: %d\n", ret);
+-		goto err_reg_disable;
++		goto err_pwrctrl_power_off;
+ 	}
+ 
+ 	if (pp->bridge && imx_check_flag(imx_pcie, IMX_PCIE_FLAG_HAS_LUT)) {
+@@ -1402,6 +1416,11 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
+ 	phy_exit(imx_pcie->phy);
+ err_clk_disable:
+ 	imx_pcie_clk_disable(imx_pcie);
++err_pwrctrl_power_off:
++	pci_pwrctrl_power_off_devices(dev);
++err_pwrctrl_destroy:
++	if (ret != -EPROBE_DEFER)
++		pci_pwrctrl_destroy_devices(dev);
+ err_reg_disable:
+ 	if (imx_pcie->vpcie)
+ 		regulator_disable(imx_pcie->vpcie);
+@@ -1420,6 +1439,7 @@ static void imx_pcie_host_exit(struct dw_pcie_rp *pp)
+ 	}
+ 	imx_pcie_clk_disable(imx_pcie);
+ 
++	pci_pwrctrl_power_off_devices(pci->dev);
+ 	if (imx_pcie->vpcie)
+ 		regulator_disable(imx_pcie->vpcie);
+ }
+@@ -1931,6 +1951,8 @@ static void imx_pcie_shutdown(struct platform_device *pdev)
+ 	/* bring down link, so bootloader gets clean state in case of reboot */
+ 	imx_pcie_assert_core_reset(imx_pcie);
+ 	imx_pcie_assert_perst(imx_pcie, true);
++	pci_pwrctrl_power_off_devices(&pdev->dev);
++	pci_pwrctrl_destroy_devices(&pdev->dev);
+ }
+ 
+ static const struct imx_pcie_drvdata drvdata[] = {
+-- 
+2.37.1
+
 
