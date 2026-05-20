@@ -4,75 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52607CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EB5FCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IHcIhsCGtp+zFimfYJhlVXiifBlHPpWiDOsOVHQEJSk=; b=REX00Gw7YhtCF4gBLxRPHJcx4c
-	Aym9v22i+zwUzhx7bJ9zkNc2VlxHjQyuYl0yJBdhAlMLyo7itGUplsVEZdrTHti/HOazBTIsfVO7G
-	CeKeoyHwcGLgODG+FUd2xPXALOH7UXAbdRAaEUUT0/jEiGq57LHCCXnlGcaAKqXE2+GB7xOCeBDIp
-	zVl3H46aStVVprZe+6NdJwdmbADuCO0aIEHeYq9JzyVQxtC8QMnrDZGe31mPP0srElcIqXcGcUpX0
-	Z0hO5Donkzcuuru5yySbGwRQwp0hzevXBqL6CqtuMjV+tmUX43WiZDJxly6ES1wiybZEGvfSc3M9E
-	zVsFOUxg==;
+	bh=0fmc0UBFCeNbgxZ/HVnRCiKiV+eLG7UsGLkScWP+yos=; b=agyDpD1cItqBwaw+qLXUOqGXa/
+	5uMg9E1+OiATZrSpfxerKOeTi/fj9peJseNOQC77jRQ5/u7rfVR4m62U/pC2M3FnsUZ6VClCugZ73
+	+//y+fod9LY12bMf7Z42H9e7KJNAtx5WJ5cJKCqMXAQqDNiHULHrSxztsak+3YS8lV3MO6j6O7QO0
+	1wZ9EHcN75i2SxE8nGpO4cSDwpay2EbwnIeQV/y8TLnT4jHqRlNp3yUz5XfgbEEEG7o4mUA5a3kbK
+	xz6872lbnU5CAquWt3mYR3PfZh8iOa9vo+stHOCOp48QsCm5oSWvscqssaMqqsFyLMWkGSGLjME2U
+	ebEa3yzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgT7-00000004cRH-0PXI;
-	Wed, 20 May 2026 12:56:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgT3-00000004cQE-3snd;
-	Wed, 20 May 2026 12:56:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1BEF4184E;
-	Wed, 20 May 2026 12:56:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 195301F000E9;
-	Wed, 20 May 2026 12:56:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779281768;
-	bh=IHcIhsCGtp+zFimfYJhlVXiifBlHPpWiDOsOVHQEJSk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=odw+ysF2fSGs0CYgREQtSvLkA7C1vnjLq+yTGH8uUyZQL5gIwy8l0sgOhMQFrvR/U
-	 uhiwWUqoaRwvkgB0dpBHlc/BUJ1q5+UUOAqod11j8iXpTYoTcMdKWbeJzuR6xMAqQ+
-	 OvTmgxH6iYYQP1hB8J7APtE6URdQBmktp1g/AVzlcWRxqXXJ8L/XVRnaqQo7zC7Xng
-	 ETzTvLZhkt1SvKxjfJTjvTYcMABci75fb1o2/YPfIpAPbJkiRERe++WMYYQiw7kmc/
-	 0b+T91xT73D5pkQltTZRR+EMWtVC4246AhUUcvutCmfPfiXeX8053NtPz89QYDfQc2
-	 xRaHqWoL1+79g==
-Date: Wed, 20 May 2026 13:55:58 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Suren Baghdasaryan <surenb@google.com>, Barry Song <baohua@kernel.org>, 
-	Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
-	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
-	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
-	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
-	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <ag2vKm3K00wCiwUV@lucifer>
-References: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <agxbq1TxJdniMQT3@lucifer>
- <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
+	id 1wPgZE-00000004dCp-0KQ8;
+	Wed, 20 May 2026 13:02:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPgZB-00000004dCB-3PTb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 13:02:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62A691516;
+	Wed, 20 May 2026 06:02:20 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E18A3F85F;
+	Wed, 20 May 2026 06:02:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779282145; bh=EouBC0yqkVKdLRVBmbSVOwjS0lsH3zO5YOwcji/96BI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SOF+eZMXF24B1OFynsRWIEETVfZ0f67BmjjkvJRHBGxpQrmojbkVsqClEWUipTkch
+	 t+BKe5MqCoHhbo6wv2ohysbnGpMe3aZPxCwR4fRh5SAzhvyWgo9pbK19+xcNFQhHcC
+	 X2zZhkc2C4d7z7D27aVI2NQ5p/qsqU/0+vWT3u/4=
+Date: Wed, 20 May 2026 14:02:08 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>, Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register
+ during a nested ERET or exception
+Message-ID: <ag2w0G34NycT2456@J2N7QTR9R3.cambridge.arm.com>
+References: <20260520085036.541666-1-maz@kernel.org>
+ <20260520085036.541666-3-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
+In-Reply-To: <20260520085036.541666-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_055610_014858_CAB80005 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20260520_060229_983784_9C8C887E 
+X-CRM114-Status: GOOD (  33.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +74,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 12:33:56PM +0200, David Hildenbrand (Arm) wrote:
-> On 5/19/26 14:53, Lorenzo Stoakes wrote:
-> > On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
-> >
-> >>>
-> >>> I think we either need to fix `fork()`, or keep the current
-> >>> behavior of dropping the VMA lock before performing I/O.
-> >>
-> >> I see. So, this problem arises from the fact that we are changing the
-> >> pagefaults requiring I/O operation to hold VMA lock...
-> >> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
-> >> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
-> >> anonymous and COW VMAs only while holding mmap_write_lock, preventing
-> >> any VMA modification. On the surface, that looks ok to me but I might
-> >> be missing some corner cases. If nobody sees any obvious issues, I
-> >> think it's worth a try.
-> >
-> > Not sure if you noticed but I did raise concerns ;)
-> >
-> > I wonder if you've confused the fault path and fork here, as I think Barry has
-> > been a little unclear on that.
-> >
-> > What's being suggested in this thread is to fundamentally change fork behaviour
-> > so it's different from the entire history of the kernel (or - presumably - at
-> > least recent history :)
-> I don't want fork() to become different in that regard.
+On Wed, May 20, 2026 at 09:50:36AM +0100, Marc Zyngier wrote:
+> When switching between L1 and L2, we save the old state using
+> kvm_arch_vcpu_put(), mutate the state in memory, then load the new
+> state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
+> and unbound, such that it can be lazily restored on a subsequent trap.
+> 
+> The FPSIMD/SVE state is shared by exception levels, and only a handful
+> of related control registers need to be changed when transitioning
+> between L1 and L2. The save/restore of the common state is needless
+> overhead, especially as trapping becomes exponentially more expensive
+> with nesting.
+> 
+> Avoid this overhead by leaving the common FPSIMD/SVE state live on the
+> CPU, and only switching the state that is distinct for L1 and L2:
+> 
+> - the trap controls: the effective values are recomputed on each entry
+>   into the guest to take the EL into account and merge the L0 and L1
+>   configuration if in a nested context, or directly use the L0 configuration
+>   in non-nested context (see __activate_traps()).
+> 
+> - the VL settings: the effective values are are also recomputed on each
+>   entry into the guest (see fpsimd_lazy_switch_to_guest()).
 >
-> There is already a slight difference with vs. without per-VMA locks, because
-> there is a window in-between us taking the write mmap_lock and all the per-VMA
-> locks. I raised that previously [1] and assumed that it is probably fine.
->
-> I also raised in the past why I think we must not allow concurrent page faults,
-> at least as soon as anonymous memory is involved [2].
->
-> ... and I raised that this is pretty much slower by design right now: "Well, the
-> design decision that CONFIG_PER_VMA_LOCK made for now to make page faults fast
-> and to make blocking any page faults from happening to  be slower ..." [3]
+> Since we appear to cover all bases, use the vcpu flags indicating the
+> handling of a nested ERET or exception delivery to avoid the whole FP
+> save/restore shenanigans. SME will have to be similarly dealt with when
+> it eventually gets supported.
+> 
+> For an EL1 L3 guest where L1 and L2 have this optimisation, this
+> results in at least a 10% wall clock reduction when running an I/O
+> heavy workload, generating a high rate of nested exceptions.
 
-Thanks for the background will read through! :)
+There's on additional thing that's important, but I forgot to mention
+last time: in the window between kvm_arch_vcpu_put() and
+kvm_arch_vcpu_load(), it's possible to take an interrupt, and for a
+softirq handler to try to use kernel mode NEON.
 
-But yeah I think the transition from !vma->anon_vma -> vma->anon_vma being a bit
-slow is kinda ok most page faults will of course have anon_vma populated.
+Due to that, kvm_arch_vcpu_put() must leave the L1 guest's maximum VL
+configured in the host's ZCR_ELx, such that the guest's state can be
+saved.
 
-Be interesting with CoW context, because we won't need to mmap read lock there
-at all :)
+That value is configured by fpsimd_lazy_switch_to_host(), so we just
+need to make sure that kvm_arch_vcpu_put() doesn't clobber it. I *think*
+that's fine today, but maybe that warrants a comment somewhere.
 
->
-> [1] https://lore.kernel.org/all/970295ab-e85d-7af3-76e6-df53a5c52f8b@redhat.com/
-> [2] https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
-> [3] https://lore.kernel.org/all/2efa2c89-3765-721d-2c3c-00590054aa5b@redhat.com/
->
-> --
-> Cheers,
->
-> David
+Other than that, this all looks good to me:
 
-Cheers, Lorenzo
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+
+Mark.
+
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/fpsimd.c | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> index 15e17aca1dec0..aca98752a6e42 100644
+> --- a/arch/arm64/kvm/fpsimd.c
+> +++ b/arch/arm64/kvm/fpsimd.c
+> @@ -28,6 +28,20 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+>  	if (!system_supports_fpsimd())
+>  		return;
+>  
+> +	/*
+> +	 * Avoid needless save/restore of the guest's common
+> +	 * FPSIMD/SVE/SME regs during transitions between L1/L2.
+> +	 *
+> +	 * These transitions only happens in a non-preemptible context
+> +	 * where the host regs have already been saved and unbound. The
+> +	 * live registers are either free or owned by the guest.
+> +	 */
+> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
+> +		WARN_ON_ONCE(host_owns_fp_regs());
+> +		return;
+> +	}
+> +
+>  	/*
+>  	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
+>  	 * that the host kernel is responsible for restoring this state upon
+> @@ -102,6 +116,15 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+>  {
+>  	unsigned long flags;
+>  
+> +	/*
+> +	 * See comment in kvm_arch_vcpu_load_fp().
+> +	 */
+> +	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+> +	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
+> +		WARN_ON_ONCE(host_owns_fp_regs());
+> +		return;
+> +	}
+> +
+>  	local_irq_save(flags);
+>  
+>  	if (guest_owns_fp_regs()) {
+> -- 
+> 2.47.3
+> 
 
