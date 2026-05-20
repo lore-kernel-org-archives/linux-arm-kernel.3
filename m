@@ -4,129 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F27CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1BDCD5BA6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uewrEsj0ZjEAk2x/Pk2ITnSJY3Gqt9vqmVdLwg6RP/I=; b=u2bQ7HK+BP3NYahUD3v9JM0JFk
-	EUFXGb8+PxfesVCxy3s8+2yoQaoCrzT2Uprth8IpbXBIA8T2fq/pijXcg6GcNUAtErdshPwCVT2NF
-	unvrviEHDkpQp/QX0cf6nJyY/f/WfdP8J7+UfGZ7YJn+MTYNVkTa7LHRjTkjIW/U9ESBEtaGp8IJQ
-	m06UziflOxcrYwpBJBDUbbon4jYKHOZ/rgSl5XP3wY7aeKyR8Ud7rTBtnYOkxVGWMpv4/IYeM9FPu
-	QVJCLibjFjYfmZ9EYmHfr4h9P0t6/unHJ7+staMjsTU1ugJPfEGPubJfC0EjHPjsqhbQbt4bUcmB+
-	R7BdQA2Q==;
+	bh=Y73/712ucFBf0Y4l8UyabCLqbd4ZcvBJJwObvbr5Gwo=; b=MOD0HN+AcYVvWTT5Fg8ADsL0T+
+	Jv1CTt6WPs6lxYrjIt6+rWP3Hqm0kIAAX4a5H3I+wOyWKm2utCEuv7TU/XoUn5oe/SLoMpsosv4eU
+	cWwSIt48IeZGXrvhjCzaobtbMpzhmKmO/f8UejqXLndU4PLaYMUlx54fYs7w9ds99d2efD2bz6d5H
+	T2aKE7UyM5TVQOD1lpGcEGEHlggccnxKAZvkmU6rCsdLOimDwSHVXJvDGOSZfsy8gYHNtLcnKmwU0
+	uA4uWkKwsLNmAJv98avMf4WVdW4CIGYkO+KEvJb2hmfJSL1F7AAOOhLWxlesPGbEvSE7P0N6dYYEI
+	j/eH9n0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd65-0000000473E-1Yhm;
-	Wed, 20 May 2026 09:20:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wPd6G-000000047FL-2ODO;
+	Wed, 20 May 2026 09:20:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd63-0000000470n-3S9t
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 May 2026 09:20:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=uewrEsj0ZjEAk2x/Pk2ITnSJY3Gqt9vqmVdLwg6RP/I=; b=MdJoLlU5kgukdaMEPeB2SwmJ0g
-	vMa7bgAp0ZMh8ShCJ79vBkvnmNjss/l575Yy4BDn96vhH2onE50ePL5/MFMB+pyoqLIVxzlHt8Zuw
-	JFZzNqhyrTFFSsBeaPjzhNMPgj2NXUBJudXgQDB7GR0jET3bbLvWdB+xul9lHBCyLq+c0743EmS/Q
-	x10l+sT/lRZ57ywLxIEUD++Waq4ilyxTsRnmGHVkE2y7WZbNU9maeAvmn6feqDWOvAKiCYBII3OjP
-	0s13fjBy8wU+LLSqHJaVtjgvSkN1NjulcY1JvUUPR9okjprLbUTdOoDENf3ySqNbZXMN7/pXWRUbJ
-	wYKJ+X9Q==;
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd5w-0000000GKRV-1jZd
+	id 1wPd67-00000004764-0ga6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:08 +0000
-Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-82f9fdfc965so2046577b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 02:20:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779268802; x=1779873602; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uewrEsj0ZjEAk2x/Pk2ITnSJY3Gqt9vqmVdLwg6RP/I=;
-        b=qqQep14R8ot0SxRFzxEURMD6fXKma83dOZJEDjxEJ9oDwmhfRLbujJBaCjWzSF0swu
-         vfv2vQNbK2zk2UXBa7ihXxSEH86CaBayUsZYqYdW5G/hKGHUi3xdAyfXmqMy+zE3BHJH
-         FaMd03++s34WhHk/WtWFOOUvErcdZNLJS+tyawnHDzVgglBZJRuwEzyDPUctwmvCuCKu
-         PcQcrb2lKp8efuqUqgIYA7i7Zwv14s+wknq0sFkcV53b0pDAW5SIRON/nWUKwEEFoeYs
-         /D57ml8t6NWsCXIrWSsUPPh/FMME7LAdRlBmMTFJOJsN+PmEhBddRxvZ9pZZWpe4XINR
-         6Wlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779268802; x=1779873602;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=uewrEsj0ZjEAk2x/Pk2ITnSJY3Gqt9vqmVdLwg6RP/I=;
-        b=C3scFRHyxaPM2MatJ9f4e0btI2dlHfRDMyBAHGJL8qwi4rS76GnwFcOBAp7+BVsWCO
-         gAeDGfMT7HsKLegXerPTM1n8wZgfleqq/6p/qIf7xis0KZliSxhOmvjQPaowAUiIv9nQ
-         Rk4keGilo8ExifrupI0Tvk6wNcyIV7I4LU3GcuI/X9V7oBuzaisiu96vzCxRsnob3JuO
-         sTS/KV4XlTvQq4rhx3uRVfVeCzu8+sgWitbdTJS3vaxTB2G/vnFYbipGGuSHKA9kDb4l
-         Ufwv2Ux6MFuJz/m6XmaBnv2hdb91m0KooWuU1euKDc2n7JzZujMLhS+TUMFfQgeUsJE9
-         8j4A==
-X-Gm-Message-State: AOJu0YzQkKB/esvheNWkVSm5IY1b9XmG/SOf1ZbiDJY0PeFyq3sl3FOz
-	kj0V7w9N1TFyeswuwXMMZSUy/UXbdcjHKrjn8CxyRRSoKVk4Au/NtyYv1n0l0qCFIPzjNpMR
-X-Gm-Gg: Acq92OG/s5isDNq2ULvpZS69ayRnsQ6lR+IJ4F+kOrzuKH1IRfgOZrM56HSZ4O01yzn
-	BQAMeVKJL9q/PHHBQOjhzG4pz5rLJFULXDKGJZrs2c8sslwThLISS8bPEc3aIMz1sl1e8gQ/qP1
-	9+NUqs9QVTp/1RfIHx/nxonJGDitj91Y7ViB/sNqesh25Y1gXgxMfERkX/ePm6X67Lx5F+1ZvX3
-	emRCe45OWw6+cKgVSMSS4tRhjCc9aobLZ4JBLMFp9cwfrIu5C97RvAOC432ifSlic53yT4xT/wP
-	Joqq1Jq9GRmRUXLF/NDzHLsJ7ry6KRPs/CSeCfmdkAWjti7GGYEOWU6JDQXIchSW6b4qGqqZTlt
-	hLOD+RxlfTddUiynneANRl2coai4gqQTZYj1YaSRTGfBkuZtsRQ9U8rMq2yvMSJtrgFh73w7ScK
-	Y4Dsii0jdpeRClQb3MxLjM5u0SmcFhTC3IDT5xTQ==
-X-Received: by 2002:a05:6a00:1954:b0:835:366f:5da2 with SMTP id d2e1a72fcca58-83f33d80937mr23397364b3a.37.1779268802457;
-        Wed, 20 May 2026 02:20:02 -0700 (PDT)
-Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f63bb986dsm10208967b3a.48.2026.05.20.02.19.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 02:20:02 -0700 (PDT)
-From: Wandun Chen <chenwandun1@gmail.com>
-X-Google-Original-From: Wandun Chen <chenwandun@lixiang.com>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	iommu@lists.linux.dev,
-	zhaomeijing@lixiang.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	robh@kernel.org,
-	saravanak@kernel.org,
-	akpm@linux-foundation.org,
-	bhe@redhat.com,
-	rppt@kernel.org,
-	pasha.tatashin@soleen.com,
-	pratyush@kernel.org,
-	ruirui.yang@linux.dev,
-	m.szyprowski@samsung.com,
-	robin.murphy@arm.com,
-	leitao@debian.org,
-	kees@kernel.org,
-	coxu@redhat.com,
-	tangyouling@kylinos.cn,
-	songshuaishuai@tinylab.org
-Subject: [PATCH v2 6/8] arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
-Date: Wed, 20 May 2026 17:18:42 +0800
-Message-ID: <20260520091844.592753-7-chenwandun@lixiang.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260520091844.592753-1-chenwandun@lixiang.com>
-References: <20260520091844.592753-1-chenwandun@lixiang.com>
+	Wed, 20 May 2026 09:20:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C5D9600CB;
+	Wed, 20 May 2026 09:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50AF61F00893;
+	Wed, 20 May 2026 09:20:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779268814;
+	bh=Y73/712ucFBf0Y4l8UyabCLqbd4ZcvBJJwObvbr5Gwo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=WdqPYev4RKpxkjPdnUoKTYgTJ6CCx5iyuXSvynvIT7xPJmh/igebYdS23I2FIw/Ld
+	 sboGJKLqQt5/8Oe51J7rkzngQio1M8MLOFaxVikK9fDAO9IT1/Vu6d20J+P9ABcwg6
+	 oogdRufGiU1NvydjJHWo7xsVgrItXQUVG70wzC4Dp5y99agDpt2wGO1kWNvmvR9PGg
+	 r2blA3+QvNsbvGaAI0uhK1w1q09dqFyrhfV+3g3MHXKDCFHy1FsQJPowZmSuwelKLD
+	 wZ/FRWbWlZJbX/Tx33B+7VtoiB9ZKovN/CGC3T0aIVvaJnw0TqwYJqapcOSUlruc+c
+	 ZOhclw1KbpEQQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPd64-00000004IaV-21VV;
+	Wed, 20 May 2026 09:20:12 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Sascha Bischoff <sascha.bischoff@arm.com>
+Subject: [PATCH v2 11/18] KVM: arm64: vgic-v5: Atomically assign bits to PPI DVI bitmap
+Date: Wed, 20 May 2026 10:19:42 +0100
+Message-ID: <20260520091949.542365-12-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
+References: <20260520091949.542365-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_102007_391307_F10A7B13 
-X-CRM114-Status: GOOD (  12.16  )
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,57 +83,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wandun Chen <chenwandun1@gmail.com>
+From: Sascha Bischoff <sascha.bischoff@arm.com>
 
-From: Wandun Chen <chenwandun@lixiang.com>
+For GICv5 guests we make use of the DVI mechanism for PPIs where
+possible.  When mapping a virtual irq to a physical one for a GICv5
+guest, the corresponding bit in the DVI bitmap is set. When unmapping,
+said bit is cleared again. The key user of this mechanism is the arch
+timer.
 
-Reserved memory regions are excluded from vmcore by default unless
-marked dumpable. Honor the dumpable flag to filter out device firmware
-regions (e.g., GPU, DSP, modem) reserved via device tree, since they
-typically contain data not useful for kernel crash analysis and can
-significantly increase vmcore size.
+The existing code used the non-atomic __assign_bit() rather than doing
+the update atomically. This could technically result in losing state
+if a second PPI's DVI bit were being manipulated concurrently. Each
+individual bit within the DVI bitmap is guarded using
+vgic_irq->irq_lock, but there's no locking for the overall
+bitmap. Therefore, switch to using the atomic assign_bit() function
+instead.
 
-Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
-pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
-
-Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
+Fixes: 5a98d0e17e59 ("KVM: arm64: gic-v5: Implement direct injection of PPIs")
+Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/kvm/vgic/vgic-v5.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index e31fabed378a..1d65320c6ba4 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -17,6 +17,7 @@
- #include <linux/memblock.h>
- #include <linux/of.h>
- #include <linux/of_fdt.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/slab.h>
- #include <linux/string.h>
- #include <linux/types.h>
-@@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 	nr_ranges = 2; /* for exclusion of crashkernel region */
- 	for_each_mem_range(i, &start, &end)
- 		nr_ranges++;
-+	nr_ranges += of_reserved_mem_kdump_nr_ranges();
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index 7916bd8d564ef..d4789ff3e7402 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -272,7 +272,7 @@ void vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, struct vgic_irq *irq, bool dvi)
+ 	lockdep_assert_held(&irq->irq_lock);
  
- 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
- 	if (!cmem)
-@@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 			goto out;
- 	}
+ 	ppi = vgic_v5_get_hwirq_id(irq->intid);
+-	__assign_bit(ppi, cpu_if->vgic_ppi_dvir, dvi);
++	assign_bit(ppi, cpu_if->vgic_ppi_dvir, dvi);
+ }
  
-+	ret = of_reserved_mem_kdump_exclude(cmem);
-+	if (ret)
-+		goto out;
-+
- 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
- 
- out:
+ static const struct irq_ops vgic_v5_ppi_irq_ops = {
 -- 
-2.43.0
+2.47.3
 
 
