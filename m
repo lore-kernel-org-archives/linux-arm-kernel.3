@@ -4,130 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AE41CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D78C9CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 07:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tvh0wIco7kYYWYvMmKN0sPfccTPBnSRz0UdS2KXrzhU=; b=kLOuGAqdSAAtiExtHGD5llzJR0
-	wEVFyCcQzfHNTRYg4HtlUEb2760tJrXlGdM2iM9QRF9jXAb9CPn7jVI1MB4W8pClY23Uk3t2Da47f
-	sRaGwFvSeI4pTBijefUh9qtNgbO68SDfHDp5G1uvrqjDsit2Y8oDv3eVkaC1C1/bAFKXfKpNJApub
-	cAacApusFIyjQjkm6s2POP/rrNxheZ9j7FDWpXWYZXQEBUK8CVbTtK2yv1ykIbCy29mOiBXLiLOnC
-	e4R8brIJ+XXVa9q17IkKIapPoW3eujXuihMvfPM3viV4qFLSn7dRctfbUJJpbF9K0EdUPPwvKccKC
-	0Tt0uMsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fhOeUuTRNmh6V1MPjm98rvZOq1whC5w7W5ClRL6ssKA=; b=1P1VFDUAvi6WxEQ3qD1HpEJ+XD
+	fOcaBr7LJZhb5GRuk2ygru6k8QJojcyyFBuxrTOIOBZUaHaI8cSXbFRjipF4TBIagrTOqkGFdHjlv
+	mphHHL82WHTuSKL06W7nRnFNVZkdlZtv5oyzC9WlA9nASaDfyTMhGaCbN2+9Lzdpn7pZqkl9hTNDV
+	Ynk6Fz2Ap1qq4RO9yOCZ6o3wnJ9xUS4c6re7+aOCyMULbgV3MGW5o/faXXoJWk4JD6jHvMPooCILy
+	Ewb4GfSOfWDcuGOhMTESsbGyNnBKwGxa2iiWct611Taze8e0ToFS6HORCfDUM8BW/dHIjKB6fdqY8
+	q/EUvtvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPbEG-00000003mAx-0NUx;
-	Wed, 20 May 2026 07:20:32 +0000
-Received: from mail-westeuropeazon11010001.outbound.protection.outlook.com ([52.101.69.1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wPbEj-00000003mGy-1QFS;
+	Wed, 20 May 2026 07:21:01 +0000
+Received: from mail-northcentralusazon11010063.outbound.protection.outlook.com ([52.101.193.63] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPbE9-00000003mAD-3enV
+	id 1wPbEg-00000003mG6-3x2h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 07:20:31 +0000
+	Wed, 20 May 2026 07:21:00 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=waPrQCba/JKJf4sMH/aLmbIoSR7IIL8KoqWJBML3Ivmy3z7XFtFx/4pOKr+GS855CfHECOvpBjw8cfd3vsQRn7ctBqXt7ClBGjU1wgeRIaz2gcjKef068Wit6PNnPKkQumhTJih85SxqK4XLFCzrUjKWQHi1gLrkYS+fyMBKm5UGzy2PKrbnwEh+x+kmfX4u/53rLGInnwwY+Vmr1d3ugDcSg3ab+6Va8dRR/FYmM7S5NsI3RJiAg3ix96Kaws4q72xJYe545JqwwOhYr6FG8GZaVxtOce+EuR8JCdcv4mEQg95h2ro9DPAw7WjgRGnAKpEej51yvOCpJeflEBzkeg==
+ b=kzxf5+FAkLaHaXRW5TYPrePIKYGLCtcdCGnld9H1DNgeD2BZi8NQrYlLWNKlKahvGDylcTbV6d3CEl0JcLfNFM0aDgxp6UFuB4UzT6c/selIqoxVLc13Yqjwe5yKP7MbBxJD+8FbAqSgUZU0BZN0LNMz9UgIS7iN900GP7+63ISoROfnsrj38MY7QlkVhCiUj4Pb9r9TruEVtvX15tKOG/UEMt/LkoFdEcgrwZQovBBbfoHd/9dD0BYbA6tqFdCpHK4L+9QSIA0JYZRB4X/h/qfbulhm9rQxK5rntNVgOqopvzBqXPTkU0skocdYedtNV/SEeNljyjp53cH3fBcqIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tvh0wIco7kYYWYvMmKN0sPfccTPBnSRz0UdS2KXrzhU=;
- b=FfYcnEuF/MKBIp25AV5PTdMA8wj9yHCMBpNuPXYRZwMVq3hfLMcl17CvrsDydOixMzgRzik1ohYkjPAzvsvtwlAwT1PR11b9Awuo5nr3e+4gx8LAPfmkjGiHaBgWFG3GQRBN4W3d6WFcYItoZ9igRrjbzxEzlRokwHiVoTtqNra6bmpcyHsizsoyvGO9SHM5kexLfPq7pfSg7cD9AxFJBIFaxGkbfQvSDnwhB25vPZgHlzuBnktFDjRYSUMFLwmMb1/xKL/RLcPnKR3cqnMXBs+dOXk+abv/uhGz/oxVrj11z98fbGObbZ+wAXC7XJJ5MvURkvs2+6862Dig5lu/pQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=fhOeUuTRNmh6V1MPjm98rvZOq1whC5w7W5ClRL6ssKA=;
+ b=hYC8Gc8BGIgGoaX4qvvkZGkWaHOLjsny3lK6oZ0pgPJUUzI0ZyiR2zeBQz6d+qEyt3HnL/+GenlFJid9TgCPngaO7mPYPFybC3styY2X7jyabqKRxSMjg8nGbaQ3mTOJ7Z9mCI1l0Hb4RUkuv+36SUKJKhb/LNyjI2e+AKl2IFfKaJS+DJljq9mPD96l/lwMg07bJQ9VX9h8vjFnWOMoI8Cp9lK4P5CLTRD6MCRDP+iQ0whwyI3/eiNGIQuvaSwZktY5HmDjaKSg9zmQeqftnlJIHdjnMnhiUZBEpZu/0sfth8KmxfgzWigbCKoJeL7XRsnF2LQwAXzA8/+TME8zUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tvh0wIco7kYYWYvMmKN0sPfccTPBnSRz0UdS2KXrzhU=;
- b=GphoN63sBAkCjGHTmjZGz4bj4Efgklvi1Fc0lAZ6aacI3GW9XvpoKxUULY9yqwb26IePsAgQCZHgnSQNOfls0iMVPHYotvtJUl/T81rFy2s2QbV00222F2mK7yjkimDYDJIfax2ylpQzQudR0CebrUyGued5BfDMkXZAMlu1b3PmLgOfxkLynNoEpx2u2nT1k4tImfBluzFTHxNFILzajoL/ul6W7jgFEgyv62zs+DnHEFCd8HtzcKGMJ9Q22yKBxPg+KO92Rg5Agu4uv6VkatRrtYKjITLi01MQQdOaxjXP9IFbIPeS1lCMktU5HbACULGf0U88QUuhqaYFHgISCQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14) by VI0PR04MB10392.eurprd04.prod.outlook.com
- (2603:10a6:800:21b::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
- 2026 07:20:18 +0000
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0048.013; Wed, 20 May 2026
- 07:20:18 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v8] arm64: dts: imx95: Correct PCIe outbound address space configuration
-Date: Wed, 20 May 2026 15:22:28 +0800
-Message-Id: <20260520072228.2274790-1-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0240.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::12) To GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14)
+ bh=fhOeUuTRNmh6V1MPjm98rvZOq1whC5w7W5ClRL6ssKA=;
+ b=IUmdT6jPNw75EotYvlee/ot81GmNQz/cU3rhSg2sKNme7fnbwrMwlO5kuQrehjRGm1/R1Q3Xrrjkh1LznLZtfI7GJ1DGhAv4I2PywqSMT7ECxvbKHAAoiPg3UdypsLZbLVetqYA80cp1cCAKVvQsmX+7FwlVQ3mlFHlkHdtyYQqY22XySNLII1W/84esUSyNr5yU6I+lT0FhgqmB0ya1wjp3raQPxpaCR8GQT8zrtoeIEUGZBX2gLTQUP0YuKI5uvJxc6R1KADqA0CKAdqQiraD6nOrcifTw3oPTYW8+laCBAORM1kuexSIp7V6XM8FKMtbXmWFAHGMFc1+ZIQS3/w==
+Received: from SJ0PR03CA0206.namprd03.prod.outlook.com (2603:10b6:a03:2ef::31)
+ by DS0PR12MB7926.namprd12.prod.outlook.com (2603:10b6:8:14a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.21; Wed, 20 May
+ 2026 07:20:47 +0000
+Received: from SJ1PEPF00002324.namprd03.prod.outlook.com
+ (2603:10b6:a03:2ef:cafe::55) by SJ0PR03CA0206.outlook.office365.com
+ (2603:10b6:a03:2ef::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.14 via Frontend Transport; Wed, 20
+ May 2026 07:20:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ1PEPF00002324.mail.protection.outlook.com (10.167.242.87) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 07:20:46 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
+ 2026 00:20:29 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
+ 2026 00:20:29 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 20 May 2026 00:20:27 -0700
+Date: Wed, 20 May 2026 00:20:25 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Rafael J .
+ Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, "Pranjal
+ Shrivastava" <praan@google.com>, Mostafa Saleh <smostafa@google.com>, Lu
+ Baolu <baolu.lu@linux.intel.com>, Kevin Tian <kevin.tian@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
+	<xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH v4 11/24] iommu: Add iommu_report_device_broken() to
+ quarantine a broken device
+Message-ID: <ag1guf1fHg4fE7Lw@Asurada-Nvidia>
+References: <cover.1779161849.git.nicolinc@nvidia.com>
+ <745da1a819eb943f2519e660c8bcfde715885c6c.1779161849.git.nicolinc@nvidia.com>
+ <20260519120737.GQ787748@nvidia.com>
+ <agysAyreCY4huf0I@Asurada-Nvidia>
+ <20260519191626.GJ3602937@nvidia.com>
+ <agzkldmlG1cuDkj4@Asurada-Nvidia>
+ <20260519230204.GM3602937@nvidia.com>
+ <agz+kL2S8kcgHywG@Asurada-Nvidia>
+ <20260520003023.GR3602937@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260520003023.GR3602937@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB12019:EE_|VI0PR04MB10392:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3b1ec807-1c4a-45f6-a43e-08deb6403efe
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002324:EE_|DS0PR12MB7926:EE_
+X-MS-Office365-Filtering-Correlation-Id: e4f19cb0-812d-4ce0-c452-08deb6404fde
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|52116014|38350700014|11063799006|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: s+jGk1p2s0jntGe4VzC0PxY6XnkJ6eoNEb1F/0n1JQf/D7hmGNA+8FPpvSiiWSLsn1ORs1O6pWk3lhKY0WU/9k68+RugSLlsFxr+1djeUdQZucmlAPKPOXAyg2mGLFot7mshmlNXVGwscmwWfF0bPqqw1yheFHC7IPnq/LS60B+nT+RLXFIQcNzCCDlpCtIGpno2pYxTfqrNCvF5tk3zYLRkvJ7iXz1281k9XEKJWW6ct/nDMJZaHJeQPdJMKPQx4TC7WG+NojB8KuRzNuqzoGP+GfsgCa+/qh7ueWiKTGo29iKLkINq9/WhLZtKffnJD+JpCJSIqSh/xkO+aQEEyEDITl/YvHgkQ+eAVUhNYfwWOjYG7d9o6mHnRkNZxlVQjTjbY1EBjKQYCNTq0jtyZG0VoOdEBWs9mlv8yaFge66jKUjfw9QFHFaaRLMz1cMAZok0Co9nB6TgjW6K7QX4ArlKLOR+nRZBNSulK5bp5qLiVQiVWdp6KOcB3+8MmUewRr3k336GOhP9IBQjVvFdfag/4hWu+V8eqBMbsrR4WcKWf9mjdPe6PCG0XW4upCGAstbKmdYuJUAiVw3Dsu3z+MBGVslMldOUxRDxT06oOQol3XL53CNpKpgfOUA/AFw1CMzSYv0VuvLLdf1JFK4mKdmgv4YgP3iZUcJUw0QlTDmEMisyAANUKSfIEiUpnzwV5S/luG6zJYZbLzKAcYxZLTZd6+gWTDiG0tMlgglCyUPQJ2mjhWUWx2kVwup0Nyju
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(52116014)(38350700014)(11063799006)(18002099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|82310400026|1800799024|376014|18002099003|56012099003|22082099003|11063799006|4143699003|3023799007;
+X-Microsoft-Antispam-Message-Info: U8MouGReJ5xTr6TUP3fO7Y6sAtBHv5c1Vk+eyN4pD8EV2tbUT5lzqM/wQA0QTVBgQ4rk74f0fUzeGhpfOtoWCBPv20thsa0f7YrP8BtvZP3WNur1tGYxTPhqC+iq7gjs07Yrx+bklx5kL5t8sAsfc0ar/PSpuTtwjrXHBd1Ors5uDv1D6r+EqvlyasXFutEk7DQc5PGL7wxKUUoS7YvG0oGpGBP7f4F0gjqIDb3yo7cE4Ubb8Gvh+GYQi3mDbK345WgaflovCU+cUdvssLL9qbWdxG/TaNOsviQVq7vkZxqRrKSMTQll5gRoDjP3xtJUH+sIBDDHrlzYBpW+WbDnksgPZ1PrPZuiy07x3exKNoz7Y1cArPaUEyHCVT4ZU5BKWoqzZVEa550ex6VtT0wZ+26kgMlY6eucz9MWLsL/mzttupMnZRfJ369wciN9V/N+P60qBnFmwEmNoHJcL2MwNfLHZBOUce9PkFqTCecHAd5sTbp8wqK3e3bjOZq28xxqeKmdIi5trTBkFwI6ohUARGq8ROZqZ0BgXaAeFXnkIWt3g+6LTb5hSBKgj+WvlnQv8aBfUi8vViJMDGUcy8SnDvV87vQo2YLphCldwV9hD0u38AWSdNcpWqzQBSNqUZRmP14gA5C23gpQsKFyMJw1vTqJumPPrvkIMPGJ8eSlPXHosEX2UN1Rti4kyIyA2lPuFc6JysgXXZXA7LIaopaLNbmdcYUNFaXaAMfVg/Gz9VE=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(82310400026)(1800799024)(376014)(18002099003)(56012099003)(22082099003)(11063799006)(4143699003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4oO2sf0sMpmEH5P9WKQq/84HTWoCWC1qGMIGlC0cPv5sWSC3+l6Nhmv+YQqv?=
- =?us-ascii?Q?Hv1c6cTiO2f3Xphdw4xITpjxEm7nhIiwwYAw88LR4HEsqptox10S+6ZF+uew?=
- =?us-ascii?Q?arDWQq0cgJfahW/XkC0I5d4zoFsUgX7WIDdVepC0RhiCSqoWs0abqrL5DLEp?=
- =?us-ascii?Q?HMEPhBeiYmND6m14RuLjkqZXhmDKXsAwFh47krgl3BqV57utAm/LvtAxxOor?=
- =?us-ascii?Q?bbRmfr6gM1gD6DH9NhLDhe5babd6LuSfe+HnquIhRLr7+s2zNiTIzjSqIV8F?=
- =?us-ascii?Q?512A34Yb/gGoYKyV38xHPQxH1p9JlTBjkRloNEIRgH+ysyuAIW4hZ6pp+AVA?=
- =?us-ascii?Q?mL9k9uaJwhPau2ueIjGXN36GQumsrMAGsUKnI5oxvnltEx+G7ZBb65/Zan5n?=
- =?us-ascii?Q?lHM9r2pEKd+XbGyjRv/TuDZLEY8sQ986aO8dZr30dgRwO0h7xG0oc1CCPe5v?=
- =?us-ascii?Q?o6QJtIeLk/LDiFLyDYyRDbRwGqQQBJvnQUqorOBZ1uI6dt0H3a5xzPuD/nwI?=
- =?us-ascii?Q?TKZeiyiynrgZ57xYCj/yCY8TMfmaDdsvB66R1WB2moU4ys6wEcsXw9L/Ik8u?=
- =?us-ascii?Q?PC0gC+HeZgjY1mDoq2BX+pfYw63W0x/BjlQVVQ9wYATOdtzkTBq5elxMbJLJ?=
- =?us-ascii?Q?/6rroclBC5PvXH3b9bKy8XF0SdYOYu7ZkL9UBrr3QHzk08i8cR2qPFdwLkb4?=
- =?us-ascii?Q?GqzCCn2o7rWZrlIYcZw78Bi11ZnvYd5ujzFMa9Q75G6ptmqD6LCQz+4NJjvG?=
- =?us-ascii?Q?Fou1cZABkhZSmi9e7DhCi1grtesh9r+/18K63R+WIFV7oyLh/82x6jzPnPsV?=
- =?us-ascii?Q?sAN/VP6gN1TGUJS0CH+ObYJ7de0OAT7m1tcqGXzZhNr8ViM1UERveSrniC+L?=
- =?us-ascii?Q?xzG/IYUI1IeYxrDHXjqE+cOiV8c7//6nDDGpten05WlnhsH5z1ABtXRNoZ3c?=
- =?us-ascii?Q?e/FMmlX+7cwabcSD7kLaWvN8M41V12LqVJDUg6P7dw4+WwvaCF8dHGO3Hfjn?=
- =?us-ascii?Q?y/HVzbwjd1jh1F+V4sRj4JF/aHNYt2b19WuTqhOs1hqcQ35sDqhjchBiOI8k?=
- =?us-ascii?Q?GDOZZybHb4EFb1LdVx+sZs9FippPQH7il3exw78Li39mMzYdaMAkoyVzLhIc?=
- =?us-ascii?Q?Ty4QfUYZOFXnWGJEBXro7Dfp7UN8tjHXLEktz+w83N0KksRLEEn3+Y1Ll4mW?=
- =?us-ascii?Q?QXzA3HEEy9PrrRXlAk5zKqdCuDaSq5FgoXVzAzjXTTSWSNl00FrAslc3emOn?=
- =?us-ascii?Q?xQrNftdOe356ktXzOaTjpj9PmgR0UaNRlUzD0jlJnmXhPcnJhfUuYbN/nW+i?=
- =?us-ascii?Q?rN2x4lJ2tlbe+HMKUGyftSBc92nD9OpksbkD5oq9QQm2SbncM+lmLHnD3zkR?=
- =?us-ascii?Q?7E/We61ftrGbXvhtjyeWAqK5CUrzTV5deK1K4qhXJytHeaZRac4Qw6JgwUkS?=
- =?us-ascii?Q?uVhQzMeKy5U5Aj7sMPzRZ0x0tU/MKlFsExFksFoUv03XsAf1e/wRuBwHM4sU?=
- =?us-ascii?Q?MSqSW+MjJMFta6ImG2rGEV8A+CNtHer+WbtVfC5MAsTeTqUli4rgU5XpEl4A?=
- =?us-ascii?Q?RO5HSE6IH4MjmPZLgoeoOcLKAeRohThPdPZdetYQWa3HLDszYUWrh0ptjfzm?=
- =?us-ascii?Q?+w1ugDgmIN3Ng+UhcKOUUShrc0oesSpmOAb61qS5pYK2t/AaDvuCNx482zn0?=
- =?us-ascii?Q?VjuJ8itFDCbYtgCZQ9PT3ALT345uWgFtG1yX3IQv6u06HYXIayshKAW41Uiw?=
- =?us-ascii?Q?zPHQ4wEUHw=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3b1ec807-1c4a-45f6-a43e-08deb6403efe
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 07:20:18.5672
+X-MS-Exchange-AntiSpam-MessageData-0: T7fpmfErv5t+RBFmzc3m+hU97lTIBTA754Wjary9y9YJ2o8PirnfmiB40cG0dcvnPbe5R/oHTM1kq1r5ylW7DVFshTVoQuzZF5ZEyEIzjlhP8gV18xFOgV8lBlL23HoorYA8pgUJNRER6whcrUyuF9WVKfxCqT53v/qCt1G/Zg/1uq8uhybpFXIRrrd7Qo8Ij0cnbdFBs96XYKBmxRTzTjTaLs7etjEmLx4xzmH0Z1IXJiknr/56aGF+DmgG95LrqoFSC2VUiRgOSyfILfdo5463BduHWsftGgmkR3aXQmyhn1c9IB9VstAWCjcsGBh/EYJ83KZ577O7jBi2VlQtUCq1LTsGfn2fcDpsrvCLrU21xT7Bt7hswPjgJmAtobjOEUyUBsUJMZJ2ztRyDgK651DoSyB36+lMAUEnuc5DcWOJnd0UvM6CWOa0WVyjoxJl
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 07:20:46.6906
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AhZpB8cKgK/rf9VYEhOyNUhIvzKEMijo5vWda5md3YjkoRCBzM/9dNi2cEVLIJl2aQq12VMjUScJdi4/vrDsKg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10392
+X-MS-Exchange-CrossTenant-Network-Message-Id: e4f19cb0-812d-4ce0-c452-08deb6404fde
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002324.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7926
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_002026_947970_163E2A4E 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20260520_002058_995531_B08B08E8 
+X-CRM114-Status: GOOD (  43.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,86 +142,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the PCIe outbound memory ranges for both pcie0 and pcie1
-controllers on i.MX95.
+On Tue, May 19, 2026 at 09:30:23PM -0300, Jason Gunthorpe wrote:
+> On Tue, May 19, 2026 at 05:21:36PM -0700, Nicolin Chen wrote:
+> > On Tue, May 19, 2026 at 08:02:04PM -0300, Jason Gunthorpe wrote:
+> > > > OK. So you are suggesting a quarantine at the driver-level only:
+> > > > 
+> > > > 1. Driver detects ATC_INV timeout during an invalidation.
+> > > > 2. Driver retries the commands to identify the master.
+> > > 
+> > > I might argue to push even this out to a followup series given it is
+> > > complex and I suspect it becomes much simpler after the batch
+> > > removal...
+> > 
+> > I see you suggest to treat the entire batch as ATS-broken. Just to
+> > confirm: without per-SID retry, that might falsely block a healthy
+> > device in the ATC batch, right? The driver now batches all ATC_INV
+> > commands via arm_smmu_invs_end_batch().
+> 
+> Yes, it is not good, but a giant complex series is not reviewable. So
+> I'd start with trashing all the devices, then come with a narrowing.
 
-The memory window size was incorrectly set to 256MB during initial
-bring-up, but the hardware supports up to 4GB of outbound address space
-per controller.
+I can take that path for now and leave a FIXME.
 
-Additionally, the ECAM region cannot be mapped as I/O space. Use a
-memory-mapped region for I/O space instead, and relocate the 1MB I/O
-region to immediately follow the memory region at offset 0xf0000000
-within each window.
+Another option is to not batch multiple devices, until we support
+retry (which shouldn't be hard to add since we've already done the
+coding)?
 
-Update the outbound address space layout per controller as follows:
+> > > > 5. Driver sets master->ats_broken to fence concurrent attach:
+> > > >    arm_smmu_write_ste() and arm_smmu_ats_supported().
+> > > 
+> > > Not sure this is needed, if we race some attach then the attach will
+> > > re-set EATS, get another timeout and clear EATS. Doesn't seem worth
+> > > trying to optimize for.
+> > 
+> > I didn't see that coming. master->ats_enabled && state->ats_enabled
+> > in the commit() for a concurrent attachment would issue an ATC that
+> > may timeout again to re-start the step 1.
+> > 
+> > And since arm_smmu_atc_inv_master() doesn't use domain->invs, it is
+> > not affected by INV_TYPE_ATS_BROKEN. So, ATC_INV can continue to be
+> > issued in this case.
+> > 
+> > Ah, I feel that we are walking in the mine field where every single
+> > step could be a kaboom. But your insight is clearly a safe pathway.
+> 
+> We cannot eliminate parallel ATS invalidation. Two threads could be
+> concurrently processing the invs list. So it has handle it, the driver
+> is going to have to tolerate a number of redundant error events.
 
-  - 3.5GB  64-bit prefetchable memory
-  - 256MB  32-bit non-prefetchable memory
-  - 1MB    I/O
+OK. That sounds like we still need a flag or locking so that at
+least pci_disable_ats() would not be called again. I will see
+what I can do.
 
-Fixes: 3b1d5deb29ff ("arm64: dts: imx95: add pcie[0,1] and pcie-ep[0,1] support")
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95.dtsi | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
----
-Changes in v8:
-- Keep low address free, set the 32-bit non-prefetchable memory regioin
-starting at 0xe0000000. Since PCI address 0x0 might break inbound DMA.
+> > > We do need to push a pci error event (didn't see that in this series)
+> > > so the driver can catch it and start the FLR process. I suppose that
+> > > will still need to bounce through a workqueue, and once you have that
+> > > it can also set the blocked domain prior to calling out to the driver.
+> > 
+> > In the specific case that I am trying to tackle with this series, I
+> > do see AER error prints from the device already but there is no FLR
+> > process. 
+> 
+> It depends on the driver, mlx5 has a FLR RAS flow for instance.
 
-Changes in v7:
-- Map the large outbound window into 64-bit PCI address, to eliminates both
-the  inbound DMA routing conflict and the IOVA exhaustion problem.
+I assume a driver like that would trigger FLR flow on its own?
 
-Changes in v6:
-- Set the PCI I/O bus address starting at 0x0000_0000, while keeping the
-CPU-side mapping at 0x9_f000_0000.
+> A driver with a device that can blow up ATS should implement the FLR
+> flow if it wants automatic RAS. It requires driver co-ordination.
 
-Changes in v5:
-- Expand the outbound address space from 256MB to 3840MB, starting at the
-base of each controller's assigned CPU address range.
-- Use a memory region to map the I/O space.
+Or FLR via sysfs, which I have been doing...
 
-Changes in v4:
-Update the flag from 0x82000000 to 0x83000000 to declare a 64-bit PCI space.
+> But I wasn't thinking we can rely on existing AER events here, yes
+> probably there will be AERs associated with the device exploding so
+> badly it cannot do ATS, but also maybe not..
 
-Changes in v3:
-Update the commit message, and set the region size to the max
-hardware-supported memory space 4G.
+So, should I put the AER injection on hold for a future work? To
+be honest, I am still not very clear how AER injection could help
+here; or is it for a case where ATC times out while device isn't
+aware of any AER fault?
 
-Changes in v2:
-Add the Fixes tag, and rebase to latest imx/dt64 branch.
+> This is also a problem if we shoot healthy devices as the first stage,
+> there will not be an AER from heathly..
+> 
+> So I guess we need to decide which is better to tackle, the dedicated
+> event or the single invalidation sequence..
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index adcc0e1d3696..60bf0932c6f7 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -1939,8 +1939,9 @@ pcie0: pcie@4c300000 {
- 			      <0 0x4c360000 0 0x10000>,
- 			      <0 0x4c340000 0 0x4000>;
- 			reg-names = "dbi", "config", "atu", "app";
--			ranges = <0x81000000 0x0 0x00000000 0x0 0x6ff00000 0 0x00100000>,
--				 <0x82000000 0x0 0x10000000 0x9 0x10000000 0 0x10000000>;
-+			ranges = <0x43000000 0x9 0x00000000 0x9 0x00000000 0x0 0xe0000000>,
-+				 <0x82000000 0x0 0xe0000000 0x9 0xe0000000 0x0 0x10000000>,
-+				 <0x81000000 0x0 0x00000000 0x9 0xf0000000 0x0 0x00100000>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
-@@ -2014,8 +2015,9 @@ pcie1: pcie@4c380000 {
- 			      <0 0x4c3e0000 0 0x10000>,
- 			      <0 0x4c3c0000 0 0x4000>;
- 			reg-names = "dbi", "config", "atu", "app";
--			ranges = <0x81000000 0 0x00000000 0x8 0x8ff00000 0 0x00100000>,
--				 <0x82000000 0 0x10000000 0xa 0x10000000 0 0x10000000>;
-+			ranges = <0x43000000 0xa 0x00000000 0xa 0x00000000 0x0 0xe0000000>,
-+				 <0x82000000 0x0 0xe0000000 0xa 0xe0000000 0x0 0x10000000>,
-+				 <0x81000000 0x0 0x00000000 0xa 0xf0000000 0x0 0x00100000>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
- 			device_type = "pci";
--- 
-2.37.1
+I feel it safer to not break healthy devices. Otherwise, would a
+nesting parent invalidation falsely block all devices, if one of
+them times out?
 
+Thanks
+Nicolin
 
