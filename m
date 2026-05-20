@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0C1CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:16:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ACE1CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fU02cunUf5qx+CTJ998toCQden5I5L9eTw1htlE14B4=; b=etJ5sdW+MocBKsobkzwmGwcPId
-	6PWjqe+zf1Atxz2RsWJXWxqDEEXAwJOFxjJS4Lu9HhTs+mRtyEDQq2ZFjgk+Es6isiQjV8NhqkwOp
-	qpHh4YZ39yla8NRkGOBE5FisqjRkZAgiLswjUbft76iss2WMT3BS+0dpVL+tDqjEugfXZH+cQLvXh
-	MlsLEJmaLwzEF3afi6twtZhvB0hwVRIAOwvm7tsJ1KCOzoXvyo3KJ1rh1M3akvuxcnWbyiIHHtO1T
-	J7XAvxdQSDrMDQmMnilEiorKIWUI6Sq5vi9QPFBnPKPT6YZiNvEEikrZx8xlwrxP6meTKoLTUe0Oy
-	yy8p4Peg==;
+	bh=Wu7BYcpdKEhy5UQgW642CFskRoCZsZvWAmVlK7nXB84=; b=UUeVwiLzijqwSq3fOx98BaCGSg
+	Mcrf/cAPqG0XfnV59q5keIc38fkxc+uU1Edo7bXu8SKl3B06Ff1OTigMTMbStLP3GleGSo1W+mpRg
+	vxATTQDE7CpNcCH4vQdvKW+oCukVYHsqYmQFf/+LRbSgIzPQBNGgtNQqUE42lt3sqP7eMAgFZfo6A
+	YPL883p5Q44d6gAalu7ICyVXBYPKSGtxMGVPDM7mzjFERL1i/nHJG48U+1XDyVbaFQh/Esa7yzqv7
+	TcZItL7N+4pUki0kRL459NFWGX3NAGSE1r6y1kRU4nAg9M9i3tMR6nnCkWbqYn9jcpgPdJxjPCUUy
+	i66IK1Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoGw-00000005oYS-051K;
-	Wed, 20 May 2026 21:16:10 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wPoMg-00000005pC2-2FTa;
+	Wed, 20 May 2026 21:22:06 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoGu-00000005oY8-1Q6i;
-	Wed, 20 May 2026 21:16:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fU02cunUf5qx+CTJ998toCQden5I5L9eTw1htlE14B4=; b=Ahb0j2Ei6nx5qSArSbx3QXwe7j
-	nN0qnERaYLGpASZAP09LlU+EPQowKBvJPWhRsI00juo+im78mkgYHs+sP5ZWwXXBd7zRVmKWFHh91
-	ozzCsrVpwBFURX4JqqoPT0iEmX8E9NvxsJFClE4jAwVlL4pGe782qw3PvR74tDYThCZ3q+fwmuY2k
-	TzdU054pRFbgWK4qDrlWLvQekRsHk+y4KM+0uWUFsCECk4H+2CGnBJFwpoiJbHR/MvjI7M4kc/Ssx
-	zg1lHxgjWogJBSyWKXMDALCFwuerNCe/Tci5nkDTpyDfHMo2R9PAJoJdp1sxjZy6+MelEhK4vLDAA
-	A5g2JMmA==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPoGl-00000007air-0tv9;
-	Wed, 20 May 2026 21:15:59 +0000
-Date: Wed, 20 May 2026 22:15:59 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: "Liam R. Howlett" <liam@infradead.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Lorenzo Stoakes <ljs@kernel.org>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, david@kernel.org, vbabka@kernel.org,
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de,
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com,
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org,
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com,
-	bhe@redhat.com, youngjun.park@lge.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <ag4kj84EcKqamdB-@casper.infradead.org>
-References: <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
- <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
- <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
- <ag4h87CBd-gph9zX@casper.infradead.org>
- <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+	id 1wPoMe-00000005pBH-04Qt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 21:22:05 +0000
+Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9607642B;
+	Wed, 20 May 2026 23:21:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1779312108;
+	bh=Y1rMEzlaiUJ1fqWI8kiFvjdxUfnUCtEhmT0b78R7Io8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RTzdR8+KDBxDyElJVu8oBC2z5QLYgeD3vaVIDqGEx6VjXeojnOaxldKOm/0p1JZ47
+	 XyKKljc2WLcRBhbSmGk35C4DXFzY37rvnIqjuLVNao+NEp0xwKB1CwNuU91zrnSS0m
+	 /KC2l5BZ4EMItojYybETV1GlaY4ouGprNRHBzBw8=
+Date: Wed, 20 May 2026 23:22:01 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v4 2/2] media: nxp: imx8-isi: Implement get_frame_desc
+ for crossbar subdev
+Message-ID: <20260520212201.GC9017@killaraus.ideasonboard.com>
+References: <20260508-isi_vc-v4-0-feee39c63939@oss.nxp.com>
+ <20260508-isi_vc-v4-2-feee39c63939@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+In-Reply-To: <20260508-isi_vc-v4-2-feee39c63939@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_142204_200719_3B084C20 
+X-CRM114-Status: GOOD (  32.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,11 +73,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 05:14:20AM +0800, Barry Song wrote:
-> My understanding is that we should not blame applications here. This is 2026:
-> there are basically only two kinds of applications — single-threaded and
-> multi-threaded — and single-threaded applications are nearly extinct.
+Hello Guoniu,
 
-all of the applications i run are either single threaded or don't fork.
-what multithreaded applications call fork?
+Thank you for the patch.
+
+On Fri, May 08, 2026 at 11:05:41AM +0800, Guoniu Zhou wrote:
+> From: "Guoniu.zhou" <guoniu.zhou@nxp.com>
+> 
+> Implement the get_frame_desc pad operation for the crossbar subdevice
+> to propagate frame descriptor information from the source subdevice to
+> downstream ISI channels.
+> 
+> This allows the ISI driver to retrieve virtual channel information and
+> other stream parameters from the connected upstream, which is required
+> for proper virtual channel routing on platforms supporting multiple VCs.
+
+Have you looked at v4l2_subdev_get_frame_desc_passthrough(), could it be
+used instead of a manual implementation ? This could be either direct
+usage of v4l2_subdev_get_frame_desc_passthrough(), or with minor
+additional customization (first calling the unlocked helper
+__v4l2_subdev_get_frame_desc_passthrough() and updating the descriptors.
+
+> Signed-off-by: Guoniu.zhou <guoniu.zhou@nxp.com>
+> ---
+> Changes in v4:
+> - Use %d instead of %u for ret variable in error messages
+> - Fix potential -ENOIOCTLCMD leak by resetting ret to 0 on continue
+> 
+> Changes in v3:
+> - New patch added based on feedback from Laurent Pinchart
+> ---
+>  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      | 98 ++++++++++++++++++++++
+>  1 file changed, 98 insertions(+)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> index 605a45124103..b5eff191b2d5 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+> @@ -306,6 +306,103 @@ static int mxc_isi_crossbar_set_fmt(struct v4l2_subdev *sd,
+>  	return 0;
+>  }
+>  
+> +static int mxc_isi_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
+> +				  struct v4l2_mbus_frame_desc *fd)
+> +{
+> +	struct mxc_isi_crossbar *xbar = to_isi_crossbar(sd);
+> +	struct device *dev = xbar->isi->dev;
+> +	struct v4l2_subdev_route *route;
+> +	struct v4l2_subdev_state *state;
+> +	int ret = 0;
+> +
+> +	if (pad < xbar->num_sinks)
+> +		return -EINVAL;
+> +
+> +	memset(fd, 0, sizeof(*fd));
+> +
+> +	state = v4l2_subdev_lock_and_get_active_state(sd);
+> +
+> +	/*
+> +	 * Iterate over all active routes. For each route going through the
+> +	 * requested source pad, get the frame descriptor from the connected
+> +	 * source subdev, find the corresponding stream entry, and add it to
+> +	 * the output frame descriptor with the routed stream ID.
+> +	 */
+> +	for_each_active_route(&state->routing, route) {
+> +		struct v4l2_mbus_frame_desc source_fd;
+> +		struct v4l2_subdev *remote_sd;
+> +		struct media_pad *remote_pad;
+> +		unsigned int i;
+> +
+> +		if (route->source_pad != pad)
+> +			continue;
+> +
+> +		/* Find the remote subdev connected to this sink pad */
+> +		remote_pad = media_pad_remote_pad_first(&xbar->pads[route->sink_pad]);
+> +		if (!remote_pad) {
+> +			dev_dbg(dev, "no remote pad connected to crossbar input %u\n",
+> +				route->sink_pad);
+> +			continue;
+> +		}
+> +
+> +		remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +		if (!remote_sd) {
+> +			dev_err(dev, "no subdev connected to crossbar input %u\n",
+> +				route->sink_pad);
+> +			ret = -EPIPE;
+> +			goto out_unlock;
+> +		}
+> +
+> +		/* Get frame descriptor from the remote subdev */
+> +		ret = v4l2_subdev_call(remote_sd, pad, get_frame_desc,
+> +				       remote_pad->index, &source_fd);
+> +		if (ret == -ENOIOCTLCMD) {
+> +			dev_dbg(dev, "%s:%u does not support frame descriptors\n",
+> +				remote_sd->entity.name, remote_pad->index);
+> +			ret = 0;
+> +			continue;
+> +		}
+> +		if (ret < 0) {
+> +			dev_err(dev, "failed to get frame desc from %s:%u: %d\n",
+> +				remote_sd->entity.name, remote_pad->index, ret);
+> +			goto out_unlock;
+> +		}
+> +
+> +		if (fd->num_entries == 0)
+> +			fd->type = source_fd.type;
+> +
+> +		/* Find the source frame descriptor entry matching the sink stream */
+> +		for (i = 0; i < source_fd.num_entries; i++) {
+> +			if (source_fd.entry[i].stream == route->sink_stream)
+> +				break;
+> +		}
+> +
+> +		if (i == source_fd.num_entries) {
+> +			dev_err(dev, "stream %u not found in frame desc from %s:%u\n",
+> +				route->sink_stream, remote_sd->entity.name,
+> +				remote_pad->index);
+> +			ret = -EPIPE;
+> +			goto out_unlock;
+> +		}
+> +
+> +		if (fd->num_entries >= ARRAY_SIZE(fd->entry)) {
+> +			dev_err(dev, "frame descriptor is full\n");
+> +			ret = -ENOSPC;
+> +			goto out_unlock;
+> +		}
+> +
+> +		/* Copy the entry and update the stream ID */
+> +		fd->entry[fd->num_entries] = source_fd.entry[i];
+> +		fd->entry[fd->num_entries].stream = route->source_stream;
+> +		fd->num_entries++;
+> +	}
+> +
+> +out_unlock:
+> +	v4l2_subdev_unlock_state(state);
+> +
+> +	return ret;
+> +}
+> +
+>  static int mxc_isi_crossbar_set_routing(struct v4l2_subdev *sd,
+>  					struct v4l2_subdev_state *state,
+>  					enum v4l2_subdev_format_whence which,
+> @@ -404,6 +501,7 @@ static const struct v4l2_subdev_pad_ops mxc_isi_crossbar_subdev_pad_ops = {
+>  	.enum_mbus_code = mxc_isi_crossbar_enum_mbus_code,
+>  	.get_fmt = v4l2_subdev_get_fmt,
+>  	.set_fmt = mxc_isi_crossbar_set_fmt,
+> +	.get_frame_desc = mxc_isi_get_frame_desc,
+>  	.set_routing = mxc_isi_crossbar_set_routing,
+>  	.enable_streams = mxc_isi_crossbar_enable_streams,
+>  	.disable_streams = mxc_isi_crossbar_disable_streams,
+
+-- 
+Regards,
+
+Laurent Pinchart
 
