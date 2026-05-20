@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3F1CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:51:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798D5CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:51:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDBmjuJ+rWa0IDhvw3r57tfbWDtrJcWqibH33Xm9FGo=; b=3ExOu9SXAeXeJsjItdpy3x88fW
-	z8xCETu29/PVdnNA7ORI6KbHwn6SGdSDdinZ7VqpUHe6nqdsUXAX9iJNhWEc4Tpv7gOOhFi3Eq+hk
-	yxu4VezkcCTzpOjv9ulMfBWiD3obuJf0O1eiZbu5SJ1GTxcHyVrmCTeWkjSa7mLdamYHhtYgdmDYf
-	Yd3K5nAlnmOx71iTHqHJNMiAlh44aZWE786goMDz9pOvyAQ64APEY+A2tzLmdUtYczAEKgxmFlGzt
-	ptC0uD6Yw9qQZwRLtLB4ZFtTarQLGF5wfpgJO5Lk8kNaXjHRJKo0jIro+OIpeelBxDxvvhPWUOqeY
-	bkXJZcBQ==;
+	bh=9B6Ly6mVvTc9aFU/qVyydDvT1sySEiT+OWzALeLP+aM=; b=wXAhfDFeym00l5jj/33mdFnO3a
+	ut2Ia04cAPnWM+iSjxhNzbsyp2L5fnMtd+/XjtkpdfxUW+f/06tE167ErrVuc8G2MOAzF2LAa+36c
+	1MSvIdeasyjeRUbysX+TMWYPqaTug0hrvVUBKtaF3UzpedWFCBYyc02oVrR85NdwTjjjHtUdr6Fz+
+	6isxsNq/YQNEXyDmy9iwnT1XwZH1N0y/lNQ5KZj0y878FeHKfe8zmY7exsK9EPFls5PVRYAwH3hvr
+	yk6hEpfwf9zwgJRxJSCjlalnjYd7zPoBUQsBN5JNMeK+rjlfIErHz8rowtqwgtUP72DAPi1vTaQtz
+	8nqKGOuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcdk-000000041Z9-0fdO;
-	Wed, 20 May 2026 08:50:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPcdr-000000041bz-15Nd;
+	Wed, 20 May 2026 08:51:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcdi-000000041YJ-2CE7
+	id 1wPcdi-000000041YI-2Hpt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 08:50:54 +0000
+	Wed, 20 May 2026 08:50:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A05BF60129;
+	by sea.source.kernel.org (Postfix) with ESMTP id B641744492;
 	Wed, 20 May 2026 08:50:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FACA1F00894;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96E721F0089A;
 	Wed, 20 May 2026 08:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1779267053;
-	bh=VDBmjuJ+rWa0IDhvw3r57tfbWDtrJcWqibH33Xm9FGo=;
+	bh=9B6Ly6mVvTc9aFU/qVyydDvT1sySEiT+OWzALeLP+aM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=T5b3pvrXQyes9UnPVF76hgu9mCuUnFOOS07ZXqXCdGNPUHnnSLCfN6fVz1XUCsfLm
-	 buGYD1UOoml80g1bteuljnVFvaUPf5a23p9eG5iD3b49XzQQ+02wam3iHHTlADEWRj
-	 9r3zUyZ5Ta8fmtE9wRBLJrkXIVdfBRhkUkKlPLfTJfvWLRc11XpY4YFVDPJXt7Y/Gr
-	 uAPM2xg3A/XSj0HcPzIq0lCFTFeS4E0BF7hYF+Oy6uRmmnXk4mSDnsf0bp7iB0XGDj
-	 div0V+jq6ofMAF7I8YeUu4VzwrZlFs4K45nSoU95hFAU1eS1J+X20puPfhMEFQ94n/
-	 Jwxv+QXaA95PA==
+	b=DP2QoG3hYSUW73110LbBQN0CFXn6/TJDoG6IJKLcR/dsiNzjl7ldzVqdAT69XE5Vv
+	 wXjlNv/UrpN0OrdITh9g+vpuTZ+rjraolnrdRXYmHT7bSUSrwPpnGKEviLk3kDJyXf
+	 gGhDVR1AwsQYhzz/iRRpoBhfZW0ncVnbrqc2AJKvotJEB7q52/l1jiDG9Bd/cEbKGg
+	 AzHgo1l4WFB6c6HOcjyY7F+Is7EoN8fxBitVL6BD74MFaiRWhdZZqiB0kJL55rZll7
+	 q7n/qIR37PhCBralb1fV5csc2WX32funtVwS2o6Btis0u6n8hW9nC2hmrBQklMo65j
+	 Z4ZWz3Tux55uQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPcdf-00000004Hno-20vj;
+	id 1wPcdf-00000004Hno-35LD;
 	Wed, 20 May 2026 08:50:51 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -60,9 +60,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 1/2] KVM: arm64: nv: Track L2 to L1 exception emulation
-Date: Wed, 20 May 2026 09:50:35 +0100
-Message-ID: <20260520085036.541666-2-maz@kernel.org>
+Subject: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
+Date: Wed, 20 May 2026 09:50:36 +0100
+Message-ID: <20260520085036.541666-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520085036.541666-1-maz@kernel.org>
 References: <20260520085036.541666-1-maz@kernel.org>
@@ -72,6 +72,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_015054_623226_4D638CE0 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,55 +89,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While we currently track that we are emulating a nested ERET from
-L1 to L2, we currently don't track the reverse direction (an exception
-going from L2 to L1).
+When switching between L1 and L2, we save the old state using
+kvm_arch_vcpu_put(), mutate the state in memory, then load the new
+state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
+and unbound, such that it can be lazily restored on a subsequent trap.
 
-Add a new vcpu state flag for this purpose, which will see some
-use shortly.
+The FPSIMD/SVE state is shared by exception levels, and only a handful
+of related control registers need to be changed when transitioning
+between L1 and L2. The save/restore of the common state is needless
+overhead, especially as trapping becomes exponentially more expensive
+with nesting.
+
+Avoid this overhead by leaving the common FPSIMD/SVE state live on the
+CPU, and only switching the state that is distinct for L1 and L2:
+
+- the trap controls: the effective values are recomputed on each entry
+  into the guest to take the EL into account and merge the L0 and L1
+  configuration if in a nested context, or directly use the L0 configuration
+  in non-nested context (see __activate_traps()).
+
+- the VL settings: the effective values are are also recomputed on each
+  entry into the guest (see fpsimd_lazy_switch_to_guest()).
+
+Since we appear to cover all bases, use the vcpu flags indicating the
+handling of a nested ERET or exception delivery to avoid the whole FP
+save/restore shenanigans. SME will have to be similarly dealt with when
+it eventually gets supported.
+
+For an EL1 L3 guest where L1 and L2 have this optimisation, this
+results in at least a 10% wall clock reduction when running an I/O
+heavy workload, generating a high rate of nested exceptions.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h | 3 ++-
- arch/arm64/kvm/emulate-nested.c   | 4 ++++
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/fpsimd.c | 23 +++++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 65eead8362e0b..c79747d5f4dd1 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1112,7 +1112,8 @@ struct kvm_vcpu_arch {
- #define IN_NESTED_ERET		__vcpu_single_flag(sflags, BIT(7))
- /* SError pending for nested guest */
- #define NESTED_SERROR_PENDING	__vcpu_single_flag(sflags, BIT(8))
--
-+/* KVM is currently emulating an L2 to L1 exception */
-+#define IN_NESTED_EXCEPTION	__vcpu_single_flag(sflags, BIT(9))
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index 15e17aca1dec0..aca98752a6e42 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -28,6 +28,20 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+ 	if (!system_supports_fpsimd())
+ 		return;
  
- /* Pointer to the vcpu's SVE FFR for sve_{save,load}_state() */
- #define vcpu_sve_pffr(vcpu) (kern_hyp_va((vcpu)->arch.sve_state) +	\
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index dba7ced74ca5e..15c691a6266d5 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2862,6 +2862,8 @@ static int kvm_inject_nested(struct kvm_vcpu *vcpu, u64 esr_el2,
- 
- 	preempt_disable();
- 
-+	vcpu_set_flag(vcpu, IN_NESTED_EXCEPTION);
++	/*
++	 * Avoid needless save/restore of the guest's common
++	 * FPSIMD/SVE/SME regs during transitions between L1/L2.
++	 *
++	 * These transitions only happens in a non-preemptible context
++	 * where the host regs have already been saved and unbound. The
++	 * live registers are either free or owned by the guest.
++	 */
++	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
++	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
++		WARN_ON_ONCE(host_owns_fp_regs());
++		return;
++	}
 +
  	/*
- 	 * We may have an exception or PC update in the EL0/EL1 context.
- 	 * Commit it before entering EL2.
-@@ -2884,6 +2886,8 @@ static int kvm_inject_nested(struct kvm_vcpu *vcpu, u64 esr_el2,
- 	__kvm_adjust_pc(vcpu);
+ 	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
+ 	 * that the host kernel is responsible for restoring this state upon
+@@ -102,6 +116,15 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ {
+ 	unsigned long flags;
  
- 	kvm_arch_vcpu_load(vcpu, smp_processor_id());
-+	vcpu_clear_flag(vcpu, IN_NESTED_EXCEPTION);
++	/*
++	 * See comment in kvm_arch_vcpu_load_fp().
++	 */
++	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
++	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
++		WARN_ON_ONCE(host_owns_fp_regs());
++		return;
++	}
 +
- 	preempt_enable();
+ 	local_irq_save(flags);
  
- 	if (kvm_vcpu_has_pmu(vcpu))
+ 	if (guest_owns_fp_regs()) {
 -- 
 2.47.3
 
