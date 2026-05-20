@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65177CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:13:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2145ECD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 11:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JRJUo4PXuYN1XhJVP15C+J6R1n1WzcWxMs+6lKcGyXw=; b=QtWmVZ3y1NZzsFt2w9gKdQx9k9
-	FxK+O0MJCyZbbDULKnrMFRTy93iEV9FK04C8ZpWqqzKCB5PrLgx5OzmpVDOYeWS7+kLGoRfUxFj2V
-	mxMRQTPGpN57VMpxbYqvVAsZweiSsTcw1SCUTt9rKZGAilszRguSOhqBV6QLNEztePz3V2uI5f2+b
-	yZ+SkKQGHC19bLKT2AV9Mu2jnvsAB7TzMds1VdXck0wTmUiiDr5EkhdH3oilx1ZNbR/yQYq5DP8GJ
-	mhHavh5KAPpvvo5fG9DT63kSlA/DURk5yTpWONsS7TbZa0dIjnX66qdQddhmYZqYUIEehFOHcmn/R
-	lpwpVTlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Jd91yp639XQ14bFokkoWB7YDnxNd0wxZV9sOx0Y2+4c=; b=d9kAYTI//FTiqCo504f6UktWi0
+	qkUnlx4zeM7lCB1yK8KmteH1e/F07awewJiyid4HGQn0bWoc3IKYvzzk5dkzEDSUKzxb42moKeoH/
+	pAxslWSm2rc442BUzrWPwsZ0jX8v1g/QgIflL0JAEw6dcg5GNWeuUSHeu0gqnncmTU0lYsCR0APvT
+	U22BKw2vMuyFFFT+JrH3yoA0Xne8yEBsZXK9aEq1nFbT3DMVdVhTF96aD81mZJb8mrhIIB30m9ugp
+	mgC0xAB+VwuIXXG3krWl1fL6Y5Gbi3SiUlcJzlCqhsXVk3zNvGtIzh79G3N6D0iisep6wTlWuO6+C
+	C3YF9wmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPero-00000004QDp-3ylV;
-	Wed, 20 May 2026 11:13:36 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wPey9-00000004Qmk-3zGv;
+	Wed, 20 May 2026 11:20:09 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPerm-00000004QD1-3uKY;
-	Wed, 20 May 2026 11:13:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=JRJUo4PXuYN1XhJVP15C+J6R1n1WzcWxMs+6lKcGyXw=; b=UIMfPi0n+2sixL8bSd9VaSky4K
-	RHWEU0+Im4DinWDobN+TIklEhd6YinjY5ra47zGedlGtmCK3VcLA4SdnC/T9Wz+xbv787uc9NCmur
-	oE/Pb9YEfcxcHLNfgJgespEqEWtw4n5OmHUUJpLH4OusgknEWNuQPRuBNqljFKhUo5+wDF9F6HKDp
-	7be2MVHEYOcgda44vWIrGG8KrxbAhoTugxFAOK6tqo9T6Y/e1aUu/oa9ixbiz6AQcrrmBIpaKFezU
-	Ywj+BMGYYbwcxGr5YO+NvKrymVGhCxN9ndMlH+BhpCaopR6UWjmoW1Bez1Zy8MLmFiEb1e5C3LRV6
-	xx0+IXow==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>,
- Chaoyi Chen <kernel@airkyi.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org, Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: Re: [PATCH v15 7/9] drm/rockchip: cdn-dp: Add multiple bridges to support PHY
- port selection
-Date: Wed, 20 May 2026 13:12:49 +0200
-Message-ID: <12511061.0AQdONaE2F@phil>
-In-Reply-To: <20260304094152.92-8-kernel@airkyi.com>
-References: <20260304094152.92-1-kernel@airkyi.com>
- <20260304094152.92-8-kernel@airkyi.com>
+	id 1wPey7-00000004QmC-086c
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 11:20:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1EA9240704;
+	Wed, 20 May 2026 11:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF3831F00893;
+	Wed, 20 May 2026 11:20:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779276006;
+	bh=Jd91yp639XQ14bFokkoWB7YDnxNd0wxZV9sOx0Y2+4c=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=grJ+58kyRnbATQD3AWMWh87yn3b/R+nEKPPQAHMnln4Bju85dikTVJRu4N5srF/pt
+	 QVyrezaGYAEujcQ2+FWJyjnnf32qnzc/lgiiotLVpTX10rpXRnZvheV2ccvK+0/vy9
+	 4Ujx7yAjO0pEa3Ru+b/47FjxYIZfJPo9AMV9wgRVi0YUriyb93SncXbcZH2dWo8LHb
+	 lmgxx2QJKKRD2iAGovIV3h4vXA7+xBozz2WQ+xolSpDWdDiyWaTxE5hkJgZxCPsGgc
+	 sb4gSkTYLyaNpZUP9ylkTyw5NnmLlJC57HN+sCPxMQZpbwrweH0yqsvAnV9OhtK4Av
+	 Y26/uBRFYZQnw==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH AUTOSEL 7.0-6.12] KVM: arm64: nv: Consider the DS bit when translating TCR_EL2
+Date: Wed, 20 May 2026 07:18:47 -0400
+Message-ID: <20260520111944.3424570-15-sashal@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260520111944.3424570-1-sashal@kernel.org>
+References: <20260520111944.3424570-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 7.0.9
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_041334_969807_518A4368 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260520_042007_126153_03BAB0AB 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +83,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 4. M=C3=A4rz 2026, 10:41:50 Mitteleurop=C3=A4ische Sommerzeit =
-schrieb Chaoyi Chen:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->=20
-> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
-> the CDN-DP can be switched to output to one of the PHYs. If both ports
-> are plugged into DP, DP will select the first port for output.
->=20
-> This patch adds support for multiple bridges, enabling users to flexibly
-> select the output port. For each PHY port, a separate encoder and bridge
-> are registered.
->=20
-> The change is based on the DRM AUX HPD bridge, rather than the
-> extcon approach. This requires the DT to correctly describe the
-> connections between the first bridge in bridge chain and DP
-> controller. For example, the bridge chain may be like this:
->=20
-> PHY aux birdge -> fsa4480 analog audio switch bridge ->
-> onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
->=20
-> In this case, the connection relationships among the PHY aux bridge
-> and the DP contorller need to be described in DT.
->=20
-> In addition, the cdn_dp_parse_next_bridge_dt() will parses it and
-> determines whether to register one or two bridges.
->=20
-> Since there is only one DP controller, only one of the PHY ports can
-> output at a time. The key is how to switch between different PHYs,
-> which is handled by cdn_dp_switch_port() and cdn_dp_enable().
->=20
-> There are two cases:
->=20
-> 1. Neither bridge is enabled. In this case, both bridges can
-> independently read the EDID, and the PHY port may switch before
-> reading the EDID.
->=20
-> 2. One bridge is already enabled. In this case, other bridges are not
-> allowed to read the EDID. So we will try to return the cached EDID.
->=20
-> Since the scenario of two ports plug in at the same time is rare,
-> I don't have a board which support two TypeC connector to test this.
-> Therefore, I tested forced switching on a single PHY port, as well as
-> output using a fake PHY port alongside a real PHY port.
->=20
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+From: Wei-Lin Chang <weilin.chang@arm.com>
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+[ Upstream commit 8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c ]
 
+When running an nVHE L1, TCR_EL2 is mapped to TCR_EL1. Writes to the
+register are trapped and written to TCR_EL1 after a translation.
+Booting an nVHE L1 with 52-bit VA isn't working because the translation
+was ignoring the DS bit set by the guest, hence causing repeating level
+0 faults. Add it in the translation function.
+
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+Link: https://patch.msgid.link/20260505144735.1496530-1-weilin.chang@arm.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+## Stable Backport Analysis
+
+### Phase 1: Commit Message Forensics
+
+Step 1.1 Record: Subsystem is `KVM: arm64: nv`; action verb is
+“Consider”; intent is to preserve the `DS` bit when translating
+`TCR_EL2` into `TCR_EL1` for nested virtualization.
+
+Step 1.2 Record: Tags present are:
+- `Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>`
+- `Link: https://patch.msgid.link/20260505144735.1496530-1-
+  weilin.chang@arm.com`
+- `Signed-off-by: Marc Zyngier <maz@kernel.org>`
+
+No `Fixes:`, `Reported-by:`, `Tested-by:`, `Reviewed-by:`, `Acked-by:`,
+or `Cc: stable@vger.kernel.org` tags are present.
+
+Step 1.3 Record: The bug is that an nVHE L1 guest using 52-bit VA cannot
+boot because trapped writes to `TCR_EL2` are translated to `TCR_EL1`
+without carrying over the guest’s `DS` bit. The recorded failure mode is
+repeated level 0 faults. No affected kernel version is stated in the
+message. Root cause is an incomplete EL2-to-EL1 TCR translation.
+
+Step 1.4 Record: This is not hidden as cleanup; it is a direct
+correctness fix for guest boot failure.
+
+### Phase 2: Diff Analysis
+
+Step 2.1 Record: One file changed:
+`arch/arm64/include/asm/kvm_nested.h`, 1 insertion, 0 deletions.
+Function modified: `translate_tcr_el2_to_tcr_el1()`. Scope is a single-
+file surgical fix.
+
+Step 2.2 Record: Before, `translate_tcr_el2_to_tcr_el1()` preserved
+`TBI`, physical size, granule, cacheability, shareability, and `T0SZ`,
+but ignored `TCR_EL2_DS`. After, it adds `TCR_DS` to the EL1 value when
+`TCR_EL2_DS` is set. This affects the normal path where KVM programs the
+physical EL1 `TCR` while running an nVHE L1.
+
+Step 2.3 Record: Bug category is logic/correctness. The specific
+mechanism is a missing architectural bit translation: `TCR_EL2_DS` is
+bit 32, while `TCR_EL1.DS` is bit 59, so it cannot be preserved by the
+existing mask-copy operations and must be explicitly mapped.
+
+Step 2.4 Record: The fix is obviously correct and minimal. Regression
+risk is very low: it only sets `TCR_EL1.DS` when the guest already set
+the corresponding `TCR_EL2.DS` bit.
+
+### Phase 3: Git History Investigation
+
+Step 3.1 Record: `git blame` shows `translate_tcr_el2_to_tcr_el1()` was
+introduced by `3606e0b2e46216` (“KVM: arm64: nv: Add non-VHE-EL2->EL1
+translation helpers”), first contained in `v6.8-rc1`. The buggy omission
+is long-lived relative to current stable trees.
+
+Step 3.2 Record: No `Fixes:` tag is present, so there is no tagged
+introducer to follow. The blame commit above is the practical introducer
+of the incomplete translation.
+
+Step 3.3 Record: Recent history of `arch/arm64/include/asm/kvm_nested.h`
+shows active nested-virt development, including 52-bit PA/LPA2 related
+work. No prerequisite patch for this one-line change was identified
+beyond the existing definitions already present in stable tags checked.
+
+Step 3.4 Record: Wei-Lin Chang has multiple recent `KVM: arm64`/nested-
+virt commits. Marc Zyngier, listed in `MAINTAINERS` as a KVM/arm64
+maintainer, committed the patch.
+
+Step 3.5 Record: `git log --grep=translate_tcr_el2_to_tcr_el1` found no
+other commits mentioning the helper. The patch applies cleanly to the
+current checked-out stable tree with `git apply --check`.
+
+### Phase 4: Mailing List And External Research
+
+Step 4.1 Record: `b4 dig -c 8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c`
+found the original submission at the provided patch link. `b4 dig -a`
+found only v1. The thread includes Marc Zyngier’s “Applied to fixes”
+reply and no objections.
+
+Step 4.2 Record: `b4 dig -w` shows the patch was sent to `linux-arm-
+kernel`, `kvmarm`, `linux-kernel`, and KVM/arm64 maintainers/reviewers
+including Marc Zyngier, Oliver Upton, Joey Gouly, Suzuki K Poulose,
+Zenghui Yu, Catalin Marinas, and Will Deacon.
+
+Step 4.3 Record: No separate bug report or syzbot report was found in
+the commit tags or b4 thread. The commit message itself gives the
+observed boot failure.
+
+Step 4.4 Record: The patch is standalone, single-patch v1; no multi-
+patch series dependency was found.
+
+Step 4.5 Record: No stable-specific discussion was found. WebFetch to
+lore was blocked by Anubis, but b4 successfully retrieved the thread.
+
+### Phase 5: Code Semantic Analysis
+
+Step 5.1 Record: Modified function: `translate_tcr_el2_to_tcr_el1()`.
+
+Step 5.2 Record: Callers found:
+- `locate_register()` maps `TCR_EL2` to `TCR_EL1` with this translation
+  for loaded nVHE hyp context.
+- `__sysreg_restore_vel2_state()` restores nVHE virtual EL2 state by
+  translating guest `TCR_EL2` before writing physical `SYS_TCR`.
+
+Step 5.3 Record: Key callees are `tcr_el2_ps_to_tcr_el1_ips()` and the
+bit definitions/macros for `TCR_EL2_*` and `TCR_*`. The function has no
+allocation, locking, or complex side effects; it returns a composed
+register value.
+
+Step 5.4 Record: Reachability is verified through guest sysreg traps:
+`ESR_ELx_EC_SYS64` goes to `kvm_handle_sys_reg()`, then
+`perform_access()`, then the `TCR_EL2` descriptor with `access_rw()`,
+then `vcpu_write_sys_reg()`, which applies `loc.xlate()` when the mapped
+register is loaded. This is reachable by an L1 guest using EL2.
+
+Step 5.5 Record: Similar translation helpers exist for `SCTLR_EL2`,
+`CPTR_EL2`, and `TTBR0_EL2`; this patch fixes the missing special-case
+bit in the TCR helper. `TCR_EL1.DS` and `TCR_EL2.DS` are at different
+bit positions, so the existing mask copying cannot handle it.
+
+### Phase 6: Stable Tree Analysis
+
+Step 6.1 Record: The helper commit is present in checked tags `v6.12`,
+`v6.18`, `v6.19`, and `v7.0`. The LPA2 DS field definitions are also
+present in those tags. The 52-bit PA helper commit checked is present in
+`v6.18`, `v6.19`, and `v7.0`, but not `v6.12`.
+
+Step 6.2 Record: Expected backport difficulty is low for trees with this
+helper. `b4 am` reported “Base: applies clean to current tree”, and `git
+apply --check` succeeded on the current `v7.0.9` checkout.
+
+Step 6.3 Record: No related fix for “Consider the DS bit” is in `v7.0`
+or `v7.0.9`; `git merge-base --is-ancestor` returned absent for the
+candidate in those tags.
+
+### Phase 7: Subsystem And Maintainer Context
+
+Step 7.1 Record: Subsystem is KVM/arm64 nested virtualization.
+Criticality is IMPORTANT: it affects ARM64 KVM users running nested
+virtualization with nVHE L1 guests and 52-bit VA.
+
+Step 7.2 Record: Subsystem is actively maintained; recent
+`arch/arm64/kvm` history contains multiple KVM/arm64 fixes, and
+`MAINTAINERS` marks KVM/arm64 as maintained by Marc Zyngier and Oliver
+Upton.
+
+### Phase 8: Impact And Risk Assessment
+
+Step 8.1 Record: Affected population is platform/config-specific: ARM64
+KVM users with nested virtualization and an nVHE L1 using 52-bit VA.
+
+Step 8.2 Record: Trigger is booting or running such an nVHE L1 with
+`TCR_EL2.DS` set. The path is guest-triggerable through EL2 sysreg
+writes, but only for VMs configured with nested virtualization support.
+
+Step 8.3 Record: Failure mode is repeated level 0 faults and failed L1
+boot. Severity is HIGH for affected users because the guest hypervisor
+cannot boot correctly.
+
+Step 8.4 Record: Benefit is high for affected nested virtualization
+users. Risk is very low: one line, no API change, no locking, no data
+structure change, and only changes behavior when the guest sets
+`TCR_EL2_DS`.
+
+### Phase 9: Final Synthesis
+
+Step 9.1 Record:
+Evidence for backporting:
+- Fixes a real boot failure for nVHE L1 guests with 52-bit VA.
+- One-line, contained architectural bit translation.
+- Existing definitions verify this is a required bit-position mapping,
+  not a feature addition.
+- Maintainer applied it to the KVM/arm64 fixes branch.
+- Applies cleanly to the current stable checkout.
+- Buggy helper exists in active stable-era tags checked.
+
+Evidence against backporting:
+- No `Fixes:`, `Reported-by:`, `Tested-by:`, or explicit stable tag.
+- Affected population is narrower than core KVM users.
+- Exact user-visible 52-bit VA nested scenario was not fully proven for
+  every older stable branch, especially `v6.12`.
+
+Unresolved:
+- I did not build-test or boot-test.
+- I did not verify clean application to every stable branch
+  individually.
+- WebFetch could not read lore directly due Anubis, though b4 retrieved
+  the thread.
+
+Step 9.2 Stable rules:
+1. Obviously correct and tested? Obviously correct by code inspection;
+   no explicit Tested-by found.
+2. Fixes a real bug? Yes, commit message and code path verify a missing
+   required register bit translation causing L1 boot failure.
+3. Important issue? Yes, boot failure/repeated translation faults for
+   affected nested virtualization guests.
+4. Small and contained? Yes, 1 line in one helper.
+5. No new features/APIs? Yes.
+6. Can apply to stable trees? Yes for current checked stable tree;
+   likely straightforward for trees containing this helper.
+
+Step 9.3 Exception category: None. This is not a device ID, quirk, DT,
+build, or documentation exception; it is a direct bug fix.
+
+Step 9.4 Decision: Backport. The fix is small, technically clear, and
+corrects an architectural register translation bug that prevents a
+supported nested-virtualization configuration from booting.
+
+## Verification
+
+- Phase 1: Parsed `git show` for candidate
+  `8d9b9d985ad3a81c751a6b97edaf1d3c0780af7c`; confirmed subject, body,
+  and tags.
+- Phase 2: Inspected exact diff; confirmed 1 insertion in
+  `translate_tcr_el2_to_tcr_el1()`.
+- Phase 2: Verified `TCR_EL2_DS` is bit 32 in
+  `arch/arm64/include/asm/kvm_arm.h`.
+- Phase 2: Verified `TCR_EL1.DS` is bit 59 in `arch/arm64/tools/sysreg`
+  and `TCR_DS` aliases it in `arch/arm64/include/asm/pgtable-hwdef.h`.
+- Phase 3: `git blame` identified `3606e0b2e46216` as introducer of the
+  helper.
+- Phase 3: `git describe --contains 3606e0b2e46216` reported first
+  containment at `v6.8-rc1`.
+- Phase 3: `git log` on affected files found related nested-virt/LPA2
+  activity and no required adjacent patch.
+- Phase 4: `b4 dig -c` found the original patch by patch-id.
+- Phase 4: `b4 dig -a` found only v1.
+- Phase 4: `b4 dig -w` confirmed KVM/arm64 maintainers and lists were
+  included.
+- Phase 4: `b4 mbox -c -o -` retrieved Marc Zyngier’s applied-to-fixes
+  reply.
+- Phase 5: `rg` found callers in `sys_regs.c` and `hyp/vhe/sysreg-sr.c`.
+- Phase 5: Read trap path from `handle_exit.c`, `sys_regs.c`, and
+  `arm.c`; verified guest sysreg traps can reach the translation.
+- Phase 6: `git merge-base --is-ancestor` confirmed the helper and DS
+  definitions are present in `v6.12`, `v6.18`, `v6.19`, and `v7.0`.
+- Phase 6: `git apply --check` succeeded on the current stable checkout.
+- Phase 7: Read `MAINTAINERS`; confirmed Marc Zyngier and Oliver Upton
+  maintain KVM/arm64.
+- Phase 8: Failure mode verified from commit message and code path;
+  exact boot reproduction was not run.
+- UNVERIFIED: No build or boot test was performed.
+- UNVERIFIED: Clean application to every individual stable branch was
+  not tested.
+- UNVERIFIED: Exact impact on older stable trees lacking later 52-bit PA
+  helper work was not fully established.
+
+**YES**
+
+ arch/arm64/include/asm/kvm_nested.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 091544e6af442..dc2957662ff20 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -23,6 +23,7 @@ static inline u64 tcr_el2_ps_to_tcr_el1_ips(u64 tcr_el2)
+ static inline u64 translate_tcr_el2_to_tcr_el1(u64 tcr)
+ {
+ 	return TCR_EPD1_MASK |				/* disable TTBR1_EL1 */
++	       ((tcr & TCR_EL2_DS) ? TCR_DS : 0) |
+ 	       ((tcr & TCR_EL2_TBI) ? TCR_TBI0 : 0) |
+ 	       tcr_el2_ps_to_tcr_el1_ips(tcr) |
+ 	       (tcr & TCR_EL2_TG0_MASK) |
+-- 
+2.53.0
 
 
