@@ -4,123 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B8ECD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76382CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVGbQSGJqboMkQGEaBuh2n5D9Rw1MUG1r1v6327U8ig=; b=lPyeO+DgzBP1s1pvjPBteZYCLQ
-	sZfXZogTdns++Sl72LQG7E/taVM5p32bqtaP4x/ZuQBCJOUmGkeDTBzQZJvLwD7Ic3S1A0+1WQLh6
-	ekXVKwHHhW6hS0Ls7SkfDHeHJ/Cjzf/onkmHRpHOq+PyMGyYS5WoDdJB+vKmeQA6X/OhdQof5HZ6d
-	MA0Hynw1ggzz8l82On6e7Eu+FGQcsMfv5ZzD9N1cdxPgoCmzF1A50BCjGA4Y8xdVXiZB6336rzAja
-	Mu7YSDdEs2NT7twCOAD79iaLGGkg/Z9RrVCpGuLXzZyuf6pjz5e49KzPg8fR8Z4lPtmw0cgXKOibL
-	f9RjjYnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U53nOZsze2BOUUWxn8xrqWn0udiJAimX6PJ2o0xVGTg=; b=nBLgPPpyk/F4KehE3t9FKaN7Ec
+	nQCeI7IartbCFTrkeFainfIJXaHxfceZNfVSeRYx8niZnYPY1Hl+B+upFDpqlehCjRXG3OKBcFH1U
+	iyI6s2qI/PBZEPuSoqJJYOY+jhbomll40gDrpccbkvOxus6cxauFay8ADUEf/jHIi/RC7zLHtLjL9
+	gNP72hls1u/XbaU91U2oVp7sQ1YMLjacCzQvkxaDNWGITJlvDx3FgzFqe2e5Tpi9cxlPrcXvhEX7o
+	SwLENqTB7uhTz96CYm3ZeKXrLk1eFUV4JJRhozFWLvlr0lMrbTxUKdAKfr1TEpezcExuKMwKc8Haj
+	F5W+aD3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcWf-00000003zhi-3RZM;
-	Wed, 20 May 2026 08:43:37 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1wPcZh-000000040BM-0ux7;
+	Wed, 20 May 2026 08:46:45 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcWb-00000003zgK-2xyC;
-	Wed, 20 May 2026 08:43:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.com;
-	s=s31663417; t=1779266490; x=1779871290; i=quwenruo.btrfs@gmx.com;
-	bh=KVGbQSGJqboMkQGEaBuh2n5D9Rw1MUG1r1v6327U8ig=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=EvpRYishcdZk67Wh9wQNUukQEGSMTh3LeuhbPSXJ2qlRtFUX0HnzOMz9+4Zr6Qj7
-	 gnjQdK9oPj03fT+wBBsNd85hBqjAvkJZyWR0MrSrIJjd89wAoaXK549bm4yU9X8FD
-	 1j2Z1ScTWcYRQrDtBB967afu8jjJjTnXJPZ0ts/A39IxKeTXh3U3ONbHA2vybY/Nj
-	 AgKhnNiHHdtgn8c0zlPAcXysh2EquxJ8FG4mnF7CK+bwR0akDtPLghlyl70CFX01D
-	 VrLq5JnLQ5x0W5aP711DNi8q4HG5ahPNDJ5y3ZNcrzqHLuQsRuXnSpK19p923QYsi
-	 dvaXtRVt/ztAg3bKxQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from client.hidden.invalid by mail.gmx.net (mrgmx005
- [212.227.17.184]) with ESMTPSA (Nemesis) id 1MZTqW-1wtkYJ26tS-00KAV0; Wed, 20
- May 2026 10:41:30 +0200
-Message-ID: <f46636c8-80ba-4802-a6a0-74cbc35e7bee@gmx.com>
-Date: Wed, 20 May 2026 18:11:09 +0930
+	id 1wPcZe-0000000409v-1PVH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 08:46:44 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-45e6a4d0be0so1852219f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 01:46:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1779266800; x=1779871600; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=U53nOZsze2BOUUWxn8xrqWn0udiJAimX6PJ2o0xVGTg=;
+        b=NzZeljVrv/KcLKU/ZxT4LuiLsTVmNVf4SMsuo0JjvHdcpEbaOaO85ycLtLP974Zov1
+         xDfq203LFZgieCyG8ANIVpBDO3M0nh4tC0yddbQRPr6P4cyqjkNrZNtHF4JyfsLUu3B9
+         BhOC7KEoSWgWQp0fk/B2zlUvYAJVMl9HNJfYOZFfg+0NknJBg+rHkTPR1KAUhWKQhmq/
+         jBZEJYPjxQHHFJezuWAYHS3GgriSuAIBXieCoKK43NIMjPgE7WlzSLsnC58tJxCUTPtG
+         BghXVMvltUwHtKihwn9RnjeGeI1J/s74WGlZixs+H1E7BGyRXv/Jp/ADHIiYLiXqDX9A
+         bv+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779266800; x=1779871600;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=U53nOZsze2BOUUWxn8xrqWn0udiJAimX6PJ2o0xVGTg=;
+        b=ne7aNN1ZUrQbKTZqtBEYFagt3WIuWk/piPXmvIifXhC5Tpraot8Wth23X8TsDitI4C
+         D1HE9/mFUnsxQzFhN1FkCjvCR/QabrSYhAaW6QyvOC5axkIaBm80l//QMlcdpuxraUHv
+         G7HRvyg9q8baE/vqsd8MhwGWs6SJpsZVhWKbF7chmpT59rVVB4n666XLNIGvDDANvTLi
+         ZF0x7blvYDwtSjY/F7Sqk5fYH5hXmj+LTBRNcTWgWFE+Ebw8k8tsnX5oLW+T8r/m+jp6
+         n9U7f80VcVDr2zH7gduwM5Ap6r0TSQOlZfP1/8e9JTe4efgaQJEt32D4EUxqM5wwtrSp
+         vr1Q==
+X-Forwarded-Encrypted: i=1; AFNElJ83DwqOtjks6O3/ceOX3LECd7dYJ75v1lihug9v6chfMKADclOmu91UlAGSixVQR6quYizBg/YGNvxhurvc5sPB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2mUV5LqURctqsEG3cnOsWiFjNVO5UQAvfJ4Jp0uko61YDnTuv
+	OOT4kt0erNCghLp8AgAbDIvJ5KQkGy6iDbwVtvKc5hd5UU0PuYM/OuhRfVX48q9XjaI=
+X-Gm-Gg: Acq92OEj96IBr+gochALCoDf5oCcLdBu6wLTCOsZ1sGAgxVH+c0vMJrx0VPZY2rmfhD
+	87eNozuuI1EapOYhPflsS4ZPNBmvHcpW/o0/Z/6oaPuyw7cKpi7AjgUgfN0GoVu4Gs1NlIAuyIH
+	zPsNEt6550cu7j/jd62ctox7olipnav6NktCFuJbTP6t6/KwzDuO8SguU8Vi/xKZM36g3lJLzUB
+	6RFt2AJb8WQc0zitoHadUxXRpEA3UatAeds/IodriHFpxyVEE6W1sPn6mNOCGJ4oKkVDWJgf4K6
+	a9PFKg6UBBL/bmGBtDh6J6GTDPoBXw3bUXx937DygNxDAjGrUTsN8JcEv/Qgvilk2+PC9d5Qe54
+	nYldhkKBsugmdDzRqkHSnq33EEWcFXa0wTfaHPxkyajikrQ4iRVKTKvQJwl9kcofKSaQjS4zgM2
+	4d4G647dYNLMwIM32uD8IhdmymCM0SpkN4y77YYpdcUCU3qpivUJ97L8/QTj76oLBw+8tQMcJgt
+	qYup21gCc8Uzls=
+X-Received: by 2002:a5d:5d82:0:b0:439:c299:4d8f with SMTP id ffacd0b85a97d-45e5c5cbe4bmr36382479f8f.17.1779266800378;
+        Wed, 20 May 2026 01:46:40 -0700 (PDT)
+Received: from localhost (p200300f65f47db04a02ef40d8e5825ac.dip0.t-ipconnect.de. [2003:f6:5f47:db04:a02e:f40d:8e58:25ac])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-45da0a19b1dsm51573666f8f.17.2026.05.20.01.46.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 01:46:39 -0700 (PDT)
+Date: Wed, 20 May 2026 10:46:38 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Helge Deller <deller@gmx.de>
+Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Russell King <linux@armlinux.org.uk>, Andres Salomon <dilinger@queued.net>, 
+	Antonino Daplas <adaplas@gmail.com>, linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-geode@lists.infradead.org, Markus Schneider-Pargmann <msp@baylibre.com>
+Subject: Re: [PATCH] fbdev: Consistently define pci_device_ids using named
+ initializers
+Message-ID: <ag1xQVCCzXkc_Ucu@monoceros>
+References: <20260430111637.211336-2-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/19] btrfs: require at least 4 devices for RAID 6
-To: Christoph Hellwig <hch@lst.de>, "H. Peter Anvin" <hpa@zytor.com>
-Cc: kreijack@inwind.it, David Sterba <dsterba@suse.cz>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
- WANG Xuerui <kernel@xen0n.name>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, Thomas Gleixner <tglx@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- Herbert Xu <herbert@gondor.apana.org.au>,
- Dan Williams <dan.j.williams@intel.com>, Chris Mason <clm@fb.com>,
- David Sterba <dsterba@suse.com>, Arnd Bergmann <arnd@arndb.de>,
- Song Liu <song@kernel.org>,
- Yu Kuai <yukuai@alb-78bjiv52429oh8qptp.cn-shenzhen.alb.aliyuncs.com>,
- Li Nan <linan122@huawei.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-btrfs@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-raid@vger.kernel.org
-References: <20260512052230.2947683-1-hch@lst.de>
- <20260512052230.2947683-2-hch@lst.de> <20260512114231.GG2558453@suse.cz>
- <20260513054742.GA1018@lst.de>
- <0a8d1ff4-f5a2-49e9-aa45-d25dbe4ded40@libero.it>
- <20260515043705.GA3855@lst.de>
- <34C16854-1065-4542-8836-DDED58EC1844@zytor.com>
- <20260518051207.GB9374@lst.de>
-Content-Language: en-US
-From: Qu Wenruo <quwenruo.btrfs@gmx.com>
-Autocrypt: addr=quwenruo.btrfs@gmx.com; keydata=
- xsBNBFnVga8BCACyhFP3ExcTIuB73jDIBA/vSoYcTyysFQzPvez64TUSCv1SgXEByR7fju3o
- 8RfaWuHCnkkea5luuTZMqfgTXrun2dqNVYDNOV6RIVrc4YuG20yhC1epnV55fJCThqij0MRL
- 1NxPKXIlEdHvN0Kov3CtWA+R1iNN0RCeVun7rmOrrjBK573aWC5sgP7YsBOLK79H3tmUtz6b
- 9Imuj0ZyEsa76Xg9PX9Hn2myKj1hfWGS+5og9Va4hrwQC8ipjXik6NKR5GDV+hOZkktU81G5
- gkQtGB9jOAYRs86QG/b7PtIlbd3+pppT0gaS+wvwMs8cuNG+Pu6KO1oC4jgdseFLu7NpABEB
- AAHNIlF1IFdlbnJ1byA8cXV3ZW5ydW8uYnRyZnNAZ214LmNvbT7CwJQEEwEIAD4CGwMFCwkI
- BwIGFQgJCgsCBBYCAwECHgECF4AWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCZxF1YAUJEP5a
- sQAKCRDCPZHzoSX+qF+mB/9gXu9C3BV0omDZBDWevJHxpWpOwQ8DxZEbk9b9LcrQlWdhFhyn
- xi+l5lRziV9ZGyYXp7N35a9t7GQJndMCFUWYoEa+1NCuxDs6bslfrCaGEGG/+wd6oIPb85xo
- naxnQ+SQtYLUFbU77WkUPaaIU8hH2BAfn9ZSDX9lIxheQE8ZYGGmo4wYpnN7/hSXALD7+oun
- tZljjGNT1o+/B8WVZtw/YZuCuHgZeaFdhcV2jsz7+iGb+LsqzHuznrXqbyUQgQT9kn8ZYFNW
- 7tf+LNxXuwedzRag4fxtR+5GVvJ41Oh/eygp8VqiMAtnFYaSlb9sjia1Mh+m+OBFeuXjgGlG
- VvQFzsBNBFnVga8BCACqU+th4Esy/c8BnvliFAjAfpzhI1wH76FD1MJPmAhA3DnX5JDORcga
- CbPEwhLj1xlwTgpeT+QfDmGJ5B5BlrrQFZVE1fChEjiJvyiSAO4yQPkrPVYTI7Xj34FnscPj
- /IrRUUka68MlHxPtFnAHr25VIuOS41lmYKYNwPNLRz9Ik6DmeTG3WJO2BQRNvXA0pXrJH1fN
- GSsRb+pKEKHKtL1803x71zQxCwLh+zLP1iXHVM5j8gX9zqupigQR/Cel2XPS44zWcDW8r7B0
- q1eW4Jrv0x19p4P923voqn+joIAostyNTUjCeSrUdKth9jcdlam9X2DziA/DHDFfS5eq4fEv
- ABEBAAHCwHwEGAEIACYCGwwWIQQt33LlpaVbqJ2qQuHCPZHzoSX+qAUCZxF1gQUJEP5a0gAK
- CRDCPZHzoSX+qHGpB/kB8A7M7KGL5qzat+jBRoLwB0Y3Zax0QWuANVdZM3eJDlKJKJ4HKzjo
- B2Pcn4JXL2apSan2uJftaMbNQbwotvabLXkE7cPpnppnBq7iovmBw++/d8zQjLQLWInQ5kNq
- Vmi36kmq8o5c0f97QVjMryHlmSlEZ2Wwc1kURAe4lsRG2dNeAd4CAqmTw0cMIrR6R/Dpt3ma
- +8oGXJOmwWuDFKNV4G2XLKcghqrtcRf2zAGNogg3KulCykHHripG3kPKsb7fYVcSQtlt5R6v
- HZStaZBzw4PcDiaAF3pPDBd+0fIKS6BlpeNRSFG94RYrt84Qw77JWDOAZsyNfEIEE0J6LSR/
-In-Reply-To: <20260518051207.GB9374@lst.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:dvYkZM9TiFDCY/a0OvC9eApZvlSwcJd3UwtLDS5MwAZMjs7M4Nd
- LicIaUhdRQfptJSOREFXlXXwIu6efRES75IROjxURvlDWzg8rXGNi60K4CTQXbKTh9THL/c
- wJ3/QeMKkDZW8kmACTTO7VjjFLSoLau+o3l06KjnXZ62BokkLWYoMVcl2p/DM4z+IpoUtZb
- i5VmwtojDyLUB+n1WFCOg==
-UI-OutboundReport: notjunk:1;M01:P0:nxybJh+AjPQ=;zxC+YYRPhBUn8mdIUZXysQ0mHvG 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 KgyfcA==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4j765bpqgzr2splh"
+Content-Disposition: inline
+In-Reply-To: <20260430111637.211336-2-u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_014334_115904_7521792E 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260520_014642_407931_9EDDB24D 
+X-CRM114-Status: GOOD (  18.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,36 +104,95 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--4j765bpqgzr2splh
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] fbdev: Consistently define pci_device_ids using named
+ initializers
+MIME-Version: 1.0
 
-=E5=9C=A8 2026/5/18 14:42, Christoph Hellwig =E5=86=99=E9=81=93:
-> On Fri, May 15, 2026 at 12:59:34PM -0700, H. Peter Anvin wrote:
->> I don't think this is a good idea. Error out; it is the btrfs maintaine=
-rs' job to ensure user data isn't lost.
->>
->> The RAID-6 code has *never* supported only 3 units, and if it ever work=
-ed for *any* of the implementations it was purely by accident. Speaking as=
- the original author I should know; this was deliberate as in some cases t=
-he degenerate case (3) would have required extra trays in the code to no u=
-ser benefit.
->>
->> I would not be surprised if the kernel crashed or corrupted the page ca=
-che in that case.
->=20
-> It does, that's why I wanted to exclude it.  Anyway, for the about to be
-> resent version I'll drop this btrfs patch over the stated objection and
-> will otherwise not change anything.  This means the (IMHO hypothetical)
-> users of this configuration will get a WARN_ON_ONCE triggered, but
-> otherwise keep working (or rather not working) as before.
->=20
+Hello,
 
-For the btrfs part, I believe I can get the current 2-disk-raid5 and=20
-3-disk-raid6 to fallback to raid1 inside btrfs.
+On Thu, Apr 30, 2026 at 01:16:36PM +0200, Uwe Kleine-K=F6nig (The Capable H=
+ub) wrote:
+> diff --git a/drivers/video/fbdev/matrox/matroxfb_base.c b/drivers/video/f=
+bdev/matrox/matroxfb_base.c
+> index e1a4bc7c2318..22774eb1b14c 100644
+> --- a/drivers/video/fbdev/matrox/matroxfb_base.c
+> +++ b/drivers/video/fbdev/matrox/matroxfb_base.c
+> @@ -1642,7 +1642,7 @@ static int initMatrox2(struct matrox_fb_info *minfo=
+, struct board *b)
+>  	int err;
+> =20
+>  	static const struct pci_device_id intel_82437[] =3D {
+> -		{ PCI_DEVICE(PCI_VENDOR_ID_INTEL, PCI_DEVICE_ID_INTEL_82437) },
+> +		{ PCI_VDEVICE(INTEL, PCI_DEVICE_ID_INTEL_82437) },
+>  		{ },
+>  	};
+> =20
 
-I hope the btrfs part can be finished and reach the next merge window,=20
-but I'm not 100% sure.
+after further sharpening my tooling there is an additional change that
+IMHO should be done here:
 
-What is the planned cycle to merge this raid5/6 cleanup?
+-		{ },
++		{ }
 
-Thanks,
-Qu
+and ...
+
+> diff --git a/drivers/video/fbdev/pvr2fb.c b/drivers/video/fbdev/pvr2fb.c
+> index 3f6384e631b1..06aefad75f46 100644
+> --- a/drivers/video/fbdev/pvr2fb.c
+> +++ b/drivers/video/fbdev/pvr2fb.c
+> @@ -993,9 +993,8 @@ static void pvr2fb_pci_remove(struct pci_dev *pdev)
+>  }
+> =20
+>  static const struct pci_device_id pvr2fb_pci_tbl[] =3D {
+> -	{ PCI_VENDOR_ID_NEC, PCI_DEVICE_ID_NEC_NEON250,
+> -	  PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 },
+> -	{ 0, },
+> +	{ PCI_VDEVICE(NEC, PCI_DEVICE_ID_NEC_NEON250), },
+> +	{ },
+>  };
+> =20
+>  MODULE_DEVICE_TABLE(pci, pvr2fb_pci_tbl);
+
+=2E.. here:
+
+-	{ PCI_VDEVICE(NEC, PCI_DEVICE_ID_NEC_NEON250), },
++	{ PCI_VDEVICE(NEC, PCI_DEVICE_ID_NEC_NEON250) },
+-	{ },
++	{ }
+
+Would you mind squashing that into the patch you already applied, maybe
+adding:
+
+	While touching all these arrays, unify usage of whitespace and
+	comma in a few drivers.
+
+to the commit log? I can also send a v2 of the patch with these changes
+included if that's easier for you.
+
+Otherwise I will put sending these modifications separately on my todo
+list.
+
+Best regards
+Uwe
+
+--4j765bpqgzr2splh
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoNdOsACgkQj4D7WH0S
+/k7n3AgAmiu0dkGSmVN5iwDMsbx9u5oGpxoTfYsBdf+ieZ5EzDYhZzjAd5M4GNMS
+dajrNSdkatRRbEZFE3PYDscIkW69PVck72sxOJdTDyAVSPf2hgi3mbElPpXW5ZEl
+V5s0iKhXHTafmLPl+5cAsDOdMG19WulP1A3QfTepuM0kOEAKsQ4UwUV4AWlpBgH6
+GMiJdyUX4viX+gD8zOIgyKPCjqvBa8CMPkgQORFA1fuD+eEbv1Iw1b0xDr/AinyG
+8Jfn/ZzaAAnTJje43x8rP+Q5hw6uVI6bBHTrhypMFQ0C9ofIZBsv2BUyQ8Hp5i85
+TX3Z+lJoWmwknV9WI68+rtnMMOgSCg==
+=on22
+-----END PGP SIGNATURE-----
+
+--4j765bpqgzr2splh--
 
