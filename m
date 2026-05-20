@@ -4,119 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0257DCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 16:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E50CCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 16:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=336SA/GYT1P2VucG2saRmHJSICv9pfFSfhTN5OgEmxw=; b=SkC/xBApPE4LeSxsUgAHXkteqR
-	xrPPc6hMQesYhGYLfR/c9vyvCFScUn6/ovWwEdqixjIZmIA0ChOL1BTtFlHXdeD6T69jCxGUcmJ7W
-	Pw04XBfzipmSVmrTvO4z26F1k8aKWN30FtrJyruxRZcBeRowVC8GBH3WqTrtnUEq26FD93Wzrq1fl
-	+KFj4JuIEM48PMM/BURNSkXmQdLv/XxgGUhdI+zHPWLjPO8h6ScAG4S0QhTxRsEMVnj6ASbWodXTg
-	ZSKhRjJxPxcwuNs6tfs2L9vxsENy/pP+4J8eUEhq65H9CtXc6GkjXqKX3boJIyzfymnYiYwU4d2Jh
-	G+H/p+Lg==;
+	bh=dJe+n1FEYiHGIKYKtgQ9xuvzcbmY3aEwUNiPZ+AEOkg=; b=wobeBpk8aFsLtSfSoL3py1vrG0
+	GRTdeMCTmHotj4QPi7Kh5KUn7qmJKaIQrISYht8U6IQ9645Tom1oubFvzKi8PJGhlsAv9gIAQed8B
+	O6yE40MulkuZWbBWZ5Wx1faw+1E9C+202Cytq8fHOGl5AFiNHGvqKy+T+HSeo33ROmZgew4Oo27qJ
+	t2BsCzwKVDl/7+T683u4bKjy3/goyVsXSxgk8SXJ45tJ0J2jA2bUQW2R5qjulO4kSOgT5gR5QVzve
+	lFsOOzhlLxe+K7QYllDOLY80K6CVRUkKwZjIz7VZMMqSBRICw6N5ou7e2oWym84XkvTt6Fl45vdXc
+	2hYpspPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjej-000000059GJ-3P43;
-	Wed, 20 May 2026 16:20:25 +0000
-Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	id 1wPjjg-00000005AJ6-2Jw7;
+	Wed, 20 May 2026 16:25:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPjeh-000000059En-10p2
+	id 1wPjje-00000005AIR-2Nhb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 16:20:24 +0000
-Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-50d864c23bdso14141cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 09:20:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779294022; cv=none;
-        d=google.com; s=arc-20240605;
-        b=J9xOAl2gnSO67SV6x5Z6YKLs5G+/oA8mkprUU3haC6hpPSddPV/D+wXUsKERUqpUFq
-         wzdgkyHtspMGJTDDZrBBGJC929R9i+RF432WTBOcznaqUSWIyDXOdr8WmhcjvxLpeEYi
-         CPwQ5NEndsH03htIjXmsh+ZAbGdDg8W+77Sro3og+uYqjclJWZ3FKnPz1m0Fue0aJdQF
-         J5j7B6/9ypu0A/isFhkg0c8h7v3E/IUmCyB5Qsvodn9Vv+HyKpdWX6nhgs0ijsmt7nnc
-         MYhc8C3geiQjnUVWpievn4gSeI5Kw+1OkU4pyXG+9Rc2OyjN1jVYca9ZL0hCXY/0m+xt
-         /8Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=336SA/GYT1P2VucG2saRmHJSICv9pfFSfhTN5OgEmxw=;
-        fh=//gwT8DGixVR1j5ic7u8zWMCrCU3x+cZ3J8nD9oLgw0=;
-        b=Va4xObSAm/FPZ96eoLzvXMJ9yxD0fx+lV1lnzi+g0ucLap0WGyD3j9fDQ8p1sGGPAD
-         FHhMkEWrDnp0JaG81kAxjCXK8m2ZZOLuVwHgvfyCKdC25SzFY6Ocn7UU91z10PTaewXR
-         0UpeLlRA1FQ08i3fP0atkN6K7gKVHUC9ZgEoJTGBgyEAj+WNNwExUKqgz+B7B5c9uQst
-         LOFFf+nEnLO3F5J6IfWBkGnZYRVhanWKGbBw1JySOhbNhNAGxJsgBp4JaUHrvwh7s8F6
-         WL+iF2EYKniltQQ0QzUVg/uHVGc9/Q5LXUD2qXlzEdBipM+4yQoberNM5t25KpvBAqCn
-         vKIA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779294022; x=1779898822; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=336SA/GYT1P2VucG2saRmHJSICv9pfFSfhTN5OgEmxw=;
-        b=drVULLYmLuxOJ6pBD+XCT++XAc07vyx7n8eA2chr/8z0UpOV22NLNB7IpeFYIrXf+6
-         1/4cqVXWfocaaWswPxELaiWJtAPlHhKFg7nph7eIh/noNUqZ1Aay8z6jRGRvViP3IsJr
-         4rpcbgaGsXZzZ+HHOGqXEoNrotlHphC6lVN3MFYJVu1Vda3PJ+WJPN518bzLky288WrJ
-         Vor8ZalDCQEBs+uhL+ZNkjizKkk49amgtYIdJB5B+yn33VYWX4gCCqndCGTxdH50d96d
-         cNYfTb89uNPcvfYF53OH8m1jW97TYHy+D1ELYXAqDqHf56W50qKjiCOW7J2tDPF5lAs5
-         MoNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779294022; x=1779898822;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=336SA/GYT1P2VucG2saRmHJSICv9pfFSfhTN5OgEmxw=;
-        b=oNJPZ+mmUhkacW4RfvpYsKGbpPg1TiMFIJIDUnVO/HuEpm8/RQqTbelf+kqc9lYkcl
-         LqzE3kCa8293WIWaT4ERKgTM0QqLxiWU2myhs0ZlWh+RtKOXmjzliaTq8d417/9zanRN
-         fGj0mY+8K4GykEP7IoM1IoFgjZZ9wMhiGMHhSETKKGjth7aX7BTtdrjn00tghxs2gTa3
-         q0eb4tRE7c3ZZyWe6LLUeXiH7E2FLzXvGW9Ux4ZjaihIJoMN60qMJaQLOe/VBZTvORtx
-         dQ7iERHe6mrGWrCvC81zPj04aS6tytEJ2qAd0s+nS90qu71Mw2GIiShJ7W83E/zVSxq6
-         Iwgg==
-X-Forwarded-Encrypted: i=1; AFNElJ8s1X+7X4QkBYKQ5ygcmAQ0Q9+WBb3BMvuTLuzT82B1fXp6NStWchagDjUd1cao/pCcNQ/+4Ut4HGX8DqKpQnq3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzKZh6FxbG0ZAN8BCzDfzhOC43U/Ijc7Jmdg+E9ETxxBMq0l7i
-	eqIql7tjv/PIgcjT4/Sy1LxYwjiDtcVBvlW8zSNy4hcENAd9QsJ4BVvtijGjmH9klJ1CQ+w9QCA
-	/Ki59JNO5qz6cUB0IxcnTc6rQEKeMUNPQesNkxYy5
-X-Gm-Gg: Acq92OFSnPvpjYQqSjy1pDe8gU4JfsdN5ufqAwieBWx7qbq1opeI0fROUl18yWg3my0
-	mxzWTEhGac53wJLrt+vcJQNTLYpfBiSc0SZ0TrJtBQM8X1BBmmUQgb/+67LimzLWnlKP491S8sK
-	iRDnXgi/vezrP3Ztv64ZHjR5OBdGlrEiY+IINLd5GVshJo4Ru/fnPp4ZNRyH486Gy/aNYtbA9en
-	uLaOMn0+DcbXbT5G5DfIVmFzui9SI5AhTxUXS9d/4ZEppe6dJlOqfV7lhdkQJ0B3VlXI5DlkrQ7
-	gTjAnSDsUcfq2P7vMStqjhTVq4E=
-X-Received: by 2002:a05:622a:1ba1:b0:514:c25e:c164 with SMTP id
- d75a77b69052e-5167937f1bemr20762781cf.10.1779294021124; Wed, 20 May 2026
- 09:20:21 -0700 (PDT)
+	Wed, 20 May 2026 16:25:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4A41C409C2;
+	Wed, 20 May 2026 16:25:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C6F01F00897;
+	Wed, 20 May 2026 16:25:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779294330;
+	bh=dJe+n1FEYiHGIKYKtgQ9xuvzcbmY3aEwUNiPZ+AEOkg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=aanMXZa4UfmwVMlkgxnCkJS1MXRvSj13HrBieCfkEdl+p3nM+arGb+6qJt4Nze0fC
+	 f3SlGG76p/FQ1SmAMn4QRmR3ogx5G+fpTWaw4rsvzU5ct7E3d/rtsJ0NdYcXVVVzNP
+	 OKDU/9axV5prL06AFOEiRa+rSdkrbrmHC6NVXHHyITa1Xuo9UlrE/k0FimrFRsF71A
+	 ZNxrejQ7WFMES/SfFQPBzfCMHNc06KReILVrYjeYD9zoBXJk9Hfw3fkk09BoqkyYW0
+	 RhFD+m4Z2gnYjDNTPxj+ZJyQ8p2l/Dz2A2HYBCxskUpCxgqX/8RZu5atJQ4zsazai7
+	 S1xWRUVcxZJoQ==
+From: Lee Jones <lee@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org
+In-Reply-To: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
+References: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
+Subject: Re: (subset) [PATCH 0/4] power: sys-off: fix Pixel C shutdown via
+ MAX77620
+Message-Id: <177929432727.2891971.15568098895295536822.b4-ty@b4>
+Date: Wed, 20 May 2026 17:25:27 +0100
 MIME-Version: 1.0
-References: <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
- <afS_L-5XeWIldTXA@casper.infradead.org> <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org> <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer> <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <agxbq1TxJdniMQT3@lucifer> <CAGsJ_4zxyZP_xkFCGWfLyXkqomrX6DNqyMVirk=aggtwB1zExw@mail.gmail.com>
- <ag1mk2DSJsiORaxK@lucifer> <CAGsJ_4zN5ezh9vvvQDQdMF2KuuDGvkhNjTZWc0y0Lsa-P4Aahw@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zN5ezh9vvvQDQdMF2KuuDGvkhNjTZWc0y0Lsa-P4Aahw@mail.gmail.com>
-From: Suren Baghdasaryan <surenb@google.com>
-Date: Wed, 20 May 2026 09:20:09 -0700
-X-Gm-Features: AVHnY4LoOxiQoJQwfyBuM7QQXQEEIIq-qCobTd7La33Msde42KTqBRrMiQ1PsG0
-Message-ID: <CAJuCfpHbKHjktnucBNAuRDSasHiZfFDP6xgz2dX86dX1VaJYzA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Barry Song <baohua@kernel.org>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, david@kernel.org, liam@infradead.org, vbabka@kernel.org, 
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, 
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, 
-	bhe@redhat.com, youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev-ad80c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_092023_484107_A05805D2 
-X-CRM114-Status: GOOD (  45.34  )
+X-CRM114-CacheID: sfid-20260520_092530_626417_E07891EF 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,111 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 2:07=E2=80=AFAM Barry Song <baohua@kernel.org> wrot=
-e:
->
-> On Wed, May 20, 2026 at 3:50=E2=80=AFPM Lorenzo Stoakes <ljs@kernel.org> =
-wrote:
-> >
-> > On Wed, May 20, 2026 at 05:18:52AM +0800, Barry Song wrote:
-> > > On Tue, May 19, 2026 at 8:53=E2=80=AFPM Lorenzo Stoakes <ljs@kernel.o=
-rg> wrote:
-> > > >
-> > > > On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
-> > > >
-> > > > > >
-> > > > > > I think we either need to fix `fork()`, or keep the current
-> > > > > > behavior of dropping the VMA lock before performing I/O.
-> > > > >
-> > > > > I see. So, this problem arises from the fact that we are changing=
- the
-> > > > > pagefaults requiring I/O operation to hold VMA lock...
-> > > > > And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
-> > > > > is_cow_mapping(vma->vm_flags). So, we will be blocking page fault=
-s for
-> > > > > anonymous and COW VMAs only while holding mmap_write_lock, preven=
-ting
-> > > > > any VMA modification. On the surface, that looks ok to me but I m=
-ight
-> > > > > be missing some corner cases. If nobody sees any obvious issues, =
-I
-> > > > > think it's worth a try.
-> > > >
-> > > > Not sure if you noticed but I did raise concerns ;)
-> > > >
-> > > > I wonder if you've confused the fault path and fork here, as I thin=
-k Barry has
-> > > > been a little unclear on that.
-> > >
-> > > I think I=E2=80=99ve been absolutely clear :-)
-> >
-> > On this point sure, I would argue less so around the fork stuff but I r=
-esponded
-> > on that specifically elsewhere so let's keep things moving :>)
-> >
-> > > We should either stick to the current behavior - drop
-> > > the VMA lock before doing I/O, or change fork() so that it
-> > > does not wait on vma_start_write().
-> >
-> > Again, as I said elsewhere, I think there might be a 3rd way possibly. =
-It's a
-> > big mistake to assume that there are only specific solutions to problem=
-s in the
-> > kernel then to present a false dichotomy.
->
-> I recalled that when we discussed this part in my slides:
->
-> =E2=80=98For simplicity, rather than using a whitelist mechanism for
-> per-VMA retry, we could use a blacklist instead: default to
-> always retry via the VMA lock, and only allow mmap_lock-based
-> page-fault retry for specific cases such as
-> __vmf_anon_prepare().=E2=80=99
->
-> Suren mentioned introducing a FALLBACK flag. With the
-> FALLBACK flag, we would retry via mmap_lock; with the RETRY
-> flag, we would retry via the VMA lock.
->
-> Not sure whether this could really be called a =E2=80=98third way,=E2=80=
-=99
-> but it seems more like a shift from a whitelist model to a
-> blacklist model, without changing the fundamental design, but
-> it does change where we would need to touch the source code.
+On Thu, 14 May 2026 16:47:18 +0200, Diogo Ivo wrote:
+> This series migrates PSCI and MAX77620 poweroff handling to the
+> sys-off framework and fixes shutdown on the Pixel C (Smaug).
+> 
+> The first two patches replace legacy pm_power_off usage in the PSCI
+> and MAX77620 drivers with sys-off handlers. Besides aligning both
+> drivers with the modern poweroff infrastructure, this removes the
+> global callback dependency and allows multiple handlers to coexist
+> with explicit priorities.
+> 
+> [...]
 
-I thought the conclusion of the LSFMM discussion was that this is the
-direction we would take. Maybe there were followup discussions which I
-missed?
-This approach still drops the lock before I/O but after I/O completion
-it reacquires the same per-VMA lock instead of falling back to
-mmap_lock. IMO it's the simplest fix for the issue you brought up.
+Applied, thanks!
 
->
-> >
-> > We absolutely hear you on this being a problem and it WILL be addressed=
- one way
-> > or another.
->
-> Thanks. This is a bit of light in what has felt like a fairly
-> dark situation. I really appreciate your thoughtful and
-> responsible approach.
->
-> >
-> > Of the two approaches, as I said elsewhere, I prefer what you've done i=
-n this
-> > series to anything touching fork.
-> >
-> > But give me time to look through the series please (I'd also suggest RF=
-C'ing
-> > when it's something kinda fundamental that might generate converastion,=
- makes
-> > life a bit easier on the review side :)
->
-> Thanks! Sure, I=E2=80=99m happy to wait and there=E2=80=99s no urgency.
->
-> Last year you made quite a significant contribution to the work
-> when I tried to remove mmap_lock in madvise. I really
-> appreciated it. Now we=E2=80=99re back to the same lock again, just in
-> different places.
->
-> Best Regards
-> Barry
+[2/4] mfd: max77620: convert poweroff support to sys-off API
+      commit: 1ada6d7f88063dd6fd92d74d0b803875b695fe01
+[3/4] mfd: max77620: override PSCI poweroff handler on Pixel C
+      commit: ea3f90bcc8524c6d514f6b8183cc202b79b082be
+
+--
+Lee Jones [李琼斯]
+
 
