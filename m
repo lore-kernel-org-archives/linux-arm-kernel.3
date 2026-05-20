@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E30CD5BA6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE6CCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qdQpPp2MoHg9tBaiDFbCeeRZQ0f811blbdA5CVHPU1Q=; b=0fl1TVG0rtQwPB1XNkWJQNakDw
-	pyyAsZ2ryjp94wXAIAhYeCqmQowUm1cpKcrR4qH7LZG+SAs8lEa++FV64Ga3ZVsRmp0t18TWyRKu6
-	+a1BLdgusLywRX5kbNiYTlVUwZ6str/GrSX+scp9dK9T6m9wweC/KuY5ROHiU77QxbrnW64HeUOeO
-	JmW/42jGFaZGOeRV2Cw4A03UUHGLdSUXzqWHdM/qPLAYcWj6Jg0Hzo/h8kZ+M5OApVWL9TQlBh01k
-	UyqREpgMvbyI73liBkUGH191QnemXGF+Dq5+gnrWa1ek2vTSyJAoUbYReqh67XPxuedy9e0YLlVIU
-	3vjSb5IQ==;
+	bh=Yp8TJvgYk4dUAnyYuq90MCPQ++6cQcyfGHV+/YigiLU=; b=iKiISskCe+Gs/61ESxyh/GzFJG
+	tN8KXO0SDL+Ut7eaKWArGerssCFjCjTOl3g1lndQC4emOPeVwdxOCHCxB77gh1kkorTM5GkpeHZG5
+	oX6rTTOtNfHXBt66Qa3jsruGtMZ7Zydk+DbO8xiCckRX6oyHtKKE30ldZ7rR8cf1WdiiUQIWu1RAH
+	8LDBWqe+e3cPjCR2DsAOJ6mvfhQDjYTMb4zYDi+onMg+lkM7ABHGHxqZX1TWd1HWesdzldNzF/L/u
+	sIZHsuPCWHerS4jlFkrGOx3xTjDK8ddTwHOa/+JyL8I8+9qx5SxseFc3zPyKA6W59Y0iBsNIUwycx
+	AkixzLnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd7Q-000000048pa-20Hj;
+	id 1wPd7Q-000000048qI-3p6W;
 	Wed, 20 May 2026 09:21:36 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6a-000000047lR-03t7
+	id 1wPd6b-000000047p2-1lpz
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 20 May 2026 09:20:44 +0000
+	Wed, 20 May 2026 09:20:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=qdQpPp2MoHg9tBaiDFbCeeRZQ0f811blbdA5CVHPU1Q=; b=iaNUZTX3VolkN9V3RLlLkbW4XB
-	61Q4M3ee9ZOAXNJ0d1lGHEQQLQLgOq2gqXdv6m+xNu9LeawX1nUByPTYMwHZQ5G0cjmG+LIJTMv/G
-	Lyh0t7+k6aNzY2zHHYfNIzCH8yX6nbtAG97lRlQOueo9g2Q8ox7FsMHQVD34dy6MfHavkeaV1yOhk
-	Dj5RDg4E2Dp1HP0SBt0A8CMKf7yWHZLVNM/L0DYwJYw1/DjdwqGsRnxabMMdPujZgjLhTO6CXs//o
-	9fSF161yOjeGiZ1Pst+t3DROEkrTKD7qbhhnPmq5Jv+YodnoMp1faapKMHyJi+B9C3+COEX2nkHIk
-	upXhqHKQ==;
-Received: from sea.source.kernel.org ([172.234.252.31])
+	bh=Yp8TJvgYk4dUAnyYuq90MCPQ++6cQcyfGHV+/YigiLU=; b=TO3kjqrcpm5wQTklk0gW/08M2n
+	cbTqQYBDnnettWViWtPFD4iO1tIO8SOLyDy9N5sXpMPHOVhRQO5OFOU0psAoQFItAD4Xo5T+R05ZP
+	xwN3bBUzpHSA+WBRVm70LaHGi7ihXQvTY2owAitOX04mHnlpMJVwigBVryNx7A3+dvrwPVn/ZYMba
+	J7euHXkWbatnwyzMSJfE9lZaXgymh6240XN7dirBmkipx3YjNzSUfKxmMfDAODPxZM56Ps7mIp1F5
+	sxZf3RH+uqdOVM8oIbiVxEZVUE/Py3AXCY21RfRotyZlRxtrRDbPkSzSfLVCarX2RAA1nrLPF1/j5
+	rFQCGiXg==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6E-0000000GKXh-3HqD
+	id 1wPd6C-0000000GKXA-1ijK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:42 +0000
+	Wed, 20 May 2026 09:20:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E558940619;
-	Wed, 20 May 2026 09:20:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAC8E1F0089D;
-	Wed, 20 May 2026 09:20:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 72B69418BD;
+	Wed, 20 May 2026 09:20:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 589BD1F0089C;
+	Wed, 20 May 2026 09:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779268814;
-	bh=qdQpPp2MoHg9tBaiDFbCeeRZQ0f811blbdA5CVHPU1Q=;
+	s=k20260515; t=1779268813;
+	bh=Yp8TJvgYk4dUAnyYuq90MCPQ++6cQcyfGHV+/YigiLU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=M4Eydw2MHLQ6nnrbpkxYc0S/zlpd3CST5tGg8K0HwIEb2TErQyr6VChgzYagjBLiS
-	 e8OgriXWXarVffWOi6mlyR/AxBjna4IPc6YnXmODegrxtzlfjwiTsbJpO0tomMn2zI
-	 VIcnY1pSdljTD6xcRoJlIgb/NwRp0TKNshUISk2rIDs/pJpCIhbcpLJAbqMC2fV2kl
-	 WbgFGNLNOKmEEAmeT+QGc1jp883/iq0JBeIWTODgZpwyFfqHccITUNp/wh+4DI+1Qz
-	 REpj3o+BHe7v7Y3RueyUXo8RafMGE+iMStdQh63VRwJhUHonOY71Hrq2TnVQJFTyVK
-	 RUKZXDTAAHBKQ==
+	b=FJJHQXUmD+Y82FRqKen8WEDYl5pm32pATNjpbfiuvDZS3JzftrEIqvSv35iSNJ5hR
+	 qaE5yfKKCRXlL4N1pyxhxMqrEUCSG2cUA8eR0BaA49+s6lmVzdvlN8CV239dbduMTp
+	 KTh5CLGmCoa7UQ3+AqubeIAOccmZ8jm27YXCM2mIcfRLnler2rHV+zxitodRJv9yfB
+	 aDYg2GCPdXoGaxFpWkuE0eb6Z+69cwwd/++6WrXpkdtZ5wShCegNXis4y+NIeL8BIN
+	 2ZgC1LrAQY5HBQOHlVuSWfOx4V4/9zDd3kF71lV3aRZvkBVKYJwhXZw2N5iFL+zJ7G
+	 IRP0/vjSnCfxw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPd65-00000004IaV-0Xgc;
-	Wed, 20 May 2026 09:20:13 +0000
+	id 1wPd63-00000004IaV-2emc;
+	Wed, 20 May 2026 09:20:11 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -72,9 +72,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH v2 14/18] KVM: arm64: selftests: Improve error handling for GICv5 PPI selftest
-Date: Wed, 20 May 2026 10:19:45 +0100
-Message-ID: <20260520091949.542365-15-maz@kernel.org>
+Subject: [PATCH v2 07/18] KVM: arm64: vgic-v5: Drop defensive checks from vgic_v5_ppi_queue_irq_unlock()
+Date: Wed, 20 May 2026 10:19:38 +0100
+Message-ID: <20260520091949.542365-8-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
 References: <20260520091949.542365-1-maz@kernel.org>
@@ -85,8 +85,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_102036_619271_D6BD9C79 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260520_102038_059917_59A5DD9F 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +101,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sascha Bischoff <sascha.bischoff@arm.com>
+vgic_v5_ppi_queue_irq_unlock() performs a bunch of sanity checks
+that are pretty pointless as there is no code path that can
+result in these invariants to be violated. And if they are, a nice
+crash is just as instructive than a warning.
 
-Cases where the KVM_RUN ioctl returned an error were wrongly reported
-as incorrect ucalls. Furthermore, potential failures when calling
-KVM_IRQ_LINE were being hidden.
+Drop what is evidently debug code and simplify the whole thing.
 
-Improve the error handling to correctly propagate the error in both
-cases.
-
-Fixes: 0a9f38bf612b ("KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest")
-Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/vgic_v5.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/vgic/vgic-v5.c | 16 +++-------------
+ 1 file changed, 3 insertions(+), 13 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-index a8707120de0d8..96cfd6bb32f6f 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
-@@ -129,6 +129,8 @@ static void test_vgic_v5_ppis(u32 gic_dev_type)
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index 757484d2493b2..7916bd8d564ef 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -238,9 +238,9 @@ static u32 vgic_v5_get_effective_priority_mask(struct kvm_vcpu *vcpu)
  
- 	while (1) {
- 		ret = run_vcpu(vcpus[0]);
-+		if (ret)
-+			break;
+ /*
+  * For GICv5, the PPIs are mostly directly managed by the hardware. We (the
+- * hypervisor) handle the pending, active, enable state save/restore, but don't
+- * need the PPIs to be queued on a per-VCPU AP list. Therefore, sanity check the
+- * state, unlock, and return.
++ * hypervisor) handle the pending, active, enable state save/restore, but
++ * don't need the PPIs to be queued on a per-VCPU AP list. Therefore,
++ * unlock, kick the vcpu and return.
+  */
+ bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
+ 				  unsigned long flags)
+@@ -250,12 +250,7 @@ bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
  
- 		switch (get_ucall(vcpus[0], &uc)) {
- 		case UCALL_SYNC:
-@@ -144,7 +146,7 @@ static void test_vgic_v5_ppis(u32 gic_dev_type)
- 				irq = FIELD_PREP(KVM_ARM_IRQ_NUM_MASK, 3);
- 				irq |= KVM_ARM_IRQ_TYPE_PPI << KVM_ARM_IRQ_TYPE_SHIFT;
+ 	lockdep_assert_held(&irq->irq_lock);
  
--				_kvm_irq_line(v.vm, irq, level);
-+				kvm_irq_line(v.vm, irq, level);
- 			} else if (uc.args[1] == GUEST_CMD_IS_AWAKE) {
- 				pr_info("Guest skipping WFI due to pending IRQ\n");
- 			} else if (uc.args[1] == GUEST_CMD_IRQ_CDIA) {
+-	if (WARN_ON_ONCE(!__irq_is_ppi(KVM_DEV_TYPE_ARM_VGIC_V5, irq->intid)))
+-		goto out_unlock_fail;
+-
+ 	vcpu = irq->target_vcpu;
+-	if (WARN_ON_ONCE(!vcpu))
+-		goto out_unlock_fail;
+ 
+ 	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+ 
+@@ -264,11 +259,6 @@ bool vgic_v5_ppi_queue_irq_unlock(struct kvm *kvm, struct vgic_irq *irq,
+ 	kvm_vcpu_kick(vcpu);
+ 
+ 	return true;
+-
+-out_unlock_fail:
+-	raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+-
+-	return false;
+ }
+ 
+ /*
 -- 
 2.47.3
 
