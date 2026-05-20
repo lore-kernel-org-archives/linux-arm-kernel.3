@@ -4,98 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DABACD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:12:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0398CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:15:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XVK9lCG8t/9sfDORk8nI6RMdbwpsR4qFe6/O61rN3aw=; b=FILATURTX0//J1WwUlJOTZJaFy
-	S8Qy3eAN0ql5QUfLdYjrWN4rpyuqHjhRN+H/Mffo948BQC2aNoGIZhrDiUFemQDAf6rz6dJiqYGJY
-	WSkOBHIUxk52VKgXADKvLnS6tMD2XwzE9cuHjKgqF0xMjLTmhJhYmUzQTKcJr8nyKT/cQFLKB2voq
-	2+OhVEIG91pI6n/fZPC7NhtOTSll/8acnDa7M1MsLTr/89sqQLlNbwWln1PP28V5dr+U8Yn26z4HE
-	JLq8hzigDSHK1dwUCBvdeadSiL4a+VxM7j0c17cSYsstB2Kq8o6inJLQnco0ZGe3fYNXG7OPpcDs2
-	pX12tujg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1TAnnbkU6v/FIMFN+agEfcUFITZ0lNJKAerEhwwjMl0=; b=t8FUrkzYRFKMlseYDH/3YUe7Ht
+	MGdpJwWev0iYu/NJiGRif0G71SndZQl3FcbbUWFsXmP/tkJUzWF4Qh7rptgZHobu0Zbkk18lMb9WZ
+	27Jfa9V389vFZV9WbmVUQqLCa5vSZsHWhdxjQ0Ry9XuSs4gK6F98H2Ln2YrUvdGohODiAgTr0w+4e
+	6fapIYcsOhDMjlJHwjRk3Kq7oOXAb4Lz4ELMCUnyWiG3lgI2LulYpMZraJsSdq9A+un14A4WiOunw
+	vlJ0lMrKMqFDL4D/5dgJQ6dU/+ylRdHxWgXw0UC5KGwTKLLba8jaAJR9yz9mKjXMAiyDeIQ5ou4TD
+	li1UPSTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcys-000000044s1-0iFc;
-	Wed, 20 May 2026 09:12:46 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1wPd16-000000045GN-1l0t;
+	Wed, 20 May 2026 09:15:04 +0000
+Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcyp-000000044rT-3JU2
+	id 1wPd13-000000045FE-3FKe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:12:45 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5a8738c178dso4394663e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 02:12:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779268362; x=1779873162; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=XVK9lCG8t/9sfDORk8nI6RMdbwpsR4qFe6/O61rN3aw=;
-        b=N7JFIPky1t7iLHRtQ7t+KQt+HPmY6whNxdq+c4OPXzy51Sr3GQgB5Eryj30MCe5g1W
-         85UA90Knl5kjbN/NpLgYK1wClIzljmt4auVPyVC5BbEcK8l5S6XbY5tzhTZfj4IfFemn
-         P23eDnwj33hF6EQnW+iY3LavZfj8LBG2HRbZtaP1JQbOyNyCAjRaAVr6hLCaBa6P0XMz
-         O/PC9cVSMeumPFKcJzYkC+RHxHJ4b/jm2KHNX57zIBJn2XCuKkv8llBdSdhtnPaYDwpB
-         8GVRbGfyWdvtzvct4VlWxKogBiU4D6ZonY+kG0Xqp0IEIUERCFfwEp87QJAP268CZnwV
-         6tog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779268362; x=1779873162;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XVK9lCG8t/9sfDORk8nI6RMdbwpsR4qFe6/O61rN3aw=;
-        b=mdb0PmgVRhhvW2so0bTFxZM/v/jNqH3fAR6IPmzcNrSiII3+KXIy9muVLLbKAYX7Nu
-         bxzVxAU1JrnrudoJnQ3gYIj1kZKIkj7WVYGc9WVxImLZ5589vS8XQGzGMF4pkp0/ll2X
-         ZT1yQQCuyE/OlRjhcKUIBivqyUtpFfslNNjsEpAnkUUmF72IknjJCECPk6CLX67nBHw7
-         FwGCViMnz12Sbxy9HDT8dkJ4YHI2Dho/YA/ZETTBnrAE+rYO64WqwtgbmXKn4mdQ48dx
-         cayEfBdkyDb+kSmu0xX3D1hHFX9ITIOZXcr0JLrsSKoZZk8sxGwxmIPYeTbPGivtzn5/
-         MTDg==
-X-Forwarded-Encrypted: i=1; AFNElJ8gb2kBEATv0C6rLyZGkdaaBwwxTpL7WNrsXxi6e3AHh57Mfqma6bzOq7dak5ym2w7Zr2rVHZdC2PgE86eYGb5X@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOQwyaqqFVvJs80Uxac5JiPfRT5H4vSAyxE00QMKdvxdQRpJ7t
-	vZOmrxaDV3BIJZogQB1FOUG17zCFlrq0rCoyK7xzlyQ3cOVRpdtfiVJ+
-X-Gm-Gg: Acq92OFgOKapcua2juvJ4Ehu3FSDsbNYIu1cThTmtbnqCO/9kKcjpw56KpWGip/E0ny
-	ixYhlmqmtJouluD/Qojn38LKoEbFO7a1AaSxMtfwt6UP1g2apr1XO66hLoZbHoU0TChoq1QZsUH
-	GEe/fB6JjI2Kg3rj6XGkX0b64AyDLXJXNu3TxVw1tvsfZuLJ6tDlFs5aNwQz9TQU7o5mN75iDQd
-	P2aKW4qkoAStTu7wE+7aSlRmX/dF5HQCfVAuPsPQvPVJRkCNetMmeZgxbbzOceCG6mxzmpB6fNP
-	Qi+uTPaEndwbYlqAU7aL38/RU4Yk+YzFLEbPLLDh2NFuLLyu2BuQQGwArNSxH/naCmGPrpavNgE
-	iWYaA8lRFnZk8YMwe3lUDHAjjBF5lyLvdmDrwA4AoE/79DDIeEMahIcH8FKsXUAkqaAjST3SkuG
-	+cLF+gEwUAIPizFWl4MUIsW5uESq93MForIDlkVCmO+4ojM+KZkZrXlA==
-X-Received: by 2002:a05:6512:6c8:b0:5a8:72e2:dba8 with SMTP id 2adb3069b0e04-5aa0e6191e4mr7180894e87.3.1779268361357;
-        Wed, 20 May 2026 02:12:41 -0700 (PDT)
-Received: from pc636 (host-90-233-198-171.mobileonline.telia.com. [90.233.198.171])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5a90f11a7c2sm4711004e87.32.2026.05.20.02.12.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 02:12:40 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Wed, 20 May 2026 11:12:37 +0200
-To: Barry Song <baohua@kernel.org>
-Cc: Uladzislau Rezki <urezki@gmail.com>,
-	Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, akpm@linux-foundation.org,
-	Xueyuan.chen21@gmail.com, dev.jain@arm.com, rppt@kernel.org,
-	david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
-	ajd@linux.ibm.com, linux-kernel@vger.kernel.org,
-	Wen Jiang <jiangwen6@xiaomi.com>
-Subject: Re: [PATCH v2 6/7] mm/vmalloc: align vm_area so vmap() can batch
- mappings
-Message-ID: <ag17BYxJVRUu8JhV@pc636>
-References: <20260514094108.2016201-1-jiangwen6@xiaomi.com>
- <20260514094108.2016201-7-jiangwen6@xiaomi.com>
- <ag1jhrWivbasi8Jq@milan>
- <CAGsJ_4zjQDOXToau0xoWOTnoP9kODxRdzSeNX6n_b3wxguC4mw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	Wed, 20 May 2026 09:15:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kWdS4YdOKdMTuHwnHZJzMKtTDe5sdtKhmqyUOYiG6PlpkvBw/9K5g1JR1jn9rUe2We5qq6AQM0hqfyP6CYBYYt1mKf9qn/HLXcObMTt+X3vuOSyIy/xBvGjD5qUeoVQk9SgsYqV6iFQiLM5j6pwiw6tlKznEO/vhMNzIxAlrXkxBIZ7XsBAMHjseCjH4i43WnRM0GDTGfzTFQlNNxKSwEXZqOxok9Dq4q3PN7FcXGPungdMfC/drAIH4XMhESkxvk6gD21PNeCE614UQ+kqC0Rc/WaUPZZ81OEvbOePAA0CVY5dF6s2zcrLoGOUeWIGv0AnENo3z8s1nk3eVz5o3rg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1TAnnbkU6v/FIMFN+agEfcUFITZ0lNJKAerEhwwjMl0=;
+ b=d+Ml1TGHH+KBGWeZC3PJ5Z680bTqYmFNSvssux5mODjAQn8EI7A5aSfhze2TmZfeeO/kKjdgWRLsvFcTh181zPdGaxj4aHOi2dfqz3if/Z0Sj6DLziZPlEDQZmRwa7AO3HBolasMOOxksBV5xqyjuMKzbhnX/JvNHDrxd3NSHaq6g3fjBoOw+thRXTIGKMLFVD+TQ7LvO3aOsAhgtlBUXQZBQN+M94hiG07/YV6X8ZAtX+ibksVJ70DEAKEGaLQC1FrDtpADgIUQ1YE6ycid7Qg+hY90XckU4ZpBg+O+I2p8Oh5na0uJrL2p3ak50fEpochWvqFHjdHFAPkpuM2aMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1TAnnbkU6v/FIMFN+agEfcUFITZ0lNJKAerEhwwjMl0=;
+ b=e0HS2T4xmx3GhRcyu4Qvdut/0FMfLiVmTCWNP2ZrS3ubzwp4FNzoWLUArLq4CG7vkaMhbgB2sZCDAX3TGqtU7tZvgLx+5NH3xu2aUGRZthEpYa5TXquF0OwPpYWZPI16V8YJGw/FQdnawGBVCuPExwtvbc4Mq7woZ36xBG3Bk/U+hLkqqMt9c+HLp6UYyJn2V+0t6lOfFDDyeeUXlQvVXuBZWbOOK/0qK5jtf8SJI2fRBPPe9fyzkYmb3WesnirbHbm6a7+caZgf/7uPwcEF2UbtifjA2uPxdw7AoyfTAEKFph14nmtjthrqajBfwF6zFKICXBywlmcOYp6H41oekg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by FRZPR04MB12432.eurprd04.prod.outlook.com (2603:10a6:d10:1ca::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Wed, 20 May
+ 2026 09:14:58 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.013; Wed, 20 May 2026
+ 09:14:57 +0000
+From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+To: aisheng.dong@nxp.com,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Carlos Song <carlos.song@nxp.com>
+Subject: [PATCH v2] i2c: imx-lpi2c: reset controller in probe stage
+Date: Wed, 20 May 2026 17:16:57 +0800
+Message-ID: <20260520091658.2879993-1-carlos.song@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4zjQDOXToau0xoWOTnoP9kODxRdzSeNX6n_b3wxguC4mw@mail.gmail.com>
+Content-Type: text/plain
+X-ClientProxiedBy: SGAP274CA0019.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::31)
+ To AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|FRZPR04MB12432:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b693ff7-3739-4920-2be3-08deb6504351
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|376014|11063799006|18002099003|56012099003|5023799004|38350700014;
+X-Microsoft-Antispam-Message-Info: zXf3xjqN2CHNsVPZHjt9OVOUl8mgL0C3tAr7+njvnxqNhQlK99f8TTCihFqtFiR6rOe3FZkIsS95tHmutR5Mzwu3ZJEcJmN7AgeO4JtbbGPWOKO0EtOMHapkzPlOyn4l3tTvZK73s9alqme7ly3qLQ1GXbPMxfb5ZHRSe8Bxj5AlGntj9VL4SnstzQrFUYeWkdQa6tYrf5jy1tPc9j533iZ79RFIr623XtFVck6tkCZ280zXzRWqhd+tDuqxxbfKMRUUgedFjVy69tEJdB1v2Z7XD5w/+/1+eCH/MhbrKOoSYBhqEOdm1HzG1uDaMgr1Pd004vtUAMxOdNgrXLsNi4x3cDz4azkpsIm6cHa2OpRLqqgzi2Bb10iVzBY90t9ydIvlEnB2A1hT0rLQ8/G/5Ek90VabvNJVOOfVm4z2+eHEOy7w0sewSzGTyQeSJpN+ijlcsefTE2FbcibYrNcbwyVr2aZFbqJ1L2M00K/XCEFqjB/yDrz0+WwO4Yzi/HG3EriOQTy3VJ9SVrFyp+oQNdlKBTi7h7jzpRelFSWnIOT9rHW32/erievKLbWU891z7lqS+FGq1L2/+uKC4refCIB4E1HM4QlqtNmMC3tsaIBf/yj/CuNBKDA5sAHC5PXHvu4Kqwx6ECt7ugzfP5slBd3yYmMLOxaWRb1tNqm63EvDlCCFn5ZYPYn5Hz1dqouutMY1ZDFP6l0TyOlBuqiZ/vsKbqHbsTWgKOw2M+0eKGsPo6lhU2cjmYRR3+isw2Kr
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(376014)(11063799006)(18002099003)(56012099003)(5023799004)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CuieKSzhnXICc8nNQ1SLEPSiTlCPYsh3GtA9kBPqotXlRuSfHf5GIVbzaMBT?=
+ =?us-ascii?Q?SJxR+Bk4zJpfzjXq2X9KS4kHXQZxaaqW54UOj7RIk2hVUJtwCYBNnoN87L1j?=
+ =?us-ascii?Q?3+WZCwidwkqHEi9FR1QjJGLy/IaJZ5OViZt0HzLUPQvZP5zzEkS51bU0hDnU?=
+ =?us-ascii?Q?3ETWr1VgKU1fA5c0745NylZTkIncT74qxvNoMgf2nFy62e/Nz9BdD74q8u/4?=
+ =?us-ascii?Q?5OVZwrOmN0YdCCuPnRhU/t7EhgXoKLaC/HoEr4pgLUYJpzF3WNeIR1csMZhQ?=
+ =?us-ascii?Q?YKHZElKubtf5+r0H3l9/LjFcfarH+UHj6oykvy8tpHbQJNpfkWORg6e+Ao/2?=
+ =?us-ascii?Q?+UASKQ4djQThtTtEba7Sn55vCJ1HDQ/lwm2buPiMRHIHVbmCjNmjG7m210bU?=
+ =?us-ascii?Q?uXRM3NlTpn43EBx8n1TJGJC9LdpGECmbNV431rb/ITCf/G4lONjAHc5EQMHc?=
+ =?us-ascii?Q?5WqvPdueAraV0CyemkgW/8oTTjXG2gB1LzUOwuSfSdCHX6lLsiwldecquwM2?=
+ =?us-ascii?Q?M8D3wf1R5H8VoLF1f/xJjF787ygWdjrkOX6P+9PZMAyWfGA8XX8g2xeZouqn?=
+ =?us-ascii?Q?POkgF7Y1Vlzk8cymT9MbUxeE2oGvEJWeFFzxOiQpr0c4D2cT0f5QEs96I1R3?=
+ =?us-ascii?Q?Ec05aRGKixZYc7k5s/ktsWXqKZY/COhDimCubGOPXO5eM6Ohw8q3vo4eEPfG?=
+ =?us-ascii?Q?ti5/k68sfj1dDJTyXmU5qfTfmMkVrXRd7x7PTSsY4R9/+uKIb6FWK+jqBtb0?=
+ =?us-ascii?Q?8ccpjiJMR21tzPs07oGckOXYbh5Q8vbriaLwLM+RV6abqV6GJinImj5ELGeq?=
+ =?us-ascii?Q?V84rReVa2EfMWBs2tjfEIY2ALLaX1WKaexQxixviwSjU0aDo0aEoYxwMQ0fX?=
+ =?us-ascii?Q?z2DFg895dAt54r/H5FqdvwwHZdYlwcnFeOlf2/v2HlxEBI54PgO6ZWzBOuji?=
+ =?us-ascii?Q?odjpnRqbzrXn2nY0IWvrWoU9pldeXru/fIpeiMu9MoogoOudrd9jyHwHiWxW?=
+ =?us-ascii?Q?QAeqNn1myBkTyxZOHFeNx0c2C67+uhlRu9zHC2CyTKFbumsZwj+2oWBdVstL?=
+ =?us-ascii?Q?FTIMJz5Y3TF7CzUoJMqtUyAZgF7XHlmUNJAKbJ67+eCGhE3VBja7LfZYdDhm?=
+ =?us-ascii?Q?oVsxXj37xp3k8gklUcpKPvd6vT7QtuaN1YKK6SltD5BzsvnS89AIRqXYGI3I?=
+ =?us-ascii?Q?QSVjHW+gSuc7LFaFoBIPImo0CrkIhO/90xfZF5+OJwwxg1D+SUmCgl4USIb9?=
+ =?us-ascii?Q?rLPPf+mfiALP0DJ6kCpMY8kTkkqXgsNhl2efY6KyDidu1VhCQIMm0EMPGEfH?=
+ =?us-ascii?Q?kQWtl+jiTc1gHqJOMJrB0DZQlfYoe6k4dERYVVV/03veoGUjSUNdh4e4S0KD?=
+ =?us-ascii?Q?DgLFKv1PFkARZuQcGhRRJM7dDRbqkQbJ9105fbGOVaGLK6Yksp4Xs5P/Cvpv?=
+ =?us-ascii?Q?P0bxd7PbG+FpIy4f12G8iSiquOZllSn0+DCzYsVsmYfvmI4Fe/q9784mECUx?=
+ =?us-ascii?Q?IRofdEEhWI322Gq37S8rlUICtFPPPZ8Fji635xqtCkwKKFZOuW2Hcqw0dWo+?=
+ =?us-ascii?Q?UExoQAqBirdiNcG65javO9Y9Pvcs9sJmOEhjsPUBIupOIhOfqV7o4e+HJyk0?=
+ =?us-ascii?Q?X40k4RgDHe+lKHcKTniYbtsLKuySWrDY6FyN6o3llp4m2DcPwtnNdtvMyCeN?=
+ =?us-ascii?Q?NuY1sAT8oRju/L1jnyUWXqM0fz6c44mv4xhXPww5m1+QzLj2FLiG7FpZtrVc?=
+ =?us-ascii?Q?FE0Jkle/wQ=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b693ff7-3739-4920-2be3-08deb6504351
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 09:14:57.9059
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wQ+tzYHWTEYthHgCp1LslKmyOkIRCOHmjxJ6qQWq6jvHUS3HMt93cSlnn4ZIAWAMwfsYn3M3KXL/YLCTb0COiQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRZPR04MB12432
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_021243_867211_B2CB79E3 
-X-CRM114-Status: GOOD (  31.51  )
+X-CRM114-CacheID: sfid-20260520_021501_823568_CB5E0699 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,101 +143,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 03:55:02PM +0800, Barry Song wrote:
-> On Wed, May 20, 2026 at 3:37 PM Uladzislau Rezki <urezki@gmail.com> wrote:
-> >
-> > On Thu, May 14, 2026 at 05:41:07PM +0800, Wen Jiang wrote:
-> > > From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> > >
-> > > Try to align the vmap virtual address to PMD_SHIFT or a
-> > > larger PTE mapping size hinted by the architecture, so
-> > > contiguous pages can be batch-mapped when setting PMD or
-> > > PTE entries.
-> > >
-> > > Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> > > Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> > > Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> > > ---
-> > >  mm/vmalloc.c | 31 ++++++++++++++++++++++++++++++-
-> > >  1 file changed, 30 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> > > index c30a7673e..b3389c8f1 100644
-> > > --- a/mm/vmalloc.c
-> > > +++ b/mm/vmalloc.c
-> > > @@ -3591,6 +3591,35 @@ static int __vmap_huge(unsigned long addr, unsigned long end,
-> > >       return err;
-> > >  }
-> > >
-> > > +static struct vm_struct *get_aligned_vm_area(unsigned long size, unsigned long flags)
-> > > +{
-> > > +     unsigned int shift = (size >= PMD_SIZE) ? PMD_SHIFT :
-> > > +                             arch_vmap_pte_supported_shift(size);
-> > > +     struct vm_struct *vm_area = NULL;
-> > > +
-> > > +     /*
-> > > +      * Try to allocate an aligned vm_area so contiguous pages can be
-> > > +      * mapped in batches.
-> > > +      */
-> > > +     while (1) {
-> > > +             unsigned long align = 1UL << shift;
-> > > +
-> > > +             vm_area = __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-> > > +                             VMALLOC_START, VMALLOC_END,
-> > > +                             NUMA_NO_NODE, GFP_KERNEL,
-> > > +                             __builtin_return_address(0));
-> > > +             if (vm_area || shift <= PAGE_SHIFT)
-> > > +                     goto out;
-> > > +             if (shift == PMD_SHIFT)
-> > > +                     shift = arch_vmap_pte_supported_shift(size);
-> > > +             else if (shift > PAGE_SHIFT)
-> > > +                     shift = PAGE_SHIFT;
-> > > +     }
-> > > +
-> > > +out:
-> > > +     return vm_area;
-> > > +}
-> > > +
-> > IMO, we should get rid of this while(1) loop. It looks like you need to
-> > handle just few cases. 3?
-> 
-Hello, Barry!
+From: Carlos Song <carlos.song@nxp.com>
 
-> 
-> I don’t quite understand what you mean — are you suggesting
-> calling __get_vm_area_node() three times? We try 2MB first,
-> then 64KB, and finally 4KB. If 2MB succeeds, there is no
-> reason to try 64KB. Likewise, if 64KB succeeds, there is no
-> need to fall back to 4KB.
-> 
-I mean either to make three cases kind of open-coded:
+Reset I2C controller in probe stage to avoid unexpected LPI2C controller
+state left from previous stages and hang system boot.
 
-...
-if (size >= PMD_SIZE)
-  alloc_vm_area_with_shift(PMD_SHIFT);
-  if (vm_area)
-    return vm_area;
+Per the LPI2C reference manual, section 7.1.4 "Controller Control (MCR)",
+the RST bit (bit 1) description states:
 
-shift = get_supported_shift(size)
-if (shift > PAGE_SHIFT)
-  alloc_vm_area_with_shift(shift);
-    if (vm_area)
-      return vm_area;
+  "The reset takes effect immediately and remains asserted until negated
+  by software. There is no minimum delay required before clearing the
+  software reset."
 
-return alloc_vm_area_with_shift(PAGE_SHIFT)
-...
+Therefore, it is safe to write 0 to MCR immediately after asserting the
+RST bit without any additional delay.
 
-or put everything into the: for (i = 0; i < 3; i++) - that way it will
-finish in any case and for user it is obvious that we handle max 3 scenario.
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
+---
+Change for v2:
+  - Jump to rpm_disable instread of returning directly if the IRQ request
+    fails
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
 
-> >
-> >
-> > shift min value is PAGE_SHIFT, could you please clarify when it can be less?
-> 
-> I guess this should be changed to "==" ?
-> 
-I assume shift can not be less than PAGE_SHIFT :)
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index 01ee38131ef2..6e298424de5e 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -1499,11 +1499,6 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		lpi2c_imx->bitrate = I2C_MAX_STANDARD_MODE_FREQ;
+ 
+-	ret = devm_request_irq(&pdev->dev, lpi2c_imx->irq, lpi2c_imx_isr, IRQF_NO_SUSPEND,
+-			       pdev->name, lpi2c_imx);
+-	if (ret)
+-		return dev_err_probe(&pdev->dev, ret, "can't claim irq %d\n", lpi2c_imx->irq);
+-
+ 	i2c_set_adapdata(&lpi2c_imx->adapter, lpi2c_imx);
+ 	platform_set_drvdata(pdev, lpi2c_imx);
+ 
+@@ -1535,10 +1530,25 @@ static int lpi2c_imx_probe(struct platform_device *pdev)
+ 	pm_runtime_set_active(&pdev->dev);
+ 	pm_runtime_enable(&pdev->dev);
+ 
++	/*
++	 * Reset all internal controller logic and registers to avoid effects of previous status
++	 * The reset takes effect immediately and there is no minimum delay required before
++	 * clearing the software reset.
++	 */
++	writel(MCR_RST, lpi2c_imx->base + LPI2C_MCR);
++	writel(0, lpi2c_imx->base + LPI2C_MCR);
++
+ 	temp = readl(lpi2c_imx->base + LPI2C_PARAM);
+ 	lpi2c_imx->txfifosize = 1 << (temp & 0x0f);
+ 	lpi2c_imx->rxfifosize = 1 << ((temp >> 8) & 0x0f);
+ 
++	ret = devm_request_irq(&pdev->dev, lpi2c_imx->irq, lpi2c_imx_isr, IRQF_NO_SUSPEND,
++			       pdev->name, lpi2c_imx);
++	if (ret) {
++		dev_err_probe(&pdev->dev, ret, "can't claim irq %d\n", lpi2c_imx->irq);
++		goto rpm_disable;
++	}
++
+ 	/* Init optional bus recovery function */
+ 	ret = lpi2c_imx_init_recovery_info(lpi2c_imx, pdev);
+ 	/* Give it another chance if pinctrl used is not ready yet */
+-- 
+2.43.0
 
---
-Uladzislau Rezki
 
