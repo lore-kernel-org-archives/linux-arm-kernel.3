@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C01F0CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:36:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A8BCD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a2tRUQgRwBejUhg1cYn+oCvO34Dh5HeYuLe9vbd7LI8=; b=pb7q/HO/vMj8MepCH8TU14v88o
-	JXOpCKsLhzov48df5/6H117fmY46AQ4Fvow0KQKMQNtNMjRUePlkvh9hbDuOGWz2cDEalcDssk3pJ
-	07iS0LcrsKylDrtlyrRysAsb4UNNSZsBQazNZb0t0PuWOMHCn44lGk4CRM6K6MLNpRkCueZrti4VF
-	4VRfVFg/2W8cwImpNiRidmrtOT+2YGFlxyfx/yfc910/xsvJMtXqYIPgorwtfOVSCTcpO4H4UeMzw
-	5pzTDdEpmkYt8H1ndhXUKVRjqfmxF0M7TbiaK1QhOoPcNaiWkJVTCBB8bu+knsNo+o1Jitc+Bp+kA
-	rzjlsK4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yQGi3lzFLr9/fuMOxDQJrgdU3HWx1+ohqNB/fah88rE=; b=FoLTY0OH8Lp6j7LCmF9BLRcK8h
+	Sq4KKnIkht0fKd0wSzzLeFdeBT8w0tJ95Q73CXVvizsOXiBqR5jxSXocO8D6hBPer34p7kSqTQIsi
+	lJeBExsdzJSIBQjt9YIWBTAvoGFro+DRLvKF08gQ1lvG3YdlW9mVsICiUtETEKk68dW4H997HflG9
+	MkkMMIk8UNXdHblZoV6sGcbsJEAcXUUPipmSM/ecjPgh42xnECs3GR+VIo25160XCmpYHbg1w5uXW
+	YqhcUMHTRtRQqtngtLtx5NkEwL7i8QYmQjpMrD6FyZtbVhF8Aoa1WR1Ind9Pq7R4lBx/YhyzBgKvM
+	qO09p3Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPiyD-000000051mK-1qBs;
-	Wed, 20 May 2026 15:36:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPizF-000000051zm-347O;
+	Wed, 20 May 2026 15:37:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPiyC-000000051lp-1P7o;
-	Wed, 20 May 2026 15:36:28 +0000
+	id 1wPizE-000000051zB-36SY;
+	Wed, 20 May 2026 15:37:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
+	bh=yQGi3lzFLr9/fuMOxDQJrgdU3HWx1+ohqNB/fah88rE=; b=RMT+MhWeVvs34hh1PrDqJj/WDz
+	yA220kwGESw0eu5dWhMZeZpW1KBYbZSi/WwhT+miyIO31vnEN+fza+OVMVbrBUNtDNw4wv/kCbRYu
+	F+J3HL+cJ/XU1IeKpjexP3uk5u2JP0wXQc9cnmySFPjAmyuccvtiVi+C218zXSDr9odmZ8nkWyntn
+	WlKiAMbjx/jUGvRSK7wEiI/3EMoZd0jz0IGpNtpGBarL1iiLjWqlVEB1sKd1vNl4CIHtMSvRAHn5t
+	8jBRqG6R8A5q0N2bMZ+3rNgHca9CvC8W980zLWE/qweIu+/QVjzcuylDks2zvEvExAMu+YPOQNV6Z
+	5Fb8rztQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPiz6-0000000HFwO-3kv0;
+	Wed, 20 May 2026 15:37:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7028360008;
-	Wed, 20 May 2026 15:36:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2EE51F000E9;
-	Wed, 20 May 2026 15:36:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EFBCF43742;
+	Wed, 20 May 2026 15:37:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15F601F000E9;
+	Wed, 20 May 2026 15:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779291387;
-	bh=a2tRUQgRwBejUhg1cYn+oCvO34Dh5HeYuLe9vbd7LI8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HmxflIBqTEPMrZ+FGAoQNKSPX0MdonqQ8oPlwrBuupAyWh8MEA/9OI5MpxCzJm1wM
-	 QODUBzFOQ+Oqpwp9I0lQMxZvcd1zFDdeVNBxcgdL686H736PWU/zRbBoQb1Kl22FPi
-	 i4qJixTzCo5BEpVWY2XJ73Zh6vOIVWL3qRqzPhkzxkuHhTEAvYwmBdyU0oOCZVfXwg
-	 lMWx50jMpnZaXz6Uje8rPeHsmi74KdcPe4EgDvG5SIZSjwxWtLI6lA3RaiobMf5UoA
-	 nnTsPH6T+Liog+P/nQw9U2klbHKMi4zQwsKkZzUXeBSYhx8sT6ROmC425Uu734bObH
-	 b1VY5rjrZbHVg==
-Date: Wed, 20 May 2026 17:36:24 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH nf-next v2 0/6] Add IPv4 over IPv6 and SIT flowtable SW
- acceleration
-Message-ID: <ag3U-DmEWiwcH0uB@lore-desk>
-References: <20260506-b4-flowtable-sw-accel-ip6ip-v2-0-439fd427726e@kernel.org>
+	s=k20260515; t=1779291428;
+	bh=yQGi3lzFLr9/fuMOxDQJrgdU3HWx1+ohqNB/fah88rE=;
+	h=From:Date:Subject:To:Cc;
+	b=ZYMlE9Kmp++UqCoKJdvPv3O66yqECsvJJHz5ST4OO9z+l5BjAIJFoiRq1aki20w0+
+	 /FIa0T55nmo5pjhA3gN7p+UtOuh+NGHR5vkCozLHJ0oXDgqR0xIhMGduAnpDoYQQGc
+	 T8o9PBIzvZkOADFjbBlmzr9rrHTJO7r2Vq9ygVc82vaOhudnO0D1IX/TwMpRrWaL5L
+	 rrUpfrpGh5FeX4RDb9mfZMc4RCOGpYCMcSQ+UvXtIK/CdE+OOlrStc5gh1H2jTuyQS
+	 Drin9ymoq6sS15HANYDRM2WA5W/RJoRe1+qwsbSdQ+R3vo+mAtV1glpH7YLKxKG/1s
+	 Eye/PQ2D8HK2g==
+From: Eugen Hristev <ehristev@kernel.org>
+Date: Wed, 20 May 2026 18:37:00 +0300
+Subject: [PATCH] media: bcm2835-unicam: Fix pipeline wrong validation for
+ unpacked formats
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="y1SQHS4FsUVyGc0Q"
-Content-Disposition: inline
-In-Reply-To: <20260506-b4-flowtable-sw-accel-ip6ip-v2-0-439fd427726e@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260520-bcmpi-v1-1-41d80125a7b9@kernel.org>
+X-B4-Tracking: v=1; b=H4sIABvVDWoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDUyMD3aTk3IJMXaNkEwtTA2NDk1QjQyWg2oKi1LTMCrA50bEQfnFpUlZ
+ qcglIs1JtLQACC+XwaQAAAA==
+X-Change-ID: 20260520-bcmpi-2c4850314e21
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Hans Verkuil <hverkuil+cisco@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Maxime Ripard <mripard@redhat.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Eugen Hristev <ehristev@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2451; i=ehristev@kernel.org;
+ h=from:subject:message-id; bh=t9dlwa/PW4NqUH44Ui3R+NtfUyGFxOU24A9dkasKujk=;
+ b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLJ4r8qtmRM4lZ/jayO/yc9d194mbfz00VnM/avJim3ss
+ opF6kqHOkpZGMS4GGTFFFmqTf7VCvfvcD/paqkCM4eVCWQIAxenAEzkYwPDP9NZT0KPzvkefTyB
+ ZfXLiPCyJ/VxvorvRPMlFy+3+XB8pQYjw/T2rTcm7vfksd4m9HP9up1T3Ob9v7k64pXp/s4M+ws
+ 3AjgB
+X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
+ fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_163727_396578_960FA12F 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,75 +105,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The commit
+08f9794d9b79 ("media: bcm2835-unicam: Fix RGB format / mbus code association")
+introduced a check to see whether the format requested is the same as the
+fourcc in the format list.
 
---y1SQHS4FsUVyGc0Q
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+However, this breaks the case when userspace requested an unpacked fourcc,
+e.g. RG10.
 
-> Similar to IPIP and IP6I6 tunnels, introduce sw acceleration for IPv4 over
-> IPv6 and SIT tunnels in the netfilter flowtable infrastructure.
->=20
-> ---
-> Changes in v2:
-> - Fix MTU check in nf_flow_offload_forward() and in
->   nf_flow_offload_ipv6_forward()
-> - Add SIT sw acceleration support
-> - Link to v1: https://lore.kernel.org/r/20260505-b4-flowtable-sw-accel-ip=
-6ip-v1-0-9ac39ccc9ea9@kernel.org
+Unicam can work with or without unpacking pixels, e.g. pRAA or RG10, depending
+on what userspace requests.
+In the unpacking case, a dedicated register is being set.
 
-Hi Pablo and Florian,
+If the userspace requests pRAA, this works, because the check validates the
+pipeline:
 
-Any update about this series? Thanks in advance.
+v4l2-ctl -d /dev/video0 --set-fmt-video=width=3280,height=2464,pixelformat=pRAA \
+ --stream-mmap --stream-count=1 --stream-to=frame.raw
 
-Regards,
-Lorenzo
+but, with
+v4l2-ctl -d /dev/video0 --set-fmt-video=width=3280,height=2464,pixelformat=RG10 \
+--stream-mmap --stream-count=1 --stream-to=frame.raw
 
->=20
-> ---
-> Lorenzo Bianconi (6):
->       net: netfilter: Add ether_type to net_device_path_ctx
->       net: netfilter: Add encap_proto to flow_offload_tunnel
->       net: netfilter: Add IPv4 over IPv6 tunnel flowtable acceleration
->       selftests: netfilter: nft_flowtable.sh: Add IPv4 over IPv6 flowtabl=
-e selftest
->       net: netfilter: Add SIT tunnel flowtable acceleration
->       selftests: netfilter: nft_flowtable.sh: Add SIT flowtable selftest
->=20
->  drivers/net/ethernet/airoha/airoha_ppe.c           |  14 +-
->  drivers/net/ethernet/mediatek/mtk_ppe_offload.c    |  13 +-
->  include/linux/netdevice.h                          |   5 +-
->  include/net/netfilter/nf_flow_table.h              |   1 +
->  net/core/dev.c                                     |   6 +-
->  net/ipv4/ipip.c                                    |   1 +
->  net/ipv6/ip6_tunnel.c                              |   6 +-
->  net/ipv6/sit.c                                     |  26 ++
->  net/netfilter/nf_flow_table_core.c                 |  14 +-
->  net/netfilter/nf_flow_table_ip.c                   | 386 +++++++++++++--=
-------
->  net/netfilter/nf_flow_table_path.c                 |  16 +-
->  tools/testing/selftests/net/netfilter/config       |   1 +
->  .../selftests/net/netfilter/nft_flowtable.sh       |  78 ++++-
->  13 files changed, 402 insertions(+), 165 deletions(-)
-> ---
-> base-commit: c1e5127b577c6b88fa48e532616932ae978528d5
-> change-id: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
->=20
-> Best regards,
-> --=20
-> Lorenzo Bianconi <lorenzo@kernel.org>
->=20
+unicam complains at validation level:
 
---y1SQHS4FsUVyGc0Q
-Content-Type: application/pgp-signature; name=signature.asc
+image: format mismatch: 0x300f <=> RG10 little-endian (0x30314752)
 
------BEGIN PGP SIGNATURE-----
+This should work, because MEDIA_BUS_FMT_SRGGB10_1X10 can be packed into either
+RG10 or pRAA depending on the packing register.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCag3U+AAKCRA6cBh0uS2t
-rPv9AQCAeVJ4LW3/ZIxsIiBE3XnXj6UlIBCD6SYxGD9HVjHqTAD9ETIzVKrKIpnn
-TWQXuXJqNaEhL7TTPrv+698yNy3I2QA=
-=eDma
------END PGP SIGNATURE-----
+To fix this, modified the condition check to also allow in the case when
+requested format (fmt->pixelformat) is equal to fmtinfo->unpacked_fourcc.
 
---y1SQHS4FsUVyGc0Q--
+Fixes: 08f9794d9b79 ("media: bcm2835-unicam: Fix RGB format / mbus code association")
+Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 8d28ba0b59a3..cc7627e9a51a 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -2158,7 +2158,8 @@ static int unicam_video_link_validate(struct media_link *link)
+ 		 * In order to allow the applications using the old behaviour to
+ 		 * run, let's accept the old combination, but warn about it.
+ 		 */
+-		if (fmtinfo->fourcc != fmt->pixelformat) {
++		if (fmt->pixelformat != fmtinfo->fourcc &&
++		    fmt->pixelformat != fmtinfo->unpacked_fourcc) {
+ 			if ((fmt->pixelformat == V4L2_PIX_FMT_BGR24 &&
+ 			     format->code == MEDIA_BUS_FMT_BGR888_1X24) ||
+ 			    (fmt->pixelformat == V4L2_PIX_FMT_RGB24 &&
+
+---
+base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+change-id: 20260520-bcmpi-2c4850314e21
+
+Best regards,
+--  
+Eugen Hristev <ehristev@kernel.org>
+
 
