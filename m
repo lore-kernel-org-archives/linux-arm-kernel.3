@@ -4,98 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CAACD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 03:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD4DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 03:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nIAQ9DaAotLVRz2iB1AFoG5yBrv9qo1aI5uct5Q5rhg=; b=SoeatcgAqDGHOV3BXM+45lAXGw
-	Z/ITzC1iyxcRu1MAuv1Zl/55BT+MbQpwqV6FthgN5faYWfStNzLcxHenxYaTv3Cyilbvrs990Sm4W
-	IHdjn/a1fsZUK885CEPgKzQjOF0ghyCK7UxDwdc7+O2NR0crH6oodSSpjWVmgQAVwfNhy/LiyitUB
-	j7VwGb/wjlq1d4JTP/ZBMCdQPNihUPO7H/pD5X1OfNtE2r2LUIBZZaRIwYSGe/jM0Fok2YL8/ObMy
-	aobwV4ejVpHtV7madOqmzia+zmqKcklnRRwftoaGAGLbylFGeMLDfcIQ8pHK8hE9KUBYppcJ3KtMu
-	WTWTbYbQ==;
+	bh=7ogsLHdMRBDNhx86JrEpkhkME96SjA8tuF11+cYpwtQ=; b=qhyTy7NBRmDi6xerAUFnNBXXiE
+	Nq0u5jG3ricS/exbDj/5fWhtiGWFJfc/PdHeHzsKkHahT7/5PruNpDXoDGlSlSb6OxoiMO+syZagL
+	9hpNh05LVOcal5uRI7JNRH3KD5GvsmJ+qxeQ4i9qZQ4gPN6+ZlIJiWCp4tUnCBr0CSoa+8pvbIptf
+	ewvpdfwhGalvHnGvjywv9MwB+U9mWuL7BGmk50xNR/LaBqlmkE0lDEQ8ttfHd31bmSsisIyxuuljo
+	nHXtuQ0xaR1XCUmlTpu44FTmu/+0dOWdJ8P70wNgJzM3yfCqjzhJody6SxbWJp45HkG+2xjaY2KyQ
+	/y2z4+oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPXGE-00000003MSu-1iXp;
-	Wed, 20 May 2026 03:06:18 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1wPXIZ-00000003MiX-2oN8;
+	Wed, 20 May 2026 03:08:43 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPXG9-00000003MRs-1JEq
+	id 1wPXIX-00000003Mht-1HhC
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 03:06:16 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-367c26471f5so2686199a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 20:06:12 -0700 (PDT)
+	Wed, 20 May 2026 03:08:42 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2ba4efedbeaso31246445ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 20:08:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779246372; x=1779851172; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779246520; x=1779851320; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=nIAQ9DaAotLVRz2iB1AFoG5yBrv9qo1aI5uct5Q5rhg=;
-        b=MpWg5spkO0vqZScZsi1CV196FJOwvRaEOtQuGqRls5bVotM8xg3vqbHdplUQuNuyTD
-         PgTvVC30HCEMndFF3tK0392hvrrkYUOqsvuWQcBUTe8s+167cafjSLe9CSUt6lYkkWTO
-         Pz5TcqljYpAejI/x7D+MVMhSrzrInGxtbezCPu0ZCbTiWWUBTsj1QMOjvHZMAdt6WZ8G
-         v4vItyRfqvZld5m1C1fR2ivj4A0vAFg0y8/HcP+l4B9OHDe/F5aujhp9zMb6Lvn1Imjw
-         RFjN3jmX/6TJ4u27bPo7MozKrKM1sUQ+nRNXbhNPQojtECuNmEON18UzDsqkgQhTnbnv
-         70bg==
+        bh=7ogsLHdMRBDNhx86JrEpkhkME96SjA8tuF11+cYpwtQ=;
+        b=e4Y/YttpDgodY1RqQV2ZOG4GDdkFvshZuLhu7B4vlQSjFM/n2JViYyx/522f/LrTxm
+         Q6rQBHYJxlGGcp8rd/7ayj/ewRcVt3Eg5eU/lLzPLLN0aYqJQeNcIiw53QT2sipGe31D
+         IrL9p6GRUtBCU36lz4SU/SqFmwOoYchqdTpiRRJC82kIz/0m01ta6MFf2qir17dnmpSf
+         tLBqfH4MNmyc3a5JmIhEkKrhqmr6TQkao/leuEpB/RMxhTwalNRGHffjQ8Hetli3dZPy
+         peQCr7FK2tfOuWtIHmCiwGs4JpbeJF+OYdOsyZnOzD1OrrLHybfMyTn+BIrDK+mAy2Fs
+         Ctcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779246372; x=1779851172;
+        d=1e100.net; s=20251104; t=1779246520; x=1779851320;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nIAQ9DaAotLVRz2iB1AFoG5yBrv9qo1aI5uct5Q5rhg=;
-        b=EEX/MMi2OEQ17LK6eebdEE34uuNIAWC7r3Nng/a8SbGutFslJr6+RS0ps+KXM5cYv4
-         3aCJLS0dZ3CnR/nYaPXdqNf9zE87VYCZ1DXeHsudLnDyp+NAh2YC+D+FcBB7/s29dyVS
-         74aheWk7oRz1/ipWhZG+M226BKqaB0O57IvE1MV8j7+z8hwBMeSyKIL8sTvl/4l0ocF1
-         lrksBXfnBTYFOW4lCkmhfq1cp5+olwP9Wt0vWBVkdC3ZhUOR2bjlsVY+eK7tKATSrNN6
-         7eNlzLQg6+qUsqyB2EvffqGLuV2lA8uH50fEhGYfUT9TlciNk8WObC+JKYd30Gy+O6bd
-         AOAQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9L0MAKHEpd6BCIaJ+8CYnn1JZ3UKi2vWeK43oWtyrBYp6mk3A5QgkRaYdlv2GlbmTfVanONITgVj/1YRmeTwZX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2kqSotdm1Jt9FdOYglvxdgC8+D3bjr5r6sRzT49WkaHZU53Yh
-	qisQYWzYluo0SAq8iP2g6Jq01sSF4iwh+sIMLe/1jQZ2QlWZA66Ewta/
-X-Gm-Gg: Acq92OGSUd/SzLsqequwGC9mNW6EYhGZScX0ezfV4wuRaoD6whUfbZdyPGslGVWC0Ov
-	DRlstNxT+JRYZsjLi1qLJNJy7YzzwxWe2wVlGWQkupIVcw1twAhywIyIqjROx3G4Vu+W4SHd8rm
-	M2rDkdX4v3xMFfXrLQHJh4eAhp+W3o4OAi/SVNPvrIRCtJO24SXos4VkFm4RfEze3VrjAkNfaGV
-	cXmbXtDirnCmTtZ4khcBHOi6J4yFlMXZJmXFn/o60Vw6aWHs3lx0NNM/AmjgS9RBClY1wUF4OR2
-	Us0giSu1hVtCO5mlf1LSdyRBXGgmcyZc4If+q++UQ9UxSO4vOtIgER1VTUHk9WNBfQLVfjDfa7/
-	/rIEftUIzU/9QLslPSj2OPWG8Hf1EWRTCBtTa1PWD10T8agE0PCMYFhdDLClPQmJocRqxD8kqqE
-	2bBgBRuRDLL16xHlmMiZWguQtkZE6xDpW/9DBgSjpybB7a52TDCiLUC4jI5cwtx5i7b2kjuGEHJ
-	r52uJ8iTzi3LWs=
-X-Received: by 2002:a17:90b:1fce:b0:368:5367:d679 with SMTP id 98e67ed59e1d1-369519cb5d1mr21310800a91.9.1779246371983;
-        Tue, 19 May 2026 20:06:11 -0700 (PDT)
+        bh=7ogsLHdMRBDNhx86JrEpkhkME96SjA8tuF11+cYpwtQ=;
+        b=EekNQFNuT2KqVExQWxZuZAza9Slirod6hbZFUvKIGPL5N5ton0jn4xkGER0Sb776Fa
+         BIiLM0FI2VryM/WtVdzRZYoHi+I+zR29K2S/NEHsG90Ys7Q72+QlsuSi0eyN5sE1aJbs
+         qwM50OPsCykK+oaP5SuZUJ754KfdBanlS3R0TOB9A9BlNmuW210gX0gTOqZpicYGHhCZ
+         wyd5gMcNWnJCiwjRFH719tQNT0d9noTJY/vgLan0ZHpbj2F7HLrwJYZkOYH9IxgQoo+J
+         ck7H/prATn6PyB29xc0Mkvyvdx96mp3lDhB/pzs/TSMxEZTdP6X8GKbqy8gR1Oo9/MWk
+         v3GA==
+X-Forwarded-Encrypted: i=1; AFNElJ+VWA+QI8NXEYE2SW+orx822PCa8SmzAls9ZIaZBdHQCh0Ul+5MAhqLAE+yobyA8JpVi8nyeAfD4eNF4jGMnRkE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdJwacNssxExbusiRnkl/mwjsrNpJ86UfRBawWT7YQvb9FdsGm
+	Eh5YxaBOm0nHTZzPvgBraw96t9i6ot8IaJY/4VsFp/+MLrvhb+5YBYKR
+X-Gm-Gg: Acq92OGIoGD+DOUMzTfAXM1gtvoKNItL/ZYCoai/qCsMV1tfOn8Nuq3kBthvVOTA5+L
+	SFzHs9oQKDl6aOMPcp2PFoSPZLZ2y7z1AP9ligzYLORCj7scp/58D+vWU2cSB3QzDBa9bTyK9jp
+	v3jiwc6bKBrvbdtMuzdiMcTFU58n+N4KFLyzBb6mxt739aMtAoh7RPX2yW3Rn2S+gJK0HU0WmyY
+	Yq9V66HfQNKD1XCQ1Ufu6dx76EkrPUsbdp2V0/mBcnz9bbZg7LP3YsYk8k2z9ry2Z6VQchy7FpR
+	QntMRKwVFPw6JvWCH9cR9R12y097LDDLZCeatAYKOP/OZmiCj3Jh43Yfg+MnEV3iiugbhBguvcJ
+	eM0v6M2b5efrgxxZSDeKhbwetlAOBBnRZIVtgSc1x4PooBDd3BnMy6PPHbTygsAQs+BS6+5A3nT
+	E8NDwbV5/HRZyzo3g7eIC6d5uD5fq3xeytsI8eL0qH5DRCdYuLaJGpwsw3SVEro9Xb7nyeLH7/v
+	H1crUkv3/WOqSY=
+X-Received: by 2002:a17:903:22cb:b0:2b4:63c8:ce18 with SMTP id d9443c01a7336-2bd7e83176fmr241246245ad.12.1779246520280;
+        Tue, 19 May 2026 20:08:40 -0700 (PDT)
 Received: from [192.168.0.100] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-369514361b6sm15491821a91.12.2026.05.19.20.06.08
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5c26355csm202030405ad.35.2026.05.19.20.08.37
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 19 May 2026 20:06:11 -0700 (PDT)
-Message-ID: <a112cb8b-21fb-4c33-89a3-14a4feb5e3f9@gmail.com>
-Date: Wed, 20 May 2026 11:06:05 +0800
+        Tue, 19 May 2026 20:08:39 -0700 (PDT)
+Message-ID: <c85299a1-1ea6-4c6c-ba77-ce46969b8c39@gmail.com>
+Date: Wed, 20 May 2026 11:08:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: display: verisilicon, dc: generalize
- for single-output variants
-To: Conor Dooley <conor@kernel.org>, Icenowy Zheng <zhengxingda@iscas.ac.cn>
-Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com, yclu4@nuvoton.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] drm/verisilicon: add model ID constants and DCU
+ Lite chip identity
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20260519055114.1886525-1-a0987203069@gmail.com>
- <20260519055114.1886525-2-a0987203069@gmail.com>
- <a66cc60fe163167e30e42f0b4be996cae1170a5e.camel@iscas.ac.cn>
- <20260519-fretful-blush-1aac18fa1360@spud>
+ <20260519055114.1886525-3-a0987203069@gmail.com>
+ <5b7b28558aece1d99e93c1d69ce2c381929813a2.camel@iscas.ac.cn>
 Content-Language: en-US
 From: Joey Lu <a0987203069@gmail.com>
-In-Reply-To: <20260519-fretful-blush-1aac18fa1360@spud>
+In-Reply-To: <5b7b28558aece1d99e93c1d69ce2c381929813a2.camel@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_200615_131132_453014AC 
-X-CRM114-Status: GOOD (  28.37  )
+X-CRM114-CacheID: sfid-20260519_200841_359882_211C6CA3 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,281 +109,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/20/2026 12:47 AM, Conor Dooley wrote:
-> On Tue, May 19, 2026 at 03:26:58PM +0800, Icenowy Zheng wrote:
->> 在 2026-05-19二的 13:51 +0800，Joey Lu写道：
->>> The existing schema assumes a fixed clock/reset topology and dual-
->>> output
->>> port structure matching the DC8200 IP block.  This prevents reuse for
->>> single-output variants such as the Verisilicon DCU Lite used in the
->>> Nuvoton MA35D1 SoC.
->>>
->>> Rework the schema so that variant-specific constraints are expressed
->>> via allOf/if-then-else:
->>>
->>> - The thead,th1520-dc8200 compatible keeps its existing five-clock,
->>>    three-reset, dual-port requirements.
->>>
->>> - A standalone verisilicon,dc compatible covers IPs whose identity is
->>>    discovered entirely through hardware registers; these have flexible
->>>    clock and reset counts, a single 'port' property, and no 'ports'
->>>    requirement.
->>>
->>> Changes to the base schema:
->>> - Replace the fixed clock/reset items lists with minItems/maxItems
->>>    ranges; variant sub-schemas tighten the constraints via if-then-
->>> else.
->>> - Add a 'port' property (graph.yaml single-port alias) alongside the
->>>    existing 'ports', for single-output variants.
->>> - Drop the unconditional 'ports' requirement; each if-branch enforces
->>>    its own port topology.
->>> - Tighten additionalProperties to unevaluatedProperties to allow
->>>    per-variant schemas to add their own constraints cleanly.
->>> - Fix a stray space in the port@0 description.
->>> - Add a DT example for the generic verisilicon,dc compatible
->>>    (Nuvoton MA35D1 DCU Lite).
->>>
->>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
->>> ---
->>>   .../bindings/display/verisilicon,dc.yaml      | 135 ++++++++++++++--
->>> --
->>>   1 file changed, 108 insertions(+), 27 deletions(-)
->>>
->>> diff --git
->>> a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
->>> b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
->>> index 9dc35ab973f2..3a814c2e083e 100644
->>> --- a/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
->>> +++ b/Documentation/devicetree/bindings/display/verisilicon,dc.yaml
->>> @@ -14,10 +14,12 @@ properties:
->>>       pattern: "^display@[0-9a-f]+$"
->>>   
->>>     compatible:
->>> -    items:
->>> -      - enum:
->>> -          - thead,th1520-dc8200
->> You should add a fallback compatible here for your SoC, in case its
->> integration gets something quirky; this compatible is usually not
->> consumed by the driver (see how thead,th1520-dc8200 exists in the
->> binding but not the driver).
-> s/fallback compatible/soc-specific compatible/, but yes.
-> NAK to what's been done here, especially after the discussions on
-> earlier versions of this verisilicon binding.
-> pw-bot: changes-requested
-Understood. I will add `nuvoton,ma35d1-dcu` as the SoC-specific 
-compatible string paired with `verisilicon,dc` as the generic fallback, 
-matching the pattern used for `thead,th1520-dc8200`. The standalone 
-`verisilicon,dc` compatible will be removed from the binding. The driver 
-match table is not changed since hardware detection is done via ID 
-registers.
->>> -      - const: verisilicon,dc # DC IPs have discoverable ID/revision
->>> registers
->>> +    oneOf:
->>> +      - items:
->>> +          - enum:
->>> +              - thead,th1520-dc8200
->>> +          - const: verisilicon,dc
->>> +      - const: verisilicon,dc  # DC IPs have discoverable
->>> ID/revision registers
->>>   
->>>     reg:
->>>       maxItems: 1
->>> @@ -26,32 +28,24 @@ properties:
->>>       maxItems: 1
->>>   
->>>     clocks:
->>> -    items:
->>> -      - description: DC Core clock
->>> -      - description: DMA AXI bus clock
->>> -      - description: Configuration AHB bus clock
->>> -      - description: Pixel clock of output 0
->>> -      - description: Pixel clock of output 1
->>> +    minItems: 2
->>> +    maxItems: 5
->>>   
->>>     clock-names:
->>> -    items:
->>> -      - const: core
->>> -      - const: axi
->>> -      - const: ahb
->>> -      - const: pix0
->>> -      - const: pix1
->>> +    minItems: 2
->>> +    maxItems: 5
->>>   
->>>     resets:
->>> -    items:
->>> -      - description: DC Core reset
->>> -      - description: DMA AXI bus reset
->>> -      - description: Configuration AHB bus reset
->>> +    minItems: 1
->>> +    maxItems: 3
->>>   
->>>     reset-names:
->>> -    items:
->>> -      - const: core
->>> -      - const: axi
->>> -      - const: ahb
->>> +    minItems: 1
->>> +    maxItems: 3
->>> +
->>> +  port:
->>> +    $ref: /schemas/graph.yaml#/properties/port
->>> +    description: Single video output port for single-output
->>> variants.
->> Maybe the endpoint numbering rule needs a move to here? (I am not very
->> sure).
-I will add a description to the `port` property noting that endpoint 0 
-is used for DPI output, which is the only output type for DCUltraLite.
->>>   
->>>     ports:
->>>       $ref: /schemas/graph.yaml#/properties/ports
->>> @@ -59,7 +53,7 @@ properties:
->>>       properties:
->>>         port@0:
->>>           $ref: /schemas/graph.yaml#/properties/port
->>> -        description: The first output channel , endpoint 0 should be
->>> +        description: The first output channel, endpoint 0 should be
->>>             used for DPI format output and endpoint 1 should be used
->>>             for DP format output.
->>>   
->>> @@ -75,9 +69,75 @@ required:
->>>     - interrupts
->>>     - clocks
->>>     - clock-names
->>> -  - ports
->>>   
->>> -additionalProperties: false
->>> +allOf:
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            const: thead,th1520-dc8200
->>> +    then:
->>> +      properties:
->>> +        clocks:
->>> +          items:
->>> +            - description: DC Core clock
->>> +            - description: DMA AXI bus clock
->>> +            - description: Configuration AHB bus clock
->>> +            - description: Pixel clock of output 0
->>> +            - description: Pixel clock of output 1
->>> +
->>> +        clock-names:
->>> +          items:
->>> +            - const: core
->>> +            - const: axi
->>> +            - const: ahb
->>> +            - const: pix0
->>> +            - const: pix1
->>> +
->>> +        resets:
->>> +          items:
->>> +            - description: DC Core reset
->>> +            - description: DMA AXI bus reset
->>> +            - description: Configuration AHB bus reset
->>> +
->>> +        reset-names:
->>> +          items:
->>> +            - const: core
->>> +            - const: axi
->>> +            - const: ahb
->>> +
->>> +      required:
->>> +        - ports
->>> +
->>> +    else:
->>> +      properties:
->>> +        clocks:
->>> +          items:
->>> +            - description: Bus clock that gates register access
->>> +            - description: Pixel clock divider for display timing
->> Please don't make compatible-specific description strings for
->> individual compatibles, and keep these descriptions outside of the if.
->> The compatible-specific part should be used to specify what's required
->> for the specific SoC, for dt validation purpose.
+On 5/19/2026 3:37 PM, Icenowy Zheng wrote:
+> 在 2026-05-19二的 13:51 +0800，Joey Lu写道：
+>> Introduce symbolic constants VSDC_MODEL_DC8200 and
+>> VSDC_MODEL_DCU_LITE
+>> to replace magic numbers in the hardware database and probe path.
 >>
->> BTW if the clock is both the working clock and bus clock for the
->> controller, I suggest listing it twice, except if the IP core is
->> provided without a dedicated core clock (in the case I suggest to use
->> "bus" only).
-> I agree. If the same clock is provided to two+ ports on the IP, that
-> should still be two+ clocks in the devicetree.
+>> Register the DCU Lite chip identity (model 0x0, revision 0x5560,
+>> customer_id 0x305) in vs_chip_identities[], making the existing
+>> vs_fill_chip_identity() path able to recognise Nuvoton MA35D1
+>> hardware
+>> purely through register reads.
+> The HWDB change should be added in the end of the series, making it a
+> gate to the newly added changes that is finally opened when
+> everything's ready.
 >
->> Here's an example for "listing it twice":
->> ```
->> clocks = <&clk DCU_GATE>, <&clk DCU_GATE>, <&clk DCUP_DIV>;
->> clock-names = "core", "bus", "pix0";
->> ```
+>> Also add three register-level macros for forthcoming DCU Lite
+>> support:
+>> - VSDC_DISP_IRQ_VSYNC(n) in vs_crtc_regs.h, for per-output VSYNC IRQ
+>>    bits used by the DCU Lite IRQ enable/status registers.
+>> - VSDC_FB_CONFIG_ENABLE, VSDC_FB_CONFIG_VALID and
+>> VSDC_FB_CONFIG_RESET
+>>    in vs_primary_plane_regs.h, for the framebuffer enable and
+>>    commit-cycle bits used by the DCU Lite plane update path.
+> Maybe you can split the register change
+Understood. I will split the register macro additions into a separate 
+patch: one for the new vs_crtc_regs.h IRQ macro and one for the 
+vs_primary_plane_regs.h FB_CONFIG bits, keeping them independent of the 
+HWDB identity change.
+>> No behaviour change for existing DC8200 platforms.
 >>
->> Well nonetheless the name "core" does not match the description "Bus
->> clock that gates register access".
+>> Signed-off-by: Joey Lu <a0987203069@gmail.com>
+>> ---
+>>   drivers/gpu/drm/verisilicon/vs_crtc_regs.h       |  1 +
+>>   drivers/gpu/drm/verisilicon/vs_hwdb.c            | 16 ++++++++++++--
+>> --
+>>   drivers/gpu/drm/verisilicon/vs_hwdb.h            |  3 +++
+>>   .../gpu/drm/verisilicon/vs_primary_plane_regs.h  |  3 +++
+>>   4 files changed, 19 insertions(+), 4 deletions(-)
 >>
->> Thanks,
->> Icenowy
-
-Understood. I will remove all description strings from the if/else 
-branches; the if/then clauses will only constrain clock-names and 
-reset-names items (name values only, no descriptions). Regarding clock 
-naming: DCU_GATE on MA35D1 is a peripheral gate clock without a separate 
-dedicated core working clock, so I will keep "core" as the name and drop 
-the misleading description "Bus clock that gates register access". The 
-description mismatch was entirely in the if/else strings which are now 
-removed.
-
-Thanks.
-
->>
->>> +
->>> +        clock-names:
->>> +          items:
->>> +            - const: core
->>> +            - const: pix0
->>> +
->>> +        resets:
->>> +          maxItems: 1
->>> +          description:
->>> +            Reset line for the display controller.
->>> +
->>> +        reset-names:
->>> +          items:
->>> +            - const: core
->>> +
->>> +      required:
->>> +        - port
->>> +
->>> +      not:
->>> +        required:
->>> +          - ports
->>> +
->>> +unevaluatedProperties: false
->>>   
->>>   examples:
->>>     - |
->>> @@ -120,3 +180,24 @@ examples:
->>>           };
->>>         };
->>>       };
->>> +
->>> +  - |
->>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
->>> +    #include <dt-bindings/clock/nuvoton,ma35d1-clk.h>
->>> +    #include <dt-bindings/reset/nuvoton,ma35d1-reset.h>
->>> +
->>> +    display@40260000 {
->>> +        compatible = "verisilicon,dc";
->>> +        reg = <0x40260000 0x20000>;
->>> +        interrupts = <GIC_SPI 20 IRQ_TYPE_LEVEL_HIGH>;
->>> +        clocks = <&clk DCU_GATE>, <&clk DCUP_DIV>;
->>> +        clock-names = "core", "pix0";
->>> +        resets = <&sys MA35D1_RESET_DISP>;
->>> +        reset-names = "core";
->>> +
->>> +        port {
->>> +            dpi_out: endpoint {
->>> +                remote-endpoint = <&panel_in>;
->>> +            };
->>> +        };
->>> +    };
+>> diff --git a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+>> b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+>> index c7930e817635..d4da22b08cd5 100644
+>> --- a/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+>> +++ b/drivers/gpu/drm/verisilicon/vs_crtc_regs.h
+>> @@ -54,6 +54,7 @@
+>>   #define VSDC_DISP_GAMMA_DATA(n)			(0x1460 +
+>> 0x4 * (n))
+>>   
+>>   #define VSDC_DISP_IRQ_STA			0x147C
+>> +#define VSDC_DISP_IRQ_VSYNC(n)			BIT(n)
+>>   
+>>   #define VSDC_DISP_IRQ_EN			0x1480
+>>   
+>> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>> b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>> index 09336af0900a..a25c4b16181d 100644
+>> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.c
+>> @@ -90,7 +90,7 @@ static const struct vs_formats
+>> vs_formats_with_yuv444 = {
+>>   
+>>   static struct vs_chip_identity vs_chip_identities[] = {
+>>   	{
+>> -		.model = 0x8200,
+>> +		.model = VSDC_MODEL_DC8200,
+> I don't think such a macro is needed.
+Understood. I will remove `VSDC_MODEL_DC8200` and use the literal 
+`0x8200` directly in vs_hwdb.c with a comment.
+>>   		.revision = 0x5720,
+>>   		.customer_id = ~0U,
+>>   
+>> @@ -98,7 +98,7 @@ static struct vs_chip_identity vs_chip_identities[]
+>> = {
+>>   		.formats = &vs_formats_no_yuv444,
+>>   	},
+>>   	{
+>> -		.model = 0x8200,
+>> +		.model = VSDC_MODEL_DC8200,
+>>   		.revision = 0x5721,
+>>   		.customer_id = 0x30B,
+>>   
+>> @@ -106,7 +106,7 @@ static struct vs_chip_identity
+>> vs_chip_identities[] = {
+>>   		.formats = &vs_formats_no_yuv444,
+>>   	},
+>>   	{
+>> -		.model = 0x8200,
+>> +		.model = VSDC_MODEL_DC8200,
+>>   		.revision = 0x5720,
+>>   		.customer_id = 0x310,
+>>   
+>> @@ -114,13 +114,21 @@ static struct vs_chip_identity
+>> vs_chip_identities[] = {
+>>   		.formats = &vs_formats_with_yuv444,
+>>   	},
+>>   	{
+>> -		.model = 0x8200,
+>> +		.model = VSDC_MODEL_DC8200,
+>>   		.revision = 0x5720,
+>>   		.customer_id = 0x311,
+>>   
+>>   		.display_count = 2,
+>>   		.formats = &vs_formats_no_yuv444,
+>>   	},
+>> +	{
+>> +		.model = VSDC_MODEL_DCU_LITE,
+> The number is 0x0 and the whole public name of this IP is
+> "DCUltraLite", w/o any numbers.
+>
+> I suggest leave it at 0x0 and add a comment saying this is DCUltraLite
+> -- Verisilicon people are abusing suffix for their IP names now.
+Understood. I will remove the `VSDC_MODEL_DCU_LITE` macro and use `0x0` 
+directly with a `/* DCUltraLite */` comment in vs_hwdb.c.
+>> +		.revision = 0x5560,
+>> +		.customer_id = 0x305,
+>> +
+>> +		.display_count = 1,
+>> +		.formats = &vs_formats_no_yuv444,
+>> +	},
+>>   };
+>>   
+>>   int vs_fill_chip_identity(struct regmap *regs,
+>> diff --git a/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>> b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>> index 92192e4fa086..cca126bd2da5 100644
+>> --- a/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>> +++ b/drivers/gpu/drm/verisilicon/vs_hwdb.h
+>> @@ -9,6 +9,9 @@
+>>   #include <linux/regmap.h>
+>>   #include <linux/types.h>
+>>   
+>> +#define VSDC_MODEL_DC8200 0x8200
+>> +#define VSDC_MODEL_DCU_LITE 0x0
+>> +
+>>   struct vs_formats {
+>>   	const u32 *array;
+>>   	unsigned int num;
+>> diff --git a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+>> b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+>> index cbb125c46b39..67d4b00f294e 100644
+>> --- a/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+>> +++ b/drivers/gpu/drm/verisilicon/vs_primary_plane_regs.h
+>> @@ -16,6 +16,9 @@
+>>   #define VSDC_FB_STRIDE(n)			(0x1408 + 0x4 * (n))
+>>   
+>>   #define VSDC_FB_CONFIG(n)			(0x1518 + 0x4 * (n))
+>> +#define VSDC_FB_CONFIG_ENABLE			BIT(0)
+>> +#define VSDC_FB_CONFIG_VALID			BIT(3)
+>> +#define VSDC_FB_CONFIG_RESET			BIT(4)
+> Should the new IRQ register to be added here too?
+>
+> Thanks,
+> Icenowy
+`VSDC_DISP_IRQ_VSYNC(n)` is a bit-mask for the IRQ status/enable 
+registers (`VSDC_DISP_IRQ_STA` / `VSDC_DISP_IRQ_EN`) which already live 
+in vs_crtc_regs.h. Keeping it there alongside the register addresses it 
+operates on is cleaner than splitting the IRQ definitions across two 
+headers.
+>>   #define VSDC_FB_CONFIG_CLEAR_EN			BIT(8)
+>>   #define VSDC_FB_CONFIG_ROT_MASK			GENMASK(13,
+>> 11)
+>>   #define VSDC_FB_CONFIG_ROT(v)			((v) << 11)
 
