@@ -4,84 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578E7CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525B1CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ViRW9Nz3r6hXUk4I8QEt3nB7VpqxM71bV390oMtx5Ug=; b=O09P7R/YVHfVgCYDsJbqGEcszq
-	btgws4wQNHEeWd2OpJWPfRrVZ/7p3dL+wj1QC8yfmiZ3RuuOfuDFOV1J2t+ojuZP5xs2O2fkHvwZv
-	UVmlYMec9lWCLHldKzsSxrd30pJKIKPm6AyEbpKXXqlDEG9CdignUZ2QqDe8+5UJdxK3D8B8TrSj5
-	LgTuy4vJLeoDLlqRAbGHUXgY9qXqmJw5HhCO5n7NZkrfOXpwx1IztnTmwPqV86JOg2QHHlGUkmfIl
-	g94n6pjK2zhfTxxC9b98CD6isFIPGHwAerVGulYEy75IhC68Wul5/xWKAMK9hZJAo/S9FL+eY0Q6t
-	Sk/0rnWQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=QokDhHnAKqLWHjogTXLoR4DHLEoCdHeJVwDfmUpDWFI=; b=CNVfir/l0MpR+L
+	nLeEnKFionnyyzZO2dskAUsGnLXnB86oOhZRPwvm8boPRelM9sFHfivKY04kY00qQJWcQrJvwsyml
+	Va0A2AQWIM1zXo2z1Cn49t+GGDseG4gd9VUgSWu4+b5gC9GKC6PjQNHozjF9JPgvXl9gIiRMH5l5j
+	aq8efbJMSGYVfzgT1tKs53/0Y/Jd9S/O/u4f65L7LUvz36f2pVccD2DFOXffHa00m8M8y7WxeAea3
+	yY8V9/QHWXJ1wo51xjLVGrQwlW5yw7BZbnycoVVuzU4IPUDi1q5mYF9fle/SIz1u0M14E6UoOKCA2
+	KfyQZbeGrFNGsA4RKyyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl12-00000005LQM-2YQT;
-	Wed, 20 May 2026 17:47:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPl1W-00000005LV6-38Fq;
+	Wed, 20 May 2026 17:48:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl10-00000005LPs-1UVw
+	id 1wPl1V-00000005LUd-1gES
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 17:47:31 +0000
+	Wed, 20 May 2026 17:48:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 82B2441B16;
-	Wed, 20 May 2026 17:47:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F8F31F000E9;
-	Wed, 20 May 2026 17:47:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 6250E60129;
+	Wed, 20 May 2026 17:48:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E55DC1F000E9;
+	Wed, 20 May 2026 17:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779299249;
-	bh=ViRW9Nz3r6hXUk4I8QEt3nB7VpqxM71bV390oMtx5Ug=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=E+KqHORQPEi2v/ovg1wnEqFr8oDWY997yhhY4R1PG1PuSPUJYkhb8VagSOppZB+Rr
-	 A0FKrrZGSqhwUfPDPtXnkAmbqErhn1IZufP64ETA4qqpXvH0pe86apDIE60MBNjwEw
-	 RUfd9pOaiDymD8/T/FWXj7CZcBRvZOPScWM1lK0JYwdnAeWm7tQE1Tsmsl9tTiCRFI
-	 3siFught71zBG4B2SLyJfjVwSEg4UUGfukHiuNBzw5P/8kKwSKZ4x2cHIxbPEaZHgh
-	 C1XP0RZ0Sepvw0ts72eLscxXwx0QJPfuGnmsqMkMRKBDOTHd1f1hMZbWHQJHylmkgs
-	 J70Laujzm+ZXA==
-Date: Wed, 20 May 2026 10:47:27 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: David Woodhouse <dwmw2@infradead.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, kvm <kvm@vger.kernel.org>,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	"Kernel Mailing List, Linux" <linux-kernel@vger.kernel.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Jim Mattson <jmattson@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Eric Auger <eric.auger@redhat.com>, Kees Cook <kees@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	kvmarm@lists.linux.dev,
-	linux-kselftest <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH] Documentation: KVM: Document guest-visible compatibility
- expectations
-Message-ID: <ag3zr7-11FO3k-Wv@kernel.org>
-References: <cf429f2082e863571595f74d1d3dedc3e6a82964.camel@infradead.org>
- <CABgObfacAYexR25SMi1kSZMRnHx3EDGj8=E84V1DumER66ibnQ@mail.gmail.com>
- <86qzn7wp3y.wl-maz@kernel.org>
- <593a782c50f3c8656e13b36dfb975a67d43a908e.camel@infradead.org>
- <CABgObfbS-z3OphDna5W_JQPvw+OK=yXJurVMHp1ANZ5uGEgVhQ@mail.gmail.com>
- <9d0429ddbe4d8c6993e74237c4395697f80092d6.camel@infradead.org>
- <agzR2kaJsNa8X9lF@kernel.org>
- <1243d375846c4f4e20c229a6f09300126188fc8b.camel@infradead.org>
- <agzq5kwzuJvd7Mh5@kernel.org>
- <add71b6f61edc6357e1fddad83273b2cba697d10.camel@infradead.org>
+	s=k20260515; t=1779299280;
+	bh=QokDhHnAKqLWHjogTXLoR4DHLEoCdHeJVwDfmUpDWFI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=X59zp2JT2ThlWcF8Vwx5hipnuU3pVcb+NfDjk2Z2sHtYDjkv+g3dJ0zZr2SGgl213
+	 1C0hCo1gnbyqdhUCR+J6gzpc8QSsRa50+ECq21EUTPKSlop5c2ppovIB2kN3lPYiDQ
+	 GR1Ypw4utLINVSrZVNL5Ysm4lJlrsSdcXXrYlEYy81+++le0P7+ckaH3kTfZIPhd/h
+	 G5L5/+OpcbEO3IC+73xXcXcYHpivSRqU3jGXcMYQKbRNtlDpVoDXwc8ETE1DGBGa/B
+	 FzvalrcDibzcUjSlRfzL+b/TJhLoq8ZU6IGme8BJScJjxXYhD+VHvlU8uda6mLonKz
+	 zFY9Io0VLlY6A==
+Date: Wed, 20 May 2026 12:47:58 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, will@kernel.org, robin.murphy@arm.com,
+	bhelgaas@google.com, joro@8bytes.org, praan@google.com,
+	baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
+	jonathan.cameron@huawei.com, vsethi@nvidia.com,
+	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
+ capable devices
+Message-ID: <20260520174758.GA66039@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <add71b6f61edc6357e1fddad83273b2cba697d10.camel@infradead.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_104730_435825_C81BC5C2 
-X-CRM114-Status: GOOD (  19.48  )
+In-Reply-To: <ag3vb4SWIfuw++vp@Asurada-Nvidia>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +74,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 12:33:52AM +0100, David Woodhouse wrote:
-> On Tue, 2026-05-19 at 15:57 -0700, Oliver Upton wrote:
-> > What ifs and maybes do not meet the bar, in my opinion, for preserving
-> > bug emulation in KVM. Of course there could be a little flexibility with
-> > that but we need to have some way of discriminating between bug fixes
-> > and genuine guest expectations around the behavior of virtual hardware.
+On Wed, May 20, 2026 at 10:29:19AM -0700, Nicolin Chen wrote:
+> On Wed, May 20, 2026 at 11:20:43AM -0300, Jason Gunthorpe wrote:
+> > On Tue, May 19, 2026 at 06:04:18PM -0700, Nicolin Chen wrote:
+> > 
+> > > > Yeah, that's fair, so let's rename it to 
+> > > > 
+> > > > pci_translated_required()
+> > > > 
+> > > > ie the device requires translated requests to function. This is what
+> > > > CXL.cache implies (IIRC I was told the spec specifically says this)
+> > > > 
+> > > > Requiring translated requests implies you have to enable ATS in the
+> > > > system.
+> > > 
+> > > Perhaps we could let IOMMU drivers check:
+> > >   pci_cxl_is_cache_capable() || pci_dev_specific_is_pre_cxl()
+> > > directly?
+> > 
+> > I'd rather have a single function.
 > 
-> I believe you have this completely backwards.
+> OK. Can we use pci_ats_required()?
+> 
+> CXL spec explicitly used "ATS" when stating the requirement of
+> CXL.cache). And it'd fit into the existing pci_ats_ functions.
 
-No, I really don't.
+OK by me.
 
-Leaving every bugfix that could _possibly_ have a guest-visible impact
-subject to drive-by scrutiny many years after the dust has settled is
-not an acceptable working dynamic. Especially since it would appear
-that the rest of the ecosystem has long since moved on from this
-particular issue.
+You already have a comment in the code about the CXL.cache
+requirement; thanks for that.
 
-If this matters to you so deeply then please, be part of the solution
-instead. You may find that reviewing patches leads to better outcomes
-than getting belligerent with the arm64 folks every time you guys
-decide to rebase your kernel. Hell, hypotheticals actually have a lot
-more weight in the context of a review. And if your testing is extensive
-enough to catch these sort of subtleties, don't you think it's better
-done against mainline?
+I don't know enough about CXL to know what's behind the ATS
+requirement.  It sounds like it's more than a simple performance
+optimization.  If you happen to know the reason, it might be worth
+a short comment about that too.
 
-Maybe it's just me but I am left feeling disappointed that we all
-haven't found a productive way of working together. I've tried to bridge
-the gap here; we obviously need to do something that at least fixes the
-UAPI breakage. Although apparently we don't even care to meet that low
-of bar.
+Please add a one-line comment in the code about why we check
+Cache_Capable instead of Cache_Enable, i.e., even if CXL.cache is not
+enabled now, it may be enabled later.
 
-> A stable and mature platform doesn't get to play in its ivory tower and
-> randomly inflict breakage on guests because they "deserve it".
-
-Really? Aren't you asking for us to emulate something completely broken
-for you?
-
-Thanks,
-Oliver
+Bjorn
 
