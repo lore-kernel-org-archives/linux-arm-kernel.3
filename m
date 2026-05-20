@@ -4,43 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19CF8CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 22:44:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4F3CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 22:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uiPUxXRNXxFmDI4CZK2GU7C01wVjY/ez1bK1bBACuFE=; b=kt5MAria81oGFRxRJbt/tIs4tg
-	Ju7wT+UgP+1+UilwxX2PqRr3ISff5ORidVsULliccG0z8wuKMMN48bJOWD9ePIK2Mjptzb5ISQYGH
-	vCIkw5dW9paz6lm+LCh4YSTiJgGQBZxQILKx07FFsX/bTE2D0FU6RFKNFejsENuU3pwVh1jEUT43T
-	8rHi2TnR0dWTVjDjPsDuCV66foiHJCTozUsmJKdgvXnnDW1vt7Lo3wPnkjjTd1kM5+xQtQoAWPf9O
-	bZ/sA5kGnkI9DgfaoNfjONGrdujWQFz8shyPLDl2SMDwkQSG0fqeVFgthwx33Xa9zcy51ARWiinne
-	XYdGkZQA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0UM51EwHsXLNHmYJyx4hPpazMyI6FFhbWTVDbJwHvBM=; b=rqAqFckCfLMUiX
+	PbPv/C48IaxB/Vhk0z6wCXTo5N1khLf64NPEgLvAWxkKlnTe1vLTO38hXVbvyX+KR4CpYWTFncaWQ
+	9HfI87k4UKDrXBh3AY5OZMzVwdCnxMY+9Gh0UN3jguWNDPqBgRReCI/eoKwnfFaG+SRPBIY8Pvuhq
+	2FMfXCQNpJhB8qfXEU4SWfykL8oBDzG+bXlrN9yMBHPbqIf8ahwpWnSFanoxAkFKqSMxrEJ7iVHzB
+	5ZC7FOqy0pS7B41vN/hwqNK7X1JLZHblTpjRom3xACd7GpH6uBwS4BcQHx+3T18iEyvHdrGE4Zyky
+	7GYehHEddZrYhv2FuBZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPpeZ-000000060Zj-0mCb;
+	id 1wPpeZ-000000060Zz-1LBb;
 	Wed, 20 May 2026 22:44:39 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPpeV-000000060XG-0D6j
+	id 1wPpeS-000000060WV-2uyJ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 20 May 2026 22:44:37 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wPpeO-0005vy-Q8; Thu, 21 May 2026 00:44:28 +0200
+	id 1wPpeJ-0005vy-Qh; Thu, 21 May 2026 00:44:23 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Thu, 21 May 2026 00:44:08 +0200
-Subject: [PATCH v7 03/28] media: v4l2-common: add missing 1 and 2 byte RGB
- formats to v4l2_format_info
+Subject: [PATCH v7 00/28] media: platform: rga: Add RGA3 support
+Date: Thu, 21 May 2026 00:44:05 +0200
+Message-Id: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260521-spu-rga3-v7-3-3f33e8c7145f@pengutronix.de>
-References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
-In-Reply-To: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23Ry2rDMBAF0F8xWlft6G151f8oXegxSbSI7coPU
+ kL+vbJDsKFejtC5A3PvZMCccCBNdScZ5zSkri2DeatIuLj2jDTFMhMOXDEARod+ovnsBK0dAAK
+ rPeNAyvc+4ynd1qiv7zJf0jB2+XdNntny+goxW8jMKFChXayVMiCBf/bYnqcxd226vUckS9LMN
+ 81B7DQv2tbWaWOlORl2qMVLa2B8v1sUbYznRoA2Hv2hlpsWXO20LBotYGBBM6HkoVablrzeabV
+ ob04qArOx1odab1qx/W69aCUNUxy9DfaffjwLyfgzlUrHZytbo021HpNxvYam7nqd4rj0R0OEo
+ LiUwUjXlMuXIO8GpKH8SWNTXTEm99HibSxbHn8XTnhlQAIAAA==
+X-Change-ID: 20251001-spu-rga3-8a00e018b120
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
  Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
  Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -53,15 +57,16 @@ Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
  sebastian.reichel@collabora.com, m.tretter@pengutronix.de, 
  p.zabel@pengutronix.de, 
  =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Michael Olbrich <m.olbrich@pengutronix.de>
 X-Mailer: b4 0.15.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_154435_084750_30ED0986 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20260520_154432_882713_FC128E14 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,52 +81,216 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add all missing one and two byte RGB formats to v4l2_format_info. This
-allows drivers to more consistently use v4l2_format_info, as it now
-covers all currently defined RGB formats.
+This series adds support for the Raster Graphic Acceleration 3 (RGA3)
+peripheral, which is included in the RK3588 SoC. The RK3588
+contains one RGA2-Enhanced core (which is already implemented by the
+rockchip rga driver) and two independent RGA3 cores. They feature
+a similar functionality of scaling, cropping and rotating of up to two input
+images into one output image. Key differences of the RGA3 are:
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8 (RGA2 allows up to 16)
+
+This patch set adds support for one RGA3 core in the existing
+rga m2m driver. The feature set of the PR is limited to scaling,
+format and color space conversions between common 8bit RGB/YUV formats.
+This already allows a practical usage of the RGA3.
+
+During testing it has been noted that the scaling of the hardware is
+slightly incorrect. A test conversion of 128x128 RGBA to 256x256 RGBA
+causes a slight shift to the bottom right. The shift is suddle, as it seems
+that the image is shifted by about 2px down and right and then cropped to
+it's final size (probably caused by the source sampling).
+The same behavior has been observed when using the vendor driver
+with the librga library.
+
+Furthermore comparing the RGA3 conversion with the GStreamer
+videoconvertscale element, the chroma-site is different. A quick testing
+didn't reveal a chroma-site that creates the same image with the
+GStreamer Element. Also when converting from YUV to RGB the RGB values
+differ by 1 or 2. This doesn't seem to be a colorspace conversion issue
+but rather a slightly different precision on the calculation.
+
+This was tested on a Radxa Rock 5T. Around 80 fps were measured when
+scaling and converting from RGBA 480x360 to NV12 3840x2160 in a single
+gstreamer pipeline. Format conversions were tested with a single
+gstreamer pipeline converting a fixed input to a given input format.
+Afterwards it's piped through the RGA3 and the result is converted back
+to rgba and compared against a given hash value (generated after
+comparing the output manually to the input).
+
+The patchset also fixes the failing v4l2-compliance tests due to the
+missing colorimetry propagation from output to capture:
+
+  v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+  ...
+  	Card type        : rga2
+  ...
+  Total for rockchip-rga device /dev/video0: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+  v4l2-compliance 1.32.0, 64 bits, 64-bit time_t
+  ...
+	Card type        : rga3
+  ...
+  Total for rockchip-rga device /dev/video1: 48, Succeeded: 48, Failed: 0, Warnings: 0
+
+To distinguish the RGA2 core from the RGA3 cores the Card type is set
+accordingly. Scheduling operations between both RGA3 cores to double
+the possible frame rate might be a future improvement. Until then
+additional RGA3 cores are disabled to only provide one video device to
+the user space. This prevents a potential ABI breakage when multi core
+support is implemented.
+
+The DTS change at the end is just as a preview, as this series targets
+media/next. After it's merged the DTS change will be sent as a new
+patch not targeting media.
+
+Patch 1 updates the dtb bindings doc to support the RGA3
+Patch 2-5 extend v4l2 common functionality
+Patch 6-10 are general cleanups
+Patch 11-26 prepare the rga driver for the RGA3
+Patch 27 adds RGA3 support to the rga driver
+Patch 28 dtsi additions for the RGA3
+
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/v4l2-core/v4l2-common.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+Changes in v7:
+- avoid incorrect stride being derived for NV24
+- Link to v6: https://patch.msgid.link/20260515-spu-rga3-v6-0-e547152eb9c9@pengutronix.de
 
-diff --git a/drivers/media/v4l2-core/v4l2-common.c b/drivers/media/v4l2-core/v4l2-common.c
-index f6cb7e14f2236..b55ab72958eaa 100644
---- a/drivers/media/v4l2-core/v4l2-common.c
-+++ b/drivers/media/v4l2-core/v4l2-common.c
-@@ -246,8 +246,29 @@ const struct v4l2_format_info *v4l2_format_info(u32 format)
- {
- 	static const struct v4l2_format_info formats[] = {
- 		/* RGB formats (1 or 2 bytes per pixel) */
-+		{ .format = V4L2_PIX_FMT_RGB332,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 1, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGB444,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XRGB444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XBGR444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRX444,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB555,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XRGB555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGBX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ABGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XBGR555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRA555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_BGRX555,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB565,   .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_RGB555X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_ARGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
-+		{ .format = V4L2_PIX_FMT_XRGB555X, .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 		{ .format = V4L2_PIX_FMT_RGB565X,  .pixel_enc = V4L2_PIXEL_ENC_RGB, .mem_planes = 1, .comp_planes = 1, .bpp = { 2, 0, 0, 0 }, .bpp_div = { 1, 1, 1, 1 }, .hdiv = 1, .vdiv = 1 },
- 
- 		/* RGB formats (3 or 4 bytes per pixel) */
+Changes in v6:
+- avoid build failure by selecting VIDEOBUF2_DMA_CONTIG
+- sorted nodes in dtsi addition
+- reworked cmdbuf preparation/reuse to a dirty flag instead of streamon
+- fix alignment multiplication edge cases in v4l2_format_plane_stride
+- fix unintended parameter change when switching to v4l2_fill_pixfmt_mp_aligned call
+- adjust dma_addrs variable type to match the changed struct type change
+- dropped scaling limit from s_fmt
+- scaling limit considers rotation
+- scaling limit is checked when updating selection/rotation while streaming
+- don't prevent setting a selection for the RGA3
+- fixed flipped inline if branches in rga3_adjust_and_map_format
+- Link to v5: https://patch.msgid.link/20260428-spu-rga3-v5-0-eb7f5d019d86@pengutronix.de
 
--- 
-2.54.0
+Changes in v5:
+- Fixed cmdbuf allocation size being only a quarter
+- Fixed streamon cmdbuf preparation to not set
+  rotation/flipping which prevents changing it during streaming
+- Link to v4: https://patch.msgid.link/20260325-spu-rga3-v4-0-e90ec1c61354@pengutronix.de
+
+Changes in v4:
+- Add Nicolas to Cc for potential reviews and Sebastian for the nice
+  RK3588 mainline status table
+- Improved single memory plane y stride alignment adjustments
+- Adjusted scaling inaccuracy description
+- Dropped required iommu property from the binding yaml
+- Fixed binding yaml indentation
+- Link to v3: https://lore.kernel.org/r/20260127-spu-rga3-v3-0-77b273067beb@pengutronix.de
+
+Changes in v3:
+- Add iommus property to the dtb bindings documentation
+- Drop interrupt name from the dtsi
+- Added v4l2_format_info for missing 2 byte RGB formats
+- Fixed incorrect dt node reference in the binding patch commit message
+- Removed now unused depth member of rga_frame
+- Replaced RGA3 semi planar bool with v4l2_format_info check
+- Calculated x_div/y_div variables instead of storing them
+- Limited width/height to even values for YUV formats
+- Support all 4 CSC modes: BT601L, BT601F, BT709L, BT2020L
+- Note slightly incorrect scaling by the hardware
+- Fix stride alignment to bytes
+- Use early returns in rga-buf init/cleanup
+- Fix incorrect devm_clk_bulk_get with devm_clk_bulk_get_all
+- Don't enforce max scaling factor in try_fmt (only in s_fmt)
+- Merge single register editing RGA3 functions into the other functions
+- Link to v2: https://lore.kernel.org/r/20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de
+
+Changes in v2:
+- Removed overclocking (assigning higher clock speeds in the dts)
+- Disable the second RGA3 core
+- Improved RGA3 feature documentation and code comments
+- Don't write the whole command buffer in each frame
+- Don't announce CIDs for the RGA3 and error out on s_selection
+- Check the max scaling factor of 16 (RGA2) and 8 (RGA3)
+- Move stride alignment and alpha checking to v4l2 common
+- Register the interrupt as shared for an external IOMMU
+- Add IOMMU patch as dependency to fix sporadic hangups
+- Link to v1: https://lore.kernel.org/r/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de
+
+To: Jacob Chen <jacob-chen@iotwrt.com>
+To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Heiko Stuebner <heiko@sntech.de>
+To: Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-media@vger.kernel.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Michael Olbrich (1):
+      media: rockchip: rga: share the interrupt when an external iommu is used
+
+Sven Püschel (27):
+      media: dt-bindings: media: rockchip-rga: add rockchip,rk3588-rga3
+      media: v4l2-common: sort RGB formats in v4l2_format_info
+      media: v4l2-common: add missing 1 and 2 byte RGB formats to v4l2_format_info
+      media: v4l2-common: add has_alpha to v4l2_format_info
+      media: v4l2-common: add v4l2_fill_pixfmt_mp_aligned helper
+      media: rockchip: rga: fix too small buffer size
+      media: rockchip: rga: use clk_bulk api
+      media: rockchip: rga: use stride for offset calculation
+      media: rockchip: rga: remove redundant rga_frame variables
+      media: rockchip: rga: announce and sync colorimetry
+      media: rockchip: rga: move hw specific parts to a dedicated struct
+      media: rockchip: rga: avoid odd frame sizes for YUV formats
+      media: rockchip: rga: calculate x_div/y_div using v4l2_format_info
+      media: rockchip: rga: move cmdbuf to rga_ctx
+      media: rockchip: rga: align stride to 4 bytes
+      media: rockchip: rga: reuse cmdbuf contents
+      media: rockchip: rga: check scaling factor
+      media: rockchip: rga: use card type to specify rga type
+      media: rockchip: rga: change offset to dma_addresses
+      media: rockchip: rga: support external iommus
+      media: rockchip: rga: remove size from rga_frame
+      media: rockchip: rga: remove stride from rga_frame
+      media: rockchip: rga: move rga_fmt to rga-hw.h
+      media: rockchip: rga: add feature flags
+      media: rockchip: rga: disable multi-core support
+      media: rockchip: rga: add rga3 support
+      arm64: dts: rockchip: add rga3 dt nodes
+
+ .../devicetree/bindings/media/rockchip-rga.yaml    |  10 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  44 ++
+ drivers/media/platform/rockchip/rga/Kconfig        |   1 +
+ drivers/media/platform/rockchip/rga/Makefile       |   2 +-
+ drivers/media/platform/rockchip/rga/rga-buf.c      |  89 +++-
+ drivers/media/platform/rockchip/rga/rga-hw.c       | 357 +++++++++----
+ drivers/media/platform/rockchip/rga/rga-hw.h       |  16 +-
+ drivers/media/platform/rockchip/rga/rga.c          | 576 ++++++++++-----------
+ drivers/media/platform/rockchip/rga/rga.h          |  88 ++--
+ drivers/media/platform/rockchip/rga/rga3-hw.c      | 507 ++++++++++++++++++
+ drivers/media/platform/rockchip/rga/rga3-hw.h      | 192 +++++++
+ drivers/media/v4l2-core/v4l2-common.c              | 135 +++--
+ include/media/v4l2-common.h                        |   6 +
+ 13 files changed, 1520 insertions(+), 503 deletions(-)
+---
+base-commit: dd9a02fc75cefc84024eb658c9e528cc97ca4eda
+change-id: 20251001-spu-rga3-8a00e018b120
+prerequisite-change-id: 20251126-spu-iommudtefix-cd0c5244c74a:v2
+prerequisite-patch-id: 10c6c977c0f71400931941b42da73adcaf63e810
+
+Best regards,
+--  
+Sven Püschel <s.pueschel@pengutronix.de>
 
 
