@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798D5CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2098ACD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9B6Ly6mVvTc9aFU/qVyydDvT1sySEiT+OWzALeLP+aM=; b=wXAhfDFeym00l5jj/33mdFnO3a
-	ut2Ia04cAPnWM+iSjxhNzbsyp2L5fnMtd+/XjtkpdfxUW+f/06tE167ErrVuc8G2MOAzF2LAa+36c
-	1MSvIdeasyjeRUbysX+TMWYPqaTug0hrvVUBKtaF3UzpedWFCBYyc02oVrR85NdwTjjjHtUdr6Fz+
-	6isxsNq/YQNEXyDmy9iwnT1XwZH1N0y/lNQ5KZj0y878FeHKfe8zmY7exsK9EPFls5PVRYAwH3hvr
-	yk6hEpfwf9zwgJRxJSCjlalnjYd7zPoBUQsBN5JNMeK+rjlfIErHz8rowtqwgtUP72DAPi1vTaQtz
-	8nqKGOuQ==;
+	bh=5ILLE5X/zh5Zp5m7SYWsEaC8ZBBvgKc8eCKNCOEyqYg=; b=MbVcV4WsPYPj8fVxco5ZCGBpg8
+	WhkX7uOrqse6m2mk/MMM1i9Ia3dXkjfLMvf8TOSOARs8W7ay3MCRUbY8uUG+KQ1P/pXmI2KGUAvB2
+	zUrVmkK0eUL8rQV5oor8pLnaVdXF33euTWKsNU/xlybct8hum8gQ4hrUfRhHdFmhveAs9yIvwmynT
+	Q1TJtMVUjXnXHTrFj2oi9Yi4azn7aXgr2LV5Tete7ia/SYj/k7xIZ8R87nkbG8B69Jl6OVxYM6C0S
+	E/5UkvePKq84H258m2k/flL78Pp2B4iRAWI6bGI7Pnn5nqtDjiP0/++fFuT4rqfGJiv7nUe4q3ai2
+	T4EPDAEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcdr-000000041bz-15Nd;
-	Wed, 20 May 2026 08:51:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPceo-000000041yw-2U0F;
+	Wed, 20 May 2026 08:52:02 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcdi-000000041YI-2Hpt
+	id 1wPcek-000000041wJ-4AMb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 08:50:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B641744492;
-	Wed, 20 May 2026 08:50:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96E721F0089A;
-	Wed, 20 May 2026 08:50:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779267053;
-	bh=9B6Ly6mVvTc9aFU/qVyydDvT1sySEiT+OWzALeLP+aM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DP2QoG3hYSUW73110LbBQN0CFXn6/TJDoG6IJKLcR/dsiNzjl7ldzVqdAT69XE5Vv
-	 wXjlNv/UrpN0OrdITh9g+vpuTZ+rjraolnrdRXYmHT7bSUSrwPpnGKEviLk3kDJyXf
-	 gGhDVR1AwsQYhzz/iRRpoBhfZW0ncVnbrqc2AJKvotJEB7q52/l1jiDG9Bd/cEbKGg
-	 AzHgo1l4WFB6c6HOcjyY7F+Is7EoN8fxBitVL6BD74MFaiRWhdZZqiB0kJL55rZll7
-	 q7n/qIR37PhCBralb1fV5csc2WX32funtVwS2o6Btis0u6n8hW9nC2hmrBQklMo65j
-	 Z4ZWz3Tux55uQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wPcdf-00000004Hno-35LD;
-	Wed, 20 May 2026 08:50:51 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
-Date: Wed, 20 May 2026 09:50:36 +0100
-Message-ID: <20260520085036.541666-3-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260520085036.541666-1-maz@kernel.org>
-References: <20260520085036.541666-1-maz@kernel.org>
+	Wed, 20 May 2026 08:52:01 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=5ILLE5X/zh5Zp5m7SYWsEaC8ZBBvgKc8eCKNCOEyqYg=;
+	b=ahldOXzRVBCatzSoLh4qIWjZNKkjLW+qbMChK+u+JTSiPCXdTZPYb9zQteodxgzTQLeiOjLFL
+	1TOQJNZphPCA3XiHB3+YzYEx6XTyKjoXuFgzD869C++zx7TZXKvZ+XrYS/dQlY+k8Os8NGRpKvC
+	x+HpkHsLmUgowgc8bj+OXyA=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gL4pP2yrDzcbR6;
+	Wed, 20 May 2026 16:44:13 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6149B4056E;
+	Wed, 20 May 2026 16:51:47 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Wed, 20 May 2026 16:51:46 +0800
+Message-ID: <cd330f4f-2604-48ce-bfcf-c9a79f48e66b@huawei.com>
+Date: Wed, 20 May 2026 16:51:46 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/5] Support the FEAT_HDBSS introduced in Armv9.5
+To: Will Deacon <will@kernel.org>, <maz@kernel.org>, <oupton@kernel.org>,
+	<catalin.marinas@arm.com>, <corbet@lwn.net>, <pbonzini@redhat.com>, Tian
+ Zheng <zhengtian10@huawei.com>
+CC: <kernel-team@android.com>, <yuzenghui@huawei.com>,
+	<wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>, <yezhenyu2@huawei.com>,
+	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
+	<suzuki.poulose@arm.com>, <leo.bras@arm.com>, Jonathan Cameron
+	<jic23@kernel.org>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com>
+ <177918656142.736362.17906576792384645789.b4-ty@kernel.org>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <177918656142.736362.17906576792384645789.b4-ty@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_015054_623226_4D638CE0 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20260520_015159_229867_952803DD 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,84 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When switching between L1 and L2, we save the old state using
-kvm_arch_vcpu_put(), mutate the state in memory, then load the new
-state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
-and unbound, such that it can be lazily restored on a subsequent trap.
 
-The FPSIMD/SVE state is shared by exception levels, and only a handful
-of related control registers need to be changed when transitioning
-between L1 and L2. The save/restore of the common state is needless
-overhead, especially as trapping becomes exponentially more expensive
-with nesting.
 
-Avoid this overhead by leaving the common FPSIMD/SVE state live on the
-CPU, and only switching the state that is distinct for L1 and L2:
+On 5/19/2026 11:23 PM, Will Deacon wrote:
+> On Wed, 25 Feb 2026 12:04:16 +0800, Tian Zheng wrote:
+>> This series of patches add support to the Hardware Dirty state tracking
+>> Structure(HDBSS) feature, which is introduced by the ARM architecture
+>> in the DDI0601(ID121123) version.
+>>
+>> The HDBSS feature is an extension to the architecture that enhances
+>> tracking translation table descriptors' dirty state, identified as
+>> FEAT_HDBSS. This feature utilizes hardware assistance to achieve dirty
+>> page tracking, aiming to significantly reduce the overhead of scanning
+>> for dirty pages.
+>>
+>> [...]
+> 
+> Applied sysreg definitions to arm64 (for-next/sysregs), thanks!
+> 
+> [1/5] arm64/sysreg: Add HDBSS related register information
+>        https://git.kernel.org/arm64/c/72f7be0c2e30
+> 
+> Cheers,
 
-- the trap controls: the effective values are recomputed on each entry
-  into the guest to take the EL into account and merge the L0 and L1
-  configuration if in a nested context, or directly use the L0 configuration
-  in non-nested context (see __activate_traps()).
-
-- the VL settings: the effective values are are also recomputed on each
-  entry into the guest (see fpsimd_lazy_switch_to_guest()).
-
-Since we appear to cover all bases, use the vcpu flags indicating the
-handling of a nested ERET or exception delivery to avoid the whole FP
-save/restore shenanigans. SME will have to be similarly dealt with when
-it eventually gets supported.
-
-For an EL1 L3 guest where L1 and L2 have this optimisation, this
-results in at least a 10% wall clock reduction when running an I/O
-heavy workload, generating a high rate of nested exceptions.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/fpsimd.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
-index 15e17aca1dec0..aca98752a6e42 100644
---- a/arch/arm64/kvm/fpsimd.c
-+++ b/arch/arm64/kvm/fpsimd.c
-@@ -28,6 +28,20 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
- 	if (!system_supports_fpsimd())
- 		return;
- 
-+	/*
-+	 * Avoid needless save/restore of the guest's common
-+	 * FPSIMD/SVE/SME regs during transitions between L1/L2.
-+	 *
-+	 * These transitions only happens in a non-preemptible context
-+	 * where the host regs have already been saved and unbound. The
-+	 * live registers are either free or owned by the guest.
-+	 */
-+	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
-+	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
-+		WARN_ON_ONCE(host_owns_fp_regs());
-+		return;
-+	}
-+
- 	/*
- 	 * Ensure that any host FPSIMD/SVE/SME state is saved and unbound such
- 	 * that the host kernel is responsible for restoring this state upon
-@@ -102,6 +116,15 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
- {
- 	unsigned long flags;
- 
-+	/*
-+	 * See comment in kvm_arch_vcpu_load_fp().
-+	 */
-+	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
-+	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
-+		WARN_ON_ONCE(host_owns_fp_regs());
-+		return;
-+	}
-+
- 	local_irq_save(flags);
- 
- 	if (guest_owns_fp_regs()) {
--- 
-2.47.3
+Thanks!
+Tian
 
 
