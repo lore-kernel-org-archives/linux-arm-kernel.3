@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75B1CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A06ECD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 15:49:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTs9j84EvrpbUB8zmi/sXVyU6CvZkmauLXlVFqdgLPE=; b=U1M07HW2rtcIt7McFxBoROWQke
-	OnbF8yE5aL7muHD7shCLetZYb/Glt4hiBKtxopjd9BrINABqt/EfXSBJl9zoNYCsLa06b7bElcg1G
-	leA8WzYTGhp0sbC3Th3CIzJS2tzsUtZlQUd8ph/vPtW5v91sIc56qV2KYl7a05DsXgnlO4VbBMNBG
-	pSbWQFNBi7bG5UmJDxHyWkHqfAkf7Xi4HGMPrmo9FAqyN9I7ivvMH8rQAk6gJxckwpDoaRZgM22Av
-	SfONx/X1VrHtLsSlIYi/Pcz2PjPeShnhsl6rbhCqWow//CcPfyBM+l1YzqT2ksl4zZzhrlbH+Rrne
-	x1jMjmuA==;
+	bh=msoNP98X9TIxX7NoNwzaqySzNM1G8U+6UESCKSkm6qA=; b=wfZ/EsQFn0EcxrCF+AsndUaGzQ
+	NcaNjOFtv9PfKMikwIFMXwYHz1zYObbz+gZgKYqqfPq/7/p4YAsjVbRGMjyQ8m/TmZ7RRlm194xCy
+	vaTC/5Ziyzv8+cO+Tuq50EcD2SOBfxsmoD1vbha1/7Ka3PAbGUSYwTuhrP2vOgyQ/a7ejxva/LYC4
+	U/ttm2SMeIG5rYziy9Kjkp3zlT98hMkjzKLrn1YEyOPdA+vXoFnQDUFketwsXMSoOiyid5NzV6umH
+	mV56lizrCp72F81nY565uV8rtIYGlJRiIwxOFvt6+bC+TmWBqdyAG8m3BKoccRa1hV+xM+dIgM/ws
+	tKSNTomA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPj3f-000000052nC-2j6d;
-	Wed, 20 May 2026 15:42:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPjAz-000000053oC-2Chr;
+	Wed, 20 May 2026 15:49:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPj3e-000000052mk-3Yrb;
-	Wed, 20 May 2026 15:42:06 +0000
+	id 1wPjAw-000000053n9-365T;
+	Wed, 20 May 2026 15:49:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEFF760008;
-	Wed, 20 May 2026 15:42:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06A241F00893;
-	Wed, 20 May 2026 15:42:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D167441ADA;
+	Wed, 20 May 2026 15:49:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44C891F000E9;
+	Wed, 20 May 2026 15:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779291724;
-	bh=xTs9j84EvrpbUB8zmi/sXVyU6CvZkmauLXlVFqdgLPE=;
+	s=k20260515; t=1779292177;
+	bh=msoNP98X9TIxX7NoNwzaqySzNM1G8U+6UESCKSkm6qA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RSSfWItJZQLm/gKbl48yMOmzxjineVIK03iKozC8JKuvQoBs3ovHcQ7xQ4XqiSZDd
-	 tHbGTI7X3VsJL3Rhmu+TlDcVLKucB22OF71wpJ6wrPh551wMTlMlAmHb2WrFukdzMv
-	 5VTaFfBzbhVM2NDlh9tJryrxXN4sg1FN6q3NEb3JCGR8ia0J7W38fbL363H4tBGeKf
-	 Zxxqs12ToS45Q0qaR+q6RcO7GQLwhu0GTYO27z02rN5ClS0D8euymnQR4Ne+YegA7Z
-	 Vz0+8HN9hw3cgYLp7UWD+U4NjpDPl5sdes2zhsyTDF+CzRKV1mDubaMPzvqI8GhRvE
-	 jIdrvFf0cSxLQ==
-Date: Wed, 20 May 2026 16:41:59 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	sharq0406@gmail.com, kuninori.morimoto.gx@renesas.com,
-	ckeepax@opensource.cirrus.com, linux-sound@vger.kernel.org,
+	b=TzAW5I8OdwnywObXjHsKrGC7033vSs7Zjf5/OeBCkFCeb5UACy2QbBKAYFxYXM/X7
+	 Ix21ccOOrz5SOJIjOBUVSJpHqzqbJSqyEg1fGoVpE/MFGIiEk8fKuaHmvmuTZudrjl
+	 VQlkkt6L7rgVC+z5x5gGighmOQcVk0FlURgm6nHbaNxml/KwwoyWowbL0LZaCA1LLC
+	 tuGZ1dlgbPjFEA17n75ushCRISquVMVgMTMI7drMLtsyjbMFgXBo/p2Ekg43q1TFcX
+	 u9QIgg+jJI8US6Oy0o2531uCdMwwKX38l/hs7Xyt3+dte6780LVPZfM0tpPVwige9h
+	 l5yhWeU7C7ttA==
+Date: Wed, 20 May 2026 16:49:33 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Stefan Roese <sr@denx.de>, Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 2/2] ASoC: mt8173-max98090: use standard callback to set
- jack
-Message-ID: <980eef5c-478e-4503-a3b8-27f3eba7ec3d@sirena.org.uk>
-References: <20260520132930.54333-1-srinivas.kandagatla@oss.qualcomm.com>
- <20260520132930.54333-3-srinivas.kandagatla@oss.qualcomm.com>
- <5990fbb1-286f-482d-b02a-d0637494f435@sirena.org.uk>
- <81b15533-3258-48a8-8d5a-0dcec7027254@oss.qualcomm.com>
+Subject: Re: [PATCH v3 3/5] dt-bindings: i2c: mt7621: Document an7581
+ compatible
+Message-ID: <20260520-ample-ultimatum-b947112dfc5c@spud>
+References: <20260519223253.1093-1-ansuelsmth@gmail.com>
+ <20260519223253.1093-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="LeC902u89KSq/6Lj"
+	protocol="application/pgp-signature"; boundary="N8qZPmLSc3aPNqva"
 Content-Disposition: inline
-In-Reply-To: <81b15533-3258-48a8-8d5a-0dcec7027254@oss.qualcomm.com>
-X-Cookie: Natural laws have no pity.
+In-Reply-To: <20260519223253.1093-4-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_084938_799951_AB695537 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +81,74 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---LeC902u89KSq/6Lj
+--N8qZPmLSc3aPNqva
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, May 20, 2026 at 03:34:59PM +0000, Srinivas Kandagatla wrote:
-> On 5/20/26 1:42 PM, Mark Brown wrote:
-> > On Wed, May 20, 2026 at 01:29:30PM +0000, Srinivas Kandagatla wrote:
-> >> use snd_soc_component_set_jack() instead of custom callback to
-> >> max98090 codec.
+On Wed, May 20, 2026 at 12:32:45AM +0200, Christian Marangi wrote:
+> Airoha SoC implement the same Mediatek logic for I2C bus with the only
+> difference of not having a dedicated reset line to reset it.
+>=20
+> Add a dedicated compatible for the Airoha AN7581 SoC and reject the
+> unsupported property.
+>=20
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  .../bindings/i2c/mediatek,mt7621-i2c.yaml          | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/i2c/mediatek,mt7621-i2c.ya=
+ml b/Documentation/devicetree/bindings/i2c/mediatek,mt7621-i2c.yaml
+> index 118ec00fc190..8223fbc74f14 100644
+> --- a/Documentation/devicetree/bindings/i2c/mediatek,mt7621-i2c.yaml
+> +++ b/Documentation/devicetree/bindings/i2c/mediatek,mt7621-i2c.yaml
+> @@ -14,7 +14,9 @@ allOf:
+> =20
+>  properties:
+>    compatible:
+> -    const: mediatek,mt7621-i2c
+> +    enum:
+> +      - airoha,an7581-i2c
+> +      - mediatek,mt7621-i2c
+> =20
+>    reg:
+>      maxItems: 1
+> @@ -38,6 +40,16 @@ required:
+>    - "#address-cells"
+>    - "#size-cells"
+> =20
+> +if:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: airoha,an7581-i2c
+> +then:
+> +  properties:
+> +    resets: false
+> +    reset-names: false
 
-> > This needs to be squashed into the first commit, otherwise the first
-> > commit will cause a build break.
+The sashiko report looks valid here.
+pw-bot: changes-requested
 
-> I had them in opposite order in my local setup, which is why it did not
-> break the build for me, I can send out a squashed version.
+> +
+>  unevaluatedProperties: false
+> =20
+>  examples:
+> --=20
+> 2.53.0
+>=20
 
-Putting this first would also be fine from a build point of view so is
-probably also OK, though there would be runtime breakage (which I
-imagine is why you reordered).  I'm not sure anyone will notice the
-runtime bisection issue.
-
---LeC902u89KSq/6Lj
+--N8qZPmLSc3aPNqva
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoN1kYACgkQJNaLcl1U
-h9Bglwf/fFyVX5wZ6pPFxe17aKN5nIUOOpNPzWcYnojdG/+Dm2HC7YBpPzPcIUfd
-IS8u4clCZmMSaBULc1R37Du8CRthdVGpqwMEUuBZ0iECRpJGr3S3OT25i653DWNu
-oYSyWmnM5UlrpSoLGk39DOO0k+K1mKDFCPmzCHRbkFcpL+lK+vo0KRjr3oO9o1UV
-S/It3KPhyc3FRRo+Z0UaTzruQ72Ky1HAoAvsPxSdYmtxV88iU9YxSEwSAjtAB1gl
-FhUWNJopESjFOyM7x6JUYz0Yp3FC76ZKwpmV+ONJ7X96onrFQv6SVQ8a+FmVCUim
-qR2xcAdHjU3W37KUi7R0hkadSgb0+A==
-=ZDx3
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCag3YDQAKCRB4tDGHoIJi
+0nwoAQD5LVwdLYofHn+NnDry6+KleqvkZPQ+C/mqn6QwtJmgpAD/elTm5Vluv3Mc
+pu12sSvva0dnNq60VV/jPiXwB7tT+AU=
+=l22U
 -----END PGP SIGNATURE-----
 
---LeC902u89KSq/6Lj--
+--N8qZPmLSc3aPNqva--
 
