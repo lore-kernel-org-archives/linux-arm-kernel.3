@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B95CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5143CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 09:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/JlcUjNjLjulQ9vEDBIuWcS1+FjD6s/DiGmeKXzMZ8=; b=os3Qo+XT0xT1ORCRjrw8j8s6wI
-	LYCz4dTjfUlT92pHyJU2/BR5KXoBScVhwQozKuoIP32guZ/H6Q3AxHnfg+ngtT/kmNa1uqSi/jMic
-	I4pU40QmDFm6ABo7LHBFSif1ws/HKo0f4sWgk0V6TmjF3bdcJJL0+qR4eD+iukahld4gIxI1t9aBg
-	YPGWNBhCLCbqPw34On6uvrpMZoQy8j9MQtcKN6mtBr6Xr+A0tQixELpFoTZMWSuR3s5OsqgQTPKdQ
-	Gwd1MyWch+bNGTOjYBKa2McD+oRJgc3uifvaRvV7A/B1BSmWQBgZwc2YUsPknGFfWa1xhCbpdO0Bi
-	H7OH1eIQ==;
+	bh=m2UP4oEFhHFvYNaDQ1RBxMdab/kp2FfRq8HctTWxTnI=; b=x3+0dIDPkeNA/hc5pzTDWeC1qZ
+	n4g9Mt1se9jCDq+IyRR16ufr3d7mJ3j/6eprggv31V8fKEVXTscSinKN0K8vB8CBy3RGEgN+Df4gf
+	yY4b9VYk3exup7mB64Kf/29y0U0bGYCSNSk88zdc168JmdI0Thq2vsWDRRBAm2uwofrMOyReo4ZFe
+	BIxHgajcd30E19PVhTqQD99xk8bLlBaqD6/XI1IqnUz0eF1xxOiCwrXQT7cd7WcsO3mYhHYViv8eK
+	JoMfRJWtbgpVfNc2Wlm7tkYBjCbpAuruS9RPAjJTQFQ4PNH+irtiajOQQEDgo/XC2igXxYRJ1t0ch
+	Z1rhne0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd6F-000000047E3-40SP;
-	Wed, 20 May 2026 09:20:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPd6T-000000047ad-2cl9;
+	Wed, 20 May 2026 09:20:37 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPd65-0000000471n-1S5l
+	id 1wPd6J-000000047JG-0M5m
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 20 May 2026 09:20:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=m2UP4oEFhHFvYNaDQ1RBxMdab/kp2FfRq8HctTWxTnI=; b=ILzxWx+JDREjHHIV+R5qRn/l8c
+	HZBzE1NfIMLiv8bOmoQ0X0KygvfJ0Wbu2jvdEqUEZnit6sdxUo8BqjOrF50ukBdKsNz7DddWq/HEm
+	wmk9mrJd6u+RDBIULhWs7SZVA+NP+BuzSJuNkd/qZt1j7ZsZWJ8ymD9d6QJvbLQ95B03BaNqMv+HP
+	0h8A79ZYlojFZOx6eFadFB4kZtuiMV6EDIbFvp4eB0tide+7UQiURBdYVcMvwknuAWDoKD5SHQI/a
+	C36xoN1wM0pRa4J/q2l/Tvt8clZGaKTtBX53QQWo9tf8Tjo5j91AfHjK1tQlOXjP03m7CILmmYbza
+	8tqwVgFQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPd6F-00000006xOd-2EPn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 09:20:13 +0000
+	Wed, 20 May 2026 09:20:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7F5B160120;
-	Wed, 20 May 2026 09:20:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34B601F00894;
-	Wed, 20 May 2026 09:20:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C5222445D4;
+	Wed, 20 May 2026 09:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A70261F0089A;
+	Wed, 20 May 2026 09:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779268812;
-	bh=d/JlcUjNjLjulQ9vEDBIuWcS1+FjD6s/DiGmeKXzMZ8=;
+	s=k20260515; t=1779268814;
+	bh=m2UP4oEFhHFvYNaDQ1RBxMdab/kp2FfRq8HctTWxTnI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=b37zcHUIMWJHRRwZePi1aAt3excKPi1uHm6003yNhOEg9bXCEfjpPkPVEPhZzVo2K
-	 xGpPkyn2zspgQdgoiiLQ9kQq9PsEmr0lMvMY1IBRYH/vS+VyAGQS4YbI5vvWX+Yx/4
-	 j0mYn3hDuJIbbc7YRCfa90vqS1224qjJSXchMS7MABr118a2bXp2AQB5dTZPYYE2H6
-	 33/yLsO36baeI25mYaA2760VVuJALaIRI2SvyrHQmz+pBNNahFvyp6AKwtoIaMNomd
-	 irQkiH5/uNCyUpaivHmHNhQh4tclIbjsduvVAT9NM/UEYoAqznZdjlcgyj4RCALinh
-	 RKDn9QNvos1xA==
+	b=Wkg4zVqILB+Pkp2Zhk+T+wByBZtsYuRPm44HzAq5pO02+XqHuzJY0VmVBKdPbXX9e
+	 IU0WRqDomb6/bCTSkhQ3zF8FNY2sAeWS7BpS1Su/PaFpSy3qoh7K3J/ICJODQASluH
+	 QjI4iN6nd+CoB5A7JJWGpFVE9QMRjO81zXbAxLPDN4zMepDgApNKAtsUBe2PUIt6We
+	 Zw6A4P9tnKcjCHLUmYvj5S/bkSbMdJfD7JtySASTzzSC2dmqc716BPIKaJbWK2dNbC
+	 xkbaEESY0yObA4VrBaGMDVFNL85dU8wbq5mlJAz4WWtFi0LlWor1tA4X60wTpZeHLR
+	 R42TD3eUWf4mA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPd62-00000004IaV-1faw;
-	Wed, 20 May 2026 09:20:10 +0000
+	id 1wPd64-00000004IaV-3uY6;
+	Wed, 20 May 2026 09:20:12 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
@@ -57,9 +72,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Sascha Bischoff <sascha.bischoff@arm.com>
-Subject: [PATCH v2 01/18] KVM: arm64: vgic-v5: Add for_each_visible_v5_ppi() iterator
-Date: Wed, 20 May 2026 10:19:32 +0100
-Message-ID: <20260520091949.542365-2-maz@kernel.org>
+Subject: [PATCH v2 13/18] KVM: arm64: selftests: Cleanup unused vars in GICv5 PPI selftest
+Date: Wed, 20 May 2026 10:19:44 +0100
+Message-ID: <20260520091949.542365-14-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520091949.542365-1-maz@kernel.org>
 References: <20260520091949.542365-1-maz@kernel.org>
@@ -69,6 +84,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, sascha.bischoff@arm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_102023_788611_E4E20024 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,88 +101,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We have multiple instances of iterators walking the vgic_ppi_mask
-mask, and the way it is written has a tendency to make one's eyes
-bleed.
+From: Sascha Bischoff <sascha.bischoff@arm.com>
 
-Factor it as a helper and use that across the code base.
+Clean up a set of unused variables around the size of the guest's PA
+space as they are completely irrelevant for GICv5 when only
+considering PPIs.
 
+Fixes: 0a9f38bf612b ("KVM: arm64: selftests: Introduce a minimal GICv5 PPI selftest")
+Link: https://sashiko.dev/#/patchset/20260319154937.3619520-1-sascha.bischoff%40arm.com
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c     |  2 +-
- arch/arm64/kvm/vgic/vgic-v5.c | 10 ++++------
- arch/arm64/kvm/vgic/vgic.h    |  3 +++
- 3 files changed, 8 insertions(+), 7 deletions(-)
+ tools/testing/selftests/kvm/arm64/vgic_v5.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 148fc3400ea81..513f5f1429b5f 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -751,7 +751,7 @@ static bool access_gicv5_ppi_enabler(struct kvm_vcpu *vcpu,
- 	 * Sync the change in enable states to the vgic_irqs. We consider all
- 	 * PPIs as we don't expose many to the guest.
- 	 */
--	for_each_set_bit(i, mask, VGIC_V5_NR_PRIVATE_IRQS) {
-+	for_each_visible_v5_ppi(i, vcpu->kvm) {
- 		u32 intid = vgic_v5_make_ppi(i);
- 		struct vgic_irq *irq;
+diff --git a/tools/testing/selftests/kvm/arm64/vgic_v5.c b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+index d785b660d8476..a8707120de0d8 100644
+--- a/tools/testing/selftests/kvm/arm64/vgic_v5.c
++++ b/tools/testing/selftests/kvm/arm64/vgic_v5.c
+@@ -20,8 +20,6 @@ struct vm_gic {
+ 	u32 gic_dev_type;
+ };
  
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index fdd39ea7f83ec..c0d36658ffe74 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -316,7 +316,7 @@ static void vgic_v5_sync_ppi_priorities(struct kvm_vcpu *vcpu)
- 	 * those actually exposed to the guest by first iterating over the mask
- 	 * of exposed PPIs.
- 	 */
--	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS) {
-+	for_each_visible_v5_ppi(i, vcpu->kvm) {
- 		u32 intid = vgic_v5_make_ppi(i);
- 		struct vgic_irq *irq;
- 		int pri_idx, pri_reg, pri_bit;
-@@ -358,7 +358,7 @@ bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
- 	if (!priority_mask)
- 		return false;
- 
--	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS) {
-+	for_each_visible_v5_ppi(i, vcpu->kvm) {
- 		u32 intid = vgic_v5_make_ppi(i);
- 		bool has_pending = false;
- 		struct vgic_irq *irq;
-@@ -391,8 +391,7 @@ void vgic_v5_fold_ppi_state(struct kvm_vcpu *vcpu)
- 	activer = host_data_ptr(vgic_v5_ppi_state)->activer_exit;
- 	pendr = host_data_ptr(vgic_v5_ppi_state)->pendr;
- 
--	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask,
--			 VGIC_V5_NR_PRIVATE_IRQS) {
-+	for_each_visible_v5_ppi(i, vcpu->kvm) {
- 		u32 intid = vgic_v5_make_ppi(i);
- 		struct vgic_irq *irq;
- 
-@@ -429,8 +428,7 @@ void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
- 	 * ICC_PPI_PENDRx_EL1, however.
- 	 */
- 	bitmap_zero(pendr, VGIC_V5_NR_PRIVATE_IRQS);
--	for_each_set_bit(i, vcpu->kvm->arch.vgic.gicv5_vm.vgic_ppi_mask,
--			 VGIC_V5_NR_PRIVATE_IRQS) {
-+	for_each_visible_v5_ppi(i, vcpu->kvm) {
- 		u32 intid = vgic_v5_make_ppi(i);
- 		struct vgic_irq *irq;
- 
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 9d941241c8a2b..f45f7e3ec4d6e 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -378,6 +378,9 @@ void vgic_v5_get_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
- void vgic_v5_restore_state(struct kvm_vcpu *vcpu);
- void vgic_v5_save_state(struct kvm_vcpu *vcpu);
- 
-+#define for_each_visible_v5_ppi(__i, __k)		\
-+	for_each_set_bit(__i, (__k)->arch.vgic.gicv5_vm.vgic_ppi_mask, VGIC_V5_NR_PRIVATE_IRQS)
-+
- static inline int vgic_v3_max_apr_idx(struct kvm_vcpu *vcpu)
+-static u64 max_phys_size;
+-
+ #define GUEST_CMD_IRQ_CDIA	10
+ #define GUEST_CMD_IRQ_DIEOI	11
+ #define GUEST_CMD_IS_AWAKE	12
+@@ -208,13 +206,9 @@ void run_tests(u32 gic_dev_type)
+ int main(int ac, char **av)
  {
- 	struct vgic_cpu *cpu_if = &vcpu->arch.vgic_cpu;
+ 	int ret;
+-	int pa_bits;
+ 
+ 	test_disable_default_vgic();
+ 
+-	pa_bits = vm_guest_mode_params[VM_MODE_DEFAULT].pa_bits;
+-	max_phys_size = 1ULL << pa_bits;
+-
+ 	ret = test_kvm_device(KVM_DEV_TYPE_ARM_VGIC_V5);
+ 	if (ret) {
+ 		pr_info("No GICv5 support; Not running GIC_v5 tests.\n");
 -- 
 2.47.3
 
