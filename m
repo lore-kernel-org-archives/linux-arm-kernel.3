@@ -4,74 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEB2CD5BB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F49CD5BAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:39:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yz4DizU41qa+WK3GUYxPKqkZn4fPZTz0V/DV9VyWvs0=; b=TWwMGL8nvzBjBBJq5s6ziCOCZs
-	zx7nmPjvz9dNXWb+8JbP2dr5msE1M4K7G4YPNfZ5r+MxHKWEiziidK58TmXAqnLaEaQbkFMYeZ+55
-	cdTWQ9tg95qHO65o6o7aKEujCnjKYFepck+9amTBBkEcxUnMBCGWA1K3iHHyjdXw4AbQu/D85ERrc
-	hne1c51qEIdUXcB/UJQy4NF4q4xDT3riHgpf4Ub9DNLq3Gs/KLMvSbP0i9gawIlP3vQbXoRlLpqb3
-	9gVF/nNVgPuh8UB7Q0N9aMXXNVN6PWDImr8qbIKtLNhtbGtqWixInEGpLLQQInSOrknkWdMHDr6U7
-	WqoNBI7A==;
+	bh=OihGU8GjnijwcJjYa7+wFrCgBMw2htDhLPLO3V9LDKo=; b=QIkhp9xcEMvnILofzXNcVZdqmd
+	a/NFo6bVvVTuAHAzJIO/VTJJgMlTaKmgRZhJcaoEgm9SGCRIF470JaZbEDuczS8kGhOQfOg/P/WMP
+	NQvuHtN2WPQRoAMcc9StSYI9uidIBD8T1rgUfYzzUYm0K1mGUhHsl8rA55Z6h9HkBgjxA8pG9HtTY
+	2MzQMn7nD2SYKtSB0LfOzGHtYGQnDsJuHirOZdCMt2nLIthE+LvBPMtRBPMfC3xi4q7EgReWPX2p4
+	NzP4P5HPLSe+RbeobTHH92yvF000wvanLAQLdjNx5bn1TyHHIzaFoRHCHbztKLTFuf2qB3zk935x5
+	br/CfD4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlov-00000005TWc-0dQd;
-	Wed, 20 May 2026 18:39:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wPlpD-00000005U9R-0zg7;
+	Wed, 20 May 2026 18:39:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPlob-00000005SqR-0uzL;
-	Wed, 20 May 2026 18:38:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779302323;
-	bh=JWNAjcEVpG0B81zUFQxCXhj/12VEmQn2O4tSeJ4AcNc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AYNNuQ0E8nucADDE4PR9x/PlanrmoTo9PShX8xw320H3qiGejAib9DtK/Rn3i/Jwn
-	 EEog+WNY306Jpq9sHHxlN8G46MmHnmzrYb8qnCpYcCI2SuR7Q2K2n5VVKsxkBEbrk3
-	 rqk77Y3M5Rf81/92wyeP8NZg69SBF3c/0VRqd/TzIVnOrYx5F6HPNLhUWL8k60ZTVC
-	 XZEhi1Hrkl/0poP5xaRpew1q5/WkhrtruayLrEvZEOZ/gSC7NztpGZ9j+BsvuShUNy
-	 mikrdFw2He1LWoy1vMvI0zkUzRyYDgNOFsDE7HTkBk9dkeNVvz1Wn8JC0ZUsORdM2S
-	 0Wo1D5heteKGw==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1BC8C17E155B;
-	Wed, 20 May 2026 20:38:43 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 20 May 2026 21:38:27 +0300
-Subject: [PATCH v6 16/22] drm/rockchip: dw_hdmi_qp: Use local dev variable
- consistently in bind()
+	id 1wPloh-00000005Syl-2nTo
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 18:38:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id EEAF140246;
+	Wed, 20 May 2026 18:38:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDED81F000E9;
+	Wed, 20 May 2026 18:38:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779302330;
+	bh=OihGU8GjnijwcJjYa7+wFrCgBMw2htDhLPLO3V9LDKo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=KXZeHaPRR8PFRf6v3WbMGaE4h2e+phVAjclh6YrbU8/Lh30S1WnQh6D2cAZsKIvx3
+	 ooj+c0nJ5zgvzWmRJtXqVxMBBqg9VEHsMzArwyApKImyeWf4TQYfxl+Uo9OuezgSS4
+	 gHjbr0aoTi1PDTKJd0y2VdCVlbE/5NcqLEvW7W0Pvet4GQJvAYRxypzeWuWo2SHz0Q
+	 20hjYFyodZ8pxrxtrPPKTwGKsDOCTTBMWx68/BeTG134a3OwHTK/ypOJ5GqSXxa9oz
+	 cHUc0Iawh0eeXsRkWgBW5jl1dOmZpPBPpo/qu8NUpG6lAJP5it3ASNgYGBDT+qSeAD
+	 htUD0N1w+PRRw==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-gpio@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Christian Lamparter <chunkeey@googlemail.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Pavel Machek <pavel@kernel.org>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonas Gorski <jonas.gorski@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-wireless@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-leds@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: [PATCH 01/10] [v2] [net-next] net: dsa: b53: hide legacy gpiolib usage on non-mips
+Date: Wed, 20 May 2026 20:38:06 +0200
+Message-Id: <20260520183815.2510387-2-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20260520183815.2510387-1-arnd@kernel.org>
+References: <20260520183815.2510387-1-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260520-dw-hdmi-qp-scramb-v6-16-24b74603b782@collabora.com>
-References: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
-In-Reply-To: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Daniel Stone <daniels@collabora.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.1
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_113845_415559_E663DAF0 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20260520_113851_748833_0C3F97B2 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,127 +109,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace indirect struct device accesses via hdmi->dev and pdev->dev with
-the local dev parameter already available in dw_hdmi_qp_rockchip_bind(),
-for consistency and readability.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+The MIPS bcm53xx platform still uses the legacy gpiolib interfaces based
+on gpio numbers, but other platforms do not.
+
+Hide these interfaces inside of the existing #ifdef block and use the
+modern interfaces in the common parts of the driver to allow building
+it when the gpio_set_value() is left out of the kernel.
+
+Reviewed-by: Jonas Gorski <jonas.gorski@gmail.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 33 +++++++++++++-------------
- 1 file changed, 16 insertions(+), 17 deletions(-)
+ drivers/net/dsa/b53/b53_common.c | 17 +++++------------
+ drivers/net/dsa/b53/b53_priv.h   | 25 +++++++++++++++++++------
+ 2 files changed, 24 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 296f9a3ba66a..46df5abe31a4 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -475,7 +475,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	struct clk *ref_clk;
- 	int ret, irq, i;
+diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+index 2c4131ed7e30..d838511ae674 100644
+--- a/drivers/net/dsa/b53/b53_common.c
++++ b/drivers/net/dsa/b53/b53_common.c
+@@ -19,7 +19,7 @@
  
--	if (!pdev->dev.of_node)
-+	if (!dev->of_node)
- 		return -ENODEV;
+ #include <linux/delay.h>
+ #include <linux/export.h>
+-#include <linux/gpio.h>
++#include <linux/gpio/consumer.h>
+ #include <linux/kernel.h>
+ #include <linux/math.h>
+ #include <linux/minmax.h>
+@@ -965,17 +965,17 @@ EXPORT_SYMBOL(b53_configure_vlan);
  
- 	hdmi = drmm_kzalloc(drm, sizeof(*hdmi), GFP_KERNEL);
-@@ -495,7 +495,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 		return dev_err_probe(dev, -ENODEV, "Missing platform ctrl ops\n");
+ static void b53_switch_reset_gpio(struct b53_device *dev)
+ {
+-	int gpio = dev->reset_gpio;
++	struct gpio_desc *gpio = dev->reset_gpio;
  
- 	hdmi->ctrl_ops = cfg->ctrl_ops;
--	hdmi->dev = &pdev->dev;
-+	hdmi->dev = dev;
- 	hdmi->port_id = -ENODEV;
+-	if (gpio < 0)
++	if (IS_ERR(gpio))
+ 		return;
  
- 	/* Identify port ID by matching base IO address */
-@@ -506,7 +506,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 		}
- 	}
- 	if (hdmi->port_id < 0)
--		return dev_err_probe(hdmi->dev, hdmi->port_id,
-+		return dev_err_probe(dev, hdmi->port_id,
- 				     "Failed to match HDMI port ID\n");
+ 	/* Reset sequence: RESET low(50ms)->high(20ms)
+ 	 */
+-	gpio_set_value(gpio, 0);
++	gpiod_set_value(gpio, 0);
+ 	mdelay(50);
  
- 	plat_data.phy_ops = cfg->phy_ops;
-@@ -530,37 +530,36 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
- 						       "rockchip,grf");
- 	if (IS_ERR(hdmi->regmap))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->regmap),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->regmap),
- 				     "Unable to get rockchip,grf\n");
+-	gpio_set_value(gpio, 1);
++	gpiod_set_value(gpio, 1);
+ 	mdelay(20);
  
- 	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							  "rockchip,vo-grf");
- 	if (IS_ERR(hdmi->vo_regmap))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->vo_regmap),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->vo_regmap),
- 				     "Unable to get rockchip,vo-grf\n");
+ 	dev->current_page = 0xff;
+@@ -3092,7 +3092,6 @@ static int b53_switch_init(struct b53_device *dev)
+ {
+ 	u32 chip_id = dev->chip_id;
+ 	unsigned int i;
+-	int ret;
  
--	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
-+	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
- 	if (ret < 0)
--		return dev_err_probe(hdmi->dev, ret, "Failed to get clocks\n");
-+		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+ 	if (is63xx(dev))
+ 		chip_id = BCM63XX_DEVICE_ID;
+@@ -3173,12 +3172,6 @@ static int b53_switch_init(struct b53_device *dev)
+ 		return -ENOMEM;
  
--	ref_clk = clk_get(hdmi->dev, "ref");
-+	ref_clk = clk_get(dev, "ref");
- 	if (IS_ERR(ref_clk))
--		return dev_err_probe(hdmi->dev, PTR_ERR(ref_clk),
-+		return dev_err_probe(dev, PTR_ERR(ref_clk),
- 				     "Failed to get ref clock\n");
- 
- 	plat_data.ref_clk_rate = clk_get_rate(ref_clk);
- 	clk_put(ref_clk);
- 
--	hdmi->frl_enable_gpio = devm_gpiod_get_optional(hdmi->dev, "frl-enable",
-+	hdmi->frl_enable_gpio = devm_gpiod_get_optional(dev, "frl-enable",
- 							GPIOD_OUT_LOW);
- 	if (IS_ERR(hdmi->frl_enable_gpio))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->frl_enable_gpio),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->frl_enable_gpio),
- 				     "Failed to request FRL enable GPIO\n");
- 
- 	hdmi->phy = devm_of_phy_get_by_index(dev, dev->of_node, 0);
- 	if (IS_ERR(hdmi->phy))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->phy),
--				     "Failed to get phy\n");
-+		return dev_err_probe(dev, PTR_ERR(hdmi->phy), "Failed to get phy\n");
- 
- 	cfg->ctrl_ops->io_init(hdmi);
- 
-@@ -578,7 +577,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	if (irq < 0)
- 		return irq;
- 
--	ret = devm_request_threaded_irq(hdmi->dev, irq,
-+	ret = devm_request_threaded_irq(dev, irq,
- 					cfg->ctrl_ops->hardirq_callback,
- 					cfg->ctrl_ops->irq_callback,
- 					IRQF_SHARED, "dw-hdmi-qp-hpd",
-@@ -589,18 +588,18 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	drm_encoder_helper_add(encoder, &dw_hdmi_qp_rockchip_encoder_helper_funcs);
- 	ret = drmm_encoder_init(drm, encoder, NULL, DRM_MODE_ENCODER_TMDS, NULL);
- 	if (ret)
--		return dev_err_probe(hdmi->dev, ret, "Failed to init encoder\n");
-+		return dev_err_probe(dev, ret, "Failed to init encoder\n");
- 
- 	platform_set_drvdata(pdev, hdmi);
- 
- 	hdmi->hdmi = dw_hdmi_qp_bind(pdev, encoder, &plat_data);
- 	if (IS_ERR(hdmi->hdmi))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->hdmi),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->hdmi),
- 				     "Failed to bind dw-hdmi-qp\n");
- 
- 	connector = drm_bridge_connector_init(drm, encoder);
- 	if (IS_ERR(connector))
--		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
-+		return dev_err_probe(dev, PTR_ERR(connector),
- 				     "Failed to init bridge connector\n");
+ 	dev->reset_gpio = b53_switch_get_reset_gpio(dev);
+-	if (dev->reset_gpio >= 0) {
+-		ret = devm_gpio_request_one(dev->dev, dev->reset_gpio,
+-					    GPIOF_OUT_INIT_HIGH, "robo_reset");
+-		if (ret)
+-			return ret;
+-	}
  
  	return 0;
-
+ }
+diff --git a/drivers/net/dsa/b53/b53_priv.h b/drivers/net/dsa/b53/b53_priv.h
+index bd6849e5bb93..cd27a7344e89 100644
+--- a/drivers/net/dsa/b53/b53_priv.h
++++ b/drivers/net/dsa/b53/b53_priv.h
+@@ -148,7 +148,7 @@ struct b53_device {
+ 	u8 duplex_reg;
+ 	u8 jumbo_pm_reg;
+ 	u8 jumbo_size_reg;
+-	int reset_gpio;
++	struct gpio_desc *reset_gpio;
+ 	u8 num_arl_bins;
+ 	u16 num_arl_buckets;
+ 	enum dsa_tag_protocol tag_protocol;
+@@ -467,23 +467,36 @@ static inline void b53_arl_search_read(struct b53_device *dev, u8 idx,
+ #ifdef CONFIG_BCM47XX
+ 
+ #include <linux/bcm47xx_nvram.h>
++#include <linux/gpio.h>
+ #include <bcm47xx_board.h>
+-static inline int b53_switch_get_reset_gpio(struct b53_device *dev)
++static inline struct gpio_desc *b53_switch_get_reset_gpio(struct b53_device *dev)
+ {
+ 	enum bcm47xx_board board = bcm47xx_board_get();
++	int gpio, ret;
+ 
+ 	switch (board) {
+ 	case BCM47XX_BOARD_LINKSYS_WRT300NV11:
+ 	case BCM47XX_BOARD_LINKSYS_WRT310NV1:
+-		return 8;
++		gpio = 8;
++		break;
+ 	default:
+-		return bcm47xx_nvram_gpio_pin("robo_reset");
++		gpio = bcm47xx_nvram_gpio_pin("robo_reset");
+ 	}
++
++	if (!gpio_is_valid(gpio))
++		return ERR_PTR(-EINVAL);
++
++	ret = devm_gpio_request_one(dev->dev, gpio,
++				    GPIOF_OUT_INIT_HIGH, "robo_reset");
++	if (ret)
++		return ERR_PTR(ret);
++
++	return gpio_to_desc(gpio);
+ }
+ #else
+-static inline int b53_switch_get_reset_gpio(struct b53_device *dev)
++static inline struct gpio_desc *b53_switch_get_reset_gpio(struct b53_device *dev)
+ {
+-	return -ENOENT;
++	return ERR_PTR(-ENODEV);
+ }
+ #endif
+ 
 -- 
-2.53.0
+2.39.5
 
 
