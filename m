@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F405CD5BAC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76677CD5BB6
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fyk4XpBC83PSGzjI3tfXbi+PpcbqOptobAD9hiGCjAs=; b=12iToNpQTDFgMg92Os85aHxcD4
-	ZO9E3Pf3G+y43s/sqSGK3z1TF2RwIQAmkMMC0lsB7v1LMtRy60gxR0URl1CJF99YiXxDWaRDX+Cql
-	LeUtlS9B+pq2dRn8Gft6eCuHNOMuyJ1iC6Dt47OkLhdpQw3/X3lH2LboZKxmG/+ZI/S7irOdwCTyT
-	MN7677bf29mGtrlOXDs0b0i4lIUfTShmRxLQlaryWzyHRwMZzWpXpLvnarsIKRNMCSESTxGgPDnj6
-	d6hf5pJWTuLElpPug56vLL36BWYtQWw9x08TCXlquSOIy6uJhh3C7Q/7VWjaK4mxaM/b7edvKH06X
-	aUhgunyA==;
+	bh=KEmn/mJTk7WgUinMSKJTzKg11bquApp+J1iHwYc2AcQ=; b=pIi+tj5XSWIj1G2sPk0xifcAPZ
+	HnGlrkI4ZEcMOf0oeTygOjfdOp/7TSJZcWkOSSPXzVmxdHMY2NgydLO4b/QhS9Ne1DjAucEv2WSFu
+	ACpEFxWfwRke2W6Z7Om2VE+feUF8MaW8SjzSRqOEPreRhYsKYksXXQ4b6RANl2GgSAjOuJSS3NHrX
+	/z2f7fi6tWx2EajLpop5JGoqIpnOToY+Hz3R4zIQfUzqJfRdZGuXEwWhpAk7L4YowSW6KmIh8iEsY
+	fcBCs3OX17jQcGQOfY/QuQzaUVKHbFpRSyNQLDhvIACD89z2pTrvSJqNaNLq9OT3oDNqYYcjGP/gU
+	MJVRv+cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPloj-00000005T0z-1Drw;
-	Wed, 20 May 2026 18:38:53 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wPlol-00000005T4S-1KsG;
+	Wed, 20 May 2026 18:38:55 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPloR-00000005ShU-2thy;
-	Wed, 20 May 2026 18:38:37 +0000
+	id 1wPloV-00000005SjX-2jc5;
+	Wed, 20 May 2026 18:38:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779302313;
-	bh=PmbgpZbPE5xAfNkRsAV4jpU2oQf+BxCJwVrQ+NHqNVE=;
+	s=mail; t=1779302317;
+	bh=I75alVCzL+d/hS3YS0owCJG52cuegNBs+fRZr48DQtw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=AdN4NZLXPGN4LnrKEoAwY3AyK0vYPMpXilcPSQ8pFV5k4jFCmM8KSgQSFeLz8c+xl
-	 V5Ow3Wnm7PVVHJClqFWQt3YTPuh0ln5elJFVeOm7vBuuvFm4VdymPXgub4BC7n1yHe
-	 nwINVMRiuGiHbUE9fnhr1JXcQdsJHC9k2QM0336ysYaeaEI/NLNXvKbt3HHB0gbRm1
-	 MhI/eCm3yFasVX6ezk4sUnWsiVk++aOkSacC8AwpfmdnNx+CzqEKCPAQ5kTw9PS7wl
-	 6Qr/I6vIyiOoSNVO6LYMT0l7/2RSQcwG5Y82RAVdpAJYmKrFJLFWD5Wp5RcBNlTGj+
-	 yBsUdOIrbaW2g==
+	b=YfDriczwgHNkS1mWBe8/3Yf3hYB4y5inf76iScPfqHOQ8Vl+9fN+ILRLSUC5B4xeb
+	 OoojZ+1qC/JwYqIscYWFniE86w1wNKcw2URLjgUIeA7ngW//jp2WBIsB1UPFXmq189
+	 +HWGbxzHX9m5hdjonahPT6LWRmF68dZh1pTdzLiS+cZguxd0DiKvR9ZUedHkbN77Hn
+	 0GFDiDgxv//Qw4br4JQxtvpKWCQH8RTQYuM1nGRoOnbnq6eYQD4H/4N74/qz3hGXCt
+	 MrwlSOQeWwBVB+DbDIUN4EAPGxVSg0SVzK7K6dyvIYrrMSPSFZ/hXlR8tnCwPZQert
+	 Y36pd/T+0wy0A==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4E24217E143E;
-	Wed, 20 May 2026 20:38:33 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 00A7817E1412;
+	Wed, 20 May 2026 20:38:37 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 20 May 2026 21:38:14 +0300
-Subject: [PATCH v6 03/22] drm/display: scdc_helper: Add macro to simplify
- debugging
+Date: Wed, 20 May 2026 21:38:19 +0300
+Subject: [PATCH v6 08/22] drm/display: bridge_connector: Use cached
+ connector status in .get_modes()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260520-dw-hdmi-qp-scramb-v6-3-24b74603b782@collabora.com>
+Message-Id: <20260520-dw-hdmi-qp-scramb-v6-8-24b74603b782@collabora.com>
 References: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
 In-Reply-To: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>, 
@@ -67,12 +67,12 @@ To: Andrzej Hajda <andrzej.hajda@intel.com>,
  Daniel Stone <daniels@collabora.com>
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
+ linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.15.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_113835_882992_3712A9B9 
-X-CRM114-Status: UNSURE (   9.42  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260520_113839_874303_B9824E53 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,85 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the drm_scdc_dbg() wrapper over drm_dbg_kms() to help getting
-rid of the boilerplate around prefixing the debug messages with the
-connector information.
+Replace the active drm_bridge_connector_detect() call in get_modes()
+with a read of the already-cached connector->status.
 
+The .get_modes() callback is only invoked from
+drm_helper_probe_single_connector_modes(), which has already retrieved
+the connector status.  Calling detect again is redundant and triggers a
+duplicate hotplug event.  This is also a prerequisite for switching to
+the .detect_ctx() hook, which requires a drm_modeset_acquire_ctx not
+available in the .get_modes() path.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/display/drm_scdc_helper.c | 24 +++++++++---------------
- 1 file changed, 9 insertions(+), 15 deletions(-)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
-index df878aad4a36..cb6632346aad 100644
---- a/drivers/gpu/drm/display/drm_scdc_helper.c
-+++ b/drivers/gpu/drm/display/drm_scdc_helper.c
-@@ -55,6 +55,10 @@
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 649969fca141..b69785eb49e2 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -294,12 +294,10 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+ static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
+ 					       struct drm_bridge *bridge)
+ {
+-	enum drm_connector_status status;
+ 	const struct drm_edid *drm_edid;
+ 	int n;
  
- #define SCDC_I2C_SLAVE_ADDRESS 0x54
+-	status = drm_bridge_connector_detect(connector, false);
+-	if (status != connector_status_connected)
++	if (connector->status != connector_status_connected)
+ 		goto no_edid;
  
-+#define drm_scdc_dbg(connector, fmt, ...)					\
-+	drm_dbg_kms((connector)->dev, "[CONNECTOR:%d:%s] " fmt,			\
-+		    (connector)->base.id, (connector)->name, ##__VA_ARGS__)
-+
- /**
-  * drm_scdc_read - read a block of data from SCDC
-  * @adapter: I2C controller
-@@ -158,9 +162,7 @@ bool drm_scdc_get_scrambling_status(struct drm_connector *connector)
- 
- 	ret = drm_scdc_readb(connector->ddc, SCDC_SCRAMBLER_STATUS, &status);
- 	if (ret < 0) {
--		drm_dbg_kms(connector->dev,
--			    "[CONNECTOR:%d:%s] Failed to read scrambling status: %d\n",
--			    connector->base.id, connector->name, ret);
-+		drm_scdc_dbg(connector, "Failed to read scrambling status: %d\n", ret);
- 		return false;
- 	}
- 
-@@ -188,9 +190,7 @@ bool drm_scdc_set_scrambling(struct drm_connector *connector,
- 
- 	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
- 	if (ret < 0) {
--		drm_dbg_kms(connector->dev,
--			    "[CONNECTOR:%d:%s] Failed to read TMDS config: %d\n",
--			    connector->base.id, connector->name, ret);
-+		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
- 		return false;
- 	}
- 
-@@ -201,9 +201,7 @@ bool drm_scdc_set_scrambling(struct drm_connector *connector,
- 
- 	ret = drm_scdc_writeb(connector->ddc, SCDC_TMDS_CONFIG, config);
- 	if (ret < 0) {
--		drm_dbg_kms(connector->dev,
--			    "[CONNECTOR:%d:%s] Failed to enable scrambling: %d\n",
--			    connector->base.id, connector->name, ret);
-+		drm_scdc_dbg(connector, "Failed to enable scrambling: %d\n", ret);
- 		return false;
- 	}
- 
-@@ -248,9 +246,7 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
- 
- 	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
- 	if (ret < 0) {
--		drm_dbg_kms(connector->dev,
--			    "[CONNECTOR:%d:%s] Failed to read TMDS config: %d\n",
--			    connector->base.id, connector->name, ret);
-+		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
- 		return false;
- 	}
- 
-@@ -261,9 +257,7 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
- 
- 	ret = drm_scdc_writeb(connector->ddc, SCDC_TMDS_CONFIG, config);
- 	if (ret < 0) {
--		drm_dbg_kms(connector->dev,
--			    "[CONNECTOR:%d:%s] Failed to set TMDS clock ratio: %d\n",
--			    connector->base.id, connector->name, ret);
-+		drm_scdc_dbg(connector, "Failed to set TMDS clock ratio: %d\n", ret);
- 		return false;
- 	}
- 
+ 	drm_edid = drm_bridge_edid_read(bridge, connector);
 
 -- 
 2.53.0
