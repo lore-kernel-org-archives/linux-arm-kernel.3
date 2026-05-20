@@ -4,130 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD4DCD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DC9CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ml0hDQFnwDf3lDyLX0kMyIARhV3kMFDzH1agA9Mrl7Y=; b=bKPdmXjW8VK/TpkgbHfsoly1t9
-	+NeH3RuIrpOW7/egNSZtrd97USIu07tIy02fVS7o6kD6u9cLkUjQ5E9GiQsayrixXRvgaHM1XEq3t
-	Xax4oRSDYFTb6DREMoGlRBawrhty94BA12GdEz9h1CTzUX9YoFUcxm5Hyin2Q27LlQ6t9WHN1bLKO
-	mYxrPA/7qYM92aO+Laye+uBAEpe6MsUiehEWuq4LBT+0gLtDT2Ol1CrEkt4VAgK16+h5UXsnGHYM3
-	iNbsrlUymlW22n7jJmGJlCTE8RY6e8P6hn6Rps5HtKpFpMdr4gq4P1BV2OUZXSsM829OAlFuUvM7O
-	FTowSUkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NRRFIhxrKYarQ5J6RYefRdsOL+TF/F8aLINPvbW7QbI=; b=jD82XVL4it0rn5U92oDQUZdP+q
+	jFMGhcgCWqxTHVRahWhAgTiKI7ly/8NTVy2RBlkDEBXJvS+ylWdnajUJNgDAb8lrY5+aTNEeyvDkD
+	SO8+RbJvmZV/TqIkLQ7f/Sq/2/kMbWjczYUOmNjCKFWEz/2W1cjt2G4aciXOXNMJ2A/VvbedexS2O
+	2E31KSlolFEBnE+xhKgOx0SXbs2SwsREMZKtwzIxT0fG4ina/VWXGJKAnM2AiWVcg8KV/WXD4hdkM
+	0+5r0D5OaAhB2+gLzG/ukgbCb1VNvSKHjExszgWT/e9k9Kyc/rUreF/7X33q4mQEBpimwrWRMGZU4
+	TdY3ViCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl9Y-00000005NId-20Rd;
-	Wed, 20 May 2026 17:56:20 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wPlA6-00000005NOn-2aG6;
+	Wed, 20 May 2026 17:56:54 +0000
+Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPl9V-00000005NHo-2jGy
+	id 1wPlA4-00000005NNk-07da
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 17:56:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mT4/K440xYq22KpD4E/bDNsuk5nzJkIGPpvHAP701K68As2jqe58ysSpvqCbbkuhdkxMUD5L+PPZkdX9Xh9OQ/EcUTcthH63FTYyetuMaOTmC1dkTMqiBJiYI5epHjBpSPlELrbfQhi5Qdh6tlOUXpY/94QLgWAOStruLZn0hJs+G2Hrwe7D33PmE+38/vwNKzRceQrknNZX0AyXSPcD1kAUoik1sbFvE0ESlU6VaH37quJ7CuLYDr/h9j2bsr1NA8567fjw4uT/CMJBtzJoyqBv1e26Yu3bhqm9IrjrXgPf9QHVSMKdA+Ebd1Sw5rdd+bgKxAttbUu5Ca1LktVy2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Ml0hDQFnwDf3lDyLX0kMyIARhV3kMFDzH1agA9Mrl7Y=;
- b=fODogBVpNm3UsETNMl38WEvkiiiL0Xjdri6V8YNq4sOxC4Z0NjOCeJYvSIyxOi5iDg6mQiR/70hY2inkxev3CQhWOmd0nsCqxu59u9VSNPR9zUaIT86oaRzwUFp/72S9AOvwWP3jf48zBGWXkw8N4DURgm2EgCUImF5rsxKfR2p+CVRha5uWKQY3Y/IkqCoyNhT6maSDVgjSAYEnHzx6eHuVJbVuIUjfgS1iAD4c3fY7W5C3TGLsAUF/81lgSvTsyJXNbLiHcxAB3sCBlB45AW6WUSYVfH42cTAR1As+1byep0ZWreEUhAACskPM/cIZ5QZLg+3SRKYqG6GP6fEAaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Ml0hDQFnwDf3lDyLX0kMyIARhV3kMFDzH1agA9Mrl7Y=;
- b=I88OxFe4O+kcQqKkj1CwSC+X/URQCCO85teYTE462EF/HPJ0KglSTpcSH1TsNYbiLlfi/FhOP6zdYL08wVG8YeGEHMIUlFo65BLTLLKqN5Qx2ScROoADEFg36N2oxrf/AAqYoYlrj/AwZ0PGomlhSiqKvjIvgRKCjfIjwHc2m4ODfnSj3QuOxwAC2yY26N5Zoktu6ynhshhgHCP3a26zXqHTf3eGMQHIUwB37397EBij4C5m+6muD4uO+tl1pWUn0z9RnEQ4Lf9cvavRnc3Wf1LXhf6jED5OmkaMx39uscs6RNQMHPTxmbYTp1jaNsypN1pOMzvGNeBgR+9Dnp26ow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by PH7PR12MB7329.namprd12.prod.outlook.com (2603:10b6:510:20c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
- 2026 17:56:07 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Wed, 20 May 2026
- 17:56:07 +0000
-Date: Wed, 20 May 2026 14:56:06 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, bhelgaas@google.com, joro@8bytes.org,
-	praan@google.com, baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, dan.j.williams@intel.com,
-	jonathan.cameron@huawei.com, vsethi@nvidia.com,
-	linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
-Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <20260520175606.GB3602937@nvidia.com>
-References: <ag3vb4SWIfuw++vp@Asurada-Nvidia>
- <20260520174758.GA66039@bhelgaas>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520174758.GA66039@bhelgaas>
-X-ClientProxiedBy: BN9PR03CA0602.namprd03.prod.outlook.com
- (2603:10b6:408:106::7) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	Wed, 20 May 2026 17:56:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=HiINtu7xk5Hd
+	/gfZP1vBv9F2KUFICGVhIjDayIdomb4=; h=date:subject:cc:to:from;
+	d=al2klimov.de; b=WaH1xHxBHC3lzlXHrot3Q02lvc2OiIAMSPLittTbKOFXfiQpzHtE
+	NWyGd/6KSAKnY1nfXoBvEAyb6pxWAFy7SwQRZc8BBlZudOXJBhOikSQUpiv7Fg2H6rfa+Q
+	jqp/b6tlKPjbbY/zShQkkVowswr94Tm6XKmNJy4egklJ86yX5SLScB7kwVRnEisgyJi3Oo
+	IDFmQIQzrPA630p1wru4NghyUHyoYgBnC/h1qz9Xjdvu93XwIzvMEpgQ5RRHUwNXtLujgZ
+	zQRXCTmtmU7aUZheIEgKmvXBmyzSBLANFjtTVostzcb0/JQl9L83nDGq033B3z/IH7/aPU
+	KiW2wFLyhw==
+Received: from cachy-ak (2a02-2455-18e9-e011-4d8a-aad2-c25c-50e5.dyn6.pyur.net [2a02:2455:18e9:e011:4d8a:aad2:c25c:50e5])
+	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id de9eb2c3 (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
+	Wed, 20 May 2026 17:56:47 +0000 (UTC)
+From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Jonas Jensen <jonas.jensen@gmail.com>,
+	Mike Turquette <mturquette@linaro.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/MOXA ART SOC),
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	linux-kernel@vger.kernel.org (open list)
+Cc: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Subject: [PATCH] clk: moxart: fix refcount leak
+Date: Wed, 20 May 2026 19:55:50 +0200
+Message-ID: <20260520175552.537603-1-grandmaster@al2klimov.de>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH7PR12MB7329:EE_
-X-MS-Office365-Filtering-Correlation-Id: 33fc3fe5-e937-41a4-728d-08deb6991168
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|18002099003|22082099003|56012099003|11063799006|4143699003|3023799007;
-X-Microsoft-Antispam-Message-Info: m6RlOGUKXxNsHU7tesX57+GB2vYLuVfOxNyVs3fzdUd/kAvQYEyzxRlzdNdtUXHb7DdsNvRVybCPv3csBPHF/jm2xxUpx/r8n/fktDoYGlMGyX6EtWYwZ+c6gs16nOpr5yCnLwpw6RTZp7ggdF8sD7VH33n1YQsl7PVCWGhSMEYV9uX3zA0M20RkYnaryS8QqVescbS/w92t6fTYbCILWrp+jUKhZTimkcOAmN0Rf2AdxADnndXYSfEnFQ/4+PXU5h8b94tBI8uphFgGM+I/Z7rfT97rGt/VH0orJyTTuDRnsb8zi7qaL3dwwzUC07kzy40Sg0YYnNCXjCOY+XMl3GKCCKoHArH7CmBfHp+wrUfN6Y5099jyIK5jVL5aqNXpsn4fJnx0DM2cJ2Ob08ZClswRXRlJfFypFlUAFpbNSNPTPqzf6Vu7h1ITcuG0luoYa5mrXCCKDD59ceR0/OrruHA1RX9xHICivCQgIl0gldZMZ4G2j+vsNDwAODr4RmkMGBJbwO0YOhFX+I0yCsCiPZqVb2dp1mLqBcJnAT8sTOgKT3cN8x9TrxT2Ai9HhMHh6skiaVf/mXdUDD4qF3XhyLL5yt07+Dbb0CCNJmbL2ILEDUKwrVqobMaC56CcxKugbytx6RNTH4A0nm3IuuyhMAkavJHklOwLHRaSaG2o6wP9eksAGxPsYJFEjbTVPdla
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(18002099003)(22082099003)(56012099003)(11063799006)(4143699003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?piU/gXMkWd7kXHNYd1WvuEDRM9RDExfbv32MhjC6VXkULnSic9DBknTqWa5f?=
- =?us-ascii?Q?s3/QyDGbMOgpRES3K7QTPkvK4XMzsSHfNOVH5JfH4a+li3JCoPNxl25EhazD?=
- =?us-ascii?Q?u4VzQHFvpI6ZbyGQpFrUvc19FYZeEeO4RoeApf9yYi3ADkI6rkJ0bR42dUG7?=
- =?us-ascii?Q?imlmtL2yNA7THhpFl7v/Bvc7FUpW4svqdeH0udpAcW5C+c343foQxybcF8WG?=
- =?us-ascii?Q?hOFpyj4LihLWO7Rhe6GJQkBLxpMjjO+Atj0+6d0gqL1zCA3WGcYH0fFxjBf/?=
- =?us-ascii?Q?8ueVXfalxCPnYVLBZa5Kilk5Y7CTUYVTTzLb7qEReF4syr4/SHofdYhsCcyM?=
- =?us-ascii?Q?4Jy0U3Nz99S4V4ISpmSPrHoSG9AUM+NWT5z6hExkXOCeQXWK+pfARRrnyVH3?=
- =?us-ascii?Q?MtOi1AipSNekRiqaqWdanyLlQxSOTEN0YBE8tb2KXWHOc+aBi71PNgeqvfli?=
- =?us-ascii?Q?tFjDorS+IWfImKQlZirYuHunlm2BMQ7vf7tBtK1bivdP/O9gR60nhfnj/K9A?=
- =?us-ascii?Q?7T4T7LrCDQ/GgEpHmJpOMVm8TYZN07FwaDSCxbrG2WgU7ghKkW0BQta8aEMv?=
- =?us-ascii?Q?W/HDZbm14NkB8KlNK4KVjo+N9RaOwi5aC5obSYG4xuPYbKG7iuIEbj64RYiv?=
- =?us-ascii?Q?wOJZTKHYNUDfM1AVqJuQQ0abM0MY0YiNh11QVwBpdvwKY8e4/J6S8cIgc3U7?=
- =?us-ascii?Q?You5p5BA6zrjPUdEB2JqHCysWWjZ4fwWqGTJ2OSxwsYErtlXSdZgejm/zDXH?=
- =?us-ascii?Q?q2FxinswXG6fVd12ewTGbVfPPyFJsTnE+/nKVclj9dlDZPsYFVYM58Q8Sgpf?=
- =?us-ascii?Q?lDxz6J5erQqHLp9bubJoW79Kp627S4o4pEAuqulVb+ouh+qTVxFV9e4LJGD7?=
- =?us-ascii?Q?bATsskWmqLiBtIm/ULuo0dYv38ykBzdicqXylhpm1DvgaGBuIGfC4WsKFcdA?=
- =?us-ascii?Q?BQ+IHfULOZxLURIa2lf8S+Wx17o9SzE2YwU6zoWCpd5e7AsXVKFEbPh0ggSA?=
- =?us-ascii?Q?dg2aePWaxnz+iJUSYM3eKVyrCODWNlp0JHOJARtFZSUTWyjrBakzT5hXwD9N?=
- =?us-ascii?Q?0LLk8A8t8F1Az8tcfThHVPGYI6/V39kX/xGvBcyAeFUFMNgAMc/VxcA3KCxn?=
- =?us-ascii?Q?fowF5r//InRGqtTletHUDq0NzNZkkxBHq3nKUbEN0Vlm4XQXysqdYrvSxqAI?=
- =?us-ascii?Q?MuvPkV2FMx9CKmHK/mM+ke53O9Z0zXTy/MKHisXw9wWhyu2iaKCsoSu1gyjK?=
- =?us-ascii?Q?1DzxEwF2FFrVPKNgjB/poE6hA6f9t19stdr8a270uCitCehDYYIz9gCn7kAV?=
- =?us-ascii?Q?nnfzmkF5g/Ql7QCEPHbxOLlgI3dDl4t8SEvDOd8aJO0pbI3+4hkRCMLalfOj?=
- =?us-ascii?Q?WsqxbiI22ugjMKZz6CwBpM167E/GAlbDo9AiYfk9GM38LyfO4QHYCU6p2PrV?=
- =?us-ascii?Q?512/yVjaHvoSKnAdMLFCD1dBNlKuSZJePVnwMTRU8zTowEYM+um4pCyTt2Fx?=
- =?us-ascii?Q?ohTOjn/rcxSBDuZ+9m1CvyFhyxj/IWWNraGRDEh4r9hd4wlS1npN/UVKU3Kb?=
- =?us-ascii?Q?B0FzTqwgx/hMdexpRcIBzu12+FxaI9fUROz8eoc/TLaLD5cYmUtxu7i7iucg?=
- =?us-ascii?Q?yX8dYUc7QS6ck+z+9uUGBxmVQWE9zg1xuNxX/30VZ4zQn71IPHtAkc9JrpfM?=
- =?us-ascii?Q?uDzKR63bN6b3HSlKSvQ5q1aTEpWeDQLY+4K9Tk08wGMv7pKW?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 33fc3fe5-e937-41a4-728d-08deb6991168
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 17:56:07.2455
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zrG7o87+7fnnZUkvFntZCbE9zp6AxZjW+sFu2nQ3Q3KTqCII5EtUkT5PZvvgbed5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7329
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_105617_702220_DC3D14A8 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20260520_105652_429796_C7E46AFF 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,27 +73,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 12:47:58PM -0500, Bjorn Helgaas wrote:
+Every value returned from of_clk_get() is supposed to be cleaned up
+via clk_put() once not needed anymore.
+The values here are used only for error checking,
+but weren't cleaned up until now.
 
-> I don't know enough about CXL to know what's behind the ATS
-> requirement.  It sounds like it's more than a simple performance
-> optimization.  If you happen to know the reason, it might be worth
-> a short comment about that too.
+Fixes: c7bb4fc16ead ("clk: add MOXA ART SoCs clock driver")
+Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+---
+ drivers/clk/clk-moxart.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-At the core of this is underlying physical interconnect protocols that
-only work with translated addresses.
+diff --git a/drivers/clk/clk-moxart.c b/drivers/clk/clk-moxart.c
+index 3786a0153ad1..7e191b1481bb 100644
+--- a/drivers/clk/clk-moxart.c
++++ b/drivers/clk/clk-moxart.c
+@@ -39,6 +39,7 @@ static void __init moxart_of_pll_clk_init(struct device_node *node)
+ 		pr_err("%pOF: of_clk_get failed\n", node);
+ 		return;
+ 	}
++	clk_put(ref_clk);
+ 
+ 	hw = clk_hw_register_fixed_factor(NULL, name, parent_name, 0, mul, 1);
+ 	if (IS_ERR(hw)) {
+@@ -83,6 +84,7 @@ static void __init moxart_of_apb_clk_init(struct device_node *node)
+ 		pr_err("%pOF: of_clk_get failed\n", node);
+ 		return;
+ 	}
++	clk_put(pll_clk);
+ 
+ 	hw = clk_hw_register_fixed_factor(NULL, name, parent_name, 0, 1, div);
+ 	if (IS_ERR(hw)) {
+-- 
+2.54.0
 
-Ie CXL.cache only has a definition for translated physical in its
-protocol spec. The use of true physical only is due to the cache
-coherence shootdown protocol..
-
-It is why I suggested 'pci_translated_required()' earlier, there are a
-few more than CXl.cache why a device might need translated physical
-addresses only.
-
-ATS is the only way for a device to get those addresses, so
-ats_required is fine too, but it sort of glosses over what is driving
-it.
-
-Jason
 
