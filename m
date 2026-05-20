@@ -4,93 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE89CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 04:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 375C8CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 04:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UawR2ecAAmpl5iNmgN346ehivn3mNf/9XSeJ91i6yF8=; b=AUa+8Z8KyJ0ND/
-	ifDkWpU/d5q5JvON7wpPO3z8qQWmtaPb5p7nsqjTvWnxRmNQ6t0I6BDWOYLOrrEyMcvjPg6+x8GQI
-	w5vZSTcTudquk01MIfyd/oZyHzOWinH27lDtYpsf9x2d+oDb/K5W1JNzShK7Pg1JP3+D7Q6i+g/Zg
-	UEq3xsZ1CeQDg/30XBAGHRWBtTXh1wDcum37/zHh8e07JLJemjDiUmR0yRKvAzp4kjD1jof+5aj2I
-	3QZvz1p+fDzVbHlLheqmHHPU8bQzrYwjWxMelI7eY5sevaWy/K+ez3lJYuVZH5K7aJP7L4EujjWDh
-	JFOh2QGTh0FeyjOK2isw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iX9DgFfgjdBAl007JWxmgssbqGhgCd0Hmt9BlGMfEVM=; b=unKNUBlxUVD20VpoPYXdBxI/J4
+	5gf/6GhUvrSOH0NTvos347dpYCdfkt49hoTbaiXmZthh5mwMnBTDxTdWm/Fzq4JqOpY81/wvB8dLU
+	JXwsQM5OopM0mIlssBSlGdWyf+wGcYYFnHQlQPy7PVAJUUkZ58miEszXmia0G2t3R1aUTMV+MR62g
+	055ElJQHEG517Z7VNLFuf3U7sRyMz5r2IeqJZQmScKys1ArWQja6Wrikrp2oHrgCO1qkJeB2kfHlF
+	+e+pF1+iWPsWz5waVygBk239xGHmlP1Jg1h0XcLeNdrVUibl+K2mpCysVSAd/2/UmhKBGkRIjviTT
+	ci822u/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPYjt-00000003V2u-1bJE;
-	Wed, 20 May 2026 04:41:01 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1wPYrq-00000003Vee-0b3z;
+	Wed, 20 May 2026 04:49:14 +0000
+Received: from mail-qv1-xf44.google.com ([2607:f8b0:4864:20::f44])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPYjq-00000003V2B-396s
+	id 1wPYrn-00000003VeB-3sSk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 04:41:00 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-824c9da9928so1684689b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 21:40:58 -0700 (PDT)
+	Wed, 20 May 2026 04:49:13 +0000
+Received: by mail-qv1-xf44.google.com with SMTP id 6a1803df08f44-8b6dd874471so69478776d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 19 May 2026 21:49:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779252550; cv=none;
+        d=google.com; s=arc-20240605;
+        b=RDA5nOMCwEMCAYJzyR1Swl7npvRZ25VA/J6cF7PKEQ0oqzfKv6KlZMU9iMQguNB8Wa
+         iktBhTnO7Vl/i91SlxKyYOpXm6RYYB/ejGODXAz9qDo310ob1HOe/8j8GjtOd9HrZs1c
+         MBznnTnv3ah+WasaA3Ovo1M0zTkzixMJ8hjk2FDU9OiK9PuYTpIf2Ov/E/WMa+ksh7w5
+         DfUqj2SSgHEuYH7vc3JpIPRMIayOfIox4tP40J8GYORLrOth1W3NT3psvisGy54hu7uJ
+         k0vnow3aY+tCRqayrKR+dpEQMvuLrG82+L6PKurPmKJpt676+y/3E3F0JEMJGe1Lsjnb
+         OFPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=iX9DgFfgjdBAl007JWxmgssbqGhgCd0Hmt9BlGMfEVM=;
+        fh=yUCgYTMoGXvJI2YyM1JAousW3Ctox1xj5wE5eCnnGWw=;
+        b=MHXmSHrqJw9wYrAqzh4UEkKrvMz3hKWpBCTyF5Muo1Ub2UkpsoMyjgsbCTGhy2s9BN
+         3Ovst2aOPCqBO/fGM1hxG7Sej7j03+7SKk7Rwx984cpXTBhZzDPCZ4recd09VPSezRxU
+         iXICStWRr5GRIjePI+9+u5xVsGlonmcLQzVIPmEgGrYyWJj1mrZsTyXyHLlkc2RX1ltH
+         ZLpI6VH14IU1n4+iBgiyBU2Aq0MFMF2hBrYkLctpW0SUN51RPc2vrmeCt2SRhJbRJB8q
+         /0USvJN5n8A33tabjKMx+3SNOPb/1ZHgp+pNB6astp3aOvsxLO6m4a5kljqNq3x2qs5M
+         K6EQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779252058; x=1779856858; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UawR2ecAAmpl5iNmgN346ehivn3mNf/9XSeJ91i6yF8=;
-        b=qihSwO6mPfHWxqZhvnyUuKvPEVYGDIA0fmQz6PjlPKTmiywBO46xLNLSaHZqmdnS05
-         WtcNcAI1Zv9Uh6hkrThIijxpIlDa9OeuomSinJzGQZLMFuwQAjg/X0Wngn5hk/+nobWV
-         FPDSrfK3XGa49Sb8NFtxDLTP5WR5bikBc59pw5IlupwO9fEAmIp+EqMY8goSwejTLvLf
-         WSUjZG5TckimCINVcIngVlwyP6+XgWnI8tesnonJq9qksJKcKELCKS/XxqscrElrjxCc
-         1CPVDB5OAio52R7THM8AII0vbR+W6aOuEOWRawBp5aJ90vgGA/ZrehJfedprhWFwvOrv
-         buvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779252058; x=1779856858;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779252550; x=1779857350; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UawR2ecAAmpl5iNmgN346ehivn3mNf/9XSeJ91i6yF8=;
-        b=k7oN/toddCRpOBMdR61tR04uqGcxHAHyS+3MM5lb70b8GTH4bmX99qgP5MKMZN/kfM
-         cwCTJ1I++LlIROky3UJdeLQWCNRMGeHocjVBlWNXvheTY8J5kcyhD+9ad5iJRPeksnm/
-         kJqAsorqo+feGaBVXH6M6iGZt5DUNYRN2gnOhiiOCEwoIn1wKso2Da+gU1elvL0Lkvzd
-         Hj0utxalxTIm7qgTRZrMz4vD9H+z0cqIDSnQbraZcq7wJlqzgxcGZvCunWSNM7iCzRXh
-         5NDAE20R82ct3oRAW5U1V/WOiw2nVj+l4Eo7e/s/B8yyiNmrjnlTrE8jid+za+bdNP2w
-         r/HA==
-X-Forwarded-Encrypted: i=1; AFNElJ/s+MwIuvZMz3XyBa/BcdbCzcQrMix9LEtBEuqU1LZtjgKpDY+q22FmDNMJ3RMjo8AUFRVdD7wo6YfKVbMe0mF3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsSB8Xq3oTaGDgbGu+sNhdwE8r7w/GOdhl3HVWz/Qd+M55Ih5K
-	xGW+Awir+/we1osi+0GVOA2qd3Z4rNVkYGVeQDjKMa3AfcRaVh/jP0lf
-X-Gm-Gg: Acq92OHQtaugSFXTsEob1xYttvlAU8hNLDmUVhVTBNHzTn85WN9UpNSO6HD8zNkJgkj
-	7EK9mT3CUc0u6HRWQImUps7hK/Yq9yCuIwRl+3lWc2RZ2Bctg2trFlziCONYoGpQ92YWg8W2kWQ
-	4AK2qvGwD4AbDxksBuFtG+0fRWk1xFxDWartXUFmhag+PHj3otwyBEofDVJ2aVFUn1IfpSzpC+s
-	PT3z2CKJpgs5oowdG+GtjrnmcNliuf9D21Y9Ytka1KFxj5aFTAfwW8NchaGJ4tj113lPATfPsuk
-	NsVIaFKfastvpSHk6PiOdmJWBJ5HEFqdbdNpyU5C6ByRAJGwi1Ha5Qnh6ejc8ZJMnARTbje/3ta
-	RCzoVVqFVBSre2zGBdcrfeShe9hT7yj7XbU0e7o9IDNzbKdq6IsQ4jcwNbVGbgF+UakdQNmysio
-	X1k1+wu/NY2j/bAGctA18/J71A+JZYk5U=
-X-Received: by 2002:a05:6a00:8c2:b0:835:a682:a6d7 with SMTP id d2e1a72fcca58-83f33bae2camr23163556b3a.4.1779252057807;
-        Tue, 19 May 2026 21:40:57 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.230])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19c5be71sm18649802b3a.39.2026.05.19.21.40.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 May 2026 21:40:57 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Jourdan <mjourdan@baylibre.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v3] media: meson: vdec: Fix memory leak in error path of vdec_open
-Date: Wed, 20 May 2026 10:10:41 +0530
-Message-ID: <20260520044046.7553-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+        bh=iX9DgFfgjdBAl007JWxmgssbqGhgCd0Hmt9BlGMfEVM=;
+        b=Z9FKqDoNGESFY61KkkrY/UD/cS7DyBwkd9VxyJyBISxrk74hUpJS5IE/evcz5MXrRV
+         n1woGpVs6IB9+I1nmeewmkCqKQpR6vTkjgdM0NlGNpQpebDKx1N/SzfMB+HOJSZ0dcPq
+         h6h8MueP9w9n91Fegn3ReApzjs8OK+8ZArAK0xUzLjSuzCIG5akxgR3/xVfgOrUN1xnx
+         AlSZcn4MozBMZ416k2XPP6kunMWWxw6+WZgu2gYKU656pJ+X2vXE13GbmBruTGgzh7BM
+         Qbcc/VcKJKizKr18an3jpytP/PFeLLOWWlgcWHA7fMt5wJrDtDsYReqNMBJBTmQC1a1t
+         KhCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779252550; x=1779857350;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=iX9DgFfgjdBAl007JWxmgssbqGhgCd0Hmt9BlGMfEVM=;
+        b=RPHTuf8E6UnXY1ScgmYk1+33uP7IIa0i+deDNoQ93b3FgvIVGZFWIAjO0leFtYFjaL
+         xsrjgw7E0zwErIObGmHc+V7RpmFHp5ir5U2AcdygjK5s2kozujJT15cnLn6Dub+56KIf
+         X4CzOJ+Q4hqqvGrBMLe3INE49b4ZTl1fYubwoMgmZf1yF2u6lTOS2M88Tqzx5etxpF6A
+         XrixOLJGA7DnRJ8+IcLE6WCMjRryG5G2wORcwpAcYHSnMpbWt9hvKXUHVfz7DW//fDGb
+         njTaiSK7aoNsoSh/KjQOWjGAhWybUZlSTTLu9Mxi6mZLYPg2LA2UXcVHQPN0RapXN+L9
+         FIdw==
+X-Gm-Message-State: AOJu0YwPsH55zJzEaD6yb4PGWfhj94mEliD9wUTrAxcYoFuWYo59lJT0
+	c2/jKAcyusNlVwPSTrnHy5PucOlmSq5CpX4KCBaw3DAnpMd0fKrXboQnMefpG7iZ1qPTaYlGT4i
+	BKHcJ9zv3rA3qrmIYlhALr9nIqjKmmrQ=
+X-Gm-Gg: Acq92OGpQCO63XpW94oPGPPUOK2oWtrhJpQ9ERP0QAUcPNSZ8mpOafvviy1+wekD85k
+	Cn2q3YF+QZlGVRKbsAOR5TDYbUnR9KridfRn/2Uk01M1SoO8DApnOPeKz8TXNEwcZTszJCgszc8
+	IsAb0a/5Q8YL0etKMNy+EdV/WOr/3VEFP/pY5XHaOKYW2iSzCGr4yL2C4WSyj1R2Zwv16N9rm57
+	py2QV0K1IT7/x+eu/DWTUL5R5KQttVOux89JnYv3nU6UCFVEkrzLdl0el6vK24ZHKHDuqzo07D7
+	i6v9w/engB+JzEEVaGsqa9ZdG4Uxq0EyFUP3k2M+KBDBeIMQU7CBcGmD0Lhs5NX9Klxr
+X-Received: by 2002:a05:6214:478e:b0:8ca:f47:25ea with SMTP id
+ 6a1803df08f44-8ca0f4fcfb8mr351820016d6.0.1779252550653; Tue, 19 May 2026
+ 21:49:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260510023941.190396-1-enelsonmoore@gmail.com>
+ <d0bb399f-1285-495b-babe-8bae608729e8@gmx.de> <agwpPFGkN3zHKdCj@carbonx1>
+In-Reply-To: <agwpPFGkN3zHKdCj@carbonx1>
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Date: Tue, 19 May 2026 21:49:00 -0700
+X-Gm-Features: AVHnY4JqLEwFuVkjtY2Lbvna297TfZ51kPMwwQBMs7y6OuNbOahusQtJV32GfeA
+Message-ID: <CADkSEUhhLL6WxUWBChdA=LFrYZQJsCLKOFJoXA_Jsdpab6qx0A@mail.gmail.com>
+Subject: Re: [PATCH] ARM: mach-rpc: fix zImage build after recent font-related changes
+To: Helge Deller <deller@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org, 
+	Russell King <linux@armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_214058_860794_465C39C7 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260519_214911_976958_BE1EAEB8 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,82 +113,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vdec_open() function previously jumped directly to
-err_m2m_release when vdec_init_ctrls() failed, skipping
-release of the m2m context. This caused a resource leak.
+Hi, Helge,
 
-Fix it by introducing a proper err_m2m_ctx_release label
-that calls v4l2_m2m_ctx_release(sess->m2m_ctx) before
-releasing the m2m device.
+Thanks for investigating this issue.
 
-This was identified via kmemleak:
-unreferenced object 0xffff0000205d6878 (size 8):
-  comm "v4l_id", pid 5289, jiffies 4294938580
-  hex dump (first 8 bytes):
-    40 d2 49 18 00 00 ff ff                          @.I.....
-  backtrace (crc d3204599):
-    kmemleak_alloc+0xc8/0xf0
-    __kvmalloc_node_noprof+0x60c/0x850
-    v4l2_ctrl_handler_init_class+0x1b4/0x2e8 [videodev]
-    vdec_open+0x1f4/0x788 [meson_vdec]
-    v4l2_open+0x144/0x460 [videodev]
-    chrdev_open+0x1ac/0x500
-    do_dentry_open+0x3f0/0xfe8
-    vfs_open+0x68/0x320
-    do_open+0x2d8/0x9a8
-    path_openat+0x1d0/0x4f0
-    do_filp_open+0x190/0x380
-    do_sys_openat2+0xf8/0x1b0
-    __arm64_sys_openat+0x13c/0x1e8
-    invoke_syscall+0xdc/0x268
-    el0_svc_common.constprop.0+0x178/0x258
-    do_el0_svc+0x4c/0x70
+On Tue, May 19, 2026 at 2:11=E2=80=AFAM Helge Deller <deller@kernel.org> wr=
+ote:
+> Ethan, does this compile-only-tested patch fix the issue?
+It almost does - I also had to remove #include <linux/math.h> from
+include/linux/font.h.
+This is probably because of the following highly questionable code in
+arch/arm/boot/compressed/Makefile:
+CFLAGS_font.o :=3D -Dstatic=3D
+which is causing unused static functions to not be optimized out. (The
+real purpose of it is to make the acorndata_8x8 array non-static so
+the decompressor can use it.) Really, the decompressor should be fixed
+to not use this hack.
 
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
-Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v2: https://lore.kernel.org/all/20260321065408.209723-1-linux.amoon@gmail.com/
-   updated the commit message, applied the suggestion from sashiko
-   below.
-  [3] https://sashiko.dev/#/patchset/20260321065408.209723-1-linux.amoon%40gmail.com
+> Maybe only the first hunk is necessary.
+You're right. The kernel links successfully with only the #include
+<linux/math.h> removal and the first hunk applied.
 
-v1: https://lore.kernel.org/all/20260304100557.126488-1-linux.amoon@gmail.com/
-   tried to address the issue reported by Nicolas
-   improve the commit message.
----
- drivers/staging/media/meson/vdec/vdec.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+Have a nice day!
 
-diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 4b77ec1af5a7..a039d925c0fe 100644
---- a/drivers/staging/media/meson/vdec/vdec.c
-+++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -889,7 +889,7 @@ static int vdec_open(struct file *file)
- 
- 	ret = vdec_init_ctrls(sess);
- 	if (ret)
--		goto err_m2m_release;
-+		goto err_m2m_ctx_release;
- 
- 	sess->pixfmt_cap = formats[0].pixfmts_cap[0];
- 	sess->fmt_out = &formats[0];
-@@ -913,6 +913,8 @@ static int vdec_open(struct file *file)
- 
- 	return 0;
- 
-+err_m2m_ctx_release:
-+	v4l2_m2m_ctx_release(sess->m2m_ctx);
- err_m2m_release:
- 	v4l2_m2m_release(sess->m2m_dev);
- err_free_sess:
-
-base-commit: 27fa82620cbaa89a7fc11ac3057701d598813e87
--- 
-2.50.1
-
+Ethan
 
