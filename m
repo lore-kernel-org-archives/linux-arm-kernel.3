@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC6ECD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191BCCD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 18:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wqv+YeIJkI2g11D+2DtQfLe8wPFVXyMtjKj4JhY7E8Q=; b=qe9N8xVwhPQBxo84D5jTd+Pz1V
-	LUYMN7cNHqbGKaeCCE+YhB7zpgSfpuNcxcxKe/ypreLjt9XTRMUxD8FGE2WevNneHD/nVUmunn6dZ
-	FnGMq+8teDD4MK4vW6pwLPivtw++u378UlI1T0iRnCIFHHkVrxtC/Ro8qGjZTOt7rEFe7PBJHhGi7
-	vCjunzx8hNc5/ZqY0gscIyCHNeE50SkOy5Fi9Fu1L5C9OajtipBT8StjKFH50wxBmVS2t4BmjYmGL
-	PDnc4bJbtQC0Q51kG/dGFQa/gUhvqZh0pHHQXD7H2J5QwkcrCszR5UD7pnn0a/8XUUMhnJeKD47aX
-	leUT6YDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P6e4oDBvRxPvtNdyfdL/0JuA1B/r6cjRvn2dqESw1JI=; b=qnQDLmX1YF1YmXanNpPUA85aOO
+	rSNO1hqN6z4/FKIrZqpUfk9pFBC6l9x2RWFDYRG6BGN1gmnSw4sfLvsgv/CF6sSjDNTrGrAbA3KZ7
+	3LQoMwYO5+xcJhDg6fl0HKP9cLaG3SrcEg/k+t5dG7lNugnFYCxDQ1NPbkh1Beo7oJxivuDac3wQN
+	AQqAmMNJ7xKnr2rqFcuPBFvEsW57NtUG5K7yXf0fkDMPQVngkhGsZeK96DeY6K20bW0k00LoO4Z24
+	us5t8n8q0dl/zNJd14tFm8OlSuDzk74JecBBoAgLlRsUJ4hbxuqqcOnlnr+THQm1R5ml5qPcN0HfF
+	WmnyiNMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPloZ-00000005Sqj-49oQ;
-	Wed, 20 May 2026 18:38:43 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wPlok-00000005T1Q-06IS;
+	Wed, 20 May 2026 18:38:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPloR-00000005ShP-2ZL1;
-	Wed, 20 May 2026 18:38:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779302312;
-	bh=q9lAjq8Od9z7GCP3fP0P3yIEdOdqbBKGEd1xHccT+5I=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Wf2xvDOxvItf3jlZ1igRBNGG9oq6tqMcROPCqFzf5MdSQj7uQd9/KO3cHwMiovH6R
-	 bBUwL/WJfGM5r05dklc9vRodEQIi0DiylPSX1JU8u7e9PUQLLVtC3cM65w3wNtsU7F
-	 9ntlHhg4bSgYHbPzEIvQxUiLwi6IiWWjnM5ETyL+bvN9tmMD4/kV63C+/CM+bskMQx
-	 BexKtR1sPrETqkYe3AS8OL2x6H7TeGBzoWwR/lhhnCGNM0bfEhEbDoFWqOCNWGpLlV
-	 W6j3Ki+VP3FnD1DGU0TOs/uZssJdRnV6/jsNad1x0BXtCKMCXi/p38CGz2GfkFp7Om
-	 wa2ridcHtceXw==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CDC2D17E1305;
-	Wed, 20 May 2026 20:38:31 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Wed, 20 May 2026 21:38:12 +0300
-Subject: [PATCH v6 01/22] drm/fb-helper: Remove unused local variable in
- hotplug_event()
+	id 1wPloS-00000005Sib-2xLK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 18:38:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01E96445BB;
+	Wed, 20 May 2026 18:38:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B65FB1F000E9;
+	Wed, 20 May 2026 18:38:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779302315;
+	bh=P6e4oDBvRxPvtNdyfdL/0JuA1B/r6cjRvn2dqESw1JI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OeP7kErD5FN4x7H3jRQ0qLenYDpJZWNSC8tVoPmuXHTpwPTAQ48hShAKKEor0cmpn
+	 otH8fOPqr5siqoGpZBoIrjd0DotVi3hInBPD+on2at+SCW4JUXmQ2K59y7Zi7Nb9+z
+	 GDuDs7+CT+xCWf3lflOSuYnA/yBaBPfQQmM5VP/NG1ZzYpK5jEUv6wD97K9dHFMQG9
+	 VqxokuhqSCrOe7MjFswSc4vITW1uDCKOGG1n8wA9mwCG3xIj8i8x7qtI21x+NoZf0E
+	 MzjHqv1paEtjF8zEW5XeoEe6QpfC5Rk68G9rCR/B+xVKctkjhArQfZKZcshzMSYpQ7
+	 fgqv9cwx0mSbA==
+Date: Wed, 20 May 2026 08:38:34 -1000
+From: Tejun Heo <tj@kernel.org>
+To: "David Hildenbrand (Arm)" <david@kernel.org>
+Cc: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+	Changwoo Min <changwoo@igalia.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+	bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
+ installs
+Message-ID: <ag3_qpKObFOLKgbR@slm.duckdns.org>
+References: <20260517211232.1670594-2-tj@kernel.org>
+ <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
+ <agtuPrgIDNKSu2Oo@slm.duckdns.org>
+ <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
+ <297658c4ae2d6e7103f5968efc936224@kernel.org>
+ <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
+ <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
+ <agyZxmHoueGwBAQg@slm.duckdns.org>
+ <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
+ <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260520-dw-hdmi-qp-scramb-v6-1-24b74603b782@collabora.com>
-References: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
-In-Reply-To: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Daniel Stone <daniels@collabora.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_113835_807199_1FC6671E 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260520_113836_796410_1B0ABF9B 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +97,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the 'err' local variable in drm_fb_helper_hotplug_event() which
-only stores a return value that is never used beyond the immediate
-return statement.  This simplifies the code without behavior changes.
+On Wed, May 20, 2026 at 10:41:15AM +0200, David Hildenbrand (Arm) wrote:
+> And that should be carefully documented.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/drm_fb_helper.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+Will do.
 
-diff --git a/drivers/gpu/drm/drm_fb_helper.c b/drivers/gpu/drm/drm_fb_helper.c
-index 38d25dce7f33..d8fb90160b90 100644
---- a/drivers/gpu/drm/drm_fb_helper.c
-+++ b/drivers/gpu/drm/drm_fb_helper.c
-@@ -1744,21 +1744,17 @@ EXPORT_SYMBOL(drm_fb_helper_initial_config);
-  */
- int drm_fb_helper_hotplug_event(struct drm_fb_helper *fb_helper)
- {
--	int err = 0;
--
- 	if (!drm_fbdev_emulation || !fb_helper)
- 		return 0;
- 
- 	mutex_lock(&fb_helper->lock);
--	if (fb_helper->deferred_setup) {
--		err = __drm_fb_helper_initial_config_and_unlock(fb_helper);
--		return err;
--	}
-+	if (fb_helper->deferred_setup)
-+		return __drm_fb_helper_initial_config_and_unlock(fb_helper);
- 
- 	if (!fb_helper->fb || !drm_master_internal_acquire(fb_helper->dev)) {
- 		fb_helper->delayed_hotplug = true;
- 		mutex_unlock(&fb_helper->lock);
--		return err;
-+		return 0;
- 	}
- 
- 	drm_master_internal_release(fb_helper->dev);
-@@ -1802,4 +1798,3 @@ bool drm_fb_helper_gem_is_fb(const struct drm_fb_helper *fb_helper,
- 	return gem == obj;
- }
- EXPORT_SYMBOL_GPL(drm_fb_helper_gem_is_fb);
--
+> > The fault handler has to install _some_ page and let kernel continue.
+> > Scratch page or arena page doesn't matter. Potentially different CPUs
+> > will see different page. It's not a concern at all.
+> > bpf prog is buggy, but the kernel will continue to work without a glitch.
+> > bpf runtime will disable and unload misbehaving prog.
+> 
+> Having one page table walker overwrite a scratch page on race is just rather ...
+> questionable locking design, that just screams for problems long-term, really.
+> 
+> At least in apply_range_clear_cb() one could similarly switch to
+> ptep_try_install() to at least have both these paths handle races in a
+> reasonable way. (having to handle when ptep_try_install() is not really implemented)
+
+Hmm... wouldn't that be more confusing on apply_range_clear_cb() side?
+Whether it maintains the current behavior (if collide with scratch, try
+again with scratch as the original value) or flip the behavior (fail if
+scratch), that extra logic is spurious, and those tend to confuse people as
+they force asking why it has to be that specific way. If the goal is
+documenting the subtlety, wouldn't a detailed comment serve the purpose
+better?
+
+> Anyhow, the documentation of ptep_try_install() must clearly spell out that this
+> must be used very carefully, and only in special kernel page tables, never user
+> page tables. There are likely other scenarios we should document (caller must
+> prevent concurrent page table teardown somehow, and must be prepared to handle
+> races if other code is not using atomics).
+> 
+> To highlight that, we should likely consider adding a "kernel" in the name, like
+> "ptep_try_install_kernel()".
+> 
+> I am also not sure if "install" is the right terminology and whether it should
+> instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
+
+So, ptep_try_set_kernel()?
+
+> Further note that last time I talked to Linus about arch helpers, he preferred
+> 
+> #define ptep_try_install ptep_try_install
+> 
+> over __HAVE_ARCH_PTEP_TRY_INSTALL
+
+Will do.
+
+Thanks.
 
 -- 
-2.53.0
-
+tejun
 
