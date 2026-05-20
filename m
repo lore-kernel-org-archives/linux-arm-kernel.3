@@ -4,102 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34143CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 23:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86672CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 23:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3A6KecpmtrAbT/I3Gx73+8JY/faMGZWGqkIjOiEJenI=; b=kdhWuhcwkUeGxQBw6um4Sw301F
-	h129+T6Deb3HpFLefj4JY/V0if/+dp41mLFPbSjur+FhxX6cwqUZPjnC9XCzlq0qA+5QfnU9rHgcK
-	+Ph7QeNrNwCmnyQzoa8SFFfv+8APNrj+0Xsgcn47jgMMy2xPyf9hJtN4SBdhaaVA5l38evocK0rQE
-	sSD1Q4x4B5XZLljAC4eln273zB6dDn/K3uMUNqADv86ZlIWCgvXPQLBp84tRsTwEyWpT52wmshqpt
-	qS+ASPdgTgBeMMDrZkODq4Y/saJnTKcCSp0fsakNo9bbXtCHuuOdXY9aKNkVgpZ4BPIAi8YrKzsrd
-	AI9btrSA==;
+	bh=nvICw2ZiPKqUfY+3rSfqzqLBbnkDQZGCcIY6G6UcS6g=; b=yqicKU4VUaPin/x17UZkBSA7m5
+	1Cc9ME5E8CZ0G8JqtSRspKUwvm/njzpgsdiL0awh7D8WbxQbsj+gXstOCw7/rJNvEh/XsoVE4kj8D
+	am+TgzcH2K7WnMC58Iao22Gbi/AmQeBzCqe4SYHRtrwdE35b+zC6aHTPMnixnAIio6FJwgro+mpb0
+	Js9bCll+pVmGJLsYjQ5jovfYB0ydOAr60ZNatvj0rO0wT2I/da9XxsZHhc2wzFZNO67QlK3WDLXI1
+	AL/k7bP9FVq0oK441z/QM3lu/KxzUgmdtmzjcIiHEW6b9STEV11rGChxUjx9fKYTVTsYcT8S6zuMv
+	Ux+HPOCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPqKE-0000000693O-38hp;
-	Wed, 20 May 2026 23:27:42 +0000
-Received: from mail-yx1-xb164.google.com ([2607:f8b0:4864:20::b164])
+	id 1wPqOF-000000069dt-46kH;
+	Wed, 20 May 2026 23:31:51 +0000
+Received: from mail-vk1-xa63.google.com ([2607:f8b0:4864:20::a63])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPqKC-0000000692q-2Iol
+	id 1wPqOD-000000069d0-1JRA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 23:27:41 +0000
-Received: by mail-yx1-xb164.google.com with SMTP id 956f58d0204a3-65c1ba7eeb6so5597876d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 16:27:40 -0700 (PDT)
+	Wed, 20 May 2026 23:31:50 +0000
+Received: by mail-vk1-xa63.google.com with SMTP id 71dfb90a1353d-575171b1ce7so1702387e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 16:31:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779319659; x=1779924459;
+        d=1e100.net; s=20251104; t=1779319908; x=1779924708;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=3A6KecpmtrAbT/I3Gx73+8JY/faMGZWGqkIjOiEJenI=;
-        b=r9joS8MLh6QdLgkDkpoJRRqSafwlb8kNLwwgleVyiGrTAtcCMjvpCGDpf0weuHTghB
-         G4IL7z1EA6DUnqLP4r7rodcJMa64b4hgKQNvVN78Igvafki+iV8UdlSpYEUnuL44EnHR
-         +oSa+lcDwbEPVQUdtCobsQ0tnLg+XiYA/TLv5VKOsWeq/ISRwd7/4O6YHDdIjzwkPHRH
-         3xtEbx6QEHfnVyUcbHjY5OwDQKGY/s9gcOPBmAsCsNrbJ2w+KWEbQWvri2EpKRUcgOet
-         NfxNzgZTFLEO+ugooiX8DcMz+jaICU3w+ccjYmVzeXOb5Rp/EMtKXxpfzpmUSpVBD8QO
-         0qQA==
-X-Forwarded-Encrypted: i=1; AFNElJ/0FkZx7XqMRcdzoktExi2dBHbYFV4PCxZDSOnD5rwbp6lucvuVD5q/eLKw+XHIUswwACPTweVm9q33OkxWXg2V@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/Jqc66UzabhL6YmGmUXTCsqlQQsH6F22q8/1wQPaTLk66jyVZ
-	yQLhe7OCSb8G/IPOTuDsrV0BVaeAxDNwU6CsAjqMiAESYVKyr0FPB1/PITbLeT069DstxqUpto7
-	o1Ll4BHC71GDUlSJfwf6VqZWRFWwn6oetQ+RKqDBMXwZ2hicT65/YA5a5zZ4ZL28oEP2OBuC1RE
-	Eyb2KspMCxlpE6IxwriLTaIb3p3KSwegU3pSFSguDrVdx1YHgzsCds+WTd6BUyIqMrw1zIiB8Ca
-	FuMJhd1z91S0QULtqXOKx3DnTRvgObson8=
-X-Gm-Gg: Acq92OHpSogWA0mfZz5XxiNUkOgxx23hjjxPyXtLIDCRkEN6Ra+hcBKnFJtfsGBX5gs
-	dhPB20TnykP4J3cPG4MYoOBxV3y5h7w/ANeZ10kZuQglKPRe9iKNvoP7CQXileptOmkhZZSEcBY
-	DhZeHEFGYQzOEdv+PlQIxjbQJGNcHX5ZmZ96+NL6A494AYuB59hdA3AS1Fv7plMNpCXOlSFjJ5J
-	9Qbdovx9t24Gx/3wqyV+uj3Yg9Bn1U0HigEhsjSe1aOAH+oIyo4GQA/xf8xEcYYjOJ7q49cOlsO
-	H8iLTQyMv31bLZs97BbPOu9w4ZbLxyI0fu09CS8XO9mKFm+XOKa+G/YWN0yNo5oW6thuzQsZCk9
-	h/UwXYJvSJ7W6pCfNIHO7W6x4D06gFH8IGIO/AF8WHiAEkWRFpZk9K5zQ6bJE9jJ7eAqRYzPEKT
-	jfO6sqJDmTUhRfG9ZYUSi9GWyugCZXk83A3C1gOOiHYpHh0LejglKXBZnJkM3jsdHH
-X-Received: by 2002:a05:690e:441a:b0:64e:a9a1:fdb9 with SMTP id 956f58d0204a3-65eae1fce88mr192001d50.34.1779319659157;
-        Wed, 20 May 2026 16:27:39 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-102.dlp.protect.broadcom.com. [144.49.247.102])
-        by smtp-relay.gmail.com with ESMTPS id 956f58d0204a3-65e5d9659d3sm821158d50.10.2026.05.20.16.27.38
+        bh=nvICw2ZiPKqUfY+3rSfqzqLBbnkDQZGCcIY6G6UcS6g=;
+        b=gogtchGBrZoCiA+FTvxz5F8wqvKztQQjZevRolnfh8mVtca73D01rzqj+zOBXvHnBw
+         9VAVR+wnbIMsiq2/LnkVV9p0tbysuPUgAaZYx2VzquTmrCSS9QbDGbJU9rlnkMo5LxBI
+         UhWJbZ5kMkBnIUOvVCSZaMyEnCawiduHi/pL+Z4uCKsU1p8i2UsqUR4XFvD/OrI+5HW3
+         JNVF1FLKLnFB2CWAdldSvqwgOQBHzmCSJ5pxL5lOgHO4mKUScAtU9jPDR20OwVjPQvFW
+         9p2zwCIju+AFPJbIUz2AtQjzOYt/3dsgF0/Jz1pcr7l9ej3wBth+8y/kfTok/Fz9K9cO
+         DLvg==
+X-Forwarded-Encrypted: i=1; AFNElJ94NVKxE8ths155Hs1kWOb/ubmAKSeqg8xrD3+thl7acPyk/KV2djluwoWzaegr/BVWyvSx2uB4vbSJmAYgnyjo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyE0Ree3iyu3w4v7Pv0bXwbCZvtDtFpCbVKukefUYf1o51wpIgS
+	qDlOUohIK8v/t5POVyK8bIQdrUZ65+yeqmmBpLMoF6yGqv5O0snuqRB5MrqlbxcV5r9z5JtzVZ8
+	AGu81kmvyFQRfH+EwF1WR3UtQCKW+BpjThngcQS1QDLL5dMKbaqJHqfhm15LcPl8/tE1KO1MSY0
+	7AffWVb3bCwvQmdywGEzBTYkuK6VvHnIf62wu5sXwHr7L449DNDDF1UGO09cbWVcN/BQ0Ktlv33
+	94jIxqYpU+RrOHJHM9VjHYRFNxLsa3PC+k=
+X-Gm-Gg: Acq92OHMVg/WVz3jz9IJlkCZkXkMoPsyiAt+GUDfNKp9wc1P63r9UWnkEOjUpoJlLhx
+	4ATcrlVVUEGJlu22O6HzbAPr75ppDxUMtvsWhjJpOcEJp321OIanmSXY69jaYDTdXHeWCIpKFx2
+	lN8sfqN6slJVeDB3QvAC8i4YTK+RvTauW2KdStQmZe0CBWPI+N0ZsVQ7CPq4IMabivxJj/z9Fps
+	K5QXwEhWHhLecldlzB/Fba6s1oFDGOtu4FLdaUpGorZPfNCO3MrEE6LFNirEV/u5FnHjmRz1tSX
+	klXhH36blQ4z0uHD66fMlAyO+4yK8U7r5anHq0YrXN82203uRH1BPPVPHf5XxWFTuCIyXUn66C3
+	Pgpw9NwF4GRCmdOxeoDoruJJbrOxq2gSogamICyoc/F1gynHH09CnmkshKh57wjMsyn5BFdo76p
+	ZpnHO9FqARdpFWE9pUu3AcxzcerrlRXrWm9hd+bgJadjCXlPCyXuwlm7ivgiJsMVcM
+X-Received: by 2002:a05:6122:218e:b0:57d:8059:e0e9 with SMTP id 71dfb90a1353d-58424154e3bmr237664e0c.2.1779319907806;
+        Wed, 20 May 2026 16:31:47 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
+        by smtp-relay.gmail.com with ESMTPS id 71dfb90a1353d-5760f7b1612sm1492704e0c.4.2026.05.20.16.31.47
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 20 May 2026 16:27:39 -0700 (PDT)
+        Wed, 20 May 2026 16:31:47 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dl1-f72.google.com with SMTP id a92af1059eb24-13537722193so7123082c88.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 16:27:38 -0700 (PDT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-2f3ec2e8d07so958247eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 16:31:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1779319657; x=1779924457; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1779319906; x=1779924706; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=3A6KecpmtrAbT/I3Gx73+8JY/faMGZWGqkIjOiEJenI=;
-        b=aEU1QnTwow3CnL0D3cfNIWNUYoyYZVwLRaP+NRPRmP6ELSq9Tk4VP7xk+9PegCCfLp
-         GCPpeOkPyy71gkcg1rZv3tEesKq5jyL+PqkR5SCcmdmurIWLQlvFGYKHuqG72utyCiR5
-         Jlfro1g+zHRuOPKxoyklfZq6Fzy4Qkadyj6sE=
-X-Forwarded-Encrypted: i=1; AFNElJ/wX2K4fzx6zjQPP2RXBu6DAS6Q+vk0U/31zL23HJRSw79Upl+URMzMvNNC1T4DXNDSXLNfWCkojYk81jRYWCcz@lists.infradead.org
-X-Received: by 2002:a05:701b:220b:b0:135:d104:3612 with SMTP id a92af1059eb24-13632d47372mr203980c88.24.1779319657089;
-        Wed, 20 May 2026 16:27:37 -0700 (PDT)
-X-Received: by 2002:a05:701b:220b:b0:135:d104:3612 with SMTP id a92af1059eb24-13632d47372mr203962c88.24.1779319656503;
-        Wed, 20 May 2026 16:27:36 -0700 (PDT)
+        bh=nvICw2ZiPKqUfY+3rSfqzqLBbnkDQZGCcIY6G6UcS6g=;
+        b=RInr65cN4aagGJUIJDbzWprjkP2dfJvJ0IsTCX+cyhOkfWRiZljpavrrquGDA+TVQp
+         QjyWj/EXHHuvOY4vb7OVTVoZ+2c0XgCUc3czO8eUpMrDa5buaV/KULJNMpwdXVVhLHlD
+         a+xrLLJ5EP91px1PaP9ZGCFPZ9JBusi/brzhc=
+X-Forwarded-Encrypted: i=1; AFNElJ/CydimZRnbVl2VSSk+qPJgzI212KWus+rrwoNfxb8luIo0Op8Xualht/nQG3L1C9ONEHnFWb5MK/PJIJcjkGCT@lists.infradead.org
+X-Received: by 2002:a05:7300:ef89:b0:2c5:60d0:701e with SMTP id 5a478bee46e88-3042f439717mr408625eec.3.1779319905726;
+        Wed, 20 May 2026 16:31:45 -0700 (PDT)
+X-Received: by 2002:a05:7300:ef89:b0:2c5:60d0:701e with SMTP id 5a478bee46e88-3042f439717mr408577eec.3.1779319904722;
+        Wed, 20 May 2026 16:31:44 -0700 (PDT)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-134cbcb9ed3sm28333258c88.1.2026.05.20.16.27.35
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30293e2ea6dsm20241408eec.4.2026.05.20.16.31.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 16:27:36 -0700 (PDT)
-Message-ID: <a3985948-ef14-4998-a632-ee50a5b34ce1@broadcom.com>
-Date: Wed, 20 May 2026 16:27:33 -0700
+        Wed, 20 May 2026 16:31:44 -0700 (PDT)
+Message-ID: <394b5e02-1aa6-4efe-a5f7-4468d1f82172@broadcom.com>
+Date: Wed, 20 May 2026 16:31:42 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: BCM5301X: EA6500v2: fix USB3
-To: Rosen Penev <rosenp@gmail.com>, devicetree@vger.kernel.org
-Cc: Hauke Mehrtens <hauke@hauke-m.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
- <zajec5@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v3 0/3] Add RP1 PWM controller support
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>,
- "moderated list:BROADCOM BCM5301X ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20260406220603.101494-1-rosenp@gmail.com>
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Naushir Patuck <naush@raspberrypi.com>,
+ Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
+References: <cover.1776932336.git.andrea.porta@suse.com>
+ <af2bsEdAhYY9c4rb@apocalypse>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -134,14 +135,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20260406220603.101494-1-rosenp@gmail.com>
+In-Reply-To: <af2bsEdAhYY9c4rb@apocalypse>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_162740_602138_0F5E58AD 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260520_163149_366764_F6F1D00F 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,13 +156,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/6/26 15:06, Rosen Penev wrote:
-> USB3 needs to have a GPIO pulled HIGH in order to function. Add vcc-gpio
-> to do so.
+On 5/8/26 01:15, Andrea della Porta wrote:
+> Hi Uwe,
 > 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+> On 10:30 Thu 23 Apr     , Andrea della Porta wrote:
+>> This patchset adds support for the PWM controller found on the
+>> Raspberry Pi RP1 southbridge. This is necessary to operate the
+>> cooling fan connected to one of the PWM channels.
+>>
+>> The tachometer pin for the fan speed is managed by the firmware
+>> running on the RP1's M-core. It uses the PHASE2 register
+>> to report the RPM, which is then exported by this driver via
+>> syscon registers. A subsequent patch will add a new device
+>> and driver to read the RPM and export this value via hwmon.
+>>   
+>> Subsequent patches will also add the CPU thermal zone, which
+>> acts as a consumer of the PWM device.
+>>
+>> Best regards,
+>> Andrea
+>>
+>> CHANGES in V3:
+>>
+>> - Refactored all the register macros. They now have RP1_PWM_ prefix
+>>    and follow the register name.
+>> - Dropped the tab alignment in front of struct declarations (use a space
+>>    instead).
+>> - Added a check in tohw() to test (and bail out quickly) in case that
+>>    period_length_ns is zero.
+>> - Probing now returns an error if clk_rate > 1 GHz.
+>> - Added a check on minimum period ticks. Return 1 to signal round-up.
+>> - Fixed inverted polarity detection on edge cases.
+>> - Fixed rounding errors (in both tohwi() and fromhw()) in inverted
+>>    polarity calculations.
+>> - Dropped a redundant check on period >= duty.
+>> - Replaced memset by inline struct init.
+>> - Disabling a channel now is faster, skipping the duty/period/polarity
+>>    setup.
+>> - Fixed an error string (s/Fail/Failed)
+>> - Used %pe to signal error string instead of an integer.
+>> - Added several new sections to the Limitations paragraph to better
+>>    explain what will happen on edge cases.
+>> - Maximum period is now U32_MAX-1 to allow 100% duty cycle on all
+>>    selectable periods.
+>> - The hw period register now takes into account for the extra tick at
+>>    the end of the period (subtracted one to wfhw->period_ticks in tohw
+>>    and added 1 in fromhw).
+>> - Added .remove() callback to free resources even if the driver is
+>>    not unbindable/unloadable, to avoid accumulating tech debt.
+>>
+>>
+>> Naushir Patuck (2):
+>>    dt-bindings: pwm: Add Raspberry Pi RP1 PWM controller
+>>    pwm: rp1: Add RP1 PWM controller driver
+>>
+>> Stanimir Varbanov (1):
+>>    arm64: dts: broadcom: rpi-5: Add RP1 PWM node
+>>
+>>   .../bindings/pwm/raspberrypi,rp1-pwm.yaml     |  54 +++
+>>   .../boot/dts/broadcom/bcm2712-rpi-5-b.dts     |  12 +
+>>   arch/arm64/boot/dts/broadcom/rp1-common.dtsi  |  10 +
+>>   drivers/pwm/Kconfig                           |   9 +
+>>   drivers/pwm/Makefile                          |   1 +
+>>   drivers/pwm/pwm-rp1.c                         | 414 ++++++++++++++++++
+>>   6 files changed, 500 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/pwm/raspberrypi,rp1-pwm.yaml
+>>   create mode 100644 drivers/pwm/pwm-rp1.c
+>>
+>> -- 
+>> 2.35.3
+>>
+> 
+> A gentle reminder about this patchset :)
 
-Applied, thanks!
+Hi Uwe,
+
+I would prefer to take the DTS changes through the Broadcom ARM SoC tree 
+to minimize conflicts on my end, are you going to take the PWM patches 
+for 7.2? Thanks!
 -- 
 Florian
 
