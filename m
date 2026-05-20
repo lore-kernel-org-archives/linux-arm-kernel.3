@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E030BCD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 22:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C68CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 22:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2F0h6IEMxDxvMksG6aGfcOoLuwIxCQctxRZTNMN5Tzs=; b=3N1f0F7z1TMaL2NWpiljQ6C/sR
-	+c+lMl34k3wj2x5NvYme5M3eDVxGZTo7d3YRHe8RhzOjl9tenRuGWI8qyyho64F0EaHKPmGShXvLS
-	6WIjhAMdSDksw7BFvoMhKcG/TrTTj+n0CeX5P1JsQTv1mN1d1WNwmzGPQaoqwrmQv255A17Cn+b7P
-	lB73kQMXsOadknhwT64IcwCYLQCZ1nlkdxTMzVVqfnHcn0WhMWcfI+MCWXw+Za7LDrVF+6aAhhbot
-	jZVNlDL1wLivglyRErpw9l+b+2qtcfBKNwBK+FD7IjfSCcAJ6gS+xPUivaOhOiLa8RtTsy7UYvKqa
-	f2rzQuVw==;
+	bh=u982sVJyPt+xDf/vMp5QFi8J6TFPgDLXmbwrnKFtXVA=; b=gqhPKt6OUZ33oaVDa7YL/7QHMw
+	UAGgFIVq6tfDDvQP0OhP6kdfe0hoDSfBZb5vxKcBasZDAKGUOz0w32NNm5hRy4qlXdS3yqmws9f49
+	DFssrsObwDbxTR9i8A/x14shYmQxFQLbp9BWYrB/EnN0A2yzot1yVdacB0yKpIRwN61ZPAOWxPNFq
+	3jJSl06uVLBaZfnRj6M4yQKOwwn3qfvDfUx94Eh9oxB7NnMNSKPBvVTWX2Zva83Yw7E8xhOAmmVXp
+	sgleGcV5mestoO3S8mFTq65gY2HtPjE8tQXWLH58vmEKeJifKvoOVYKhNZs+NB55fFfV6SJSyBF+h
+	SCcfryEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPpfB-000000061Tn-3tye;
-	Wed, 20 May 2026 22:45:17 +0000
+	id 1wPpfC-000000061Wg-3JbY;
+	Wed, 20 May 2026 22:45:18 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPpep-000000060lQ-0VCv
+	id 1wPpep-000000060lX-15IM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 22:44:57 +0000
+	Wed, 20 May 2026 22:44:58 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1wPped-0005vy-5W; Thu, 21 May 2026 00:44:43 +0200
+	id 1wPpee-0005vy-Q2; Thu, 21 May 2026 00:44:44 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Thu, 21 May 2026 00:44:17 +0200
-Subject: [PATCH v7 12/28] media: rockchip: rga: avoid odd frame sizes for
- YUV formats
+Date: Thu, 21 May 2026 00:44:18 +0200
+Subject: [PATCH v7 13/28] media: rockchip: rga: calculate x_div/y_div using
+ v4l2_format_info
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260521-spu-rga3-v7-12-3f33e8c7145f@pengutronix.de>
+Message-Id: <20260521-spu-rga3-v7-13-3f33e8c7145f@pengutronix.de>
 References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
 In-Reply-To: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -60,8 +60,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_154455_171106_B6C07C49 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20260520_154455_303368_26480680 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,60 +76,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Avoid odd frame sizes for YUV formats, as they may cause undefined
-behavior. This is done in preparation for the RGA3, which hangs when the
-output format is set to 129x129 pixel YUV420 SP (NV12).
-
-This requirement is documented explicitly for the RGA3 in  section 5.6.3
-of the RK3588 TRM Part 2. For the RGA2 the RK3588 TRM Part 2
-(section 6.1.2) and RK3568 TRM Part 2 (section 14.2) only mentions the
-x/y offsets and stride aligning requirements. But the vendor driver for
-the RGA2 also contains checks for the width and height to be aligned to
-2 bytes.
+Calculate the x_div and y_div variables with the information from
+v4l2_format_info instead of storing these in the rga_fmt struct.
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 19 ++++++++++++++-----
- 1 file changed, 14 insertions(+), 5 deletions(-)
+ drivers/media/platform/rockchip/rga/rga-hw.c | 45 +++++++---------------------
+ drivers/media/platform/rockchip/rga/rga.h    |  2 --
+ 2 files changed, 11 insertions(+), 36 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index f599c992829dd..77b8c7ab74274 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -337,6 +337,19 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 	struct rga_ctx *ctx = file_to_rga_ctx(file);
- 	const struct rga_hw *hw = ctx->rga->hw;
- 	struct rga_fmt *fmt;
-+	struct v4l2_frmsize_stepwise frmsize = {
-+		.min_width = hw->min_width,
-+		.max_width = hw->max_width,
-+		.min_height = hw->min_height,
-+		.max_height = hw->max_height,
-+		.step_width = 1,
-+		.step_height = 1,
-+	};
-+
-+	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
-+		frmsize.step_width = 2;
-+		frmsize.step_height = 2;
-+	}
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 40498796507e0..17f7a67c0b4bb 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -42,6 +42,7 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+ {
+ 	struct rga_corners_addr_offset offsets;
+ 	struct rga_addr_offset *lt, *lb, *rt, *rb;
++	const struct v4l2_format_info *format_info;
+ 	unsigned int x_div = 0,
+ 		     y_div = 0, uv_stride = 0, pixel_width = 0;
  
- 	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
- 		const struct rga_frame *frm;
-@@ -358,11 +371,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 	if (!fmt)
- 		fmt = &hw->formats[0];
+@@ -50,8 +51,16 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+ 	rt = &offsets.right_top;
+ 	rb = &offsets.right_bottom;
  
--	pix_fmt->width = clamp(pix_fmt->width,
--			       hw->min_width, hw->max_width);
--	pix_fmt->height = clamp(pix_fmt->height,
--				hw->min_height, hw->max_height);
--
-+	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frmsize);
- 	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
- 	pix_fmt->field = V4L2_FIELD_NONE;
+-	x_div = frm->fmt->x_div;
+-	y_div = frm->fmt->y_div;
++	format_info = v4l2_format_info(frm->pix.pixelformat);
++	/* x_div is only used for the u/v planes.
++	 * When the format doesn't have these, use 1 to avoid a division by zero.
++	 */
++	if (format_info->bpp[1])
++		x_div = format_info->hdiv * format_info->bpp_div[1] /
++			format_info->bpp[1];
++	else
++		x_div = 1;
++	y_div = format_info->vdiv;
+ 	uv_stride = frm->stride / x_div;
+ 	pixel_width = frm->stride / frm->pix.width;
  
+@@ -476,128 +485,96 @@ static struct rga_fmt formats[] = {
+ 		.color_swap = RGA_COLOR_ALPHA_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR8888,
+ 		.depth = 32,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_ABGR32,
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR8888,
+ 		.depth = 32,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_XBGR32,
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_XBGR8888,
+ 		.depth = 32,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_RGB24,
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_RGB888,
+ 		.depth = 24,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_BGR24,
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_RGB888,
+ 		.depth = 24,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_ARGB444,
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR4444,
+ 		.depth = 16,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_ARGB555,
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_ABGR1555,
+ 		.depth = 16,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_RGB565,
+ 		.color_swap = RGA_COLOR_RB_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_BGR565,
+ 		.depth = 16,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_NV21,
+ 		.color_swap = RGA_COLOR_UV_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420SP,
+ 		.depth = 12,
+-		.y_div = 2,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_NV61,
+ 		.color_swap = RGA_COLOR_UV_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV422SP,
+ 		.depth = 16,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_NV12,
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420SP,
+ 		.depth = 12,
+-		.y_div = 2,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_NV12M,
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420SP,
+ 		.depth = 12,
+-		.y_div = 2,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_NV16,
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV422SP,
+ 		.depth = 16,
+-		.y_div = 1,
+-		.x_div = 1,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_YUV420,
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420P,
+ 		.depth = 12,
+-		.y_div = 2,
+-		.x_div = 2,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_YUV422P,
+ 		.color_swap = RGA_COLOR_NONE_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV422P,
+ 		.depth = 16,
+-		.y_div = 1,
+-		.x_div = 2,
+ 	},
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_YVU420,
+ 		.color_swap = RGA_COLOR_UV_SWAP,
+ 		.hw_format = RGA_COLOR_FMT_YUV420P,
+ 		.depth = 12,
+-		.y_div = 2,
+-		.x_div = 2,
+ 	},
+ };
+ 
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 640e510285341..27b3c9b4f220c 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -20,8 +20,6 @@
+ struct rga_fmt {
+ 	u32 fourcc;
+ 	int depth;
+-	u8 y_div;
+-	u8 x_div;
+ 	u8 color_swap;
+ 	u8 hw_format;
+ };
 
 -- 
 2.54.0
