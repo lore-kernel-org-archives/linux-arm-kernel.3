@@ -4,125 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3404CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:30:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1924CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 17:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sI8jNCUf9B9U0epExXJu+9SNXg6fk8RxeSeYmC2sWxw=; b=fB+Qpq47dvRdIcG3TqJm+SBNAM
-	rTtUNBxIW9FQ+UjXb4YIWOQ/8F8jJHD7Cvu+pBidf2HRT+XvE+rOP6k7OfjrkJKyGmIJSjXpgNLNZ
-	0QYRKoL5+Nb/mjPh+DMpLaMkMkwWTc854PntwtVmHQDoOBAM2FcFAzBI2xsjZx8nBQRM16oOrmyai
-	IKiZy7VnOfXLOx/tStSsUx/4M+cPWxl1yrSIJpjTkXbnSCs+RQALur6tIeDCnY/RpElI7/i1gQm8Z
-	oVuo9moYEkPRpePDrG2FzFxTwghyO52Gl3S6vyXdqkQ5E75OFO04i/ZkeSyHIJt+HSOHJ8Nl4J+mG
-	PKr6kb5w==;
+	bh=G7zmf+DQBrj5oBxKGDaplnoUfyJDtyQHm5LPs+rfdPc=; b=zUm6sErgDnUqBT0DYOuINYI7Ln
+	S3DSHeKZaO6u0ks0Bc+m3cra+AGq9wlax69KSqw6uA09r2lszWOCS2PzcnWh45TpBzfqxF4Ogn25X
+	8KSMi1WFXSxP+wzXI6TZifSTMfTVu2aKwin4AovVMrAy1AmfIWX7OqlDfpI6DBNuPPCEdBLnZxYQE
+	QI6iN2bJ1Spa1h8skRiOLNk5R3HbAxT6pbAU4uLqv0/ED11WztvQadZZoDXzsf9wYX5pmgvEktzTX
+	128brARItpsrqnQCFQvobK6LoT76lf331C3Q+4Zkh+0NROfJWbwd5n5LfggpY390YR4XO7rpu/xnX
+	0L/OvwLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPkkM-00000005JD2-3pHn;
-	Wed, 20 May 2026 17:30:18 +0000
-Received: from mail-westusazon11012014.outbound.protection.outlook.com ([52.101.43.14] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wPkvE-00000005KlN-0eze;
+	Wed, 20 May 2026 17:41:33 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPkkJ-00000005JCC-4Ak7
+	id 1wPkvB-00000005Kk7-2mLZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 17:30:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T3Y1z+TIZvB2EuUjh79hhMvEYg9FH6TH4AcHECjw340Yo7vHgOW+s0XkAxXvxCy0b2ZIDLdw5GARK5axCMpR7aGQB3jQu5H+2c06kLNtiBDAplpmB2TENZTPZWIFkgqigoU4E7KTGo14b/DtQShn8u8Itcsarn9TSynj5x6M07YEeVNrPstytzAR3/wvsIJutV+dEvm4zS59oVSNmpqGNQvPXfqGJVTGO/HAlOQIbJdw4gYt9yy5u9a5xjbYkNnNdRvZ/5dxtCsE6WcvQ2uDEVClmDqRUJJug1c1oGMirCSsbQyTrf6CIdkJWjwVFDhujE19fgdbG49FGsvWUfCRQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sI8jNCUf9B9U0epExXJu+9SNXg6fk8RxeSeYmC2sWxw=;
- b=P5wrGoBJZP06cUuFJpUgK8Q4Uhm53U4xreno/+1Adi4DGZvcQAmV6zyoeKnWgtwIpGiQ2AVX0PrfEFNIHhFpO0C3qmn+p0nO2VzbfPbY0Vl9wyjTmnpkqH5rSpWGmq37z2R4qgU/TkYQRUahjAtAoKSia5f1IF85AmtDZMvx7lh3pCAT5dsaIomGpH4FDw9s05QXmMtxfbJ4yGfUn+vmQfED4sLIIg/SOooenhnEDWaFPZ92e9Xouta8+BDs8Sb5XZvtt8XkL7l2EIXJBQuIAFHZGLNjnF8iGYiI8jLw9o0jZjbz/x+xZGP76glKNVgLAcjbmPvHfZLSWYJ6pkmlSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=huawei.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sI8jNCUf9B9U0epExXJu+9SNXg6fk8RxeSeYmC2sWxw=;
- b=BdZLG40t9Iq5S3SVdEDIc9FWL8W26eX5ZbS489Lrzk2Z3/EQjlDbkAxfOC8cm2nkECTG/39KE0E/ZJrCRwcYEZHE202kkMq0ATz5ZunzbHHyR/j3seGhdgU1QOj2JmHsNoepfT3dmC51FaZ1b3Mlq4ZAJY4S8leQvGYpjc1WXwOvyK2pb05ZibWd0Lb89xnqwMulJGgDzJI7/tgYNFPewu6fnSH1lHyMYA/iD7/cjJA0OA84cC9RR58+wWq1LWE8qpiSY1mzda38GF1xqvLQ0esQdbToPy5i4aKmz9lXp6bnrsfjhP7NIiq8Oqj+xOZSJOOKt/c0dv54UXT1epNehw==
-Received: from CH2PR02CA0008.namprd02.prod.outlook.com (2603:10b6:610:4e::18)
- by CH3PR12MB7594.namprd12.prod.outlook.com (2603:10b6:610:140::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Wed, 20 May
- 2026 17:29:38 +0000
-Received: from DS3PEPF0000C380.namprd04.prod.outlook.com
- (2603:10b6:610:4e:cafe::ae) by CH2PR02CA0008.outlook.office365.com
- (2603:10b6:610:4e::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.16 via Frontend Transport; Wed, 20
- May 2026 17:29:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- DS3PEPF0000C380.mail.protection.outlook.com (10.167.23.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 17:29:36 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 20 May
- 2026 10:29:22 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Wed, 20 May 2026 10:29:21 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 20 May 2026 10:29:20 -0700
-Date: Wed, 20 May 2026 10:29:19 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Bjorn Helgaas <helgaas@kernel.org>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <bhelgaas@google.com>, <joro@8bytes.org>,
-	<praan@google.com>, <baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
-	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
-	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
-Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-Message-ID: <ag3vb4SWIfuw++vp@Asurada-Nvidia>
-References: <20260519222335.GK3602937@nvidia.com>
- <20260519234801.GA21369@bhelgaas>
- <20260520000504.GQ3602937@nvidia.com>
- <ag0IkpcWvhQUfzf7@Asurada-Nvidia>
- <20260520142043.GT3602937@nvidia.com>
+	Wed, 20 May 2026 17:41:31 +0000
+Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4142642B;
+	Wed, 20 May 2026 19:41:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1779298874;
+	bh=iTxehStzlB1GozKYMCfNJeZ67nC8BTcSqdK5qvQx330=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZL8/nn9I+dEVKV+TvrU0ZHScVI4DiFx5+tExY2OgzDi+5DYB8ozCjW4c8O9WM/AeW
+	 m4jyPNsizBE19NFwzuudLRPG+GKWYyWCaimyvmSzH65E3VyCa0HH8hQvj12dCuo7+q
+	 05LuqYpvTeqX2mRugW2qRi7/yovvPXR+5DUEL3uo=
+Date: Wed, 20 May 2026 19:41:26 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>,
+	Frank Li <frank.li@nxp.com>, Dong Aisheng <aisheng.dong@nxp.com>,
+	linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, stable@vger.kernel.org
+Subject: Re: [PATCH v3 1/2] media: nxp: imx8-isi: Fix potential out-of-bounds
+ issues
+Message-ID: <20260520174126.GA12108@killaraus.ideasonboard.com>
+References: <20260323-isi-v3-0-8df53b24e622@oss.nxp.com>
+ <20260323-isi-v3-1-8df53b24e622@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260520142043.GT3602937@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS3PEPF0000C380:EE_|CH3PR12MB7594:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7faf40c4-f505-4a70-4eed-08deb6955d7a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|1800799024|82310400026|376014|18002099003|22082099003|56012099003|5023799004|4143699003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: MYZ6vUAwTVFrNX8Fc/CNBYU2p1EPNX5RW4zTUj710y07xYztCbMZjkP0lFWrqkR4WUHoWYIcTFq8t+Xa17yxeQMdwItv/kZuX7jD/u36pYI8lbb+8gIZF5nMd0lCbm3Q1+5VgCcMBJ1hMg7lxJJ+cliK6vugmc6MBoJOKGV4q/drVi2+F/lRiQWGUVer+W1s2qHroLg9O6Yc5MXlUkYolCvhNHR9FZLLnlJGc9K1nIPfFQmgQmI7cvGeUBW6Abh9xzET0xCwU674tJGv4V29DBbVs+IM1WJ07nemSdfA4lHz9ExItn9iOnZgYK/g5qr3WsWKQErAwC+CQwWXfF94u/1E64hFbODVTPLFDux0DiWqR/Ml0MXNQjsjQqsOQy3ADBQJDA/eC/ylO/jz6fZfmLLEI2NMHDI9MC3rXFLfSC4s0Y3pQDCZNI8YY0I9CU6/SIAGqLvKsFsdHGCMDQVjwl0vSfsP5sv9m/IaZdyykOx5h0oWB+pfpKaR4CeGSxiQCkI5jX3RdAgk+g/gH314fY3Fj0Upd1IqljBnMFjYYsWmhm9jRqjxGYv95Oo27NZkCvNct7aefYNFwKSjLOXGx/SvsiKYQO4jIdd8Iq2opnUSy30edIVb8Omo5EwQbkEh+1SY7wec4h0EPQmrS7negM9z8+5L7ojt8raAc/SlnBbPbKndtYAH+QTcVwDItKbZt9dyf5cvsOMUocV/IbfI6gYnA6jK4OsND5G/sioahmw=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(1800799024)(82310400026)(376014)(18002099003)(22082099003)(56012099003)(5023799004)(4143699003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: RiO5myyfoAj4dwRZwjqLKmXPKU5hHER85jdkhnWP0/dl4l8wIUuVsDABDN0xG2mnx2HhhNfcMjBGVDru+lbkoaid1pyqsZltgTtzOWeMRLEdDSnVgvFxGflZ8V6sAoCIbKOBOUHNcBp7gialX6fiBoQkMnTwjwBZf9Wq3OVT3mYW3nDp3MN7qEIGohlen/LrpC4idzmUD9JZp7/m5bLzyWfhEZSd0Z3mdK48duTVlgwNX4jMrq6VuYLbdXHg8OFKQjOlQt3oBvtpOcYSJLROmjapo08mexWDLKNSoseT8PgZ4K/gAmz+/GRFE7s7uu9Lt6CAElcNg1e3prz1atHG/30kIbLo31V5fGcMwQL7v4+rpJDIjiDusC2tWKcLqu7tlVnfLwn6Nb/fKCInLcaBFPEhAR/TYdSl3kdtzwiEylQF2PHF5ar5osjlSOyxSZj6
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 17:29:36.6373
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7faf40c4-f505-4a70-4eed-08deb6955d7a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF0000C380.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7594
+In-Reply-To: <20260323-isi-v3-1-8df53b24e622@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_103016_039066_FD41F7E3 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20260520_104129_849042_4CE6E20A 
+X-CRM114-Status: GOOD (  27.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,29 +77,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 11:20:43AM -0300, Jason Gunthorpe wrote:
-> On Tue, May 19, 2026 at 06:04:18PM -0700, Nicolin Chen wrote:
+On Mon, Mar 23, 2026 at 04:33:30PM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
 > 
-> > > Yeah, that's fair, so let's rename it to 
-> > > 
-> > > pci_translated_required()
-> > > 
-> > > ie the device requires translated requests to function. This is what
-> > > CXL.cache implies (IIRC I was told the spec specifically says this)
-> > > 
-> > > Requiring translated requests implies you have to enable ATS in the
-> > > system.
-> > 
-> > Perhaps we could let IOMMU drivers check:
-> >   pci_cxl_is_cache_capable() || pci_dev_specific_is_pre_cxl()
-> > directly?
+> The maximum downscaling factor supported by ISI can be up to 16. Add
+> minimum value constraint before applying the setting to hardware.
+> Otherwise, the process will not respond even when Ctrl+C is executed.
 > 
-> I'd rather have a single function.
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+> Changes in v3:
+> - Replace CLAMP_DOWNSCALE_16 macro with inline function
+> - Adjust downscale threshold from 0x4000 to 0x2000
+> - Clarify downscaling limit in comment
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h | 16 ++++++++++++++++
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c   |  2 +-
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c  | 11 ++++++++---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c | 13 ++++++++-----
+>  4 files changed, 33 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 3cbd35305af0..822466445b72 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -11,6 +11,7 @@
+>  #define __MXC_ISI_CORE_H__
+>  
+>  #include <linux/list.h>
+> +#include <linux/math.h>
+>  #include <linux/mutex.h>
+>  #include <linux/spinlock.h>
+>  #include <linux/types.h>
+> @@ -413,4 +414,19 @@ static inline void mxc_isi_debug_cleanup(struct mxc_isi_dev *isi)
+>  }
+>  #endif
+>  
+> +/*
+> + * ISI scaling engine works in two parts: it performs pre-decimation of
+> + * the image followed by bilinear filtering to achieve the desired
+> + * downscaling factor.
+> + *
+> + * The decimation filter provides a maximum downscaling factor of 8, and
+> + * the subsequent bilinear filter provides a maximum downscaling factor
+> + * of 2. Combined, the maximum scaling factor can be up to 16.
+> + */
+> +static inline unsigned int
+> +mxc_isi_clamp_downscale_16(unsigned int val, unsigned int max_val)
+> +{
+> +	return clamp(val, max(1U, DIV_ROUND_UP(max_val, 16)), max_val);
+> +}
+> +
+>  #endif /* __MXC_ISI_CORE_H__ */
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> index 9225a7ac1c3e..37e59d687ed7 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> @@ -11,7 +11,7 @@
+>  #include "imx8-isi-core.h"
+>  #include "imx8-isi-regs.h"
+>  
+> -#define	ISI_DOWNSCALE_THRESHOLD		0x4000
+> +#define	ISI_DOWNSCALE_THRESHOLD		0x2000
 
-OK. Can we use pci_ats_required()?
+This should be split to a separate patch as it's a separate fix.
 
-CXL spec explicitly used "ATS" when stating the requirement of
-CXL.cache). And it'd fit into the existing pci_ats_ functions.
+>  static inline u32 mxc_isi_read(struct mxc_isi_pipe *pipe, u32 reg)
+>  {
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> index a39ad7a1ab18..a0e2061f4344 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c
+> @@ -508,10 +508,15 @@ __mxc_isi_m2m_try_fmt_vid(struct mxc_isi_m2m_ctx *ctx,
+>  			  struct v4l2_pix_format_mplane *pix,
+>  			  const enum mxc_isi_video_type type)
+>  {
+> +	const struct v4l2_pix_format_mplane *format =
+> +		&ctx->queues.out.format;
 
-Nicolin
+This can go in the 'if' below.
+
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+I'll take this patch without the ISI_DOWNSCALE_THRESHOLD change in my
+tree, and will send a separate patch for ISI_DOWNSCALE_THRESHOLD.
+
+> +
+>  	if (type == MXC_ISI_VIDEO_M2M_CAP) {
+> -		/* Downscaling only  */
+> -		pix->width = min(pix->width, ctx->queues.out.format.width);
+> -		pix->height = min(pix->height, ctx->queues.out.format.height);
+> +		/* Downscaling only, by up to 16. */
+> +		pix->width = mxc_isi_clamp_downscale_16(pix->width,
+> +							format->width);
+> +		pix->height = mxc_isi_clamp_downscale_16(pix->height,
+> +							 format->height);
+>  	}
+>  
+>  	return mxc_isi_format_try(ctx->m2m->pipe, pix, type);
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> index a41c51dd9ce0..b290821d03d2 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> @@ -641,16 +641,19 @@ static int mxc_isi_pipe_set_selection(struct v4l2_subdev *sd,
+>  			/* Composing is supported on the sink only. */
+>  			return -EINVAL;
+>  
+> -		/* The sink crop is bound by the sink format downscaling only). */
+> +		/*
+> +		 * The ISI supports downscaling only, with a factor up to 16.
+> +		 * Clamp the compose rectangle size accordingly.
+> +		 */
+>  		format = mxc_isi_pipe_get_pad_format(pipe, state,
+>  						     MXC_ISI_PIPE_PAD_SINK);
+>  
+>  		sel->r.left = 0;
+>  		sel->r.top = 0;
+> -		sel->r.width = clamp(sel->r.width, MXC_ISI_MIN_WIDTH,
+> -				     format->width);
+> -		sel->r.height = clamp(sel->r.height, MXC_ISI_MIN_HEIGHT,
+> -				      format->height);
+> +		sel->r.width = mxc_isi_clamp_downscale_16(sel->r.width,
+> +							  format->width);
+> +		sel->r.height = mxc_isi_clamp_downscale_16(sel->r.height,
+> +							   format->height);
+>  
+>  		rect = mxc_isi_pipe_get_pad_compose(pipe, state,
+>  						    MXC_ISI_PIPE_PAD_SINK);
+> 
+
+-- 
+Regards,
+
+Laurent Pinchart
 
