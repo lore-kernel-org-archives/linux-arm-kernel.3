@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 026C1CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AA6ACD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 13:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v8AkZpbZCTo7d3LdnWMBBV6pSxnl3OrCMz1va21zOtM=; b=SF466Bi102oPii77LnaGHnWDIW
-	OeC8HVN9yOT2aMOCr/BAp3+m3NTLdNp/SpMsuinh9fcPx+JVQCfp7mxq8oI0SaMnYRdt5cMKSwa8r
-	iKzPRQoQQnnzquh+XVreROYy5x9Jg0r8vUK79u5jhISBk1eBgOPIC1LzWrI/87UUX26lj0o4x0AUx
-	QTTuqHFXBJ14zrtvI7louxokEw675dJQqn28CK4aiWuwznS2Rkyam7fCzpjpSOxTOWkDTs9TwCxz9
-	R2Xp96V9HRp0N1z8rLBAdA66jXByhZEUSSB6ME1/HZ0ei0xoZ1+EUcvFBsSSvir8YvOnznAC808v3
-	gKg/DIZw==;
+	bh=XydIKcKEN1f8CDYCbBpZkqLXM7ghEeBzqIONwAcRzBw=; b=qzTv9TYHxFWNEuvklXn881SFNJ
+	P83vxUkqEfZPEVFqQerEgmEdmq1lacKwklCbDbklIiduFnvvds1VUKjvJu5runGzKIgKcLqRbtnzU
+	8KDpczDBk/ph5p67372NX59jxRT/FF1hbkutYt2IegZXMT8C2alfRJwLi5TJ3noCsCWN7fruyPV1o
+	v5pSDT73vkwsVpoj9KYKN9h3ufwDeabIul+kl5xx0qTJjEOWwDKuki81uFp1/2isZSBlq29fFiwGX
+	I1qoqawVWRzsB6hVq59xT2iQ1mRzYr8hl0FwJaCzLLtAWFBYZOKyZwEg1jhwJvdp6LsPVAnSr+oWA
+	vna6aHlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPh7Z-00000004hNT-2nnK;
-	Wed, 20 May 2026 13:38:01 +0000
-Received: from mail-dl1-x1230.google.com ([2607:f8b0:4864:20::1230])
+	id 1wPh8u-00000004hgn-0DHF;
+	Wed, 20 May 2026 13:39:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPh7X-00000004hMe-1ZA5
+	id 1wPh8s-00000004hgS-3zJj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 20 May 2026 13:39:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=XydIKcKEN1f8CDYCbBpZkqLXM7ghEeBzqIONwAcRzBw=; b=TglQjgV3ORQBO+No8naB525Nsr
+	iYfqpYMymEP0eIhkLae31hC6yBCZdwpT15qhrYqaUDt4ls05+61GZrnMdkC985K5cO/b5psRqPdyo
+	ED1Uknu90yf1Jzy6lncDDy5M/AGYAUk5HMOHnGhe3XkntIsyRAMlG37a8CW2RyxNLSzSUtlFgZBId
+	fGM1FMF9ruFNiIgkoQ89xFEQjMHZd4F0SWPUr1MbezICGkIn0xflcjyMod5dxtSFs2OPTtHgt3t0p
+	n8ayjzIuk98ZKRt2TVm+7+o4c6JhmrxeIM/KPqqcYuxJ6MlT6dk64ChpsDYdkq/zq4cLAW7ME2O2G
+	onpZqEhQ==;
+Received: from mail-dy1-x132e.google.com ([2607:f8b0:4864:20::132e])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPh8o-0000000Gwx4-1R72
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 13:38:00 +0000
-Received: by mail-dl1-x1230.google.com with SMTP id a92af1059eb24-1357c851a48so5112402c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 06:37:59 -0700 (PDT)
+	Wed, 20 May 2026 13:39:20 +0000
+Received: by mail-dy1-x132e.google.com with SMTP id 5a478bee46e88-304106b1204so1292534eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 06:39:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779284278; x=1779889078; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779284356; x=1779889156; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=v8AkZpbZCTo7d3LdnWMBBV6pSxnl3OrCMz1va21zOtM=;
-        b=HZXMJrSXzjcXceIp/syic4MTrsgV6n4kNP8mKYv0jrKbFQRIh/bxs5bFWIF6K4xexm
-         9IoCXCfcnkwBz437J+N1I/pYdIbNKYvftblgafbB10cZ/QOSslsJE+igfMESJ6e428I0
-         SSxJHLjs1JRD6vRKmEHoZqt56+wp7J3PEgC7Ulfkkg6XQPydlE7dlPTk272J/sX6wEHj
-         EDP91EAZfF3QeH9X2bT+wDca/ZmEHiakkKiuDUKt/qqyokmh4XwWDGvTtoZ1SMFPbgE3
-         Sa/AeJURlBR2D/u3bGr6xGoeRfCJk3sceUfQg6yr+L7CC92tSKlIBXWjUrhDEBjg+mCi
-         ivUg==
+        bh=XydIKcKEN1f8CDYCbBpZkqLXM7ghEeBzqIONwAcRzBw=;
+        b=OKHSjCIDV8Y5QBZhAvve6lzFUeXJDKiglaptPdwqxjoYo9vTItjhMOqEgsTt9Iu4yj
+         n7wEmfb4fO2kWs+FTYlHQ6MFJHIhHFQzgmuNoXe0z2BlMh7gnKd3rfXotMeeSUOyM+KK
+         5jBPTr8bHysFPnvDFExtY0Jnx1r3f/04XjOahC2L6ZqIL8udh/81QLbDzphZKdbYXW89
+         +8yHu0TpNtuvbQ9KTmywuMH/5oIN7AydamIwYdqSBjBxW0T8XPt/7jC7xvWxVlEdh3PH
+         KqD+5pEa8J3O2J14w8AnUntcZOtEh1W0oM3uUPB993nG0C+gO/8KW/Qp1JRmc3b2hl5w
+         iUxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779284278; x=1779889078;
+        d=1e100.net; s=20251104; t=1779284356; x=1779889156;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=v8AkZpbZCTo7d3LdnWMBBV6pSxnl3OrCMz1va21zOtM=;
-        b=Edooa1T9QyiTGaigTWhoVUcSNjBFkY+Cp66n2RiJ3KPBoqqHjq2TbYp7G0oyU0ci1Z
-         LMSAb6n4OqU9fZBnT0/wyhfsB9G2qTtO/ZklEFZBmGWjrFrz/pb5IW//f/xVLwgsVPdg
-         YWlxyA/vqQKcJ008f1LPO3cFnr40I1WuuhOQDxPmHs1K3Fv1Go8jYnQXnmhK7hQiIoAy
-         2JECgPycgCqfNBoQNIDfJKeubKj7lmfFYfYx4K/qhiA+BR1FMgIx9BKnopRJILIcHoXX
-         en6b4XR0U9nWzPxIchoJtFllE/k/aedargkqbJjsqSKsiBDetF7dToSkOi35ZUXA3ZAp
-         fbNQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9tCHDp4yRsoEKizmJ218RPTGGDoUzVNxDHFv+Vs5oXgX5SMO47TSW2hIuvNgCEKZry11wHwbAfKh+heGLP8TiI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQs15T/v/jDTwZ8AcO4J91GlHs9O5Vk17qLk0YWmv2lrxrcKU3
-	8e1jMqpq/9s66lJI9gy4SqrR0t0ua72CNq7ttJmpeVXw5Mh9RM4RCWvu
-X-Gm-Gg: Acq92OHk3Mcb8sSFsLPYBpotqfVYIHz43lc/0R4Sd+gND+ozI86kq0FQr39GjgjsVHm
-	xgJqoX4WcYbJDsVrS3kLWwXPdJpWo1RjFFJONTmpyD70yZev1c9Th7N6uE85XUWa0f0i3mESAtH
-	EgrbZf8qP1AkZN8rwdixM+wfWn09I/ElnPx0e36M895N/XgRBTmLdFlulAYYAvJmsFIBV5WNmzu
-	BXKlPr18KAQ3mvuiGjhGK0z1DdvNbNIPmQIEjAmuTrHpWmbgRo1BUvc2DnBZVYUs9bmImPedhh3
-	I8YmJl4fGz4lbMeRnTIGqkEaYOn+On6wm9chfmX04oRBr1FJvspgmzNJxv7yZiG89A5nhRCYcDs
-	yOqOgrShrFDXZtw/kQp1palcjWyJ9QJ4J26whi9MBiwKaus+YnNpd0DFsTbPTqErVlfRr3PPN5v
-	A32Tkh2eo3WgaA3OoRoyR87FqAoLyILbPERnBsG/DhC3xfz5w=
-X-Received: by 2002:a05:7300:6429:b0:2d9:2b54:ea9c with SMTP id 5a478bee46e88-3039867e6efmr12060147eec.18.1779284277938;
-        Wed, 20 May 2026 06:37:57 -0700 (PDT)
+        bh=XydIKcKEN1f8CDYCbBpZkqLXM7ghEeBzqIONwAcRzBw=;
+        b=CY3tC8yjDU5q5r56iwvrB97bu+wefVRqUKvtWdvQuW8mGIVzU75hV81HhNlrq66JRi
+         N+FTwmtBpiJphtb4neXOaLeFuBv1eL9tRYb5wPTTMuRTEXCnWX8N0U1c+L4kpU47CDtY
+         n8wfbrII5emx1/pBYaGjwcMhzZzgywEQwqz6JNh5qEEO9V9wDdNb5w+pg2q8gT5G3g8j
+         0pYZpxIuRzD3flYiEM5VGsGy5eJYhCs+fnC+tiMFsz3bKc9dSF/t7Sau155uwCgtBNlN
+         /msAZNdv/O+J3CavKrwPLGGYIF9DRrBNSPHVVZ25WG/D2Blyn6LHu+14eXdIz2IPxvwb
+         sZIg==
+X-Forwarded-Encrypted: i=1; AFNElJ+8q9nnrr/ZRuz678gq5+5KZiKNswp6WFyylOMK9xG2u0Aabe9HrizJMw3oDqSZ/OHi4AZ6Jygid4XlFYs06bvO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIbAAURFznDyx+b4PmXtyBzGLoWxjRfhvymsOlPyEJuyGUhaVD
+	ug3oSAlGDeO7jkfs0u4gKnw9IMi/v7cXSSUBRosr94wlRVjM78KO4P7E
+X-Gm-Gg: Acq92OEl0dGe3/P/znmZfYAmWzObNP2/vSaV0IslsjZksjnO/l1aMdQ2ou8GbW1eqZQ
+	BJi0JRIfmViGwlaCLp/ryGt6FDkpqJ8SfrbsGItMAP4MtwoGLe3hRXZIv2t7MjCX771rISl3G6J
+	QcphWy236u+dM9f6i7VhR/FOQH5RLS9GAOPk1bRxmuHYZycd49wywXEqII77syOIkvSLEeDv/WI
+	YBkWY/sLhEuE0HOhmxiSSXZFYTFeKSKqtAPlRUfbmNIzmAlQ57q0u8AywhRUKYiX6yiNpnTRg04
+	IQXy3DyOX+keaeThn404dtOy7RDBjUEtuOmPeNdrCeTAWjP7Gq0AaUSI445u2DOXOcvOQ1jp+YS
+	XNQ6M0XbYpPrvldkKdcGKLtSDU7pmiiGZjYKW1V6HunmcrxVHMGZfwUPFXrK6aBW04AdrahINgh
+	X77lDAI9GjBs3YWc0FnOVu+OceKRHX+aFcHK8G
+X-Received: by 2002:a05:7300:a907:b0:2c5:220c:5670 with SMTP id 5a478bee46e88-3039818eec3mr9988056eec.2.1779284355819;
+        Wed, 20 May 2026 06:39:15 -0700 (PDT)
 Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302944ffb85sm19200837eec.7.2026.05.20.06.37.57
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-302978ad18asm18456851eec.26.2026.05.20.06.39.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 06:37:57 -0700 (PDT)
-Date: Wed, 20 May 2026 06:37:56 -0700
+        Wed, 20 May 2026 06:39:15 -0700 (PDT)
+Date: Wed, 20 May 2026 06:39:14 -0700
 From: Guenter Roeck <linux@roeck-us.net>
 To: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -80,18 +95,15 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
 	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] hwmon: raspberrypi: Add voltage input support
-Message-ID: <ffaa4944-e839-4de1-bb6c-14008a81cd06@roeck-us.net>
+Subject: Re: [PATCH v3 3/3] hwmon: raspberrypi: Fix delayed-work teardown race
+Message-ID: <f1b970b8-1785-4f96-ac79-d3bb79c53101@roeck-us.net>
 References: <20260516164407.25255-1-chakrabortyshubham66@gmail.com>
  <20260517080445.103962-1-chakrabortyshubham66@gmail.com>
- <20260517080445.103962-3-chakrabortyshubham66@gmail.com>
+ <20260517080445.103962-4-chakrabortyshubham66@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260517080445.103962-3-chakrabortyshubham66@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_063759_406385_76643F5B 
-X-CRM114-Status: GOOD (  14.26  )
+In-Reply-To: <20260517080445.103962-4-chakrabortyshubham66@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,40 +118,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 17, 2026 at 01:34:44PM +0530, Shubham Chakraborty wrote:
-> Extend the raspberrypi-hwmon driver to expose firmware-provided
-> voltage measurements through the hwmon subsystem.
+On Sun, May 17, 2026 at 01:34:45PM +0530, Shubham Chakraborty wrote:
+> The delayed polling work rearms itself from the work function, so use
+> explicit delayed-work setup and cleanup instead of
+> devm_delayed_work_autocancel().
 > 
-> The driver now exports the following voltage inputs:
+> Initialize the delayed work with INIT_DELAYED_WORK() and register a
+> devres cleanup action that calls disable_delayed_work_sync() during
+> teardown.
 > 
->   - in0_input (core)
->   - in1_input (sdram_c)
->   - in2_input (sdram_i)
->   - in3_input (sdram_p)
-> 
-> Voltage values returned by firmware are converted from microvolts
-> to millivolts as expected by the hwmon subsystem.
-> 
-> Update the documentation related to it.
-> 
-> The existing undervoltage sticky alarm handling is preserved and
-> associated with the first voltage channel.
-> 
-> Tested in -
-> - Raspberry Pi 3b+ (Linux raspberrypi 6.12.75+rpt-rpi-v8 #1 SMP PREEMPT
->   Debian 1:6.12.75-1+rpt1 (2026-03-11) aarch64 GNU/Linux)
+> This addresses the concern raised during review about the polling work
+> being able to requeue itself while the driver is being removed.
 > 
 > Signed-off-by: Shubham Chakraborty <chakrabortyshubham66@gmail.com>
-> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
-Applied, after fixing:
-
-WARNING: Missing a blank line after declarations
-#207: FILE: drivers/hwmon/raspberrypi-hwmon.c:74:
-+	int ret;
-+	ret = rpi_firmware_property(data->fw, RPI_FIRMWARE_GET_VOLTAGE,
-
-Please run checkpatch on your patches.
+Applied.
 
 Thanks,
 Guenter
