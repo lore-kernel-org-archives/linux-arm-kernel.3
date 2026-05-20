@@ -4,119 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEC75CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 10:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC43DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 10:34:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uJpJbMBxvu7YERy5/zYTpwBl18eXUjkzox1436azRwI=; b=A/+CoCdZ57EYMoreiGhAtFeSjy
-	ayGcdm13FT4f86XbGGWmcx2mW2o9u+1sdpVY20NIBW6usEUrycUqCwEtWrF7DCfXjlwd+qmtU2sPC
-	fYBS6SM8v+07Dl97IhRaPXNQ2x3iPz6gcHXdOPdS9C4WG0TRPc9NdUY/nFWPTgdg+POwnSQwSBBS0
-	53UKo9UnCfG743iL6P+hC9/3SFnim9gFREfmxdwvovh8+3SS4EqfbVfV9VmlVu9y4/Kn3LDV1sT3h
-	+SFggUD3YSZ7J9o4+ck4b6JpFOw3cati2ik8qVnFG6aF/85RTsDErPfQEtkrwTZ69+Ifqm7V01Thl
-	weHna39Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1LDWtyaODcbYP5iCV92+/8GVnwUqEJ5fHGR9cz0/w+U=; b=Ei8Nrc778DN6Z3NJJg8nZ1EYmM
+	5flfeVlWFRT7v2L/sM0V6qNxMDzdA/20Dl4p7AxPyQd4RhN9NrUM7Cau/zbNZJaotbuW8FDEl9o64
+	EWluK3dDXDkoaJEEOdC49bT9krF2ZeTzQlHYcMRDpSFIqmz3Tc/br58guDInRG6nyzg2h30T6ikda
+	sFmg1fNYRVkeIl1ssLV7gqFNGLg25Ajh+PTeet/w+SjG3lzAfAMZpS6XEpJ+xrFyAnTlplqrEBGxO
+	CBYa3FsfUFmawJkmwYzprEAxcjsR+SOiRA1g071I3uXL5w+jmxUW4rAL1OO+A/sqyl9A9L0w8ZRDW
+	m4Dy/CIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPeBj-00000004Km6-39bj;
-	Wed, 20 May 2026 10:30:07 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wPeFh-00000004LHn-0lMA;
+	Wed, 20 May 2026 10:34:13 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPeBg-00000004Kkz-3x8u
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 10:30:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U9bBLwzDjMHyXRF5TQ1GM7jukC/ypPjwczcNdwdELyp26EAYVHzQYyfNTfHhNu8RDwWGfN64sCfpklyNm6peTMGRbCz0xGsYSAVqNHliRDg71KChEEmFY7EKTPNjeyk1/LEMYH/9ntxPD/mfW5vXNzjH7WjdDOggMPJpSUuJywxMkYc3bXBP4yPUgZdH7/PBU9+Si0Uv76ms13vgUUXbFa7/sE2XnISSGwo/dc6popXOf/66B/6pbW4jedLUdVm9B5DQzddOJCeHhrYFJDuMEPShoiQ2+BbP3BPVcNOsDoXSY+l6zgYGvcBiidFz7zbsOqRCvJzZBsafvRT04v5RYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uJpJbMBxvu7YERy5/zYTpwBl18eXUjkzox1436azRwI=;
- b=KXb5cst6Msu49trgLaKFyDiwxxBxOgV2MCzXbaPIw/QC1ymbrTE4DxgQFqVNe2fFeOsspeTC95mKNFtOInE8ll9NrLc2HF/Rc96HtBMYJQH4twbvxBGQJGgel0+c/upCI/uLVFF/JL0Ep9xF5LuZ7pGqFhsTE1W4NKMWctXhPImrN5v5mDKwA/Zg/7WMvlOY8NUHOe/FPPsCmdIKKTFwqq20hiW90e9zKgemQ8EgoyBCTDg1ACceGOMLiwHoGVaH8j8kEucgY4VtcqDxtKa0LVn7KHdFPGnRcBrgO4mGUWpcmz2TSQC2V61hKf8pft/OxDR7qb+CP29CYBMJQYmDjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uJpJbMBxvu7YERy5/zYTpwBl18eXUjkzox1436azRwI=;
- b=jRyMfQulojOJr6rQ55aF/N0wlKPNnHA5XGLU91I4Nwb00fS3xuN97hERTqq0qEax2jhL4MQolGgZBtrZzrsk2m2w7wmUgmbHKhPSxI3dc35blr1QiTEEeK0TgZzTn7iU5dJx0ebLNIoS9m9qkGLsX3lDa07/Yv34+ytcw5HtYq0=
-Received: from BYAPR01CA0070.prod.exchangelabs.com (2603:10b6:a03:94::47) by
- DS0PR10MB7271.namprd10.prod.outlook.com (2603:10b6:8:f6::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.14; Wed, 20 May 2026 10:29:57 +0000
-Received: from SJ1PEPF00001CDD.namprd05.prod.outlook.com
- (2603:10b6:a03:94:cafe::a8) by BYAPR01CA0070.outlook.office365.com
- (2603:10b6:a03:94::47) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.16 via Frontend Transport; Wed, 20
- May 2026 10:29:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- SJ1PEPF00001CDD.mail.protection.outlook.com (10.167.242.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Wed, 20 May 2026 10:29:57 +0000
-Received: from DLEE213.ent.ti.com (157.170.170.116) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 20 May
- 2026 05:29:56 -0500
-Received: from DLEE210.ent.ti.com (157.170.170.112) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 20 May
- 2026 05:29:56 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE210.ent.ti.com
- (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 20 May 2026 05:29:56 -0500
-Received: from localhost (uda0498651.dhcp.ti.com [172.24.233.239])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 64KATtRr1263009;
-	Wed, 20 May 2026 05:29:55 -0500
-Date: Wed, 20 May 2026 15:59:54 +0530
-From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
-To: Nishanth Menon <nm@ti.com>
-CC: Justin Stitt <justinstitt@google.com>, Bill Wendling <morbo@google.com>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Nathan Chancellor
-	<nathan@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>, <afd@ti.com>,
-	<llvm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH V2 00/11] soc: ti: keystone/k3 navigator
- queue/dma/ringacc cleanups
-Message-ID: <20260520102954.kgrfn7f5halwjlgi@uda0498651>
-References: <20260512170623.3174416-1-nm@ti.com>
+	id 1wPeFf-00000004LHB-01GX;
+	Wed, 20 May 2026 10:34:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA14843649;
+	Wed, 20 May 2026 10:34:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C1841F000E9;
+	Wed, 20 May 2026 10:33:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779273249;
+	bh=1LDWtyaODcbYP5iCV92+/8GVnwUqEJ5fHGR9cz0/w+U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=k0S3S/keSBLaGmyqupwK3Z1mvr66dN2JMGWF3ieVRlx99hH1pXaQueAW+z7vgQZ43
+	 FLddevi4zJjipFoHV8RO/xzDu2eW9Ph1tnMl9S5JrNxSfKr4IyUkNNUz/TuOjmvQ9P
+	 TfQSYdlPaCepQYkAi1wuPiRy349QjRGU+zQCiB3bmhODCk48llGycLn/gBzTK7mkYK
+	 eFYbb7rydTwhcEVglxFxRS1oGV5dyfP6l0CptCFYZUnF9mX1EEI1icTLZvmR+2Ap2G
+	 yD8FRNrZRvT5G47Y74X4p4e0ovLOLp6kYC3eA6xjU58ieE3ACOpqv7VnYaRg3b780f
+	 K35saKMpZRS4Q==
+Message-ID: <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
+Date: Wed, 20 May 2026 12:33:56 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260512170623.3174416-1-nm@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDD:EE_|DS0PR10MB7271:EE_
-X-MS-Office365-Filtering-Correlation-Id: ee8a8b1b-9df2-43c8-beb5-08deb65abd58
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700016|376014|22082099003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: 8BelJF08er+/1pXVB7gMLAfvXVlzgUKZFHtZlNfroV1ef51A71farW7w03pAYGW2tyLk5OsNRxF7iQPSlwrWSUSwTJ7luRJfEBR17P/MeD8OlSg9ajmzsLFl9qR4wR9RwkTj9hbOUvHF7u4zQB4H79gEt8ssR1zj4yqAgrXUuX2jWA+2eNseTntnw0obfDBLMmAN+0Dy5xtuK5+8yhqI134jZxYoNywVCnmy1DMYOO7VYhxHE0WbZm/B+RpL4Z3DTb9KYmgg66HZqfTuh2OPR6+EXG4pfYnJCqY/tlhIV+v0ES+7aNwiVHdgsCzXHUFxSIkPR6ZEkm+/oowXN29DOc8VYAivMd0xq8cXA46OIxHy0/UJ70FXQ+1qQXVil5B0NIpPvlCuUGEEs/oBgA14rxuizIYxvjOry/SDFOsRpYV5JeJBJx+5qTQR80XlQaEfPWijyjdWHwbNjlRoDLXzIkbcYJ12pXPAwD1fVsQQ8HiAtF4DZmwm8BQMM/y1u5IAQCfDGAgrbJRNVb1ajsMP3g6oNjhqRGas+A0ZZzI5fF2v1paIZjk2SRjgQ8c7OU1W/cNzl8YWYyjRaSkkH/XT5IsU+rKy4A58UrA35lTtQT9kAoMphyqe9y+53emN8jqN4Dg/vppzH8hVxqLn4+pDenT3VAVNRE6E5K2eM4ctFi2C2g4RzCrHj4d+wJ4An6s4
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(376014)(22082099003)(18002099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NZVvjYEg/Q2TlzhbSJRR/IN2A9veMgrRoBUpvGcb0OhnRV821pYAyFCP7b/UpBOJemjmv9CwBZ6wR7aoZ/KzHhLnE8A6TH0XrOvHYh0YfSxZP6dojjde7CL2rvUUGj6NE6OQZtCFYZJGdUfUbBzlEzhrGi5qgvG7VsB+6u5/q8tETf1swPwMYcCGrCLrpUeqBUgMyNuxKbmYg3MDYE3ur8IJYDFOKpVQeQuqbU72r+DZlulEecGoqHNm6FD2xarc+uDdHCJZMXJ+Kp0K4K4O85pfnSVH5LNwg/Kxf1GsuMDUEZcQB4awSmYMzpeDuD/wHHfeny8UpdCQ63MTBuMC47Od6lbqr/H8+cWeUuPULYBhyywSObZRweUWzZEKwTV3lwmmvNHKlaLQ1H7PsPGr00LV/4oLUkEdBh5m9eV5IL3bOLjAdzC2FRwAmyl1qAqD
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 10:29:57.1946
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee8a8b1b-9df2-43c8-beb5-08deb65abd58
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDD.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7271
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Lorenzo Stoakes <ljs@kernel.org>, Suren Baghdasaryan <surenb@google.com>
+Cc: Barry Song <baohua@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ akpm@linux-foundation.org, linux-mm@kvack.org, liam@infradead.org,
+ vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, jack@suse.cz,
+ pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn,
+ lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com,
+ chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com,
+ nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Nanzhe Zhao <nzzhao@126.com>
+References: <20260430040427.4672-1-baohua@kernel.org>
+ <afNM-gIqxpyJ6ro7@casper.infradead.org>
+ <CAGsJ_4w0qcYmukHqsyRd0jomoyYkJjOt8b-Cgp53BgP-8QQghw@mail.gmail.com>
+ <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <agrWuDNGddNmvMFD@lucifer>
+ <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <agxbq1TxJdniMQT3@lucifer>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <agxbq1TxJdniMQT3@lucifer>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_033004_987483_3710BBFB 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20260520_033411_090970_D9C2D1ED 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,47 +136,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12:06-20260512, Nishanth Menon wrote:
-> Fix W=2 (clang/gcc), sparse, smatch and coccinelle warnings.
-> No functional changes.
+On 5/19/26 14:53, Lorenzo Stoakes wrote:
+> On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
 > 
-> Tested: NFS boot (via nav subsystem) on k2l-evm, k2hk-evm and k2g-evm
-> based on next-20260507:
-> https://gist.github.com/nmenon/cff02a5f2a72fde5fcb49664fcc834d2
+>>>
+>>> I think we either need to fix `fork()`, or keep the current
+>>> behavior of dropping the VMA lock before performing I/O.
+>>
+>> I see. So, this problem arises from the fact that we are changing the
+>> pagefaults requiring I/O operation to hold VMA lock...
+>> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
+>> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
+>> anonymous and COW VMAs only while holding mmap_write_lock, preventing
+>> any VMA modification. On the surface, that looks ok to me but I might
+>> be missing some corner cases. If nobody sees any obvious issues, I
+>> think it's worth a try.
 > 
-> Changes since V1:
-> - update for review comments.
-> - Picked up Randy's and Andrew's tags in appropriate patches.
+> Not sure if you noticed but I did raise concerns ;)
 > 
-> V1: https://lore.kernel.org/all/20260508153211.3688277-1-nm@ti.com/
+> I wonder if you've confused the fault path and fork here, as I think Barry has
+> been a little unclear on that.
 > 
-For the entire series,
+> What's being suggested in this thread is to fundamentally change fork behaviour
+> so it's different from the entire history of the kernel (or - presumably - at
+> least recent history :) 
+I don't want fork() to become different in that regard.
 
-Reviewed-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+There is already a slight difference with vs. without per-VMA locks, because
+there is a window in-between us taking the write mmap_lock and all the per-VMA
+locks. I raised that previously [1] and assumed that it is probably fine.
 
-Regards,
-Kartheek
-> Nishanth Menon (11):
->   soc: ti: knav_qmss: Remove remaining redundant ENOMEM printks
->   soc: ti: knav_qmss: Rename global kdev to knav_qdev to fix -Wshadow
->   soc: ti: knav_qmss: Inline lockdep condition in for_each_handle_rcu
->   soc: ti: knav_qmss: Fix kernel-doc Return: tags
->   soc: ti: knav_qmss: Use %pe to print PTR_ERR()
->   soc: ti: knav_qmss: Fix __iomem annotations and __be32 type
->   soc: ti: knav_qmss_acc: Fix kernel-doc Return: tag
->   soc: ti: knav_dma: Remove unused DMA_PRIO_MASK macro
->   soc: ti: knav_dma: Remove dead check on unsigned args.args[0]
->   soc: ti: knav_dma: Use IOMEM_ERR_PTR() in pktdma_get_regs()
->   soc: ti: k3-ringacc: Use str_enabled_disabled() helper
-> 
->  drivers/soc/ti/k3-ringacc.c      |   3 +-
->  drivers/soc/ti/knav_dma.c        |   8 +-
->  drivers/soc/ti/knav_qmss.h       |   2 +-
->  drivers/soc/ti/knav_qmss_acc.c   |   2 +-
->  drivers/soc/ti/knav_qmss_queue.c | 148 +++++++++++++++----------------
->  5 files changed, 75 insertions(+), 88 deletions(-)
-> 
-> -- 
-> 2.47.0
-> 
+I also raised in the past why I think we must not allow concurrent page faults,
+at least as soon as anonymous memory is involved [2].
+
+... and I raised that this is pretty much slower by design right now: "Well, the
+design decision that CONFIG_PER_VMA_LOCK made for now to make page faults fast
+and to make blocking any page faults from happening to  be slower ..." [3]
+
+[1] https://lore.kernel.org/all/970295ab-e85d-7af3-76e6-df53a5c52f8b@redhat.com/
+[2] https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
+[3] https://lore.kernel.org/all/2efa2c89-3765-721d-2c3c-00590054aa5b@redhat.com/
+
+-- 
+Cheers,
+
+David
 
