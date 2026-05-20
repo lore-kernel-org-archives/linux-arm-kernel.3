@@ -4,78 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061B9CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497E4CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 12:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L6RTBcDwCUAggrkL6cocI+jcG+EHQ7is9sXnrTTyELw=; b=wa3SndMQ2IJnMBF9BVBXc0qoZB
-	1JeuwRe34lL6QYYK+Ti/Y5oQ8aAq7Sp8xugm8SbnXyMgQk9G1jIJZQfj9JoStEtHeqoF3t671oLhi
-	uONpbtEFHIz/oY1Hnxj5kSPDTz0+fZtT4TdQaWIcU7zahVP4jftbveU8evIBuk00QnJisyjTgkHES
-	Z/VemJ/M13Rz5Ua1evJgZ0SY62vjA1N1Ie0f+CDiJGHOKGCivdLBSPfohXfEOiejVFB5mvbd19QVT
-	p75sotlibold4XR9lkTcBUSJ9JYLgqJE0EHJs2bDbIhfwAQw+SuBY6anS6e0fESbdurIyItu8G7Wm
-	FZGvFsRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=; b=K7oz9Nu4V67wcfiJXXmQ23jVYG
+	Jq/jb2+Hr4frDFQJrYsmfM+VgXcJ/NVBc0veDBVBCl9Fg7WYDZ6KuZDhwbLBDLqTX0Zn4aSoWRePA
+	PtbTl8tBLF0CNYJaBJm43wR6mCuUGYz9NQzTgcn6cQTeTE4j2BfrZ+eCqw1U1sYVLUGXB88RGEHF7
+	SvA7hNbIOU/2dm60LkIf5DbhczzMbr9OXdlJuscan/oG8U8tpTv5bhtoH+DPSye7BCNDpI9PEOGX+
+	PkOCvuO0h6p7E4K6um17IXTQWvZK0wpHqENdZddXvF2Z8D9qagrTA1meWXd6H3bQcHsilJWV9OjGQ
+	G6z+UqMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgKC-00000004bT0-4A2B;
-	Wed, 20 May 2026 12:47:00 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1wPgSv-00000004cOe-4BCo;
+	Wed, 20 May 2026 12:56:01 +0000
+Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPgKA-00000004bS4-3tgn;
-	Wed, 20 May 2026 12:47:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779281190; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mo1rJIqCjsETSxeBlA/L09pa826Mm+LiDvydim+2eo2AYNHhOluWEbNed8kaEfd97DMvCEdkl4PZznAoVkEIYssHGSkEW2p63Ihq2lB7QLtGr+VwznZNwhvdSrYOS95uSkVBaoFihQujArEUKAVI3dHjTxYrhbt/Jg13Kq/ntBQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779281190; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=L6RTBcDwCUAggrkL6cocI+jcG+EHQ7is9sXnrTTyELw=; 
-	b=aGduDpgjxZOUrVuepzUN475CJOp0FxUmYSlpVfaKvE77g6l6aPj2sYxvUlV3dcVtyExK0vio8C5SAbNvwGEdkUsIanPddG0+yreOB5/+5UeBzJsXj4tyUI5zL/JU4Hyh4CWKZvZhxHJNjK0cijAlo7xDeUIzGnt5WDCH52rY6+8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=louisalexis.eyraud@collabora.com;
-	dmarc=pass header.from=<louisalexis.eyraud@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779281190;
-	s=zohomail; d=collabora.com; i=louisalexis.eyraud@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=L6RTBcDwCUAggrkL6cocI+jcG+EHQ7is9sXnrTTyELw=;
-	b=jHWswEblvW1vK8XuhlZdi620omvMnhmjmsspqomaIrUxF6boKfMqcgaAawSVlJpk
-	/OAJH3cZ8+sxHYSO6fHHRAOt5VDvAZPGJuQYUTDV+4srCmRMXTX9N/f8J2aozt6iJyC
-	uIlWdFzbYc1wM3FSeLSZoRNviH8pHKE/ViT7MpFQ=
-Received: by mx.zohomail.com with SMTPS id 1779281188633314.64127682579726;
-	Wed, 20 May 2026 05:46:28 -0700 (PDT)
-Message-ID: <d61f709524326a4f9943188fcabb5746a1b11e3d.camel@collabora.com>
-Subject: Re: [PATCH net-next v3 5/6] net: phy: Introduce Airoha AN8801/R
- Gigabit Ethernet PHY driver
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn	
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet	 <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni	 <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit	 <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>
-Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
- matthias.bgg@gmail.com, 	kernel@collabora.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 	linux-kernel@vger.kernel.org
-Date: Wed, 20 May 2026 14:46:22 +0200
-In-Reply-To: <e77b4028-c201-4dd4-9214-721bdf67e976@bootlin.com>
-References: <20260512-add-airoha-an8801-support-v3-0-1edb34e363ae@collabora.com>
-	 <20260512-add-airoha-an8801-support-v3-5-1edb34e363ae@collabora.com>
-	 <e77b4028-c201-4dd4-9214-721bdf67e976@bootlin.com>
-Organization: Collabora Ltd
+	id 1wPgSs-00000004cNL-3gII
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 12:56:00 +0000
+Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-65c6a2158d3so3450905d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 05:55:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779281757; cv=none;
+        d=google.com; s=arc-20240605;
+        b=gAKGI/m7MnKSj0VLcM2Ne3FRpr0l7iSmcD+Mt1truPhO0Jo5QaPWk0F5e5EvMjmBQs
+         TPa/P8i+G7ALlj1roej9utlKmIg9TZFt1ic7DsyzxCLD71HKjLjQIjAAt/sq24VJ0R5d
+         nVX6Wi+rtePiE5wE4oqpC/otgBGfM2UovF4bdYSbnD2mL23ZkhETW90LIKKiiIXpPeDF
+         3QW/3UkJDOzcUKA+rmxRPpKJMNBgURdWDBoUm0zVrDKKCBO5RDr29xz71fJo2X6lBi14
+         azE2IhxzMHjc7ZSeIss2dxC4FL7dcoQUBFDl9/p0+fgyDIJVDvsC1uWfrte79oanKtzN
+         Rv3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=;
+        fh=Jr3jj6jdA6/fw0WFxL9seeA8cN42JwbpHBLOoCDyl/w=;
+        b=c8Sb84v2ZdhGhNLOz4RoiqnOEe435IdQaqRvltfg5fxC6kx2gq0sVTX9SBxmDRQw56
+         FW0C/obikgMkHUufHbcwzKPyjWfESrwIccpBWPeS7lpuSLFTtmC9+J302iMO9/HzltTJ
+         afS7Z78gdj8A9uA61y/rs71mSsvSf1GxlwumwZGzCtJBqPc+T7ea8q+fqcoNXh2rOXCi
+         fwWZYYTQJxie2D/jAOL0SudPgC/R6j3j+lRucXgz06JXmp/ph8mJzbsJh7ep9EXpVFX7
+         L5NNZ/xSnWA/G0A59VdvcHUmuGIOwXpY63CfoRckjrbg+KDldikpIrRrq8wMJFvW2Ty4
+         tliA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779281757; x=1779886557; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=;
+        b=LkKFTERuWHDYJcBtUmLZo/4UVOcUjSdVkH+UphlXjhX4HTC5Pr4KDgfE/8hSMKkmYM
+         +3wvEDPH4ElegW2bZlZraf5SLP2PtvQOjIeDMFWH+K8Rb0E/NlYMw+LTFgycoseKIVDS
+         71NiZluRJkVntDAQIONsGAv0iR8ofiBPBkQ9hYKVjaXGRmr6ZDUcrofTKmKTJ2Svzx4k
+         JamQsgcUCnu3mrCzwLYD4eWXAkNi6Csqrla70+HgwW8t+eDeDGWo0kTWgq88StJ/3ozU
+         Cms6luTnJ2LvluA9gh98G+31WppCv3Yml9MDq6FQjg1ifAelFO6LgxQRxRkDWNwKYQXE
+         mGIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779281757; x=1779886557;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=w+UZtl8z/kYGpSCumZSlladAkgazeQGoZZRlkbCob3M=;
+        b=jnEuD7wRmdPKai4snYQYNlITqcHooUi+DTGy0UOBy40B8IotfmvoS0jm3Kx8x9gRE7
+         IVuMupj7Uy0CPw6XUUXxjtv/t74LEAum/0MWHfaxSqgcbFl059At577YsHV55N07MpOI
+         3Q/suWH8wkY6BzliBfidAYyvwuUzNexRsFy5usT7ck3dlmUIf/qMcnOwK4cJx4pEMbIW
+         TOH/aW5CTjom9MgQTCt/B5xDPD4i1SZl7BMYGdHQC1R9Sv+hl1aTAQOCMFHabeHGouEv
+         AGI9Am155/jMhzKttNRG95inItU3iBEIBoh3sjnoBfenDVcQgagCB3Xbp9ix4HBE9KHO
+         7UQQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9pHCvkoeVDHqwYSj9I1oHcUSDcHQBgVEUxW/EWkNDQuaNGgHyBR/aj2K0/q2Zj/XRVgUfIIyalvIny+fEiZ9M4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+Y2Zo62qWfEzpVGzLy4nw2aTMVY5dp5Yg+ppC1MusMRK4+G4g
+	A1ukdYBOFEW/EFwyZLTUHGa+LdJCxzIfAQIhNHFxri6Yg2C0OA6Zufus/MOWQEo0+NRvKgVTcU9
+	un9KchTJuWDvczZOkJNmr/uC4faEZCsQ=
+X-Gm-Gg: Acq92OGZJsid8AmQcmYL0wL0zdvNS4MArs18kuk4/DuzSPjLcjg7ThNMm5k5pH+xxfM
+	5R91+rWAc6+I5XJrjElBj7oNxr52tJGLwSMKFJQHk48n/lPHIZtI9Y2I3kK2oiNhNbC+0qEbfdW
+	m3xGtxx7iyDNrxNB43CnUb7IxSY7XoTgcZLCX2K8q5ll+4IzYQNqT+Bj6MwafykIINJtkdSEd35
+	cttIA/cgND9aVgK+8RXcDSeetkeFaqETYR166WawtVvU6UKIV4lX66C8D3+BrNuNZNCXRqL+3lh
+	wklymdu898ZtsN0Oe2nEJW9eTsDkwv+YScTrvzLSku378aHIKsYOHe/mmN9ckZTYFJ97og==
+X-Received: by 2002:a05:690e:4293:10b0:653:f72:f482 with SMTP id
+ 956f58d0204a3-65e2275e8fbmr18516144d50.22.1779281756819; Wed, 20 May 2026
+ 05:55:56 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260520021500.13504-1-liujiajia@kylinos.cn>
+In-Reply-To: <20260520021500.13504-1-liujiajia@kylinos.cn>
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+Date: Wed, 20 May 2026 08:55:46 -0400
+X-Gm-Features: AVHnY4JAx00s9RY77VuK7Nfrn9COGaPLhAAlt5GNCqKcZP_N4w4YPkGy2JQbhi4
+Message-ID: <CABBYNZLLNFNuSv0UBNQ7C2HTTg5W2m41hBTNpPw822GMAVNuhQ@mail.gmail.com>
+Subject: Re: [PATCH] Bluetooth: btmtk: remove extra copy in cmd array init
+To: Jiajia Liu <liujiajia@kylinos.cn>
+Cc: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
-MIME-Version: 1.0
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_054659_037247_C2599EC8 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20260520_055558_924098_03223B7B 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,199 +118,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
+Hi Jiajia,
 
-On Tue, 2026-05-12 at 12:06 +0200, Maxime Chevallier wrote:
-> Hi :)
->=20
-> This looks good, I just have very minimal comments
->=20
-> On 5/12/26 06:33, Louis-Alexis Eyraud wrote:
-> > From: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> >=20
-> > Introduce a driver for the Airoha AN8801R Series Gigabit Ethernet
-> > PHY; this currently supports setting up PHY LEDs, 10/100M, 1000M
-> > speeds, and Wake on LAN and PHY interrupts.
-> >=20
-> > Signed-off-by: AngeloGioacchino Del Regno
-> > <angelogioacchino.delregno@collabora.com>
-> > Signed-off-by: Louis-Alexis Eyraud
-> > <louisalexis.eyraud@collabora.com>
->=20
-> [...]
->=20
-> > +static u32 an8801r_led_blink_ms_to_hw(unsigned long req_ms)
-> > +{
-> > +	u32 req_ns, regval;
-> > +
-> > +	if (req_ms > AN8801_MAX_PERIOD_MS)
-> > +		req_ms =3D AN8801_MAX_PERIOD_MS;
-> > +
-> > +	req_ns =3D req_ms * 1000000;
->=20
-> Use NSEC_PER_MSEC :)
-I'll fix this in the next version.
+On Tue, May 19, 2026 at 10:15=E2=80=AFPM Jiajia Liu <liujiajia@kylinos.cn> =
+wrote:
+>
+> In btmtk_setup_firmware_79xx, the data length indicated by wmt_params.dle=
+n
+> in the cmd buffer is MTK_SEC_MAP_NEED_SEND_SIZE + 1. Except for the first
+> byte, the remaining length is MTK_SEC_MAP_NEED_SEND_SIZE. memcpy copied o=
+ne
+> more byte to cmd + 1 than the remaining length. Align the length passed t=
+o
+> memcpy to avoid exceeding current section map.
+>
+> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
+> ---
+>  drivers/bluetooth/btmtk.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+> index ea7a031000cd..53cba71cb07f 100644
+> --- a/drivers/bluetooth/btmtk.c
+> +++ b/drivers/bluetooth/btmtk.c
+> @@ -188,7 +188,7 @@ int btmtk_setup_firmware_79xx(struct hci_dev *hdev, c=
+onst char *fwname,
+>                                        MTK_FW_ROM_PATCH_GD_SIZE +
+>                                        MTK_FW_ROM_PATCH_SEC_MAP_SIZE * i =
++
+>                                        MTK_SEC_MAP_COMMON_SIZE,
+> -                                      MTK_SEC_MAP_NEED_SEND_SIZE + 1);
+> +                                      MTK_SEC_MAP_NEED_SEND_SIZE);
+>
+>                                 wmt_params.op =3D BTMTK_WMT_PATCH_DWNLD;
+>                                 wmt_params.status =3D &status;
+> --
+> 2.53.0
+>
 
->=20
-> > +
-> > +	/* Round to the nearest period unit... */
-> > +	regval =3D req_ns + (AN8801_PERIOD_UNIT / 2);
-> > +
-> > +	/* ...and now divide by the full period */
-> > +	regval >>=3D AN8801_PERIOD_SHIFT;
-> > +
-> > +	return regval;
-> > +}
-> > +
->=20
-> [...]
->=20
-> > +static int an8801r_led_hw_control_set(struct phy_device *phydev,
-> > u8 index,
-> > +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned long rules)
-> > +{
-> > +	u16 on =3D 0, blink =3D 0;
-> > +	int ret;
-> > +
-> > +	if (index >=3D AN8801R_NUM_LEDS)
-> > +		return -EINVAL;
-> > +
-> > +	ret =3D an8801r_led_trig_to_hw(rules, &on, &blink);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret =3D phy_modify_mmd(phydev, MDIO_MMD_VEND2,
-> > LED_ON_CTRL(index),
-> > +			=C2=A0=C2=A0=C2=A0=C2=A0 LED_ON_EVT_MASK, on);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret =3D phy_modify_mmd(phydev, MDIO_MMD_VEND2,
-> > LED_BLINK_CTRL(index),
-> > +			=C2=A0=C2=A0=C2=A0=C2=A0 LED_BLINK_EVT_MASK, blink);
-> > +
-> > +	if (ret)
-> > +		return ret;
->=20
-> Extra newline before the if()
-I'll fix this in the next version too.
+Have you tested this on the actual hardware? If not we need a Tested-by.
 
->=20
-> > +
-> > +	return phy_modify_mmd(phydev, MDIO_MMD_VEND2,
-> > LED_ON_CTRL(index),
-> > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 LED_ON_EN, on | blink ? LED_ON_EN :
-> > 0);
-> > +}
-> > +
->=20
-> [...]
->=20
-> > +static int an8801r_rgmii_rxdelay(struct phy_device *phydev, bool
-> > enable,
-> > +				 u16 delay_steps)
-> > +{
-> > +	u32 reg_val;
-> > +
-> > +	if (delay_steps > RGMII_DELAY_STEP_MASK)
-> > +		return -EINVAL;
-> > +
-> > +	if (enable) {
-> > +		reg_val =3D delay_steps & RGMII_DELAY_STEP_MASK;
-> > +
-> > +		 /* Set align bit to add extra offset for RX delay
-> > */
-> > +		reg_val |=3D RGMII_RXDELAY_ALIGN;
-> > +
-> > +		 /* Set force mode bit to enable RX delay
-> > insertion */
-> > +		reg_val |=3D RGMII_RXDELAY_FORCE_MODE;
-> > +	} else {
-> > +		reg_val =3D 0;
-> > +	}
-> > +
-> > +	return an8801_buckpbus_reg_write(phydev,
-> > AN8801_BPBUS_REG_RXDLY_STEP,
-> > +					 reg_val);
-> > +}
-> > +
-> > +static int an8801r_rgmii_txdelay(struct phy_device *phydev, bool
-> > enable,
-> > +				 u16 delay_steps)
-> > +{
-> > +	u32 reg_val;
-> > +
-> > +	if (delay_steps > RGMII_DELAY_STEP_MASK)
-> > +		return -EINVAL;
-> > +
-> > +	if (enable) {
-> > +		reg_val =3D delay_steps & RGMII_DELAY_STEP_MASK;
->=20
-> Is this bitwise and needed, as you have the check above ?
-Indeed, it is not needed, so I'll remove this masking operation here
-and in an8801r_rgmii_rxdelay too.
-
->=20
-> > +
-> > +		 /* Set force mode bit to enable TX delay
-> > insertion */
-> > +		reg_val |=3D RGMII_TXDELAY_FORCE_MODE;
-> > +	} else {
-> > +		reg_val =3D 0;
-> > +	}
-> > +
-> > +	return an8801_buckpbus_reg_write(phydev,
-> > AN8801_BPBUS_REG_TXDLY_STEP,
-> > +					 reg_val);
-> > +}
-> > +
-> > +static int an8801r_rgmii_delay_config(struct phy_device *phydev)
-> > +{
-> > +	bool enable_delay;
-> > +	u16 delay_step;
-> > +	int ret;
-> > +
-> > +	if (phydev->interface =3D=3D PHY_INTERFACE_MODE_RGMII_ID ||
-> > +	=C2=A0=C2=A0=C2=A0 phydev->interface =3D=3D PHY_INTERFACE_MODE_RGMII_=
-TXID) {
-> > +		enable_delay =3D true;
-> > +		delay_step =3D AN8801_RGMII_TXDELAY_DEFAULT;
-> > +	} else {
-> > +		enable_delay =3D false;
-> > +		delay_step =3D RGMII_DELAY_NO_STEP;
-> > +	}
-> > +
-> > +	ret =3D an8801r_rgmii_txdelay(phydev, enable_delay,
-> > delay_step);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (phydev->interface =3D=3D PHY_INTERFACE_MODE_RGMII_ID ||
-> > +	=C2=A0=C2=A0=C2=A0 phydev->interface =3D=3D PHY_INTERFACE_MODE_RGMII_=
-RXID) {
-> > +		enable_delay =3D true;
-> > +		delay_step =3D AN8801_RGMII_RXDELAY_DEFAULT;
->=20
-> Is it correct that AN8801_RGMII_RXDELAY_DEFAULT expands to=20
-> RGMII_DELAY_NO_STEP ? feels strange, but it may simply be how the HW
-> is=20
-> made :)
-As I replied in an earlier comment ([1]), for the inserted RX delay,
-when the RGMII_RXDELAY_ALIGN bit is set, the "no step" value is then
-the closest setting to the 2ns value.
-
-I'll improve the AN8801_RGMII_RXDELAY_DEFAULT comment to say that it
-corresponds to the 1.992ns delay value when the align bit is set and -
-0.008ns otherwise.
-
-[1]:https://lore.kernel.org/linux-mediatek/199e674cfdbccad104db761964611b1d=
-6352f9f3.camel@collabora.com/
-
-Best regards,
-Louis-Alexis
->=20
-> Thanks,
->=20
-> Maxime
+--=20
+Luiz Augusto von Dentz
 
