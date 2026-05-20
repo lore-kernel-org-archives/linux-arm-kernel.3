@@ -4,96 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C56CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 681C5CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 08:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4oh6onDlVjvp1IfHH4qQc3z7nyZeWUrRcec4LCAE8p8=; b=T8yu3ptbDXMU5T5OTzuL1pxjP1
-	BmqUF/E9QAN9fcm4pRZZEuTYC8RLYngDnI4TnIIOuB8G93QSqsOoRzf2PLA0kdW/yRJHRhVTuSRLY
-	kkUczfb6lLVMkv/3PP0GGHC916ZT1B7G2T2xASvkhsvgXsm8481pzX57siZ9ZoPZAEcFvRja22Oaf
-	iHGwTTB1HwvUJM3RMmUmbnQmIV79Yv1rnpyc+fNfUNFChP/st7A86hkwewq7oEB5Syhc+dd3lLXke
-	KU8XkGKwF1BSks3amAJet/u6DTUoGkZDmC1g9yFQruL0ZAE9FmnZQ9bR35FeN/Vj64HQA/A4vsyc7
-	PqwEsNeQ==;
+	bh=mwkmkiBD9C6AzEumXzl36+9Ya4pNjd8VrP4O4E2jgTk=; b=v59/R30MuZyGZKFSKoy3Vhg1Au
+	XER2tbk58Jc5ZMraGpS3qAPfDYltAg5iwanbe6ECBLi4N8ktj+tnMOm4+cxTtQFgN+42jJVzRdiRL
+	Qom0kJqavrrWCiIlwN60REagxOiACzyqBOkG5HTevBNJTRlHHDUKMRa39Bff42UXm88luGdFoPHuT
+	M/coZarNGEwIDbaoVoPF3S2FsheOlI++1cntVJ0oQ4famZDgHd/ecn0Kvk0Dxg9J7oZ34AOp/alEi
+	G6Wvezno9V5PcbrPeQ/g1NywkUOmDkQAIez+BkO9IMFFzg7IaUnR08oeEJ2IbVYwqbBwABpyIfhms
+	VRLZf67g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcRh-00000003yjv-3il1;
-	Wed, 20 May 2026 08:38:29 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wPcUa-00000003zGV-1k3e;
+	Wed, 20 May 2026 08:41:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPcRe-00000003yjE-2rua
+	id 1wPcUY-00000003zFo-28IQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 08:38:28 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4890d945eb4so29593535e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 01:38:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779266305; x=1779871105; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4oh6onDlVjvp1IfHH4qQc3z7nyZeWUrRcec4LCAE8p8=;
-        b=NHSpGrtFUvjp/rZ3/6YIgrJy403FSmeVBEvyUZDWqFF5bEU4XUFKpKkPk/vvlUmsMP
-         IcKdzo3d7+SgTAUQc7AhzPXXdlRlNQVq5Jk8F4zPdM8ahvXUvYX+sExwJjn5Fa3FdKCd
-         T6/S/zk0/GbmtYZvs7g0f2Y3BHVwwsweUWxsSMNYLBLHTLyUiYrJ6C2tzIDJb+c8uCgc
-         XdpqcGKAF/Opzg2v/CElLai6QzcX+GGLBX3AJMpzlBqdPi/7LshIJF5MVwsfQOC+bURl
-         k7YxOH8zZELOqvMklGV7X4+Cc8LcTlYsWefLv1WkEQyBOkvY1ZGWI/MKgqcj00BflYHR
-         vmJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779266305; x=1779871105;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4oh6onDlVjvp1IfHH4qQc3z7nyZeWUrRcec4LCAE8p8=;
-        b=SKoIw6mFC443LSImmOM7cDwWXrfb4ev0CbwJo74Fguqsw5Ql0Mt7Jh6wD3xl2kExsO
-         qLhHVhXKqSxzkdcWChWOkUx8hDCfK1rOTK/pLLgu4fFiW2B7otT7b6B5rMtLSzXOUXQM
-         6+3sX6ZbW9IhZZoHazsouzLrmFEUzqoAeGsFqRa29ZF1gzHtushFoRs8HHF6XM0e+apq
-         L281IJqpHT7jA3adDK6lD0TsdlHpM91mDS6As1I8CNBv8RNBgvEOzAx19JTNdXM31O8l
-         BHaBTTZIjIEv29KavstoFUDuLM1lV8KFzyeBM7fm7W9Eaf2L7iDuQt0W/1qa/VZK3s3A
-         YacQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+alhabGOeCu/v5NczOxQPb49xDTACzAUUzRLRPHeBNMBdISCHhJAYurXxBaVWs5CI4cYOIC3EOdAaGdBj9W2g+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZqzZcPBjZG7jHrExr2c+h4h2LuZCVflAYtawsHUb8lv/GL3Sl
-	0fuuQfhePoYcOL5UE58+RdBV8mD5h914al4BbWDoup0YA6KFB3NXPkhPnl6wyu6OeSM=
-X-Gm-Gg: Acq92OFlOVHLxv9Wep1DRmbJC9347mcyBRXZEQh0wcKj+UfyPptdWIe8SW8WjXFnEBn
-	2AwIGSMw4YDR9n5ZXSqBujZi2+0J2k7z3eqKsFxH/S4Wv3end7L8WuzJhn2CYvrUGkNRVcxzaCy
-	pdGNTswQMI1fN99SktYt5OhAxodTGOQrEoAZbW2gKGSnEaAYanjWSGxSIdLPdHSYITHkQPvEuC+
-	1sukD4ThVteIoUAsP0xo4FW/lxthz3NHnhoq94vJ/q8V3dgjZSNE9DpcafUKEMlzUuu6G8PdqzZ
-	jlnSwtXERvnynM0iT6QmgJdGS/U9ehOGcT7qGmffVYOu5Hn4pb17C6Vn7OTzcbt5PRT07mejzBB
-	xPXtN5iOnsmeDKZuP737/+AY5UgQrTA3lbBwn5mcUez78kooI624nAFPaQPNAiEwORkrXzYibFP
-	R63RLqiREsPsHfeXvLOCkq62tcxN6e
-X-Received: by 2002:a05:600d:644f:10b0:48e:9134:6ae7 with SMTP id 5b1f17b1804b1-48fd62d9be0mr298109465e9.0.1779266304817;
-        Wed, 20 May 2026 01:38:24 -0700 (PDT)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45da0a17ec2sm49106031f8f.24.2026.05.20.01.38.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 01:38:24 -0700 (PDT)
-Message-ID: <dea28a56-a5d8-46ef-a782-a95073714377@linaro.org>
-Date: Wed, 20 May 2026 09:38:23 +0100
+	Wed, 20 May 2026 08:41:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id BD4AC439DF;
+	Wed, 20 May 2026 08:41:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C9B61F000E9;
+	Wed, 20 May 2026 08:41:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779266485;
+	bh=mwkmkiBD9C6AzEumXzl36+9Ya4pNjd8VrP4O4E2jgTk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=kBH6DuUG4C6QpVo6IiVACT2i/nABs96Pm8EXIE6G5MoFBJNZBOvGKp/Oyu0Amgxpm
+	 AQZtxq8C8ev68/W96+ygmw+2NDWB6NV9S6FV1uhN+HTSDW161E+4qVogmxpHzTKSRO
+	 HunFITy+sQ4iu+TxSc86dzLqFmxjKGjICt/Pk0DfFWHyOxoHRGtTrKUfu4YEMUbgOa
+	 mpUaH5il65pXDbUqBpzkNREI7z5e4dbX9HyRRk/Wt+c8N55wOzfUHiWP0hlERF3ti9
+	 m+T/rb5IILdceVqvDTmErOeSitmqtJw+UdpA5GiLt/I7CpujzjBUxY8ADuObrsSRN+
+	 pmxZvHMr2boZQ==
+Message-ID: <fb889bfc-af0e-491e-a69f-38c2abf88d22@kernel.org>
+Date: Wed, 20 May 2026 10:41:15 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: fix resource leaks on path build failure
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@arm.com>, Leo Yan <leo.yan@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Mathieu Poirier <mathieu.poirier@linaro.org>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20260513-fix-memory-leak-issue-v1-1-49822d7bc7d4@oss.qualcomm.com>
- <f347bad3-4a11-4f65-b35f-f59c6360ac5b@linaro.org>
- <5b3785a1-0f53-4b61-bc18-880091c2ce12@oss.qualcomm.com>
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_install() for lockless empty-slot
+ installs
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+ Tejun Heo <tj@kernel.org>
+Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+ Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+ bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-mm <linux-mm@kvack.org>, LKML <linux-kernel@vger.kernel.org>
+References: <20260517211232.1670594-1-tj@kernel.org>
+ <20260517211232.1670594-2-tj@kernel.org>
+ <9ba50fd2-077e-4291-9276-9adb18186873@kernel.org>
+ <agtuPrgIDNKSu2Oo@slm.duckdns.org>
+ <2f02d90d-cdc9-48ef-abe3-99e00f22595f@kernel.org>
+ <297658c4ae2d6e7103f5968efc936224@kernel.org>
+ <04b03066-86d3-4c0b-b077-307fd0f3bc9c@kernel.org>
+ <5590fd3d-dae1-4070-b52f-bc40982ac678@kernel.org>
+ <agyZxmHoueGwBAQg@slm.duckdns.org>
+ <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <5b3785a1-0f53-4b61-bc18-880091c2ce12@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <CAADnVQJt0p7hSn2G074QZRh2LEdthy3RKYJ9j3w5yeJ-e8UQLw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_013826_756637_2FADAEC3 
-X-CRM114-Status: GOOD (  26.90  )
+X-CRM114-CacheID: sfid-20260520_014126_595193_F8D4E9CA 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,119 +139,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/19/26 21:04, Alexei Starovoitov wrote:
+> On Tue, May 19, 2026 at 10:11 AM Tejun Heo <tj@kernel.org> wrote:
+>>
+>> On Tue, May 19, 2026 at 11:40:48AM +0200, David Hildenbrand (Arm) wrote:
+>> ...
+>>
+>> Wouldn't it still be either or with both cases being okay?
+>>
+>>>
+>>> ... or can we run into similar problems with kprobes? (I am obviously no bpf
+>>> expert ...)
+>>
+>> Yeah, I mean, that was just the first TP I found scanning the code. Any
+>> kprobes or other TPs in the path would behave the same.
+>>
+>> When this fault triggers, the BPF program has already malfunctioned, so it's
+>> not going to be a high frequency path and performance isn't a primary
+>> consideration. So, anything that can ensure that the kernel doesn't crash or
+>> lock up would be fine. Any better ideas?
+> 
+> As you guys already figured out the trylock is not an option.
+
+And that should be carefully documented.
+
+> The fault handler has to install _some_ page and let kernel continue.
+> Scratch page or arena page doesn't matter. Potentially different CPUs
+> will see different page. It's not a concern at all.
+> bpf prog is buggy, but the kernel will continue to work without a glitch.
+> bpf runtime will disable and unload misbehaving prog.
+
+Having one page table walker overwrite a scratch page on race is just rather ...
+questionable locking design, that just screams for problems long-term, really.
+
+At least in apply_range_clear_cb() one could similarly switch to
+ptep_try_install() to at least have both these paths handle races in a
+reasonable way. (having to handle when ptep_try_install() is not really implemented)
 
 
-On 20/05/2026 2:55 am, Jie Gan wrote:
-> 
-> 
-> On 5/19/2026 9:57 PM, James Clark wrote:
->>
->>
->> On 13/05/2026 2:32 am, Jie Gan wrote:
->>> Two related leaks when _coresight_build_path() encounters an error after
->>> coresight_grab_device() has already incremented the pm_runtime, module,
->>> and device references for a node:
->>>
->>> 1. In _coresight_build_path(), if kzalloc_obj() for the path node fails
->>>     after coresight_grab_device() succeeds, coresight_drop_device() was
->>>     never called, permanently leaking all three references.
->>>
->>> 2. In coresight_build_path(), on failure the partial path was freed with
->>>     kfree(path) instead of coresight_release_path(path).  kfree() only
->>>     frees the coresight_path struct itself; it does not iterate 
->>> path_list
->>>     to call coresight_drop_device() and kfree() for each coresight_node
->>>     already added by deeper recursive calls, leaking both the 
->>> pm_runtime,
->>>     module, and device references and the node memory for every element
->>>     on the partial path.
->>>
->>> Fix both by adding coresight_drop_device() in the OOM unwind of
->>> _coresight_build_path(), and replacing kfree(path) with
->>> coresight_release_path(path) in coresight_build_path().
->>>
->>> Fixes: 32b0707a4182 ("coresight: Add try_get_module() in 
->>> coresight_grab_device()")
->>> Fixes: b3e94405941e ("coresight: associating path with session rather 
->>> than tracer")
->>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>> ---
->>>   drivers/hwtracing/coresight/coresight-core.c | 6 ++++--
->>>   1 file changed, 4 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->>> hwtracing/coresight/coresight-core.c
->>> index 46f247f73cf6..c1354ea8e11d 100644
->>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>> @@ -825,8 +825,10 @@ static int _coresight_build_path(struct 
->>> coresight_device *csdev,
->>>           return ret;
->>>       node = kzalloc_obj(struct coresight_node);
->>> -    if (!node)
->>> +    if (!node) {
->>> +        coresight_drop_device(csdev);
->>>           return -ENOMEM;
->>> +    }
->>>       node->csdev = csdev;
->>>       list_add(&node->link, &path->path_list);
->>> @@ -851,7 +853,7 @@ struct coresight_path 
->>> *coresight_build_path(struct coresight_device *source,
->>>       rc = _coresight_build_path(source, source, sink, path);
->>>       if (rc) {
->>> -        kfree(path);
->>> +        coresight_release_path(path);
->>>           return ERR_PTR(rc);
->>>       }
->>>
->>> ---
->>> base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
->>> change-id: 20260513-fix-memory-leak-issue-034b4a45265e
->>>
->>> Best regards,
->>
->> Looks good to me, but sashiko is complaining: https://sashiko.dev/#/ 
->> patchset/20260513-fix-memory-leak-issue- 
->> v1-1-49822d7bc7d4%40oss.qualcomm.com
->>
->> I'm trying to understand why it's saying that, but I think the 
->> scenario is that if there are multiple correct paths to a sink, when 
->> one path partially fails and a second path succeeds you could get a 
->> path_list with some garbage entries in it.
-> 
-> I think the coresight_release_path is added to address this situation.
-> We suffered the path partially failure, and we need release all nodes 
-> already added to the path.
-> 
+Anyhow, the documentation of ptep_try_install() must clearly spell out that this
+must be used very carefully, and only in special kernel page tables, never user
+page tables. There are likely other scenarios we should document (caller must
+prevent concurrent page table teardown somehow, and must be prepared to handle
+races if other code is not using atomics).
 
-It wouldn't call coresight_release_path() in this case though. If one 
-path ends up building to success but a parallel path partially failed 
-then _coresight_build_path() still returns success. During the search it 
-would have still added the nodes from the partially failed path to the 
-path_list. This is only an issue if there are multiple correct paths.
+To highlight that, we should likely consider adding a "kernel" in the name, like
+"ptep_try_install_kernel()".
 
->>
->> That's kind of a different and existing issue to the one you've fixed, 
->> and assumes that multiple paths to one sink are possible, which I'm 
->> not sure is supported?
-> 
-> Each path is unique. We only deal with the issue path for balancing the 
-> reference count.
-> 
-> Thanks,
-> Jie
-> 
+I am also not sure if "install" is the right terminology and whether it should
+instead be "ptep_try_set()". (set_pte_at is the non-atomic interface right now)
 
-I'm not exactly sure what you mean by unique, but the same source and 
-sink could potentially be connected through two different sets of links.
 
->>
->> It might be as easy as breaking the loop early for any return value 
->> other than -ENODEV, but I'll leave it to you to decide whether to do 
->> that here or not.
->>
->> Reviewed-by: James Clark <james.clark@linaro.org>
->>
-> 
+Further note that last time I talked to Linus about arch helpers, he preferred
 
+#define ptep_try_install ptep_try_install
+
+over __HAVE_ARCH_PTEP_TRY_INSTALL
+
+-- 
+Cheers,
+
+David
 
