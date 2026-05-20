@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE521CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 20:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C2ECD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:01:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AXphWvQV6X4jC/MRKf1KbDWGJMoBqs4UZ3fr8cRQqA=; b=tJ3GSCXE0bvMW0DmzFWow7qqPE
-	kDBMSE2+Bio8cy4p/ynYjUHQs85ZeR0ZLv1DLv6df9XsGHiBuwcwogpQ8qVnGH4ZB6QSfx+ayr2B7
-	jMaOvBL5tO3BEmV3IRZuanh9+RetnT3PDfcat4V1/gf9A4pehhOFT3cnSZ8YcMyhrtQSN+JYQq14s
-	sOM5VYjqIuuDmuCqyubx8M2D0Y0/HOIpyjVLjwcGvPJGBlvcZ/+mVjRkIHr1bDdTFK5dt9mwOHMsw
-	f/IiP1wnv5HQN9tLdI2YjBNHQxK6Z+DDnSzPAy9ItgbtyPVPS5o/Ts3z6JDgNlq76BSrl+oKnNbi2
-	FTlg6lHw==;
+	bh=v9naQ89cY4pQ/7RwTVxw5SYdLZz0THDHbZBMU5d/fMY=; b=UELIvr9CB9J0GLy14px0DB0jfY
+	pcuJ4VvLHlVfj4fzl2Mazb6vIg4JHiQsqteq2+MtIxqK7FoLrHaFMLL0xhTu6GEO93fhj3JBzFEB9
+	kqhothahpqfM6b2duoGDzXO4gpKllN1WMl20eXiMB58E6WCpq5+HcAnaCtM+ZoGXKGxhvJPB+VM8B
+	utTuJ1zLagJYnLP+Ws4J/Ijaqfu5fsF0UG+FRrd3miZTjErtVcMfWFFXNAPcqv6oo1KJ95hVtc35q
+	NlTg7p00mhuNX3fKwhsT3HHWI9cKYH3sSEney7PDF8YbUGKVtDGaXoxZTvL0D3LRtNbiTIJT2XeUA
+	SP9VeOIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPny3-00000005mVX-1kLg;
-	Wed, 20 May 2026 20:56:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPo2Z-00000005mtz-3SSC;
+	Wed, 20 May 2026 21:01:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPny1-00000005mV7-2z3Y
+	id 1wPo2X-00000005mtQ-1uXR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 20:56:37 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CA71860122
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 20:56:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 820211F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 20:56:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779310596;
-	bh=2AXphWvQV6X4jC/MRKf1KbDWGJMoBqs4UZ3fr8cRQqA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ZVmEYd/8zxa4603xK34IC/TbSS8+GsRvpCzgDShciFrGe87PJWckkngN+a0aYuohQ
-	 MtOBm8iMX5F2gAT46oduwpmioYZ4W+5330LRHqPO0j95zY/Ei/qSdZIsecMfR5JyJl
-	 6twI+HLYUTrBoi7Dm8I1qVyKoT9IG8pZH60197+SfcaABytEzy17y/MSs0UvDWy9RR
-	 Sh4H55aixk68FSm3iry+q9jfnx0Ftl9vUGgyaFuWEobiM5nxJQmLG5D0g7pI/kRJTl
-	 4WcvjwW/x0e1UdtljpwoMoqp7icRbUOz6VevqHA6UHZY+9B21rAfqdEmDfq8wNygjT
-	 ByK8JI1n9DaAA==
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-902deb2412fso664944285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 13:56:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9RbIZRj29ZgZMBohWfJdIAmQqJxDAU8vtxLVbMid5LeyJrt93kdjnOC1Ddeqb7XFS85lZii83L3lmAsTeR0FLl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHloo5Sad/AV5JceR5zm6YIboNkbArL1xDMtyj7EAHcR4msVJR
-	FFaiiOgLEXt3nxQCX1NPDTQALz7EKDiesxExacFBoGzwjEFmw2C2SnY8RWEYFVTYDKvdy9vfsO8
-	6YyGL4L/wcMuUODTaJU5hs8iOjDkMXTU=
-X-Received: by 2002:a05:620a:28d0:b0:90c:a08f:c5f0 with SMTP id
- af79cd13be357-911ce8129f8mr3817766685a.33.1779310595916; Wed, 20 May 2026
- 13:56:35 -0700 (PDT)
+	Wed, 20 May 2026 21:01:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779310876;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=v9naQ89cY4pQ/7RwTVxw5SYdLZz0THDHbZBMU5d/fMY=;
+	b=MEw98JKali7uNntCuMiC0ScRL188l3Qim49fbsY+IBON217EQhW/uDTcD9W3RZWNut6/Cl
+	TZiLf23smR9MS/hFhm7d9kVCFNzRxJeyCWhaigpZBRHO6Ckwq2gQWexoSCWEHSR55UTryc
+	Pk07FjlrUeeoWSIprqVZWglx4TeS3Qc=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-591-JLNdvWNKPyeo2y3n-bNvQw-1; Wed,
+ 20 May 2026 17:01:06 -0400
+X-MC-Unique: JLNdvWNKPyeo2y3n-bNvQw-1
+X-Mimecast-MFC-AGG-ID: JLNdvWNKPyeo2y3n-bNvQw_1779310864
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B0D2A180061D;
+	Wed, 20 May 2026 21:01:03 +0000 (UTC)
+Received: from [10.22.64.248] (unknown [10.22.64.248])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 684DF1956053;
+	Wed, 20 May 2026 21:01:01 +0000 (UTC)
+Message-ID: <a5251664-2c15-4a8e-906b-d204e10c38be@redhat.com>
+Date: Wed, 20 May 2026 17:01:00 -0400
 MIME-Version: 1.0
-References: <20260514094108.2016201-1-jiangwen6@xiaomi.com>
- <20260514094108.2016201-5-jiangwen6@xiaomi.com> <177927799624.3551615.1232032128494296554.b4-review@b4>
-In-Reply-To: <177927799624.3551615.1232032128494296554.b4-review@b4>
-From: Barry Song <baohua@kernel.org>
-Date: Thu, 21 May 2026 04:56:23 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4wWV7kA9NZnC1nKLuLEnd+wH7v=7=x8WJMznRNtHKhh4A@mail.gmail.com>
-X-Gm-Features: AVHnY4IbJNNziZOusY4XlGaZUjTKeiA_BxxPElnZpTAi1mLurw4T57tnAOPIyN0
-Message-ID: <CAGsJ_4wWV7kA9NZnC1nKLuLEnd+wH7v=7=x8WJMznRNtHKhh4A@mail.gmail.com>
-Subject: Re: [PATCH v2 4/7] mm/vmalloc: Extend page table walk to support
- larger page_shift sizes and eliminate page table rewalk
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, 
-	will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com, 
-	Xueyuan.chen21@gmail.com, dev.jain@arm.com, david@kernel.org, 
-	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com, 
-	linux-kernel@vger.kernel.org, Wen Jiang <jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/entry: Don't disable preemption in
+ debug_exception_enter() with RT kernel
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Clark Williams <clrkwllms@kernel.org>,
+ Steven Rostedt <rostedt@goodmis.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+References: <20260519222524.886454-1-longman@redhat.com>
+ <20260520061920.XCqBHe0x@linutronix.de>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <20260520061920.XCqBHe0x@linutronix.de>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-Mimecast-MFC-PROC-ID: u8eNgF0qGhC1okXiVWbfn9T9ecSWzfpNov-JDNGDU9U_1779310864
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_140117_570927_A447A281 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +91,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 7:53=E2=80=AFPM Mike Rapoport <rppt@kernel.org> wro=
-te:
->
-> On Thu, 14 May 2026 17:41:05 +0800, Wen Jiang <jiangwenxiaomi@gmail.com> =
-wrote:
->
-> Hi,
->
-> > vmap_pages_range_noflush_walk() (formerly vmap_small_pages_range_noflus=
-h())
-> > provides a clean interface by taking struct page **pages and mapping th=
-em
-> > via direct PTE iteration. This avoids the page table rewalk seen when
-> > using vmap_range_noflush() for page_shift values other than PAGE_SHIFT.
-> >
-> > Extend it to support larger page_shift values, and add PMD- and
-> > contiguous-PTE mappings as well. Rename it to vmap_pages_range_noflush_=
-walk()
-> > since it now handles more than just small pages.
-> >
-> > For vmalloc() allocations with VM_ALLOW_HUGE_VMAP, we no longer need to
-> > iterate over pages one by one via vmap_range_noflush(), which would
-> > otherwise lead to page table rewalk. The code is now unified with the
-> > PAGE_SHIFT case by simply calling vmap_pages_range_noflush_walk().
->
-> After this patch we have two very simalar page table walkers:
-> vmap_pages_range_noflush_walk() and vmap_range_noflush().
->
-> The subtly differ at what levels they try huge mappings, how they
-> account page table modifucations and, at last vmap_range_noflush() is
-> left without support for contiguous mappings.
->
-> Is there a fundamental reason to have two page walkers?
-> Is there a reason not to support contiguous mappings in
-> vmap_range_noflush()?
 
-Hi Mike,
+On 5/20/26 2:19 AM, Sebastian Andrzej Siewior wrote:
+> On 2026-05-19 18:25:24 [-0400], Waiman Long wrote:
+>> Commit d8bb6718c4db ("arm64: Make debug exception handlers visible from
+>> RCU") introduces debug_exception_enter() and debug_exception_exit()
+>> where preemption is explicitly disabled. With a PREEMPT_RT debug kernel,
+>> the following bug report can happen.
+> …
+>
+> What kernel is this? I have backport (which is being tested) for v6.6
+> and v6.12, the patches are from v6.17-rc1.
 
-They are two completely different cases. In one case, you have a contiguous
-physical address range for ioremap(). Since the range is fully contiguous,
-many things can be simplified. We already support large mappings there, but
-this patchset still improves performance through larger batching.
+The kernel backtrace is produced using the latest v7.1-rc4 kernel. There 
+are a number of changes to the debug_exception_enter() and 
+debug_exception_exit() functions over the years, but the preemption 
+disable code remains since its introduction in v5.3.
 
-In the other case, you have a pages[] array whose pages are not physically
-contiguous as a whole. You iterate over the pages and attempt to create lar=
-ge
-mappings whenever a subset of adjacent pages happens to be physically
-contiguous.
+BTW, what v6.17-rc1 patches are you talking about?
 
-Best Regards
-Barry
+-Longman
+
 
