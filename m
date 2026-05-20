@@ -4,124 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22BBFCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 02:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624C5CD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 02:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lxGZg9Abr5+8t0n/zRL2XZxlKedkBGQ620RQVUURTxQ=; b=rkqzq4VWhyv3BcQHxEEgKKKPUR
-	WyTaseuUZN4B+KDezbgKj8WFEIaXGIqqfr5SLKznalEVk8jBuZFi0aNrbEB+7gNDalBGRaXvvu6Zi
-	8M5q5c0Q4ddHJt/L/R65RXJZb3t9c6g8urpGRkPOi6+ajyQhcSQBYRRBUEpC5I+ZNZ1qxwHF6JPja
-	vv45pb/C4EXwV56RarKD2aVwgfddGw0mXd6o/qbWHVuWrJDcnlQvvcgYmqtaaHXyXXz/zHQEdFWOO
-	NS9T+RkCUjjgU9FfQQe5deZ9syOemLgXeHPBpBBz31BG//NoCxgaDGLTwRIgax46e5R55nB24yli3
-	CtwXwFyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BWviZjjto1yMbr31/bRcxfE0EG6NBe9FcUa0M9S8NIQ=; b=N7VCWsKQ9rz873QSHeO1RPDD8x
+	6X4HuTZZNWsYAsYF2hFdwKZ0HNSbVJUFM76mCsa+2kTBGB1ylpf5Ev50b3YLqrG3TTZbdAwOD7wIO
+	qy1YrhxjKbR7yN0nelahLSWekTa8Wj5PxmQABp/x3gM6eMpqu/BY8Y1IpBfVvWFLkB2IaUzc+zzKn
+	vrpCte58j8/pUCg+9ZJ4kqBNLBNOzzaY5E08ZKIOyoL4qWyjbVAFI/bZbp1OOkLZnRPF25h7OyNuk
+	4Ip3/9hKIfQZR4V/Oy6rUHiOg4x8I5wO2BVgALkwx+z4CFq+GKAkvfvPqqf+gGVo+JWjUKEpmUAHY
+	VNoJ1xTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPWof-00000003K1z-2yoq;
-	Wed, 20 May 2026 02:37:50 +0000
-Received: from mail-francecentralazon11013009.outbound.protection.outlook.com ([40.107.162.9] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wPX6T-00000003La2-19Pg;
+	Wed, 20 May 2026 02:56:13 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPWod-00000003K0w-0iZQ
+	id 1wPX6P-00000003LYs-0ajg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 20 May 2026 02:37:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bKSAYhTiaGZZRSYB0LU3EiWHukbFKEmZbsHLD5/v4J3Qdj4sqMhB09QxOuYK5O/qp85uP3zH1kKxpNeoLWEhMFWaq3EXq9pkr4PjgH29LIaSJJn9SQcRUBCxX0ngNa8nIuaCQw7dg2SMuX/P4ZE/yJATJMuk4RkXCapQZ1+00uMbNUWWprByvJ6HTm75h6mNSkEA2cLY8bM3JlOq8lrsDkWYJr9X7LyFfi76Mct42Cm+M5lGGvW0xg+h24XqAFCAnadE9yBb212AeNiDaHYbekLc3YKd8Jhu/TrEPXtvubjwke7izfaMIg+LHZlI+CaK04kKk53hIkbB3TNVrLcuiw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lxGZg9Abr5+8t0n/zRL2XZxlKedkBGQ620RQVUURTxQ=;
- b=vMHvv5b3ivJBCiVcTVZEV+W4kW2r3SPmxKE5D7gP105uu6HyoIpoyzLVlli9TbzR9BATcu3RyTB1kku22qeouTFHA4JnoLskq0iMhBJDe+dU1z98BHHmVGsQX5VPT4fpLlsiQmr6XcLAoimWU7GExf5hbF02CqHZa+ANDLZLuWUuYyYtBhtkJue7byUyrq1eF/lQx/jBu3M74d1g3ich79GzQbSV7osR6BBZva64/YRZoY22bPiTh4+TOSQodY4gikhgWh6t+4Xp7Y/HdqeGEFNOXlB1XSczj1Po3uVLJMOHumRn5WSTxlOBEHhvLneHDSEqXblQ86N4WEnrRMeMFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lxGZg9Abr5+8t0n/zRL2XZxlKedkBGQ620RQVUURTxQ=;
- b=mWBfUzO6tIwcE+3grYsD0xCC/UEzo26QUgvdP9QV5U4vejKwXMvajhfIFR43+wzurtDJ3x3TmLGqeGrdomD1sP79L/qN+8crOxzN/nIGPuOYxV6GwGB2YIOU4hRmaza14cUHworwPSTUpNS8/5KniX8/3TmqmPeXaDbjLuSG5QGctgrnR0k5OQbzYV425vJ9qIOgdF6lQjpAvsbIL0rgzxUDRYRiE6T548GlFTANq5Yz6/73dA/CeMy/aKMI3En0FoDXj9NgFT38Trtvbhuzi9rRcKrR5hPIeUtewXCQzdzr8X+6PFXOnAU7oVXdcNu+gKYYNnSakGhdZPKLibeziQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by PA3PR04MB11179.eurprd04.prod.outlook.com (2603:10a6:102:4b2::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Wed, 20 May
- 2026 02:37:40 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9891.019; Wed, 20 May 2026
- 02:37:40 +0000
-Date: Wed, 20 May 2026 10:36:40 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: alice.guo@oss.nxp.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	Frank.Li@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] arm64: dts: imx94: fix DDR PMU interrupt number
-Message-ID: <cb4ow44rhze2o2d7pszxqf3awex25ud2ogien5fn4ag2e2whqv@dzemye6pgthy>
-References: <20260519105517.3638614-1-alice.guo@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260519105517.3638614-1-alice.guo@oss.nxp.com>
-X-ClientProxiedBy: AS4P192CA0020.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e1::6) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Wed, 20 May 2026 02:56:12 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=BWviZjjto1yMbr31/bRcxfE0EG6NBe9FcUa0M9S8NIQ=;
+	b=J5NIh9A8MN5cskdCn1evrZmIx8Lf9Tt5gNdTZZoRlA2govlmA45MNU8QNpEjtIcQSd9s8SVTl
+	pDOSy/blsBC06wlkc0rMlaVTEosk3cQJXX7NAEuZlknRuD0CvMnV2HLelemEMyOulgyLuf1mcL+
+	nqb7yB5xiv+hXh/dgVkERzA=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gKwvf1XgLzmV6b;
+	Wed, 20 May 2026 10:48:14 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 966E8402AB;
+	Wed, 20 May 2026 10:55:56 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 20 May
+ 2026 10:55:55 +0800
+Message-ID: <443104e2-ba6e-454e-8469-909f35817a99@huawei.com>
+Date: Wed, 20 May 2026 10:55:54 +0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|PA3PR04MB11179:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e590674-b9bf-4945-50c0-08deb618c329
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|1800799024|19092799006|18002099003|22082099003|56012099003|11063799006|38350700014;
-X-Microsoft-Antispam-Message-Info: hIabuoKyqH3UaNDl5pjBqlo76oPkDwS2gaXtHNZVTkymoEC7lb/dtsR+wcmvGKiD0vk14eQbvhnOwzRO6tqiB41AfR8qV2JcqKMmn0mjRKZyGt/LUgYYuyYulBj0lZ/BCODmNBkqtNY9QFAR05Ih8NRAt3uJ9wm55ozHxt0pGSe68WyFkNFvGBXAeguTlnUkpXTfXXqcqYCCLDmaSQogzYlqi4KpykMsrhWZzu2gxhZ6Z3pa/KdJ7G6B+PLVA9cmad7MCVkiRVbrQsZkNeYp8vL4UBjp98O7Te6LtU/qywyt2s0RRrhD/Ww4xk8kzgiOenxMEh772hfTdftrS4B0pQgSWS6PRn+dYYRJZfDDN3x/urW3eYnEdqrtkUSw2QwBApUDPIzeypHz7lsEANzgmj0V5+Bpw1zk59Sl2+hryAlm3oYRPh4E9ZS+qMACSUrS2+Ovy+gdiih3JbJoCZ6WzdTHYAJtAwpyV3oUeXK7bmRwH9Xa1dAEVn0g+EgdHQex1oq4vvQccX69MF0X1IzkcagSBiepKw0pqsgq1wxx4xPRASHTQG/olwcT8jE7H3kUU/fcgyg0ip98PeUSvZqQsTx/HWE0S6bdVE9oq4zVK8G1VC1xjyF7tx1Rji99SrxmShwl0xoEKhRMe5zO1D5hzca6OQqIVI3AVGJVFHaOm/MEMK7vxGl+wiNNYwbliZaY/i5y0TBFz94FhO0SlK1ppkZ0ogeZMa7Fg4OEmFuQ0LHOBHNLQaYN6o5y1l3x4Ru6
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(1800799024)(19092799006)(18002099003)(22082099003)(56012099003)(11063799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AnRuO3v/ipY0meNxqeNSm2wUf+iX03bjex/mxxcHMC65A/cA7TOor654+O5S?=
- =?us-ascii?Q?a/55F15muFgpGiOjicwkerZLZTJRVKjwpqWfG/eJIx9wvy5o5AuSTPBwWseP?=
- =?us-ascii?Q?wHxZqR4GO5yEU2NYAdoyDGj/eBiFCB3p/9ir8wZDNANVZXBlyIMHTAw3LBxi?=
- =?us-ascii?Q?lk5BuQKZ5LUDfkZH/IFWvl1C+TR+/5aKuhEUxYFSocix6UucoL7thiQr7/pp?=
- =?us-ascii?Q?NssKOBWAElawTIwn47VPcTC/kkYT5xnpPnnOMUNc8B9vq8Us8MGZtgkosrPX?=
- =?us-ascii?Q?OvSf0Uei3e1Ndji++VwvP6JKrSFz3K336FFnwXkzMoKzGmBqsJte2TJD5KfD?=
- =?us-ascii?Q?ruFQSHghe6K+hGB9OnbHoC+hnNTdM3ecvHC/D6IbxTXdcBrrDwLpeC4ambBo?=
- =?us-ascii?Q?nhyPJyAcOBWppa4b7hUhRV6drVCeikJJsL0uH+Kx6tNT21C2JSjaw6YKdol1?=
- =?us-ascii?Q?dZ0CXwyDzqMiAX1wNWgZABog7BxGAk2b8sB2h887isvV50g+mjwNwUx/HfZR?=
- =?us-ascii?Q?U4eCBpA/+qLsMCv8h7jeLKiXDe+8Nushkk+9beGGRQKT3T2ZFG6FIrZzhvu3?=
- =?us-ascii?Q?kJMTe6tYER6ocMAY7G+GVQSjVR/qWfSaBeB3mmlOeon3LP9Pb3prueguMzDX?=
- =?us-ascii?Q?OgkBQh66kbwxd/L6ZFx8IylQiJw8sjAZtPEBqsXHrsD0fFnH800kbkyDVgBV?=
- =?us-ascii?Q?sPuWdtGXSZ0md6oYAbIz5bY5Iz0LCheLDLIefGAreD+sNA9XPS1PYx5nSO+G?=
- =?us-ascii?Q?appYOlGvnd6RkS1L7gNhVaJYjCLXXwKK8g+gevhdQ3cVPKVu+4/irTV1HZDG?=
- =?us-ascii?Q?gRihTVlufZJffEOmHJD3R/3hEi89uzfOIZcUyyAR+PlBnXhWBAISzh/cTZpt?=
- =?us-ascii?Q?1WN1OkNF7xcVucorDIRSWt3gxQH8yExKR7HlDw8uO0xmt6LFNcy+VchWO6/8?=
- =?us-ascii?Q?e30mxZDIO//LlZ0DeSxemkGW9bapRe7Bdbs4cbJa1F97mPWfGfMClqAzM4vM?=
- =?us-ascii?Q?yW3VitupS1kL9c2HX98uw8IQysNrbUraLywbSB1bkVUfna0Yc05ciSdaXLVt?=
- =?us-ascii?Q?i6iH7YSIh9Mq+sy/1ifNuU9MhLgXeMCr3+fMhVU7/HBz+lynASdHCZCs/YMr?=
- =?us-ascii?Q?b18ffdLSefaPbm2n2/ocxF4uOjp4SjKPlmC7zULI+GOdKIud8xmaVO84ZO7j?=
- =?us-ascii?Q?UEF9Ul7gPqjSXxhrW/3MoenA4hZenILeDJp3DUs54NSCCmFySe1Lk28EiB3h?=
- =?us-ascii?Q?Ls2gkmJyp7jyZLJveJenalV29fOQxN2eGF1llWcsNs2yRGcLI32lkxs3chDn?=
- =?us-ascii?Q?eq5B5z2FxUUPHyrS9JfLyF1qk1kK8nxWwWMjHl9ioJhxK8OOQzELjuU/cHEJ?=
- =?us-ascii?Q?n6WvuGOLJ4+Jawi/ah+0b1y5nJSiXTwm1BMfbQvBfu651jQJOiLR+SGec06f?=
- =?us-ascii?Q?qlwAEoHVuRZHaqC5897I5O+VL8gFFsCVm6OL0CR/LnDWVraOIw8BwIfh29yw?=
- =?us-ascii?Q?8kTTgiFZ6Erw1Qwq8DT5o4JsmMmr5mo8liEdSNz+o8eTZyuo4irMj/0iuLZ/?=
- =?us-ascii?Q?xxqjOfvW2i03OYbwIdT6drtZHc1Sunw4lzudNtB8Saft3hitvK/Ookk4hM7V?=
- =?us-ascii?Q?kGzpdaf/b0n/e0/+1VbJT1W8dL/8j5Q0ecOW+5TgNGhty5qgqQl56VZ2SBvP?=
- =?us-ascii?Q?qiWzFyOVlEowq1AcsfzubazZRxtNQD9Xc3fRvlAXlAbzpT1SIZKK7k0o0ZCS?=
- =?us-ascii?Q?UsAHuEmh5A=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e590674-b9bf-4945-50c0-08deb618c329
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 May 2026 02:37:40.5670
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VAn0c3n/FVZ8ao4S/d3LxSA+Qjd+UDMsGVGTiUQwFUsFVzlDbqlclvWxzM0mR+Uo6azjNc54aWlQ+3DlCve/mw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11179
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] CPPC: reduce FFH feedback-counter sampling skew on
+ arm64
+To: Will Deacon <will@kernel.org>
+CC: <catalin.marinas@arm.com>, <rafael@kernel.org>, <lenb@kernel.org>,
+	<robert.moore@intel.com>, <beata.michalska@arm.com>,
+	<zhenglifeng1@huawei.com>, <zhanjie9@hisilicon.com>, <sumitg@nvidia.com>,
+	<cuiyunhui@bytedance.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<acpica-devel@lists.linux.dev>, <linuxarm@huawei.com>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<wanghuiqiang@huawei.com>, <xuwei5@huawei.com>, <lihuisong@huawei.com>,
+	<yubowen8@huawei.com>, <wangzhi12@huawei.com>, <ionela.voinescu@arm.com>,
+	<jeremy.linton@arm.com>
+References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
+ <aa1284c1-ea26-48ca-a7d7-022027c8228a@huawei.com>
+ <agw_1IYaY4zeobZE@willie-the-truck>
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+In-Reply-To: <agw_1IYaY4zeobZE@willie-the-truck>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260519_193747_222218_BCD2CB38 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20260519_195610_071181_2175F6F4 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,39 +88,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 06:55:15PM +0800, alice.guo@oss.nxp.com wrote:
-> From: Alice Guo <alice.guo@nxp.com>
-> 
-> The DDR Performance Monitor node was added with incorrect interrupt
-> number 91, which actually belongs to the wdog4 watchdog. Fix it to the
-> correct interrupt number 374.
-> 
-> Fixes: e918e5f847b3 ("arm64: dts: imx94: add DDR Perf Monitor node")
-> 
-> Signed-off-by: Alice Guo <alice.guo@nxp.com>
 
-Thanks for the fixes!
+On 5/19/2026 6:47 PM, Will Deacon wrote:
+> On Thu, Apr 30, 2026 at 06:00:44PM +0800, zhangpengjie (A) wrote:
+>> Hi all,
+>>
+>> Gentle ping on this thread. It has been a while since I posted it.
+>>
+>> Could someone please take a look when you have time? If there is anything
+>> I should revise or any additional information needed, I'd be happy to
+>> update it.
+> It's hard to find active folks who have contributed meaningfully to the
+> cppc_acpi driver... I've added Ionella and Jeremy, in case they can take
+> a look.
+>
+> Will
+Thanks Will, and thanks for adding Ionela and Jeremy.
 
-Reviewed-by: Xu Yang <xu.yang_2@nxp.com>
+While waiting for further comments, I would like to add some
+test data to make the effect of this series clearer.
 
-> ---
->  arch/arm64/boot/dts/freescale/imx94.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx94.dtsi b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> index c460ece6070f..379429b3072a 100644
-> --- a/arch/arm64/boot/dts/freescale/imx94.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx94.dtsi
-> @@ -1481,7 +1481,7 @@ netc_emdio: mdio@18,0 {
->  		ddr-pmu@4e090dc0 {
->  			compatible = "fsl,imx94-ddr-pmu", "fsl,imx93-ddr-pmu";
->  			reg = <0x0 0x4e090dc0 0x0 0x200>;
-> -			interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupts = <GIC_SPI 374 IRQ_TYPE_LEVEL_HIGH>;
->  		};
->  	};
->  };
-> -- 
-> 2.34.1
-> 
+On the test platform, the maximum frequency reported by the platform
+is 2300000. I sampled cpuinfo_cur_freq before and after applying this 
+series.
+
+Before applying the series, the samples showed visible transient outliers.
+  The minimum value was 2154583 and the maximum value was 2491071.
+There were 8 samples above 2400000 and 8 samples below 2200000.
+The largest value exceeded the platform maximum by about 8.3%.
+
+After applying the series, the samples became much more stable.
+The minimum value was 2290243 and the maximum value was 2306310.
+There were no samples above 2400000 and no samples below 2200000.
+The largest value exceeded the platform maximum by only about 0.27%.
+
+A summary of the 96 samples is:
+
+                     before          after
+min              2154583         2290243
+max              2491071         2306310
+range             336488           16067
+average          2298436.4       2298479.4
+stddev             55184.1          2868.2
+samples > 2300000  26 / 96         16 / 96
+samples > 2400000   8 / 96          0 / 96
+samples < 2200000   8 / 96          0 / 96
+
+So this series does not try to clamp the value to the platform maximum.
+  Instead, it reduces the sampling skew between the delivered and reference
+feedback counters. The remaining small deviation around 2300000 is
+  much smaller than the previous transient spikes.
+
+One concern that may come up is that an FFH read may cause an idle
+target CPU to be woken, depending on the platform/vendor implementation.
+However, that behavior is not introduced by this series. It is already part
+of how FFH counter reads are implemented on such platforms. This series
+only changes the sampling form for the FFH feedback counters: when both
+delivered and reference counters are FFH counters, read them together
+instead of issuing two separate FFH reads.
+
+If the target CPU has to be involved for an FFH read, doing one paired
+read should be no worse than doing two separate reads, and it also
+narrows the sampling window between the two counters.
+
+If there is any concern about the generic hook or the arm64 implementation,
+I would be happy to revise it.
+
+The raw data is as follows:
+before:
+2303809 2294827 2300000 2293643 2290740 2300000 2297228 2296082
+2301707 2295354 2296601 2303163 2296766 2296543 2295412 2298394
+2297387 2300000 2308274 2301882 2297752 2418568 2491071 2300000
+2183264 2296238 2434731 2296721 2439777 2302159 2301773 2298226
+2300000 2305936 2301133 2297511 2300000 2300000 2294408 2298494
+2295011 2302721 2295955 2301505 2298064 2297419 2298933 2189595
+2298058 2296046 2300000 2301449 2414908 2296559 2305251 2166666
+2296626 2173303 2300000 2298806 2411389 2301822 2297291 2300000
+2423831 2297902 2300000 2435730 2302433 2295353 2298898 2296043
+2321868 2294907 2300000 2157841 2296052 2206530 2300000 2297811
+2297920 2294382 2297767 2157230 2302564 2298504 2296822 2300000
+2296868 2294866 2154583 2290888 2302542 2292549 2300000 2184259
+
+after:
+2303738 2296153 2298087 2295607 2301373 2298076 2300000 2295081
+2297788 2300000 2300000 2295238 2301449 2300000 2298488 2297911
+2301477 2298507 2294976 2296852 2293689 2294077 2293887 2292619
+2300000 2300000 2298072 2300000 2291943 2300000 2295370 2300000
+2301873 2304645 2300000 2296766 2300000 2300000 2290243 2297954
+2297183 2306310 2300000 2296889 2300000 2303800 2301970 2296888
+2300000 2301354 2300000 2298405 2298202 2296767 2298663 2302522
+2297821 2302471 2300000 2303233 2298226 2298698 2300000 2297291
+2296470 2300000 2298398 2300000 2295681 2300000 2300000 2296344
+2300000 2296008 2302375 2297977 2298447 2296519 2295565 2294866
+2297945 2300000 2294978 2303595 2300000 2300000 2294930 2301096
+2296271 2296086 2294482 2300000 2294843 2300000 2296803 2295708
+>> On 4/10/2026 5:41 PM, Pengjie Zhang wrote:
+>>> The legacy CPPC feedback-counter path reads the delivered and reference
+>>> performance counters separately.
+>>>
+>>> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
+>>> served through a cross-CPU counter read helper. Reading the counters
+>>> separately therefore widens the sampling window between them and can
+>>> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
+>>> load, the skew is observable as transient values that may exceed the
+>>> platform maximum, as discussed in [1] and [2].
+>>>
+>>> This series adds a small generic hook for architectures that can obtain
+>>> both FFH feedback counters in one operation, while preserving the
+>>> existing per-register read path as the fallback.
+>>>
+>>> Patch 1 adds the generic CPPC hook and uses it from cppc_get_perf_ctrs().
+>>> Patch 2 implements the hook on arm64 by sampling both AMU counters in a
+>>> single operation on the target CPU.
+>>>
+>>> [1] https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
+>>> [2] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
+>>>
+>>> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+>>>
+>>> Pengjie Zhang (2):
+>>>     ACPI: CPPC: add paired FFH feedback-counter read hook
+>>>     arm64: topology: read CPPC FFH feedback counters in one operation
+>>>
+>>>    arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
+>>>    drivers/acpi/cppc_acpi.c     | 58 +++++++++++++++++++++++++---
+>>>    include/acpi/cppc_acpi.h     |  7 ++++
+>>>    3 files changed, 127 insertions(+), 13 deletions(-)
+>>>
 
