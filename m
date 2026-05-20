@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90D7CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C2DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 21:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoQFWNK7oWAD/wrjDNQs2N+Z55W1ZBNqkdyVcG17n+A=; b=y3veKCQXL8vdrgRZioJbHLIh9Z
-	FkirKocGwzRZq022yhQTAfQVt0KQAKepRXq6HWTB63YYCjnynXtTWU1Sj3QqOXIx9OtKR5NPDphZo
-	taUiuGmvm0Z247W1dqzMp6gaeWOmCwsD+NmPJ8mo4N4E+AYzPaus7cKEE90q7kEvvJT1Uu3SGwtmV
-	AC0ldCDAtc6fe/QcJwBku3WhNCcCjm4XPAIXrhRlGQ48f7y5aOL47nr1dkAPCgi35nEl+VK3X+GyM
-	D2gnE68Osu7Cdj3w592eo21+XijJQYWFKbw2sQnv08IVQyrRKwbggFe8XKx9HFzqbF+SwBBYNp8P3
-	Irlgoicg==;
+	bh=eHdxFNcsjqrLxhg7kDKxHfscWotSQgcos0JLeOgQc20=; b=Hw41/jvg4qzuSUhTVZyoTQ2QZY
+	s/uP7mifZ2OF5q5qwOsTCfLEvxpNWEkLIczcZnQ04iScgpI2Ask7+2nU3csgKB8VH4DeRdfHQXQ7d
+	y9cWCDbagIoGvZ7VSOYGtXskzZfrylvJLe9G6CVxxZDp5bIo9dX8GGxmq2hUY3aInZF5CZ/rkSmVw
+	PQa7BVAyuHBYnriMQNwT6rdvIzHyoO++nJArge4C1yBy8uvZVLslpmoHvvYqgOi/5TldvAr1/ywHo
+	sX4LGB4/cI8fNprb7ztR2ayJyDbRpOPJ3CuEt9rEHqQuJCrab46ldHQPpIYgNK3F3H3GA4OZAZvTU
+	skLYfaQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPo6D-00000005nJt-22kI;
-	Wed, 20 May 2026 21:05:05 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wPoAx-00000005npE-0Byn;
+	Wed, 20 May 2026 21:09:59 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPo6C-00000005nJX-03xm;
-	Wed, 20 May 2026 21:05:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NoQFWNK7oWAD/wrjDNQs2N+Z55W1ZBNqkdyVcG17n+A=; b=bR9HCAGSj3BuTqMtUE+DLlE2/V
-	hbqFNHpAblQKp5tyrESGJToQyAt4gGSYt43sRu6JEbVNZTj0qvFZxTyoBxJ1wp0kQ5ZcRxN1nm3Rb
-	gh32K03vbE/E7J0yrggnNOynCTcgltl9vPaiaVZXlPQBWE/JQgInR1dXcExZ8Iz6LVbgTlq8x52mX
-	WL8vfh2Lyfw2a/Tpq2i/SXxctbJ1CzS4YgLicbHSvLU347BFYhk2464cXsmbdNSDNV+5du23ojl3E
-	wPSEPslSUR5LG+Oc0B2L/jDVGsi3Or0fTJoXFl2vl9TX0JbwU5Szrew428V10FYaIsgWdHpxL5RaA
-	8tHIsB1A==;
-Received: from willy by casper.infradead.org with local (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPo5z-00000007aEX-3LBW;
-	Wed, 20 May 2026 21:04:51 +0000
-Date: Wed, 20 May 2026 22:04:51 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Barry Song <baohua@kernel.org>
-Cc: "Liam R. Howlett" <liam@infradead.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Lorenzo Stoakes <ljs@kernel.org>, akpm@linux-foundation.org,
-	linux-mm@kvack.org, david@kernel.org, vbabka@kernel.org,
-	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de,
-	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com,
-	kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org,
-	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com,
-	bhe@redhat.com, youngjun.park@lge.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	Nanzhe Zhao <nzzhao@126.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-Message-ID: <ag4h87CBd-gph9zX@casper.infradead.org>
-References: <afS_L-5XeWIldTXA@casper.infradead.org>
- <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
- <afTpoL3FklpQZNMM@casper.infradead.org>
- <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
- <agrWuDNGddNmvMFD@lucifer>
- <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
- <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
- <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
- <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
- <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+	id 1wPoAu-00000005noc-3Juj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 20 May 2026 21:09:58 +0000
+Received: from killaraus.ideasonboard.com (unknown [IPv6:2a01:cb1d:8f2:800:42d6:38fa:3bdf:70df])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3989C42B;
+	Wed, 20 May 2026 23:09:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1779311379;
+	bh=M/vwP21jcgLC8DurVFWWxnYEAEIbfadUhNFk/hn/kaM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nc2UvtP58PfVDhFDxdslsowp2jOdItNhfBHHluVARF+YBl/+Q2w+XjIg3AcIkUGT7
+	 ZRxO6R+ja0T9tj/xH7hQWOawoJs2ziCVZJCXmbTEQrbngaxcO3L9TLXYXIZwO8Mibe
+	 iLWtT67DLIwsqfAubAiVLGAi8nTlAli/LtttYiOQ=
+Date: Wed, 20 May 2026 23:09:52 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v4 1/2] media: nxp: imx8-isi: Add virtual channel support
+Message-ID: <20260520210952.GB9017@killaraus.ideasonboard.com>
+References: <20260508-isi_vc-v4-0-feee39c63939@oss.nxp.com>
+ <20260508-isi_vc-v4-1-feee39c63939@oss.nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+In-Reply-To: <20260508-isi_vc-v4-1-feee39c63939@oss.nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_140956_983282_5621EE7B 
+X-CRM114-Status: GOOD (  40.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,33 +72,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 06:01:56AM +0800, Barry Song wrote:
-> > implied is that the per-vma locking may stall mmap_lock writes for
-> > longer than if the mmap_lock was taken in read mode?  Barry, is that
-> > correct?
-> 
-> Not the case — the actual situation is (if we modify the
-> current kernel to perform I/O without releasing VMA read locks):
-> 
-> thread 1 PF: lock vma1 read ----  IO ----- ;
-> thread 2 PF: lock vma2 read ----- IO ----- ;
-> thread 3 PF:  lock vma3 read ---- IO ----- ;
-> thread 4 fork:  mmap_lock_write ---- lock vma1, vma2, vma3 write ;
-> thread 5 :  take mmap_lock for any read/write reason
-> 
-> Now you can see that thread 4 has to wait for the I/O of
-> VMA1, VMA2, and VMA3 to complete, and thread 5 then has to
-> wait for thread 4 to release mmap_lock. Both thread 4 and
-> thread 5 can become extremely slow, because I/O may be stuck
-> anywhere in the bio/request queue or filesystem GC.
-> 
-> So now we have two choices:
-> 
-> 1. Change fork() to avoid taking the vma write lock for vma1/2/3 where possible;
-> 2. Keep the current kernel behavior and drop the VMA lock before I/O:
+Hello Guoniu,
 
-Option 3: Say that this is a very silly thing to optimise for.  I have a
-hard time believing that any application will care about the latency of
-fork(), or the latency of page faults while it's in the middle of fork().
-Multithreaded applications just don't fork that often!
+Thank you for the patch.
+
+On Fri, May 08, 2026 at 11:05:40AM +0800, Guoniu Zhou wrote:
+> From: Guoniu Zhou <guoniu.zhou@nxp.com>
+> 
+> The ISI supports different numbers of virtual channels depending on the
+> platform. i.MX95 supports 8 virtual channels, and i.MX8QXP/QM support 4
+> virtual channels. They are used in multiple camera use cases, such as
+> surround view. Other platforms (such as i.MX8/MN/MP/ULP/91/93) don't
+> support virtual channels, and the VC_ID bits are marked as read-only.
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+> Changes in v4:
+> - Fix VC boundary check: use num_vc (virtual channels count) instead of
+>   num_channels (ISI pipelines count)
+> - Set VC to 0 when frame descriptor has no entries
+> - Move platform-specific comments to block style to fix line length warnings
+> 
+> Changes in v3:
+> - Add num_vc field to platform data to indicate VC support
+> - Clear VC_ID_1 bit after reading CHNL_CTRL for proper VC switching
+> - Set VC_ID_1 only on platforms with num_vc > 4
+> - Improve mxc_isi_get_vc() error handling
+> - Add back CHNL_CTRL_BLANK_PXL and document platform-specific register fields
+> ---
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  3 ++
+>  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  4 ++
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  | 14 ++++-
+>  .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 59 ++++++++++++++++++++++
+>  .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    | 12 +++--
+>  5 files changed, 88 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> index 4bf8570e1b9e..837ac7046cf2 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> @@ -318,6 +318,7 @@ static const struct mxc_isi_plat_data mxc_imx95_data = {
+>  	.model			= MXC_ISI_IMX95,
+>  	.num_ports		= 4,
+>  	.num_channels		= 8,
+> +	.num_vc			= 8,
+>  	.reg_offset		= 0x10000,
+>  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+>  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> @@ -329,6 +330,7 @@ static const struct mxc_isi_plat_data mxc_imx8qm_data = {
+>  	.model			= MXC_ISI_IMX8QM,
+>  	.num_ports		= 5,
+>  	.num_channels		= 8,
+> +	.num_vc			= 4,
+>  	.reg_offset		= 0x10000,
+>  	.ier_reg		= &mxc_imx8_isi_ier_qm,
+>  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> @@ -340,6 +342,7 @@ static const struct mxc_isi_plat_data mxc_imx8qxp_data = {
+>  	.model			= MXC_ISI_IMX8QXP,
+>  	.num_ports		= 5,
+>  	.num_channels		= 6,
+> +	.num_vc			= 4,
+>  	.reg_offset		= 0x10000,
+>  	.ier_reg		= &mxc_imx8_isi_ier_v2,
+>  	.set_thd		= &mxc_imx8_isi_thd_v1,
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> index 14d63ec36416..195c28dbd151 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> @@ -169,6 +169,7 @@ struct mxc_isi_plat_data {
+>  	enum model model;
+>  	unsigned int num_ports;
+>  	unsigned int num_channels;
+> +	unsigned int num_vc;		/* Number of VCs, 0 = no VC support */
+>  	unsigned int reg_offset;
+>  	const struct mxc_isi_ier_reg  *ier_reg;
+>  	const struct mxc_isi_set_thd *set_thd;
+> @@ -257,6 +258,9 @@ struct mxc_isi_pipe {
+>  	u8				acquired_res;
+>  	u8				chained_res;
+>  	bool				chained;
+> +
+> +	/* Virtual channel ID for the ISI channel */
+> +	u8				vc;
+
+I try not to store such values in global structures, when the purpose is
+to pass them between functions in a direct call stack. You can instead
+return the vc value from mxc_isi_get_vc(), pass it to
+mxc_isi_channel_config() and from there to
+mxc_isi_channel_set_control().
+
+>  };
+>  
+>  struct mxc_isi_m2m {
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> index 0187d4ab97e8..ecd0c2ef28b6 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c
+> @@ -308,6 +308,11 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+>  	mutex_lock(&pipe->lock);
+>  
+>  	val = mxc_isi_read(pipe, CHNL_CTRL);
+> +
+> +	/* Clear the VC_ID_1 bit on platforms supporting more than 4 VCs. */
+> +	if (pipe->isi->pdata->num_vc > 4)
+> +		val &= ~CHNL_CTRL_VC_ID_1_MASK;
+> +
+
+Please move this just after the next statement, we usually start with
+generic statements followed by conditional ones.
+
+>  	val &= ~(CHNL_CTRL_CHNL_BYPASS | CHNL_CTRL_CHAIN_BUF_MASK |
+>  		 CHNL_CTRL_SRC_TYPE_MASK | CHNL_CTRL_MIPI_VC_ID_MASK |
+>  		 CHNL_CTRL_SRC_INPUT_MASK);
+> @@ -338,7 +343,14 @@ static void mxc_isi_channel_set_control(struct mxc_isi_pipe *pipe,
+>  	} else {
+>  		val |= CHNL_CTRL_SRC_TYPE(CHNL_CTRL_SRC_TYPE_DEVICE);
+>  		val |= CHNL_CTRL_SRC_INPUT(input);
+> -		val |= CHNL_CTRL_MIPI_VC_ID(0); /* FIXME: For CSI-2 only */
+> +		val |= CHNL_CTRL_MIPI_VC_ID(pipe->vc); /* FIXME: For CSI-2 only */
+> +
+> +		/*
+> +		 * On platforms with more than 4 VCs (i.MX95), the VC ID is
+> +		 * split across VC_ID_0 (bits 7:6) and VC_ID_1 (bit 16).
+> +		 */
+> +		if (pipe->isi->pdata->num_vc > 4)
+> +			val |= CHNL_CTRL_VC_ID_1(pipe->vc >> 2);
+>  	}
+>  
+>  	mxc_isi_write(pipe, CHNL_CTRL, val);
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> index a41c51dd9ce0..e6da254a9ef0 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-pipe.c
+> @@ -232,6 +232,61 @@ static inline struct mxc_isi_pipe *to_isi_pipe(struct v4l2_subdev *sd)
+>  	return container_of(sd, struct mxc_isi_pipe, sd);
+>  }
+>  
+> +static int mxc_isi_get_vc(struct mxc_isi_pipe *pipe)
+> +{
+> +	struct mxc_isi_crossbar *xbar = &pipe->isi->crossbar;
+> +	struct device *dev = pipe->isi->dev;
+> +	struct v4l2_mbus_frame_desc fd = { };
+> +	unsigned int source_pad = xbar->num_sinks + pipe->id;
+> +	unsigned int max_vc;
+> +	unsigned int i;
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_call(&xbar->sd, pad, get_frame_desc,
+> +			       source_pad, &fd);
+> +	if (ret == -ENOIOCTLCMD) {
+
+Is this needed ? If we swap patches 1/2 and 2/2, the get_frame_desc
+operation should always be available on the source. 
+
+> +		/*
+> +		 * If remote subdev doesn't implement get_frame_desc.
+> +		 * Assume virtual channel 0.
+> +		 */
+> +		pipe->vc = 0;
+> +		return 0;
+> +	}
+> +	if (ret < 0) {
+> +		dev_err(dev, "Failed to get source frame desc from pad %u\n",
+> +			source_pad);
+> +		return ret;
+> +	}
+> +
+> +	if (!fd.num_entries) {
+> +		pipe->vc = 0;
+> +		return 0;
+> +	}
+
+Similarly, can this happen ?
+
+> +
+> +	/* Find stream 0 in the frame descriptor */
+> +	for (i = 0; i < fd.num_entries; i++) {
+> +		if (fd.entry[i].stream == 0)
+> +			break;
+> +	}
+> +
+> +	if (i == fd.num_entries) {
+> +		dev_err(dev, "Failed to find stream from source frame desc\n");
+> +		return -EINVAL;
+
+I think -EPIPE would be more appropriate, this indicates the pipeline
+isn't correctly configured.
+
+> +	}
+> +
+> +	max_vc = pipe->isi->pdata->num_vc ? : 1;
+> +
+> +	/* Check virtual channel range */
+> +	if (fd.entry[i].bus.csi2.vc >= max_vc) {
+> +		dev_err(dev, "Virtual channel %u exceeds maximum %u\n",
+> +			fd.entry[i].bus.csi2.vc, max_vc - 1);
+> +		return -EINVAL;
+
+Same here.
+
+> +	}
+> +
+> +	pipe->vc = fd.entry[i].bus.csi2.vc;
+> +	return 0;
+> +}
+> +
+>  int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
+>  {
+>  	struct mxc_isi_crossbar *xbar = &pipe->isi->crossbar;
+> @@ -280,6 +335,10 @@ int mxc_isi_pipe_enable(struct mxc_isi_pipe *pipe)
+>  
+>  	v4l2_subdev_unlock_state(state);
+>  
+> +	ret = mxc_isi_get_vc(pipe);
+> +	if (ret)
+> +		return ret;
+> +
+>  	/* Configure the ISI channel. */
+>  	mxc_isi_channel_config(pipe, input, &in_size, &scale, &crop,
+>  			       sink_info->encoding, src_info->encoding);
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> index 1b65eccdf0da..e795f4daf3ff 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h
+> @@ -6,6 +6,7 @@
+>  #ifndef __IMX8_ISI_REGS_H__
+>  #define __IMX8_ISI_REGS_H__
+>  
+> +#include <linux/bitfield.h>
+>  #include <linux/bits.h>
+>  
+>  /* ISI Registers Define  */
+> @@ -19,9 +20,14 @@
+>  #define CHNL_CTRL_CHAIN_BUF_NO_CHAIN				0
+>  #define CHNL_CTRL_CHAIN_BUF_2_CHAIN				1
+>  #define CHNL_CTRL_SW_RST					BIT(24)
+> -#define CHNL_CTRL_BLANK_PXL(n)					((n) << 16)
+> -#define CHNL_CTRL_BLANK_PXL_MASK				GENMASK(23, 16)
+> -#define CHNL_CTRL_MIPI_VC_ID(n)					((n) << 6)
+> +/*
+> + * CHNL_CTRL_BLANK_PXL: i.MX8{QM,QXP} only
+> + * CHNL_CTRL_VC_ID_1, CHNL_CTRL_VC_ID_1_MASK: i.MX95 only
+> + */
+> +#define CHNL_CTRL_BLANK_PXL(n)					FIELD_PREP(GENMASK(23, 16), (n))
+> +#define CHNL_CTRL_VC_ID_1(n)					FIELD_PREP(BIT(16), (n))
+> +#define CHNL_CTRL_VC_ID_1_MASK					BIT(16)
+> +#define CHNL_CTRL_MIPI_VC_ID(n)					FIELD_PREP(GENMASK(7, 6), (n))
+>  #define CHNL_CTRL_MIPI_VC_ID_MASK				GENMASK(7, 6)
+>  #define CHNL_CTRL_SRC_TYPE(n)					((n) << 4)
+>  #define CHNL_CTRL_SRC_TYPE_MASK					BIT(4)
+
+-- 
+Regards,
+
+Laurent Pinchart
 
