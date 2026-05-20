@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93A4CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 10:02:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 620E5CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 20 May 2026 10:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tB774sdEjGOsUuihk5n6/aTLO5S2y/yue2pNnYlb8Vw=; b=0cw3PTDzRg4h8PJAISGTldvv42
-	KSHM4K4DoSdfJqpSj9oPmrP3hToWHf0GIKNU2ZIXOWYHoecVRbVSJftj7FEU78wV3VlFFUjmUn+ci
-	XzMOx4GdaF7lWCVJ3fgSzn1h6T3vjnmzLHB9DocI7VbCC2JY18rmYIS+kE//yc3B4PlupraVLCHhn
-	Pmm/vGOd7qK1c+G/wj2APGbJbBQzc2wdqRbjvIuUm1x6aJs0+0jgCGwzOdtmHroD1RH9Qv3XWdGtk
-	q9Be+Tcwht0ab01hzIM7YkoO3mn66VC7rY604uzO9mchYAjHZ1gS9eDooz4CFKxjAT9aqxtU4Z9Bv
-	XkxJcSMQ==;
+	bh=7qDdgNw3wr59AMPU8l8T1ufu00uEQQhbsgv+u5LQwMk=; b=GMzlYQPwYRNpOhk25p2XBmrsv0
+	gUxXCrzn/P5ultG9AuY9Nak8cN5kBg68lUnQkIyElhaaw9SZQcVIrr4Y6zlmRzP+tVpFqNGF/HgMe
+	gGI+XgEb0O3lK67nXlFgqiVPo3EzjkKl4lgBncypslb5jEM3NEefb1tE+5RyZA82yNn4uZm/JdtSC
+	b7EB3mOFGSterJtwEZ8nF28rQqMWNzHXjYV/9AHesGLrBvoMptJszyDZNBtrS1MmjbXhP/nODiosm
+	ba3cf3AMo5Jg9UFETjehj0hR7P3PUTdhuNJAnDwp2Udwjxv4Zt8ELxwfy+UyThDzXsScnIMFiggrK
+	k8J8LuJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPdkg-00000004GOr-3dJ9;
-	Wed, 20 May 2026 10:02:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPdkv-00000004GVv-0TNd;
+	Wed, 20 May 2026 10:02:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPdkf-00000004GNe-0imu
+	id 1wPdke-00000004GMt-2OPZ
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 20 May 2026 10:02:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8EC3060145;
+	by sea.source.kernel.org (Postfix) with ESMTP id 25035442F1;
 	Wed, 20 May 2026 10:02:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46DDA1F00896;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B8BD1F00898;
 	Wed, 20 May 2026 10:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1779271328;
-	bh=tB774sdEjGOsUuihk5n6/aTLO5S2y/yue2pNnYlb8Vw=;
+	bh=7qDdgNw3wr59AMPU8l8T1ufu00uEQQhbsgv+u5LQwMk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Yr8IV7BIV0VSWdKaAC9t7xpdAB1Ht5L6qejJHwV+Pth6oVq0xpa+7QFREyHNT35Pa
-	 wLnEulZtONP1oKmxv7QOfuorXajsnVzxOF8YESO52M0PUm/5KpHM4SEc9VT0ChcdVs
-	 FoEy/eUahOD1YWP2iybcQqQtNGD+Azjc+BkCyWZpgzl7OPxBHtAg5UgNbgnhtVrkIr
-	 PoB/f/VnhBFK8hkgirdUymxBWEqKw16nxsejAPCKj9dLIuF/a5LsWSEiBlTm58hz9y
-	 tN2+A1NvZTlBB8wH4GovDcFsMWFcaESFoWP4wY5uDedTZDh1Zehe0Nh8/nYG3KzMti
-	 FdWERqpA26tNA==
+	b=hDdglb5FMkREUIUuC5ulzHP5LkovcZ0CMp2WDgvGOBEw7S1OB/TZ53E3dyT2BN6sz
+	 1XXeweotQbOtJiwgFeAKrcTvZZzlmq7ywk5TDISLtdYIZfL82gmJ0RhcsVP1l7v0zA
+	 GmqgtknJXbULTJdueyevhqwlUiGkvWtZ6cEY69NHDCyBCmumm7+GFCH1UF3Hx9mX+5
+	 /+ANckf3ZfV8l5ufpKt7KR629iwpHPxmvJQ4BSx9Zjf6uovRX41R986OrNoxymjinI
+	 8JkGuQlaZaoa1JK0KZaz4iWCIq7NqvCLId82wgp6Zuj8gUZRA4i3+OlElrpRKaq/PP
+	 U3XZPnuhYnz+Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPdkc-00000004Jio-212F;
+	id 1wPdkc-00000004Jio-15Vo;
 	Wed, 20 May 2026 10:02:06 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -57,9 +57,9 @@ Cc: Deepanshu Kartikey <kartikey406@gmail.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v3 5/6] KVM: arm64: vgic-v2: Force vgic init on injection outside the run loop
-Date: Wed, 20 May 2026 11:01:59 +0100
-Message-ID: <20260520100200.543845-6-maz@kernel.org>
+Subject: [PATCH v3 4/6] KVM: arm64: pmu: Kill the PMU interrupt level cache
+Date: Wed, 20 May 2026 11:01:58 +0100
+Message-ID: <20260520100200.543845-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260520100200.543845-1-maz@kernel.org>
 References: <20260520100200.543845-1-maz@kernel.org>
@@ -69,6 +69,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kartikey406@gmail.com, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260520_030208_635998_0FEE25AE 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,81 +86,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sure that any attempt to inject an interrupt from userspace
-or an irqfd results in the GICv2 lazy init to take place.
-
-This is not currently necessary as the init is also performed on
-*any* interrupt injection. But as we're about to remove that,
-let's introduce it here.
+Just like the timer, the PMU has an interrupt cache that serves little
+purpose. Drop it.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arm.c             | 15 +++++++++++++--
- arch/arm64/kvm/vgic/vgic-irqfd.c |  6 ++++++
- 2 files changed, 19 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/pmu-emul.c | 13 +++----------
+ include/kvm/arm_pmu.h     |  1 -
+ 2 files changed, 3 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 6e6dc17f8b606..cfb7921fc7d75 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -51,6 +51,7 @@
- 
- #include <linux/irqchip/arm-gic-v5.h>
- 
-+#include "vgic/vgic.h"
- #include "sys_regs.h"
- 
- static enum kvm_mode kvm_mode = KVM_MODE_DEFAULT;
-@@ -1497,8 +1498,13 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 
- 		return vcpu_interrupt_line(vcpu, irq_num, level);
- 	case KVM_ARM_IRQ_TYPE_PPI:
--		if (!irqchip_in_kernel(kvm))
-+		if (irqchip_in_kernel(kvm)) {
-+			int ret = vgic_lazy_init(kvm);
-+			if (ret)
-+				return ret;
-+		} else {
- 			return -ENXIO;
-+		}
- 
- 		vcpu = kvm_get_vcpu_by_id(kvm, vcpu_id);
- 		if (!vcpu)
-@@ -1525,8 +1531,13 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 
- 		return kvm_vgic_inject_irq(kvm, vcpu, irq_num, level, NULL);
- 	case KVM_ARM_IRQ_TYPE_SPI:
--		if (!irqchip_in_kernel(kvm))
-+		if (irqchip_in_kernel(kvm)) {
-+			int ret = vgic_lazy_init(kvm);
-+			if (ret)
-+				return ret;
-+		} else {
- 			return -ENXIO;
-+		}
- 
- 		if (vgic_is_v5(kvm)) {
- 			/* Build a GICv5-style IntID here */
-diff --git a/arch/arm64/kvm/vgic/vgic-irqfd.c b/arch/arm64/kvm/vgic/vgic-irqfd.c
-index b9b86e3a6c862..19a1094536e6a 100644
---- a/arch/arm64/kvm/vgic/vgic-irqfd.c
-+++ b/arch/arm64/kvm/vgic/vgic-irqfd.c
-@@ -20,9 +20,15 @@ static int vgic_irqfd_set_irq(struct kvm_kernel_irq_routing_entry *e,
- 			int level, bool line_status)
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 31a472a2c4881..edb21239478a9 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -396,19 +396,12 @@ static bool kvm_pmu_overflow_status(struct kvm_vcpu *vcpu)
+ static void kvm_pmu_update_state(struct kvm_vcpu *vcpu)
  {
- 	unsigned int spi_id = e->irqchip.pin + VGIC_NR_PRIVATE_IRQS;
-+	int ret;
+ 	struct kvm_pmu *pmu = &vcpu->arch.pmu;
+-	bool overflow;
  
- 	if (!vgic_valid_spi(kvm, spi_id))
- 		return -EINVAL;
-+
-+	ret = vgic_lazy_init(kvm);
-+	if (ret)
-+		return ret;
-+
- 	return kvm_vgic_inject_irq(kvm, NULL, spi_id, level, NULL);
+-	overflow = kvm_pmu_overflow_status(vcpu);
+-	if (pmu->irq_level == overflow)
++	if (unlikely(!irqchip_in_kernel(vcpu->kvm)))
+ 		return;
+ 
+-	pmu->irq_level = overflow;
+-
+-	if (likely(irqchip_in_kernel(vcpu->kvm))) {
+-		int ret = kvm_vgic_inject_irq(vcpu->kvm, vcpu,
+-					      pmu->irq_num, overflow, pmu);
+-		WARN_ON(ret);
+-	}
++	WARN_ON(kvm_vgic_inject_irq(vcpu->kvm, vcpu, pmu->irq_num,
++				    kvm_pmu_overflow_status(vcpu), pmu));
  }
  
+ bool kvm_pmu_should_notify_user(struct kvm_vcpu *vcpu)
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 3e844c5ee9174..b5e5942204fc6 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -32,7 +32,6 @@ struct kvm_pmu {
+ 	struct kvm_pmc pmc[KVM_ARMV8_PMU_MAX_COUNTERS];
+ 	int irq_num;
+ 	bool created;
+-	bool irq_level;
+ };
+ 
+ struct arm_pmu_entry {
 -- 
 2.47.3
 
