@@ -4,67 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E19DECD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 003F7CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LeHgpAGmkkft1lTDv1GUbcLOSox8wth2jbdG+ISuWKg=; b=uAGgoGvKw5yKFksCIllC4gvNnG
-	TCFrs3wfrHsvhynrIveC/tJ8XJy9bspzi/bbdssyd7AXD3fOwJml3m1IU8P7UTp6qaxlln0jJWiv2
-	OK+61NrIXkm1x/96hETX5+j4Toy3lh62Tkm8DCqXIPdxQPw2GfR3GU3Vfz2vtulUsaImUkY0OmBga
-	ZEXcVw3N69FI7BfRnEyixUC++Viwcphd9KkT27vrQfFm58zGmbqpPZR2OSgdDLQTErV3KMeb6Wng+
-	/KvOGSTVKrnQjCWkMh2T0h26qXmAMa1lY/4LGorOnSpgKStGN/k+TXiyHIEF5QFvF5ZvCfAfGZRhm
-	DOp9xmIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZAW49y/Gw7hMVNl6ABs1n9zxGhT5Y2pHplCGbww0vw=; b=UCqJsNRiVcf0GvYq16o28QeFia
+	8E2ymjL3q5PwdBGmrf6LLjpSZ0g1q7ZDvOy8qFr5sGk+NjqIiYMQ5DkLUN3CHHvlTyQciv5q6pB5L
+	hZlrgk8zvtI3UEv5HcMotPaDq6F2+Nc/QhP6pt+rVWyFGz1g3A5Z+Iq+VUILV7bubDRWFukt1XnW6
+	/zN2vf3rKL82cluFGMIbTAe6Wzmwku+E/m02ZEpjVC2c/fj/dnZ2gQcsZcXTeoaz1sICUrlF2aMml
+	jXunRXCbk7F1ScKg2zquS5nXn+0rEGogkDwFciQoOyAlaxpbhJLM1gfO2bVTm2Qr6rKN+pFwpv76B
+	4gJi6akg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0Qx-00000007QLh-2dlw;
-	Thu, 21 May 2026 10:15:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQ0SJ-00000007Qfk-48zM;
+	Thu, 21 May 2026 10:16:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0Qw-00000007QKp-1KVc;
-	Thu, 21 May 2026 10:15:18 +0000
+	id 1wQ0SI-00000007Qf0-1TyT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 10:16:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A92260172;
-	Thu, 21 May 2026 10:15:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D0481F000E9;
-	Thu, 21 May 2026 10:15:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C9294401EC;
+	Thu, 21 May 2026 10:16:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 007091F000E9;
+	Thu, 21 May 2026 10:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779358517;
-	bh=LeHgpAGmkkft1lTDv1GUbcLOSox8wth2jbdG+ISuWKg=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=DCYqjYat31sL+mOST1Xc8Edy59m0ameJU2o9mvxAEAytb2a/ZuIteGVExXtaYxFmh
-	 uJKT0vLGRKLT2y0N5xvXWlMlk5iBg7RqLdoiL3Xaq6TkmQ6/28r3nydDHRgN9Yc1fk
-	 /zmoifVpk66TTSioGzFJD7SFNo8xkqKd9Gbrlf1cH0XcnC2sMGK1+nXM6tXN3t/Lv9
-	 O2105u3JCJqOzuCfuTcw0QFrhW583UUItiecZIBNNvcGA7fK1P+VuO/S1L/k5b1CVh
-	 cq1E608gEhRG/kwLty7km2Fg55eIWPMgs82NMmNUL20ui/F0CFinJLENyDWSOaAH9p
-	 4X7JBnUg5XIdQ==
-Date: Thu, 21 May 2026 05:15:16 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1779358601;
+	bh=NZAW49y/Gw7hMVNl6ABs1n9zxGhT5Y2pHplCGbww0vw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=mYYTcEPJjNa0WKxR5eH+YcorbRVqQ4eW9JCR/VjVtCawkyl5X1/PENfec6h8he06H
+	 CFEAazf5g19YuWXxjBfRZDLHUqJLs9DFOEfX4VIBQCLCiHBza008rpI3MagccDjUE0
+	 FKEE699iBtbT162HGvFw4iT888BWAdLx0grjGnwspUsB8HtC4BRR1o/gkRXf5dWwfe
+	 VG05Z/oK19zc9UM+C9Io9EQIrATyJ0EXywS1GEUMs09h+a8zpWlLM0RO4iVkMDqNGi
+	 WHs+LDAwz7cR7NQLzrUoh6aDx83VlButFHWzBeHGq5iUx5KsfdOZK8ez20CVgTzGj/
+	 XOBCnmXxuuBSA==
+Message-ID: <5c03ea16-036f-4967-9678-29774f151fe3@kernel.org>
+Date: Thu, 21 May 2026 12:16:37 +0200
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Andrew Lunn <andrew@lunn.ch>, 
- linux-mediatek@lists.infradead.org, Russell King <linux@armlinux.org.uk>, 
- kevin-kw.huang@airoha.com, matthias.bgg@gmail.com, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Paolo Abeni <pabeni@redhat.com>, Conor Dooley <conor+dt@kernel.org>, 
- kernel@collabora.com, Eric Dumazet <edumazet@google.com>, 
- macpaul.lin@mediatek.com
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-In-Reply-To: <20260521-add-airoha-an8801-support-v4-1-1e4837d30ef4@collabora.com>
-References: <20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com>
- <20260521-add-airoha-an8801-support-v4-1-1e4837d30ef4@collabora.com>
-Message-Id: <177935851659.1629932.12187285243163013208.robh@kernel.org>
-Subject: Re: [PATCH net-next v4 1/6] dt-bindings: net: Add support for
- Airoha AN8801R GbE PHY
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 02/12] crypto: atmel-ecc - fix use after free situation
+To: Lothar Rubusch <l.rubusch@gmail.com>, thorsten.blum@linux.dev,
+ herbert@gondor.apana.org.au, davem@davemloft.net,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org, ardb@kernel.org,
+ linusw@kernel.org
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260520155703.23018-1-l.rubusch@gmail.com>
+ <20260520155703.23018-3-l.rubusch@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260520155703.23018-3-l.rubusch@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_031642_433466_31CE6873 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +121,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 20/05/2026 17:56, Lothar Rubusch wrote:
+> Fixes the very likely race condition, having multiple of such devices
+> attached (identified by sashiko feedback).
+> 
+> The Scenario:
+>     Thread A (Device 1 Probe): Successfully adds i2c_priv to the global
+>              list (Line 324). The lock is released.
+>     Thread B (An active crypto request): Concurrently calls
+>               atmel_ecc_i2c_client_alloc(). It scans the global list, sees
+>               Device 1, and assigns a crypto job to it.
+>     Thread A: Moves to line 332. crypto_register_kpp() fails (e.g., out of
+>               memory or name clash).
+>     Thread A: Enters the error path. It removes Device 1 from the list and
+>               frees the i2c_priv memory.
+>     Thread B: Is still actively trying to talk to the I2C hardware using
+>               the i2c_priv pointer it grabbed in Step 2. The memory is now
+>               gone. Result: Kernel crash (Use-After-Free).
+> 
+> Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
 
-On Thu, 21 May 2026 10:21:54 +0200, Louis-Alexis Eyraud wrote:
-> From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> 
-> Add a new binding to support the Airoha AN8801R Series Gigabit
-> Ethernet PHY.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Please add Cc-stable
+
+> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 > ---
->  .../devicetree/bindings/net/airoha,an8801.yaml     | 116 +++++++++++++++++++++
->  1 file changed, 116 insertions(+)
-> 
 
-My bot found errors running 'make dt_binding_check' on your patch:
+And fixes must be before any code refactorings, so your rename patch
+should be after.
 
-yamllint warnings/errors:
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/airoha,an8801.yaml: ^led@[0-2]$: Missing additionalProperties/unevaluatedProperties constraint
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20260521-add-airoha-an8801-support-v4-1-1e4837d30ef4@collabora.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Krzysztof
 
