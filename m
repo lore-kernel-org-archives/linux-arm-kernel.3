@@ -4,101 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE65CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F36D9CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnZgEvyl5JzulXJ71OevVX7wYBcNSF1YrTlDeDtAzPQ=; b=HUa81+Wv+IENEVDSecFbOKAW7I
-	hVWsz0ktqbG8RW8aa1/vFimbEMFXRlFCApbxDlfblp9DWf24zWK+eicH14HabbJ2DtnfScAV8UsbC
-	lK+mVeh9kDUxPnfslzn60DEbObStR2S3cJBKj8xvVz2GhihQ4yn+OrAhSgt2IKURWDefG7PrqnyxE
-	Y/ig0bTYVe9sLXCPzcKjhMEsemnFFzHLAN4dUsaEYmY2dWHwilLajIO5SAzNalVKrgeTcB23IeHJi
-	H8Gu5ziNiuztsIAFdcfSl2HWtnA7iFoa9RvompT4yZJvn/Onk7D251X3awi10lxoV06QFU9L8TIXZ
-	mYZdx1wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YJTAilE2fB1kc1oS1JGj9wJtbBZ1hQGbx2PG9bp1uY4=; b=Xh6U7Hf9JDNrbK4y+EGEYtr0b2
+	XYU+q1K3XXPsLvL5IXQw4vlErKR3vCnyJHFoFMmq7sHgwab2IPeqILVvLQw8qZ6V89QBlHiD9csqn
+	N44u3kiF57mrpwo69OD4YVeKHqEZ5R7gcipgcjP+k+YZz2mgev20cJleUZBbnGhFJa44BTamOrSPW
+	Zr9Jjlari8tcPuCXycuRudxZsqXpVrJa95hpLCWpqFYtr9PS47sHyZQjekw8djjo3QFsLxvpYpJgl
+	tpe7S/yj/6cj35T6dPvfuM2+w25LkwxU4Pq3fDke1Cz0YXD8+rmdP40M/ETIA8f0RKf06R0FewN3T
+	F4RG+5mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPtuX-00000006Wia-1VCX;
-	Thu, 21 May 2026 03:17:25 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wPu4c-00000006Xg1-18Mp;
+	Thu, 21 May 2026 03:27:50 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPtuU-00000006WhO-0mRO
+	id 1wPu4Z-00000006XfQ-43An
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 03:17:23 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-36a3dd2e66eso285803a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 20:17:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1779333441; x=1779938241; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WnZgEvyl5JzulXJ71OevVX7wYBcNSF1YrTlDeDtAzPQ=;
-        b=zxoH4uZHmLSeUSCcohYddMGDxKqzrFPkQFoWZS7tioeqprECtmPZlJC9vQ6zFcHZfc
-         mQAuuJ5Kk8upTEWuBnave7vYp+8l3YhePvUTvF4YbOXsEXQXopL9BgyYwg7Wsa92RccD
-         VxFbXYBpc4srTexTBzjtaztPyytzJUQOa7D7ZK02M5BWWR8qglzMYBMPgEYlwjMtAa6K
-         XUyXZaSGRgEi5e0ondfbS+5UJELQutPSBCNpqUbEHy21lOljQw50ri6ENuVSqebn6jpH
-         4FWXOP+Ll1fTeBQgZ50Hr/lxJOC8kMEtpBpi0MF/l8dWgFQXdal/XrK98r0098JI1pHf
-         v2+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779333441; x=1779938241;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WnZgEvyl5JzulXJ71OevVX7wYBcNSF1YrTlDeDtAzPQ=;
-        b=fe6OsMyu1K/ugbvxCMbdrV0Ve5JDXa4B4MzOyNvKT/xULoKWyb0qmpH8Lky1mfWH0L
-         L+9ZtiWTVOBEX4RIe4TKHNZkybqLI3OScENnbrPK5gYKcyyhYU6pNj7anFUSYDctrkXC
-         qw0u8tLbW7rTNuOAFa0FljWMc9+7AcTKL2/RykTJ+FhQhJVBEe6nxZaTvIQHLhj3ZSla
-         P8eGWLd2txvO4H4RgyRUF1IOOh21bAhIrw5QBOYJzVRdOMIKOSksFnat8pHQ45T3iDFj
-         9rq/t3QzxeZBmleADW69qkntHVF1ry9sNVZIDpbp/mQC4dhJbuxestIY08udjk3nCVWM
-         eicg==
-X-Forwarded-Encrypted: i=1; AFNElJ9e8tkSZZqoxeBr58hGMXxPxZO2qabobXZ/d6GiOpvKqY2v+rZpG4QU19Bv+33R8i2tIbg2ARh3g9VsBqJsEjpM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzw3C6ENheHumnZhOH2HwAJdBYFMcZqCHIO1vBYBYDlFGDHoEXZ
-	89rQqGWl+F079oWOjRS46H8rXX61Xz4uZbyI4fS0r1iikUdPJLUh/zGBeCnEcGtoxvo=
-X-Gm-Gg: Acq92OG5baTWY+IbV7nT3xOwHGg8Im58SSibNiBD5SwIUuTJnE2MDfuAEcymBmxZH9v
-	ZpSryP3El57UaLKCSFhhU5oQKhF9kN2IxDswlFcRijeL9nw0jur0IH8pOWIAMFPisynjxsdHSMH
-	i+Hnp9D6jj82qWHfDiG436WDFS5gyB9k5RgkduKBt9fU1cH+mRCj5mBB0HaR0EAMi4Agom2QziV
-	+XVLiYO801fb6dntKJYM9Zr9MB6D2T70I4b1UG0RUBkcozSs5M8TfiqRhZ39YB6jG3dT5+olv1c
-	4AnaP4e7rAaazesZG7QvB5Jt3CmTV7GOyXPoacwUnO5jfp/SSaSO4vBi1P0c48AKbFn0Fob3sWB
-	SUX0eHo6P2izxZtU61/paAqKFZe7mik0Lu7VkJydI0SjNje4gsWztEnQY7EJzcpHQUBC1JZK81q
-	ta4JeegerfW2b/Vlgteqcvhl9N
-X-Received: by 2002:a17:90b:1fc3:b0:366:16d1:6a26 with SMTP id 98e67ed59e1d1-36a45139004mr1096386a91.5.1779333441193;
-        Wed, 20 May 2026 20:17:21 -0700 (PDT)
-Received: from localhost ([2001:569:58a0:da00:a5c8:c4ce:f7c1:40c1])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a4560779csm222458a91.1.2026.05.20.20.17.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 20:17:20 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 20 May 2026 23:17:20 -0400
-Message-Id: <DIO129TJQ1F9.20NON5EPGLHRO@etsalapatis.com>
-To: "Tejun Heo" <tj@kernel.org>, "David Vernet" <void@manifault.com>,
- "Andrea Righi" <arighi@nvidia.com>, "Changwoo Min" <changwoo@igalia.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>
-Cc: "Peter Zijlstra" <peterz@infradead.org>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand"
- <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Emil Tsalapatis"
- <emil@etsalapatis.com>, <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>,
- <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/8] bpf: Add sleepable variant of bpf_arena_alloc_pages
- for kernel callers
-From: "Emil Tsalapatis" <emil@etsalapatis.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260520235052.4180316-1-tj@kernel.org>
- <20260520235052.4180316-4-tj@kernel.org>
-In-Reply-To: <20260520235052.4180316-4-tj@kernel.org>
+	Thu, 21 May 2026 03:27:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rt+x/9AuU96PVAuPORT1HEvDghzGHpEsOoRc0SXK+1g8fWw+rfrh5W254rVaHmdNAKlx2dBk3Mj7P1gwSMJ9XOzolvlUs0D7n7vgYNYR5TdxQwt6JIOuyNB/tRZnxPTz57BC+FkT8utyV3wUvfukazo1f4z5potlDFWmkLsOCTn+bKC3sD79o0IEiuLUOK/iqKwfTdOTetfyWR3mNIHrS9aC6Od9yaVoKO8gC29peEMxWav9r6x3qGn+X3YIuLIrwyHUzghSK3xAcf7EPmKd1BVzlYcDWgCBSSKbucOq0sv5NMo4PITdgp5NiBnX7vOcokJgl4TLMsRiib20dYmVNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YJTAilE2fB1kc1oS1JGj9wJtbBZ1hQGbx2PG9bp1uY4=;
+ b=CkYclm/3tofjjNtBCm2yECo2hjodT/Ggyf8pfjc6UCL970GG7OhcRy1+rdxqGGZicLUtMr6hwySdksejqqxB/MkdRq+nvbRhwxhQ/8rpKAiFvATXhEdVNucxMmOlr7zWPoxiZXZW74ksmkTfmAhzP787eD3iVcJE2RwOwWat2WXcWm5nv7deb575j93qUJjclmrgRhNO9qURLXhjQTbUTtoelyGff4XMwkmTe150XV5SWHeX6l0xqAPVm0d7ZTzT/wHUlI91SDkmqAllyis6OepnCRWAeWmDyNwtSitWxVxbJKnINsWTabeND+QGRZ05HiXM7+4nOM1Y1cqg3Qm89A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YJTAilE2fB1kc1oS1JGj9wJtbBZ1hQGbx2PG9bp1uY4=;
+ b=TRY9gffrRGiIfLtOm25MMdTYufE2RsPZk4GTdLk7sjBpSOl1z5UxNeRHZssuui9Amu/KnGuyYhPh4c7nQ5PwjuDUOB1mf4FY35hwPjRg+UN2J140RK2aKkNQe6QjbSQ8WtE8uTH4LoBKpgy5lad7DWKIGdIM82+OmDPyPiKPomW3Nc7H7zokwr2WAlvxCaev78xRg6uvBXB/NBUX15q/Ie3qz5F6PbP+Y+wo8K/bKPZf1mT8tCskTmOUEwcl0DmDIMBmBmhnQEMS/c0yxDcn4G7OcVzdqTXV5SYDrAGDLQQyJVR7kZjS+X03zlu9vysRU2hiuu81L0auQsKxDAsTsA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
+ MN0PR12MB6103.namprd12.prod.outlook.com (2603:10b6:208:3c9::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
+ 2026 03:27:39 +0000
+Received: from DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::5807:8e24:69b0:f6c0]) by DS0PR12MB7726.namprd12.prod.outlook.com
+ ([fe80::5807:8e24:69b0:f6c0%4]) with mapi id 15.21.0048.013; Thu, 21 May 2026
+ 03:27:39 +0000
+From: Alistair Popple <apopple@nvidia.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	david@kernel.org,
+	akpm@linux-foundation.org,
+	Alistair Popple <apopple@nvidia.com>
+Subject: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed page tables
+Date: Thu, 21 May 2026 13:27:30 +1000
+Message-ID: <20260521032730.2104017-1-apopple@nvidia.com>
+X-Mailer: git-send-email 2.54.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SY5P282CA0008.AUSP282.PROD.OUTLOOK.COM
+ (2603:10c6:10:208::7) To DS0PR12MB7726.namprd12.prod.outlook.com
+ (2603:10b6:8:130::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|MN0PR12MB6103:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0fb3ecaf-7b73-4ecc-d1c7-08deb6e8e91d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|11063799006|56012099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: kIEI31PTZ5OB/Kw9+B+J5U5IJ3vJLMoaXXgtc0aystrM7zF6NZ/RZz5hfGJuClhzRuLzcC2hgWnTI500YY7K2Q7Bc3IJ3CNfiyjZSdH3lK++TZy29Xc8I/sZ2fZiBLuB8TnFic61egx7eKoZdAlwknK66eqRYH60T82FyjMEO9YpyAGvaNDtPLshMJRWPq+YlWl9Z+6QneuyKdG1mqcMkD63pMtR24i44sevtBKcYoeErvoisde5AoBLb3jG7H+FLtF4SQU0zi/7Ce1RtQXnvm0dD3g2dDiCBw+1kfGG2pbLw/nMHvjHfJhQgHMqv7u31UxEF29huws85FRXX9Vri1j3gRqADdE4mW1YpJsLeE21t+xia5snqnV9TH/ix/bIAs+NJPewHLjCip+9tIXgqUSMK8Y3SOUSaE3KwwgIaMC7P2V/IQOlff3JWHdNNSPBF5TcWE4SOUzvPg5pwgEIRcwypUlI2BIt7u+4xL+H3/GGNk9axlHM39YAYZdHBOohT+S8d+SMO2PIUZhjQJNjb+hZIwC2KsjIbZV6FoKoKzXIDsbfiLTfs2qpDkCSGyvhFcM/u2MW2H/1sjy+eSMC10CHT69z5Auz1OdI1A0TzbaBTykI0xJM5munIGRJMMmSsf+SiLgcQ9CqeRlsz/2HDaS5WmQvvnMMkyQjauNojRQ17ezxfBHXRoVwmfzKLWep
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(11063799006)(56012099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cMeI+wTpj0/TKMSZzGmCEOkmR7e3r0onWsZnMXCFGdtzpAVbwY+vkntfNZpq?=
+ =?us-ascii?Q?qUNal4loETbpqqMgYobsI790qfbuCEB6hf/OOxix6qHkvNe1nYDkpN4dhJPq?=
+ =?us-ascii?Q?2IHk3Bw3ciSjGAxOQj53LJEoDxgd+pK8GBqEHYlPstGq4OTWcY1eDIy1QGhK?=
+ =?us-ascii?Q?cmB6Sb3C4V6luzIGKA6J2vT1zu3naosE08f19uAV/hDsRGSqEFaZhDPGoKeM?=
+ =?us-ascii?Q?sRCBn34INhtlYl2I+kFEQwixs1vkqXok0x51hUqWUJp/EAj33jFIeJMVyZNX?=
+ =?us-ascii?Q?Vs5GS8lkOF4wccickF5gEdJs6AD2mkcUXKOGgMyfQbB1q1FJX6NWJWJbgBZD?=
+ =?us-ascii?Q?TMDuqqBAS5V4VHhGdRX7hYTPCyBRn3Z0iBeGbhnBpbJi4V5AQDHYX+j59BdD?=
+ =?us-ascii?Q?pEPbgkqj/kErBHctU0Us9QlqG90HTqgUWytZAZdkB7bqIeaKnJxocLgaumj/?=
+ =?us-ascii?Q?WGM+F2t1w7vdPgpvjBX76gzF3Bf0qyeVrSRCn+sW69t4rxIIPhb1VHgSmm40?=
+ =?us-ascii?Q?ONjpxhTNMoZqpXsEnHcM3IUr21QiX5Ukqg4s6b9dXYNw8AShCfFY/IPuJBpM?=
+ =?us-ascii?Q?CDPoiRxbXe3ryNW0UJinxePZZ8J8Ax6DdaGjm1dEaJkP4N5aoBLn8TVkaiju?=
+ =?us-ascii?Q?PbJ2W9zgeZF9A5doax8QpLdD/CvZtf1/GKmrEJ9O2rLDoCO3n/7CHnq1EoLZ?=
+ =?us-ascii?Q?WOwab6SE0GopGHYbhkVGOH5NUm6lKuPGRpl1sjUMVv+p/u1tH4Kuy2yhiniG?=
+ =?us-ascii?Q?OW2TreDzT8ryy+3qUftiMXqliIRBnVxmIGGDPaVnPadULZ61QwbNZ+Lpe+lW?=
+ =?us-ascii?Q?zc2HXPkUGROBJW49k8JKPNbGvkRNKOsjSKar2oH9gVP/I0fT4kedfC79AVZZ?=
+ =?us-ascii?Q?fSCZegy8f3pRWGDXYjj6QDXcZm1M7TSp1DoffH6Yj6+e+ARb8Dp5ShT9iZKu?=
+ =?us-ascii?Q?/R0T4ba5IXcFeSvEAFqT6h7U8lH5qub6ttrO4sn2tvIqw5DOIMf+Rm0cyl8V?=
+ =?us-ascii?Q?YcIZd5EIx1LTfeQRrMqzuiZhfrVZRUyrwxSl4FtLb5AQJjD9NG3nXmeE+DU3?=
+ =?us-ascii?Q?sqLSEQ5/jNqYWMycPJZoq72rJ4WmyeAq/FGZMeTlG5Iofy0gEAJ4u2iFgR5v?=
+ =?us-ascii?Q?Fafv9LwRcb5IDrhfBVslqp8v4EDhUHTH+eOU8b2Hjzy5AbVb83V+UiyeJs5y?=
+ =?us-ascii?Q?A23An7nk1Xicc0qTw7TnB+yOeVwQrkW5oFxl7gxVDWm59IaRNQkndVAutaaU?=
+ =?us-ascii?Q?J3UROoANTY+OjVjvfRjNezeEEU+ixEF6TmHB96KeWXwlrVYehPDVx26Jj3J4?=
+ =?us-ascii?Q?hCJ6xodsK0JODcEdnmqBUav1BktsQQUQSAjNG++6OW/pgEN7zZ5kyCP55pbM?=
+ =?us-ascii?Q?/3ROs+gMJggkTv1C+Bb/vCNSWJBQvAbl4JmjCnlTdD2u5w9Rkeo0660Gsm/u?=
+ =?us-ascii?Q?G+K93+EkZsY+p0Ske0VSplCnTt62o+SImjk2Mt5X4sOBFMUkfCl7wusuyS3W?=
+ =?us-ascii?Q?HgYXl+HtqAjNwMnQK1kz2wUbcsbz4ADf9b8APlwsg1BrSiiY9Lyx6XdRFACe?=
+ =?us-ascii?Q?MqgGHs8bgrHuhQ5sr4495jYqLh9ejRK7q7v9DhlHceFVfa79VIbZVot+Ff0R?=
+ =?us-ascii?Q?1X+ol+J8AcXeeb26LLWOwxos7A+6glKbugvn7lo7nvGCi3XyaUVjQSvmnHAF?=
+ =?us-ascii?Q?j7pVzuLZCyRZWSnD64bXcGcOEoCe+C+uCfQUpdniKRiO3hXNV9hvZHOs8NwE?=
+ =?us-ascii?Q?i+7RzVJqMw=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0fb3ecaf-7b73-4ecc-d1c7-08deb6e8e91d
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 03:27:39.5366
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q+KhjXA2tfoYW+57ZJYmGuDFjkLA8106tQvOIz3U7S7HnRyaM4WUorNcMQM96+9ZXNkW3PHxN7XADkrgadIJWg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_201722_229920_5F4B525D 
-X-CRM114-Status: GOOD (  18.68  )
+X-CRM114-CacheID: sfid-20260520_202748_011469_6F503F46 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,89 +140,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed May 20, 2026 at 7:50 PM EDT, Tejun Heo wrote:
-> The existing kernel-side export of bpf_arena_alloc_pages is _non_sleepabl=
-e
-> only - it's used by the verifier to inline the kfunc when the call site i=
-s
-> non-sleepable. There is no sleepable equivalent for kernel callers; the
-> kfunc bpf_arena_alloc_pages itself is BPF-only.
->
-> sched_ext needs sleepable kernel-side allocs for its arena pool init/grow
-> paths. Add bpf_arena_alloc_pages_sleepable() mirroring the _non_sleepable
-> wrapper but passing sleepable=3Dtrue to arena_alloc_pages().
->
-> Signed-off-by: Tejun Heo <tj@kernel.org>
+Since 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in
+__create_pgd_mapping()") page-table allocation on ARM64 always
+calls pagetable_{pte,pmd,pud,p4d}_ctor(). This sets the page_type
+to PGTY_table, increments NR_PAGETABLE and possible allocates a PTL.
+However the matching pagetable_dtor() calls were never added.
 
-Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com>
+With DEBUG_VM enabled on kernel versions prior to v6.17 without
+2dfcd1608f3a9 ("mm/page_alloc: let page freeing clear any set page
+type") this leads to the following warning when freeing these pages due
+to page->page_type sharing page->_mapcount:
 
-> ---
->  include/linux/bpf.h |  8 ++++++++
->  kernel/bpf/arena.c  | 13 +++++++++++++
->  2 files changed, 21 insertions(+)
->
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index 831996c411cf..64968ca6db51 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-> @@ -679,6 +679,8 @@ int bpf_dynptr_from_file_sleepable(struct file *file,=
- u32 flags,
->  void *bpf_arena_alloc_pages_non_sleepable(void *p__map, void *addr__ign,=
- u32 page_cnt, int node_id,
->  					  u64 flags);
->  void bpf_arena_free_pages_non_sleepable(void *p__map, void *ptr__ign, u3=
-2 page_cnt);
-> +void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32=
- page_cnt, int node_id,
-> +				      u64 flags);
->  #else
->  static inline void *bpf_arena_alloc_pages_non_sleepable(void *p__map, vo=
-id *addr__ign, u32 page_cnt,
->  							int node_id, u64 flags)
-> @@ -689,6 +691,12 @@ static inline void *bpf_arena_alloc_pages_non_sleepa=
-ble(void *p__map, void *addr
->  static inline void bpf_arena_free_pages_non_sleepable(void *p__map, void=
- *ptr__ign, u32 page_cnt)
->  {
->  }
-> +
-> +static inline void *bpf_arena_alloc_pages_sleepable(void *p__map, void *=
-addr__ign, u32 page_cnt,
-> +						    int node_id, u64 flags)
-> +{
-> +	return NULL;
-> +}
->  #endif
-> =20
->  extern const struct bpf_map_ops bpf_map_offload_ops;
-> diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
-> index 1c0b87ecc817..a811cf6170fa 100644
-> --- a/kernel/bpf/arena.c
-> +++ b/kernel/bpf/arena.c
-> @@ -934,6 +934,19 @@ void *bpf_arena_alloc_pages_non_sleepable(void *p__m=
-ap, void *addr__ign, u32 pag
-> =20
->  	return (void *)arena_alloc_pages(arena, (long)addr__ign, page_cnt, node=
-_id, false);
->  }
-> +
-> +void *bpf_arena_alloc_pages_sleepable(void *p__map, void *addr__ign, u32=
- page_cnt,
-> +				      int node_id, u64 flags)
-> +{
-> +	struct bpf_map *map =3D p__map;
-> +	struct bpf_arena *arena =3D container_of(map, struct bpf_arena, map);
-> +
-> +	if (map->map_type !=3D BPF_MAP_TYPE_ARENA || flags || !page_cnt)
-> +		return NULL;
-> +
-> +	return (void *)arena_alloc_pages(arena, (long)addr__ign, page_cnt, node=
-_id, true);
-> +}
-> +
->  __bpf_kfunc void bpf_arena_free_pages(void *p__map, void *ptr__ign, u32 =
-page_cnt)
->  {
->  	struct bpf_map *map =3D p__map;
+  BUG: Bad page state in process ... pfn:284fbb
+  page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x284fbb
+  flags: 0x17fffc000000000(node=0|zone=2|lastcpupid=0x1ffff)
+  page_type: f2(table)
+  page dumped because: nonzero mapcount
+  Call trace:
+   bad_page+0x13c/0x160
+   __free_frozen_pages+0x6cc/0x860
+   ___free_pages+0xf4/0x180
+   free_pages+0x54/0x80
+   free_hotplug_page_range.part.0+0x58/0x90
+   free_empty_tables+0x438/0x500
+   __remove_pgd_mapping.constprop.0+0x60/0xa8
+   arch_remove_memory+0x48/0x80
+   try_remove_memory+0x158/0x1d8
+   offline_and_remove_memory+0x138/0x180
+
+It can also lead to leaking the ptl allocation if ALLOC_SPLIT_PTLOCKS
+is defined and incorrect NR_PAGETABLE stats. Fix this by calling
+pagetable_dtor() in free_hotplug_pgtable_page() prior to freeing the
+page to undo the effects of calling pagetable_*_ctor().
+
+Fixes: 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in __create_pgd_mapping()")
+Signed-off-by: Alistair Popple <apopple@nvidia.com>
+---
+ arch/arm64/mm/mmu.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8e1d80a7033e..0c24fe650e95 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1422,6 +1422,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+ 
+ static void free_hotplug_pgtable_page(struct page *page)
+ {
++	pagetable_dtor(page_ptdesc(page));
+ 	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+ }
+ 
+-- 
+2.54.0
 
 
