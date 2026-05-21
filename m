@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493AACD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D804ACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=06DlYLMzDEsjxgRLDFP9ecsf0TUvM6TZuHNU93oyPH0=; b=YrvvaDMNV/hJxK8UGss/ceqJMY
-	H+Q/86KOLhTbBPmsiP2DagPrEPBpc2SZ+RMSz6z43IBY+e6rQOCLdnjELaU7/TVoIe3y/7e0oRjXM
-	poleIgH+vCWbNZ/PgcntLW1TXrvHboqcoU0NSGa9zkivFxvVI37dliXN1ay596MnfMXlSN/+FC6bO
-	gir/tFr5l9w7jUJvSNFPMu63BhjHBNirhIeWptkq6kpVcxVNqKTYFWS22gJxbrUHWGnD3yKRA+XVF
-	N2KHZ66wnzffZvdMxpsfi6Km+9dzR8nLM609sN7pi06bdaMuVzlLHITyqoedg1Z917VzJzx/c+wzj
-	hNCendSg==;
+	bh=08nYU04nwfmpYlYminOuyIMtkIuYwETpU0Ql3Rvr2TI=; b=HJl0pLqf9HMsGYOQJ7OgryMOsG
+	MJRkD132P7L8PjnEFP9jbEnI9CWlpFHuftK5mhFjc0KXczzEEmA5jedh5+E7K9TDNoXPmXUzYWF6G
+	WBuJTLxdvoDbYENlP2ndP+ZNErfrs5XgQiKCNH53YtPXpfmU74PXy0jVDvvYGY8yKjzOe8i+9+cID
+	tYyRRl+Uw9tDkU8EIpPNeECxT4P9tqgvXgm5IG46bEN21JUo2RdCnxWeXes9tfqF2zzdTUlicYqVx
+	bvQmDuQBW/KKL/mKf/Ex6TWjQas0kOpbpE6Gr8jajHAlGMNcwlzk8i//pXwJRphqnaALzKZhY5rgs
+	VCk43kBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxWr-00000006uY6-3tO7;
-	Thu, 21 May 2026 07:09:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wPxZV-00000006uw6-1M6X;
+	Thu, 21 May 2026 07:11:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxWq-00000006uXf-1Fyj;
-	Thu, 21 May 2026 07:09:13 +0000
+	id 1wPxZT-00000006uve-1u5L;
+	Thu, 21 May 2026 07:11:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3056C41ADE;
-	Thu, 21 May 2026 07:09:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA0311F000E9;
-	Thu, 21 May 2026 07:09:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A92AF60172;
+	Thu, 21 May 2026 07:11:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 296051F000E9;
+	Thu, 21 May 2026 07:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779347351;
-	bh=06DlYLMzDEsjxgRLDFP9ecsf0TUvM6TZuHNU93oyPH0=;
+	s=k20260515; t=1779347514;
+	bh=08nYU04nwfmpYlYminOuyIMtkIuYwETpU0Ql3Rvr2TI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GqE3gO14ik0QN6Ey0d5TDclenZhFs1yxXQ5+zJMLtCv6ELME+HAT4W449fnjLjUJx
-	 8hKCw7e/t9SYZ6Cxgn87sTinZqK16R40p9+J8EjGFyUAWTAke1wF1Ge9uz6xwEpKbH
-	 9TksEcUqYnapq/A14cS51ELoTEjQ34Q+vZEfPw4bVmhTWKTfB6dsTiJ7LaQbhqROzl
-	 F8B/zXrUpIV/U9W/8WxTGFQqGXPRFAGJpNQ5BMs7Z+3m4AokoCk6LgKUbpGyml3QqH
-	 FHXx6oFLMoS2eZ97UzwyJMHMlyYY9/q86uZW/nzAjpiZs3zFUgJAXDQSsFtEP91gLU
-	 LmJob/u7WCXBg==
-Message-ID: <1556aa8a-0ffa-466f-9565-530dea7b9235@kernel.org>
-Date: Thu, 21 May 2026 09:09:03 +0200
+	b=YGOZfAr8nUN54KESZnb1D1LLzyOQKY+kcFvmqzEaZPGuCJeEl9th/PMKpDta6HWw9
+	 o/uo8LpsC/zrgAIOTVBA3LsJj7STNRLyeI2RBEe8ElkqGvFef/MrI3jpgiEJTjoKvC
+	 poy+40FsmKCtcRkcJAu0wDqe09kbnldhoVt34Y8E/IffFLSL+vdbPfmJJaYUv5b46z
+	 N8FdM2BV0esUz/PDiSV/WIzEaXZIVKFOpkbb8c9gdqZI9DX6INBT3be3Dcx9bO9Te/
+	 z9FxbL6GU68t1XUntxRzMTBpfRYOWmrXSveX8vs6H/qp+ZSR/hF3n21A/nkQHhUFwv
+	 D3ntkws+PCpTA==
+Message-ID: <8454c168-97e2-4cd1-8279-a92916a6471d@kernel.org>
+Date: Thu, 21 May 2026 09:11:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 8/8] arm64: defconfig: Enable the raspberrypi otp
- driver as module
+Subject: Re: [PATCH v5 7/8] dt-bindings: raspberrypi,bcm2835-firmware: Drop
+ unnecessary select
 To: Gregor Herburger <gregor.herburger@linutronix.de>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
@@ -59,9 +59,9 @@ To: Gregor Herburger <gregor.herburger@linutronix.de>,
  =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-hardening@vger.kernel.org
+ linux-hardening@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
 References: <20260520-rpi-otp-driver-v5-0-b26e5908eeac@linutronix.de>
- <20260520-rpi-otp-driver-v5-8-b26e5908eeac@linutronix.de>
+ <20260520-rpi-otp-driver-v5-7-b26e5908eeac@linutronix.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260520-rpi-otp-driver-v5-8-b26e5908eeac@linutronix.de>
+In-Reply-To: <20260520-rpi-otp-driver-v5-7-b26e5908eeac@linutronix.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_000912_379744_56E627EA 
-X-CRM114-Status: UNSURE (   7.19  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,13 +124,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2026 16:28, Gregor Herburger wrote:
-> Enable the newly add Raspberry Pi OTP driver as module to allow access
-> to the otp registers.
+On 20/05/2026 16:27, Gregor Herburger wrote:
+> The select schema is not necessary because the
+> raspberrypi,bcm2835-firmware compatible is already matched by the
+> compatible string values. 
 
-... on foo bar board?
+This is wrong. The select was not because of that. Select was needed
+because of simple-mfd, but dtschema was changed, so please rephrase:
 
-Otherwise, why do we want it in upstream?
+The "select" in schema is not necessary anymore since dtschema drops
+simple-mfd when constructing the select/filter query for schemas with
+compatibles.
 
 Best regards,
 Krzysztof
