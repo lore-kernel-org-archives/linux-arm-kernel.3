@@ -4,110 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CD74CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:24:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1530BCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bg/32xNRu9xmU6RjD3VE0ZNzN4b0mPq9saaOodPsoaY=; b=yF8FrcUKjGG1r8inIB22E6c5yu
-	0EpdyIqROyaFj4Rew1lxAAzjh6mM5AHJMcnYMe08DORbfGJWIt1otsE3MlBJbdIqdeUC6HZKOTr5v
-	6GGQEAOnGamdwUlzNItqPyUyV/+WMtHGtZuyejMWGkMgij4Hv4HPpKXwivTJaJIwahG5IwPUkdBR4
-	i7dSXlqMXKlY1SsUsCurts/5Z1HZ7iO/Nx+eNwmr8GopqhPWasx01A2tqwWM0QAha5q3bao6cCZ9N
-	1YHPKhOmfD38YbXbKaqDpGFi1ux6gtwIdqqcGnLXwIDwR/GcwOOKjNo1Esl/d6cNFb331b410RCnc
-	Wp+7Xt6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1vxdJ/7D9H4TKn7YPL8bXXHihM6ipwRxiZf86f71IYg=; b=w7zLqNGCiwsk8tSv/7+fBlAiMY
+	2iHgjXKa3Kh+VmUNdeocozEj7bT3COewWKBcTXFTeDk5ZspDpW/0zT+GtmCryECmv39VaKSXFzzdX
+	XKIbb6jdzMo+Ku/kHOYLglVVfgV165hTgRiayhVyvYdEpds6XF1rNVpAvYXclslc6mlmZ2sghPUl5
+	AqvxaZHND45IlNKMTp+dF6A+2Jf6TIhpOnyc1dhAM9n/1oqEDd7wm8uHY7dVapFMkXsJfFqAzErch
+	9vV7yHAoEe1wdJvSlct1oBQ6C8Of0ckwgpZN61s1FtzGXl87rjT6pM/Coxsotr/LLcXA2Qm4p2gwj
+	6CeYOwVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzdR-00000007IV0-3vNT;
-	Thu, 21 May 2026 09:24:09 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1wPziw-00000007JKT-2IFN;
+	Thu, 21 May 2026 09:29:50 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzdP-00000007ITf-0ANg
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:24:08 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-6949831a7bcso3346128eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:24:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779355446; cv=none;
-        d=google.com; s=arc-20240605;
-        b=FI9EoRbox2yxF8gMYc0DnZqcUwpHueJv08r6M2q2cKBjRy7He6Bb6ktfcdV6icgCrV
-         Z76LuomOT9NJ2C6SBBooKfbuyT9ILhg9rVSkbzOR7P9M5qR0AkgvyW8rPsx0De/liRc1
-         P6xQGg1sbAkn9sRYU6I2UMXKt0g1k3HQZQJzgWkMF/W/d/D1EWexfVbkDbAR93XWcbSQ
-         U8+e8U2H1xRMeVRE/kQohUXianCbLFAGlzjsx7RASMzPNQwXKDF8jkpKVfpEg9N4t1hw
-         xTRkCjavVDUq1Cu0ZmZWso0kVxHyKAMSUU4Yk5WLDz7GEGD8PYxwmCxq3E4alolfUAn2
-         YvaA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Bg/32xNRu9xmU6RjD3VE0ZNzN4b0mPq9saaOodPsoaY=;
-        fh=GpTLLRxiAKlzW1jRaHmNnl2UpZLcIQHLCtCKWYYKldI=;
-        b=jNQFc+BU5KxdhNzG3DD75M3VPmwNNI7xAiwwawCCM1sKmv/hCyhIC8KU1YGYLVxgCL
-         M3/8zEOrNbx/CtR9oJzkPTNyUvl4qXbTxdYNUalWBeOj1KXQCzRRL5AuhJFQRvHzSqcI
-         UoNsk8zpCAWiVN+hm6yhuRlFU0BkDGla/RTY1w05+CWSMLI2RvQ2GJ1p6fnk7eKiCHkp
-         20w1qY2eUe0sML7Gnub2Xz76jOuuX9MqqitRfVMgHdTM/bXUNLvx/0yRDcWd+VJJkc93
-         ImrJOBo+OrNJ6ZEy34+/50QZf2gw1tS6aCwUVZ7ZW9l6Iur9J1/+nKkbh02HoDf/eeM0
-         CN5A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779355446; x=1779960246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bg/32xNRu9xmU6RjD3VE0ZNzN4b0mPq9saaOodPsoaY=;
-        b=gU0JvTXA4OUuxeqg5Y7pLmCEogV6LC8IEFuh6PxEVyirDt/aaE5zclAGIGQZnApgXd
-         nxL4eVOq6I7MzOJppku4yDzSq27njFz1SJyNQdLsD84MAjj2Hu31uaIDGE+G9tnfaf2D
-         PwPJa/wTsNok3BV2Si8NyJzzhlzNBu3nynh5vzuFb+0h6anFHG3Vjo/ApRTdA3Rra5Ob
-         vshMaIJF0p/qYyN64Duy+7bGVoiPtanX+iHAaJrOU0IhQmwVCyhyQ0P/WEObWyE4ARKJ
-         q3V0VaEoF9JprujJKBAEJlkghLFO3f0Qdn0hBDzuxChe/2Is0JrQnAZ0AhxhaRRKWXDA
-         iWVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779355446; x=1779960246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Bg/32xNRu9xmU6RjD3VE0ZNzN4b0mPq9saaOodPsoaY=;
-        b=avseg5VYTB0RYuBcEVL3PpP9/jhNZ43j7EK7nwBtPQHnrJiFn0BB2IoKgXstNRdt2S
-         if8y1hokR1WdCl+k6WPVC63P0qQKwzwrcb8PV6Eq0FakIdYKkrFDrQIUdDs5hIQHigno
-         ru/Q6dOtMNan/mG7K1V8UqIBPy/OrLuGC2Wvu6CSb4O+HZzUhzpVEqLGnFPszf2FC5Lz
-         3Vq4ePoo9hdKxoNedazKUB7gIlJCHPyb54pBbP8/p6MCrHaDqnKDYI2I2i1OOfCKCbmC
-         7I2wct7mDflK8WD9xMWUt/ZAtXCfEs1KCh5odH6mwy5D33lKu1K+WynS81lgjN4XgfJP
-         TmoQ==
-X-Forwarded-Encrypted: i=1; AFNElJ88wO+7ekiSUZ8LzGkUbkKloIFCTDp3VTAD0Zrdc3kXddTghxHpkX5o31L3kfFYW9wkLzOpmWSYAXkaHNVWZWv4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqG0K2wVryq/hL3FAZZl5oRtaGdHHtgiT5GRnixD8vtbSQGQs4
-	sMsToqTCxgkSL6n/euP91FNKtSC/0vPbPuBj+WGsWXLjyWFw/JQLfs6PMcG9xanDMcXcvKfqgdY
-	KnFQV73yNPI9iaBdthvpe8ds/Pj4vuJE=
-X-Gm-Gg: Acq92OEHygV9m8joGHrwcASedT59J/3pvsB3Z3WAmsLp8PRj2L0DL/4u6n2s8zrGySm
-	Bn1hQPkj+3QfHy4LlXxcMYdM36K1WO25rUDXRJ/G7xHp2Bq+iqzcJ9zeI+jXUyUkFsLCbhWoxpE
-	ErGcMx5+AIEq2LudYF455hA1x5kuJlLQ8RRbqnORy12p3ueAjqQtZ3P+TlTW0Drd8QJyEAjl/FN
-	Hkydc0A6IGrRcu4lmMh8ofJy1Z4M6bvWmG77DFEx8Kno6j6c3xiqWhMcDadJXoJb7UqP3zAePQ4
-	1wryHHqQfxdtryIz6Mqnsd8hShBrSQHdo1eFbSI58QzLq5uKEQfjcM0UctKz7gzU3/GkqcJxsLh
-	EwGar
-X-Received: by 2002:a05:6820:81c8:b0:67e:2988:15e1 with SMTP id
- 006d021491bc7-69d6ee60692mr915956eaf.16.1779355445586; Thu, 21 May 2026
- 02:24:05 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260518102451.417971-1-paulk@sys-base.io> <20260518102451.417971-15-paulk@sys-base.io>
-In-Reply-To: <20260518102451.417971-15-paulk@sys-base.io>
-From: arash golgol <arash.golgol@gmail.com>
-Date: Thu, 21 May 2026 12:53:42 +0330
-X-Gm-Features: AVHnY4JLgYD5g8KSsZAQsfTJHSovnmg95Dqn-5an288CZbWMq20rZb5y5QAIb78
-Message-ID: <CAMxPZkg9MgZrsM2L0vKzzUOA_tnSLKHdHkzDsfH5_WRqSQgvZg@mail.gmail.com>
-Subject: Re: [PATCH 14/16] media: sun6i-isp: Use V4L2 subdev active state
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-staging@lists.linux.dev, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1wPzit-00000007JJN-41HH;
+	Thu, 21 May 2026 09:29:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jJcv+zShWkGsmFSRviNLOg3OZ7zoO2LbfleBDsYI8pf6a/tjjpY1EbkeheQ6HT/VPEoC0QPtK33C5vpmVVQSfoCII3Uib0BRqhbD86MYH19QIARJTeeQXehGmREEJ9W0veLz1YSqpyZwkMXMD0gw77VURb0uuZnPznWC0DJ7WZASwYw61vmxHCIfk/VXhxESbxfykqCoR9aaBKpQiIOhLH3T9u8qoQJyUtK8+Hj7bTW9dhsB1VhMLYd5lVKS7bEHGILyV9J6rhHq9nyXe2WYzAzmugpcFvzf2pqIsZbFmGpoXPX/s+n++o+SLh3EUGecPyLf/2fEXz8J7rou4f/Frg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1vxdJ/7D9H4TKn7YPL8bXXHihM6ipwRxiZf86f71IYg=;
+ b=f3L4dnyuvXF21viEdk1dsKnxS6nSyC2OSM0VJeLBK46IYYqHxJ7Cqzug+J2TTgv85WBNo5owTsSwKhEHm/ESr0eys3m+foYUdF9TaOFSXLhBfBFi4LcKpBlXB9nPybYD5RYcsboEcuDchyyQWsIo7dyhCNKLBbjey7txOEHQq57g916arezIKU6HA+PTfWmz75yae1TniWZorxkd4narVuBjvG5B+Hb9K9/VKiKWQzToJ8CamuKYZta72PZhTAiCGzk8w3CTAGDDJxP3Z9Qn/N/dfCty5ye7V608LE4GVpfSkSXriA42v7xGFibS0JrNRcUNCU+oTAGBNjhXILKv9A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1vxdJ/7D9H4TKn7YPL8bXXHihM6ipwRxiZf86f71IYg=;
+ b=bXGpr9Y/qKD1Tzv5TXkye98trWDjFJebaTAdFNkxZWB+5DIZTuTXZdLhLNGcJBgmpvHTnhY6me0C3VquJWfRW4Jh2i3Tf421ijyCRhmDaU1BZAf3a6Ofa4MDQAty99NPVnE9/VcjUXYxkC1tBDOBQLiexe2IBTaDVfcgqXTaUKUs1ZT0AG7nj3HC/a+KBVee+MJEdakjH4Zdc+IcoAUJCm/850OFroD1XqLy6gDIrSd0H3oKl5tnstYRfzcIXtRagwNNyP5sbUQN2Ks9+WcF8yVeQZtcbwOrlYevkrPRRy3Qt6+4VMoAz5DLH3RKriR2ftIRblGzSgd7r03lXH4jIA==
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by GV4PR04MB11404.eurprd04.prod.outlook.com (2603:10a6:150:299::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
+ 2026 09:29:39 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 09:29:39 +0000
+From: "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>, Michael Riesch
+	<michael.riesch@collabora.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Laurent
+ Pinchart <laurent.pinchart@ideasonboard.com>, Frank Li <frank.li@nxp.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Bryan O'Donoghue
+	<bryan.odonoghue@linaro.org>, Mehdi Djait <mehdi.djait@linux.intel.com>, Hans
+ Verkuil <hverkuil+cisco@kernel.org>, "G.N. Zhou (OSS)"
+	<guoniu.zhou@oss.nxp.com>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "G.N. Zhou (OSS)"
+	<guoniu.zhou@oss.nxp.com>
+Subject: RE: [PATCH v4 4/6] media: synopsys: Add PHY stopstate wait for i.MX93
+Thread-Topic: [PATCH v4 4/6] media: synopsys: Add PHY stopstate wait for
+ i.MX93
+Thread-Index: AQHc5zP2JYPXSBO7kE+Ny5UmAbIYVbYWxKQAgAFy8WA=
+Date: Thu, 21 May 2026 09:29:39 +0000
+Message-ID: <AS8PR04MB9080D3B1A6B522F3F9342E23FA0E2@AS8PR04MB9080.eurprd04.prod.outlook.com>
+References: <20260519-csi2_imx95-v4-0-84ea4bb78a88@oss.nxp.com>
+ <20260519-csi2_imx95-v4-4-84ea4bb78a88@oss.nxp.com>
+ <10853728.nUPlyArG6x@steina-w>
+In-Reply-To: <10853728.nUPlyArG6x@steina-w>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB9080:EE_|GV4PR04MB11404:EE_
+x-ms-office365-filtering-correlation-id: f929aed1-e38c-48f0-e5cf-08deb71b7b5f
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ld-processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|366016|7416014|376014|56012099003|3023799007|38070700021|921020|18002099003|11063799006|4143699003|22082099003|6133799003;
+x-microsoft-antispam-message-info: 13Nr+Q4GXMwz46YKa3U/LYauhPdB+Is23P7V1/zIelhrnuzI1YRLX40Za+3RfXbXDDvyC+d5rHlCfXEfGhviIcDYKqIKjK8tZD51Py6Xxk1slxlISXQuwAfON+ISnMqNN4JxpJ6SFmzIN7+967dHJhlHV4vsXLi5p4WsyK7lBxHDMNmN9/OitsJSPocdzaSRODPCaM1q2MHBDAfkalz7YGMb9S60lc6kbR4aVRpbzD8Dxn6OPx0n8ikQwDt0AdSHVaeB/aj4J4UV7q9E/+k128cWvwtvJO6R59nat3PTIfTX3CVF0EFc6tov4l/jbIFUG/3b5wivrEG+yaJ53oefIshZUhHMBdEkRh5IiqbfMy8hxW1KD8LGuX+n7JwZgl7WbrCG3RfPSu3mN65IGlGbzTIL+LLBEwm1s4yQC+4yJpNoEg7E/K/Zf5ftIpb2E6zSjnxJ8Dch3NeJDeVrLJNOToWOFoiigIid1eGTgXzUeULJqJRUd6QWr7k7/w5+NRzG+2dQ6/a0E77z7DlhRbYMzUa1y4UOSjK67qk1NOmZ56Dbs+Q2kXZq4qWccJ57fw0jNFKwISKZ/rAsCa9riU1+2hc92roSZEKJxlRJLpr076THCpGPrEn6t5KeyOugohx74gCKdea4j20HbLPv8kYU1H0TIZZN/Ot0UQsdtJFodzZoswlygb2PUbXDvxwCVfHqzBFKj5ZbqZEj4SLwdmAcRg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(366016)(7416014)(376014)(56012099003)(3023799007)(38070700021)(921020)(18002099003)(11063799006)(4143699003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?OUs+kTqygGT/o/4MzEoh7vzM9cGPSTMFav+omy84v2XTsWiGGss9XWnvKB?=
+ =?iso-8859-1?Q?r13sTeyX7puVSgxrLbzi6YOqdOkGMndhC9Cq3z/yW7fANbly2eYvjYq1uo?=
+ =?iso-8859-1?Q?XjWzzO5e2Z1ucd4uV3B9pmLDcc/guR21qbKfD4fZWeN0KRgemrBorJjptZ?=
+ =?iso-8859-1?Q?uIprjCF5Ggt/XUjN9TOsZeUsX840YtE+5URVwVA3ok4NOdfBFvOJsYe9iy?=
+ =?iso-8859-1?Q?fZtEl2E3ODHBWTfrndaKDNBUI2egTO3VACV9+QOMhMRhmR2oRwDhNiAXS/?=
+ =?iso-8859-1?Q?jxC1h+PYi5Pcx6gzrXF/AJ9788a0LFAU3N3/iQ/yLC9pnFGViZE3sMc2Rr?=
+ =?iso-8859-1?Q?I8nAKQHYusYx4GqgAfmd/Bx1ngZ/XpYv9d0JFhQwR0N0FGFf2u1gf1cO4C?=
+ =?iso-8859-1?Q?SS1oF2QDAxNYR5vL3KYnFOVntROul4DgJ60J65wBy7kugjwUkKzIPnQ+vd?=
+ =?iso-8859-1?Q?unFMHYjpEgd5QNrnwspoAmvkrutLWtRHXoFCfBNfBJkiTAdVY/HK7V/6ma?=
+ =?iso-8859-1?Q?q0IImral7FFIrmLg15K9Ckn2G8yrvl7/uW/yBb8c98brgjgZ7hkzIVehch?=
+ =?iso-8859-1?Q?YdQu0TFgXGKfhvAg/dC7HzFKd/+GDIOX+4MTlt1fRQtJm0w2+Q4IFh/mIP?=
+ =?iso-8859-1?Q?cRLTgG00jeTzjoj7/Q8mEweawoWPqJIGXgjqav0f41I4mq+i7c7aVlRZTt?=
+ =?iso-8859-1?Q?Lm6Apg2KWE3a4E6OkshNLDRQfOOn5ynpxkTWD3O1jQ3V3o8HnWv+nlMhyp?=
+ =?iso-8859-1?Q?uVFe5vvdcP7/i9kpWk6D9PlJ40z9chOzx6j0ghAGVN7TKHKM+RVBPdDwdL?=
+ =?iso-8859-1?Q?cOeoTQyBbn14mRDC0kCghj+n/K+tI+qRmOWk70BdqOINbZ39Tb2sSpvq/E?=
+ =?iso-8859-1?Q?wVL+3RoKKWceXEOj6GHBwKQ6ru6u6YW70M6pOINqiYqwUwIGuvfO1ALcc4?=
+ =?iso-8859-1?Q?6qpWCnTSmBBuzX+XuKcPv4fLxk/Bms1CR+WS1zPYmYeM+HdnDi1ZPcLF4p?=
+ =?iso-8859-1?Q?L3Cna6oJ0aZasxOGzgHgMVuBPSqnaHO/w7TOrKpwiPvamozIDTM1Sj02gT?=
+ =?iso-8859-1?Q?w81vke+ANX8xqB0zAg8egkIxOOdbBSHmv+N57KQN6s8oDbFQAWuejRZWHq?=
+ =?iso-8859-1?Q?C17MoN4IR201vvxcT92OozWtx+5IchsOUbGKr5VomiwEYhoNPctHZ/AS4R?=
+ =?iso-8859-1?Q?0a2uhI2UerHk1rVbGSoNmCei7JAP/EiVjJQB0UpjeKUzNG7QQTQ21ZeDuf?=
+ =?iso-8859-1?Q?lUrqIJ8zMdURLFgnYJ2ZOtNKmsH3p6MXMB5jK9qBTQvJPN9CGjzwIVbtWY?=
+ =?iso-8859-1?Q?cqH/FApROvnqgoyNyap9I7l9lPDB5CGpgW+k7Ovqp9EIip0GpoNCWr0BDn?=
+ =?iso-8859-1?Q?LHYWtGeNTgA3f6fIpz7880alpaYd4VWynqASbpKKOERn9ZVG57nhjxoX0D?=
+ =?iso-8859-1?Q?GcBPRlS6X4qFxjxEXauzdEAj4vDRS1H/fQwv4xRYkolFFdVUqQ1ChbLpwB?=
+ =?iso-8859-1?Q?X1HA817B/lyn6frhMUWZp24+EsLyiomGyNDZ/6egRNakdJxlL86HvUVRQZ?=
+ =?iso-8859-1?Q?JWTTcJANzBMLzmMut0OmOKeiBZ5HN4FaLFiv5/N03ESleN5XJZjBelvC1x?=
+ =?iso-8859-1?Q?oAafHX5jfSYCq2WxDNFmHCvxxvCbWHcu+fmcOf68NKluQkf6aULPGFdOSg?=
+ =?iso-8859-1?Q?n79+ejgCLi+m6XAtA8UoObxLU06VSb8uQ+2KS0C3UBBVl8Lf/07os+8p17?=
+ =?iso-8859-1?Q?SZlSAAOs8Vgk8+w+DCvemb8bGmW6S8YtvNcB0/Mdhjnncs?=
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f929aed1-e38c-48f0-e5cf-08deb71b7b5f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 May 2026 09:29:39.4623
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: HN33azddSE2rGP7iO9OsO4nOV128qGJf429rJnJSb+k2zGdeW5G4r6JLxcaEnY+3kKVrOsPH5wQ3MNY5jAp7QA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11404
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_022407_129275_169469A8 
-X-CRM114-Status: GOOD (  25.22  )
+X-CRM114-CacheID: sfid-20260521_022948_173208_F07AFA1C 
+X-CRM114-Status: GOOD (  31.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,443 +157,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+Hi Alexander,
 
-On Mon, May 18, 2026 at 2:02=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
->
-> Store the active format using the common V4L2 subdev active state
-> instead of our local copy of it.
->
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
->  .../media/sunxi/sun6i-isp/sun6i_isp_capture.c |  16 ++-
->  .../media/sunxi/sun6i-isp/sun6i_isp_params.c  |  18 ++-
->  .../media/sunxi/sun6i-isp/sun6i_isp_params.h  |   4 +-
->  .../media/sunxi/sun6i-isp/sun6i_isp_proc.c    | 117 ++++++++----------
->  .../media/sunxi/sun6i-isp/sun6i_isp_proc.h    |   7 --
->  5 files changed, 82 insertions(+), 80 deletions(-)
->
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c b/=
-drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-> index e7b99cee63d6..24e731bcabe9 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_capture.c
-> @@ -595,11 +595,25 @@ static int sun6i_isp_capture_link_validate(struct m=
-edia_link *link)
->                 media_entity_to_video_device(link->sink->entity);
->         struct sun6i_isp_device *isp_dev =3D video_get_drvdata(video_dev)=
-;
->         struct v4l2_device *v4l2_dev =3D &isp_dev->v4l2.v4l2_dev;
-> +       struct v4l2_subdev *proc_subdev =3D
-> +               media_entity_to_v4l2_subdev(link->source->entity);
->         unsigned int capture_width, capture_height;
->         unsigned int proc_width, proc_height;
-> +       struct v4l2_subdev_format proc_subdev_format =3D {
-> +               .which  =3D V4L2_SUBDEV_FORMAT_ACTIVE,
-> +               .pad    =3D link->source->index,
-> +       };
-> +       int ret;
->
->         sun6i_isp_capture_dimensions(isp_dev, &capture_width, &capture_he=
-ight);
-> -       sun6i_isp_proc_dimensions(isp_dev, &proc_width, &proc_height);
-> +
-> +       ret =3D v4l2_subdev_call(proc_subdev, pad, get_fmt, NULL,
-> +                              &proc_subdev_format);
-> +       if (ret)
-> +               return ret;
-> +
-> +       proc_width =3D proc_subdev_format.format.width;
-> +       proc_height =3D proc_subdev_format.format.height;
->
->         /* No cropping/scaling is supported (yet). */
->         if (capture_width !=3D proc_width || capture_height !=3D proc_hei=
-ght) {
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c b/d=
-rivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> index b7ef33fa2b13..0cc48e2bc8c6 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> @@ -43,11 +43,14 @@ static const struct sun6i_isp_params_config sun6i_isp=
-_params_config_default =3D {
->         },
->  };
->
-> -static void sun6i_isp_params_configure_ob(struct sun6i_isp_device *isp_d=
-ev)
-> +static void
-> +sun6i_isp_params_configure_ob(struct sun6i_isp_device *isp_dev,
-> +                             const struct v4l2_mbus_framefmt *mbus_forma=
-t)
->  {
->         unsigned int width, height;
->
-> -       sun6i_isp_proc_dimensions(isp_dev, &width, &height);
-> +       width =3D mbus_format->width;
-> +       height =3D mbus_format->height;
->
->         sun6i_isp_load_write(isp_dev, SUN6I_ISP_OB_SIZE_REG,
->                              SUN6I_ISP_OB_SIZE_WIDTH(width) |
-> @@ -112,10 +115,12 @@ static void sun6i_isp_params_configure_wb(struct su=
-n6i_isp_device *isp_dev)
->                              SUN6I_ISP_WB_CFG_CLIP(0xfff));
->  }
->
-> -static void sun6i_isp_params_configure_base(struct sun6i_isp_device *isp=
-_dev)
-> +static void
-> +sun6i_isp_params_configure_base(struct sun6i_isp_device *isp_dev,
-> +                               const struct v4l2_mbus_framefmt *mbus_for=
-mat)
->  {
->         sun6i_isp_params_configure_ae(isp_dev);
-> -       sun6i_isp_params_configure_ob(isp_dev);
-> +       sun6i_isp_params_configure_ob(isp_dev, mbus_format);
->         sun6i_isp_params_configure_wb(isp_dev);
->  }
->
-> @@ -170,14 +175,15 @@ sun6i_isp_params_configure_modules(struct sun6i_isp=
-_device *isp_dev,
->         sun6i_isp_load_write(isp_dev, SUN6I_ISP_MODULE_EN_REG, value);
->  }
->
-> -void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev)
-> +void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev,
-> +                               const struct v4l2_mbus_framefmt *mbus_for=
-mat)
->  {
->         struct sun6i_isp_params_state *state =3D &isp_dev->params.state;
->         unsigned long flags;
->
->         spin_lock_irqsave(&state->lock, flags);
->
-> -       sun6i_isp_params_configure_base(isp_dev);
-> +       sun6i_isp_params_configure_base(isp_dev, mbus_format);
->
->         /* Default config is only applied at the very first stream start.=
- */
->         if (state->configured)
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h b/d=
-rivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h
-> index 50f10f879c42..c0d6cff95d54 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.h
-> @@ -36,8 +36,8 @@ struct sun6i_isp_params {
->
->  /* Params */
->
-> -void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev);
-> -
-> +void sun6i_isp_params_configure(struct sun6i_isp_device *isp_dev,
-> +                               const struct v4l2_mbus_framefmt *mbus_for=
-mat);
->  /* State */
->
->  void sun6i_isp_params_state_update(struct sun6i_isp_device *isp_dev,
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c b/dri=
-vers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c
-> index 46a334b602f1..9073a7f3f8c8 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.c
-> @@ -15,17 +15,6 @@
->  #include "sun6i_isp_proc.h"
->  #include "sun6i_isp_reg.h"
->
-> -/* Helpers */
-> -
-> -void sun6i_isp_proc_dimensions(struct sun6i_isp_device *isp_dev,
-> -                              unsigned int *width, unsigned int *height)
-> -{
-> -       if (width)
-> -               *width =3D isp_dev->proc.mbus_format.width;
-> -       if (height)
-> -               *height =3D isp_dev->proc.mbus_format.height;
-> -}
-> -
->  /* Format */
->
->  static const struct sun6i_isp_proc_format sun6i_isp_proc_formats[] =3D {
-> @@ -137,9 +126,10 @@ static void sun6i_isp_proc_disable(struct sun6i_isp_=
-device *isp_dev)
->         regmap_write(regmap, SUN6I_ISP_FE_CFG_REG, 0);
->  }
->
-> -static void sun6i_isp_proc_configure(struct sun6i_isp_device *isp_dev)
-> +static void
-> +sun6i_isp_proc_configure(struct sun6i_isp_device *isp_dev,
-> +                        const struct v4l2_mbus_framefmt *mbus_format)
->  {
-> -       struct v4l2_mbus_framefmt *mbus_format =3D &isp_dev->proc.mbus_fo=
-rmat;
->         const struct sun6i_isp_proc_format *format;
->         u32 value;
->
-> @@ -173,6 +163,8 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev=
- *subdev, int on)
->         struct sun6i_isp_proc_source *source;
->         struct v4l2_subdev *source_subdev;
->         struct media_pad *remote_pad;
-> +       struct v4l2_subdev_state *state;
-> +       const struct v4l2_mbus_framefmt *mbus_format;
->         int ret;
->
->         /* Source */
-> @@ -191,6 +183,10 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subde=
-v *subdev, int on)
->         else
->                 source =3D &proc->source_csi1;
->
-> +       /* Active State */
-> +
-> +       state =3D v4l2_subdev_lock_and_get_active_state(subdev);
-> +
->         if (!on) {
->                 sun6i_isp_proc_irq_disable(isp_dev);
->                 v4l2_subdev_call(source_subdev, video, s_stream, 0);
-> @@ -202,7 +198,7 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subdev=
- *subdev, int on)
->
->         ret =3D pm_runtime_resume_and_get(dev);
->         if (ret < 0)
-> -               return ret;
-> +               goto unlock;
->
->         /* Clear */
->
-> @@ -210,9 +206,12 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subde=
-v *subdev, int on)
->
->         /* Configure */
->
-> +       mbus_format =3D v4l2_subdev_state_get_format(state,
-> +                                                  SUN6I_ISP_PROC_PAD_SIN=
-K_CSI);
-> +
->         sun6i_isp_tables_configure(isp_dev);
-> -       sun6i_isp_params_configure(isp_dev);
-> -       sun6i_isp_proc_configure(isp_dev);
-> +       sun6i_isp_params_configure(isp_dev, mbus_format);
-> +       sun6i_isp_proc_configure(isp_dev, mbus_format);
->         sun6i_isp_capture_configure(isp_dev);
->
->         /* State Update */
-> @@ -230,13 +229,17 @@ static int sun6i_isp_proc_s_stream(struct v4l2_subd=
-ev *subdev, int on)
->                 goto disable;
->         }
->
-> -       return 0;
-> +       ret =3D 0;
-> +       goto unlock;
->
->  disable:
->         sun6i_isp_proc_disable(isp_dev);
->
->         pm_runtime_put(dev);
->
-> +unlock:
-> +       v4l2_subdev_unlock_state(state);
-> +
->         return ret;
->  }
->
-> @@ -259,21 +262,22 @@ sun6i_isp_proc_mbus_format_prepare(struct v4l2_mbus=
-_framefmt *mbus_format)
->  static int sun6i_isp_proc_init_state(struct v4l2_subdev *subdev,
->                                      struct v4l2_subdev_state *state)
->  {
-> -       struct sun6i_isp_device *isp_dev =3D v4l2_get_subdevdata(subdev);
-> -       unsigned int pad =3D SUN6I_ISP_PROC_PAD_SINK_CSI;
-> -       struct v4l2_mbus_framefmt *mbus_format =3D
-> -               v4l2_subdev_state_get_format(state, pad);
-> -       struct mutex *lock =3D &isp_dev->proc.lock;
-> +       unsigned int pad;
->
-> -       mutex_lock(lock);
-> +       for (pad =3D 0; pad < subdev->entity.num_pads; pad++) {
-> +               struct v4l2_mbus_framefmt *mbus_format;
->
-> -       mbus_format->code =3D sun6i_isp_proc_formats[0].mbus_code;
-> -       mbus_format->width =3D 1280;
-> -       mbus_format->height =3D 720;
-> +               if (pad =3D=3D SUN6I_ISP_PROC_PAD_SINK_PARAMS)
-> +                       continue;
->
-> -       sun6i_isp_proc_mbus_format_prepare(mbus_format);
-> +               mbus_format =3D v4l2_subdev_state_get_format(state, pad);
->
-> -       mutex_unlock(lock);
-> +               mbus_format->code =3D sun6i_isp_proc_formats[0].mbus_code=
-;
-> +               mbus_format->width =3D 1280;
-> +               mbus_format->height =3D 720;
-> +
-> +               sun6i_isp_proc_mbus_format_prepare(mbus_format);
-> +       }
->
->         return 0;
->  }
-> @@ -291,53 +295,31 @@ sun6i_isp_proc_enum_mbus_code(struct v4l2_subdev *s=
-ubdev,
->         return 0;
->  }
->
-> -static int sun6i_isp_proc_get_fmt(struct v4l2_subdev *subdev,
-> -                                 struct v4l2_subdev_state *state,
-> -                                 struct v4l2_subdev_format *format)
-> -{
-> -       struct sun6i_isp_device *isp_dev =3D v4l2_get_subdevdata(subdev);
-> -       struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
-> -       struct mutex *lock =3D &isp_dev->proc.lock;
-> -
-> -       mutex_lock(lock);
-> -
-> -       if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
-> -               *mbus_format =3D *v4l2_subdev_state_get_format(state,
-> -                                                            format->pad)=
-;
-> -       else
-> -               *mbus_format =3D isp_dev->proc.mbus_format;
-> -
-> -       mutex_unlock(lock);
-> -
-> -       return 0;
-> -}
-> -
->  static int sun6i_isp_proc_set_fmt(struct v4l2_subdev *subdev,
->                                   struct v4l2_subdev_state *state,
->                                   struct v4l2_subdev_format *format)
->  {
-> -       struct sun6i_isp_device *isp_dev =3D v4l2_get_subdevdata(subdev);
-> -       struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
-> -       struct mutex *lock =3D &isp_dev->proc.lock;
-> +       struct v4l2_mbus_framefmt *mbus_format;
->
-> -       mutex_lock(lock);
-> +       if (format->pad !=3D SUN6I_ISP_PROC_PAD_SINK_CSI)
-> +               return v4l2_subdev_get_fmt(subdev, state, format);
->
-> -       sun6i_isp_proc_mbus_format_prepare(mbus_format);
-> +       sun6i_isp_proc_mbus_format_prepare(&format->format);
->
-> -       if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
-> -               *v4l2_subdev_state_get_format(state, format->pad) =3D
-> -                       *mbus_format;
-> -       else
-> -               isp_dev->proc.mbus_format =3D *mbus_format;
-> +       mbus_format =3D v4l2_subdev_state_get_format(state, format->pad);
-> +       *mbus_format =3D format->format;
->
-> -       mutex_unlock(lock);
-> +       /* Propagate the format to the source pad. */
-> +       mbus_format =3D v4l2_subdev_state_get_format(state,
-> +                                                  SUN6I_ISP_PROC_PAD_SOU=
-RCE);
-> +       *mbus_format =3D format->format;
->
->         return 0;
->  }
->
->  static const struct v4l2_subdev_pad_ops sun6i_isp_proc_pad_ops =3D {
->         .enum_mbus_code =3D sun6i_isp_proc_enum_mbus_code,
-> -       .get_fmt        =3D sun6i_isp_proc_get_fmt,
-> +       .get_fmt        =3D v4l2_subdev_get_fmt,
->         .set_fmt        =3D sun6i_isp_proc_set_fmt,
->  };
->
-> @@ -499,8 +481,6 @@ int sun6i_isp_proc_setup(struct sun6i_isp_device *isp=
-_dev)
->         struct media_pad *pads =3D proc->pads;
->         int ret;
->
-> -       mutex_init(&proc->lock);
-> -
->         /* V4L2 Subdev */
->
->         v4l2_subdev_init(subdev, &sun6i_isp_proc_subdev_ops);
-> @@ -532,10 +512,14 @@ int sun6i_isp_proc_setup(struct sun6i_isp_device *i=
-sp_dev)
->
->         /* V4L2 Subdev */
->
-> +       ret =3D v4l2_subdev_init_finalize(subdev);
-> +       if (ret < 0)
-> +               goto error_media_entity;
-> +
->         ret =3D v4l2_device_register_subdev(v4l2_dev, subdev);
->         if (ret < 0) {
->                 v4l2_err(v4l2_dev, "failed to register v4l2 subdev: %d\n"=
-, ret);
-> -               goto error_media_entity;
-> +               goto error_subdev_finalize;
->         }
->
->         /* V4L2 Async */
-> @@ -562,6 +546,9 @@ int sun6i_isp_proc_setup(struct sun6i_isp_device *isp=
-_dev)
->
->         v4l2_device_unregister_subdev(subdev);
->
-> +error_subdev_finalize:
-> +       v4l2_subdev_cleanup(subdev);
-> +
->  error_media_entity:
->         media_entity_cleanup(&subdev->entity);
->
-> @@ -577,5 +564,7 @@ void sun6i_isp_proc_cleanup(struct sun6i_isp_device *=
-isp_dev)
->         v4l2_async_nf_cleanup(notifier);
->
->         v4l2_device_unregister_subdev(subdev);
-> +       v4l2_subdev_cleanup(subdev);
-> +
->         media_entity_cleanup(&subdev->entity);
->  }
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h b/dri=
-vers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h
-> index db6738a39147..26c4327c5ed7 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_proc.h
-> @@ -42,18 +42,11 @@ struct sun6i_isp_proc {
->         struct v4l2_subdev              subdev;
->         struct media_pad                pads[3];
->         struct v4l2_async_notifier      notifier;
-> -       struct v4l2_mbus_framefmt       mbus_format;
-> -       struct mutex                    lock; /* Mbus format lock. */
->
->         struct sun6i_isp_proc_source    source_csi0;
->         struct sun6i_isp_proc_source    source_csi1;
->  };
->
-> -/* Helpers */
-> -
-> -void sun6i_isp_proc_dimensions(struct sun6i_isp_device *isp_dev,
-> -                              unsigned int *width, unsigned int *height)=
-;
-> -
->  /* Format */
->
->  const struct sun6i_isp_proc_format *sun6i_isp_proc_format_find(u32 mbus_=
-code);
+> -----Original Message-----
+> From: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Sent: Wednesday, May 20, 2026 7:12 PM
+> To: Michael Riesch <michael.riesch@collabora.com>; Mauro Carvalho Chehab
+> <mchehab@kernel.org>; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Heiko Stuebner
+> <heiko@sntech.de>; Laurent Pinchart <laurent.pinchart@ideasonboard.com>;
+> Frank Li <frank.li@nxp.com>; Sakari Ailus <sakari.ailus@linux.intel.com>;=
+ Bryan
+> O'Donoghue <bryan.odonoghue@linaro.org>; Mehdi Djait
+> <mehdi.djait@linux.intel.com>; Hans Verkuil <hverkuil+cisco@kernel.org>;
+> G.N. Zhou (OSS) <guoniu.zhou@oss.nxp.com>
+> Cc: linux-media@vger.kernel.org; linux-kernel@vger.kernel.org;
+> devicetree@vger.kernel.org; imx@lists.linux.dev; linux-arm-
+> kernel@lists.infradead.org; linux-rockchip@lists.infradead.org; G.N. Zhou=
+ (OSS)
+> <guoniu.zhou@oss.nxp.com>
+> Subject: Re: [PATCH v4 4/6] media: synopsys: Add PHY stopstate wait for
+> i.MX93
+>=20
+> Hi,
+>=20
+> Am Dienstag, 19. Mai 2026, 04:07:41 CEST schrieb Guoniu Zhou:
+> > Implement waiting for D-PHY lanes to enter stop state on i.MX93. This
+> > ensures proper PHY initialization by verifying that the clock lane and
+> > all active data lanes have entered the stop state before proceeding
+> > with further operations.
+> >
+> > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> > ---
+> > Changes in v2:
+> > - Removes redundant register availability check
+> > - Uses read_poll_timeout() with dw_mipi_csi2rx_read() instead of
+> >   readl_poll_timeout() with direct register address
+> > - Fixes stopstate condition logic
+> > - Check PHY stopstate after sensor enable instead of before to ensure
+> >   correct timing.
+> > - Optimize PHY stopstate polling parameters (1000us->10us, 2s->1ms) to
+> >   balance performance and responsiveness.
+> > ---
+> >  drivers/media/platform/synopsys/dw-mipi-csi2rx.c | 36
+> > ++++++++++++++++++++++++
+> >  1 file changed, 36 insertions(+)
+> >
+> > diff --git a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> > b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> > index 92178a3dec5d..8a34aec550ad 100644
+> > --- a/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> > +++ b/drivers/media/platform/synopsys/dw-mipi-csi2rx.c
+> > @@ -11,6 +11,7 @@
+> >  #include <linux/clk.h>
+> >  #include <linux/delay.h>
+> >  #include <linux/io.h>
+> > +#include <linux/iopoll.h>
+> >  #include <linux/module.h>
+> >  #include <linux/of.h>
+> >  #include <linux/phy/phy.h>
+> > @@ -35,6 +36,8 @@
+> >  #define DW_REG_EXIST		BIT(31)
+> >  #define DW_REG(x)		(DW_REG_EXIST | (x))
+> >
+> > +#define DPHY_STOPSTATE_CLK_LANE		BIT(16)
+> > +
+> >  #define DPHY_TEST_CTRL0_TEST_CLR	BIT(0)
+> >
+> >  #define IPI_VCID_VC(x)			FIELD_PREP(GENMASK(1, 0),
+> (x))
+> > @@ -65,6 +68,7 @@ enum dw_mipi_csi2rx_regs_index {
+> >  	DW_MIPI_CSI2RX_PHY_TST_CTRL0,
+> >  	DW_MIPI_CSI2RX_PHY_TST_CTRL1,
+> >  	DW_MIPI_CSI2RX_PHY_SHUTDOWNZ,
+> > +	DW_MIPI_CSI2RX_PHY_STOPSTATE,
+> >  	DW_MIPI_CSI2RX_IPI_DATATYPE,
+> >  	DW_MIPI_CSI2RX_IPI_MEM_FLUSH,
+> >  	DW_MIPI_CSI2RX_IPI_MODE,
+> > @@ -87,6 +91,7 @@ struct dw_mipi_csi2rx_drvdata {
+> >  	void (*dphy_assert_reset)(struct dw_mipi_csi2rx_device *csi2);
+> >  	void (*dphy_deassert_reset)(struct dw_mipi_csi2rx_device *csi2);
+> >  	void (*ipi_enable)(struct dw_mipi_csi2rx_device *csi2);
+> > +	int (*wait_for_phy_stopstate)(struct dw_mipi_csi2rx_device *csi2);
+> >  };
+> >
+> >  struct dw_mipi_csi2rx_format {
+> > @@ -139,6 +144,7 @@ static const u32 imx93_regs[DW_MIPI_CSI2RX_MAX]
+> =3D {
+> >  	[DW_MIPI_CSI2RX_PHY_SHUTDOWNZ] =3D DW_REG(0x40),
+> >  	[DW_MIPI_CSI2RX_DPHY_RSTZ] =3D DW_REG(0x44),
+> >  	[DW_MIPI_CSI2RX_PHY_STATE] =3D DW_REG(0x48),
+> > +	[DW_MIPI_CSI2RX_PHY_STOPSTATE] =3D DW_REG(0x4c),
+> >  	[DW_MIPI_CSI2RX_PHY_TST_CTRL0] =3D DW_REG(0x50),
+> >  	[DW_MIPI_CSI2RX_PHY_TST_CTRL1] =3D DW_REG(0x54),
+> >  	[DW_MIPI_CSI2RX_IPI_MODE] =3D DW_REG(0x80), @@ -556,10 +562,19
+> @@
+> > static int dw_mipi_csi2rx_enable_streams(struct v4l2_subdev *sd,
+> >  	if (ret)
+> >  		goto err_csi_stop;
+> >
+> > +	if (!csi2->enabled_streams &&
+> > +	    csi2->drvdata->wait_for_phy_stopstate) {
+> > +		ret =3D csi2->drvdata->wait_for_phy_stopstate(csi2);
+> > +		if (ret)
+> > +			goto err_disable_streams;
+> > +	}
+> > +
+> >  	csi2->enabled_streams |=3D streams_mask;
+> >
+> >  	return 0;
+> >
+> > +err_disable_streams:
+> > +	v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
+> >  err_csi_stop:
+> >  	/* Stop CSI hardware if no streams are enabled */
+> >  	if (!csi2->enabled_streams)
+> > @@ -871,11 +886,32 @@ static void imx93_csi2rx_dphy_ipi_enable(struct
+> dw_mipi_csi2rx_device *csi2)
+> >  	dw_mipi_csi2rx_write(csi2, DW_MIPI_CSI2RX_IPI_MODE, val);  }
+> >
+> > +static int imx93_csi2rx_wait_for_phy_stopstate(struct
+> > +dw_mipi_csi2rx_device *csi2) {
+> > +	struct device *dev =3D csi2->dev;
+> > +	u32 stopstate_mask;
+> > +	u32 val;
+> > +	int ret;
+> > +
+> > +	stopstate_mask =3D DPHY_STOPSTATE_CLK_LANE | GENMASK(csi2-
+> >lanes_num -
+> > +1, 0);
+> > +
+> > +	ret =3D read_poll_timeout(dw_mipi_csi2rx_read, val,
+> > +				(val & stopstate_mask) =3D=3D stopstate_mask,
+> > +				 10, 1000, true,
+> > +				 csi2, DW_MIPI_CSI2RX_PHY_STOPSTATE);
+> > +	if (ret)
+> > +		dev_err(dev, "lanes are not in stop state: %#x,
+> expected %#x\n",
+> > +			val, stopstate_mask);
+>=20
+> Did you actually test this on imx93? I'm trying to get my imx327 sensor t=
+o run,
+> but only run into this error message:
+> dw-mipi-csi2rx 4ae00000.mipi-csi: lanes are not in stop state: 0x0, expec=
+ted
+> 0x10003
+
+Thanks for testing. Regarding the lane stop state error on i.MX93 with imx3=
+27:
+
+This error indicates the CSI-2 lanes are not in LP-11 (stop) state when=20
+expected. Please check:
+
+1) Verify the sensor PHY is in LP-11 state before returning from the sensor=
+'s=20
+   s_stream(1) call. The CSI-2 receiver expects lanes to be in stop state=20
+   initially.
+
+2) Check if the imx327 driver has a delay between starting the stream and=20
+   returning from s_stream(). If the sensor transitions PHY out of LP-11=20
+   state during this delay, the CSI driver's lane state check will fail=20
+   when it runs later. The sensor should remain in LP-11 until the CSI=20
+   controller completes its initialization.
+
+You may need to remove any delays in the imx327 s_stream implementation, or=
+=20
+ensure the sensor stays in LP-11 state until the CSI receiver is ready.
+
+If possible, could you share the imx327 driver code or check its s_stream i=
+mplementation?
+
+Best Regards
+G.N Zhou
+
+>=20
+> Currently I'm using this DT node:
+> --8<--
+> mipi_csi: mipi-csi@4ae00000 {
+> 	compatible =3D "fsl,imx93-mipi-csi2";
+> 	reg =3D <0x4ae00000 0x10000>;
+> 	interrupts =3D <GIC_SPI 175 IRQ_TYPE_LEVEL_HIGH>;
+> 	clocks =3D <&clk IMX93_CLK_MIPI_CSI_GATE>,
+> 			<&clk IMX93_CLK_CAM_PIX>;
+> 	clock-names =3D "per", "pixel";
+> 	assigned-clocks =3D <&clk IMX93_CLK_CAM_PIX>;
+> 	assigned-clock-parents =3D <&clk IMX93_CLK_VIDEO_PLL>;
+> 	assigned-clock-rates =3D <140000000>;
+> 	power-domains =3D <&media_blk_ctrl IMX93_MEDIABLK_PD_MIPI_CSI>;
+> 	phys =3D <&dphy_rx>;
+> 	phy-names =3D "dphy-rx";
+> 	status =3D "disabled";
+>=20
+> 	ports {
+> 		#address-cells =3D <1>;
+> 		#size-cells =3D <0>;
+>=20
+> 		port@0 {
+> 			reg =3D <0>;
+>=20
+> 			mipi_from_sensor: endpoint {
+> 				data-lanes =3D <1 2>;
+> 				bus-type =3D <MEDIA_BUS_TYPE_CSI2_DPHY>;
+> 			};
+> 		};
+>=20
+> 		port@1 {
+> 			reg =3D <1>;
+>=20
+> 			mipi_to_isi: endpoint {
+> 				remote-endpoint =3D <&isi_in>;
+> 			};
+> 		};
+> 	};
+> };
+> --8<--
+>=20
+> Am I'm missing something?
+>=20
+> best regards,
+> Alexander
+>=20
+> > +
+> > +	return ret;
+> > +}
+> > +
+> >  static const struct dw_mipi_csi2rx_drvdata imx93_drvdata =3D {
+> >  	.regs =3D imx93_regs,
+> >  	.dphy_assert_reset =3D imx93_csi2rx_dphy_assert_reset,
+> >  	.dphy_deassert_reset =3D imx93_csi2rx_dphy_deassert_reset,
+> >  	.ipi_enable =3D imx93_csi2rx_dphy_ipi_enable,
+> > +	.wait_for_phy_stopstate =3D imx93_csi2rx_wait_for_phy_stopstate,
+> >  };
+> >
+> >  static const struct of_device_id dw_mipi_csi2rx_of_match[] =3D {
+> >
+> >
+>=20
+>=20
 > --
-> 2.54.0
->
+> TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht M=FCnchen, HRB 105018
+> Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+>=20
 
-I used LicheePi Zero Dock (V3s) with the following pipeline as test setup.
-
-ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-isp-proc ->
-sun6i-isp-capture
-
-I verified TRY and ACTIVE state handling, including changing TRY
-formats without affecting ACTIVE state. Format propagation from the
-sink (csi) pad to the source pad was also tested.
-
-I also tested streaming with the sensor test pattern enabled and
-verified the captured output was correct.
-
-Tested-by: Arash Golgol <arash.golgol@gmail.com>
---=20
-Regards
-Arash Golgol
 
