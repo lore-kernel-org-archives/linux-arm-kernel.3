@@ -4,107 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D49CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2477CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:07:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
-	Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z9PrdA31q5x8SAejtf+3EF1jeBrhc3Rg2VGzoBKR6RQ=; b=3lO3sU7ZcU95tQbXOM5iF5vI8C
-	3ot9VL8Gtls7ZQMTnES5/LrY7+yg2uQvoTTYtnPTDCqSkghrmiXKSiZUKU8TER12C5Otc915RDak1
-	3glgcyk918NbDld0XmcoQWe0iFyb8eel5wzI+rFxawgocF0b3FQB9u6BHgd86qCWYFUTWY68GgzOr
-	BKUI9AxaXHXKfprb2Hv+PihWiSbk+ipMo1PQcxfc+PJzNJHdd35gcdhTRoMkpNo/hKlTLUGpv2yCd
-	BFADFZbytKHWItJAJ3ecOnEo/ecwA/1M6eSgKdqpspKREskhtGJzkYXAfFqZgBzeZInpB7A9Ptq+F
-	Wapf3edg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/SoalNNKO1spLRzAIXn5OOTFcvvlQyTKSuUb8a531F0=; b=Ot+sZkVBNLWgI0fec0JWcjadRl
+	anI081DGGOJL5Di11mWD1MULPEB6avlUkjwpq9skCRkJXYpzNhyFMUfoHTIT0+re36nXkeAG2vcVZ
+	xtzReRUiQL+5A1dtPaTuZQ3tfuPJ6bfLXsrJ/6t7ez8SjLjV0HCT+VjIKU8LG5tJk0hVi0a9mypbE
+	RYs9HZtfKKbJ3xnRnOPQ7yX96Sv7fbZFOU1BAab53pSLezkDhCeNlIvNrtA3aPV4ttS2zO0hshx32
+	NhHzcbsYTwqNuXa/eLhkWDdgDp9eLKNFPQfYi6Y+K500ZKijj8KIaUF38ia/jVPUvLLXVvvsJyEG9
+	xL73vZHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyKQ-000000072GI-2qbB;
-	Thu, 21 May 2026 08:00:26 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wPyQl-0000000738T-14M9;
+	Thu, 21 May 2026 08:06:59 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyKO-000000072Fd-0vAq
+	id 1wPyQh-0000000736Q-2Btt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 08:00:25 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-44e1860558fso3684143f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:00:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779350422; x=1779955222; darn=lists.infradead.org;
-        h=to:references:message-id:cc:date:in-reply-to:from:subject
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z9PrdA31q5x8SAejtf+3EF1jeBrhc3Rg2VGzoBKR6RQ=;
-        b=LF3Xlj3iB3mPazXDXyoD9JSYVna6/r/7e4YQtpnSM0uXKE2ybCAYqyTQB+ZoQIuPxQ
-         3eYcCEoIxUTWrUsXvQ28llB73xkom40bVtJGUTIi+16JdYxP4BzOvebZtUCdWCF6U5J9
-         L4oEuNbAQT7EQsamIsJOe0AQRYzzah0odc2f4XLRLB1gf+b1LutgN7Ce8bkYEeMuM8S5
-         BOr8WJNrymk2aBCBVgUn0HoK+5glRzNCvkbHWkflvjDQn6PTpcgDTbhqyeEnp2NcBJ8s
-         46xywYpKM/ZT0eu6l2ltHy8JCs8Ox/aT2o1SZ2bN2HscrtSBmDJvMiRBUaGucKP397fc
-         f61A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779350422; x=1779955222;
-        h=to:references:message-id:cc:date:in-reply-to:from:subject
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z9PrdA31q5x8SAejtf+3EF1jeBrhc3Rg2VGzoBKR6RQ=;
-        b=hFi52J+qqTUvvYjGIwLkKIOytYu1ZHgHgNH4bMgYofIcbZtMCaG33skj87e3A6SFir
-         KLrQqxz1rnZswhLSGAtk7O0kqBibLzk+UxO7R4KRszHBcBl0ee7+2VpkLZOdjuAMNNyO
-         QPoGXTcSSLXBjuYrlOm2WhN/PQVWdZ/IBXI7LHX6b8Yzf0IAmRKgJq288WDbO1l8PO0Y
-         oRaOoND621OULjQKeeGKNTLOofDsE2LPNVdNm2pBwHWs6dzUe6wPyQxzGBFokoSZnIoi
-         pZmw1KxAWy4qd9Jtvct1IluKhyjE3WqvSV/1HsVjgOQ9hyFp8THd2Xb2GAI8BhYvgjYa
-         1OOA==
-X-Forwarded-Encrypted: i=1; AFNElJ/UhFJiPWVcms8Tyx+FcT5fmdTooeSRJKybqHLqOz1FrMmp7/8ZMx2CQ2laT8gM9Q2rvxrl63b4x2D78z36KRgy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUStHsevPMhpSl+WrrjYULMl3cu28F+uw7q7PyfPukfsnyt4Bw
-	aiLDnqHN/NeiAl4tMQnVvhz0oThcpaUUe52RRzgfIy5ltqONfX191NTK
-X-Gm-Gg: Acq92OFt7lZOJ3pz4noZKFjsUVwLMPkaJu9Z49kqyZlWJC+cTbcyxIT/GGSBTxGiovn
-	Gz178kgV3xbGczOdBVWSpfuRstoQjTgqM8dUGo8UDWGVo3BWIM4DnrEt1A8BxHbGoX4vO1PQEcz
-	De5LlfTSCrIZtj5xFCTzwA5i8BiNPuEBXiZNbWjG8vCAjNWdDB7O3XsqfngP9rXijs8VCfc79Ay
-	Upv7FNk6wgO04gJDVZ3VLDm6mmoKjrXTeoKYZ1DPf1tyLue2QJFN+QE2HRXI5IYMzl4RHmYHukW
-	+YtSg86yccy5Yk0uZp6WNw3/rJaToD67FreFUqmeHD1KlJJvs2/BM76JaJaMjYgKKYADJGvH+Rm
-	x4yZ2EEpie/cbKVIkGnbOCD12JA0Bwh3zjamGgnS6nTdrt+90A8EPLz7V6mIxNsYNc44RFJ8fKB
-	9gr5sqgFsD+b020RwkQs4UepOy61I5zizCew==
-X-Received: by 2002:a05:600c:468b:b0:488:aa33:dcbd with SMTP id 5b1f17b1804b1-490360c12cbmr24099035e9.26.1779350421276;
-        Thu, 21 May 2026 01:00:21 -0700 (PDT)
-Received: from smtpclient.apple ([197.250.51.26])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eaa92ca96sm726769f8f.19.2026.05.21.01.00.15
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 21 May 2026 01:00:19 -0700 (PDT)
-Content-Type: multipart/signed;
-	boundary="Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628";
-	protocol="application/pgp-signature";
-	micalg=pgp-sha256
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.500.181\))
-Subject: Re: [PATCH v5 8/8] ARM: defconfig: Add a zx29 defconfig file
-From: =?utf-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
-In-Reply-To: <30b96e0d-f296-4c31-8701-a15c568ebffc@app.fastmail.com>
-Date: Thu, 21 May 2026 11:00:01 +0300
-Cc: Linus Walleij <linusw@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>,
- Russell King <linux@armlinux.org.uk>,
- Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Drew Fustini <fustini@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>,
- linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org,
- soc@lists.linux.dev,
- linux-serial@vger.kernel.org
-Message-Id: <3B300E28-8603-4881-8A47-E9B86A355090@gmail.com>
-References: <20260421-send-v5-0-ace038e63515@gmail.com>
- <20260421-send-v5-8-ace038e63515@gmail.com>
- <CAD++jL=_eDY_mG_QBreSrZiho0hUrDSciedq=vrxXaTiMwrSyg@mail.gmail.com>
- <30b96e0d-f296-4c31-8701-a15c568ebffc@app.fastmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-X-Mailer: Apple Mail (2.3864.500.181)
+	Thu, 21 May 2026 08:06:58 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=/SoalNNKO1spLRzAIXn5OOTFcvvlQyTKSuUb8a531F0=;
+	b=TSNNapNBajMBhYedLA2x/rJ1f/g2V5QCsEKPcXFvz3BSsGxgFupUNFVsiYJdZ7hEPttoMbQxv
+	QId/x0scSJHTxyXCgslGs8+zMb2xzSfH3motBZ+Hh7KY5Shbvbk5r8L1Suomv/tKf8V/oxZIZg7
+	vNwwaniwABE60Ktjs34NJCc=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gLglb3z6MzLlTk;
+	Thu, 21 May 2026 15:58:51 +0800 (CST)
+Received: from kwepemf100001.china.huawei.com (unknown [7.202.181.215])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1D6C740565;
+	Thu, 21 May 2026 16:06:33 +0800 (CST)
+Received: from [10.67.121.90] (10.67.121.90) by kwepemf100001.china.huawei.com
+ (7.202.181.215) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 21 May
+ 2026 16:06:32 +0800
+Message-ID: <fdc3886e-7e5b-46e3-a1c9-48e2c2b596c9@huawei.com>
+Date: Thu, 21 May 2026 16:06:31 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/4] devfreq: Factor out devfreq_set_governor()
+To: Jie Zhan <zhanjie9@hisilicon.com>, <cwchoi00@gmail.com>,
+	<cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
+	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>,
+	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+References: <20260519113251.3745140-1-zhanjie9@hisilicon.com>
+ <20260519113251.3745140-4-zhanjie9@hisilicon.com>
+From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+In-Reply-To: <20260519113251.3745140-4-zhanjie9@hisilicon.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.90]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemf100001.china.huawei.com (7.202.181.215)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_010024_293196_5D694A3B 
-X-CRM114-Status: GOOD (  35.88  )
+X-CRM114-CacheID: sfid-20260521_010656_233880_E878ECA2 
+X-CRM114-Status: GOOD (  20.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,146 +82,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/19/2026 7:32 PM, Jie Zhan wrote:
+> governor_store() and devfreq_add_device() contain similar logic for setting
+> a governor when devfreq->governor is NULL.  Merge this into a common
+> function, devfreq_set_governor(), to reduce code duplication and unify the
+> entry of setting governors.
+> 
+> This also prepares for further changes that get / put a module refcount of
+> the active governor and prevent the governor module from being unloaded
+> while it's in use.
+> 
+> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+> ---
+>  drivers/devfreq/devfreq.c | 117 ++++++++++++++++++--------------------
+>  1 file changed, 56 insertions(+), 61 deletions(-)
+> 
+> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
+> index 53c40d795a13..9e3e6a7348f8 100644
+> --- a/drivers/devfreq/devfreq.c
+> +++ b/drivers/devfreq/devfreq.c
+> @@ -318,6 +318,59 @@ static struct devfreq_governor *try_then_request_governor(const char *name)
+>  	return governor;
+>  }
+>  
+> +static int devfreq_set_governor(struct devfreq *df,
+> +				const struct devfreq_governor *new_gov)
+> +{
+> +	const struct devfreq_governor *old_gov;
+> +	struct device *dev;
+> +	int ret;
+> +
+> +	lockdep_assert_held(&devfreq_list_lock);
+> +
+> +	old_gov = df->governor;
+> +	dev = &df->dev;
+> +
+> +	if (old_gov) {
+> +		if (old_gov == new_gov)
+> +			return 0;
+> +
+> +		if (IS_SUPPORTED_FLAG(old_gov->flags, IMMUTABLE) ||
+> +		    IS_SUPPORTED_FLAG(new_gov->flags, IMMUTABLE))
+> +			return -EINVAL;
+> +
+> +		/* Stop the current governor */
+> +		ret = df->governor->event_handler(df, DEVFREQ_GOV_STOP, NULL);
+> +		if (ret) {
+> +			dev_warn(dev, "%s: Governor %s not stopped(%d)\n",
+> +				 __func__, df->governor->name, ret);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	/* Start the new governor */
+> +	df->governor = new_gov;
+> +	ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+> +	if (ret) {
+> +		dev_warn(dev, "%s: Governor %s not started(%d)\n",
+> +			 __func__, df->governor->name, ret);
+> +
+> +		/* Restore previous governor */
+> +		df->governor = old_gov;
+> +		if (!df->governor)
+> +			return ret;
+> +
+> +		ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
+> +		if (ret) {
+> +			dev_err(dev, "%s: restore Governor %s failed (%d)\n",
+> +				__func__, df->governor->name, ret);
+> +			df->governor = NULL;
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	return sysfs_update_group(&df->dev.kobj, &gov_attr_group);
 
---Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=utf-8
+Here is a little problem which is not introduced by this patch. When
+starting new governor fails but restoring old governor succeeds, this
+function will return 0. This might lead users to believe that the governor
+has been successfully modified.
 
-Hi Arnd,
-
-I saw your reply to my defconfig pull request, but apparently never =
-received your original reply. I only found this mail here. It looks like =
-I have to look for a better E-Mail provider as gmail is choking on the =
-volume of the linux-arm-kernel mailing list.
-
-To answer your questions I found at =
-https://lore.kernel.org/all/61452117-0cdc-4ec2-83eb-dc03ccbd410b@app.fastm=
-ail.com/ :
-
-> Either way, the patch description above should at least explain
-> why you think you need your own defconfig, as we don't normally
-> take those.
-
-It was more cluelessness / being new to kernel development that gave me =
-the impression that boards should have defconfigs. Since then I ran =
-across scripts/dt_to_config. I haven't tested it yet on my DT, but if it =
-does the right thing I don't think this board needs a defconfig.
-
->> +CONFIG_CMDLINE=3D"console=3DttyAMA0 earlyprintk root=3D/dev/ram rw"
-
-> A definconfig should normall not rely on earlyprintk, just add
-> that when you actually need to debug the super-early boot
-> stages. With "earlycon" it should pick up the right console
-> from the stdout path and work almost as early.
-
->> +CONFIG_BINFMT_FLAT=3Dy
-
-> Are you actually using flat binaries? I wasn't aware that this
-> is still possible on MMU-enabled kernels.
-
->> +CONFIG_BLK_DEV_RAM=3Dy
->> +CONFIG_BLK_DEV_RAM_COUNT=3D4
-
-> The old ramdisk boot is going away in the future, please use
-> initramfs instead. This should also save a good amount of RAM.
-
-I'll fix those in my tree and keep the defconfig around just in case, =
-but otherwise drop it from the submission. We can revisit it later when =
-the board is more complete.
-
->> +CONFIG_DEVTMPFS=3Dy # FIXME: This is specific to my initrd. Remove=20=
-
->> before upstream
->stale comment?
-
-I believe I removed this in later versions though :-)
-
-Cheers,
-Stefan
-
-> Am 24.04.2026 um 11:54 schrieb Arnd Bergmann <arnd@arndb.de>:
->=20
-> On Fri, Apr 24, 2026, at 09:13, Linus Walleij wrote:
->> On Tue, Apr 21, 2026 at 10:24=E2=80=AFPM Stefan D=C3=B6singer
->> <stefandoesinger@gmail.com> wrote:
->>=20
->>> This enables existing drivers that already are (UART) or will be =
-(USB,
->>> GPIO) necessary to operate this board even if they aren't declared =
-in
->>> the DTS yet.
->>>=20
->>> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->>=20
->> *I* personally (as SoC maintainer) think that having a few more =
-defconfigs
->> is fine, even helpful.
->>=20
->> But I would defer this to the more senior SoC maintainers because I =
-think
->> their stance is something like:
->>=20
->> - We have multi_v7_defconfig for compile testing
->>=20
->> - We know that binary gets way to big for your system: it's for build
->>  testing and perhaps booting in QEMU or systems with many MB of
->>  RAM, not for actually running it on products.
->>=20
->> - You are encouraged to keep your own defconfig out-of-tree.
->=20
-> Right, we clearly need to do something better than what we are with
-> the general defconfigs, as I'm sure many of the existing ones are
-> never actually used for booting a machine, and are horribly out of
-> date with the Kconfig options.
->=20
-> I wouldn't object to adding another defconfig for a new (or revived)
-> soc family, but I don't want to have more per-board ones.
-> Overall, we have about 70 defconfigs and 55 soc families that have =
-their
-> own mach-* directory (plus a few without code), and the number of
-> defconfigs alone makes it hard to keep them up to date.=20
->=20
->> However I even challenged this myself by adding a defconfig for =
-memory
->> constrained Broadcoms a while back (NACKed/ignored ;) so if it was =
-all
->> up to me I would merge this.
->=20
-> I don't even remember that discussion ;-)
->=20
-> One idea might be to have a tiny base defconfig, plus platform
-> specific fragments that add drivers. The problem is agreeing
-> what bits are essential enough to still get enabled in the
-> tiny config.
->=20
->       Arnd
-
-
---Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
-	filename=signature.asc
-Content-Type: application/pgp-signature;
-	name=signature.asc
-Content-Description: Message signed with OpenPGP
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoOu4EACgkQPRO8yFRP
-GiL8IQ//Zm20DYooaVaVCuklde82UX5X2MHKLX3bEwoqFm8OwrwK1a0bu61uKXRd
-TTj/RVjingjzc/MWqbhSiDLM+1tvrMaa8bhi16TRYn5upIa71KlieKL5Kd/9cmoW
-fqmI+HoIIq6mQTIYJ2GMCp0/ciADEXnE41buFWzPiu7BMeVInJMaYpX6NKyXd7ZG
-oAf3t5tCMMxrRfBq7bv4JV8TAjLdibq+SNyxH6xYoZwrW7J6pLYGeHJcbUNNHJFD
-Vl5PgpflnmNhfcQk7nTKufpY44szSAwB9GmiuOemwzmUEGv3V0e4t8Rni1FlHQsR
-gAUiB04OMbDSDV9kntSrZwbEUR4UkJLZhKanfJOTv/Sy6pNZLpcS0TB5YY7TEfcy
-lr1oKB9HXUka9mhPKFmGrC0TN7jkPKmkTLK70RXVtNX/pU4dFSsm0yP76XL2KrBA
-rfvH0At+i5cU3nPYvoOm56VkiOfHsnQB9adNQ5l8GeAUpQB6HI4jr23IhD8BYvsB
-yKxccCZ4tkD05c9InZqE+lsxvB9esDjo4gKZzFWhuXY/+4rOcRowbxsFGHt/TCWn
-9U7SU0cAsuce6Ex+oPs62EkqM0yyZ0FMVlmVGI9PJ5O1sJ5W6xYOlxwnLGH6TJNE
-bOIJ4WxSJmZra+QaQXak7qAOxAV92+Du/IioWZnoXjGc0BzTjhw=
-=rcPP
------END PGP SIGNATURE-----
-
---Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628--
 
