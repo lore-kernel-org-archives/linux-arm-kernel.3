@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A56CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 19:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FFC2CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 19:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8/Gr6kqDpyy5lUWGiMAie9m8N11sZqiZBRsf8cPW+4=; b=Eu5e4AxlEgLSTdzr0RtQiJIcRO
-	78XFhpqfPmCV6NxCM9Pp89sDyev2aVj3r79WP0JSKLV+TUOOx1dU9W6ioJoCYz198bTj1e0Gz8zpp
-	earXx12D+wzDuEvjM21q2aW52pCrgxD897g9Q6hQCiboB/QzuOGGLC74KLyc3AXPPbVOcRVZ9nAk2
-	o3DpDtqa4ZWEYHAN26Hd9iA1BKszysHffuZolEFHyC2D+yh8jC2NNKcPQmLOp65ihyCZKslbcCY+x
-	B1j14pyaMkX/1EWUXKUtt0C/MZfi02SOln1ILnxe/IFrZF1A2w/kmGe62zaipRqCHLU+R+p+KHThv
-	JmyhnxOw==;
+	bh=KqIyrkh7paf6bOXm5XDgPQ+cfxq2y4Febse6qjrPeD8=; b=OemttHyxCQ29hnSGrPw8Qrwt5e
+	3OKsV5ETfBlvM9DjFGRRWWFqMa3ExqaFfxN/2WTKZSRZ7TPuJGUomJaqq4t7uNlw3IJvEfhm77pM4
+	5uPGxhRQZ70BFG2DA1mnbXM/udUa5ZDoCKuF/PeaslxEsQ5LzEuxplz+GCw47Q+jv18d53v+ka5bW
+	5EQhSNrmGGaCOQEob6w5AwTS7tRpjUgRLG7nmC3VrHEu/CEL9/fSsiQyP3+Qq3vIEpGQqlVv1cH6Z
+	42aCETDo1BXSan54JRu2Dopm/RIATX9JQtPWveOsZvqkS9PFl1/OvP79rDLDcEbwbRdN29NMv87HK
+	jU3Kufhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8sS-00000008snP-08nJ;
-	Thu, 21 May 2026 19:16:16 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wQ8sb-00000008suX-150N;
+	Thu, 21 May 2026 19:16:25 +0000
+Received: from mail-westeuropeazon11013045.outbound.protection.outlook.com ([52.101.72.45] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8sI-00000008shm-2deG
+	id 1wQ8sV-00000008sp9-1yKy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 19:16:07 +0000
+	Thu, 21 May 2026 19:16:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h77Jiqs9ILrN015FnxiVJwOw7uKtQjLBZENcUvsp4nCjxuugFQJgZlUDDCcxdM+2XrEpJE7rpWb6KXM/072EPXAW+NYOmUzAvS1HZ0a8HBCna2CRWg5IG2LBUNcE76SQfasGtowuJG+ZL+VmlwTXaXlbDdEsWQpEL4qT4BrTmifAQOpvBQZq704n3XCGh5c3FEuAsT0391wuiTF9yYHqKeOAOUmOkM6FIbEQjYjqPBFDnGnevwzZVDItmPtrpEgT+au6lNCsXmHCRBLeS4C5Ons2n8pvjL3RbMNz2/ti6t399aNUXEYVvrL2Mblxjuodv4c8tR0sc5aEfkPQGAd7rg==
+ b=FdZzXiSNKQ78Dt5+iSz0s0X57eHVI25LlRK5RsorHuHgrDD1VfQ8K3aLjXxemYl/iBmSN4C4P6rLorJ1zHGuDXkWGGYQJ0D1Tf0U3xk4L4MBAy/eCgsIBfF6HqV1GQuQ1RGWZrMfkrkFlPFHB/bM9BpgDNVurYb21ZfXJjjDiFGWHtUzs7WghQiqrUcP2NBvNgqQjivTOBIy3bvtl7Zk16ObwpwhG6/ek3p4ulCoKz+ACvU9Gg9W5eVeA+g2IWK1qExof5ioH3bNAq7MOIrSeWvqd3bOAqtS07Qqo8LmVP64bdviWu5YXJYPP0PtGs7sd38qbP/0iDrkV65+pDHYWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=G8/Gr6kqDpyy5lUWGiMAie9m8N11sZqiZBRsf8cPW+4=;
- b=KKq7dgcXRvgXSd61msSHbMqPeVm0UD9u/OwjGlTTfikQeFs+vEeZRD14VDANSlmELvRdsRICPdEEEnfY1DFJoxSJ2P8RoYIZkrji44EQct9yjbtVGA49WtVYRJsF1Rjk5C5ey/Ko/qRXLs0uHyKil7e0XhJS4waHFthPI3jaFwVmDS60r1/iqZngbOywn3XJdJGZeKl/K6gPb7/SImNYh8jUIdR6weG+bQFjmG5ZDXLASsAXvmvxcmmK6wPgjPc18cu/VFIEKV3xYJbElIDB6Dj9wfynb/bsXULhvzGv2Aj/D7gOj2ZdAWBODfv4DDvxZQMuQQXe2UZ3h8IqeHG+lw==
+ bh=KqIyrkh7paf6bOXm5XDgPQ+cfxq2y4Febse6qjrPeD8=;
+ b=A/fXjBB7I5Y1nKAZ/vaEgKfUk0bEGahDuUvG0QomYeVSVARAIUBWnQwsxd1K3pcbV2B7Mw9LreFqQQNVQt0Xp91Fe0hVUO87N5A12G7tlQqeqQrSrsH5oYTBqDReNNW0rLjn9pY9XAKH3RY3+ncJshdyJn2JV3TkpOoUOndcYSstVeEUSe4U6WzMHB7Xt1r6gp7g3AsebUEmpX3UJxKv08ml4nS1zy1qB29cpK+55/St6t9gKWWjKxhhUaTWSNmBC4lyMq4wKB9Se68poGQOzxe5et6Rp4g49Kn4uI9L3lulY3A4Lh2OMP5mcmn4gkqEEXvBGx05gVtvyrI0XFiYxQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=G8/Gr6kqDpyy5lUWGiMAie9m8N11sZqiZBRsf8cPW+4=;
- b=m0dTdfCPeCC+HEh2jhxI+JNMa9d7jdlej03PXIiBJ1ClpFTaGokMv0npFj/BU7kZgA/dk3ghN4ivv+pl4ThV+7VMAgYkRmbak4DChDcGFWM/Tl6Uk/qxHHwCLksygkQcZptfxrUsvOhP/eGN78PuQz4EMUQ+rBDJ23B+kc3K6MZQJ5FkJ9ykFMcuPQLt2EuIGgf3aiuy0+px7s06em/BbYpSuWCqiYDnJRxaoXcsbZLQx7Ao07oJT1kaPNy6GNa7hxTy8xJxeYYXp3QZdFqW71/QUW/dm6lYfW7igQgcH2hRuChvpO8J2JxwUt4QqOZxMGX6n6JC5Pbs3vm54t5Zgg==
+ bh=KqIyrkh7paf6bOXm5XDgPQ+cfxq2y4Febse6qjrPeD8=;
+ b=Z3cEfcfL4jmGz8OaGeFKQ63PE+5ISvnnh6B+APs0OtJ97MYj4Nvnyxrd9yDjjJW62iFonXobZPZrIUKl6yUNBRF2VzZWD0okoYY/rYb0KU0z+QtGlkMnxjLhQyL34HFnn09AhvjGgjzCa+Uf46iDifYMl4j7nss1gcIb2+Nak/FVQZ3wWX2kgbgQ4qBV8N/qg6NUDNDRuCNInu0z3/YcDa1gt30yMKE1CAmSSOI2BA7SNOMm8DLA2YrB1HyAo0lnWYyUgDOoDE3ARq/8euiy/szvBTTBeMAHTgRYrf7VSe6IfDqT6PkaiZ+odp30AIRYQCgsn6i2kf8jjn85zIHoFg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
  by PA1PR04MB11261.eurprd04.prod.outlook.com (2603:10a6:102:4eb::6) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
- 2026 19:16:04 +0000
+ 2026 19:16:14 +0000
 Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
  ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0048.016; Thu, 21 May 2026
- 19:16:04 +0000
+ 19:16:14 +0000
 From: Frank.Li@oss.nxp.com
-Date: Thu, 21 May 2026 15:15:41 -0400
-Subject: [PATCH v2 3/6] ARM: dts: imx: Add bus-type for ov5642/ov5640
+Date: Thu, 21 May 2026 15:15:43 -0400
+Subject: [PATCH v2 5/6] ARM: dts: imx: replace undocumented compatible
+ string edt,edt-ft5x06 with edt,edt-ft5206
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260521-imx25_dts_simple_warning_2-v2-3-c6557df516a9@nxp.com>
+Message-Id: <20260521-imx25_dts_simple_warning_2-v2-5-c6557df516a9@nxp.com>
 References: <20260521-imx25_dts_simple_warning_2-v2-0-c6557df516a9@nxp.com>
 In-Reply-To: <20260521-imx25_dts_simple_warning_2-v2-0-c6557df516a9@nxp.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,80 +70,80 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779390945; l=1666;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779390945; l=9357;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=+BiaALwFCYbuu2/9Vkn4lJnA87YHPQhYWKenAz8FUU4=;
- b=hcjljAi4obnPA2jsMlyw3fRBMniJ0uWqzuOhKPJ1vc6Y4qQy2hz615fKOAmTvl56TBbyvCRDt
- yf8ji1QJlo7AvSYP4cE3jsH4ZkTGaeKHkn/C80YE4vXb7EviOxunlq6
+ bh=HRi+bEu8D55tvNF1xtjQ8FCOxO7g+wz9PHX1mzIbv8g=;
+ b=Hgzg7rsJnT5cqc7YEO/7lhn3o9j2LyzZd5STSgCA7ghX+JDuggyCz6zFIVP4M4rSJGpFIGy+M
+ DAr+uSg/i/5Dm/rSTLhHVHJtw3HKJXNvr45NRjBO0UmSK9Wy8e/JktS
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SN6PR16CA0047.namprd16.prod.outlook.com
- (2603:10b6:805:ca::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+X-ClientProxiedBy: PH8P222CA0016.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d7::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
  (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11261:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6d8d964-5aec-4a57-b897-08deb76d66e4
+X-MS-Office365-Filtering-Correlation-Id: 0c4c0412-43ec-4567-6c52-08deb76d6ce8
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|19092799006|11063799006|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: vb3vmMasZj3nNBIu97UR8th8FNbI8bUe4FbEyH3CdbQ8x+8jw0fsjdP/OJxqKyIkkWzHeVNyo6zxsJC4aNWb9cy/F4SWuz2ejgBPeXSh7VB5u96RvdyMz+nBA2p2aJh0TwB/T8dd7O/s4Ta/Qfb7cF9xmfeivQddcVXEyUPITILjXb3d+12Q61OTwlOp7ddLqICgIeMO1M6rees0BcewS8A5oFvNVRDpSVA4heYUjsXSjKpRJQzxMs9nB5ScJ3wqAsfsjcMTYTSo+ksRep810IRyiTpAJy6yro41FwhLfFL8OktI3pXM0Vq5aGhMBps3pPMucVs8c40xOjs4IrWJmi2kulNYGoTQDRB9Zqqv3wvwewvWlzpZZF7p4hQRYJKwAMX+VePhOX2MMjUXPSHUCWRnrMrsVgzT84fS/MAOm4lWilqTRV1gfibrX5OdMLUI7D9HK/V/3Z7VtTuGWrQ86ZmQVoyTY1E306RVbVp8Y6vaTKYsAZwA5bXQUsKk2t7TwIH/6B+gyxQjxyL4Bs/R+JKNFglSc16eHMNgkWG/mLDbxzq0PYudwoVgz5IcnDiIt3RfgK7GomU4il8vCWpHo1TZX3JHg5ammlovRe4ha7Q4ZWDBI+XGmAd0ctKiloRU3N9dPsAhl/1xXxv/Ba51D9u8pQOf/3xPj1c6Xr+f+ChDOMHI5vGdGvXyEEuIk6un
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(19092799006)(11063799006)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|19092799006|11063799006|18002099003|6133799003|22082099003|56012099003|3023799007;
+X-Microsoft-Antispam-Message-Info: JZOnpLXp4AHc6pUF311GWgiKbdBkkOKXnYN1iOJHhg4MP51A+SFKtdIoPj8JrpBfoBWqnI46wXJeMrngiz74S7ZqUzzoSqkAhi6AGnr0MEHyHCrKINVG+a6WTVUs4osqzB+be4NAy/rDV8QwfKTsVSaSuOnowjRDyMrS1DajXQgtOeM40MNdHv+l1DOclr2yCij2P/Tc79JywlV14zAViMu7v2Wc9sLjCRQm4mtIhBu+76075uiStKEX7cgiFr2LJHoEVnS0XDtORTQ7BtBf0Jfl8CWQmM8xsAlEpPq8Ddw9jqSncEAu/OWEercP3WjUR2E8/o3zpsjICNEJS1rbdfDsOTNgY2hDMIpAPRhJohwaUNPeKENpzlaB+gZ6zrvXmIt449qvB3+LHwK9vlQGpx4MWtvTxHDFoiDINhzqDkV8+iQzjnn3+IHruKrfpxnoHX/oxHYjmevdInZYc2RTwh+Rmda/aMKcguYbQCv83SZWqhYH7nkUFuDZ4gGW6Ergt+Bvf4Kn41m+/bgzgtzCzM1EFZhziK7W/Ds80N6gwF1EdpYEdMgVvf5Q8744qk8SvHxdm+6UsefUYY7rS4crTfuCEZyPsOu7xE229YAqBFmltBzDmiimgUFqth3sHuWb6cTnQ2Voo8M3dwui63RlUTOhr0GCDdGLJ+qPZdkVjwzERzHwFgOwENhTarszU6OF
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(19092799006)(11063799006)(18002099003)(6133799003)(22082099003)(56012099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MGowd21vYW0xMS9QYVM4aUdvS0JpK05qYi9HMWVSenQyTG50WmRzOVV0UEt4?=
- =?utf-8?B?TmI4TmxxaURaRlY4SEt4MEt0UXZuNzA1b0pVMlZjck0yUENGMFFGd2dMOFZN?=
- =?utf-8?B?ZlFKSmJmS1JjcXJxVEtmU1ZVc1dzYnRtL1E4enRBbHZ4Y01mUWVHWkJpWVd2?=
- =?utf-8?B?WFFEeG9UWHRKQk5VSk02MFlCclZYRThEcSs3WW5DVGhLYWFsRGFNN2VWZEtY?=
- =?utf-8?B?S1poQU1GaFhGWHo4MXUwaEd4Y0FxLytJMXp3b0dHakc3SEJFR2dVZ3dISjBY?=
- =?utf-8?B?RWJjWnlCbmJ4RUNNM1QvNXF2ZklBN0NyejVwbnoyNDJBMTVqWWt6ME5jejMx?=
- =?utf-8?B?ZGxCQ2gwK0R0TkJyVC9PNkxhSmdXdFpNeEtFU3pvMVNPemsxV3NjQkx5VnFj?=
- =?utf-8?B?cnFOS01rQkhoNmU3S3cwcUFyWjB3RFJnY21PUFpXK1RyNkcxL0hTWkZzT09O?=
- =?utf-8?B?eitaOVV4emJiREJNMXd4RDIwd1UxeStUNTNpTmR6K0ZVRHVoQ2RYZEZrSWp3?=
- =?utf-8?B?Q3M4c04wYnNiTVFPdy9BN25wVUQrUHZ1Mk1EMHBmcFpoazF4bE9adHhqeWNq?=
- =?utf-8?B?YVU1R3l4MEdIaXpFK3h0eGFsWVdJaDl6cGNtckFxQSs3WUNvdGVTU1h1K3d2?=
- =?utf-8?B?THdHbTJXQnhNL1dzeEk3dVJRWTNrUDdXNGx3aUg4dHVpRWptKzFNdmZHQmhR?=
- =?utf-8?B?cGlNb0szYjlkNUczbG0zVlhqSUMzMlJ6SS9FSGtOYzNoQW5nYnZteXpkdjB1?=
- =?utf-8?B?VHdEaWlSV3pINWdPRFIrQnFPd2dueFpkYjJsZnBzNGcwNlRnZE1FMWpvZ3pv?=
- =?utf-8?B?MkdWUVdmeHhuK2FVV3YyeTdFcGl3eUFLUmhsMUhGcENONkFEdlRSS0hYZG5V?=
- =?utf-8?B?ZFFldmIzT2VjYTdFZDhVMTN3TEgzSS9SaGExbFVCUkpkTWNxR0xUK1JNWUVx?=
- =?utf-8?B?QmJ3WndMZ2dTWjUyV3pBN3pWUzNwK0V3RmE2cmdNaVRTeGQrVmV5eWFsT1Uy?=
- =?utf-8?B?SVl3ZVNIeG05SkZDN1Q1WU1OTXcwbE4yRk9ySVlpQ1oyMVFQMFdaQk11YUVm?=
- =?utf-8?B?WjlUZ1pXRG9ROVFFVXVqMkNWL1lNOVh4VmdSNzg4K3plR3psdzFzZkRzdHBr?=
- =?utf-8?B?Z3NEU0FEdGJFY0VJNi9sUjNQeVdiMzhBTk5iNDg4M2hYNE5XUW1oNmFBeWxV?=
- =?utf-8?B?NU02WkhDSkp4bk5Gdk9vTm9uYkxJbmcwdDE0UXBvV0p1b3lBRERDSEs3a1lK?=
- =?utf-8?B?SWFiT01RMVN1aUY2TzMveGFHU3lFNnltTGZvUEs1dlVJSTdCK0lWWkJqUHhQ?=
- =?utf-8?B?cUVlY1lEZmFIUE5PTXB6UWNtZ1orSXdEdEdUTVc2NC8zNmlpbFRrek02Sjda?=
- =?utf-8?B?WTFadUxlNmdIeElZOWtyMFQwNXIwR0IraDRlUWtWRC95T1VBblpOaExQZDc4?=
- =?utf-8?B?TFBaUkEwWFRKeG8vVXJhT0xuZVlSMFFaYWFObGlWV1F6RkhHNUh0amM2QTNq?=
- =?utf-8?B?MWQ4MlV1TTgvckJKTVNsamJuaGJHQTd4VDN2Q3BFTnkzS3MyM0RLRksvK2pR?=
- =?utf-8?B?bjArRVZSM2lOazVzeWtrOEhVcW5uRmttVzlLQ3pDSlF2QVZiLzlzTDVoOXQy?=
- =?utf-8?B?UnRHTWZleVhyeEtCMWphMXVZd3lrUzBwYmpNMjBIVmgrQ3MxU1lsQ0ZBM1ln?=
- =?utf-8?B?NWVxQnFQUUYwZHAzUnZNblV4R293bkV2YnI2VGJpRE9pWmlpSGlXaDZUS2Z1?=
- =?utf-8?B?UXZrQmc1aEI5RStiZ1RMeDdCWGhQQldkbS9adDU0Y2dOcGxCM3NNSHNoY3pF?=
- =?utf-8?B?MmJ6Rmx5bzRSRFpNd3lpZ1FoYXIvdDlUOXN6ZXJDb2NSVkt2R01IUjI5eG1G?=
- =?utf-8?B?TVVEUFB4VDU5RFpBM3F1TU1vQnZLWUhoRmlkbndPNmhBR0VMWTlLaVRFZ3ZE?=
- =?utf-8?B?ZXZRTDVaaUJaMit0NUlDQWd5VC9xdlc0b1BWRFhSQjJGcVRFZGpxcHFEbVI2?=
- =?utf-8?B?bTFQbXJ0bHN4NVV5NFg5RmdmWmpZMHErazFDQ0x0RVR4SlRVYldoQUNrS3lK?=
- =?utf-8?B?SVM2M0svSlVIc0lZdm9KM2w2UmJLVmhnWllqMThIQU9EbmZOMHdCODdkZ2w5?=
- =?utf-8?B?cDJmSWs0VEhnZy9DRi9lVU1mNlg0KzZQVkNqSEFlSVlkS1JaS0VDUHNRSlc4?=
- =?utf-8?B?ZlFZbFBZbGN3NXhVNnFmTWIwbFh0eGxicW1uVDlva096MVNrYm4xR1VTNGQz?=
- =?utf-8?B?V0xGU2NkaS9EcGUrS1pwWU4xSVVtZkF1blF3dmtEbWdjR2sxUHFENUZ6clM0?=
- =?utf-8?B?a01MaWdFV0UrK3lmWGI0YVFJWHVmREVUV0hiRm13ZmdnWmVHUllkZXdPRS9K?=
- =?utf-8?Q?iHiqgPuGbe7kjCfY=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q3dUbGJhU3BhNUtRTHRta3lkS2dpMFppV3hHN0pXS0l5Vms5Z1N1MjlZN0VJ?=
+ =?utf-8?B?YXVlNTlXb0RCV1RCZ3ZKOGozUjBlNFQrSmk2OHVud1AzUHdhdjFUdUpqSW1J?=
+ =?utf-8?B?My93cDVFckREeXgyaUwvb0syZy9wd3BxcEdIVGo5NGx1djZnK2RXWFRjMjhV?=
+ =?utf-8?B?WUF0N1VhMVlhU0tuenUzUjMrMjBkTVpPeko4V3JEaVl6L050T2hoanVHcmRC?=
+ =?utf-8?B?L3NyNXg2anYveklVMHIyQUxDZitxTmhGMFRqcVJ0Wi9vSjFYbmRBNXMyQVpT?=
+ =?utf-8?B?NzgwTWI1R3BDMExtQ2YwQzFRUGFsKzhRdkR6UGJTTnluOStQRUxyQWxPZXlZ?=
+ =?utf-8?B?cnRDVElVQU5yS0d2R2RTRHYrVHR3aE9LNUdWRjNaTndpNXhOcDRkMGpxa1FZ?=
+ =?utf-8?B?UisrSG84L1pDek9NTklpc0Y2aTRIZFFRTWNkcUZIdGZxNHY1dVEyRTBHdTFO?=
+ =?utf-8?B?MG1IWnNmNklwcmwrMFBNTEdjdHptL3Vudkh4RnZtd0RnZzFPdmtmeGZJa0ta?=
+ =?utf-8?B?ZmVKdHNmWi9yN1lDUERqME83YVF3eCs5RnVVU1Uva3F1eUhiR2orTHVrajZl?=
+ =?utf-8?B?UkxCNEFNa2dOSjFUYVVybmx1c2xNNVFaYmtWV2t2TS8xMyt5U09lUjg0Q3RI?=
+ =?utf-8?B?K2FORW9ONG9QQzBrN2JJbUVwTUhFak5FcEhUYW5GeFBxMyt2NE5RcVBOU0N1?=
+ =?utf-8?B?UWNRS1BMaTdQYVR1dlNlaEsyVUpRNGxnOHZFUVlIQkNPQTI1OGtwNTBQS1po?=
+ =?utf-8?B?Sm9WVzBFTmJleTVORjVmZmJ2VmNhUDVSQVlPT2lDcVpqaVZ6WnlSeEdwbU1k?=
+ =?utf-8?B?Q1JxYXhkYk93ZTE0aGxlTVFxa2RJYXBsYzBpYlhTOS9vUjRUcTlldkdqL3Fi?=
+ =?utf-8?B?SmgxRTM5SzRPbXBjQmZFV1BGWkhnSUxvY2ZiZXgxUjM0YmlFUnlRa1pnNUl1?=
+ =?utf-8?B?TkxTTkhOZVZwSDdldTYyUStnUHJEQUMycjVESmcrL1M2UWdYTVQzWHlFUG81?=
+ =?utf-8?B?cUhETTFLeWlNSTVJSXVhbjNBL05nb0F3dy8rL1lERmdGbzFrc2ZjNWhCTit6?=
+ =?utf-8?B?MHRKYUNWbmhseXhDVGhrSk1HN284ZDhTazdEQmFjNHhNQWFEaG1uMEwyeEtU?=
+ =?utf-8?B?STJVYWJpRWNtdVA0T1l5SDhNbDhwVmlBUndGaWkza0tOYVUwakJRTlUySGdh?=
+ =?utf-8?B?SFpVRXFMeTFNTlQwZnBUWW9VSnkrb2x3S2pQSVVOL3Mxa1JVTGQ2N0RiaUw2?=
+ =?utf-8?B?cDVoZUlhWTBkdThNZWVIYkhUWWJHUGFoeHl4SUFReU9PajlpSUdvZHZsdlpp?=
+ =?utf-8?B?TThnK2xVOGljR3dWaVRpeWNBR2xVeXZ5RzR1S2kwdlpHRXMvYkl4WmhXMGx3?=
+ =?utf-8?B?UlZqc0JsemFUMHhjcVQxVEhhVUo0elF3U090bnVBTzkrN2V3Y05VdG1IS0E2?=
+ =?utf-8?B?S05FMHpPR2p1SExmdVhxODljK0ZTR2dhTGtVVWZOTEdlakxVU1diYlhHb3Zv?=
+ =?utf-8?B?UGpZRXNMTlRDQWFldjdPMnNaNG94a2FhM3M1eEtKNUV0YmtKQ0dRcDk2K3Zo?=
+ =?utf-8?B?OGlwZ0NjQUFMM0xiQ3orc3ZRc3NYUUdhZ0NpT1RxbCtFUmhQTVlhUm85RVNk?=
+ =?utf-8?B?TU5WdEZMdlU3WDJwRUJYTjdGKzJVYVpCYVo4ZEZvbUxNSXd1ak9PbElvY1lF?=
+ =?utf-8?B?WXErVGkwdEZkWXhxQ0RQYkZBOHNEQXFMU1hUZE1Bbk9TaEMrUlc2c2Z0bHMx?=
+ =?utf-8?B?UUN3ZytmNmlPb3VaVmpNZkcwVkh2SDF2Qkd6VG9pSC9jZlN4eDRFL1Rna0F6?=
+ =?utf-8?B?bkNvN0szbGJsejFoR21HOW1xZENmVDJ6WTY4NTU3Z0tqWGo2cDE5MnFBUzF4?=
+ =?utf-8?B?Y0hOT3lJYzJoSGNhWXZzTnBDQ0o1eHJKYUJWalB3QmlUQUFDNWlEN01qWU90?=
+ =?utf-8?B?dkFaeGFVZW5lOFpzRnkrZGphQjY3Q1hBVVd3dlBBVFZpd1dMcnpic2c1YkVr?=
+ =?utf-8?B?NkhMczBPdXJmZ2tjTFZPUnBZWXZvb1BqVktaNXBISjhvYkZ2MDlhSXdlTGlT?=
+ =?utf-8?B?dXRzb3FwK0ZscUxzZHlGSjV0RlpKZ1FkVU5uUkcycGo4NnpyVCtoZWFreTVq?=
+ =?utf-8?B?QWpRYW5vRy9sSkZXTE9lUWZwdk0rdGRJbjYwUHBoVkNScCtHWTM1aUkyTE4z?=
+ =?utf-8?B?MnBHazhJanVqVVViRHlvL2FFT3RnVGhXZHRqdHBSa0NqUGpNVzFwUGNsblBk?=
+ =?utf-8?B?QTFkMEg3QUpTRnZZWFRJMkt5akZnRG5mZVVMVmRUeTR3YUJhVlRFQUJTcE9V?=
+ =?utf-8?B?cy9NVEQ3T0hMbVJoaXNqVC9nY1QxMXpCazFYbmFGNjVJMURjSWRUSFBkamVR?=
+ =?utf-8?Q?jHkDakXa9ek9tEUcFwSNUgr4LdfU+57xFKTXd?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6d8d964-5aec-4a57-b897-08deb76d66e4
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c4c0412-43ec-4567-6c52-08deb76d6ce8
 X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 19:16:03.9999
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 19:16:14.2675
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xgKlD3uYfy5PYylKfFYmuiCbBedJKcZ/7xxjWcJVu2Wuj461EVPR+ZZG/wGCCViGluzmqKaT1YG21o2XOqWzCzTGacRLlZiBpWgElyUWmolRHCugptdXaE166XrIHEqD
+X-MS-Exchange-CrossTenant-UserPrincipalName: MGouEUX2F6AUeyvJ3I98fBhM60ySye8c4Z0ccg4oTCpemG2mSJnhqeVfd9sA6/4/JM3eedv/bkb1pxbwKFLCTGjcB4gk1VS6iFqnjWRbkOBTeO2DOL9vEi8Yd/FJRfSZ
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11261
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_121606_682362_84600DB3 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260521_121619_694963_FAEC07EB 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,49 +160,237 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Frank Li <Frank.Li@nxp.com>
 
-Add bus-type (MEDIA_BUS_TYPE_PARALLEL) for ov5642/ov5640. i.MX53 and
-i.MX6UL only supports parallel csi interface. Fix below CHECK_DTBS
-warnings:
-  arm/boot/dts/nxp/imx/imx53-smd.dtb: ov5642@3c (ovti,ov5642): port:endpoint: 'bus-type' is a required property
+The edt,edt-ft5x06 compatible is not referenced in
+drivers/input/touchscreen/edt-ft5x06.c and is not documented.
+
+There is no publicly available datasheet or binding information that
+distinguishes edt-ft5206/ft5306/ft5406 variants and the driver treats these
+FT5x06-family controllers with the same configuration model. So switch to
+the lowest common and documented baseline compatible edt,edt-ft5206.
+
+Fix below CHECK_DTBS warnings:
+arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dtb: /soc/bus@60000000/i2c@63fc8000/touchscreen@38: failed to match any schema with compatible: ['edt,edt-ft5x06']
+
+ABI impact consideration:
+Not affect Linux kernel. The I2C subsystem uses a legacy fallback mechanism
+where it strips the vendor prefix from the compatible string to derive the
+client name, resulting in edt-ft5x06
+
+	{ .name = "edt-ft5x06", .driver_data = (long)&edt_ft5x06_data },
+
+After this, the driver was actively binding to these devices based on the
+compatible string.
+
+Known user (U-Boot) does not parse or use edt,edt-ft* touchscreen
+compatibles.
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx53-smd.dts         | 2 ++
- arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi | 1 +
- 2 files changed, 3 insertions(+)
+change in v2
+- update commit about ABI impact base on feedback from sashiko AI
+- add missed change in imx6qdl-nitrogen6_som2.dtsi (sashiko AI)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx53-smd.dts b/arch/arm/boot/dts/nxp/imx/imx53-smd.dts
-index a1e19f9709b2c..8c02731c7ba9d 100644
---- a/arch/arm/boot/dts/nxp/imx/imx53-smd.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx53-smd.dts
-@@ -5,6 +5,7 @@
+Change binding doc discuss at
+- https://lore.kernel.org/imx/aasmQiZJO2gSKzNH@lizhi-Precision-Tower-5810/
+---
+ arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts           | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx53-tx53-x03x.dts          | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6q-var-dt6customboard.dts | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi       | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi   | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi  | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi      | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi            | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi             | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6ul-pico-hobbit.dts       | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6ul-pico-pi.dts           | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi            | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts         | 2 +-
+ arch/arm/boot/dts/nxp/imx/imx7d-pico-pi.dts            | 2 +-
+ 14 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts b/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts
+index 2acbc86cabb31..aa1c7e5012c6a 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts
+@@ -248,7 +248,7 @@ &i2c1 {
+ 	status = "okay";
  
- /dts-v1/;
- #include <dt-bindings/input/input.h>
-+#include <dt-bindings/media/video-interfaces.h>
- #include "imx53.dtsi"
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_edt_ft5x06>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53-tx53-x03x.dts b/arch/arm/boot/dts/nxp/imx/imx53-tx53-x03x.dts
+index 872cf7e16f20c..6a1063c455f0c 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53-tx53-x03x.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx53-tx53-x03x.dts
+@@ -201,7 +201,7 @@ sgtl5000: codec@a {
+ 	};
  
- / {
-@@ -314,6 +315,7 @@ camera: ov5642@3c {
- 		port {
- 			ov5642_to_ipu_csi0: endpoint {
- 				remote-endpoint = <&ipu_csi0_from_parallel_sensor>;
-+				bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
- 				bus-width = <8>;
- 				hsync-active = <1>;
- 				vsync-active = <1>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
-index 3d147b160ecf1..32afe4130e211 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6ul-14x14-evk.dtsi
-@@ -217,6 +217,7 @@ camera@3c {
- 		port {
- 			ov5640_to_parallel: endpoint {
- 				remote-endpoint = <&parallel_from_ov5640>;
-+				bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
- 				bus-width = <8>;
- 				data-shift = <2>; /* lines 9:2 are used */
- 				hsync-active = <0>;
+ 	polytouch: edt-ft5x06@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_edt_ft5x06_1>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-var-dt6customboard.dts b/arch/arm/boot/dts/nxp/imx/imx6q-var-dt6customboard.dts
+index 0225a621ec7a9..ccf6a048c9184 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-var-dt6customboard.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-var-dt6customboard.dts
+@@ -169,7 +169,7 @@ &i2c3 {
+ 	status = "okay";
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <4 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi
+index 610b2a72fe825..cebfd622df688 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nit6xlite.dtsi
+@@ -256,7 +256,7 @@ touchscreen@4 {
+ 	};
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
+index ef0c26688446e..f8a7218b13ef2 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_max.dtsi
+@@ -405,7 +405,7 @@ touchscreen@4 {
+ 	};
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi
+index 03fe053880ca6..fb1c923c46bca 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6_som2.dtsi
+@@ -326,7 +326,7 @@ touchscreen@4 {
+ 	};
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi
+index 6a353a99e13da..9fe52e0ca7aa2 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-nitrogen6x.dtsi
+@@ -333,7 +333,7 @@ touchscreen@4 {
+ 	};
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <9 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+index c39a9ebdaba1c..ca4cb986efbc2 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-pico.dtsi
+@@ -217,7 +217,7 @@ &i2c2 {
+ 	status = "okay";
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio5>;
+ 		interrupts = <31 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
+index ec1528ff3ea01..fe25934e06b1f 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tx6.dtsi
+@@ -292,7 +292,7 @@ sgtl5000: sgtl5000@a {
+ 	};
+ 
+ 	polytouch: edt-ft5x06@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_edt_ft5x06>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-pico-hobbit.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-pico-hobbit.dts
+index bf7dbb4f1f3ed..e99ba04216b86 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-pico-hobbit.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-pico-hobbit.dts
+@@ -62,7 +62,7 @@ &i2c3 {
+ 	status = "okay";
+ 
+ 	polytouch: touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-pico-pi.dts b/arch/arm/boot/dts/nxp/imx/imx6ul-pico-pi.dts
+index 6cfc943a8fa3e..f79090fb2e6e2 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-pico-pi.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-pico-pi.dts
+@@ -65,7 +65,7 @@ &i2c3 {
+ 	status = "okay";
+ 
+ 	polytouch: touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <29 IRQ_TYPE_EDGE_FALLING>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+index 1992dfb53b45c..192c6a95ae589 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tx6ul.dtsi
+@@ -317,7 +317,7 @@ sgtl5000: codec@a {
+ 	};
+ 
+ 	polytouch: polytouch@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_edt_ft5x06>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts b/arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts
+index 347dd0fe4f82e..fca8aab9d8507 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx7d-pico-dwarf.dts
+@@ -70,7 +70,7 @@ pca9554: io-expander@25 {
+ 	};
+ 
+ 	touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_touchscreen>;
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7d-pico-pi.dts b/arch/arm/boot/dts/nxp/imx/imx7d-pico-pi.dts
+index 62221131336f1..673bbe49de525 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7d-pico-pi.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx7d-pico-pi.dts
+@@ -49,7 +49,7 @@ sgtl5000: codec@a {
+ 
+ &i2c4 {
+ 	polytouch: touchscreen@38 {
+-		compatible = "edt,edt-ft5x06";
++		compatible = "edt,edt-ft5206";
+ 		reg = <0x38>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_touchscreen>;
 
 -- 
 2.43.0
