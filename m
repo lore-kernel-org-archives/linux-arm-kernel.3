@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692A3CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271C9CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I55lHSd1Ysdw8ZeTKOs6GuGHFCThm01Fvnx0VC1jLqQ=; b=mHPRnA2mIMWarwWr0UTFBEh5XB
-	x1LIdiFYYqfX+Jk64WbsdZQMMkGo4USFTV3y0jq+SfUWpTjL0R7Rox5q5Wk1BLVxUT3vyaRQ5GJjD
-	7LB8REhRYqsB3Na+7IHML+G1s97psZyubGsNN5n145IVsiPtK95QFwdTvFoKLQ0kC9hvipsgf0mtu
-	UwH5frTESdWjwRretaDyPt0dnxjj2GEGxmg8W6JTCbjGzjkIHGqDC82ZAGiyBORf378s1jA6eDGhD
-	wF2fbu2Hr4OO55UE8eNDKBHintYrcjn0vCgI8f5j35bOSQnWnZFWXxs7BUwScawcbyVJ+uE1L933a
-	grDYfeyg==;
+	bh=EM0tOpRC6ixc7T8RIHjmgk36nAVQgn8lpdFzEdyfyNI=; b=gwqcvv2+NuPZnyB8wY3ke+Yx//
+	2gjETd0IbHhCMTTaGYxfqSGn05IUGuY4dR2YSjaRVvjun9jQZhUHHyK4i/h8A9Zq7fPCKdPDzzNYB
+	z46vMWUmuKKUay/EMG43wuepbidMcZFTvZYekQ1s3neEhi/NJwP88iEXjx3MtYFnpLWEwDZoO2vaR
+	sV2fVNY0Wc136sp+QM7ONEwqVgjHQ7CGsgwV6z66wsCBVAOEv1yKrfngJxQiaH7xLhHq15Z7MmG56
+	cjpZXEkDzaaZyoFQre4Aov9DOPzT09N4klffcsrL2ZEoj0i4oM/XBPELYnc1h/WP/H9RO1dF0bAqD
+	BzIgeBhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6i5-00000008Yro-2rKZ;
-	Thu, 21 May 2026 16:57:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQ6k0-00000008ZKY-0aIt;
+	Thu, 21 May 2026 16:59:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6i2-00000008Yqo-3mWf
+	id 1wQ6jz-00000008ZKM-1DBg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:57:23 +0000
+	Thu, 21 May 2026 16:59:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3FCBA41900;
-	Thu, 21 May 2026 16:57:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BD3F1F000E9;
-	Thu, 21 May 2026 16:57:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A6E1B601F3;
+	Thu, 21 May 2026 16:59:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 346391F000E9;
+	Thu, 21 May 2026 16:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779382642;
-	bh=I55lHSd1Ysdw8ZeTKOs6GuGHFCThm01Fvnx0VC1jLqQ=;
+	s=k20260515; t=1779382762;
+	bh=EM0tOpRC6ixc7T8RIHjmgk36nAVQgn8lpdFzEdyfyNI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Q8cUeXabxJU0IWTMJGWeV1jyVIfvz0S1Jqem5iE9CRf9Pq2+mWblC10QoinsHPl5I
-	 Q3ZL+QLPcbfH15rclKm+NAwAKcI8tZ/OYO3FPZX+WeMwWWBbTVZ+4RyAqeUcjl0r5l
-	 YHvznZYLs/8jKgJqaYSbKgkFpHDAPePw9mT+COCz+J9JcfnnOHxtawaXFvzLeMZqJ8
-	 cveGc4f0Y6zaJUVQtko6MRcp5gYokSoH3aJ7YeuWCOwxgTy65JiCGkgym7ddMIZgK4
-	 plIS9SiU7Fu/wUh9MZfkYNY4XnjyBXf1VTvQl+3BEFXHh6GtjbrF08s/x5VvBsVfHl
-	 fmGyhC6nqhBwQ==
-Date: Thu, 21 May 2026 17:57:16 +0100
+	b=g+QqISauQqVYxSIXaHqVaUlLJHDcMT4QNJN/9mxUtxf6sJycMYnsGFXAZU3wvySRq
+	 tfVy50AWhc8dHAB6jL2KIqy2aqEQdwp94yXY3Wpp+Gc1XtFJgHuWH2Hy6I7mletKwf
+	 8XN2+KM2UmpbI3mqBqctxzmNiaYUCYpQt41jrU+8QN4W3bDm9OLPpK7ic1jwvnuYCk
+	 2rzqJAeJKol7jUWW4iTOVuGywYeNKo3amm643l4OxM5RSkHV874dU0jP8VDYdcl6nZ
+	 SpADqiIHtY1es6/WpDQzJifaN4XoMcrq3sBLxF3jK8rn0MzJMreog3QgYveKDqZYTT
+	 wPlMSXrbx49Iw==
+Date: Thu, 21 May 2026 17:59:16 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Vitor Soares <ivitro@gmail.com>
 Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
@@ -63,20 +63,16 @@ Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Vitor Soares <vitor.soares@toradex.com>,
 	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 05/15] dt-bindings: display: panel-lvds: Add Riverdi
- RVT70HSLNWCA0 and RVT101HVLNWC00
-Message-ID: <20260521-yogurt-tinker-1a5d0b7dc17a@spud>
+Subject: Re: [PATCH v1 13/15] dt-bindings: display: panel-lvds: Add
+ dual-channel LVDS support
+Message-ID: <20260521-cleaver-starboard-963eec225121@spud>
 References: <20260521150038.103538-17-ivitro@gmail.com>
- <20260521150038.103538-22-ivitro@gmail.com>
+ <20260521150038.103538-30-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kz3CuFPJ65DTj9OM"
+	protocol="application/pgp-signature"; boundary="zZiN10fyI46t4nxn"
 Content-Disposition: inline
-In-Reply-To: <20260521150038.103538-22-ivitro@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_095722_957755_50AE238A 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260521150038.103538-30-ivitro@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,23 +88,67 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---kz3CuFPJ65DTj9OM
+--zZiN10fyI46t4nxn
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+On Thu, May 21, 2026 at 04:00:49PM +0100, Vitor Soares wrote:
+> From: Vitor Soares <vitor.soares@toradex.com>
+>=20
+> The panel-lvds binding only supports single-channel panels.
+> Extend it to support dual-channel LVDS panels by referencing the
+> lvds-dual-ports schema when a ports container is present.
+>=20
+> Assisted-by: Claude:claude-sonnet-4.6
+> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 
---kz3CuFPJ65DTj9OM
+Ah, this is part of what sashiko was talking about I guess.
+nvm that email so.
+Why can't your new device go into panel-simple-lvds-dual-ports?
+
+> ---
+>  .../bindings/display/panel/panel-lvds.yaml          | 13 ++++++++++++-
+>  1 file changed, 12 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/panel/panel-lvds.y=
+aml b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+> index 7ed0c486870b..45183a1439ce 100644
+> --- a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+> @@ -82,6 +82,17 @@ required:
+>    - width-mm
+>    - height-mm
+>    - panel-timing
+> -  - port
+> +
+> +oneOf:
+> +  - required:
+> +      - port
+> +  - required:
+> +      - ports
+> +
+> +if:
+> +  required:
+> +    - ports
+> +then:
+> +  $ref: /schemas/display/lvds-dual-ports.yaml#
+> =20
+>  ...
+> --=20
+> 2.54.0
+>=20
+
+--zZiN10fyI46t4nxn
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCag85awAKCRB4tDGHoIJi
-0pQPAQD3ZguE0qhACoyjjc36ilvY5dp10jnqrf6MIIYE4NZo/QEAuPhAFRZo+DP9
-UGlRN4VyZELr3mPIjLY+grUb7XeIUwA=
-=4KHE
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCag855AAKCRB4tDGHoIJi
+0l4mAP9LCzA3DYw150Odv8EVXwZMevxuRD/apsBgRbxPRJbN6wD/ZX/TS7nMkBei
+vgOWMO7ndOs70m86sVKr1GJtxamNnAQ=
+=xKXx
 -----END PGP SIGNATURE-----
 
---kz3CuFPJ65DTj9OM--
+--zZiN10fyI46t4nxn--
 
