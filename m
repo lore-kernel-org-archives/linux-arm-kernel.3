@@ -4,149 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADA96CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7D66CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AH1h0N/pmJ1K31WmMjaDLAN1pkCmYOtRrzTmMiIvvBo=; b=uM06pyXMtbFDsWgCWK2tjvV7Vd
-	xhYTlbO4vTQ4lF28Kda8Mg24XyEcNtJUwyTHgtGMUmdEJQUJF+uHzuYFr7zuNfq9kdUYFB4h62bZW
-	9nA9cC4WYlOTi9Iik2XngYfpjTy9DsvJbIM8FlOLv5oLCqEVOjy1oUm/5dEgwNftRtBMHNiUUZNQP
-	E2ncgOzdYwfo088UAKIp3Up4VMyOe60eSNcA5Ju4PRr3LvrxOPVcOyvZ50s46dqCtswjOuc4/waYl
-	+jadWMIEO0g4OTgXniXLbr3Q8kswuVvrBB3m5tdbmCQFbB0UMRZKOEZBFNMPiTV+boYq/l6XgQ9bq
-	WrtUcY5Q==;
+	bh=1yP2Am5e10sNeYEbKNGw2vl+euZGZyHF/crVn79WQng=; b=3sF2cHwebI0JWQMC/Vz1EQjKiG
+	8ltb4IJz6+YxCgzD+gaWuV2YcKviSvEOML7Ss47dYSJQkpyI12Qa4L0qhT2An7h9nduxZYunws09H
+	1u4aG2/3+VGgsc/gUFgwhrHLU9MXPpkwjPAcFRPgNqU49V1oP11oEaNjS/wYPx6lsX+uZtamkhj4E
+	SJyLRWfoqIe+moqT9mOm4aeoaABPrWmV5Ys5MKUzunBh5Rzv4ozzDx1KEJQ7SmbRpaFjVkyf/bvUm
+	6EjIGRsctYLtj27w1mQAsFmW1iIOvhghJHKkaQ/pB9bLuvgiYOeebMgX2Q3CJA1o+pMIhsqd7y5yo
+	p+3BQ2ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4o6-00000008Atc-2Y5z;
-	Thu, 21 May 2026 14:55:30 +0000
-Received: from mail-northeuropeazon11010061.outbound.protection.outlook.com ([52.101.84.61] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wQ4oJ-00000008Azk-3bi3;
+	Thu, 21 May 2026 14:55:43 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([185.203.201.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4o2-00000008As1-0qRG
+	id 1wQ4oH-00000008AxS-0Glq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 14:55:27 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
- b=JGUqhYEWEFDl5uW1ase3F1bcSsiY1s6I9zzfdGktgTbFrXHRDLVNOV8TkV9US2k/y8Pu+aiMbBlYcxnXESP70bIT79wZ0BT1bPRkP/gRn0THBR2rb763vSTi/YDN/2uDwm4NOaa2rSzNWPvVnQqLIQiLT0bieoLqNM5D2wJ352Z1oDQKarEipTxz9zEq878vgT6+sJMdtf1u0FxVuf9rto4UT3hW/V32NvsmVqJCLkjePX17ooNE3OgKh4wQniEi+UH2kxwYgCiUCRUJLFn+ahzBdo5zpH0XH3PVzW66G9td51njkPx8US0+9und576U+w45jFAtF08Udm0i5SKgrw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AH1h0N/pmJ1K31WmMjaDLAN1pkCmYOtRrzTmMiIvvBo=;
- b=n3tejx2iO/djJjGvoLcp4EWCwSvC7h4e9HAodJaObdDZ8kie9qDBCKPAHE2RZoU29JYCM/zgAwaLepIXSmNojaFisRJE5hD4SJg9rUkSPt48FD/GUFm83vi5dbKhJmV6IES08ZR6Kpb76Uw+SqeLVtySSYaICQbBCOZgv4uUOXVRUYOEw9cUBOb+XjgEf4U6hu9wuXtHHcJurIdV2AWi/82aIrBNOWhs9Qclf90bmwXhrvlK3EoiV4/fgf+wY0jybAlLmlUypOsLQAVACCLA5KWsDSigA7QkI/xYcNmnu4OIVt4EZEo4H+lTVqaLq+ADtka9nrRDq6BvAnDbknO1GA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=fail (48)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AH1h0N/pmJ1K31WmMjaDLAN1pkCmYOtRrzTmMiIvvBo=;
- b=hVsafmgD/xNQw6vupbBpzxDQ/obnMjMFUWITjWBzlBtvjpmGKDTgeZPo7hnoTZvoiw3RNaR2+OoAS9aYfMq2vwKncCH8SFnUJTiJiSINt3R33/O/uS+FepWRCUqqS+3lUCn6fr63I4XE2G3jNU2JXD9lj8LnG7UouXlR7HxiWkU=
-Received: from AS9PR05CA0202.eurprd05.prod.outlook.com (2603:10a6:20b:495::31)
- by VI0PR08MB11405.eurprd08.prod.outlook.com (2603:10a6:800:301::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
- 2026 14:55:19 +0000
-Received: from AM3PEPF0000A793.eurprd04.prod.outlook.com
- (2603:10a6:20b:495:cafe::80) by AS9PR05CA0202.outlook.office365.com
- (2603:10a6:20b:495::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.17 via Frontend Transport; Thu, 21
- May 2026 14:55:19 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF0000A793.mail.protection.outlook.com (10.167.16.122) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.7 via
- Frontend Transport; Thu, 21 May 2026 14:55:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ORo0obt+9b1CaE9zIVZnt/+VOOC5B38YzVglTPoO2ByA+GaD1gctk98VPVuLF8MMTPuD6+XZMgTBgH5hhdDJdrOMmMOeYuwXX2z5hovAcmYeRqsSpBE/aiZ3Mml9G3Qy5JVdqZaMgM+RTnhdki6COXLQ/An5tcSg215z66M/Dz8LuWFm5mxjHHh6XY9CJaaJWo08heo4lLmEnVzxp7w8eUsjjMCaZiqXOGShEHFVb241+T53nYbXpBpbdK7LMKqv+8YDtp/fYi8oTNCdInR4rrUrrZdPE7uIWTdPXLmiQ0lgnp5T9SfwAS6IioeSVs/k4/HJImK8Kb6UJdjjyfU8Vw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AH1h0N/pmJ1K31WmMjaDLAN1pkCmYOtRrzTmMiIvvBo=;
- b=HgS504xU1yscxKV7/tJXHi31Bpgby8+2TioIf2N/h6uShtOuBAREjBjULhi+sViwNew3pGrHBX8X/oH7R+pKJ78ulI6UWnh+5hQejK9f0ipFvJBO7J+MJN/86SJbhqv04p7ZmtUc3yJVEOR0U37dD5Br5qTx1REGM81D9qfFbSbF2tjrVVRtbxXxy3gvLRbeYr6CDIxzNizW1RyApXevwuO2n6nN9dbdrMGPkqJuRYMlbICTkAyNznciBtY4trhv2EV1sN7ckQAanf2hcP1vLdfXjH40UzyZPBIIQiqWMV7Vw1yU6V1Bl6boqWQd74L/+B8WnPGG7AWqN35Okhz5PQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AH1h0N/pmJ1K31WmMjaDLAN1pkCmYOtRrzTmMiIvvBo=;
- b=hVsafmgD/xNQw6vupbBpzxDQ/obnMjMFUWITjWBzlBtvjpmGKDTgeZPo7hnoTZvoiw3RNaR2+OoAS9aYfMq2vwKncCH8SFnUJTiJiSINt3R33/O/uS+FepWRCUqqS+3lUCn6fr63I4XE2G3jNU2JXD9lj8LnG7UouXlR7HxiWkU=
-Received: from GV1PR08MB7315.eurprd08.prod.outlook.com (2603:10a6:150:1e::15)
- by DB9PR08MB11461.eurprd08.prod.outlook.com (2603:10a6:10:608::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 14:54:17 +0000
-Received: from GV1PR08MB7315.eurprd08.prod.outlook.com
- ([fe80::c249:1aed:a4c2:4193]) by GV1PR08MB7315.eurprd08.prod.outlook.com
- ([fe80::c249:1aed:a4c2:4193%3]) with mapi id 15.21.0048.013; Thu, 21 May 2026
- 14:54:17 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: [PATCH v2 15/39] KVM: arm64: gic-v5: Add resident/non-resident hyp
- calls
-Thread-Topic: [PATCH v2 15/39] KVM: arm64: gic-v5: Add resident/non-resident
- hyp calls
-Thread-Index: AQHc6TGyO6LETXlNIUKBRvtdgXBGjg==
-Date: Thu, 21 May 2026 14:54:16 +0000
-Message-ID: <20260521144846.1899475-16-sascha.bischoff@arm.com>
-References: <20260521144846.1899475-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260521144846.1899475-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: GV1PR08MB7315:EE_|DB9PR08MB11461:EE_|AM3PEPF0000A793:EE_|VI0PR08MB11405:EE_
-X-MS-Office365-Filtering-Correlation-Id: 84bb1e87-5b88-4ffa-0c27-08deb748fa22
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021|56012099003|18002099003|22082099003|11063799006;
-X-Microsoft-Antispam-Message-Info-Original: 94SNxZ3zcyyM6scvA9/GnSybS8Gn6U2WpUtEHC9gtctGBVb67jzoSbKEGBCgrYNMb6wN4n1jxC5NIAX+V+CMg80oIKb15OPbdzxPQiT7sCSTU3EyAPbIkFSPRKp4vXiyYJ0b7fYa2IV7wSKtH0obEO4ktFgmoDC5WsJdTFJYouGnX1Op2UZzcdKDdB/AQgHqfxJmWtdUjbWxOKLHirKqjpf9YjOVYQTuT3VejjucIdsimndhevpzInKYKqQrzehT+T/Q09DDdbddDi488cchM87wGhzWAfCwGDNnKGycqL7uBpj29CCA9GD4AmhONfzX0gCryeHivoXEO8aBs9PfDdU/iwT1v7X1NcIUExeIvcX/u99Wi8wOEmzYafCXMjY7H+MvnubFYvrDz4CdQGhGoSwpkuu+ynCpzBkriv5SqFEHRpe40PJgZTJKd0TNKIeu6He0LSHwtU2wdJ4PqDeQx49kHfvWXScGnBIY4jypx3hpFeE7gAEOHjv8FCFkw3EnrfiBsToLKhKFoHLF8CwsMjK+9YU9di/vk8GJXjvb4v9K9A0L9VEgq1bc5pPHV6TsOQDpfC1RjyyuiOXZ9zyd5w4U820ojwp2Yo635XQqFQCuQZuEPA8iP0igWgY+nd07hmhFR1Qp1QAy7Z1pY8KqHAs/3bi6MtBOFVSRqRr5P4QXVF91iZ7b5TvX5c1WEvCimWPZaDSNOcCxnrIBQb/F1b/pns0ucVvWFnbQH7kMGUoPKfgTvlNF7EN8L38dBlm6
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB7315.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021)(56012099003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 21 May 2026 14:55:42 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ4o4-0007By-IH; Thu, 21 May 2026 16:55:28 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ4o3-0017Wq-0P;
+	Thu, 21 May 2026 16:55:27 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ4o3-00000004XHD-2NNW;
+	Thu, 21 May 2026 16:55:27 +0200
+Date: Thu, 21 May 2026 16:55:27 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de
+Subject: Re: [PATCH v7 17/28] media: rockchip: rga: check scaling factor
+Message-ID: <ag8c3_pSJ2WqHqzC@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+ <20260521-spu-rga3-v7-17-3f33e8c7145f@pengutronix.de>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: XeMwsR55c/Ka09h2mHc0NT5V2OAxyWugeLlKmONLp1spUKnvo77gcxY+qW2rDpelHrDYcpnNzALVid9T9OtzvmPb7QkPyAOaQu16cdU1Qf3Q6u7/dlBavTDy8HlwS6zMbPhTufPRMpJEsVf7KRsiucWcjI+UkJnpHJh5AAYFpEfHXssqIE/zojBz1nEupH9Hd4WLllpR0ipukhjXUQg56yX2ZpjBKOxArIM9Z98fg9V8IlwHipv1yKpg1r8fRXJp3dxDKkPbfJEuWrIR4AC2yuT9HT9t68Wu4Sj/7oW8KfxyIu1Dk+Nk3BLn4RGEOJFjANi3H/flZ3Ljlh1TY6txAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB11461
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF0000A793.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: af74c87f-fb92-4c02-39ec-08deb748d4da
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|14060799003|82310400026|35042699022|376014|56012099003|18002099003|11063799006|22082099003;
-X-Microsoft-Antispam-Message-Info: ZWgjvQsGCmSaCWNOvuqTt0a1IDpYbcXDZ0EirAAyaWOTh+uOlwl6ZxnzMy72NaNqYUCb4QGWzp+Eeh0gMN61BMbAlIdoL7D3+1Xb4cQvnVPx3GN0lW6nVPIhM3pTg+/nTRG8Otpzhh3MX6KWEJWsSoEm64PbJ8HuFPQCH3TlbRrzBArNkHGfZsPZ14gzqYpuxC8ETWSqINY0+zm11sdYXX20A81VFXkWrejKouLeNR8syaWMjuCKvX0Ilo4oivCGtvJQju5UEQSCrNHUv6ibLzNt/w4pM7/iI1U1TmyAH/P685cDIYD8wlU8bdbTEKCWHJBnz5d0can934fo9BI8qQ6cF4zYi9h47UpP6vwLjggqVbWrE6uFLlqj0lMmktsMGDqDtxO2I26sPW9OWZwu/txrk5sRzY/exkFxxgNE6eD3OX7lgMiJf7Rwve5ftxuay5objuQr3t7g8L6vy1aOmklBsbl0bccN0lKDnMZLkWBRk2xfY0pSceIGjnO1RuVHmnLEi19XcUSKPvwUdv15+S67wk+eJYA8Yezb3JTA2NX7ZWSD7xzkxzgJJTpTBj+I6mg5jGAjPsWbg45rtFlXvr9JD1wxGx/YN27W0whbnV8DhI2wDFmwBJqVYpppJnfBoqRVBUKlgBIyqJwC0d+QD+ZjFyAseL1RwBfzdfyu4U3NRVZiADMtNx3spKlAafHNRSP9UzWFVP3ayUFaJdM849ULRJPJ5yvux9ncu0OarSA=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(14060799003)(82310400026)(35042699022)(376014)(56012099003)(18002099003)(11063799006)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: mFBt05PlF+eKAHhM6Diwzd9kFjxUlKZ2iFMReZHgSBjeT5Y1jtv/mGy+3jPCy6aDZIxRnZIB9832kALuyDOVwiTz8hfmpRX75t/JlUrYtos1OUw01gFjTs1AYr9v3P6mfYSbHFrQy2OF9++lH8ZV+H5C7Z6ocKwsOMjy/ypSd2iLLFelUhAr4F90AH6pzoOtUY+phzv2po5yDOOi9etjHBlHxS8gVGWueXEZzL5N5y8nHMKr86fruEBpmwDFnG6JZvLX2UEGHPppzyHKFq7doVBET+gj1crlY/G33Y5C4F8JcndAFvWIImcl3VjJvEo+jUM5AX2tKcUBFKd3BK48GJpNej16NY0xiPl4KJ+EZ4VmucbbPkMFZ4uwVrdsgkJzLQPvvJn+4pe9tM1qZUF0mqM/nrRu3H2kNTgsr1jkRv++6Yn2PgL99jHmdl33WxxM
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 14:55:19.4249
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 84bb1e87-5b88-4ffa-0c27-08deb748fa22
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF0000A793.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR08MB11405
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-spu-rga3-v7-17-3f33e8c7145f@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_075526_250653_D9055DB1 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20260521_075541_260289_D6CDA2ED 
+X-CRM114-Status: GOOD (  40.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,200 +104,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-GICv5 introduces the concept of VPE residency - a VPE can be either
-resident or non-resident. When the VPE is resident, the IRS is allowed
-to select interrupts that target that VPE (or the VM) as the HPPI
-(Highest Priority Pending Interrupt). As the IRS handles both SPIs and
-LPIs, these will only be picked as the IRS's HPPI when a VPE is
-resident.
+On Thu, 21 May 2026 00:44:22 +0200, Sven Püschel wrote:
+> Check the scaling factor to avoid potential problems. This is relevant
+> for the upcoming RGA3 support, as it can hang when the scaling factor
+> is exceeded.
 
-A GICv5 VPE is made resident by writing ICH_CONTEXTR_EL2 with
-ICH_CONTEXTR_EL2.V set, together with valid VM and VPE IDs. This
-informs the IRS that a specific VPE is running, and that it can begin
-HPPI selection for that VPE. Making a VPE non-resident (by making the
-ICH_CONTEXTR_EL2 invalid) informs the IRS that the VPE is no longer
-running, and it stops HPPI selection for it.
+Since you add a limit of 16 for the RGA2, this seems to be relevant for
+the RGA2, too. Please add this to the commit message.
 
-This change introduces two new hyp calls - one to make a VPE resident
-and its counterpart to make a VPE non-resident. As part of making a
-VPE resident, the resulting ICH_CONTEXTR_EL2.F bit is checked to catch
-residency faults. Such a fault indicates a broken VM/VPE setup, so
-warn and mark the VM dead.
+Michael
 
-Furthermore, this change extends vgic_v5_load() and vgic_v5_put() to
-make the VPEs resident and non-resident, respectively. Hence, the VPE
-is considered resident for the entire load-to-put interval.
-
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- arch/arm64/include/asm/kvm_asm.h   |  2 ++
- arch/arm64/include/asm/kvm_hyp.h   |  2 ++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 16 ++++++++++++++++
- arch/arm64/kvm/hyp/vgic-v5-sr.c    | 26 ++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic-v5.c      | 16 ++++++++++++++--
- include/kvm/arm_vgic.h             |  3 +++
- 6 files changed, 63 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_=
-asm.h
-index 043495f7fc78b..d9ff9c2999aa7 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -87,6 +87,8 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___tracing_write_event,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_save_aprs,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
-+	__KVM_HOST_SMCCC_FUNC___vgic_v5_make_resident,
-+	__KVM_HOST_SMCCC_FUNC___vgic_v5_make_non_resident,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
- 	__KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
-=20
-diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_=
-hyp.h
-index 8d06b62e7188c..5f9184276b04e 100644
---- a/arch/arm64/include/asm/kvm_hyp.h
-+++ b/arch/arm64/include/asm/kvm_hyp.h
-@@ -88,6 +88,8 @@ void __vgic_v3_restore_vmcr_aprs(struct vgic_v3_cpu_if *c=
-pu_if);
- int __vgic_v3_perform_cpuif_access(struct kvm_vcpu *vcpu);
-=20
- /* GICv5 */
-+void __vgic_v5_make_resident(struct vgic_v5_cpu_if *cpu_if);
-+void __vgic_v5_make_non_resident(struct vgic_v5_cpu_if *cpu_if);
- void __vgic_v5_save_apr(struct vgic_v5_cpu_if *cpu_if);
- void __vgic_v5_restore_vmcr_apr(struct vgic_v5_cpu_if *cpu_if);
- /* No hypercalls for the following */
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/h=
-yp-main.c
-index 06db299c37a89..555275736fa77 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -672,6 +672,20 @@ static void handle___tracing_write_event(struct kvm_cp=
-u_context *host_ctxt)
- 	trace_selftest(id);
- }
-=20
-+static void handle___vgic_v5_make_resident(struct kvm_cpu_context *host_ct=
-xt)
-+{
-+	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
-+
-+	__vgic_v5_make_resident(kern_hyp_va(cpu_if));
-+}
-+
-+static void handle___vgic_v5_make_non_resident(struct kvm_cpu_context *hos=
-t_ctxt)
-+{
-+	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
-+
-+	__vgic_v5_make_non_resident(kern_hyp_va(cpu_if));
-+}
-+
- static void handle___vgic_v5_save_apr(struct kvm_cpu_context *host_ctxt)
- {
- 	DECLARE_REG(struct vgic_v5_cpu_if *, cpu_if, host_ctxt, 1);
-@@ -719,6 +733,8 @@ static const hcall_t host_hcall[] =3D {
- 	HANDLE_FUNC(__tracing_write_event),
- 	HANDLE_FUNC(__vgic_v3_save_aprs),
- 	HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
-+	HANDLE_FUNC(__vgic_v5_make_resident),
-+	HANDLE_FUNC(__vgic_v5_make_non_resident),
- 	HANDLE_FUNC(__vgic_v5_save_apr),
- 	HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-=20
-diff --git a/arch/arm64/kvm/hyp/vgic-v5-sr.c b/arch/arm64/kvm/hyp/vgic-v5-s=
-r.c
-index 6d69dfe89a96c..f064045a31aee 100644
---- a/arch/arm64/kvm/hyp/vgic-v5-sr.c
-+++ b/arch/arm64/kvm/hyp/vgic-v5-sr.c
-@@ -7,6 +7,32 @@
-=20
- #include <asm/kvm_hyp.h>
-=20
-+void __vgic_v5_make_resident(struct vgic_v5_cpu_if *cpu_if)
-+{
-+	write_sysreg_s(cpu_if->vgic_contextr, SYS_ICH_CONTEXTR_EL2);
-+	isb();
-+
-+	/* Catch any faults */
-+	cpu_if->vgic_contextr =3D read_sysreg_s(SYS_ICH_CONTEXTR_EL2);
-+	if (!!FIELD_GET(ICH_CONTEXTR_EL2_F, cpu_if->vgic_contextr))
-+		return;
-+
-+	cpu_if->gicv5_vpe.resident =3D true;
-+}
-+
-+void __vgic_v5_make_non_resident(struct vgic_v5_cpu_if *cpu_if)
-+{
-+	/*
-+	 * Make as non-resident before actually making non-resident. Avoids race
-+	 * with doorbell arriving.
-+	 */
-+	cpu_if->gicv5_vpe.resident =3D false;
-+	dsb(st);
-+
-+	write_sysreg_s(cpu_if->vgic_contextr, SYS_ICH_CONTEXTR_EL2);
-+	isb();
-+}
-+
- void __vgic_v5_save_apr(struct vgic_v5_cpu_if *cpu_if)
- {
- 	cpu_if->vgic_apr =3D read_sysreg_s(SYS_ICH_APR_EL2);
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index 08f2411c0a134..25590cf5ebee1 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -1038,6 +1038,8 @@ void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu)
- void vgic_v5_load(struct kvm_vcpu *vcpu)
- {
- 	struct vgic_v5_cpu_if *cpu_if =3D &vcpu->arch.vgic_cpu.vgic_v5;
-+	u16 vm =3D vgic_v5_vm_id(vcpu->kvm);
-+	u16 vpe =3D vgic_v5_vpe_id(vcpu);
-=20
- 	/*
- 	 * On the WFI path, vgic_load is called a second time. The first is when
-@@ -1050,7 +1052,15 @@ void vgic_v5_load(struct kvm_vcpu *vcpu)
-=20
- 	kvm_call_hyp(__vgic_v5_restore_vmcr_apr, cpu_if);
-=20
--	cpu_if->gicv5_vpe.resident =3D true;
-+	cpu_if->vgic_contextr =3D FIELD_PREP(ICH_CONTEXTR_EL2_V, true) |
-+				FIELD_PREP(ICH_CONTEXTR_EL2_VPE, vpe) |
-+				FIELD_PREP(ICH_CONTEXTR_EL2_VM, vm);
-+
-+	kvm_call_hyp(__vgic_v5_make_resident, cpu_if);
-+
-+	/* Failed to make the VPE resident? Bang! */
-+	if (WARN_ON(!!FIELD_GET(ICH_CONTEXTR_EL2_F, cpu_if->vgic_contextr)))
-+		kvm_vm_dead(vcpu->kvm);
- }
-=20
- void vgic_v5_put(struct kvm_vcpu *vcpu)
-@@ -1068,7 +1078,9 @@ void vgic_v5_put(struct kvm_vcpu *vcpu)
-=20
- 	kvm_call_hyp(__vgic_v5_save_apr, cpu_if);
-=20
--	cpu_if->gicv5_vpe.resident =3D false;
-+	cpu_if->vgic_contextr =3D 0;
-+
-+	kvm_call_hyp(__vgic_v5_make_non_resident, cpu_if);
-=20
- 	/* The shadow priority is only updated on entering WFI */
- 	if (vcpu_get_flag(vcpu, IN_WFI))
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 6f736094a0e7e..faecde764fea3 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -536,6 +536,9 @@ struct vgic_v5_cpu_if {
- 	 */
- 	u64	vgic_icsr;
-=20
-+	/* The contextr used to make VPEs resident and non-resident */
-+	u64	vgic_contextr;
-+
- 	struct gicv5_vpe gicv5_vpe;
- };
-=20
---=20
-2.34.1
+> 
+> The check is done at streamon when the other side is already streaming
+> to avoid incorrectly failing if the application configures the other
+> side after calling streamon. As try_fmt shouldn't be state aware,
+> it cannot be used to limit the format based on the scaling factor.
+> Therefore the check is done just before the actual streaming would be
+> started.
+> 
+> As the driver allows changing the rotation and selection while
+> streaming, add additional checks to ensure these changes
+> don't exceed the scaling factor.
+> 
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+> 
+> ---
+> Changes in v6:
+> - Dropped scaling adjustment in s_fmt, as this didn't match the try_fmt
+>   result (which shouldn't have it to avoid making it stateful)
+> - Moved scaling check to the prepare_streaming callback instead of
+>   overwriting the ioctl directly
+> - Consider rotation when checking the scaling
+> - Check scaling factor when adjusting rotation and selection while
+>   streaming
+> ---
+>  drivers/media/platform/rockchip/rga/rga-buf.c | 28 ++++++++++++
+>  drivers/media/platform/rockchip/rga/rga-hw.c  |  1 +
+>  drivers/media/platform/rockchip/rga/rga-hw.h  |  1 +
+>  drivers/media/platform/rockchip/rga/rga.c     | 63 +++++++++++++++++++++++++--
+>  drivers/media/platform/rockchip/rga/rga.h     |  4 ++
+>  5 files changed, 94 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+> index ffc6162b2e681..dcaba66f5c1fc 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-buf.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+> @@ -197,6 +197,33 @@ static void rga_buf_return_buffers(struct vb2_queue *q,
+>  	}
+>  }
+>  
+> +static int rga_buf_prepare_streaming(struct vb2_queue *q)
+> +{
+> +	struct rga_ctx *ctx = vb2_get_drv_priv(q);
+> +	const struct rga_hw *hw = ctx->rga->hw;
+> +	int ret;
+> +
+> +	/* It's safe to check the streaming state of the other queue,
+> +	 * as the streamon ioctl's can't race due to the lock set in
+> +	 * the queue_init function.
+> +	 */
+> +	if ((V4L2_TYPE_IS_OUTPUT(q->type) &&
+> +	     vb2_is_streaming(v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx))) ||
+> +	    (V4L2_TYPE_IS_CAPTURE(q->type) &&
+> +	     vb2_is_streaming(v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx)))) {
+> +		/*
+> +		 * As the other side is already streaming,
+> +		 * check that the max scaling factor isn't exceeded.
+> +		 */
+> +		ret = rga_check_scaling(hw, &ctx->in.crop, &ctx->out.crop,
+> +					ctx->rotate);
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int rga_buf_start_streaming(struct vb2_queue *q, unsigned int count)
+>  {
+>  	struct rga_ctx *ctx = vb2_get_drv_priv(q);
+> @@ -232,6 +259,7 @@ const struct vb2_ops rga_qops = {
+>  	.buf_prepare = rga_buf_prepare,
+>  	.buf_queue = rga_buf_queue,
+>  	.buf_cleanup = rga_buf_cleanup,
+> +	.prepare_streaming = rga_buf_prepare_streaming,
+>  	.start_streaming = rga_buf_start_streaming,
+>  	.stop_streaming = rga_buf_stop_streaming,
+>  };
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+> index 567d39e58d33f..f2900812ba76f 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+> @@ -584,6 +584,7 @@ const struct rga_hw rga2_hw = {
+>  	.max_width = MAX_WIDTH,
+>  	.min_height = MIN_HEIGHT,
+>  	.max_height = MAX_HEIGHT,
+> +	.max_scaling_factor = MAX_SCALING_FACTOR,
+>  	.stride_alignment = 4,
+>  
+>  	.setup_cmdbuf = rga_hw_setup_cmdbuf,
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.h b/drivers/media/platform/rockchip/rga/rga-hw.h
+> index c2e34be751939..805ec23e5e3f4 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.h
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.h
+> @@ -14,6 +14,7 @@
+>  
+>  #define MIN_WIDTH 34
+>  #define MIN_HEIGHT 34
+> +#define MAX_SCALING_FACTOR 16
+>  
+>  #define RGA_TIMEOUT 500
+>  
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+> index 394b14b9469df..22954bbae55fc 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -127,7 +127,9 @@ static int rga_s_ctrl(struct v4l2_ctrl *ctrl)
+>  {
+>  	struct rga_ctx *ctx = container_of(ctrl->handler, struct rga_ctx,
+>  					   ctrl_handler);
+> +	const struct rga_hw *hw = ctx->rga->hw;
+>  	unsigned long flags;
+> +	int ret = 0;
+>  
+>  	spin_lock_irqsave(&ctx->rga->ctrl_lock, flags);
+>  	switch (ctrl->id) {
+> @@ -138,6 +140,13 @@ static int rga_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		ctx->vflip = ctrl->val;
+>  		break;
+>  	case V4L2_CID_ROTATE:
+> +		if (vb2_is_streaming(v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)) &&
+> +		    vb2_is_streaming(v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx))) {
+> +			ret = rga_check_scaling(hw, &ctx->in.crop,
+> +						&ctx->out.crop, ctrl->val);
+> +			if (ret < 0)
+> +				goto s_ctrl_done;
+> +		}
+>  		ctx->rotate = ctrl->val;
+>  		break;
+>  	case V4L2_CID_BG_COLOR:
+> @@ -145,8 +154,10 @@ static int rga_s_ctrl(struct v4l2_ctrl *ctrl)
+>  		break;
+>  	}
+>  	ctx->cmdbuf_dirty = true;
+> +
+> +s_ctrl_done:
+>  	spin_unlock_irqrestore(&ctx->rga->ctrl_lock, flags);
+> -	return 0;
+> +	return ret;
+>  }
+>  
+>  static const struct v4l2_ctrl_ops rga_ctrl_ops = {
+> @@ -182,6 +193,38 @@ static int rga_setup_ctrls(struct rga_ctx *ctx)
+>  	return 0;
+>  }
+>  
+> +static bool check_scaling_factor(const struct rga_hw *hw, u32 src_size,
+> +				 u32 dst_size)
+> +{
+> +	if (src_size < dst_size)
+> +		return src_size * hw->max_scaling_factor >= dst_size;
+> +	else
+> +		return dst_size * hw->max_scaling_factor >= src_size;
+> +}
+> +
+> +int rga_check_scaling(const struct rga_hw *hw, const struct v4l2_rect *crop_in,
+> +		      const struct v4l2_rect *crop_out, u32 rotate)
+> +{
+> +	u32 scaled_width;
+> +	u32 scaled_height;
+> +
+> +	if (rotate == 90 || rotate == 270) {
+> +		scaled_width = crop_out->height;
+> +		scaled_height = crop_out->width;
+> +	} else {
+> +		scaled_width = crop_out->width;
+> +		scaled_height = crop_out->height;
+> +	}
+> +
+> +	if (!check_scaling_factor(hw, crop_in->width, scaled_width))
+> +		return -EINVAL;
+> +
+> +	if (!check_scaling_factor(hw, crop_in->height, scaled_height))
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +
+>  static struct rga_fmt *rga_fmt_find(struct rockchip_rga *rga, u32 pixelformat)
+>  {
+>  	unsigned int i;
+> @@ -525,7 +568,6 @@ static int vidioc_s_selection(struct file *file, void *priv,
+>  	struct rga_ctx *ctx = file_to_rga_ctx(file);
+>  	struct rockchip_rga *rga = ctx->rga;
+>  	struct rga_frame *f;
+> -	int ret = 0;
+>  
+>  	f = rga_get_frame(ctx, s->type);
+>  	if (IS_ERR(f))
+> @@ -569,10 +611,25 @@ static int vidioc_s_selection(struct file *file, void *priv,
+>  		return -EINVAL;
+>  	}
+>  
+> +	if (vb2_is_streaming(v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)) &&
+> +	    vb2_is_streaming(v4l2_m2m_get_src_vq(ctx->fh.m2m_ctx))) {
+> +		int ret = 0;
+> +
+> +		if (V4L2_TYPE_IS_OUTPUT(s->type))
+> +			ret = rga_check_scaling(rga->hw, &s->r, &ctx->out.crop,
+> +						ctx->rotate);
+> +		else
+> +			ret = rga_check_scaling(rga->hw, &ctx->in.crop, &s->r,
+> +						ctx->rotate);
+> +
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+> +
+>  	f->crop = s->r;
+>  	ctx->cmdbuf_dirty = true;
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static const struct v4l2_ioctl_ops rga_ioctl_ops = {
+> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+> index 5360f092fecf0..df525c6aea8b6 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.h
+> +++ b/drivers/media/platform/rockchip/rga/rga.h
+> @@ -123,6 +123,9 @@ static inline struct rga_vb_buffer *vb_to_rga(struct vb2_v4l2_buffer *vb)
+>  
+>  struct rga_frame *rga_get_frame(struct rga_ctx *ctx, enum v4l2_buf_type type);
+>  
+> +int rga_check_scaling(const struct rga_hw *hw, const struct v4l2_rect *crop_in,
+> +		      const struct v4l2_rect *crop_out, u32 rotate);
+> +
+>  /* RGA Buffers Manage */
+>  extern const struct vb2_ops rga_qops;
+>  
+> @@ -151,6 +154,7 @@ struct rga_hw {
+>  	size_t cmdbuf_size;
+>  	u32 min_width, min_height;
+>  	u32 max_width, max_height;
+> +	u8 max_scaling_factor;
+>  	u8 stride_alignment;
+>  
+>  	void (*setup_cmdbuf)(struct rga_ctx *ctx);
+> 
+> -- 
+> 2.54.0
+> 
+> 
 
