@@ -4,132 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 621F3CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78605CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ffkgPYo3RsV00oz9yH4dQclwKr0ZZMPev7A712WO24o=; b=UZTgk0uf+NhXq2SYl2gOxcLo7f
-	WGWCQQBta8w8j5L9OJ2WM2A0sU5KOt+WY/NJInV62JICBMGZqFAmIffBUOgKB/MmLp4Zl9UyNyrTl
-	FwH6oCF0xg8IX7vkAvAxSne1j5Pnwd71IkUjZVXT7VULiiKCxIQ2dsbgIxQvTC2L28EFOkbSDYhPk
-	zl2P2uXDI+/6Jis9f3Y47LrNmZmuwH0DucD2XLVY9uJDPmcb8Ncs+CAxRjWWeV//awSFUkgLtDvhd
-	CCBRLlK+VpDJSK/9ile628P7PifWcBHXunl89IjNAneSsnCZgS3gmo5sc2vBYBub2XW1Pu5Z1huaj
-	CyWubS5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q39DiklZvSpNFdVrcrO1V6lBShlkhniXqdocnefU7Hw=; b=owqkuQ0OXa2eVOj1/tg+bZoapv
+	0bd85aNKQZWGoXgAuxkrIXTVD9O1rGgVEl4eytlMa6zyEg0SILsOtTq8kJR4ZOfw95wJvN8qyN0oy
+	IRh7x5RVUXoKzZDEOR2ADCqnYwwrUGHeIXpLtTBsd10/ciYa/MzZxU6pVwgGHMJrEGB0gGUu3roR6
+	ZqGzH1VVKJN/DwXFDoNa6pZL+wLqlqPMz725zmCjLI6n8ZjSs/P1luJ7TIEB5UY6j2yNcIQcOfDyz
+	C21y0f9CVzEhWeMkcluseROIkFY8s6FIJeSAWSF00DF8bGaVx6h+z68kEl/X/cizk5oXQYAczNafF
+	CgMCocMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxD4-00000006riq-2I8R;
-	Thu, 21 May 2026 06:48:46 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wPxE2-00000006s2E-2rtf;
+	Thu, 21 May 2026 06:49:46 +0000
+Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxD2-00000006riB-0i5i
+	id 1wPxDv-00000006ryC-1T2N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 06:48:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Q9S3sBXLjhKqqmdiQfvUjyiNCzOp5tTdFi1nrAV+oi0kzzpwms4QWTyWtqyj76EtofmLT6YrQ6HIcqLKRYyu0T4kzpw9JZxSceV4PjVn3Ec+iXN4IMyaqCSxUL0RydGrudoK7pVA3ddirg6IuC4H5REUZ9VMJ7XuJPc6a4k6djGPawgBpVzXbuab4azPekbK8GnCEnjdmJOeSY4NYwtiWQsvMHBToIYvIatlImvpU6FxtJxZDC6KwRkOpqF+bKLBllqFwfIphC47NkjRNNuEX37B99CL0FMrpK41hWiOygxnpzR9vgTRT05FK8RLI8OFkGD5bdt+UniLkgcYxa9WiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ffkgPYo3RsV00oz9yH4dQclwKr0ZZMPev7A712WO24o=;
- b=CUnJiVqHEDr7FMxMBJYFSrV7ge18ynCYK91ReFif/9e7Q/kv+JY76tD6QuCh0z3xH15eNa9Mc3Yt1eJMHyoyOZhxqzulwymoxV3jI+igkNdZv/8T00h7OLpm8wgqbS6YtrTTcv8NK1iQB38Ndt4njQ3Il1fQ+YPjPMyeQxAUFtowlnzojQV/E747UPLARK8bcCYyBFLjqbgaTX6bnO80QHyVcjb7f2bwq7cofNIL22FVEgchzlwMZGEgcGtXlzfkvdtozMCqtjZcdH1NsSgQob8Q9JVCi6P+1ol8negdmA10ZkPZjAuRwWCMfCuOYE2UxsFsufLfwIgKQd0lRAvezw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ffkgPYo3RsV00oz9yH4dQclwKr0ZZMPev7A712WO24o=;
- b=oYAEjE3CCCRqoS7rLgRNcB72pPU/bgQLKpocnVmmauyAm81fJEGhY8klKOi16KzO9ROry+Hf4CYuYHrLOvfFZ8LYyQz6MtI6Sl6I13oKEgU5YnPoKUaCHDl94N6lrJzBdsjdqxc5+C0OZJT0zX24kCq4FaDvEzneGsPnnyodxPpe5jG7P8blYTXinqK4SXPuvo2a55MRBTLMYAN76JCqN+5upMLXijWcehtutp5Bb+Nl0VOVgze14kTXOQMEQbI8fzD8R6xFoOoxIheJkwZIEQpNTQhaMtIMINAZs23pOORUnDvXBiWiLoUx+LRSN9U56I/PlRe/BkSiadkNXtzsCg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by DU2PR04MB8661.eurprd04.prod.outlook.com (2603:10a6:10:2dc::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 06:48:38 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
- 06:48:38 +0000
-From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-To: o.rempel@pengutronix.de,
-	kernel@pengutronix.de,
-	andi.shyti@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	carlos.song@nxp.com
-Cc: linux-i2c@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v2] i2c: imx: fix clock and pinctrl state inconsistency in runtime PM
-Date: Thu, 21 May 2026 14:50:38 +0800
-Message-ID: <20260521065038.2954998-1-carlos.song@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR4P281CA0011.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:c8::8) To AM0PR04MB6802.eurprd04.prod.outlook.com
- (2603:10a6:208:184::17)
+	Thu, 21 May 2026 06:49:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=fu-berlin.de; s=fub01; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:From:
+	Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
+	References; bh=q39DiklZvSpNFdVrcrO1V6lBShlkhniXqdocnefU7Hw=; t=1779346179;
+	x=1779950979; b=J+LmNXXI3be3Q36fIaq8vIyAuHRmiaXOkOJryEjqpGhN14jApWp8n7abQJUVQ
+	vcCvR0S9uqeAItufPglXbdyJ7fweByD3cakkHOoVrDI2TgI78QgU4Lxtm5+l0E5KxIp3bnGJMWn3l
+	2C4fMdEZEpL+7bzQaAhLvD1NiQZJzbPmVMw/Els+xf5fGgVxjkoEJepp1P3rv3rNIWL8ie/ebRSxO
+	sJAVcPp8eW3okWCsgnqcNxFzhF8INaeHrHSgB1MmY/h8pv1RDgOegb67D7/cYMtANaO2hkt6tUx2m
+	ViCWsQ5Gnv115vZyVGI0GoCRi3G9briyHkwk+RmuOY0/iHgXNA==;
+Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
+          by outpost.zedat.fu-berlin.de (Exim 4.99)
+          with esmtps (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@zedat.fu-berlin.de>)
+          id 1wPxDK-00000002vgw-3F6M; Thu, 21 May 2026 08:49:02 +0200
+Received: from p5b13a134.dip0.t-ipconnect.de ([91.19.161.52] helo=suse-laptop.fritz.box)
+          by inpost2.zedat.fu-berlin.de (Exim 4.99)
+          with esmtpsa (TLS1.3)
+          tls TLS_AES_256_GCM_SHA384
+          (envelope-from <glaubitz@physik.fu-berlin.de>)
+          id 1wPxDK-00000000p6R-1lXr; Thu, 21 May 2026 08:49:02 +0200
+Message-ID: <8f918549adce2bbb68fdf3754793b3305f994c23.camel@physik.fu-berlin.de>
+Subject: Re: [PATCH 04/10] [v2] sh: select legacy gpiolib interface
+From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+To: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, Christian
+ Lamparter <chunkeey@googlemail.com>, Johannes Berg
+ <johannes@sipsolutions.net>, Aaro Koskinen	 <aaro.koskinen@iki.fi>, Andreas
+ Kemnade <andreas@kemnade.info>, Kevin Hilman	 <khilman@baylibre.com>, Roger
+ Quadros <rogerq@kernel.org>, Tony Lindgren	 <tony@atomide.com>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Dmitry Torokhov	
+ <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>, Pavel Machek	
+ <pavel@kernel.org>, Matti Vaittinen <mazziesaccount@gmail.com>, Florian
+ Fainelli <florian.fainelli@broadcom.com>, Jonas Gorski
+ <jonas.gorski@gmail.com>, Andrew Lunn	 <andrew@lunn.ch>, Vladimir Oltean
+ <olteanv@gmail.com>, "David S. Miller"	 <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski	 <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, 	linux-wireless@vger.kernel.org,
+ linux-omap@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-mips@vger.kernel.org, 	linux-sh@vger.kernel.org,
+ linux-input@vger.kernel.org, 	linux-leds@vger.kernel.org,
+ netdev@vger.kernel.org
+Date: Thu, 21 May 2026 08:49:00 +0200
+In-Reply-To: <20260520183815.2510387-5-arnd@kernel.org>
+References: <20260520183815.2510387-1-arnd@kernel.org>
+	 <20260520183815.2510387-5-arnd@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.1 
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|DU2PR04MB8661:EE_
-X-MS-Office365-Filtering-Correlation-Id: a320cd31-7f51-4867-b459-08deb704fc7a
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|56012099003|18002099003|38350700014|3023799007|11063799006;
-X-Microsoft-Antispam-Message-Info: pPxa+kIlDPHK2mrrJupkVFcrllooZ1EAsZuGpTTnxUZcRoiV57n48FOL2kLGptSquJpy9ggsEUeBa24qGR7o+irvBIpV+GUuAhN7sw7tVUUpfShMMKdXvQr5EPrqh23/poNgtVR5Pqjo3pehleWLFLUXK4zQOlQhzrsuT+AQRpfY9D8K/NhZve+6W/SvIGMuliFtbuOlw3yARhg2URqifK+OKfufLReTWmrPmajklGx3DYt/zKsWlEXHyIie4Xki/de7Cyry+ljegNfA/9fJcL+pWYnG1eSOAqd4LuIajYu+hJnsbbYtS8Q0f3BiceQwP2izWMZ+ekEXkAG3JufhCDSF4cN9jnezmhaM751beItqdB3LXi9C0zdILFuHwWzvNzLwPAL1TRjb+nEg2+MYaZEThGMVz0IP7hG/bH9XYdEuHWLidXwsiFemcv1rtqPhyVMrXne7vB+rytOvENxDGGXM3wK7MW8r9EJZ9aMkOLG1RjYOlQQCV+Oj+seDRlt06qdekRR9cz0JSex91mRYtW8hRxTE4ljVgbuCbEgb53QDIRbPOaCBIEIph8VFJQLZZ2nWFq3ewGTkRiyMBO8GtAlUN0SiqaTPuMsFwKekZx7EB3st1eIr1oXM/BWkW4qfOTp9/Lh5JYvhN4x9i8UlhO1F2MSFJHqxHStn9sixnwY2XhFzL7O17CIikczRzSLtyVPJVvWyXtyuy8ME+9vTBij9o0UIQx0fcOT18vhv073M/IfL+0rf+dR/v3m93NXu
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(56012099003)(18002099003)(38350700014)(3023799007)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vMqALD/nwjBxgisygEjfT4IFi3gefwtH8tnvPky4GBfpxSQvz0qWNGznxFqC?=
- =?us-ascii?Q?hKLcgXLbGjGZ90t0gVOSMVWsLtrx9B/ReEDcNEWWwNPe+qwgEMBlZOpjOc+K?=
- =?us-ascii?Q?e0ko6i0qzmvYpZDqCD5vlNCSkye8YLy8vszQ+EaDNSGrp00EFl290lS+1aBv?=
- =?us-ascii?Q?54PQ06dYqCl1VpppsegImCK7giMyiy3S85ifeD65Z5tU6TzCbOgq5Jfj7+I7?=
- =?us-ascii?Q?//yJmpIjTJUD3wwQOvtV1BoBJ2tzxoHP3JUsA653ldcfCzXlFWb6Fnybpogc?=
- =?us-ascii?Q?Um+BSLlrF9ivqQh3FBo0v1NXKQ5z6NcX1+FX4Cdp+sL6zQHKqasKcb2DQTXq?=
- =?us-ascii?Q?MLYVQRu66UL2/16zsfP6Q32eX8YpUrP+GyNu1662dXtpZ0O+Iavzl7peW4X9?=
- =?us-ascii?Q?tVYu5696CrJQk3FKocMsIL4De4FQp0V8hDH7UfZrR4a3usiQWsIUd4pL8RM/?=
- =?us-ascii?Q?gWWPGjyRrfA4ofQGLy6KtTtEnWyhtguquo1lxAXL6my8S/ViCt0diKsTVp/w?=
- =?us-ascii?Q?z8QUHuMOFEW6jbKBevuInvyMcP1+08v0MSeWv7K5ai8Z9xDZg52Xbv7V10sm?=
- =?us-ascii?Q?QLBKMO/RptgErF5Bmt2Wrpd78vseSPt1POJUy4u+8l5tS/anj4BfEzxWd1nk?=
- =?us-ascii?Q?a6qVyY7+JedsEbOZy1DHVANw/tnTTKMxmGbVj9FtleaKXPGO7AsCPjfxOzPs?=
- =?us-ascii?Q?UGKx8Uw29JKREcM/apd+jORDMROxlhTfzpaBypl5tjpzNP4ayRyN4ELsBoCO?=
- =?us-ascii?Q?Nr48X7yqF4rlMxW6GIWnTRnm2Jh1bS864wBPUT1h+1wqEx2loUCUZOyFe3l6?=
- =?us-ascii?Q?JunXKrlE6VNJ7/ZBfpXGrnsjQrFfHvH/GBsaxtdultLBobBKQBgtQOPW5bAD?=
- =?us-ascii?Q?mkeUvgHLhak9jX9oFnHjEUUWCpopiL+QUFojUOKOIJdQpFn0pfZdHfRVrAz+?=
- =?us-ascii?Q?sLgvph4OYNRUpm+ULwhjVyfHijjCWePKFBmr5Jt8r835X5VpYKmVjIpZdKz4?=
- =?us-ascii?Q?pI18fJ0K7nUZW6Vg2/spa3gOqLAq681XUQweBF9stZ0y8fkgtwhTMnogmy/T?=
- =?us-ascii?Q?YGk0IcOFsMoaRL9MsaK6t6iVqPOri29UV7YgpSbV7hdxYQXPBIIYHxhQTkqg?=
- =?us-ascii?Q?+8DR1jiqFGfD/4G1AzYx2rWrok64+4/E5+AprjFXQUEK1HcFqrtHPR3Ndykc?=
- =?us-ascii?Q?aqW9F0DhT3g7scBontrAbFjz4SYtW6mDWzQX1ftDLC5IMT2waKeyUZjT1Pwu?=
- =?us-ascii?Q?LtVw09E/2g47kZ1h8yoXIESs6v5fLz3VctaBiTpCXe7a31x61oO2GPCnrURD?=
- =?us-ascii?Q?56yGvGi3iCY4PGfJCkSo/7EE5sLlyfbK0+OGkIqyDe3Y6W056nXrEnBK/NUA?=
- =?us-ascii?Q?DO9qLceCDSDS6w8D4yFwI1L4ErKd+ze5xF1atCGqfDGx/+FPuyR7wuptsqoL?=
- =?us-ascii?Q?XnXwZpYvJz1NouUrR9+EYzCEwo7VC8iyw6Y6br9R5YqWmUNbVEJ72Hvr/Mxk?=
- =?us-ascii?Q?rl9iK8b86R0+jcrFnWa62nWW52Y8GP1tHiQ7uZtlj63zlKmB8kSnoom0ueTV?=
- =?us-ascii?Q?eUaV0NEnAW7TsCufO+TIFkaQcAqqIcs9CtBWoufXRp27U8f0EzdnRUkWjUsd?=
- =?us-ascii?Q?8ANKW+jZLLGddVQlZ8YQJL5WOpV4iBBaxatCS9CWWnbeib/36AHgXHLhUvKa?=
- =?us-ascii?Q?Lfz3sKkGKBe+8rtKHc0Zf+9fAbkZu8LbNN88RXjO1LipdsATQwSRbfz1k3Q9?=
- =?us-ascii?Q?DN06qskf3Q=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a320cd31-7f51-4867-b459-08deb704fc7a
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 06:48:38.1239
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: koXeZK4SPCOcUx2I2O8V9d+bswRMlzyfUYxvxhKFhUlyrs0a0beYhXYhHILc9WPd8JgYF/KmiKifrWVVqXv4aw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8661
+X-Original-Sender: glaubitz@physik.fu-berlin.de
+X-Originating-IP: 91.19.161.52
+X-ZEDAT-Hint: PO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_234844_217770_2F194CEA 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260520_234939_669245_668B53E4 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,70 +103,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
+Hi Arnd,
 
-In i2c_imx_runtime_suspend(), the clock is disabled before switching
-the pinctrl state to sleep. If pinctrl_pm_select_sleep_state() fails,
-the runtime suspend is aborted but the clock remains disabled, causing
-a system crash when the hardware is subsequently accessed.
+On Wed, 2026-05-20 at 20:38 +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>=20
+> Many board files on sh reference the legacy gpiolib interfaces that
+> are becoming optional. To ensure the boards can keep building, select
+> CONFIG_GPIOLIB_LEGACY on each of the boards that have one of the
+> hardcoded calls.
+>=20
+> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v2: no changes. Adrian said he'll pick it up for 7.2, but so
+>     far the patch is not in linux-next yet, so I'm including it
+>     for completeness here.
 
-Fix this by switching the pinctrl state before disabling the clock so
-that a pinctrl failure leaves the clock enabled and the hardware
-accessible.
+Sorry, I hadn't gotten around to pick the changes for v7.2 yet. I can
+pick it up this weekend as I was planning to review and merge some
+patches this weekend.
 
-In i2c_imx_runtime_resume(), restore the pinctrl state back to sleep
-if clk_enable() fails to keep the consistent.
+I have received quite a lot of patches for SH recently, so it will take
+some time to dig myself through the queue.
 
-Fixes: 576eba03c994 ("i2c: imx: switch different pinctrl state in different system power status")
-Cc: stable@vger.kernel.org
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-Change for v2:
-  - Fix commit log to "keep the consistent" according to Frank's
-    suggestion.
----
- drivers/i2c/busses/i2c-imx.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+Adrian
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index a208fefd3c3b..28313d0fad37 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1892,9 +1892,15 @@ static void i2c_imx_remove(struct platform_device *pdev)
- static int i2c_imx_runtime_suspend(struct device *dev)
- {
- 	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
-+	int ret;
-+
-+	ret = pinctrl_pm_select_sleep_state(dev);
-+	if (ret)
-+		return ret;
- 
- 	clk_disable(i2c_imx->clk);
--	return pinctrl_pm_select_sleep_state(dev);
-+
-+	return 0;
- }
- 
- static int i2c_imx_runtime_resume(struct device *dev)
-@@ -1907,10 +1913,13 @@ static int i2c_imx_runtime_resume(struct device *dev)
- 		return ret;
- 
- 	ret = clk_enable(i2c_imx->clk);
--	if (ret)
-+	if (ret) {
- 		dev_err(dev, "can't enable I2C clock, ret=%d\n", ret);
-+		pinctrl_pm_select_sleep_state(dev);
-+		return ret;
-+	}
- 
--	return ret;
-+	return 0;
- }
- 
- static int i2c_imx_suspend(struct device *dev)
--- 
-2.43.0
-
+--=20
+ .''`.  John Paul Adrian Glaubitz
+: :' :  Debian Developer
+`. `'   Physicist
+  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
