@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBAECD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 22:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C59ACD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 22:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bnv8z/U53fPYRQVRdESTD0xQjxqDX0NyGk7FJvl1zug=; b=Pij8vE6dTz/F0+LbRJ1q80khVS
-	csG9dYDBF+HK0Umz7e98s5M0BtdbOgh+V/TCuCLYvRhdP55qgXIdHcyshu+9Vuqd+eofLZKidHPZ5
-	vfHK/Ry2N89s9gnVLz7F7USW0NA4Ka6HRwgTvmqVAxk20iI2qz0dKDDp/vYAeuyF2ySBt1LX4xFKz
-	XN4cFV1PirdW09SgoMTONmV77tt9M6aH7neD8FVBjvnWsrJPLGLUK819dQMKPoOS7PRqQhjpfTxgG
-	anXk54NR3UAnXFm2pOkj8vstlrnrsRdZBF6qHE/b01Dgj7ypDG/wsmG/RS1RaInGKGe7cENQ1kYXy
-	k6WXE9Uw==;
+	bh=ZN6PmRWB1mzgzHKDnocJ7gQXcrIehimjvbS4LaNBAp8=; b=4I0qFD37PpG0caZXBGMg1O9dkM
+	WycqV5IuJbEBXgQvHDT+5JEKmWgHvJqB9I1N0Mu0b26ig4dpll4pXzKn4qh87DtkP3WXYSKqtn6NM
+	/Lt2PbVMjwWlEYQXTww1w1fhIrCTu2hwtWv0bmEg9O4GtPtOISrINbr5hNIAnSbev+RoRRdGL6aw+
+	IZztXMN4sGv1r+BGRTRHP5xkUqfyCF8BxhBHcQ4MBMoQgwrNWdfdh21uDXjXuxUxaQz5sFg1w3RJI
+	l/GTsOyO2NnBTX0dgbI7i63JjCWxerrqDl2u0Bd5TjbzVVCx8/PpXy3CP0KSblcaF7gN6bDwrS/Q5
+	cljH1dzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQBvS-00000009EKg-176k;
-	Thu, 21 May 2026 22:31:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQBvP-00000009EKD-46TF
+	id 1wQC0b-00000009Exj-01KD;
+	Thu, 21 May 2026 22:36:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQC0Y-00000009ExD-3O6R
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 22:31:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 553ED41A5C;
-	Thu, 21 May 2026 22:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F02621F000E9;
-	Thu, 21 May 2026 22:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1779402691;
-	bh=bnv8z/U53fPYRQVRdESTD0xQjxqDX0NyGk7FJvl1zug=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dgyXsqH67FvyK+9N+RrmIuzBnPicK5E+nVD175qTBrUi/dZfe//hrorWytuL6wRpo
-	 g/WQLOOXYW9aoOx0MAwfabDfx6fXjkFvdm7PbfxgdHHnL9fSY4y2XNQ7fJZips1O8Q
-	 NBQBE0pdjLnBhjrbbOTs7Jlfa8pXiZwDxcbAiEq0=
-Date: Thu, 21 May 2026 15:31:30 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, catalin.marinas@arm.com, will@kernel.org,
- david@kernel.org
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-Message-Id: <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
-In-Reply-To: <20260521032730.2104017-1-apopple@nvidia.com>
-References: <20260521032730.2104017-1-apopple@nvidia.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Thu, 21 May 2026 22:36:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 28EA32A31;
+	Thu, 21 May 2026 15:36:43 -0700 (PDT)
+Received: from [10.57.22.108] (unknown [10.57.22.108])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 987C33F85F;
+	Thu, 21 May 2026 15:36:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779403008; bh=iWi+rVGWRaT+t7ioXWfrl6ICbml7cqaQG7eYSudc3vY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W+Ic6z9S90OLpjZazd5fKEp50HHCNAKpeQz+VTrRIXEpk4ThW57c4RECTEvQzpM0L
+	 /7385wq1ns9VH98WBApu5y2aaAivObGeC6hPIhcsCe3/bkbQemX93kPACTaB1UyWRj
+	 Kzn8TtmAYaIsSEdZDnTq4ji6CZ4a9xbP1tUw8Tsc=
+Message-ID: <2f5fec66-979a-4302-aa39-03ee8d9c82da@arm.com>
+Date: Thu, 21 May 2026 23:36:38 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 07/44] arm64: RMI: Configure the RMM with the host's
+ page size
+Content-Language: en-GB
+To: Gavin Shan <gshan@redhat.com>, Steven Price <steven.price@arm.com>,
+ kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-8-steven.price@arm.com>
+ <45a953a8-6edc-45c3-b5bd-17f14397ab89@redhat.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <45a953a8-6edc-45c3-b5bd-17f14397ab89@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_153132_047330_77E3AC6B 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20260521_153651_017200_102B1576 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,62 +84,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 13:27:30 +1000 Alistair Popple <apopple@nvidia.com> wrote:
+On 21/05/2026 01:51, Gavin Shan wrote:
+> Hi Steven,
+> 
+> On 5/13/26 11:17 PM, Steven Price wrote:
+>> RMM v2.0 brings the ability to set the RMM's granule size. Check the
+>> feature registers and configure the RMM so that it matches the host's
+>> page size. This means that operations can be done with a granulatity
+>> equal to PAGE_SIZE.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v13:
+>>   * Moved out of KVM.
+>> ---
+>>   arch/arm64/kernel/rmi.c | 42 +++++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 42 insertions(+)
+>>
+>> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+>> index 99c1ccc35c11..a14ead5dedda 100644
+>> --- a/arch/arm64/kernel/rmi.c
+>> +++ b/arch/arm64/kernel/rmi.c
+>> @@ -49,6 +49,45 @@ static int rmi_check_version(void)
+>>       return 0;
+>>   }
+>> +static int rmi_configure(void)
+>> +{
+>> +    struct rmm_config *config __free(free_page) = NULL;
+>> +    unsigned long ret;
+>> +
+>> +    config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
+>> +    if (!config)
+>> +        return -ENOMEM;
+>> +
+>> +    switch (PAGE_SIZE) {
+>> +    case SZ_4K:
+>> +        config->rmi_granule_size = RMI_GRANULE_SIZE_4KB;
+>> +        break;
+>> +    case SZ_16K:
+>> +        config->rmi_granule_size = RMI_GRANULE_SIZE_16KB;
+>> +        break;
+>> +    case SZ_64K:
+>> +        config->rmi_granule_size = RMI_GRANULE_SIZE_64KB;
+>> +        break;
+>> +    default:
+>> +        pr_err("Unsupported PAGE_SIZE for RMM\n");
+>> +        return -EINVAL;
+>> +    }
+>> +
+>> +    ret = rmi_rmm_config_set(virt_to_phys(config));
+>> +    if (ret) {
+>> +        pr_err("RMM config set failed\n");
+>> +        return -EINVAL;
+>> +    }
+>> +
+> 
+> Looking at branch 'topics/rmm-v2.0-poc_2' of RMM implementation, the 
+> granule size
+> is fixed to be 4KB at present. I'm not sure if I have looked into 
+> correct RMM
+> implementation, but 'topics/rmm-v2.0-poc_2' is recommended one in the cover
+> letter.
+> 
 
-> Since 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in
-> __create_pgd_mapping()") page-table allocation on ARM64 always
-> calls pagetable_{pte,pmd,pud,p4d}_ctor(). This sets the page_type
-> to PGTY_table, increments NR_PAGETABLE and possible allocates a PTL.
-> However the matching pagetable_dtor() calls were never added.
-> 
-> With DEBUG_VM enabled on kernel versions prior to v6.17 without
-> 2dfcd1608f3a9 ("mm/page_alloc: let page freeing clear any set page
-> type") this leads to the following warning when freeing these pages due
-> to page->page_type sharing page->_mapcount:
-> 
->   BUG: Bad page state in process ... pfn:284fbb
->   page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x284fbb
->   flags: 0x17fffc000000000(node=0|zone=2|lastcpupid=0x1ffff)
->   page_type: f2(table)
->   page dumped because: nonzero mapcount
->   Call trace:
->    bad_page+0x13c/0x160
->    __free_frozen_pages+0x6cc/0x860
->    ___free_pages+0xf4/0x180
->    free_pages+0x54/0x80
->    free_hotplug_page_range.part.0+0x58/0x90
->    free_empty_tables+0x438/0x500
->    __remove_pgd_mapping.constprop.0+0x60/0xa8
->    arch_remove_memory+0x48/0x80
->    try_remove_memory+0x158/0x1d8
->    offline_and_remove_memory+0x138/0x180
-> 
-> It can also lead to leaking the ptl allocation if ALLOC_SPLIT_PTLOCKS
-> is defined and incorrect NR_PAGETABLE stats. Fix this by calling
-> pagetable_dtor() in free_hotplug_pgtable_page() prior to freeing the
-> page to undo the effects of calling pagetable_*_ctor().
-> 
-> Fixes: 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in __create_pgd_mapping()")
+You are right. The tf-RMM only supports 4KB. The policy at the KVM host
+is to set the Linux PAGE_SIZE for the GRANULE_SIZE (at least for now).
+If the RMM doesn't support the PAGE_SIZE, we don't support the RMM.
 
-6.16+, so I assume we want cc:stable here.
 
->  arch/arm64/mm/mmu.c | 1 +
->  1 file changed, 1 insertion(+)
+> Besides, there has checks in the handler of the RMI command to make sure 
+> that
+> struct rmm_config::tracking_region_size to be 1GB, indicated by zero. It 
+> maybe
+> worthy to set it before call to rmi_rmm_config_set().
 > 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 8e1d80a7033e..0c24fe650e95 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1422,6 +1422,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->  
->  static void free_hotplug_pgtable_page(struct page *page)
->  {
-> +	pagetable_dtor(page_ptdesc(page));
->  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
->  }
+>      config.tracking_region_size = 0; /* 1GB */
 
-I'd of course prefer that arm maintainers handle this.  But
-5e8eb9aeeda3 came via myself so convention kinda-dictates that I get to
-fix it.
+Thanks, this explicit initialisation is missing, though in effect the
+value is 0'd. Also, we can't really say 1GB here, because the driver 
+should work for an RMM capable of 64K. So, instead, may be we could :
+
+	/* See the definition of RMM_GRANULE_TRACKING_SIZE */
+	config.tracking_region_size = 0;
+
+Suzuki
+
+
+>      ret = rmi_rmm_config_set(virt_to_phys(config));
+> 
+> 
+>> +    ret = rmi_rmm_activate();
+>> +    if (ret) {
+>> +        pr_err("RMM activate failed\n");
+>> +        return -ENXIO;
+>> +    }
+>> +
+>> +    return 0;
+>> +}
+>> +
+>>   static int __init arm64_init_rmi(void)
+>>   {
+>>       /* Continue without realm support if we can't agree on a version */
+>> @@ -60,6 +99,9 @@ static int __init arm64_init_rmi(void)
+>>       if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
+>>           return 0;
+>> +    if (rmi_configure())
+>> +        return 0;
+>> +
+>>       return 0;
+>>   }
+>>   subsys_initcall(arm64_init_rmi);
+> 
+> Thanks,
+> Gavin
+> 
 
 
