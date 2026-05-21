@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAEACD5BAC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D70CECD4F5E
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cAR4GOKA4Q39eUc167fIAhl1r9Q+0Cq2T5oOTDYcepk=; b=f6pMlhWHpLnk640kbY04hfw5+A
-	e26PItnZwkkgpNtkQLmLD+sRkAmeYMdGNI+AMHas2ubbuX+3lc6Zazsmzu6CFcTIARi1akqYzRvvb
-	Jb3shQuDmsH7y0i3dlywd275cRvqJKGXHP7wHWJZjqA67S5FmnTaJfj886AVAldhyWqiCJq+XW2JE
-	WLyR1nQFPNvgJbrrl0HSVEHh0U6DCBFoTKEL2/8Nz9GAJtTVWx3436kJ1rsTvy3Ub6/CHLDR13ZXI
-	SM8KQ6vziTlJTOU1QQOooXaAYAfcs+T7tYlAROeNz/UP2WI11Uc1yMeIGjqOXqh6HrWlJhmBffKtX
-	SsTlMFUQ==;
+	bh=slhWd0Q1qTyPtg7PQCyLo+eazT+tVYXEqR6QSkKtpXc=; b=aJhC7WLfM+fP2ltOAKXHKEZH8o
+	I9kop6bdmFHUll2GONEc9efbEg6b0AqPZYisJOURLxzYGYnxblibo1/yVMxTs+zpb4Zfh6lk13spK
+	MomcY6nA8JvZJWsdEDhGiqzDwN19rsLjkUEIXuL5E0lA4mxmQ8HHDl6VW6HF2zS11rBFHCFAdD1HL
+	EN6SYYx4SDWj573kZYCZj7uVj05zIdeJy+h0GKSPNRmGA5gUuq0r7SpFPGECvqB8CEi0pDuNReFiR
+	MgMY66VUpa51gC3GoHdPSqNN3pPAhPnWJ+igLorHxstw6b/pQ69BrSw9Z5NMncCwcOBYVV1GwUKWd
+	ibbAQqXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyfx-000000076vP-1EWT;
+	id 1wPyfx-000000076uk-0IAW;
 	Thu, 21 May 2026 08:22:41 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyfu-000000076s7-03Yp;
-	Thu, 21 May 2026 08:22:39 +0000
+	id 1wPyfs-000000076rY-2rSc;
+	Thu, 21 May 2026 08:22:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779351755;
-	bh=KFfk0PhMePzxO9UxVYUfEp185S/glCJ9TCT8OX9EIZk=;
+	s=mail; t=1779351754;
+	bh=Y+IAJzkmd/rISxvlVyEkLmIzLfH8WWPE8aSMRq9pKGo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RFqQEX0c8TJpilpd393qokbv8ryL5offnypPkd8c/qOs+6tOAvu3Gfm3ukEG/mqO6
-	 ujAS9k7mHv2oh6C9x5wOXt7EoQd74W7eQ7e+xKxxL5zcbBLVSAGjdo9Cd/RDzoIZXt
-	 IBQiINm9+XfoT7+rarKJ7el2hNcpdR/Szhx/DJF7ucFtEb0ZtjdGRBtqipmxTUBiaN
-	 TBoc4BRG+fKUR92Nm1dVflbxfSSFgXZoMVTIyWzRzwuczhXRJQ1qz/E9P8wrMlCBA3
-	 UnYK5vBegx93wfF3LMqUOUVHNE5I4pgE8GEY/CyPYKC5VpPHk1rGUwbmdlJ00FQ6Kk
-	 JgzszTbBXklcg==
+	b=nTxFTC0BhxE765aJIxaBOV+ofGsmoZ4wfYpc1m/YKXgQ4CVaS8F+WNLxkArXEayUJ
+	 drU9Ep4GkU1v9MpjnSaIO9oT6IolH36Kujelif9hOY/EoP8omFr2HyQrH7fC+9v+3J
+	 suZe8EWiokuhpCPYyGyG14bK3vhfbJUpy9+t4LWK8FdSDuBgl6jsPB05ONJwJLdhpS
+	 Uc7LzaB5kEJzxWEh+SMC/x0XkkDoVNaVaYROKqHtFXBK1RZ//i/InExIuRa+lPet/n
+	 JfVXR8r7bVspdBpt75nwS+paVTjz4NbUsC93X+Bc0TO+DztJk5ByzqnNjX8HZYhFu6
+	 SaMfQqQUSZSDg==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3855A17E1315;
-	Thu, 21 May 2026 10:22:34 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 86B7517E1305;
+	Thu, 21 May 2026 10:22:32 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 21 May 2026 10:21:55 +0200
-Subject: [PATCH net-next v4 2/6] net: phy: Add Airoha phy library for
- shared code
+Date: Thu, 21 May 2026 10:21:54 +0200
+Subject: [PATCH net-next v4 1/6] dt-bindings: net: Add support for Airoha
+ AN8801R GbE PHY
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260521-add-airoha-an8801-support-v4-2-1e4837d30ef4@collabora.com>
+Message-Id: <20260521-add-airoha-an8801-support-v4-1-1e4837d30ef4@collabora.com>
 References: <20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com>
 In-Reply-To: <20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -67,16 +67,16 @@ Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com,
  linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779351750; l=4623;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779351750; l=3910;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=KFfk0PhMePzxO9UxVYUfEp185S/glCJ9TCT8OX9EIZk=;
- b=iD1m0U2NoNznc6UeE9xtVIuX6Am87vVKREsllRpi0mnFlOC5+1Rnw4NqtYg+YOm7RIXDVb/KK
- N1UseYyZlgxDsptCEgJLHfRldwMDwHG5TDsndqONiRiaYD9Dd8NM/og
+ bh=YsYp+8rtZbrNoe09ovitl7Xxad+fzu5FOYhv2w4KdT0=;
+ b=bPZzJxP2ZZmJVZxzmCZAJkwL8nSKR4arDuOZSjnswQBPoG/ZQBkCtWbyLGCgC1O2Ixuc4a1H3
+ 5tBBEJbZMyeC8VNnO5PgogihaWOj/ruSCbk+n11L8zcUi/GxLHWyMyH
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_012238_227769_D35813B9 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20260521_012236_904529_492BED80 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,152 +91,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation of Airoha AN8801R PHY support, split out the interface
-functions that will be common between the already present air_en8811h
-driver and the new one, and put them into a new library named
-air_phy_lib.
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Add a new binding to support the Airoha AN8801R Series Gigabit
+Ethernet PHY.
+
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/net/phy/Kconfig       |  6 ++++++
- drivers/net/phy/Makefile      |  1 +
- drivers/net/phy/air_en8811h.c | 13 ++-----------
- drivers/net/phy/air_phy_lib.c | 32 ++++++++++++++++++++++++++++++++
- drivers/net/phy/air_phy_lib.h | 16 ++++++++++++++++
- 5 files changed, 57 insertions(+), 11 deletions(-)
+ .../devicetree/bindings/net/airoha,an8801.yaml     | 116 +++++++++++++++++++++
+ 1 file changed, 116 insertions(+)
 
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 8b51bdc2e945..d969a792beb5 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -92,10 +92,16 @@ config AS21XXX_PHY
- 
- config AIR_EN8811H_PHY
- 	tristate "Airoha EN8811H 2.5 Gigabit PHY"
-+	select AIR_NET_PHYLIB
- 	select PHY_COMMON_PROPS
- 	help
- 	  Currently supports the Airoha EN8811H PHY.
- 
-+config AIR_NET_PHYLIB
-+	tristate
-+	help
-+	  Airoha Ethernet PHY common library
-+
- config AMD_PHY
- 	tristate "AMD and Altima PHYs"
- 	help
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index 05e4878af27a..7cf1fa9e12cb 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -30,6 +30,7 @@ obj-y				+= $(sfp-obj-y) $(sfp-obj-m)
- obj-$(CONFIG_ADIN_PHY)		+= adin.o
- obj-$(CONFIG_ADIN1100_PHY)	+= adin1100.o
- obj-$(CONFIG_AIR_EN8811H_PHY)   += air_en8811h.o
-+obj-$(CONFIG_AIR_NET_PHYLIB)	+= air_phy_lib.o
- obj-$(CONFIG_AMD_PHY)		+= amd.o
- obj-$(CONFIG_AMCC_QT2025_PHY)	+= qt2025.o
- obj-$(CONFIG_AQUANTIA_PHY)	+= aquantia/
-diff --git a/drivers/net/phy/air_en8811h.c b/drivers/net/phy/air_en8811h.c
-index 29ae73e65caa..be7c3426182a 100644
---- a/drivers/net/phy/air_en8811h.c
-+++ b/drivers/net/phy/air_en8811h.c
-@@ -21,6 +21,8 @@
- #include <linux/wordpart.h>
- #include <linux/unaligned.h>
- 
-+#include "air_phy_lib.h"
-+
- #define EN8811H_PHY_ID		0x03a2a411
- #define AN8811HB_PHY_ID		0xc0ff04a0
- 
-@@ -40,7 +42,6 @@
- #define   AIR_AUX_CTRL_STATUS_SPEED_1000	0x8
- #define   AIR_AUX_CTRL_STATUS_SPEED_2500	0xc
- 
--#define AIR_EXT_PAGE_ACCESS		0x1f
- #define   AIR_PHY_PAGE_STANDARD			0x0000
- #define   AIR_PHY_PAGE_EXTENDED_4		0x0004
- 
-@@ -244,16 +245,6 @@ static const unsigned long en8811h_led_trig = BIT(TRIGGER_NETDEV_FULL_DUPLEX) |
- 					      BIT(TRIGGER_NETDEV_RX)          |
- 					      BIT(TRIGGER_NETDEV_TX);
- 
--static int air_phy_read_page(struct phy_device *phydev)
--{
--	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
--}
--
--static int air_phy_write_page(struct phy_device *phydev, int page)
--{
--	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
--}
--
- static int __air_buckpbus_reg_write(struct phy_device *phydev,
- 				    u32 pbus_address, u32 pbus_data)
- {
-diff --git a/drivers/net/phy/air_phy_lib.c b/drivers/net/phy/air_phy_lib.c
+diff --git a/Documentation/devicetree/bindings/net/airoha,an8801.yaml b/Documentation/devicetree/bindings/net/airoha,an8801.yaml
 new file mode 100644
-index 000000000000..8ef5af4becf0
+index 000000000000..fb2f70ceb33a
 --- /dev/null
-+++ b/drivers/net/phy/air_phy_lib.c
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Airoha Ethernet PHY common library
-+ *
-+ * Copyright (C) 2026 Airoha Technology Corp.
-+ * Copyright (C) 2026 Collabora Ltd.
-+ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-+ */
++++ b/Documentation/devicetree/bindings/net/airoha,an8801.yaml
+@@ -0,0 +1,116 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/airoha,an8801.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/export.h>
-+#include <linux/module.h>
-+#include <linux/phy.h>
++title: Airoha AN8801R Series PHY
 +
-+#include "air_phy_lib.h"
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 +
-+#define AIR_EXT_PAGE_ACCESS		0x1f
++description:
++  The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
++  with Single-port serdes interface for 1000Base-X/RGMII; this chip is
++  compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE 802.3(u,ab)
++  and supports Energy Efficient Ethernet (802.3az), Full Duplex Control
++  Flow (802.3x), auto-negotiation, crossover detect and autocorrection,
++  Wake-on-LAN with Magic Packet, and Jumbo Frame up to 9 Kilobytes.
++  This PHY also supports up to three user-configurable LEDs, which are
++  usually used for LAN Activity, 100M, 1000M indication.
 +
-+int air_phy_read_page(struct phy_device *phydev)
-+{
-+	return __phy_read(phydev, AIR_EXT_PAGE_ACCESS);
-+}
-+EXPORT_SYMBOL_GPL(air_phy_read_page);
++allOf:
++  - $ref: ethernet-phy.yaml#
 +
-+int air_phy_write_page(struct phy_device *phydev, int page)
-+{
-+	return __phy_write(phydev, AIR_EXT_PAGE_ACCESS, page);
-+}
-+EXPORT_SYMBOL_GPL(air_phy_write_page);
++properties:
++  compatible:
++    enum:
++      - ethernet-phy-idc0ff.0421
 +
-+MODULE_DESCRIPTION("Airoha PHY Library");
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Louis-Alexis Eyraud");
-diff --git a/drivers/net/phy/air_phy_lib.h b/drivers/net/phy/air_phy_lib.h
-new file mode 100644
-index 000000000000..79367e8e5907
---- /dev/null
-+++ b/drivers/net/phy/air_phy_lib.h
-@@ -0,0 +1,16 @@
-+/* SPDX-License-Identifier: GPL-2.0+ */
-+/*
-+ * Copyright (C) 2026 Airoha Technology Corp.
-+ * Copyright (C) 2026 Collabora Ltd.
-+ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-+ */
++  reg:
++    maxItems: 1
 +
-+#ifndef __AIR_PHY_LIB_H
-+#define __AIR_PHY_LIB_H
++  leds:
++    type: object
++    description:
++      Describes the LEDs associated to the PHY
 +
-+#include <linux/phy.h>
++    properties:
++      "#address-cells":
++        const: 1
 +
-+int air_phy_read_page(struct phy_device *phydev);
-+int air_phy_write_page(struct phy_device *phydev, int page);
++      "#size-cells":
++        const: 0
 +
-+#endif /* __AIR_PHY_LIB_H */
++    patternProperties:
++      "^led@[0-2]$":
++        type: object
++        description: PHY LEDs
++        $ref: /schemas/leds/common.yaml#
++
++        properties:
++          reg:
++            enum: [0, 1, 2]
++
++          function-enumerator:
++            enum: [0, 1, 2]
++            description: |
++              Specifies a function for offloading LED functionality to the PHY:
++              0 - No offloading
++              1 - Link Availability
++              2 - Network Activity
++
++        required:
++          - reg
++
++  wakeup-source:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Enable Wake-on-LAN support
++
++required:
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/leds/common.h>
++
++    mdio {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        ethernet-phy@0 {
++            compatible = "ethernet-phy-idc0ff.0421";
++            reg = <0>;
++
++            leds {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                led@0 {
++                    reg = <0>;
++                    color = <LED_COLOR_ID_GREEN>;
++                    function = LED_FUNCTION_LAN;
++                    default-state = "keep";
++                };
++
++                led@1 {
++                    reg = <1>;
++                    color = <LED_COLOR_ID_GREEN>;
++                    function = LED_FUNCTION_LAN;
++                    function-enumerator = <1>;
++                    default-state = "keep";
++                };
++
++                led@2 {
++                    reg = <2>;
++                    color = <LED_COLOR_ID_YELLOW>;
++                    function = LED_FUNCTION_LAN;
++                    function-enumerator = <2>;
++                    default-state = "keep";
++                };
++            };
++        };
++    };
 
 -- 
 2.54.0
