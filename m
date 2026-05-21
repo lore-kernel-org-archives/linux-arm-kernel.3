@@ -4,107 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC9BCD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD1ACD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+rCsIp/OdcFAFpEnxeZBBDFOM8O5rqaH3hw2dBPi5nk=; b=d0a2A/0oelAduqDFtc1PlNcn5Y
-	6xKVLFNUI6XNne2cUFj4jYPYAwUpQzpGH+6weh4W4OtML7tmib5g5Y8BuSEnr7060LFEcc/i5LPX2
-	0oKnwJHQOdf2fIZqD3EEYNtLt2RGgsuEikhgEE4bX+b7z22KxLN8TnfPre5qf/fEaoOTIvJEon/Vp
-	Wic6p7IXvfHTUjwy8Hy6Nr83xUapIiXoy0lhV0QwcP6ILLFQTS07yLjsrzIn2eemrKU0v1Kftpm9O
-	jVmxV6FyiObSIrR/xBFFhCcxNdTAG25gSnsf7F0LkpfIbvuopgCieQ4RCtX+hAFjMUmW/fOkC6/Z/
-	SXUd7Vjg==;
+	bh=oM0uYMBqL1kxJwKhFF/O6VzT58qrsZXQs8dD4plhhVo=; b=YZ1Ae5ukmeBVL0eTDm8uAw4mQB
+	im0lOrRoCdUBt/THLkjTLPmzgYRff02f61/CNattQa447jfASQGcfCPxDub+gn+yKO512BBmRQboZ
+	9bp1K0PWwxlZp5psGUO9g40kTztpbWy1UpofuY2RU2sRnsCjTqZixp990vWchLubwRg0QmV5W3DwC
+	SwUqbvVFhhCdR7/Svec3OVKvLrdkoubvgGtlaBsw6QvGvIyps4wViaI/SVAsiiLoya2rg1M1KjO9C
+	Fg9QhkuSBnN6buLedkFlWSE9swPpo4vz5ayVYAvUPPXLbjREDAiVaP/unCON0A5+il8a5lzKrDPhA
+	G76/y18w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5bW-00000008O7n-3LLn;
-	Thu, 21 May 2026 15:46:34 +0000
+	id 1wQ5bo-00000008ODO-3lEG;
+	Thu, 21 May 2026 15:46:52 +0000
 Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5bU-00000008O6s-2fjm
+	id 1wQ5bm-00000008OCY-0yXz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:46:34 +0000
+	Thu, 21 May 2026 15:46:51 +0000
 Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 1766B7A00A3;
-	Thu, 21 May 2026 11:46:29 -0400 (EDT)
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 5D4767A012B;
+	Thu, 21 May 2026 11:46:49 -0400 (EDT)
 Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 21 May 2026 11:46:29 -0400
+  by phl-compute-04.internal (MEProxy); Thu, 21 May 2026 11:46:49 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1779378388;
-	 x=1779464788; bh=+rCsIp/OdcFAFpEnxeZBBDFOM8O5rqaH3hw2dBPi5nk=; b=
-	H0wg6oZHPdZGf2SxBDLnP2gWr7Yl9qsGDnXabO6/BLcoscRzkS9N2XISQUZXma1C
-	x1iSq0KrA35NvxddXligukrvIQH3WwsBWiPCayEG/f43TblcCuFuqdWiqesEsyQk
-	/r3FEsxitjl9MB6axc5T9YwQZhXI0wvCVlyxj1HNsbacltdhlalnapVVblKouZkP
-	aqN6eIE+75r8AwhgI/7gSJqXuRrua3S62XgwjoG3S/10utxe6RK763WxpmadXvwe
-	DdQIQzB22jZ9+KcMsdrkKtRgwZwG0k84SgyjTzb32u5navk1WYyB4+3xFv9aPZOt
-	XfDFZJTkwgawKVJm1fr+8Q==
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1779378409;
+	 x=1779464809; bh=oM0uYMBqL1kxJwKhFF/O6VzT58qrsZXQs8dD4plhhVo=; b=
+	VvgeX/p6c5bqNIozg2znabdmwjWeWY7DLzR0KOGkVetIPczND8cZJejWoZTXOl6y
+	Kpp0nM7wrx1gWjaTvD2iw1Q2kOLxieBBIJQKzn28fH/Lm2P0r5KnqFplQlyx4uCg
+	ifEwxJjuShqjj7L+TxqXM61qM8XsfSFlksrlrDyKv5KQ7HXtvtfvYHXQI0ZdwvXu
+	iZH1YjYN5UqQCNTyrrGeb2ht4vUQxWWOQaN4Az1NSiBbgHb4WmnpA1qtFYqXkpZ7
+	bDt1/i6rArVJdmVRCPXd7hI0Pr/td3IZ1k84z8wJGOYTn9/2sTYthMa7udN7gqJS
+	TSJPYIU6gI9FQPBUSHwUFQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779378388; x=
-	1779464788; bh=+rCsIp/OdcFAFpEnxeZBBDFOM8O5rqaH3hw2dBPi5nk=; b=b
-	G9jxNdC4FjYzt5xqOLIjnbUMyAlPixJf69W7bxKHbLUNsg1tqgT0lcK2i9JrAVET
-	MVOS+aFrR9kK1Up5zdGAOXuj8hzJSbdvyw0S+NbUpK8yNwZo1vaoD2Nh41Z2z4B5
-	ywTcK4DmyecoBE6aOsxNWp7pYPonHp714gL52niiauDbsIV81fKrJQJp0zRHjweH
-	OYxaJc2Gr95pdcb9huzbtN2NS22esIUF+UgV99ebyTRPVOwvtVvGlJPSuxWZoe8c
-	hEv0vuCHTKv1N6iulUoXM9Ly2/20Icq/Px6du/RoheM6tNK3AdtYRwZxDM41IzdW
-	a44ZTgx5npuV2Uk09nVKA==
-X-ME-Sender: <xms:0ygPau4zBxDVojdOTZRPZsSSQx5Yg3n-N3Ja-KfZ_M7XnWPooPEzKQ>
-    <xme:0ygPaivEr2oUz8KjOID-olfKqUzXZvqwxP60dWDfRgAXb4juhrG4W6J9xu-6OIufb
-    uJkjCEdznYKHnlA_sjlUtQOjQkR5Pjw_pUK_nzxpa2OwRgB_ZKq2w>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddugeejledtucetufdoteggodetrf
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779378409; x=
+	1779464809; bh=oM0uYMBqL1kxJwKhFF/O6VzT58qrsZXQs8dD4plhhVo=; b=q
+	z7TaqTTUSZkiat5yWP6wO58i693rqyXDIM7IhjkHWsDyd2OECsnrZeXyk0g2bVf0
+	VC9pdxw29G38HBJYMO3ytJVZNKv/5uTDJA8vsJKplQpd6OFqoOpgFeds5QcGbT6d
+	9DCZMCZ1gCVmTL9/Sdl1KHgI1K7JicBTEw3sQFNeJkDTX3T4ntL+VMlMc0sQ8QUZ
+	DfOm5PvwhzpqXQQPopvRL5dK2W6YRhVsrc+0TPAQuhfVNxFezXuQEIJwbZWbj50b
+	/7jjuYo1zQA9td+U8oSm4MAukQMZwUcI9aoWyEBQ3gHy5kWbNjDpi40ak+EDU2E4
+	XYn0lr9YDwD7nohKsxxDw==
+X-ME-Sender: <xms:6SgParzEIo7F_xfL0SP0Pb6inzV2PKYiQPtY5XjmSTUDAOSEQ2GnDQ>
+    <xme:6SgPauF_bQL6n-9Eeb_DAKxxfGgXuenM8qdCme4qvPC4t6PfH6s-Znjct54iiVuom
+    O1pL3LBuy5RhQ4YFUCQo5iuuQodq1F1WwSPOiHhYd_-FeUFzx_3xQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddugeejleduucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
     rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
     gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
     uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepkedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheptghigidqkhgvrhhnvghlqdhuphhsthhrvggrmhestghigihtvggthh
-    drtghomhdprhgtphhtthhopehpvghtvghrrdgthhgvnhestghigihtvggthhdrtghomhdp
-    rhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtghpth
-    htohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihshhksehkiigrlhhl
-    ohgtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
-    hsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepkhhriiihshiithhofhdrkhho
-    iihlohifshhkihesohhsshdrqhhurghltghomhhmrdgtohhmpdhrtghpthhtoheplhhinh
-    hugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:0ygPaiPDf7h1JBBV_Yij1-LGeEslEMs--dCB15l-T1wvnk2VXFF8JA>
-    <xmx:0ygPat1cGR284X28TnifqVKVSGtRt3R5cE-1yaWFrcBoRX40l7CZvQ>
-    <xmx:0ygPapDNg3zTYwXujKsf0iBdXEli1XksD9Zl6ycrlx1OeDkEtfPBgg>
-    <xmx:0ygPaiIWDlE2FNlGcn4pDWZKq-L6NPvnfNktY0jIm7UWl7rSRiFHkQ>
-    <xmx:1CgPaminRwPB63AmPLU0xnbZWHE0jdiehO9zFY456Uz2VxmAHPnIq4ke>
+    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
+    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
+    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
+    phhtthhopeelpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrlhgvgigrnhgurh
+    gvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphgvthgvrhdr
+    tghhvghnsegtihigthgvtghhrdgtohhmpdhrtghpthhtohepfhhushhtihhniheskhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphht
+    thhopehlihhnuhhsfieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrg
+    hrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthht
+    ohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehkrhiihihsii
+    htohhfrdhkohiilhhofihskhhisehoshhsrdhquhgrlhgtohhmmhdrtghomhdprhgtphht
+    thhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:6SgPanQEwpry4SeBa_xwiv8q6FriiQeSV9nZCQE_1QPU4ZHtqBZ8wg>
+    <xmx:6SgPar0eARjFtfSr0d73vTNOsNEEqVWcaZSEU-72HcvCResnguWiLA>
+    <xmx:6SgPane8cdIXxuzfWBu_P7uVEcHchYTSNZ7U9-Wi8V29xNifVX7CPQ>
+    <xmx:6SgPajOgdpKHNizyeqWodYcfBQ1YL2q1QCSBwflV4zqetCf9VQ_1bw>
+    <xmx:6SgPapib3aa6OZ7RJysosAjQjMNG7Gi3-QgTpUKd7Tu2cWXq0wdkRyB5>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9F621182007A; Thu, 21 May 2026 11:46:27 -0400 (EDT)
+	id EDA41182007A; Thu, 21 May 2026 11:46:48 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-ThreadId: ASZRNT9gNXmc
-Date: Thu, 21 May 2026 17:46:06 +0200
+X-ThreadId: AXrWoYt_z6Rs
+Date: Thu, 21 May 2026 17:46:28 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Peter Chen" <peter.chen@cixtech.com>
-Cc: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com,
- "Yunseong Kim" <ysk@kzalloc.com>
-Message-Id: <3cb3ff33-3d4f-454e-b743-27b48e87cb79@app.fastmail.com>
-In-Reply-To: <4ea63bf6-d9ec-483d-a9c4-9715ec5547bc@kernel.org>
-References: <20260327114628.3800886-1-peter.chen@cixtech.com>
- <4ea63bf6-d9ec-483d-a9c4-9715ec5547bc@kernel.org>
-Subject: Re: [PATCH v3 1/1] arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe host, and
- Cadence GPIO
+To: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Linus Walleij" <linusw@kernel.org>, "Drew Fustini" <fustini@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Cc: "Peter Chen" <peter.chen@cixtech.com>
+Message-Id: <9db39c38-2c79-4187-a23f-190d72f6545d@app.fastmail.com>
+In-Reply-To: <20260521153003.429610-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260521153003.429610-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH] arm64: defconfig: Fixup duplicated PCI_SKY1_HOST
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_084632_861730_E26769F8 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20260521_084650_313514_8E279DD4 
+X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,30 +120,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026, at 17:23, Krzysztof Kozlowski wrote:
-> On 27/03/2026 12:46, Peter Chen wrote:
->> 
->> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->> index b67d5b1fc45b..f9be52484008 100644
->> --- a/arch/arm64/configs/defconfig
->> +++ b/arch/arm64/configs/defconfig
->> @@ -241,6 +241,7 @@ CONFIG_PCIE_XILINX_DMA_PL=y
->>  CONFIG_PCIE_XILINX_NWL=y
->>  CONFIG_PCIE_XILINX_CPM=y
->>  CONFIG_PCI_J721E_HOST=m
->> +CONFIG_PCI_SKY1_HOST=m
+On Thu, May 21, 2026, at 17:30, Krzysztof Kozlowski wrote:
+> Commit 246e37739f24 ("arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe
+> host, and Cadence GPIO") placed PCI_SKY1_HOST in wrong spot, thus it got
+> duplicated when merging with  commit f54f7979ff88 ("arm64: defconfig:
+> Move entries to match savedefconfig").
 >
-> This is not correctly placed and caused issues later - conflicts with my
-> cleanup patch.
+> Cc: Peter Chen <peter.chen@cixtech.com>
+> Fixes: 1440d446ad5d ("Merge tag 'cix-defconfig-v7.2-rc1' of 
+> git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix into 
+> soc/defconfig")
+> Signed-off-by: Krzysztof Kozlowski 
+> <krzysztof.kozlowski@oss.qualcomm.com>
 >
-> Please fix it up before you send the patch to soc@.
 
-The problem was my merge, and I've fixed it up now, thanks
-for pointing it out.
-
-I don't think there was anything that Peter could have done
-differently here, as the merge conflicts were to be
-expected.
+I've redone the merge and folded this in.
 
       Arnd
 
