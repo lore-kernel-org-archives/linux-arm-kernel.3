@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6DC9CD5BB3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0191ECD5BAC
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:46:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,69 +12,70 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k5/wPOhYT+XNTnHhWuUbsn8hIMZp5hhEHwfl/Nd0UJw=; b=KXTx7IeZkRWVtNEbVXge9S5Yoa
-	IvVGeizT2ISSkwPzNVQzBs6xgaLKtCS8VFqcQIOu/urrEgrAGKFas5oGWuCIUtmiWhO5mktxP+DTf
-	Ffw4VOlo3RT7/C8XqANwGY5LmKCDobx4f0IK+Z6/9Xi5FoagjLE0Q+GmJiGut8yW2qqk7uKMP9yIR
-	QLc/UWcblvFcpceHLA69Zei60+uSWmvzJLgHWrXYO13P//jGyj9K7Y//qEipC/aQfbdSkVLDawXG4
-	4Du4RUGjIJndi8gapf/PlYdKCZqIZaUMpxWilJPQp6x0dIlNGwfj9SfqRYNH9YupiinVhBg+JkKYI
-	QlE5gxGw==;
+	bh=Ya0EIolpgZkRZly38TaGSqahWi+4I2R7BKxWyyv4pQc=; b=Ot2aiQUW7ke2UyMhFaWaSDZrBA
+	sJdCn++ZcjHokMvwXWaMFvZlS6+/hSGHmtE6/sdzMKaqwJwPA7rEB37bMcM6auCgO/fbJAUJ+QKiJ
+	c5k0DyGrjP3pmaoDINkHrr20y5YFFFNaNbdv/5YBcd/XmmbKnxKRjNNgIOr534TTBLpPzmZnPHULO
+	pvAwuGRHn9sIZBNlPfUoddr3nbJ4OUvcpF1PIAxXi4i67ns3WLC3uNZ6QfDZRovSNqrBmpsPgYZQ/
+	hMriZ4qEdgGpoRUYIYCWaI7oga/ioVqXeDBo8+fz1PZOoRKVVNnOAnL3+XuX0pVhFonR3BEMNkO4w
+	k9Q7itOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2nI-00000007lGZ-3NLQ;
+	id 1wQ2nI-00000007lGr-3kBy;
 	Thu, 21 May 2026 12:46:32 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2nD-00000007lDz-2B4a
+	id 1wQ2nE-00000007lEI-2rwG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 12:46:28 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48fde68e420so53156975e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 05:46:26 -0700 (PDT)
+	Thu, 21 May 2026 12:46:29 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fe6894f3fso36018195e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 05:46:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779367585; x=1779972385; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779367586; x=1779972386; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5/wPOhYT+XNTnHhWuUbsn8hIMZp5hhEHwfl/Nd0UJw=;
-        b=AmWZNmQO3g4MjUphmk+Lve73QwmiRt1aArEFgIkvKREb/vrXzoHqm3R64M9pct1ovm
-         wjN/O/XzidNPOMOGfn9kw/8rSeCSWu9X/LqXnE1Jz1f/Thb94VjsZllOOQNTVt0TLDi3
-         b2zofWnmSGdACxrK7flI2X2gwKsDstBpUDhxUMiKJpGQijETlJbY3JD/oS88KeHb5QbN
-         hp34db7dSsDuSOXQYh5SMOfqfaZ5zPdb+kEorHLqGcDy1HWiIei8Q3g36CzypT1urVKO
-         VW6sB5og5Bw+z0vbu3R2dnVQKo/Z9bk2BMnIroSHxNxJX0iDge7ABr4nXD/W9TYPuNIa
-         ZpcQ==
+        bh=Ya0EIolpgZkRZly38TaGSqahWi+4I2R7BKxWyyv4pQc=;
+        b=s5lQbJmVux3R6pH/diOv1Agk8EIM2de8gblXyR2kqWRuc0gium1EULHkKSgKtxfGrc
+         Mm5+/nmvgPgJwopzdp88GwTKUMlnRowUNh9QiN4643PW9ZGSdMVn3rwpwZHFq1iOuMZA
+         3AOv9kYcpY88ODcAlmIyWV91jTRVe5oZxizxydYexdpf8HC7wIrogzho2JRYKn9ORpgB
+         xTWi2so4Ii7RYNcXrcJ/9J748RSsI7xyM+b87eGiMZsG9ZalxweoNdVomL1CiBGRrBeG
+         1ONx1NypLuqcK4w7Gs/d34n6xgS7JN7V16bTOYlQycUQjLg/SIpWbZrrC2ryTLe8KjxB
+         yzmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779367585; x=1779972385;
+        d=1e100.net; s=20251104; t=1779367586; x=1779972386;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5/wPOhYT+XNTnHhWuUbsn8hIMZp5hhEHwfl/Nd0UJw=;
-        b=Ye70QMzHMKQXPp37tDyKOTMzRSTyHQbjdZBunj7bt6iNIQa6IQzpIGdBPsALFuR5oD
-         aNYjdheuqKWEI8CPFp8TMB2AupaAYvERlfOV3QUeHTJwgJ2AkddYm8uIMLf3vQdicf0U
-         jjgAkhDF7XUQCe081q93m5Q1KTAmIndj2ZQm6lsxyJgoOu1ZBO4aSL+Il8xfKvpU9BwA
-         z2NDKa6fm6mpeQh+w5i8wmFrxJsSDh9yGvHmp+DdI23jmJkLfGboFfQrtPwqD8wknto8
-         iAPYZe4GUNx7HMrJ5cmXR/gmllCiNacj564SRMCHKX/mHGPN7fkNMX+InWauPAZAxyLg
-         QQ8w==
-X-Gm-Message-State: AOJu0Ywleg7lyUIg1WK94ahSDUSDvg9ZA5Ini/ZtOg/3uC/rD467A84g
-	PZxAF03LamCuvuS7ZFluQC1mE3YE69Jen30f8J4a16tIEOE2NHM8ZfNoZ0rAJAbODd7Ub1nKiE8
-	3Vu7Dyk9cvXVqteaHxBiRkA==
-X-Received: from wmrc10.prod.google.com ([2002:a05:600c:aca:b0:485:3a2f:2f7e])
+        bh=Ya0EIolpgZkRZly38TaGSqahWi+4I2R7BKxWyyv4pQc=;
+        b=nHoXv+T0+7/1Cut8XoD1MHScvzC5D5r1zI+1Okfr2GWVHb2Ve/9iVuo0X39sPJmCM6
+         DXqC/De9BtVdJLK4GI7zYVFd6ZcSxvYWNKcmrALSPPDGTSk/a6nJlJzJUYII9Dbru9IM
+         jR413oP38KiHjzJYNzdDPzlzkCv7y3PcmfwUymqR08yNtjfdo13oBAO6e2wC0QDhgqRw
+         hpl+tLyvru0NjBJdU48jWRyuahkyRRu5M9PitrbVJtwaU1+B6b3rBl72lafHFp6+m1v5
+         D0dds7SF6WIJN4dkLDzp76dM8fciMSxBSrKoQ7kjt8D9yDBD7qwyy7EwOpVTn2WqcVQn
+         7LHw==
+X-Gm-Message-State: AOJu0YzICOJhKZAUbrCE15aGZc6kCy8bUfz6jj+NBQrrIgoIhSPYOJdO
+	FpdxNOlLNG5dmCXDLbgVyFXjQngjYWYncFhhYq5G8MDIV165SCYQn1AufI/NYCFq6o3hAcjwdRI
+	izwL6ojAioakO2c2YbRewBQ==
+X-Received: from wmom17.prod.google.com ([2002:a05:600c:4611:b0:48a:8f50:6c57])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3b0c:b0:485:4388:3492 with SMTP id 5b1f17b1804b1-49036036692mr34346335e9.11.1779367584557;
- Thu, 21 May 2026 05:46:24 -0700 (PDT)
-Date: Thu, 21 May 2026 13:46:11 +0100
+ 2002:a05:600c:3545:b0:48a:54a6:b29f with SMTP id 5b1f17b1804b1-490360a87admr35403265e9.17.1779367585711;
+ Thu, 21 May 2026 05:46:25 -0700 (PDT)
+Date: Thu, 21 May 2026 13:46:12 +0100
 In-Reply-To: <20260521124613.911067-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260521124613.911067-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260521124613.911067-2-vdonnefort@google.com>
-Subject: [PATCH v2 1/3] KVM: arm64: Fix meta-page unsharing in pKVM hyp tracing
+Message-ID: <20260521124613.911067-3-vdonnefort@google.com>
+Subject: [PATCH v2 2/3] KVM: arm64: Fix rollback in hyp_trace_buffer_share_hyp()
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
 	will@kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, Vincent Donnefort <vdonnefort@google.com>
+	kernel-team@android.com, Vincent Donnefort <vdonnefort@google.com>, 
+	Sashiko <sashiko-bot@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_054627_563658_02CAFBC3 
-X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-CacheID: sfid-20260521_054628_728144_DBD1A1B5 
+X-CRM114-Status: UNSURE (   9.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,29 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the hyp_trace_buffer_unshare_hyp() function name suggests we should
-unshare all the previously shared pages, otherwise we leak hyp-shared
-pages which won't be reusable for hyp memory.
+When sharing the trace buffer with the hypervisor, if sharing a page
+fails, the rollback path in hyp_trace_buffer_share_hyp() misses
+unsharing the metadata page (meta_va) which was successfully shared
+before entering the page sharing loop.
 
-Fix the typo by calling __unshare_page() on the meta-page, ensuring all
-previously shared pages are correctly unshared.
+Additionally, if a failure occurs, the cleanup calls
+hyp_trace_buffer_unshare_hyp() with an incorrect CPU index.  Since that
+CPU's pages were already rolled back locally in the loop, this leads to
+duplicate unsharing attempts.
+
+Fix both issues affecting the rollback.
 
 Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
 diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-index 8b7f2bf2fba8..06805b426101 100644
+index 06805b426101..8595f9bdb3dc 100644
 --- a/arch/arm64/kvm/hyp_trace.c
 +++ b/arch/arm64/kvm/hyp_trace.c
-@@ -189,7 +189,7 @@ static void hyp_trace_buffer_unshare_hyp(struct hyp_trace_buffer *trace_buffer,
- 		if (cpu > last_cpu)
- 			break;
+@@ -212,14 +212,15 @@ static int hyp_trace_buffer_share_hyp(struct hyp_trace_buffer *trace_buffer)
+ 		}
  
--		__share_page(rb_desc->meta_va);
-+		__unshare_page(rb_desc->meta_va);
- 		for (p = 0; p < rb_desc->nr_page_va; p++)
- 			__unshare_page(rb_desc->page_va[p]);
+ 		if (ret) {
+-			for (p--; p >= 0; p--)
++			while (--p >= 0)
+ 				__unshare_page(rb_desc->page_va[p]);
++			__unshare_page(rb_desc->meta_va);
+ 			break;
+ 		}
  	}
+ 
+ 	if (ret)
+-		hyp_trace_buffer_unshare_hyp(trace_buffer, cpu--);
++		hyp_trace_buffer_unshare_hyp(trace_buffer, --cpu);
+ 
+ 	return ret;
+ }
 -- 
 2.54.0.746.g67dd491aae-goog
 
