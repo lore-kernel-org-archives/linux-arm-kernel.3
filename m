@@ -4,45 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239A1CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 19:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F4BCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 19:16:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WlZfUQJHJCha00Uyb2Q/Ip5oQKZI6jLstLyrJNQoP2Q=; b=kb5KRWlFgF5jbL8Zf3p26io0Pn
-	VrrQjCAuRmKL8jJdhvpAY/ZE7SaoCDreVTww9Nb/qqnh4M2frtuAUtPHk/b+8grhr5rmx8hymj1o6
-	GeUr/aEjRot9MWHXVXEUF1ErRamCYWjry9UlwVRLLeBF73nTexwA4Af2IEDxVWjho+lFJDWbPhoJ5
-	tF/GxsP9zCn32SUvCxOYcF1qdPO2eHbcSlaPA16WDEt8rqscKJ3pGYHGf0oAZpSvxxksJ5p+JjDDv
-	9ogFJKogetOsJblMNGd8Nnsy7y/DEZoHTxtS4HzVuQnGwOnHcLJXYmiprAE4rOiB0UvRvVkG7njXJ
-	DhKEHF6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8+cH5oBYGATjnZaa04J2VhWAiNIlrh58OzU3zV70StI=; b=hgHFLaknJyj74aqC0/kBO+uGbe
+	2Zq19+Jp0COCwv023e3M6QGXSBNKNP9fCt3/ZkVe1VNu74vOOKREORE/Vc9PFRbMW4gEj2DpIN1Yn
+	pNm0nMLFXsgzPTcjzEEjmvAq3x7SIKfINpMtBTWXk1XX3MvntVHl3t9g6y03MCacwgic/BrDHNbcz
+	fF+moEViV4I6QMzZvgjiO8IH+6j3vp0PKbrWwXHO/hsjlAi1X6C5RX6zKduoFa2gOQTT5nB8ZUf9g
+	sx898ySPHdHr2n5kXKPokUYWU1ibJQMG9zEx/jZg3cojmrJcXgZ168tvwd/Sgc9KX8sMWMAd95m1Z
+	DlJ1GDEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8rF-00000008sUY-2sy2;
-	Thu, 21 May 2026 19:15:01 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8rD-00000008sTt-3Bac;
-	Thu, 21 May 2026 19:14:59 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	=?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-doc@vger.kernel.org
-Subject: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
-Date: Thu, 21 May 2026 12:14:57 -0700
-Message-ID: <20260521191458.177046-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.54.0
+	id 1wQ8sE-00000008sg9-1iPN;
+	Thu, 21 May 2026 19:16:02 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ8sB-00000008ses-3mLt
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 19:16:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QSOEwcw2/o9VKekOxs4QqLOW4E9g9D7oN/dwrAUw78ynGibTkVowpsk37riCDJcW0flO+/QG9YNqTB9QE/dlqzk9dvfXmsqHiW4pj+EIPqP/0W5yllWAJq4vOPOcinv3ctlKrzxe+FpDbga/lsuq0UkkHfEuc6+fPMoIctoadFmsx64ai7VZiH1nnYcDe3Sd65PTWcX0NWXoQ3sMjg32ux25hWkSvrzf94KQdAavaVwTb2dBWU9hSE6FD4kuU3exSI6tXkGEihyWIGPAdPwfNy7fDhk1RjA2RqCEQ+FzAgxEu4MWB2qP2Hgno5WFlW9VbehoLR5v3Zaa/SlTiM6Tmw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8+cH5oBYGATjnZaa04J2VhWAiNIlrh58OzU3zV70StI=;
+ b=OFFDwYSgmDD1BAZWlbsT6pHg/DvkbEZ6Ed9zVn8vwwrpzmbEJFUoC4qKJa5CG4X1dYVHFOMErEN0tq/Ck4dWLp7QHUSXt7MtyIgvFiRAxWDicEyJhpVU20fLG5aBECmUIIICczCcKVHlkjRU4MDSNS6fKT3nWCFG/iCxAPFsnkPBSsQCN7iyREjCwvsK6qVJTGyj447vq3adhtXDwwdjiENOK6gtNGqpsK8S8/883crDPQ18krEMoWZjkwbgtEYJBii4SGv/AO54bwOdzGdnm58TZ5Zk/typpDVGtGH3jfZSbLEfRRhFdXPrd2QJ8PzLBniGDSYkVYczyIRytzRVEA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8+cH5oBYGATjnZaa04J2VhWAiNIlrh58OzU3zV70StI=;
+ b=qROX2v0LK5/My2lHynAD/myr57V3/k0aaG6S4KB7ak/j+huWR6TYWPq+s4dPunfdp00L0uRKtp6tv0rJn8c8mGX7o2yIrnvMS1PiyGpPdvSv3453beavq8TasJUVpg3P+q2TQhlY7K6aC2HaZj1ZgQ9WvgJbKtEoiyGbNm7j2KFO8Iu2x76kAtAqiZblNcgeESL9rqXEMmFIdPxxEb2sqsiT/bay5KoLco1wf/X/mwMm03TcQbsiyyuob1/NEUp81nI/IEFm20ki37lzP7iDyxXWj4zKIlKdJ0eo4riz3zZrLBUTTKtf6LV7wrCX30c2GjPM8g3Nr/lsI6TnrFsf5A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PA1PR04MB11261.eurprd04.prod.outlook.com (2603:10a6:102:4eb::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
+ 2026 19:15:55 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 19:15:55 +0000
+From: Frank.Li@oss.nxp.com
+Date: Thu, 21 May 2026 15:15:39 -0400
+Subject: [PATCH v2 1/6] ARM: dts: imx: add (power|vdd)-supply for related
+ node
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260521-imx25_dts_simple_warning_2-v2-1-c6557df516a9@nxp.com>
+References: <20260521-imx25_dts_simple_warning_2-v2-0-c6557df516a9@nxp.com>
+In-Reply-To: <20260521-imx25_dts_simple_warning_2-v2-0-c6557df516a9@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779390945; l=3158;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=Fok0Smbontcbd61beBA1IUhskkUUFX5if8Q61QTAuOw=;
+ b=6nK5D+s1rSYHs+30AgYddpLzIVSRWLCybI/HQGHelmOznIGj8JmcdmEQx5hagl54qXN9beXnJ
+ 1WdzO5BAjbjDCvqXtef1ogSW7ziZMTNEWZneuBdlaHOBGN9tqwSc4Ty
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SN7PR04CA0083.namprd04.prod.outlook.com
+ (2603:10b6:806:121::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PA1PR04MB11261:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2229b858-cea6-4ca5-b0c2-08deb76d61a2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|19092799006|11063799006|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: Xyi//KZYFyLVRF9hp7Ab08wNDoeGiOKZfluxccZA8J+DwCvNMM2y44tAo848L6xZO96NNwAnvrzs1bm7OOJYaS4PuPkinNleZiqGJvQWF61lJXteYH8tTs/OGr2PbcMeGHXmOnrkYwDU1gRCjMclwrx34JrxSKRF6YdeYPpEH+F8KSDXJux1rIlEaBCUQuRW4Cq5gigKeHUp97nfGMyCmQY6iGBVaveN7o3CnrsL7WMqtYW1Cwdk7ph3c+FTdLvym0vqckYf6WikhX0fBT4vtsuODkT0ZCwPEdjAMAmiH5th+G6Ir7T0TYI9VzbPIdx4fgacyrAyQPBO0O3GWGQOorhh0TLBedKT3dkeBupnMxW0Fc4p/esDFIkOa4djZ/t+MMMGj0wAmeiyqCrD8cPiImGh576H12adUR9RuB+SG/WRNeEQlyFqBhAeuujUzkFPv1yXqX4ooPO9lVeYXlPz7nz8vEs0YUEi5zRyrbdvHyyfAH0NGKqD/jlhOPj4lrhZ4n1l9/Z2NJfVShgvQl5G+6YdS6GFa7idJbFRet2TySMU4jpWdByC7orly3Q1SV04NFTCBSABa3xdEfwJ/2nhYYMPgwO7p3oS+FmlZXZyCw19Qdb9nqbsI/TEkbNacsbW+omJvxz+s1VQYFZhZHp35j2qHuMIGPlxA3/xV7toGlGUvh3EmsWCAnbmzo8DmFq0
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(19092799006)(11063799006)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0RXRWRaUEFQU2tuYTM3RDFrYXU4RjUzT2MwWTdyR3VUamhYcHpUNFZhRkkz?=
+ =?utf-8?B?bGYrRlRBWmx5eHN1UktOTzB2UzJXb3ZtdUlVUWlTU1NHTkZrTFVJSkFVMFFB?=
+ =?utf-8?B?YUxZQW9VZ3o3MmprN2N5SExGcmIrU3pOV09COXFGRy9HS2RpcXFjYm1GMzl3?=
+ =?utf-8?B?MDlBVTJiVWdxQjZsU3NrQkFWaEd5RnFMWVliSWxLQlVLTU1HbGovQ2pHa1dC?=
+ =?utf-8?B?TjVYSy9SalFOZjZ0ZEtxMnNoRHRNRWZJY0FVd1UrZ0pad0ZoaktibHprTTNN?=
+ =?utf-8?B?N2Vra2dWUUgzVWJ4QWMrTXZUb3EyM3BxQmc5TVVrN3lWeE1maUpWNW01M3Mx?=
+ =?utf-8?B?aDcyRTdubmlSSU9zaTNFenp5MzVnSVNrVTd6N3VnSkdGS0ZMMkR0WjRXWWh5?=
+ =?utf-8?B?ek9aa0E1OWhYMTJxSWpYZmZJUGQrbit4Z2p2aEY2M0xHeWdiUzMvUXErZUYy?=
+ =?utf-8?B?UE03Uitpc2JxSnRLSmJDcE9vL1lCWDdKRzNuVlRFTm8rTzgybm5MdiswU09U?=
+ =?utf-8?B?Q25MWGcyK3oyNDB2VTlSWU9qanoxMzg0K0tuQ09FWU1Ub2Zzcjl4NitBRHE5?=
+ =?utf-8?B?VW9XbWMrbzljYUo5N2F3MWFBZlJFaHV0dWYwTUZIVVh3N0Q0U25MWTMvVFda?=
+ =?utf-8?B?MzZEZHl3QlNudlpMbkR4b29vYWFoOENPQlpHd1JEdW4wckwvbmFzMlc2ellu?=
+ =?utf-8?B?d0dHTmZERDlKdWs5SkorR3VwS0g4QkVFTUVvVEpVazBKejZEdi95cnFiTFhh?=
+ =?utf-8?B?RTBkU3pzaVhXZWYxeGg2R1kwMFVhTTF2KzMrdmx1U0FiWGkrRHZuQmZ5bDJY?=
+ =?utf-8?B?cVhKL2JaTHJCN3Y4N3dLTHJ4S3htcVF0V0Nlbm1CNnF1dXNMSjVmMllkdTgy?=
+ =?utf-8?B?S2dXaGVDUkIvTGp1RWFDeXhlN0x0cXB0cWhZUDQxZXhMTjhmUmJ3YnZLMDhC?=
+ =?utf-8?B?WUlOYVJyWDdvcCsza1BUZGxuYTJLdEl4NmhldkI2Q0liTTZZYjJxVmt4VG40?=
+ =?utf-8?B?SUhoeWFQcjV1SktVU2lEdHIzdXdYbDV4WW1QS2xMOTVycm0vMEdGMjZNcmw1?=
+ =?utf-8?B?QnBIdE03WER2aDVQbis0bXRuaXFRY2crK1RPZlhoYlpvQ00rSnFmZnoyOFJT?=
+ =?utf-8?B?Y0cxcVpQZ0Rya0pZSzEvOWFJOXQ4cEErSmRDN096ZExFcVVEVzZLaHByNjJy?=
+ =?utf-8?B?ek1tSFZVODdCRitvRE1xKzgrODFCdHJvS0IvdEdZN3V4UVFvb2tPa1Q3VGdR?=
+ =?utf-8?B?Ti9RUXR4RVlwamlGY2MzQmZzRDdVcnk5Ri8xMjlQUDBSajdMWFd6QkRVY1Vu?=
+ =?utf-8?B?U1ZydU56R1FjaEgrYjVOWXFNSGUwSVBSUjlyOXBBZ2t5U0dXT0VNK1ZVQ0F1?=
+ =?utf-8?B?SWhaOW0zZ0puMWZmYTlZYlk2bURvYlBXZmQ5aDdxeUd1S1FjZHljdVpnNUZX?=
+ =?utf-8?B?NHQvRElCeC93UU5obm40TXphR2hoZ3d4N1NQUFY2T25uM0p6Y3BadGJ1S0o5?=
+ =?utf-8?B?MXAyNXpYUytYeURNOEhJblJOOUxjb2xETXFpS1ltVTh1djhVWUh6RWlJZnpj?=
+ =?utf-8?B?N3lYNkhSaDZaWWFJcFF3UUxKb2VJR090czUzdWJZZGRsQ0lqVFgzVzgydFQy?=
+ =?utf-8?B?b2FESDFnOW9aamhtcDZCZWRaeUwrdjZZaVVaUHBUU2xneVNsTTAveEczWmQv?=
+ =?utf-8?B?anNLajMyTDJPcE9SdXV2QTBJaVVUbzMxbEtWSDBIdWg5MUYwZTNXRXdlbFVu?=
+ =?utf-8?B?Z1RXMEhLb0xIemtkVW4vd1pOUWlOYk1HVm16SlY4WXZPUklLeEpPVzVEK3BM?=
+ =?utf-8?B?V1VteFR6OW5KRTlkYTZPWTdPWmp0MFdnQkJwTWVnQzFEZVFwSWpOTDB6NHpP?=
+ =?utf-8?B?L3hkSmZHdUUvaDdlbEdrSzFsNnQwbm1vWVdMc0hxNHNidUVnbDkxQW5Vd3VT?=
+ =?utf-8?B?N3ZQYytOcjM0em4rRGNmZVNYWHRBV1BtK1NNaGtEaWZJR010OVcvdmJjNERo?=
+ =?utf-8?B?S2VEN0xRK290R1pnV2w0TE5EZG5sKzhSSmM2ZGlkTlN4Vnk4VG1Ebm1JeGFx?=
+ =?utf-8?B?TmNwSmFETFN5TUU2NVRteXM2cGJuRExnMUFDMTkrWVAvUklCYmQycHdEa3lQ?=
+ =?utf-8?B?SmJuOTRQUHFkMk93WWVRbEhQTnVxRmJROGx5WVkvbTNmdk1FVjJHaTM4TlhC?=
+ =?utf-8?B?OVVTZXhKaVVSYVdLWUZTM0gwMDVHemtZdlcxcXRjbGVvbmRRdkhyTzV6WTda?=
+ =?utf-8?B?Nk9ZZzNzTDIyS3U0OUtrMFFERWhxM0k0TzNwZjZsNUp2YTZoQnJRb2xUTlFH?=
+ =?utf-8?B?azlwVkp5K2JJN3I2Y3dzaFhjb1ZvUTJIbTcwNWY3Z0tUZHNKVURrSFRpL2R6?=
+ =?utf-8?Q?4+mdxmTtrrvLSmkA=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2229b858-cea6-4ca5-b0c2-08deb76d61a2
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 19:15:55.2020
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: W+gDHzbYV3N86yLi02NNfKqiO0KsV66SFcDCcx0kw9+q0DwxX6PmaBKisa9NyaWb4tIJbTkVKyeLGdZA7PYJUGW7FcXvM82YImC4EO7NYHBAkrOwhP+qwdDzWgF3RIEb
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11261
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_121559_957382_BD717F18 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,203 +158,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix multiple documentation build warnings.
-Improve punctuation and formatting of the rendered output.
+From: Frank Li <Frank.Li@nxp.com>
 
-Documentation/arch/arm/zte/zx297520v3.rst:66: WARNING: Title underline too short.
- 3. Building for built-in U-Boot
- --------------------------- [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:90: WARNING: Enumerated list ends without a blank line; unexpected unindent. [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:116: WARNING: Inline literal start-string without end-string. [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:137: ERROR: Unexpected indentation. [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:138: WARNING: Block quote ends without a blank line; unexpected unindent. [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:164: WARNING: Inline literal start-string without end-string. [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:164: WARNING: Inline interpreted text or phrase reference start-string without end-string. [docutils]
-Documentation/arch/arm/zte/zx297520v3.rst:7: WARNING: Document or section may not begin with a transition. [docutils]
+Add required power-supply and vdd-supply properties to fix below CHECK_DTB
+warnings:
+    arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dtb: panel (edt,etm0700g0dh6): 'power-supply' is a required property
 
-Fixes: 220ae5d36dba ("ARM: zte: Add zx297520v3 platform support")
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Cc: Stefan Dösinger <stefandoesinger@gmail.com>
-Cc: Linus Walleij <linusw@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-doc@vger.kernel.org
+change in v2
+- change regulator name to 5v (sashika AI)
+---
+ arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts            | 9 +++++++++
+ arch/arm/boot/dts/nxp/imx/imx53-sk-imx53-atm0700d4.dtsi | 1 +
+ arch/arm/boot/dts/nxp/imx/imx53-sk-imx53.dts            | 7 +++++++
+ arch/arm/boot/dts/nxp/imx/imx6q-novena.dts              | 1 +
+ 4 files changed, 18 insertions(+)
 
- Documentation/arch/arm/zte/zx297520v3.rst |  119 +++++++++-----------
- 1 file changed, 59 insertions(+), 60 deletions(-)
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts b/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts
+index 6210673f93bea..2acbc86cabb31 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx53-m53menlo.dts
+@@ -84,6 +84,7 @@ panel {
+ 		pinctrl-0 = <&pinctrl_display_gpio>;
+ 		pinctrl-names = "default";
+ 		enable-gpios = <&gpio6 0 GPIO_ACTIVE_HIGH>;
++		power-supply = <&reg_3p2v>;
+ 
+ 		port {
+ 			panel_in: endpoint {
+@@ -98,6 +99,13 @@ beeper {
+ 		gpios = <&gpio6 3 GPIO_ACTIVE_HIGH>;
+ 	};
+ 
++	reg_3v3: regulator-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++	};
++
+ 	reg_usbh1_vbus: regulator-usbh1-vbus {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vbus";
+@@ -259,6 +267,7 @@ eeprom@50 {
+ 	dac@60 {
+ 		compatible = "microchip,mcp4725";
+ 		reg = <0x60>;
++		vdd-supply = <&reg_3v3>;
+ 	};
+ };
+ 
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53-atm0700d4.dtsi b/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53-atm0700d4.dtsi
+index e395004e80e6d..34cb0c344ff6e 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53-atm0700d4.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53-atm0700d4.dtsi
+@@ -10,6 +10,7 @@
+ / {
+ 	panel: panel-rgb {
+ 		compatible = "powertip,ph800480t013-idf02";
++		power-supply = <&reg_5v>;
+ 
+ 		port {
+ 			panel_rgb_in: endpoint {
+diff --git a/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53.dts b/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53.dts
+index 1a00d290092ad..ebec884958776 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx53-sk-imx53.dts
+@@ -29,6 +29,13 @@ memory@70000000 {
+ 		reg = <0x70000000 0x20000000>;
+ 	};
+ 
++	reg_5v: regulator-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
+ 	reg_usb1_vbus: regulator-usb-vbus {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "usb_vbus";
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts b/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts
+index 24fc3ff1c70c2..cd9a050fa906e 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-novena.dts
+@@ -109,6 +109,7 @@ led-heartbeat {
+ 	panel: panel {
+ 		compatible = "innolux,n133hse-ea1";
+ 		backlight = <&backlight>;
++		power-supply = <&reg_lvds_lcd>;
+ 	};
+ 
+ 	reg_2p5v: regulator-2p5v {
 
---- linux-next.orig/Documentation/arch/arm/zte/zx297520v3.rst
-+++ linux-next/Documentation/arch/arm/zte/zx297520v3.rst
-@@ -4,15 +4,13 @@
- Booting Linux on ZTE zx297520v3 SoCs
- ====================================
- 
--...............................................................................
--
- Author:	Stefan Dösinger
- 
- Date  : 27 Jan 2026
- 
- 1. Hardware description
- ---------------------------
--Zx297520v3 SoCs use a 64 bit capable Cortex-A53 CPU and GICv3, although they
-+Zx297520v3 SoCs use a 64-bit capable Cortex-A53 CPU and GICv3, although they
- run in arm32 mode only. The CPU has support EL3, but no hypervisor (EL2) and
- it seems to lack VFP and NEON.
- 
-@@ -27,7 +25,7 @@ Some devices, especially the stationary
- Ethernet switch.
- 
- Usually the devices have LEDs for status indication, although some have SPI or
--I2C connected displays
-+I2C connected displays.
- 
- Some have an SD card slot. If it exists, it is a better choice for the root
- file system because it easily outperforms the built-in NAND.
-@@ -39,7 +37,7 @@ IRQs on either ends.
- 
- There is also a Cortex M0 CPU, which is responsible for early HW initialization
- and starting the Cortex A53 CPU. It does not have any essential purpose once
--U-Boot is started. A SRAM-Based handover protocol exists to run custom code on
-+U-Boot is started. An SRAM-based handover protocol exists to run custom code on
- this CPU.
- 
- 2. Booting via USB
-@@ -63,13 +61,13 @@ Contains an U-Boot version that can be u
- CPU and interrupt controller to comply with Linux's booting requirements.
- 
- 3. Building for built-in U-Boot
-----------------------------
-+-------------------------------
- The devices come with an ancient U-Boot that loads legacy uImages from NAND and
- boots them without a chance for the user to interrupt. The images are stored in
- files ap_cpuap.bin and ap_recovery.bin on a jffs2 partition named imagefs,
- usually mtd4. A file named "fotaflag" switches between the two modes.
- 
--In addition to the uImage header, those files have a 384 byte signature header,
-+In addition to the uImage header, those files have a 384-byte signature header,
- which is used for authenticating the images on some devices. Most devices have
- this authentication disabled and it is enough to pad the uImage files with 384
- zero bytes.
-@@ -88,7 +86,7 @@ So to build an image that boots from NAN
- 6) dd if=/dev/zero bs=1 count=384 of=ap_recovery.bin
- 7) cat uimg >> ap_recovery.bin
- 8) Place this file onto imagefs on the device. Delete ap_cpuap.bin if the
--free space is not enough.
-+   free space is not enough.
- 9) Create the file fotaflag: echo -n FOTA-RECOVERY > fotaflag
- 
- For development, booting ap_recovery.bin is recommended because the normal boot
-@@ -113,55 +111,56 @@ the binary blobs.
- 
- The assembly code below is given as an example of how to achieve this:
- 
--```
--#include <linux/irqchip/arm-gic-v3.h>
--#include <asm/assembler.h>
--#include <asm/cp15.h>
--
--@ Detect sane bootloaders and skip the hack
--ldr	r3, =0xf2000000
--ldr	r3, [r3]
--ldr	r4, =(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
--cmp	r3, r4
--beq	skip_zx_hack
--@ This allows EL1 to handle ints hat are normally handled by EL2/3.
--ldr	r3, =0xf2000000
--str     r4, [r3]
--
--cps     #MON_MODE
--
--@ Work in non-secure physical address space: SCR_EL3.NS = 1. At least the UART
--@ seems to respond only to non-secure addresses. I have taken insipiration from
--@ Raspberry pi's armstub7.S here.
--mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
--					@ Allow hypervisor call.
--mcr     p15, 0, r3, c1, c1, 0
--
--@ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-low.
--ldr	r3, =0xF22020a8
--ldr	r4, =0x50
--str	r4, [r3]
--ldr	r3, =0xF22020ac
--ldr	r4, =0x14
--str	r4, [r3]
--
--@ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable system reg
--@ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
--mrc	p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
--orr	r3, #0x9                        @ FIXME: No defines for SRE_EL3 values?
--mcr	p15, 6, r3, c12, c12, 5
--mrc	p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
--orr	r3, #(ICC_SRE_EL1_SRE)
--mcr	p15, 0, r3, c12, c12, 5
--
--@ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register access
--@ for EL2.
--mrc	p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
--orr	r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
--mcr	p15, 4, r3, c12, c9, 5
--isb
--
--@ Back to SVC mode
--cps	#SVC_MODE
--skip_zx_hack:
--```
-+::
-+
-+ #include <linux/irqchip/arm-gic-v3.h>
-+ #include <asm/assembler.h>
-+ #include <asm/cp15.h>
-+
-+ @ Detect sane bootloaders and skip the hack
-+ ldr	r3, =0xf2000000
-+ ldr	r3, [r3]
-+ ldr	r4, =(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
-+ cmp	r3, r4
-+ beq	skip_zx_hack
-+ @ This allows EL1 to handle ints hat are normally handled by EL2/3.
-+ ldr	r3, =0xf2000000
-+ str     r4, [r3]
-+
-+ cps     #MON_MODE
-+
-+ @ Work in non-secure physical address space: SCR_EL3.NS = 1. At least the UART
-+ @ seems to respond only to non-secure addresses. I have taken insipiration from
-+ @ Raspberry pi's armstub7.S here.
-+ mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
-+ @ Allow hypervisor call.
-+ mcr     p15, 0, r3, c1, c1, 0
-+
-+ @ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-low.
-+ ldr	r3, =0xF22020a8
-+ ldr	r4, =0x50
-+ str	r4, [r3]
-+ ldr	r3, =0xF22020ac
-+ ldr	r4, =0x14
-+ str	r4, [r3]
-+
-+ @ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable system reg
-+ @ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
-+ mrc	p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
-+ orr	r3, #0x9                        @ FIXME: No defines for SRE_EL3 values?
-+ mcr	p15, 6, r3, c12, c12, 5
-+ mrc	p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
-+ orr	r3, #(ICC_SRE_EL1_SRE)
-+ mcr	p15, 0, r3, c12, c12, 5
-+
-+ @ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register access
-+ @ for EL2.
-+ mrc	p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
-+ orr	r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
-+ mcr	p15, 4, r3, c12, c9, 5
-+ isb
-+
-+ @ Back to SVC mode
-+ cps	#SVC_MODE
-+ skip_zx_hack:
-+
+-- 
+2.43.0
+
 
