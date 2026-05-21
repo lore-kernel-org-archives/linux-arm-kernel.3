@@ -4,75 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A44DCD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 23:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A206CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 23:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j0ebOmJn6u1MxYGewPLj3waI4xbAN7qaMrGtxlI3D9I=; b=VFUs27lWwRGCa9iZu6QOlZJipO
-	1RbSXugiXdrnHCBknSOWBVZ7x90ZMuKQ4o0cGWZVl5o4Bb6qYn/PzH0PNl26jEWwneHuuCd6HwSR1
-	uT+tme0h95YZsLrnJj660ss3xN3F8Za3CKiEyJ2VJrHuP6Yp6M13q9Amebyv1XFumyyVAuTtszKXX
-	RqSBU3A3Y87Cgl0vnS6TxFPwE39qvN2YnbxqqhNQa+vP+HXvk5/GABdHLIKFpbe31SGX8xi+X4ON0
-	rtMz6Vd7jrITQRf6tq8jT8ZgH26/UCGsj1dI9HRaRmCj1RIXZoHyOsVC9v4CKexhjAJstrqJnwlHm
-	6dL6emPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7UKOPT9vpO7tVqgXvj3ava3zXsZTtMZdAs3/7bhxkzs=; b=RpBfAUrkaohZHT05uwT6J02H44
+	/NS0AZMv+THT2sueUEom5ngXhpXovq2WfQXbms3QCpo9qnUDlFTvuM4cvk+rXN163oHr89U85zvGf
+	onfMW8az9OaW9PWo5BUAUBoDmDyfaeDU6vVTHV2SyHnmaXc0Vjl8bRit1a/QYV90Tb1O2cKu+W2Z0
+	r/tYuhPLBNf1tL5T9LyZ9N8kI5Yflpu1MDOrn4yBgZIOnWK8L1wPLKuYnJcREBypUoWo+m0nmKMNA
+	CmXd7hnnG4FDYKMNZ6tUGx1D5hNNLyRsCHKbhc6w1UASNtLmqJ3htIlSqTPRZJMfl9gt4S6b72o5Y
+	RowAgDKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQCdp-00000009IYc-3mjJ;
-	Thu, 21 May 2026 23:17:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQCiZ-00000009J7k-1vpc;
+	Thu, 21 May 2026 23:22:19 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQCdo-00000009IYD-0Ny2;
-	Thu, 21 May 2026 23:17:24 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 09639600FF;
-	Thu, 21 May 2026 23:17:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDE661F000E9;
-	Thu, 21 May 2026 23:17:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779405442;
-	bh=j0ebOmJn6u1MxYGewPLj3waI4xbAN7qaMrGtxlI3D9I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=RqthTvJfQ1ACcaGzGV9ao9TFO/VRou8BJSP4JXt5IuYUBfih0U8dNTpXsMpDFcQWN
-	 O2dNS6Ivf7Q6wszwppAtNLAsmvvOQy/Worly6dF6ld38KOYeFxSzvTW+1hkmlLtpoo
-	 fU4+SrUi280Gm73Wh3vlxI9wiQ6JHfSQYVw3f3dNeMF1f6gjPHmDL6yLilvfc1Y5HP
-	 lP56Q6RZIZq1EsXOT8HpJK4l3bGpmzExwWA3iwU5Ob8/A9YBMujzk1TMfpInqOYc2Z
-	 H6AI0Z4Ou+98aTsTYrHKIN56xvdcobEUMajumYS/CzrlB/Y9yZGZ5N2cslRACkzBLz
-	 94wZdfkD3uqqA==
-Date: Thu, 21 May 2026 18:17:15 -0500
-From: Bjorn Andersson <andersson@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Adrien Grassein <adrien.grassein@gmail.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
-	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
-	Tvrtko Ursulin <tursulin@ursulin.net>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Sean Paul <sean@poorly.run>, Marijn Suijten <marijn.suijten@somainline.org>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Pengyu Luo <mitltlatltl@gmail.com>, Nikita Travkin <nikita@trvn.ru>, 
-	Yongxing Mou <yongxing.mou@oss.qualcomm.com>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
-	linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH RESEND v3 5/6] soc: qcom: pmic-glink-altmode: pass down
- HPD_IRQ events
-Message-ID: <ag-SWn5FgRLBqUTR@baldur>
-References: <20260513-hpd-irq-events-v3-0-086857017f16@oss.qualcomm.com>
- <20260513-hpd-irq-events-v3-5-086857017f16@oss.qualcomm.com>
+	id 1wQCiW-00000009J6S-4BWB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 23:22:18 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8c7154725easo77540666d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 16:22:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779405735; x=1780010535; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7UKOPT9vpO7tVqgXvj3ava3zXsZTtMZdAs3/7bhxkzs=;
+        b=Diktyh+MJK1JBbLVDcORfXWfU2YAPVm90Sw3bYYCvnUZGBHbdDRsWfPQmLTlZ5i9Tr
+         dI0ySvWGEVa7Bd616MMweX62wj4YD/hjoR55gL3fIuKQKUkMPgYrhoO90aeiPmj398Vj
+         uvTeiBLhAP21cUklEmOzP7OH6GGwzsYZCrorXD0pu5zhZu8Ox3A5rKUSAkWvrTNtEdVo
+         6qOKYh9De+ATk1+8tELjFuBX0e5tysD2BrHTLF/1+DbVEECzd+p9zkPcEJPDkxIY6tro
+         sGsvaKVXQON3ZIO51Dp4YDQOK7N/go6xLDHhnEvsGI0j8QcTT/ii4+k9seLDjKVwgJtw
+         4VQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779405735; x=1780010535;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7UKOPT9vpO7tVqgXvj3ava3zXsZTtMZdAs3/7bhxkzs=;
+        b=pRJeRDM0PTtJnffvkIPoy2iNKCc+iNVjNqN0S00X0xukVYkM6sV0bLhc8SSSlK8wFp
+         ah4tjOXx7LHcDXVo7uiDVS/7sizKzisLjYkaiBw0UtxYQrAhRNrPN/+tnSt/k9hN5b24
+         3NmFcD/LEsuI0yjxOMIOF2jdCCRZX1xr+z1luZBzLV/l0jtyK3WBN/bBQ3C1eFWD0sxU
+         usd8Nb8xB6kZ9ZwSgkcIdTE7BJP/JIQFP35E7Wd6O3ntRi1NGXJ3pakSjtMfZqqQ3Q7n
+         zVZaRYwH8IK6AcusgxL2yzwtuA+v4E0p0ZPqmjlR0XrNIOSyaBAuaavhmZkH4Lw0q/nY
+         RNUg==
+X-Forwarded-Encrypted: i=1; AFNElJ8Qt4izp9bbP9VURW+GjVi0yonmNgiKzNAGTN4lT3JdLFPdrOzeiXoi1RftslC3HV6TSMv8oLwOqlXQ/07gaSKL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaKV5WtLZMO1CUvHQ4beDCcsten1e6i9C7KSBq1BzUFrGDJo+7
+	AkLd9JpluQ4JMEpNubfOXO+TY9RtS1nex4muuVvuZR91akNJfHxWDKWd
+X-Gm-Gg: Acq92OHeagNlLgcSzKo0VMZq29Z9Wf8LLSnQV8hQlO0g+YL4LHUsP66roQAI7X5uYGJ
+	FfIPhHmPjLJnbqZ4S8NfuVp8AH+vfliUy/a/C6bxz0nXH7r9GRXzPjiax57nWM0EcFZ2lXeC3q/
+	6bbrajv0T2lQnitul7sOjnccF5uE+zggzhFpHY57J+DP5l3Iqsppu1u0FlewCDj8BDsIk3myKT8
+	D0Q4AtVLiCaDdelGZTvdSQ7Dc8D7xPM/0EhRY+qVRGSZE01g9MC1+C8y1gt0RCUEIS3wfJScqMC
+	7XxwmVCfG3lIaIfW/mdanXkMQju1F85F4jLtkvPqoIlpYSgvefOhA2xRQAs6LOKfjZ28y8aLY5w
+	xl0vTJjHwapKQLOWweGEeT6i86f9RsZhCQBAHWgaBd42LcBzxTPYdrRcxGMGEYIab8O4QtbedeU
+	/ijmVVarf8T+ZkiNGjZxCyMjt7SS+/L7Rfg/1b0ckPZy689avIq3ejCn+P6bYz/8iH2fQM4ZeUi
+	tYUgpptpPvBTexvRua5q54jratuGEMP0YpC1ta8SZiQsQ==
+X-Received: by 2002:a05:6214:501c:b0:8ca:1e0f:f20c with SMTP id 6a1803df08f44-8cc7b5f0c35mr25342536d6.4.1779405735302;
+        Thu, 21 May 2026 16:22:15 -0700 (PDT)
+Received: from ryzen ([2601:644:8000:5b5d:7285:c2ff:fe45:8a32])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cc80df081asm1663276d6.18.2026.05.21.16.22.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 May 2026 16:22:14 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-wireless@vger.kernel.org
+Cc: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
+	linux-actions@lists.infradead.org (moderated list:ARM/ACTIONS SEMI ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH ath-next] wifi: ath9k: owl: remove misleading error message
+Date: Thu, 21 May 2026 16:21:57 -0700
+Message-ID: <20260521232157.261575-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260513-hpd-irq-events-v3-5-086857017f16@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_162217_040820_FD9553E6 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 13, 2026 at 09:23:25PM +0300, Dmitry Baryshkov wrote:
-> Pass IRQ_HPD events to the HPD bridge, letting those to be delivered to
-> the DisplayPort driver.
-> 
+The error is about the firmware failing to be requested, not calibration
+data. Just return directly anyways.
 
-Acked-by: Bjorn Andersson <andersson@kernel.org>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+ drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
 
-Regards,
-Bjorn
+diff --git a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+index b9ef34709202..4460ee7f44e1 100644
+--- a/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
++++ b/drivers/net/wireless/ath/ath9k/ath9k_pci_owl_loader.c
+@@ -204,12 +204,8 @@ static int owl_probe(struct pci_dev *pdev,
+ 	scnprintf(eeprom_name, sizeof(eeprom_name), "ath9k-eeprom-pci-%s.bin",
+ 		  dev_name(dev));
 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
->  drivers/soc/qcom/pmic_glink_altmode.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/soc/qcom/pmic_glink_altmode.c b/drivers/soc/qcom/pmic_glink_altmode.c
-> index 619bad2c27ee..946eb20b8f83 100644
-> --- a/drivers/soc/qcom/pmic_glink_altmode.c
-> +++ b/drivers/soc/qcom/pmic_glink_altmode.c
-> @@ -373,7 +373,11 @@ static void pmic_glink_altmode_worker(struct work_struct *work)
->  		else
->  			conn_status = connector_status_disconnected;
->  
-> -		drm_aux_hpd_bridge_notify(&alt_port->bridge->dev, conn_status);
-> +		drm_aux_hpd_bridge_notify_extra(&alt_port->bridge->dev,
-> +						conn_status,
-> +						alt_port->hpd_irq ?
-> +						DRM_CONNECTOR_DP_IRQ_HPD :
-> +						DRM_CONNECTOR_NO_EXTRA_STATUS);
->  	} else if (alt_port->mux_ctrl == MUX_CTRL_STATE_TUNNELING) {
->  		if (alt_port->svid == USB_TYPEC_TBT_SID)
->  			pmic_glink_altmode_enable_tbt(altmode, alt_port);
-> 
-> -- 
-> 2.47.3
-> 
+-	err = request_firmware_nowait(THIS_MODULE, true, eeprom_name,
++	return request_firmware_nowait(THIS_MODULE, true, eeprom_name,
+ 				      &pdev->dev, GFP_KERNEL, ctx, owl_fw_cb);
+-	if (err)
+-		dev_err(&pdev->dev, "failed to request caldata (%d).\n", err);
+-
+-	return err;
+ }
+
+ static void owl_remove(struct pci_dev *pdev)
+--
+2.54.0
+
 
