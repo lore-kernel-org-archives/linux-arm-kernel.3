@@ -4,80 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AD8CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C287CD5BAA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IbrqkoxuIfuNzeQcrLxNqThPnsSnqR3/o+5bhGiZKOI=; b=KJfpKWucRbdwWR2RxLw4P8VrBT
-	TgZYDK+MEhPZcIGyxYbQzsTePg6bUuYww+auGsLTPJBItJe4EhRoM39jxhLVuRoTRPR0mZLsH5AaR
-	JR5IdxXl3Kw8IZJSQn3dRtqPjlZETzXOEXyTyHv39jYGUoHcMAwHNoL//M7/eNJPM340iSgge0ZuX
-	2BdIJtOqNgK9rOIrkBQKAGc7LLeFEJvfL/TSQ3uRY1CCZazvPThYUTpFHNZhGXiuBLXDyLx5+TjrF
-	OXoKQZLGWh7LKJNK0asBGGpMTe5+lV0nuugeRHTDGy26KEeZKd0MHDb1bNDT2CH6sfdPvBW+fOvLp
-	jhNv6jvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5XrCqenEtrWmJXzl142QM0SgsgE2/jHCz5mRFJ2Lr14=; b=fwSz2vPZ2bAnKqWx2yIVnw69Kp
+	DKK84kP2TdULspYLlnLBp3rCTcqtTEPxq5pP10LBAwnhMTfa6fJ5FoT4bU2pDrpF6+1Cs5R6N0c58
+	htjYgedoVkk+s3CsJF0qz6GnWAzyTmkczY/oUfs22ojDikivbLaKRbxy4PuFqxfD51dOgO2y8uXWx
+	BcWOpsJurpVpfEvQe41Bl7a0+j/QI4xctVYuGmKeN/Ux2TPgdarKvbb6ZMvtgIgfApT73QoEe7UPU
+	g23LsoBsdE8c1h0nnu+cJzNktJ2+5mzzcTod8Igs7PZBUsvaggNOPR0ExmDIkmYmFuSsQkHKHJfE4
+	LBf3kI8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPylv-000000079L4-14bm;
-	Thu, 21 May 2026 08:28:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wPyns-000000079h2-21hk;
+	Thu, 21 May 2026 08:30:52 +0000
+Received: from mail-westeuropeazon11013016.outbound.protection.outlook.com ([52.101.72.16] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPylt-000000079KX-3t7G
+	id 1wPynp-000000079gF-2awX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 08:28:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1987A60172;
-	Thu, 21 May 2026 08:28:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C25181F000E9;
-	Thu, 21 May 2026 08:28:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779352128;
-	bh=IbrqkoxuIfuNzeQcrLxNqThPnsSnqR3/o+5bhGiZKOI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=NZPvq/peiYfTyDVIp3F+Aljz//iv56RDcCaX/tAgq0lzSLauBGyLngblpRNUydbd6
-	 kY1dCkdgp7Kwr904Q0XAvSR3lEP8dFaHVkB6druHeRG5iL51dHVzsbtu+ok8HXQK0J
-	 qxS0ZTqeC8Ofa2PJxGiMXYSR/y3kU0Gfadpz+8AFzF5h+cOGllkxCMp9xfnBY1PqkV
-	 sMXYgl8kHOAmyVWlFNf8TiZW2G8+jsytBf+B0HrcU+/p+QrBzl7BGw8I+s/Ap1dbVf
-	 nEYn/iuOeCVLKw3L6h2tkHYU7woRjNwH0zRD9uf6PUpCoc3N9XarG4XimB59LNIpw+
-	 GmSIV0Gp0lfrQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wPylq-00000004j0s-2duA;
-	Thu, 21 May 2026 08:28:46 +0000
-Date: Thu, 21 May 2026 09:28:46 +0100
-Message-ID: <86ldddw4ht.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: op-tee@lists.trustedfirmware.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	Thu, 21 May 2026 08:30:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wwq0EbIzz4aQol6DWYNGrES2+wprhix8g1VkYNl6EUMqMetQQVtz5vbAKwnWVeQjoU8U67gNyaIOKWWI88Tup6fkkB8xpPlVZFFhSV64C9iIF3Cn/PeOslqKn2lVfTDiUXmV7seic5GxHJA7W1izYLzQB/sqXooD1Ldspw1cMDBi3HMXD8zSY2hq3CsUyGb8EAf18fOuQIGfkp+nmqO35+fZ5f3bJSLctSCZaOGedbfuG1euALLB+4Dm05uEAzRi5YEM7J8ulb+Low2SaD3jJG9Cu1aafgokRhhhvtUWbG+w9dybZzfBrnY8/je+gb+Mrx4ORVLIkN8kxo0SWSPa7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5XrCqenEtrWmJXzl142QM0SgsgE2/jHCz5mRFJ2Lr14=;
+ b=Zg4W2+E8cvmmxHW42ihFCdWIIuCI/DjN/6ubM3yL6gdxwvm6N78iF0cMgmCp/dO8Bg4cFdGsA9Yc81tLzPhZFYjw0DizUvOzTa/78CHtLgAIovSlDG/7+AAnT1plMRjcWSCZ0Q//IpVonf+yYGAdC0rLj92qA9jMvDWJBSDm0FUMJvd4GcS1KBT6aEV1MKIzUktQOvpysEZnu9072EiZZcDFGb8thv23gHrRyWRxPQAYC2A+Y4wk8zYiX70W6in5uxzomwMrFGbSN2gna1riwNt1UBpdlxMEIsXVeRi0+xxrGvkD2fHYmSiTzwJ2pwTU7+wQJHNT2UD/kwJUE+UNng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5XrCqenEtrWmJXzl142QM0SgsgE2/jHCz5mRFJ2Lr14=;
+ b=mgUIjAjSneXVchdbTFBV4hJn4AP1ryYyCqnpwES4F4oEdmPVBWqeu/9eaHqRgFOPdtBDzPV78dl4NxDHloIK9EsKbn7NTqyH21vbuYRiXlmrj3zGCrzQtk5LdGz+CQNM1pHrxmRaG5tHHLyPjCmrbajXZuR4CuI7agCGgTWecH8Qw9IRU43TqPl9KGFU0/gvmbCSjIxeL/JgUWWOB2yF2/mAnXlB+u9qUt5b40ro1uWWzQ4zWdOuKqkE6glQtNqD2AcLBMdUENxNksQXHz4KHngHNvO4+3OoGj5RLfNChjI1mo2CW82SdPwRaGoWN7+guxde4YGs/iYzGyX/cpRI/A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by AM7PR04MB6997.eurprd04.prod.outlook.com (2603:10a6:20b:10d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
+ 2026 08:30:44 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 08:30:44 +0000
+From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+To: o.rempel@pengutronix.de,
+	kernel@pengutronix.de,
+	andi.shyti@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	haibo.chen@nxp.com,
+	carlos.song@nxp.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	catalin.marinas@arm.com,
-	jens.wiklander@linaro.org,
-	sumit.garg@kernel.org,
-	sebastianene@google.com,
-	vdonnefort@google.com,
-	sudeep.holla@kernel.org
-Subject: Re: [PATCH v4 4/5] KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
-In-Reply-To: <20260520204948.2440882-5-smostafa@google.com>
-References: <20260520204948.2440882-1-smostafa@google.com>
-	<20260520204948.2440882-5-smostafa@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: smostafa@google.com, op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, jens.wiklander@linaro.org, sumit.garg@kernel.org, sebastianene@google.com, vdonnefort@google.com, sudeep.holla@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH v4] i2c: imx: mark I2C adapter when hardware is powered down
+Date: Thu, 21 May 2026 16:32:50 +0800
+Message-ID: <20260521083250.2972328-1-carlos.song@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: FR4P281CA0215.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:e4::16) To AM0PR04MB6802.eurprd04.prod.outlook.com
+ (2603:10a6:208:184::17)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|AM7PR04MB6997:EE_
+X-MS-Office365-Filtering-Correlation-Id: c68b6e29-0f47-48a5-4aa7-08deb7134049
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|376014|7416014|1800799024|366016|38350700014|56012099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: Ypy3nIOduYISLVqg+ZuweOIeobv3MW1u3+MC9QJ8iMTwimI8P8oSlqpKv0tlYbpV5+50b8Q7KR/yB2ErdeOoC8l2fmZVnlstoMbUTlIW63j/KfUc1KHD9a6TzOc0uxroILUb9T9jOk0mEL/G53A/CpRZ8AzghCfiw6YuGSyGdwWCKoMRyoVN6sW3c+9HxTRHrdpBnoKXU3tzUzQ0nqmj9dFhYYfbMSZdUlbU+DqEk6M7sUgTQ2LY4KTmyNwN+H1tl1mG9Vm8G/HUwQyIUInG+zossYW9YposvgMAPeqWiKOb5zYIAz6/pnQC2765bVNWRfStq3dEOOxDIQ7rVMbqbWNgIlvZxTVssmeEt9R/ZKpfCd8H4ErvAcWeFeyyN1BXnxw9fGEwEcQW0X0Kb73g/c14z80s81hlROoopFMzrL2u6zD7m19aTt5B38Fe4sCAS2gyFsos7rGOi3u78s+V6d/iuUbiFXLPMR84+3jIgTQGcD7EBq/d5ZY6Hdeqp0Suk7estSNkzIbR7lJSeNqLyWEBeTOIXd8ZBU7kVICip7e/LIGpN3gTX+hlZyc1vJMujVtkjCyBlRqzKTD61xSI8OtCR8xDY+oY8rwrsxIM3fj5OnmOi1M0rwdanioe7gFCO+bhEwCfTlG4oGn8No5rcJI9FmJoXX+A+Wn9AGqc9HV//jsHO6bQ2Y3ZSsZizGr7osBzZU4no6TiD7S2dD/uBEcONhAY0dGltNNPKHJa6sD+P/1P7SsK9U/OL9Yc+PHD
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(376014)(7416014)(1800799024)(366016)(38350700014)(56012099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QL22qdnaNeWpwNl3N+3P8fnRj6Ix8U8QKtHY7zKmT0js2CAd0+VxVha1G/SN?=
+ =?us-ascii?Q?JUShOYkgRoJP83aUEojjlOVILPdVI9Jm2nHmHinZGO6Ig04kKoplTil9c5dj?=
+ =?us-ascii?Q?TSzXL7jYpLSlDOpMj3Pl79aPWZUEbC/JjEeRkEvzRiKR63fsX+bqtL4y4grm?=
+ =?us-ascii?Q?6Loi3uBSlBIq3zUKgk2/cnwBv4egj9Hi2Ry/l/wB8L8bAG5KTWrlTV7kic+Y?=
+ =?us-ascii?Q?Gq6tYGyqTB2x8NDcUoJ90cWqachqvmubI1sgC35MYcpVEoGuguL0Q4/Uz6Md?=
+ =?us-ascii?Q?jC7zp3cVP1in7ijeK/24lp3UUU5yNaYKUS14xL4aPcrKBKfpkSzrreWX98LG?=
+ =?us-ascii?Q?uid7xg43bMjuD5xidCueqHuvMaTMUeZ9cxlX/Odap8E4gG2eDP9LZOsXFAFX?=
+ =?us-ascii?Q?+o/2LfA7S0BxkHSivffnj06zC6QuMkSKlYeDgr4Iy/sLtUbiMbu40UlKg4NY?=
+ =?us-ascii?Q?6tYRDAHe3kmeitsJv53g6Tibo7QQGTCzoB0nLYkWIMi/2gIMNWvLypqdEhJD?=
+ =?us-ascii?Q?3FdyzKdCU3Nz1zeiAx1euspCTmzoX8p4l/PfNIIMn2zyx1d9aezMjt6jGJMi?=
+ =?us-ascii?Q?qdeMAL3AJ9aI21a1NBCcg2Q5UMnk5kSni+nKsPCeFYWWYuu5HIDC6UJBJeDm?=
+ =?us-ascii?Q?FJ0zx+0rB6Pv5yB9NKvsh8uspapiYUwOIObWiLLNVP+dViKRNLddaWCIWUHR?=
+ =?us-ascii?Q?WDjXWWluIQvt3UuOJhjoFviJkz+53e4gEr1PAtEo428cywW/ypJ2F0r7zeo+?=
+ =?us-ascii?Q?bHEQZwgCs/aGEpH3dLHid9/yHSA0WQ+nRgdtLoJyTn/8K5twhxOayGFdzr9m?=
+ =?us-ascii?Q?BwCn5+xhZxTQJc5l0Pwc205Umlfb4uQr9HSnqVj30ayhiS/V0/wCEDWcxa3k?=
+ =?us-ascii?Q?YUP4Fpz/4YAYLlEZaRR2ZIUFlS1GK9E13c9/6HyNaVTtADCS1Zm3gzNHWDBO?=
+ =?us-ascii?Q?1E3uuLmd3qzvDakpeHmWdZMCi58qVt+eKSAx0l5uCg0OY8awFJbxN0Beoqpd?=
+ =?us-ascii?Q?hInjEYmAABbloRRfd79Umy3JwVKigYiysg+dSoVMqwv9LYz3OES9IrPloG5m?=
+ =?us-ascii?Q?KahU5+OTCpyEUSBn3bcTqTIz3V4xejzo5WohZfu5e7/ny6x3yP1PMdzMXwLb?=
+ =?us-ascii?Q?BQ9jdKFn5e/d7GnMFwiZdRv9R38v/cz4CJn8xw13Zth3dobQjMQz9ZlgbCyK?=
+ =?us-ascii?Q?Qp6yUChTqbAuaS7J2+1/sDf04n7fS9eq3UQb7aq1OGF2noAxsFihxEAocKa8?=
+ =?us-ascii?Q?n6Icd9vQfvVpwbYOYI56XYsAiUUoPM7LnlD5pu917WygSLlXfzLPJMCw+DY9?=
+ =?us-ascii?Q?VFbKPn93Vs9Yw+I0auQDW0dR69H5mhhUW8lkNjFfsnkaP1U3bltSoMOqiBpf?=
+ =?us-ascii?Q?E2zz/JY1olsTgTsN0ZdwmlTwMUsnGkN5XxVXpYvLULyDX/pJ3UsXc39YERVH?=
+ =?us-ascii?Q?N3Pp6gf/toTeysylEaHQcEEZV+y2RNVATNKBgN0fO98pbB+c66iRh0yH2ckm?=
+ =?us-ascii?Q?t4EL0vQz4UtbMHa+D2F81bqUVnjZ9xuUkeoRvsWh7zxmPEdQ6Lk6+OUhc7a4?=
+ =?us-ascii?Q?eHKfWwWrvFJDliFkMQ2xbWzfHfAGLANdyhk+SYYlxaDai6iPiaXImlvHNp7l?=
+ =?us-ascii?Q?By210vG+NvobU7yONTdGMDuQTytZ9EimHOojVsHooPjaSmRLhrHc8AYnaDJ3?=
+ =?us-ascii?Q?HB1JB0Y3X1ifMMP1nNA8PyIKSbvC1Yn8DWDjvY39RzgU6LNFeJevJV0krgno?=
+ =?us-ascii?Q?Iz9AawW8dw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c68b6e29-0f47-48a5-4aa7-08deb7134049
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 08:30:44.7049
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QdKbtWYjNr5FP4Yv/PcBqMF7qG4h8YKcJZx+0+IjY+rYg2rmHF5O6XqA/meqyQlK7VXByGx+79k/SdQVipjBtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB6997
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_013049_662278_3ABD70C7 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +146,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 May 2026 21:49:47 +0100,
-Mostafa Saleh <smostafa@google.com> wrote:
-> 
-> Sashiko (locally) reports out of bound write possiblity if SPMD
-> returns an invalid data.
-> 
-> While SPMD is considered trusted, pKVM does some basic checks,
-> for offset to be less than or equal len.
-> 
-> However, that is incorrect as even if the offset is smaller than
-> len pKVM can still access out of bound memory in the next
-> ffa_host_unshare_ranges().
-> 
-> Split this check into 2:
-> 1- Check that the fixed portion of the descriptor fits.
-> 2- After getting reg, check the variable array size addr_range_cnt
->    fits.
-> 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 1af722771178..e6aa2bfa63b1 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -607,7 +607,7 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
->  	 * check that we end up with something that doesn't look _completely_
->  	 * bogus.
->  	 */
-> -	if (WARN_ON(offset > len ||
-> +	if (WARN_ON(offset + CONSTITUENTS_OFFSET(0) > len ||
->  		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
+From: Carlos Song <carlos.song@nxp.com>
 
-Do you really want to keep this a WARN_ON(), given that this results
-in a panic in most pKVM configurations?
+Mark the I2C adapter as suspended during system suspend to block further
+transfers, and resume it on system resume. This prevents potential hangs
+when the hardware is powered down but clients still attempt I2C transfers.
 
-Thanks,
+Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
+---
+Change for v4:
+  - Restore hrtimer when pm_runtime_force_suspend failed when slave mode
+    enabled.
+Change for v3:
+  - Add hrtimer_cancel in i2c_imx_suspend_noirq to cancel slave_timer for
+    safe suspend in i2c slave mode.
+Change for v2:
+  - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
+    to prevent potential deadlock if a transfer is active during suspend.
+  - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
+    fails.
+---
+ drivers/i2c/busses/i2c-imx.c | 45 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 43 insertions(+), 2 deletions(-)
 
-	M.
-
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 28313d0fad37..73317ddd5f02 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1922,6 +1922,47 @@ static int i2c_imx_runtime_resume(struct device *dev)
+ 	return 0;
+ }
+ 
++static int __maybe_unused i2c_imx_suspend_noirq(struct device *dev)
++{
++	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
++	int ret;
++
++	i2c_mark_adapter_suspended(&i2c_imx->adapter);
++
++	/*
++	 * Cancel the slave timer before powering down to prevent
++	 * i2c_imx_slave_timeout() from accessing hardware registers
++	 * while the clock is disabled.
++	 */
++	hrtimer_cancel(&i2c_imx->slave_timer);
++
++	ret = pm_runtime_force_suspend(dev);
++	if (ret) {
++		i2c_mark_adapter_resumed(&i2c_imx->adapter);
++		if (i2c_imx->slave) {
++			hrtimer_forward_now(&i2c_imx->slave_timer, I2C_IMX_CHECK_DELAY);
++			hrtimer_restart(&i2c_imx->slave_timer);
++		}
++		return ret;
++	}
++
++	return 0;
++}
++
++static int __maybe_unused i2c_imx_resume_noirq(struct device *dev)
++{
++	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
++	int ret;
++
++	ret = pm_runtime_force_resume(dev);
++	if (ret)
++		return ret;
++
++	i2c_mark_adapter_resumed(&i2c_imx->adapter);
++
++	return 0;
++}
++
+ static int i2c_imx_suspend(struct device *dev)
+ {
+ 	/*
+@@ -1955,8 +1996,8 @@ static int i2c_imx_resume(struct device *dev)
+ }
+ 
+ static const struct dev_pm_ops i2c_imx_pm_ops = {
+-	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+-				  pm_runtime_force_resume)
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend_noirq,
++				  i2c_imx_resume_noirq)
+ 	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
+ 	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
+ };
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
