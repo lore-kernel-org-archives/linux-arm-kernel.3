@@ -4,57 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEB0CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F420CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ATzsR08xkxxmP0oKAz5Eu3T3oucBynDdLnl6uo8rnng=; b=sgQZZx555m1GQR4wmgemaG7BH6
-	BV03NTDvFiNcVPtgwk9c1gcG1fi4mgyG2dl/F3jxamy6XgIprJE1uN8tdopWTALgMVykSa7yisNJ4
-	QlMh5moyv9UZ6CMGg5WtX/Rw3x6bIqPh4b6oPvWPchgGlsh6heRFnD/ZSgC5K7fqUaQXyvpIbneTX
-	gB0hXzrG0OC/BrN6jIk3LrHCjUAkpbWufxA5YaOV76JKLdS2SU5mHAHzcNE5/NLK79SKmBiM8V6sl
-	sb41IudPQw5CTAs6laAjWKmINSLUdkFxkQWAC3ZhDTnkqsSAFfi8rMnA05yQubv/XH33Mdap+XME4
-	WVT0OLkQ==;
+	bh=en35R6sc2ImIXJjSfKNTDeODIfFRRIXQVjpIv7bHdmk=; b=oqXBP1isuI5hpaHNzLSBAxSHmo
+	MxULKqsLLT2aRpOqHCUElxJ8Fk/HydZSCLD6ulcL/E9tpbBhDPxdEHN1v3c9O6c80773c9KHKbxYz
+	4jo9HABeSSOoBsRjPKeENCh6mjh4jnSARnDQg3g1kbD7yohuLQBm8YF1cT2jlLqMrjMkGpFU6r2VQ
+	6z1fF2VgR2CLDcQhtI7NNxKVTKjxu1HzdK19rK6moHlxQ4qgkyw51kyyNvTZ05dvoa0eNPtxLdOmb
+	m1vZIjEbWLQa+Ydfc3NJjY0+wdd9X0pOV2sBYzwxAmmgP0fhpYG4YI5uOQcJTVumt+Ydo1CqC3Rhr
+	aOc7w7lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6E1-00000008U3P-07VP;
-	Thu, 21 May 2026 16:26:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQ6Eu-00000008UUA-0iOt;
+	Thu, 21 May 2026 16:27:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6E0-00000008U2n-11Lk
+	id 1wQ6Et-00000008UTx-0GHW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:26:20 +0000
+	Thu, 21 May 2026 16:27:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C1C860212;
-	Thu, 21 May 2026 16:26:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7E51F000E9;
-	Thu, 21 May 2026 16:26:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 693EA60122;
+	Thu, 21 May 2026 16:27:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F61F1F000E9;
+	Thu, 21 May 2026 16:27:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779380779;
-	bh=ATzsR08xkxxmP0oKAz5Eu3T3oucBynDdLnl6uo8rnng=;
+	s=k20260515; t=1779380834;
+	bh=en35R6sc2ImIXJjSfKNTDeODIfFRRIXQVjpIv7bHdmk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IZIOmK2xZE31Nai9izZcaqnvJxgfX5OB3BgVGn5cwr6KiVStO2gEUQNGCRpQm7k8E
-	 l3Ppqjcd5N+YTn5cAqum3BSrDJxUw8fJiLYo4qPuxxUZNtirh16qiieep3BFEn1ONM
-	 lO9HFuPkaPXfaEMY0B8Ye5WKDAExUnTiVgR2K8mS/2BL9HoVVLQOD1UP9h9pfIXRWi
-	 qLf/9RuNWBOoa7ZOxF3Oi+hu1vlsh2eT/daKPkSNtNnW5e1Z8mtIbhTrCz8ZCwmAbL
-	 RezC+Cz7+bz+H1v+a/JCQBocXaTjJ5mDaqk3HAq7RR+KGfSuCaeVn5QTEsyqT0b/Ei
-	 qSxeWYZCNdN1A==
-Date: Thu, 21 May 2026 17:26:15 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: Fix OOB in scmi_power_name_get()
-Message-ID: <20260521-loutish-lurking-koel-229bd9@sudeepholla>
-References: <75caae28bdffb55199a0bc6cac5df112a966c608.1778838987.git.geert+renesas@glider.be>
+	b=DuOoRKBO6Y1Oqrq2sJVjpuELojujcFM80db44IMaa6rdCsVyxoL2s+9M7w0kvfCxY
+	 WCW3FPjEQbdO3j0DQ1pU/39D2T4/mSgwGY/XxIKOZ99G52iza5+52jIdv/FZfUwWIi
+	 TKQELjriOStYA3QCfXpiFucHhhGpZQeGtMu3ZBtbfP5D+Mh8Zt2LZ1PGhN+qPrI0aw
+	 6xkmpJjoMLOWpnx9ml1tKtw54ghGgcDQUD309KlAWUMHkk31otLpmnySG1nt0I98cR
+	 ccI4arI3xtm1COLpzPFvlggMBVkYkf2XDAzZguFVzH0ETgrlum/YGVLx6H8Y1F9dOB
+	 BCKRbLLME2zqQ==
+Date: Thu, 21 May 2026 17:27:05 +0100
+From: Lee Jones <lee@kernel.org>
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+	Sebastian Reichel <sre@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Christian Loehle <christian.loehle@arm.com>,
+	Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	John Stultz <john.stultz@linaro.org>,
+	Moritz Fischer <moritz.fischer@ettus.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Andre Draszik <andre.draszik@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD
+ cells
+Message-ID: <20260521162705.GH3591266@google.com>
+References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
+ <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
+ <20260521112638.GD2921053@google.com>
+ <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
+ <20260521132419.GA3591266@google.com>
+ <CAMRc=Me5QS4xA3PJWXNuRP1N_C+w3sP9ZvqH36GNh2Ebc9hwcw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <75caae28bdffb55199a0bc6cac5df112a966c608.1778838987.git.geert+renesas@glider.be>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMRc=Me5QS4xA3PJWXNuRP1N_C+w3sP9ZvqH36GNh2Ebc9hwcw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,43 +103,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 15, 2026 at 11:59:15AM +0200, Geert Uytterhoeven wrote:
-> scmi_power_name_get() does not validate the domain number passed by the
-> external caller, which may lead to an out-of-bounds access.
-> 
-> Fix this by returning "unknown" for invalid domains, like
-> scmi_reset_name_get() does.
-> 
-> Fixes: 76a6550990e296a7 ("firmware: arm_scmi: add initial support for power protocol")
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
->  drivers/firmware/arm_scmi/power.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm_scmi/power.c
-> index 3aa84ceb6d2bab68..4a7215e02dec035d 100644
-> --- a/drivers/firmware/arm_scmi/power.c
-> +++ b/drivers/firmware/arm_scmi/power.c
-> @@ -204,8 +204,12 @@ scmi_power_name_get(const struct scmi_protocol_handle *ph,
->  		    u32 domain)
->  {
->  	struct scmi_power_info *pi = ph->get_priv(ph);
-> -	struct power_dom_info *dom = pi->dom_info + domain;
-> +	struct power_dom_info *dom;
-> +
-> +	if (domain >= pi->num_domains)
-> +		return "unknown";
->  
+On Thu, 21 May 2026, Bartosz Golaszewski wrote:
 
-The only user of this function must not call it for domain >= pi->num_domains.
-However, I am thinking if it is bit inconsistent within SCMI core now. I like
-the way pinmux/ctl handles this as I don't like the alternative for this
-(i.e. ERRPTR(-EINVAL or something)). Worst case if this ever causes issue
-we can change the signature of the scmi_{power,reset}_name_get to follow
-something like pinmux and update the users. Thoughts ? Happy to apply this
-for now.
+> On Thu, May 21, 2026 at 3:24 PM Lee Jones <lee@kernel.org> wrote:
+> >
+> > >
+> > > I suggested it because of its flexibility. The alternative I had in
+> > > mind is something like a new field in mfd_cell:
+> > >
+> > >     const char *cell_node_name;
+> > >
+> > > Which - if set - would tell MFD to look up an fwnode that's a child of
+> > > the parent device's node by name - as it may not have a compatible.
+> >
+> > Remind me why the chlid device can't look-up its own fwnode?
+> >
+> 
+> Oh sure it can, but should it? I'm not sure it's logically sound to
+> have the child device reach into the parent, look up the fwnode and
+> then assign it to itself after it's already attached to the driver.
+> This should be done at the subsystem level before the device is
+> registered.
+
+Leaf drivers reach back into the parent all the time.
 
 -- 
-Regards,
-Sudeep
+Lee Jones
 
