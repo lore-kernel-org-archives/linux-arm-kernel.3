@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE5CCD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DE4CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hjv5krAaDJx5mxgjoBeCgWRbvV3ZS906GRVFf9b+Mm4=; b=v4IF+gid5aOR+5IsVO0uNINHyT
-	dx8HWcEJDUEKbuUolYCYVKYeSxWvZvFKdwWYrJR5cP/rIgxBSoo/OM9GecBVWyzqYqLU3L9X42QF8
-	Z49BSwbyYtxglsezF8ebpJ4fV6Vzfog40Eg7a/8kb72v1pFi9euOTx3E9PCdyU8vmrDjOKpEeCSCk
-	AucCw7lCKVIM6k0/PCEv3Zphk5cKNHVkMMFK+sC7AxBL+Ay436yo0nFP4BhKRMF9PUGOM+ng+Fg28
-	7osfp0TSl3F8Xhfl3dclDtKbSV3AtxGbk0oPNZNukwVB/GM2e2KKsgr1rcS/oLWHn+Fj4O+SlZHSz
-	ZPe8sHFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	MIME-Version:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tla4LIP0HEFHoX1w40Aji8U/IZUoIzvhT3y/D99OCOM=; b=DKck/Iuuv5cSpVvMkIyzoGq8pg
+	LpTyOICNs7qF/MQdXUrOzdElxkstrixYx9N7QHSRVBnaH9AkeZLjhJAtwDa67pwSkxfDc79NoArCJ
+	dpT9okHcfn7eK/LOGvlaDbLgcD4VvNERX8totDFKo5xjAU88nwg0I726kNOnqbIdvTMLrI6BZA3UK
+	N5Qm7EItQVjhd/Y9iaXrdC4rQxIyuxk3yNAuECromfZMW4KxMu68aqklhEG4ZBQQMJLLesC7UaYJC
+	19TVmzisohA9V6TAtxvr/Yg7RsKt/QHZXJUa1p573m76C4/e50sCFi3WuKrRAlgcqFiQV8AjB5OtZ
+	dMhNFgog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzUR-00000007H59-2PuM;
-	Thu, 21 May 2026 09:14:51 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1wPzXW-00000007HS8-0j03;
+	Thu, 21 May 2026 09:18:02 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzUP-00000007H4X-1C6L
+	id 1wPzXQ-00000007HPx-2p5P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:14:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779354889; x=1810890889;
-  h=date:from:to:cc:subject:message-id;
-  bh=kGyNfFZNYvth3DU2A/jloM7O8vxQUoCKSUm3ZxGhZDQ=;
-  b=FbaGBY540Iy3tDXOyLNPUUnQzsCe4I9nVDnkMxXm0uwJqb6Ti5Q3NItR
-   +rUuxBqPKiQ+U9MqLWYn/e3F0Iz6fz4mIT4Htykvz0f6MIYEjXovZx/sd
-   Z8UFZugWZwdC0ZGS47RS/ljW/2HEeAXPp0QWim7K4RvNaAsFVBUY/TNbf
-   JYNL8WvsCLrtgmXYVA9yHXvfJwASluizydgXjphyo7QE/JEfmCj0wNA64
-   B+DwiIBnAqGJ6AYlNuwKjFHmO0ivT2gsft4zJxapCliFG7Ar6ZOdBvjG3
-   I6HQqo3YeTiN5CC4TSc2qWIFbOcjc2RaxF+Io/dP+1KQFf/WFTI1tQvPW
-   w==;
-X-CSE-ConnectionGUID: UIrBkKNPS3qlJbEH84JdLw==
-X-CSE-MsgGUID: CPscfwbZTOqSZQSVSMPVOg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11792"; a="90567664"
-X-IronPort-AV: E=Sophos;i="6.23,246,1770624000"; 
-   d="scan'208";a="90567664"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 May 2026 02:14:49 -0700
-X-CSE-ConnectionGUID: Dp9SHBj+TvqFmPyf+KbuJA==
-X-CSE-MsgGUID: dQYqfrtgQcKDyIJ7FXzgLw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,246,1770624000"; 
-   d="scan'208";a="237872408"
-Received: from lkp-server02.sh.intel.com (HELO 30e86e9c1927) ([10.239.97.151])
-  by fmviesa008.fm.intel.com with ESMTP; 21 May 2026 02:14:47 -0700
-Received: from kbuild by 30e86e9c1927 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wPzTX-000000004j1-2NDS;
-	Thu, 21 May 2026 09:14:00 +0000
-Date: Thu, 21 May 2026 17:07:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/dt] BUILD SUCCESS
- e8a53f2d9c367a454aedf86c964f9c68efc993d9
-Message-ID: <202605211706.CAOj177y-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 21 May 2026 09:18:00 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260521091750euoutp029019ead77c04b2458adeccf709e02a6d~xigJrSrAF2230022300euoutp02D;
+	Thu, 21 May 2026 09:17:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260521091750euoutp029019ead77c04b2458adeccf709e02a6d~xigJrSrAF2230022300euoutp02D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1779355070;
+	bh=tla4LIP0HEFHoX1w40Aji8U/IZUoIzvhT3y/D99OCOM=;
+	h=From:To:Cc:Subject:In-Reply-To:Date:References:From;
+	b=JWBCucmL7WVMJM9IsjHOplWSYB8TAS+pQfF3q1fVesX3jVDIbFESbMlVhLPvCqoHx
+	 N9CWIQ/CTnGFge8SjaB2JJ+AE97haJdA1bK1IIxMCsb6knPRj6qpy5nW36HHbH6vSp
+	 S2UTPGvg/kuh2tkLNe2SSiMAQ5d+KQdvZ+0kxBjg=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260521091750eucas1p1b3186d0ad37643279c08c842482c461b~xigJGJI1B0858208582eucas1p1H;
+	Thu, 21 May 2026 09:17:50 +0000 (GMT)
+Received: from localhost (unknown [106.120.51.111]) by eusmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260521091750eusmtip1aa20055378fcc28431326a001e937a4c~xigJCdYqo2518325183eusmtip1C;
+	Thu, 21 May 2026 09:17:50 +0000 (GMT)
+From: Lukasz Stelmach <l.stelmach@samsung.com>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,  Kamil Debski
+	<k.debski@samsung.com>,  Kyungmin Park <kyungmin.park@samsung.com>,  Marek
+	Szyprowski <m.szyprowski@samsung.com>, linux-arm-kernel@lists.infradead.org,
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: s5p-g2d: avoid double free on video register
+ failure
+In-Reply-To: <20260517114642.951949-1-lgs201920130244@gmail.com> (Guangshuo
+	Li's message of "Sun, 17 May 2026 19:46:42 +0800")
+Date: Thu, 21 May 2026 11:17:49 +0200
+Message-ID: <oypijdv7ch86ki.fsf%l.stelmach@samsung.com>
+User-Agent: Gnus/5.13 (Gnus v5.13)
+MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="=-=-="; micalg="pgp-sha256";
+	protocol="application/pgp-signature"
+X-CMS-MailID: 20260521091750eucas1p1b3186d0ad37643279c08c842482c461b
+X-Msg-Generator: CA
+X-RootMTR: 20260517114658eucas1p26d540bb0740e60f04f7be661f2991add
+X-EPHeader: CA
+X-CMS-RootMailID: 20260517114658eucas1p26d540bb0740e60f04f7be661f2991add
+References: <CGME20260517114658eucas1p26d540bb0740e60f04f7be661f2991add@eucas1p2.samsung.com>
+	<20260517114642.951949-1-lgs201920130244@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_021449_377346_1F4057C6 
-X-CRM114-Status: UNSURE (   5.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_021757_309393_979B6614 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,212 +86,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
-branch HEAD: e8a53f2d9c367a454aedf86c964f9c68efc993d9  Merge tag 'zx29-dts-for-7.2' of https://gitlab.com/stefandoesinger/zx297520-kernel into soc/dt
+--=-=-=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-elapsed time: 733m
+It was 2026-05-17 nie 19:46, when Guangshuo Li wrote:
+> g2d_probe() allocates a video_device with video_device_alloc() and
+> releases it from the rel_vdev error path if video_register_device()
+> fails.
+>
+> This can double free the video_device when __video_register_device()
+> reaches device_register() and that call fails:
+>
+>   video_register_device()
+>     -> __video_register_device()
+>        -> device_register() fails
+>           -> put_device(&vdev->dev)
+>              -> v4l2_device_release()
+>                 -> vdev->release(vdev)
+>                    -> video_device_release(vdev)
+>
+>   g2d_probe()
+>     -> rel_vdev
+>        -> video_device_release(vfd)
+>
+> Use video_device_release_empty() while registering the device so that
+> registration failure paths do not free vfd through vdev->release().
+> g2d_probe() then releases vfd exactly once from rel_vdev. Restore
+> video_device_release() after successful registration so the registered
+> device keeps its normal lifetime handling.
+>
+> This issue was found by a static analysis tool I am developing.
 
-configs tested: 192
-configs skipped: 2
+Thank you for taking time to analyze our code. I was going to write
+something along the lines Marek Szyprowski has laready written in this
+thread https://lore.kernel.org/all/CANUHTR-RfWnoMRRAoDb6CPZsaiAYBLy61dd0P6T=
+nKYgjNeBWpA@mail.gmail.com/
+Do follow his advise with this one too.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> Fixes: 918847341af0 ("[media] v4l: add G2D driver for s5p device family")
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/media/platform/samsung/s5p-g2d/g2d.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media=
+/platform/samsung/s5p-g2d/g2d.c
+> index a18b13db19d5..f38c28abd6d9 100644
+> --- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
+> +++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+> @@ -684,6 +684,7 @@ static int g2d_probe(struct platform_device *pdev)
+>  		goto unreg_v4l2_dev;
+>  	}
+>  	*vfd =3D g2d_videodev;
+> +	vfd->release =3D video_device_release_empty;
+>  	set_bit(V4L2_FL_QUIRK_INVERTED_CROP, &vfd->flags);
+>  	vfd->lock =3D &dev->mutex;
+>  	vfd->v4l2_dev =3D &dev->v4l2_dev;
+> @@ -711,6 +712,8 @@ static int g2d_probe(struct platform_device *pdev)
+>  		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
+>  		goto free_m2m;
+>  	}
+> +
+> +	vfd->release =3D video_device_release;
+>  	video_set_drvdata(vfd, dev);
+>  	dev->vfd =3D vfd;
+>  	v4l2_info(&dev->v4l2_dev, "device registered as /dev/video%d\n",
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-alpha                            allyesconfig    gcc-15.2.0
-alpha                               defconfig    gcc-15.2.0
-arc                              allmodconfig    clang-16
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    clang-23
-arc                                 defconfig    gcc-15.2.0
-arc                   randconfig-001-20260521    gcc-8.5.0
-arc                   randconfig-002-20260521    gcc-8.5.0
-arm                               allnoconfig    clang-23
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-16
-arm                                 defconfig    gcc-15.2.0
-arm                      footbridge_defconfig    clang-17
-arm                   randconfig-001-20260521    gcc-8.5.0
-arm                   randconfig-002-20260521    gcc-8.5.0
-arm                   randconfig-003-20260521    gcc-8.5.0
-arm                   randconfig-004-20260521    gcc-8.5.0
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-15.2.0
-arm64                               defconfig    gcc-15.2.0
-arm64                 randconfig-001-20260521    gcc-8.5.0
-arm64                 randconfig-002-20260521    gcc-8.5.0
-arm64                 randconfig-003-20260521    gcc-8.5.0
-arm64                 randconfig-004-20260521    gcc-8.5.0
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                                defconfig    gcc-15.2.0
-csky                  randconfig-001-20260521    gcc-8.5.0
-csky                  randconfig-002-20260521    gcc-8.5.0
-hexagon                          allmodconfig    gcc-15.2.0
-hexagon                           allnoconfig    clang-23
-hexagon                           allnoconfig    gcc-15.2.0
-hexagon                             defconfig    gcc-15.2.0
-hexagon               randconfig-001-20260521    gcc-11.5.0
-hexagon               randconfig-002-20260521    gcc-11.5.0
-i386                             allmodconfig    clang-20
-i386                              allnoconfig    gcc-14
-i386                              allnoconfig    gcc-15.2.0
-i386                             allyesconfig    clang-20
-i386        buildonly-randconfig-001-20260521    clang-20
-i386        buildonly-randconfig-002-20260521    clang-20
-i386        buildonly-randconfig-003-20260521    clang-20
-i386        buildonly-randconfig-004-20260521    clang-20
-i386        buildonly-randconfig-005-20260521    clang-20
-i386        buildonly-randconfig-006-20260521    clang-20
-i386                                defconfig    gcc-15.2.0
-i386                  randconfig-001-20260521    clang-20
-i386                  randconfig-002-20260521    clang-20
-i386                  randconfig-003-20260521    clang-20
-i386                  randconfig-004-20260521    clang-20
-i386                  randconfig-005-20260521    clang-20
-i386                  randconfig-006-20260521    clang-20
-i386                  randconfig-007-20260521    clang-20
-i386                  randconfig-011-20260521    gcc-14
-i386                  randconfig-012-20260521    gcc-14
-i386                  randconfig-013-20260521    gcc-14
-i386                  randconfig-014-20260521    gcc-14
-i386                  randconfig-015-20260521    gcc-14
-i386                  randconfig-016-20260521    gcc-14
-i386                  randconfig-017-20260521    gcc-14
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    clang-23
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20260521    gcc-11.5.0
-loongarch             randconfig-002-20260521    gcc-11.5.0
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-16
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-19
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-mips                         rt305x_defconfig    clang-23
-nios2                         10m50_defconfig    gcc-11.5.0
-nios2                            allmodconfig    clang-23
-nios2                             allnoconfig    clang-23
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20260521    gcc-11.5.0
-nios2                 randconfig-002-20260521    gcc-11.5.0
-openrisc                         allmodconfig    clang-23
-openrisc                          allnoconfig    clang-23
-openrisc                            defconfig    gcc-15.2.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-23
-parisc                           allyesconfig    clang-19
-parisc                           allyesconfig    gcc-15.2.0
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260521    gcc-12.5.0
-parisc                randconfig-002-20260521    gcc-12.5.0
-parisc64                            defconfig    clang-19
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-23
-powerpc                      mgcoge_defconfig    clang-23
-powerpc                 mpc837x_rdb_defconfig    gcc-15.2.0
-powerpc               randconfig-001-20260521    gcc-12.5.0
-powerpc               randconfig-002-20260521    gcc-12.5.0
-powerpc                    sam440ep_defconfig    gcc-15.2.0
-powerpc64             randconfig-001-20260521    gcc-12.5.0
-powerpc64             randconfig-002-20260521    gcc-12.5.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-15.2.0
-riscv                 randconfig-001-20260521    gcc-15.2.0
-riscv                 randconfig-002-20260521    gcc-15.2.0
-s390                             allmodconfig    clang-18
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    gcc-15.2.0
-s390                  randconfig-001-20260521    gcc-15.2.0
-s390                  randconfig-002-20260521    gcc-15.2.0
-sh                               allmodconfig    gcc-15.2.0
-sh                                allnoconfig    clang-23
-sh                               allyesconfig    clang-19
-sh                               allyesconfig    gcc-15.2.0
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20260521    gcc-15.2.0
-sh                    randconfig-002-20260521    gcc-15.2.0
-sparc                             allnoconfig    clang-23
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260521    gcc-8.5.0
-sparc                 randconfig-002-20260521    gcc-8.5.0
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260521    gcc-8.5.0
-sparc64               randconfig-002-20260521    gcc-8.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-23
-um                               allyesconfig    gcc-15.2.0
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260521    gcc-8.5.0
-um                    randconfig-002-20260521    gcc-8.5.0
-um                           x86_64_defconfig    gcc-14
-x86_64                           allmodconfig    clang-20
-x86_64                            allnoconfig    clang-23
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20260521    clang-20
-x86_64      buildonly-randconfig-002-20260521    clang-20
-x86_64      buildonly-randconfig-003-20260521    clang-20
-x86_64      buildonly-randconfig-004-20260521    clang-20
-x86_64      buildonly-randconfig-005-20260521    clang-20
-x86_64      buildonly-randconfig-006-20260521    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20260521    clang-20
-x86_64                randconfig-002-20260521    clang-20
-x86_64                randconfig-003-20260521    clang-20
-x86_64                randconfig-004-20260521    clang-20
-x86_64                randconfig-005-20260521    clang-20
-x86_64                randconfig-006-20260521    clang-20
-x86_64                         randconfig-011    gcc-14
-x86_64                randconfig-011-20260521    gcc-14
-x86_64                         randconfig-012    gcc-14
-x86_64                randconfig-012-20260521    gcc-14
-x86_64                         randconfig-013    gcc-14
-x86_64                randconfig-013-20260521    gcc-14
-x86_64                         randconfig-014    gcc-14
-x86_64                randconfig-014-20260521    gcc-14
-x86_64                         randconfig-015    gcc-14
-x86_64                randconfig-015-20260521    gcc-14
-x86_64                         randconfig-016    gcc-14
-x86_64                randconfig-016-20260521    gcc-14
-x86_64                         randconfig-071    clang-20
-x86_64                randconfig-071-20260521    clang-20
-x86_64                         randconfig-072    clang-20
-x86_64                randconfig-072-20260521    clang-20
-x86_64                         randconfig-073    clang-20
-x86_64                randconfig-073-20260521    clang-20
-x86_64                         randconfig-074    clang-20
-x86_64                randconfig-074-20260521    clang-20
-x86_64                         randconfig-075    clang-20
-x86_64                randconfig-075-20260521    clang-20
-x86_64                         randconfig-076    clang-20
-x86_64                randconfig-076-20260521    clang-20
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    clang-23
-xtensa                           allyesconfig    clang-23
-xtensa                randconfig-001-20260521    gcc-8.5.0
-xtensa                randconfig-002-20260521    gcc-8.5.0
+=2D-=20
+=C5=81ukasz Stelmach
+Samsung R&D Institute Poland
+Samsung Electronics
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEXpuyqjq9kGEVr9UQsK4enJilgBAFAmoOzb0ACgkQsK4enJil
+gBDAvwf/UqBCHoEFcpYoctqpNZB9CoQg5p5yFhsNbYNDc15ydTPBINYKGRXBzPLe
+U+mHRQeqxMHzlzKnBYGJX7LYWXJyK0HAi0Et+jlb4o/v43eoBTBfaaRrbm+ST3sT
+8qVUOcBjdV3AkiXggyGqS5F9XSqEAlcVFc6QJ+YgpIDvu4Kkp6KWBPXqgBT+THPa
+6z+mLGHQNX0NNalw1XBLjbNGlbec6UMFMYk8NJgMV1I5sWdIiDuvUCWyk/oiVwOM
+FTq/BI8ey1+z1bOCux903ak+3iz22voLKCfQPYESX84hDSRs/gAwOh0x5iM5a6kU
++8oCn5DaDhL/D4jVXb7Dq2PVIWahdA==
+=CxIp
+-----END PGP SIGNATURE-----
+--=-=-=--
 
