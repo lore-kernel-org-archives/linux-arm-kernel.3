@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D2E0CD4F3C
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DBDCD343F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:31:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4boqme9iUjUIV4GcvFrCDeA4PvHhjJya/WtmJw6vPuE=; b=IHFyoCpLlywDpOo+PW50ZjReQC
-	UCGXDxYqf9yxQoiLsy7u+mhEnFqQpOlosbJdvoXDmm8HpoTVmzzSMK8OGW5PHa8Okp4ycsDB9Qp/1
-	pIpgWNg9qg/VavjfOLh/2PwAtO7LFxDndLtwjY9ActZTYl1zHCi/OoKCBJj99B7cOyA1WiA9LKHUv
-	WEFfSngTQenxdU3wrDTgRD1WOlBQdQs1oQq2sxNjXnB5spac8RWAYYeyZLJu9U6g7/ZhwRMXCNgVN
-	23fRwTmvcV7cxmLWw7mb/fE7b0DJW5a1CDOdSSUvGJv0eyH07ExkxuXa/78BdR+evCnmM4c8XrJq1
-	rirFt3sA==;
+	bh=eYhso8TfMCnXM9uSQ+Kj3fWxAmU6jcWe4YzOGKmG3cs=; b=b5vj3tSFC/fyNdfSJS1kN+tXLn
+	4YmRM8sDaG0tUlRYNhbBUoXT7LfEzEuOjSh4OFud4O9kyXRPTMxqevPmntdXpmLLIajsds5tpkUHD
+	L5TMVVCiaysf/Z5CLq1xtdJzGfu0eQdpihvLjYBlkaBgcAYrgdksbah38KMxmWoOQJy9KqhhZ3VDZ
+	xrQKfM4wf7eg/Z8i9W+7agA4l9phY004pAUeeea2oHx0IsTSjOAnj+l0xy9V5JjAypq4gSN+ZU+Xi
+	60+pRApppBmLD3SVQ6zWMACIaWeZlUm5cZRCaOj0eItvgMZAXS4+QqS3Q+Qp8Ufa/pP+mwbxfp19m
+	C99My8Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxrz-00000006xtJ-1Vjq;
+	id 1wPxrz-00000006xtZ-1viw;
 	Thu, 21 May 2026 07:31:03 +0000
 Received: from mail-northcentralusazon11012063.outbound.protection.outlook.com ([40.107.200.63] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxru-00000006xpa-2eI0
+	id 1wPxrw-00000006xpa-01ND
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:30:59 +0000
+	Thu, 21 May 2026 07:31:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=m9PyxXTr2jsFiw9XOivdSZLrZQYpqPCSQKZbs+bEzgxTM2TH/eO0TskYjELSKwGrZocKB8Swh7H3gaLxy2TIMFTCObsw0EFGnADAXXG28cV16V+cScOYQcDNHlTezRQyUgduo3fRj1b3N8KJWsZVSsdKnktpECZB5RSdP5Nt/kMevl0N8XanPtsSK4a8Jp0OzkueMiWkm8VbPRBfKHlRkGxi0R0sSjIjDWot0HN6NXS0XyLriLMUtZui5b1D33pA0SClHL7OK0VpcpC6cBzqhM3LmrxJ5CT5R8+ST3lE/m2hVE2d2ku3fxNsqtN5leVYovTRnHhILbb52BLh41PvVA==
+ b=PhIzVFNOG+d19xq7f06+S9VRC06eLGy/Y3T8avwvo4F/U0GLkRCq8U/gUR83KVUU4qM361ldnIPEj88Rc16ZwoppgP2lOr389mSAFvAk10bpny4ieAlP0VWOXd3zN1NuI+idghZI4eqcHhCOHK1BJwiW3ZrppuV/ZV0hCLAR42pB0rWVFSux9r0A7Ei4hCq+VT6iPIIVoRQ6iTvsgrlRxJDEnzop1p2EC9T/hK9VJliycwT2quELQkpTzWyPAHPsS+s8HQOjMjJy78okKyYhQejebIqPt4OrWJh+/5kZKClwYKEh12FlvFUQ6KFGbPwGeiEqx/jvbjyB9/AutJPDsA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4boqme9iUjUIV4GcvFrCDeA4PvHhjJya/WtmJw6vPuE=;
- b=buTYUfBCiTSsMKchO3D3HurB0Krk8K5tThjkTw7tJEQFb7DTjDxbfpi9JFSPh5924VX04g7SEFRqK5wLXPM2ABYzkZF3CLifEzo+aJGu8xysc3MPew3MnlhSGRQlrrEZNEsbpuYv7vyPhvSfpNcVYtAdzwhZot7dZQiykb7If3YzOQncIQt3lkbE0PNGOI0C3FZLeWip09oqg3LIGrI+uXzo9GrhpSvhE1S69Xn649/TdhQiyRgsCSiZwl6I+rdfIk7F/wsG8Rfgj3HOD1SZ87gCBm+rWc+z3szyzrAp7UprPXafsUhSMZGO7BiqVbOXrs17WmMGaBO/MXi2k+LW2w==
+ bh=eYhso8TfMCnXM9uSQ+Kj3fWxAmU6jcWe4YzOGKmG3cs=;
+ b=YOiZEu6rX39q7hwif0Mqk1U4GTjWcG/sV2dI3TIB1rlEHbL2ZsMpOBo8Ij/EJ3K7ifXS0dYUGNDmDucw9s95g77IltBCQ92hDMC1CoWTRuA0jjLnKBINTZpr3Y8gcYNc3QFxcUW1IKKRcZW3mVWrTYfyrJp+NulD0XqG5MNPZSF/zs9uPh4zRoQNn5yIzdVpEiesrkYbtrJElhbOiR7j8cJt61wMHi0MUa514MLqhTzH20LxYCi28YoRd6oiyAKBgq736B/Jr2xIvZdcLNQLOQWH6iltW6mU6FW3U78Pja+2vEYxWGPlRjpdPfRWlBldP4bGJRKHPFg0pKzx/rp8Lg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4boqme9iUjUIV4GcvFrCDeA4PvHhjJya/WtmJw6vPuE=;
- b=TK2CnSFjfFDj2YwkMRpmyzY5u1mwd0e4BaUhRoDAjbnxp9+z0I9psxV4nMt1c8fYR+V9L+wnyJoNYiyP9lGm6XgjGnKeEmHPUgmisFa33XfRGQBRJAdy0n3RFHnMfYUcUbQKA2oXzi2yFRr/kjCOzRQaXl78kwyOU5m+i0M268EbA5IYNPrs8te1fbpVtFil27fkVkY6OrogHoqn49wurF1/m9xeEsnc6NX1+nKTFJyrCX/iGnn2Zklu4rZdE9zmnw/NFXOu0VtLvlNIsNdVT8LCjqaDndOd5cooNQzeaAaenImBSH4msnEaj5QXmuICRwXbg8uc0KoTlWuiFXFPkQ==
+ bh=eYhso8TfMCnXM9uSQ+Kj3fWxAmU6jcWe4YzOGKmG3cs=;
+ b=sNKbK0OZ5Qo1GsP5Ded6EFqMS39Ui3UI5U9aA380bylQR2faMEwunsR2neQW7V2iTC7KTw3g4nMZ9ZzupTfmrGJ09K0tmIcjyMqet9YMVl+UWEKUBxiW1gVmcYhltvNtPU3srJMVO8UEjluVd66D3rwc7IOvhCeujD3L1jv63vLnT7MZ9SVVAkq0MNiynRZIe8fj1NTqmXQgkxrtgmz1dnf6MuNYMedbTk3L0dCp5quPFRPTeB+XK1DQBqDj3pOQYSgcrL8t0xOLvh0aTbLOSnOi3fBvzmjwkgIQnwTXD5G1ej5uiFHWG724pSmcDJp0Ly7aGYzYj4Sf9YYk5jh8mw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DS7PR12MB9474.namprd12.prod.outlook.com (2603:10b6:8:252::17)
  by MN2PR12MB4254.namprd12.prod.outlook.com (2603:10b6:208:1d0::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
- 2026 07:30:54 +0000
+ 2026 07:30:56 +0000
 Received: from DS7PR12MB9474.namprd12.prod.outlook.com
  ([fe80::31ad:931:ef07:8ad7]) by DS7PR12MB9474.namprd12.prod.outlook.com
  ([fe80::31ad:931:ef07:8ad7%6]) with mapi id 15.21.0025.016; Thu, 21 May 2026
- 07:30:54 +0000
+ 07:30:56 +0000
 From: Srirangan Madhavan <smadhavan@nvidia.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -71,73 +71,72 @@ Cc: conor@kernel.org,
 	alwilliamson@nvidia.com,
 	Dan Williams <danwilliams@nvidia.com>,
 	Srirangan Madhavan <smadhavan@nvidia.com>
-Subject: [RFC PATCH 1/2] arm64: smccc: add cache clean/invalidate IDs and return codes
-Date: Thu, 21 May 2026 07:30:46 +0000
-Message-ID: <20260521073047.320614-2-smadhavan@nvidia.com>
+Subject: [RFC PATCH 2/2] arm64: mm: add SMCCC-backed cache invalidate provider
+Date: Thu, 21 May 2026 07:30:47 +0000
+Message-ID: <20260521073047.320614-3-smadhavan@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260521073047.320614-1-smadhavan@nvidia.com>
 References: <20260521073047.320614-1-smadhavan@nvidia.com>
 X-NVConfidentiality: public
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: BY5PR04CA0029.namprd04.prod.outlook.com
- (2603:10b6:a03:1d0::39) To DS7PR12MB9474.namprd12.prod.outlook.com
+X-ClientProxiedBy: SJ0PR13CA0081.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c4::26) To DS7PR12MB9474.namprd12.prod.outlook.com
  (2603:10b6:8:252::17)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DS7PR12MB9474:EE_|MN2PR12MB4254:EE_
-X-MS-Office365-Filtering-Correlation-Id: 09e503be-d9fc-489e-8186-08deb70ae437
+X-MS-Office365-Filtering-Correlation-Id: cf49ccce-aa07-4d10-5bf2-08deb70ae597
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|22082099003|18002099003|56012099003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: wkUdioVSoZ6SxiTRUTiH9APUOMlivVDhgjCotoHtxnKS08BCIAaoia1T14wClGlL2VUROn5c8Ax3QOMxyyTo7B2BXXE5fx/NJbzFiFRK0uR08B9PETiIfL1GWfFhOW4PbDSotaevGs/kOi0Ozp/MVw65qFPINl941dBRDQHzScvNP0R5SZVfTSB+HSIST0Oxo5prNiq4JjmVGQooRZLe1QlH0sv1L52LnCjTlMLfX9bwJ75Kj8yUciECMABnp1lMq0BWvI6WX2yWw3mAl0d3df0VXyyFaXuGrV6VOzwUQMaconS7GkiEzBc48p7ASmzXB3iBPRHq+6jUuDOtCJUXB4ZbYxi+nQH0fsk04Z0gW6cWmx6C9WVfjxT8fcPvwmvNdMSZL8Duvouyi31NjpgycbCfY4rf4LcTzO4CyJvoFmWjpUHUDQjIDlVfOpzd7q3Z3lmsl/7JUgJChoTsSuWEsMqyZy9Pkq5EaQ4LnjbMRzTj2vs9VZ9nCxQxGIsdC/xk22jebSuIlGhzsKm8u8HrB7MwNWR+QxT2xHS1t239ptb0sgqRVKF9blh1PweTin9MxWK0Li8FtSSkR+RNffMbze30MBC5IK96DGo6cj7SWJWyqVElKAEj68dNd/NRWd96kQTMvg/HozCRH3vne0Nfmh79rTNqs5fu9rQ1Z1ImC1gWpdmf+UW5eAojFYWbK8/x
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(22082099003)(18002099003)(56012099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|22082099003|18002099003|56012099003|11063799006|6133799003|5023799004;
+X-Microsoft-Antispam-Message-Info: sh5c90/lf9EEMRI6zW7JH+bqfrfoqOuE3haWqusRZ3ZdAKBFTdaxiwlFru97Q81vwSXsj5mG+aOmD/X41Wd7hGG0LtaDjGKBJ29AuJAXE/wYIIQPIIDNfG8KOqOgpcHYBPP5Sqtw6AG7kFmtqQLaVxy5Sxu/Dkl2sMZd8A+Tf/PrAaY4VgwBzS5guvHuWoV4luJaN4W2vWIyvuTy/P5ho1NIOgg8l0C7PcBz/RqVFbVdSI1vHYd5QUyXQ5B3QsFaeeOp+9XC9xcvHF0cp8ySYrNfVEFRpzuN6eCRuyNyyHJAn85y165LPoES48Suyo2BrzSHs2XcwyUrl/kIounMzXo6Z9pSxj8v8nKTGtxq19Oev+P58fzGr99H1Yi2ai8BBR9spbGAi5mX/jVJ62iScgzS8AlKVkL7tD7BpYgXUVElK/Pr/G8/Kw17lBnjK+9ZItGdwVxhsHYHFieWqtKLcY6DCZiWG4yhaar7QgcxzGblP63etSl/q4HdnDqUFHi2aol6V3mnA1ktRd7FIvSUnmyOyUJ1GxE9LHH/HpEDmxQ+9r+yl5VQ6yb/P4pbN/gLJEy8N9E253iiAdBUscm/cqnw/MshL9vt4V84x2iN3JzEKQroHTA9CqQp507QeN2bMl6H/Hinkue4EV4lmzibIY8bwX+uAN0Xu8jtMuflD3EqbOsX1md2HGc1p2vTmHWCR8IB3lFL1mcphGKpyhyzPA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(22082099003)(18002099003)(56012099003)(11063799006)(6133799003)(5023799004);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QJ3w7AikCdVpw1fD/YlZqbzYZ7QMcr4lHK7G4WB3uCUAg+F/bxABmYsYAhpi?=
- =?us-ascii?Q?dbUI4eTOInMQBhzCzCnDVBrxSxBv1h71Nb5GPt3SceYMrzPDP7VXUzlvPScS?=
- =?us-ascii?Q?MH9Ian95rI///40fROTMcdlgQv+myZJ0HqAbzv+xYgTYnuZFqJg/hBnJlVie?=
- =?us-ascii?Q?DS8WbE8xXmsgOocAJXtJewv3nwuP4C0qaiYvEu0irEBR2wkKFkatBm5T/ibm?=
- =?us-ascii?Q?aTv6YA893a4j6DV3uzRtYq8jEi+PYw5cIQ2WzrWLwwtVYKJQsKC5/wyCf7ou?=
- =?us-ascii?Q?F2iDFhbVXeNMcimz3LZ+jrOP8F7G+Hh+zqEE6u9Gks4LFb/esz+LvajTZQn0?=
- =?us-ascii?Q?jsENlzmeyJCVsmYL/IehUszkAAvBKFgkvcsriEJhrSv2Mbq347598/MT/VvI?=
- =?us-ascii?Q?MbH5hZyECLgvkNOsIilAsOEXEmjFf9S/9PzWcPYXDV/s2cljkHwV60YRnVKQ?=
- =?us-ascii?Q?275afGBRdNyj5afn95Cw804W4hSNbO7Pf7RqaH3KYEBRnxqrm1816bar+Wl3?=
- =?us-ascii?Q?+5F3hmJNAgaEM5smCJEs3CNBG4i70teHXxZsXzRhrqOzZo+N1/jgm27FtPKf?=
- =?us-ascii?Q?HAW8FD/7xZ5fgLnaJC03ONDtovlilhCDmS76GCgaL3/jI3Ztrzu1VN9mIBn2?=
- =?us-ascii?Q?MF4yJht64CpdO12vg4y9peNJp6fZfGV2JnnIJGBcdYdAtStA8qBXHfKJQQZr?=
- =?us-ascii?Q?8PzfUodLtRuVefdK6WVYnr2jQ1V7Ygo/JcJ/iMwdgP562viEp7DdMftSwmeK?=
- =?us-ascii?Q?FzeMX/0aqXgbJGZaFFTvf8GyGzmPRvQ7KvbjuJXTNWvJ4fs7jxS8tznsczm0?=
- =?us-ascii?Q?uhQS3vtCvoL3OYT6IeyVSvrbV0WsXP3vlZaylxBzWNxJzYOr/jqfH1Q6+/MC?=
- =?us-ascii?Q?4fETL3JIhyWykXjkOg0RSHOCMSG1NIV+6KoLcB/+VHeJv7FrtDWeHlRHpN5d?=
- =?us-ascii?Q?PGcXge39d2xARIffSeGAwPrkBqqfvizvVxxcHFyzRD2q/sWVKfYhqKlPgKpY?=
- =?us-ascii?Q?U2mlkQh5bEKLGr7B2LB3tCNjxF2mKhGc2oafHbbsAzd+aFIWDHoZ9SzMo8+l?=
- =?us-ascii?Q?439iOJdjYasNWpan8tWms8xG1rz+85uYR325w9hnUR6L88c2s9G+QW6ZlhX/?=
- =?us-ascii?Q?esMwvtPW1MtkTmcgkV0hAWHv78QUzW96hNzjy1UKB/2L2Jdv7jlOmCb+ceQh?=
- =?us-ascii?Q?TcAyWrdNxGXZVdkl1hT5HdX4CP6p/xjqv6XAJskSD7tEpJiqjtCJJ7TOkt11?=
- =?us-ascii?Q?gR4qPQWrdw2+487alvwBIh1/fNmVh1LRIlFoEVE1oBkgSqHes/+RN5WqkCz6?=
- =?us-ascii?Q?CdYJDR5AYed+EDNoJa1BogM7833xNxu3AsH2t9pzWcTe5tpDaxvVTGRp7m9q?=
- =?us-ascii?Q?ktDbI9rn1gKxezDQ+MhSsc1OdNvZSj37q/NlcUgcVx/+7WkIXIdD2Y5hLABB?=
- =?us-ascii?Q?rOfFzq8BMT6Gg/jfe6izY8Vn4AQdZK+NFps6j8TGF9iHIuRtdKff9imB6cMr?=
- =?us-ascii?Q?Q4n9ZN1OVf2yiu0ublpRW7KxOdmSlzikI3uKtnhJJYPfz6dASDhqebWqFNpj?=
- =?us-ascii?Q?wxXAt2pOzzknv6VwiVJ1qhZNGlaItzYbCTAqI6pQwDRKj6GAd7UxEpTzoSl4?=
- =?us-ascii?Q?pFvU3N1GstMQcHcHYzU5ogq45bjbpaG1lJ8DC1WC8Pnc/OqsJDoZZPyx13rc?=
- =?us-ascii?Q?GmcUw84MHAcFeF6O09Kh1F0o5slhIuVO6gBVL750RCxpiC2WZ/JtgEtAV5u9?=
- =?us-ascii?Q?7OAbRDFjcQ=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?i8FcK1f9kbaeLob6h+JMLNgBd27sDzojTNjr8rgad70quD5MeDSQ3Nuj+TuP?=
+ =?us-ascii?Q?nNdql1xf2srIp/YG5ucI51aXpCD2Hfi682A+yT/fXTikscmYkhhtJRf2TtO/?=
+ =?us-ascii?Q?dfKW27E3qa0JrEHuGHHE1jFrTIx5DT+6GVJZfhwBzTkA2J45gzPNUuOQZJnV?=
+ =?us-ascii?Q?sZ4lzP0Ew6czjxvA7kHf9Ub30bO1hYPVaVyjcOilt6ONk2TyoYcF68GwmemC?=
+ =?us-ascii?Q?frCtJAhxA7SRpbXt3l3kM5FNqiKoGeHgNJEEQPPxwwQqJNAK6nw/G/9BgL6G?=
+ =?us-ascii?Q?b7mauLlXo6UVkKHqj+DrQF5D+GFZLnpbJuU9+WdEIRhrM10ejPj5F87tkXw4?=
+ =?us-ascii?Q?eVnOP9FR59Zu7yO+J7rRK+J+MeiYcqX0nV4b1o/0eYC6wbAde/zlqUxBUO6l?=
+ =?us-ascii?Q?WTW01nj/rx5e1nbLV0APyy39wSc/aKo7tLQ+DdypfpjJXhb4KntQqv/YOO8g?=
+ =?us-ascii?Q?d70HVoby7laLF8YkCGjnwZhim2PdIxKuHjv9UnzlVPjMPHW0G0JfXtYO1ZNY?=
+ =?us-ascii?Q?D8CMxeef6vryv9QQ+Ql6AuQYbvG5bo436Ir2S+xRv3+AZqmujGcY2Pa6cA/A?=
+ =?us-ascii?Q?NioXt3NFOPa5lLOJidN2LD9MagiitaeumsplpeihPyUttQ5iRseSddh9Hfks?=
+ =?us-ascii?Q?ZN9HESKN4L8NmFqOIoHlMbmx2Z9zQdNJ7iw0LUbkl/rpgNkk7U2dNwcW0cpH?=
+ =?us-ascii?Q?SCOehIOUPagIUT6Tk6rdSSa3bTuwxDYIxG9gz9/9RvBG25VF42g7DPGZSB48?=
+ =?us-ascii?Q?+rhrxScPqvn64ROf4PV4b4TbdwZOMIMe36x1KRqwPVhMyBHtRsGfQpt1VnS9?=
+ =?us-ascii?Q?DlZ3gsH5dZxM8L6EYl9lH8eGq74NhwcKoUFlf3nN8Go3DFwOM+p7bauI3+9B?=
+ =?us-ascii?Q?FrIjJEJpdXBeWjFjM13oG2+Gi8VaC8R1a0QUpf1jkRhrNq9i+F5qRWRgAZXv?=
+ =?us-ascii?Q?ai3hBDnbtJDbKHcHuNadBFAuvgFJuITr+7cdyIa3cx09ANmGhMb1lwQDPWcL?=
+ =?us-ascii?Q?8vnVVCo0kToDskmGXzE8MVDr7aO4VQ50xXn4MSN3mwS1pKUBS3mz2DONH72s?=
+ =?us-ascii?Q?rce6AtE5lf8L/gZYtDh6jWZg1RVwvqygJep4KnQ8ptMwBGZ0XsSgwXR8T7i7?=
+ =?us-ascii?Q?X4dVqu+VdfyvFLnb7js1Zw9S2w/iEyKm0U8VY4NxgtT3aSVxw0+7491GVUSg?=
+ =?us-ascii?Q?MIDwrXZua9aqq9JxJOujbs5Hec0F5SXX5qBmv92nd1wDCzTKkl4Nt7xWVXK4?=
+ =?us-ascii?Q?Le3PLUjWgiwYAs9NfECLbnMUq9ONn/ByVVwiOHeYTbyZ7a7CO+12E4PPCqjZ?=
+ =?us-ascii?Q?jRfRdDKJkBd28y5/s6l2ZzSIIERQIodXiquXnyT//F1lSokymBbVThGZiFeT?=
+ =?us-ascii?Q?1ObHWQPnLBtk88g7DwqkLbO8GQ/er+eHTodBfFXeZsQics/AO3NuKo2uXHbH?=
+ =?us-ascii?Q?BK2uii7FJEYjyHTEAJf4OhTa82AruqxnzRhYJk0SR5NwENU/vua6F4KerFe1?=
+ =?us-ascii?Q?XVl/GArUa+G2CyC7XCwjfyAbpOQ154ZiNPp1crop7UlsybgwCa7RJWZtNay+?=
+ =?us-ascii?Q?LvzP9UCma+LwF1lR5+LmzoeUhvQivopEMZU5E21EYFp+0Zhp78rE+CVXWz7r?=
+ =?us-ascii?Q?4lU5m8Ewxx2z0ZA8Ca49kzPxcp/ZUXXUfwUf1+rSi4Jnwiiv6vX4qPzdqEZ7?=
+ =?us-ascii?Q?W5FWAAZOxLYehdId6kTNQFaqusqrhv7nzOV4DZESYKuYITHnI6xSwudOvAve?=
+ =?us-ascii?Q?zCDt0h/dtA=3D=3D?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 09e503be-d9fc-489e-8186-08deb70ae437
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf49ccce-aa07-4d10-5bf2-08deb70ae597
 X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9474.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:30:54.0705
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:30:56.3976
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Mrsb6t9Rqmb6SqSw1mZgAaStyWkbkWN5OWBlkGwx9q12laX3yOBpioXnzkfeLGq4C0ibe3bUJ7mqG7qzt78rhQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: ih0yT6bfdBPjH0GYTT0WihNLVL1zqFqKV7q9rHzm5hJqllBBOuSRmwRi0H92XYJdmE1OhJ40cQbWnhW+B/YvgQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4254
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_003058_670401_971DBE6B 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_003100_062835_D6BF4C34 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,95 +151,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define SMCCC Arch function IDs for CLEAN_INV_MEMREGION and its ATTRIBUTES
-call, and add RATE_LIMITED/BUSY return codes from DEN0028 for callers that
-need transient error handling.
+Add an arm64 cache maintenance backend that discovers SMCCC cache
+clean+invalidate support, queries attributes, handles transient BUSY and
+RATE_LIMITED responses with bounded retries, and registers with the generic
+cache coherency framework.
 
 Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
 ---
- include/linux/arm-smccc.h       | 17 +++++++++++++++--
- tools/include/linux/arm-smccc.h | 17 +++++++++++++++--
- 2 files changed, 30 insertions(+), 4 deletions(-)
+ MAINTAINERS                 |   1 +
+ arch/arm64/mm/Makefile      |   1 +
+ arch/arm64/mm/cache_maint.c | 180 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 182 insertions(+)
+ create mode 100644 arch/arm64/mm/cache_maint.c
 
-diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-index 50b47eba7d01..cca9adbcc433 100644
---- a/include/linux/arm-smccc.h
-+++ b/include/linux/arm-smccc.h
-@@ -105,6 +105,18 @@
- 			   ARM_SMCCC_SMC_32,				\
- 			   0, 0x3fff)
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2fb1c75afd16..33c35f8e6e40 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -25383,6 +25383,7 @@ M:	Jonathan Cameron <jic23@kernel.org>
+ S:	Maintained
+ T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
+ F:	Documentation/devicetree/bindings/cache/
++F:	arch/arm64/mm/cache_maint.c
+ F:	drivers/cache
+ F:	include/linux/cache_coherency.h
+ F:	lib/cache_maint.c
+diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+index c26489cf96cd..b247dc5dfd45 100644
+--- a/arch/arm64/mm/Makefile
++++ b/arch/arm64/mm/Makefile
+@@ -12,6 +12,7 @@ obj-$(CONFIG_TRANS_TABLE)	+= trans_pgd-asm.o
+ obj-$(CONFIG_DEBUG_VIRTUAL)	+= physaddr.o
+ obj-$(CONFIG_ARM64_MTE)		+= mteswap.o
+ obj-$(CONFIG_ARM64_GCS)		+= gcs.o
++obj-$(CONFIG_ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION) += cache_maint.o
+ KASAN_SANITIZE_physaddr.o	+= n
  
-+#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION				\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_ARCH,			\
-+			   0x5)
+ obj-$(CONFIG_KASAN)		+= kasan_init.o
+diff --git a/arch/arm64/mm/cache_maint.c b/arch/arm64/mm/cache_maint.c
+new file mode 100644
+index 000000000000..ea7dd30d5dfa
+--- /dev/null
++++ b/arch/arm64/mm/cache_maint.c
+@@ -0,0 +1,180 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2026 NVIDIA Corporation
++ *
++ * Arm64 cache maintenance provider using SMCCC cache clean+invalidate calls.
++ */
 +
-+#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES			\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_ARCH,			\
-+			   0x6)
++#include <linux/arm-smccc.h>
++#include <linux/cache_coherency.h>
++#include <linux/cleanup.h>
++#include <linux/delay.h>
++#include <linux/errno.h>
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/mutex.h>
++#include <linux/nmi.h>
 +
- #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
- 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
- 			   ARM_SMCCC_SMC_32,				\
-@@ -294,13 +306,14 @@
- 			   0x53)
- 
- /*
-- * Return codes defined in ARM DEN 0070A
-- * ARM DEN 0070A is now merged/consolidated into ARM DEN 0028 C
-+ * Return codes defined by Arm SMCCC (DEN0028).
-  */
- #define SMCCC_RET_SUCCESS			0
- #define SMCCC_RET_NOT_SUPPORTED			-1
- #define SMCCC_RET_NOT_REQUIRED			-2
- #define SMCCC_RET_INVALID_PARAMETER		-3
-+#define SMCCC_RET_RATE_LIMITED			-4
-+#define SMCCC_RET_BUSY				-5
- 
- #ifndef __ASSEMBLY__
- 
-diff --git a/tools/include/linux/arm-smccc.h b/tools/include/linux/arm-smccc.h
-index 63ce9bebccd3..65fd4630e739 100644
---- a/tools/include/linux/arm-smccc.h
-+++ b/tools/include/linux/arm-smccc.h
-@@ -96,6 +96,18 @@
- 			   ARM_SMCCC_SMC_32,				\
- 			   0, 0x3fff)
- 
-+#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION				\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_ARCH,			\
-+			   0x5)
++#define SMCCC_CACHE_MAX_RETRIES		5
++#define SMCCC_CACHE_MAX_DELAY_US	20000
 +
-+#define ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES			\
-+	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
-+			   ARM_SMCCC_SMC_64,				\
-+			   ARM_SMCCC_OWNER_ARCH,			\
-+			   0x6)
++/* DEN0028 v1.7: bit[0] == 1 means implementation flushes all caches globally */
++#define SMCCC_CACHE_ATTR_GLOBAL_OP	BIT(0)
 +
- #define ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID				\
- 	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,				\
- 			   ARM_SMCCC_SMC_32,				\
-@@ -182,12 +194,13 @@
- 			   0x53)
- 
- /*
-- * Return codes defined in ARM DEN 0070A
-- * ARM DEN 0070A is now merged/consolidated into ARM DEN 0028 C
-+ * Return codes defined by Arm SMCCC (DEN0028).
-  */
- #define SMCCC_RET_SUCCESS			0
- #define SMCCC_RET_NOT_SUPPORTED			-1
- #define SMCCC_RET_NOT_REQUIRED			-2
- #define SMCCC_RET_INVALID_PARAMETER		-3
-+#define SMCCC_RET_RATE_LIMITED			-4
-+#define SMCCC_RET_BUSY				-5
- 
- #endif /*__LINUX_ARM_SMCCC_H*/
++struct arm64_smccc_cache {
++	/* Must be first member */
++	struct cache_coherency_ops_inst cci;
++	struct mutex lock; /* Serializes SMCCC cache maintenance calls. */
++	u32 latency_us;
++	u32 rate_limit;
++	bool global_op;
++	u64 global_flush_gen;
++};
++
++static struct arm64_smccc_cache *arm64_smccc_cache;
++
++static int smccc_cache_status_to_errno(s32 status)
++{
++	switch (status) {
++	case SMCCC_RET_SUCCESS:
++		return 0;
++	case SMCCC_RET_NOT_SUPPORTED:
++	case SMCCC_RET_NOT_REQUIRED:
++		return -EOPNOTSUPP;
++	case SMCCC_RET_INVALID_PARAMETER:
++		return -EINVAL;
++	case SMCCC_RET_RATE_LIMITED:
++		return -EAGAIN;
++	case SMCCC_RET_BUSY:
++		return -EBUSY;
++	default:
++		return -EIO;
++	}
++}
++
++static int smccc_cache_delay_us(const struct arm64_smccc_cache *cache)
++{
++	u64 delay_us = 0;
++
++	if (cache->rate_limit)
++		delay_us = DIV_ROUND_UP_ULL(USEC_PER_SEC, cache->rate_limit);
++
++	if (cache->latency_us)
++		delay_us = max_t(u64, delay_us, cache->latency_us);
++
++	if (!delay_us)
++		delay_us = 1000;
++
++	return min_t(u64, delay_us, SMCCC_CACHE_MAX_DELAY_US);
++}
++
++static int arm64_smccc_cache_wbinv(struct cache_coherency_ops_inst *cci,
++				   struct cc_inval_params *invp)
++{
++	struct arm64_smccc_cache *cache =
++		container_of(cci, struct arm64_smccc_cache, cci);
++	struct arm_smccc_res res = {};
++	int delay_us = smccc_cache_delay_us(cache);
++	u64 gen = 0;
++	s32 status;
++	int ret;
++	int i;
++
++	if (!invp->size)
++		return -EINVAL;
++
++	if (cache->global_op)
++		gen = READ_ONCE(cache->global_flush_gen);
++
++	guard(mutex)(&cache->lock);
++
++	/*
++	 * If firmware reports a global operation type, a successful operation
++	 * covers every request that was already waiting behind it. Skip if the
++	 * generation advanced while this request was waiting to enter the
++	 * serialized firmware call path.
++	 */
++	if (cache->global_op && gen != READ_ONCE(cache->global_flush_gen))
++		return 0;
++
++	for (i = 0; i < SMCCC_CACHE_MAX_RETRIES; i++) {
++		/* Long firmware operations can trigger watchdog checks. */
++		touch_nmi_watchdog();
++
++		arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION,
++				     invp->addr, invp->size, 0UL, &res);
++		status = (s32)res.a0;
++		ret = smccc_cache_status_to_errno(status);
++		if (!ret) {
++			if (cache->global_op) {
++				WRITE_ONCE(cache->global_flush_gen,
++					   cache->global_flush_gen + 1);
++			}
++			return 0;
++		}
++
++		if (ret != -EBUSY && ret != -EAGAIN)
++			return ret;
++
++		usleep_range(delay_us, delay_us + 100);
++	}
++
++	return -EBUSY;
++}
++
++static const struct cache_coherency_ops arm64_smccc_cache_ops = {
++	.wbinv = arm64_smccc_cache_wbinv,
++};
++
++static int __init arm64_smccc_cache_init(void)
++{
++	struct arm_smccc_res res = {};
++	s32 status;
++	int ret;
++
++	if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_1)
++		return -ENODEV;
++
++	if (arm_smccc_1_1_get_conduit() == SMCCC_CONDUIT_NONE)
++		return -ENODEV;
++
++	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID,
++			     ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION, &res);
++	status = (s32)res.a0;
++	if (status < 0)
++		return -ENODEV;
++
++	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID,
++			     ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES, &res);
++	status = (s32)res.a0;
++	if (status < 0)
++		return -ENODEV;
++
++	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES, &res);
++	status = (s32)res.a0;
++	if (status)
++		return -ENODEV;
++
++	arm64_smccc_cache =
++		cache_coherency_ops_instance_alloc(&arm64_smccc_cache_ops,
++						   struct arm64_smccc_cache,
++						   cci);
++	if (!arm64_smccc_cache)
++		return -ENOMEM;
++
++	mutex_init(&arm64_smccc_cache->lock);
++	arm64_smccc_cache->latency_us = lower_32_bits(res.a2);
++	arm64_smccc_cache->rate_limit = lower_32_bits(res.a3);
++	arm64_smccc_cache->global_op = !!(res.a1 & SMCCC_CACHE_ATTR_GLOBAL_OP);
++
++	ret = cache_coherency_ops_instance_register(&arm64_smccc_cache->cci);
++	if (ret) {
++		cache_coherency_ops_instance_put(&arm64_smccc_cache->cci);
++		arm64_smccc_cache = NULL;
++		return ret;
++	}
++
++	pr_info("SMCCC cache clean+invalidate provider registered\n");
++	return 0;
++}
++arch_initcall(arm64_smccc_cache_init);
 -- 
 2.43.0
 
