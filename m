@@ -4,118 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6832CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 18:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7CDCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 18:57:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:From:
-	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=haxjZpdV/etBA59D51CoaHf2q7Tar47DYgCxhAETaNA=; b=D5xwzSCp0OrO9M
-	WbfMnnfelJcvA8X81qSLWBtnYznNO0e4Ler9X5Q/pWQwU9cvWPwtEdpo2N7KD7jgFgyxgRXVkPTx2
-	qqwAIQWyQ5cwyaXOPJsG+0lNZJs6karLEXcBqRl6EoMSHlTZljs+dTeQi2tmeg0cdEWfxDkbMDlGI
-	Wdn3Q9hykVEyn5pH+y4D8S/T3i6FqmbZU+FdyDMYY9i8W9E5SjMuodEBpUt6IvoOqnbClHn/0I8/5
-	1KP/lwhk3ScgGV3XIb1UqynADpWHUjRKq7md7vgxrT0rFjBjIMygJOo4aOfgPffOP5oGaLPUT24sJ
-	5C/QHidVW587nB0JmMeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hQPUvw1EVv3wMo+5XCqi3dBxzVExXxLWd6AksmEn/LY=; b=G8kX5X209fzKSptRjuqpKSc9CN
+	8Jdf9WIhE2Mk8VDtiWeF7tIDAzDHbEX7byNAV84DLuMe5p1ha68196CMBQfnSYJxi9d5eyBaFwtt0
+	GsH79YO/jcu4Cy8Vaua9/su7eHHjN/rg/Ci3z0Nua5oAG63mEXkpBfIRyCVZL6CnAzbSBAObTcrrA
+	NzeuOcjXeJuUzlW8DOG656ulyNWJg1HBq7LVJrYcembsbzZmE/cTAXAP9PSBjXSLDHzU/C0a2bVSv
+	4lGoxvt0BZ0SO0qRY1CQQgE0XXZGy0rWGNxd4QVDN5/3xTfPwFV2taqb8VGRyhD9i3FcDqpnJyOpH
+	GulCTuMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8Rs-00000008piz-2bqM;
-	Thu, 21 May 2026 18:48:48 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wQ8aB-00000008qYB-2vTL;
+	Thu, 21 May 2026 18:57:23 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8Rp-00000008piT-3Wpz
+	id 1wQ8a8-00000008qXO-3DKL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 18:48:47 +0000
+	Thu, 21 May 2026 18:57:22 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HmKY+2V/HdgWuc9BH1Lz7toflKEmcVZ3cq9PC3ZWwFX1bRBbq/aii5A+45igUsY2MN3DeINWab9Kon0RtgZq2TY3IABylbaprqjheZN5PgjNGXbx17+AoZzy88nIHekVvMoO9L7M+ZnVDGXl41fPaK1UeneoH5UFwJdYnIMFuMBl7pkHGZgwyhsQRbzP5uw1e7nHWOY/7nJriQypIF26/De3NEpxdZf5nYdZc0eetC1Bt5QNx5ms53nve4uH6wiqzdooWzxUN4S2S79asoil/p37U+HG2nXpBCpJxJ2rf4iFBt1bK465Q15BLmM1eAJIEJn22aZMrX09OJw7cEhC9g==
+ b=EYikIAkGcIWcuoKlPetK0aqZyiDtzb7jQG5o/KJkDDcywF20sPwghwBKmGOQozQlrlTyK67G0HcGVRf9Bfi1tJ7vEtPFyVP+I4Ibd9n07LVAP73IU170W5s/HvgaMKfbZJ5TmzYmg3SVz+APhq/yzqG5TPZk8oyHvgMkxMjrjK0g+q7V5ixp1YV81X4jOcz6WyRnlEoH/dAX0G8k10HE1vzostnXzXmO+LS+eej8yeyJa1U9CrlyuolW8mFgbTAlGrkqB2LvyypWw74AQXbbtSXYxeSXurvSRsze/n2e80wfK0WuBYXFz6diybsgmCeNu+p4Jn2CmBjHZzEhOBmsjg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=haxjZpdV/etBA59D51CoaHf2q7Tar47DYgCxhAETaNA=;
- b=yK1Oe9hu+w1aN+2j1BepmNbLtk4cH58ducu4LIHMirooy9yt0woNCRsLUVNzXq3l+HhUUXNIrCRZbzHgiM6KhgMX2S5/HqIEN9U7igeVATxq6/O3mhExJPv9ewrCD6tUUAZgiQvmJIZfqomFutWnxidrC9HWZrQZYeaBt6uPgWMzi/jgRS85OxcOLFrDeliEK7j1Wtmqp1fPbPXfRfD/SL/iKd4s2vP7kOdFKgasCCZoSEZ8c0pWD9gnM//ilyR4fk+F5i6hlzalM9NV1RQgaBMaEE53EUiffNLrlgY1zq1Av2xjzBC3ZXZCYlsQzLCvdMXjsDmxCilXWMQ+s8m74g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linaro.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ bh=hQPUvw1EVv3wMo+5XCqi3dBxzVExXxLWd6AksmEn/LY=;
+ b=g1GjVfTz2O5J1J/53/Nr3qGTpvRhL5LVdu6MmYwMAGGHPMPEU9uWKfCm/dvVMCf1XAEJV77vc5XEGiAg99Ppo66dpnyjjsiPrgPVhAjlqReWlQG81KVN+WeTwM/9yT2dmbSzdHUVps1qb6tF7EXU6ZrlR6dTZhh686NXllWmC7flcx7R3XsfDEy2qA3lNdLHrzAzh53sGE+3hvZA0C/nw+GwD3zouvAJSXVrDAHbsBgTYYk3Pgon0B47rgz/AQvHLV8tlqW7wLwuVD8WSB/jvsbFuEHY16//kjf7Dq9a16glWNdUlulvBTCfPXyCmSSUGf+yzPrT6kMhuK6pDunwHg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=haxjZpdV/etBA59D51CoaHf2q7Tar47DYgCxhAETaNA=;
- b=UFVJKLCDBKkt1BUpbE1E78JlAkk+QxHocbmlLfk4kiXE8iygKYADP9hcw0QR1jM90ip3vKhtn4mQX+/vmqpZuK2W4d+GBwtvN40SXckHNp1nB1vHnWXgPwaQAqzenHRcGTXRDYtGlIEXfd5zCy29SYzCTTfD+5ve0IAuc+5QSEE=
-Received: from BN9P221CA0009.NAMP221.PROD.OUTLOOK.COM (2603:10b6:408:10a::17)
- by SAVPR12MB999168.namprd12.prod.outlook.com (2603:10b6:806:4e6::13) with
+ bh=hQPUvw1EVv3wMo+5XCqi3dBxzVExXxLWd6AksmEn/LY=;
+ b=TR5O7iXO41Iig5fpd4aAwAnn7Ftjl74Mgz3TxQI5P2N68E9X/2icZIAXWX7sh2KoedOe4DkyIAZw8DKWrDpqzTmdotSPvI9l5ttthbYXY2Y73Pg+KoBy1jxcXSYurwPojjqJamiVGZ0rOk87yU+K+ntUyxV8KlQBXb8AY05tqQ1b21bKdoAw/cbSZNf2AFRN5QENExYibcxKPXSvKIstXzH1ru44qsQP9thb1LXJZJyx2CtCd4UpW/sOIIAnH9BSS4EOYYoJ5if6wEfEU1Sd3YpRZ4x3Sd2INyo05h2PDrGQWzq/ndv8U7k1EaKnlDL5zcIfDDmCyWUkNLdzXFrb5A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by DU6PR04MB11159.eurprd04.prod.outlook.com (2603:10a6:10:5c4::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.11; Thu, 21 May
- 2026 18:48:35 +0000
-Received: from BN1PEPF00004682.namprd03.prod.outlook.com
- (2603:10b6:408:10a:cafe::26) by BN9P221CA0009.outlook.office365.com
- (2603:10b6:408:10a::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.17 via Frontend Transport; Thu, 21
- May 2026 18:48:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BN1PEPF00004682.mail.protection.outlook.com (10.167.243.88) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Thu, 21 May 2026 18:48:34 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 21 May
- 2026 13:48:34 -0500
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Thu, 21 May
- 2026 13:48:33 -0500
-Received: from [10.254.67.213] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Thu, 21 May 2026 13:48:32 -0500
-Message-ID: <be63e9a0-e325-46eb-9c03-54dc22878ed6@amd.com>
-Date: Thu, 21 May 2026 13:48:32 -0500
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
+ 2026 18:57:15 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 18:57:15 +0000
+Date: Thu, 21 May 2026 14:56:48 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Ronaldo Nunez <rnunez@baylibre.com>
+Cc: linux-pwm@vger.kernel.org,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pwm: imx27: Fix variable truncation in .apply()
+Message-ID: <ag9VcFoodZjxUsBg@lizhi-Precision-Tower-5810>
+References: <20260521000054.4790-1-rnunez@baylibre.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260521000054.4790-1-rnunez@baylibre.com>
+X-ClientProxiedBy: PH7P221CA0042.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:33c::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] remoteproc: xlnx: enable auto boot feature
-From: "Shah, Tanmay" <tanmays@amd.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>, Tanmay Shah
-	<tanmay.shah@amd.com>
-CC: <andersson@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <michal.simek@amd.com>, <ben.levinsky@amd.com>,
-	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260501143707.1591110-1-tanmay.shah@amd.com>
- <20260501143707.1591110-3-tanmay.shah@amd.com> <ag9FcXeIIiJWdld7@p14s>
- <cbd418a3-1585-4592-8e86-b0750e19ec0f@amd.com>
-Content-Language: en-US
-In-Reply-To: <cbd418a3-1585-4592-8e86-b0750e19ec0f@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00004682:EE_|SAVPR12MB999168:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5d8d8fdb-630a-471e-9a56-08deb7698fb4
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|DU6PR04MB11159:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b9681d3-bc80-436d-6430-08deb76abcc6
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|36860700016|1800799024|22082099003|11063799006|4143699003|18002099003|56012099003|13003099007;
-X-Microsoft-Antispam-Message-Info: QcLwaNbEbKl8RJHyNyyBoIv8z3WMMFvR+IZ+xG2wXGHN34Ujr+icB+JvL2SUrNbxvmLZbfgHD/vnwaoa6MMDF9XHY9aZfYzLv3deDUZcgSqbEa1PujxNa/JvEWPkPyPHlZv7Q7ZUY3MMXRNG5aJ1qbUnEd9Fu0bPh5iD5DPlPpSv8gJVyEe92KOrBKszhYWH9AmUuPFKjstLD888V2OLB1dF26wWlRYALqvDcoTRoohI9Z9YjFHR8OEz0gSK2tOxpmaNRo4ciNxPzFlCSdwhE+pERhzE6g2QCw4K+PXkFDCf4cC0i2R9dYJ/UMPhXJOevyXEhNHSbzZ/Look/HK75AOLt969Ah7cQeXFQ/F2DGZa0PBJy7saE2eyw3+aAR+yJrEQIc+rbN1ugOmN1R8eUzLbNWyz3+fiMusCGFCwce7Ss5w7NrNMhgWWabrf+Rdn+Lb+4W+XOrT0oKkcLEklXY2ghX8qAhogp+dD4phi9qR28S06Rb1jcz2iprsqadOhK6zVxycmdopAoETgHlTpeqmaEDFT/DXaJYR0OBT6LRTMB2w5rsPJHuUdy4rC/KlseQ4lgaKT5GNt/Ufke6j7SgUe/eK919cg/fkHzZYnhLvOZFg3W+cvPKooDnKiTdXiahMWJsJXwSdqT9nlsTPshoedFXjDBKM/SKa3fPGXylPLanQRjPaYY2nhC1IkyolSJ106gOQs6F+ZLYviCjsF1CT9hLsPxCV62GJq1K1/dj0=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(36860700016)(1800799024)(22082099003)(11063799006)(4143699003)(18002099003)(56012099003)(13003099007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|19092799006|38350700014|6133799003|11063799006|18002099003|22082099003|56012099003;
+X-Microsoft-Antispam-Message-Info: YeDz4+YaGBvLHdNkJEiBJwbo+pRY+1G+YYQNadIG966tRgFseKkc+H0oOyP8liZTxqIZ9mchDgC3ttNJQcpDDRhO4wwBkwA++repejM+CAfzON5ZQOhaVnBJknGfzuuzOqjHtyoDiN4HQXG0qrdukklAPKx0r3hR+9RImACyjjHuSmcujOqRYj5pnfAn0sXL7ch9Tw+ijFfwf5/Hbr08Crlf+ES3tEJwQzJDrsoODaEhwONIfJbu1JogH+3TWDR0J5jNrH3KIuxy2eOyosG5iicES1V3WUlHvbfbU03m8Ivc6JFg7oXNlXWg4cKapNPTxDT25U6xYWrkqWmbumFaNnuny6uAMfUtkOC+iXf1icMP5HFDTkewXcy4RQ/MUlCw+emmZaT6gG/0YvMI9+0ZYrZ4L9L5MMcaWmEfOtpbUM5ouGoFI6k6tLWFia8Efs2u3pjW4J/uW8Ji6DE0x0+LY/qzgkBy0TFdhZKOPJfcNfkGfUoLOVuEndxjySUjidTqFa8lkHw+fEIcCZ1MR6kzlUaxVAuwj62mnolgtbdXafvTKOQasz/xLuOIdi/oZREMfgJKDVHYJLHq+vqEYqYm2vQW96UaQ/fq6Zvp0JH9nAnhZohegX5FELeQtLIOEYHqJI/uDffFwmZ3JDpTlE9PcN+JYBjZ5zrv98UDI/zZx99BO+py5A097iZQXFs+l9a73oLFdnFHP5Bivdm64H3+fnxm+hkESQQ5DAHHu5+rnlR/ASBQuQBIYR9CVvvymbve
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014)(6133799003)(11063799006)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: DxvE95RdO+MO+4qUIyjWvEQFm1Y+cDjjiLk3FQWSGMk9Yp+R6StCW+kzLclPoCkLfhjhlgWoX+04NIzgtpdaSKpC5e2K2usl9hQ61y1eVE/OWtpt6FWsk/Lh/tt50VhXUvR4lw37wysREITZq9pecrjrBFprzP8XfGcGLXZXZyCZwPP4b9ThKxbkz7kjDQv9pghqPgj9YNQqL1rxxB1Jbawu2opp0nSXV4RsvPS4m/+1qLO+8Va/ApOeoKiy8YSGZmBK6kH7qonurAI98QLQMRd8kQFx6F5HnJeg5zAmqnY4TXTKi7Ri8B+NlrytrYHEVz1pJcx1Omj/CYk5IVhFzTDaNUs9YfObvOYa5DR7pXx0FkSZfJMLyO4b+2uQX4SQ5E9pCDPLEjeqlFY+6RDvOVW6Uj9FqEOHXPnv+KwhgEJ0AdZf93ad46Fj+/6wXcDc
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 18:48:34.3177
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+8F1D83dJSfbtYS5YfZpCxeWmjfx52zXwxhyq2yUgDU2UqKiABouWlRIRzdy?=
+ =?us-ascii?Q?uEM53lWxHmh7CNaB5fZ/idZGHxIgV+DhrE43C/kRZrGL00Nd6SiOBILdxMhd?=
+ =?us-ascii?Q?o9xeU18jlgvyCuNs7B/LpGJCYXi+GzRHfqNZxJnRxp33D5yF/4ir1IAxVj9o?=
+ =?us-ascii?Q?GPmvFw7BVnkM3zstueZ7Am+vzuN2KdgoJnL+VuVVtolWdL5yPwFH1BbQ98hR?=
+ =?us-ascii?Q?bGgILVNJKudbufFPuVeFxD0urZke8HWzNKVGWTPoTwqx3afLaQdofcXUX+hl?=
+ =?us-ascii?Q?wJmkWSxsFww06my59XI6n+mmiGCZZ5jaqkMn22V9Ye/CetWZ/THH8DK4sDka?=
+ =?us-ascii?Q?88/k1Lq3YRNcyvGwWy+oB77mTKDTpy75wJtryke5qhqfpcSwTTu5hMmm5Q3J?=
+ =?us-ascii?Q?6o53hbiD2LaxlrXZkLokGsjmyA1ee7gm8lJ/KJrE3nYdnvB1d7GmZnHd1lUJ?=
+ =?us-ascii?Q?LCy8fmu2wjrrzpszWJB4p59kogtV/8AMyxYzvQwlbTdcPbK0pJoKB0rm73Qq?=
+ =?us-ascii?Q?tYmzmaD/4mbqOvn4cWR8I3qxcDYGUEyTud4plDFJV2vx77ecY3ueh+0bZHrd?=
+ =?us-ascii?Q?XI/pMo2RmRkpPLndHSJgqYCe3tK5xBiS6PZcaC3ZCiVM1AStIb4eNxKomnqB?=
+ =?us-ascii?Q?BCVaKVX5oPJtgxUrj/zBYhh7kKiOkhVQiraFCgki1VOz/54Aa+bdTAW7ycV1?=
+ =?us-ascii?Q?l1sJ0fzqaLfhMeX4r1C4nePk7ZNF7xGpMAKb+ikhwUH/zRehOJAyggkIW380?=
+ =?us-ascii?Q?jWVRQPRwo4ZORsfvyeyz52WeGDkJ9EZ8n73VrHR/66glBviaWkY96hV9gJx0?=
+ =?us-ascii?Q?iPRNKZ2lXsVwdW7Dso2Cheqik5jVmdlr6EoQZGy2nm60gEEvEA/4LxhsTV/m?=
+ =?us-ascii?Q?D/638gBNcg0wavr6z9RmfWPceRkVOfck8p8zCjqJPJLHIpjhNy3tCBf9xIYW?=
+ =?us-ascii?Q?ZOSN+gXG/hyexnn/hMVchuuDdeN+IgY+l5hIx4MH1FXSyJeJijtgtUuPKQno?=
+ =?us-ascii?Q?8J2bLTU1BSxSpecnPCgLDOu0TdpJoUjm0TIB4vy6mDTjBPckglasXO3PaLWH?=
+ =?us-ascii?Q?sPHivYfDqbq7+6UzECm2UHL/gbCLKNtdREhU0QdeluYdPTtIGy3svTBb2gZd?=
+ =?us-ascii?Q?FeYHXBql/TrhD6scSy2YTr3ysOhghmaf+Vh0aWyvjI/0jgrhWjf+ekJhhFgL?=
+ =?us-ascii?Q?9O4Rwe/8MYMAJl3OiRe93YFveGMZhm5ejTy82CwbGw4gKLTLQ3rIZhBbAkpz?=
+ =?us-ascii?Q?VuYN7dEpRyOIzO2EuNDcr7PfftvpH+W3niYIR+qQdGNj5Y8dloYy5wRxrumr?=
+ =?us-ascii?Q?wo7KubA0glVyC7tuZqXQOdScZW69ovkKcqFCJ6bUqQlJuMpQl0I/eSqylgLZ?=
+ =?us-ascii?Q?6pyf3pF66sPMYP7Vixi9bymcHp3lMbMXSKxlZOTx4Lgj5E6tM0/fC7dw/g0n?=
+ =?us-ascii?Q?Q1t7rW7igw9Z3C68Pe0ugP8ZiEPGrPfl1kP79/rWbqufKfcfRQPNalWBAc75?=
+ =?us-ascii?Q?gZJ1xM6T42nmR8baGRu4qv0dmKYx2TFdlkchnOY4uEh3A3LZowMN4yZaO0k3?=
+ =?us-ascii?Q?FSwHNq0O8V8IgI11kGEyhLkfa/hyr0iWaHzdebnD4XQFm8GwU6BCd22Abf/w?=
+ =?us-ascii?Q?9QNOEAgNuOjYiYH4C3J/AVo/huxLDul+q1xE6IcEZEPbkUn6tSMEoq5yTUKm?=
+ =?us-ascii?Q?N7tHW8DlUwcRMnl9xKIrXaBZs3eZ5N8IBmzbEmeWpXb3aU8t?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b9681d3-bc80-436d-6430-08deb76abcc6
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 18:57:15.0967
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d8d8fdb-630a-471e-9a56-08deb7698fb4
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00004682.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SAVPR12MB999168
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ydTcogGY7JNR6ZWYTb0zwZNy5LPSKV9uxGMf5UbVq6cHEh56dwzFIsBp0eG8HXqYoTyL+1P1r3B92QEWQvmQiQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11159
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_114845_935841_CF6E27F1 
-X-CRM114-Status: GOOD (  47.53  )
+X-CRM114-CacheID: sfid-20260521_115720_813748_0E7AB1C8 
+X-CRM114-Status: GOOD (  23.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,250 +134,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, May 20, 2026 at 09:00:54PM -0300, Ronaldo Nunez wrote:
+> This patch fixes a variable truncation when calculating period in
 
+Remove "This Patch" just
 
-On 5/21/2026 1:38 PM, Shah, Tanmay wrote:
-> Hello,
-> 
-> Thank you for the reviews, please find my comments below:
-> 
-> On 5/21/2026 12:48 PM, Mathieu Poirier wrote:
->> Good morning,
->>
->> I don't recal reviewing the first revision of this set.  Can you provide a link
->> to it so that I can read the comments that were provided?
->>
-> 
-> Here it is:
-> https://lore.kernel.org/linux-remoteproc/20260422202558.2362971-1-tanmay.shah@amd.com/
-> 
-> The device-tree bindings needed rework in v1, so I sent v2, before we
-> ever reviewed the driver part.
-> 
-> 
->> On Fri, May 01, 2026 at 07:37:07AM -0700, Tanmay Shah wrote:
->>> remoteproc framework has capability to start (or attach to) the remote
->>
->> The remoteproc framework...
->>
-> 
-> Ack.
-> 
->>> processor automatically if auto boot flag is set by the driver during
->>> probe. If remote core is not started before the Linux boot, and linux is
->>> expected to start the remote core then it uses "firmware-name" property
->>> to load default firmware during auto boot.
->>>
->>> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
->>> ---
->>>  drivers/remoteproc/xlnx_r5_remoteproc.c | 48 +++++++++++++++++--------
->>>  1 file changed, 34 insertions(+), 14 deletions(-)
->>>
->>> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
->>> index 45a62cb98072..652030f9cea2 100644
->>> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
->>> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
->>> @@ -899,17 +899,18 @@ static const struct rproc_ops zynqmp_r5_rproc_ops = {
->>>  };
->>>  
->>>  /**
->>> - * zynqmp_r5_add_rproc_core() - Add core data to framework.
->>> - * Allocate and add struct rproc object for each r5f core
->>> + * zynqmp_r5_alloc_rproc_core() - alloc rproc core data structure
->>> + * Allocate struct rproc object for each r5f core
->>>   * This is called for each individual r5f core
->>>   *
->>>   * @cdev: Device node of each r5 core
->>>   *
->>>   * Return: zynqmp_r5_core object for success else error code pointer
->>>   */
->>> -static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->>> +static struct zynqmp_r5_core *zynqmp_r5_alloc_rproc_core(struct device *cdev)
->>
->> Why is there a need to change the function's name?
->>
-> 
-> Before, the function was actually adding the rproc core by calling
-> rproc_add() function, but now it only allocates the memory by calling
-> rproc_alloc(). For auto boot to work it's important to add rproc core
-> after all the other hw is initialized (such as mbox, tcm, sram,
-> power-domains etc). More details below [1].
-> 
->>>  {
->>>  	struct zynqmp_r5_core *r5_core;
->>> +	const char *fw_name = NULL;
->>>  	struct rproc *r5_rproc;
->>>  	int ret;
->>>  
->>> @@ -918,10 +919,15 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->>>  	if (ret)
->>>  		return ERR_PTR(ret);
->>>  
->>> +	ret = rproc_of_parse_firmware(cdev, 0, &fw_name);
->>> +	if (ret < 0 && ret != -EINVAL)
->>> +		return ERR_PTR(dev_err_probe(cdev, ret,
->>> +					     "failed to parse firmware-name\n"));
->>> +
->>>  	/* Allocate remoteproc instance */
->>>  	r5_rproc = rproc_alloc(cdev, dev_name(cdev),
->>>  			       &zynqmp_r5_rproc_ops,
->>> -			       NULL, sizeof(struct zynqmp_r5_core));
->>> +			       fw_name, sizeof(struct zynqmp_r5_core));
->>>  	if (!r5_rproc) {
->>>  		dev_err(cdev, "failed to allocate memory for rproc instance\n");
->>>  		return ERR_PTR(-ENOMEM);
->>> @@ -932,6 +938,11 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->>>  	r5_rproc->recovery_disabled = true;
->>>  	r5_rproc->has_iommu = false;
->>>  	r5_rproc->auto_boot = false;
->>> +
->>> +	/* attempt to boot automatically if the firmware-name is provided */
->>> +	if (fw_name)
->>> +		r5_rproc->auto_boot = true;
->>> +
->>
->> What happens when a firmware name needs to be provided in the DT but you don't
->> want to automatically boot the remote processor?
->>
-> 
-> I think that use case is not needed. If the user/system-designer doesn't
-> want auto-boot, then having firmware-name in the device-tree serves no
-> purpose. User can always load the firmware via sysfs once kernel boots.
-> 
->>>  	r5_core = r5_rproc->priv;
->>>  	r5_core->dev = cdev;
->>>  	r5_core->np = dev_of_node(cdev);
->>> @@ -941,13 +952,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->>>  		goto free_rproc;
->>>  	}
->>>  
->>> -	/* Add R5 remoteproc core */
->>> -	ret = rproc_add(r5_rproc);
->>> -	if (ret) {
->>> -		dev_err(cdev, "failed to add r5 remoteproc\n");
->>> -		goto free_rproc;
->>> -	}
->>> -
->>
->> I'm not sure why there is a need to move this to zynqmp_r5_cluster_init()?  Is
->> it simply to make the error path easier to handle?  If so, please do that in a
->> separate patch.
->>
-> 
-> [1] This was moved to make auto-boot work. The remote core can auto-boot
-> only after other hardware is initialized. The zynqmp_r5_core_init()
-> initializes sram, TCM and power-domains of the core. Also, mailbox is
-> requested before zynqmp_r5_core_init() as well. We can't auto-boot core
-> directly without all this. So, I had to move rproc_add() at the end of
-> the cluster init, and rename above function from
-> zynqmp_r5_add_rproc_core to zynqmp_r5_alloc_rproc_core.
-> 
-> If you prefer, I will add above explanation in the commit text, or as
-> comment right before rproc_add().
-> 
-> 
-> 
->>>  	r5_core->rproc = r5_rproc;
->>>  	return r5_core;
->>>  
->>> @@ -1280,6 +1284,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
->>>  			if (zynqmp_r5_get_rsc_table_va(r5_core))
->>>  				dev_dbg(r5_core->dev, "rsc tbl not found\n");
->>>  			r5_core->rproc->state = RPROC_DETACHED;
->>> +			r5_core->rproc->auto_boot = true;
->>
->> I thought this was done in zynqmp_r5_add_rproc_core() - what am I missing?
->>
-> 
-> That function is now zynqmp_r5_alloc_core() as mentioned above. Also,
-> until now, auto_boot was set to 'false' only to show that it is
-> disabled. It is actually used and enabled now.
-> 
+Fix a variable 'tmp' truncation when calculating period in
 
-"I thought this was done in zynqmp_r5_add_rproc_core() - what am I missing?"
+> microseconds as part of the solution for the ERR051198 in .apply()
+> callback.
+>
+> The problem was identified when reducing the duty cycle through sysfs,
+> with enable set to 1. The condition to fix errata ERR051198 for period
+> smaller than 2us is always being met, due to a truncation on tmp,
+> variable from .apply() callback, caused by the multiplication of
+> NSEC_PER_SEC, PWMPR (period register) and the prescaler which can easily
+> overflow u32.
 
-I probably misunderstood this comment. Here is the correct explanation:
+It'd better provide actual example value for PWMPR and prescaler when
+overflow happen.
 
-The auto_boot setting in the zynqmp_r5_alloc_core() is done if the
-'firmware-name' property is present in the device-tree.
+> Declaring tmp as u64 makes it large enough to accommodate
+> larger multiplication results.
+>
+> Testing:
+> - Hardware: Udoo Neo Extended with iMX6SoloX SoC
+> - Tools: Verified with a logic analyzer
 
-Here it is done, if the remote core is already running. This is to
-support attach-detach use case.
+needn't this part.
 
-So, auto_boot is possible in two cases: 1) If firmware-name property is
-available (Linux boots the remote), 2) If firmware is already loaded and
-remote was started by the boot loader. (Linux attaches to the running
-remote).
-
-This is the second use case.
-
-Thanks,
-Tanmay
-
->> Thanks,
->> Mathieu
->>
->>>  		}
->>>  	}
->>>  
->>> @@ -1304,7 +1309,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
->>>  	enum rpu_oper_mode fw_reg_val;
->>>  	struct device **child_devs;
->>>  	enum rpu_tcm_comb tcm_mode;
->>> -	int core_count, ret, i;
->>> +	int core_count, ret, i, j;
->>>  	struct mbox_info *ipi;
->>>  
->>>  	ret = of_property_read_u32(dev_node, "xlnx,cluster-mode", &cluster_mode);
->>> @@ -1390,7 +1395,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
->>>  		child_devs[i] = &child_pdev->dev;
->>>  
->>>  		/* create and add remoteproc instance of type struct rproc */
->>> -		r5_cores[i] = zynqmp_r5_add_rproc_core(&child_pdev->dev);
->>> +		r5_cores[i] = zynqmp_r5_alloc_rproc_core(&child_pdev->dev);
->>>  		if (IS_ERR(r5_cores[i])) {
->>>  			ret = PTR_ERR(r5_cores[i]);
->>>  			r5_cores[i] = NULL;
->>> @@ -1435,16 +1440,31 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
->>>  		goto release_r5_cores;
->>>  	}
->>>  
->>> +	for (j = 0; j < cluster->core_count; j++) {
->>> +		/* Add R5 remoteproc core */
->>> +		ret = rproc_add(r5_cores[j]->rproc);
->>> +		if (ret) {
->>> +			dev_err_probe(r5_cores[j]->dev, ret,
->>> +				      "failed to add remoteproc\n");
->>> +			goto delete_r5_cores;
->>> +		}
->>> +	}
->>> +
->>>  	kfree(child_devs);
->>>  	return 0;
->>>  
->>> +delete_r5_cores:
->>> +	i = core_count - 1;
->>> +	/* delete previous added rproc */
->>> +	while (--j >= 0)
->>> +		rproc_del(r5_cores[j]->rproc);
->>> +
->>>  release_r5_cores:
->>>  	while (i >= 0) {
->>>  		put_device(child_devs[i]);
->>>  		if (r5_cores[i]) {
->>>  			zynqmp_r5_free_mbox(r5_cores[i]->ipi);
->>>  			of_reserved_mem_device_release(r5_cores[i]->dev);
->>> -			rproc_del(r5_cores[i]->rproc);
->>>  			rproc_free(r5_cores[i]->rproc);
->>>  		}
->>>  		i--;
->>> -- 
->>> 2.34.1
->>>
-> 
-
+Frank
+>
+> Signed-off-by: Ronaldo Nunez <rnunez@baylibre.com>
+> ---
+>  drivers/pwm/pwm-imx27.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/pwm/pwm-imx27.c b/drivers/pwm/pwm-imx27.c
+> index 3d34cdc4a3a5..c8b801fcb525 100644
+> --- a/drivers/pwm/pwm-imx27.c
+> +++ b/drivers/pwm/pwm-imx27.c
+> @@ -200,7 +200,7 @@ static void pwm_imx27_wait_fifo_slot(struct pwm_chip *chip,
+>  static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  			   const struct pwm_state *state)
+>  {
+> -	unsigned long period_cycles, duty_cycles, prescale, period_us, tmp;
+> +	unsigned long period_cycles, duty_cycles, prescale, period_us;
+>  	struct pwm_imx27_chip *imx = to_pwm_imx27_chip(chip);
+>  	unsigned long long c;
+>  	unsigned long long clkrate;
+> @@ -208,6 +208,7 @@ static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  	int val;
+>  	int ret;
+>  	u32 cr;
+> +	u64 tmp;
+>
+>  	clkrate = clk_get_rate(imx->clks[PWM_IMX27_PER].clk);
+>  	c = clkrate * state->period;
+> @@ -249,6 +250,11 @@ static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+>  	val = readl(imx->mmio_base + MX3_PWMPR);
+>  	val = val >= MX3_PWMPR_MAX ? MX3_PWMPR_MAX : val;
+>  	cr = readl(imx->mmio_base + MX3_PWMCR);
+> +
+> +	/*
+> +	 * tmp stores period in nanoseconds. Result fits in u64 since
+> +	 * val <= 0xfffe and prescaler in [1, 0x1000].
+> +	 */
+>  	tmp = NSEC_PER_SEC * (u64)(val + 2) * MX3_PWMCR_PRESCALER_GET(cr);
+>  	tmp = DIV_ROUND_UP_ULL(tmp, clkrate);
+>  	period_us = DIV_ROUND_UP_ULL(tmp, 1000);
+> --
+> 2.53.0
+>
 
