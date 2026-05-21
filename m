@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FDA8CD5BA6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4B0CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sPcwxXMSU/erMkNaNCyJUycUJ9YzZFBvUoXZx1f7aPU=; b=mA7R0I/yBoFFbvQssIOnHeCN59
-	NZDyurcgSin1Mw2LzDjWh2TNDnjFeUtAyQOmErcVTHaM41PrjCRNjMLgoGY7QUPvSAnclBP8Wk9QZ
-	oBfkO/7KW065k6SSwb+do8VXSLp9RRl4HuroYPrlUeiF5P4X0PFvmb3R0vp2Hxzd5horw1K2MhEHo
-	y908KYWRf8b0ezs/O6AYwSdOZXTZGOJczFcfljgYPoCYdJQDhxqkKepKdEEePJaHpHju44wIXCiOM
-	T3yMuDx2FbVCMsPoSOg7RafSX6ll7mGcKbuMrjB4kwbXBcd9I5sC4N5iVxcDd97DiZ944W5QMZnn7
-	/RjutLRA==;
+	bh=6Blt27VidEVpijM8X7bK9ygiXu5vv9uysAwWQfZr3MA=; b=iiJNqYZLbMncLX2u/YBOOdL7j+
+	FET0cSx215fxF+oz7By09yEbJYHTJ/sCjnHVmKqu6fZ6Fxry/0KrNeSPowwPe/VpS3oM5GI20oD7x
+	JKp5bDfUPzL5M1AT5Kv4yFW9i7eYBq7xmZZeF9JKeJwzXaydAMkijIKJR2GVUrfwMlpBs9y8nOAPI
+	WsGj3JxzfhQDrA4V2KmKCmBjsO4fj2XmT6nhlCr/NFHLD2sadT4b3RE6OULNVXoE1ahjtinGBP/JI
+	0ofSoMxNOESz/DBF9/iLDGvJcTqbNW2DpNdm4J34B8SAwI96lDN8Nce4CIVb33TOsf5l0hrmxzjmy
+	bd2AiYFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPu7C-00000006YLc-2v4Z;
-	Thu, 21 May 2026 03:30:30 +0000
-Received: from smtpbgjp3.qq.com ([54.92.39.34])
+	id 1wPu7J-00000006YT6-2OZ9;
+	Thu, 21 May 2026 03:30:37 +0000
+Received: from smtpbgbr2.qq.com ([54.207.22.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPu74-00000006Y7y-3HAo;
-	Thu, 21 May 2026 03:30:24 +0000
+	id 1wPu7G-00000006YDq-0od4;
+	Thu, 21 May 2026 03:30:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1779334180;
-	bh=sPcwxXMSU/erMkNaNCyJUycUJ9YzZFBvUoXZx1f7aPU=;
+	s=altu2504; t=1779334185;
+	bh=6Blt27VidEVpijM8X7bK9ygiXu5vv9uysAwWQfZr3MA=;
 	h=From:To:Subject:Date:Message-Id;
-	b=iEw3l5N6D5eI3V3v9I8prOUrLxEurKPcj9Fe9WZJwFYuBnK4eYn8waPJZwUmALlGf
-	 YrnJgyu9gxHH3e0zgJ869fNL7NWP/PnrAjt4Atw0DJXLERCyqW7pTg4jzfd+tfO8AL
-	 nu1+m4hy2VoenMMeZSmNDrhmdNJxuYECmGvmHgg0=
-X-QQ-mid: zesmtpsz7t1779334170t6c882390
-X-QQ-Originating-IP: GfJMTq5avx9zXlwCEn2XSvRswGjVTkoW/bW3+O1LL9k=
+	b=LCbgyyVN8Y3VWy0AWeivpnVl52Ob19FHASafPAW8FxnSKQYaHN6hrgKVuyff0PYGv
+	 WCjbZuC4yoEjRLiwYhzVlnaqspLN6F00NfGyvrZIvSjuEzjpJp91qXbhoqRWOaE/7+
+	 iLMES5soyz21YNPtl6RObzgTArM7d4ezmtCV12Bc=
+X-QQ-mid: zesmtpsz7t1779334176t8f9eb7f1
+X-QQ-Originating-IP: d9IETWuCTenKIZFLByWwMHwi0SPZNsWnhksHBq1ofsE=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 21 May 2026 11:29:26 +0800 (CST)
+	id ; Thu, 21 May 2026 11:29:31 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11043512005840582340
+X-BIZMAIL-ID: 16407384103375472347
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -66,35 +66,35 @@ Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	linux-rockchip@lists.infradead.org,
 	linux-phy@lists.infradead.org,
 	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH 3/5] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
-Date: Thu, 21 May 2026 11:28:52 +0800
-Message-Id: <20260521032854.103-4-kernel@airkyi.com>
+Subject: [PATCH 4/5] drm/rockchip: cdn-dp: Support handle lane info without extcon
+Date: Thu, 21 May 2026 11:28:53 +0800
+Message-Id: <20260521032854.103-5-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20260521032854.103-1-kernel@airkyi.com>
 References: <20260521032854.103-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: OE3tIrIEWSq4UMWM3UaNBhFvJ3GToPoj7pUmKjuFuPfM2HT2LO02qSS8
-	IWDySKg0WebR1UrMJ6ZOGgkl16tFqIANII8v/9PiPvkSCATcwHBWMs4p8hhjmzP3qBNm7cO
-	bzaTnMWZqPh74xcqg5fgIJIKRuB/Lnrimebxj8J0oAJc+fa3o21y5vdSjcEspzlXHKH5tlP
-	UzW1PKcZndw58dZ4H3qRLlKc+e6732dYa9YtkGXFDQ4w+rWS6nLf+3yILGR9BOJMJMU9BMi
-	yYO4W3E1//PMy0VcFl+YvetpXQ/XqyHsHYqiOzywV65XTYRm3L6FO9G8rO0my1/iD+4S6kT
-	11FPxbGn8UXBJloroKAIa2yrA9DVn8DoiVThu8RFPG422vnGUGGNvO7lhpu6DvzHYGO8iaP
-	Mv53TnmRWP6QsD9V5uOR4mdGjA9w4uP+B1KE9hQCmLQ5WCPeWIlEDmyiNcJWv2onwM7BKUS
-	V/OgNhQ7IIdmBm3KF6mOaqrF9hxO0dPrjn07+fETdZa3nR3qdO1YPcD3P+NpOX3dkTYA4pn
-	e3UOT6IMZQYiy/k2n1lA5bU7GGwDkFoG56+cr+kiK+8HaG3so4uClUABg9LwyXNFQad/EWh
-	UWN6wsPd+mt9BsM2HHOh3jWnwYSJvi2FSMjF/wa1qeIqPoLvyjdoKdM7CPMkpkcJMDGH6HW
-	AlHwTom0LgCmFJ0DBmUcVbVZGeykT/AL5O/lWcr5YJS30h5kNKZRRd3QvGK0k0lQ3TuDRUb
-	hPXOeIBkKo02lgiFXBzY1hPkTuB7DdhNfIn/itO8F1xcAwIQ0oFdVowURO2neoOhBG+zRmg
-	Rje6HXii/Y5PAC32HnyWwxUexBMzmSdPVFm3o4FfRvHpCkK9R6DDHHfHGaHVVniBaeCgslM
-	tB3D7L4TVWzwHSy5oOHfm7nbJEsjvIJ5MdA0mrJ2DyVr6emH1PLj50nce9Btk2B/BpVtzQA
-	I/iTriV88+nUcsFm/lFrMI8N7ZTbe2ipshziEiOat4ibC667URgAbYiG7vpOJJIgLKILnH1
-	hzELUESxxxxKur7Ge/wSGlqqSN41Y=
+X-QQ-XMAILINFO: NYG9n5uPxz1WzqGisP2RA1C47w4anwHznAWnLiTn0NxmUUnajisSSOtu
+	J9jspH4MXKVpQblgmvcRwFJypGUaDcWqrUtDNCaMtc/F9DPpeVerPOgmjKHRe/oNtgGKHqI
+	rGwWstzredojZ7AVeBzQIO2OvD2/Qfc4izBQFfTapo/cVhRwWDmMAdZkEld48+yDBav6HJU
+	Bmi/q2Hjn+zo7dM2mCd0prC216cma/hrNONDt1R3yDDUYRv//JRTeybcvGvOsqc4q9VqCWc
+	aCR4EgXr1Ft/YU80qLgeCNd14X46D5gJdvkxqSkyC6CqVQCjnLT6EBbRFXte8kwbxnMulDk
+	T9se5keNBC5V/WU3JHjZR40QpR4ymPyLUCtfc3aUxswzVvx7Ebfqw0PIeG7SF13+gxnl9v2
+	+Uaf8WjRrh9ZT4Bp7bEDIDlkf0MFrzQ0jD07EyXj6uTKqsxFkq1bRxaJPMTjc6WHsfROMVu
+	4m182/PLoOA/mHXqyf7YkdSZvBoMokMz9DC7a2IezoTjVKzjIcmFw8FbEZKAGPt5UdT0jop
+	miZhYtPQyaWUhUJwNfMgyJ/oNyyyj2K5LDdkbGGW69c3jbTE8CDLywbh2hateCpBGhRwQmH
+	sBneenwEPPttZ0zikviXFob0S0peOaE8jB+U+L07KBvQyHehV8I/dDBbbdFaP3FGu3pI1s0
+	Ia4CTO9fOFqyx3Wmb9gqI9gUIUiTl5ftknEpHUqWHdB7NaENgsVfZTJPxNoF2sd17+rAFCm
+	VH01jfURXG0yazrOa9k5QrLaPP12owWOtS6j91hWq+nqM2IuAHvoEvU16uM+AnT/gNgp4q/
+	je2mhIXRtgQvGMkOoCc+Dg7m5x17tatxOXPlfI8Sq/I+DAr4s4BpuKuoPmhVwcQ2iWkTft9
+	8X9MaC20A82gicFjcwottTwB6I/Udd56+N8FxEDvz9JZ9+VcOLIAis/cD6nR6YnGBi5iInQ
+	FVd2w6IMuTcnAs5WmIvejWyFtaZqDe0qsHAGBgwuH9BlWdRql1FozYy7455VjnJ35pUa4hQ
+	ymsBIHsnyzYvfYQQLJHBXt29Irq9d+tsRF3mJyD4YZko0mQCIFXN5HPA5EsS4=
 X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_203023_119361_13505A00 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260520_203035_095538_4ACFF076 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,68 +111,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
-device.
+This patch add support for get PHY lane info without help of extcon.
+
+There is no extcon needed if the Type-C controller is present. In this
+case, the lane info can be get from PHY instead of extcon.
+
+The extcon device should still be supported if Type-C controller is
+not present.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 ---
- drivers/phy/rockchip/Kconfig              |  2 ++
- drivers/phy/rockchip/phy-rockchip-typec.c | 13 +++++++++++--
- 2 files changed, 13 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 25 +++++++++++++++++--------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index 14698571b607..9173d3b4fef4 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -119,6 +119,8 @@ config PHY_ROCKCHIP_SNPS_PCIE3
- config PHY_ROCKCHIP_TYPEC
- 	tristate "Rockchip TYPEC PHY Driver"
- 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
-+	depends on DRM || DRM=n
-+	select DRM_AUX_BRIDGE if DRM_BRIDGE
- 	select EXTCON
- 	select GENERIC_PHY
- 	select RESET_CONTROLLER
-diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
-index d9701b6106d5..48070b50416e 100644
---- a/drivers/phy/rockchip/phy-rockchip-typec.c
-+++ b/drivers/phy/rockchip/phy-rockchip-typec.c
-@@ -54,6 +54,7 @@
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index 177e30445ee8..9068118859e2 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -157,6 +157,9 @@ static int cdn_dp_get_port_lanes(struct cdn_dp_port *port)
+ 	int dptx;
+ 	u8 lanes;
  
- #include <linux/mfd/syscon.h>
- #include <linux/phy/phy.h>
-+#include <drm/bridge/aux-bridge.h>
++	if (!edev)
++		return phy_get_bus_width(port->phy);
++
+ 	dptx = extcon_get_state(edev, EXTCON_DISP_DP);
+ 	if (dptx > 0) {
+ 		extcon_get_property(edev, EXTCON_DISP_DP,
+@@ -220,7 +223,7 @@ static bool cdn_dp_check_sink_connection(struct cdn_dp_device *dp)
+ 	 * some docks need more time to power up.
+ 	 */
+ 	while (time_before(jiffies, timeout)) {
+-		if (!extcon_get_state(port->extcon, EXTCON_DISP_DP))
++		if (port->extcon && !extcon_get_state(port->extcon, EXTCON_DISP_DP))
+ 			return false;
  
- #define CMN_SSM_BANDGAP			(0x21 << 2)
- #define CMN_SSM_BIAS			(0x22 << 2)
-@@ -1162,16 +1163,24 @@ static int rockchip_typec_phy_probe(struct platform_device *pdev)
+ 		if (!cdn_dp_get_sink_count(dp, &sink_count))
+@@ -386,11 +389,14 @@ static int cdn_dp_enable_phy(struct cdn_dp_device *dp, struct cdn_dp_port *port)
+ 		goto err_power_on;
+ 	}
  
- 	for_each_available_child_of_node(np, child_np) {
- 		struct phy *phy;
-+		ret = 0;
+-	ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
+-				  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
+-	if (ret) {
+-		DRM_DEV_ERROR(dp->dev, "get property failed\n");
+-		goto err_power_on;
++	property.intval = 0;
++	if (port->extcon) {
++		ret = extcon_get_property(port->extcon, EXTCON_DISP_DP,
++					  EXTCON_PROP_USB_TYPEC_POLARITY, &property);
++		if (ret) {
++			DRM_DEV_ERROR(dp->dev, "get property failed\n");
++			goto err_power_on;
++		}
+ 	}
  
--		if (of_node_name_eq(child_np, "dp-port"))
-+		if (of_node_name_eq(child_np, "dp-port")) {
- 			phy = devm_phy_create(dev, child_np,
- 					      &rockchip_dp_phy_ops);
--		else if (of_node_name_eq(child_np, "usb3-port"))
-+			ret = drm_aux_bridge_register_from_node(dev, child_np);
-+		} else if (of_node_name_eq(child_np, "usb3-port"))
- 			phy = devm_phy_create(dev, child_np,
- 					      &rockchip_usb3_phy_ops);
- 		else
+ 	port->lanes = cdn_dp_get_port_lanes(port);
+@@ -1029,6 +1035,9 @@ static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
+ 	for (i = 0; i < dp->ports; i++) {
+ 		port = dp->port[i];
+ 
++		if (!port->extcon)
++			continue;
++
+ 		port->event_nb.notifier_call = cdn_dp_pd_event;
+ 		ret = devm_extcon_register_notifier(dp->dev, port->extcon,
+ 						    EXTCON_DISP_DP,
+@@ -1121,14 +1130,14 @@ static int cdn_dp_probe(struct platform_device *pdev)
+ 		    PTR_ERR(phy) == -EPROBE_DEFER)
+ 			return -EPROBE_DEFER;
+ 
+-		if (IS_ERR(extcon) || IS_ERR(phy))
++		if (IS_ERR(phy) || PTR_ERR(extcon) != -ENODEV)
  			continue;
  
-+		if (ret) {
-+			pm_runtime_disable(dev);
-+			of_node_put(child_np);
-+			return ret;
-+		}
-+
- 		if (IS_ERR(phy)) {
- 			dev_err(dev, "failed to create phy: %pOFn\n",
- 				child_np);
+ 		port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
+ 		if (!port)
+ 			return -ENOMEM;
+ 
+-		port->extcon = extcon;
++		port->extcon = IS_ERR(extcon) ? NULL : extcon;
+ 		port->phy = phy;
+ 		port->dp = dp;
+ 		port->id = i;
 -- 
 2.53.0
 
