@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8E8CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:15:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED882CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:16:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HcV1OwQ0Yh5akBgTJL0ME6KR+ImXNjH1xF2/GGoWG0w=; b=VYYiaj9F8y24RGSirxLLYXIRng
-	jhrHCnZ9aHaKCpTSnxwoW/3KPacn5Ka6/1h0YWh4Xtn2G9Ys63p6q5mO8G8+TgqVgMNLYPPUQ+aTc
-	LajSB3MfGGQ01tQJK69aN4Ykr2pxvJrhwt1xDznGs914cg39GL9Urln/N22bCHObg0curV2mta/tO
-	rg4SAKp6YkPG6v2HqGc12Al7xGsxXuAnzrZROSOX+W5a2T+EsK3z7nm1dQzj7hWfT3S2FrgAOfWl4
-	73x/QnsqerT4mqjxn7+lsJsB+30DZEsK0VCnNFiAlHBaLMdjuGC52+qVG3FXWGQpTQV9Vu+8Ayckt
-	5KxOr1JQ==;
+	bh=fY5A2PBYLOyRjv9WKqkFNpLBPI9Q10qW88CcjQxV7sA=; b=2BXRSUlaYYKOCl6l0CCVPT5ULH
+	oE1OIzz+3FSxJ3b4V5kdCFJuRM4jled1LyjqkOtCwiWRTSfd5eGN7BwOhxdx1ASRup0E/Ma/juRUB
+	NYzj5aGkOFxubL5KrdSWUxIBZYHGav04nl0lybCBGiSp5z7fCrNiSdd7Pi4CBcuUmI8vUmuThyicL
+	6nJcbSipjG0qYOMNOK/EHyM+2fvQWzGSFXfaRpnWjJD0EK8mw1Td4jOCVFGFSkeDU6cfWsj9FfoNE
+	Vj6Bwie7ibxJmo/2uFjm1JHPhZszGvUFwCyPcRYl4G+QPIw01NSjado7UBQiB1I4VxXVAZS35Bl6+
+	klpNXnkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ57k-00000008HCH-2mV7;
-	Thu, 21 May 2026 15:15:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ57e-00000008HAz-0cPc
+	id 1wQ58N-00000008HMo-1tQs;
+	Thu, 21 May 2026 15:16:27 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ58I-00000008HKe-49Pn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:15:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 357CD4A03;
-	Thu, 21 May 2026 08:15:36 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C1B0C3F7B4;
-	Thu, 21 May 2026 08:15:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779376541; bh=MNIY+H2hz8eNtjx2NQ8oK9Y7qZVnP9XLnCR/UB41CLM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gemme+ZSaLhd4Tk3MSmYUDcqmIj6z1xhnlwkLRuTm5nUM/ZDUx6VkmyUfM7ZolbPj
-	 NBeJX8Ebd5phpr1NQ0osyFWnterTKoFrCzWNmJdA8mz8Os+o04XMj5cGTydavR+U5T
-	 cC0ECiFd/6DCP8krzcEyfkEC6BDi3F1/zDtxgHGA=
-Date: Thu, 21 May 2026 16:15:37 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Zeng Heng <zengheng@huaweicloud.com>
-Cc: will@kernel.org, akpm@linux-foundation.org, npiggin@gmail.com,
-	aneesh.kumar@kernel.org, peterz@infradead.org,
-	linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-arch@vger.kernel.org, David Hildenbrand <david@kernel.org>
-Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
-Message-ID: <ag8hmZ3kjtJINyIT@arm.com>
-References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
- <ag8fHYL-S26uO0yZ@arm.com>
+	Thu, 21 May 2026 15:16:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ587-0001qV-HL; Thu, 21 May 2026 17:16:11 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ584-0017oK-34;
+	Thu, 21 May 2026 17:16:09 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ585-00000004XZo-1e4X;
+	Thu, 21 May 2026 17:16:09 +0200
+Date: Thu, 21 May 2026 17:16:09 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH v7 19/28] media: rockchip: rga: change offset to
+ dma_addresses
+Message-ID: <ag8hueNRNIAtF3Lz@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+ <20260521-spu-rga3-v7-19-3f33e8c7145f@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ag8fHYL-S26uO0yZ@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-spu-rga3-v7-19-3f33e8c7145f@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_081542_267369_2AB91DD8 
-X-CRM114-Status: GOOD (  26.21  )
+X-CRM114-CacheID: sfid-20260521_081623_172788_0F532CB6 
+X-CRM114-Status: GOOD (  32.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,72 +107,308 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 04:05:07PM +0100, Catalin Marinas wrote:
-> + David H.
+On Thu, 21 May 2026 00:44:24 +0200, Sven Püschel wrote:
+> Change the offset to dma_addresses, as the current naming is misleading.
+> The offset naming comes from the fact that it references the offset in
+> the mapped iommu address space. But from the hardware point of view this
+> is an address, as also pointed out by the register naming
+> (e.g. RGA_DST_Y_RGB_BASE_ADDR). Therefore also change the type to
+> dma_addr_t, as with an external iommu driver this would also be the
+> correct type.
 > 
-> On Thu, May 21, 2026 at 03:30:11PM +0800, Zeng Heng wrote:
-> > From: Zeng Heng <zengheng4@huawei.com>
-> > 
-> > When huge_pmd_unshare() is called to unshare a PMD table, the
-> > tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
-> > but the aarch64 tlb_flush() only checked tlb->freed_tables to
-> > determine whether to use TLBF_NONE (vae1is, invalidates walk
-> > cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
-> > 
-> > This caused the stale PMD page table entry to remain in the walk cache
-> > after unshare, potentially leading to incorrect page table walks.
-> > 
-> > Fix by including unshared_tables in the check, so that when
-> > unsharing tables, TLBF_NONE is used and the walk cache is properly
-> > invalidated.
-> > 
-> > Here is the detailed distinction between vae1is and vale1is:
-> > 
-> > | Instruction Combination  | Actual Invalidation Scope                         |
-> > | ------------------------ | --------------------------------------------------|
-> > | `VAE1IS`  + TTL=`0`      | All entries at all levels (full invalidation)     |
-> > | `VAE1IS`  + TTL=`2` (L2) | Non-leaf at Level 0/1 + leaf at Level 2           |
-> > | `VALE1IS` + TTL=`0`      | Leaf entries at all levels (non-leaf not cleared) |
-> > | `VALE1IS` + TTL=`2` (L2) | Leaf entry at Level 2 only                        |
-> > 
-> > Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> This change is a preparation for the RGA3 support, which uses an external
+> iommu and therefore just gets an dma_addr_t for each buffer. The field
+> renaming allows to reuse the existing fields of rga_vb_buffer to store
+> these values.
 > 
-> The fix looks fine but does it need:
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 > 
-> Fixes: 8ce720d5bd91 ("mm/hugetlb: fix excessive IPI broadcasts when unsharing PMD tables using mmu_gather")
-> Cc: <stable@vger.kernel.org>
+> ---
+> Changes in v6:
+> - Also changed dma_addrs variable type to dma_addr_t. Flagged by Sashiko
+>   https://sashiko.dev/#/patchset/20260428-spu-rga3-v5-0-eb7f5d019d86%40pengutronix.de?part=20
+> ---
+>  drivers/media/platform/rockchip/rga/rga-buf.c |  12 +--
+>  drivers/media/platform/rockchip/rga/rga-hw.c  | 105 +++++++++++++-------------
+>  drivers/media/platform/rockchip/rga/rga.h     |  12 +--
+>  3 files changed, 64 insertions(+), 65 deletions(-)
 > 
-> > ---
-> >  arch/arm64/include/asm/tlb.h | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
-> > index 10869d7731b8..751bd57bc3ba 100644
-> > --- a/arch/arm64/include/asm/tlb.h
-> > +++ b/arch/arm64/include/asm/tlb.h
-> > @@ -53,7 +53,8 @@ static inline int tlb_get_level(struct mmu_gather *tlb)
-> >  static inline void tlb_flush(struct mmu_gather *tlb)
-> >  {
-> >  	struct vm_area_struct vma = TLB_FLUSH_VMA(tlb->mm, 0);
-> > -	tlbf_t flags = tlb->freed_tables ? TLBF_NONE : TLBF_NOWALKCACHE;
-> > +	tlbf_t flags = (tlb->freed_tables || tlb->unshared_tables) ?
-> > +			TLBF_NONE : TLBF_NOWALKCACHE;
-> >  	unsigned long stride = tlb_get_unmap_size(tlb);
-> >  	int tlb_level = tlb_get_level(tlb);
+> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+> index dcaba66f5c1fc..ab9554c1c4cd9 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-buf.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+> @@ -121,7 +121,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+>  	size_t curr_desc = 0;
+>  	int i;
+>  	const struct v4l2_format_info *info;
+> -	unsigned int offsets[VIDEO_MAX_PLANES];
+> +	dma_addr_t dma_addrs[VIDEO_MAX_PLANES];
+>  
+>  	if (IS_ERR(f))
+>  		return PTR_ERR(f);
+> @@ -145,18 +145,18 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+>  				 "Failed to map video buffer to RGA\n");
+>  			return n_desc;
+>  		}
+> -		offsets[i] = curr_desc << PAGE_SHIFT;
+> +		dma_addrs[i] = curr_desc << PAGE_SHIFT;
+>  		curr_desc += n_desc;
+>  	}
+>  
+>  	/* Fill the remaining planes */
+>  	info = v4l2_format_info(f->fmt->fourcc);
+>  	for (i = info->mem_planes; i < info->comp_planes; i++)
+> -		offsets[i] = get_plane_offset(f, info, i);
+> +		dma_addrs[i] = dma_addrs[0] + get_plane_offset(f, info, i);
 
-Do we need this as well?
+dma_addr[0] looks suspicious, but correct, because mem_planes is either
+1 or equal to comp_planes and therefore, the "remaining planes" are
+always all planes except for the first plane, which happens to be
+dma_addrs[0]. Maybe, dma_addrs[info->mem_planes - 1] would be more
+correct, but also even more confusing.
 
-diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
-index 10869d7731b8..3f4ab38cfd6e 100644
---- a/arch/arm64/include/asm/tlb.h
-+++ b/arch/arm64/include/asm/tlb.h
-@@ -24,7 +24,7 @@ static void tlb_flush(struct mmu_gather *tlb);
- static inline int tlb_get_level(struct mmu_gather *tlb)
- {
- 	/* The TTL field is only valid for the leaf entry. */
--	if (tlb->freed_tables)
-+	if (tlb->freed_tables || tlb->unshared_tables)
- 		return TLBI_TTL_UNKNOWN;
- 
- 	if (tlb->cleared_ptes && !(tlb->cleared_pmds ||
+Reviewed-by: Michael Tretter <m.tretter@pengutronix.de>
+
+>  
+> -	rbuf->offset.y_off = offsets[0];
+> -	rbuf->offset.u_off = offsets[1];
+> -	rbuf->offset.v_off = offsets[2];
+> +	rbuf->dma_addrs.y_addr = dma_addrs[0];
+> +	rbuf->dma_addrs.u_addr = dma_addrs[1];
+> +	rbuf->dma_addrs.v_addr = dma_addrs[2];
+>  
+>  	return 0;
+>  }
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+> index 43fd023b7571c..99cf57d5ba89d 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+> @@ -16,11 +16,11 @@ enum e_rga_start_pos {
+>  	RB = 3,
+>  };
+>  
+> -struct rga_corners_addr_offset {
+> -	struct rga_addr_offset left_top;
+> -	struct rga_addr_offset right_top;
+> -	struct rga_addr_offset left_bottom;
+> -	struct rga_addr_offset right_bottom;
+> +struct rga_corners_addrs {
+> +	struct rga_addrs left_top;
+> +	struct rga_addrs right_top;
+> +	struct rga_addrs left_bottom;
+> +	struct rga_addrs right_bottom;
+>  };
+>  
+>  static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
+> @@ -36,20 +36,20 @@ static unsigned int rga_get_scaling(unsigned int src, unsigned int dst)
+>  	return (src > dst) ? ((dst << 16) / src) : ((src << 16) / dst);
+>  }
+>  
+> -static struct rga_corners_addr_offset
+> -rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+> -		    unsigned int x, unsigned int y, unsigned int w, unsigned int h)
+> +static struct rga_corners_addrs
+> +rga_get_corner_addrs(struct rga_frame *frm, struct rga_addrs *addrs,
+> +		     unsigned int x, unsigned int y, unsigned int w, unsigned int h)
+>  {
+> -	struct rga_corners_addr_offset offsets;
+> -	struct rga_addr_offset *lt, *lb, *rt, *rb;
+> +	struct rga_corners_addrs corner_addrs;
+> +	struct rga_addrs *lt, *lb, *rt, *rb;
+>  	const struct v4l2_format_info *format_info;
+>  	unsigned int x_div = 0,
+>  		     y_div = 0, uv_stride = 0, pixel_width = 0;
+>  
+> -	lt = &offsets.left_top;
+> -	lb = &offsets.left_bottom;
+> -	rt = &offsets.right_top;
+> -	rb = &offsets.right_bottom;
+> +	lt = &corner_addrs.left_top;
+> +	lb = &corner_addrs.left_bottom;
+> +	rt = &corner_addrs.right_top;
+> +	rb = &corner_addrs.right_bottom;
+>  
+>  	format_info = v4l2_format_info(frm->pix.pixelformat);
+>  	/* x_div is only used for the u/v planes.
+> @@ -64,29 +64,28 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+>  	uv_stride = frm->stride / x_div;
+>  	pixel_width = frm->stride / frm->pix.width;
+>  
+> -	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
+> -	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
+> -	lt->v_off = offset->v_off + (y / y_div) * uv_stride + x / x_div;
+> +	lt->y_addr = addrs->y_addr + y * frm->stride + x * pixel_width;
+> +	lt->u_addr = addrs->u_addr + (y / y_div) * uv_stride + x / x_div;
+> +	lt->v_addr = addrs->v_addr + (y / y_div) * uv_stride + x / x_div;
+>  
+> -	lb->y_off = lt->y_off + (h - 1) * frm->stride;
+> -	lb->u_off = lt->u_off + (h / y_div - 1) * uv_stride;
+> -	lb->v_off = lt->v_off + (h / y_div - 1) * uv_stride;
+> +	lb->y_addr = lt->y_addr + (h - 1) * frm->stride;
+> +	lb->u_addr = lt->u_addr + (h / y_div - 1) * uv_stride;
+> +	lb->v_addr = lt->v_addr + (h / y_div - 1) * uv_stride;
+>  
+> -	rt->y_off = lt->y_off + (w - 1) * pixel_width;
+> -	rt->u_off = lt->u_off + w / x_div - 1;
+> -	rt->v_off = lt->v_off + w / x_div - 1;
+> +	rt->y_addr = lt->y_addr + (w - 1) * pixel_width;
+> +	rt->u_addr = lt->u_addr + w / x_div - 1;
+> +	rt->v_addr = lt->v_addr + w / x_div - 1;
+>  
+> -	rb->y_off = lb->y_off + (w - 1) * pixel_width;
+> -	rb->u_off = lb->u_off + w / x_div - 1;
+> -	rb->v_off = lb->v_off + w / x_div - 1;
+> +	rb->y_addr = lb->y_addr + (w - 1) * pixel_width;
+> +	rb->u_addr = lb->u_addr + w / x_div - 1;
+> +	rb->v_addr = lb->v_addr + w / x_div - 1;
+>  
+> -	return offsets;
+> +	return corner_addrs;
+>  }
+>  
+> -static struct rga_addr_offset *rga_lookup_draw_pos(struct
+> -		rga_corners_addr_offset
+> -		* offsets, u32 rotate_mode,
+> -		u32 mirr_mode)
+> +static struct rga_addrs *rga_lookup_draw_pos(struct rga_corners_addrs *corner_addrs,
+> +					     u32 rotate_mode,
+> +					     u32 mirr_mode)
+>  {
+>  	static enum e_rga_start_pos rot_mir_point_matrix[4][4] = {
+>  		{
+> @@ -103,18 +102,18 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
+>  		},
+>  	};
+>  
+> -	if (!offsets)
+> +	if (!corner_addrs)
+>  		return NULL;
+>  
+>  	switch (rot_mir_point_matrix[rotate_mode][mirr_mode]) {
+>  	case LT:
+> -		return &offsets->left_top;
+> +		return &corner_addrs->left_top;
+>  	case LB:
+> -		return &offsets->left_bottom;
+> +		return &corner_addrs->left_bottom;
+>  	case RT:
+> -		return &offsets->right_top;
+> +		return &corner_addrs->right_top;
+>  	case RB:
+> -		return &offsets->right_bottom;
+> +		return &corner_addrs->right_bottom;
+>  	}
+>  
+>  	return NULL;
+> @@ -316,9 +315,9 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+>  }
+>  
+>  static void rga_cmd_set_src_info(struct rga_ctx *ctx,
+> -				 struct rga_addr_offset *offset)
+> +				 struct rga_addrs *addrs)
+>  {
+> -	struct rga_corners_addr_offset src_offsets;
+> +	struct rga_corners_addrs src_corner_addrs;
+>  	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int src_h, src_w, src_x, src_y;
+>  
+> @@ -330,22 +329,22 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
+>  	/*
+>  	 * Calculate the source framebuffer base address with offset pixel.
+>  	 */
+> -	src_offsets = rga_get_addr_offset(&ctx->in, offset,
+> -					  src_x, src_y, src_w, src_h);
+> +	src_corner_addrs = rga_get_corner_addrs(&ctx->in, addrs,
+> +						src_x, src_y, src_w, src_h);
+>  
+>  	dest[(RGA_SRC_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+> -		src_offsets.left_top.y_off;
+> +		src_corner_addrs.left_top.y_addr;
+>  	dest[(RGA_SRC_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+> -		src_offsets.left_top.u_off;
+> +		src_corner_addrs.left_top.u_addr;
+>  	dest[(RGA_SRC_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+> -		src_offsets.left_top.v_off;
+> +		src_corner_addrs.left_top.v_addr;
+>  }
+>  
+>  static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+> -				 struct rga_addr_offset *offset)
+> +				 struct rga_addrs *addrs)
+>  {
+> -	struct rga_addr_offset *dst_offset;
+> -	struct rga_corners_addr_offset offsets;
+> +	struct rga_addrs *dst_addrs;
+> +	struct rga_corners_addrs corner_addrs;
+>  	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int dst_h, dst_w, dst_x, dst_y;
+>  	unsigned int mir_mode = 0;
+> @@ -379,15 +378,15 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+>  	/*
+>  	 * Configure the dest framebuffer base address with pixel offset.
+>  	 */
+> -	offsets = rga_get_addr_offset(&ctx->out, offset, dst_x, dst_y, dst_w, dst_h);
+> -	dst_offset = rga_lookup_draw_pos(&offsets, rot_mode, mir_mode);
+> +	corner_addrs = rga_get_corner_addrs(&ctx->out, addrs, dst_x, dst_y, dst_w, dst_h);
+> +	dst_addrs = rga_lookup_draw_pos(&corner_addrs, rot_mode, mir_mode);
+>  
+>  	dest[(RGA_DST_Y_RGB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+> -		dst_offset->y_off;
+> +		dst_addrs->y_addr;
+>  	dest[(RGA_DST_CB_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+> -		dst_offset->u_off;
+> +		dst_addrs->u_addr;
+>  	dest[(RGA_DST_CR_BASE_ADDR - RGA_MODE_BASE_REG) >> 2] =
+> -		dst_offset->v_off;
+> +		dst_addrs->v_addr;
+>  }
+>  
+>  static void rga_cmd_set_mode(struct rga_ctx *ctx)
+> @@ -426,8 +425,8 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+>  
+>  	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
+>  
+> -	rga_cmd_set_src_info(ctx, &src->offset);
+> -	rga_cmd_set_dst_info(ctx, &dst->offset);
+> +	rga_cmd_set_src_info(ctx, &src->dma_addrs);
+> +	rga_cmd_set_dst_info(ctx, &dst->dma_addrs);
+>  
+>  	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
+>  
+> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+> index cee2e75ea89f1..bf21a57555a59 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.h
+> +++ b/drivers/media/platform/rockchip/rga/rga.h
+> @@ -97,10 +97,10 @@ struct rockchip_rga {
+>  	const struct rga_hw *hw;
+>  };
+>  
+> -struct rga_addr_offset {
+> -	unsigned int y_off;
+> -	unsigned int u_off;
+> -	unsigned int v_off;
+> +struct rga_addrs {
+> +	dma_addr_t y_addr;
+> +	dma_addr_t u_addr;
+> +	dma_addr_t v_addr;
+>  };
+>  
+>  struct rga_vb_buffer {
+> @@ -112,8 +112,8 @@ struct rga_vb_buffer {
+>  	dma_addr_t dma_desc_pa;
+>  	size_t n_desc;
+>  
+> -	/* Plane offsets of this buffer into the mapping */
+> -	struct rga_addr_offset offset;
+> +	/* Plane DMA addresses after the MMU mapping of the buffer */
+> +	struct rga_addrs dma_addrs;
+>  };
+>  
+>  static inline struct rga_vb_buffer *vb_to_rga(struct vb2_v4l2_buffer *vb)
+> 
+> -- 
+> 2.54.0
+> 
+> 
 
