@@ -4,74 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DE4CD5BAC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75290CD5BB0
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	MIME-Version:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tla4LIP0HEFHoX1w40Aji8U/IZUoIzvhT3y/D99OCOM=; b=DKck/Iuuv5cSpVvMkIyzoGq8pg
-	LpTyOICNs7qF/MQdXUrOzdElxkstrixYx9N7QHSRVBnaH9AkeZLjhJAtwDa67pwSkxfDc79NoArCJ
-	dpT9okHcfn7eK/LOGvlaDbLgcD4VvNERX8totDFKo5xjAU88nwg0I726kNOnqbIdvTMLrI6BZA3UK
-	N5Qm7EItQVjhd/Y9iaXrdC4rQxIyuxk3yNAuECromfZMW4KxMu68aqklhEG4ZBQQMJLLesC7UaYJC
-	19TVmzisohA9V6TAtxvr/Yg7RsKt/QHZXJUa1p573m76C4/e50sCFi3WuKrRAlgcqFiQV8AjB5OtZ
-	dMhNFgog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HztNOfgApkZBoP1iq3Qr9B/V1r4xoafa9iWlXDK1Q70=; b=wY3oHcBp7pV/1V
+	xectkY8hwMAjnPz+NlYbTNlhxuro0YrBuV6GwQWsyEx8vwaQXq8O6nwS23ZWMG+w5NN/7V6iUEBtZ
+	vMHJlHj50SEdiNj9KXEkGk7xOimcWruzenGjKvk4lUBKCdiFLSgA7Iaa5jnQdbTHQB6DYx9XECANe
+	ZpiG6ENKr4jlaZHHgaDlFxkqhV4qeQgdAdKRsVgTYEibu/wi28X8cBHmQzxnJCVTSR/hHliyuW/gw
+	JwYwAgaCJhjunNJ9qG8c1lRPVNsQQb/+kcJxczamwzTFmMei2trdNnMyseb8bxvnv0x/6ThVeE1J5
+	ZWBTYsbpz7vQ+hKdISxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzXW-00000007HS8-0j03;
+	id 1wPzXW-00000007HRs-05Wb;
 	Thu, 21 May 2026 09:18:02 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzXQ-00000007HPx-2p5P
+	id 1wPzXS-00000007HQN-3jSI
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 21 May 2026 09:18:00 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260521091750euoutp029019ead77c04b2458adeccf709e02a6d~xigJrSrAF2230022300euoutp02D;
-	Thu, 21 May 2026 09:17:50 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260521091750euoutp029019ead77c04b2458adeccf709e02a6d~xigJrSrAF2230022300euoutp02D
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1779355070;
-	bh=tla4LIP0HEFHoX1w40Aji8U/IZUoIzvhT3y/D99OCOM=;
-	h=From:To:Cc:Subject:In-Reply-To:Date:References:From;
-	b=JWBCucmL7WVMJM9IsjHOplWSYB8TAS+pQfF3q1fVesX3jVDIbFESbMlVhLPvCqoHx
-	 N9CWIQ/CTnGFge8SjaB2JJ+AE97haJdA1bK1IIxMCsb6knPRj6qpy5nW36HHbH6vSp
-	 S2UTPGvg/kuh2tkLNe2SSiMAQ5d+KQdvZ+0kxBjg=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260521091750eucas1p1b3186d0ad37643279c08c842482c461b~xigJGJI1B0858208582eucas1p1H;
-	Thu, 21 May 2026 09:17:50 +0000 (GMT)
-Received: from localhost (unknown [106.120.51.111]) by eusmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260521091750eusmtip1aa20055378fcc28431326a001e937a4c~xigJCdYqo2518325183eusmtip1C;
-	Thu, 21 May 2026 09:17:50 +0000 (GMT)
-From: Lukasz Stelmach <l.stelmach@samsung.com>
-To: Guangshuo Li <lgs201920130244@gmail.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,  Kamil Debski
-	<k.debski@samsung.com>,  Kyungmin Park <kyungmin.park@samsung.com>,  Marek
-	Szyprowski <m.szyprowski@samsung.com>, linux-arm-kernel@lists.infradead.org,
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: s5p-g2d: avoid double free on video register
- failure
-In-Reply-To: <20260517114642.951949-1-lgs201920130244@gmail.com> (Guangshuo
-	Li's message of "Sun, 17 May 2026 19:46:42 +0800")
-Date: Thu, 21 May 2026 11:17:49 +0200
-Message-ID: <oypijdv7ch86ki.fsf%l.stelmach@samsung.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 21 May
+ 2026 17:17:46 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Thu, 21 May 2026 17:17:46 +0800
+From: Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v5 0/3] pinctrl: aspeed: Add AST2700 SoC1 support
+Date: Thu, 21 May 2026 17:17:43 +0800
+Message-ID: <20260521-pinctrl-single-bit-v5-0-308be2c160fc@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-="; micalg="pgp-sha256";
-	protocol="application/pgp-signature"
-X-CMS-MailID: 20260521091750eucas1p1b3186d0ad37643279c08c842482c461b
-X-Msg-Generator: CA
-X-RootMTR: 20260517114658eucas1p26d540bb0740e60f04f7be661f2991add
-X-EPHeader: CA
-X-CMS-RootMailID: 20260517114658eucas1p26d540bb0740e60f04f7be661f2991add
-References: <CGME20260517114658eucas1p26d540bb0740e60f04f7be661f2991add@eucas1p2.samsung.com>
-	<20260517114642.951949-1-lgs201920130244@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALfNDmoC/23NTWrDMBCG4asErauiGf1Eyqr3KF3I0igWpLaRj
+ EkIvnuVQEmhWr4fzDN3Vqlkqux0uLNCW655nlrotwMLo5/OxHNszVCgEQjAlzyFtVx4zdP5Qnz
+ IK48eQSa0GJxm7XAplPL1iX5+tR5zXedye/7Y4LH+crLHbcAFD0YkTIMVlIYPXxeiuFIY38P8z
+ R7mhi9HCtN1sDlH58CG5AejoOvIl6NBdx3ZHHLH6JUEBKG6jvrruK6jmqMTaWO9TSnSP2ff9x9
+ DU/d/kQEAAA==
+X-Change-ID: 20260211-pinctrl-single-bit-da213f282c95
+To: Linus Walleij <linusw@kernel.org>, Tony Lindgren <tony@atomide.com>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>, Bartosz Golaszewski <brgl@kernel.org>, "Lee
+ Jones" <lee@kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
+CC: <patrickw3@meta.com>, <linux-gpio@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<BMC-SW@aspeedtech.com>, <openbmc@lists.ozlabs.org>, Andrew Jeffery
+	<andrew@aj.id.au>, <linux-clk@vger.kernel.org>, Billy Tsai
+	<billy_tsai@aspeedtech.com>, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779355066; l=6532;
+ i=billy_tsai@aspeedtech.com; s=20251118; h=from:subject:message-id;
+ bh=1FO/h9Q68wl39xMGpvKy8BX+Cnza/44iE+NJvpqIVdE=;
+ b=Dg8FGmSAZqlzGGhZvMlMhmpPNmfnr+FPYz892X8vyZ/wLjGQXH9HAFL536sj2kDItMBBw44Ko
+ duBFiHJsPJ8AJ4Ca4l5agvBWnUQGDj7qDjM/VenCn7MvyyNg7TnSWpw
+X-Developer-Key: i=billy_tsai@aspeedtech.com; a=ed25519;
+ pk=/A8qvgZ6CPfnwKgT6/+k+nvXOkN477MshEGJvVdzeeQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_021757_309393_979B6614 
-X-CRM114-Status: GOOD (  23.69  )
+X-CRM114-CacheID: sfid-20260521_021758_935390_003F76C0 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,91 +83,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Legacy ASPEED pin controllers have historically not had a coherent
+register interface. Control fields often had no consistent mapping to
+individual pins, and configuring a function frequently required
+coordinating multiple control bits across several registers. As a
+result, the existing ASPEED pinctrl drivers rely on complex macro
+infrastructure to describe the dependencies between pins, functions,
+and register fields.
 
-It was 2026-05-17 nie 19:46, when Guangshuo Li wrote:
-> g2d_probe() allocates a video_device with video_device_alloc() and
-> releases it from the rel_vdev error path if video_register_device()
-> fails.
->
-> This can double free the video_device when __video_register_device()
-> reaches device_register() and that call fails:
->
->   video_register_device()
->     -> __video_register_device()
->        -> device_register() fails
->           -> put_device(&vdev->dev)
->              -> v4l2_device_release()
->                 -> vdev->release(vdev)
->                    -> video_device_release(vdev)
->
->   g2d_probe()
->     -> rel_vdev
->        -> video_device_release(vfd)
->
-> Use video_device_release_empty() while registering the device so that
-> registration failure paths do not free vfd through vdev->release().
-> g2d_probe() then releases vfd exactly once from rel_vdev. Restore
-> video_device_release() after successful registration so the registered
-> device keeps its normal lifetime handling.
->
-> This issue was found by a static analysis tool I am developing.
+The pin controller for SoC1 in the AST2700 breaks from this legacy
+design.
 
-Thank you for taking time to analyze our code. I was going to write
-something along the lines Marek Szyprowski has laready written in this
-thread https://lore.kernel.org/all/CANUHTR-RfWnoMRRAoDb6CPZsaiAYBLy61dd0P6T=
-nKYgjNeBWpA@mail.gmail.com/
-Do follow his advise with this one too.
+For SoC1, each pin maps directly to a dedicated function field in the
+SCU register space that determines the active mux function for that
+pin. This results in a much more regular register layout compared to
+previous generations.
 
-> Fixes: 918847341af0 ("[media] v4l: add G2D driver for s5p device family")
-> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
-> ---
->  drivers/media/platform/samsung/s5p-g2d/g2d.c | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media=
-/platform/samsung/s5p-g2d/g2d.c
-> index a18b13db19d5..f38c28abd6d9 100644
-> --- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
-> +++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
-> @@ -684,6 +684,7 @@ static int g2d_probe(struct platform_device *pdev)
->  		goto unreg_v4l2_dev;
->  	}
->  	*vfd =3D g2d_videodev;
-> +	vfd->release =3D video_device_release_empty;
->  	set_bit(V4L2_FL_QUIRK_INVERTED_CROP, &vfd->flags);
->  	vfd->lock =3D &dev->mutex;
->  	vfd->v4l2_dev =3D &dev->v4l2_dev;
-> @@ -711,6 +712,8 @@ static int g2d_probe(struct platform_device *pdev)
->  		v4l2_err(&dev->v4l2_dev, "Failed to register video device\n");
->  		goto free_m2m;
->  	}
-> +
-> +	vfd->release =3D video_device_release;
->  	video_set_drvdata(vfd, dev);
->  	dev->vfd =3D vfd;
->  	v4l2_info(&dev->v4l2_dev, "device registered as /dev/video%d\n",
+While the behaviour is conceptually similar to pinctrl-single, the
+register layout and configuration model differ enough that reusing
+pinctrl-single directly is not practical. Therefore this driver is
+implemented as a SoC-specific pinctrl driver using static data tables
+to describe the register layout.
 
-=2D-=20
-=C5=81ukasz Stelmach
-Samsung R&D Institute Poland
-Samsung Electronics
+The binding reuses the standard pinmux and generic pin configuration
+schemas and does not introduce any custom Devicetree properties.
 
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
+Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
+---
+Changes in v5:
+- pin_config_set: add comment explaining that PIN_CONFIG_BIAS_PULL_UP
+  and PIN_CONFIG_BIAS_PULL_DOWN both map to "enable bias" because the
+  hardware pull direction is fixed in silicon per pin.
+- Remove custom aspeed_g7_soc1_get_group_pins() helper; replace with
+  direct calls to pinctrl_generic_get_group_pins() in
+  pin_config_group_get() and pin_config_group_set().
+- MUX_FUNC_MASK: add comment explaining that the mask covers only
+  bits [2:0] because bit 3 of each 4-bit per-pin slot is reserved
+  read-only in the hardware and must not be written.
+- Link to v4: https://lore.kernel.org/r/20260519-pinctrl-single-bit-v4-0-5fe568a8ffde@aspeedtech.com
 
------BEGIN PGP SIGNATURE-----
+Changes in v4:
+- Fix SGMII0 mux register: SGMII0's control bit is at SCU47C[0],
+  outside the contiguous pin-indexed MUX register range. Handle it as
+  a special case in set_mux (analogous to PCIERC2_PERST) using
+  field.mask = 0x1 to avoid clobbering adjacent bits in SCU47C.
+- Use devm_pinctrl_register_and_init() and pinctrl_enable(): populate
+  all groups and functions before enabling the controller, closing the
+  race window where a consumer could observe zero groups/functions.
+- pin_config_get: return -EINVAL when BIAS_DISABLE is not active; return
+  -ENOTSUPP for BIAS_PULL_UP and BIAS_PULL_DOWN because the hardware
+  has a single 1-bit enable/disable field per pin and pull direction
+  cannot be read back from the register.
+- Probe: preserve const qualification in the pinctrl_generic_add_group()
+  pin array cast.
+- Binding: retain additionalProperties: false for the state-node schema.
+  The state-node properties block re-declares the four pincfg properties
+  the hardware supports (bias-disable, bias-pull-up, bias-pull-down,
+  drive-strength) and intentionally rejects all others.
+  unevaluatedProperties: false was suggested as an alternative, but that
+  would permit the full set of pincfg-node.yaml properties
+  (input-schmitt-enable, slew-rate, etc.) even though the hardware does
+  not support them. additionalProperties: false is the correct mechanism
+  when the goal is to restrict the accepted properties to a known subset.
+- Link to v3: https://lore.kernel.org/r/20260515-pinctrl-single-bit-v3-0-e97da4312104@aspeedtech.com
 
-iQEzBAEBCAAdFiEEXpuyqjq9kGEVr9UQsK4enJilgBAFAmoOzb0ACgkQsK4enJil
-gBDAvwf/UqBCHoEFcpYoctqpNZB9CoQg5p5yFhsNbYNDc15ydTPBINYKGRXBzPLe
-U+mHRQeqxMHzlzKnBYGJX7LYWXJyK0HAi0Et+jlb4o/v43eoBTBfaaRrbm+ST3sT
-8qVUOcBjdV3AkiXggyGqS5F9XSqEAlcVFc6QJ+YgpIDvu4Kkp6KWBPXqgBT+THPa
-6z+mLGHQNX0NNalw1XBLjbNGlbec6UMFMYk8NJgMV1I5sWdIiDuvUCWyk/oiVwOM
-FTq/BI8ey1+z1bOCux903ak+3iz22voLKCfQPYESX84hDSRs/gAwOh0x5iM5a6kU
-+8oCn5DaDhL/D4jVXb7Dq2PVIWahdA==
-=CxIp
------END PGP SIGNATURE-----
---=-=-=--
+Changes in v3:
+- Added pin configuration group support for AST2700 SoC1 by
+  implementing `pin_config_group_get()` and `pin_config_group_set()`.
+- Restricted AST2700 SoC1 `drive-strength` settings to the supported
+  4/8/12/16 mA values in the pinctrl driver.
+- Convert kernel-doc comment for aspeed_g7_soc1_drv_map to a regular
+  comment to avoid kernel-doc warning reported by kernel test robot.
+- Update the AST2700 SoC1 pinctrl binding to describe the `reg`
+  property and require it.
+- Allow standard pinconf properties in pin state nodes.
+- Add a binding example for the AST2700 SoC1 pinctrl node.
+- Add state-node description, function+groups dependency constraint,
+  and oneOf groups/pins constraint to the binding, matching the SoC0
+  binding style.
+- Add pins enum (212 entries) to the binding to cover all physical pins
+  that support per-pin configuration.
+- Add UART modem-line signals as independent functions/groups:
+  NCTS0/1/5/6, NDCD0/1/5/6, NDSR0/1/5/6, NDTR0/1/5/6,
+  NRI0/1/5/6, NRTS0/1/5/6; remove those pins from UART0/1/5/6 groups.
+- Add LTPI_PS_I2C0/1/2/3 functions/groups for I2C-over-LTPI;
+  extend I2C0/1/2/3 functions with the new LTPI groups.
+- Fix typo: rename RMII0RCKO/RMII1RCKO to RMII0RCLKO/RMII1RCLKO.
+- Fix wrong index: rename DSGPM1 to DSGPM0.
+- Kconfig: use "Aspeed G7 SoC1 pin control" to match neighbouring entries.
+- pin_config_get: fix BIAS_DISABLE readback (val=!val must be skipped
+  for BIAS_DISABLE since hardware bit=1 means pull disabled).
+- set_mux: remove dead null check on grp; propagate regmap_update_bits()
+  return value.
+- gpio_request_enable: propagate regmap_update_bits() return value.
+- Link to v2: https://lore.kernel.org/r/20260306-pinctrl-single-bit-v2-0-79918cfab641@aspeedtech.com
+
+Changes in v2:
+- Updated the series title to focus on AST2700 SoC1 support.
+- Reworked implementation to use static SoC-specific layout tables
+  instead of a generic packed-field model.
+- Dropped the generic "pinctrl-packed" driver approach.
+- Removed custom Devicetree properties.
+- Updated binding to reuse standard pinmux and generic pin
+  configuration schemas.
+- Link to v1: https://lore.kernel.org/r/20260213-pinctrl-single-bit-v1-0-c60f2fb80efb@aspeedtech.com
+
+---
+Billy Tsai (3):
+      dt-bindings: mfd: aspeed,ast2x00-scu: Support AST2700 SoC1 pinctrl
+      dt-bindings: pinctrl: Add aspeed,ast2700-soc1-pinctrl
+      pinctrl: aspeed: Add AST2700 SoC1 support
+
+ .../bindings/mfd/aspeed,ast2x00-scu.yaml           |    1 +
+ .../pinctrl/aspeed,ast2700-soc1-pinctrl.yaml       |  760 +++++++++
+ drivers/pinctrl/aspeed/Kconfig                     |   14 +
+ drivers/pinctrl/aspeed/Makefile                    |    1 +
+ drivers/pinctrl/aspeed/pinctrl-aspeed-g7-soc1.c    | 1747 ++++++++++++++++++++
+ 5 files changed, 2523 insertions(+)
+---
+base-commit: 812e181385abef2fe3a138438326bce844ef7cf0
+change-id: 20260211-pinctrl-single-bit-da213f282c95
+
+Best regards,
+-- 
+Billy Tsai <billy_tsai@aspeedtech.com>
+
 
