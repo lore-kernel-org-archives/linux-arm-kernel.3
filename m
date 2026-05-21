@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AD9CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:22:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5918CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCcyB5LFRmVcSIROxmyKJG5EejU8FPAzcsI/5iDjdGU=; b=bP2MRyAIDyAnejNGAOBYBq3fID
-	LwDBYGSvO/F7GnUPSDPI19yvtO28FAcTNZpxcMzh6akGXAY3+q17Z0qd4pOVKebhLisDYbRAyw8Mg
-	29ce8FqrIA8M0k+0qYQ4LKVZ9dFejDL3W7+wYs1IKmaK6ei6Qc1bQcHLM4Ow1PXGwvuyF0BDulP8v
-	ZK6pqW/0ifQGOQtkUkvgW+xaA8sYJkI8UQ3CrHQTlinVMwkC/Hd3jGOTsfCVlPUmBVM+vdN67rYpi
-	RqBviBbkHyifuAiJBFzk745D98jLolwP2d4sSt+McoFAeF85BLPZcKqwSq2BZ4r+L2vChhaV70aq3
-	tem+f0pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=d4sYsAezsVU0Wr/J/FhXWzuxQimExPgBjdYZ51kXxYo=; b=35LHzi8zFqbLDl
+	4GjBNDVf/NZ/fHBwQAB+BcL4gOTkLmtmyjNk0X/CbXgTDqssYwuQ7BgJnL/CR/V52KkeEh+83G6G+
+	2ShoQCRuvIPOrahM5DcSdrJphPlAj3OWnRZqthdrt3YlxVF17CY2Ud0QYN67NGetdRw4mwFP9UptS
+	GReDooT3KhVWa9jOhRnMo9VEC3sHvdw4Y00rU7fbhGMRDROSGnYavfrfGpr9hj6Op/C7xBTPFsQ/R
+	H8uxIVNaX6iVpJO5WgMUio5aeqaeSTxSg8BdMybWy4+0vrxG55Yo7mv4xvE0IWp0PBCyisK0v0gIP
+	qhNFnm20eYcQv4xdO8/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyfr-000000076rj-3Man;
-	Thu, 21 May 2026 08:22:35 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wPyfw-000000076uP-3nCz;
+	Thu, 21 May 2026 08:22:40 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyfo-000000076qF-3X1c
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 08:22:34 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-490229aa522so23986685e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:22:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779351751; x=1779956551; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=iCcyB5LFRmVcSIROxmyKJG5EejU8FPAzcsI/5iDjdGU=;
-        b=izR40d9KzMgIqWJ3JanY+dhXe3sWVxB8+NHznKaQpj2mbG50XLM9OSL26LdHFS6k5M
-         tKVrH55eaeMMH0GGy5bLENIkqJzGQZLq7x1bdez2ZjhEoMYO9OGWPq1wkuYAouZaplzl
-         4D/7zgB8Kn+qHTSkSngopUVyWHkOulq9mBCj9G1WZ/y6QoFq8ekHbMa067nF4+YL44yD
-         ChNMXBDBuLbS70e2Vr0R89HUGrv4cRN9ia3RhGo0BiX4SfQh29eA6o9xYtlni8Kr4O/Y
-         xq2wgYLyAJ4nY8p7KbwI7lTtfA5+sFke9LdmhOEHvnv6AblOprzWvQFrHoPINvoAcG/u
-         U8+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779351751; x=1779956551;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iCcyB5LFRmVcSIROxmyKJG5EejU8FPAzcsI/5iDjdGU=;
-        b=F8XW1jKLWfbJWWSM2hyPoK8eiviA1+kZlTE3aeO04CizrbLEkOStL8NVfFddkQYOiL
-         qnLIZkUEhzYsUkk3qgZObR8ma3p+w0fd3HIQBZg0nwDfxf1UalGo6bMuMsI9mxHCXMpt
-         /Pyd3LmaB+VDRhPPEE2seo+3ymbSfm1KyI5whl/fF+6UfGxjgsK4SiPIiGkmb2pRvvhe
-         Z2LEFx3AhlHNGB8qViB6/1/qrQrtLcsP83u0K0TdRe5aAO9mEdr5WzpBsWt8q4euux1q
-         00zuwJJglL0Qd+ezat8IAQCsOeFEpIIagVMOau2rqLkvRc7dc3X7+XkQdAMCzAwpPcnm
-         6bEQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9zTzI3f1Kdgy3Xa241FGjRZCBhXVuC8iuTQECRKgDEn2poJ6OsGUE0Pa/hWRKaCCuLg3WBGKsxJdRIYMKb9aTT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5166w3qvgk7/LxqXhDnOBaDnd6Ge/mZgKMjE2O+jxr4wFsAIN
-	s5/3PTyDay3iDHCEUBKIc8bOW7rQABGD0gX+udvt7DEk6K8ts/O2PbEf
-X-Gm-Gg: Acq92OF6VpwZGXX38/4Vprq0At3NJHvDjs983b4W0n98wkystihkfBKIMQjWPJhJknR
-	D+PLrtkRMFAU5n+UPyGEOOfnz/H0uy8mjnXKHNcbgn+0uryAFF37/U8Ph3yT9X4HSnaQrQPfbPX
-	psSyuw01vZDtjKV1k7ez9AJZ2pLNy1NsLSUP9m72PHv+bXvY5Zar6qiP73EmeDx+WRxv9BlucXp
-	eOSgyJuzZQ4bFggjSP82W4NoYc2llSYEPDKJ/r/pSK6RG+ANeT90HzMCC3jh7+YI7toe3SRByrO
-	DPEPqkM0QpqIinxI3Mmr7rBfCEo8KmaRSjqcvJHxyyKt0GmNLO9ZslQ9FS1oKmivZhLU3Dd0W8f
-	Ah7mSq6bpM19larda9NpOSxJWqBHEYltOxl9yR795M+Fy7VhLkhGHPOYQGnMCHKdxN4R/ydSfhj
-	l6nTmDkocs25nc17+TYz9mYKkQMUObYqALyjD5gHv8LIYXnYOPtW2n8BB/6SkYQa1SaaqRht7O
-X-Received: by 2002:a05:600c:858c:b0:490:778:4fec with SMTP id 5b1f17b1804b1-490360f28f7mr17896195e9.33.1779351750348;
-        Thu, 21 May 2026 01:22:30 -0700 (PDT)
-Received: from Ansuel-XPS. (host-79-22-5-99.retail.telecomitalia.it. [79.22.5.99])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4903caede9fsm9490145e9.14.2026.05.21.01.22.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 01:22:29 -0700 (PDT)
-Message-ID: <6a0ec0c5.16c38fd9.2b754a.4dc3@mx.google.com>
-X-Google-Original-Message-ID: <ag7Aww1CbIvhnItD@Ansuel-XPS.>
-Date: Thu, 21 May 2026 10:22:27 +0200
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: Re: [PATCH v8 2/5] dt-bindings: phy: Add documentation for Airoha
- AN7581 USB PHY
-References: <20260520150912.11614-1-ansuelsmth@gmail.com>
- <20260520150912.11614-3-ansuelsmth@gmail.com>
- <20260521-ambrosial-abiding-lyrebird-9dc86f@quoll>
+	id 1wPyfr-000000076r0-0JgN;
+	Thu, 21 May 2026 08:22:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779351752;
+	bh=id9lJPyfSluCWG1v7s+8XJ8u/iOKLj6FMKOfglz9ups=;
+	h=From:Subject:Date:To:Cc:From;
+	b=DZ1AUFDZDuff1FRxszSwe2QinUKngJ+hJ/bu7uesd5XJwxFIqXMgAzzniP4rim8/A
+	 XK3FZZhnxB2KEbJ/mxJInjybgiZ4rpJWeQ1Zx5zy0WGF2lHCL81c4US9hgnJE12Ap5
+	 M5IWFwNxK7fEG6+Y1bceu8utexf6lFoPJ+FB3sYX2Ox4yWxMGrJgZlB3ia38BQnlGU
+	 qeFZmZAW2iLjgnTTUHyOBBJ2R/rZu0MS65eLJebsU8tiVkTvRyTomDeArHcIN+7L1a
+	 6gwZtyqcQ5WmjbzW38I1rg1lMOsOxxbfPmhQl4hv01bZRdPRfcBdjUoL/0zgfJZ+ed
+	 ONKPyXGbsmQVw==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA01017E091C;
+	Thu, 21 May 2026 10:22:30 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH net-next v4 0/6] Introduce Airoha AN8801R series Gigabit
+ Ethernet PHY driver
+Date: Thu, 21 May 2026 10:21:53 +0200
+Message-Id: <20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260521-ambrosial-abiding-lyrebird-9dc86f@quoll>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OTU7DMBAF4KtEXjPI/wldcQ/EYhJPiKU2DrYbt
+ apy9xpTCYRQlqOZ9827sUTRU2KH5sYirT75MJdBPzVsmHD+IPCuzExyabniCtA5QB/DhIBz13E
+ B6bwsIWYwrTNao8aRHCv5JdLoL9V+YzNlmOmS2fv3JtLnuTzLj3WPiWAIp5PPh6ZT3HVtK5DUU
+ O8nn3KI11pyFTXw6KN3+qwCOHAkTWRQji/udQjHI/Yh4nN5VeVV/tKk3dNk0QRq6WxvueHjf5r
+ 60YyQe5r60sj1SpOyCumvtm3bHb2yn/icAQAA
+X-Change-ID: 20260303-add-airoha-an8801-support-57d544a4afed
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com, 
+ matthias.bgg@gmail.com, kernel@collabora.com, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779351750; l=8154;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=id9lJPyfSluCWG1v7s+8XJ8u/iOKLj6FMKOfglz9ups=;
+ b=sHz8PXzzQRETATuaB2kHkBNTdMIbdJ+mzqEgau8XE3uKWRLvTcS1RQ3/QWfElAl3/3c1Dw6aW
+ YPsiqGTh4JPARr+hMGvVn6S1KxxbeBlPGLCFKBGCEfNboKW2BpnXiC/
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_012232_899692_365821D0 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20260521_012235_284330_2176E4AB 
+X-CRM114-Status: GOOD (  27.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,62 +95,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 09:44:16AM +0200, Krzysztof Kozlowski wrote:
-> On Wed, May 20, 2026 at 05:09:07PM +0200, Christian Marangi wrote:
-> > Add documentation for Airoha AN7581 USB PHY that describe the USB PHY
-> > for the USB controller.
-> > 
-> > Airoha AN7581 SoC support a maximum of 2 USB port. The USB 2.0 mode is
-> > always supported. The USB 3.0 mode is optional and depends on the Serdes
-> > mode currently configured on the system for the relevant USB port.
-> > 
-> > To correctly calibrate, the USB 2.0 port require correct value in
-> > "airoha,usb2-monitor-clk-sel" property. Both the 2 USB 2.0 port permit
-> > selecting one of the 4 monitor clock for calibration (internal clock not
-> > exposed to the system) but each port have only one of the 4 actually
-> > connected in HW hence the correct value needs to be specified in DT
-> > based on board and the physical port. Normally it's monitor clock 1 for
-> > USB1 and monitor clock 2 for USB2.
-> > 
-> > To correctly setup the Serdes mode attached to the USB 3.0 mode, a phys
-> > property is required with the phandle pointing to the correct Serdes port
-> > provided by the SCU node.
-> 
-> 
-> ^^^ here - required but:
->
+This series introduces the Airoha AN8801R Gigabit Ethernet PHY initial
+support.
 
-I think I have to rephrase it. It's required if the USB3 is used/wanted. In
-the other case for the USB2 phy is not needed.
+The Airoha AN8801R is a low power single-port Ethernet PHY Transceiver
+with Single-port serdes interface for 1000Base-X/RGMII.
+This chip is compliant with 10Base-T, 100Base-TX and 1000Base-T IEEE
+802.3(u,ab) and supports:
+  - Energy Efficient Ethernet (802.3az)
+  - Full Duplex Control Flow (802.3x)
+  - auto-negotiation
+  - crossover detect and autocorrection,
+  - Wake-on-LAN with Magic Packet
+  - Jumbo Frame up to 9 Kilobytes.
+This PHY also supports up to three user-configurable LEDs, which are
+usually used for LAN Activity, 100M, 1000M indication.
 
-I will bettet describe this in commit description and on the phys property
-description.
- 
-> > +  phys:
-> > +    items:
-> > +      - description: phandle to Serdes PHY
-> > +
-> > +  '#phy-cells':
-> > +    description: The cell contains the mode, PHY_TYPE_USB2 or PHY_TYPE_USB3,
-> > +      as defined in dt-bindings/phy/phy.h.
-> > +    const: 1
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - airoha,usb2-monitor-clk-sel
-> 
-> 'phys' is not required? I think you need it to configure the serdes
-> correctly, no?
-> 
-> > +  - '#phy-cells'
-> > +
-> > +additionalProperties: false
-> 
-> Best regards,
-> Krzysztof
-> 
+The series provides the devicetree binding and the driver that have been
+written by AngeloGioacchino Del Regno, based on downstream
+implementation ([1]). The driver allows setting up PHY LEDs, 10/100M,
+1000M speeds, and Wake on LAN and PHY interrupts.
 
+Since v2, the series also adds the air_phy_lib library, which goal is to
+share common code between air_en8811h and air_an8801 drivers, and its use
+in them. The first shared functions are the existing BuckPbus register
+accessors and air_phy_read/write_page functions coming from air_en8811h
+driver.
+
+The series is based on net-next kernel tree (sha1: 830d8771ae3c) and
+I have tested it on Mediatek Genio 720-EVK board (that integrates an
+Airoha AN8801RIN/A Ethernet PHY) with early board hardware enablement
+patches.
+
+[1]: https://gitlab.com/mediatek/aiot/bsp/linux/-/blob/mtk-v6.6/drivers/net/phy/an8801.c
+
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Changes in v4:
+- Rebased on net-next (830d8771ae3c)
+- Added in patch 1 the missing function-enumator property description,
+  that should already have been present in v3
+- Modified patch 1 and patch 5 subjects to use AN8801R and not AN8801/R
+  (detected by sashiko-nipa)
+- Modified patch 3 to add missing wordpath.h include (detected by
+  sashiko.dev)
+- Modified patch 5 to use NSEC_PER_MSEC definition instead of hardcoded
+  value in an8801r_led_blink_ms_to_hw
+- Removed unnecessary RGMII_DELAY_STEP_MASK mask operation in
+  an8801r_rgmii_rxdelay and an8801r_rgmii_txdelay
+- Removed extra empty line in an8801r_led_hw_control_set
+- Improved AN8801_RGMII_TX/RXDELAY_DEFAULT definition comments 
+- Fixed inverted GENMASK arguments in AN8801_WAKE_OUT_WIDTH
+  definition (detected by sashiko-nipa)
+- Fixed possible overflow when writing LED_BLINK_DUR register value
+  in an8801r_led_blink_set (detected by sashiko-nipa and sashiko.dev)
+- Modified the an8801r_handle_interrupt to allow the WAKE_MAGICPKT and
+  WAKE_LNKCHG interrupts handling in the same call
+  (detected by sashiko-nipa and sashiko.dev)
+- Add extra check in an8801r_set_wol to reject unsupported modes
+  (detected by sashiko-nipa)
+- Fixed supported led trigger detection in an8801r_led_trig_to_hw
+  (detected by sashiko.dev)
+- Fixed possible uninitialized return value in an8801r_of_init_leds
+  (detected by sashiko-nipa and sashiko.dev)
+- Modified patch 6 to fix possible cases where the link mode register value
+  might not be updated (detected by sashiko-nipa)
+- Added new reviewed-by trailers
+- Link to v3: https://lore.kernel.org/r/20260512-add-airoha-an8801-support-v3-0-1edb34e363ae@collabora.com
+
+Changes in v3:
+- Rebased on net-next (7e0cccae6b45)
+- Updated patch 1 to describe the function-enumator property for the
+  LEDs and its possible values
+- Modified patch 2 to add missing includes in air_phy_lib source and
+  header files
+- Split patch 3 in two so that the api call renames in air_en8811h
+  driver is done in a separate patch
+- Simplified return code handling in several functions
+- Fixed return code handling in several functions detected by AI
+  peer-reviews (netdev-ai or sashiko)
+- Added additional interrupt enabled check before enabling/disabling 
+  link changed interrupt in an8801r_suspend/resume callbacks
+- Fixed register mask for GPIO LED selection register in
+  an8801r_led_init function
+- Fixed potential uninitialized variable in an8801r_led_polarity_set
+  function
+- Fixed LED blink register settings in an8801r_led_blink_set function
+- Split an8801r_read_status function implementation in a separate patch
+  as requested and add comment to describe why the link mode register
+  needed to be modified after reading the link speed.
+- Link to v2: https://lore.kernel.org/r/20260326-add-airoha-an8801-support-v2-0-1a42d6b6050f@collabora.com
+
+Changes in v2:
+- Rebased on net-next (d1e59a4697371)
+- Fixed dt-bindings to remove the leds property from the required ones and
+  add wakeup-source as valid property
+- Added new reviewed-by trailer for dt_bindings
+- Added new patches (2 and 3) to create air_phy_lib, to share common code
+  between air_en8811h and air_an8801 drivers and use it in air_en8811h.
+- Remove custom BuckPBus register accessor functions and definitions from
+  air_an8801 and use the ones from air_phy_lib. It also fixes a build
+  issue on v1 due to an uninitialized variable used in
+  __air_buckpbus_reg_read, that is now removed from driver code
+- Added air_an8801_probe function to allocate the newly added private
+  data structure and detect if the PHY is wakeup capable and the interrupt
+  can be registered as a wakeup IRQ, and perform the needed actions
+- Added an8801r_suspend and an8801r_resume functions to perform specific
+  actions when WoL is enabled (reset its status, enable/disable the Link
+  Changed interrupt) and call the genphy_suspend/resume functions if
+  needed
+- Modified an8801r_get_wol to return WoL is not supported if the PHY
+  device is not wakeup capable
+- Modified an8801r_set_wol to return EOPNOTSUPP error code if the PHY
+  device is not wakeup capable, and to update the wakeup flag according
+  to WoL mode
+- Modified an8801r_config_init to remove EEE disabling and replace
+  __phy_write use by phy_write_paged
+- Reworked an8801r_rgmii_delay_config and its subfunctions to fix a
+  double return use in PHY_INTERFACE_MODE_RGMII_ID case, replace the
+  magic value use for default TX and RX delay and handle better the
+  enable/disable the inserted delays for all RGMII modes
+- Merged an8801r_did_interrupt function in an8801r_handle_interrupt
+- Modified the an8801r_handle_interrupt processing to process differently
+  the Magic Packet (to notify system wakeup) and the Link Changed
+  interrupt (to notify PHY state machine)
+- Splitted the reset WoL status part from an8801r_ack_interrupt and fix
+  an issue that in some random cases made WAKEUP_CTL1 register lose the
+  Magic Packet WoL settings
+- Modified an8801r_of_init_leds function so it does not return an error
+  if the leds configuration is not present in devicetree
+- Removed feature field and add PHY_ALWAYS_CALL_SUSPEND flag in
+  airoha_driver data structure
+
+- Link to v1: https://lore.kernel.org/r/20260304-add-airoha-an8801-support-v1-0-0ae4ee5a2f9d@collabora.com
+
+---
+AngeloGioacchino Del Regno (2):
+      dt-bindings: net: Add support for Airoha AN8801R GbE PHY
+      net: phy: Introduce Airoha AN8801R Gigabit Ethernet PHY driver
+
+Louis-Alexis Eyraud (4):
+      net: phy: Add Airoha phy library for shared code
+      net: phy: air_phy_lib: Factorize BuckPBus register accessors
+      net: phy: Rename Airoha common BuckPBus register accessors
+      net: phy: air_an8801: ensure maximum available speed link use
+
+ .../devicetree/bindings/net/airoha,an8801.yaml     |  116 ++
+ drivers/net/phy/Kconfig                            |   12 +
+ drivers/net/phy/Makefile                           |    2 +
+ drivers/net/phy/air_an8801.c                       | 1144 ++++++++++++++++++++
+ drivers/net/phy/air_en8811h.c                      |  316 +-----
+ drivers/net/phy/air_phy_lib.c                      |  213 ++++
+ drivers/net/phy/air_phy_lib.h                      |   39 +
+ 7 files changed, 1584 insertions(+), 258 deletions(-)
+---
+base-commit: 830d8771ae3c7bc90a62dde76a6556e612529fbc
+change-id: 20260303-add-airoha-an8801-support-57d544a4afed
+
+Best regards,
 -- 
-	Ansuel
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
