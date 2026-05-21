@@ -4,108 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB86CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 05:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD2DCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w25KogIBywA1a93/rf1RBOgU5z4hh07df7N09bLqYmU=; b=IyVE0Ys4w0I6tR3EIxRTyzdaSC
-	q6n/wDrMc9y7MLHjug1GHXvwsJ+RkKlBtYUwg1owoDm0iCZANjOPjl76QKdY75Gi9rZNZIZOm5vPQ
-	CJpTk7eL8YB+pNvaO98+U70dDkC8TqtN+bCXmxgMPuWRTa3ifPRK9fo33kxjM5FneygDPhNvC0sVq
-	NvEtP2Id3AOz+PqqQ35r+B838QTPWfk+UPaQu/6r8hgOp5evD94ndAaU2+WzvIHBhJzEFVDGmNeFg
-	TSb7pkbpf9vzDFRnp/kbGdl5TfdPWaP7/uNwX9MpLvkVNxpr7GlQgZXmZ+6QGAvcqncCI8NlrhAmr
-	aJghR1Fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DzO2aEKL0eYNvitD1/FUOoxkL7f0cNoROoGQTff0vjI=; b=TohwglYyQhcC3wXBUPAHrasGnr
+	IXZm0RIPIO3pO/AT8IpBCjFr6hJt44CF6scwv4MSwgi/bDQnFCDZXrYyBCncyFCtmlJ/GcFACzhCe
+	otHRqtZcktR+3ZEo02Lub7BUpFbtdEEgCP2TtjXov+aHojI3D1obCY2Bm+WckviFd3k1W4RlarpNc
+	ndwci4SfR2frAB8pfL6algMne6saBWrgDHyN1b8BEAc4S2au98/LFHgZcDPx59LHq71dwNtwhvCjJ
+	NAK5/Br5oKeTkg5zqx+UvM17xYa3+vPJwNVjV0NPtN6Gw2XEEKQxoQTEbc25BDCZPzeVLlKlN9Jkh
+	LAdDgyDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPwFi-00000006lO2-0C9w;
-	Thu, 21 May 2026 05:47:26 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1wPwmz-00000006o23-24U9;
+	Thu, 21 May 2026 06:21:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPwFf-00000006lNa-0vm2
+	id 1wPwmw-00000006o1H-0rDj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 05:47:24 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-8c921396e37so59960136d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 22:47:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779342441; cv=none;
-        d=google.com; s=arc-20240605;
-        b=lW5/eflVJTqEEX1KFQthWh3hGQ5XgSqt5sdDsAjjKGkri+pctHRLZ8jzFDsHCh92AD
-         8MVRIBvBBvGRL4oYsBry6ujTH+tPQ9msYsOHJBzgIw+aFr/2QZjemSZuzoKpKxT5zQ87
-         PKeusRd/fFFMIuSFQa4S6sq5Mgqd6o094f+kwl5GNOaOWQqMz2yiAv+Cpr25yB4tSMda
-         uDxSKkoSP/Pr/RsAKQj4Qyay9PEAdbkSfjIFpFXHnYhzXSC50jQG9NnsxoJqZBMVpvXj
-         DXE63N4fGEvDh6nYZo7hAQz+amHDMzn3d/d/ylCPGY5G6EMryJKUoNASCIn+xTk2CTX7
-         5WXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=w25KogIBywA1a93/rf1RBOgU5z4hh07df7N09bLqYmU=;
-        fh=qKqMt81K+UkQokgHqjwmOxfXIptiRxF0DVQUh9w3ZgA=;
-        b=P7b6Ip6HvtSH1dITBK0IH8h+mM23HEcyOVG63KmU9qT4t+u93VUD/zslPkXuslVLj4
-         PNN4oeC3xuni0LMX5OdEEf1PSIuu55FtXrxib0XhuK9RSEZhvvIPz8fARF54Cfy4pH2F
-         WofCh2cmTFheBwz80FCUuXxUiJOnRNK596N/hF2UHv17b8UYR2IlvlZ63qd+ykY5h+PS
-         YchY5TwDperTb9HMyBBftn4+eH3kVtyouWtH7DrzbBtRDem0t+RJBJQWcMrvUICpxC2q
-         ByWKo/7ZusLTnNzW4Iu5EfA+IiHp+UrC0WE5ygXMNAjxDitGrcQQhepG30iX4OxlZEcy
-         hrlQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779342441; x=1779947241; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w25KogIBywA1a93/rf1RBOgU5z4hh07df7N09bLqYmU=;
-        b=fw6bBEKw6fP87j8ysqmP5nlOJF0Zaf8evI1e4pYdckC/tcg89/nvUi4hUSgKDZsu0q
-         NFJ4C34YE+Br/x74C3sh+nw9O+0nSABq1g4dN4pRuNj8beVzBLvlM9wXloVJxJ/GEvj3
-         BNTFh3Cfgx53OJDpDooYpqTFETviR0f+OA8URsVAJ/NHeKKG/uIjPEYACT6F1AB6zNQG
-         mnfDThKZPnpsQBiNcL8587lu4bKooC03Qsjwl+VdWJ/sliqKIYbiTqyqnY/EVolbMMLB
-         s89f5hB/3vIykYOwAzn4VPxJ9OmI0T6h9DY+EhX7gHGZsR8xHmVuJM26fN0nUHeJD3Qk
-         woSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779342441; x=1779947241;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=w25KogIBywA1a93/rf1RBOgU5z4hh07df7N09bLqYmU=;
-        b=czeZphVYrBKJt9RLoQmFl5UV9bYatLZasw053OFrnnVYFYoD7yjJIsA2blT6UIOONY
-         emlLyvciCtCh8P4nH6jA78EB2m4SkASShZAX+2xQjdDNkvxToHAm5w2pNeY+0nGwQMf+
-         i2gFPCQ+PzeYoXpj3QcffRmpDjMyULXsObv/8agy0aiBFXricg1mj3ik1MQOAVhk/rjL
-         BD40E+rwa6EBDVMSa+0KxBr/YG4h72igo4s8UzDeJe7RMqfe4q8qR0xEYqvehcYJSRZ2
-         pXUk2jyXaN6KcM2yO17wxmLY2+RRQWCuFTxK1Zb3ftSG4XUxY0dEoLUE0WZkZMVdf60f
-         SLJw==
-X-Forwarded-Encrypted: i=1; AFNElJ+yyun2FHJYxPOE/Lm7GrPqMSDsG7+qVVm9Yzu53SyBKFLcm5h2iT4ZJ1KVOJ+TlnUinzKlZ3ldmYBWRoEb+3Ys@lists.infradead.org
-X-Gm-Message-State: AOJu0YycuwSS7iIkneO3CZZ79aRYCka3Ot7Ku7/96Nzw3DiQInN041TM
-	rqJEhGwChpY4fq4WO6z86hstNuAWtUuOGt3s294o4hO77vRh1EiOZmQF2BaglFkNi5iGtC+aUhK
-	vaT+wEOdAlS6ZVtXZe7NN76aWh4Jimm4=
-X-Gm-Gg: Acq92OGTszQiv1/e5xoz6N1RQlATpzRwYeGjISAfYBpOok6ibEJ9W4GXnmS/XYdCuj/
-	lcMBsGoucKI9gbhQO/PTHC7cNEo79FGRB2WkvMX9E3JqFf53RTHYcMIZwhuGTn6Q+o2UVLA8y94
-	bM91UHfQqK6L20lfsXmKQ4gksr0mCC78Rolhq1f/wLQxitqxQEg/tu81ZNFQlSBaEs7Lbqty2gz
-	b7OStEMvyCVGAabNAVgDhTeYfM4BCNOxIlA0K5yvGza3WdMwqfe96fV0LDNM0eNbnjM5Ef5lCKa
-	1W7MAV+aaRbvypRTtwhzykZvxox9p/mbcI/vM3vMn/YXhby8XQ==
-X-Received: by 2002:a05:6214:4589:b0:8ac:b1ad:3a24 with SMTP id
- 6a1803df08f44-8cc6e369142mr24275146d6.27.1779342441405; Wed, 20 May 2026
- 22:47:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260509193928.19030-1-manishbaing2789@gmail.com> <agnY16I4sYAdRd9T@monoceros>
-In-Reply-To: <agnY16I4sYAdRd9T@monoceros>
-From: Manish Baing <manishbaing2789@gmail.com>
-Date: Thu, 21 May 2026 11:17:10 +0530
-X-Gm-Features: AVHnY4KAzV-NI5cDZgO-6QHQZfraoFlbvvmbGV2Hd6qkCVQ1Ph4LlYmyO8Rq1VQ
-Message-ID: <CAJvdc_enTOF=+1rumSz4FD5T1ME0fnJ+SVC+jMuOTMxzyx8P1Q@mail.gmail.com>
-Subject: Re: [PATCH v3] dt-bindings: mfd: st,stmpe: fix PWM schema and drop
- legacy binding
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
-Cc: lee@kernel.org, linusw@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
-	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-pwm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 21 May 2026 06:21:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 01E25441E4;
+	Thu, 21 May 2026 06:21:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68881F000E9;
+	Thu, 21 May 2026 06:21:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779344504;
+	bh=DzO2aEKL0eYNvitD1/FUOoxkL7f0cNoROoGQTff0vjI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=oOFnhiY0OA6iK4nU4eLBD1+04a1igf9LpYBf/5pJQoVIOa7dGcdZHJrtES3onkTKF
+	 4AKb1rYY71HSGuAmchP5NTIpIL/YNbYiZppKOL99kt5jyHrvO+YvahKlv1LFI7qa+s
+	 kJ6urXk9hIeyi1dVpmoogb84gUvGOfRDN5n9b0pAf9R/IlizXCghFFM6TIgs634M/C
+	 xssAL3NANmNmdfp7YIhi1mbXGV9ebyJLdo9+Jv7r4RQvIvHluslf2rSkSt3fZLWDUf
+	 Me/FnSal5ZeIuzNiz/NUA7spwbAt0JsCiKrEtDEsYjTeRoOagQtjBg20dCCDXVkJ1x
+	 uTk6BBS5dVLVg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPwms-00000004gLC-1AqW;
+	Thu, 21 May 2026 06:21:42 +0000
+Date: Thu, 21 May 2026 07:21:41 +0100
+Message-ID: <86o6i9wadm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
+In-Reply-To: <20260520110231.GA4005903@e124191.cambridge.arm.com>
+References: <20260520085036.541666-1-maz@kernel.org>
+	<20260520085036.541666-3-maz@kernel.org>
+	<20260520110231.GA4005903@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_224723_267369_3C38D368 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20260520_232146_284289_7FF0C29D 
+X-CRM114-Status: GOOD (  26.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,55 +93,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
-> If the patch was split into two, each touching just one of the files,
-> there would be no need for merge coordination. Also logically it's two
-> patches. Would you mind splitting?
+On Wed, 20 May 2026 12:02:31 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Wed, May 20, 2026 at 09:50:36AM +0100, Marc Zyngier wrote:
+> > When switching between L1 and L2, we save the old state using
+> > kvm_arch_vcpu_put(), mutate the state in memory, then load the new
+> > state using kvm_arch_vcpu_load(). Any live FPSIMD/SVE state is saved
+> > and unbound, such that it can be lazily restored on a subsequent trap.
+> > 
+> > The FPSIMD/SVE state is shared by exception levels, and only a handful
+> > of related control registers need to be changed when transitioning
+> > between L1 and L2. The save/restore of the common state is needless
+> > overhead, especially as trapping becomes exponentially more expensive
+> > with nesting.
+> > 
+> > Avoid this overhead by leaving the common FPSIMD/SVE state live on the
+> > CPU, and only switching the state that is distinct for L1 and L2:
+> 
+> To make sure I understand this part:
+> 	
+> 	L1 sets up L2's FP state live on the CPU 
+> 	L1 erets
+> 	eret traps to L0/host
+> 	preemption disabled
+> 	kvm_arch_vcpu_put()
+> 	    kvm_arch_vcpu_put_fp() <-- actually saves the state of the live registers
+> 	.. set elr etc ..
+> 	kvm_arch_vcpu_load()
+> 	    kvm_arch_vcpu_load_fp() <-- doesn't actually restore state, but ensures
+>                                         the CPTR trap will be set
+>         .. returns to L2 (traps on first use of FP and state will be restored)
+> 	
+> So this patch is (effectively) removing the put_fp()/load_fp(), because the FP
+> state is common/shared between L1 and L2, so whatever L1 put into that state
+> before the eret, L2 was going to see.
 
-That makes perfect sense. I will split this into a two-patch series
-(one for the MFD YAML fix and one for the PWM TXT deletion) and submit
-it shortly as v4.
-Thanks for the feedback!
+Yes, you got it right. The other path is on L1 to L2 exception, which
+also requires L0 mediation and has a similar shape.
 
-Thanks and Regards,
-Manish
+The most horrible thing is that because all these traps can happen at
+a arbitrary depth, each individual trap usually results in the
+combination of all of the above.
 
+> If my understanding is correct:
+> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-On Sun, May 17, 2026 at 8:35=E2=80=AFPM Uwe Kleine-K=C3=B6nig <ukleinek@ker=
-nel.org> wrote:
->
-> Hello,
->
-> On Sat, May 09, 2026 at 07:39:28PM +0000, Manish Baing wrote:
-> > The st,stmpe-pwm binding is already covered by the MFD schema in
-> > Documentation/devicetree/bindings/mfd/st,stmpe.yaml. However, the
-> > PWM subnode was missing a 'required' properties block. This allowed
-> > Device Tree nodes to pass validation even if the 'compatible'
-> > string was omitted. This omission could lead to probe failures
-> > at runtime.
-> >
-> > Fix the schema by adding the missing 'required' block and
-> > remove the obsolete and redundant text binding file.
-> >
-> > Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
-> > ---
-> > Changes in v3:
-> > - Added 'required' properties to the pwm subnode in st,stmpe.yaml
-> >   to close a validation gap identified by the Sashiko.
-> > - Updated commit message and description to reflect MFD subsystem chang=
-es.
-> >
-> > Changes in v2:
-> >  - Droppped the TXT file instead of converting to YAML, as the
-> >    functionality is already covered by st,stmpe.yaml.
-> >
-> >  .../devicetree/bindings/mfd/st,stmpe.yaml      |  4 ++++
-> >  .../devicetree/bindings/pwm/st,stmpe-pwm.txt   | 18 ------------------
->
-> If the patch was split into two, each touching just one of the files,
-> there would be no need for merge coordination. Also logically it's two
-> patches. Would you mind splitting?
->
-> Best regards
-> Uwe
+Thanks!
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
