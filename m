@@ -4,104 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68550CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B2CCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:08:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5cR07XDjlS+wXZUNvs0UUZjGctg9E4/1xeGtGHmHDoY=; b=Wg9aCHwZOWjqQ53k2dnVTmrxgc
-	4wWMkPzZKD/kCnmgMEiPZQU6ji/2Ygwn4MJZYn91hJK8pD2RFh9zF+tjeSm+k3xcHJdituRPbcBxk
-	dEDUHRvWT62ZMSPM7OPr2is1AMTSQxLNhSzxMBajfWOVBqsDdNDCNrvHJgdMf7QJwAUMueCkT88yU
-	N98mZMFatf/P3nufk4Flchmxx6kw7l67Xas8d5e13A64M+Kl5KmgnzB+ocFaRXOpnQDlOKFTsS5Rg
-	26gTib+0eB3JeyRcCaHrr1s/7ZlTl8H1Ndln1jfzmGAYdt7OoJdavgl7KFxNhUWW7aiQgMmwQxO1O
-	nFY6CuWQ==;
+	bh=ioEzmXHuVthmvT1VW0zwCCGdbJiMgEB9gdSvDBe2i+A=; b=1ROMQ4yEJ7e7abQp+j9juJmgtk
+	qPHdBl22g7CGn2dgyH509hdqDF98b+RlfrhTsGwpgtOOzIS2905+Ho/itJRQNIJm4pKsX6KUhj/dO
+	WhR1bHvZ3dR37lsv94GsMwvd4UQczq4DvJ6QBGVSerYA6LlcjaVYqTjZRZbBHtuFYxfV63jXSf7kT
+	dC3jl/5ar5xoD/LWKNORAvqibS9t6K0ZW5JdIAIF0mF7oOlPc48Z/B//K79gkg5Due3Ch/CkfkitK
+	QYKpdijpelUVH/X9IMRlc088uYb1eLwFXtLYaoZLRkEv44nKggkmruv3S+xd7hPmV/d4YGi9dVCUD
+	WDgXDhIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ38J-00000007ok9-3vZc;
-	Thu, 21 May 2026 13:08:15 +0000
-Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
+	id 1wQ38O-00000007om2-06Ii;
+	Thu, 21 May 2026 13:08:20 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ38H-00000007ojG-1Rtk
+	id 1wQ38K-00000007ok8-087b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:08:14 +0000
-Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-50e61648f10so25331cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 06:08:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779368891; cv=none;
+	Thu, 21 May 2026 13:08:17 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-515548f390fso18241cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 06:08:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779368895; cv=none;
         d=google.com; s=arc-20240605;
-        b=gfmcXgySOw6S8PO2stDk44nggXqu3zuOjhxtpBL9ICpZv55A2WDPyOUuX0N5bHZndm
-         /spxQ/PZ45ERFVeGl9Has0tlZJzGEmObOPQopPyfRaaef5Ah9QMgQXfidWY9O1l3Twg0
-         yKag8ebDT8bqxVocouiCmkugYWoYk5aysiN23oQejyQv3bwnGeUUqAlRGx4vXog6GMXl
-         SRh3s1AIO9P3VLKt9CSzsDP5mhwR3LTi/FA+mIEp/CLLa9KyL3ZBsfxXTn6Q3+FEaKyT
-         ELIzxtOUrHNbw4ZcPDET0GbuW0PHffDKzRdbyUC0AcI/MPBSJWENuITizjINL337q1wW
-         NN/w==
+        b=LNRJE0ainh4pFcLNLuU02gmIF6Xg0uSVXHeKzQsdXgAzuPnaLefxZC4YWuC7VDdSz5
+         w8Is3Pt5RO6W+OS4NvYdyBCF8kj5KETIvwvEOsBw8DmsKIYUpC2bbgpNHNpF9MG0SISY
+         KfgilZ0alnJQNuy/aHuiWzT5GdEL+v5clSFVkujBfOb0wp6wnkUbRHirD/ESjSnXPqW2
+         8tciD3C6xz6ldRt2zRhWIxn75aKExhm2Ars5jNaobbkTTT40EZQ6DWRPllaQcU7G4Vl9
+         zIbWjuKepf3frkX9aoJU9WTx2UCiR62AjCC7t5pAUqoJeqr1/gNVq6ZPcZzZDDTyAcAi
+         zigw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=5cR07XDjlS+wXZUNvs0UUZjGctg9E4/1xeGtGHmHDoY=;
-        fh=US1h0sqiWnWKriwjdIOgFSEhCS18DR8B7gIkOzsggC4=;
-        b=UEOncZml2EoON6hEtSI+uNn7Gw2Tkb+BBdyRN2vTPggxnwv2WczrB6YWBxp9vMHqiK
-         oCX3kh9pu2zgfBFBIv4pWHfEp0qEZP9pvkZOETzXn66HcOeErAp34g88cvvmkSprvetL
-         aw3wD+R/OCCNrK+Y/ZkLEbjaV72m/CfnhgMou/DB/LAta6d3pvd3vuTf/suqe2NWK2tP
-         tzmd2mVRfTvbjlmmpVrdWxTrZzcCz1oNSScK00PTBREgUW4CC1XQIrwdUs/9Lse/JglV
-         /OJdrS6UgcP/d53t0fGZbhuJEeo3ZjeBW34X39QLiGcSHLUau7UKf6jRowQivx+nqDLg
-         3LFA==;
+        bh=ioEzmXHuVthmvT1VW0zwCCGdbJiMgEB9gdSvDBe2i+A=;
+        fh=avZMOROZuJbYvvO18rEMJuu92KO5K+DiR1LR81kivCw=;
+        b=hAeHbrjD877fOky1Okh0Qh4Y75eLevI9sc6pl3fHopdcg48ODVPEgyxNNfI68WiVVE
+         mCr0B1Ao22gNRRyeHXzZi9xaUYVKmWem6XD+DdP958V3mqMJFQtUpdlHAwql4kzR3UkT
+         kmTu1yUnhcjNNlmLoCIl54+00a5Doc79M+NHOwhrII8o7oHiUahMhoZheWYmDd4THyaz
+         1r/FdhbM7D8ezKook2zuo8UmsNfJ1+59HhD3uHnbrP3jRwVxRYrB5wmlm74YOLykP2bT
+         6oJL2y59fAosseP6YVcDuDmzIf7yKpBqjLGkrwbkdvGB+YGDByuv8RGS1HQ7AHS5ekhD
+         +bFA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779368891; x=1779973691; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779368895; x=1779973695; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=5cR07XDjlS+wXZUNvs0UUZjGctg9E4/1xeGtGHmHDoY=;
-        b=t5cVw/fe3/VUeMyxr6Mn9EKfKqUm9+FirSmSwIO6UJoYLVtMcgUqTz1+13LVzPWe2a
-         m7ivicbUnt9251asIjbXf4k6uw+tUVbGFI81WZH6g0W5cScMFnYB5CXyp239y7rZ1YNw
-         BZZ5z6hwpaAWSfgyvLugGuGHq+fzPmb+VbuSMAeZNzZ7CuvL0q01zr9LR63Xy4g/AbJ4
-         IieNpnYc9QSyb7Qgl2w9R6meQQDJQzqmird7c0KqPl1o7bMsEgEuDxb5X56BOlDkxUJu
-         knS5nn9rjCjPDWTtwo/f898H6eart811wNswXFb8gpBDMDtoVw4NIZ6TYKt1ET/9Cqnf
-         VIJA==
+        bh=ioEzmXHuVthmvT1VW0zwCCGdbJiMgEB9gdSvDBe2i+A=;
+        b=nLiFFAljWVVrLa42R9Cqr05DAxVQhqiUsmK36ZrDrcG7hJSozhBQvIoG940l9r+XW0
+         6SHhZMlYOrfoTHJ7ZjMKZaS/EUtJBVsntVjFx4kEAom3fnhSIKJHlQQpFgS1wrgAWMB3
+         lIHAiEOh+EojlCEK+KcEdA32AmO7cfjQDoh6KXpyr7LBrCyHPnJJNgVjFhly1dgnJ0pZ
+         ZJSkCLegwo5dNSvhaKrrLsUH9oQgJ77IEkFrq/98VqlcOpAja6kcQLyWBiacdubhpGkn
+         U7uX+HcEIgROEZc6Y0h8ciWCDTH/57qrEft2OPO6egUwIqr0XVs3lZDocUtiPgWvpxDg
+         S7Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779368891; x=1779973691;
+        d=1e100.net; s=20251104; t=1779368895; x=1779973695;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=5cR07XDjlS+wXZUNvs0UUZjGctg9E4/1xeGtGHmHDoY=;
-        b=AFIC8nTWIrORNViPFY/uZxHQEECeeNzMwTsNZsU95HBZ/5y5xcm7DxIT54KwbPigmx
-         LNYrnL4UuJAqllfrDPi16H5h/6Mt/MyrF1KPb2p2FMyZX66fEq6plFQwROjToSYPhH6W
-         gHxQEnD37Nd7KjEEeOug0yVChhHcXQed9MmnnYGsuXxELotn8YL+9zQEGrpW7hMsketB
-         zK5OHAuTajonvNsr+tRMXwvb/gx0FZvyx5omq+zpquTNdbsRetlELl1+viBJHY9XcrMU
-         BupPigGPKoL9kF0mQeotnBWyk0TgZJ8ryJhr1XAEIvIcbQL8LX7m+ev8nWKpCRbmHbdH
-         0JTA==
-X-Forwarded-Encrypted: i=1; AFNElJ8eTdPUh4nyvalZmhX2lVShnvAPHkFUhZlxxF8en5hztfhl+AN4OK8YCx12p4LIyjRdBmaGiRMlAJtsmQ73e3yj@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGu++W6b5yNnuKwxZQ5//0X7wWhODXGuvXiDITCJczQWQ67VAU
-	cg846B3QDo8ysZLjKRUTqn9h878h0rjzqPwVgXa2+WURhbQHBBGi5gYGEC/l2P40ty90K0DzvgO
-	D5nmeRLMItHtcD7S+9VqESYXmtOIkM4tsZMkOtbJE
-X-Gm-Gg: Acq92OFHzaK+OV1+98IBzkz6KLCFuRP8tk2JbFKrqQ7VgkaZd+5GeuqY/BAfyt/UmcH
-	y90meI/oXtPTgzPyc2SzYWf6YRR1PzL14OrNrEFukf8cwQYwfX2RKvPkFHQUZranzIvv9T/Z/ph
-	s+FAYNjcWw4AV8cuJbJ2+zo0HeZdmbW3+zJ1W87RwG07ablPMve78VazTlTZLA3FtfV04Q5Clsm
-	dcSVe3gcmIoyQEdVMq4xM6o6hlA27jrNxGtQzdaW68temjw6y8R8F6V9Q+4liXeON+G3RpB9w/l
-	iKwQOoQkyTPUrzsbt/0=
-X-Received: by 2002:a05:622a:5147:b0:509:15b6:f6a0 with SMTP id
- d75a77b69052e-516c533a032mr9304301cf.6.1779368890494; Thu, 21 May 2026
- 06:08:10 -0700 (PDT)
+        bh=ioEzmXHuVthmvT1VW0zwCCGdbJiMgEB9gdSvDBe2i+A=;
+        b=qyWOevM+8XGkDrOYvX2JDKoU0n0Pq+DiAuIN7bU+O5RBOmWMm7TpPpRasktRCVgKDr
+         Y07JgQGaPgdku2FMhQCKz8mGkSIJKaDrfiWz5vBX50Yqtea5r5wShvS4CjwudatLwP4g
+         SkRPrHwgqGnnKk/JEC0efA8fqHusGLfYh5fRVDFclo6O/wfpjR/luK4V2wmNlwGZ9CiR
+         FSmwiq2vychgllDkax5IdDChOVE7/oeHg54a/55E33nfmuMcjFnJ2QshvSwonm7z11Cq
+         fLVLv0Z/PdZ/cAi345W76FrxE0Ama7qO/FUbB7oPPl7sw3XnLoYryw8OpL7/RTcz4byg
+         dPzg==
+X-Forwarded-Encrypted: i=1; AFNElJ9M8Dkqr7eFxNeSfb+ju+eMxew1cYSF3pLgLdPDqJHpcsdR5bRUr/7RwquXbySR23BNd1VFKT4kfzErm9tR0tVM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/H+fo4uwmKqHiG6D8ANXIDki/oP1pEFMHKxEA32dpO8zVqf3g
+	fKjr/s4YSAzEUwN69z8zp4o/KQ9568JCTLgjYDHbaMD+CWABqLDV/eZb4/Ohf/84n/6Lwg6oR5f
+	3uIP8bl4LxdyZZuqDMEJPszegYH8MXfPGGOCWkFSH
+X-Gm-Gg: Acq92OFGQVYcbJQ02abjih9dEa0SjqPbkQTAaBhIDsJXubg20HfXdYRYRLJ+CCYob4+
+	1AUAxcjGt7uQsrPvL+hlNR2XmC0NRq0FSbOmIgbDPCU9rZS4KrjZTEFzJ0xUkwC/I62pB4l3idD
+	uv2COBvWW5D54E5Bim0IB5zVvGTK183RnYfIqraXiQ+I8EW4UaA5bR39kbDAHchexaLCJ3ou9XQ
+	I1hD2zbnEgovJkoq1AIxHcMDj2HTQvBXAxhYELYuUeVvYpoOwuzKCwmfnDj0g1cNDynOwCFmIVe
+	miNLLNylPfmerwOTPe0=
+X-Received: by 2002:a05:622a:4a8f:b0:516:9871:9a37 with SMTP id
+ d75a77b69052e-516c530d214mr378741cf.3.1779368894161; Thu, 21 May 2026
+ 06:08:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260521102149.804874-1-vdonnefort@google.com>
-In-Reply-To: <20260521102149.804874-1-vdonnefort@google.com>
+References: <20260521102149.804874-1-vdonnefort@google.com> <20260521102149.804874-2-vdonnefort@google.com>
+In-Reply-To: <20260521102149.804874-2-vdonnefort@google.com>
 From: Fuad Tabba <tabba@google.com>
-Date: Thu, 21 May 2026 14:07:33 +0100
-X-Gm-Features: AVHnY4JIjf2uZYHmJ4dR6Y-DYOh1okfQ1cljWLx4X95PZ0crH8aSvwnk1-SFv8E
-Message-ID: <CA+EHjTxWp_NB3p+z-iVriSKq1iAd_CwpBVUprO30G36X2ZJfdg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/3] Fix __pkvm_init_vm error path
+Date: Thu, 21 May 2026 14:07:36 +0100
+X-Gm-Features: AVHnY4KpHOKPjBT7EqKWxkA57-QgUd5s-jhv2KTVVou9FaixwRXZGIGkqf1v4Bw
+Message-ID: <CA+EHjTxPoxjvMTZX5w+UyVgC=W3VUSDoOQ-tCDLfnae16SqoMQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] KVM: arm64: Reset page order in pKVM hyp_pool_init
 To: Vincent Donnefort <vdonnefort@google.com>
 Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
 	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com
+	kernel-team@android.com, qperret@google.com, Sashiko <sashiko-bot@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_060813_390608_EF728228 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20260521_060816_087490_382F02EA 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,43 +118,85 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Thu, 21 May 2026 at 11:22, Vincent Donnefort <vdonnefort@google.com> wrote:
 >
-> Sashiko reported a potential refcount leak in the unlikely case where
-> insert_vm_table_entry fails.
+> When a VM fails to initialise after its stage-2 hyp_pool has been
+> initialised, that stage-2 must be torn down entirely. This requires
+> resetting both the refcount and the order of its pages back to 0.
 >
-> While at it, I have added a fail-safe to __pkvm_hyp_donate_host to ensure this
-> function doesn't allow leaking refcounted pages.
+> Currently, reclaim_pgtable_pages() implicitly resets the page order by
+> allocating the entire pool with order-0 granularity. However, in the VM
+> initialisation error path, the addresses of the donated memory (the PGD)
+> are already known, making it unnecessary to iterate over all pages in
+> the pool.
 >
-> Changes since v2:
+> Since the vmemmap page order is a hyp_pool-specific field, leaving a
+> non-zero order on hyp_pool destruction is harmless until another pool
+> attempts to admit the page. Instead of resetting this field during
+> destruction, reset it during pool initialization in hyp_pool_init().
+> Note that pages added to the pool outside of the initial pool range
+> (e.g., via guest_s2_zalloc_page()) must still have their order managed
+> manually.
 >
->   * Proactively init hyp_page order field in hyp_pool_init
+> While at it, add a WARN_ON() in the hyp_pool attach path to catch
+> unexpected page orders that exceed the pool's max_order.
 >
-> v1 (https://lore.kernel.org/all/20260521081250.655226-1-vdonnefort@google.com/)
+> Fixes: 256b4668cd89 ("KVM: arm64: Introduce separate hypercalls for pKVM VM reservation and initialization")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 >
-> *** BLURB HERE ***
+> diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> index 25f04629014e..89eb20d4fee4 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> @@ -322,7 +322,6 @@ void reclaim_pgtable_pages(struct pkvm_hyp_vm *vm, struct kvm_hyp_memcache *mc)
+>         while (addr) {
+>                 page = hyp_virt_to_page(addr);
+>                 page->refcount = 0;
+> -               page->order = 0;
+>                 push_hyp_memcache(mc, addr, hyp_virt_to_phys);
+>                 WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(addr), 1));
+>                 addr = hyp_alloc_pages(&vm->pool, 0);
+> diff --git a/arch/arm64/kvm/hyp/nvhe/page_alloc.c b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+> index a1eb27a1a747..c3b3dc5a8ea7 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+> @@ -97,6 +97,8 @@ static void __hyp_attach_page(struct hyp_pool *pool,
+>         u8 order = p->order;
+>         struct hyp_page *buddy;
+>
+> +       WARN_ON(p->order > pool->max_order);
+> +
 
-nit: missing BLURB :)
+Could you add a brief comment? It took me a minute to figure out what this
+catches. IIUC it's not attach's own input, it's a stale p->order from way back
+when an external page was popped from a memcache (today only via
+guest_s2_zalloc_page()). Right?
 
+With that.
+
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+
+Cheers,
 /fuad
 
 
 
-/fuad
 
+>         memset(hyp_page_to_virt(p), 0, PAGE_SIZE << p->order);
 >
-> Vincent Donnefort (3):
->   KVM: arm64: Reset page order in pKVM hyp_pool_init
->   KVM: arm64: Fix __pkvm_init_vm error path
->   KVM: arm64: Add fail-safe for refcounted pages in
->     __pkvm_hyp_donate_host
+>         /* Skip coalescing for 'external' pages being freed into the pool. */
+> @@ -237,8 +239,10 @@ int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
 >
->  arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 34 ++++++++++++++-----
->  arch/arm64/kvm/hyp/nvhe/page_alloc.c          |  6 +++-
->  arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++-
->  4 files changed, 34 insertions(+), 11 deletions(-)
+>         /* Init the vmemmap portion */
+>         p = hyp_phys_to_page(phys);
+> -       for (i = 0; i < nr_pages; i++)
+> +       for (i = 0; i < nr_pages; i++) {
+>                 hyp_set_page_refcounted(&p[i]);
+> +               p[i].order = 0;
+> +       }
 >
->
-> base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
+>         /* Attach the unused pages to the buddy tree */
+>         for (i = reserved_pages; i < nr_pages; i++)
 > --
 > 2.54.0.746.g67dd491aae-goog
 >
