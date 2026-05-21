@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F6ACD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7B8CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jq5iqrAjPknTHn9C17DM3G4+YoEa9r9el4N8h5TTtu8=; b=P554Jci1rIvmmhmthwpOgKrdHh
-	GeTV2uzati6Ks1T/F+5DEWXsLmDHxe0by+QjcGJcKbP2A8+2PVPi4+cJA43wiYsbIivmJRpbXVsbf
-	FnCj6a7U2YlwUqTsNjWtAM8Orfdd8xEDJZA/9Wyu8N+lwmwWwiiNFWgxf+WteaojkHVG50Okq0tuj
-	HMM2V1JZta05uhB/XZTE9GAyLuSBZ2SVYALcqp0M753GSSgjs/P3Je+x196i0QmIXjXXdmOxkG3sp
-	2ol9X8viT6ojyCRaoxZJ1AU/0WmZ2Fkh5Dml+P6Ebvlu624XIPe+/ghVa31gy9aPY4YqLXrHvwPQ0
-	oeH+KBXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C3SJwH14gWblsk/bE7J06KsarJhv61Jks87wu8Zo5Zo=; b=2tNhAZN373ia/DACA16juv6MtA
+	UxqOmY4nl+e3u2LReOBxowflhaez8vFYM9qM2v0cgUPuFZVaS7tlwfR3cjhR0hS94hz9q1I8dEd8Y
+	ftMrZU8iWO27fRoqFtL8NYAOJ4EnJ3Zw280FNcZXwPdHm1AfAXRE9EGb+pcPtRJ0FFrqsPsgoM7un
+	u2fQpozXK0XO1IS2aZIQ/XUKzKiK5BLBdlwtKBaXP8cwTMwXRHwjf11PElkc3d5Dms2h5aSKpgD6h
+	Ugaa0yhIT5RctSZ76KjURUQszrFzTjxG8qh3LNSHy0HM39QPJodVmEHwlagCq5lJrcZKpE3HZgP4t
+	gwrz1pLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzwi-00000007LrC-1qLU;
-	Thu, 21 May 2026 09:44:04 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wQ00f-00000007Maf-40AA;
+	Thu, 21 May 2026 09:48:09 +0000
+Received: from smtp1.tecnico.ulisboa.pt ([193.136.128.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzwf-00000007Lpu-3x9V
+	id 1wQ00c-00000007MZg-3h5H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:44:03 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-45e6a4d0be0so2531702f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:44:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779356640; x=1779961440; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jq5iqrAjPknTHn9C17DM3G4+YoEa9r9el4N8h5TTtu8=;
-        b=mUyIh32TzMJ7pbMBbdGRM5WUHLTADQEM8UV/qR1fBkCf1ATwKbRI2mb262yuXZy688
-         0wpuPmmuL43/iSOYPWCuvaeDsIOr+UPbJwR7LUKrAQV6GmjMfWVwa8WtWVApkpBnr/hQ
-         DxjYh8tC0rV7sfhbnQbuZ6nEyYgLpWcgOuE1e/i4aa1txL/DJlIOH+sQeY1fqkdz1DA9
-         jlujXm3SUYOIrmK/VnYNdVrD/+CUNq94x4BoCcOR3E2sAWJaNzymMXr1QzfDaBarYWJz
-         wCZLjQXPsdp1iZ8GurXODehgRRkZs6L7QF65jnNPzM+0XpiZAxVOPUoZpSj8Vfmhhff+
-         GNhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779356640; x=1779961440;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jq5iqrAjPknTHn9C17DM3G4+YoEa9r9el4N8h5TTtu8=;
-        b=iHhwa5/kmE6WQvFJPfjgDBoh61XUKtAacvqB8FirXvbk9LSPYmApDIWitEEgiGbbLO
-         P9LhApu9/LUBfwOwbfAZfNe0T5Ha13BkPldyPoMgPCy1M/08id84T85+oqjrtJqJjgGX
-         JedBQA60KmjVCXI5p2fYe5EpE0kJJnX2OXXGQu/xN3zysafCtAU46lzqb9xBHvnJm0X9
-         3nEY74JnijnWivAp49pdiPV+g3H3m4UYrmQ44++RudUPn5E1x5EdNj7eYz7W0eVN1K5b
-         hbCL0y4PblQWyqfcuusB8b9ehyofHjhUj1zG3JevRJ2W1/7GKJDLyu7xJZu2ZuSyYYYv
-         dBdw==
-X-Forwarded-Encrypted: i=1; AFNElJ+AImhzrixQp1bdYyR73vi8IuDTUIuro/D/P9nm5UtgkiYK78hbxHRAl6rUrwW2tAnw5d5aD0NF2ZRKuGQLASIr@lists.infradead.org
-X-Gm-Message-State: AOJu0YymKxJ3TnxD+9WjSFwCfL5AT/GLcJcuhjmmYh3vu4eBF0GwMEfO
-	zTpkujlfAoXQpZViEnDpjQtiD0zCUJqgo1F3Cb/4PJm/PxX7ZVV9N8Mu
-X-Gm-Gg: Acq92OExRW17x2poCJe+6gOkC37XUUAsHxXr+V4D1ok7zvd0HmvsE2AbfAGlGaHeThH
-	Z5sFpwhkA7lmX6JoaOyPT3w6zIFSKvc+ubRO1zS+xdjHhoHAlHqrIyawCPG24AxkFGmiDt+LGA6
-	oyeM1DPTQsI6OsJyiiNWkNSLZoV+f8yRvf16txcgz6e0KYJHlhyJvMxQU9F0OKOKid/mU8bzaTz
-	VYR41k77OacteKGxQe4eBD0kMYHX2lEi5ihUitvZHVXQiOmHkepOTr3NaL9RszlDaiMt4jxxknO
-	TUbAONlqxOUhq2dOI7SIVa0uCGVd1Mt3ZhUgnQO80LEgDBmO1szFFDPU6+lFFevc3YTL4w5Y7ZX
-	TdKRK6j5p/O1Hn3H3WkpaR2p2jkcVDQ6gkBDuHrlv6JBWk4UoJX8FO+r6Gg/rlwqB9cc4j+Unzz
-	014EAPdmmbYTmQX0DQph1vua5jj37Qjb85K/tdb2AjJnMtrxUJgXFLQjCXelvAepCtCtjANM9Ni
-	FnARUJEBzwYJA==
-X-Received: by 2002:a05:6000:144c:b0:43d:7b90:fa23 with SMTP id ffacd0b85a97d-45ea3be3772mr3377859f8f.29.1779356639760;
-        Thu, 21 May 2026 02:43:59 -0700 (PDT)
-Received: from orome (p200300e41f291e00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f29:1e00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eaa93d291sm1325006f8f.36.2026.05.21.02.43.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 02:43:58 -0700 (PDT)
-Date: Thu, 21 May 2026 11:43:56 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Thierry Reding <thierry.reding@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 3/4] mfd: max77620: override PSCI poweroff handler on
- Pixel C
-Message-ID: <ag7TenB3GrdLABuk@orome>
-References: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
- <20260514-smaug-poweroff-v1-3-30f9a4688966@tecnico.ulisboa.pt>
- <ag65LXrLLbbeTbTb@orome>
- <367bb557-81a0-4286-8788-0e7272cc4d02@tecnico.ulisboa.pt>
+	Thu, 21 May 2026 09:48:08 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id BA9A06002999;
+	Thu, 21 May 2026 10:48:04 +0100 (WEST)
+X-Virus-Scanned: by amavis-2.13.0 (20230106) (Debian) at tecnico.ulisboa.pt
+Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
+ by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavis, port 10025)
+ with LMTP id CsHTc0whN2v9; Thu, 21 May 2026 10:48:02 +0100 (WEST)
+Received: from mail1.tecnico.ulisboa.pt (mail1.ist.utl.pt [193.136.128.10])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id 6FEEB600086C;
+	Thu, 21 May 2026 10:48:02 +0100 (WEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tecnico.ulisboa.pt;
+	s=mail2; t=1779356882;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C3SJwH14gWblsk/bE7J06KsarJhv61Jks87wu8Zo5Zo=;
+	b=RpfAUNgw5fB3ERA1e+htSwHpxxpyk+KpVPABzNulM98px9rfpjxaDVjRWaFhj781X1a2eq
+	leVhcgQCYKFFNyGRRLg++Z6bzoXO783UjxGeTlnPG4XoeSvEk7Z7AlXr/3hRAyr33QUel5
+	jdV7I3DcT6GfBKR/xZWNmskRl1JPpIXR+uS65jyCwbo+LUvQlq/gAhDphy4oZHCvp5vLiy
+	LwxaWgLjpwNv1a9YqpVywElhJrtNCMnBIc3mDB77lf/3nLiOBdYvEGzYvXVAqZ7zyjxz9E
+	TRM6hLjh6dBR4JuLyF7gG81m+3660UZFv7MvdpKf6MYqkPai9b8uCa/sn+og9g==
+Received: from [192.168.96.1] (unknown [89.214.153.114])
+	(Authenticated sender: ist187313)
+	by mail1.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 902643600A2;
+	Thu, 21 May 2026 10:47:59 +0100 (WEST)
+Message-ID: <31ef61bd-6672-440a-a52e-eedb950d3d03@tecnico.ulisboa.pt>
+Date: Thu, 21 May 2026 11:47:53 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kyo4eqmpt3lalhdw"
-Content-Disposition: inline
-In-Reply-To: <367bb557-81a0-4286-8788-0e7272cc4d02@tecnico.ulisboa.pt>
+User-Agent: Mozilla Thunderbird
+Subject: Re: (subset) [PATCH 0/4] power: sys-off: fix Pixel C shutdown via
+ MAX77620
+To: Lee Jones <lee@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
+ <177929432727.2891971.15568098895295536822.b4-ty@b4>
+Content-Language: en-US
+From: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+In-Reply-To: <177929432727.2891971.15568098895295536822.b4-ty@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_024402_003616_A40341DC 
-X-CRM114-Status: GOOD (  18.31  )
+X-CRM114-CacheID: sfid-20260521_024807_060699_7A0889FD 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,61 +90,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Lee,
 
---kyo4eqmpt3lalhdw
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 3/4] mfd: max77620: override PSCI poweroff handler on
- Pixel C
-MIME-Version: 1.0
+On 5/20/26 18:25, Lee Jones wrote:
+> On Thu, 14 May 2026 16:47:18 +0200, Diogo Ivo wrote:
+>> This series migrates PSCI and MAX77620 poweroff handling to the
+>> sys-off framework and fixes shutdown on the Pixel C (Smaug).
+>>
+>> The first two patches replace legacy pm_power_off usage in the PSCI
+>> and MAX77620 drivers with sys-off handlers. Besides aligning both
+>> drivers with the modern poweroff infrastructure, this removes the
+>> global callback dependency and allows multiple handlers to coexist
+>> with explicit priorities.
+>>
+>> [...]
+> 
+> Applied, thanks!
 
-On Thu, May 21, 2026 at 11:23:11AM +0200, Diogo Ivo wrote:
->=20
->=20
-> On 5/21/26 09:52, Thierry Reding wrote:
-> > On Thu, May 14, 2026 at 04:47:21PM +0200, Diogo Ivo wrote:
-> > > On Pixel C, shutdown must be handled by the MAX77620 PMIC rather
-> > > than the PSCI SYSTEM_OFF call, whose firmware implementation is:
-> > >=20
-> > > __dead2 void tegra_system_off(void)
-> > > {
-> > >          ERROR("Tegra System Off: operation not handled.\n");
-> > >          panic();
-> > > }
-> >=20
-> > Ugh... sounds very familiar. We have similar stub implementations on
-> > Jetson TX1 and/or Nano, if I remember correctly. Luckily newer platforms
-> > seem to have proper implementations for these.
->=20
-> Yes, on my TX1 I was encountering the same problem. However in that case
-> is it possible to update the firmware with a proper implementation?
+Thanks for applying the patches! Just a question and an observation:
 
-I tried, but there were complications, both technical and logistical
-because of the point in the product lifecycle. At this point I don't
-think it will happen, unfortunately.
+  - I'm assuming you were ok with merging [2/4] despite the possible
+    deadlock since this risk is already present in mainline in the same
+    form so we're not actually making things worse, is that so?
 
-Thierry
+  - The observation is that the comment about overriding PSCI is only
+    true after (and if) a reworked [1/4] is actually merged.
+    If it isn't then patch [3/4] is actually working around another handler
+    in soc/tegra/pmc.c where a handler that only does work for the Nexus
+    7 is actually registered at FIRMWARE level for all platforms that
+    probe that driver (I will send out a patch shortly to only register
+    the handler on the Nexus 7).
 
---kyo4eqmpt3lalhdw
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+Diogo
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmoO09gACgkQ3SOs138+
-s6GuSQ/8CPg1NBYsjjKRV7KIC6rIuDMgYyusSWnMeTTINGkRyrRTQ/29IQ/CDaW1
-Fqb9aXXWRjpk52os2I5jf5cZaUuQAzZadeXENiiKb5ExxLxeu1zF8AHaMjEcZilh
-zTcD9fCQplEPbwr7iDz61gE/4qfEnYd/5Zi4lCq8MdPE3UNTfXnlFHxjoIYkqbqw
-XO82jFix9weBG53lM3QbhiM/96GpHKFrTForciy0bytmXC/EF5skQMdM/gSPyrTo
-b3dTmdSOhO+KYmUJlGoOTRmb38hNQyx/Ymo70W3H8V88J8MR5rFPMQm7TI4QfzAt
-gEeD1SQ6EupOblWkF0dWYQFSuDJrQeUw2c/CHu5bLj2Ci6sSjOIVdf5/XuUmdN/B
-SFZhQ8t+5fchGNYR+/3a4HlHiu2OoOqHoAqayN+ifPuCNTwA92dOCf0875YW0e5l
-wvIRMgOR89ywTaY4Thb09RXmiTA/tNK93Dulv+iv4nsefVJ1UD0MBO1a/4r/2aJl
-6L1jVljbWHkq+n3hgFnzAUIuXGJIKAMqHljJ5pFWuNz1EP0E3JEOnARv8Xachzze
-cc5LNxHTB3/XxZW5KXmj+gHitoWei4d9szdP31JDHhrdCZTsHsT7miZXB1i8FYQB
-B7Ephp8VZY4jSkK+pX1czf4apy7bs2hmCedC8hva2cEuJXzfXbU=
-=MWck
------END PGP SIGNATURE-----
-
---kyo4eqmpt3lalhdw--
+> [2/4] mfd: max77620: convert poweroff support to sys-off API
+>        commit: 1ada6d7f88063dd6fd92d74d0b803875b695fe01
+> [3/4] mfd: max77620: override PSCI poweroff handler on Pixel C
+>        commit: ea3f90bcc8524c6d514f6b8183cc202b79b082be
+> 
+> --
+> Lee Jones [李琼斯]
+> 
 
