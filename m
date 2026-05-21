@@ -4,76 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26177CD5BAE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493AACD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWBYFbSSJIlyYLmg5yu4OD5TUCoM5PbmQ+anX61sM9o=; b=0CQMo/RofiHjd11PjbJM9ZsSvY
-	qb/cIJbKRV8y89HMckzlD/UM8qCNc6Rv0yG7j174n2DE64s65FVV2pjPrUU7tp3JQXP2ExgIu4/49
-	tFXUqSSU1n/bDKLPVoztIv5sfkbmFI8F2h3UkBUZlXh6xKhMqmEHw9mC6bZm8C2MtOP+H8vD96yka
-	vbB+pe9y96UxN90/5s2OzC0Gub+nUOameI8ASSER/ml8ViTkUV7mNjAJA0CAsptD6/t70AG5/l1U5
-	8Au+qCMyZRcxvSzXPTZT9AMehGgJ+Lllwy24Y3SESGQHqp2SR6e4mi+aLs/3M8Tai+UdV9oTCwqJe
-	9Bk49yYA==;
+	bh=06DlYLMzDEsjxgRLDFP9ecsf0TUvM6TZuHNU93oyPH0=; b=YrvvaDMNV/hJxK8UGss/ceqJMY
+	H+Q/86KOLhTbBPmsiP2DagPrEPBpc2SZ+RMSz6z43IBY+e6rQOCLdnjELaU7/TVoIe3y/7e0oRjXM
+	poleIgH+vCWbNZ/PgcntLW1TXrvHboqcoU0NSGa9zkivFxvVI37dliXN1ay596MnfMXlSN/+FC6bO
+	gir/tFr5l9w7jUJvSNFPMu63BhjHBNirhIeWptkq6kpVcxVNqKTYFWS22gJxbrUHWGnD3yKRA+XVF
+	N2KHZ66wnzffZvdMxpsfi6Km+9dzR8nLM609sN7pi06bdaMuVzlLHITyqoedg1Z917VzJzx/c+wzj
+	hNCendSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxUw-00000006uJ9-2yrI;
-	Thu, 21 May 2026 07:07:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPxWr-00000006uY6-3tO7;
+	Thu, 21 May 2026 07:09:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxUu-00000006uIs-41hQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:07:13 +0000
+	id 1wPxWq-00000006uXf-1Fyj;
+	Thu, 21 May 2026 07:09:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1F11E60172;
-	Thu, 21 May 2026 07:07:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C81111F000E9;
-	Thu, 21 May 2026 07:07:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3056C41ADE;
+	Thu, 21 May 2026 07:09:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA0311F000E9;
+	Thu, 21 May 2026 07:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779347231;
-	bh=MWBYFbSSJIlyYLmg5yu4OD5TUCoM5PbmQ+anX61sM9o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cmcjuivtodEDwjJC8rUpA/6qgkf1lCqjqZTrLeWsfGt+ox6Shn4WkEajN6s0bpI/V
-	 ujQUDq8LupgVqh9ZpnWDckk1RPiokkEfq9LKp9b33X9bvakp7akVCBQfpIxSKdDRFk
-	 /GCIoGzH5V/GvhkUaLJOLlZi/gpdXiMKX9qWcucs28d+0e3kIL/TFsrkspPKCqCIqi
-	 9zPUOgskBVEfyHl6iaVFWGMPLFMXSKVLGx2RjCg/Plym5u62Z73IVz+xeH3xlieHap
-	 VSAx8mDje3YXlvUG7hksnbRzO/UncZ8YJZt99F3+mb2C5AU8X5w8LYqV7mS0ETLOzz
-	 71WBx1ys+8wqg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wPxUr-00000004h5X-0uwF;
-	Thu, 21 May 2026 07:07:09 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>
-Subject: Re: [PATCH v2 0/2] KVM: arm64: nv: Reduce FP/SVE overhead on exception/exception return
-Date: Thu, 21 May 2026 08:07:06 +0100
-Message-ID: <177934721772.554248.3495223802015312407.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260520085036.541666-1-maz@kernel.org>
-References: <20260520085036.541666-1-maz@kernel.org>
+	s=k20260515; t=1779347351;
+	bh=06DlYLMzDEsjxgRLDFP9ecsf0TUvM6TZuHNU93oyPH0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=GqE3gO14ik0QN6Ey0d5TDclenZhFs1yxXQ5+zJMLtCv6ELME+HAT4W449fnjLjUJx
+	 8hKCw7e/t9SYZ6Cxgn87sTinZqK16R40p9+J8EjGFyUAWTAke1wF1Ge9uz6xwEpKbH
+	 9TksEcUqYnapq/A14cS51ELoTEjQ34Q+vZEfPw4bVmhTWKTfB6dsTiJ7LaQbhqROzl
+	 F8B/zXrUpIV/U9W/8WxTGFQqGXPRFAGJpNQ5BMs7Z+3m4AokoCk6LgKUbpGyml3QqH
+	 FHXx6oFLMoS2eZ97UzwyJMHMlyYY9/q86uZW/nzAjpiZs3zFUgJAXDQSsFtEP91gLU
+	 LmJob/u7WCXBg==
+Message-ID: <1556aa8a-0ffa-466f-9565-530dea7b9235@kernel.org>
+Date: Thu, 21 May 2026 09:09:03 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 8/8] arm64: defconfig: Enable the raspberrypi otp
+ driver as module
+To: Gregor Herburger <gregor.herburger@linutronix.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
+ <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>,
+ Stefan Wahren <wahrenst@gmx.net>, Srinivas Kandagatla <srini@kernel.org>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260520-rpi-otp-driver-v5-0-b26e5908eeac@linutronix.de>
+ <20260520-rpi-otp-driver-v5-8-b26e5908eeac@linutronix.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260520-rpi-otp-driver-v5-8-b26e5908eeac@linutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_000912_379744_56E627EA 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,28 +128,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 May 2026 09:50:34 +0100, Marc Zyngier wrote:
-> This is the second version of this short series optimising away a lot
-> of unnecessary FPSIMD/SVE context switch with NV.
-> 
-> * From v1 [1]:
-> 
->   - New commit message on patch #2 (Mark)
-> 
-> [...]
+On 20/05/2026 16:28, Gregor Herburger wrote:
+> Enable the newly add Raspberry Pi OTP driver as module to allow access
+> to the otp registers.
 
-Applied to next, thanks!
+... on foo bar board?
 
-[1/2] KVM: arm64: nv: Track L2 to L1 exception emulation
-      commit: 27ae400e6e888153ded1ad807a94a94e506dd2df
-[2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
-      commit: 435c466196148ae116f616e6cda97c33281defc2
+Otherwise, why do we want it in upstream?
 
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
-
-
+Best regards,
+Krzysztof
 
