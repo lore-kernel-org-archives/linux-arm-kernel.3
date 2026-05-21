@@ -4,94 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1970CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47378CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KseMWYA9Jr+H+xyRY9PEDU6eP4OJzZ07RtFA0ZPZDpM=; b=bOI/VXz/bgsb8dCoVrSL0Mu76L
-	5dSJwYTbtd8Z5d4A4v6jzfnmnggXutlxfD5JuleUehw2gfofAx3duExABy7Sm/WyByAx5XSre2SXZ
-	cdMFTi17ZQsdhOfqvIAZfPyuDjk1KMkJqfdzZSRlilmNc4PfyrO55ORi9WdenOIFfQTPvB0nsseph
-	ryFW5wxjig/okD9JGAw1mLzDMN5aVfKtRXedIE2ETa/vvkzrbAT9fuPxdl9KYEozljMdmamAIsTaa
-	eUTpyUUOBUSqhomtaQndZ/lUkaLvWybBtR+CLfgkV2IvF0lsx7nNsigUolUo3JFat7ZH/hy+WGKCx
-	sYAJ8hNA==;
+	bh=SQ/fSrYmC00gpnOqRL9gitCosE4OK9rdTL8gc49SD60=; b=nOgBZQNODi5ZDwj+PNBZw6zyle
+	S7exmQHIa0+iNRYuTM6ZiwvbDGc/7KP9RyNUqj1o3mRsGAyeMEeePofVcAoVB7PEnrTjvYh1hEeqM
+	l1ikA/x5HYLHIEunWk/PyBFUkv8+0gUw39pIlxSLwqgF+VQAyf3MeaQMbJw5aN9EXZmljYLsfFsQD
+	eLmtFTFkjW9JY19edgggTUmH3HWkIr6xZbNdpH/DElAduNMon4MoQ6du/lcMUKX73hjmCtY/3WCo8
+	mjaQ83cSdSLuEe77YVsAZe832j9uNelvGobQH3gDHVNDeIcBXol81NA7KuyjwJL4w1YYRGYW2OQex
+	jz70u85A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ337-00000007ns4-3p58;
-	Thu, 21 May 2026 13:02:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQ33e-00000007nxC-0KI4;
+	Thu, 21 May 2026 13:03:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ335-00000007nrX-3x6m
+	id 1wQ33b-00000007nvy-1Mlc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:02:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B2D04357D;
-	Thu, 21 May 2026 13:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A9EC1F000E9;
-	Thu, 21 May 2026 13:02:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779368571;
-	bh=KseMWYA9Jr+H+xyRY9PEDU6eP4OJzZ07RtFA0ZPZDpM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=J89UkpcsSbAQyKPZHklpnfU67IWP/NGR3yXsGOGIu+FCamaJh8yz4S2Bozimedpmc
-	 zyt1dv0k3dQhPoAbqrQwLHakE/ADclQ02ef80H1VXz3Epznh1U7uvm0byBb0ac9cvd
-	 S1emvq/rqsuYWFR2rWBQJ1yMaSc6f2ZErIbVlT7N+nmuoR1P4cKckB/HnUpaV4gpFa
-	 157kQzM8SRXA6sCPriIupaJsss3z1StTCzjcBTm/xQCnuo7nhcR9CGGaBkCS6lctpi
-	 ollLw+6vwZQCEhGHjm119odnglTItg/0F+a7m8GqXiKn3xUSDIPm0zoRs/bPJQ9JH4
-	 PAfp/+ahVUbkQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQ333-00000004pBR-0eto;
-	Thu, 21 May 2026 13:02:49 +0000
-Date: Thu, 21 May 2026 14:02:48 +0100
-Message-ID: <86bje8x6dj.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 06/44] arm64: RMI: Check for RMI support at init
-In-Reply-To: <20260513131757.116630-7-steven.price@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
-	<20260513131757.116630-7-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 21 May 2026 13:03:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ33Q-0003bA-HC; Thu, 21 May 2026 15:03:12 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ33O-0016fi-2f;
+	Thu, 21 May 2026 15:03:11 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ33P-00000004Vyy-10Cg;
+	Thu, 21 May 2026 15:03:11 +0200
+Date: Thu, 21 May 2026 15:03:11 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH v7 09/28] media: rockchip: rga: remove redundant
+ rga_frame variables
+Message-ID: <ag8Cjzl2m_fvbiZZ@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+ <20260521-spu-rga3-v7-9-3f33e8c7145f@pengutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-spu-rga3-v7-9-3f33e8c7145f@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_060252_021806_1C32EC2A 
-X-CRM114-Status: GOOD (  32.14  )
+X-CRM114-CacheID: sfid-20260521_060323_512801_6C81364F 
+X-CRM114-Status: GOOD (  28.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,148 +107,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 14:17:14 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On Thu, 21 May 2026 00:44:14 +0200, Sven Püschel wrote:
+> Remove the redundant rga_frame variables width, height and color space.
+> The value of these variables is already contained in the pix member
+> of rga_frame. The code also keeps these values in sync. Therefore drop
+> them in favor of the existing pix member.
 > 
-> Query the RMI version number and check if it is a compatible version.
-> The first two feature registers are read and exposed for future code to
-> use.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+
+Reviewed-by: Michael Tretter <m.tretter@pengutronix.de>
+
 > ---
-> v14:
->  * This moves the basic RMI setup into the 'kernel' directory. This is
->    because RMI will be used for some features outside of KVM so should
->    be available even if KVM isn't compiled in.
-> ---
->  arch/arm64/include/asm/rmi_cmds.h |  3 ++
->  arch/arm64/kernel/Makefile        |  2 +-
->  arch/arm64/kernel/cpufeature.c    |  1 +
->  arch/arm64/kernel/rmi.c           | 65 +++++++++++++++++++++++++++++++
->  4 files changed, 70 insertions(+), 1 deletion(-)
->  create mode 100644 arch/arm64/kernel/rmi.c
+>  drivers/media/platform/rockchip/rga/rga-buf.c |  6 ++---
+>  drivers/media/platform/rockchip/rga/rga-hw.c  |  6 ++---
+>  drivers/media/platform/rockchip/rga/rga.c     | 32 ++++++++++-----------------
+>  drivers/media/platform/rockchip/rga/rga.h     |  5 -----
+>  4 files changed, 18 insertions(+), 31 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> index 04f7066894e9..9179934925c5 100644
-> --- a/arch/arm64/include/asm/rmi_cmds.h
-> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> @@ -10,6 +10,9 @@
+> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+> index 65fc0d5b4aa10..ffc6162b2e681 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-buf.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+> @@ -103,10 +103,10 @@ static int get_plane_offset(struct rga_frame *f,
+>  	if (plane == 0)
+>  		return 0;
+>  	if (plane == 1)
+> -		return stride * f->height;
+> +		return stride * f->pix.height;
+>  	if (plane == 2)
+> -		return stride * f->height +
+> -		       (stride * f->height / info->hdiv / info->vdiv);
+> +		return stride * f->pix.height +
+> +		       (stride * f->pix.height / info->hdiv / info->vdiv);
 >  
->  #include <asm/rmi_smc.h>
+>  	return -EINVAL;
+>  }
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+> index d1618bb247501..ec6c17504ca15 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+> @@ -53,7 +53,7 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+>  	x_div = frm->fmt->x_div;
+>  	y_div = frm->fmt->y_div;
+>  	uv_stride = frm->stride / x_div;
+> -	pixel_width = frm->stride / frm->width;
+> +	pixel_width = frm->stride / frm->pix.width;
 >  
-> +extern unsigned long rmm_feat_reg0;
-> +extern unsigned long rmm_feat_reg1;
-> +
->  struct rtt_entry {
->  	unsigned long walk_level;
->  	unsigned long desc;
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 74b76bb70452..d68f351aae75 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -34,7 +34,7 @@ obj-y			:= debug-monitors.o entry.o irq.o fpsimd.o		\
->  			   cpufeature.o alternative.o cacheinfo.o		\
->  			   smp.o smp_spin_table.o topology.o smccc-call.o	\
->  			   syscall.o proton-pack.o idle.o patching.o pi/	\
-> -			   rsi.o jump_label.o
-> +			   rsi.o jump_label.o rmi.o
+>  	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
+>  	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
+> @@ -191,7 +191,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
 >  
->  obj-$(CONFIG_COMPAT)			+= sys32.o signal32.o			\
->  					   sys_compat.o
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index 6d53bb15cf7b..8bdd95a8c2de 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -292,6 +292,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar3[] = {
->  static const struct arm64_ftr_bits ftr_id_aa64pfr0[] = {
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV3_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_CSV2_SHIFT, 4, 0),
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_RME_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_DIT_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_AMU_SHIFT, 4, 0),
->  	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64PFR0_EL1_MPAM_SHIFT, 4, 0),
-> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-> new file mode 100644
-> index 000000000000..99c1ccc35c11
-> --- /dev/null
-> +++ b/arch/arm64/kernel/rmi.c
-> @@ -0,0 +1,65 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2025 ARM Ltd.
-> + */
-> +
-> +#include <linux/memblock.h>
-> +
-> +#include <asm/rmi_cmds.h>
-> +
-> +unsigned long rmm_feat_reg0;
-> +unsigned long rmm_feat_reg1;
-
-What is the requirement for making those globally accessible? Can't
-they be made static and use an accessor that returns them? Can the
-variables be made __ro_after_init?
-
-> +
-> +static int rmi_check_version(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	unsigned short version_major, version_minor;
-> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
-> +						     RMI_ABI_MINOR_VERSION);
-> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
-> +
-> +	/* If RME isn't supported, then RMI can't be */
-> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
-> +		return -ENXIO;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
-> +
-> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-> +		return -ENXIO;
-> +
-> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
-> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
-> +
-> +	if (res.a0 != RMI_SUCCESS) {
-> +		unsigned short high_version_major, high_version_minor;
-> +
-> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
-> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
-> +
-> +		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
-> +		       version_major, version_minor,
-> +		       high_version_major, high_version_minor,
-> +		       RMI_ABI_MAJOR_VERSION,
-> +		       RMI_ABI_MINOR_VERSION);
-> +		return -ENXIO;
-> +	}
-> +
-> +	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __init arm64_init_rmi(void)
-> +{
-> +	/* Continue without realm support if we can't agree on a version */
-> +	if (rmi_check_version())
-> +		return 0;
-> +
-> +	if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
-> +		return 0;
-> +	if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
-> +		return 0;
-> +
-> +	return 0;
-> +}
-> +subsys_initcall(arm64_init_rmi);
-
-Is there any reliance on this being executed before or after KVM's own
-initialisation? If so, this should be captured.
-
-	M.
+>  	if (RGA_COLOR_FMT_IS_YUV(ctx->in.fmt->hw_format) &&
+>  	    RGA_COLOR_FMT_IS_RGB(ctx->out.fmt->hw_format)) {
+> -		switch (ctx->in.colorspace) {
+> +		switch (ctx->in.pix.colorspace) {
+>  		case V4L2_COLORSPACE_REC709:
+>  			src_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+>  			break;
+> @@ -203,7 +203,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+>  
+>  	if (RGA_COLOR_FMT_IS_RGB(ctx->in.fmt->hw_format) &&
+>  	    RGA_COLOR_FMT_IS_YUV(ctx->out.fmt->hw_format)) {
+> -		switch (ctx->out.colorspace) {
+> +		switch (ctx->out.pix.colorspace) {
+>  		case V4L2_COLORSPACE_REC709:
+>  			dst_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+>  			break;
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+> index c07207edffdb6..ca8d8a53dc251 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -329,9 +329,6 @@ static struct rga_fmt *rga_fmt_find(u32 pixelformat)
+>  }
+>  
+>  static struct rga_frame def_frame = {
+> -	.width = DEFAULT_WIDTH,
+> -	.height = DEFAULT_HEIGHT,
+> -	.colorspace = V4L2_COLORSPACE_DEFAULT,
+>  	.crop.left = 0,
+>  	.crop.top = 0,
+>  	.crop.width = DEFAULT_WIDTH,
+> @@ -363,9 +360,9 @@ static int rga_open(struct file *file)
+>  	ctx->out = def_frame;
+>  
+>  	v4l2_fill_pixfmt_mp(&ctx->in.pix,
+> -			    ctx->in.fmt->fourcc, ctx->out.width, ctx->out.height);
+> +			    ctx->in.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+>  	v4l2_fill_pixfmt_mp(&ctx->out.pix,
+> -			    ctx->out.fmt->fourcc, ctx->out.width, ctx->out.height);
+> +			    ctx->out.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+>  
+>  	if (mutex_lock_interruptible(&rga->mutex)) {
+>  		kfree(ctx);
+> @@ -453,10 +450,8 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  	if (IS_ERR(frm))
+>  		return PTR_ERR(frm);
+>  
+> -	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm->height);
+> -
+> +	*pix_fmt = frm->pix;
+>  	pix_fmt->field = V4L2_FIELD_NONE;
+> -	pix_fmt->colorspace = frm->colorspace;
+>  
+>  	return 0;
+>  }
+> @@ -505,27 +500,24 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  	frm = rga_get_frame(ctx, f->type);
+>  	if (IS_ERR(frm))
+>  		return PTR_ERR(frm);
+> -	frm->width = pix_fmt->width;
+> -	frm->height = pix_fmt->height;
+>  	frm->size = 0;
+>  	for (i = 0; i < pix_fmt->num_planes; i++)
+>  		frm->size += pix_fmt->plane_fmt[i].sizeimage;
+>  	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
+>  	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
+> -	frm->colorspace = pix_fmt->colorspace;
+>  
+>  	/* Reset crop settings */
+>  	frm->crop.left = 0;
+>  	frm->crop.top = 0;
+> -	frm->crop.width = frm->width;
+> -	frm->crop.height = frm->height;
+> +	frm->crop.width = pix_fmt->width;
+> +	frm->crop.height = pix_fmt->height;
+>  
+>  	frm->pix = *pix_fmt;
+>  
+>  	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+>  		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
+>  		  V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+> -		  &frm->fmt->fourcc, frm->width, frm->height,
+> +		  &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
+>  		  frm->stride, frm->size);
+>  
+>  	for (i = 0; i < pix_fmt->num_planes; i++) {
+> @@ -579,8 +571,8 @@ static int vidioc_g_selection(struct file *file, void *priv,
+>  	} else {
+>  		s->r.left = 0;
+>  		s->r.top = 0;
+> -		s->r.width = f->width;
+> -		s->r.height = f->height;
+> +		s->r.width = f->pix.width;
+> +		s->r.height = f->pix.height;
+>  	}
+>  
+>  	return 0;
+> @@ -629,8 +621,8 @@ static int vidioc_s_selection(struct file *file, void *priv,
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (s->r.left + s->r.width > f->width ||
+> -	    s->r.top + s->r.height > f->height ||
+> +	if (s->r.left + s->r.width > f->pix.width ||
+> +	    s->r.top + s->r.height > f->pix.height ||
+>  	    s->r.width < MIN_WIDTH || s->r.height < MIN_HEIGHT) {
+>  		v4l2_dbg(debug, 1, &rga->v4l2_dev, "unsupported crop value.\n");
+>  		return -EINVAL;
+> @@ -821,8 +813,8 @@ static int rga_probe(struct platform_device *pdev)
+>  		goto rel_m2m;
+>  	}
+>  
+> -	def_frame.stride = (def_frame.width * def_frame.fmt->depth) >> 3;
+> -	def_frame.size = def_frame.stride * def_frame.height;
+> +	def_frame.stride = (DEFAULT_WIDTH * def_frame.fmt->depth) >> 3;
+> +	def_frame.size = def_frame.stride * DEFAULT_HEIGHT;
+>  
+>  	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
+>  	if (ret) {
+> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+> index 477cf5b62bbb2..c4a3905a48f0d 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.h
+> +++ b/drivers/media/platform/rockchip/rga/rga.h
+> @@ -24,11 +24,6 @@ struct rga_fmt {
+>  };
+>  
+>  struct rga_frame {
+> -	/* Original dimensions */
+> -	u32 width;
+> -	u32 height;
+> -	u32 colorspace;
+> -
+>  	/* Crop */
+>  	struct v4l2_rect crop;
+>  
+> 
+> -- 
+> 2.54.0
+> 
+> 
 
 -- 
-Without deviation from the norm, progress is not possible.
+Pengutronix e.K.                           | Michael Tretter             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
