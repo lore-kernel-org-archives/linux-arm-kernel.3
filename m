@@ -4,61 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13838CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7647CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0chucKSxIxMImRF4ab1C0iTNacki3NqqCTkFos9OEuE=; b=XAFPriro4+UE1DaCbrpzP61+DA
-	k93/xht2jouQifYZS400tnXgcWXQZzVFXVbtbkXY8NUt/SHH2Fv48hiqWkHAOR29HnxpIfZ71p5ot
-	0Po+HL8CuMfEEHQjvjJrwkuGdTwlFHJcRe44zLFMJJjjjFcl/1CSZv87GTdA8o/24F+5mDlU4JoXS
-	osC4OdZTztLeIvYE6kpp6Y3c5PQn5+qfNccdKW1+1swXBABb7wsG/0gVj/cLTva0+VWDovyeY/+GR
-	sSjkPW9K/WoGeyuqte2K/lFKcNAfRMgQbJxe6Z69DtG1XsfhWGUknVxw66onF1cWe//8gWhLoB1tU
-	6Nww5Ebg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZAIf5bmB9ujfIX20EOJy3Q/SpkqNl4I17bFHzz2hmvw=; b=DNIwp4BoVM74Hb/uXzhCzpqgR3
+	lZPfJbjkZcEL30ObTveM1wFhPf7ZDavq2lQMy6dKqfPf6NHHPpkmVykBZyL6yjnfUfjh+TT7A/W59
+	j66/7nUQydjsMWIZObpHiQXSi9zWFqwr65LJpH0j26BtfLah21SzZ1gHEOn2AkWStQ2gONkf0BGlm
+	lSByTxP9NTrCLsbaDRS1bTcYuIWNsEoY0Hb5Ca+9OSdyOjVDAqFm7sWKpdRbGJIdNOGIpOCV/1+1p
+	wBR64To+8vXBMOxtgPZvFaCy5EgdlW59R2hrH3fkC0Qd20X26OB4m15HYux4/dGhEK/7p/BlK/h3W
+	jWP44UlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzMl-00000007FSO-02IN;
-	Thu, 21 May 2026 09:06:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wPzNS-00000007Fdp-0xpo;
+	Thu, 21 May 2026 09:07:38 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzMj-00000007FRq-2EeK
+	id 1wPzNP-00000007Fcq-3gs2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:06:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id CDB5C601FA;
-	Thu, 21 May 2026 09:06:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id BA0631F000E9;
-	Thu, 21 May 2026 09:06:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779354412;
-	bh=0chucKSxIxMImRF4ab1C0iTNacki3NqqCTkFos9OEuE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=P3mrLih5x0pu8nQDHtlwWUhxQawDZVLViB9rQFD0Ef2rlSxi+N8t6wELWONvcNgWn
-	 Fp/cOL88m0R7Ejk328LMFt8oB71XJSjtLu6ksx27u9nIG8sTEvEinDuWt3tqsf+E7R
-	 ccp7BZwXGvJk03Yf2yjKVk9U2k3BVldh1+O4Nu1e7RCaMYAoyk42kS125TyuMMI2cS
-	 zdHlxe1Pk8FqoG0o2CKVuiCpvhRvL+S7pQJJ4oF5e9AeTL4KyinC21bZ/myf9ggfNd
-	 eknFms+7oeD+w8fXrO+dfawz+hox6aUSuXQmCdai703ae5NTMb/awDlmTqdnKkFgzA
-	 SE+hiwhsJZVcg==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rt-devel@lists.linux.dev
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, Sebastian
- Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams
- <clrkwllms@kernel.org>, Steven
-	Rostedt <rostedt@goodmis.org>
-Subject: Re: [PATCH] irqchip/exynos-combiner: switch to raw_spinlock
-In-Reply-To: <20260520220422.3522908-1-m.szyprowski@samsung.com>
-References: <CGME20260520220432eucas1p10502ca0f9368bd6de5ce027ad8170109@eucas1p1.samsung.com>
- <20260520220422.3522908-1-m.szyprowski@samsung.com>
-Date: Thu, 21 May 2026 11:06:48 +0200
-Message-ID: <87ecj5w2qf.ffs@tglx>
+	Thu, 21 May 2026 09:07:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FSh4NvYaWo/O2sNGgQELDRv0eZGmFQgkcsSmEliffJTgiT9XednRwKHsZt+FKd3BVfaojPurexUBf0g68KpbwGcdJGGS04JtlGznoHl7yRt27cAyPOVdSwiJCrLdtlZI9zy401obu+XSDV/QTClQ8b35dtW9VAsLJCQXFUholODQdSnvo9NhuciiY3M1evguVn2WoAY4XBmv3wSLUKB7MhFxb8778c49X64RAWfe+J/cb/7KTUgNMxmZk2vughJjjap4qeiYE6e14xwMzEzdIc+voaySKqlFEe6fXHsWd1Vy/GGZuwT6ldOvO2U+QH5QxFTsMMHw7Je338mLgumZzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZAIf5bmB9ujfIX20EOJy3Q/SpkqNl4I17bFHzz2hmvw=;
+ b=iAgXlriumtlG512tZem65UXOIy4HYd2j25I6circIPlMW30t5nz+JqD18nwRKKxSvm1Z5bf6xI9M/sezXdV9ozfzelc/RNOK6ckSCROJ6CYI+xFUqW5czYZcKUi/DH1p6kb9JbXeT6Q+RYCYvm93p/jEYvRfD16EvCyF6UpMK5EoCptcM+LzwEDrkyldNPWMuXelvf6Gmv9xcDrlHOB5uxxkL2taE+x59LLjomE7gvtOO8c/PtutXP0E0XsklNAN6ZAXk+q4rcFSkLW6qjE0My9hYbLbiQDd/6zm7AxDEmwAQoYwG9MBTqXABYQ71ySTvt3O5ZRPnBcgFabdFHqBTQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZAIf5bmB9ujfIX20EOJy3Q/SpkqNl4I17bFHzz2hmvw=;
+ b=ifV2cdKatGJgbDHU9wyH9L+gMSo3udL2GrkE/m3Q9D/jQfTmw7llBjVV8xAk4Fx9VKHn8NMMv6ca9vhOEaqAfCHyk2kFPZo6NdjEmJ/OyiG3K9xGHmyVhV5eQQWgqrooleKGPMWMbP4Sa0INF1kJ33BMRlCZT9Gs+MRCJO+mUnhEMkWARM3cvyvn1E7MsCw53lfG3CYsVQRKz/SMjv1+reqUiGB38LZAGdpGHUqL6/jXOucYkAU73PSpXbWPRDF6LA3fXUtT9/7K1e04qhw2WZotYbme9D0LwR7GYE9zRimpaBqeFEP4cFSNc0a1WdM/7C1Vmm4jbFCtZ/w3dLMhPg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by AS5PR04MB11467.eurprd04.prod.outlook.com (2603:10a6:20b:6c3::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
+ 2026 09:07:28 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 09:07:28 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH v5 0/2] media: nxp: imx8-isi: Add virtual channel and frame
+ descriptor support
+Date: Thu, 21 May 2026 17:10:03 +0800
+Message-Id: <20260521-isi_vc-v5-0-a38eb4fcd58e@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOvLDmoC/13PTW7DIBAF4KtYrEs0DD+GrHKPqqoMDA2L2Ilxr
+ VSR717qSEnc5UPzPWZurNCYqbB9c2Mjzbnkoa9BvzUsHLv+i3iONTMENCDB8TrxOQeOVqdohRY
+ KiNXh80gpX9ei9497HunyXaen+yPzXSEehtMpT/sGg00kklCoILY6IQCSMB69cUEHjNhSVCKwv
+ 65jLtMw/qw7zmIt+7/OLLjgKYK3IHUUIR7663lXf1sLZnxBAh4IK+qCT20bvSWTtki+ILQPJDn
+ wDqR3nakniPYwlLLbQPWEGp5QVZiISLpgpJNuC5dl+QW5N/KbjQEAAA==
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+X-Mailer: b4 0.14.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779354625; l=3377;
+ i=guoniu.zhou@oss.nxp.com; s=20250815; h=from:subject:message-id;
+ bh=1GY/hFoszDjN3fBzOmp7PdQxWWOmAH9I5JCMNY8I65Q=;
+ b=90T5F2lZxc0DNOlSzgFkwJSvHoqb7Uv8FRVRUPMIlzY+5EFbZ0jkrzfp5D0REO7ZFV262eATn
+ jZA2tBzxCijDgNOlNONMaUbyZWOaNsXH5Ep4KjdyvFX3pCdLOh53AS8
+X-Developer-Key: i=guoniu.zhou@oss.nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI1PR02CA0032.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::12) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
-Content-Type: text/plain
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|AS5PR04MB11467:EE_
+X-MS-Office365-Filtering-Correlation-Id: a73a08ef-f27e-4b57-6b18-08deb71861a3
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|1800799024|19092799006|18002099003|56012099003|38350700014|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: NW3aZCGtI9WbkyW4JTxCYksKg6k39xt+O7yIhDwu5/rdT+XBK7c/guGntDUDLXmVMvQaWg2rf8b/T0hbDC38BH0mDRzQlJj/BFLZn1MhvJvyGbe83zaefFYS9fEgOExaNG0xkP5pLOdypRSfkmzTb3xb1FfuG3KbZwwLCiw+24+TqV4fqrTiDNYqxaHIViUyQNCCWLBytM6dbcp3gz+kYjiUEJZHGbC5oLJzzZ7KZTC/pn6mx88SUil1rV6FjLtuKaDTpWhBaTRqrvSQXytqbac3QimD28XLJXTOu0aTpJfENYeOOcSvwRNuAFhiOLA+FD+Q6iu3mQuoyz6v9dckn8g/qzHmuStUiMhlGOtGqXAXv5c4ZsYLL53W4sS7mgG+iwFbJW+tkJNH8REwfY8sf12AHY7oOob7k4xOT0Fi9VG1+vH/qXEAyXpJYZdbG3R2TFkqGyKvxR/ARhjybRkqeb+hg+NHW/3WcDbUgDwj1CHOhljYaZIxsm+XkWyn7+qoFIX5fZx8tLzXuzctLZ3ZCToLXPpEjAdc78CoL50rv8o/h0SmlyxR8FHYp8LuKqudrQihevQSGBWWoWmWjZlQ7IEY+UVXKgTZg8b57qmCvjURAeEQ9aK0E4aOYFbsoPHKhHUCvPkPIy4nOiY2K89F8Y+AOgp67qkN4KDkMPKHAVi4IlN/bVJ/L2fRGmdmpWWcC0QmIsr+EOvGjL9Yv1KcmVG4sudtTOUGAimxb32MupQmRrW8i/lVUQWSzeKpPVg1
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(1800799024)(19092799006)(18002099003)(56012099003)(38350700014)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TXNUZzAyVFh6L0VMYWtGTG5nKzFCcFNuZTF2MzQxaDRRMEI2cjZpbyttSkhx?=
+ =?utf-8?B?RUY5WFF3WlpKSzdkOXZDci93SWdVM3hhR2JPOEY1ZkZwN25LbU0yQnYvcGNQ?=
+ =?utf-8?B?VWdFMHUyL0ZpL2JicUxVTUlucTR3MFJQTjNtaExZZ1pVZUdmblRtYkNkcW1R?=
+ =?utf-8?B?TlFCdURpZjJ3UUVEdjRRMXVQemRKb0lacmovN1hzd1dkYTV2QXJVV0lyR0Nv?=
+ =?utf-8?B?SUU3MGxJdWNmb0IybEo5WjRRT0JWTEZ4NS9ucFJWT1hoTWh6WTFSb1BuQjVt?=
+ =?utf-8?B?cUdJdjk3aWJDN1p2ZmlGZkx1RlhrOEhSZC8rZTRCRHlxd1h5V0hLbStVa3Fn?=
+ =?utf-8?B?V09FWENDRERiREgveFVTU2JkQ2c3bnhwQlFnYWw2R1VuQ21rNkpvbXBVSFVI?=
+ =?utf-8?B?VU1ZS2VvT3UrT0YyVCtPWWVOMVBjMm9OSjVpK3JHd1lTZlpXemZ1MHhMRk1p?=
+ =?utf-8?B?UGJ5aWk0Um1RdFJBeXREVHNERzNGR3dyV2JuSExwekp2Ukp1ZWFPUERxaWRj?=
+ =?utf-8?B?WVZYMnpTdzdPTnMza29valhoL3orbUFZYWpDYkxVTCtmVk5YV1gxQlgraFM2?=
+ =?utf-8?B?dTBhZW9iaVhzZU5vajlDaWE4bTdselk3Y2NXZUNtUTE2YXJwSjRJTUZ3d282?=
+ =?utf-8?B?ZUhRWXZFc0FPSkhNbngzdXRYbGRQSWZWbUdSRDBDWjlzc0s4ZktwdGtGTkJP?=
+ =?utf-8?B?MXJ6T1NyanNvb0dUcVhsalF4bjNLSUtsa3VEUVZ0THhqYmlKVWIwYjFVY2Er?=
+ =?utf-8?B?MU1PRE1JWWk0bTJBWGN1Yk9FbkdONStwaWFDL0tGVTFobkF4bGtLSjM3UlRE?=
+ =?utf-8?B?ZFIySS9NWlZPUzZZQmNaak9EcEl0QlJSZ05VNC9WSlEvZHRkQlpCYS9tT09T?=
+ =?utf-8?B?RCtRdVVLR3ZTNkJGb0drWTY5OUFRaEdPZVV2SURsbWFnb0pOcStSdjFIdncy?=
+ =?utf-8?B?czNmMnk0b0tzaHhVWGp6cmVLT3k0dUVkMmVScHhnRzc2K09jcHc4aG9YN3U5?=
+ =?utf-8?B?QU9DdFpkajZaRGg1S21PcEU2b1pmaVV1cGFhTGRyLzE5alljVzBmb0tLRTVi?=
+ =?utf-8?B?ZTVEeStPQzRHZnQxdkh6TkQ5eUJ5a3BkcUFkaWp6TTRTQUNFNVErZTFsalgx?=
+ =?utf-8?B?d0FpcGtYUFo2bkswOXJOTFc1MzYwMnpKek4yYU50a3IyUEdyWHFiN0N2RDhI?=
+ =?utf-8?B?dFlQZEdPT1hPMFBRMm90OWs3QXVwQnFwb1FNeSswK2dNdzZFSmNNam83RHRT?=
+ =?utf-8?B?dnBzeGRXWTRnNXpDaXJlK3M4MGYySjRWTWlVbU9QaHZmRjZhSGxoQjZXbXFt?=
+ =?utf-8?B?MmdnSU1WTlkyQ2NQVktONUJJc3lvZDBvRTBZbDQraWE1WUltb3lvNTQ0RWZC?=
+ =?utf-8?B?TUo4Q0NEZjNjTlRPdU9XMjQ0a1c1cGNrNzBCdTZXa1o4TUxwM08yZnBvbE8y?=
+ =?utf-8?B?aUFNTlloK0h3TTZmekJsVG1nWHQrRXVrSTlVei9TTXc5T1ovOVF1LzZWS2NJ?=
+ =?utf-8?B?N2RyOWU5RE9NWWVxRVJKSi9DREpmOGpnaVZMTkFzRWtkTGxhQzJvVVk0KzdU?=
+ =?utf-8?B?U1FldmVyVmZyRlhGOTl1Ukw1ZDlscmJiMFUxV0VldVhjWUdNQi9IRkF5cU5G?=
+ =?utf-8?B?VGRCU2pueE1VVE5KTEw0MVNOMkFQaEh1ZWhqalVGMVhua21EbzIvQlFaeVRN?=
+ =?utf-8?B?dEpjTnpsWGJWbHk3cFlpZVZmT1NyVjdCOUR6NkM5ZzBVY25MZWxaVUVyYWpI?=
+ =?utf-8?B?aEg0N2JiS0prbTdzV2Y0VExtWG9JaDJWYy92ZVZLRzNoSFRJMnRXcVZMa0Y1?=
+ =?utf-8?B?a2JQZ3pDZE1vVTM0NXhFQThhREsrNTFCYjRZNDE4SmQ5dXlEVlVpK0NtRU5m?=
+ =?utf-8?B?WUw2NGE0VDkxeEJuNHNBVStXSS8ydWttZllyd0FyUVUxUEllaTVDK0szQzd5?=
+ =?utf-8?B?SWwvdmgwZ2JScSszUWNkT2hlUTRaNXpsWEwrOGdVaDN0enByNUh0TElZRHoy?=
+ =?utf-8?B?d0taMXZEbVc3NDNUSE5hVzVpUmFpYU01Vm40TEJBRmlsbUN4VVliSnh0djQx?=
+ =?utf-8?B?TDRjSlhuYzRZcENIZTd5QS90MDdabTM4TmFIY1ZqaUZST2J3dXl6MWQrMzYy?=
+ =?utf-8?B?bnJaN3Q0YVhnOVlXRVhGMGZ0R3FCMnpEWm1pbkE2Q2pxTHEzZGVKQ0ZPWG5s?=
+ =?utf-8?B?dnphYWRpazJ5M0pMeXhOb21PZzFJRmFYRlBEWEJ2Qk1GVE5idGliZFBaZWpD?=
+ =?utf-8?B?bWhtd1JUTWQ5RE9zbHV4NzFoVDBVRnZJbGZqdXFEU05UUWtYa0xTZkU1MHVk?=
+ =?utf-8?B?ei93MkFYMWtNTjMxQzI0RE51dE9rWEZXRVpqRUZIRTdiV2ZzcEJyQT09?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a73a08ef-f27e-4b57-6b18-08deb71861a3
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 09:07:28.0748
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: D7mSKOzxj6DZKu8RObiB9ovF7pWGIc+wnGkIiO1RfifJHaMwwA8RaBPxooITKTfbgqSSvInxAxZMUXccqVoszA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11467
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_020735_919508_3CD5E937 
+X-CRM114-Status: GOOD (  12.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +164,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21 2026 at 00:04, Marek Szyprowski wrote:
+This patch series enhances the i.MX ISI driver's with virtual channel
+support and adds frame descriptor capabilities to the crossbar subdevice.
 
-> The exynos-combiner driver uses a regular spinlock to protect access to
-> the combiner interrupt status register in combiner_handle_cascade_irq(),
-> which is invoked in hard IRQ context as a chained interrupt handler.
->
-> When PREEMPT_RT is enabled on ARM, regular spinlock is converted to a
-> sleeping lock (mutex-based), which must not be used in atomic context
-> such as hard interrupt handlers. Switch the irq_controller_lock to
-> raw_spinlock, which remains a true non-sleeping spinlock even under
-> PREEMPT_RT.
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+---
+Changes in v5:
+- Rebase to latest media/next
+- Swap patch order
+- Return -EPIPE instead of -EINVAL for stream configuration errors
+- Clear VC_ID_1 after generic mask to follow generic-then-conditional order
+- Pass vc as function parameter instead of storing in pipe structure.
+- Drop get_frame_desc fallback as crossbar now implements the operation
+- Remove redundant num_entries check in mxc_isi_get_vc().
+- Set vc to 0 for M2M as it doesn't support virtual channels.
+- Use v4l2_subdev_get_frame_desc_passthrough helper
+- Rewrote commit message
+- Link to v4: https://lore.kernel.org/r/20260508-isi_vc-v4-0-feee39c63939@oss.nxp.com
 
-Mechanically this makes sense, but out of curiosity I have to ask:
+Changes in v4:
+- Rebase to latest media/next(previous dependency now in mainline)
+- Fix VC boundary check: use num_vc (virtual channels count) instead of
+  num_channels (ISI pipelines count)
+- Set VC to 0 when frame descriptor has no entries
+- Move platform-specific comments to block style to fix line length warnings
+- Use %d instead of %u for ret variable in error messages
+- Fix potential -ENOIOCTLCMD leak by resetting ret to 0 on continue
+- See each patch's changelog for details
+- Link to v3: https://lore.kernel.org/r/20260328-isi_vc-v3-0-a03b9a6fe117@oss.nxp.com
 
-> -static DEFINE_SPINLOCK(irq_controller_lock);
-> +static DEFINE_RAW_SPINLOCK(irq_controller_lock);
->  
->  struct combiner_chip_data {
->  	unsigned int hwirq_offset;
-> @@ -72,9 +72,9 @@ static void combiner_handle_cascade_irq(struct irq_desc *desc)
->  
->  	chained_irq_enter(chip, desc);
->  
-> -	spin_lock(&irq_controller_lock);
-> +	raw_spin_lock(&irq_controller_lock);
->  	status = readl_relaxed(chip_data->base + COMBINER_INT_STATUS);
-> -	spin_unlock(&irq_controller_lock);
-> +	raw_spin_unlock(&irq_controller_lock);
+Changes in v3:
+- Rebased on latest media/next
+- Add num_vc field to platform data to indicate VC support
+- Clear VC_ID_1 bit after reading CHNL_CTRL for proper VC switching
+- Set VC_ID_1 only on platforms with num_vc > 4
+- Improve mxc_isi_get_vc() error handling
+- Add back CHNL_CTRL_BLANK_PXL and document platform-specific register fields
+- Add xbar get_frame_desc() implementation (feedback from Laurent Pinchart)
+- Link to v2: https://lore.kernel.org/r/20260310-isi_vc-v2-1-acbf77db8e6f@nxp.com
 
-What is this lock actually protecting?
+Changes in v2:
+- Add Rb tag from Frank Li
+- Fix typo in comment(s/support/supports/)
+- Update commit log to include more details about ISI virtual channel support
+  on different platform
+- Include bitfield.h file to fix following build error
+  drivers/media/platform/nxp/imx8-isi/imx8-isi-regs.h:23:65: error: implicit declaration of function ‘FIELD_PREP’ [-Wimplicit-function-declaration]
+- Link to v1: https://lore.kernel.org/r/20260309-isi_vc-v1-1-fd0b8035d1cd@nxp.com
 
-Each combiner has it's own @base address, so there is no concurrency
-problem between two cascade interrupts being handled at the same time.
+Changes in v1:
+- Depends on https://lore.kernel.org/linux-media/20251105-isi_imx95-v3-2-3987533cca1c@nxp.com/
 
-That means the only possible problem would be that the same cascade
-interrupt is handled on two CPUs concurrently. Is that even possible?
+---
+Guoniu Zhou (1):
+      media: nxp: imx8-isi: Add virtual channel support
 
-Thanks,
+Guoniu.zhou (1):
+      media: imx8-isi: crossbar: Add get_frame_desc operation
 
-        tglx
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.c    |  3 ++
+ .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  2 +
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c      |  1 +
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-hw.c  | 17 +++++++-
+ drivers/media/platform/nxp/imx8-isi/imx8-isi-m2m.c |  2 +-
+ .../media/platform/nxp/imx8-isi/imx8-isi-pipe.c    | 50 +++++++++++++++++++++-
+ .../media/platform/nxp/imx8-isi/imx8-isi-regs.h    | 12 ++++--
+ 7 files changed, 80 insertions(+), 7 deletions(-)
+---
+base-commit: 2c8fe1f14240d75f2002e16b2b69c5c2d27ed41c
+change-id: 20260309-isi_vc-285fd815140e
+
+Best regards,
+-- 
+Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+
 
