@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47378CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:03:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A182CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:05:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SQ/fSrYmC00gpnOqRL9gitCosE4OK9rdTL8gc49SD60=; b=nOgBZQNODi5ZDwj+PNBZw6zyle
-	S7exmQHIa0+iNRYuTM6ZiwvbDGc/7KP9RyNUqj1o3mRsGAyeMEeePofVcAoVB7PEnrTjvYh1hEeqM
-	l1ikA/x5HYLHIEunWk/PyBFUkv8+0gUw39pIlxSLwqgF+VQAyf3MeaQMbJw5aN9EXZmljYLsfFsQD
-	eLmtFTFkjW9JY19edgggTUmH3HWkIr6xZbNdpH/DElAduNMon4MoQ6du/lcMUKX73hjmCtY/3WCo8
-	mjaQ83cSdSLuEe77YVsAZe832j9uNelvGobQH3gDHVNDeIcBXol81NA7KuyjwJL4w1YYRGYW2OQex
-	jz70u85A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oiB5teETNAJO+fDl6KAzGRJpV3WpZWrKa7655moiG8g=; b=y7Q4p9j0ghhJN3Kwt6/nGiZKkg
+	c+dpR5kIgRRW8wuVXRFKclI1GbEHpRkz8KTmm+vYByDRtIPPccEzZ5yEg4ZF4KUzUu6D9TrIf4RCn
+	C6G8kG/PEDIKXO1D7GFgAS/oVgBaRj4GZxn3nxMg5n5PokcANzY7io49hVK0reLBV4y67EX8DtRI6
+	cSmdLFuAHIlkd8w/WoY1ueSHqz70S83RPs8vvZ++ndn2KKNQrbqG2GAccrMpuRHVjVVLJCt48UPKS
+	MKrOn25ghl9tlidQxp6SAwriwxrETdxRguZN9MtHhU2RrHWnMNFMtcUNxO+F1ftj9Z+sK8OZHZ4c5
+	VynGMy6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ33e-00000007nxC-0KI4;
-	Thu, 21 May 2026 13:03:26 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wQ35R-00000007oHB-1d40;
+	Thu, 21 May 2026 13:05:17 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ33b-00000007nvy-1Mlc
+	id 1wQ35O-00000007oGG-428k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:03:25 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ33Q-0003bA-HC; Thu, 21 May 2026 15:03:12 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ33O-0016fi-2f;
-	Thu, 21 May 2026 15:03:11 +0200
-Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ33P-00000004Vyy-10Cg;
-	Thu, 21 May 2026 15:03:11 +0200
-Date: Thu, 21 May 2026 15:03:11 +0200
-From: Michael Tretter <m.tretter@pengutronix.de>
-To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Cc: Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@pengutronix.de,
-	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
-	p.zabel@pengutronix.de,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: Re: [PATCH v7 09/28] media: rockchip: rga: remove redundant
- rga_frame variables
-Message-ID: <ag8Cjzl2m_fvbiZZ@pengutronix.de>
-Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
-	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
-	Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@pengutronix.de,
-	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
-	p.zabel@pengutronix.de,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
- <20260521-spu-rga3-v7-9-3f33e8c7145f@pengutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260521-spu-rga3-v7-9-3f33e8c7145f@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Thu, 21 May 2026 13:05:16 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-48feb029961so34761425e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 06:05:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779368712; x=1779973512; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oiB5teETNAJO+fDl6KAzGRJpV3WpZWrKa7655moiG8g=;
+        b=weNlZZDmhvAkLcP12hgAFbW6iPI+BQOO+cMY/bEUqcjZCK/JlfLaaw4dRIII0d2Elg
+         H1qdhXtqu+977QhyA6T9EqcHcQYx6LxGrmgGjd6vPUfAQUxxF6uzopMGotKL+xWF03AD
+         tN0GJoXI+m2UETpFFJp3u5EzeDOJJYjgkrY2nWg9oLsVFclKm/RoT+KnmiP2X8cTNI/F
+         cEBjZQXyj4CE4ah/CjJXN5IpaaMFo/2GGxxU/h/8IeM+zP/mHa3dyGmgCrRcV3u1bv4H
+         q9ibmuoRVktnk/IteWL35y5wx9xT3lZyg+iSywaW0DVDdYEx4KGoHfgNkYA/wDYfJPIN
+         KdLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779368712; x=1779973512;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oiB5teETNAJO+fDl6KAzGRJpV3WpZWrKa7655moiG8g=;
+        b=Lq+6IlGCJi5DmjWH9lQv3WSEKTf1vQekrlSEsHOACqhgTz/RSvpGWw1dOafgUk1rtm
+         uJjb5O6/vSpUd+qHPFjUqNP0pdWPYKbcPTazHIOexViGMZDNOtG2a8Ty1yU+m1DKifuo
+         PmPRlB8FOlMXjiiqkrVoIlE9VztHyrTrsGiIitBuV7zhRoXjzlwTKf+M1V8Ath8OKfMr
+         Wn+0kW10hx+U9Nl948xdzk93eOrwUuce2UOh1iWL0LKP/9VqRijkXviM5Y8sUlVJbAbr
+         3izJ72CqCq8gnzyGaTPtEQf1J2xC57ufXJixYXObTULQfNI7LKl2qqVCKokG32N6asG5
+         Evnw==
+X-Gm-Message-State: AOJu0YzsgvEaEOH3cmjuqs3ViJGF1InFovPLFWouXB8zZM639t0ivav9
+	t4txVYnS3yTdTGhkRs9d6kfdECcoTNhM0U0tRjKlMFEqnHShwH2cQ3041InBWiV0vWlYtXQnYkP
+	B5SGNXleAnGCNazIX8+B/G7IMQtfmgBWM3VGk+xlwv8l1PaOt/lAgnooQOGSMcxIoSyU9xpH0OB
+	7wdML2SjBgGzuAhZlcSiGB+7hfi8AOY3x8H96/0Mdva+DkqG8Nhas2yPAuNpReVMXagQ==
+X-Received: from wmqo22.prod.google.com ([2002:a05:600c:4fd6:b0:48e:5bb9:e1a4])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:34c9:b0:48f:eb8b:9980 with SMTP id 5b1f17b1804b1-490360e8403mr44838825e9.30.1779368711854;
+ Thu, 21 May 2026 06:05:11 -0700 (PDT)
+Date: Thu, 21 May 2026 13:05:03 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.669.g59709faab0-goog
+Message-ID: <20260521130503.4103369-1-smostafa@google.com>
+Subject: [PATCH] irqchip/gic-v4: Harden against bogus command line
+From: Mostafa Saleh <smostafa@google.com>
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: maz@kernel.org, tglx@kernel.org, Mostafa Saleh <smostafa@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_060323_512801_6C81364F 
-X-CRM114-Status: GOOD (  28.53  )
+X-CRM114-CacheID: sfid-20260521_060515_007052_3FF834D5 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,200 +87,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 00:44:14 +0200, Sven Püschel wrote:
-> Remove the redundant rga_frame variables width, height and color space.
-> The value of these variables is already contained in the pix member
-> of rga_frame. The code also keeps these values in sync. Therefore drop
-> them in favor of the existing pix member.
-> 
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=9D on t=
+he wrong
+setup that has no MSI controller device tree node (it exists but
+not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=9D is N=
+ULL and
+the kernel attempted to access its ops.
 
-Reviewed-by: Michael Tretter <m.tretter@pengutronix.de>
+Originally, I hit this on an older kernel, but was able to reproduce
+it on upstream with Qemu by hacking this unreasonable setup.
 
-> ---
->  drivers/media/platform/rockchip/rga/rga-buf.c |  6 ++---
->  drivers/media/platform/rockchip/rga/rga-hw.c  |  6 ++---
->  drivers/media/platform/rockchip/rga/rga.c     | 32 ++++++++++-----------------
->  drivers/media/platform/rockchip/rga/rga.h     |  5 -----
->  4 files changed, 18 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
-> index 65fc0d5b4aa10..ffc6162b2e681 100644
-> --- a/drivers/media/platform/rockchip/rga/rga-buf.c
-> +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
-> @@ -103,10 +103,10 @@ static int get_plane_offset(struct rga_frame *f,
->  	if (plane == 0)
->  		return 0;
->  	if (plane == 1)
-> -		return stride * f->height;
-> +		return stride * f->pix.height;
->  	if (plane == 2)
-> -		return stride * f->height +
-> -		       (stride * f->height / info->hdiv / info->vdiv);
-> +		return stride * f->pix.height +
-> +		       (stride * f->pix.height / info->hdiv / info->vdiv);
->  
->  	return -EINVAL;
->  }
-> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-> index d1618bb247501..ec6c17504ca15 100644
-> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
-> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-> @@ -53,7 +53,7 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
->  	x_div = frm->fmt->x_div;
->  	y_div = frm->fmt->y_div;
->  	uv_stride = frm->stride / x_div;
-> -	pixel_width = frm->stride / frm->width;
-> +	pixel_width = frm->stride / frm->pix.width;
->  
->  	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
->  	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
-> @@ -191,7 +191,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
->  
->  	if (RGA_COLOR_FMT_IS_YUV(ctx->in.fmt->hw_format) &&
->  	    RGA_COLOR_FMT_IS_RGB(ctx->out.fmt->hw_format)) {
-> -		switch (ctx->in.colorspace) {
-> +		switch (ctx->in.pix.colorspace) {
->  		case V4L2_COLORSPACE_REC709:
->  			src_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
->  			break;
-> @@ -203,7 +203,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
->  
->  	if (RGA_COLOR_FMT_IS_RGB(ctx->in.fmt->hw_format) &&
->  	    RGA_COLOR_FMT_IS_YUV(ctx->out.fmt->hw_format)) {
-> -		switch (ctx->out.colorspace) {
-> +		switch (ctx->out.pix.colorspace) {
->  		case V4L2_COLORSPACE_REC709:
->  			dst_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
->  			break;
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-> index c07207edffdb6..ca8d8a53dc251 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -329,9 +329,6 @@ static struct rga_fmt *rga_fmt_find(u32 pixelformat)
->  }
->  
->  static struct rga_frame def_frame = {
-> -	.width = DEFAULT_WIDTH,
-> -	.height = DEFAULT_HEIGHT,
-> -	.colorspace = V4L2_COLORSPACE_DEFAULT,
->  	.crop.left = 0,
->  	.crop.top = 0,
->  	.crop.width = DEFAULT_WIDTH,
-> @@ -363,9 +360,9 @@ static int rga_open(struct file *file)
->  	ctx->out = def_frame;
->  
->  	v4l2_fill_pixfmt_mp(&ctx->in.pix,
-> -			    ctx->in.fmt->fourcc, ctx->out.width, ctx->out.height);
-> +			    ctx->in.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
->  	v4l2_fill_pixfmt_mp(&ctx->out.pix,
-> -			    ctx->out.fmt->fourcc, ctx->out.width, ctx->out.height);
-> +			    ctx->out.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
->  
->  	if (mutex_lock_interruptible(&rga->mutex)) {
->  		kfree(ctx);
-> @@ -453,10 +450,8 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
->  	if (IS_ERR(frm))
->  		return PTR_ERR(frm);
->  
-> -	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm->height);
-> -
-> +	*pix_fmt = frm->pix;
->  	pix_fmt->field = V4L2_FIELD_NONE;
-> -	pix_fmt->colorspace = frm->colorspace;
->  
->  	return 0;
->  }
-> @@ -505,27 +500,24 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
->  	frm = rga_get_frame(ctx, f->type);
->  	if (IS_ERR(frm))
->  		return PTR_ERR(frm);
-> -	frm->width = pix_fmt->width;
-> -	frm->height = pix_fmt->height;
->  	frm->size = 0;
->  	for (i = 0; i < pix_fmt->num_planes; i++)
->  		frm->size += pix_fmt->plane_fmt[i].sizeimage;
->  	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
->  	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
-> -	frm->colorspace = pix_fmt->colorspace;
->  
->  	/* Reset crop settings */
->  	frm->crop.left = 0;
->  	frm->crop.top = 0;
-> -	frm->crop.width = frm->width;
-> -	frm->crop.height = frm->height;
-> +	frm->crop.width = pix_fmt->width;
-> +	frm->crop.height = pix_fmt->height;
->  
->  	frm->pix = *pix_fmt;
->  
->  	v4l2_dbg(debug, 1, &rga->v4l2_dev,
->  		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
->  		  V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
-> -		  &frm->fmt->fourcc, frm->width, frm->height,
-> +		  &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
->  		  frm->stride, frm->size);
->  
->  	for (i = 0; i < pix_fmt->num_planes; i++) {
-> @@ -579,8 +571,8 @@ static int vidioc_g_selection(struct file *file, void *priv,
->  	} else {
->  		s->r.left = 0;
->  		s->r.top = 0;
-> -		s->r.width = f->width;
-> -		s->r.height = f->height;
-> +		s->r.width = f->pix.width;
-> +		s->r.height = f->pix.height;
->  	}
->  
->  	return 0;
-> @@ -629,8 +621,8 @@ static int vidioc_s_selection(struct file *file, void *priv,
->  		return -EINVAL;
->  	}
->  
-> -	if (s->r.left + s->r.width > f->width ||
-> -	    s->r.top + s->r.height > f->height ||
-> +	if (s->r.left + s->r.width > f->pix.width ||
-> +	    s->r.top + s->r.height > f->pix.height ||
->  	    s->r.width < MIN_WIDTH || s->r.height < MIN_HEIGHT) {
->  		v4l2_dbg(debug, 1, &rga->v4l2_dev, "unsupported crop value.\n");
->  		return -EINVAL;
-> @@ -821,8 +813,8 @@ static int rga_probe(struct platform_device *pdev)
->  		goto rel_m2m;
->  	}
->  
-> -	def_frame.stride = (def_frame.width * def_frame.fmt->depth) >> 3;
-> -	def_frame.size = def_frame.stride * def_frame.height;
-> +	def_frame.stride = (DEFAULT_WIDTH * def_frame.fmt->depth) >> 3;
-> +	def_frame.size = def_frame.stride * DEFAULT_HEIGHT;
->  
->  	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
->  	if (ret) {
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-> index 477cf5b62bbb2..c4a3905a48f0d 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -24,11 +24,6 @@ struct rga_fmt {
->  };
->  
->  struct rga_frame {
-> -	/* Original dimensions */
-> -	u32 width;
-> -	u32 height;
-> -	u32 colorspace;
-> -
->  	/* Crop */
->  	struct v4l2_rect crop;
->  
-> 
-> -- 
-> 2.54.0
-> 
-> 
+[   33.145536] Unable to handle kernel NULL pointer dereference at virtual =
+address 0000000000000028
+[   33.145658] Mem abort info:
+[   33.145751]   ESR =3D 0x0000000096000006
+...
+[   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0-r=
+c4-ge3f15ad3970e #5 PREEMPT
+[   33.156922] Hardware name: linux,dummy-virt (DT)
+[   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=
+=3D--)
+[   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
+[   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
 
--- 
-Pengutronix e.K.                           | Michael Tretter             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+Add a hardening check to avoid the NULL access, and fail the VM
+creation in that case.
+
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/irqchip/irq-gic-v4.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v4.c
+index 8455b4a5fbb0..7e39f7eae85f 100644
+--- a/drivers/irqchip/irq-gic-v4.c
++++ b/drivers/irqchip/irq-gic-v4.c
+@@ -159,6 +159,9 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
+ {
+ 	int vpe_base_irq, i;
+=20
++	if (!gic_domain)
++		return -EINVAL;
++
+ 	vm->fwnode =3D irq_domain_alloc_named_id_fwnode("GICv4-vpe",
+ 						      task_pid_nr(current));
+ 	if (!vm->fwnode)
+--=20
+2.54.0.669.g59709faab0-goog
+
 
