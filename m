@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0F8CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43E3DCD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5DkSM4AdV+H8uwN5nTs766MuYJZjikfQqQCWWJARhxk=; b=OuKVYsCfldAkR+fQHnQGIV5p63
-	4zGkRSQ/6boN2q7hh6emtm5TqLZNWxTU/Umm2mifdP3UZneHIoHEuWrKMrCScXB9+LYz69fp4vr/t
-	TXqGjW5QPdsoAE2fmUTutTUzGieVKjAGuTinLKlGjfkWebD1MSnVl2Q+cwOPrEHtS6sWtcWeULWx+
-	gVHu9PZYEQQt2JJj4iu4EfnBFRCgqkkEuJYXZ1JhxaAqIByfseVlXJuNP3kjAcROZUjvHQroyxjB4
-	XjyHOeRcx4/HqsFLHkzoAIMLa7RZCqB5Rs73iopmULPMgQyYBOpz9dILqH+tGwGyd/v/KaT1G7SV2
-	0WAsVgow==;
+	bh=MygcFQv4xa0IJGSZjwgHjePtPzBLkLkFPf43ms0iONo=; b=bBYMdvPxJpe7lt86EEFDuPrtF4
+	X4szv1PuyDR/jKoFTXk4/CRVZZmIFr/I6ArqC1wwumgplo3fVBHSGD12qO6H0u2sw6mA7e0Ra7WH1
+	7LKXbVptaldI45FePXxIt9JKt7kDzziSA/XNfoJt/SNmxCeQ+68C4ncwO3OvW6uDVhPa4NgwvStLQ
+	qQPEqGTfZlKMf7HqGwMykkos/Q6pAgN6aaLmFrJ3hiaR7Ap4pwyQABBn/2G+vHhglqwPdzIZP9sgK
+	CRvw4V92JRL3hZYIRtzwxnwNJcRVObGXm2BILsmq7gHXK0PZYCVZNH/Qw7dzj0Pi1vqJ79uklKzMy
+	XMcqcarQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5ey-00000008OsN-1OpD;
-	Thu, 21 May 2026 15:50:08 +0000
+	id 1wQ5jW-00000008PaW-3joU;
+	Thu, 21 May 2026 15:54:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5ev-00000008Orf-3Bl7
+	id 1wQ5jU-00000008PZG-1gXR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:50:07 +0000
+	Thu, 21 May 2026 15:54:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8129F1C25;
-	Thu, 21 May 2026 08:49:58 -0700 (PDT)
-Received: from [10.1.32.22] (e122027.cambridge.arm.com [10.1.32.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8AF03F632;
-	Thu, 21 May 2026 08:49:58 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 489E72BCB;
+	Thu, 21 May 2026 08:54:37 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 065FE3F632;
+	Thu, 21 May 2026 08:54:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779378603; bh=mMghuHi21M3rXnjm/M0jpANdblyW2ZAdsbpFbgKLRXI=;
+	t=1779378882; bh=JE99UdEVTQAKsmSUBY2hhUODDQi/V7DmJiCJiajrofU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vTa59URD+6XdILapZywItbSczRW9VRRCTd016APcjuY/07ZdrQgHihhQStO6DB2Rw
-	 /aK6pONHDoWdWA9mM7r4FFOPwSpTjPPRniW7rVoko3lFJGYMMQDk6Jml1wvMGql3Py
-	 KMsfk8ppzYIRmjyaauqu3vl0H8+W/ZWG+njYFoCs=
-Message-ID: <78425c0d-86c5-457f-b171-a4c8dd3acb7d@arm.com>
-Date: Thu, 21 May 2026 16:49:56 +0100
+	b=BLRZL/y5+wvuKc8RMp4XImNwsHiVW75wZC2GaB+C0EdfOOugurafrAioJ+1xT+qRY
+	 N5F2CcagfjvBqbHMbetZmETnTtyNdC6TJ9vbqePl+8FmKRj/xbrbQdLw9BYzpmrx+F
+	 HNjLGyZZ1+OjkRLsyNhjC6NaM3G4SGQjUIWq64Xk=
+Message-ID: <bd1edbb2-5b0a-4dfa-ba84-4626f79acb7c@arm.com>
+Date: Thu, 21 May 2026 17:54:38 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 06/44] arm64: RMI: Check for RMI support at init
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-7-steven.price@arm.com>
- <ee494ecd-8979-40f2-896e-82137abbf440@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <ee494ecd-8979-40f2-896e-82137abbf440@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 3/5] arm_mpam: add MPAM-Fb MSC firmware access support
+To: Niyas Sait <niyas.sait@arm.com>
+Cc: ben.horgan@arm.com, catalin.marinas@arm.com, fenghuay@nvidia.com,
+ guohanjun@huawei.com, james.morse@arm.com, jic23@kernel.org,
+ lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, rafael@kernel.org, reinette.chatre@intel.com,
+ sudeep.holla@kernel.org, will@kernel.org
+References: <20260429141339.3171205-4-andre.przywara@arm.com>
+ <20260518085237.3259344-1-niyas.sait@arm.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260518085237.3259344-1-niyas.sait@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_085005_875562_3E879BA9 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20260521_085448_636970_E5DDB1CE 
+X-CRM114-Status: GOOD (  28.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,124 +75,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 01:39, Gavin Shan wrote:
-> Hi Steven,
+Hi Niyas,
+
+many thanks for replying on the list!
+
+On 5/18/26 10:52, Niyas Sait wrote:
+> Hi Andre,
 > 
-> On 5/13/26 11:17 PM, Steven Price wrote:
->> Query the RMI version number and check if it is a compatible version.
->> The first two feature registers are read and exposed for future code to
->> use.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> v14:
->>   * This moves the basic RMI setup into the 'kernel' directory. This is
->>     because RMI will be used for some features outside of KVM so should
->>     be available even if KVM isn't compiled in.
->> ---
->>   arch/arm64/include/asm/rmi_cmds.h |  3 ++
->>   arch/arm64/kernel/Makefile        |  2 +-
->>   arch/arm64/kernel/cpufeature.c    |  1 +
->>   arch/arm64/kernel/rmi.c           | 65 +++++++++++++++++++++++++++++++
->>   4 files changed, 70 insertions(+), 1 deletion(-)
->>   create mode 100644 arch/arm64/kernel/rmi.c
->>
+> On Wed, Apr 29, 2026 at 04:13:37PM +0200, Andre Przywara wrote:
 > 
-> [...]
+>> +#define SCMI_CHAN_FLAGS_OFS	0x10
+>> +#define SCMI_CHAN_FLAGS_IRQ		BIT(0)
+>> +#define SCMI_MSG_LENGTH_OFS	0x14
+>> +#define SCMI_MSG_HEADER_OFS	0x18
+>> +#define SCMI_MSG_PAYLOAD_OFS	0x1c
 > 
->> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
->> new file mode 100644
->> index 000000000000..99c1ccc35c11
->> --- /dev/null
->> +++ b/arch/arm64/kernel/rmi.c
->> @@ -0,0 +1,65 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +/*
->> + * Copyright (C) 2023-2025 ARM Ltd.
->> + */
->> +
->> +#include <linux/memblock.h>
->> +
->> +#include <asm/rmi_cmds.h>
->> +
->> +unsigned long rmm_feat_reg0;
->> +unsigned long rmm_feat_reg1;
->> +
->> +static int rmi_check_version(void)
+> I think this will not work for the ACPI PCC Type 3 MPAM Fb path.
+
+Ah yes, I was confused about the offsets, and since I also provided the 
+firmware side in my very crude test setup, this matches, courtesy of me 
+making the same mistake on both sides ;-)
+
+> 
+> SCMI shared memory transport layout and ACPI Extended PCC subspace
+> shared memory layout use different offsets for the flags, length, command,
+> and payload fields.
+> 
+> For Extended PCC subspace, the layout is:
+> 
+> Flags   @ 0x04
+> Length  @ 0x08
+> Command @ 0x0c
+> Payload @ 0x10
+> 
+> SCMI shared memory layout uses:
+> 
+> Flags   @ 0x10
+> Length  @ 0x14
+> Command @ 0x18
+> Payload @ 0x1c
+> 
+> You will need to use the extended PCC subspace layout for the ACPI path.
+
+Ah yes, I now see that I actually used a PCC subspace type 2 layout, 
+which explains some parts of my confusion, I guess.
+
+So I changed that now: as you show above, there is just an offset, but 
+the relevant fields magically match otherwise. Since there is no SCMI 
+support in the code base at the moment, I can just change the offsets, 
+and deal with SCMI later.
+
+> 
+>> +static int mpam_fb_wait_for_channel(struct pcc_mbox_chan *chan,
+>> +				    bool free)
 >> +{
->> +    struct arm_smccc_res res;
->> +    unsigned short version_major, version_minor;
->> +    unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
->> +                             RMI_ABI_MINOR_VERSION);
->> +    unsigned long aa64pfr0 =
->> read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
+>> +	u32 status = free ? SCMI_CHAN_STATUS_FREE_BIT : 0;
+>> +	u32 val;
 >> +
->> +    /* If RME isn't supported, then RMI can't be */
->> +    if (cpuid_feature_extract_unsigned_field(aa64pfr0,
->> ID_AA64PFR0_EL1_RME_SHIFT) == 0)
->> +        return -ENXIO;
->> +
->> +    arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
->> +
->> +    if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
->> +        return -ENXIO;
->> +
->> +    version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
->> +    version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
->> +
->> +    if (res.a0 != RMI_SUCCESS) {
->> +        unsigned short high_version_major, high_version_minor;
->> +
->> +        high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
->> +        high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
->> +
->> +        pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
->> +               version_major, version_minor,
->> +               high_version_major, high_version_minor,
->> +               RMI_ABI_MAJOR_VERSION,
->> +               RMI_ABI_MINOR_VERSION);
->> +        return -ENXIO;
->> +    }
->> +
->> +    pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
->> +
->> +    return 0;
+>> +	/*
+>> +	 * The channel should really be free always at this point, as we take
+>> +	 * a lock for every read or write request. Check the free bit anyway,
+>> +	 * for good measure and to catch corner cases.
+>> +	 */
+>> +	return readl_poll_timeout(chan->shmem + SCMI_CHAN_STATUS_OFS, val,
+>> +				  (val & SCMI_CHAN_STATUS_FREE_BIT) == status,
+>> +				  1, 10000);
 >> +}
->> +
->> +static int __init arm64_init_rmi(void)
->> +{
->> +    /* Continue without realm support if we can't agree on a version */
->> +    if (rmi_check_version())
->> +        return 0;
 > 
-> Is this still a valid point that we have to return zero on errors returned
-> from rmi_check_version() or other other function calls like rmi_features()?
-> arm64_init_rmi() is triggered by subsys_initcall() where the return value
-> needs to indicate success or failure. It's fine to return error code from
-> arm64_init_rmi() in the path.
+> This also assumes SCMI channel status completion semantics in shared memory.
+> For PCC Type 3 transport, completion should follow PCC Type 3 completion mechanisms.
 
-Hmm, I guess now this is moved to arm64 code this indeed doesn't need
-to. Within a module I believe an error return can fail the module loading.
+Ah, this is a very good point. As mention, I was staring at type 2 in 
+the ACPI spec. The PCC type 3 semantics is effectively very similar, or 
+at least can made to be, by just putting the right bits into the PCCT 
+table. The nice thing is that the Linux PCC code already handles the 
+channel negotiation, as part of the mailbox abstraction, so by just 
+populating the right fields in the PCCT table, I get the same semantics 
+on the device side, and can drop the whole channel ownership negotiation 
+from the MPAM code.
 
-I'm not sure it really makes much difference though - if this
-initialisation fails then it's not really an error - it just means the
-feature is unavailable.
+I now did one trick to simplify this: I kept the shared memory area 
+using the SCMI layout, so with the payload starting at offset 0x1c. In 
+the PCCT table I add 0xc to the beginning of the SRAM area, and give 
+that as the base address. This makes the SCP side always see the same 
+layout, at least for the relevant bits. Then I tell PCCT that the 
+command update register is at offset 0x4 of SRAM (so *before* the PCCT 
+shared mem area), which is exactly the location of the SCMI channel 
+ownership bit. To me that looks like it should work with SCMI and PCC 
+alike, maybe with some little tweaks on the SCP side.
 
-Thanks,
-Steve
+With those changes it works for me now using type 3. I will send a v2 in 
+due time, once I address all the other outstanding issues.
 
->> +
->> +    if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
->> +        return 0;
->> +    if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
->> +        return 0;
->> +
->> +    return 0;
->> +}
->> +subsys_initcall(arm64_init_rmi);
-> 
-> Thanks,
-> Gavin
-> 
+Many thanks for the heads up on this one!
+
+Cheers,
+Andre
 
 
