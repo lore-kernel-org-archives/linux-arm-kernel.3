@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95078CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53B2CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xsJEfdjdSp338K+IP1dasVBlu2UlR0ryRzkAdf1kOjQ=; b=vLIG7o78h7iZ0qI+s171DvN7eQ
-	vZDo85WJ51vLbmECa+TAW45d0PwpZkQutbQE6De4rM7MnhS0JP18m6b0AXBSC53fkICmg0kbQ3u5D
-	o0bQ+I1wYw+24fF8LlCKuRdjcymEjxhQGTJNrQe/8ksqBMiNg3esPvkhmY/m2qCoBUBVP4tRr+uw5
-	NkNsVHqNQwdTbii5ZMoTleJ5fej+W/mFmOoGR3VRn+eOiq23epW7sim/AmBx+7DtjXgQe3+kBbhEB
-	xGBRtvdj2B/qPPDLdo33v+BIH3+i2FQuPLarTIOUZ+h570wq1thU6qXcy8ksT0XUISXO5YvxpQj0Q
-	OOD0EA0g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qfM82z3BHmVFU110xOhDnN73f2JicISYXk83H5AhObU=; b=O+bez703gEKNZaPxuUggnxa4oa
+	PQ34444stcgV/Rk22N3REw6034K2E0SwIWGbqVlPZJf8OHElHqokeXvc11Gqsw8lFKzyv2eeH4xAb
+	SdgUAmZDmuDSp4ENY+LXGWJMVAcWUpNp7XqRgIOPBIqbfBf4nMGYifUb8vU3zFnrxZUyzUIMcZblB
+	YJDdPc1zn3IWxw7/skStT37w5UnMajqDFrt57zrPdxyZBSpgp1OzP/BaXWwnsXuJkNInGLHR9Hu91
+	XFQsvxmEzNSREer0oI3V4PxLuoJERqBGkkjWR8PKBlF2nfU9KQ0w9pqk7jC/1aJ/at9pBFIPXHqoD
+	32/Aj7IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0TF-00000007Qvb-1JVh;
-	Thu, 21 May 2026 10:17:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQ0Ub-00000007RBu-24RO;
+	Thu, 21 May 2026 10:19:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0TE-00000007Qv6-0Zxv
+	id 1wQ0Ua-00000007RBN-2mw0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 10:17:40 +0000
+	Thu, 21 May 2026 10:19:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 93A1160172;
-	Thu, 21 May 2026 10:17:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F6271F000E9;
-	Thu, 21 May 2026 10:17:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F824601F4;
+	Thu, 21 May 2026 10:19:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C97EA1F000E9;
+	Thu, 21 May 2026 10:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779358659;
-	bh=xsJEfdjdSp338K+IP1dasVBlu2UlR0ryRzkAdf1kOjQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=TNbDVWNu+W8zkMoaJcidGY1IqUcI4LoxZRzPPkfvMGnhxm0ihTNOJVlfbuVqsnXvG
-	 QZe69uzg4CtBBeq6xf4WAJFY2W+mrLWK86pOYeq4PGvQCCcpWeY7Ip5gBkJcl0YO/G
-	 bXKtindRJmdR1dqmrtjmmjhyTdqSDQ3n3vbOiKtfi4aZ7DIeWA6JXYINk0daL98yN6
-	 7CoixUwEGwDvQ0r3slK4ol5kdwjxiockgmyiJvk2qAPHAeeLHouFWLve5HMGZX6nKg
-	 BkdS+6YKpl+rQCr334jcZZuVADsesAijXb6QIkMSmdaB7k2gzeXd2SKftGnwtP2m5s
-	 GnjXJG4pbfn2A==
-Message-ID: <2c2c82f5-21d2-4851-86c8-0dbc05537427@kernel.org>
-Date: Thu, 21 May 2026 12:17:34 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 11/12] crypto: atmel-sha204a - fix heap info leak on
- I2C transfer failure
-To: Lothar Rubusch <l.rubusch@gmail.com>, thorsten.blum@linux.dev,
- herbert@gondor.apana.org.au, davem@davemloft.net,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org, ardb@kernel.org,
- linusw@kernel.org
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260520155703.23018-1-l.rubusch@gmail.com>
- <20260520155703.23018-12-l.rubusch@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260520155703.23018-12-l.rubusch@gmail.com>
+	s=k20260515; t=1779358743;
+	bh=qfM82z3BHmVFU110xOhDnN73f2JicISYXk83H5AhObU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LlzMutfvy8MAr6JgeXqIIc7RUQZwsc04MN6EdMvWVRty5YTkiehbKFfqqw37+6iga
+	 gJoMLV5OWS4O2EwwOVt2hDqaJijKSfg/KrPA35M05IKt6CwQsrjWJSyg0gds0m9nFi
+	 fya7uX2xCr85GIG7VpStByHEXh8nQYUoazks2wd5HbDkUrKeEQkSSETALSSVG+KcyI
+	 ctcJVxRxPE12NzuFW0bqG5y5ZH62RRH/3yYv7f6ACq7lYn6Syoy981s+MCfEVEreKr
+	 kY7Jyif//GoEqyhigpXFA1hvMUGG9DNklgbwYJDFCTT/CSlGydS5VJe10w0c79aQax
+	 rbZPGuMoV3g/Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQ0UX-00000004liO-2gGN;
+	Thu, 21 May 2026 10:19:01 +0000
+Date: Thu, 21 May 2026 11:19:01 +0100
+Message-ID: <86jysxvze2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 01/44] kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
+In-Reply-To: <20260513131757.116630-2-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-2-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +104,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2026 17:57, Lothar Rubusch wrote:
-> When a non-blocking read operation is requested, the driver dynamically
-> allocates memory to track asynchronous transfer status. If the underlying
-> I2C transmission fails, atmel_sha204a_rng_done() logs a rate-limited
-> warning but incorrectly proceeds to cache the pointer to this uninitialized
-> buffer inside the rng->priv data field anyway.
-> 
-> On subsequent execution passes, atmel_sha204a_rng_read_nonblocking()
-> detects the stale rng->priv value, skips executing a hardware data read,
-> and copies up to 32 bytes of uninitialized kernel heap data from this
-> garbage memory pool straight back into the system's hwrng data stream.
-> 
-> Fix this information disclosure vector by immediately releasing the
-> allocated asynchronous work data buffer and explicitly clearing the
-> tracking pointer context whenever an I2C transaction returns a non-zero
-> error status.
-> 
-> Additionally, duplicate the tfm counter decrement within the new error
-> path to ensure the reference counter is properly released before executing
-> the early return, maintaining the driver's availability for subsequent
-> requests.
-> 
-> Fixes: da001fb651b0 ("crypto: atmel-i2c - add support for SHA204A random number generator")
+On Wed, 13 May 2026 14:17:09 +0100,
+Steven Price <steven.price@arm.com> wrote:
+>=20
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>=20
+> Fix a potential build error (like below, when asm/kvm_emulate.h gets
+> included after the kvm/arm_psci.h) by including the missing header file
+> in kvm/arm_psci.h:
+>=20
+> ./include/kvm/arm_psci.h: In function =E2=80=98kvm_psci_version=E2=80=99:
+> ./include/kvm/arm_psci.h:29:13: error: implicit declaration of function
+>    =E2=80=98vcpu_has_feature=E2=80=99; did you mean =E2=80=98cpu_have_fea=
+ture=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+>    29 |         if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2)) {
+> 	         |             ^~~~~~~~~~~~~~~~
+> 			       |             cpu_have_feature
+>=20
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
 
+Unrelated to this patch, but really easy to fix: the standard prefix
+for patches targeting KVM/arm64 is:
 
-This and other fixes should be first in the patchset. Or even separate
-patchset.
+"KVM: arm64: [opt subsys:] Something starting with a capital letter"
 
-Best regards,
-Krzysztof
+where "opt subsys" could be "CCA" where applicable.
+
+It'd be good to have some consistency.
+
+Thanks,
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
