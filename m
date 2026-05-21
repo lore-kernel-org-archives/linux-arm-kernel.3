@@ -4,95 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900A5CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:07:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CE5CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kh5ilGfgBOd7IY4hv5kPF1I4gBzJqYiKUxJVuEQxYWY=; b=y7hSJjlEYm5jC4T6v0jyOSYwFp
-	M91OExcBcAkIOZA7wViaAAfFLJGw84zzFT9Sicz6qWyJVQk2UV8vXnYRW9wsSxslfE8x0/aU1gt7H
-	eYeLOFexjm5QZjSUXQ+nu43fBPDES1g4P0HXuRjfyZ8+tsQkrcYTlX9QMxy80O9do3ubzSg6OH12N
-	/ztp9m43KdkMLJaPFTHwrPKFe/tdFmDFlX7i0uWypgnPlkPSWFyb+ZDePJ7Ld/yHNovbbO6ldkJO1
-	wGXouvRvtzKG+HbyK0RqSDJauAT9NPLqxPMup2hzTndBloT3RDNziY2ESVYE4jta0pwmQS4FwESCG
-	6TSlU8dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K1DLY9Im8emQ1pvFmDCS9X34Zpvqnm1ezAB2dEZJU7I=; b=cJu0oHwCSo/stbl6fiQIJqVR30
+	hyK/XUXqaa3IjNRslaAjUQDY5I09cA1uv2BDSy3cFkFs3p7yedwR8Pju3fJsqNYog2iK0wq5G2RzZ
+	3665WjnwNvJrFx1Em23gYHu+LDGu48CY7tsslDgWIHcpLpe2Fg7MZII1kJvpPcwZrhVg+eLGr6nI+
+	IPQ4FwboZAId23GvqsL0wKdu0Im0qwvvxp9OObF+ialtk85+Kptbm5iIuSGbBUP4GKxmsFlPMn/bs
+	wKPDJsf9GmmQ1Qq3oNBUAtYEizdSGUGvMBXnVoF5jLja6gssSZnHjS5l9PnOcVsZuwpxhN6+Q08tP
+	gFqti+Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyQq-000000073AV-1r6M;
-	Thu, 21 May 2026 08:07:04 +0000
-Received: from mail-ot1-f47.google.com ([209.85.210.47])
+	id 1wPySu-000000073ag-0IsP;
+	Thu, 21 May 2026 08:09:12 +0000
+Received: from mail-m60168.netease.com ([210.79.60.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyQn-0000000738s-19Vz
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 08:07:02 +0000
-Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-7e4004a4a6fso5731997a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:07:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779350820; x=1779955620;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kh5ilGfgBOd7IY4hv5kPF1I4gBzJqYiKUxJVuEQxYWY=;
-        b=UDNC5hZVHuxcXHyTog+wU/DwQ8/MGj4o8HwmRMHXs+MzzWSl00q370q5CMLhBC2hyX
-         1QBHbISbIhCUlNrLLaOM2GBgrVcve6Lfj9zs0YnySfn8Hvf2omwMCccD5mQjf6lUsehH
-         qeQKRkiG+Qj3Ld5jthBhfURAUv6lu8j7+1hHhG4MEtCnxnILTD6I1DCdg3SzgppCIB0D
-         KcQB7tC0rldLAsP4ot7klMA4dVz633Kg1ncrHLXmHXIibc4Huh3eR7ytYG7WS7sq7Zw0
-         3EqWgB2fVunnqlVGV2cbSnyolKaqFTlQTayD6OCWZ0o7KbSmQBtiq62LqwpHGW1ru4iI
-         BR3Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+whaAn/c95KTU0+tuCwHcKG4Zj7znqz4J5HPUT/3f0abBqSPbr8/nDhPXzGiLph+b9Nr19uN8rZPMkzzR8GP7g@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ0A6gOxbae5p7zUGS4h4dyH/cjUWIH+Da4cR6qPXHUypi7IHp
-	BTnpVJXGf8mmZbuFRePNEyDfWMFSPLxnmcpRwt1EdlTC0YiSqBfnLHtU4+afZ1maSPo=
-X-Gm-Gg: Acq92OFdtXTf73WGzAnOHo/jIIQo6s6rbzdKhgY+zvYo1Jkr0N/Ke0eaTUP0bvffbs9
-	i4WFnupPEJKu/atvJVnqBqjoJXDf92t3o6rCek/w4JxnZkRbMFfW+kZ6RvDJSVVVjxkx8fMl8Ik
-	CDp9/7HUwcJCnfhsRVNbec7JqqnWf6dqNmj8vHtnR7Yxs25r2CHsU6QodU/rkzAjFiHd2Muu8kt
-	Dn2SM6jqud9Yf/+tDZlA6DFK80bTuI19y6kmgNcypziXMTI8GCmemX2wP0XFYrRuHRPNOfsC1tt
-	fL2f6fagcSSwjTsEvfJTiawp7AHO45KlKIm07D/iKiE9zX3YdQxYLeLjUp3cSxbZnbG9iycI5iq
-	2YVVz0dP10fMTTfMcvc7Go2AVuLjZUwPhvkRWUZH8Zq1ObK00/a3oNfCzikPbk3Ua6sOJ86+fUu
-	0XTp1Ko5dMtUUVvuGHgL3eQb/QAWe1clbjOCRFMelRZhGxILc+NLjUaLxm4bH9
-X-Received: by 2002:a05:6820:1c81:b0:694:9a8a:2ce with SMTP id 006d021491bc7-69d6ee3c011mr723158eaf.8.1779350819670;
-        Thu, 21 May 2026 01:06:59 -0700 (PDT)
-Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com. [209.85.210.51])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-69d773c26e0sm80592eaf.14.2026.05.21.01.06.58
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 01:06:59 -0700 (PDT)
-Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-7dbec19732eso6741680a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:06:58 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ95PNUu9vgZk0vsAxJtLidnoZTQ64tuS/GngQhkwstF3fdAJGZJEw69Z4ILHfaoDNM3dylno86hIj7R2dn1UzI+@lists.infradead.org
-X-Received: by 2002:a05:6102:952:b0:660:cba2:b6a5 with SMTP id
- ada2fe7eead31-6738d46a2c9mr965451137.7.1779350455953; Thu, 21 May 2026
- 01:00:55 -0700 (PDT)
+	id 1wPySq-000000073YY-2xkK;
+	Thu, 21 May 2026 08:09:10 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3f48aae87;
+	Thu, 21 May 2026 16:09:04 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v6 07/10] arm64: dts: rockchip: Add eDP node for RK3576
+Date: Thu, 21 May 2026 16:08:32 +0800
+Message-Id: <20260521080835.1362416-8-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260521080835.1362416-1-damon.ding@rock-chips.com>
+References: <20260521080835.1362416-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-References: <cover.1776793163.git.geert+renesas@glider.be> <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
- <aekXUvIPb8nkhdKu@pluto> <CAMuHMdX8b9C3D8fV5th6GCgs6JAq7HZbF_SrOKz_gDy2H8ksow@mail.gmail.com>
- <agor5HJ0JFBoX3sZ@pluto>
-In-Reply-To: <agor5HJ0JFBoX3sZ@pluto>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 21 May 2026 10:00:44 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWJrXcp7_S-KTKQJ8NuVhywiCWEHXMVvWkTFZwnmQayyA@mail.gmail.com>
-X-Gm-Features: AVHnY4LKAf9GYj9Cj8Ma9x6mjosVr-AC-oJEzWQ_9yBj7Yua2eAsFSXzEFT0UeE
-Message-ID: <CAMuHMdWJrXcp7_S-KTKQJ8NuVhywiCWEHXMVvWkTFZwnmQayyA@mail.gmail.com>
-Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e4994bb7b03a3kunm810e96ea5ebd7
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaGk8dVh1KShhKTk5LGU4eS1YVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=dYt4fLVMJXBXyQycg8c2bFIKHGR51brthKjMsXsa9Io0vnTCxOLm2Y6W9H9RYm57CccgY9tVywooqpPbgCOVeXBQn2uErsKLi7OqfDkK4MITk9vtCQdWoHIX40YI/vS9CNqyZLiXV1x0sqKzasQR29Yzdg/h+rPDICVy9FlDTCI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=K1DLY9Im8emQ1pvFmDCS9X34Zpvqnm1ezAB2dEZJU7I=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_010701_331301_46925836 
-X-CRM114-Status: GOOD (  56.87  )
+X-CRM114-CacheID: sfid-20260521_010909_293202_E82EE656 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +96,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+Add full device tree definition for the integrated eDP controller
+on RK3576, following the existing RK3588 hardware layout.
 
-On Sun, 17 May 2026 at 22:58, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> On Fri, May 15, 2026 at 05:39:45PM +0200, Geert Uytterhoeven wrote:
-> > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > On Tue, Apr 21, 2026 at 08:11:38PM +0200, Geert Uytterhoeven wrote:
-> > > > Currently non-SCMI drivers cannot find out what the specific versions of
-> > > > each SCMI provider implementation on the running system are.
-> > >
-> > > Thanks for your patches....this is not a proper full review of the series,
-> > > BUT this patch catched my eye..
-> > >
-> > > Indeed, yes, it is deliberate that the SCMI version information is NOT
-> > > exposed out of the SCMI world, since being the SCMI an attempt to
-> > > standardize a common FW interface (as in [1] of course), you should not
-> > > know what runs inside the black-box, it should be irrelevant...
-> > >
-> > > ...indeed the versioning is used inside the SCMI stack to deal properly
-> > > with different protocol versions implemented by the server OR to apply
-> > > proper quirks when needed, but all the rest should be standard....
-> >
-> > [...]
-> >
-> > > I watched a bit of the LPC discussions around this (from Marek I think)
-> > > but sincerely most of those problems had one (not necessarily simple)
-> > > solution: fix your firmwares AND/OR apply quirks in the meantime...
-> >
-> > So let's forward to the future, where the firmware is fixed, is fully
-> > compliant with the SCMI spec, and all IDs are stable, so no quirks are
-> > needed.
-> >
-> > Where do we specify the SCMI IDs to use?  Unless when using the
-> > remapping driver proposed in this patch series, they must end up in the
-> > DTB.  Existing upstream users put them either in the SoC-specific .dtsi,
-> > or in board-specific .dts.
-> >
-> > The SCMI server is supposed to expose to an agent (e.g. Linux) a
-> > sequential and contiguous list of IDs that represent only resources that
-> > the agent is allowed to use.
-> >   - We cannot put the SCMI IDs in the SoC-specific .dtsi, as that
-> >     describes all hardware in the SoC, which is typically much more than
-> >     Linux can or even wants to use when running on a specific board.
-> >   - You would think we could put the SCMI IDs in the board-specific
-> >     .dts.  However, that would limit actual use cases later, which do
-> >     not necessarily depend on the board solely.
-> >       - E.g. when moving control of the CAN-FD controller from Linux to
-> >         the Realtime OS, the CAN-FD node must be disabled in the DTB (by
-> >         overriding status to "reserved", or by just deleting the CAN-FD
-> >         node, both of which can be done by the boot loader). However,
-> >         with SCMI, the IDs corresponding to CAN-FD resources must be
-> >         removed from the ID space, causing a full renumbering. Who is
-> >         supposed to update the IDs in the DTB?
->
-> As per my previous email, after such a breaking change I would expect a
-> new DTB describing the new HW to be needed anyway.
+Configure required register range, clocks, interrupt, phy, power
+domain, reset and grf properties to fully describe the controller.
 
-The underlying hardware would still be the same...
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-> >       - E.g. when partitioning a single Linux system in multiple VMs,
-> >         and distributing hardware across these VMs, all VMs need
-> >         different DTBs, each describing a subset of the hardware.  With
-> >         SCMI, each VM needs different SCMI ID spaces, causing not a
-> >         simple partitioning of the devices in the DTB, but also a
-> >         renumbering of all IDs.
->
-> Ok now I am lost..why do you need a distinct IDs space for each VM ?
+---
 
-Aren't the different VMs different SCMI agents?  If not, how do you
-prevent them from stepping on each other's resources?
+Changes in v2:
+- Add Reviewed-by tag.
 
-> In a virtualized env, I would expect to leverage the SCMI stack to
-> realize the exact opposite: same set of IDs advertised to each VM (and
-> so same DTB potentially) by the server which in turn can decide to
-> assign the same device (and handle the sharing) to some ID or assign
-> different devices to the same or different IDs on each VM: i.e. you
-> have a set of virtual_IDs that is what the server exposes to each VM
-> SCMI agent, and then a bunch of real physical IDs, without any contraint
-> on their numbering, that the server uses in the backstage to refer to
-> the real resources and that it properly remaps to each per-VM set of
-> exposed virtual_IDs during the build and/or boot board configuration
-> phase....i.e. when the FW adapts and reconfigures to the specific
-> board that is finally running on.
+Changes in v4:
+- Modify the commit msg.
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 28 ++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-Again[1], how would that work?  Clock, resets, and power domains are
-not the final resources that are used by the OS.  They are merely
-resources for devices that are described in DTB with other resources
-(MMIO register ranges, interrupt numbers, ...) which are not handled
-by SCMI.  If the server remaps e.g. a clock to a different clock,
-it will no longer work with the corresponding device described in DT.
-
-[1] https://lore.kernel.org/all/CAMuHMdVunEehM01pLa3t5a6o0NmMOCQRwh7n5J+OkDk2YR9kUA@mail.gmail.com
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 28175d8200d5..733449cb88b1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1496,6 +1496,34 @@ hdmi_out: port@1 {
+ 			};
+ 		};
+ 
++		edp: edp@27dc0000 {
++			compatible = "rockchip,rk3576-edp";
++			reg = <0x0 0x27dc0000 0x0 0x1000>;
++			clocks = <&cru CLK_EDP0_24M>, <&cru PCLK_EDP0>, <&cru HCLK_VO0_ROOT>;
++			clock-names = "dp", "pclk", "hclk";
++			interrupts = <GIC_SPI 365 IRQ_TYPE_LEVEL_HIGH>;
++			phys = <&hdptxphy>;
++			phy-names = "dp";
++			power-domains = <&power RK3576_PD_VO0>;
++			resets = <&cru SRST_EDP0_24M>, <&cru SRST_P_EDP0>;
++			reset-names = "dp", "apb";
++			rockchip,grf = <&vo0_grf>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				edp_in: port@0 {
++					reg = <0>;
++				};
++
++				edp_out: port@1 {
++					reg = <1>;
++				};
++			};
++		};
++
+ 		dp: dp@27e40000 {
+ 			compatible = "rockchip,rk3576-dp";
+ 			reg = <0x0 0x27e40000 0x0 0x30000>;
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.34.1
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
