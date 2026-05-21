@@ -4,108 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD1ACD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:46:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0F8CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:50:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oM0uYMBqL1kxJwKhFF/O6VzT58qrsZXQs8dD4plhhVo=; b=YZ1Ae5ukmeBVL0eTDm8uAw4mQB
-	im0lOrRoCdUBt/THLkjTLPmzgYRff02f61/CNattQa447jfASQGcfCPxDub+gn+yKO512BBmRQboZ
-	9bp1K0PWwxlZp5psGUO9g40kTztpbWy1UpofuY2RU2sRnsCjTqZixp990vWchLubwRg0QmV5W3DwC
-	SwUqbvVFhhCdR7/Svec3OVKvLrdkoubvgGtlaBsw6QvGvIyps4wViaI/SVAsiiLoya2rg1M1KjO9C
-	Fg9QhkuSBnN6buLedkFlWSE9swPpo4vz5ayVYAvUPPXLbjREDAiVaP/unCON0A5+il8a5lzKrDPhA
-	G76/y18w==;
+	bh=5DkSM4AdV+H8uwN5nTs766MuYJZjikfQqQCWWJARhxk=; b=OuKVYsCfldAkR+fQHnQGIV5p63
+	4zGkRSQ/6boN2q7hh6emtm5TqLZNWxTU/Umm2mifdP3UZneHIoHEuWrKMrCScXB9+LYz69fp4vr/t
+	TXqGjW5QPdsoAE2fmUTutTUzGieVKjAGuTinLKlGjfkWebD1MSnVl2Q+cwOPrEHtS6sWtcWeULWx+
+	gVHu9PZYEQQt2JJj4iu4EfnBFRCgqkkEuJYXZ1JhxaAqIByfseVlXJuNP3kjAcROZUjvHQroyxjB4
+	XjyHOeRcx4/HqsFLHkzoAIMLa7RZCqB5Rs73iopmULPMgQyYBOpz9dILqH+tGwGyd/v/KaT1G7SV2
+	0WAsVgow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5bo-00000008ODO-3lEG;
-	Thu, 21 May 2026 15:46:52 +0000
-Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5bm-00000008OCY-0yXz
+	id 1wQ5ey-00000008OsN-1OpD;
+	Thu, 21 May 2026 15:50:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ5ev-00000008Orf-3Bl7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:46:51 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 5D4767A012B;
-	Thu, 21 May 2026 11:46:49 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 21 May 2026 11:46:49 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1779378409;
-	 x=1779464809; bh=oM0uYMBqL1kxJwKhFF/O6VzT58qrsZXQs8dD4plhhVo=; b=
-	VvgeX/p6c5bqNIozg2znabdmwjWeWY7DLzR0KOGkVetIPczND8cZJejWoZTXOl6y
-	Kpp0nM7wrx1gWjaTvD2iw1Q2kOLxieBBIJQKzn28fH/Lm2P0r5KnqFplQlyx4uCg
-	ifEwxJjuShqjj7L+TxqXM61qM8XsfSFlksrlrDyKv5KQ7HXtvtfvYHXQI0ZdwvXu
-	iZH1YjYN5UqQCNTyrrGeb2ht4vUQxWWOQaN4Az1NSiBbgHb4WmnpA1qtFYqXkpZ7
-	bDt1/i6rArVJdmVRCPXd7hI0Pr/td3IZ1k84z8wJGOYTn9/2sTYthMa7udN7gqJS
-	TSJPYIU6gI9FQPBUSHwUFQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779378409; x=
-	1779464809; bh=oM0uYMBqL1kxJwKhFF/O6VzT58qrsZXQs8dD4plhhVo=; b=q
-	z7TaqTTUSZkiat5yWP6wO58i693rqyXDIM7IhjkHWsDyd2OECsnrZeXyk0g2bVf0
-	VC9pdxw29G38HBJYMO3ytJVZNKv/5uTDJA8vsJKplQpd6OFqoOpgFeds5QcGbT6d
-	9DCZMCZ1gCVmTL9/Sdl1KHgI1K7JicBTEw3sQFNeJkDTX3T4ntL+VMlMc0sQ8QUZ
-	DfOm5PvwhzpqXQQPopvRL5dK2W6YRhVsrc+0TPAQuhfVNxFezXuQEIJwbZWbj50b
-	/7jjuYo1zQA9td+U8oSm4MAukQMZwUcI9aoWyEBQ3gHy5kWbNjDpi40ak+EDU2E4
-	XYn0lr9YDwD7nohKsxxDw==
-X-ME-Sender: <xms:6SgParzEIo7F_xfL0SP0Pb6inzV2PKYiQPtY5XjmSTUDAOSEQ2GnDQ>
-    <xme:6SgPauF_bQL6n-9Eeb_DAKxxfGgXuenM8qdCme4qvPC4t6PfH6s-Znjct54iiVuom
-    O1pL3LBuy5RhQ4YFUCQo5iuuQodq1F1WwSPOiHhYd_-FeUFzx_3xQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddugeejleduucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhepfefhheetffduvdfgieeghfejtedvkeetkeejfeekkeelffejteevvdeghffhiefh
-    necuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgt
-    phhtthhopeelpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrlhgvgigrnhgurh
-    gvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepphgvthgvrhdr
-    tghhvghnsegtihigthgvtghhrdgtohhmpdhrtghpthhtohepfhhushhtihhniheskhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphht
-    thhopehlihhnuhhsfieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrg
-    hrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthht
-    ohepshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehkrhiihihsii
-    htohhfrdhkohiilhhofihskhhisehoshhsrdhquhgrlhgtohhmmhdrtghomhdprhgtphht
-    thhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:6SgPanQEwpry4SeBa_xwiv8q6FriiQeSV9nZCQE_1QPU4ZHtqBZ8wg>
-    <xmx:6SgPar0eARjFtfSr0d73vTNOsNEEqVWcaZSEU-72HcvCResnguWiLA>
-    <xmx:6SgPane8cdIXxuzfWBu_P7uVEcHchYTSNZ7U9-Wi8V29xNifVX7CPQ>
-    <xmx:6SgPajOgdpKHNizyeqWodYcfBQ1YL2q1QCSBwflV4zqetCf9VQ_1bw>
-    <xmx:6SgPapib3aa6OZ7RJysosAjQjMNG7Gi3-QgTpUKd7Tu2cWXq0wdkRyB5>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EDA41182007A; Thu, 21 May 2026 11:46:48 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 21 May 2026 15:50:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8129F1C25;
+	Thu, 21 May 2026 08:49:58 -0700 (PDT)
+Received: from [10.1.32.22] (e122027.cambridge.arm.com [10.1.32.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E8AF03F632;
+	Thu, 21 May 2026 08:49:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779378603; bh=mMghuHi21M3rXnjm/M0jpANdblyW2ZAdsbpFbgKLRXI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vTa59URD+6XdILapZywItbSczRW9VRRCTd016APcjuY/07ZdrQgHihhQStO6DB2Rw
+	 /aK6pONHDoWdWA9mM7r4FFOPwSpTjPPRniW7rVoko3lFJGYMMQDk6Jml1wvMGql3Py
+	 KMsfk8ppzYIRmjyaauqu3vl0H8+W/ZWG+njYFoCs=
+Message-ID: <78425c0d-86c5-457f-b171-a4c8dd3acb7d@arm.com>
+Date: Thu, 21 May 2026 16:49:56 +0100
 MIME-Version: 1.0
-X-ThreadId: AXrWoYt_z6Rs
-Date: Thu, 21 May 2026 17:46:28 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Linus Walleij" <linusw@kernel.org>, "Drew Fustini" <fustini@kernel.org>,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Cc: "Peter Chen" <peter.chen@cixtech.com>
-Message-Id: <9db39c38-2c79-4187-a23f-190d72f6545d@app.fastmail.com>
-In-Reply-To: <20260521153003.429610-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260521153003.429610-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] arm64: defconfig: Fixup duplicated PCI_SKY1_HOST
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 06/44] arm64: RMI: Check for RMI support at init
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
+ <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-7-steven.price@arm.com>
+ <ee494ecd-8979-40f2-896e-82137abbf440@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <ee494ecd-8979-40f2-896e-82137abbf440@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_084650_313514_8E279DD4 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_085005_875562_3E879BA9 
+X-CRM114-Status: GOOD (  26.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,21 +84,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026, at 17:30, Krzysztof Kozlowski wrote:
-> Commit 246e37739f24 ("arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe
-> host, and Cadence GPIO") placed PCI_SKY1_HOST in wrong spot, thus it got
-> duplicated when merging with  commit f54f7979ff88 ("arm64: defconfig:
-> Move entries to match savedefconfig").
->
-> Cc: Peter Chen <peter.chen@cixtech.com>
-> Fixes: 1440d446ad5d ("Merge tag 'cix-defconfig-v7.2-rc1' of 
-> git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix into 
-> soc/defconfig")
-> Signed-off-by: Krzysztof Kozlowski 
-> <krzysztof.kozlowski@oss.qualcomm.com>
->
+On 21/05/2026 01:39, Gavin Shan wrote:
+> Hi Steven,
+> 
+> On 5/13/26 11:17 PM, Steven Price wrote:
+>> Query the RMI version number and check if it is a compatible version.
+>> The first two feature registers are read and exposed for future code to
+>> use.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> v14:
+>>   * This moves the basic RMI setup into the 'kernel' directory. This is
+>>     because RMI will be used for some features outside of KVM so should
+>>     be available even if KVM isn't compiled in.
+>> ---
+>>   arch/arm64/include/asm/rmi_cmds.h |  3 ++
+>>   arch/arm64/kernel/Makefile        |  2 +-
+>>   arch/arm64/kernel/cpufeature.c    |  1 +
+>>   arch/arm64/kernel/rmi.c           | 65 +++++++++++++++++++++++++++++++
+>>   4 files changed, 70 insertions(+), 1 deletion(-)
+>>   create mode 100644 arch/arm64/kernel/rmi.c
+>>
+> 
+> [...]
+> 
+>> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+>> new file mode 100644
+>> index 000000000000..99c1ccc35c11
+>> --- /dev/null
+>> +++ b/arch/arm64/kernel/rmi.c
+>> @@ -0,0 +1,65 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (C) 2023-2025 ARM Ltd.
+>> + */
+>> +
+>> +#include <linux/memblock.h>
+>> +
+>> +#include <asm/rmi_cmds.h>
+>> +
+>> +unsigned long rmm_feat_reg0;
+>> +unsigned long rmm_feat_reg1;
+>> +
+>> +static int rmi_check_version(void)
+>> +{
+>> +    struct arm_smccc_res res;
+>> +    unsigned short version_major, version_minor;
+>> +    unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
+>> +                             RMI_ABI_MINOR_VERSION);
+>> +    unsigned long aa64pfr0 =
+>> read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
+>> +
+>> +    /* If RME isn't supported, then RMI can't be */
+>> +    if (cpuid_feature_extract_unsigned_field(aa64pfr0,
+>> ID_AA64PFR0_EL1_RME_SHIFT) == 0)
+>> +        return -ENXIO;
+>> +
+>> +    arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
+>> +
+>> +    if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+>> +        return -ENXIO;
+>> +
+>> +    version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
+>> +    version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
+>> +
+>> +    if (res.a0 != RMI_SUCCESS) {
+>> +        unsigned short high_version_major, high_version_minor;
+>> +
+>> +        high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
+>> +        high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
+>> +
+>> +        pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
+>> +               version_major, version_minor,
+>> +               high_version_major, high_version_minor,
+>> +               RMI_ABI_MAJOR_VERSION,
+>> +               RMI_ABI_MINOR_VERSION);
+>> +        return -ENXIO;
+>> +    }
+>> +
+>> +    pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
+>> +
+>> +    return 0;
+>> +}
+>> +
+>> +static int __init arm64_init_rmi(void)
+>> +{
+>> +    /* Continue without realm support if we can't agree on a version */
+>> +    if (rmi_check_version())
+>> +        return 0;
+> 
+> Is this still a valid point that we have to return zero on errors returned
+> from rmi_check_version() or other other function calls like rmi_features()?
+> arm64_init_rmi() is triggered by subsys_initcall() where the return value
+> needs to indicate success or failure. It's fine to return error code from
+> arm64_init_rmi() in the path.
 
-I've redone the merge and folded this in.
+Hmm, I guess now this is moved to arm64 code this indeed doesn't need
+to. Within a module I believe an error return can fail the module loading.
 
-      Arnd
+I'm not sure it really makes much difference though - if this
+initialisation fails then it's not really an error - it just means the
+feature is unavailable.
+
+Thanks,
+Steve
+
+>> +
+>> +    if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
+>> +        return 0;
+>> +    if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
+>> +        return 0;
+>> +
+>> +    return 0;
+>> +}
+>> +subsys_initcall(arm64_init_rmi);
+> 
+> Thanks,
+> Gavin
+> 
+
 
