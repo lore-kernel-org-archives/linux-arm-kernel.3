@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E274BCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C43B4CD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vYRqvLNplKcHBpCSubZye+sJzBUl9lFEGv93iADHNo4=; b=a/zitHnpB/Zl0wqKhMbX4oPz7X
-	tbqHcw4YLGORTXiRJV5schdmRbFGn9Sd5J5IE2BJqDJF8srMiqZugE3DFbP8P7DrD2+8MbcurO0Vn
-	O54PGrKJHfUKL9wLNs2pZLnbUnL+efboTKxsbQKVT1UEAh+WT/3c1buOXzMe/feKjhf+41oGlqHOE
-	QWxx3J5U6EJWXjn558uXKFga1tKAB20cwpV94WkVKYFEIwg2jkBjn2Yj6K/QkncYeIIzXEUe3dIG9
-	ttSw8XoFef+CcVx16Tqu1Pf/lNG36AvTGv520pqwz9ofJUQpCLEewc5LrLQxERTdvyXLyJEoHxSbt
-	gMQEWTMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tQmPHR8IIsKYlTunVpaYrqEdOMUQnYuy4Tn1SyW9oC4=; b=jzmTFfsvrxTrLm+k+XUcOkyLis
+	dP9MtH4YtzfnrVZDK0xqoMaijXlJuSuFm4ZS2Hm6QwK/uvo/uiGEfbRj2MfuAlRRn38pk4YDd8Gt5
+	SdZNnZ7vDNtygxoB48p6Z+H4i7fmHSBJYh2MxqK7Pgenvbdx7A0TSay4shCaxfihptXb8HdEaQwWi
+	Ay5ELL3pfKGngy6HYVWHvS7GL2GPShmwBcnXQE76+xkxpLvEIbhu9MXEG3eYSV1XOY6xp81aZ91IN
+	znkxyp16xDgRo+att63A0Z6gN4p74eH/QFCwHdXKA1uvHkTmR5pDAVQT3cjz2Kv06F/soMlICaGnE
+	pzNkF10A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3vt-00000007yVV-1FgA;
-	Thu, 21 May 2026 13:59:29 +0000
-Received: from smtp1.tecnico.ulisboa.pt ([193.136.128.21])
+	id 1wQ3w3-00000007yYu-2JcH;
+	Thu, 21 May 2026 13:59:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3vq-00000007yTy-1YUH
+	id 1wQ3w2-00000007yYM-1tIX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:59:28 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id 62C84600300F;
-	Thu, 21 May 2026 14:59:21 +0100 (WEST)
-X-Virus-Scanned: by amavis-2.13.0 (20230106) (Debian) at tecnico.ulisboa.pt
-Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
- by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavis, port 10025)
- with LMTP id OhRAXJUdua68; Thu, 21 May 2026 14:59:19 +0100 (WEST)
-Received: from mail1.tecnico.ulisboa.pt (mail1.ist.utl.pt [193.136.128.10])
-	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id 182B2600022F;
-	Thu, 21 May 2026 14:59:18 +0100 (WEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tecnico.ulisboa.pt;
-	s=mail2; t=1779371959;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vYRqvLNplKcHBpCSubZye+sJzBUl9lFEGv93iADHNo4=;
-	b=qjWPx4ILk3hXKN8Kk2jhid2H6oIUEd1PMQaPeh7FJzZfQgzhYSQZzQQ9UtZ+IiXiKC4XwK
-	/53AvDPqDRjMFBnXfbhZOsQZ8+yfU63iakF0DQ0UAAtdYKP3NyT8vLtM3+shhiaQCJeUAr
-	QzzWGLSx9Z/F/w1ap/B+MA0KjvbGTWOaMH+gNh7u0OBC+f1X+byGIJC0xQkU56Y0lIQ7tZ
-	Ah5kHzUxSlgGEBq7cZkgcbPJXZsZ+gwX+nlM+8YS1kW9PW2+RP/UXQhJv8gFd7HxuJezuz
-	ylSHwV1z3qjZtjzkZFS3nSjIRUY1mh9Bxnyfri1Nrk5KzBLp4JCOMilSTbtoFg==
-Received: from [IPV6:2001:861:8c82:4ef0:2bc6:7ef1:5c9b:813f] (unknown [IPv6:2001:861:8c82:4ef0:2bc6:7ef1:5c9b:813f])
-	(Authenticated sender: ist187313)
-	by mail1.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 38C8136029E;
-	Thu, 21 May 2026 14:59:17 +0100 (WEST)
-Message-ID: <f98bcd81-29c6-4df2-8040-d17686b28f45@tecnico.ulisboa.pt>
-Date: Thu, 21 May 2026 15:59:15 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH 0/4] power: sys-off: fix Pixel C shutdown via
- MAX77620
-To: Lee Jones <lee@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-tegra@vger.kernel.org
-References: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
- <177929432727.2891971.15568098895295536822.b4-ty@b4>
- <31ef61bd-6672-440a-a52e-eedb950d3d03@tecnico.ulisboa.pt>
- <20260521104136.GA2921053@google.com>
-Content-Language: en-US
-From: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
-In-Reply-To: <20260521104136.GA2921053@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_065926_831842_5D3071B1 
-X-CRM114-Status: GOOD (  23.14  )
+	Thu, 21 May 2026 13:59:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F67960210;
+	Thu, 21 May 2026 13:59:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2141A1F000E9;
+	Thu, 21 May 2026 13:59:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779371977;
+	bh=tQmPHR8IIsKYlTunVpaYrqEdOMUQnYuy4Tn1SyW9oC4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WzSEaSuip34hyMd7P7xa21XSm/RfjS6Pe5CnL//09oCRDLtbqd9PAzzRRO/MB+Xog
+	 ivOACqeJjhtEhasOeK279vNZ3f40idhHL/UOONb9DcMB31xmzmnpIujbHxsn9Jm8sF
+	 bHHmP3cnsgs/otnaG7kXS2N20hYUkFCxJpKZvWkMLzeLazt4SI1ovEUj8EtznIjJqp
+	 NcfjqIqnTTCYZIOMsCCHsAo+MP+gGXnWBboKizR/tpT558s+Yy51yXuSto/uFMf8jl
+	 Z6Amwr8nfZzx5Bbq4fbDhKookvbNe+LqwowPKnwUxPqKKtsTFrOD2tHzDulIgxioYo
+	 GpOasUlQ3j4zQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQ3vz-00000004r81-0Hyn;
+	Thu, 21 May 2026 13:59:35 +0000
+Date: Thu, 21 May 2026 14:59:34 +0100
+Message-ID: <867bowx3qx.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to delegate/undelegate ranges of memory
+In-Reply-To: <20260513131757.116630-10-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-10-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,63 +103,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/21/26 12:41, Lee Jones wrote:
-> On Thu, 21 May 2026, Diogo Ivo wrote:
+On Wed, 13 May 2026 14:17:17 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
->> Hi Lee,
->>
->> On 5/20/26 18:25, Lee Jones wrote:
->>> On Thu, 14 May 2026 16:47:18 +0200, Diogo Ivo wrote:
->>>> This series migrates PSCI and MAX77620 poweroff handling to the
->>>> sys-off framework and fixes shutdown on the Pixel C (Smaug).
->>>>
->>>> The first two patches replace legacy pm_power_off usage in the PSCI
->>>> and MAX77620 drivers with sys-off handlers. Besides aligning both
->>>> drivers with the modern poweroff infrastructure, this removes the
->>>> global callback dependency and allows multiple handlers to coexist
->>>> with explicit priorities.
->>>>
->>>> [...]
->>>
->>> Applied, thanks!
->>
->> Thanks for applying the patches! Just a question and an observation:
->>
->>   - I'm assuming you were ok with merging [2/4] despite the possible
->>     deadlock since this risk is already present in mainline in the same
->>     form so we're not actually making things worse, is that so?
+> The RMM requires memory is 'delegated' to it so that it can be used
+> either for a realm guest or for various tracking purposes within the RMM
+> (e.g. for metadata or page tables). Memory that has been delegated
+> cannot be accessed by the host (it will result in a Granule Protection
+> Fault).
 > 
-> Did you see the text below?
-
-Yes, but patch 3 is not addressing the possible deadlock hence my
-question.
-
-> Both patches 2 and 3 are applied.
+> Undelegation may fail if the memory is still in use by the RMM. This
+> shouldn't happen (Linux should ensure it has destroyed the RMM objects
+> before attempting to undelegate). In the event that it does happen this
+> points to a programming bug and the only reasonable approach is for the
+> physical pages to be leaked - it is up to the caller of
+> rmi_undelegate_range() to handle this.
 > 
->>   - The observation is that the comment about overriding PSCI is only
->>     true after (and if) a reworked [1/4] is actually merged.
->>     If it isn't then patch [3/4] is actually working around another handler
->>     in soc/tegra/pmc.c where a handler that only does work for the Nexus
->>     7 is actually registered at FIRMWARE level for all platforms that
->>     probe that driver (I will send out a patch shortly to only register
->>     the handler on the Nexus 7).
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> v14:
+>  * Split into separate patch and moved out of KVM
+> ---
+>  arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
+>  arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
+>  2 files changed, 49 insertions(+)
 > 
-> I assume the other patches will be applied soon.
->
-> If this causes some kind of issue - let me know later on in the cycle
-> and I'll remove whatever patches you ask me to.
+> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+> index 9078a2920a7c..eb213c8e6f26 100644
+> --- a/arch/arm64/include/asm/rmi_cmds.h
+> +++ b/arch/arm64/include/asm/rmi_cmds.h
+> @@ -33,6 +33,19 @@ struct rmi_sro_state {
+>  } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
+>  	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
+>  
+> +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
+> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
+> +
+> +static inline int rmi_delegate_page(phys_addr_t phys)
+> +{
+> +	return rmi_delegate_range(phys, PAGE_SIZE);
+> +}
+> +
+> +static inline int rmi_undelegate_page(phys_addr_t phys)
+> +{
+> +	return rmi_undelegate_range(phys, PAGE_SIZE);
+> +}
+> +
+>  bool rmi_is_available(void);
+>  
+>  unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
+> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+> index 52a415e99500..08cef54acadb 100644
+> --- a/arch/arm64/kernel/rmi.c
+> +++ b/arch/arm64/kernel/rmi.c
+> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
+>  unsigned long rmm_feat_reg0;
+>  unsigned long rmm_feat_reg1;
+>  
+> +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
+> +{
+> +	unsigned long ret = 0;
+> +	unsigned long top = phys + size;
+> +	unsigned long out_top;
+> +
+> +	while (phys < top) {
+> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
+> +		if (ret == RMI_SUCCESS)
+> +			phys = out_top;
+> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
+> +			return ret;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
+> +{
+> +	unsigned long ret = 0;
+> +	unsigned long top = phys + size;
+> +	unsigned long out_top;
+> +
+> +	WARN_ON(size == 0);
 
-The PSCI patch [1/4] has a fundamental issue and needs a respin to be
-applied.
+I find it odd to warn on size = 0. After all, free(NULL) is not an
+error. But even then, you continue feeding this to the RMM.
 
-In connection with this it might then become easier to quirk the PSCI
-driver rather than the PMIC driver, so for the moment I'll ask you to
-drop [3/4] until I propose the changes to the PSCI maintainers and see
-the feedback and at that point we can either completely drop [3/4] or
-reapply it; sorry for the noise.
+You also don't seem to be bothered with that on the delegation side...
 
-Best regards,
-Diogo
+> +
+> +	while (phys < top) {
+> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
+> +		if (ret == RMI_SUCCESS)
+> +			phys = out_top;
+
+and size==0 doesn't violate any of the failure conditions listed in
+B4.5.18.2 (beta2). Will you end-up looping around forever?
+
+Same questions for the delegation, obviously.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
