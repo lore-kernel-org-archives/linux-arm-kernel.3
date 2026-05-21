@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C36DCD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:26:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41091CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bGsz4vTeLUzDPiIJ1r5aVHwlQk+I6bAngI+fRSrBEbg=; b=p9s5TF6/WQdWu7Br9jEKyqn3iy
-	TP3lAehoX1G7k/9M5ekxldwLR6kYOKleaR6xFwHDQRG6rfbnEMib6/VBHbmgGH3qZ09b3gJxWlS+V
-	dNWqO0G+6c+MgK2JR19GhBhVUixVxnoHfz1p9QoChWen0zVaN73/Xkql4D7IAmPACtEwlYV/tuxbm
-	0/NQYdLXbfPuSniKCl61o/L3WqrM5bxy34bgPIRAQ6zdZL/t3chdFKmd465b7iSEU0i09N9qt8dbB
-	OUyj9vREsFt3TkO6aX2UKYx+Z73RBdLFHMnNQEki0MiW1MSlHnxHbCBOrdJ1aIEfZf4IXhT+czRCN
-	ENT1aJxQ==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DGUgQC8U9j93xMce/C73Qa1eK3CV/OLG54Lqchw1M1Q=; b=JUQ/yIc9ip5PoE3KVIHYh91uqE
+	VrZuVqkgW8J8VI6ErMIWTtLINyZgexQbn8lV9h2dihK9QrJcjT7AsNODbOqC0UHKVHMVHt81K+y+n
+	9uQ+k1klDpv05qS0GMP4ptafBqSecf5p+Blr5eumUsIzrz+OateL5VTCouxHBwDJWvxSlIv4JZmvh
+	MqSuxOl/gcBF0FxOfv4gnT4hdpuBzPJL9AR0CJJc7SXJHZYobUutEl8o/NlVDdq6DD3bOHIOZV/Wv
+	ZTiSLPa0b4+d5lDHUQ3QaC3lbUj52X3xhxsU5UNRCsFmkUEp+pkMAF3U3nJIBTvn0Wx8cZQo9W2QU
+	TRHnC+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3Pg-00000007rqS-0hJ9;
-	Thu, 21 May 2026 13:26:12 +0000
+	id 1wQ3Pq-00000007rum-1Vpw;
+	Thu, 21 May 2026 13:26:22 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3Pc-00000007roy-2BUW
+	id 1wQ3Pf-00000007rqA-0y48
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:26:10 +0000
+	Thu, 21 May 2026 13:26:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01F781C00;
-	Thu, 21 May 2026 06:26:00 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E9E43585;
+	Thu, 21 May 2026 06:26:04 -0700 (PDT)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D4F003F7B4;
-	Thu, 21 May 2026 06:26:03 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 383383F7B4;
+	Thu, 21 May 2026 06:26:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779369965; bh=TF76h7Val/7odp5FU8e5bcuzLOzjRrr18jZPq/qtZ2A=;
-	h=From:To:Cc:Subject:Date:From;
-	b=vL+9zZQBogOgIMN5Vz7JFlVLlRuNNw5gKod6PSQG6Ymmpwq3iumqSt97wr7HnwGql
-	 j6+WDdkPj33g0HGabW3+k+59qr9SWTEnGRK4Ow3qqzie/1Rs02EN5fqs5cewBa+2s5
-	 GuxLWvA3LEAsJqUr81oL3cN2JQ2hDXh0Yd1PyLzI=
+	t=1779369969; bh=GD2Z64GQx9VlwmIyMGKKYTOCh00j0sXnGkP8oGm4WOg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rOvYu1PR611KpFAlzCWniwnRZDgQHVXxtR7KrWHOdRKMQ4I63j3qP89eV774XFjk3
+	 Sb9CX4oSorX1u4LR2o5a1hyAKmnqXO4AEXIiVT4DTwNrVKmHMrfKu/XEBcyZ7lIvoU
+	 FnxUkg6VcUrh83WjDjKFbxElMXcRm0chg/CDJC0s=
 From: Mark Rutland <mark.rutland@arm.com>
 To: linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
@@ -50,15 +50,17 @@ Cc: broonie@kernel.org,
 	oupton@kernel.org,
 	tabba@google.com,
 	will@kernel.org
-Subject: [PATCH 00/18] arm64+KVM: FPSIMD/SVE/SME cleanups
-Date: Thu, 21 May 2026 14:25:38 +0100
-Message-Id: <20260521132556.584676-1-mark.rutland@arm.com>
+Subject: [PATCH 02/18] KVM: arm64: Don't override FFR save/restore argument
+Date: Thu, 21 May 2026 14:25:40 +0100
+Message-Id: <20260521132556.584676-3-mark.rutland@arm.com>
 X-Mailer: git-send-email 2.30.2
+In-Reply-To: <20260521132556.584676-1-mark.rutland@arm.com>
+References: <20260521132556.584676-1-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_062608_844305_FE4BDB06 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20260521_062611_318123_09872716 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,118 +75,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
+The __sve_save_state() and __sve_restore_state() functions take a
+parameter describing whether to save/restore the FFR, but both functions
+silently override this with '1'. This has always been benign (and
+callers have all passed 'true' since the parameter was introduced), but
+clearly this is not intentional.
 
-This series cleans up low-level FPSIMD/SVE/SME state management code,
-making it easier to maintain and extend (e.g. adding SME support to
-KVM), and enabling better debugging (e.g. by making SVE/SME save/restore
-visible to KASAN and KCSAN).
+Historically, the functions always saved/restored the FFR, and there was
+no parameter to control this.
 
-This is purely cleanup, there are NO bugs addressed by this series.
+In v5.16, the sve_save and sve_load assembly macros used by
+__sve_save_state() and __sve_restore_state() were changed to make
+saving/restoring FFR optional. The implementations of __sve_save_state()
+and __sve_restore_state() were changed to pass '1' to their respective
+macros, and the prototypes of __sve_save_state() and
+__sve_restore_state() were unchanged. See commit:
 
-The series aims to do a few key things:
+  9f5848665788 ("arm64/sve: Make access to FFR optional")
 
-* Make it harder to mis-manage in-memory SVE state and SME state. These
-  are given opaque types (struct sve_state and struct sme_state), and
-  the (awkward) calling convention for saving/restoring SVE state is
-  simplified to take a pointer to the base of the state rather than a
-  pointer to the FFR within the state.
+In v6.10, the prototypes of __sve_save_state() and __sve_restore_state()
+were changed to add 'save_ffr' and 'restore_ffr' parameters
+respectively, but the implementations were not changed to stop passing 1
+to their respective macros. All callers were changed to pass 'true' to
+__sve_save_state() and __sve_restore_state(). See commit:
 
-* Minimize duplications between KVM and the rest of the kernel. The
-  FPSIMD/SVE/SME routines are moved to inline assembly such that the
-  same helper functions can be used everywhere, without the need to wrap
-  assembly macros.
+  45f4ea9bcfe9 ("KVM: arm64: Fix prototype for __sve_save_state/__sve_restore_state")
 
-* Make the code easier to follow. Assembly sequences are minimized to
-  avoid address generation and control-flow that can be written more
-  clearly in C. Awkward assembly macros are removed where possible.
+This is all benign, but clearly unintentional, and it gets in the way of
+cleaning up the FPSIMD/SVE/SME code. Remove the unnecessary overriding.
 
-* Make it easier to debug state management. Explicit instrumentation is
-  added to the save/restore functions so that KASAN and KCSAN can detect
-  memory safety issues and concurrency issues.
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+---
+ arch/arm64/kvm/hyp/fpsimd.S | 2 --
+ 1 file changed, 2 deletions(-)
 
-  This instrumentation is inhibited for nVHE hyp objects, and does not
-  adversely affect KVM. I've confirmed by looking at compiler flags
-  during the build, and disassembling the relevant object files.
-
-* Remove unnecessary code. By relying on assembler support for SVE and
-  SME we can remove awkward assembly macros, making the code
-  significantly simpler and easier to read.
-
-I've compile-tested this with a variety of toolchains:
-
-* GCC  8.1.0 + binutils 2.30
-* GCC 11.1.0 + binutils 2.36.1
-* GCC 12.1.0 + binutils 2.38
-* GCC 15.2.0 + binutils 2.45
-* LLVM 15.0.7
-* LLVM 21.1.8
-
-I've boot-tested on an SVE+SME capable model, both with KASAN enabled
-and without KASAN enabled. All the FPSIMD/SVE/SME kselftests passed in
-both configurations, without any KASAN splats. Unfortunately, with KCSAN
-enabled, some tests hit timeouts (without any KCSAN splat), which I
-believe is simply due to the overhead of KCSAN rather than some adverse
-functional effect.
-
-I've boot-tested on an SVE+SME capable model, booting with KVM in each
-of:
-
-* VHE mode
-* hVHE mode
-* Protected mode
-
-In each case I've boot-tested a v7.0 defconfig guest, both with SVE and
-without SVE.
-
-Mark.
-
-Mark Rutland (18):
-  KVM: arm64: Don't include <asm/fpsimdmacros.h>
-  KVM: arm64: Don't override FFR save/restore argument
-  KVM: arm64: pkvm: Save host FPMR in host cpu context
-  KVM: arm64: pkvm: Remove struct cpu_sve_state
-  arm64: fpsimd: Fold sve_init_regs() into do_sve_acc()
-  arm64: fpsimd: Remove sve_set_vq() and sme_set_vq()
-  arm64: fpsimd: Use assembler for SVE instructions
-  arm64: fpsimd: Use assembler for baseline SME instructions
-  arm64: fpsimd: Move sve_get_vl() and sme_get_vl() inline
-  arm64: sysreg: Add FPCR and FPSR
-  arm64: fpsimd: Split FPSR/FPCR from SVE save/restore
-  arm64: fpsimd: Move fpsimd save/restore inline
-  arm64: fpsimd: Use opaque type for SVE state
-  arm64: fpsimd: Use opaque type for SME state
-  arm64: fpsimd: Move SVE save/restore inline
-  arm64: fpsimd: Move sve_flush_live() inline
-  arm64: fpsimd: Move SME save/restore inline
-  arm64: fpsimd: Remove <asm/fpsimdmacros.h>
-
- arch/arm64/Kconfig                      |   5 +
- arch/arm64/include/asm/fpsimd.h         | 369 ++++++++++++++++++++++--
- arch/arm64/include/asm/fpsimdmacros.h   | 357 -----------------------
- arch/arm64/include/asm/kvm_host.h       |  27 +-
- arch/arm64/include/asm/kvm_hyp.h        |   5 -
- arch/arm64/include/asm/kvm_pkvm.h       |   3 +-
- arch/arm64/include/asm/processor.h      |   7 +-
- arch/arm64/kernel/Makefile              |   2 +-
- arch/arm64/kernel/entry-common.c        |   8 +-
- arch/arm64/kernel/entry-fpsimd.S        | 134 ---------
- arch/arm64/kernel/fpsimd.c              |  90 +++---
- arch/arm64/kvm/arm.c                    |  16 +-
- arch/arm64/kvm/guest.c                  |   4 +-
- arch/arm64/kvm/hyp/entry.S              |   1 -
- arch/arm64/kvm/hyp/fpsimd.S             |  33 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h |  23 +-
- arch/arm64/kvm/hyp/nvhe/Makefile        |   2 +-
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  20 +-
- arch/arm64/kvm/hyp/nvhe/setup.c         |   4 +-
- arch/arm64/kvm/hyp/vhe/Makefile         |   2 +-
- arch/arm64/tools/sysreg                 |  45 +++
- 21 files changed, 480 insertions(+), 677 deletions(-)
- delete mode 100644 arch/arm64/include/asm/fpsimdmacros.h
- delete mode 100644 arch/arm64/kernel/entry-fpsimd.S
- delete mode 100644 arch/arm64/kvm/hyp/fpsimd.S
-
+diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
+index e950875e31cee..6e16cbfc5df27 100644
+--- a/arch/arm64/kvm/hyp/fpsimd.S
++++ b/arch/arm64/kvm/hyp/fpsimd.S
+@@ -21,13 +21,11 @@ SYM_FUNC_START(__fpsimd_restore_state)
+ SYM_FUNC_END(__fpsimd_restore_state)
+ 
+ SYM_FUNC_START(__sve_restore_state)
+-	mov	x2, #1
+ 	sve_load 0, x1, x2, 3
+ 	ret
+ SYM_FUNC_END(__sve_restore_state)
+ 
+ SYM_FUNC_START(__sve_save_state)
+-	mov	x2, #1
+ 	sve_save 0, x1, x2, 3
+ 	ret
+ SYM_FUNC_END(__sve_save_state)
 -- 
 2.30.2
 
