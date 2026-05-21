@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF45CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:30:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC1E8CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVEy4bk+Ysy/PxvkO6UbyKlL7eR12NG2pfwpsWxFCJE=; b=XMkbJL/QRvAUGyB7AYLSKe4XYQ
-	fCNxgNCftgeLthjKa7i5kwBRmqdzvzo0jYCmOzZqtNdo8njceHDIifzGkti2HWUOcpsfTuSt4YXnC
-	DHHMedoWu2DIEegVRTCrDC99KW2CdmyjQrSzNCPwaFD6ApHscBpSnIXgVoKOyaQZCgPy2VTEMT+sh
-	V8GxL3e3EBp8xFb4zHwPu37/Y00CRiE0XjBUhNRm/yq1FTwnx+IRknU8hB2lR6lCeamscouwV8+2T
-	LM+msDzVFCLe0L+DDjOH3+32tpdf0D10SxGGKdIjY+t9hBJCwOpgQO/y2cX6R00I1DBZNvA7PRvA9
-	S515dsbw==;
+	bh=wqCkFknN+N3li35+HvdUGnhYWftGulMOgKVsuhyPHwA=; b=YyDTRgU8XWWuJvEZCOANuOYRur
+	majQHHlZK+nZe3RoqJz1AmMtELssl3EVvKoGEcUDmrza5vk/O2nXLIkRbwgDs4qyHZYXhfGmji6Gt
+	nj6M1MekV+jiH34Ogk32nckaDiP0yv+zCUKKG3+103Pm0QfGaEzHwSjf+rd4W5quzYU/2yQwzvAUI
+	VxaKk8rfLA2geTlt9Yi33EQqMEU4HcsN+yv8JrLgTuDxOmSSR8swA1uSG+kzzti/cM7+JCWKBATrL
+	pdEDQGKK7UJYkr1raeIUDC+gIY5eDyDemKos95fBvq2kgBfztI9q5iCLSB/RZCs23II92KEVYwTjc
+	BkdSEnLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2XM-00000007jV3-0uzS;
-	Thu, 21 May 2026 12:30:04 +0000
+	id 1wQ2ZF-00000007jlk-28aW;
+	Thu, 21 May 2026 12:32:01 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2XJ-00000007jTw-2LDO
+	id 1wQ2ZC-00000007jlF-2tRx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 12:30:02 +0000
+	Thu, 21 May 2026 12:31:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2756A444E2
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 12:30:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E8761F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 12:30:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with UTF8SMTP id E1C774383F;
+	Thu, 21 May 2026 12:31:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id E75041F000E9;
+	Thu, 21 May 2026 12:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779366601;
-	bh=tVEy4bk+Ysy/PxvkO6UbyKlL7eR12NG2pfwpsWxFCJE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=F1jqSUmcYnthfkQnFfnCvLn/A6tGh5oXaX3nFTtFrt2Z4oOU5WmD13BXbQFN/sv/1
-	 ROqO4wWGJFN6DiTr/WCkLMUjyeu2eyGTDlM89GgAGk+ldhgiDwNGN7gW23WdLDJjRE
-	 SKvTDAlEUYtvDMR1C+/a030lRN+2XddF4S8zvO06v8JXmPcLqvL6IIsSEvdXmbU29l
-	 j15tVXgEPz+J0sEba6ND5Urk7JdXiZDb6qOIWZ7Mh9Uu83ddKtEux2fDDEyQAHeOi6
-	 t0q5KVDNe8BtnCaVs1Qem5hnlu8+NPLLEhsQ6YppYecIMFfSlXy3sN3d7CuvwIYQ83
-	 H7U0FFPo7nkJw==
-Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-132830d8281so5219205c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 05:30:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8u8IhHJdgDX0xLcqiArZoa+rhVno/5AuiWQpF0A2VDUyCGBQJG3e3qeke8gH94Ggwugcof5dinuuc3dkLVd/4r@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzai07Ta3t0d5DCIdR2ar8LezxjqSKU5l4VWtWjTRt8HxkIm4G/
-	zLnGIrJ7eSLcffXZt7M4meZunqH/Ofj1ILwgIHYokA6sF8A55vMCYwEZ8gYBn9Pb03kHa89bDqg
-	gsaHRBDcYT1/SMIhYxMOg4wHv8/1xBCuQ+XKnMXFBpw==
-X-Received: by 2002:a05:7022:128b:b0:136:36d4:3161 with SMTP id
- a92af1059eb24-13636d431c9mr1046604c88.11.1779366600232; Thu, 21 May 2026
- 05:30:00 -0700 (PDT)
+	s=k20260515; t=1779366717;
+	bh=wqCkFknN+N3li35+HvdUGnhYWftGulMOgKVsuhyPHwA=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=eUoxOvs0JYkXNTlx9svl9KZE1lEq/WML4RGD2qzPLI55urA8oxqlh1yrDfHUX+M/9
+	 1DzAZ0/Lg3KXIZi4nqcczqJT7tSiyO6fCmA/GUDWynw1R3UEFoiiynIsF3fsogSAlP
+	 2paYLDriI6tlqMA76IVTJ8Wg2LfkU7xHhaZ8iha9ky5Acbl8d5oh1oPoS8z4UUIUfF
+	 6uMiQnOxrdNKBxK9i08OqGW56EUEbqlaS9m461X8zXrUg90OmJOf6+rUK7krhgPqn5
+	 KIi9H1mC6V3N9r3x7PzeusHSpB5FX3Ch+i2wSIbr69rL11JzqgO1YzigLx6cSKhrTs
+	 ngwkUlZI0A3+Q==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Steven
+	Rostedt <rostedt@goodmis.org>
+Subject: Re: [PATCH] irqchip/exynos-combiner: switch to raw_spinlock
+In-Reply-To: <97f33a9d-5fdd-4766-aaff-d10d5f5fdf28@samsung.com>
+References: <CGME20260520220432eucas1p10502ca0f9368bd6de5ce027ad8170109@eucas1p1.samsung.com>
+ <20260520220422.3522908-1-m.szyprowski@samsung.com> <87ecj5w2qf.ffs@tglx>
+ <97f33a9d-5fdd-4766-aaff-d10d5f5fdf28@samsung.com>
+Date: Thu, 21 May 2026 14:31:54 +0200
+Message-ID: <87zf1tueo5.ffs@tglx>
 MIME-Version: 1.0
-References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
- <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
- <20260521112638.GD2921053@google.com>
-In-Reply-To: <20260521112638.GD2921053@google.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Thu, 21 May 2026 14:29:45 +0200
-X-Gmail-Original-Message-ID: <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
-X-Gm-Features: AVHnY4KFfkEZ1qB3plV-6mRlSK5xYq1TZ9heaLB2W6BxX5fSR4R4BqSRFGsDqgU
-Message-ID: <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
-Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD cells
-To: Lee Jones <lee@kernel.org>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>, Sebastian Reichel <sre@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
-	Christian Loehle <christian.loehle@arm.com>, Ulf Hansson <ulfh@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
-	Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
-	Srinivas Kandagatla <srini@kernel.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_053001_642783_417DEBEB 
-X-CRM114-Status: GOOD (  35.73  )
+X-CRM114-CacheID: sfid-20260521_053158_749825_E38C8107 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,152 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 1:26=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
->
-> On Thu, 14 May 2026, Shivendra Pratap wrote:
->
-> > MFD core has no way to register a child device using an explicit firmwa=
-re
-> > node. This prevents drivers from registering child nodes when those nod=
-es
-> > do not define a compatible string. One such example is the PSCI
-> > "reboot-mode" node, which omits a compatible string as it describes
-> > boot-states provided by the underlying firmware.
-> >
-> > Extend struct mfd_cell with a callback that allows drivers to provide a=
-n
-> > explicit firmware node. The node is added to the MFD child device durin=
-g
-> > registration when none is assigned by device tree, ACPI, or software
-> > matching.
-> >
-> > Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com=
->
-> > Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> > ---
-> >  drivers/mfd/mfd-core.c   | 30 ++++++++++++++++++++++++++++++
-> >  include/linux/mfd/core.h | 14 ++++++++++++++
-> >  2 files changed, 44 insertions(+)
-> >
-> > diff --git a/drivers/mfd/mfd-core.c b/drivers/mfd/mfd-core.c
-> > index 7aa32b90cf1eb7fa0a05bf3dc506e60a262c9850..cc2a2a924d6d3044e29a9f8=
-64b536ee325ed797b 100644
-> > --- a/drivers/mfd/mfd-core.c
-> > +++ b/drivers/mfd/mfd-core.c
-> > @@ -10,6 +10,7 @@
-> >  #include <linux/kernel.h>
-> >  #include <linux/platform_device.h>
-> >  #include <linux/acpi.h>
-> > +#include <linux/fwnode.h>
-> >  #include <linux/list.h>
-> >  #include <linux/property.h>
-> >  #include <linux/mfd/core.h>
-> > @@ -148,6 +149,11 @@ static int mfd_match_of_node_to_dev(struct platfor=
-m_device *pdev,
-> >       return 0;
-> >  }
-> >
-> > +static void mfd_child_fwnode_put(void *data)
-> > +{
-> > +     fwnode_handle_put(data);
-> > +}
-> > +
-> >  static int mfd_add_device(struct device *parent, int id,
-> >                         const struct mfd_cell *cell,
-> >                         struct resource *mem_base,
-> > @@ -156,6 +162,7 @@ static int mfd_add_device(struct device *parent, in=
-t id,
-> >       struct resource *res;
-> >       struct platform_device *pdev;
-> >       struct mfd_of_node_entry *of_entry, *tmp;
-> > +     struct fwnode_handle *fwnode;
-> >       bool disabled =3D false;
-> >       int ret =3D -ENOMEM;
-> >       int platform_id;
-> > @@ -224,6 +231,29 @@ static int mfd_add_device(struct device *parent, i=
-nt id,
-> >
-> >       mfd_acpi_add_device(cell, pdev);
-> >
-> > +     if (!pdev->dev.fwnode && cell->get_child_fwnode) {
-> > +             fwnode =3D cell->get_child_fwnode(parent);
-> > +             if (fwnode) {
-> > +                     device_set_node(&pdev->dev, fwnode);
-> > +
-> > +                     /*
-> > +                      * platform_device_release() drops only of_node r=
-efs.
-> > +                      * Track non-OF fwnodes explicitly so they are pu=
-t on
-> > +                      * all teardown paths.
-> > +                      */
-> > +                     if (!to_of_node(fwnode)) {
-> > +                             ret =3D devm_add_action(&pdev->dev,
-> > +                                                   mfd_child_fwnode_pu=
-t,
-> > +                                                   fwnode);
-> > +                             if (ret) {
-> > +                                     device_set_node(&pdev->dev, NULL)=
-;
-> > +                                     fwnode_handle_put(fwnode);
-> > +                                     goto fail_of_entry;
-> > +                             }
-> > +                     }
-> > +             }
-> > +     }
->
-> mfd_add_device() is getting very busy now with support for all of these
-> different registration APIs.  Suggest that we start breaking them out.
->
-> > +
-> >       if (cell->pdata_size) {
-> >               ret =3D platform_device_add_data(pdev,
-> >                                       cell->platform_data, cell->pdata_=
-size);
-> > diff --git a/include/linux/mfd/core.h b/include/linux/mfd/core.h
-> > index faeea7abd688f223fb0b31cde0a9b69dfe2a61ff..abfc26c057d6ee46947ba2b=
-6f2e99f420e74b127 100644
-> > --- a/include/linux/mfd/core.h
-> > +++ b/include/linux/mfd/core.h
-> > @@ -50,6 +50,7 @@
-> >  #define MFD_DEP_LEVEL_HIGH 1
-> >
-> >  struct irq_domain;
-> > +struct fwnode_handle;
-> >  struct software_node;
-> >
-> >  /* Matches ACPI PNP id, either _HID or _CID, or ACPI _ADR */
-> > @@ -80,6 +81,19 @@ struct mfd_cell {
-> >
-> >       /* Software node for the device. */
-> >       const struct software_node *swnode;
-> > +     /*
-> > +      * Callback to return an explicit firmware node.
-> > +      * @parent: MFD parent device passed to mfd_add_devices().
-> > +      *
-> > +      * Called only if OF/ACPI matching did not assign a fwnode.
-> > +      * Ownership of the returned reference is transferred to MFD core=
-.
-> > +      *
-> > +      * Return a referenced fwnode or NULL if none is available.
-> > +      *
-> > +      * mfd_cell must be zero-initialized or get_child_fwnode must be =
-NULL
-> > +      * when unused.
-> > +      */
-> > +     struct fwnode_handle *(*get_child_fwnode)(struct device *parent);
->
-> I'm very much against pointers to functions if they can be avoided.  Why
-> does fwnode need this and none of the other APIs do?
->
+On Thu, May 21 2026 at 13:26, Marek Szyprowski wrote:
+> On 21.05.2026 11:06, Thomas Gleixner wrote:
+>> What is this lock actually protecting?
+>>
+>> Each combiner has it's own @base address, so there is no concurrency
+>> problem between two cascade interrupts being handled at the same time.
+>>
+>> That means the only possible problem would be that the same cascade
+>> interrupt is handled on two CPUs concurrently. Is that even possible?
+> Frankly speaking I did this conversion mechanically, late in the evening =
+to fix
+> the bug warning I've spotted. Indeed this spinlock looks like a copy&past=
+e or
+> development leftover. The only side-effect of it I see is a=C2=A0memory b=
+arrier,
+> which might affect how the register access happens, but this should not a=
+ffect
+> cascade operation imho. Do You want me to send a patch removing it comple=
+tely?
 
-I suggested it because of its flexibility. The alternative I had in
-mind is something like a new field in mfd_cell:
+I've applied the fixup for now. But, yes please send a removal against
 
-    const char *cell_node_name;
+  git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git irq/urgent
 
-Which - if set - would tell MFD to look up an fwnode that's a child of
-the parent device's node by name - as it may not have a compatible.
+Thanks,
 
-Bart
+        tglx
+
 
