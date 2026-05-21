@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DDE6CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:36:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A639CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7e3L53sUW1d+Bfoqg00mDuEDj9VIp+PBNSFY8qeoFE=; b=Chw7MDmxTunvXoBpHWRJ5ir0ye
-	z5FY94pKw1bDVKmCclbfzqT00hrqLQeDRNdUFKsgaTAG98MdehrAXQanBn7YVhyVikaHyVeA5qyZF
-	M158cMycFROJ8MeENlKhIjFWwM+I+V627TViILMwHTHdm6QzjdjemuLTf12LPEqtnFMT4nixNUPwH
-	R95hXXy9+Pel33D5Ah+Q6VJTQqIQWNFsY84f5nLGAusY/uCcx1cwvl9EY5WCZt2+XwCdFX0cPDCxz
-	2k8Nfs89B9OxwBAAnBzwxpox+emyvn/4vO/uzwlAo4x1IncpeDDiWvvkJEtmk7Zs7sAVJTuOaLtes
-	jIgCN77g==;
+	bh=2YGGMyXe7SMejzK+iwa7+2TNKMnNR9YtdBRWN/ulgbU=; b=UmG61Txnp1E7fRYPMzbbEf9ZLJ
+	aOyPgmcMPmkSS53o5v8qoTbn8uGXcjOMzjtRdBfjmo/VDCU/iSWAwZ+UvS2wTRkiuT4uPLihhrvHV
+	N3ASsNnSEzRvfbgvf1uOJuSRmPUTwkqnPh7U/53bdErlzYpZKwrQnlWaLdBMlA/LICq9FALAZCFfS
+	CYMM+sdqYiJMHCvRxHyIubSjOsynZhXjYuSr80YtXTPJop48QHSDTl4rw3FDZTBCPM0jPL1mmRQrK
+	MexDxgi+qMvWmtKXggLMlAx6L+N1cYiYNq1VYwJ6kqwpcRBzXs6jeo9JZdff+a/kGGwRoBQUKtH8K
+	9i6cQINg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6NL-00000008Vpj-0QTv;
-	Thu, 21 May 2026 16:35:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6NI-00000008Vou-0Dw4
+	id 1wQ6Rs-00000008WHv-2XKv;
+	Thu, 21 May 2026 16:40:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ6Rr-00000008WHi-1LYS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:35:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F61A2681;
-	Thu, 21 May 2026 09:35:49 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 062CD3F85F;
-	Thu, 21 May 2026 09:35:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779381354; bh=jlfJeKJm1hTnJq4v7hEIhthbbG3WNZvPoQtYgMWg1gw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CIIwLzUmpq7MmzvqVw16Yu78GwgTsuL9j/0etSfc8+L7Y1ukE/V4S07CZw9znmrcy
-	 MgciPkvdhNDpzqbu2C8z7XvTK8aXbwTiHba/K3LSNfEA9/nVhDLtXmhBAP+61MPqI8
-	 xjCieJATeIg8qe28gwnIXxRsaE05QtQqUUz4cA1o=
-Date: Thu, 21 May 2026 17:35:45 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: Srirangan Madhavan <smadhavan@nvidia.com>, will@kernel.org,
-	mark.rutland@arm.com, lpieralisi@kernel.org, sudeep.holla@arm.com,
-	conor@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, vsethi@nvidia.com, jevans@nvidia.com,
-	raghupathyk@nvidia.com, srikars@nvidia.com, nbenech@nvidia.com,
-	alwilliamson@nvidia.com, Dan Williams <danwilliams@nvidia.com>
-Subject: Re: [RFC PATCH 2/2] arm64: mm: add SMCCC-backed cache invalidate
- provider
-Message-ID: <ag80YYdvyxOqb23j@arm.com>
-References: <20260521073047.320614-1-smadhavan@nvidia.com>
- <20260521073047.320614-3-smadhavan@nvidia.com>
- <20260521121812.2e4abd71@jic23-huawei>
+	Thu, 21 May 2026 16:40:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5802360098;
+	Thu, 21 May 2026 16:40:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB8051F000E9;
+	Thu, 21 May 2026 16:40:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779381638;
+	bh=2YGGMyXe7SMejzK+iwa7+2TNKMnNR9YtdBRWN/ulgbU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fG/Z7QUpeZCEYhug5SVVxPYIo0JfhG3m2rPSBOkh2oi7CZgxxvB9zjFWuTOIVy5cY
+	 WibkXJmWrgbFkp7QHACq5F6Iem5WFdybG71CCCQXQRLn6OhOj1sqIbllxlDq9rWych
+	 k/HgBFcenei9SY6H7SZBfeYEoV3FeNc6blqLlL/dLvy1wOk+hF5rkTY6FpmDroESSW
+	 5gLmhOhlH1x6Gh56UTM5lm9dycJvAAQL04TK+0rmz+Rz4Y2SqPQWmV9PN+UGN/P2dB
+	 +kLiHstSBHah9ZoE5aC8tSp9SoddkWbQWO5752L+NPURwmmY3x7o3FCOiC+dqEGYM5
+	 I58LauGj0TyDQ==
+Date: Thu, 21 May 2026 17:40:32 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Waiman Long <longman@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-rt-devel@lists.linux.dev, Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH 1/2] gfp_types: Introduce a new GFP_ATOMIC_RT gfp flag
+Message-ID: <ag8zX5KJUKo70TvG@lucifer>
+References: <20260520204628.933654-1-longman@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260521121812.2e4abd71@jic23-huawei>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_093556_139417_A1F22D29 
-X-CRM114-Status: GOOD (  19.84  )
+In-Reply-To: <20260520204628.933654-1-longman@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +74,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 12:18:12PM +0100, Jonathan Cameron wrote:
-> On Thu, 21 May 2026 07:30:47 +0000
-> Srirangan Madhavan <smadhavan@nvidia.com> wrote:
-> >  MAINTAINERS                 |   1 +
-> >  arch/arm64/mm/Makefile      |   1 +
-> >  arch/arm64/mm/cache_maint.c | 180 ++++++++++++++++++++++++++++++++++++
-> 
-> File location wise, this is a driver for a subsystem, be it one closely
-> coupled to arm.  Arm maintainers, do you want it in there or in drivers/cache ?
-> My personal preference is always to keep drivers with subsystems but I don't
-> care that much.
++cc Matthew who has fairly strong opinions on GFP flags and such :)
 
-Yes, it makes more sense to keep it under drivers/cache/. We have many
-other users of the SMCCC interface under drivers/.
+Also, please don't send 2 patch series with 2/2 in-reply-to 1/2, use a
+cover letter + have patches reply to that :) [yes it's one of those
+subjective things that people differ on a lot but generally how we do in
+mm]
 
-> 
-> >  3 files changed, 182 insertions(+)
-> >  create mode 100644 arch/arm64/mm/cache_maint.c
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 2fb1c75afd16..33c35f8e6e40 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -25383,6 +25383,7 @@ M:	Jonathan Cameron <jic23@kernel.org>
-> >  S:	Maintained
-> >  T:	git https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/
-> >  F:	Documentation/devicetree/bindings/cache/
-> > +F:	arch/arm64/mm/cache_maint.c
-> 
-> I wonder if this should just have a separate maintainers entry? 
-> We did that for the hisi driver.
+On Wed, May 20, 2026 at 04:46:27PM -0400, Waiman Long wrote:
+> The GFP_ATOMIC flag is to be used in atomic context where user cannot
+> sleep and need the allocation to succeed. However, it does not support
+> contexts where preemption or interrupt is disabled under PREEMPT_RT
+> like raw_spin_lock_irqsave() or plain preempt_disable().
+>
+> With the advance of the ALLOC_TRYLOCK allocation flag in the v7.1
+> kernel, it is possible to allocate memory under such contexts by using
+> spin_trylock to acquire the spinlock in the memory allocation path. This
+> does increase the chance that the allocation can fail due to the presence
+> of concurrent memory allocation requests. So its users must be able to
+> handle such memory allocation failure gracefully.
+>
+> The ALLOC_TRYLOCK flag will only be enabled if none of the
+> ___GFP_DIRECT_RECLAIM and ___GFP_KSWAPD_RECLAIM flags are set.
+>
+> Introduce a new GFP_ATOMIC_RT gfp flag for those PREEMPT_RT
+> atomic contexts.  This new flag will fall back to GFP_ATOMIC in
+> non-PREEMPT_RT kernel. GFP_ATOMIC can continue to be used in contexts
+> where preemption and interrupt are not disabled in PREEMPT_RT kernel
+> like spin_lock_irqsave().
 
-Not needed if the code is moved to drivers/cache/.
+This seems like the wrong place for the solution, now we have to remember
+to use a specific GFP flag but only in one specific place in some IRQ code,
+yet RT is fine with this in any other scenario?
 
-> > +struct arm64_smccc_cache {
-> > +	/* Must be first member */
-> > +	struct cache_coherency_ops_inst cci;
-> > +	struct mutex lock; /* Serializes SMCCC cache maintenance calls. */
-> > +	u32 latency_us;
-> > +	u32 rate_limit;
-> > +	bool global_op;
-> > +	u64 global_flush_gen;
-> > +};
-> > +
-> > +static struct arm64_smccc_cache *arm64_smccc_cache;
+This is really confusing.
 
-Nit: if these are all static, does it still make sense to use the arm64_
-prefix throughout this file?
+Wouldn't we better off with a way of actively detecting this context
+somehow in the page allocator?
 
--- 
-Catalin
+It just instinctively feels like this is the wrong level of abstraction for
+a fix here :)
+
+>
+> Signed-off-by: Waiman Long <longman@redhat.com>
+> ---
+>  include/linux/gfp_types.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+>
+> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+> index cd4972a7c97c..ac30882b6cd4 100644
+> --- a/include/linux/gfp_types.h
+> +++ b/include/linux/gfp_types.h
+> @@ -316,6 +316,13 @@ enum {
+>   * preempt_disable() - see "Memory allocation" in
+>   * Documentation/core-api/real-time/differences.rst for more info.
+>   *
+> + * %GFP_ATOMIC_RT is similar to %GFP_ATOMIC with the addition that it can also
+> + * be used in context where preemption and/or interrupt is disabled under
+> + * PREEMPT_RT, but not in NMI or hardirq contexts. The allocation is more
+
+I'm not sure 'GFP_ATOMIC_RT' really communicates all of this information.
+
+> + * likely to fail under PREEMPT_RT due to the spin_trylock() nature of lock
+> + * acquisition. So the caller must be ready to handle memory allocation failure
+> + * gracefully.
+> + *
+>   * %GFP_KERNEL is typical for kernel-internal allocations. The caller requires
+>   * %ZONE_NORMAL or a lower zone for direct access but can direct reclaim.
+>   *
+> @@ -388,4 +395,10 @@ enum {
+>  			 __GFP_NOMEMALLOC | __GFP_NOWARN) & ~__GFP_RECLAIM)
+>  #define GFP_TRANSHUGE	(GFP_TRANSHUGE_LIGHT | __GFP_DIRECT_RECLAIM)
+>
+> +#ifdef CONFIG_PREEMPT_RT
+> +# define GFP_ATOMIC_RT	__GFP_HIGH
+> +#else
+> +# define GFP_ATOMIC_RT	GFP_ATOMIC
+> +#endif
+> +
+>  #endif /* __LINUX_GFP_TYPES_H */
+> --
+> 2.54.0
+>
+
+Cheers, Lorenzo
 
