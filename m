@@ -4,79 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7F0CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA3ECD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4qPLeY0wB6z4SlQ2CixKExblEbsAtiEDVJ4XyqUTfJA=; b=L6QTCRsV2kE1zkfKK7xzygpUWV
-	8tqr2pxsx0Us1jqJuPkEvxSqgCePWlcB/0qiI4a3jTTv0vfQM9v8DY7+WRpw2cWlGcNRyuKf+00dv
-	mm/K5OeejbW+3K474yYvmjNaCSO/E/tBS4c3puL/jziiULYjTe1xiT+xBs+acfvxFE5v/+Jt4rXJm
-	ANR7wNLiNNi1kLJ8it94oLEnZrihURxhaosU2hB0ybX3cvaD8RB8aSEa4CgaWysLs3wTeJqG7K2L+
-	Af8vcWgqMrt2tGRf8mE6iX5kR3cqcFBxHyEn8lqydHrgcyBCAMojh99dX2z7GiuV1H34Vl7lBHmND
-	kaG9LuBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p4fIVdPCzP6UmKqFELGnatwYqCNocE/DOSWTE+QKxm8=; b=WrBHPiqfRS9OabSOAII+UY2BSa
+	QYg9gqL4nC8mYFfw0fnZfOw+PP/nQfD/YFDbqyRTxnD3TtDQN/jdYZPLO3UVZbbv0726da7UQInyZ
+	hhQEm0JBd40IbRHHoZvSqOBMdPX0LW1joGjfZlphmU4oFCH6lElgPCcvZasfe6bAv+ZiU5xiBzYGb
+	AxZGQLValUMMtEHKsVMFX4gtn+6pE+VhOC6+wElgWURjOPHO2oRg6Bt7bpSAesa6RXzdURKKY7hvl
+	0sUFesVApvv/ue604eMwLJt6uBqR2S95jEyzQmazwSDwjHYto6DkmYVecT8RpLMBLrxUiMbJuNxtB
+	1EZbmSzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPygT-000000077Ri-2vJh;
-	Thu, 21 May 2026 08:23:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wPyiV-000000077wz-3NkB;
+	Thu, 21 May 2026 08:25:19 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyg0-000000076y5-0kn4;
-	Thu, 21 May 2026 08:22:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779351762;
-	bh=CWjNHp3lVq1P1BWK7ilWt1phFCJ5rYaKgQ1jBzqDdC4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eYn7FEC4jU99Os15lM7ysV8MVNZ5cDHrPV2RrLJtQyJZNSfSx/3nLbeQgY1RQY7LK
-	 9cRRM3OJ/cBeavnPMiX0r6yQoePltpsfq9TmBRiUXrX4RtGhi45b5Ft/GkcarK1cO2
-	 TcXKgQWdUV87RHJ+Kp12fnCFlWTiEudDkB4gFFDkrw97reER9a64jHA+FOwPNTxgVt
-	 FA4lE+zLw+ecA3oM8Il7MHo0htM6qZek0vj31XvRCVDf8OyUEGXX6IMRIzD+qbAz+L
-	 fY3q9HbPVCXJRbvlpfQAiSYLKFgj7jLBLTB8i9dk9GpQ1Swo7j/rWs9P/rcPFhp+mo
-	 /ikV7Mg9pt15Q==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CADAE17E132E;
-	Thu, 21 May 2026 10:22:40 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Thu, 21 May 2026 10:21:59 +0200
-Subject: [PATCH net-next v4 6/6] net: phy: air_an8801: ensure maximum
- available speed link use
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260521-add-airoha-an8801-support-v4-6-1e4837d30ef4@collabora.com>
-References: <20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com>
-In-Reply-To: <20260521-add-airoha-an8801-support-v4-0-1e4837d30ef4@collabora.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: kevin-kw.huang@airoha.com, macpaul.lin@mediatek.com, 
- matthias.bgg@gmail.com, kernel@collabora.com, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779351750; l=2402;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=CWjNHp3lVq1P1BWK7ilWt1phFCJ5rYaKgQ1jBzqDdC4=;
- b=VyzIoCdpeWn8XvAgkZ+U0CxFZMGW7ROgymrXgmziebcmXzI3bFPS7IqXSmZswrGGXY0MFsfe6
- dQXDwoabVL4DJO8krNlUYO3VktXt3im52mbwf5gN+b3TNutVvD0dUPM
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+	id 1wPyiS-000000077vE-0Ven
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 08:25:17 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2b2ecc96a9aso65944825ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:25:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779351914; x=1779956714; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=p4fIVdPCzP6UmKqFELGnatwYqCNocE/DOSWTE+QKxm8=;
+        b=opEGQOSviPYOHhGUtKR7jujG0WUrGY85FfDoEa4CPcZwijK0mVF4fH7mw8JVcTzF3v
+         Go0Rqpd4YV9z2zXeRax58FSUgF94S3nWAX+KY9XLP+SmKI2T6H6d5zONgBDEiOVNxAKh
+         /NVv9BKvaUAvlW1ConQ6R8CZ34wJXpVmNjxBBvyBmzIzERHxo+o56z8eLx0zzY97qfX5
+         DoOa6qlgcW2N+z3av/EJzT+kRzLff3VL/BsywUS+FehQ9v6tVOpqAGKaFMHQSIg3I3zk
+         /IlRsjdW/T2Eo0heDErPsq9oVOBzk9a9bFuea5hsC/W1DTwwlFzzRdxsoupacwB0jvNi
+         QU5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779351914; x=1779956714;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=p4fIVdPCzP6UmKqFELGnatwYqCNocE/DOSWTE+QKxm8=;
+        b=OqkcCBPVRYWvV4Zmdmlv09Ehzkk4dl2DKDIq4ucRYjSdIe+04wej3aq7a4MYGpArtS
+         YckGrlEKI0pvTTcnLAT+ziSXJpmZgCFZmaHS/e57ZuSkxNyX/5GQIfiokwp9rcWf4DHM
+         eLJk8ivewDldo/sC7shCFgc1puz1hu9X+fPG3UWZE1lv7RT4oz02J/D/tvuqwEe8gDFV
+         /zR7fgiHFSJfDdniwNnVajE1Ib2i/1peM6jOdqSpKh7/XpvGA+Cf39P+qEwHCjXtJi29
+         Bc2Ngln3yL8gfcgPiD4Zvmx3mTrBVniyYzTiczmbFwxytRcfiElnylfE2tcTGYjVnpaM
+         NB9Q==
+X-Forwarded-Encrypted: i=1; AFNElJ9IxxHbWkdUPgeK6gMVEU2n8WDg3GXwEXXPPAFL9EATRV43AsqxgnEExm1Lu2GXTeWqGhNZEKO+zH+W0qq3YhYb@lists.infradead.org
+X-Gm-Message-State: AOJu0YywYHoBjxRpvGqODMDF4VuCc8f203Wxc9PIjmtmRXw4AWgISGau
+	UycyRXGpc/pNFknnakliLEQLYFghoY5glbb80NdKxtZlEFzORbXRkAbJ3iTnyoGKVwjSpIoSHCE
+	z1mRSxOfD0IKDZ2M/pKIR1P7/sg==
+X-Received: from plcm20.prod.google.com ([2002:a17:902:f214:b0:2bd:99a8:49c9])
+ (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:32c4:b0:2ba:359a:9b8e with SMTP id d9443c01a7336-2bea3082845mr19952145ad.10.1779351914185;
+ Thu, 21 May 2026 01:25:14 -0700 (PDT)
+Date: Thu, 21 May 2026 08:25:12 +0000
+In-Reply-To: <fc024071-2f82-412e-aea2-459d171b89f9@linux.intel.com>
+Mime-Version: 1.0
+References: <fc024071-2f82-412e-aea2-459d171b89f9@linux.intel.com>
+X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
+Message-ID: <20260521082512.1156320-1-joonwonkang@google.com>
+Subject: Re: [PATCH v2] iommu: Allow device driver to use its own PASID space
+ for SVA
+From: Joonwon Kang <joonwonkang@google.com>
+To: baolu.lu@linux.intel.com
+Cc: Alexander.Grest@microsoft.com, alexander.shishkin@linux.intel.com, 
+	amhetre@nvidia.com, bp@alien8.de, dave.hansen@linux.intel.com, 
+	easwar.hariharan@linux.microsoft.com, hpa@zytor.com, iommu@lists.linux.dev, 
+	jacob.jun.pan@linux.intel.com, jgg@ziepe.ca, joonwonkang@google.com, 
+	joro@8bytes.org, jpb@kernel.org, kas@kernel.org, kees@kernel.org, 
+	kevin.tian@intel.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, mingo@redhat.com, nicolinc@nvidia.com, 
+	peterz@infradead.org, praan@google.com, robin.murphy@arm.com, 
+	ryasuoka@redhat.com, smostafa@google.com, sohil.mehta@intel.com, 
+	tglx@kernel.org, will@kernel.org, x86@kernel.org, xin@zytor.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_012244_379760_96BE4899 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20260521_012516_172112_205F52AF 
+X-CRM114-Status: GOOD (  55.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,83 +97,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To ensure that the Airoha AN8801R PHY uses the maximum available link
-speed, an additional register write is needed to configure the function
-mode for either 1G or 100M/10M operation after link detection.
+Hi Baolu, thanks for your review.
 
-So, in air_an8801 driver, implement a custom read_status callback, that
-after genphy_read_status determines the link speed, sets the bit 0 of
-the link mode register (REG_LINK_MODE) if the detected speed is 1Gbps,
-or unsets it otherwise.
+> On 5/20/26 23:07, Joonwon Kang wrote:
+> > For SVA, the IOMMU core always allocates PASID from the global PASID
+> > space. The use of this global PASID space comes from the limitation of
+> > the ENQCMD instruction in Intel CPUs that it fetches its PASID operand
+> > from IA32_PASID, which is per-process; when a process wants to
+> > communicate with multiple devices with the ENQCMD instruction, it cannot
+> > change its PASID for each device without the kernel's intervention. Also
+> > note that ARM introduced a similar instruction, which is ST64BV0.
+> > 
+> > Due to this nature, SVA with ARM SMMU v3 has been found not working in
+> > our environment when other modules/devices compete for PASID. The
+> > environment looks as follows:
+> > 
+> > - The device is not a PCIe device.
+> > - The device is to use SVA.
+> > - The supported SSID/PASID space is very small for the device; only 1 to
+> >    3 SSIDs are supported.
+> > 
+> > With this setup, when other modules have allocated all the PASIDs that
+> > our device is expected to use from the global PASID space via APIs like
+> > iommu_alloc_global_pasid() or iommu_sva_bind_device(), SVA binding to
+> > our device fails due to the lack of available PASIDs.
+> > 
+> > This commit resolves the issue by allowing device driver to maintain its
+> > own PASID space and assign a PASID from that for the process-device bond
+> > via a new API called `iommu_sva_bind_device_pasid(dev, mm, pasid)`. Doing
+> > that, however, will disallow the process to execute the ENQCMD-like
+> > instructions at EL0. It is because the process cannot change its PASID in
+> > IA32_PASID(or ACCDATA_EL1 on ARM) for each device without the kernel's
+> > intervention. For this reason, calling `iommu_sva_bind_device()` and then
+> > `iommu_sva_bind_device_pasid()` for the same process will not be allowed
+> > and vice versa.
+> > 
+> > Currently, there is a limitation that a process simultaneously doing SVA
+> > with multiple devices with different PASIDs is not supported. So, calling
+> > `iommu_sva_bind_device_pasid()` multiple times for the same process with
+> > different devices will not be allowed for now while that for
+> > `iommu_sva_bind_device()` will be.
+> > 
+> > Another limitation is that a process cannot do `iommu_sva_bind_device()`
+> > if it has ever done `iommu_sva_bind_device_pasid()` even though it has
+> > been unbound after use.
+> > 
+> > Suggested-by: Jason Gunthorpe<jgg@ziepe.ca>
+> > Suggested-by: Kevin Tian<kevin.tian@intel.com>
+> > Signed-off-by: Joonwon Kang<joonwonkang@google.com>
+> > ---
+> > v2: Reuse iommu_mm->pasid after SVA bound by iommu_sva_bind_device_pasid()
+> >      is unbound.
+> > v1: Initial version.
+> > 
+> >   arch/x86/kernel/traps.c   |   9 +--
+> >   drivers/iommu/iommu-sva.c | 151 +++++++++++++++++++++++++++++---------
+> >   include/linux/iommu.h     |  14 +++-
+> >   3 files changed, 134 insertions(+), 40 deletions(-)
+> > 
+> > diff --git a/arch/x86/kernel/traps.c b/arch/x86/kernel/traps.c
+> > index 0ca3912ecb7f..0131c8e5fb10 100644
+> > --- a/arch/x86/kernel/traps.c
+> > +++ b/arch/x86/kernel/traps.c
+> > @@ -857,13 +857,12 @@ static bool try_fixup_enqcmd_gp(void)
+> >   		return false;
+> >   
+> >   	/*
+> > -	 * If the mm has not been allocated a
+> > -	 * PASID, the #GP can not be fixed up.
+> > +	 * If the mm has not been allocated a PASID or ENQCMD has been
+> > +	 * disallowed, the #GP can not be fixed up.
+> >   	 */
+> > -	if (!mm_valid_pasid(current->mm))
+> > -		return false;
+> > -
+> >   	pasid = mm_get_enqcmd_pasid(current->mm);
+> > +	if (pasid == IOMMU_PASID_INVALID)
+> > +		return false;
+> >   
+> >   	/*
+> >   	 * Did this thread already have its PASID activated?
+> > diff --git a/drivers/iommu/iommu-sva.c b/drivers/iommu/iommu-sva.c
+> > index bc7c7232a43e..a83333651ad0 100644
+> > --- a/drivers/iommu/iommu-sva.c
+> > +++ b/drivers/iommu/iommu-sva.c
+> > @@ -10,6 +10,9 @@
+> >   
+> >   #include "iommu-priv.h"
+> >   
+> > +/* Whether pasid is to be allocated from the global PASID space */
+> > +#define IOMMU_PASID_GLOBAL_ANY IOMMU_NO_PASID
+> > +
+> >   static DEFINE_MUTEX(iommu_sva_lock);
+> >   static bool iommu_sva_present;
+> >   static LIST_HEAD(iommu_sva_mms);
+> > @@ -17,10 +20,11 @@ static struct iommu_domain *iommu_sva_domain_alloc(struct device *dev,
+> >   						   struct mm_struct *mm);
+> >   
+> >   /* Allocate a PASID for the mm within range (inclusive) */
+> > -static struct iommu_mm_data *iommu_alloc_mm_data(struct mm_struct *mm, struct device *dev)
+> > +static struct iommu_mm_data *iommu_alloc_mm_data(struct mm_struct *mm,
+> > +						 struct device *dev,
+> > +						 ioasid_t pasid)
+> >   {
+> >   	struct iommu_mm_data *iommu_mm;
+> > -	ioasid_t pasid;
+> >   
+> >   	lockdep_assert_held(&iommu_sva_lock);
+> >   
+> > @@ -30,8 +34,27 @@ static struct iommu_mm_data *iommu_alloc_mm_data(struct mm_struct *mm, struct de
+> >   	iommu_mm = mm->iommu_mm;
+> >   	/* Is a PASID already associated with this mm? */
+> >   	if (iommu_mm) {
+> > +		if ((pasid == IOMMU_PASID_GLOBAL_ANY && !iommu_mm->pasid_global) ||
+> > +		    (pasid != IOMMU_PASID_GLOBAL_ANY && iommu_mm->pasid_global))
+> > +			return ERR_PTR(-EBUSY);
+> > +
+> > +		if (!iommu_mm->pasid_global) {
+> > +			if (list_empty(&iommu_mm->sva_domains))
+> > +				iommu_mm->pasid = pasid;
+> > +
+> > +			if (pasid != iommu_mm->pasid) {
+> > +				/*
+> > +				 * Currently, a process simultaneously doing
+> > +				 * SVA with multiple devices with different
+> > +				 * PASIDs is not supported.
+> > +				 */
+> 
+> I am a bit confused by the change in this helper and the comments above.
+> 
+> Currently, when an mm is bound to a device, it uses a PASID allocated
+> from the global pool. That implies that all devices access the
+> application's address space with the same PASID. Now we want to extend
+> this by allowing the device driver to manage the PASID for SVA, which
+> should mean different devices might use different PASIDs to access the
+> application's address space. But this does not seem to match the logic
+> in this helper.
+> 
+> Perhaps I overlooked something?
+> 
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/net/phy/air_an8801.c | 43 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
+I think your understanding is correct. In the long run, the limitations in the
+comment and also in the commit message should be removed. I left the work to a
+later patch as I am focusing on removing the main blocker first, which is that
+a process is blocked by another irrelevant process for doing SVA as described
+in the commit message. Currently, SVA for a process with different PASIDs will
+only be allowed one after another, not simultaneously, and the current users of
+`iommu_sva_bind_device()` should not be affected by this patch.
 
-diff --git a/drivers/net/phy/air_an8801.c b/drivers/net/phy/air_an8801.c
-index 73f94e84da07..c64fa153b738 100644
---- a/drivers/net/phy/air_an8801.c
-+++ b/drivers/net/phy/air_an8801.c
-@@ -977,6 +977,48 @@ static int an8801r_config_init(struct phy_device *phydev)
- 	return 0;
- }
- 
-+static int an8801r_read_status(struct phy_device *phydev)
-+{
-+	int prev_speed, ret;
-+	u32 val;
-+
-+	prev_speed = phydev->speed;
-+
-+	ret = genphy_read_status(phydev);
-+	if (ret)
-+		return ret;
-+
-+	if (!phydev->link) {
-+		phydev->speed = SPEED_UNKNOWN;
-+		return 0;
-+	}
-+
-+	if (prev_speed != phydev->speed) {
-+		/* Ensure that PHY switches to 1G speed when available,
-+		 * by configuring the function mode for either 1G or 100M/10M
-+		 * operation.
-+		 * Therefore, set the link mode register, after read_status
-+		 * determines the link speed.
-+		 */
-+		val = phydev->speed == SPEED_1000 ?
-+		      AN8801_BPBUS_LINK_MODE_1000 : 0;
-+
-+		ret = an8801_buckpbus_reg_rmw(phydev,
-+					      AN8801_BPBUS_REG_LINK_MODE,
-+					      AN8801_BPBUS_LINK_MODE_1000,
-+					      val);
-+		if (ret) {
-+			/* Restore previous speed on failure to ensure this
-+			 * register setting is retried on the next poll
-+			 */
-+			phydev->speed = prev_speed;
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static int an8801r_probe(struct phy_device *phydev)
- {
- 	struct device *dev = &phydev->mdio.dev;
-@@ -1074,6 +1116,7 @@ static struct phy_driver airoha_driver[] = {
- 	.suspend		= an8801r_suspend,
- 	.resume			= an8801r_resume,
- 	.config_aneg		= genphy_config_aneg,
-+	.read_status		= an8801r_read_status,
- 	.config_intr		= an8801r_config_intr,
- 	.handle_interrupt	= an8801r_handle_interrupt,
- 	.set_wol		= an8801r_set_wol,
+So, this patch should be enough to fix our current main problem. Can we leave
+it to a later patch? or do you think we should remove the limitations now
+although there is no requirement yet?
 
--- 
-2.54.0
+Thanks,
+Joonwon Kang
 
+> > +				return ERR_PTR(-ENOSPC);
+> > +			}
+> > +		}
+> > +
+> >   		if (iommu_mm->pasid >= dev->iommu->max_pasids)
+> >   			return ERR_PTR(-EOVERFLOW);
+> > +
+> >   		return iommu_mm;
+> >   	}
 
