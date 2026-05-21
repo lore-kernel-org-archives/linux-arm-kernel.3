@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72387CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B57CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=T/CKmmYoXfOPyCGY+f2aKlu9jEIQ4PB7UXOrFoPQagc=; b=XLUYvF5lpELh69KLg8UjfHQufz
-	8yvKMXdrEbU8nxZqQiYMyyH7Yw4QhlPx6GP/qV9PoCbBhEng4znW2SpaP2s73lY/XtQ3p0wuZ3NRM
-	algnExtEU0Jokcz1ulvVQREWNxlC7s/kERz5PeCkhkPy6MlyJKbicEobDYIAioi9cIA2xw7pRwAEa
-	oKsOFspRvqacepu/DKqfPvl1lbxXmz32TBth40Xuc3fu9nY8DubXmll00+Czx1XlN58nPcU1sN1AD
-	ydk4Y8h/ncIqmDDGygIJtitTESB12K6gIYZ/S5wia2lvklIObt0LbGGl4sd65jajT8fe+AYzdSK3x
-	5PZr/sGA==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qcxdHOKzYSh28oVM+92+Sl2qXUwj5KIsOOEhTqQ5qbU=; b=Q0riUAaMIevYWg0ws27VSieoox
+	R0EcG0dluGoTqAQKuuiDe6jPra/MGoNbv0MLg7JZlAJkihE0Xq67wEDfz4vfb3gq2nZb8FaJZAATR
+	RQHtL8v0jJuNlnb4pRXZT2sAxY7oyGyDPeBmT8ipT9U51G8V4Y4nnBNZN7BvllvbZpBpZVHQiMMTG
+	HAzmsBtANoc3JHB2MFbuqIY/BwD5ZNMCLQzvDwrZmguNSnF5qiSmXlS/omwR+o+sQsjA7/6qwhwBK
+	kKG/gZD8sywvhPEOue4KF03W/VkTe3ZTg/TYlOndx1rQ1BKzyfpzfVaGFq8a6Qv0Trc037OntpiC2
+	l63xT3WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4Vl-000000085g2-2C6p;
-	Thu, 21 May 2026 14:36:33 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wQ4Vr-000000085jq-3TuX;
+	Thu, 21 May 2026 14:36:39 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4Vj-000000085e8-14H1
+	id 1wQ4Vn-000000085gP-1d7L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 14:36:32 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fdad6cce4so27619125e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:36:30 -0700 (PDT)
+	Thu, 21 May 2026 14:36:36 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-67fd8c53ccdso1527279a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:36:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779374189; x=1779978989; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=T/CKmmYoXfOPyCGY+f2aKlu9jEIQ4PB7UXOrFoPQagc=;
-        b=MQnECrrAuOSdhzv7Bj8+euyaLi7tLleXO7wTUpMKRlemzIKVrSgs/o3dzqehQaHWRH
-         BcqTyCqASkb9lAQi9/G2z1HxRsNs7cv8uk7CbfcnK4FcNXumnAKiWkkTZTY0wxDkwRq5
-         7CQ9ucJ7LwDr+YCWk19DoBKnNaFETp1TT011kwqgUhfivVPSt5wG6LIpUnsdjmE0H1o3
-         6pJz2mU4qWh4TDKFeuHQlZBTM+QKnQOIV5NcOsI0DUttGM4Xc17wVo0Us4ODMyHr0LRw
-         aU1/wTF2Iw/ir+H1wrXkdF2X4vUr90zy1wOeB6Jd7bFObgdZssi7PZKHhSbat0Ds1Lar
-         GfoQ==
+        d=google.com; s=20251104; t=1779374193; x=1779978993; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=qcxdHOKzYSh28oVM+92+Sl2qXUwj5KIsOOEhTqQ5qbU=;
+        b=u4hWV0pVkTRErBopzBX9CgOkBYI3XPMrMcbJusfX4/vB3J0avWR2B/q2jej7aTkgv6
+         QSuefatqOUMnYiJxF8xdf+jXJBgJL33y/f71NYBMCY40u/uk/eeP+5LnIpo4X1Suv0rM
+         UKeEGZlDmZ3fVT/nMAsbhvhcAKEbadWNnf4xorXYYAtIK9oHf9+rFsd8LmRF6f5hGvgG
+         3lT8ch5GYKCy8Yj5Aw6Z6R9GYwGvH7Z7OnQAWIHMy9+q/VMw7F8D/N4XIi8CNxJVq6GC
+         WPkIvLiblBVv+AicFdoas/kJF5eSoZ737FG3VcNM1oglbay0W742ShyKWNy7modQp4PM
+         uY3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779374189; x=1779978989;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=T/CKmmYoXfOPyCGY+f2aKlu9jEIQ4PB7UXOrFoPQagc=;
-        b=jILAj/XDRufgt3SmW6RMoWLrXXfeHvUyLbj0NekMK5jC3Wl/C8oSL2k7AcAO0pefvs
-         fp9N17iRr5jlOP7npTPDXqZZHLeAevKuK3KQR+HgemSS7OXRv7XwpZIO1s0UFSUOxBAW
-         hq3q2ols1H5QyjeuK1rcsyhI8cVCcuhCyETgu3ndX/NsnFaVMADzUcxGaIjklkRAmitK
-         +vs2oieJxWulpad1J0HcsLwv8pdj50rhQYSpmCyK9LCKmCM/EL7B9MeS7ZaVdIwzYsPj
-         7KTEctBknsOJq59TilGZLeXafvioCYc6s7XA2n1zFp7XSeeDyEjdDs9ADOYE26xZj0CW
-         goOQ==
-X-Gm-Message-State: AOJu0YzaPlA6QD8EVWKI6pVDAqRFpLMwCMxglDLo1mnaaELHYGIN0l7V
-	3/+MkstyUKf4mrPXPaVfpRQROy62evgW7Yn/Ibk8L7M0+gj96ofv8xuJRsJojfkASkLdRZtuFrW
-	UoRzSgKlUI6+fIoiHNzF26A==
-X-Received: from wrsh4.prod.google.com ([2002:adf:fd44:0:b0:449:b698:a193])
+        d=1e100.net; s=20251104; t=1779374193; x=1779978993;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qcxdHOKzYSh28oVM+92+Sl2qXUwj5KIsOOEhTqQ5qbU=;
+        b=em49n48+AnO0uQ5DcGYsJXaEPCMkLNWKog2lCKghn8SQtnbV+IgiSJxgxc0XkcwzzG
+         irFJuCC8C4fbLH9IDA5q5hy+FYpT+BiLic3qNzsv1RRV8dQRD0mnqbFWbhs6uSMoSUT2
+         45lPFnazf76TIc3zmAI/fMCoPKblILesWeDLwcLR07r5kzAPC6hgqv9bPOGWaj90ydRZ
+         IOnRzAhGYaeY4mJmktlVpl4KpB3xSAjEH6tk5SCOkLmxuV3HG6rw3l9kvEAXOvw0frB1
+         T0S2x+Ue5atnfwA/jOYPVlL7vzsQ/bmkE1iGCEfFstytt3aEVFYfylISOUbePMNlvoaD
+         MdFQ==
+X-Gm-Message-State: AOJu0YwjGg7QUaqMdjZCEodLz8nbNe3EpFKqxBcjkiW39kANUUdApSdm
+	VjoMcyVQyb0RWm92LR2zymrkjOtwqsu2dddwV/GwE74TvsRpPJz7MD+Q89yCgfWWdbAnY7VQFNt
+	O8zMQ2ki6IiZRDWGRkx240Q==
+X-Received: from edvr23.prod.google.com ([2002:a05:6402:197:b0:683:5306:a54f])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:c04f:b0:48e:8eb0:4957 with SMTP id 5b1f17b1804b1-49035f2527amr36717905e9.2.1779374188575;
- Thu, 21 May 2026 07:36:28 -0700 (PDT)
-Date: Thu, 21 May 2026 15:36:23 +0100
+ 2002:a05:6402:a28b:20b0:688:24dc:9152 with SMTP id 4fb4d7f45d1cf-688367d4eddmr1089728a12.16.1779374192287;
+ Thu, 21 May 2026 07:36:32 -0700 (PDT)
+Date: Thu, 21 May 2026 15:36:26 +0100
+In-Reply-To: <20260521143626.1005660-1-vdonnefort@google.com>
 Mime-Version: 1.0
+References: <20260521143626.1005660-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260521143626.1005660-1-vdonnefort@google.com>
-Subject: [RESEND v3 0/3] Fix __pkvm_init_vm error path
+Message-ID: <20260521143626.1005660-4-vdonnefort@google.com>
+Subject: [RESEND v3 3/3] KVM: arm64: Add fail-safe for refcounted pages in __pkvm_hyp_donate_host
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -72,9 +74,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_073631_292910_BCB86B9D 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_073635_445228_AD452236 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +90,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sashiko reported a potential refcount leak in the unlikely case where
-insert_vm_table_entry fails.
+A previous bug in __pkvm_init_vm error path showed that the hypervisor
+could leak refcounted pages, (i.e. losing access to a page while its
+refcount is still elevated). This poses a threat to the pKVM state
+machine.
 
-While at it, I have added a fail-safe to __pkvm_hyp_donate_host to ensure this
-function doesn't allow leaking refcounted pages.
+Address this by introducing a fail-safe in __pkvm_hyp_donate_host.
+Transitions are not a hot path so added security is worth the extra
+check.
 
-Changes since v3:
+Reviewed-by: Fuad Tabba <tabba@google.com>
+Tested-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+
+diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+index 986e0ac1f2d8..fee55e49c132 100644
+--- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
++++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+@@ -854,6 +854,16 @@ static int __hyp_check_page_state_range(phys_addr_t phys, u64 size, enum pkvm_pa
+ 	return 0;
+ }
  
-  * Enforce order-0 for external pages, making the vmemmap ->order field
-    completely private to hyp_pool.
-
-Changes since v2 (https://lore.kernel.org/all/20260521102149.804874-1-vdonnefort@google.com/):
-  
-  * Proactively init hyp_page order field in hyp_pool_init  
-
-v1 (https://lore.kernel.org/all/20260521081250.655226-1-vdonnefort@google.com/)
-
-
-Vincent Donnefort (3):
-  KVM: arm64: Reset page order in pKVM hyp_pool
-  KVM: arm64: Fix __pkvm_init_vm error path
-  KVM: arm64: Add fail-safe for refcounted pages in
-    __pkvm_hyp_donate_host
-
- arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
- arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 35 +++++++++++++------
- arch/arm64/kvm/hyp/nvhe/page_alloc.c          | 21 ++++++++---
- arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++-
- 4 files changed, 45 insertions(+), 16 deletions(-)
-
-
-base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
++static int __hyp_check_page_count_range(phys_addr_t phys, u64 size)
++{
++	for_each_hyp_page(page, phys, size) {
++		if (page->refcount)
++			return -EBUSY;
++	}
++
++	return 0;
++}
++
+ static bool guest_pte_is_poisoned(kvm_pte_t pte)
+ {
+ 	if (kvm_pte_valid(pte))
+@@ -1052,7 +1062,6 @@ int __pkvm_guest_unshare_host(struct pkvm_hyp_vcpu *vcpu, u64 gfn)
+ int __pkvm_host_unshare_hyp(u64 pfn)
+ {
+ 	u64 phys = hyp_pfn_to_phys(pfn);
+-	u64 virt = (u64)__hyp_va(phys);
+ 	u64 size = PAGE_SIZE;
+ 	int ret;
+ 
+@@ -1065,10 +1074,9 @@ int __pkvm_host_unshare_hyp(u64 pfn)
+ 	ret = __hyp_check_page_state_range(phys, size, PKVM_PAGE_SHARED_BORROWED);
+ 	if (ret)
+ 		goto unlock;
+-	if (hyp_page_count((void *)virt)) {
+-		ret = -EBUSY;
++	ret = __hyp_check_page_count_range(phys, size);
++	if (ret)
+ 		goto unlock;
+-	}
+ 
+ 	__hyp_set_page_state_range(phys, size, PKVM_NOPAGE);
+ 	WARN_ON(__host_set_page_state_range(phys, size, PKVM_PAGE_OWNED));
+@@ -1131,6 +1139,10 @@ int __pkvm_hyp_donate_host(u64 pfn, u64 nr_pages)
+ 	if (ret)
+ 		goto unlock;
+ 
++	ret = __hyp_check_page_count_range(phys, size);
++	if (ret)
++		goto unlock;
++
+ 	__hyp_set_page_state_range(phys, size, PKVM_NOPAGE);
+ 	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
+ 	WARN_ON(host_stage2_set_owner_locked(phys, size, PKVM_ID_HOST));
 -- 
 2.54.0.746.g67dd491aae-goog
 
