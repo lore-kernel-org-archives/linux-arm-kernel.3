@@ -4,70 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2477CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900A5CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SoalNNKO1spLRzAIXn5OOTFcvvlQyTKSuUb8a531F0=; b=Ot+sZkVBNLWgI0fec0JWcjadRl
-	anI081DGGOJL5Di11mWD1MULPEB6avlUkjwpq9skCRkJXYpzNhyFMUfoHTIT0+re36nXkeAG2vcVZ
-	xtzReRUiQL+5A1dtPaTuZQ3tfuPJ6bfLXsrJ/6t7ez8SjLjV0HCT+VjIKU8LG5tJk0hVi0a9mypbE
-	RYs9HZtfKKbJ3xnRnOPQ7yX96Sv7fbZFOU1BAab53pSLezkDhCeNlIvNrtA3aPV4ttS2zO0hshx32
-	NhHzcbsYTwqNuXa/eLhkWDdgDp9eLKNFPQfYi6Y+K500ZKijj8KIaUF38ia/jVPUvLLXVvvsJyEG9
-	xL73vZHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kh5ilGfgBOd7IY4hv5kPF1I4gBzJqYiKUxJVuEQxYWY=; b=y7hSJjlEYm5jC4T6v0jyOSYwFp
+	M91OExcBcAkIOZA7wViaAAfFLJGw84zzFT9Sicz6qWyJVQk2UV8vXnYRW9wsSxslfE8x0/aU1gt7H
+	eYeLOFexjm5QZjSUXQ+nu43fBPDES1g4P0HXuRjfyZ8+tsQkrcYTlX9QMxy80O9do3ubzSg6OH12N
+	/ztp9m43KdkMLJaPFTHwrPKFe/tdFmDFlX7i0uWypgnPlkPSWFyb+ZDePJ7Ld/yHNovbbO6ldkJO1
+	wGXouvRvtzKG+HbyK0RqSDJauAT9NPLqxPMup2hzTndBloT3RDNziY2ESVYE4jta0pwmQS4FwESCG
+	6TSlU8dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyQl-0000000738T-14M9;
-	Thu, 21 May 2026 08:06:59 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1wPyQq-000000073AV-1r6M;
+	Thu, 21 May 2026 08:07:04 +0000
+Received: from mail-ot1-f47.google.com ([209.85.210.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyQh-0000000736Q-2Btt
+	id 1wPyQn-0000000738s-19Vz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 08:06:58 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=/SoalNNKO1spLRzAIXn5OOTFcvvlQyTKSuUb8a531F0=;
-	b=TSNNapNBajMBhYedLA2x/rJ1f/g2V5QCsEKPcXFvz3BSsGxgFupUNFVsiYJdZ7hEPttoMbQxv
-	QId/x0scSJHTxyXCgslGs8+zMb2xzSfH3motBZ+Hh7KY5Shbvbk5r8L1Suomv/tKf8V/oxZIZg7
-	vNwwaniwABE60Ktjs34NJCc=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gLglb3z6MzLlTk;
-	Thu, 21 May 2026 15:58:51 +0800 (CST)
-Received: from kwepemf100001.china.huawei.com (unknown [7.202.181.215])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1D6C740565;
-	Thu, 21 May 2026 16:06:33 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemf100001.china.huawei.com
- (7.202.181.215) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 21 May
- 2026 16:06:32 +0800
-Message-ID: <fdc3886e-7e5b-46e3-a1c9-48e2c2b596c9@huawei.com>
-Date: Thu, 21 May 2026 16:06:31 +0800
+	Thu, 21 May 2026 08:07:02 +0000
+Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-7e4004a4a6fso5731997a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:07:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779350820; x=1779955620;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kh5ilGfgBOd7IY4hv5kPF1I4gBzJqYiKUxJVuEQxYWY=;
+        b=UDNC5hZVHuxcXHyTog+wU/DwQ8/MGj4o8HwmRMHXs+MzzWSl00q370q5CMLhBC2hyX
+         1QBHbISbIhCUlNrLLaOM2GBgrVcve6Lfj9zs0YnySfn8Hvf2omwMCccD5mQjf6lUsehH
+         qeQKRkiG+Qj3Ld5jthBhfURAUv6lu8j7+1hHhG4MEtCnxnILTD6I1DCdg3SzgppCIB0D
+         KcQB7tC0rldLAsP4ot7klMA4dVz633Kg1ncrHLXmHXIibc4Huh3eR7ytYG7WS7sq7Zw0
+         3EqWgB2fVunnqlVGV2cbSnyolKaqFTlQTayD6OCWZ0o7KbSmQBtiq62LqwpHGW1ru4iI
+         BR3Q==
+X-Forwarded-Encrypted: i=1; AFNElJ+whaAn/c95KTU0+tuCwHcKG4Zj7znqz4J5HPUT/3f0abBqSPbr8/nDhPXzGiLph+b9Nr19uN8rZPMkzzR8GP7g@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQ0A6gOxbae5p7zUGS4h4dyH/cjUWIH+Da4cR6qPXHUypi7IHp
+	BTnpVJXGf8mmZbuFRePNEyDfWMFSPLxnmcpRwt1EdlTC0YiSqBfnLHtU4+afZ1maSPo=
+X-Gm-Gg: Acq92OFdtXTf73WGzAnOHo/jIIQo6s6rbzdKhgY+zvYo1Jkr0N/Ke0eaTUP0bvffbs9
+	i4WFnupPEJKu/atvJVnqBqjoJXDf92t3o6rCek/w4JxnZkRbMFfW+kZ6RvDJSVVVjxkx8fMl8Ik
+	CDp9/7HUwcJCnfhsRVNbec7JqqnWf6dqNmj8vHtnR7Yxs25r2CHsU6QodU/rkzAjFiHd2Muu8kt
+	Dn2SM6jqud9Yf/+tDZlA6DFK80bTuI19y6kmgNcypziXMTI8GCmemX2wP0XFYrRuHRPNOfsC1tt
+	fL2f6fagcSSwjTsEvfJTiawp7AHO45KlKIm07D/iKiE9zX3YdQxYLeLjUp3cSxbZnbG9iycI5iq
+	2YVVz0dP10fMTTfMcvc7Go2AVuLjZUwPhvkRWUZH8Zq1ObK00/a3oNfCzikPbk3Ua6sOJ86+fUu
+	0XTp1Ko5dMtUUVvuGHgL3eQb/QAWe1clbjOCRFMelRZhGxILc+NLjUaLxm4bH9
+X-Received: by 2002:a05:6820:1c81:b0:694:9a8a:2ce with SMTP id 006d021491bc7-69d6ee3c011mr723158eaf.8.1779350819670;
+        Thu, 21 May 2026 01:06:59 -0700 (PDT)
+Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com. [209.85.210.51])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-69d773c26e0sm80592eaf.14.2026.05.21.01.06.58
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 01:06:59 -0700 (PDT)
+Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-7dbec19732eso6741680a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:06:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ95PNUu9vgZk0vsAxJtLidnoZTQ64tuS/GngQhkwstF3fdAJGZJEw69Z4ILHfaoDNM3dylno86hIj7R2dn1UzI+@lists.infradead.org
+X-Received: by 2002:a05:6102:952:b0:660:cba2:b6a5 with SMTP id
+ ada2fe7eead31-6738d46a2c9mr965451137.7.1779350455953; Thu, 21 May 2026
+ 01:00:55 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] devfreq: Factor out devfreq_set_governor()
-To: Jie Zhan <zhanjie9@hisilicon.com>, <cwchoi00@gmail.com>,
-	<cw00.choi@samsung.com>, <myungjoo.ham@samsung.com>,
-	<kyungmin.park@samsung.com>, <linux-pm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <linuxarm@huawei.com>, <tianyaxiong@kylinos.cn>,
-	<zhangpengjie2@huawei.com>, <lihuisong@huawei.com>,
-	<prime.zeng@hisilicon.com>
-References: <20260519113251.3745140-1-zhanjie9@hisilicon.com>
- <20260519113251.3745140-4-zhanjie9@hisilicon.com>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <20260519113251.3745140-4-zhanjie9@hisilicon.com>
+References: <cover.1776793163.git.geert+renesas@glider.be> <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+ <aekXUvIPb8nkhdKu@pluto> <CAMuHMdX8b9C3D8fV5th6GCgs6JAq7HZbF_SrOKz_gDy2H8ksow@mail.gmail.com>
+ <agor5HJ0JFBoX3sZ@pluto>
+In-Reply-To: <agor5HJ0JFBoX3sZ@pluto>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 21 May 2026 10:00:44 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWJrXcp7_S-KTKQJ8NuVhywiCWEHXMVvWkTFZwnmQayyA@mail.gmail.com>
+X-Gm-Features: AVHnY4LKAf9GYj9Cj8Ma9x6mjosVr-AC-oJEzWQ_9yBj7Yua2eAsFSXzEFT0UeE
+Message-ID: <CAMuHMdWJrXcp7_S-KTKQJ8NuVhywiCWEHXMVvWkTFZwnmQayyA@mail.gmail.com>
+Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemf100001.china.huawei.com (7.202.181.215)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_010656_233880_E878ECA2 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20260521_010701_331301_46925836 
+X-CRM114-Status: GOOD (  56.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,84 +107,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/19/2026 7:32 PM, Jie Zhan wrote:
-> governor_store() and devfreq_add_device() contain similar logic for setting
-> a governor when devfreq->governor is NULL.  Merge this into a common
-> function, devfreq_set_governor(), to reduce code duplication and unify the
-> entry of setting governors.
-> 
-> This also prepares for further changes that get / put a module refcount of
-> the active governor and prevent the governor module from being unloaded
-> while it's in use.
-> 
-> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
-> ---
->  drivers/devfreq/devfreq.c | 117 ++++++++++++++++++--------------------
->  1 file changed, 56 insertions(+), 61 deletions(-)
-> 
-> diff --git a/drivers/devfreq/devfreq.c b/drivers/devfreq/devfreq.c
-> index 53c40d795a13..9e3e6a7348f8 100644
-> --- a/drivers/devfreq/devfreq.c
-> +++ b/drivers/devfreq/devfreq.c
-> @@ -318,6 +318,59 @@ static struct devfreq_governor *try_then_request_governor(const char *name)
->  	return governor;
->  }
->  
-> +static int devfreq_set_governor(struct devfreq *df,
-> +				const struct devfreq_governor *new_gov)
-> +{
-> +	const struct devfreq_governor *old_gov;
-> +	struct device *dev;
-> +	int ret;
-> +
-> +	lockdep_assert_held(&devfreq_list_lock);
-> +
-> +	old_gov = df->governor;
-> +	dev = &df->dev;
-> +
-> +	if (old_gov) {
-> +		if (old_gov == new_gov)
-> +			return 0;
-> +
-> +		if (IS_SUPPORTED_FLAG(old_gov->flags, IMMUTABLE) ||
-> +		    IS_SUPPORTED_FLAG(new_gov->flags, IMMUTABLE))
-> +			return -EINVAL;
-> +
-> +		/* Stop the current governor */
-> +		ret = df->governor->event_handler(df, DEVFREQ_GOV_STOP, NULL);
-> +		if (ret) {
-> +			dev_warn(dev, "%s: Governor %s not stopped(%d)\n",
-> +				 __func__, df->governor->name, ret);
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	/* Start the new governor */
-> +	df->governor = new_gov;
-> +	ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
-> +	if (ret) {
-> +		dev_warn(dev, "%s: Governor %s not started(%d)\n",
-> +			 __func__, df->governor->name, ret);
-> +
-> +		/* Restore previous governor */
-> +		df->governor = old_gov;
-> +		if (!df->governor)
-> +			return ret;
-> +
-> +		ret = df->governor->event_handler(df, DEVFREQ_GOV_START, NULL);
-> +		if (ret) {
-> +			dev_err(dev, "%s: restore Governor %s failed (%d)\n",
-> +				__func__, df->governor->name, ret);
-> +			df->governor = NULL;
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	return sysfs_update_group(&df->dev.kobj, &gov_attr_group);
+Hi Cristian,
 
-Here is a little problem which is not introduced by this patch. When
-starting new governor fails but restoring old governor succeeds, this
-function will return 0. This might lead users to believe that the governor
-has been successfully modified.
+On Sun, 17 May 2026 at 22:58, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> On Fri, May 15, 2026 at 05:39:45PM +0200, Geert Uytterhoeven wrote:
+> > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > On Tue, Apr 21, 2026 at 08:11:38PM +0200, Geert Uytterhoeven wrote:
+> > > > Currently non-SCMI drivers cannot find out what the specific versions of
+> > > > each SCMI provider implementation on the running system are.
+> > >
+> > > Thanks for your patches....this is not a proper full review of the series,
+> > > BUT this patch catched my eye..
+> > >
+> > > Indeed, yes, it is deliberate that the SCMI version information is NOT
+> > > exposed out of the SCMI world, since being the SCMI an attempt to
+> > > standardize a common FW interface (as in [1] of course), you should not
+> > > know what runs inside the black-box, it should be irrelevant...
+> > >
+> > > ...indeed the versioning is used inside the SCMI stack to deal properly
+> > > with different protocol versions implemented by the server OR to apply
+> > > proper quirks when needed, but all the rest should be standard....
+> >
+> > [...]
+> >
+> > > I watched a bit of the LPC discussions around this (from Marek I think)
+> > > but sincerely most of those problems had one (not necessarily simple)
+> > > solution: fix your firmwares AND/OR apply quirks in the meantime...
+> >
+> > So let's forward to the future, where the firmware is fixed, is fully
+> > compliant with the SCMI spec, and all IDs are stable, so no quirks are
+> > needed.
+> >
+> > Where do we specify the SCMI IDs to use?  Unless when using the
+> > remapping driver proposed in this patch series, they must end up in the
+> > DTB.  Existing upstream users put them either in the SoC-specific .dtsi,
+> > or in board-specific .dts.
+> >
+> > The SCMI server is supposed to expose to an agent (e.g. Linux) a
+> > sequential and contiguous list of IDs that represent only resources that
+> > the agent is allowed to use.
+> >   - We cannot put the SCMI IDs in the SoC-specific .dtsi, as that
+> >     describes all hardware in the SoC, which is typically much more than
+> >     Linux can or even wants to use when running on a specific board.
+> >   - You would think we could put the SCMI IDs in the board-specific
+> >     .dts.  However, that would limit actual use cases later, which do
+> >     not necessarily depend on the board solely.
+> >       - E.g. when moving control of the CAN-FD controller from Linux to
+> >         the Realtime OS, the CAN-FD node must be disabled in the DTB (by
+> >         overriding status to "reserved", or by just deleting the CAN-FD
+> >         node, both of which can be done by the boot loader). However,
+> >         with SCMI, the IDs corresponding to CAN-FD resources must be
+> >         removed from the ID space, causing a full renumbering. Who is
+> >         supposed to update the IDs in the DTB?
+>
+> As per my previous email, after such a breaking change I would expect a
+> new DTB describing the new HW to be needed anyway.
 
+The underlying hardware would still be the same...
+
+> >       - E.g. when partitioning a single Linux system in multiple VMs,
+> >         and distributing hardware across these VMs, all VMs need
+> >         different DTBs, each describing a subset of the hardware.  With
+> >         SCMI, each VM needs different SCMI ID spaces, causing not a
+> >         simple partitioning of the devices in the DTB, but also a
+> >         renumbering of all IDs.
+>
+> Ok now I am lost..why do you need a distinct IDs space for each VM ?
+
+Aren't the different VMs different SCMI agents?  If not, how do you
+prevent them from stepping on each other's resources?
+
+> In a virtualized env, I would expect to leverage the SCMI stack to
+> realize the exact opposite: same set of IDs advertised to each VM (and
+> so same DTB potentially) by the server which in turn can decide to
+> assign the same device (and handle the sharing) to some ID or assign
+> different devices to the same or different IDs on each VM: i.e. you
+> have a set of virtual_IDs that is what the server exposes to each VM
+> SCMI agent, and then a bunch of real physical IDs, without any contraint
+> on their numbering, that the server uses in the backstage to refer to
+> the real resources and that it properly remaps to each per-VM set of
+> exposed virtual_IDs during the build and/or boot board configuration
+> phase....i.e. when the FW adapts and reconfigures to the specific
+> board that is finally running on.
+
+Again[1], how would that work?  Clock, resets, and power domains are
+not the final resources that are used by the OS.  They are merely
+resources for devices that are described in DTB with other resources
+(MMIO register ranges, interrupt numbers, ...) which are not handled
+by SCMI.  If the server remaps e.g. a clock to a different clock,
+it will no longer work with the corresponding device described in DT.
+
+[1] https://lore.kernel.org/all/CAMuHMdVunEehM01pLa3t5a6o0NmMOCQRwh7n5J+OkDk2YR9kUA@mail.gmail.com
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
