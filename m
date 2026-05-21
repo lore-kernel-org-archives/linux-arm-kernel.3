@@ -4,114 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E60CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D36CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 01:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=esITWrykl3jmF+42dffE0BRU5vQF9ekvEW6cQfDO2lo=; b=iiCKFLKOYOTrZt3r846njZlkZ9
-	4bQv2VIRHNcKHDj+drEkW185O919CVHZ9lEjW5jN9c9drWiVldeGZZadNyGms0ABHR/dlBpn2NPaL
-	3urGQOezgC3vEH/FiPpU+getulejjYaSmISmMxEHq7h7sq2a48pYb21yWGcrupbkT/cMlC9FlMxLC
-	uLCuQMxC13l3Ucl0VMkyX3A0pR4wnQOESut7Wi4j8noySuO2Bmomz5CjQ4b9VM+ud60fNEwUbhajC
-	jmGHbmO71Be8EHUH0Urei442gnOo77z1spNQ+ESypGPSZHmJFvWw3i/LVRX00zPE8tzoGpZ0Wkk8+
-	TFG/FYaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YXZGXkI7uLl3sEbbtCintZrIFHQgmIDguwTLj7wSkWs=; b=iggo8q3pI4Pr3/P0RW81SEsQbn
+	/o+vZ2DnUA//MfcSnZiIA5+OelBkUy6bPlhRa4x7avGVW65YqlfNt+jcAr0F1/MzRSxOO7fPznW4u
+	W6B8WemDB/2poCXZ5lypEjYbxp/JQuYDojbpdp/KsUEKBWy05HvqT1Orvp/noLQz1cYbtpLSyxqAw
+	me7dG9L13FjK9ZCME6k3AqEx+VgAyrh5Fl76HgcsLqDe28M3ckk9JPW/HeSi7uJvB1gTSd4b2VOGd
+	5aNV3Rz2+knxeN4+7ivONtIlrDBnAI61IG2hvtDP9WkZ0qePQiKvrwmbUJHIDGxm7rxBN5CH9Irmd
+	TZzOvYJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrkj-00000006KHL-29Se;
-	Thu, 21 May 2026 00:59:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wPrvN-00000006LPA-42gz;
+	Thu, 21 May 2026 01:10:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrkg-00000006KGV-2wYM
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 00:59:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779325145;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=esITWrykl3jmF+42dffE0BRU5vQF9ekvEW6cQfDO2lo=;
-	b=TfDde89Nrp9Dq04MQMD69aQWLSu3hnH9iwf16oUXm9P11h5DwzOn7rwi9gyZ61BO+0jjCE
-	sudEsyx3hHUNbd5SEEs1mcby+lguwa19vB29qemQyvhF9yUr1xB15Dsjlkk4ut0wVLhLZ+
-	cQuPIbnE9QeGXptaC47xcrTpJw55ThY=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-515-FNiHEGK1MWaZb35QnZxiSQ-1; Wed, 20 May 2026 20:59:01 -0400
-X-MC-Unique: FNiHEGK1MWaZb35QnZxiSQ-1
-X-Mimecast-MFC-AGG-ID: FNiHEGK1MWaZb35QnZxiSQ_1779325140
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2babc42244aso133983955ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:59:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779325140; x=1779929940;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=esITWrykl3jmF+42dffE0BRU5vQF9ekvEW6cQfDO2lo=;
-        b=IgT3Upuzq0IH+BC8hiDWV5414PTApFSbSxEQGK9P/zTiO/ShaZeQ8Jj0VJvv4urBQE
-         59TbIr5ejr6ubxhDc0/pp5BkBnS4lQR3AZZGA3vgFjlsSgHR/nVDvYDcOU+P+q/961lH
-         OHvQRfyVawY0XOtiGi//KjiUGYG+PmsEj6rkz1Z7HNMwbXl6y6ffsAdTEZGxaGFs1UeL
-         MUnPlZk7oKPk2vUfl7vqGT1kMjA1lcqAr8St3I7/13wlXEV1fUwke6nVSepaobCbOHH5
-         Pl0KluguW+wyhOzIS3HTPkNWlPqTrlA7nC5lfYxGoz8LcOFpyrQDLcH0MtbhkBpupTbX
-         0GgQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+6PVy0WoReQG0cM6esK2pDe9PjjTLuqkOLixPS4rICM7klIwPmpgQx4apyj85ZFTFTsfPrywwAZcZrpUYV6BCw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUBRuv9o+ZzVXgeSNlSXBLaOwRNMYY5HhS7Drdo3bsKfQsDLYY
-	haKN5cozsxyzPj5VtLqYREQB53L75z+TKvtlZyQMFVvmvDghmdRRJ6NN7WmYyEH1Ye4iAxmIMA0
-	hC8+vQhobih15g2xRMfSmj+7YEY2h1fZzlaKj+qDiHb4hqkKN6EaB3lWlQfkbFzX2uW/fLCu3dj
-	tG
-X-Gm-Gg: Acq92OH2we//DI0BYSmB34oUriCQejKOxrp75xFwM/hLCw4e6+x857tZBsfZa7shhet
-	RhTB3WVxiSswntzclwY8u29sa+L7bVjTQUTYG0ieYM7m8XD1YDfy34sA+y3CypHyTMKEX7wC61H
-	ItkOXnfFzfftdPCP+0A+u9bcVsUc5UPkNBcJuCr6hfV3fl76F0bea/NGCEfhkNoJrpPqjjqWdFJ
-	ylUn5EXIEQDuKPfrHpDF3IPouW4TtBv/PQ2uuy9rOPaUY2LxAf6LIdUvoK4clhqvjNp17PBycva
-	d5P+4UM7ZrOVumGG4CoSqH7KoU6lEABBH6rk1CW4yzq+3nJsENDc4c2eWxo7uZ1mtmHSGPES5JK
-	KCJWkvj7U9D1h2gxQjAKJooqSXMyxA2gJRccw8I7Yt3uXGsBlnW5RohVnZS2HyXDJ
-X-Received: by 2002:a05:6a20:2446:b0:3b2:846d:f388 with SMTP id adf61e73a8af0-3b308856ee0mr683738637.45.1779325140361;
-        Wed, 20 May 2026 17:59:00 -0700 (PDT)
-X-Received: by 2002:a05:6a20:2446:b0:3b2:846d:f388 with SMTP id adf61e73a8af0-3b308856ee0mr683702637.45.1779325139846;
-        Wed, 20 May 2026 17:58:59 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c82bb121ccasm20453467a12.29.2026.05.20.17.58.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 17:58:59 -0700 (PDT)
-Message-ID: <2ad282da-88fd-49ab-8145-964ff298ca83@redhat.com>
-Date: Thu, 21 May 2026 10:58:48 +1000
+	id 1wPrvL-00000006LNH-07zN;
+	Thu, 21 May 2026 01:10:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779325803;
+	bh=vwvK/qSv/aZAl1CPofiDoXpIyBZsN7vdh8/5gMr7JTk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=HtzBzzznFfrhb4+KNwEuwqKGzcI//vla6E0jju3dgGSDGkcC1GPQUlofR0fVJrzWk
+	 D4/Dtz+yEub6GACCxzxCZZUMH4eeM2e1hZ6+Mx0pjTkrPgRHqmSt28MSD9cqusRNwO
+	 GeWMoQjBcjJFH9ScMM0YWyCpqyP7PjGqdJDBxfVVqgXtoBmDAFrY/grsGBRvvBlCcP
+	 f0hhSgiJEERSJNvy5ZaRq0CvtN8DeiCsF4JxeEBFIYiuP57D3uKVm3w7ET/3zOP2LV
+	 YhybF8NvOxlHpHfAeyubEQdOBlqq6qSgfgRc2uMQijjQrnT2ehEft1rQF6o2ni+Lsi
+	 FtRhJB+jNDzLg==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E876217E05B5;
+	Thu, 21 May 2026 03:10:01 +0200 (CEST)
+Message-ID: <9c9857f2dff60d536de6d201cdc9f68afec5be38.camel@collabora.com>
+Subject: Re: [PATCH v2] media: rkvdec: fix PM runtime teardown ordering in
+ remove
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Francesco Saverio Pavone <pavone.lawyer@gmail.com>, jonas@kwiboo.se, 
+	detlev.casanova@collabora.com, hverkuil@kernel.org, mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar, heiko@sntech.de, stable@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 20 May 2026 21:10:00 -0400
+In-Reply-To: <f9e63fbbd99c11f303ac8e8f5aec6b2bd528cf99.camel@collabora.com>
+References: <20260518105413.42147-1-pavone.lawyer@gmail.com>
+		 <20260518145414.64514-1-pavone.lawyer@gmail.com>
+	 <f9e63fbbd99c11f303ac8e8f5aec6b2bd528cf99.camel@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-a/Niwa1gTf9973ZgRNez"
+User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 08/44] arm64: RMI: Ensure that the RMM has GPT entries
- for memory
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-9-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260513131757.116630-9-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 414EPb_IgM7ccpjJEtzluq40UodgR2pnBYa6oG0Wp10_1779325140
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_175907_088017_D1400FFD 
-X-CRM114-Status: GOOD (  34.33  )
+X-CRM114-CacheID: sfid-20260520_181007_229981_6EF098CF 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,191 +92,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
 
-On 5/13/26 11:17 PM, Steven Price wrote:
-> The RMM maintains the state of all the granules in the system to make
-> sure that the host is abiding by the rules. This state can be maintained
-> at different granularity, per page (TRACKING_FINE) or per region
-> (TRACKING_COARSE). The region size depends on the underlying
-> "RMI_GRANULE_SIZE". For a "coarse" region all pages in the region must
-> be of the same state, this implies we need to have "fine" tracking for
-> DRAM, so that we can delegated individual pages.
-> 
-> For now we only support a statically carved out memory for tracking
-> granules for the "fine" regions. This can be extended in the future to
-> allow modifying the tracking granularity and remove the need for a
-> static allocation.
-> 
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space. But if we change the "PAS" (Physical Address Space) of a
-> granule then the firmware may need to create L1 tables to track the PAS
-> at a finer granularity.
-> 
-> Note: support is currently missing for SROs which means that if the RMM
-> needs memory donating this will fail (and render CCA unusable in Linux).
-> This effectively means that the L1 GPT tables must be created before
-> Linux starts.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v13:
->   * Moved out of KVM
-> ---
->   arch/arm64/include/asm/rmi_cmds.h |   2 +
->   arch/arm64/kernel/rmi.c           | 103 ++++++++++++++++++++++++++++++
->   2 files changed, 105 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> index 9179934925c5..9078a2920a7c 100644
-> --- a/arch/arm64/include/asm/rmi_cmds.h
-> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> @@ -33,6 +33,8 @@ struct rmi_sro_state {
->   } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
->   	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
->   
-> +bool rmi_is_available(void);
-> +
->   unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
->   void rmi_sro_free(struct rmi_sro_state *sro);
->   
-> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-> index a14ead5dedda..52a415e99500 100644
-> --- a/arch/arm64/kernel/rmi.c
-> +++ b/arch/arm64/kernel/rmi.c
-> @@ -7,6 +7,8 @@
->   
->   #include <asm/rmi_cmds.h>
->   
-> +static bool arm64_rmi_is_available;
-> +
->   unsigned long rmm_feat_reg0;
->   unsigned long rmm_feat_reg1;
->   
-> @@ -88,6 +90,102 @@ static int rmi_configure(void)
->   	return 0;
->   }
->   
-> +/*
-> + * For now we set the tracking_region_size to 0 for RMI_RMM_CONFIG_SET().
-> + * TODO: Support other tracking sizes (via Kconfig option).
-> + */
-> +#ifdef CONFIG_PAGE_SIZE_4KB
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
-> +#elif defined(CONFIG_PAGE_SIZE_16KB)
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
-> +#elif defined(CONFIG_PAGE_SIZE_64KB)
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
-> +#endif
-> +
+--=-a/Niwa1gTf9973ZgRNez
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-RMM_GRANULE_TRACKING_SIZE is never used in this series.
+Le mercredi 20 mai 2026 =C3=A0 20:51 -0400, Nicolas Dufresne a =C3=A9crit=
+=C2=A0:
+> Le lundi 18 mai 2026 =C3=A0 16:54 +0200, Francesco Saverio Pavone a =C3=
+=A9crit=C2=A0:
+> > From: Jonas Karlman <jonas@kwiboo.se>
+> >=20
+> > The current remove() path calls rkvdec_v4l2_cleanup() and
+> > pm_runtime_disable() before pm_runtime_dont_use_autosuspend(), and
+> > frees the empty IOMMU domain after that. With autosuspend still
+> > armed when the domain goes away, the VDPU381 can be left in a dirty
+> > state across module reload and suspend/resume cycles.
+> >=20
+> > On RK3588 this surfaces as a VP9 inter-prediction bug: from the
+> > second ALTREF frame onward, motion blocks decode with U=3DV=3D0 (BT.709
+> > green), while intra and static blocks stay correct. Reordering the
+> > teardown to dont_use_autosuspend() -> iommu_domain_free() ->
+> > pm_runtime_disable() -> v4l2_cleanup() makes the symptom go away.
+> >=20
+> > Tested on a Radxa Rock 5B+ (RK3588, 8 GB LPDDR5) with both the
+> > libva-v4l2-request mpv pipeline and Chromium's V4L2 stateless
+> > decoder. With the fix, 300 random pixel samples on VP9 Profile 0
+> > clips at 1080p and 1440p match a libvpx software reference exactly
+> > (worst delta 0). Without it, the same 1080p sample at frame 4,
+> > pixel (960, 270) reads HW=3D(0,112,0) vs SW=3D(204,147,116). HEVC and
+> > H.264 stateless decoding via mpv keep running on hardware with no
+> > fallback.
+> >=20
+> > Fixes: ff8c5622f9f7 ("media: rkvdec: Restore iommu addresses on errors"=
+)
+> > Cc: <stable@vger.kernel.org>
+> > Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> > Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> > Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+>=20
+> Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+>=20
+> cheers,
+> Nicolas
+>=20
+> > ---
+> > Changes in v2:
+> > =C2=A0- Add Cc: <stable@vger.kernel.org>; media-CI flagged that the
+> > =C2=A0=C2=A0 Fixes: target (ff8c5622f9f7) is present in the 6.17, 6.18,=
+ 6.19
+> > =C2=A0=C2=A0 and 7.0 stable branches, so the fix should reach them too.
+> > =C2=A0=C2=A0 Link to v1:
+> > https://lore.kernel.org/all/20260518105413.42147-1-pavone.lawyer@gmail.=
+com/
+> > =C2=A0=C2=A0 Media-CI report:
+> > https://linux-media.pages.freedesktop.org/-/users/patchwork/-/jobs/1001=
+24849/artifacts/report.htm
+> >=20
+> > =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+> > =C2=A01 file changed, 3 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > index 6f5f0422d317..bb95b090a25b 100644
+> > --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> > @@ -2066,12 +2066,13 @@ static void rkvdec_remove(struct platform_devic=
+e
+> > *pdev)
+> > =C2=A0
+> > =C2=A0	cancel_delayed_work_sync(&rkvdec->watchdog_work);
+> > =C2=A0
+> > -	rkvdec_v4l2_cleanup(rkvdec);
+> > -	pm_runtime_disable(&pdev->dev);
+> > =C2=A0	pm_runtime_dont_use_autosuspend(&pdev->dev);
+> > =C2=A0
+> > =C2=A0	if (rkvdec->empty_domain)
+> > =C2=A0		iommu_domain_free(rkvdec->empty_domain);
+> > +
+> > +	pm_runtime_disable(&pdev->dev);
+> > +	rkvdec_v4l2_cleanup(rkvdec);
 
-> +/*
-> + * Make sure the area is tracked by RMM at FINE granularity.
-> + * We do not support changing the tracking yet.
-> + */
-> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
-> +{
-> +	while (start < end) {
-> +		unsigned long ret, category, state, next;
-> +
-> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
-> +		if (ret != RMI_SUCCESS ||
-> +		    state != RMI_TRACKING_FINE ||
-> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
-> +			/* TODO: Set granule tracking in this case */
-> +			pr_err("Granule tracking for region isn't fine/conventional: %llx",
-> +			       start);
-> +			return -ENODEV;
-> +		}
-> +		start = next;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static unsigned long rmi_l0gpt_size(void)
-> +{
-> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
-> +				      rmm_feat_reg1));
-> +}
-> +
+After consulting the sashiko.dev report, this made me reconsider the fix. A
+problem that pre-existed it seems, but made a little worse. Basically, user=
+space
+can still open and call into the API until rkvdec_v4l2_cleanup() is called.
 
-rmi_l0gpt_size() is only used by rmi_create_gpts(), its logic can be
-combined to that function.
+Didn't research too much, but may you can extract:
 
-> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
-> +{
-> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
-> +
-> +	start = ALIGN_DOWN(start, l0gpt_sz);
-> +	end = ALIGN(end, l0gpt_sz);
-> +
-> +	while (start < end) {
-> +		int ret = rmi_gpt_l1_create(start);
-> +
-> +		/*
-> +		 * Make sure the L1 GPT tables are created for the region.
-> +		 * RMI_ERROR_GPT indicates the L1 table already exists.
-> +		 */
-> +		if (ret && ret != RMI_ERROR_GPT) {
-> +			/*
-> +			 * FIXME: Handle SRO so that memory can be donated for
-> +			 * the tables.
-> +			 */
-> +			pr_err("GPT Level1 table missing for %llx\n", start);
-> +			return -ENOMEM;
-> +		}
-> +		start += l0gpt_sz;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_init_metadata(void)
-> +{
-> +	phys_addr_t start, end;
-> +	const struct memblock_region *r;
-> +
-> +	for_each_mem_region(r) {
-> +		int ret;
-> +
-> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
-> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
-> +		ret = rmi_verify_memory_tracking(start, end);
-> +		if (ret)
-> +			return ret;
-> +		ret = rmi_create_gpts(start, end);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +bool rmi_is_available(void)
-> +{
-> +	return arm64_rmi_is_available;
-> +}
-> +
->   static int __init arm64_init_rmi(void)
->   {
->   	/* Continue without realm support if we can't agree on a version */
-> @@ -101,6 +199,11 @@ static int __init arm64_init_rmi(void)
->   
->   	if (rmi_configure())
->   		return 0;
-> +	if (rmi_init_metadata())
-> +		return 0;
-> +
-> +	arm64_rmi_is_available = true;
-> +	pr_info("RMI configured");
->   
->   	return 0;
->   }
+	media_device_unregister(&rkvdec->mdev);
+	video_unregister_device(&rkvdec->vdev);
 
-Thanks,
-Gavin
+And move this at the top of the remove function. This will prevent further
+access by userspace, avoiding races. While at it, remove useless
+rkvdec_v4l2_cleanup() helper and merge it in, its only used once.
 
+For the rest of your report, I'm under the impression remove won't be calle=
+d
+unless all the open devices has been closed, which will call
+v4l2_m2m_ctx_release(), which synchronously abort any pending job.
+
+https://sashiko.dev/#/patchset/20260518145414.64514-1-pavone.lawyer%40gmail=
+.com
+
+> > =C2=A0}
+> > =C2=A0
+> > =C2=A0#ifdef CONFIG_PM
+
+--=-a/Niwa1gTf9973ZgRNez
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCag5baAAKCRDZQZRRKWBy
+9PuoAP9gtGPvLxa4W9L5+xumxe/MkgDxKRvK3bcntdSpVRuoywEA9Q2fu/BulsAq
+W94NZMxGfEsscd/Nfk469D3oxF6mrQU=
+=U/NF
+-----END PGP SIGNATURE-----
+
+--=-a/Niwa1gTf9973ZgRNez--
 
