@@ -4,153 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8511CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CD4CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3EPmytiYYIPSz7o5mNLUDYYYh27sJM0ubBpmSCKyIQ=; b=D0+jYB6YrgsOjCnqJ6alwUeQoV
-	6xirrNCesuyvcqkiUuoUr6W8tpkPP7mkJW1cEVQ5yvsm2swHI1G8hhjoVkJ3cR5qV/rpwZne7R0Od
-	tUmDUZ5z/ymUDiXHzmQzMrP5HY8b5JyHjJQk5ukzi7QuWk4VkIoDIH2DHB+MazbGMHTgX78DJ68a+
-	61SyBHJJDveY52rfIMrup8R8wpUaRHFSzeK1StN10uuOZ+JdJhKRRL669GMSarxLPzI0Oi3QrPKE/
-	Z2GjE/UKnVOjeMv2nOQyxIpG7xDNLvwfLY1NKzLMIOsT9U+k0paSo0RL7x7sOxqaNl/AsKZEY84B1
-	LtV/Z49g==;
+	bh=fbfF1U0fCTLny7anR+S7+9OZvMa+ePR240qxz4WAm6k=; b=vS09hD+9VzjtKEepPRoPUqluPY
+	zUhrvBKB3e3iXuSHpfUCddYIQ7lbTN2obMvmEoQa0phwBxXVAmXY4RmBiK1sa739iCFMDYeyV/iuk
+	DolUCFiO3Y+68/lMJGPUF6hXUIYjJdsgjiTg8dtzyqJGX+5OM2C1snrP5MvFaqMLCe77chD9Lt2bs
+	Y2vehVF31/+vkpmaUfUxwVlvrennBYEUrAVG9DJGGPcWqRTfWJJsh5xnNds0DzMdygUIcls5Rd22A
+	GbPH5+gQzsS3ipxS3tp/sGRbl5u2ZxHheGwH+egNi6pAV4ZxjqiiwR0844d1c4c6F95AW413E5qX0
+	+QehCtLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4EO-000000081zm-2bXf;
-	Thu, 21 May 2026 14:18:36 +0000
-Received: from mail-westeuropeazon11013019.outbound.protection.outlook.com ([52.101.72.19] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wQ4GU-000000082PY-43mT;
+	Thu, 21 May 2026 14:20:46 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4EG-000000081wX-2GAH
+	id 1wQ4GQ-000000082OJ-3mom
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 14:18:29 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
- b=FAQ3er6OOTIKrNbNl5GchkXYmUJKwMZSDQqUf76VHLpssqx3ihn7fVenl0n3zwitsZYksvHJfkK9+BhzjwzF1fxffEkPYCtjrBsvYjod758Ok0oHah4HRDEn23V+jzaTpHsZU0uPbRDRLsUI99amcnvDE053UplQu8aUALnCrjC/zDzDfSFkvWIR+GtmPFdds4FJk7tkhnAolPP+B9/ZVNlPPXZhsOzfwkyiVyx/ZDg6R/Q+cQ8ovisvoZuR3dy/+P6HStKw6qaE4IrrwT17xOBf5DyYRbjovFdiNVUdYFguCdBHFyQt86PplwlOUcqwd1MCoUFuR3a0n77muZQGjw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q3EPmytiYYIPSz7o5mNLUDYYYh27sJM0ubBpmSCKyIQ=;
- b=TAeoiJ3V9NMq6EduWXc30PcA8yTwsOqza53Tw1TORlKqhVfgIwqKGfbgCerjwa/5YKIG+WSthhc3mFZzubFAtSzxIFVNID/JqM8lHWzcav7v+ZTwGh0Del7NXyD6bh/YGyD58jqwkCOgr2yDXFmaABwVFv8XddkMQERb0fb2WurrDBIpsSZRHuyDoXckILgHBLR/5SsNX7CZQz3edteENKWPPaYG8mv5QjyLCzMz7j1HEC5+uKbpNqFsOBK6NvV/2R0CGs3s4WUKSSsM9LpABvTKofKuM0YCfdSspq8ZRCDM2WP3WsYnYPkbhv3tquR3AzgSazJ6JstbhhkfE/n7ww==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=fail (48)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q3EPmytiYYIPSz7o5mNLUDYYYh27sJM0ubBpmSCKyIQ=;
- b=bXPXYJVeHTAGzHde3Naa2Cdk79R3cxdT5jzfD8VswrepUg5IFpIcv40CQ/AaOFyLiEsSHcTlihirIXQpQmRxLKyngVOe09q9saQ8U5Qc3r5qXjsRXdaJRMqPHhqh7cqARAsSnMBjmXmIV8LaI1TBmuxEb7O7d6en42e5IG5JEWA=
-Received: from DUZPR01CA0206.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b6::21) by PAWPR08MB10305.eurprd08.prod.outlook.com
- (2603:10a6:102:367::21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.21; Thu, 21 May
- 2026 14:18:17 +0000
-Received: from DB1PEPF000509F0.eurprd03.prod.outlook.com
- (2603:10a6:10:4b6:cafe::36) by DUZPR01CA0206.outlook.office365.com
- (2603:10a6:10:4b6::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.17 via Frontend Transport; Thu, 21
- May 2026 14:18:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF000509F0.mail.protection.outlook.com (10.167.242.74) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.7 via
- Frontend Transport; Thu, 21 May 2026 14:18:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FdWP+1nPSDyO8dbJiv1OvD7IFOj0Rhb89KJGJy2A9GMIS+Hl4FG3JY1O1dx5w2AlEXGOHRpuY66iMzfHXhFN5cMmEhdRh6XZr5ZvMbFwzzHuxjjNQ7x+oMj7/IQEDesA9BwQAso+yDgIU5mH1gtHG/OkfmP7qX/mNbi0JE7hsiOOqshLzfjmRrOCK5C1ld9ahe0mIHHLp7qIz1aHdhiWbDkdChzdAG4xIkv7l7lELYf7j1xrbLaTK6kCBJivsNPRMBROmCONXwbo3M/DXFwS9caAMmEgSFmRpbqcUs/P9uE9FL7yXzW0U4VlLEuAPT9jLSOln0WpXF0n0yQIcX/TBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q3EPmytiYYIPSz7o5mNLUDYYYh27sJM0ubBpmSCKyIQ=;
- b=fp3nKrQEYGeLsTQ7t73WlbIxDUONo1VELb4pQAocdA8TkNuP6temLJYjspc0mxBjcwOF/VUykzrKs6z9Lz+R8zYXJnZMeZNSRXW0/Ti29ObsK6gMIKwUlFokjp6Pq02rN2BARwaQXg0OQQGT/HylWNQsfWDwFE6dri8CcmsD2i9DZ4LUC0mYxIc4CuFV5kqX5MrrsEsNVtkoo7guOUqeuhkp13DoiNyQYDHEZwUe+nCs2bBOe3mdVQbE6MbR/WLOZYnrO/vA6f+a/GPlf1ARl9L38sq4XUToqWZexZR8WKiQuhpnquBZkiibd0aneNvRHnQwLseyTsBdGbPkDJ0oVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q3EPmytiYYIPSz7o5mNLUDYYYh27sJM0ubBpmSCKyIQ=;
- b=bXPXYJVeHTAGzHde3Naa2Cdk79R3cxdT5jzfD8VswrepUg5IFpIcv40CQ/AaOFyLiEsSHcTlihirIXQpQmRxLKyngVOe09q9saQ8U5Qc3r5qXjsRXdaJRMqPHhqh7cqARAsSnMBjmXmIV8LaI1TBmuxEb7O7d6en42e5IG5JEWA=
-Received: from GV1PR08MB7315.eurprd08.prod.outlook.com (2603:10a6:150:1e::15)
- by AS8PR08MB9868.eurprd08.prod.outlook.com (2603:10a6:20b:5ac::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 14:17:14 +0000
-Received: from GV1PR08MB7315.eurprd08.prod.outlook.com
- ([fe80::c249:1aed:a4c2:4193]) by GV1PR08MB7315.eurprd08.prod.outlook.com
- ([fe80::c249:1aed:a4c2:4193%3]) with mapi id 15.21.0048.013; Thu, 21 May 2026
- 14:17:14 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "maz@kernel.org" <maz@kernel.org>
-CC: "yuzenghui@huawei.com" <yuzenghui@huawei.com>, Timothy Hayes
-	<Timothy.Hayes@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>, nd
-	<nd@arm.com>, "peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvm@vger.kernel.org"
-	<kvm@vger.kernel.org>, Joey Gouly <Joey.Gouly@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>
-Subject: Re: [PATCH 17/43] KVM: arm64: gic-v5: Enable VPE DBs on VPE reset and
- disable on teardown
-Thread-Topic: [PATCH 17/43] KVM: arm64: gic-v5: Enable VPE DBs on VPE reset
- and disable on teardown
-Thread-Index: AQHc1mCO6WZjLSSAYEGzsoV6jlitxbYBJlmAgBeF74A=
-Date: Thu, 21 May 2026 14:17:13 +0000
-Message-ID: <fd4cb8ab4d189ea107e6abdfb6617302996e1fdf.camel@arm.com>
-References: <20260427160547.3129448-1-sascha.bischoff@arm.com>
-	 <20260427160547.3129448-18-sascha.bischoff@arm.com>
-	 <861pfozijq.wl-maz@kernel.org>
-In-Reply-To: <861pfozijq.wl-maz@kernel.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1.1 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: GV1PR08MB7315:EE_|AS8PR08MB9868:EE_|DB1PEPF000509F0:EE_|PAWPR08MB10305:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1e998f82-3b7b-488f-9a8a-08deb743cd4e
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021|22082099003|56012099003|18002099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info-Original: Pg7oA0yWlvF8kmzLtvNDNTo6xj2E/Po8YADDlxlBa9LEI4sp42HrVO8s/Od+g66ok/RPLVgATBpSJsSHVsBNdOaUb/n38AI8VdgSeensKrsH1Qvi9/kYrOC+1pPoeJuTKAITTKRlxBArmsK+Pe3IJq936JSFlYhmUGBPvje48oJRz9xrSdsh09/bIybaurV1MUZjCJki+l5CgKlTx182AxHCrDKqeVaZXWVIYbQKj9Z18Ensp2QalVTxYs498BCIBTFqOwDcxy0ENxM1Z07MXRdetDGK5QEbhfoLrzL1/HHJncW4kzqKmHJVcMNtq0QPRI9SKmlAoHUEZ/35AtWhNbCDxNffAj1ORO6xKeN8IQaKlnuuJ31kXjA67VJU4YeOh5B+BtfjZIEoIiFaGJVhRFWOvICbr649MkDFNES391AAys0ebB8yPDXLBOPFMSIb3H+73ts5erFBdsZ7S3Y8QbKICuVvASjRGgMqXWft1kyLTl9Z27EBAPR2GgO1mufEVnI6Fke2PVuJ8K7rH1xdCRFeiYiSC1XPhySQpiW/mLxT/n2dvY5/PLRFEp3j4qlefy71eXTso6FsaEJQUVR31MqYC31CFEsp3RTtHrdOiZoY+plqOOzYbm7ZCm26aHmAjjbdMBOWYOlV3rJG7YborAkptYLiWwU6dKJAP1LlkJHZm9ZKCnVpDYD/PVUkpJcm1FgZa7wPnVFFFC2WniucCAstJr1uYeE5HzGsIAj3ppPDW/eaKuCnRa++ak7dePTT
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB7315.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021)(22082099003)(56012099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <FAD197989EBD784A8B619F963A76F774@eurprd08.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Thu, 21 May 2026 14:20:46 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ4GG-0008CY-NE; Thu, 21 May 2026 16:20:32 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ4GF-0017OQ-34;
+	Thu, 21 May 2026 16:20:32 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ4GG-00000004Wvo-1c98;
+	Thu, 21 May 2026 16:20:32 +0200
+Date: Thu, 21 May 2026 16:20:32 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH v7 14/28] media: rockchip: rga: move cmdbuf to rga_ctx
+Message-ID: <ag8UsNez6_zATJI2@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+ <20260521-spu-rga3-v7-14-3f33e8c7145f@pengutronix.de>
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: c3O3AsnJEF0bXsc6CAtfjyjX29B4LoCFSaE9AUtgnCctFEpvPsIeNBboz19d4FygbIJ/PD7UEs7BDuHK30oRGd+4eoxg+5fibLER9ZvrYJUD7p6rZIh00oHmD6x7LxrCRUl5gQqgC2j3nVynHeNtdkJ3hG127DAzEigLLb8rGMOl5nJT1I/yv5WLQi6q9zffH6fSTbe2b/tfQ8C+XPECyrHY1Htsg19aSw7HvPm+qeVlhoFO5VngSv1h/io+ZpV/EkLlNqMkFa1OkeBThof7j8mqTBTtvWi3oVsdWkIAnsjrBVDmIUQMAqdhxDx9O8+D0T/RI1+Ofhp/9lp4LRVyYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9868
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF000509F0.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 9aa9bdda-e115-445e-94c3-08deb743a7e3
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|35042699022|1800799024|376014|36860700016|82310400026|22082099003|18002099003|56012099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: yKtzFE12RRwJr8VvyDaZh9nnHgWknZnmrChN3lp32+MzoSJEOliBetU0MVRdwhOwe1+Upd+eQO1stM3/rhAUYF8N0sDMQsEIyPDHC2Hqtrk4rinyToIUTwE1jK5sONgqRSOXYqJ1kFmDvfpo2DAnXVUmDJrvelyM6QUhyoEt4wEdxqN+QEPH03QZbYiCht7C2pH28H5+hs6HdEwUhpRTEswWXc0ylAXzqnsDFjLWs+GzODwvm1aZa1l1wsCiugxk8lXokJOeUbdXgy6PMD9vXFcA7NpKW2nZ9nECaWKAwxdBy8k5/QGYyT/2OCCsK/OojJvgVjyPlSCXnMMPMMHROTMJKnJfgyYXWCqqap2vBOtUO2A6JTVN6jHIpQPQgExqJ5T9JwMARqbb7O992B6ec5V7gN0naenKRHNrKHmKytephVwu6GAkTJS3DBhiI4wgX2gV6JXSXLN79ps+dVbLnaGrSC5M9jKzH0Gzqp0hqMvnYe7i4wZ5EW3uubazm/AJdB4YRkFgnc6SI3hQUy3Pg21Y7ysUfg3ENyXxtjCEe4EnbezoW+mYzSPZtlxh3JlRFto6D1eqMmpah7yFiduPuis8bbMTx2xePqUWDQz7N9SWZsEW3dYA+OLNFRdPUgEgS3hlkU/m5/LT97saE8Lnkuu/gdzN5VW0qP7eBL0hqGgqImzMxtUsH5Yoz6kaBVEIW57/bR3/0ubSZ707vQT64dVpCOPaZiZuKa4DyM798uo=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(35042699022)(1800799024)(376014)(36860700016)(82310400026)(22082099003)(18002099003)(56012099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: VPJp1gPrG1dIkWtXvN5Wb3MAvgWC7QcGF2iDRGNqXWv7R9ZYbpXXa3X5WtSBC/w2RWQaJblpdbrhwuz+rTqbEKMQXWdsgB/dTeRPpJlvMINaB1ANRU1Xfj1wZ553vYOCqaWBbL8BtHKARYGjVjNUpXEQIb5b1BguepFxC6Jba7+yZg2ee9bx+H6FUddFNihZ/7e/lmV4PD/h1oiZPLbi/fBbnvbDIxrVDPh1LtJsndUuMCSBZbxoeSH27gJkfxX99RjW/JGs7g5YxqWH915Iaxf7OeU5iOv7RQRkSphP3JhBuqQBgz8kjrtw/oYLW2uzH8y+yInP821ceDDMjNveTa074DM57mHcTxtMdh59+a4DPo3zJqXX21Hy7f38BsP1O3TzarVMAiNRum6S5BegMI0iOe1EfAaFB4qv1FZExmo20ogy0h0pcU67Ut0jaodw
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 14:18:16.7149
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e998f82-3b7b-488f-9a8a-08deb743cd4e
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F0.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB10305
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-spu-rga3-v7-14-3f33e8c7145f@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_071828_817102_AFA1601A 
-X-CRM114-Status: GOOD (  32.26  )
+X-CRM114-CacheID: sfid-20260521_072044_086020_48A704E9 
+X-CRM114-Status: GOOD (  27.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,62 +106,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI2LTA1LTA2IGF0IDE2OjAzICswMTAwLCBNYXJjIFp5bmdpZXIgd3JvdGU6DQo+
-IE9uIE1vbiwgMjcgQXByIDIwMjYgMTc6MTE6NTAgKzAxMDAsDQo+IFNhc2NoYSBCaXNjaG9mZiA8
-U2FzY2hhLkJpc2Nob2ZmQGFybS5jb20+IHdyb3RlOg0KPiA+IA0KPiA+IEVuc3VyZSB0aGF0IGVh
-Y2ggVlBFIGRvb3JiZWxsIGlzIGVuYWJsZWQgb24gdGhlIGhvc3QgcHJpb3IgdG8NCj4gPiBydW5u
-aW5nDQo+ID4gdGhlIGd1ZXN0IGJ5IGVuYWJsaW5nIGl0IGFzIHBhcnQgb2YgdmdpY192NV9yZXNl
-dCgpLiBBZGQgYSBmdW5jdGlvbg0KPiA+IHRvDQo+ID4gZGlzYWJsZSBpdCBhZ2FpbiBhcyBwYXJ0
-IG9mIFZNIHRlYXJkb3duLCB2Z2ljX3Y1X2Rpc2FibGVfdmNwdSgpLA0KPiA+IHdoaWNoDQo+ID4g
-YWxzbyBmcmVlcyB0aGUgSVJRIGFnYWluLg0KPiA+IA0KPiA+IFNpZ25lZC1vZmYtYnk6IFNhc2No
-YSBCaXNjaG9mZiA8c2FzY2hhLmJpc2Nob2ZmQGFybS5jb20+DQo+ID4gLS0tDQo+ID4gwqBhcmNo
-L2FybTY0L2t2bS92Z2ljL3ZnaWMtdjUuYyB8IDI5ICsrKysrKysrKysrKysrKysrKysrKysrKysr
-KysrDQo+ID4gwqAxIGZpbGUgY2hhbmdlZCwgMjkgaW5zZXJ0aW9ucygrKQ0KPiA+IA0KPiA+IGRp
-ZmYgLS1naXQgYS9hcmNoL2FybTY0L2t2bS92Z2ljL3ZnaWMtdjUuYw0KPiA+IGIvYXJjaC9hcm02
-NC9rdm0vdmdpYy92Z2ljLXY1LmMNCj4gPiBpbmRleCA5MzQ3YmM2ODk1MjIzLi40OGZmY2IyNDk0
-ZGIzIDEwMDY0NA0KPiA+IC0tLSBhL2FyY2gvYXJtNjQva3ZtL3ZnaWMvdmdpYy12NS5jDQo+ID4g
-KysrIGIvYXJjaC9hcm02NC9rdm0vdmdpYy92Z2ljLXY1LmMNCj4gPiBAQCAtNzM2LDYgKzczNiwz
-MSBAQCB2b2lkIHZnaWNfdjVfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQ0KPiA+IMKgCQlr
-dm1fdm1fZGVhZCh2Y3B1LT5rdm0pOw0KPiA+IMKgCQlyZXR1cm47DQo+ID4gwqAJfQ0KPiA+ICsN
-Cj4gPiArCWVuYWJsZV9pcnEodmdpY192NV92cGVfZGIodmNwdSkpOw0KPiANCj4gT2RkLiBXaHkg
-ZG8geW91IG5lZWQgdG8gbWFuYWdlIHRoZSBlbmFibGluZyBvZiB0aGUgZG9vcmJlbGw/IEkgc2Vl
-DQo+IGZyb20gdGhlIHByZXZpb3VzIHBhdGNoIHRoYXQgeW91IHNldCBpdCBhcyBJUlFfTk9BVVRP
-RU4sIGJ1dCB0aGlzDQo+IHNlZW1zIHRvIGJlIGNhcmdvLWN1bHRlZCBmcm9tIEdJQ3Y0ICh3aGlj
-aCByZWFsbHkgbmVlZHMgaXQpLg0KPiANCj4gTXkgZXhwZWN0YXRpb25zIHRoYXQgc2luY2UgdGhl
-IGRvb3JiZWxsIGlzIGNvbnRyb2xsZWQgZnJvbSBLVk0gYW5kIGlzDQo+IG9ubHkgb25lLXNob3Qs
-IHdlIHNob3VsZCBiZSBPSy4gVGhpcyBpcyB0aGUgZmxvdyB0aGF0IHY0LjEgYWRvcHRzLA0KPiB3
-aXRob3V0IGEgbmVlZCB0byBiYWJ5LXNpdCB0aGUgaW50ZXJydXB0IHN0YXRlLg0KDQpJJ3ZlIHJl
-d29ya2VkIHRoaXMgdG8gbWFrZSBtb3N0IG9mIGl0IGdvIGF3YXkuIFdlIGRpZG4ndCBuZWVkIHRo
-ZQ0KSVJRX05PQVVUT0VOIChpdCB3YXMganVzdCBjb3BpZWQgZnJvbSBHSUN2NCksIGFuZCB0aGF0
-IG1lYW5zIHRoYXQgbXVjaA0Kb2YgdGhpcyBjYW4gZ28gYXdheS4gSW4gZ2VuZXJhbCwgSSd2ZSBy
-b2xsZWQgdGhlc2UgY2hhbmdlcyBpbnRvIHRoZQ0Kb25lcyB0aGF0IGluaXQgYW5kIHRlYXIgZG93
-biBHSUN2NSBWTXMgaW4gZ2VuZXJhbCBnaXZlbiBob3cgdGlnaHRseQ0KY291cGxlZCB0aGV5IGFy
-ZSBpbiB0aGUgZmlyc3QgcGxhY2UuDQoNCj4gDQo+ID4gK30NCj4gPiArDQo+ID4gK3N0YXRpYyB2
-b2lkIHZnaWNfdjVfZGlzYWJsZV92Y3B1KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkNCj4gPiArew0K
-PiA+ICsJaW50IHZpcnEgPSB2Z2ljX3Y1X3ZwZV9kYih2Y3B1KTsNCj4gPiArDQo+ID4gKwlpZiAo
-IXZjcHUtPmt2bS0+YXJjaC52Z2ljLmdpY3Y1X3ZtLmRvbWFpbikNCj4gPiArCQlyZXR1cm47DQo+
-ID4gKw0KPiA+ICsJaWYgKCF2aXJxKQ0KPiA+ICsJCXJldHVybjsNCj4gPiArDQo+ID4gKwkvKg0K
-PiA+ICsJICogV2UgYXJlIGNhbGxlZCBpbiB0aGUgdmdpY192NV90ZWFyZG93biBwYXRoLiBXZSBu
-bw0KPiA+IGxvbmdlciBuZWVkIHRoZQ0KPiA+ICsJICogZG9vcmJlbGwgdmlycXMuDQo+ID4gKwkg
-Ki8NCj4gPiArCWRpc2FibGVfaXJxKHZpcnEpOw0KPiANCj4gQW5kIHRoZW4gdGhpcyBjYW4gZ28g
-YXMgd2VsbC4NCg0KWXVwLCBnb25lLg0KDQo+IA0KPiA+ICsNCj4gPiArCS8qIEZyZWUgdGhlIGRv
-b3JiZWxsIGlycSAoY291bnRlci1wYXJ0IHRvIHJlcXVlc3RfaXJxKSovDQo+ID4gKwlmcmVlX2ly
-cSh2aXJxLCB2Y3B1KTsNCj4gPiArDQo+ID4gKwkvKiBSZW1vdmUgdGhlIGlycSBmcm9tIHRoZSBk
-b21haW4gdG9vICovDQo+ID4gKwlpcnFfZG9tYWluX2ZyZWVfaXJxcyh2aXJxLCAxKTsNCj4gDQo+
-IFN1cmVseSB5b3UgcmVtb3ZlIHRoZSBkb21haW4gYXQgc29tZSBwb2ludC4gVGhhdCBzaG91bGQg
-Y292ZXIgdGhlDQo+IGZyZWVpbmcgb2YgYWxsIHRoZSBkb29yYmVsbHMuDQoNCkFnYWluLCBJJ3Zl
-IHJld29ya2VkIGFuZCBjb25zb2xpZGF0ZWQgdGhpcy4NCg0KPiANCj4gPiDCoH0NCj4gPiDCoA0K
-PiA+IMKgaW50IHZnaWNfdjVfbWFwX3Jlc291cmNlcyhzdHJ1Y3Qga3ZtICprdm0pDQo+ID4gQEAg
-LTg3NSw2ICs5MDAsMTAgQEAgdm9pZCB2Z2ljX3Y1X3RlYXJkb3duKHN0cnVjdCBrdm0gKmt2bSkN
-Cj4gPiDCoAkJCWt2bV9lcnIoIkZhaWxlZCB0byByZWxlYXNlIFZNIDB4JXhcbiIsDQo+ID4gZGlz
-dC0+Z2ljdjVfdm0udm1faWQpOw0KPiA+IMKgCX0NCj4gPiDCoA0KPiA+ICsJLyogR29vZGJ5ZSBk
-b29yYmVsbHMgKi8NCj4gPiArCWt2bV9mb3JfZWFjaF92Y3B1KGksIHZjcHUsIGt2bSkNCj4gPiAr
-CQl2Z2ljX3Y1X2Rpc2FibGVfdmNwdSh2Y3B1KTsNCj4gPiArDQo+ID4gwqAJdmdpY192NV90ZWFy
-ZG93bl9wZXJfdm1fZG9tYWluKCZrdm0tPmFyY2gudmdpYy5naWN2NV92bSk7DQo+ID4gwqANCj4g
-PiDCoAl2Z2ljX3Y1X3JlbGVhc2Vfdm1faWQoa3ZtKTsNCj4gDQo+IEkgcmVja29uIHRoaXMgcGF0
-Y2ggd291bGQgYmUgYmV0dGVyIGZvbGRlZCBpbnRvIHRoZSBwcmV2aW91cyBvbmUsIHNvDQo+IHRo
-YXQgd2UgY2FuIHNlZSBib3RoIHRoZSByZXF1ZXN0aW5nIGFuZCBmcmVlaW5nIG9mIHRoZSBkb29y
-YmVsbA0KPiBpbnRlcnJ1cHQgaW4gdGhlIHNhbWUgcGF0Y2guDQoNCkFncmVlZCwgYW5kIHRoYXQn
-cyB3aGF0IEkndmUgZG9uZSBub3cuDQoNClRoYW5rcywNClNhc2NoYQ0KDQo+IA0KPiBUaGFua3Ms
-DQo+IA0KPiAJTS4NCj4gDQoNCg==
+On Thu, 21 May 2026 00:44:19 +0200, Sven Püschel wrote:
+> Move the command buffer to the rga_ctx struct in preparation to reuse
+> an already prepared command buffer. This allows to split the command
+> buffer setup in a further commit to setup a template for the command
+> buffer at streamon and only update the buffer addresses in device_run
+> and trigger the command stream. No sync point is added, as one command
+> buffer should only be used for one conversion at a time.
+> 
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+
+Reviewed-by: Michael Tretter <m.tretter@pengutronix.de>
+
+> ---
+>  drivers/media/platform/rockchip/rga/rga-hw.c | 28 +++++++---------
+>  drivers/media/platform/rockchip/rga/rga.c    | 48 ++++++++++++++++------------
+>  drivers/media/platform/rockchip/rga/rga.h    |  5 +--
+>  3 files changed, 41 insertions(+), 40 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+> index 17f7a67c0b4bb..9881c14f908d5 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+> @@ -122,8 +122,7 @@ static struct rga_addr_offset *rga_lookup_draw_pos(struct
+>  
+>  static void rga_cmd_set_src_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>  {
+> -	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int reg;
+>  
+>  	reg = RGA_MMU_SRC_BASE - RGA_MODE_BASE_REG;
+> @@ -135,8 +134,7 @@ static void rga_cmd_set_src_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>  
+>  static void rga_cmd_set_src1_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>  {
+> -	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int reg;
+>  
+>  	reg = RGA_MMU_SRC1_BASE - RGA_MODE_BASE_REG;
+> @@ -148,8 +146,7 @@ static void rga_cmd_set_src1_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>  
+>  static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>  {
+> -	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int reg;
+>  
+>  	reg = RGA_MMU_DST_BASE - RGA_MODE_BASE_REG;
+> @@ -162,7 +159,7 @@ static void rga_cmd_set_dst_addr(struct rga_ctx *ctx, dma_addr_t dma_addr)
+>  static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
+>  {
+>  	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int scale_dst_w, scale_dst_h;
+>  	unsigned int src_h, src_w, dst_h, dst_w;
+>  	union rga_src_info src_info;
+> @@ -322,8 +319,7 @@ static void rga_cmd_set_src_info(struct rga_ctx *ctx,
+>  				 struct rga_addr_offset *offset)
+>  {
+>  	struct rga_corners_addr_offset src_offsets;
+> -	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int src_h, src_w, src_x, src_y;
+>  
+>  	src_h = ctx->in.crop.height;
+> @@ -350,8 +346,7 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+>  {
+>  	struct rga_addr_offset *dst_offset;
+>  	struct rga_corners_addr_offset offsets;
+> -	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	unsigned int dst_h, dst_w, dst_x, dst_y;
+>  	unsigned int mir_mode = 0;
+>  	unsigned int rot_mode = 0;
+> @@ -397,8 +392,7 @@ static void rga_cmd_set_dst_info(struct rga_ctx *ctx,
+>  
+>  static void rga_cmd_set_mode(struct rga_ctx *ctx)
+>  {
+> -	struct rockchip_rga *rga = ctx->rga;
+> -	u32 *dest = rga->cmdbuf_virt;
+> +	u32 *dest = ctx->cmdbuf_virt;
+>  	union rga_mode_ctrl mode;
+>  	union rga_alpha_ctrl0 alpha_ctrl0;
+>  	union rga_alpha_ctrl1 alpha_ctrl1;
+> @@ -423,7 +417,7 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+>  {
+>  	struct rockchip_rga *rga = ctx->rga;
+>  
+> -	memset(rga->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
+> +	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
+>  
+>  	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
+>  	/*
+> @@ -439,11 +433,11 @@ static void rga_cmd_set(struct rga_ctx *ctx,
+>  	rga_cmd_set_dst_info(ctx, &dst->offset);
+>  	rga_cmd_set_trans_info(ctx);
+>  
+> -	rga_write(rga, RGA_CMD_BASE, rga->cmdbuf_phy);
+> +	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
+>  
+>  	/* sync CMD buf for RGA */
+> -	dma_sync_single_for_device(rga->dev, rga->cmdbuf_phy,
+> -		PAGE_SIZE, DMA_BIDIRECTIONAL);
+> +	dma_sync_single_for_device(rga->dev, ctx->cmdbuf_phy,
+> +				   PAGE_SIZE, DMA_BIDIRECTIONAL);
+>  }
+>  
+>  static void rga_hw_start(struct rockchip_rga *rga,
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+> index 77b8c7ab74274..bf6bbcbfc869b 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -219,6 +219,16 @@ static int rga_open(struct file *file)
+>  	ctx = kzalloc_obj(*ctx);
+>  	if (!ctx)
+>  		return -ENOMEM;
+> +
+> +	/* Create CMD buffer */
+> +	ctx->cmdbuf_virt = dma_alloc_attrs(rga->dev, rga->hw->cmdbuf_size,
+> +					   &ctx->cmdbuf_phy, GFP_KERNEL,
+> +					   DMA_ATTR_WRITE_COMBINE);
+> +	if (!ctx->cmdbuf_virt) {
+> +		ret = -ENOMEM;
+> +		goto rel_ctx;
+> +	}
+> +
+>  	ctx->rga = rga;
+>  	/* Set default formats */
+>  	ctx->in = def_frame;
+> @@ -230,15 +240,13 @@ static int rga_open(struct file *file)
+>  			    ctx->out.fmt->fourcc, def_width, def_height);
+>  
+>  	if (mutex_lock_interruptible(&rga->mutex)) {
+> -		kfree(ctx);
+> -		return -ERESTARTSYS;
+> +		ret = -ERESTARTSYS;
+> +		goto rel_cmdbuf;
+>  	}
+>  	ctx->fh.m2m_ctx = v4l2_m2m_ctx_init(rga->m2m_dev, ctx, &queue_init);
+>  	if (IS_ERR(ctx->fh.m2m_ctx)) {
+>  		ret = PTR_ERR(ctx->fh.m2m_ctx);
+> -		mutex_unlock(&rga->mutex);
+> -		kfree(ctx);
+> -		return ret;
+> +		goto unlock_mutex;
+>  	}
+>  	v4l2_fh_init(&ctx->fh, video_devdata(file));
+>  	v4l2_fh_add(&ctx->fh, file);
+> @@ -252,6 +260,15 @@ static int rga_open(struct file *file)
+>  	mutex_unlock(&rga->mutex);
+>  
+>  	return 0;
+> +
+> +unlock_mutex:
+> +	mutex_unlock(&rga->mutex);
+> +rel_cmdbuf:
+> +	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, ctx->cmdbuf_virt,
+> +		       ctx->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
+> +rel_ctx:
+> +	kfree(ctx);
+> +	return ret;
+>  }
+>  
+>  static int rga_release(struct file *file)
+> @@ -266,6 +283,10 @@ static int rga_release(struct file *file)
+>  	v4l2_ctrl_handler_free(&ctx->ctrl_handler);
+>  	v4l2_fh_del(&ctx->fh, file);
+>  	v4l2_fh_exit(&ctx->fh);
+> +
+> +	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, ctx->cmdbuf_virt,
+> +		       ctx->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
+> +
+>  	kfree(ctx);
+>  
+>  	mutex_unlock(&rga->mutex);
+> @@ -720,19 +741,10 @@ static int rga_probe(struct platform_device *pdev)
+>  
+>  	pm_runtime_put(rga->dev);
+>  
+> -	/* Create CMD buffer */
+> -	rga->cmdbuf_virt = dma_alloc_attrs(rga->dev, rga->hw->cmdbuf_size,
+> -					   &rga->cmdbuf_phy, GFP_KERNEL,
+> -					   DMA_ATTR_WRITE_COMBINE);
+> -	if (!rga->cmdbuf_virt) {
+> -		ret = -ENOMEM;
+> -		goto rel_m2m;
+> -	}
+> -
+>  	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
+>  	if (ret) {
+>  		v4l2_err(&rga->v4l2_dev, "Failed to register video device\n");
+> -		goto free_dma;
+> +		goto rel_m2m;
+>  	}
+>  
+>  	v4l2_info(&rga->v4l2_dev, "Registered %s as /dev/%s\n",
+> @@ -740,9 +752,6 @@ static int rga_probe(struct platform_device *pdev)
+>  
+>  	return 0;
+>  
+> -free_dma:
+> -	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, rga->cmdbuf_virt,
+> -		       rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
+>  rel_m2m:
+>  	v4l2_m2m_release(rga->m2m_dev);
+>  rel_vdev:
+> @@ -759,9 +768,6 @@ static void rga_remove(struct platform_device *pdev)
+>  {
+>  	struct rockchip_rga *rga = platform_get_drvdata(pdev);
+>  
+> -	dma_free_attrs(rga->dev, rga->hw->cmdbuf_size, rga->cmdbuf_virt,
+> -		       rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
+> -
+>  	v4l2_info(&rga->v4l2_dev, "Removing\n");
+>  
+>  	v4l2_m2m_release(rga->m2m_dev);
+> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+> index 27b3c9b4f220c..04aeb7b429523 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.h
+> +++ b/drivers/media/platform/rockchip/rga/rga.h
+> @@ -53,6 +53,9 @@ struct rga_ctx {
+>  	struct rga_frame out;
+>  	struct v4l2_ctrl_handler ctrl_handler;
+>  
+> +	void *cmdbuf_virt;
+> +	dma_addr_t cmdbuf_phy;
+> +
+>  	int osequence;
+>  	int csequence;
+>  
+> @@ -89,8 +92,6 @@ struct rockchip_rga {
+>  	spinlock_t ctrl_lock;
+>  
+>  	struct rga_ctx *curr;
+> -	dma_addr_t cmdbuf_phy;
+> -	void *cmdbuf_virt;
+>  
+>  	const struct rga_hw *hw;
+>  };
+> 
+> -- 
+> 2.54.0
+> 
+> 
 
