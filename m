@@ -4,129 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20B3CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CE5CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:48:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8Fa5f40kITuSEbGVJ1r+/ITpMWCupP24sZx+4tXY10=; b=QDjilWHF0xbN78GAAd3CmQi3uf
-	PKxOQ1xzk7x7NEW6iGajJsozxF+1K7MG+kAVjbvW7QgkSBrBVW28QVxX53aIIF0+THS6i+f91e/TU
-	SHmyxlW65LBGC5jgMu2Mrz8G+VA+eTvyhNkZqUbKMX8BQQvQYrtk2qcXW6z/VnLvmJhWsHaHmfGqy
-	Lrhga/R+YJT9nCfbKUKvToa5stnvM032kTj1RF122UzBBHhZEeJrGRFdXOM+uc1uG4eq8ddmjiIEv
-	xDzZuP1qWzt7gsQX4elobdpsd78nK75r5S49GnK2qBQAp9YhOw2b7Xv0cuxn6OM9WYSOwHhXIaS9z
-	5/EseuFg==;
+	bh=4AUUfVdnAMIu1+nXAYd+KcsatPxg6clq+mof5vfIcTA=; b=JiBvaYAJMiZysExYKbqSJZdYAS
+	GikNqe10jKW05dXI0svVkOIsbtYZd9Xeub02x0p+KR6KMV5MORKQE7e/IBp0a6/NXu+WpnY0RJdRy
+	ZtBfVFL+XWbGLSBQDevmLja1xpVOJXY7MsKRad3+Df39e8hieswF6gUjBcHet4ypgYwgLM+Xo5y8E
+	gFCtRrXdIMouFpf6kSYw3tZHPW1YhIcbKTnKQscYU2+5JmhwHasR5LbzAEgJjSearw/EXVqwkBl/G
+	9MiBVpSRDI7djmsPV6ALzidaSC6/Fn1LKmzVpt96EOCF5QeskWaPODiNjMukWvj0p0UKCgHTzo84f
+	MkKElYMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3hS-00000007vwt-1FDz;
-	Thu, 21 May 2026 13:44:34 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wQ3kl-00000007wcr-3FNf;
+	Thu, 21 May 2026 13:47:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3hP-00000007vvd-3W9A
+	id 1wQ3kk-00000007wcV-3bMQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:44:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XHYmRJPaZIk62Iwc+9stwrrU1ZhYABC+zHqjr8kS1LQwaPgcddH334HQGEDDHFZ51qqHmFlhjGoVCx2zCzZP5EkP60gU8vfCLcH/AAJzJIMlE9q7Vc4o2BsaVvsLov5I45TWNUCP6l/kG6KEEN3Ill0mo3cZCR2p2hq9DDkYiKLC2zR1jwxHhkUpl1+iJHYU1fspg3146qUfhsQ0tvWzPriNl52xZw1kxnLIuUK42FyIsKwGgIC5w4WBsbVcvzPqecAI9AYzVddcbpO9d7KlypPfxFrihIJH3aDgm9v3xB6KyDnfrR2jHlj5QL41UAMbsrhqFXmB0gAx+IBjNGykAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=j8Fa5f40kITuSEbGVJ1r+/ITpMWCupP24sZx+4tXY10=;
- b=QWKed5xFGOl2Y0o99/1sVN0mDYmTow6prI6EGMHwycwoamW/0a/o9yZrd4fdZw8a4XDe5E10Ev3E4N+FrN4iFzZATvQJQ5nTbnVsxNYJBywAHy28AVsEjqPyCsvErIsBNtt7Gqoh64WxeXGSpVgNSADAakDlz8Ifj1kCEx0RyXqXSUdax/48QNwlnHT4pwFsfl+HwTBs1mn5GSYZ277D1awkUfj4dtm8ei4IMPU/o3kiNor0vZutvjtEaN8dVF4NSwORu3VeJDxshxro3lLRA3VaOIKuAnrXPDITuCUzo+4MUNqVyjr4f8KS8a/aojyhGY5Bs+49G2iW8V+7k/wI3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=j8Fa5f40kITuSEbGVJ1r+/ITpMWCupP24sZx+4tXY10=;
- b=uOTiGsd9bOGY2l9vJtjqHZpME/bsSFF7zZZCdBaH26NZbbNwVzprnYJC0Dcr1GEeCYq9CB1fny4xao+7XOIttmjX0S4XwD3XGjxnoJwgHpXZg6KVW4q2ngGjlsUwmdaP+5xyx9H+3b30uQ6zkZSZmo/sJ2wDS0jbePtglpZGncNwstWN2VdfA7WwmZ90+0SyvYPMZ8TqDxl2YNVgg53Mr+p0ENobgJA18Zo1meQ+2JoeNwbaeZlpuxXpkRQWbK9Swd4HvG88v55sxvn7IWhrUQsmhkXCkp/cIJDckXJtiQghUnUAaW+VC/j5EL4knaT+BxCeFdnJ6pRhyGn9izLEBg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by DM6PR12MB4354.namprd12.prod.outlook.com (2603:10b6:5:28f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 13:44:11 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%5]) with mapi id 15.21.0048.013; Thu, 21 May 2026
- 13:44:11 +0000
-Date: Thu, 21 May 2026 10:44:09 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, joro@8bytes.org, bhelgaas@google.com,
-	robin.murphy@arm.com, praan@google.com, baolu.lu@linux.intel.com,
-	kevin.tian@intel.com, miko.lenczewski@arm.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	dan.j.williams@intel.com, jonathan.cameron@huawei.com,
-	vsethi@nvidia.com, linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
-Subject: Re: [PATCH v5 3/3] iommu/arm-smmu-v3: Allow ATS to be always on
-Message-ID: <20260521134409.GG3602937@nvidia.com>
-References: <cover.1779304390.git.nicolinc@nvidia.com>
- <b6d2f24356621c504e47633d9e96a7274c2859f3.1779304390.git.nicolinc@nvidia.com>
- <ag43NP4UiS7Z9T6q@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ag43NP4UiS7Z9T6q@Asurada-Nvidia>
-X-ClientProxiedBy: BN9PR03CA0775.namprd03.prod.outlook.com
- (2603:10b6:408:13a::30) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|DM6PR12MB4354:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d13a84e-a6b6-4e00-e06c-08deb73f09cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|56012099003|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: FjkQ1yw3nllFgl2xKtKJM4LCq9w8L4rz9tbtTuLhePoABF1hIImBMsGZUORuxwcDo+UQgMVBdb8GJgu+x0qMYYorSEGffC6JZ5qal/lKWU6V9uQyRSwkrD9xffaBqHCKhKPmbFsLjKicSsttv/6J+s5KrVoLK3IfjMebxgBL9P3K+xmb+a6/Qia3XAzTMuFNMHtjBkTTUMYAakqgxaPXf+hpruMEGa+srA1Uk7qYETmrBzvBzz+fjfWGJbCIJrd+ihzfZ/l1yiZA2rSk56YB8wVy0XVQIOKNo6imv3GccGVdP0qC2g3AgLk5yXSsnXn44APs7rur3tT50IR5h6VRyzuHtMvFE8OzO9EWpgYe9ryA+3v0QGdq1Hcb2ETjOXMfAY/YT0xsL0nhKYt+UOvfJOHCnKZ+ME1DJ1ZJ+eLkEUOoqzEvFgyQaVkhWf+gV0FqHpinoIdvSBh5/2oGc8YAsFpWeyiLkxES5ZTN3FKRGQrIvcbJr3+5zS2r3ZMyCNKy3EwUmD4YP9gFdEJiCHGWsZmhC1C9Yd9+mfhHkTukqYrrrb/5fzV9wK6NvAW/3ufHyuCgsQRaXLJr/lFKWidR4MZqeIQstgyMCoHUJaCb0aLX4AA5C4INFC/77K8PLADHguUbIRRDz6l77gA+JdDwgVZnePugQpniKLjrVQ+tqbUkYNVphY7gvDJx6p5Uunr6
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(56012099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/TKIQihKz8r23lQP2WSz4pmks4g/sWBhWej55/BmwLkeoLTVAdorzdPBAUnc?=
- =?us-ascii?Q?LVkBJuNH/1mDamYIAMNRQsM6qzBHPiUBbcg5eObqBPZ+BEGR9fFyjt9aZE7x?=
- =?us-ascii?Q?oTULmet7PEJRhZbZJJx+CD51ePPvROuPPWNHl/dSitufDL6AyU8PNuhRoSUw?=
- =?us-ascii?Q?U/XDxx/Ml00Esfd/8B1QWGKzi1TJpC98pOtldt3+16qGk5gQc04PrUWmgp13?=
- =?us-ascii?Q?nXR8YTAGn79pGhor8capfDKlLXXzmmo+QOJMmVfwP2pB5HuorGVROenc46qS?=
- =?us-ascii?Q?VflcEi6MNqo69Lk0vlfOswI87l7VEbli26DwgmETddw0ShR+z87ZGC1rwrg9?=
- =?us-ascii?Q?nPDfWU9Yr2GrysldtCGK8+GcVOdNYWLUpA0na2y1qZwQS0mkozOCiScZHFP8?=
- =?us-ascii?Q?U474ttaWn/Vrp0J9HrVEj1vqVS4k32lQtO7BkjlHZac9aoSE3mgewnlc1Wpw?=
- =?us-ascii?Q?mag8v5jqN5ADTr0JIy8ls99UMXCUP4AXRNsTQYqxMa8hax7dpYU71WCz0jId?=
- =?us-ascii?Q?U+OqMIQEaCtveg1KZpJIwfMKPow1kXOQMkFfdMGSusK6um1F3mWpDwxKEZ1M?=
- =?us-ascii?Q?plAXeC07+HWO3nC8zFTVrBhOXf8nzObwU1uY1zpavnxkC3ZGrWnjGefVGFaK?=
- =?us-ascii?Q?fvO8vZLTKmkGdg4/5aCqQonia5LprOucIW8VCy644nG/I8M2LpkyRRN25x+J?=
- =?us-ascii?Q?wneUDh5dp6uEygAOxj2VCZcQJ0aLnrgFfDL2E2r+ZazBu4f/R0bDVnjiZagU?=
- =?us-ascii?Q?YttBKryUh2xdKH6cjN2t0LxXwDPlBprcAD/sjmpWH2z9fFbUKdn9Bqv07Y38?=
- =?us-ascii?Q?+cT08OyoSjY2QKsloG/Zxie3ERDA/QUobdVxvUPMfRIWSqI9OUdRFLKw2XJJ?=
- =?us-ascii?Q?YbT4Bkx6qMrcO4QFKnO/CTOWDBMKe+AStYfO9x7NaOngAv0vTKyPizmYoL9h?=
- =?us-ascii?Q?emRxWYblqxVjavCsE0qD1J5Abnm6DxP4TvOVzOkzZtsXJmD/kROkxAl/b1eb?=
- =?us-ascii?Q?cPin55f/+bpKpYbGYpKeCWJU0+rgZcZwEbg4H+1Kdj8a8P/cr1JhuM6JpvTC?=
- =?us-ascii?Q?g2ex05fjKcHvCLBs2f55zFWx95xXYllwl4acBpQLYznMm0sQbdOtsJQH1yJX?=
- =?us-ascii?Q?irPTUnQYVOZ7tOEhMkEASPtb8+XPHoKTOmXZ9lKTSbWO9a6dnrdhii2zf+6L?=
- =?us-ascii?Q?5brPRYn90PMn2b4Oat/a78lUCai4C2xSRExoEKVHt+Pxe5zj+GyuvgLjWbpk?=
- =?us-ascii?Q?2ZZuacTuqz9/hoJhVq3wDnnwuugVfM56gWKACK4H1A7EzaujWLcVeSGobHVn?=
- =?us-ascii?Q?l75ZXG9n70xq7O7R//Ahr8ydp+XZxRGQuE6/1KmocGKF7EUpiQuyVF14HciR?=
- =?us-ascii?Q?lqirkiLR8PxyqZTfZqFnms3XH4WKdVa9MITsgnV6TKkcEfcKVqv8+LOdV1J9?=
- =?us-ascii?Q?tXA4TkaEsSkmRclQY5taCOa6OAqkqLmfBCCI1SBkvilHoKmULcnzRRgngwKb?=
- =?us-ascii?Q?co10vqF21lyPHadAkuSt1ti8KXyaBKRcgMdfeByeqkLlkiOeayC009KpN1Tb?=
- =?us-ascii?Q?9fPakepCQ/3ghrF9UhmCEgi9SR58dLRxvpCjo2WM1s8njMVzBaZb8fA63IlS?=
- =?us-ascii?Q?sq5C5D/b8rwW4JvOxxExs71vk9CjvyQiHTFmyF5SlKybF3UVwe0Q6Hfa3Kls?=
- =?us-ascii?Q?JNcMIY7bLZ1uhxyTR1nzkSyNtVfLJZay0gEspID5qpTTa8IZ?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d13a84e-a6b6-4e00-e06c-08deb73f09cc
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 13:44:11.0598
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WN2cuEpLCbji/p3aHkkH8HriZHGSPCuc7m3p8msJPsbFJuGCta+fSfte6S8Uw+E6
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4354
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_064431_879204_342D1D07 
-X-CRM114-Status: GOOD (  11.21  )
+	Thu, 21 May 2026 13:47:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1C241601F3;
+	Thu, 21 May 2026 13:47:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7A6D1F00A3B;
+	Thu, 21 May 2026 13:47:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779371277;
+	bh=4AUUfVdnAMIu1+nXAYd+KcsatPxg6clq+mof5vfIcTA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UOGVPcae5hQbVFDj2e3I35YX66lTvphJQZOzzoLKjP43ePS84hdMEye5cu/0W5llX
+	 fRzHsXcAh9wK/CYAKZetHLR/Lq3YmUd9/TTlwjejsi7eNNO0QThR0Nay1fbgw0qXZD
+	 gG4ePzvbblT19K4ndvq120+k/06wpEYZ6om6lH0+767sFPwvFk7wEQELsOXRTy73RG
+	 edy0tT0lAU6MgUU5TnF2DpK5+dyNcxttJjwMbwNxhnL+ntsOophZT0EfNSi1lSAinZ
+	 KLrRXn9MQeaKaRl186ZawxgPD+bOxC8LI5tIFKy3/5gNE2gb5bOdnxYZYPcP62N2H6
+	 bBs2a+ISherEA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQ3kh-00000004qa8-31dB;
+	Thu, 21 May 2026 13:47:55 +0000
+Date: Thu, 21 May 2026 14:47:55 +0100
+Message-ID: <868q9cx4ac.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 08/44] arm64: RMI: Ensure that the RMM has GPT entries for memory
+In-Reply-To: <20260513131757.116630-9-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-9-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,29 +103,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 03:35:32PM -0700, Nicolin Chen wrote:
-> @ -3870,13 +3870,15 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
->          * When the last user of the CD table goes away downgrade the STE back
->          * to a non-cd_table one, by re-attaching its sid_domain.
->          */
-> -       if (!master->ats_always_on &&
-> -           !arm_smmu_ssids_in_use(&master->cd_table)) {
-> +       if (!arm_smmu_ssids_in_use(&master->cd_table)) {
->                 struct iommu_domain *sid_domain =
->                         iommu_driver_get_domain_for_dev(master->dev);
-> +               bool ats_always_on = master->ats_always_on &&
-> +                                    sid_domain->type != IOMMU_DOMAIN_BLOCKED;
-> +               bool downgrade = sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
-> +                                sid_domain->type == IOMMU_DOMAIN_BLOCKED;
+On Wed, 13 May 2026 14:17:16 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> -               if (sid_domain->type == IOMMU_DOMAIN_IDENTITY ||
-> -                   sid_domain->type == IOMMU_DOMAIN_BLOCKED)
-> +               if (!ats_always_on && downgrade)
->                         sid_domain->ops->attach_dev(sid_domain, dev,
->                                                     sid_domain);
+> The RMM maintains the state of all the granules in the system to make
+> sure that the host is abiding by the rules. This state can be maintained
+> at different granularity, per page (TRACKING_FINE) or per region
+> (TRACKING_COARSE). The region size depends on the underlying
+> "RMI_GRANULE_SIZE". For a "coarse" region all pages in the region must
+> be of the same state, this implies we need to have "fine" tracking for
+> DRAM, so that we can delegated individual pages.
+> 
+> For now we only support a statically carved out memory for tracking
+> granules for the "fine" regions. This can be extended in the future to
+> allow modifying the tracking granularity and remove the need for a
+> static allocation.
+> 
+> Similarly, the firmware may create L0 GPT entries describing the total
+> address space. But if we change the "PAS" (Physical Address Space) of a
+> granule then the firmware may need to create L1 tables to track the PAS
+> at a finer granularity.
+> 
+> Note: support is currently missing for SROs which means that if the RMM
+> needs memory donating this will fail (and render CCA unusable in Linux).
+> This effectively means that the L1 GPT tables must be created before
+> Linux starts.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * Moved out of KVM
+> ---
+>  arch/arm64/include/asm/rmi_cmds.h |   2 +
+>  arch/arm64/kernel/rmi.c           | 103 ++++++++++++++++++++++++++++++
+>  2 files changed, 105 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+> index 9179934925c5..9078a2920a7c 100644
+> --- a/arch/arm64/include/asm/rmi_cmds.h
+> +++ b/arch/arm64/include/asm/rmi_cmds.h
+> @@ -33,6 +33,8 @@ struct rmi_sro_state {
+>  } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
+>  	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
+>  
+> +bool rmi_is_available(void);
+> +
+>  unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
+>  void rmi_sro_free(struct rmi_sro_state *sro);
+>  
+> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+> index a14ead5dedda..52a415e99500 100644
+> --- a/arch/arm64/kernel/rmi.c
+> +++ b/arch/arm64/kernel/rmi.c
+> @@ -7,6 +7,8 @@
+>  
+>  #include <asm/rmi_cmds.h>
+>  
+> +static bool arm64_rmi_is_available;
+> +
+>  unsigned long rmm_feat_reg0;
+>  unsigned long rmm_feat_reg1;
+>  
+> @@ -88,6 +90,102 @@ static int rmi_configure(void)
+>  	return 0;
+>  }
+>  
+> +/*
+> + * For now we set the tracking_region_size to 0 for RMI_RMM_CONFIG_SET().
+> + * TODO: Support other tracking sizes (via Kconfig option).
+> + */
+> +#ifdef CONFIG_PAGE_SIZE_4KB
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
+> +#elif defined(CONFIG_PAGE_SIZE_16KB)
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
+> +#elif defined(CONFIG_PAGE_SIZE_64KB)
+> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
+> +#endif
 
-Only identity should remain with the CD S1DSS STE, BLOCKED should
-attach the normal blocking domain still
+Basically, a level 2 mapping. Which means this whole block really is:
 
-Jason
+#define RMM_GRANULE_TRAKING_SIZE	(2 * PAGE_SHIFT - 3)
+
+(adjust for D128 as needed).
+
+> +
+> +/*
+> + * Make sure the area is tracked by RMM at FINE granularity.
+> + * We do not support changing the tracking yet.
+> + */
+> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
+> +{
+> +	while (start < end) {
+> +		unsigned long ret, category, state, next;
+> +
+> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
+> +		if (ret != RMI_SUCCESS ||
+> +		    state != RMI_TRACKING_FINE ||
+> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
+> +			/* TODO: Set granule tracking in this case */
+> +			pr_err("Granule tracking for region isn't fine/conventional: %llx",
+> +			       start);
+> +			return -ENODEV;
+
+How is this triggered? Do we really need to spam the console with
+this? A PA doesn't mean much, and there is no context (stack trace).
+
+If that's not expected, turn this into a WARN_ONCE().
+
+> +		}
+> +		start = next;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static unsigned long rmi_l0gpt_size(void)
+> +{
+> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
+> +				      rmm_feat_reg1));
+> +}
+> +
+> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
+> +{
+> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
+> +
+> +	start = ALIGN_DOWN(start, l0gpt_sz);
+> +	end = ALIGN(end, l0gpt_sz);
+> +
+> +	while (start < end) {
+> +		int ret = rmi_gpt_l1_create(start);
+> +
+> +		/*
+> +		 * Make sure the L1 GPT tables are created for the region.
+> +		 * RMI_ERROR_GPT indicates the L1 table already exists.
+> +		 */
+> +		if (ret && ret != RMI_ERROR_GPT) {
+> +			/*
+> +			 * FIXME: Handle SRO so that memory can be donated for
+> +			 * the tables.
+> +			 */
+> +			pr_err("GPT Level1 table missing for %llx\n", start);
+> +			return -ENOMEM;
+
+If any of this fails, where is the cleanup done? Is that part of the
+missing SRO support that's indicated in the commit message?
+
+> +		}
+> +		start += l0gpt_sz;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rmi_init_metadata(void)
+> +{
+> +	phys_addr_t start, end;
+> +	const struct memblock_region *r;
+> +
+> +	for_each_mem_region(r) {
+> +		int ret;
+> +
+> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
+> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
+> +		ret = rmi_verify_memory_tracking(start, end);
+> +		if (ret)
+> +			return ret;
+> +		ret = rmi_create_gpts(start, end);
+> +		if (ret)
+> +			return ret;
+> +	}
+
+How does this work with, say, memory hotplug?
+
+> +
+> +	return 0;
+> +}
+> +
+> +bool rmi_is_available(void)
+> +{
+> +	return arm64_rmi_is_available;
+> +}
+> +
+>  static int __init arm64_init_rmi(void)
+>  {
+>  	/* Continue without realm support if we can't agree on a version */
+> @@ -101,6 +199,11 @@ static int __init arm64_init_rmi(void)
+>  
+>  	if (rmi_configure())
+>  		return 0;
+> +	if (rmi_init_metadata())
+> +		return 0;
+> +
+> +	arm64_rmi_is_available = true;
+> +	pr_info("RMI configured");
+>  
+>  	return 0;
+>  }
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
