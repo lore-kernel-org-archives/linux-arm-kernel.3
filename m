@@ -4,94 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A081CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C554BCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:49:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jauKNf6YmB3cZhW+7szP4H8kKNn0SlSF8XuPMEW0m3Q=; b=xTNYaE/dA+CL4ltjlZjC+PsPMo
-	fUZDJRqIS0/XB+RkCeo+GQm94zxOIeP88jaHR9WwwPjB7md9t2kC3PUDq7dYBapkdt+oTiRHJsXES
-	a5dU1s+dh7pRVOhvBxYe7882b/krGZ9kDvGa6iI+xhf0TNyF8W7kcxzJhOIWiIsWaajH7vPF6xHtq
-	ZdUduPFHsBJ71T+nu8x2Tqi5pb4n+OTReXxbRpPp/2E48vFf8AxRnrLU8pHUkEZkK7p0rsGwo2dFe
-	WJu0YsTe5gDuIxs3gWMnhDuDJmyO44vSKaI4irWzYG+KAksq7txBEetK/wnpCQY24fGO0oiMHQrIy
-	Y0DlD6QQ==;
+	bh=Gay789DqOuuDMBG6ufrA9+l88sHJCOMD+TgevxOlQlA=; b=JDvjffYndj9qG0tAJPSHKcgaaW
+	iVogdgjlgWxaQ1HCIoU8SDD9FjnmgzTj8BJrJ0rj2YuyOxBIxVcsF0o2C8qU2GIfPCGyrccLaahYu
+	CIDPA8LqfLHXhAI8pmSZtnOS8I7kwDqBlr1yquOp75WO1IVgFGRFkfPh5NKlxA3NDscgqMgMdsEyI
+	cGWQxUb3z8/ANiXAl00/JyGORKUTAMJE4WpnCcyymdr61ecCIy3FaovNJzUyHEM6WtkBFIC6VEDig
+	D/Z/7wvXvqCQl8tMZAlAbUFo7ezQ3XB5j6/3FKA8FPOE4wocrnOdRN2Q3XXGOqywUtwS7Oe14dpgP
+	nv8T8E+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2pl-00000007lqI-2Q0b;
-	Thu, 21 May 2026 12:49:05 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wQ2pq-00000007lsq-3Enq;
+	Thu, 21 May 2026 12:49:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2pi-00000007lpI-3QcZ
+	id 1wQ2pp-00000007lsE-1Drt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 12:49:03 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ2pZ-0001I8-Dh; Thu, 21 May 2026 14:48:53 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ2pY-0016dZ-1K;
-	Thu, 21 May 2026 14:48:52 +0200
-Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ2pY-00000004ViT-3Xge;
-	Thu, 21 May 2026 14:48:52 +0200
-Date: Thu, 21 May 2026 14:48:52 +0200
-From: Michael Tretter <m.tretter@pengutronix.de>
-To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Cc: Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@pengutronix.de,
-	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
-	p.zabel@pengutronix.de,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Subject: Re: [PATCH v7 07/28] media: rockchip: rga: use clk_bulk api
-Message-ID: <ag7_NEcMObnGz-ml@pengutronix.de>
-Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
-	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
-	Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@pengutronix.de,
-	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
-	p.zabel@pengutronix.de,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
- <20260521-spu-rga3-v7-7-3f33e8c7145f@pengutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260521-spu-rga3-v7-7-3f33e8c7145f@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_054902_852465_4D2118E5 
-X-CRM114-Status: GOOD (  23.03  )
+	Thu, 21 May 2026 12:49:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 72AE560212;
+	Thu, 21 May 2026 12:49:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24F871F000E9;
+	Thu, 21 May 2026 12:49:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779367748;
+	bh=Gay789DqOuuDMBG6ufrA9+l88sHJCOMD+TgevxOlQlA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=FeWHKF6dczrLRkFyvNfnWdL1BEMe+IW2yMd3n9NlQlG+QX6QEUfx1sS2qFSQ2ahwA
+	 c6NjllYJ7bFNmt9unFLcTd2sSI+yFjIHB/F0vxVLWhnE3zutMMzS9DxcjGtdxsIWke
+	 QwC+8V8+lCFtyUs1dqYtVTDG9SGRj+MWvTWQjRY04MGIelzDgubivCRcvD8GtRqK9k
+	 xirAZ3WAESZF7xHFg7CcMx3qnWaZrbABdAriqpaTHOmTrZ3jENPU84xumwlGQTcSXo
+	 4szDbEBgiCb7ooQ0PVI7JxLRsMMQWFyxroqw6Up6hX8spQRINH9mYg24u715OWONiN
+	 JlVuqJSiLCpJg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQ2pm-00000004owX-0kPM;
+	Thu, 21 May 2026 12:49:06 +0000
+Date: Thu, 21 May 2026 13:49:05 +0100
+Message-ID: <86cxypvsfy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 05/44] arm64: RMI: Add wrappers for RMI calls
+In-Reply-To: <20260513131757.116630-6-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-6-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,151 +103,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 00:44:12 +0200, Sven Püschel wrote:
-> Use the clk_bulk API to avoid code duplication for each of the three
-> clocks.
+On Wed, 13 May 2026 14:17:13 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+> The wrappers make the call sites easier to read and deal with the
+> boiler plate of handling the error codes from the RMM.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
->  drivers/media/platform/rockchip/rga/rga.c | 65 ++++---------------------------
->  drivers/media/platform/rockchip/rga/rga.h |  6 +--
->  2 files changed, 11 insertions(+), 60 deletions(-)
+> Changes from v13:
+>  * Update to RMM v2.0-bet1 spec including some SRO support (there still
+>    some FIXMEs where SRO support is incomplete).
+> Changes from v12:
+>  * Update to RMM v2.0 specification
+> Changes from v8:
+>  * Switch from arm_smccc_1_2_smc() to arm_smccc_1_2_invoke() in
+>    rmi_rtt_read_entry() for consistency.
+> Changes from v7:
+>  * Minor renaming of parameters and updated comments
+> Changes from v5:
+>  * Further improve comments
+> Changes from v4:
+>  * Improve comments
+> Changes from v2:
+>  * Make output arguments optional.
+>  * Mask RIPAS value rmi_rtt_read_entry()
+>  * Drop unused rmi_rtt_get_phys()
+> ---
+>  arch/arm64/include/asm/rmi_cmds.h | 661 ++++++++++++++++++++++++++++++
+>  1 file changed, 661 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/rmi_cmds.h
 > 
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-> index fea63b94c5f3d..4e710a050cb7c 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -698,48 +698,10 @@ static const struct video_device rga_videodev = {
->  	.device_caps = V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING,
->  };
->  
-> -static int rga_enable_clocks(struct rockchip_rga *rga)
-> -{
-> -	int ret;
-> -
-> -	ret = clk_prepare_enable(rga->sclk);
-> -	if (ret) {
-> -		dev_err(rga->dev, "Cannot enable rga sclk: %d\n", ret);
-> -		return ret;
-> -	}
-> -
-> -	ret = clk_prepare_enable(rga->aclk);
-> -	if (ret) {
-> -		dev_err(rga->dev, "Cannot enable rga aclk: %d\n", ret);
-> -		goto err_disable_sclk;
-> -	}
-> -
-> -	ret = clk_prepare_enable(rga->hclk);
-> -	if (ret) {
-> -		dev_err(rga->dev, "Cannot enable rga hclk: %d\n", ret);
-> -		goto err_disable_aclk;
-> -	}
-> -
-> -	return 0;
-> -
-> -err_disable_aclk:
-> -	clk_disable_unprepare(rga->aclk);
-> -err_disable_sclk:
-> -	clk_disable_unprepare(rga->sclk);
-> -
-> -	return ret;
-> -}
-> -
-> -static void rga_disable_clocks(struct rockchip_rga *rga)
-> -{
-> -	clk_disable_unprepare(rga->sclk);
-> -	clk_disable_unprepare(rga->hclk);
-> -	clk_disable_unprepare(rga->aclk);
-> -}
-> -
->  static int rga_parse_dt(struct rockchip_rga *rga)
->  {
->  	struct reset_control *core_rst, *axi_rst, *ahb_rst;
-> +	int ret;
->  
->  	core_rst = devm_reset_control_get(rga->dev, "core");
->  	if (IS_ERR(core_rst)) {
-> @@ -771,23 +733,12 @@ static int rga_parse_dt(struct rockchip_rga *rga)
->  	udelay(1);
->  	reset_control_deassert(ahb_rst);
->  
-> -	rga->sclk = devm_clk_get(rga->dev, "sclk");
-> -	if (IS_ERR(rga->sclk)) {
-> -		dev_err(rga->dev, "failed to get sclk clock\n");
-> -		return PTR_ERR(rga->sclk);
-> -	}
-> -
-> -	rga->aclk = devm_clk_get(rga->dev, "aclk");
-> -	if (IS_ERR(rga->aclk)) {
-> -		dev_err(rga->dev, "failed to get aclk clock\n");
-> -		return PTR_ERR(rga->aclk);
-> -	}
-> -
-> -	rga->hclk = devm_clk_get(rga->dev, "hclk");
-> -	if (IS_ERR(rga->hclk)) {
-> -		dev_err(rga->dev, "failed to get hclk clock\n");
-> -		return PTR_ERR(rga->hclk);
-> +	ret = devm_clk_bulk_get_all(rga->dev, &rga->clks);
-> +	if (ret < 0) {
+> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+> new file mode 100644
+> index 000000000000..04f7066894e9
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/rmi_cmds.h
+> @@ -0,0 +1,661 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023 ARM Ltd.
+> + */
+> +
+> +#ifndef __ASM_RMI_CMDS_H
+> +#define __ASM_RMI_CMDS_H
+> +
+> +#include <linux/arm-smccc.h>
+> +
+> +#include <asm/rmi_smc.h>
+> +
+> +struct rtt_entry {
+> +	unsigned long walk_level;
+> +	unsigned long desc;
+> +	int state;
+> +	int ripas;
+> +};
+> +
+> +#define RMI_MAX_ADDR_LIST	256
+> +
+> +struct rmi_sro_state {
+> +	struct arm_smccc_1_2_regs regs;
+> +	unsigned long addr_count;
+> +	unsigned long addr_list[RMI_MAX_ADDR_LIST];
+> +};
+> +
+> +#define rmi_smccc(...) do {						\
+> +	arm_smccc_1_1_invoke(__VA_ARGS__);				\
+> +} while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
+> +	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
+> +
+> +unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
+> +void rmi_sro_free(struct rmi_sro_state *sro);
+> +
+> +/**
+> + * rmi_rmm_config_set() - Configure the RMM
+> + * @cfg_ptr: PA of a struct rmm_config
+> + *
+> + * Sets configuration options on the RMM.
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
+> +
+> +	return res.a0;
+> +}
+> +
+> +/**
+> + * rmi_rmm_activate() - Activate the RMM
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_rmm_activate(void)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_RMM_ACTIVATE, &res);
+> +
+> +	return res.a0;
+> +}
+> +
+> +/**
+> + * rmi_granule_tracking_get() - Get configuration of a Granule tracking region
+> + * @start: Base PA of the tracking region
+> + * @end: End of the PA region
+> + * @out_category: Memory category
+> + * @out_state: Tracking region state
+> + * @out_top: Top of the memory region
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_granule_tracking_get(unsigned long start,
+> +					   unsigned long end,
+> +					   unsigned long *out_category,
+> +					   unsigned long *out_state,
+> +					   unsigned long *out_top)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_TRACKING_GET, start, end, &res);
+> +
+> +	if (out_category)
+> +		*out_category = res.a1;
+> +	if (out_state)
+> +		*out_state = res.a2;
+> +	if (out_top)
+> +		*out_top = res.a3;
+> +
+> +	return res.a0;
+> +}
+> +
+> +/**
+> + * rmi_gpt_l1_create() - Create a Level 1 GPT
+> + * @addr: Base of physical address region described by the L1GPT
+> + *
+> + * Return: RMI return code
+> + */
+> +static inline int rmi_gpt_l1_create(unsigned long addr)
+> +{
+> +	struct arm_smccc_res res;
+> +
+> +	arm_smccc_1_1_invoke(SMC_RMI_GPT_L1_CREATE, addr, &res);
+> +
+> +	if (RMI_RETURN_STATUS(res.a0) == RMI_INCOMPLETE) {
+> +		/* FIXME */
 
-This changes the behavior since the call is now successful if there are
-no clocks specified in the device tree. Is this an intended change?
+Is that part of the SRO stuff you're talking about in the notes?
+What is the ETA for fixing all these FIXMEs?
 
-Michael
+Thanks,
 
-> +		dev_err(rga->dev, "failed to get clocks\n");
-> +		return ret;
->  	}
-> +	rga->num_clks = ret;
->  
->  	return 0;
->  }
-> @@ -935,7 +886,7 @@ static int __maybe_unused rga_runtime_suspend(struct device *dev)
->  {
->  	struct rockchip_rga *rga = dev_get_drvdata(dev);
->  
-> -	rga_disable_clocks(rga);
-> +	clk_bulk_disable_unprepare(rga->num_clks, rga->clks);
->  
->  	return 0;
->  }
-> @@ -944,7 +895,7 @@ static int __maybe_unused rga_runtime_resume(struct device *dev)
->  {
->  	struct rockchip_rga *rga = dev_get_drvdata(dev);
->  
-> -	return rga_enable_clocks(rga);
-> +	return clk_bulk_prepare_enable(rga->num_clks, rga->clks);
->  }
->  
->  static const struct dev_pm_ops rga_pm = {
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-> index 72a28b120fabf..2db10acecb405 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -6,6 +6,7 @@
->  #ifndef __RGA_H__
->  #define __RGA_H__
->  
-> +#include <linux/clk.h>
->  #include <linux/platform_device.h>
->  #include <media/videobuf2-v4l2.h>
->  #include <media/v4l2-ctrls.h>
-> @@ -81,9 +82,8 @@ struct rockchip_rga {
->  	struct device *dev;
->  	struct regmap *grf;
->  	void __iomem *regs;
-> -	struct clk *sclk;
-> -	struct clk *aclk;
-> -	struct clk *hclk;
-> +	struct clk_bulk_data *clks;
-> +	int num_clks;
->  	struct rockchip_rga_version version;
->  
->  	/* vfd lock */
-> 
-> -- 
-> 2.54.0
-> 
-> 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
