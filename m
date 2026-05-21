@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80A88CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 21:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6830CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 21:31:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sy4BKpHNHM+d+C5MQaz0Pfp3rV7HUmKvJcZNuYOmGCA=; b=iZ1Ycl01E8TRLk3de/VzmEqI76
-	g3vPVkZ0sgkhaH023L6jcn3itEElfPVL6ePhsu/Z5OHaby4PwRdf5VSJlh0BoB535a+2GfCAiwbwg
-	Q68zaNd8USp1rdR8c2wppJtQHDmZJnHetdrmizHzjcXR5G7D6m+cOLMzbmujULANtY0eb1pQ/JKvF
-	0bBJBboHl4l9PT2CuGu2LGXlHWrkLGcJ7lVAT24USUSrKfY9Q2MZ0QioMaBIyizXJ7/A4CihNlfIA
-	2j/gb4Z9jSNx1SsbxJ1dYnI+Ha1NbguCQ2tvuZemi1+CMfX6iWtKH1egBtK750sLm+8X2W8CPwm2E
-	bca6h1ZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=tq+kuMc+QiIEzKRijb2ZvXgAy//G+v1mhZJfU/LS4n0=; b=DlQuFI2unbx/xf
+	C0SNArhOeuLXwpabHwA1zuQyQkJUYWN3e9vH5WtdhMnWctjPz3x+Sz1GZbIFwiza635YOJQe01Ldr
+	g4fpUTczZtgvp3rX5hKM/ASH3NuSthbLH5GUmaRb3VOxdc/YpcOZnIggKvQsFyYn3NNAncfqYYdbZ
+	0RBlXmk4KB2zmiNbuJCyz9pV0395DSAxMvfVe5LRjpa7evltVNkvp7NXKkFDMCgkLbrNawxlQYOGO
+	bCnxHj649fT7l8e7QpPIpqdrR8vIo8nvwi6Rtx5w+235Z4mMR7kD5izyTt/GI6lREFHF0jUUI2Pj9
+	klnRK8bAH59L1C4iBM7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQAiI-000000096dp-0kBs;
-	Thu, 21 May 2026 21:13:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wQAzI-000000098Q6-3lQs;
+	Thu, 21 May 2026 21:31:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQAiG-000000096dT-1IFD;
-	Thu, 21 May 2026 21:13:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Sy4BKpHNHM+d+C5MQaz0Pfp3rV7HUmKvJcZNuYOmGCA=; b=dRlk4x/TVNfepMEunR/XV2wW7L
-	+WXTOyoyTUWwOxrmoxDIbupQ6QBb7znQJlAD3qmn1PhbXU34c9c4XpvLGIIz4kYGmiPpFk88o4jVF
-	NGN4JtqfKA3NGtTCtb1+Wq/KIHlbJWtJobTsFhmnPGrHlRpdIAqo2ihKpryJXmjGiOfpUVrOsqsrt
-	VQbQE9ThBCrzU+vqwxg4seKk3Fq3PWvuD+GttqyZopEwDBNhETZnimPE7Ecr1hUqDcleooMIdyFvG
-	/se18GXFughT6PzGlk5+phHuHJTjRyUa8gGT3wN4LEwVxOBCCrY/3GAv4upZVXuyvWXaau9eGXQ7d
-	CRKoR7fg==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQAiC-00000002xRu-0ey0;
-	Thu, 21 May 2026 21:13:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Sy4BKpHNHM+d+C5MQaz0Pfp3rV7HUmKvJcZNuYOmGCA=; b=M5tdlvk2EZxV1mvppezSooHfQG
-	VAniydlKL1Ot1Fgfr0pur2EWaHcb4YnxDtLKOYP25T8rmUcf9rmzdxIp51bRlmCC6GYWtIzC0XLBp
-	rbP/jf8iJHYXlpLxYqiJic8r8+umWHLXnHHzAYpDyhHRxIWDmwwPnOLZUaIODWy/9aZKgz4i9vY/P
-	SJiRxJHRFZV+s127ZrNwDhldbuD01dtGLeeB9r5micviUE8Cgoqax2oWhtRs1oT+3vw1Hx/jz+/Wv
-	+F0fOWjU1j675w03m96k90rAakIbhc69K55T8o5j9KYp3UjotNiR+6zkgGoyFVKkh0wXXsfPBaYhz
-	bXfqFfiw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Philipp Zabel <p.zabel@pengutronix.de>, Steven Price <steven.price@arm.com>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH] ARM: rockchip: keep reset control around
-Date: Thu, 21 May 2026 23:13:46 +0200
-Message-ID: <12983716.zapYfy813O@phil>
-In-Reply-To: <20260521210915.2331176-1-heiko@sntech.de>
-References: <20260521210915.2331176-1-heiko@sntech.de>
+	id 1wQAzI-000000098Pe-0Jlh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 21:31:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 734FE60122;
+	Thu, 21 May 2026 21:31:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id F39AD1F000E9;
+	Thu, 21 May 2026 21:31:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779399085;
+	bh=tq+kuMc+QiIEzKRijb2ZvXgAy//G+v1mhZJfU/LS4n0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=Tv8O9OLXEPBkfCCuuxsSqZS+6Bsb+7fPrUiD2mA4bm6j9P1ujSYv9AU93zw5qh9Yv
+	 1T3V+gyCtSG/9uFWAY5zyg1bUu7FsDjM3owiTX5V3qoE9jPHrUIHCb0ZImi6hTBjwt
+	 nviCpsUO40DOCMDmk+GREpA2xkVp71W+3ghkN4g2hTJBPH53VBjqsrxuAlB2BcC/ys
+	 wS6hZFXvXeQN4W5CAzz+r6AqBAKCVdDRbarASPAJIzrAFJ5b6BNHjpfkUW4hZRDGf9
+	 Oaov6wCYIhtV+2Z/Ek/gmOiB/Bw+pm7clsGqUhwILoOKHSUtj9nZv90dG5qeUHXVHL
+	 trRrOwr0MSfhw==
+Date: Thu, 21 May 2026 16:31:23 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	bhelgaas@google.com, praan@google.com, baolu.lu@linux.intel.com,
+	kevin.tian@intel.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	dan.j.williams@intel.com, jonathan.cameron@huawei.com,
+	vsethi@nvidia.com, linux-cxl@vger.kernel.org, nirmoyd@nvidia.com
+Subject: Re: [PATCH v6 1/3] PCI: Add pci_ats_required() for CXL.cache capable
+ devices
+Message-ID: <20260521213123.GA186424@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_221348_740854_F79AE2BD 
-X-CRM114-Status: GOOD (  21.16  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ag90FlOaljwa0qqU@Asurada-Nvidia>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,85 +73,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 21. Mai 2026, 23:09:15 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Heiko Stuebner:
-> Do not put the reset control, retain exclusive control over it.
-> After turning on a CPU, the corresponding reset line must stay
-> deasserted.
->=20
-> This also avoids calling reset_control_put() before workqueues
-> are operational.
->=20
-> Fixes: 78ebbff6d1a0 ("reset: handle removing supplier before consumers")
-> Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
-> Tested-by: Steven Price <steven.price@arm.com>
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+On Thu, May 21, 2026 at 02:07:34PM -0700, Nicolin Chen wrote:
+> On Thu, May 21, 2026 at 03:57:23PM -0500, Bjorn Helgaas wrote:
+> > On Thu, May 21, 2026 at 01:34:20PM -0700, Nicolin Chen wrote:
+> > > +bool pci_ats_required(struct pci_dev *pdev)
+> > > +{
+> > > +	if (!pci_ats_supported(pdev))
+> > > +		return false;
+> > > +
+> > > +	/* A VF inherits its PF's requirement for ATS function */
+> > > +	if (pdev->is_virtfn)
+> > > +		pdev = pci_physfn(pdev);
+> > > +
+> > > +	return pci_cxl_ats_required(pdev);
+> > 
+> > I acked this before I saw this sashiko feedback, which looks like a
+> > legit issue to me:
+> > 
+> >   Will this VF inheritance logic ever be reached?
+> > 
+> >   According to the PCIe SR-IOV specification (section 9.3.3.1), VFs do
+> >   not implement the ATS Extended Capability, which means pdev->ats_cap
+> >   is always 0 for VFs.
 
-=46orgot to add Bartosz to the Cc list, sorry
+Huh.  I wish sashiko would include the spec revision because that sure
+looks wrong.  In PCIe r7.0, there is no sec 9.3.3.1.  In PCIe r6.0,
+sec 9.3.3.1 is the SR-IOV Extended Capability, which doesn't mention
+ATS.  In both, sec 10.5.1 is the ATS Extended Capability and says both
+PFs and VFs can implement it.
 
+So I think this is OK as-is:
 
-Heiko
-
-> ---
->  arch/arm/mach-rockchip/platsmp.c | 16 ++++++++++------
->  1 file changed, 10 insertions(+), 6 deletions(-)
->=20
-> diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/pl=
-atsmp.c
-> index f432d22bfed8..f659d894bfae 100644
-> --- a/arch/arm/mach-rockchip/platsmp.c
-> +++ b/arch/arm/mach-rockchip/platsmp.c
-> @@ -34,6 +34,7 @@ static int ncores;
-> =20
->  static struct regmap *pmu;
->  static int has_pmu =3D true;
-> +static struct reset_control *cpu_rstc[4];
-> =20
->  static int pmu_power_domain_is_on(int pd)
->  {
-> @@ -64,9 +65,11 @@ static struct reset_control *rockchip_get_core_reset(i=
-nt cpu)
->  static int pmu_set_power_domain(int pd, bool on)
->  {
->  	u32 val =3D (on) ? 0 : BIT(pd);
-> -	struct reset_control *rstc =3D rockchip_get_core_reset(pd);
-> +	struct reset_control *rstc;
->  	int ret;
-> =20
-> +	rstc =3D pd < ARRAY_SIZE(cpu_rstc) ? cpu_rstc[pd] : ERR_PTR(-EINVAL);
-> +
->  	if (IS_ERR(rstc) && read_cpuid_part() !=3D ARM_CPU_PART_CORTEX_A9) {
->  		pr_err("%s: could not get reset control for core %d\n",
->  		       __func__, pd);
-> @@ -100,11 +103,8 @@ static int pmu_set_power_domain(int pd, bool on)
->  		}
->  	}
-> =20
-> -	if (!IS_ERR(rstc)) {
-> -		if (on)
-> -			reset_control_deassert(rstc);
-> -		reset_control_put(rstc);
-> -	}
-> +	if (!IS_ERR(rstc) && on)
-> +		reset_control_deassert(rstc);
-> =20
->  	return 0;
->  }
-> @@ -312,6 +312,10 @@ static void __init rockchip_smp_prepare_cpus(unsigne=
-d int max_cpus)
->  		ncores =3D ((l2ctlr >> 24) & 0x3) + 1;
->  	}
-> =20
-> +	/* Collect cpu core reset control for each core */
-> +	for (i =3D 0; i < ncores; i++)
-> +		cpu_rstc[i] =3D rockchip_get_core_reset(i);
-> +
->  	/* Make sure that all cores except the first are really off */
->  	for (i =3D 1; i < ncores; i++)
->  		pmu_set_power_domain(0 + i, false);
->=20
-
-
-
-
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
