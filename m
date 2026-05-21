@@ -4,73 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48895CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E69CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hVPrZCD+coHGpNa0YIBuPsQX/qkRW6hAr9QMIdvd5Xw=; b=hqqigEgQCvrpEzDMdQ6KBsBg+Q
-	iKB8R6sbUgM+yRQVOaC3/e8+fV0eHYyxbEshVfxjSuin7n55qpyNnAA0ub145Z86118CJiJZ0gj9p
-	8pOEYbVJKgD2lWDkLv5+vZrJtTDyMyVGqY/mwYa6hAZe51+oq4+uDnQYk4bKxCq3f/T0FmN/UaiHZ
-	ZmFxEYiGPsKYECAvL3F5ls+4j+iZjBLiGoQl+Hwiv+pHYRrzSdOGfuGZEPj8RKFFphDD/nDQwYfYh
-	ygNc27DWpUOi2Eln+iSD3eDIIWaIpZOcGOHZIND3n+rrxYm4VYZCQeKYN0Dn3mw/rW2b8sH1TWHsU
-	LIP6tuyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D6BscWoRfoF5G2iEIlMgQxNFZ2Pew7ZRjTmGHaq5Wuo=; b=F95mdeFlQw/TLkTDxeICSoCoh3
+	JoTi1wKBjWTiMt+cvnvFsMKhrwhrm7ix1xBQyMzoxLxP/GbPeun3/iN+5vaLAX2Sn9k3RYS9lqIBk
+	KKlN8ehf3pv5QJ+tJRUfSgRX+124ULxrKb90rDGsrOmuQ+K2J6iiwHm55KLxbuXcYNlFuKm6JCgpo
+	Uf3fJpwwGm2aqDPygR43KDXJOYqjIuStEYdXJKPEy8DGhTAZKiq6nbL0Mpv47FbZLE+bFHWkCgL11
+	PselNLP8AM7M42/D3ytWb7Jejec2enBylR/8JsNQoZmAkR4sVwcnWT1E0WEZPv8f3sYmc2yRk9nh8
+	+O9/E9yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4S4-000000084dX-1mWR;
-	Thu, 21 May 2026 14:32:44 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wQ4Sk-000000084qL-2ZJj;
+	Thu, 21 May 2026 14:33:26 +0000
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4S2-000000084ci-0QyY;
-	Thu, 21 May 2026 14:32:43 +0000
-Date: Thu, 21 May 2026 16:32:39 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1779373960;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hVPrZCD+coHGpNa0YIBuPsQX/qkRW6hAr9QMIdvd5Xw=;
-	b=lSMj5lBXBIp3M8gIdnnq/1uQEZ0Mf52/hkfA9o4DW3umiPSjka+xZh5gb8SboPn6x6Lkf6
-	x2fEqaApnRcLJ+p0hqdnFQq8TgsI3xg+vFm6TRGfCm7NrTFBhqvHF1DxA7QhYuigoTm0pC
-	bYrrNbnDY0fwcMwZroDEC/ScwqTl9PEdAd1YecWdleM6otntMxTUCw7J3jggKM3hQvzpQ6
-	b7zAfYqZuegxpMbMA2+3B6zoIJa499KeP9bmgBCHPam+rnzvkpb8YXWyCsvIo5uaCkOfJH
-	1QuzGkQzfHQUcRoiNU1BXQCjlZ14IIEkFlH5Kojr+iVqBXG9DL30pPRh05kHKw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1779373960;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hVPrZCD+coHGpNa0YIBuPsQX/qkRW6hAr9QMIdvd5Xw=;
-	b=kaHE5VX3I6PELgMgGQXQb65vmYnq1tflZkIqVHQ+vQe7t4TMdg7qjYQvuQBJKGVYZk21+L
-	d4kfp1ZaLZeijtDg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Gregor Herburger <gregor.herburger@linutronix.de>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
-	Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v5 2/8] nvmem: core: Enforce stride and alignment checks
- for nvmem_device functions
-Message-ID: <20260521163223-0b54b648-5272-43ad-a837-cc5364484b6a@linutronix.de>
-References: <20260520-rpi-otp-driver-v5-0-b26e5908eeac@linutronix.de>
- <20260520-rpi-otp-driver-v5-2-b26e5908eeac@linutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260520-rpi-otp-driver-v5-2-b26e5908eeac@linutronix.de>
+	id 1wQ4Sh-000000084ox-49Eb
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 14:33:25 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-680ff5fbf99so6941613a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:33:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779374001; x=1779978801; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=D6BscWoRfoF5G2iEIlMgQxNFZ2Pew7ZRjTmGHaq5Wuo=;
+        b=QWK6mlZMFV10UwQKha7ubV5g9fCXXcTIqc+6kTW9Q1KdmbcyNk/JWL0aafnjHNLpww
+         Pl+Zai6qR6EDzS+iJHYL6Ip6IZkgV5P+0eYG0WI4VMWqxuSnXGFQjvC/WK4ogMxNLVu+
+         nBeqj7ICs6seUpRKseRusjUGRTSy2VSsKyrXII74sIZXcdkDxlEVR6zmESGfWyI0mCTL
+         aTUWAabAFMw3SYXq2dD6cs40T2lfJgoWlgERNyK30S74IpNG5GB7oRT5k44FGKvtsYjC
+         Xxx+BHjs4seUDpv49wgDO0M5XljCzAzUZRIvtiLbZwYU4xfHgl1Qyzxryc0tbIfkFjUG
+         jsWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779374001; x=1779978801;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=D6BscWoRfoF5G2iEIlMgQxNFZ2Pew7ZRjTmGHaq5Wuo=;
+        b=asI4m1puJW4FAmOAZDqLqkkhsAhnHrnMYHA2bTCNgsdny0Ee0FNyX3dDTwh2UcVBWs
+         rgvHY2FdwHAvu1gRi9FGCbO1oHgrrtNq2BDt4mn8jBJ7faagiRcDc0t9D8RukThTZpc2
+         gNnNkge2uvSfEaBNpHrKiH0xAK9uSmQ9yFdn6eUnEuRlKVtscCe+a2e8IdzvGZoxeoml
+         oUwMT5GESzXqKFxhcq/bcGB3mHRFDBZWd13marShKFuQbgrASOGYJ2jPamAS3nOaajyM
+         pBNRfpPcBTSKZxzSUJyCU0LB05ZygLcL7ny6eZdRDo8msiFBmyzkk833ONQss7P9b3nK
+         X73g==
+X-Gm-Message-State: AOJu0Yw42N5Fr39zUrZQbinURR0jxsaGHArgtBEMDNK6sco45shqFUS1
+	9ZZzidMH+YwV4HSW27z18GmwGrEVOdt4VOEfSzZW41wtcY872FKfRUtGmnw6GF+u+//P0q8AGAm
+	l0WcXpfdfKwC7W41U/kLYcA==
+X-Received: from edyc13.prod.google.com ([2002:aa7:df0d:0:b0:67c:3c95:d0cf])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6402:2694:b0:687:cfde:ddb2 with SMTP id 4fb4d7f45d1cf-688361e0fc2mr1758793a12.11.1779374001206;
+ Thu, 21 May 2026 07:33:21 -0700 (PDT)
+Date: Thu, 21 May 2026 15:33:15 +0100
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
+Message-ID: <20260521143318.1002172-1-vdonnefort@google.com>
+Subject: [PATCH v3 0/3] Fix __pkvm_init_vm error path
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, qperret@google.com, tabba@google.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_073242_577435_87216C3A 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260521_073324_035394_2111D21B 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,23 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 04:27:54PM +0200, Gregor Herburger wrote:
-> The stride and word_size attributes in the nvmem_config struct are
-> currently only used when reading/writing through sysfs functions
-> bin_attr_nvmem_read/bin_attr_nvmem_write and in the nvmem_cell api.
-> Reads and writes with nvmem_device_write/nvmem_device_read still allow
-> unaligned access.
-> 
-> Add a check to these functions to enforce word_size and stride_length
-> aligned reads and writes.
-> 
-> Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+Sashiko reported a potential refcount leak in the unlikely case where
+insert_vm_table_entry fails.
 
-Reviewed-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+While at it, I have added a fail-safe to __pkvm_hyp_donate_host to ensure this
+function doesn't allow leaking refcounted pages.
 
-> ---
->  drivers/nvmem/core.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+Changes since v3:
+ 
+  * Enforce order-0 for external pages, making the vmemmap ->order field
+    completely private to hyp_pool.
 
-(...)
+Changes since v2 (https://lore.kernel.org/all/20260521102149.804874-1-vdonnefort@google.com/):
+  
+  * Proactively init hyp_page order field in hyp_pool_init  
+
+v1 (https://lore.kernel.org/all/20260521081250.655226-1-vdonnefort@google.com/)
+
+Vincent Donnefort (3):
+  KVM: arm64: Reset page order in pKVM hyp_pool
+  KVM: arm64: Fix __pkvm_init_vm error path
+  KVM: arm64: Add fail-safe for refcounted pages in
+    __pkvm_hyp_donate_host
+
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  1 +
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         | 35 +++++++++++++------
+ arch/arm64/kvm/hyp/nvhe/page_alloc.c          | 21 ++++++++---
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |  4 ++-
+ 4 files changed, 45 insertions(+), 16 deletions(-)
+
+
+base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
+-- 
+2.54.0.746.g67dd491aae-goog
+
 
