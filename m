@@ -4,141 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EFCFCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BF6CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:43:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=naQO34UUyOAr6M+zWdJK0EE7IP/dorwJ9ipS3j6L+P4=; b=JYWdszHaJQPq/fIrH82yaMX/tQ
-	8thKFbEGijKwgtDWEyOE6UM2in2uXKM3D9f+Hculdm5Nc17Qw+KVIo1T8feCgm4nMXqGOklpKdyEh
-	Ylb1sKE60lqg2SWknWOXvkBu9uQIvKzYGxD9Yna5d95C8BwB/Xh8WCqHAHTfWNK23IeEJNxHD0DV0
-	tdZgIKSVFepSlj+S9lyG6RRQkAGbyK52HbFa6NmiVuJ3AW97q71upoi4z1v+qg1LOWWSq8QUDmL4j
-	R5gxDb7nhi4s/mY09tdKGg/ssGeEQmj2Q7ehBOu5xdohvtNueqEzuXcXhZvnp6pRGUZ/9VuzjNRki
-	lVYz428A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qW+loHjVggbBFbzBCEdGIx8+uUjeaYhivWHjdhUVl44=; b=sWnj+64B20XcOoMG6hcu0dJ8jo
+	M9ZHkpr400Pyg0NpNVRoo6hyERe0qBrPIBX1o4FTNFLrPLs1WlsZK6WW5arncn7Utk77vFN28FE6S
+	Z9RGaBhxgivLz3kiLYcl5y+L1PgUu8EHH+xnkcXUH64/oV0csSZ71Poyf8c54le4pZ863xHhIkyLs
+	tXu+kdnL8U3Bi4SaAHfB0CVpDgFzAVoIcVuRaGyRrVs9VZu7Ct1E1r9GcFvtKbuGGTiFIy9HKNMzz
+	5lFTzimrX0Q/LJKs3BZ3ccxIUpXiLJM/s2eQLPCJ+Mj50/nTHt6an+jZkAYZpUGN7gre2O1HxnTMT
+	CAVGi4PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPuDn-00000006ZTs-2Kcr;
-	Thu, 21 May 2026 03:37:19 +0000
-Received: from mail-norwayeastazon11013024.outbound.protection.outlook.com ([40.107.159.24] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPuDl-00000006ZSH-0IuB
+	id 1wPuK7-00000006aFz-0Xm1;
+	Thu, 21 May 2026 03:43:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPuK3-00000006aEv-1QJO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 03:37:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KziFWySbI7P/6eTf+tsuWa4ISwLTIxRc5DoD/UYWwtUtzm/wkAdZhmXpwL5NkiztI6zOsawSwo4S1tc0UCfrFzM3zpitjv7X/vAslR2+h8sn6M3U+a/4VYu497HctHfPiLvY/5+i8fN2CqXeMN3TMBd1wgDciT24Eiw1IFqQzbCnUE11nv7Y/j46zqsSzQJs2D6sAgXRYyx8W0ScYmYwLBiKYPjt/MU0zk9gNl3xyR46DBwq5Yg7s0ye1ND+JEWBkyULMaqPW5BdgZxGAPEsI3jDC0/Va9l4LVSm+BH+NBKJBJjR6jFv0HfE+0SS8qC3Me0wdYPi4rNSh2Rk77HSIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=naQO34UUyOAr6M+zWdJK0EE7IP/dorwJ9ipS3j6L+P4=;
- b=g7UGlBWXyZYLxOLvr8oNbkuC5+AaVi8M9rbeWZxN62dGVsBhwYLWg/44jCBHBJbANinydhpuOkVEM1qP3KeOAK1vuUDmILgJ7Q0GLtCjzclXj/KrGSGGcJ5WhHV3+a5Da8WX2XC7/KLF3bJUy0zolEmAuXc9OPs+bkzx9883JV8xJ7rrCjfzO171pwMuaPCFRSxMUGPz1BQwkwy6QsRoBACoHAG+mfTmQMIqc21H62ftm2MJxoJkVc8LO8OW3ow2BRlrOA5/tC2x5vwzWsbnDz+7TITxjojslYUZHOEc2d/8hcYczW6K69PktUCT/51WPm1W3QjhPR91CtGfIwBZNg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=naQO34UUyOAr6M+zWdJK0EE7IP/dorwJ9ipS3j6L+P4=;
- b=ARZNy1tBCkaJ9ZgTavH85DDrt+v0N71KuEwak5OZJw3lIQttm8+3l3O1pABO/LL766tHYIA999nYAgDx17y9xBsdR8VIBk4AnQPbi50HDfAL/oTzqvdIxv26KtOwJvj8aAQLV03gFbl6hxbT74dCmvzkHnXsT1aq7K8acISo4f3wXyxXcxI9L/AyckN6/vq611ni92qTH913xohMue9cMQfccM7OM9dHGeOU26J7xtSlgJTfpTz/QXPlvvpef7MHekCqKpAbBJJXFk0FssKWpMbm/ZDeNBAF8GzHmJWbFkdEiS7vzbViA0YvPbTXQwLeYQbBibNfPW6x6/Pawovauw==
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- (2603:10a6:150:30c::14) by PAXPR04MB8798.eurprd04.prod.outlook.com
- (2603:10a6:102:20d::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9870.25; Thu, 21 May
- 2026 03:37:06 +0000
-Received: from GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe]) by GV2PR04MB12019.eurprd04.prod.outlook.com
- ([fe80::ed75:bac1:2554:5cbe%4]) with mapi id 15.21.0048.013; Thu, 21 May 2026
- 03:37:06 +0000
-From: "Hongxing Zhu (OSS)" <hongxing.zhu@oss.nxp.com>
-To: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "kwilczynski@kernel.org"
-	<kwilczynski@kernel.org>, "mani@kernel.org" <mani@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "l.stach@pengutronix.de"
-	<l.stach@pengutronix.de>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Sherry Sun <sherry.sun@nxp.com>
-Subject: RE: [PATCH V3 0/8] PCI: imx6: Integrate pwrctrl API and update device
- trees
-Thread-Topic: [PATCH V3 0/8] PCI: imx6: Integrate pwrctrl API and update
- device trees
-Thread-Index: AQHc6DU2+3vZVI47F0mq/ddImxZlOrYX1Nmw
-Date: Thu, 21 May 2026 03:37:06 +0000
-Message-ID: <GV2PR04MB120194C8BDA9B49C79DCE72168C0E2@GV2PR04MB12019.eurprd04.prod.outlook.com>
-References: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
-In-Reply-To: <20260520084904.2424253-1-sherry.sun@oss.nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB12019:EE_|PAXPR04MB8798:EE_
-x-ms-office365-filtering-correlation-id: 2578e9f8-812a-4624-bb3c-08deb6ea3b1e
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|7416014|38070700021|921020|56012099003|18002099003|22082099003|11063799006;
-x-microsoft-antispam-message-info: DKOSgxxxEnVJ9sZmx1LL7Rkxkm5GM7A8ZxM5CvYIhf/pj1MYLUBmTVpOxf/F0rkF+1V6Ueh3ttLS9ps7NrXQADFfxxKk9fZLbOKW9OU3K5Y9EU0TibEUK3RneTfQ0V5S9EcyY/L5GHOQdIYjYLrLM+puH8a2SgzpsSW0+2hwv9hWhKvsitucBTjJqvAEDs5cy2B3xc13q98IqZumIJS2Uj8L0MhUGQAxiU7ckmIDKPpt5Ja8fUpVIZ7KFZsRhs3ZVq5sWgJ7sjryvLI/NxwZHJ0wbGvuEZntpzP7d9izuQvz74b7ed+RhYC8kFiOTc85MOarC2lJcf9KhXEsbaSyNy5L4khG6uf1oo7OKqoITuDy7mnE9+kJumsuBJYe6oBgJsfd/ozVk3CUXwrNBk5fRHkIkdZlnpZ6fgThuaw0qYk2Q/0oaqoMKnW98BwaF43x1hF+Z29KiDwEezUXYZ+hkHZJWWg0w56W1KPvEG8A4oFF+sHD82QqC5T9ZGh2yc8WEWiZYJo26vrq9GIgO5daqhe5se7C3bje2LsFmi9+wKH7n4un3inzLZbtc+i3c/ALmaRiuVRPsemP9N+v15N8rLA6c8vXpxt5crC66etQ/zbTN0B5wiPzFaPp7m5CTZJm/3ETfdZruySJ9XCHdjtq/3HvpbKIcrUWhUU1Kv9VnmNHZeOBFLE/Ztwkr/MT0miLSHwC3vYuPi9WPTPW+BY46sY8PtLXvG0WBgBduc0J4rH9fAm94HiPg7vIGkYAMPm+mhdHYpxeag81Oo4AtYXkfA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB12019.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(7416014)(38070700021)(921020)(56012099003)(18002099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?faPQ+EZN36h7bKxdHhXrgYjiHq6I05yrrSgz685mH09Zb6USSacpO1SwcQao?=
- =?us-ascii?Q?p/SPL4I48q/IGxWABeNlC8HRdzQvpYmP/GqykK5/Lp0qdFWmy2jDTcd3fLEx?=
- =?us-ascii?Q?ZB5YZBVL9LcItkjIVd80WHxI0Rs/Z85fCOJ/58OP5mOeMjCDyzeppAGOCSRq?=
- =?us-ascii?Q?9/cvJ1ao411V2mYKiPnVkIG+ufLdsJyy1Bg88oyyc7aQMmBZD/Up6rSVio5O?=
- =?us-ascii?Q?Bd3RKzHDfAj5OPmJrciKfgqIBvnhzP6aSzJ4OoKCKCp8gMsUV2d9xvQKGHjT?=
- =?us-ascii?Q?/f1UrPDiwDmts+zLGB5++kfuxyY1/QiBDaEK6ZDMrHJGiDHAG89ANDWMSsz2?=
- =?us-ascii?Q?9veAwnmveClXU8bRzg4FRrs8ibkOL6ayDzuIEf1AB+H1wXo3KAnDRonGhTQZ?=
- =?us-ascii?Q?V1TdJGeHrbpUb6PvB5ZzMueU+UjYSipMlv9v2PkTQB0yayWf5UwjMJ+gZB5M?=
- =?us-ascii?Q?WWxU3oIQyZlL0nnCVj7mwW3LNUkmph0/rIUZ3ECGw/+DgL4fTv7VNeXSUPdA?=
- =?us-ascii?Q?RsBHHzMdwPmqfgb3t8897l7lvSAcFe5msBXqbYNi+0NlUyh+FgARGRp23lpY?=
- =?us-ascii?Q?w/JD99RCYdej4R1zWCJFw6saLUGa0PSIlkoYWISkQcduElmjZYyyzDCW6clz?=
- =?us-ascii?Q?n5ji+E/hR+AdDlEC450zhROr/7qeMSqG5eH2f6UFDrrtEwUUqAXcBN8WmSjs?=
- =?us-ascii?Q?ATrpHMDuFOdKmdZjoLbFz0Gqu+2ioS8v7bp7op42FOeGQvS4LUT4FQteHxZb?=
- =?us-ascii?Q?15Sp/TzGkNLnOZws/3uy0HgGOpJ5Fpj9DIVAgLcwfkvj4CIWB6mMfY46TpcI?=
- =?us-ascii?Q?bW7zbcLDjcj7kMdgAFHME9FP5ORD630u67QPK8HePw4qdPMe//Dc4FJvrHXI?=
- =?us-ascii?Q?1j/E38mu8dTwcTiHVty3V1IqE6xUBpTVocFZLmqApNWzSfqjWGvzyvD+lB0U?=
- =?us-ascii?Q?asBG425nzuqlpYu5Cuqk2S4ei3sNeF9LFcPZ59YJat3uC2GLHgoZxnomiyeJ?=
- =?us-ascii?Q?2EzIjEWHETdEPqFik3KciwUiM56wE08qkGVP1iEL8tTKhn3i2bdawMOVmtE2?=
- =?us-ascii?Q?tMbcYUwnZNtq4+32o4KjMwaH0OL3yfY+4n2s67uPkwtSByD7txsC7UTL6JBv?=
- =?us-ascii?Q?vPWCSpLX7iPy6FsZ+8Yqkv5irtS4smxjbHnFFagKaN6RU18JIkbs/mJxpaxc?=
- =?us-ascii?Q?S1cBVnhtdRYAuhb3HRfUzf989a61hWINhmzli8WGedzbzO1tRi2z1ItJd9D8?=
- =?us-ascii?Q?IKVQ9EYYvuW6BtvB6EgHrc7Js2Svwwh3d6cf96mnVAeXPCDoHiYT9h+rwJnU?=
- =?us-ascii?Q?N9GtAZ5j8Ao32LEWjE/qswAMXrA0FkwcwfWiUb5UzhWRlLyl3A8yKO7cfIwI?=
- =?us-ascii?Q?iz/VUo7kmk2m6aPyoXtjP0iFa8DxXhxvTyA5TzTUF1e+G41gAGHHQiv0R9rR?=
- =?us-ascii?Q?0IMsYfSG4DIhlk4EK/tK+AZR7oIrXrIwlVJvm92qLdVkvn2NNQ8lsdJACZX/?=
- =?us-ascii?Q?BnuMIwiU2SSCvY23DtZjX6mZyon3OxEnprewjphYPm5+pSI3nicQJ0ED6HET?=
- =?us-ascii?Q?UEaSFU/+Cylm+LTQsL4TN1SHP5Xr9uSmilfbQWi6rhHWRC66zXjZTk9YRkzJ?=
- =?us-ascii?Q?S8fU0lKvuXAZiQXNNiQ4nH8CfuCdQB05jFhoJfOm4xDLS1akthAWBj7MH6eY?=
- =?us-ascii?Q?gJ/fUlLuoSsNcxX0PjTjg7tVlUlIdzjgQ64Tv8dXT/D+b+1vgCCbTo6PF4Rp?=
- =?us-ascii?Q?jIFyGA2tmw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 21 May 2026 03:43:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9E4A1AED;
+	Wed, 20 May 2026 20:43:37 -0700 (PDT)
+Received: from [10.164.18.45] (unknown [10.164.18.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A68E13F85F;
+	Wed, 20 May 2026 20:43:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779335022; bh=6TcRMwfis4amF8hlgBu1TnVMWK0DymCYZvWItZrVY8c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ifuY34r/c/+TzG6j/uZU5CI1IWVFjmJHz9txJipTfk8pal0u3VW+mW0/ur/rdCgKS
+	 TK7NqHvY2UNW6IVIOPFB4jO1VPusc1aW/oiSj7XfSSokPXjG6KPZ+0Qf05gZebOJrt
+	 E52V+rteRtWlfVb+wo/7dTryACOj++rfUMDb+LCY=
+Message-ID: <1d694f9d-4f40-428b-aa28-9d6e0febd54c@arm.com>
+Date: Thu, 21 May 2026 09:13:33 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB12019.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2578e9f8-812a-4624-bb3c-08deb6ea3b1e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 May 2026 03:37:06.3357
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: NB41cO6SR86S/buOcBuqQdTiH9eakwwELEfTZw/DpVrm1h0Wpv7AJ0EWCcSvvXyS6YRxzNc8ZEN11PfWvsN50g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8798
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC V2 01/14] mm: Abstract printing of pxd_val()
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Dave Hansen <dave.hansen@intel.com>, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>,
+ Linu Cherian <linu.cherian@arm.com>, Usama Arif <usama.arif@linux.dev>,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org
+References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
+ <20260513044547.4128549-2-anshuman.khandual@arm.com>
+ <74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
+ <b976ec4e-d5cb-4856-885d-dd301b3ddd83@kernel.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <b976ec4e-d5cb-4856-885d-dd301b3ddd83@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_203717_120248_B5BA08DB 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260520_204347_734158_79E0CFF9 
+X-CRM114-Status: GOOD (  23.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,92 +78,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Sherry Sun (OSS) <sherry.sun@oss.nxp.com>
-> Sent: Wednesday, May 20, 2026 4:49 PM
-> To: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; Frank Li
-> <frank.li@nxp.com>; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> festevam@gmail.com; lpieralisi@kernel.org; kwilczynski@kernel.org;
-> mani@kernel.org; bhelgaas@google.com; Hongxing Zhu
-> <hongxing.zhu@nxp.com>; l.stach@pengutronix.de
-> Cc: imx@lists.linux.dev; linux-pci@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; devicetree@vger.kernel.org; linux-
-> kernel@vger.kernel.org; Sherry Sun <sherry.sun@nxp.com>
-> Subject: [PATCH V3 0/8] PCI: imx6: Integrate pwrctrl API and update devic=
-e trees
->=20
-> From: Sherry Sun <sherry.sun@nxp.com>
->=20
-> This series integrates the PCI pwrctrl framework into the pci-imx6 driver=
- and
-> updates i.MX EVK board device trees to support it.
->=20
-> Patches 2-8 update device trees for i.MX EVK boards which maintained by N=
-XP to
-> move power supply properties from the PCIe controller node to the Root Po=
-rt
-> child node, which is required for pwrctrl framework.
-> Affected boards:
-> - i.MX6Q/DL SABRESD
-> - i.MX6SX SDB
-> - i.MX8MM EVK
-> - i.MX8MP EVK
-> - i.MX8MQ EVK
-> - i.MX8DXL/QM/QXP EVK
-> - i.MX95 15x15/19x19 EVK
->=20
-> The driver maintains legacy regulator handling for device trees that have=
-n't been
-> updated yet. Both old and new device tree structures are supported.
->=20
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
-Hi Sherry:
-Since the vpcie3v3aux is used to power up the WAKE#, it is always on in thi=
-s
-pwrctrl framework whatever the system is in suspend or not, right?
+On 20/05/26 4:11 PM, David Hildenbrand (Arm) wrote:
+> On 5/19/26 16:28, Dave Hansen wrote:
+>> On 5/12/26 21:45, Anshuman Khandual wrote:
+>>>  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
+>>> -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
+>>> +		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx "\n",
+>>> +			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv));
+>>>  		return;
+>>>  	}
+>>
+>> That's not the most readable result. Could a printk() format specifier
+>> make this nicer? Maybe use "%pT"?
+>>
+>> 	pr_alert("pgd:%pT p4d:%pT\n", &pgd, &p4d);
+>>
+>> I _think_ it could even get rid of the p??v variables.
+> 
+> That would be nicer indeed, if that works.
 
-Best Regards
-Richard Zhu
-> ---
-> Changes in V3:
-> 1. Rebased on top of latest 7.1.0-rc4
->=20
-> Changes in V2:
-> 1. After commit 2d8c5098b847 ("PCI/pwrctrl: Do not power off on pwrctrl
->    device removal"), the pwrctrl drivers no longer power off devices
->    during removal. Update pci-imx6 driver's shutdown callback in patch#1
->    to explicitly call pci_pwrctrl_power_off_devices() before
->    pci_pwrctrl_destroy_devices() to ensure devices are properly powered
->    off.
-> ---
->=20
-> Sherry Sun (8):
->   PCI: imx6: Integrate new pwrctrl API for pci-imx6
->   arm: dts: imx6qdl-sabresd: Move power supply property to Root Port
->     node
->   arm: dts: imx6sx-sdb: Move power supply property to Root Port node
->   arm64: dts: imx8mm-evk: Move power supply property to Root Port node
->   arm64: dts: imx8mp-evk: Move power supply properties to Root Port node
->   arm64: dts: imx8mq-evk: Move power supply properties to Root Port node
->   arm64: dts: imx8dxl/qm/qxp: Move power supply properties to Root Port
->     node
->   arm64: dts: imx95: Move power supply properties to Root Port node
->=20
->  .../arm/boot/dts/nxp/imx/imx6qdl-sabresd.dtsi |  2 +-
->  arch/arm/boot/dts/nxp/imx/imx6sx-sdb.dtsi     |  2 +-
->  arch/arm64/boot/dts/freescale/imx8dxl-evk.dts |  4 ++--
-> arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi |  2 +-
-> arch/arm64/boot/dts/freescale/imx8mp-evk.dts  |  4 ++--
-> arch/arm64/boot/dts/freescale/imx8mq-evk.dts  |  4 ++--
-> arch/arm64/boot/dts/freescale/imx8qm-mek.dts  |  4 ++--
-> arch/arm64/boot/dts/freescale/imx8qxp-mek.dts |  4 ++--
->  .../boot/dts/freescale/imx95-15x15-evk.dts    |  4 ++--
->  .../boot/dts/freescale/imx95-19x19-evk.dts    |  8 +++----
->  drivers/pci/controller/dwc/Kconfig            |  1 +
->  drivers/pci/controller/dwc/pci-imx6.c         | 24 ++++++++++++++++++-
->  12 files changed, 43 insertions(+), 20 deletions(-)
->=20
-> --
-> 2.37.1
+I had attempted something similar earlier.
 
+https://lore.kernel.org/all/20250618041235.1716143-1-anshuman.khandual@arm.com/
+
+But current proposal was to solve the problem with minimum possible churn
+in generic MM to handle 128 bit page table entries for its value printing
+purpose.
+
+Please find an example WIP patch in this regard (tested very lightly). Please do
+let me know if this is in the right direction and should be followed up instead.
+Although special_hex_number() might have to support 128 bit values.
+
+=====================================
+
+diff --git a/Documentation/core-api/printk-formats.rst b/Documentation/core-api/printk-formats.rst
+index c0b1b6089307..e69f91a9dd9d 100644
+--- a/Documentation/core-api/printk-formats.rst
++++ b/Documentation/core-api/printk-formats.rst
+@@ -696,6 +696,25 @@ Rust
+ Only intended to be used from Rust code to format ``core::fmt::Arguments``.
+ Do *not* use it from C.
+ 
++Page Table Entry
++----------------
++
++::
++
++        %p[pgd|p4dp|pud|pmd|pte]
++
++Print page table entry at any level.
++
++Passed by reference.
++
++Examples for a 64 bit page table entry, given &(u64)0xc0ffee::
++
++        %ppte   0x0000000000c0ffee
++        %ppmd   0x0000000000c0ffee
++        %ppud   0x0000000000c0ffee
++        %pp4d   0x0000000000c0ffee
++        %ppgd   0x0000000000c0ffee
++
+ Thanks
+ ======
+ 
+diff --git a/lib/tests/printf_kunit.c b/lib/tests/printf_kunit.c
+index bb70b9cddadd..ab7f55499eb7 100644
+--- a/lib/tests/printf_kunit.c
++++ b/lib/tests/printf_kunit.c
+@@ -791,6 +791,73 @@ errptr(struct kunit *kunittest)
+ #endif
+ }
+ 
++struct pxd_test {
++	u64 val;
++	const char *name;
++};
++
++static struct pxd_test pxd_test_cases[] = {
++	{ .val = 0xc0ffee,		.name = "0x0000000000c0ffee"},
++	{ .val = 0xdeadbeef,		.name = "0x00000000deadbeef"},
++	{ .val = 0xaabbcc,		.name = "0x0000000000aabbcc"},
++	{ .val = 0xcc,			.name = "0x00000000000000cc"},
++	{ .val = 0x1,			.name = "0x0000000000000001"},
++	{ .val = 0x11,			.name = "0x0000000000000011"},
++	{ .val = 0x111,			.name = "0x0000000000000111"},
++	{ .val = 0x10000010001,		.name = "0x0000010000010001"},
++	{ .val = 0xc0ffeec0ffee,	.name = "0x0000c0ffeec0ffee"},
++	{ .val = 0x10000000000,		.name = "0x0000010000000000"},
++	{ .val = 0x11000000000,		.name = "0x0000011000000000"},
++	{ .val = 0x1000000000000000,	.name = "0x1000000000000000"},
++	{ .val = 0x1100000000000000,	.name = "0x1100000000000000"},
++	{ .val = 0x1110000000000000,	.name = "0x1110000000000000"},
++};
++
++static void
++pxd(struct kunit *kunittest)
++{
++	char buf[64];
++	int i;
++
++	if (sizeof(pte_t) != 8)
++		kunit_skip(kunittest, "pte_t size is not 64 bits");
++
++	for (i = 0; i < ARRAY_SIZE(pxd_test_cases); i++) {
++		pte_t pte = __pte(pxd_test_cases[i].val);
++
++		snprintf(buf, sizeof(buf), "%ppte", &pte);
++		KUNIT_EXPECT_STREQ(kunittest, buf, pxd_test_cases[i].name);
++	}
++
++	for (i = 0; i < ARRAY_SIZE(pxd_test_cases); i++) {
++		pmd_t pmd = __pmd(pxd_test_cases[i].val);
++
++		snprintf(buf, sizeof(buf), "%ppmd", &pmd);
++		KUNIT_EXPECT_STREQ(kunittest, buf, pxd_test_cases[i].name);
++	}
++
++	for (i = 0; i < ARRAY_SIZE(pxd_test_cases); i++) {
++		pud_t pud = __pud(pxd_test_cases[i].val);
++
++		snprintf(buf, sizeof(buf), "%ppud", &pud);
++		KUNIT_EXPECT_STREQ(kunittest, buf, pxd_test_cases[i].name);
++	}
++
++	for (i = 0; i < ARRAY_SIZE(pxd_test_cases); i++) {
++		p4d_t p4d = __p4d(pxd_test_cases[i].val);
++
++		snprintf(buf, sizeof(buf), "%pp4d", &p4d);
++		KUNIT_EXPECT_STREQ(kunittest, buf, pxd_test_cases[i].name);
++	}
++
++	for (i = 0; i < ARRAY_SIZE(pxd_test_cases); i++) {
++		pgd_t pgd = __pgd(pxd_test_cases[i].val);
++
++		snprintf(buf, sizeof(buf), "%ppgd", &pgd);
++		KUNIT_EXPECT_STREQ(kunittest, buf, pxd_test_cases[i].name);
++	}
++}
++
+ static int printf_suite_init(struct kunit_suite *suite)
+ {
+ 	total_tests = 0;
+@@ -839,6 +906,7 @@ static struct kunit_case printf_test_cases[] = {
+ 	KUNIT_CASE(errptr),
+ 	KUNIT_CASE(fwnode_pointer),
+ 	KUNIT_CASE(fourcc_pointer),
++	KUNIT_CASE(pxd),
+ 	{}
+ };
+ 
+diff --git a/lib/vsprintf.c b/lib/vsprintf.c
+index 9f359b31c8d1..937499c51ecd 100644
+--- a/lib/vsprintf.c
++++ b/lib/vsprintf.c
+@@ -856,6 +856,51 @@ static char *default_pointer(char *buf, char *end, const void *ptr,
+ 	return ptr_to_id(buf, end, ptr, spec);
+ }
+ 
++static char *pxd_pointer(char *buf, char *end, const void *ptr,
++			 struct printf_spec spec, const char *fmt)
++{
++
++	if (check_pointer(&buf, end, ptr, spec))
++		return buf;
++
++	static_assert((sizeof(pte_t) == 4) || (sizeof(pte_t) == 8));
++	static_assert((sizeof(pmd_t) == 4) || (sizeof(pmd_t) == 8));
++	static_assert((sizeof(pud_t) == 4) || (sizeof(pud_t) == 8));
++	static_assert((sizeof(p4d_t) == 4) || (sizeof(p4d_t) == 8));
++	static_assert((sizeof(pgd_t) == 4) || (sizeof(pgd_t) == 8));
++
++	if (fmt[1] == 't' && fmt[2] == 'e') {
++		pte_t *pte = (pte_t *)ptr;
++
++		return special_hex_number(buf, end, pte_val(*pte), sizeof(pte_t));
++	}
++
++	if (fmt[1] == 'm' && fmt[2] == 'd') {
++		pmd_t *pmd = (pmd_t *)ptr;
++
++		return special_hex_number(buf, end, pmd_val(*pmd), sizeof(pmd_t));
++	}
++
++	if (fmt[1] == 'u' && fmt[2] == 'd') {
++		pud_t *pud = (pud_t *)ptr;
++
++		return special_hex_number(buf, end, pud_val(*pud), sizeof(pud_t));
++	}
++
++	if (fmt[1] == '4' && fmt[2] == 'd') {
++		p4d_t *p4d = (p4d_t *)ptr;
++
++		return special_hex_number(buf, end, p4d_val(*p4d), sizeof(p4d_t));
++	}
++
++	if (fmt[1] == 'g' && fmt[2] == 'd') {
++		pgd_t *pgd = (pgd_t *)ptr;
++
++		return special_hex_number(buf, end, pgd_val(*pgd), sizeof(pgd_t));
++	}
++	return default_pointer(buf, end, ptr, spec);
++}
++
+ int kptr_restrict __read_mostly;
+ 
+ static noinline_for_stack
+@@ -2506,6 +2551,9 @@ early_param("no_hash_pointers", no_hash_pointers_enable);
+  *		Without an option prints the full name of the node
+  *		f full name
+  *		P node name, including a possible unit address
++ * - 'p[g|4|u|m|t|][d|e]' For a page table entry, this prints its
++ *			  contents in a hexadecimal format
++ *
+  * - 'x' For printing the address unmodified. Equivalent to "%lx".
+  *       Please read the documentation (path below) before using!
+  * - '[ku]s' For a BPF/tracing related format specifier, e.g. used out of
+@@ -2615,6 +2663,8 @@ char *pointer(const char *fmt, char *buf, char *end, void *ptr,
+ 		default:
+ 			return error_string(buf, end, "(einval)", spec);
+ 		}
++	case 'p':
++		return pxd_pointer(buf, end, ptr, spec, fmt);
+ 	default:
+ 		return default_pointer(buf, end, ptr, spec);
+ 	}
+diff --git a/mm/memory.c b/mm/memory.c
+index ea6568571131..838e06cc377d 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -521,7 +521,6 @@ static bool is_bad_page_map_ratelimited(void)
+ 
+ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long addr)
+ {
+-	unsigned long long pgdv, p4dv, pudv, pmdv;
+ 	p4d_t p4d, *p4dp;
+ 	pud_t pud, *pudp;
+ 	pmd_t pmd, *pmdp;
+@@ -532,34 +531,30 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+ 	 * see locking requirements for print_bad_page_map().
+ 	 */
+ 	pgdp = pgd_offset(mm, addr);
+-	pgdv = pgd_val(*pgdp);
+ 
+ 	if (!pgd_present(*pgdp) || pgd_leaf(*pgdp)) {
+-		pr_alert("pgd:%08llx\n", pgdv);
++		pr_alert("pgd:%ppgd\n", pgdp);
+ 		return;
+ 	}
+ 
+ 	p4dp = p4d_offset(pgdp, addr);
+ 	p4d = p4dp_get(p4dp);
+-	p4dv = p4d_val(p4d);
+ 
+ 	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
+-		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
++		pr_alert("pgd:%ppgd p4d:%pp4d\n", pgdp, p4dp);
+ 		return;
+ 	}
+ 
+ 	pudp = pud_offset(p4dp, addr);
+ 	pud = pudp_get(pudp);
+-	pudv = pud_val(pud);
+ 
+ 	if (!pud_present(pud) || pud_leaf(pud)) {
+-		pr_alert("pgd:%08llx p4d:%08llx pud:%08llx\n", pgdv, p4dv, pudv);
++		pr_alert("pgd:%ppgd p4d:%pp4d pud:%ppud\n", pgdp, p4dp, pudp);
+ 		return;
+ 	}
+ 
+ 	pmdp = pmd_offset(pudp, addr);
+ 	pmd = pmdp_get(pmdp);
+-	pmdv = pmd_val(pmd);
+ 
+ 	/*
+ 	 * Dumping the PTE would be nice, but it's tricky with CONFIG_HIGHPTE,
+@@ -567,8 +562,8 @@ static void __print_bad_page_map_pgtable(struct mm_struct *mm, unsigned long add
+ 	 * doing another map would be bad. print_bad_page_map() should
+ 	 * already take care of printing the PTE.
+ 	 */
+-	pr_alert("pgd:%08llx p4d:%08llx pud:%08llx pmd:%08llx\n", pgdv,
+-		 p4dv, pudv, pmdv);
++	pr_alert("pgd:%ppgd p4d:%pp4d pud:%ppud pmd:%ppmd\n", pgdp,
++		 p4dp, pudp, pmdp);
+ }
+ 
+ /*
+diff --git a/scripts/checkpatch.pl b/scripts/checkpatch.pl
+index 0492d6afc9a1..9dd17e501bfa 100755
+--- a/scripts/checkpatch.pl
++++ b/scripts/checkpatch.pl
+@@ -6975,7 +6975,7 @@ sub process {
+ 				my $fmt = get_quoted_string($lines[$count - 1], raw_line($count, 0));
+ 				$fmt =~ s/%%//g;
+ 
+-				while ($fmt =~ /(\%[\*\d\.]*p(\w)(\w*))/g) {
++				while ($fmt =~ /(\%[\*\d\.]*p(\w)(\w*)(\te)(\md)(\ud)(\4d)(\gd))/g) {
+ 					$specifier = $1;
+ 					$extension = $2;
+ 					$qualifier = $3;
 
