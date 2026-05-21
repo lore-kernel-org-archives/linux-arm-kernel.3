@@ -4,113 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2375CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E702CD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kVStZuaynsxldxI4z6f6e5rL63M/lihgHYjp99abbpQ=; b=drjE1bpa/7TGQL
-	wPBDRLI4c/90ziwK/2RqLZcng+05Ef0cZiRQPImg63L+Ywvf+Fbi7rJ+kmise+chwRQR+n6cygnhn
-	TasngYyABTRs4ahm1QAykF394zQjqla/xj6qoD2KCfhx7m2CgDnDoxIHCv0msprWrxoAzQbsqMlLC
-	EN/HZUaKB/H+53sExwFhSU0sB5adfNpYxqE4E7ORRcoMzT99h2og1WpZrVCsTGGbA+WeePOMLK9VL
-	mqzjkqe59df9xHiCUm8VX4yw3kr8ccRS70NT3bb8MVPyGHt8wHNfqbRhE+KZuhMGXlf4930PtzwjZ
-	PQlYrkaPqFMaEh3Hb//w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oaCe+0vBux/acxxxbAjd0sdUOKLj5KDIayotecJQPco=; b=H9ci5qzqVNMKI/T4GyQSGeDh+V
+	V1QNg+OQmVIfEAwDUzT7mACo/OHP6hZtsEUev7XS8xqaw0IGodJ+twotMR0yWbNPVy2z1EpVfXV81
+	XXSZj3m2k6z558fshUW0fAq8l8+OLssSi0fu23cpG+Dpj+NubNdECvg1x6hVX8Y9Y4a6nxEyCGCcr
+	gui11Ak3zDWQgTjgRN3W6XZTcrn/BE9b1PjJ/U8zEc0MdzYH0WbKeIzrJU9wLR7iRbseS1bqsZQTU
+	2/Y33Q/YB71iW88MHBFPREzHZrLPe2Cmjetb3urqS5pzxfbgENYTSTZ7j6/Eo3vHHwMC8lH+qiCTa
+	7aGY6esw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3JM-00000007qd9-2nK4;
-	Thu, 21 May 2026 13:19:40 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wQ3Ks-00000007r04-0fVZ;
+	Thu, 21 May 2026 13:21:14 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3JJ-00000007qbw-2zkp
+	id 1wQ3Ko-00000007qxp-1l16
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:19:39 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-44dd5cb0f81so4896653f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 06:19:37 -0700 (PDT)
+	Thu, 21 May 2026 13:21:13 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4903cbfad68so3409285e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 06:21:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779369576; x=1779974376; darn=lists.infradead.org;
-        h=content-transfer-encoding:organization:autocrypt:content-language
-         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=kVStZuaynsxldxI4z6f6e5rL63M/lihgHYjp99abbpQ=;
-        b=uSAWHVyuGMKh+TwJu98tXuhiSRgIJUV2ItVUWoUV12nfTiet9UDgxWcC8PsaoAbZ91
-         Tf4/qFzjcn7eR415knUz2mhBafY/OFARr+chEvjh1qDwfa+nzvGtu5G1BHmGvbfK9Ue1
-         BpBqsciLc61vcbQ374UWG8iGI+oHlTO+1kEGgVbRn0LlLQuL1/yJwVekuCaPV6j4FydQ
-         NTaD3K1ZjLdJWX/JOrI/6QLmfcv2rdjqblYd2SPL2Vzr10b20CAJdJ+91rLZUhQhZ2YF
-         hmGOgP5fVTF8B5P1WYbq7b23FFbhD45SgzQ9rpiqbGPHDVBsVj79i4hRThb2MWS/tXA8
-         INuw==
+        d=google.com; s=20251104; t=1779369668; x=1779974468; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oaCe+0vBux/acxxxbAjd0sdUOKLj5KDIayotecJQPco=;
+        b=Mvcx4IzttnfI6OI6Ql2CIW2oTayVY9X6mqwBZn6gzqZaZqmWDY6uEI10UWVf/uhv/v
+         bJBt4/+q7NwKS4Emkd0O3E5TzvcRdGCMSNcYnwsSNNHEsdcP0WTDfJoPdcU2iIQX5upH
+         L1H9H0XeBeqv+m8lNU5nc9DlkA/dFPriWZG0Pxy+bw0BxaP4MWDi2nmmihULIHg1uHl/
+         xJm0DuLsGhfBfAlc3u0oGLw4hnRASV9Ok9mVvVcC2XkJi0O4OD7AI+JqpNcWjgzhP6SE
+         kRePWW1PEBOXGADt9zFR87aS9vgt7o1NN7H6MxGUXP2PHJ+QUSoqrsx3fwnv9flO7887
+         Q5jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779369576; x=1779974376;
-        h=content-transfer-encoding:organization:autocrypt:content-language
-         :cc:to:reply-to:subject:from:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=kVStZuaynsxldxI4z6f6e5rL63M/lihgHYjp99abbpQ=;
-        b=C6E7OangCSwgpQhBr3mdkQMER+1t1o2I1b3ryGJXQtn0DbGREwA7QstspGqfJvJxrV
-         KSk7TTR++nPIF2EIIInQIzypPIoh+Mz7ioN/fCyl+pPAJkXWCWRoQHvxu/Dl1XmEOmNc
-         fdo3BiHUlnmTgoFogrpKAV0hKnyzhhU52MLuGLWFUL3GrUg0OOdvk7t1Uq3Kj6CCMRLU
-         D+TzvV5ojVszVKXLuy0Q8bpgB2yMsT0BLjHdNmewWn/DZh/uSEEUY8Of2YGpRx0K1koJ
-         JVadYMAAX17NqT/9xt8QUw1DPOwEZ42GpVPHr/Uq7cL9i33PK6tobx2LpK4D6a7z5l86
-         N4yQ==
-X-Forwarded-Encrypted: i=1; AFNElJ8NBEZWHE7FIVQx1yXTVbg0AvUzam1pw9b6IoM+7IGKp6tpji9HxAHvyFDrglSwpmMsM8HAlIfA6cv6OTMD2O1B@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCNSVXt/2Vz21Tk4N8AmXxmPfk1Qs312EmI1CjxThvUAdWjfdc
-	9iDxcKmjDaUsfRKPe8v0AqZglX0aPZC7bBGpJwkHtALqE/hIG1L7Tu+dTNh1nfK505k=
-X-Gm-Gg: Acq92OFEopQOY0zR88oA/GnZfpD8S1LWGOm33RT48kpNOxysdKgRdGffUI7iVQ93Ug6
-	wnszH+/3X0OdTh9QI+MRTzRVTuGbWK7o2xZ6aqYuieO4EeIPNK7hg6rPJ634prC86sQqkdBR1Op
-	v7jXKpDcDNuLCCaFEkSDmrGgoJKPE6NHkMHXUQ9+PJPgtoNwtoIjX2P7UK0UVmsPGB3LbNvvYLw
-	TRf6YKiZyXp93YzXylZPsNUP2lIYe/FLAkQUWI5LYiG2v4/uX9nKGrSF+0l7ck7pGTzJByyhW2W
-	nM8VltQF2nQQhRfnsoLnQxv8sS11g1qfxu6H6uo9HbHYh7nRVe6gBCswm8ISRXmiEFTQfeXovUq
-	ZQ+OapTXbpLpuN+ukUdDqY9+ggddDMqyIzLjiUxicEFg6tkgJk1iij7JzltwiFZ0WbKn47lXMhR
-	ScFLdCryQgll8QJYXyy1HPBUvsCrMOJjMBXT9/PGRW8lEH/Ed64o6vhbDBHnZz3lY599TM9g6Pd
-	JcQ5bk=
-X-Received: by 2002:a05:600c:46d1:b0:490:3d3d:805a with SMTP id 5b1f17b1804b1-4903d3d823bmr15928265e9.12.1779369575712;
-        Thu, 21 May 2026 06:19:35 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:106d:1080:7e6c:bb76:ade5:7e8b? ([2a01:e0a:106d:1080:7e6c:bb76:ade5:7e8b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eaa92f622sm3169586f8f.24.2026.05.21.06.19.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 06:19:34 -0700 (PDT)
-Message-ID: <16fc7412-c470-4f3f-b6c8-55c35698a424@linaro.org>
-Date: Thu, 21 May 2026 15:19:34 +0200
+        d=1e100.net; s=20251104; t=1779369668; x=1779974468;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oaCe+0vBux/acxxxbAjd0sdUOKLj5KDIayotecJQPco=;
+        b=GgWdmFmbbmX2kdskcERanmcYZi0AYGaQbJcH+mfPFQ3WiKRK5wARWxeszb/r3FHOuY
+         J7bWybq9V4oZPFXLoTexkhOxwncJslTuzVqwOB3EtS1+3R3x9MtIcMS5htQ+4zQ4qdEz
+         5BzTK8NzkOH4M8rzvAzOj/TF/RXv6OPsG6yhA6qHe1wPVhUeSPJI8p+y8UBlONZnCOgw
+         HRaJcEXQ4JwCYdXrOCOBvn6kroKLooq5ODumsFf9swoFwdEH/cdHr4FaCshuyWQKEzgL
+         qcWKj3zvnSoP2JfAzCEJhVLsEAca+SlP9Y9lIeTtBtDBrZyZxALPPdE2hDMv9t6xXoBc
+         qMtw==
+X-Forwarded-Encrypted: i=1; AFNElJ/v5CVB9757P8oZ2D6Hmoq8JeZOiLsnOsG4KN0lpyn4IDkB2/tuzM5luutSrHkAP5z9i48CfYfbOxVFnKlrFMR+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzB2uhMj+XZZgVwzdP/zsLNOMofxfNzMvxla2dBMx1blzUKRQhN
+	VgPBzx2xZduahZAuim7eRadLfQ/EfbsuONFTQhooPnNEIJJLHc6FPI2R0UvBemWOhg==
+X-Gm-Gg: Acq92OGFV5hQ8jAtm7Lco4fiv9gBn3kg1jyGwHNsD2DrodhbGaEyxKEIGFSkftbu9mK
+	5FLCsuPC7waCbk+mXfTnLcUbs96vwBIVWxbr9YgvylWAcVxMVMAL0LIXT/sMZjaw+UYwOuptA4m
+	+rwJByyGmK//q3Wcza1lWdLOUloBlnRKLJ0OMBJpT7Ory7uQcM1+UzqitZFreyXv1+IJ7rTZrBu
+	0vyQTDxIjHS5mKFuBKoAApUNUeoCKnzmEmccxkwLphfXaL6Iw8ntJXQ0ObRu9u32T6S/iqyemH1
+	JeEx87oRjJEhEAVDoVZxE2oDhyKmFep5rB10bh7/aRixFRnR+elQ9Xk5PcpqEWjPwq6jReenW3p
+	5DjUls/AsttPqFerJCF5ZQ4n8UdzUiNr3i4mV3pzTncCz5iiRjmLckn1KTw3cFMer6L4LEh4Cbu
+	ETa5apb/TLXNB8ZTiRlC/EzdNzawEgIEp5KGIkR/5EgrjXuQG50JOqg9stkQBOfFCcxnTOieMo3
+	2brJw==
+X-Received: by 2002:a05:600c:1f87:b0:490:3cf0:8d81 with SMTP id 5b1f17b1804b1-4903cf08f14mr15940795e9.13.1779369667306;
+        Thu, 21 May 2026 06:21:07 -0700 (PDT)
+Received: from google.com (197.183.140.34.bc.googleusercontent.com. [34.140.183.197])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49035c64beasm24039235e9.1.2026.05.21.06.21.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 May 2026 06:21:06 -0700 (PDT)
+Date: Thu, 21 May 2026 14:21:02 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Fuad Tabba <tabba@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kernel-team@android.com, qperret@google.com,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH v2 1/3] KVM: arm64: Reset page order in pKVM hyp_pool_init
+Message-ID: <ag8GvtAonB6LNB5m@google.com>
+References: <20260521102149.804874-1-vdonnefort@google.com>
+ <20260521102149.804874-2-vdonnefort@google.com>
+ <CA+EHjTxPoxjvMTZX5w+UyVgC=W3VUSDoOQ-tCDLfnae16SqoMQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Neil Armstrong <neil.armstrong@linaro.org>
-Subject: [GIT PULL] amlogic ARM64 DT updates for v7.2 take 1
-To: soc@kernel.org, arm@kernel.org
-Cc: linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTxPoxjvMTZX5w+UyVgC=W3VUSDoOQ-tCDLfnae16SqoMQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_061937_783967_D104AA1F 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_062110_482697_795B071B 
+X-CRM114-Status: GOOD (  30.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,88 +101,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Neil Armstrong <neil.armstrong@linaro.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Thu, May 21, 2026 at 02:07:36PM +0100, Fuad Tabba wrote:
+> On Thu, 21 May 2026 at 11:22, Vincent Donnefort <vdonnefort@google.com> wrote:
+> >
+> > When a VM fails to initialise after its stage-2 hyp_pool has been
+> > initialised, that stage-2 must be torn down entirely. This requires
+> > resetting both the refcount and the order of its pages back to 0.
+> >
+> > Currently, reclaim_pgtable_pages() implicitly resets the page order by
+> > allocating the entire pool with order-0 granularity. However, in the VM
+> > initialisation error path, the addresses of the donated memory (the PGD)
+> > are already known, making it unnecessary to iterate over all pages in
+> > the pool.
+> >
+> > Since the vmemmap page order is a hyp_pool-specific field, leaving a
+> > non-zero order on hyp_pool destruction is harmless until another pool
+> > attempts to admit the page. Instead of resetting this field during
+> > destruction, reset it during pool initialization in hyp_pool_init().
+> > Note that pages added to the pool outside of the initial pool range
+> > (e.g., via guest_s2_zalloc_page()) must still have their order managed
+> > manually.
+> >
+> > While at it, add a WARN_ON() in the hyp_pool attach path to catch
+> > unexpected page orders that exceed the pool's max_order.
+> >
+> > Fixes: 256b4668cd89 ("KVM: arm64: Introduce separate hypercalls for pKVM VM reservation and initialization")
+> > Reported-by: Sashiko <sashiko-bot@kernel.org>
+> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> >
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > index 25f04629014e..89eb20d4fee4 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > @@ -322,7 +322,6 @@ void reclaim_pgtable_pages(struct pkvm_hyp_vm *vm, struct kvm_hyp_memcache *mc)
+> >         while (addr) {
+> >                 page = hyp_virt_to_page(addr);
+> >                 page->refcount = 0;
+> > -               page->order = 0;
+> >                 push_hyp_memcache(mc, addr, hyp_virt_to_phys);
+> >                 WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(addr), 1));
+> >                 addr = hyp_alloc_pages(&vm->pool, 0);
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/page_alloc.c b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+> > index a1eb27a1a747..c3b3dc5a8ea7 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+> > @@ -97,6 +97,8 @@ static void __hyp_attach_page(struct hyp_pool *pool,
+> >         u8 order = p->order;
+> >         struct hyp_page *buddy;
+> >
+> > +       WARN_ON(p->order > pool->max_order);
+> > +
+> 
+> Could you add a brief comment? It took me a minute to figure out what this
+> catches. IIUC it's not attach's own input, it's a stale p->order from way back
+> when an external page was popped from a memcache (today only via
+> guest_s2_zalloc_page()). Right?
 
-Here's the Amlogic ARM64 DT changes for v7.2, contains improvements for the Khadas VIM4
-and VIM1s SBCs, plus some additions for the Phicomm N1 and a couple of low priority fixes.
+I think it'd be self explanatory if that was next the page_add_to_list, but that
+wouldn't protect the memset (that's really best-effort though).
 
-This PR is largely the same as `amlogic-arm64-dt-for-v7.1`, but I sent the fixes
-separately as `amlogic-fixes-v7.1-rc` as discussed with Arnd, so this tag
-`amlogic-arm64-dt-for-v7.2-v1` is based on top of `amlogic-fixes-v7.1-rc`.
+How about?
 
-Thanks,
-Neil
+/* 
+ * A page with an order bigger than the pool's max is an 'external' page
+ * whose order hasn't been reset before being added to the pool.
+ */
 
-The following changes since commit 174a0ef3b33434f475c87e66f37980e39b73805a:
+But now I am thinking I can do way better: we can easily identify external
+pages, so I could just force the order to 0 in that case.
 
-   arm64: dts: meson-gxl-p230: fix ethernet PHY interrupt number (2026-04-21 15:46:29 +0200)
+WDYS?
 
-are available in the Git repository at:
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git amlogic-arm64-dt-for-v7.2-v1
-
-for you to fetch changes up to 43e6ece01ba673c3bd8dd1638bcd93827d254b3d:
-
-   arm64: dts: amlogic: t7: Add i2c pinctrl node (2026-05-18 16:23:29 +0200)
-
-----------------------------------------------------------------
-Amlogic ARM64 DT for v7.2 take 1:
-- Khadas VIM4 (T7 SoC) features:
-  - Memory layout fixup
-  - GIC register range
-  - Model name fixup
-  - PWM, eMMC, SD card and SDIO support
-  - PWM LED
-  - I2C pinctrl node
-- Khadas VIM1s Features
-  - Bluetooth
-  - PWM LED
-  - Power Key
-  - Function Key via SARADC
-  - RTC
-  - Remote control keymap
-- Bluetooth node for Phicomm N1
-
-----------------------------------------------------------------
-Jian Hu (1):
-       arm64: dts: amlogic: t7: Add clock controller nodes
-
-Jun Yan (1):
-       arm64: dts: amlogic: meson-gxl-s905d-phicomm-n1: add bluetooth node
-
-Nick Xie (9):
-       arm64: dts: amlogic: meson-s4: add UART_A node
-       arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: enable bluetooth
-       arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add PWM LED support
-       arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add POWER key support
-       arm64: dts: amlogic: meson-s4: add internal SARADC controller
-       arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: add Function key support
-       arm64: dts: amlogic: meson-s4: add VRTC node
-       arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: enable HYM8563 RTC
-       arm64: dts: amlogic: meson-s4-s905y4-khadas-vim1s: use rc-khadas keymap
-
-Ronald Claveau (12):
-       arm64: dts: amlogic: t7: Add eMMC, SD card and SDIO pinctrl nodes
-       arm64: dts: amlogic: t7: Add PWM pinctrl nodes
-       arm64: dts: amlogic: t7: khadas-vim4: Add power regulators
-       arm64: dts: amlogic: t7: khadas-vim4: Remove invalid property
-       arm64: dts: amlogic: t7: Add MMC controller nodes
-       arm64: dts: amlogic: t7: Add PWM controller nodes
-       arm64: dts: amlogic: t7: khadas-vim4: Add SDIO power sequence and WiFi clock
-       arm64: dts: amlogic: t7: khadas-vim4: Add MMC nodes
-       arm64: dts: amlogic: t7: Fix missing required reset property
-       arm64: dts: amlogic: t7: khadas-vim4: reorder root node
-       arm64: dts: amlogic: t7: khadas-vim4: add PWM-driven status LED
-       arm64: dts: amlogic: t7: Add i2c pinctrl node
-
-  .../dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts  | 215 +++++++++
-  arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi        | 482 +++++++++++++++++++++
-  .../dts/amlogic/meson-gxl-s905d-phicomm-n1.dts     |  15 +
-  .../dts/amlogic/meson-s4-s905y4-khadas-vim1s.dts   |  81 ++++
-  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          |  45 ++
-  5 files changed, 838 insertions(+)
+> 
+> With that.
+> 
+> Reviewed-by: Fuad Tabba <tabba@google.com>
+> Tested-by: Fuad Tabba <tabba@google.com>
+> 
+> Cheers,
+> /fuad
+> 
+> 
+> 
+> 
+> >         memset(hyp_page_to_virt(p), 0, PAGE_SIZE << p->order);
+> >
+> >         /* Skip coalescing for 'external' pages being freed into the pool. */
+> > @@ -237,8 +239,10 @@ int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
+> >
+> >         /* Init the vmemmap portion */
+> >         p = hyp_phys_to_page(phys);
+> > -       for (i = 0; i < nr_pages; i++)
+> > +       for (i = 0; i < nr_pages; i++) {
+> >                 hyp_set_page_refcounted(&p[i]);
+> > +               p[i].order = 0;
+> > +       }
+> >
+> >         /* Attach the unused pages to the buddy tree */
+> >         for (i = reserved_pages; i < nr_pages; i++)
+> > --
+> > 2.54.0.746.g67dd491aae-goog
+> >
 
