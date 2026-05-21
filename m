@@ -4,84 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7C7CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA259CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=MAOsRM1+80/MwNu76Lnr/NEqUOkPH7Rb8BzB/sMmpYI=; b=Y6YA/NReTf1SnR
-	a53p0gRskoRp9QxLjfHiyByykL39jC3ZAiRtAMsD6WT6gTiwclCRGj+y9EINuuVob5t78y6yqCaMI
-	CAH4IwGBDolOyft7ukAeJgDBrSH6Fl50N8cgz5rPsxxRMfeqmajDTWfq0Hxlp3AM1oHhUMTc3l5Ot
-	Y9blgF8DEl2Y0V+8XNrNHO8JbXc+849m8s12Lr6nB9LRLM+EGSdon56r8l5x6WjZbe2tGbrUBcpoE
-	SjlScX2dS4KUuksgp9QExIndBCXWQK9n3bYQUGSDrLQwy/MbndUdhisJazCosdWeh8TVVT/mQJsO6
-	KPOdkhLma2ICGoC3VF3w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0Y36SgBQ9cIMBn0I5RWu40X8SISnSEeAXBBuc0ToW2E=; b=BU7sU7L7o2/ZWowRGxXYisAAjU
+	bPNTCEMHPjhntThA3pBvKYD6BwJFuB/4RN2/jqSOFT/JXBYoGzZZamiGrljJivT13/Pc1Ox8zJjnK
+	k61hbWx501dX1QD2DxN1kXOmZH/IOJ4/SBb/bpSXmZ1JNxopFhblf4uxC2Bp8p+Rrsq5N8JNkB/n/
+	+UFUS9350O0VNF4ped2ERv4kURWKQzc3C5LYjlUteHRzJgADArTSYkG1C305f4j+XPTxViwinplC5
+	fdbK1S7w9VwUi6W71CgXHlYV4+5COKWMfRiAHSUEHY1R46AvFni4mRAtx24YqUP1Leed1B2uRV01c
+	e0qzYzoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzJr-00000007EVu-28xh;
-	Thu, 21 May 2026 09:03:55 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wPzJz-00000007EZb-2zvU;
+	Thu, 21 May 2026 09:04:03 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzJn-00000007ETr-2ubG
+	id 1wPzJq-00000007EUt-33nQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:03:54 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891b0786beso40621865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:03:50 -0700 (PDT)
+	Thu, 21 May 2026 09:03:56 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-45ea19f412aso486681f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:03:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779354230; x=1779959030; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MAOsRM1+80/MwNu76Lnr/NEqUOkPH7Rb8BzB/sMmpYI=;
-        b=N6WZrWjhWBrdCEEd0/KnahxqGWINcOYHpLUrPp+ynCrewsJmbpVfLUlUOXqrFTofWy
-         +9GmbSSXOH+BvDZmpOPVJi99Jm/NnpSUE9W7GZMkpUQNnVD231QcJ2NX6IDA5Ci7VHxp
-         TdFq+8mCdWYF8gWy+lwiswUQUvtkDk235nHiRcr5nB+4rGViFo2lbnO/ZSvQDMASG78A
-         a1Ox5ZDkbvmSekVwVpo2brrjgeoIMTklUieykidMCWc2tFuZie86FRG4yvU5Z53A1+Dh
-         FR0GoH17gjuWX9cYT1C4XjPOT6Z0ykCkKT7PPuKVM+yiL1A4Iu+11FWvHwF6nTIJjycK
-         ibDg==
+        d=gmail.com; s=20251104; t=1779354233; x=1779959033; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0Y36SgBQ9cIMBn0I5RWu40X8SISnSEeAXBBuc0ToW2E=;
+        b=oetmJMohcAlCNUKcnRQwSpazU1BzSIxfzkgpM1VB83lOgquTBsHuQ/QMb59+zqYVU4
+         MjwnaDKeGhDShX1g5B9aPYEDLLGB2ZNQDLwuNNNWJYTSraggVO1CpRJfMoJQjGCY9QIg
+         2ayebOOWRtPDqmGX9rBsKKcEPd5Avz9b9clNWZqbSYDtQ8WsmH2ES331UYp9SRG0oI7f
+         S5eEjcAZSUf0RmISDsGxnFycTBZkJX8LDk0wlAmMrxIXOJQBWbNlfSaRBYqEzxeRazuo
+         Ohp6oiLXiGLpOCtAOnbq4jcGLwT1ncD+0BafJzfN+gbvYwNFWXpqrnOmtLdb1Oh+jpDh
+         GW8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779354230; x=1779959030;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MAOsRM1+80/MwNu76Lnr/NEqUOkPH7Rb8BzB/sMmpYI=;
-        b=pvVBwqEC1GIfPitlc+IW21nWXLFZIcGZc/35cgmDCigQmti+951QsWaADlQ46VuuZj
-         s11tHlzTA9GXVTfQeX5NjeuiUxNTSaTj89ordTNGAi7p+JNVAzH4h21VuBH3gL7KraEC
-         KlxrNMJD7XmoG1s3lmKc8dlcq+Ym6gtBNueK8TiOWFzw+2VoYq1HWoHla783K4ryCVsK
-         xw+S9xoph6bH1CEwL5kRfyLOQE18EWF7me6fsGeEjfy6WRkOqtS7eQApbx97/HgTw1mG
-         BoO9yOQWy6QRPhRyxT7BDV0RHB12LUceHmxfhMpLc1GM+MYMRGR8BadXSVP3c49bU/Js
-         LFjA==
-X-Forwarded-Encrypted: i=1; AFNElJ8ryJprkb1hGNfXVsjftyVu4xm8Va0C0ecaLyfA5MslBoSS1mcJL3vJ9rje/18ZPBZ5rvPQZ0jghF+6WqLE9Vkp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPw3ri7tWKxTryA1fNMbsq8r7MFdFkp/K2qFdcnIdbLMK7Gk2u
-	P7Z5iOXd592KYwLoZTlAlEZV9beTQ86kfmdN6/UBJWlYGF66KfmkhObS
-X-Gm-Gg: Acq92OEV6eMhQ73uyBiWSIvSPDu4ZFOAxOMPkVAe8XytB5G1qpyv4TzHCdLcAdgld8/
-	bMnJtgr+i+zZinrkAnAi5hN3EXmB7LUenJxotDrXrh5RLleoln/buu/VQ+yu7mHIl2BRLGCMIJM
-	cy1dLQfkQOND0yjHcMkQ2KdXAvPveW9PdjWVJaBsv0hKDtbT9fh9Jzgvb+NjXx2YSJYxWvsoSNA
-	yEjkvDlTilTEiFuJAKqJyM8fmj3ckgSwIK94fxbyqYo5dpYfu0mT3HzHbychAwwGTZ9jwpzv44J
-	YwJSnYytkXiqLksKerD19m+Cij08wtQottv+mb/MIz2MATTmNe9ADiwOrIlSwDs9xxD3/Z6QWBa
-	UUI+/g0mNDpjeanC6pXkGKmqg+int5FGjbDG7GIib46GqTfGPJQmBHqV8Zqkx1gGUmojTA6ZBF9
-	i121i9qT0O28l2gl8CA5nhje9jV5ZsssewKLt4TfwH2Tu2BTbH0bFeB34/oCfMIHIp+wLCN/3eW
-	pBeOVMjhhjVtOaFfDVundot053fUlUDnGgPuiCvCUsb2md/uQSciLjQiJUeF5f0UHaLbYooBM3Q
-	EXtZdO0kwFNY
-X-Received: by 2002:a05:600c:45c6:b0:48d:46a:6e5b with SMTP id 5b1f17b1804b1-4903602dbf4mr24843875e9.7.1779354229452;
-        Thu, 21 May 2026 02:03:49 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779354233; x=1779959033;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=0Y36SgBQ9cIMBn0I5RWu40X8SISnSEeAXBBuc0ToW2E=;
+        b=eT/LDdMw9jMdUBck2sAw2gmg4Wf6tNIZ11JvI6uj605nIu2aG5F/A522dAcszt/wd4
+         EjebhRjji8aYn0BMgZVDOu/e3knInwSYP7lGT5B6mrhc8IpiYhv/d70/hBZtUzopw7j9
+         lJItjNMu7E99KeoiEKjMxe7rGPd6smb/cV7jHC2lZEKcDvg4sClxcKc5HrWLJ8QclThw
+         eSV5G2eHgtJ2o39MeaQfric5o1SmHlgbExcjx/b/EMcYZ+DVSREFfsF3lX/G3bYBQGix
+         bHuStYGJOoTtW03PRN1cKgyM9fNvYmrPOHExLUPjyyTCicBrJZBc9lnawjCtdMI2ntPy
+         EDSw==
+X-Forwarded-Encrypted: i=1; AFNElJ8ooE14ucsItorN3YgyA0NLIsJpoirBVZ0hD2wtk4b/C823Jj36jkUmML5/sNd9zGTD52U5oh9GjIjnqZQlht6c@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU27nnfACxa6EYmzyUksbSURAExYdYloh1GyIWw9aHh/i0Txuf
+	vnJCZIjnkuldp9MkelUE4flVg2vJkoMcFcQSVsTsTxeM9RjGHi/OcPor
+X-Gm-Gg: Acq92OG/Q6qjRYL8xGUXI1dsflSfs3LrB5IPfbIY4IP02RlpfxA+CwN2p5qD8mi8Ne+
+	sXcZeV6CFATOC8V+qmP0pTomd9KEb/PUDqqCzcPSNoZ/VnTvPM1ba62BHJrP9/aKk3EaanEMU+B
+	lNmyv01lb8Lx404odqFD+NLTyZzB/NV5vjsi2NiM9HnzOoCEOgo9Z+KY1XN58Y6KenGj6823TaF
+	WYSqOZy7gcbghYTzRma/gQRUMFFj6nZ+yNAx/2owoQNGymyEcaX1OkK+g6zpBtyNUd2cGHo8m79
+	5GmpTEO7AGWXR6EBHc5tK5drRTFGiuomEsdDkoHsSUH9M/HRgAJQRZZHuoPtHX+vKoGZFLqkfP+
+	q9PmOZkTJpXbVGHhF+nKT+Hv72VKtnpr+JqRzqxxOMlHLJuOPnHEX6qtRdsgaZp9hJfIZG78whg
+	CEcbVVYiECcuXVMMP9Il4tzCu0bWL/vy8sKOmwwR7C+eo/Jb/MfIkvGENiV8e9C4pxKTFoULKAQ
+	t3c+eETBWmMorCNBQpqbctJ7SWkGdf0Bl1ySywqLbIhRZ9m5d18GVSiG+brtCQq1r84vZQMopsQ
+	yA==
+X-Received: by 2002:a05:600c:4d98:b0:489:2005:b36e with SMTP id 5b1f17b1804b1-4903607ced6mr16564025e9.19.1779354232294;
+        Thu, 21 May 2026 02:03:52 -0700 (PDT)
 Received: from [127.0.1.1] (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch. [83.173.201.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49035c72c78sm16151525e9.3.2026.05.21.02.03.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49035c72c78sm16151525e9.3.2026.05.21.02.03.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 02:03:49 -0700 (PDT)
+        Thu, 21 May 2026 02:03:51 -0700 (PDT)
 From: Franz Schnyder <fra.schnyder@gmail.com>
-Subject: [PATCH v3 0/3] arm64: dts: freescale: add Toradex Aquila iMX95
-Date: Thu, 21 May 2026 11:03:44 +0200
-Message-Id: <20260521-add-aquila-imx95-v3-0-621843807def@toradex.com>
+Date: Thu, 21 May 2026 11:03:47 +0200
+Subject: [PATCH v3 3/3] arm64: dts: freescale: imx95-aquila: Add Clover
+ carrier board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAHDKDmoC/23NTQrCMBCG4auUrI0kkx+sK+8hLkIytQO21URDp
- fTupgVB0eU78D0zsYSRMLF9NbGImRINfQm1qZhvXX9GTqE0AwFWGCG5C4G724MujlM31oZrUGC
- sa1QAycrsGrGhcSWPp9ItpfsQn+uHLJfrG7O/WJZccFv7HaL0Rkt1KFsXcNz6oWMLl+GDAPGHg
- EIIq0E7I1Ep903M8/wCdVXtpPUAAAA=
-X-Change-ID: 20260501-add-aquila-imx95-423256af3d21
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260521-add-aquila-imx95-v3-3-621843807def@toradex.com>
+References: <20260521-add-aquila-imx95-v3-0-621843807def@toradex.com>
+In-Reply-To: <20260521-add-aquila-imx95-v3-0-621843807def@toradex.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -91,16 +90,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Francesco Dolcini <francesco@dolcini.it>, 
  Franz Schnyder <franz.schnyder@toradex.com>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>, 
- Emanuele Ghidoli <emanuele.ghidoli@toradex.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- Antoine Gouby <antoine.gouby@toradex.com>, 
- Ernest Van Hoecke <ernest.vanhoecke@toradex.com>
+ Antoine Gouby <antoine.gouby@toradex.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_020351_770846_33F3A49C 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260521_020354_822529_CE28354A 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,56 +109,335 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the Toradex Aquila i.MX95 SoM and its
-currently available carrier boards: the Aquila Development Board and the
-Clover carrier board.
+From: Antoine Gouby <antoine.gouby@toradex.com>
 
-The module consists of an NXP i.MX95 family SoC, up to 16GB LPDDR5 RAM,
-up to 128GB of storage, a USB 3.2 OTG and USB 2.0 Host, a Gigabit
-Ethernet PHY, a 10 Gigabit Ethernet interface, an I2C EEPROM and 
-Temperature Sensor, an RX8130 RTC, one Quad lane CSI interface, one Quad
-lane DSI or CSI interface, one LVDS interface (one or two channels), and
-some optional addons: DisplayPort (through a DSI-DP bridge), TPM 2.0, 
-and a WiFi/BT module.
+Add support for the Aquila i.MX95 SoM mated with the Clover carrier
+board. Clover is a low-cost carrier board for the Aquila family
+featuring a small form factor (Nano-ITX 120mm x 120mm) and built for
+volume production.
 
 Link: https://www.toradex.com/computer-on-modules/aquila-arm-family/nxp-imx95
-Link: https://www.toradex.com/products/carrier-board/aquila-development-board-kit
 Link: https://www.toradex.com/products/carrier-board/clover
+Signed-off-by: Antoine Gouby <antoine.gouby@toradex.com>
 Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
 ---
-Changes in v3:
-- Changed QSPI_1 4bit iomux node name to 'flexspi14bitgrp'
-- Deleted the cdns,* properties from flexspi1
-- Link to v2: https://patch.msgid.link/20260520-add-aquila-imx95-v2-0-06424a51e33a@toradex.com
-
-Changes in v2:
-- Add 'acked-by' tag from Conor to the bindings patch
-- Reordering iomux by node name
-- Changed Francesco's tags to have the Toradex mail address
-- Link to v1: https://lore.kernel.org/r/20260506-add-aquila-imx95-v1-0-69c8ee1c5413@toradex.com
-
+v3: Deleted the cdns,* properties from flexspi1
+v2: no changes
+v1: https://lore.kernel.org/all/20260506-add-aquila-imx95-v1-3-69c8ee1c5413@toradex.com/
 ---
-Antoine Gouby (1):
-      arm64: dts: freescale: imx95-aquila: Add Clover carrier board
+ arch/arm64/boot/dts/freescale/Makefile             |   1 +
+ .../boot/dts/freescale/imx95-aquila-clover.dts     | 289 +++++++++++++++++++++
+ 2 files changed, 290 insertions(+)
 
-Franz Schnyder (1):
-      dt-bindings: arm: fsl: add Aquila iMX95
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index c8697b6ae01c5..3ce082c121036 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -523,6 +523,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx95-aquila-clover.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-aquila-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-tqma9596sa-mb-smarc-2.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts b/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
+new file mode 100644
+index 0000000000000..751232e6fa8dd
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx95-aquila-clover.dts
+@@ -0,0 +1,289 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * https://www.toradex.com/computer-on-modules/aquila-arm-family/nxp-imx95
++ * https://www.toradex.com/products/carrier-board/clover
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/pwm/pwm.h>
++#include <dt-bindings/usb/pd.h>
++#include "imx95-aquila.dtsi"
++
++/ {
++	model = "Aquila iMX95 on Aquila Clover Board";
++	compatible = "toradex,aquila-imx95-clover",
++		     "toradex,aquila-imx95",
++		     "fsl,imx95";
++
++	aliases {
++		eeprom1 = &carrier_eeprom;
++	};
++
++	dp_1_connector: dp0-connector {
++		compatible = "dp-connector";
++		dp-pwr-supply = <&reg_dp_3p3v>;
++		type = "full-size";
++
++		port {
++			dp_1_connector_in: endpoint {
++				remote-endpoint = <&dsi2dp_out>;
++			};
++		};
++	};
++
++	reg_dp_3p3v: regulator-dp-3p3v {
++		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio_21_dp>;
++		/* Aquila GPIO_21_DP */
++		gpios = <&gpio3 21 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "DP_3V3";
++		startup-delay-us = <10000>;
++	};
++};
++
++/* Aquila ADC_[1-4] */
++&adc1 {
++	status = "okay";
++};
++
++/* Aquila CTRL_WAKE1_MICO# */
++&aquila_key_wake {
++	status = "okay";
++};
++
++&dsi2dp_out {
++	remote-endpoint = <&dp_1_connector_in>;
++};
++
++/* Aquila ETH_1 */
++&enetc_port0 {
++	status = "okay";
++};
++
++/* Aquila CAN_1 */
++&flexcan1 {
++	status = "okay";
++};
++
++/* Aquila CAN_2 */
++&flexcan2 {
++	status = "okay";
++};
++
++/* Aquila CAN_3 */
++&flexcan3 {
++	status = "okay";
++};
++
++/* Aquila CAN_4 */
++&flexcan4 {
++	status = "okay";
++};
++
++/* Aquila QSPI_1 */
++&flexspi1 {
++	pinctrl-0 = <&pinctrl_flexspi1_4bit>,
++		    <&pinctrl_qspi_cs1>;
++
++	status = "okay";
++
++	flash@0 {
++		compatible = "jedec,spi-nor";
++		reg = <0x0>;
++		spi-max-frequency = <66000000>;
++		spi-rx-bus-width = <4>;
++		spi-tx-bus-width = <4>;
++	};
++};
++
++&gpio4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_gpio_1>,
++		    <&pinctrl_gpio_2>,
++		    <&pinctrl_gpio_3>,
++		    <&pinctrl_gpio_4>;
++};
++
++/* Aquila I2C_2 */
++&i3c2 {
++	status = "okay";
++};
++
++/* Aquila I2C_1 */
++&lpi2c2 {
++	status = "okay";
++
++	fan_controller: fan@18 {
++		compatible = "ti,amc6821";
++		reg = <0x18>;
++		#pwm-cells = <2>;
++
++		fan {
++			cooling-levels = <255>;
++			pwms = <&fan_controller 40000 PWM_POLARITY_INVERTED>;
++		};
++	};
++
++	temperature-sensor@4f {
++		compatible = "ti,tmp1075";
++		reg = <0x4f>;
++	};
++
++	/* USB-C OTG (TCPC USB PD PHY) */
++	tcpc@52 {
++		compatible = "nxp,ptn5110", "tcpci";
++		reg = <0x52>;
++		interrupt-parent = <&som_gpio_expander_1>;
++		interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "dual";
++			op-sink-microwatt = <0>;
++			power-role = "dual";
++			self-powered;
++			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
++			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
++			try-power-role = "sink";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					typec_con_hs: endpoint {
++						remote-endpoint = <&usb1_con_hs>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					typec_con_ss: endpoint {
++						remote-endpoint = <&usb1_con_ss>;
++					};
++				};
++			};
++		};
++	};
++
++	carrier_eeprom: eeprom@57 {
++		compatible = "st,24c02", "atmel,24c02";
++		reg = <0x57>;
++		pagesize = <16>;
++	};
++};
++
++/* Aquila I2C_6 */
++&lpi2c5 {
++	status = "okay";
++};
++
++/* Aquila SPI_1 */
++&lpspi6 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_lpspi6 &pinctrl_gpio_5>;
++	cs-gpios = <&gpio2 0 GPIO_ACTIVE_LOW>, <&gpio4 18 GPIO_ACTIVE_LOW>;
++
++	status = "okay";
++
++	tpm@1 {
++		compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
++		reg = <1>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_gpio_6>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <17 IRQ_TYPE_LEVEL_LOW>;
++		spi-max-frequency = <12000000>;
++	};
++};
++
++/* Aquila UART_3, used as the Linux Console */
++&lpuart1 {
++	status = "okay";
++};
++
++/* Aquila UART_4 */
++&lpuart2 {
++	status = "okay";
++};
++
++/* Aquila UART_1 */
++&lpuart3 {
++	status = "okay";
++};
++
++/* Aquila UART_2 */
++&lpuart7 {
++	status = "okay";
++};
++
++/* Aquila PCIE_1 */
++&pcie0 {
++	status = "okay";
++};
++
++&som_dsi2dp_bridge {
++	status = "okay";
++};
++
++/* Aquila PWM_1 */
++&tpm3 {
++	status = "okay";
++};
++
++/* Aquila PWM_3_DSI and PWM_4_DP */
++&tpm5 {
++	status = "okay";
++};
++
++/* Aquila PWM_2 */
++&tpm6 {
++	status = "okay";
++};
++
++/* Aquila USB_2, optional Bluetooth USB */
++&usb2 {
++	status = "okay";
++};
++
++/* Aquila USB_1 */
++&usb3 {
++	status = "okay";
++};
++
++&usb3_dwc3 {
++	status = "okay";
++
++	port {
++		usb1_con_hs: endpoint {
++			remote-endpoint = <&typec_con_hs>;
++		};
++	};
++};
++
++&usb3_phy {
++	orientation-switch;
++
++	status = "okay";
++
++	port {
++		usb1_con_ss: endpoint {
++			remote-endpoint = <&typec_con_ss>;
++		};
++	};
++};
++
++/* Aquila SD_1 */
++&usdhc2 {
++	status = "okay";
++};
 
-João Paulo Gonçalves (1):
-      arm64: dts: freescale: add Aquila iMX95 support
-
- Documentation/devicetree/bindings/arm/fsl.yaml     |    8 +
- arch/arm64/boot/dts/freescale/Makefile             |    2 +
- .../boot/dts/freescale/imx95-aquila-clover.dts     |  289 +++++
- arch/arm64/boot/dts/freescale/imx95-aquila-dev.dts |  393 +++++++
- arch/arm64/boot/dts/freescale/imx95-aquila.dtsi    | 1160 ++++++++++++++++++++
- 5 files changed, 1852 insertions(+)
----
-base-commit: 596d0f9f4fefffbf783ab26cfa90cf50f5dd6bb0
-change-id: 20260501-add-aquila-imx95-423256af3d21
-
-Best regards,
---  
-Franz Schnyder <franz.schnyder@toradex.com>
+-- 
+2.43.0
 
 
