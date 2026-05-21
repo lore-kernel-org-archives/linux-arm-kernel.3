@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78605CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDFDCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:54:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q39DiklZvSpNFdVrcrO1V6lBShlkhniXqdocnefU7Hw=; b=owqkuQ0OXa2eVOj1/tg+bZoapv
-	0bd85aNKQZWGoXgAuxkrIXTVD9O1rGgVEl4eytlMa6zyEg0SILsOtTq8kJR4ZOfw95wJvN8qyN0oy
-	IRh7x5RVUXoKzZDEOR2ADCqnYwwrUGHeIXpLtTBsd10/ciYa/MzZxU6pVwgGHMJrEGB0gGUu3roR6
-	ZqGzH1VVKJN/DwXFDoNa6pZL+wLqlqPMz725zmCjLI6n8ZjSs/P1luJ7TIEB5UY6j2yNcIQcOfDyz
-	C21y0f9CVzEhWeMkcluseROIkFY8s6FIJeSAWSF00DF8bGaVx6h+z68kEl/X/cizk5oXQYAczNafF
-	CgMCocMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AaciwSm1L46TIODxCA9aHpcFSHmqvrXKCz/1wzRVFx0=; b=q/d2Oap7rBYuPzbPZIX2L2WZv7
+	8sa1Nhw2Ewg2eCzVDA0a7F6OsuV/Kq4XqljrgTu45twzYF7Ffq3HsuxV4pSJnaNIQE+3wjAaRlFja
+	cEe+23uPSmopzsAhxVo0RvlbHQO/NXKHAqEAmSBzsk3LYrKKousscimv1VZ4LqmiTEO8R0qf+Pp/v
+	4iX/PL056ihDXt8VRK/7PoILoMig6/7dtSjBRpJTVjusRopJy4sAm5gzptWiixKx/bkn9JqEYf8qH
+	teNiOJ8kPHrIzk2moYFt8+JfOUSAW+sX0noe7dJQCZlpjgSCI8G/gKHZOfkpXhe/F3ipYe8vbEvv9
+	UTJKDF/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxE2-00000006s2E-2rtf;
-	Thu, 21 May 2026 06:49:46 +0000
-Received: from outpost1.zedat.fu-berlin.de ([130.133.4.66])
+	id 1wPxIk-00000006sf4-13C9;
+	Thu, 21 May 2026 06:54:38 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxDv-00000006ryC-1T2N
+	id 1wPxIh-00000006seG-1TbM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 06:49:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=fu-berlin.de; s=fub01; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:From:
-	Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To:
-	References; bh=q39DiklZvSpNFdVrcrO1V6lBShlkhniXqdocnefU7Hw=; t=1779346179;
-	x=1779950979; b=J+LmNXXI3be3Q36fIaq8vIyAuHRmiaXOkOJryEjqpGhN14jApWp8n7abQJUVQ
-	vcCvR0S9uqeAItufPglXbdyJ7fweByD3cakkHOoVrDI2TgI78QgU4Lxtm5+l0E5KxIp3bnGJMWn3l
-	2C4fMdEZEpL+7bzQaAhLvD1NiQZJzbPmVMw/Els+xf5fGgVxjkoEJepp1P3rv3rNIWL8ie/ebRSxO
-	sJAVcPp8eW3okWCsgnqcNxFzhF8INaeHrHSgB1MmY/h8pv1RDgOegb67D7/cYMtANaO2hkt6tUx2m
-	ViCWsQ5Gnv115vZyVGI0GoCRi3G9briyHkwk+RmuOY0/iHgXNA==;
-Received: from inpost2.zedat.fu-berlin.de ([130.133.4.69])
-          by outpost.zedat.fu-berlin.de (Exim 4.99)
-          with esmtps (TLS1.3)
-          tls TLS_AES_256_GCM_SHA384
-          (envelope-from <glaubitz@zedat.fu-berlin.de>)
-          id 1wPxDK-00000002vgw-3F6M; Thu, 21 May 2026 08:49:02 +0200
-Received: from p5b13a134.dip0.t-ipconnect.de ([91.19.161.52] helo=suse-laptop.fritz.box)
-          by inpost2.zedat.fu-berlin.de (Exim 4.99)
-          with esmtpsa (TLS1.3)
-          tls TLS_AES_256_GCM_SHA384
-          (envelope-from <glaubitz@physik.fu-berlin.de>)
-          id 1wPxDK-00000000p6R-1lXr; Thu, 21 May 2026 08:49:02 +0200
-Message-ID: <8f918549adce2bbb68fdf3754793b3305f994c23.camel@physik.fu-berlin.de>
-Subject: Re: [PATCH 04/10] [v2] sh: select legacy gpiolib interface
-From: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-To: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, Christian
- Lamparter <chunkeey@googlemail.com>, Johannes Berg
- <johannes@sipsolutions.net>, Aaro Koskinen	 <aaro.koskinen@iki.fi>, Andreas
- Kemnade <andreas@kemnade.info>, Kevin Hilman	 <khilman@baylibre.com>, Roger
- Quadros <rogerq@kernel.org>, Tony Lindgren	 <tony@atomide.com>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Linus Walleij <linusw@kernel.org>,
- Bartosz Golaszewski <brgl@kernel.org>, Dmitry Torokhov	
- <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>, Pavel Machek	
- <pavel@kernel.org>, Matti Vaittinen <mazziesaccount@gmail.com>, Florian
- Fainelli <florian.fainelli@broadcom.com>, Jonas Gorski
- <jonas.gorski@gmail.com>, Andrew Lunn	 <andrew@lunn.ch>, Vladimir Oltean
- <olteanv@gmail.com>, "David S. Miller"	 <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski	 <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, 	linux-wireless@vger.kernel.org,
- linux-omap@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, 	linux-sh@vger.kernel.org,
- linux-input@vger.kernel.org, 	linux-leds@vger.kernel.org,
- netdev@vger.kernel.org
-Date: Thu, 21 May 2026 08:49:00 +0200
-In-Reply-To: <20260520183815.2510387-5-arnd@kernel.org>
-References: <20260520183815.2510387-1-arnd@kernel.org>
-	 <20260520183815.2510387-5-arnd@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.60.1 
+	Thu, 21 May 2026 06:54:37 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ba856db1c0so41829725ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 23:54:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779346474; x=1779951274; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AaciwSm1L46TIODxCA9aHpcFSHmqvrXKCz/1wzRVFx0=;
+        b=U9LtNl8TKzbLzijWA61tgPwNOCcOi96diJu6+IseOKDK/U4qhpg3LDKUx/A496wBJB
+         RY3/bo0Kq/T3CyzokXh/XJEU8EXsgNmy4SmPHCFqwJ5ZdxAzbH7hvkZ1J8+/zOx0Rk8Z
+         lBj5USKaYfIa3SZpL+4qagQPvYxrlN4HsEWwaeaErvDC6BWweZVOFAPbInAjF+Rw2sxj
+         +b4UPCw0ULOMUR1uELi8usL8NAYopxkPMaBwP6BVnCHtez8BNh9Dx4s8+OtvcQ8cVNv6
+         uvVarpVirihnDryaYl06RTO2lwhqXHna3E+o1879Eel+/X4JPX5q2025GnZWVPvONCB7
+         WKpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779346474; x=1779951274;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=AaciwSm1L46TIODxCA9aHpcFSHmqvrXKCz/1wzRVFx0=;
+        b=iHuhPg9Dwbux71poQPDSVnH7tBKHULxCeR0CPm5DhoF0qivY8ekZLRsEs9aVU7q7fx
+         mLtyhQVKzbHlWA+X0puDrgJP9zGFZTSA7zUIHh3RJQ3T2J8AtJrcuLTV1eCu++LpDQNp
+         2rDAnmrxlITcC9cVarRauvw+1cu8PKua5KK/CzLpsTnSKSGaZ8pJGb8oTLIu+Mui75FX
+         RcE7z3DSqRds3rDq9uLsqfdvMC8dtm/xMmN5DKuy5OTCaz9Fw0y8nTAeBqVpappHXXyZ
+         p0/zxy/8fU/tYRvmBq1c6tZrRRnD2XsF+DZfJo88gLBPKrO6OTonhyP6I/NDIrOg3HgB
+         S6gw==
+X-Forwarded-Encrypted: i=1; AFNElJ94RFJnSF3HIvqqzAIpDWTiE9kHSb6iarEa/B4BNoiDti50srmn7wfBx6DqXEaM7D2z4oIGgaQ7IrbBzQ5B7E0j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9Q6WxbJ0078ziE3MJN6VV1CBgAN7WjPCOWV3/71imuEhsNmlM
+	gmLb7gBqNKPLqFeoKyv5LOdlI0LKCDWdNiUvrhLEk6+H+omg9+FTaHq0
+X-Gm-Gg: Acq92OEVPJeHk8ZpMj91/rI1p9OoxmJ1KwnK2Fv9tQtuY/pREmLFhlDYJeWzS9uFUbu
+	iZsC9a83cZJu0T+/jDbiGe+J5R2uo2BgJKN/IMk0Tj5+g/vjUkhzDu44/pqrWHBlCQtrFSsqTMn
+	69AuH2qm1RvVaohr0wLTMEXAoham0Grl2JxX8J2KoRzWcdumDcoKOkIwmvw46SQD/cZZeCaL4uM
+	qKGJk5H5jNrh6aVtyze8e+f4UHrMeF8ysTpLBpwIeWdx/fezreAmvWU/rBxG3tM6+q+31CntNDc
+	5IxmCXQo3BnspbiysvSKNj37sWy0h7GMdGLxa+GmNisnvOn6qG/bg+g/Dyzs+S94w1PvIB+RKFL
+	WxanevBawtBuWhLDZn45eXJMRmFVyLKjT27fWBuIgMvCtlaOrjtgi6rXXjUO9u9U/nVEqdKeDEN
+	aOb46GBcZdb4M7vVddZT+oZYk9qsgB4gww3+m9ipD6N5+st068
+X-Received: by 2002:a17:902:e750:b0:2bc:8ebd:af76 with SMTP id d9443c01a7336-2bea2fb709dmr15581365ad.0.1779346473759;
+        Wed, 20 May 2026 23:54:33 -0700 (PDT)
+Received: from csl-conti-dell7858.ntu.edu.sg ([155.69.195.57])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5d0fd384sm241757715ad.65.2026.05.20.23.54.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 20 May 2026 23:54:33 -0700 (PDT)
+From: Maoyi Xie <maoyixie.tju@gmail.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Neal Liu <neal_liu@aspeedtech.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	linux-aspeed@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-usb@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3] usb: gadget: aspeed_udc: avoid past-the-end iterator in dequeue
+Date: Thu, 21 May 2026 14:54:28 +0800
+Message-Id: <20260521065428.3261238-1-maoyixie.tju@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260519080213.1932516-1-maoyixie.tju@gmail.com>
+References: <20260519080213.1932516-1-maoyixie.tju@gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: glaubitz@physik.fu-berlin.de
-X-Originating-IP: 91.19.161.52
-X-ZEDAT-Hint: PO
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_234939_669245_668B53E4 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20260520_235435_398506_6CC5D0F0 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,35 +106,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+ast_udc_ep_dequeue() declares the loop cursor `req` outside the
+list_for_each_entry(). After the loop it tests `&req->req != _req`
+to decide whether the request was found. If the queue holds no
+match, `req` is past-the-end. It then aliases
+container_of(&ep->queue, struct ast_udc_request, queue) via offset
+cancellation. Whether that synthetic address equals `_req` depends
+on heap layout. The function can return 0 without dequeueing
+anything.
 
-On Wed, 2026-05-20 at 20:38 +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->=20
-> Many board files on sh reference the legacy gpiolib interfaces that
-> are becoming optional. To ensure the boards can keep building, select
-> CONFIG_GPIOLIB_LEGACY on each of the boards that have one of the
-> hardcoded calls.
->=20
-> Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
-> v2: no changes. Adrian said he'll pick it up for 7.2, but so
->     far the patch is not in linux-next yet, so I'm including it
->     for completeness here.
+Default `rc` to -EINVAL and set it to 0 only inside the match
+branch. `req` is no longer read after the loop, so the past-the-end
+dereference goes away. No extra cursor variable or post-loop test
+is needed.
 
-Sorry, I hadn't gotten around to pick the changes for v7.2 yet. I can
-pick it up this weekend as I was planning to review and merge some
-patches this weekend.
+Suggested-by: Alan Stern <stern@rowland.harvard.edu>
+Suggested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
+---
+v3: Switch to Andrew Jeffery's shape: default rc to -EINVAL, set
+    rc=0 inside the match branch, drop the post-loop check. Smaller
+    diff, no extra cursor variable, no goto. Same semantic fix as v2.
+v2: https://lore.kernel.org/linux-usb/20260519080213.1932516-1-maoyixie.tju@gmail.com/
+v1: https://lore.kernel.org/linux-usb/20260518073403.1285339-1-maoyi.xie@ntu.edu.sg/
 
-I have received quite a lot of patches for SH recently, so it will take
-some time to dig myself through the queue.
+ drivers/usb/gadget/udc/aspeed_udc.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-Adrian
+diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc/aspeed_udc.c
+index 7fc6696b7694..75f9c831b21a 100644
+--- a/drivers/usb/gadget/udc/aspeed_udc.c
++++ b/drivers/usb/gadget/udc/aspeed_udc.c
+@@ -694,7 +694,7 @@ static int ast_udc_ep_dequeue(struct usb_ep *_ep, struct usb_request *_req)
+ 	struct ast_udc_dev *udc = ep->udc;
+ 	struct ast_udc_request *req;
+ 	unsigned long flags;
+-	int rc = 0;
++	int rc = -EINVAL;
+ 
+ 	spin_lock_irqsave(&udc->lock, flags);
+ 
+@@ -704,14 +704,11 @@ static int ast_udc_ep_dequeue(struct usb_ep *_ep, struct usb_request *_req)
+ 			list_del_init(&req->queue);
+ 			ast_udc_done(ep, req, -ESHUTDOWN);
+ 			_req->status = -ECONNRESET;
++			rc = 0;
+ 			break;
+ 		}
+ 	}
+ 
+-	/* dequeue request not found */
+-	if (&req->req != _req)
+-		rc = -EINVAL;
+-
+ 	spin_unlock_irqrestore(&udc->lock, flags);
+ 
+ 	return rc;
+-- 
+2.34.1
 
---=20
- .''`.  John Paul Adrian Glaubitz
-: :' :  Debian Developer
-`. `'   Physicist
-  `-    GPG: 62FF 8A75 84E0 2956 9546  0006 7426 3B37 F5B5 F913
 
