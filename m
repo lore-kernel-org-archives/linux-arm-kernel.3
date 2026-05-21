@@ -4,94 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDFDCD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570AECD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:01:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AaciwSm1L46TIODxCA9aHpcFSHmqvrXKCz/1wzRVFx0=; b=q/d2Oap7rBYuPzbPZIX2L2WZv7
-	8sa1Nhw2Ewg2eCzVDA0a7F6OsuV/Kq4XqljrgTu45twzYF7Ffq3HsuxV4pSJnaNIQE+3wjAaRlFja
-	cEe+23uPSmopzsAhxVo0RvlbHQO/NXKHAqEAmSBzsk3LYrKKousscimv1VZ4LqmiTEO8R0qf+Pp/v
-	4iX/PL056ihDXt8VRK/7PoILoMig6/7dtSjBRpJTVjusRopJy4sAm5gzptWiixKx/bkn9JqEYf8qH
-	teNiOJ8kPHrIzk2moYFt8+JfOUSAW+sX0noe7dJQCZlpjgSCI8G/gKHZOfkpXhe/F3ipYe8vbEvv9
-	UTJKDF/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ieF9yw/GSVJ2SDIz62jCug1iEvzwvC7gAvc348sGhpg=; b=bXZ39Fkj7Ss2TVr3BTD9qqnQ2u
+	F1OnsrqbnDEXhUbHw96mOTbsAdZFTb0z4/GQXq/ciQc/Yr3E7C7ieY9AldXq9lroKpnF8yWfXZpbF
+	4CoBSD/Z+Kqvdo4GpgkD9tpHV3RChqLZRnw1DySu9aTwGUIcijnCMoCr5PPxrCvGAHdTS/7RuQBsc
+	Zz7U9fY2YcN3/P5EbLu/qbN/zNs8597SPW/gE6rG/+w9Wb/cJbodY7oqIJNtKt5siuseeQKls3g56
+	OlKDZP/OED0Ivcb5M9udLdZB1xGEBLrT1nPz/u0GgtGfyUEXmuwWOu4GEQJk2hZxs8B4bW5ghTBGO
+	drMzZ5tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxIk-00000006sf4-13C9;
-	Thu, 21 May 2026 06:54:38 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1wPxOu-00000006tWr-3zML;
+	Thu, 21 May 2026 07:01:00 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxIh-00000006seG-1TbM
+	id 1wPxOq-00000006tVT-2CrI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 06:54:37 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2ba856db1c0so41829725ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 23:54:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779346474; x=1779951274; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AaciwSm1L46TIODxCA9aHpcFSHmqvrXKCz/1wzRVFx0=;
-        b=U9LtNl8TKzbLzijWA61tgPwNOCcOi96diJu6+IseOKDK/U4qhpg3LDKUx/A496wBJB
-         RY3/bo0Kq/T3CyzokXh/XJEU8EXsgNmy4SmPHCFqwJ5ZdxAzbH7hvkZ1J8+/zOx0Rk8Z
-         lBj5USKaYfIa3SZpL+4qagQPvYxrlN4HsEWwaeaErvDC6BWweZVOFAPbInAjF+Rw2sxj
-         +b4UPCw0ULOMUR1uELi8usL8NAYopxkPMaBwP6BVnCHtez8BNh9Dx4s8+OtvcQ8cVNv6
-         uvVarpVirihnDryaYl06RTO2lwhqXHna3E+o1879Eel+/X4JPX5q2025GnZWVPvONCB7
-         WKpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779346474; x=1779951274;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AaciwSm1L46TIODxCA9aHpcFSHmqvrXKCz/1wzRVFx0=;
-        b=iHuhPg9Dwbux71poQPDSVnH7tBKHULxCeR0CPm5DhoF0qivY8ekZLRsEs9aVU7q7fx
-         mLtyhQVKzbHlWA+X0puDrgJP9zGFZTSA7zUIHh3RJQ3T2J8AtJrcuLTV1eCu++LpDQNp
-         2rDAnmrxlITcC9cVarRauvw+1cu8PKua5KK/CzLpsTnSKSGaZ8pJGb8oTLIu+Mui75FX
-         RcE7z3DSqRds3rDq9uLsqfdvMC8dtm/xMmN5DKuy5OTCaz9Fw0y8nTAeBqVpappHXXyZ
-         p0/zxy/8fU/tYRvmBq1c6tZrRRnD2XsF+DZfJo88gLBPKrO6OTonhyP6I/NDIrOg3HgB
-         S6gw==
-X-Forwarded-Encrypted: i=1; AFNElJ94RFJnSF3HIvqqzAIpDWTiE9kHSb6iarEa/B4BNoiDti50srmn7wfBx6DqXEaM7D2z4oIGgaQ7IrbBzQ5B7E0j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9Q6WxbJ0078ziE3MJN6VV1CBgAN7WjPCOWV3/71imuEhsNmlM
-	gmLb7gBqNKPLqFeoKyv5LOdlI0LKCDWdNiUvrhLEk6+H+omg9+FTaHq0
-X-Gm-Gg: Acq92OEVPJeHk8ZpMj91/rI1p9OoxmJ1KwnK2Fv9tQtuY/pREmLFhlDYJeWzS9uFUbu
-	iZsC9a83cZJu0T+/jDbiGe+J5R2uo2BgJKN/IMk0Tj5+g/vjUkhzDu44/pqrWHBlCQtrFSsqTMn
-	69AuH2qm1RvVaohr0wLTMEXAoham0Grl2JxX8J2KoRzWcdumDcoKOkIwmvw46SQD/cZZeCaL4uM
-	qKGJk5H5jNrh6aVtyze8e+f4UHrMeF8ysTpLBpwIeWdx/fezreAmvWU/rBxG3tM6+q+31CntNDc
-	5IxmCXQo3BnspbiysvSKNj37sWy0h7GMdGLxa+GmNisnvOn6qG/bg+g/Dyzs+S94w1PvIB+RKFL
-	WxanevBawtBuWhLDZn45eXJMRmFVyLKjT27fWBuIgMvCtlaOrjtgi6rXXjUO9u9U/nVEqdKeDEN
-	aOb46GBcZdb4M7vVddZT+oZYk9qsgB4gww3+m9ipD6N5+st068
-X-Received: by 2002:a17:902:e750:b0:2bc:8ebd:af76 with SMTP id d9443c01a7336-2bea2fb709dmr15581365ad.0.1779346473759;
-        Wed, 20 May 2026 23:54:33 -0700 (PDT)
-Received: from csl-conti-dell7858.ntu.edu.sg ([155.69.195.57])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5d0fd384sm241757715ad.65.2026.05.20.23.54.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 May 2026 23:54:33 -0700 (PDT)
-From: Maoyi Xie <maoyixie.tju@gmail.com>
-To: Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Neal Liu <neal_liu@aspeedtech.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Alan Stern <stern@rowland.harvard.edu>,
-	linux-aspeed@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org,
+	Thu, 21 May 2026 07:00:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=C5no6JEL9awQMgPLk8PD0fjEGgH/Hvk9SlX6W3oo5p1TVHQVN1vX8jSR+ijYPTS0mC/p11HfRWyWdOoyA3Pa8vh4y/dS3TbrTmVBo9PM/slbgNcU4FiCNb54hQpFgIGkwuT74f5LlSiHBS8458Mm2509mdhjXZ1J7JsOuZgZRRb80XSKOSyt37Uhp8CWwMkLuDJRIDX49/hM5QmkBLa9i0o9yzFf3wCqnEr7WYZYhVtSeQR/H5EoIsSPffnBlMH1YenxTb/LAOdPv7xonGpPgDz7SfOlF8JwuD98+3mKRRvM3+km9HsYhbsMO6HLLVCLYQBVaESv35MreA0ttX4gRQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ieF9yw/GSVJ2SDIz62jCug1iEvzwvC7gAvc348sGhpg=;
+ b=Lx8VeLqa76v1/nnR8+BS1DPE7YOFTXomcgtCFm1x8ZkPs9L/ypYL59hb3TXcB8er0AGmBQm1sqGFomdQHlwsbwLpwFSGbuQHbhgBF40iY7ITKWfyTnstWGHIqDnSfjfWQ9yyhrmx5DY6JpzcrVr6gmeKLsLEhIDrCFx+Z5/UGu/r4XYmgoiqaceR9T74B/WR1Cn+iW0yQEa3FJ74DeW9rWB2lIRIRY2FKDX7/NksMBzZXsvIitz1KQHxH3vkIduvPeOmQvvGti8afrAJROkpUjXdH9BmYbxK59ofbw4HkMxbUCQ8ysEbyKZQonyk35kBKBt9J1kj+ZEc3PX59LuJoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ieF9yw/GSVJ2SDIz62jCug1iEvzwvC7gAvc348sGhpg=;
+ b=gOGcn/X5eFzVf5Kd2jufYz179IhdT80DB3x32/oCPAVzqFhl0N103ctNwoh6x5VO3rWeSsKIrwZ5offiTh2ZkKZl+PsJo0OzOgvrHJQBMkEehLf//LDbiHGHHIVXQwWd1dOgRQyuw2a30O5FkP+mD2Ga5H/dRyrINPU4DztTfYy7D+aa+KdnzwTt1lIYDMwNrux3mxQ65mMMug7Kh39K1nqhWseUlu9tAmIbbpu4S9ZOf5LD60zsoJ0ivWYQIslgUkM4QT/6nNvNXEuTxmTubn+AZTg0WV77hKKubtW2joT8ude9VGtIcTBF5gXHsAogPd5zxlbjxnog6ELoyw75UA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by SJ1PR12MB6339.namprd12.prod.outlook.com (2603:10b6:a03:454::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
+ 2026 07:00:38 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 07:00:38 +0000
+Date: Thu, 21 May 2026 09:00:26 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Tejun Heo <tj@kernel.org>
+Cc: David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+	bpf@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] usb: gadget: aspeed_udc: avoid past-the-end iterator in dequeue
-Date: Thu, 21 May 2026 14:54:28 +0800
-Message-Id: <20260521065428.3261238-1-maoyixie.tju@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260519080213.1932516-1-maoyixie.tju@gmail.com>
-References: <20260519080213.1932516-1-maoyixie.tju@gmail.com>
+Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
+ installs
+Message-ID: <ag6tihzwPxXO-2yf@gpd4>
+References: <20260520235052.4180316-1-tj@kernel.org>
+ <20260520235052.4180316-2-tj@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260520235052.4180316-2-tj@kernel.org>
+X-ClientProxiedBy: ZR0P278CA0060.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:21::11) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|SJ1PR12MB6339:EE_
+X-MS-Office365-Filtering-Correlation-Id: 01e608b9-9721-43c3-5a41-08deb706a997
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|22082099003|56012099003|11063799006|3023799007|4143699003;
+X-Microsoft-Antispam-Message-Info: FIbpA3PC6B4Za8eU8HRQiJ0oAIbvHBVWOTzlLZEW/Ii2lW9FqgYn3McySBqZPRUJ8NXV+zih/EFIZ01TH+m8d/oBLHHLOGDqsQze1MC118BYUbsDsSOtM0Nv2XjYMFQB9hd5vyN7xtcjJsb/0zYchS8gkgMWXUypqEW0MEZ1Zrbd2jmGIkXnLzmDHL90zPm0sOJJ9PQT+YjN4LtR72CemNKNgMe50IdCPhrs2hYX3zoMol9gIIIYkEhgQVwwwp24XlioiudiCyhE1+6Btmjf7inZDLv3xYhpiJzyfZErlPmOfFo9vRT9T3/jIbIoyVNLTwSxcYegFHO4ngRN+9JIEzxFXX2lz1yMOCtTFN2eFx6Lpq2a25YN50UMb1Ti2PL5ze9OBixWB2cROwXdc3ccxSMoAxwAvWYEIHSp1wrZqX9pq/nykS6fnjBOPiBPCx2VpP7z3xYuj2K1f/oXgGp2MQOpzsJnTWYAgv47uMF+pnFTkWvT9i7ZNf61RB2Z37QZrj6SynslyGG5GzFU21RDjtk2bjEiKWfDiD2L/k57+Pr72q1cJKnjVHhVYcZ0L7R53UEKd6FjvQj/soaaFEhQpdrS16up1ohenAhDmIuUw6zlzlLE0oTJludzLvr5wCRhTskFbgG467hOiHP7eQ/Qh+ENwv8nL7v7kszzx3ZvXmrZl2TKChDzG/mFG+iP07gp
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(56012099003)(11063799006)(3023799007)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?spukkrsQ4X40uKakOMC34YE21YSrmmim9I8tKV5wQ1+SHR2DyYIlO4WJIyJH?=
+ =?us-ascii?Q?xCTesLEa0OWTT5cBN6HJmau7zY9E58O12Ghw5vMiXq40Hb8Ib+usrK405h7D?=
+ =?us-ascii?Q?TGpEj0zuYk4sEbU+Kx2fLxW1WXKrqIFu81u1I3ksfNZlHiuknzZTzAnVZwgw?=
+ =?us-ascii?Q?RUw4sSHUaEgSUDOd5Azyzpxz7nVa1zTQ77PDW/G1tjs9gQojsLcKKDn6y5Xy?=
+ =?us-ascii?Q?v0d60KCgovv7TK7WzjFlP4amvrljrI9vNK0SdyvfGRBpKuP9Si0z0RDK/WBt?=
+ =?us-ascii?Q?a2jy822fyXuDusmkgwSC6CeomFGLB8oqZ0PC9ba4NRn4p/oA4PSkLa2eV9s2?=
+ =?us-ascii?Q?DLUJsljGU4DB4/GfNYfrXMnjSvK1lDWVvisTIwSfQVIriq1M5y/s4dvc/Puq?=
+ =?us-ascii?Q?p5RCGMGndaKtGeK7NNes8wwoTSMmf7/4BqUEItc+MTGMXVl7GFYE/AG6zr9+?=
+ =?us-ascii?Q?s5ijAbK+y+f50RzprUWytibh3VQ6qvv9GGPcJTTcNCIpGRN6hX8f9Kp3KqNr?=
+ =?us-ascii?Q?Dpz/BZ2QCKJKphzBvyM5Mg7a2III4Zd37yEmt+8EJK3y7AbSrhy82MZuc+8P?=
+ =?us-ascii?Q?aR4XuUyFwh0nn7FrGs9PRC7P74aRV5+D927fMD2qCEqvTAF6xjeKQ0xZ0aH0?=
+ =?us-ascii?Q?5sAlGElJiALV0WWrF7R4UtSCNy6RA+4EDYXPWSor1OuwW25AxuztJmZhq08y?=
+ =?us-ascii?Q?j/JOtON5lzRz17qSuIIWvgPBtGxiP+FCQMokDyFnobKR6HmZ5khIh/jAMm4R?=
+ =?us-ascii?Q?wHmcAZnibzf34Wu0lmfwZOBfOT5YS7G6vIxeFoIRa0oHpP2/ElT8sJAcSiJ1?=
+ =?us-ascii?Q?GK9EyvZm6rJlrMkxm1Anlj0zbSJL+P0lNKr8OxvH2QVoYcWuw2S0/7h1uGVy?=
+ =?us-ascii?Q?ibhNSnBqxiPYDGc6QaWuy6h7TbFQt7J7nUL6zJUS9XdK22UUA/uol+1MKcuW?=
+ =?us-ascii?Q?GS3Z/6hk2LjY5Kl4fQT9XcxTl0cAv22WJDEa7GoZNpWFuFarW1OlyFMweikO?=
+ =?us-ascii?Q?j78XUSsqMFjxZcFYE9F7GE0ckyV84OeAqY74CkfytpJvURkEq+lIKsGj7pjX?=
+ =?us-ascii?Q?KCOohw2JvElhtbUAkQ9zN+ExD+0hz5eMlDjNWQI3n8PJoHfaS5w9vr8hITq5?=
+ =?us-ascii?Q?WeoJHNAwQO8FmOZ7YnDxpe6sUk+kTORszEmXQK22pDznAGlP+VVBxhaKFM9O?=
+ =?us-ascii?Q?FA7nicM2Ih5c6LLmnLDfW5ZI8DVh/3SiT0D3xF/SRZfI6yxvd6uynkMgFXUS?=
+ =?us-ascii?Q?y6xxkW3a8xiLp2iqjaRcq8PHZRijEqf/IDoH5GRbKgdh/mrUiENqRvMxA4WC?=
+ =?us-ascii?Q?CuffGt1b9so5ORvr9VQLXg8wCe3G9ZjAEcA71AoNpHpltdw7CMKnZUbgrAGp?=
+ =?us-ascii?Q?dimZqogC7bNFAVY24T/DAVFUN+Zuba3pgyhOETRgK4u2B+aNpjkpQO+MXkR9?=
+ =?us-ascii?Q?ys1Qu0hqhbNMvvZsSTUZxPxyRvzvREOwxA1+xoJDC4OYmsqE7al3kkAMPop+?=
+ =?us-ascii?Q?x/nhO5clHEo1WuD9xoF7PT2yBpXjGzc9WNO9nMFIaZsyI9lIcqy49npH+VVn?=
+ =?us-ascii?Q?O4bkVXxWRHnUDEP5wR5uMWDzMnjR4bx2XpPKKX8Waay+TZY0LM4QX0787eIl?=
+ =?us-ascii?Q?wveZYa82luiGbShGbu3o0B146Q7cnnOIiTuwvHXgRtPbP8UzD2ZW+n5iDTJK?=
+ =?us-ascii?Q?DbcID2xABhK3FBrc0aPKj0MmDnZHRDX+8nVM2bh0G0VrNs2m?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01e608b9-9721-43c3-5a41-08deb706a997
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:00:37.8671
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aZbzA9cjuVXpzNruf7K5xjlGjAnMcWKfhTlkc2ZR0dnYWTWXW2oiRP4m7/DAH2Vv2/3HdGKlFXO3ooMDJaE7Aw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6339
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_235435_398506_6CC5D0F0 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20260521_000056_609188_3263287B 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,63 +152,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ast_udc_ep_dequeue() declares the loop cursor `req` outside the
-list_for_each_entry(). After the loop it tests `&req->req != _req`
-to decide whether the request was found. If the queue holds no
-match, `req` is past-the-end. It then aliases
-container_of(&ep->queue, struct ast_udc_request, queue) via offset
-cancellation. Whether that synthetic address equals `_req` depends
-on heap layout. The function can return 0 without dequeueing
-anything.
+Hi Tejun,
 
-Default `rc` to -EINVAL and set it to 0 only inside the match
-branch. `req` is no longer read after the loop, so the past-the-end
-dereference goes away. No extra cursor variable or post-loop test
-is needed.
+On Wed, May 20, 2026 at 01:50:45PM -1000, Tejun Heo wrote:
+> Add ptep_try_set(ptep, new_pte): atomically set *ptep to new_pte iff it is
+> currently pte_none(). Returns true on success, false if the slot was already
+> populated or the arch has no implementation.
+> 
+> The intended caller is the upcoming bpf_arena kernel-side fault recovery
+> path. The install runs from a page fault that can be nested under locks
+> held by the faulting kernel caller (e.g. a BPF program holding
+> raw_res_spin_lock_irqsave on its arena's spinlock), so trylock-and-retry
+> would A-A deadlock. Lock-free cmpxchg is the only viable option, which
+> constrains this helper to special kernel page tables where concurrent
+> writers cooperate via atomic accessors.
+> 
+> The generic version in <linux/pgtable.h> returns false. x86 and arm64
+> override with try_cmpxchg-based implementations on the underlying pteval.
+> Other architectures get the false stub - the callers there already fall
+> through to oops.
+> 
+> v2: Rename to ptep_try_set(). Tighten kerneldoc for kernel-PTE use.
+>     (David, Alexei)
+> 
+> Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> Suggested-by: Alexei Starovoitov <ast@kernel.org>
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> ---
+>  arch/arm64/include/asm/pgtable.h |  8 ++++++++
+>  arch/x86/include/asm/pgtable.h   |  8 ++++++++
+>  include/linux/pgtable.h          | 26 ++++++++++++++++++++++++++
+>  3 files changed, 42 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 9029b81ccbe8..a129be91ef2c 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1830,6 +1830,14 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  	return __ptep_get_and_clear(mm, addr, ptep);
+>  }
+>  
+> +static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
+> +{
+> +	pteval_t old = 0;
+> +
+> +	return try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte));
+> +}
+> +#define ptep_try_set ptep_try_set
+> +
+>  #define test_and_clear_young_ptes test_and_clear_young_ptes
+>  static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
+>  		unsigned long addr, pte_t *ptep, unsigned int nr)
+> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
+> index 13e3e9a054cb..047e273a4eab 100644
+> --- a/arch/x86/include/asm/pgtable.h
+> +++ b/arch/x86/include/asm/pgtable.h
+> @@ -1284,6 +1284,14 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm,
+>  	} while (!try_cmpxchg((long *)&ptep->pte, (long *)&old_pte, *(long *)&new_pte));
+>  }
+>  
+> +static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
+> +{
+> +	pte_t old_pte = __pte(0);
+> +
+> +	return try_cmpxchg((long *)&ptep->pte, (long *)&old_pte, *(long *)&new_pte);
+> +}
 
-Suggested-by: Alan Stern <stern@rowland.harvard.edu>
-Suggested-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-Signed-off-by: Maoyi Xie <maoyixie.tju@gmail.com>
----
-v3: Switch to Andrew Jeffery's shape: default rc to -EINVAL, set
-    rc=0 inside the match branch, drop the post-loop check. Smaller
-    diff, no extra cursor variable, no goto. Same semantic fix as v2.
-v2: https://lore.kernel.org/linux-usb/20260519080213.1932516-1-maoyixie.tju@gmail.com/
-v1: https://lore.kernel.org/linux-usb/20260518073403.1285339-1-maoyi.xie@ntu.edu.sg/
+Minor nit (feel free to ignore), on x86 pte_none() is defined as:
 
- drivers/usb/gadget/udc/aspeed_udc.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+static inline int pte_none(pte_t pte)
+{
+	return !(pte.pte & ~(_PAGE_KNL_ERRATUM_MASK));
+}
 
-diff --git a/drivers/usb/gadget/udc/aspeed_udc.c b/drivers/usb/gadget/udc/aspeed_udc.c
-index 7fc6696b7694..75f9c831b21a 100644
---- a/drivers/usb/gadget/udc/aspeed_udc.c
-+++ b/drivers/usb/gadget/udc/aspeed_udc.c
-@@ -694,7 +694,7 @@ static int ast_udc_ep_dequeue(struct usb_ep *_ep, struct usb_request *_req)
- 	struct ast_udc_dev *udc = ep->udc;
- 	struct ast_udc_request *req;
- 	unsigned long flags;
--	int rc = 0;
-+	int rc = -EINVAL;
- 
- 	spin_lock_irqsave(&udc->lock, flags);
- 
-@@ -704,14 +704,11 @@ static int ast_udc_ep_dequeue(struct usb_ep *_ep, struct usb_request *_req)
- 			list_del_init(&req->queue);
- 			ast_udc_done(ep, req, -ESHUTDOWN);
- 			_req->status = -ECONNRESET;
-+			rc = 0;
- 			break;
- 		}
- 	}
- 
--	/* dequeue request not found */
--	if (&req->req != _req)
--		rc = -EINVAL;
--
- 	spin_unlock_irqrestore(&udc->lock, flags);
- 
- 	return rc;
--- 
-2.34.1
+With:
 
+#if defined(CONFIG_X86_64) || defined(CONFIG_X86_PAE)
+#define _PAGE_KNL_ERRATUM_MASK (_PAGE_DIRTY | _PAGE_ACCESSED)
+#else
+#define _PAGE_KNL_ERRATUM_MASK 0
+#endif
+
+If that mask has the D/A bits set, try_cmpxchg(..., &old=0, ...) will reject a
+PTE that has only those bits set, even though pte_none() would return true. I
+think this is fine for the bpf_arena use case, since hardware shouldn't set A/D
+for fresh pages that the BPF prog hasn't touched.
+
+Maybe it's worth adding a comment (something along these lines)?
+
+ /*
+  * Note: strictly-zero compare is narrower than pte_none() (see pte_none() and
+  * _PAGE_KNL_ERRATUM_MASK), but the gap is harmless in practice: HW shouldn't
+  * set _PAGE_DIRTY | _PAGE_ACCESSED bits on entries the caller never touched.
+  */
+
+Other than that, looks good to me.
+
+Reviewed-by: Andrea Righi <arighi@nvidia.com>
+
+Thanks,
+-Andrea
+
+> +#define ptep_try_set ptep_try_set
+> +
+>  #define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
+>  
+>  #define  __HAVE_ARCH_PMDP_SET_ACCESS_FLAGS
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index cdd68ed3ae1a..d68374f404c1 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -1036,6 +1036,32 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addres
+>  }
+>  #endif
+>  
+> +#ifndef ptep_try_set
+> +/**
+> + * ptep_try_set - atomically set an empty kernel PTE
+> + * @ptep: page table entry
+> + * @new_pte: value to install
+> + *
+> + * Atomically set *@ptep to @new_pte iff *@ptep is pte_none(). Return
+> + * true on success, false if the slot was already populated or the
+> + * arch has no implementation.
+> + *
+> + * For special kernel page tables only - never user page tables. The
+> + * caller must prevent concurrent teardown of @ptep and must accept
+> + * that other writers may race. Concurrent clearers must use
+> + * ptep_get_and_clear() so racing accesses agree on the outcome.
+> + *
+> + * Architectures opt in by providing a cmpxchg-based override and
+> + * defining ptep_try_set as an identity macro. The generic stub
+> + * returns false, which is correct for callers that fall through to
+> + * oops on failure.
+> + */
+> +static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +
+>  #ifndef wrprotect_ptes
+>  /**
+>   * wrprotect_ptes - Write-protect PTEs that map consecutive pages of the same
+> -- 
+> 2.54.0
+> 
 
