@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C4FCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860CBCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ytrHI1NAcV1X0TRAEuLH3Qut13RJxS0IznS6P86zRXI=; b=aqLHwX9KiIRrTPKrMT7u90wYek
-	BdS4IN6QzFcjYSQPy5gY/X5Yom/eOkgLozvbRzQzR69GRjB74ohgQ0l27B+ZmUfXBrxRhooeNThVm
-	1vIb5l42c/87y+bM5BIvWEw0sS9H4nvLYf/DQ5AN1Pp2PR0V9lVOWhlUlbi5D+DfZDq62Lkac6/jA
-	C6Zg6joFnHZE0Ck8mBUO8pEcLAWNXb0906kVADN5EpFFC7IsfArsdv17ICeRK5pVakx6TxzFRcCb7
-	ZLpEFpou5hAAilhoDvHbNp1YRSNFGmEGncCi2NzpvLTm+ywzavnYRJjrqfe5Q7wJ7w47mpDm/uDMQ
-	ADbX1y6w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aGY9RhUvQa+fBUTiHuNRTmfi0VERUgOcY/nIDOmvcQU=; b=2xiNHd/QdXT/iaDgPQrobY8/0n
+	j1yDScqQ3iMc2L/1X8647cfeRRNkRGXGOS16fRUh2jORqqjd4ATclgbwNyqB07blc8ul39zHK/FVn
+	ozqLz+8xNKj8m1z6ioEk6XZX+bPsN5VZghbd3eDnzdDXSlzPVCNd8V7vVv+vLVhwp3LmRGjXPDCuI
+	vnLhtYXWiIq2/nkwjZ16DCFNxO0HydIi23SgR9bg97H45GGNwPhguNP+DZQ0Iex6DdT7qXTaxGtTm
+	nOHgsuYS6mBUm/Btumg4zjyqJo8dJjgVu/GWN72jrtTAE4NVEgSEUv6X0TD9lzsiEcA41YmMd/8QG
+	3wVO4hDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5mp-00000008QAO-1TsC;
-	Thu, 21 May 2026 15:58:15 +0000
-Received: from out162-62-57-137.mail.qq.com ([162.62.57.137])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5ml-00000008Q8Z-1lR8
+	id 1wQ5oM-00000008QSb-2QJb;
+	Thu, 21 May 2026 15:59:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ5oJ-00000008QS3-29hH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:58:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foxmail.com;
-	s=s201512; t=1779379077;
-	bh=ytrHI1NAcV1X0TRAEuLH3Qut13RJxS0IznS6P86zRXI=;
-	h=From:To:Cc:Subject:Date;
-	b=xM7DFqLmbgXusspiE15/iu4WLkTuAtjgspMk8uXOHMcXzq6MNIehssc8CLzNKNDit
-	 I0/4zgFuYjpEumI8Msw5tD9hEmtTeYuEKzEnfmS763hsrMTg5fJmRl1lWq2rCHXKSk
-	 WztukGKxISYnf6I5khx7j3a7ZzkHcQp7RIqaOQ54=
-Received: from LAPTOP-JJ91J38E.localdomain ([222.125.130.99])
-	by newxmesmtplogicsvrszb43-0.qq.com (NewEsmtp) with SMTP
-	id E77A8EE9; Thu, 21 May 2026 23:57:55 +0800
-X-QQ-mid: xmsmtpt1779379075thg884qg7
-Message-ID: <tencent_69DC6E2A5B77E4D567CA4F552DD3A835590A@qq.com>
-X-QQ-XMAILINFO: M1rD3f8svNznY8aeuYkUt7jNUdYLELDhEQzJByuH55MeT06gyCHyxpTBwJI07h
-	 oovc7YTCwnTGVXFHFMPQnXLRkizYoRXiP+2Hj13D4ltmYMrenZHnx0fX1rcUH8bldNoNvrh345Kl
-	 du4Kl0PShCb2KYoSE/eqN+OuKu2UnRqLW11GZy1bz50/YdxZcZ08bWk+nf9xLo1JcqhOXDbozwqk
-	 pGdnLXN+Idbf4houwfcF9HUPrhMg812nfTO4i9Iqdcz5nCV4gJfh3GGnHiPiK9y395J+4MlMQY80
-	 qOtEOposP2PfeItTi1gOp6ou9u66J8YTvSHEE5Q3fMOvoQJRVCeLf4Izf6vlIg3Dkg7y5sbhB03c
-	 92hlDtvVmBGd/bOiNXEsCk71B86xQdGYQSfXDGa+/PBFa6Gkh6FprIf6iaGJyKL/SPZVRjL9TUQq
-	 1aDR38MgumR8V2QPF/M/Sdwv7OeiYiQmBRyT5Uwop6LFoW1U9IDfmGO4U6qbl3RF7SRLUnXZRpmz
-	 H6uGnQS7nCWvThtmainSJYa4ztGH0wEddPViB4WZvRzIoYORgRetV+OZdh0nFmZyFapcKJgc++ft
-	 u5oALwm+TRG3Aor9RYrIpKbvz/NChCyQ87+1cjTCmF03s+6ExkdY/wMn1LvXkTDMKPHmTJZB0BmL
-	 KRNcUlwFlUnwdkHViLgDxP6RCqnkGw7Pl6wiFSczAMW4VAVi57AJWcenlOrjp5M1Z6cIBJaSIBby
-	 dHuCQB//5SebKcdIc+GUcJ9TTxObknDrqj9N3+vIwmcruOmmId4Z4uIfv0qIXNph5397o1dtJQVz
-	 jRBU+zLPkVczuG+T0Mes11eISEgNTIiMkZzJezWZP3QUn9cbDSUYByLfjryHXV3iAlnXNAHe4Twg
-	 L6UdbNFcmGcY2MWJO9IqWKZJJfYb1ouzdUh7wUbmRsAMw2fd3UBVf7ZK2eq1QG7fPbfF6I48NuJ4
-	 5oFymP1kXnYP9d2WmBV7xClFpuhu9kt9X66tZpL9IuHqKtcyfVzooRCBFLepJmwkINFnLWxEUW03
-	 dZPltvt86UaQFp+oZyKqs8bUVoUaRJ2oKaX00004IP+dG0kWpnr4yKLTupFkurz/DkUSFA7bYApq
-	 qukXRm
-X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
-From: Egg12138 <egg12138@foxmail.com>
-To: Russell King <linux@armlinux.org.uk>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
-	Petr Mladek <pmladek@suse.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-modules@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Egg12138 <egg12138@foxmail.com>
-Subject: [PATCH] ARM: module.lds: fix unwind metadata for merged .text sections
-Date: Thu, 21 May 2026 23:57:53 +0800
-X-OQ-MSGID: <20260521155753.882044-1-egg12138@foxmail.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 21 May 2026 15:59:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E73B12BCB;
+	Thu, 21 May 2026 08:59:40 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ECA13F632;
+	Thu, 21 May 2026 08:59:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779379186; bh=6gbYbC+enanhE/vbMG0bE/ubhoI+jp5XIb+TrXnz5A4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=k5fEs6ogf0PPgJ73jUKlAGx+ncWEUg0nY2vpS0iY8PBofwq1AHzv2iE7j3/o3jNzV
+	 q3OPAohgxJfyEaXqzkmGDQD3oZZCG07gpefaf/sUPGXWfXmT0XyOMhLvKy69XtD9SK
+	 vLkHWzj+R0liSp1lB1QT2IoV9hZwc1N4W7HfbbJs=
+Message-ID: <573653c0-7ab5-49b1-99c1-beb21d1788b0@arm.com>
+Date: Thu, 21 May 2026 17:59:37 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/5] arm_mpam: prevent MPAM-Fb accesses inside IRQ handler
+To: Niyas Sait <niyas.sait@arm.com>
+Cc: ben.horgan@arm.com, catalin.marinas@arm.com, fenghuay@nvidia.com,
+ guohanjun@huawei.com, james.morse@arm.com, jic23@kernel.org,
+ lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, rafael@kernel.org, reinette.chatre@intel.com,
+ sudeep.holla@kernel.org, will@kernel.org
+References: <20260429141339.3171205-5-andre.przywara@arm.com>
+ <20260518105708.3268174-1-niyas.sait@arm.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260518105708.3268174-1-niyas.sait@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_085812_021617_FEF0CFF8 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_085947_603796_16A809B6 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 1ba9f8979426 ("vmlinux.lds: Unify TEXT_MAIN, DATA_MAIN,
-and related macros") made scripts/module.lds.S merge module input
-.text.* sections into the output .text section.
+Hi Niyas,
 
-On ARM, the paired unwind input sections keep their original names.  A
-module can therefore contain .ARM.exidx.text.unlikely with sh_link
-pointing at .text, while .text.unlikely no longer exists.
+thanks for the reply!
 
-This is a valid ELF relationship, but ARM module_finalize() does not use
-sh_link when registering module unwind tables.  It derives the target
-text section from the exidx section name instead:
+On 5/18/26 12:57, Niyas Sait wrote:
+> Hi Andre,
+> 
+> On Wed, Apr 29, 2026 at 04:13:38PM +0200, Andre Przywara wrote:
+> 
+>> This error report relies on reading the MSC's error status register
+>> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
+>> MSC accesses, since they involve mailbox routines that might sleep.
+> 
+> I think there are a few other places where we may still end up invoking
+> the MPAM-Fb path from atomic/IRQ context.
+> 
+> For example, _msmon_read() uses smp_call_function_any(), which runs
+> __ris_msmon_read() in callback/atomic context
 
-  .ARM.exidx.text.unlikely -> .text.unlikely
+Ah, good point, I thought that the running CPU always being in the mask 
+would avoid the IPI - and it does, but it drops the code into atomic 
+context anyway, courtesy of disabling preemption when calling get_cpu().
+So I just avoid that by checking the interface type and just calling 
+__ris_msmon_read() directly for PCC. Maybe there is a smarter solution 
+to this, but that seems simple enough.
+Will be part of v2.
 
-The lookup fails and the unwind table is not registered for the actual
-.text range.  This can make module stack unwinding fail with:
+Many thanks for finding this!
 
-  unwind: Index not found
+Cheers,
+Andre
 
-Keep the ARM module unwind output names in sync with the text sections
-that scripts/module.lds.S now produces.  Coalesce the .ARM.exidx/.ARM.extab
-sections associated with .text.*, into the
-stable output names expected by the existing ARM module unwind code.
-
-Fixes: 1ba9f8979426 ("vmlinux.lds: Unify TEXT_MAIN, DATA_MAIN, and related macros")
-Signed-off-by: Egg12138 <egg12138@foxmail.com>
----
- arch/arm/include/asm/module.lds.h | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm/include/asm/module.lds.h b/arch/arm/include/asm/module.lds.h
-index 0e7cb4e314b4..dc9adf8fa50e 100644
---- a/arch/arm/include/asm/module.lds.h
-+++ b/arch/arm/include/asm/module.lds.h
-@@ -1,4 +1,12 @@
- /* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef CONFIG_ARCH_WANTS_MODULES_TEXT_SECTIONS
-+SECTIONS {
-+	.ARM.extab		0 : { *(.ARM.extab .ARM.extab.text .ARM.extab.text.[0-9a-zA-Z_]*) }
-+	.ARM.exidx		0 : { *(.ARM.exidx .ARM.exidx.text .ARM.exidx.text.[0-9a-zA-Z_]*) }
-+}
-+#endif
-+
- #ifdef CONFIG_ARM_MODULE_PLTS
- SECTIONS {
- 	.plt : { BYTE(0) }
--- 
-2.43.0
+> 
+> static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+> {
+>      ...
+>      err = smp_call_function_any(&msc->accessibility,
+>                      __ris_msmon_read, arg,
+>                      true);
+>      ...
+> }
+> 
+> For MPAM-Fb, I think we could potentially avoid the smp_call_function_any() path entirely
+> and invoke directly from the current CPU. Since PCC accesses are effectively CPU agnostic,
+> I think that should be fine for the MPAM-Fb case.
+> 
+> Thanks,
+> Niyas
 
 
