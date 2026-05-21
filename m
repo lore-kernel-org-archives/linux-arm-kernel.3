@@ -4,150 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0746BCD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:27:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56886CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IxWSy2gEh02nWzJahH1rkl0m3GIL5arRuACxUVtqHeQ=; b=rKqIwXaz+0XyrtGe25vnoD7Ivk
-	H7oVxx9uQBwuqkaEOXCHaIik/Bu+dGNpYR6ten3/+RVObS8A1a6Pj8Ox+LfVlZyJoN2jgadUG2+1D
-	f9QFphFJ8udM7i0fdFMEvDs5W6j5EHTuGKtb2CxTKkaQgL6zsd1zprcbtL8o6JWvP9gbrwXVTeMZD
-	RwEo+xe3fgVmQPm4lU6NoZXhE2/tmCBgnJedAC8wo524+fZ2b4C0go4lVDp2LdZcfIzPJAlxVT00f
-	B2ukDQlwvyFUP0nzkqKfiuU1vr5KfU49yK349r61pDMwSWuUmfIL3VPoRdC/rySuVVsBviGPOhz5T
-	ilM9zlkg==;
+	bh=YJBmBePAR5zxYZavdDNae1lt8A1fnyv8gTHT/WQkGDg=; b=fMVB455cAqUb0HGQtNCdCJ2hHN
+	xpJ07q4nVdYb7kqcEDVBRfjeSMkmC/PItJN9XeMlEENYWOGoUwrgxVUro0sb7gRSjz6+OxQKxo+8j
+	ZVe3ocUvPJ44jBU0D4Qw4zx9PETefjDJc2QMdRQLvcZphVIP0ltESe4T+kzHZy8MwhuflZXEy79w5
+	6nGX1U/Lqf0Cr0zw895XiTX7i57PoAVS7EaA85tuZHuqIorlwFAtj6Wsprhz1nLxGl/p1YfTJLW5O
+	ptwV1peHqy+C77JVtZqNbvepHnmK88Guy00EVmM+C9ZStpfggB7WsMs1KEVyyC98WTHfvdYyBhGyW
+	FwLc7uCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPykY-000000078id-3NIr;
-	Thu, 21 May 2026 08:27:26 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wPykx-000000078xp-079V;
+	Thu, 21 May 2026 08:27:51 +0000
+Received: from mail-vk1-f181.google.com ([209.85.221.181])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPykW-000000078g5-24kk
+	id 1wPykt-000000078uT-3FWD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 08:27:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FfJB91FtDePFl+PvTmVZeo0FFZKcN5tkbEak5GOJPxF3p44kENKYyM5UbFIdLFjta7DDDQ6hmyHUsE/bSP8vsbQvDQMLkIPrbkZjNM0UCaYPz7t8bK22DOPSWH+Gm+GIco2m2y+6cUZ2xcQR4ovIiq1W8zLwVNNeJt8qasI55AJ/A/B8HUFhl5tWWWtw9TiJdAjjkEm0zzvgaVhGPwPh9v9Gw/IA7qsptCvw2Vtp51KvdAAMRGr09Q+5MxlXp3E6xdZHt5ltFdzz7s6+XzWbSrxP3YHR49S6eY4xjdebAA1xTAt4eRaSfnCs+9eJwKG2I6pUE6bYoI9Kifvd4OfJVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IxWSy2gEh02nWzJahH1rkl0m3GIL5arRuACxUVtqHeQ=;
- b=X0v0/bbyb2kkr0rrokf8XpgmNKblZ8OyTwgUtdGPunGnQLHDhu5S984xzFok75u2iw/VRDiUTJvkFBPB9KzzkxWPFSrYUsVHHVaC1q+lw++0DfTZwjmEdl3Q2Be84YoEeaFTaOrpQ5TkDuDR76IAE1aM2IJ7FocJ9baRbNkTj4DOlhA0rk94nz8AxQnZyvNdc3qSWOMV4tkdxUhtaqx9zAYrnOcKl8yQRndNT6kNBlWk87rLjfDh6C74VVuOUgd8kcsHJ6LUGQgnFvCpkY89bAxSxIXcYTKZUs/v7CeWxEwZoaXtXFKSlhEtfT1JMYoY5pBWLR9LFOiu+Xq5NClKgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IxWSy2gEh02nWzJahH1rkl0m3GIL5arRuACxUVtqHeQ=;
- b=kq4CNm0Q4Jjf4EHQx5TOfTe2eXToai4+4JvYZVYM57+e3QwS2nr4nRUgWojdqrlfjM9DShXqYt7TGtOHPu9LiBrg0LIsb4otEAHcNSEsJyAJ6FoQTqV0W875ui2iLjKiqp4E1K2L9yDk9mhDhK5ho6F5Nbp2RQmOaDUgkNyRZucnu84OnhbILD78ZAhjhNMPOg+cS7R70dLc23IjyBOQvdB3W4YCkefPUP7W7FkB4jtLYqfvtZEr1mVYtADBpNrsELzk3WS+u4l6kLaHQAjSQVyAQxgaR9LlN2QxA43vDOK9QwtTWcZNghV/5RbCUmoFCxcNyKptZ1dJos4Lr5Jm/g==
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by AS8PR04MB8451.eurprd04.prod.outlook.com (2603:10a6:20b:347::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.25.23; Thu, 21 May
- 2026 08:27:18 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
- 08:27:18 +0000
-From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-To: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>, "Carlos Song (OSS)"
-	<carlos.song@oss.nxp.com>, "o.rempel@pengutronix.de"
-	<o.rempel@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, Frank Li <frank.li@nxp.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "festevam@gmail.com"
-	<festevam@gmail.com>, Carlos Song <carlos.song@nxp.com>, Bough Chen
-	<haibo.chen@nxp.com>
-CC: "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
- down
-Thread-Topic: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
- down
-Thread-Index: AQHc6PujKxK7sTnhckCh1AchNRK7Rg==
-Date: Thu, 21 May 2026 08:27:18 +0000
-Message-ID: <AM0PR04MB68027798D1B07FD63AEC5F23E80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
-References: <20260520101504.2885873-1-carlos.song@oss.nxp.com>
- <4979e748-ce4e-4244-8906-e22a1e6472e7@oss.qualcomm.com>
-In-Reply-To: <4979e748-ce4e-4244-8906-e22a1e6472e7@oss.qualcomm.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR04MB6802:EE_|AS8PR04MB8451:EE_
-x-ms-office365-filtering-correlation-id: 15dcdc9c-8310-494d-fcea-08deb712c5bc
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|376014|7416014|38070700021|921020|56012099003|18002099003|22082099003|11063799006|4143699003;
-x-microsoft-antispam-message-info: QXWm7l15m55BGigqM6ICH4XBREER693OHDB8zReJObNuun0YKim2d265snyiEq5KasThkRa5igug8zoqwKIT9bJipElGXuMN/AwgIS/F7S5nUQEz2C11Cek/X6HvDxA0B72EDnLHW8AHbtHm3IFqizWXcCo5ToFCjUAf/DccBp2XSgwKlmMh7UQkcGjMkz2kejx64X/lbFnk16+NoNLYKbUGrzhqLzktk5wCmX6b+zbASH3zhrD7uOH4ICOhpE5s1I4fzLvYg4TYo028qcN9kBAbAyO2JwVW/k1E0gu61zDbCzEN6j4zTPIy6aRoyHWWIRCFhCKfWr+9GiYEW9fc6MymbmD88ckdrDV9isE1b7fVOBTi64HRdAOQmqiICoJAP7c3D6EwadADu6AhgerZ6QAE0vkexGBAW5jRx3EBjI7CSzDL1ifzzmzK4AXHcIvMYn6x+nNSQebq+khhTh+emv8OJ6+SGegSdJoTJC0Pj/2xarVaBsAALlhFkozqs3uSVcnzEw9RJreEKnAD+ZvNYnyQliiioO3JjtfxCYzOAEeMAl6KQ0BpAf0hhMoEVBmMCxVlfOsCzFtyoyeIgUYxsnAq7tF+j41RwM4wFta+MjGl5DaRjlqJ/EkJxIBlOtca8pb6qaOXomOQvVNLRTdoXLeGNn3K5xZ0kbcSS0plUNyKP0k6Jdg/PzNzL+JH5RY2QFjcBy8z5+rL/sN7eDReu9yNpYCOuNxz3Mb768+XUwFaVtsZ4oBnUQdWrGqEwOfe8Tr4bSJH7nOgOEmOFD+Vnw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(376014)(7416014)(38070700021)(921020)(56012099003)(18002099003)(22082099003)(11063799006)(4143699003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SThUaWVQcCtSNFBZV2JCaFdrYmhHS1FtVVU5bWNUVjJTSk83eDFKcUNYRVZq?=
- =?utf-8?B?aGVhZ2RNUGtxMk52RCthQTBzZ0g2ZmUwUTZUL3JuTFhZOCthUHd6U0ttOFhn?=
- =?utf-8?B?cjlMdmRjN2tvMloyZlJtY1UwQmFjZWN6Qzl1elB6bmpDNkJFREJNMUNua0xF?=
- =?utf-8?B?N2tKcG9CM0VuMzVEY1ptZHY2dUpzaXFzalRjMitNM1pTMTk2d3RNSUlZTjkz?=
- =?utf-8?B?eHl1NEZUNDBZN3JpT1ZFT0tadXpGcW9SY1lSK3NWN0RKdGFXNlltUEN0VFBj?=
- =?utf-8?B?UFdQQlhhbTVLeU10UWFpRC9wS1lsQVNSRXJNbkdhN21ZYmJveW0wSE5mTkhQ?=
- =?utf-8?B?R3V5Um9mWFVSUEo1N3FENVlGYWRFZjgzZEJkd1FPSkc4bWxZcUo1Tk1adEpq?=
- =?utf-8?B?Z0Q2WnRPaVhORDZTU2VSSlR4TEJmYXdKVHBNMmJEbDFIUTZIMVd3RjhpMnlI?=
- =?utf-8?B?L3F4Nlk5emdyTWp6UitDbHhRbUZoR0c3eTc5SmVsaDNvTkdwL2pWYml3VUhN?=
- =?utf-8?B?WjhlREF0T3d5c0hkcUl1UGNYditwQWU1L1lEdlppdzdDMVZFRmFnOWNURWpQ?=
- =?utf-8?B?cndGR0NWa1grc0pMN0UvVlV3My9hcWtFVkhockJXbm84ak15NmdBdHpwYkxQ?=
- =?utf-8?B?Qzloa2c5U0x6cUtGYjVjWjdMWGFJazFXNGdKQnVXQjdQeXAzZWljSTB6bTNM?=
- =?utf-8?B?NU4wbHREdVM0ZFozTU5kZE5NcG9EZk8vQXB4bmc3dkhOZlBoNm5WM1RHdURK?=
- =?utf-8?B?ZnpnWU9zUHJxY3Fpdmh1RnpjNStQMElnNDhzNnlUM0UvTGM1M0xjeHEvNElR?=
- =?utf-8?B?cmhHWjRFOC8vQStZcHNJQTFrN0xEVDVaUm1GNnRSM2tMdFcwZkRVanZMbnE0?=
- =?utf-8?B?cmc5eXIwTWhXUUNJSG1EeG80RGwxK1BXTkU0VHVvb2FUS212R0k5OUVKdTVm?=
- =?utf-8?B?QmZFdDNQZWdkL1h5bGpKa09uQnRFUzRYdGFvUDlYcEtnSGxHcWtHSHFXKzJz?=
- =?utf-8?B?UlYzUktXR3F1OFVEV2FaRGFvdTNaNS8wd2tCUUMzMUpVNjZGcGszYWFOSjZE?=
- =?utf-8?B?dUQ2UzVCT1V6cDVDblc5VXNMcmdtZTRvZFFySmhFYTdYOEQzS3VHOS9jZkZr?=
- =?utf-8?B?ZVZGWnhUb2lwcHdQdGo5cFIweCtBWjhWMlpkZ3NHeGdHa2cyamgrUmlXV2xM?=
- =?utf-8?B?NGhIaG1Id2drQXJDUDRER0xzTDMxOWwwNVdEOHhMRU4yUE5ML1d2SmJNWnpj?=
- =?utf-8?B?UVJDVDJ2RWVYWThiU1FZNHhrTVlaRk1pSEE1MXpkdGhDMUp2d3RHb25VYUpE?=
- =?utf-8?B?a3pBT2FMM0JudTJlcVl6aFFYTnFnSVo1dDlxbmhDSXJWZFFjY2hseDhSQ1B5?=
- =?utf-8?B?SzlrVjNUT3JXYjByTTJiS1poMUVtZGgycDIwYlFzcitjeEtZcHpEUnJSTE44?=
- =?utf-8?B?SGFQUk9DSDFIcGVPQmRTYzZodEpHRkJjOUR4ZWErd09scmxET1lKZ3ZQdFps?=
- =?utf-8?B?cmt0OEZvWS9QMUErUmJLZnlJRk9SWnVIZng3VGFTRURXVW8rKzEvSUZpWnF1?=
- =?utf-8?B?R3ZuMlRST1RydG5MelV6dzdJTzFrbW1La2lhSit4NHoreEZmMkI2S3ppUXNK?=
- =?utf-8?B?Z1pVOVVyKzVyMlE2SnB6NGVJazltRTZBVXdqYXN3NEtHdXhJWlB3Yi9KalVL?=
- =?utf-8?B?V0xDb3pwemhyWS96WENZR0xIYVBwK1dBbndwUVZZLzl6WU81NnVFUE41Zmpt?=
- =?utf-8?B?NHJ1dkZCWEpyRzg3SDFOS1NVZ2NyZWFLcWNrVS9pYXJnMmIrOUNCVDA3YXUv?=
- =?utf-8?B?RkI0MzBxNmx1aXhsZ1pTcEdlLzlTcjVkUU8zdk9VUVVQUlc2TkdPZVBSbVlr?=
- =?utf-8?B?Q1MxaWdySGxJVnJHS0NmNU9MR1Z6UURrclRZeHdYYmQ3RFFNY1BVR2kzdktw?=
- =?utf-8?B?Qkt4bjNsUFQxL0xnUEpCR1NHdmFtcVRhQnJYb0hrd2V6NkJCOUhnelQwSkk3?=
- =?utf-8?B?cFpUU0ZmTTlCTmx4MXprZFhNaDR2bE5vdEd2Y2JacGFickpDd3FtQWFRdHpJ?=
- =?utf-8?B?WWhCMUVrTUVCSEdzVTFzenBmTGZuRGdTZllIRTNTS1JjejhWaTdrMmNLK3lv?=
- =?utf-8?B?RUIyRkZrK3cyTHNRUUZSelZQZU40c1JoMWNhVkFpb0JDNXZlMWhuS2Y5QldF?=
- =?utf-8?B?OVp5SFptZkRybmZIYnRzM2Y3YWxuZjdBc0t4ajZWRTNZS0J5RzFtaXRJTmdn?=
- =?utf-8?B?c2FnRGc5N0hydFI5eGV1WFZMeXR6TDdOQ091T3BLUkhGT2hTeGt1aUs4TkZq?=
- =?utf-8?B?SWhQUmFxWUNQVU53UkNSM2tjSWcyWStwcnNlUEVSd1UwVTF2aVFZQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Thu, 21 May 2026 08:27:50 +0000
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-575eaa32c7cso1943537e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:27:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779352066; x=1779956866;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YJBmBePAR5zxYZavdDNae1lt8A1fnyv8gTHT/WQkGDg=;
+        b=PkwTmDrx8UBEY2NaeALJHaXzs3egq6GNOpLmkLvyihGUGmeZhwOKn60t0tS7JyHnEt
+         8cvEL+S/SFyifTMnzpBnARS6GhsSuYB0mYgTBx0QyQxRAL1+DC7nsGJTn9TM2rhBOzP2
+         rjQvxwOKcJI1eGCY6Mo3DO1y6cPa/rUL9e4ldUlc5kqaQpSAvB1qUBZu1VUgd3pr58HU
+         qiccoW3lhpQjzRiKkPiewVz9XrEqfNBK88P+HEhE9k14tfcCqpoSwn1n2CFy6/OuDriL
+         v9TLgd+SluscrdGvx8ymfEZaMRmp1lmCOyGPh23GS2y+PrcQwyNCPdUVF4s2aky8F31M
+         vMBQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+J+3AADwNixzhC88EA1heV6v46WgYaz4pg5u+EeChaVg0RB8LznMrWLqh5/2psh/iDDu6tO7mAASeEGDY5cUa8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTfF6yXD52ZkdloFoVmJ+KdwpEAA4R/irYtnjvIOf7MiPEK/5R
+	n062CEjDuZDiE26ipjZ3vlWmGUsQv9s6NUHCutTi+9Jh8Mr/Ndg5VgxBG+r9RO3zSp4=
+X-Gm-Gg: Acq92OHFJZmhXzzlBm91XqhOCB6zgUEEsfO1zNMBGNn19HwPEWpjYva6SO6VzIqPLpM
+	Yp06ajZjPc1QjGbS5xisA5JTKco6YVpCJ+8rTgPAOCXj48Oi+8hKZbl5U1i6G5+3PyX06oNlVdT
+	EWEoeWO7+UdQxgVUvVAizDRp/J/FGb9nY+oNF+PMeXTgKRFqwKsw645cPmwRezGc9/RW768BvUg
+	9DtwNO9FHXgGbNIJC6xki0vVlUdNyYF0o9zdcoh0WVytfuzdOTyvTGf1CS+xt2rYobfsnPsMSoz
+	3QBS0K4VwD7kNBNhz2O6zuh4eLh+xw2XMVYWWA3q9/J2eUqt8BnVFWk0yHrsi3w7vnN/WLE9J2j
+	OsCHFtISQ5pKXdzC6h375UvjPuFs1RSH1JMZiiHmAOgOZD2u8z0geNAtkuaF7P2swH4YSal70u2
+	KRO9a0QNdLEfmKjAVAvV3Lguq4W9EjqKZoozx3XPdSQGwTnLmvo64EzvCBcf25Tqa2
+X-Received: by 2002:a05:6122:4fa6:b0:56e:ded3:98eb with SMTP id 71dfb90a1353d-5842424f056mr675667e0c.6.1779352065988;
+        Thu, 21 May 2026 01:27:45 -0700 (PDT)
+Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com. [209.85.221.174])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96163844d7bsm152708241.11.2026.05.21.01.27.44
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 01:27:45 -0700 (PDT)
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-575eaa32c7cso1943526e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:27:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ850ZN5dlWuarNVJd44fuVQDpie4FlQX89balmO7wESUoqwarUc4VRuOBBXM8YpyRvXBgITouIM4ll5tzNAcG3w@lists.infradead.org
+X-Received: by 2002:a05:6122:1c10:b0:56e:f071:d4ef with SMTP id
+ 71dfb90a1353d-584257c283dmr596427e0c.8.1779352064209; Thu, 21 May 2026
+ 01:27:44 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 15dcdc9c-8310-494d-fcea-08deb712c5bc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 May 2026 08:27:18.7771
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: M74r40J7qgM31aTNR+mqIV8VZvLtW4/cY7TP5XwAIPYJ2TMHWnCFcLlB6qXDFZHATzgDsyMh3TiLqIEWynfcNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8451
+References: <cover.1776793163.git.geert+renesas@glider.be> <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+ <aekXUvIPb8nkhdKu@pluto> <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
+ <ae6Zp54NhKlVes8J@pluto> <CAMuHMdWK3Noh5ZQVWT9C0EKyXZePMaJ97C0A_syK+xCb_=abeQ@mail.gmail.com>
+ <agooKghZJw3iElvp@pluto> <CAMuHMdU8VRCOZtLrM2EoHFmhd5XFs8cwXc2A1tPTTr01KvUx0g@mail.gmail.com>
+In-Reply-To: <CAMuHMdU8VRCOZtLrM2EoHFmhd5XFs8cwXc2A1tPTTr01KvUx0g@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 21 May 2026 10:27:32 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUo9=J0hpNfVDfiFGoAqfC73QQxvMCYyahBTTbKT8_6VA@mail.gmail.com>
+X-Gm-Features: AVHnY4IdjfB7BITVFZv-z-ao_K498dR56La7qQvqwgCb0qZYOOtkE_cpqTj8o-w
+Message-ID: <CAMuHMdUo9=J0hpNfVDfiFGoAqfC73QQxvMCYyahBTTbKT8_6VA@mail.gmail.com>
+Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_012724_548908_FDEB6DEA 
-X-CRM114-Status: GOOD (  23.68  )
+X-CRM114-CacheID: sfid-20260521_012748_907905_DC62CCAE 
+X-CRM114-Status: GOOD (  61.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,54 +108,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogTXVrZXNoIFNhdmFsaXlh
-IDxtdWtlc2guc2F2YWxpeWFAb3NzLnF1YWxjb21tLmNvbT4NCj4gU2VudDogVGh1cnNkYXksIE1h
-eSAyMSwgMjAyNiAzOjQwIFBNDQo+IFRvOiBDYXJsb3MgU29uZyAoT1NTKSA8Y2FybG9zLnNvbmdA
-b3NzLm54cC5jb20+OyBvLnJlbXBlbEBwZW5ndXRyb25peC5kZTsNCj4ga2VybmVsQHBlbmd1dHJv
-bml4LmRlOyBhbmRpLnNoeXRpQGtlcm5lbC5vcmc7IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29t
-PjsNCj4gcy5oYXVlckBwZW5ndXRyb25peC5kZTsgZmVzdGV2YW1AZ21haWwuY29tOyBDYXJsb3Mg
-U29uZw0KPiA8Y2FybG9zLnNvbmdAbnhwLmNvbT47IEJvdWdoIENoZW4gPGhhaWJvLmNoZW5Abnhw
-LmNvbT4NCj4gQ2M6IGxpbnV4LWkyY0B2Z2VyLmtlcm5lbC5vcmc7IGlteEBsaXN0cy5saW51eC5k
-ZXY7DQo+IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgta2VybmVs
-QHZnZXIua2VybmVsLm9yZzsNCj4gc3RhYmxlQHZnZXIua2VybmVsLm9yZw0KPiBTdWJqZWN0OiBS
-ZTogW1BBVENIIHYzXSBpMmM6IGlteDogbWFyayBJMkMgYWRhcHRlciB3aGVuIGhhcmR3YXJlIGlz
-IHBvd2VyZWQNCj4gZG93bg0KPiANCj4gW1lvdSBkb24ndCBvZnRlbiBnZXQgZW1haWwgZnJvbSBt
-dWtlc2guc2F2YWxpeWFAb3NzLnF1YWxjb21tLmNvbS4gTGVhcm4NCj4gd2h5IHRoaXMgaXMgaW1w
-b3J0YW50IGF0IGh0dHBzOi8vYWthLm1zL0xlYXJuQWJvdXRTZW5kZXJJZGVudGlmaWNhdGlvbiBd
-DQo+IA0KPiBIaSBDYXJsb3MsDQo+IA0KPiBPbiA1LzIwLzIwMjYgMzo0NSBQTSwgQ2FybG9zIFNv
-bmcgKE9TUykgd3JvdGU6DQo+ID4gRnJvbTogQ2FybG9zIFNvbmcgPGNhcmxvcy5zb25nQG54cC5j
-b20+DQo+ID4NCj4gPiBNYXJrIHRoZSBJMkMgYWRhcHRlciBhcyBzdXNwZW5kZWQgZHVyaW5nIHN5
-c3RlbSBzdXNwZW5kIHRvIGJsb2NrDQo+ID4gZnVydGhlciB0cmFuc2ZlcnMsIGFuZCByZXN1bWUg
-aXQgb24gc3lzdGVtIHJlc3VtZS4gVGhpcyBwcmV2ZW50cw0KPiA+IHBvdGVudGlhbCBoYW5ncyB3
-aGVuIHRoZSBoYXJkd2FyZSBpcyBwb3dlcmVkIGRvd24gYnV0IGNsaWVudHMgc3RpbGwgYXR0ZW1w
-dA0KPiBJMkMgdHJhbnNmZXJzLg0KPiA+DQo+IENvZGUgY2hhbmdlcyBsb29rcyBmaW5lIHRvIG1l
-IGJ1dCBoYXZlIGNvbW1lbnQgb24gY29tbWl0IGxvZy4NCj4gDQo+IEl0IHNlZW1zLCB5b3UgYXJl
-IGFkZGluZyBzdXBwb3J0IG9mIF9ub2lycSgpIGNhbGxiYWNrcyB0byBhbGxvdyB0cmFuc2ZlcnMg
-ZHVyaW5nDQo+IHN1c3BlbmQvcmVzdW1lIG5vaXJxIHBoYXNlIG9mIFBNLg0KPiANCj4gV291bGQg
-aXQgbWFrZSBzZW5zZSBpZiB5b3UgY2FuIHdyaXRlICJSZXBsYWNlIHN5c3RlbSBQTSBjYWxsYmFj
-a3Mgd2l0aCBub2lycQ0KPiBQTSBjYWxsYmFja3MiIE9SICJBbGxvdyB0cmFuc2ZlcnMgZHVyaW5n
-IF9ub2lycSBwaGFzZSBvZiB0aGUgUE0gb3BzIiBpbnN0ZWFkIG9mDQo+ICJtYXJrIEkyQyBhZGFw
-dGVyIHdoZW4gaGFyZHdhcmUgaXMgcG93ZXJlZCBkb3duIiA/DQo+IA0KDQpIaSwNCg0KVGhhbmsg
-eW91IGZvciB5b3VyIGNvbW1lbnRzIQ0KDQpCdXQgdGhpcyBwYXRjaCBpcyBhZGRlZCBpcyBub3Qg
-Zm9yIHN1cHBvcnQgbm9pcnEgUE0gY2FsbGJhY2sgb3IgdHJhbnNmZXIgaW4gbm9pcnEgcGhhc2Uu
-DQoNCkluIGZhY3QsIHRoaXMgZml4IGlzIHRvIG1hcmsgdGhlIEkyQyBhZGFwdGVyIGFzIHN1c3Bl
-bmRlZCBkdXJpbmcgc3lzdGVtIG5vaXJxIHN1c3BlbmQgdG8gYmxvY2sgZnVydGhlcg0KdHJhbnNm
-ZXJzLCBhbmQgcmVzdW1lIGl0IG9uIHN5c3RlbSBub2lycSByZXN1bWUuIFRoaXMgaXMgdG8gcHJv
-aGliaXQgSTJDIGRldmljZSBjYWxsaW5nIHRoZSBJMkMgY29udHJvbGxlcg0KYWZ0ZXIgdGhlIHN5
-c3RlbSBub2lycSBzdXNwZW5kIGFuZCBiZWZvcmUgbm9pcnEgcmVzdW1lLCBiZWNhdXNlIGF0IHRo
-aXMgdGltZSB0aGUgSTJDIGluc3RhbmNlIGlzIHBvd2VyZWQNCm9mZiBvciB0aGUgY2xvY2sgaXMg
-ZGlzYWJsZWQgLi4uIFNvIEkgd2FudCB0byBrZWVwIGN1cnJlbnQgY29tbWl0LiBIb3cgZG8geW91
-IHRoaW5rPw0KDQpDYXJsb3MgU29uZw0KDQo+ID4gRml4ZXM6IDM1ODAyNWFjMDkxZSAoImkyYzog
-aW14OiBtYWtlIGNvbnRyb2xsZXIgYXZhaWxhYmxlIHVudGlsIHN5c3RlbQ0KPiA+IHN1c3BlbmRf
-bm9pcnEoKSBhbmQgZnJvbSByZXN1bWVfbm9pcnEoKSIpDQo+ID4gQ2M6IHN0YWJsZUB2Z2VyLmtl
-cm5lbC5vcmcNCj4gPiBTaWduZWQtb2ZmLWJ5OiBDYXJsb3MgU29uZyA8Y2FybG9zLnNvbmdAbnhw
-LmNvbT4NCj4gPiAtLS0NCj4gPiBDaGFuZ2UgZm9yIHYzOg0KPiA+ICAgIC0gQWRkIGhydGltZXJf
-Y2FuY2VsIGluIGkyY19pbXhfc3VzcGVuZF9ub2lycSB0byBjYW5jZWwgc2xhdmVfdGltZXIgZm9y
-DQo+ID4gICAgICBzYWZlIHN1c3BlbmQgaW4gaTJjIHNsYXZlIG1vZGUuDQo+ID4gQ2hhbmdlIGZv
-ciB2MjoNCj4gPiAgICAtIENhbGwgaTJjX21hcmtfYWRhcHRlcl9zdXNwZW5kZWQoKSBiZWZvcmUN
-Cj4gcG1fcnVudGltZV9mb3JjZV9zdXNwZW5kKCkNCj4gPiAgICAgIHRvIHByZXZlbnQgcG90ZW50
-aWFsIGRlYWRsb2NrIGlmIGEgdHJhbnNmZXIgaXMgYWN0aXZlIGR1cmluZyBzdXNwZW5kLg0KPiA+
-ICAgIC0gUm9sbCBiYWNrIHdpdGggaTJjX21hcmtfYWRhcHRlcl9yZXN1bWVkKCkgaWYNCj4gcG1f
-cnVudGltZV9mb3JjZV9zdXNwZW5kKCkNCj4gPiAgICAgIGZhaWxzLg0KPiA+IC0tLQ0KPiANCj4g
-Wy4uLl0NCg0K
+On Thu, 21 May 2026 at 09:53, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> On Sun, 17 May 2026 at 22:42, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > On Fri, May 08, 2026 at 12:26:19PM +0200, Geert Uytterhoeven wrote:
+> > > On Mon, 27 Apr 2026 at 01:03, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > > On Fri, Apr 24, 2026 at 02:08:55PM +0200, Geert Uytterhoeven wrote:
+> > > > > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > > > > Also because this should be one of the selling point of the SCMI stack
+> > > > > > in a virtualized environment: you can ship the same kernel drivers with
+> > > > > > the same DT and you know that ID=<N> will always identify the specific
+> > > > > > resource that is needed by your driver without worrying about the fact
+> > > > > > that in reality in the backstage the effectively managed physical resource
+> > > > > > could be different across different platforms, because that does not matter
+> > > > >
+> > > > > This sounds strange to me, do I understand it correctly?
+> > > > > So the ID should (1) be tied to the use-case, and not to the underlying
+> > > > > hardware, and (2) be the same for different platforms?
+> > > > >
+> > > > > For (1): Then we must not put these IDs in DT at all, as DT is supposed
+> > > > >     to describe the hardware (and firmware IDs in DT were IMHO already
+> > > > >     a stretch before).
+> > > > > For (2): How can there be a contiguous list of IDs, as not all platforms
+> > > > >     may have the same underlying hardware?
+> > > >
+> > > > I would NOT say that an SCMI FW must behave like this regarding IDs, but it
+> > > > is a possible SCMI deployed setup that can be useful in virtualized setups
+> > > >
+> > > > I mean, the DT describes the hardware of course BUT when you refer to
+> > > > some of this hardware DT bits from some other subsystem by referencing a
+> > > > phandle, even in the non-SCMI world, you are in fact selecting a specific
+> > > > resource that fit you use case, right ? Can we say this ?
+> > > > I mean you needed that specific clock or regulator that you described
+> > > > previously so as to be able to enable some other piece of HW...
+> > > >
+> > > > Now, the SCMI provides an abstraction on top of this, since you really
+> > > > discover domain IDs of a specific class (clocks/regulators etc) you are
+> > > > in fact describing an HW abstraction that you then refer with the usual
+> > > > phandle...also because there is NOT so much SCMI hardware to describe,
+> > > > given that the HW is handled transparently (opaquely really :P) by the
+> > > > driver on the FW side...
+> > > >
+> > > > ...you basically obtain such domain ID, usable as phandles through dynamic
+> > > > SCMI enumeration so that you can use it all over your DT to make use of such
+> > > > resources...
+> > > >
+> > > > ...on top of this, consider that the SCMI server CAN provide to its agents
+> > > > a per-agent-view of the world, IOW it can (and should) expose to a specific
+> > > > agent ONLY the resources needed by that agent, i.e. it can expose the set
+> > > > of resources 1-N to two distinct agents and that does NOT mean that the
+> > > > underlying physical resource mapped by ID=3 in both agents has to be
+> > > > effectively the same piece of hardware: it could be the case, and this
+> > > > would be useful to exposed and managed properly a shared resource, or
+> > > > it could also be that the same ID=3 could refer to completely distinct
+> > > > pieces of the same class of hardware...(same protocol same class of
+> > > > resource...)
+> > >
+> > > Exposing only the clocks/reset/power domains the agent can use,
+> > > in a contiguous list of IDS, means that the number space changes,
+> > > depending on which resources are exposed.
+> >
+> > Yes, potentially, it depedns on how the HW/FW stack was designed I
+> > suppose...
+> >
+> > > Suppose you have a system where you want to assign a specific hardware
+> > > block in the SoC to the realtime CPU core instead of the application
+> > > CPU core running Linux.
+> >
+> > Ok, so this is definitely a considerable change.
+> >
+> > > That means all resources used by that block must no longer be exposed
+> > > to the Linux agent, and the corresponding IDs must be removed from
+> > > the ID space exposed to Linux.  As the ID space must be sequential
+> > > and contiguous, the IDs must be renumbered, impacting resources that
+> > > are exposed to Linux.  As these IDs are used in the SoC .dtsi, they
+> > > must be changed there, too, However, these IDs have become part of
+> > > the stable DT ABI, and thus cannot be changed.
+> >
+> > Well, you have to ship a final DTB blob that is crafted to describe the
+> > actual HW at the end, right ?
+> >
+> > I mean, in your example, it seems to me that you have changed considerably
+> > the HW surface by moving a clock (and its related resources) away from the
+> > reach of Linux as a whole, so should not be expected to have an updated
+> > DTB shipped ?
+>
+> It is not necessary to ship an updated DTB.
+> The bootloader stack can just change the "status" properties of devices
+> nodes that are be taken away from Linux from "okay" to "reserved":
+>
+> Devicetree Specification, Release v0.4, Table 2.4: Values for statu
+> property states:
+>
+>     Value: "reserved"
+>     Description:
+>         Indicates that the device is operational, but should not be
+>         used. Typically this is used for devices that are controlled
+>         by another software component, such as platform firmware.
+>
+> When all SCMI IDs change, too, much more work needs to be done.
+
+It's a pity we cannot use strings in e.g. clock specifiers.
+Then we could look them up by name (which would hopefully be more
+stable) instead of by ID...
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
