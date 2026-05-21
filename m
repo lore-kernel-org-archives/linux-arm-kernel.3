@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97DD3CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A97F0CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5cUmhlK4FYcog/fUBeDAbFbwd3xA/tYCb3LFp8+JmDw=; b=UKMhNUPrLgmAz7FbWsXqbqJI5g
-	7dMy1iX0+6vVMddF08pU0z4OCl8p/TdVgdZkBGk/BbM/OtCfDBuWD0cTtxwuc9bhue7t+frXZWt9L
-	NyXpP1qJyJd0cAL2dpZIg28LSORBwVmUsgA5aoBPn6FNltaGqoOHxmwINBLM+5vPWX4HnXxyQ4f3o
-	F9YRyzacJYrt2LuyWYfKJmTVl690nFp7aaikTuI9DsrfQTs/BI1yB7WiBwvrmwNWw+aGoWswL3Evp
-	cW8VoheHHqo+guLj3W9d+ZCtJSnEdekTr8t3FPwe+Q3nKeD+r7Xwst3cXEQjclA+YPxUYVy34HwC4
-	R78TCH9A==;
+	bh=HZ4h4JFPJkjPFghLJ0DWNvcvk9w/PFFhb5TesVJy4fY=; b=4MRqu6/XfbgApfI2fiyIo7nVBs
+	0epKLZNJ5APZ9wpZRU0eXFbfCVgHadypFJTrRjoSg/v6XFf9PZX+ubeMu56nwdVCHsc38lsDvVoZ7
+	icl9SXU/3ZXrO8eGHSuwqOKL9m7wXA0TniCIk7/MfoRZcn1KaYA+4kuQNXyD7k5UGnQM3LWValzf8
+	VVFDgoCELbN66hA3b461O+dZJFB1cmdUfDOWwo5iJe9+rWJ/jalVLlEa1HaXton2rAk4yDiXHP0bG
+	kd88iL1sbawB3x7BgVMpu/K+1romEAjU8nUTu3ucH+O9ftTwMHDWxr0UU0QbK3kUASz2g+teJ80d9
+	RFd/vzmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4Vr-000000085jS-31nD;
+	id 1wQ4Vr-000000085jC-2e8U;
 	Thu, 21 May 2026 14:36:39 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4Vl-000000085f4-1fyI
+	id 1wQ4Vk-000000085eb-1USn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 14:36:34 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fd3dbd16aso50944745e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:36:32 -0700 (PDT)
+	Thu, 21 May 2026 14:36:33 +0000
+Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-68751570301so1801019a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:36:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779374191; x=1779978991; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779374190; x=1779978990; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5cUmhlK4FYcog/fUBeDAbFbwd3xA/tYCb3LFp8+JmDw=;
-        b=Ann/8crWv1RKuNRpd50dEB0cUgXSM5hSQ8MuUBqDuqa2c7H+hB2dAH9Q83899IU+jX
-         SM0iLbYGdlBPh4JObWoPj8N/H8Atz1ATtCFEzbd/WzT3pm5OQsfqP7JB4lJciZ/LW2Cb
-         RQHJSCBV2t5dBDjZmZBwTznpNL2Gl1+ZHORWjHYtU/AUdWTVau/BS9boWU6tmwQAXgf9
-         2XQh1pvK7NSq/WSEsrNrstjsY0xFJnagH4tK0y0y539UCuPXAm0MMAJvChz7WdtxpXPK
-         ovTD035qnniEbhESbPmoVkSNEVKH1yo07+xypM0eZyYcA2EDQO2BFUZC0QBTxsSuVMM2
-         9FXQ==
+        bh=HZ4h4JFPJkjPFghLJ0DWNvcvk9w/PFFhb5TesVJy4fY=;
+        b=teIeVwg9fzXE+FamPn+xyJauV6aK8je32yEcULVQwn1upjcEI8UxKFoTZHBQqU8YZH
+         s/XXSFJQ7EAA2B0ySBYsU7rLRCWwut0UGtafp+TyKJgqgSxMVPDHdpZZoufTdpuqnP04
+         akk893d9ZVUVPy+FKIySs3kbqPRFR1zCPr/tPrKtIMz2OS8PO4DBZAxgRdPyklzBgdF/
+         4MJGWkZSAgGu3uRl8rhRiitOc4HTCcgCYtWsWHcIRhRg+AA3yU6Yvt4xtt5wk9OtkbwW
+         496ba+Z09RfY8dHS/kf51VokK4/3VovWJ2mOMsL/49Iw75lNbjSg5nHH4A2kP1rlS5Vu
+         qVyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779374191; x=1779978991;
+        d=1e100.net; s=20251104; t=1779374190; x=1779978990;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=5cUmhlK4FYcog/fUBeDAbFbwd3xA/tYCb3LFp8+JmDw=;
-        b=Q4NY3V4plgkYSVHw2T2aOe9VEnZfb1tHcIJXK9ITcx2zef4guVKyIqO+OByGDb4rUw
-         KCiDmB+JlJQ2CRzvEILtPmT6BIQoMO/cMv85A6GgoE1H35W1u6/2WwMZ8uAZb95K34FA
-         KZ4/oeJo2WBZqagtPNUGPChlQQ2LIPkMQ8RGKLflRCrRGIOkZwDcVQDns2vwhstxz9hb
-         ii56qb/ReutzBZK8cQyVlR/AuC5C7d0AyfbhspLSosZ3FmjEV72ChutWxyoFlo6T+lyr
-         D9zOuUPSsW03IHrupmFPhG5fxIfV90Aq8bkYG15AASJh3j47Cr8uNL9IUXoVOOmeQYif
-         hOwg==
-X-Gm-Message-State: AOJu0YyDRDGzhaKyeCW7mLKT2pItLt0bcJwWbiBkPpXebsAQ32WlMNMX
-	pq/ATHIA0/GQJBtfOZSEPD4va3/gB6cGauIns7DJNl3ACfP74My9SyzpxLwFbhhKMN9fqyi9VbZ
-	wTFZJj449/SwZF1xsbVAtXg==
-X-Received: from wmsl5.prod.google.com ([2002:a05:600c:1d05:b0:486:fca5:7a8d])
+        bh=HZ4h4JFPJkjPFghLJ0DWNvcvk9w/PFFhb5TesVJy4fY=;
+        b=BlUPs2Iiw/5PLUFnfOHkwiFZWg06uLx/t3hTjo7su7pJrPMFLtG6iObefBIvKjpk8C
+         YAGgiDLsAWvcjm/FGoLG1oAa+emeHkhTOjNkb8mGqOvb05Uqu/XHc2A8hs+dQBsA1dJ8
+         HzUFV4vucP/+S6zq+0j728Rj6lyERvauxTFo3u6ESIkUPMreu1CXpLLnVyqcbjax16NO
+         zYX5JI51g9F0x9oD7MuvXGo7HXhddPEy0zcynPGFRO26ALMgZUUW+Lpo/h8qbhFJQ1Bk
+         yh3ObaWHr85X5Zpqj31qcqCZS94RY83O/71RXGBiu8ErqoNNQIo0rvjhLQmytBXk/P53
+         6m8w==
+X-Gm-Message-State: AOJu0Yz5J7Z4ePQVnQ0CFZCbjbrm+S7VbGUxvwKKgRtOL5SWEOpTPyus
+	WAmiD66p/NKW1UEba16r1yNRjFY0ut8fplcK52HNuLhLSF/gL9hMIIiYRuwSKk56snYeWPRLjGI
+	+gdiRMacrst91WqKlwZ7/IA==
+X-Received: from edbdz17.prod.google.com ([2002:a05:6402:1d51:b0:67b:ef53:f70b])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:620f:b0:485:3abe:ab86 with SMTP id 5b1f17b1804b1-4903604cc8dmr41280105e9.4.1779374191238;
- Thu, 21 May 2026 07:36:31 -0700 (PDT)
-Date: Thu, 21 May 2026 15:36:25 +0100
+ 2002:a05:6402:43cf:b0:67b:cd1f:9cc1 with SMTP id 4fb4d7f45d1cf-68835ef63f6mr1723450a12.6.1779374190011;
+ Thu, 21 May 2026 07:36:30 -0700 (PDT)
+Date: Thu, 21 May 2026 15:36:24 +0100
 In-Reply-To: <20260521143626.1005660-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260521143626.1005660-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260521143626.1005660-3-vdonnefort@google.com>
-Subject: [RESEND v3 2/3] KVM: arm64: Fix __pkvm_init_vm error path
+Message-ID: <20260521143626.1005660-2-vdonnefort@google.com>
+Subject: [RESEND v3 1/3] KVM: arm64: Reset page order in pKVM hyp_pool
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -74,8 +74,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vincent Donnefort <vdonnefort@google.com>, Sashiko <sashiko-bot@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_073633_458201_1FC215FD 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260521_073632_406509_F142B26A 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +90,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the unlikely case where insert_vm_table_entry fails, __pkvm_init_vm
-release the memory donated by the host for the PGD, but as the stage-2
-is still set-up the hypervisor keeps a refcount on those pages,
-effectively leaking the references.
+When a VM fails to initialise after its stage-2 hyp_pool has been
+initialised, that stage-2 must be torn down entirely. This requires
+resetting both the refcount and the order of its pages back to 0.
 
-Fix the rollback with the newly added kvm_guest_destroy_stage2().
+Currently, reclaim_pgtable_pages() implicitly resets the page order by
+allocating the entire pool with order-0 granularity. However, in the VM
+initialisation error path, the addresses of the donated memory (the PGD)
+are already known, making it unnecessary to iterate over all pages in
+the pool.
+
+Since the vmemmap page order is a hyp_pool-specific field, leaving a
+non-zero order on hyp_pool destruction is harmless until another pool
+attempts to admit the page. Instead of resetting this field during
+destruction, reset it during pool initialization in hyp_pool_init().
+
+For 'external' pages, we can't trust the order either as they bypass
+hyp_pool_init(). Since we never coalesce them, enforce order-0 to ensure
+safe insertion into the pool.
+
+This leaves no vmemmap order users outside of hyp_pool.
 
 Fixes: 256b4668cd89 ("KVM: arm64: Introduce separate hypercalls for pKVM VM reservation and initialization")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Tested-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-index 3cbfae0e3dda..4f2b871199cb 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mem_protect.h
-@@ -56,6 +56,7 @@ int host_stage2_idmap_locked(phys_addr_t addr, u64 size, enum kvm_pgtable_prot p
- int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id);
- int kvm_host_prepare_stage2(void *pgt_pool_base);
- int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd);
-+void kvm_guest_destroy_stage2(struct pkvm_hyp_vm *vm);
- void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt);
- 
- int hyp_pin_shared_mem(void *from, void *to);
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index fa447d400b71..986e0ac1f2d8 100644
+index 25f04629014e..fa447d400b71 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -305,16 +305,21 @@ int kvm_guest_prepare_stage2(struct pkvm_hyp_vm *vm, void *pgd)
- 	return 0;
+@@ -217,7 +217,6 @@ static void *guest_s2_zalloc_page(void *mc)
+ 	memset(addr, 0, PAGE_SIZE);
+ 	p = hyp_virt_to_page(addr);
+ 	p->refcount = 1;
+-	p->order = 0;
+ 
+ 	return addr;
  }
- 
-+void kvm_guest_destroy_stage2(struct pkvm_hyp_vm *vm)
-+{
-+	guest_lock_component(vm);
-+	kvm_pgtable_stage2_destroy(&vm->pgt);
-+	vm->kvm.arch.mmu.pgd_phys = 0ULL;
-+	guest_unlock_component(vm);
-+}
-+
- void reclaim_pgtable_pages(struct pkvm_hyp_vm *vm, struct kvm_hyp_memcache *mc)
+@@ -322,7 +321,6 @@ void reclaim_pgtable_pages(struct pkvm_hyp_vm *vm, struct kvm_hyp_memcache *mc)
+ 	while (addr) {
+ 		page = hyp_virt_to_page(addr);
+ 		page->refcount = 0;
+-		page->order = 0;
+ 		push_hyp_memcache(mc, addr, hyp_virt_to_phys);
+ 		WARN_ON(__pkvm_hyp_donate_host(hyp_virt_to_pfn(addr), 1));
+ 		addr = hyp_alloc_pages(&vm->pool, 0);
+diff --git a/arch/arm64/kvm/hyp/nvhe/page_alloc.c b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+index a1eb27a1a747..57f86aa0f82f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/page_alloc.c
++++ b/arch/arm64/kvm/hyp/nvhe/page_alloc.c
+@@ -94,13 +94,22 @@ static void __hyp_attach_page(struct hyp_pool *pool,
+ 			      struct hyp_page *p)
  {
- 	struct hyp_page *page;
- 	void *addr;
+ 	phys_addr_t phys = hyp_page_to_phys(p);
+-	u8 order = p->order;
+ 	struct hyp_page *buddy;
++	bool coalesce = true;
++	u8 order = p->order;
  
- 	/* Dump all pgtable pages in the hyp_pool */
--	guest_lock_component(vm);
--	kvm_pgtable_stage2_destroy(&vm->pgt);
--	vm->kvm.arch.mmu.pgd_phys = 0ULL;
--	guest_unlock_component(vm);
-+	kvm_guest_destroy_stage2(vm);
+-	memset(hyp_page_to_virt(p), 0, PAGE_SIZE << p->order);
++	/*
++	 * 'external' pages are never coalesced and their ->order field
++	 * untrusted as they bypass hyp_pool_init(). Enforce order-0.
++	 */
++	if (phys < pool->range_start || phys >= pool->range_end) {
++		order = 0;
++		coalesce = false;
++	}
++
++	memset(hyp_page_to_virt(p), 0, PAGE_SIZE << order);
  
- 	/* Drain the hyp_pool into the memcache */
- 	addr = hyp_alloc_pages(&vm->pool, 0);
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index eb1c10120f9f..3b2c4fbc34d8 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -853,10 +853,12 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
- 	/* Must be called last since this publishes the VM. */
- 	ret = insert_vm_table_entry(handle, hyp_vm);
- 	if (ret)
--		goto err_remove_mappings;
-+		goto err_destroy_stage2;
+-	/* Skip coalescing for 'external' pages being freed into the pool. */
+-	if (phys < pool->range_start || phys >= pool->range_end)
++	if (!coalesce)
+ 		goto insert;
  
- 	return 0;
+ 	/*
+@@ -237,8 +246,10 @@ int hyp_pool_init(struct hyp_pool *pool, u64 pfn, unsigned int nr_pages,
  
-+err_destroy_stage2:
-+	kvm_guest_destroy_stage2(hyp_vm);
- err_remove_mappings:
- 	unmap_donated_memory(hyp_vm, vm_size);
- 	unmap_donated_memory(pgd, pgd_size);
+ 	/* Init the vmemmap portion */
+ 	p = hyp_phys_to_page(phys);
+-	for (i = 0; i < nr_pages; i++)
++	for (i = 0; i < nr_pages; i++) {
+ 		hyp_set_page_refcounted(&p[i]);
++		p[i].order = 0;
++	}
+ 
+ 	/* Attach the unused pages to the buddy tree */
+ 	for (i = reserved_pages; i < nr_pages; i++)
 -- 
 2.54.0.746.g67dd491aae-goog
 
