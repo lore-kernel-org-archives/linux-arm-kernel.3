@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860CBCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FC3CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aGY9RhUvQa+fBUTiHuNRTmfi0VERUgOcY/nIDOmvcQU=; b=2xiNHd/QdXT/iaDgPQrobY8/0n
-	j1yDScqQ3iMc2L/1X8647cfeRRNkRGXGOS16fRUh2jORqqjd4ATclgbwNyqB07blc8ul39zHK/FVn
-	ozqLz+8xNKj8m1z6ioEk6XZX+bPsN5VZghbd3eDnzdDXSlzPVCNd8V7vVv+vLVhwp3LmRGjXPDCuI
-	vnLhtYXWiIq2/nkwjZ16DCFNxO0HydIi23SgR9bg97H45GGNwPhguNP+DZQ0Iex6DdT7qXTaxGtTm
-	nOHgsuYS6mBUm/Btumg4zjyqJo8dJjgVu/GWN72jrtTAE4NVEgSEUv6X0TD9lzsiEcA41YmMd/8QG
-	3wVO4hDQ==;
+	bh=TE+flxUmppj+ZFgC+QBrYRcvnvQLDwrZCpxIpu25Sz4=; b=xTB9271O5w2W1CqVIe3IExxfIQ
+	sCK3ZsAB58yu+diD1Rkndhq4rNYhSd3bHV2vzyr5BD74dPeTx4nyhkhi4UqyTV5pNZvFgRS/D8yE7
+	GEPIvrHHnzdDSYb7UvDI7geA7FOkH+seLsfvhnsCz3/9Ri/RCFVUoSk8CldOaSXvogo2Img7kpVt1
+	1ODzTzcVm9Lg3RWIVTZp/ZEXDzrM6WgJ1rDQtXrZ6wxybYJ8XsT25yCLLg44V4oVJ1ZMRdeYnB1p7
+	zOTeXWs2HnH2GOlr+KRHrd5gd0IJt48HJL3bmapm8JKtIgd5venJR9u6hzcwHjkz8Ej1lhMhFeJs0
+	6rUdbGUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5oM-00000008QSb-2QJb;
-	Thu, 21 May 2026 15:59:50 +0000
+	id 1wQ5qF-00000008Qng-2cru;
+	Thu, 21 May 2026 16:01:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5oJ-00000008QS3-29hH
+	id 1wQ5qD-00000008QnC-0249
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:59:48 +0000
+	Thu, 21 May 2026 16:01:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E73B12BCB;
-	Thu, 21 May 2026 08:59:40 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ECA13F632;
-	Thu, 21 May 2026 08:59:43 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A3C24A0B;
+	Thu, 21 May 2026 09:01:38 -0700 (PDT)
+Received: from [10.57.22.108] (unknown [10.57.22.108])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F5EE3F632;
+	Thu, 21 May 2026 09:01:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779379186; bh=6gbYbC+enanhE/vbMG0bE/ubhoI+jp5XIb+TrXnz5A4=;
+	t=1779379303; bh=C2XTErJ4Ho5VJBYfNuKsd2pdN6y06CRfbrg4qfvDAz8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k5fEs6ogf0PPgJ73jUKlAGx+ncWEUg0nY2vpS0iY8PBofwq1AHzv2iE7j3/o3jNzV
-	 q3OPAohgxJfyEaXqzkmGDQD3oZZCG07gpefaf/sUPGXWfXmT0XyOMhLvKy69XtD9SK
-	 vLkHWzj+R0liSp1lB1QT2IoV9hZwc1N4W7HfbbJs=
-Message-ID: <573653c0-7ab5-49b1-99c1-beb21d1788b0@arm.com>
-Date: Thu, 21 May 2026 17:59:37 +0200
+	b=McqcDVXe4IqzgUYd4mxIG/hYeLAE3i7TYhvxyEIollCwXRYESsG2LiwTNqbyaijA2
+	 KaH8ngphdfSCUdD6gmOOb7cw/upUDzgNlOu5NhKShrCTrapTXfvvcYpug7sDh9RDfw
+	 +wsaMVm9eJLG34qTaFiKmXEGweOC+75P3zDrLZSk=
+Message-ID: <a81c3688-30f1-43e4-8d57-1d08a6e563af@arm.com>
+Date: Thu, 21 May 2026 17:01:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/5] arm_mpam: prevent MPAM-Fb accesses inside IRQ handler
-To: Niyas Sait <niyas.sait@arm.com>
-Cc: ben.horgan@arm.com, catalin.marinas@arm.com, fenghuay@nvidia.com,
- guohanjun@huawei.com, james.morse@arm.com, jic23@kernel.org,
- lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, rafael@kernel.org, reinette.chatre@intel.com,
- sudeep.holla@kernel.org, will@kernel.org
-References: <20260429141339.3171205-5-andre.przywara@arm.com>
- <20260518105708.3268174-1-niyas.sait@arm.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260518105708.3268174-1-niyas.sait@arm.com>
+Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to
+ delegate/undelegate ranges of memory
+Content-Language: en-GB
+To: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-10-steven.price@arm.com>
+ <867bowx3qx.wl-maz@kernel.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <867bowx3qx.wl-maz@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_085947_603796_16A809B6 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20260521_090145_133185_4ACE43DF 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +85,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niyas,
+On 21/05/2026 14:59, Marc Zyngier wrote:
+> On Wed, 13 May 2026 14:17:17 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> The RMM requires memory is 'delegated' to it so that it can be used
+>> either for a realm guest or for various tracking purposes within the RMM
+>> (e.g. for metadata or page tables). Memory that has been delegated
+>> cannot be accessed by the host (it will result in a Granule Protection
+>> Fault).
+>>
+>> Undelegation may fail if the memory is still in use by the RMM. This
+>> shouldn't happen (Linux should ensure it has destroyed the RMM objects
+>> before attempting to undelegate). In the event that it does happen this
+>> points to a programming bug and the only reasonable approach is for the
+>> physical pages to be leaked - it is up to the caller of
+>> rmi_undelegate_range() to handle this.
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> v14:
+>>   * Split into separate patch and moved out of KVM
+>> ---
+>>   arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
+>>   arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
+>>   2 files changed, 49 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+>> index 9078a2920a7c..eb213c8e6f26 100644
+>> --- a/arch/arm64/include/asm/rmi_cmds.h
+>> +++ b/arch/arm64/include/asm/rmi_cmds.h
+>> @@ -33,6 +33,19 @@ struct rmi_sro_state {
+>>   } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
+>>   	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
+>>   
+>> +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
+>> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
+>> +
+>> +static inline int rmi_delegate_page(phys_addr_t phys)
+>> +{
+>> +	return rmi_delegate_range(phys, PAGE_SIZE);
+>> +}
+>> +
+>> +static inline int rmi_undelegate_page(phys_addr_t phys)
+>> +{
+>> +	return rmi_undelegate_range(phys, PAGE_SIZE);
+>> +}
+>> +
+>>   bool rmi_is_available(void);
+>>   
+>>   unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
+>> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+>> index 52a415e99500..08cef54acadb 100644
+>> --- a/arch/arm64/kernel/rmi.c
+>> +++ b/arch/arm64/kernel/rmi.c
+>> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
+>>   unsigned long rmm_feat_reg0;
+>>   unsigned long rmm_feat_reg1;
+>>   
+>> +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
+>> +{
+>> +	unsigned long ret = 0;
+>> +	unsigned long top = phys + size;
+>> +	unsigned long out_top;
+>> +
+>> +	while (phys < top) {
+>> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
+>> +		if (ret == RMI_SUCCESS)
+>> +			phys = out_top;
+>> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
+>> +			return ret;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
+>> +{
+>> +	unsigned long ret = 0;
+>> +	unsigned long top = phys + size;
+>> +	unsigned long out_top;
+>> +
+>> +	WARN_ON(size == 0);
+> 
+> I find it odd to warn on size = 0. After all, free(NULL) is not an
+> error. But even then, you continue feeding this to the RMM.
+> 
+> You also don't seem to be bothered with that on the delegation side...
+> 
+>> +
+>> +	while (phys < top) {
+>> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
+>> +		if (ret == RMI_SUCCESS)
+>> +			phys = out_top;
+> 
+> and size==0 doesn't violate any of the failure conditions listed in
+> B4.5.18.2 (beta2). Will you end-up looping around forever?
 
-thanks for the reply!
+That is not true ? It triggers, top_bound error condition, for both.
 
-On 5/18/26 12:57, Niyas Sait wrote:
-> Hi Andre,
-> 
-> On Wed, Apr 29, 2026 at 04:13:38PM +0200, Andre Przywara wrote:
-> 
->> This error report relies on reading the MSC's error status register
->> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
->> MSC accesses, since they involve mailbox routines that might sleep.
-> 
-> I think there are a few other places where we may still end up invoking
-> the MPAM-Fb path from atomic/IRQ context.
-> 
-> For example, _msmon_read() uses smp_call_function_any(), which runs
-> __ris_msmon_read() in callback/atomic context
 
-Ah, good point, I thought that the running CPU always being in the mask 
-would avoid the IPI - and it does, but it drops the code into atomic 
-context anyway, courtesy of disabling preemption when calling get_cpu().
-So I just avoid that by checking the interface type and just calling 
-__ris_msmon_read() directly for PCC. Maybe there is a smarter solution 
-to this, but that seems simple enough.
-Will be part of v2.
+pre: UInt(top) <= UInt(base)
+post: result.status == RMI_ERROR_INPUT
 
-Many thanks for finding this!
 
-Cheers,
-Andre
-
+Suzuki
 > 
-> static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-> {
->      ...
->      err = smp_call_function_any(&msc->accessibility,
->                      __ris_msmon_read, arg,
->                      true);
->      ...
-> }
+> Same questions for the delegation, obviously.
 > 
-> For MPAM-Fb, I think we could potentially avoid the smp_call_function_any() path entirely
-> and invoke directly from the current CPU. Since PCC accesses are effectively CPU agnostic,
-> I think that should be fine for the MPAM-Fb case.
+> 	M.
 > 
-> Thanks,
-> Niyas
 
 
