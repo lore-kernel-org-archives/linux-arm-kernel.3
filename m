@@ -4,140 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5829BCD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AF2CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PIiW66qx0F9DSyV5uctvgMYRil/LIhoKuBpwPIhOdGk=; b=zbm1199yplEuEWnCogzCR19neZ
-	KZ7eo0ZCIz5lZLGDQJeW10VIilgKJK+r1K6dzhFrNLqjjLmC4onO9yEJjtLe8CaromGR5WyoLYpqX
-	dvBtcwIvGsGz3SI0qiP6HJNbQZIHzRb139JoQ+SyPPhKmmtuO7reYxNSis0+uh20FuxuiiTXhrpiO
-	3FSQJ3A3tQaZhFgMbP7GuHbkxKUIlQ5lxcGXmeznKTLJaDe0Il68t9kbF4+yk3x2VdtKW/51yHSbQ
-	5F+jK/xtGbu7dWxFUCQsIADYx2exK+dxgtSf6RsfwuA5BbriUV7YwQLkddPJe83M+QSdmc6NFBNvD
-	0jBTWOsg==;
+	bh=8G/x4JJtOPaC66y0xIpsyhNcO8UWKG9STKYzUChGp/o=; b=O5jYqY21nPW9ijWr9CAw5vuD6G
+	0r+uZNtlMVwcmJpBCcZ5Jo3cNPCRI92lJMpAbLHZsLB27n0LHf2p9yyKTqmPKd11Nt7BkksEURbQg
+	NmlBSMH5GI643FNLzXXTBkDTFzTlWjLnFVs5qsG9VwrTZk4ZW90Su/y+vLI41l1qCPZRpVlTUuoV0
+	J+DDm1b1ZLSagJ4ceg7vnKxXMu/eI5TNIpB/espw2Xh/MRR4QBglw/w+C6kWDUsGIQGrC+LWoQBvN
+	1KAgTLY3Wu0FVy88ulwwUqaq2nRkqfi3rPvtX4ZSIlJw8axu33RnsX/sUVUWPVge4t9QmSVOtCM3K
+	/hf97flA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyGW-000000071g6-45Hl;
-	Thu, 21 May 2026 07:56:24 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wPyIY-0000000720M-1Tev;
+	Thu, 21 May 2026 07:58:30 +0000
+Received: from mail-pl1-f182.google.com ([209.85.214.182])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyGT-000000071fF-12j1
+	id 1wPyIU-000000071zQ-3GTg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:56:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CXSYp8RNA17TqgUqGoFaBTPBXwumI6M4Es3qjweGvfAXU0KwWHCyBt8xQ+KmqYr0JYMZwopTCtIatdKNSCuXXzUXptpxkq8OzUnt3ljdu1bzf15e8uwsSE0FXECvhcDpLGZPSD28d1gG4+IRQwaFcTNdF3R4bkQeCTHGIM/acfFbQteVEdf/LUm8GKVRLQ9NfILS6D8GCTvSolniXEWqvrhJm5rQrwFQQ/NCXYO9xUCIGFzNuV2wFQeGgFOowJf+wR2FTIEaRnNtpRlA9rluQMRcgTsC371KWRjMWRwtT2OW9bNgy/cZtJunm0yfXMNDfnylc1cU4nTgUPghfidw8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PIiW66qx0F9DSyV5uctvgMYRil/LIhoKuBpwPIhOdGk=;
- b=LW6MKYZ0FeXeDhKb2GP9fmTjEmIeB0sbIdt0CUpwwJyICenjIPf/mKdzAT5zotuVKp8MKLM2i5QkvREZJOc/szLP80kD3DO68B9Q/AaE2VOf+1MctamBmZKDOlqVhbe+JvHfiueqc0M42ToV6P0nGnYtZteR1Vy3FG3r4099+zxWpgNW/gekTzgWR1ygp13sxpJIO2UpkecJGbQItBkGaqL+B9ZxXir2sBVhWdpyoDCSOydA5ljMkrxVaIXHiUWsWn0mS85cryKaSK4kpOa3PTgEH44xrtXGeZT815r/31+pNulIj4YKXRxpw/T6Oi65wCyD/KSOPf+Wh+AXUpoMLw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PIiW66qx0F9DSyV5uctvgMYRil/LIhoKuBpwPIhOdGk=;
- b=ZhGs5VpnkvqMKaZJHpUY9FKW9uyQoMNK+hVHtG2WaGa1fIfsUITv3LOdYUVlGePmQOMgQbHqOmO9pIwBZ9KV79/JUV4yjfLL7Pfb3tSnB+Bm5MsOirD46D/DykXNrmKqfFYEYxXd65BEv4Mi1OKJ4gqgSuPp+AQM25L5tN2VnCdqgVHPBNmC9OLkGp4s9QZZOsPoKp4t/SlRd3No6dq1a6u0nOe4DHFaHmCJEGO4m0RqgmsRRnVWA/SkbLB9Zl4cziPs5VOTSphw45TCYku0ocsnGW1GnW6TPf/jJcSUAlYBJpFH61acDNm6VatYFti/ERRsMzBH+5InLwtVAPtRGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by SJ2PR12MB7867.namprd12.prod.outlook.com (2603:10b6:a03:4cd::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 07:56:14 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
- 07:56:13 +0000
-Date: Thu, 21 May 2026 09:56:05 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: Tejun Heo <tj@kernel.org>
-Cc: David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
-	bpf@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/8] sched_ext: Sub-allocator over kernel-claimed BPF
- arena pages
-Message-ID: <ag66lfvACAEAI9w8@gpd4>
-References: <20260520235052.4180316-1-tj@kernel.org>
- <20260520235052.4180316-8-tj@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520235052.4180316-8-tj@kernel.org>
-X-ClientProxiedBy: ZR0P278CA0054.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:1d::23) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Thu, 21 May 2026 07:58:28 +0000
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2b9fcf7c91bso61260575ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 00:58:26 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779350305; x=1779955105;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8G/x4JJtOPaC66y0xIpsyhNcO8UWKG9STKYzUChGp/o=;
+        b=L0cgvpkgvTUzmx0DDdM2jUAQ723gyvBOC3R0NGX4i8658VW0/fJ9pINn02Bqs+XQWX
+         1pIGDHViSZtaO77rIYRqOEO1KBs/AxVpHSr6UkfiSo09bHGV5VptB1eiaps2HZeDRdmG
+         qlL9qRRZURQdSuZuc0BeUvEAnUC7iSc8ExVDoEut4c6qc9S+Rso0AvwOuY9urF8ZAXGw
+         sU1D3PtZuZErx6gxqTABZwBsSbaOlElWEbN3BvwhLbDPGMIZgAqJV8YDEkOw/TNHxlSI
+         l+GnAd5HxqG1Q7ZKpzGuh+OD7EcuLQ/PaLvQYzg8OxcVCjDGXWXTopgi0uQHwYWn6uOm
+         1PVA==
+X-Forwarded-Encrypted: i=1; AFNElJ8aLBek+j9PuABfdNHrBcrdlcanPrpm1cNSE7Dyeg9JIC7d2wbtHUKpAdh38ASakY4CfWntzea5CfBm48quXesU@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR/TOGgX1kXSZ0JN8ixAOIHRH3xuff++VcDdz8EAxB1zSA9Yw9
+	anBA/kDPgLAaG5+0KRH3KRFqO9xWEokR15/S7c4at1BOqmS83ESOKICf1wXgQtJkE6E=
+X-Gm-Gg: Acq92OEtgpPr4mra/yZZU4IF19qa4tEVHdL2Jt4t3TH3FBOUt8dBtxr5oGxOGEgcta8
+	CKTVoI2KUtbSdXuj6XERDpwd0YfPyRJwWZboSxL/u2PGsBy82jFEDvHnBcMP7cHus/aTLnxYQw0
+	0+Za3m/6G2jZK3as7y/yy49sSxDcTGXSsy6J+llZZlM9yk7d2Tg3TRlj45KhbQYTykjyzLfup8l
+	f9Jnzw2TFx9VjFXhyiGYBaPvNBkWni1QUYyLlU26nudNbN73181GHk2cUdP7vlose4dlcffWl+r
+	aDg8AyP3Q27gN6oGTW/FX3ROW+iVuGmuy4CwEKChb0AH8SwYpmdKEMZHP5oJOp3dnT7S1v6QvVr
+	RngwLWBWPxSbDKgQ6t8MQt/WwsXC1XRIfBfL7CNL9qPzVbzyi0NLibHuefJlQdE/MntXLcL1FwZ
+	onCWABUtxQMFBVa9ABuMoqUXa0mZSTG+T9eDKByCcwknY22tLAbN+cP4NETBqURjuX
+X-Received: by 2002:a17:902:ced0:b0:2bd:3bfd:74f2 with SMTP id d9443c01a7336-2bea32e738cmr20264005ad.10.1779350305275;
+        Thu, 21 May 2026 00:58:25 -0700 (PDT)
+Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com. [209.85.215.171])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bea9a3dbf7sm1755555ad.84.2026.05.21.00.58.24
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 00:58:25 -0700 (PDT)
+Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-c795f441ff7so4648754a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 00:58:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/HhfS8i5GTpfRyj8ZX/EALlwXKRMBWco90t8Hkj4Z6yThTOSexo0HxL+eQ1lUeWfmN4p+4kb2UZ1C9g3cxZZ6f@lists.infradead.org
+X-Received: by 2002:a05:6122:235:b0:575:a5b5:3233 with SMTP id
+ 71dfb90a1353d-58424155ad5mr536200e0c.4.1779350001458; Thu, 21 May 2026
+ 00:53:21 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|SJ2PR12MB7867:EE_
-X-MS-Office365-Filtering-Correlation-Id: 38d48788-97f3-4b08-7736-08deb70e6e07
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|6133799003|11063799006|4143699003|18002099003|56012099003|22082099003;
-X-Microsoft-Antispam-Message-Info: zJ7ZyyliXRY8UKdLKHBcehBjLSoLNU5NJbwdSskic3rAVjgLg5cH8+c7sEJDaACQOGr/sut/fo+ZOy0igBQBTHWb+qRmvYQAs7l3cGqjhCqwmcyr57FiFmtB3Aez9JS67yqKnOatEKeqDHpCeH/7usj5Pjos41m0hmtrdZJDamDXMKbI+EPLRom4XDqgEOHXcXhS4bZ2qcdpcfCf3KdiBT83PfuCnJPWvh7sHB+RsRn4/Q8K7vx3BDVCCdwN7vMg3tYxS1ulRXPt7M8Dy0alWnCTuqWY8Yb0ZYoAkTw7Omz8mfXrhFKQ+7Ub6VAHfOHDoPkaair0MS5KTJNxdv8kcA3A5MqmiST/ieexrIqxqv6eRxDrdJlPDx4VECflSb3/qHQ6L5c86UuSmYxS/iBtDoGJnfNHLRR+5TjqCrOgprP7fEHLLPyfvgMsw4d8be7HoFpNMsxamgurqTRRmte46+9cuqmsBObW9SpW2BTZTE28NwVAIcMfQOKyWccRhCZRYSvjoJ9H//LF+woybjvqKxsYyw94kC+AqAY4UKro6bYZYTfXND6jaCCwCPPgWZYWEszBw7xlCxHfW1nnJf5Dxenszu146Jvw8EPYTjx0jXtT5iVxgTyqkrC61PN5TEj2EY/2yFVwMkAafeA7y1ZMMmjrUTvLGj66h4cODUKhotQAHTqKpheJmb2blLnLbsiU
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(6133799003)(11063799006)(4143699003)(18002099003)(56012099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BQm6JgcsbIFN/Mo5fIfdIXN00QYqKz0ObZHO3T0K8naDV0Kath+Ny9f2UWkM?=
- =?us-ascii?Q?2AiJJ87o9QT2EMYW9o6FIluhlOwC3I6WdI+xGaSPDYyFL2tjl2JJffb8rcNT?=
- =?us-ascii?Q?ZE/tWRgPRY5wxeobprX4MUSh+fHGvpN2qy5PwwVnclU+bc93oLeCQDBiEimm?=
- =?us-ascii?Q?waWyoOBFPxGw0AuaRtk5w3mBX8kJFRAI6HYB17Zvk0Bei+S+VAji3fOWHWK1?=
- =?us-ascii?Q?IjZZjm6ogYpcaHFzC7oVJsixDKPk4mJT+EiF8IVDuL2vidrQwNZM7+yswDMi?=
- =?us-ascii?Q?IEmMGhBY5/mEdo/bYLs2DViC6hgFYWk7bPSUzGH7eNwS3Kp5moS3DunwMxTE?=
- =?us-ascii?Q?VbqRj6hAjFPABnbrub74oxufBfLnzUfisrvmlZcJz7w4ssywa6L/UX+kcfPf?=
- =?us-ascii?Q?VBy9KkMD090ea6uVHnun49KXtdY7oLq4T6rEOoCc8m3FL32pAihr8dKXe7ef?=
- =?us-ascii?Q?oWBmdMld/ILue76UpT4CFd4b9mDIE1cDm2rpzMXsBJTVyF0DOnzfk0xH8Wku?=
- =?us-ascii?Q?rtFGJ1pc0PvDW+2/fd5LxcYX4RiCNugV3LZmIDRv/zqXbgEY/rdZ4z6g2QTg?=
- =?us-ascii?Q?KrcPMClza9eXQ0I5wlhSy4BqYKU5BBNinBUU12N+KcWt+FPm41ai4+QylW0e?=
- =?us-ascii?Q?RfYvQl7dP20VqGPKffs/oiuwyanFM1CB8EFg/o1jUhAFGRbgEeGtYO0K3pFU?=
- =?us-ascii?Q?XtMGDyAFD14fXZbSbf2NZrQ1mFme7ByfOYnOVcB6dfz6Heg1EJsA2eFh/Yru?=
- =?us-ascii?Q?iTzPHIbccTwvpgi1hqMibptLaNTikbhxtgAc/ILCC4D/n8Tz8n8yPnzWy3Dq?=
- =?us-ascii?Q?SYn4LRM1hbgitgu8oucXz09Vwb4Z/OsKYx3MdcIyem3lglLwvNMw0wDRy9IK?=
- =?us-ascii?Q?wLyYjmyEDt7g43IRk2LPBcD5ca1scTNNRSgtEXgGFRWHmcf2+fmcx9jVUnTj?=
- =?us-ascii?Q?URB6SdsSbxmWSZSxcrDc+1XXHt02yFQA0EPUHp9onV5EUpG8ETMN5dw3c4Mb?=
- =?us-ascii?Q?oTHMKZ880slk2+rDa3VJq+gAoJ8j8hrKRzi3uePe1mGigCaTB7TvdBiVg5bH?=
- =?us-ascii?Q?3EBvBfebqHav7ZLhzHFFSbnE+vjypm7HEUwx/LUi6PAan0JVHtbXd9tE72uW?=
- =?us-ascii?Q?ctDSeKSTURWbT7tB3G5r5KCqIvaaPEFZ5xjqoboN1gHJJKch7ZjWiZ6gdwYr?=
- =?us-ascii?Q?O+twzK+b+4EuYGaE4fRD7f6PxgpBVOKwNvO9/3yunUBEVC5qxvRRNqBcqKQp?=
- =?us-ascii?Q?E8QMPzWmzzJyqcCCrlgkMTbhphdqmGF9jFNjk21xRkbk/YtrcIo65ioY8anz?=
- =?us-ascii?Q?thHzkVqqe3mzb2fFtCm6gFAeB7vw3/rf7O9YIRq+gb5HQzBFDQWci9RmxodV?=
- =?us-ascii?Q?z3pTqrNybzG5NvcMXYIaHbEBasaA1i86v0dha2mCXO90nyrC3HQVMPVy/8wF?=
- =?us-ascii?Q?kDw7oLIuSQpnzq36AfF6p0A9AktkeFZBfU2gvcgol+S1c1jLwSUSA4ahIuci?=
- =?us-ascii?Q?1e5NaDyP0tqr9qRNonI+4LccJnE4CP5Q0q9ZLjgho4UjOBKs3p8fPcoQ3t7Z?=
- =?us-ascii?Q?DDigP3erfQmlab7fTCZH4+2oCUbv+2fPezPUFoaklKRuIZHyzh50g+IhC8Uo?=
- =?us-ascii?Q?8ggHJEVcjTP+JHgH9b10TaNgDGO2dpCyyTsRVxTBuZfLKN7gEJqNK6ujqq5c?=
- =?us-ascii?Q?2toNFQh2lgkdUPPawjgjrwyHOdJe4+/Q42KZrIL+ozb+Raot?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38d48788-97f3-4b08-7736-08deb70e6e07
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:56:13.7977
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U+wBdQ/33wh2U0dK9vgbo8i5v67O4qztBcxhXHy4klNIQSfeRCUcvDfRKmjrfp9icvrpSiesO4DTJjw3Ld9Ohg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7867
+References: <cover.1776793163.git.geert+renesas@glider.be> <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
+ <aekXUvIPb8nkhdKu@pluto> <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
+ <ae6Zp54NhKlVes8J@pluto> <CAMuHMdWK3Noh5ZQVWT9C0EKyXZePMaJ97C0A_syK+xCb_=abeQ@mail.gmail.com>
+ <agooKghZJw3iElvp@pluto>
+In-Reply-To: <agooKghZJw3iElvp@pluto>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 21 May 2026 09:53:09 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU8VRCOZtLrM2EoHFmhd5XFs8cwXc2A1tPTTr01KvUx0g@mail.gmail.com>
+X-Gm-Features: AVHnY4LC2rjbQG8RkBy_xv_1xXXocYwPF3Jc-uBUk0RJlVpVup9HQXGw37O9RpM
+Message-ID: <CAMuHMdU8VRCOZtLrM2EoHFmhd5XFs8cwXc2A1tPTTr01KvUx0g@mail.gmail.com>
+Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
+	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_005621_290649_16988062 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20260521_005826_827741_883FE006 
+X-CRM114-Status: GOOD (  69.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,68 +108,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tejun,
+Hi Cristian,
 
-On Wed, May 20, 2026 at 01:50:51PM -1000, Tejun Heo wrote:
-> Build a per-scheduler sub-allocator on top of pages claimed from the BPF
-> arena registered in the previous patch. Subsequent kernel-managed
-> arena-resident structures (e.g. per-CPU set_cmask cmask) carve their storage
-> from this pool.
-> 
-> scx_arena_pool_init() creates a gen_pool. scx_arena_alloc() returns the
-> kernel VA. On exhaustion, the pool grows by claiming more pages via
-> bpf_arena_alloc_pages_sleepable(). Chunks are added at the kernel-side
-> mapping address; callers translate to the BPF-arena form themselves if
-> needed.
-> 
-> Allocations sleep (GFP_KERNEL) - they may grow the pool through vzalloc and
-> arena page allocation. All current consumers run from the enable path (after
-> ops.init() and the kernel-side arena auto-discovery, before validate_ops()),
-> where sleeping is fine.
-> 
-> scx_arena_pool_destroy() walks each chunk, returns outstanding ranges to the
-> gen_pool with gen_pool_free() and then calls gen_pool_destroy(). The
-> underlying arena pages are released when the arena map itself is torn down,
-> so the pool destroy doesn't free them explicitly.
-> 
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> ---
+On Sun, 17 May 2026 at 22:42, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> On Fri, May 08, 2026 at 12:26:19PM +0200, Geert Uytterhoeven wrote:
+> > On Mon, 27 Apr 2026 at 01:03, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > On Fri, Apr 24, 2026 at 02:08:55PM +0200, Geert Uytterhoeven wrote:
+> > > > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
+> > > > > Also because this should be one of the selling point of the SCMI stack
+> > > > > in a virtualized environment: you can ship the same kernel drivers with
+> > > > > the same DT and you know that ID=<N> will always identify the specific
+> > > > > resource that is needed by your driver without worrying about the fact
+> > > > > that in reality in the backstage the effectively managed physical resource
+> > > > > could be different across different platforms, because that does not matter
+> > > >
+> > > > This sounds strange to me, do I understand it correctly?
+> > > > So the ID should (1) be tied to the use-case, and not to the underlying
+> > > > hardware, and (2) be the same for different platforms?
+> > > >
+> > > > For (1): Then we must not put these IDs in DT at all, as DT is supposed
+> > > >     to describe the hardware (and firmware IDs in DT were IMHO already
+> > > >     a stretch before).
+> > > > For (2): How can there be a contiguous list of IDs, as not all platforms
+> > > >     may have the same underlying hardware?
+> > >
+> > > I would NOT say that an SCMI FW must behave like this regarding IDs, but it
+> > > is a possible SCMI deployed setup that can be useful in virtualized setups
+> > >
+> > > I mean, the DT describes the hardware of course BUT when you refer to
+> > > some of this hardware DT bits from some other subsystem by referencing a
+> > > phandle, even in the non-SCMI world, you are in fact selecting a specific
+> > > resource that fit you use case, right ? Can we say this ?
+> > > I mean you needed that specific clock or regulator that you described
+> > > previously so as to be able to enable some other piece of HW...
+> > >
+> > > Now, the SCMI provides an abstraction on top of this, since you really
+> > > discover domain IDs of a specific class (clocks/regulators etc) you are
+> > > in fact describing an HW abstraction that you then refer with the usual
+> > > phandle...also because there is NOT so much SCMI hardware to describe,
+> > > given that the HW is handled transparently (opaquely really :P) by the
+> > > driver on the FW side...
+> > >
+> > > ...you basically obtain such domain ID, usable as phandles through dynamic
+> > > SCMI enumeration so that you can use it all over your DT to make use of such
+> > > resources...
+> > >
+> > > ...on top of this, consider that the SCMI server CAN provide to its agents
+> > > a per-agent-view of the world, IOW it can (and should) expose to a specific
+> > > agent ONLY the resources needed by that agent, i.e. it can expose the set
+> > > of resources 1-N to two distinct agents and that does NOT mean that the
+> > > underlying physical resource mapped by ID=3 in both agents has to be
+> > > effectively the same piece of hardware: it could be the case, and this
+> > > would be useful to exposed and managed properly a shared resource, or
+> > > it could also be that the same ID=3 could refer to completely distinct
+> > > pieces of the same class of hardware...(same protocol same class of
+> > > resource...)
+> >
+> > Exposing only the clocks/reset/power domains the agent can use,
+> > in a contiguous list of IDS, means that the number space changes,
+> > depending on which resources are exposed.
+>
+> Yes, potentially, it depedns on how the HW/FW stack was designed I
+> suppose...
+>
+> > Suppose you have a system where you want to assign a specific hardware
+> > block in the SoC to the realtime CPU core instead of the application
+> > CPU core running Linux.
+>
+> Ok, so this is definitely a considerable change.
+>
+> > That means all resources used by that block must no longer be exposed
+> > to the Linux agent, and the corresponding IDs must be removed from
+> > the ID space exposed to Linux.  As the ID space must be sequential
+> > and contiguous, the IDs must be renumbered, impacting resources that
+> > are exposed to Linux.  As these IDs are used in the SoC .dtsi, they
+> > must be changed there, too, However, these IDs have become part of
+> > the stable DT ABI, and thus cannot be changed.
+>
+> Well, you have to ship a final DTB blob that is crafted to describe the
+> actual HW at the end, right ?
+>
+> I mean, in your example, it seems to me that you have changed considerably
+> the HW surface by moving a clock (and its related resources) away from the
+> reach of Linux as a whole, so should not be expected to have an updated
+> DTB shipped ?
 
-...
+It is not necessary to ship an updated DTB.
+The bootloader stack can just change the "status" properties of devices
+nodes that are be taken away from Linux from "okay" to "reserved":
 
-> +/*
-> + * Allocate @size bytes from the arena pool. Returns kernel VA on success, NULL
-> + * on failure. May grow the pool via scx_arena_grow() which sleeps. Caller must
-> + * be in a GFP_KERNEL context.
-> + */
-> +void *scx_arena_alloc(struct scx_sched *sch, size_t size)
-> +{
-> +	unsigned long kern_va;
-> +	u32 page_cnt;
-> +
-> +	might_sleep();
-> +
-> +	if (!sch->arena_pool)
-> +		return NULL;
-> +
-> +	kern_va = gen_pool_alloc(sch->arena_pool, size);
-> +	if (!kern_va) {
-> +		page_cnt = max_t(u32, SCX_ARENA_GROW_PAGES,
-> +				 (size + PAGE_SIZE - 1) >> PAGE_SHIFT);
-> +		if (scx_arena_grow(sch, page_cnt))
-> +			return NULL;
-> +		kern_va = gen_pool_alloc(sch->arena_pool, size);
-> +		if (!kern_va)
-> +			return NULL;
+Devicetree Specification, Release v0.4, Table 2.4: Values for statu
+property states:
 
-IIUC, since @page_cnt is sized to cover @size and the new chunk is added empty
-to the pool, gen_pool_alloc() here should always succeed. Should we do:
+    Value: "reserved"
+    Description:
+        Indicates that the device is operational, but should not be
+        used. Typically this is used for devices that are controlled
+        by another software component, such as platform firmware.
 
-  if (WARN_ON_ONCE(!kern_va))
-      return NULL;
+When all SCMI IDs change, too, much more work needs to be done.
 
-to catch potential logical bugs / future concurrency / exotic configurations?
+The remap driver could also help here: it could scan for device nodes
+that are marked "reserved", remove SCMI IDs used in these nodes from
+its internal tables, and adjust all later (higher) IDs.
 
-Thanks,
--Andrea
+E.g. the existing drivers/clk/renesas/renesas-cpg-mssr.c already handles
+(ignores) clocks used by reserved nodes.
+
+> And I am NOT saying to do this by changing the base SoC dtsi, but via build
+> time overrides and/or runtime overlays so as to derive from that same SoC
+> base dtsi a properly reviewed final DTB that describes how the HW has actually
+> changed, becasue beside the renumbering that you mention there will be
+> also a bunch of HW pieces that were relying on that clock that now will
+> have to be removed from the DTB if no more usable (or remapped to use a
+> different, maybe non SCMI resource)
+>
+> I maybe too naive and not used to very complex DTBs, but why all of the
+> above cannot be done along the lines of how is done as an example in
+> JUNO [1], where some initial base dtsi was overriden by virtue of includes
+> and overrides to properly describe the board at hand (r0/r1/r2), even going
+> to the extreme, funny enough, to move from the old SCPI to SCMI.
+>
+> [1]: https://elixir.bootlin.com/linux/v7.0.8/source/arch/arm64/boot/dts/arm/juno-scmi.dts
+
+As long as the IDs in arch/arm64/boot/dts/arm/juno-scmi.dtsi
+match the actual SCMI implementation, that works...
+
+> > This patch series fixes that issue, too, by describing the actual
+> > hardware in DT, and doing the mapping to exposed SCMI features in the
+> > kernel, based on which firmware version is running on the SCP.
+>
+> Which seems to me to go in the opposite direction to what SCMI expects:
+> but I understand that we have to deal and cope with the existing already
+> shipped FW, so my concern is not really around enabling this in particular,
+> is much more the fact that we open the door and normalize this kind of
+> design even with future, still to be developed, SCMI FWs.
+>
+> ...otherwise...have the spec changed/clarified to allow for such
+> non-contiguos IDs...
+>
+> ...anyway let's hear Sudeep opinion on this general issue of contiguos
+> remapped IDs and being able to peek into SCMI version from outside the
+> SCMI world...
+
+As long as the ID space becomes stable.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
