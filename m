@@ -4,114 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83A0BCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E2EFCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7+8kbrxw3k6r1pEahfY8Z1QQWebSWYvywBVfeppeoA=; b=qFzLytwru8yrPUyGtb0kldbrb8
-	67ZTA4vlhGgK65hRQjh5Cp8iCXud2bO0t+6W3NNttcpU9KDDVDLitVW8GfuBshtWsEfo9ZWl7N3/2
-	NRb+VKrzJOgf+sXdWCR+OInUy/Zxne579b8cLs5qxGDkiHEXmYkjO4Kh0xJdIeZOApG8GpzXGg2ak
-	ZyaRrpsp/6n+z1igwZ8m/SUpIXVi7PmigoWH/oZ5Smkprz8C9YaqPv/vBo+ELVR3SSR88c5Ez8mUf
-	Snv7d0Qp6OD12oy+hP/JzRk2NxJTHksLyXvxl1bTRVKZiSLH6eORXtRVmaxwuCIYKmUd6sggdIXgx
-	+92Yj6zw==;
+	bh=W5F4HpHZPdS7RM8VbkQ1+0+NF4PdjhH21V3y/145Cyk=; b=OAMdFAz7B7+gK2AkuChO3sqUrJ
+	3N93tfkXOGRBjYqG9HtEniN3ehzQ2tbguYPGqK/xDtXx7FFN+ls2eBClOyHSBCNoL/pbrglBHDry2
+	Tadt12pnR+lY1GK6MNtvvPGpsCDdkR+rXvn2n/UAZ1w16PDAKUQFczhFBDDstSmox3WXylSrbevAy
+	VHFaG42jeIY28v16lvpPaq18ev/aQ+r6u39Vvw3xfX8q67Bek3fBovGhn+0lE2M6w/Ec9e38NZPZ2
+	448aBo8yh/wC95VxEX8zFWQvMU6udMSh+TOoSOJZf4Vs06ddeEyCXyr8X5x6RljOUJca6TJZv7lPX
+	NFloieeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPre5-00000006JRw-2DZh;
-	Thu, 21 May 2026 00:52:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wPrjn-00000006K3d-0xLx;
+	Thu, 21 May 2026 00:58:11 +0000
+Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPre2-00000006JRH-1cic
+	id 1wPrjl-00000006K2u-02l9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 00:52:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779324733;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=G7+8kbrxw3k6r1pEahfY8Z1QQWebSWYvywBVfeppeoA=;
-	b=eE0qT8UsuutPyBxWOLHyycIukW5yEoCIFL/ApRhGx6vrjK90dszXNiJXlYxoDHkEaTB3gt
-	Bt7EYSwgxB+QivjkFf99FJsaojv8myYXX5XLF/uGQ3mqvNmQThM2UNcaLv42CH+ps/G4yS
-	Y+A20+r94rp+/roa4Y+69bWCrRLtN5Y=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-81-Ip97haglMzas59sMUmDpDA-1; Wed, 20 May 2026 20:52:11 -0400
-X-MC-Unique: Ip97haglMzas59sMUmDpDA-1
-X-Mimecast-MFC-AGG-ID: Ip97haglMzas59sMUmDpDA_1779324730
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2babc42244aso133853195ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:52:10 -0700 (PDT)
+	Thu, 21 May 2026 00:58:10 +0000
+Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-7c5d8f45465so52650787b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:58:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779325088; cv=none;
+        d=google.com; s=arc-20240605;
+        b=kKB9dYbg1wfNouebFWZnGi8LEFX5c6zGncqOb9KyRHxgShZDMnZfm44skOVkYeLHZw
+         90un895wTcZRDTKAYn7h41SnI+WTqxsGI3BhVSKktXA7RoDK74I09CVLBbGf0McJ9QDo
+         lRAdgnlquVYd2c882lO7gsXr9yPcP66hswM75m5cHfU47Ifa0dwDbD92TY7fSTD8igup
+         6lPxNJzK2SIuU5yqc5i2aG9QtVIrfzcp1iU9UrGQi7n0u+jvTKAR+X8jw775SfNo/Tkh
+         f62mnMH4z/awts0F0M5DbqxprUmemtlPU+1kGralPp+xt2jzAyOFdIYredEngzFUH30R
+         fknw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=W5F4HpHZPdS7RM8VbkQ1+0+NF4PdjhH21V3y/145Cyk=;
+        fh=ogWxbjGIsDxXyVBVGK2x/6hOdpI/Q7NM0/OBCD0PApU=;
+        b=bTJqKVUh1n10gJ82NOudhM3SSrvCzhfYNGUg8Iin2HPxYUJHx6BXPpEJUpsT3+m8gS
+         dC0R+pZ12ewnYxYb/L9p0XoILLHTlhBRzbJwzZzXu+sf8alxJx7Ueuuad7yqwxKeshi9
+         hN6pte/8/z2Lb7dwhtEyAizznNEcv+tZETuH5ZJsgHmB35o0fL/Fnn9ywRodkUckBFpK
+         KgrSWTLXx1sx+xoeZud0YT18FlSUQBjgDjcGiXv6rSoqgYgtpiL5FRMOti0YqRIODz9n
+         rkPyHGqHGR83XK34QQq3EIx3ldusjzm0uB4F64zp6ZJB6wwWmN0AkfPaKm+RgTTVZ2h3
+         rL2Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779325088; x=1779929888; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=W5F4HpHZPdS7RM8VbkQ1+0+NF4PdjhH21V3y/145Cyk=;
+        b=U7ieBbaNTacXEgSIAr6dnNR7Y/DDkZ+gLucGkWLO3tLc56jaAe1QkL0VtRjUKWcMiU
+         wC4qFmMNgJDVwFbOMrZ9aowx0iVqb0Xi4I4gUrd81bEuUEr/i/rP4cp6iTXpABOnyDp3
+         DeZLaHkYMlsO3+fKru0WFSpfSGJog/y2Pv3oEtYJ5diXQI8hiEhXzXRthxdTUiNX6ZrE
+         EQ/Fv+ANmDaUrRvBVeH4CsQ3aBQ3zy2PcjQpVir4ReHJ7XW2W8dHK9AvXxpynaG4kOV5
+         TKYWcR6cRFfqnsCdlGibW+VZ3EwfiE0Rd6DFy1cYpaI4ndOIhciwWblP4qKclIGtsona
+         cV5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779324730; x=1779929530;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=G7+8kbrxw3k6r1pEahfY8Z1QQWebSWYvywBVfeppeoA=;
-        b=exXH1xjXYUUu4snYzXOSmTTRwNbPquXVue4OiQY2xiecraOjjtQiGdbjCZzQGKsDRq
-         g5Ir1fAURFP7Bdk23/ychrPShMJl5zp3yT5JnNX+dkLDMyNFk+PBj63Gxx1YDCYoztx7
-         tYcXzHo5j6UW3eCwuCm8ZIUrchyg2YqdCY6Ecf2VFTlhLfLjLfhUeVhuKICHqY8Y0kdS
-         Sn4SrMs1ah1exlACuQUGJzX0955J9FNfhvFYpYB4xLTcaqpavu5Z5BmA8clcWRBw/VG/
-         x2DxOiLetIsHmYtgBpzYyZZQYd4LJ9WYR6HynujvwXU8sfI+RkSc2JmL+cNLRlIviSue
-         yS/w==
-X-Forwarded-Encrypted: i=1; AFNElJ8mSq24swnudvLmeb+blZp37WFUaFYWE+71wb+WYl5yKDQb+H9iZS/Ft4Mix+1e35lVvBF1/k3edjmzWv1OTs0A@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKTCr5xin7vWM/i5PaZX9WX3j2K4S2iOfKhV4SXFwsCf3PSf5B
-	uW/8spjcRlwbNjeTCz2O1LVLpdczQ5yowiDU6WeU7SPptwSrnww+lBxndnVSxgPJ61OejgKJQV6
-	SRXI0TGTxI5oxBf7KOn38rATwwQIoeYufbxyhOfaywGf/7G64rCqXf0auXidUTfJYzNPMw4VkX/
-	+C
-X-Gm-Gg: Acq92OFWiMFgzejO8/Bs+ekl2/Hu+YBfQ3+a5wmoZ55omwHhnJIMGGKSq0Pl62ShOiS
-	j/7r5JJ0Cd8YOVQIwQuDkgOWDCM5M9LSeUj7jnkSxiNfcbaDUiJr8QNEPDx2y6FuwzumgedBete
-	y1hvuqNsf4BaNTPrUGUMFBFBvHewAnJMoYN6M7OnB+uvOpCXpUYruHBT+6XKksOK0gq346hhvx0
-	PW1lIRFcJVnh3guQRVdQt7FttsbZKFv9DevfSKUDSxr9jFxROz0N68BjbDvEst+b3Mapqo1hJIw
-	0VrLdKNvGaf7QoZ9d24Uf+Qb7ADz5DXmFYpzsoNytMgQNZ+iGfkB+j+s072nTi/O1lUssDCgNgP
-	R0eqg61RZFz3qoTTjaRPFtL3iR7FgyxyqBIwgL1Yrr8Qdz1QoK/m93Jq3asTXgz/A
-X-Received: by 2002:a17:903:240c:b0:2bd:907:2cf0 with SMTP id d9443c01a7336-2bea33a548dmr3621045ad.32.1779324729811;
-        Wed, 20 May 2026 17:52:09 -0700 (PDT)
-X-Received: by 2002:a17:903:240c:b0:2bd:907:2cf0 with SMTP id d9443c01a7336-2bea33a548dmr3620505ad.32.1779324729097;
-        Wed, 20 May 2026 17:52:09 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5bd5ef1bsm293727375ad.4.2026.05.20.17.51.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 17:52:08 -0700 (PDT)
-Message-ID: <45a953a8-6edc-45c3-b5bd-17f14397ab89@redhat.com>
-Date: Thu, 21 May 2026 10:51:56 +1000
+        d=1e100.net; s=20251104; t=1779325088; x=1779929888;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=W5F4HpHZPdS7RM8VbkQ1+0+NF4PdjhH21V3y/145Cyk=;
+        b=rS5pee0MApF42ImDUEIj5LolQU3uAUxkMguEvzd1W5nnFPyWj9t3rMn+j3N52e5rsK
+         2Y3aCfn5N9eDTIkckKArc76j21pKxruoAN6aLnwfeg9lzXQk8bGJBiAzb16zOo+pVnOx
+         eE3MulfxWByWzt2oeQf383intN4mA6oHnGxh2sEHrUA5psr0HjKWlEir4tSiKtLTFluw
+         ZZJtO5lqpMJAZJVf4hdEHc4B5uqJl2TrJlt5J8I5boYIKc0Udf2Tk5oJcEb3pWAJy1Ge
+         Bu/WzM/Y6DivQuiFpQ8rNwQQmVg0OhWyRBmITEHtnn5++FrHr+xWeVsjfHLQidJntpSB
+         zJZw==
+X-Forwarded-Encrypted: i=1; AFNElJ+Z1p23RMg4VHaBPL3wQtuXAzZf7RJjmxeKgx92h1plTGAyOn+UjialsX3iXid+D9bLgvIV6RjTe1YNISbKbWo1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1UHqMyArVNgM0ZhFJO6KJpZXZ+8KncvSdyAK0UXsS6mBfVFIU
+	TQ4NX66m+PccArVOegMsk+3dJ1ZnpK2l1ol/6dgQIpam8ec0/RW3UQiNJRtDipvL1883fbpfkEq
+	DxpsXE5F4oovh166s/sF2whtw+cgdM0E=
+X-Gm-Gg: Acq92OFIDSQ1RSTCmqmTZf+oyMpKVcE7ec66QVtPNLeBugxkMiVRAebpA0AtTjnhNKf
+	79534swQ0ktex1g4HGUQpYYnBvpiMeddIIyK43ntLAC0QDulqx8+aA6tpO47KOATAunNeC84AvP
+	G6kGTRlAb4Cv5pBEgiqQUNqZKgyRzZ0G8Cb/e3sjxRuuEchtLWqai/5fspZ0rS3wYzVnGLu23d4
+	3Am2bm3WJPcAoSvdamx72ba3hwKuBTIOhYyIJ8kP4za5XdkFyMkTo0EU6/fsGHi8iW9DHniFU9Q
+	dnKmPzCMUZmV3glMP8AejZIcuzb36NnUFOLr
+X-Received: by 2002:a05:690c:620e:b0:7b1:fa45:72e3 with SMTP id
+ 00721157ae682-7d20aa9cabdmr8852397b3.4.1779325087719; Wed, 20 May 2026
+ 17:58:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 07/44] arm64: RMI: Configure the RMM with the host's
- page size
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-8-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260513131757.116630-8-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 1dsmz8IkzMv9oOAB6My66yy3p3tj4z8_S_qEzlL2ouo_1779324730
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260513181922.2075438-1-michael.bommarito@gmail.com> <67bd72ba-6dab-4bdb-a391-27545e287e94@collabora.com>
+In-Reply-To: <67bd72ba-6dab-4bdb-a391-27545e287e94@collabora.com>
+From: Michael Bommarito <michael.bommarito@gmail.com>
+Date: Wed, 20 May 2026 20:57:56 -0400
+X-Gm-Features: AVHnY4LiZldEGrXYzyoGnIuTwsQ0SpJxkVwOBE92FWCPOBOhNuOGZvffXZndLp4
+Message-ID: <CAJJ9bXxR5U=33RSzB5uFEZv3ZL2JE=UjK7ZToxm0ewSqyu5GBw@mail.gmail.com>
+Subject: Re: [PATCH] media: rkvdec: hevc: cap EXT SPS RPS control counts
+ before descriptor assembly
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_175214_506797_DB44629A 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20260520_175809_053177_E39EA423 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,98 +119,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
+On Tue, May 19, 2026 at 9:04=E2=80=AFAM Detlev Casanova
+<detlev.casanova@collabora.com> wrote:
+> Still, did you try just changing the cap to 64 (.cfg.dims =3D { 64 },) ?
+> You'd need a test that sets the control from userspace though.
+>
+> It should refuse setting the control if there are more than 64 elements,
+> therefore the hevc decoder will not run any function using the count
+> values from the SPS (See  rkvdec-vdpu381-hevc.c:601)
 
-On 5/13/26 11:17 PM, Steven Price wrote:
-> RMM v2.0 brings the ability to set the RMM's granule size. Check the
-> feature registers and configure the RMM so that it matches the host's
-> page size. This means that operations can be done with a granulatity
-> equal to PAGE_SIZE.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v13:
->   * Moved out of KVM.
-> ---
->   arch/arm64/kernel/rmi.c | 42 +++++++++++++++++++++++++++++++++++++++++
->   1 file changed, 42 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-> index 99c1ccc35c11..a14ead5dedda 100644
-> --- a/arch/arm64/kernel/rmi.c
-> +++ b/arch/arm64/kernel/rmi.c
-> @@ -49,6 +49,45 @@ static int rmi_check_version(void)
->   	return 0;
->   }
->   
-> +static int rmi_configure(void)
-> +{
-> +	struct rmm_config *config __free(free_page) = NULL;
-> +	unsigned long ret;
-> +
-> +	config = (struct rmm_config *)get_zeroed_page(GFP_KERNEL);
-> +	if (!config)
-> +		return -ENOMEM;
-> +
-> +	switch (PAGE_SIZE) {
-> +	case SZ_4K:
-> +		config->rmi_granule_size = RMI_GRANULE_SIZE_4KB;
-> +		break;
-> +	case SZ_16K:
-> +		config->rmi_granule_size = RMI_GRANULE_SIZE_16KB;
-> +		break;
-> +	case SZ_64K:
-> +		config->rmi_granule_size = RMI_GRANULE_SIZE_64KB;
-> +		break;
-> +	default:
-> +		pr_err("Unsupported PAGE_SIZE for RMM\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	ret = rmi_rmm_config_set(virt_to_phys(config));
-> +	if (ret) {
-> +		pr_err("RMM config set failed\n");
-> +		return -EINVAL;
-> +	}
-> +
+Sure, I can test that and send a v2 for ST.  My understanding is that
+we have four spots we need to check across the flow though:
 
-Looking at branch 'topics/rmm-v2.0-poc_2' of RMM implementation, the granule size
-is fixed to be 4KB at present. I'm not sure if I have looked into correct RMM
-implementation, but 'topics/rmm-v2.0-poc_2' is recommended one in the cover
-letter.
+1. ST count > 64
+2. LT count > 32
+3. num_negative_pics / num_positive_pics > 16
+4. delta_idx_minus1 + 1 > i
 
-Besides, there has checks in the handler of the RMI command to make sure that
-struct rmm_config::tracking_region_size to be 1GB, indicated by zero. It maybe
-worthy to set it before call to rmi_rmm_config_set().
-
-	config.tracking_region_size = 0; /* 1GB */
-	ret = rmi_rmm_config_set(virt_to_phys(config));
-
-
-> +	ret = rmi_rmm_activate();
-> +	if (ret) {
-> +		pr_err("RMM activate failed\n");
-> +		return -ENXIO;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static int __init arm64_init_rmi(void)
->   {
->   	/* Continue without realm support if we can't agree on a version */
-> @@ -60,6 +99,9 @@ static int __init arm64_init_rmi(void)
->   	if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
->   		return 0;
->   
-> +	if (rmi_configure())
-> +		return 0;
-> +
->   	return 0;
->   }
->   subsys_initcall(arm64_init_rmi);
+So would you also want the same .cfg approach for the LT cap?
 
 Thanks,
-Gavin
-
+Mike
 
