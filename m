@@ -4,139 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B88CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CF2CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DBwUd4KHsO7tlBa9Aw/UBAV2IQBpN1th6rKIVuFZ6rM=; b=HOekGwFcEPUkgFqcUbrd+UZPXv
-	1zsn+/CLKfUIJC+axeCKZTSEM+4kKp9aVLl+/peZwpMiasBHdpBhfYgu7C0/tKkZ/FPkCsSxHFwNT
-	iCw//SPFLxA9EOXYSb8QHQ6dDbCzRpu6l2Fz7+cw/UUGOxrgpwTCVdquBJ4G7csQIaRq7xPdqei65
-	Oq5Fno/4uJ9AmxrdhKV3Tlo5mb9b1wFQLqOoU1u2dvG+KqUc5n9TGONVtmP04DlVrBaG03qeve4DZ
-	FF2yiQs/MgBmld5uqI6FFkQxUuWmlXRPinww3wRRzubzhxqDPfYGY7g3XlRecWhYyTR1nFr0jSlQr
-	bTjg0uLQ==;
+	bh=pD0fOleLGtMZWQZM5IjkVWaILUmpBQdIk/ofxjGBsAg=; b=39scuAH9dEfMtMyPgvhYjqm5by
+	hfLbcTSc59WQFuOpiMw9aS441wQHlwdKZFzqrVPJyeBJ0f9wFTZRdKyJ5+Fle6bfjkqJ6WNZ3jrj2
+	i1f8eBwrTbdAWmhNIzjc/rPIG/hgIl9cwqJmNZgat55va5ZfxhTinpJFgzqHKuZbmhy8whtGTUinQ
+	Uenh2USgR8r6rHDUOnrlQggZjTqfptBadQ3BH+qtcuB8T/oK2ZbbKWSE/2fDIugVGMqa5R0KWhXs2
+	SRR/Mxxea7uZlqxJPt3FGPmWCQcoV/v3n9EGEAPDdAglfEGR/jchloz1F/833nqlbGBOp1naUxkzC
+	jzEHZDdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzvh-00000007LQG-2fku;
-	Thu, 21 May 2026 09:43:01 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzvb-00000007LMv-0lQY
+	id 1wPzvy-00000007LYP-08tH;
+	Thu, 21 May 2026 09:43:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPzvf-00000007LPH-3hVE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:42:57 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64L99kZI3343474
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 09:42:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	DBwUd4KHsO7tlBa9Aw/UBAV2IQBpN1th6rKIVuFZ6rM=; b=CgV7CS5ISRGlcJc5
-	EPIcW6ld8HANe0+HZvnNfMgu8mjJ8Ux3P/RP2abyU7W/17z8t+KhUjwmi4vr3fFO
-	M6nKuFr54Y5n/a8/7WEtdb+rtckZnI2tTxRAiH2yoV0ysiLHwcjFpt2D+0v8MXdw
-	Hm7Sr2jorymP541/aKH4NiiCUQHKGrHOoezZWbOvdAfpn5smEaLxNaoYkiUTSWk+
-	bpRlOFYBCaLpTJNXpmx2zGdQ3+FPgMqfiqq93lovZ0XS2SxeM3H3VpPNbYYsq055
-	bOYR97uru5SVTK2d0ckmy3mQyBI+bbrWHeLUrXFIPg3wLnZyv36ra7tszlDE/gQX
-	69KIXg==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9wahrnmq-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 09:42:53 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-914ae48993dso48285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:42:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779356573; x=1779961373; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DBwUd4KHsO7tlBa9Aw/UBAV2IQBpN1th6rKIVuFZ6rM=;
-        b=aZH5S8LkOF/VQJplyUPduEDShJA5i7uSrgNvvRWpep3W9JSqHveFVYxcObh9UUajGp
-         6X2Mmc/wTzEyBe3l3COPhjiJWiAc5DFh/Ku4ZwHLxr3nK7nBJQ/d8+hwwlL/XJaDBadQ
-         0rEhBbHLH/dN48Zvg1DvXMU0Z+LoZqFV5dukBMgUZNMIOPMXyGF8OGHq/SINZIm+vzie
-         QZXjR/RcV8PO4pSsFZQZNjEkZQ7kABf96hwezVTwyP679eVPp8eNXUOjgNrkbQGFT1fs
-         gHLjV/u3jOQtK0oCSSvjT9KKUaMtWMA8VrpnhdXyJHkS4/B6Q5p3EIjWycuWfmKg5lhQ
-         NIvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779356573; x=1779961373;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DBwUd4KHsO7tlBa9Aw/UBAV2IQBpN1th6rKIVuFZ6rM=;
-        b=kMrNveb8HmKD6c1TuQOQkOgA2PJqMbMoQTleCXlrAvkqs3uqhnGLZRZwJjr7d421dZ
-         KNKhIG8mJu46Yl8liFrMFZ91uTmrjQ7E7LV00aFsf4SV/9M6mpkQMiDt3OW9imaJ/fku
-         exPUMQ68oiBlzFXl39PNOz/ZOgoPdfouLDnTNmTooV6IvOjHhYzVG+bEqY/yoH2Ac/1Q
-         Di2yJfpxukQhQKPA5KHdVcKLblehNZedLR5Jyo3MYy5SaxE3xqkLFAnSMcb6lQcZPf/G
-         1zVKidIc96p2fA4YdG8BL6XAloIZ+dnOMa3R7iORdfgBR+dF+ue854HLDs5lZg/dn7m/
-         f06Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/hqlOTRBNGOC37x6dvKqAreaZx/v38AjhTg/3ogghZPFf7c8Gma8FnzBdIVGVZsGnX1qLFz8PWRfxXvjeDJV7/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0Levg6GehWsfXOxXpgwEAddtrTIRIVNUHqME8Z/6DnrQpB7uf
-	bPAHkfPT/chxE7k/t4wCSoJO6z5wVYuQGLxJMkoI4C9oKBzjIsqY/yYvDm0DzbHMyqfeIADYNrJ
-	P5Yo5rGFojg+kGmIvly+8q9lx9QpQUanIJNcww0T4388u9bb9AGYpLYKo7eFdl0wfVYXu9un8Vl
-	TJRg==
-X-Gm-Gg: Acq92OE0MWiGymIB8G8pz44Rjt01ufbako7bU6jdqF/d71lEU/jalHHR+DQEPTfBlJg
-	GGzLTZAxn7dJEh+HokX+0be7RWUcpcmk3BorLWMNwkBww6ncCDj+YZauaBO+1WavnK/02YQUCOE
-	jqWwbnqTJzpTc1ndJCxUei3804gdTdXSt1U+aiCnLQDbP5Y8TTU8owO3LR5CjtXIwEDB4SugbF/
-	3HiU1DOhGcUDG+K2G6rC6QKvuD9PX2w9YrSP0YY4G56u6NQ/8kXfRV4D0jgZYx9oGYwJqJIt6hs
-	JsdpOHg4BM0/ffuO1BPXW9J0UGS3EcSuQ9WLmZybwTEr/uiBveVGJfIdzGWE+eGIMupFDmjAMOx
-	y8HPhavb0ywZ2wSGAaa3YV6CwBEdLFQNNVqucQ3DgGj+UfLs6zNdL3fXonuuUmGxwOmAgIC/xhD
-	cvFSDZmmSmHEP5Pw==
-X-Received: by 2002:a05:620a:3193:b0:8f3:5b1d:ed86 with SMTP id af79cd13be357-914a2e3e411mr167448985a.8.1779356572733;
-        Thu, 21 May 2026 02:42:52 -0700 (PDT)
-X-Received: by 2002:a05:620a:3193:b0:8f3:5b1d:ed86 with SMTP id af79cd13be357-914a2e3e411mr167446985a.8.1779356572203;
-        Thu, 21 May 2026 02:42:52 -0700 (PDT)
-Received: from [192.168.119.254] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bdc8aef37b1sm22701966b.55.2026.05.21.02.42.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 02:42:51 -0700 (PDT)
-Message-ID: <907fd71a-7053-49eb-9547-592ef63333e1@oss.qualcomm.com>
-Date: Thu, 21 May 2026 11:42:49 +0200
+	Thu, 21 May 2026 09:43:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0D753D54;
+	Thu, 21 May 2026 02:42:53 -0700 (PDT)
+Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A51633F7B4;
+	Thu, 21 May 2026 02:42:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779356578; bh=7D/kyQpHByVhOcr2Vc5VHIxUFgAkyoFd0mFRjxOclS8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=X2eDxc6VG5vrJpFTueTpjTZ7t3M6UancjNJQhuTzMrK2mBIo5bRoeDQM8e1iB3Ham
+	 ewk47nU5oYBimvkEgpW/4H3hGkr5FMyrUhopRjAfNnT3T7ZxxV1aFIc2KwTWvrGaM7
+	 OsLC23bI1kPRXPISqWZmGn2tOVEGLw7qlLKXCRYo=
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Date: Thu, 21 May 2026 10:42:31 +0100
+Subject: [PATCH 2/2] kselftest/arm64: Add test for atomic futex uaccess
+ with POE
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] interconnect: qcom: Fix indentation
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Georgi Djakov <djakov@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260515-interconnect-qcom-clean-arm64-v2-0-adeebc73596d@oss.qualcomm.com>
- <20260515-interconnect-qcom-clean-arm64-v2-1-adeebc73596d@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260515-interconnect-qcom-clean-arm64-v2-1-adeebc73596d@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIxMDA5NiBTYWx0ZWRfX4gSjw/ym7ubx
- ASsHi8TG9o3QS+GcxxDGYhDeQPTLSzdqnQAcGFvsQL2mJuJAA1Zn4G4pDSCfwjqkZuNw6Tp64FO
- thUkF1gEsKXDUpPzddGwLAfAMxSKy4DMRe2464fle8Y6QSJunSJpyu0+XvbZ/l0bY5frySo63e7
- CiLth2kTXSXS42UBpTFK/F1QXHoIHmE2dJ34daOUT+v7W19roBRBICy0xjKLZPrKaMLVj4thRCR
- o7eovehyy2wRPIlyH9rya9rsKyEEmqWWtLxZ5M5HY67Tt5bVqEvL1knyIgbjgesweEk4Z+b5WIJ
- PFVPn44aeZm3IniLXPiB1pCKXeY5hDqoatETxgJ8tahhskp47nghCWTRGZsM+fgIM7cIfvpDERq
- AzK4QeLIP9JCm0AiR6n1urif+KjhGExgh3A/NqHq147j18h045N7Pm73t1vCt7cEq38S1nISZgD
- n/C9aenNZgvE+T4Psmw==
-X-Proofpoint-ORIG-GUID: 7vrYBl10vZQg0CTAoPSrsZF16dmixhng
-X-Proofpoint-GUID: 7vrYBl10vZQg0CTAoPSrsZF16dmixhng
-X-Authority-Analysis: v=2.4 cv=H8LrBeYi c=1 sm=1 tr=0 ts=6a0ed39d cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=ewqw0S68lcnLxXb8CmkA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-21_01,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 adultscore=0 suspectscore=0
- lowpriorityscore=0 spamscore=0 impostorscore=0 malwarescore=0 bulkscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
- definitions=main-2605210096
+Message-Id: <20260521-poe_futex-v1-2-1da286b8f9b2@arm.com>
+References: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
+In-Reply-To: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+ Mark Brown <broonie@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779356574; l=4151;
+ i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
+ bh=7D/kyQpHByVhOcr2Vc5VHIxUFgAkyoFd0mFRjxOclS8=;
+ b=AX8w+7rYCwgx63giwi1vaQ06pljn9EZhnnZkpliBg2S9sgC/pXKMVBQDfQIN4NcjiQ3gDsKRL
+ Tfcd3RJ/BXoD9/WhorbEcFSuxW1JJRxYHRFBern3UzfMrAhAFwjINu+
+X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
+ pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_024255_361816_49727C5D 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260521_024300_019202_7C4B8A34 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,14 +80,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/15/26 2:11 PM, Krzysztof Kozlowski wrote:
-> KConfig entries should be indented starting with one tab, so replace
-> spaces with it.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
+Add a new test to ensure that atomic futex uaccess succeeds on
+memory mapped with a non-default POIndex/pkey.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In the absence of FEAT_LSUI, atomic futex uaccess operations such as
+those triggered by FUTEX_WAKE_OP use privileged atomic load/store
+instructions and thus cannot have user permission overlays applied
+(as per POR_EL0). In case the kernel enabled POE at EL1, it is worth
+checking that PIR_EL1 isn't mistakenly configured to have kernel
+overlays (POR_EL1) applied instead, as that would fail for non-zero
+pkeys.
 
-Konrad
+Note that if such misconfiguration occurs, futex_wake_op() may get
+stuck in an infinite loop because futex_atomic_op_inuser() will fail
+but fault_in_user_writeable() will still report success.
+
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+---
+ tools/testing/selftests/arm64/Makefile        |  2 +-
+ tools/testing/selftests/arm64/poe/.gitignore  |  2 +
+ tools/testing/selftests/arm64/poe/Makefile    |  6 +++
+ tools/testing/selftests/arm64/poe/poe_futex.c | 62 +++++++++++++++++++++++++++
+ 4 files changed, 71 insertions(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/arm64/Makefile b/tools/testing/selftests/arm64/Makefile
+index e456f3b62fa1..bad5c3b33dce 100644
+--- a/tools/testing/selftests/arm64/Makefile
++++ b/tools/testing/selftests/arm64/Makefile
+@@ -4,7 +4,7 @@
+ ARCH ?= $(shell uname -m 2>/dev/null || echo not)
+ 
+ ifneq (,$(filter $(ARCH),aarch64 arm64))
+-ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs
++ARM64_SUBTARGETS ?= tags signal pauth fp mte bti abi gcs poe
+ else
+ ARM64_SUBTARGETS :=
+ endif
+diff --git a/tools/testing/selftests/arm64/poe/.gitignore b/tools/testing/selftests/arm64/poe/.gitignore
+new file mode 100644
+index 000000000000..0dce4a3aa38b
+--- /dev/null
++++ b/tools/testing/selftests/arm64/poe/.gitignore
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++poe_futex
+diff --git a/tools/testing/selftests/arm64/poe/Makefile b/tools/testing/selftests/arm64/poe/Makefile
+new file mode 100644
+index 000000000000..2af2bbf3f6d3
+--- /dev/null
++++ b/tools/testing/selftests/arm64/poe/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0
++
++CFLAGS += $(KHDR_INCLUDES)
++TEST_GEN_PROGS := poe_futex
++
++include ../../lib.mk
+diff --git a/tools/testing/selftests/arm64/poe/poe_futex.c b/tools/testing/selftests/arm64/poe/poe_futex.c
+new file mode 100644
+index 000000000000..21a2e109ee43
+--- /dev/null
++++ b/tools/testing/selftests/arm64/poe/poe_futex.c
+@@ -0,0 +1,62 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <stdint.h>
++#include <stdlib.h>
++#include <unistd.h>
++
++#include <linux/futex.h>
++#include <sys/syscall.h>
++
++#include "kselftest_harness.h"
++
++static int sys_pkey_alloc(unsigned long flags, unsigned long init_val)
++{
++	return syscall(__NR_pkey_alloc, flags, init_val);
++}
++
++static int sys_pkey_mprotect(void *ptr, size_t size, int prot, int pkey)
++{
++	return syscall(__NR_pkey_mprotect, ptr, size, prot, pkey);
++}
++
++static int futex_wake_op(uint32_t *uaddr, uint32_t val, uint32_t val2,
++			 uint32_t *uaddr2, uint32_t val3)
++{
++	return syscall(SYS_futex, uaddr, FUTEX_WAKE_OP, val, val2,
++		       uaddr2, val3);
++}
++
++/*
++ * Trigger some atomic uaccess on a page mapped with a non-default pkey.
++ *
++ * This ensures that such access is not mistakenly checked against the
++ * kernel's POR_EL1 register.
++ */
++TEST(poe_futex)
++{
++	int ret, pkey;
++	void *ptr;
++	size_t size = getpagesize();
++
++	pkey = sys_pkey_alloc(0, 0);
++
++	if (pkey == -1 && errno == ENOSPC)
++		SKIP(return, "pkeys are not supported");
++
++	ASSERT_GT(pkey, 0);
++
++	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE,
++		   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
++	ASSERT_NE(ptr, MAP_FAILED);
++
++	ret = sys_pkey_mprotect(ptr, size, PROT_READ | PROT_WRITE, pkey);
++	ASSERT_EQ(ret, 0);
++
++	/*
++	 * There is no one to wake up so this syscall boils down to *(ptr+4) = 0
++	 * (arch_futex_atomic_op_inuser() called with FUTEX_OP_SET and op_arg=0).
++	 */
++	ret = futex_wake_op(ptr, 1, 1, ptr + sizeof(uint32_t), 0);
++	ASSERT_EQ(ret, 0);
++}
++
++TEST_HARNESS_MAIN
+
+-- 
+2.51.2
+
 
