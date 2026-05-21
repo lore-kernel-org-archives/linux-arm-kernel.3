@@ -4,88 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4705BCD5BB7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 17:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 598C2CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 17:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WiN/SkcIQjWbum7/p7uPRaQeyYXLwJ51hfK20HisxH0=; b=v1pGGNtYbgs/d4bsRiz2uq1uI0
-	ScP3Id+Nby+PJjDV+t37lExDR/UGi5YHhdRhICrZKgP4dxILUIW/B4+pid26Ad7F1w1PRpaig7tl6
-	h6KGsM/qQJniFxaxU3liDk9E2MdDs/v04z/wwDgg7B8KuI3ZZylCVpEhJg4vctmMOBMUh3cwzHOjy
-	R4HksCC8Z8hVOKF/3hxBQ8oLKyav2zXm86TtXGwrbHRrtUdksnMKzeGLGBu5cc238V8R2vEFDrAqX
-	M3z/vVpQ8KVJKUgFYU3TewhqMRug9x4oTPKKYCmu+an2An9oQAkdWqQ/76EFoonLipGICNsk6TXlb
-	2mVKFUmQ==;
+	bh=so62lmvalNGHYXnTLlkhtEozcdx4e3jF7sm6R9jA+MY=; b=bGUij8hqru12GDimYEh0S/dhIm
+	fRJapDhl/OgIHPitH/3MX9sOQ/sTugGkVDivs0GMI+W4vg4HhmBDmAnEIZRW7/b71+wvNCvCGMWJK
+	8dC7xO9DVEIsj70ptOi6ZaSUJ5s1465XUEwWVmo4mChiycEDgr+3nticl5chTR3e3iB0cAFM552ug
+	Zc/EILBIlI66XcPol0vpD60oEMiofdb8waWC6o+zrvmmKMUr3EQ4BNqof83oBBTpXup9dj1S+tOQw
+	UjLBCdqThEbjsasi4gVWegOLtofO0YcqMCb2tvc8oc0g6DYqpWa7UHKTi9xPCPWQEQOZW6E+dOMpi
+	futOIYIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ7Vg-00000008guU-36ZG;
-	Thu, 21 May 2026 17:48:40 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1wQ7bJ-00000008haY-1KPr;
+	Thu, 21 May 2026 17:54:29 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ7Ve-00000008gtj-01Zu
+	id 1wQ7bG-00000008ha9-2LUX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 17:48:39 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-c80148ae949so2698824a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 10:48:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779385717; x=1779990517; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WiN/SkcIQjWbum7/p7uPRaQeyYXLwJ51hfK20HisxH0=;
-        b=PLbi1slTHn3dDTHovfPPpm7pwqn2OC99xmwmcPNkvq/J6MMyWifkpFoUK2hPw+gFQB
-         4u0B6GzQrAI4XjOp2cBe4zHBV72AEr0X39ZMAUvtNabWH3eIfthIMV3UPcDbD2iWLxLw
-         am4fRBcgAEiRVOjQHAtNJW4VdvlRbvr5mm5fUlUaAcrSV/TdbeqTh7JxfTlrdldzAcpC
-         06OB7e1qVyDJArj/tKzMW988dzL2rFLYLwtFqFRZCgKYGeJNCddGYFlweEvt3QIv+cgb
-         MuO3qULQNAf4A/WZsRQjfWuvB6mhRbN0T0EW+7+1l/IhaFpm/5k4oQmP46tJo5PVnYEQ
-         NnyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779385717; x=1779990517;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WiN/SkcIQjWbum7/p7uPRaQeyYXLwJ51hfK20HisxH0=;
-        b=re+9hWwi8H0jLa8VHMroq3Awd7e4lrN8O/vbOTuixN6MahfqpSw8BuaROW3CX/6lF6
-         Mqk5pqCTL+9WTODsE8sn+mfxzvyOPtvWIRBDHtNG3o8TcJJxcm9HZMbMqgqD952cFyda
-         tcCNcjGP01l2CqVxShSudOTmTqSCRN1/+l1pOS3zjSxunhMKw++E2xyVBK/vO5Uigfae
-         xSn+AzCTguGr9bl5mL88pxdhHSJJusfWt8iisZNEbN1YtPX0WA8W8NTiQ3ZVP8Q4SwYw
-         OW3EPAgDGhfBGvpiE1vYIn/Aiaf8hJTAjU/l7dfMakGuTY246BqLuQtwX7izJE/UB8TW
-         xL6w==
-X-Forwarded-Encrypted: i=1; AFNElJ9Lb+ZrNcbdSzNNghmVn+VbR08VYL3yXtPIM2B9Bt7EkEkhUZ1w2+QtVte4JR5TqoQXv5GrhJMJHaFIwSB1BNpv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDSGzjSQFiR5eDQfzvlFWrTwLQo+OesHeLTvN0O2OSZTZW0Qz5
-	OzlG4RZqWG7f11gnBkY+s0DFdti3tgEdwG5ZvhROfE5bNBq3R5v7HU+iHutbeb2aBnU=
-X-Gm-Gg: Acq92OGGOJQNtAc9o3FFlSVXywBsnmoE2rSn5GgUEgiyYCDttyZBVkHbwWXtX97+zCd
-	FFNQ78rfXih7eC9o2btp9RNO4dm+A7oaiRUs6b69R7BpXYCEzVnrOs+HGAiSqJUwhOMejoMp5Lb
-	Ix77SaaXK3ZI3l/ANE1gFaBgELSF4DJlxy4o/iMhlwm0FTwFb5wSEILnhqBuNyAL0HbiBABdY6J
-	DTBAkMuZ8rtyYlXcy+8/bnDCx1fMJVlp7ym9IrCrwKGTc4Z74FbhVmgwr7515HrJpjwLZ5o+tBI
-	hiVGxTUJ38B1rFjWFbNMWA2F0jtwtZ1arkeyTZNMA/tFzjB45aJan9hBalyPCXErN7hHhJ/Aq3t
-	oFc/TgibhrqJf/pH31hB+TJGlgrl6mx9Ihz+hb+YtvHsBQStvVpseBZi9guONq17cnfSIzTlo6V
-	qb3sOpAb26E6gCcoGRF0qY3DSjlo8=
-X-Received: by 2002:a05:6a20:7491:b0:3a0:bc61:62e5 with SMTP id adf61e73a8af0-3b30883a17bmr4801497637.44.1779385716400;
-        Thu, 21 May 2026 10:48:36 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:7ba6:1f4c:9869:500c])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85197ef536sm952270a12.8.2026.05.21.10.48.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 10:48:35 -0700 (PDT)
-Date: Thu, 21 May 2026 11:48:33 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Tanmay Shah <tanmay.shah@amd.com>
-Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, michal.simek@amd.com, ben.levinsky@amd.com,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] remoteproc: xlnx: enable auto boot feature
-Message-ID: <ag9FcXeIIiJWdld7@p14s>
-References: <20260501143707.1591110-1-tanmay.shah@amd.com>
- <20260501143707.1591110-3-tanmay.shah@amd.com>
-MIME-Version: 1.0
+	Thu, 21 May 2026 17:54:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sTN0EwjQ4Vms/YtSKDNyYHToBFXDuX2tpPNCqZ+QBeQFCgD/k3bywgZV9X0vDD7RhcId2V0UwysTNBcWQnY2ZkEl5H6bne/bCZtGoLFWjaF784YS3G5JRDD/u5xJB0XnxCCnF1I1QLHzq4y8h5G6gmD1wG4RVMeS26ujE4tWge10wNq/r39dcU7hITV36hDsY+mWT419pupBSY3Gfvp8u2EcWhhIZI5gA4q+re91S22A3il7CO+sKEa1EbUytgyy+LRQTDpFvEnA0kcjpl+nd+5UmdmeUTn8jDKss+j2MYQP9D2XFTJ1+qwCjPu2/V+3D/65He7F4ZpoOyh3ph62vw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=so62lmvalNGHYXnTLlkhtEozcdx4e3jF7sm6R9jA+MY=;
+ b=ViuZOBBDKoCC6+7p+j42vsFHV+NujSwAbQLNPTH8MgdrezNwf+ryV+iP94GQcfjXe/PfEp5g81BhnK6W1SNwcYLrBiDhriT0kkX43kBZYnEFE8kPn+6nRXbkEu4akVMNWCNZx7hgJNCCc01jNEqoI1ocD7KjT+hNkd3WZRj4+kzMmtyv0ljl6X5ZQ020xGe3+3VoJhD99MX6wsugMOsZt7fuuwnnVBYn8znhOSW1yomhkDFn5hq6kJuVdEcI2RjcDVXsG1h72L/cWRZpMI+zGGad8BWZ77YbR7ovZoc5LtN0PzcnaDjNrNrMp9L6i7SU0cl4OLzBCFYhlJtmMTTdZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=so62lmvalNGHYXnTLlkhtEozcdx4e3jF7sm6R9jA+MY=;
+ b=UaCHoS/oblPH9R85sdt81y9MPDkOfugEHaEF/pGthy9oceUmASO27mTKWCjq6A5VcDGhnuFX+t/aPqxMY+kzwS7b6xK+415kbGGT7bMvKiSQhmg2N/9SUdN8ipw8JXCFW1oHzKr1t2X0L9QRDXAjZbidfvxCTK+jvX5uqzZHzqF/GTBzHHW2w9dYX4U6X3kRj3TX/dbtfLe712A8MX+lx9FchsAVV7gspSqnJEhW6yP30mGOv6cP3KTZRZI/zeTTyG6qhaZzoBL7jkVWTneJxUocTBgeyuN7/xbMTY9qdJNuUQH8HJbCtnAzRuaXQU+P3l4uTE7CCu/jzNXUkDKC7g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
+ by CH1PPFC908D89D1.namprd12.prod.outlook.com (2603:10b6:61f:fc00::623) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9913.12; Thu, 21 May
+ 2026 17:54:08 +0000
+Received: from DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
+ ([fe80::6261:3040:864b:159c%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
+ 17:54:08 +0000
+Date: Thu, 21 May 2026 19:54:01 +0200
+From: Andrea Righi <arighi@nvidia.com>
+To: Tejun Heo <tj@kernel.org>
+Cc: David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
+	bpf@vger.kernel.org, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] sched_ext: Sub-allocator over kernel-claimed BPF
+ arena pages
+Message-ID: <ag9GueVem_OAkdMQ@gpd4>
+References: <20260520235052.4180316-1-tj@kernel.org>
+ <20260520235052.4180316-8-tj@kernel.org>
+ <dd5b3702a826666242b6eb6e805bf83f@kernel.org>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260501143707.1591110-3-tanmay.shah@amd.com>
+In-Reply-To: <dd5b3702a826666242b6eb6e805bf83f@kernel.org>
+X-ClientProxiedBy: MI2P293CA0002.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:45::17) To DM6PR12MB4827.namprd12.prod.outlook.com
+ (2603:10b6:5:1d6::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|CH1PPFC908D89D1:EE_
+X-MS-Office365-Filtering-Correlation-Id: 48a307fd-cd12-4059-04b2-08deb761f502
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|1800799024|376014|11063799006|18002099003|22082099003|56012099003|4143699003;
+X-Microsoft-Antispam-Message-Info: 40N558pEG7e5q6d8azC/UoPjrX3feUnns0SSOVXdqGjiukmVNQO9KVTmFQhxvD8f2Fcqa42TJHODM/5aGa8C/xJPVRl/0s9bsSkbt1iI578foHvydo3K50xGWFkemCcREqjIU9TMaT3+luEHR4oM0lMapf2/nBcw3DqvYF2d44TSKj7kdK+epkaRC2sBiXsb48ItZxr1X/Y/XJaq8taG2yB09iwF44FWw6kyUJt7xdQJs/f98yJoV9hZWxGWjwUmAEl3l+nl1tg54AjROXc/pMhAWkcs9k7UvvrlUq3r4qSj4bbasAUptXxvmxHQ9MhUYj4Enn8e9E1XVpVdhfDehxF7LxLWqTpsuw2dpQ9YMgYIVY4PqCMlzb/b13one0sPCnZ10pmY5ccRZLWSjgX8B/AN8ffSYSObvnWNZ8MOCYs8LBFts2yqIS70kfA2hkT+irS4g8hV/EXA0fiCulFcvcq5b+qpUdgzZOHsYm6Iinzl/1PuEEHNy952kYISuLQGKrE3LjPoQhdKtO1+1B0aFb35eBExVJpnLbGj+7xMuD8qW2ObC++Oy9Es4l3HMH6yayK2U73Xa00ftIckeFCRtXZx7DiZW8auN9SwiZSwdsLa0AzTpunvZ9dLw6nqoIJiLhtViUKLIUnKrrqZohMFO6e+4Q9e8uRRM60xFfKIsBRFgX/xxRZtxur+C9Ss9s0f
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(1800799024)(376014)(11063799006)(18002099003)(22082099003)(56012099003)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Znlx5a248uuSW1OB6JJpVXiugw0BfBClf8V9qKwRoWqYe8WZ6oGx/9N/DVWA?=
+ =?us-ascii?Q?IPX8dFZDjYfajqylrSLpqU/EgnxsN/Rg4QfpeTbzm3NEwIE95QacmZrgNiyJ?=
+ =?us-ascii?Q?/G34qyLQCvJMIzuPwVJhh+a8Y4929LSG8703iRa1H89mZpkD8ndFOPHCMwvp?=
+ =?us-ascii?Q?vfJIppxiz2c8Vr0PN33XufNs0xiKJq/6qNdzbkng7Km5MqpQzvasFbwfc5zT?=
+ =?us-ascii?Q?mzVV2ZnNdjkqhHRNfiMfXOwVm9balrYzy4gb+z40x87R2O7NuLPuuo3xCh2P?=
+ =?us-ascii?Q?tOpe6I/jYZHmJsYbo4znodaq/7ORn0usgrbeRX97ObTXV9fczP87WCP2yU8l?=
+ =?us-ascii?Q?tZ9iB02SszreLjcrHgb++z7S7FpSMUbSD2j9ZucuuaUvMLTMp/2iRZ8sKH6U?=
+ =?us-ascii?Q?Ar4uBCmOdrJw3oz/Ah4IWstTk2ytyyJvXxL5BY9rL4LALORfN2o4TXy7kCZU?=
+ =?us-ascii?Q?pPVgMB9vk31INit2dGGi5u/ENBKTEKxYBp8tOtlAsacb0bIPhlkTOFGqZbUX?=
+ =?us-ascii?Q?K2oC+zqh30XJFX6uk9hJJ2je+UsGwEWo9pyNFVxPnP9iX9PN99h8apFamTkw?=
+ =?us-ascii?Q?XEYD4INloGNvxB3X01mR02qkwdGhV1lVfH9es80IIdqzLDbrZGYt5EcAAukI?=
+ =?us-ascii?Q?/TYdnPaB5j5SEHdKZWGQNnH3D5wVMFOzuJFVLaOxouCpAfcm6S9VLBKzmSSZ?=
+ =?us-ascii?Q?0trU0AcxN3zMgogPxfEaJfw7VOw3Xt5W+BxA9f6FawUKF3quIEyNVLea4gL4?=
+ =?us-ascii?Q?YJOsoUzOMk1EJWklFpjgJH+y2BgaFRk+9ldd5FMknxglbrdjeE0kj9H9uRbb?=
+ =?us-ascii?Q?W9vKXtgSL2yauKABiQzitPwYU/hfuV/+wAMXKeyg0RjBiQLlZ+xMtlMQPn7N?=
+ =?us-ascii?Q?PYcj/kStzWFuGnIqGvospPDqtliykX7qA5nZhsovYttVxFOF5DQUmENZqBPP?=
+ =?us-ascii?Q?a+bqqnJeW6TS8BD9F/Ae5l7tJVYFhZ3MaIa0SiNQp5jdp6eyiRVPr3WLSFGp?=
+ =?us-ascii?Q?E8UZ4Qtcm7PEVqD9L8/6ogTYu289bJELrVmBIOel/iuWQXLOj1XWFKupukAn?=
+ =?us-ascii?Q?laD0UOfTueBa34mXrYliK4E1QBQb3PGrfCZZr8Y9edtywGPYYWqN7Q8G3A3W?=
+ =?us-ascii?Q?bdunUOfjIRS49V8mmA8SJloaihWye2vET0B5Qc44Za82wafh8yMoJEwMvUa4?=
+ =?us-ascii?Q?URumheRHdPlzyltkSb08xY+YmOQARddiwKltYph2Sng/6N/ru4+HSMynrWKy?=
+ =?us-ascii?Q?X/Hz6v3Y/aXWW/BmX7Kc0AJvpOJYBgnGhLRcZ1/yTXFey2OZ0JqqCT6tbfC/?=
+ =?us-ascii?Q?URTffD4BAqS7SQmBby4EAt21xlIxgN0oaycgjVPQ+p49aPpzaSag9Eq7pDRV?=
+ =?us-ascii?Q?G83aiRs1XjjwIC662i2GnuT1mpJR8GmG0rmfuSut+UCB/R8wpyeHlixjQFhm?=
+ =?us-ascii?Q?zxV5Jo0nN5B589mJlSdrZn0/zdFnp5hb657vql4vDw605ZKJGII14CvtlVTA?=
+ =?us-ascii?Q?4kUMS6tYrT+5aKWrYsg9JRMld0LSwKhYVsKeEvAD9MYpNP9RZYi5i/q8ri1I?=
+ =?us-ascii?Q?b6db4lKezb2VletDAWdrD5uHtcN0FYZb8/0Y8Ch2F6jClagSTvmswJ/rdCjQ?=
+ =?us-ascii?Q?C8/P0VPtsOTjgouOhBgyoVIwSmKO2MK1gzRQnqrzNwr3baU+Xd5g/TAJSbFi?=
+ =?us-ascii?Q?2K5pCSQUU0dxFB37/kspqgCgO/fFpRkVQmBMKvkp42GMiv9G?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 48a307fd-cd12-4059-04b2-08deb761f502
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 17:54:08.5763
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6lAqAhsFs0DTBXZDS2C5HRUbbCXR33sNOVY7OEecNTazMkw4RttreIPLQAR5BGVqxHJRiPmpoOANiVi2P2Gxnw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPFC908D89D1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_104838_072145_61E3CBCE 
-X-CRM114-Status: GOOD (  37.52  )
+X-CRM114-CacheID: sfid-20260521_105426_683995_22052DE5 
+X-CRM114-Status: GOOD (  30.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,173 +153,265 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Good morning,
-
-I don't recal reviewing the first revision of this set.  Can you provide a link
-to it so that I can read the comments that were provided?
-
-On Fri, May 01, 2026 at 07:37:07AM -0700, Tanmay Shah wrote:
-> remoteproc framework has capability to start (or attach to) the remote
-
-The remoteproc framework...
-
-> processor automatically if auto boot flag is set by the driver during
-> probe. If remote core is not started before the Linux boot, and linux is
-> expected to start the remote core then it uses "firmware-name" property
-> to load default firmware during auto boot.
+On Thu, May 21, 2026 at 07:37:46AM -1000, Tejun Heo wrote:
+> Build a per-scheduler sub-allocator on top of pages claimed from the BPF
+> arena registered in the previous patch. Subsequent kernel-managed
+> arena-resident structures (e.g. per-CPU set_cmask cmask) carve their storage
+> from this pool.
 > 
-> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
-> ---
->  drivers/remoteproc/xlnx_r5_remoteproc.c | 48 +++++++++++++++++--------
->  1 file changed, 34 insertions(+), 14 deletions(-)
+> scx_arena_pool_init() creates a gen_pool. scx_arena_alloc() returns the
+> kernel VA. On exhaustion, the pool grows by claiming more pages via
+> bpf_arena_alloc_pages_sleepable(). Chunks are added at the kernel-side
+> mapping address; callers translate to the BPF-arena form themselves if
+> needed.
 > 
-> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> index 45a62cb98072..652030f9cea2 100644
-> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> @@ -899,17 +899,18 @@ static const struct rproc_ops zynqmp_r5_rproc_ops = {
->  };
->  
->  /**
-> - * zynqmp_r5_add_rproc_core() - Add core data to framework.
-> - * Allocate and add struct rproc object for each r5f core
-> + * zynqmp_r5_alloc_rproc_core() - alloc rproc core data structure
-> + * Allocate struct rproc object for each r5f core
->   * This is called for each individual r5f core
->   *
->   * @cdev: Device node of each r5 core
->   *
->   * Return: zynqmp_r5_core object for success else error code pointer
->   */
-> -static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
-> +static struct zynqmp_r5_core *zynqmp_r5_alloc_rproc_core(struct device *cdev)
+> Allocations sleep (GFP_KERNEL) - they may grow the pool through vzalloc and
+> arena page allocation. All current consumers run from the enable path (after
+> ops.init() and the kernel-side arena auto-discovery, before validate_ops()),
+> where sleeping is fine.
+> 
+> scx_arena_pool_destroy() walks each chunk, returns outstanding ranges to the
+> gen_pool with gen_pool_free() and then calls gen_pool_destroy(). The
+> underlying arena pages are released when the arena map itself is torn down,
+> so the pool destroy doesn't free them explicitly.
+> 
+> v2: Switch scx_arena_alloc() to a loop. (Andrea)
+> 
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Cc: Andrea Righi <arighi@nvidia.com>
 
-Why is there a need to change the function's name?
+Looks good to me.
 
->  {
->  	struct zynqmp_r5_core *r5_core;
-> +	const char *fw_name = NULL;
->  	struct rproc *r5_rproc;
->  	int ret;
->  
-> @@ -918,10 +919,15 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->  	if (ret)
->  		return ERR_PTR(ret);
->  
-> +	ret = rproc_of_parse_firmware(cdev, 0, &fw_name);
-> +	if (ret < 0 && ret != -EINVAL)
-> +		return ERR_PTR(dev_err_probe(cdev, ret,
-> +					     "failed to parse firmware-name\n"));
-> +
->  	/* Allocate remoteproc instance */
->  	r5_rproc = rproc_alloc(cdev, dev_name(cdev),
->  			       &zynqmp_r5_rproc_ops,
-> -			       NULL, sizeof(struct zynqmp_r5_core));
-> +			       fw_name, sizeof(struct zynqmp_r5_core));
->  	if (!r5_rproc) {
->  		dev_err(cdev, "failed to allocate memory for rproc instance\n");
->  		return ERR_PTR(-ENOMEM);
-> @@ -932,6 +938,11 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->  	r5_rproc->recovery_disabled = true;
->  	r5_rproc->has_iommu = false;
->  	r5_rproc->auto_boot = false;
-> +
-> +	/* attempt to boot automatically if the firmware-name is provided */
-> +	if (fw_name)
-> +		r5_rproc->auto_boot = true;
-> +
-
-What happens when a firmware name needs to be provided in the DT but you don't
-want to automatically boot the remote processor?
-
->  	r5_core = r5_rproc->priv;
->  	r5_core->dev = cdev;
->  	r5_core->np = dev_of_node(cdev);
-> @@ -941,13 +952,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
->  		goto free_rproc;
->  	}
->  
-> -	/* Add R5 remoteproc core */
-> -	ret = rproc_add(r5_rproc);
-> -	if (ret) {
-> -		dev_err(cdev, "failed to add r5 remoteproc\n");
-> -		goto free_rproc;
-> -	}
-> -
-
-I'm not sure why there is a need to move this to zynqmp_r5_cluster_init()?  Is
-it simply to make the error path easier to handle?  If so, please do that in a
-separate patch.
-
->  	r5_core->rproc = r5_rproc;
->  	return r5_core;
->  
-> @@ -1280,6 +1284,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
->  			if (zynqmp_r5_get_rsc_table_va(r5_core))
->  				dev_dbg(r5_core->dev, "rsc tbl not found\n");
->  			r5_core->rproc->state = RPROC_DETACHED;
-> +			r5_core->rproc->auto_boot = true;
-
-I thought this was done in zynqmp_r5_add_rproc_core() - what am I missing?
+Reviewed-by: Andrea Righi <arighi@nvidia.com>
 
 Thanks,
-Mathieu
+-Andrea
 
->  		}
+> ---
+>  kernel/sched/build_policy.c |    4 +
+>  kernel/sched/ext.c          |   11 +++
+>  kernel/sched/ext_arena.c    |  126 ++++++++++++++++++++++++++++++++++++++++++++
+>  kernel/sched/ext_arena.h    |   18 ++++++
+>  kernel/sched/ext_internal.h |    5 +
+>  5 files changed, 164 insertions(+)
+> 
+> --- a/kernel/sched/build_policy.c
+> +++ b/kernel/sched/build_policy.c
+> @@ -59,12 +59,16 @@
+>  
+>  #ifdef CONFIG_SCHED_CLASS_EXT
+>  # include <linux/btf_ids.h>
+> +# include <linux/find.h>
+> +# include <linux/genalloc.h>
+>  # include "ext_types.h"
+>  # include "ext_internal.h"
+>  # include "ext_cid.h"
+> +# include "ext_arena.h"
+>  # include "ext_idle.h"
+>  # include "ext.c"
+>  # include "ext_cid.c"
+> +# include "ext_arena.c"
+>  # include "ext_idle.c"
+>  #endif
+>  
+> --- a/kernel/sched/ext.c
+> +++ b/kernel/sched/ext.c
+> @@ -5003,6 +5003,7 @@ static void scx_sched_free_rcu_work(stru
+>  
+>  	rhashtable_free_and_destroy(&sch->dsq_hash, NULL, NULL);
+>  	free_exit_info(sch->exit_info);
+> +	scx_arena_pool_destroy(sch);
+>  	if (sch->arena_map)
+>  		bpf_map_put(sch->arena_map);
+>  	kfree(sch);
+> @@ -7155,6 +7156,12 @@ static void scx_root_enable_workfn(struc
+>  		sch->exit_info->flags |= SCX_EFLAG_INITIALIZED;
 >  	}
 >  
-> @@ -1304,7 +1309,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
->  	enum rpu_oper_mode fw_reg_val;
->  	struct device **child_devs;
->  	enum rpu_tcm_comb tcm_mode;
-> -	int core_count, ret, i;
-> +	int core_count, ret, i, j;
->  	struct mbox_info *ipi;
->  
->  	ret = of_property_read_u32(dev_node, "xlnx,cluster-mode", &cluster_mode);
-> @@ -1390,7 +1395,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
->  		child_devs[i] = &child_pdev->dev;
->  
->  		/* create and add remoteproc instance of type struct rproc */
-> -		r5_cores[i] = zynqmp_r5_add_rproc_core(&child_pdev->dev);
-> +		r5_cores[i] = zynqmp_r5_alloc_rproc_core(&child_pdev->dev);
->  		if (IS_ERR(r5_cores[i])) {
->  			ret = PTR_ERR(r5_cores[i]);
->  			r5_cores[i] = NULL;
-> @@ -1435,16 +1440,31 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
->  		goto release_r5_cores;
->  	}
->  
-> +	for (j = 0; j < cluster->core_count; j++) {
-> +		/* Add R5 remoteproc core */
-> +		ret = rproc_add(r5_cores[j]->rproc);
-> +		if (ret) {
-> +			dev_err_probe(r5_cores[j]->dev, ret,
-> +				      "failed to add remoteproc\n");
-> +			goto delete_r5_cores;
-> +		}
+> +	ret = scx_arena_pool_init(sch);
+> +	if (ret) {
+> +		cpus_read_unlock();
+> +		goto err_disable;
 > +	}
 > +
->  	kfree(child_devs);
->  	return 0;
+>  	for (i = SCX_OPI_CPU_HOTPLUG_BEGIN; i < SCX_OPI_CPU_HOTPLUG_END; i++)
+>  		if (((void (**)(void))ops)[i])
+>  			set_bit(i, sch->has_op);
+> @@ -7473,6 +7480,10 @@ static void scx_sub_enable_workfn(struct
+>  		sch->exit_info->flags |= SCX_EFLAG_INITIALIZED;
+>  	}
 >  
-> +delete_r5_cores:
-> +	i = core_count - 1;
-> +	/* delete previous added rproc */
-> +	while (--j >= 0)
-> +		rproc_del(r5_cores[j]->rproc);
+> +	ret = scx_arena_pool_init(sch);
+> +	if (ret)
+> +		goto err_disable;
 > +
->  release_r5_cores:
->  	while (i >= 0) {
->  		put_device(child_devs[i]);
->  		if (r5_cores[i]) {
->  			zynqmp_r5_free_mbox(r5_cores[i]->ipi);
->  			of_reserved_mem_device_release(r5_cores[i]->dev);
-> -			rproc_del(r5_cores[i]->rproc);
->  			rproc_free(r5_cores[i]->rproc);
->  		}
->  		i--;
-> -- 
-> 2.34.1
-> 
+>  	if (validate_ops(sch, ops))
+>  		goto err_disable;
+>  
+> --- /dev/null
+> +++ b/kernel/sched/ext_arena.c
+> @@ -0,0 +1,126 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * BPF extensible scheduler class: Documentation/scheduler/sched-ext.rst
+> + *
+> + * scx_arena_pool: kernel-side sub-allocator over BPF-arena pages.
+> + *
+> + * Each chunk added to @sch->arena_pool comes from one
+> + * bpf_arena_alloc_pages_sleepable() call and is registered at the
+> + * kernel-side mapping address. Callers translate to the BPF-arena form
+> + * themselves if needed.
+> + *
+> + * Allocations grow the pool on demand. Underlying arena pages are released
+> + * when the arena map itself is torn down.
+> + *
+> + * Copyright (c) 2026 Meta Platforms, Inc. and affiliates.
+> + * Copyright (c) 2026 Tejun Heo <tj@kernel.org>
+> + */
+> +
+> +enum scx_arena_consts {
+> +	SCX_ARENA_MIN_ORDER		= 3,	/* 8-byte minimum sub-allocation */
+> +	SCX_ARENA_GROW_PAGES		= 4,	/* per growth */
+> +};
+> +
+> +s32 scx_arena_pool_init(struct scx_sched *sch)
+> +{
+> +	if (!sch->arena_map)
+> +		return 0;
+> +
+> +	sch->arena_pool = gen_pool_create(SCX_ARENA_MIN_ORDER, NUMA_NO_NODE);
+> +	if (!sch->arena_pool)
+> +		return -ENOMEM;
+> +	return 0;
+> +}
+> +
+> +static void scx_arena_clear_chunk(struct gen_pool *pool, struct gen_pool_chunk *chunk,
+> +				  void *data)
+> +{
+> +	int order = pool->min_alloc_order;
+> +	size_t chunk_sz = chunk->end_addr - chunk->start_addr + 1;
+> +	unsigned long end_bit = chunk_sz >> order;
+> +	unsigned long b, e;
+> +
+> +	for_each_set_bitrange(b, e, chunk->bits, end_bit)
+> +		gen_pool_free(pool, chunk->start_addr + (b << order),
+> +			      (e - b) << order);
+> +}
+> +
+> +/*
+> + * Tear down the pool. Outstanding gen_pool allocations are freed via
+> + * scx_arena_clear_chunk() so gen_pool_destroy() doesn't BUG. The underlying
+> + * arena pages are released when the arena map itself is torn down.
+> + */
+> +void scx_arena_pool_destroy(struct scx_sched *sch)
+> +{
+> +	if (!sch->arena_pool)
+> +		return;
+> +	gen_pool_for_each_chunk(sch->arena_pool, scx_arena_clear_chunk, NULL);
+> +	gen_pool_destroy(sch->arena_pool);
+> +	sch->arena_pool = NULL;
+> +}
+> +
+> +/*
+> + * Grow the pool by @page_cnt pages. bpf_arena_alloc_pages_sleepable() and
+> + * gen_pool_add() (which calls vzalloc(GFP_KERNEL)) require a sleepable
+> + * context.
+> + */
+> +static int scx_arena_grow(struct scx_sched *sch, u32 page_cnt)
+> +{
+> +	u64 kern_vm_start;
+> +	u32 uaddr32;
+> +	void *p;
+> +	int ret;
+> +
+> +	if (!sch->arena_map || !sch->arena_pool)
+> +		return -EINVAL;
+> +
+> +	p = bpf_arena_alloc_pages_sleepable(sch->arena_map, NULL,
+> +					    page_cnt, NUMA_NO_NODE, 0);
+> +	if (!p)
+> +		return -ENOMEM;
+> +
+> +	uaddr32 = (u32)(unsigned long)p;
+> +	kern_vm_start = bpf_arena_map_kern_vm_start(sch->arena_map);
+> +
+> +	ret = gen_pool_add(sch->arena_pool, kern_vm_start + uaddr32,
+> +			   page_cnt * PAGE_SIZE, NUMA_NO_NODE);
+> +	if (ret) {
+> +		bpf_arena_free_pages_non_sleepable(sch->arena_map, p, page_cnt);
+> +		return ret;
+> +	}
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Allocate @size bytes from the arena pool. Returns kernel VA on success, NULL
+> + * on failure. May grow the pool via scx_arena_grow() which sleeps. Caller must
+> + * be in a GFP_KERNEL context.
+> + */
+> +void *scx_arena_alloc(struct scx_sched *sch, size_t size)
+> +{
+> +	unsigned long kern_va;
+> +	u32 page_cnt;
+> +
+> +	might_sleep();
+> +
+> +	if (!sch->arena_pool)
+> +		return NULL;
+> +
+> +	while (true) {
+> +		kern_va = gen_pool_alloc(sch->arena_pool, size);
+> +		if (kern_va)
+> +			break;
+> +		page_cnt = max_t(u32, SCX_ARENA_GROW_PAGES,
+> +				 (size + PAGE_SIZE - 1) >> PAGE_SHIFT);
+> +		if (scx_arena_grow(sch, page_cnt))
+> +			return NULL;
+> +	}
+> +
+> +	return (void *)kern_va;
+> +}
+> +
+> +void scx_arena_free(struct scx_sched *sch, void *kern_va, size_t size)
+> +{
+> +	if (sch->arena_pool && kern_va)
+> +		gen_pool_free(sch->arena_pool, (unsigned long)kern_va, size);
+> +}
+> --- /dev/null
+> +++ b/kernel/sched/ext_arena.h
+> @@ -0,0 +1,18 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * BPF extensible scheduler class: Documentation/scheduler/sched-ext.rst
+> + *
+> + * Copyright (c) 2025 Meta Platforms, Inc. and affiliates.
+> + * Copyright (c) 2025 Tejun Heo <tj@kernel.org>
+> + */
+> +#ifndef _KERNEL_SCHED_EXT_ARENA_H
+> +#define _KERNEL_SCHED_EXT_ARENA_H
+> +
+> +struct scx_sched;
+> +
+> +s32 scx_arena_pool_init(struct scx_sched *sch);
+> +void scx_arena_pool_destroy(struct scx_sched *sch);
+> +void *scx_arena_alloc(struct scx_sched *sch, size_t size);
+> +void scx_arena_free(struct scx_sched *sch, void *kern_va, size_t size);
+> +
+> +#endif /* _KERNEL_SCHED_EXT_ARENA_H */
+> --- a/kernel/sched/ext_internal.h
+> +++ b/kernel/sched/ext_internal.h
+> @@ -1116,8 +1116,13 @@ struct scx_sched {
+>  	 * Arena map auto-discovered from member progs at struct_ops attach.
+>  	 * cid-form schedulers must use exactly one arena across all member
+>  	 * progs. NULL on cpu-form.
+> +	 *
+> +	 * @arena_pool sub-allocates @arena_map. Each gen_pool chunk is added
+> +	 * at the kernel-side mapping address. Grows on demand and pages are
+> +	 * not released until sched destroy.
+>  	 */
+>  	struct bpf_map		*arena_map;
+> +	struct gen_pool		*arena_pool;
+>  
+>  	DECLARE_BITMAP(has_op, SCX_OPI_END);
+>  
 
