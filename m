@@ -4,72 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF2CCD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEC9BCD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vzMwaKUCYZrjExjFXqlMIJhz+c0JIX9Zgl0OIKx1oEU=; b=tx71FhS2A6JBCasofOy6HkGIx5
-	UIRPNEIGL6+cBYFm/fX7h5UYCV2MIfeXeEEEUq6Cas8DMIcy8hPsds8ccCzIb1T9oKYSupHFGm9fl
-	Ld6lyhuGOzRZbeOZJri7YrcOFDgE8FZKlvEVTbrB8efHBeOl0oQ6qhwdNCRRh8LoI60jRWCMV6xEB
-	ugQQWEe/f2i4qBwvYzs94ZjmqyJpTHhhW/5MfaWyW+QIGjZfQIKC37pg9woWacY2op9t40BHoMzeA
-	Yierdijxzmkedx91heBnz4hrNiewOSDAnMvqHtBRGQXWJaTjrIgAGXs5PUutTA3Dhry5JDfau/EAV
-	Avp4wt/Q==;
+	bh=+rCsIp/OdcFAFpEnxeZBBDFOM8O5rqaH3hw2dBPi5nk=; b=d0a2A/0oelAduqDFtc1PlNcn5Y
+	6xKVLFNUI6XNne2cUFj4jYPYAwUpQzpGH+6weh4W4OtML7tmib5g5Y8BuSEnr7060LFEcc/i5LPX2
+	0oKnwJHQOdf2fIZqD3EEYNtLt2RGgsuEikhgEE4bX+b7z22KxLN8TnfPre5qf/fEaoOTIvJEon/Vp
+	Wic6p7IXvfHTUjwy8Hy6Nr83xUapIiXoy0lhV0QwcP6ILLFQTS07yLjsrzIn2eemrKU0v1Kftpm9O
+	jVmxV6FyiObSIrR/xBFFhCcxNdTAG25gSnsf7F0LkpfIbvuopgCieQ4RCtX+hAFjMUmW/fOkC6/Z/
+	SXUd7Vjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5a6-00000008Nhn-0hZQ;
-	Thu, 21 May 2026 15:45:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5a3-00000008Nfz-0Lv4
+	id 1wQ5bW-00000008O7n-3LLn;
+	Thu, 21 May 2026 15:46:34 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ5bU-00000008O6s-2fjm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:45:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 297A43D42;
-	Thu, 21 May 2026 08:44:57 -0700 (PDT)
-Received: from [10.1.32.22] (e122027.cambridge.arm.com [10.1.32.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A2D93F632;
-	Thu, 21 May 2026 08:44:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779378302; bh=QF68rTb5Q+J5M5tadzuOVbWRc8TvXFXjwcG27utu4As=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nwnfIIi38PHTdUkuOtqwyuB2KBFbfOgzNq+J/ZusfxI3GaJBwHsQZTOJE/kyJGXd4
-	 1WEsuJlB2bfkTFkAJpCRoLj0yhZO0jEDfzYgMHNHfjduUzsCHS5qQXJzWKA4ouj5y1
-	 SxI+y2k8OSePhhuZ5ZCDMeMccIfDdesc3sOzjZhE=
-Message-ID: <1b577c26-5a59-4786-9c3a-d72847cc0c86@arm.com>
-Date: Thu, 21 May 2026 16:44:44 +0100
+	Thu, 21 May 2026 15:46:34 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 1766B7A00A3;
+	Thu, 21 May 2026 11:46:29 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Thu, 21 May 2026 11:46:29 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1779378388;
+	 x=1779464788; bh=+rCsIp/OdcFAFpEnxeZBBDFOM8O5rqaH3hw2dBPi5nk=; b=
+	H0wg6oZHPdZGf2SxBDLnP2gWr7Yl9qsGDnXabO6/BLcoscRzkS9N2XISQUZXma1C
+	x1iSq0KrA35NvxddXligukrvIQH3WwsBWiPCayEG/f43TblcCuFuqdWiqesEsyQk
+	/r3FEsxitjl9MB6axc5T9YwQZhXI0wvCVlyxj1HNsbacltdhlalnapVVblKouZkP
+	aqN6eIE+75r8AwhgI/7gSJqXuRrua3S62XgwjoG3S/10utxe6RK763WxpmadXvwe
+	DdQIQzB22jZ9+KcMsdrkKtRgwZwG0k84SgyjTzb32u5navk1WYyB4+3xFv9aPZOt
+	XfDFZJTkwgawKVJm1fr+8Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1779378388; x=
+	1779464788; bh=+rCsIp/OdcFAFpEnxeZBBDFOM8O5rqaH3hw2dBPi5nk=; b=b
+	G9jxNdC4FjYzt5xqOLIjnbUMyAlPixJf69W7bxKHbLUNsg1tqgT0lcK2i9JrAVET
+	MVOS+aFrR9kK1Up5zdGAOXuj8hzJSbdvyw0S+NbUpK8yNwZo1vaoD2Nh41Z2z4B5
+	ywTcK4DmyecoBE6aOsxNWp7pYPonHp714gL52niiauDbsIV81fKrJQJp0zRHjweH
+	OYxaJc2Gr95pdcb9huzbtN2NS22esIUF+UgV99ebyTRPVOwvtVvGlJPSuxWZoe8c
+	hEv0vuCHTKv1N6iulUoXM9Ly2/20Icq/Px6du/RoheM6tNK3AdtYRwZxDM41IzdW
+	a44ZTgx5npuV2Uk09nVKA==
+X-ME-Sender: <xms:0ygPau4zBxDVojdOTZRPZsSSQx5Yg3n-N3Ja-KfZ_M7XnWPooPEzKQ>
+    <xme:0ygPaivEr2oUz8KjOID-olfKqUzXZvqwxP60dWDfRgAXb4juhrG4W6J9xu-6OIufb
+    uJkjCEdznYKHnlA_sjlUtQOjQkR5Pjw_pUK_nzxpa2OwRgB_ZKq2w>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefhedrtddtgddugeejledtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepkedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtoheptghigidqkhgvrhhnvghlqdhuphhsthhrvggrmhestghigihtvggthh
+    drtghomhdprhgtphhtthhopehpvghtvghrrdgthhgvnhestghigihtvggthhdrtghomhdp
+    rhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtghpth
+    htohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihshhksehkiigrlhhl
+    ohgtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsth
+    hsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepkhhriiihshiithhofhdrkhho
+    iihlohifshhkihesohhsshdrqhhurghltghomhhmrdgtohhmpdhrtghpthhtoheplhhinh
+    hugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:0ygPaiPDf7h1JBBV_Yij1-LGeEslEMs--dCB15l-T1wvnk2VXFF8JA>
+    <xmx:0ygPat1cGR284X28TnifqVKVSGtRt3R5cE-1yaWFrcBoRX40l7CZvQ>
+    <xmx:0ygPapDNg3zTYwXujKsf0iBdXEli1XksD9Zl6ycrlx1OeDkEtfPBgg>
+    <xmx:0ygPaiIWDlE2FNlGcn4pDWZKq-L6NPvnfNktY0jIm7UWl7rSRiFHkQ>
+    <xmx:1CgPaminRwPB63AmPLU0xnbZWHE0jdiehO9zFY456Uz2VxmAHPnIq4ke>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 9F621182007A; Thu, 21 May 2026 11:46:27 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 05/44] arm64: RMI: Add wrappers for RMI calls
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-6-steven.price@arm.com> <86cxypvsfy.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86cxypvsfy.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+X-ThreadId: ASZRNT9gNXmc
+Date: Thu, 21 May 2026 17:46:06 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Peter Chen" <peter.chen@cixtech.com>
+Cc: "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>,
+ "Geert Uytterhoeven" <geert+renesas@glider.be>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, cix-kernel-upstream@cixtech.com,
+ "Yunseong Kim" <ysk@kzalloc.com>
+Message-Id: <3cb3ff33-3d4f-454e-b743-27b48e87cb79@app.fastmail.com>
+In-Reply-To: <4ea63bf6-d9ec-483d-a9c4-9715ec5547bc@kernel.org>
+References: <20260327114628.3800886-1-peter.chen@cixtech.com>
+ <4ea63bf6-d9ec-483d-a9c4-9715ec5547bc@kernel.org>
+Subject: Re: [PATCH v3 1/1] arm64: defconfig: Enable CIX Sky1 pinctrl, PCIe host, and
+ Cadence GPIO
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_084503_213096_122F22FA 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20260521_084632_861730_E26769F8 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,170 +119,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 13:49, Marc Zyngier wrote:
-> On Wed, 13 May 2026 14:17:13 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The wrappers make the call sites easier to read and deal with the
->> boiler plate of handling the error codes from the RMM.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes from v13:
->>  * Update to RMM v2.0-bet1 spec including some SRO support (there still
->>    some FIXMEs where SRO support is incomplete).
->> Changes from v12:
->>  * Update to RMM v2.0 specification
->> Changes from v8:
->>  * Switch from arm_smccc_1_2_smc() to arm_smccc_1_2_invoke() in
->>    rmi_rtt_read_entry() for consistency.
->> Changes from v7:
->>  * Minor renaming of parameters and updated comments
->> Changes from v5:
->>  * Further improve comments
->> Changes from v4:
->>  * Improve comments
->> Changes from v2:
->>  * Make output arguments optional.
->>  * Mask RIPAS value rmi_rtt_read_entry()
->>  * Drop unused rmi_rtt_get_phys()
->> ---
->>  arch/arm64/include/asm/rmi_cmds.h | 661 ++++++++++++++++++++++++++++++
->>  1 file changed, 661 insertions(+)
->>  create mode 100644 arch/arm64/include/asm/rmi_cmds.h
->>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
->> new file mode 100644
->> index 000000000000..04f7066894e9
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -0,0 +1,661 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +/*
->> + * Copyright (C) 2023 ARM Ltd.
->> + */
->> +
->> +#ifndef __ASM_RMI_CMDS_H
->> +#define __ASM_RMI_CMDS_H
->> +
->> +#include <linux/arm-smccc.h>
->> +
->> +#include <asm/rmi_smc.h>
->> +
->> +struct rtt_entry {
->> +	unsigned long walk_level;
->> +	unsigned long desc;
->> +	int state;
->> +	int ripas;
->> +};
->> +
->> +#define RMI_MAX_ADDR_LIST	256
->> +
->> +struct rmi_sro_state {
->> +	struct arm_smccc_1_2_regs regs;
->> +	unsigned long addr_count;
->> +	unsigned long addr_list[RMI_MAX_ADDR_LIST];
->> +};
->> +
->> +#define rmi_smccc(...) do {						\
->> +	arm_smccc_1_1_invoke(__VA_ARGS__);				\
->> +} while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
->> +	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
->> +
->> +unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
->> +void rmi_sro_free(struct rmi_sro_state *sro);
->> +
->> +/**
->> + * rmi_rmm_config_set() - Configure the RMM
->> + * @cfg_ptr: PA of a struct rmm_config
->> + *
->> + * Sets configuration options on the RMM.
->> + *
->> + * Return: RMI return code
->> + */
->> +static inline int rmi_rmm_config_set(unsigned long cfg_ptr)
->> +{
->> +	struct arm_smccc_res res;
->> +
->> +	arm_smccc_1_1_invoke(SMC_RMI_RMM_CONFIG_SET, cfg_ptr, &res);
->> +
->> +	return res.a0;
->> +}
->> +
->> +/**
->> + * rmi_rmm_activate() - Activate the RMM
->> + *
->> + * Return: RMI return code
->> + */
->> +static inline int rmi_rmm_activate(void)
->> +{
->> +	struct arm_smccc_res res;
->> +
->> +	arm_smccc_1_1_invoke(SMC_RMI_RMM_ACTIVATE, &res);
->> +
->> +	return res.a0;
->> +}
->> +
->> +/**
->> + * rmi_granule_tracking_get() - Get configuration of a Granule tracking region
->> + * @start: Base PA of the tracking region
->> + * @end: End of the PA region
->> + * @out_category: Memory category
->> + * @out_state: Tracking region state
->> + * @out_top: Top of the memory region
->> + *
->> + * Return: RMI return code
->> + */
->> +static inline int rmi_granule_tracking_get(unsigned long start,
->> +					   unsigned long end,
->> +					   unsigned long *out_category,
->> +					   unsigned long *out_state,
->> +					   unsigned long *out_top)
->> +{
->> +	struct arm_smccc_res res;
->> +
->> +	arm_smccc_1_1_invoke(SMC_RMI_GRANULE_TRACKING_GET, start, end, &res);
->> +
->> +	if (out_category)
->> +		*out_category = res.a1;
->> +	if (out_state)
->> +		*out_state = res.a2;
->> +	if (out_top)
->> +		*out_top = res.a3;
->> +
->> +	return res.a0;
->> +}
->> +
->> +/**
->> + * rmi_gpt_l1_create() - Create a Level 1 GPT
->> + * @addr: Base of physical address region described by the L1GPT
->> + *
->> + * Return: RMI return code
->> + */
->> +static inline int rmi_gpt_l1_create(unsigned long addr)
->> +{
->> +	struct arm_smccc_res res;
->> +
->> +	arm_smccc_1_1_invoke(SMC_RMI_GPT_L1_CREATE, addr, &res);
->> +
->> +	if (RMI_RETURN_STATUS(res.a0) == RMI_INCOMPLETE) {
->> +		/* FIXME */
-> 
-> Is that part of the SRO stuff you're talking about in the notes?
-> What is the ETA for fixing all these FIXMEs?
+On Thu, May 21, 2026, at 17:23, Krzysztof Kozlowski wrote:
+> On 27/03/2026 12:46, Peter Chen wrote:
+>> 
+>> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+>> index b67d5b1fc45b..f9be52484008 100644
+>> --- a/arch/arm64/configs/defconfig
+>> +++ b/arch/arm64/configs/defconfig
+>> @@ -241,6 +241,7 @@ CONFIG_PCIE_XILINX_DMA_PL=y
+>>  CONFIG_PCIE_XILINX_NWL=y
+>>  CONFIG_PCIE_XILINX_CPM=y
+>>  CONFIG_PCI_J721E_HOST=m
+>> +CONFIG_PCI_SKY1_HOST=m
+>
+> This is not correctly placed and caused issues later - conflicts with my
+> cleanup patch.
+>
+> Please fix it up before you send the patch to soc@.
 
-Yes, RMI_INCOMPLETE is the return for SRO. Fixing all this up is on the
-plan for my next posting which I expect to be after 7.2-rc1 (so July).
-There were some changes in the beta 2 spec and the RMM doesn't implement
-most of this yet so I didn't want to rush out completely untested code
-which might change.
+The problem was my merge, and I've fixed it up now, thanks
+for pointing it out.
 
-Thanks,
-Steve
+I don't think there was anything that Peter could have done
+differently here, as the merge conflicts were to be
+expected.
 
-> Thanks,
-> 
-> 	M.
-> 
-
+      Arnd
 
