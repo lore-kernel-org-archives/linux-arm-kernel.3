@@ -4,154 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAA7CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E181CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ktn4yDDK+X3BcUkupV/7FBh4aTe/41UXRom1OC5H5c=; b=UHSJhI4bDDv4KabqSs8ot1/gyt
-	j+I0SJCVtmqqXw+pEdMeMpqulBj2r2h8v9itr57KubjQmWhY5rUGrAFGGKvF0+q5ejiKEnrv/Yd4z
-	WoAnH2AS6idQGYuvxsHPOC14gMO8CF+FxiMpEM4BqBxrUzTxWHPNdeJAjaJBdOLqW+P+laxWLT6k0
-	dItH9weKHqNMMDrJ/WyXmBVChvitYuDhKePvLyEivAP6ArSpieve6Ac2SYrrUJJUuQthE856xn23j
-	bnQyxlSeBaVXbuwyZJeyz44PAjTRmIfW4R67/BOxOqlLV5xQ9gcA/1qcaMch0O39ftnACcpPn43wv
-	X8dJFTWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pC9vK5xRWXGwmhyq1SGmsIorTrH2MbXIO62Le4xedO4=; b=F1JsWx45guHLtfMhwxa0P/n13O
+	YjysyA9AELp4WIQ02cTXg8N4PEowPms8x4Vd/xUOr66Li5jv4uzlzlhtEb4tQNPV1s2k77hSTx7+U
+	sW0VaQwYjfXIn2DhNDMl2u0jARr1JbDHYVhb+pQHUVfKAxhGSrmEnPS5c2u7jEm5bY+fnR7ufsPGC
+	gF8+ANbdaK8RGBAyHeEdeMlEa+aVAFB/nolPwtf++sBd1z/FMgZjR7YLHYpvhiQ9A0y5kBgFEVHEf
+	BNmIleXSWzBnjss9kKNx/6w3MpStKihynbZ8MgDcfqVdYEslL1IBUQ6aERCxzkVkmO3dp234iNPwN
+	1jJiaaHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5Oh-00000008Jzd-318n;
-	Thu, 21 May 2026 15:33:19 +0000
-Received: from mail-norwayeastazon11013009.outbound.protection.outlook.com ([40.107.159.9] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5Od-00000008JvI-3OrR;
-	Thu, 21 May 2026 15:33:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fzoeC5j4fNpwnpPCD6CG71hcshgtim2XyB4CGgJMO37yRB7yeg3Phw/p6eirh6sZC0PNThKkyggkkiGTkqdkRg3xRFNyre6ewHa/6SwEKOWeAnOBSd+zwgP4I8QbbAB3EqwSnyYAHnCziKlohZXSNYKNSLw3ITcbolYurxvYcRzJ5LgQZvK6l8pYc3VCioGaGjLYjvftKafH+JC86qjKuBWUPWqv4KvBEYI4XdkFroFpeZuHj09dcgvDgIq6UZMlgKaGIiwblLvWICssNZz3xEI3qqAiaSb6vLk6CT5rkumMzCdsOYGUcFOGGkuDQmrIIZiFG59PwbeWndiXuBNTQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4ktn4yDDK+X3BcUkupV/7FBh4aTe/41UXRom1OC5H5c=;
- b=YngqLjkYJBAr/o3Mhx7I7DnY8VNRWJL3rfbh4Ba9mQJVaKUSwkL6W0PKYz+WCcy2t/ur173p6OYp0K/gcaRTaaE0l/Hd0gYmF2EqLFE9xXKVQ0kM8r+v8aQxXkV6Sq54A9mUtnb/otxRjx+FQZXMBIRh5qHw4df9AEQSYmBX1yHbM94Dzly/D15ho2vCJuvOa84p1sfCIeeoIH/uW7cwXUVRSP4s8Xjt1gHmm8LRvAAPOsC4S6IrymnNJOQZDIj7toDLiqzbUrFC2lbRF8p3xqi36VmBpSdrs80g/gV02Y1klL3qFieP3gcTCaRE1yqhgcXJcn4VJFIOp87IZy8sMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4ktn4yDDK+X3BcUkupV/7FBh4aTe/41UXRom1OC5H5c=;
- b=GDbnh2kc8jc1VlyKCjiRupOiPBQ6MvGb8BPyKfMaTVYoycAwlW0XxKBSPrp5BsgZ1g0d+3qw6tnWzBCqr4pgPMoU9vXQem6YYTutsxXsoyRgNe06Is2aCXh75w7g2TnlFeggfsPe9WaBbF+2My6f7N6cW9l/bqECKjVQis1bolZC7X6Ra8XNPtYdsTd43G0LqyT+S5yi4rsAyjQL3H9HUovZlO1jIGUjms0F64BMzWyoKxEu0Mfw9g1SQ+eKKHVujzAOlqylfH6nnl2OG0stuoYkgqFFadh9ypYJjx5N4c6dErCWPB1EwhRjl52ZGipjnt3B4gvBhaMVDC+ypmrS3Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com (2603:10a6:10:623::11)
- by AM0PR04MB11853.eurprd04.prod.outlook.com (2603:10a6:20b:6f9::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 15:33:08 +0000
-Received: from DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de]) by DU4PR04MB11791.eurprd04.prod.outlook.com
- ([fe80::11ca:6b74:3234:d7de%4]) with mapi id 15.21.0048.013; Thu, 21 May 2026
- 15:33:08 +0000
-From: Frank.Li@oss.nxp.com
-Date: Thu, 21 May 2026 11:32:48 -0400
-Subject: [PATCH v7 2/9] dmaengine: Add safe API to combine configuration
- and preparation
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260521-dma_prep_config-v7-2-1f73f4899883@nxp.com>
-References: <20260521-dma_prep_config-v7-0-1f73f4899883@nxp.com>
-In-Reply-To: <20260521-dma_prep_config-v7-0-1f73f4899883@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, 
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>, 
- Niklas Cassel <cassel@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
- mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779377571; l=6305;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=uyPouf7iyzCcucDvUuV8ZtysqANoCh3TR/YpsX4alSI=;
- b=/y7IIWB/+aedljKZR+eFNhQRjiXkmMHlrSlHaNgRT9rVbQdxYi3dq/DrLdsx6QVd9BTm81Kov
- JUahUQw0SvZDLb6SbFz2S/BJh6O3bc00yQwRtVSoU5Fs4QKmSwhkX0B
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: BY5PR16CA0002.namprd16.prod.outlook.com
- (2603:10b6:a03:1a0::15) To DU4PR04MB11791.eurprd04.prod.outlook.com
- (2603:10a6:10:623::11)
+	id 1wQ5Om-00000008K55-42Vf;
+	Thu, 21 May 2026 15:33:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ5Oh-00000008JzC-2BQS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 21 May 2026 15:33:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E206E1C25;
+	Thu, 21 May 2026 08:33:12 -0700 (PDT)
+Received: from [10.1.32.22] (e122027.cambridge.arm.com [10.1.32.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CEB9B3F7B4;
+	Thu, 21 May 2026 08:33:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779377598; bh=jRpDWZllViOIhdxWgcvcrGP6DY9oO4m2EiLTS9DbBI0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NTzE3ZpR34hknc3Oe4ExcKxHcifZK4kcAeciWHTNFVx14yLqlL+/jQ/+UDXQ5sIvX
+	 gf2HD/p35PYjtb9tXdGrGeutS6bl7wT4412iKdnBy7DcF4Mm7xpiWp+xSFH3iuJ2d2
+	 BYO4+PJaDBI6OJ+PaIq4Hfv19Xe4Wrh7RkfMboks=
+Message-ID: <3261b04f-1a0c-451d-8981-1e2bccc8a9ca@arm.com>
+Date: Thu, 21 May 2026 16:33:09 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU4PR04MB11791:EE_|AM0PR04MB11853:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea51e4b7-f347-4611-a893-08deb74e4277
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|7416014|376014|11063799006|56012099003|18002099003|22082099003|6133799003|921020;
-X-Microsoft-Antispam-Message-Info: uTizkX31fTF/0CJgs4x5B2qcMsX8Lffyr2ascNGQJR0yHB2zU4d5v5SgWvfRu+X/CGDhDWB1+WQIzIKmEn2lh6T3y6mR8utSTZtRoyQ426pd5NyFg7eYm/6xiDO2jkTMUHzC8l1WCqyJajMxIQktugANFXSWcJfnW2ehH8U18p/NWa+Xx+4KaXI/kiRxH340shihIdlK6LjAa+CCoY+5Mtd585rSYg2M42O60qMsavjxcXB3M7Y8EHYlWXU5xf0a2teIgktYJW42XI93KBVWvPpYjQ97V/SA6c6gwPqav/BU3HIEuJ9E2dTql+V+HH6i6Kpl5ppvQwU35f1YIsPqa55YX+VoabMFGfuaBO4BDzWyxbSlzvHdQgjD62QlxxHngx5MT9ebM8AxhvFG8S4w1KAhS1CVBnPFkfGLmx2B6BXk0u7+MkbpzfRG1PLgD0ot9s/TbFZ2QJWDHEpZDWkJAVDDTXAkBRESBmwaccaUh/lVYCRJKDh66QyZP15WwfS9s0uC/r/ah0B4gKYwU3BGlxjBswIX6bVJHGvyy7VHLyAS4M/u1m5gyjQnNR0UoOGk3T1gTaI0Na/i0GBCU0syKG3lnA9U7oKjaBRSPmLrOeuEE4F4ymlwNVrfr+YeOIaHQCACGHH2ESH0A7hAcq8DfKiveRwWIuWuFxSiniQEAN/+jwdGw9aih1KCJSDSMh5fIFGFnU+6ZQrprVcXPZMA9MJ/aUs8fnEPdYOq4IFLrbY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU4PR04MB11791.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(7416014)(376014)(11063799006)(56012099003)(18002099003)(22082099003)(6133799003)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2NtbFF1UFltbCtFaFJORk5SR0hBeGxMUWFwc3NjZlRaSzV3bUR6aVVFaVkv?=
- =?utf-8?B?UlBWYlA1T1ZTY0VCVzludkpkS3VRZ051eDNmQkFRSmpOamNmRW1OK3o1M1Nx?=
- =?utf-8?B?T2ZkaWhhcDZZYzlUUlVGMjdKak8zU1BzWHpGTEtzem85a1cxb3hUaVVid2g2?=
- =?utf-8?B?OVpKQUdXSWFRUmN5eGloRVN4SUtnUUdzQ0xObzBLSmNrMk1XdTZmNFJHRE8z?=
- =?utf-8?B?bDdUeVdpVGpHUk1aNjltbDlVRHlwbjBWUlNVc0daU0xVRUJ0MFE4WHJpZGtM?=
- =?utf-8?B?RjhFVDlnYlZtODFjR0NIdmFSMTZHNEZsdUtXTHdHeklZUUFWc0hGWEdXQ0dX?=
- =?utf-8?B?WW5FWFFBZHR3dEJ0VHI0STFEWHJyN0Fvb2s2TjEyUXFKc1NobUhUSFNFVWkz?=
- =?utf-8?B?M3lIR3BPZTU1U3ZuNmxrMHZWelBQclRGZE82Rks4b29UUnpqRSs2eC9KZFZ4?=
- =?utf-8?B?WUtyQzh5S1VvaTlobEp0WitXc1pLclRoRlpUNEZGd0UzaHlWcDZiT0JuakZo?=
- =?utf-8?B?c05xSXBqZEdyejFTZDI2aVpudWU1NTRtaHp6Vk9SUTlVcktzdzBObVo2cmwr?=
- =?utf-8?B?dUgwRDJ1TFpHT0VlUXQ1SDZ6MkVBWHhDZlJXdmwrRHZMc2t0TmRqUjBvVGNN?=
- =?utf-8?B?eFRDQUc3Vjd5RTcyUDd1SEkzR2dzSFh5ZlE4S3FpU2x1bXBjTnhTM1RWamNI?=
- =?utf-8?B?RVJnTWt1MHFFNnRJdmlHdEprdzM3Si9zY3NRV2c4VFk1TWJYS2RPQkx5VjV3?=
- =?utf-8?B?a3dMbUROZzRWaGN6aC85RUx5VE9KWXdncTZSV3VaUkZvVmlSbnBTRjVXbVl5?=
- =?utf-8?B?L3lqZ2w2RDJKcXJrMmwwajFQQW83YXA5VTNUWGhuYkYxWnpkYXJVbEEzYUVy?=
- =?utf-8?B?a25EdEtpbk5Za3ZIQjBtdXpXeVcrWGlXQlJzWExSRXhtMGRrZWpSOVhXSWo4?=
- =?utf-8?B?YTlZQVJ6NWdleGhmeWRtRGlKTXNWMkt6WHFYV2doODVIU092WWVYa2pGQi9j?=
- =?utf-8?B?VmV4RENQZWtBNFo2RjNPZnYxSnhEcEtkek5VaGJwV1JQOGtYcUxHanRiSVFR?=
- =?utf-8?B?Kzk2QUp6TWp1Wmh3ZEdJQnlVZC93R1MyUGxuT2dUSnJyNkRuNXNRUFdyeWVU?=
- =?utf-8?B?aHd3Sld6V1NMUDdFbnBUTklEUDJyOHNBRDUwUTdlZ0xkeXVNZVJENlRNeFhv?=
- =?utf-8?B?QzNFSlhqZmRDZ2Z3eVNyY0VRQ01oYmRJZFp2cEN5aVdKSzMvVTE3TkRONXFk?=
- =?utf-8?B?alg4Q2didW1kaVg0U0pseEg1TWFRSzdPUG1zSVVhbENoZk9Gd25EZEdvTW9V?=
- =?utf-8?B?ZjM4VWdCZ2syQXpYdUt2a2J3QmltUit3VERNY1d1UjRjeERxTklYMUYyK2Iw?=
- =?utf-8?B?NmliekVwazRlUzcvdWdvYVlUTWdRTzFzMzVtNXo0QmZkcnBid2hDMTlFL2J6?=
- =?utf-8?B?T25hYmpGWk1qOHZrWittNFNkaDBoZXFQNzVNTkZkajR5cWJydDgwT3luQWMz?=
- =?utf-8?B?dWM3WDVHeUZyMGkvdXEzbWZGaFYwOCt6WEJxMkowNk9FMXNvdk5qcW4yVlV5?=
- =?utf-8?B?Vlg0M3hSYk9rTnMrcVd3aDJ1SDNYWWZtdnArUlgrNnd2OTBlSyt0Z3NxUEk4?=
- =?utf-8?B?cTNzc1dVNVdTNGxaOHFyd3BuSkNONUo5a0FPUXE0YndNWHVrQ2s1NlIvTXZt?=
- =?utf-8?B?bjVkTHpIRVBDaFAyY2VhaThkcTZUUFhLUXVtcDJBR0N1R1hYSmMzWlF6cXJj?=
- =?utf-8?B?N2loZ210QXBNVzkzV05ZbTdiVEMxRUN6TGtuckFINnlpVVVwWk56NzVHMi9Q?=
- =?utf-8?B?T0haTzU3ZVhMNWgvN0V3WjBrdTJZUTNZWVpHNU9abGhwUlBBQzVzRFBMQlkw?=
- =?utf-8?B?K2V4dVh6dG8zTFo5QktnWHRoVHF6NldJaTJSTXpQWXFpaUE3azIweUcwYnZU?=
- =?utf-8?B?OUVQWFd0a2crWWZ6U2dHdkRialVwYUMwZTJNUGhXeTZ0Wnh6bDhHUEVqUEpN?=
- =?utf-8?B?T29xUmtuR3VCckt4K3QwYjJVQ0tsWm1xVGk1eWdCZy84b3hXL1dxY2RNRmE0?=
- =?utf-8?B?K3JDYWxDb1RYeUlpU1k2UnNvRWpMTHg3RFJuOCtUSUowamRSS3BLQktEaVY5?=
- =?utf-8?B?Q3NYemxMSjNKdWV3aHNpYTk3a01BVHR1cDRFb2twR0FpUFdVOHlKY0R6U0hl?=
- =?utf-8?B?T1hGZ01mZkNYV3k1NlMwWitVV1crY2VmQjVVU1l2eVVPTm9JcUxQZDA2bTZD?=
- =?utf-8?B?ZmxFYjZrZUhEb2lYcmZnSlVRN3NEdXhIR21EOHQvQjA0Tkl6VG94WlZNU2NR?=
- =?utf-8?B?TVVubUJ4NXo5dGVsMmhTa2RBR2xjemIyQTY4dzk3djE2M2hGLzdUMnJaUlBM?=
- =?utf-8?Q?HIZ5QZuPxS22kegk=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea51e4b7-f347-4611-a893-08deb74e4277
-X-MS-Exchange-CrossTenant-AuthSource: DU4PR04MB11791.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 15:33:08.6406
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CC3lt17cFikOmSnoFYFuLNfN+TktuOo0ddBwFaOOYhid3En5xjorDjuRDxjzVL3LqMn2N2DaYj8+rbADIiIPrgrtdC4T0ukrF6OH2BmyU50PyvnTsvrgAmrWwBQpVoqi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11853
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 04/44] arm64: RMI: Add SMC definitions for calling the
+ RMM
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <20260513131757.116630-5-steven.price@arm.com> <86ecj5vsu4.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86ecj5vsu4.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_083316_079714_6D60893D 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20260521_083319_656722_485399B5 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,177 +85,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On 21/05/2026 13:40, Marc Zyngier wrote:
+> On Wed, 13 May 2026 14:17:12 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> The RMM (Realm Management Monitor) provides functionality that can be
+>> accessed by SMC calls from the host.
+>>
+>> The SMC definitions are based on DEN0137[1] version 2.0-bet1
+>>
+>> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
+>>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v13:
+>>  * Updated to RMM spec v2.0-bet1
+>> Changes since v12:
+>>  * Updated to RMM spec v2.0-bet0
+>> Changes since v9:
+>>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+>>    this is an 8-bit type with padding afterwards (rather than a u64).
+>> Changes since v8:
+>>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+>>    permits to be modified.
+>> Changes since v6:
+>>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+>>    these are flag values.
+>> Changes since v5:
+>>  * Sorted the SMC #defines by value.
+>>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+>>    RMI calls.
+>>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+>>    number of available list registers could be lower.
+>>  * Provided a define for the reserved fields of FeatureRegister0.
+>>  * Fix inconsistent names for padding fields.
+>> Changes since v4:
+>>  * Update to point to final released RMM spec.
+>>  * Minor rearrangements.
+>> Changes since v3:
+>>  * Update to match RMM spec v1.0-rel0-rc1.
+>> Changes since v2:
+>>  * Fix specification link.
+>>  * Rename rec_entry->rec_enter to match spec.
+>>  * Fix size of pmu_ovf_status to match spec.
+>> ---
+>>  arch/arm64/include/asm/rmi_smc.h | 448 +++++++++++++++++++++++++++++++
+>>  1 file changed, 448 insertions(+)
+>>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+>>
+>> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+>> new file mode 100644
+>> index 000000000000..a09b7a631fef
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/rmi_smc.h
+>> @@ -0,0 +1,448 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright (C) 2023-2026 ARM Ltd.
+>> + *
+>> + * The values and structures in this file are from the Realm Management Monitor
+>> + * specification (DEN0137) version 2.0-bet1:
+>> + * https://developer.arm.com/documentation/den0137/2-0bet1/
+> 
+> How long is this spec going to be available on the ARM web site, which
+> has a tendency of being reorganised every other week? And there is
+> already a beta2.
 
-Introduce dmaengine_prep_config_single_safe() and
-dmaengine_prep_config_sg_safe() to provide a reentrant-safe way to
-combine slave configuration and transfer preparation.
+Obviously I can't predict the next reorganisation - but at least it's a
+link that could be fed into archive.org or similar.
 
-Drivers may implement the new device_prep_config_sg() callback to perform
-both steps atomically. If the callback is not provided, the helpers fall
-back to calling dmaengine_slave_config() followed by
-dmaengine_prep_slave_sg() under per-channel spinlock protection.
+There is a beta2 - that was released just after this series. I'll
+obviously be updating to that shortly. Sadly the spec is still a bit of
+a moving target, but hopefully all the major changes have already happened.
 
-Tested-by: Niklas Cassel <cassel@kernel.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v6
-- replace mutex with spinlock in commit message
-- use spinlock_saveirq according to AI review results
+> 
+>> + */
+>> +
+>> +#ifndef __ASM_RMI_SMC_H
+>> +#define __ASM_RMI_SMC_H
+>> +
+>> +#include <linux/arm-smccc.h>
+>> +
+>> +#define SMC_RMI_CALL(func)				\
+>> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
+>> +			   ARM_SMCCC_SMC_64,		\
+>> +			   ARM_SMCCC_OWNER_STANDARD,	\
+>> +			   (func))
+>> +
+>> +#define SMC_RMI_VERSION				SMC_RMI_CALL(0x0150)
+>> +
+>> +#define SMC_RMI_RTT_DATA_MAP_INIT		SMC_RMI_CALL(0x0153)
+>> +
+>> +#define SMC_RMI_REALM_ACTIVATE			SMC_RMI_CALL(0x0157)
+>> +#define SMC_RMI_REALM_CREATE			SMC_RMI_CALL(0x0158)
+>> +#define SMC_RMI_REALM_DESTROY			SMC_RMI_CALL(0x0159)
+>> +#define SMC_RMI_REC_CREATE			SMC_RMI_CALL(0x015a)
+>> +#define SMC_RMI_REC_DESTROY			SMC_RMI_CALL(0x015b)
+>> +#define SMC_RMI_REC_ENTER			SMC_RMI_CALL(0x015c)
+>> +#define SMC_RMI_RTT_CREATE			SMC_RMI_CALL(0x015d)
+>> +#define SMC_RMI_RTT_DESTROY			SMC_RMI_CALL(0x015e)
+>> +
+>> +#define SMC_RMI_RTT_READ_ENTRY			SMC_RMI_CALL(0x0161)
+>> +
+>> +#define SMC_RMI_RTT_DEV_VALIDATE		SMC_RMI_CALL(0x0163)
+>> +#define SMC_RMI_PSCI_COMPLETE			SMC_RMI_CALL(0x0164)
+>> +#define SMC_RMI_FEATURES			SMC_RMI_CALL(0x0165)
+>> +#define SMC_RMI_RTT_FOLD			SMC_RMI_CALL(0x0166)
+>> +
+>> +#define SMC_RMI_RTT_INIT_RIPAS			SMC_RMI_CALL(0x0168)
+>> +#define SMC_RMI_RTT_SET_RIPAS			SMC_RMI_CALL(0x0169)
+>> +#define SMC_RMI_VSMMU_CREATE			SMC_RMI_CALL(0x016a)
+>> +#define SMC_RMI_VSMMU_DESTROY			SMC_RMI_CALL(0x016b)
+>> +#define SMC_RMI_RMM_CONFIG_SET			SMC_RMI_CALL(0x016e)
+>> +#define SMC_RMI_PSMMU_IRQ_NOTIFY		SMC_RMI_CALL(0x016f)
+>> +
+>> +#define SMC_RMI_PDEV_ABORT			SMC_RMI_CALL(0x0174)
+>> +#define SMC_RMI_PDEV_COMMUNICATE		SMC_RMI_CALL(0x0175)
+>> +#define SMC_RMI_PDEV_CREATE			SMC_RMI_CALL(0x0176)
+>> +#define SMC_RMI_PDEV_DESTROY			SMC_RMI_CALL(0x0177)
+>> +#define SMC_RMI_PDEV_GET_STATE			SMC_RMI_CALL(0x0178)
+>> +
+>> +#define SMC_RMI_PDEV_STREAM_KEY_REFRESH		SMC_RMI_CALL(0x017a)
+>> +#define SMC_RMI_PDEV_SET_PUBKEY			SMC_RMI_CALL(0x017b)
+>> +#define SMC_RMI_PDEV_STOP			SMC_RMI_CALL(0x017c)
+>> +#define SMC_RMI_RTT_AUX_CREATE			SMC_RMI_CALL(0x017d)
+>> +#define SMC_RMI_RTT_AUX_DESTROY			SMC_RMI_CALL(0x017e)
+>> +#define SMC_RMI_RTT_AUX_FOLD			SMC_RMI_CALL(0x017f)
+>> +
+>> +#define SMC_RMI_VDEV_ABORT			SMC_RMI_CALL(0x0185)
+>> +#define SMC_RMI_VDEV_COMMUNICATE		SMC_RMI_CALL(0x0186)
+>> +#define SMC_RMI_VDEV_CREATE			SMC_RMI_CALL(0x0187)
+>> +#define SMC_RMI_VDEV_DESTROY			SMC_RMI_CALL(0x0188)
+>> +#define SMC_RMI_VDEV_GET_STATE			SMC_RMI_CALL(0x0189)
+>> +#define SMC_RMI_VDEV_UNLOCK			SMC_RMI_CALL(0x018a)
+>> +#define SMC_RMI_RTT_SET_S2AP			SMC_RMI_CALL(0x018b)
+>> +#define SMC_RMI_VDEV_COMPLETE			SMC_RMI_CALL(0x018e)
+>> +
+>> +#define SMC_RMI_VDEV_GET_INTERFACE_REPORT	SMC_RMI_CALL(0x01d0)
+>> +#define SMC_RMI_VDEV_GET_MEASUREMENTS		SMC_RMI_CALL(0x01d1)
+>> +#define SMC_RMI_VDEV_LOCK			SMC_RMI_CALL(0x01d2)
+>> +#define SMC_RMI_VDEV_START			SMC_RMI_CALL(0x01d3)
+>> +
+>> +#define SMC_RMI_VSMMU_EVENT_NOTIFY		SMC_RMI_CALL(0x01d6)
+>> +#define SMC_RMI_PSMMU_ACTIVATE			SMC_RMI_CALL(0x01d7)
+>> +#define SMC_RMI_PSMMU_DEACTIVATE		SMC_RMI_CALL(0x01d8)
+>> +
+>> +#define SMC_RMI_PSMMU_ST_L2_CREATE		SMC_RMI_CALL(0x01db)
+>> +#define SMC_RMI_PSMMU_ST_L2_DESTROY		SMC_RMI_CALL(0x01dc)
+>> +#define SMC_RMI_DPT_L0_CREATE			SMC_RMI_CALL(0x01dd)
+>> +#define SMC_RMI_DPT_L0_DESTROY			SMC_RMI_CALL(0x01de)
+>> +#define SMC_RMI_DPT_L1_CREATE			SMC_RMI_CALL(0x01df)
+>> +#define SMC_RMI_DPT_L1_DESTROY			SMC_RMI_CALL(0x01e0)
+>> +#define SMC_RMI_GRANULE_TRACKING_GET		SMC_RMI_CALL(0x01e1)
+>> +
+>> +#define SMC_RMI_GRANULE_TRACKING_SET		SMC_RMI_CALL(0x01e3)
+>> +
+>> +#define SMC_RMI_RMM_CONFIG_GET			SMC_RMI_CALL(0x01ec)
+>> +
+>> +#define SMC_RMI_RMM_STATE_GET			SMC_RMI_CALL(0x01ee)
+>> +
+>> +#define SMC_RMI_PSMMU_EVENT_CONSUME		SMC_RMI_CALL(0x01f0)
+>> +#define SMC_RMI_GRANULE_RANGE_DELEGATE		SMC_RMI_CALL(0x01f1)
+>> +#define SMC_RMI_GRANULE_RANGE_UNDELEGATE	SMC_RMI_CALL(0x01f2)
+>> +#define SMC_RMI_GPT_L1_CREATE			SMC_RMI_CALL(0x01f3)
+>> +#define SMC_RMI_GPT_L1_DESTROY			SMC_RMI_CALL(0x01f4)
+>> +#define SMC_RMI_RTT_DATA_MAP			SMC_RMI_CALL(0x01f5)
+>> +#define SMC_RMI_RTT_DATA_UNMAP			SMC_RMI_CALL(0x01f6)
+>> +#define SMC_RMI_RTT_DEV_MAP			SMC_RMI_CALL(0x01f7)
+>> +#define SMC_RMI_RTT_DEV_UNMAP			SMC_RMI_CALL(0x01f8)
+>> +#define SMC_RMI_RTT_ARCH_DEV_MAP		SMC_RMI_CALL(0x01f9)
+>> +#define SMC_RMI_RTT_ARCH_DEV_UNMAP		SMC_RMI_CALL(0x01fa)
+>> +#define SMC_RMI_RTT_UNPROT_MAP			SMC_RMI_CALL(0x01fb)
+>> +#define SMC_RMI_RTT_UNPROT_UNMAP		SMC_RMI_CALL(0x01fc)
+>> +#define SMC_RMI_RTT_AUX_PROT_MAP		SMC_RMI_CALL(0x01fd)
+>> +#define SMC_RMI_RTT_AUX_PROT_UNMAP		SMC_RMI_CALL(0x01fe)
+>> +#define SMC_RMI_RTT_AUX_UNPROT_MAP		SMC_RMI_CALL(0x01ff)
+>> +#define SMC_RMI_RTT_AUX_UNPROT_UNMAP		SMC_RMI_CALL(0x0200)
+>> +#define SMC_RMI_REALM_TERMINATE			SMC_RMI_CALL(0x0201)
+>> +#define SMC_RMI_RMM_ACTIVATE			SMC_RMI_CALL(0x0202)
+>> +#define SMC_RMI_OP_CONTINUE			SMC_RMI_CALL(0x0203)
+>> +#define SMC_RMI_PDEV_STREAM_CONNECT		SMC_RMI_CALL(0x0204)
+>> +#define SMC_RMI_PDEV_STREAM_DISCONNECT		SMC_RMI_CALL(0x0205)
+>> +#define SMC_RMI_PDEV_STREAM_COMPLETE		SMC_RMI_CALL(0x0206)
+>> +#define SMC_RMI_PDEV_STREAM_KEY_PURGE		SMC_RMI_CALL(0x0207)
+>> +#define SMC_RMI_OP_MEM_DONATE			SMC_RMI_CALL(0x0208)
+>> +#define SMC_RMI_OP_MEM_RECLAIM			SMC_RMI_CALL(0x0209)
+>> +#define SMC_RMI_OP_CANCEL			SMC_RMI_CALL(0x020a)
+>> +#define SMC_RMI_VSMMU_FEATURES			SMC_RMI_CALL(0x020b)
+>> +#define SMC_RMI_VSMMU_CMD_GET			SMC_RMI_CALL(0x020c)
+>> +#define SMC_RMI_VSMMU_CMD_COMPLETE		SMC_RMI_CALL(0x020d)
+>> +#define SMC_RMI_PSMMU_INFO			SMC_RMI_CALL(0x020e)
+>> +
+>> +#define RMI_ABI_MAJOR_VERSION	2
+>> +#define RMI_ABI_MINOR_VERSION	0
+>> +
+>> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
+>> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+>> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+>> +
+>> +#define RMI_UNASSIGNED			0
+>> +#define RMI_ASSIGNED			1
+>> +#define RMI_TABLE			2
+>> +
+>> +#define RMI_RETURN_STATUS(ret)		((ret) & 0xFF)
+>> +#define RMI_RETURN_INDEX(ret)		(((ret) >> 8) & 0xFF)
+>> +#define RMI_RETURN_MEMREQ(ret)		(((ret) >> 8) & 0x3)
+>> +#define RMI_RETURN_CAN_CANCEL(ret)	(((ret) >> 10) & 0x1)
+> 
+> Use FIELD_GET() and specify masks that define the actual fields.
 
-"The documentation in struct dma_chan notes that *_prep() may be called
-from a completion callback. Since completion callbacks often execute in
-softirq or hardirq contexts, if a thread calls this function from
-process context, local interrupts remain enabled.
+Sure, that makes sense.
 
-If a DMA interrupt fires on the same CPU while the lock is held, the
-completion callback could attempt to call this function again to queue
-the next transfer, leading it to wait on the already-held chan->lock.
+>> +
+>> +#define RMI_SUCCESS			0
+>> +#define RMI_ERROR_INPUT			1
+>> +#define RMI_ERROR_REALM			2
+>> +#define RMI_ERROR_REC			3
+>> +#define RMI_ERROR_RTT			4
+>> +#define RMI_ERROR_NOT_SUPPORTED		5
+>> +#define RMI_ERROR_DEVICE		6
+>> +#define RMI_ERROR_RTT_AUX		7
+>> +#define RMI_ERROR_PSMMU_ST		8
+>> +#define RMI_ERROR_DPT			9
+>> +#define RMI_BUSY			10
+>> +#define RMI_ERROR_GLOBAL		11
+>> +#define RMI_ERROR_TRACKING		12
+>> +#define RMI_INCOMPLETE			13
+>> +#define RMI_BLOCKED			14
+>> +#define RMI_ERROR_GPT			15
+>> +#define RMI_ERROR_GRANULE		16
+>> +
+>> +#define RMI_OP_MEM_REQ_NONE		0
+>> +#define RMI_OP_MEM_REQ_DONATE		1
+>> +#define RMI_OP_MEM_REQ_RECLAIM		2
+>> +
+>> +#define RMI_DONATE_SIZE(req)		((req) & 0x3)
+>> +#define RMI_DONATE_COUNT_MASK		GENMASK(15, 2)
+>> +#define RMI_DONATE_COUNT(req)		(((req) & RMI_DONATE_COUNT_MASK) >> 2)
+>> +#define RMI_DONATE_CONTIG(req)		(!!((req) & BIT(16)))
+>> +#define RMI_DONATE_STATE(req)		(!!((req) & BIT(17)))
+> 
+> FIELD_GET().
+> 
+>> +
+>> +#define RMI_OP_MEM_DELEGATED		0
+>> +#define RMI_OP_MEM_UNDELEGATED		1
+>> +
+>> +#define RMI_ADDR_TYPE_NONE		0
+>> +#define RMI_ADDR_TYPE_SINGLE		1
+>> +#define RMI_ADDR_TYPE_LIST		2
+>> +
+>> +#define RMI_ADDR_RANGE_SIZE_MASK	GENMASK(1, 0)
+>> +#define RMI_ADDR_RANGE_COUNT_MASK	GENMASK(PAGE_SHIFT - 1, 2)
+>> +#define RMI_ADDR_RANGE_ADDR_MASK	(PAGE_MASK & GENMASK(51, 0))
+>> +#define RMI_ADDR_RANGE_STATE_MASK	BIT(63)
+>> +
+>> +#define RMI_ADDR_RANGE_SIZE(ar)		(FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, \
+>> +						   (ar)))
+>> +#define RMI_ADDR_RANGE_COUNT(ar)	(FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, \
+>> +						   (ar)))
+>> +#define RMI_ADDR_RANGE_ADDR(ar)		((ar) & RMI_ADDR_RANGE_ADDR_MASK)
+>> +#define RMI_ADDR_RANGE_STATE(ar)	(FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, \
+>> +						   (ar)))
+>> +
+>> +enum rmi_ripas {
+>> +	RMI_EMPTY = 0,
+>> +	RMI_RAM = 1,
+>> +	RMI_DESTROYED = 2,
+>> +	RMI_DEV = 3,
+>> +};
+>> +
+>> +#define RMI_NO_MEASURE_CONTENT	0
+>> +#define RMI_MEASURE_CONTENT	1
+>> +
+>> +#define RMI_FEATURE_REGISTER_0_S2SZ		GENMASK(7, 0)
+>> +#define RMI_FEATURE_REGISTER_0_LPA2		BIT(8)
+>> +#define RMI_FEATURE_REGISTER_0_SVE		BIT(9)
+>> +#define RMI_FEATURE_REGISTER_0_SVE_VL		GENMASK(13, 10)
+>> +#define RMI_FEATURE_REGISTER_0_NUM_BPS		GENMASK(19, 14)
+>> +#define RMI_FEATURE_REGISTER_0_NUM_WPS		GENMASK(25, 20)
+>> +#define RMI_FEATURE_REGISTER_0_PMU		BIT(26)
+>> +#define RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS	GENMASK(31, 27)
+>> +
+>> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB	BIT(0)
+>> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB	BIT(1)
+>> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB	BIT(2)
+>> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_256	BIT(3)
+>> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_384	BIT(4)
+>> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_512	BIT(5)
+>> +#define RMI_FEATURE_REGISTER_1_MAX_RECS_ORDER	GENMASK(9, 6)
+>> +#define RMI_FEATURE_REGISTER_1_L0GPTSZ		GENMASK(13, 10)
+>> +#define RMI_FEATURE_REGISTER_1_PPS		GENMASK(16, 14)
+>> +
+>> +#define RMI_FEATURE_REGISTER_2_DA		BIT(0)
+>> +#define RMI_FEATURE_REGISTER_2_DA_COH		BIT(1)
+>> +#define RMI_FEATURE_REGISTER_2_VSMMU		BIT(2)
+>> +#define RMI_FEATURE_REGISTER_2_ATS		BIT(3)
+>> +#define RMI_FEATURE_REGISTER_2_MAX_VDEVS_ORDER	GENMASK(7, 4)
+>> +#define RMI_FEATURE_REGISTER_2_VDEV_KROU	BIT(8)
+>> +#define RMI_FEATURE_REGISTER_2_NON_TEE_STREAM	BIT(9)
+>> +
+>> +#define RMI_FEATURE_REGISTER_3_MAX_NUM_AUX_PLANES	GENMASK(3, 0)
+>> +#define RMI_FEATURE_REGISTER_3_RTT_PLAN			GENMASK(5, 4)
+>> +#define RMI_FEATURE_REGISTER_3_RTT_S2AP_INDIRECT	BIT(6)
+>> +
+>> +#define RMI_FEATURE_REGISTER_4_MEC_COUNT		GENMASK(63, 0)
+>> +
+>> +#define RMI_MEM_CATEGORY_CONVENTIONAL		0
+>> +#define RMI_MEM_CATEGORY_DEV_NCOH		1
+>> +#define RMI_MEM_CATEGORY_DEV_COH		2
+>> +
+>> +#define RMI_TRACKING_RESERVED			0
+>> +#define RMI_TRACKING_NONE			1
+>> +#define RMI_TRACKING_FINE			2
+>> +#define RMI_TRACKING_COARSE			3
+>> +
+>> +#define RMI_GRANULE_SIZE_4KB	0
+>> +#define RMI_GRANULE_SIZE_16KB	1
+>> +#define RMI_GRANULE_SIZE_64KB	2
+>> +
+>> +/*
+>> + * Note many of these fields are smaller than u64 but all fields have u64
+>> + * alignment, so use u64 to ensure correct alignment.
+>> + */
+>> +struct rmm_config {
+>> +	union { /* 0x0 */
+>> +		struct {
+>> +			u64 tracking_region_size;
+>> +			u64 rmi_granule_size;
+>> +		};
+>> +		u8 sizer[0x1000];
+> 
+> SZ_4K?
+> 
+>> +	};
+>> +};
+>> +
+>> +#define RMI_REALM_PARAM_FLAG_LPA2		BIT(0)
+>> +#define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
+>> +#define RMI_REALM_PARAM_FLAG_PMU		BIT(2)
+>> +
+>> +struct realm_params {
+>> +	union { /* 0x0 */
+>> +		struct {
+>> +			u64 flags;
+>> +			u64 s2sz;
+>> +			u64 sve_vl;
+>> +			u64 num_bps;
+>> +			u64 num_wps;
+>> +			u64 pmu_num_ctrs;
+>> +			u64 hash_algo;
+>> +			u64 num_aux_planes;
+>> +		};
+>> +		u8 padding0[0x400];
+> 
+> SZ_1K? And similarly all over the shop?
 
-Does this fallback path need to use spin_lock_irqsave() and
-spin_unlock_irqrestore() to safely disable interrupts?
-"
+I'm a bit less sure that makes the code more readable - these structures
+are a bit of a pain because they are somewhat sparse. I've left a
+comment where the beginning of each union is, and personally I find it
+easier to see 0x0 + 0x400 == 0x400 rather than trying to work out what
+SZ_1K is in hex. This is particularly the case in terms of:
 
-chagne in v5
-- remove reduntant lock commments.
-- use kernel doc to descritp API
+> struct rec_params {
+> 	union { /* 0x0 */
+> 		u64 flags;
+> 		u8 padding0[0x100];
+> 	};
+> 	union { /* 0x100 */
+> 		u64 mpidr;
+> 		u8 padding1[0x100];
+> 	};
+> 	union { /* 0x200 */
+> 		u64 pc;
+> 		u8 padding2[0x100];
+> 	};
+> 	union { /* 0x300 */
+> 		u64 gprs[REC_CREATE_NR_GPRS];
+> 		u8 padding3[0xd00];
+> 	};
+> };
 
-chagne in v4
-- use spinlock() to protect config() and prep()
+Where 0xd00 doesn't even have a correspoding SZ_ define.
 
-change in v3
-- new patch
----
- drivers/dma/dmaengine.c   |  2 ++
- include/linux/dmaengine.h | 86 +++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 88 insertions(+)
+The RMM deals with this with macro magic:
 
-diff --git a/drivers/dma/dmaengine.c b/drivers/dma/dmaengine.c
-index 405bd2fbb4a3b..ba29e60160c1a 100644
---- a/drivers/dma/dmaengine.c
-+++ b/drivers/dma/dmaengine.c
-@@ -1099,6 +1099,8 @@ static int __dma_async_device_channel_register(struct dma_device *device,
- 	chan->dev->device.parent = device->dev;
- 	chan->dev->chan = chan;
- 	chan->dev->dev_id = device->dev_id;
-+	spin_lock_init(&chan->lock);
-+
- 	if (!name)
- 		dev_set_name(&chan->dev->device, "dma%dchan%d", device->dev_id, chan->chan_id);
- 	else
-diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
-index defa377d2ef54..6fe46c0c94527 100644
---- a/include/linux/dmaengine.h
-+++ b/include/linux/dmaengine.h
-@@ -322,6 +322,8 @@ struct dma_router {
-  * @slave: ptr to the device using this channel
-  * @cookie: last cookie value returned to client
-  * @completed_cookie: last completed cookie for this channel
-+ * @lock: protect between config and prepare transfer when driver have not
-+ *	  implemented callback device_prep_config_sg().
-  * @chan_id: channel ID for sysfs
-  * @dev: class device for sysfs
-  * @name: backlink name for sysfs
-@@ -341,6 +343,12 @@ struct dma_chan {
- 	dma_cookie_t cookie;
- 	dma_cookie_t completed_cookie;
- 
-+	/*
-+	 * protect between config and prepare transfer because *_prep() may be
-+	 * called from complete callback, which is in GFP_NOSLEEP context.
-+	 */
-+	spinlock_t lock;
-+
- 	/* sysfs */
- 	int chan_id;
- 	struct dma_chan_dev *dev;
-@@ -1068,6 +1076,84 @@ dmaengine_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
- 	return dmaengine_prep_config_sg(chan, sgl, sg_len, dir, flags, NULL);
- }
- 
-+/**
-+ * dmaengine_prep_config_sg_safe - prepare a scatter-gather DMA transfer
-+ *                                 with atomic slave configuration update
-+ * @chan: DMA channel
-+ * @sgl: scatterlist for the transfer
-+ * @sg_len: number of entries in @sgl
-+ * @dir: DMA transfer direction
-+ * @flags: transfer preparation flags
-+ * @config: DMA slave configuration for this transfer
-+ *
-+ * Prepare a DMA scatter-gather transfer together with a corresponding slave
-+ * configuration update in a re-entrant and race-safe manner.
-+ *
-+ * DMA engine drivers may implement the optional
-+ * device_prep_config_sg() callback to perform both the slave configuration
-+ * and descriptor preparation atomically. In this case, the operation is
-+ * fully handled by the DMA engine driver.
-+ *
-+ * If the DMA engine driver does not implement device_prep_config_sg(), falls
-+ * back to calling dmaengine_slave_config() followed by dmaengine_prep_slave_sg().
-+ * The fallback path is protected by a per-channel spinlock to ensure that
-+ * concurrent callers cannot interleave configuration and descriptor preparation
-+ * on the same DMA channel.
-+ *
-+ * Return: Pointer to a prepared DMA async transaction descriptor on success,
-+ * or %NULL if the transfer could not be prepared.
-+ */
-+static inline struct dma_async_tx_descriptor *
-+dmaengine_prep_config_sg_safe(struct dma_chan *chan, struct scatterlist *sgl,
-+			      unsigned int sg_len,
-+			      enum dma_transfer_direction dir,
-+			      unsigned long flags,
-+			      struct dma_slave_config *config)
-+{
-+	struct dma_async_tx_descriptor *tx;
-+	unsigned long spinlock_flags;
-+
-+	if (!chan || !chan->device)
-+		return NULL;
-+
-+	if (!chan->device->device_prep_config_sg)
-+		spin_lock_irqsave(&chan->lock, spinlock_flags);
-+
-+	tx = dmaengine_prep_config_sg(chan, sgl, sg_len, dir, flags, config);
-+
-+	if (!chan->device->device_prep_config_sg)
-+		spin_unlock_irqrestore(&chan->lock, spinlock_flags);
-+
-+	return tx;
-+}
-+
-+/**
-+ * dmaengine_prep_config_single_safe - prepare a single-buffer DMA transfer
-+ *                                     with atomic slave configuration update
-+ * @chan: DMA channel
-+ * @buf: DMA buffer address
-+ * @len: length of the transfer in bytes
-+ * @dir: DMA transfer direction
-+ * @flags: transfer preparation flags
-+ * @config: DMA slave configuration for this transfer
-+ *
-+ * Detail see dmaengine_prep_config_sg_safe().
-+ */
-+static inline struct dma_async_tx_descriptor *
-+dmaengine_prep_config_single_safe(struct dma_chan *chan, dma_addr_t buf,
-+				  size_t len, enum dma_transfer_direction dir,
-+				  unsigned long flags,
-+				  struct dma_slave_config *config)
-+{
-+	struct scatterlist sg;
-+
-+	sg_init_table(&sg, 1);
-+	sg_dma_address(&sg) = buf;
-+	sg_dma_len(&sg) = len;
-+
-+	return dmaengine_prep_config_sg_safe(chan, &sg, 1, dir, flags, config);
-+}
-+
- #ifdef CONFIG_RAPIDIO_DMA_ENGINE
- struct rio_dma_ext;
- static inline struct dma_async_tx_descriptor *dmaengine_prep_rio_sg(
+> struct rmi_rec_params {
+>         /* Flags */
+>         SET_MEMBER_RMI(unsigned long flags, 0, 0x100);  /* Offset 0 */
+>         /* MPIDR of the REC */
+>         SET_MEMBER_RMI(unsigned long mpidr, 0x100, 0x200);      /* 0x100 */
+>         /* Program counter */
+>         SET_MEMBER_RMI(unsigned long pc, 0x200, 0x300); /* 0x200 */
+>         /* General-purpose registers */
+>         SET_MEMBER_RMI(unsigned long gprs[REC_CREATE_NR_GPRS], 0x300, 0x1000); /* 0x300 */
+> };
 
--- 
-2.43.0
+where the offsets are just directly encoded in the macro - but it's not
+an especially robust macro and I'm not convinced it's more readable.
+
+I'm happy to hear other suggestions on how to encode this neatly.
+
+> I haven't checked the details of the encodings (life is too short),
+> but I wonder how much of this exists as an MRS and could be
+> automatically generated?
+
+Automatically generating this would be good - I'm not sure whether we
+have a (public) source available to generate from at the moment. I have
+tried to methodically work through the spec when updating this file, but
+as Gavin has already pointed out there was at least one mistake (in
+currently unused definitions) this time.
+
+Thanks,
+Steve
 
 
