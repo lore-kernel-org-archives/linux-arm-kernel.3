@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D89CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EE7CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gntcCyWrVNPYG8uqabBln7PELV3BpVOXL1VwXsFFeSk=; b=b30FnXgsGNEUYxdu6Eh4JCfNPo
-	vT/fnd36bHQkh/+GffBl+H73d+mMWiFITp1Eap2hjBQBK/TS6/midPrh52DQvkE22C1NVXscFbMNO
-	aAyUA5H6jqm1MkDaPh1h4Lm7oeHX6DvxXRb/+4p3kYL3sC0uKE/FNRVVJT9SyOho9AKm18dX9ihsG
-	iDWQPrS9Zxujbp/8vr5CZwKtbQNPJzwNPANd/xVi4wVBBY4ZMQ7s+uQC/nbbYOexB91x7r+d252U+
-	Uz4EpVbDzhWreNrH2W4JrVnIBzZYXUyPrgdi7IPjBIOFW67z/d0Irfa5na/jTYSF+w1N42xpYReOg
-	ZEc5HNjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f1Dlk7t3CGGAnHWGGA0QsKQQaeWoYRka/VURIXuvDtI=; b=y48Q3+qKKv7RnEGsh4ix0iCR45
+	y8HISytxUPuy/dUJKAJ5sFTC6b8xP422HsN5VSB//FWWCo02Aqz4Q/x9qccp/8DHkFxYIgfA2GrSS
+	bn4MimscUR3o2LNofjLfvXvCftByC7wIHiTeFHkq6F4wAYgvfwlWZBjjIcplbFRqhCugRlwv9Ounq
+	MhviT3gKrdJCHh0pOGLMa7Mhp3pg5YL7IMiR1YS3J5HASM45ebsBpJnyoSlhFrrXuhoaZf7w21LNB
+	POrHS4PRZa2hR+CFBbyGf4lOKZcjgKWjyAqZbFKDCfd4Gb8f/aZaI2pcpqmk2ehjg2rosW/8Eept3
+	Tf3NnhIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5tP-00000008RIZ-0Yj9;
-	Thu, 21 May 2026 16:05:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5tM-00000008RHj-0CBR
+	id 1wQ6BM-00000008TJz-21n2;
+	Thu, 21 May 2026 16:23:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ6BK-00000008TJh-4AWZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:05:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 070B327DC;
-	Thu, 21 May 2026 09:04:54 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5746F3F85F;
-	Thu, 21 May 2026 09:04:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779379499; bh=WrS7fUya0tB6RvYKPlX4u1Tgmf4rlpi3+sFsH/ZRSiI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=trXtDEBhxsLogmubRZ5go2fZdcja2PICflKOjlf7cuyxhtNmTeczOd8o2EYHQLoCf
-	 /fVl1ys0J6bNpE9xgZdwOHtp0IIZP4o4VD+jPwpz8jNSsTVsVCdQyho3IN5OE2rZ5y
-	 BYQLaSzeDj31a293zLownVRWmL6jhLIxtFbHuNSA=
-Message-ID: <88ed47c1-f84f-4aac-8ec7-ffe87a2a8138@arm.com>
-Date: Thu, 21 May 2026 18:04:50 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Niyas Sait <niyas.sait@arm.com>
-Cc: ben.horgan@arm.com, catalin.marinas@arm.com, fenghuay@nvidia.com,
- guohanjun@huawei.com, james.morse@arm.com, jic23@kernel.org,
- lenb@kernel.org, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- lpieralisi@kernel.org, rafael@kernel.org, reinette.chatre@intel.com,
- sudeep.holla@kernel.org, will@kernel.org
-References: <20260429141339.3171205-6-andre.przywara@arm.com>
- <20260518111422.3269965-1-niyas.sait@arm.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260518111422.3269965-1-niyas.sait@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_090500_132649_1CBC9C2F 
-X-CRM114-Status: GOOD (  14.32  )
+	Thu, 21 May 2026 16:23:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE23760098;
+	Thu, 21 May 2026 16:23:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 855761F00A3B;
+	Thu, 21 May 2026 16:23:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779380613;
+	bh=f1Dlk7t3CGGAnHWGGA0QsKQQaeWoYRka/VURIXuvDtI=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc;
+	b=BJnjRqYg0vOY2U8MqPwjcGUSUJMke3BWQGRpCJ8Wp04j3Ew7QBSfu23dGm3f98Yd+
+	 KZvxK3FOXhctSlY0KVHO2xQ6EUUiqMmfNF+9T7shzBOZg5CVuxQRz3T51BO6TM+AVE
+	 nd7yFnZ3OnfVF9UkaJq0DOU6TwmNQG0nrWkqxOdJmmFLZti2355tJqXFIf+BbyNWUt
+	 ABe2BqPG1z/EKWzN8TqoFByJO6PcGe6CXDAnMRyovxJSrB8JkByxZ0yjY4WqOPHqsW
+	 QgIzxOtJldY4HOLBLo7bXRMwF65Mu2u7FXR4JDj9C2c051mXMiVRx7cr7GYsBQrRCq
+	 PbbXElSl3eFSw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 93B4D3930E0B;
+	Thu, 21 May 2026 16:23:44 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 7.1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <fa4afee7-8cb5-4555-b1e0-de376cc901e6@app.fastmail.com>
+References: <fa4afee7-8cb5-4555-b1e0-de376cc901e6@app.fastmail.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <fa4afee7-8cb5-4555-b1e0-de376cc901e6@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.1
+X-PR-Tracked-Commit-Id: 1fcf4149418e7a8f8253dd74059d56340795503f
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: dd3802fc4f6b52201a93330d44981a66bd6ef883
+Message-Id: <177938062308.406099.7581855805759436158.pr-tracker-bot@kernel.org>
+Date: Thu, 21 May 2026 16:23:43 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Niyas,
+The pull request you sent on Wed, 20 May 2026 23:13:35 +0200:
 
-On 5/18/26 13:14, Niyas Sait wrote:
-> Hi Andre,
-> 
-> On Wed, Apr 29, 2026 at 04:13:39PM +0200, Andre Przywara wrote:
-> 
->> +		msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
->> +							 pcc_subspace_id);
->> +		if (IS_ERR(msc->pcc_chan)) {
->> +			pr_err("Failed to request MSC PCC channel\n");
->> +			return (void *)msc->pcc_chan;
->> +		}
->> +
->> +		if (msc->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
->> +			pr_err("MPAM-Fb PCC channel size too small.\n");
->> +			pcc_mbox_free_channel(msc->pcc_chan);
->> +			return ERR_PTR(-ENOMEM);
->> +		}
-> 
-> I think this allocates one PCC channel per MSC instance.
-> 
-> MPAM-Fb spec. allows MPAM manager to support multiple MSCs and does not
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-7.1
 
-Ouch, that's right, the MSC ID parameter in the protocol would be pretty 
-pointless otherwise ;-)
-I guess me testing with just one MSC kind of hides this problem ;-)
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/dd3802fc4f6b52201a93330d44981a66bd6ef883
 
-> require seperate channels per MSC. Each MSC is targeted via its msc_id
-> in the MPAM_MSC_READ/WRITE commands.
-> 
-> So for systems where multiple MSC nodes point to the same PCC subspace,
-> should we share one pcc_mbox_chan and serialize requests through it?
+Thank you!
 
-I think we serialise already, because we have this pcc_chan_lock. This 
-makes sure that each access is done in isolation. But on the setup side 
-we need to indeed make sure to share an already allocated channel, which 
-required some code changes.
-
-Thanks for pointing this out!
-
-Cheers,
-Andre
-
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
