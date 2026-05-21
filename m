@@ -4,140 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570AECD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26177CD5BAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ieF9yw/GSVJ2SDIz62jCug1iEvzwvC7gAvc348sGhpg=; b=bXZ39Fkj7Ss2TVr3BTD9qqnQ2u
-	F1OnsrqbnDEXhUbHw96mOTbsAdZFTb0z4/GQXq/ciQc/Yr3E7C7ieY9AldXq9lroKpnF8yWfXZpbF
-	4CoBSD/Z+Kqvdo4GpgkD9tpHV3RChqLZRnw1DySu9aTwGUIcijnCMoCr5PPxrCvGAHdTS/7RuQBsc
-	Zz7U9fY2YcN3/P5EbLu/qbN/zNs8597SPW/gE6rG/+w9Wb/cJbodY7oqIJNtKt5siuseeQKls3g56
-	OlKDZP/OED0Ivcb5M9udLdZB1xGEBLrT1nPz/u0GgtGfyUEXmuwWOu4GEQJk2hZxs8B4bW5ghTBGO
-	drMzZ5tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MWBYFbSSJIlyYLmg5yu4OD5TUCoM5PbmQ+anX61sM9o=; b=0CQMo/RofiHjd11PjbJM9ZsSvY
+	qb/cIJbKRV8y89HMckzlD/UM8qCNc6Rv0yG7j174n2DE64s65FVV2pjPrUU7tp3JQXP2ExgIu4/49
+	tFXUqSSU1n/bDKLPVoztIv5sfkbmFI8F2h3UkBUZlXh6xKhMqmEHw9mC6bZm8C2MtOP+H8vD96yka
+	vbB+pe9y96UxN90/5s2OzC0Gub+nUOameI8ASSER/ml8ViTkUV7mNjAJA0CAsptD6/t70AG5/l1U5
+	8Au+qCMyZRcxvSzXPTZT9AMehGgJ+Lllwy24Y3SESGQHqp2SR6e4mi+aLs/3M8Tai+UdV9oTCwqJe
+	9Bk49yYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxOu-00000006tWr-3zML;
-	Thu, 21 May 2026 07:01:00 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1wPxUw-00000006uJ9-2yrI;
+	Thu, 21 May 2026 07:07:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxOq-00000006tVT-2CrI
+	id 1wPxUu-00000006uIs-41hQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:00:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=C5no6JEL9awQMgPLk8PD0fjEGgH/Hvk9SlX6W3oo5p1TVHQVN1vX8jSR+ijYPTS0mC/p11HfRWyWdOoyA3Pa8vh4y/dS3TbrTmVBo9PM/slbgNcU4FiCNb54hQpFgIGkwuT74f5LlSiHBS8458Mm2509mdhjXZ1J7JsOuZgZRRb80XSKOSyt37Uhp8CWwMkLuDJRIDX49/hM5QmkBLa9i0o9yzFf3wCqnEr7WYZYhVtSeQR/H5EoIsSPffnBlMH1YenxTb/LAOdPv7xonGpPgDz7SfOlF8JwuD98+3mKRRvM3+km9HsYhbsMO6HLLVCLYQBVaESv35MreA0ttX4gRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ieF9yw/GSVJ2SDIz62jCug1iEvzwvC7gAvc348sGhpg=;
- b=Lx8VeLqa76v1/nnR8+BS1DPE7YOFTXomcgtCFm1x8ZkPs9L/ypYL59hb3TXcB8er0AGmBQm1sqGFomdQHlwsbwLpwFSGbuQHbhgBF40iY7ITKWfyTnstWGHIqDnSfjfWQ9yyhrmx5DY6JpzcrVr6gmeKLsLEhIDrCFx+Z5/UGu/r4XYmgoiqaceR9T74B/WR1Cn+iW0yQEa3FJ74DeW9rWB2lIRIRY2FKDX7/NksMBzZXsvIitz1KQHxH3vkIduvPeOmQvvGti8afrAJROkpUjXdH9BmYbxK59ofbw4HkMxbUCQ8ysEbyKZQonyk35kBKBt9J1kj+ZEc3PX59LuJoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ieF9yw/GSVJ2SDIz62jCug1iEvzwvC7gAvc348sGhpg=;
- b=gOGcn/X5eFzVf5Kd2jufYz179IhdT80DB3x32/oCPAVzqFhl0N103ctNwoh6x5VO3rWeSsKIrwZ5offiTh2ZkKZl+PsJo0OzOgvrHJQBMkEehLf//LDbiHGHHIVXQwWd1dOgRQyuw2a30O5FkP+mD2Ga5H/dRyrINPU4DztTfYy7D+aa+KdnzwTt1lIYDMwNrux3mxQ65mMMug7Kh39K1nqhWseUlu9tAmIbbpu4S9ZOf5LD60zsoJ0ivWYQIslgUkM4QT/6nNvNXEuTxmTubn+AZTg0WV77hKKubtW2joT8ude9VGtIcTBF5gXHsAogPd5zxlbjxnog6ELoyw75UA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com (2603:10b6:5:1d6::14)
- by SJ1PR12MB6339.namprd12.prod.outlook.com (2603:10b6:a03:454::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
- 2026 07:00:38 +0000
-Received: from DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c]) by DM6PR12MB4827.namprd12.prod.outlook.com
- ([fe80::6261:3040:864b:159c%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
- 07:00:38 +0000
-Date: Thu, 21 May 2026 09:00:26 +0200
-From: Andrea Righi <arighi@nvidia.com>
-To: Tejun Heo <tj@kernel.org>
-Cc: David Vernet <void@manifault.com>, Changwoo Min <changwoo@igalia.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev,
-	bpf@vger.kernel.org, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/8] mm: Add ptep_try_set() for lockless empty-slot
- installs
-Message-ID: <ag6tihzwPxXO-2yf@gpd4>
-References: <20260520235052.4180316-1-tj@kernel.org>
- <20260520235052.4180316-2-tj@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520235052.4180316-2-tj@kernel.org>
-X-ClientProxiedBy: ZR0P278CA0060.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:21::11) To DM6PR12MB4827.namprd12.prod.outlook.com
- (2603:10b6:5:1d6::14)
+	Thu, 21 May 2026 07:07:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F11E60172;
+	Thu, 21 May 2026 07:07:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C81111F000E9;
+	Thu, 21 May 2026 07:07:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779347231;
+	bh=MWBYFbSSJIlyYLmg5yu4OD5TUCoM5PbmQ+anX61sM9o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=cmcjuivtodEDwjJC8rUpA/6qgkf1lCqjqZTrLeWsfGt+ox6Shn4WkEajN6s0bpI/V
+	 ujQUDq8LupgVqh9ZpnWDckk1RPiokkEfq9LKp9b33X9bvakp7akVCBQfpIxSKdDRFk
+	 /GCIoGzH5V/GvhkUaLJOLlZi/gpdXiMKX9qWcucs28d+0e3kIL/TFsrkspPKCqCIqi
+	 9zPUOgskBVEfyHl6iaVFWGMPLFMXSKVLGx2RjCg/Plym5u62Z73IVz+xeH3xlieHap
+	 VSAx8mDje3YXlvUG7hksnbRzO/UncZ8YJZt99F3+mb2C5AU8X5w8LYqV7mS0ETLOzz
+	 71WBx1ys+8wqg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wPxUr-00000004h5X-0uwF;
+	Thu, 21 May 2026 07:07:09 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>
+Subject: Re: [PATCH v2 0/2] KVM: arm64: nv: Reduce FP/SVE overhead on exception/exception return
+Date: Thu, 21 May 2026 08:07:06 +0100
+Message-ID: <177934721772.554248.3495223802015312407.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260520085036.541666-1-maz@kernel.org>
+References: <20260520085036.541666-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB4827:EE_|SJ1PR12MB6339:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01e608b9-9721-43c3-5a41-08deb706a997
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|18002099003|22082099003|56012099003|11063799006|3023799007|4143699003;
-X-Microsoft-Antispam-Message-Info: FIbpA3PC6B4Za8eU8HRQiJ0oAIbvHBVWOTzlLZEW/Ii2lW9FqgYn3McySBqZPRUJ8NXV+zih/EFIZ01TH+m8d/oBLHHLOGDqsQze1MC118BYUbsDsSOtM0Nv2XjYMFQB9hd5vyN7xtcjJsb/0zYchS8gkgMWXUypqEW0MEZ1Zrbd2jmGIkXnLzmDHL90zPm0sOJJ9PQT+YjN4LtR72CemNKNgMe50IdCPhrs2hYX3zoMol9gIIIYkEhgQVwwwp24XlioiudiCyhE1+6Btmjf7inZDLv3xYhpiJzyfZErlPmOfFo9vRT9T3/jIbIoyVNLTwSxcYegFHO4ngRN+9JIEzxFXX2lz1yMOCtTFN2eFx6Lpq2a25YN50UMb1Ti2PL5ze9OBixWB2cROwXdc3ccxSMoAxwAvWYEIHSp1wrZqX9pq/nykS6fnjBOPiBPCx2VpP7z3xYuj2K1f/oXgGp2MQOpzsJnTWYAgv47uMF+pnFTkWvT9i7ZNf61RB2Z37QZrj6SynslyGG5GzFU21RDjtk2bjEiKWfDiD2L/k57+Pr72q1cJKnjVHhVYcZ0L7R53UEKd6FjvQj/soaaFEhQpdrS16up1ohenAhDmIuUw6zlzlLE0oTJludzLvr5wCRhTskFbgG467hOiHP7eQ/Qh+ENwv8nL7v7kszzx3ZvXmrZl2TKChDzG/mFG+iP07gp
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4827.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(18002099003)(22082099003)(56012099003)(11063799006)(3023799007)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?spukkrsQ4X40uKakOMC34YE21YSrmmim9I8tKV5wQ1+SHR2DyYIlO4WJIyJH?=
- =?us-ascii?Q?xCTesLEa0OWTT5cBN6HJmau7zY9E58O12Ghw5vMiXq40Hb8Ib+usrK405h7D?=
- =?us-ascii?Q?TGpEj0zuYk4sEbU+Kx2fLxW1WXKrqIFu81u1I3ksfNZlHiuknzZTzAnVZwgw?=
- =?us-ascii?Q?RUw4sSHUaEgSUDOd5Azyzpxz7nVa1zTQ77PDW/G1tjs9gQojsLcKKDn6y5Xy?=
- =?us-ascii?Q?v0d60KCgovv7TK7WzjFlP4amvrljrI9vNK0SdyvfGRBpKuP9Si0z0RDK/WBt?=
- =?us-ascii?Q?a2jy822fyXuDusmkgwSC6CeomFGLB8oqZ0PC9ba4NRn4p/oA4PSkLa2eV9s2?=
- =?us-ascii?Q?DLUJsljGU4DB4/GfNYfrXMnjSvK1lDWVvisTIwSfQVIriq1M5y/s4dvc/Puq?=
- =?us-ascii?Q?p5RCGMGndaKtGeK7NNes8wwoTSMmf7/4BqUEItc+MTGMXVl7GFYE/AG6zr9+?=
- =?us-ascii?Q?s5ijAbK+y+f50RzprUWytibh3VQ6qvv9GGPcJTTcNCIpGRN6hX8f9Kp3KqNr?=
- =?us-ascii?Q?Dpz/BZ2QCKJKphzBvyM5Mg7a2III4Zd37yEmt+8EJK3y7AbSrhy82MZuc+8P?=
- =?us-ascii?Q?aR4XuUyFwh0nn7FrGs9PRC7P74aRV5+D927fMD2qCEqvTAF6xjeKQ0xZ0aH0?=
- =?us-ascii?Q?5sAlGElJiALV0WWrF7R4UtSCNy6RA+4EDYXPWSor1OuwW25AxuztJmZhq08y?=
- =?us-ascii?Q?j/JOtON5lzRz17qSuIIWvgPBtGxiP+FCQMokDyFnobKR6HmZ5khIh/jAMm4R?=
- =?us-ascii?Q?wHmcAZnibzf34Wu0lmfwZOBfOT5YS7G6vIxeFoIRa0oHpP2/ElT8sJAcSiJ1?=
- =?us-ascii?Q?GK9EyvZm6rJlrMkxm1Anlj0zbSJL+P0lNKr8OxvH2QVoYcWuw2S0/7h1uGVy?=
- =?us-ascii?Q?ibhNSnBqxiPYDGc6QaWuy6h7TbFQt7J7nUL6zJUS9XdK22UUA/uol+1MKcuW?=
- =?us-ascii?Q?GS3Z/6hk2LjY5Kl4fQT9XcxTl0cAv22WJDEa7GoZNpWFuFarW1OlyFMweikO?=
- =?us-ascii?Q?j78XUSsqMFjxZcFYE9F7GE0ckyV84OeAqY74CkfytpJvURkEq+lIKsGj7pjX?=
- =?us-ascii?Q?KCOohw2JvElhtbUAkQ9zN+ExD+0hz5eMlDjNWQI3n8PJoHfaS5w9vr8hITq5?=
- =?us-ascii?Q?WeoJHNAwQO8FmOZ7YnDxpe6sUk+kTORszEmXQK22pDznAGlP+VVBxhaKFM9O?=
- =?us-ascii?Q?FA7nicM2Ih5c6LLmnLDfW5ZI8DVh/3SiT0D3xF/SRZfI6yxvd6uynkMgFXUS?=
- =?us-ascii?Q?y6xxkW3a8xiLp2iqjaRcq8PHZRijEqf/IDoH5GRbKgdh/mrUiENqRvMxA4WC?=
- =?us-ascii?Q?CuffGt1b9so5ORvr9VQLXg8wCe3G9ZjAEcA71AoNpHpltdw7CMKnZUbgrAGp?=
- =?us-ascii?Q?dimZqogC7bNFAVY24T/DAVFUN+Zuba3pgyhOETRgK4u2B+aNpjkpQO+MXkR9?=
- =?us-ascii?Q?ys1Qu0hqhbNMvvZsSTUZxPxyRvzvREOwxA1+xoJDC4OYmsqE7al3kkAMPop+?=
- =?us-ascii?Q?x/nhO5clHEo1WuD9xoF7PT2yBpXjGzc9WNO9nMFIaZsyI9lIcqy49npH+VVn?=
- =?us-ascii?Q?O4bkVXxWRHnUDEP5wR5uMWDzMnjR4bx2XpPKKX8Waay+TZY0LM4QX0787eIl?=
- =?us-ascii?Q?wveZYa82luiGbShGbu3o0B146Q7cnnOIiTuwvHXgRtPbP8UzD2ZW+n5iDTJK?=
- =?us-ascii?Q?DbcID2xABhK3FBrc0aPKj0MmDnZHRDX+8nVM2bh0G0VrNs2m?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01e608b9-9721-43c3-5a41-08deb706a997
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4827.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:00:37.8671
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aZbzA9cjuVXpzNruf7K5xjlGjAnMcWKfhTlkc2ZR0dnYWTWXW2oiRP4m7/DAH2Vv2/3HdGKlFXO3ooMDJaE7Aw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6339
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_000056_609188_3263287B 
-X-CRM114-Status: GOOD (  28.98  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, maz@kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,151 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tejun,
-
-On Wed, May 20, 2026 at 01:50:45PM -1000, Tejun Heo wrote:
-> Add ptep_try_set(ptep, new_pte): atomically set *ptep to new_pte iff it is
-> currently pte_none(). Returns true on success, false if the slot was already
-> populated or the arch has no implementation.
+On Wed, 20 May 2026 09:50:34 +0100, Marc Zyngier wrote:
+> This is the second version of this short series optimising away a lot
+> of unnecessary FPSIMD/SVE context switch with NV.
 > 
-> The intended caller is the upcoming bpf_arena kernel-side fault recovery
-> path. The install runs from a page fault that can be nested under locks
-> held by the faulting kernel caller (e.g. a BPF program holding
-> raw_res_spin_lock_irqsave on its arena's spinlock), so trylock-and-retry
-> would A-A deadlock. Lock-free cmpxchg is the only viable option, which
-> constrains this helper to special kernel page tables where concurrent
-> writers cooperate via atomic accessors.
+> * From v1 [1]:
 > 
-> The generic version in <linux/pgtable.h> returns false. x86 and arm64
-> override with try_cmpxchg-based implementations on the underlying pteval.
-> Other architectures get the false stub - the callers there already fall
-> through to oops.
+>   - New commit message on patch #2 (Mark)
 > 
-> v2: Rename to ptep_try_set(). Tighten kerneldoc for kernel-PTE use.
->     (David, Alexei)
-> 
-> Suggested-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Suggested-by: Alexei Starovoitov <ast@kernel.org>
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> ---
->  arch/arm64/include/asm/pgtable.h |  8 ++++++++
->  arch/x86/include/asm/pgtable.h   |  8 ++++++++
->  include/linux/pgtable.h          | 26 ++++++++++++++++++++++++++
->  3 files changed, 42 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 9029b81ccbe8..a129be91ef2c 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1830,6 +1830,14 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
->  	return __ptep_get_and_clear(mm, addr, ptep);
->  }
->  
-> +static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
-> +{
-> +	pteval_t old = 0;
-> +
-> +	return try_cmpxchg(&pte_val(*ptep), &old, pte_val(new_pte));
-> +}
-> +#define ptep_try_set ptep_try_set
-> +
->  #define test_and_clear_young_ptes test_and_clear_young_ptes
->  static inline bool test_and_clear_young_ptes(struct vm_area_struct *vma,
->  		unsigned long addr, pte_t *ptep, unsigned int nr)
-> diff --git a/arch/x86/include/asm/pgtable.h b/arch/x86/include/asm/pgtable.h
-> index 13e3e9a054cb..047e273a4eab 100644
-> --- a/arch/x86/include/asm/pgtable.h
-> +++ b/arch/x86/include/asm/pgtable.h
-> @@ -1284,6 +1284,14 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm,
->  	} while (!try_cmpxchg((long *)&ptep->pte, (long *)&old_pte, *(long *)&new_pte));
->  }
->  
-> +static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
-> +{
-> +	pte_t old_pte = __pte(0);
-> +
-> +	return try_cmpxchg((long *)&ptep->pte, (long *)&old_pte, *(long *)&new_pte);
-> +}
+> [...]
 
-Minor nit (feel free to ignore), on x86 pte_none() is defined as:
+Applied to next, thanks!
 
-static inline int pte_none(pte_t pte)
-{
-	return !(pte.pte & ~(_PAGE_KNL_ERRATUM_MASK));
-}
+[1/2] KVM: arm64: nv: Track L2 to L1 exception emulation
+      commit: 27ae400e6e888153ded1ad807a94a94e506dd2df
+[2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
+      commit: 435c466196148ae116f616e6cda97c33281defc2
 
-With:
+Cheers,
 
-#if defined(CONFIG_X86_64) || defined(CONFIG_X86_PAE)
-#define _PAGE_KNL_ERRATUM_MASK (_PAGE_DIRTY | _PAGE_ACCESSED)
-#else
-#define _PAGE_KNL_ERRATUM_MASK 0
-#endif
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
-If that mask has the D/A bits set, try_cmpxchg(..., &old=0, ...) will reject a
-PTE that has only those bits set, even though pte_none() would return true. I
-think this is fine for the bpf_arena use case, since hardware shouldn't set A/D
-for fresh pages that the BPF prog hasn't touched.
 
-Maybe it's worth adding a comment (something along these lines)?
-
- /*
-  * Note: strictly-zero compare is narrower than pte_none() (see pte_none() and
-  * _PAGE_KNL_ERRATUM_MASK), but the gap is harmless in practice: HW shouldn't
-  * set _PAGE_DIRTY | _PAGE_ACCESSED bits on entries the caller never touched.
-  */
-
-Other than that, looks good to me.
-
-Reviewed-by: Andrea Righi <arighi@nvidia.com>
-
-Thanks,
--Andrea
-
-> +#define ptep_try_set ptep_try_set
-> +
->  #define flush_tlb_fix_spurious_fault(vma, address, ptep) do { } while (0)
->  
->  #define  __HAVE_ARCH_PMDP_SET_ACCESS_FLAGS
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index cdd68ed3ae1a..d68374f404c1 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -1036,6 +1036,32 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addres
->  }
->  #endif
->  
-> +#ifndef ptep_try_set
-> +/**
-> + * ptep_try_set - atomically set an empty kernel PTE
-> + * @ptep: page table entry
-> + * @new_pte: value to install
-> + *
-> + * Atomically set *@ptep to @new_pte iff *@ptep is pte_none(). Return
-> + * true on success, false if the slot was already populated or the
-> + * arch has no implementation.
-> + *
-> + * For special kernel page tables only - never user page tables. The
-> + * caller must prevent concurrent teardown of @ptep and must accept
-> + * that other writers may race. Concurrent clearers must use
-> + * ptep_get_and_clear() so racing accesses agree on the outcome.
-> + *
-> + * Architectures opt in by providing a cmpxchg-based override and
-> + * defining ptep_try_set as an identity macro. The generic stub
-> + * returns false, which is correct for callers that fall through to
-> + * oops on failure.
-> + */
-> +static inline bool ptep_try_set(pte_t *ptep, pte_t new_pte)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->  #ifndef wrprotect_ptes
->  /**
->   * wrprotect_ptes - Write-protect PTEs that map consecutive pages of the same
-> -- 
-> 2.54.0
-> 
 
