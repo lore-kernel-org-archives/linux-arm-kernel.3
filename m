@@ -4,125 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A7CDCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 18:57:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 239A1CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 19:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hQPUvw1EVv3wMo+5XCqi3dBxzVExXxLWd6AksmEn/LY=; b=G8kX5X209fzKSptRjuqpKSc9CN
-	8Jdf9WIhE2Mk8VDtiWeF7tIDAzDHbEX7byNAV84DLuMe5p1ha68196CMBQfnSYJxi9d5eyBaFwtt0
-	GsH79YO/jcu4Cy8Vaua9/su7eHHjN/rg/Ci3z0Nua5oAG63mEXkpBfIRyCVZL6CnAzbSBAObTcrrA
-	NzeuOcjXeJuUzlW8DOG656ulyNWJg1HBq7LVJrYcembsbzZmE/cTAXAP9PSBjXSLDHzU/C0a2bVSv
-	4lGoxvt0BZ0SO0qRY1CQQgE0XXZGy0rWGNxd4QVDN5/3xTfPwFV2taqb8VGRyhD9i3FcDqpnJyOpH
-	GulCTuMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WlZfUQJHJCha00Uyb2Q/Ip5oQKZI6jLstLyrJNQoP2Q=; b=kb5KRWlFgF5jbL8Zf3p26io0Pn
+	VrrQjCAuRmKL8jJdhvpAY/ZE7SaoCDreVTww9Nb/qqnh4M2frtuAUtPHk/b+8grhr5rmx8hymj1o6
+	GeUr/aEjRot9MWHXVXEUF1ErRamCYWjry9UlwVRLLeBF73nTexwA4Af2IEDxVWjho+lFJDWbPhoJ5
+	tF/GxsP9zCn32SUvCxOYcF1qdPO2eHbcSlaPA16WDEt8rqscKJ3pGYHGf0oAZpSvxxksJ5p+JjDDv
+	9ogFJKogetOsJblMNGd8Nnsy7y/DEZoHTxtS4HzVuQnGwOnHcLJXYmiprAE4rOiB0UvRvVkG7njXJ
+	DhKEHF6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8aB-00000008qYB-2vTL;
-	Thu, 21 May 2026 18:57:23 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ8a8-00000008qXO-3DKL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 18:57:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EYikIAkGcIWcuoKlPetK0aqZyiDtzb7jQG5o/KJkDDcywF20sPwghwBKmGOQozQlrlTyK67G0HcGVRf9Bfi1tJ7vEtPFyVP+I4Ibd9n07LVAP73IU170W5s/HvgaMKfbZJ5TmzYmg3SVz+APhq/yzqG5TPZk8oyHvgMkxMjrjK0g+q7V5ixp1YV81X4jOcz6WyRnlEoH/dAX0G8k10HE1vzostnXzXmO+LS+eej8yeyJa1U9CrlyuolW8mFgbTAlGrkqB2LvyypWw74AQXbbtSXYxeSXurvSRsze/n2e80wfK0WuBYXFz6diybsgmCeNu+p4Jn2CmBjHZzEhOBmsjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hQPUvw1EVv3wMo+5XCqi3dBxzVExXxLWd6AksmEn/LY=;
- b=g1GjVfTz2O5J1J/53/Nr3qGTpvRhL5LVdu6MmYwMAGGHPMPEU9uWKfCm/dvVMCf1XAEJV77vc5XEGiAg99Ppo66dpnyjjsiPrgPVhAjlqReWlQG81KVN+WeTwM/9yT2dmbSzdHUVps1qb6tF7EXU6ZrlR6dTZhh686NXllWmC7flcx7R3XsfDEy2qA3lNdLHrzAzh53sGE+3hvZA0C/nw+GwD3zouvAJSXVrDAHbsBgTYYk3Pgon0B47rgz/AQvHLV8tlqW7wLwuVD8WSB/jvsbFuEHY16//kjf7Dq9a16glWNdUlulvBTCfPXyCmSSUGf+yzPrT6kMhuK6pDunwHg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hQPUvw1EVv3wMo+5XCqi3dBxzVExXxLWd6AksmEn/LY=;
- b=TR5O7iXO41Iig5fpd4aAwAnn7Ftjl74Mgz3TxQI5P2N68E9X/2icZIAXWX7sh2KoedOe4DkyIAZw8DKWrDpqzTmdotSPvI9l5ttthbYXY2Y73Pg+KoBy1jxcXSYurwPojjqJamiVGZ0rOk87yU+K+ntUyxV8KlQBXb8AY05tqQ1b21bKdoAw/cbSZNf2AFRN5QENExYibcxKPXSvKIstXzH1ru44qsQP9thb1LXJZJyx2CtCd4UpW/sOIIAnH9BSS4EOYYoJ5if6wEfEU1Sd3YpRZ4x3Sd2INyo05h2PDrGQWzq/ndv8U7k1EaKnlDL5zcIfDDmCyWUkNLdzXFrb5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
- by DU6PR04MB11159.eurprd04.prod.outlook.com (2603:10a6:10:5c4::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
- 2026 18:57:15 +0000
-Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
- ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
- ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.21.0048.016; Thu, 21 May 2026
- 18:57:15 +0000
-Date: Thu, 21 May 2026 14:56:48 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Ronaldo Nunez <rnunez@baylibre.com>
-Cc: linux-pwm@vger.kernel.org,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pwm: imx27: Fix variable truncation in .apply()
-Message-ID: <ag9VcFoodZjxUsBg@lizhi-Precision-Tower-5810>
-References: <20260521000054.4790-1-rnunez@baylibre.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260521000054.4790-1-rnunez@baylibre.com>
-X-ClientProxiedBy: PH7P221CA0042.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:33c::10) To PA4PR04MB9366.eurprd04.prod.outlook.com
- (2603:10a6:102:2a9::8)
+	id 1wQ8rF-00000008sUY-2sy2;
+	Thu, 21 May 2026 19:15:01 +0000
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ8rD-00000008sTt-3Bac;
+	Thu, 21 May 2026 19:14:59 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	=?UTF-8?q?Stefan=20D=C3=B6singer?= <stefandoesinger@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-doc@vger.kernel.org
+Subject: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
+Date: Thu, 21 May 2026 12:14:57 -0700
+Message-ID: <20260521191458.177046-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|DU6PR04MB11159:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b9681d3-bc80-436d-6430-08deb76abcc6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|366016|1800799024|19092799006|38350700014|6133799003|11063799006|18002099003|22082099003|56012099003;
-X-Microsoft-Antispam-Message-Info: YeDz4+YaGBvLHdNkJEiBJwbo+pRY+1G+YYQNadIG966tRgFseKkc+H0oOyP8liZTxqIZ9mchDgC3ttNJQcpDDRhO4wwBkwA++repejM+CAfzON5ZQOhaVnBJknGfzuuzOqjHtyoDiN4HQXG0qrdukklAPKx0r3hR+9RImACyjjHuSmcujOqRYj5pnfAn0sXL7ch9Tw+ijFfwf5/Hbr08Crlf+ES3tEJwQzJDrsoODaEhwONIfJbu1JogH+3TWDR0J5jNrH3KIuxy2eOyosG5iicES1V3WUlHvbfbU03m8Ivc6JFg7oXNlXWg4cKapNPTxDT25U6xYWrkqWmbumFaNnuny6uAMfUtkOC+iXf1icMP5HFDTkewXcy4RQ/MUlCw+emmZaT6gG/0YvMI9+0ZYrZ4L9L5MMcaWmEfOtpbUM5ouGoFI6k6tLWFia8Efs2u3pjW4J/uW8Ji6DE0x0+LY/qzgkBy0TFdhZKOPJfcNfkGfUoLOVuEndxjySUjidTqFa8lkHw+fEIcCZ1MR6kzlUaxVAuwj62mnolgtbdXafvTKOQasz/xLuOIdi/oZREMfgJKDVHYJLHq+vqEYqYm2vQW96UaQ/fq6Zvp0JH9nAnhZohegX5FELeQtLIOEYHqJI/uDffFwmZ3JDpTlE9PcN+JYBjZ5zrv98UDI/zZx99BO+py5A097iZQXFs+l9a73oLFdnFHP5Bivdm64H3+fnxm+hkESQQ5DAHHu5+rnlR/ASBQuQBIYR9CVvvymbve
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(366016)(1800799024)(19092799006)(38350700014)(6133799003)(11063799006)(18002099003)(22082099003)(56012099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+8F1D83dJSfbtYS5YfZpCxeWmjfx52zXwxhyq2yUgDU2UqKiABouWlRIRzdy?=
- =?us-ascii?Q?uEM53lWxHmh7CNaB5fZ/idZGHxIgV+DhrE43C/kRZrGL00Nd6SiOBILdxMhd?=
- =?us-ascii?Q?o9xeU18jlgvyCuNs7B/LpGJCYXi+GzRHfqNZxJnRxp33D5yF/4ir1IAxVj9o?=
- =?us-ascii?Q?GPmvFw7BVnkM3zstueZ7Am+vzuN2KdgoJnL+VuVVtolWdL5yPwFH1BbQ98hR?=
- =?us-ascii?Q?bGgILVNJKudbufFPuVeFxD0urZke8HWzNKVGWTPoTwqx3afLaQdofcXUX+hl?=
- =?us-ascii?Q?wJmkWSxsFww06my59XI6n+mmiGCZZ5jaqkMn22V9Ye/CetWZ/THH8DK4sDka?=
- =?us-ascii?Q?88/k1Lq3YRNcyvGwWy+oB77mTKDTpy75wJtryke5qhqfpcSwTTu5hMmm5Q3J?=
- =?us-ascii?Q?6o53hbiD2LaxlrXZkLokGsjmyA1ee7gm8lJ/KJrE3nYdnvB1d7GmZnHd1lUJ?=
- =?us-ascii?Q?LCy8fmu2wjrrzpszWJB4p59kogtV/8AMyxYzvQwlbTdcPbK0pJoKB0rm73Qq?=
- =?us-ascii?Q?tYmzmaD/4mbqOvn4cWR8I3qxcDYGUEyTud4plDFJV2vx77ecY3ueh+0bZHrd?=
- =?us-ascii?Q?XI/pMo2RmRkpPLndHSJgqYCe3tK5xBiS6PZcaC3ZCiVM1AStIb4eNxKomnqB?=
- =?us-ascii?Q?BCVaKVX5oPJtgxUrj/zBYhh7kKiOkhVQiraFCgki1VOz/54Aa+bdTAW7ycV1?=
- =?us-ascii?Q?l1sJ0fzqaLfhMeX4r1C4nePk7ZNF7xGpMAKb+ikhwUH/zRehOJAyggkIW380?=
- =?us-ascii?Q?jWVRQPRwo4ZORsfvyeyz52WeGDkJ9EZ8n73VrHR/66glBviaWkY96hV9gJx0?=
- =?us-ascii?Q?iPRNKZ2lXsVwdW7Dso2Cheqik5jVmdlr6EoQZGy2nm60gEEvEA/4LxhsTV/m?=
- =?us-ascii?Q?D/638gBNcg0wavr6z9RmfWPceRkVOfck8p8zCjqJPJLHIpjhNy3tCBf9xIYW?=
- =?us-ascii?Q?ZOSN+gXG/hyexnn/hMVchuuDdeN+IgY+l5hIx4MH1FXSyJeJijtgtUuPKQno?=
- =?us-ascii?Q?8J2bLTU1BSxSpecnPCgLDOu0TdpJoUjm0TIB4vy6mDTjBPckglasXO3PaLWH?=
- =?us-ascii?Q?sPHivYfDqbq7+6UzECm2UHL/gbCLKNtdREhU0QdeluYdPTtIGy3svTBb2gZd?=
- =?us-ascii?Q?FeYHXBql/TrhD6scSy2YTr3ysOhghmaf+Vh0aWyvjI/0jgrhWjf+ekJhhFgL?=
- =?us-ascii?Q?9O4Rwe/8MYMAJl3OiRe93YFveGMZhm5ejTy82CwbGw4gKLTLQ3rIZhBbAkpz?=
- =?us-ascii?Q?VuYN7dEpRyOIzO2EuNDcr7PfftvpH+W3niYIR+qQdGNj5Y8dloYy5wRxrumr?=
- =?us-ascii?Q?wo7KubA0glVyC7tuZqXQOdScZW69ovkKcqFCJ6bUqQlJuMpQl0I/eSqylgLZ?=
- =?us-ascii?Q?6pyf3pF66sPMYP7Vixi9bymcHp3lMbMXSKxlZOTx4Lgj5E6tM0/fC7dw/g0n?=
- =?us-ascii?Q?Q1t7rW7igw9Z3C68Pe0ugP8ZiEPGrPfl1kP79/rWbqufKfcfRQPNalWBAc75?=
- =?us-ascii?Q?gZJ1xM6T42nmR8baGRu4qv0dmKYx2TFdlkchnOY4uEh3A3LZowMN4yZaO0k3?=
- =?us-ascii?Q?FSwHNq0O8V8IgI11kGEyhLkfa/hyr0iWaHzdebnD4XQFm8GwU6BCd22Abf/w?=
- =?us-ascii?Q?9QNOEAgNuOjYiYH4C3J/AVo/huxLDul+q1xE6IcEZEPbkUn6tSMEoq5yTUKm?=
- =?us-ascii?Q?N7tHW8DlUwcRMnl9xKIrXaBZs3eZ5N8IBmzbEmeWpXb3aU8t?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b9681d3-bc80-436d-6430-08deb76abcc6
-X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 18:57:15.0967
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ydTcogGY7JNR6ZWYTb0zwZNy5LPSKV9uxGMf5UbVq6cHEh56dwzFIsBp0eG8HXqYoTyL+1P1r3B92QEWQvmQiQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11159
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_115720_813748_0E7AB1C8 
-X-CRM114-Status: GOOD (  23.79  )
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,76 +57,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 20, 2026 at 09:00:54PM -0300, Ronaldo Nunez wrote:
-> This patch fixes a variable truncation when calculating period in
+Fix multiple documentation build warnings.
+Improve punctuation and formatting of the rendered output.
 
-Remove "This Patch" just
+Documentation/arch/arm/zte/zx297520v3.rst:66: WARNING: Title underline too short.
+ 3. Building for built-in U-Boot
+ --------------------------- [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:90: WARNING: Enumerated list ends without a blank line; unexpected unindent. [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:116: WARNING: Inline literal start-string without end-string. [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:137: ERROR: Unexpected indentation. [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:138: WARNING: Block quote ends without a blank line; unexpected unindent. [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:164: WARNING: Inline literal start-string without end-string. [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:164: WARNING: Inline interpreted text or phrase reference start-string without end-string. [docutils]
+Documentation/arch/arm/zte/zx297520v3.rst:7: WARNING: Document or section may not begin with a transition. [docutils]
 
-Fix a variable 'tmp' truncation when calculating period in
+Fixes: 220ae5d36dba ("ARM: zte: Add zx297520v3 platform support")
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+---
+Cc: Stefan Dösinger <stefandoesinger@gmail.com>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-doc@vger.kernel.org
 
-> microseconds as part of the solution for the ERR051198 in .apply()
-> callback.
->
-> The problem was identified when reducing the duty cycle through sysfs,
-> with enable set to 1. The condition to fix errata ERR051198 for period
-> smaller than 2us is always being met, due to a truncation on tmp,
-> variable from .apply() callback, caused by the multiplication of
-> NSEC_PER_SEC, PWMPR (period register) and the prescaler which can easily
-> overflow u32.
+ Documentation/arch/arm/zte/zx297520v3.rst |  119 +++++++++-----------
+ 1 file changed, 59 insertions(+), 60 deletions(-)
 
-It'd better provide actual example value for PWMPR and prescaler when
-overflow happen.
-
-> Declaring tmp as u64 makes it large enough to accommodate
-> larger multiplication results.
->
-> Testing:
-> - Hardware: Udoo Neo Extended with iMX6SoloX SoC
-> - Tools: Verified with a logic analyzer
-
-needn't this part.
-
-Frank
->
-> Signed-off-by: Ronaldo Nunez <rnunez@baylibre.com>
-> ---
->  drivers/pwm/pwm-imx27.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/pwm/pwm-imx27.c b/drivers/pwm/pwm-imx27.c
-> index 3d34cdc4a3a5..c8b801fcb525 100644
-> --- a/drivers/pwm/pwm-imx27.c
-> +++ b/drivers/pwm/pwm-imx27.c
-> @@ -200,7 +200,7 @@ static void pwm_imx27_wait_fifo_slot(struct pwm_chip *chip,
->  static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
->  			   const struct pwm_state *state)
->  {
-> -	unsigned long period_cycles, duty_cycles, prescale, period_us, tmp;
-> +	unsigned long period_cycles, duty_cycles, prescale, period_us;
->  	struct pwm_imx27_chip *imx = to_pwm_imx27_chip(chip);
->  	unsigned long long c;
->  	unsigned long long clkrate;
-> @@ -208,6 +208,7 @@ static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
->  	int val;
->  	int ret;
->  	u32 cr;
-> +	u64 tmp;
->
->  	clkrate = clk_get_rate(imx->clks[PWM_IMX27_PER].clk);
->  	c = clkrate * state->period;
-> @@ -249,6 +250,11 @@ static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
->  	val = readl(imx->mmio_base + MX3_PWMPR);
->  	val = val >= MX3_PWMPR_MAX ? MX3_PWMPR_MAX : val;
->  	cr = readl(imx->mmio_base + MX3_PWMCR);
-> +
-> +	/*
-> +	 * tmp stores period in nanoseconds. Result fits in u64 since
-> +	 * val <= 0xfffe and prescaler in [1, 0x1000].
-> +	 */
->  	tmp = NSEC_PER_SEC * (u64)(val + 2) * MX3_PWMCR_PRESCALER_GET(cr);
->  	tmp = DIV_ROUND_UP_ULL(tmp, clkrate);
->  	period_us = DIV_ROUND_UP_ULL(tmp, 1000);
-> --
-> 2.53.0
->
+--- linux-next.orig/Documentation/arch/arm/zte/zx297520v3.rst
++++ linux-next/Documentation/arch/arm/zte/zx297520v3.rst
+@@ -4,15 +4,13 @@
+ Booting Linux on ZTE zx297520v3 SoCs
+ ====================================
+ 
+-...............................................................................
+-
+ Author:	Stefan Dösinger
+ 
+ Date  : 27 Jan 2026
+ 
+ 1. Hardware description
+ ---------------------------
+-Zx297520v3 SoCs use a 64 bit capable Cortex-A53 CPU and GICv3, although they
++Zx297520v3 SoCs use a 64-bit capable Cortex-A53 CPU and GICv3, although they
+ run in arm32 mode only. The CPU has support EL3, but no hypervisor (EL2) and
+ it seems to lack VFP and NEON.
+ 
+@@ -27,7 +25,7 @@ Some devices, especially the stationary
+ Ethernet switch.
+ 
+ Usually the devices have LEDs for status indication, although some have SPI or
+-I2C connected displays
++I2C connected displays.
+ 
+ Some have an SD card slot. If it exists, it is a better choice for the root
+ file system because it easily outperforms the built-in NAND.
+@@ -39,7 +37,7 @@ IRQs on either ends.
+ 
+ There is also a Cortex M0 CPU, which is responsible for early HW initialization
+ and starting the Cortex A53 CPU. It does not have any essential purpose once
+-U-Boot is started. A SRAM-Based handover protocol exists to run custom code on
++U-Boot is started. An SRAM-based handover protocol exists to run custom code on
+ this CPU.
+ 
+ 2. Booting via USB
+@@ -63,13 +61,13 @@ Contains an U-Boot version that can be u
+ CPU and interrupt controller to comply with Linux's booting requirements.
+ 
+ 3. Building for built-in U-Boot
+----------------------------
++-------------------------------
+ The devices come with an ancient U-Boot that loads legacy uImages from NAND and
+ boots them without a chance for the user to interrupt. The images are stored in
+ files ap_cpuap.bin and ap_recovery.bin on a jffs2 partition named imagefs,
+ usually mtd4. A file named "fotaflag" switches between the two modes.
+ 
+-In addition to the uImage header, those files have a 384 byte signature header,
++In addition to the uImage header, those files have a 384-byte signature header,
+ which is used for authenticating the images on some devices. Most devices have
+ this authentication disabled and it is enough to pad the uImage files with 384
+ zero bytes.
+@@ -88,7 +86,7 @@ So to build an image that boots from NAN
+ 6) dd if=/dev/zero bs=1 count=384 of=ap_recovery.bin
+ 7) cat uimg >> ap_recovery.bin
+ 8) Place this file onto imagefs on the device. Delete ap_cpuap.bin if the
+-free space is not enough.
++   free space is not enough.
+ 9) Create the file fotaflag: echo -n FOTA-RECOVERY > fotaflag
+ 
+ For development, booting ap_recovery.bin is recommended because the normal boot
+@@ -113,55 +111,56 @@ the binary blobs.
+ 
+ The assembly code below is given as an example of how to achieve this:
+ 
+-```
+-#include <linux/irqchip/arm-gic-v3.h>
+-#include <asm/assembler.h>
+-#include <asm/cp15.h>
+-
+-@ Detect sane bootloaders and skip the hack
+-ldr	r3, =0xf2000000
+-ldr	r3, [r3]
+-ldr	r4, =(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
+-cmp	r3, r4
+-beq	skip_zx_hack
+-@ This allows EL1 to handle ints hat are normally handled by EL2/3.
+-ldr	r3, =0xf2000000
+-str     r4, [r3]
+-
+-cps     #MON_MODE
+-
+-@ Work in non-secure physical address space: SCR_EL3.NS = 1. At least the UART
+-@ seems to respond only to non-secure addresses. I have taken insipiration from
+-@ Raspberry pi's armstub7.S here.
+-mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
+-					@ Allow hypervisor call.
+-mcr     p15, 0, r3, c1, c1, 0
+-
+-@ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-low.
+-ldr	r3, =0xF22020a8
+-ldr	r4, =0x50
+-str	r4, [r3]
+-ldr	r3, =0xF22020ac
+-ldr	r4, =0x14
+-str	r4, [r3]
+-
+-@ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable system reg
+-@ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
+-mrc	p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
+-orr	r3, #0x9                        @ FIXME: No defines for SRE_EL3 values?
+-mcr	p15, 6, r3, c12, c12, 5
+-mrc	p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
+-orr	r3, #(ICC_SRE_EL1_SRE)
+-mcr	p15, 0, r3, c12, c12, 5
+-
+-@ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register access
+-@ for EL2.
+-mrc	p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
+-orr	r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
+-mcr	p15, 4, r3, c12, c9, 5
+-isb
+-
+-@ Back to SVC mode
+-cps	#SVC_MODE
+-skip_zx_hack:
+-```
++::
++
++ #include <linux/irqchip/arm-gic-v3.h>
++ #include <asm/assembler.h>
++ #include <asm/cp15.h>
++
++ @ Detect sane bootloaders and skip the hack
++ ldr	r3, =0xf2000000
++ ldr	r3, [r3]
++ ldr	r4, =(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
++ cmp	r3, r4
++ beq	skip_zx_hack
++ @ This allows EL1 to handle ints hat are normally handled by EL2/3.
++ ldr	r3, =0xf2000000
++ str     r4, [r3]
++
++ cps     #MON_MODE
++
++ @ Work in non-secure physical address space: SCR_EL3.NS = 1. At least the UART
++ @ seems to respond only to non-secure addresses. I have taken insipiration from
++ @ Raspberry pi's armstub7.S here.
++ mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
++ @ Allow hypervisor call.
++ mcr     p15, 0, r3, c1, c1, 0
++
++ @ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-low.
++ ldr	r3, =0xF22020a8
++ ldr	r4, =0x50
++ str	r4, [r3]
++ ldr	r3, =0xF22020ac
++ ldr	r4, =0x14
++ str	r4, [r3]
++
++ @ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable system reg
++ @ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
++ mrc	p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
++ orr	r3, #0x9                        @ FIXME: No defines for SRE_EL3 values?
++ mcr	p15, 6, r3, c12, c12, 5
++ mrc	p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
++ orr	r3, #(ICC_SRE_EL1_SRE)
++ mcr	p15, 0, r3, c12, c12, 5
++
++ @ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register access
++ @ for EL2.
++ mrc	p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
++ orr	r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
++ mcr	p15, 4, r3, c12, c9, 5
++ isb
++
++ @ Back to SVC mode
++ cps	#SVC_MODE
++ skip_zx_hack:
++
 
