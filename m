@@ -4,105 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 911B0CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28233CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BMlAK2z/O8nXAXVGpgv2TVPDYvKc2M33iVdUjIQEOVI=; b=l97aW0aZkTCNscHF2uzCrurteN
-	s3nJ+iFz/hRNFTFLzCyBldLSzRp/awP2CVBgFEKUPqK2N0pvjUcUjAx/wmN96efpnY4cxRWNPrm3m
-	j6Lb/Isp7fqMURxCdgFZhefYnCY/rUVRvxm1kMQamZGUuWlcmCMZrCbhL6j5A4kklwluQM3GoBS6e
-	r3/tpQlnbwS9bmXBj6AoJwLYMGQE0kNS22uK1xZCqg9U+TWE7ucWw9BpgLx80JFFMMDn3mXDkjHmJ
-	5gcwVvPRVE/srj3tq9Noo6qcg7v8Q64GTe4RY6EGQWAe681nAjdofDqIegLJ25ekGXnI8RZ4j+Tdc
-	sqv+kyQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xim5NR10+7BZBfykxOD4Uf3SgtY+xyZHzJ3cjnn/k3g=; b=eH0CrrhudsUooGPUvdQh4Q5Bxb
+	Ju5U3VWlkFJyYuKlrCisi/OdekHOrhYqhKZ9K6Wj4AgpdtJ+CTcO9kADh5Xx5e/ODilg3yICWxuRp
+	hSsriZtOzAeiqhZKXzR2IayRSqIfibQG9nyaPUrxEyUdM4lPgfqSiBLLgALD2vUe/pallDZjCioP/
+	sg4vibWUrxIhAARBum2qC/+EaqBhVCTTUkHMyeRS7fQ9+IqCzTlG0T4RO5B+e6CCfoZ3267Kn7z5C
+	xnqmsG1RUOl4VFEpvRYNt5Aka17luRYtqma7WEZ3e0QP2jHwYStvKCgjH8vA1DnDxtzY+viD2lyiQ
+	5ypUXvyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3ak-00000007v1u-0tqX;
-	Thu, 21 May 2026 13:37:38 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wQ3hC-00000007vqZ-0NXm;
+	Thu, 21 May 2026 13:44:18 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3ah-00000007v0u-1L3e
+	id 1wQ3h9-00000007vow-0Gel
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:37:36 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-44ccbd3290aso5707446f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 06:37:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779370653; x=1779975453; darn=lists.infradead.org;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BMlAK2z/O8nXAXVGpgv2TVPDYvKc2M33iVdUjIQEOVI=;
-        b=txA03b3IuHuXxgp+kJNbxXMCt1KbuB4D/juvEdNJmXlJl9SoyRuklI7N+ghfaU8/8P
-         8P2eJ1ZWyOEyMBHq2lBeoCStFjbAfSlbrlNVLilyzvzWRlVlWSmFcXrupAFeNHl7r5SB
-         OczlCaLARlTKi7fwWJykVYdLl0dM1aGgOmHxqeeMhrTC/yHshtZr4/cTes5AFV4RiJPU
-         VTdw9KGfcKuJOyBGz1AeZnYiwPfvziGVJaytnzLmdl4nDh3QOlg/JfK/cIUXE0tRfSnR
-         jZI4GhujyTxYATuP97f8A65qbjGpUcluWgGDej3WckAYyrogMxMi91tObaa0O4cugW+r
-         R4HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779370653; x=1779975453;
-        h=in-reply-to:references:from:subject:cc:to:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BMlAK2z/O8nXAXVGpgv2TVPDYvKc2M33iVdUjIQEOVI=;
-        b=fAkWu0qVgWrxmH8MYajOszzPLZFP7lIk6422hAeQSN7+9eInsaCta9pNvaFre2ij8n
-         HDHwWG+t2qLBzPx9VQShlD7WvB2948FPDUlpGbvfnNB75BkIzr0o5yqdBVl4QIVpvs6G
-         0/pJQY63UQf5AgpMNzru0U8qUzMpVacuOZl3VkMEtLOeqCkEZtilZP66zVvXZG7lVHlw
-         7+zNwN/bpApkgJGdSV34pKJ19PHI9uQdn+ryLBEjjWjRj1zbQlik6YR2Pn+LLysev90A
-         Iy3jB4bs/PKsVTSBc6yVY5KPGOWQKCtNgQ2yzCB3dnKmJlORmWdah/sEsxQprd5MrjQx
-         WwAQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9RX/BRZs1+E3Kno0p7TzTRIisSgS49czVLar55lJvT7OuVBalM3BEgmzEd/tEmu2J2px50pxoopK2BIOYBt2uF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxjlfpfF6BSdLNRzT/Ur/UoIWfADpivssNkb9MLysv5GV2lE0mw
-	01Jlw2QAFwhkZwwkIQc5jHZL5TfZNPp3rRdQLzyiabul7nyJ+OeZyZAgk1zh64s3iiI=
-X-Gm-Gg: Acq92OGgLkjXI3Lrr+8Cx3WZlunzWuYl8V2gNiZ/iBfvSc6Z7i9k+7cmLxwTXm2QUdB
-	6LrMCZlFj0hphrel0TkxA5jIvhiKlxx6CUCgE3EDjzsv1bH/Rrdx9VGjHiQre2yhKSjBDpmgCJ2
-	9s1pwOSahqXsjIEZ6Eq0AKqqvNwjPSpt6CBVpCQGl6IdW2pDEJHTInMOrzpsNPV/5+5Dotor94K
-	QMHwzJiREdIYHjGhjNNapogV7Yu9CnBVe9G+I4vaNv5jWkEw4JCrSZBjCK7117bC6lh7jcBPD+R
-	yKPg8qL+1T+p+XTBWG25VBwjn0yoQ8W+2oSXM1mBaD0ZgKKy+7oailhAGrf7q59E7kyfladaZVZ
-	Q2I7exDQ/R5S8kVZRbi8+hIFRn+XbkYXiEdzzZVN5g+y9nVFt3SUM1GjxiECrLvflK/kvI5kDu+
-	lSrq8k6t24JWjTangDdQJQMez5/5rG1XEh29njepvyqwYYPBcyJ8CO9hHbOZdVwGcNe8u+AoOgU
-	rHPTlzAHBfBVqDgQQ==
-X-Received: by 2002:a05:6000:41fc:b0:45e:739b:3e43 with SMTP id ffacd0b85a97d-45ea344aedbmr4835322f8f.0.1779370653284;
-        Thu, 21 May 2026 06:37:33 -0700 (PDT)
-Received: from localhost ([2a00:2381:fd67:101:7fde:b714:8ff7:ea6e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eaa7cd815sm4331310f8f.6.2026.05.21.06.37.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 06:37:32 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 21 May 2026 14:37:31 +0100
-Message-Id: <DIOE94AX265Y.4QU8ZF520FUV@linaro.org>
-To: "Peter Griffin" <peter.griffin@linaro.org>
-Cc: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Krzysztof Kozlowski"
- <krzk@kernel.org>, "Michael Turquette" <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, "Lee Jones" <lee@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>, "Sylwester Nawrocki" <s.nawrocki@samsung.com>,
- "Chanwoo Choi" <cw00.choi@samsung.com>, =?utf-8?q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, <linux-kernel@vger.kernel.org>,
- <linux-samsung-soc@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
- <jyescas@google.com>, <kernel-team@android.com>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 5/6] firmware: samsung: acpm: Add TMU protocol support
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-X-Mailer: aerc 0.20.0
-References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
- <20260506-acpm-tmu-helpers-v1-5-a9cd5daf8355@linaro.org>
- <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
- <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
- <DIFVKM72KZDI.14EVGUMQ0NV9S@linaro.org>
- <a55690fc-7727-401d-9b3c-06bf3c2852d0@linaro.org>
- <DILRJBWU9SKV.2P7EJN7ECEJB7@linaro.org>
- <73f18a2c-e729-45d7-9376-7c0e60ed35c7@linaro.org>
- <DINT2DFDVWFX.BGTG7LOC91RH@linaro.org>
- <CADrjBPqiooFC9o56bOAg-j7908ssPtrzff1reNe6eXmu7hcA=w@mail.gmail.com>
-In-Reply-To: <CADrjBPqiooFC9o56bOAg-j7908ssPtrzff1reNe6eXmu7hcA=w@mail.gmail.com>
+	Thu, 21 May 2026 13:44:17 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ3h0-0001JK-60; Thu, 21 May 2026 15:44:06 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ3gy-00174N-2S;
+	Thu, 21 May 2026 15:44:05 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ3gz-00000004WQz-0oP0;
+	Thu, 21 May 2026 15:44:05 +0200
+Date: Thu, 21 May 2026 15:44:05 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH v7 10/28] media: rockchip: rga: announce and sync
+ colorimetry
+Message-ID: <ag8MJaSIVt4Q_y_U@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+ <20260521-spu-rga3-v7-10-3f33e8c7145f@pengutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-spu-rga3-v7-10-3f33e8c7145f@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_063735_394657_A685261C 
-X-CRM114-Status: GOOD (  28.22  )
+X-CRM114-CacheID: sfid-20260521_064415_102136_9DF50A96 
+X-CRM114-Status: GOOD (  28.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,93 +107,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu May 21, 2026 at 9:25 AM BST, Peter Griffin wrote:
-> Hi Alexey,
->
-> On Wed, 20 May 2026 at 22:01, Alexey Klimov <alexey.klimov@linaro.org> wr=
-ote:
->>
->> Hi Tudor,
->>
->> On Tue May 19, 2026 at 4:46 PM BST, Tudor Ambarus wrote:
->> > Hi, Alexey,
->> >
->> > On 5/18/26 2:24 PM, Alexey Klimov wrote:
->> >> Thinking further about this I'd humbly suggest that even
->> >>
->> >>      if (fw_err >=3D 0)
->> >>              return 0;
->> >>
->> >>      pr_debug_ratelimited("ACPM tmu call returned: %x\n", fw_err);
->> >>      or pr_debug(...);
->> >>
->> >>      if (fw_err =3D=3D -1)
->> >>              return -EACCES;
->> >>
->> >> some debug message would do.
->> >> Perhaps we need some convertation, for instance as it is done in scmi
->> >> code (scmi_to_linux_errno(), scmi_linux_errmap[]). But I don't have a=
-ny
->> >> data for mapping acpm errors to some human meanings.
->> >
->> > I did that for the pmic helpers. I don't need any debug prints for
->> > gs101 TMU as I have clear instructions from firmware: 0 for success,
->> > -1 for error.
->>
->> This doesn't look like a right approach for upstreaming a ACPM TMU
->> framework.
->>
->> You are trying to submit a gs101-specific implementation masquerading
->> it as a generic ACPM TMU framework, while explicitly pushing the
->> refactoring work onto the next developer to add support for other
->> SoCs in this generic ACPM code.
->>
->> The ACPM TMU protocol implementation on Exynos850 is different: it uses
->> different error codes, and half of the calls in this 'generic' driver
->> are not even implemented in the Exynos850 firmware. Relying on a
->> hardcoded if (fw_err =3D=3D -1) in a driver named generic ACPM is broken
->> by design and may silently swallow critical firmware errors on other
->> SoCs.
->>
->> What about such options below?
->> - rename the driver to reflect reality: rename this specifically to
->> gs101-acpm-tmu-something to reflect that it is tailored for gs101-s;
->>
->> or
->> - abstract the firmware error handling paths through driver_data or
->> a dedicated ops structure now, so that other SoCs can cleanly hook into
->> it without having to rewrite the logic later.
->
-> AFAIK it's pretty normal not to add new hooks before they are
-> required. I think the approach taken in this series makes sense, as
-> it's the developer adding support for SoC #2 who best knows what the
-> differences are on their platform versus what exists upstream.
-> Similarly, the developer adding support for SoC #3 may have different
-> requirements to e850 and gs101 and that developer is best placed to
-> refactor and add hooks or quirks that are required for that platform.
->
-> Let's not try to boil the ocean with this series, it's targeting GS101
-> support. We can evolve it for future SoCs as those requirements and
-> differences become clear.
+"announce colorimetry" in the subject is a bit strange. Maybe rephrase
+the subject to
 
-Peter, I agree we shouldn't bother about hypothetical SoCs. However,
-Exynos850 is not hypothetical (I guess SoC #2 in this text). It is
-possible to take set of patches from maillist, copy acpm DT node from
-gs101 (minimal compatible rename) and it will be Exynos SoC with enabled
-ACPM. I am also actively working on it. Hooks or whatever other way of
-handling firmware error codes are required now.
-We actually already know the differences: different error codes and
-only 4 ACPM TMU calls are implemented on e850: TMU init, TMU read
-temperature, TMU suspend/resume.
-Extra TMU calls are fine since we can just do not use them from thermal
-driver but hiding correct error codes, well, that's another story.
-We already know this way of handling firmware codes is not ACPM TMU
-generic.
+	media: rockchip: rga: announce CSC and sync colorimetry
 
-The ACPM TMU part of gs101 ACPM firmware might be a vendor-specific fork.
-We shouldn't assume it strictly adheres to the reference Samsung ACPM TMU
-design.
+On Thu, 21 May 2026 00:44:15 +0200, Sven Püschel wrote:
+> Announce the capability to adjust the quantization and ycbcr_enc on the
+> capture side and check if the SET_CSC flag is set when the colorimetry
+> is changed. Furthermore copy the colorimetry from the output to the
+> capture side to fix the currently failing v4l2-compliance tests, which
+> expect exactly this behavior.
+> 
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+> ---
+>  drivers/media/platform/rockchip/rga/rga.c | 37 +++++++++++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
+> 
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+> index ca8d8a53dc251..8c34f73d69764 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -437,6 +437,15 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
+>  	fmt = &formats[f->index];
+>  	f->pixelformat = fmt->fourcc;
+>  
+> +	if (f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE &&
+> +	    f->type != V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE)
 
-Alexey
+Is there a reason for not using V4L2_TYPE_IS_CAPTURE(f->type)? I'd also
+invert the condition, set the flags in the branch and have a single exit
+point of this function.
 
+> +		return 0;
+> +
+> +	/* allow changing the quantization and xfer func for YUV formats */
+> +	if (v4l2_is_format_yuv(v4l2_format_info(f->pixelformat)))
+> +		f->flags |= V4L2_FMT_FLAG_CSC_QUANTIZATION |
+> +			    V4L2_FMT_FLAG_CSC_YCBCR_ENC;
+> +
+>  	return 0;
+>  }
+>  
+> @@ -459,8 +468,25 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  {
+>  	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
+> +	struct rga_ctx *ctx = file_to_rga_ctx(file);
+>  	struct rga_fmt *fmt;
+>  
+> +	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
+> +		const struct rga_frame *frm;
+> +
+> +		frm = rga_get_frame(ctx, f->type);
+> +		if (IS_ERR(frm))
+> +			return PTR_ERR(frm);
+> +
+> +		if (!(pix_fmt->flags & V4L2_PIX_FMT_FLAG_SET_CSC)) {
+> +			pix_fmt->quantization = frm->pix.quantization;
+> +			pix_fmt->ycbcr_enc = frm->pix.ycbcr_enc;
+> +		}
+
+Are there any limits on the colorspace conversion that the RGA can do?
+If I understand correctly, user space may set an arbitrary
+v4l2_ycbcr_encoding (for example V4L2_YCBCR_ENC_BT2020) and the driver
+will happily accept it.
+
+> +		/* disallow values not announced in vidioc_enum_fmt */
+
+"disallow values" sounds strange. Maybe:
+
+		/* The RGA cannot convert colorspace and xfer_func */
+
+> +		pix_fmt->colorspace = frm->pix.colorspace;
+> +		pix_fmt->xfer_func = frm->pix.xfer_func;
+> +	}
+> +
+>  	fmt = rga_fmt_find(pix_fmt->pixelformat);
+>  	if (!fmt)
+>  		fmt = &formats[0];
+> @@ -506,6 +532,17 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
+>  	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
+>  
+> +	/*
+> +	 * Copy colorimetry from output to capture as required by the
+> +	 * v4l2-compliance tests
+> +	 */
+> +	if (V4L2_TYPE_IS_OUTPUT(f->type)) {
+> +		ctx->out.pix.colorspace = pix_fmt->colorspace;
+> +		ctx->out.pix.ycbcr_enc = pix_fmt->ycbcr_enc;
+> +		ctx->out.pix.quantization = pix_fmt->quantization;
+> +		ctx->out.pix.xfer_func = pix_fmt->xfer_func;
+
+I was very confused, because ctx->out is actually the format for
+CAPTURE. The comment kind of helps to mark this trap. Not sure, if there
+is anything that can be done about this.
+
+Michael
+
+> +	}
+> +
+>  	/* Reset crop settings */
+>  	frm->crop.left = 0;
+>  	frm->crop.top = 0;
+> 
+> -- 
+> 2.54.0
+> 
+> 
 
