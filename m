@@ -4,61 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC6A7CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77648CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:11:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35YDvwp6F7I9fGWtxxPA64fKKS1ajDvwVmVIBA8od1I=; b=DBwBLnoNV0SyYw+k74qY+g+sJP
-	ay9XAhOEb2hjdghOzQUfIdy9LC4KX+aj1WEH/n1u0KMZfkocmTFKlAiXbFTt5t7ZIf2TsBbZwEHQ7
-	B1yC2XejVOHkEXpJsQ+mBhCvo0GJ35vlAtpLjMmdySpgy5Zu1jZ9QvnwcooqXH2xnvfu64biD4Drx
-	ig5W6xMVNABjVHHHpLQlpCebpIj6sIrI71tdX603jX+tzVxMjaUb6G3GuNq7hPluh2n76krI9MSUu
-	keQ3MRHT98jGkU8WKBGYZpL379lU4R4/bD4sa3t7UqhBOv2kUdyiaCRrTbSCAq4CquC7JoMcCpJ+F
-	CGpjAisQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KF7796Z9RaXtKQht55DwJQh/TwX59DubmaFNlGcByag=; b=23qybCW+pn+87nc7ewiZYmE5uy
+	MOygmrCCjoxlXiYcPrbZq6+2mBrlHLmPfFa9cY1QktI6HxHhp3A2jct+BYbn8efmV6AONZHF9piQg
+	OpBw0uxkEMiQ55RbZNZwNPvV8a17P4zQj2ifq3/Gb1UQ2knNqRgeeZ3GassfkwDV+42FgvkGXrng3
+	iU432HxYwctDts7051Gy/E2TzeVqnDQlAbgQNNboS3OfMAThFKaqqC4lJ0j8IeK/Of0S8JiCgCKcs
+	XxoAyyntToUVX83wKIS0Q/V4HDcZr19sD82AoIAOW6naQ2uOAnHWGc7FvvdQ+eDO+h0adiiNdS2L0
+	pj33t+fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ46M-000000080HH-36pl;
-	Thu, 21 May 2026 14:10:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQ47e-000000080TF-0OGg;
+	Thu, 21 May 2026 14:11:38 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ46J-000000080Gd-2ieI
+	id 1wQ47b-000000080SJ-2BqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 14:10:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D42EB407CB;
-	Thu, 21 May 2026 14:10:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA4E51F000E9;
-	Thu, 21 May 2026 14:10:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779372614;
-	bh=35YDvwp6F7I9fGWtxxPA64fKKS1ajDvwVmVIBA8od1I=;
-	h=From:To:Subject:Date:In-Reply-To:References;
-	b=ns1WJZVpavHrIUNHeOW4iduOWaGxq0oKE5bgpyOw+B5feDr7ucpneCQ1hIxzCKh3H
-	 tIbW78UIk2L7tuXjlE1eZ1kwGf8+izoxlCGf3JpU3To+xXsATRlA/FklVelpPLo+RP
-	 BqRvm1DlmAC8fFjWBeBbjvclibvI3Pd3H2iLLMf4L2VCZRhh1rAjNir6k2o+W/PXP3
-	 VKCXvjSjn4CMGqPDJdN1pKtikkoiYiIr9LOMOdKeIehFQyvWUGz5yYrMH45ytXllfq
-	 +2nrTB9c75b/hsNRCGpQ0dk6T2oEcoPnL+Akf1ODakD4RipHfN4cOm7QuLZsq82G60
-	 SFcFydFv4q0FA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: Re: [PATCH 0/4] firmware: arm_scmi: Fix protocol parsing and validation
-Date: Thu, 21 May 2026 15:09:05 +0100
-Message-ID: <177936870652.1992706.7312445035946256503.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
-References: <20260517-scmi_fixes-v1-0-d86daec4defd@kernel.org>
+	Thu, 21 May 2026 14:11:36 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ47S-0006uw-C3; Thu, 21 May 2026 16:11:26 +0200
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ47Q-0017Ne-0g;
+	Thu, 21 May 2026 16:11:24 +0200
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1wQ47Q-00000004Ws9-2jnW;
+	Thu, 21 May 2026 16:11:24 +0200
+Date: Thu, 21 May 2026 16:11:24 +0200
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Cc: Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH v7 12/28] media: rockchip: rga: avoid odd frame sizes for
+ YUV formats
+Message-ID: <ag8SjJ4FvjS7GOrT@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+	Jacob Chen <jacob-chen@iotwrt.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, kernel@pengutronix.de,
+	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
+	p.zabel@pengutronix.de,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
+ <20260521-spu-rga3-v7-12-3f33e8c7145f@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260521-spu-rga3-v7-12-3f33e8c7145f@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_071015_713212_B1FB3F6D 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20260521_071135_558613_0D7510A6 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,34 +107,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 17 May 2026 20:02:39 +0100, Sudeep Holla wrote:
-> This series fixes a few SCMI protocol parsing and validation issues found
-> while checking the driver message layouts against the SCMI specification.
+On Thu, 21 May 2026 00:44:17 +0200, Sven Püschel wrote:
+> Avoid odd frame sizes for YUV formats, as they may cause undefined
+> behavior. This is done in preparation for the RGA3, which hangs when the
+> output format is set to 129x129 pixel YUV420 SP (NV12).
 > 
-> The first patch fixes a clear response width mismatch in SENSOR_CONFIG_GET,
-> where the driver requested a 4-byte response but read it as a 64-bit value.
+> This requirement is documented explicitly for the RGA3 in  section 5.6.3
+> of the RK3588 TRM Part 2. For the RGA2 the RK3588 TRM Part 2
+> (section 6.1.2) and RK3568 TRM Part 2 (section 14.2) only mentions the
+> x/y offsets and stride aligning requirements. But the vendor driver for
+> the RGA2 also contains checks for the width and height to be aligned to
+> 2 bytes.
 > 
-> The next two patches harden notification parsing for variable-sized payloads.
-> BASE_ERROR_EVENT and SENSOR_UPDATE both carry counted trailing arrays, so the
-> received payload size must be validated before copying or parsing those
-> entries.
+> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+> ---
+>  drivers/media/platform/rockchip/rga/rga.c | 19 ++++++++++++++-----
+>  1 file changed, 14 insertions(+), 5 deletions(-)
 > 
-> [...]
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+> index f599c992829dd..77b8c7ab74274 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -337,6 +337,19 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  	struct rga_ctx *ctx = file_to_rga_ctx(file);
+>  	const struct rga_hw *hw = ctx->rga->hw;
+>  	struct rga_fmt *fmt;
+> +	struct v4l2_frmsize_stepwise frmsize = {
+> +		.min_width = hw->min_width,
+> +		.max_width = hw->max_width,
+> +		.min_height = hw->min_height,
+> +		.max_height = hw->max_height,
+> +		.step_width = 1,
+> +		.step_height = 1,
+> +	};
+> +
+> +	if (v4l2_is_format_yuv(v4l2_format_info(pix_fmt->pixelformat))) {
+> +		frmsize.step_width = 2;
+> +		frmsize.step_height = 2;
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+If I understand correctly, this limitation may be a result of 4:2:0
+chroma subsampling. Thus, formats with 4:2:2 subsampling would also work
+with step_height = 1.
 
+As this may be some hardware limitation, a comment that points to the
+TRM (in addition to the commit message) may be beneficial, too.
 
-[1/4] firmware: arm_scmi: Read sensor config as 32-bit value
-      https://git.kernel.org/sudeep.holla/c/f6fe7c3c007d
-[2/4] firmware: arm_scmi: Validate BASE_ERROR_EVENT payload size
-      https://git.kernel.org/sudeep.holla/c/56e7e64cdd0e
-[3/4] firmware: arm_scmi: Validate SENSOR_UPDATE payload size
-      https://git.kernel.org/sudeep.holla/c/32bc5496b481
-[4/4] firmware: arm_scmi: Validate Powercap domains before state access
-      https://git.kernel.org/sudeep.holla/c/fcca603c6a09
+Michael
 
---
-Regards,
-Sudeep
-
+> +	}
+>  
+>  	if (V4L2_TYPE_IS_CAPTURE(f->type)) {
+>  		const struct rga_frame *frm;
+> @@ -358,11 +371,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>  	if (!fmt)
+>  		fmt = &hw->formats[0];
+>  
+> -	pix_fmt->width = clamp(pix_fmt->width,
+> -			       hw->min_width, hw->max_width);
+> -	pix_fmt->height = clamp(pix_fmt->height,
+> -				hw->min_height, hw->max_height);
+> -
+> +	v4l2_apply_frmsize_constraints(&pix_fmt->width, &pix_fmt->height, &frmsize);
+>  	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
+>  	pix_fmt->field = V4L2_FIELD_NONE;
+>  
+> 
+> -- 
+> 2.54.0
+> 
+> 
 
