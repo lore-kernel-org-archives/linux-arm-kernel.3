@@ -4,113 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCF3CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59226CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tV7iZwvmmQQLSqky4R1D09YTKc/1j9bjaXabqWBMECY=; b=kJ3yft5sHdl9s+PWiDLQY+RfNh
-	weUBGawKrDZWXAbNKEtuZKQmIHbE38n9Nw4CuCWeN4KwK39Yu4PY1qhOwJ96WHkeShyp7kh4dX2oR
-	wPA9PZg2ywbKY6qAXX424GrTWTAhZYc3R2tJNw20gZHHqN0kiA+HkyKuNUf4ZKt7999TuuYsn8XC+
-	PuYcJkGjS4IWc92hqfSBPy2qUWihfOMrQEje8aqNXtErfim1v6QK2IU9oiuBpFpLFKZ8Pt0CLh+zv
-	ZdEEM9glvD9pd4kUYTWsrVySJiUtgc1qpvDB17fLb6Ddi3qqO8iOEinMmAoSz8ugbkfJzgnN0xtxW
-	8LmudhKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VAyMNRwKRcog5AVZKDly66pNXBdsBjrhviVz0YQNz04=; b=kJQ4h83AMX82HTTjRTosoT0gt9
+	JPO5wc6KtQE/kjon+cvhAvZC17C1BX59UsQqgT1H5tYfq0ndPRv6Yac4vr+AIYMdg4S/+p1qnyOKl
+	URW7u8DF/lL95Ve0iKzZwGkJXeLZ6zpQJdCXuEA2gwLJT4SZKsS5dEbebUIjFWGfmmMRDjKh40as3
+	5RfAXG1oY12AimXmyFSQzHyoqQTQjC4fbmkvcn95sWOuoD90EdCFj5ysL635jHhpsQJkoe7lBpFTn
+	hhBb4dLUuPTGvWxQHSUfZZz+FFW0tpqhNDqdjt6MGFNvgXrb1zWPkufw1aoCtK/OkvFgEJznVNyvK
+	Q39Rqi6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrSA-00000006II2-40Qk;
-	Thu, 21 May 2026 00:39:58 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wPrdG-00000006JKH-1Jzr;
+	Thu, 21 May 2026 00:51:26 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrS8-00000006IHb-43lo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 00:39:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779323995;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=tV7iZwvmmQQLSqky4R1D09YTKc/1j9bjaXabqWBMECY=;
-	b=h68WIJC2mT6e7NoRfxA47h3VeiCh4KxZq6qiJ9I1slD3Pe1Kv8YPwvA6dOu6LIEiLoQg60
-	UUrZ+9e5zPBGdSEu7a0Jm353BSPytDYBaMCLt9EbNKj4poImWtF8IcL80yp84twJ22IJl6
-	FNWGd5uSVqNBDDCyAbrfoj+G1q95wN4=
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
- [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-395-0egS-ZuaMSCLp62lCihz1g-1; Wed, 20 May 2026 20:39:52 -0400
-X-MC-Unique: 0egS-ZuaMSCLp62lCihz1g-1
-X-Mimecast-MFC-AGG-ID: 0egS-ZuaMSCLp62lCihz1g_1779323991
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82f6b984b3aso2712587b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:39:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779323991; x=1779928791;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tV7iZwvmmQQLSqky4R1D09YTKc/1j9bjaXabqWBMECY=;
-        b=jH5tCZMOYwsRt7Z+PsQeq2DK6oqbnpMh73ipVbUaMmXBU5fzMp63m9lntUeiJKxAUY
-         ElC8IsNWCaFEccuXF3Laa4edIEuQcRIAsIuFI64Kc96vbRHBXsG/yE1jopCWF6aWK+Zn
-         IVErr5kqfSjnNYKOka1+JOfPzceGP7v7dJIJcfyAP4bWbpe3wtKNgC+UsG27ut7zG1F8
-         4bUO74OutKrUSLq/rNBnGtwGAZkcedn6WCUSgEAzMHtSMcFleXaHbQnXlWVI9jS8A8q6
-         NvPiw0Sp1lAckc0BZoiq2RIGpbpWiBQROemudTUba5zREpdUTCaMTaA05obTEuIuhoKz
-         TX8w==
-X-Forwarded-Encrypted: i=1; AFNElJ+ob8eO7iF2AMkC6quWTSNkqFzbqSA3OsIkCDMZ8brdHc9EyTGuorn0dd0/xHAVD7bXxYnS2s0ZyNHeDPvyigay@lists.infradead.org
-X-Gm-Message-State: AOJu0YyA/xg60pnzyB7A4Uj2uBL1tJkYXIjIfwvbxxxBpLnk0g7+u7+0
-	C9qGcA1WnAqrJSE2OQCoHXfxQg7x7+Rdnn/xPQSDGUZ7+/UYOkdN/YS4oLt77UCzFr0FEcRiuMr
-	YXYrcDOmwhvr4Dv6Cs1qvhGZMTvD3MMojwxTnSImhfS/HdxAwqq/9rnlZ7vqO6VyH+AoXB8zN8e
-	+I
-X-Gm-Gg: Acq92OE6YvT9DAc3AcLkoJavnnQ7CwM03thLG25VLGlD9c9apyRURxaR2nJadgNTG06
-	Bu1B2i6vHpbkJLDBUouSyzBDS9XzZMEMwI2WVkIItmlB32ssbgRR7gKC0+pLhEVb4C6GZ4Yb8il
-	9sGxH6Orubb3/sgYvK3xAPWiHHkESeT8uv1bGAkXvX2y38zk2qbbNrQznkmABHfGW0RSIHFKljd
-	pzk6HMuxwRD5LqUbT7Oiiy259VdasbRnjYJTMz6KRV3hUNknpEczJhW+izK7wT1XyZBz4dA8v20
-	cT43qZ7o1HXUiESHMrtZFE/SDVx7gVdzQsgkfxFCe4xF2NwwUFjsm0nfaiPBf2ftQpQM0oVoWCX
-	6Vw0nI3siJrLNACCEp5R3DuF+wR4ZNabPJk1DYXBRfDw+gQDYKskKF5nkwpp8T2h+
-X-Received: by 2002:a05:6a00:1742:b0:83a:ebec:452f with SMTP id d2e1a72fcca58-8414ae6f985mr687565b3a.42.1779323990964;
-        Wed, 20 May 2026 17:39:50 -0700 (PDT)
-X-Received: by 2002:a05:6a00:1742:b0:83a:ebec:452f with SMTP id d2e1a72fcca58-8414ae6f985mr687526b3a.42.1779323990418;
-        Wed, 20 May 2026 17:39:50 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19663cfdsm27427984b3a.9.2026.05.20.17.39.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 17:39:49 -0700 (PDT)
-Message-ID: <ee494ecd-8979-40f2-896e-82137abbf440@redhat.com>
-Date: Thu, 21 May 2026 10:39:39 +1000
+	id 1wPrdD-00000006JJa-0mr6;
+	Thu, 21 May 2026 00:51:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779324677;
+	bh=arSk2JLb7QUS+XlkRypR39OwcccG3078jR5uHlxGM/k=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=T2f4YxCa1yBlYqFhB5tknvzvZ/liruTCLp8Vlzk35NLTNUxzOTDTuuzoQnp8XCsWe
+	 Ghikn3Lf74f2Uj3rnqv4EOw5AXbAl1QSsE5EeivXDMokOjeAmhNTjvsMb7qbEDSfVl
+	 5/OL3fssk9U/qY5ShtJll1TE/6L8uXBWNN+xloTsZGQbfTAmTBiYo8siQ9Uuh5plOl
+	 /YyhJ7G0vnfHZbcPclW5Jgye2ufDD1mgz1yEialk6oR4pmapM9NCd6UKnuMPDVEVFD
+	 ryPHtLx1syLKd6hf25XWjY2yaVqJo27yLI9QJz8p05rBsVAp7JXW/mGiVUKh9810Ug
+	 TeSTMvc8Oqw1w==
+Received: from [100.64.0.214] (unknown [100.64.0.214])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 750AD17E0234;
+	Thu, 21 May 2026 02:51:16 +0200 (CEST)
+Message-ID: <f9e63fbbd99c11f303ac8e8f5aec6b2bd528cf99.camel@collabora.com>
+Subject: Re: [PATCH v2] media: rkvdec: fix PM runtime teardown ordering in
+ remove
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Francesco Saverio Pavone <pavone.lawyer@gmail.com>, jonas@kwiboo.se, 
+	detlev.casanova@collabora.com, hverkuil@kernel.org, mchehab@kernel.org
+Cc: ezequiel@vanguardiasur.com.ar, heiko@sntech.de, stable@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Wed, 20 May 2026 20:51:14 -0400
+In-Reply-To: <20260518145414.64514-1-pavone.lawyer@gmail.com>
+References: <20260518105413.42147-1-pavone.lawyer@gmail.com>
+	 <20260518145414.64514-1-pavone.lawyer@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-9/VsCBjDISjI7Lc8ZtP/"
+User-Agent: Evolution 3.60.1 (3.60.1-1.fc44) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 06/44] arm64: RMI: Check for RMI support at init
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
- Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
- <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-7-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260513131757.116630-7-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fz4sZDZRsYXZqtV_779iWR_ozp1IdIUMllI412Mqqn4_1779323991
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_173957_081255_0055A6A7 
-X-CRM114-Status: GOOD (  27.24  )
+X-CRM114-CacheID: sfid-20260520_175123_385314_1CC45953 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,110 +91,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven,
 
-On 5/13/26 11:17 PM, Steven Price wrote:
-> Query the RMI version number and check if it is a compatible version.
-> The first two feature registers are read and exposed for future code to
-> use.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+--=-9/VsCBjDISjI7Lc8ZtP/
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Le lundi 18 mai 2026 =C3=A0 16:54 +0200, Francesco Saverio Pavone a =C3=A9c=
+rit=C2=A0:
+> From: Jonas Karlman <jonas@kwiboo.se>
+>=20
+> The current remove() path calls rkvdec_v4l2_cleanup() and
+> pm_runtime_disable() before pm_runtime_dont_use_autosuspend(), and
+> frees the empty IOMMU domain after that. With autosuspend still
+> armed when the domain goes away, the VDPU381 can be left in a dirty
+> state across module reload and suspend/resume cycles.
+>=20
+> On RK3588 this surfaces as a VP9 inter-prediction bug: from the
+> second ALTREF frame onward, motion blocks decode with U=3DV=3D0 (BT.709
+> green), while intra and static blocks stay correct. Reordering the
+> teardown to dont_use_autosuspend() -> iommu_domain_free() ->
+> pm_runtime_disable() -> v4l2_cleanup() makes the symptom go away.
+>=20
+> Tested on a Radxa Rock 5B+ (RK3588, 8 GB LPDDR5) with both the
+> libva-v4l2-request mpv pipeline and Chromium's V4L2 stateless
+> decoder. With the fix, 300 random pixel samples on VP9 Profile 0
+> clips at 1080p and 1440p match a libvpx software reference exactly
+> (worst delta 0). Without it, the same 1080p sample at frame 4,
+> pixel (960, 270) reads HW=3D(0,112,0) vs SW=3D(204,147,116). HEVC and
+> H.264 stateless decoding via mpv keep running on hardware with no
+> fallback.
+>=20
+> Fixes: ff8c5622f9f7 ("media: rkvdec: Restore iommu addresses on errors")
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> Tested-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+> Signed-off-by: Francesco Saverio Pavone <pavone.lawyer@gmail.com>
+
+Tested-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+cheers,
+Nicolas
+
 > ---
-> v14:
->   * This moves the basic RMI setup into the 'kernel' directory. This is
->     because RMI will be used for some features outside of KVM so should
->     be available even if KVM isn't compiled in.
-> ---
->   arch/arm64/include/asm/rmi_cmds.h |  3 ++
->   arch/arm64/kernel/Makefile        |  2 +-
->   arch/arm64/kernel/cpufeature.c    |  1 +
->   arch/arm64/kernel/rmi.c           | 65 +++++++++++++++++++++++++++++++
->   4 files changed, 70 insertions(+), 1 deletion(-)
->   create mode 100644 arch/arm64/kernel/rmi.c
-> 
+> Changes in v2:
+> =C2=A0- Add Cc: <stable@vger.kernel.org>; media-CI flagged that the
+> =C2=A0=C2=A0 Fixes: target (ff8c5622f9f7) is present in the 6.17, 6.18, 6=
+.19
+> =C2=A0=C2=A0 and 7.0 stable branches, so the fix should reach them too.
+> =C2=A0=C2=A0 Link to v1:
+> https://lore.kernel.org/all/20260518105413.42147-1-pavone.lawyer@gmail.co=
+m/
+> =C2=A0=C2=A0 Media-CI report:
+> https://linux-media.pages.freedesktop.org/-/users/patchwork/-/jobs/100124=
+849/artifacts/report.htm
+>=20
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c | 5 +++--
+> =C2=A01 file changed, 3 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index 6f5f0422d317..bb95b090a25b 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -2066,12 +2066,13 @@ static void rkvdec_remove(struct platform_device
+> *pdev)
+> =C2=A0
+> =C2=A0	cancel_delayed_work_sync(&rkvdec->watchdog_work);
+> =C2=A0
+> -	rkvdec_v4l2_cleanup(rkvdec);
+> -	pm_runtime_disable(&pdev->dev);
+> =C2=A0	pm_runtime_dont_use_autosuspend(&pdev->dev);
+> =C2=A0
+> =C2=A0	if (rkvdec->empty_domain)
+> =C2=A0		iommu_domain_free(rkvdec->empty_domain);
+> +
+> +	pm_runtime_disable(&pdev->dev);
+> +	rkvdec_v4l2_cleanup(rkvdec);
+> =C2=A0}
+> =C2=A0
+> =C2=A0#ifdef CONFIG_PM
 
-[...]
+--=-9/VsCBjDISjI7Lc8ZtP/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
-> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-> new file mode 100644
-> index 000000000000..99c1ccc35c11
-> --- /dev/null
-> +++ b/arch/arm64/kernel/rmi.c
-> @@ -0,0 +1,65 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2025 ARM Ltd.
-> + */
-> +
-> +#include <linux/memblock.h>
-> +
-> +#include <asm/rmi_cmds.h>
-> +
-> +unsigned long rmm_feat_reg0;
-> +unsigned long rmm_feat_reg1;
-> +
-> +static int rmi_check_version(void)
-> +{
-> +	struct arm_smccc_res res;
-> +	unsigned short version_major, version_minor;
-> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
-> +						     RMI_ABI_MINOR_VERSION);
-> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
-> +
-> +	/* If RME isn't supported, then RMI can't be */
-> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
-> +		return -ENXIO;
-> +
-> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
-> +
-> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-> +		return -ENXIO;
-> +
-> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
-> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
-> +
-> +	if (res.a0 != RMI_SUCCESS) {
-> +		unsigned short high_version_major, high_version_minor;
-> +
-> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
-> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
-> +
-> +		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
-> +		       version_major, version_minor,
-> +		       high_version_major, high_version_minor,
-> +		       RMI_ABI_MAJOR_VERSION,
-> +		       RMI_ABI_MINOR_VERSION);
-> +		return -ENXIO;
-> +	}
-> +
-> +	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __init arm64_init_rmi(void)
-> +{
-> +	/* Continue without realm support if we can't agree on a version */
-> +	if (rmi_check_version())
-> +		return 0;
+-----BEGIN PGP SIGNATURE-----
 
-Is this still a valid point that we have to return zero on errors returned
-from rmi_check_version() or other other function calls like rmi_features()?
-arm64_init_rmi() is triggered by subsys_initcall() where the return value
-needs to indicate success or failure. It's fine to return error code from
-arm64_init_rmi() in the path.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCag5XAgAKCRDZQZRRKWBy
+9NU5APwMFBluL6g6766QU+uMgGgxwYcXppMNPnkJlEEwmSVQ4QD/R4746MdSuHfn
+HqsiVSwonz4lYaPyLE/WF53aDG1G5QU=
+=9djU
+-----END PGP SIGNATURE-----
 
-> +
-> +	if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
-> +		return 0;
-> +	if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
-> +		return 0;
-> +
-> +	return 0;
-> +}
-> +subsys_initcall(arm64_init_rmi);
-
-Thanks,
-Gavin
-
+--=-9/VsCBjDISjI7Lc8ZtP/--
 
