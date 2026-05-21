@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16C7CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D0BCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HbjtSmSEhrB0oy9msErMnLEWNbLnEiCjT4dTyfzcqc=; b=MiBCpaeoIE5Vcvc3aRZVMUKvF+
-	gH80cGhS2KK7ATcllsvPsx76gJvMNvnj4oPAsKW3aDRmviSpCQb+yLuUv1T6pPc6J7dKutPldyl1n
-	tR3LRcOex9lypFcXM7C4/QcMsUck+fRmDJfPhzpZpgIpeb+pBkkPrKNqTDK+l8XXhpHfxecR3nzsE
-	iNpB6QyPkom601AHB0Gxk5xcCNbibJeizuiu5N6mOy01y4lqJHh2G7c+CnyWe+yFZv4ThXrKozNjZ
-	rK5drhKvWJXGu1uRqc6hlLzFKQlaErivb+s0nO5Bc1yNkjuUYvEbaLqwXKOUzedhiGuTPDEdTyWnh
-	LeQXJ9Vw==;
+	bh=ZOcR2ywmAIsHfMOA6/DbnreILk4QaSYQyzKUA6hoOMk=; b=ZnbvSInpyLoErMFvn0pfO++fk9
+	pLE+gxCI4Ftt29eNxjkdsoctSw79inYScByvybdWIf3M9nd54T50Gp3Q5OprQG6NF0SboFkQvWc1Z
+	svNhJtSpUwaajjwmVHOFkhyTK+8VCsZZEQ02wlcqO6ACog5kKZYl3kq14EFKP5B0RHk5fMZUoXcnm
+	vY6yQS8JN0e5/FB7wljkbMgKbuKTvdgq3yJ/u99wwweYvesrAspihZkuv82cqOc9WoQtTRP6UhgTG
+	3VoQZE/2JJM7aCE6M+gkTkHNkVECmtODrNADOganrE6alCOybK/h4c314w5U9nSz4JrdrzZalykcd
+	KnreUw4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0bO-00000007StV-0B2S;
-	Thu, 21 May 2026 10:26:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQ0fN-00000007TQy-2J5L;
+	Thu, 21 May 2026 10:30:13 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0bM-00000007St9-0QBt
+	id 1wQ0fL-00000007TQ4-0RXh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 10:26:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64D5A601F4;
-	Thu, 21 May 2026 10:26:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A35F1F000E9;
-	Thu, 21 May 2026 10:26:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779359163;
-	bh=3HbjtSmSEhrB0oy9msErMnLEWNbLnEiCjT4dTyfzcqc=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Y/s7co8Gxsey3Z3nyMyNKdDiYEe7Y7pUDbCLus85Ij7r/hz4UmD4JqJVSa6BunKOE
-	 2P+AvMI7fEu04f+J+boPadH4nm30saUKFclhsbY+BWeWk4GHGaVyzPHKtQVHO4VjMP
-	 A8f7HKEug3BT9cHNvlpDl8HVDOknkkjFd83x7Gbr5lcfwUgSTRoieSuGcsaXyhEx5b
-	 uec4rTQQ48ZhNrBrAUjTgfR2juMQtefdaWVBl1m2vx4SQR2CFf8MBRfpZAMLXwbSiZ
-	 6DZt02oPrD/7RQcu0L6qCHu1/ewc4ZS8LajHzmDVkbVYh6aXxcpmD7V0ogIODNgmKf
-	 vX+UHjnuwm30w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQ0bI-00000004ls9-3s5I;
-	Thu, 21 May 2026 10:26:01 +0000
-Date: Thu, 21 May 2026 11:26:00 +0100
-Message-ID: <86ik8hvz2f.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 02/44] kvm: arm64: Avoid including linux/kvm_host.h in kvm_pgtable.h
-In-Reply-To: <20260513131757.116630-3-steven.price@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
-	<20260513131757.116630-3-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 21 May 2026 10:30:12 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4891ca4ce02so4695e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 03:30:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779359408; x=1779964208; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZOcR2ywmAIsHfMOA6/DbnreILk4QaSYQyzKUA6hoOMk=;
+        b=uOiZgCYFT8+cCutnzW46Pa95UWQtu2XjNiuWmEF0nv5BfeuUaBdamFt0XooYORQWqw
+         ANmG5ExmZuz99sVxxQU0dczh4kXNJ4YY6iEoTPPnjq4kuSuSel08HSVRd+2jsWR+2vsa
+         aPvyrOuTXCGSk9ECfPKI47qYjNQBIveTLXA//bj/E+YMuJ7/1q4EJmA20azGkno9ibqQ
+         GpTRfLU+Z9GbFalcEl15Jvjs2hXAHoSXKI2TWvOODAFwXONy5HjvHyD4tuHFvg14a+1e
+         iMgSvhXATsWIGFaDyCv9rg85cohtFb1cS5iwDcm4+V1ezRGBOtVTvyGYT96gvvgMhf7Z
+         qjaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779359408; x=1779964208;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZOcR2ywmAIsHfMOA6/DbnreILk4QaSYQyzKUA6hoOMk=;
+        b=oOkD6ozQfLTsns5+APT6JlTi2UmCm9DHyf0WmcpN+jla9bqyjPCXXLcoPhzLn6rkvB
+         S9eFqebJAAX3qZCq8SKHdfJ6qEdrjFcz3dvjIGYWx8SX9QjbFDbOblFJPxwi4IIOOV4l
+         0i5lxeO7kAkk5gMiJ/5XsPkHyyV96qECQe9gMypkp6mP6Jt/E6+P+op79aXh2nO7t5Gb
+         +UJjwvhz2WV8QyJ0Er4LgAZWSSA3LPSsz18mc4tEA+DrlF9keZs8b3yH8ZgbrvhqcBll
+         janr7PM33Bj1HS6fUjKf6BkSoHlCMdHLYFf4sIsPkIqi8ZMuzx3JA5zKFyBphKSz0PNM
+         Cn3Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/wMUYk9izBB6Dah3VkEYMw0mHk2fgBTtONDS6Vn30CSP4Va80SS18Aup0QtZesOpcXfmJSZLTrpCR69oM2VhfB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPGMaHr+ecxEBj/KQgaCCSX6eAhJKk7fVm7bLasZ054HU5CSES
+	cRZYq+x/nDGWOR/cdGZr7rwVie5G8h6z/KVK22tOFDWDbj1asCVX+qn0U5Pns4g2HA==
+X-Gm-Gg: Acq92OFFDSqh1GoGUUl6mo25r+QsuRc3ctR28OnvKN26OAxVjqpYG7EeaplsHz2tceL
+	i2Neoieu1ibglX0Kx9RxBir1e2hh7wYgVpOdo2ZxD4R6hmFx4Y6kIXcJdfhsKBQiMydPcBnMvIa
+	YjMWSJ4TBM1UIWeZecI3Xq5vGlpd0FwOOBYAqF1ZzYHRnJtO0dfF+iSXA2xF+82q8FKoNHsbWwT
+	cf6GPhO1aUQ5l4pZ1W0o19DSl+ZWF69TTOzlB08PwnOeMUKb4igchabtYh8X39iMLSjJRGfUp00
+	ZhHuPUVk2TwzSWDLrVc9Q8Vmm5bYJv7l8k5c4Sr31RKKbiDidNpp3pcamw4cOAqXJo0F/haEsEE
+	UxsemlQmarsJw7XVeq7xAdUVqJcUYhGO7OMr6DcbI3ka15Zd/CoB7uzdu7y/DoYUCDJNib9/rqL
+	M7lqsXcUGerVNh5+aPREAPlPDUy8hhmfevPZ5H4rGg3o5fcuke1BncfAGXxdeHNE4vK06ToM/HT
+	HQ=
+X-Received: by 2002:a05:600c:1551:b0:489:1f6a:4ac0 with SMTP id 5b1f17b1804b1-49035c64bccmr990775e9.0.1779359407929;
+        Thu, 21 May 2026 03:30:07 -0700 (PDT)
+Received: from google.com (136.41.155.104.bc.googleusercontent.com. [104.155.41.136])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eaa7cf23bsm1764718f8f.5.2026.05.21.03.30.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 May 2026 03:30:07 -0700 (PDT)
+Date: Thu, 21 May 2026 10:30:03 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	catalin.marinas@arm.com, jens.wiklander@linaro.org,
+	sumit.garg@kernel.org, sebastianene@google.com,
+	vdonnefort@google.com, sudeep.holla@kernel.org
+Subject: Re: [PATCH v4 4/5] KVM: arm64: Fix bounds checking in
+ do_ffa_mem_reclaim()
+Message-ID: <ag7eq3bfBOxfaZ59@google.com>
+References: <20260520204948.2440882-1-smostafa@google.com>
+ <20260520204948.2440882-5-smostafa@google.com>
+ <86ldddw4ht.wl-maz@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86ldddw4ht.wl-maz@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_033011_168391_660B01A3 
+X-CRM114-Status: GOOD (  28.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +105,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 14:17:10 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> To avoid future include cycles, drop the linux/kvm_host.h include in
-> kvm_pgtable.h and include two _types.h headers for the types that are
-> actually used. Additionally provide a forward declaration for struct
-> kvm_s2_mmu as it's only used as a pointer in this file.
-> 
-> Both pgtable.c and kvm_pkvm.h relied on the indirect inclusion of
-> kvm_host.h, so make that explicit.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> New patch in v13
-> ---
->  arch/arm64/include/asm/kvm_pgtable.h | 5 ++++-
->  arch/arm64/include/asm/kvm_pkvm.h    | 2 +-
->  arch/arm64/kvm/hyp/pgtable.c         | 1 +
->  3 files changed, 6 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 41a8687938eb..e4770ce2ccf6 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -8,9 +8,12 @@
->  #define __ARM64_KVM_PGTABLE_H__
->  
->  #include <linux/bits.h>
-> -#include <linux/kvm_host.h>
-> +#include <linux/kvm_types.h>
-> +#include <linux/rbtree_types.h>
+Hi Marc,
 
-I'm surprised by this. Where is the rbtree_type.h requirement coming
-from?
+On Thu, May 21, 2026 at 09:28:46AM +0100, Marc Zyngier wrote:
+> On Wed, 20 May 2026 21:49:47 +0100,
+> Mostafa Saleh <smostafa@google.com> wrote:
+> > 
+> > Sashiko (locally) reports out of bound write possiblity if SPMD
+> > returns an invalid data.
+> > 
+> > While SPMD is considered trusted, pKVM does some basic checks,
+> > for offset to be less than or equal len.
+> > 
+> > However, that is incorrect as even if the offset is smaller than
+> > len pKVM can still access out of bound memory in the next
+> > ffa_host_unshare_ranges().
+> > 
+> > Split this check into 2:
+> > 1- Check that the fixed portion of the descriptor fits.
+> > 2- After getting reg, check the variable array size addr_range_cnt
+> >    fits.
+> > 
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 7 ++++++-
+> >  1 file changed, 6 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > index 1af722771178..e6aa2bfa63b1 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > @@ -607,7 +607,7 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+> >  	 * check that we end up with something that doesn't look _completely_
+> >  	 * bogus.
+> >  	 */
+> > -	if (WARN_ON(offset > len ||
+> > +	if (WARN_ON(offset + CONSTITUENTS_OFFSET(0) > len ||
+> >  		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
+> 
+> Do you really want to keep this a WARN_ON(), given that this results
+> in a panic in most pKVM configurations?
+
+Which kind of configuration will that check fail on?
+Does that mean at the moment pKVM does out-of-bound access for
+the header?
 
 Thanks,
+Mostafa
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
