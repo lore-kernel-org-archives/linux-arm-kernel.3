@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A639CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB43CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2YGGMyXe7SMejzK+iwa7+2TNKMnNR9YtdBRWN/ulgbU=; b=UmG61Txnp1E7fRYPMzbbEf9ZLJ
-	aOyPgmcMPmkSS53o5v8qoTbn8uGXcjOMzjtRdBfjmo/VDCU/iSWAwZ+UvS2wTRkiuT4uPLihhrvHV
-	N3ASsNnSEzRvfbgvf1uOJuSRmPUTwkqnPh7U/53bdErlzYpZKwrQnlWaLdBMlA/LICq9FALAZCFfS
-	CYMM+sdqYiJMHCvRxHyIubSjOsynZhXjYuSr80YtXTPJop48QHSDTl4rw3FDZTBCPM0jPL1mmRQrK
-	MexDxgi+qMvWmtKXggLMlAx6L+N1cYiYNq1VYwJ6kqwpcRBzXs6jeo9JZdff+a/kGGwRoBQUKtH8K
-	9i6cQINg==;
+	bh=/GRo7o08a1l3ZN6BhgKh2FsIs5V4EFMxUDnDJW7BBe8=; b=cmMMNW64kSMOrgSQfgutT42SD8
+	KlK1wtArBzWyf77tkBihpAwdFCSgm5V1KWVZyDKEOiUBg2FQvqIyPpfKL3/G5AgkZc/dpFPL+GB2G
+	A464q6tpsZQeLf9Tcfn06f4UmG64qbodpr4G6zj2quEcBVEjS5OxljXYI0aEMq6GshFZ1jifPcGSs
+	2wLzFLHpV/wwawnJhcAOgD9hfBFHpl4ZIG842HNyHc6OHLme/u1QReKMT4aiS96JRZ0j0McugyIeE
+	VbQdIG/4oOAHuc7k8bv8XogPNw2Qzn+r0TyAiPtyvg6MzUg5+8vIAHDUQnp8sb4kcUVJRP0vmE4QQ
+	WJCKudDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6Rs-00000008WHv-2XKv;
-	Thu, 21 May 2026 16:40:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQ6f0-00000008Y8W-0E94;
+	Thu, 21 May 2026 16:54:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6Rr-00000008WHi-1LYS
+	id 1wQ6ez-00000008Y8H-0I7P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:40:39 +0000
+	Thu, 21 May 2026 16:54:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5802360098;
-	Thu, 21 May 2026 16:40:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB8051F000E9;
-	Thu, 21 May 2026 16:40:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2D01B60210;
+	Thu, 21 May 2026 16:54:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE7A71F00A3B;
+	Thu, 21 May 2026 16:54:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779381638;
-	bh=2YGGMyXe7SMejzK+iwa7+2TNKMnNR9YtdBRWN/ulgbU=;
+	s=k20260515; t=1779382451;
+	bh=/GRo7o08a1l3ZN6BhgKh2FsIs5V4EFMxUDnDJW7BBe8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fG/Z7QUpeZCEYhug5SVVxPYIo0JfhG3m2rPSBOkh2oi7CZgxxvB9zjFWuTOIVy5cY
-	 WibkXJmWrgbFkp7QHACq5F6Iem5WFdybG71CCCQXQRLn6OhOj1sqIbllxlDq9rWych
-	 k/HgBFcenei9SY6H7SZBfeYEoV3FeNc6blqLlL/dLvy1wOk+hF5rkTY6FpmDroESSW
-	 5gLmhOhlH1x6Gh56UTM5lm9dycJvAAQL04TK+0rmz+Rz4Y2SqPQWmV9PN+UGN/P2dB
-	 +kLiHstSBHah9ZoE5aC8tSp9SoddkWbQWO5752L+NPURwmmY3x7o3FCOiC+dqEGYM5
-	 I58LauGj0TyDQ==
-Date: Thu, 21 May 2026 17:40:32 +0100
-From: Lorenzo Stoakes <ljs@kernel.org>
-To: Waiman Long <longman@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	David Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-rt-devel@lists.linux.dev, Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH 1/2] gfp_types: Introduce a new GFP_ATOMIC_RT gfp flag
-Message-ID: <ag8zX5KJUKo70TvG@lucifer>
-References: <20260520204628.933654-1-longman@redhat.com>
+	b=SXKmy9UFEKIKSPyYvuaTZ3r1bUQhgnulIc7Mv5IOaMhwGFHGc2Z9mYR1PnMbrjspa
+	 r3hUYKEQdggxmUzJtx5/0/4+A2t6UVn94gTpM8tFbf6gwtJvEzyg/mQ3NpuMl008gR
+	 S3o1vVP39k5n1PYUwDeegvjqVXgT4Wdq2Vg2zdZnKJRI4kDNdvyFAqhBTji1+J1vs/
+	 uOaZCDCoFVd95jtVRW5Y//rXa/6sB6rJNke9a7/5Dx07PPvkEs6GLNK3MY2jRRWxYu
+	 6LM+8G75IIxTEDnV731/kqo5QgldUXxWoGH3L8uo0Uo/ruiVFYW77TxE9yIfU/WQlp
+	 5ZfScLGuMV4mA==
+Date: Thu, 21 May 2026 17:54:05 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Vitor Soares <ivitro@gmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Vitor Soares <vitor.soares@toradex.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 14/15] dt-bindings: display: panel-lvds: Add LG
+ LP156WF1
+Message-ID: <20260521-eggplant-specimen-fd8cb181f051@spud>
+References: <20260521150038.103538-17-ivitro@gmail.com>
+ <20260521150038.103538-31-ivitro@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="n8r+0FfwGFiOSm+6"
 Content-Disposition: inline
-In-Reply-To: <20260520204628.933654-1-longman@redhat.com>
+In-Reply-To: <20260521150038.103538-31-ivitro@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,88 +87,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+cc Matthew who has fairly strong opinions on GFP flags and such :)
 
-Also, please don't send 2 patch series with 2/2 in-reply-to 1/2, use a
-cover letter + have patches reply to that :) [yes it's one of those
-subjective things that people differ on a lot but generally how we do in
-mm]
+--n8r+0FfwGFiOSm+6
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, May 20, 2026 at 04:46:27PM -0400, Waiman Long wrote:
-> The GFP_ATOMIC flag is to be used in atomic context where user cannot
-> sleep and need the allocation to succeed. However, it does not support
-> contexts where preemption or interrupt is disabled under PREEMPT_RT
-> like raw_spin_lock_irqsave() or plain preempt_disable().
->
-> With the advance of the ALLOC_TRYLOCK allocation flag in the v7.1
-> kernel, it is possible to allocate memory under such contexts by using
-> spin_trylock to acquire the spinlock in the memory allocation path. This
-> does increase the chance that the allocation can fail due to the presence
-> of concurrent memory allocation requests. So its users must be able to
-> handle such memory allocation failure gracefully.
->
-> The ALLOC_TRYLOCK flag will only be enabled if none of the
-> ___GFP_DIRECT_RECLAIM and ___GFP_KSWAPD_RECLAIM flags are set.
->
-> Introduce a new GFP_ATOMIC_RT gfp flag for those PREEMPT_RT
-> atomic contexts.  This new flag will fall back to GFP_ATOMIC in
-> non-PREEMPT_RT kernel. GFP_ATOMIC can continue to be used in contexts
-> where preemption and interrupt are not disabled in PREEMPT_RT kernel
-> like spin_lock_irqsave().
-
-This seems like the wrong place for the solution, now we have to remember
-to use a specific GFP flag but only in one specific place in some IRQ code,
-yet RT is fine with this in any other scenario?
-
-This is really confusing.
-
-Wouldn't we better off with a way of actively detecting this context
-somehow in the page allocator?
-
-It just instinctively feels like this is the wrong level of abstraction for
-a fix here :)
-
->
-> Signed-off-by: Waiman Long <longman@redhat.com>
+On Thu, May 21, 2026 at 04:00:50PM +0100, Vitor Soares wrote:
+> From: Vitor Soares <vitor.soares@toradex.com>
+>=20
+> Add the compatible string for the LG LP156WF1 15.6" FHD (1920x1080)
+> dual-channel TFT LCD LVDS panel.
+>=20
+> Assisted-by: Claude:claude-sonnet-4.6
+> Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 > ---
->  include/linux/gfp_types.h | 13 +++++++++++++
->  1 file changed, 13 insertions(+)
->
-> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
-> index cd4972a7c97c..ac30882b6cd4 100644
-> --- a/include/linux/gfp_types.h
-> +++ b/include/linux/gfp_types.h
-> @@ -316,6 +316,13 @@ enum {
->   * preempt_disable() - see "Memory allocation" in
->   * Documentation/core-api/real-time/differences.rst for more info.
->   *
-> + * %GFP_ATOMIC_RT is similar to %GFP_ATOMIC with the addition that it can also
-> + * be used in context where preemption and/or interrupt is disabled under
-> + * PREEMPT_RT, but not in NMI or hardirq contexts. The allocation is more
+>  Documentation/devicetree/bindings/display/panel/panel-lvds.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/panel/panel-lvds.y=
+aml b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+> index 45183a1439ce..a6af2b9cc2f9 100644
+> --- a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+> @@ -58,6 +58,8 @@ properties:
+>            - hydis,hv070wx2-1e0
+>            # Jenson Display BL-JT60050-01A 7" WSVGA (1024x600) color TFT =
+LCD LVDS panel
+>            - jenson,bl-jt60050-01a
+> +          # LG LP156WF1 15.6" FHD (1920x1080) dual-channel TFT LCD LVDS =
+panel
+> +          - lg,lp156wf1
+>            # Logic Technologies LT170410-2WHC 10.1" 1280x800 IPS TFT Cap =
+Touch Mod.
+>            - logictechno,lt170410-2whc
+>            # Riverdi RVT101HVLNWC00 10.1" WXGA (1280x800) TFT LCD LVDS pa=
+nel
 
-I'm not sure 'GFP_ATOMIC_RT' really communicates all of this information.
+Copy pasting a reply from me to sashiko-bot, cos the mail from it only
+went to the submitter, dt maintainers and dt list:
 
-> + * likely to fail under PREEMPT_RT due to the spin_trylock() nature of lock
-> + * acquisition. So the caller must be ready to handle memory allocation failure
-> + * gracefully.
-> + *
->   * %GFP_KERNEL is typical for kernel-internal allocations. The caller requires
->   * %ZONE_NORMAL or a lower zone for direct access but can direct reclaim.
->   *
-> @@ -388,4 +395,10 @@ enum {
->  			 __GFP_NOMEMALLOC | __GFP_NOWARN) & ~__GFP_RECLAIM)
->  #define GFP_TRANSHUGE	(GFP_TRANSHUGE_LIGHT | __GFP_DIRECT_RECLAIM)
->
-> +#ifdef CONFIG_PREEMPT_RT
-> +# define GFP_ATOMIC_RT	__GFP_HIGH
-> +#else
-> +# define GFP_ATOMIC_RT	GFP_ATOMIC
-> +#endif
-> +
->  #endif /* __LINUX_GFP_TYPES_H */
-> --
-> 2.54.0
->
+|On Thu, May 21, 2026 at 03:27:16PM +0000, sashiko-bot@kernel.org wrote:
+|> Thank you for your contribution! Sashiko AI review found 1 potential iss=
+ue(s) to consider:
+|> - [Medium] The dt-binding fails to enforce the dual-channel requirement =
+(the `ports` property) for the newly added `lg,lp156wf1` compatible string.
+|> --
+|>
+|> commit a568203d1851908daadd835b566099e0a123357a
+|> Author: Vitor Soares <vitor.soares@toradex.com>
+|> dt-bindings: display: panel-lvds: Add LG LP156WF1
+|>
+|> This commit adds the compatible string for the LG LP156WF1 15.6" FHD
+|> dual-channel TFT LCD LVDS panel to the generic panel-lvds schema.
+|>
+|> > diff --git a/Documentation/devicetree/bindings/display/panel/panel-lvd=
+s.yaml b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+|> > index 45183a1439ce9..a6af2b9cc2f9a 100644
+|> > --- a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+|> > +++ b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+|> > @@ -58,6 +58,8 @@ properties:
+|> >            - hydis,hv070wx2-1e0
+|> >            # Jenson Display BL-JT60050-01A 7" WSVGA (1024x600) color T=
+FT LCD LVDS panel
+|> >            - jenson,bl-jt60050-01a
+|> > +          # LG LP156WF1 15.6" FHD (1920x1080) dual-channel TFT LCD LV=
+DS panel
+|> > +          - lg,lp156wf1
+|>
+|> [Severity: Medium]
+|> Since the commit message indicates this is a dual-channel panel, shouldn=
+'t we
+|> add an if-then conditional block to require the ports property specifica=
+lly for
+|> this compatible string?
+|
+|No idea if this is accurate, but if it is accurate, would the
+|lvds-dual-ports bindings come into play?
+|
+|>
+|> Currently, the panel-lvds.yaml schema allows panels to be configured with
+|> either a single port or multiple ports. Without a specific conditional b=
+lock
+|> enforcing required: [ports] for lg,lp156wf1, a device tree incorrectly
+|> configuring this dual-channel hardware with only a single port will sile=
+ntly
+|> pass validation.
+|>
+|> --
+|> Sashiko AI review =B7 https://sashiko.dev/#/patchset/20260521150038.1035=
+38-17-ivitro@gmail.com?part=3D14
 
-Cheers, Lorenzo
+I don't understand these deviecs enough to know if this is a valid
+report.
+
+--n8r+0FfwGFiOSm+6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCag84rQAKCRB4tDGHoIJi
+0sSWAQDrnpMcfFxMuM+qUBz6FEBZvmI9LBxIr062YHJ2DO6zwgEA8Gci/LHEtOy2
+WtocKXXwwmCkoBNUorqgVE898xBIhAA=
+=3CBI
+-----END PGP SIGNATURE-----
+
+--n8r+0FfwGFiOSm+6--
 
