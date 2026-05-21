@@ -4,96 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6AF2CD4F3C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:58:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D49CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 08:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:
+	Date:In-Reply-To:From:Subject:Mime-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8G/x4JJtOPaC66y0xIpsyhNcO8UWKG9STKYzUChGp/o=; b=O5jYqY21nPW9ijWr9CAw5vuD6G
-	0r+uZNtlMVwcmJpBCcZ5Jo3cNPCRI92lJMpAbLHZsLB27n0LHf2p9yyKTqmPKd11Nt7BkksEURbQg
-	NmlBSMH5GI643FNLzXXTBkDTFzTlWjLnFVs5qsG9VwrTZk4ZW90Su/y+vLI41l1qCPZRpVlTUuoV0
-	J+DDm1b1ZLSagJ4ceg7vnKxXMu/eI5TNIpB/espw2Xh/MRR4QBglw/w+C6kWDUsGIQGrC+LWoQBvN
-	1KAgTLY3Wu0FVy88ulwwUqaq2nRkqfi3rPvtX4ZSIlJw8axu33RnsX/sUVUWPVge4t9QmSVOtCM3K
-	/hf97flA==;
+	bh=Z9PrdA31q5x8SAejtf+3EF1jeBrhc3Rg2VGzoBKR6RQ=; b=3lO3sU7ZcU95tQbXOM5iF5vI8C
+	3ot9VL8Gtls7ZQMTnES5/LrY7+yg2uQvoTTYtnPTDCqSkghrmiXKSiZUKU8TER12C5Otc915RDak1
+	3glgcyk918NbDld0XmcoQWe0iFyb8eel5wzI+rFxawgocF0b3FQB9u6BHgd86qCWYFUTWY68GgzOr
+	BKUI9AxaXHXKfprb2Hv+PihWiSbk+ipMo1PQcxfc+PJzNJHdd35gcdhTRoMkpNo/hKlTLUGpv2yCd
+	BFADFZbytKHWItJAJ3ecOnEo/ecwA/1M6eSgKdqpspKREskhtGJzkYXAfFqZgBzeZInpB7A9Ptq+F
+	Wapf3edg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyIY-0000000720M-1Tev;
-	Thu, 21 May 2026 07:58:30 +0000
-Received: from mail-pl1-f182.google.com ([209.85.214.182])
+	id 1wPyKQ-000000072GI-2qbB;
+	Thu, 21 May 2026 08:00:26 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPyIU-000000071zQ-3GTg
+	id 1wPyKO-000000072Fd-0vAq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:58:28 +0000
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2b9fcf7c91bso61260575ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 00:58:26 -0700 (PDT)
+	Thu, 21 May 2026 08:00:25 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-44e1860558fso3684143f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 01:00:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779350422; x=1779955222; darn=lists.infradead.org;
+        h=to:references:message-id:cc:date:in-reply-to:from:subject
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z9PrdA31q5x8SAejtf+3EF1jeBrhc3Rg2VGzoBKR6RQ=;
+        b=LF3Xlj3iB3mPazXDXyoD9JSYVna6/r/7e4YQtpnSM0uXKE2ybCAYqyTQB+ZoQIuPxQ
+         3eYcCEoIxUTWrUsXvQ28llB73xkom40bVtJGUTIi+16JdYxP4BzOvebZtUCdWCF6U5J9
+         L4oEuNbAQT7EQsamIsJOe0AQRYzzah0odc2f4XLRLB1gf+b1LutgN7Ce8bkYEeMuM8S5
+         BOr8WJNrymk2aBCBVgUn0HoK+5glRzNCvkbHWkflvjDQn6PTpcgDTbhqyeEnp2NcBJ8s
+         46xywYpKM/ZT0eu6l2ltHy8JCs8Ox/aT2o1SZ2bN2HscrtSBmDJvMiRBUaGucKP397fc
+         f61A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779350305; x=1779955105;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
+        d=1e100.net; s=20251104; t=1779350422; x=1779955222;
+        h=to:references:message-id:cc:date:in-reply-to:from:subject
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8G/x4JJtOPaC66y0xIpsyhNcO8UWKG9STKYzUChGp/o=;
-        b=L0cgvpkgvTUzmx0DDdM2jUAQ723gyvBOC3R0NGX4i8658VW0/fJ9pINn02Bqs+XQWX
-         1pIGDHViSZtaO77rIYRqOEO1KBs/AxVpHSr6UkfiSo09bHGV5VptB1eiaps2HZeDRdmG
-         qlL9qRRZURQdSuZuc0BeUvEAnUC7iSc8ExVDoEut4c6qc9S+Rso0AvwOuY9urF8ZAXGw
-         sU1D3PtZuZErx6gxqTABZwBsSbaOlElWEbN3BvwhLbDPGMIZgAqJV8YDEkOw/TNHxlSI
-         l+GnAd5HxqG1Q7ZKpzGuh+OD7EcuLQ/PaLvQYzg8OxcVCjDGXWXTopgi0uQHwYWn6uOm
-         1PVA==
-X-Forwarded-Encrypted: i=1; AFNElJ8aLBek+j9PuABfdNHrBcrdlcanPrpm1cNSE7Dyeg9JIC7d2wbtHUKpAdh38ASakY4CfWntzea5CfBm48quXesU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyR/TOGgX1kXSZ0JN8ixAOIHRH3xuff++VcDdz8EAxB1zSA9Yw9
-	anBA/kDPgLAaG5+0KRH3KRFqO9xWEokR15/S7c4at1BOqmS83ESOKICf1wXgQtJkE6E=
-X-Gm-Gg: Acq92OEtgpPr4mra/yZZU4IF19qa4tEVHdL2Jt4t3TH3FBOUt8dBtxr5oGxOGEgcta8
-	CKTVoI2KUtbSdXuj6XERDpwd0YfPyRJwWZboSxL/u2PGsBy82jFEDvHnBcMP7cHus/aTLnxYQw0
-	0+Za3m/6G2jZK3as7y/yy49sSxDcTGXSsy6J+llZZlM9yk7d2Tg3TRlj45KhbQYTykjyzLfup8l
-	f9Jnzw2TFx9VjFXhyiGYBaPvNBkWni1QUYyLlU26nudNbN73181GHk2cUdP7vlose4dlcffWl+r
-	aDg8AyP3Q27gN6oGTW/FX3ROW+iVuGmuy4CwEKChb0AH8SwYpmdKEMZHP5oJOp3dnT7S1v6QvVr
-	RngwLWBWPxSbDKgQ6t8MQt/WwsXC1XRIfBfL7CNL9qPzVbzyi0NLibHuefJlQdE/MntXLcL1FwZ
-	onCWABUtxQMFBVa9ABuMoqUXa0mZSTG+T9eDKByCcwknY22tLAbN+cP4NETBqURjuX
-X-Received: by 2002:a17:902:ced0:b0:2bd:3bfd:74f2 with SMTP id d9443c01a7336-2bea32e738cmr20264005ad.10.1779350305275;
-        Thu, 21 May 2026 00:58:25 -0700 (PDT)
-Received: from mail-pg1-f171.google.com (mail-pg1-f171.google.com. [209.85.215.171])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bea9a3dbf7sm1755555ad.84.2026.05.21.00.58.24
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 00:58:25 -0700 (PDT)
-Received: by mail-pg1-f171.google.com with SMTP id 41be03b00d2f7-c795f441ff7so4648754a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 00:58:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/HhfS8i5GTpfRyj8ZX/EALlwXKRMBWco90t8Hkj4Z6yThTOSexo0HxL+eQ1lUeWfmN4p+4kb2UZ1C9g3cxZZ6f@lists.infradead.org
-X-Received: by 2002:a05:6122:235:b0:575:a5b5:3233 with SMTP id
- 71dfb90a1353d-58424155ad5mr536200e0c.4.1779350001458; Thu, 21 May 2026
- 00:53:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <cover.1776793163.git.geert+renesas@glider.be> <72e2a0e7a5abda02fe36b3f5851842f7a77b2593.1776793163.git.geert+renesas@glider.be>
- <aekXUvIPb8nkhdKu@pluto> <CAMuHMdWJvMH+a1RqozbaCxxH_8M569JcruTFa8PW+87FysnjHw@mail.gmail.com>
- <ae6Zp54NhKlVes8J@pluto> <CAMuHMdWK3Noh5ZQVWT9C0EKyXZePMaJ97C0A_syK+xCb_=abeQ@mail.gmail.com>
- <agooKghZJw3iElvp@pluto>
-In-Reply-To: <agooKghZJw3iElvp@pluto>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 21 May 2026 09:53:09 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU8VRCOZtLrM2EoHFmhd5XFs8cwXc2A1tPTTr01KvUx0g@mail.gmail.com>
-X-Gm-Features: AVHnY4LC2rjbQG8RkBy_xv_1xXXocYwPF3Jc-uBUk0RJlVpVup9HQXGw37O9RpM
-Message-ID: <CAMuHMdU8VRCOZtLrM2EoHFmhd5XFs8cwXc2A1tPTTr01KvUx0g@mail.gmail.com>
-Subject: Re: [PATCH/RFC 05/14] firmware: arm_scmi: Add scmi_get_base_info()
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Saravana Kannan <saravanak@kernel.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Ulf Hansson <ulfh@kernel.org>, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        bh=Z9PrdA31q5x8SAejtf+3EF1jeBrhc3Rg2VGzoBKR6RQ=;
+        b=hFi52J+qqTUvvYjGIwLkKIOytYu1ZHgHgNH4bMgYofIcbZtMCaG33skj87e3A6SFir
+         KLrQqxz1rnZswhLSGAtk7O0kqBibLzk+UxO7R4KRszHBcBl0ee7+2VpkLZOdjuAMNNyO
+         QPoGXTcSSLXBjuYrlOm2WhN/PQVWdZ/IBXI7LHX6b8Yzf0IAmRKgJq288WDbO1l8PO0Y
+         oRaOoND621OULjQKeeGKNTLOofDsE2LPNVdNm2pBwHWs6dzUe6wPyQxzGBFokoSZnIoi
+         pZmw1KxAWy4qd9Jtvct1IluKhyjE3WqvSV/1HsVjgOQ9hyFp8THd2Xb2GAI8BhYvgjYa
+         1OOA==
+X-Forwarded-Encrypted: i=1; AFNElJ/UhFJiPWVcms8Tyx+FcT5fmdTooeSRJKybqHLqOz1FrMmp7/8ZMx2CQ2laT8gM9Q2rvxrl63b4x2D78z36KRgy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUStHsevPMhpSl+WrrjYULMl3cu28F+uw7q7PyfPukfsnyt4Bw
+	aiLDnqHN/NeiAl4tMQnVvhz0oThcpaUUe52RRzgfIy5ltqONfX191NTK
+X-Gm-Gg: Acq92OFt7lZOJ3pz4noZKFjsUVwLMPkaJu9Z49kqyZlWJC+cTbcyxIT/GGSBTxGiovn
+	Gz178kgV3xbGczOdBVWSpfuRstoQjTgqM8dUGo8UDWGVo3BWIM4DnrEt1A8BxHbGoX4vO1PQEcz
+	De5LlfTSCrIZtj5xFCTzwA5i8BiNPuEBXiZNbWjG8vCAjNWdDB7O3XsqfngP9rXijs8VCfc79Ay
+	Upv7FNk6wgO04gJDVZ3VLDm6mmoKjrXTeoKYZ1DPf1tyLue2QJFN+QE2HRXI5IYMzl4RHmYHukW
+	+YtSg86yccy5Yk0uZp6WNw3/rJaToD67FreFUqmeHD1KlJJvs2/BM76JaJaMjYgKKYADJGvH+Rm
+	x4yZ2EEpie/cbKVIkGnbOCD12JA0Bwh3zjamGgnS6nTdrt+90A8EPLz7V6mIxNsYNc44RFJ8fKB
+	9gr5sqgFsD+b020RwkQs4UepOy61I5zizCew==
+X-Received: by 2002:a05:600c:468b:b0:488:aa33:dcbd with SMTP id 5b1f17b1804b1-490360c12cbmr24099035e9.26.1779350421276;
+        Thu, 21 May 2026 01:00:21 -0700 (PDT)
+Received: from smtpclient.apple ([197.250.51.26])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eaa92ca96sm726769f8f.19.2026.05.21.01.00.15
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 21 May 2026 01:00:19 -0700 (PDT)
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.500.181\))
+Subject: Re: [PATCH v5 8/8] ARM: defconfig: Add a zx29 defconfig file
+From: =?utf-8?Q?Stefan_D=C3=B6singer?= <stefandoesinger@gmail.com>
+In-Reply-To: <30b96e0d-f296-4c31-8701-a15c568ebffc@app.fastmail.com>
+Date: Thu, 21 May 2026 11:00:01 +0300
+Cc: Linus Walleij <linusw@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Drew Fustini <fustini@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>,
+ linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org,
+ soc@lists.linux.dev,
+ linux-serial@vger.kernel.org
+Message-Id: <3B300E28-8603-4881-8A47-E9B86A355090@gmail.com>
+References: <20260421-send-v5-0-ace038e63515@gmail.com>
+ <20260421-send-v5-8-ace038e63515@gmail.com>
+ <CAD++jL=_eDY_mG_QBreSrZiho0hUrDSciedq=vrxXaTiMwrSyg@mail.gmail.com>
+ <30b96e0d-f296-4c31-8701-a15c568ebffc@app.fastmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+X-Mailer: Apple Mail (2.3864.500.181)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_005826_827741_883FE006 
-X-CRM114-Status: GOOD (  69.05  )
+X-CRM114-CacheID: sfid-20260521_010024_293196_5D694A3B 
+X-CRM114-Status: GOOD (  35.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,159 +119,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
 
-On Sun, 17 May 2026 at 22:42, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> On Fri, May 08, 2026 at 12:26:19PM +0200, Geert Uytterhoeven wrote:
-> > On Mon, 27 Apr 2026 at 01:03, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > On Fri, Apr 24, 2026 at 02:08:55PM +0200, Geert Uytterhoeven wrote:
-> > > > On Wed, 22 Apr 2026 at 20:45, Cristian Marussi <cristian.marussi@arm.com> wrote:
-> > > > > Also because this should be one of the selling point of the SCMI stack
-> > > > > in a virtualized environment: you can ship the same kernel drivers with
-> > > > > the same DT and you know that ID=<N> will always identify the specific
-> > > > > resource that is needed by your driver without worrying about the fact
-> > > > > that in reality in the backstage the effectively managed physical resource
-> > > > > could be different across different platforms, because that does not matter
-> > > >
-> > > > This sounds strange to me, do I understand it correctly?
-> > > > So the ID should (1) be tied to the use-case, and not to the underlying
-> > > > hardware, and (2) be the same for different platforms?
-> > > >
-> > > > For (1): Then we must not put these IDs in DT at all, as DT is supposed
-> > > >     to describe the hardware (and firmware IDs in DT were IMHO already
-> > > >     a stretch before).
-> > > > For (2): How can there be a contiguous list of IDs, as not all platforms
-> > > >     may have the same underlying hardware?
-> > >
-> > > I would NOT say that an SCMI FW must behave like this regarding IDs, but it
-> > > is a possible SCMI deployed setup that can be useful in virtualized setups
-> > >
-> > > I mean, the DT describes the hardware of course BUT when you refer to
-> > > some of this hardware DT bits from some other subsystem by referencing a
-> > > phandle, even in the non-SCMI world, you are in fact selecting a specific
-> > > resource that fit you use case, right ? Can we say this ?
-> > > I mean you needed that specific clock or regulator that you described
-> > > previously so as to be able to enable some other piece of HW...
-> > >
-> > > Now, the SCMI provides an abstraction on top of this, since you really
-> > > discover domain IDs of a specific class (clocks/regulators etc) you are
-> > > in fact describing an HW abstraction that you then refer with the usual
-> > > phandle...also because there is NOT so much SCMI hardware to describe,
-> > > given that the HW is handled transparently (opaquely really :P) by the
-> > > driver on the FW side...
-> > >
-> > > ...you basically obtain such domain ID, usable as phandles through dynamic
-> > > SCMI enumeration so that you can use it all over your DT to make use of such
-> > > resources...
-> > >
-> > > ...on top of this, consider that the SCMI server CAN provide to its agents
-> > > a per-agent-view of the world, IOW it can (and should) expose to a specific
-> > > agent ONLY the resources needed by that agent, i.e. it can expose the set
-> > > of resources 1-N to two distinct agents and that does NOT mean that the
-> > > underlying physical resource mapped by ID=3 in both agents has to be
-> > > effectively the same piece of hardware: it could be the case, and this
-> > > would be useful to exposed and managed properly a shared resource, or
-> > > it could also be that the same ID=3 could refer to completely distinct
-> > > pieces of the same class of hardware...(same protocol same class of
-> > > resource...)
-> >
-> > Exposing only the clocks/reset/power domains the agent can use,
-> > in a contiguous list of IDS, means that the number space changes,
-> > depending on which resources are exposed.
->
-> Yes, potentially, it depedns on how the HW/FW stack was designed I
-> suppose...
->
-> > Suppose you have a system where you want to assign a specific hardware
-> > block in the SoC to the realtime CPU core instead of the application
-> > CPU core running Linux.
->
-> Ok, so this is definitely a considerable change.
->
-> > That means all resources used by that block must no longer be exposed
-> > to the Linux agent, and the corresponding IDs must be removed from
-> > the ID space exposed to Linux.  As the ID space must be sequential
-> > and contiguous, the IDs must be renumbered, impacting resources that
-> > are exposed to Linux.  As these IDs are used in the SoC .dtsi, they
-> > must be changed there, too, However, these IDs have become part of
-> > the stable DT ABI, and thus cannot be changed.
->
-> Well, you have to ship a final DTB blob that is crafted to describe the
-> actual HW at the end, right ?
->
-> I mean, in your example, it seems to me that you have changed considerably
-> the HW surface by moving a clock (and its related resources) away from the
-> reach of Linux as a whole, so should not be expected to have an updated
-> DTB shipped ?
+--Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
 
-It is not necessary to ship an updated DTB.
-The bootloader stack can just change the "status" properties of devices
-nodes that are be taken away from Linux from "okay" to "reserved":
+Hi Arnd,
 
-Devicetree Specification, Release v0.4, Table 2.4: Values for statu
-property states:
+I saw your reply to my defconfig pull request, but apparently never =
+received your original reply. I only found this mail here. It looks like =
+I have to look for a better E-Mail provider as gmail is choking on the =
+volume of the linux-arm-kernel mailing list.
 
-    Value: "reserved"
-    Description:
-        Indicates that the device is operational, but should not be
-        used. Typically this is used for devices that are controlled
-        by another software component, such as platform firmware.
+To answer your questions I found at =
+https://lore.kernel.org/all/61452117-0cdc-4ec2-83eb-dc03ccbd410b@app.fastm=
+ail.com/ :
 
-When all SCMI IDs change, too, much more work needs to be done.
+> Either way, the patch description above should at least explain
+> why you think you need your own defconfig, as we don't normally
+> take those.
 
-The remap driver could also help here: it could scan for device nodes
-that are marked "reserved", remove SCMI IDs used in these nodes from
-its internal tables, and adjust all later (higher) IDs.
+It was more cluelessness / being new to kernel development that gave me =
+the impression that boards should have defconfigs. Since then I ran =
+across scripts/dt_to_config. I haven't tested it yet on my DT, but if it =
+does the right thing I don't think this board needs a defconfig.
 
-E.g. the existing drivers/clk/renesas/renesas-cpg-mssr.c already handles
-(ignores) clocks used by reserved nodes.
+>> +CONFIG_CMDLINE=3D"console=3DttyAMA0 earlyprintk root=3D/dev/ram rw"
 
-> And I am NOT saying to do this by changing the base SoC dtsi, but via build
-> time overrides and/or runtime overlays so as to derive from that same SoC
-> base dtsi a properly reviewed final DTB that describes how the HW has actually
-> changed, becasue beside the renumbering that you mention there will be
-> also a bunch of HW pieces that were relying on that clock that now will
-> have to be removed from the DTB if no more usable (or remapped to use a
-> different, maybe non SCMI resource)
->
-> I maybe too naive and not used to very complex DTBs, but why all of the
-> above cannot be done along the lines of how is done as an example in
-> JUNO [1], where some initial base dtsi was overriden by virtue of includes
-> and overrides to properly describe the board at hand (r0/r1/r2), even going
-> to the extreme, funny enough, to move from the old SCPI to SCMI.
->
-> [1]: https://elixir.bootlin.com/linux/v7.0.8/source/arch/arm64/boot/dts/arm/juno-scmi.dts
+> A definconfig should normall not rely on earlyprintk, just add
+> that when you actually need to debug the super-early boot
+> stages. With "earlycon" it should pick up the right console
+> from the stdout path and work almost as early.
 
-As long as the IDs in arch/arm64/boot/dts/arm/juno-scmi.dtsi
-match the actual SCMI implementation, that works...
+>> +CONFIG_BINFMT_FLAT=3Dy
 
-> > This patch series fixes that issue, too, by describing the actual
-> > hardware in DT, and doing the mapping to exposed SCMI features in the
-> > kernel, based on which firmware version is running on the SCP.
->
-> Which seems to me to go in the opposite direction to what SCMI expects:
-> but I understand that we have to deal and cope with the existing already
-> shipped FW, so my concern is not really around enabling this in particular,
-> is much more the fact that we open the door and normalize this kind of
-> design even with future, still to be developed, SCMI FWs.
->
-> ...otherwise...have the spec changed/clarified to allow for such
-> non-contiguos IDs...
->
-> ...anyway let's hear Sudeep opinion on this general issue of contiguos
-> remapped IDs and being able to peek into SCMI version from outside the
-> SCMI world...
+> Are you actually using flat binaries? I wasn't aware that this
+> is still possible on MMU-enabled kernels.
 
-As long as the ID space becomes stable.
+>> +CONFIG_BLK_DEV_RAM=3Dy
+>> +CONFIG_BLK_DEV_RAM_COUNT=3D4
 
-Gr{oetje,eeting}s,
+> The old ramdisk boot is going away in the future, please use
+> initramfs instead. This should also save a good amount of RAM.
 
-                        Geert
+I'll fix those in my tree and keep the defconfig around just in case, =
+but otherwise drop it from the submission. We can revisit it later when =
+the board is more complete.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>> +CONFIG_DEVTMPFS=3Dy # FIXME: This is specific to my initrd. Remove=20=
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+>> before upstream
+>stale comment?
+
+I believe I removed this in later versions though :-)
+
+Cheers,
+Stefan
+
+> Am 24.04.2026 um 11:54 schrieb Arnd Bergmann <arnd@arndb.de>:
+>=20
+> On Fri, Apr 24, 2026, at 09:13, Linus Walleij wrote:
+>> On Tue, Apr 21, 2026 at 10:24=E2=80=AFPM Stefan D=C3=B6singer
+>> <stefandoesinger@gmail.com> wrote:
+>>=20
+>>> This enables existing drivers that already are (UART) or will be =
+(USB,
+>>> GPIO) necessary to operate this board even if they aren't declared =
+in
+>>> the DTS yet.
+>>>=20
+>>> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>>=20
+>> *I* personally (as SoC maintainer) think that having a few more =
+defconfigs
+>> is fine, even helpful.
+>>=20
+>> But I would defer this to the more senior SoC maintainers because I =
+think
+>> their stance is something like:
+>>=20
+>> - We have multi_v7_defconfig for compile testing
+>>=20
+>> - We know that binary gets way to big for your system: it's for build
+>>  testing and perhaps booting in QEMU or systems with many MB of
+>>  RAM, not for actually running it on products.
+>>=20
+>> - You are encouraged to keep your own defconfig out-of-tree.
+>=20
+> Right, we clearly need to do something better than what we are with
+> the general defconfigs, as I'm sure many of the existing ones are
+> never actually used for booting a machine, and are horribly out of
+> date with the Kconfig options.
+>=20
+> I wouldn't object to adding another defconfig for a new (or revived)
+> soc family, but I don't want to have more per-board ones.
+> Overall, we have about 70 defconfigs and 55 soc families that have =
+their
+> own mach-* directory (plus a few without code), and the number of
+> defconfigs alone makes it hard to keep them up to date.=20
+>=20
+>> However I even challenged this myself by adding a defconfig for =
+memory
+>> constrained Broadcoms a while back (NACKed/ignored ;) so if it was =
+all
+>> up to me I would merge this.
+>=20
+> I don't even remember that discussion ;-)
+>=20
+> One idea might be to have a tiny base defconfig, plus platform
+> specific fragments that add drivers. The problem is agreeing
+> what bits are essential enough to still get enabled in the
+> tiny config.
+>=20
+>       Arnd
+
+
+--Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoOu4EACgkQPRO8yFRP
+GiL8IQ//Zm20DYooaVaVCuklde82UX5X2MHKLX3bEwoqFm8OwrwK1a0bu61uKXRd
+TTj/RVjingjzc/MWqbhSiDLM+1tvrMaa8bhi16TRYn5upIa71KlieKL5Kd/9cmoW
+fqmI+HoIIq6mQTIYJ2GMCp0/ciADEXnE41buFWzPiu7BMeVInJMaYpX6NKyXd7ZG
+oAf3t5tCMMxrRfBq7bv4JV8TAjLdibq+SNyxH6xYoZwrW7J6pLYGeHJcbUNNHJFD
+Vl5PgpflnmNhfcQk7nTKufpY44szSAwB9GmiuOemwzmUEGv3V0e4t8Rni1FlHQsR
+gAUiB04OMbDSDV9kntSrZwbEUR4UkJLZhKanfJOTv/Sy6pNZLpcS0TB5YY7TEfcy
+lr1oKB9HXUka9mhPKFmGrC0TN7jkPKmkTLK70RXVtNX/pU4dFSsm0yP76XL2KrBA
+rfvH0At+i5cU3nPYvoOm56VkiOfHsnQB9adNQ5l8GeAUpQB6HI4jr23IhD8BYvsB
+yKxccCZ4tkD05c9InZqE+lsxvB9esDjo4gKZzFWhuXY/+4rOcRowbxsFGHt/TCWn
+9U7SU0cAsuce6Ex+oPs62EkqM0yyZ0FMVlmVGI9PJ5O1sJ5W6xYOlxwnLGH6TJNE
+bOIJ4WxSJmZra+QaQXak7qAOxAV92+Du/IioWZnoXjGc0BzTjhw=
+=rcPP
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_5D209284-6E0B-4B8C-B2C6-1CF1063CB628--
 
