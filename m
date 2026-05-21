@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39E1CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C56BFCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0w0paPj0j6eJsDuENg7ZDSDMt1WZief0AlIPdrZFR/A=; b=B8Q4yRPfaJi7vhFyNMUaobtC92
-	MspBMolZbKhLZRZf0Gp0sQfYjMliDzVU4Oz5kfMbjiHEo5Q+OC2ic/IfbWcJ9/lzczYVgZnDrT+j1
-	8uhN0NxQyHmfqUlsgXtIEAj2ygqjqaDXc4zGI2NN5t0EfpH74n9o5lG3nT7H2McAlbEjTw9D31QW8
-	akQGepNPCOOr52OhdyQxdwVIn+6sfVHR7CqAHSxix5YPu68FfW6X4jWYPDuECTLL7snmnBRZjjySO
-	DUR+jfK90AbjbaZRfftn5evf6b+8sSVIegFTgpHr61JdAWu8UOmq5VMTzbOdqNUhR93aFMIPsVgVI
-	KMtPNGhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WPIPD1BGr2Dw7vziqVwt5eCDNK/gCvwcla72fV+D2yg=; b=Oq/akc6ejbvRs3GHQ05Xg+A35E
+	Xx50w7VVJYVJ/Nl+Sv+gbhmf/TrgZF2ja+jwhzeJozr4KcNuVmhlRejvbqGP4kN5lByKav1w+dQ+w
+	vqc++/37OCBSXGdqXud+WEVD6VbOOrw8Oy2GBhwO0iCQ3VmBkSC/VLcgNXQ2ygFRJ2SPohWqXrUjW
+	taqePIQBGVCr0fGfhXw+m3yTQEJjzQ4pxFdoFg/dwU26OOsRd8Rpy8kB+vDBSxrfYiiJ89zYrtjRV
+	FKYrYVvl5HpEenA1Lda1sERSWWvbEpUZgvgM3pzZuvjNnISqf54t73xj+S0MHU3cbV/UE2ICtmd3s
+	15x4eSjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzPW-00000007G5Z-0At5;
-	Thu, 21 May 2026 09:09:46 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wPzQY-00000007GHQ-2zTp;
+	Thu, 21 May 2026 09:10:50 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzPU-00000007G4v-00Lp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:09:45 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48fd2b502e2so50379105e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:09:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779354582; x=1779959382; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=0w0paPj0j6eJsDuENg7ZDSDMt1WZief0AlIPdrZFR/A=;
-        b=XNJouaeF9/Xe4COJ8AlyUXluCG4qU69zAIXn4vfSrHcOplFB1VkRAx/BosV1HaSRgW
-         Wqtj7tUBOUQ8mJFFikTiGKjz58iH+uvOqQQp17uK/3nfgtyoeM0pO/Z5GjfM0k/a17nh
-         uaWJkplETWQqAYesCApCi09LfJaMgrMDqBP+U8PYRGxGUsYm1PKddPMRMZ0XJpa3KFnt
-         wjvRBWvozLR4wipsFmmame0JFiLG0TLSuqCR5IBQ8gB1Z1OfFe2lTn2n+Er3XlyuJWgt
-         lVSPp0B28A3t7ijelUp5oYRGmrwjbgNgd3Hab6pdmA4X5f6V4fyt6rpjPf2peofEAsZo
-         /fBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779354582; x=1779959382;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0w0paPj0j6eJsDuENg7ZDSDMt1WZief0AlIPdrZFR/A=;
-        b=T6gl0OXED/yU8Ms/btRf/uIU2VnXWgoeYFt8YdeX+9z5UQu31ulCfhCP3gnPPLavil
-         odBw5BzLDHDOG4TvV4ZH2q/EMohIWgVCqxqrIMmlziw/rVgNsEDMon4fe+aRkmz5CWcs
-         vLKfyjLAUmQi18KCQ/m4y/1i4izJ25dQQmsgbjShXTGS55PaHfDy2aNF1BQqXBIaV6aU
-         NGdkdJTdVH/YC8Oc9Pidw5PnCTYBjwUtxWKO/CjDiiX9PB93p/S7MkHaLhW2U408hdAC
-         YJEYCsFymjUZufPrPJYH8yRN6gWdsvTVJmwuUNSsYKJ5nazN3UuQVctfzcPnOy5i1aOg
-         iYdg==
-X-Gm-Message-State: AOJu0Yyk9Ub494Va2adIE9IBHpscYrn1pyW4Dn33KhVVVtaNkxson+nF
-	Npb5swcTZjrtrz9E9+soKdqYzuKm1N+zBNqeIelPzuMg4oh5ROAQ4ZP0dmk81zbuz/fJiQMtCM3
-	e1nAuJ9D/1+wzUBKKzY825Q==
-X-Received: from wmbhu22.prod.google.com ([2002:a05:600c:a296:b0:488:c686:2b56])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:c107:b0:489:1c1f:35f1 with SMTP id 5b1f17b1804b1-49036035305mr20728065e9.4.1779354581586;
- Thu, 21 May 2026 02:09:41 -0700 (PDT)
-Date: Thu, 21 May 2026 10:09:39 +0100
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260521090939.735108-1-vdonnefort@google.com>
-Subject: [PATCH] KVM: arm64: Fix meta-page unsharing in pKVM hyp tracing
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1wPzQW-00000007GGO-0nNO;
+	Thu, 21 May 2026 09:10:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=WPIPD1BGr2Dw7vziqVwt5eCDNK/gCvwcla72fV+D2yg=; b=n4AGgQv/3ZavNsA63rM333XACz
+	fHeXMoXEM4eBFG1LP0Ys0BRitcArnY8IAgN2epsQB4cNX3/yCN97sX9MlCGTZOGqFcNSdibj3YZ5h
+	6WViB5qjiers9mTvUqHimV+B86SbXZ9kOakAAg7ENnauDqFcmiGGW5Toh+XVJWJAwD+KkNkpP8nlQ
+	E5CAWpVRuTPHJQp61w1J6AdHuXauVYWK4xtlPnnOjyFSzBcX0AubmQ/BWMJdiWO7+JF5GfWOKKS3l
+	QZwplLMC9HPhmAE68RKTYe48TwJfceAqc+JkS708NXveJ1jSQOt5P+R/TF1h1xFATp5iG2iNpwHEE
+	U4vNICHA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jonas Karlman <jonas@kwiboo.se>
+Cc: linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Jonas Karlman <jonas@kwiboo.se>
+Subject: Re: [PATCH v4 1/2] phy: rockchip: inno-hdmi: Add configure() and validate()
+ ops
+Date: Thu, 21 May 2026 11:10:45 +0200
+Message-ID: <4136874.Dhsi8hcfAM@phil>
+In-Reply-To: <20260518180722.2480799-2-jonas@kwiboo.se>
+References: <20260518180722.2480799-1-jonas@kwiboo.se>
+ <20260518180722.2480799-2-jonas@kwiboo.se>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_020944_047168_9767EB30 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260521_021048_230328_951A2C2A 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +68,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As the hyp_trace_buffer_unshare_hyp() function name suggests we should
-unshare all the previously shared pages, otherwise we leak hyp-shared
-pages which won't be reusable for hyp memory.
+Am Montag, 18. Mai 2026, 20:07:20 Mitteleurop=C3=A4ische Sommerzeit schrieb=
+ Jonas Karlman:
+> The commit 10ed34d6eaaf ("phy: Add HDMI configuration options")
+> introduced a way for HDMI PHYs to be configured through the generic
+> phy_configure() function.
+>=20
+> This driver derives the TMDS character rate from the pixel clock and the
+> PHY bus width setting. However, no in-tree consumer of this PHY has ever
+> called phy_set_bus_width() to change the TMDS character rate as only
+> 8-bit RGB output is supported by the HDMI display driver.
+>=20
+> Add configure() and validate() ops to allow consumers to configure the
+> TMDS character rate using phy_configure(). Fallback to the deprecated
+> way of using the PHY bus width to configure the TMDS character rate.
+>=20
+> A typical call chain during DRM modeset on a RK3328 device:
+>=20
+>   dw_hdmi_rockchip_encoder_atomic_check():
+>   - inno_hdmi_phy_validate(): pixclock 148500000 tmdsclock 594000000
+>=20
+>   dw_hdmi_rockchip_encoder_atomic_mode_set():
+>   - inno_hdmi_phy_configure(): pixclock 148500000
+>     - inno_hdmi_phy_validate(): pixclock 148500000 tmdsclock 594000000
+>=20
+>   vop_crtc_atomic_enable():
+>   - inno_hdmi_phy_rk3328_clk_set_rate(): rate 594000000 tmdsclk 594000000
+>     inno_hdmi_phy_rk3328_clk_set_rate(): pixclock 594000000 tmdsclock 594=
+000000
+>   - inno_hdmi_phy_rk3328_clk_recalc_rate(): pixclock 594000000 vco 594000=
+000
+>=20
+>   dw_hdmi_rockchip_encoder_enable():
+>   - inno_hdmi_phy_power_on(): Inno HDMI PHY Power On
+>     - inno_hdmi_phy_rk3328_clk_set_rate(): rate 594000000 tmdsclk 5940000=
+00
+>=20
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
-Fix the typo by calling __unshare_page() on the meta-page, ensuring all
-previously shared pages are correctly unshared.
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Heiko Stuebner <heiko@sntech.de> #rk3328
 
-Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-index 8b7f2bf2fba8..06805b426101 100644
---- a/arch/arm64/kvm/hyp_trace.c
-+++ b/arch/arm64/kvm/hyp_trace.c
-@@ -189,7 +189,7 @@ static void hyp_trace_buffer_unshare_hyp(struct hyp_trace_buffer *trace_buffer,
- 		if (cpu > last_cpu)
- 			break;
- 
--		__share_page(rb_desc->meta_va);
-+		__unshare_page(rb_desc->meta_va);
- 		for (p = 0; p < rb_desc->nr_page_va; p++)
- 			__unshare_page(rb_desc->page_va[p]);
- 	}
-
-base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
--- 
-2.54.0.746.g67dd491aae-goog
 
 
