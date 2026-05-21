@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92150CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 11:27:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5206DCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 11:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UZOTOngkbfj30aKE5h0OheISuX6tazoHMxsmKuVcuU8=; b=Yy9QGV31EHAVWz9+yNIdcaYVj4
-	UVO6NULiISo3jqYSFJb6MFYiAV48zcwsio46j1BJ9L0Vi2Z/01T6eosGGWU+G9rQfYKjMzCmoAI9W
-	wp0r8egpanhqmKjBP2LzdMsGp0deL1RDoB27T4Z/DzLUMTNSXsSvizCjXei5MFRocDgH5zRJemZJs
-	46oddAqxMiURRvywGZnZTjLE3HKoqP6QjRaFuONSMBuKW9H8OheILDgeQEntxNnCvUS5MLpqwxQLZ
-	bBl6LAk1RUgMxY9nXQFBdiw7ljVipPfcZ13vmVBrT1j82DWqA7KIoGbcV1V1apkg5j/tVtrOpFkVg
-	TOGQ1vsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cqYnKnbGHzQgmhRaZYPYelkKBButwc5rs1zMUjpk+zk=; b=oi8SLy60NM2fnINtV++j3oFar1
+	O/oXmXfHarY0bMG2SO2TltTYHKoxWVsc5s7pvWkknieRxkClbppearbS4Ww3ukmPKnD71jxxvLqm0
+	uSMzFFt4/m9BH89Gr3xerjwzO6wJxt+H3qPvHnsRkeZjWx7JSJASYI+B4O/o1NLQ10mg3cE2gxjN3
+	2I3ZmvkVytd7xfycJKVnNWkyHUpyDL1MLx5xj4ctK6+8Zykw3O2MsE6I/5diViIBLHJbdQpOo0qQC
+	Efx5I1UWKzoCd73ErS3q+EoWol6NdeMpueYOCrLxS5IJA2Umph5l5IfZdGYIZYLw0Pr+RrCO/x9Rz
+	L/hpDQmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ1YA-00000007bHx-3YIA;
-	Thu, 21 May 2026 11:26:50 +0000
+	id 1wQ1a5-00000007biL-0aGM;
+	Thu, 21 May 2026 11:28:49 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ1Y8-00000007bGg-3dic
+	id 1wQ1a1-00000007bhh-2js2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 11:26:50 +0000
+	Thu, 21 May 2026 11:28:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2457F42A52;
-	Thu, 21 May 2026 11:26:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 207021F000E9;
-	Thu, 21 May 2026 11:26:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E86143739;
+	Thu, 21 May 2026 11:28:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE0AD1F000E9;
+	Thu, 21 May 2026 11:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779362808;
-	bh=UZOTOngkbfj30aKE5h0OheISuX6tazoHMxsmKuVcuU8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=YknBrn9kiMeaSTRI5stxMpPOhLCuv//1zvSkCq9TrxnhvQVUZi90Ibx6SNCLL2+c9
-	 1f9NhY9sd9GPPpZl+xrHLLtgsR0jHAQrg2aAIdocwHaUOOJnoZS1Oq1XQ3Aome8SpV
-	 nB8o+D12abKjKOLGHshtpVVCPx/trcADPRHMA/dbbxJcR5NQ2dp7TjQse3XlQlk82h
-	 pPLFc954YP2q/udXd94u/7aALaBOfqHoXXVA67i7koQng6GhIR8dEKsHehwnAELkLl
-	 ikQcgsaQmJxnSiolThEawMr79VBhwBN4ckowU42WuBQznI+D203WXd2Zb2TtdTaXd/
-	 Uv+MRCmq+cMHA==
-Date: Thu, 21 May 2026 12:26:38 +0100
-From: Lee Jones <lee@kernel.org>
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	John Stultz <john.stultz@linaro.org>,
-	Moritz Fischer <moritz.fischer@ettus.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD
- cells
-Message-ID: <20260521112638.GD2921053@google.com>
-References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
- <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
+	s=k20260515; t=1779362925;
+	bh=cqYnKnbGHzQgmhRaZYPYelkKBButwc5rs1zMUjpk+zk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=boUXeObsYisSteJn543SeGcDn2P7jIsR8T8Qd1ui3HYNqIXkJ8vvaQ7K1IOeKUdT0
+	 O+sjHFTXr9zg67gTKgajqJc7C17Cg3ijjZ3KOTp4dH8QOWhYHKuwdNhNjpJBHnTcvN
+	 zKJYFMoQHG2WKkHYCYl8ehi/PVpOViOezHsC4BXdOu54QLE/uLa5qRbsqwpfRNnze7
+	 vS4bvdYaW2QHxOrHoxQe1nZ9lyskJcRPiUrEGZWr/y3dA7WdWmWJzc/fufNnLqXImC
+	 goAp9oeySrorbhOo5A44XBj3ZJEtd8QBgi7eRFZ1wkp6IqYSuUUq5ziECMYNc7Ybdd
+	 t78GAFTvcsrPg==
+Date: Thu, 21 May 2026 12:28:34 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Srirangan Madhavan <smadhavan@nvidia.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ lpieralisi@kernel.org, sudeep.holla@arm.com, conor@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ vsethi@nvidia.com, jevans@nvidia.com, raghupathyk@nvidia.com,
+ srikars@nvidia.com, nbenech@nvidia.com, alwilliamson@nvidia.com, Dan
+ Williams <danwilliams@nvidia.com>
+Subject: Re: [RFC PATCH 0/2] arm64: add SMCCC cache invalidation backend for
+ memregion users
+Message-ID: <20260521122820.35fd34af@jic23-huawei>
+In-Reply-To: <20260521073047.320614-1-smadhavan@nvidia.com>
+References: <20260521073047.320614-1-smadhavan@nvidia.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_042649_057169_284F7D98 
-X-CRM114-Status: GOOD (  30.58  )
+X-CRM114-CacheID: sfid-20260521_042847_174565_9DB92513 
+X-CRM114-Status: GOOD (  20.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,132 +77,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 14 May 2026, Shivendra Pratap wrote:
+On Thu, 21 May 2026 07:30:45 +0000
+Srirangan Madhavan <smadhavan@nvidia.com> wrote:
 
-> MFD core has no way to register a child device using an explicit firmware
-> node. This prevents drivers from registering child nodes when those nodes
-> do not define a compatible string. One such example is the PSCI
-> "reboot-mode" node, which omits a compatible string as it describes
-> boot-states provided by the underlying firmware.
+> This series adds an arm64 backend for memregion cache invalidation users
+> based on the Arm SMCCC cache clean+invalidate interface.
 > 
-> Extend struct mfd_cell with a callback that allows drivers to provide an
-> explicit firmware node. The node is added to the MFD child device during
-> registration when none is assigned by device tree, ACPI, or software
-> matching.
+> Per DEN0028, this interface targets systems where a Normal Cacheable
+> memory region can be modified in ways that are not handled by usual PE
+> coherency mechanisms, and where VA-based CMOs may be too slow or
+> insufficient for large ranges and/or system-cache implementations.
 > 
-> Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-> ---
->  drivers/mfd/mfd-core.c   | 30 ++++++++++++++++++++++++++++++
->  include/linux/mfd/core.h | 14 ++++++++++++++
->  2 files changed, 44 insertions(+)
+> Representative use cases include device-backed memory state transitions
+> where stale CPU/system cache lines must be invalidated reliably (for
+> example secure erase, reset/offline flows, and dynamic memory
+> reconfiguration).
 > 
-> diff --git a/drivers/mfd/mfd-core.c b/drivers/mfd/mfd-core.c
-> index 7aa32b90cf1eb7fa0a05bf3dc506e60a262c9850..cc2a2a924d6d3044e29a9f864b536ee325ed797b 100644
-> --- a/drivers/mfd/mfd-core.c
-> +++ b/drivers/mfd/mfd-core.c
-> @@ -10,6 +10,7 @@
->  #include <linux/kernel.h>
->  #include <linux/platform_device.h>
->  #include <linux/acpi.h>
-> +#include <linux/fwnode.h>
->  #include <linux/list.h>
->  #include <linux/property.h>
->  #include <linux/mfd/core.h>
-> @@ -148,6 +149,11 @@ static int mfd_match_of_node_to_dev(struct platform_device *pdev,
->  	return 0;
->  }
->  
-> +static void mfd_child_fwnode_put(void *data)
-> +{
-> +	fwnode_handle_put(data);
-> +}
-> +
->  static int mfd_add_device(struct device *parent, int id,
->  			  const struct mfd_cell *cell,
->  			  struct resource *mem_base,
-> @@ -156,6 +162,7 @@ static int mfd_add_device(struct device *parent, int id,
->  	struct resource *res;
->  	struct platform_device *pdev;
->  	struct mfd_of_node_entry *of_entry, *tmp;
-> +	struct fwnode_handle *fwnode;
->  	bool disabled = false;
->  	int ret = -ENOMEM;
->  	int platform_id;
-> @@ -224,6 +231,29 @@ static int mfd_add_device(struct device *parent, int id,
->  
->  	mfd_acpi_add_device(cell, pdev);
->  
-> +	if (!pdev->dev.fwnode && cell->get_child_fwnode) {
-> +		fwnode = cell->get_child_fwnode(parent);
-> +		if (fwnode) {
-> +			device_set_node(&pdev->dev, fwnode);
-> +
-> +			/*
-> +			 * platform_device_release() drops only of_node refs.
-> +			 * Track non-OF fwnodes explicitly so they are put on
-> +			 * all teardown paths.
-> +			 */
-> +			if (!to_of_node(fwnode)) {
-> +				ret = devm_add_action(&pdev->dev,
-> +						      mfd_child_fwnode_put,
-> +						      fwnode);
-> +				if (ret) {
-> +					device_set_node(&pdev->dev, NULL);
-> +					fwnode_handle_put(fwnode);
-> +					goto fail_of_entry;
-> +				}
-> +			}
-> +		}
-> +	}
+Hi Srirangan,
 
-mfd_add_device() is getting very busy now with support for all of these
-different registration APIs.  Suggest that we start breaking them out.
+Great to see this moving forwards. I was wondering when it would
+surface upstream :)
 
-> +
->  	if (cell->pdata_size) {
->  		ret = platform_device_add_data(pdev,
->  					cell->platform_data, cell->pdata_size);
-> diff --git a/include/linux/mfd/core.h b/include/linux/mfd/core.h
-> index faeea7abd688f223fb0b31cde0a9b69dfe2a61ff..abfc26c057d6ee46947ba2b6f2e99f420e74b127 100644
-> --- a/include/linux/mfd/core.h
-> +++ b/include/linux/mfd/core.h
-> @@ -50,6 +50,7 @@
->  #define MFD_DEP_LEVEL_HIGH 1
->  
->  struct irq_domain;
-> +struct fwnode_handle;
->  struct software_node;
->  
->  /* Matches ACPI PNP id, either _HID or _CID, or ACPI _ADR */
-> @@ -80,6 +81,19 @@ struct mfd_cell {
->  
->  	/* Software node for the device. */
->  	const struct software_node *swnode;
-> +	/*
-> +	 * Callback to return an explicit firmware node.
-> +	 * @parent: MFD parent device passed to mfd_add_devices().
-> +	 *
-> +	 * Called only if OF/ACPI matching did not assign a fwnode.
-> +	 * Ownership of the returned reference is transferred to MFD core.
-> +	 *
-> +	 * Return a referenced fwnode or NULL if none is available.
-> +	 *
-> +	 * mfd_cell must be zero-initialized or get_child_fwnode must be NULL
-> +	 * when unused.
-> +	 */
-> +	struct fwnode_handle *(*get_child_fwnode)(struct device *parent);
+Usual thing for an RFC is to have some reference to why it is an RFC.
+I'm not immediately spotting any open questions or dependencies to
+stop this going upstream now (if review of actual code goes well).
 
-I'm very much against pointers to functions if they can be avoided.  Why
-does fwnode need this and none of the other APIs do?
+So why RFC?  Is the spec still in beta?
 
->  	/*
->  	 * Device Tree compatible string
+> Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
+> transient return codes needed by callers [1].
 > 
-> -- 
-> 2.34.1
+> Patch 2 adds an arm64 cache maintenance provider that:
+> - discovers SMCCC support and attributes at init time
+> - registers with the generic cache coherency framework used by
+>   cpu_cache_invalidate_memregion()
+> - handles transient BUSY/RATE_LIMITED responses with bounded retries
+> - coalesces waiters when firmware reports a global operation type
 > 
+> This patch set does not add a software fallback path; when firmware does
+> not implement the SMCCC cache maintenance interface, the provider is not
+> registered and existing behavior is preserved.
 
--- 
-Lee Jones
+By which you mean it kicks out an error? This kind of hints there
+might be a software fallback (assuming no other implementation has
+registered). In many cases there isn't a safe software solution.
+
+Jonathan
+
+> 
+> Reference:
+> [1] https://developer.arm.com/documentation/den0028/latest
+> 
+> Srirangan Madhavan (2):
+>   arm64: smccc: add cache clean/invalidate IDs and return codes
+>   arm64: mm: add SMCCC-backed cache invalidate provider
+> 
+>  MAINTAINERS                     |   1 +
+>  arch/arm64/mm/Makefile          |   1 +
+>  arch/arm64/mm/cache_maint.c     | 180 ++++++++++++++++++++++++++++++++
+>  include/linux/arm-smccc.h       |  17 ++-
+>  tools/include/linux/arm-smccc.h |  17 ++-
+>  5 files changed, 212 insertions(+), 4 deletions(-)
+>  create mode 100644 arch/arm64/mm/cache_maint.c
+> 
+> 
+> base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
+
 
