@@ -4,109 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 003F7CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:16:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 322D8CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 10:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NZAW49y/Gw7hMVNl6ABs1n9zxGhT5Y2pHplCGbww0vw=; b=UCqJsNRiVcf0GvYq16o28QeFia
-	8E2ymjL3q5PwdBGmrf6LLjpSZ0g1q7ZDvOy8qFr5sGk+NjqIiYMQ5DkLUN3CHHvlTyQciv5q6pB5L
-	hZlrgk8zvtI3UEv5HcMotPaDq6F2+Nc/QhP6pt+rVWyFGz1g3A5Z+Iq+VUILV7bubDRWFukt1XnW6
-	/zN2vf3rKL82cluFGMIbTAe6Wzmwku+E/m02ZEpjVC2c/fj/dnZ2gQcsZcXTeoaz1sICUrlF2aMml
-	jXunRXCbk7F1ScKg2zquS5nXn+0rEGogkDwFciQoOyAlaxpbhJLM1gfO2bVTm2Qr6rKN+pFwpv76B
-	4gJi6akg==;
+	bh=e35ASpDbu+JzlJXy6vzQPsFHJsqGdEATPmzNaYDOTrk=; b=FUXV/espVEXY2I16H+WOrs4gWq
+	sFfdK/fQRzlJwT9X7Y0dOMGoUBCqQlfAnssU1d6xJ/RBYxfEuItsnGa7AC20qyyfEGE9dPWwhSiCx
+	7QfriPgkdoNBztWlzZrVC0QKSI4a2svgeSTIp2c35J0rotsAfPlbKA9cU7/O+WSXoHWK/g3Cn+WU8
+	yCZPLbQlBUR4MxSYO4vXmDMOtDS1Hu4xAiOHM7XYoVT/B4XOF+aRu76s4uu9wvlhLrDKyLhXufnSG
+	GdKwXDKAEQxMi4cSsaMn+JIAnRgMil8n1QgxwAfUxP5EMQLNukE6PAC/l0XME68pvjMX0+6e4Nuru
+	4kjSGJtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0SJ-00000007Qfk-48zM;
-	Thu, 21 May 2026 10:16:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQ0SY-00000007Qjb-0i9O;
+	Thu, 21 May 2026 10:16:58 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ0SI-00000007Qf0-1TyT
+	id 1wQ0SW-00000007QiZ-0icJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 10:16:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9294401EC;
-	Thu, 21 May 2026 10:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 007091F000E9;
-	Thu, 21 May 2026 10:16:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779358601;
-	bh=NZAW49y/Gw7hMVNl6ABs1n9zxGhT5Y2pHplCGbww0vw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=mYYTcEPJjNa0WKxR5eH+YcorbRVqQ4eW9JCR/VjVtCawkyl5X1/PENfec6h8he06H
-	 CFEAazf5g19YuWXxjBfRZDLHUqJLs9DFOEfX4VIBQCLCiHBza008rpI3MagccDjUE0
-	 FKEE699iBtbT162HGvFw4iT888BWAdLx0grjGnwspUsB8HtC4BRR1o/gkRXf5dWwfe
-	 VG05Z/oK19zc9UM+C9Io9EQIrATyJ0EXywS1GEUMs09h+a8zpWlLM0RO4iVkMDqNGi
-	 WHs+LDAwz7cR7NQLzrUoh6aDx83VlButFHWzBeHGq5iUx5KsfdOZK8ez20CVgTzGj/
-	 XOBCnmXxuuBSA==
-Message-ID: <5c03ea16-036f-4967-9678-29774f151fe3@kernel.org>
-Date: Thu, 21 May 2026 12:16:37 +0200
+	Thu, 21 May 2026 10:16:57 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64L99nLv3451416
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 10:16:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	e35ASpDbu+JzlJXy6vzQPsFHJsqGdEATPmzNaYDOTrk=; b=n2KqCiRrOQrxLNGF
+	XgBkFgRwHC2u1RPF5a/auykres/jpwRgCdtJtROt6BASxFvKYL+Qfhju5Dz6F6mF
+	G+hfxCHv85g3xPYMaJxNlfXoH284Ofwj0oylvJc4GpMK42w4Ykbi3bMFumP3dGVn
+	Of3qQ/AuuJXJ24iKJ65BPO3IerbeKQ8W6XZEqt0Y4INWvvdUnzOxXDCSS5NQP9yU
+	YQ1/YFvSg+qAsf+bIwNfhsp+QmbuH/pux4UglorAuGH+3KDIOePVZTWhcKI3rWkU
+	Bgd5ipAhxEfTGDhgXs+/b86rAa6+H9YyBoLagFfCMGxmomgpsus3+zWqvMYiQ/zc
+	cpABdQ==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9y1h8awr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 10:16:55 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-82f9429f49cso8978016b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 03:16:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779358614; x=1779963414; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=e35ASpDbu+JzlJXy6vzQPsFHJsqGdEATPmzNaYDOTrk=;
+        b=IOi1LUoqX3W9ZP2ld0BuzXdMISEm2BQlIGEDLFQSp4sA2UmcnF+L7OwVWUe9yMlwTQ
+         ZXFNuhmZ+vWSieUPzqtF0XmY+9+LxPM76g+mqdjo/qG0OJJ1tlUgiM8jQ36azWUe6tAZ
+         4PxU5E++n0bN1zMeCt3AdbHC6LQ/7Ye7zkzo/dOaJqA7bnL2iY7irxfRtQfnK7Py+aF3
+         OznHzviMkdQSJCQUAMh9CaHsVk+g5e6LQfHrJsYNUAdarqd1LtlvI0EpGvkLxZS4KYsg
+         YwLCGGWWlyD9OfVoqr4VYGyGy8vJGxZhUSP/0L+6QPJx/kgp9tv/HqiCZf0bZWs8i+65
+         RyYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779358614; x=1779963414;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=e35ASpDbu+JzlJXy6vzQPsFHJsqGdEATPmzNaYDOTrk=;
+        b=gTQp/FrtorVGEDowhdhR1FHBvWLkc0M2oHJnML0Npc26fIp5EUL0IhIx34gE4eR92s
+         51SDNQfg2/GrM3nV1hOBW4F54wBtMDfJZaJyUeyIioTENo3E8zPHLwY/sZnSQ7VkdGAA
+         TtZi0QrxsWWDI3gksOW4Hwp68VB9pholfCIeGUT1ZV3RXReIgY09EPGINP7ULdBBj0g/
+         0CLh5FDJnGF5ggasWjnX2pFR6MaDqUBJQdJmIFtZ6nlexE+E4mAOoIfFO8M2tI8RqBJ0
+         p+/nJpuutiZnM4OpwUNjMecrRoNQLCIQvYvFHw+Mhk6dhDFqDNjMpvxS5OqtcPdTvjDi
+         Qxlw==
+X-Forwarded-Encrypted: i=1; AFNElJ87Lxj5ZgEsTx66YmcxObn5OixebblQJVFehfQmxWGzNkirlYn4KOaiNNfqAisizb0VOpPthNK9jeVnC1DXPyNS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWz1rjwo87ej2UaKIDfFQIA/O13Nn3KQyB+rK69e/eQ3/HOwYx
+	0GktaiWSxG9FICbPNTx0m9K0JeF/+bz6m/0BhOauHh6u9E1R61T0hoIhj4cwcU2TpttpatmD+N8
+	y96aIUMa0zbJH8hHPbpGaPBpJHq6QiZAjtOm1mTGFFKXMlFu09peVAz1UKyfthZ9HEvwE6vj2sP
+	pVtQ==
+X-Gm-Gg: Acq92OEnR1rBzpuEsiU9lds0nGRdGsZyncmY9C0WR9paINDs3Pb7pQ5Jt3ogzXiPO+g
+	mkdhPEBkRZs9b1CxhRq/afzRIYGurRRi/8blkqWzv7YPOwqXf1u6dv4wzqlrMu4YxuyH0v19L+y
+	qR428e3xHmQ5LYN7UeOKse0VT95hj6D5ZuNWPKKZvCTujGUF4AQYyJLHRhfKQOqiTVYjL69xtgJ
+	m+Pxm1jDS3/MndBSIHGWmwtl7pv7b8PsN7Tb9uDHMfEygPronGlKZ8vJJ3Wnfq4VILUE1h5QlYe
+	fowpIZhbpFQR2adZKFn/a9+5R6JkrYsWrKZC16gFnM2f7zh3rT8nFqpFB31KAW34kL+8vngBPzv
+	bt0dC6S9oKomNm24aGyhL0vY4HWhYE+xyJPHrKPSCgHqg5p922ZujtZ3V
+X-Received: by 2002:a05:6a00:330c:b0:82f:390a:69c7 with SMTP id d2e1a72fcca58-8414ae6e041mr2501843b3a.33.1779358614182;
+        Thu, 21 May 2026 03:16:54 -0700 (PDT)
+X-Received: by 2002:a05:6a00:330c:b0:82f:390a:69c7 with SMTP id d2e1a72fcca58-8414ae6e041mr2501811b3a.33.1779358613617;
+        Thu, 21 May 2026 03:16:53 -0700 (PDT)
+Received: from [10.217.219.207] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84154e3d6a7sm997070b3a.55.2026.05.21.03.16.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 03:16:53 -0700 (PDT)
+Message-ID: <22af0378-a3c9-4403-a0ee-da794847f41d@oss.qualcomm.com>
+Date: Thu, 21 May 2026 15:46:47 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/12] crypto: atmel-ecc - fix use after free situation
-To: Lothar Rubusch <l.rubusch@gmail.com>, thorsten.blum@linux.dev,
- herbert@gondor.apana.org.au, davem@davemloft.net,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org, ardb@kernel.org,
- linusw@kernel.org
-Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260520155703.23018-1-l.rubusch@gmail.com>
- <20260520155703.23018-3-l.rubusch@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
+ down
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>,
+        Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>,
+        "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
+        "kernel@pengutronix.de" <kernel@pengutronix.de>,
+        "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
+        Frank Li
+ <frank.li@nxp.com>,
+        "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+        "festevam@gmail.com" <festevam@gmail.com>,
+        Carlos Song
+ <carlos.song@nxp.com>, Bough Chen <haibo.chen@nxp.com>
+Cc: "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
+        "imx@lists.linux.dev" <imx@lists.linux.dev>,
+        "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "stable@vger.kernel.org" <stable@vger.kernel.org>
+References: <20260520101504.2885873-1-carlos.song@oss.nxp.com>
+ <4979e748-ce4e-4244-8906-e22a1e6472e7@oss.qualcomm.com>
+ <AM0PR04MB68027798D1B07FD63AEC5F23E80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260520155703.23018-3-l.rubusch@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+In-Reply-To: <AM0PR04MB68027798D1B07FD63AEC5F23E80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: tn3Pg7XBv5eS9p5n43v2mV8jSZ9fC86H
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIxMDEwMiBTYWx0ZWRfXz/vqm0XMWF5K
+ WDqIxCBECNv1joGKVOFCJwtXcYv9M6jkqUeuXVOrzja/580aNupeBl1P63l932W3Zp59fwr02xa
+ EIZQux9GReTsXZ1F2LJ7tHgYlry8jfgLahKmeQGx33zVGqeOnMg4xNiapvCThKtSjOZJINwyBsg
+ MhQ7JpooGsFmHQOcI2/qYI/bzFuEyf4fpxk+e2BcEv/0jhSOnhlpfPlyrc9+1ZLmRgPPeww++Bj
+ UD/qBOTn/Fqo56cuyTWX8IxItqO0dD7jqbtlmMmFI841vZSi66FJzX3R0MFWipwrWdBwT5t5+vq
+ Oxz4ZS/ogSqgYlRSM6ZQpzBPwgTfLTV4v2Tsv4qsHHie6nCR4+Wkd8JWTq2VmTnBM6oho5Qvw7F
+ fEa4POOtJsiZKFQmLosgAQUeLDbwMVmuHib8ITHiQ57w6WiGeQ+pQCXWdUYccCPpk7A4pjF6oNC
+ nuRnyw7HgkiWVpOy1BQ==
+X-Authority-Analysis: v=2.4 cv=YfyNIQRf c=1 sm=1 tr=0 ts=6a0edb97 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=_EeEMxcBAAAA:8 a=EUspDBNiAAAA:8 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8
+ a=pGLkceISAAAA:8 a=JfrnYn6hAAAA:8 a=yJUUZN2m8lq9mbh6i7kA:9 a=QEXdDO2ut3YA:10
+ a=czjwGCTIUPoA:10 a=OpyuDcXvxspvyRM73sMx:22 a=ST-jHhOKWsTCqRlWije3:22
+ a=1CNFftbPRP8L7MoqJWF3:22
+X-Proofpoint-GUID: tn3Pg7XBv5eS9p5n43v2mV8jSZ9fC86H
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-21_01,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 priorityscore=1501 impostorscore=0 phishscore=0
+ lowpriorityscore=0 adultscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605210102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_031642_433466_31CE6873 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260521_031656_342404_07F0043F 
+X-CRM114-Status: GOOD (  24.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,35 +164,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2026 17:56, Lothar Rubusch wrote:
-> Fixes the very likely race condition, having multiple of such devices
-> attached (identified by sashiko feedback).
+Thanks Carlos !
+
+On 5/21/2026 1:57 PM, Carlos Song (OSS) wrote:
 > 
-> The Scenario:
->     Thread A (Device 1 Probe): Successfully adds i2c_priv to the global
->              list (Line 324). The lock is released.
->     Thread B (An active crypto request): Concurrently calls
->               atmel_ecc_i2c_client_alloc(). It scans the global list, sees
->               Device 1, and assigns a crypto job to it.
->     Thread A: Moves to line 332. crypto_register_kpp() fails (e.g., out of
->               memory or name clash).
->     Thread A: Enters the error path. It removes Device 1 from the list and
->               frees the i2c_priv memory.
->     Thread B: Is still actively trying to talk to the I2C hardware using
->               the i2c_priv pointer it grabbed in Step 2. The memory is now
->               gone. Result: Kernel crash (Use-After-Free).
 > 
-> Fixes: 11105693fa05 ("crypto: atmel-ecc - introduce Microchip / Atmel ECC driver")
+>> -----Original Message-----
+>> From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+>> Sent: Thursday, May 21, 2026 3:40 PM
+>> To: Carlos Song (OSS) <carlos.song@oss.nxp.com>; o.rempel@pengutronix.de;
+>> kernel@pengutronix.de; andi.shyti@kernel.org; Frank Li <frank.li@nxp.com>;
+>> s.hauer@pengutronix.de; festevam@gmail.com; Carlos Song
+>> <carlos.song@nxp.com>; Bough Chen <haibo.chen@nxp.com>
+>> Cc: linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+>> stable@vger.kernel.org
+>> Subject: Re: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
+>> down
+>>
+>> [You don't often get email from mukesh.savaliya@oss.qualcomm.com. Learn
+>> why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>
+>> Hi Carlos,
+>>
+>> On 5/20/2026 3:45 PM, Carlos Song (OSS) wrote:
+>>> From: Carlos Song <carlos.song@nxp.com>
+>>>
+>>> Mark the I2C adapter as suspended during system suspend to block
+>>> further transfers, and resume it on system resume. This prevents
+>>> potential hangs when the hardware is powered down but clients still attempt
+>> I2C transfers.
+>>>
+what was the reason of this hang ? I was thinking you don't have 
+interrupts working when client requested transfer but adapter was 
+suspended. Please correct me if wrong.
 
-Please add Cc-stable
+And it would be good to mention the actual problem and why/how it occurred.
+>> Code changes looks fine to me but have comment on commit log.
+>>
+>> It seems, you are adding support of _noirq() callbacks to allow transfers during
+>> suspend/resume noirq phase of PM.
+>>
+>> Would it make sense if you can write "Replace system PM callbacks with noirq
+>> PM callbacks" OR "Allow transfers during _noirq phase of the PM ops" instead of
+>> "mark I2C adapter when hardware is powered down" ?
+>>
+> 
+> Hi,
+> 
+> Thank you for your comments!
+> 
+> But this patch is added is not for support noirq PM callback or transfer in noirq phase.
+> 
+Okay, may be actual problem description can help me.
+> In fact, this fix is to mark the I2C adapter as suspended during system noirq suspend to block further
+> transfers, and resume it on system noirq resume. This is to prohibit I2C device calling the I2C controller
+> after the system noirq suspend and before noirq resume, because at this time the I2C instance is powered
+> off or the clock is disabled ... So I want to keep current commit. How do you think?
+completely Makes sense. Please help add how this problem occurred and 
+why ? So the change/fix will be good to understand against it.
+> 
+> Carlos Song
 
-> Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
-> ---
 
-And fixes must be before any code refactorings, so your rename patch
-should be after.
-
-
-Best regards,
-Krzysztof
 
