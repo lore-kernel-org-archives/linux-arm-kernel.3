@@ -4,91 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F420CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6642CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=en35R6sc2ImIXJjSfKNTDeODIfFRRIXQVjpIv7bHdmk=; b=oqXBP1isuI5hpaHNzLSBAxSHmo
-	MxULKqsLLT2aRpOqHCUElxJ8Fk/HydZSCLD6ulcL/E9tpbBhDPxdEHN1v3c9O6c80773c9KHKbxYz
-	4jo9HABeSSOoBsRjPKeENCh6mjh4jnSARnDQg3g1kbD7yohuLQBm8YF1cT2jlLqMrjMkGpFU6r2VQ
-	6z1fF2VgR2CLDcQhtI7NNxKVTKjxu1HzdK19rK6moHlxQ4qgkyw51kyyNvTZ05dvoa0eNPtxLdOmb
-	m1vZIjEbWLQa+Ydfc3NJjY0+wdd9X0pOV2sBYzwxAmmgP0fhpYG4YI5uOQcJTVumt+Ydo1CqC3Rhr
-	aOc7w7lQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9In61+ZHagccfIlYuNobIHgAoaAUZnAG380XJjBbpfQ=; b=oBg0WeRxkfECqxgIlo9PFjU5Z7
+	jjYb6w9HBMFe0IFKTKGMLU/mw6AIFl+6yzw5dtuf4I0nxiWptfZSGgO6bjhP85h1HEvINpwayRyV9
+	Gv1hGXKUrmk/D7uyE20veuiSbTW+EsqfcgOKbL43DMjzt39aokQqYJD08GTXfx2lQIwwLhqbPgYL7
+	u+Tpo5F9SddIYieqhhmE5jgTbycZH1TfmHAQEHUD22jHPCZqu0bJWMtpayP8G8F/BVqJXxn983nC7
+	4n24rtidqjYBPzWF/DQ7QFUShinztKhreyN3XmKjp/E6+Atto8zMkGtLxtF54uqYnOr8b8pGHVcQV
+	VYyd0JDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6Eu-00000008UUA-0iOt;
-	Thu, 21 May 2026 16:27:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQ6KL-00000008VIv-3ASM;
+	Thu, 21 May 2026 16:32:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ6Et-00000008UTx-0GHW
+	id 1wQ6KG-00000008VIA-3mrn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:27:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 693EA60122;
-	Thu, 21 May 2026 16:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F61F1F000E9;
-	Thu, 21 May 2026 16:27:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779380834;
-	bh=en35R6sc2ImIXJjSfKNTDeODIfFRRIXQVjpIv7bHdmk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DuOoRKBO6Y1Oqrq2sJVjpuELojujcFM80db44IMaa6rdCsVyxoL2s+9M7w0kvfCxY
-	 WCW3FPjEQbdO3j0DQ1pU/39D2T4/mSgwGY/XxIKOZ99G52iza5+52jIdv/FZfUwWIi
-	 TKQELjriOStYA3QCfXpiFucHhhGpZQeGtMu3ZBtbfP5D+Mh8Zt2LZ1PGhN+qPrI0aw
-	 6xkmpJjoMLOWpnx9ml1tKtw54ghGgcDQUD309KlAWUMHkk31otLpmnySG1nt0I98cR
-	 ccI4arI3xtm1COLpzPFvlggMBVkYkf2XDAzZguFVzH0ETgrlum/YGVLx6H8Y1F9dOB
-	 BCKRbLLME2zqQ==
-Date: Thu, 21 May 2026 17:27:05 +0100
-From: Lee Jones <lee@kernel.org>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
-	Sebastian Reichel <sre@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Christian Loehle <christian.loehle@arm.com>,
-	Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	John Stultz <john.stultz@linaro.org>,
-	Moritz Fischer <moritz.fischer@ettus.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Andre Draszik <andre.draszik@linaro.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD
- cells
-Message-ID: <20260521162705.GH3591266@google.com>
-References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
- <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
- <20260521112638.GD2921053@google.com>
- <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
- <20260521132419.GA3591266@google.com>
- <CAMRc=Me5QS4xA3PJWXNuRP1N_C+w3sP9ZvqH36GNh2Ebc9hwcw@mail.gmail.com>
+	Thu, 21 May 2026 16:32:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0269740B33;
+	Thu, 21 May 2026 16:32:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CD768C2BCB4;
+	Thu, 21 May 2026 16:32:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779381167;
+	bh=z3v6YO+0Wv56+AsTvqL7AMaNeB9qSJnJg6uwyLqlCXQ=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=LT8oEfb9sI945gIfNB7Ll7i8odp/msHWe6c1V0v2SbCfPy5l4EAQkotx9Dudz3bCO
+	 fcaL6onQCErdJZQZqWTUEWnnLvItCuEXY4JKKGHgDvP/6p7Kv8wYi8pygIxfewy/UN
+	 PRJxNY8Dg1L8s/Vm1k+sWUfY4NqicvnoUBTb7w1DhfPK5hQ8EEhRfpl+h6xX3m1P/I
+	 VlqWHbBJ0Nwwot6a1Y+t0ZRbE1Znq9c+rJtvCgElNglIic8at5gZ2kGjs4KsIgilrk
+	 2obsJiYVWJzQPCyJPoH29Y/a9rfGMQOBVcXLE1UodFW44w+c0ASPjhVNoLxSDxnsjc
+	 fhYSuNK2oa8Rw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C320CCD5BAF;
+	Thu, 21 May 2026 16:32:47 +0000 (UTC)
+From: Abid Ali via B4 Relay <devnull+dev.taqnialabs.gmail.com@kernel.org>
+Date: Thu, 21 May 2026 16:32:46 +0000
+Subject: [PATCH v2] net: stmmac: mmc: Remove duplicate mmc_rx crc
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Me5QS4xA3PJWXNuRP1N_C+w3sP9ZvqH36GNh2Ebc9hwcw@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260521-xgmac-mmc_rx_crc-cleanup-v2-1-7d9de09f5898@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAK0zD2oC/42NUQ6CMBBEr0L67RpaAoJf3sMQsq5b2IQCaZVgS
+ O9u5QR+vsnMm10F9sJBXbNdeV4lyDwlMKdM0YBTzyDPxMrkpspLk8PWOyRwjjq/deQJaGSc3gu
+ gJcbKItb4UGm+eLayHep7m3iQ8Jr953ha9S/9Q7pq0HDRRWFL09RlY2+pKeOZZqfaGOMX/Bkb+
+ 8AAAAA=
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Abid Ali <dev.taqnialabs@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779381166; l=1735;
+ i=dev.taqnialabs@gmail.com; s=20260425; h=from:subject:message-id;
+ bh=YT6MwxbT32LmsJ0Q4toXiSUGLZ0LUkCCQs3ZtA9Xc6A=;
+ b=4nb99cKuWhzcka7MVU0baeVQGR1KS14hPy/Qj6o+FR+zkwGaooEwyN2rZln4L5Ctvpa4Fl4/0
+ VoiHf/eHZF6CxH9tbvd1DO3g0ClGL8324bUtCG3NHSJgcWl2owhEIwL
+X-Developer-Key: i=dev.taqnialabs@gmail.com; a=ed25519;
+ pk=4Syx51HH/MOySSUpi79M2ToLOdwt1yiNb338eKZBJNk=
+X-Endpoint-Received: by B4 Relay for dev.taqnialabs@gmail.com/20260425 with
+ auth_id=752
+X-Original-From: Abid Ali <dev.taqnialabs@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_093249_025183_E4509600 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +90,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: dev.taqnialabs@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026, Bartosz Golaszewski wrote:
+From: Abid Ali <dev.taqnialabs@gmail.com>
 
-> On Thu, May 21, 2026 at 3:24 PM Lee Jones <lee@kernel.org> wrote:
-> >
-> > >
-> > > I suggested it because of its flexibility. The alternative I had in
-> > > mind is something like a new field in mfd_cell:
-> > >
-> > >     const char *cell_node_name;
-> > >
-> > > Which - if set - would tell MFD to look up an fwnode that's a child of
-> > > the parent device's node by name - as it may not have a compatible.
-> >
-> > Remind me why the chlid device can't look-up its own fwnode?
-> >
-> 
-> Oh sure it can, but should it? I'm not sure it's logically sound to
-> have the child device reach into the parent, look up the fwnode and
-> then assign it to itself after it's already attached to the driver.
-> This should be done at the subsystem level before the device is
-> registered.
+MMC_XGMAC_RX_CRC_ERR is clear-on-read, and just a single read would
+update the mmc_rx_crc_error counter.
 
-Leaf drivers reach back into the parent all the time.
+[1] commit b6cdf09 ("net: stmmac: xgmac: Implement MMC counters").
+The duplicate read appears to have been unintentionally introduced in
+the intial MMC counter implementation. The databook does not mention
+MMC_XGMAC_RX_CRC_ERR needing the additional read.
 
+Fixes: b6cdf09 ("net: stmmac: xgmac: Implement MMC counters")
+Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>
+---
+Changes in v2:
+- Updated why the redundant read is removed based on feedback.
+- Link to v1: https://lore.kernel.org/r/20260520-xgmac-mmc_rx_crc-cleanup-v1-1-7133f529859f@gmail.com
+---
+ drivers/net/ethernet/stmicro/stmmac/mmc_core.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/mmc_core.c b/drivers/net/ethernet/stmicro/stmmac/mmc_core.c
+index 1b3b114e7..d81581dfa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/mmc_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/mmc_core.c
+@@ -479,8 +479,6 @@ static void dwxgmac_mmc_read(void __iomem *mmcaddr, struct stmmac_counters *mmc)
+ 			     &mmc->mmc_rx_multicastframe_g);
+ 	dwxgmac_read_mmc_reg(mmcaddr, MMC_XGMAC_RX_CRC_ERR,
+ 			     &mmc->mmc_rx_crc_error);
+-	dwxgmac_read_mmc_reg(mmcaddr, MMC_XGMAC_RX_CRC_ERR,
+-			     &mmc->mmc_rx_crc_error);
+ 	mmc->mmc_rx_run_error += readl(mmcaddr + MMC_XGMAC_RX_RUNT_ERR);
+ 	mmc->mmc_rx_jabber_error += readl(mmcaddr + MMC_XGMAC_RX_JABBER_ERR);
+ 	mmc->mmc_rx_undersize_g += readl(mmcaddr + MMC_XGMAC_RX_UNDER);
+
+---
+base-commit: 028ef9c96e96197026887c0f092424679298aae8
+change-id: 20260520-xgmac-mmc_rx_crc-cleanup-afcea6faa8ab
+
+Best regards,
 -- 
-Lee Jones
+Abid Ali <dev.taqnialabs@gmail.com>
+
+
 
