@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB32CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E62CCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:30:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6o1IkY/F+HH2uY+8ham+unzEexE5zCoe5urJsKJFQzU=; b=TPpssIy79l320M5RO0zqhRpMCT
-	hzROziXukSTpA2n1fyTcpPd0/btA+jz704DcEHzqdfFWSH9USm0FhViQHQDBiN2nJGV1KPW7/SojR
-	uIlDxs6qDUlxOF0zfDWzNPyDmkj/xnVjiUhbEo+9dynbEJ+sZKLEE5VXiG1amLRqz+52z6ZCKqdS1
-	sT4A/fD9e53ny9VQCHdCEg5DajLVqatjeL6Moat/jrj1X98dm8cQGuPyLHj4SVRec2Z6WaSgfJEZn
-	i+40sTYylqyPMArWXZMfI4Opro+Rzz28GNaCSs648XQ1PcV+oHy2n7fnNaAdIXUrMMxUzf9G3UagD
-	2dwxZR5w==;
+	bh=wW2EIJlRcTtZ7Krb1jUuZ1MsgafTYwvcWNxQDHTGtv0=; b=ZNAC9pKwbtFBGGrORn1VqyFbCn
+	JSSBpcVBLMkTh5M7WvZsRxeZ4GxqZgqdLH8yUsfyXPLm0Y+fNYIRc/6P9MXhw/2h4mAqvmZXgAzbO
+	okV7FobW/6JbWbiP5T7wAnY7MiqyIx32lZK/+q2L71tbgGQEyBPDT35GtW1JlsZdv+j3jChVzzBAJ
+	Zjmmv4L/9K1O/vBxYr3R5JtorhuDEgn1wKfPlPjnnb2uyRz/xEHAObs3qMm1b77I1q32FTn0bSu/z
+	7IBSGGa4xWBTZgnWpiBgfgJ3jkpoxouFD+M+xOkVSabrVcAGgrz5IXsSHVczTq+DQxXm9HHv/d61V
+	W4Gen1mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5LU-00000008JHP-2wEB;
-	Thu, 21 May 2026 15:30:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQ5Lo-00000008JOO-1V1G;
+	Thu, 21 May 2026 15:30:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5LU-00000008JH7-0GeB;
-	Thu, 21 May 2026 15:30:00 +0000
+	id 1wQ5Ll-00000008JMX-1Oms;
+	Thu, 21 May 2026 15:30:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 516F2600C3;
-	Thu, 21 May 2026 15:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06A3D1F000E9;
-	Thu, 21 May 2026 15:29:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 214AC42B91;
+	Thu, 21 May 2026 15:30:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 040871F00A3B;
+	Thu, 21 May 2026 15:30:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779377399;
-	bh=6o1IkY/F+HH2uY+8ham+unzEexE5zCoe5urJsKJFQzU=;
+	s=k20260515; t=1779377416;
+	bh=wW2EIJlRcTtZ7Krb1jUuZ1MsgafTYwvcWNxQDHTGtv0=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=b+ELi5YzjEwTFaCG3+Sbvfo+Eum0r+TXOJkb2mcYat056UGfa4JfGgy64KhBOdGm9
-	 XDTo6gL0VhrRUD3tgPMvKCEhB1NKZi+qihEGcUe28/AAiyDECIDO/gfyAp2sCYSTf3
-	 pvDnJaUTLsmifBBRHmpGiTGVp8FUTn0mcw+Et0CFIFOKU14zMPksIfAXNvEyyfRrmj
-	 gL5pRqsXGsc6mZpg2CY0yKhGCNXWdAcchkEXKn4i3/pyOOkqdRtf33pkAa8lo4c0K8
-	 2GYiOJO98508+5TD36WSn4Q9qr+OYEcYb2zGVIoCbAyamViQCCpotORJ95uR/opd/D
-	 R6DBOhfCN9NRw==
+	b=W6Htv0KMZQwx9moC2dA+XQ334P5Mw4pdn+EkxJ2IOOrCyYw4VDoAHLDgEDbvuaRpg
+	 m+yxu80qEpcQ85QzZV1QPWRNd9GvY5e3hDjZoUDAf+Yr/pNFas5tFShIhrat1hu+Qa
+	 62DqDbhHfoK7F13R6s2XUGzTieDAsJlXqKhgBm848hPPxe21mm/YR7TV3Vi2AcDJFX
+	 uMMhMNrzxPNlH/Ue+0EyrGKyPXk74hPQsO1Qkxh0lBHxVAf5IIm+6eHRIa4A/6ZUMi
+	 CN50TbwnwSV9KVIHNBpZX1UKi9iuwMC5ff65mKhkC41NgOX0urCxcJ0YRrQaLE5Y62
+	 yd8cVto7wrRYQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 197F13930E02;
-	Thu, 21 May 2026 15:30:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 197503930E02;
+	Thu, 21 May 2026 15:30:27 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: airoha: Disable GDM2 forwarding before
- configuring GDM2 loopback
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <177937740865.384060.9848188889062709318.git-patchwork-notify@kernel.org>
-Date: Thu, 21 May 2026 15:30:08 +0000
-References: <20260520-airoha-disable-gdm2-fwd-v1-1-1eeea5dffc2f@kernel.org>
-In-Reply-To: <20260520-airoha-disable-gdm2-fwd-v1-1-1eeea5dffc2f@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
- madhur.agrawal@airoha.com
+Subject: Re: [PATCH] Bluetooth: btmtk: remove extra copy in cmd array init
+From: patchwork-bot+bluetooth@kernel.org
+Message-Id: <177937742563.384060.10935423618601860001.git-patchwork-notify@kernel.org>
+Date: Thu, 21 May 2026 15:30:25 +0000
+References: <20260520021500.13504-1-liujiajia@kylinos.cn>
+In-Reply-To: <20260520021500.13504-1-liujiajia@kylinos.cn>
+To: Jiajia Liu <liujiajia@kylinos.cn>
+Cc: marcel@holtmann.org, luiz.dentz@gmail.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux-bluetooth@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_083017_391781_6733F9A7 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +78,23 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This patch was applied to bluetooth/bluetooth-next.git (master)
+by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
 
-On Wed, 20 May 2026 15:12:02 +0200 you wrote:
-> Hw design requires to disable GDM2 forwarding before configuring GDM2
-> loopback in airoha_set_gdm2_loopback routine.
+On Wed, 20 May 2026 10:15:00 +0800 you wrote:
+> In btmtk_setup_firmware_79xx, the data length indicated by wmt_params.dlen
+> in the cmd buffer is MTK_SEC_MAP_NEED_SEND_SIZE + 1. Except for the first
+> byte, the remaining length is MTK_SEC_MAP_NEED_SEND_SIZE. memcpy copied one
+> more byte to cmd + 1 than the remaining length. Align the length passed to
+> memcpy to avoid exceeding current section map.
 > 
-> Fixes: 9cd451d414f6e ("net: airoha: Add loopback support for GDM2")
-> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: airoha: Disable GDM2 forwarding before configuring GDM2 loopback
-    https://git.kernel.org/netdev/net/c/985d4a55e64e
+  - Bluetooth: btmtk: remove extra copy in cmd array init
+    https://git.kernel.org/bluetooth/bluetooth-next/c/b3e1ce138148
 
 You are awesome, thank you!
 -- 
