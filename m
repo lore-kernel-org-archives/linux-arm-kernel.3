@@ -4,92 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4252CCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A67CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 14:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKs1wGtTKcSBmSwQxcOcdV5Ynyi4NSoFVgrZJr2maq0=; b=xedXYxfygH+eNWNOLRpVxOYErQ
-	QTPq3ze+qvmtGTMkxbaJU9jdrKcS9UIivworHLcyhsfeBCyegzHwg+n+U3sGJtG0whsiZt2i/ISvY
-	NXEuBg0eOIetuMSCZzwqE9G3FVKFXf8nzc3HP317dR2b/8n4TuEROl++j4UfE0mBUtR2KVe/i8+ty
-	22Q9h4WyqDWNkMWMOPvCVRANkgynOCANoRfT2r8d/VoVuE33rVUeB2R7QxUUHfdLl0oLIDHs5EMXH
-	yjvU1qDVms3TgRp+wWru5VDBhpbSZxqRqz477biw8g/tTgw705GIEJFwzm8dnbnr2IKBAbyJ885HL
-	nQFCe/nA==;
+	bh=RI8RcJrMlrGpgo/P0j5rPAmC/BUqQ0jZHOTebzV+Hvs=; b=zl6q4qYJk3XJghfVRrGpH2nVg/
+	QGurd5NQPtmsOAtHsolxebKPqZxTECloWLaAQYMESY96fdQJnGvMI1W9gYLxRZGYEZMGYfrT1t8xg
+	XkAbuO7aIhRIduqtOADZ3dStNu6R+USyWKJplv5ouLUUpSiiOB5l4QC+szufXAIkvS5Lj8kCwyfg0
+	Ijqj2Io2OTiaQghGeCNJSRjDJp/NqjiNnOA3D944JZskHAfMz0EY3UaFLl8IKrVKwci0Mqx+mGj7/
+	XX+eL+NEl9aXcXCUzZdJL64cbHKacVXyoy6/KDRFGXo8wNCukH2I9dOTpoLGg/nNpyJQg6hzooWOP
+	vNWm+xmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4Z6-000000086dz-3BFu;
-	Thu, 21 May 2026 14:40:00 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wQ4a9-000000086sr-0dXA;
+	Thu, 21 May 2026 14:41:05 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4Z2-000000086c0-0Mtv
+	id 1wQ4a5-000000086rH-3NjM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 14:39:59 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ4Ys-0002Y8-Hi; Thu, 21 May 2026 16:39:46 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ4Yq-0017VH-2e;
-	Thu, 21 May 2026 16:39:45 +0200
-Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.98.2)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1wQ4Yr-00000004XAS-171E;
-	Thu, 21 May 2026 16:39:45 +0200
-Date: Thu, 21 May 2026 16:39:45 +0200
-From: Michael Tretter <m.tretter@pengutronix.de>
-To: Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Cc: Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@pengutronix.de,
-	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
-	p.zabel@pengutronix.de
-Subject: Re: [PATCH v7 16/28] media: rockchip: rga: reuse cmdbuf contents
-Message-ID: <ag8ZMXSBpkdNc2xM@pengutronix.de>
-Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
-	Sven =?utf-8?Q?P=C3=BCschel?= <s.pueschel@pengutronix.de>,
-	Jacob Chen <jacob-chen@iotwrt.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hans Verkuil <hverkuil@kernel.org>, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, kernel@pengutronix.de,
-	nicolas@ndufresne.ca, sebastian.reichel@collabora.com,
-	p.zabel@pengutronix.de
-References: <20260521-spu-rga3-v7-0-3f33e8c7145f@pengutronix.de>
- <20260521-spu-rga3-v7-16-3f33e8c7145f@pengutronix.de>
+	Thu, 21 May 2026 14:41:04 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2bcd730e090so48105615ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:41:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779374461; cv=none;
+        d=google.com; s=arc-20240605;
+        b=lFh+dQiHjRR56oslbUo4Qoe9LwvKnK/KUkFkMCU3Z+v1eLrE3Qh2+zejY4H3s5gCsd
+         p8I+VTuD369AY59ucapP05CtJyvrIrxca2vFf4IgAHywitUOTgCFLazumB4T4DZ2vqSl
+         JzutO0Z31J9xD/1oXDJGBJO89PaZIrDpoOqlk5egUIWkSwvocNYg8+sj+JdNTFNqd3BC
+         dvvMS8Ka8utjxql2nebo8lCdKwqsyK3dgXhu/ZxV9N9CWYTmF9dqLzVP49GpjQWd27wd
+         waZ8PGo2P5TEaDCw//NQ/xZ9WrmpJPrZ77uXTnKO6MPc4AP6KnAv6PGsUEnxluwYwJ/J
+         0X0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=RI8RcJrMlrGpgo/P0j5rPAmC/BUqQ0jZHOTebzV+Hvs=;
+        fh=btW163rDgogAtaNbOK4kwrCBs7/JGLG6aNwyevzjAWE=;
+        b=MLXia+mpLn2h+jSbOBixcFFMPZKPTScx6I89HvZxGNUQ9ejxgcLyRycIi3s1k9Zdgt
+         zwiI2I8xgWnM2FfFtF332tHbzMhkIMUFAYr4c/qO+BH85PdqsM0ysCjKPKSiaDdhJrK+
+         1mXmslYasrrxDentOg1BMBy/K3Fv6xHy8VEXw2re4XaRSc3YMeCBIJxzV+A3ZQQUdL+b
+         MwE0fD3VcNzpC946Qdcmj875E83FDWK0XYAKQpnfN9oU3yq0xcuLWW4ApOZ8v9iO1U65
+         r/HpKoeAoSDAx2Y0iYcfgnQmFgyI5FTxV8+70R7UXfIj61XgWnZp5hoTmv0xSQMD76Nm
+         BgPw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1779374461; x=1779979261; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=RI8RcJrMlrGpgo/P0j5rPAmC/BUqQ0jZHOTebzV+Hvs=;
+        b=czqe/ibGl8nd1htleKp1kE+6fKshHBq2LVtpMFywTegEqK8fP8PkN0znN3tJr2cbpl
+         3TZP3SyLLY4mgqmqUV6em8QRmpOKlxgLz6AXL890Chis8Y0+GpCQPEH3R5y2XKNvDWnh
+         atAaeKkuvRp2cG5m4oDCEgRsg3fqUSvTBpb88DPOgGbU6KGbNreRE/Ts3763ZJ6CKHgx
+         hnykIf5oVBDgMh6SB3OLBWA4VLBLlL0+5vV//exftoq7hrmbeaM2yi8HINcyTe+qW5PU
+         ihh8i4pbyOAzxsug3B54rcalxVoTcQ+HXqjPU1MQjgVRIJGLhisnNMQ5QCrVmv9nMZ/x
+         8j3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779374461; x=1779979261;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=RI8RcJrMlrGpgo/P0j5rPAmC/BUqQ0jZHOTebzV+Hvs=;
+        b=OE5IOfb4dsKv8kUR/QEbUNMm3pItSXnFChQC2ANul9iRb0plgW9pysVArLZqJS7HM5
+         5axPPc/V6HU8Mn9Tu+d18uZGCBc/pPmIguUl/AIkBWnVnXaRaKbD/MBxdMfs6u3ORyAF
+         MiWcfftatSITzxcb8q9UapY1Z9RbDvukvYe7PfmK27xdV5OErb8eIS9KI3p5gZQgBzGz
+         pJwXi9Xe9KtgaX5WOolebeUHr11AesBnak8ln1e1GUjjyrMoO5xIIneXdvS46pRJHd7o
+         onUSGAQAfWBrUFTjdPWBAhdzbl77hkv/sB7gD6e/j2FJjGYq5xHhIDu8FNLZOvFXIfy5
+         Wu8A==
+X-Forwarded-Encrypted: i=1; AFNElJ++S68II4D65MZw2yq5U8pkDMXvTr0wlBcfZ354pW9TYYAvPyGS6L7VdGUdbJqbOpQroXt7YEkAOfzO4dt0jR0a@lists.infradead.org
+X-Gm-Message-State: AOJu0YydbJFg2HvYk4lw3EhlAUH0sboCOiSnDBixEvhFFxuk/lDgxJ0G
+	RdWu5jK0yuDtSrs9ogb7JD3+9JNnG9ivl2dKKqR5atWzZ+DxU20wlS6uwA0hPEQLGrbsdjXELgV
+	uRpH5wsyQqqPdlpQDhF8+VtuvN2BkcOHx4Wlm0ly7tg==
+X-Gm-Gg: Acq92OEZxNdDK8fCPafQXDgWQnnPw23j+D8kb0ZrnJ5r16MYIWiB+7MfWN9V0wrcvLB
+	SiQFr9+0Gw4KcA6w3wPQLCXMWkdYVBQSBVKby0xJRJo61nv3qQqfnknYr+Y5b3jlioINlkL06GN
+	BlKL7k/pwI45LYXCYG3SQNEBY0mcA4Zgpi0PDE6lVRa1H2SQYy0yFS6dlPHayHo/sxVeiD1hHYx
+	jkbMd2Y4PUeHyK3X96l7DeurlkEfeVfPbkhcPZXms6irRnWxBsfvQ9KjQOrJGDjL+WA2WoM4/ry
+	jbzQzfUB6qnv+cis4sGkQyu1h3PnvGWWBuqtFrEMfFymCDZpWg==
+X-Received: by 2002:a17:903:1b10:b0:2bc:e62a:979b with SMTP id
+ d9443c01a7336-2bea33d166emr36661465ad.30.1779374460988; Thu, 21 May 2026
+ 07:41:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260521-spu-rga3-v7-16-3f33e8c7145f@pengutronix.de>
-X-Sent-From: Pengutronix Hildesheim
-X-URL: http://www.pengutronix.de/
-X-Accept-Language: de,en
-X-Accept-Content-Type: text/plain
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20260423-color-format-v14-0-449a419ccbd4@collabora.com> <20260423-color-format-v14-20-449a419ccbd4@collabora.com>
+In-Reply-To: <20260423-color-format-v14-20-449a419ccbd4@collabora.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Thu, 21 May 2026 15:40:49 +0100
+X-Gm-Features: AVHnY4LM5MR-pydhp54-iciGhQnPfxKOlxWC92SZdhfzMOyTtShVga8wCcjC3D0
+Message-ID: <CAPj87rOBvjw4v+PER+6+FMuDRajXNnPSKAke8a=tVgiSRg8QTg@mail.gmail.com>
+Subject: Re: [PATCH v14 20/28] drm/rockchip: dw_hdmi_qp: Implement "color
+ format" DRM property
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Jani Nikula <jani.nikula@linux.intel.com>, 
+	Rodrigo Vivi <rodrigo.vivi@intel.com>, Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
+	Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, kernel@collabora.com, 
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org, 
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org, 
+	wayland-devel@lists.freedesktop.org, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_073956_294748_406B58B9 
-X-CRM114-Status: GOOD (  31.78  )
+X-CRM114-CacheID: sfid-20260521_074101_848761_2B2A0797 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,174 +135,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 00:44:21 +0200, Sven Püschel wrote:
-> Reuse the command buffer contents instead of completely writing it
-> for every frame. Therefore we only need to replace the source and
-> destination addresses for each frame. This reduces the amount of CPU
-> and memory operations done in each frame. A new cmdbuf_dirty flag notes
-> if the cmdbuf has to be rewritten on the next frame.
-> 
-> The initial idea of initializing the cmdbuf on streamon broke the
-> ability to update controls while streaming (e.g. mirroring).
-> 
-> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-> 
-> ---
-> Changes in v6:
-> - Reworked the commit to not setup the cmdbuf on streamon but rather
->   re-initialize it on the next frame when something changed.
-> - Sasahiko flagged the cmdbuf setup at streamon:
->   https://sashiko.dev/#/patchset/20260428-spu-rga3-v5-0-eb7f5d019d86%40pengutronix.de?part=17
-> - Dropped Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->   due to the reworked patch and commit message contents
-> 
-> Changes in v5:
-> - Don't set the flipping and rotation values at streamon and preventing
->   the userspace from chainging them at runtime
-> ---
->  drivers/media/platform/rockchip/rga/rga-hw.c | 13 +++++++++----
->  drivers/media/platform/rockchip/rga/rga.c    | 11 +++++++++--
->  drivers/media/platform/rockchip/rga/rga.h    |  2 ++
->  3 files changed, 20 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-> index dac3cb6aa17d3..567d39e58d33f 100644
-> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
-> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-> @@ -417,8 +417,6 @@ static void rga_cmd_set(struct rga_ctx *ctx,
->  {
->  	struct rockchip_rga *rga = ctx->rga;
->  
-> -	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
-> -
->  	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
->  	/*
->  	 * Due to hardware bug,
-> @@ -427,11 +425,9 @@ static void rga_cmd_set(struct rga_ctx *ctx,
->  	rga_cmd_set_src1_addr(ctx, dst->dma_desc_pa);
->  
->  	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
-> -	rga_cmd_set_mode(ctx);
->  
->  	rga_cmd_set_src_info(ctx, &src->offset);
->  	rga_cmd_set_dst_info(ctx, &dst->offset);
-> -	rga_cmd_set_trans_info(ctx);
->  
->  	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
->  
-> @@ -440,6 +436,14 @@ static void rga_cmd_set(struct rga_ctx *ctx,
->  				   PAGE_SIZE, DMA_BIDIRECTIONAL);
->  }
->  
-> +static void rga_hw_setup_cmdbuf(struct rga_ctx *ctx)
-> +{
-> +	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE);
+Hi,
+
+On Thu, 23 Apr 2026 at 20:06, Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+> +       bridge = drm_bridge_chain_get_first_bridge(encoder);
+> +       if (!bridge)
+> +               return 0;
 > +
-> +	rga_cmd_set_mode(ctx);
-> +	rga_cmd_set_trans_info(ctx);
-> +}
-> +
->  static void rga_hw_start(struct rockchip_rga *rga,
->  			 struct rga_vb_buffer *src,  struct rga_vb_buffer *dst)
->  {
-> @@ -582,6 +586,7 @@ const struct rga_hw rga2_hw = {
->  	.max_height = MAX_HEIGHT,
->  	.stride_alignment = 4,
->  
-> +	.setup_cmdbuf = rga_hw_setup_cmdbuf,
->  	.start = rga_hw_start,
->  	.handle_irq = rga_handle_irq,
->  	.get_version = rga_get_version,
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-> index d080cb672740b..394b14b9469df 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -38,6 +38,11 @@ static void device_run(void *prv)
->  	unsigned long flags;
->  
->  	spin_lock_irqsave(&rga->ctrl_lock, flags);
-> +	if (ctx->cmdbuf_dirty) {
-> +		ctx->cmdbuf_dirty = false;
-> +		rga->hw->setup_cmdbuf(ctx);
-> +	}
-> +	spin_unlock_irqrestore(&rga->ctrl_lock, flags);
->  
->  	rga->curr = ctx;
->  
-> @@ -47,8 +52,6 @@ static void device_run(void *prv)
->  	dst = v4l2_m2m_next_dst_buf(ctx->fh.m2m_ctx);
->  
->  	rga->hw->start(rga, vb_to_rga(src), vb_to_rga(dst));
-> -
-> -	spin_unlock_irqrestore(&rga->ctrl_lock, flags);
+> +       bstate = drm_atomic_get_bridge_state(conn_state->state, bridge);
+> +       if (!bstate)
+> +               return 0;
 
-I guess that the unlock can be moved, because relevant content of the
-cmdbuf is now only changed in the setup_cmd() function and changes done
-by rga_cmd_set() don't have to be synchronized.
+IS_ERR() + PTR_ERR()
 
-It would be helpful if this is explained in the commit message or even
-moved to a separate patch.
-
-Michael
-
->  }
->  
->  static irqreturn_t rga_isr(int irq, void *prv)
-> @@ -141,6 +144,7 @@ static int rga_s_ctrl(struct v4l2_ctrl *ctrl)
->  		ctx->fill_color = ctrl->val;
->  		break;
->  	}
-> +	ctx->cmdbuf_dirty = true;
->  	spin_unlock_irqrestore(&ctx->rga->ctrl_lock, flags);
->  	return 0;
->  }
-> @@ -228,6 +232,7 @@ static int rga_open(struct file *file)
->  		ret = -ENOMEM;
->  		goto rel_ctx;
->  	}
-> +	ctx->cmdbuf_dirty = true;
->  
->  	ctx->rga = rga;
->  	/* Set default formats */
-> @@ -448,6 +453,7 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
->  	frm->crop.height = pix_fmt->height;
->  
->  	frm->pix = *pix_fmt;
-> +	ctx->cmdbuf_dirty = true;
->  
->  	v4l2_dbg(debug, 1, &rga->v4l2_dev,
->  		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
-> @@ -564,6 +570,7 @@ static int vidioc_s_selection(struct file *file, void *priv,
->  	}
->  
->  	f->crop = s->r;
-> +	ctx->cmdbuf_dirty = true;
->  
->  	return ret;
->  }
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-> index 38518146910a6..5360f092fecf0 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -55,6 +55,7 @@ struct rga_ctx {
->  
->  	void *cmdbuf_virt;
->  	dma_addr_t cmdbuf_phy;
-> +	bool cmdbuf_dirty;
->  
->  	int osequence;
->  	int csequence;
-> @@ -152,6 +153,7 @@ struct rga_hw {
->  	u32 max_width, max_height;
->  	u8 stride_alignment;
->  
-> +	void (*setup_cmdbuf)(struct rga_ctx *ctx);
->  	void (*start)(struct rockchip_rga *rga,
->  		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
->  	bool (*handle_irq)(struct rockchip_rga *rga);
-> 
-> -- 
-> 2.54.0
-> 
-> 
+Cheers,
+Daniel
 
