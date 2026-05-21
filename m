@@ -4,81 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BD2DCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E32CD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 06:35:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DzO2aEKL0eYNvitD1/FUOoxkL7f0cNoROoGQTff0vjI=; b=TohwglYyQhcC3wXBUPAHrasGnr
-	IXZm0RIPIO3pO/AT8IpBCjFr6hJt44CF6scwv4MSwgi/bDQnFCDZXrYyBCncyFCtmlJ/GcFACzhCe
-	otHRqtZcktR+3ZEo02Lub7BUpFbtdEEgCP2TtjXov+aHojI3D1obCY2Bm+WckviFd3k1W4RlarpNc
-	ndwci4SfR2frAB8pfL6algMne6saBWrgDHyN1b8BEAc4S2au98/LFHgZcDPx59LHq71dwNtwhvCjJ
-	NAK5/Br5oKeTkg5zqx+UvM17xYa3+vPJwNVjV0NPtN6Gw2XEEKQxoQTEbc25BDCZPzeVLlKlN9Jkh
-	LAdDgyDg==;
+	bh=No+9lS97fgrDosifTpPy5Pg+toTIaA5S9Sa0Wj1wCVQ=; b=hzbwuIh/rY0ueogaPIKwrqDtK1
+	jLFqZK0zJ7tFlM3HzLcP6kV5tXyusrIG1sE7PBIvRAoJjvlCuue09RlBSjNZqHv7NnpodBFBEh8yb
+	1GFM1XTrBqYcgbjv6mvJ+jf6SHOR5ZloeS6XV5SUqcPFJnbPTYcQTN/QgAtWbEX04ogyr9mtx2P95
+	lOEebiVWPI1LfH1vRpCygcT1gKeExRHSpsas5bbPJUONT+m9kTGJlIzWtRwsEKUUjKNGWGjiHq6Ew
+	iMma67tZRKAVhoPrS+9JGhcV3u9+anYuQmjdVNUIIqk+GdF2tk7s1e+FggLTyfy7gPdJrBUtlg4id
+	gf1Ba/Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPwmz-00000006o23-24U9;
-	Thu, 21 May 2026 06:21:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wPx0V-00000006pvN-00vw;
+	Thu, 21 May 2026 06:35:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPwmw-00000006o1H-0rDj
+	id 1wPx0T-00000006pv6-1db5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 06:21:47 +0000
+	Thu, 21 May 2026 06:35:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01E25441E4;
-	Thu, 21 May 2026 06:21:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68881F000E9;
-	Thu, 21 May 2026 06:21:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4AAE560172;
+	Thu, 21 May 2026 06:35:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2FC71F000E9;
+	Thu, 21 May 2026 06:35:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779344504;
-	bh=DzO2aEKL0eYNvitD1/FUOoxkL7f0cNoROoGQTff0vjI=;
+	s=k20260515; t=1779345344;
+	bh=No+9lS97fgrDosifTpPy5Pg+toTIaA5S9Sa0Wj1wCVQ=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=oOFnhiY0OA6iK4nU4eLBD1+04a1igf9LpYBf/5pJQoVIOa7dGcdZHJrtES3onkTKF
-	 4AKb1rYY71HSGuAmchP5NTIpIL/YNbYiZppKOL99kt5jyHrvO+YvahKlv1LFI7qa+s
-	 kJ6urXk9hIeyi1dVpmoogb84gUvGOfRDN5n9b0pAf9R/IlizXCghFFM6TIgs634M/C
-	 xssAL3NANmNmdfp7YIhi1mbXGV9ebyJLdo9+Jv7r4RQvIvHluslf2rSkSt3fZLWDUf
-	 Me/FnSal5ZeIuzNiz/NUA7spwbAt0JsCiKrEtDEsYjTeRoOagQtjBg20dCCDXVkJ1x
-	 uTk6BBS5dVLVg==
+	b=L713teVEU9Du3EQoI+Ln0Qns8Ty3CpS+Uu36A3mml7adpz0PY9bXjeHyDHWvebQJT
+	 8xXBLvx25aeKBreN9d6mEbZ8+5Pe8B5CkNDGZpatO3OOHJOCztJOZ5FCgZ/e4K+tF2
+	 GWO4Rrw6sXcnYDfKBNS/R+w7A8fhRy+hp24PQYRa4t4WffqDEx270Dh95JFokIEnJ6
+	 R6wWyqhgpgj86u6Fq0dO2U1+tX264aWanYOTuK/0b3PWu4UYzGWCEUCh/SpBAUZWbM
+	 p5I0VCf8uLMISTeQZMM59hE6+QM4Cp05aQG1OpgZhjTUho8ppX5CoT1d2BjuJ7KzjP
+	 JZ4d6XhwSifMQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wPwms-00000004gLC-1AqW;
-	Thu, 21 May 2026 06:21:42 +0000
-Date: Thu, 21 May 2026 07:21:41 +0100
-Message-ID: <86o6i9wadm.wl-maz@kernel.org>
+	id 1wPx0P-00000004gX5-2t9F;
+	Thu, 21 May 2026 06:35:41 +0000
+Date: Thu, 21 May 2026 07:35:41 +0100
+Message-ID: <86mrxtw9qa.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Joey Gouly <joey.gouly@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
 Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Fuad Tabba <tabba@google.com>
 Subject: Re: [PATCH v2 2/2] KVM: arm64: nv: Don't save/restore FP register during a nested ERET or exception
-In-Reply-To: <20260520110231.GA4005903@e124191.cambridge.arm.com>
+In-Reply-To: <ag2w0G34NycT2456@J2N7QTR9R3.cambridge.arm.com>
 References: <20260520085036.541666-1-maz@kernel.org>
 	<20260520085036.541666-3-maz@kernel.org>
-	<20260520110231.GA4005903@e124191.cambridge.arm.com>
+	<ag2w0G34NycT2456@J2N7QTR9R3.cambridge.arm.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, mark.rutland@arm.com, will@kernel.org, tabba@google.com
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, will@kernel.org, tabba@google.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_232146_284289_7FF0C29D 
-X-CRM114-Status: GOOD (  26.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,10 +90,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 May 2026 12:02:31 +0100,
-Joey Gouly <joey.gouly@arm.com> wrote:
-> 
-> Hi Marc,
+On Wed, 20 May 2026 14:02:08 +0100,
+Mark Rutland <mark.rutland@arm.com> wrote:
 > 
 > On Wed, May 20, 2026 at 09:50:36AM +0100, Marc Zyngier wrote:
 > > When switching between L1 and L2, we save the old state using
@@ -112,36 +107,61 @@ Joey Gouly <joey.gouly@arm.com> wrote:
 > > 
 > > Avoid this overhead by leaving the common FPSIMD/SVE state live on the
 > > CPU, and only switching the state that is distinct for L1 and L2:
+> > 
+> > - the trap controls: the effective values are recomputed on each entry
+> >   into the guest to take the EL into account and merge the L0 and L1
+> >   configuration if in a nested context, or directly use the L0 configuration
+> >   in non-nested context (see __activate_traps()).
+> > 
+> > - the VL settings: the effective values are are also recomputed on each
+> >   entry into the guest (see fpsimd_lazy_switch_to_guest()).
+> >
+> > Since we appear to cover all bases, use the vcpu flags indicating the
+> > handling of a nested ERET or exception delivery to avoid the whole FP
+> > save/restore shenanigans. SME will have to be similarly dealt with when
+> > it eventually gets supported.
+> > 
+> > For an EL1 L3 guest where L1 and L2 have this optimisation, this
+> > results in at least a 10% wall clock reduction when running an I/O
+> > heavy workload, generating a high rate of nested exceptions.
 > 
-> To make sure I understand this part:
-> 	
-> 	L1 sets up L2's FP state live on the CPU 
-> 	L1 erets
-> 	eret traps to L0/host
-> 	preemption disabled
-> 	kvm_arch_vcpu_put()
-> 	    kvm_arch_vcpu_put_fp() <-- actually saves the state of the live registers
-> 	.. set elr etc ..
-> 	kvm_arch_vcpu_load()
-> 	    kvm_arch_vcpu_load_fp() <-- doesn't actually restore state, but ensures
->                                         the CPTR trap will be set
->         .. returns to L2 (traps on first use of FP and state will be restored)
-> 	
-> So this patch is (effectively) removing the put_fp()/load_fp(), because the FP
-> state is common/shared between L1 and L2, so whatever L1 put into that state
-> before the eret, L2 was going to see.
+> There's on additional thing that's important, but I forgot to mention
+> last time: in the window between kvm_arch_vcpu_put() and
+> kvm_arch_vcpu_load(), it's possible to take an interrupt, and for a
+> softirq handler to try to use kernel mode NEON.
+> 
+> Due to that, kvm_arch_vcpu_put() must leave the L1 guest's maximum VL
+> configured in the host's ZCR_ELx, such that the guest's state can be
+> saved.
+> 
+> That value is configured by fpsimd_lazy_switch_to_host(), so we just
+> need to make sure that kvm_arch_vcpu_put() doesn't clobber it. I *think*
+> that's fine today, but maybe that warrants a comment somewhere.
 
-Yes, you got it right. The other path is on L1 to L2 exception, which
-also requires L0 mediation and has a similar shape.
+I have slapped this onto this patch:
 
-The most horrible thing is that because all these traps can happen at
-a arbitrary depth, each individual trap usually results in the
-combination of all of the above.
+diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+index aca98752a6e42..3f6b1e29cd6b9 100644
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -117,7 +117,10 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcpu *vcpu)
+ 	unsigned long flags;
+ 
+ 	/*
+-	 * See comment in kvm_arch_vcpu_load_fp().
++	 * See comment in kvm_arch_vcpu_load_fp(). Note that we also rely on
++	 * the guest's max VL to have been set by fpsimd_lazy_switch_to_host()
++	 * so that any intervening kernel-mode SIMD (NEON or otherwise)
++	 * operation sees the full guest state that needs saving.
+ 	 */
+ 	if (vcpu_get_flag(vcpu, IN_NESTED_ERET) ||
+ 	    vcpu_get_flag(vcpu, IN_NESTED_EXCEPTION)) {
 
-> If my understanding is correct:
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+> Other than that, this all looks good to me:
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-Thanks!
+Thanks,
 
 	M.
 
