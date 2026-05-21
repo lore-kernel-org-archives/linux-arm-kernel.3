@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F9ECD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D89CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vj20klKT6tYvnLVAc0GPKZ+khHycyF7T1fRfZse9B+A=; b=vpVjXEP0IG+9Z6Ul9RvDz/UGX+
-	+DPGLHT6T5v3SBDFC5NsjwoWl2GC9o0Cxrm+84jXKd1dVNylNC4gSx4H1aj/JuFiDwgyWgQ3mMLcH
-	X8i/EI/fp32KNQiwvXnK8TAxpy7w9qmtc4QXuOf+jCa5m92rpMD/nSp+GTeNUgzdiIZnlPKnoy5Gp
-	vbUBLjmgpcnoM5sie49/m3us4uj/LBjbngMO89qI38Q9RInaPQDDFw38V0gCSNPeZ4rfiz7PDe7Ty
-	RjNsGHXiu2fzUZF+iEE69GjDEboeKnEKNrjvOY9upIcyKZrSuFyAqUXuI/xyp7dtI0vN4OLgCOeTV
-	eeAu6TVA==;
+	bh=gntcCyWrVNPYG8uqabBln7PELV3BpVOXL1VwXsFFeSk=; b=b30FnXgsGNEUYxdu6Eh4JCfNPo
+	vT/fnd36bHQkh/+GffBl+H73d+mMWiFITp1Eap2hjBQBK/TS6/midPrh52DQvkE22C1NVXscFbMNO
+	aAyUA5H6jqm1MkDaPh1h4Lm7oeHX6DvxXRb/+4p3kYL3sC0uKE/FNRVVJT9SyOho9AKm18dX9ihsG
+	iDWQPrS9Zxujbp/8vr5CZwKtbQNPJzwNPANd/xVi4wVBBY4ZMQ7s+uQC/nbbYOexB91x7r+d252U+
+	Uz4EpVbDzhWreNrH2W4JrVnIBzZYXUyPrgdi7IPjBIOFW67z/d0Irfa5na/jTYSF+w1N42xpYReOg
+	ZEc5HNjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5rD-00000008Qx1-3E4j;
-	Thu, 21 May 2026 16:02:47 +0000
+	id 1wQ5tP-00000008RIZ-0Yj9;
+	Thu, 21 May 2026 16:05:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5rA-00000008QwM-3eUO
+	id 1wQ5tM-00000008RHj-0CBR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:02:46 +0000
+	Thu, 21 May 2026 16:05:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C971168F;
-	Thu, 21 May 2026 09:02:37 -0700 (PDT)
-Received: from [10.57.33.205] (unknown [10.57.33.205])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C816C3F632;
-	Thu, 21 May 2026 09:02:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 070B327DC;
+	Thu, 21 May 2026 09:04:54 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5746F3F85F;
+	Thu, 21 May 2026 09:04:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779379362; bh=XM29D7iPUunyxNUrBD0yY0EWuJn4Z+yCZPfjI3A0bwQ=;
+	t=1779379499; bh=WrS7fUya0tB6RvYKPlX4u1Tgmf4rlpi3+sFsH/ZRSiI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VCraftv2925M7X6jExStT/wSW5s5JX0NWpAiBizlmsBSFQP1dLO0EEXjldGprAiTA
-	 j74scLLrDd1tQrCydJ7Mm1PggCuIZ2DWHlu66eMzw+ajFhtHbWCMZAFqcmoI/wHiVW
-	 VD26xbG6VTfBt9dQd4i1e2kGg61pFYIt5M3JgIb4=
-Message-ID: <dd188101-5edd-4787-8217-4edf4bde094a@arm.com>
-Date: Thu, 21 May 2026 17:02:33 +0100
+	b=trXtDEBhxsLogmubRZ5go2fZdcja2PICflKOjlf7cuyxhtNmTeczOd8o2EYHQLoCf
+	 /fVl1ys0J6bNpE9xgZdwOHtp0IIZP4o4VD+jPwpz8jNSsTVsVCdQyho3IN5OE2rZ5y
+	 BYQLaSzeDj31a293zLownVRWmL6jhLIxtFbHuNSA=
+Message-ID: <88ed47c1-f84f-4aac-8ec7-ffe87a2a8138@arm.com>
+Date: Thu, 21 May 2026 18:04:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
-To: Aviv Bakal <avivb@amazon.com>, will@kernel.org, mark.rutland@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, zeev@amazon.com, blakgeof@amazon.com
-References: <20260503155118.16191-1-avivb@amazon.com>
- <20260504133923.23373-1-avivb@amazon.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260504133923.23373-1-avivb@amazon.com>
+Subject: Re: [PATCH 5/5] arm_mpam: detect and enable MPAM-Fb PCC support
+To: Niyas Sait <niyas.sait@arm.com>
+Cc: ben.horgan@arm.com, catalin.marinas@arm.com, fenghuay@nvidia.com,
+ guohanjun@huawei.com, james.morse@arm.com, jic23@kernel.org,
+ lenb@kernel.org, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ lpieralisi@kernel.org, rafael@kernel.org, reinette.chatre@intel.com,
+ sudeep.holla@kernel.org, will@kernel.org
+References: <20260429141339.3171205-6-andre.przywara@arm.com>
+ <20260518111422.3269965-1-niyas.sait@arm.com>
+Content-Language: en-US
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20260518111422.3269965-1-niyas.sait@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_090245_004819_E6E48037 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20260521_090500_132649_1CBC9C2F 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,134 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-05-04 2:39 pm, Aviv Bakal wrote:
-> Graviton5 uses a customised CMN-S3 implementation where certain
-> discovery registers report zeroed fields. Add the following workarounds:
-> 
->   - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
->   - Derive the DTC domain from the XP node ID, since the unit info
->     register reports it as zero.
->   - Set the DTC logical ID from the computed domain ID, since the node
->     info register's logical ID field is also zeroed.
-> 
-> Signed-off-by: Aviv Bakal <avivb@amazon.com>
-> ---
-> v2:
->   - Use computed domain ID (xp->dtc) instead of XP logical ID for DTC
->     logical ID assignment.
-> 
->   drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
->   1 file changed, 31 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> index f5305c8fdca4..8ee3f8638602 100644
-> --- a/drivers/perf/arm-cmn.c
-> +++ b/drivers/perf/arm-cmn.c
-> @@ -31,7 +31,8 @@
->   #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
->   #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
->   
-> -#define CMN_MAX_DIMENSION		12
-> +/* Some implementations use a mesh larger than the architectural max of 12 */
-> +#define CMN_MAX_DIMENSION		14
->   #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
->   #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
->   
-> @@ -214,6 +215,8 @@ enum cmn_part {
->   	PART_CMN700 = 0x43c,
->   	PART_CI700 = 0x43a,
->   	PART_CMN_S3 = 0x43e,
-> +	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
-> +	PART_GRAVITON5 = 0xa5,
->   };
->   
->   /* CMN-600 r0px shouldn't exist in silicon, thankfully */
-> @@ -2221,6 +2224,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
->   	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
->   }
->   
-> +static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
-> +{
-> +	unsigned int x = (xp_id >> 7) & 0xf;
-> +	unsigned int y = (xp_id >> 3) & 0xf;
-> +
-> +	/*
-> +	 * The unit info register reads as zero; derive the DTC domain from
-> +	 * the XP's mesh coordinates over the 10x14 mesh.
-> +	 */
-> +	return (x / 5) + (y / 7) * 2;
-> +}
-> +
->   static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
->   {
->   	int level;
-> @@ -2266,6 +2281,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   	u64 reg;
->   	int i, j;
->   	size_t sz;
-> +	bool graviton5_workaround = false;
->   
->   	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
->   	if (cfg.type != CMN_TYPE_CFG)
-> @@ -2276,6 +2292,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
->   	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
->   	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
-> +
-> +	/* Graviton5 has a customised CMN-S3 which needs some fixups */
-> +	if (cmn->part == PART_GRAVITON5) {
-> +		cmn->part = PART_CMN_S3;
-> +		graviton5_workaround = true;
-> +	}
-> +
->   	/* 600AE is close enough that it's not really worth more complexity */
->   	if (part == PART_CMN600AE)
->   		part = PART_CMN600;
-> @@ -2365,6 +2388,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   
->   		if (cmn->part == PART_CMN600)
->   			xp->dtc = -1;
-> +		else if (graviton5_workaround)
-> +			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
->   		else
->   			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
->   
-> @@ -2443,6 +2468,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
->   
->   			switch (dn->type) {
->   			case CMN_TYPE_DTC:
-> +				if (graviton5_workaround) {
-> +					/* Node info logical ID is zeroed; use the domain ID */
-> +					dn->logid = xp->dtc;
+Hi Niyas,
 
-No, this really should be xp->logid - other than DTC0 whose logical ID 
-is always forced to 0, but if it naturally lines up that way anyway then 
-all the better - since that is consistent with how the tooling generates 
-a regular hardware configuration. The cmn->dtc array ends up sorted by 
-logical ID as that is a guaranteed stable order for all CMN versions (as 
-the domain numbers themselves aren't always known), and it is the 
-interrupt order defined by the firmware bindings which we need to match. 
-If it's not guaranteed that the actual domain numbers are in the same 
-order then we have an existing bug in general (I'll have to check...)
+On 5/18/26 13:14, Niyas Sait wrote:
+> Hi Andre,
+> 
+> On Wed, Apr 29, 2026 at 04:13:39PM +0200, Andre Przywara wrote:
+> 
+>> +		msc->pcc_chan = pcc_mbox_request_channel(&msc->pcc_cl,
+>> +							 pcc_subspace_id);
+>> +		if (IS_ERR(msc->pcc_chan)) {
+>> +			pr_err("Failed to request MSC PCC channel\n");
+>> +			return (void *)msc->pcc_chan;
+>> +		}
+>> +
+>> +		if (msc->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
+>> +			pr_err("MPAM-Fb PCC channel size too small.\n");
+>> +			pcc_mbox_free_channel(msc->pcc_chan);
+>> +			return ERR_PTR(-ENOMEM);
+>> +		}
+> 
+> I think this allocates one PCC channel per MSC instance.
+> 
+> MPAM-Fb spec. allows MPAM manager to support multiple MSCs and does not
 
-Otherwise, this looks OK to me - in fact surprisingly pleasant and 
-unobtrusive given that it's a pretty horrible hardware issue to work 
-around. I guess we get lucky that it's an easy topology to compute.
+Ouch, that's right, the MSC ID parameter in the protocol would be pretty 
+pointless otherwise ;-)
+I guess me testing with just one MSC kind of hides this problem ;-)
 
-Thanks,
-Robin.
+> require seperate channels per MSC. Each MSC is targeted via its msc_id
+> in the MPAM_MSC_READ/WRITE commands.
+> 
+> So for systems where multiple MSC nodes point to the same PCC subspace,
+> should we share one pcc_mbox_chan and serialize requests through it?
 
-> +				}
->   				cmn->num_dtcs++;
->   				dn++;
->   				break;
-> @@ -2658,6 +2687,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
->   	{ "ARMHC650" },
->   	{ "ARMHC700" },
->   	{ "ARMHC003" },
-> +	{ "AMZN0070", PART_GRAVITON5 },
->   	{}
->   };
->   MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
+I think we serialise already, because we have this pcc_chan_lock. This 
+makes sure that each access is done in isolation. But on the setup side 
+we need to indeed make sure to share an already allocated channel, which 
+required some code changes.
+
+Thanks for pointing this out!
+
+Cheers,
+Andre
 
 
