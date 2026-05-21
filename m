@@ -4,96 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210C7CD343F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E95ACD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:40:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mklgo4SEnQFqu5UeBwzviEPZFhn2UwuL3rIfaoDrBUI=; b=qrrFGQrLCdSbor
-	gnE7EDKuPRyQWUWCCu4R4tA9akNn2W+QrkVrlu5GfdPcmhSAWcK+wE/N7qyxvzIV8Io+MOvEotVEi
-	KJWxpTGgIiaoOmPoAeTO0xkeRX2M+mJrCncGfm24G93ZGa1/fnzgZXnKnpAhUxWUeGtkwLJW4m2zv
-	BESeBK0gfX+OngZZFmgA2hbSUcGYU0bJR4FjUhyYHVIOfTnvXcO1sOTNkwn/8Ep95SzeKw5rYhCkR
-	x/AyTmJ4gXhHcDp+YwBNTNX9MTShJWT64w50eiTgJuRemcqLdJSp9Njg99iIcBoY9qhYeez09A2Ct
-	/k3rPGof8tfhOhnY/t0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zJVuFDQsF4Iwfpmap+pWFBw4cYfM0g67R2E4BQtznhI=; b=du5zj+lcFPDb7ywuS6wPasM0L4
+	DZFvrlmtTYngBoq+fPRT7L//GhcsupK4CNe9C+kqS80sp7gLYK6+FpJrxiFqO9UdOnxmWIPQ0uGTJ
+	axSLDOlxWPZnXmN4CtnZeGdeXUG5LDrvSrXIc3KiaWe7BgFccG/ajK0Err+J4ihzA54yPfFq7164A
+	4YMkF6FBwwSz7yNllMIWTIqL3/JcrmC8254JxKfjRBwcAUY3OhHHjVEYbQN9KJXkjby1GzSZjm9vx
+	8CfCfBjedf2J7ZXhUDeGiZpWFGRuCuwVI+5+YF8tOBvXyE7oL5n6W689NpiBEroavnGMhjeEfVXcO
+	7hhQ8LWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxwX-00000006ylb-30BU;
-	Thu, 21 May 2026 07:35:45 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wPy0x-00000006zPp-2nlz;
+	Thu, 21 May 2026 07:40:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxwV-00000006yjt-1nd8
+	id 1wPy0u-00000006zPL-1z01
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:35:44 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-36a35e4eefeso744730a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 00:35:43 -0700 (PDT)
+	Thu, 21 May 2026 07:40:17 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64L6LwXw1798400
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:40:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	zJVuFDQsF4Iwfpmap+pWFBw4cYfM0g67R2E4BQtznhI=; b=EdgJ7aKe0dbx0o9S
+	oswDIcris1MmJIdTlkWGyqwXmEyMm/3+tcV0c8RVBba2keOATX6VY1IK7+RhInKX
+	68T0EmvjiVGxca3xv3eZLnruWsOkpD8IaTEebkgqbmb2gJI/DRPlOxka8RpPltRx
+	kn8eJOm2v7YhxVfCX/7nVahcBv8XmSQASVDC8Jdk7bun1eBRHu6UII+Q/SfmIIJm
+	8tuT2Hf/2AdyVCxdYCK2dUIiLdAFLLUI7zI7M/IyZCV/KH68mC0Z5T9NjJgCdK/m
+	g0dbgmfs1x/0/vVsQxUAqDxXjW0K/cZ8PgWFUtvkpejH2LFhWivsL+vAMPCwqp7z
+	gqQU3A==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9dxu3ssf-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 07:40:14 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8354503d9acso7692061b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 00:40:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779348943; x=1779953743; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Mklgo4SEnQFqu5UeBwzviEPZFhn2UwuL3rIfaoDrBUI=;
-        b=rgU1/da1ktDqBamY2YoMm05SErwLAId4huZV1DBXqgNbB47XpRMKOIt1wVRkRXSazX
-         2+dmWdBYeVKw6p0caexIooyi5LfszeZ4vrvx1fPjzRiMDZqQjhzPfSTjN9SwhR955Zlc
-         E7Lwy5HXT/J/v/8+MuXqYbMWqt/YNnleQDXGbFRPqQSPvnIu+WHkEXJ+lWuohjXhfgg3
-         ju+TTVNJ7dqDHsLquP/ifmG3oYFtGuMSEV8qjTuFUmuDxkQmYGwl8uBHrz18PN/vxcCY
-         j2/HtUI0wFGdqEE+j/wFahCMpgTeF3f9JRx2OCN+sQMXq0lWcy+eGm10J9xoIAbMMzMQ
-         rsHA==
+        d=oss.qualcomm.com; s=google; t=1779349214; x=1779954014; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zJVuFDQsF4Iwfpmap+pWFBw4cYfM0g67R2E4BQtznhI=;
+        b=DwUpoeINmvPWUzhOXEC7Dn3WSyd7ha5pypK20aTMMved8I6kOqiLtqwFijKtLXDju6
+         qU3xOwom6DyJWiBi5xX1Ac3+Ic8DEGkzEcgvczyVtHq855urZcmtYsY9DcgwKQSrkRAS
+         TVCRtsWzra8fnPR8KH4yfoyjNrgLV/NddgMQXRmW7A0rW/92Vdlb4FlgI+n566Jv8oVx
+         sWWhLGGMPUK/2ujzsJ9OppY0ASsU+nF7LckxWxfSaoiLb7jSbkG1uKja6DE/tAb5msea
+         Jrx+G6qZVyNS5b6YvdIbsPdLyJ5WZTBlOqrDITRpXZcM9FwfBOZY9fJCqUstzBBsipWE
+         ioPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779348943; x=1779953743;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Mklgo4SEnQFqu5UeBwzviEPZFhn2UwuL3rIfaoDrBUI=;
-        b=ChZ/HSsOwgt2OKirtue+WCxppuZn3MW3RmgpmMVcX2WR54q3CD2SjuHN71v8nkXytT
-         Hy/EUJTYK/zK3/e+LNeMh8Pylwq6/a3B4osNYVxcgt7ZX2ejt/aaFpHs5MjVxFru5wmI
-         M292+4GAZzbJHT6GQtTYKPbuHUI/1Q+tMwLFq40ZmJCW35taT4WIUVXO7wUKuiD3Ef+T
-         Uq0LnqgECdktjGHSOALTA8u5O/rr5CzRTe9LtkxMa9tT33YdUrhTDaARDY5VWaL5p1mo
-         x4qknKBxkWANrQh+6SYn3+wUGvUPlNpoApY6SGMOVe/M6fHvD6ucjnwXZSUD3Rtks9S7
-         e5Aw==
-X-Forwarded-Encrypted: i=1; AFNElJ9/R01dH6WrlDtXeiAjtHnYuiLTQ8SbcfdW5Do5PugWw2GmpBhybGABRM3mV/5V1Wb6nFPkw2ecxUFEf/kr50ba@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrSCjvgTKhpYSkgrRPB+33q4wv6LArlF/SlYYSNHDrgk3TI7no
-	zAwpyxEewwsgvEgdDEt22jZRlKRtNcbvPZZEHQ7reat4jjUtLrAvIIX0
-X-Gm-Gg: Acq92OH5sWqFwyjG+aJayF7Hl6g7dlaLYRxQSOX6jqH6HTkHXU7xjLH9AAY+34cnk1R
-	rlMhO91iZL4PV9X9ZS99GSU3RLXdzO5+htaXuYl5oiS1HV0AJTR6hMPXhIM7Y6Z9c4mnYP6CLQl
-	qkcpqMFxHR3jeBPJgzoqV72JHdriHXNuPg+1uFl/02VIwvROF4njbznjdCKRlKfZQnpY/wFU9QP
-	Ws/WODGNBAAowiyWvhr2xQPnDFLINdqHzWNGUS0Jas+oNTVCSzigt4pKHFftUNWBoP1jKnyr3rZ
-	/sJWmXnEB9nz1WijSTK6/Fo02JP79SIE8+LKZYQl4m2F7qkXiRsZFFXMSbb7D6WD1dOr+hCHBuY
-	Z94riiJZWXa0ijbmE0Wu8plxbGyhwDfeB0izwiQ4PUG2MCvyGzNkgGH+Ap6ezvU6/AIe/kICv6Z
-	6wE4l0UVM5G641+yLY0Cwz9LalW5VotH8=
-X-Received: by 2002:a17:90b:540e:b0:369:223a:cb60 with SMTP id 98e67ed59e1d1-36a4514fbcdmr1729123a91.8.1779348942657;
-        Thu, 21 May 2026 00:35:42 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.230])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a45c5decesm783833a91.1.2026.05.21.00.35.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 00:35:42 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Jourdan <mjourdan@baylibre.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v4 3/3] media: meson: vdec: Cancel esparser work in error and stop paths
-Date: Thu, 21 May 2026 13:04:13 +0530
-Message-ID: <20260521073449.10057-4-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260521073449.10057-1-linux.amoon@gmail.com>
-References: <20260521073449.10057-1-linux.amoon@gmail.com>
+        d=1e100.net; s=20251104; t=1779349214; x=1779954014;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zJVuFDQsF4Iwfpmap+pWFBw4cYfM0g67R2E4BQtznhI=;
+        b=FBo8MCvw4CkO+sHk4xVNlD7moznLIWNFa+xaEbeQovmgnz6JCZJMoUgY4VWmAGVM5a
+         2inVi2nR3sqMP3xRAJnpseg3uop6el5cTouNEkiHs4npaxQsw+IhJmKwYkbGIt2oiAN3
+         g/fdBwnKCpmb0VJLcym5TdYDH9a3I1Hv1LmfHjpo7hEvhWFrRCZgAXlzT4EQf59f9jPz
+         YQuK3/YK4N+PMF7mMdckmuH7GisqLdLcy3Ncn5XRz4PcSybeMlBGkPC1IBK5/e2gyqCr
+         zbuEYhH7fXfplLo81k/Unikd0Ste89P702EFOSKmaf/zukuog3Ok2WnFqLvjhcbEP6cP
+         kf3g==
+X-Forwarded-Encrypted: i=1; AFNElJ/9DgAns18ezqKsjSrmt5pE1c+ucYuigSrm+rr2JHVhALb4fARpzDsotFrKTtNqBF4sPik8Jgd5teRgm922Qeeq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGApqo1Cf1gxP/lc/6XBeIaNYXeQjOqhwNqVuPKHuU+Qv0ArXk
+	oc4thuKdjq2WV08dskcK2Cvbo60hsRmJJ7+JK70wxwcuDVr01suDcy3q77MImCwGzOKFabduCnR
+	rdUBnoGoFDlUgpGagLHPaYRVL0Xm8jsJZIHaDJkIVSG0hLfAoEik5/omsFxg2UNBIWZAglM5+RT
+	HCwA==
+X-Gm-Gg: Acq92OGf7UUHikHbMFG+nqmuYeE1QpK9tO8crAz7ZC+B9f7X+8gppYtAzo3oN2f8y5K
+	7QpBVllMezWUkN6prurYsFgO4xu6iiTFNZEvweay7/My1eabyi6mt0mNVO1RF0Xi2VtYdyWCLm1
+	v3FdDbsy24sPKpLcK11A1GiPACSiOOSpwaBhkiF0T+UJlJHE0hoD5U+eB8Q5eBjGqIY3kM4ge/I
+	q/AM3fL1vNysoytYXtt6SHvFeAVz41b4+wBWhdyI46xUJBXpPx6U3T3Boyo78qECtbZ9Hn5RAun
+	uwOCo2Wf58KQGFSyzMKk/jbHtks1g7bzPbX31S5cnSyroi5ZEoORStvp4Pale6PbEsiB/uawUER
+	6Z9FEN92E9FbXM0gVRVkHBjYL4e4StLbwNm2no7dAswoH6E0Ywj6b6jHqGSc63RbTLyc=
+X-Received: by 2002:a05:6a00:4006:b0:827:2a07:231d with SMTP id d2e1a72fcca58-8414acdeba9mr2010671b3a.17.1779349214173;
+        Thu, 21 May 2026 00:40:14 -0700 (PDT)
+X-Received: by 2002:a05:6a00:4006:b0:827:2a07:231d with SMTP id d2e1a72fcca58-8414acdeba9mr2010643b3a.17.1779349213557;
+        Thu, 21 May 2026 00:40:13 -0700 (PDT)
+Received: from [10.217.219.207] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84154e22f1esm477039b3a.47.2026.05.21.00.40.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 00:40:13 -0700 (PDT)
+Message-ID: <4979e748-ce4e-4244-8906-e22a1e6472e7@oss.qualcomm.com>
+Date: Thu, 21 May 2026 13:10:07 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
+ down
+To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>, o.rempel@pengutronix.de,
+        kernel@pengutronix.de, andi.shyti@kernel.org, Frank.Li@nxp.com,
+        s.hauer@pengutronix.de, festevam@gmail.com, carlos.song@nxp.com,
+        haibo.chen@nxp.com
+Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        stable@vger.kernel.org
+References: <20260520101504.2885873-1-carlos.song@oss.nxp.com>
+Content-Language: en-US
+From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
+In-Reply-To: <20260520101504.2885873-1-carlos.song@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIxMDA3MyBTYWx0ZWRfX1+SWqPJVLk0p
+ X13SRcUFIPfpUOdYHcjDbO5xcrE748+z1n/RbvzA98KWaTVXt2+oXP3qOQqQxL0V+Y8x4jKXggq
+ N/8LJ01KcqChxjxkyrBBdTeG72V9CqUn6YoyztJgTUyT2GDptiZEvfKpKrfSqLuzs1sEdnaQOqZ
+ RuTGDnIt3EgF7oWL9xmbvR5n7Nr2Gv5V2w9OHCgoGrmDm9ExjCT9BMI8P9knk0G9f8nLSrI21uG
+ vuy5VE0vLFCj2u7nAqIZIXbs+NNvSsVkhBj1/4A7QLTa1d/J4V8dYEN8N1tKFIJdIENcaNdzXuw
+ xRCm33n4ijpvguv7IrWWnXyUWqGnNwFkTmGnvtjx1jVciwFos/EaokraFE/DolleOpbgwFMMxyX
+ LL8ECcKfjx0xM9gdlkjWUrsE1lJW7tE7hfu9mUkVa1wnDoOlS1xrmu06suSvtR3IaTDcdEy1ujh
+ jTleFPIhSke9oz9gbZQ==
+X-Authority-Analysis: v=2.4 cv=Zckt8MVA c=1 sm=1 tr=0 ts=6a0eb6de cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8 a=KOk9-1IoVFRPxriqIuUA:9 a=QEXdDO2ut3YA:10
+ a=OpyuDcXvxspvyRM73sMx:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-GUID: YcL1t1QwZnPm1MWPbcMezAqWhH1pEIEb
+X-Proofpoint-ORIG-GUID: YcL1t1QwZnPm1MWPbcMezAqWhH1pEIEb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-20_03,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 priorityscore=1501 malwarescore=0 clxscore=1011
+ phishscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605210073
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_003543_469559_D97F93DF 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20260521_004016_533307_044C7A65 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +147,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sashiko <sashiko-bot@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ensure that esparser_queue_work is canceled before freeing the
-session context. Add cancel_work_sync() in both the error path
-of vdec_close() and vdec_start_streaming() and in vdec_stop_streaming().
+Hi Carlos,
 
-This prevents background work from dereferencing a freed sess
-structure and triggering a use-after-free.
+On 5/20/2026 3:45 PM, Carlos Song (OSS) wrote:
+> From: Carlos Song <carlos.song@nxp.com>
+> 
+> Mark the I2C adapter as suspended during system suspend to block further
+> transfers, and resume it on system resume. This prevents potential hangs
+> when the hardware is powered down but clients still attempt I2C transfers.
+> 
+Code changes looks fine to me but have comment on commit log.
 
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260520045905.6ACBA1F000E9@smtp.kernel.org/#t
-Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v4: new patch
- If vdec_close() calls kfree(sess) without first stopping or synchronizing
-with this background work via cancel_work_sync(), could a concurrently
-running esparser_queue_all_src() dereference the freed sess structure and
-trigger a use-after-free?
----
- drivers/staging/media/meson/vdec/vdec.c | 4 ++++
- 1 file changed, 4 insertions(+)
+It seems, you are adding support of _noirq() callbacks to allow 
+transfers during suspend/resume noirq phase of PM.
 
-diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 8615a935e86d..a57bd4a8e33c 100644
---- a/drivers/staging/media/meson/vdec/vdec.c
-+++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -358,6 +358,8 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
- 	dma_free_coherent(sess->core->dev, sess->vififo_size,
- 			  sess->vififo_vaddr, sess->vififo_paddr);
- bufs_done:
-+	cancel_work_sync(&sess->esparser_queue_work);
-+
- 	if (q->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE)
- 		sess->streamon_out = 0;
- 	else
-@@ -415,6 +417,7 @@ static void vdec_stop_streaming(struct vb2_queue *q)
- 		if (vdec_codec_needs_recycle(sess))
- 			kthread_stop(sess->recycle_thread);
- 
-+		cancel_work_sync(&sess->esparser_queue_work);
- 		vdec_poweroff(sess);
- 		vdec_free_canvas(sess);
- 		dma_free_coherent(sess->core->dev, sess->vififo_size,
-@@ -937,6 +940,7 @@ static int vdec_close(struct file *file)
- 	v4l2_m2m_ctx_release(sess->m2m_ctx);
- 	v4l2_m2m_release(sess->m2m_dev);
- 	v4l2_ctrl_handler_free(&sess->ctrl_handler);
-+	cancel_work_sync(&sess->esparser_queue_work);
- 	v4l2_fh_del(&sess->fh, file);
- 	v4l2_fh_exit(&sess->fh);
- 
--- 
-2.50.1
+Would it make sense if you can write "Replace system PM callbacks with 
+noirq PM callbacks" OR "Allow transfers during _noirq phase of the PM 
+ops" instead of "mark I2C adapter when hardware is powered down" ?
+
+> Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> ---
+> Change for v3:
+>    - Add hrtimer_cancel in i2c_imx_suspend_noirq to cancel slave_timer for
+>      safe suspend in i2c slave mode.
+> Change for v2:
+>    - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
+>      to prevent potential deadlock if a transfer is active during suspend.
+>    - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
+>      fails.
+> ---
+
+[...]
 
 
