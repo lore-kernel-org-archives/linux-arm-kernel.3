@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 667CBCD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 11:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29F7BCD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 11:24:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VUJnhxSzF/JjiGI40PuXjiACHn4MaFrGkULPDFp60Zc=; b=Wxw6t+fQs1q1ungUNTjn+i6uyh
-	wldDnU6eqpdQYh6be9hQMEjXuWigMpaDQqYLhxliucLojcc6QA47I92hyA9p2L7wckU2Up0HYuIvs
-	6ZctH4uzGMl9bqW2I5iZOkQ9vCX+bzFxVGOgGovIrA1bltw/ajg9ugp2xNrQFmMW0ZUxKHL+0IUV7
-	eNrr92pBGNmiqWPDgeq3/lfyx5FvtAal5KUnN/3lNyFhYHJKcLVg/OjcV5gl5DtgeIWAwBznhZ6+0
-	7h8j8yo4nMJ5RW1d670ibZrUNynQALcNoMsv5Mau+SK/eFMXGRal4IjlWnVdazKfEoX9E04zspzsC
-	Jop7aWkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EGsNvB3fuNc9H1D7trF0TK1admzTZ+TbGNNWBjF/RHw=; b=2olWWHprH2UtZ28960qqh4KHEL
+	B+j00QQdrF/saQQ15AshNRvAKimFFvow3BFUq/dEHctOgc5bJCFvoQxe20x2nWj4iUSwCyfZkoy38
+	jlo9IuJDlkHPnpxTq04QPhlZCa4Oruq8aHw+O+NLoxHZ8A7qA0Nw6D28F/6oi9kc/AhfcYi1BuFIC
+	YR5Ubyqgj/V4orf00J5GgLeGnnsIxuVXYXHaYOtWkId1Wwof4vZMMErqZ4PsmKPtfc7Yb2PUfd16w
+	FWF3H/geNBjbafrHVFJi6b9kEnuuZ7OxHCopLS8nrggbteqvhX5I1xTLjZtpUfRT2xgeId5HfRWSN
+	SzO1rfJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ1U6-00000007aWL-0F3Y;
-	Thu, 21 May 2026 11:22:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ1U3-00000007aVM-3cmI
+	id 1wQ1Vu-00000007asT-1hzB;
+	Thu, 21 May 2026 11:24:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ1Vr-00000007arU-1UlG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 11:22:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEF8B4184D;
-	Thu, 21 May 2026 11:22:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9D2C1F000E9;
-	Thu, 21 May 2026 11:22:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779362554;
-	bh=VUJnhxSzF/JjiGI40PuXjiACHn4MaFrGkULPDFp60Zc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=P/qNH1bMbeo7E7xYFTDiDBSadXT01q9ZrLrONJ29Vm2++HT++qtgkvdaUUCfjM3Ix
-	 kWfIb0+MlIMOABVGXgpbeudrXfpSNvSTEBPvTdL9J1zCv1MLjLouw5KtNGXFM6g9f0
-	 HAtnPr7vZIw66a6v0DPZSpTre2LuZPgW9RV/HMJy+Qti7mnKoIRdtSlbGZ5PAleG4f
-	 TaNR6o6tCbLQwnvZFSZtlJjc0XdSgHkbWf6/BQCBJBc++3JJI+bNo9SWmD7J58VqiK
-	 d/dJQksj+tjZScbDazJHyaPL3XZbVHN5LG8ULtX7qW0QA4nj+ghPQjwqoKs/jvWv9W
-	 +TgMJPlDIEq7A==
-Date: Thu, 21 May 2026 12:22:30 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>, Shuah Khan <shuah@kernel.org>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH 2/2] kselftest/arm64: Add test for atomic futex uaccess
- with POE
-Message-ID: <8fc7713d-6451-4f05-86cd-df833cedd94b@sirena.org.uk>
-References: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
- <20260521-poe_futex-v1-2-1da286b8f9b2@arm.com>
+	Thu, 21 May 2026 11:24:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 727763D76;
+	Thu, 21 May 2026 04:24:20 -0700 (PDT)
+Received: from [10.57.91.212] (unknown [10.57.91.212])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC2C53F7B4;
+	Thu, 21 May 2026 04:24:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779362665; bh=YUoIKZ6fjqCMA7Nsur2Z6SraVqMh2aFofJ9GzDnYzjc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Jp808FfHIf2INAyNUKjyzFUDdoLUap7tdKuaWXl/u4wTfkRyOswfekFS1kCxGiUyH
+	 wnDgqh7JHFp2HxVALetvKZYV93X1ts82Px1WEYektmnKkpF1jkJWcRv/b2OsfAUkpF
+	 9Q3XkDfhEXL6TjeFsp5oAm5RuO2Loah1MmBnB0QU=
+Message-ID: <60542cd7-d01c-4247-8957-8423b54ae99d@arm.com>
+Date: Thu, 21 May 2026 12:24:21 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="8gHwo4h6itunB5YS"
-Content-Disposition: inline
-In-Reply-To: <20260521-poe_futex-v1-2-1da286b8f9b2@arm.com>
-X-Cookie: No shirt, no shoes, no service.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] [RFC] arm64: mmu: use range based TLB flushing when hot
+ unplugging memory
+Content-Language: en-GB
+To: Balbir Singh <balbirs@nvidia.com>
+Cc: Alistair Popple <apopple@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, catalin.marinas@arm.com, will@kernel.org,
+ david@kernel.org, anshuman.khandual@arm.com, dev.jain@arm.com,
+ jhubbard@nvidia.com
+References: <20260521042426.2128731-1-apopple@nvidia.com>
+ <bc96d822-bb68-4945-9f74-68f77e389ac6@arm.com> <ag7fy4Q9foBBlUcd@parvat>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <ag7fy4Q9foBBlUcd@parvat>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_042235_919058_10A1D172 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20260521_042427_479994_574C9817 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,37 +75,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 21/05/2026 11:46, Balbir Singh wrote:
+> On Thu, May 21, 2026 at 09:50:04AM +0100, Ryan Roberts wrote:
+>> On 21/05/2026 05:24, Alistair Popple wrote:
+>>> Hot unplugging memory on ARM64 requires a TLB invalidate after unmapping
+>>> the page to be hot unplugged from the direct map. Currently that happens
+>>> one page at a time, meaning range based invalidates cannot be used. The
+>>> result of this is that removing large amounts of memory takes a long
+>>> time and in some cases can trigger an RCU stall warning.
+>>>
+>>> For example on one system hot unplugging 480GB of memory takes ~1
+>>> minute. With this change the same operation took ~1 second, a 60x
+>>> improvement.
+>>>
+>>> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+>>>
+>>> ---
+>>>
+>>> This is an RFC, because I'm not sure the change is correct as it frees
+>>> the PTE page before flushing the TLB. I'm not familiar enough with ARM64
+>>> architecture to be sure this is safe, for example I don't know if HW
+>>> can update PTE bits such as access/dirty in the page through a stale
+>>> TLB entry.
+>>>
+>>> If so this would open a window during which the page is free but could
+>>> still be written to. Likely the safe option would be to collect all the
+>>> pages to be free on a list and free them after doing the range based TLB
+>>> flush, but wanted to get feedback on the approach before implementing it
+>>> which is the goal of this RFC.
+>>
+>> Hi Alistair,
+>>
+>> This patch doesn't apply on v7.1-rc4 because it conflicts with this patch:
+>>
+>> Commit 48478b9f79137 ("arm64/mm: Enable batched TLB flush in unmap_hotplug_range()")
+>>
+>> which has a very similar performance improvement, so hopefully it solves your
+>> problem?
+>>
+>> There are two paths which use this logic; unmapping the linear map and unmapping
+>> the corresponding vmemmap. In the latter case, the memory is also freed, so we
+>> can't safely do the range optimizaiton there since the TLB needs to be flushed
+>> before freeing the memory. But the linear map is the big, slow bit so hopefully
+>> it's sufficent for you?
+>>
+> 
+> I assume vmemmap path is for tearing down the struct pages corresponding
+> to the physical memory and vmemmap teardowns taking a flush should be
+> OK. It is worth checking if the issue is already fixed.
 
---8gHwo4h6itunB5YS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Yes, exactly. Assuming you're using 64K pages, I think vmemmap is mapped using
+base pages. So you'd get 1024 struct pages on a page, so 1 TLBI per 64M of
+memory that is being unplugged on the vmemmap path.
 
-On Thu, May 21, 2026 at 10:42:31AM +0100, Kevin Brodsky wrote:
+On the linear map path, it's a single range tlbi operation to over the entire range.
 
-> Add a new test to ensure that atomic futex uaccess succeeds on
-> memory mapped with a non-default POIndex/pkey.
+Alistair's patch is doing it per 512M in both cases, but is unsafe for vmemmap
+as currently written.
 
-> +	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE,
-> +		   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-> +	ASSERT_NE(ptr, MAP_FAILED);
+> 
+> Balbir
+> <snip>
 
-Doesn't matter while there's only one test but we should probably
-munmap() this when we're done.
-
---8gHwo4h6itunB5YS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoO6vUACgkQJNaLcl1U
-h9BITAf/W5tXsBU0Xh1izfDnu9SsVFj3BAtEWDHZ6vzUNNcsELP8H0KaA5ocwt3v
-rcby3YsdoKQuf7QBDyZlOdnSVS2Ih4QXr4bTGPPVaq3ksEob9VyI2f0gT8Yeiu97
-xRVS1Kn3yCe3s4tnvkjcmlJ/BOSuAKL+AsRttUsTRft6CKrcZ1qR+0VY6S9XRu4o
-2zydOkryzlr6LX2ulGks+SfoBVuTVMRaQ5lIL9Aa3MPBiYchsuSHhcHG3coB/y0u
-4Fx0N/ZguVYCE9yyYY5pqieKuBcBMtzPu0AXcmrqrXIxHiBJj3ZJeVZSidokZdNl
-a9gX56dETStqiF47IP4HjxXvv0qCog==
-=ZQZV
------END PGP SIGNATURE-----
-
---8gHwo4h6itunB5YS--
 
