@@ -4,156 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3372ACD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99857CD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ES2YYruuxFojMvF/pOHGFCJl2UiLVHd+mZIVueL/Tzs=; b=RdlHiTyZxygMEBb9/cper79iRD
-	5QdcgG946is+Vt5KYrdv1kzDJX6sH0c/U7/xNf9TXeVW/GogwlTeI2F1ja3bOltHv+amenbzV/1rd
-	P5no6nqUXJ6u5KFmgggZ+WfFM9Ln0uvjYYZH0m14lurCUDUW06M1nUFhuhG5mmkhptsix3R4xaGXx
-	KLQcTSwfFIqtQ/zlfXosUBb6kwU0vGvikPhEJWWLmATHL25bemNPIwfYERyPM9AQEwngZS52ytdRR
-	uUUHMNixLqdg51Mp1v8XkSdHolrT0yAGtYuDeNfRydTHfWgdezXHc1PQ059XfPkrtxtKsZal4FdHo
-	zO8NRYzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ptRxUYjD2eSopDrXbtKsNSAM/1LyzUqr7+proC7+QPI=; b=mN1hV4A6lKRY24zPBBM3Ql5OUN
+	MWNWUqh+eZyz7nTZWCYDVU1Ha0V5TbatawaQj7SGpWW4TeK1z8/5l49h8F6FMf+fouPBomzyBTi57
+	Xxt5eD77WCLg4GlAbMCgOjxpXeammah7yKt4tiKE9ChswO2i0VpfaISzklPHV+x0SnPwgRfHYx+V6
+	5f0Nes4gXMn0i/u902KPH8fx8zI3SkUu8yufkFVCphEMxhTPY1rPftMzk2EpRPZGLNMo64b3Xi16H
+	gyzsC8pojIrlEaZKvauoaDAtewPV/nsqL4PK8rXjRlnu9uNPJD7kZlRoiiRIPM3Kf15g8mR9swhG5
+	kLRh6c2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2h2-00000007kRx-19Kf;
-	Thu, 21 May 2026 12:40:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wQ2hc-00000007kcX-2Und;
+	Thu, 21 May 2026 12:40:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2gz-00000007kRV-2aAz
+	id 1wQ2hb-00000007kbp-22Of
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 12:40:03 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64L99kTf3343458
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 12:40:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ES2YYruuxFojMvF/pOHGFCJl2UiLVHd+mZIVueL/Tzs=; b=HWeVFYMj4PEPy+2a
-	2Hzq4NalWUT/Twjbj35kS7uC1uIFTltZplcQgTb8C39PiRZ5kfNguz37s+q9OpfQ
-	q7c7vvosyM6mO5n8mPh2i/DZdu9QL3vvVmPxJOrWYpzWtY8l86vZBUmQndvKwPDL
-	mH+pW7LAUPCl3Cc0KXUbSju3987w6uMptiYEUFbtHXQArPcgPwYcCkJ6p3JQJfGZ
-	mHUbBUO7N0WFwHuL8EctNwZgIVygHqIuX4H71ghjmi0c07ktAGkL1JKTeavC1MOz
-	xwO3mTr5F7YeKwwu7T4wERma+X6dIW6xdcKrfLmQvGAwhtlSYvqE0GgfBlp3Pnp1
-	dIbsSQ==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4e9wahsany-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 12:40:00 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2bd00a65673so45198645ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 05:40:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779367199; x=1779971999; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ES2YYruuxFojMvF/pOHGFCJl2UiLVHd+mZIVueL/Tzs=;
-        b=cw3nm+BGpftvGTtq4jkcVOEDp+Nwl7x5nG9uZF4wp54RVEMyFLPMi2zSrC5zPiB+4B
-         zBtqNmH+GmzqeocXaZxH574bhCkUjoGjNHociwgO9eE94Z6kwoLpi2+8IEwwEXVwTcyb
-         8XImJw8AYi6bzir7i8IQbvuX0XOweZvSIEGDbwMshXjBuiPgdMAJ/NnNz6IAAX4CwfV3
-         mU91awfWCZpEUKzhFbn+/SZeqj0XhlbKkpcz98V0tiUmpya/2j5DPzLU5C5UZ8nDXgWx
-         gOMXgM4Y5SixDKkKS2QJP6u/y2Qi5aIjbjZ1kB0cfm5RYQlLHwWUv0wCxN26hH7Fc6yY
-         HWpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779367199; x=1779971999;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ES2YYruuxFojMvF/pOHGFCJl2UiLVHd+mZIVueL/Tzs=;
-        b=gE2ZHbpy+lOVyOdSCl6iVwP9P0Prdlbt3dwh/3Qiok9NSD/DUMrtBVDS600mrAkZRC
-         NWlynZlQF7AbbUWxV+NomHRQp6wXfbgA5fvv/kah0/mpXA635u5yFQGbaIv09TLvCY8w
-         OWBnoMLjz4mK/21vgsxE6czyeYwYX2VdJzPUIE/o6MSC+JLV8gU6LN3r650KmxnuzM5l
-         oEbCIsDFlE4wIhwRjJG5vlTfo5hpYtswVcvUrNg1WeXINUhxvgRWwpkDUc0bGh7gx+2x
-         6tkkqiNVfWdqJaRD+u9PJtYoVIFfzqCfEXJDA2U5tKo5M1cvpelsQxCEYRQKFm9Pyyo8
-         sVOA==
-X-Forwarded-Encrypted: i=1; AFNElJ/iT9OyAPNwxcKj9fCmLwnSQknYekpNIOVS99ch1bDsLf3/5i4QaXipmiQCt5JU8MME7V/RC/q10QREVIfMEsns@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOZ+xdVyW8zDMtcNAIkZKAjpiYkjL5E96dvKyXHz49YWNgyg88
-	4Ea5prkKKC1+KyDGsGPSSoOQU2gcBjs3/PHKUQtdXOMIQ7Q2jgH6S+Amw4hg9SrmrOV4hGlC6wi
-	eJAQS7suP/DHuUWRLfkx9hKBToH4wyWtke3GzLVvev2skUGn8dyYmkovHFrvNFmuG0b/kxP+m2x
-	y3kA==
-X-Gm-Gg: Acq92OE35vgSywMOJcwo237IWPTwEfBVU6Re1+Ku+aLEztR3ymc2yRL+0FrJgqMitMx
-	CXIt1kugipYPp4g6Iqa9RwpW/D+dLyJFOM15nn9wAv3AdGKyTvf1XOjN99d1lcRXCYl0zEexA9X
-	9Elk3XMaNeqZViTfrWgDZ2geQZcNQbs+BnKwoE7L5IrenPEb+zEZ/kv8Hv4Gpt/t5jNzjUpfdcb
-	KuCHc2X36DxdSDH25HO8V7Xf31V+8Yz939W0KH9j/ke7B9Qrhi69LxoqR++EswwzkEUOck/8U0y
-	d1x9028CQnmyw6yz6OHrR2Lvbs4/WTdZLEAzQIUiSCx3Owo0FJnDFuPb5U401+E9VhT4+hyEWJy
-	WYz4UfWbvqAczzg9OU0HKbu7BfF7jMEM+RzTwX84MLndEQ+NgRgYXSjW0
-X-Received: by 2002:a17:902:fc50:b0:2b0:91e6:bc18 with SMTP id d9443c01a7336-2bea2641874mr28014375ad.14.1779367199275;
-        Thu, 21 May 2026 05:39:59 -0700 (PDT)
-X-Received: by 2002:a17:902:fc50:b0:2b0:91e6:bc18 with SMTP id d9443c01a7336-2bea2641874mr28013965ad.14.1779367198767;
-        Thu, 21 May 2026 05:39:58 -0700 (PDT)
-Received: from [10.217.219.207] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bea9289e05sm10418955ad.27.2026.05.21.05.39.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 05:39:58 -0700 (PDT)
-Message-ID: <315029cc-f04c-4dad-a746-f5d3e7245cdc@oss.qualcomm.com>
-Date: Thu, 21 May 2026 18:09:56 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
- down
-To: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>,
-        Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>,
-        "o.rempel@pengutronix.de" <o.rempel@pengutronix.de>,
-        "kernel@pengutronix.de" <kernel@pengutronix.de>,
-        "andi.shyti@kernel.org" <andi.shyti@kernel.org>,
-        Frank Li
- <frank.li@nxp.com>,
-        "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-        "festevam@gmail.com" <festevam@gmail.com>,
-        Carlos Song
- <carlos.song@nxp.com>, Bough Chen <haibo.chen@nxp.com>
-Cc: "linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-        "imx@lists.linux.dev" <imx@lists.linux.dev>,
-        "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "stable@vger.kernel.org" <stable@vger.kernel.org>
-References: <20260520101504.2885873-1-carlos.song@oss.nxp.com>
- <4979e748-ce4e-4244-8906-e22a1e6472e7@oss.qualcomm.com>
- <AM0PR04MB68027798D1B07FD63AEC5F23E80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
- <22af0378-a3c9-4403-a0ee-da794847f41d@oss.qualcomm.com>
- <AM0PR04MB6802FE8B0E0BEF8CDA6DAD5EE80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
- <ab96c900-9c77-455a-88f1-b6d8d8e4ff78@oss.qualcomm.com>
- <AM0PR04MB68024A0FAF0637726C08B87BE80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
-In-Reply-To: <AM0PR04MB68024A0FAF0637726C08B87BE80E2@AM0PR04MB6802.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIxMDEyNiBTYWx0ZWRfX/FwKLFg8sneq
- xsnjfiO8Wi6EfvCtm1ZzdH/lciZoV5SQyxCjxR6yJkqFLQ9yjMsPm7Qq549UwZ3DQ1P+q8L06CB
- m4ZDj5S/H7+crDdhSxLUsomh9igc7DDCjoVnUhIr6NyaBV+DsrlcggsEsnq5wQyit05U2jW89WS
- uDfVuKRKUQq6TKV80hFMf/d2Ui7JRQ4f9BTv5H7/uf70ONSBPTCA3YoRS7Z2nT2FLkrTUUv2q9U
- JD3iWUpxIUp7j7Q/t0kuPRwid3W+muOqitvrcuxP643hQUM+jOFHqZhzOpimJO/8Q8W0WJI8gh7
- zfRbAA3aseT20UmOX5M3fvHVZUqbxLDxFZsLR+r4ZIvwKNy9Tb6DPFwrJP+AIn6BBiBIUQQD7bf
- eibiTPqQLN7hkgIH4zaMkgVVQutbo3ZpsxTbFR8bJknzirLNP5RcgLmbumAeo+8TDF6iFDTQdUp
- UzmHL1b5EbpWSV/TJcQ==
-X-Proofpoint-ORIG-GUID: 9uWw0UxLhB01_iQRPWFtMXnn1JaHBenI
-X-Proofpoint-GUID: 9uWw0UxLhB01_iQRPWFtMXnn1JaHBenI
-X-Authority-Analysis: v=2.4 cv=H8LrBeYi c=1 sm=1 tr=0 ts=6a0efd20 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22
- a=EUspDBNiAAAA:8 a=8AirrxEcAAAA:8 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8
- a=JfrnYn6hAAAA:8 a=2tUGZl6TGnhxom4q2uIA:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22 a=ST-jHhOKWsTCqRlWije3:22 a=1CNFftbPRP8L7MoqJWF3:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
- definitions=2026-05-21_02,2026-05-18_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 adultscore=0 suspectscore=0
- lowpriorityscore=0 spamscore=0 impostorscore=0 malwarescore=0 bulkscore=0
- clxscore=1015 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
- definitions=main-2605210126
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_054001_781761_D88B2A22 
-X-CRM114-Status: GOOD (  38.92  )
+	Thu, 21 May 2026 12:40:39 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FE4E60223;
+	Thu, 21 May 2026 12:40:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E95A31F00A3B;
+	Thu, 21 May 2026 12:40:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779367238;
+	bh=ptRxUYjD2eSopDrXbtKsNSAM/1LyzUqr7+proC7+QPI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=CCxnXdvzRaiSd3Gg7W4dX55/qDXQdDSHEmvxsrqdsnVAnoAsX0HJIQDogXez2EPCm
+	 TmPRZI5QoMAlDLVFYyS3RBHwyaSxLgppuYkc3CIvYWF/TDiD4AA4W+qaCn1JC0CTop
+	 /2Tj/CKj/kKdMq0P1d78hJq8mnvvd89UwmsNbIhKubzReFwBuwS+4Xi2/pKPxRV6BF
+	 Ua8+6ydd8O+ITBrsc0sIoHZedF26AjQpwf4ZZesxxNxjd4yd7CuUQsZ0unqf086m89
+	 WOL6wfETNRviGUWNeiQrmE0TmFaWSrj7S6/Exy8TI23p5qTsoMv4rvAFsM0P+XF2cK
+	 Nb4xdR6Ocm1+g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQ2hX-00000004ojo-3UM6;
+	Thu, 21 May 2026 12:40:35 +0000
+Date: Thu, 21 May 2026 13:40:35 +0100
+Message-ID: <86ecj5vsu4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 04/44] arm64: RMI: Add SMC definitions for calling the RMM
+In-Reply-To: <20260513131757.116630-5-steven.price@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-5-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,173 +103,359 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, 13 May 2026 14:17:12 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> The RMM (Realm Management Monitor) provides functionality that can be
+> accessed by SMC calls from the host.
+> 
+> The SMC definitions are based on DEN0137[1] version 2.0-bet1
+> 
+> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v13:
+>  * Updated to RMM spec v2.0-bet1
+> Changes since v12:
+>  * Updated to RMM spec v2.0-bet0
+> Changes since v9:
+>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+>    this is an 8-bit type with padding afterwards (rather than a u64).
+> Changes since v8:
+>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+>    permits to be modified.
+> Changes since v6:
+>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+>    these are flag values.
+> Changes since v5:
+>  * Sorted the SMC #defines by value.
+>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+>    RMI calls.
+>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+>    number of available list registers could be lower.
+>  * Provided a define for the reserved fields of FeatureRegister0.
+>  * Fix inconsistent names for padding fields.
+> Changes since v4:
+>  * Update to point to final released RMM spec.
+>  * Minor rearrangements.
+> Changes since v3:
+>  * Update to match RMM spec v1.0-rel0-rc1.
+> Changes since v2:
+>  * Fix specification link.
+>  * Rename rec_entry->rec_enter to match spec.
+>  * Fix size of pmu_ovf_status to match spec.
+> ---
+>  arch/arm64/include/asm/rmi_smc.h | 448 +++++++++++++++++++++++++++++++
+>  1 file changed, 448 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+> 
+> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+> new file mode 100644
+> index 000000000000..a09b7a631fef
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/rmi_smc.h
+> @@ -0,0 +1,448 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023-2026 ARM Ltd.
+> + *
+> + * The values and structures in this file are from the Realm Management Monitor
+> + * specification (DEN0137) version 2.0-bet1:
+> + * https://developer.arm.com/documentation/den0137/2-0bet1/
 
+How long is this spec going to be available on the ARM web site, which
+has a tendency of being reorganised every other week? And there is
+already a beta2.
 
-On 5/21/2026 5:32 PM, Carlos Song (OSS) wrote:
-> 
-> 
->> -----Original Message-----
->> From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
->> Sent: Thursday, May 21, 2026 7:14 PM
->> To: Carlos Song (OSS) <carlos.song@oss.nxp.com>; Mukesh Savaliya
->> <mukesh.savaliya@oss.qualcomm.com>; o.rempel@pengutronix.de;
->> kernel@pengutronix.de; andi.shyti@kernel.org; Frank Li <frank.li@nxp.com>;
->> s.hauer@pengutronix.de; festevam@gmail.com; Carlos Song
->> <carlos.song@nxp.com>; Bough Chen <haibo.chen@nxp.com>
->> Cc: linux-i2c@vger.kernel.org; imx@lists.linux.dev;
->> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
->> stable@vger.kernel.org
->> Subject: Re: [PATCH v3] i2c: imx: mark I2C adapter when hardware is powered
->> down
->>
->>
->> On 5/21/2026 4:21 PM, Carlos Song (OSS) wrote:
->>
->> [...]
->>
->>>>>> -----Original Message-----
->>>>>> From: Mukesh Savaliya <mukesh.savaliya@oss.qualcomm.com>
->>>>>> Sent: Thursday, May 21, 2026 3:40 PM
->>>>>> To: Carlos Song (OSS) <carlos.song@oss.nxp.com>;
->>>>>> o.rempel@pengutronix.de; kernel@pengutronix.de;
->>>>>> andi.shyti@kernel.org; Frank Li <frank.li@nxp.com>;
->>>>>> s.hauer@pengutronix.de; festevam@gmail.com; Carlos Song
->>>>>> <carlos.song@nxp.com>; Bough Chen <haibo.chen@nxp.com>
->>>>>> Cc: linux-i2c@vger.kernel.org; imx@lists.linux.dev;
->>>>>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
->>>>>> stable@vger.kernel.org
->>>>>> Subject: Re: [PATCH v3] i2c: imx: mark I2C adapter when hardware is
->>>>>> powered down
->>>>>>
->>>>>> Hi Carlos,
->>>>>>
->>>>>> On 5/20/2026 3:45 PM, Carlos Song (OSS) wrote:
->>>>>>> From: Carlos Song <carlos.song@nxp.com>
->>>>>>>
->>>>>>> Mark the I2C adapter as suspended during system suspend to block
->>>>>>> further transfers, and resume it on system resume. This prevents
->>>>>>> potential hangs when the hardware is powered down but clients
->>>>>>> still attempt
->>>>>> I2C transfers.
->>>>>>>
->>>> what was the reason of this hang ? I was thinking you don't have
->>>> interrupts working when client requested transfer but adapter was
->>>> suspended. Please correct me if wrong.
->>>>
->>>> And it would be good to mention the actual problem and why/how it
->> occurred.
->>>>>> Code changes looks fine to me but have comment on commit log.
->>>>>>
->>>>>> It seems, you are adding support of _noirq() callbacks to allow
->>>>>> transfers during suspend/resume noirq phase of PM.
->>>>>>
->>>>>> Would it make sense if you can write "Replace system PM callbacks
->>>>>> with noirq PM callbacks" OR "Allow transfers during _noirq phase of
->>>>>> the PM ops" instead of "mark I2C adapter when hardware is powered
->>>> down" ?
->>>>>>
->>>>>
->>>>> Hi,
->>>>>
->>>>> Thank you for your comments!
->>>>>
->>>>> But this patch is added is not for support noirq PM callback or
->>>>> transfer in noirq
->>>> phase.
->>>>>
->>>> Okay, may be actual problem description can help me.
->>>>> In fact, this fix is to mark the I2C adapter as suspended during
->>>>> system noirq suspend to block further transfers, and resume it on
->>>>> system noirq resume. This is to prohibit I2C device calling the I2C
->>>>> controller after the system noirq suspend and before noirq resume,
->>>>> because at
->>>> this time the I2C instance is powered off or the clock is disabled
->>>> ... So I want to keep current commit. How do you think?
->>>> completely Makes sense. Please help add how this problem occurred and
->> why ?
->>>> So the change/fix will be good to understand against it.
->>>
->>> Hi,
->>>
->>> In some I.MX platform, some I2C devices will keep a work queue all
->>> time, the work queue will trigger I2C xfer every once in a while, but the work
->> queue shouldn't be free in system suspend.
->>>
->>
->> work queue has transfers queued even if system is suspended ? IMO, the client
->> i2c devices should not let system go to suspend.
->>
-> 
-> Hi Mukesh,
-> 
-> Thank you for the detailed discussion.
-> 
-> Yes, I totally agree that I2C client drivers should ideally stop
-> issuing transfers when the system is suspending.
-> 
-> However, in practice there are many different I2C clients, and not all
-> of them strictly adhere to this requirement. Some clients may still
-> trigger transfers through workqueues or deferred contexts during the
-> suspend/resume window.
-> 
-> Therefore, adding this protection at the I2C controller side helps to
-> avoid unexpected accesses when the hardware resources are unavailable,
-> making the system more robust.
-> 
+> + */
+> +
+> +#ifndef __ASM_RMI_SMC_H
+> +#define __ASM_RMI_SMC_H
+> +
+> +#include <linux/arm-smccc.h>
+> +
+> +#define SMC_RMI_CALL(func)				\
+> +	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
+> +			   ARM_SMCCC_SMC_64,		\
+> +			   ARM_SMCCC_OWNER_STANDARD,	\
+> +			   (func))
+> +
+> +#define SMC_RMI_VERSION				SMC_RMI_CALL(0x0150)
+> +
+> +#define SMC_RMI_RTT_DATA_MAP_INIT		SMC_RMI_CALL(0x0153)
+> +
+> +#define SMC_RMI_REALM_ACTIVATE			SMC_RMI_CALL(0x0157)
+> +#define SMC_RMI_REALM_CREATE			SMC_RMI_CALL(0x0158)
+> +#define SMC_RMI_REALM_DESTROY			SMC_RMI_CALL(0x0159)
+> +#define SMC_RMI_REC_CREATE			SMC_RMI_CALL(0x015a)
+> +#define SMC_RMI_REC_DESTROY			SMC_RMI_CALL(0x015b)
+> +#define SMC_RMI_REC_ENTER			SMC_RMI_CALL(0x015c)
+> +#define SMC_RMI_RTT_CREATE			SMC_RMI_CALL(0x015d)
+> +#define SMC_RMI_RTT_DESTROY			SMC_RMI_CALL(0x015e)
+> +
+> +#define SMC_RMI_RTT_READ_ENTRY			SMC_RMI_CALL(0x0161)
+> +
+> +#define SMC_RMI_RTT_DEV_VALIDATE		SMC_RMI_CALL(0x0163)
+> +#define SMC_RMI_PSCI_COMPLETE			SMC_RMI_CALL(0x0164)
+> +#define SMC_RMI_FEATURES			SMC_RMI_CALL(0x0165)
+> +#define SMC_RMI_RTT_FOLD			SMC_RMI_CALL(0x0166)
+> +
+> +#define SMC_RMI_RTT_INIT_RIPAS			SMC_RMI_CALL(0x0168)
+> +#define SMC_RMI_RTT_SET_RIPAS			SMC_RMI_CALL(0x0169)
+> +#define SMC_RMI_VSMMU_CREATE			SMC_RMI_CALL(0x016a)
+> +#define SMC_RMI_VSMMU_DESTROY			SMC_RMI_CALL(0x016b)
+> +#define SMC_RMI_RMM_CONFIG_SET			SMC_RMI_CALL(0x016e)
+> +#define SMC_RMI_PSMMU_IRQ_NOTIFY		SMC_RMI_CALL(0x016f)
+> +
+> +#define SMC_RMI_PDEV_ABORT			SMC_RMI_CALL(0x0174)
+> +#define SMC_RMI_PDEV_COMMUNICATE		SMC_RMI_CALL(0x0175)
+> +#define SMC_RMI_PDEV_CREATE			SMC_RMI_CALL(0x0176)
+> +#define SMC_RMI_PDEV_DESTROY			SMC_RMI_CALL(0x0177)
+> +#define SMC_RMI_PDEV_GET_STATE			SMC_RMI_CALL(0x0178)
+> +
+> +#define SMC_RMI_PDEV_STREAM_KEY_REFRESH		SMC_RMI_CALL(0x017a)
+> +#define SMC_RMI_PDEV_SET_PUBKEY			SMC_RMI_CALL(0x017b)
+> +#define SMC_RMI_PDEV_STOP			SMC_RMI_CALL(0x017c)
+> +#define SMC_RMI_RTT_AUX_CREATE			SMC_RMI_CALL(0x017d)
+> +#define SMC_RMI_RTT_AUX_DESTROY			SMC_RMI_CALL(0x017e)
+> +#define SMC_RMI_RTT_AUX_FOLD			SMC_RMI_CALL(0x017f)
+> +
+> +#define SMC_RMI_VDEV_ABORT			SMC_RMI_CALL(0x0185)
+> +#define SMC_RMI_VDEV_COMMUNICATE		SMC_RMI_CALL(0x0186)
+> +#define SMC_RMI_VDEV_CREATE			SMC_RMI_CALL(0x0187)
+> +#define SMC_RMI_VDEV_DESTROY			SMC_RMI_CALL(0x0188)
+> +#define SMC_RMI_VDEV_GET_STATE			SMC_RMI_CALL(0x0189)
+> +#define SMC_RMI_VDEV_UNLOCK			SMC_RMI_CALL(0x018a)
+> +#define SMC_RMI_RTT_SET_S2AP			SMC_RMI_CALL(0x018b)
+> +#define SMC_RMI_VDEV_COMPLETE			SMC_RMI_CALL(0x018e)
+> +
+> +#define SMC_RMI_VDEV_GET_INTERFACE_REPORT	SMC_RMI_CALL(0x01d0)
+> +#define SMC_RMI_VDEV_GET_MEASUREMENTS		SMC_RMI_CALL(0x01d1)
+> +#define SMC_RMI_VDEV_LOCK			SMC_RMI_CALL(0x01d2)
+> +#define SMC_RMI_VDEV_START			SMC_RMI_CALL(0x01d3)
+> +
+> +#define SMC_RMI_VSMMU_EVENT_NOTIFY		SMC_RMI_CALL(0x01d6)
+> +#define SMC_RMI_PSMMU_ACTIVATE			SMC_RMI_CALL(0x01d7)
+> +#define SMC_RMI_PSMMU_DEACTIVATE		SMC_RMI_CALL(0x01d8)
+> +
+> +#define SMC_RMI_PSMMU_ST_L2_CREATE		SMC_RMI_CALL(0x01db)
+> +#define SMC_RMI_PSMMU_ST_L2_DESTROY		SMC_RMI_CALL(0x01dc)
+> +#define SMC_RMI_DPT_L0_CREATE			SMC_RMI_CALL(0x01dd)
+> +#define SMC_RMI_DPT_L0_DESTROY			SMC_RMI_CALL(0x01de)
+> +#define SMC_RMI_DPT_L1_CREATE			SMC_RMI_CALL(0x01df)
+> +#define SMC_RMI_DPT_L1_DESTROY			SMC_RMI_CALL(0x01e0)
+> +#define SMC_RMI_GRANULE_TRACKING_GET		SMC_RMI_CALL(0x01e1)
+> +
+> +#define SMC_RMI_GRANULE_TRACKING_SET		SMC_RMI_CALL(0x01e3)
+> +
+> +#define SMC_RMI_RMM_CONFIG_GET			SMC_RMI_CALL(0x01ec)
+> +
+> +#define SMC_RMI_RMM_STATE_GET			SMC_RMI_CALL(0x01ee)
+> +
+> +#define SMC_RMI_PSMMU_EVENT_CONSUME		SMC_RMI_CALL(0x01f0)
+> +#define SMC_RMI_GRANULE_RANGE_DELEGATE		SMC_RMI_CALL(0x01f1)
+> +#define SMC_RMI_GRANULE_RANGE_UNDELEGATE	SMC_RMI_CALL(0x01f2)
+> +#define SMC_RMI_GPT_L1_CREATE			SMC_RMI_CALL(0x01f3)
+> +#define SMC_RMI_GPT_L1_DESTROY			SMC_RMI_CALL(0x01f4)
+> +#define SMC_RMI_RTT_DATA_MAP			SMC_RMI_CALL(0x01f5)
+> +#define SMC_RMI_RTT_DATA_UNMAP			SMC_RMI_CALL(0x01f6)
+> +#define SMC_RMI_RTT_DEV_MAP			SMC_RMI_CALL(0x01f7)
+> +#define SMC_RMI_RTT_DEV_UNMAP			SMC_RMI_CALL(0x01f8)
+> +#define SMC_RMI_RTT_ARCH_DEV_MAP		SMC_RMI_CALL(0x01f9)
+> +#define SMC_RMI_RTT_ARCH_DEV_UNMAP		SMC_RMI_CALL(0x01fa)
+> +#define SMC_RMI_RTT_UNPROT_MAP			SMC_RMI_CALL(0x01fb)
+> +#define SMC_RMI_RTT_UNPROT_UNMAP		SMC_RMI_CALL(0x01fc)
+> +#define SMC_RMI_RTT_AUX_PROT_MAP		SMC_RMI_CALL(0x01fd)
+> +#define SMC_RMI_RTT_AUX_PROT_UNMAP		SMC_RMI_CALL(0x01fe)
+> +#define SMC_RMI_RTT_AUX_UNPROT_MAP		SMC_RMI_CALL(0x01ff)
+> +#define SMC_RMI_RTT_AUX_UNPROT_UNMAP		SMC_RMI_CALL(0x0200)
+> +#define SMC_RMI_REALM_TERMINATE			SMC_RMI_CALL(0x0201)
+> +#define SMC_RMI_RMM_ACTIVATE			SMC_RMI_CALL(0x0202)
+> +#define SMC_RMI_OP_CONTINUE			SMC_RMI_CALL(0x0203)
+> +#define SMC_RMI_PDEV_STREAM_CONNECT		SMC_RMI_CALL(0x0204)
+> +#define SMC_RMI_PDEV_STREAM_DISCONNECT		SMC_RMI_CALL(0x0205)
+> +#define SMC_RMI_PDEV_STREAM_COMPLETE		SMC_RMI_CALL(0x0206)
+> +#define SMC_RMI_PDEV_STREAM_KEY_PURGE		SMC_RMI_CALL(0x0207)
+> +#define SMC_RMI_OP_MEM_DONATE			SMC_RMI_CALL(0x0208)
+> +#define SMC_RMI_OP_MEM_RECLAIM			SMC_RMI_CALL(0x0209)
+> +#define SMC_RMI_OP_CANCEL			SMC_RMI_CALL(0x020a)
+> +#define SMC_RMI_VSMMU_FEATURES			SMC_RMI_CALL(0x020b)
+> +#define SMC_RMI_VSMMU_CMD_GET			SMC_RMI_CALL(0x020c)
+> +#define SMC_RMI_VSMMU_CMD_COMPLETE		SMC_RMI_CALL(0x020d)
+> +#define SMC_RMI_PSMMU_INFO			SMC_RMI_CALL(0x020e)
+> +
+> +#define RMI_ABI_MAJOR_VERSION	2
+> +#define RMI_ABI_MINOR_VERSION	0
+> +
+> +#define RMI_ABI_VERSION_GET_MAJOR(version) ((version) >> 16)
+> +#define RMI_ABI_VERSION_GET_MINOR(version) ((version) & 0xFFFF)
+> +#define RMI_ABI_VERSION(major, minor)      (((major) << 16) | (minor))
+> +
+> +#define RMI_UNASSIGNED			0
+> +#define RMI_ASSIGNED			1
+> +#define RMI_TABLE			2
+> +
+> +#define RMI_RETURN_STATUS(ret)		((ret) & 0xFF)
+> +#define RMI_RETURN_INDEX(ret)		(((ret) >> 8) & 0xFF)
+> +#define RMI_RETURN_MEMREQ(ret)		(((ret) >> 8) & 0x3)
+> +#define RMI_RETURN_CAN_CANCEL(ret)	(((ret) >> 10) & 0x1)
 
-Agreed !
+Use FIELD_GET() and specify masks that define the actual fields.
 
->>> Within a very short time window, possibly from noirq_suspend to the
->>> system actually being suspended, or possibly from the system starting
->>> to resume to before noirq_resume, this work queue will trigger an I2C
->>> transfer, and at this time the I2C controller's clk and pinctrl have
->>> not yet been restored, reading and
->>
->> Right, this kind of explains the problem to me. I think you are trying to serve
->> i2c transfers when your resources(clk, pinctrl) are not turned ON and also
->> interrupt remains disabled. And that's why you need to add
->> _noir() PM callbacks supports along with IRQF_NO_SUSPEND |
->> IRQF_EARLY_RESUME flags.
->>
->>> writing I2C registers causes the system to hang. This patch make all
->>> I2C operations are performed in a safe hardware state.
->>>
->>> Is it better if I add these comment to patch commit log?
->>>>>
->> if my latest comments makes sense against the issue, you may write
->> accordingly. if i am wrong, then your explanation makes sense. Cause of the
->> hang needs to be clearly mention int the commit log in your next patch.
->>
-> 
-> Based on our discussion, I have updated the commit log as below:
-> 
-> On some i.MX platforms, certain I2C client drivers keep a periodic
-> workqueue which continues to trigger I2C transfers.
-> 
-> During system suspend/resume, there exists a time window between:
->    - noirq_suspend and full suspend
->    - resume start and noirq_resume
+> +
+> +#define RMI_SUCCESS			0
+> +#define RMI_ERROR_INPUT			1
+> +#define RMI_ERROR_REALM			2
+> +#define RMI_ERROR_REC			3
+> +#define RMI_ERROR_RTT			4
+> +#define RMI_ERROR_NOT_SUPPORTED		5
+> +#define RMI_ERROR_DEVICE		6
+> +#define RMI_ERROR_RTT_AUX		7
+> +#define RMI_ERROR_PSMMU_ST		8
+> +#define RMI_ERROR_DPT			9
+> +#define RMI_BUSY			10
+> +#define RMI_ERROR_GLOBAL		11
+> +#define RMI_ERROR_TRACKING		12
+> +#define RMI_INCOMPLETE			13
+> +#define RMI_BLOCKED			14
+> +#define RMI_ERROR_GPT			15
+> +#define RMI_ERROR_GRANULE		16
+> +
+> +#define RMI_OP_MEM_REQ_NONE		0
+> +#define RMI_OP_MEM_REQ_DONATE		1
+> +#define RMI_OP_MEM_REQ_RECLAIM		2
+> +
+> +#define RMI_DONATE_SIZE(req)		((req) & 0x3)
+> +#define RMI_DONATE_COUNT_MASK		GENMASK(15, 2)
+> +#define RMI_DONATE_COUNT(req)		(((req) & RMI_DONATE_COUNT_MASK) >> 2)
+> +#define RMI_DONATE_CONTIG(req)		(!!((req) & BIT(16)))
+> +#define RMI_DONATE_STATE(req)		(!!((req) & BIT(17)))
 
-- noirq_resume and resume start [Just opposite ?]
+FIELD_GET().
 
-> 
-> In this window, the I2C controller resources such as clock and pinctrl
-> may already be disabled or not yet restored.
-> 
-> If a workqueue triggers an I2C transfer in this period, the driver
-> attempts to access I2C registers while the hardware resources are
-> unavailable, which may lead to system hang.
-> 
-> Mark the I2C adapter as suspended during noirq suspend and block new
-> transfers until resume, ensuring that I2C transfers are only issued
-> when hardware resources are available.
-> 
-> Does this look good to you?
->
-Looks good, Thanks !
+> +
+> +#define RMI_OP_MEM_DELEGATED		0
+> +#define RMI_OP_MEM_UNDELEGATED		1
+> +
+> +#define RMI_ADDR_TYPE_NONE		0
+> +#define RMI_ADDR_TYPE_SINGLE		1
+> +#define RMI_ADDR_TYPE_LIST		2
+> +
+> +#define RMI_ADDR_RANGE_SIZE_MASK	GENMASK(1, 0)
+> +#define RMI_ADDR_RANGE_COUNT_MASK	GENMASK(PAGE_SHIFT - 1, 2)
+> +#define RMI_ADDR_RANGE_ADDR_MASK	(PAGE_MASK & GENMASK(51, 0))
+> +#define RMI_ADDR_RANGE_STATE_MASK	BIT(63)
+> +
+> +#define RMI_ADDR_RANGE_SIZE(ar)		(FIELD_GET(RMI_ADDR_RANGE_SIZE_MASK, \
+> +						   (ar)))
+> +#define RMI_ADDR_RANGE_COUNT(ar)	(FIELD_GET(RMI_ADDR_RANGE_COUNT_MASK, \
+> +						   (ar)))
+> +#define RMI_ADDR_RANGE_ADDR(ar)		((ar) & RMI_ADDR_RANGE_ADDR_MASK)
+> +#define RMI_ADDR_RANGE_STATE(ar)	(FIELD_GET(RMI_ADDR_RANGE_STATE_MASK, \
+> +						   (ar)))
+> +
+> +enum rmi_ripas {
+> +	RMI_EMPTY = 0,
+> +	RMI_RAM = 1,
+> +	RMI_DESTROYED = 2,
+> +	RMI_DEV = 3,
+> +};
+> +
+> +#define RMI_NO_MEASURE_CONTENT	0
+> +#define RMI_MEASURE_CONTENT	1
+> +
+> +#define RMI_FEATURE_REGISTER_0_S2SZ		GENMASK(7, 0)
+> +#define RMI_FEATURE_REGISTER_0_LPA2		BIT(8)
+> +#define RMI_FEATURE_REGISTER_0_SVE		BIT(9)
+> +#define RMI_FEATURE_REGISTER_0_SVE_VL		GENMASK(13, 10)
+> +#define RMI_FEATURE_REGISTER_0_NUM_BPS		GENMASK(19, 14)
+> +#define RMI_FEATURE_REGISTER_0_NUM_WPS		GENMASK(25, 20)
+> +#define RMI_FEATURE_REGISTER_0_PMU		BIT(26)
+> +#define RMI_FEATURE_REGISTER_0_PMU_NUM_CTRS	GENMASK(31, 27)
+> +
+> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_4KB	BIT(0)
+> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_16KB	BIT(1)
+> +#define RMI_FEATURE_REGISTER_1_RMI_GRAN_SZ_64KB	BIT(2)
+> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_256	BIT(3)
+> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_384	BIT(4)
+> +#define RMI_FEATURE_REGISTER_1_HASH_SHA_512	BIT(5)
+> +#define RMI_FEATURE_REGISTER_1_MAX_RECS_ORDER	GENMASK(9, 6)
+> +#define RMI_FEATURE_REGISTER_1_L0GPTSZ		GENMASK(13, 10)
+> +#define RMI_FEATURE_REGISTER_1_PPS		GENMASK(16, 14)
+> +
+> +#define RMI_FEATURE_REGISTER_2_DA		BIT(0)
+> +#define RMI_FEATURE_REGISTER_2_DA_COH		BIT(1)
+> +#define RMI_FEATURE_REGISTER_2_VSMMU		BIT(2)
+> +#define RMI_FEATURE_REGISTER_2_ATS		BIT(3)
+> +#define RMI_FEATURE_REGISTER_2_MAX_VDEVS_ORDER	GENMASK(7, 4)
+> +#define RMI_FEATURE_REGISTER_2_VDEV_KROU	BIT(8)
+> +#define RMI_FEATURE_REGISTER_2_NON_TEE_STREAM	BIT(9)
+> +
+> +#define RMI_FEATURE_REGISTER_3_MAX_NUM_AUX_PLANES	GENMASK(3, 0)
+> +#define RMI_FEATURE_REGISTER_3_RTT_PLAN			GENMASK(5, 4)
+> +#define RMI_FEATURE_REGISTER_3_RTT_S2AP_INDIRECT	BIT(6)
+> +
+> +#define RMI_FEATURE_REGISTER_4_MEC_COUNT		GENMASK(63, 0)
+> +
+> +#define RMI_MEM_CATEGORY_CONVENTIONAL		0
+> +#define RMI_MEM_CATEGORY_DEV_NCOH		1
+> +#define RMI_MEM_CATEGORY_DEV_COH		2
+> +
+> +#define RMI_TRACKING_RESERVED			0
+> +#define RMI_TRACKING_NONE			1
+> +#define RMI_TRACKING_FINE			2
+> +#define RMI_TRACKING_COARSE			3
+> +
+> +#define RMI_GRANULE_SIZE_4KB	0
+> +#define RMI_GRANULE_SIZE_16KB	1
+> +#define RMI_GRANULE_SIZE_64KB	2
+> +
+> +/*
+> + * Note many of these fields are smaller than u64 but all fields have u64
+> + * alignment, so use u64 to ensure correct alignment.
+> + */
+> +struct rmm_config {
+> +	union { /* 0x0 */
+> +		struct {
+> +			u64 tracking_region_size;
+> +			u64 rmi_granule_size;
+> +		};
+> +		u8 sizer[0x1000];
 
->>>>
->>>
-> 
+SZ_4K?
 
+> +	};
+> +};
+> +
+> +#define RMI_REALM_PARAM_FLAG_LPA2		BIT(0)
+> +#define RMI_REALM_PARAM_FLAG_SVE		BIT(1)
+> +#define RMI_REALM_PARAM_FLAG_PMU		BIT(2)
+> +
+> +struct realm_params {
+> +	union { /* 0x0 */
+> +		struct {
+> +			u64 flags;
+> +			u64 s2sz;
+> +			u64 sve_vl;
+> +			u64 num_bps;
+> +			u64 num_wps;
+> +			u64 pmu_num_ctrs;
+> +			u64 hash_algo;
+> +			u64 num_aux_planes;
+> +		};
+> +		u8 padding0[0x400];
+
+SZ_1K? And similarly all over the shop?
+
+I haven't checked the details of the encodings (life is too short),
+but I wonder how much of this exists as an MRS and could be
+automatically generated?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
