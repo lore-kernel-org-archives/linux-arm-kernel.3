@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEEFDCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFCF3CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 00:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3i7MRKG6FjVJNfFDsY2mBV0HH5ceLNdSFuRKrXNOfM=; b=jvr+ZZmeYgKrYQtxFw64nWCfxK
-	Xi12PamkaV6lukcR/qTdmLCjCSKymvvgJEy+sNH+ZsTOvlkfrcYevEqStNxND4mIb/iXlF1Wj6rVQ
-	vMjk0OUCp/QAf/1PhOdOOq790acUASISNTCD0ErTR4x5S8h289MTS0GOy0pI61d0SL7u2vhPYIdE1
-	tLRdRX3z3UH2chpnqkJMNBBQg+8JI5n5eVdQuFpdbeAGESZS1kjVItGICvR9nC9Myo9UyuoE/07qP
-	VAuxVBxuUyXg3ERYYDDf+NMbmcvXSuWyKQy6cd5O1AuAr3CjH9zyVVoEPdgJZ8mONIzn71xDK9ml3
-	hsFPAXYw==;
+	bh=tV7iZwvmmQQLSqky4R1D09YTKc/1j9bjaXabqWBMECY=; b=kJ3yft5sHdl9s+PWiDLQY+RfNh
+	weUBGawKrDZWXAbNKEtuZKQmIHbE38n9Nw4CuCWeN4KwK39Yu4PY1qhOwJ96WHkeShyp7kh4dX2oR
+	wPA9PZg2ywbKY6qAXX424GrTWTAhZYc3R2tJNw20gZHHqN0kiA+HkyKuNUf4ZKt7999TuuYsn8XC+
+	PuYcJkGjS4IWc92hqfSBPy2qUWihfOMrQEje8aqNXtErfim1v6QK2IU9oiuBpFpLFKZ8Pt0CLh+zv
+	ZdEEM9glvD9pd4kUYTWsrVySJiUtgc1qpvDB17fLb6Ddi3qqO8iOEinMmAoSz8ugbkfJzgnN0xtxW
+	8LmudhKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrB0-00000006GSW-474o;
-	Thu, 21 May 2026 00:22:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wPrSA-00000006II2-40Qk;
+	Thu, 21 May 2026 00:39:58 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPrAx-00000006GR7-33RR
+	id 1wPrS8-00000006IHb-43lo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 00:22:13 +0000
+	Thu, 21 May 2026 00:39:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1779322928;
+	s=mimecast20190719; t=1779323995;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=i3i7MRKG6FjVJNfFDsY2mBV0HH5ceLNdSFuRKrXNOfM=;
-	b=gkWKd8DrCi+rf20WXOLE9+wwfO5Gt2AjRbFHCsI7gONgpB0DOlEqIXsK7+WXChBFzcgJe0
-	6eIf6/ukTbcucJiOE3tEPsfn2aBk/MMF8G2QfHvnjZt/thI+YTcpvEczLCSUUOJdZtwYGx
-	LORyFAc6ai/mFFp94mLV251mSyaf1Ik=
+	bh=tV7iZwvmmQQLSqky4R1D09YTKc/1j9bjaXabqWBMECY=;
+	b=h68WIJC2mT6e7NoRfxA47h3VeiCh4KxZq6qiJ9I1slD3Pe1Kv8YPwvA6dOu6LIEiLoQg60
+	UUrZ+9e5zPBGdSEu7a0Jm353BSPytDYBaMCLt9EbNKj4poImWtF8IcL80yp84twJ22IJl6
+	FNWGd5uSVqNBDDCyAbrfoj+G1q95wN4=
 Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com
  [209.85.210.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-632-irF1E-oMPTKHKTz8rADMsw-1; Wed, 20 May 2026 20:22:05 -0400
-X-MC-Unique: irF1E-oMPTKHKTz8rADMsw-1
-X-Mimecast-MFC-AGG-ID: irF1E-oMPTKHKTz8rADMsw_1779322925
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-83836443305so2768657b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:22:05 -0700 (PDT)
+ us-mta-395-0egS-ZuaMSCLp62lCihz1g-1; Wed, 20 May 2026 20:39:52 -0400
+X-MC-Unique: 0egS-ZuaMSCLp62lCihz1g-1
+X-Mimecast-MFC-AGG-ID: 0egS-ZuaMSCLp62lCihz1g_1779323991
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-82f6b984b3aso2712587b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 17:39:51 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779322925; x=1779927725;
+        d=1e100.net; s=20251104; t=1779323991; x=1779928791;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=i3i7MRKG6FjVJNfFDsY2mBV0HH5ceLNdSFuRKrXNOfM=;
-        b=W+6jwWx8yNH9qeKvstbGZGjn6ieFEldgAQkoPRmlNCsaUjALn1jHM2naKcyY2V/9b0
-         SsuP3tnuFCyKIqNKKxDHnahx36S4EgHXQfxJpH0H4ueJoIyCItAJfh+70kPYpwJNwDyX
-         05cFCgWNJ1e2pZv5yakddpovgqxC8Mf+b6O1FrocexMPkvqDHIftwjqaWx2OXqe/WKZN
-         h5G5AKG+eVly7jvBzBSQTHMEEOtJxafmZqDpq1djT/cN4q0shMsJmr6IzM5CQPpGixL9
-         Lp7YgDB/r1M+t+cZLqVeYxMteYiQMuj++s9W51fuhdRPJNG77/sBZFwnAkMgggM2YpRB
-         svIg==
-X-Forwarded-Encrypted: i=1; AFNElJ9z0NUnqDr8GPTVCKaqXs/5EN3A+0ymz1KJsiCYcw8TY03jRXqTyeSP4pjO/2j37JEbRHm5F1o5gX5hBbh/7afc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQhqtdDMzbDyHrXHHI3pAIbgzaSDe6yp6pGzC1JB5QwDWKYb1F
-	bjmtYverZdH1IFJdHpbwHuz6LVVQYY600uhrWlcZmTtj64Z67xf/smf+d9YBBHgazuxu0NsZYdB
-	KmfdHNlP9PZBByt2zX7wE7g+1/joxQGq0zM3M0KPUILlp/mY1/pgtLvvF71xQOgaADCkUy3lGin
-	zL
-X-Gm-Gg: Acq92OHw6jU6V3azSv0gTi4AfxilTua8LBgt0A3CKgBvRbmAWOT8i27AhAxGpZm6+cK
-	pfLLl8XvbnU56N31rWul2lf1/w4gVCM9aviqYDJw01o9XtKZgkS7FQ3uEbcXiDfl/JbBaeUlws9
-	xgVQ8kOlgOR9WvozYzphcTKPaU8RSMrztJhhla86KFDHLleggM/4ldtvesrznL+1zG/dGPQ0/+b
-	/bhHati33lfCS26y17jBj4W7wpyc0Fi3jBSV8rAmeLUzyXNxJdXqgYRwK4MM2Nd92biZyixvjLk
-	i7taOf9Gj02cjDG1XTgtkuAvjYsuo/8fZhFBBukxtRht04g3G2L3tiSxIYdIfoXwK1HLCaeXa4a
-	Byvz+KmZl0kvCI/xc7lc/6C24T4VoPTKzo+FT02hTxoOiJBvgthxa+uwqYMeDUGKd
-X-Received: by 2002:a05:6a00:3988:b0:838:af72:fb3a with SMTP id d2e1a72fcca58-8414ac7f34amr670248b3a.7.1779322924827;
-        Wed, 20 May 2026 17:22:04 -0700 (PDT)
-X-Received: by 2002:a05:6a00:3988:b0:838:af72:fb3a with SMTP id d2e1a72fcca58-8414ac7f34amr670212b3a.7.1779322924310;
-        Wed, 20 May 2026 17:22:04 -0700 (PDT)
+        bh=tV7iZwvmmQQLSqky4R1D09YTKc/1j9bjaXabqWBMECY=;
+        b=jH5tCZMOYwsRt7Z+PsQeq2DK6oqbnpMh73ipVbUaMmXBU5fzMp63m9lntUeiJKxAUY
+         ElC8IsNWCaFEccuXF3Laa4edIEuQcRIAsIuFI64Kc96vbRHBXsG/yE1jopCWF6aWK+Zn
+         IVErr5kqfSjnNYKOka1+JOfPzceGP7v7dJIJcfyAP4bWbpe3wtKNgC+UsG27ut7zG1F8
+         4bUO74OutKrUSLq/rNBnGtwGAZkcedn6WCUSgEAzMHtSMcFleXaHbQnXlWVI9jS8A8q6
+         NvPiw0Sp1lAckc0BZoiq2RIGpbpWiBQROemudTUba5zREpdUTCaMTaA05obTEuIuhoKz
+         TX8w==
+X-Forwarded-Encrypted: i=1; AFNElJ+ob8eO7iF2AMkC6quWTSNkqFzbqSA3OsIkCDMZ8brdHc9EyTGuorn0dd0/xHAVD7bXxYnS2s0ZyNHeDPvyigay@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA/xg60pnzyB7A4Uj2uBL1tJkYXIjIfwvbxxxBpLnk0g7+u7+0
+	C9qGcA1WnAqrJSE2OQCoHXfxQg7x7+Rdnn/xPQSDGUZ7+/UYOkdN/YS4oLt77UCzFr0FEcRiuMr
+	YXYrcDOmwhvr4Dv6Cs1qvhGZMTvD3MMojwxTnSImhfS/HdxAwqq/9rnlZ7vqO6VyH+AoXB8zN8e
+	+I
+X-Gm-Gg: Acq92OE6YvT9DAc3AcLkoJavnnQ7CwM03thLG25VLGlD9c9apyRURxaR2nJadgNTG06
+	Bu1B2i6vHpbkJLDBUouSyzBDS9XzZMEMwI2WVkIItmlB32ssbgRR7gKC0+pLhEVb4C6GZ4Yb8il
+	9sGxH6Orubb3/sgYvK3xAPWiHHkESeT8uv1bGAkXvX2y38zk2qbbNrQznkmABHfGW0RSIHFKljd
+	pzk6HMuxwRD5LqUbT7Oiiy259VdasbRnjYJTMz6KRV3hUNknpEczJhW+izK7wT1XyZBz4dA8v20
+	cT43qZ7o1HXUiESHMrtZFE/SDVx7gVdzQsgkfxFCe4xF2NwwUFjsm0nfaiPBf2ftQpQM0oVoWCX
+	6Vw0nI3siJrLNACCEp5R3DuF+wR4ZNabPJk1DYXBRfDw+gQDYKskKF5nkwpp8T2h+
+X-Received: by 2002:a05:6a00:1742:b0:83a:ebec:452f with SMTP id d2e1a72fcca58-8414ae6f985mr687565b3a.42.1779323990964;
+        Wed, 20 May 2026 17:39:50 -0700 (PDT)
+X-Received: by 2002:a05:6a00:1742:b0:83a:ebec:452f with SMTP id d2e1a72fcca58-8414ae6f985mr687526b3a.42.1779323990418;
+        Wed, 20 May 2026 17:39:50 -0700 (PDT)
 Received: from [192.168.68.51] (n175-34-8-244.mrk21.qld.optusnet.com.au. [175.34.8.244])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19794e6esm20725723b3a.25.2026.05.20.17.21.53
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-83f19663cfdsm27427984b3a.9.2026.05.20.17.39.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 17:22:03 -0700 (PDT)
-Message-ID: <da87fa25-d979-4d22-99f1-3ba1d81cff23@redhat.com>
-Date: Thu, 21 May 2026 10:21:51 +1000
+        Wed, 20 May 2026 17:39:49 -0700 (PDT)
+Message-ID: <ee494ecd-8979-40f2-896e-82137abbf440@redhat.com>
+Date: Thu, 21 May 2026 10:39:39 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 05/44] arm64: RMI: Add wrappers for RMI calls
+Subject: Re: [PATCH v14 06/44] arm64: RMI: Check for RMI support at init
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -99,18 +99,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Emi Kisanuki <fj0570is@fujitsu.com>, Vishal Annapurve
  <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
 References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-6-steven.price@arm.com>
+ <20260513131757.116630-7-steven.price@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20260513131757.116630-6-steven.price@arm.com>
+In-Reply-To: <20260513131757.116630-7-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: hgEsm2Z5_4mb_hny_YvjG1jcZrqavqCnQo24V7knjh4_1779322925
+X-Mimecast-MFC-PROC-ID: fz4sZDZRsYXZqtV_779iWR_ozp1IdIUMllI412Mqqn4_1779323991
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_172211_842983_631F3CC2 
-X-CRM114-Status: GOOD (  26.16  )
+X-CRM114-CacheID: sfid-20260520_173957_081255_0055A6A7 
+X-CRM114-Status: GOOD (  27.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,98 +128,105 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hi Steven,
 
 On 5/13/26 11:17 PM, Steven Price wrote:
-> The wrappers make the call sites easier to read and deal with the
-> boiler plate of handling the error codes from the RMM.
+> Query the RMI version number and check if it is a compatible version.
+> The first two feature registers are read and exposed for future code to
+> use.
 > 
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
-> Changes from v13:
->   * Update to RMM v2.0-bet1 spec including some SRO support (there still
->     some FIXMEs where SRO support is incomplete).
-> Changes from v12:
->   * Update to RMM v2.0 specification
-> Changes from v8:
->   * Switch from arm_smccc_1_2_smc() to arm_smccc_1_2_invoke() in
->     rmi_rtt_read_entry() for consistency.
-> Changes from v7:
->   * Minor renaming of parameters and updated comments
-> Changes from v5:
->   * Further improve comments
-> Changes from v4:
->   * Improve comments
-> Changes from v2:
->   * Make output arguments optional.
->   * Mask RIPAS value rmi_rtt_read_entry()
->   * Drop unused rmi_rtt_get_phys()
+> v14:
+>   * This moves the basic RMI setup into the 'kernel' directory. This is
+>     because RMI will be used for some features outside of KVM so should
+>     be available even if KVM isn't compiled in.
 > ---
->   arch/arm64/include/asm/rmi_cmds.h | 661 ++++++++++++++++++++++++++++++
->   1 file changed, 661 insertions(+)
->   create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+>   arch/arm64/include/asm/rmi_cmds.h |  3 ++
+>   arch/arm64/kernel/Makefile        |  2 +-
+>   arch/arm64/kernel/cpufeature.c    |  1 +
+>   arch/arm64/kernel/rmi.c           | 65 +++++++++++++++++++++++++++++++
+>   4 files changed, 70 insertions(+), 1 deletion(-)
+>   create mode 100644 arch/arm64/kernel/rmi.c
 > 
-> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> new file mode 100644
-> index 000000000000..04f7066894e9
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> @@ -0,0 +1,661 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2023 ARM Ltd.
-> + */
-> +
-> +#ifndef __ASM_RMI_CMDS_H
-> +#define __ASM_RMI_CMDS_H
-> +
-> +#include <linux/arm-smccc.h>
-> +
 
 [...]
 
-> +
-> +/**
-> + * rmi_rtt_destroy() - Destroy an RTT
-> + * @rd: PA of the RD
-> + * @ipa: Base of the IPA range described by the RTT
-> + * @level: Depth of the RTT within the tree
-> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
-> + * @out_top: Pointer to write the top IPA of non-live RTT entries
-> + *
-
-In most cases, the parameters are well explained in RMM-v2.0-bet1 spec, I think
-it's nice to keep the code and the spec synchronized. For those specific parameters
-of this function, they're well explained in RMM-v2.0-bet1 spec as below.
-
-    @rd: PA of the RD for the target realm
-    @ipa: Base of the IPA range described by the RTT
-    @level: RTT level
-    @out_rtt: PA of the RTT which was destroyed
-    @out_top: Top IPA of non-live RTT entries, from entry at which the RTT walk terminated
-
-> + * Destroys an RTT. The RTT must be non-live, i.e. none of the entries in the
-> + * table are in ASSIGNED or TABLE state.
-> + *
-> + * Return: RMI return code.
+> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+> new file mode 100644
+> index 000000000000..99c1ccc35c11
+> --- /dev/null
+> +++ b/arch/arm64/kernel/rmi.c
+> @@ -0,0 +1,65 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2023-2025 ARM Ltd.
 > + */
-> +static inline int rmi_rtt_destroy(unsigned long rd,
-> +				  unsigned long ipa,
-> +				  long level,
-> +				  unsigned long *out_rtt,
-> +				  unsigned long *out_top)
+> +
+> +#include <linux/memblock.h>
+> +
+> +#include <asm/rmi_cmds.h>
+> +
+> +unsigned long rmm_feat_reg0;
+> +unsigned long rmm_feat_reg1;
+> +
+> +static int rmi_check_version(void)
 > +{
 > +	struct arm_smccc_res res;
+> +	unsigned short version_major, version_minor;
+> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
+> +						     RMI_ABI_MINOR_VERSION);
+> +	unsigned long aa64pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
 > +
-> +	arm_smccc_1_1_invoke(SMC_RMI_RTT_DESTROY, rd, ipa, level, &res);
+> +	/* If RME isn't supported, then RMI can't be */
+> +	if (cpuid_feature_extract_unsigned_field(aa64pfr0, ID_AA64PFR0_EL1_RME_SHIFT) == 0)
+> +		return -ENXIO;
 > +
-> +	if (out_rtt)
-> +		*out_rtt = res.a1;
-> +	if (out_top)
-> +		*out_top = res.a2;
+> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
 > +
-> +	return res.a0;
+> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+> +		return -ENXIO;
+> +
+> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
+> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
+> +
+> +	if (res.a0 != RMI_SUCCESS) {
+> +		unsigned short high_version_major, high_version_minor;
+> +
+> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
+> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
+> +
+> +		pr_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
+> +		       version_major, version_minor,
+> +		       high_version_major, high_version_minor,
+> +		       RMI_ABI_MAJOR_VERSION,
+> +		       RMI_ABI_MINOR_VERSION);
+> +		return -ENXIO;
+> +	}
+> +
+> +	pr_info("RMI ABI version %d.%d\n", version_major, version_minor);
+> +
+> +	return 0;
 > +}
 > +
+> +static int __init arm64_init_rmi(void)
+> +{
+> +	/* Continue without realm support if we can't agree on a version */
+> +	if (rmi_check_version())
+> +		return 0;
 
-[...]
+Is this still a valid point that we have to return zero on errors returned
+from rmi_check_version() or other other function calls like rmi_features()?
+arm64_init_rmi() is triggered by subsys_initcall() where the return value
+needs to indicate success or failure. It's fine to return error code from
+arm64_init_rmi() in the path.
+
+> +
+> +	if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
+> +		return 0;
+> +	if (WARN_ON(rmi_features(1, &rmm_feat_reg1)))
+> +		return 0;
+> +
+> +	return 0;
+> +}
+> +subsys_initcall(arm64_init_rmi);
 
 Thanks,
 Gavin
