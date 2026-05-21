@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B00CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF45CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:30:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n0j1uWN8BZS95igofi0P3e6YMyYCAFIv8OXyIcUdmd8=; b=GpVdqlqRDA522St+OzJ5aOpbVl
-	JJCh+dswUThGmOJsXb6rkB4AL+iSmgQjJBQsv77r0TifUDT0UF3eU2QdbZSvkOwDaVIKOFJMK/71O
-	bdonJtVdsKYI4KfsZKBSo4i5TV7wQchjuKa3sjMdrSZeDN+AnNOHJgrhC1CEGrCJg2MqCfm6+BG5K
-	jW0jC64B7eVk67MgYnbp/OcU4wLxkSVYyzys8bgUV++kYYvdajqk+iItH7o8kffQs0G3OBwoG+7Fl
-	v/MdyJlQb2fNpXR9PYcEylnekUEiC8khbuZ7j60D5BLghf6ztuYfGaoGdxuZ6ylsP4eqXLlZhTW/o
-	A9djauFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tVEy4bk+Ysy/PxvkO6UbyKlL7eR12NG2pfwpsWxFCJE=; b=XMkbJL/QRvAUGyB7AYLSKe4XYQ
+	fCNxgNCftgeLthjKa7i5kwBRmqdzvzo0jYCmOzZqtNdo8njceHDIifzGkti2HWUOcpsfTuSt4YXnC
+	DHHMedoWu2DIEegVRTCrDC99KW2CdmyjQrSzNCPwaFD6ApHscBpSnIXgVoKOyaQZCgPy2VTEMT+sh
+	V8GxL3e3EBp8xFb4zHwPu37/Y00CRiE0XjBUhNRm/yq1FTwnx+IRknU8hB2lR6lCeamscouwV8+2T
+	LM+msDzVFCLe0L+DDjOH3+32tpdf0D10SxGGKdIjY+t9hBJCwOpgQO/y2cX6R00I1DBZNvA7PRvA9
+	S515dsbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2Wz-00000007jPM-04pB;
-	Thu, 21 May 2026 12:29:41 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1wQ2XM-00000007jV3-0uzS;
+	Thu, 21 May 2026 12:30:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ2Ww-00000007jOQ-3mj9
+	id 1wQ2XJ-00000007jTw-2LDO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 12:29:40 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-48eb0da933fso43651705e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 05:29:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779366576; x=1779971376; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=n0j1uWN8BZS95igofi0P3e6YMyYCAFIv8OXyIcUdmd8=;
-        b=azngQfnyvKNgtA+l6yYNnuLrHl/JGW5+gNfvC6tOR+reZ8LHifX8MN62q0w28Er+xx
-         /zlYJsUO9wPGXdjZ/8/vFwSOGe+ae3GiDVmESt7E7cnECiujnZiwBtlzJtrwoDlTuf1u
-         kc0R6z8iohUJVSzU599Fs+ZOpxvBRE7IztSEdgk/O76ym24roo9FKVusOfST79+UCm/h
-         JOndX3ddsiLr5QRNukoDElw69HZi4E7pH4sHoxhogZ/Q6zjIa7MQ5OHdfVp5xwBZ4wZk
-         1Wi6I6vs6PxcPdHL0hbarD2523wg13Y/ux1X86tt6S3y7AplknYjEO99d1mv1RXMA8A8
-         pHqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779366576; x=1779971376;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=n0j1uWN8BZS95igofi0P3e6YMyYCAFIv8OXyIcUdmd8=;
-        b=Dz3MeeFd6IyO8BY30vMsWwiCLsLkz8pd8SCPr5Y1HyDvNDQMk4Hq2hM2Xc8TpploRr
-         kSlWt44KDhcTLTigcyvMesa8HcGwRBilyC/4NmVpkBORQNF0z05IY5sV4gK9nnT4nQjt
-         WyAiPBigAiGGYHi6PIO3OUD6rPANVW+WjxR7QP0X2oHGg3BG0E6xnLKj/s8KuVT5o5du
-         6jzZv0vuYx1DvepNdi2lt0quOzcYCo7JWiD7MhtOoWSolL/J0BevvpMNGOVP4is6JGz9
-         Jdos/uon35srcB4WnaNQGGB0mwO6kjNgOxJxZs8O8yCYgxreNpP258M55iB2gh3m3Jv6
-         cV6w==
-X-Gm-Message-State: AOJu0YzbS4vcGM9kChJDs7pn7D/GqcV7A8fkOG+3ytKDfEnpa7LYgR8v
-	syjAqexxuGz2zMPPrTMyphDvOjITYy4pzg7tMndzwEFzhc0PeAFV206rIMb+TVY5Gi5Wu511E5k
-	0qg==
-X-Received: from wmbjd23.prod.google.com ([2002:a05:600c:68d7:b0:48a:6a1b:6c3b])
- (user=elver job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8591:b0:48e:706b:53e3
- with SMTP id 5b1f17b1804b1-49036048603mr28389255e9.1.1779366576213; Thu, 21
- May 2026 05:29:36 -0700 (PDT)
-Date: Thu, 21 May 2026 14:29:16 +0200
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260521122918.144163-2-elver@google.com>
-Subject: [PATCH] arm: Implement _THIS_IP_ using inline asm
-From: Marco Elver <elver@google.com>
-To: elver@google.com, Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kasan-dev@googlegroups.com
+	Thu, 21 May 2026 12:30:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2756A444E2
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 12:30:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E8761F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 12:30:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779366601;
+	bh=tVEy4bk+Ysy/PxvkO6UbyKlL7eR12NG2pfwpsWxFCJE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=F1jqSUmcYnthfkQnFfnCvLn/A6tGh5oXaX3nFTtFrt2Z4oOU5WmD13BXbQFN/sv/1
+	 ROqO4wWGJFN6DiTr/WCkLMUjyeu2eyGTDlM89GgAGk+ldhgiDwNGN7gW23WdLDJjRE
+	 SKvTDAlEUYtvDMR1C+/a030lRN+2XddF4S8zvO06v8JXmPcLqvL6IIsSEvdXmbU29l
+	 j15tVXgEPz+J0sEba6ND5Urk7JdXiZDb6qOIWZ7Mh9Uu83ddKtEux2fDDEyQAHeOi6
+	 t0q5KVDNe8BtnCaVs1Qem5hnlu8+NPLLEhsQ6YppYecIMFfSlXy3sN3d7CuvwIYQ83
+	 H7U0FFPo7nkJw==
+Received: by mail-dl1-f43.google.com with SMTP id a92af1059eb24-132830d8281so5219205c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 05:30:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8u8IhHJdgDX0xLcqiArZoa+rhVno/5AuiWQpF0A2VDUyCGBQJG3e3qeke8gH94Ggwugcof5dinuuc3dkLVd/4r@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzai07Ta3t0d5DCIdR2ar8LezxjqSKU5l4VWtWjTRt8HxkIm4G/
+	zLnGIrJ7eSLcffXZt7M4meZunqH/Ofj1ILwgIHYokA6sF8A55vMCYwEZ8gYBn9Pb03kHa89bDqg
+	gsaHRBDcYT1/SMIhYxMOg4wHv8/1xBCuQ+XKnMXFBpw==
+X-Received: by 2002:a05:7022:128b:b0:136:36d4:3161 with SMTP id
+ a92af1059eb24-13636d431c9mr1046604c88.11.1779366600232; Thu, 21 May 2026
+ 05:30:00 -0700 (PDT)
+MIME-Version: 1.0
+References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
+ <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
+ <20260521112638.GD2921053@google.com>
+In-Reply-To: <20260521112638.GD2921053@google.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Thu, 21 May 2026 14:29:45 +0200
+X-Gmail-Original-Message-ID: <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
+X-Gm-Features: AVHnY4KFfkEZ1qB3plV-6mRlSK5xYq1TZ9heaLB2W6BxX5fSR4R4BqSRFGsDqgU
+Message-ID: <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
+Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD cells
+To: Lee Jones <lee@kernel.org>
+Cc: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>, Sebastian Reichel <sre@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>, 
+	Christian Loehle <christian.loehle@arm.com>, Ulf Hansson <ulfh@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	John Stultz <john.stultz@linaro.org>, Moritz Fischer <moritz.fischer@ettus.com>, 
+	Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, 
+	Srinivas Kandagatla <srini@kernel.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_052938_949027_34B7FDE2 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260521_053001_642783_417DEBEB 
+X-CRM114-Status: GOOD (  35.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,46 +101,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both GCC [1] and Clang [2] consider the generic version of _THIS_IP_ to
-be broken:
+On Thu, May 21, 2026 at 1:26=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+>
+> On Thu, 14 May 2026, Shivendra Pratap wrote:
+>
+> > MFD core has no way to register a child device using an explicit firmwa=
+re
+> > node. This prevents drivers from registering child nodes when those nod=
+es
+> > do not define a compatible string. One such example is the PSCI
+> > "reboot-mode" node, which omits a compatible string as it describes
+> > boot-states provided by the underlying firmware.
+> >
+> > Extend struct mfd_cell with a callback that allows drivers to provide a=
+n
+> > explicit firmware node. The node is added to the MFD child device durin=
+g
+> > registration when none is assigned by device tree, ACPI, or software
+> > matching.
+> >
+> > Suggested-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com=
+>
+> > Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> > ---
+> >  drivers/mfd/mfd-core.c   | 30 ++++++++++++++++++++++++++++++
+> >  include/linux/mfd/core.h | 14 ++++++++++++++
+> >  2 files changed, 44 insertions(+)
+> >
+> > diff --git a/drivers/mfd/mfd-core.c b/drivers/mfd/mfd-core.c
+> > index 7aa32b90cf1eb7fa0a05bf3dc506e60a262c9850..cc2a2a924d6d3044e29a9f8=
+64b536ee325ed797b 100644
+> > --- a/drivers/mfd/mfd-core.c
+> > +++ b/drivers/mfd/mfd-core.c
+> > @@ -10,6 +10,7 @@
+> >  #include <linux/kernel.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/acpi.h>
+> > +#include <linux/fwnode.h>
+> >  #include <linux/list.h>
+> >  #include <linux/property.h>
+> >  #include <linux/mfd/core.h>
+> > @@ -148,6 +149,11 @@ static int mfd_match_of_node_to_dev(struct platfor=
+m_device *pdev,
+> >       return 0;
+> >  }
+> >
+> > +static void mfd_child_fwnode_put(void *data)
+> > +{
+> > +     fwnode_handle_put(data);
+> > +}
+> > +
+> >  static int mfd_add_device(struct device *parent, int id,
+> >                         const struct mfd_cell *cell,
+> >                         struct resource *mem_base,
+> > @@ -156,6 +162,7 @@ static int mfd_add_device(struct device *parent, in=
+t id,
+> >       struct resource *res;
+> >       struct platform_device *pdev;
+> >       struct mfd_of_node_entry *of_entry, *tmp;
+> > +     struct fwnode_handle *fwnode;
+> >       bool disabled =3D false;
+> >       int ret =3D -ENOMEM;
+> >       int platform_id;
+> > @@ -224,6 +231,29 @@ static int mfd_add_device(struct device *parent, i=
+nt id,
+> >
+> >       mfd_acpi_add_device(cell, pdev);
+> >
+> > +     if (!pdev->dev.fwnode && cell->get_child_fwnode) {
+> > +             fwnode =3D cell->get_child_fwnode(parent);
+> > +             if (fwnode) {
+> > +                     device_set_node(&pdev->dev, fwnode);
+> > +
+> > +                     /*
+> > +                      * platform_device_release() drops only of_node r=
+efs.
+> > +                      * Track non-OF fwnodes explicitly so they are pu=
+t on
+> > +                      * all teardown paths.
+> > +                      */
+> > +                     if (!to_of_node(fwnode)) {
+> > +                             ret =3D devm_add_action(&pdev->dev,
+> > +                                                   mfd_child_fwnode_pu=
+t,
+> > +                                                   fwnode);
+> > +                             if (ret) {
+> > +                                     device_set_node(&pdev->dev, NULL)=
+;
+> > +                                     fwnode_handle_put(fwnode);
+> > +                                     goto fail_of_entry;
+> > +                             }
+> > +                     }
+> > +             }
+> > +     }
+>
+> mfd_add_device() is getting very busy now with support for all of these
+> different registration APIs.  Suggest that we start breaking them out.
+>
+> > +
+> >       if (cell->pdata_size) {
+> >               ret =3D platform_device_add_data(pdev,
+> >                                       cell->platform_data, cell->pdata_=
+size);
+> > diff --git a/include/linux/mfd/core.h b/include/linux/mfd/core.h
+> > index faeea7abd688f223fb0b31cde0a9b69dfe2a61ff..abfc26c057d6ee46947ba2b=
+6f2e99f420e74b127 100644
+> > --- a/include/linux/mfd/core.h
+> > +++ b/include/linux/mfd/core.h
+> > @@ -50,6 +50,7 @@
+> >  #define MFD_DEP_LEVEL_HIGH 1
+> >
+> >  struct irq_domain;
+> > +struct fwnode_handle;
+> >  struct software_node;
+> >
+> >  /* Matches ACPI PNP id, either _HID or _CID, or ACPI _ADR */
+> > @@ -80,6 +81,19 @@ struct mfd_cell {
+> >
+> >       /* Software node for the device. */
+> >       const struct software_node *swnode;
+> > +     /*
+> > +      * Callback to return an explicit firmware node.
+> > +      * @parent: MFD parent device passed to mfd_add_devices().
+> > +      *
+> > +      * Called only if OF/ACPI matching did not assign a fwnode.
+> > +      * Ownership of the returned reference is transferred to MFD core=
+.
+> > +      *
+> > +      * Return a referenced fwnode or NULL if none is available.
+> > +      *
+> > +      * mfd_cell must be zero-initialized or get_child_fwnode must be =
+NULL
+> > +      * when unused.
+> > +      */
+> > +     struct fwnode_handle *(*get_child_fwnode)(struct device *parent);
+>
+> I'm very much against pointers to functions if they can be avoided.  Why
+> does fwnode need this and none of the other APIs do?
+>
 
-        #define _THIS_IP_  ({ __label__ __here; __here: (unsigned long)&&__here; })
+I suggested it because of its flexibility. The alternative I had in
+mind is something like a new field in mfd_cell:
 
-In particular, the address of a label is only expected to be used with a
-computed goto.
+    const char *cell_node_name;
 
-While the generic version more or less works today, it is known to be
-brittle and may break with current and future optimizations. For
-example, Clang -O2 always returns 1 when this function is inlined:
+Which - if set - would tell MFD to look up an fwnode that's a child of
+the parent device's node by name - as it may not have a compatible.
 
-        static inline unsigned long get_ip(void)
-        { return ({ __label__ __here; __here: (unsigned long)&&__here; }); }
-
-Fix it by overriding _THIS_IP_ in <asm/linkage.h> (which is included by
-<linux/instruction_pointer.h>) using an architecture-specific inline asm
-version. Additionally, avoiding taking the address of a label prevents
-compilers from emitting spurious indirect branch targets (e.g. ENDBR or
-BTI) under control-flow integrity schemes.
-
-Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=120071 [1]
-Link: https://github.com/llvm/llvm-project/issues/138272 [2]
-Signed-off-by: Marco Elver <elver@google.com>
----
- arch/arm/include/asm/linkage.h | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm/include/asm/linkage.h b/arch/arm/include/asm/linkage.h
-index c4670694ada7..416e6a242dc4 100644
---- a/arch/arm/include/asm/linkage.h
-+++ b/arch/arm/include/asm/linkage.h
-@@ -9,4 +9,6 @@
-   .type name, %function; \
-   END(name)
- 
-+#define _THIS_IP_ ({ unsigned long __ip; asm volatile("1: adr %0, 1b" : "=r" (__ip)); __ip; })
-+
- #endif
--- 
-2.54.0.746.g67dd491aae-goog
-
+Bart
 
