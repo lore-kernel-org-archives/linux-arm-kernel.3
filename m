@@ -4,95 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69C69CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:42:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6AACD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LuiZFKOAP2hQ7MTYXd5knANR52URvsfSk0kr76WNy7I=; b=RXHA6hS5rW1+FbDcTQKFUb9Lea
-	kZL6U6A+UO9iHqzMBxb7/l0EufpeI16M/f2cfCbJSGGYnvC74t93DdfEIkFoFhRolRXgv9600VVXM
-	CBnHgSHKN6QtEPqqAGMQKczGiLjPvLupU7bSAAO1qbPFRQ9Sh6dM+d27Sfsfk0ozXPu8D5eQke8ae
-	mr/tQoYAOirpdjlOymGuITbEbbYcx3aYNAvPaVuh8fTPL/Qk5IFULgHL8ng6UAa4g4ZrwgypDjSIK
-	hn3f7vDAewPitc1vqmuYPTAcfrefl9wchMU3BT0WmoMETkmp6Iks5/htRD7tKtTORg12vpTqx+by3
-	RhXPpSZg==;
+	bh=Enrh790BjgIIUBfQlfWGTFeBgm0WSl+DUA/ZN6Netao=; b=gLVEwNq7PwGzSo8hQlKpMqc+Ve
+	o6vv2tk1/l86Jri5P4xXjchDD8iETWt/4/EL/f3NBu2qKlPBSALfXDUrqkQpv4HtD7Sb45XB3+wUL
+	uPXvv0DKtOqlODMIS5lldu6Dnk9HdpQ/MjXGf8NFZlzaLrQzg2lVFk9o/9sQNHAfOmvFGyYV1iCr/
+	aQeJwV+Bx+OvE0T4F/kP5B4KnVH+iBEWpH4uh1QhKrhhCGWPX4VxEuF6TmZOyChFfXKXTGpwrZBj3
+	S0S4ZpDi96tHZISQRPVIc/c2RmDwDXg1He5YxtVfpPJpxgdRYbJK/cwMg3CaTk+gPIzfS/G4POBeG
+	3G9NBJXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzuv-00000007LEe-1Kru;
-	Thu, 21 May 2026 09:42:13 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wPzvd-00000007LO0-2EcE;
+	Thu, 21 May 2026 09:42:57 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzut-00000007LE9-0UJZ
+	id 1wPzvb-00000007LN1-13g7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:42:12 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-488af9fdaa7so28694865e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:42:10 -0700 (PDT)
+	Thu, 21 May 2026 09:42:56 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-69b94acd958so3079700eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:42:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779356529; x=1779961329; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779356574; x=1779961374; darn=lists.infradead.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=LuiZFKOAP2hQ7MTYXd5knANR52URvsfSk0kr76WNy7I=;
-        b=AVvOZbFdGbTt/ucDLkcqodeTuRdAX4gTP6xjeMBNse++ue4E0yYv0T4/p/oFGFpK7T
-         R4mZ5+kRKD9S7wyZC3lSvCtDJHLkxqCE7X5yZgvim5wfeY4Gc+08w94P2/VjIMrlmRZJ
-         WzTWoKPwYw2ir90ymv2aV1+9+hAnBZZWthZge79UpZPgSMJfuEXVq3kUitG9w1VsGxkj
-         O5CmkoTrF+Qyjj6w7u5Bwh5tDUKMuRWWbOf49jHBVXnLfSpelpJXvhyBG3w5hh3Pt8aw
-         rgGld0ByGtJnbaPQb5Wn355EodaJIQdUzs32u/kvpQqX/FXMcAg/ZPRfnhXK3PAtclQX
-         xEdg==
+        bh=Enrh790BjgIIUBfQlfWGTFeBgm0WSl+DUA/ZN6Netao=;
+        b=dG7pHdjg2fkt8srDINF7lLGW1/GvqbG3saWUxrWXnUG7IzJ/RsW+CV9ps0FYaTD2Li
+         q4VECgx3bb3QGUmBhS7/dPidaqA7Fprl0yKylSSz9ah1493gRe3NnW5SeLdEbSRBrIkb
+         dUG8zwBw4r0FmnbNtkwXWUoGyH8d6P8DOK6mw5x+WirOC70kBUtVFtuA0kDM/NOqBRd7
+         SnEsxpTmVS0OR6yIBjwe0Oop6IJ8IvRAKjG+TggsKKOHALHSi1Bjz+pRmi9k6adNyyIu
+         M7uZh8TXUHMDjEPL1b10hEH0ByA68gjhoFSEzbQyWKyD+ysVY3hHhgHNlK0umRVkW1bj
+         iQrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779356529; x=1779961329;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=LuiZFKOAP2hQ7MTYXd5knANR52URvsfSk0kr76WNy7I=;
-        b=YWh9RupQEJAckfnVnd11PnVDg+L6qh9Yhq3tlfEFutHWjG4tORFpTvac1HnZyrfBPE
-         tLCjc1sHg/K6PCWyMve3fcdbjFZxHo8aCbvRqu+8XcXxk7Ie+5YYjY2wdgXIsAp3C3hj
-         BARkg8hSVnICW3CCNvhymFT9b6yfdCLFJW32giyBGZga5UVaL4UgSkXTTmRDBlRc9Oru
-         gMIrBr4qaZeb50VhH82FTTApzrrXFpmLx+PDrFWAuunLoUhJm1jdsfljiy99iTB7Q/am
-         HbTuNg+GKKoNe66ehJgJ8vfWIohMG3t1ZujpjQQpJiv9boq6qWtLkuNoFXTUDnNPGxXC
-         QWUQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+g3u6YxERTKR7q1FPgy+ZHelnUJSYNAOL+33bf7bRwHQlSJe3VonczAM4yjZWjUJcN6c4ps8beMAlaoSrVI0Zl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpmJVcf7NNu26Jxwgs75eoNnx9WFfkF/IuLiCzPuL02JPPRadx
-	w2/qsk/Tm9EqdyZpyZ464r7ryAAQalPo0gg2Ujrm8ulgHRbRRpzadgJ9
-X-Gm-Gg: Acq92OH/zoa3lPmm1KCQxqACjMho/xCvB6I+K/iqeyl9dNsoDbFC6Z35C8tbTdWdJHS
-	MtaTv4aBDOOiimCv/fyFguNOwYFTqX0JaJnu7VGNNhMWSse2c7A2CoYYn5REB8aEcJAfD05VZH1
-	nPdoJ77BTz5b95p2uu7l1+4ZLH4F825fepZFBfanr8XqQqKWokwXNZwqfEF+AeUS1H9e13dpPA1
-	bSA3ZwKdq8a4UHIOGIT6/4tVNxG0AHIpEtmm7jD/hc1aJlrvl70HUZYfdRRdLq5bKjlEd92TXmC
-	A3a+7vM5aIHiCBjKu8v20IK6oDadyv1MyZ05sTVOpmxI2Lwnk9IB3FvBh44Eq3seh/Jhyy2l2Ot
-	jgqjuCJxdRjCu1HqylEBuP9MaMItuRuKBvagzs9/F3p4Ahh+b+iprbhlThKeT6u7Z/EGcFExYNX
-	NWws3dWYY4aE6e1+fsknwmv8Q+fjN+mAdV6UmVnUErwkUn3zuP4zfwFqW7BWh02VmO
-X-Received: by 2002:a05:600c:1512:b0:490:2153:2c3d with SMTP id 5b1f17b1804b1-4903608957fmr16164075e9.20.1779356528456;
-        Thu, 21 May 2026 02:42:08 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49033d8e71dsm50329955e9.9.2026.05.21.02.42.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 02:42:08 -0700 (PDT)
-Date: Thu, 21 May 2026 10:42:06 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Ryan Roberts
- <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>, Lorenzo
- Stoakes <lorenzo.stoakes@oracle.com>, Andrew Morton
- <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, Mike
- Rapoport <rppt@kernel.org>, Linu Cherian <linu.cherian@arm.com>, Usama Arif
- <usama.arif@linux.dev>, linux-kernel@vger.kernel.org, linux-mm@kvack.org
-Subject: Re: [RFC V2 01/14] mm: Abstract printing of pxd_val()
-Message-ID: <20260521104206.1c7d3fe0@pumpkin>
-In-Reply-To: <74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
-References: <20260513044547.4128549-1-anshuman.khandual@arm.com>
-	<20260513044547.4128549-2-anshuman.khandual@arm.com>
-	<74f66e30-ab3d-4352-89ef-1bccc7e9daeb@intel.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+        d=1e100.net; s=20251104; t=1779356574; x=1779961374;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Enrh790BjgIIUBfQlfWGTFeBgm0WSl+DUA/ZN6Netao=;
+        b=pK1mfvPfbGFRsQxspHr01IRO3utLNC9HMKvrug2jYpyDWlSPL7ODg28iby0LA8Vfzf
+         l2hCFKIjMa8cVyfRaigNXPhUPWemURM0ANrzk+20sR2DkeGsIKkh+2lPWorm2TJ8+adI
+         TLXLzIHfXqbk6BCr0yrsZEkjIbLoi5QmSmwZKOy1GGEsXryBveSJ4rvvc+rz00IlxER/
+         5eRT9Pi2zoXMnhuPoop0BEgDaBIFv0Xl3J2EoA6eugTx6janNsUR8zbzI8noQbbCUFgu
+         oJ8D8q+dPeFZfRFxudsKfymOG27iYPjxIgXXI5zDrBSPK8H0y8ZkL57kp/TsoDyJkwIg
+         JjGw==
+X-Forwarded-Encrypted: i=1; AFNElJ8vHX8hmDMuOUrBlAlMqOFB7N5BFwrUvYyuoD49/aQL9cuN0BPX6HXIb1dKhgDxWjxTIs8F3Nn3Qv6cwd/y9CrS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxueKv59YlBM1pBvaSEqHC3xeprH8KhqHv/hQAgtn/W75ZTKmvn
+	43UuBfqYHlQM4BmRLwhHnUGHrouMJifomNxG9keO8/vbUkQt9faDe+Bm
+X-Gm-Gg: Acq92OHJ1TlSiUWV2xDGj9mnoMB1XYFeqzZ1+F2e8lPlcgWsxybsW4CFZI9WBXMDhNr
+	nKIy/+nkDWaKqRAIAjNXWLUc0OQB3P1KQarK1IT0pDSQAX6cSfMfqk0g2qxrb4RCQf60m70PP9N
+	bzyWV+TGX034nugxeO2cQQCSkYCRvEAgdUSExK3K2R3Pn8zH/40ozTX+cPPCx7jOyBVEdSWmpPh
+	Hn0dTdzqHujKUnf7AhqUhdxrqwHMiBqhT3rPqsUWIF4AdXGQGxEr4wGzXp+u1kkIu/h89pwX49O
+	Af2WFTfPFwJj0CPckMOt8FiS1VyDv5mFoPTweIlYaZ5w9h4woxjF0IGa7/wFSzVNSN7RzZGrk0y
+	mlNDAhtv2XY0baDht7rRweo8tAVWlO5qOjYNULNJsutXybCDqFltOHy7fEoQ44NUVGfoj9neR1X
+	0k9q/+bcpksvJ3kx2QTM8iZTz++1UQmaYAP21GpRgZ0TnKqEVdkrd0BbDjKQRKYoDtRXF8x7mwY
+	Np2GeeiJGyTubJjUQ==
+X-Received: by 2002:a05:6820:290f:b0:694:6acf:a42d with SMTP id 006d021491bc7-69d6eefa916mr913981eaf.39.1779356574211;
+        Thu, 21 May 2026 02:42:54 -0700 (PDT)
+Received: from localhost ([2a03:2880:10ff:71::])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-69d77385a8esm199938eaf.11.2026.05.21.02.42.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 02:42:52 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 21 May 2026 02:42:50 -0700
+Message-Id: <DIO99FYEHNC1.23KFEHRPTRB5N@gmail.com>
+Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Tejun Heo" <tj@kernel.org>, "David Vernet" <void@manifault.com>,
+ "Andrea Righi" <arighi@nvidia.com>, "Changwoo Min" <changwoo@igalia.com>,
+ "Alexei Starovoitov" <ast@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>
+Cc: "Peter Zijlstra" <peterz@infradead.org>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
+ Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
+ Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand"
+ <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Emil Tsalapatis"
+ <emil@etsalapatis.com>, <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>,
+ <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>
+X-Mailer: aerc
+References: <20260520235052.4180316-1-tj@kernel.org>
+ <20260520235052.4180316-3-tj@kernel.org>
+In-Reply-To: <20260520235052.4180316-3-tj@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_024211_163048_C275C226 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260521_024255_299638_6B1BE91F 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,31 +113,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 19 May 2026 07:28:17 -0700
-Dave Hansen <dave.hansen@intel.com> wrote:
+On Wed May 20, 2026 at 4:50 PM PDT, Tejun Heo wrote:
+>
+> v2: Use ptep_get_and_clear() in apply_range_clear_cb(). (David)
+>
+> Suggested-by: Alexei Starovoitov <ast@kernel.org>
+> Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> ---
+>  Documentation/bpf/kfuncs.rst |  14 +++
+>  arch/arm64/mm/fault.c        |  10 +-
+>  arch/x86/mm/fault.c          |  12 ++-
+>  include/linux/bpf.h          |   1 +
+>  include/linux/bpf_defs.h     |  11 +++
+>  kernel/bpf/arena.c           | 177 +++++++++++++++++++++++++++--------
+>  kernel/bpf/core.c            |   5 +
+>  7 files changed, 183 insertions(+), 47 deletions(-)
+>  create mode 100644 include/linux/bpf_defs.h
 
-> On 5/12/26 21:45, Anshuman Khandual wrote:
-> >  	if (!p4d_present(p4d) || p4d_leaf(p4d)) {
-> > -		pr_alert("pgd:%08llx p4d:%08llx\n", pgdv, p4dv);
-> > +		pr_alert("pgd:%" __PRIpxx " p4d:%" __PRIpxx "\n",
-> > +			 __PRIpxx_args(pgdv), __PRIpxx_args(p4dv));
-> >  		return;
-> >  	}  
-> 
-> That's not the most readable result. Could a printk() format specifier
-> make this nicer? Maybe use "%pT"?
-> 
-> 	pr_alert("pgd:%pT p4d:%pT\n", &pgd, &p4d);
-> 
-> I _think_ it could even get rid of the p??v variables.
-> 
-
-Adding another %p variant that is only used in a few places just makes
-it all harder to read.
-Perhaps a local helper that lets you do:
-	char pdgv_buf[??]:
-	pr_alert("... %s ...", ... fmt_pdgv(pdgv_buf, pdgv) ...)
-might be a reasonable compromise.
-
--- David
+First 5 patches lgtm. Should we create a stable branch out of them
+and pull into bpf-next and sched-ext trees?
+I'm preparing a followup for slab-over-arena on top of these changes.
 
