@@ -4,72 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A18CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344A2CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M8ViNC6te963SKgmeKQyBScSCZXgXE9wFvhjo+ucHYE=; b=r1Zu+6W1C1Q/xZBSxd4g82hfSk
-	e7u1Idi9C3qpVe/i+rWG/WUCN1boBobbBrjobBtMHx73F0czLGH/+Zw6zpyjCzi00LArpaWKEKukT
-	AtDGYiIsjnDItYQAT7W3tcHlFfIKigEQdJqOfvvv/CLyVd05y5bNSQ52hp5+Sd3r4iXoR4j6HSLl7
-	oEBvgcW08RGDj1wgzvHdaxB2dt/UxGnKRzhi0LuY2tMJDNRa5c4/+wRSpdE3NPW/77Cc5QR6esoKE
-	hkHVQMAsII530X0NhhKMj2eP/Ac1abjpLlKPKXUJJKaWWW5nU9r7iVXxif8PZjH/SIASVeGNXPSZR
-	1BOHHxzA==;
+	bh=9i9hQRHyOOJEcvkLiHsg6jJhDsG0UxEApBJfSN25LMk=; b=f/D5eGgQpYmTxONiVbJhFXTBLx
+	V9GaRbrNw7D9iFqu3Zws4+lEf8Kb5kVX53F/OBl47Da7D6jUzDdUAQbsNKSEGkgp45AHtf0x74NHt
+	5pJJMTSJkHxqiyxcHWDDClkHe6coi4wRNAjx5oF+PTzueUTqA5tNjTCumBkqep0mceZDJZSb71k7w
+	KFOw0meGXctKqidgAZDKd2jImkJkthK2KnQwhz6VtRxS6olVesHqnsHv1Ju5rdFW2vZ7vziOz81ap
+	8GBiTntP86pOIC/8NZ0afM6VKnbCIeqokAuaNK14q1JX86Jq6mQmloIGxyqkV0+5E+YPU4SqF5i/N
+	dBKFBxVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5Uo-00000008MLS-0uaP;
-	Thu, 21 May 2026 15:39:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5Ul-00000008MJb-1j4b
+	id 1wQ5WI-00000008Mos-1iUS;
+	Thu, 21 May 2026 15:41:10 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ5WG-00000008Mnt-06Vj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:39:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B83943C7;
-	Thu, 21 May 2026 08:39:28 -0700 (PDT)
-Received: from [10.57.22.108] (unknown [10.57.22.108])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6439A3F7B4;
-	Thu, 21 May 2026 08:39:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779377973; bh=9abohqYEGSI8G6o+btmzuRKboT24aErRDhVclbzNqn0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TQjwiLUhxZDb0S4oJEgT5ZUX35/4s+5PsiK6uIhkPLx8ATiDlx3dV3faDh4BjQamP
-	 GmUIM0WJ5xJiLBuXiTJnQg2EklRadrAF+msOk92oXTDxUJtdjvFFEc/xHeHrQUQwhS
-	 QvLywu0mT8JbUf5hUaRFNmH0PNqty1BMWJkKN6cs=
-Message-ID: <e175cb7b-b4fa-4139-b46d-1986e2372d16@arm.com>
-Date: Thu, 21 May 2026 16:39:27 +0100
+	Thu, 21 May 2026 15:41:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779378065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9i9hQRHyOOJEcvkLiHsg6jJhDsG0UxEApBJfSN25LMk=;
+	b=Cx17tWVbS0pidDc0uIq4rtqWdebMABWFerEC6/bFZgIOs8hwcvl8KNhyc53svoAeSjNMJn
+	TZCEdeHMTbBaM79ls3a8C/L+C4n5SG9ym2+1bRsVw99scWkUZmdPk0828GU4IEHnX7m/xH
+	22avQbjQsjUpKkHsRcil8YaWZGQr/V8=
+Received: from mail-lj1-f198.google.com (mail-lj1-f198.google.com
+ [209.85.208.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-611-NV0nS19aOZeQm7V790MfVA-1; Thu, 21 May 2026 11:41:04 -0400
+X-MC-Unique: NV0nS19aOZeQm7V790MfVA-1
+X-Mimecast-MFC-AGG-ID: NV0nS19aOZeQm7V790MfVA_1779378063
+Received: by mail-lj1-f198.google.com with SMTP id 38308e7fff4ca-393d76873e0so3438161fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 08:41:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779378062; x=1779982862;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9i9hQRHyOOJEcvkLiHsg6jJhDsG0UxEApBJfSN25LMk=;
+        b=Nvxpl8cZ99LZE5OKsdgMij1i3gmfeW70se9v46w2NBzCfjaeK64NXlkBS+b9sLx8vX
+         YlLtSYv9LVMLIRUrJRBvueKOXXXyM9wfNl00XfT74hClFWondBRB+wXJPLlTWxT/1WsT
+         OvZ2FLFPxR3XQadQb2YtKeFAfMu5NADNI+DvUFu66Q05Cx4F6tyUxGSw94eVfKHSkcBT
+         ocuSSCIqjZ0QQ5ivXMQqHa+s+psFUYKx7ch3e6jFT2JaLep/3m+bm8S+XzWrzySEwjOp
+         7+z+d9N66n/KOPm0GN7IDb2BYw92Czsd95JzTPv5m/vM5ejrcvsFwP/GgnQQB300GS6l
+         NChQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+9YXmqtjZsQcGJYwP/eCXYsF5yOpKbEON+HJaK1NknFVLW6XxvHyztI0ao+B7fxPyFtno6gNUN+NahjCcKXJR/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGsQLbKpbMCv+I+q2IxfYTF+QdRodahDn5KDRD6lLFmtJ3h7kG
+	WnSKSIyVGvURDkEhFSHGzfqRBqD5dTOv4XD4PGfZmplKITfd9sv1x+VwqP40g1eAyHNgOEBt8lo
+	LsyEF9tkskwO5+XrXxBe6OoGQQgsCNpJfVvUX89tGhjQCAEj2jjmYZYXOK4GvWxmxgmGOX/O1Y2
+	En1EdHOmUmZAROUGIPJSdk/5Aqkixr64r6/m2SSmXSThOd3+ztlkE=
+X-Gm-Gg: Acq92OEdVRPkhvqxL5+hoj8ir9qY3aK22jFoJotC2xncFX7yDbWnygJLjCiA/1u19ON
+	3zo0Raspky41Tyq9pX1SXvvv2foXNzsaQUVeVvnAs2o23zuYejDSHMhDcUOC0fyK5n2G+v09fhr
+	93k0Avv1eUbKCXAf8Srp1UfYAIHx5VX/q4u4zuSzjlXvcHb/zPeyXbEN99VB7ggaxot8Os3c/bx
+	ehzwKxgj86bmm/C
+X-Received: by 2002:a05:651c:1446:b0:393:9d8c:73d2 with SMTP id 38308e7fff4ca-395ca54c9bfmr4697181fa.7.1779378062380;
+        Thu, 21 May 2026 08:41:02 -0700 (PDT)
+X-Received: by 2002:a05:651c:1446:b0:393:9d8c:73d2 with SMTP id
+ 38308e7fff4ca-395ca54c9bfmr4696981fa.7.1779378061760; Thu, 21 May 2026
+ 08:41:01 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 08/44] arm64: RMI: Ensure that the RMM has GPT entries
- for memory
-Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-9-steven.price@arm.com> <868q9cx4ac.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <868q9cx4ac.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20260520151007.4193688-1-khristineandreea.barbulescu@oss.nxp.com> <20260520151007.4193688-2-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260520151007.4193688-2-khristineandreea.barbulescu@oss.nxp.com>
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+Date: Thu, 21 May 2026 17:40:48 +0200
+X-Gm-Features: AVHnY4KYrQdua7SpnLaqwynqHAGj2zpwe2dqjB0Og4OT8dAOLINb_3mUW5_zlqw
+Message-ID: <CALE0LRtZ625eHwsmk-sJhLd-QUPvu+yxKAaWCnHqbJvpTwXcMQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] arm64: dts: Add usbphynop and usbotg pinctrl for
+ S32G platforms
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>, Alberto Ruiz <aruizrui@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YggBEeiJq7mDAaR2cMdkJZ7UcH9hAg2BdeynLbnKgbU_1779378063
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_083935_547286_2F9977B3 
-X-CRM114-Status: GOOD (  34.92  )
+X-CRM114-CacheID: sfid-20260521_084108_133968_FA803129 
+X-CRM114-Status: GOOD (  21.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,244 +110,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 14:47, Marc Zyngier wrote:
-> On Wed, 13 May 2026 14:17:16 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The RMM maintains the state of all the granules in the system to make
->> sure that the host is abiding by the rules. This state can be maintained
->> at different granularity, per page (TRACKING_FINE) or per region
->> (TRACKING_COARSE). The region size depends on the underlying
->> "RMI_GRANULE_SIZE". For a "coarse" region all pages in the region must
->> be of the same state, this implies we need to have "fine" tracking for
->> DRAM, so that we can delegated individual pages.
->>
->> For now we only support a statically carved out memory for tracking
->> granules for the "fine" regions. This can be extended in the future to
->> allow modifying the tracking granularity and remove the need for a
->> static allocation.
->>
->> Similarly, the firmware may create L0 GPT entries describing the total
->> address space. But if we change the "PAS" (Physical Address Space) of a
->> granule then the firmware may need to create L1 tables to track the PAS
->> at a finer granularity.
->>
->> Note: support is currently missing for SROs which means that if the RMM
->> needs memory donating this will fail (and render CCA unusable in Linux).
->> This effectively means that the L1 GPT tables must be created before
->> Linux starts.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v13:
->>   * Moved out of KVM
->> ---
->>   arch/arm64/include/asm/rmi_cmds.h |   2 +
->>   arch/arm64/kernel/rmi.c           | 103 ++++++++++++++++++++++++++++++
->>   2 files changed, 105 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
->> index 9179934925c5..9078a2920a7c 100644
->> --- a/arch/arm64/include/asm/rmi_cmds.h
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -33,6 +33,8 @@ struct rmi_sro_state {
->>   } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
->>   	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
->>   
->> +bool rmi_is_available(void);
->> +
->>   unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
->>   void rmi_sro_free(struct rmi_sro_state *sro);
->>   
->> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
->> index a14ead5dedda..52a415e99500 100644
->> --- a/arch/arm64/kernel/rmi.c
->> +++ b/arch/arm64/kernel/rmi.c
->> @@ -7,6 +7,8 @@
->>   
->>   #include <asm/rmi_cmds.h>
->>   
->> +static bool arm64_rmi_is_available;
->> +
->>   unsigned long rmm_feat_reg0;
->>   unsigned long rmm_feat_reg1;
->>   
->> @@ -88,6 +90,102 @@ static int rmi_configure(void)
->>   	return 0;
->>   }
->>   
->> +/*
->> + * For now we set the tracking_region_size to 0 for RMI_RMM_CONFIG_SET().
->> + * TODO: Support other tracking sizes (via Kconfig option).
->> + */
->> +#ifdef CONFIG_PAGE_SIZE_4KB
->> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
->> +#elif defined(CONFIG_PAGE_SIZE_16KB)
->> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
->> +#elif defined(CONFIG_PAGE_SIZE_64KB)
->> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
->> +#endif
-> 
-> Basically, a level 2 mapping. Which means this whole block really is:
-> 
-> #define RMM_GRANULE_TRAKING_SIZE	(2 * PAGE_SHIFT - 3)
-> 
-> (adjust for D128 as needed).
+Hi Khristine,
 
-True,
+Thank you to apply my reviews.
 
-> 
->> +
->> +/*
->> + * Make sure the area is tracked by RMM at FINE granularity.
->> + * We do not support changing the tracking yet.
->> + */
->> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
->> +{
->> +	while (start < end) {
->> +		unsigned long ret, category, state, next;
->> +
->> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
->> +		if (ret != RMI_SUCCESS ||
->> +		    state != RMI_TRACKING_FINE ||
->> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
->> +			/* TODO: Set granule tracking in this case */
->> +			pr_err("Granule tracking for region isn't fine/conventional: %llx",
->> +			       start);
->> +			return -ENODEV;
-> 
-> How is this triggered? Do we really need to spam the console with
-> this? A PA doesn't mean much, and there is no context (stack trace).
+On Wed, May 20, 2026 at 5:10=E2=80=AFPM Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> wrote:
+>
+> Add the usbphynop node and the usbotg pinctrl
+> support for the S32G2 and S32G3 SoCs.
+>
+> This enables the USB controller to reference the
+> generic PHY and use the required pinmux for USB OTG ops.
+>
 
-This could be triggered if the RMM doesn't have static carveout
-for tracking the DRAM granules. (state != RMI_TRACKING_FINE).
-This not worth WARN_ONCE(), we could simply not enable KVM.
-We plan to add support for donating memory to the RMM in
-the future. (Primarily we don't yet have an RMM implementation
-that does dynamic management via SRO. This can be added later
-as a separate series)
+I tried testing the patches, but unfortunately, they didn't work for
+me on top of the current mainline. Any idea what could be wrong?
 
-> 
-> If that's not expected, turn this into a WARN_ONCE().
+[   40.019850] usb_phy_generic usbphynop: dummy supplies not allowed
+for exclusive requests (id=3Dvbus)
+[   40.268467] imx_usb 44064000.usb: No over current polarity defined
+[   40.293272] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus numb=
+er 1
+[   40.308834] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+[   40.309475] usb usb1: New USB device found, idVendor=3D1d6b,
+idProduct=3D0002, bcdDevice=3D 7.01
+[   40.309485] usb usb1: New USB device strings: Mfr=3D3, Product=3D2,
+SerialNumber=3D1
+[   40.309492] usb usb1: Product: EHCI Host Controller
+[   40.309498] usb usb1: Manufacturer: Linux 7.1.0-rc4+ ehci_hcd
+[   40.309503] usb usb1: SerialNumber: ci_hdrc.0
+[   40.311051] hub 1-0:1.0: USB hub found
+[   40.748830] usb 1-1: new high-speed USB device number 2 using ci_hdrc
+[   46.038582] usb 1-1: new full-speed USB device number 3 using ci_hdrc
+[   61.347813] usb 1-1: device descriptor read/64, error -110
+[   76.707030] usb 1-1: device descriptor read/64, error -110
+[   76.817100] usb usb1-port1: attempt power cycle
+[   77.256992] usb 1-1: new full-speed USB device number 4 using ci_hdrc
+[   87.826466] usb 1-1: device not accepting address 4, error -110
+[   87.956454] usb 1-1: new full-speed USB device number 5 using ci_hdrc
+[   98.545933] usb 1-1: device not accepting address 5, error -110
+[   98.546070] usb usb1-port1: unable to enumerate USB device
+
+It looks like a problem with the ULPI communication because I cannot
+read the ULPI registers.
+
+Thanks,
+   Enric
 
 
-
-
-> 
->> +		}
->> +		start = next;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static unsigned long rmi_l0gpt_size(void)
->> +{
->> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
->> +				      rmm_feat_reg1));
->> +}
->> +
->> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
->> +{
->> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
->> +
->> +	start = ALIGN_DOWN(start, l0gpt_sz);
->> +	end = ALIGN(end, l0gpt_sz);
->> +
->> +	while (start < end) {
->> +		int ret = rmi_gpt_l1_create(start);
->> +
->> +		/*
->> +		 * Make sure the L1 GPT tables are created for the region.
->> +		 * RMI_ERROR_GPT indicates the L1 table already exists.
->> +		 */
->> +		if (ret && ret != RMI_ERROR_GPT) {
->> +			/*
->> +			 * FIXME: Handle SRO so that memory can be donated for
->> +			 * the tables.
->> +			 */
->> +			pr_err("GPT Level1 table missing for %llx\n", start);
->> +			return -ENOMEM;
-> 
-> If any of this fails, where is the cleanup done? Is that part of the
-> missing SRO support that's indicated in the commit message?
-> 
-
-For now, there is no cleanup required. What we essentially do here is
-making sure that the GPT tables have been created upto L1 (i.e.,
-by checking ret == RMI_ERROR_GPT).
-
-We do not donate any memory now, but only support RMMs with static 
-memory carved out for L1 GPT. Support for dynamic RMMs could be added as
-a separate series, at which point, we could defer the table creation to
-the actual use case (e.g, RMI_GRANULE_DELEGATE).
-
-Clean up would be required when we donate memory to the RMM.
-
->> +		}
->> +		start += l0gpt_sz;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static int rmi_init_metadata(void)
->> +{
->> +	phys_addr_t start, end;
->> +	const struct memblock_region *r;
->> +
->> +	for_each_mem_region(r) {
->> +		int ret;
->> +
->> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
->> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
->> +		ret = rmi_verify_memory_tracking(start, end);
->> +		if (ret)
->> +			return ret;
->> +		ret = rmi_create_gpts(start, end);
->> +		if (ret)
->> +			return ret;
->> +	}
-> 
-> How does this work with, say, memory hotplug?
-
-Good point, we need a hook for hotpug to make sure this is taken care
-of. As mentioned above, when we add support for RMM with support for
-dynamic Tracking/GPT with SRO, this could be deferred to the actual
-use (handling RMI return codes, RMI_ERROR_TRACKING/RMI_ERROR_GPT)
-
-Suzuki
-
-
-> 
->> +
->> +	return 0;
->> +}
->> +
->> +bool rmi_is_available(void)
->> +{
->> +	return arm64_rmi_is_available;
->> +}
->> +
->>   static int __init arm64_init_rmi(void)
->>   {
->>   	/* Continue without realm support if we can't agree on a version */
->> @@ -101,6 +199,11 @@ static int __init arm64_init_rmi(void)
->>   
->>   	if (rmi_configure())
->>   		return 0;
->> +	if (rmi_init_metadata())
->> +		return 0;
->> +
->> +	arm64_rmi_is_available = true;
->> +	pr_info("RMI configured");
->>   
->>   	return 0;
->>   }
-> 
-> Thanks,
-> 
-> 	M.
-> 
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
+oss.nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi      |  7 ++-
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi      |  7 ++-
+>  .../boot/dts/freescale/s32gxxxa-evb.dtsi      | 46 ++++++++++++++++++-
+>  .../boot/dts/freescale/s32gxxxa-rdb.dtsi      | 46 ++++++++++++++++++-
+>  4 files changed, 102 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/d=
+ts/freescale/s32g2.dtsi
+> index 51d00dac12de..a35bb284270e 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+> @@ -3,7 +3,7 @@
+>   * NXP S32G2 SoC family
+>   *
+>   * Copyright (c) 2021 SUSE LLC
+> - * Copyright 2017-2021, 2024-2025 NXP
+> + * Copyright 2017-2021, 2024-2026 NXP
+>   */
+>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> @@ -108,6 +108,11 @@ psci {
+>                 };
+>         };
+>
+> +       usbphynop: usbphynop {
+> +               compatible =3D "usb-nop-xceiv";
+> +               #phy-cells =3D <0>;
+> +       };
+> +
+>         soc@0 {
+>                 compatible =3D "simple-bus";
+>                 #address-cells =3D <1>;
+> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/d=
+ts/freescale/s32g3.dtsi
+> index e314f3c7d61d..b980e5f2b059 100644
+> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+>  /*
+> - * Copyright 2021-2025 NXP
+> + * Copyright 2021-2026 NXP
+>   *
+>   * Authors: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+>   *          Ciprian Costea <ciprianmarian.costea@nxp.com>
+> @@ -165,6 +165,11 @@ scmi_shmem: shm@d0000000 {
+>                 };
+>         };
+>
+> +       usbphynop: usbphynop {
+> +               compatible =3D "usb-nop-xceiv";
+> +               #phy-cells =3D <0>;
+> +       };
+> +
+>         soc@0 {
+>                 compatible =3D "simple-bus";
+>                 #address-cells =3D <1>;
+> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi b/arch/arm64=
+/boot/dts/freescale/s32gxxxa-evb.dtsi
+> index 803ff4531077..26009c1e90dc 100644
+> --- a/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-evb.dtsi
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+>  /*
+> - * Copyright 2024 NXP
+> + * Copyright 2024, 2026 NXP
+>   *
+>   * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>   *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> @@ -245,6 +245,39 @@ dspi5-grp4 {
+>                         bias-pull-up;
+>                 };
+>         };
+> +
+> +       usbotg_pins: usbotg-pins {
+> +               usbotg-grp0 {
+> +                       pinmux =3D <0x3802>, <0x3812>,
+> +                               <0x3822>, <0x3832>,
+> +                               <0x3842>, <0x3852>,
+> +                               <0x3862>, <0x3872>,
+> +                               <0x37f2>, <0x3882>,
+> +                               <0x3892>;
+> +               };
+> +
+> +               usbotg-grp1 {
+> +                       pinmux =3D <0x3e1>, <0x3f1>,
+> +                               <0x401>, <0x411>,
+> +                               <0xbc1>, <0xbd1>,
+> +                               <0xbe1>, <0x701>;
+> +                       output-enable;
+> +                       input-enable;
+> +                       slew-rate =3D <208>;
+> +               };
+> +
+> +               usbotg-grp2 {
+> +                       pinmux =3D <0xb80>, <0xb90>, <0xbb0>;
+> +                       input-enable;
+> +                       slew-rate =3D <208>;
+> +               };
+> +
+> +               usbotg-grp3 {
+> +                       pinmux =3D <0xba1>;
+> +                       output-enable;
+> +                       slew-rate =3D <208>;
+> +               };
+> +       };
+>  };
+>
+>  &can0 {
+> @@ -304,3 +337,14 @@ &spi5 {
+>         pinctrl-names =3D "default";
+>         status =3D "okay";
+>  };
+> +
+> +&usbmisc {
+> +       status =3D "okay";
+> +};
+> +
+> +&usbotg {
+> +       pinctrl-names =3D "default";
+> +       pinctrl-0 =3D <&usbotg_pins>;
+> +       phys =3D <&usbphynop>;
+> +       status =3D "okay";
+> +};
+> diff --git a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi b/arch/arm64=
+/boot/dts/freescale/s32gxxxa-rdb.dtsi
+> index 979868f6d2c5..a8abb10b0e7a 100644
+> --- a/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/s32gxxxa-rdb.dtsi
+> @@ -1,6 +1,6 @@
+>  // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+>  /*
+> - * Copyright 2024 NXP
+> + * Copyright 2024, 2026 NXP
+>   *
+>   * Authors: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+>   *          Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+> @@ -199,6 +199,39 @@ dspi5-grp4 {
+>                         bias-pull-up;
+>                 };
+>         };
+> +
+> +       usbotg_pins: usbotg-pins {
+> +               usbotg-grp0 {
+> +                       pinmux =3D <0x3802>, <0x3812>,
+> +                               <0x3822>, <0x3832>,
+> +                               <0x3842>, <0x3852>,
+> +                               <0x3862>, <0x3872>,
+> +                               <0x37f2>, <0x3882>,
+> +                               <0x3892>;
+> +               };
+> +
+> +               usbotg-grp1 {
+> +                       pinmux =3D <0x3e1>, <0x3f1>,
+> +                               <0x401>, <0x411>,
+> +                               <0xbc1>, <0xbd1>,
+> +                               <0xbe1>, <0x701>;
+> +                       output-enable;
+> +                       input-enable;
+> +                       slew-rate =3D <208>;
+> +               };
+> +
+> +               usbotg-grp2 {
+> +                       pinmux =3D <0xb80>, <0xb90>, <0xbb0>;
+> +                       input-enable;
+> +                       slew-rate =3D <208>;
+> +               };
+> +
+> +               usbotg-grp3 {
+> +                       pinmux =3D <0xba1>;
+> +                       output-enable;
+> +                       slew-rate =3D <208>;
+> +               };
+> +       };
+>  };
+>
+>  &can0 {
+> @@ -257,3 +290,14 @@ &i2c4 {
+>         pinctrl-1 =3D <&i2c4_gpio_pins>;
+>         status =3D "okay";
+>  };
+> +
+> +&usbmisc {
+> +       status =3D "okay";
+> +};
+> +
+> +&usbotg {
+> +       pinctrl-names =3D "default";
+> +       pinctrl-0 =3D <&usbotg_pins>;
+> +       phys =3D <&usbphynop>;
+> +       status =3D "okay";
+> +};
+> --
+> 2.34.1
+>
 
 
