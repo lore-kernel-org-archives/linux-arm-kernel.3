@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CE5CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55464CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 13:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AUUfVdnAMIu1+nXAYd+KcsatPxg6clq+mof5vfIcTA=; b=JiBvaYAJMiZysExYKbqSJZdYAS
-	GikNqe10jKW05dXI0svVkOIsbtYZd9Xeub02x0p+KR6KMV5MORKQE7e/IBp0a6/NXu+WpnY0RJdRy
-	ZtBfVFL+XWbGLSBQDevmLja1xpVOJXY7MsKRad3+Df39e8hieswF6gUjBcHet4ypgYwgLM+Xo5y8E
-	gFCtRrXdIMouFpf6kSYw3tZHPW1YhIcbKTnKQscYU2+5JmhwHasR5LbzAEgJjSearw/EXVqwkBl/G
-	9MiBVpSRDI7djmsPV6ALzidaSC6/Fn1LKmzVpt96EOCF5QeskWaPODiNjMukWvj0p0UKCgHTzo84f
-	MkKElYMA==;
+	bh=T5hUWqoBcetWurFLT+WqKkXg5w0LR6aXBSY+HmvYLjY=; b=WtTtH5SxphJlJ+4vqJZ/glFivX
+	1mmTOsLX+3JLzrngHalZYmLmeRvuW+5pracq7zHxr4P0dMZYUYH49sKH3IZa6v7FuoHZ4g24WWHjt
+	QMyrmboEqmzoigo3EpxVEz5ZGhsRgaVD6QlMVpzuYZHAtpFsl1aQh+ttfQ2rOjD0CETkmkC2mVMy2
+	JRrCyISv21TlQR1MKJwbAS1vHkyumek8aOF3b26We9YxxtZTfbd3A2n1E2KzgZHRRf9XE5MjjkykJ
+	Y5a4oIfGEWuH8Wb5OjoSB2/ptlX0UDUp2ybIcMQjxmZ/zuioh/yVoDf0B2N2QSh5yQ4yQ3iixXSNQ
+	Paj6UWeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3kl-00000007wcr-3FNf;
-	Thu, 21 May 2026 13:47:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQ3nd-00000007x9L-0sKN;
+	Thu, 21 May 2026 13:50:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ3kk-00000007wcV-3bMQ
+	id 1wQ3na-00000007x8T-2HI3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 13:47:58 +0000
+	Thu, 21 May 2026 13:50:55 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1C241601F3;
-	Thu, 21 May 2026 13:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7A6D1F00A3B;
-	Thu, 21 May 2026 13:47:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 807D640B3B;
+	Thu, 21 May 2026 13:50:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F2431F000E9;
+	Thu, 21 May 2026 13:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779371277;
-	bh=4AUUfVdnAMIu1+nXAYd+KcsatPxg6clq+mof5vfIcTA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=UOGVPcae5hQbVFDj2e3I35YX66lTvphJQZOzzoLKjP43ePS84hdMEye5cu/0W5llX
-	 fRzHsXcAh9wK/CYAKZetHLR/Lq3YmUd9/TTlwjejsi7eNNO0QThR0Nay1fbgw0qXZD
-	 gG4ePzvbblT19K4ndvq120+k/06wpEYZ6om6lH0+767sFPwvFk7wEQELsOXRTy73RG
-	 edy0tT0lAU6MgUU5TnF2DpK5+dyNcxttJjwMbwNxhnL+ntsOophZT0EfNSi1lSAinZ
-	 KLrRXn9MQeaKaRl186ZawxgPD+bOxC8LI5tIFKy3/5gNE2gb5bOdnxYZYPcP62N2H6
-	 bBs2a+ISherEA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQ3kh-00000004qa8-31dB;
-	Thu, 21 May 2026 13:47:55 +0000
-Date: Thu, 21 May 2026 14:47:55 +0100
-Message-ID: <868q9cx4ac.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	s=k20260515; t=1779371453;
+	bh=T5hUWqoBcetWurFLT+WqKkXg5w0LR6aXBSY+HmvYLjY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=KU+L1bhnkhJo/MV32/XO49EHNota5MiSQTx1Oho3nvbRjIneiUuzV9T1KvRs3UzWv
+	 POaTH4viRB4gKePFpkcdETzOTfHI4PQgQOegI1huOrOkyfb/s+dnBJvofHtIL+Pp/Y
+	 kArxZHDsWup0p9xyM/dAJ8iH+GLxYL55pMPdj1e2WFPONwUtlzgB5b9mxTy41/so2y
+	 JbmgvUgCk69QQLSBsGL+vVmi55Kt2NKPdNj07oUsgguhbnuzyA1Ny5LWrhnAjSIekg
+	 gXOwKYvtCWzBfmfbT5Nd7yI4LSPrtF1zYv838vxPQgnQs9BDS72HRE91OQ8SvqnsdD
+	 mz7aRlS0nPS0Q==
+Date: Thu, 21 May 2026 09:50:51 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: patches@lists.linux.dev, stable@vger.kernel.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 08/44] arm64: RMI: Ensure that the RMM has GPT entries for memory
-In-Reply-To: <20260513131757.116630-9-steven.price@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
-	<20260513131757.116630-9-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH AUTOSEL 7.0-5.10] arm64: cputype: Add C1-Pro definitions
+Message-ID: <ag8NuyPjvHmz8K5Q@laps>
+References: <20260428104133.2858589-1-sashal@kernel.org>
+ <20260428104133.2858589-51-sashal@kernel.org>
+ <afCWPTqKxIqGPe1r@J2N7QTR9R3>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <afCWPTqKxIqGPe1r@J2N7QTR9R3>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_065054_596512_14B2731C 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,207 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 13 May 2026 14:17:16 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> The RMM maintains the state of all the granules in the system to make
-> sure that the host is abiding by the rules. This state can be maintained
-> at different granularity, per page (TRACKING_FINE) or per region
-> (TRACKING_COARSE). The region size depends on the underlying
-> "RMI_GRANULE_SIZE". For a "coarse" region all pages in the region must
-> be of the same state, this implies we need to have "fine" tracking for
-> DRAM, so that we can delegated individual pages.
-> 
-> For now we only support a statically carved out memory for tracking
-> granules for the "fine" regions. This can be extended in the future to
-> allow modifying the tracking granularity and remove the need for a
-> static allocation.
-> 
-> Similarly, the firmware may create L0 GPT entries describing the total
-> address space. But if we change the "PAS" (Physical Address Space) of a
-> granule then the firmware may need to create L1 tables to track the PAS
-> at a finer granularity.
-> 
-> Note: support is currently missing for SROs which means that if the RMM
-> needs memory donating this will fail (and render CCA unusable in Linux).
-> This effectively means that the L1 GPT tables must be created before
-> Linux starts.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v13:
->  * Moved out of KVM
-> ---
->  arch/arm64/include/asm/rmi_cmds.h |   2 +
->  arch/arm64/kernel/rmi.c           | 103 ++++++++++++++++++++++++++++++
->  2 files changed, 105 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> index 9179934925c5..9078a2920a7c 100644
-> --- a/arch/arm64/include/asm/rmi_cmds.h
-> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> @@ -33,6 +33,8 @@ struct rmi_sro_state {
->  } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
->  	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
->  
-> +bool rmi_is_available(void);
-> +
->  unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
->  void rmi_sro_free(struct rmi_sro_state *sro);
->  
-> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-> index a14ead5dedda..52a415e99500 100644
-> --- a/arch/arm64/kernel/rmi.c
-> +++ b/arch/arm64/kernel/rmi.c
-> @@ -7,6 +7,8 @@
->  
->  #include <asm/rmi_cmds.h>
->  
-> +static bool arm64_rmi_is_available;
-> +
->  unsigned long rmm_feat_reg0;
->  unsigned long rmm_feat_reg1;
->  
-> @@ -88,6 +90,102 @@ static int rmi_configure(void)
->  	return 0;
->  }
->  
-> +/*
-> + * For now we set the tracking_region_size to 0 for RMI_RMM_CONFIG_SET().
-> + * TODO: Support other tracking sizes (via Kconfig option).
-> + */
-> +#ifdef CONFIG_PAGE_SIZE_4KB
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_1G
-> +#elif defined(CONFIG_PAGE_SIZE_16KB)
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_32M
-> +#elif defined(CONFIG_PAGE_SIZE_64KB)
-> +#define RMM_GRANULE_TRACKING_SIZE	SZ_512M
-> +#endif
+On Tue, Apr 28, 2026 at 12:13:01PM +0100, Mark Rutland wrote:
+>On Tue, Apr 28, 2026 at 06:41:02AM -0400, Sasha Levin wrote:
+>> From: Catalin Marinas <catalin.marinas@arm.com>
+>>
+>> [ Upstream commit 2c99561016c591f4c3d5ad7d22a61b8726e79735 ]
+>>
+>> Add cputype definitions for C1-Pro. These will be used for errata
+>> detection in subsequent patches.
+>
+>This definition is only needed for a workaround which is only applicable
+>to v6.18+ (and the downstream android16-6.12 tree).
+>
+>We needn't backport this patch to v5.1.0.y unless there's something that
+>depends upon it.
 
-Basically, a level 2 mapping. Which means this whole block really is:
-
-#define RMM_GRANULE_TRAKING_SIZE	(2 * PAGE_SHIFT - 3)
-
-(adjust for D128 as needed).
-
-> +
-> +/*
-> + * Make sure the area is tracked by RMM at FINE granularity.
-> + * We do not support changing the tracking yet.
-> + */
-> +static int rmi_verify_memory_tracking(phys_addr_t start, phys_addr_t end)
-> +{
-> +	while (start < end) {
-> +		unsigned long ret, category, state, next;
-> +
-> +		ret = rmi_granule_tracking_get(start, end, &category, &state, &next);
-> +		if (ret != RMI_SUCCESS ||
-> +		    state != RMI_TRACKING_FINE ||
-> +		    category != RMI_MEM_CATEGORY_CONVENTIONAL) {
-> +			/* TODO: Set granule tracking in this case */
-> +			pr_err("Granule tracking for region isn't fine/conventional: %llx",
-> +			       start);
-> +			return -ENODEV;
-
-How is this triggered? Do we really need to spam the console with
-this? A PA doesn't mean much, and there is no context (stack trace).
-
-If that's not expected, turn this into a WARN_ONCE().
-
-> +		}
-> +		start = next;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static unsigned long rmi_l0gpt_size(void)
-> +{
-> +	return 1UL << (30 + FIELD_GET(RMI_FEATURE_REGISTER_1_L0GPTSZ,
-> +				      rmm_feat_reg1));
-> +}
-> +
-> +static int rmi_create_gpts(phys_addr_t start, phys_addr_t end)
-> +{
-> +	unsigned long l0gpt_sz = rmi_l0gpt_size();
-> +
-> +	start = ALIGN_DOWN(start, l0gpt_sz);
-> +	end = ALIGN(end, l0gpt_sz);
-> +
-> +	while (start < end) {
-> +		int ret = rmi_gpt_l1_create(start);
-> +
-> +		/*
-> +		 * Make sure the L1 GPT tables are created for the region.
-> +		 * RMI_ERROR_GPT indicates the L1 table already exists.
-> +		 */
-> +		if (ret && ret != RMI_ERROR_GPT) {
-> +			/*
-> +			 * FIXME: Handle SRO so that memory can be donated for
-> +			 * the tables.
-> +			 */
-> +			pr_err("GPT Level1 table missing for %llx\n", start);
-> +			return -ENOMEM;
-
-If any of this fails, where is the cleanup done? Is that part of the
-missing SRO support that's indicated in the commit message?
-
-> +		}
-> +		start += l0gpt_sz;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rmi_init_metadata(void)
-> +{
-> +	phys_addr_t start, end;
-> +	const struct memblock_region *r;
-> +
-> +	for_each_mem_region(r) {
-> +		int ret;
-> +
-> +		start = memblock_region_memory_base_pfn(r) << PAGE_SHIFT;
-> +		end = memblock_region_memory_end_pfn(r) << PAGE_SHIFT;
-> +		ret = rmi_verify_memory_tracking(start, end);
-> +		if (ret)
-> +			return ret;
-> +		ret = rmi_create_gpts(start, end);
-> +		if (ret)
-> +			return ret;
-> +	}
-
-How does this work with, say, memory hotplug?
-
-> +
-> +	return 0;
-> +}
-> +
-> +bool rmi_is_available(void)
-> +{
-> +	return arm64_rmi_is_available;
-> +}
-> +
->  static int __init arm64_init_rmi(void)
->  {
->  	/* Continue without realm support if we can't agree on a version */
-> @@ -101,6 +199,11 @@ static int __init arm64_init_rmi(void)
->  
->  	if (rmi_configure())
->  		return 0;
-> +	if (rmi_init_metadata())
-> +		return 0;
-> +
-> +	arm64_rmi_is_available = true;
-> +	pr_info("RMI configured");
->  
->  	return 0;
->  }
-
-Thanks,
-
-	M.
+I'll drop it, thanks.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Thanks,
+Sasha
 
