@@ -4,105 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BD9CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0995FCD5BB5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i/73kfEyrfpQzCEFi/idt4kbknug0hC2s2N9IffeSWo=; b=B/rVKj9FZBEZtveq8lL9d22X7h
-	Pv0rGY2dJeOe0TYptqxPHXBdaJ4P8z7YEwvU3udygRa38j+U1VTjujQ67PzXfXbFSvzEoHE76/L3L
-	s03gz1MKpCco/Mg0fiisrQcJn3XnLcsdiygJ7nVnH2l0M4g2FhXgUjeFKN+THjoaB603xHa0XuBXc
-	+Rfc/8+AyjcwUGalAMxWymE7k4iR9BPxZpRKnq+9sWrqRFkUUjHn8va0LkAeHRHbgSIookLUrhl8B
-	Je+DUNJagSK4LTaITQJIRDejHMWu6AsWVIXIKLquQuwcBPmyHawbW8OrdoBNXT7/cOFwPpVMHq/L7
-	Ls5o4hpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D3/nXZJHOhdtFkDdl/hoJ6iMxUqIwCWfkDVAbB6ulq4=; b=0rje8WBT7H2Q0l652T5W+lxJc7
+	hTMr4ubwapQ7chs/L86XY2J/vxWKmaSvaOkvCHoa8N4Blpsz8z0KfYC9Q8W7n24aTvNaqxaXcYT3d
+	Kz+LVhoSszmujczf60/31KXKObc5b2aVAMXrzOmGM+fVXtI1oClNSpSlotCxzOJbnIKSWAqQkiOXJ
+	V2PQdj8+f3kJYlizEK9PumnNQnRyJtT4EscdqmIeoXZbsTPjcEEF6b5mKYVbeGkwBBQ3akw8IBHk/
+	deQy8ul0uQU+zy/rI8m/m9Sqn0olXQf8g+FWExshascHc4RJZG9OledkDBfyC4j58EagDXX71MX1m
+	FFF2Dn/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4td-00000008DRR-2oHD;
-	Thu, 21 May 2026 15:01:13 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wQ4tw-00000008Dfl-3cWw;
+	Thu, 21 May 2026 15:01:32 +0000
+Received: from mail-westeuropeazon11010044.outbound.protection.outlook.com ([52.101.69.44] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4tV-00000008DL1-2S6K
+	id 1wQ4tg-00000008DJe-1nqA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:01:07 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4891e86fabeso81782475e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 08:01:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779375664; x=1779980464; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=i/73kfEyrfpQzCEFi/idt4kbknug0hC2s2N9IffeSWo=;
-        b=WUuxhLl9U7ttSabnNOki3f8fKRJNEfWdD5gqb3PSq+1qwbK6NvW2XR/oJiWuwReNbc
-         /yHt6dIy6tYS2N6WDig9NnUHOfHa3ur+QFsn4sBCQWpmFvOUosjPybfiuaAx8OqNV08u
-         v2/nUMDi0YTE6PoFRylj0kFyxldUwisT2mCRVTvNCrH/aShS0iA9nN72dE66dSWVTdxm
-         oKfComJxg3oCAGePzETrj4/E0FNJFlIp3OXjVB55+cd0M5R5xhvcusjXlCe6fab6tYSc
-         LFtS81qf7LhdnWKuYsyUgYs+Dsdz07GWJDnGM5ZZyskHsphtoDXZztkG22TBW4YxrfwN
-         ybaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779375664; x=1779980464;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=i/73kfEyrfpQzCEFi/idt4kbknug0hC2s2N9IffeSWo=;
-        b=WEwyvkTlf/W7zkgFZED6YWM17YOKdPv766xFv2EKfYayzqbMIYdUJPpj6GAgbTGFyU
-         MSXYR2A0ac/tLxt42EHtT4QBJuEVzpvDhsALJ6uG5xmK8hq64rW5wwCefCQ5hLUMfOSA
-         H97ExwF02qIZh3GUZlooSepeayZyFEtcMJTcE+1/XckRQElQSKqMeWLkTO4qIh4VVy/t
-         kLYvdo697m0qsJAQo47dHoqSpgnkYiKdOEkY11P5ZTVndgDYf8XLt6cExYcenAT6LbN2
-         CMqNrWKdfdUf/xbwPHKBKkwh4TcLLRe1kkOnawCmk+2eX1D/jfAs3V2cVb+fpCMHkpSm
-         r0zA==
-X-Forwarded-Encrypted: i=1; AFNElJ+L1Jsf9d+K6XlXit21kkSAfRSn29MnFtYKNv19vjyA7YKfMBFPEHxB4BfebSlmSGMi6N5Gi6I6CmhSKzV392oY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx4h+48QDgHP9JXNKbJ+JATWBTIVsBIKmSF097PD8KlFc57/+/L
-	+wneI40LqXPFYATtuCXXQXxrDlKfcz7b44eWFFbqENic7rGVFkJqIa7m
-X-Gm-Gg: Acq92OHgg6qWOWp/9gWN85EF5jetwJhPf5uzQ6JEa1tqwV98z/GKdOC5riiokOocGQC
-	dEurITm2fHjUWw+zReDjqJ/c54HbinUs89CQESMssSPuhp0kTy9LWZzqsDKW58Hf+l9G5o4RvhS
-	DRw8iptI/io/7gqIbnzn8k1jUfhnfVz02oXtBZLyblimN4vj+1J4Qu6KGlbixf/dBfMPyxAE/wK
-	xlQ9g7Q/hYmG4m/G1ywid1pxqE4LdqlSoAp0MNnumVvKNtOv0XGXxdJSVtpqJcfAR+bVr9oDwNC
-	90nZ60azfShQ9GTIBUFa98HsOci6UnT5HzD9HLEbV76TSYFynXAJT8M3vqcDN86hLY0Mm+xFwAO
-	WwSzy56p6ZUMjWQQLYdXzVJi6bwyHn2je8dlqu7RvR2A/saMgGaOHxOboPlw4VYLc3FOHBbw/k5
-	bkmHx7HYfPGIjQ9qivX+MzIShkrsdNJtsKyT8hI7475g==
-X-Received: by 2002:a05:600c:848d:b0:48e:635a:18d7 with SMTP id 5b1f17b1804b1-49035fbaad0mr49232625e9.0.1779375663135;
-        Thu, 21 May 2026 08:01:03 -0700 (PDT)
-Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4903caede9fsm34056745e9.14.2026.05.21.08.01.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 08:01:02 -0700 (PDT)
-From: Vitor Soares <ivitro@gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>
-Cc: Vitor Soares <vitor.soares@toradex.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 02/15] arm64: dts: ti: k3-am62-verdin: Add Toradex DSI to LVDS adapter with 10.1" display
-Date: Thu, 21 May 2026 16:00:38 +0100
-Message-ID: <20260521150038.103538-19-ivitro@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260521150038.103538-17-ivitro@gmail.com>
-References: <20260521150038.103538-17-ivitro@gmail.com>
+	Thu, 21 May 2026 15:01:21 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
+ b=eyAXDORVPUKdaxFxPAYWvLr6wv/uWi8Rw9gb1Kk+OoNDL1K3haidaB9Ky3Bagfl0hONe4JxDu6T2q9c/5/i6h4WIjIGP4QM7FIoSYOYkCVLzeeBRfQV3zrFNW7Rd742t3v5LfQlhRkJAw574DUBo6Yyvkvml04tB7qciOJXJPGRz09T3lDQTKkOTHzCyTHM3S+gY02IeRMALdZ/1OBg2FS3iy25SgXfDmCcEaMMxrYiJaHKwba2KivTq/ag7v/XTPE9IhDGb/4/w76NuCkpxur8353psvDB9ZS5znkVLZ716qgTK7oNqKbPnCovcaAwbM3Yq6sauIuIj5MFp97WylA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D3/nXZJHOhdtFkDdl/hoJ6iMxUqIwCWfkDVAbB6ulq4=;
+ b=Qo+Mk7CIlYLL1l/xHp7Zf4X06tP3LcAqIkDNDpGfd+F5sHUkEy3CCQqaaqsHJd6KD+rHWLTwHRpaxfaupz4rtesNngAfbYMw529t/xL3rnE7Ke7IJfn5c9icUF52gZnL9CqOkumeiWyfB1KcL8nJjMtTZ7RGJw+fBvXhk51EmXta1NRaWThNUMfUpw3JzWpzE8a0N/WlpM0SRAd+yGKbaeelBpTfA7EcbGwbxb8KKwcV2YSwUKENUucLe1NfmBAkParv7joIQimBPLuSWOqkfWs2nLHnO2bPnu0Z9jsR3oukvn2HtbxfNpGNvFVT7p8QZnBtDNpNPtRxsjPZ8zpk4w==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=fail (48)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D3/nXZJHOhdtFkDdl/hoJ6iMxUqIwCWfkDVAbB6ulq4=;
+ b=H40qZ6f2/Vq71PYyb7udCX3ZgFIYWuDbQqqdixieo/+U5FudtNNNkmF171JooO/u11UGm6JOr314+nhh8PbodV8s6T0Iw+3LzmKWELnilaRLOHbuNXHjiIY7AYfbNKrDj3fOBtE4A/OTBSknUis3qdCfztmjte42J4TW8+E+pvo=
+Received: from CWLP265CA0301.GBRP265.PROD.OUTLOOK.COM (2603:10a6:401:5d::25)
+ by AS8PR08MB6262.eurprd08.prod.outlook.com (2603:10a6:20b:23e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.16; Thu, 21 May
+ 2026 15:00:54 +0000
+Received: from AMS1EPF0000004A.eurprd04.prod.outlook.com
+ (2603:10a6:401:5d:cafe::1c) by CWLP265CA0301.outlook.office365.com
+ (2603:10a6:401:5d::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.17 via Frontend Transport; Thu, 21
+ May 2026 15:00:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS1EPF0000004A.mail.protection.outlook.com (10.167.16.134) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.7 via
+ Frontend Transport; Thu, 21 May 2026 15:00:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Sy0uSt87JmOiFORP6jl4kogv1KTb6Cm3K7dwYLieNIcM7EMPAHPQZj50ItEYvhVXB1Dsg1xVNxc0bzfYk6t99gZrO0OdivR/hshHbDn/aYtFwcWXzmppXSLti8LqTH9FFXapYtmYLd9Sl7BKSH9+S8+OUMf43ucs9NGlLmYtEc0vBYbL/MImTSzbxnDvYftMDQtA+IfQqBlzoG4qEfS0gN0rl6o2W6i3Iu9eDogL3UcXKQMyWLeDH44IrI5VjyYkIMoYDt31/F/enmVlV5TRkSEjtTow3SLFu1A0PYR9wXnnHEcZ6tIMcJ5dF4zzC96dzB7fk57+dbg8K+wO2mZRtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D3/nXZJHOhdtFkDdl/hoJ6iMxUqIwCWfkDVAbB6ulq4=;
+ b=l2PT8bXYoAQgdQd35r/n4+DW4uFzTWeGgdCzhuIatV5pMq89blm9qi1hkJVLF3keqq5vZs80PWlbQ2VwF22T7l6A5qFNdAxvYmT1aWPgspbrfs03jgJTsef/VjfdrGcMml6mK4iuOFQPfF9BXxU3kKZcuP9UDDmStykX5zMpwlebBxadApy5K2TZKdUiSI2jtN5OSBA/L3Pfo+PbGhoZe+9lDRFneTnXHBw1NwSYqMwxBKYpDv0YA28csVCzspmgR+HNsWBkN/WYJk/qtFDYiuGUcvgS6gFMkv775BUvsWt0qSxGUxF86FJjD+Aky9y/eUseriZLqez3AGojeNm1uQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D3/nXZJHOhdtFkDdl/hoJ6iMxUqIwCWfkDVAbB6ulq4=;
+ b=H40qZ6f2/Vq71PYyb7udCX3ZgFIYWuDbQqqdixieo/+U5FudtNNNkmF171JooO/u11UGm6JOr314+nhh8PbodV8s6T0Iw+3LzmKWELnilaRLOHbuNXHjiIY7AYfbNKrDj3fOBtE4A/OTBSknUis3qdCfztmjte42J4TW8+E+pvo=
+Received: from GV1PR08MB7315.eurprd08.prod.outlook.com (2603:10a6:150:1e::15)
+ by DBBPR08MB6204.eurprd08.prod.outlook.com (2603:10a6:10:1f5::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
+ 2026 14:59:49 +0000
+Received: from GV1PR08MB7315.eurprd08.prod.outlook.com
+ ([fe80::c249:1aed:a4c2:4193]) by GV1PR08MB7315.eurprd08.prod.outlook.com
+ ([fe80::c249:1aed:a4c2:4193%3]) with mapi id 15.21.0048.013; Thu, 21 May 2026
+ 14:59:48 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: [PATCH v2 31/39] KVM: arm64: gic-v5: Add GICv5 SPI injection to irqfd
+Thread-Topic: [PATCH v2 31/39] KVM: arm64: gic-v5: Add GICv5 SPI injection to
+ irqfd
+Thread-Index: AQHc6TJ4JhswotLp+U2ZLzpvdLtgvQ==
+Date: Thu, 21 May 2026 14:59:48 +0000
+Message-ID: <20260521144846.1899475-32-sascha.bischoff@arm.com>
+References: <20260521144846.1899475-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260521144846.1899475-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: GV1PR08MB7315:EE_|DBBPR08MB6204:EE_|AMS1EPF0000004A:EE_|AS8PR08MB6262:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6d8298c-7218-479b-34a6-08deb749c1dc
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|22082099003|56012099003|18002099003|38070700021|11063799006;
+X-Microsoft-Antispam-Message-Info-Original: 3mlLuM7jBEHLVkLWEwcH9Q7lHfAegNxsFVsKXu15yuNEEpWLhKhOQqftueMLE5aTSPugyZf/2dn4qfQ/N8CSt0driUnGcZH583mH8qNevbywwMgzDanmrHQar1AU+JtCEyay/RTuiIAaaEi4FUFJMeLpPHvE/Yy6iPSMwo+QUs/8NuyAG5MVVs9Juh815EaR1tZj3qqSNsHYK9wROrJzomvuj7s5/UfTAKmyi/Yk4y9QiA1WIEf+YPtTppQIWHMSvN6GGrQ0ObYbVYhSxAcSlX0zgKO/UCWRJvafATbTGVvkIU4HwOz47P2CxmCrUiWO4ACRR1KG49+DdKSogiN/0+mFAyYBkP22Z6zvUYfymFdWRlPjeBFp4j2MAmx6x+UYmiTS8gnvYNzUrP52DjxOaRchh4HMjyttz8V6WBHnlN1GCycVlRQtKCIKZJpef0UM0AOLTCkQI0CoK0Q8DJQMlWXDGUO6G6A5biJngTsuqoNPIhF+G5EzQIJLkOkJpd0eXWpXtKzHYN2nGLndX0gd3ZNhEIDRuyTuB+5KJOoGQm3NoyvYUuql/n5yg2ccoYWjk40Rht36qFvTtZEmm5phKU8YnzMvV2MRc49/BlZqII2BzOYwZumgr+TCwx1jp3YeDfnZWo/6A47qKPz16WreUDosq7V5VEH1HfwPLTxkSqfWzSSvBJhfVfmhX6Egn57nkw8dA+ulV4d8DlMA5EBDIC52Gfp01z4IcVWjQU0t8oE+Is1uSomFvoJJKsG3eS1O
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB7315.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(22082099003)(56012099003)(18002099003)(38070700021)(11063799006);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Exchange-RoutingPolicyChecked: QmUtx6/84u6iKkpzCVXvuhHjWTVkTHseU6KLq9wbHASus+Walk7tY4LI85FH5HTk4Mui2IBApW/Ez7ky5ibrrkcIqoFrGNn8ux2R0HkB8SxS6pBbPUtxQHcA9NG9gxZqDBQhgcwQe0m4dA3KRQneqGbwYwJFkC/9uYgCPbjomDsggApCDcgYnQqK3WFu/mrj19xJp6JjKXsg1QKYGIVf38sIiqyBI5m4BhGpTZxm6TEN+WCS7KX4vgki2TvLTuthgbJPZNT8bfpeHg8pe0kJ0kxgBADaxsQweZE36IhiHgP06rC1Rf/GKzSGaSx/iBRzZBxtT+aiQ5RfFwNEUGocoA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR08MB6204
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF0000004A.eurprd04.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 53c2ad01-5ff7-4d3e-fffb-08deb7499ab1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|82310400026|376014|14060799003|36860700016|18002099003|56012099003|22082099003|11063799006;
+X-Microsoft-Antispam-Message-Info: jb9yexcoYoQ0aDXLjQfgnHNuozaTHYYM39Wie/fgglPjRNFj0kXlf7k8CGHghKdLexe0CxFUudGIxL9CjillyzX5XIclVyYaY3uBr68l3TmncjUYvySsraoDeq9ILRigPUDidoP/ksMYi7SCDAOCA67ZhUJ4S7sIVuJ4AceflZ0fH+deXCFMVuh9+RjZnApQtImFVyS4IoygirS2+nZNjATD4bkLrskI90EEvumViwnBWFHnnJ8Qk4uLOt9hJgI26FlDFMSbiljvpe0U563VHSP0ae1ypwUU3M8nOeMfGJUvDFfFivvB56NMXDIQEPAC1UvuPmdhj7WaMZE4R2psPO4yWyqrJdkx2n44uZnvex0H26wK5YeNsMrY93OpEovJd8V4Fqu/NTgBvIudo8xC+6/Yf3LSjgbEDFNhUP35STdKK5i8aX3LUxbnOPL7P40qIGgJ4zUIeEu4pm19MZIRXZKg4sLsZc9rErXwSSWh1vchlXSLqj/cALJZIYneG5rj/YDjYnYGPTa71VAYhN3XP5kpxv/ThogEm9GZPGsOPgtWtbPB0XLmlwCQlfwV3vXa49M9UmzGx2GrBy0Ryos3X2HVejF5q37nYKSRSxFWZGiiTp0xll20IEvBB18sQywMyHS47eUYkR4u7U+OVwHmlA3ieGqEYKb3pEre8wsdpOaCyvBVZX1btxVW0y8IpNdaiXKt9JV1Ag6fWAsVqf94N0qTGgF79yqHbt+4tXsFqz0=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(82310400026)(376014)(14060799003)(36860700016)(18002099003)(56012099003)(22082099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CYYHIlRSp0s9JiDMXvqjowa4fMdxupq3m8JbdkZTO3l38ngZ7ekJnO3tHKe+ZdEsZSUbMuwzwZfHPLMivBIsJWa1kAiB6uybLbfJ4ycSxAKX3IJnMaMvPDMxCDQPk+d+0z0QRggn0+wDZyzc5cqQ9Wuj/r7XS4UkqRvXKZ4ZnJps9vTF2OIim0R1Iavm59U/vMwYtygMAUjPvtApO54bLemU9qznDRPZ5s8YzqTLPEUgonOv6WGdkAq+qO5H0i+U2M8kVBehwB3hWKNz97eNK/UAjeKOVN++RQVBi7Hzi0PYD2Lox1v66i33FERPEw32YMsvXN4H5u54aK7d1/nTKuMd99epJ8H1RQTT3+p0XLXB/OnqqxXHlsazh3ialvqdYWGYTx72JkEeMaqSmPVQEknsYV40RdyK7U5gXeucp2DV3X7t1h4NdffVA1ys/FQS
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 15:00:54.5252
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6d8298c-7218-479b-34a6-08deb749c1dc
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF0000004A.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6262
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_080105_695999_744E3640 
-X-CRM114-Status: GOOD (  16.07  )
+X-CRM114-CacheID: sfid-20260521_080117_436279_701A2DDD 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,197 +160,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vitor Soares <vitor.soares@toradex.com>
+Now that there is support for GICv5 SPIs in KVM, update
+vgic_irqfd_set_irq() to translate irqchip pins into GICv5 SPI IntIDs
+before injecting them.
 
-Add a device tree overlay for the Toradex DSI to LVDS Adapter with the
-Toradex Capacitive Touch Display 10.1" LVDS. The adapter connects to the
-Verdin DSI_1 interface. It is based on the Texas Instruments SN65DSI84
-DSI-to-LVDS bridge and drives a LogicTechno LT170410-2WHC 10.1" WXGA LVDS
-panel. Touch input is provided by an Atmel MaxTouch capacitive touch
-controller.
+Also adjust IRQCHIP route validation for GICv5: use the configured SPI
+count, fall back to the default SPI count before VGIC init, and cap
+the accepted pin range to the generic irq routing table size.
 
-Link: https://developer.toradex.com/hardware/accessories/add-ons/dsi-lvds-adapter
-Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-Assisted-by: Claude:claude-sonnet-4.6
-Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 ---
- arch/arm64/boot/dts/ti/Makefile               |   5 +
- ...in-dsi-to-lvds-panel-cap-touch-10inch.dtso | 135 ++++++++++++++++++
- 2 files changed, 140 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso
+ arch/arm64/kvm/vgic/vgic-irqfd.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 21db60cd19de..b2408f62c139 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -24,6 +24,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-hdmi.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia-dsi-to-hdmi.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dev-dsi-to-hdmi.dtb
-@@ -209,6 +210,9 @@ k3-am625-sk-csi2-ov5640-dtbs := k3-am625-sk.dtb \
- k3-am625-sk-csi2-tevi-ov5640-dtbs := k3-am625-sk.dtb \
- 	k3-am62x-sk-csi2-tevi-ov5640.dtbo
- k3-am625-sk-hdmi-audio-dtbs := k3-am625-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
-+k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := \
-+	k3-am625-verdin-wifi-dev.dtb \
-+	k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
- k3-am62-lp-sk-hdmi-audio-dtbs := k3-am62-lp-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
- k3-am62-lp-sk-nand-dtbs := k3-am62-lp-sk.dtb k3-am62-lp-sk-nand.dtbo
- k3-am62a7-phyboard-lyra-disable-eth-phy-dtbs := k3-am62a7-phyboard-lyra-rdk.dtb \
-@@ -310,6 +314,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-am625-sk-csi2-ov5640.dtb \
- 	k3-am625-sk-csi2-tevi-ov5640.dtb \
- 	k3-am625-sk-hdmi-audio.dtb \
-+	k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb \
- 	k3-am62-lp-sk-hdmi-audio.dtb \
- 	k3-am62-lp-sk-nand.dtb \
- 	k3-am62a7-phyboard-lyra-disable-eth-phy.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso
-new file mode 100644
-index 000000000000..c1236f64732a
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+/*
-+ * Copyright (c) Toradex
-+ *
-+ * Toradex DSI to LVDS Adapter on Verdin DSI_1 with Capacitive Touch Display 10.1"
-+ * Used on Dahlia (X17) and Development Board (X48) that expose DSI_1 via an
-+ * Samtec LSS-130 connector.
-+ *
-+ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
-+ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-lvds
-+ * https://developer.toradex.com/hardware/accessories/add-ons/dsi-lvds-adapter
-+ * https://www.toradex.com/accessories/verdin-dsi-to-lvds-adapter
-+ */
+diff --git a/arch/arm64/kvm/vgic/vgic-irqfd.c b/arch/arm64/kvm/vgic/vgic-ir=
+qfd.c
+index b9b86e3a6c862..3644516811214 100644
+--- a/arch/arm64/kvm/vgic/vgic-irqfd.c
++++ b/arch/arm64/kvm/vgic/vgic-irqfd.c
+@@ -19,7 +19,12 @@ static int vgic_irqfd_set_irq(struct kvm_kernel_irq_rout=
+ing_entry *e,
+ 			struct kvm *kvm, int irq_source_id,
+ 			int level, bool line_status)
+ {
+-	unsigned int spi_id =3D e->irqchip.pin + VGIC_NR_PRIVATE_IRQS;
++	unsigned int spi_id;
 +
-+/dts-v1/;
-+/plugin/;
++	if (kvm->arch.vgic.vgic_model =3D=3D KVM_DEV_TYPE_ARM_VGIC_V5)
++		spi_id =3D vgic_v5_make_spi(e->irqchip.pin);
++	else
++		spi_id =3D e->irqchip.pin + VGIC_NR_PRIVATE_IRQS;
+=20
+ 	if (!vgic_valid_spi(kvm, spi_id))
+ 		return -EINVAL;
+@@ -39,15 +44,24 @@ int kvm_set_routing_entry(struct kvm *kvm,
+ 			  struct kvm_kernel_irq_routing_entry *e,
+ 			  const struct kvm_irq_routing_entry *ue)
+ {
++	unsigned int nr_pins =3D KVM_IRQCHIP_NUM_PINS;
+ 	int r =3D -EINVAL;
+=20
++	if (vgic_is_v5(kvm)) {
++		nr_pins =3D kvm->arch.vgic.nr_spis;
++		if (!nr_pins)
++			nr_pins =3D VGIC_V5_DEFAULT_NR_SPIS;
 +
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pwm/pwm.h>
++		nr_pins =3D min(nr_pins, KVM_IRQCHIP_NUM_PINS);
++	}
 +
-+&{/} {
-+	backlight_pwm3: backlight-pwm3 {
-+		compatible = "pwm-backlight";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_i2s_2_d_out_gpio>;
-+		brightness-levels = <0 45 63 88 119 158 203 255>;
-+		default-brightness-level = <4>;
-+		/* Verdin I2S_2_D_OUT as GPIO (SODIMM 46) */
-+		enable-gpios = <&main_gpio0 34 GPIO_ACTIVE_HIGH>;
-+		power-supply = <&reg_3v3>;
-+		/* Verdin PWM_3_DSI (SODIMM 19) */
-+		pwms = <&epwm1 0 6666667 PWM_POLARITY_INVERTED>;
-+	};
-+
-+	panel-lvds-bridge {
-+		compatible = "logictechno,lt170410-2whc", "panel-lvds";
-+		backlight = <&backlight_pwm3>;
-+		data-mapping = "vesa-24";
-+		height-mm = <136>;
-+		width-mm = <217>;
-+
-+		panel-timing {
-+			clock-frequency = <71100000>;
-+			de-active = <1>;
-+			hactive = <1280>;
-+			hback-porch = <3 40 51>;
-+			hfront-porch = <43 80 91>;
-+			hsync-active = <0>;
-+			hsync-len = <15 40 47>;
-+			pixelclk-active = <1>; /* positive edge */
-+			vactive = <800>;
-+			vback-porch = <5 7 10>;
-+			vfront-porch = <5 7 10>;
-+			vsync-active = <0>;
-+			vsync-len = <6 9 12>;
-+		};
-+
-+		port {
-+			panel_lvds_bridge_in: endpoint {
-+				remote-endpoint = <&dsi_lvds_bridge_out>;
-+			};
-+		};
-+	};
-+};
-+
-+&dsi_bridge {
-+	status = "okay";
-+};
-+
-+&dsi_bridge_ports {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	port@1 {
-+		reg = <1>;
-+
-+		dsi_bridge_out: endpoint {
-+			remote-endpoint = <&dsi_lvds_bridge_in>;
-+		};
-+	};
-+};
-+
-+&dss {
-+	status = "okay";
-+};
-+
-+/* Verdin I2C_1 */
-+&main_i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	bridge@2c {
-+		compatible = "ti,sn65dsi84";
-+		reg = <0x2c>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_dsi1_bkl_en>;
-+		/* Verdin GPIO_10_DSI (SODIMM 21) - DSI_1_BKL_EN */
-+		enable-gpios = <&main_gpio0 30 GPIO_ACTIVE_HIGH>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			port@0 {
-+				reg = <0>;
-+
-+				dsi_lvds_bridge_in: endpoint {
-+					remote-endpoint = <&dsi_bridge_out>;
-+					data-lanes = <1 2 3 4>;
-+				};
-+			};
-+
-+			port@2 {
-+				reg = <2>;
-+
-+				dsi_lvds_bridge_out: endpoint {
-+					remote-endpoint = <&panel_lvds_bridge_in>;
-+				};
-+			};
-+		};
-+	};
-+
-+	touch@4a {
-+		compatible = "atmel,maxtouch";
-+		reg = <0x4a>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_dsi1_int>, <&pinctrl_i2s_2_bclk_gpio>;
-+		/* Verdin GPIO_9_DSI (SODIMM 17) - TOUCH_INT# */
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <49 IRQ_TYPE_EDGE_FALLING>;
-+		/* Verdin I2S_2_BCLK (SODIMM 42) - TOUCH_RESET# */
-+		reset-gpios = <&main_gpio0 35 GPIO_ACTIVE_LOW>;
-+	};
-+};
--- 
-2.54.0
-
+ 	switch (ue->type) {
+ 	case KVM_IRQ_ROUTING_IRQCHIP:
+ 		e->set =3D vgic_irqfd_set_irq;
+ 		e->irqchip.irqchip =3D ue->u.irqchip.irqchip;
+ 		e->irqchip.pin =3D ue->u.irqchip.pin;
+-		if ((e->irqchip.pin >=3D KVM_IRQCHIP_NUM_PINS) ||
+-		    (e->irqchip.irqchip >=3D KVM_NR_IRQCHIPS))
++		if (e->irqchip.pin >=3D nr_pins ||
++		    e->irqchip.irqchip >=3D KVM_NR_IRQCHIPS)
+ 			goto out;
+ 		break;
+ 	case KVM_IRQ_ROUTING_MSI:
+--=20
+2.34.1
 
