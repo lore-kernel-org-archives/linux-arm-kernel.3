@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F822CD5BB6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B80CD5BB7
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 15:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CF3gRsfbMMzbZIz4+Gb+p1TqqTyY+cXpLaVD2dZQxls=; b=TjseUGMdvRQxT4Dp7dy1bt8cOx
-	+BKYpDZ3nGm+sW2fiig39nwE5iSWsApk2Q1OX0/+iSFnFwprkB3OyuHsxhlO6XA7HcDEu/86WrS+j
-	bTl7ruXyOhZPuEuaMMFfUMHeQZ5MN9Ls+mlpfirIk5hrauv+LQLSDEUbQ79pNPLR1e7D+aqXuR7Lo
-	b4mc188IFvh5qVQ09CRdMW2O0iofb7ogoF4zX9Mb3GsRq32W40+J7526jeL5rjjtRFfatkCHk1fGF
-	oz5kGWDBCx6HFjErm4/D10djNxqMTE1ljlhCMFakb86Qhl5skx2m4V8Kpw0eqV13mEeGBPQKBPHOM
-	ONMBYucA==;
+	bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=; b=mslAhxrtr6+30NVEyuN347StdE
+	DGe2NguNoaUHl0vWT31/jM8Zy0XwlQ+K4u/a002XIaodQXOykZw3ZV35oc0jDz+Cgw7DVmZmVjhiM
+	gajgeS1GjyUBZRES/7gsc4I2gbBj5Sp2UejToAIrx9o0Yiv6s6397+ObvWd7HcJVrN2MIobDyhux+
+	bWSmdG6AFsK4O87e6/jpnYoYIGykdmbaQEOa1cfes/YbS1RPj23CXO8lKxRWMgyurlQzbS22z0hUu
+	Kt+Kbv3vwgngsHUQNPsFPf8qvuOmsnIaySybjvNhfF5m+yFLubiAKEIrRowZ31RFTttTDOuj3n3B5
+	fzMjNJ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4tx-00000008DhZ-2Wfk;
+	id 1wQ4tx-00000008Dh0-1fCU;
 	Thu, 21 May 2026 15:01:33 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ4tp-00000008DZH-2hLw
+	id 1wQ4tn-00000008DXa-1fSs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 15:01:27 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-48d146705b4so69128115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 08:01:25 -0700 (PDT)
+	Thu, 21 May 2026 15:01:25 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso56026475e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 08:01:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779375684; x=1779980484; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779375681; x=1779980481; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CF3gRsfbMMzbZIz4+Gb+p1TqqTyY+cXpLaVD2dZQxls=;
-        b=TLGt9zQD5nclSETWwYbaEBOfcRoOyvt61Z+DWTRPmGpq4lUXOLWWtseRefnQs4ED3o
-         DFQ32+K0OyV0dj/hKpu7yQbxUm1gpNVXjiWW8QvHhLwR4WtpC2zsVv0sDKGyblEi8O6/
-         zYY+h+kYao1PLS7v+MGCJ/OliBn5lb0MMnJKNFxlwXAgSbgpOEDAncmhsz3kckeHFsHS
-         BL654HrUeKWOzkPYkB+wgmK/UiwfqbgKD6kW7voPGlBV+H+WlR/4HPbOoMH9+cnSmtmo
-         YTElmvFkX3MQG6kUHBrhgKQf8DwfENx6oOO3Zj6Ce2em9YugB/8NNAUzMjxRxmRygcNu
-         95/A==
+        bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=;
+        b=r0mwa/BrFrv/Z2nR7r9G8pzrFHAynGo1NsrVsiHJpU1okHu+z25Lc1/uk81s50CqaU
+         tDCKhzCQHbtH2C79/sDqEqJ6LOPoDQBySplGe928ZLSBpCAipioSBmImYbMlCzGL1bZQ
+         DGGtJUY31MNzRXXI5PXnwe4OhwmFTz5Ha+lTOs+K0iheGPNUF6JYvHJsfd4dhrgUy2k8
+         lsIdNS4YFmGn/2G9EAE6EUzc3XcIJhNfmgMEmC1UrQ9mYfuFqN4PKP3j0LJ6tIbgPum4
+         hTfBYCkfm5FPReCMM+TlMnryfMxoKo6DlYD5hm4bMD8Q9qZGHHQX+hs3kmEHMKBddK1p
+         KyWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779375684; x=1779980484;
+        d=1e100.net; s=20251104; t=1779375681; x=1779980481;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=CF3gRsfbMMzbZIz4+Gb+p1TqqTyY+cXpLaVD2dZQxls=;
-        b=VAkr09Z2QiiPSpwuqB4pXmdlzzq+DZppovp15s5KvrDn2wzceRYfGxbU1iHtWUh340
-         7In4mv9eTuShnCzjGskwvA5apXYPznrY3MOYV/HdEZlYyWQqs77brAlHQIM7CopDvOCX
-         kzptT2evIY9gbGdcLU3z+oem03Q6eaL+fVoFRAy+nvjpQ+gmi5miIWc6GG3q+a76s6NG
-         sAaq/lbzLRzm+hRupZn7jCWB/3ZBF1BiGYIPCok1SLBWtyLfr0HWyflBiMcQxrtE66rN
-         FFnDFDhr0brJOX4e/OCfN6FpPjBH2MRdk6O1VO4E1LvSZxi+j3maPscKmXV5RrVKEYBF
-         lNQw==
-X-Forwarded-Encrypted: i=1; AFNElJ9ncs3vYyf5eeBIEDiZHE5434MtrtfsEGhhYeufGpWnNDMTX0xbwA4XfmhVFT7COaOtDBHhdRpz+vu/PU2iJXFB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbeqPkg1ageLeI00nWo+V9naRcHl9PFfX9cAf+Rlqh5cmqr39y
-	3BNHthGF3oiQvaimXpFpfQQmE/FBUrgXyuUqT0oRnPMnT8wdH7IMAacD
-X-Gm-Gg: Acq92OHv/o+CDY+3DaylZ3xoqz7ynMjzhnDwPaz2lsB2DhZaiGacL9km2HGXF6dHUFB
-	rzwSDQNe9FPh+MfEjlS2ToYQGSGdI7Hm9/CncuzUNMF9TSP76e5CXrwiUvKkxCgcu0O5a1j1m54
-	DjmZUgz/6qQUZfIj+yPwgRmyckfonDug9DZ919Dx+hr7rZ8PHTRNWLcdZNQ5KqHoVP4vDJthC7O
-	0ikYN64wcPYb2W+zrQfGQGbcBGo9ubMihojLoWRxR3uE5BLxNbU13tunvGs7rXLAqY/wdAuSrXS
-	nWPQuEwVI/FyNLLYKAfZ7M1i7eLwZjG7mNaU5Il7ZA6sfHYpWNWlhiCpZG4llYAZ7dHzXadb1F9
-	51hTc3Ws870NT8TutKGVYQhJhDvmBAaNo0HX0eRXq1yKmqawD7j62j+puZG7V65EogPsIy83Xcr
-	7OkJE9DXNg4phywZlZuW8M1IAu+k1Te3+yHY+g8Ja57Q==
-X-Received: by 2002:a05:600c:c0c1:b0:48a:f18:ece4 with SMTP id 5b1f17b1804b1-490360c495bmr39484555e9.24.1779375683441;
-        Thu, 21 May 2026 08:01:23 -0700 (PDT)
+        bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=;
+        b=mqaj9UD2FhokkS5w/uWq7MQbE3+p6qNDMdjKAjR9ArFAKO1fnOy3ePr0+mlpwif4xv
+         CbeXdtnD3xCiFYwV+7JsgViPCoaeoczP/O4J2T40qT4IlUpzPVt9XBdfsHkv38leTYLx
+         tYZJPBSko9mss1OOcPraECWMIspWPoTFdZ2rkLFcNMUv/cb0Z0IIIagcOhY+KJpy3Bar
+         2TUcOUh56SqSA2XZ04YcthnuhNBqH8jnKTOSZfCWtgF6s7ZCQ0CZH65TzUsmm/Vc3Eg7
+         Ax/DhvVA9Fwmx3S/LyRSHrNjW+qj82pRl25Eq58wEC1nRMztI22TFHDp3mbEkJt3QdGe
+         qwJQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8j5ZzkFQyYrKYD/BbCxgbptBMKKzWq2n832a0NKzKdyYeo2tMWmmxzWyFfkdhu/9P4/xXhDJtf+38OJ+vx0art@lists.infradead.org
+X-Gm-Message-State: AOJu0YwI3WqEpwgwKaFjpe7p7tspJk99aG8HQRfhrrdkfImh+fEwkvIs
+	1r1uKLtRY9yyxWuI82wArs9rXAYb7cfS3Bet3UD4LLvvuvEm3yTRkSkZ
+X-Gm-Gg: Acq92OHzVvWMAiywWlcvJ0KpopLWIgKqrAdCpqUoc/EMw3kQFlZIObewWmnXMAcqrKZ
+	lldCfJ1Rj5OD8FuhUysWG8wmzT90EPtujwCIawNcC6ZFffFosN6JjmRLtSAfsOpDGhSJkdb0Vbe
+	XFn++4FqNP35xzn2OOTGpsdi8xXEKVXGqtz4FMrsouZ5fJBxgmus2+BbLCIE8hiwNdxyc0glJ7o
+	sjUGuT29JFmHoIlWiXtjGcc9Mp3a2E47wpjKaC3uCw27BCdSCVS47uA2G0VVgVKyAjFTlRcQHRN
+	P9vbUahPVg75pRZyjgUP0OxEIbixOzKBIuwMCt8JYMhSh5HExnPcwAYOlkrtbCEfnRj6we2qz31
+	nn/gfLyU35L+anTko5lkMFHNq38V2zdqHpSrx5zEo7Cyi3iPWA8hD5gjt50wxbfKXawhqmdFYVp
+	zXyxY0pOEr1WVAqUwXCoBh317Vre/lVihMSivze40sag==
+X-Received: by 2002:a05:600c:8b45:b0:48e:635a:18d2 with SMTP id 5b1f17b1804b1-490360341c0mr52451515e9.2.1779375681351;
+        Thu, 21 May 2026 08:01:21 -0700 (PDT)
 Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4903caede9fsm34056745e9.14.2026.05.21.08.01.21
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4903caede9fsm34056745e9.14.2026.05.21.08.01.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 08:01:22 -0700 (PDT)
+        Thu, 21 May 2026 08:01:20 -0700 (PDT)
 From: Vitor Soares <ivitro@gmail.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -92,17 +92,17 @@ Cc: Vitor Soares <vitor.soares@toradex.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 11/15] arm64: dts: ti: k3-am62-verdin: Add Toradex Verdin Mezzanine CAN
-Date: Thu, 21 May 2026 16:00:47 +0100
-Message-ID: <20260521150038.103538-28-ivitro@gmail.com>
+Subject: [PATCH v1 10/15] arm64: dts: ti: k3-am62-verdin: Add Toradex OV5640 CSI Cameras
+Date: Thu, 21 May 2026 16:00:46 +0100
+Message-ID: <20260521150038.103538-27-ivitro@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260521150038.103538-17-ivitro@gmail.com>
 References: <20260521150038.103538-17-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_080125_714603_174B8B6C 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20260521_080123_841548_58CFFC9C 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,81 +119,181 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vitor Soares <vitor.soares@toradex.com>
 
-Add a device tree overlay enabling AM62 MCU_MCAN1 on the Toradex Verdin
-Development Board with Verdin AM62 Mezzanine expansion board. MCU_MCAN1
-is exposed on the Mezzanine CAN Header (J13), Pin 3 (CAN1_CONN_N) and
-Pin 4 (CAN1_CONN_P).
+Add device tree overlays for the Toradex OV5640 CSI Cameras on Verdin
+CSI_1. Two variants are supported: the current CSI Camera Set 5MP OV5640
+with a 27 MHz oscillator and the legacy CSI Camera Module 5MP OV5640
+with a 24 MHz oscillator.
 
+Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
+Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
 Assisted-by: Claude:claude-sonnet-4.6
 Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 ---
- arch/arm64/boot/dts/ti/Makefile               |  4 +++
- .../ti/k3-am625-verdin-dev-mezzanine-can.dtso | 28 +++++++++++++++++++
- 2 files changed, 32 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-can.dtso
+ arch/arm64/boot/dts/ti/Makefile               |  8 +++
+ .../dts/ti/k3-am625-verdin-ov5640-24mhz.dtso  | 17 +++++
+ .../boot/dts/ti/k3-am625-verdin-ov5640.dtsi   | 71 +++++++++++++++++++
+ .../boot/dts/ti/k3-am625-verdin-ov5640.dtso   | 18 +++++
+ 4 files changed, 114 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
 
 diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 60844951c9ce..90bb3b0522d3 100644
+index 31c9bc1d48b1..60844951c9ce 100644
 --- a/arch/arm64/boot/dts/ti/Makefile
 +++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -29,6 +29,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-can.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-nau8822-btl.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-hdmi.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
-@@ -228,6 +229,8 @@ k3-am625-sk-hdmi-audio-dtbs := k3-am625-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
- k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := \
- 	k3-am625-verdin-wifi-dev.dtb \
+@@ -41,6 +41,8 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-zinnia.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-ov5640-24mhz.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-ov5640.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-dsi.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-lvds.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-7inch-dsi.dtbo
+@@ -228,6 +230,10 @@ k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := \
  	k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
-+k3-am625-verdin-wifi-dev-mezzanine-can-dtbs := k3-am625-verdin-wifi-dev.dtb \
-+	k3-am625-verdin-dev-mezzanine-can.dtbo
  k3-am625-verdin-wifi-dev-nau8822-btl-dtbs := k3-am625-verdin-wifi-dev.dtb \
  	k3-am625-verdin-dev-nau8822-btl.dtbo
- k3-am625-verdin-wifi-dev-ov5640-24mhz-dtbs := k3-am625-verdin-wifi-dev.dtb \
-@@ -344,6 +347,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-am625-sk-csi2-tevi-ov5640.dtb \
++k3-am625-verdin-wifi-dev-ov5640-24mhz-dtbs := k3-am625-verdin-wifi-dev.dtb \
++	k3-am625-verdin-ov5640-24mhz.dtbo
++k3-am625-verdin-wifi-dev-ov5640-dtbs := k3-am625-verdin-wifi-dev.dtb \
++	k3-am625-verdin-ov5640.dtbo
+ k3-am625-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := \
+ 	k3-am625-verdin-wifi-dev.dtb \
+ 	k3-am625-verdin-panel-cap-touch-7inch-dsi.dtbo
+@@ -339,6 +345,8 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
  	k3-am625-sk-hdmi-audio.dtb \
  	k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb \
-+	k3-am625-verdin-wifi-dev-mezzanine-can.dtb \
  	k3-am625-verdin-wifi-dev-nau8822-btl.dtb \
- 	k3-am625-verdin-wifi-dev-ov5640-24mhz.dtb \
- 	k3-am625-verdin-wifi-dev-ov5640.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-can.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-can.dtso
++	k3-am625-verdin-wifi-dev-ov5640-24mhz.dtb \
++	k3-am625-verdin-wifi-dev-ov5640.dtb \
+ 	k3-am625-verdin-wifi-dev-panel-cap-touch-7inch-dsi.dtb \
+ 	k3-am625-verdin-wifi-dev-uart4-mcu.dtb \
+ 	k3-am625-verdin-wifi-mallow-panel-cap-touch-10inch-lvds.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
 new file mode 100644
-index 000000000000..7ebf60d27c3c
+index 000000000000..7089336fa5b4
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-can.dtso
-@@ -0,0 +1,28 @@
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
+@@ -0,0 +1,17 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
 +/*
 + * Copyright (c) Toradex
 + *
-+ * Enable AM62 MCU_MCAN1 exposed on Toradex Verdin Development Board with
-+ * Verdin AM62 Mezzanine expansion board on CAN Header (J13),
-+ * Pin 3 (CAN1_CONN_N) and Pin 4 (CAN1_CONN_P).
++ * Toradex CSI Camera Module 5MP OV5640 on Verdin CSI_1.
++ *
++ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
 + */
 +
 +/dts-v1/;
 +/plugin/;
 +
-+#include "k3-pinctrl.h"
++#include "k3-am625-verdin-ov5640.dtsi"
 +
-+&mcu_pmx0 {
-+	pinctrl_mcu_mcan1: mcu-mcan1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62X_MCU_IOPAD(0x0040, PIN_INPUT,  0) /* (D4) MCU_MCAN1_RX (SODIMM 116) */
-+			AM62X_MCU_IOPAD(0x003c, PIN_OUTPUT, 0) /* (E5) MCU_MCAN1_TX (SODIMM 128) */
-+		>;
++&clk_ov5640_osc {
++	clock-frequency = <24000000>;
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
+new file mode 100644
+index 000000000000..eb3df9d85517
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
+@@ -0,0 +1,71 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Common device tree include for Toradex OV5640 CSI camera on Verdin CSI_1.
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	clk_ov5640_osc: ov5640-xclk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++	};
++
++	regulator_camera: regulator-camera {
++		compatible = "regulator-fixed";
++		/* Verdin GPIO_8_CSI (SODIMM 222) - CAM_1_CON_PWRCTRL */
++		gpio = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-name = "V_CSI";
++		startup-delay-us = <5000>;
 +	};
 +};
 +
-+&mcu_mcan1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_mcu_mcan1>;
++&csi0_port0 {
 +	status = "okay";
++
++	csi2rx0_in_sensor: endpoint {
++		remote-endpoint = <&csi2_cam0>;
++		bus-type = <4>; /* CSI2 DPHY */
++		clock-lanes = <0>;
++		data-lanes = <1 2>;
++	};
++};
++
++&dphy0 {
++	status = "okay";
++};
++
++&main_i2c3 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++
++		clocks = <&clk_ov5640_osc>;
++		clock-names = "xclk";
++		AVDD-supply = <&regulator_camera>;
++		DOVDD-supply = <&regulator_camera>;
++		DVDD-supply = <&regulator_camera>;
++		/* Verdin GPIO_6 (SODIMM 218) - CAM_1_CON_PWRDWN */
++		powerdown-gpios = <&main_gpio0 36 GPIO_ACTIVE_HIGH>;
++		/* Verdin GPIO_5 (SODIMM 216) - CAM_1_CON_RST */
++		reset-gpios = <&main_gpio0 40 GPIO_ACTIVE_LOW>;
++
++		port {
++			csi2_cam0: endpoint {
++				remote-endpoint = <&csi2rx0_in_sensor>;
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&ti_csi2rx0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
+new file mode 100644
+index 000000000000..e7f02cfaa94f
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
+@@ -0,0 +1,18 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex CSI Camera Set 5MP OV5640 on Verdin CSI_1.
++ *
++ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
++ * https://www.toradex.com/accessories/csi-camera-ov5640
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include "k3-am625-verdin-ov5640.dtsi"
++
++&clk_ov5640_osc {
++	clock-frequency = <27000000>;
 +};
 -- 
 2.54.0
