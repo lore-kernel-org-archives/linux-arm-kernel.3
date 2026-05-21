@@ -4,73 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28FC3CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F9ECD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 16:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TE+flxUmppj+ZFgC+QBrYRcvnvQLDwrZCpxIpu25Sz4=; b=xTB9271O5w2W1CqVIe3IExxfIQ
-	sCK3ZsAB58yu+diD1Rkndhq4rNYhSd3bHV2vzyr5BD74dPeTx4nyhkhi4UqyTV5pNZvFgRS/D8yE7
-	GEPIvrHHnzdDSYb7UvDI7geA7FOkH+seLsfvhnsCz3/9Ri/RCFVUoSk8CldOaSXvogo2Img7kpVt1
-	1ODzTzcVm9Lg3RWIVTZp/ZEXDzrM6WgJ1rDQtXrZ6wxybYJ8XsT25yCLLg44V4oVJ1ZMRdeYnB1p7
-	zOTeXWs2HnH2GOlr+KRHrd5gd0IJt48HJL3bmapm8JKtIgd5venJR9u6hzcwHjkz8Ej1lhMhFeJs0
-	6rUdbGUQ==;
+	bh=Vj20klKT6tYvnLVAc0GPKZ+khHycyF7T1fRfZse9B+A=; b=vpVjXEP0IG+9Z6Ul9RvDz/UGX+
+	+DPGLHT6T5v3SBDFC5NsjwoWl2GC9o0Cxrm+84jXKd1dVNylNC4gSx4H1aj/JuFiDwgyWgQ3mMLcH
+	X8i/EI/fp32KNQiwvXnK8TAxpy7w9qmtc4QXuOf+jCa5m92rpMD/nSp+GTeNUgzdiIZnlPKnoy5Gp
+	vbUBLjmgpcnoM5sie49/m3us4uj/LBjbngMO89qI38Q9RInaPQDDFw38V0gCSNPeZ4rfiz7PDe7Ty
+	RjNsGHXiu2fzUZF+iEE69GjDEboeKnEKNrjvOY9upIcyKZrSuFyAqUXuI/xyp7dtI0vN4OLgCOeTV
+	eeAu6TVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5qF-00000008Qng-2cru;
-	Thu, 21 May 2026 16:01:47 +0000
+	id 1wQ5rD-00000008Qx1-3E4j;
+	Thu, 21 May 2026 16:02:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ5qD-00000008QnC-0249
+	id 1wQ5rA-00000008QwM-3eUO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 16:01:46 +0000
+	Thu, 21 May 2026 16:02:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9A3C24A0B;
-	Thu, 21 May 2026 09:01:38 -0700 (PDT)
-Received: from [10.57.22.108] (unknown [10.57.22.108])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F5EE3F632;
-	Thu, 21 May 2026 09:01:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C971168F;
+	Thu, 21 May 2026 09:02:37 -0700 (PDT)
+Received: from [10.57.33.205] (unknown [10.57.33.205])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C816C3F632;
+	Thu, 21 May 2026 09:02:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779379303; bh=C2XTErJ4Ho5VJBYfNuKsd2pdN6y06CRfbrg4qfvDAz8=;
+	t=1779379362; bh=XM29D7iPUunyxNUrBD0yY0EWuJn4Z+yCZPfjI3A0bwQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=McqcDVXe4IqzgUYd4mxIG/hYeLAE3i7TYhvxyEIollCwXRYESsG2LiwTNqbyaijA2
-	 KaH8ngphdfSCUdD6gmOOb7cw/upUDzgNlOu5NhKShrCTrapTXfvvcYpug7sDh9RDfw
-	 +wsaMVm9eJLG34qTaFiKmXEGweOC+75P3zDrLZSk=
-Message-ID: <a81c3688-30f1-43e4-8d57-1d08a6e563af@arm.com>
-Date: Thu, 21 May 2026 17:01:37 +0100
+	b=VCraftv2925M7X6jExStT/wSW5s5JX0NWpAiBizlmsBSFQP1dLO0EEXjldGprAiTA
+	 j74scLLrDd1tQrCydJ7Mm1PggCuIZ2DWHlu66eMzw+ajFhtHbWCMZAFqcmoI/wHiVW
+	 VD26xbG6VTfBt9dQd4i1e2kGg61pFYIt5M3JgIb4=
+Message-ID: <dd188101-5edd-4787-8217-4edf4bde094a@arm.com>
+Date: Thu, 21 May 2026 17:02:33 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to
- delegate/undelegate ranges of memory
+Subject: Re: [PATCH v2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
+To: Aviv Bakal <avivb@amazon.com>, will@kernel.org, mark.rutland@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, zeev@amazon.com, blakgeof@amazon.com
+References: <20260503155118.16191-1-avivb@amazon.com>
+ <20260504133923.23373-1-avivb@amazon.com>
+From: Robin Murphy <robin.murphy@arm.com>
 Content-Language: en-GB
-To: Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
- Lorenzo.Pieralisi2@arm.com
-References: <20260513131757.116630-1-steven.price@arm.com>
- <20260513131757.116630-10-steven.price@arm.com>
- <867bowx3qx.wl-maz@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <867bowx3qx.wl-maz@kernel.org>
+In-Reply-To: <20260504133923.23373-1-avivb@amazon.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_090145_133185_4ACE43DF 
-X-CRM114-Status: GOOD (  23.80  )
+X-CRM114-CacheID: sfid-20260521_090245_004819_E6E48037 
+X-CRM114-Status: GOOD (  32.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,115 +71,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 14:59, Marc Zyngier wrote:
-> On Wed, 13 May 2026 14:17:17 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> The RMM requires memory is 'delegated' to it so that it can be used
->> either for a realm guest or for various tracking purposes within the RMM
->> (e.g. for metadata or page tables). Memory that has been delegated
->> cannot be accessed by the host (it will result in a Granule Protection
->> Fault).
->>
->> Undelegation may fail if the memory is still in use by the RMM. This
->> shouldn't happen (Linux should ensure it has destroyed the RMM objects
->> before attempting to undelegate). In the event that it does happen this
->> points to a programming bug and the only reasonable approach is for the
->> physical pages to be leaked - it is up to the caller of
->> rmi_undelegate_range() to handle this.
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> v14:
->>   * Split into separate patch and moved out of KVM
->> ---
->>   arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
->>   arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
->>   2 files changed, 49 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
->> index 9078a2920a7c..eb213c8e6f26 100644
->> --- a/arch/arm64/include/asm/rmi_cmds.h
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -33,6 +33,19 @@ struct rmi_sro_state {
->>   } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
->>   	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
->>   
->> +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
->> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
->> +
->> +static inline int rmi_delegate_page(phys_addr_t phys)
->> +{
->> +	return rmi_delegate_range(phys, PAGE_SIZE);
->> +}
->> +
->> +static inline int rmi_undelegate_page(phys_addr_t phys)
->> +{
->> +	return rmi_undelegate_range(phys, PAGE_SIZE);
->> +}
->> +
->>   bool rmi_is_available(void);
->>   
->>   unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t gfp);
->> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
->> index 52a415e99500..08cef54acadb 100644
->> --- a/arch/arm64/kernel/rmi.c
->> +++ b/arch/arm64/kernel/rmi.c
->> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
->>   unsigned long rmm_feat_reg0;
->>   unsigned long rmm_feat_reg1;
->>   
->> +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
->> +{
->> +	unsigned long ret = 0;
->> +	unsigned long top = phys + size;
->> +	unsigned long out_top;
->> +
->> +	while (phys < top) {
->> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
->> +		if (ret == RMI_SUCCESS)
->> +			phys = out_top;
->> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
->> +			return ret;
->> +	}
->> +
->> +	return ret;
->> +}
->> +
->> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
->> +{
->> +	unsigned long ret = 0;
->> +	unsigned long top = phys + size;
->> +	unsigned long out_top;
->> +
->> +	WARN_ON(size == 0);
+On 2026-05-04 2:39 pm, Aviv Bakal wrote:
+> Graviton5 uses a customised CMN-S3 implementation where certain
+> discovery registers report zeroed fields. Add the following workarounds:
 > 
-> I find it odd to warn on size = 0. After all, free(NULL) is not an
-> error. But even then, you continue feeding this to the RMM.
+>   - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
+>   - Derive the DTC domain from the XP node ID, since the unit info
+>     register reports it as zero.
+>   - Set the DTC logical ID from the computed domain ID, since the node
+>     info register's logical ID field is also zeroed.
 > 
-> You also don't seem to be bothered with that on the delegation side...
+> Signed-off-by: Aviv Bakal <avivb@amazon.com>
+> ---
+> v2:
+>   - Use computed domain ID (xp->dtc) instead of XP logical ID for DTC
+>     logical ID assignment.
 > 
->> +
->> +	while (phys < top) {
->> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
->> +		if (ret == RMI_SUCCESS)
->> +			phys = out_top;
+>   drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
+>   1 file changed, 31 insertions(+), 1 deletion(-)
 > 
-> and size==0 doesn't violate any of the failure conditions listed in
-> B4.5.18.2 (beta2). Will you end-up looping around forever?
+> diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
+> index f5305c8fdca4..8ee3f8638602 100644
+> --- a/drivers/perf/arm-cmn.c
+> +++ b/drivers/perf/arm-cmn.c
+> @@ -31,7 +31,8 @@
+>   #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
+>   #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
+>   
+> -#define CMN_MAX_DIMENSION		12
+> +/* Some implementations use a mesh larger than the architectural max of 12 */
+> +#define CMN_MAX_DIMENSION		14
+>   #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
+>   #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
+>   
+> @@ -214,6 +215,8 @@ enum cmn_part {
+>   	PART_CMN700 = 0x43c,
+>   	PART_CI700 = 0x43a,
+>   	PART_CMN_S3 = 0x43e,
+> +	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
+> +	PART_GRAVITON5 = 0xa5,
+>   };
+>   
+>   /* CMN-600 r0px shouldn't exist in silicon, thankfully */
+> @@ -2221,6 +2224,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
+>   	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
+>   }
+>   
+> +static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
+> +{
+> +	unsigned int x = (xp_id >> 7) & 0xf;
+> +	unsigned int y = (xp_id >> 3) & 0xf;
+> +
+> +	/*
+> +	 * The unit info register reads as zero; derive the DTC domain from
+> +	 * the XP's mesh coordinates over the 10x14 mesh.
+> +	 */
+> +	return (x / 5) + (y / 7) * 2;
+> +}
+> +
+>   static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
+>   {
+>   	int level;
+> @@ -2266,6 +2281,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   	u64 reg;
+>   	int i, j;
+>   	size_t sz;
+> +	bool graviton5_workaround = false;
+>   
+>   	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
+>   	if (cfg.type != CMN_TYPE_CFG)
+> @@ -2276,6 +2292,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
+>   	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
+>   	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
+> +
+> +	/* Graviton5 has a customised CMN-S3 which needs some fixups */
+> +	if (cmn->part == PART_GRAVITON5) {
+> +		cmn->part = PART_CMN_S3;
+> +		graviton5_workaround = true;
+> +	}
+> +
+>   	/* 600AE is close enough that it's not really worth more complexity */
+>   	if (part == PART_CMN600AE)
+>   		part = PART_CMN600;
+> @@ -2365,6 +2388,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   
+>   		if (cmn->part == PART_CMN600)
+>   			xp->dtc = -1;
+> +		else if (graviton5_workaround)
+> +			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
+>   		else
+>   			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
+>   
+> @@ -2443,6 +2468,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
+>   
+>   			switch (dn->type) {
+>   			case CMN_TYPE_DTC:
+> +				if (graviton5_workaround) {
+> +					/* Node info logical ID is zeroed; use the domain ID */
+> +					dn->logid = xp->dtc;
 
-That is not true ? It triggers, top_bound error condition, for both.
+No, this really should be xp->logid - other than DTC0 whose logical ID 
+is always forced to 0, but if it naturally lines up that way anyway then 
+all the better - since that is consistent with how the tooling generates 
+a regular hardware configuration. The cmn->dtc array ends up sorted by 
+logical ID as that is a guaranteed stable order for all CMN versions (as 
+the domain numbers themselves aren't always known), and it is the 
+interrupt order defined by the firmware bindings which we need to match. 
+If it's not guaranteed that the actual domain numbers are in the same 
+order then we have an existing bug in general (I'll have to check...)
 
+Otherwise, this looks OK to me - in fact surprisingly pleasant and 
+unobtrusive given that it's a pretty horrible hardware issue to work 
+around. I guess we get lucky that it's an easy topology to compute.
 
-pre: UInt(top) <= UInt(base)
-post: result.status == RMI_ERROR_INPUT
+Thanks,
+Robin.
 
-
-Suzuki
-> 
-> Same questions for the delegation, obviously.
-> 
-> 	M.
-> 
+> +				}
+>   				cmn->num_dtcs++;
+>   				dn++;
+>   				break;
+> @@ -2658,6 +2687,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
+>   	{ "ARMHC650" },
+>   	{ "ARMHC700" },
+>   	{ "ARMHC003" },
+> +	{ "AMZN0070", PART_GRAVITON5 },
+>   	{}
+>   };
+>   MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
 
 
