@@ -4,72 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F1FFCD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 21:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA6ACD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 22:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uQbQcM+2LFhGGCQDe0XZ51z9pdAsNMcpd6iW+ZY+bYQ=; b=BsEHRHuE4YOKYByIN1YQ2RsCTm
-	u6a0fktwG74kKjl3H4TsaVgf6TCRuBp0N6i+9yz1T6I9xc2o15kaimBlvz+nWukS2YmFchbSc39lO
-	UWFCJhkf0BbhtSmbbg1p9+4hCC1WSwHJDUnA27GT6D2RKYBeZeYGzFd91an1cCt9sI2+30PNfdoRW
-	rXKtJQClNGCbA9ZTFH1mQLBA2cP9YvV8xgdHrndzmZsOD1xT63Wwl0xWo3c+RLjcMLf99YOGbKKx3
-	FeNXda9nu44fBQvvDfKCPIc7rtIsRQDaTCRtiJhq+uv1TTmrAAGn9uCaSPr3sHZssSX5Wq2eqTENq
-	mBdN+aDg==;
+	bh=/A25vY2wwu+FxkZChatyc454HcHMRVq124kDP6lHcJA=; b=ojot3I1uqioe4oSYcJRmXcHtsb
+	jvF3KbyvYGpb19KNi4Pqi+Rls7y5OnP/lWsLL8tXf5ScRkbJgVAOA1Sybwx9Il7vIqhqRrQ/fSOMO
+	pIGkgcm52nsbGd36Cql71HkaOZ2acp99ECUOEKYBKOWE6o9QfhCMkRuidO83SBmKirxz9je+pYAyo
+	WojuHIJ9Ok6L/qSkTS9qWqf6CZHlG19vS+sQU6IUeYrT+TUjV7fv/xC+RGRIcor1Ea340sVS0eS+J
+	CYrmRzYPMxNLJg29YGWqmxnU8jKWOZdIrOiHnC4EnWaqjKOPiAG1tgSGRoWKzzdItTl82lL8uIQwr
+	/ahxlWyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQBOI-00000009AnC-46XC;
-	Thu, 21 May 2026 21:57:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQBQq-00000009BDB-1eMN;
+	Thu, 21 May 2026 21:59:56 +0000
+Received: from mail-westus2azon11010051.outbound.protection.outlook.com ([52.101.46.51] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQBOI-00000009Amz-07na
+	id 1wQBQn-00000009BCP-2Iay
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 21:57:18 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2230260098;
-	Thu, 21 May 2026 21:57:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0201C1F000E9;
-	Thu, 21 May 2026 21:57:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779400636;
-	bh=uQbQcM+2LFhGGCQDe0XZ51z9pdAsNMcpd6iW+ZY+bYQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=m4Sm8W4XsTe7axywiz1sP4asRFABCkdxRrgHOQEvE4uLdMIZTWhsxwDe+Qnon4pxz
-	 6vQUSsH5TKerM0Za1lrlru6wAE/9mibrGrvdOUPQBpFRlv9GgxY6b4K7+CG8ZfUOHj
-	 jsR+Dz7PYi7uM/35p8NwiI4yBBLlKaYcoy/lfVn2w8LVPSi8Ql/NBsjR+Z4hgMdxmh
-	 lJn+XXPfzvr1OLGB8uMECc8WGQ9ozLAT3aScQP8Z1QSu1L/PB3PRjEXejKxQkQivx+
-	 EKsFxS0VMMhLfdBD5J+z7uRPtLu0OyRmvQ+txqxoIrBPx8CS3hXETEG4sR0MHmVW4D
-	 H+/z/Pv9KKX8g==
-Date: Thu, 21 May 2026 22:57:08 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-next@vger.kernel.org,
-	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com,
-	will@kernel.org, peterz@infradead.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
-	rafael@kernel.org, daniel.lezcano@linaro.org, memxor@gmail.com,
-	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
-	rdunlap@infradead.org, david.laight.linux@gmail.com,
-	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
-	konrad.wilk@oracle.com, ashok.bhat@arm.com,
-	Boqun Feng <boqun.feng@gmail.com>, Boqun Feng <boqun@kernel.org>,
-	Christoph Lameter <cl@linux.com>, Ingo Molnar <mingo@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Subject: Re: [PATCH v11 1/2] kunit: add tests for smp_cond_load_*_timeout()
-Message-ID: <47cfb505-5d96-43d5-bc2c-961f61fa7fea@sirena.org.uk>
-References: <20260408122538.3610871-15-ankur.a.arora@oracle.com>
- <20260521083038.134260-1-ankur.a.arora@oracle.com>
- <20260521144629.11ee1e2ff88c5387a589f54a@linux-foundation.org>
+	Thu, 21 May 2026 21:59:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eXEBhyRdN5LzR1n/6fZxwyH+mHPhA7dBAq9xCpTq7NBF+3iR+PQzLJkut92luTrIn+szrI97y9TBvh5u+gM/3ZeDvv/gnLxdJXVt9ae34VtnB2B2lvymNMBoZYLOkYdMPDgPc2kMUcb/7NUH/WK1DjfNg6lfCLjfl5BFpdgLOzrYTkZAvNjBOjogVEVG8MGdYVKBa6IbhMBKUKe9+H57Vbd88aX9D6B79LEGY6YLvF1z5d/nJqtTNQ8ODGNsO1+jMxWtJue7k/nHcFkuqwqc+e3wrNqv4kz6dFc53PX/ur9FMlGwsPGnseyIdiqvvw3eSjpF8dzgAAe36Dr3PbDoHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/A25vY2wwu+FxkZChatyc454HcHMRVq124kDP6lHcJA=;
+ b=ZopKXVJM9HgWABf7h49sife2a2RcxThyS6dZR7aWDGSl49i4eU6Q9iXgtWzLsgyfj/tzB3AbMY7AAmuVMt8u60oTzslIjvAvzHVV7EpkSFadLXwbgbLUcR/9i95+lGLsog9JmMbTDF4Mjghj1Nn484I7k5Id6ef4eStd7AmHhfryyyN2OyTkVv/xpo+o3t97qFU7dzxskDKDIR3SGIqIDfJfLECXFJkO2r91ATyPmsrvtEVt4SvfnDJYqi06jELWziicfgQ/Bo8xX7To+PtjNXFpJVFQToiYM+oJ8TaxLWI1KLgHD6/8DQ6C7uiDmput1sWew0OBRo9srQXN4b2gng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/A25vY2wwu+FxkZChatyc454HcHMRVq124kDP6lHcJA=;
+ b=XM5d9U+/50TEZ2WdPUIgxSAEIc/1PimdkOhQmPD1eC1+NI983122j5RfthGwbMib/rAgJYQkTG6p8hFO9Ngn0WoyewN0l8MP5spOmSCxHUQvanl55FXMNa8qV3rKBQnnzVGN7EwtLfqbBRudy+v02S8t8SuoAVFc1PsQFN2NDHErxh1cyu5njSPVPWXX5dfsmqej6o7cXO1rYv4hJbrDSnOaMCeLl47Cvh5VMyUnKsiHHW9xGuGzw5vizyHfo8/wd0wQ4N5dNE0EC7XaZN7qPcYgYl8UKZGYQhreX0c70x1mwSwtg2w7ObNfykMXHGABcSe81v/DYPuA0UrjQvqW2g==
+Received: from DS7PR03CA0103.namprd03.prod.outlook.com (2603:10b6:5:3b7::18)
+ by CH3PR12MB9454.namprd12.prod.outlook.com (2603:10b6:610:1c7::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Thu, 21 May
+ 2026 21:59:43 +0000
+Received: from DS1PEPF00017094.namprd03.prod.outlook.com
+ (2603:10b6:5:3b7:cafe::3b) by DS7PR03CA0103.outlook.office365.com
+ (2603:10b6:5:3b7::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.17 via Frontend Transport; Thu, 21
+ May 2026 21:59:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF00017094.mail.protection.outlook.com (10.167.17.137) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Thu, 21 May 2026 21:59:42 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 21 May
+ 2026 14:59:28 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 21 May
+ 2026 14:59:27 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 21 May 2026 14:59:26 -0700
+Date: Thu, 21 May 2026 14:59:25 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <bhelgaas@google.com>, <praan@google.com>,
+	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
+	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
+	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
+	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
+Subject: Re: [PATCH v6 1/3] PCI: Add pci_ats_required() for CXL.cache capable
+ devices
+Message-ID: <ag+APX/6seVWrpvB@Asurada-Nvidia>
+References: <ag90FlOaljwa0qqU@Asurada-Nvidia>
+ <20260521213123.GA186424@bhelgaas>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iR8o3p4d1Gu3Q0D/"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260521144629.11ee1e2ff88c5387a589f54a@linux-foundation.org>
-X-Cookie: No shirt, no shoes, no service.
+In-Reply-To: <20260521213123.GA186424@bhelgaas>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017094:EE_|CH3PR12MB9454:EE_
+X-MS-Office365-Filtering-Correlation-Id: b6fdac66-e07b-4a21-74f9-08deb784439d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|7416014|376014|56012099003|22082099003|18002099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: wxYe/OpKAAblObq5pQuDuSiY/LVEGDr6vUDCBgqXn4o1NA7K3e+fk+igfG9EYEdgCIJthwpt1nQCsIQx1fn2W9eQWH7Mnhga1FINt/E/kbV+BcZIqcwZroIYdom6UQs4vsia9yBAJkh6bIqpSi/+YR3wQ/b22dRLP0pk1sY+Ytgf0Meh9SsPy9Ov1hyJmG5jv0yUKkpe2Vb4KkeWKgtoipZPluUhthl7RF1GHl+iIJop5cXKR783AhIHnvW9Tl3A2SlXR/sLQPhcYO29tpODZnGyON434ZSESkSd+hpQZVXQhREZjZXNrz4etnG+YjUenPv0ZWpEDTTBfpT79tymHSeyu2hsXhh2WALxIhjQ1+5Z2IGaznIPyjMBcW1gcosFI5Q4VGO2BertbUBjbTMwM6a3oOzwOREAvm0ezkvT8AfrEJHOxF0OBuQbQQWoorzsfYFDQbDuQVHY4vftM51ISBKOB8ImUDNTbuMYdlMA1F5c5kyCB/1zB8gqNzHOeLrNJyXbKzT1gqKUaBNpsSmxNR2bqX3N0tXdtU5cf7JDbPSf3F7EdQBxoGIImx9U4+yGCzBhrBuompHi/DFeehjUCLFOQJFMuQSCVeOO/YkyJTdZwqrgFs59M48Vc+/LFCDe8H9EZ38Ii1loDdN6stYxUgBSQ1Wqnrn0ABbROxfOwEZM0EnNz0XaHWWs8m01+QM6a1lBfQqi4WYOfyWl7XF5cBXBVS54qloT3G4lyZuu+E8=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(7416014)(376014)(56012099003)(22082099003)(18002099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: IGoMt7o/1TqrXPnXB7cXLH0jGmAeVqAcAu0XVJESXhmACZeOBB2BMPRfxZfuRP5hkVOy/QSqY5W9GXZYu7/+RnBHHPpK2epqdHlBrXq/Hgl2ZhYdf5/Elf10mScA26DmeiTQr9w4w+u1PrfzTAuVVv9v+Uq92EZGraO2PQ8s4syuYTyB0TMtSiUT7c8sHprJRAhBX/tS0JSUEmXfqDkNo2z0UqaR0i4VpyTHoxEO2QpmIYKAduFZ5EO68AWoZpDxJB3tVPhiw7qtSgpSpdVgEntWQ1Ffw5wlZ7MEjwM654duayXsOsjNRgxdN0fS29/SpoMFWWrCTUYYLfBuaC0PiVoXowWMFXAIvSOzsZWNgj2af+v677bWFuP+l76OOH20Hcz+AfbT3+6XsjnP1fANFUyWRbqdw01vuLjQYtTM+ey/4rBZAmGP1BZ0UnRSQHdW
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 21:59:42.9621
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b6fdac66-e07b-4a21-74f9-08deb784439d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017094.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9454
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260521_145953_597978_1AA04703 
+X-CRM114-Status: GOOD (  19.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,34 +134,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, May 21, 2026 at 04:31:23PM -0500, Bjorn Helgaas wrote:
+> On Thu, May 21, 2026 at 02:07:34PM -0700, Nicolin Chen wrote:
+> > On Thu, May 21, 2026 at 03:57:23PM -0500, Bjorn Helgaas wrote:
+> > > On Thu, May 21, 2026 at 01:34:20PM -0700, Nicolin Chen wrote:
+> > > > +bool pci_ats_required(struct pci_dev *pdev)
+> > > > +{
+> > > > +	if (!pci_ats_supported(pdev))
+> > > > +		return false;
+> > > > +
+> > > > +	/* A VF inherits its PF's requirement for ATS function */
+> > > > +	if (pdev->is_virtfn)
+> > > > +		pdev = pci_physfn(pdev);
+> > > > +
+> > > > +	return pci_cxl_ats_required(pdev);
+> > > 
+> > > I acked this before I saw this sashiko feedback, which looks like a
+> > > legit issue to me:
+> > > 
+> > >   Will this VF inheritance logic ever be reached?
+> > > 
+> > >   According to the PCIe SR-IOV specification (section 9.3.3.1), VFs do
+> > >   not implement the ATS Extended Capability, which means pdev->ats_cap
+> > >   is always 0 for VFs.
+> 
+> Huh.  I wish sashiko would include the spec revision because that sure
+> looks wrong.  In PCIe r7.0, there is no sec 9.3.3.1.  In PCIe r6.0,
+> sec 9.3.3.1 is the SR-IOV Extended Capability, which doesn't mention
+> ATS.  In both, sec 10.5.1 is the ATS Extended Capability and says both
+> PFs and VFs can implement it.
 
---iR8o3p4d1Gu3Q0D/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+I am glad you checked the spec. I should have done the same.
 
-On Thu, May 21, 2026 at 02:46:29PM -0700, Andrew Morton wrote:
+> So I think this is OK as-is:
+> 
+> Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 
-> Anyway, I removed the series "barrier: Add
-> smp_cond_load_{relaxed,acquire}_timeout()" from mm.git on May 19 for
-> forgotten reasons.  So I suggest that the series be respun and resent,
-> with these two test patches included.
-
-The tests were failing on arm64 when run on hardware (rather than qemu).
-
---iR8o3p4d1Gu3Q0D/
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoPf7MACgkQJNaLcl1U
-h9ArKgf/WBzu7kRDlWjCMxxM9PE8zNgetiSk55MAn0i/cLo7V5upiJIuWjWAQ/5V
-HXFCzW8WqDm/C/fgLgagDfAeXryA8mQHNzj+/GfwyEMoi7U4axGE0JAbRApQG6tR
-pdoCuQvFQny3cRv8fUhuur9cUuk1bAqSyU1DJK3Cd3GsHu+WOZLAsAJ5ybxGhO+L
-2S58wosHLfeML83EnX2ksuxisglbtbLAolTETorArAclmbGRmeeUWDu7FEgbxJeV
-t3xPOoO0SEvmyi0l5pF0aS1qlhWanVmbPZeAojeRABt3u1fLn4RrBCD3QMmmovTA
-R2tbzJ5cLsnrfq45zTTFtfM1xAenLw==
-=i6eZ
------END PGP SIGNATURE-----
-
---iR8o3p4d1Gu3Q0D/--
+Thanks!
+Nicolin
 
