@@ -4,111 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80997CD4F5E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3920CD4F3C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 07:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=L+OT5iaiiu/0ZtCdDzuQMDNl5GzGIj6UbV2daq3Pmuw=; b=I6g7XsMJK2/R55pQiDbq8C8Pos
-	9ni4ELBc+bOKRgAHGois30n5upLnIcdNQWLVUXeE+iSs5mmsJyYR2/zErRPs67CMhUaZf0VtJeO1M
-	5x+qjPqEFLQHYiC9RIRHMB5G/W6oHW+sSZsyQSP2EMQMz0i5Gh+Uhp414/4wC/O8WpVUZLv7vlfqn
-	rZP/8e9YgAC8TTSLfSebA0Ixjqgzc9uArgoj/ynmvckD7g8xoKxINIptM4K2DAG/OhhSxS2apMgCM
-	ZHfCYDMaaUJqCL4EaZaQNvP5T3hrQ4i6NnsaQomHcd43347IdEVeBFZgsfaA2pTuDI+80Hvq1U7LA
-	5oRngFJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eHiNJWEQBNGGxX7zNxGvjWDFJcxgtXRW10xyHSLiyWk=; b=BKqXL1sm6vBP4BBu1P3as+nnbQ
+	EQbKPgNrlh2F/3CpyOQdrT+c08F7Hs6TU8vOo+b1ptKCkvbm1YxpOrVhmCONh3B6vTbO3rEhItagE
+	X4FE9Njj1RXyk9SYVonWSdvZi1IX9BKmVCuNEEWevQtFokrbAVakHOi128S21RscPKJUvM4dbVT4U
+	IUisK2HXIHlf/MwNaQ/B6/IgQKAbR/PBXlPtjJmt5QCYxIWEVmOIhaFf9JoRaLbPfK/MwQBupBLOX
+	s+bF5wi9RrgutepbFq88rwD46rdqado33WZ0KS1GoMIWQ9Uw1fZnwqprGKBI5P27JfiGJvi8mnVPT
+	VfmqBf9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxqt-00000006xWz-3m1d;
-	Thu, 21 May 2026 07:29:55 +0000
-Received: from mail-koreacentralazon11023084.outbound.protection.outlook.com ([40.107.44.84] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1wPxrv-00000006xrA-167s;
+	Thu, 21 May 2026 07:30:59 +0000
+Received: from mail-northcentralusazon11012063.outbound.protection.outlook.com ([40.107.200.63] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPxqm-00000006xTn-2YMh
+	id 1wPxrs-00000006xpa-1aNi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 07:29:49 +0000
+	Thu, 21 May 2026 07:30:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JN2nKm54R48Gv3Qi3JrqFvfXPtWRZAUI9HDtpGt1IVFrlxr1NkVP1wVSmLXLIJROXykhGywdHGJjwVLX8XXiA/oHveOgsOGAbT/VthJwKRX2x98gGlKwvJ6RhUoAJ1KU8yKSkmxhZPLu906l4viq52QgYvUJun4wGJau1agHwkLhD0IzslkhU3DJzJZcaSrhAhf/Gk65bRIlY0q137r/ndv4UFwnO9jVUPolxHIufFTBOKJjBgpJeP7CUQtZKGgD5QaAfoTygl12paec0SvwpKFs6DTZtDhnIUWX/Tdgcrt9WHA75kfGKRKqE/pCJRQDxEQuqNHctH2WhmdXDgynpg==
+ b=WjHVW5RmEjgs3mgrI2tnYeyVNe5hD0XAw3IleqTCYUYNb2Xd/KiGs5xT/zeGo43RV96kPhO6gfwnwgz8/T/KWH0fG085+HARTNuJ7jDv0MVpdiHmUyTd/WCQtg+CcwSPQWGZBK4XIqB3R6I4IHH0paV7J4jzsO7j9qj5J+DMPlPEQy30JA4OlCGPy5IA+UWR+MjMhyn9SwRql0iV+WMa9w2C61XcQ+J6omA8UIKp9VCaYItzXTp+SvV5vl4+1SI6+WX4NXtV8lCxZp/fzscvgUGOJHsGaWug2hDD36oWVhi8Cos+/a/yl3ozV/8fldbVh8fMOlWZGCEigAbOBRAkCw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=L+OT5iaiiu/0ZtCdDzuQMDNl5GzGIj6UbV2daq3Pmuw=;
- b=FanMF2su73jspUhX9NARBHxRuhAuqT42fvDpKIA42XcnoUMWrodwlAxBTLlqjo7ktI1fWzuokF0fhbSm5dMW4UPjTB+QsUtVihY4YbBqSHXg53Oy6n94CNErEtlF3/MhLA096yzEHlPfMdMq7GhjrtaSeA0Unn/lPa5mhF0Xl4nyYsZs/cY9/WnzHFlURAUczjX5ajqvgdErRYMbTH5iJEMZ9SErYkiDurKNe85jINJ2tzQ45xlSGZCVuZgg832rwmZRJDFsJATXowcYFiHpBPvql0jdYZ+a/g0x96nNH/aQBMyHP3xKOZfHzmRHvkz3cTC183kIZundsGPZEABEcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR02CA0046.apcprd02.prod.outlook.com (2603:1096:4:196::15)
- by PUZPR06MB6267.apcprd06.prod.outlook.com (2603:1096:301:115::16) with
+ bh=eHiNJWEQBNGGxX7zNxGvjWDFJcxgtXRW10xyHSLiyWk=;
+ b=HjkEUBD8RR3xKO5hIZ5v8rjJW5TwJOMwYR/nHPwpzw0cRIyFRzlqqsglSlvtTwkMhIHkNNsL7X9dHEpMLrARG8RySguYymFV57muYKYn7eBKfkph57FkUaOQj8rq2fiJVYRg4eVHvR51BBUqVZE04TtstyCYYI93n59yVmYBhU9HtxhRoQ44fHjel682pkddnfdmYH+o7VpzcpSTOpsxC0JDM4TjzqXLtclyJx6JwZfxd5NUauE2WSgV+y+KHJ6/S+eF5nfnGFU52YKgITRSpViR035pJog7JiiBRWvpsHACW1kjARVvC05Pxq9eA/lv49mxue8/8Rg7D32tcUZICA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eHiNJWEQBNGGxX7zNxGvjWDFJcxgtXRW10xyHSLiyWk=;
+ b=kzRphVeYW0D63NEs07318lskveLlZBJZAHJG5l6y6U7YsS6uVPFdb0LsZ64YNYlp8522Rf8gmabaHn3/J0V70s37nVf8fsvCgozGGuMqNf8ogEpUj+dkiwhlwEPrB+QNTMlQt/LJHoVndqjaxFPMJBJAvRcJCo2SnrLlnJJ6jXakZXqMJNvZJJFAfps29uK12A/dYFxJVWRNzYIBE73cC6wrrced8/qbFX3pqsTxq0fVPKPgBwmRjyHwPzD3GoP2zqueF7wW8MEQHdv6chc5Uqi1zWg2oQ0AD3i/UF+sln6ZyLsyF0idDtlPwqvNcgVAX7ug7y7XXR7+0WN0eViTPg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com (2603:10b6:8:252::17)
+ by MN2PR12MB4254.namprd12.prod.outlook.com (2603:10b6:208:1d0::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Thu, 21 May
- 2026 07:29:28 +0000
-Received: from SG2PEPF000B66CC.apcprd03.prod.outlook.com
- (2603:1096:4:196:cafe::7e) by SI2PR02CA0046.outlook.office365.com
- (2603:1096:4:196::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.17 via Frontend Transport; Thu, 21
- May 2026 07:29:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CC.mail.protection.outlook.com (10.167.240.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.11 via Frontend Transport; Thu, 21 May 2026 07:29:27 +0000
-Received: from guoo-System-Product-Name.. (unknown [172.20.64.188])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 1FD0641609C7;
-	Thu, 21 May 2026 15:29:26 +0800 (CST)
-From: Jun Guo <jun.guo@cixtech.com>
-To: peter.chen@cixtech.com,
-	fugang.duan@cixtech.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	vkoul@kernel.org,
-	ychuang3@nuvoton.com,
-	schung@nuvoton.com,
-	robin.murphy@arm.com,
-	Frank.Li@kernel.org
-Cc: dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	cix-kernel-upstream@cixtech.com,
+ 2026 07:30:50 +0000
+Received: from DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7]) by DS7PR12MB9474.namprd12.prod.outlook.com
+ ([fe80::31ad:931:ef07:8ad7%6]) with mapi id 15.21.0025.016; Thu, 21 May 2026
+ 07:30:50 +0000
+From: Srirangan Madhavan <smadhavan@nvidia.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	lpieralisi@kernel.org,
+	sudeep.holla@arm.com
+Cc: conor@kernel.org,
+	jic23@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Jun Guo <jun.guo@cixtech.com>
-Subject: [PATCH v7 0/2] dmaengine: arm-dma350: handle shared channel IRQ wiring on sky1
-Date: Thu, 21 May 2026 15:29:22 +0800
-Message-Id: <20260521072924.3000282-1-jun.guo@cixtech.com>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
+	linux-kernel@vger.kernel.org,
+	vsethi@nvidia.com,
+	jevans@nvidia.com,
+	raghupathyk@nvidia.com,
+	srikars@nvidia.com,
+	nbenech@nvidia.com,
+	alwilliamson@nvidia.com,
+	Dan Williams <danwilliams@nvidia.com>,
+	Srirangan Madhavan <smadhavan@nvidia.com>
+Subject: [RFC PATCH 0/2] arm64: add SMCCC cache invalidation backend for memregion users
+Date: Thu, 21 May 2026 07:30:45 +0000
+Message-ID: <20260521073047.320614-1-smadhavan@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+X-NVConfidentiality: public
 Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CC:EE_|PUZPR06MB6267:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 98ebc0d0-ec36-417f-afca-08deb70ab091
+X-ClientProxiedBy: SJ0PR13CA0202.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c3::27) To DS7PR12MB9474.namprd12.prod.outlook.com
+ (2603:10b6:8:252::17)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9474:EE_|MN2PR12MB4254:EE_
+X-MS-Office365-Filtering-Correlation-Id: 15a1c7f3-8f59-41a4-12c3-08deb70ae1f2
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|1800799024|82310400026|376014|7416014|56012099003|18002099003|921020|3023799007|5023799004;
-X-Microsoft-Antispam-Message-Info: 3KONVPLm4rlMDY0a9ooZWrmOP3dffoneav7XAUcY5GvsvoiWgTBmwzkq94VRXX1BUbcEx6eT5xPT2ZsakIf1St8iCX0QAe8Z6zL+7gzBBBjrv/DiRJFTMYJygd9WcNeU6zghKtlWNn9JGWM9HW41soqCVrYu12HdETlFIaNI8lalonV9F67EKbk1hUHfvX4mDw5yLTWT6FnKgEVd9oNbbNAPlWwpl8hsRbIAHV4spRyEJef7V9Wh/P64XSNEdWT0Uutrl/nOfO6UfhOXZ5sv2YjEDQUZmkxQHRSsmxPybJJZrY/kfVoYXq/S7OtswqKyBWujcxEF+551gMDbQb4fAITO8VHiF71avTC5CQWhvRk9FqNGgsWNEvnM9cLc7zN1v5rIakU249K3XRyNAQKyKRE5spewIbMVj6mEIKKRnq8v8UX9NuOnqcM11Fu/AYDRnvFv8ltF6YmszWIHvcI2fLAaid7UIEcdD9Yav3SwccHpkhakK8WSP4tuYPIbjhNwk8h6ePFnWTzd4918C2Fu86hHNTREZ12I0TQ3n08NsXfdAkPGw48yXuzffgPBmqrLTbSoH5LgZjAsB37YHrGfs7XUho2JEcVhfN3IJ0TLdTvcI3tk+mHiL3LpyJfvjYhcbQZ8OkVEIvZJVO9YCq9T/2XNi/6z20xl9mFTxrNCRe94lUFyhkgaqZGK3ppIpT7lOfSKN35XN1wV/zi0nYyLAYxVlZwvKIg+nmH67LFEw6bpuIFXWARUH3VAUtKt68nTVibQbeK/16TcOC3Stem0gw==
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(82310400026)(376014)(7416014)(56012099003)(18002099003)(921020)(3023799007)(5023799004);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|18002099003|56012099003|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: Ka6PMbC4R6E8HkABwGPgEPLX1pYsfuJ+WZDmg8cLZadiaw/1JJvmTmA8cWbKBcgoUD8Ps5HzuBcXraZFmEbNA1GOyZEpYdx7egDEYZQo2zqxfapwCAXLpvEONPjc/TAhcKKxW8C1oWYLg2wvF9Uc3eura8oHQLyhwIxoNd0Jh0eOiPbEhQAcb1i/kbbpHqPpyIv7UvqKX9uDHCk8I69ndzRlJxaoPgkJyu1/nKfzzQWQM3u05AS8zRxt9o7yPxRt9Izoa1jacsRfSOkDQunIwguY3i4zwV0NXTbhayhHpahXsCRnVkLuVSKETkRKpXk6Aj3ItCVpkO6Wnm+IvjWoV7Vwfucji83ULKfUQWl/CHSCnW4QNDbqLOg+2THn+zqWVtMhgmn/O8Mzj4P3DYoDqMYe4xMMk+Wy/8dt8j6IyO0pgIjID7U9QI4Pv2XbXd7atpBP5dO1mUqFQNR+vr6uTp2CyWDiQeojhVCxq62Lf2w1JEJgxSbCH0EiNlM3umtKX9qrrWmSrjyXrx5X2E5p8/cojqkk2F/4CddVrWwzXCMvI1hec5NV3J51iaJ5UrtutxveYsHzKSsUeJpYTQi31AlWRlRRxF4C8J/N/Q3E8eVlbVM9FQL8I2T0e7qUl1cFXyRzrlCPs9DYSPBtXIk39ws34T8YHH0qDjOKlqz8a9wsrpdnkIYV6BOeHvNz0AzGw+9eZ3LwfL+mElWrAcmL5w==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9474.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(18002099003)(56012099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: adb3x4yDlw848MmGVtX0wAq3nhQjbQgFeq7QhnCgfcuOQ4kgiwmgQzJFckX2eKIksOBCaGNn6UlXdS/8WhRJRI5Y64LtKodgScAXI9OmY2pmy04eZ+V6Cr3MpH2NhG0WkWdsfkNxVxOSvOJfoWrq0o6SLShoq7NSg8uOMO1JX14g2Cn+JgFI9QY1I30mytOOqK7OBtwF0XlImnVGPqnuH0vVTlEhdV5DxhzF+V5cGSXpoGoQ0rYur/1jdzaA2vbLr1CRyL5xiyh3bNdrDQ7CVDv1RIlbifj+T1zvxZbs48E6utO1GMt+XG8yMMogVGoqdbBLW1VJJH/eO0jxOM+j9K7ToVE3ki0cZmHeaXP5Bt/UKSl7k84OxM/IzPXxsrQ2Fzcr8OsMv0SxcASr6EoL7u+RUpJRVJP4ik8VytqhF2M+hxi9Pk6YptpZkvyVgcCv
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:29:27.1364
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/VLXRKEG3pUzrjGm37+lbDsjdXPTVvqCUtZc8d9XEljiXxL0J99cQpxX4B2f?=
+ =?us-ascii?Q?JGWkMZAySd5ZotaDvPHPGoFlcGxdBOTuHqNAS4McrHxfSGHM1cliCEZ3iepd?=
+ =?us-ascii?Q?R6zsUby3LG3pxrOOcc6Ylh+xg3u8uIMi0UABsJ794KnI+Fc9Rw0l9EjU1Yqn?=
+ =?us-ascii?Q?PMS6tOVXEFb9LPrHqYgKV/lAQ7YFeISdxaz712jEFcam3VCv4vbT3BV+UVZr?=
+ =?us-ascii?Q?V3E0TIPnqErmVn9EM6QIT2huqzCRZ1WuP5glD2t/XmbYO7Zn2kXdyI7Bm2eE?=
+ =?us-ascii?Q?y9qNGUfXFtlctXF2CuIOs5UGWX8PYGEAdWpgCWRd9mQBitXNHNjMi6Id2Tra?=
+ =?us-ascii?Q?wEpjpSXbMlbazuyCIOXPq1+fkBkex7ZPJKeqlLg9/j2ZSXPiDx9OKP8njM0l?=
+ =?us-ascii?Q?ryGl6kpgU7k0L3gifCTUIQX+3kPewpqES2OdNctd5aLBeuAvCROv9q8fFhb7?=
+ =?us-ascii?Q?hnCs99ZjpIcFzb+Q029TgtcWEeK/Ik9bjXAt9CANyLvrz7+2vxNozxo4YkBg?=
+ =?us-ascii?Q?xpYXHX1L4ybLfxK+uGNxirGw3YrpElQlDB3kUP9k7xgfmgPIcs7wpLmiTSnD?=
+ =?us-ascii?Q?yg2kjItdZD5x6Xh0DWRFc7/DVqeA3+4fMhLH+Drp27VtDcoP7K6zclP0oDFQ?=
+ =?us-ascii?Q?6YPBTVu+M5hA51m3HPsl8wU3nbFjSL61w11ioYCrNyED+fEoqjx1FCD6qCg0?=
+ =?us-ascii?Q?BBnEWQ+JmF6Cc4MrZVkxQUHyQhydQc7d8OsPsOLs3NIoVhO1K4YN3LQ2fLcg?=
+ =?us-ascii?Q?+1nVPrmOzr6DhG3j+y8GMzrmNXkzRDsajmLYr+WsQ2JShO0OhTNPStibkRVW?=
+ =?us-ascii?Q?Qw0BGMveH2hWuVGoOfy3Q2lJ2NSV8mFTtMM3IiTaUuy/SLKSTKPj5IrjGbdz?=
+ =?us-ascii?Q?GKHH+1Sc8fuGSyXQg0KgkUr7QtKGtA67NidFZ74fBVajEh4NHavNT+EYNhVK?=
+ =?us-ascii?Q?K5uXlOQVD7W7y11aemz8ofEYeKgU3ty76R7X+TH/5mGC5T2G0N5SSbJFGWaI?=
+ =?us-ascii?Q?a5gs8jcYgLKt3OwyEK+Oe8N9SWXMmlKtPzAo+z01RMm5dLnYLoX+6/qhAyy5?=
+ =?us-ascii?Q?5VTzSqi1ft0rUEmyBp5p0GaFYOdKf3K1GhzucoemDoNHEqUu5Q647F9MPQ4P?=
+ =?us-ascii?Q?AxwlU6uC6UqqPK9EK9iOcfMJndXOM9q5Y1R7dpwYPDpeY9XUYDOTwl4z4fL8?=
+ =?us-ascii?Q?VbczyjOqT8aNTkpH99Dp4ViTVWHnPxYiTVg6nmdo7iQNr91Jfxnx0KDz0Ebh?=
+ =?us-ascii?Q?m9nmNuEDXB+nVRaJkxAsajbsSnBWEbxBC6WwmMbu/A1aLuaPooL3AlvVphkF?=
+ =?us-ascii?Q?/HAZsTbU7KXwZzYm1FAfRWzaFrm+c5/bATF0RLycL0//7Y6EzIvgBhCNUxD2?=
+ =?us-ascii?Q?lfA41oUA06UMWSzlTLaJmN08X+AfUvlSyl6Xe799aE0xGCBBJew0tEZax8BZ?=
+ =?us-ascii?Q?oNeJbXzUVtEsbaK+j4w04Vf7w3OybBS4HRxG8OjH9jF/PMqzcLLP2IyxnFtu?=
+ =?us-ascii?Q?ov1I/7+/BGSjbUb9IOjb9qeu6M59ste1pVo5rKXFKayeJJvopAE8aywNFUSa?=
+ =?us-ascii?Q?wjQTd68TjzzYQ5j8s/D0G7YJ+Tx2IeHCfFxihDL1UGsGlmOHXQ1v0+6nr+0T?=
+ =?us-ascii?Q?TnTDHUQZaynwEZj0FbHATBdddFrbqnl9n0ATNX4Iq+RWVo81TAg1NerNy6Nu?=
+ =?us-ascii?Q?yJ8Alj5hX8phUql3Z+ct/virGyDFLt5j36ZVstP8bUADWU0cp2Cpa1GIsziJ?=
+ =?us-ascii?Q?bHwJOG1+VA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 15a1c7f3-8f59-41a4-12c3-08deb70ae1f2
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9474.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 May 2026 07:30:50.2814
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 98ebc0d0-ec36-417f-afca-08deb70ab091
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CC.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB6267
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tPBgXYhmosJRtkfOm7IeXo/c3n1zqfjUyAPLp5ou9r9uvIMoAnkXpMqGkfIPqqD8p+ilZpAcF9QMxpKYRjSDFg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4254
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_002948_650735_69AC8E67 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20260521_003056_416412_ADB64310 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,67 +150,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series updates DMA-350 support for the SKY1 integration where all
-DMA
-channel interrupt outputs are wired to the same GIC SPI.
+This series adds an arm64 backend for memregion cache invalidation users
+based on the Arm SMCCC cache clean+invalidate interface.
 
-Patch 1 enables DMANSECCTRL.INTREN_ANYCHINTR in the driver so
-per-channel
-interrupt status is propagated even when channels share one parent IRQ
-line.
+Per DEN0028, this interface targets systems where a Normal Cacheable
+memory region can be modified in ways that are not handled by usual PE
+coherency mechanisms, and where VA-based CMOs may be too slow or
+insufficient for large ranges and/or system-cache implementations.
 
-Patch 2 adds the SKY1 DMA-350 DT node and describes the channel
-interrupt
-sources using 8 channel entries, while all entries map to the same SPI.
+Representative use cases include device-backed memory state transitions
+where stale CPU/system cache lines must be invalidated reliably (for
+example secure erase, reset/offline flows, and dynamic memory
+reconfiguration).
 
-Tested on CIX SKY1 with dmatest:
-  % echo 2000 > /sys/module/dmatest/parameters/timeout
-  % echo 1 > /sys/module/dmatest/parameters/iterations
-  % echo "" > /sys/module/dmatest/parameters/channel
-  % echo 1 > /sys/module/dmatest/parameters/run
+Patch 1 introduces the Arm SMCCC cache clean/invalidate function IDs and
+transient return codes needed by callers [1].
 
-Changes in v7:
-- Modify the commit log format for the driver patch.
+Patch 2 adds an arm64 cache maintenance provider that:
+- discovers SMCCC support and attributes at init time
+- registers with the generic cache coherency framework used by
+  cpu_cache_invalidate_memregion()
+- handles transient BUSY/RATE_LIMITED responses with bounded retries
+- coalesces waiters when firmware reports a global operation type
 
-Changes in v6:
-- Drop the dt-binding update and keep the existing 8-channel interrupt
- schema.
-- Simplify driver change to a minimal fix:
- enable DMANSECCTRL.INTREN_ANYCHINTR.
-- Update SKY1 DT node to describe 8 channel interrupt entries mapped
- to one SPI.
+This patch set does not add a software fallback path; when firmware does
+not implement the SMCCC cache maintenance interface, the provider is not
+registered and existing behavior is preserved.
 
-Changes in v5:
-- Fix the formatting issue in the AI tag.
-- Remove the unnecessary "cix,sky1-dma-350".
+Reference:
+[1] https://developer.arm.com/documentation/den0028/latest
 
-Changes in v4:
-- Reword binding text to align with kernel style.
-- Revise the AI attribution to the standard format.
-- Remove redundant links from the commit log.
+Srirangan Madhavan (2):
+  arm64: smccc: add cache clean/invalidate IDs and return codes
+  arm64: mm: add SMCCC-backed cache invalidate provider
 
-Changes in v3:
-- Rework binding compatible description to match generic-first model.
-- Keep interrupts schema support for both 1-IRQ and 8-IRQ topologies.
-- Drop SoC match-data dependency for IRQ mode selection.
-- Detect IRQ topology via platform_irq_count() in probe path.
-- Refactor IRQ handling into a shared channel handler.
-- Enable DMANSECCTRL.INTREN_ANYCHINTR only in combined IRQ mode.
+ MAINTAINERS                     |   1 +
+ arch/arm64/mm/Makefile          |   1 +
+ arch/arm64/mm/cache_maint.c     | 180 ++++++++++++++++++++++++++++++++
+ include/linux/arm-smccc.h       |  17 ++-
+ tools/include/linux/arm-smccc.h |  17 ++-
+ 5 files changed, 212 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/mm/cache_maint.c
 
-Changes in v2:
-- Update to kernel standards, enhance patch description, and refactor
- driver to use match data for hardware differentiation instead of
- compatible strings.
 
-Jun Guo (2):
-  dmaengine: arm-dma350: enable ANYCH interrupt for shared IRQ wiring
-  arm64: dts: cix: add sky1 DMA-350 node with channel IRQ entries
-
- arch/arm64/boot/dts/cix/sky1.dtsi | 14 ++++++++++++++
- drivers/dma/arm-dma350.c          |  9 +++++++++
- 2 files changed, 23 insertions(+)
-
+base-commit: 3b3bea6d4b9c162f9e555905d96b8c1da67ecd5b
 -- 
-2.34.1
-
+2.43.0
 
