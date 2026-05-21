@@ -4,77 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96351CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 02:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD5E9CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 03:17:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QYDmQZgu+zRH2usZBZBS/kI58ltTicc35yoYOEKlT5M=; b=gInSF2eU5S4DNvw+V25URgTiKE
-	lJWwO4NjEo3iI65/gee6K/uvFIrxxK8WTJ+MVoM5xhPuu771kYkl+J18hxpo6VZYLoLROMBg6sMBl
-	oJ3Ahpw5Oc2HMvLfPNV8C3V+6tNcbG9Itfj/wnfVGIECShM212KCaaVVUAoO3fiqJpdijD+H+4VR1
-	rpcveAn79LC+woTvGrGtUAeMAPr4vFlvfjUnhFLy0y2Z1IjPU6x1EqoaxJvQZqi0AlagoIwf84HkQ
-	hzdTgKOOQCLXz6YaIsnnxR1G1ciipvQVk8ElvUmi0nAVspCVOwvrVg4qVsJjZnzD1hbnFQZNkrp9J
-	UESKWH1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jELMhKLGUtWyEbvchAP5Mgs2MLb2HNlCeWKkazBlD+8=; b=mHkgEuL5zE4cgl5WwRCucXTcd2
+	i0Yz3ucyJ85DaIMHXCMlRFRp8EOv3Za4qsHmXzEMNxmZzgkWIcZzaOmmjIBOu0eSm3J/nkJOGW+Lt
+	WhngiMWH9NoyoYWFwOtjzZ6wZa7rc2eHI8D3uzsM4H5FKama0tBYlf+i/r2pgBB1/6ufO1YMNW5ZB
+	OHDwdzi/o1JgJCsjZgiiG2zRgyfdNNfeonh1/b9xH6T9N0blzydhp+ZlaJoGatsebs4bBgTgpVAZG
+	fJzZx8UsvL5ifI4qCF4KoMj9QBVbznKM7ERbuZt6QkWR3Kasenpx7Ld97xz3qK0ew4z/F33Pjllb0
+	8MqCdjDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPtbf-00000006VKb-25Xw;
-	Thu, 21 May 2026 02:57:55 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1wPtuC-00000006WdS-0E6O;
+	Thu, 21 May 2026 03:17:04 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPtbc-00000006VK5-45CN
+	id 1wPtu8-00000006Wct-2hr7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 02:57:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779332273; x=1810868273;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=PQNOucA4IrdzF2Kpmq1ZYmsr9iLUWIkqKDiWOq+Oe4w=;
-  b=Pjht/Bkbys4nSse92hSzrsBfI4gY15QQX+e1/ArklTikCgMumV5KcSoQ
-   KPbX7t2WgJkq8Kn08+KEF24pjy4n0GWSZykcwtA20eAp5uEbx0NebG0sa
-   JpPdSC+z6vZ4qRCDGNx4ykNah1nDHDkb52fHcFyXqRb7QzVn+dfKNFqt7
-   x6bZHPhJc6TEd6xPsoz9EPzj5/dIS7SlRLJx8/7eFf+qMQAUQHUquK11c
-   I6LrfMFCZqzSKNDZs2jKDWisE8p44r72laHEV5oS/jlGGMsXFzqflCGr3
-   IS/uFEPpK1WjIIEC18mxRvReMRJPn3/Sfs/gix5F6aV+ToSJaLH3UVumX
-   w==;
-X-CSE-ConnectionGUID: eKhFuwWVQLquVnjXvGCePg==
-X-CSE-MsgGUID: l6NH245nT1CTLDKBmTFVXg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11792"; a="102919722"
-X-IronPort-AV: E=Sophos;i="6.23,245,1770624000"; 
-   d="scan'208";a="102919722"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 May 2026 19:57:53 -0700
-X-CSE-ConnectionGUID: NDcowklKSluXoNKM79oPng==
-X-CSE-MsgGUID: 7FeJcWbwReCxTvnMsFr1Sw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.23,245,1770624000"; 
-   d="scan'208";a="270754669"
-Received: from igk-lkp-server01.igk.intel.com (HELO bdf09bfdbd5f) ([10.211.93.152])
-  by orviesa002.jf.intel.com with ESMTP; 20 May 2026 19:57:49 -0700
-Received: from kbuild by bdf09bfdbd5f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wPtbX-00000000AkH-0pLH;
-	Thu, 21 May 2026 02:57:47 +0000
-Date: Thu, 21 May 2026 04:57:02 +0200
-From: kernel test robot <lkp@intel.com>
-To: "Stefan =?utf-8?Q?D=C3=B6singer"?= <stefandoesinger@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- arm@kernel.org, Linus Walleij <linusw@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-doc@vger.kernel.org
-Subject: [soc:zx/soc 1/1] htmldocs:
- Documentation/arch/arm/zte/zx297520v3.rst:66: WARNING: Title underline too
- short.
-Message-ID: <202605210401.8D6jRbz8-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Thu, 21 May 2026 03:17:02 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-36974217d4eso3451750a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 20:16:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1779333419; x=1779938219; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jELMhKLGUtWyEbvchAP5Mgs2MLb2HNlCeWKkazBlD+8=;
+        b=tOceARHXIVmfFpg2wVd2yWdoJ0k50qEWHZwJkof6fJYEvJauIWMWV3aXOa4vw2nP7S
+         VvmN2cWTsdpi64B+no4X5z7mZ72/AvyH8gQ9nGKSG3vHr3bDPimZdNUvFx2651DnsiiK
+         3u1AuyE6bSTSVFGCXdKt9LyP+R5n4nX6cyrNNmvnk3cJhVVeqG57nXxiXq7cY9hu7B+4
+         gzK+FUWzHCSjnCwlLqGTWi7Kx2oc982JdlwVYHgvOQjfh1cu4HLvR1JnuBV6SHbmo00p
+         dEP/tpTFbYP7PDVCP/Ib0ouMK97SFnDhs/WefZzukYEPlutcJC2uUB9XRiUgE32xRBhX
+         k63g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779333419; x=1779938219;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jELMhKLGUtWyEbvchAP5Mgs2MLb2HNlCeWKkazBlD+8=;
+        b=V8dZo4DJrwuSe5bSeyw2xjJh6ar46FVfwMOElBaaNSrgnMEO/majPT5pkgHC1uQ+Px
+         UIqKVRDSJZcl+eSkBJzc6bw5hn+OUHTZHogZOHf5rzp6KbGByir96p5y25IR4JIhUfS1
+         K1nWxsXX3ZOWbdSYcBNBCuki3XPKST6i8EAqH8t2BPSZuWArBX1zl7uWCQNDeeWRPKsI
+         TZTCy+jlqsxizcSLzIHEf5c8KqGAKF2v0lb9VMVs9fmJpNk9N5FU9c34Ap36/d5egtJy
+         s+ekWVW5FfngOYOBniSWJH1k3SG6uV8g1308ZwkiCz9XjG+r5ofvex41BvSSOg+a9yHp
+         M1Bw==
+X-Forwarded-Encrypted: i=1; AFNElJ+jAyQCCGD6wvVDBbvd6UteqFmYUjwSk9T2+Jse9dCwHyjgf1ugvNwTbTtsZJtnUvQ/Vgto5q3C8y3QrLA7KMKV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGhEY0EbujkSCj3jYJ1nnviKJ1/WIy6zELERPiQlWZXXluZyqw
+	R58hcxG2Hi5KECRVOKA1Unbkqr/QXic0qVuqA8NAYzFJOs9sSMkwru3bGPrdWFZfPZ5Vlelp6xp
+	rvb3v140qMw==
+X-Gm-Gg: Acq92OFaEKx50DMGOPFHk/BaPNaKLzuSI/aVpb+LHGgyOU2enuwyw05yNIEGuwcPrrc
+	d5RNOtcqJoHUuyaPV+d2xlFFllZHx1YTO3yuVr9LOc5nyJf6WSCjEP13hzBSFJyTBDi9uRqcPEQ
+	uboYd+qT8QkxplBr4CuQbSBBETCAMQNWRLsS5BV1Sx3gVpQM/M8rgssbwgW8S0XAu7tQjZvxOaC
+	PGgPxosc3A+hZgEjxaUOkQuvPBOjov2mIzJIpiXI+Jki8I6nRKl+yT7aFBFDsoLIaHbMELqQN5o
+	Lp+Lzio3AZHIVCsFZYyk7pkmzezhTf6A2Bxl/RqoOiPSVb+CjjboSspSzAL3wOJQt3eqHxJDFGL
+	nBikoS/gZ52OQcmAAsuVJA7xZhd/lytt/wSUCge3Rsq5lxddCNwae3KztzuxaDmMoeWjHyP27Cj
+	hM8cQEkFhQBu8RIZ4L5WgPr2Uo
+X-Received: by 2002:a17:90b:1fc6:b0:369:c5f4:9681 with SMTP id 98e67ed59e1d1-36a45626bb0mr1185388a91.22.1779333418913;
+        Wed, 20 May 2026 20:16:58 -0700 (PDT)
+Received: from localhost ([2001:569:58a0:da00:a5c8:c4ce:f7c1:40c1])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a3d0d847dsm999527a91.10.2026.05.20.20.16.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 20 May 2026 20:16:58 -0700 (PDT)
+Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 20 May 2026 23:16:57 -0400
+Message-Id: <DIO11ZK1AJTB.1U25TXKLC0W90@etsalapatis.com>
+Cc: "Peter Zijlstra" <peterz@infradead.org>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
+ Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
+ Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand"
+ <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Emil Tsalapatis"
+ <emil@etsalapatis.com>, <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>,
+ <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
+From: "Emil Tsalapatis" <emil@etsalapatis.com>
+To: "Tejun Heo" <tj@kernel.org>, "David Vernet" <void@manifault.com>,
+ "Andrea Righi" <arighi@nvidia.com>, "Changwoo Min" <changwoo@igalia.com>,
+ "Alexei Starovoitov" <ast@kernel.org>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Martin
+ KaFai Lau" <martin.lau@linux.dev>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260520235052.4180316-1-tj@kernel.org>
+ <20260520235052.4180316-3-tj@kernel.org>
+In-Reply-To: <20260520235052.4180316-3-tj@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_195753_092697_C7C260C9 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20260520_201700_860406_5F13BB0E 
+X-CRM114-Status: GOOD (  46.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,288 +113,598 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git zx/soc
-head:   220ae5d36dba278003d265aabd080ffa78553f5a
-commit: 220ae5d36dba278003d265aabd080ffa78553f5a [1/1] ARM: zte: Add zx2975=
-20v3 platform support
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f022=
-7cb60147a26a1eeb4fb06e3b505e9c7261)
-docutils: docutils (Docutils 0.21.2, Python 3.13.5, on linux)
-reproduce: (https://download.01.org/0day-ci/archive/20260521/202605210401.8=
-D6jRbz8-lkp@intel.com/reproduce)
+On Wed May 20, 2026 at 7:50 PM EDT, Tejun Heo wrote:
+> From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+>
+> BPF arena usage is becoming more prevalent, but kernel <-> BPF communicat=
+ion
+> over arena memory is awkward today. Data has to be staged through a trust=
+ed
+> kernel pointer with extra code and copying on the BPF side. While reads
+> through arena pointers can use a fault-safe helper, writes don't have a g=
+ood
+> solution. The in-line alternative would need instruction emulation or asm
+> fixup labels.
+>
+> Enable direct kernel-side reads and writes within GUARD_SZ / 2 of any
+> handed-in arena pointer, without bounds checking. A per-arena scratch pag=
+e
+> is installed by the arch fault path into empty arena kernel PTEs - x86 fr=
+om
+> page_fault_oops() for not-present faults, arm64 from __do_kernel_fault() =
+for
+> translation faults, both after the existing exception-table and KFENCE
+> handling. The faulting instruction retries and the access is also reporte=
+d
+> through the program's BPF stream, preserving error reporting.
+>
+> bpf_prog_find_from_stack() resolves the current BPF program (and its aren=
+a)
+> from the kernel stack - no new bpf_run_ctx state is added. Recovery cover=
+s
+> the 4 GiB arena plus the upper half-guard (GUARD_SZ / 2). The lower
+> half-guard is excluded because well-behaved kfuncs only access forward fr=
+om
+> arena pointers. The kfunc-author contract - access at most GUARD_SZ / 2 p=
+ast
+> a handed-in pointer - is documented in Documentation/bpf/kfuncs.rst.
+>
+> The install is lock-free via ptep_try_set(). On race-loss the winning
+> installer's PTE is already valid, so the access retry succeeds. The arena
+> clear path uses ptep_get_and_clear() so installer and clearer race throug=
+h
+> atomic accessors. No flush_tlb_kernel_range() afterwards. Stale "not mapp=
+ed"
+> entries just cause one extra re-fault, cheaper than a global IPI on every
+> install.
+>
+> Scratch exists only to keep the kernel from oopsing on an in-line arena
+> access. Its presence at a PTE means the BPF program has already
+> malfunctioned, and the violation is reported through the program's BPF
+> stream. The only requirement for behavior on a scratched PTE is that the
+> kernel doesn't crash. In particular, any user-side access through such a =
+PTE
+> may segfault. The shared scratch page is freed once during map destructio=
+n.
+>
+> BPF instruction faults continue to use the existing JIT exception-table
+> path. This patch changes only the kernel-text fault path. No UAPI flag is
+> added. The new behavior is the default.
+>
+> v2: Use ptep_get_and_clear() in apply_range_clear_cb(). (David)
+>
+> Suggested-by: Alexei Starovoitov <ast@kernel.org>
+> Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> Signed-off-by: Tejun Heo <tj@kernel.org>
+> Cc: David Hildenbrand <david@kernel.org>
+> ---
 
-If you fix the issue in a separate patch/commit (i.e. not just a new versio=
-n of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202605210401.8D6jRbz8-lkp@i=
-ntel.com/
+Reviewed-by: Emil Tsalapatis <emil@etsalapatis.com>
 
-All warnings (new ones prefixed by >>):
+>  Documentation/bpf/kfuncs.rst |  14 +++
+>  arch/arm64/mm/fault.c        |  10 +-
+>  arch/x86/mm/fault.c          |  12 ++-
+>  include/linux/bpf.h          |   1 +
+>  include/linux/bpf_defs.h     |  11 +++
+>  kernel/bpf/arena.c           | 177 +++++++++++++++++++++++++++--------
+>  kernel/bpf/core.c            |   5 +
+>  7 files changed, 183 insertions(+), 47 deletions(-)
+>  create mode 100644 include/linux/bpf_defs.h
+>
+> diff --git a/Documentation/bpf/kfuncs.rst b/Documentation/bpf/kfuncs.rst
+> index 75e6c078e0e7..6d497e720998 100644
+> --- a/Documentation/bpf/kfuncs.rst
+> +++ b/Documentation/bpf/kfuncs.rst
+> @@ -462,6 +462,20 @@ In order to accommodate such requirements, the verif=
+ier will enforce strict
+>  PTR_TO_BTF_ID type matching if two types have the exact same name, with =
+one
+>  being suffixed with ``___init``.
+> =20
+> +2.8 Accessing arena memory through kfunc arguments
+> +--------------------------------------------------
+> +
+> +A read or write at any address inside an arena does not oops the kernel.
+> +Unallocated arena pages are lazily backed by a scratch page and the
+> +access is reported through the program's BPF stream as an error. Only
+> +the BPF program's correctness is affected; the kernel itself remains
+> +intact.
+> +
+> +The arena is followed by a ``GUARD_SZ / 2`` (32 KiB) guard region that
+> +is also covered by this recovery. A kfunc handed an arena pointer may
+> +therefore access up to ``GUARD_SZ / 2`` past it without bounds-checking
+> +against the arena. Larger accesses must verify the range explicitly.
+> +
+>  .. _BPF_kfunc_lifecycle_expectations:
+> =20
+>  3. kfunc lifecycle expectations
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 920a8b244d59..0d58d667fcd8 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -9,6 +9,7 @@
+> =20
+>  #include <linux/acpi.h>
+>  #include <linux/bitfield.h>
+> +#include <linux/bpf_defs.h>
+>  #include <linux/extable.h>
+>  #include <linux/kfence.h>
+>  #include <linux/signal.h>
+> @@ -416,9 +417,12 @@ static void __do_kernel_fault(unsigned long addr, un=
+signed long esr,
+>  	} else if (addr < PAGE_SIZE) {
+>  		msg =3D "NULL pointer dereference";
+>  	} else {
+> -		if (esr_fsc_is_translation_fault(esr) &&
+> -		    kfence_handle_page_fault(addr, esr & ESR_ELx_WNR, regs))
+> -			return;
+> +		if (esr_fsc_is_translation_fault(esr)) {
+> +			if (kfence_handle_page_fault(addr, esr & ESR_ELx_WNR, regs))
+> +				return;
+> +			if (bpf_arena_handle_page_fault(addr, esr & ESR_ELx_WNR, regs->pc))
+> +				return;
+> +		}
+> =20
+>  		msg =3D "paging request";
+>  	}
+> diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+> index f0e77e084482..b0f103ddbd23 100644
+> --- a/arch/x86/mm/fault.c
+> +++ b/arch/x86/mm/fault.c
+> @@ -8,6 +8,7 @@
+>  #include <linux/sched/task_stack.h>	/* task_stack_*(), ...		*/
+>  #include <linux/kdebug.h>		/* oops_begin/end, ...		*/
+>  #include <linux/memblock.h>		/* max_low_pfn			*/
+> +#include <linux/bpf_defs.h>		/* bpf_arena_handle_page_fault	*/
+>  #include <linux/kfence.h>		/* kfence_handle_page_fault	*/
+>  #include <linux/kprobes.h>		/* NOKPROBE_SYMBOL, ...		*/
+>  #include <linux/mmiotrace.h>		/* kmmio_handler, ...		*/
+> @@ -688,10 +689,13 @@ page_fault_oops(struct pt_regs *regs, unsigned long=
+ error_code,
+>  	if (IS_ENABLED(CONFIG_EFI))
+>  		efi_crash_gracefully_on_page_fault(address);
+> =20
+> -	/* Only not-present faults should be handled by KFENCE. */
+> -	if (!(error_code & X86_PF_PROT) &&
+> -	    kfence_handle_page_fault(address, error_code & X86_PF_WRITE, regs))
+> -		return;
+> +	/* Only not-present faults should be handled by KFENCE or BPF arena. */
+> +	if (!(error_code & X86_PF_PROT)) {
+> +		if (kfence_handle_page_fault(address, error_code & X86_PF_WRITE, regs)=
+)
+> +			return;
+> +		if (bpf_arena_handle_page_fault(address, error_code & X86_PF_WRITE, re=
+gs->ip))
+> +			return;
+> +	}
+> =20
+>  oops:
+>  	/*
+> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+> index 0136a108d083..831996c411cf 100644
+> --- a/include/linux/bpf.h
+> +++ b/include/linux/bpf.h
+> @@ -6,6 +6,7 @@
+> =20
+>  #include <uapi/linux/bpf.h>
+>  #include <uapi/linux/filter.h>
+> +#include <linux/bpf_defs.h>
+> =20
+>  #include <crypto/sha2.h>
+>  #include <linux/workqueue.h>
+> diff --git a/include/linux/bpf_defs.h b/include/linux/bpf_defs.h
+> new file mode 100644
+> index 000000000000..d98e033b8c0b
+> --- /dev/null
+> +++ b/include/linux/bpf_defs.h
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Subset of bpf.h declarations, split out so files that need only these
+> + * declarations can avoid bpf.h's full include cost.
+> + */
+> +#ifndef _LINUX_BPF_DEFS_H
+> +#define _LINUX_BPF_DEFS_H
+> +
+> +bool bpf_arena_handle_page_fault(unsigned long addr, bool is_write, unsi=
+gned long fault_ip);
+> +
+> +#endif /* _LINUX_BPF_DEFS_H */
+> diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
+> index 08d008cc471e..1c0b87ecc817 100644
+> --- a/kernel/bpf/arena.c
+> +++ b/kernel/bpf/arena.c
+> @@ -53,6 +53,7 @@ struct bpf_arena {
+>  	u64 user_vm_start;
+>  	u64 user_vm_end;
+>  	struct vm_struct *kern_vm;
+> +	struct page *scratch_page;
+>  	struct range_tree rt;
+>  	/* protects rt */
+>  	rqspinlock_t spinlock;
+> @@ -118,6 +119,11 @@ struct apply_range_data {
+>  	int i;
+>  };
+> =20
+> +struct clear_range_data {
+> +	struct llist_head *free_pages;
+> +	struct page *scratch_page;
+> +};
+> +
+>  static int apply_range_set_cb(pte_t *pte, unsigned long addr, void *data=
+)
+>  {
+>  	struct apply_range_data *d =3D data;
+> @@ -144,33 +150,59 @@ static void flush_vmap_cache(unsigned long start, u=
+nsigned long size)
+>  	flush_cache_vmap(start, start + size);
+>  }
+> =20
+> -static int apply_range_clear_cb(pte_t *pte, unsigned long addr, void *fr=
+ee_pages)
+> +static int apply_range_clear_cb(pte_t *pte, unsigned long addr, void *da=
+ta)
+>  {
+> +	struct clear_range_data *d =3D data;
+>  	pte_t old_pte;
+>  	struct page *page;
+> =20
+> -	/* sanity check */
+> -	old_pte =3D ptep_get(pte);
+> +	/*
+> +	 * Pairs with ptep_try_set() in the kernel-fault scratch installer.
+> +	 * Both sides must be atomic.
+> +	 */
+> +	old_pte =3D ptep_get_and_clear(&init_mm, addr, pte);
+>  	if (pte_none(old_pte) || !pte_present(old_pte))
+> -		return 0; /* nothing to do */
+> +		return 0;
+> =20
+>  	page =3D pte_page(old_pte);
+>  	if (WARN_ON_ONCE(!page))
+>  		return -EINVAL;
+> =20
+> -	pte_clear(&init_mm, addr, pte);
+> +	/*
+> +	 * Skip the per-arena scratch page. A kernel fault on an unallocated ua=
+ddr
+> +	 * scratches its PTE. A later bpf_arena_free_pages() over that range wa=
+lks
+> +	 * here. Without the skip, scratch_page would be freed.
+> +	 */
+> +	if (page =3D=3D d->scratch_page)
+> +		return 0;
+> +
+> +	__llist_add(&page->pcp_llist, d->free_pages);
+> +	return 0;
+> +}
+> =20
+> -	/* Add page to the list so it is freed later */
+> -	if (free_pages)
+> -		__llist_add(&page->pcp_llist, free_pages);
+> +static int apply_range_set_scratch_cb(pte_t *pte, unsigned long addr, vo=
+id *data)
+> +{
+> +	struct page *scratch_page =3D data;
+> =20
+> +	if (!pte_none(ptep_get(pte)))
+> +		return 0;
+> +	/*
+> +	 * Best-effort install. ptep_try_set() returns false only if another
+> +	 * installer (real allocation or concurrent fault) won the cmpxchg.
+> +	 * Their PTE is already valid, so the access retry succeeds.
+> +	 *
+> +	 * No flush_tlb_kernel_range() needed. Stale "not mapped" entries just
+> +	 * cause one extra re-fault through this same path.
+> +	 */
+> +	ptep_try_set(pte, mk_pte(scratch_page, PAGE_KERNEL));
+>  	return 0;
+>  }
+> =20
+>  static int populate_pgtable_except_pte(struct bpf_arena *arena)
+>  {
+> +	/* Populate intermediates for the recovery range (4 GiB + upper half-gu=
+ard). */
+>  	return apply_to_page_range(&init_mm, bpf_arena_get_kern_vm_start(arena)=
+,
+> -				   KERN_VM_SZ - GUARD_SZ, apply_range_set_cb, NULL);
+> +				   SZ_4G + GUARD_SZ / 2, apply_range_set_cb, NULL);
+>  }
+> =20
+>  static struct bpf_map *arena_map_alloc(union bpf_attr *attr)
+> @@ -221,22 +253,29 @@ static struct bpf_map *arena_map_alloc(union bpf_at=
+tr *attr)
+>  	init_irq_work(&arena->free_irq, arena_free_irq);
+>  	INIT_WORK(&arena->free_work, arena_free_worker);
+>  	bpf_map_init_from_attr(&arena->map, attr);
+> +
+> +	err =3D bpf_map_alloc_pages(&arena->map, NUMA_NO_NODE, 1, &arena->scrat=
+ch_page);
+> +	if (err)
+> +		goto err_free_arena;
+> +
+>  	range_tree_init(&arena->rt);
+>  	err =3D range_tree_set(&arena->rt, 0, attr->max_entries);
+> -	if (err) {
+> -		bpf_map_area_free(arena);
+> -		goto err;
+> -	}
+> +	if (err)
+> +		goto err_free_scratch;
+>  	mutex_init(&arena->lock);
+>  	raw_res_spin_lock_init(&arena->spinlock);
+>  	err =3D populate_pgtable_except_pte(arena);
+> -	if (err) {
+> -		range_tree_destroy(&arena->rt);
+> -		bpf_map_area_free(arena);
+> -		goto err;
+> -	}
+> +	if (err)
+> +		goto err_destroy_rt;
+> =20
+>  	return &arena->map;
+> +
+> +err_destroy_rt:
+> +	range_tree_destroy(&arena->rt);
+> +err_free_scratch:
+> +	__free_page(arena->scratch_page);
+> +err_free_arena:
+> +	bpf_map_area_free(arena);
+>  err:
+>  	free_vm_area(kern_vm);
+>  	return ERR_PTR(err);
+> @@ -244,6 +283,7 @@ static struct bpf_map *arena_map_alloc(union bpf_attr=
+ *attr)
+> =20
+>  static int existing_page_cb(pte_t *ptep, unsigned long addr, void *data)
+>  {
+> +	struct bpf_arena *arena =3D data;
+>  	struct page *page;
+>  	pte_t pte;
+> =20
+> @@ -251,6 +291,12 @@ static int existing_page_cb(pte_t *ptep, unsigned lo=
+ng addr, void *data)
+>  	if (!pte_present(pte)) /* sanity check */
+>  		return 0;
+>  	page =3D pte_page(pte);
+> +	/*
+> +	 * Skip the scratch page. The walk is page-table-driven, not range-tree=
+-driven,
+> +	 * so it can visit scratch PTEs at uaddrs the BPF program never allocat=
+ed.
+> +	 */
+> +	if (page =3D=3D arena->scratch_page)
+> +		return 0;
+>  	/*
+>  	 * We do not update pte here:
+>  	 * 1. Nobody should be accessing bpf_arena's range outside of a kernel =
+bug
+> @@ -286,9 +332,10 @@ static void arena_map_free(struct bpf_map *map)
+>  	 * free those pages.
+>  	 */
+>  	apply_to_existing_page_range(&init_mm, bpf_arena_get_kern_vm_start(aren=
+a),
+> -				     KERN_VM_SZ - GUARD_SZ, existing_page_cb, NULL);
+> +				     SZ_4G + GUARD_SZ / 2, existing_page_cb, arena);
+>  	free_vm_area(arena->kern_vm);
+>  	range_tree_destroy(&arena->rt);
+> +	__free_page(arena->scratch_page);
+>  	bpf_map_area_free(arena);
+>  }
+> =20
+> @@ -374,33 +421,37 @@ static vm_fault_t arena_vm_fault(struct vm_fault *v=
+mf)
+>  		return VM_FAULT_RETRY;
+> =20
+>  	page =3D vmalloc_to_page((void *)kaddr);
+> -	if (page)
+> +	if (page) {
+> +		if (page =3D=3D arena->scratch_page)
+> +			/* BPF triggered scratch here; don't lazy-alloc over it */
+> +			goto out_sigsegv;
+>  		/* already have a page vmap-ed */
+>  		goto out;
+> +	}
+> =20
+>  	bpf_map_memcg_enter(&arena->map, &old_memcg, &new_memcg);
+> =20
+>  	if (arena->map.map_flags & BPF_F_SEGV_ON_FAULT)
+>  		/* User space requested to segfault when page is not allocated by bpf =
+prog */
+> -		goto out_unlock_sigsegv;
+> +		goto out_sigsegv_memcg;
+> =20
+>  	ret =3D range_tree_clear(&arena->rt, vmf->pgoff, 1);
+>  	if (ret)
+> -		goto out_unlock_sigsegv;
+> +		goto out_sigsegv_memcg;
+> =20
+>  	struct apply_range_data data =3D { .pages =3D &page, .i =3D 0 };
+>  	/* Account into memcg of the process that created bpf_arena */
+>  	ret =3D bpf_map_alloc_pages(map, NUMA_NO_NODE, 1, &page);
+>  	if (ret) {
+>  		range_tree_set(&arena->rt, vmf->pgoff, 1);
+> -		goto out_unlock_sigsegv;
+> +		goto out_sigsegv_memcg;
+>  	}
+> =20
+>  	ret =3D apply_to_page_range(&init_mm, kaddr, PAGE_SIZE, apply_range_set=
+_cb, &data);
+>  	if (ret) {
+>  		range_tree_set(&arena->rt, vmf->pgoff, 1);
+>  		free_pages_nolock(page, 0);
+> -		goto out_unlock_sigsegv;
+> +		goto out_sigsegv_memcg;
+>  	}
+>  	flush_vmap_cache(kaddr, PAGE_SIZE);
+>  	bpf_map_memcg_exit(old_memcg, new_memcg);
+> @@ -409,8 +460,9 @@ static vm_fault_t arena_vm_fault(struct vm_fault *vmf=
+)
+>  	raw_res_spin_unlock_irqrestore(&arena->spinlock, flags);
+>  	vmf->page =3D page;
+>  	return 0;
+> -out_unlock_sigsegv:
+> +out_sigsegv_memcg:
+>  	bpf_map_memcg_exit(old_memcg, new_memcg);
+> +out_sigsegv:
+>  	raw_res_spin_unlock_irqrestore(&arena->spinlock, flags);
+>  	return VM_FAULT_SIGSEGV;
+>  }
+> @@ -668,6 +720,7 @@ static void arena_free_pages(struct bpf_arena *arena,=
+ long uaddr, long page_cnt,
+>  	struct llist_head free_pages;
+>  	struct llist_node *pos, *t;
+>  	struct arena_free_span *s;
+> +	struct clear_range_data cdata;
+>  	unsigned long flags;
+>  	int ret =3D 0;
+> =20
+> @@ -696,9 +749,11 @@ static void arena_free_pages(struct bpf_arena *arena=
+, long uaddr, long page_cnt,
+>  	range_tree_set(&arena->rt, pgoff, page_cnt);
+> =20
+>  	init_llist_head(&free_pages);
+> +	cdata.free_pages =3D &free_pages;
+> +	cdata.scratch_page =3D arena->scratch_page;
+>  	/* clear ptes and collect struct pages */
+>  	apply_to_existing_page_range(&init_mm, kaddr, page_cnt << PAGE_SHIFT,
+> -				     apply_range_clear_cb, &free_pages);
+> +				     apply_range_clear_cb, &cdata);
+> =20
+>  	/* drop the lock to do the tlb flush and zap pages */
+>  	raw_res_spin_unlock_irqrestore(&arena->spinlock, flags);
+> @@ -788,6 +843,7 @@ static void arena_free_worker(struct work_struct *wor=
+k)
+>  	struct arena_free_span *s;
+>  	u64 arena_vm_start, user_vm_start;
+>  	struct llist_head free_pages;
+> +	struct clear_range_data cdata;
+>  	struct page *page;
+>  	unsigned long full_uaddr;
+>  	long kaddr, page_cnt, pgoff;
+> @@ -801,6 +857,8 @@ static void arena_free_worker(struct work_struct *wor=
+k)
+>  	bpf_map_memcg_enter(&arena->map, &old_memcg, &new_memcg);
+> =20
+>  	init_llist_head(&free_pages);
+> +	cdata.free_pages =3D &free_pages;
+> +	cdata.scratch_page =3D arena->scratch_page;
+>  	arena_vm_start =3D bpf_arena_get_kern_vm_start(arena);
+>  	user_vm_start =3D bpf_arena_get_user_vm_start(arena);
+> =20
+> @@ -813,7 +871,7 @@ static void arena_free_worker(struct work_struct *wor=
+k)
+> =20
+>  		/* clear ptes and collect pages in free_pages llist */
+>  		apply_to_existing_page_range(&init_mm, kaddr, page_cnt << PAGE_SHIFT,
+> -					     apply_range_clear_cb, &free_pages);
+> +					     apply_range_clear_cb, &cdata);
+> =20
+>  		range_tree_set(&arena->rt, pgoff, page_cnt);
+>  	}
+> @@ -928,23 +986,12 @@ static int __init kfunc_init(void)
+>  }
+>  late_initcall(kfunc_init);
+> =20
+> -void bpf_prog_report_arena_violation(bool write, unsigned long addr, uns=
+igned long fault_ip)
+> +static void __bpf_prog_report_arena_violation(struct bpf_prog *prog, boo=
+l write,
+> +					      unsigned long addr, unsigned long fault_ip)
+>  {
+>  	struct bpf_stream_stage ss;
+> -	struct bpf_prog *prog;
+>  	u64 user_vm_start;
+> =20
+> -	/*
+> -	 * The RCU read lock is held to safely traverse the latch tree, but we
+> -	 * don't need its protection when accessing the prog, since it will not
+> -	 * disappear while we are handling the fault.
+> -	 */
+> -	rcu_read_lock();
+> -	prog =3D bpf_prog_ksym_find(fault_ip);
+> -	rcu_read_unlock();
+> -	if (!prog)
+> -		return;
+> -
+>  	/* Use main prog for stream access */
+>  	prog =3D prog->aux->main_prog_aux->prog;
+> =20
+> @@ -957,3 +1004,53 @@ void bpf_prog_report_arena_violation(bool write, un=
+signed long addr, unsigned lo
+>  		bpf_stream_dump_stack(ss);
+>  	}));
+>  }
+> +
+> +bool bpf_arena_handle_page_fault(unsigned long addr, bool is_write, unsi=
+gned long fault_ip)
+> +{
+> +	struct bpf_arena *arena;
+> +	struct bpf_prog *prog;
+> +	unsigned long kbase;
+> +	unsigned long page_addr =3D addr & PAGE_MASK;
+> +
+> +	prog =3D bpf_prog_find_from_stack();
+> +	if (!prog)
+> +		return false;
+> +
+> +	arena =3D prog->aux->arena;
+> +	/* a prog not using arena may be on stack, so arena can be NULL */
+> +	if (!arena)
+> +		return false;
+> +
+> +	kbase =3D bpf_arena_get_kern_vm_start(arena);
+> +
+> +	/*
+> +	 * Recovery covers the 4 GiB mappable band plus the upper half-guard.
+> +	 * Lower guard is unreachable from kfuncs; an address there indicates
+> +	 * a different bug class - leave it to the regular kernel oops path.
+> +	 */
+> +	if (page_addr < kbase || page_addr >=3D kbase + SZ_4G + GUARD_SZ / 2)
+> +		return false;
+> +
+> +	apply_to_page_range(&init_mm, page_addr, PAGE_SIZE,
+> +			    apply_range_set_scratch_cb, arena->scratch_page);
+> +	flush_vmap_cache(page_addr, PAGE_SIZE);
+> +	__bpf_prog_report_arena_violation(prog, is_write, page_addr - kbase, fa=
+ult_ip);
+> +	return true;
+> +}
+> +
+> +void bpf_prog_report_arena_violation(bool write, unsigned long addr, uns=
+igned long fault_ip)
+> +{
+> +	struct bpf_prog *prog;
+> +
+> +	/*
+> +	 * The RCU read lock is held to safely traverse the latch tree, but we
+> +	 * don't need its protection when accessing the prog, since it will not
+> +	 * disappear while we are handling the fault.
+> +	 */
+> +	rcu_read_lock();
+> +	prog =3D bpf_prog_ksym_find(fault_ip);
+> +	rcu_read_unlock();
+> +	if (!prog)
+> +		return;
+> +	__bpf_prog_report_arena_violation(prog, write, addr, fault_ip);
+> +}
+> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+> index 066b86e7233c..fa368d8920d9 100644
+> --- a/kernel/bpf/core.c
+> +++ b/kernel/bpf/core.c
+> @@ -3290,6 +3290,11 @@ __weak u64 bpf_arena_get_kern_vm_start(struct bpf_=
+arena *arena)
+>  {
+>  	return 0;
+>  }
+> +__weak bool bpf_arena_handle_page_fault(unsigned long addr, bool is_writ=
+e,
+> +					unsigned long fault_ip)
+> +{
+> +	return false;
+> +}
+> =20
+>  #ifdef CONFIG_BPF_SYSCALL
+>  static int __init bpf_global_ma_init(void)
 
-   WARNING: Documentation/ABI/testing/sysfs-class-reboot-mode-reboot_modes:=
-36: abi_sys_class_reboot_mode_driver_reboot_modes doesn't have a description
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface =
-num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode is defined 2 times: D=
-ocumentation/ABI/testing/sysfs-driver-hid-lenovo-go:364; Documentation/ABI/=
-testing/sysfs-driver-hid-lenovo-go-s:234
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface =
-num>/<hid-bus>:<vendor-id>:<product-id>.<num>/os_mode_index is defined 2 ti=
-mes: Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:373; Documentatio=
-n/ABI/testing/sysfs-driver-hid-lenovo-go-s:243
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface =
-num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled is defined 2=
- times: Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:636; Documenta=
-tion/ABI/testing/sysfs-driver-hid-lenovo-go-s:252
-   WARNING: /sys/bus/usb/devices/<busnum>-<devnum>:<config num>.<interface =
-num>/<hid-bus>:<vendor-id>:<product-id>.<num>/touchpad/enabled_index is def=
-ined 2 times: Documentation/ABI/testing/sysfs-driver-hid-lenovo-go:645; Doc=
-umentation/ABI/testing/sysfs-driver-hid-lenovo-go-s:261
->> Documentation/arch/arm/zte/zx297520v3.rst:66: WARNING: Title underline t=
-oo short.
---
-   3. Building for built-in U-Boot
-   --------------------------- [docutils]
->> Documentation/arch/arm/zte/zx297520v3.rst:90: WARNING: Enumerated list e=
-nds without a blank line; unexpected unindent. [docutils]
->> Documentation/arch/arm/zte/zx297520v3.rst:116: WARNING: Inline literal s=
-tart-string without end-string. [docutils]
-   Documentation/arch/arm/zte/zx297520v3.rst:137: ERROR: Unexpected indenta=
-tion. [docutils]
->> Documentation/arch/arm/zte/zx297520v3.rst:138: WARNING: Block quote ends=
- without a blank line; unexpected unindent. [docutils]
-   Documentation/arch/arm/zte/zx297520v3.rst:164: WARNING: Inline literal s=
-tart-string without end-string. [docutils]
->> Documentation/arch/arm/zte/zx297520v3.rst:164: WARNING: Inline interpret=
-ed text or phrase reference start-string without end-string. [docutils]
->> Documentation/arch/arm/zte/zx297520v3.rst:7: WARNING: Document or sectio=
-n may not begin with a transition. [docutils]
-   Documentation/arch/riscv/zicfilp.rst:79: WARNING: Inline literal start-s=
-tring without end-string. [docutils]
-   Documentation/core-api/kref:328: ./include/linux/kref.h:72: WARNING: Inv=
-alid C declaration: Expected end of definition. [error at 96]
-   int kref_put_mutex (struct kref *kref, void (*release)(struct kref *kref=
-), struct mutex *mutex) __cond_acquires(true# mutex)
-   ------------------------------------------------------------------------=
-------------------------^
-   Documentation/core-api/kref:328: ./include/linux/kref.h:94: WARNING: Inv=
-alid C declaration: Expected end of definition. [error at 92]
-
-
-vim +66 Documentation/arch/arm/zte/zx297520v3.rst
-
-     6=09
-   > 7	....................................................................=
-...........
-     8=09
-     9	Author:	Stefan D=C3=B6singer
-    10=09
-    11	Date  : 27 Jan 2026
-    12=09
-    13	1. Hardware description
-    14	---------------------------
-    15	Zx297520v3 SoCs use a 64 bit capable Cortex-A53 CPU and GICv3, altho=
-ugh they
-    16	run in arm32 mode only. The CPU has support EL3, but no hypervisor (=
-EL2) and
-    17	it seems to lack VFP and NEON.
-    18=09
-    19	The SoC is used in a number of cheap LTE to WiFi routers, both batte=
-ry powered
-    20	MiFis and stationary CPEs. In addition to the CPU these devices usua=
-lly have
-    21	64 MB Ram (although some is shared with the LTE chip), 128 MB NAND f=
-lash, an
-    22	SDIO connected RTL8192-type Wifi chip limited to 2.4 ghz operation, =
-USB 2,
-    23	and buttons. Devices with as low as 32 MB or as high as 128 MB ram e=
-xist, as
-    24	do devices with 8 or 16 MB of NOR flash.
-    25=09
-    26	Some devices, especially the stationary ones, have 100 mbit Ethernet=
- and an
-    27	Ethernet switch.
-    28=09
-    29	Usually the devices have LEDs for status indication, although some h=
-ave SPI or
-    30	I2C connected displays
-    31=09
-    32	Some have an SD card slot. If it exists, it is a better choice for t=
-he root
-    33	file system because it easily outperforms the built-in NAND.
-    34=09
-    35	The LTE interface runs on a separate DSP called ZSP880. It is probab=
-ly derived
-    36	from LSI ZSPs and has an undocumented instruction set. The ZSP commu=
-nicates
-    37	with the main CPU via SRAM and DRAM and a mailbox hardware that can =
-generate
-    38	IRQs on either ends.
-    39=09
-    40	There is also a Cortex M0 CPU, which is responsible for early HW ini=
-tialization
-    41	and starting the Cortex A53 CPU. It does not have any essential purp=
-ose once
-    42	U-Boot is started. A SRAM-Based handover protocol exists to run cust=
-om code on
-    43	this CPU.
-    44=09
-    45	2. Booting via USB
-    46	---------------------------
-    47=09
-    48	The Boot ROM has support for booting custom code via USB. This mode =
-can be
-    49	entered by connecting a Boot PIN to GND or by modifying the third by=
-te on NAND
-    50	(set it to anything other than 0x5A aka 'Z'). A free software tool t=
-o start
-    51	custom U-Boot and kernels can be found here:
-    52=09
-    53	https://github.com/zx297520v3-mainline/zx297520v3-loader
-    54=09
-    55	If USB download mode is entered but no boot commands are sent throug=
-h USB, the
-    56	device will proceed to boot normally after a few seconds. It is ther=
-efore
-    57	possible to enable USB boot permanently and still leave the default =
-boot files
-    58	in place.
-    59=09
-    60	https://github.com/zx297520v3-mainline/u-boot-mainline
-    61=09
-    62	Contains an U-Boot version that can be used with the USB loader and =
-sets up the
-    63	CPU and interrupt controller to comply with Linux's booting requirem=
-ents.
-    64=09
-    65	3. Building for built-in U-Boot
-  > 66	---------------------------
-    67	The devices come with an ancient U-Boot that loads legacy uImages fr=
-om NAND and
-    68	boots them without a chance for the user to interrupt. The images ar=
-e stored in
-    69	files ap_cpuap.bin and ap_recovery.bin on a jffs2 partition named im=
-agefs,
-    70	usually mtd4. A file named "fotaflag" switches between the two modes.
-    71=09
-    72	In addition to the uImage header, those files have a 384 byte signat=
-ure header,
-    73	which is used for authenticating the images on some devices. Most de=
-vices have
-    74	this authentication disabled and it is enough to pad the uImage file=
-s with 384
-    75	zero bytes.
-    76=09
-    77	Builtin U-Boot also poorly sets up the CPU. Read the next section fo=
-r details
-    78	on this. It has no support for loading DTBs, so CONFIG_ARM_APPENDED_=
-DTB is
-    79	needed.
-    80=09
-    81	So to build an image that boots from NAND the following steps are ne=
-cessary:
-    82=09
-    83	1) Patch the assembly code from section 3 into arch/arm/kernel/head.=
-S.
-    84	2) make zx29_defconfig
-    85	3) make [-j x]
-    86	4) cat arch/arm/boot/zImage arch/arm/boot/dts/zte/[device].dtb > ker=
-nel+dtb
-    87	5) mkimage -A arm -O linux -T kernel -C none -a 0x20008000 -d kernel=
-+dtb uimg
-    88	6) dd if=3D/dev/zero bs=3D1 count=3D384 of=3Dap_recovery.bin
-    89	7) cat uimg >> ap_recovery.bin
-  > 90	8) Place this file onto imagefs on the device. Delete ap_cpuap.bin i=
-f the
-    91	free space is not enough.
-    92	9) Create the file fotaflag: echo -n FOTA-RECOVERY > fotaflag
-    93=09
-    94	For development, booting ap_recovery.bin is recommended because the =
-normal boot
-    95	mode arms the watchdog before starting the kernel.
-    96=09
-    97	4. CPU and GIC Setup
-    98	---------------------------
-    99=09
-   100	Generally CPU and GICv3 need to be set up according to the requireme=
-nts spelled
-   101	out in Documentation/arch/arm64/booting.rst. For zx297520v3 this mea=
-ns:
-   102=09
-   103	1. GICD_CTLR.DS=3D1 to disable GIC security
-   104	2. Enable access to ICC_SRE
-   105	3. Disable trapping IRQs into monitor mode
-   106	4. Configure EL2 and below to run in insecure mode.
-   107	5. Configure timer PPIs to active-low.
-   108=09
-   109	The kernel sources provided by ZTE do not boot either (interrupts do=
- not work
-   110	at all). They are incomplete in other aspects too, so it is assumed =
-that there
-   111	is some workaround similar to the one described in this document som=
-ewhere in
-   112	the binary blobs.
-   113=09
-   114	The assembly code below is given as an example of how to achieve thi=
-s:
-   115=09
- > 116	```
-   117	#include <linux/irqchip/arm-gic-v3.h>
-   118	#include <asm/assembler.h>
-   119	#include <asm/cp15.h>
-   120=09
-   121	@ Detect sane bootloaders and skip the hack
-   122	ldr	r3, =3D0xf2000000
-   123	ldr	r3, [r3]
-   124	ldr	r4, =3D(GICD_CTLR_ARE_NS | GICD_CTLR_DS)
-   125	cmp	r3, r4
-   126	beq	skip_zx_hack
-   127	@ This allows EL1 to handle ints hat are normally handled by EL2/3.
-   128	ldr	r3, =3D0xf2000000
-   129	str     r4, [r3]
-   130=09
-   131	cps     #MON_MODE
-   132=09
-   133	@ Work in non-secure physical address space: SCR_EL3.NS =3D 1. At le=
-ast the UART
-   134	@ seems to respond only to non-secure addresses. I have taken insipi=
-ration from
-   135	@ Raspberry pi's armstub7.S here.
-   136	mov	r3, #0x131			@ non-secure, Make F, A bits in CPSR writeable
-   137						@ Allow hypervisor call.
- > 138	mcr     p15, 0, r3, c1, c1, 0
-   139=09
-   140	@ AP_PPI_MODE_REG: Configure timer PPIs (10, 11, 13, 14) to active-l=
-ow.
-   141	ldr	r3, =3D0xF22020a8
-   142	ldr	r4, =3D0x50
-   143	str	r4, [r3]
-   144	ldr	r3, =3D0xF22020ac
-   145	ldr	r4, =3D0x14
-   146	str	r4, [r3]
-   147=09
-   148	@ Enable EL2 access to ICC_SRE (bit 3, ICC_SRE_EL3.Enable). Enable s=
-ystem reg
-   149	@ access to GICv3 registers (bit 0, ICC_SRE_EL3.SRE) for EL1 and EL3.
-   150	mrc	p15, 6, r3, c12, c12, 5         @ ICC_SRE_EL3
-   151	orr	r3, #0x9                        @ FIXME: No defines for SRE_EL3 =
-values?
-   152	mcr	p15, 6, r3, c12, c12, 5
-   153	mrc	p15, 0, r3, c12, c12, 5         @ ICC_SRE_EL1
-   154	orr	r3, #(ICC_SRE_EL1_SRE)
-   155	mcr	p15, 0, r3, c12, c12, 5
-   156=09
-   157	@ Like ICC_SRE_EL3, enable EL1 access to ICC_SRE and system register=
- access
-   158	@ for EL2.
-   159	mrc	p15, 4, r3, c12, c9, 5          @ ICC_SRE_EL2 aka ICC_HSRE
-   160	orr	r3, r3, #(ICC_SRE_EL2_ENABLE | ICC_SRE_EL2_SRE)
-   161	mcr	p15, 4, r3, c12, c9, 5
-   162	isb
-   163=09
- > 164	@ Back to SVC mode
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
