@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6801CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 04:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A854DCD343F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 04:16:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8mx7h0My419s2P7k1BFl0yESBgvzIQJC2piNf13boJc=; b=w6ubjF9ZV+FB9cinCkswSs9uQQ
-	ymd3ignDAqJQUK2NulEoP+rXjrL2tCbGdu/XDkYBBw214Rthpa1w5zpfpA+/TL4P6Wb6UellCmUZ8
-	PV1YTpn1fwSWjasRIEmYQi4Bg/xOWwYZiZokKh975/XmOKSV2OXzUPxI8XdqNS73vuEqbjfGYOqiA
-	HVFPcOHLoDy9s04B/PsRiNk4KPyXN+YzGDZumvjGYzJsz6Dc/jTsvPHmR6+zy3eJiYG33Cvzh0879
-	3e665/8/JEeU6MIJQgG90WZ67q7bSL3OmQ1DHkPo0T23TNGkzMey9VihJIoxxPgmSpzD+3Qeqtm9+
-	EdutI7Fg==;
+	bh=dHJdlp8AjEfGkrsw8lP8uUlj3bryiS0jrnB8jGYDOZ4=; b=h4OWN2MKmeMLivr+z6RgXXEfbM
+	5W75wqVoMtOykOGJ0ffnHP0UD1VgrwYjgCkXAcZZAo1oxL6m7+G5nx8e4s7jV0uLgXlg8eQWM9E3v
+	7R2g7Y4hmwLpqG4nWdzsev/e2KTNkE90MCDRlI3h+Ntm6SZTSm/Mmyox//VPkFwQouPr46IBtZqO+
+	lvliboiNslN4BXIDBgV6f8/0bEfvEHqr1X9LkfcuPkLq5zxBePHPEG+tIcZr2Y6uJ/YKbwQX1BE1N
+	BMT9eeeK7jANcCvHUjE73vRFtAkL52CHx7nzfwWoLfEr28GehpGIny4YMVGR6pDeMjxaWrRdIiBEF
+	dkCeBjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPuol-00000006dPm-2cYI;
-	Thu, 21 May 2026 04:15:31 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1wPupx-00000006dYv-3MGN;
+	Thu, 21 May 2026 04:16:45 +0000
+Received: from mta.al2klimov.de ([2a01:4f8:c0c:a5b1::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPuoi-00000006dP2-2J4I
+	id 1wPupu-00000006dYC-3jhS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 04:15:29 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2b4583f0a1aso36657235ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 20 May 2026 21:15:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1779336927; x=1779941727; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8mx7h0My419s2P7k1BFl0yESBgvzIQJC2piNf13boJc=;
-        b=QL9SqKV0HRgrOR5dpZzW1AeDnwhOgqj4755ouSeqLwWBMPpInxWUyTYUZXfK/Dlj2A
-         Wg1j6zumf4IISJY7KOIqsmRt+oEI7EDPJhCEI+0vLRWWGhNnGFEL+lVsEC8yPuqbzRWe
-         Mg8T3hPjPme2vKBdXUSH1okvlo8Z2WJ801Y6LwYwKzHzvSE2EkTLPWhmmMGNIiWps3tT
-         T0dGRT7isbCoNXQNTi7Y6vvH9Pd/SZDTmvff00vS1mBR3rEQa15dfeQAIA+g7osAXNG9
-         RKNU5JwUMQnh2bDWQKPsHzTdM+n0CPCOAq59R/EG9bxgviUzbdGo67R/d9Kgr64r39Ic
-         Lelw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779336927; x=1779941727;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8mx7h0My419s2P7k1BFl0yESBgvzIQJC2piNf13boJc=;
-        b=ZN5uT9SEWxk0MIf1e/xkMHDdivpv5fDG5HAF8Er4dq1JC58Yqr+Er7vVyo5JDVVF6z
-         dTUcSZcTMlCvQzQki2j+gEkEPsBpxs9rWZBpW8IgiHo08aqGBSFPsYhyOBC97lfJn+mo
-         NsNIpz2ihjciJRIMfvLKLTWbpuK79GPe6MfXXWZ7W4e/ViAqB4j7FJ3XlBC3IAsDCrg0
-         xJTudNNsqj8TguhzABY3vVq0LSWbJ5Aozupp2rp0ilNydnrVi65/DbXeA+8/kHjzUZ8P
-         QOd8iLaB6z0W+zBC24oXvB+6DhGW7Y6DYvBldybWWuQWiINDt/cxNGt88Yofc1FIdaVz
-         lrpA==
-X-Forwarded-Encrypted: i=1; AFNElJ+qIp8Vk/7bgVmU9EnmdZW6iC1fdU46gXbMdcp7DttV3IzlFAZqmFVKcnm7PtPxpl129h3IIHbW0wvXIoKalIMn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVIB+08f1prq61VQLvu4HhDWy7TmcdnVB40qGTbmUC3mTmc2Tc
-	XMZI2ZXfE3a/oIkqSx/ZTrG+vuYjGSFu1zMVFRwDzl927Ez4Glpz+iLY7SlakANH/S0=
-X-Gm-Gg: Acq92OEd1/NzESPqckRYQ1XM7SdSum4SOx0v4mK2+lfaM1dRdrZ0bIUVul/JV12Ymxx
-	ZELtFKAFCNPuRGmK7MEQ+ElshoP/rNHpx/UZ70Ij1rjogjeTySDpC6Mj3ryS6f5Mv9O/GaTkTH+
-	iVif3fSa7NUWBrxCdCkkcIwBYU9lUzGJMoUknei+ANRjJ5/7yY5ND9IEFxYrn6rqGYjW7eprrop
-	u7NJ2KfS+VNfptlVcOWWUPhnB9V1TWWQvESLi+VL5jMWMzo5Z+EngUwTCe/MJguk22vI7bwV8WL
-	ioJTu1Qw18xjn16K9q68FtstPGUwFXo4T7GsPBSuUqo7ki4n6LTfaBdsZ8x9PDdJDLcNy+vEDnd
-	toqZ97v+KjJTKnEr2vp/d5L6dpbDbGYekLDOcqpcUchy+DykinVVY99nN7g6nv+J/o+maS4w/ai
-	RtWvCPi5FbTRKULI1r9ieb8b+G9dJvl6T7RHY=
-X-Received: by 2002:a17:902:c946:b0:2ae:5629:ac55 with SMTP id d9443c01a7336-2bea331d50dmr10441855ad.21.1779336927286;
-        Wed, 20 May 2026 21:15:27 -0700 (PDT)
-Received: from localhost ([2001:569:58a0:da00:a5c8:c4ce:f7c1:40c1])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2bd5d234540sm234841675ad.79.2026.05.20.21.15.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 20 May 2026 21:15:26 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 21 May 2026 00:15:26 -0400
-Message-Id: <DIO2ARBBUOJX.1OJ5RVION2UH1@etsalapatis.com>
-From: "Emil Tsalapatis" <emil@etsalapatis.com>
-To: "Tejun Heo" <tj@kernel.org>, "David Vernet" <void@manifault.com>,
- "Andrea Righi" <arighi@nvidia.com>, "Changwoo Min" <changwoo@igalia.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>
-Cc: "Peter Zijlstra" <peterz@infradead.org>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand"
- <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Emil Tsalapatis"
- <emil@etsalapatis.com>, <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>,
- <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 6/8] sched_ext: Require an arena for cid-form schedulers
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260520235052.4180316-1-tj@kernel.org>
- <20260520235052.4180316-7-tj@kernel.org>
-In-Reply-To: <20260520235052.4180316-7-tj@kernel.org>
+	Thu, 21 May 2026 04:16:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; s=default; bh=FABcNe6oskbq
+	qkAjfTtga0oHVgNz5XP1ZsDdWza/99c=; h=in-reply-to:from:references:cc:to:
+	subject:date; d=al2klimov.de; b=olNmLvY85uUrfxAlkyYOI1lRGglL/a1DxB7a/e
+	ep65VjsHLETXQiZ0mfh+EG4478+6inqXpAHvLWZd7B66Cq6zhXqxj8QnLEV0/u00d0paAp
+	Lk1YcczQfhGb5LSKKgXwbBRFY+FLqDJifb6zdhO8OtplINti12mbuDOGIDZbObJLMMNSTp
+	0nJRF1n3GAXct7azIxaBLK3fFkE75hnRpujeO+gaGrr3dG7ZuPbT5k7MxiSqIOV8t4sr77
+	mCb9jflzMebHe7uDOSFAUhr0Goc6wNSQTd5B7L8w42wgUl078uIoJBh8xnL5t5eYwzFnCQ
+	NAkhj7VTA++l7DbSnOoawBhg==
+Received: from [IPV6:2a02:2455:18e9:e011:4d8a:aad2:c25c:50e5] (2a02-2455-18e9-e011-4d8a-aad2-c25c-50e5.dyn6.pyur.net [2a02:2455:18e9:e011:4d8a:aad2:c25c:50e5])
+	by mta.al2klimov.de (OpenSMTPD) with ESMTPSA id 81cc9bdb (TLSv1.3:TLS_CHACHA20_POLY1305_SHA256:256:NO);
+	Thu, 21 May 2026 04:16:41 +0000 (UTC)
+Message-ID: <cb81262a-5327-41bb-9ef6-9cd91f1be0f7@al2klimov.de>
+Date: Thu, 21 May 2026 06:16:38 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: moxart: fix refcount leak
+To: Brian Masney <bmasney@redhat.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Jonas Jensen <jonas.jensen@gmail.com>,
+ Mike Turquette <mturquette@linaro.org>,
+ "moderated list:ARM/MOXA ART SOC" <linux-arm-kernel@lists.infradead.org>,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20260520175552.537603-1-grandmaster@al2klimov.de>
+ <ag41wJBhdK7-Zynb@redhat.com>
+Content-Language: en-US
+From: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+In-Reply-To: <ag41wJBhdK7-Zynb@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260520_211528_601508_7982CC60 
-X-CRM114-Status: GOOD (  27.56  )
+X-CRM114-CacheID: sfid-20260520_211643_231389_14FA7222 
+X-CRM114-Status: GOOD (  15.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,152 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed May 20, 2026 at 7:50 PM EDT, Tejun Heo wrote:
-> Upcoming patches will let the kernel place arena-resident scratch shared
-> with the BPF program (e.g. per-CPU set_cmask cmask) so the BPF side can
-> dereference it directly via __arena pointers, replacing the current
-> cmask_copy_from_kernel() probe-read loop. That requires each cid-form
-> scheduler to expose its arena to the kernel. Kernel- side accesses are
-> recovered by the per-arena scratch-page mechanism.
->
-> bpf_scx_reg_cid() walks the struct_ops member progs via
-> bpf_struct_ops_for_each_prog() and reads each prog's arena via
-> bpf_prog_arena(). The verifier enforces one arena per program, so each
-> member prog contributes at most one arena. All non-NULL contributions mus=
-t
-> match and at least one member prog must use an arena. The map ref is held=
- on
-> scx_sched and dropped on sched destroy. cpu-form schedulers (bpf_scx_reg)
-> are unchanged - no arena requirement.
->
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> ---
->  kernel/sched/ext.c          | 56 ++++++++++++++++++++++++++++++++++++-
->  kernel/sched/ext_internal.h |  8 ++++++
->  2 files changed, 63 insertions(+), 1 deletion(-)
->
-> diff --git a/kernel/sched/ext.c b/kernel/sched/ext.c
-> index 9c458552d14f..56f94ac32ba0 100644
-> --- a/kernel/sched/ext.c
-> +++ b/kernel/sched/ext.c
-> @@ -5003,6 +5003,8 @@ static void scx_sched_free_rcu_work(struct work_str=
-uct *work)
-> =20
->  	rhashtable_free_and_destroy(&sch->dsq_hash, NULL, NULL);
->  	free_exit_info(sch->exit_info);
-> +	if (sch->arena_map)
-> +		bpf_map_put(sch->arena_map);
->  	kfree(sch);
->  }
-> =20
-> @@ -6746,6 +6748,7 @@ struct scx_enable_cmd {
->  		struct sched_ext_ops_cid	*ops_cid;
->  	};
->  	bool			is_cid_type;
-> +	struct bpf_map		*arena_map;	/* arena ref to transfer to sch */
->  	int			ret;
->  };
-> =20
-> @@ -6913,6 +6916,15 @@ static struct scx_sched *scx_alloc_and_add_sched(s=
-truct scx_enable_cmd *cmd,
->  		return ERR_PTR(ret);
->  	}
->  #endif	/* CONFIG_EXT_SUB_SCHED */
-> +
-> +	/*
-> +	 * Consume the arena_map ref bpf_scx_reg_cid() took. Defer to here so
-> +	 * earlier failure paths leave cmd->arena_map set and bpf_scx_reg_cid
-> +	 * drops the ref. After this point, sch owns the ref and any cleanup
-> +	 * runs through scx_sched_free_rcu_work() which puts it.
-> +	 */
-> +	sch->arena_map =3D cmd->arena_map;
-> +	cmd->arena_map =3D NULL;
->  	return sch;
-> =20
->  #ifdef CONFIG_EXT_SUB_SCHED
-> @@ -7898,11 +7910,53 @@ static int bpf_scx_reg(void *kdata, struct bpf_li=
-nk *link)
->  	return scx_enable(&cmd, link);
->  }
-> =20
-> +struct scx_arena_scan {
-> +	struct bpf_map	*arena;
-> +	int		err;
 
-Can we skip the int err here...
 
-> +};
-> +
-> +/*
-> + * The verifier enforces one arena per BPF program, so each struct_ops
-> + * member prog contributes at most one arena via bpf_prog_arena().
-> + * Require all non-NULL contributions to match.
-> + */
-> +static int scx_arena_scan_prog(struct bpf_prog *prog, void *data)
-> +{
-> +	struct scx_arena_scan *s =3D data;
-> +	struct bpf_map *arena =3D bpf_prog_arena(prog);
-> +
-> +	if (!arena)
-> +		return 0;
-> +	if (s->arena && s->arena !=3D arena) {
-> +		s->err =3D -EINVAL;
-
-...and just directly return -EINVAL here? bpf_struct_ops_for_each_prog
-breaks when we return non-zero so do we need the extra scx_arena_scan
-struct?
-
-> +		return 1;
-> +	}
-> +	s->arena =3D arena;
-> +	return 0;
-> +}
-> +
->  static int bpf_scx_reg_cid(void *kdata, struct bpf_link *link)
->  {
->  	struct scx_enable_cmd cmd =3D { .ops_cid =3D kdata, .is_cid_type =3D tr=
-ue };
-> +	struct scx_arena_scan scan =3D {};
-> +	int ret;
-> =20
-> -	return scx_enable(&cmd, link);
-> +	bpf_struct_ops_for_each_prog(kdata, scx_arena_scan_prog, &scan);
-> +	if (scan.err) {
-> +		pr_err("sched_ext: cid-form scheduler uses multiple arena maps\n");
-> +		return scan.err;
-> +	}
-> +	if (!scan.arena) {
-> +		pr_err("sched_ext: cid-form scheduler must use a BPF arena map\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	bpf_map_inc(scan.arena);
-> +	cmd.arena_map =3D scan.arena;
-> +	ret =3D scx_enable(&cmd, link);
-> +	if (cmd.arena_map)		/* not consumed by scx_alloc_and_add_sched() */
-> +		bpf_map_put(cmd.arena_map);
-> +	return ret;
->  }
-> =20
->  static void bpf_scx_unreg(void *kdata, struct bpf_link *link)
-> diff --git a/kernel/sched/ext_internal.h b/kernel/sched/ext_internal.h
-> index 7258aea94b9f..d40cfd29ddaa 100644
-> --- a/kernel/sched/ext_internal.h
-> +++ b/kernel/sched/ext_internal.h
-> @@ -1111,6 +1111,14 @@ struct scx_sched {
->  		struct sched_ext_ops_cid	ops_cid;
->  	};
->  	bool			is_cid_type;	/* true if registered via bpf_sched_ext_ops_cid */
-> +
-> +	/*
-> +	 * Arena map auto-discovered from member progs at struct_ops attach.
-> +	 * cid-form schedulers must use exactly one arena across all member
-> +	 * progs. NULL on cpu-form.
-> +	 */
-> +	struct bpf_map		*arena_map;
-> +
->  	DECLARE_BITMAP(has_op, SCX_OPI_END);
-> =20
->  	/*
-
+On 5/21/26 00:29, Brian Masney wrote:
+> Hi Alexander,
+> 
+> On Wed, May 20, 2026 at 07:55:50PM +0200, Alexander A. Klimov wrote:
+>> Every value returned from of_clk_get() is supposed to be cleaned up
+>> via clk_put() once not needed anymore.
+>> The values here are used only for error checking,
+>> but weren't cleaned up until now.
+>>
+>> Fixes: c7bb4fc16ead ("clk: add MOXA ART SoCs clock driver")
+>> Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+>> ---
+>>   drivers/clk/clk-moxart.c | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/drivers/clk/clk-moxart.c b/drivers/clk/clk-moxart.c
+>> index 3786a0153ad1..7e191b1481bb 100644
+>> --- a/drivers/clk/clk-moxart.c
+>> +++ b/drivers/clk/clk-moxart.c
+>> @@ -39,6 +39,7 @@ static void __init moxart_of_pll_clk_init(struct device_node *node)
+>>   		pr_err("%pOF: of_clk_get failed\n", node);
+>>   		return;
+>>   	}
+>> +	clk_put(ref_clk);
+>>   
+>>   	hw = clk_hw_register_fixed_factor(NULL, name, parent_name, 0, mul, 1);
+>>   	if (IS_ERR(hw)) {
+>> @@ -83,6 +84,7 @@ static void __init moxart_of_apb_clk_init(struct device_node *node)
+>>   		pr_err("%pOF: of_clk_get failed\n", node);
+>>   		return;
+>>   	}
+>> +	clk_put(pll_clk);
+> 
+> So this immediately drops the reference to the clk after of_clk_get() is
+> called. Can we just remove these two of_clk_get() calls since they don't
+> appear to be used?
+Not if their purpose is to... idk...
+check whether device_node is a clock at all, maybe?
 
