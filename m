@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6AACD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F116CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Enrh790BjgIIUBfQlfWGTFeBgm0WSl+DUA/ZN6Netao=; b=gLVEwNq7PwGzSo8hQlKpMqc+Ve
-	o6vv2tk1/l86Jri5P4xXjchDD8iETWt/4/EL/f3NBu2qKlPBSALfXDUrqkQpv4HtD7Sb45XB3+wUL
-	uPXvv0DKtOqlODMIS5lldu6Dnk9HdpQ/MjXGf8NFZlzaLrQzg2lVFk9o/9sQNHAfOmvFGyYV1iCr/
-	aQeJwV+Bx+OvE0T4F/kP5B4KnVH+iBEWpH4uh1QhKrhhCGWPX4VxEuF6TmZOyChFfXKXTGpwrZBj3
-	S0S4ZpDi96tHZISQRPVIc/c2RmDwDXg1He5YxtVfpPJpxgdRYbJK/cwMg3CaTk+gPIzfS/G4POBeG
-	3G9NBJXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=K9f2mxd1DgZ9YJqr1jtxIvuLVJ0t0dKcSC5XT/L1G3g=; b=3Wx7zqA2J3qijW
+	FjgMQ+8qw5Zu82JgUHuUTIpGxl9kZOttKpm+FKkx5/tpToo4SIlj9XfIyNnPLViWqFt+yfVldKKy5
+	xgYreDJXysNStP5TOkqjix/AZNPOVn62nvO4SXuzMky9dlfj/vDYxq9QcTbS9THSlYSLj6Kwjqc6n
+	2Ua9RwbSDOAPgJulHIyRO+K3Xw3asjEBRFab2LN3Ih3yCrOhjNN/RnAvF6xBAS6sM784D6CPa0Db/
+	0K/h1KhcmLKTeXsRm4d60BkmPsGyHezf9EBCPEHLW6hduVCm8HtjVJ3PJiyWpqj5I0aJCp8ZQNGZb
+	31yi100m6WWGzVTKYx5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzvd-00000007LO0-2EcE;
-	Thu, 21 May 2026 09:42:57 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wPzvb-00000007LN1-13g7
+	id 1wPzvh-00000007LQW-3A1M;
+	Thu, 21 May 2026 09:43:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wPzve-00000007LNk-0WCO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:42:56 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-69b94acd958so3079700eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 02:42:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779356574; x=1779961374; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Enrh790BjgIIUBfQlfWGTFeBgm0WSl+DUA/ZN6Netao=;
-        b=dG7pHdjg2fkt8srDINF7lLGW1/GvqbG3saWUxrWXnUG7IzJ/RsW+CV9ps0FYaTD2Li
-         q4VECgx3bb3QGUmBhS7/dPidaqA7Fprl0yKylSSz9ah1493gRe3NnW5SeLdEbSRBrIkb
-         dUG8zwBw4r0FmnbNtkwXWUoGyH8d6P8DOK6mw5x+WirOC70kBUtVFtuA0kDM/NOqBRd7
-         SnEsxpTmVS0OR6yIBjwe0Oop6IJ8IvRAKjG+TggsKKOHALHSi1Bjz+pRmi9k6adNyyIu
-         M7uZh8TXUHMDjEPL1b10hEH0ByA68gjhoFSEzbQyWKyD+ysVY3hHhgHNlK0umRVkW1bj
-         iQrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779356574; x=1779961374;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Enrh790BjgIIUBfQlfWGTFeBgm0WSl+DUA/ZN6Netao=;
-        b=pK1mfvPfbGFRsQxspHr01IRO3utLNC9HMKvrug2jYpyDWlSPL7ODg28iby0LA8Vfzf
-         l2hCFKIjMa8cVyfRaigNXPhUPWemURM0ANrzk+20sR2DkeGsIKkh+2lPWorm2TJ8+adI
-         TLXLzIHfXqbk6BCr0yrsZEkjIbLoi5QmSmwZKOy1GGEsXryBveSJ4rvvc+rz00IlxER/
-         5eRT9Pi2zoXMnhuPoop0BEgDaBIFv0Xl3J2EoA6eugTx6janNsUR8zbzI8noQbbCUFgu
-         oJ8D8q+dPeFZfRFxudsKfymOG27iYPjxIgXXI5zDrBSPK8H0y8ZkL57kp/TsoDyJkwIg
-         JjGw==
-X-Forwarded-Encrypted: i=1; AFNElJ8vHX8hmDMuOUrBlAlMqOFB7N5BFwrUvYyuoD49/aQL9cuN0BPX6HXIb1dKhgDxWjxTIs8F3Nn3Qv6cwd/y9CrS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxueKv59YlBM1pBvaSEqHC3xeprH8KhqHv/hQAgtn/W75ZTKmvn
-	43UuBfqYHlQM4BmRLwhHnUGHrouMJifomNxG9keO8/vbUkQt9faDe+Bm
-X-Gm-Gg: Acq92OHJ1TlSiUWV2xDGj9mnoMB1XYFeqzZ1+F2e8lPlcgWsxybsW4CFZI9WBXMDhNr
-	nKIy/+nkDWaKqRAIAjNXWLUc0OQB3P1KQarK1IT0pDSQAX6cSfMfqk0g2qxrb4RCQf60m70PP9N
-	bzyWV+TGX034nugxeO2cQQCSkYCRvEAgdUSExK3K2R3Pn8zH/40ozTX+cPPCx7jOyBVEdSWmpPh
-	Hn0dTdzqHujKUnf7AhqUhdxrqwHMiBqhT3rPqsUWIF4AdXGQGxEr4wGzXp+u1kkIu/h89pwX49O
-	Af2WFTfPFwJj0CPckMOt8FiS1VyDv5mFoPTweIlYaZ5w9h4woxjF0IGa7/wFSzVNSN7RzZGrk0y
-	mlNDAhtv2XY0baDht7rRweo8tAVWlO5qOjYNULNJsutXybCDqFltOHy7fEoQ44NUVGfoj9neR1X
-	0k9q/+bcpksvJ3kx2QTM8iZTz++1UQmaYAP21GpRgZ0TnKqEVdkrd0BbDjKQRKYoDtRXF8x7mwY
-	Np2GeeiJGyTubJjUQ==
-X-Received: by 2002:a05:6820:290f:b0:694:6acf:a42d with SMTP id 006d021491bc7-69d6eefa916mr913981eaf.39.1779356574211;
-        Thu, 21 May 2026 02:42:54 -0700 (PDT)
-Received: from localhost ([2a03:2880:10ff:71::])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-69d77385a8esm199938eaf.11.2026.05.21.02.42.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 May 2026 02:42:52 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 21 May 2026 02:42:50 -0700
-Message-Id: <DIO99FYEHNC1.23KFEHRPTRB5N@gmail.com>
-Subject: Re: [PATCH 2/8] bpf: Recover arena kernel faults with scratch page
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Tejun Heo" <tj@kernel.org>, "David Vernet" <void@manifault.com>,
- "Andrea Righi" <arighi@nvidia.com>, "Changwoo Min" <changwoo@igalia.com>,
- "Alexei Starovoitov" <ast@kernel.org>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Martin
- KaFai Lau" <martin.lau@linux.dev>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>
-Cc: "Peter Zijlstra" <peterz@infradead.org>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>, "Thomas
- Gleixner" <tglx@kernel.org>, "Ingo Molnar" <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, "David Hildenbrand"
- <david@kernel.org>, "Mike Rapoport" <rppt@kernel.org>, "Emil Tsalapatis"
- <emil@etsalapatis.com>, <sched-ext@lists.linux.dev>, <bpf@vger.kernel.org>,
- <x86@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: aerc
-References: <20260520235052.4180316-1-tj@kernel.org>
- <20260520235052.4180316-3-tj@kernel.org>
-In-Reply-To: <20260520235052.4180316-3-tj@kernel.org>
+	Thu, 21 May 2026 09:42:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9308D35FA;
+	Thu, 21 May 2026 02:42:50 -0700 (PDT)
+Received: from localhost.localdomain (e123572-lin.cambridge.arm.com [10.1.194.54])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78CE53F7B4;
+	Thu, 21 May 2026 02:42:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779356575; bh=yTM0+DachRaCQ3ebv/mHdvMi2slEK32jyYhH6IjaJYo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=NLzjKvd5a2IAhkUSgTaH7C2PWB4xTFB3K70YzIecWX7WHwed5bSwwNUYElaDPsLDy
+	 /IxicyTg2W1F0j5y5i9rFEfuTCQq6CmuqC46GsCVWRGJaKW5ocQV5Bzwktpuekfsee
+	 wQPMPo9+F9oIN6/0LVvsYxCQ75oTsiRpdmRvACHk=
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Subject: [PATCH 0/2] Add test for atomic uaccess with permission overlay
+Date: Thu, 21 May 2026 10:42:29 +0100
+Message-Id: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIXTDmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDUyMD3YL81Pi00pLUCt3U5CSLZCMjczMLSxMloPqCotS0zAqwWdGxEH5
+ xaVJWanIJyACl2loA1xxvRW0AAAA=
+X-Change-ID: 20260520-poe_futex-ecb8c2276894
+To: linux-arm-kernel@lists.infradead.org
+Cc: Kevin Brodsky <kevin.brodsky@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+ Mark Brown <broonie@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+ Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org, 
+ linux-kselftest@vger.kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779356574; l=2109;
+ i=kevin.brodsky@arm.com; s=20260427; h=from:subject:message-id;
+ bh=yTM0+DachRaCQ3ebv/mHdvMi2slEK32jyYhH6IjaJYo=;
+ b=Begn8OO91VuooXMu1nVZlMnRiQRZqn5y/imnFZ+PLGkJm9SjzAqYH3XvSDP9g2EIQeQait2F1
+ WpdFPES8KxEDraFgHWpF5gelz6Snm0TDrx5tDbzoPXHs7Me+xiDiut2
+X-Developer-Key: i=kevin.brodsky@arm.com; a=ed25519;
+ pk=N2QG+eJKrvkNovwhhwJhnJ4+ScVfsGCHldmqLfcMTFs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_024255_299638_6B1BE91F 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260521_024258_256187_3FA97B70 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,26 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed May 20, 2026 at 4:50 PM PDT, Tejun Heo wrote:
->
-> v2: Use ptep_get_and_clear() in apply_range_clear_cb(). (David)
->
-> Suggested-by: Alexei Starovoitov <ast@kernel.org>
-> Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-> Signed-off-by: Tejun Heo <tj@kernel.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> ---
->  Documentation/bpf/kfuncs.rst |  14 +++
->  arch/arm64/mm/fault.c        |  10 +-
->  arch/x86/mm/fault.c          |  12 ++-
->  include/linux/bpf.h          |   1 +
->  include/linux/bpf_defs.h     |  11 +++
->  kernel/bpf/arena.c           | 177 +++++++++++++++++++++++++++--------
->  kernel/bpf/core.c            |   5 +
->  7 files changed, 183 insertions(+), 47 deletions(-)
->  create mode 100644 include/linux/bpf_defs.h
+Permission overlays are not currently applied for memory types
+configured in PIR_EL1, meaning that even if POE were enabled at EL1,
+memory accesses would not be subject to POE restrictions.
 
-First 5 patches lgtm. Should we create a stable branch out of them
-and pull into bpf-next and sched-ext trees?
-I'm preparing a followup for slab-over-arena on top of these changes.
+A patch [1] in my series adding page table protection using
+pkeys/POE [2] enabled overlays for all memory types in PIR_EL1. It
+turns out this is wrong, as reported by Sashiko [3]. User memory
+types must not have overlays applied in PIR_EL1, otherwise direct
+accesses to user memory with privileged loads/stores (and PAN
+disabled) will mistakenly be checked against POR_EL1, instead of the
+intended POR_EL0.
+
+To avoid any accident in the future, this series adds a comment
+above the PIR_EL1 configuration block, and a kselftest to ensure
+that atomic futex uaccess (which uses privileged loads/stores unless
+FEAT_LSUI is available) does work on memory mapped with a
+non-default pkey. 
+
+Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+
+[1] https://lore.kernel.org/all/20260505-kpkeys-v7-3-20c0bdd97197@arm.com/
+[2] https://lore.kernel.org/all/20260505-kpkeys-v7-0-20c0bdd97197@arm.com/
+[3] https://sashiko.dev/#/patchset/20260505-kpkeys-v7-0-20c0bdd97197%40arm.com?part=3
+
+---
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Joey Gouly <joey.gouly@arm.com>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Shuah Khan <shuah@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+
+---
+Kevin Brodsky (2):
+      arm64: mm: Add note about overlays in PIE_EL1
+      kselftest/arm64: Add test for atomic futex uaccess with POE
+
+ arch/arm64/include/asm/pgtable-prot.h         |  7 +++
+ tools/testing/selftests/arm64/Makefile        |  2 +-
+ tools/testing/selftests/arm64/poe/.gitignore  |  2 +
+ tools/testing/selftests/arm64/poe/Makefile    |  6 +++
+ tools/testing/selftests/arm64/poe/poe_futex.c | 62 +++++++++++++++++++++++++++
+ 5 files changed, 78 insertions(+), 1 deletion(-)
+---
+base-commit: 5200f5f493f79f14bbdc349e402a40dfb32f23c8
+change-id: 20260520-poe_futex-ecb8c2276894
+
 
