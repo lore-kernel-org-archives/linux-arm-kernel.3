@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1A7CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 11:54:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F7ECD4F5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 12:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AfaRmOFwq9PG0Q9lB7Y5h4Js0tCrSyooaZYJ9TAjF4I=; b=hZzVJtYUtSkIci7U/xly5DM5o4
-	1TN1JmnNIxqm0r48ea44o5bB1sGv/qPFx+DJ2JNnVPLcPQ4NHnZfG7hnAWlL9rNxjd2ytj6yy3zEm
-	fI9tO8eDxRd5mN2vcsKU6nxrjVX1KJnIV+K/G5svsgCR0PvrlUeEgBl7z4HdWttoLM8xCKSdfq6AY
-	5buA1loAsxHzqjkc5FMplLqYc215FHD1ZyH68lWoBd7JF73rNLp1UfDua3mo+6OaV8onfCHmuDhWi
-	H+eJjU2pjXnwSO0PL4Ig14/54UBSx/rU6JATra0PWg5FA1ol8OMo8aCdSq1nzDkDmA2/xSUKYzSYp
-	Ru4fk04A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b1YV0PHZEUtuM/PBOLAnzg9sm0RWsnbqyb1tvz3fxbg=; b=eSZBobRsv9l4SkYfc1ZrbJS9nV
+	DkhnRySRBRkHnpSgAZ55Ku/Ryg7K6wSkMC773G3I7WSHktcUzPEPfFzbv5f8Z42Q4hN4VvIOCopNq
+	FqfSIGWV+YuBAOLDsCdTWQt84wuURWPu0qKK3NTBqPc0epAEwM/a2SNu7MPs9M2+6V7Sakn9P9HmC
+	UdUcZJj0f5fn8N9KSi82Sv2mpoZEijcJgolQQNoC4S75KUMn64ro8geH14KM+sAfD3gDKJOCafJin
+	AxY0gyHE0cqyhK8L+LsDSp+4a5CGM6g+RCsV7ynoyRyZbKuMoz4IxFXS5pqXPwQnGovnXLutF3pOx
+	m5im1ZcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ1yt-00000007ewi-3kvi;
-	Thu, 21 May 2026 11:54:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ1yp-00000007ew2-26B6
+	id 1wQ25d-00000007fgy-3QDn;
+	Thu, 21 May 2026 12:01:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ25b-00000007fgU-2UUr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 11:54:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5740A437CB;
-	Thu, 21 May 2026 11:54:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D60901F000E9;
-	Thu, 21 May 2026 11:54:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779364462;
-	bh=AfaRmOFwq9PG0Q9lB7Y5h4Js0tCrSyooaZYJ9TAjF4I=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=VRoV8Obk6Db2yTrA5yAdD7bmtQFvSWYfd/ZMw0E5GBL5jIdP8p2frzgVjebJ/AI8N
-	 hR/ltXnLmqYytDDOSL4NfrAm8WWL6Eapslk7nKLHkiEPTsINTDc/s/wXE5nhOEOkw0
-	 ocFPhIherbIJmWmA0TT9aOS8dxo5zor2QipnNUscdwsm508C2EjBqUXMBblgS8bTHy
-	 VTwtO3pIzg195ryyporAX+AUffxjuJV03eR50aV96prxY5h11jwtvbWjHvTe3DepXz
-	 Q2BR9ERr09ummMuYbcfqyARU4HAkb3n2S7jWp660Rin4hD/1ttPs8n0zhk15N2/FrI
-	 IAG1as/hVnwgg==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev
-Cc: Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v4 13/13] x86/amd-gart: preserve the direct DMA address
- until GART mapping succeeds
-In-Reply-To: <20260512090408.794195-14-aneesh.kumar@kernel.org>
-References: <20260512090408.794195-1-aneesh.kumar@kernel.org>
- <20260512090408.794195-14-aneesh.kumar@kernel.org>
-Date: Thu, 21 May 2026 17:24:07 +0530
-Message-ID: <yq5a4ik16krk.fsf@kernel.org>
+	Thu, 21 May 2026 12:01:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 336DD35FA;
+	Thu, 21 May 2026 05:01:16 -0700 (PDT)
+Received: from [10.57.91.210] (unknown [10.57.91.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FF063F7B4;
+	Thu, 21 May 2026 05:01:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779364881; bh=AKox+I3lfcI7F4Zd1m11OMejg4p8pbjFloWjUNceEro=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=inUFKYNuwBXm2ITxleIMuYo8OlLrBV5ZX56ZvsglK23uoBnzOYxGy9jglFtf9Xwj6
+	 iaasWDrS0c/gjMrHsajAiSmp3i935puDPddekm5/K2wexEFlnAwtnKpkMjmDCKW98I
+	 lha84eQI3hGwv9GYba3f81qwwMQ6qV5LX6zUEQZA=
+Message-ID: <c140c0da-4ad7-48ed-ad83-663ada282b14@arm.com>
+Date: Thu, 21 May 2026 14:01:17 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] kselftest/arm64: Add test for atomic futex uaccess
+ with POE
+To: Mark Brown <broonie@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly <joey.gouly@arm.com>,
+ Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
+ <20260521-poe_futex-v1-2-1da286b8f9b2@arm.com>
+ <8fc7713d-6451-4f05-86cd-df833cedd94b@sirena.org.uk>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <8fc7713d-6451-4f05-86cd-df833cedd94b@sirena.org.uk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_045423_576521_9026E107 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20260521_050123_682951_FCDF9347 
+X-CRM114-Status: GOOD (  10.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
-
-> gart_alloc_coherent() first allocates memory through dma_direct_alloc(),
-> which returns a direct-mapped DMA address in dma_addr. When force_iommu is
-> enabled, the buffer is then remapped.
+On 21/05/2026 13:22, Mark Brown wrote:
+> On Thu, May 21, 2026 at 10:42:31AM +0100, Kevin Brodsky wrote:
 >
-> Do not overwrite dma_addr before dma_map_area() has succeeded. Keep the
-> dma_map_area result in a temporary variable so the direct DMA address
-> remains available for dma_direct_free() on the error path.
->
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  arch/x86/kernel/amd_gart_64.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/x86/kernel/amd_gart_64.c b/arch/x86/kernel/amd_gart_64.c
-> index b5f1f031d45b..a109649c5649 100644
-> --- a/arch/x86/kernel/amd_gart_64.c
-> +++ b/arch/x86/kernel/amd_gart_64.c
-> @@ -467,18 +467,20 @@ gart_alloc_coherent(struct device *dev, size_t size, dma_addr_t *dma_addr,
->  		    gfp_t flag, unsigned long attrs)
->  {
->  	void *vaddr;
-> +	dma_addr_t dma_map_addr;
->  
->  	vaddr = dma_direct_alloc(dev, size, dma_addr, flag, attrs);
->  	if (!vaddr ||
->  	    !force_iommu || dev->coherent_dma_mask <= DMA_BIT_MASK(24))
->  		return vaddr;
->  
-> -	*dma_addr = dma_map_area(dev, virt_to_phys(vaddr), size,
-> -				 DMA_BIDIRECTIONAL,
-> -				 (1UL << get_order(size)) - 1, attrs);
-> +	dma_map_addr = dma_map_area(dev, virt_to_phys(vaddr), size,
-> +				     DMA_BIDIRECTIONAL,
-> +				     (1UL << get_order(size)) - 1, attrs);
->  	flush_gart();
-> -	if (unlikely(*dma_addr == DMA_MAPPING_ERROR))
-> +	if (unlikely(dma_map_addr == DMA_MAPPING_ERROR))
->  		goto out_free;
-> +	*dma_addr = dma_map_addr;
->  	return vaddr;
->  out_free:
->  	dma_direct_free(dev, size, vaddr, *dma_addr, attrs);
-> -- 
-> 2.43.0
->
+>> Add a new test to ensure that atomic futex uaccess succeeds on
+>> memory mapped with a non-default POIndex/pkey.
+>> +	ptr = mmap(NULL, size, PROT_READ | PROT_WRITE,
+>> +		   MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+>> +	ASSERT_NE(ptr, MAP_FAILED);
+> Doesn't matter while there's only one test but we should probably
+> munmap() this when we're done.
 
-This needs corresponding changes on the gart_free_coherent() side as well.
+Fair enough, I was being lazy :) A pkey_free() is also in order to be
+comprehensive, another wrapper to add. I considered using
+../../mm/pkey-helpers.h but helpers there aren't implemented inline...
+Maybe refactoring for later.
 
-https://sashiko.dev/#/patchset/20260512090408.794195-1-aneesh.kumar%40kernel.org?part=13
-
-I will avoid making that change as part of this series, since I assume
-it would require specific testing.
-
--aneesh
+- Kevin
 
