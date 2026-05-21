@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADC1CD5BA4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:48:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89FC4CD5BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 21 May 2026 09:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmI8dqfwbVa2sCs5QMum2ZGRY4QfY/CkieqaiRErmL4=; b=CJhFXBfdRc6w3Zq47K7RkctIZN
-	sYsqfd+KqbLYqYJWMrlOyzXVgE74n+2f2IkyzHFLhPaNB6jpYYpZ3E2RFBDrXaLzxTFXIojoK1+Ou
-	eTHJaSnQSPjeEWo4jhnZ63uR9lVT2GOst4GI/QXFLVkb3e0SQw4wLQRlKBALXJT2Q/aEkoOOupFmP
-	sblFthn1EiWblOpjI7nWCbDbqhCiJGZD/ivUI5S62kSqvGmq5MtIyR0+DkbMYBYG5JunF8J4CXy7g
-	dQXhkGPFznmjh9g29uLTI6aG48jkWYXcONe8uskkp/6lzU5PfAqGoK7VJtl5/2oFhCbh/CvjaHfvY
-	8pU8/Sjw==;
+	bh=KeSvtGBh4cwVUpcf4H5O9Hv1BHhD0wSQKZJns6/kAy4=; b=EF90kGJAVTXl9Gl8uaMbrf7gO1
+	QEMuM5eMmBrRnMOfCJDHDT0vWl1X6jmKHvj0YMzM89TX5ktS9WggRAd2CaVIdoxLIokGKbMnJsjYs
+	9pWnVTTIJqWxnH/RrdY/0PrScnP9ekst+BgEvKx96Dn32j4pxlEELxrye7z+z4zRzWoUT4MID8biv
+	rEp8NKbX1RewhNT1HoxKKB38OMcVbFlYdRcFvApNghRSD6ZQDq2Oy2KJSp8Yrs71a6iombBgL9VUY
+	B1Bjv21ekIMQY1jeq9bzR9JDMZk9y5lyP3HMAPtszmN6BEa41EACJvbCHDXl5nmJ8CY50g+cCtAQ7
+	V3N3qoBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ00r-00000007Mdr-0Wmy;
-	Thu, 21 May 2026 09:48:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQ00p-00000007Md7-15t1
+	id 1wQ021-00000007MtH-1Xg1;
+	Thu, 21 May 2026 09:49:33 +0000
+Received: from smtp1.tecnico.ulisboa.pt ([2001:690:2100:1::15])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQ01y-00000007MsG-3Nh7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 21 May 2026 09:48:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 957023D4B;
-	Thu, 21 May 2026 02:48:11 -0700 (PDT)
-Received: from [10.57.91.210] (unknown [10.57.91.210])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D39CF3F7B4;
-	Thu, 21 May 2026 02:48:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779356896; bh=I1igY6byiAjI8Q/ivTGS1HbZflb65Cl/d4J5xRl+oT8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X9/CfiHaz/oFMO8092Kn48SADgX8OE0FaBuUJbJ8BdPRjgX6dRyAWagamrJ+5YL+/
-	 rJLFUkcfC5++AdiNLlSnMqG0fUqWKITHrnW/2GUtb1JZOG9F0c3mhfNNhnj9qF1sei
-	 k65gIEKSOHJcGS6598z+nLHikHac7AOsF2xJ8CGY=
-Message-ID: <92d46358-e347-4fd6-bf20-19927fb5dad7@arm.com>
-Date: Thu, 21 May 2026 11:48:12 +0200
+	Thu, 21 May 2026 09:49:32 +0000
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTP id F16D960020E3;
+	Thu, 21 May 2026 10:49:26 +0100 (WEST)
+X-Virus-Scanned: by amavis-2.13.0 (20230106) (Debian) at tecnico.ulisboa.pt
+Received: from smtp1.tecnico.ulisboa.pt ([127.0.0.1])
+ by localhost (smtp1.tecnico.ulisboa.pt [127.0.0.1]) (amavis, port 10025)
+ with LMTP id VaVwv1Ns4UOO; Thu, 21 May 2026 10:49:25 +0100 (WEST)
+Received: from mail1.tecnico.ulisboa.pt (mail1.ist.utl.pt [IPv6:2001:690:2100:1::b3dd:b9ac])
+	by smtp1.tecnico.ulisboa.pt (Postfix) with ESMTPS id D651360020D7;
+	Thu, 21 May 2026 10:49:24 +0100 (WEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tecnico.ulisboa.pt;
+	s=mail2; t=1779356964;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KeSvtGBh4cwVUpcf4H5O9Hv1BHhD0wSQKZJns6/kAy4=;
+	b=latHICr6zRUQSjfkSaydTbcYJ+bX+E3GXuhr7oNHQ7G4NNFDFTj1Ebi9ASn7jW8o9Ed9AN
+	xvppIpjSU6pKo75lQgfoIpJjX2Kr3qgn0+0+iJ8AIhmQ4Osu9UDyIxozaPZOteHVU31/qk
+	DereUVugwzHiyCJpVBUrMJO3g/fwNXLBWELozd1tOEgARjmChQWywLp0Z/ULrBjKVRSePy
+	YUms/kjWzEqnDqY/J1ge646Ye5uhL1OxDnPr/etG/X0uBT6QsrPeu1ZgP/1SWC4B1wAVNc
+	mlxsGIuMvINX0lAAMRRZXOmSW1GIUn/calPcLkN1KiSy0Re7mRz4CBSA93Vcvg==
+Received: from [192.168.96.1] (unknown [89.214.153.114])
+	(Authenticated sender: ist187313)
+	by mail1.tecnico.ulisboa.pt (Postfix) with ESMTPSA id 10C613600A2;
+	Thu, 21 May 2026 10:49:21 +0100 (WEST)
+Message-ID: <2dceac0d-8a1f-440b-ad9c-cff14a9a56f5@tecnico.ulisboa.pt>
+Date: Thu, 21 May 2026 11:49:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] arm64: mm: Add note about overlays in PIE_EL1
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Joey Gouly
- <joey.gouly@arm.com>, Mark Brown <broonie@kernel.org>,
- Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
- <20260521-poe_futex-v1-1-1da286b8f9b2@arm.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20260521-poe_futex-v1-1-1da286b8f9b2@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 3/4] mfd: max77620: override PSCI poweroff handler on
+ Pixel C
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20260514-smaug-poweroff-v1-0-30f9a4688966@tecnico.ulisboa.pt>
+ <20260514-smaug-poweroff-v1-3-30f9a4688966@tecnico.ulisboa.pt>
+ <ag65LXrLLbbeTbTb@orome>
+ <367bb557-81a0-4286-8788-0e7272cc4d02@tecnico.ulisboa.pt>
+ <ag7TenB3GrdLABuk@orome>
+Content-Language: en-US
+From: Diogo Ivo <diogo.ivo@tecnico.ulisboa.pt>
+In-Reply-To: <ag7TenB3GrdLABuk@orome>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_024819_347536_507CBE0D 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20260521_024930_984786_C215AFD1 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +95,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/05/2026 11:42, Kevin Brodsky wrote:
-> It isn't completely obvious why user page types do not have overlays
-> applied in PIE_EL1. Add a comment to that effect, to avoid
-> unpleasant surprises in the future.
 
-Should probably s/PIE_EL1/PIR_EL1/ in this whole patch.
 
-I'm also tempted to rename PIE_E* to PIR_E* to avoid anyone else's brain
-being confused like mine... The extension is called PIE, but this is
-really about the register configuration, i.e. PIR.
+On 5/21/26 11:43, Thierry Reding wrote:
+> On Thu, May 21, 2026 at 11:23:11AM +0200, Diogo Ivo wrote:
+>>
+>>
+>> On 5/21/26 09:52, Thierry Reding wrote:
+>>> On Thu, May 14, 2026 at 04:47:21PM +0200, Diogo Ivo wrote:
+>>>> On Pixel C, shutdown must be handled by the MAX77620 PMIC rather
+>>>> than the PSCI SYSTEM_OFF call, whose firmware implementation is:
+>>>>
+>>>> __dead2 void tegra_system_off(void)
+>>>> {
+>>>>           ERROR("Tegra System Off: operation not handled.\n");
+>>>>           panic();
+>>>> }
+>>>
+>>> Ugh... sounds very familiar. We have similar stub implementations on
+>>> Jetson TX1 and/or Nano, if I remember correctly. Luckily newer platforms
+>>> seem to have proper implementations for these.
+>>
+>> Yes, on my TX1 I was encountering the same problem. However in that case
+>> is it possible to update the firmware with a proper implementation?
+> 
+> I tried, but there were complications, both technical and logistical
+> because of the point in the product lifecycle. At this point I don't
+> think it will happen, unfortunately.
 
-- Kevin
+Ah, I see. Then in that case this approach seems like a viable option
+for those platforms :)
 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable-prot.h | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-> index 212ce1b02e15..6e2f99820909 100644
-> --- a/arch/arm64/include/asm/pgtable-prot.h
-> +++ b/arch/arm64/include/asm/pgtable-prot.h
-> @@ -175,6 +175,13 @@ static inline bool __pure lpa2_is_enabled(void)
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)   | \
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O))
->  
-> +/*
-> + * Regular user page types such as _PAGE_SHARED must not have overlays applied
-> + * in PIE_EL1. If POE is enabled at EL1, and in the absence of FEAT_LSUI, this
-> + * would break futex atomic operations on user memory with a non-default
-> + * POIndex; the privileged atomic load/store instructions would be mistakenly
-> + * checked against POR_EL1.
-> + */
->  #define PIE_E1	( \
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
->  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
->
+Best regards,
+Diogo
+
+> Thierry
 
