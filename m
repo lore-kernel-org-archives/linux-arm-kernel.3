@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3968CCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 08:20:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD80CD5BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 08:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EWG7WKyXYTzmaM1yK/qrR4UtsM0VTLgevWp10mHm/eY=; b=T1GV8P6Ys3y8DZJuar2QLjALR0
-	Oetmpi4AhuI6RleSnwODPv0WP1QFvCWo0idbx+gKVQjYn7yQNAzvpFE6Kkrr+cz+/3uTnpt0Q565B
-	TfWuXauQZa5OPKOqgP1aZiXiveIdQcn2GxVF+vJvCmVgZbORIzZHK99gxhrq6cRH0wuQBluZqxINj
-	c5bO14Z4VPZS0jEyiFaNU7Zvwc3fn8+Xnt4tAvxIys7V18rR6fuEovCcAGrThjoFJLiycwAmstlkA
-	BgU+dQuQ4J1sGc8pU51kRDeRbtg7v7pXvqyrhdnoHR9q5OJ6/wO/M5fPhqFM9qHbfNKt8xkUKT92f
-	HzX9ToVQ==;
+	bh=0KXvQ6RS9ouG5Uiy9/dpRJTh2ZZAbFANTX0T4nY3SZQ=; b=m5PpNeNO51HnphiSxKlBQu3RD1
+	NS9N8/d6JCKvSExQWiM182eCRGEfDNJRhrrIcbdl4yX3yOYnYgweunreqE5zkOFuW2rbpTPgA5FgS
+	SR4fjVG7UIAY4M3wY1UNrA38yldzhVVRJamBdOkyl4861+Ws8u9NEJic7O745BfquTHYwjho/wdo8
+	SEV6qJTu8TgSPIzpib0rQfFjQ0bwtt8l8fTbWIS1QG+DTz51P8/gY/sgPb3omXMdX/6zXYV7PQs5P
+	psmoVQ/niAfWFKpBJOI2Wa5AbHIoaU+4gfmeaouieloZYpWR21wfBcSvRmoYMroX4/b083qIrGlMY
+	i8ZBAZwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQL75-0000000ABIg-39S5;
-	Fri, 22 May 2026 08:20:11 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1wQLCO-0000000AC10-1M4I;
+	Fri, 22 May 2026 08:25:40 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQL73-0000000ABHT-2bYB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 08:20:10 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wQL71-0002DV-9m; Fri, 22 May 2026 10:20:07 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wQL6z-001EoG-2l;
-	Fri, 22 May 2026 10:20:06 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1wQL70-000000006RI-1SZQ;
-	Fri, 22 May 2026 10:20:06 +0200
-Message-ID: <74844de05ed99d29424ba71e3c625020afdddf61.camel@pengutronix.de>
-Subject: Re: [PATCH] ARM: rockchip: keep reset control around
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,  Steven Price <steven.price@arm.com>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Fri, 22 May 2026 10:20:06 +0200
-In-Reply-To: <7845032.1B3tZ46Xf9@phil>
-References: <20260521210915.2331176-1-heiko@sntech.de>
-	 <7845032.1B3tZ46Xf9@phil>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1wQLCL-0000000AC0T-2uu1;
+	Fri, 22 May 2026 08:25:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779438337; x=1810974337;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Wig18oMoF2h7CU1hfyPk9X2nSxt/aprardkBIspwbSA=;
+  b=MRn84S8GEHS+8PiK6kJeXPcnMmkpYpFtoJZ/ub929GsA/iIFosOUOeVN
+   7omh9gt9MK403qum8Mf1loYPlq7SI9jrvymHmaWLnn/KGCUSbGHqHupfq
+   bpPekMekPj8NgImyir1JvCHrVQV5WACBMljuyR1F8f69Kk15fQjevv7xc
+   fcJFxITIUo1S3rJuFwbDGnBtpdGIXtN8hRIyP4qzxYwFa/blTuO+8i/4l
+   5KUddZgk8iRUzqRAQIieOi/+/OGoPnDLJAkjcDALUkSpY8hyaZhi3GhRK
+   B8JT5WONH3i0jkbyniOsCWlcXcftdHEfTwCuAdw+HyjBbyD+nxSDSwgTy
+   g==;
+X-CSE-ConnectionGUID: 7XRilWgxQdeleof5LNg6xQ==
+X-CSE-MsgGUID: EUm9L0SKQum4z1A7kVDVBw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11793"; a="90664136"
+X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
+   d="scan'208";a="90664136"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 01:25:36 -0700
+X-CSE-ConnectionGUID: 24HI4OtNRwaIvNcadNz6UA==
+X-CSE-MsgGUID: OtKb06yyTouwMKypEtH3Hg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
+   d="scan'208";a="278964990"
+Received: from rvuia-mobl.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.3])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 01:25:34 -0700
+Date: Fri, 22 May 2026 10:25:25 +0200
+From: Mehdi Djait <mehdi.djait@linux.intel.com>
+To: Chen Ni <nichen@iscas.ac.cn>
+Cc: michael.riesch@collabora.com, mchehab@kernel.org, heiko@sntech.de, 
+	hverkuil+cisco@kernel.org, gerald.loacker@wolfvision.net, bryan.odonoghue@linaro.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: rockchip: rkcif: Fix error handling for
+ media_entity_remote_source_pad_unique()
+Message-ID: <ahAR0-zm1Jue6pGl@mdjait-mobl>
+References: <20260522065548.2438545-1-nichen@iscas.ac.cn>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260522065548.2438545-1-nichen@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_012009_659366_FAA4A8E9 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20260522_012537_811778_3BE3524B 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2026-05-22 at 09:20 +0200, Heiko Stuebner wrote:
-> Am Donnerstag, 21. Mai 2026, 23:09:15 Mitteleurop=C3=A4ische Sommerzeit s=
-chrieb Heiko Stuebner:
-> > Do not put the reset control, retain exclusive control over it.
-> > After turning on a CPU, the corresponding reset line must stay
-> > deasserted.
-> >=20
-> > This also avoids calling reset_control_put() before workqueues
-> > are operational.
-> >=20
-> > Fixes: 78ebbff6d1a0 ("reset: handle removing supplier before consumers"=
-)
-> > Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
-> > Tested-by: Steven Price <steven.price@arm.com>
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > ---
-> >  arch/arm/mach-rockchip/platsmp.c | 16 ++++++++++------
-> >  1 file changed, 10 insertions(+), 6 deletions(-)
-> >=20
-> > diff --git a/arch/arm/mach-rockchip/platsmp.c b/arch/arm/mach-rockchip/=
-platsmp.c
-> > index f432d22bfed8..f659d894bfae 100644
-> > --- a/arch/arm/mach-rockchip/platsmp.c
-> > +++ b/arch/arm/mach-rockchip/platsmp.c
-> > @@ -34,6 +34,7 @@ static int ncores;
-> > =20
-> >  static struct regmap *pmu;
-> >  static int has_pmu =3D true;
-> > +static struct reset_control *cpu_rstc[4];
->=20
-> After sleeping on that, this should be cpu_rstc[5];
->=20
-> Coretx-A9 SoCs need to enable the SCU power-domain which thankfully
-> sits at index 4 of the power-domain register.
->=20
-> So while we (already) expect no reset control for that, we need at least
-> make sure, it's not reading into undefined memory
+Hello Chen,
 
-The access in pmu_set_power_domain() is gated by
-(pd < ARRAY_SIZE(cpu_rstc)). And ncores in rockchip_smp_prepare_cpus()
-can not be larger than 4.
+Thank you for the patch.
 
-> and thus need that empty field in the array.
+I see this issue in the rpi cfe driver also.
 
-We could drop the ARRAY_SIZE check and add a placeholder to the array,
-but it would need to be set to ERR_PTR(-EINVAL). Otherwise we'd have to
-replace all the IS_ERR(rstc) checks as well. I think that would be a
-good follow-up change.
+On Fri, May 22, 2026 at 02:55:48PM +0800, Chen Ni wrote:
+> The media_entity_remote_source_pad_unique() function returns an error
+> pointer on failure, not NULL. Fix the check to use IS_ERR() and return
+> PTR_ERR() to correctly handle allocation failures.
+> 
+> Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
 
-regards
-Philipp
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+
+> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+> ---
+>  drivers/media/platform/rockchip/rkcif/rkcif-stream.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> index 3130d420ad55..542aa877919d 100644
+> --- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> @@ -466,7 +466,7 @@ static int rkcif_stream_link_validate(struct media_link *link)
+>  	struct rkcif_stream *stream = to_rkcif_stream(vdev);
+>  	int ret = -EINVAL;
+>  
+> -	if (!media_entity_remote_source_pad_unique(link->sink->entity))
+> +	if (IS_ERR(media_entity_remote_source_pad_unique(link->sink->entity)))
+>  		return -ENOTCONN;
+>  
+>  	sd = media_entity_to_v4l2_subdev(link->source->entity);
+
+--
+Kind Regards
+Mehdi Djait
 
