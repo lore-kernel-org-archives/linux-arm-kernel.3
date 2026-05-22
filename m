@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0137CCD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D01CD5BB5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLmi76zOx0QuQbmnSuX5CmerIhmQV2urN04KM4eTNG4=; b=kPJ7Z+N9nmBKnc0uCaEb02VW80
-	00o5fT0iQeE80nD/+o6tDZm85w9NGpJnDkDbVWdWLycwwff2TrPby6TJ/h51jRpdMCHM3J0tsWs9s
-	7Rscq8YtAo2Mo+n5WEHZ192Q+rUh3ziSp23wk7kjQKvAOR9LzXaLUynvc561qCAsU85uI4EYgGzrc
-	tsCXuhRW25pcR2b0dM7ijG0gHIf6Fc+5Tfkc84b2D7QztApJpfQjAjd6a2DAlsDWb9H5/G7iF+Q40
-	3f8SgRuwnzZsnn1qgsB4KaCBweMFGx+/JBNjuP/RjeMFUbYndofg4ca7AgCal9ZY3fm3LxluM6BA/
-	lt7MsL0A==;
+	bh=hYSKle0N5gkhHFZVlrjMQ1yuCxunHMt9ZfrNwqt0f6k=; b=p4G3OiFznqICPfzPj1hVRb1Mzk
+	moEVzkl3ImliSXKpvDDaFkbu1sNnaSYK0Dvm9KmlFD7swndBf08ZuCSfc6M7jnNVtSxEwEkX9mV6u
+	+drNxj+R7qIuNtGRzM8GQ2pCxOj4zLtsvYKsAyoVo5ccyEyujWu2qnTScnU9g+fRSCZCQ3TpEylwe
+	OUupDVgAQGESIh7r/57mPMkRrjYijTkAQFXJZ9DEh3QCiIVOWoQ9Zk5EJg1jMLTEmoCSmeJLO3UdG
+	38wmObWMlBxCjfHd8slAA3ujyh19dCJ00O/vUf0rS3hpkw8I9hsBeidFiwQG0v7DK+s2CW35MLcIM
+	s/7tnqAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQNvt-0000000Abxh-2Ohp;
+	id 1wQNvt-0000000AbyI-3DE1;
 	Fri, 22 May 2026 11:20:49 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQNvj-0000000Abrh-2TrD
+	id 1wQNvo-0000000AbuZ-13PL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 11:20:40 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-490388fd0dbso16616185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 04:20:39 -0700 (PDT)
+	Fri, 22 May 2026 11:20:45 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso14030735e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 04:20:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779448838; x=1780053638; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779448843; x=1780053643; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mLmi76zOx0QuQbmnSuX5CmerIhmQV2urN04KM4eTNG4=;
-        b=m2KqUKOziCIjpICwHk2PSNDUaPfqQZELn+/tAfy/mBxFnwOFp56lguQ8DuEiEFQydz
-         W3LVb19IkVZfS/JXPUyuM3pe43PmqW17gQGDKmpGcM4r1mmPex2PHARizu4lEf0BNVmW
-         +3lalEmoiLcjd89bwgMdjO2R2CJMH22xinM7nf195sIo50WPJyX7qGRY4YUKS5j3G3lx
-         NI5xXvm4Y11at9nib52+VJRp8W8BigGWXH+FqQ+G8TuMvCR3wdhs4Jqe/dqcr8+9Tw5z
-         5NaBGFNhFBKRq8wmrnUZvd98cbSJmZcLFObYBIhQsK4FXKFDJ5GsM8joHq4NliOE7zK9
-         E/qg==
+        bh=hYSKle0N5gkhHFZVlrjMQ1yuCxunHMt9ZfrNwqt0f6k=;
+        b=qOXGv0ETFp2KUs02yrJ4DrenyUulm3fWcuvFFJIwE2Gev6ZprX+N5pfwYVRAVaElCj
+         LHCXbNumONAtkE4vvMVYR7/Q8VzB7r++fbaAgRhuwlNPuyJrbMdl/c96WAEvbtf2gwa+
+         bjOvzZF0q4+bZLHtJGC4f8xW3bDTBTmwBavEnJer2F2J1zv8qyoJyKAhjPAWFMWp2FsD
+         wPymUjnqn9/vxKct/srOdjkMKzvJB0B5Wa9IVIgR6GAeKaX1QJk3CqdqHYZBZ8xYnuAa
+         f+KTWnybDD87tk1+pxKgbEHNMMHMAGBmkG0IrSMyrfrBYSdjpKLx5guUddoZwxptyKPX
+         rDPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779448838; x=1780053638;
+        d=1e100.net; s=20251104; t=1779448843; x=1780053643;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=mLmi76zOx0QuQbmnSuX5CmerIhmQV2urN04KM4eTNG4=;
-        b=k8zFu3t0xWBrOheXDeiuLi21XMzTsKlG3QUKvGESMie5Dxj9hqEU6eJt970/2T+a4k
-         41AI7M7PfSvClwNyW1XWXiaoh3+8JrfJ1w3yhhMix28qx4ksZmUsoWwiEpgfIj19+iaS
-         R+GoRz3PfzjgKGGZc8JEcUpAIL0mzshK1spiRCNUD2EOizDhQtL1YCPVISbnV0AkmXR0
-         DjYGYjsRgxC1YladaEmVStmD3ExqifSebePj11HsbXaRnhJtqkNUOmXOWMtpvo4lzQao
-         s/5/aSnvjxZlFKg6R7s6VwEJ69IExoqwQwJ4JsS/ufZPxR+PICUm7fLWN4Ebb46Xv6w8
-         xBaQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/4wyD98X3dmfoKn149E3d0jOUY5jg9pQ7KOA2HgBQZzrti2TWLeA3SDBidv6qu0n5IDWDfm4k7x0g4W2d/wp28@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/l8G150sSY3D8YITUHJ694XOnrEonu+3xp0+jPVq82UbsynlN
-	udC+GZPEffbaYOqr5cW+r4ask3sVI/eNOCQV1bgUvUP06pG7ahEnz+pm
-X-Gm-Gg: Acq92OG8X5lPllTt29socQtgjihMKvJRH/qCsqyO2AjTATMGCk6S5xRuQwlwxtbzch7
-	vOPAq+dfOEQ6vhC65SrlKKnHtd/zSXVMhZz1TxO0syYua2SVqcu9khIMVWy7nCL3I++aMfDCcxP
-	nI0YGmn8kgUHCUV3RBCfSAIixvoQpoA9yNl3yd/7QZPDaPCdBJ19dllEqkw6S4UEJUgbIn5aX73
-	4P3IvvW+Z5UHiIYkB7J3dgfW+Z1IfUHLT+NNsIVuNGsGN+v2fnrW8EPZT+lmoxsz9MnbD2cKejv
-	Tt+L2IIbtP2dUMyK/WTzKCW7Yok4SFd1zokCrgua0yEEgGVjva/r8MPn8D/b46ZBO1P2n/nfY8r
-	LqBlGn64jLS4YOXe+juUpBiNLbuts8VrDKYX3FHGD33wnMJnXQjFr03gVVMfN2mthSazQQLNrin
-	yyntSy33CDW9DMFTjU71ku+Ea5FsTzuEsV2++Hxz3D5fsy6by+BQ==
-X-Received: by 2002:a05:600d:8450:10b0:48e:82af:d9 with SMTP id 5b1f17b1804b1-490428cc11dmr30590335e9.29.1779448837574;
-        Fri, 22 May 2026 04:20:37 -0700 (PDT)
+        bh=hYSKle0N5gkhHFZVlrjMQ1yuCxunHMt9ZfrNwqt0f6k=;
+        b=aC5LQEz/Q7YojOCeOtTRzZXo5tFOwUDpEY3tK2FUHGuURxngCqTrKxHUqqnJBDj4zB
+         ng+D0TVdBkgKiP5Ams2b+j5Wa6tuU9CMGPwVfbKSwH1IR61lEnuQ21/o2jrHH36bGy9H
+         zE2wL2XrOCgihiqobknNZFs1IdDxg5/pXeaTMqBWRpzbVSkX09G6CzHmNV4OtGGdW6xJ
+         UtNVWEkXgKePbXkcT6BgXub46LJI3wC50i5GGzMETxn6M+6ggpHjQcVuFZ4CfauwrgAe
+         Szg4PBUo4fPiKqjLrTluFCXUbFMxHe/Z4JMNpvSJxyagFsHBp2jiMYjVb/K3TCvvDw4J
+         KAIg==
+X-Forwarded-Encrypted: i=1; AFNElJ8q+rlEto8rhGpErM36PCygRhFHWStI5TFnjrE//pWQHoMtIKVmUIiw3BKZubOKO2hE6doD/gYoJHI4AT2OvFT9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzhONrVOk5hTW1jzS/G5eA6den7iqRp/+j8IyxxBVdd2o8Xllh
+	tYvb5SvjUvT43qJMC2U2Dsilyuii/jz3M64RTxl4Wvpv8AyG0uMrMBj0
+X-Gm-Gg: Acq92OEq6yKBjVZSQS4aQfxDBKDtdbvwv+e/HmzmBSaXbJQRSSmIk9Tlt1JucU52joN
+	JpijqX2/ko9bG0tNT+fHBWC4SMZcyEc/6Uc+F/PGlk0eAJhYqKQ4gtRbGd73o/X51jvnzp/ko2G
+	duOTghNsptzw8FjKYcLoGOij9iG7MeJAIzzhVkIdzFX1qL1NmKgn1v+ZKG+D164c8mFNOyU4fW/
+	pYRg92BayAR4iWjP0Zg6L/9OmzZnld/RkD87FKumqL1HUGNG1OxFSLyYo70veIPNaxDomSeQRak
+	ndztV0Wm2F8PGiE1EOCihlmuc2gqIsgdk3zDoZLo3Vm2G+AsdJQTs8Eiz8cN/yYiex0A9VpZRUf
+	qxhe78O3oUzsnSkujMcRyBnO4dScRxkh8M+iOJ4oCMoo/A5SRETMsb7zqsldovFoaSUNA9Rqrv9
+	NH8jE5MLYcodGban45L6L9BGm9HxNqP+VwasnXSFu6PEHzuzp1/7qS59VM9BOE
+X-Received: by 2002:a05:600c:a402:b0:48a:f18:ece4 with SMTP id 5b1f17b1804b1-490426d3f95mr30812985e9.24.1779448842577;
+        Fri, 22 May 2026 04:20:42 -0700 (PDT)
 Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4904526ca21sm34388355e9.3.2026.05.22.04.20.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4904526ca21sm34388355e9.3.2026.05.22.04.20.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 04:20:37 -0700 (PDT)
+        Fri, 22 May 2026 04:20:42 -0700 (PDT)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Bjorn Andersson <andersson@kernel.org>,
 	Mathieu Poirier <mathieu.poirier@linaro.org>,
@@ -85,17 +85,17 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/5] arm64: dts: freescale: imx95-toradex-smarc: move CM7 node to SoC DTSI
-Date: Fri, 22 May 2026 04:18:47 -0700
-Message-ID: <20260522111849.783-4-laurentiumihalcea111@gmail.com>
+Subject: [PATCH 5/5] arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
+Date: Fri, 22 May 2026 04:18:49 -0700
+Message-ID: <20260522111849.783-6-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
 References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_042039_648407_8D2E6462 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20260522_042044_313608_A2D0F3D2 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +112,109 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-The CM7 remoteproc configuration is common to multiple MX95-based
-platforms (e.g. MX95-19x19-EVK, MX95-15x15-FRDM, SMARC-IMX95, etc.).
-Therefore, move the node to the MX95 SoC DTSI. While at it, split the mbox
-channels using <>.
+Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
+to be used with the mx95evkrpmsg system manager configuration for
+remoteproc and audio over rpmsg-usecases.
 
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- .../boot/dts/freescale/imx95-toradex-smarc.dtsi    | 14 ++++++--------
- arch/arm64/boot/dts/freescale/imx95.dtsi           |  7 +++++++
- 2 files changed, 13 insertions(+), 8 deletions(-)
+ arch/arm64/boot/dts/freescale/Makefile        |  3 +
+ .../dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 65 +++++++++++++++++++
+ 2 files changed, 68 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-index 7d760470201f..c94a63a3bf8f 100644
---- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
-@@ -145,14 +145,6 @@ reg_wifi_en: regulator-wifi-en {
- 		startup-delay-us = <2000>;
- 	};
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index 513f61eb27b8..a30a99e42426 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -521,6 +521,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk-pcie0-ep.dtb imx943-evk-pcie1-ep.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm-rpmsg.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
+@@ -539,6 +540,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
  
--	remoteproc-cm7 {
--		compatible = "fsl,imx95-cm7";
--		mboxes = <&mu7 0 1 &mu7 1 1 &mu7 3 1>;
--		mbox-names = "tx", "rx", "rxdb";
--		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
--				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
--	};
--
- 	reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-@@ -204,6 +196,12 @@ vdevbuffer: vdevbuffer@88020000 {
- 	};
- };
++imx95-15x15-frdm-rpmsg-dtbs = imx95-15x15-frdm.dtb imx95-15x15-frdm-rpmsg.dtbo
++
+ imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
  
+diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
+new file mode 100644
+index 000000000000..b39444dde66e
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
+@@ -0,0 +1,65 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright 2026 NXP
++ *
++ * This DT overlay is meant to be used alongside the mx95evkrpmsg SM
++ * configuration for remoteproc and audio over rpmsg.
++ */
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		vdev0vring0: memory@88000000 {
++			reg = <0 0x88000000 0 0x8000>;
++			no-map;
++		};
++
++		vdev0vring1: memory@88008000 {
++			reg = <0 0x88008000 0 0x8000>;
++			no-map;
++		};
++
++		vdev0buffer: memory@88020000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x88020000 0 0x100000>;
++			no-map;
++		};
++
++		rsc_table: memory@88220000 {
++			reg = <0 0x88220000 0 0x1000>;
++			no-map;
++		};
++	};
++
++	sound-micfil {
++		status = "disabled";
++	};
++};
++
 +&cm7 {
-+	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
-+			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
++	memory-region = <&vdev0buffer>, <&vdev0vring0>,
++			<&vdev0vring1>, <&rsc_table>;
++	memory-region-names = "vdev0buffer", "vdev0vring0",
++			      "vdev0vring1", "rsc-table";
 +	status = "okay";
 +};
 +
- /* SMARC GBE0 */
- &enetc_port0 {
- 	pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
-index 3e35c956a4d7..f8760ac067fa 100644
---- a/arch/arm64/boot/dts/freescale/imx95.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
-@@ -272,6 +272,13 @@ opp-1000000000 {
- 		};
- 	};
- 
-+	cm7: remoteproc-cm7 {
-+		compatible = "fsl,imx95-cm7";
-+		mboxes = <&mu7 0 1>, <&mu7 1 1>, <&mu7 3 1>;
-+		mbox-names = "tx", "rx", "rxdb";
-+		status = "disabled";
-+	};
++&edma1 {
++	/* reserved for M7 */
++	dma-channel-mask = <0x40>;
++};
 +
- 	clk_ext1: clock-ext1 {
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
++&edma2 {
++	/* reserved for M7 and V2X */
++	dma-channel-mask = <0xf>;
++};
++
++&micfil {
++	/* reserved for M7 */
++	status = "disabled";
++};
 -- 
 2.43.0
 
