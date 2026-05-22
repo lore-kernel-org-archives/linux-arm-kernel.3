@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18230CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 06:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C9BCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 06:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zv+bq8Y4125ZUtVQWA5vR0XBl99zeMI54gkrK9c5vNE=; b=4tc6+JFoodHvUrUHNYnzOA8Kzq
-	3IO0hOnQKYc0oKPi3whxfCNKnpq9oOjHP2TMyEq+lpi/RP/2UqdbAl3mkjPVxFhzWGHCHAZVk1tCH
-	RSBGZvFjXWXNxwO8CEf7kPV2A4SRmOT/zoRbei7f5S7tn44NWkjqFJrp/x5jzmBYIIjUApM0GHLbX
-	j82U+oQZtat3rz21xXQh2Is4fkkWlXsG6Ef0C+eYMPy7cirGhGz+bi87GqkD2H/4NWw0oegzmn35L
-	CkNkodXwjFfi9y6ht25nt6yAR6T40tixp/JwpbvW8m2q926aSdFNlGJPoUT5p7vQwK3rJ4q825yoM
-	WSxX1jZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=mgMRcmeIRwFSqj4uXq1QIcOzpHdQbgGdUSQRhqwyrqc=; b=qUhT7VgzxD8Gby76Vma+ViGyoR
+	DGra8RbjV6BoCY+lCvFSOSDGpkA901xrETk4qclmynPoS5NZNRQF14fH2ZqAdmAk4UBnT7VwpxVQG
+	UVUGYJ0YKJrA4brJBUVCQfUA+ydFg30LobI59biDPkcQvfEvXHRAkHZ8pr9DLbFh5UuaiipIcPdcX
+	zA3fTFx6+m4oySb4V7dO+jjvG0JYCr3/c7mb0CmPGyJ9PwwaMs507u1fS/zFRnLdai7hmPinFUrk0
+	efERBQ7cdPCwuCh8WC4r16PJShpG9M/J1i6UMUWKWuczfdkhzYOCxNvoFS3q7R6SENyNhsyB4tSZK
+	HfZGDHSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQJ2C-00000009veq-2jvt;
-	Fri, 22 May 2026 06:07:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQJ5p-00000009w4A-0pZ9;
+	Fri, 22 May 2026 06:10:45 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQJ29-00000009ve8-3vEr;
-	Fri, 22 May 2026 06:06:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A973840207;
-	Fri, 22 May 2026 06:06:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04F241F000E9;
-	Fri, 22 May 2026 06:06:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779430016;
-	bh=Zv+bq8Y4125ZUtVQWA5vR0XBl99zeMI54gkrK9c5vNE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bTaHUPD5OkGxNjL9uDPG4wGMmKtXLO5mPQJ/MqDVK5784jUhIG9jhLGixf0M7782/
-	 xHdlQaLig7FdM8Ht8T9tEHIZRzxp74JaRC7kKg48+RQ7lpqiq7pMnddYb8fyhP7Vj2
-	 BfZUktHANeYE5bMliEjICrkfRZMMGeM3xlKRCUDPMx3ZwybizsnxkJ6A4wjXGmztFg
-	 /t1mgbdSx1cVLlinmtNaMTqk5dumtUrGw3ZRyfNbm/CbxVCjyTamvaTiQhx15KXRUG
-	 mm/WU2adz4GbLOYZph/VQTLmuURBDMePgoZPN1CtvjNIbMTHGZjoIWxkbIhIpFOJof
-	 tRmum7N4OWKNg==
-Date: Fri, 22 May 2026 08:06:54 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v9 2/5] dt-bindings: phy: Add documentation for Airoha
- AN7581 USB PHY
-Message-ID: <20260522-obedient-lovely-kingfisher-2deda1@quoll>
-References: <20260521153645.7028-1-ansuelsmth@gmail.com>
- <20260521153645.7028-3-ansuelsmth@gmail.com>
+	id 1wQJ5i-00000009w30-2DVf
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 06:10:43 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260522061032euoutp018dfd81793195ffadbc6469d2bcb61a8b~xzl5IHeuf1893518935euoutp014
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:10:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260522061032euoutp018dfd81793195ffadbc6469d2bcb61a8b~xzl5IHeuf1893518935euoutp014
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1779430232;
+	bh=mgMRcmeIRwFSqj4uXq1QIcOzpHdQbgGdUSQRhqwyrqc=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=g87zDeykvYGDyTRMSqGrpZTtNG1CHEV/XA3BHojGCDSJrpArYbIXmr/f0n5CorO5D
+	 FnvXTQonKrfD+NMd0bPRN/Vi+B9IxCcncDBAsDuvjBYKlHshAtkZC8Ik3kqp5ijM1V
+	 AprBvn3xZ6LynBJMFtgkQRDIvzNu/HjP6Ui/Jm9Y=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260522061030eucas1p15f61b7bc01f77a3d34d41472210ea662~xzl36eYGT0967209672eucas1p1m;
+	Fri, 22 May 2026 06:10:30 +0000 (GMT)
+Received: from AMDC4653.digital.local (unknown [106.120.51.32]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20260522061030eusmtip2f8e15fe821297adff05efc074b9a5601~xzl3ZonYs1866518665eusmtip22;
+	Fri, 22 May 2026 06:10:30 +0000 (GMT)
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+To: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Thomas Gleixner
+	<tglx@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Sebastian Andrzej Siewior
+	<bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Steven
+	Rostedt <rostedt@goodmis.org>
+Subject: [PATCH] irqchip/exynos-combiner: remove useless spinlock
+Date: Fri, 22 May 2026 08:10:12 +0200
+Message-Id: <20260522061012.2687122-1-m.szyprowski@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260521153645.7028-3-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260522061030eucas1p15f61b7bc01f77a3d34d41472210ea662
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260522061030eucas1p15f61b7bc01f77a3d34d41472210ea662
+X-EPHeader: CA
+X-CMS-RootMailID: 20260522061030eucas1p15f61b7bc01f77a3d34d41472210ea662
+References: <CGME20260522061030eucas1p15f61b7bc01f77a3d34d41472210ea662@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_230657_990006_B610D638 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260521_231039_284051_F8A84CC4 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +84,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 05:35:53PM +0200, Christian Marangi wrote:
-> Add documentation for Airoha AN7581 USB PHY that describe the USB PHY
-> for the USB controller.
-> 
-> Airoha AN7581 SoC support a maximum of 2 USB port. The USB 2.0 mode is
-> always supported. The USB 3.0 mode is optional and depends on the Serdes
-> mode currently configured on the system for the relevant USB port.
-> 
-> To correctly calibrate, the USB 2.0 port require correct value in
-> "airoha,usb2-monitor-clk-sel" property. Both the 2 USB 2.0 port permit
-> selecting one of the 4 monitor clock for calibration (internal clock not
-> exposed to the system) but each port have only one of the 4 actually
-> connected in HW hence the correct value needs to be specified in DT
-> based on board and the physical port. Normally it's monitor clock 1 for
-> USB1 and monitor clock 2 for USB2.
-> 
-> To correctly setup the Serdes mode attached to the USB 3.0 mode, a phys
-> property is required with the phandle pointing to the correct Serdes port
-> provided by the SCU node. Providing the phys property is optional if USB
-> 3.0 is not used.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/phy/airoha,an7581-usb-phy.yaml   | 62 +++++++++++++++++++
->  MAINTAINERS                                   |  6 ++
->  2 files changed, 68 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+irq_controller_lock doesn't protect anything, it must be some leftover
+from early development or copy/paste. Remove it completely.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Suggested-by: Thomas Gleixner <tglx@kernel.org>
+Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Link: https://lore.kernel.org/all/20260520220422.3522908-1-m.szyprowski@samsung.com/
+Fixes: 96031b31a4b3 ("irqchip/exynos-combiner: Switch to raw_spinlock")
+Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
+---
+ drivers/irqchip/exynos-combiner.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/drivers/irqchip/exynos-combiner.c b/drivers/irqchip/exynos-combiner.c
+index 03cafcc5c835..d9d408cb4711 100644
+--- a/drivers/irqchip/exynos-combiner.c
++++ b/drivers/irqchip/exynos-combiner.c
+@@ -24,8 +24,6 @@
+ 
+ #define IRQ_IN_COMBINER		8
+ 
+-static DEFINE_RAW_SPINLOCK(irq_controller_lock);
+-
+ struct combiner_chip_data {
+ 	unsigned int hwirq_offset;
+ 	unsigned int irq_mask;
+@@ -72,9 +70,7 @@ static void combiner_handle_cascade_irq(struct irq_desc *desc)
+ 
+ 	chained_irq_enter(chip, desc);
+ 
+-	raw_spin_lock(&irq_controller_lock);
+ 	status = readl_relaxed(chip_data->base + COMBINER_INT_STATUS);
+-	raw_spin_unlock(&irq_controller_lock);
+ 	status &= chip_data->irq_mask;
+ 
+ 	if (status == 0)
+-- 
+2.34.1
 
 
