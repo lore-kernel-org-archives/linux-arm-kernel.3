@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D478CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27633CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=auzU48UECky/VhRsM1MIzHXMTSQQH38DGJK40Vy8La0=; b=RBkoTZP2EZ20cg
-	BAbPEjW8kDxZq85MwuPVmFQeXcqEvZi7is5tJ5RPlHI0MDYV62U7qsEcf9GaO9HYiBE6TFOlnVRLF
-	xQtXGQniE1T/Z46VVffna+1ajYZyB3ZBUCEplfaE+w28CFiSJmBh1kxjgZSOC1ri6UscW+DY2EEEV
-	iPMwpak3cX0pgP42IW+oehuRQIAOOF0SnFTo2H7QrcL2iHty/3GHg0rjHxg8kW//z+me/DdAdLPxr
-	cRfhCSs6xCajOZlhr2uTaFvXa9PWMEkiVPGhP15WM/ADiH0ggyiQRYDsfBg0R+50W7PrdgnxX1aY5
-	qOvYet6VqqNlS0xDZnZA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1oiPPeerxAd2KDhCMXKVrpSVXvS8guW5A+bxiFsiP8I=; b=ZXhIWMmSPsXiO6rL/oicDgYl03
+	tzUz3oBtw+Uf1EkJxYLIjaKHqSG1KiI3c+QiUEbKqGJzQ190D8XK2e8Ic6QlRSggXAPRSCo0Wz5hf
+	Cg2x2L4g5Ok+ikuESRua2vREbTDOWYi7RxN0e2vjlnqoVOMf9+LyqSMoRhGryzhQMVl/7WJN0kOJc
+	sDS61dFzIXaC3iwQtp/acDrHDKBgaKEsmPORU/rEdMV66Jj78DtZtSzmFa/YSMPtP/6Wu0H7jdPdS
+	z15S5yfaECWThZBrgEc4vlwKCzSuHMUEf7/qvQgqHdnM4ItvMvvkKiXBwgH0c3C+2pVtn/BVxwKMi
+	zNUfnVaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQYfU-0000000C8sU-1O4t;
-	Fri, 22 May 2026 22:48:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQXzx-0000000C3MD-19Af;
+	Fri, 22 May 2026 22:05:41 +0000
+Received: from mail-dl1-x1249.google.com ([2607:f8b0:4864:20::1249])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQYfS-0000000C8sA-3Zdz
+	id 1wQXzc-0000000C2xs-2cCk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 22:48:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id EEE8460200;
-	Fri, 22 May 2026 22:48:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 6A79C1F000E9;
-	Fri, 22 May 2026 22:48:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779490113;
-	bh=auzU48UECky/VhRsM1MIzHXMTSQQH38DGJK40Vy8La0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To;
-	b=mFliS7Ix7rqBthGHQaF5M6htxgc+ybi5mKkI/jhjzhUv2DB/LWOcg2o99/pXiq2JP
-	 522K3vZgppPOjIvvVDd7X2qj92uktNh04gvil8HJShJhNXcYTTsjX41nHrC3MrsD4N
-	 JTbVZNiNPrcpriJPnNj3yAnsWub1NN7yrjo4bdscyuml/hq44OHbEGVgW0mIVZp7+e
-	 tGdjWpvbioHmtbi5bRBANmyCwDDKfG5SWtic2myOgYBWY9aFEwwh2eom1ZWNcd2QEp
-	 wtlQkO7ok5K8k3vX6Ha/0yookF/2FebClHYQjXvKPXEd7IATRMXQz/upkUL/luodgb
-	 oUfjgYeuTLg0Q==
-Date: Fri, 22 May 2026 17:48:32 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Will Deacon <will@kernel.org>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, jonathanh@nvidia.com,
-	bjorn.andersson@oss.qualcomm.com, Frank Li <Frank.Li@nxp.com>,
-	linux-pm@vger.kernel.org
-Subject: Re: [PATCH v5 4/5] PCI: dwc: Use common D3cold eligibility helper in
- suspend path
-Message-ID: <20260522224832.GA120697@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520000153.GA14400@bhelgaas>
+	Fri, 22 May 2026 22:05:21 +0000
+Received: by mail-dl1-x1249.google.com with SMTP id a92af1059eb24-135405e4035so37565495c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:05:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1779487519; x=1780092319; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1oiPPeerxAd2KDhCMXKVrpSVXvS8guW5A+bxiFsiP8I=;
+        b=i8kWR6En0qufaYJn17TTN1eqEjkw5G2CqOdgOTLMv9FjCw47gIwCOUkEZkGgyxaQnn
+         F2Fkb1FrYn1gwKUYe0ZNVedbfJxUMbftx7l939nAIXRhnPdjFaCkgmcFAkNT4yjLlJ6V
+         /JLT5x6G+piIYiouRp/iUQiMMzNNdUQQtt4Vr3lLexX96wnRfNGrMusmm3J4z1IVjUPk
+         DcjMPiUM4Bjf/SHvEIBchYdSXxuCMXt40kxMxGNdRIM0SwpZjE76l1oRg2uAyUdZatpo
+         8hPfTNQychrlAdVg2cSyocuW6HTXHZUGZq3TclYt8ExNhJcbCwxWcto1kOpAaTekAWz4
+         7EMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779487519; x=1780092319;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=1oiPPeerxAd2KDhCMXKVrpSVXvS8guW5A+bxiFsiP8I=;
+        b=Ba55MstQrK3g068A2RRGgXPwWiM8UzHQ09YfJ1Xbe0dIFuj6UDmsYGO34Q5XL3/Vx8
+         HBgj0f7j4UADTkzHGHz2woGYhOE0FpF6t8fIKTOGSBGWxZ/SD8d7gRkYM/x2S8XjzlcS
+         akCLhLhY5F1vRNcD9dSPjO2kCG0BdMAKY/4ckVAvYDzTjJIRD0psxOqWX/hg9B+EykbK
+         EYU2Dyd2cc33Yq67OXVHyG+mKYCFaTvlo/QP3j7lfSz01y3Q3mzjg9HiAf9xIScnitEs
+         BEtYu0IRhCGNzRqWIEQZZnWUaPwwpBKAzOdEgfX83ojoyi4uRmT2QpjHYm1h+yuqu/c8
+         RwMQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8503pY2Zkxl1ueOsVBQ+q9WnOA2sbM49dcN51jWfHiq3GiunrlO38n2tWnnmgGrcg9NMKMqefgegTRGq9cKhXy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzurfBdEAH4kJZypp3Y7UqHaCVMVPBlYtnBmB43GS5M7ct1KzTY
+	8Xns4tgkCRR9j1UxoDfYv9VTWNppii1JfWmKAarXXNzV/rNEyItZ0jVbbmQwmERaUzZHbWMjqMI
+	WF+OjIDCDDA==
+X-Received: from dlb3.prod.google.com ([2002:a05:7022:603:b0:135:e6d6:d14d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:61b:b0:12d:b205:c737
+ with SMTP id a92af1059eb24-1365f91bdb4mr2206422c88.17.1779487519099; Fri, 22
+ May 2026 15:05:19 -0700 (PDT)
+Date: Fri, 22 May 2026 15:04:28 -0700
+In-Reply-To: <20260522220435.2378363-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20260428071903.1886173-1-irogers@google.com> <20260522220435.2378363-1-irogers@google.com>
+X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
+Message-ID: <20260522220435.2378363-18-irogers@google.com>
+Subject: [PATCH v9 17/23] perf python: Add callchain support
+From: Ian Rogers <irogers@google.com>
+To: irogers@google.com, acme@kernel.org, namhyung@kernel.org
+Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
+	dapeng1.mi@linux.intel.com, james.clark@linaro.org, leo.yan@linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
+	tmricht@linux.ibm.com
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_150520_670535_620225DC 
+X-CRM114-Status: GOOD (  21.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,163 +91,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 19, 2026 at 07:01:53PM -0500, Bjorn Helgaas wrote:
-> [+cc Frank, linux-pm]
-> 
-> On Wed, Apr 29, 2026 at 12:12:26PM +0530, Krishna Chaitanya Chundru wrote:
-> > Previously, the driver skipped putting the link into L2/device state in
-> > D3cold whenever L1 ASPM was enabled, since some devices (e.g. NVMe) expect
-> > low resume latency and may not tolerate deeper power states.
-> 
-> I think "some devices expect low resume latency and may not tolerate
-> deeper power states" conveys the wrong message.  It's not that NVMe
-> has a mysterious acceptable resume latency number that we have to meet
-> or that NVMe has some inherent aversion to D3cold or L1SS or whatever
-> "deeper power states" refers to.
-> 
-> It could be that ASPM L1 was configured incorrectly (e.g., an L1->L0
-> transition didn't happen within the advertised exit latency, leading
-> to some device access failure) or a device lost internal context when
-> the driver didn't expect it (e.g., the Qcom problem where L1SS exit
-> takes too long and results in a link-down and device reset [1]).
-> 
-> It sounds to me like the ASPM L1 check was a way to avoid problems
-> like that, but I don't think we ever really had a root cause.
+Implement pyrf_callchain_node and pyrf_callchain types for lazy
+iteration over callchain frames. Add callchain property to
+sample_event.
 
-Possible updated commit log text:
+Assisted-by: Gemini:gemini-3.1-pro-preview
+Signed-off-by: Ian Rogers <irogers@google.com>
+---
+v2:
 
-  Previously, the driver skipped putting the link into L2 and device
-  state in D3cold when L1 ASPM was enabled since some devices (e.g.
-  NVMe) failed to resume correctly if they were suspended with L1
-  enabled. The root cause of the failure is unknown.
+1. Eager Callchain Resolution: Moved the callchain resolution from
+   deferred iteration to eager processing in
+   pyrf_session_tool__sample() .  This avoids risks of reading from
+   unmapped memory or following dangling pointers to closed sessions.
 
-> [1] https://lore.kernel.org/linux-pci/20260519-l1ss-fix-v2-0-b2c3a4bdeb15@oss.qualcomm.com/
-> 
-> > However, such devices typically remain in D0 and are already covered
-> > by the new helper's requirement that all endpoints be in D3hot
-> > before the devices under host bridge may enter D3cold.
+2. Cached Callchain: Added a callchain field to struct pyrf_event to
+   store the resolved object.
 
-It makes me nervous when we assume "typical" things, but I don't have
-any ideas about wording this.
+3. Simplified Access: pyrf_sample_event__get_callchain() now just
+   returns the cached object if available.
 
-This is all merged and in pci/next, so we can leave it as-is or amend
-the commit log if anybody has better ideas.
+4. Avoided Double Free: Handled lazy cleanups properly.
 
-> If we put the host bridge in D3cold, I assume the hierarchy below is
-> either put in D3cold as well, or at least every device in the
-> hierarchy will be reset as a consequence of the Root Port link going
-> down.
-> 
-> If the driver doesn't manage the device power state itself, I assume
-> we have the freedom to put the hierarchy in D3cold or reset it.
-> 
-> Do we have the same freedom if the driver *does* manage the power
-> state itself?  What if the driver put the device in D3hot, expecting
-> it to *stay* in D3hot?
-> 
-> I think pci_host_common_d3cold_possible() will see the device in D3hot
-> and decide that D3cold is possible.
-> 
-> (I'm looking at https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/power/pci.rst?id=v7.0#n746)
-> 
-> > So, replace the local L1/L1SS-based check in dw_pcie_suspend_noirq() with
-> > the shared pci_host_common_d3cold_possible() helper to decide whether the
-> > devices under host bridge can safely transition to D3cold.
-> > 
-> > In addition, propagate PME-from-D3cold capability information from the
-> > helper and record it in skip_pwrctrl_off. Some devices (e.g. M.2 cards
-> > without auxiliary power) may lose PME detection when main power is
-> > removed, even if they advertise PME-from-D3cold support. This allows
-> > controller power-off to be skipped when required to preserve wakeup
-> > functionality.
-> > 
-> > Update the suspended flag in dw_pcie_resume_noirq() only after the PCIe
-> > link resumes successfully, to avoid marking the controller active when
-> > link resume fails.
-> > 
-> > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > ---
-> >  drivers/pci/controller/dwc/pcie-designware-host.c | 15 +++++++--------
-> >  drivers/pci/controller/dwc/pcie-designware.h      |  1 +
-> >  2 files changed, 8 insertions(+), 8 deletions(-)
-> > 
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > index c9517a348836..9e409a1909e6 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > @@ -16,9 +16,11 @@
-> >  #include <linux/msi.h>
-> >  #include <linux/of_address.h>
-> >  #include <linux/of_pci.h>
-> > +#include <linux/pci.h>
-> >  #include <linux/pci_regs.h>
-> >  #include <linux/platform_device.h>
-> >  
-> > +#include "../pci-host-common.h"
-> >  #include "../../pci.h"
-> >  #include "pcie-designware.h"
-> >  
-> > @@ -1218,18 +1220,14 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
-> >  
-> >  int dw_pcie_suspend_noirq(struct dw_pcie *pci)
-> >  {
-> > -	u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
-> > +	bool pme_capable = false;
-> >  	int ret = 0;
-> >  	u32 val;
-> >  
-> >  	if (!dw_pcie_link_up(pci))
-> >  		goto stop_link;
-> >  
-> > -	/*
-> > -	 * If L1SS is supported, then do not put the link into L2 as some
-> > -	 * devices such as NVMe expect low resume latency.
-> > -	 */
-> > -	if (dw_pcie_readw_dbi(pci, offset + PCI_EXP_LNKCTL) & PCI_EXP_LNKCTL_ASPM_L1)
-> > +	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
-> >  		return 0;
-> >  
-> >  	if (pci->pp.ops->pme_turn_off) {
-> > @@ -1273,6 +1271,7 @@ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
-> >  	udelay(1);
-> >  
-> >  stop_link:
-> > +	pci->pp.skip_pwrctrl_off = pme_capable;
-> >  	dw_pcie_stop_link(pci);
-> >  	if (pci->pp.ops->deinit)
-> >  		pci->pp.ops->deinit(&pci->pp);
-> > @@ -1290,8 +1289,6 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
-> >  	if (!pci->suspended)
-> >  		return 0;
-> >  
-> > -	pci->suspended = false;
-> > -
-> >  	if (pci->pp.ops->init) {
-> >  		ret = pci->pp.ops->init(&pci->pp);
-> >  		if (ret) {
-> > @@ -1313,6 +1310,8 @@ int dw_pcie_resume_noirq(struct dw_pcie *pci)
-> >  	if (pci->pp.ops->post_init)
-> >  		pci->pp.ops->post_init(&pci->pp);
-> >  
-> > +	pci->suspended = false;
-> > +
-> >  	return 0;
-> >  
-> >  err_stop_link:
-> > diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> > index 3e69ef60165b..e759c5c7257e 100644
-> > --- a/drivers/pci/controller/dwc/pcie-designware.h
-> > +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> > @@ -450,6 +450,7 @@ struct dw_pcie_rp {
-> >  	bool			ecam_enabled;
-> >  	bool			native_ecam;
-> >  	bool                    skip_l23_ready;
-> > +	bool			skip_pwrctrl_off;
-> >  };
-> >  
-> >  struct dw_pcie_ep_ops {
-> > 
-> > -- 
-> > 2.34.1
-> > 
+v6:
+- Moved callchain resolution from `session_tool__sample` to
+  `pyrf_event__new`.
+---
+ tools/perf/util/python.c | 241 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 240 insertions(+), 1 deletion(-)
+
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index daedd67f12d5..de7a51389572 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -66,6 +66,8 @@ struct pyrf_event {
+ 	struct addr_location al;
+ 	/** @al_resolved: True when machine__resolve been called. */
+ 	bool al_resolved;
++	/** @callchain: Resolved callchain, eagerly computed if requested. */
++	PyObject *callchain;
+ 	/** @event: The underlying perf_event that may be in a file or ring buffer. */
+ 	union perf_event event;
+ };
+@@ -103,6 +105,7 @@ static void pyrf_event__delete(struct pyrf_event *pevent)
+ {
+ 	if (pevent->al_resolved)
+ 		addr_location__exit(&pevent->al);
++	Py_XDECREF(pevent->callchain);
+ 	perf_sample__exit(&pevent->sample);
+ 	Py_TYPE(pevent)->tp_free((PyObject *)pevent);
+ }
+@@ -669,6 +672,181 @@ static PyObject *pyrf_sample_event__insn(PyObject *self, PyObject *args __maybe_
+ 					 pevent->sample.insn_len);
+ }
+ 
++struct pyrf_callchain_node {
++	PyObject_HEAD
++	u64 ip;
++	struct map *map;
++	struct symbol *sym;
++};
++
++static void pyrf_callchain_node__delete(struct pyrf_callchain_node *pnode)
++{
++	map__put(pnode->map);
++	Py_TYPE(pnode)->tp_free((PyObject*)pnode);
++}
++
++static PyObject *pyrf_callchain_node__get_ip(struct pyrf_callchain_node *pnode,
++					     void *closure __maybe_unused)
++{
++	return PyLong_FromUnsignedLongLong(pnode->ip);
++}
++
++static PyObject *pyrf_callchain_node__get_symbol(struct pyrf_callchain_node *pnode,
++						 void *closure __maybe_unused)
++{
++	if (pnode->sym)
++		return PyUnicode_FromString(pnode->sym->name);
++	return PyUnicode_FromString("[unknown]");
++}
++
++static PyObject *pyrf_callchain_node__get_dso(struct pyrf_callchain_node *pnode,
++					      void *closure __maybe_unused)
++{
++	const char *dsoname = "[unknown]";
++
++	if (pnode->map) {
++		struct dso *dso = map__dso(pnode->map);
++		if (dso) {
++			if (symbol_conf.show_kernel_path && dso__long_name(dso))
++				dsoname = dso__long_name(dso);
++			else
++				dsoname = dso__name(dso);
++		}
++	}
++	return PyUnicode_FromString(dsoname);
++}
++
++static PyGetSetDef pyrf_callchain_node__getset[] = {
++	{ .name = "ip",     .get = (getter)pyrf_callchain_node__get_ip, },
++	{ .name = "symbol", .get = (getter)pyrf_callchain_node__get_symbol, },
++	{ .name = "dso",    .get = (getter)pyrf_callchain_node__get_dso, },
++	{ .name = NULL, },
++};
++
++static PyTypeObject pyrf_callchain_node__type = {
++	PyVarObject_HEAD_INIT(NULL, 0)
++	.tp_name	= "perf.callchain_node",
++	.tp_basicsize	= sizeof(struct pyrf_callchain_node),
++	.tp_dealloc	= (destructor)pyrf_callchain_node__delete,
++	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
++	.tp_doc		= "perf callchain node object.",
++	.tp_getset	= pyrf_callchain_node__getset,
++};
++
++struct pyrf_callchain_frame {
++	u64 ip;
++	struct map *map;
++	struct symbol *sym;
++};
++
++struct pyrf_callchain {
++	PyObject_HEAD
++	struct pyrf_event *pevent;
++	struct pyrf_callchain_frame *frames;
++	u64 nr_frames;
++	u64 pos;
++	bool resolved;
++};
++
++static void pyrf_callchain__delete(struct pyrf_callchain *pchain)
++{
++	Py_XDECREF(pchain->pevent);
++	if (pchain->frames) {
++		for (u64 i = 0; i < pchain->nr_frames; i++)
++			map__put(pchain->frames[i].map);
++		free(pchain->frames);
++	}
++	Py_TYPE(pchain)->tp_free((PyObject*)pchain);
++}
++
++static PyObject *pyrf_callchain__next(struct pyrf_callchain *pchain)
++{
++	struct pyrf_callchain_node *pnode;
++
++	if (!pchain->resolved) {
++		struct evsel *evsel = pchain->pevent->sample.evsel;
++		struct evlist *evlist = evsel->evlist;
++		struct perf_session *session = evlist ? evlist__session(evlist) : NULL;
++		struct addr_location al;
++		struct callchain_cursor *cursor;
++		struct callchain_cursor_node *node;
++		u64 i;
++
++		if (!session || !pchain->pevent->sample.callchain)
++			return NULL;
++
++		addr_location__init(&al);
++		if (machine__resolve(&session->machines.host, &al, &pchain->pevent->sample) < 0) {
++			addr_location__exit(&al);
++			return NULL;
++		}
++
++		cursor = get_tls_callchain_cursor();
++		if (thread__resolve_callchain(al.thread, cursor,
++					      &pchain->pevent->sample, NULL, NULL,
++					      PERF_MAX_STACK_DEPTH) != 0) {
++			addr_location__exit(&al);
++			return NULL;
++		}
++		callchain_cursor_commit(cursor);
++
++		pchain->nr_frames = cursor->nr;
++		if (pchain->nr_frames > 0) {
++			pchain->frames = calloc(pchain->nr_frames, sizeof(*pchain->frames));
++			if (!pchain->frames) {
++				addr_location__exit(&al);
++				return PyErr_NoMemory();
++			}
++
++			for (i = 0; i < pchain->nr_frames; i++) {
++				node = callchain_cursor_current(cursor);
++				pchain->frames[i].ip = node->ip;
++				pchain->frames[i].map = map__get(node->ms.map);
++				pchain->frames[i].sym = node->ms.sym;
++				callchain_cursor_advance(cursor);
++			}
++		}
++		pchain->resolved = true;
++		addr_location__exit(&al);
++	}
++
++	if (pchain->pos >= pchain->nr_frames)
++		return NULL;
++
++	pnode = PyObject_New(struct pyrf_callchain_node, &pyrf_callchain_node__type);
++	if (!pnode)
++		return NULL;
++
++	pnode->ip = pchain->frames[pchain->pos].ip;
++	pnode->map = map__get(pchain->frames[pchain->pos].map);
++	pnode->sym = pchain->frames[pchain->pos].sym;
++
++	pchain->pos++;
++	return (PyObject *)pnode;
++}
++
++static PyTypeObject pyrf_callchain__type = {
++	PyVarObject_HEAD_INIT(NULL, 0)
++	.tp_name	= "perf.callchain",
++	.tp_basicsize	= sizeof(struct pyrf_callchain),
++	.tp_dealloc	= (destructor)pyrf_callchain__delete,
++	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
++	.tp_doc		= "perf callchain object.",
++	.tp_iter	= PyObject_SelfIter,
++	.tp_iternext	= (iternextfunc)pyrf_callchain__next,
++};
++
++static PyObject *pyrf_sample_event__get_callchain(PyObject *self, void *closure __maybe_unused)
++{
++	struct pyrf_event *pevent = (void *)self;
++
++	if (!pevent->callchain)
++		Py_RETURN_NONE;
++
++	Py_INCREF(pevent->callchain);
++	return pevent->callchain;
++}
++
+ static PyObject*
+ pyrf_sample_event__getattro(struct pyrf_event *pevent, PyObject *attr_name)
+ {
+@@ -683,6 +861,12 @@ pyrf_sample_event__getattro(struct pyrf_event *pevent, PyObject *attr_name)
+ }
+ 
+ static PyGetSetDef pyrf_sample_event__getset[] = {
++	{
++		.name = "callchain",
++		.get = pyrf_sample_event__get_callchain,
++		.set = NULL,
++		.doc = "event callchain.",
++	},
+ 	{
+ 		.name = "raw_buf",
+ 		.get = (getter)pyrf_sample_event__get_raw_buf,
+@@ -852,6 +1036,12 @@ static int pyrf_event__setup_types(void)
+ 	err = PyType_Ready(&pyrf_context_switch_event__type);
+ 	if (err < 0)
+ 		goto out;
++	err = PyType_Ready(&pyrf_callchain_node__type);
++	if (err < 0)
++		goto out;
++	err = PyType_Ready(&pyrf_callchain__type);
++	if (err < 0)
++		goto out;
+ out:
+ 	return err;
+ }
+@@ -872,9 +1062,11 @@ static PyTypeObject *pyrf_event__type[] = {
+ };
+ 
+ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *evsel,
+-				 struct perf_session *session __maybe_unused)
++				 struct perf_session *session)
+ {
+ 	struct pyrf_event *pevent;
++	struct perf_sample *sample;
++	struct machine *machine = session ? &session->machines.host : NULL;
+ 	size_t size;
+ 	int err;
+ 	size_t min_size = sizeof(struct perf_event_header);
+@@ -1033,6 +1225,7 @@ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *ev
+ 	}
+ 
+ 	perf_sample__init(&pevent->sample, /*all=*/true);
++	pevent->callchain = NULL;
+ 	pevent->al_resolved = false;
+ 	addr_location__init(&pevent->al);
+ 
+@@ -1046,6 +1239,49 @@ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *ev
+ 		return PyErr_Format(PyExc_OSError,
+ 				    "perf: can't parse sample, err=%d", err);
+ 	}
++	sample = &pevent->sample;
++	if (machine && sample->callchain) {
++		struct addr_location al;
++		struct callchain_cursor *cursor;
++		u64 i;
++		struct pyrf_callchain *pchain;
++
++		addr_location__init(&al);
++		if (machine__resolve(machine, &al, sample) >= 0) {
++			cursor = get_tls_callchain_cursor();
++			if (thread__resolve_callchain(al.thread, cursor, sample,
++						      NULL, NULL, PERF_MAX_STACK_DEPTH) == 0) {
++				callchain_cursor_commit(cursor);
++
++				pchain = PyObject_New(struct pyrf_callchain, &pyrf_callchain__type);
++				if (pchain) {
++					pchain->pevent = pevent;
++					Py_INCREF(pevent);
++					pchain->nr_frames = cursor->nr;
++					pchain->pos = 0;
++					pchain->resolved = true;
++					pchain->frames = calloc(pchain->nr_frames,
++								sizeof(*pchain->frames));
++					if (pchain->frames) {
++						struct callchain_cursor_node *node;
++
++						for (i = 0; i < pchain->nr_frames; i++) {
++							node = callchain_cursor_current(cursor);
++							pchain->frames[i].ip = node->ip;
++							pchain->frames[i].map =
++								map__get(node->ms.map);
++							pchain->frames[i].sym = node->ms.sym;
++							callchain_cursor_advance(cursor);
++						}
++						pevent->callchain = (PyObject *)pchain;
++					} else {
++						Py_DECREF(pchain);
++					}
++				}
++			}
++			addr_location__exit(&al);
++		}
++	}
+ 	return (PyObject *)pevent;
+ }
+ 
+@@ -3145,6 +3381,9 @@ static PyObject *pyrf_session__new(PyTypeObject *type, PyObject *args, PyObject
+ 	}
+ 	psession->session = session;
+ 
++	symbol_conf.use_callchain = true;
++	symbol_conf.show_kernel_path = true;
++	symbol_conf.inline_name = false;
+ 	if (symbol__init(perf_session__env(session)) < 0) {
+ 		PyErr_SetString(PyExc_OSError, "perf: symbol__init failed");
+ 		goto err_out;
+-- 
+2.54.0.794.g4f17f83d09-goog
+
 
