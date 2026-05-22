@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C26CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50C2CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vdspRS+hKmJQmW0Wsieo4FX+5eK/WlAigCd6WtBtyGk=; b=cMaidoB1q+nfnSoBW635TdBmft
-	8A6mAxIdB6EqgEEcHn62hh+0K5Ll0QsxzgA9WNqcE38/k3+MZyXgCt2K2ZCebiZGmYMDpnJI/0Jdq
-	I9NjNuwXbWobJpKrQSB5pvWN45UsXQ8k7oLXX0QoNlaozIZXfjal10cHTS72QvtS0g1JJE1GPgd0o
-	QVLy/ETLOLhe1K8lD7RdUEqZea/cII9SEu34P9z9uM4kpCeWlrKfo4cq0bcSrvhcrttH5UskhsN1A
-	v0rAeY+Hwt29B3n6j53oHkw6jEJ7Hk00owMPMOeDSzT3T1Mj837EjmTXoerVa5NmgNWpyLiQ4YO3n
-	hVaaUMRw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PtxA9IJejbNsHuET5Zkbrc9yaYZITM02uIsEzopqyb4=; b=KccDthY3bnWX7hzNEeR+p3x0Kd
+	+LKrfnhdwPnpVbsfw3av5x/2uI0WtVxKvcyIQ/L/JCsT3cGBPvgv4iLfcGW+VBfYW6dTFnhs99WFx
+	P1kkUps1ay0zTSGJqM7isN+yFhknJ1iRRA+k5Xv4FjYJItQoirdyv26MsGkWXFCKH/k8h6D7UIgpl
+	GhhtZ1/PeI46ZEr5Asnxqs/jkOfU72OZe5gMdIq5AlmjcwC0miCiRqEpOuZhfiSC8ozOSvbAyizAd
+	Pq9QbhmvNPA6tEWMVJTYZ3eo+YQPM3OfhNRhIr/xzd7LIsFCafb59tehzP8ronaev+Ep1fDxkCK6B
+	zoBCS0nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMbq-0000000ANxa-3FVy;
-	Fri, 22 May 2026 09:56:02 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1wQMda-0000000AOSY-165I;
+	Fri, 22 May 2026 09:57:50 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMbm-0000000ANw6-1ANg
+	id 1wQMdX-0000000AOQu-2gHx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:55:59 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82fa8d6425bso3274124b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 02:55:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779443757; x=1780048557; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vdspRS+hKmJQmW0Wsieo4FX+5eK/WlAigCd6WtBtyGk=;
-        b=IZxYudqcYg4xsy6KTyUB5JSUf93mXt2yBQFdZBAVSra+wPe7VfbQLezDLYfJNYrViC
-         9Vcb3Y+GDvefRX+/2vooTwHGmZiraFGzGOouJsJmtl+fKpzOJI7Jg0ExbZbRpBcy74oW
-         eNQloMnNlsr9zJOgx9yDKGRqtyVAd/UKglJtgD6k5J3Xq0hcxRxuEobVqGnZLKN9/B+h
-         L8tIGK+h/tTew25ZU2XzD3BTHAkDNbiGG3VIn36UmD4eAkHGAT1KYDXjakrK50AD9vKj
-         AdoqFHm6ERH2i5QD+JYJcSqbTx4Dy/M3NQk0krG8gk5zwsnHC5iheWACCEgyp8RVabvY
-         xgpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779443757; x=1780048557;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vdspRS+hKmJQmW0Wsieo4FX+5eK/WlAigCd6WtBtyGk=;
-        b=bFMEQBaZTd0TsdMKh0UO9GeEleHJ18Fyj4TFA5z4xONuLMXSi1LksjkuA92eZJQN7D
-         JjddCbT0fH2Yz5pNMWd/P6kI6pGvsFuJVj3G+cNjwvleOPd/FPdJRFZmglwvTpmODXdD
-         p3j/VCgzQ8Wst8cMyB9Ki/ejk98wVk/kL/movRb2aV4q6XBlf/yHfoTpj536EwKC3Dhn
-         2nygEDkl+Fh5uI7WAABzLK8YCDnQQHaXCUhKQRI0nGL9IAKIKe9UGDkM0dma+rX6i+oA
-         +JkzEefBApnn0QgvMxPgoaxWc3zMgJIo1c5IUvsaZkNcT0e18Pnoief6p1dWPYewJxS0
-         kv3g==
-X-Forwarded-Encrypted: i=1; AFNElJ8goZdF880EgGjPy7z9iP74p6SiXyA8d39huyZMTytIjzKkfOck93E+O4j8IuZPxWEFpTeMuXtQ2u27xsth4W7j@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeWjmhSZN1xLlrUWdC2Nt/pF7F9N/GmUVpSRI0qiwjBG6jIq33
-	VsALH79E2BK6yOBtZcPIsN5830yGag4at1SJfHl+UOOV/ycFTDdCkZQU
-X-Gm-Gg: Acq92OGjT7rmWzAzqbnNoyN6ssqEV/0wlSp9V0G/b3SM9YhTdI1bg9+H+jNh6Uotp+t
-	vQ90P2KdA7h1S1BXjR7bLAFThY9/UejXR2ZMEhmmhwiT1S1AC4pMssCPlYy68XL9BoVL5J/r8wy
-	4+VYeKjuFIUdkbLdz7ul8AJ1S/bOY4zGW2kLMqYVD0OEs/NML8DjA3dW7Nm0xYSw4aPb62MCrSx
-	N4XtsBuVrsrcLM7aJMD6Y5VDb9OzVPv+mzwC3iiAHpXMa6i110EZTa+H9sFb25LwZFd8wCM8OOG
-	NHnlVKvhzwaRk6BFQvWaYB5AOlLOAUyo6EGlxGLW4G84qfd9poMY6esf6TOH0V5nLAwheJz+K4B
-	O10bsoaeq0HAXQuBUeO/ii/qeSsPeKi4czvSgRulbKJkPRW02smAuT/jMG32T4i1d7stPLVm6re
-	mxfd5fzn3G0jIopsoITRzbN2i0HklyfQ3F4IGUIvoinvctHxmSOiirL+kJpJpf5iW353fV
-X-Received: by 2002:a05:6a00:3020:b0:837:e9cc:d470 with SMTP id d2e1a72fcca58-8415f330e98mr3144147b3a.20.1779443757359;
-        Fri, 22 May 2026 02:55:57 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164fe0bb8sm1338786b3a.51.2026.05.22.02.55.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 02:55:57 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: broonie@kernel.org
-Cc: codekipper@gmail.com,
-	jernej.skrabec@gmail.com,
-	lgirdwood@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	nichen@iscas.ac.cn,
-	perex@perex.cz,
-	samuel@sholland.org,
-	tiwai@suse.com,
-	wens@kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH] ASoC: sunxi: sun50i-dmic: Reorder clock enable sequence
-Date: Fri, 22 May 2026 16:55:39 +0700
-Message-ID: <20260522095539.73025-1-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 22 May 2026 09:57:49 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.170])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gMLL52xZSzKHMsL
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 17:57:33 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id D9A8140562
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 17:57:39 +0800 (CST)
+Received: from [10.174.179.37] (unknown [10.174.179.37])
+	by APP4 (Coremail) with SMTP id gCh0CgCnb1uRKBBqw1feDA--.55895S3;
+	Fri, 22 May 2026 17:57:39 +0800 (CST)
+Message-ID: <a1c31539-3ec8-132a-f1d4-51784900e46f@huaweicloud.com>
+Date: Fri, 22 May 2026 17:57:37 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH v8 next 03/10] arm_mpam: Disable reqPARTID expansion when
+ Narrow-PARTID is unavailable
+Content-Language: en-US
+To: James Morse <james.morse@arm.com>, ben.horgan@arm.com,
+ Dave.Martin@arm.com, tan.shaopeng@jp.fujitsu.com, reinette.chatre@intel.com,
+ fenghuay@nvidia.com, tglx@kernel.org, will@kernel.org, hpa@zytor.com,
+ bp@alien8.de, babu.moger@amd.com, dave.hansen@linux.intel.com,
+ mingo@redhat.com, tony.luck@intel.com, gshan@redhat.com,
+ catalin.marinas@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
+ zengheng4@huawei.com
+References: <20260413085405.1166412-1-zengheng4@huawei.com>
+ <20260413085405.1166412-4-zengheng4@huawei.com>
+ <9efc30be-689b-4f42-bef0-d7d62b4392fa@arm.com>
+From: Zeng Heng <zengheng@huaweicloud.com>
+In-Reply-To: <9efc30be-689b-4f42-bef0-d7d62b4392fa@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: gCh0CgCnb1uRKBBqw1feDA--.55895S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxXw48tFWkAry8Wr1xZryxZrb_yoWrKryDpr
+	WxKay7GF48XF1Fga1kt3WUZF1furs7Jas8Gws5tw1fCa9xA34xZrWxKF95tFn5ur4rZ34Y
+	vryjqa45Crs8AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU92b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6r1F6r1fM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
+	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
+	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
+	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7I2V7IY0VAS
+	07AlzVAYIcxG8wCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
+	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
+	MI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
+	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
+	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
+	BIdaVFxhVjvjDU0xZFpf9x07jIksgUUUUU=
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_025558_323569_30F698E4 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20260522_025748_037028_7AC3642C 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +95,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+Hi James,
 
-Enable the bus clock before the DMIC module clock during
-runtime resume.
-The bus clock provides the register access interface and
-should be enabled before the module clock.
+On 2026/5/15 1:06, James Morse wrote:
+> Hi Zeng,
+> 
+> On 13/04/2026 09:53, Zeng Heng wrote:
+>> MPAM supports heterogeneous systems where some type of MSCs may implement
+>> Narrow-PARTID while others do not. However, when an MSC uses
+>> percentage-based throttling (non-bitmap partition control) and lacks
+>> Narrow-PARTID support, resctrl cannot correctly apply control group
+>> configurations across multiple PARTIDs.
+>>
+>> To enable free assignment of multiple reqPARTIDs to resource control
+>> groups, all MSCs used by resctrl must either: Implement Narrow-PARTID,
+>> allowing explicit PARTID remapping, or only have stateless resource
+>> controls (non-percentage-based), such that splitting a control group
+>> across multiple PARTIDs does not affect behavior.
+> 
+> I prefer Dave's terminology for this: aliasing and non-aliasing. It implies
+> there are two controls, which stateless does not.
+> 
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/sunxi/sun50i-dmic.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+OK, count me as a fan of the terminology too.
 
-diff --git a/sound/soc/sunxi/sun50i-dmic.c b/sound/soc/sunxi/sun50i-dmic.c
-index eddfebe16616..7aff1afdf265 100644
---- a/sound/soc/sunxi/sun50i-dmic.c
-+++ b/sound/soc/sunxi/sun50i-dmic.c
-@@ -323,16 +323,16 @@ static int sun50i_dmic_runtime_suspend(struct device *dev)
- 
- static int sun50i_dmic_runtime_resume(struct device *dev)
- {
--	struct sun50i_dmic_dev *host  = dev_get_drvdata(dev);
-+	struct sun50i_dmic_dev *host = dev_get_drvdata(dev);
- 	int ret;
- 
--	ret = clk_prepare_enable(host->dmic_clk);
-+	ret = clk_prepare_enable(host->bus_clk);
- 	if (ret)
- 		return ret;
- 
--	ret = clk_prepare_enable(host->bus_clk);
-+	ret = clk_prepare_enable(host->dmic_clk);
- 	if (ret) {
--		clk_disable_unprepare(host->dmic_clk);
-+		clk_disable_unprepare(host->bus_clk);
- 		return ret;
- 	}
- 
--- 
-2.43.0
+> 
+>> The detection occurs at initialization time on the first call to
+>> get_num_reqpartid() from update_rmid_limits(). This call is guaranteed
+>> to occur after mpam_resctrl_pick_{mba,caches}() have set up the
+>> resource classes, ensuring the necessary properties are available
+>> for the Narrow-PARTID capability check.
+>>
+>> When an MSC with percentage-based control lacks Narrow-PARTID support,
+>> get_num_reqpartid() falls back to returning the number of intPARTIDs,
+>> effectively disabling the reqPARTID expansion for monitoring groups.
+> 
+> No MSC has percentage based controls - that's an x86ism. The MSCs have
+> fixed point fractions, bitmaps or a cost/weight.
+> 
+
+Yes, thanks for head-up: it's x86ism.
+
+> 
+> I think you're thinking about this the wrong way up - we should only enable
+> this on a small number of platforms that don't have any controls we'd have to discard.
+> (hopefully yours is such a platform!)
+> 
+> I don't think this should be added to resctrl_arch_system_num_rmid_idx(). Please make
+> this decision for resctrl at mpam_resctrl_setup() time.
+> 
+> 
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> index 5f4364c8101a..56859f354efa 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -257,9 +257,50 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+>>   	return mpam_intpartid_max + 1;
+>>   }
+>>   
+>> +/*
+>> + * Determine the effective number of PARTIDs available for resctrl.
+>> + *
+>> + * This function performs a one-time check to determine if Narrow-PARTID
+>> + * can be used. It must be called after mpam_resctrl_pick_{mba,caches}()
+>> + * have initialized the resource classes, as class properties are used
+>> + * to detect Narrow-PARTID support.
+> 
+>> + * The first call occurs in update_rmid_limits(), ensuring the
+>> + * prerequisite initialization is complete.
+> 
+> This is fragile to changes in the order resctrl makes these calls. We need these
+> properties to be fixed before we call resctrl_init().
+> 
+> (yes - I think CDP is fragile too!)
+
+It makes sense to me.
+
+> 
+> 
+>> + */
+>> +static u32 get_num_reqpartid(void)
+>> +{
+>> +	struct mpam_resctrl_res *res;
+>> +	struct mpam_props *cprops;
+>> +	static bool first = true;
+>> +	int rid;
+>> +
+>> +	if (first) {
+>> +		for_each_mpam_resctrl_control(res, rid) {
+>> +			if (!res->class)
+>> +				continue;
+>> +
+>> +			cprops = &res->class->props;
+>> +			if (mpam_has_feature(mpam_feat_partid_nrw, cprops))
+>> +				continue;
+> 
+> 
+>> +			if (mpam_has_feature(mpam_feat_mbw_max, cprops) ||
+>> +			    mpam_has_feature(mpam_feat_mbw_min, cprops) ||
+>> +			    mpam_has_feature(mpam_feat_cmax_cmax, cprops) ||
+>> +			    mpam_has_feature(mpam_feat_cmax_cmin, cprops)) {
+> 
+> Please make this a helper in mpam_internal.h with 'controls' and 'aliasing' in its name.
+> (maybe has_aliasing_controls()).
+> 
+> What about the priority for PRI and the proportional-stride?
+> 
+> I don't think proportional-stride aliases properly: if I have groups with stride 1 and 2,
+> I can't add a second '2' without decreasing the first groups stride from 1/3 to 1/5. If I
+> halve the second groups, they each get half the bandwidth instead of sharing it.
+> 
+> Can you check whether the priority for PRI aliases?
+> 
+
+Proportional-stride is indeed a non-aliasing control, and this was an
+oversight on my part (I haven't actually encountered this control option
+before).
+
+I'd argue that PRI is an aliasing control: the priority value defines a
+scheduling class or identity. When multiple PARTIDs share the same
+priority, it's akin to multiple users holding the same VIP tier. They
+compete for resources within that same category, rather than each
+receiving an independent, additive allocation.
+
+
+Best regards,
+Zeng Heng
 
 
