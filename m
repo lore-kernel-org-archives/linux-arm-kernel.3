@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B2EDCD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 03:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B42ACD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 04:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mll4mjTgR8CvpEaO3cEaBd3E9y/x+irrZx4hNCSEj5I=; b=X4PytV5llGkEH2JvS5NPOPFib9
-	mHrWtTELuvYQJYhkeM8fIpZ62HTaIA+ognONivJScymCdNU6kOgvOmz9IZHlQpwkLMTCsDEqOMS0m
-	gyms9uqnQn7kgMdACsmNnrooQkxMDgEBOU+lsue9xiW6vhqpsuo3ea61o897MreEF2X0P14iSSYMR
-	4YeQGSJbtP2YjZtVjyapklPf2bbfgBVgVV1xx4kvaG7GGe0TcfFgrE7Pd2ngHblQRtXvrFzSU63S3
-	mlJbAbsl1/Wl9NSqYNDkLkAk+QB8suABb7E7/cKkk6OQoNm64qqH2tyyxyOUI8DPCO9bU7R5PKrUW
-	gSWl/RoQ==;
+	bh=ljCA/NXDFKTES1AXmSE7gDisUBh/0q1jcBgMHCOX1RE=; b=IY+9cOkNErx86Wi6qg+Sd1EHmg
+	W303yblRGGjFPmDLOx+ehXT5fhE8LxDuToOdEtUQ/K3D5XeG4bw16qspvr4F3l9tDsE5I62zgRIOh
+	+X4XGt3+1IhMEwz182PLSy9DLKuyzjTwBr3Hke6fyJ2xFRIa4qQkrNrlVbZepkfsjVs+VvQGdro97
+	G9STAWQjJ/z1NpV+kS7CZtxa7qKQD5Lg15Am2U9FPQNNSclUz72cV5ueLlteyYXz+93Fj8d+9eC6l
+	B+ay2g+3drVofzoqH2yoxGfICbot2cGGE3EZbCkug4w0io6L5ZRgwOtW7LrHJ7/ra4Cr0E141G8Uz
+	RpJ9fw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGyg-00000009gj7-3tki;
-	Fri, 22 May 2026 03:55:14 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1wQHV4-00000009jRv-1KYG;
+	Fri, 22 May 2026 04:28:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQGye-00000009gib-0pkU
+	id 1wQHV2-00000009jRS-1fI8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 03:55:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779422112; x=1810958112;
-  h=date:from:to:cc:subject:message-id;
-  bh=8KJKDgby89q8g3UesjWkv6Tl2cuMUueCQgL90IRfRAw=;
-  b=PF7NRHxmOSC3sInwlrh/Ub+aa5r4KmX/ykXF5IMgwREzD+vCn549xg9D
-   I60G86DWkBoSCgqB3GeP3rC+9Lqst82vKC2r8kYQWyihri7sVms5GUSFc
-   BUwsVOVXIuJr2icVMZd+AaaeVdqUztCXLRoRe0mdAvul/pCvUsPtAe5Fx
-   IVkNydXaltoQTXvpLf41JwudX/f1TcJKxz1tKVzmrU4m4R3WSssN5IluX
-   9FYjioIKJhTPoBnIEXKy2EN8vqnkoY84rnBMxWhwOcswc2WZlrCLaeDs/
-   5Ghsn5ZjJTrKhA9jFuKDEHAaFU2B28xJwnnobESPSfdqf5smWijC83KYH
-   Q==;
-X-CSE-ConnectionGUID: etgXlzADQziSEJVMeu2qtQ==
-X-CSE-MsgGUID: USSGhQtURb+mQZgC1oP9jg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11793"; a="79383125"
-X-IronPort-AV: E=Sophos;i="6.24,161,1774335600"; 
-   d="scan'208";a="79383125"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 May 2026 20:55:11 -0700
-X-CSE-ConnectionGUID: buUfNU7pRViJJ/K6wbdtsw==
-X-CSE-MsgGUID: HCNiPs/VS+yftwcnuqX1Tw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,161,1774335600"; 
-   d="scan'208";a="264586761"
-Received: from lkp-server01.sh.intel.com (HELO fdb68b0ce653) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 21 May 2026 20:55:10 -0700
-Received: from kbuild by fdb68b0ce653 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1wQGyZ-000000001fL-35J7;
-	Fri, 22 May 2026 03:55:07 +0000
-Date: Fri, 22 May 2026 11:54:54 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/defconfig] BUILD SUCCESS
- 9f86df230e276e5c24f5c6800f3ee63ab33167f7
-Message-ID: <202605221145.cTgnjQgF-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_205512_280996_B7456E64 
-X-CRM114-Status: UNSURE (   5.30  )
-X-CRM114-Notice: Please train this message.
+	Fri, 22 May 2026 04:28:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 59A0660172;
+	Fri, 22 May 2026 04:28:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7C811F000E9;
+	Fri, 22 May 2026 04:28:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779424118;
+	bh=ljCA/NXDFKTES1AXmSE7gDisUBh/0q1jcBgMHCOX1RE=;
+	h=From:To:Cc:Subject:Date;
+	b=YNFMTmeYmK+CTbMr3BS7Np59jMFPjdf9kFRHUkkhPKCcpEHUrxHezGdW+lpgleiwd
+	 EUOI1mxDIQ/c9A05SdR4DSAuVJjmIHfk6j6XX0ELA0ygVA/4zoxVgtto8AaAcjICkM
+	 xoVdScPnU+ERmASx4pIaMerDRYJ/QI4T9sTNRawV46knUsPI3v5FBT3wXIyO5LfuTw
+	 8CzxtQTipM0WZO8KKmbE0C9pT1S0XiPGaok7McNBs2BRR2BI4D4znsgrcBecYuhiMN
+	 LM+yf2wBwQ7vvvDGiPth0ffqJCi5y5h8JD7mnMMzBoNtimi4ZQ2TEKD79H72rZe7Lq
+	 TYDU33uaLt30g==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	x86@kernel.org
+Subject: [PATCH v5 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through direct, pool and swiotlb paths
+Date: Fri, 22 May 2026 09:57:55 +0530
+Message-ID: <20260522042815.370873-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,155 +95,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/defconfig
-branch HEAD: 9f86df230e276e5c24f5c6800f3ee63ab33167f7  Merge tag 'cix-defconfig-v7.2-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/peter.chen/cix into soc/defconfig
+This series propagates DMA_ATTR_CC_SHARED through the dma-direct,
+dma-pool, and swiotlb paths so that encrypted and decrypted DMA buffers
+are handled consistently.
 
-elapsed time: 727m
+Today, the direct DMA path mostly relies on force_dma_unencrypted() for
+shared/decrypted buffer handling. This series consolidates the
+force_dma_unencrypted() checks in the top-level functions and ensures
+that the remaining DMA interfaces use DMA attributes to make the correct
+decisions.
 
-configs tested: 135
-configs skipped: 133
+The series:
+- moves swiotlb-backed allocations out of __dma_direct_alloc_pages(),
+- propagates DMA_ATTR_CC_SHARED through the dma-direct alloc/free
+  paths
+- teaches the atomic DMA pools to track encrypted versus decrypted
+  state
+- tracks swiotlb pool encryption state and enforces strict pool
+  selection
+- centralizes encrypted/decrypted pgprot handling in dma_pgprot() using
+  DMA attributes
+- passes DMA attributes down to dma_capable() so capability checks can
+  validate whether the selected DMA address encoding matches
+  DMA_ATTR_CC_SHARED
+- makes dma_direct_map_phys() choose the DMA address encoding from
+  DMA_ATTR_CC_SHARED and fall back to swiotlb when a shared DMA request
+  cannot use the direct mapping, which lets arm64 and x86 CCA guests stop
+  relying on SWIOTLB_FORCE for DMA mappings
+- use the selected swiotlb pool state to derive the returned DMA
+  address.
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Changes since v4:
+https://lore.kernel.org/all/20260512090408.794195-1-aneesh.kumar@kernel.org
+* Add new patches based on Sashiko review:
+  swiotlb: Preserve allocation virtual address for dynamic pools
+  dma: free atomic pool pages by physical address
+  dma: swiotlb: handle set_memory_decrypted() failures
+  dma: swiotlb: free dynamic pools from process context
+  iommu/dma: Check atomic pool allocation result directly
+* Include pKVM and s390 changes as dependent patches. These are not yet
+  ready to merge and are waiting for subsystem testing feedback.
+* Drop the AMD GART patch because it requires wider testing.
+* Update swiotlb_tbl_map_single() to take attrs by reference.
+* Switch swiotlb_free() to use rcu_work.
+* Avoid calling swiotlb_find_pool() multiple times in the free path.
+* Make DMA_ATTR_MMIO imply DMA_ATTR_CC_SHARED for devices requiring unencrypted DMA.
 
-tested configs:
-alpha                             allnoconfig    gcc-15.2.0
-arc                              allmodconfig    clang-16
-arc                               allnoconfig    gcc-15.2.0
-arc                              allyesconfig    clang-23
-arc                   randconfig-001-20260522    clang-23
-arc                   randconfig-002-20260522    clang-23
-arm                               allnoconfig    gcc-15.2.0
-arm                              allyesconfig    clang-16
-arm                   randconfig-001-20260522    clang-23
-arm                   randconfig-002-20260522    clang-23
-arm                   randconfig-003-20260522    clang-23
-arm                   randconfig-004-20260522    clang-23
-arm64                            allmodconfig    clang-23
-arm64                             allnoconfig    gcc-15.2.0
-arm64                          randconfig-001    gcc-14.3.0
-arm64                 randconfig-001-20260522    gcc-14.3.0
-arm64                          randconfig-002    gcc-14.3.0
-arm64                 randconfig-002-20260522    gcc-14.3.0
-arm64                          randconfig-003    gcc-14.3.0
-arm64                 randconfig-003-20260522    gcc-14.3.0
-arm64                          randconfig-004    gcc-14.3.0
-arm64                 randconfig-004-20260522    gcc-14.3.0
-csky                             allmodconfig    gcc-15.2.0
-csky                              allnoconfig    gcc-15.2.0
-csky                           randconfig-001    gcc-14.3.0
-csky                  randconfig-001-20260522    gcc-14.3.0
-csky                           randconfig-002    gcc-14.3.0
-csky                  randconfig-002-20260522    gcc-14.3.0
-hexagon                           allnoconfig    gcc-15.2.0
-i386                              allnoconfig    gcc-15.2.0
-i386        buildonly-randconfig-001-20260522    clang-20
-i386        buildonly-randconfig-002-20260522    clang-20
-i386        buildonly-randconfig-003-20260522    clang-20
-i386        buildonly-randconfig-004-20260522    clang-20
-i386        buildonly-randconfig-005-20260522    clang-20
-i386        buildonly-randconfig-006-20260522    clang-20
-i386                  randconfig-011-20260522    clang-20
-i386                  randconfig-012-20260522    clang-20
-i386                  randconfig-013-20260522    clang-20
-i386                  randconfig-014-20260522    clang-20
-i386                  randconfig-015-20260522    clang-20
-i386                  randconfig-016-20260522    clang-20
-i386                  randconfig-017-20260522    clang-20
-loongarch                        allmodconfig    clang-23
-loongarch                         allnoconfig    gcc-15.2.0
-loongarch                           defconfig    clang-19
-m68k                             allmodconfig    gcc-15.2.0
-m68k                              allnoconfig    gcc-15.2.0
-m68k                             allyesconfig    clang-16
-m68k                                defconfig    clang-19
-m68k                        m5272c3_defconfig    gcc-15.2.0
-microblaze                        allnoconfig    gcc-15.2.0
-microblaze                       allyesconfig    gcc-15.2.0
-microblaze                          defconfig    clang-19
-mips                             allmodconfig    gcc-15.2.0
-mips                              allnoconfig    gcc-15.2.0
-mips                             allyesconfig    gcc-15.2.0
-nios2                            allmodconfig    clang-23
-nios2                             allnoconfig    clang-23
-nios2                               defconfig    clang-19
-openrisc                         allmodconfig    clang-23
-openrisc                          allnoconfig    clang-23
-openrisc                            defconfig    gcc-15.2.0
-parisc                           allmodconfig    gcc-15.2.0
-parisc                            allnoconfig    clang-23
-parisc                           allyesconfig    clang-19
-parisc                              defconfig    gcc-15.2.0
-parisc                randconfig-001-20260522    gcc-12.5.0
-parisc                randconfig-002-20260522    gcc-12.5.0
-parisc64                            defconfig    clang-19
-powerpc                          allmodconfig    gcc-15.2.0
-powerpc                           allnoconfig    clang-23
-powerpc               randconfig-001-20260522    gcc-12.5.0
-powerpc               randconfig-002-20260522    gcc-12.5.0
-powerpc64             randconfig-001-20260522    gcc-12.5.0
-powerpc64             randconfig-002-20260522    gcc-12.5.0
-riscv                            allmodconfig    clang-23
-riscv                             allnoconfig    clang-23
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-15.2.0
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-23
-s390                             allyesconfig    gcc-15.2.0
-s390                                defconfig    gcc-15.2.0
-sh                                allnoconfig    clang-23
-sh                               allyesconfig    clang-19
-sh                                  defconfig    gcc-14
-sparc                             allnoconfig    clang-23
-sparc                               defconfig    gcc-15.2.0
-sparc                 randconfig-001-20260522    gcc-9.5.0
-sparc                 randconfig-002-20260522    gcc-9.5.0
-sparc64                          allmodconfig    clang-23
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20260522    gcc-9.5.0
-sparc64               randconfig-002-20260522    gcc-9.5.0
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-23
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20260522    gcc-9.5.0
-um                    randconfig-002-20260522    gcc-9.5.0
-um                           x86_64_defconfig    gcc-14
-x86_64                            allnoconfig    clang-23
-x86_64      buildonly-randconfig-001-20260522    gcc-14
-x86_64      buildonly-randconfig-002-20260522    gcc-14
-x86_64      buildonly-randconfig-003-20260522    gcc-14
-x86_64      buildonly-randconfig-004-20260522    gcc-14
-x86_64      buildonly-randconfig-005-20260522    gcc-14
-x86_64      buildonly-randconfig-006-20260522    gcc-14
-x86_64                              defconfig    gcc-14
-x86_64                randconfig-001-20260522    gcc-14
-x86_64                randconfig-002-20260522    gcc-14
-x86_64                randconfig-003-20260522    gcc-14
-x86_64                randconfig-004-20260522    gcc-14
-x86_64                randconfig-005-20260522    gcc-14
-x86_64                randconfig-006-20260522    gcc-14
-x86_64                randconfig-011-20260522    gcc-14
-x86_64                randconfig-012-20260522    gcc-14
-x86_64                randconfig-013-20260522    gcc-14
-x86_64                randconfig-014-20260522    gcc-14
-x86_64                randconfig-015-20260522    gcc-14
-x86_64                randconfig-016-20260522    gcc-14
-x86_64                randconfig-071-20260522    clang-20
-x86_64                randconfig-072-20260522    clang-20
-x86_64                randconfig-073-20260522    clang-20
-x86_64                randconfig-074-20260522    clang-20
-x86_64                randconfig-075-20260522    clang-20
-x86_64                randconfig-076-20260522    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-xtensa                            allnoconfig    clang-23
-xtensa                           allyesconfig    clang-23
-xtensa                randconfig-001-20260522    gcc-9.5.0
-xtensa                randconfig-002-20260522    gcc-9.5.0
+Changes from v3:
+https://lore.kernel.org/all/20260427055509.898190-1-aneesh.kumar@kernel.org
+* Handle DMA_ATTR_MMIO correctly in dma_direct_map_phys()
+* Address most of sashiko review
+* Rebase to latest kernel
+* drop SWIOTLB_FORCE for s390 and powerpc secure guest.
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Changes from v2:
+https://lore.kernel.org/all/20260420061415.3650870-1-aneesh.kumar@kernel.org
+* pass attrs to dma_capable() and update direct, swiotlb, Xen swiotlb, and
+  x86 GART paths so the capability checks see the DMA address attr value
+  DMA_ATTR_CC_SHARED.
+* rework dma_direct_map_phys() so DMA_ATTR_CC_SHARED selects
+  phys_to_dma_unencrypted() while the default path uses
+  phys_to_dma_encrypted(), with swiotlb fallback when the requested
+  shared/private state cannot be satisfied by a direct DMA address.
+* stop relying on SWIOTLB_FORCE for arm64 and x86 CC guest DMA mappings;
+  swiotlb is still enabled there, but shared mappings is now selected
+  through the generic dma_direct_map_phys()/dma_capable() decision instead
+  of a global force-bounce flag.
+
+Changes from v1:
+https://lore.kernel.org/all/20260417085900.3062416-1-aneesh.kumar@kernel.org
+* rebased to latest kernel (change from DMA_ATTR_CC_DECRYPTED -> DMA_ATTR_CC_SHARED)
+* update the alloc path so DMA_ATTR_CC_SHARED is not a caller-visible attribute.
+
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <Suzuki.Poulose@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jiri Pirko <jiri@resnulli.us>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Mostafa Saleh <smostafa@google.com>
+Cc: Petr Tesarik <ptesarik@suse.com>
+Cc: Alexey Kardashevskiy <aik@amd.com>
+Cc: Dan Williams <dan.j.williams@intel.com>
+Cc: Xu Yilun <yilun.xu@linux.intel.com>
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-s390@vger.kernel.org
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nicholas Piggin <npiggin@gmail.com>
+Cc: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
+Cc: Heiko Carstens <hca@linux.ibm.com>
+Cc: Vasily Gorbik <gor@linux.ibm.com>
+Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
+Cc: Sven Schnelle <svens@linux.ibm.com>
+Cc: x86@kernel.org
+
+Aneesh Kumar K.V (Arm) (20):
+  [DO NOT MERGE] arm64/coco: Add pKVM as a CC platform
+  [DO NOT MERGE] s390: Expose protected virtualization through
+    cc_platform_has()
+  dma-direct: swiotlb: handle swiotlb alloc/free outside
+    __dma_direct_alloc_pages
+  dma-direct: use DMA_ATTR_CC_SHARED in alloc/free paths
+  dma-pool: track decrypted atomic pools and select them via attrs
+  dma: swiotlb: pass mapping attributes by reference
+  dma: swiotlb: track pool encryption state and honor DMA_ATTR_CC_SHARED
+  dma-mapping: make dma_pgprot() honor DMA_ATTR_CC_SHARED
+  dma-direct: pass attrs to dma_capable() for DMA_ATTR_CC_SHARED checks
+  dma-direct: make dma_direct_map_phys() honor DMA_ATTR_CC_SHARED
+  dma-direct: set decrypted flag for remapped DMA allocations
+  dma-direct: select DMA address encoding from DMA_ATTR_CC_SHARED
+  dma-pool: fix page leak in atomic_pool_expand() cleanup
+  dma-direct: rename ret to cpu_addr in alloc helpers
+  dma-direct: return struct page from dma_direct_alloc_from_pool()
+  iommu/dma: Check atomic pool allocation result directly
+  dma: swiotlb: free dynamic pools from process context
+  dma: swiotlb: handle set_memory_decrypted() failures
+  dma: free atomic pool pages by physical address
+  swiotlb: Preserve allocation virtual address for dynamic pools
+
+ arch/arm64/include/asm/hypervisor.h           |   6 +
+ arch/arm64/include/asm/mem_encrypt.h          |   3 +-
+ arch/arm64/kernel/rsi.c                       |  12 -
+ arch/arm64/mm/init.c                          |  17 +-
+ arch/powerpc/platforms/pseries/svm.c          |   2 +-
+ arch/s390/Kconfig                             |   1 +
+ arch/s390/mm/init.c                           |  16 +-
+ arch/x86/kernel/amd_gart_64.c                 |  30 +-
+ arch/x86/kernel/pci-dma.c                     |   4 +-
+ drivers/iommu/dma-iommu.c                     |  15 +-
+ drivers/virt/coco/pkvm-guest/arm-pkvm-guest.c |   5 +
+ drivers/xen/swiotlb-xen.c                     |   8 +-
+ include/linux/dma-direct.h                    |  20 +-
+ include/linux/dma-map-ops.h                   |   3 +-
+ include/linux/swiotlb.h                       |  20 +-
+ kernel/dma/direct.c                           | 275 +++++++++++++-----
+ kernel/dma/direct.h                           |  47 +--
+ kernel/dma/mapping.c                          |  16 +-
+ kernel/dma/pool.c                             | 221 ++++++++++----
+ kernel/dma/swiotlb.c                          | 270 +++++++++++++----
+ 20 files changed, 717 insertions(+), 274 deletions(-)
+
+
+base-commit: 50897c955902c93ae71c38698abb910525ebdc89
+-- 
+2.43.0
+
 
