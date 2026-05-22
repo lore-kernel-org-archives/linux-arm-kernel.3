@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D58ECCD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C84CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvpWBDzXqNRkuOrDbS/Ig7Ymq8xeIOrRh7UsVm/ByI8=; b=VQcxKlGGxYqYcD9oy87yH/7hrp
-	bFbsfLbeMhaJHulFGE716+ErVLGaiSmrd487cfM8tX4djIY/qW5zuP9oojevBaB7KDUGo875FJUbw
-	FkghVuezvjWm1MVvLGYCV0GGJxP5JY9J6583W7X1rzFQ0nZtHkBAMujWTqr3r8CNCFRzTqxvgglNK
-	lkKoQ44uLJxeyMf7vLnuUv/3J8UNqC6RSRChWyTzgcYSpPqS/QT1oXog5oIRaL6zFPH25I3hDab45
-	GAtBnvsADkj+0av8NVeAxn3/keLPCkOeG1qF243UYZppOt/9YOleq/KGu/mv42MBf7kqtVESuyIpZ
-	SiQrQ8RA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C1JkI15vgeu08xV//dtK9AYlWM5a5o5EUbaFA14ty+I=; b=BokVzcWUp/HRBaDM68o86ZJf7K
+	U0I2rHzODGVt/JmKNkPiUkjBLzIIDmwLqwWPaJNgQA6kxc89uyG2CEDOtRa8Se+akFZrm4u5VCc9Y
+	W/Kxwwu/kug1CxM6rCSl630Gr6iWNCQooT9d/rTqmudwLDLzv4TsYstKRkk8nb+jp1lX+giFsFyi3
+	at5bo5NUlSsEGQKgTQF4L/JFFbFKCMkaEvJbc4MjvzOP0lREKXLhmDc6SRpVliIJJvr3jxaU79j98
+	PkFVwC6MKybBPy4jqOPMGjOxYNBkkwNGn4urEq8EJoS8y56yyinexrH7g3UATE33zhd2r+UH0qdXu
+	5TPhiaTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXLH-0000000ByLm-1gKZ;
-	Fri, 22 May 2026 21:23:39 +0000
+	id 1wQXSj-0000000Bzr4-1L4F;
+	Fri, 22 May 2026 21:31:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXKy-0000000By5E-05a5;
-	Fri, 22 May 2026 21:23:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 500CF44287;
-	Fri, 22 May 2026 21:23:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 30B06C2BCC4;
-	Fri, 22 May 2026 21:23:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1779484997;
-	bh=vlimb4g70WCpbjanpRWP2hCiunyysBySiRhnjr6tsuM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=H2+SUwFFsmFDY+QTyZ4a97vfJ4UYjrtDVmStF5Oq0UwHVU8rBqOzD77LcI6lDby+z
-	 0XqEC64+HefKdfaXGvFkcrtWYW2SC9n/oOm6SgKx9K2EEZGkX1RN+bGfw6ecXSteVi
-	 0gN6t+DRAcGzJthgSUEJHtqSx1JrjBGRm0HVSAFeY/IdSmQIOUL6Tbapv+AI2OWxcQ
-	 AXQHgiUm3DZnNmin/hJiAUqUsP41JhEyxWIlpwoIK993oLisQOduK7zUf78DaDjj8M
-	 nP+B1EzwETw8KU9yKa6kXh8qlSJFXD1tPq7Ujfkxmg2SjgsKllk4ecceHLevVTJDzn
-	 8dWozrD52Fzyw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2648CCD5BB0;
-	Fri, 22 May 2026 21:23:17 +0000 (UTC)
-From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Fri, 22 May 2026 23:23:13 +0200
-Subject: [PATCH v5 7/8] arm64: dts: rockchip: add radxa camera 4k on rock
- 5b+ cam1
+	id 1wQXSg-0000000BzqC-3dIt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 21:31:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3ABA5445C6
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 21:31:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 228F41F0155F
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 21:31:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779485478;
+	bh=C1JkI15vgeu08xV//dtK9AYlWM5a5o5EUbaFA14ty+I=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=BZkBhq1dEMkxCJHLGd9hHIZUnfovj2cBcOHoma7ZqB1sV0+I2O6Ds5hTpwlWo4Mft
+	 6cZWdkrBC8UapaBAwm7wTsgf6f8+bsxbXBKEVD6N264a0/eS6r2rdb08YfLVaVXRFl
+	 DCfthOwfboPEVZicSPecr1WRFLBuk1+P+LgQEe3wX84so6iEX2i0ZTBrRDglX2hSFx
+	 U8IUrYW8hVgwjP8B7VfqK2I0t+/0+rbDVSJLqQ9PbEvde4WIlEtliG3txUqHXy/bwe
+	 ykb+eAMoCx2v1OrYATTHe26u6dEHYIyLuKR8dX7rGXbs6//A4IoVMdKRjJahE4F5l7
+	 5hZy1XYN8h40Q==
+Received: by mail-qt1-f174.google.com with SMTP id d75a77b69052e-50fb8e9a4edso92197651cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:31:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/zo09r0roOugtD9JVbwIQImB3E+VXvpWGfo8OqWn+BoA5Eq+d5AbwraLE/q1KYSCUJnz9ZFvQ2gIIOWgrbep6B@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIzUTyfJm9ZmKg7tI64ZkbtkfwIDLwpEzTUDd2+BLc0OsboutP
+	xkPes+C3JvHuh851ubCa33ilrnACHisBbA+HMvPq2D5ZOjzp1WwTIif+30QqPeef+dfYy4FDFd8
+	COC2vHuOLqIs+NSaNTPbqWlwgz0ts5q8=
+X-Received: by 2002:a05:620a:372a:b0:914:c100:6a0f with SMTP id
+ af79cd13be357-914c10072a4mr332092285a.23.1779485477280; Fri, 22 May 2026
+ 14:31:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-rk3588-vicap-v5-7-d1d1f5265c56@collabora.com>
-References: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
-In-Reply-To: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
-To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, 
- =?utf-8?q?=D0=9A=D1=83=D0=B7=D0=BD=D0=B5=D1=86=D0=BE=D0=B2_=D0=9C=D0=B8=D1=85=D0=B0=D0=B8=D0=BB?= <mai.kuznetsov.misha@gmail.com>, 
- Charalampos Mitrodimas <charmitro@posteo.net>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779484994; l=4389;
- i=michael.riesch@collabora.com; s=20260428; h=from:subject:message-id;
- bh=8GAq5xF2a9zwM/Nc+joNIeEA9N/887jxc8QNxty3Km0=;
- b=LLIeL+0it+uLfSwIx0TGBlVfXYPouf/FTxonhsGHnCJ2C05JWwB53nZtOBtzsodQYKixcIknO
- EcscyfGQ9ScC5bffX1vw/NYTsB6FSz/cXWmV7RuYxbBPLTdKiu8me90
-X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
- pk=tAbmpPTE1MELYweXqqDU40fa18uCO6s32GJL/RzyW2Y=
-X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20260428
- with auth_id=759
-X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+ <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org> <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org> <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com> <ahB6QyHgYq8ksj65@lucifer>
+In-Reply-To: <ahB6QyHgYq8ksj65@lucifer>
+From: Barry Song <baohua@kernel.org>
+Date: Sat, 23 May 2026 05:31:05 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+X-Gm-Features: AVHnY4IqrepDwpGO5qDQsSaxTVFULk1Thk0Uu8QgQ0mfUUrDDRbDPxaWPMcP1VU
+Message-ID: <CAGsJ_4zxLvZ01i19vdo0xA47T1hxa1VRYvxLmiDhy5q1GDKPRg@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Lorenzo Stoakes <ljs@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, Matthew Wilcox <willy@infradead.org>, 
+	"Liam R. Howlett" <liam@infradead.org>, Suren Baghdasaryan <surenb@google.com>, akpm@linux-foundation.org, 
+	linux-mm@kvack.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, 
+	chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_142320_109368_DC98870C 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20260522_143118_939771_2AB89914 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,151 +95,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Riesch <michael.riesch@collabora.com>
+>
+> Again this is making me want to sit outside and sip on some lemonade and
+> ice :)
+>
+> Yes - android processes are aggressively multi-threaded, sure of course.
+>
+> The missing bit here is the forking - what, where, why, when?
+>
 
-Add device tree overlay for the Radxa Camera 4K (featuring the Sony IMX415
-image sensor) to applied on the Radxa ROCK 5B+ CAM1 port.
+I really want to know the what, where, why, and when
+as well. But since most applications are not
+open-source, it is basically a black hole for anyone
+other than the owners of those apps.
 
-Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
----
- arch/arm64/boot/dts/rockchip/Makefile              |  4 +-
- .../rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso      | 99 ++++++++++++++++++++++
- 2 files changed, 102 insertions(+), 1 deletion(-)
+Let me try to do more investigation to understand what
+is going on, although it is really hard.
+To be honest, I would rather the Android framework
+completely prohibit apps from calling fork(), if
+possible.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index d4ff476fb9814b18c74c6d59d73cf5d8e6ee9ca7..761d82b4f4f2ac7f0f4ba5e1f94f495b2160a059 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -207,6 +207,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-cam4k-cam0.dtbo
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-cam4k-cam1.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5t.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
-@@ -324,7 +325,8 @@ rk3588-rock-5b-pcie-srns-dtbs := rk3588-rock-5b.dtb \
- 
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus-radxa-4k-cam.dtb
- rk3588-rock-5b-plus-radxa-4k-cam-dtbs := rk3588-rock-5b-plus.dtb \
--	rk3588-rock-5b-plus-radxa-cam4k-cam0.dtbo
-+	rk3588-rock-5b-plus-radxa-cam4k-cam0.dtbo \
-+	rk3588-rock-5b-plus-radxa-cam4k-cam1.dtbo
- 
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-haikou-video-demo.dtb
- rk3588-tiger-haikou-haikou-video-demo-dtbs := rk3588-tiger-haikou.dtb \
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..8a4cf3fdbf8ebde8b2939c6126d169074431588a
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus-radxa-cam4k-cam1.dtso
-@@ -0,0 +1,99 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Device tree overlay for the Radxa Camera 4K attached to the CAM1 port of
-+ * the Radxa ROCK 5B+.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	savdd_cam1: regulator-savdd-cam1 {
-+		compatible = "regulator-fixed";
-+		regulator-min-microvolt = <2900000>;
-+		regulator-max-microvolt = <2900000>;
-+		regulator-name = "savdd_cam1";
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+
-+	sdvdd_cam1: regulator-sdvdd-cam1 {
-+		compatible = "regulator-fixed";
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		regulator-name = "sdvdd_cam1";
-+		vin-supply = <&vcc5v0_sys>;
-+	};
-+
-+	siovdd_cam1: regulator-siovdd-cam1 {
-+		compatible = "regulator-fixed";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-name = "siovdd_cam1";
-+		vin-supply = <&vcc_3v3_s3>;
-+	};
-+};
-+
-+&i2c4 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	cam1_imx415: camera-sensor@1a {
-+		compatible = "sony,imx415";
-+		reg = <0x1a>;
-+		assigned-clocks = <&cru CLK_MIPI_CAMARAOUT_M4>;
-+		assigned-clock-rates = <37125000>;
-+		avdd-supply = <&savdd_cam1>;
-+		clocks = <&cru CLK_MIPI_CAMARAOUT_M4>;
-+		dvdd-supply = <&sdvdd_cam1>;
-+		orientation = <2>; /* External */
-+		ovdd-supply = <&siovdd_cam1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&cam1_rstn &mipim0_camera4_clk>;
-+		reset-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_LOW>;
-+
-+		port {
-+			cam1_imx415_output: endpoint {
-+				data-lanes = <1 2 3 4>;
-+				link-frequencies = /bits/ 64 <445500000>;
-+				remote-endpoint = <&csi4_input>;
-+			};
-+		};
-+	};
-+};
-+
-+&pinctrl {
-+	cam1 {
-+		cam1_rstn: cam1-rstn-pinctrl {
-+			rockchip,pins = <2 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&csi4 {
-+	status = "okay";
-+};
-+
-+&csi4_in {
-+	csi4_input: endpoint {
-+		data-lanes = <1 2 3 4>;
-+		link-frequencies = /bits/ 64 <445500000>;
-+		remote-endpoint = <&cam1_imx415_output>;
-+	};
-+};
-+
-+&csi_dphy1 {
-+	status = "okay";
-+};
-+
-+&vicap {
-+	status = "okay";
-+};
-+
-+&vicap_mmu {
-+	status = "okay";
-+};
+> And then you say zygote is sometimes multi-threaded but sometimes
+> single-threaded, which is adding a whole bunch of confusion on top of all
+> that.
+>
+> I don't find these stack trace dumps all that useful (though thanks of
+> course for taking the time to gather them), I think we'd be better off with
+> specific data on forking, in some _concise_ _summarised_ form, ideally with
+> numbers.
+>
+> There's such a thing as too much information :))
 
--- 
-2.47.3
+This trace shows PF I/O in one thread overlapping
+with a fork() call in another thread.
+But as I explained, I really do not know what kind of
+user behavior is behind it.
 
+>
+> Anyway, again, please let's see a new _RFC_ with the approach proposed by
+> Suren, with some _succinct_ data demonstrating _exactly_ what the problem
+> is, so we can make some headway here.
 
+Okay, sure. Thanks for your patience.
+
+>
+> And now I'm off for a cornetto! :)
+
+Sounds good :) Enjoy your cornetto!
+
+Best Regards
+Barry
 
