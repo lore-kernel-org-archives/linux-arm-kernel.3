@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D28CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB25CCD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66sbIWl/UECZcngzqfN9gySpU5b7WSWy5FgqX8acPdE=; b=g588M+zx6Lcthna6T/asi1saK+
-	SUGs/+wMO8g5+/EydL45pS2R55luLTcwraxFgOZgL3b3xI7jxBvqIHE8nPjkQvVgSKOXvsCk9canU
-	cm/G5nZQVhx+zFbnZc2rrQ+LNT9gTK6yBdoXzPo77ExdylrXL3s5QtkG8ZtF9XiROj5KuWZ162Tgw
-	SLTXF9LOeCXJxiCTC7jypJWWNgh8QQ5WPlZcCbZEueobtdcrE/NbLq5P2Plb+TssSCGcZKcPytxXV
-	8K6nVRiiCCZqD/kNAG5aiThN3DSwzu5rlfCvUikSrrAaINhKkZhKEZwHhmnDWKPQ4XNA6uD80wc3b
-	2UsAcr3g==;
+	bh=l3Dc6zoyWnXEvMeETDcz4Z1/oT967FAbFkpJkYlcBjs=; b=3zLLnu0dzJXh2yfffvAq6XyG4G
+	Tyyjh/AwiIYEfsUNpXPQAbpOgB3b/oCBP3zpGiLpvPUAyTSmSFldVHzvvw6bK48OrWT0/IDXQ6KtS
+	xEP1FWIlQ5NQQ87wZ59UqGWtVY4KMddh5e9vTb2wqE0ISYZkMqaYGhqCqbnlzgSKv44GXpMRqDnYm
+	OdFP05iZapDHQbTP4Dfm+1q6T7VSxStkDzyxHHJaJ9Vv0+RoGozJZHELWh98woOaVcxN/FcH7U3GM
+	1u+34MFRkQq/fjd0Rfjw0E5XPBHWl4lkl16CZGXvhR5PB70YudhqrOSP6zDL1a1nf84hjUbkxsfdb
+	oJRCXLXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXJA-0000000Bwzy-3fAI;
-	Fri, 22 May 2026 21:21:28 +0000
-Received: from mail-wm1-f43.google.com ([209.85.128.43])
+	id 1wQXJB-0000000Bx2G-3VDf;
+	Fri, 22 May 2026 21:21:29 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXJ5-0000000BwuI-34GG
+	id 1wQXJ7-0000000Bwvp-3Aog
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 21:21:25 +0000
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-49040362e4aso18615865e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:21:23 -0700 (PDT)
+	Fri, 22 May 2026 21:21:27 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48e6db3ff7eso41001305e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:21:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779484881; x=1780089681; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1779484884; x=1780089684; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=66sbIWl/UECZcngzqfN9gySpU5b7WSWy5FgqX8acPdE=;
-        b=jzlJ/ButTiqa+xTWw5Nm3+bEynRN9wanyLnEpSmH3Il/mJarHYvjQ4Gp2eGn9XdV67
-         Yeg33L32V0dqQrFf8kj3NIxk4kx49DDbVaFYo8auri7tx3azXjhuQn+ZdGrdcndLragR
-         I+mH+7B5AYNF3mMNneWqE54a5JtDVF1Ad8qoFFpAqNCspUZMIBgX2W9uNzTZr5jQFg1+
-         AxPlreNFspbwNq/uZmWfpUpFlGK8gsb4ccWdd6vzr9SO01RQNdQ151U8Q9xCKSpa5rau
-         4MfiLYyP/aa8oi5vSY3QwgpfX5MNgYXh4bZNysOWiurONkvOO2Lvf/kTH0cg4DZQ+WK/
-         RIHw==
+        bh=l3Dc6zoyWnXEvMeETDcz4Z1/oT967FAbFkpJkYlcBjs=;
+        b=LwOjRbSMNJ7Qo6jPPtAY935qBBsbr7PZEHQZEpJuGdxir9cUBT495FGOgRIq9OEVMq
+         qAkmFezTLR7lUnNvtijirW4Qj608KUhyOM0wuCjdya38GJvUVfWqkit2gsagGzBMc32b
+         6N4NhWdsqj0dX6LQsW0iqC9mA7KAlm1/c9R9sRntXqVDNY+BY++7WLaWO8mBJjH088bC
+         pwGp7ww9jfXyN+sfIV+b1spMt1zo4VuwdBZPA9hJW0lUhJbuaGxDQSOHDPKdLqlzn3iv
+         qOurCTdwaIC6rLeFsob0d7jrQGtMXmJFP7Sm2g/mUtYMEusFZ/s/MycZK2PjGM30Wg+C
+         v4LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779484881; x=1780089681;
+        d=1e100.net; s=20251104; t=1779484884; x=1780089684;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=66sbIWl/UECZcngzqfN9gySpU5b7WSWy5FgqX8acPdE=;
-        b=FfBJ870YMB3k5YfPGmfwtFGFkaTn7XxQ6aA9odZJvC1kM6Rce9IBwgo4lOPtF5gGIH
-         +Q4qXU25IYSN3EJoXxxLyAgEhc3dUyGscl7AC8FuL/kgl5uEg+m1pnN2TN8RA5eYD2NQ
-         NNAGPryIXex88lpFzzFZSS2o0n+VjDoESWwNjvBxotaysei2WEfvnWNnpbBSTA2j9VXF
-         ofBwLaS14t07EqL414n8o1pNjcY7U6TYWVNQRBHVU6zDmO3GMcwxQlij60/aXux7EkS5
-         yYH7GxjXdo+LJMKeCqNOaDANEw/vlj8CFWhHqpsqgXnZ0VfAL85gkoLVJZvKA5tadUVN
-         vIHQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/Nfv90u2l2CTQ+kVG6b6uDrSQUkVjMGJtQnkZEfhtewMgB04fTunLgVaH+Mh1Jft6+80fkfJe6mFKiGcrpEMet@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3S0eWc89OUmnJebPCbtfFGvHFyfOYR21zzJECxTVXqN4krd46
-	otCyOhNBwrmq4PCrJNlvmFglXjOFzZuq+rg/ckhmeqerzhnk8RfQ3BQhIbDe7TrW0b4=
-X-Gm-Gg: Acq92OGcTbLDkrkAcw0OtCctmCzIx/AAulxcl+5Zh5zarggq2iWVOIqSpHWvbdXaPVT
-	w7V1N4Nvuf2nVVVqpQozmhEQjKVhEpGmERRP4PD9qEepmVsikASwfIXo6sYy9qLLcPLHwDdKjpU
-	1/U3d3vS5PFW88oBOSB+3IXRlOqet88XyW9EEHHwbjLw3jqU7SUCgorfpQ9hXzbzNuZLWphQ+uy
-	QmbJRKLatr83BceUvk7R40ltrNOm8qTCoD7okb9cDm4DkK6iFhRykb1LMKaH1hPTC/BIhWChb+n
-	JvIq+kEKmFKaFvqzzWXPhmLpzLJ0gD71HuBE14A1tjvaVClsNPL3KsRd7CLLy6OxtXGhE204tQD
-	jSwlhR0JKtkWKbkFTr54lL8KYXvCAAuSjtbHQCBGX2u2WGPkNqGvvLYx/lpvcslmQMBRmM4dhZ0
-	HUa6gMNCiOwVe8nEY11P+EYN7TgY3yh6A=
-X-Received: by 2002:a05:600c:4ecc:b0:490:3a07:c467 with SMTP id 5b1f17b1804b1-490426cf642mr75196135e9.22.1779484881521;
-        Fri, 22 May 2026 14:21:21 -0700 (PDT)
+        bh=l3Dc6zoyWnXEvMeETDcz4Z1/oT967FAbFkpJkYlcBjs=;
+        b=Uf/XceOffzKXicMF6IloaSUfD02TWVdVqua0zktxZls8v1VahPKaS/9WzA5eLnvhok
+         pJlXXXwXrrpHpwSdPrG+CBLqsNzYIpc0tzRyyDEhpFFp/PfEyKCzxTCe/G9z76N3KHVv
+         4Tn9UXprVDX3p5jts3eA5r/V3Z9aephtD84WZ/OOdwu83RfLbv0afW5Bawwe9uzF0ocF
+         Z6iZ/EY80oobqnwQnS8r5it5Wbzw7/uZ0iAaftUB4yPoGwdA1j+DUbpJMrbaEuK2c7k0
+         w0h3U5LL9/alXGFEXz2KXkz0dD9QQfmqviGWTFiUXArTwUtbNk+D8H+Wasgn5H1IJ+E1
+         J+tA==
+X-Forwarded-Encrypted: i=1; AFNElJ/Xc9N67Qvq06hifN8WUohQum1F2Hm2wRrVmhIN7gPl3+wDcraIZN9uwgQIfFhMgWhVQYlFMKAlnsiCTT6Wb7ST@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxtv0w71uG4utP3vr+CplYZwrgeFe9ryE7hWm/VYW52jdqKYe+V
+	ltrJ9slOaF7GMwkQwtx1988u/PF6WfG7I7IAwIbCyfXOKJYDu2MYK3OrPBcNU/6FU5o=
+X-Gm-Gg: Acq92OGWWtgjvnO8TCvK2KGrk6N7FE777IYfL5eDDswsMqsUlumYYWWEbkWKTWbOoB9
+	Id1IX1o+n8wGJI93dVs+yknObz1yuYnMPiBjvjwyMVk+q0ivwPf7o8Kohv7tmheXQrLolKq/mVr
+	SoP7fEmn5JmiGYFtPkmDG4rNHfz3O/V7IsYIZX93KMCSrzyOO45xVquplELgAoJbWYHaJHyxkeT
+	Sr0bUkA//9g9+zstlaMar6H1M57O2bONExPOyg8OUtSaVbZVLg1H7uZKtBZH6hopOU4elQhZQB+
+	obzccIpoCxkShCzR86T+9Sv8uqQOepJm8NVIzYIt4uSqyvLuF+i64x/6HnShchJRdusIuWdMX1j
+	Tz9vI7Jis5nQg7eFMDj/yorE3W6a3YkRT6uNMOQFINjkI4UkiVH3dYI3SHflc+qKzeCfVqYYSta
+	8kej2v4/Vlw/gfLL8tHIGWonhbTb7mcVk=
+X-Received: by 2002:a05:600c:a402:b0:490:4033:d3df with SMTP id 5b1f17b1804b1-490426d7223mr56354025e9.23.1779484883834;
+        Fri, 22 May 2026 14:21:23 -0700 (PDT)
 Received: from [192.168.0.2] ([2a07:7e81:7daa:0:62cf:84ff:feee:627])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b82sm73312225e9.9.2026.05.22.14.21.20
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b82sm73312225e9.9.2026.05.22.14.21.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 14:21:21 -0700 (PDT)
+        Fri, 22 May 2026 14:21:23 -0700 (PDT)
 From: Angelo Dureghello <adureghello@baylibre.com>
 X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Date: Fri, 22 May 2026 23:20:33 +0200
-Subject: [PATCH v3 05/11] m68k: add DAC modules base addresses
+Date: Fri, 22 May 2026 23:20:35 +0200
+Subject: [PATCH v3 07/11] m68k: mcf5441x: add CCR MISCCR2 bitfields
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-wip-stmark2-dac-v3-5-16be0ad35a67@baylibre.com>
+Message-Id: <20260522-wip-stmark2-dac-v3-7-16be0ad35a67@baylibre.com>
 References: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
 In-Reply-To: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
 To: Greg Ungerer <gerg@linux-m68k.org>, 
@@ -92,8 +92,8 @@ Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org,
  Angelo Dureghello <adureghello@baylibre.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_142123_809002_7591A5F8 
-X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-CacheID: sfid-20260522_142125_902942_6A24D0AE 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,28 +111,51 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Angelo Dureghello <adureghello@baylibre.com>
 
-Add DAC controller 0 and 1 base addresses.
+Add CCR MISCCR2 register bitfields.
 
 Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
 ---
- arch/m68k/include/asm/m5441xsim.h | 5 +++++
- 1 file changed, 5 insertions(+)
+Changes in v2:
+- add "iwyu" include for BIT and GENMASK
+- fix MCF_CCM_MISCCR2_PLL_MODE bitfield
+---
+ arch/m68k/include/asm/m5441xsim.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
 diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/asm/m5441xsim.h
-index f48cf63bd782..f5acc962bb95 100644
+index 9ce2cbb05316..ea01c7753b7b 100644
 --- a/arch/m68k/include/asm/m5441xsim.h
 +++ b/arch/m68k/include/asm/m5441xsim.h
-@@ -191,6 +191,11 @@
- #define MCFEPORT_EPPAR		0xfc090000
- #define MCFEPORT_EPIER		0xfc090003
- #define MCFEPORT_EPFR		0xfc090006
-+/*
-+ * DAC Modules.
-+ */
-+#define MCFDAC_BASE0		0xfc098000
-+#define MCFDAC_BASE1		0xfc09c000
+@@ -8,6 +8,8 @@
+ #ifndef m5441xsim_h
+ #define m5441xsim_h
+ 
++#include <linux/bits.h>
++
+ #define CPU_NAME		"COLDFIRE(m5441x)"
+ #define CPU_INSTR_PER_JIFFY	2
+ #define MCF_BUSCLK		(MCF_CLK / 2)
+@@ -145,6 +147,21 @@
+ #define MCF_CCM_SBFCR		0xec090022
+ #define MCF_CCM_FNACR		0xec090024
+ 
++/* Bit definitions and macros for MCF_CCM_MISCCR2 */
++#define MCF_CCM_MISCCR2_ULPI		BIT(0)
++#define MCF_CCM_MISCCR2_FB_HALF		BIT(1)
++#define MCF_CCM_MISCCR2_ADC3_EN		BIT(2)
++#define MCF_CCM_MISCCR2_ADC7_EN		BIT(3)
++#define MCF_CCM_MISCCR2_ADC_EN		BIT(4)
++#define MCF_CCM_MISCCR2_DAC0_SEL	BIT(5)
++#define MCF_CCM_MISCCR2_DAC1_SEL	BIT(6)
++#define MCF_CCM_MISCCR2_DCC_BYP		BIT(7)
++#define MCF_CCM_MISCCR2_PLL_MODE	GENMASK(10, 8)
++#define MCF_CCM_MISCCR2_SWT_SCR		BIT(12)
++#define MCF_CCM_MISCCR2_RGPIO_HALF	BIT(13)
++#define MCF_CCM_MISCCR2_DDR2_CLK	BIT(14)
++#define MCF_CCM_MISCCR2_EXTCLK_BYP	BIT(15)
++
  /*
-  *  RTC Module.
+  *  UART module.
   */
 
 -- 
