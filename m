@@ -4,182 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADCF6CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CECCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:20:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AD3rC4YHzYCGryMwGVBSiidT3ecR9csA8+qDSMjqn4=; b=B5VJPyLoaen/xo0DGHmig5TeUG
-	ELBTrQAnQDMJsEKzh1K1ppm0QYJghZd9zoTf1Ol+LiVeGSI/bhvqmaCAEpkDDua68dzvRVltZmAns
-	ex2Qh7/k2mYczGat/k3VNXvvHFWdhtxvfvdUpoXe6jODKCdwCUvJEb3uvntmmPoOFy3MEB+y8Rp07
-	vQbU3vShwfY9vx99QtIpclDDlVhwPmdgMhClvbILeWsbLw7dBlLrB12Qgz2uoisl6yAMxnwaMVakE
-	MOWuRiG1Y3U56ciC5jAT9wshdGenUV2hND/6iQ5EJfRwJ1r/gdEuBSug5tSimqjlSHsXvSfGW1E5r
-	jxerJVWw==;
+	bh=vQQcN91JYp8LP/P8dq9S6DwHu2J6IWC+LIrNOPBCE3E=; b=uEQ7JPA0GyqH3PW39bRuNhZhh4
+	XYNeQ2Ew4FxwvM8QhDpQ1tK3OpZq54MmbqfZWvKfz1f4+au/fbQbCDyDGJbeR7QSrqPwh3bb5c3Pk
+	jl61EhZVxjK4NY8vnppir6ZhSmC3u5W9SrwlDG3sZsbXFzVMsrpDSCK5fmQGGYEkBhfIDVPmeGz6A
+	eprc4u+1XjcFWUD5B5LAdFaW3lAwuIhRHgG55EX31g+1V026MrmsnMdNHbtf01IKvQU45Dfmt/Qij
+	sQ5wyb4mQrhDrKbGd0LCNPHd8CjBWu8mauiOivURSwJC/3euIzz1GoZT5/Ep1m31JUG+sDycKhVaX
+	F1v927uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQLvd-0000000AHzs-022w;
-	Fri, 22 May 2026 09:12:25 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQLva-0000000AHbk-1nGn
+	id 1wQM3P-0000000AJKQ-0Tuj;
+	Fri, 22 May 2026 09:20:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQM3L-0000000AJIt-48mP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:12:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779441142; x=1810977142;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=1xB+oNIsg1MUpJOCzZj4b+zncO2VAKGDyiYcta5+Q6U=;
-  b=R0vxu8rkx/Q31vWH5toCkGDuVk5p2iyrhtlVPSd6TGcpNNkMugrfyqvK
-   RsCS14rULBHorrk1QLUxopeuIuuUC1iopUltG26udPOGXRX/CJ94J3itL
-   q5DVFRWFI+VD/Ff/eH33s76VXVLniY+madDgYN4ns3Jwz0JifhKqE39Un
-   gsQi+2NXWqYxhUTajB15haD0YeqqgONMQqE2jWQvC04V3aqEBgqyRrWbd
-   xordUYWucVsXo5njhGSycvx+NEm5KJkl/dcY4EpPud/qb5D2McDs6rbPo
-   3b4dVtwfaMoLlX61FgPdVAt4IQUayJrBwxzQOsq1qLRHiIUQa1DTbAHiJ
-   Q==;
-X-CSE-ConnectionGUID: dDQVNV0gQk2znrBVTKTwhQ==
-X-CSE-MsgGUID: CjQMu1eFT+aXoxoquWD+EA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11793"; a="97945038"
-X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="97945038"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 02:10:20 -0700
-X-CSE-ConnectionGUID: zFG8ob7hRZe20NmDfOMdzw==
-X-CSE-MsgGUID: zKziwdNbRQikfXVBSr0pIA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="245137193"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 02:10:21 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Fri, 22 May 2026 02:10:20 -0700
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37 via Frontend Transport; Fri, 22 May 2026 02:10:20 -0700
-Received: from BL0PR03CU003.outbound.protection.outlook.com (52.101.53.8) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.37; Fri, 22 May 2026 02:10:19 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=I1YM4rGz4xDzxM4c5rds6L260IVuliXGehCbQHd8jINbKilw94LUR6laKKk3ex4xtSCqw/0ZUg/nd8C+bOXwmoCkBq32nnc4VrpMkF8GDCQGE8r5tE/4+gGiL/8tKhjsPvyhO6xelrasWeHu2DbWY19cjpfwQg4R/fsH5pQ9F9jDMispIBL6JVMD79mjAPKtwuZnZez2Rne8wVfvr2aAXFrNOdqSI2bWHYzTiR28D+i49qMdGRXS1EhSn3BbJJIyzrq0D2zCS+g5zCIe+h//LR1uJZZX8SlSbtJXCYEa0vEy9xWA8LJoVBieaOqueuL1b8xWIR8Knb0++gL52CTHvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4AD3rC4YHzYCGryMwGVBSiidT3ecR9csA8+qDSMjqn4=;
- b=IhgPPdATbm9zHVwhPHETHkPQi200jkCC0zh1Vn7chRMFN1e7JU4Po3475EVpMPfmUbyNdlR1Bwg/lRjH2votZlNVHnOHC6hGhzb25KDpjo7n0ax8MickKwnEnxdomeL7R1opu5K6zbLiA/0l5x4+AHuMRCkz/bPo4qfGJeCsJuK+iAasAacpXM5PsfbKgM/u4j9XBtABpUyN7DVs6uNZuwoe36ykf7LtAb0EzFmq09TUnUiLWiaGjwGWSDLdMRPWMowFSyEg09APPWbMd1repsvJa/nTUUrgW4Hgn8JEPR05EhJ7yCF5Lb9Mb8XP6b5wvETUkzVB0dEGu/2go1NkRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV8PR11MB8509.namprd11.prod.outlook.com (2603:10b6:408:1e6::15)
- by DS0PR11MB7767.namprd11.prod.outlook.com (2603:10b6:8:138::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Fri, 22 May
- 2026 09:10:11 +0000
-Received: from LV8PR11MB8509.namprd11.prod.outlook.com
- ([fe80::f5bd:4dde:4f2f:20b7]) by LV8PR11MB8509.namprd11.prod.outlook.com
- ([fe80::f5bd:4dde:4f2f:20b7%5]) with mapi id 15.21.0048.013; Fri, 22 May 2026
- 09:10:11 +0000
-Message-ID: <ad25c3aa-567a-4bcb-a3a9-decef7313a2a@intel.com>
-Date: Fri, 22 May 2026 17:18:21 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/3] PCI: Allow ATS to be always on for CXL.cache
- capable devices
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Nicolin Chen <nicolinc@nvidia.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <bhelgaas@google.com>, <joro@8bytes.org>,
-	<praan@google.com>, <baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <dan.j.williams@intel.com>,
-	<jonathan.cameron@huawei.com>, <vsethi@nvidia.com>,
-	<linux-cxl@vger.kernel.org>, <nirmoyd@nvidia.com>
-References: <cover.1777269009.git.nicolinc@nvidia.com>
- <f6734b9dad0050138676f11ecd14e9db1cf6b697.1777269009.git.nicolinc@nvidia.com>
- <e8337102-aecd-48e8-9a2d-10f41ed43c5b@intel.com>
- <20260520143410.GV3602937@nvidia.com>
- <80e7e1be-c384-470f-9949-8c0dbad165ac@intel.com>
- <20260521130544.GE3602937@nvidia.com>
-Content-Language: en-US
-From: Yi Liu <yi.l.liu@intel.com>
-In-Reply-To: <20260521130544.GE3602937@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: KL1PR02CA0022.apcprd02.prod.outlook.com
- (2603:1096:820:d::9) To LV8PR11MB8509.namprd11.prod.outlook.com
- (2603:10b6:408:1e6::15)
+	Fri, 22 May 2026 09:20:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD5B81C01;
+	Fri, 22 May 2026 02:20:13 -0700 (PDT)
+Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55DC23F7B4;
+	Fri, 22 May 2026 02:20:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779441618; bh=5/WDhjKZ0zxg7IRZA5h/AyU0LXUj7WScqINlbmD6ppM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=J2LXS/vJuoNb23KU68GTNQemU1r9hgJAVxyds7wFfIKQlXi6O6cDkTs+Sw6i9Ra6B
+	 dP2G+aAxT4uSm64QcR/rLNHOGmNHf5KDrmdHOqiQS1Z25VRKw+bQG/wAOEKP59foBt
+	 RMUUleX2MIaGNA7Gb4pPPY4KGJd3CKz79trOQk54=
+Date: Fri, 22 May 2026 10:20:14 +0100
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>, Mark Brown <broonie@kernel.org>,
+	Shuah Khan <shuah@kernel.org>, Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH 1/2] arm64: mm: Add note about overlays in PIE_EL1
+Message-ID: <ahAfznOLiv+oG+Bv@e129823.arm.com>
+References: <20260521-poe_futex-v1-0-1da286b8f9b2@arm.com>
+ <20260521-poe_futex-v1-1-1da286b8f9b2@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR11MB8509:EE_|DS0PR11MB7767:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4eb2b80a-d64e-422a-c076-08deb7e1ed82
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|42112799006|1800799024|7416014|376014|366016|56012099003|11063799006|22082099003|18002099003|4143699003;
-X-Microsoft-Antispam-Message-Info: atWJPi0JToyz2KSc8TQaYvLM89eh1XgcRv3eNp8w0sDVxQfJMCjKNEUHZkN+3sVKRMurHyYZzHTSsgK0JYpuK7VcCAA3hvWQ1K0pNHqLyuNaL27pobQkKKKbN/c284dl2/1fT+lCOWcrHtOSUcwaSqDCyjT6Bzll3ZDgGQ7+eJghno0Rt/G3u3jLvV0SGdTwIni4m51a3/cJLoz41RKfs6X8cHiquXrsbRkXBO35uqTZZqtmUDrOd2XfgKP/ppkP4GmhuGvFwYnlu+w0BmYuX4c132F0flxmnAevY94SDOV/Pm88KAt6hv9b6/muAP8ljUK14KEfRkwci7s7YcOxzEm0ncq72sVYUy7us1nHja1BFuvQCB/K18bBJHKG0SwZf2LmHj8xRvEl58UytNBdxZvfzniu3DYMShR6vQBBgjfpNyvqbFJnw7pezNff3kCfrsivqYUx5okgDr6pJhKSGhAqfho9AqOT73AUAxgEVhcfwxN9zmpCHuQcbmkd8qap2gUzKgipJzpGCqH63EGyr4mEB3hFNTUFsY65tShfh00n+6paSF030oYYFXLWyCWIBfJsKrHRs9hDiLhusHGgIq+GCNbJhwLjvR76Y8rifHdtM98s/u5QR/leQIT9FabOfqajDOyetBp+0oqfTkp3KkWITmfvJ2Pq0Mf/tdbwVEqWVdlC0i1c6ZiCUrslqE3U
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR11MB8509.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(1800799024)(7416014)(376014)(366016)(56012099003)(11063799006)(22082099003)(18002099003)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?akZoMXA0UTVRcmsvbUtYUytPd2Mwb3FMYW1YVFNVbkRkVGtCd0NQZ2VsRzUz?=
- =?utf-8?B?QU1GZFF6RVBvVFFKTDZLaEc5Y1lRWkNJc0s1aG16MU1wWlpJbzcrMVZuVDJL?=
- =?utf-8?B?VEFVK2pENTNqQWYxaDlkRXVHQ2pkZWZxaXBVdVBZY2xscFNGb1d4SU5OejJX?=
- =?utf-8?B?ZmluTVp3NFJXeG1Bd1Z0K0NzUTI4ZGZ0Z3Y4RFhWM1lSVENUdVoxaXVMMDlK?=
- =?utf-8?B?aHpvZ1paYmZwUXpiUmwwSWo0L3V3NDI5UWhoZGh6WTJPbWhoRW9VMDFFcEx4?=
- =?utf-8?B?R3lYcGx5OXFNVlJMZWErS0hBWlpKdWRhOS96aXk3dUpXRzArQVVWUlplb0Qx?=
- =?utf-8?B?Z1BwNjkyL3RMamRBSGw4aVFCQmgzSlJtQWxjWlpoU2JBY1A4L1kwTnh4dFQ4?=
- =?utf-8?B?MlI4VUxnckhvRmx3dWhiblZyR3NKd1pyYWhOVjRqTkQxVDJwQ0FGL2dOT1kr?=
- =?utf-8?B?eU92YXlSd0xSdVB5dVZkLytXWWFvVUdLSms5aCtCYmZFMHZiZTRkZlk4RDdT?=
- =?utf-8?B?S1RTNk5OOFAxeTZ3MkxaZG92NFVXN3ZxQ2g1Q01hcGFiZWtGSUhWcnZtNHpU?=
- =?utf-8?B?L3RsWDJKeTlaNzFubDBnWTAybitEZnVVR3I0dW9pMmNLanZTTzVwcmZySy94?=
- =?utf-8?B?bGtKVjNpcmhtdXhLeTBFcFJTRHROaDB1UXVyU2RuSnlmYXM1NEVLc3VEUEZp?=
- =?utf-8?B?TEgxMzRsNEVQSUtCamNWTHFmNEM2UFpZQ3AyZ3JWV2x4ZVBWV2tvMnNyUFJQ?=
- =?utf-8?B?MWlEMFQrNHljcUVwY2ZIR1FMem1uVi81NStkOEpzK3Jjak1pZDNUTTZrNUZl?=
- =?utf-8?B?dkhVay9keGpsUkpRS2RkWFkrdm9qTW9tT1dzR21HR2pPSjZLK0NYYXFMUmpp?=
- =?utf-8?B?L2N4ZVMwb09HUGdKdHBiMXFOTGlFZ3pxb1M4Unk3OUpjSXIwdFYzcllCZXhJ?=
- =?utf-8?B?R0pzZzdiKytuUWhkL0x5WmtGT0g3MkJWTFBQcVlXYlY4TGpET3crdlFKeXNj?=
- =?utf-8?B?UG1qUFpib3daanM2NjBmRnJ1SHdLUFRXU24zcmdGeXUwSEFIeTB6WVl1Nkcw?=
- =?utf-8?B?b0Y4OVllSWZUU0hoK2w3UEVSVjFoRWFyaEovc25vb012UW00VXZyeDNXQW1i?=
- =?utf-8?B?TkRURXNpT0FJRTZDbFlERHo1S1pWZXpkdmtjZWRITW1MbnY5QUpKUEx1VS9y?=
- =?utf-8?B?enpCRC9VdDVMN091Y2JZanQ3cjhiVFVHNHM2bHZIRVFoSWNKNFVRTENjL0FF?=
- =?utf-8?B?dk1xdTUyRHl1Uzl1VmZ1TVpsWitQTnNuNUU2WnB4ZVJYMEgzdVV2djNjYWVZ?=
- =?utf-8?B?d2RjVTY1TklvdG1Hc0xXVUJpNDdJWTNjUllmYkVkT0dqN1BhYmUwNEFVN2Yy?=
- =?utf-8?B?UjNzK0hORmlzNXo0aDFQbDhxRk5HaDN4UUV3L0tmd0xKMG5qMUFZTGhBYmdC?=
- =?utf-8?B?d3JaRDFHUUQyYm9iUmR4ZU5XMFJTU3JPTENVSUR4dEgrcUpSeSszYUxZdE11?=
- =?utf-8?B?dEkreFFKemsvVFZ6a3VQYlNxT1BaODhZcUhBZjZpd3Jyd0ZJbUdJN2FGOWFE?=
- =?utf-8?B?Uy94M2EwRFZjYUUrR2ZQcHR6elhWVnF0WHVUUS9zZ3ZkSzJIRkNVdk93c1Uz?=
- =?utf-8?B?MkplZHZOTjRSTGxiQnF1TlQxQUJXNlo2SFlYdjNMdW5jM1FteTljcHM0QlRZ?=
- =?utf-8?B?L09yU2lmTzVMaGZTVnVZRVAwV2p4VXBKOTJSZ0JlMFZWallMdmdnRTRXZ0Fz?=
- =?utf-8?B?dnJjc0d3MnNuSTdoekgyVTVZRGtrUG9xQncxZTdzeUZzbDNhVXBUZHlZU0ZC?=
- =?utf-8?B?NFAyUXhsbEkrS1pyMjVidVFvbjdIVlRpekxwNFpQNkxEbmJaSUJzcXV1eHJp?=
- =?utf-8?B?TXVMRTlWeEZPWmNlamtYaU1PMGZEL0l5QkJ6a3RXTERVYVZqelZ5cHlmOTQ2?=
- =?utf-8?B?Z3p4WEUyeVNMckZuZDNGbGRock03eEtEdy8vZWFjZ0RTMFNIVXN1Q3JtMUhO?=
- =?utf-8?B?K1QrRnlucEJGc3ByeDd1NTV3Yzc0SlpPYjBqTjRRSWR0S0lrNlNEdVUyZjhE?=
- =?utf-8?B?ZFNFWEN2YmJqQ09qNFh5OU9yZFdXbUNXMWU4SDhBK2JMMGdnVUhpRUlSQlIx?=
- =?utf-8?B?T3N4bG5tM3luUFJ5a3JHOWEvZDkwd2dtMEd5d0xzMGtPKzF6QlZQUCtxS0hR?=
- =?utf-8?B?NHlQWmtLOUVITUFwTnBDajFZZitFbjRUZWZzZS9mOG9WSXVNMWlVb2RyUm9G?=
- =?utf-8?B?UUZvNzdySm1XT3EzYUpmUVgxY1BNSFhZdzQzTXJTYUpBTm1EbWxZNWI2M0FJ?=
- =?utf-8?B?d3JnOWRheGJQK09DK0ZBYkF5YUhVdXJjK1NwMEIzemx1d3lYSjhVZz09?=
-X-Exchange-RoutingPolicyChecked: ZU02ZxYkEavfviA93kVSdYMGlQzZEiuXX6btQeBf3aG7okoVFY8n2/z0WvDe6sQbdaA1Ci1IoSr+++efvLZvUheBlR5wWLfVLhJcsEdVdZpJ+JbryqlXrIIy4RrV1Fk0/f6z/ET1YuzM80QAqfOKz6Wc8xGfDHb0i9hB/Nyj6LfG1TNsOW0ynqm3khFl5REA85rnstoUkiDf8fQzMHuQqbKqYPE8Hnhqx+TnQrwHJ82kniINXIBjAo2rEL4GrXBqmT/Jh0eu3wxYyT3ytweiC7KQXeN90EsGd1FTIJWedyi5oplybyBWXfEy2aT1JkLEDyXobejvaNNun3k6A1Z+vw==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4eb2b80a-d64e-422a-c076-08deb7e1ed82
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR11MB8509.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2026 09:10:11.7361
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 65u9JnUSVhTFp4yfLdhcWytv4kdDuDPTN/LgzMiANKCDoT+qPz5WuEioYO4QTNfVHEVxQNotEs8G7UnF8so9WA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7767
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260521-poe_futex-v1-1-1da286b8f9b2@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_021222_486229_A11393EB 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20260522_022024_285879_8D9C6115 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -194,17 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/26 21:05, Jason Gunthorpe wrote:
-> On Thu, May 21, 2026 at 03:31:46PM +0800, Yi Liu wrote:
-> 
->> Does this hardware behavior satisfy the security expectation you have in
->> mind? Or do you still require that both the DTE bit and the PCI ATS
->> capability be explicitly disabled when a blocking domain is in effect?
-> 
-> If the HW rejects translated TLPs then you should be clearing the ATS
-> enable bit in the device config space prior to rejecting them
-> 
-> But it does seem secure enough as-is.
+LGTM.
 
-got it. thanks for the thoughts.
+Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
+
+> It isn't completely obvious why user page types do not have overlays
+> applied in PIE_EL1. Add a comment to that effect, to avoid
+> unpleasant surprises in the future.
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/arm64/include/asm/pgtable-prot.h | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+> index 212ce1b02e15..6e2f99820909 100644
+> --- a/arch/arm64/include/asm/pgtable-prot.h
+> +++ b/arch/arm64/include/asm/pgtable-prot.h
+> @@ -175,6 +175,13 @@ static inline bool __pure lpa2_is_enabled(void)
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)   | \
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O))
+>  
+> +/*
+> + * Regular user page types such as _PAGE_SHARED must not have overlays applied
+> + * in PIE_EL1. If POE is enabled at EL1, and in the absence of FEAT_LSUI, this
+> + * would break futex atomic operations on user memory with a non-default
+> + * POIndex; the privileged atomic load/store instructions would be mistakenly
+> + * checked against POR_EL1.
+> + */
+>  #define PIE_E1	( \
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
+>  	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
+> 
+> -- 
+> 2.51.2
+> 
+> 
+
+-- 
+Sincerely,
+Yeoreum Yun
 
