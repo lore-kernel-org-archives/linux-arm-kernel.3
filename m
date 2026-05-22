@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 106ADCD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85E91CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:15:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ITud2w1YmfwAO2VG3810GZ12MSpFc0lANmn3XqSQLCI=; b=rQTztpIBxV7KrUv3dxFweP0/xI
-	2heunGjVa8uR4KROMJQhBZzijmbg6zxT4+sW33BQowuI8amFDivQhpzDTKd/r3WEHIsXO0TON/Cde
-	wKiqO5RAdmkf9I24xl79koSP6mF+AOfnCur506VY2Pkx/mrcN6Z+LZ8kd0dl0WxQch3GEmbldQ6Bz
-	9A5r+Vbddx+bHTOMPExFJgBQE7S9h922N/dlXv7OzMC3440SHAm/62hRd4FDXbqNRpUUjCRc4RxRt
-	1q8JgFDckLnb7GB6A5Nexs0fPDGgzKH+79YcHPh+/WMh9PJ9yRGjvgjBleZHvNlBM0WSOgv7oQKVU
-	xKHtZOag==;
+	bh=ulBbriUb5Qa+s82ZfAnphDICDBrOSk/EMlWPn3QSP7Y=; b=43k4gJuVXFnc6DIFCMyjFPyNKc
+	2scqbxIzb1Hjb3lZCDNs8hXHoOuhkP2tR4/Z2ZshwYP1udOgeQ7lrrENuXVFB1wyMgMSG5SF5rUHq
+	xKVJ7w7OdvkXEiVceXOvEQrj9+BP3+QoikfWJxTkxMgXSH1J+OAyRm7yi9fqh01tPD7VpE4b2pH+/
+	/ZLr6Jrk6B8FVXpNSgwFnmc3SfPH5zcVdEaAZtm7WcU+Jgwn1jF6Zjo+mRU6q7BXOTW5vUHRPGZmZ
+	EbUDJw8yakoLZcxo9Ic4feWM5kSENviFg+gkklpL6Q2re2RD3/oCm2LyFOolHiOq0+D42XWdkglTh
+	z8mTkajg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQK0w-0000000A2if-2JLw;
-	Fri, 22 May 2026 07:09:46 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQK0u-0000000A2hp-3QlM
+	id 1wQK6G-0000000A3IK-3etK;
+	Fri, 22 May 2026 07:15:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQK6E-0000000A3Hp-0IKl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 07:09:45 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-45e6a4d0be0so3058684f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 00:09:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779433783; x=1780038583; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ITud2w1YmfwAO2VG3810GZ12MSpFc0lANmn3XqSQLCI=;
-        b=TsG9MetN3QbVJae3m979t6oafulH6u19n7WftcCB0axjXc/IkQlAXO5z6iFalK8hQy
-         1/Zc2z7HtgN6Xsp63iyQHATr5wc/oTKVXSO08l6i9qRJ1aVGP8VyAGywGrxYNcR20us5
-         4p1Vxon8njcS7hQ4ZESijkTAKwTQL1IE0eOygIc18XSa7T5Xb8hW3yw6qN9cwwJNC0xL
-         ktAtIJ+twsfSl6dyUQfuAmoVrfqOO4dDZx1f1hVyVMOxuBoXcKN4ex/ggjSGZr7/NDLg
-         qUH7wKyr0l8XrxFIGKfiYYNOS3Pu5evt2EVZpgKHCLm9MtCRh/8FgcwmmDQOSOabiD2J
-         upog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779433783; x=1780038583;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ITud2w1YmfwAO2VG3810GZ12MSpFc0lANmn3XqSQLCI=;
-        b=cPKk2ljRAc/Z+OoY34m+odZW87LYLcc5BHnnxbyxIkGd+ylYf8oAIOkT2DoILJvpgQ
-         YwmFrTZ34LSpDe4ok+d5nzxWFmXddUr6Rg1fupzcTK1cueSB4JTdllcoDV4POZ3pQZz3
-         jN8zQWjX4qkoqvBxDEMgfRzcokfZqoOGMed4aTDMaVMxgAh2d2mhNqPap6UK56LDHWXD
-         IeHWhWn06yEx50yx6oWmbE9tfS4OsgCVaIzKYnGPuKSnOI3ggJdAwDmb6g3EsDAH/V/c
-         Tt0q5sHUnqoW8WCkbUFeFoALwhNnVJ7Ls9tKfUpzv//0Jb36FENwOryKRM1fHnnK82xp
-         hAug==
-X-Forwarded-Encrypted: i=1; AFNElJ9DDHU6JBL5NvTuj5oR1k/SiJzfqqnIhpORow5IaLmKzFqPwtg91821CsOWEHDOyQ9mqLuxhZxkncy6B/IPuMtM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7U6Rlg90m0jwl+xM+4dIW1jztQL0Cadcig6RIk7KV5W5rBUQ0
-	EcyBTJIjeFKyngtbosPg2fmq3ZBXJ6ho2eklcnkTrKsrPCQL+sj/KrNr
-X-Gm-Gg: Acq92OG9RcFNZU8pRwUSuH1QsNlH6ua5hZ+oLVlv1xyb+LAETT2QXTjunDeXBmum0ji
-	A7GkVq4ps5OtI8xZeamtoptWNwAgIU2aHBw7rfV0goVbqk9ek39HFYb58CbdBPy8YiX5uwiMXL3
-	pHx0D90rEAkUtuFkpTNd9sG129Dpd42issSejFulBgy+DLTsFyfCSFZS1SAWGtOkRhpUGwqr57V
-	JmcR7Tu/iFaXMjzbAJghd3hGp2ShbpTMsvvgGotM3CfXWSQUM17p8afhVcx8RHv42OqjB1io8ZH
-	qRtwpo25IbC/sGuK42c37L90K7Wf0v3He+Y/pEQFbziWGhpH8172t4yv3XGxjVq0Lk7XIWbURWL
-	+qwouasPx9Ukj20uDrP1quG1rKkZPGFypvumyOXo01du+QgQXA4Bx9SIKslfNk9zDLOpzeRknRd
-	vDKEPA0vvfZ7AOaUIqUeIKeKQ60A29f58=
-X-Received: by 2002:a05:6000:290c:b0:455:d927:1b30 with SMTP id ffacd0b85a97d-45eb38af531mr3150303f8f.28.1779433782717;
-        Fri, 22 May 2026 00:09:42 -0700 (PDT)
-Received: from strix.localnet ([197.250.51.26])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eb6ccd211sm2307866f8f.10.2026.05.22.00.09.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 00:09:41 -0700 (PDT)
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
-Cc: Randy Dunlap <rdunlap@infradead.org>, Linus Walleij <linusw@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
- linux-arm-kernel@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
-Subject: Re: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
-Date: Fri, 22 May 2026 10:09:31 +0300
-Message-ID: <13240501.O9o76ZdvQC@strix>
-In-Reply-To: <20260521191458.177046-1-rdunlap@infradead.org>
-References: <20260521191458.177046-1-rdunlap@infradead.org>
+	Fri, 22 May 2026 07:15:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 527B94A92;
+	Fri, 22 May 2026 00:15:07 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48AC93F7B4;
+	Fri, 22 May 2026 00:15:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779434112; bh=sxkqiabCo2k72yVa+eyY8IbkpWPy8a6prfz7sHqkQ6c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BhjWQb5hw/wbqsSAir1eL+5L46+NeXRW3tS40bUfAX7q6JagmMsOkMLU3ep7w6UJF
+	 XdrXdzUZ626I7QZdHMplHAwyHaboMYra+7Eh2CIdV5iXzRlIZDvplr4IrfM+Ee7XBl
+	 0y8z0sFmeoU/gP6cJGzj2R/6UlEmIAr+7vQ8K5M8=
+Date: Fri, 22 May 2026 08:15:09 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alistair Popple <apopple@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, will@kernel.org, david@kernel.org
+Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
+ page tables
+Message-ID: <ahACfQ6kCfONqz5h@arm.com>
+References: <20260521032730.2104017-1-apopple@nvidia.com>
+ <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart6337413.DvuYhMxLoT";
- micalg="pgp-sha256"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_000944_874910_B14F09E0 
-X-CRM114-Status: UNSURE (   9.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260522_001514_268315_F7FA0CFD 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,57 +71,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart6337413.DvuYhMxLoT
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
-Subject: Re: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
-Date: Fri, 22 May 2026 10:09:31 +0300
-Message-ID: <13240501.O9o76ZdvQC@strix>
-In-Reply-To: <20260521191458.177046-1-rdunlap@infradead.org>
-References: <20260521191458.177046-1-rdunlap@infradead.org>
-MIME-Version: 1.0
+On Thu, May 21, 2026 at 03:31:30PM -0700, Andrew Morton wrote:
+> On Thu, 21 May 2026 13:27:30 +1000 Alistair Popple <apopple@nvidia.com> wrote:
+> > Since 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in
+> > __create_pgd_mapping()") page-table allocation on ARM64 always
+> > calls pagetable_{pte,pmd,pud,p4d}_ctor(). This sets the page_type
+> > to PGTY_table, increments NR_PAGETABLE and possible allocates a PTL.
+> > However the matching pagetable_dtor() calls were never added.
+> > 
+> > With DEBUG_VM enabled on kernel versions prior to v6.17 without
+> > 2dfcd1608f3a9 ("mm/page_alloc: let page freeing clear any set page
+> > type") this leads to the following warning when freeing these pages due
+> > to page->page_type sharing page->_mapcount:
+> > 
+> >   BUG: Bad page state in process ... pfn:284fbb
+> >   page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x284fbb
+> >   flags: 0x17fffc000000000(node=0|zone=2|lastcpupid=0x1ffff)
+> >   page_type: f2(table)
+> >   page dumped because: nonzero mapcount
+> >   Call trace:
+> >    bad_page+0x13c/0x160
+> >    __free_frozen_pages+0x6cc/0x860
+> >    ___free_pages+0xf4/0x180
+> >    free_pages+0x54/0x80
+> >    free_hotplug_page_range.part.0+0x58/0x90
+> >    free_empty_tables+0x438/0x500
+> >    __remove_pgd_mapping.constprop.0+0x60/0xa8
+> >    arch_remove_memory+0x48/0x80
+> >    try_remove_memory+0x158/0x1d8
+> >    offline_and_remove_memory+0x138/0x180
+> > 
+> > It can also lead to leaking the ptl allocation if ALLOC_SPLIT_PTLOCKS
+> > is defined and incorrect NR_PAGETABLE stats. Fix this by calling
+> > pagetable_dtor() in free_hotplug_pgtable_page() prior to freeing the
+> > page to undo the effects of calling pagetable_*_ctor().
+> > 
+> > Fixes: 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in __create_pgd_mapping()")
+> 
+> 6.16+, so I assume we want cc:stable here.
+> 
+> >  arch/arm64/mm/mmu.c | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> > index 8e1d80a7033e..0c24fe650e95 100644
+> > --- a/arch/arm64/mm/mmu.c
+> > +++ b/arch/arm64/mm/mmu.c
+> > @@ -1422,6 +1422,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+> >  
+> >  static void free_hotplug_pgtable_page(struct page *page)
+> >  {
+> > +	pagetable_dtor(page_ptdesc(page));
+> >  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+> >  }
+> 
+> I'd of course prefer that arm maintainers handle this.  But
+> 5e8eb9aeeda3 came via myself so convention kinda-dictates that I get to
+> fix it.
 
-Hi,
+That's fine but Sashiko has some points:
 
-Am Donnerstag, 21. Mai 2026, 22:14:57 Ostafrikanische Zeit schrieben Sie:
-> Fix multiple documentation build warnings.
-> Improve punctuation and formatting of the rendered output.
->=20
-> Documentation/arch/arm/zte/zx297520v3.rst:66: WARNING: Title underline too
-> short. 3. Building for built-in U-Boot
+https://sashiko.dev/#/patchset/20260521032730.2104017-1-apopple@nvidia.com
 
-I am sorry for the mess. I'll look into doc building before I send clock=20
-documentation...
+The __remove_pgd_mapping() path is fine but we also have the
+vmemmap_free() path where the constructor was never called.
 
-Reviewed-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+We could pass around a bool dtor argument but I wonder whether we could
+just check it's a pgtable page:
 
---nextPart6337413.DvuYhMxLoT
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 4c8959153ac4..9d42cbddce27 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
+ 
+ static void free_hotplug_pgtable_page(struct page *page)
+ {
++	if (folio_test_pgtable(page_folio(page)))
++		pagetable_dtor(page_ptdesc(page));
++
+ 	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+ }
+ 
 
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoQASsbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoi9S8P/0ouABngGtPJ84cmw4RC
-cbqM4oJrW6XF5yNOG46jKfbkPVNxVF38uLq9j1Cs/A3pMEjSVZTw6TaD+Hy9KQyz
-aav5x5GvppMQZsKkN450SjSQ7XMPs6oME4/a+EWjxoHkI5U6WqHmCFs2U0c4kDsE
-rvAc7fjpHKmhwJDcju8G6vDLM5kROmPTOjUSF6XVlCh7Tv3JkIyTTEmc3nmeuOtO
-dN6SQFL7CfIFDjDGD47YCd70ULmdQEO3JA1Dk9+/svi1TzT+ChofOUWiv+MVLLxr
-yfPFVwAln76gKjl72l9I5Z+nT66iyAZaKbVEXWHLoIluN9A3HcvTvu038WksdrF9
-9pwMl2HGWHmjkKap5gvNliNO9vCLoP6a3PZQ2dKi+StACqwPcr5aSmjZ0Se5jaoP
-QBSNuUKuymsgfmMxXm5LpBA2jo5TO69zpzVS1z/q0Qo5f0de+WYlCgORFR/NWgbN
-yijb3xgCbQvGdjWneTakUmwJ9YnTXhxo5rHGnSOLOQl8PVDljl19nCF9eKvyWT0o
-1YkP1K4zl35l1pM9Bfl03xeCKxGXxv13vXmsUEkpJ+wLjahSB7qgq0o1IT1Sto0b
-2GOk33H1rDPuOtaWFm+GGQlIF8ePYD3pj35T0qmibb1emFFg2M+rxgRpo8L+gJJ+
-P+clcDXhcoEhSIUTevSmqOiS
-=kFBP
------END PGP SIGNATURE-----
-
---nextPart6337413.DvuYhMxLoT--
-
-
-
+-- 
+Catalin
 
