@@ -4,106 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1646CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0CDCD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEirToh+MwCYb1DaYfmows1iO3IlCn32okdonWMlk1w=; b=mCmsiSiUBMJB9zB/h7Eb6yYMlw
-	DxwE4KoozETB4NH3BZf35PnuVjl7Mfk6NfVH3HPfSes7yjgGIL7tDIpuxowF87f7CSBh4na0DIIZU
-	2KuBH8KSKBV8U3Lv9UuOpdKGKSWM87pkyW/QdvdFTZU8FYo12QFHBFkFZFBT/u+rCoO8GO7NFMNt8
-	sQcQpJ8suKzrfhuYmS63S4tSkvgPuL78JcyYZ/0Gr3hB6rm7smB0Hv6Q912tsAsyItkYzGWaSQ3UG
-	F1mHzqtH6XbuY39qfq2J2OAL+CPZAgFxEYG1ZkrBzHQZsTzd0ryd7PCO3TKZyVy9xolggQTtJqnoG
-	2ERU11Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WzBfufw4gsYrpdbP3F7fvJ8me51W/Y5BIcajdiRbGaA=; b=rCHUtRVXxO7NeRxLLFv1tvyBZj
+	H7ZRegIbCIuL8oyu1EUW+OXqaF7byXMXyJegYYZhE91SNByO+TYUxtD4hhH00V1EegVTbaKDCMHY2
+	dGrUrZB6AYjDlG54qBMKE9xhaY6YiFu6aa8s6iiI3Wob3S+W1AmnSxd6r3ju72Hpc0SgpggETuxgK
+	BYFzdcFIUHUF+70WIjs1VoQil7+EtjbpokPk2cOCg/FQnAaJ22RRexIpJV8ueTNeAd0JiZNQmEiiT
+	Qw/wLBYjnKnBO3b/JbOjYHyARXAZhxIxIqo8qFjmC1TiIraz+rDeUozg3x2rpvX5v3taRPx3Hr6a9
+	pNRlGOUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQM3T-0000000AJLy-15Ro;
-	Fri, 22 May 2026 09:20:31 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1wQLzu-0000000AIbf-3eZH;
+	Fri, 22 May 2026 09:16:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQM3O-0000000AJJc-1hce
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:20:27 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-67bb5ad91bfso14727841a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 02:20:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779441624; cv=none;
-        d=google.com; s=arc-20240605;
-        b=dV2ybFRA/qLn68Dt2aQmbPhgdiajslMrmfYONWoNM4vV6Xpigv3wuMNg26sVS1lsZH
-         wtXLIJ57KH8ONBaQ+EplwPgqdFUt0oEcPd2biUBQ/d9ulOlk4UZo0iGBd0JMi1laJw4a
-         XRHuBrb+TgIRy8TU4o9jMMug1BFwYxg9k7eO6dAeE8uX3uY40iieUr0kIkIw8ap+v2Zf
-         LJ6Go33bD84gSiC6t0lvqGeQtIbqgBVy0QVBHFunB9IXAWpgjTxybgTl/dNo5f5xL03o
-         4aS57+u64DDVQowepTujL+IpqiTQf5SgPLeYCaX7sIZmSAjQ4GLHiY8HbgshxKUbKOQX
-         SoLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=OEirToh+MwCYb1DaYfmows1iO3IlCn32okdonWMlk1w=;
-        fh=65XEkejCYWIvMEE6UyQrZZYfbDWUbt1l8Fu6DnlZo2c=;
-        b=BryllEEZuVpXj3siLmM1G8YNZMCRz5lY03Fhy8qgGIj1/bpLS9j5GE527rM3pbVV0z
-         wVm/2/e6DC65JspES8bLQZ1EaIGlA9g/lEdTNSt7or/VFRDnUsrlCMJvBFoJhQbXcmEU
-         h3UcB/+bvKYymtOELC4NS1xHbL+Sz14M9VKx64xyE2oLo7s2ehV47sic0pCInLnMhVel
-         l34OavF3XD20nYNHaeFxskD9ByK3H9vn8dCrImKbXcaSfMTgIDlD5Y121tqbDYBeRqqA
-         ZjtJclXPT9wJaasRV7cW7U2YJQPXge41A913jP5cvVN7bFSznuvEVeLtxaXyz9SvO0KO
-         +aVA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779441624; x=1780046424; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OEirToh+MwCYb1DaYfmows1iO3IlCn32okdonWMlk1w=;
-        b=UYmYpUK7zShocz/2zyZR7Ezik6901nrcr4i4ReSebmJO8ofKMU05rPg6keNiDAyj+w
-         PL5qSCf/2Iu62N+eYGIUhlgw8o4N/EKJltZK73t8O533D2VdSiMagWF49zx4LRGAATyW
-         VHzQUyIpQprRbj1kBtEt1fTXF1X9XPuxFS8MMe/sCQbwF6NokM6dCZEKeJyHvjAVGlR2
-         sE8QPfJLIA4poAH1SepOz73uMG7ORylLUGBlq475JZBrBUkV1WrOW291vOGpWptHBHoK
-         ucIwMUxhW8zoB7kq75uFSLforcN5vQKH0gKeuYI9ntyAULI702BtqsKfo5EFrJoKaiCC
-         tSWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779441624; x=1780046424;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OEirToh+MwCYb1DaYfmows1iO3IlCn32okdonWMlk1w=;
-        b=jvKuw2Ini47TBzHFvkUWlSvUeIDQv8Z8h5jsB2fYU9Fc0Zp90zRL7FF6EobVjb5UeX
-         cty2f0o7qjZBj3XXPQH2ksegywBGQg0EudYtwNMNhnPqdPFiB6/EH6+AscjioR9cHVjN
-         UvLyNrb7ULvFdF/X24thHqDzOq4DAtlGu8DPXKldH8l3rTCEHKnK/MEkr/ViE5qic112
-         PewWS4O/lhhxAg0cAz+VwzfZqWRA3PKvuZPozenGYyJU+gRiSgoV6PmKk9Nn6vY00SOt
-         qqRI8u8tT6TNrzLQjrFf6jxJ4a/zEPgd1iXzOT5V/E8fdwCmOoBZgcY6nIk69S8aMdGO
-         AOyA==
-X-Gm-Message-State: AOJu0Yz8wfq/3rCY7RiUbZXFQNEB/0r7Nn5xtPcKEGIEkHCCW3YhZnLh
-	QiZuziv1ZIOeXJBypkVNsHG6/xXPSmFvmRdgbm3y74sNkkHbcuZtvGxr0J5njnrp3fcHeUVTSdJ
-	RjeN7+FxO8LIxToIOWGXfaC4xG8LbVhcqVYe4wjUSyZirsS9i+Vu6ysM=
-X-Gm-Gg: Acq92OHKIm/tTWoOAQN+xcC+XQJtcGSJOA8Z9uIz5oM0uCVbz5Xq3iWlgIfeaSeprPx
-	XDoy5jJKtvDQGEPHUDFSAFe8wASA57bfX+JzpcV1hIQF95T1cqxcNYnqnS7h1qGeApP49LtZGLQ
-	NyrzBD1R9YojUQ7erAPPEdm2/8q1jr2f8DMwXD6v6T7CfPNB3eUjz9av2iD7QoKIJ5nwpx0Kn7X
-	2Ii9aF093HnZgSLcN8bCqBqafWTqTR3KM1Q8QwoiUkmAhQlso3TFnB/dLtXapjznRxVsgljfwcV
-	hsSafepW/K8QAV8A7vg7TvojIYI9X25RJtVPYnw=
-X-Received: by 2002:a05:6402:358e:b0:687:cfde:ddb3 with SMTP id
- 4fb4d7f45d1cf-6889c420cc6mr1356687a12.5.1779441624077; Fri, 22 May 2026
- 02:20:24 -0700 (PDT)
+	id 1wQLzr-0000000AIaq-2Jg8;
+	Fri, 22 May 2026 09:16:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA4FA43DE2;
+	Fri, 22 May 2026 09:16:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49BCD1F000E9;
+	Fri, 22 May 2026 09:16:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779441406;
+	bh=WzBfufw4gsYrpdbP3F7fvJ8me51W/Y5BIcajdiRbGaA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=B/NJF9xZWYqY981BOl9XMhydNqyZ58WfjpUI7KVuJ2oFkq/D6D1d8b6jcfvQtVcEO
+	 M7d48rvU7scHsCE23bvqZOTWII3DNH8EwAo1V4TFzLEcRmTM+lgZILr/vJh0hdsuXc
+	 b/bNeCJlL0elNxZwc5z24JGRRcuf+fGnGTEzBLQLfpRV/AP2qyGB3osg1aELGpiw4F
+	 DLYZiufH3bfm7JrarPG2nQS75EZW+QIFtDzCh41Gsn8+hJle97IXohHI/J2znmbtTa
+	 DjOVxfxhdr0tXv50SXAm8yu0nkigbgzBN5FfyRg6bLDwjXH7T3Sz0RegKoQBt/3/hq
+	 eJ0zQO7YV79yg==
+Message-ID: <7c458070-a56a-4d49-89fc-efeb388beffc@kernel.org>
+Date: Fri, 22 May 2026 11:16:41 +0200
 MIME-Version: 1.0
-References: <CGME20260522061030eucas1p15f61b7bc01f77a3d34d41472210ea662@eucas1p1.samsung.com>
- <20260522061012.2687122-1-m.szyprowski@samsung.com>
-In-Reply-To: <20260522061012.2687122-1-m.szyprowski@samsung.com>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 22 May 2026 10:20:12 +0100
-X-Gm-Features: AVHnY4KmsYofVZ6OtbI0hlOv_2b1wBOu2Rzf0xG7uc2W1dzbk8tXLU_FZLOZnh4
-Message-ID: <CADrjBPqaVVCYzeG6OVtB1VqnQCLAAvefuZHv3=v86bRcaAv4Cg@mail.gmail.com>
-Subject: Re: [PATCH] irqchip/exynos-combiner: remove useless spinlock
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-rt-devel@lists.linux.dev, Thomas Gleixner <tglx@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/10] dt-bindings: clock: Add Amlogic A9 PLL clock
+ controller
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
+ <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+ <20260511-b4-a9_clk-v1-2-41cb4071b7c9@amlogic.com>
+ <20260515-subtle-sepia-tuatara-cfee3d@quoll>
+ <40e83bed-e7a0-4c66-806c-c2988c5d0f33@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <40e83bed-e7a0-4c66-806c-c2988c5d0f33@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_022026_459249_0006EA32 
-X-CRM114-Status: UNSURE (   8.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260522_021647_640143_950E3753 
+X-CRM114-Status: GOOD (  15.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,17 +127,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 May 2026 at 07:14, Marek Szyprowski <m.szyprowski@samsung.com> wrote:
->
-> irq_controller_lock doesn't protect anything, it must be some leftover
-> from early development or copy/paste. Remove it completely.
->
-> Suggested-by: Thomas Gleixner <tglx@kernel.org>
-> Suggested-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> Link: https://lore.kernel.org/all/20260520220422.3522908-1-m.szyprowski@samsung.com/
-> Fixes: 96031b31a4b3 ("irqchip/exynos-combiner: Switch to raw_spinlock")
-> Signed-off-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> ---
+On 22/05/2026 08:20, Jian Hu wrote:
+> Hi Krzysztof,
+> 
+> Thanks for your review.
+> 
+> On 5/15/2026 4:09 PM, Krzysztof Kozlowski wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Mon, May 11, 2026 at 08:47:24PM +0800, Jian Hu wrote:
+>>> Add the PLL clock controller dt-bindings for the Amlogic A9 SoC family.
+>>>
+>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>> ---
+>>>   .../bindings/clock/amlogic,a9-pll-clkc.yaml        | 110 +++++++++++++++++++++
+>>>   include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |  55 +++++++++++
+>>>   2 files changed, 165 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
+>>> new file mode 100644
+>>> index 000000000000..4ee6013ba1a1
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
+>>> @@ -0,0 +1,110 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +# Copyright (C) 2026 Amlogic, Inc. All rights reserved
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/clock/amlogic,a9-pll-clkc.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Amlogic A9 Series PLL Clock Controller
+>>> +
+>>> +maintainers:
+>>> +  - Neil Armstrong <neil.armstrong@linaro.org>
+>>> +  - Jerome Brunet <jbrunet@baylibre.com>
+>>> +  - Jian Hu <jian.hu@amlogic.com>
+>>> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    enum:
+>>> +      - amlogic,a9-gp0-pll
+>>> +      - amlogic,a9-hifi0-pll
+>>> +      - amlogic,a9-hifi1-pll
+>>> +      - amlogic,a9-mclk0-pll
+>>> +      - amlogic,a9-mclk1-pll
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  '#clock-cells':
+>>> +    const: 1
+>>> +
+>>> +  clocks:
+>>> +    items:
+>>> +      - description: pll input oscillator gate
+>>> +      - description: fixed input clock source for mclk_sel_0
+>>> +      - description: u3p2pll input clock source for mclk_sel_0 (optional)
+>> Second clock is also optional. Drop "(optional)" comment, just
+>> confusing.
+> 
+> 
+> GP0 has only one parent clock, while MCLK has three.
+> 
+> The second and third parent entries of GP0 are vacant,
+> 
+> so they need to be marked optional.
+> 
+> I will add the optional property for the second clock in the next revision.
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+How? Read the previous feedback...
+
+Best regards,
+Krzysztof
 
