@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 729AFCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EC8CD5BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rof2e6OjGUUG+ZoOg7L3bn2avl1gX+MuD7fzpYfe/9c=; b=SJ0Pk3mL6EMoMzBg1B1ZpmkfRX
-	XByn9+kVyyBDXS/BZr33QeYfyWnqCyuCT2mpWdw0xk1vEQGhydSCKfM6Vxu9ynsBRZayHsUAZtKmB
-	u4TF6rNU39xAsdRewuylmPkbhEC844j/0kgpISW9siGMfkF0a7HOzSHQUo9olRy9Cyk1AOGDQ+uGL
-	AgbGoitAC6+QMP57PTjcQ4l2BLkmxikrHX3de3oAJ+clv2C92GVTEyKZFnjR5LgIAMOzWy7yw86mp
-	17PKTpkFkikhcU0K5XuYtccbzikNM8+xkfgf9B0KCbIhB4Nop5Bw/nnBkcBgMur80p8qeXb92Tg7y
-	Udg0TKNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MxhTRa0jJQh6ofFG9sXlZ7aauhKliKnMeyOlOjmQWhU=; b=OvfNOSkbMICDhIaQo+FLMYLnxx
+	8aluniBGTuiqML1VieYnYFGWiQP7YXTey8iljesVcYATwn/iqSQ9WJwsHan27I81SKXrh/tsQIRCP
+	+q5p9nSY0aI0nJgnICTOsZ18moDec0/sjR0VQAIB7y9GjhnK2ZTLNePPcKZ+ubrtwHiXZTjwm6ZTh
+	IR4ZsCqtv1WVj4uwFGxuJWLWES2NQ5AL7HC4LOR+s2TumO3MUnZgvPj2FjZanjQGSvTMR8xmPMVS9
+	TA0nLMfLYFvneiMWYJwX0RzwGYtT4fXbJ5tnHURUm7Si941gbc/GeTWZBN7yU4l9x9BAQ/SxRCsMc
+	ogzIz45A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPnh-0000000AwEr-20Mo;
-	Fri, 22 May 2026 13:20:29 +0000
-Received: from mail-ej1-f48.google.com ([209.85.218.48])
+	id 1wQPoE-0000000AwVl-2UQV;
+	Fri, 22 May 2026 13:21:02 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPnf-0000000AwEB-08M8
+	id 1wQPnu-0000000AwHv-1Xjd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:20:28 +0000
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-bd0209f25c1so1208998466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:26 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456025; x=1780060825;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Fri, 22 May 2026 13:20:43 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49048e043e5so2187055e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779456040; x=1780060840; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=rof2e6OjGUUG+ZoOg7L3bn2avl1gX+MuD7fzpYfe/9c=;
-        b=bhS/qFQRXP4MlbnSkT6HHMa14YjF1WN2YIkFH7xMcgx7cpMek3D+AehgLWtsjWdbQ2
-         Kf4gXSFyTPM2Cyp1mHxFH9vAQa5bKUKQyBNzVOIJxzcAURwRFAtMsBy0fOngq/HVE1wg
-         TldxPPeczcTpifs6nlDrwSRweWBDO2yNULk5XRbtIkXFHN7t6Wbjarub+g732wLxg3/a
-         zfHspbF7knjaxxWQI5vDKpP9yq2a259COVE0vqvM1eOsvmAkIX5vgKS3TXY/OLYARSH2
-         Vc9mc4HdxdiUiubs2cC0FxL0VCT5FrVFMPmYUGrkMpuqIY3EOF5HuURwNpM9QVd8jmEl
-         eceA==
-X-Gm-Message-State: AOJu0YxG1/HzI9zNzuPiAijwgvnGWTsfipf9f+EQJmCNm452C2mpJ88x
-	ZW9Z4PC3FkllUe/UF3KjU+3zjYEW+Kgv3f+STwbSfJdOFgTBHA48CvEv3U399ylsRR8=
-X-Gm-Gg: Acq92OFaIJw6aAkXFYCSQmI+hg9TbJW5ATgUhLhqO+RKYIjA4BjpaszxBaDh1fjuTEj
-	EP3bD7OnQnTWiyPsYOQaLa4+BthCpnihjuGjlxKORd69Hym1T1xrovb6W6SIWtZSTRjpyh3+7wD
-	vDZeUIZqTLb5YPVTUcsiA5+2uxsRYpA1J6vKOG0FuZGvXHfiPK9xWcYBoNMSIiOy9g3lLiBlHEZ
-	y6XE4IQ7InsIRjy/PtGtRAU5BZaUcf4NpQSeYRuAXDrp0FdbQadL+r8k1wfc5evrd7wYq9vf1mR
-	ZwN9Gwm2uziI8h0z4i8smDnZKJNk3SaMEFLT/M4ndklgeODRDpjtGjogJk61pVFEwiqa14oqJ9I
-	LO9JMz9ecTOwYNa4y2R9DbRg79oHswxdAiq+2MaOTz64X+VZrlEUcbP2crTjwlEA3tjNmBrmv8X
-	mfynhc8FitFzxt25RK5MEwHI89J2p1ICz0yLg0RxbIAHLHtmv1r+w6T09+d109
-X-Received: by 2002:a17:907:c80c:b0:bdc:6e26:a90 with SMTP id a640c23a62f3a-bdd281ad163mr230186066b.2.1779456023204;
-        Fri, 22 May 2026 06:20:23 -0700 (PDT)
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com. [209.85.208.46])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bddc3151ff7sm53506266b.23.2026.05.22.06.20.22
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 06:20:22 -0700 (PDT)
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-67179ed133dso8571972a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:22 -0700 (PDT)
-X-Received: by 2002:a05:6402:538b:b0:688:34c4:e8cc with SMTP id
- 4fb4d7f45d1cf-6889c43eb03mr1886593a12.6.1779456022655; Fri, 22 May 2026
- 06:20:22 -0700 (PDT)
+        bh=MxhTRa0jJQh6ofFG9sXlZ7aauhKliKnMeyOlOjmQWhU=;
+        b=gTPyg/huy1N7bzVkarzSSHJhx0mvQiVXmRHCisxcrDvwzuf7rM4vuhXTxgZVRzIIdX
+         3CWuimYx/ivYeN7joSwuiDFTAdN7iKQa+ktYijkE7sWfp4HSkgD/w2TSXgZ2NdvOL9HM
+         2R3EJCzaXNa/YYtOAUbwaIJKrWcgFAgk6/uJwVyPxXAwPW15r3nbukltTURt9NNSlioL
+         ksJBV3gwUCbGFgkMYbQFYhV1R5BaM1xznxjX4Nye/PYsIDbnNOHa/9xP0P5MwgYV2Spg
+         H1UChIeose2dqCkKzV5xyY5mqjOYMPr5r6lwUi4ejpyE+YSK5JZEeUI0+OqF5D6t6W6X
+         +TQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779456040; x=1780060840;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=MxhTRa0jJQh6ofFG9sXlZ7aauhKliKnMeyOlOjmQWhU=;
+        b=kus9SjkGFRTj0FVTq3nWMa0U3OQ9Rm+ukQKAjp8xPw+EwfvmRx/h+jbui6VsUlWbNy
+         tVq85VxJAQ7UVn/LjRQSSHHaFRF2EbLpXsTKjnDSmG078lsVA6IOtNqcA7oI2ZkSwhvG
+         dEZ0piekj8r/YmbchSBaFiKxpRKjuso7/WNYjaTRK/F/NEL4gRLLQxoQCNkOQX1Lo0bf
+         tlwavbavmrUmmX7XiPe/2j92CsmgHI3B5zdDw/eoSrRf/H74S0wTbA11MEI5fH42cXoz
+         A81qGxk//16cStBICgKDMAMnQh0xPp5cbjeWge63eJsgIjME74qqgwaFZrWRozjz3Eix
+         nKYw==
+X-Forwarded-Encrypted: i=1; AFNElJ+tlQNIDW8uL9tyogXOE+Q13MbJKNAqXyQt4nT6xQbZkwVNEFXHhmwWvx26oaCE3fpl9ipAa/ywFt4rWmYWd4XJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4HwOugx4mUdkjE/N46/1TrW371fmx+ZmITC8orVQ0GnVECRoJ
+	h3PzPGPUwq80nt7tQX/T4Ibvtknr90vYf3flzhqs57EhcjFy2OV5GHQX
+X-Gm-Gg: Acq92OGZ0eACMh4thBnNfLbqoZy9WRHclKe5QogR138/f90I62ClZFpEFQZRHobSp/b
+	tmPbQJ3juyHWvlQp50KAUknvHwTj8IIFfHm9IzDPnd3HETluriX8N4MB6pfspx824ek2hOmSReM
+	4VxQqWY6fZrbMvqAn0SfbLSjVM77sm+Jcve2u/oLgtQp6yIm0eDMuzonAiiu5kb02A1Io8r5Tgj
+	Qpd+5nv9OosyHVEKtPSJ7dpEYF4tGo6Pz9UYoSBnzx7fIZwsMXsyyeY9dqkc4Jp5CSYnsZH9Ewb
+	jNLQgOoxQQTQlNCd4ckKGUsGzyqy6TKRgDRK61pxdwi5zwhuoMUm8YQ06JAJqHus0OEzcSsajQH
+	rWQ+a5perUmcFfjPlux/pJduvlmh2SxITqvGoFs43SRwm/esIyALKvwflO24E7sKo/NOWNOQ6Bt
+	1Jv6ggUTKwGfMPxxz7a0Xy50YeJXasOvth3b+ObIEyRg==
+X-Received: by 2002:a05:600c:a402:b0:486:fd5c:2b35 with SMTP id 5b1f17b1804b1-490426adf66mr39371215e9.13.1779456040467;
+        Fri, 22 May 2026 06:20:40 -0700 (PDT)
+Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0cd5sm52220755e9.10.2026.05.22.06.20.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 May 2026 06:20:39 -0700 (PDT)
+From: Vitor Soares <ivitro@gmail.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thierry Reding <thierry.reding@gmail.com>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 03/11] dt-bindings: vendor-prefixes: Add Riverdi
+Date: Fri, 22 May 2026 14:20:16 +0100
+Message-ID: <20260522132014.226721-16-ivitro@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260522132014.226721-13-ivitro@gmail.com>
+References: <20260522132014.226721-13-ivitro@gmail.com>
 MIME-Version: 1.0
-References: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org> <20260505034325.167797-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260505034325.167797-2-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 15:20:08 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVbJ-SPK5wmA68bg-iF6mhaHx8gzxRK_co7E2w+BfaUNg@mail.gmail.com>
-X-Gm-Features: AVHnY4KgBi27n3nuGQlpIbkeEOVvo7gucNBwkT372ZXFKVfmiLEIJgWEfOyb6mI
-Message-ID: <CAMuHMdVbJ-SPK5wmA68bg-iF6mhaHx8gzxRK_co7E2w+BfaUNg@mail.gmail.com>
-Subject: Re: [PATCH 01/11] arm64: dts: renesas: salvator-common: Specify
- ethernet PHY reset timings
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_062027_188062_1167BC05 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20260522_062042_421884_7E651F61 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +118,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 at 05:43, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The KSZ9031RNX reference manual [1] DS00002096H page 60 FIGURE 7-7:
-> POWER-UP/POWER-DOWN/RESET TIMING Note 2 states, that after the
-> de-assertion of reset, wait a minimum of 100 us before starting
-> programming on the MIIM (MDC/MDIO) interface. Set DT property
-> reset-deassert-us to three times that, 300 us, to provide ample
-> time between reset deassertion and MDIO access.
->
-> The KSZ9031RNX reference manual [1] DS00002096H page 60 TABLE 7-7:
-> POWER-UP/POWER-DOWN/RESET TIMING PARAMETERS row tSR Stable supply
-> voltages to de-assertion of reset is at minimum 10 ms. Set DT
-> property reset-assert-us to 10ms because the KSZ9031RNX RM does
-> not explicitly spell out how long the reset has to be asserted,
-> but this at least covers the worst case scenario.
->
-> [1] https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDocuments/DataSheets/KSZ9031MNX-Data-Sheet-DS00002096.pdf
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+From: Vitor Soares <vitor.soares@toradex.com>
 
-No regression on my Salvator-X(S) collective, so
-Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Add vendor prefix for Riverdi Sp. z o.o, a design and manufacturer
+of TFT display solutions.
 
-Modulo the document references:
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.2.
+Link: https://riverdi.com
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 28784d66ae7b..bac056d486e7 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1403,6 +1403,8 @@ patternProperties:
+     description: Embest RIoT
+   "^riscv,.*":
+     description: RISC-V Foundation
++  "^riverdi,.*":
++    description: Riverdi Sp. z o.o
+   "^rockchip,.*":
+     description: Rockchip Electronics Co., Ltd.
+   "^rocktech,.*":
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.54.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
