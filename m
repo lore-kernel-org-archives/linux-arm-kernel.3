@@ -4,98 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A30DACD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 14:18:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D1BACD5BB4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 14:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=; b=m8lEi9pR7ijg92It1kPcUQJvuJ
-	w8XSwpR2oRdT83M/kodP6T/p6dEOHx792aSxkjrp8KxGEk6awY1aQyNT9lG2Dl80i+2cUYBWWDEhG
-	grK1YBAR92TJeJ74JIfYxbBWiToqGqEev+xpmD1I/+3cjYDFVuMOMf5YL/Mc+3skd2Orq+L1UzpLA
-	HbeW8hNN86GgIWePJNxodH04ZKFfLvRlFHFVE1uTYNEdRl0bLOGteLRaMfg04cWfFBT09/vKCTyV8
-	safyC5hy2F1isB6+VBXuU4ULTzNmwE4dbBPPPj2BK7X01/KHav9AjQg/ugf+/EvHR0SLnSIzdIdgT
-	1OOrA1Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mT2TeAGB5r/QQzUONQHaRVtIxNJg6PZJsffLV09ADoQ=; b=pim9L6J+45M4UN8mmzaaFBAvIU
+	cCI5MDoybTWPU0iwV8ykZ6rc9XWdTnR7yVJPeH3TloIb1AGDcrMGVRNEliGRp+eDLYltXRAetjN83
+	T3U9ISZNJgRoYzeU+BY4HIV5AIMkZnnqfwLf/4gl1eU/+k2WVeHdkKbQXO9xoGh+yaTCIm+e8beqw
+	8z+a0BHbS3MpnQGoruFXMpohxKmSZXAP1WkY61fni9hoGBj4Mz1WBuFju/R4gjo41PUnQ0SpoXTVr
+	asaXHNy0PG08minT71C1ja9aCLI62E7imvMy82ZNzhcnOAUixOSdlPDtYHt7pkiJqD7G6xbo6AVBA
+	WoAaYKCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPoK-0000000AwbW-2rco;
+	id 1wQPoK-0000000AwcA-3mth;
 	Fri, 22 May 2026 13:21:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPo9-0000000AwS1-1vX8
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 May 2026 13:20:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=; b=Ku25Nw3CmL7TmsgPQ6MTQr4uLo
-	qXX7hd9eIEykLwvUeIkL/bkE+re8F+7RqrIcWdUd5w43SA4PSs0lrDOADk+hZ6Hi4fK/xHx+D7Wyt
-	s55d8LHLmi0DiJFaHzwyJdbFoC/EdjDfypG4v2AolwqUMrBKF3pjx6vzfn3LVs+hwO9ZewCemYeV+
-	GMrwH2mMHXLurvCNZYiuic8+RBn56Eh5XR58CNA/h45HdTPnzfmFvCB3Ha46hXO21XP6pSqvMOV3a
-	K4oMdS56/Iv8wKICSi44AEL/duqSB6o5NCVstsTDs0g1b3WO3eXZT88gOEBGL/GH7cbI5fZziyLok
-	1MG3Hm7w==;
-Received: from mail-ed1-f51.google.com ([209.85.208.51])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPo4-00000004QIo-0wbW
+	id 1wQPo8-0000000AwR1-1nBR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:20:56 +0000
-Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-67c2b4809baso15494930a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456050; x=1780060850;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+	Fri, 22 May 2026 13:20:57 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490388fd0dbso17904045e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779456055; x=1780060855; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=;
-        b=WFOWy1jsutzhHpmdN8DX8gioJt3vHaNXS30O+mXfP3tx4a6EwKaMM1Hy5qHZDoEZbV
-         apb1vswafS48Xzmcx3N2e6mUtQroJQz1hAVyXBO+tx4FmTwdKcb6qmsmhKvCvoGmBdOe
-         gjOnfFI1uE2w+PGI9saU7k8BbV1IG4J/SSZY6KtSb0QQBEszzPQwvIyoo8mSogcRi8DN
-         cO2zcwjBbRjuoIVAHpLjxdcHjeDg/wauMEQcQbvPAc+K5xXuOF2nkwo3/tqjkKrfXEJR
-         UegXrqe7vvrcrQamxMLGdCjbRe0hAkw7dlDY4SBs2WCD4YxbtXNX/WUA14tgtj/MJZLA
-         YfaQ==
-X-Gm-Message-State: AOJu0YzSFeIxuuOmwFktTcfr6gzdIH2fkv3S3xsDPXkUSH6VpF6QuaXY
-	TR4tyxuuvGPBMFLeGNhuLEh9/2uh0so6N3ElW4xwr2/KesVy7ikqE91ZJhiHNVXKZKU=
-X-Gm-Gg: Acq92OEUmlkkvaHoOHHMhDVz7Ae9vkJiScW0vl8rJIKJ8b6eM5jtPjwZ5RZYboboKew
-	0hLwsH/ToyMJIZqAmwUDBFOe1gB0TCewRPRtS9zMOADFWh7kMkjJRcWIrMm8XmMhYT0wTETsoSj
-	G37BiL3RpTk3gulzUFuFmFDXVWr8KIQEY8wUjRixp1pLbbTzRP/p9laUB4TKBTFva9/RkXkVF2u
-	dz9MO1GYEIfBtlHkBPUrCbleuneZrtGZ7X039iW3GtX2mfAb1SxEV+DiUyQ295YDdsrsG0aOlJD
-	I8OTbSGaJmjBmf0Ts8U9rx90UOTk47a6Cka2YlY075ZELHVMUZU1Is/T8f8vKSeI352JdqLpcwl
-	7SFUPbFzL16wJ51R5A/yuM/vM4/FsBSPqESNEHEPYldiPGu8Sr6th3e/sjSv4HllsXgXVgUymND
-	wc+L7bSgH5kIJD4RgkMiyplCIyxhHtHI2OP/NL/RgsW+31t6IqvXdvquRkesFq93dm7vcYU0w=
-X-Received: by 2002:a05:6402:5241:b0:687:cfde:ddb2 with SMTP id 4fb4d7f45d1cf-6889c45726fmr1923826a12.11.1779456049771;
-        Fri, 22 May 2026 06:20:49 -0700 (PDT)
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com. [209.85.208.43])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-688b9f5056fsm665647a12.9.2026.05.22.06.20.48
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 06:20:49 -0700 (PDT)
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-68707d88626so6999412a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:48 -0700 (PDT)
-X-Received: by 2002:a05:6402:2111:b0:683:93a2:dfb9 with SMTP id
- 4fb4d7f45d1cf-6889c437481mr1999990a12.1.1779456047876; Fri, 22 May 2026
- 06:20:47 -0700 (PDT)
+        bh=mT2TeAGB5r/QQzUONQHaRVtIxNJg6PZJsffLV09ADoQ=;
+        b=WfWKmVLsc5paj1nG5H1M4RZqEzQr30N+5UZEpCWt1bMmPJZSFC6mwCu4l2RIQxI036
+         YQipkQRmLr4RJPsuvRocZELjCQQCqVHrt0tlELQYc9w2H63mfKsTSrd4OOYn9DFEw1gs
+         zPbDdIt10uZByvJUBZp1HNUhhR4KxLbyen5CxNtqs1gGNw+hmb7oxj2u69QOFw6Rh+Fc
+         qhAlBggGQdhpWUfQWkoEj4SnL0SkWvkt9K21VoOGntHyzNnW1S9KySTKnqnSIUl/5CR4
+         QkDl3KBxW6Y4yc59v5lHxp8e0533t+Q8IHvEalqP9IoE5ac9LZ4NksIbrTuNM32E2nGu
+         zW8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779456055; x=1780060855;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mT2TeAGB5r/QQzUONQHaRVtIxNJg6PZJsffLV09ADoQ=;
+        b=oDMRQvCALoVg46Sk+FrdMKY9nzAIXwqMnXIgfGo0emEFSdVGC3EaAgQtQa6DJMCL3M
+         +YVZiJ6b6u2HAHJQMYAeJyrt/BMyNPCo1325ipUJyRa3+Wh6JDrxgR/PVbtk5UbEwd8/
+         MG4EYwsCSf4zSd6lXkwh6V+vLAjVrds9Bi3+Xv1h8BMlfpBj7GbygRRMtApgdwizN4RE
+         e68vw5LMI3jm56ifUMoAk/4VJGHqjvERvUlz67EcH3/zDepAtss8DNzMuHODfctxhy8c
+         1gzPgTWE1v3tscp2QoriKahqp/pUwERM1t0IhDYrqp7yAJhVooVTskDh+y7Ul/eH+0DW
+         SeDQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/cewtkxjNYbw7aPFY0PqcsZcbiCNkby62/J9R5RjkjTsM2RdcMC9mwtEFUfwuiqWMgF7GxLblWM7OhW/g+Pn7s@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYOYspVCV1iJWdjwCMGtcHKxNx2uRfSk6DthbxfICppjzhBbzW
+	rIgZVFpyFIUthTT5uoX3ly6FYuRm1dFGxBK1l6LB/uFycm6y7ZLkDBuI
+X-Gm-Gg: Acq92OHRADDSl+DICG0lktTrAu66JAvwMPvnax9lLsH0SnUv8CLNk38kUeW2pMuPCEu
+	JjvNJAJ45NsJ+pUzJwX7ABQArVWk2PSEVuU9vxrZbubieOsxXFd2FcRv6PE+qIt4EmzYf2V2HEu
+	/iOrnIgLSGZHa9kWoKGdsaZQbVHJCMRzAKVkueL9UtQIefjEHGATmzdPZTCL6ywmKsVgqWvkW24
+	TJ8HX608+fCpVgP0aFvp44IMW4ZVpjSSreUxsb0ABQqrFrMpeGN/Y7P5+o7tHcHjtVCrdTEHQLn
+	ey46pR0Npyf9JrwfTJ+wZ6Mt+yHKFzIhLNPiPlQU7syljwoxUStXpFFzVR1qDZvbkiVFgzutuG4
+	HEALpsKrA/f2D7gezNPVHx4i4c8p7NIITwbCO6Odgv87+Lz+wOyb1khDielc6ixBT68PvbXChZB
+	Jy0L71ZcvXwOcFCWX/W8AasIAJewM6r+sXWjrkIZRcOA==
+X-Received: by 2002:a05:600c:a402:b0:48f:e6de:1cba with SMTP id 5b1f17b1804b1-490426c5b3emr40882445e9.17.1779456054568;
+        Fri, 22 May 2026 06:20:54 -0700 (PDT)
+Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0cd5sm52220755e9.10.2026.05.22.06.20.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 May 2026 06:20:54 -0700 (PDT)
+From: Vitor Soares <ivitro@gmail.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thierry Reding <thierry.reding@gmail.com>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 11/11] arm64: dts: ti: k3-am62-verdin: Add Mezzanine with Toradex Display 10.1" LVDS
+Date: Fri, 22 May 2026 14:20:24 +0100
+Message-ID: <20260522132014.226721-24-ivitro@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260522132014.226721-13-ivitro@gmail.com>
+References: <20260522132014.226721-13-ivitro@gmail.com>
 MIME-Version: 1.0
-References: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org> <20260505034325.167797-3-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260505034325.167797-3-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 15:20:34 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXM9+4Zhz1-jOu14rwNLvfY5zvoO5Tz2AN0VaCzNMqTdg@mail.gmail.com>
-X-Gm-Features: AVHnY4L_KbB8gzS9scFyMNemawa__tn8rl0sAqed-jsnkmOH1xrDTQxnThDhUyo
-Message-ID: <CAMuHMdXM9+4Zhz1-jOu14rwNLvfY5zvoO5Tz2AN0VaCzNMqTdg@mail.gmail.com>
-Subject: Re: [PATCH 02/11] arm64: dts: renesas: ulcb: Specify ethernet PHY
- reset timings
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_142052_654736_32AAF354 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20260522_062056_496282_C147E41C 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +116,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 at 05:43, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> The KSZ9031RNX reference manual [1] DS00002096H page 60 FIGURE 7-7:
-> POWER-UP/POWER-DOWN/RESET TIMING Note 2 states, that after the
-> de-assertion of reset, wait a minimum of 100 us before starting
-> programming on the MIIM (MDC/MDIO) interface. Set DT property
-> reset-deassert-us to three times that, 300 us, to provide ample
-> time between reset deassertion and MDIO access.
->
-> The KSZ9031RNX reference manual [1] DS00002096H page 60 TABLE 7-7:
-> POWER-UP/POWER-DOWN/RESET TIMING PARAMETERS row tSR Stable supply
-> voltages to de-assertion of reset is at minimum 10 ms. Set DT
-> property reset-assert-us to 10ms because the KSZ9031RNX RM does
-> not explicitly spell out how long the reset has to be asserted,
-> but this at least covers the worst case scenario.
->
-> [1] https://ww1.microchip.com/downloads/aemDocuments/documents/UNG/ProductDocuments/DataSheets/KSZ9031MNX-Data-Sheet-DS00002096.pdf
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+From: Vitor Soares <vitor.soares@toradex.com>
 
-Modulo the document references:
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.2.
+Add a device tree overlay enabling the Toradex Capacitive Touch Display
+10.1" LVDS on the Verdin Development Board with Verdin AM62 Mezzanine
+expansion board. The panel connects via the AM62 OLDI0 on the Mezzanine
+LVDS interface (J10). The panel is a LogicTechno LT170410-2WHC 10.1" WXGA
+IPS LCD and the touch input is provided by an Atmel MaxTouch capacitive
+touch controller.
 
-Gr{oetje,eeting}s,
+Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
+Assisted-by: Claude:claude-sonnet-4.6
+Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+---
+Changes in v2:
+- Use panel-simple compatible form
 
-                        Geert
+ arch/arm64/boot/dts/ti/Makefile               |  5 +
+ ...mezzanine-panel-cap-touch-10inch-lvds.dtso | 97 +++++++++++++++++++
+ 2 files changed, 102 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtso
 
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 90bb3b0522d3..371f9a043fe5 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -30,6 +30,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-tqma62xx-mba62xx.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-can.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dev-nau8822-btl.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-hdmi.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
+@@ -231,6 +232,9 @@ k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := \
+ 	k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
+ k3-am625-verdin-wifi-dev-mezzanine-can-dtbs := k3-am625-verdin-wifi-dev.dtb \
+ 	k3-am625-verdin-dev-mezzanine-can.dtbo
++k3-am625-verdin-wifi-dev-mezzanine-panel-cap-touch-10inch-lvds-dtbs := \
++	k3-am625-verdin-wifi-dev.dtb \
++	k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtbo
+ k3-am625-verdin-wifi-dev-nau8822-btl-dtbs := k3-am625-verdin-wifi-dev.dtb \
+ 	k3-am625-verdin-dev-nau8822-btl.dtbo
+ k3-am625-verdin-wifi-dev-ov5640-24mhz-dtbs := k3-am625-verdin-wifi-dev.dtb \
+@@ -348,6 +352,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am625-sk-hdmi-audio.dtb \
+ 	k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb \
+ 	k3-am625-verdin-wifi-dev-mezzanine-can.dtb \
++	k3-am625-verdin-wifi-dev-mezzanine-panel-cap-touch-10inch-lvds.dtb \
+ 	k3-am625-verdin-wifi-dev-nau8822-btl.dtb \
+ 	k3-am625-verdin-wifi-dev-ov5640-24mhz.dtb \
+ 	k3-am625-verdin-wifi-dev-ov5640.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtso
+new file mode 100644
+index 000000000000..f15231ef68f9
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtso
+@@ -0,0 +1,97 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex Capacitive Touch Display 10.1" LVDS on the Verdin AM62 Mezzanine
++ * LVDS interface (J10), used with the Verdin Development Board.
++ *
++ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
++ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-lvds
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pwm/pwm.h>
++
++&{/} {
++	backlight_pwm2: backlight-pwm2 {
++		compatible = "pwm-backlight";
++		brightness-levels = <0 45 63 88 119 158 203 255>;
++		default-brightness-level = <4>;
++		/* Verdin GPIO_4 (SODIMM 212) - LVDS_BKL_EN */
++		enable-gpios = <&mcu_gpio0 4 GPIO_ACTIVE_HIGH>;
++		/* Verdin PWM_2 (SODIMM 16) - LVDS_PWM */
++		pwms = <&epwm0 1 6666667 PWM_POLARITY_INVERTED>;
++	};
++
++	panel-lvds-native {
++		compatible = "logictechno,lt170410-2whc";
++		backlight = <&backlight_pwm2>;
++		power-supply = <&reg_3v3_lvds_native>;
++
++		port {
++			panel_lvds_native_in: endpoint {
++				remote-endpoint = <&oldi0_out>;
++			};
++		};
++	};
++
++	reg_3v3_lvds_native: regulator-3v3-lvds-native {
++		compatible = "regulator-fixed";
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++	};
++};
++
++&dss {
++	status = "okay";
++};
++
++&dss_ports {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	/* DSS VP1: internal DPI output to OLDIx */
++	port@0 {
++		reg = <0>;
++
++		dss0_out: endpoint {
++			remote-endpoint = <&oldi0_in>;
++		};
++	};
++};
++
++/* Verdin I2C_2_DSI */
++&main_i2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touch@4a {
++		compatible = "atmel,maxtouch";
++		reg = <0x4a>;
++		/* Verdin GPIO_3 (SODIMM 210) - LVDS_TOUCH_INT# */
++		interrupt-parent = <&mcu_gpio0>;
++		interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
++		/* Verdin GPIO_2 (SODIMM 208) - LVDS_TOUCH_RST# */
++		reset-gpios = <&mcu_gpio0 2 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&oldi0 {
++	status = "okay";
++};
++
++&oldi0_port0 {
++	oldi0_in: endpoint {
++		remote-endpoint = <&dss0_out>;
++	};
++};
++
++&oldi0_port1 {
++	oldi0_out: endpoint {
++		remote-endpoint = <&panel_lvds_native_in>;
++	};
++};
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.54.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
