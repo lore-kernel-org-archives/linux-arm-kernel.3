@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0244ACD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3CACD5BB9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RZckQ+HwuCc0wRxxb6eUJU/ilfr6Pz3oy2PsBDZSEIc=; b=woOD8nzGHK6b+xgZEG7l2IdVK0
-	gw76LZoAR3HvcWQoJ7NSkHS3CsZWZmRcexgNX8edTCESRowzPQFNm/ow5jzkys1/tbfy+CYYBb0Dp
-	B6G7Ue9TEGQQYxT+g5p37B0Y4rNGJcwpcbMyDiqUr1gnV/iW3XYxu5OC+EdQF9UBdha3LaYVXZx3P
-	wtNAFkRs9JdZ1KLCXyZtXhvdoqG+tHDK2zI1QGGswNJf0lNoXKc8taCLyGPjEkehCp3VyfSGhvSHU
-	QqgjW7AWrVxrH6e5GGVKbRYQYFy3QQ0oFEp4ECC7mS3ttA2k5MGAOZBc248Q0gDi5AWudDMONGR/E
-	6RNmCnkQ==;
+	bh=3dI6//58XLq+utXNtomlMShi/6Q6ufN1k/99x8z/TUk=; b=3Ftdxf9ifhTyFCjSb6agyk2MqL
+	bNXyz2z3WLbbZIv7RE6OXXDU5kFMNmQMZLJgYHN4MTTNtjXEZvZnh8lwLna3RIf9nWYTD4oKtSMX4
+	vXEj8zSxuY9MqwS9jt65/YquPX4+9dF1yvkfeu12CV0OKwYONr4PvkgWn8xM6CpxawGUSb9k/KULW
+	PiAj8KxLelDFM7BhvzSG2YzVIO/yzYm+DIu5feQ4JB3GSkvDWujcJzl3Szebn0yr06XctAbo8P7yI
+	u7662CgqvEm1nSzxLT6UJ5peExuxe28BZMC+uuWqO3mZH+z07ZfUz4xIAEedsbVwrgJuHHc6UyThK
+	yWs1Qd6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXzM-0000000C2h9-0dJ8;
+	id 1wQXzM-0000000C2hW-1wFl;
 	Fri, 22 May 2026 22:05:04 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXz7-0000000C2Vy-0mI6
+	id 1wQXzD-0000000C2b3-3ffi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 22:04:50 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2f3eb8f3419so7890326eec.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:04:48 -0700 (PDT)
+	Fri, 22 May 2026 22:04:57 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-12dece274b1so10412097c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:04:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779487488; x=1780092288; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779487495; x=1780092295; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RZckQ+HwuCc0wRxxb6eUJU/ilfr6Pz3oy2PsBDZSEIc=;
-        b=OSh/dF86lJI+0iaP77Y7mn0p0G1k8z9WRDom2M2FgC38T6oQyUl/tTkLvNXDPzcEpb
-         Pw+sSljt54BRFVpTlSp1AoCk9BdtC/4xkMm3h5MJ/4+3YCxD4CYXdjBp+O5obNYco0Ib
-         ezo0kVruz0w4WTz7/QWWJfzbdOcTzEFAeavQQKhENENMUh16oG/vViXVCadhaQgDnzbN
-         et4+1xSxdOldLX2A+qxI/zoLXSnWl+tXHsBc9xD7xHTSIYwwjupS6ohgdXUFLlbroHic
-         YSg1d4VIxd0A0XlAatLix8j6+t3fUaaQNM1euZOgNqetA3GDrE69Wc0woGf7ShETgqRg
-         6X9g==
+        bh=3dI6//58XLq+utXNtomlMShi/6Q6ufN1k/99x8z/TUk=;
+        b=A7w8BpvEzNKEQprUckNGpW1IwAPr6GPzxR12wWsTPSRInVysSoxmsk5cxqvgY1GhTI
+         e/Xxr2OLksjeobGKUIJ89rrPha+2hQALkqDOmSrQYD6+4A6sw2/mI+LeNP3W+TjDIgyX
+         9KljW9TxDAFPG54PqoS84tFeOZWX/G8qLF/GQtZRhTT/yxCSexs+qYVf0F+mRHs7wCyl
+         wgYms+LkCOsY4ejuOBEEkRnVH3mwu0ECsqYRSQ39M6/jX2esknIaOZX5uyVKvvz4ZhBK
+         zQ/1bXG2MAm/z7M0zoy7/Vp1EIaCdFwTyNVMxGv1nKDCoT4QTKyAe0YQrEYHc8XVQEO1
+         /uYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779487488; x=1780092288;
+        d=1e100.net; s=20251104; t=1779487495; x=1780092295;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RZckQ+HwuCc0wRxxb6eUJU/ilfr6Pz3oy2PsBDZSEIc=;
-        b=PmTPUIxI5Qr44hitrrLL9I0GQdpgqMLH1ZWX2IKC7RCgGhUkGNqv3gZOgmhVeFVEDq
-         E0NNxpA4gh39IOhYhOoADlQCEuSXRJ/osXsnCcMGEjQOa4ELMO83B3DT2yCmyBa7XvfO
-         7u2g+7R+ciBFnhfbYpNydHmAIM6RSxjmg6HfzBwMKogwucugoW4RIOCb5MCUtioxjKge
-         HxBMdiIGbBn5vANtjnhA8ZVy91W/ay3uKotYb7+5NysrG6Je0FdI+9dDc7zNsbE1ZNXQ
-         PIa1ptT/ZTflDmdgVrzjFL4UOVWDbbF7rEA41mU98mZ/Padr+GvKk7f8gycrFXByAcgS
-         Mzfw==
-X-Forwarded-Encrypted: i=1; AFNElJ99CimfZzzfcnnCzURs7PlYu55UEgoCirfQPt9/zxhlezYER/fezr5DlylhSejBRqztaFSkPK5yN78N1TmKItR7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6axA3mQ7ck4RxudbboHip50NXTcKFm5Zjtwe61KX3f0fM5+vg
-	tHxauIRBrqjTcnWfKzAGnqGmI497TDZfakhcsIEGc+IExepFGGCHZGsgmonXNfhL+xbwMUm+DUc
-	OvQIbIAvdOw==
-X-Received: from dyaz19-n1.prod.google.com ([2002:a05:693c:6393:10b0:303:98b0:efec])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:650b:b0:2b8:5159:eca5
- with SMTP id 5a478bee46e88-30449024b3bmr3046039eec.14.1779487487711; Fri, 22
- May 2026 15:04:47 -0700 (PDT)
-Date: Fri, 22 May 2026 15:04:15 -0700
+        bh=3dI6//58XLq+utXNtomlMShi/6Q6ufN1k/99x8z/TUk=;
+        b=VVCUi2eSj580Txz2lSiFn6MpWuKOS76ZwL0kzbUfwKG9ud5QWQKUS1+hVx2gzeFOOi
+         MEaLRaM8gIB/g03N1Fyqnl5h6mr4VeDvyymUDuwUhV1W9nya+nzSJ7rfEkD6n06ZGU+U
+         DZSuO4sDiarnpA5zqS29+S4OOu8a21+tT7t8TvxEcGXDQZ/mb3aYmk06v6nKHfP6HVIs
+         38JiYtKfB7Flsd9wjcMTT9sCyMXHlQx2zPiXNSOVfmX+o/PTkmCkfwowgS+ctytOXFGm
+         FrIvf4fhayEmdCJ30+123x9Mw/N+8byKIQCazXbDMJB0E0gDZXcWgU6r2qAz9Y+88aV/
+         Bt5w==
+X-Forwarded-Encrypted: i=1; AFNElJ+0vbZTIyrH7rqS1DMA7gN4MZcMUfIZzVpf8l+Lls7Yxz9tHLGm+ga6FHKFqSY8ILy98r8RsgilyR9FFu7AR0pu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvsuH5hvVwRweGb2qOyq/XSQdMipfnr1/05/YAVVD7V+jR24zx
+	afpyGdlHwpRwM95U1zPFMb/dlX/uc8OoRTACmhVpFGhRm5NNnOHAieE9dqC1DWhkr10JxHcmFsC
+	YSnOzwskgzw==
+X-Received: from dlb3.prod.google.com ([2002:a05:7022:603:b0:135:e6d6:d14d])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:699f:b0:128:d5bd:3572
+ with SMTP id a92af1059eb24-1365fb40573mr1929174c88.31.1779487494444; Fri, 22
+ May 2026 15:04:54 -0700 (PDT)
+Date: Fri, 22 May 2026 15:04:18 -0700
 In-Reply-To: <20260522220435.2378363-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260428071903.1886173-1-irogers@google.com> <20260522220435.2378363-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260522220435.2378363-5-irogers@google.com>
-Subject: [PATCH v9 04/23] perf script: Sort includes and add missed explicit dependencies
+Message-ID: <20260522220435.2378363-8-irogers@google.com>
+Subject: [PATCH v9 07/23] perf evsel/evlist: Avoid unnecessary #includes
 From: Ian Rogers <irogers@google.com>
 To: irogers@google.com, acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -75,8 +75,9 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_150449_235718_68E69FA5 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260522_150455_922364_D40EEC2C 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,172 +92,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix missing #include of pmu.h found while cleaning the evsel/evlist
-header files. Sort the remaining header files for consistency with the
-rest of the code. Doing this exposed a missing forward declaration of
-addr_location in print_insn.h, add this and sort the forward
-declarations.
+Use forward declarations and remove unnecessary #includes in
+evsel.h. Sort the forward declarations in evsel.h and evlist.h.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-script.c  | 111 ++++++++++++++++++-----------------
- tools/perf/util/print_insn.h |   5 +-
- 2 files changed, 60 insertions(+), 56 deletions(-)
+ tools/perf/util/evlist.h | 15 +++++++++------
+ tools/perf/util/evsel.h  | 20 +++++++++++---------
+ 2 files changed, 20 insertions(+), 15 deletions(-)
 
-diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
-index c0918006e0ab..e330ae7f725e 100644
---- a/tools/perf/builtin-script.c
-+++ b/tools/perf/builtin-script.c
-@@ -1,75 +1,78 @@
- // SPDX-License-Identifier: GPL-2.0
--#include "builtin.h"
-+#include <errno.h>
-+#include <inttypes.h>
+diff --git a/tools/perf/util/evlist.h b/tools/perf/util/evlist.h
+index e507f5f20ef6..e54761c670b6 100644
+--- a/tools/perf/util/evlist.h
++++ b/tools/perf/util/evlist.h
+@@ -2,29 +2,32 @@
+ #ifndef __PERF_EVLIST_H
+ #define __PERF_EVLIST_H 1
+ 
 +#include <signal.h>
-+#include <stdio.h>
 +
-+#include <dirent.h>
-+#include <fcntl.h>
-+#include <linux/bitmap.h>
-+#include <linux/compiler.h>
-+#include <linux/ctype.h>
-+#include <linux/err.h>
-+#include <linux/kernel.h>
-+#include <linux/stringify.h>
-+#include <linux/time64.h>
-+#include <linux/unaligned.h>
-+#include <linux/zalloc.h>
-+#include <sys/param.h>
-+#include <sys/stat.h>
-+#include <sys/types.h>
-+#include <sys/utsname.h>
+ #include <linux/compiler.h>
+ #include <linux/kernel.h>
+-#include <linux/refcount.h>
+ #include <linux/list.h>
++#include <linux/refcount.h>
++#include <pthread.h>
 +#include <unistd.h>
- 
-+#include <perf/evlist.h>
-+#include <subcmd/exec-cmd.h>
-+#include <subcmd/pager.h>
-+#include <subcmd/parse-options.h>
 +
-+#include "asm/bug.h"
-+#include "builtin.h"
-+#include "perf.h"
-+#include "print_binary.h"
-+#include "print_insn.h"
-+#include "ui/ui.h"
-+#include "util/annotate.h"
-+#include "util/auxtrace.h"
-+#include "util/cgroup.h"
-+#include "util/color.h"
- #include "util/counts.h"
-+#include "util/cpumap.h"
-+#include "util/data.h"
- #include "util/debug.h"
-+#include "util/dlfilter.h"
- #include "util/dso.h"
--#include <subcmd/exec-cmd.h>
--#include "util/header.h"
--#include <subcmd/parse-options.h>
--#include "util/perf_regs.h"
--#include "util/session.h"
--#include "util/tool.h"
--#include "util/map.h"
--#include "util/srcline.h"
--#include "util/symbol.h"
--#include "util/thread.h"
--#include "util/trace-event.h"
-+#include "util/dump-insn.h"
- #include "util/env.h"
-+#include "util/event.h"
- #include "util/evlist.h"
- #include "util/evsel.h"
- #include "util/evsel_fprintf.h"
- #include "util/evswitch.h"
-+#include "util/header.h"
-+#include "util/map.h"
-+#include "util/mem-events.h"
-+#include "util/mem-info.h"
-+#include "util/metricgroup.h"
-+#include "util/path.h"
-+#include "util/perf_regs.h"
-+#include "util/pmu.h"
-+#include "util/record.h"
-+#include "util/session.h"
- #include "util/sort.h"
--#include "util/data.h"
--#include "util/auxtrace.h"
--#include "util/cpumap.h"
--#include "util/thread_map.h"
-+#include "util/srcline.h"
- #include "util/stat.h"
--#include "util/color.h"
- #include "util/string2.h"
-+#include "util/symbol.h"
- #include "util/thread-stack.h"
-+#include "util/thread.h"
-+#include "util/thread_map.h"
- #include "util/time-utils.h"
--#include "util/path.h"
--#include "util/event.h"
--#include "util/mem-info.h"
--#include "util/metricgroup.h"
--#include "ui/ui.h"
--#include "print_binary.h"
--#include "print_insn.h"
--#include <linux/bitmap.h>
--#include <linux/compiler.h>
--#include <linux/kernel.h>
--#include <linux/stringify.h>
--#include <linux/time64.h>
--#include <linux/zalloc.h>
--#include <linux/unaligned.h>
--#include <sys/utsname.h>
--#include "asm/bug.h"
--#include "util/mem-events.h"
--#include "util/dump-insn.h"
--#include <dirent.h>
--#include <errno.h>
--#include <inttypes.h>
+ #include <api/fd/array.h>
+ #include <internal/evlist.h>
+ #include <internal/evsel.h>
+ #include <perf/evlist.h>
++
+ #include "affinity.h"
+ #include "events_stats.h"
+ #include "evsel.h"
+ #include "rblist.h"
+-#include <pthread.h>
 -#include <signal.h>
--#include <stdio.h>
--#include <sys/param.h>
--#include <sys/types.h>
--#include <sys/stat.h>
--#include <fcntl.h>
 -#include <unistd.h>
--#include <subcmd/pager.h>
--#include <perf/evlist.h>
--#include <linux/err.h>
--#include "util/dlfilter.h"
--#include "util/record.h"
-+#include "util/tool.h"
-+#include "util/trace-event.h"
- #include "util/unwind.h"
- #include "util/util.h"
--#include "util/cgroup.h"
--#include "util/annotate.h"
--#include "perf.h"
  
--#include <linux/ctype.h>
- #ifdef HAVE_LIBTRACEEVENT
- #include <event-parse.h>
- #endif
-diff --git a/tools/perf/util/print_insn.h b/tools/perf/util/print_insn.h
-index 07d11af3fc1c..a54f7e858e49 100644
---- a/tools/perf/util/print_insn.h
-+++ b/tools/perf/util/print_insn.h
-@@ -5,10 +5,11 @@
- #include <stddef.h>
- #include <stdio.h>
+-struct pollfd;
+-struct thread_map;
+ struct perf_cpu_map;
+ struct perf_stat_config;
++struct pollfd;
+ struct record_opts;
+ struct strbuf;
+ struct target;
++struct thread_map;
  
--struct perf_sample;
--struct thread;
-+struct addr_location;
- struct machine;
- struct perf_insn;
-+struct perf_sample;
-+struct thread;
+ /*
+  * State machine of bkw_mmap_state:
+diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+index 927e5b4756cc..2221694bb819 100644
+--- a/tools/perf/util/evsel.h
++++ b/tools/perf/util/evsel.h
+@@ -2,28 +2,30 @@
+ #ifndef __PERF_EVSEL_H
+ #define __PERF_EVSEL_H 1
  
- #define PRINT_INSN_IMM_HEX		(1<<0)
+-#include <linux/list.h>
+ #include <stdbool.h>
+-#include <sys/types.h>
++
++#include <linux/list.h>
+ #include <linux/perf_event.h>
+ #include <linux/types.h>
++#include <sys/types.h>
++
+ #include <internal/evsel.h>
+ #include <perf/evsel.h>
++
+ #include "symbol_conf.h"
+-#include "pmus.h"
+-#include "pmu.h"
+ 
++struct bperf_follower_bpf;
++struct bperf_leader_bpf;
++struct bpf_counter_ops;
+ struct bpf_object;
+ struct cgroup;
++struct hashmap;
+ struct perf_counts;
++struct perf_pmu;
+ struct perf_stat_config;
+ struct perf_stat_evsel;
+-union perf_event;
+-struct bpf_counter_ops;
+ struct target;
+-struct hashmap;
+-struct bperf_leader_bpf;
+-struct bperf_follower_bpf;
++union perf_event;
+ 
+ typedef int (evsel__sb_cb_t)(union perf_event *event, void *data);
  
 -- 
 2.54.0.794.g4f17f83d09-goog
