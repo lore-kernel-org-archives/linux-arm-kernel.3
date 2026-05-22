@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254D4CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF3D9CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R1URFBCQFkCLKN9AgsB1caAKF9WTg3pIgR98LDqqD60=; b=1w48bOpwZQM5jiVNTZA9DIj73o
-	ZNiP8NeBlTiWvplOMZiCHshKsdiPs50LvY+j54tSw+EdNBclAQOQw6eBRYu54DLpu73jdog1CRZkP
-	nMZJxiiO3UZibYg4Ab/qstlU8Ac+yMhPA2OzqVdZpnv3AEB6ZmgaomXMMjYzWBeE+Ue0rZ1jHqgg0
-	sV4nKixs1H4BpWVS5tkCsDKc4K0C3GcTQLQuINmN8DpTjul+JKtxYsCWQ65zdVRnxZ60uLnEVuwnR
-	nrS/ijRfRIUIKluzKEaH7eLX1OIMTXPki3gW1A13dUYBknepBG4I5kKEVCFl0gDKcleOnADSfcPX7
-	h2dfkePw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OPHAwVgQXavr8pHEdeyqFVjyPUU2VdkLtJW8RyVr+d4=; b=hQ8EN8/Peq1+5ODt8a8UsRelR6
+	2Yp5qULeCrLDM9JRQVwFjYH2MKaGHrHzw4LsbLa66Dy56gK5O6jEEzqGwnf5QUkxB1PmN5LZhzb4s
+	/SWdOFD368x/wDIsE5B5L3TPB1A3hnFLp9Z9K2Xpe8W2oU4BYCriH3NLLTOg0dBa1H6YTkrrMB+yN
+	ZjpmWPSHQzI/zXSidEnQ4Gdx3udysxAd4B78u8LtoW+YDMcEY61iDtt+ekax7jXCfM217qNp3jyhj
+	TUj+3FO5sX3CIOHGLoOMXBgP80D+EwRD2Zp5wK7FlkTesYi+mkqX8EMRzromjlGhVdZJZnpu/kT7L
+	ukaABb+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQKkU-0000000A8yu-2tA8;
-	Fri, 22 May 2026 07:56:50 +0000
-Received: from mail-vs1-f42.google.com ([209.85.217.42])
+	id 1wQKku-0000000A93x-4C4v;
+	Fri, 22 May 2026 07:57:17 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQKkQ-0000000A8y7-2A8n
+	id 1wQKkt-0000000A92o-04Ze
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 07:56:48 +0000
-Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-63a3977145fso2237514137.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 00:56:45 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779436605; x=1780041405;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R1URFBCQFkCLKN9AgsB1caAKF9WTg3pIgR98LDqqD60=;
-        b=AMWbc8vuHkI15kx5Zit2tpeqawltRMM6Bks13ohdJ2Rz2KWQgGRJmQ65pxom/qvCQl
-         enVF/3YIH7pDE3XtB4cRVrr/roFvqZVzlxKGk6stMfioGOS0pLwd+9x9RO4YcqgPRdPT
-         F4pWZ6uXp/1UR/4ry1yL18fALgE80NrTowCGZoixTltohQJu7x7EquiXAx9zNs3JTqKW
-         dq8g/SIj1hLiPR0ukOcCXXePKPNA4Yol5HBJZjCfrougAjdrkkjG9JycDRhhQhWVFf9P
-         KQGOh4kvabpAF5BDh9msed08Oo7KI0rKJhmOTIAWjjCvwaMFV/8V/GGr/I9PtrVbaiJ+
-         MevA==
-X-Forwarded-Encrypted: i=1; AFNElJ8/4tJXA/+DIA0gdhbNdX9Joe2+pW2tSIoSNtSGmvAbso5aY0mPRHyEFCWKcKaVDwpSPZFbIX/8gwIsUnNVtkSf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMXTKiNr6M/Zb1OQML+Uwi+KxJx/boFDEbO85wGHllXSnVDENw
-	a0JqXXW4d6KTgfyoU7PxQKiZlG6OTBdgfCnn1+HLG8V2T4sJCt1ZH0/TGm6/hZty
-X-Gm-Gg: Acq92OE21ql/jQG/2K6KZcFl7yDLCKLdl/HdNhC5NRQpzF6cbZit9IR1GXCumqh5hfM
-	1DmVNoqvClJrPvcXwDKZbRzOLlECI090lXg6iIcr2ykTXHB5Z261GZsmVeBUG1Y6M/Lxytf7012
-	UbX1p1s0/SMgCn+txZxoq/ALvYR5KTpmrfsz4J+do1ts6TJi/gB9pdfvChMfcfR/YWaYNPrVYVW
-	fo52luv/Xk+QYEj8qNp+2bIBIJZzgRCb0wCuLhJRRkIfFIhOaFm1nOuK6M43ReiEDviU8ba3BxP
-	yfZ2rKLZYs+wlZ97BvcavAzC6KH34riZMSKVHNcEog06ZsfAVf4Td1A9gmykYwC8p4BzryxYOdS
-	Rbt2dRsog5VvWnTKXg3FXyZ8Ks5pNAQwzLMx9rqSFfQ/kH8JzH1hfff4TN0YuTAINyP3ap5ooYS
-	3SLRf1ZZCKmXw71w5b0kgMNbjD8k5VpeCpcWjF5KZ5yD+wtGVMhiXZNs3Zkpf22NO+pOU0fUQ=
-X-Received: by 2002:a05:6102:3ca8:b0:632:4af0:4133 with SMTP id ada2fe7eead31-67c7c0765b9mr945904137.18.1779436604522;
-        Fri, 22 May 2026 00:56:44 -0700 (PDT)
-Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-961737bc134sm761375241.1.2026.05.22.00.56.43
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 00:56:43 -0700 (PDT)
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-9617940274bso26334241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 00:56:43 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/v1Kjf7hxbh5KKdRDy//pilMrHhgE1NbMWXEaADcUfaDcYsBiYbam5akjOuog0jbDtBWAOxiyRrv9vdaeYGtXL@lists.infradead.org
-X-Received: by 2002:a05:6102:580d:b0:631:4191:6f7e with SMTP id
- ada2fe7eead31-67c6f273735mr1076501137.4.1779436603553; Fri, 22 May 2026
- 00:56:43 -0700 (PDT)
+	Fri, 22 May 2026 07:57:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=OPHAwVgQXavr8pHEdeyqFVjyPUU2VdkLtJW8RyVr+d4=; b=T70v+PIXxZQunMW6eL2mevEWRM
+	+Q5DAXEGLo57DQ69vQOtWY09wRZBWv/2Jheeh2uboGoCI1Hfnh/58qZhGi8+tEb/nmohh8IGYX6I5
+	JLM/kiuQDqe90/Zb6ZtdGwGvBMQPMCc74LVVjbXwpdafuBP84W6XaN18xZqBJlgJFQnY2Wsx1B9Mq
+	OJkrNYaJjd36Ilj/bkUnIG8bbWkkzv13TTfm9ivgOlG2EMC3hDiWOctLTRPjOwhh07X5TV6Htl49g
+	Ih4emmADNhldjxhNrz9CWmgteYwN6oAPZ1EQwSPjj0Yqw0Wpl4I1KXC6jSr/GltBRJN5Q+C+7ogz3
+	61mKbS1g==;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wQKkn-0000Yj-2Z;
+	Fri, 22 May 2026 09:57:09 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wQKkm-0005QG-1J;
+	Fri, 22 May 2026 09:57:09 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Paul Gerber <paul.gerber@tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	linux-renesas-soc@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v3 1/2] dt-bindings: arm: fsl: add TQMa8MPxS board
+Date: Fri, 22 May 2026 09:56:54 +0200
+Message-ID: <20260522075656.841745-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <75caae28bdffb55199a0bc6cac5df112a966c608.1778838987.git.geert+renesas@glider.be>
- <20260521-loutish-lurking-koel-229bd9@sudeepholla>
-In-Reply-To: <20260521-loutish-lurking-koel-229bd9@sudeepholla>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 09:56:32 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWA1UpZSiN26fd71LUMYatVOwJos6bGb4zR0bnPUqBF8w@mail.gmail.com>
-X-Gm-Features: AVHnY4IbACGIPx8bzoPdFLB4YFVUiG1ESnLSjpbPYX_MILNqEuLBdTCR2tWqAP8
-Message-ID: <CAMuHMdWA1UpZSiN26fd71LUMYatVOwJos6bGb4zR0bnPUqBF8w@mail.gmail.com>
-Subject: Re: [PATCH] firmware: arm_scmi: Fix OOB in scmi_power_name_get()
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28008/Fri May 22 08:24:46 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_005646_569786_522CA650 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20260522_005715_057959_2868B9FD 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,59 +95,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+From: Paul Gerber <paul.gerber@tq-group.com>
 
-On Thu, 21 May 2026 at 18:26, Sudeep Holla <sudeep.holla@kernel.org> wrote:
-> On Fri, May 15, 2026 at 11:59:15AM +0200, Geert Uytterhoeven wrote:
-> > scmi_power_name_get() does not validate the domain number passed by the
-> > external caller, which may lead to an out-of-bounds access.
-> >
-> > Fix this by returning "unknown" for invalid domains, like
-> > scmi_reset_name_get() does.
-> >
-> > Fixes: 76a6550990e296a7 ("firmware: arm_scmi: add initial support for power protocol")
-> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > ---
-> >  drivers/firmware/arm_scmi/power.c | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm_scmi/power.c
-> > index 3aa84ceb6d2bab68..4a7215e02dec035d 100644
-> > --- a/drivers/firmware/arm_scmi/power.c
-> > +++ b/drivers/firmware/arm_scmi/power.c
-> > @@ -204,8 +204,12 @@ scmi_power_name_get(const struct scmi_protocol_handle *ph,
-> >                   u32 domain)
-> >  {
-> >       struct scmi_power_info *pi = ph->get_priv(ph);
-> > -     struct power_dom_info *dom = pi->dom_info + domain;
-> > +     struct power_dom_info *dom;
-> > +
-> > +     if (domain >= pi->num_domains)
-> > +             return "unknown";
->
-> The only user of this function must not call it for domain >= pi->num_domains.
-> However, I am thinking if it is bit inconsistent within SCMI core now. I like
-> the way pinmux/ctl handles this as I don't like the alternative for this
-> (i.e. ERRPTR(-EINVAL or something)). Worst case if this ever causes issue
-> we can change the signature of the scmi_{power,reset}_name_get to follow
-> something like pinmux and update the users. Thoughts ? Happy to apply this
-> for now.
+TQMa8MPxS is a SOM family using NXP i.MX8MP CPU family.
+MB-SMARC-2 is an evaluation mainbord for this SOM
 
-You mean returning an int error code using return statements, and
-returning the objects using passed function pointers?
+The SOM needs a mainboard, therefore we provide two compatibles here:
 
-Depends on the number of returned objects: if it's just one (e.g. a
-name or info pointer), then the valid pointer/error pointer idiom is
-very common in Linux.
+"tq,imx8mp-<SOM>" for the module and
+"tq,imx8mp-<SOM>-<SBC>"
 
-Gr{oetje,eeting}s,
+Signed-off-by: Paul Gerber <paul.gerber@tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes in v3:
+* None
 
-                        Geert
+ Documentation/devicetree/bindings/arm/fsl.yaml | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 4d167cf392830..67437c8d669dd 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1310,6 +1310,18 @@ properties:
+           - const: tq,imx8mp-tqma8mpql            # TQ-Systems GmbH i.MX8MP TQMa8MPQL SOM
+           - const: fsl,imx8mp
+ 
++      - description:
++          TQMa8MPxS is a series of SOM featuring NXP i.MX8MP system-on-chip
++          variants. It has the SMARC-2.0 form factor and is designed to be
++          placed on different carrier boards. All CPU variants use the same
++          device tree hence only one compatible is needed. MB-SMARC-2 is a
++          carrier reference design.
++        items:
++          - enum:
++              - tq,imx8mp-tqma8mpqs-mb-smarc-2    # TQ-Systems GmbH i.MX8MP TQMa8MPQS SOM on MB-SMARC-2
++          - const: tq,imx8mp-tqma8mpqs            # TQ-Systems GmbH i.MX8MP TQMa8MPQS SOM
++          - const: fsl,imx8mp
++
+       - description: Variscite VAR-SOM-MX8M Plus based boards
+         items:
+           - const: variscite,var-som-mx8mp-symphony
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.43.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
