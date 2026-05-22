@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7391CD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B00CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9KLSNUMRSOCDv68eVq0zVj+JhIvRZYvAxY+y8avTqLE=; b=Y8Q42GL8Ej4W9RW+5HUE9q84Hp
-	Z5DgLLn7FGsAPu1256HNtZXDMHathy2QM8VFWFUTaZrUelZHtWnVc5fAVQgyf/NA2eg3xRa7ubMcD
-	a1eY1CPJecXOuyYBHpaDGwxq7DCzsnxl0m6rXwfF224XoLq28Q/GA8SUMAXTsZDWYcKUfP8Mm9BxP
-	/5hKHTm+5ChpapcW4LE3AjDmiCCqk6BGSx9BcqjhZjc4UCJCLgC87B9rmYRdrG5mADLd2fFKJ9GZ1
-	8OAxrzJhQeTh0mGtvMMHj6cFlO4Eabh2E28XzIAjsuFFxh4EZrerBnxVkptQXwiRpwaEhuyNDJymv
-	OcG6UY1Q==;
+	bh=QLja7/Tx5Y13t+WqDB4cLuid2QcyXQZ6OpQKti+65Zc=; b=sXORv16Rrqzdv2tmw+TTTL0XGN
+	4d4Dsd55ehHChUH3HyurgF1A75lVCFl6xPYRzozJ+2ZY6Q4GyRRZkl3LLMtVwN1FKgcTWUVC8h588
+	p+HW6jYjGZnJsT02BO6OXvzuvG5KJUIl9KgCJDO7vFIRKruBV/mBWQwGV3LceQu2ERQ1YriRFyUWs
+	J+ZqHoj20tqCR8cEPMpgUadKsQTdlL9eUz/lx/TYTAdh3yY200WgBjTHzYibHiAwPW4Pfby47KlEj
+	7CTLrKVzqoOA14vSHFrP64XU9wMnYmi6NoppgkHpMvr39sP98XjMkANQO/hWYAFfW7ybDR615z3aO
+	QnfKzdpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQJst-0000000A1yC-2aqJ;
-	Fri, 22 May 2026 07:01:27 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wQK0k-0000000A2fm-1X3S;
+	Fri, 22 May 2026 07:09:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQJsq-0000000A1xG-29Ow
+	id 1wQK0h-0000000A2fF-1dGv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 07:01:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=9KLSNUMRSOCDv68eVq0zVj+JhIvRZYvAxY+y8avTqLE=; b=DeU9HwHlnjo4Zme9H2/6ve3gL+
-	VRUQuDnD30JFNmZX+9sL+XZ82GKWPY+ZLgd7pSMj0wgGeBo00fFJywOade2go6+IpQGp3cGxytUkJ
-	V8+ZstujXNIpr72WdaqrVpsuajfju/DZ4WkCZ9WXIo1IfsYkEt+c8C5H86qYHaiz1RcKzUmMaPClK
-	/yulSX6yQcQvemQB1wEuExrzza/XvUADUA81pDhYiQysXNB4VQRO5RvPzhJrRWnENtbvVDoaUFu+x
-	yk1AG36825wApIjrLUy0a1V19r82ewHf/jEI6xjKmOEdHe78eQaxdNTFNBKxZxVnLx74jQsORnVGc
-	0lvYe+FA==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wQJsn-000JYj-2k;
-	Fri, 22 May 2026 09:01:21 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wQJsm-000AIT-23;
-	Fri, 22 May 2026 09:01:21 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] gpio: mxc: fix irq_high handling
-Date: Fri, 22 May 2026 09:01:15 +0200
-Message-ID: <20260522070118.800671-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 22 May 2026 07:09:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 93411441FC;
+	Fri, 22 May 2026 07:09:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 65710C2BCB3;
+	Fri, 22 May 2026 07:09:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779433770;
+	bh=80mcAzKT7KUOX54cAxYT9sDC70vp0A2zMTxwr1FmLH8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=sMKl7SxS2Vk+cDojK4O5Lml29VnBNPY/z5CJgfEe/Io12YNbfNezWyctuvYoohECU
+	 okawJjSENLD0dzfwNeuUbfFn+j7RIw9gFMGZGUKp5CZfBe5PH7ABgpQokXJ8QKy74Y
+	 rYZifadcbgZ1klbnyqKmvFb/1Fmh8MpZicwT+jhnoyzFlWl9dPpBZQeYJciU1D5oJi
+	 yheZYSrc+Aw7yPRrDYzYXN48deGBeCOtBam2as0zGoF/I/uuJVefSZeAFdENFge4DR
+	 b1NXQUAHCwGz1WCPQXGkFve4Dppwh//FCVpwLA1P0xAAW+Nvtni1LZLyCxTe6V1SCn
+	 DMWdg7oMO2RfQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4CD41CD5BB3;
+	Fri, 22 May 2026 07:09:30 +0000 (UTC)
+From: Abid Ali via B4 Relay <devnull+dev.taqnialabs.gmail.com@kernel.org>
+Date: Fri, 22 May 2026 07:09:27 +0000
+Subject: [PATCH v2] net: stmmac: fix RX DMA leak on TX alloc failure
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28008/Fri May 22 08:24:46 2026)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260522-stmmac-rx-desc-cleanup-v2-1-76e78eb471e1@gmail.com>
+X-B4-Tracking: v=1; b=H4sIACYBEGoC/4WNQQqDMBBFryKz7pQ4jK3tynsUFyGOOmBUEisW8
+ e5NvUD5q/fhv79DlKAS4ZntEGTVqNOYgC4ZuN6OnaA2iYEM3QxTgXHx3joMGzYSHbpB7Piekdm
+ 0pii54AdBGs9BWt1O8atO3GtcpvA5f9b81/5Vrjmm2Ly0d8OOiarOWx2ubvJQH8fxBRZJ+qW8A
+ AAA
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Abid Ali <dev.taqnialabs@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779433768; l=1102;
+ i=dev.taqnialabs@gmail.com; s=20260425; h=from:subject:message-id;
+ bh=EIgrw7dXm9oPWp3zniVVX0HGvfR5iqNaEldPBGWkDIg=;
+ b=hdVWBxzASNSfqv2s2Nbdsqb2HKzuMkf5yETC5Qk0aOAbyTz2fCbXgQSNPGOm5QD6odXNFnEhV
+ SQbDhBYjaBMCsywRVUjkT/8JlHiG/CY7a+CIU++RSilyke3vIhGeR7s
+X-Developer-Key: i=dev.taqnialabs@gmail.com; a=ed25519;
+ pk=4Syx51HH/MOySSUpi79M2ToLOdwt1yiNb338eKZBJNk=
+X-Endpoint-Received: by B4 Relay for dev.taqnialabs@gmail.com/20260425 with
+ auth_id=752
+X-Original-From: Abid Ali <dev.taqnialabs@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_000124_664786_AFCF142C 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20260522_000931_458913_96101A29 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,34 +90,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: dev.taqnialabs@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If port->irq_high is -1 (fsl,imx21-gpio compatible) and gpio_idx is >= 16
-enable_irq_wake() is called with -1 which is wrong.
+From: Abid Ali <dev.taqnialabs@gmail.com>
 
-Fixes: 5f6d1998adeb ("gpio: mxc: release the parent IRQ in runtime suspend")
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Free RX DMA resources when alloc_dma_tx_desc_resources() fails in
+alloc_dma_desc_resources().
+
+Signed-off-by: Abid Ali <dev.taqnialabs@gmail.com>
 ---
-I don't have hardware to test. I just noticed this by code review.
+Changes in v2:
+- Restructured return path based on feedback.
+- Link to v1: https://lore.kernel.org/r/20260425-stmmac-rx-desc-cleanup-v1-1-1a18a704c422@gmail.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
- drivers/gpio/gpio-mxc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 13d3cac05..240453daa 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2370,6 +2370,8 @@ static int alloc_dma_desc_resources(struct stmmac_priv *priv,
+ 		return ret;
+ 
+ 	ret = alloc_dma_tx_desc_resources(priv, dma_conf);
++	if (ret)
++		free_dma_rx_desc_resources(priv, dma_conf);
+ 
+ 	return ret;
+ }
 
-diff --git a/drivers/gpio/gpio-mxc.c b/drivers/gpio/gpio-mxc.c
-index 647b6f4861b74..12f11a6c96653 100644
---- a/drivers/gpio/gpio-mxc.c
-+++ b/drivers/gpio/gpio-mxc.c
-@@ -469,7 +469,7 @@ static int mxc_gpio_probe(struct platform_device *pdev)
- 		 * the handler is needed only once, but doing it for every port
- 		 * is more robust and easier.
- 		 */
--		port->irq_high = -1;
-+		port->irq_high = 0;
- 		port->mx_irq_handler = mx2_gpio_irq_handler;
- 	} else
- 		port->mx_irq_handler = mx3_gpio_irq_handler;
+---
+base-commit: 028ef9c96e96197026887c0f092424679298aae8
+change-id: 20260425-stmmac-rx-desc-cleanup-440f05845492
+
+Best regards,
 -- 
-2.43.0
+Abid Ali <dev.taqnialabs@gmail.com>
+
 
 
