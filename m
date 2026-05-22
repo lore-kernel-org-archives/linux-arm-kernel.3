@@ -4,105 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D1FCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FD08CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5pA9INM3Y0nSBQV8/lKxBKif+Y6kFZgzhySclrMnuU=; b=lwIHMU8Ny7DTagfDyF2POC31e/
-	Eo+4gtasa8lDceX0VawDyKH64YdusiBcfzRhRBzs09K5UIkP7xk6BmQI1jbAsFvtxJyP/FxkvsfjC
-	rO5E/YRvxwyMykIh3xSLNyFLB5PFhy3Wx+32+MYp+zZIx44hMyo4apQpNhoEzZ653Jb/Fef+pl7c/
-	O663vn2GN/LrFZq8VdbZtcGg+YE0bQ2iJxjVBBIx1he/h7DamXnvFVt/en1GghmkOLI3ccnlSwT41
-	NCjNX2DIvok+O3aGi8jHHUBiEQxVmBq5RVDBydI7yYBAG4RXmXxjIMtxkRSFSzoJcj46geypOUC3Y
-	a6p74Fbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/963SaMdjSqaZV3E16x7QC3H7CLh1B3KU72kSN0hNJI=; b=gqsH0P1+fQ8AKP
+	O1HP4obQaXVy+4hWAiwKkrMFtaPbBCz9l3exeA2f38ptWJHddetJ8MGVCK+XxRm5MWmbmOXdHbxP5
+	245bbRxUIENc5vTBln6xfFcDZKqbEBHMU2qXejRGYeEHnOoWLT2i5qL46wQeMJ6REL5L3EhltUO8M
+	gBui+F462Bri6L5xk4IzXnyDyqLP+4ZY47rW/TWUPhiXDaSoph9E0TadKtOx+QezIICglKnQiVCsb
+	SxK/7iUAYgwVFpu8RbuBgWSO54LGikKppTkCZ6SWEFTAxp4ilEm9CBgc6BXsP8xn98ACrtq7mx+er
+	MLL4wz6rk8l2z1fMKtsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVP8-0000000Bl6q-2y8n;
-	Fri, 22 May 2026 19:19:30 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1wQVPN-0000000BlC8-1YAb;
+	Fri, 22 May 2026 19:19:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVP5-0000000Bl63-4Afz;
-	Fri, 22 May 2026 19:19:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779477568; x=1811013568;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=mvsDdaMaG9ahIS17I/CcaLNe8axrlTXXcEKv1I/F3/Q=;
-  b=ZXssrStocuppOtW1LLHKq65BFilzaNo3KamAI44OhgvwaXPx/s4lCNM6
-   XJvnV8AbkHpzRY6L2zOMz06UJegSnmWIu127uKn9E4DKgZpXkWp8OhTEB
-   d795837jWor1HH23Wq2sGol6JzUckfhDWlij/HYhCqcxMKPdgUAT0AXpT
-   jRD8BAsXqOi4c5iFJp5zAMO7aa8FsicZqyKYrkGo1X0JEWsFllTqvuPJf
-   N1Yi1bvIin4P61UlBiwIzI1zJAk4SWGJ1CigZpWzW3B6CC8pIZEJN2RaR
-   l9SffWHJUoOzr3t5JfKdmIO7E6Zl3hljOSbrtWHi6iCScWLPRtGt5ds/s
-   A==;
-X-CSE-ConnectionGUID: 9iNxwtKPQh2g2lGwLxjwbg==
-X-CSE-MsgGUID: n6AnXCyrTYCvfJ2ZpmzG6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11794"; a="84267503"
-X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="84267503"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:19:27 -0700
-X-CSE-ConnectionGUID: dL6cDJ6DQFWZrX5hPOKejw==
-X-CSE-MsgGUID: L335gYqQSTavjDxYniwzUQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="264546693"
-Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.71])
-  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:19:18 -0700
-Date: Fri, 22 May 2026 22:19:14 +0300
-From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
-	Rodrigo Siqueira <siqueira@igalia.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Daniel Stone <daniel@fooishbar.org>, kernel@collabora.com,
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org,
-	wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH v15 12/28] drm/i915/dp: Add YCBCR444 handling for sink
- formats
-Message-ID: <ahCsMhvKzUU-3x7b@intel.com>
-References: <20260522-color-format-v15-0-21fb136c9df2@collabora.com>
- <20260522-color-format-v15-12-21fb136c9df2@collabora.com>
+	id 1wQVPM-0000000BlBY-0YId
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 19:19:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6E85260204
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 19:19:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DB21F00A3E
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 19:19:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779477583;
+	bh=/963SaMdjSqaZV3E16x7QC3H7CLh1B3KU72kSN0hNJI=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=E+ZNmlE0DoCuxSB48HVESxbd5crug2jNY3dHaKN/XlwzPFfOV9+sCUQW1Pn4fhDsh
+	 xDAFd1tvGCoYYhBC22ZQH7isYQO5/zD0c2rxFznuidrsgVXKv2CmVDJeuCxh6pTP6h
+	 jXRnPYz+MSmPEbyfvH+bV9yv+uuUu9ZDpCGCDSw58hDPQqdVyh/WDGj7NwshPcrwm2
+	 tm3UkYKR4SMJ38x2/3bSFwp3wScaeiZy8pUbNX69LMNbhEKFpFVWsZuTFhW/ALbtm1
+	 O1wkGHZFcg0j40vw8rmRkysMwq3pIxREAf+vdCpREMKQUzohCTnYbpKHjcllRUE50V
+	 K+Pp2rSpV3ikw==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5a8dc2606a0so8267370e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:19:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8YJVg9n15sgbprtR2bJymDHno+R9Q8aDCltpayAB7SXYYuIGBGKQfNyq9RHJZicF32DeiKgk4Nopnv3C8Q2h8Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwubYgoff756v7tn1SD7cy8kckPj8vEzlM1IUXe4p0/uwj/MQP7
+	+aB4J7t3hTIjfX5OZdaMVpO4K2uaTVfMGrbOukxgUEY6oKJFeOjK6LYzBnYnxPfoPNNW5B74UQ2
+	s+tOCOR15A9l5W/+MQC2QNpZjKKjcU7U=
+X-Received: by 2002:a05:6512:3b25:b0:5aa:b6b:93c0 with SMTP id
+ 2adb3069b0e04-5aa323a9144mr1722768e87.42.1779477581606; Fri, 22 May 2026
+ 12:19:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260522-color-format-v15-12-21fb136c9df2@collabora.com>
-X-Patchwork-Hint: comment
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_121928_048597_EAD03968 
-X-CRM114-Status: GOOD (  19.47  )
+References: <20260522095401.72915-1-phucduc.bui@gmail.com> <20260522095401.72915-3-phucduc.bui@gmail.com>
+In-Reply-To: <20260522095401.72915-3-phucduc.bui@gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Fri, 22 May 2026 22:19:29 +0300
+X-Gmail-Original-Message-ID: <CAGb2v67UmMmM7bQOSf3VxsN9D8s3N8nMMX079_kiMcPU=VszFg@mail.gmail.com>
+X-Gm-Features: AVHnY4L8PhtBwUpCMgPdVH7zJKEZWisTWbNT00mcsDhEyaF4lTxulcCeLkrcUQA
+Message-ID: <CAGb2v67UmMmM7bQOSf3VxsN9D8s3N8nMMX079_kiMcPU=VszFg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] ASoC: sunxi: sun4i-spdif: Resume device before
+ kcontrol register access
+To: phucduc.bui@gmail.com
+Cc: broonie@kernel.org, codekipper@gmail.com, jernej.skrabec@gmail.com, 
+	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, nichen@iscas.ac.cn, perex@perex.cz, 
+	samuel@sholland.org, tiwai@suse.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,82 +80,90 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 02:32:03PM +0200, Nicolas Frattaroli wrote:
-> In anticipation of userspace being able to explicitly select supported
-> sink formats, add handling of the YCBCR444 sink format. The AUTO path
-> does not choose this format, but with explicit format selection added to
-> the driver, it becomes a possibility.
-> 
-> Check for both source and sink support of YCBCR444 in
-> intel_dp_sink_format_valid.
-> 
-> Acked-by: Daniel Stone <daniel@fooishbar.org>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+On Fri, May 22, 2026 at 12:54=E2=80=AFPM <phucduc.bui@gmail.com> wrote:
+>
+> From: bui duc phuc <phucduc.bui@gmail.com>
+>
+> Accessing registers while the device is runtime-suspended
+> may lead to invalid hardware accesses on systems where the
+> APB bus clock is gated during runtime suspend.
+
+Did you actually reproduce the issue, or did you add the patch simply
+because Sashiko mentioned it?
+
+On sunxi, either it will hang the system because the bus transaction
+got ignored, or it won't as something else enabled the clock.
+
+And when you do add patches due to Sashiko raising an issue, please
+do mention it in the commit message.
+
+> Ensure the device is resumed before accessing registers.
+>
+> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
 > ---
->  drivers/gpu/drm/i915/display/intel_dp.c | 21 +++++++++++++++++++++
->  1 file changed, 21 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
-> index 1920d2f02666..143ed85224be 100644
-> --- a/drivers/gpu/drm/i915/display/intel_dp.c
-> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
-> @@ -1344,6 +1344,20 @@ intel_dp_mode_valid_downstream(struct intel_connector *connector,
->  					 8, sink_format, true);
+>  sound/soc/sunxi/sun4i-spdif.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>
+> diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.=
+c
+> index 89eccc83a130..f54eb14c9ed8 100644
+> --- a/sound/soc/sunxi/sun4i-spdif.c
+> +++ b/sound/soc/sunxi/sun4i-spdif.c
+> @@ -428,6 +428,11 @@ static int sun4i_spdif_get_status(struct snd_kcontro=
+l *kcontrol,
+>         struct sun4i_spdif_dev *host =3D snd_soc_dai_get_drvdata(cpu_dai)=
+;
+>         u8 *status =3D ucontrol->value.iec958.status;
+>         unsigned int reg;
+> +       int ret;
+> +
+> +       ret =3D pm_runtime_resume_and_get(cpu_dai->dev);
+> +       if (ret)
+> +               return ret;
+>
+>         scoped_guard(spinlock_irqsave, &host->lock) {
+>                 regmap_read(host->regmap, SUN4I_SPDIF_TXCHSTA0, &reg);
+> @@ -443,6 +448,8 @@ static int sun4i_spdif_get_status(struct snd_kcontrol=
+ *kcontrol,
+>                 status[5] =3D (reg >> 8) & 0x3;
+>         }
+>
+> +       pm_runtime_put(cpu_dai->dev);
+> +
+>         return 0;
 >  }
->  
-> +static bool
-> +intel_dp_can_ycbcr444(struct intel_dp *intel_dp)
-> +{
-> +	if (source_can_output(intel_dp, INTEL_OUTPUT_FORMAT_YCBCR444) &&
-> +	    !drm_dp_is_branch(intel_dp->dpcd))
-> +		return true;
+>
+> @@ -453,8 +460,13 @@ static int sun4i_spdif_set_status(struct snd_kcontro=
+l *kcontrol,
+>         struct sun4i_spdif_dev *host =3D snd_soc_dai_get_drvdata(cpu_dai)=
+;
+>         u8 *status =3D ucontrol->value.iec958.status;
+>         unsigned int reg;
+> +       int ret;
+>         bool chg0, chg1;
+>
+> +       ret =3D pm_runtime_resume_and_get(cpu_dai->dev);
+> +       if (ret)
+> +               return ret;
 > +
-> +	if (source_can_output(intel_dp, INTEL_OUTPUT_FORMAT_RGB) &&
-> +	    dfp_can_convert_from_rgb(intel_dp, INTEL_OUTPUT_FORMAT_YCBCR444))
-
-IIRC my previous conclusion was that we don't want the dfp convert
-stuff here, at least initially. So this should just are about
-source_can_output().
-
-> +		return true;
+>         scoped_guard(spinlock_irqsave, &host->lock) {
+>                 reg =3D (u32)status[3] << 24;
+>                 reg |=3D (u32)status[2] << 16;
+> @@ -479,6 +491,8 @@ static int sun4i_spdif_set_status(struct snd_kcontrol=
+ *kcontrol,
+>                                    SUN4I_SPDIF_TXCFG_NONAUDIO, reg);
+>         }
+>
+> +       pm_runtime_put(cpu_dai->dev);
 > +
-> +	return false;
-> +}
-> +
->  static enum drm_mode_status
->  intel_dp_sink_format_valid(struct intel_connector *connector,
->  			   const struct drm_display_mode *mode,
-> @@ -1364,6 +1378,13 @@ intel_dp_sink_format_valid(struct intel_connector *connector,
->  
->  		return MODE_OK;
-
-Again, would prefer a cleanr 420->444->rgb order.
-
->  	case INTEL_OUTPUT_FORMAT_RGB:
-> +		return MODE_OK;
-> +	case INTEL_OUTPUT_FORMAT_YCBCR444:
-> +		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)))
-> +			return MODE_BAD;
-> +		if (!intel_dp_can_ycbcr444(intel_dp))
-> +			return MODE_BAD;
-
-These two ifs are swapped when compared to the HDMI version for no
-good reason that I can see.
-
-And missing the has_hdmi_sink check here as well.
-
-> +
->  		return MODE_OK;
->  	default:
->  		MISSING_CASE(sink_format);
-> 
-> -- 
-> 2.54.0
-
--- 
-Ville Syrjälä
-Intel
+>         return chg0 || chg1;
+>  }
+>
+> --
+> 2.43.0
+>
 
