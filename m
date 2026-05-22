@@ -4,99 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D5FCD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE3FCD5BB5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vBHLofPVeYPfx1ZGHrhJ7CLmG7Qg01nr7l3iawgtmCw=; b=3Q2JHFRYkrNN8MI1vIjEEDlHwp
-	p+++cyjEN07arkmUNQyxfgRFe2tmfi8rfo0nkuNaSnIOpzGGGHklNuokzaI+iDRrVFPjQeN9dIiW2
-	kUI7UbJlpEeseHtWxI8Ej6gRC6xL6uqoTIK8meNLC3uo356u/RaoVNXFuL2D2aFcHD991k3lJOmkk
-	1wSwVirO8WFVrpdq0O4zAb4ppCmctby2l3pvANZTTBDxN9P7rKhvkIMuvsQUn97XJVVrBBZx2e9g3
-	9cVHa+IuhnPqsrlyajn5QkUuAoRxat7QhkJ03qKsqYrzBzOGLrzbmYFYEtxgeokyZ0Y0LL4xQ+NLR
-	Fsdv1Q0A==;
+	bh=j2g7T67hXwVirNiCmNO6EC06JYgACQ8VaJoiHLwm9Nw=; b=bhvBIbCG4raQkOZ/1elE5QNBTy
+	Zqpn1HmLmyqCEdf705Zaf1StUtbYlS6WH4oPyH7BZnQCti8h55XqEPCP74pH/WkhRUirV/0xFNOpz
+	fWoLidgGdRNxLqtPkcveYlSWQ12aqBBzOOe7siBbXNLu6R4PPXELyHIwA9Q7ycJR41bpEz+EfUuM0
+	JxbGTqij31CvxVZRZzbQHtdKZD9YpvjPJpb9q1U23KyZOJNPhpMEqR98lxALLZXv8GShvOwl+kw/Y
+	U0Rrb6LU+uSw6V1409CQVn7OyYHnlRcJJF4tcn1nwbkamALClZ+yOh9KUZtf5/m4Hrv+X42TMY8hH
+	XXpAovgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ75-0000000B0gU-04g6;
-	Fri, 22 May 2026 13:40:31 +0000
+	id 1wQQ74-0000000B0fV-2Gzs;
+	Fri, 22 May 2026 13:40:30 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ72-0000000B0e2-178k
+	id 1wQQ6y-0000000B0bZ-0me7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:40:29 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64M9vQgV312987
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:40:27 GMT
+	Fri, 22 May 2026 13:40:25 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64MC1u5h779268
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:40:23 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vBHLofPVeYPfx1ZGHrhJ7CLmG7Qg01nr7l3iawgtmCw=; b=XP5ZBn20ASOiH0ME
-	BjwJ6Td9XM9NGXPdlbLJqZmUz10jT+cxRJ/Gvb/h5g8hKlPAmQoiYVegIGVsEcee
-	49HSSa6QDqjWQUX6GhoryHGfxx3werjTtSxAByMfN7xRmyQHJwuI7qbJFwCOqQZQ
-	yxOiBgYXqDPeISz5VdEqCM49zAF5umnG8F5JdffOJpaNU7zUKbcdK2DRb0RBwI/V
-	nVnO+kPFgaIWXweK9n4YUR5xXA+wMYOvwvAntuk4QdFHx/i3HkKEB8DQkGAUtWra
-	eRS6kRjvRDU6pgnX0P275FQSSLYa4t7rC93FvFQ8AuvCSfAUUdHEycIHOiZdZ0HJ
-	mbz07Q==
-Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ea883411v-1
+	j2g7T67hXwVirNiCmNO6EC06JYgACQ8VaJoiHLwm9Nw=; b=V9QMcUOi7GuPFjlk
+	iWsdKoKhc5xnnmNqA0jCFDOGNwx6V6T5eNUHnqAMEHx8ivt1habATb0HlK1ov731
+	BBX/0y5CjhIaETy3u2BdCIx/G2q+d4wb6Rci9txyiVFK5yQRta/etS16TAXGTI6C
+	Q9gbYtn3lC/yBbW4r0+QArhi/hVwIeejFvhmkHCjwM+I84lHjwLaOryxzD+3p796
+	KuVkqmCw0dJOHOMKjGnqu0dTsupbo3QKywOmfbnZ5iHvsh/I0vwmKV6ubhfCvxPL
+	SzHkR9RKFkuwjHkdOcg92wocaDkWFZeFhPpqGscNHbCyO8Rc0RyxpL8o36BA0/e1
+	g1y2NA==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eac7atxx3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:40:27 +0000 (GMT)
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8badccc9194so160086186d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:40:27 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:40:23 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-514ae0e3ad6so186240361cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:40:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779457227; x=1780062027; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1779457222; x=1780062022; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vBHLofPVeYPfx1ZGHrhJ7CLmG7Qg01nr7l3iawgtmCw=;
-        b=UJU/hPRkYJejZk9OzjEVsJ4N0z87WybX5GgjzVRkR2NwM91GTCtXLkH8dxM5xbOu6I
-         HlUB5LOt0VH4S4AkGxKomXlEouRbBBHZBxB8XzD/91PGIZ0EzocInZWzSqXr7s5SRC39
-         +lEf2w80lyZRXMWkPoKv7RIdRKvS5B9B9xjGqzAI/n2rC17WYfFfypymwn6HeXrkFsBP
-         zxkwKB71wn8e9kGsMX++TofpMHX1DVnD7QLlwGwg5ZdJLS36YBSG5sDoOaDwsP7EAhLw
-         UPROhAD6N2QVp2TF9jKK0KcMj/jcJNnb1cU3xGmQgB8i8BLd5pT7gfJNMU0N5mxZNfFN
-         Pnog==
+        bh=j2g7T67hXwVirNiCmNO6EC06JYgACQ8VaJoiHLwm9Nw=;
+        b=WApWyy7bg0geYmftS9UoxomI6iZSHV+ETl5WTpOapKi5YhVYr/vIRQAKkaAdgtPcBl
+         V4ASyMD891XPhIVd7g1W+AJwghzz1Jl5ADQueGTBOpKv3NW5xTLUZRWnhLDdAYf4IvNG
+         8SNYe/801y3bqBz+RuwsOiS9/4CRhoWiPDp8N4KsiAbLG0mZSazcc5Zl8BFLdARy29bh
+         sDN0IPC52zkT0qQ7yDNesJ1tzoePBOQsFgeQwoLWrK94vaiP8f5yojnMrkOgIKBY/rWp
+         C5JiAbV8gTqGVLTpvCPJGSYgocJ9btusGQlEk1MytYCrUXCcXu4LrXkPCPf9F8FI7eql
+         pKiw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779457227; x=1780062027;
+        d=1e100.net; s=20251104; t=1779457222; x=1780062022;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=vBHLofPVeYPfx1ZGHrhJ7CLmG7Qg01nr7l3iawgtmCw=;
-        b=FuKQEqXsl+4Y6sbwHo6n+R8d2U77Bd2y2B2N9MVKg+U5ljUnyE/mVzzOumb4L7xeBA
-         DoDncrBSNG4ASOia/4EoR0NLy5IrXdyi2L4Ur4SlLexKHaF9aP9eUw05fD26whvgTAJH
-         poqueBF1E900KMwfix87QtOrqKJiZKgKQL/qP1AVjKhH3H4+BS80chZfw4zsfTotiWeD
-         6Gk5b/95/KDtlKTADaVO4QEAO6aFh9j7ObalftznWBi21uqjFSbksXrpdqCRvDpbi+dP
-         LWDxGgypFwL1uBDw502ZTlqvNaUgML28HoycmHd+jJDgjR+H6+GcTvCAV7DTfLATKh+6
-         NH3g==
-X-Forwarded-Encrypted: i=1; AFNElJ+AtX8kWp+INmTkdaEnyeNIq/kKqlGuCX4xO7jXNY+VO59Jt2vKmJ+dzva9m9VHxX0UONs255Et4Gam6mAUbO15@lists.infradead.org
-X-Gm-Message-State: AOJu0YzahOU29Ie9OG1vsJf+YqwPbrgQGW9Gd2ClNEQv3bINaXvygwQb
-	qJ86bLaFEyrk9Qcs1/pxdoogRU5gA1C7ffjSprCFWvr+BAr0BKN3w6Y0ToXMCLl16XNxfnvg0Ar
-	91OdRyMSOG0/B9EueuCb39terRlVCEIGMlltIKUtEyp9wpjBnqkMQh/iO7N/u0A8IPoiAUt15oW
-	UGbg==
-X-Gm-Gg: Acq92OGQq6s5MOQj/Fmhog867vlN4Ub6uUIu3/h8msESnN0cXJzMQIXHjPVwq57WlYT
-	5KA4ZLp5WeDTSLxNbK0Akh6DkoH5tNTaESjgvyMqDgmqS3bnrxgT2WK4Cra6O4fFrSFjhA/n51R
-	YkvDjMK4lESQroA9ZSUkg3DsuPb8sTXp7iP1VXAuw8xZ859Oh5v+ie3tyFnVpdn+l5PjMxy01OE
-	cUJQ4TbJF3aUz28GLxE6jUFpihB+kdOgRKkfXkBvdRP0JL0nvRr/xYxCmWUla9lJUg5KZZq0Jvv
-	Ly0ssrwGPfCJv5Cz/8xUhhlpi8avG9sFeKo9q/DEeostdejKuBav2Ifk+Go+DkC1Pgu8sUzxCwC
-	5gh7CQmA9MEFyvMk8mwlo9+Z0lyhK5kMUzHzPMrp5wEqBw5RJNQ==
-X-Received: by 2002:a05:622a:4892:b0:50b:6b21:2bf7 with SMTP id d75a77b69052e-516d419e624mr52230681cf.0.1779457226640;
-        Fri, 22 May 2026 06:40:26 -0700 (PDT)
-X-Received: by 2002:a05:622a:4892:b0:50b:6b21:2bf7 with SMTP id d75a77b69052e-516d419e624mr52230111cf.0.1779457226126;
-        Fri, 22 May 2026 06:40:26 -0700 (PDT)
+        bh=j2g7T67hXwVirNiCmNO6EC06JYgACQ8VaJoiHLwm9Nw=;
+        b=FENNrQ+32en1WLnedkw6f+3VMOR/rj/8BpvQBxf9pfVInozegQ/rXwib0MLeLaWy+R
+         tiCewCAZ30IpLvW4unxjjXpjpCdJtyrcyJlWN4NGmHAGVVdAMrqqiUpWoAN8KyJ4ggQu
+         apTgXgBNzgZOySI+ZOpmsDXEjDzG4zivYXpykkEdR2YC+EHAcVRrCaokeCEarME3gZtN
+         Ulsp75eBjkSjE3Eb/ucPBK7FQirCsLM2vQrc7kHYhgmbYCQPP2do4RCyOiUYPbT/ZKPK
+         iAFlArQUGnlvOVFd8GfqvhdjNy1utbdS/XY5xVEicqmORkhKVSYCkFD9reKazFlShFrS
+         sOYQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+b8IzRv9cIWbLeLkmwhg/oBKVVuuDQgf8fhtrOIKB0XLOoGasUF/ofgL8FUFzqQOWnH9TDFODQ82IzO1y5ZVl3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb/qE4K2zAoUYWwqcp8BPuoqC8iixIX4x5fTIMasn03Si6L12o
+	gui2RLEY6cPKt3q6267bzgvntSOSOdmjIzgO+pLM4j82I4JZAbf/ri8cfjtgpfy/YYZcKZONYbk
+	PmhzAdLJBr6ZabLclP2ELq/AsKJWmUckeFbFoEwFH5QayFhT61nabRcBn3KxYyFV3GMNhE2Wss4
+	qKmg==
+X-Gm-Gg: Acq92OGbLC3E/5NIWKCukr5bO5No+hLQjcQQ3l4MYyaYNI3gKap8HdDjW2dOJhX2KCa
+	3A/EAfvwQl8PDJXffPUq6l6SCSVe5ELIOHmD8JazJOmJhtCZONeUWE9fD0T0j9F23+Odb1/ntUG
+	oaPhYAvjUsN3r0udfOdgV98H/n8E5LCRS8H8pJ1MKVeF6mB/Hnz9ZfaeuYiWUQyMRkpBUx9noxu
+	GcBYjSDi/FWFz/g4bxRVcjh5Opad3wklGP+Po36pxq755LHhNJE3dufXzjL6ect0qpgVvRtXKTK
+	udx5vjc4esdDcFUmVh9zEcNXHYMTnu06V2Y63RUjawfQrNt1IobRLPXLbgRsONuXRtaeUx18K66
+	3XzX244OTDuLrewGG2JMrN8cDpfMVVvOW7SMygWDP0uoHmxlxDQ==
+X-Received: by 2002:a05:622a:a90b:b0:515:7d69:4c0a with SMTP id d75a77b69052e-516c54cdacamr67015281cf.2.1779457222328;
+        Fri, 22 May 2026 06:40:22 -0700 (PDT)
+X-Received: by 2002:a05:622a:a90b:b0:515:7d69:4c0a with SMTP id d75a77b69052e-516c54cdacamr67014841cf.2.1779457221737;
+        Fri, 22 May 2026 06:40:21 -0700 (PDT)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:2fa:6280:a48f:fb37])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454c600esm44912825e9.3.2026.05.22.06.40.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454c600esm44912825e9.3.2026.05.22.06.40.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 06:40:25 -0700 (PDT)
+        Fri, 22 May 2026 06:40:20 -0700 (PDT)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Fri, 22 May 2026 15:39:57 +0200
-Subject: [PATCH v18 04/14] dmaengine: qcom: bam_dma: Extend the driver's
- device match data
+Date: Fri, 22 May 2026 15:39:55 +0200
+Subject: [PATCH v18 02/14] dmaengine: qcom: bam_dma: free interrupt before
+ the clock in error path
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-qcom-qce-cmd-descr-v18-4-99103926bafc@oss.qualcomm.com>
+Message-Id: <20260522-qcom-qce-cmd-descr-v18-2-99103926bafc@oss.qualcomm.com>
 References: <20260522-qcom-qce-cmd-descr-v18-0-99103926bafc@oss.qualcomm.com>
 In-Reply-To: <20260522-qcom-qce-cmd-descr-v18-0-99103926bafc@oss.qualcomm.com>
 To: Vinod Koul <vkoul@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
@@ -119,50 +119,50 @@ Cc: dmaengine@vger.kernel.org, linux-doc@vger.kernel.org,
         brgl@kernel.org, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3778;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2764;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=uxRjFVxEhrXgn9P1PbRyStGi6yK9KFcQvfp9JiG64Wo=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqEFy1F3/f2c2itAh9Qaq8Q6W2ocaop66yQq4N5
- rk20Afw3+6JAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCahBctQAKCRAFnS7L/zaE
- w0NvD/9g1BWT4Z86O5Ed0CczEU9qQkYOEi0OeK8LwPNkKRZ1jkeHLQQ/NJX5vmz29RA7xzAHJ80
- RBMCF3OtHxg+mn2UiH2QjgmvTdHLG/KtxJ85gFJeYO9ZPn2AL3lNpkl4nYoO1xPHsRyvWr60KNf
- cnJF4diDlxPjNEKj5WovaQz+hIrttw99F3iNUOg0FbQxNskhP5mDSkcLvGGOx0KflMtkjXWVh3I
- jv0QiC6bjn9DIIMk4bdbjOCYyDxnsrrBnHVNFeHPGSYAotWOOS1a8DJqUAi5NSYf68CLn2JNOoX
- /Tq1qh1vdiCTlqQCGWB0nnINUPdNelgQGHhEdRSMBTGQph3Eqqkgk5GQfuvPjLKkmHuKzjmHMJF
- WPmTZzehASqp2/ME9sP10t7LvhmVRqECK0EX9EHCsoNFZ9E5jpcgwSujHoMBjmCsfNS12L06eEX
- hhSdMt9fo0Tj36FjfaupkLVE/kZMZQesr7Jqb8x0hVFgM3BHg8OZfVRZC7kZDwIL7mxvwtMlGW8
- 1BSzBJlqTzkmLaEFxD3DSLWFXwdczo8/KcxB/5jB0wouOI/uVDVtTknys4axBWTsn6LWqUXRWI3
- Y9rb6wb3jkmpKiq2YuGphX95fFfI5FhBwX44u2Y3gOrrxQdKchF/uDkUInMtaKyKjr5GU8uVuKQ
- 9/g4sFC6zEBYIVQ==
+ bh=yKvgG0rTvuvJLcjw7C6atYAtuGT91Jlwk9eV3sVaoBM=;
+ b=kA0DAAoBBZ0uy/82hMMByyZiAGoQXLPIYQPrnZ/xYu60uh01cd0qPgA+V20Gnmo2k0X5SkfnW
+ okCMwQAAQoAHRYhBJHlEy3ltUYde6Jl/AWdLsv/NoTDBQJqEFyzAAoJEAWdLsv/NoTDIUgP/1Rs
+ 8KhvkXDlop1eW5Zm2UYtzwQ8MWsBJXIcYHv/LvM40EtGmuKFx3Dv1xPh6uG/54rAtUWB6pdUTt0
+ Rt9yQ7eXGUbiO6q6HRm0Nh7SCwlHZEAAmfB/vUQqNa6+FQ+vRujcfXj3tPs41Ra7H848YAYrCJ6
+ tMMHzVsFSeQ2mEQ9JDc5cn+F5Z3TWqq7uNfrAxocXFAvdO7/eg6zQrjEbqvWyPB8xxwK2mSoe0d
+ tTTRZdmXS9nGoYK6CWq/r9W//W9Ur4DRnzVOBCXsFBsm5Px08pp4sdFZOQC/pBM8mOnZVLmBJ11
+ tMSI+TuVsEkxgEfu3OsMZQrL42RDjyrOl4bgXD6GiFERrp6+dU8+KsQbzdMmRTAi30wncJW5wD+
+ 0XevaHhE2m1YkGstKi6MLn7JQYlXZwkVJM/2k2BvFRDgHel+nZp35Ple22kd/s6/Vw0CIIFlczO
+ kGtLE+okV0fbXc0IXMEZhP2ybDw3YrIJQQqLl4P4R7EqaGGcOZEHIJRsZ+ijTZTowqV9854hMnp
+ Qu52D3mczLLjgod+IrcP+e5SKtmlZa3jc+mdmI/N2lQiPM1unFZGtUoQ06Lxl/ljfLNwwU8RhIs
+ w7g2bdH6iZsY9W7MZdpBnc2SWBMojiIBcy2eF0Xgcj6Mnq/O/84w4q0MwypJDN0BigyVnVRWhT5
+ GIU7R
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIyMDEzNiBTYWx0ZWRfX9FQgi6kewN7m
- vkL/iClFr+L4IBStuLTiPb77ga9fkIxA2Yli7zytlIcTGMabGB2XzN5TZvlrXcil2h3UyyoMLg4
- Qd0qf5GGxruJabzSkRNHipNH1juE2yHtD8hnE+6i+7kh0CUgUmCJ8HFmpJiUOh7Jzgv/PV4gGMz
- lQYNynbs8ZKQDendmf8wLK7srVNg2+NM6BKdZsoigZPNdqIRjRlmz7CfMT9gSsKGlOZH3grU0Lj
- 8an303XeSuYmxZdav5nD/Cg/LMPh7XvtCPdNNxkMqaIEtCQ8Rea5jBQp7QcaYN2aXp9TsgIZ/gT
- Xf23yr47gdZTfy2QZcxKZz8JHf1s0xlB1iYXo7mAdA31gbshPVAZvDl7HUOqxNvoKH4ggUgFrc+
- 5efuL73/Url9WcbMZzePxCXfpJIx9oi7X46ONNVSCPXr2gAlSU6h8WtUxCxmgSLj5maIZJPUXIg
- ffBXKW4/B+eIc9Jvg8g==
-X-Proofpoint-GUID: IhwxOTRg1TuGyWt0444cP2bHbKK3ag09
-X-Proofpoint-ORIG-GUID: IhwxOTRg1TuGyWt0444cP2bHbKK3ag09
-X-Authority-Analysis: v=2.4 cv=LsSiDHdc c=1 sm=1 tr=0 ts=6a105ccb cx=c_pps
- a=UgVkIMxJMSkC9lv97toC5g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Proofpoint-ORIG-GUID: jx8fgLn5uzouEJr6yoynQYfFzgsF4QnU
+X-Authority-Analysis: v=2.4 cv=JrbBas4C c=1 sm=1 tr=0 ts=6a105cc7 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22 a=KKAkSRfTAAAA:8
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=Fb6uNmSZeVr-t7npd3wA:9 a=QEXdDO2ut3YA:10
- a=1HOtulTD9v-eNWfpl4qZ:22 a=cvBusfyB2V15izCimMoJ:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=c92rfblmAAAA:8
+ a=EUspDBNiAAAA:8 a=n8zAjjMAgf0wD31B80cA:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22 a=GvGzcOZaWPEFPQC_NcjD:22
+X-Proofpoint-GUID: jx8fgLn5uzouEJr6yoynQYfFzgsF4QnU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIyMDEzNiBTYWx0ZWRfX3kyVxsQcdizq
+ s1RG/g6oljL5H1NU7dXhexcXYeogfJXv3T1pBXWYelMldu0kJNCvJbAa4oCl3Ik12B1j/8WV02D
+ PtuCD0vsyqSfxJUlnePr0fJPmSl3P0rlWsULJo9MI/JqA+juLvUpZKQYgTlsXYiNVv1RRub4CX2
+ I+Fw1hZdxi1JWnh5Qo4iHQK3dC+U5+I9Y5qgeou44mVjoxteRiywB3qy9w6UdkZcLuzZ8ilWUwv
+ EIit4rzVVCpzznYO3RCJH2G8Z6mQJUbHG05boNJiu+rifvYUA2IDCS97UYc2w2WQ9Ygf6ZulRep
+ /FNVA9WjEl23E2d55Dvo6fYFLRkiRKnV+pZLQqZeHxiF/vT06LgjWgUPR10AP6FzApvpKZYXMuq
+ xsjTxN8qiu5lqvJYrtaCNBcU4C9qGomISWD6oNhfMJRGWhqK+5zxMdsaeRjCg/6nBz6XswrEggg
+ IwtB1P5YIsUC6wXpJeA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-22_03,2026-05-18_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 suspectscore=0 priorityscore=1501 impostorscore=0
- bulkscore=0 spamscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 impostorscore=0 suspectscore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 spamscore=0 malwarescore=0 phishscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605220136
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_064028_433338_39F8E785 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20260522_064024_355802_D39B424F 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,110 +177,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+The BAM interrupt is requested with a devres helper and so on error it's
+freed after probe() returns. We disable the clock before freeing or
+masking it so it may still fire and we may end up reading BAM registers
+with clock disabled.
 
-In preparation for supporting the pipe locking feature flag, extend the
-amount of information we can carry in device match data: create a
-separate structure and make the register information one of its fields.
-This way, in subsequent patches, it will be just a matter of adding a
-new field to the device data.
+Stop using devres for interrupts as we free it in remove() manually
+anyway. Add an appropriate label and free the interrupt before disabling
+the clock in error path and in remove().
 
-Reviewed-by: Dmitry Baryshkov <lumag@kernel.org>
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+Fixes: e7c0fe2a5c84 ("dmaengine: add Qualcomm BAM dma driver")
+Closes: https://sashiko.dev/#/patchset/20260427-qcom-qce-cmd-descr-v16-0-945fd1cafbbc%40oss.qualcomm.com?part=2
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/dma/qcom/bam_dma.c | 28 ++++++++++++++++++++++------
- 1 file changed, 22 insertions(+), 6 deletions(-)
+ drivers/dma/qcom/bam_dma.c | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/dma/qcom/bam_dma.c b/drivers/dma/qcom/bam_dma.c
-index 1c62f845ac0b956e311857b93f5b504086662f45..2129ff5261571581a2c086c13dd657dc63e16f90 100644
+index 19116295f8325767a0d97a7848077885b118241c..b3d36ea79984385fe0d05ce56042d3e6e3030c5a 100644
 --- a/drivers/dma/qcom/bam_dma.c
 +++ b/drivers/dma/qcom/bam_dma.c
-@@ -113,6 +113,10 @@ struct reg_offset_data {
- 	unsigned int pipe_mult, evnt_mult, ee_mult;
- };
+@@ -1302,8 +1302,7 @@ static int bam_dma_probe(struct platform_device *pdev)
+ 	for (i = 0; i < bdev->num_channels; i++)
+ 		bam_channel_init(bdev, &bdev->channels[i], i);
  
-+struct bam_device_data {
-+	const struct reg_offset_data *reg_info;
-+};
-+
- static const struct reg_offset_data bam_v1_3_reg_info[] = {
- 	[BAM_CTRL]		= { 0x0F80, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x0F84, 0x00, 0x00, 0x00 },
-@@ -142,6 +146,10 @@ static const struct reg_offset_data bam_v1_3_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0x1020, 0x00, 0x40, 0x00 },
- };
+-	ret = devm_request_irq(bdev->dev, bdev->irq, bam_dma_irq,
+-			IRQF_TRIGGER_HIGH, "bam_dma", bdev);
++	ret = request_irq(bdev->irq, bam_dma_irq, IRQF_TRIGGER_HIGH, "bam_dma", bdev);
+ 	if (ret)
+ 		goto err_bam_channel_exit;
  
-+static const struct bam_device_data bam_v1_3_data = {
-+	.reg_info = bam_v1_3_reg_info,
-+};
-+
- static const struct reg_offset_data bam_v1_4_reg_info[] = {
- 	[BAM_CTRL]		= { 0x0000, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x0004, 0x00, 0x00, 0x00 },
-@@ -171,6 +179,10 @@ static const struct reg_offset_data bam_v1_4_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0x1820, 0x00, 0x1000, 0x00 },
- };
- 
-+static const struct bam_device_data bam_v1_4_data = {
-+	.reg_info = bam_v1_4_reg_info,
-+};
-+
- static const struct reg_offset_data bam_v1_7_reg_info[] = {
- 	[BAM_CTRL]		= { 0x00000, 0x00, 0x00, 0x00 },
- 	[BAM_REVISION]		= { 0x01000, 0x00, 0x00, 0x00 },
-@@ -200,6 +212,10 @@ static const struct reg_offset_data bam_v1_7_reg_info[] = {
- 	[BAM_P_FIFO_SIZES]	= { 0x13820, 0x00, 0x1000, 0x00 },
- };
- 
-+static const struct bam_device_data bam_v1_7_data = {
-+	.reg_info = bam_v1_7_reg_info,
-+};
-+
- /* BAM CTRL */
- #define BAM_SW_RST			BIT(0)
- #define BAM_EN				BIT(1)
-@@ -393,7 +409,7 @@ struct bam_device {
- 	bool powered_remotely;
- 	u32 active_channels;
- 
--	const struct reg_offset_data *layout;
-+	const struct bam_device_data *dev_data;
- 
- 	struct clk *bamclk;
- 	int irq;
-@@ -411,7 +427,7 @@ struct bam_device {
- static inline void __iomem *bam_addr(struct bam_device *bdev, u32 pipe,
- 		enum bam_reg reg)
- {
--	const struct reg_offset_data r = bdev->layout[reg];
-+	const struct reg_offset_data r = bdev->dev_data->reg_info[reg];
- 
- 	return bdev->regs + r.base_offset +
- 		r.pipe_mult * pipe +
-@@ -1205,9 +1221,9 @@ static void bam_channel_init(struct bam_device *bdev, struct bam_chan *bchan,
- }
- 
- static const struct of_device_id bam_of_match[] = {
--	{ .compatible = "qcom,bam-v1.3.0", .data = &bam_v1_3_reg_info },
--	{ .compatible = "qcom,bam-v1.4.0", .data = &bam_v1_4_reg_info },
--	{ .compatible = "qcom,bam-v1.7.0", .data = &bam_v1_7_reg_info },
-+	{ .compatible = "qcom,bam-v1.3.0", .data = &bam_v1_3_data },
-+	{ .compatible = "qcom,bam-v1.4.0", .data = &bam_v1_4_data },
-+	{ .compatible = "qcom,bam-v1.7.0", .data = &bam_v1_7_data },
- 	{}
- };
- 
-@@ -1231,7 +1247,7 @@ static int bam_dma_probe(struct platform_device *pdev)
- 		return -ENODEV;
+@@ -1336,7 +1335,7 @@ static int bam_dma_probe(struct platform_device *pdev)
+ 	ret = dma_async_device_register(&bdev->common);
+ 	if (ret) {
+ 		dev_err(bdev->dev, "failed to register dma async device\n");
+-		goto err_bam_channel_exit;
++		goto err_free_irq;
  	}
  
--	bdev->layout = match->data;
-+	bdev->dev_data = match->data;
+ 	ret = of_dma_controller_register(pdev->dev.of_node, bam_dma_xlate,
+@@ -1355,6 +1354,8 @@ static int bam_dma_probe(struct platform_device *pdev)
  
- 	bdev->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(bdev->regs))
+ err_unregister_dma:
+ 	dma_async_device_unregister(&bdev->common);
++err_free_irq:
++	free_irq(bdev->irq, bdev);
+ err_bam_channel_exit:
+ 	for (i = 0; i < bdev->num_channels; i++)
+ 		tasklet_kill(&bdev->channels[i].vc.task);
+@@ -1371,6 +1372,8 @@ static void bam_dma_remove(struct platform_device *pdev)
+ 	struct bam_device *bdev = platform_get_drvdata(pdev);
+ 	u32 i;
+ 
++	free_irq(bdev->irq, bdev);
++
+ 	pm_runtime_force_suspend(&pdev->dev);
+ 
+ 	of_dma_controller_free(pdev->dev.of_node);
+@@ -1379,8 +1382,6 @@ static void bam_dma_remove(struct platform_device *pdev)
+ 	/* mask all interrupts for this execution environment */
+ 	writel_relaxed(0, bam_addr(bdev, 0,  BAM_IRQ_SRCS_MSK_EE));
+ 
+-	devm_free_irq(bdev->dev, bdev->irq, bdev);
+-
+ 	for (i = 0; i < bdev->num_channels; i++) {
+ 		bam_dma_terminate_all(&bdev->channels[i].vc.chan);
+ 		tasklet_kill(&bdev->channels[i].vc.task);
 
 -- 
 2.47.3
