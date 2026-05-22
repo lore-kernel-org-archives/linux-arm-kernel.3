@@ -4,98 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D01CD5BB5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591F1CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYSKle0N5gkhHFZVlrjMQ1yuCxunHMt9ZfrNwqt0f6k=; b=p4G3OiFznqICPfzPj1hVRb1Mzk
-	moEVzkl3ImliSXKpvDDaFkbu1sNnaSYK0Dvm9KmlFD7swndBf08ZuCSfc6M7jnNVtSxEwEkX9mV6u
-	+drNxj+R7qIuNtGRzM8GQ2pCxOj4zLtsvYKsAyoVo5ccyEyujWu2qnTScnU9g+fRSCZCQ3TpEylwe
-	OUupDVgAQGESIh7r/57mPMkRrjYijTkAQFXJZ9DEh3QCiIVOWoQ9Zk5EJg1jMLTEmoCSmeJLO3UdG
-	38wmObWMlBxCjfHd8slAA3ujyh19dCJ00O/vUf0rS3hpkw8I9hsBeidFiwQG0v7DK+s2CW35MLcIM
-	s/7tnqAw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T3tk8Eb5PMfkxhc7QmwtyePErKb19NAaN1ycAhnODwQ=; b=B9tG2rczxZxewrYq7fmdFb43qx
+	e3Q53RDQqWEBXYpQBfVuTl1PxCvgqqEel07Zg3DD94U5lB8Ghn+dTdZrP9NVSLeDetF9Xt37RK8M4
+	dITGiRPcQPSa+NNC2fur49T5LkjjDov4awWu//rqWFnsvUsfhg9e1GL9CFNtbznP2UwtEUMlOKh/9
+	Jg8LMXahorUJbn+50OLpJxTRrtrTwDQWbxW4IpGtTQjZsMDo6kbIxz7xBn/W3t5XKqFDzbVI0bwyx
+	sazHMTCYOTVu7VU7Zy8KAmiUG5uWUcB3g38Qa8RYDaj7kZdsD9Ewa1FkkyuOp9E8Zc2VQWxKPHkKC
+	9SuFc04Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQNvt-0000000AbyI-3DE1;
-	Fri, 22 May 2026 11:20:49 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wQNxv-0000000Accz-19Ah;
+	Fri, 22 May 2026 11:22:55 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQNvo-0000000AbuZ-13PL
+	id 1wQNxs-0000000Acbn-2N7o
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 11:20:45 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4903d730b1fso14030735e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 04:20:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779448843; x=1780053643; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hYSKle0N5gkhHFZVlrjMQ1yuCxunHMt9ZfrNwqt0f6k=;
-        b=qOXGv0ETFp2KUs02yrJ4DrenyUulm3fWcuvFFJIwE2Gev6ZprX+N5pfwYVRAVaElCj
-         LHCXbNumONAtkE4vvMVYR7/Q8VzB7r++fbaAgRhuwlNPuyJrbMdl/c96WAEvbtf2gwa+
-         bjOvzZF0q4+bZLHtJGC4f8xW3bDTBTmwBavEnJer2F2J1zv8qyoJyKAhjPAWFMWp2FsD
-         wPymUjnqn9/vxKct/srOdjkMKzvJB0B5Wa9IVIgR6GAeKaX1QJk3CqdqHYZBZ8xYnuAa
-         f+KTWnybDD87tk1+pxKgbEHNMMHMAGBmkG0IrSMyrfrBYSdjpKLx5guUddoZwxptyKPX
-         rDPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779448843; x=1780053643;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=hYSKle0N5gkhHFZVlrjMQ1yuCxunHMt9ZfrNwqt0f6k=;
-        b=aC5LQEz/Q7YojOCeOtTRzZXo5tFOwUDpEY3tK2FUHGuURxngCqTrKxHUqqnJBDj4zB
-         ng+D0TVdBkgKiP5Ams2b+j5Wa6tuU9CMGPwVfbKSwH1IR61lEnuQ21/o2jrHH36bGy9H
-         zE2wL2XrOCgihiqobknNZFs1IdDxg5/pXeaTMqBWRpzbVSkX09G6CzHmNV4OtGGdW6xJ
-         UtNVWEkXgKePbXkcT6BgXub46LJI3wC50i5GGzMETxn6M+6ggpHjQcVuFZ4CfauwrgAe
-         Szg4PBUo4fPiKqjLrTluFCXUbFMxHe/Z4JMNpvSJxyagFsHBp2jiMYjVb/K3TCvvDw4J
-         KAIg==
-X-Forwarded-Encrypted: i=1; AFNElJ8q+rlEto8rhGpErM36PCygRhFHWStI5TFnjrE//pWQHoMtIKVmUIiw3BKZubOKO2hE6doD/gYoJHI4AT2OvFT9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzhONrVOk5hTW1jzS/G5eA6den7iqRp/+j8IyxxBVdd2o8Xllh
-	tYvb5SvjUvT43qJMC2U2Dsilyuii/jz3M64RTxl4Wvpv8AyG0uMrMBj0
-X-Gm-Gg: Acq92OEq6yKBjVZSQS4aQfxDBKDtdbvwv+e/HmzmBSaXbJQRSSmIk9Tlt1JucU52joN
-	JpijqX2/ko9bG0tNT+fHBWC4SMZcyEc/6Uc+F/PGlk0eAJhYqKQ4gtRbGd73o/X51jvnzp/ko2G
-	duOTghNsptzw8FjKYcLoGOij9iG7MeJAIzzhVkIdzFX1qL1NmKgn1v+ZKG+D164c8mFNOyU4fW/
-	pYRg92BayAR4iWjP0Zg6L/9OmzZnld/RkD87FKumqL1HUGNG1OxFSLyYo70veIPNaxDomSeQRak
-	ndztV0Wm2F8PGiE1EOCihlmuc2gqIsgdk3zDoZLo3Vm2G+AsdJQTs8Eiz8cN/yYiex0A9VpZRUf
-	qxhe78O3oUzsnSkujMcRyBnO4dScRxkh8M+iOJ4oCMoo/A5SRETMsb7zqsldovFoaSUNA9Rqrv9
-	NH8jE5MLYcodGban45L6L9BGm9HxNqP+VwasnXSFu6PEHzuzp1/7qS59VM9BOE
-X-Received: by 2002:a05:600c:a402:b0:48a:f18:ece4 with SMTP id 5b1f17b1804b1-490426d3f95mr30812985e9.24.1779448842577;
-        Fri, 22 May 2026 04:20:42 -0700 (PDT)
-Received: from SMW024614.wbi.nxp.com ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4904526ca21sm34388355e9.3.2026.05.22.04.20.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 04:20:42 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
+	Fri, 22 May 2026 11:22:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=T3tk8Eb5PMfkxhc7QmwtyePErKb19NAaN1ycAhnODwQ=; b=YlxTvWMujQk4CbaU8jtSHO4WJ6
+	fueDXX3ufB6F//ly60ToZcsDNyfh+4+VDfbnUZ31vqRoIobsxduZLfyHNRrbke3hezgdGo9d/Yyl4
+	I5VmiagAjnp1eBqO6VJ4f2VPug4WHScXsRAE2d8HG5kbO2cDL6sVXZE96GqEDyOidK3sTYp/M2l8k
+	x0oT3Zs9PrdHv9E7/qFzi1PwkaxUdiufHZHfkPAMME8OsxucEnIKhRQ9NLg4Kf70+VgttsDntFqzT
+	HnT48i8ZmyiojpcQ8vpqi1nz0jlgpgzxbLE3x7F2CQ/PRxtL3CatZaeWhfYjSDt54CVDFhagJTIzn
+	rpQWYdeA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wQNxp-0007q9-2z;
+	Fri, 22 May 2026 13:22:49 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wQNxo-000HQJ-25;
+	Fri, 22 May 2026 13:22:49 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-remoteproc@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: linux@ew.tq-group.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/5] arm64: dts: freescale: add DT overlay for MX95-15x15-FRDM RPMSG usage
-Date: Fri, 22 May 2026 04:18:49 -0700
-Message-ID: <20260522111849.783-6-laurentiumihalcea111@gmail.com>
+Subject: [PATCH 1/1] arm64: dts: tqma8mpql-mba8mpxl: configure sai clock in sound card as well
+Date: Fri, 22 May 2026 13:22:46 +0200
+Message-ID: <20260522112247.1046944-1-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
-References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28008/Fri May 22 08:24:46 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_042044_313608_A2D0F3D2 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20260522_042252_721174_DBC1D8F5 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,111 +90,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+With deferrable card binding the sound card driver tries to
+get the mclk configuration before it is setup in sai3 node.
+Fix this by setting the mclk config for the sound card as well.
 
-Add RPMSG DT overlay for the MX95-15x15-FRDM board. This overlay is meant
-to be used with the mx95evkrpmsg system manager configuration for
-remoteproc and audio over rpmsg-usecases.
-
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Fixes: d8f9d8126582 ("arm64: dts: imx8mp: Add analog audio output on i.MX8MP TQMa8MPxL/MBa8MPxL")
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile        |  3 +
- .../dts/freescale/imx95-15x15-frdm-rpmsg.dtso | 65 +++++++++++++++++++
- 2 files changed, 68 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
+ arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 513f61eb27b8..a30a99e42426 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -521,6 +521,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx943-evk-pcie0-ep.dtb imx943-evk-pcie1-ep.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-ab2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-frdm-rpmsg.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-toradex-smarc-dev.dtb
-@@ -539,6 +540,8 @@ dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-mallow.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-yavia.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-verdin-wifi-zinnia.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+index 890d1e525a489..1ea1da735762f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+@@ -246,6 +246,9 @@ sound {
+ 			"IN1_R", "Line In Jack",
+ 			"Line Out Jack", "LOL",
+ 			"Line Out Jack", "LOR";
++		assigned-clocks = <&clk IMX8MP_CLK_SAI3>;
++		assigned-clock-parents = <&clk IMX8MP_AUDIO_PLL1_OUT>;
++		assigned-clock-rates = <12288000>;
+ 	};
  
-+imx95-15x15-frdm-rpmsg-dtbs = imx95-15x15-frdm.dtb imx95-15x15-frdm-rpmsg.dtbo
-+
- imx95-15x15-evk-pcie-dtbs += imx95-15x15-evk.dtb imx-m2-pcie.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx95-15x15-evk-pcie.dtb
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-new file mode 100644
-index 000000000000..b39444dde66e
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-frdm-rpmsg.dtso
-@@ -0,0 +1,65 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2026 NXP
-+ *
-+ * This DT overlay is meant to be used alongside the mx95evkrpmsg SM
-+ * configuration for remoteproc and audio over rpmsg.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		vdev0vring0: memory@88000000 {
-+			reg = <0 0x88000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: memory@88008000 {
-+			reg = <0 0x88008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: memory@88020000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x88020000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		rsc_table: memory@88220000 {
-+			reg = <0 0x88220000 0 0x1000>;
-+			no-map;
-+		};
-+	};
-+
-+	sound-micfil {
-+		status = "disabled";
-+	};
-+};
-+
-+&cm7 {
-+	memory-region = <&vdev0buffer>, <&vdev0vring0>,
-+			<&vdev0vring1>, <&rsc_table>;
-+	memory-region-names = "vdev0buffer", "vdev0vring0",
-+			      "vdev0vring1", "rsc-table";
-+	status = "okay";
-+};
-+
-+&edma1 {
-+	/* reserved for M7 */
-+	dma-channel-mask = <0x40>;
-+};
-+
-+&edma2 {
-+	/* reserved for M7 and V2X */
-+	dma-channel-mask = <0xf>;
-+};
-+
-+&micfil {
-+	/* reserved for M7 */
-+	status = "disabled";
-+};
+ 	sound-hdmi {
 -- 
 2.43.0
 
