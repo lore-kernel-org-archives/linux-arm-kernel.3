@@ -4,99 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB06CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07F96CD5BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:53:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmsULhgzdpYks2pjKVsx1r2w1Y1WKpYU4+YB5dkEfOM=; b=uyI23BM7LKtYEHqDfxlVYY8tcp
-	ZuUY+06gxvVUaHwi2cGHrmmVyQUw7txnM5wgOePCJqgOFM49zpnYunec3iBodsuAdbaA4iyCesf0l
-	8H/bv5avNskb8WCG5BvC3c9iRxL9kso+oBWGw7OuC/Yzq7pJcG3GpkXFGPE2E4cTRtyRuJqKqpKWY
-	MIXfW9vJZsErqLVFJlThCa/flL5RFCt+FZbOrd6GqvWW2wEIircdeid1Tr1Ql2xTq7RpFcZGOboKX
-	Kb41cqpjv9JpQmWycwyaCx48xQGaTo4fOr1f8ls1DG1qZ4NGw7qR+rj3LgmJoNY6CrlFpjarf8NyL
-	lmZbVTYw==;
+	bh=nLi5o9aFHCLXZcuSgGlSphUfHtenwcEC6tB28xNcNAc=; b=Xut/ZJLXVRW9gB9Wqd22iLXd6P
+	GViYwYd4WoCN+Kj8VVA2b/UpwYv5XsMgFdY2eMHrCnnQ81nfmXn09ovzaqjhtgMjMUI3XKnlYPuHB
+	eamIVMnWWV5RmMme1HyLmXDV8U4tu7AFQCgeuCKrUFMemeld8klSq/WqQ/bGyvT22SldxYp2oT5yw
+	jc/UQAEBNyFRQPLQtXXpIiHNjqqjXMUc6BmeMXbVuez3LJQuY5v/CnXgpRs5GiSQRceN1WHcHikY7
+	P0ecghYWYatWCMlCxth7u14L80/1WLLzf29WTZZQMCTaIXKEZUq6viT84KAcwgEQFVSdwKz9iMGCs
+	YH7uCPVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQS9y-0000000BKtp-2KrR;
-	Fri, 22 May 2026 15:51:38 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wQSBd-0000000BLBg-3T5g;
+	Fri, 22 May 2026 15:53:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQS9v-0000000BKtF-3fRj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 15:51:37 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891c00e7aeso54551135e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 08:51:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779465094; x=1780069894; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=CmsULhgzdpYks2pjKVsx1r2w1Y1WKpYU4+YB5dkEfOM=;
-        b=QqSrDh50GgZ38kaBArTRjFQIBwiugm/YsoJ/dBlJ0ItGFz9wfkFZzwXoor48ZDbb6e
-         mrnQ5dPXR3/IyMRlkSLmy3+8v3CJ1kuBpXiNcAWjhqehsIiJ+fKUQpwvTtkGBNE37HuF
-         yhmhkUs1BnnXyQsyQ6LS1+bq78/1T7qk5O6j/x6oty/6PnOQiWn3gc083Um5twKiCIWB
-         lF+/vI/81tQVd40TDrZ7XoJTP1/bj9ZREaDIZLRJFRMojqQusP9588SKvR63ZGShZ3Hk
-         QLGkAssBE1a7QZc8IH/ch4cD8I08qq9gLuMhUf6kQkYquBRzfqWjMhPtCfcn9pHjIVcv
-         UmJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779465094; x=1780069894;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CmsULhgzdpYks2pjKVsx1r2w1Y1WKpYU4+YB5dkEfOM=;
-        b=ewU01h8fVa/HpJfy3/Kow7wszI+aW2krS7oPm5hm+j8bqgJIW2XQMCFEAD/2W4DE6w
-         ChlpnojzknGLXFAr08dxUoG4YvUMZVEoNmecOctG6sIOG0qrq5IVSSvoxo6suqjb2yJF
-         qDWXxiiNiClEF1Gpem55i/F2Xy6WuXkHbeFi1qfb0IfoBbtw+G694H74v+WspyCHmY1M
-         uF5sD5SMkxFY16b6ulzSYCfatqVoOMG7l0oELTef/VO4l3z99Ar0Ukk/oR47iLPssdtw
-         Z8aqJN2zh5KKjr59ySm0Mb4Y8QnMNRVRdDeC2amfT6wfgJth5HkPUVXlCvB3Ou+lUWLj
-         WwHA==
-X-Forwarded-Encrypted: i=1; AFNElJ8Pf+BHt+mEUZ+BpWh7dM3izQIqbK/ldJDUnfuZkWzod+sa5byyKY6nDiQTPspyTGsRq+TMHllDHSSdWsBmJghb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNE8Z62gBimyAtfygnSAVuKFw3erRKmTfclHK/93842BT0OmKx
-	QCH4ef7JdU4BX4glWsv3BUWCn8qHNicWE8fB2lXLZQb7owgAkkGR4ymf
-X-Gm-Gg: Acq92OGRbo973C39+9ZF+eyRgzWWPVHf4P7YhmwTDfDU84uLGOSJ/s0Xmf15t7WQWu6
-	MCmzm7MSigW5I0gv8UB/080L77PLMmFIkdDBkrkEoazCOdTqXCEXBbzRyqGk4f4snxUcywD7HTW
-	RpiF1Rl6uYY5W+jf5cIB5Dehoyasy87e/HmTWzTFrjBNYQOifaGW3/cRxL2om9q6vxKGZV6IJb8
-	CfzwQxwE8Y1z69P7iKGrFC33GExrTa8Xa99M/vkugJYwaaQJycaMR4YDwHLFtBKQhYUccBy6yH5
-	rLkL6ZqWEWN2WayWX0K44QPlA+lPjEekRU4J1Ga5nJGXs4+dL6tNs5lq+L7QNg2qu3x2R+yLtiY
-	eis2AMkpWydA2pzyRgIAMUIg59Mj+ZiorSHX6EqyU7jq6PFbidqX69b1yaVsBqC/2/5cKhfqigL
-	HSS4g4jORhFe6JdWFqci7OZGiMGSSP94Qg0YJwpCsufNGvq5OS
-X-Received: by 2002:a05:600d:640f:10b0:490:3ff5:737f with SMTP id 5b1f17b1804b1-490426cefe0mr46813985e9.18.1779465093265;
-        Fri, 22 May 2026 08:51:33 -0700 (PDT)
-Received: from vitor-nb.Home (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49042af026esm17298825e9.30.2026.05.22.08.51.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 08:51:32 -0700 (PDT)
-Message-ID: <a6d42b33eaf5dd1e0fcfb3d4854968a081a212b1.camel@gmail.com>
-Subject: Re: [PATCH v2 01/11] arm64: dts: ti: k3-am62-verdin: Add Toradex
- DSI to LVDS adapter with 10.1" display
-From: Vitor Soares <ivitro@gmail.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, David
- Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
- <vigneshr@ti.com>,  Tero Kristo <kristo@kernel.org>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Thierry Reding
- <thierry.reding@gmail.com>
-Cc: Vitor Soares <vitor.soares@toradex.com>,
- dri-devel@lists.freedesktop.org,  devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org,  linux-arm-kernel@lists.infradead.org
-Date: Fri, 22 May 2026 16:51:31 +0100
-In-Reply-To: <20260522132014.226721-14-ivitro@gmail.com>
-References: <20260522132014.226721-13-ivitro@gmail.com>
-	 <20260522132014.226721-14-ivitro@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.44.4-0ubuntu2.1 
+	id 1wQSBb-0000000BLB2-25ze;
+	Fri, 22 May 2026 15:53:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9F3EE406A1;
+	Fri, 22 May 2026 15:53:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43EF31F000E9;
+	Fri, 22 May 2026 15:53:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779465197;
+	bh=nLi5o9aFHCLXZcuSgGlSphUfHtenwcEC6tB28xNcNAc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZN2DCukLsOafoLobH44iXf1sfDoQYg61aOk7vmrcF8XJyYJ/xjht533EHF+60iCye
+	 Cl0E/OaLHSx5X6HjZgBjdalWOrQPrKpQSTDjwYdQZ0egQFhfpgIV5vcKFFcHEOZ1Va
+	 Asp4ZeMkcS2jQtv+tmwx9b+uEaV9jG7TkQbe0VaYRgyf9gGIrt9Mn+Ih7pqUx068BR
+	 QwaIWrsQOMXxHfyB8uf+3n7zv0YsF8pRB4hF/0RHUGB7ieG+pl4/xykuALsEct1wEZ
+	 pH2FkimPHzyfCHlOM9VZbyupr0HROUK05eZbjP+nIqTn83aZ6G4+ZfcP0D1iKlA/cM
+	 rp95h5XVHiBNw==
+Date: Fri, 22 May 2026 16:53:08 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Barry Song <baohua@kernel.org>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
+	Matthew Wilcox <willy@infradead.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Suren Baghdasaryan <surenb@google.com>, akpm@linux-foundation.org, linux-mm@kvack.org, vbabka@kernel.org, 
+	rppt@kernel.org, mhocko@suse.com, jack@suse.cz, pfalcato@suse.de, 
+	wanglian@kylinos.cn, chentao@kylinos.cn, lianux.mm@gmail.com, kunwu.chan@gmail.com, 
+	liyangouwen1@oppo.com, chrisl@kernel.org, kasong@tencent.com, shikemeng@huaweicloud.com, 
+	nphamcs@gmail.com, bhe@redhat.com, youngjun.park@lge.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <ahB6QyHgYq8ksj65@lucifer>
+References: <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <CAGsJ_4zgeE3ebEJ+j7GJFzWVoVYHeiOn4dOoOsmWCLA6s=oECQ@mail.gmail.com>
+ <5zdaa5uv5oj27q3taopl3amops57ouxgyfsdveudz4ovmbdw7z@6lwrlyvmhcp2>
+ <CAGsJ_4yKxg1QugcsJi3WD0KVGJKe-zXycgm5D6cRi9vWtNcpDQ@mail.gmail.com>
+ <ag4h87CBd-gph9zX@casper.infradead.org>
+ <CAGsJ_4zA8afu0xXy0WS+tMe-eesDX1W6UBmfAsuouUpcAgK8JQ@mail.gmail.com>
+ <ag4kj84EcKqamdB-@casper.infradead.org>
+ <3be9475b-0e8a-4df8-a130-4262f993973d@kernel.org>
+ <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_085135_945486_57EF2CAD 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20260522_085319_578141_940BCD18 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,48 +89,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGksCgpPbiBGcmksIDIwMjYtMDUtMjIgYXQgMTQ6MjAgKzAxMDAsIFZpdG9yIFNvYXJlcyB3cm90
-ZToKPiBGcm9tOiBWaXRvciBTb2FyZXMgPHZpdG9yLnNvYXJlc0B0b3JhZGV4LmNvbT4KPiAKPiBB
-ZGQgYSBkZXZpY2UgdHJlZSBvdmVybGF5IGZvciB0aGUgVG9yYWRleCBEU0kgdG8gTFZEUyBBZGFw
-dGVyIHdpdGggdGhlCj4gVG9yYWRleCBDYXBhY2l0aXZlIFRvdWNoIERpc3BsYXkgMTAuMSIgTFZE
-Uy4gVGhlIGFkYXB0ZXIgY29ubmVjdHMgdG8gdGhlCj4gVmVyZGluIERTSV8xIGludGVyZmFjZS4g
-SXQgaXMgYmFzZWQgb24gdGhlIFRleGFzIEluc3RydW1lbnRzIFNONjVEU0k4NAo+IERTSS10by1M
-VkRTIGJyaWRnZSBhbmQgZHJpdmVzIGEgTG9naWNUZWNobm8gTFQxNzA0MTAtMldIQyAxMC4xIiBX
-WEdBIExWRFMKPiBwYW5lbC4gVG91Y2ggaW5wdXQgaXMgcHJvdmlkZWQgYnkgYW4gQXRtZWwgTWF4
-VG91Y2ggY2FwYWNpdGl2ZSB0b3VjaAo+IGNvbnRyb2xsZXIuCj4gCj4gTGluazoKPiBodHRwczov
-L2RldmVsb3Blci50b3JhZGV4LmNvbS9oYXJkd2FyZS9hY2Nlc3Nvcmllcy9hZGQtb25zL2RzaS1s
-dmRzLWFkYXB0ZXIKPiBMaW5rOgo+IGh0dHBzOi8vZGV2ZWxvcGVyLnRvcmFkZXguY29tL2hhcmR3
-YXJlL2FjY2Vzc29yaWVzL2Rpc3BsYXlzL2NhcGFjaXRpdmUtdG91Y2gtZGlzcGxheS0xMDFpbmNo
-LWx2ZHMKPiBBc3Npc3RlZC1ieTogQ2xhdWRlOmNsYXVkZS1zb25uZXQtNC42Cj4gU2lnbmVkLW9m
-Zi1ieTogVml0b3IgU29hcmVzIDx2aXRvci5zb2FyZXNAdG9yYWRleC5jb20+Cj4gClsuLi5dCj4g
-ZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvdGkvazMtYW02MjUtdmVyZGluLWRzaS10
-by1sdmRzLXBhbmVsLWNhcC0KPiB0b3VjaC0xMGluY2guZHRzbyBiL2FyY2gvYXJtNjQvYm9vdC9k
-dHMvdGkvazMtYW02MjUtdmVyZGluLWRzaS10by1sdmRzLXBhbmVsLQo+IGNhcC10b3VjaC0xMGlu
-Y2guZHRzbwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi4wZTg3
-M2YyY2NmNjUKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvYXJjaC9hcm02NC9ib290L2R0cy90aS9r
-My1hbTYyNS12ZXJkaW4tZHNpLXRvLWx2ZHMtcGFuZWwtY2FwLXRvdWNoLQo+IDEwaW5jaC5kdHNv
-Cj4gClsuLi5dCj4gKwo+ICvCoMKgwqDCoMKgwqDCoHJlZ18zdjNfbHZkc19icmlkZ2U6IHJlZ3Vs
-YXRvci0zdjMtbHZkcy1icmlkZ2Ugewo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBj
-b21wYXRpYmxlID0gInJlZ3VsYXRvci1maXhlZCI7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoHJlZ3VsYXRvci1tYXgtbWljcm92b2x0ID0gPDMzMDAwMDA+Owo+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqByZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDwzMzAwMDAwPjsK
-ClNhc2hpa28gZmxhZ2dlZCB0aGUgbWlzc2luZyAncmVndWxhdG9yLW5hbWUnIHByb3BlcnR5IGhl
-cmUsIAoKPiArwqDCoMKgwqDCoMKgwqB9Owo+ICt9Owo+ICsKPiAKClsuLi5dCj4gKwo+ICvCoMKg
-wqDCoMKgwqDCoHRvdWNoQDRhIHsKCmFuZCB0byB1c2UgdGhlIGdlbmVyaWMgbm9kZSBuYW1lICd0
-b3VjaHNjcmVlbkA0YScgaGVyZSBpbnN0ZWFkIG9mCid0b3VjaEA0YScuCgo+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqBjb21wYXRpYmxlID0gImF0bWVsLG1heHRvdWNoIjsKPiArwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgcmVnID0gPDB4NGE+Owo+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+ICvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqBwaW5jdHJsLTAgPSA8JnBpbmN0cmxfZHNpMV9pbnQ+LCA8JnBp
-bmN0cmxfaTJzXzJfYmNsa19ncGlvPjsKPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-LyogVmVyZGluIEdQSU9fOV9EU0kgKFNPRElNTSAxNykgLSBUT1VDSF9JTlQjICovCj4gK8KgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGludGVycnVwdC1wYXJlbnQgPSA8Jm1haW5fZ3BpbzE+
-Owo+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBpbnRlcnJ1cHRzID0gPDQ5IElSUV9U
-WVBFX0VER0VfRkFMTElORz47Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoC8qIFZl
-cmRpbiBJMlNfMl9CQ0xLIChTT0RJTU0gNDIpIC0gVE9VQ0hfUkVTRVQjICovCj4gK8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoHJlc2V0LWdwaW9zID0gPCZtYWluX2dwaW8wIDM1IEdQSU9f
-QUNUSVZFX0xPVz47Cj4gK8KgwqDCoMKgwqDCoMKgfTsKPiArfTsKCkkgd2lsbCBzZW5kIGEgdjMg
-YWRkcmVzc2luZyB0aGVzZSBpc3N1ZXMgaGVyZSBhbmQgd2hlcmUgaXQgYXBwbGllcy4KClRoYW5r
-cywKVml0b3IgU29hcmVzCg==
+On Thu, May 21, 2026 at 07:37:58AM +0800, Barry Song wrote:
+> On Thu, May 21, 2026 at 5:35 AM David Hildenbrand (Arm)
+> <david@kernel.org> wrote:
+> >
+> > On 5/20/26 23:15, Matthew Wilcox wrote:
+> > > On Thu, May 21, 2026 at 05:14:20AM +0800, Barry Song wrote:
+> > >> My understanding is that we should not blame applications here. This is 2026:
+> > >> there are basically only two kinds of applications — single-threaded and
+> > >> multi-threaded — and single-threaded applications are nearly extinct.
+> > >
+> > > all of the applications i run are either single threaded or don't fork.
+> > > what multithreaded applications call fork?
+> >
+> > Traditionally the problem was random libraries using fork+execve to launch other
+> > programs ... instead of using alternatives like posix_spwan (some use cases
+> > require more work done before execve and cannot yet switch to that). I'd hope
+> > that that is less of a problem on Android.
+> >
+> > I assume Android zygote might be multi threaded? Maybe sshd as well? Systemd?
+> > But I'd be surprised if there are really performance implications.
+>
+> I am trying to answer the question above:
+>
+> 1. zygote, multi-threaded on my phone using Android13.
+> / # ls /proc/`pidof zygote64`/task/
+> 1359  22728  22729  22730  22731  22732
+>
+> /proc/1359/task # cat 22728/comm
+> Jit thread pool
+> /proc/1359/task # cat 22730/comm
+> ReferenceQueueD
+> /proc/1359/task # cat 22731/comm
+> FinalizerDaemon
+> /proc/1359/task # cat 22732/comm
+> FinalizerWatchd
+> /proc/1359/task # cat 1359/comm
+> main
+>
+> But on another phone of mine running Android 16, zygote64 is
+> single-threaded.
+> Not sure if it is due to the Android team making some changes
+> related to threads from Android 13 to Android 16.
+>
+> 2. sshd, multi-processes instead of multi-threads:
+> $ ps aux | grep sshd
+> root        1192  0.0  0.0  15444  9032 ?        Ss   09:42   0:00
+> sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+> root        2465  0.0  0.0  17164 10760 ?        Ss   09:42   0:00
+> sshd: barry [priv]
+> barry       2632  0.0  0.0  17164  7852 ?        S    09:42   0:00
+> sshd: barry@pts/0
+> root        3305  2.5  0.0  17164 10772 ?        Ss   09:44   0:00
+> sshd: barry [priv]
+> barry       3406  0.0  0.0  17164  7940 ?        S    09:44   0:00
+> sshd: barry@pts/1
+>
+> 3. systemd, also multi-processes
+>
+> $ ps ax | grep systemd
+>     350 ?        S<s    0:00 /lib/systemd/systemd-journald
+>     387 ?        Ss     0:00 /lib/systemd/systemd-udevd
+>     666 ?        Ss     0:00 /lib/systemd/systemd-oomd
+>     667 ?        Ss     0:00 /lib/systemd/systemd-resolved
+>     728 ?        Ss     0:00 @dbus-daemon --system --address=systemd:
+> --nofork --nopidfile --systemd-activation --syslog-only
+>     751 ?        Ss     0:00 /lib/systemd/systemd-logind
+>     753 ?        Ssl    0:00 /usr/sbin/thermald --systemd
+> --dbus-enable --adaptive
+>    1350 ?        Ss     0:00 /lib/systemd/systemd --user
+>    1428 ?        Ss     0:00 /usr/bin/dbus-daemon --session
+> --address=systemd: --nofork --nopidfile --systemd-activation
+> --syslog-only
+>    1900 ?        Ssl    0:00 /usr/libexec/gnome-session-binary
+> --systemd-service --session=ubuntu
+>    2141 ?        Ssl    0:00 /lib/systemd/systemd-timesyncd
+>
+> >
+> > Not sure about webbroswers .... I think most of them switched to fork servers,
+> > where I would assume fork servers would be single-threaded.
+>
+> On my phone, Chrome is multi-process, but its parent process
+> chrome_zygote (10774) is single-threaded:
+>
+>  ps -A | grep chrome
+> u0_i15        9883 10774 321066464 119452 do_epoll_wait     0 S
+> com.android.chrome:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:15
+> u0_a142      10164  1359 35110548 277640 do_epoll_wait      0 S
+> com.android.chrome
+> u0_a278      10724  1359 9779864 104988 do_epoll_wait       0 S
+> com.google.android.apps.chromecast.app
+> u0_a142      10774  1359 32803908 64076 do_sys_poll         0 S
+> com.android.chrome_zygote
+> u0_a142      11173  1359 34208592 142192 do_epoll_wait      0 S
+> com.android.chrome:privileged_process0
+>
+> /proc/10774/task # ls
+> 10774
+>
+> >
+> > So, yeah, getting a clear understanding how this ends up being a problem on
+> > Android would be great.
+>
+> I guess the real issue is that in the Android market, there
+> are so many applications that are out of our control？
+>
+> Here are some trace examples from Nanzhe:
+>
+> iQIYI plugin
+> vma reader thread:
+> PbMisc-0, pid=27183, tgid=26444
+>
+> vma writer thread:
+> i.video:plugin1, pid=27298, tgid=26444
+> writer blocked: 440394938 ns (440 ms)
+>
+> reader stack:
+> vma_start_read
+> lock_vma_under_rcu
+> do_page_fault
+> do_translation_fault
+> do_mem_abort
+> el0_da
+> el0t_64_sync_handler
+> el0t_64_sync
+>
+> writer stack:
+> __vma_start_write
+> dup_mmap
+> copy_mm
+> copy_process
+> kernel_clone
+> __arm64_sys_clone
+> invoke_syscall
+> el0_svc_common
+> do_el0_svc
+> el0_svc
+>
+>
+> Baidu Tieba
+> vma reader thread:
+> elastic_pms_pro, pid=7731, tgid=7575
+>
+> vma writer thread:
+> com.baidu.tieba, pid=8005, tgid=7575
+> writer blocked: 514975545 ns(515 ms)
+>
+> reader stack:
+> vma_start_read
+> lock_vma_under_rcu
+> do_page_fault
+> do_translation_fault
+> do_mem_abort
+> el0_da
+> el0t_64_sync_handler
+> el0t_64_sync
+>
+> writer stack:
+> __vma_start_write
+> dup_mmap
+> copy_mm
+> copy_process
+> kernel_clone
+> __arm64_sys_clone
+> invoke_syscall
+> el0_svc_common
+> do_el0_svc
+> el0_svc
+>
+> Thanks
+> Barry
 
+Again this is making me want to sit outside and sip on some lemonade and
+ice :)
+
+Yes - android processes are aggressively multi-threaded, sure of course.
+
+The missing bit here is the forking - what, where, why, when?
+
+And then you say zygote is sometimes multi-threaded but sometimes
+single-threaded, which is adding a whole bunch of confusion on top of all
+that.
+
+I don't find these stack trace dumps all that useful (though thanks of
+course for taking the time to gather them), I think we'd be better off with
+specific data on forking, in some _concise_ _summarised_ form, ideally with
+numbers.
+
+There's such a thing as too much information :))
+
+Anyway, again, please let's see a new _RFC_ with the approach proposed by
+Suren, with some _succinct_ data demonstrating _exactly_ what the problem
+is, so we can make some headway here.
+
+And now I'm off for a cornetto! :)
+
+Thanks, Lorenzo
 
