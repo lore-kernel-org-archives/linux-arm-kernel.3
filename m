@@ -4,76 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FC2CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B18CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1VP0I5e0ufBlO/EQyt5HzbYsoWQVop3w58BlGpn+ZI=; b=PzTkC2YO+o0qSsCzAqz7QnNEfg
-	9qaU1pdJdQ0VPsTR9QUCzjQeVZCoBrKmNGBdTJGcmlmcHYRi8ExmZzZ6RoVGGduDUj2OUA8KIprIy
-	Ix21Xz6Cf8ghosH5K0D7hc+7LFNfbIriopOvA1rY7ubj5jaQ1iv1cI2p8r5UATGjqsyTwYJ9v7nF9
-	zHxmhWj0Y7kU4//lThpM9yPZYE5raSDnrIKzlNTdNKsPztGQ26ntxwH6fjYR4HQqiOuHp7XGR5n/L
-	FbL/HfisUsctLUHPI0rwK6TblfgNd192fOm7hUmARQhl3izWedscgofhO7Bhp97JJWEgWPJHqdEwX
-	1onltkzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2tdQC0Bt65JnQr9aYisnmrIEEtfADpkbf1pSjfQh6/c=; b=TmUOmYKhOd9BO1nswya0saQMGh
+	7in0CX0eidr+4xb7PtH5rAEdWBe9n4/WxWDVJRUCTRsjDcjaAYV73HYpTflrg0jA6bpz+H3hIw76J
+	1gyzI3CGOsEmSOnk/TQLBTwzvvEBEfF7Ou2x6X5nCneC0fSXi9A55/8/2Syv7a+s+m4JUIZCv50J3
+	BdUe8NefkhBt1gMQTvuBic5Zizfn4oj5L+EISjYmY3QAlnLSwaWKoh1L5qOiR5dspRUQtwMFcAD6X
+	EyaPxoU3ukLoVcCX266e1/2S9Qv8WuTmAr01mrujGQzkI+0CNKkGuWa2RDMPtjBRweqIj53AiLlq8
+	dqpfuydg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQOHE-0000000Af2W-0jj4;
-	Fri, 22 May 2026 11:42:52 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wQOJT-0000000AfJd-0nB3;
+	Fri, 22 May 2026 11:45:11 +0000
+Received: from mail-japaneastazon11023073.outbound.protection.outlook.com ([52.101.127.73] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQOHB-0000000Af1d-1gjL;
-	Fri, 22 May 2026 11:42:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779450166;
-	bh=eEnxhVP7h9oNVDGsBLFcwZgYtanJdNFLIjNzXRvxveg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pQIbBUKfLUUcBeUIyJLFkWg85GrWbe3+dbaliKFQTozycasoD6CoVrro0PxJL8Rse
-	 pKiRSM/4ODqb/IYIBpQIT/uar68Rg3pWgbECr1h+oNU+gYPzfLvHxiQimyUkfM28Cq
-	 FgjsLmQE9E6g9aC1SHo0NN1rrFUr3WWwuzVgVeh57CRfOtvPDmdUonIolcuxwqEmNy
-	 nznWdddZfPNEZl7JQ6uwKqOxCR5JZskhIc9Hh/6dew0r9X9niUqiDhIoWY6m0ir+l9
-	 JD8ycgKgs+5IGbNuHbCo5bulYhm4FATTK2jpvwKE/9R1CY86LMYuMeRZq04gxhZ5eu
-	 bbkR3rq9UMdzw==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B903917E0550;
-	Fri, 22 May 2026 13:42:45 +0200 (CEST)
-Message-ID: <64a21a69-d99b-4ae3-9477-dd0f6b37f689@collabora.com>
-Date: Fri, 22 May 2026 14:42:45 +0300
-MIME-Version: 1.0
+	id 1wQOJP-0000000AfIr-3ULy;
+	Fri, 22 May 2026 11:45:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oGU4JaGvkAC6s32c0rFVreVBuTKD2GreK7MgrP0hxyhohj5F7aA8Jk9uFyyA/ueqNICHhg4Ogk3FECTstZkBeqv69tTtU2IA0jjTdi1s99AvsBpauPNKSdAPGVkfEHBMlxHpU19n4UxDNJpealUQuMaJSEy8J4XY2bCELklXcfd33hl754s+fdDz2HCUGKeA7tgjrYQERRxyRjtUR7XB/3xJv3gRYGi6Tq2a2fu2B8hY7bXvsjiKAdROg/MJE/8VABtdfg1dvp5BbkyV4p3Th/iz444nhtMoJux6Ws0GwIq3p2lf9KpbFtlmWh+gZDTqZoC7DY0UhtjsgtQaVE8f3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2tdQC0Bt65JnQr9aYisnmrIEEtfADpkbf1pSjfQh6/c=;
+ b=LbIrKE6o8Zeu6ccjS61JciVCAGzSkVrBNlTA+GhbLdIt0FPlLNHLM2ZgPaQUQ2cZ202/EqAoc9bVRWy8wG+B5ai2/nFVQlxspdb7DGMtlmvT4AJiVtlRLXolTGc60/dQTt9NQG6fAoV/7AyZkOeU5l2rinuyFdBMuepZmcHpweoumN/LZsNyTPBywvfW7bM4G/rlhv3qsLQSHEzd4hQnJCkhOO2A6tNV/x74khHX6XRdjoOIPMKWI+2oE15oEpM60u3Md9Yvp2N2ag8H9/q/o3WllF5GMCyKUAt0fVd3WyJgM+OUQdJTxp9B/+3S81keNst+ak2y5a21WRAj9tuR6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2tdQC0Bt65JnQr9aYisnmrIEEtfADpkbf1pSjfQh6/c=;
+ b=kpH02bnOn+nROgNfA040Cq+HI1BZRn5v5v3sM/SYWdBLM+recdIJWBgZW0bFwDZBW9FlgyjGwAZfBS1Q0yA01O+q5LG8VAUFQbPzOx/+FkfTvdYhrLNfk/B469SfUdYKhHLgLzPJAepbJu+sm39ZNqPHfskoDLZ6bm6hkI3v18UjTt0gqTic7ZXxp1ErWTIqurK//IoKHiWrIlZ9nyIfCvIaI5r56ox7gB5EJvSRdEc0fpE7SiI/JrXNjZxTfhjzR9WO1DQ0hpEXkxn2syDO0WKBu0+5hVehcnYpkteFvTSd5jBT96lt4RRrKBQJpLXUsmA6OC1wtncLC9bXKW6Nsg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SEYPR03MB7191.apcprd03.prod.outlook.com (2603:1096:101:d4::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.7; Fri, 22 May 2026
+ 11:44:47 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0071.005; Fri, 22 May 2026
+ 11:44:47 +0000
+Message-ID: <86d0e5f0-f1be-4fa9-aad9-c498e2740e95@amlogic.com>
+Date: Fri, 22 May 2026 19:44:45 +0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 04/22] drm/display: scdc_helper: Add HDMI 2.0
- scrambling management helpers
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Daniel Stone <daniels@collabora.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
- <20260520-dw-hdmi-qp-scramb-v6-4-24b74603b782@collabora.com>
- <20260521-chestnut-harrier-of-enhancement-2bcfa2@penduick>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260521-chestnut-harrier-of-enhancement-2bcfa2@penduick>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 02/10] dt-bindings: clock: Add Amlogic A9 PLL clock
+ controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
+ <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
+ <20260511-b4-a9_clk-v1-2-41cb4071b7c9@amlogic.com>
+ <20260515-subtle-sepia-tuatara-cfee3d@quoll>
+ <40e83bed-e7a0-4c66-806c-c2988c5d0f33@amlogic.com>
+ <7c458070-a56a-4d49-89fc-efeb388beffc@kernel.org>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <7c458070-a56a-4d49-89fc-efeb388beffc@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SG2P153CA0018.APCP153.PROD.OUTLOOK.COM (2603:1096::28) To
+ KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEYPR03MB7191:EE_
+X-MS-Office365-Filtering-Correlation-Id: 43f50ac5-e2b9-4496-a251-08deb7f7868b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|22082099003|56012099003|18002099003|4143699003|11063799006|3023799007;
+X-Microsoft-Antispam-Message-Info: EqaQvtPL2PpKpT1LEVXXqjLlY6wzH4W8c/E39YOXxJU+wvhzOT/vgCIYqzYCQn++ZMGw4l5XvO3LjtZr+8QAxmwYK0RzC34mLj+CT1SxSI1aPaUOCLsZBKtBM8NWYFh/2TVFk4qoRMcgVcYLLvFtstIJ7hPH5sxTF3R3W6qs5sQNsQEE6oZoSMU/hav38a//CmZR8hgiMQEvfjMDQpQ/Kf3JiM8PErleBLaDJYWueP5yrUIwi5e53E+Ofn/K3cpzqjLf43p0QZft6hilruxC5v18bPEiU96Z57b9mPnoTTcv+hbsN5awDlh75StlX5XKIQ2szowvzgkibvnJElZT7zdQ5Jxc4RBnTinoVUk4nK7+OPMXm2zeHV5599RQDHJ4+wIS5ibmj6ee7E/dzQsCOs3GULUm010s8ghguAt7sSP/teVSYiCAyL94Np0GJ1cp6WIqE0cekxBa8ZnTWyQg+ywLmTaZMw++0Dm3H2dKojTnh+5+Frt4FqXwWH7oW7yMCm968gffvz1BEk3UlDHONkbBJNdzZEoOcyP6FhSLxe5iZGjho13Y+0sVNYBMl1rFdv1nlu5/6qFcd8P0/f3Lei1CUvz2vi5OXbgFK9Asm5irlYbAv4Ujovr8zJWHnZeq4xUGtveboA+dXY/NdSeYxw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(22082099003)(56012099003)(18002099003)(4143699003)(11063799006)(3023799007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c05OQ3lxWGZPU25JYkFsSlN0dWNzMFE4cWhUY2NJR080bnhPS0dnUFhaT1Vq?=
+ =?utf-8?B?aUZnS2V5U3VYUHhsaStmUk5NZmlXRTBDMWFmS3hGN1k3NUtyRmtzbkdhbEtN?=
+ =?utf-8?B?VTdvYkVYWVpHSzhKVlI5SnZTdnI5V1Z0a1B1azVSOHpBaGZhRno2cytkelVo?=
+ =?utf-8?B?aUNrTGkySWxObjFBb2kyN2lMNit6d2dlc3hPdHpIUWZONDhidko5djRYWVhQ?=
+ =?utf-8?B?UytkamNaVnlLSFdLQlhvekVOSkJubHFqZzNpTEYwWFIySnJqUEczdVhqYSsy?=
+ =?utf-8?B?QVNKVmJBaUJqU2FTUCtNWUFRQ0ZkMTFxVUZmck4zRVgySEQ1UjFseUpYMGVx?=
+ =?utf-8?B?TFZHZi9EUFFhQk10N1p6RCtyWDNNQjNwemVHNmo2d2xlVEY0WFpwTkZQeW9B?=
+ =?utf-8?B?VklNdmllRUQ0RHFYNmRoN0NkUEcrZ3hzQXNaU3hjenV4MXBFNlBBV3pnMk11?=
+ =?utf-8?B?L0JHSTFWSXUweDVuejhESWZETXQrUjJKam9ZU1lrcXFmc0dZS1FxdHdFR3Jz?=
+ =?utf-8?B?cVRoa0ZGR0E1MmllOVBwZTA2NjdHcW13ZTE5cVZTZG5SZHNHNVBES0FhZWZu?=
+ =?utf-8?B?MElrMGw0QkZyamc1elMyK3dwUjZ5NVZhdHlBb3JwdVg2NVNobmFSaTNwQkQ1?=
+ =?utf-8?B?OGthdDlYY1ZGSFlhYjVXeWdlSlBlc2l2azBWYnd1NHBnYlJQc280bHpuL1RU?=
+ =?utf-8?B?aVVSODZLTVBNdEs3WVovWWIyWEZGcjNmTHFseVNIRFhPQ3FaS3Q1S1V2dkE5?=
+ =?utf-8?B?R2JhSldQV1dNK3NBbWtVb2dmUHlPZWNEVDJOdGlFQ21uTEVpSkR6MFRBbmVN?=
+ =?utf-8?B?dUZKUmZ5cTk2RmFFWlQ5cjFUZmlaWGtnVjdMWjNtbjJHQnBBdS9TMEZEZ1Rh?=
+ =?utf-8?B?Q081YnlKTEpheVJ1K2U4cVBaYXNPVWJTQS9wSWY2WXN0Y2lyK0J1U0l3eWhq?=
+ =?utf-8?B?UFlsMTJGZGowVk8yWk1hcm92ZnBmU1Y1RUQ1V3pEY3RRdTljZGozWjhlWG5W?=
+ =?utf-8?B?cXNUQzBzaTk4UnExWTN2RUlCb0JLemhWdkpOcHdHUE91WTV2YmdIYXoySjNs?=
+ =?utf-8?B?dTFDdWVpT3hhYlVUcnJ6QTl5MHhwQzNSbDFkdEl3ZWQwaGpHRkxmVkQvWTUy?=
+ =?utf-8?B?UW5ZNyszODh2b3d5dmh1ZFJRYVdqSFpkNGM3dDI1dzJZT00wdnRxaUlaSjhu?=
+ =?utf-8?B?citEMEdOQng2ZjJiaDZMTTFTWE56N3ROV1hVLy9MdEpLelFxZ0g5VjZTOXRR?=
+ =?utf-8?B?MHQ1dmloL3F3T2tMRHFHMjFFRjd2NFBGNmcrbG5FVnRmT3o4YWpyS2pRN3ov?=
+ =?utf-8?B?aFY1MHg5UE53NWlBcnBZZG9TdGVQcWFQWmxVRFkxNHV3VFZDUUI3b2FJMzVZ?=
+ =?utf-8?B?NjlLOEhCbnA3MVRIMVg0UUlpbGxsbS95UlZaTHZibnRQWnZ1Ti9sbFhrbWdK?=
+ =?utf-8?B?QjB0NDdMMlNHcGFLZ25zVndhNlZJUDBERVZHa2RWbDFWa00reGRNNk9HTWM0?=
+ =?utf-8?B?ZURTYjBjVmVCSENYdk1lTDdMdnVrcHZrZGRxV2o1U1lYWVkzd04rTGhONTBB?=
+ =?utf-8?B?SGZmK3AxMitrblEyY3ZiY2JEcW15ZUs2VHlHemt5L2FhQ3hzMDZLWjNteU9m?=
+ =?utf-8?B?NHdCbmx0WUZhSm1NQk12ZXZ1cE1VMkxyY0VvbDFsWngrRnRENHg4OG1xL0Ji?=
+ =?utf-8?B?YkQra3k0NVpSa1dnUlppNHpvTEZhQllDMktiM0s4LzJzTGx3R0dkK1k2VVRW?=
+ =?utf-8?B?S0tsQmM4OFIxdW9nSTNxZGNFMENSQVhxcmhXREJaVTIrVktBYUVWODNSbVBK?=
+ =?utf-8?B?MjJiM1NKSlJ6Yk5DRGFUbGZ0TWh5bmFHZWowM21FSmRPTGgySE40TTVsSG5z?=
+ =?utf-8?B?WXNFZE5tRmV3RlZQWU8wOGp1dGg0LzhwQ3VrRmlWeGcxMGNaSFJXS0VHajJW?=
+ =?utf-8?B?RXlXb0g4eEFhdE1iYTQrR1I4VzlCZld1ckp3dXZxdklpUmlNRXIyVlZ1TWtm?=
+ =?utf-8?B?aXo4Y3c1aXJNNlVhZ2tpalVCVVUrek1FMDNyNUVIaGxOeXN4T0VPYTlmeEtB?=
+ =?utf-8?B?ZUxIUjhCSnJ1aTN0YlVEenRGVjl5QmhNR2xOZ3pUbzc4ZFZUZEt4RHltSVdu?=
+ =?utf-8?B?RGlwNjNmd2N2V0FXbDdQZkNINVFRMlhIbHBxKzNKQlJGS0FUTXp5R1ZUWEx2?=
+ =?utf-8?B?b1Q0OXBVcjBFdkEwbHpLNm9oMmVoVTBlSm00TjlZRlZPVHNIOUFZb3R4b3pI?=
+ =?utf-8?B?cHpBTlNxVU5KUms4Z0xDRE1mdVFZOTdnM3BXQkpSZ1VWbitwV0x6MHNmdGVR?=
+ =?utf-8?B?T0dpd0NNRU1WbHhraFZleFVNdm9IZ244M2x3T1FOMGlSM3pVSVhrdz09?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 43f50ac5-e2b9-4496-a251-08deb7f7868b
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2026 11:44:47.6565
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PUI/sgEjDPlP2u+lKbmORO9K9ojv2sQXRgz/MTrVaupciGS3ai9gcf6AJQTOL1POtHty7DB1KqdWiynSXFe4zA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7191
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_044249_605131_65CB2FF9 
-X-CRM114-Status: GOOD (  40.32  )
+X-CRM114-CacheID: sfid-20260522_044507_886467_0A5AF6CC 
+X-CRM114-Status: GOOD (  13.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,244 +156,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/21/26 11:10 AM, Maxime Ripard wrote:
-> On Wed, May 20, 2026 at 09:38:15PM +0300, Cristian Ciocaltea wrote:
->> Add drm_scdc_start_scrambling(), drm_scdc_stop_scrambling() and
->> drm_scdc_sync_status() helpers to manage the full lifecycle of HDMI 2.0
->> SCDC scrambling on both source and sink sides.
+On 5/22/2026 5:16 PM, Krzysztof Kozlowski wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On 22/05/2026 08:20, Jian Hu wrote:
+>> Hi Krzysztof,
 >>
->> drm_scdc_start_scrambling() configures SCDC scrambling and high TMDS
->> clock ratio and starts a periodic work item that monitors the sink's
->> SCDC scrambling status, retrying setup when the sink loses state.
+>> Thanks for your review.
 >>
->> drm_scdc_stop_scrambling() tears down scrambling on both sides and
->> cancels the monitoring work.
+>> On 5/15/2026 4:09 PM, Krzysztof Kozlowski wrote:
+>>> [ EXTERNAL EMAIL ]
+>>>
+>>> On Mon, May 11, 2026 at 08:47:24PM +0800, Jian Hu wrote:
+>>>> Add the PLL clock controller dt-bindings for the Amlogic A9 SoC family.
+>>>>
+>>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>>> ---
+>>>>    .../bindings/clock/amlogic,a9-pll-clkc.yaml        | 110 +++++++++++++++++++++
+>>>>    include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |  55 +++++++++++
+>>>>    2 files changed, 165 insertions(+)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
+>>>> new file mode 100644
+>>>> index 000000000000..4ee6013ba1a1
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
+>>>> @@ -0,0 +1,110 @@
+>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>> +# Copyright (C) 2026 Amlogic, Inc. All rights reserved
+>>>> +%YAML 1.2
+>>>> +---
+>>>> +$id: http://devicetree.org/schemas/clock/amlogic,a9-pll-clkc.yaml#
+>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>> +
+>>>> +title: Amlogic A9 Series PLL Clock Controller
+>>>> +
+>>>> +maintainers:
+>>>> +  - Neil Armstrong <neil.armstrong@linaro.org>
+>>>> +  - Jerome Brunet <jbrunet@baylibre.com>
+>>>> +  - Jian Hu <jian.hu@amlogic.com>
+>>>> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
+>>>> +
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    enum:
+>>>> +      - amlogic,a9-gp0-pll
+>>>> +      - amlogic,a9-hifi0-pll
+>>>> +      - amlogic,a9-hifi1-pll
+>>>> +      - amlogic,a9-mclk0-pll
+>>>> +      - amlogic,a9-mclk1-pll
+>>>> +
+>>>> +  reg:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +  '#clock-cells':
+>>>> +    const: 1
+>>>> +
+>>>> +  clocks:
+>>>> +    items:
+>>>> +      - description: pll input oscillator gate
+>>>> +      - description: fixed input clock source for mclk_sel_0
+>>>> +      - description: u3p2pll input clock source for mclk_sel_0 (optional)
+>>> Second clock is also optional. Drop "(optional)" comment, just
+>>> confusing.
 >>
->> drm_scdc_sync_status() triggers a CRTC reset on reconnection to restore
->> SCDC state lost during sink disconnects within an active display
->> pipeline.
+>> GP0 has only one parent clock, while MCLK has three.
 >>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/display/drm_scdc_helper.c | 235 +++++++++++++++++++++++++++++-
->>  include/drm/display/drm_scdc_helper.h     |   6 +-
->>  2 files changed, 236 insertions(+), 5 deletions(-)
+>> The second and third parent entries of GP0 are vacant,
 >>
->> diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
->> index cb6632346aad..5bacb886d373 100644
->> --- a/drivers/gpu/drm/display/drm_scdc_helper.c
->> +++ b/drivers/gpu/drm/display/drm_scdc_helper.c
->> @@ -21,16 +21,22 @@
->>   * DEALINGS IN THE SOFTWARE.
->>   */
->>  
->> +#include <linux/delay.h>
->>  #include <linux/export.h>
->>  #include <linux/i2c.h>
->> +#include <linux/minmax.h>
->>  #include <linux/slab.h>
->> -#include <linux/delay.h>
->>  
->> -#include <drm/display/drm_scdc_helper.h>
->> +#include <drm/drm_atomic.h>
->> +#include <drm/drm_atomic_helper.h>
->> +#include <drm/drm_bridge_helper.h>
->>  #include <drm/drm_connector.h>
->> +#include <drm/drm_crtc.h>
->>  #include <drm/drm_device.h>
->>  #include <drm/drm_print.h>
->>  
->> +#include <drm/display/drm_scdc_helper.h>
->> +
->>  /**
->>   * DOC: scdc helpers
->>   *
->> @@ -50,10 +56,14 @@
->>   * has to track the connector status changes using interrupts and
->>   * restore the SCDC status. The typical solution for this is to trigger an
->>   * empty modeset in drm_connector_helper_funcs.detect_ctx(), like what vc4 does
->> - * in vc4_hdmi_reset_link().
->> + * in vc4_hdmi_reset_link(). Alternatively, use the HDMI connector framework
->> + * which ensures drm_scdc_sync_status() is called in the context of
->> + * drm_atomic_helper_connector_hdmi_hotplug_ctx().
->>   */
->>  
->> -#define SCDC_I2C_SLAVE_ADDRESS 0x54
->> +#define SCDC_I2C_SLAVE_ADDRESS		0x54
->> +#define SCDC_MAX_SOURCE_VERSION		0x1
->> +#define SCDC_STATUS_POLL_DELAY_MS	3000
->>  
->>  #define drm_scdc_dbg(connector, fmt, ...)					\
->>  	drm_dbg_kms((connector)->dev, "[CONNECTOR:%d:%s] " fmt,			\
->> @@ -270,3 +280,220 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
->>  	return true;
->>  }
->>  EXPORT_SYMBOL(drm_scdc_set_high_tmds_clock_ratio);
->> +
->> +static int drm_scdc_setup_scrambler(struct drm_connector *connector)
->> +{
->> +	bool done;
->> +
->> +	done = drm_scdc_set_high_tmds_clock_ratio(connector, true);
->> +	if (!done)
->> +		return -EIO;
->> +
->> +	done = drm_scdc_set_scrambling(connector, true);
->> +	if (!done)
->> +		return -EIO;
->> +
->> +	schedule_delayed_work(&connector->hdmi.scdc_work,
->> +			      msecs_to_jiffies(SCDC_STATUS_POLL_DELAY_MS));
->> +	return 0;
->> +}
-> 
-> There's a very tight deadline in the spec to enable the scrambler
-> relative to the video. Debouncing (I assume?) for three seconds break
-> it. Drivers might not be able to do better, but it's really not
-> something we should entertain at the framework level and we should call
-> the callback straight-away.
+>> so they need to be marked optional.
+>>
+>> I will add the optional property for the second clock in the next revision.
+> How? Read the previous feedback...
+>
+> Best regards,
+> Krzysztof
 
-In drm_scdc_start_scrambling() we call this function directly, the callback is
-only meant to retry the call if the sink didn't set the scrambling for whatever
-reason.
 
-Or do you mean we shouldn't wait that long before retrying? vc4 uses 1s, I got
-some mixed results in a few occasions and experimented with increased values,
-but I'll revert or we can adjust to whatever you think it'd be more sensible.
+My apologies, I misunderstood your previous comment.
+I will drop "(optional)" from the clock descriptions.
 
->> +static void drm_scdc_monitor_scrambler(struct drm_connector *connector)
->> +{
->> +	if (READ_ONCE(connector->hdmi.scrambler_enabled) &&
->> +	    !drm_scdc_get_scrambling_status(connector))
->> +		drm_scdc_setup_scrambler(connector);
->> +}
->> +
->> +static int drm_scdc_reset_crtc(struct drm_connector *connector,
->> +			       struct drm_modeset_acquire_ctx *ctx)
->> +{
->> +	struct drm_crtc *crtc;
->> +	u8 config;
->> +	int ret;
->> +
->> +	if (!ctx || !connector->state)
->> +		return 0;
->> +
->> +	crtc = connector->state->crtc;
->> +	if (!crtc || !crtc->state || !crtc->state->active)
->> +		return 0;
->> +
->> +	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
->> +	if (ret) {
->> +		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	if ((config & SCDC_SCRAMBLING_ENABLE) &&
->> +	    (config & SCDC_TMDS_BIT_CLOCK_RATIO_BY_40))
->> +		return 0;
->> +
->> +	/*
->> +	 * Reset the CRTC to suspend TMDS transmission, conforming to HDMI 2.0
->> +	 * spec which requires scrambled data not to be sent before the sink is
->> +	 * configured, and TMDS clock to be suspended while changing the clock
->> +	 * ratio.  The disable/re-enable cycle triggered by the reset should
->> +	 * call drm_scdc_start_scrambling() during re-enable, properly
->> +	 * configuring the sink before data transmission resumes.
->> +	 */
->> +
->> +	drm_scdc_dbg(connector, "Resetting CRTC to restore SCDC status\n");
->> +
->> +	ret = drm_atomic_helper_reset_crtc(crtc, ctx);
->> +	if (ret && ret != -EDEADLOCK)
->> +		drm_scdc_dbg(connector, "Failed to reset CRTC: %d\n", ret);
->> +
->> +	return ret;
->> +}
-> 
-> locking is a bit more involved than that, I'd suggest to take
-> vc4_hdmi_reset_link() and turn it into a helper.
+It will be updated as:
+   clocks:
+     items:
+       - description: pll input oscillator gate
+       - description: fixed input clock source for mclk_sel_0
+       - description: u3p2pll input clock source for mclk_sel_0
 
-The current non-NULL ctx call chain goes through drm_helper_probe_detect_ctx()
--> .detect_ctx -> ... -> drm_scdc_sync_status() -> drm_scdc_reset_crtc(), and
-the connection mutex is already held by drm_helper_probe_detect() in that path. 
 
-I'll make the helper safe under any caller by taking the connection_mutex via
-the supplied ctx, since re-acquiring it with the same context when it is already
-held should be a no-op.  Moreover, the racy crtc->state->active early out could
-be dropped: when the CRTC is inactive, drm_atomic_helper_reset_crtc() should
-result in a no-op commit anyway, so the check is at best an optimisation. 
-This mirrors what drm_bridge_helper_reset_crtc() does.
+Best regards,
 
->> +/**
->> + * drm_scdc_start_scrambling - activate scrambling and monitor SCDC status
->> + * @connector: connector
->> + *
->> + * Enables scrambling and high TMDS clock ratio on both source and sink sides.
->> + * Additionally, use a delayed work item to monitor the scrambling status on
->> + * the sink side and retry the operation, as some displays refuse to set the
->> + * scrambling bit right away.
->> + *
->> + * Returns:
->> + * Zero if scrambling is set successfully, an error code otherwise.
->> + */
->> +int drm_scdc_start_scrambling(struct drm_connector *connector)
->> +{
->> +	struct drm_display_info *info = &connector->display_info;
->> +	struct drm_connector_hdmi *hdmi = &connector->hdmi;
->> +	int ret;
->> +	u8 ver;
->> +
->> +	if (!hdmi->funcs ||
->> +	    !hdmi->funcs->scrambler_src_enable ||
->> +	    !hdmi->funcs->scrambler_src_disable) {
->> +		drm_scdc_dbg(connector, "Function not implemented, bailing.\n");
->> +		return -EINVAL;
->> +	}
-> 
-> This case shouldn't be a thing. The driver must not probe if it's not set.
+Jian
 
-When advertising DRM_BRIDGE_OP_HDMI_SCRAMBLER, drm_bridge_connector_init() will
-fail if the scrambler hooks are not provided.  However, the check would be still
-useful if one missed to set DRM_BRIDGE_OP_HDMI_SCRAMBLER before adding the
-bridge.  I'll try to also handle non-bridge usecases - pls see the proposal
-below.
-
->> +	if (!info->is_hdmi ||
->> +	    !info->hdmi.scdc.supported ||
->> +	    !info->hdmi.scdc.scrambling.supported) {
->> +		drm_scdc_dbg(connector, "Sink doesn't support scrambling.\n");
->> +		return -EINVAL;
->> +	}
-> 
-> You should also compute whether we actually need to enable the scrambler
-> here, based on the mode, format and bpc.
-
-I'm thinking to mirror the existing supported_formats / ycbcr_420_allowed
-plumbing:
-
-- Add a 'scrambling_supported' flag to struct drm_connector_hdmi and let
-  drm_bridge_connector_init() to propagates it from the HDMI bridge before
-  calling drmm_connector_hdmi_init().
-
-- drmm_connector_hdmi_init() validates that the capability is consistent with
-  the provided callbacks: when scrambling_supported is true, both
-  scrambler_src_enable() and scrambler_src_disable() must be provided.
-
-- Add a 'scrambling_needed' flag to struct drm_connector_hdmi_state to be set by
-  hdmi_compute_clock() based on the TMDS character rate and the source/sink
-  scrambling capabilities.
-
-- Ensure hdmi_clock_valid() rejects modes having TMDS character rate exceeding
-  340 MHz when either the source or the sink lacks the required SCDC scrambling
-  capability.
-
-> I'd also like to see what a !bridge user of this would look like. The
-> vc4 driver has all the infrastructure you need already, so converting it
-> to it would be great.
-
-Sure, will do.  I've just ordered a RPI5 board, so I should be able to properly
-validate this.
-
-Thanks,
-Cristian
 
