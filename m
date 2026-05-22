@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEFECD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 05:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C59A3CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 05:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJjzg+/5mPtbxuJQNZvMHl/OOVnIvCYRjrUsOQhDVZM=; b=DsaaFzlRU/tqt25yI2N6RcPamx
-	jIZMoJvwvOQT/OGhZ5/KsNQt0LX8xCmZi89rgNSjVHlNufIytkp7r/RK+1yH257kA0L/iHyWA/A7/
-	Yv1afdky5u5aPPGijbwcBR40VqGVGsZTN3gjE+njZSeIv1DrVwFf3Iy3g9xqtBe6TQuYqEbd1Z4iT
-	dOPsoSITpFjvMg6gYdNwXdXm6zFYZjsHzyo0rSJe6AQR0bf7AkPH2byJKJv29Hk0FWprVVRhLbBnn
-	hENXp9Xd5rrdJBD0OjXS1BQn6lADte4eIuoCxGI6PQoXDubPwydRUTDnzTYObcxGubA2ha/8G+DVr
-	vJqdOnAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E5sM9AUvuYdbGB4g9k8H+Hv5ClFSOJXofYXrX9huibQ=; b=ry7aRKy9PDAm6sKpixjlXUd2c8
+	mTp40IoqP1+jIxky1Pnnq+o860xHoDdml3gq3fFJtpt+441wOqdiAxncSU7JmOZ4J/WV2fwt/1XWY
+	eMzGvPtbiUOYzSRq2YLx7gTpJJgSSf0eNjmH/l/IpWX7MLYY/mdAJT6Pt8IIwej/UayuLp7GOfbhL
+	5ruPOQv6CQbsmgaaXq8luXgVivSmV0MEpHcNMBcplajyIk76oAAiwMei08vgw1eRHjNmR3WwcmCWZ
+	Gn7irMM8aknw/n7FafQVrBsovVfvCNvHBndEX0PhzX7hwyVqZRDUck2O7jAbQS9Gu2RIRPMBqTKYh
+	PvXOrtYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQIUm-00000009rpY-31vt;
-	Fri, 22 May 2026 05:32:28 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1wQIlN-00000009tzF-0Lvq;
+	Fri, 22 May 2026 05:49:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQIUi-00000009ria-2HXV
+	id 1wQIlL-00000009tyu-1QQ0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 05:32:27 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gMDR53PV1zYQtlX
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:31:29 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id BE98E40573
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:32:16 +0800 (CST)
-Received: from [10.174.179.37] (unknown [10.174.179.37])
-	by APP4 (Coremail) with SMTP id gCh0CgA3_1pY6g9qirPHDA--.53518S3;
-	Fri, 22 May 2026 13:32:12 +0800 (CST)
-Message-ID: <b7098272-a348-d918-774a-d5d2645fc7f4@huaweicloud.com>
-Date: Fri, 22 May 2026 13:32:07 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
-Content-Language: en-US
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: yezhenyu2@huawei.com, zhurui3@huawei.com, will@kernel.org,
- akpm@linux-foundation.org, npiggin@gmail.com, aneesh.kumar@kernel.org,
- peterz@infradead.org, linux-kernel@vger.kernel.org,
- wangkefeng.wang@huawei.com, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-arch@vger.kernel.org,
- David Hildenbrand <david@kernel.org>, zengheng4@huawei.com
-References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
- <ag8fHYL-S26uO0yZ@arm.com> <ag8hmZ3kjtJINyIT@arm.com>
-From: Zeng Heng <zengheng@huaweicloud.com>
-In-Reply-To: <ag8hmZ3kjtJINyIT@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgA3_1pY6g9qirPHDA--.53518S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxWry3Cry3ZFWxCryrGryUZFb_yoWrWw13pa
-	43CF9xtFZYgryUA340qw48JFyaya1DJw4Uury8ua4FvFnFvr1vgF4vyryF9F95ArW8Gr4f
-	WFWj9F17ZFWjvaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6r1F6r1fM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
-	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUF1v3UUUUU
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_223224_963994_6CD59115 
-X-CRM114-Status: GOOD (  18.90  )
+	Fri, 22 May 2026 05:49:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 583AE60136;
+	Fri, 22 May 2026 05:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AA9F1F000E9;
+	Fri, 22 May 2026 05:49:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779428974;
+	bh=E5sM9AUvuYdbGB4g9k8H+Hv5ClFSOJXofYXrX9huibQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Jk4Ks+BI5b0v7Yq8P3JkHDjP1tsuruhcAbMdrFykwvGKU9wIHCcA0ppRRW9rWFErC
+	 N313Qt4P9HfEHxJJ+iTL9iZCqTUKUNtfMqFXScwk6BQw6X72h4Py/ZGeLRI5DRzTpH
+	 xncgim7ZoYUFgXoLFuTyL+bw78Ka7/SiliBzPLoGFY/d2tGK/zz24hEU1gouQzxbPI
+	 /lfYgnfpWcPZMPPtcj3IrPVtcPURdw5oet2RYP+QKt56i/JbnN7kBmnmIifRiVzmhJ
+	 HEhskgWEfhGs8Equp0nlEkkrzubybTUeRaB2L8Tn95VxTukZhsjz6TCOWDGqIq7pNK
+	 /+8Eo1uwZpKKg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQIlH-000000056jh-2DhW;
+	Fri, 22 May 2026 05:49:31 +0000
+Date: Fri, 22 May 2026 06:52:48 +0100
+Message-ID: <87lddc9ej3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v10 19/30] KVM: arm64: Provide assembly for SME register access
+In-Reply-To: <ag8b7oq4SFpdmlP_@J2N7QTR9R3>
+References: <20260306-kvm-arm64-sme-v10-0-43f7683a0fb7@kernel.org>
+	<20260306-kvm-arm64-sme-v10-19-43f7683a0fb7@kernel.org>
+	<ag8b7oq4SFpdmlP_@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, oupton@kernel.org, joey.gouly@arm.com, catalin.marinas@arm.com, suzuki.poulose@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, Dave.Martin@arm.com, tabba@google.com, ben.horgan@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, peter.maydell@linaro.org, eric.auger@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,99 +100,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 21 May 2026 15:51:26 +0100,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Fri, Mar 06, 2026 at 05:01:11PM +0000, Mark Brown wrote:
+> > Provide versions of the SME state save and restore functions for the
+> > hypervisor to allow it to restore ZA and ZT for guests.
+> > 
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_hyp.h |  2 ++
+> >  arch/arm64/kvm/hyp/fpsimd.S      | 23 +++++++++++++++++++++++
+> >  2 files changed, 25 insertions(+)
+> 
+> While this specific instance is simple enough, I don't think we should
+> continue to duplicate the low level save/restore routines between the
+> main kernel and KVM hyp code.
+> 
+> I've sent a series that avoids the need for this, and cleans up some
+> other bits):
+> 
+>   https://lore.kernel.org/linux-arm-kernel/20260521132556.584676-1-mark.rutland@arm.com/
+> 
+> Assuming Marc and Oliver are on board, I'd prefer that we do that
+> cleanup first, and build the KVM SME support atop.
 
+Absolutely. The whole FP/SVE is still way too complicated, full of
+esoteric constructs, hard to audit, and I would really like to see it
+cleaned-up before stacking another layer on top.
 
-On 2026/5/21 23:15, Catalin Marinas wrote:
-> On Thu, May 21, 2026 at 04:05:07PM +0100, Catalin Marinas wrote:
->> + David H.
->>
->> On Thu, May 21, 2026 at 03:30:11PM +0800, Zeng Heng wrote:
->>> From: Zeng Heng <zengheng4@huawei.com>
->>>
->>> When huge_pmd_unshare() is called to unshare a PMD table, the
->>> tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
->>> but the aarch64 tlb_flush() only checked tlb->freed_tables to
->>> determine whether to use TLBF_NONE (vae1is, invalidates walk
->>> cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
->>>
->>> This caused the stale PMD page table entry to remain in the walk cache
->>> after unshare, potentially leading to incorrect page table walks.
->>>
->>> Fix by including unshared_tables in the check, so that when
->>> unsharing tables, TLBF_NONE is used and the walk cache is properly
->>> invalidated.
->>>
->>> Here is the detailed distinction between vae1is and vale1is:
->>>
->>> | Instruction Combination  | Actual Invalidation Scope                         |
->>> | ------------------------ | --------------------------------------------------|
->>> | `VAE1IS`  + TTL=`0`      | All entries at all levels (full invalidation)     |
->>> | `VAE1IS`  + TTL=`2` (L2) | Non-leaf at Level 0/1 + leaf at Level 2           |
->>> | `VALE1IS` + TTL=`0`      | Leaf entries at all levels (non-leaf not cleared) |
->>> | `VALE1IS` + TTL=`2` (L2) | Leaf entry at Level 2 only                        |
->>>
->>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
->> The fix looks fine but does it need:
->>
->> Fixes: 8ce720d5bd91 ("mm/hugetlb: fix excessive IPI broadcasts when unsharing PMD tables using mmu_gather")
->> Cc: <stable@vger.kernel.org>
->>
->>> ---
->>>   arch/arm64/include/asm/tlb.h | 3 ++-
->>>   1 file changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
->>> index 10869d7731b8..751bd57bc3ba 100644
->>> --- a/arch/arm64/include/asm/tlb.h
->>> +++ b/arch/arm64/include/asm/tlb.h
->>> @@ -53,7 +53,8 @@ static inline int tlb_get_level(struct mmu_gather *tlb)
->>>   static inline void tlb_flush(struct mmu_gather *tlb)
->>>   {
->>>   	struct vm_area_struct vma = TLB_FLUSH_VMA(tlb->mm, 0);
->>> -	tlbf_t flags = tlb->freed_tables ? TLBF_NONE : TLBF_NOWALKCACHE;
->>> +	tlbf_t flags = (tlb->freed_tables || tlb->unshared_tables) ?
->>> +			TLBF_NONE : TLBF_NOWALKCACHE;
->>>   	unsigned long stride = tlb_get_unmap_size(tlb);
->>>   	int tlb_level = tlb_get_level(tlb);
-> Do we need this as well?
+I've quickly eyeballed the KVM-specific patches yesterday, and nothing
+seem outlandish, so there is a good chance some of that could make it
+into 7.2. I plan to look at it again shortly.
 
-The proposed fix has been validated against the issue scenarios and
-works as expected.
+Thanks,
 
-Per the ARM Architecture Reference Manual, whether only the last-level
-page table entry is invalidated is determined by the instruction used
-(vale1is for leaf entry only, vae1is for walk cache including leaf entry 
-and
-non-leaf entry), rather than the TTL field. The TTL field merely specifies
-which level the leaf entry belongs to.
+	M.
 
-Setting TTL to 0 always works fine, however, hardware must assume that
-the entry can be from any level.[1][2]
-
-
-[1]: vae1is instruction introduction by ARM spec,
-https://developer.arm.com/documentation/ddi0601/2026-03/AArch64-Instructions/TLBI-VAE1IS--TLBI-VAE1ISNXS--TLB-Invalidate-by-VA--EL1--Inner-Shareable
-[2]: rvae1is instruction introduction by ARM spec,
-https://developer.arm.com/documentation/ddi0601/2026-03/AArch64-Instructions/TLBI-RVAE1IS--TLBI-RVAE1ISNXS--TLB-Range-Invalidate-by-VA--EL1--Inner-Shareable?lang=en
-
-
-Best regards,
-Zeng Heng
-
-
->
-> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
-> index 10869d7731b8..3f4ab38cfd6e 100644
-> --- a/arch/arm64/include/asm/tlb.h
-> +++ b/arch/arm64/include/asm/tlb.h
-> @@ -24,7 +24,7 @@ static void tlb_flush(struct mmu_gather *tlb);
->   static inline int tlb_get_level(struct mmu_gather *tlb)
->   {
->   	/* The TTL field is only valid for the leaf entry. */
-> -	if (tlb->freed_tables)
-> +	if (tlb->freed_tables || tlb->unshared_tables)
->   		return TLBI_TTL_UNKNOWN;
->   
->   	if (tlb->cleared_ptes && !(tlb->cleared_pmds ||
-
+-- 
+Jazz isn't dead. It just smells funny.
 
