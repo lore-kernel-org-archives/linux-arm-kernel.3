@@ -4,77 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616A9CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:29:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0842CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OFJS4E8ysH6VWoRSBHjAlfd82xpgU6b8hTLyq1WoytQ=; b=OJDdX7GCCi5wNOECULnU7FmznM
-	LcENGsGTdTS3ujU1k0TYBWSTH2vTgKH1rMtL+Yrb1HQ50vlx7MCX3+lARU+gIlzj06YaCH+RAemo1
-	LAQlMkduldqgmVMpnOCLX1JiqPQ6BkLH0hJ6qBIel/fHzz5x7xCd+brBPrdLb4UBx1ggTaLHS4VmK
-	tjCSX0/ITw+U+zx10kgPMF1nyc0VKLOn/nGB05TAXUHo/ZC112vuimr3DfR53CPEUZYR8Vejgg5jv
-	rem+GuAQot9/a4nfdXFxkh0/DicjZ55cmQBY3FoUuo3Q7alkdoWAWXMGUC9DnK6FfXGhXEzVlJORn
-	PqAS5jdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qfY64L188KHKxft4si1rfgi5ccweBhUDe5pqly6Wnjw=; b=MMjXsiTTDtUKTBNexFd05WHaGi
+	o7epWTtek/jjnBn6ztz7ailu0Ca6+oVBQ59hgIukeWJ+kIrBDzwjw5Rb8ZuBR/IrXzKgwZHcgTCxf
+	C2FOExO2riXSFMjIR9CnKS6DiOxFSC8Jwu22s8fPrzPfVJSGFcWbvgVpJDg9TkTLzFMUUVBDIe+VG
+	6pnsszjUsqMEN2s+KpCTRaGbu7tzdR3n1bXX0SaNKttGbpsEHeECmLq6eYqvX+T8GJR63XyjdPue0
+	1/kozGwtAmYchHt4dDOC+bRTmC43M752YU9uLGND55bAS62uwhOweRC3dWJuBfFGKwN6UCsbQKjf7
+	TJiBDJig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRoJ-0000000BFl9-2EdZ;
-	Fri, 22 May 2026 15:29:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQRuf-0000000BGp4-0J8V;
+	Fri, 22 May 2026 15:35:49 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRoD-0000000BFjj-2XKP;
-	Fri, 22 May 2026 15:29:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 11C8B601E8;
-	Fri, 22 May 2026 15:29:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 474A71F000E9;
-	Fri, 22 May 2026 15:29:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779463748;
-	bh=OFJS4E8ysH6VWoRSBHjAlfd82xpgU6b8hTLyq1WoytQ=;
-	h=From:Date:Subject:To:Cc;
-	b=JFXuh43RCVTyqtAbJLwWtRhXdlf4tNdvB981Iu34Wl9Fn8mrtL0eAASxRYj9Fji9i
-	 bAeTmiIWZOy7TZqiw5hjnqSYaOL7ggNfbS2E/PzghqX2e+aY1Bpu7nfnKQMThkDXsF
-	 CoCdJ1H1dS3wlA+t0QS3mznf9DzTHnsOgHCzdWMST4KEFE50gURlD94UU4AsNuRdzy
-	 6InkLGsbNATFKAKI3/nNZFJThTZlQzaxrQM1AWmsix9uQHCglh9+vavtJfdAATbdme
-	 uU8J18jlfpJs8pzhjwvdzAZ3iwqlkLOcPvaq7cey36rt3/p4YpuJ0TOWKWjXUtF+1H
-	 Kmc1t83hkGsYg==
-From: Eugen Hristev <ehristev@kernel.org>
-Date: Fri, 22 May 2026 18:28:50 +0300
-Subject: [PATCH v2] media: bcm2835-unicam: Fix log status runtime access
+	id 1wQRuc-0000000BGoC-1dq7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 15:35:47 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64ME0gos1950620;
+	Fri, 22 May 2026 15:35:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=qfY64L
+	188KHKxft4si1rfgi5ccweBhUDe5pqly6Wnjw=; b=ni/FRil7mHLX55OrqhjXY+
+	M/R7s/pgQxNuJPQzgCKbwGVFH1LM5BmGYINmjDE24XX1swabU9etsIYHviLw7K6i
+	Hk+qYMBDitwDhZaI/OEcxIVKkLLVla9EtRPAtQxcSDacXLV8rJ61D6Cfk8si5r35
+	vSlj7PKp/tWfwwWOkW+ytOAvTXa1EgU3lFW4v69ufPwQ3BZnE6ZlEOPenUPu73+9
+	pY6L1JADBvFB4a+UW2F+UdDDZamulPbrpzL1HgxQcM8si8Jy7tNXo16ktc7PnRQm
+	W/xoG2RzC8qpez/Zozodtj5W7CdbdF6fD/NUia2vXQ8iqChTi/4lDd+Oe07IzBMQ
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4e6h88u558-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 May 2026 15:35:30 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 64MFOFnG030408;
+	Fri, 22 May 2026 15:35:29 GMT
+Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4e73wkhfwe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 22 May 2026 15:35:29 +0000 (GMT)
+Received: from smtpav03.wdc07v.mail.ibm.com (smtpav03.wdc07v.mail.ibm.com [10.39.53.230])
+	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 64MFZSqb30933594
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 22 May 2026 15:35:28 GMT
+Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 213335805D;
+	Fri, 22 May 2026 15:35:28 +0000 (GMT)
+Received: from smtpav03.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 84CC75805A;
+	Fri, 22 May 2026 15:35:26 +0000 (GMT)
+Received: from [9.16.58.46] (unknown [9.16.58.46])
+	by smtpav03.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 22 May 2026 15:35:26 +0000 (GMT)
+Message-ID: <7ae97379-bb6b-4045-a795-95d8acd09c09@linux.ibm.com>
+Date: Fri, 22 May 2026 10:35:24 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 02/20] [DO NOT MERGE] s390: Expose protected
+ virtualization through cc_platform_has()
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-coco@lists.linux.dev
+Cc: Robin Murphy <robin.murphy@arm.com>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+        Steven Price <steven.price@arm.com>,
+        Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+        Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
+        Alexey Kardashevskiy <aik@amd.com>,
+        Dan Williams <dan.j.williams@intel.com>,
+        Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+        linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+        Halil Pasic <pasic@linux.ibm.com>,
+        Matthew Rosato <mjrosato@linux.ibm.com>
+References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
+ <20260522042815.370873-3-aneesh.kumar@kernel.org>
+Content-Language: en-US
+From: JAEHOON KIM <jhkim@linux.ibm.com>
+In-Reply-To: <20260522042815.370873-3-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
-X-B4-Tracking: v=1; b=H4sIADF2EGoC/2WNwQ6CMBAFf4Xs2RraWqic/A/DgZYVVoWSFomG8
- O+2ePQ4ybx5KwT0hAGqbAWPCwVyYwRxyMD2zdghozYyiFwUuRKcGTtMNA2ssKrUWEohzxaiPXm
- 80XsvXesfh5e5o53TPBk9hdn5z3618OT9VxfOOJNoGq1brfOTujzQj/g8Ot9BvW3bFyy4khKxA
- AAA
-X-Change-ID: 20260521-bcmpipm-6c578e73239c
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- Hans Verkuil <hverkuil@kernel.org>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, 
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2628; i=ehristev@kernel.org;
- h=from:subject:message-id; bh=PMJsP28V5hMlxYp4KcsWEmzsqIgDeoKx+jpa+dUb3Vs=;
- b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLIEyhxa7cVVn6y34sqx1F/sdioi/MbsV280nuwv3J7Mt
- LNi4lqXjlIWBjEuBlkxRZZqk3+1wv073E+6WqrAzGFlAhnCwMUpABOJO8LwT/3trrQvnHuWzS48
- GODw/mD3S2NRj6UtDq419Tu8nXPapjH8j5Yx3CnhHS314tncu8euGJ47/PLsB152u1qbVedXLNp
- mzwMA
-X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
- fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-ORIG-GUID: 0CrITYD2KTwMiysGe5e3SKJRPfrwYCev
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTIyMDE1MCBTYWx0ZWRfX7p/KSlRKoYCk
+ WdB0E9m9xZuL/rIjKRXD85Jkz1+SSkyISAJzmG9d3YJxMGle/4CAMAAqfefZiBqX2ySJgcyj6bH
+ hiDq+D0NoF8LEzF21DcRRyYkBrbto3yMI19jcTQ+s10wfsZeno1234PxG+khmlpDstvyewyN1/i
+ ITly3dMx3Zf8tONRkfzsZTNKkRcLK7iVp70TghSo8Z0NDP0K0rr5Fbww53B98wOKAvrY8VM4l8p
+ V+tRqv3adk2Rg38XtAu7JXzlBf8asTVu/scrI1r8//2CbYKDzHpPdsXENFNUIpV640AWxUCRQ8c
+ +/ePPRj5fI4dTZCm2Hm4hWMDdldz41mtCQRVyAaqlpzOF2yeMnGyZa++ELqTBRRCzAeCi5aOowi
+ DQ3c1w1pWxFUtBoQnkOLcsfPTyM/3+zrEJe58blhgvu0ykDy9PUxfxjmfG5gV3XVWor9NafcNr3
+ TQv3jJsiFQEx2DodgSA==
+X-Proofpoint-GUID: h7hTqgwP-XCCJwt9xUz9Qqw26vagibFE
+X-Authority-Analysis: v=2.4 cv=apyCzyZV c=1 sm=1 tr=0 ts=6a1077c3 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
+ a=VnNF1IyMAAAA:8 a=blRdvrxeXnuE--CKtYQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-22_04,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
+ bulkscore=0 suspectscore=0 adultscore=0 spamscore=0 phishscore=0
+ clxscore=1011 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
+ definitions=main-2605220150
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_083546_563514_F4B306B1 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +146,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When requesting log status, the block might be powered off, but registers
-are being read.
-Avoid reading the registers if the device is not resumed, thus also avoid
-powering up the device just for log status.
+On 5/21/2026 11:27 PM, Aneesh Kumar K.V (Arm) wrote:
+> Protected virtualization guests use memory encryption, so advertise that to
+> the rest of the kernel through cc_platform_has(CC_ATTR_MEM_ENCRYPT).
+>
+> s390 already forces DMA mappings to be unencrypted for protected
+> virtualization guests through force_dma_unencrypted(). Add
+> ARCH_HAS_CC_PLATFORM and provide the matching cc_platform_has()
+> implementation
+>
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+> Cc: Halil Pasic <pasic@linux.ibm.com>
+> Cc: Matthew Rosato <mjrosato@linux.ibm.com>
+> Cc: Jaehoon  Kim <jhkim@linux.ibm.com>
+> ---
+>   arch/s390/Kconfig   |  1 +
+>   arch/s390/mm/init.c | 14 ++++++++++++++
+>   2 files changed, 15 insertions(+)
+>
+> diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+> index ecbcbb781e40..9b5e6029e043 100644
+> --- a/arch/s390/Kconfig
+> +++ b/arch/s390/Kconfig
+> @@ -87,6 +87,7 @@ config S390
+>   	select ARCH_ENABLE_SPLIT_PMD_PTLOCK if PGTABLE_LEVELS > 2
+>   	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>   	select ARCH_HAS_CC_CAN_LINK
+> +	select ARCH_HAS_CC_PLATFORM
+>   	select ARCH_HAS_CPU_FINALIZE_INIT
+>   	select ARCH_HAS_CURRENT_STACK_POINTER
+>   	select ARCH_HAS_DEBUG_VIRTUAL
+> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+> index 1f72efc2a579..ad3c6d92b801 100644
+> --- a/arch/s390/mm/init.c
+> +++ b/arch/s390/mm/init.c
+> @@ -50,6 +50,7 @@
+>   #include <linux/virtio_anchor.h>
+>   #include <linux/virtio_config.h>
+>   #include <linux/execmem.h>
+> +#include <linux/cc_platform.h>
+>   
+>   pgd_t swapper_pg_dir[PTRS_PER_PGD] __section(".bss..swapper_pg_dir");
+>   pgd_t invalid_pg_dir[PTRS_PER_PGD] __section(".bss..invalid_pg_dir");
+> @@ -140,6 +141,19 @@ bool force_dma_unencrypted(struct device *dev)
+>   	return is_prot_virt_guest();
+>   }
+>   
+> +
+> +bool cc_platform_has(enum cc_attr attr)
+> +{
+> +	switch (attr) {
+> +	case CC_ATTR_MEM_ENCRYPT:
+> +		return is_prot_virt_guest();
+> +
+> +	default:
+> +		return false;
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(cc_platform_has);
+> +
+>   /* protected virtualization */
+>   static void __init pv_init(void)
+>   {
 
-Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-Signed-off-by: Eugen Hristev <ehristev@kernel.org>
----
-Changes in v2:
-- changed to use pm_runtime_get_if_active()
-- add corresponding put()
-- Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
+Hello Aneesh,
 
-To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-To: Ray Jui <rjui@broadcom.com>
-To: Scott Branden <sbranden@broadcom.com>
-To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Hans Verkuil <hverkuil@kernel.org>
-To: Naushir Patuck <naush@raspberrypi.com>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: linux-media@vger.kernel.org
-Cc: linux-rpi-kernel@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
----
- drivers/media/platform/broadcom/bcm2835-unicam.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+Thanks for adding this s390 support patch.
 
-diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-index 8d28ba0b59a3..93815b8ab930 100644
---- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-+++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-@@ -2052,6 +2052,13 @@ static int unicam_log_status(struct file *file, void *fh)
- 		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
- 	dev_info(unicam->dev, "V4L2 format:         %08x\n",
- 		 node->fmt.fmt.pix.pixelformat);
-+
-+	if (!pm_runtime_get_if_active(unicam->dev)) {
-+		dev_info(unicam->dev,
-+			 "Live data N/A due to device inactive\n");
-+		return 0;
-+	}
-+
- 	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
- 	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
- 		 unicam_get_field(reg, UNICAM_PUM_MASK),
-@@ -2065,6 +2072,8 @@ static int unicam_log_status(struct file *file, void *fh)
- 	dev_info(unicam->dev, "Write pointer:       %08x\n",
- 		 unicam_reg_read(unicam, UNICAM_IBWP));
- 
-+	pm_runtime_put(unicam->dev);
-+
- 	return 0;
- }
- 
+The previous v4 series broke virtio initialization and caused boot
+failures on s390. With this patch in v5, the issue is completely
+resolved and virtio devices now initialize successfully and are
+working well.
 
----
-base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
-change-id: 20260521-bcmpipm-6c578e73239c
+I'm going to do some more testing and will let you know if I run
+into any issues.
 
-Best regards,
---  
-Eugen Hristev <ehristev@kernel.org>
+Thanks,
+Jaehoon.
+
 
 
