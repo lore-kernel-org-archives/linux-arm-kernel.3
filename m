@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18082CD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47457CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qK9dSpPcv6wOfbSQzn8e4LYSN0aiyiQIegu2xzHPiXg=; b=s/N90B7oX8mYej2dlt0I8KoZou
-	12/FNZPz2MWWN2YhTeaaPmKqN8hZJzgH/NeYaPF+YTtxNod6mcAyH55/fddMDTb4WfVv40y9ZBkX0
-	5N2ATVxnLYK3xR7fnJWZ8OTxs+vQaPQoLdhxE94eEhm7oAifsAP7mmmOmPPEzef0s1RbvKHbPyWtS
-	VgmwSVzHnnsMLRWNZFQnEj5QMAYG2i2JERxkAVcgO56pt/y+Q/Rm8klBKki6gkFx3y8+RnoYdDqCl
-	khqGPlT45Elrf+3jpZWVpw/ua5xzZjt5AH9J8+fIyDjTbscMxJuShH9rN7kzx3SGBzVLWC304++og
-	c1llWCyA==;
+	bh=Kc9+pnx9V5zJCzrrZnoMn6gdgHh5drL1PfGcHBn0LCE=; b=hjWeaIeKKM0FjxLNtnzCdbpjpe
+	fdbBIn2wLv3JJjbtlMhyP+OKxDHJqxwrhDPiZsfGEkHDN5IBN6kyvvWFiGXfpppqlHrZEfoFrkAsl
+	SQ4SFGc7mTXkqG0D/wwO/Foao1JXaXXh3cPi22eywGluTj8aUo3NoZ4KFL4JwQszZgK0Uie5JpY/G
+	iGXPugU43qgT8KRJtyH/HRGDCrODM6z2SGqeJdRQLpoYCHAgocBon4bYpCmRJrn6kZR1FIlHY/B6x
+	xmP2a7tgFGEBHctaAy8b+sulL2SVO4ax1xYMtH5EOBf7eVY17zlPZizUBEkTf0M4Z7sLr5/LHrcz4
+	IOezRoFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXz8-0000000C2X4-3mR9;
-	Fri, 22 May 2026 22:04:50 +0000
-Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
+	id 1wQXzw-0000000C3Lc-3bfU;
+	Fri, 22 May 2026 22:05:40 +0000
+Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXz3-0000000C2TT-216j
+	id 1wQXza-0000000C2wR-21f5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 22:04:46 +0000
-Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-2bda35eab74so6831517eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:04:44 -0700 (PDT)
+	Fri, 22 May 2026 22:05:19 +0000
+Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-135916eefa0so8069340c88.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:05:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779487484; x=1780092284; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1779487517; x=1780092317; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qK9dSpPcv6wOfbSQzn8e4LYSN0aiyiQIegu2xzHPiXg=;
-        b=f2WNQU72r6Nw7/irWczrD2yQ1B93e+5hAZeXL3SERL/4sDTtyDzfD+MD6sVDAx2z/x
-         p1LnqygZhZIlFgPGaieutYM+Wax4UKLei3KBU2I4E455eNNwSvfmztGdYfI0ZW+OyCMt
-         mGy+4Ad1hCL0v6DY59vMHTpN/XMpy1cuqvUDnYmGDfD1OHYTx6r7XtlQfOPb/5rXUrl7
-         Hx0IeeCpx2PnIecl7rvrUOHpdLeMsT7zHoaM2yMKQrA0+pw6kJVEu3kp4II4vRua+Y1O
-         5WHTuTYdLENYGgfAnRwg2XmMpO6CzFJ96xYLCsRYBofPDNGXDOG3eOJcbOFo9k+WiTGp
-         73SA==
+        bh=Kc9+pnx9V5zJCzrrZnoMn6gdgHh5drL1PfGcHBn0LCE=;
+        b=Li2q0RmHobiH+XVWkdVHjEtTSJqu4bRUFnxiTVwpX2wHGIAMoRJT6OULHHhoLwxVB9
+         p7viy9w3WH41UExVJSBFI8XWy494vMyGt6Wju4S/ZQ9XrvhnhGFqLFl9rfdecXd1tI8s
+         EyBaL1bBP81Ed44aKWaJLFCMdW2ey97nsG/Hkp8L7HwcDWOIRWhA+w6mP5RNDX/VH6/H
+         zg7TT9nGhPfgJc7aK9NKIhvmB8IpJBGIvDg5iC8mZOTQtVkH42hbE8qHBvaJvArdaxr0
+         a7y0z/pgFblfIpfmhEgKkpDvH0t+b2cj0kNu2FCPWfIt/xkkk/vPy9PwIYGL4et2M+XD
+         z0uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779487484; x=1780092284;
+        d=1e100.net; s=20251104; t=1779487517; x=1780092317;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qK9dSpPcv6wOfbSQzn8e4LYSN0aiyiQIegu2xzHPiXg=;
-        b=ZnoqPwzPf4XMpjTh5x8QjkkMO2NuD65Ag3SMC7ya/nJTKRCr1V5nL2qDz4JeUTARML
-         4JicOueHgaBua6dvZZlM0m1kk3Anjf6CbVhdA1M6aHOppwyzYOza/V3G/siwDcKNlJ2M
-         BqBK4gLTAK5x4y0/sbkM85714RvYRFkQ6lqeQN7EqN8YJH3GavIteqPy6fk/sVWuiw4b
-         5LddSXP+fuUclD8EMORu4LRy3LhloAX9+1mWdJlHoTjyBoBGJ9ZWjefJ39mOEi9Bys61
-         si0Uul9Gwq8CKsf/1RXoASKdOKLrfz3/fTSNrX+1l68rR+gV8xw+nfXVfA957l1Hyg9V
-         xvwA==
-X-Forwarded-Encrypted: i=1; AFNElJ/rwqKuIpLXSa20tWhYXEie/ST43TM1mwFgf7H9anMgLCVf6uVyYmzH/SDaMfXQQnrYGKM7mtwLNvoEkxoDTSHp@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFWmMa+Y/3JxUIzZmtewqeini0GViPDPruBqyhih6dneL+OH+y
-	tuIsM7H2RFVk05ATzbxhRV2V4NAztN/vmHZmqgZBo6BAXv8o7LF2wgDD8ibtWjVeHJvg9fZ6D8y
-	ModCdsHdGpA==
-X-Received: from dyblz48.prod.google.com ([2002:a05:7301:1630:b0:304:59b1:e122])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:7483:b0:2ee:7b2e:8a3e
- with SMTP id 5a478bee46e88-304304fbfa4mr4638762eec.1.1779487483670; Fri, 22
- May 2026 15:04:43 -0700 (PDT)
-Date: Fri, 22 May 2026 15:04:13 -0700
+        bh=Kc9+pnx9V5zJCzrrZnoMn6gdgHh5drL1PfGcHBn0LCE=;
+        b=L30kBGESjdAeaF5yMmaFFrYQD1xii30H9RyC76y4UEE46DzwFGjsK+Qg4YlPWc6pju
+         o4DTlPe4CWT+Ibv13Gx7Zgl2HsIG290CJXK4XNAE0MYmnlBGZC7HfbRM3BWaCeLaGpgT
+         /rXBxpgrWtppv1Al2rHoz9RcK3qCoAAkd7jehghe7Rnsn8zLdjiYvM1BfwMDwExfIHSl
+         vnvaMTa7pfQS5BNLrMHpbg8dCAYShG4ZETCA1lt/KKASCx6Q23WHuGYyeIPkstK6GGWt
+         n0YDhNqAmGi5kDl8nNyYfrOuJcedv0RI+wyWsRCnyy6+NX3J65mM+xiXRtZ8smzcbR2s
+         LQEQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9/+eF4sAQWK6WiHZx8QcNY28t+8PSPcodHFQRqCVBs293xjNtXUFRah1rlDrwAmXsAbsB+wLgjfVHyr6HNzso/@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywsq3lPsCBiGszRswviRvFt+qj77P5BzPmQsPBULS5oLt0NOTPp
+	c4TNQ/zgHtr4izR+Nv82/X7jPeCf7NE7W7+YPrE15hgDkyNGDdqk2ZlBuRFsVN61vvvv5dQj33V
+	4xyZH6gotIQ==
+X-Received: from dlbtu11.prod.google.com ([2002:a05:7022:3c0b:b0:134:ea68:2940])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6725:b0:12b:ebb9:1c18
+ with SMTP id a92af1059eb24-1365fc79de8mr2447524c88.31.1779487517130; Fri, 22
+ May 2026 15:05:17 -0700 (PDT)
+Date: Fri, 22 May 2026 15:04:27 -0700
 In-Reply-To: <20260522220435.2378363-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20260428071903.1886173-1-irogers@google.com> <20260522220435.2378363-1-irogers@google.com>
 X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260522220435.2378363-3-irogers@google.com>
-Subject: [PATCH v9 02/23] perf arch x86: Sort includes and add missed explicit dependencies
+Message-ID: <20260522220435.2378363-17-irogers@google.com>
+Subject: [PATCH v9 16/23] perf python: Add mmap2 event
 From: Ian Rogers <irogers@google.com>
 To: irogers@google.com, acme@kernel.org, namhyung@kernel.org
 Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
@@ -75,8 +75,8 @@ Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com,
 	tmricht@linux.ibm.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_150445_520392_DE10F07F 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20260522_150518_532225_8D09B5B4 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,116 +91,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix missing #includes found while cleaning the evsel/evlist header
-files. Sort the remaining header files for consistency with the rest
-of the code.
+If mmap is handled so should mmap2 events. Add support as a distinct
+python event type.
 
+Assisted-by: Gemini:gemini-3.1-pro-preview
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/arch/x86/util/intel-bts.c | 20 +++++++++++--------
- tools/perf/arch/x86/util/intel-pt.c  | 29 +++++++++++++++-------------
- 2 files changed, 28 insertions(+), 21 deletions(-)
+ tools/perf/util/python.c | 60 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
-diff --git a/tools/perf/arch/x86/util/intel-bts.c b/tools/perf/arch/x86/util/intel-bts.c
-index 85c8186300c8..100a23d27998 100644
---- a/tools/perf/arch/x86/util/intel-bts.c
-+++ b/tools/perf/arch/x86/util/intel-bts.c
-@@ -4,26 +4,30 @@
-  * Copyright (c) 2013-2015, Intel Corporation.
-  */
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index 029915b7a1fe..daedd67f12d5 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -153,6 +153,54 @@ static PyTypeObject pyrf_mmap_event__type = {
+ 	.tp_repr	= (reprfunc)pyrf_mmap_event__repr,
+ };
  
-+#include "../../../util/intel-bts.h"
++static const char pyrf_mmap2_event__doc[] = PyDoc_STR("perf mmap2 event object.");
 +
- #include <errno.h>
--#include <linux/kernel.h>
--#include <linux/types.h>
++static PyMemberDef pyrf_mmap2_event__members[] = {
++	sample_members
++	member_def(perf_event_header, type, T_UINT, "event type"),
++	member_def(perf_event_header, misc, T_UINT, "event misc"),
++	member_def(perf_record_mmap2, pid, T_UINT, "event pid"),
++	member_def(perf_record_mmap2, tid, T_UINT, "event tid"),
++	member_def(perf_record_mmap2, start, T_ULONGLONG, "start of the map"),
++	member_def(perf_record_mmap2, len, T_ULONGLONG, "map length"),
++	member_def(perf_record_mmap2, pgoff, T_ULONGLONG, "page offset"),
++	member_def(perf_record_mmap2, prot, T_UINT, "protection"),
++	member_def(perf_record_mmap2, flags, T_UINT, "flags"),
++	member_def(perf_record_mmap2, filename, T_STRING_INPLACE, "backing store"),
++	{ .name = NULL, },
++};
 +
- #include <linux/bitops.h>
-+#include <linux/kernel.h>
- #include <linux/log2.h>
-+#include <linux/types.h>
- #include <linux/zalloc.h>
- 
-+#include <internal/lib.h> // page_size
++static PyObject *pyrf_mmap2_event__repr(const struct pyrf_event *pevent)
++{
++	PyObject *ret;
++	char *s;
 +
-+#include "../../../util/auxtrace.h"
- #include "../../../util/cpumap.h"
-+#include "../../../util/debug.h"
- #include "../../../util/event.h"
--#include "../../../util/evsel.h"
- #include "../../../util/evlist.h"
-+#include "../../../util/evsel.h"
- #include "../../../util/mmap.h"
--#include "../../../util/session.h"
-+#include "../../../util/pmu.h"
- #include "../../../util/pmus.h"
--#include "../../../util/debug.h"
- #include "../../../util/record.h"
-+#include "../../../util/session.h"
- #include "../../../util/tsc.h"
--#include "../../../util/auxtrace.h"
--#include "../../../util/intel-bts.h"
--#include <internal/lib.h> // page_size
- 
- #define KiB(x) ((x) * 1024)
- #define MiB(x) ((x) * 1024 * 1024)
-diff --git a/tools/perf/arch/x86/util/intel-pt.c b/tools/perf/arch/x86/util/intel-pt.c
-index c131a727774f..0307ff15d9fc 100644
---- a/tools/perf/arch/x86/util/intel-pt.c
-+++ b/tools/perf/arch/x86/util/intel-pt.c
-@@ -3,36 +3,39 @@
-  * intel_pt.c: Intel Processor Trace support
-  * Copyright (c) 2013-2015, Intel Corporation.
-  */
-+#include "../../../util/intel-pt.h"
- 
- #include <errno.h>
- #include <stdbool.h>
--#include <linux/kernel.h>
--#include <linux/types.h>
++	if (asprintf(&s, "{ type: mmap2, pid: %u, tid: %u, start: %#" PRI_lx64 ", "
++			 "length: %#" PRI_lx64 ", offset: %#" PRI_lx64 ", "
++			 "flags: %#x, prot: %#x, filename: %s }",
++		     pevent->event.mmap2.pid, pevent->event.mmap2.tid,
++		     pevent->event.mmap2.start, pevent->event.mmap2.len,
++		     pevent->event.mmap2.pgoff, pevent->event.mmap2.flags,
++		     pevent->event.mmap2.prot, pevent->event.mmap2.filename) < 0)
++		return PyErr_NoMemory();
 +
- #include <linux/bitops.h>
-+#include <linux/err.h>
-+#include <linux/kernel.h>
- #include <linux/log2.h>
-+#include <linux/types.h>
- #include <linux/zalloc.h>
--#include <linux/err.h>
- 
--#include "../../../util/session.h"
-+#include <api/fs/fs.h>
-+#include <internal/lib.h> // page_size
-+#include <subcmd/parse-options.h>
++	ret = PyUnicode_FromString(s);
++	free(s);
++	return ret;
++}
 +
-+#include "../../../util/auxtrace.h"
-+#include "../../../util/config.h"
-+#include "../../../util/cpumap.h"
-+#include "../../../util/debug.h"
- #include "../../../util/event.h"
- #include "../../../util/evlist.h"
- #include "../../../util/evsel.h"
- #include "../../../util/evsel_config.h"
--#include "../../../util/config.h"
--#include "../../../util/cpumap.h"
- #include "../../../util/mmap.h"
--#include <subcmd/parse-options.h>
- #include "../../../util/parse-events.h"
--#include "../../../util/pmus.h"
--#include "../../../util/debug.h"
--#include "../../../util/auxtrace.h"
- #include "../../../util/perf_api_probe.h"
-+#include "../../../util/pmu.h"
-+#include "../../../util/pmus.h"
- #include "../../../util/record.h"
-+#include "../../../util/session.h"
- #include "../../../util/target.h"
- #include "../../../util/tsc.h"
--#include <internal/lib.h> // page_size
--#include "../../../util/intel-pt.h"
--#include <api/fs/fs.h>
- #include "cpuid.h"
++static PyTypeObject pyrf_mmap2_event__type = {
++	PyVarObject_HEAD_INIT(NULL, 0)
++	.tp_name	= "perf.mmap2_event",
++	.tp_basicsize	= sizeof(struct pyrf_event),
++	.tp_dealloc	= (destructor)pyrf_event__delete,
++	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
++	.tp_doc		= pyrf_mmap2_event__doc,
++	.tp_members	= pyrf_mmap2_event__members,
++	.tp_getset	= pyrf_event__getset,
++	.tp_repr	= (reprfunc)pyrf_mmap2_event__repr,
++};
++
+ static const char pyrf_task_event__doc[] = PyDoc_STR("perf task (fork/exit) event object.");
  
- #define KiB(x) ((x) * 1024)
+ static PyMemberDef pyrf_task_event__members[] = {
+@@ -778,6 +826,9 @@ static int pyrf_event__setup_types(void)
+ 	int err;
+ 
+ 	err = PyType_Ready(&pyrf_mmap_event__type);
++	if (err < 0)
++		goto out;
++	err = PyType_Ready(&pyrf_mmap2_event__type);
+ 	if (err < 0)
+ 		goto out;
+ 	err = PyType_Ready(&pyrf_lost_event__type);
+@@ -807,6 +858,7 @@ static int pyrf_event__setup_types(void)
+ 
+ static PyTypeObject *pyrf_event__type[] = {
+ 	[PERF_RECORD_MMAP]	 = &pyrf_mmap_event__type,
++	[PERF_RECORD_MMAP2]	 = &pyrf_mmap2_event__type,
+ 	[PERF_RECORD_LOST]	 = &pyrf_lost_event__type,
+ 	[PERF_RECORD_COMM]	 = &pyrf_comm_event__type,
+ 	[PERF_RECORD_EXIT]	 = &pyrf_task_event__type,
+@@ -973,6 +1025,11 @@ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *ev
+ 		size_t max_len = pevent->event.header.size - offsetof(struct perf_record_mmap, filename);
+ 
+ 		pevent->event.mmap.filename[max_len - 1] = '\0';
++	} else if (event->header.type == PERF_RECORD_MMAP2) {
++		/* Ensure '\0' string termination. */
++		size_t max_len = pevent->event.header.size - offsetof(struct perf_record_mmap2, filename);
++
++		pevent->event.mmap2.filename[max_len - 1] = '\0';
+ 	}
+ 
+ 	perf_sample__init(&pevent->sample, /*all=*/true);
+@@ -3238,6 +3295,9 @@ PyMODINIT_FUNC PyInit_perf(void)
+ 	Py_INCREF(&pyrf_mmap_event__type);
+ 	PyModule_AddObject(module, "mmap_event", (PyObject *)&pyrf_mmap_event__type);
+ 
++	Py_INCREF(&pyrf_mmap2_event__type);
++	PyModule_AddObject(module, "mmap2_event", (PyObject *)&pyrf_mmap2_event__type);
++
+ 	Py_INCREF(&pyrf_lost_event__type);
+ 	PyModule_AddObject(module, "lost_event", (PyObject *)&pyrf_lost_event__type);
+ 
 -- 
 2.54.0.794.g4f17f83d09-goog
 
