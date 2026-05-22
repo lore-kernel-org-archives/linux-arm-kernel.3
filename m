@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68668CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D936CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zq0bJbefph0AAGvXGgXMgxADCBjnqDWg/GTQ4ba21xY=; b=oKx7Kxz2pKoFEUHwhZDSSv4FJl
-	sA64rmeGRvPMSYK6kc2WqoFLdtKpfRxw2vCNNr32s1lKEQJ1QoQKdxaXsAHztKYD0APWwbOZsPCH1
-	VdRxgNMbgV6epoGhf6M1UjQBejgQeTrkjbAlKN40g3lGaTK+tIBc9WBq1lVjKV5RkzLYrCajn+AEo
-	Doaa/yLzhF+LxdDLtJ3N1+Q0aYqX2nP6P3PMJ2fCVD62+AVlRGZv7SN5/PWlPH7OteU9VuDQWP9Pi
-	hNWvHE/ezJdBpODgBo1C3ms1n9W4fR272iZW/drhyg80+VLmujk2yI1ee9fbhiSyfrhYhIhdMaxH0
-	OMs0+96g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C7jCFBMio8K0Or68UFlDneGQgQYEn3dFY8g5R8vlQ3k=; b=y0KavvrxkZsoC0WqbhFfXaSkfh
+	tc/Gd/yA0BmRYFZOgqMpw/D4Kmf9JZtBWGqwEh+9vpGBgqjK6CTLCmCK7sIgcgNfxYlLzcsI8zV2i
+	JgNxr9c5GtS2xsZP790eD80Y9HiFzlhF4tr3Wf3nSXDigpp3LeGxg56OTDv0weJZvfnNJ0TnbM4yR
+	/zYAvESs5VXcSuz3CmwvE5V/I0qszQg8ha2/hJqZTsfIn7nOfDEs7/gjuKTxkOLx0GSW467LLt+6v
+	ufD3tYC1wDAbQHWptESwwHf0hJaQwfWNoUvS054VY52wuZKn52N1SID90dU5xpwfVXfPqd0rJcvCN
+	nduwTuKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ17-0000000AzTm-0iMp;
-	Fri, 22 May 2026 13:34:21 +0000
-Received: from mail-vk1-f170.google.com ([209.85.221.170])
+	id 1wQQ3k-0000000B09Y-3f24;
+	Fri, 22 May 2026 13:37:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ15-0000000AzSt-2HhX
+	id 1wQQ3i-0000000B08b-0ytA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:34:20 +0000
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-57513a91514so2421648e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:34:19 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456858; x=1780061658;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zq0bJbefph0AAGvXGgXMgxADCBjnqDWg/GTQ4ba21xY=;
-        b=ZgrBkYGZRf/24HkClORSq8+Y2uWFNifbcHHO8+qPMDqofg3MCehB37w6hIp7kPLOBL
-         iy+/Hcd3OJEc14fH7I72p4aCiB+y7pkOLeQ24S9ueEz6oi+arxcjqS8eHQwY9zYMpZi4
-         /AihvtWpVCgEaQrvfbGA/fQbf+lDq/w8ZmZu7FE4jw1AiRv9jpso6yKbdgh2EP3jrAES
-         ka9cRIhL0DE8DxVr2tIm1KiVZWnPWlmPJf1gpnz+/q3MbI4ay/lcsWp1n9Su/0nHY31N
-         9bWP2VVf/J1vmg7k3NfBlVdnkcTgfMQNRsJIhxVTCXtMvJAx0oYtjIt3BRD17CNy3WFo
-         jR+w==
-X-Gm-Message-State: AOJu0YzyAzm/4cUup2XcJXFF3qto/l62Oq3unVd/eKwCFJL0Zwt+Viq+
-	FYGGbiE7RMXDlpfugDtUeI/JWgcRWvXma3JPiMrCEbHWbdhQOzPPO7eQUwp5puOjRKQ=
-X-Gm-Gg: Acq92OFe9C3tOcXzteu/PTupNpvU1GEkgH3X/ctZk9UNlLRg4g7AurVHHhLjpOoy/Ie
-	BVSTbYS0xuXNK15L8FyV4VmAXZl6U6M3b/IU2X+/g3TUmgF+fR6crRfR6rQDqqLvijGIBQFDTop
-	ebOrtgEGBdRIVKc1f9bxNzXFrfNQxWDwDAFq81ajHn4mGSJN/ctgpfmR5TReDD8ODU2GN3KqdDS
-	7cLuI/txI8lQHVaSpLFLoanoxS4uYAHXv/w+pVJsNFPqwDGNAugUmcib9fKjvhokwKWqHOEIdkr
-	wHxUnR7QILPhS4ohQp10YlRksAdl9jASFfT9eo+k1nzOmmkqJjUIGpV16Ru+UCeeVe64NiqjP9b
-	6b8jHm7MXuucgRAiqMO5OgnJIMnahx0UOCxpn7/7iBnzXXFBPCizkBZyJQLIkiWkFPRScoRz22z
-	eW/mGQNQywva13BWQLLx+II85gDtCF9T5WxYcuCWA1jPlkMvJ4VFRfCM6b7c6BvC0S
-X-Received: by 2002:a05:6122:a0b:b0:56f:2aaa:450c with SMTP id 71dfb90a1353d-5865e4a60f4mr1864758e0c.1.1779456858022;
-        Fri, 22 May 2026 06:34:18 -0700 (PDT)
-Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com. [209.85.221.169])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96173afdb54sm1560590241.8.2026.05.22.06.34.17
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 06:34:17 -0700 (PDT)
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-57513a91514so2421630e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:34:17 -0700 (PDT)
-X-Received: by 2002:a05:6122:3214:b0:56f:2609:cd95 with SMTP id
- 71dfb90a1353d-586626bd8acmr2048945e0c.9.1779456857164; Fri, 22 May 2026
- 06:34:17 -0700 (PDT)
+	Fri, 22 May 2026 13:37:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D3110445B5
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:37:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB15D1F01565
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:37:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779457021;
+	bh=C7jCFBMio8K0Or68UFlDneGQgQYEn3dFY8g5R8vlQ3k=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=M1Lmx69EaUGXfKI/c4USdBvuLwGQ+/xDCp4Vp2puVY6ZVXRCDmufSHznXa+ntyhXN
+	 R03Kuwv1AprVs4yPERWo4NbQ6lZsPmO6iCC/9GUirAMY0+M+mHVmM67vgiOEeQfZjX
+	 qH2DVgBBbWmPXsgRifjPILuXvi3SJLcMXcM0wbWNl8qhQGF1QfErk7I7BNcOxwV9vI
+	 u01x6beglrUnWbWd7SFgp6j4isuYGa2aNX+AvmEUhYmNcdfuvnZ1//oQzj2LfcTXcS
+	 qARUt+2asSCPw+6P5/HdLjtNTDO/B6LGeXnFuulXp+QDrIVZut92w0VUlrkRn2AB2G
+	 8trVtwiDj10mg==
+Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-914b5f85129so71829885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:37:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+6lIyszniOgzFlCvD4L30CGbluXy5Nhep/cuvY6QiUjNrjtGrXWXsYR9MI+cfV/TazTID8XwOfC1x3eHZG1mGM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw86cP/GdD8oCo35ndeVTmFDd0Ct+dF1+heWy5LAogB83rsxbC2
+	e9wvZTndqlqnIetopALKwlq1zlQCqg3x1LE9GTpQI5HXQIMKbSJYAw8FFu0wTRTuS6vlJMnlJN3
+	Acq9AjXYrm0fhcRnwDS7LE7KzqvHgpk0=
+X-Received: by 2002:a05:620a:6504:b0:8cd:b2e9:b964 with SMTP id
+ af79cd13be357-914b46c93e1mr518488285a.10.1779457020872; Fri, 22 May 2026
+ 06:37:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260504225704.115125-1-marek.vasut+renesas@mailbox.org> <20260504225704.115125-5-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504225704.115125-5-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 15:34:05 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX7cQ8N3L0g6K4nsJSy8UUut2hNcP7=FovSf+UK_VzwDw@mail.gmail.com>
-X-Gm-Features: AVHnY4L1t-E-4KNi3I0TSerFd7ad9ospqXgo4JNrc9drpmUktdoXOv4OmGqhgvQ
-Message-ID: <CAMuHMdX7cQ8N3L0g6K4nsJSy8UUut2hNcP7=FovSf+UK_VzwDw@mail.gmail.com>
-Subject: Re: [PATCH 5/5] arm64: dts: renesas: ulcb: Rename clk-multiplier to clock-controller
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
+References: <ag4kj84EcKqamdB-@casper.infradead.org> <20260522023305.98223-1-baohua@kernel.org>
+ <ahBVh4NM2uoyhPNm@casper.infradead.org>
+In-Reply-To: <ahBVh4NM2uoyhPNm@casper.infradead.org>
+From: Barry Song <baohua@kernel.org>
+Date: Fri, 22 May 2026 21:36:47 +0800
+X-Gmail-Original-Message-ID: <CAGsJ_4zQuJx1reJxgV387Gh0AqWF0KdoFn9KahQ1BNLPRm57TQ@mail.gmail.com>
+X-Gm-Features: AVHnY4LaSBeriPtvEQSWcigqMwNrFp0xeuPJ9HmpgpM3WX7gXW9tFi64IFdXgU8
+Message-ID: <CAGsJ_4zQuJx1reJxgV387Gh0AqWF0KdoFn9KahQ1BNLPRm57TQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+To: Matthew Wilcox <willy@infradead.org>
+Cc: akpm@linux-foundation.org, bhe@redhat.com, chentao@kylinos.cn, 
+	chrisl@kernel.org, david@kernel.org, jack@suse.cz, kasong@tencent.com, 
+	kunwu.chan@gmail.com, liam@infradead.org, lianux.mm@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	liyangouwen1@oppo.com, ljs@kernel.org, loongarch@lists.linux.dev, 
+	mhocko@suse.com, nphamcs@gmail.com, nzzhao@126.com, pfalcato@suse.de, 
+	rppt@kernel.org, shikemeng@huaweicloud.com, surenb@google.com, 
+	vbabka@kernel.org, wanglian@kylinos.cn, youngjun.park@lge.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_063419_577154_2B35B8E9 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20260522_063702_292875_7D8F94F3 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,24 +92,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 5 May 2026 at 00:57, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Use standard clock-controller node name for the CS2000-CP.
-> No functional change.
+On Fri, May 22, 2026 at 9:09=E2=80=AFPM Matthew Wilcox <willy@infradead.org=
+> wrote:
 >
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> On Fri, May 22, 2026 at 10:33:05AM +0800, Barry Song (Xiaomi) wrote:
+> > need to touch `filemap.c` at all (probably because you are already
+> > maintaining `filemap.c` perfectly):
+>
+> I'm going to give you one chance to apologise for that.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v7.2.
+Apologies if my wording caused any misunderstanding.
+That was not my intention at all.
 
-Gr{oetje,eeting}s,
+What I meant is that filemap.c already has a very
+solid design.
 
-                        Geert
+For memory.c, I had to touch several places for the
+blacklist; otherwise, the kernel would hang.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+But for filemap.c, I basically didn't need to touch
+anything, and preliminary testing shows no issues after
+moving it from the whitelist to the blacklist. This is
+probably because the current filemap.c design is
+already handling some aspects really well.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+That is all I meant.
 
