@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C50C2CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3921CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtxA9IJejbNsHuET5Zkbrc9yaYZITM02uIsEzopqyb4=; b=KccDthY3bnWX7hzNEeR+p3x0Kd
-	+LKrfnhdwPnpVbsfw3av5x/2uI0WtVxKvcyIQ/L/JCsT3cGBPvgv4iLfcGW+VBfYW6dTFnhs99WFx
-	P1kkUps1ay0zTSGJqM7isN+yFhknJ1iRRA+k5Xv4FjYJItQoirdyv26MsGkWXFCKH/k8h6D7UIgpl
-	GhhtZ1/PeI46ZEr5Asnxqs/jkOfU72OZe5gMdIq5AlmjcwC0miCiRqEpOuZhfiSC8ozOSvbAyizAd
-	Pq9QbhmvNPA6tEWMVJTYZ3eo+YQPM3OfhNRhIr/xzd7LIsFCafb59tehzP8ronaev+Ep1fDxkCK6B
-	zoBCS0nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lq6FzCC4KbteJ9kgvftpe86/zGobK0A72wn8P5God9Y=; b=GT5AVHqZ+QdfG0g63XEGlgsPW+
+	33ZM82Yfkzs9VbAFratemH3wXGXi9uH73qDGRLywZc1JqJ3msttz7TbFz/J+dX9w5G4Ogf+9M+L2E
+	Z9hQOrJ2dfYFDkX18/3iN5AkmU3rFBGb3PPk3uJjjeOSjhT7q9AnGUksuaxOR81zO8HPnwdgjwHQ4
+	+6c3cFCasduUUQDTbx62BSJ8ZxUqt/ZWkXmNSfh6ypGVD63djw6BCVEHRKbvb5IxhPVNgMtelCppi
+	5lvMD0huyLsUU9qgOa3FSJGFMphLvXGybkcq/efHuS2d6IiSZ1yBjSlXL8IcNUr97s/hi3bDU9gYT
+	YEhU9Tug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMda-0000000AOSY-165I;
-	Fri, 22 May 2026 09:57:50 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1wQMew-0000000AOgi-1rUr;
+	Fri, 22 May 2026 09:59:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMdX-0000000AOQu-2gHx
+	id 1wQMeu-0000000AOgB-3Y2L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:57:49 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gMLL52xZSzKHMsL
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 17:57:33 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id D9A8140562
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 17:57:39 +0800 (CST)
-Received: from [10.174.179.37] (unknown [10.174.179.37])
-	by APP4 (Coremail) with SMTP id gCh0CgCnb1uRKBBqw1feDA--.55895S3;
-	Fri, 22 May 2026 17:57:39 +0800 (CST)
-Message-ID: <a1c31539-3ec8-132a-f1d4-51784900e46f@huaweicloud.com>
-Date: Fri, 22 May 2026 17:57:37 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH v8 next 03/10] arm_mpam: Disable reqPARTID expansion when
- Narrow-PARTID is unavailable
-Content-Language: en-US
-To: James Morse <james.morse@arm.com>, ben.horgan@arm.com,
- Dave.Martin@arm.com, tan.shaopeng@jp.fujitsu.com, reinette.chatre@intel.com,
- fenghuay@nvidia.com, tglx@kernel.org, will@kernel.org, hpa@zytor.com,
- bp@alien8.de, babu.moger@amd.com, dave.hansen@linux.intel.com,
- mingo@redhat.com, tony.luck@intel.com, gshan@redhat.com,
- catalin.marinas@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
- zengheng4@huawei.com
-References: <20260413085405.1166412-1-zengheng4@huawei.com>
- <20260413085405.1166412-4-zengheng4@huawei.com>
- <9efc30be-689b-4f42-bef0-d7d62b4392fa@arm.com>
-From: Zeng Heng <zengheng@huaweicloud.com>
-In-Reply-To: <9efc30be-689b-4f42-bef0-d7d62b4392fa@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgCnb1uRKBBqw1feDA--.55895S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxXw48tFWkAry8Wr1xZryxZrb_yoWrKryDpr
-	WxKay7GF48XF1Fga1kt3WUZF1furs7Jas8Gws5tw1fCa9xA34xZrWxKF95tFn5ur4rZ34Y
-	vryjqa45Crs8AFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU92b4IE77IF4wAFF20E14v26ryj6rWUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6r1F6r1fM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I
-	0E14v26rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40E
-	x7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x
-	0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7I2V7IY0VAS
-	07AlzVAYIcxG8wCY1x0262kKe7AKxVW8ZVWrXwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
-	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x07jIksgUUUUU=
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
+	Fri, 22 May 2026 09:59:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A38441763;
+	Fri, 22 May 2026 09:59:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE2461F000E9;
+	Fri, 22 May 2026 09:59:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779443952;
+	bh=Lq6FzCC4KbteJ9kgvftpe86/zGobK0A72wn8P5God9Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=a+0BoIANfJoxAw5Ex6FiTjmcoAyM5OY+Tqu9spimOb+fiTeVzrfzisFmmBAZrQtBM
+	 a/xhzqo9ESOwirQxYbtIDkeGwoPZaYpSJUBDxGAGKZsC2P3wjyrTSkixc84M7AZEiG
+	 nki8LKsCzZ6iqZV4YBdzmDUH3Z3xZ9lbgv3oSCCpVjAviivm0PoYVKlAEcbCBQD/dg
+	 iYMzqyMLs1JCGdKrphV+SznVU9vSgN0d48e0fAFJJ0WdRo/3czCG5YMoFNgkD6qG5L
+	 bo3emt0Knfj1G+S7e57RVNZtzzWxj2tQXZ7uveEvtlP8DiJ1Tf1R0Ymht+2luf9RsL
+	 650k9hqWWXEBQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQMer-00000005AhL-2LWF;
+	Fri, 22 May 2026 09:59:10 +0000
+Date: Fri, 22 May 2026 11:02:20 +0100
+Message-ID: <87ik8fahjn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Steven Price <steven.price@arm.com>,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to delegate/undelegate ranges of memory
+In-Reply-To: <a81c3688-30f1-43e4-8d57-1d08a6e563af@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-10-steven.price@arm.com>
+	<867bowx3qx.wl-maz@kernel.org>
+	<a81c3688-30f1-43e4-8d57-1d08a6e563af@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_025748_037028_7AC3642C 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20260522_025912_923294_E6A9B742 
+X-CRM114-Status: GOOD (  34.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,131 +109,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Thu, 21 May 2026 17:01:37 +0100,
+Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
+> 
+> On 21/05/2026 14:59, Marc Zyngier wrote:
+> > On Wed, 13 May 2026 14:17:17 +0100,
+> > Steven Price <steven.price@arm.com> wrote:
+> >> 
+> >> The RMM requires memory is 'delegated' to it so that it can be used
+> >> either for a realm guest or for various tracking purposes within the RMM
+> >> (e.g. for metadata or page tables). Memory that has been delegated
+> >> cannot be accessed by the host (it will result in a Granule Protection
+> >> Fault).
+> >> 
+> >> Undelegation may fail if the memory is still in use by the RMM. This
+> >> shouldn't happen (Linux should ensure it has destroyed the RMM objects
+> >> before attempting to undelegate). In the event that it does happen this
+> >> points to a programming bug and the only reasonable approach is for the
+> >> physical pages to be leaked - it is up to the caller of
+> >> rmi_undelegate_range() to handle this.
+> >> 
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> ---
+> >> v14:
+> >>   * Split into separate patch and moved out of KVM
+> >> ---
+> >>   arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
+> >>   arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
+> >>   2 files changed, 49 insertions(+)
+> >> 
+> >> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
+> >> index 9078a2920a7c..eb213c8e6f26 100644
+> >> --- a/arch/arm64/include/asm/rmi_cmds.h
+> >> +++ b/arch/arm64/include/asm/rmi_cmds.h
+> >> @@ -33,6 +33,19 @@ struct rmi_sro_state {
+> >>   } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
+> >>   	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
+> >>   +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
+> >> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
+> >> +
+> >> +static inline int rmi_delegate_page(phys_addr_t phys)
+> >> +{
+> >> +	return rmi_delegate_range(phys, PAGE_SIZE);
+> >> +}
+> >> +
+> >> +static inline int rmi_undelegate_page(phys_addr_t phys)
+> >> +{
+> >> +	return rmi_undelegate_range(phys, PAGE_SIZE);
+> >> +}
+> >> +
+> >>   bool rmi_is_available(void);
+> >>     unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t
+> >> gfp);
+> >> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
+> >> index 52a415e99500..08cef54acadb 100644
+> >> --- a/arch/arm64/kernel/rmi.c
+> >> +++ b/arch/arm64/kernel/rmi.c
+> >> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
+> >>   unsigned long rmm_feat_reg0;
+> >>   unsigned long rmm_feat_reg1;
+> >>   +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
+> >> +{
+> >> +	unsigned long ret = 0;
+> >> +	unsigned long top = phys + size;
+> >> +	unsigned long out_top;
+> >> +
+> >> +	while (phys < top) {
+> >> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
+> >> +		if (ret == RMI_SUCCESS)
+> >> +			phys = out_top;
+> >> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
+> >> +			return ret;
+> >> +	}
+> >> +
+> >> +	return ret;
+> >> +}
+> >> +
+> >> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
+> >> +{
+> >> +	unsigned long ret = 0;
+> >> +	unsigned long top = phys + size;
+> >> +	unsigned long out_top;
+> >> +
+> >> +	WARN_ON(size == 0);
+> > 
+> > I find it odd to warn on size = 0. After all, free(NULL) is not an
+> > error. But even then, you continue feeding this to the RMM.
+> > 
+> > You also don't seem to be bothered with that on the delegation side...
+> > 
+> >> +
+> >> +	while (phys < top) {
+> >> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
+> >> +		if (ret == RMI_SUCCESS)
+> >> +			phys = out_top;
+> > 
+> > and size==0 doesn't violate any of the failure conditions listed in
+> > B4.5.18.2 (beta2). Will you end-up looping around forever?
+> 
+> That is not true ? It triggers, top_bound error condition, for both.
+> 
+> 
+> pre: UInt(top) <= UInt(base)
+> post: result.status == RMI_ERROR_INPUT
 
-On 2026/5/15 1:06, James Morse wrote:
-> Hi Zeng,
-> 
-> On 13/04/2026 09:53, Zeng Heng wrote:
->> MPAM supports heterogeneous systems where some type of MSCs may implement
->> Narrow-PARTID while others do not. However, when an MSC uses
->> percentage-based throttling (non-bitmap partition control) and lacks
->> Narrow-PARTID support, resctrl cannot correctly apply control group
->> configurations across multiple PARTIDs.
->>
->> To enable free assignment of multiple reqPARTIDs to resource control
->> groups, all MSCs used by resctrl must either: Implement Narrow-PARTID,
->> allowing explicit PARTID remapping, or only have stateless resource
->> controls (non-percentage-based), such that splitting a control group
->> across multiple PARTIDs does not affect behavior.
-> 
-> I prefer Dave's terminology for this: aliasing and non-aliasing. It implies
-> there are two controls, which stateless does not.
-> 
+News flash, I can't read. Ignore me.
 
-OK, count me as a fan of the terminology too.
+	M.
 
-> 
->> The detection occurs at initialization time on the first call to
->> get_num_reqpartid() from update_rmid_limits(). This call is guaranteed
->> to occur after mpam_resctrl_pick_{mba,caches}() have set up the
->> resource classes, ensuring the necessary properties are available
->> for the Narrow-PARTID capability check.
->>
->> When an MSC with percentage-based control lacks Narrow-PARTID support,
->> get_num_reqpartid() falls back to returning the number of intPARTIDs,
->> effectively disabling the reqPARTID expansion for monitoring groups.
-> 
-> No MSC has percentage based controls - that's an x86ism. The MSCs have
-> fixed point fractions, bitmaps or a cost/weight.
-> 
-
-Yes, thanks for head-up: it's x86ism.
-
-> 
-> I think you're thinking about this the wrong way up - we should only enable
-> this on a small number of platforms that don't have any controls we'd have to discard.
-> (hopefully yours is such a platform!)
-> 
-> I don't think this should be added to resctrl_arch_system_num_rmid_idx(). Please make
-> this decision for resctrl at mpam_resctrl_setup() time.
-> 
-> 
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
->> index 5f4364c8101a..56859f354efa 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -257,9 +257,50 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
->>   	return mpam_intpartid_max + 1;
->>   }
->>   
->> +/*
->> + * Determine the effective number of PARTIDs available for resctrl.
->> + *
->> + * This function performs a one-time check to determine if Narrow-PARTID
->> + * can be used. It must be called after mpam_resctrl_pick_{mba,caches}()
->> + * have initialized the resource classes, as class properties are used
->> + * to detect Narrow-PARTID support.
-> 
->> + * The first call occurs in update_rmid_limits(), ensuring the
->> + * prerequisite initialization is complete.
-> 
-> This is fragile to changes in the order resctrl makes these calls. We need these
-> properties to be fixed before we call resctrl_init().
-> 
-> (yes - I think CDP is fragile too!)
-
-It makes sense to me.
-
-> 
-> 
->> + */
->> +static u32 get_num_reqpartid(void)
->> +{
->> +	struct mpam_resctrl_res *res;
->> +	struct mpam_props *cprops;
->> +	static bool first = true;
->> +	int rid;
->> +
->> +	if (first) {
->> +		for_each_mpam_resctrl_control(res, rid) {
->> +			if (!res->class)
->> +				continue;
->> +
->> +			cprops = &res->class->props;
->> +			if (mpam_has_feature(mpam_feat_partid_nrw, cprops))
->> +				continue;
-> 
-> 
->> +			if (mpam_has_feature(mpam_feat_mbw_max, cprops) ||
->> +			    mpam_has_feature(mpam_feat_mbw_min, cprops) ||
->> +			    mpam_has_feature(mpam_feat_cmax_cmax, cprops) ||
->> +			    mpam_has_feature(mpam_feat_cmax_cmin, cprops)) {
-> 
-> Please make this a helper in mpam_internal.h with 'controls' and 'aliasing' in its name.
-> (maybe has_aliasing_controls()).
-> 
-> What about the priority for PRI and the proportional-stride?
-> 
-> I don't think proportional-stride aliases properly: if I have groups with stride 1 and 2,
-> I can't add a second '2' without decreasing the first groups stride from 1/3 to 1/5. If I
-> halve the second groups, they each get half the bandwidth instead of sharing it.
-> 
-> Can you check whether the priority for PRI aliases?
-> 
-
-Proportional-stride is indeed a non-aliasing control, and this was an
-oversight on my part (I haven't actually encountered this control option
-before).
-
-I'd argue that PRI is an aliasing control: the priority value defines a
-scheduling class or identity. When multiple PARTIDs share the same
-priority, it's akin to multiple users holding the same VIP tier. They
-compete for resources within that same category, rather than each
-receiving an independent, additive allocation.
-
-
-Best regards,
-Zeng Heng
-
+-- 
+Jazz isn't dead. It just smells funny.
 
