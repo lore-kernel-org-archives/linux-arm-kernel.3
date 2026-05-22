@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE25CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26484CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FCl2h1w1gG7xQ2IOq1++c0XrFQCqGCY1qfeW5ss3aJU=; b=31OyJEyDJg8M2eOTxcKcR2//zO
-	vRkwJofq+ut6RJHKptOC75FMuShR9geGgwklxmYleZ++Tl06+9brzrD9OEUal+TmRDFIbEpzyy9HU
-	RCFi/RmzjPNLjrYGHAW7U8BzkjLSLRpml/V9a3/ruzydZuyfaBV3xJekwXAkOAWZCLHJpmYWSGxql
-	dLBedQPZvOsgm+DGPsm1SISGK7YLyfZPSnqVwQ50WJCnrybK5qLaagm1QgK1YDpAwUotlwv7Rs3Gu
-	3mdazEqxzuu1kz/vu9/ibzYEZULans3EIYMEXElC1dJkg+dH3tDBl5YJfgk+ZQziOmCCOAygHHB5b
-	Na3QYIyw==;
+	bh=tzI3ngdD17nd9oUvnoIHtzlnEtfXOINJERrYeNFi9Y0=; b=2iMvTlM1UWd13V7yozI+Z8LzDq
+	SHoHtmyj6SWGR+dPU7fybvYjxWYB8dgSYdu9OdtaZUBvlI6hoXgsUbocERklApV1fNXE4Nwd/J6lw
+	romhUpIR0Ggx4s9ou2Df8uWiJDiZFNo3F6VuYLk7UHehqUcG6uQfH2/ZsjrKZqiFLARzfxDNDAbQt
+	IzUYsee5ek8U28KLx9nJs8Nkc2nbNGrjLrbsqwhR8KupKsBUOj3Qcbzq9gtsybLRaggDRygS9AcWx
+	uF/XSa8dWB/y/PFCvL5Xi5KG7h+66DVf99tRg/sF1Ry6G6cX1jX3kFTlgg5In1OGzGFYc77SsaDHc
+	8adnXqKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVWa-0000000BmET-2dLN;
-	Fri, 22 May 2026 19:27:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQVal-0000000BmbQ-0lMZ;
+	Fri, 22 May 2026 19:31:31 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVWY-0000000BmEB-2gVX;
-	Fri, 22 May 2026 19:27:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CDA2F60136;
-	Fri, 22 May 2026 19:27:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0483F1F000E9;
-	Fri, 22 May 2026 19:27:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779478029;
-	bh=FCl2h1w1gG7xQ2IOq1++c0XrFQCqGCY1qfeW5ss3aJU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ds6ZMMcgx5EDAgUl1oWgYyadlaRI2Wa4jbbhZo8AQztef+B93krJNaxzks2mO5nGN
-	 zs3brK3XUN3Vkp7C69SA4iKK0s59G61zOndjX8ehKMihlTbCJyLAatdcDbqsjdswgF
-	 yd/SApE5kY4Y8oQhvlSUYujUIEvHc2S+06ugEXPAMAx8i7bS+ba85G20ioe/s1AoVa
-	 4jN4HvjZ4qUijyR5GPyHyYif4NaXLCivIk7qhJiirKJQcd9u999dSwTrR8+m5VVcvS
-	 3d3zfANxA6AE7SjyUCYvMqzgPTfTNkjy8qosxmUDrPtZX4BpfwZ81971jS1Z0/Qfdt
-	 KtTHxsV04Ln4g==
-Date: Fri, 22 May 2026 21:27:07 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Christian Marangi <ansuelsmth@gmail.com>,
-	Benjamin Larsson <benjamin.larsson@genexis.eu>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v8 01/10] dt-bindings: net: airoha: Add GDM port
- ethernet child node
-Message-ID: <ahCuC3TgK3Pnuz_w@lore-desk>
-References: <20260519-airoha-eth-multi-serdes-v8-0-6bd70e329df6@kernel.org>
- <20260519-airoha-eth-multi-serdes-v8-1-6bd70e329df6@kernel.org>
+	id 1wQVai-0000000Bmaq-2pTA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 19:31:29 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-48a7fe4f40bso88861505e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:31:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779478286; x=1780083086; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tzI3ngdD17nd9oUvnoIHtzlnEtfXOINJERrYeNFi9Y0=;
+        b=oJuB7sIwv2+TkzDDERd85/7Igomj8FErEmiyYOjCht7O8fxYoCJ9Zfm+NMGaknYyXY
+         p3QZu0DkHGyJXPjPvfXTwtbKDC7VGLYvfcBWGKXyrC5jcrqf+/10mMPiIGloBbZxEmbO
+         DVUbMdqcuOyzddkgJab4D7CslzYweg8/wnmeLKCZ+hpk86C7u1UONLA3XVSL5WkCUWTI
+         yjYFaqdVWXFFl2rT58zSO5H+XPgYWAvcRxK3oyr0MZe9Bj2tSK0KIK9WY1oHtYsmVyBR
+         kRCpb4w1xeQISe0aUsDEcufQG0Y8by8SbaNCH/88fL6TZWpu/QQc/GAj7V3M5ZBVH+wM
+         khwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779478286; x=1780083086;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tzI3ngdD17nd9oUvnoIHtzlnEtfXOINJERrYeNFi9Y0=;
+        b=sxnusCY27PpeY/Ehp8YatQpYrKEPY/EDS7rkoFElcNDA//GWQKCuyFkhmPaCwutGP9
+         9ngU7TnsZ+XIcnYPxR4AmBgNHGid6kTvOb0n0stp8ap5UkTmaoTclzEoBF3MYjik/CHS
+         4mQJRLF6rmIEazl3c+r6ISpY8KTy9pU7x6z5ZNrY0eXwgo5Z9meT/9edgHh3nvw7NPEw
+         CmXERjt31zONMm/sUXCZoWHTZ2YYGVhkOhB7SFXk7yfEuGpxPsQRs8RNe6eSZ9iMd21U
+         Sydqt+aQUjvns6Am7aZrzEeAd0IA7a33QBwXt7RXOJv0wMAxln1tUK+2ysRdppnnjAvb
+         TMhA==
+X-Forwarded-Encrypted: i=1; AFNElJ8a7/u4O5fsKR3FS9eBeeB1iPOW+LSJE7PTvZ3jBvnODMQ9joy+zoavNLdL8O5O7bjcHjcxG1PB7Zq2NRMhDB+l@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzorQ25HQ4NeOyoEjneMjHNXlYhxKg7DenUYzf8XYxR5i7TBLd
+	JUpAy0UaERDRxwAW/MQ0yaJbslKbMPkbdKgztoE4tgoOAidfTsJ0OrpD
+X-Gm-Gg: Acq92OGSnhRKou2Ly7kqwmzrdPWJe10wKoFJE6JWo1Fm4d/qUmdc9Sv7uagZ/oyqQC1
+	86xmpbUfmj7Oag9atZuFKXEPq2Vp3Do/HuTflnZ6sxLFWwy4EzPlR4VcbMncb5QoC3SBJzLjHcj
+	h51Ql9VSYpr12i8Wnt+c+qY68yTdvGjDiL4JU0JrLUvwN446XUR6PfSNVb+u3jGaunjZ2oVd3H+
+	Mo3qpiKsacORlem9wzm1/bDzdGUjQ4tpA0TmtxsqhLTY51mEexcWFeysYwS2oyS6KNJLJ2KuFIi
+	s43v9/yr9f9/DklfdsUiIlD+U82a36Dtiycbp9cZtGjXGggQDV+6C9mFo94PsNB1hGUBf6oZFgO
+	grPenX3vIloDIs6che5bArV8ls7zd2xmHxGZG9HzscdMRjpoedbuGP+ySRl1re/mL8JGzzTW/rZ
+	oL5y2vXi7b0jNwkfJJF/izNIcIk6YY7MGAEQ==
+X-Received: by 2002:a05:6000:29d2:b0:43d:7c6c:a0dd with SMTP id ffacd0b85a97d-45eb38be1b0mr6092356f8f.35.1779478286163;
+        Fri, 22 May 2026 12:31:26 -0700 (PDT)
+Received: from strix.localnet ([197.250.51.26])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eb6ccd04dsm6349837f8f.9.2026.05.22.12.31.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 May 2026 12:31:25 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
+Cc: Linus Walleij <linusw@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org
+Subject: Re: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
+Date: Fri, 22 May 2026 22:31:12 +0300
+Message-ID: <6270885.lOV4Wx5bFT@strix>
+In-Reply-To: <503916c8-da3b-42dd-812e-356f519be47f@infradead.org>
+References: <20260521191458.177046-1-rdunlap@infradead.org> <13240501.O9o76ZdvQC@strix>
+ <503916c8-da3b-42dd-812e-356f519be47f@infradead.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qZn/vsQETJzcLfna"
-Content-Disposition: inline
-In-Reply-To: <20260519-airoha-eth-multi-serdes-v8-1-6bd70e329df6@kernel.org>
+Content-Type: multipart/signed; boundary="nextPart5103908.31r3eYUQgx";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_123128_765967_0E0C8527 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,131 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--nextPart5103908.31r3eYUQgx
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
+Subject: Re: [PATCH] ARM: zte: clean up zx297520v3 doc. warnings
+Date: Fri, 22 May 2026 22:31:12 +0300
+Message-ID: <6270885.lOV4Wx5bFT@strix>
+In-Reply-To: <503916c8-da3b-42dd-812e-356f519be47f@infradead.org>
+MIME-Version: 1.0
 
---qZn/vsQETJzcLfna
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Randy,
 
-> EN7581 and AN7583 SoCs support connecting multiple external SerDes to GDM3
-> or GDM4 ports via a hw arbiter that manages the traffic in a TDM manner.
-> As a result multiple net_devices can connect to the same GDM{3,4} port
-> and there is a theoretical "1:n" relation between GDM ports and
-> net_devices.
-> Introduce the ethernet node child of a specific GDM port in order to model
-> a given net_device that is connected via the external arbiter to the
-> GDM{3,4} port. This new ethernet node is defined by the "airoha,eth-port"
-> compatible string. Please note GDM1 and GDM2 does not support the
-> connection with the external arbiter and they are represented by an
-> ethernet node defined by the "airoha,eth-mac" compatible string.
+Am Freitag, 22. Mai 2026, 20:44:24 Ostafrikanische Zeit schrieben Sie:
+> Does this mean that you will be merging this patch since you merged the
+> original patch?
 
-Hi Rob, Krzysztof and Conor,
+I am new to the kernel development process, so I don't know what's the 
+preferred way. I guess for me it is easier if your patch gets merged as-is.
 
-do you have any comment about this patch? Thanks in advance.
+I can certainly submit a pull request myself though since I made myself the 
+maintainer for this thing. Does that go to linux-doc@vger.kernel.org or the 
+soc list?
 
-Regards,
-Lorenzo
+Cheers,
+Stefan
 
->=20
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  .../devicetree/bindings/net/airoha,en7581-eth.yaml | 56 ++++++++++++++++=
-+++++-
->  1 file changed, 55 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml=
- b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> index fbe2ddcdd909..17fe2edf4886 100644
-> --- a/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-eth.yaml
-> @@ -130,6 +130,42 @@ patternProperties:
->          maximum: 4
->          description: GMAC port identifier
-> =20
-> +    allOf:
-> +      - if:
-> +          properties:
-> +            reg:
-> +              contains:
-> +                items:
-> +                  - enum:
-> +                      - 3
-> +                      - 4
-> +        then:
-> +          properties:
-> +            '#address-cells':
-> +              const: 1
-> +
-> +            '#size-cells':
-> +              const: 0
-> +
-> +          patternProperties:
-> +            "^ethernet@[0-5]$":
-> +              type: object
-> +              unevaluatedProperties: false
-> +              $ref: ethernet-controller.yaml#
-> +              description: External ethernet port ID available on the GD=
-M port
-> +
-> +              properties:
-> +                compatible:
-> +                  const: airoha,eth-port
-> +
-> +                reg:
-> +                  maximum: 5
-> +                  description: External ethernet port identifier
-> +
-> +              required:
-> +                - reg
-> +                - compatible
-> +
->      required:
->        - reg
->        - compatible
-> @@ -191,9 +227,27 @@ examples:
->          #address-cells =3D <1>;
->          #size-cells =3D <0>;
-> =20
-> -        mac: ethernet@1 {
-> +        ethernet@1 {
->            compatible =3D "airoha,eth-mac";
->            reg =3D <1>;
->          };
-> +
-> +        ethernet@4 {
-> +          compatible =3D "airoha,eth-mac";
-> +          reg =3D <4>;
-> +
-> +          #address-cells =3D <1>;
-> +          #size-cells =3D <0>;
-> +
-> +          ethernet@0 {
-> +            compatible =3D "airoha,eth-port";
-> +            reg =3D <0>;
-> +          };
-> +
-> +          ethernet@1 {
-> +            compatible =3D "airoha,eth-port";
-> +            reg =3D <1>;
-> +          };
-> +        };
->        };
->      };
->=20
-> --=20
-> 2.54.0
->=20
-
---qZn/vsQETJzcLfna
-Content-Type: application/pgp-signature; name=signature.asc
+--nextPart5103908.31r3eYUQgx
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahCuCwAKCRA6cBh0uS2t
-rFFmAP9bCqqNxm9iUo7L09S4mXpuCBZOetsy0kzJc0wz9A/t/QEAheGcPN75acWD
-xrt8EQrZhwP7W2N6/vJzmXpYge3IQQQ=
-=NoQd
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmoQrwAbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiDioP/RTigdRsyhr4ft6Leuqv
+ez7BwUb7lJR4Ro/eGhoQetLrzr+fGS3DbF+ke+6vJj5PzhkKYtEYLwHrI6KuyWYp
+aiUgnRwk0H2LKyPPvCqiRfAdMIP5RHxTSs7Q88MqeULG/rkDz1yFtoqBa1Bb4Z31
+mkXab6G56xU0sK0nrltB2NJZe8LH11ihNFI5JnIetQpWE2nWuJfXX8kZ/eTKxfEn
+d1f3bw3RuzP/slO3v0iWJ0pwvodejT0tCe3DolI5fq8nBqi2UaC9/UlJE31UPYRz
+/sZ+8sCzoKJf1EEOlg/+BBCw+AlXCvRmwSuwAfJ4e0dMXByVq0wOWxbWEJq2SLIQ
+L7IDgE7Xwpd+9NnNbO1Tpa9lT78FMfBTq0qY4QYiPVca6Ia2vNyH8TEpOrB+LoIU
+y9L7Fu/2XH2Yx571pkAHqkfo7DygHWeUosuweiONRilInjF5ssfmFNd8xp3Hrl1w
+YnOBRXsJvu6DfDEoex+kKFwiUL2BZpxcTnKw35ZlDvfYbjJnNGI3fWh5WyIUOov3
+6dOwIr0xOfRlMuWf5jerU2pIF/NmRMBCZR8v6QlvOizzBHVHokwOJs96OBzZyxaG
+wikm6wApAHc6AOxYuwxRAWdq/yWijTufkyWOS9j/9kUYoIbqGo5GrwSd76VqTusU
+1E6ofI1fcKjhJ8cej47xHywp
+=XwM4
 -----END PGP SIGNATURE-----
 
---qZn/vsQETJzcLfna--
+--nextPart5103908.31r3eYUQgx--
+
+
+
 
