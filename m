@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93F2ACD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 16:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A230ACD5BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 16:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QPGVYKqn3FQ80LKzOq7xEivdqWu7ECBxaeXMtXQgpig=; b=a3bLlU25cDvJMSSy4/Vk9BWd44
-	PY62em4zzKg19R9GXL5Gjl9WOHQaZypzXcieRT2B4oDB9xPcTeIGGKOUKluYNcQH/Gh9puiofnAJb
-	c49E3iQMOSst1ZRLfvlQHATg+EOydvIxLG9uPLxPVYUaHlH5M5a5HLvfGC67M4AaKN4LTBoJOdKnC
-	I0ZMlMF8Un8jGH9B/pBRS5m8G3mPUqlTMBIIKRp7WGLhpXAFZ6wHbm4aNS/TvAQpHi5LU/wNjQPl+
-	4QkcXqizGArN/IB1QpAPM7AO8jBr4DsZnSCOoN6l6nSuZlupBvE4kxgIQQnB6FndsYX2ya898PQiY
-	FieAPGAw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8Ik325qS+IlSAnQ/mwoET7pUu3OO4SnjA2/txbOoUzg=; b=SCbNltlLIYfWu/mwtvQYFSd8KE
+	vt5YtpDZ/LRI3EoVwKpSoP3mDAgYSJAu2MfQY2CePJnuz5JfP0u5dnol7VuX15HQL68OfLKH3r7cN
+	JGmOtkpBZmd+BZBN/eu1kWJDGOq6bhlr10g0ib970kjaUygmlFuQWC/GP51tFUfnE7UcIjKhqrYIj
+	9us6iLG91hi48tAE3bQmpOLoIAJQXFlRuu+1ktAIBp/PkqVGsjcq+/G48xyS++lCGP1cFkBdTRbB9
+	ZRh4cW8xvmA7AjBgpjm18KwRBZOfuiD+nWbgCVUBEj5PCK86rTQELPHJm/o0LZh79k0bctpMSZFqS
+	YfY70Z1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQSTQ-0000000BNi2-1Fp8;
-	Fri, 22 May 2026 16:11:44 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wQSTV-0000000BNkF-3tjC;
+	Fri, 22 May 2026 16:11:49 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQSTO-0000000BNhH-0dTa
+	id 1wQSTR-0000000BNi1-1EkF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 16:11:43 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4904c1ce4c1so2027125e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 09:11:41 -0700 (PDT)
+	Fri, 22 May 2026 16:11:46 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4585a116a4aso6315261f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 09:11:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779466300; x=1780071100; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QPGVYKqn3FQ80LKzOq7xEivdqWu7ECBxaeXMtXQgpig=;
-        b=pxSAiPs2eQayWo/OiMqNgreg4WIdt5ziglGy/C3PkpY7JUczTJI3DgLZqLdpI9u12D
-         Gka9A4OFSUcnBZvu1go6GjgdDqZeAS7ryVktK/WEWY/lxBFlEtaLYp73A6iSdWW6Z7Tf
-         uUFSKUHCZOF0NwIWiGxKl+yqQJog21bNc/Vt+RWu+OeKUVzG8G+W20pMLum2mN6QSBqA
-         eyNqM2vq1X4he0FAb0wYMHlSa/qsW1sLrcNDqTEHXhoYxktNV9UVc6AjqLdCpO7PuPnv
-         vru9LPcWWKkU8tJubz6bDb48WZh4G10uQu9cgIej9yNDU7YFWA0V8giL7vf5q+LQkw+k
-         vPdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779466300; x=1780071100;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1779466303; x=1780071103; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QPGVYKqn3FQ80LKzOq7xEivdqWu7ECBxaeXMtXQgpig=;
-        b=CPnhTTg9YRUkvUZPSTkIZYYAU3rWBFDqQKJ+xv24MYHYr5PvJ3/q96vh8Bh3TARDfy
-         +akCBjUlqV4Ru/gRwyysuiCsr6A+aQAlwd/o6s3iRqYqs8k+y36GeRM6U6pWAj4YZ1c7
-         wfqH6ovbayizAFbHbUSXZaajVC+0s/6f4kkDEWF7463LgaII2HfvR2GwEli+ymGKFtVz
-         FbRhZ4eONSQnH2nBn+tBQmiwlDHSP9j0PMoUXjQjUCczh4qUX43w8WDV7+VD8Q+D0OMO
-         IsxEfRk8jq8QLwqnxmC4vy2FYY5SLzOlqvANJiG6kpItBwPgwvz0ITF2C80h5KQNIy0V
-         tniw==
-X-Forwarded-Encrypted: i=1; AFNElJ/w+qGj9Hwv4VI2P0XaIqKBXYDmG1aIyYWgDZJIHl9Bxg3iF4uRLn9ZIHZwhwUrxnmUbUSaZwP/4DdZem77kjHd@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZAxf/7SqDMS+9z3B44YXQv0XYDBN2SPlNxK/yVY8XtltLydC9
-	T/lyjRMP3yDMQck8lfYC66LEBT9qi9JxHkfgwIqUAmyqjjU6dHYUacdz
-X-Gm-Gg: Acq92OGmnaSMRRfrcljpU8KnCekXpI99LeNtHu6c2alE/M7FQ7CXxjtotDUf3gc4bzU
-	ndlFGC2R9S7LdqG6frDW4ClVhAX0inooJhR9HODEIDMgVFWBflm6FzBMgQ15GKvHciMjg0qp9sb
-	kLXL9QEhikj8a7yhGrOt/pSIijK5ds5WVjlukkEml2QArnhz4hNXPxl+LB1Ttahkk+LQSS6IV1Z
-	GT8bnfNej6/l4f45hErr8tOHFxKTEt7He1YqtSzrlrfCYRRDn+gSfx7aE78k5J+P1HU0q2LfudX
-	D/wi/C+Hp1soCQrTqdM/uDWCm0OESD/DNVIa5hHXEqpaxYEZXVsvrugOk54sNuxHzxCy40G3CIC
-	PIBrU7p7M4awVh0snl+XfyII+PnOrI6THluXP8T+xQvpzcsB3EsJzCvRNlXWI0Fa++/LuaetSXK
-	IDugiIq9H3cLXn2ItDqJxP2UH2V4zYjCTqKURpSiFPXg==
-X-Received: by 2002:a05:600c:1c0a:b0:490:402f:324d with SMTP id 5b1f17b1804b1-490428e03admr60430125e9.29.1779466299935;
-        Fri, 22 May 2026 09:11:39 -0700 (PDT)
+        bh=8Ik325qS+IlSAnQ/mwoET7pUu3OO4SnjA2/txbOoUzg=;
+        b=d+zKPXAct4lthNDEDUcgqqwVD3Ynjit7Ks/3YhlUhIGr6gSHq2wcdout/JJvuZ8wzY
+         Fr6Se1PfdfVFLlt2Rfl58XzBwnwcAO9MnD/Rhe0NLh2Ejbt/+p8usmfBBDffM8Z+BZrj
+         IOVBogUEpDr1naes9nTdExR1wmGSrtP0i/UzL/MFm/manu4S+/Sawo2Z31pjE0zbZ0KU
+         kF2pUnoWx012saVlOTl55ajOBm3HYDeCFpx2x1Ch6ZKguWUhwp9OYzVvkANk8kPMV44Y
+         MbMcK79ERNTyHJ8QzO5aGT1p+VCrf3fl8gNcuYT8VukxkzvcFE60j+rVYsxJG6Kz89DS
+         pDlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779466303; x=1780071103;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=8Ik325qS+IlSAnQ/mwoET7pUu3OO4SnjA2/txbOoUzg=;
+        b=IOoIqPaN7q3Pf09NevXwecAYBSP9cc0zbeeJr4pa2vdm4O7/9nBFakL6Vw4L+KxS7e
+         WHBcmQzjYi/Ib3PieoMyZjmiNUcLdkmo5EFNsIvSsAdGZVfV0pnBBwQWb7yvgzHAyGy1
+         +Oa7OsTEeuzpUD+RBD3nNSSqnCNVE1wpj0VY8I9DCMFj0fpDU+Q2R/kh+u3AmW6nuEQd
+         6m5Bac35ZN0NILV6WJMIbZY2Gj6xbpIM4EbVZh6rr+cnVffs041BwQADzg1sf0Nl1pUw
+         er+2zspdxmCBH1oBuQ6+3VnLinJSStD5mYMuak5qu6L3WOxaWotu3IL+tuy8E1IsLzaJ
+         IL4Q==
+X-Forwarded-Encrypted: i=1; AFNElJ888Ue4BNqTLCnLm2PLEkaiFFiw1qnO0SaaiWWgml1PPw9zIEpJHR9aTzjBQYvvSNJ7l/zvmQOnKudyS/GlRa9n@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYpafHs97uqPGHLs9y1ARqDiH6uWmWXKxWVMU7+4cUjunHWXcR
+	L/L5SiL7DAwaosPUBW8VByB0eLYUMWOcom7QSuGslMfDEmuRSORrpPts
+X-Gm-Gg: Acq92OFYI0avTldRCNumEh4HAn9hhIJm+y7rnqliVMAtbPT3sZntNwNukD1Gs42Qf3T
+	Tbd/iwBAx169X5FAgG0gxEdLB19ObUQSvS44Se9ku6A2N7MBcpFpSHag5mGXqDTW95d2JAluvDg
+	qoXO+jKtTh1inTwCQ3vgg7O22Jvt+YLuYScIiqbZ2G0yPH7QYWAV5UL3WTd7831qKxEajdK/msx
+	pSbSgMqoTmjXm+BEDCot28UxRpGyy14iFdXkkIENsnhOcniKGG4+Q4FKf8DRK4WHd2Bn1gSXHqY
+	K4+g8lJsEDDMNm9HrR33QXwJ37mONL1Jz0o+hNe8Uwc2sgcO054e2BNVT5GGBvvI8HENR9ljnDC
+	biaUJHYQKZSTX7f8BdYTnIFki+QBQGgDfpEK0q+vJUkQEaR3jF/yIrifkl5Zl2biDNPslBVDlz/
+	7y7rAgHFzTGaBMl861KBIZYAMONu7upr1gbU2jxCyP0A==
+X-Received: by 2002:a05:600c:3587:b0:48f:e230:2a20 with SMTP id 5b1f17b1804b1-490428eb9eemr61826885e9.31.1779466303106;
+        Fri, 22 May 2026 09:11:43 -0700 (PDT)
 Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b9asm51042755e9.11.2026.05.22.09.11.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b9asm51042755e9.11.2026.05.22.09.11.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 09:11:39 -0700 (PDT)
+        Fri, 22 May 2026 09:11:42 -0700 (PDT)
 From: Vitor Soares <ivitro@gmail.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -90,15 +91,17 @@ Cc: Vitor Soares <vitor.soares@toradex.com>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 00/11] arm64: dts: ti: k3-am62-verdin: Add display and peripheral overlays
-Date: Fri, 22 May 2026 17:11:04 +0100
-Message-ID: <20260522161105.277519-13-ivitro@gmail.com>
+Subject: [PATCH v3 02/11] arm64: dts: ti: k3-am62-verdin: Add Toradex Capacitive Touch Display 10.1" LVDS
+Date: Fri, 22 May 2026 17:11:06 +0100
+Message-ID: <20260522161105.277519-15-ivitro@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260522161105.277519-13-ivitro@gmail.com>
+References: <20260522161105.277519-13-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_091142_224523_7722CEA2 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20260522_091145_370229_B204E3C9 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,91 +118,185 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vitor Soares <vitor.soares@toradex.com>
 
-This series adds device tree overlays, expanding the hardware support for
-the Toradex Verdin AM62 SoM. The overlays target displays, cameras, audio,
-and peripherals available through Toradex carrier boards and the accessory
-ecosystem.
+Add a device tree overlay for the Toradex Capacitive Touch Display 10.1"
+LVDS connected via Verdin AM62 OLDI on carrier boards exposing LVDS
+interface (e.g., Mallow). The panel is a LogicTechno LT170410-2WHC 10.1"
+WXGA IPS LCD and the touch input is provided by an Atmel MaxTouch
+capacitive touch controller.
 
-Display additions cover three interface types:
-- native OLDI (LVDS) with Toradex Capacitive Touch Display 10.1" LVDS
-- DSI-to-LVDS adapter based on the SN65DSI84 with Toradex Capacitive Touch
-  Display 10.1" LVDS
-- DSI driving Toradex Capacitive Touch Display 7" and 10.1" DSI.
-
-The Riverdi vendor prefix and panel bindings required by the DSI overlay
-patches are also added.
-
-Non-display additions include OV5640 CSI camera support in 24 MHz and
-27 MHz oscillator variants, NAU8822 Bridge Tied Load mode on the
-Development Board, MCU_MCAN1 on the Mezzanine board low-speed header,
-and MCU_UART0 reservation for the Cortex-M4F debug UART.
-
-TI maintainers: patches adding the Riverdi vendor prefix and panel-lvds
-bindings are required by the DTS patches.
-Are you fine picking up the full series once those patches are acked by
-the DT/display maintainers?
-
+Link: https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
+Assisted-by: Claude:claude-sonnet-4.6
+Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 ---
 Changes in v3:
 - Add missing regulator-name property on fixed regulators
-- Simplify regulator labels (reg_3v3_lvds_native -> reg_3v3_lvds,
-  reg_3v3_lvds_bridge -> reg_3v3_dsi)
+- Simplify regulator labels
 - Rename touch@ nodes to touchscreen@
-- Link v2: https://lore.kernel.org/all/20260522132014.226721-13-ivitro@gmail.com/
 
 Changes in v2:
-- Add Ab tags
-- Drop introduction of the LG LP156WF1 15.6" FHD dual-channel LVDS panel
-- Drop migration of "logictechno,lt170410-2whc" to panel-lvds.yaml
-- Link v1: https://lore.kernel.org/all/20260521150038.103538-17-ivitro@gmail.com/
----
+- Use panel-simple compatible form
 
-Vitor Soares (11):
-  arm64: dts: ti: k3-am62-verdin: Add Toradex DSI to LVDS adapter with
-    10.1" display
-  arm64: dts: ti: k3-am62-verdin: Add Toradex Capacitive Touch Display
-    10.1" LVDS
-  dt-bindings: vendor-prefixes: Add Riverdi
-  dt-bindings: display: panel-lvds: Add Riverdi RVT70HSLNWCA0 and
-    RVT101HVLNWC00
-  arm64: dts: ti: k3-am62-verdin: Add Toradex Capacitive Touch Display
-    10.1" DSI
-  arm64: dts: ti: k3-am62-verdin: Add Toradex Capacitive Touch Display
-    7" DSI
-  arm64: dts: ti: k3-am62-verdin: Add NAU8822 Bridge Tied Load
-  arm64: dts: ti: k3-am62-verdin: Reserve UART_4 for Cortex-M4F
-  arm64: dts: ti: k3-am62-verdin: Add Toradex OV5640 CSI Cameras
-  arm64: dts: ti: k3-am62-verdin: Add Toradex Verdin Mezzanine CAN
-  arm64: dts: ti: k3-am62-verdin: Add Mezzanine with Toradex Display
-    10.1" LVDS
-
- .../bindings/display/panel/panel-lvds.yaml    |   4 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/ti/Makefile               |  49 +++++++
- .../ti/k3-am625-verdin-dev-mezzanine-can.dtso |  28 ++++
- ...mezzanine-panel-cap-touch-10inch-lvds.dtso |  98 +++++++++++++
- .../ti/k3-am625-verdin-dev-nau8822-btl.dtso   |  14 ++
- ...in-dsi-to-lvds-panel-cap-touch-10inch.dtso | 124 ++++++++++++++++
- .../dts/ti/k3-am625-verdin-ov5640-24mhz.dtso  |  17 +++
- .../boot/dts/ti/k3-am625-verdin-ov5640.dtsi   |  71 ++++++++++
- .../boot/dts/ti/k3-am625-verdin-ov5640.dtso   |  18 +++
- ...625-verdin-panel-cap-touch-10inch-dsi.dtso | 132 ++++++++++++++++++
- ...25-verdin-panel-cap-touch-10inch-lvds.dtso | 120 ++++++++++++++++
- ...m625-verdin-panel-cap-touch-7inch-dsi.dtso | 132 ++++++++++++++++++
- .../dts/ti/k3-am625-verdin-uart4-mcu.dtso     |  13 ++
- 14 files changed, 822 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-can.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dev-mezzanine-panel-cap-touch-10inch-lvds.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dev-nau8822-btl.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-dsi.dtso
+ arch/arm64/boot/dts/ti/Makefile               |   5 +
+ ...25-verdin-panel-cap-touch-10inch-lvds.dtso | 120 ++++++++++++++++++
+ 2 files changed, 125 insertions(+)
  create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-lvds.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-7inch-dsi.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-uart4-mcu.dtso
 
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index b2408f62c139..867c05b675d1 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -33,6 +33,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-zinnia.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-lvds.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia-dsi-to-hdmi.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dahlia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-wifi-dev-dsi-to-hdmi.dtb
+@@ -213,6 +214,9 @@ k3-am625-sk-hdmi-audio-dtbs := k3-am625-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
+ k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := \
+ 	k3-am625-verdin-wifi-dev.dtb \
+ 	k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
++k3-am625-verdin-wifi-mallow-panel-cap-touch-10inch-lvds-dtbs := \
++	k3-am625-verdin-wifi-mallow.dtb \
++	k3-am625-verdin-panel-cap-touch-10inch-lvds.dtbo
+ k3-am62-lp-sk-hdmi-audio-dtbs := k3-am62-lp-sk.dtb k3-am62x-sk-hdmi-audio.dtbo
+ k3-am62-lp-sk-nand-dtbs := k3-am62-lp-sk.dtb k3-am62-lp-sk-nand.dtbo
+ k3-am62a7-phyboard-lyra-disable-eth-phy-dtbs := k3-am62a7-phyboard-lyra-rdk.dtb \
+@@ -315,6 +319,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am625-sk-csi2-tevi-ov5640.dtb \
+ 	k3-am625-sk-hdmi-audio.dtb \
+ 	k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb \
++	k3-am625-verdin-wifi-mallow-panel-cap-touch-10inch-lvds.dtb \
+ 	k3-am62-lp-sk-hdmi-audio.dtb \
+ 	k3-am62-lp-sk-nand.dtb \
+ 	k3-am62a7-phyboard-lyra-disable-eth-phy.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-lvds.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-lvds.dtso
+new file mode 100644
+index 000000000000..f83366b11bdb
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-panel-cap-touch-10inch-lvds.dtso
+@@ -0,0 +1,120 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex Capacitive Touch Display 10.1" connected via Verdin AM62 OLDI
++ * on carrier boards with a Toradex standard LVDS display connector
++ * (e.g., Mallow).
++ *
++ * https://developer.toradex.com/hardware/accessories/displays/capacitive-touch-display-101inch-lvds
++ * https://www.toradex.com/accessories/capacitive-touch-display-10.1-inch-lvds
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/pwm/pwm.h>
++#include "k3-pinctrl.h"
++
++&{/} {
++	backlight_pwm2: backlight-pwm2 {
++		compatible = "pwm-backlight";
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_i2s_2_d_out_gpio>;
++		brightness-levels = <0 45 63 88 119 158 203 255>;
++		default-brightness-level = <4>;
++		/* Verdin I2S_2_D_OUT as GPIO (SODIMM 46) */
++		enable-gpios = <&main_gpio0 34 GPIO_ACTIVE_HIGH>;
++		/* Verdin PWM_2 (SODIMM 16) */
++		pwms = <&epwm0 1 6666667 PWM_POLARITY_INVERTED>;
++	};
++
++	panel-lvds-native {
++		compatible = "logictechno,lt170410-2whc";
++		backlight = <&backlight_pwm2>;
++		power-supply = <&reg_3v3_lvds>;
++
++		port {
++			panel_lvds_native_in: endpoint {
++				remote-endpoint = <&oldi0_out>;
++			};
++		};
++	};
++
++	reg_3v3_lvds: regulator-3v3-lvds {
++		compatible = "regulator-fixed";
++		regulator-max-microvolt = <3300000>;
++		regulator-min-microvolt = <3300000>;
++		regulator-name = "+V3.3_LVDS";
++	};
++};
++
++&dss {
++	status = "okay";
++};
++
++&dss_ports {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	/* DSS VP1: internal DPI output to OLDIx */
++	port@0 {
++		reg = <0>;
++
++		dss0_out: endpoint {
++			remote-endpoint = <&oldi0_in>;
++		};
++	};
++};
++
++/* Verdin I2C_2_DSI */
++&main_i2c2 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	touchscreen@4a {
++		compatible = "atmel,maxtouch";
++		reg = <0x4a>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_i2s_2_d_in_gpio>, <&pinctrl_i2s_2_sync_gpio>;
++		/* Verdin I2S_2_SYNC as GPIO (SODIMM 44) */
++		interrupt-parent = <&main_gpio0>;
++		interrupts = <37 IRQ_TYPE_EDGE_FALLING>;
++		/* Verdin I2S_2_D_IN as GPIO (SODIMM 48) */
++		reset-gpios = <&main_gpio0 33 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&main_pmx0 {
++	/* Mallow Touch RST */
++	pinctrl_i2s_2_d_in_gpio: main-gpio0-33-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x0088, PIN_INPUT, 7) /* (L24) GPMC0_OEn_REn.GPIO0_33 */ /* SODIMM 48 */
++		>;
++	};
++
++	/* Mallow Touch INT# */
++	pinctrl_i2s_2_sync_gpio: main-gpio0-37-default-pins {
++		pinctrl-single,pins = <
++			AM62X_IOPAD(0x0098, PIN_INPUT, 7) /* (U23) GPMC0_WAIT0.GPIO0_37 */ /* SODIMM 44 */
++		>;
++	};
++};
++
++&oldi0 {
++	status = "okay";
++};
++
++&oldi0_port0 {
++	oldi0_in: endpoint {
++		remote-endpoint = <&dss0_out>;
++	};
++};
++
++&oldi0_port1 {
++	oldi0_out: endpoint {
++		remote-endpoint = <&panel_lvds_native_in>;
++	};
++};
 -- 
 2.54.0
 
