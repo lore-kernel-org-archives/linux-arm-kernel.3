@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85367CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 23:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 586F0CD5BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 23:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=glJxT588UgnMfOXSLSAgwe+j1CYbc1X+ny/bK5Tp2LU=; b=iwhvjmW8/wAGGNyf2nMQgWoClG
-	IccCYm879U1EMuCitcj7/gCDHz5wOXDeAL2oTqiBQshlQeMo/V9XgRvmHY9btOUeHXTP77cbG3YN/
-	FM6tbCN97LTRhg9BlK6Al/RIH8oU3fbqcmqHmXFAZM3a0+uW98r5gYNkdDk7HzlsLZBTWei+DlsUa
-	zg5muDFIx0n/lREY34uGBOfNWXftMxSkDNc/MY1TrN0xFNcbeDnuJRfYpwh/69kju9/sixDuHj47O
-	gfMHZWO3aPk3l0sk6ECdYjpia1lDfcmdLlUwfAnX5Q6/el19pC56wRKxtAigRVfcmCZ+JJ+i6zNl9
-	kFKB/qUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OVgXaIjnKTC975MfdRgmXFyZkQKLmkaHxhR1b9izJDM=; b=QQueOqi5kOIj7oJhmxIZRgoJHm
+	RPs4h1iui/hI8uatKMJL5jQ7DXHyXn+MFVMBlCDc79YZaVQ0ysuVD4Q9yjICaDSLA3gPMzWdUDy5i
+	JnK7lXZazW6g7rIdxrXah2YyewEatXO3+Y6F1Z3Jp1Uti+pgRXBoUE64P+NgDSc1YLKlINZ+Jiyvl
+	+aP0GZDkiT3NVrpzXt15WJEBZUwuFHQrYVfVQR5xtyIZYU77fUyXmGHKTrokEi2NgXlRZssUHrOTy
+	WCDndxcbW4oMu5XE+j0HvJKso/y2KAT78i5NBQk4fVHNOBwqWqPYj0wIlbV51oC97XkVCrL8KGLj/
+	nRN/deXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXJB-0000000Bx0V-0hUQ;
-	Fri, 22 May 2026 21:21:29 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wQZKR-0000000CE2o-49fD;
+	Fri, 22 May 2026 23:30:55 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXJ2-0000000Bwsa-2NKu
+	id 1wQZKP-0000000CE27-0cc7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 21:21:25 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso68030575e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:21:20 -0700 (PDT)
+	Fri, 22 May 2026 23:30:54 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-65c0bda7f15so7907116d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 16:30:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779484879; x=1780089679; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=glJxT588UgnMfOXSLSAgwe+j1CYbc1X+ny/bK5Tp2LU=;
-        b=bTGTdWi0G0Q9RTdJHu2A0ydQybTrkmA7/GNS970r2huZqLbcSTTiAaCAR0eBv1f+Tk
-         4aBMPfnxB3mzMjV2/qipMiIdqdyqdyk55dcjiQbCEVryAGe/O/m/gKNOWR/JJansuR5C
-         JA6rneBYus6dYWAtFCiS1oh+jC0OeUqcGep1KWUpryrk4Ifx5QYvzLZvpMn3zkHtYhdG
-         +Y5dvzqMSki3vVzVcen0JywMCAsDzyV4dF/qYk8+wzA8upJgb+SF01CnY81mGH2ncbk0
-         zav8Gi5TKu1RBrfdu+ovuF37hTQVDpwclh5RazDDlUNYvV7fl6dcqiestMQdS0XMGe7N
-         Qhcw==
+        d=gmail.com; s=20251104; t=1779492652; x=1780097452; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=OVgXaIjnKTC975MfdRgmXFyZkQKLmkaHxhR1b9izJDM=;
+        b=Dis+BHhcQbg3gJLJgQlCVLoRByefdgnLEQp6Q1PLX0PcYcSoUkQnRNubUknV36rNOT
+         OcVG2ydESir2NBK1EHYpWBO1Dtde0hMdz8/Xm2eCmalAkHk1Me/Kt9X+xIhZ/I88xfzm
+         Ihniy4W8VEm+UDgXqEga80RW3sdejdRT/Saw2qt5vWN7uz5NLa/2uKGxWsRErMU7P+Wh
+         KDCmuSVhyWLHQtjmMdtQYMh/iRvP0KPhO0cpE4QZrmdc7gOdhJEld4kh80uC256kUUAI
+         aJmhTzUkBiTK5oGEOCLKz/iJj0GdlDAiRfla9F6wx0VloWYxtaesGkqR5nlNtwUKpcR5
+         R+ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779484879; x=1780089679;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=glJxT588UgnMfOXSLSAgwe+j1CYbc1X+ny/bK5Tp2LU=;
-        b=Z43DtWV4+T7lsSKf0B0hmOo6v8VdR+OviQAxf54621zNklbQVUP/ELpU57KqGrD2+W
-         WWRlTuZR7HnMSsCWBATLjQ/9WB9+Whtr4mZiSmmUsRhElPDvyACPqpIZ5lEoFnXLvN1d
-         qEU5YBlXz0sW2zDgcgNwOrKl9B9YGz3RkKgjCU/iNSUj8ccRUefhZgfXIfVMcZ2zSuNl
-         DFSy5soYUBXUwF8SicEC2CfsaeM0YD+zc6Z0ezq/0eJbO749RpH4CDMCfhs9RG3VLoqx
-         7qMUqmR6xkKlioywJoLRQrah1J8EiDju8/yLqTixP2tG/mucOiaHscuvaS+yXgaDrVQb
-         FM7Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/ULII2R1kIy7L5wzJWx3mmid7anDHW4CCpIjyLMGT8dm8WV8/uSnWtNPkUUJbmADq4ZbzE7/IieghVGB9R2Imf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxvM6sGGisnrPbU8gVXZbSFVOFFc2eEnmbmSxMiKcJbDiZwapl
-	Nd+MYSG+CJwX++a83lLXdzQvmymdXbT7vHIM8Ctif9Rg0vxwKHqeYqUAeyqRvYofkno=
-X-Gm-Gg: Acq92OEFS4WLmewyPPTS4MxF531wsvR9tA5f1i73rpHhVJjtr3B/r8JSBjV5IGtdxuD
-	T6fhP1OWCONl55f7EZW4d9cHXye25t5WbruR/1GtM6JA+fgce/5s5+MYgKfYdvi73kwcqaJKMj0
-	HYJ/lXdgYirTDJhe+MHEq5hK5J477RdQLigZRZBUueqGZi/9YZgU5RjqdNNniRmW5o9F9RbgEvy
-	xEI3+6gAvobRnR0sGpzT1R6G4a72NdsHYNiqRVg3SAnZCGItsMvWJSyLA/mbCzrxSwatQhb1TCo
-	HiNMTGnVwh0JC5GbUvBgHTOt5cr8JzOiGgstX3/WHyLehmILZtoi1hc+nZi64/eAslw8lmPJaVL
-	ezqJhFPIK45KKEi8imb6B0Ial1rcGQeANfZkl4ipC+50nizKTlLFvngD0hFNV09hNYcqsgVUz1J
-	i0IRNx/XhC8+7P2WXc4bpHGkRfrdSQtTc=
-X-Received: by 2002:a05:600c:a106:b0:48e:635a:18d2 with SMTP id 5b1f17b1804b1-490424a0d41mr53927465e9.2.1779484878961;
-        Fri, 22 May 2026 14:21:18 -0700 (PDT)
-Received: from [192.168.0.2] ([2a07:7e81:7daa:0:62cf:84ff:feee:627])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b82sm73312225e9.9.2026.05.22.14.21.18
+        d=1e100.net; s=20251104; t=1779492652; x=1780097452;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OVgXaIjnKTC975MfdRgmXFyZkQKLmkaHxhR1b9izJDM=;
+        b=ZTS6yqdqUDpjDdVzmACydof0SnRwTwHrpANgkG1vFtnh2jZJ0rmXzjh3XLaEjGb1oQ
+         ZM1fUZGu7UkEeZ+LL5CgdrKHruqB05edc7568KxLlwbzvmEu+E4gh5ODf1N8wVy8Rm7p
+         p3NUKKdEypfrgTS5rNznfSVtZGfVu7Di42f6KoFLgRK5a6uxGK6RS1iKhRXzeNAPxyTM
+         i/KymZDwCP/25ecQzEJoTHM+0z5Yu7fuUa6xi3BcPZrQlWFuvLdhbfqf+aTgry6mu4vb
+         KvG+07DWdUGoY2aHZZ1j6YGX/G8K9U1j+ngclA+CokeOEEhpJtgngTZ5gCU66dWVfaLb
+         0XPg==
+X-Forwarded-Encrypted: i=1; AFNElJ+0Iu0W2zRzfgJTg9WwYE3/22YU4l2bSEY0TEY0tpJfcQW1Cd/Cz27nFdB5VbTXrm4xsOrNcpuS2YnV4cHr58oU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDxbawmiBtDpSro1PRxEOPIAaIke0EZlBlGEwmBq4Kl3HqSgGJ
+	c20VGWez4CHtDmS8BBthtv8kYRMVUOzN4cNIUM7EMfJl7GbYNSHzX+yg
+X-Gm-Gg: Acq92OH8x+Aedos+Y1pJBKPGh1wioSKEbJglGqmxNoDXd+4AZq14VRsi2Pxoe7sKbhl
+	qJatIzEEc4VhZxb1dLCTCFjUJcXbgcya59rpdeAHLVCGxz/uZsog3CBSagceLYszdhorfs1qEXe
+	pJ7enWGoEWa+lU7hyCuAM4Wv/2r9AwLU7LJ/uAKMYcP+RPKds0dWl1mzTnGCVgrS/ue4Ob5NrxO
+	Fzje73kwmN74Z7TqMGb2SU1qyXRr6eCeeW9DN0tSHiJHkixgUcUV4p7xmy4sqW1mevmijxwje2a
+	xFhi9bUSP8K8e59Zfk4UJNt9CP2pt7kPpKHJW+Xe02WBeaWQmTZeZcaop6Vt5IEuS4mhX4CoRXY
+	OUvryCG2kjgZT2haK4h5nnOtaXQVDySBNhzMUZtSb1s1ls10/jO85OoCDFm9+biIs/iy1oRhNzn
+	Ihr1WcWJDzkxcH7TDtPbC8hgZ3jZK9JU0cPHDuce+oluwIfbSOzRjaUvpyG0VULW7kEtij9Sjg9
+	AZEwDFnBhymaG9pMg1CDvV22WwbJMlBbdKUK3AhMYtayXWwiRuh/v/8lAGq63srK7EB6g==
+X-Received: by 2002:a05:690e:418e:b0:65c:5b88:849f with SMTP id 956f58d0204a3-65ec9931107mr5745827d50.45.1779492651865;
+        Fri, 22 May 2026 16:30:51 -0700 (PDT)
+Received: from localhost.localdomain (99-61-165-33.lightspeed.sntcca.sbcglobal.net. [99.61.165.33])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-65ecfdfc74csm1341853d50.21.2026.05.22.16.30.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 14:21:18 -0700 (PDT)
-From: Angelo Dureghello <adureghello@baylibre.com>
-X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Date: Fri, 22 May 2026 23:20:31 +0200
-Subject: [PATCH v3 03/11] m68k: mcf5441x: initialize DAC clocks by iio DAC
- driver name
+        Fri, 22 May 2026 16:30:51 -0700 (PDT)
+From: Mithil Bavishi <bavishimithil@gmail.com>
+To: Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Mithil Bavishi <bavishimithil@gmail.com>
+Subject: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+Date: Fri, 22 May 2026 16:30:36 -0700
+Message-ID: <20260522233036.12277-1-bavishimithil@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-wip-stmark2-dac-v3-3-16be0ad35a67@baylibre.com>
-References: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
-In-Reply-To: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
-To: Greg Ungerer <gerg@linux-m68k.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, 
- Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>
-Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
- Angelo Dureghello <adureghello@baylibre.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_142120_627850_2055DE02 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260522_163053_193532_087F4703 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,42 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Angelo Dureghello <adureghello@baylibre.com>
+With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
+because omap_pm_ops.finish_suspend points directly to the assembly
+routine omap4_finish_suspend, which lacks the expected KCFI type
+metadata.
 
-Later in this patchset, the mcf54415 DAC driver is added.
-Considering some other different ColdFire cpu DACs exists, the DAC driver
-is named as "mcf54415_dac", related to the mcf5441x family SoCs with
-DACs (mcf54415/6/7/8).
+Annotate omap4_finish_suspend with SYM_TYPED_FUNC_START so the assembly
+routine carries the KCFI type metadata.
 
-So updating DAC CLKDEDV_INIT with proper driver name.
-
-Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
+Signed-off-by: Mithil Bavishi <bavishimithil@gmail.com>
 ---
-Changes in v2:
-- none
-Changes in v3
-- roll back clock names as they was originally
----
- arch/m68k/coldfire/m5441x.c | 4 ++--
+ arch/arm/mach-omap2/sleep44xx.S | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
-index 5b5e09ecf487..b02ca2eb55a4 100644
---- a/arch/m68k/coldfire/m5441x.c
-+++ b/arch/m68k/coldfire/m5441x.c
-@@ -106,8 +106,8 @@ static struct clk_lookup m5411x_clk_lookup[] = {
- 	CLKDEV_INIT("mcfpit.3", NULL, &__clk_0_35),
- 	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
- 	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
--	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
--	CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
-+	CLKDEV_INIT("mcf54415_dac.0", NULL, &__clk_0_38),
-+	CLKDEV_INIT("mcf54415_dac.1", NULL, &__clk_0_39),
- 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
- 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
- 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
-
+diff --git a/arch/arm/mach-omap2/sleep44xx.S b/arch/arm/mach-omap2/sleep44xx.S
+index f09c91978..0b48df6fc 100644
+--- a/arch/arm/mach-omap2/sleep44xx.S
++++ b/arch/arm/mach-omap2/sleep44xx.S
+@@ -58,7 +58,7 @@
+  * stack frame and it expects the caller to take care of it. Hence the entire
+  * stack frame is saved to avoid possible stack corruption.
+  */
+-ENTRY(omap4_finish_suspend)
++SYM_TYPED_FUNC_START(omap4_finish_suspend)
+ 	stmfd	sp!, {r4-r12, lr}
+ 	cmp	r0, #0x0
+ 	beq	do_WFI				@ No lowpower state, jump to WFI
+@@ -223,7 +223,7 @@ skip_scu_gp_clear:
+ 	isb
+ 	dsb
+ 	ldmfd	sp!, {r4-r12, pc}
+-ENDPROC(omap4_finish_suspend)
++SYM_FUNC_END(omap4_finish_suspend)
+ 
+ /*
+  * ============================
 -- 
-2.54.0
+2.43.0
 
 
