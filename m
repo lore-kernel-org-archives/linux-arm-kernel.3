@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3921CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:59:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C66CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 10:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lq6FzCC4KbteJ9kgvftpe86/zGobK0A72wn8P5God9Y=; b=GT5AVHqZ+QdfG0g63XEGlgsPW+
-	33ZM82Yfkzs9VbAFratemH3wXGXi9uH73qDGRLywZc1JqJ3msttz7TbFz/J+dX9w5G4Ogf+9M+L2E
-	Z9hQOrJ2dfYFDkX18/3iN5AkmU3rFBGb3PPk3uJjjeOSjhT7q9AnGUksuaxOR81zO8HPnwdgjwHQ4
-	+6c3cFCasduUUQDTbx62BSJ8ZxUqt/ZWkXmNSfh6ypGVD63djw6BCVEHRKbvb5IxhPVNgMtelCppi
-	5lvMD0huyLsUU9qgOa3FSJGFMphLvXGybkcq/efHuS2d6IiSZ1yBjSlXL8IcNUr97s/hi3bDU9gYT
-	YEhU9Tug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eiBRTRZTJBLsm6cC7zO439AbTyaUXaT32zIuFaYd3eo=; b=gzoe/vlCFjVX5umcOCbu6sKc3d
+	+DRcba3tSnsjHDBdG175j6YiQScWMsaOtwPEpuC9Yjmk+78TllrN6SP7RdRB5Z1MRD6pt97j6bIve
+	WPCWW8QI/u7z9z6xVVaxjpUOYPmTDsGv5ChyvXHIyB1txZmOpkOvLTZlo6kZtwFVP/2VWuVZbsBWj
+	bcvx675eSEoFVNfm/53IxvBAZxwLIZZMAd4RHXNLvgH1y98JunVhN1pUELi579jqWFpZtSlL2nMe5
+	OWAT8rYMyhHHAnyMA5BgK1aIVFo7H0Cf1Ok/KAN/Y4tXWvcS3UCOWYxE1ZPXvH4g4tbibA/mt72sn
+	ywwgm1bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMew-0000000AOgi-1rUr;
-	Fri, 22 May 2026 09:59:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQMjC-0000000AQQk-27FP;
+	Fri, 22 May 2026 10:03:38 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMeu-0000000AOgB-3Y2L
+	id 1wQMj9-0000000AQOi-3FaJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:59:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A38441763;
-	Fri, 22 May 2026 09:59:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE2461F000E9;
-	Fri, 22 May 2026 09:59:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779443952;
-	bh=Lq6FzCC4KbteJ9kgvftpe86/zGobK0A72wn8P5God9Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=a+0BoIANfJoxAw5Ex6FiTjmcoAyM5OY+Tqu9spimOb+fiTeVzrfzisFmmBAZrQtBM
-	 a/xhzqo9ESOwirQxYbtIDkeGwoPZaYpSJUBDxGAGKZsC2P3wjyrTSkixc84M7AZEiG
-	 nki8LKsCzZ6iqZV4YBdzmDUH3Z3xZ9lbgv3oSCCpVjAviivm0PoYVKlAEcbCBQD/dg
-	 iYMzqyMLs1JCGdKrphV+SznVU9vSgN0d48e0fAFJJ0WdRo/3czCG5YMoFNgkD6qG5L
-	 bo3emt0Knfj1G+S7e57RVNZtzzWxj2tQXZ7uveEvtlP8DiJ1Tf1R0Ymht+2luf9RsL
-	 650k9hqWWXEBQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQMer-00000005AhL-2LWF;
-	Fri, 22 May 2026 09:59:10 +0000
-Date: Fri, 22 May 2026 11:02:20 +0100
-Message-ID: <87ik8fahjn.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Steven Price <steven.price@arm.com>,
-	kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Fri, 22 May 2026 10:03:37 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2b458ca2296so51367385ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 03:03:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779444215; x=1780049015; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=eiBRTRZTJBLsm6cC7zO439AbTyaUXaT32zIuFaYd3eo=;
+        b=LsGalFVLpuORJv7j7xne/Jl/v8RqPv5Yk0hs1LwSqIkUupmmn8bssf5ItjQ2pzPz2U
+         An3zN+BhoQb4So/IDX/Mf3OFNBEcnlyZj3VmJHoeNG7d76MznHGQuOKMFw/PUyDWO3v3
+         eEQcDdMHu4WmPeymj+22S9R7akqUL7qux/NQdPjWgxYXRBzBZ2Apaptb6/PlYhwkY19v
+         V+8CFVWualwua3TeYXlEC2I7Wu4fXZhEuWxg565YaMT9G81ZTeC3JjRkzDOWDyuOZG6W
+         k3msHB73pvAccFbA2aVha4KF1a6FsB21Uq4DrKroL5nDH+GxxXZhhi5iZS2i2x/GZ2XO
+         XjyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779444215; x=1780049015;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eiBRTRZTJBLsm6cC7zO439AbTyaUXaT32zIuFaYd3eo=;
+        b=BUwGsyh6qz7VTOnSVmx7YNtMek07oEOdwdzjs/OLnJ5jRLEe9RemO18Otoqu7c74l8
+         T9QPF2Kv7MgYdeeFpIebptW++43uEZGy9P9IJDU0q2a/O66Tg/rnRABnoCw/A1hyvGJ8
+         D/yazme7NA9BRSRBWWCEkd2SwrbhPbsWTdrCZFc9d3mKb5lDBaD6hkY6IBPBg74Ra6bY
+         9+G+QhyI8ETaP3sRteKecTmrmQe2dcacDDux/B0IxexCXxxzDaIzMQT1fQd91kFQcB8d
+         69qwg9dTeYmlvuyre/CJpVFgLcRmZu+23AKrz++Z4Ag/G7Xt8W5EJLbrEstshiR7w+mG
+         XI3g==
+X-Forwarded-Encrypted: i=1; AFNElJ9ZKRzxGDmgOvmheWgcArlNxwmTzCRGVnLC77oqY4javD+r0cTtiMxaLXwtskjhrxEGUMmjXsh6rG8SBR/3M8gn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5dk3HsDZJcf0t8QqgbUoAzHHm6U2hZcpckfqtwiKM/Vv7/nFy
+	Sz9XaXRDstKaUa890zK/FWntWeMoZNEetCzwqHEJcmci7SNaNw9U98BI
+X-Gm-Gg: Acq92OGrVAIDJgNZW0NN0IdkPDp2tsMC1iZ2vpBrXJpXvb2CRxozWTFguPz7T4LiyDL
+	rqfU1dwZG4ZCNT5F57N+JDwJc/z7myJLmbbPbu0mWroHumZAM7UHo05Zk/T1FSwZk7RTV7B5iE9
+	HZHdM2rmSy2ol8Je5CsgRq6XCgxA3t00+mFzUFSamodhUieWL4PgASqcM4MBEgulMOGUhf0nsd2
+	laByw+TdCFTzDKBx1gL+T55ReSdJM/AvSc5jWHEzyoOvKjHBEPeuUa5QAik29B58fF3iLsHgOgI
+	AirJddIgOnKxWJQCS0jBkOJMT8vGasCH1/CVghn3qng7U2CzVvwHmFHbHxTCtaUkBOobb60d8I9
+	MwWAr2HNN82CqPLwhxAIF17jplBBvt6ybZ9/yCAdITuTXrRI0W7nBETzcDqsliArQBbGfPQ0j4z
+	1oVLf6T91KGldyVZRZOalM+sgTSWB1QDzSFicaH6V8j92GxVeIyQNba5mnnw==
+X-Received: by 2002:a17:902:fc48:b0:2b0:c45a:bc2 with SMTP id d9443c01a7336-2beb059cebcmr32443895ad.16.1779444214757;
+        Fri, 22 May 2026 03:03:34 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56f4343sm18683455ad.36.2026.05.22.03.03.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 May 2026 03:03:34 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: broonie@kernel.org
+Cc: lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	heiko@sntech.de,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 09/44] arm64: RMI: Provide functions to delegate/undelegate ranges of memory
-In-Reply-To: <a81c3688-30f1-43e4-8d57-1d08a6e563af@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
-	<20260513131757.116630-10-steven.price@arm.com>
-	<867bowx3qx.wl-maz@kernel.org>
-	<a81c3688-30f1-43e4-8d57-1d08a6e563af@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: suzuki.poulose@arm.com, steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-sound@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 0/3] ASoC: rockchip: Reorder clock enable sequence
+Date: Fri, 22 May 2026 17:03:15 +0700
+Message-ID: <20260522100318.73474-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_025912_923294_E6A9B742 
-X-CRM114-Status: GOOD (  34.13  )
+X-CRM114-CacheID: sfid-20260522_030335_816370_202D4F23 
+X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,114 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 17:01:37 +0100,
-Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
-> 
-> On 21/05/2026 14:59, Marc Zyngier wrote:
-> > On Wed, 13 May 2026 14:17:17 +0100,
-> > Steven Price <steven.price@arm.com> wrote:
-> >> 
-> >> The RMM requires memory is 'delegated' to it so that it can be used
-> >> either for a realm guest or for various tracking purposes within the RMM
-> >> (e.g. for metadata or page tables). Memory that has been delegated
-> >> cannot be accessed by the host (it will result in a Granule Protection
-> >> Fault).
-> >> 
-> >> Undelegation may fail if the memory is still in use by the RMM. This
-> >> shouldn't happen (Linux should ensure it has destroyed the RMM objects
-> >> before attempting to undelegate). In the event that it does happen this
-> >> points to a programming bug and the only reasonable approach is for the
-> >> physical pages to be leaked - it is up to the caller of
-> >> rmi_undelegate_range() to handle this.
-> >> 
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> v14:
-> >>   * Split into separate patch and moved out of KVM
-> >> ---
-> >>   arch/arm64/include/asm/rmi_cmds.h | 13 +++++++++++
-> >>   arch/arm64/kernel/rmi.c           | 36 +++++++++++++++++++++++++++++++
-> >>   2 files changed, 49 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/asm/rmi_cmds.h
-> >> index 9078a2920a7c..eb213c8e6f26 100644
-> >> --- a/arch/arm64/include/asm/rmi_cmds.h
-> >> +++ b/arch/arm64/include/asm/rmi_cmds.h
-> >> @@ -33,6 +33,19 @@ struct rmi_sro_state {
-> >>   } while (RMI_RETURN_STATUS(res.a0) == RMI_BUSY ||			\
-> >>   	 RMI_RETURN_STATUS(res.a0) == RMI_BLOCKED)
-> >>   +int rmi_delegate_range(phys_addr_t phys, unsigned long size);
-> >> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size);
-> >> +
-> >> +static inline int rmi_delegate_page(phys_addr_t phys)
-> >> +{
-> >> +	return rmi_delegate_range(phys, PAGE_SIZE);
-> >> +}
-> >> +
-> >> +static inline int rmi_undelegate_page(phys_addr_t phys)
-> >> +{
-> >> +	return rmi_undelegate_range(phys, PAGE_SIZE);
-> >> +}
-> >> +
-> >>   bool rmi_is_available(void);
-> >>     unsigned long rmi_sro_execute(struct rmi_sro_state *sro, gfp_t
-> >> gfp);
-> >> diff --git a/arch/arm64/kernel/rmi.c b/arch/arm64/kernel/rmi.c
-> >> index 52a415e99500..08cef54acadb 100644
-> >> --- a/arch/arm64/kernel/rmi.c
-> >> +++ b/arch/arm64/kernel/rmi.c
-> >> @@ -12,6 +12,42 @@ static bool arm64_rmi_is_available;
-> >>   unsigned long rmm_feat_reg0;
-> >>   unsigned long rmm_feat_reg1;
-> >>   +int rmi_delegate_range(phys_addr_t phys, unsigned long size)
-> >> +{
-> >> +	unsigned long ret = 0;
-> >> +	unsigned long top = phys + size;
-> >> +	unsigned long out_top;
-> >> +
-> >> +	while (phys < top) {
-> >> +		ret = rmi_granule_range_delegate(phys, top, &out_top);
-> >> +		if (ret == RMI_SUCCESS)
-> >> +			phys = out_top;
-> >> +		else if (ret != RMI_BUSY && ret != RMI_BLOCKED)
-> >> +			return ret;
-> >> +	}
-> >> +
-> >> +	return ret;
-> >> +}
-> >> +
-> >> +int rmi_undelegate_range(phys_addr_t phys, unsigned long size)
-> >> +{
-> >> +	unsigned long ret = 0;
-> >> +	unsigned long top = phys + size;
-> >> +	unsigned long out_top;
-> >> +
-> >> +	WARN_ON(size == 0);
-> > 
-> > I find it odd to warn on size = 0. After all, free(NULL) is not an
-> > error. But even then, you continue feeding this to the RMM.
-> > 
-> > You also don't seem to be bothered with that on the delegation side...
-> > 
-> >> +
-> >> +	while (phys < top) {
-> >> +		ret = rmi_granule_range_undelegate(phys, top, &out_top);
-> >> +		if (ret == RMI_SUCCESS)
-> >> +			phys = out_top;
-> > 
-> > and size==0 doesn't violate any of the failure conditions listed in
-> > B4.5.18.2 (beta2). Will you end-up looping around forever?
-> 
-> That is not true ? It triggers, top_bound error condition, for both.
-> 
-> 
-> pre: UInt(top) <= UInt(base)
-> post: result.status == RMI_ERROR_INPUT
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-News flash, I can't read. Ignore me.
+Hi all,
 
-	M.
+This series reorders the runtime resume clock enable
+sequence in the Rockchip SPDIF and PDM drivers to enable
+the bus clock before the functional controller clock.
+
+It also updates the SPDIF DT binding clock descriptions to
+match the actual clock usage in the driver.
+
+Best Regards,
+Phuc
+
+bui duc phuc (3):
+  ASoC: dt-bindings: rockchip-spdif: Correct SPDIF clock descriptions
+  ASoC: rockchip: spdif: Reorder clock enable sequence
+  ASoC: rockchip: rockchip_pdm: Reorder clock enable sequence
+
+ .../devicetree/bindings/sound/rockchip-spdif.yaml      |  2 +-
+ sound/soc/rockchip/rockchip_pdm.c                      | 10 +++++-----
+ sound/soc/rockchip/rockchip_spdif.c                    | 10 +++++-----
+ 3 files changed, 11 insertions(+), 11 deletions(-)
 
 -- 
-Jazz isn't dead. It just smells funny.
+2.43.0
+
 
