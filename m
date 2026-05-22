@@ -4,90 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6F6CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42639CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x+geE85oo38R4XUU2Qb3gWckawRQ9IEhNVLya137svg=; b=n0HgaUnBABapK3nVINOujpiQWH
-	3Txi1NiupWMjiYGGWDu/7D42uXKTsGXVD/MzuE64vblRavdMFk7jjLmENcMrpmRQFYyQcxqEG5dVk
-	2OZR32AzFbW0yTsWycsgBRkDlx2jo2RiED/ROCRs9SIuBsuMDUgDxu8mUqfakUqTWciOXvdIQ/54+
-	S6lXtxGVNYHihU8GZn9S4PziUXijNxr55O1/kKZ5xjsyxq8Ftu4OgaIFwpF/cfmNUWVvhIIfOdKK9
-	4ZqIJk+xhl90bqiZt0SYvkEfVKcW9eqb8K/rZWu1SJ9Nfl5rZ+AYSJzhDzRju4XQAgpvDeCFqqw8t
-	iFC1qkHw==;
+	bh=9n70oWzTvg3S+jvmEMrbGpNqlDIdzdwjuovZWn4u1j8=; b=isDBXwm7eo0NG+ILLPiLpG3aBL
+	fGon95rWl16BuKGANnp8Hwv9/YwWdxA1AorWUcLEaIKGL0Re0q509IwF4uKnq1uStF/nJsSsDrBsn
+	3rV1/BGSFxx1Eg56PCT8LWzyabvn8+owy0ejoSpp5ahogPMqd1MtVvsZbdnpBzlF4ZH0nY+T/Z4uS
+	RK2J0qiQ/0pVWSxXp1VFHJ2RFxNCrDhHHbmPsnTWRZAF8PxZekABk2ySUFNxlfItsjTxIaeNto0Oa
+	7LjoaFrcGNPAicPVjaTZR88b3+K/U5qmXId4sQDzbXgyb9RT/Hg3WwePRRkYCjjvBiZzBdL1wf+f7
+	yPN2Beig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQS4j-0000000BK0L-2OHe;
-	Fri, 22 May 2026 15:46:13 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1wQS7P-0000000BKX1-0YTK;
+	Fri, 22 May 2026 15:48:59 +0000
+Received: from mail-koreacentralazon11023133.outbound.protection.outlook.com ([40.107.44.133] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQS4g-0000000BJz9-2aNT
+	id 1wQS7L-0000000BKVo-2LP1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 15:46:12 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-c8016d642b2so3609586a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 08:46:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779464770; x=1780069570; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=x+geE85oo38R4XUU2Qb3gWckawRQ9IEhNVLya137svg=;
-        b=Y5SgE9QWuQiZvAJSJ6+meWN/lD5VyR2+WSa7gD8TSk6W5vYRvu1abss82jMTYWBnbV
-         yzKWbgafyzsnFqLY0gxvf/p7BGHQtk/AkRFckdmF0OyFJqqAVFde87pv68uXlHJUj5a1
-         LfZy5csdwgUCVFzDnbEFi+Z+lHm3S66psncSNQz6E+AqbeYQn97M3j3HaJFS2WiNDD10
-         UIzI7WzcpCRalq/JvrHhIr/vqbMLqbXC7G4TJgfgHwv49GSS0xiDeQLMKuztiF1wYN8F
-         pte9OXSl9X5BUf9g8Qgg+kUS5p9wt5kPVFjyox2pPIyl7+JEkKAwFXCKgDOG2yNqPyal
-         9yeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779464770; x=1780069570;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=x+geE85oo38R4XUU2Qb3gWckawRQ9IEhNVLya137svg=;
-        b=kfZ27Fq6GKmkHRjao6Ha5nwHdPBM5ah9R1i6cZghe7I0FLwCSgbLhN9UHMYPUkTkOw
-         jJfVWLgcYHr7H4e+iU/x8Hn/qINFtxPoASaSsOtT5+sDWA245FwtL5jRJeoq4fTmru81
-         oYIaQTXAG9gIluqIRNx732XfHtzd0DiRygk5Vhts/Ryfw8icnV6pU2+g8iUmf8FRceRL
-         9lGjZkU0xeFXuqhIa59Qa+3LA4E9QCfkDKq8WUuSCR6l+1/UI3lDlXvXarK5R24tAXqm
-         gVuiRTS4irtMz8QZZm2FQ5bi0kwf3XBGjuMhvxqJWNhygT9zVMdCrjOmvqp2CXz3Gb0W
-         jEbw==
-X-Forwarded-Encrypted: i=1; AFNElJ87HWox4DT4UqKmEqqRidr5/HDnxqRcNtB0iI6WrzPYxDvvgTSkUkAUo+z2YrU3EIqxf+MFw5y1hiDJ8KderS6Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhH3sVM9eNVeKF/UKvDOvVACRbV0EVrp/O6InGWoYCZTlUYnMY
-	4jKdn5Gk0OmkFEyYutsfdqhSR/4AfRUYdvtGMNCiH2xNPdi/5TjikKM8TgdqS/FAQ1c=
-X-Gm-Gg: Acq92OF49okfDw6Z/nlOyI//+qoqPLH2VoGYWEKSGW0RyIVcI8GkLK1lEqrw1uOE9lI
-	hlxCr77c+gN3yg8e7K4QdQA+KxIADPOuGG5Go/jGbo11llCFys7WOM0N6TBO8iSQopVYKpxxNOt
-	se6fkVu62wvDu/q85P2DbWGR64qI7hj3psv71xIYczik/6CNf3B3attSS6OPBTkaNBoA1OdTL8U
-	eoVqcZCmCg07oLDaNrK3BqtkqtHI3cuwrPDB2o5RDR9WgD7bOR0Fp1RxgCq8bPe/5S6hdIvV54C
-	mqRmPfQRO5XclVMILw305Nh0bvqohbzX2acHC6+HLEmSj4B2cexCkKaIg0bmc6LGzu4KjnofrRm
-	5gWi8RLCs878A2TiWiadct1sdMOygxSagZbQHw1EKR5Ug9Knj9+kM/9/n8mvEI6rFlIzJChtlrJ
-	Rbh6E3aCkdtxY+Qd1mIq74jIrmsQ==
-X-Received: by 2002:a05:6a20:7485:b0:39b:8571:3051 with SMTP id adf61e73a8af0-3b307f420e2mr7844589637.28.1779464769598;
-        Fri, 22 May 2026 08:46:09 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:dc1e:387:6364:2ccc])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c85202a789dsm1828934a12.9.2026.05.22.08.46.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 08:46:09 -0700 (PDT)
-Date: Fri, 22 May 2026 09:46:06 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: tanmay.shah@amd.com
-Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, michal.simek@amd.com, ben.levinsky@amd.com,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] remoteproc: xlnx: enable auto boot feature
-Message-ID: <ahB6Pvquw6wuEHgl@p14s>
-References: <20260501143707.1591110-1-tanmay.shah@amd.com>
- <20260501143707.1591110-3-tanmay.shah@amd.com>
- <ag9FcXeIIiJWdld7@p14s>
- <cbd418a3-1585-4592-8e86-b0750e19ec0f@amd.com>
+	Fri, 22 May 2026 15:48:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xRDdmCx7R37N+pZE/JuWijRunM2IrYoBaqIppifJUyxRijxFpc6hHAKzUGXaeXqUOEgvXs11pirdCxi6upx8llN8XU9POVVOLoa/NoFGTNMCqWzxow6G1rTdTEXClVrlo8ay8kzUwq/voRcHD4i38YJXPAR9sZMiK+v7HyRZrnigpz/2jV2DNnZHLtlZ9r7qIR1D8C2OS73bB1PIKtkQgqCe8FCwklttlTPGr8fsN1vArKyA254b0pqpQ/LacGOABFxsU+SlUvxHoLrRGEU5QBBoO5Fyf/C+uW79h/zs5TEaR8vD83SGHghdKQ/MGk2buYjIF/DdcZ4aL084t2AyAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9n70oWzTvg3S+jvmEMrbGpNqlDIdzdwjuovZWn4u1j8=;
+ b=GGVcwKta3I+ApOPvuQcA4dZ4+KWBvc1oVhX1NsWCugDosMmtNy179wVbehPIWoQ+NpfWH0APi8XrlvfljjBVwrprdNco5qr7IrcK+iXkXYlQuMJg/kTtsGhjKgxD2nQ2byAE3bAowTjius3Gn1iyOhhNXin6DvZTUii1bQDIRWdGQEHPtA8n9aYEkTRrJK1ntCMWd2p5mJMBHyIzD+pB2RFwMBLM250zvh9yzdiaktKyqg8rS2AiGZ8IwZlBZ24D+Ffj3cjnIgWRPIaU3BkbaKui0IpZ/+Jr1Ev/IuiORe2X1jlKKpC3Yk3+HcsCOuKZrFXrjAh3UbdVABt0OAyt8w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9n70oWzTvg3S+jvmEMrbGpNqlDIdzdwjuovZWn4u1j8=;
+ b=A9MkLbd3aLMObKDvpO4/nj6WP4hQOTpwKSGmP/WrbMi0GSLkZCmIr/ifBlin0VYjS/WviP7D06RXvZdGdjGAXO3JhHVS4kIRl3D0/ZBx/+0s63zb9uPwxnn8xvq4settBv4/aogwkuM2udmi2QdxW5Ok+l8NLrQMXQWO6XHQcgM/vA4JYYaMAblsSw2ctDmHtl/2NO6IwGFpAS+6PsYMuUBHU+5l4t57ooZQErDSOr4SU9RvOGenPuLhMJwHXMBU7ZVjsYBRgak2TtjQeddb+ULk6qddEFdPI3OKZOpJJ9JijICTSzS4bLsN19lrbAIMNfdp0f4TgqceEMIy2eyCNA==
+Received: from TYZPR06MB5203.apcprd06.prod.outlook.com (2603:1096:400:1f9::9)
+ by SEZPR06MB7077.apcprd06.prod.outlook.com (2603:1096:101:1f4::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Fri, 22 May
+ 2026 15:48:42 +0000
+Received: from TYZPR06MB5203.apcprd06.prod.outlook.com
+ ([fe80::e25a:ec7b:633d:7489]) by TYZPR06MB5203.apcprd06.prod.outlook.com
+ ([fe80::e25a:ec7b:633d:7489%3]) with mapi id 15.21.0048.016; Fri, 22 May 2026
+ 15:48:42 +0000
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+To: David Laight <david.laight.linux@gmail.com>
+CC: "clg@kaod.org" <clg@kaod.org>, "broonie@kernel.org" <broonie@kernel.org>,
+	"joel@jms.id.au" <joel@jms.id.au>, "andrew@codeconstruct.com.au"
+	<andrew@codeconstruct.com.au>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "openbmc@lists.ozlabs.org"
+	<openbmc@lists.ozlabs.org>, "linux-spi@vger.kernel.org"
+	<linux-spi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, BMC-SW <BMC-SW@aspeedtech.com>, kernel test
+ robot <lkp@intel.com>
+Subject: RE: [PATCH v2 2/2] spi: aspeed: Replace VLA parameter with flat
+ pointer in calibration helper
+Thread-Topic: [PATCH v2 2/2] spi: aspeed: Replace VLA parameter with flat
+ pointer in calibration helper
+Thread-Index: AQHc6brpYFW37WKeUEyzbCcAit0oebYZs+SAgAB8Z5A=
+Date: Fri, 22 May 2026 15:48:41 +0000
+Message-ID: <TYZPR06MB5203714C130A2794585272A7B20F2@TYZPR06MB5203.apcprd06.prod.outlook.com>
+References: <20260522071621.102507-1-chin-ting_kuo@aspeedtech.com>
+	<20260522071621.102507-3-chin-ting_kuo@aspeedtech.com>
+ <20260522091915.65dde4ad@pumpkin>
+In-Reply-To: <20260522091915.65dde4ad@pumpkin>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR06MB5203:EE_|SEZPR06MB7077:EE_
+x-ms-office365-filtering-correlation-id: 786862b3-0b00-40c8-6394-08deb8199981
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|18002099003|22082099003|38070700021|56012099003|4143699003;
+x-microsoft-antispam-message-info: uLvtKNHoE3jwv8VEEWI/iy8riUuoVR7jDNji2zagD7ABX9iBc+/ei7g5ONY4oHqOdnDwq0aCpS0z+uRACGiWnX9wWgX7xMolk/WWVlbgF12Yl7fcykBcFRZwiNRYQf034M7X+zxWVutLMpCmzVPrlFl21FJfQfG2VSApng46OLzYhESweMvf3orFiBWThW1dxXUVTsOK4sdyZ2n5MsUtRYc/sxS5ZBKfZ9l+YOSes9QbU9y5W6BL6qKJFdbRM627+sHJq+oP3nwSnYQeEPKaW6pRb9nSV4gzzkF3/8ZggTS96vWPOw+22DrVC2QoomraTDZN0U9q1Sh1jDS+japrTsbIHy56j1+22gZJinTbP7+RI4yaitBPBUTuWgbcv1Jt6eK7zzrIbZhDheGUT4YDcp4WQmTGwCjcIy2UWPhlAzDnxj4CLIdPhZgso/TcX4bfcVrcDiCSQmCzz2E2cwKCa10hFyum3dRBJnRomggHA0TiVIdxNz2FlPgQ9Q91gl2M/k3/aA0nmwtzcfljbVeOEIniW2RYQLU7tQMbaOh4eQvZ03W3cgSkw+ykLRCzRUGXtif32hBAEZbmgE0Gvgs93Eq3/bo5kGbKoo+0DM233tIDmUxHsVLaDSMpBpkBnaKVjSDAyLj+Ci7cKyiCfwiR2JpV0x+Ev3smBc+5SIWt9JrowqvP5aAeTUyODvdKiQ5kDf5DR/UZBunKOCI3fF+Jjo4Oyr1HGAhmZ8GGkRisTu5e3X0zXAhBvXtoCbGnnR5r
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB5203.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(38070700021)(56012099003)(4143699003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?enlOYy9XeWhHZkU4QnE3bnBHT2IwQmxRTW8xajJQdHhlOUVObzFFV3Z5SVRv?=
+ =?utf-8?B?QUJmWlVGcjNwUGJjM1UySy9GYVN2YXo4MjlwRS9LWDJENVpSTHlKRnZ1MUJi?=
+ =?utf-8?B?QlU0Sk00TjRtMUpUR0IxeE9kTnYweXhtR2FFcjJsSFQxOC9XellONkw0bkZp?=
+ =?utf-8?B?REI0Smtrcmx0RlArNm12Y3V4eCtORkdEeGhKMDBPZ1NGbGNaeVhqU2NpeG1n?=
+ =?utf-8?B?b2xlMUZxRUNldFRIWm5vNWd5WjVwR1NMM3liV1FXYUpZZ0lpUk02MkpEVWEr?=
+ =?utf-8?B?VHNjMmYzZTBFNkpQekZTR2Q4QWxBaVN1MzRQRS9YV0hUQ2ZPUW82SmdId3Nl?=
+ =?utf-8?B?RXRHZUo5NFRiWGdaUUplWUNpWWc3UVZsSkZ2ZVFJL1ZJQU1CbTJSUTNhRXQ1?=
+ =?utf-8?B?dXU3d3JmUU9zRGhLUUFXUjNvQU9ma1FuYktPSkVKQkhXdm90Y2t5Wkd4eUlZ?=
+ =?utf-8?B?bDdUVHVhVmpPQVRqS0pWLzRoTzNkd2swNnRkdGhadmlhQ0VrQ092WWxwbjVi?=
+ =?utf-8?B?UHltZkQyL0FCZ0NEUGQ2UUFMMjRMM2J4c0ttTDlPVjdQcUh1YXFoY2ZXNjha?=
+ =?utf-8?B?YVF6cnhKZ3NkSXFIMGhiTUtqcjQ5c1ZhMTk2MWpUaURhZVgzajM3d1dKdWww?=
+ =?utf-8?B?SEdzRUhzdUpJaUI0ckM2eHNpVjhHdnBGdjRNMGgrVm0reXcrcVByZWhBaWZs?=
+ =?utf-8?B?bVJKNk5yMnFnckZtWkRPbndaRC8xdXZYQnB5Z2VZMWJaQS9sRHpLUUdWOHFM?=
+ =?utf-8?B?NjdvcU1kcGt4dXFOZTBMY2R3K0NQa2pZeUlhTWVZLzFQUG4yUXdIbE4wSnVF?=
+ =?utf-8?B?aDdGSzhENDF6NDQ5NUN4UU9LaU4yWTJvaU9SdmNnMUdzSWphVGhPUDZNYm5W?=
+ =?utf-8?B?MllTamYvejFoQjNXMTJVRDdHcmliSG9iQ01ESG9iSGlzTytoZXQ0b1dJS25t?=
+ =?utf-8?B?b1FHS25CSnZ6RVFoKzZTTFBKZ1FBREZiL3BSclZLK0NnN0RFYU1saGhEWTRS?=
+ =?utf-8?B?S2c3WTNUS0JCWmJvUWN3bVRFSGFhS0JGUU9mZkpWNSswbEJOVmIvRFEwY3FH?=
+ =?utf-8?B?MjB3aWQ3RWRha0JNVE51aHJMT2duZ1dzb21oNnN0eFhTVmxwL1pLV1FrM2k5?=
+ =?utf-8?B?eU56S0c0Y0JuZndBR2UrTXRpZjBTNkdIVE9tNVBLZll1RG4weGM5MXNVMlJQ?=
+ =?utf-8?B?N2Jkb0k3YWVmWGUxYXI3dHM0Rm8rdGptNTJTQmxHN0Ftb2U0MHlrdmhYaXpa?=
+ =?utf-8?B?bWZKWGpYVWdiR1BuS1BpUFMwcTBhaG94ZFZWN3BmRDlyZndPWWdaeGZHaVEr?=
+ =?utf-8?B?N3NXdnRkSnc1Z043WGgrSFJpaXZRUjdYRzJNY3N4TWJBOCtGQ2xYekVQMWN3?=
+ =?utf-8?B?eEVsUGEwYm44Wk5DWk5JS3Y5eHZ4VUJZZVZOUTdNZXgxSGhxRmVleHhTZkRG?=
+ =?utf-8?B?dGU3L1VlWnpGWDlWbkpyOVBxeWtSMnA2YXdLZlFTeEQ3Ri91MDBnaWNON2dW?=
+ =?utf-8?B?dThDVGgwaHJDK0dlb1VZYkdRS3NXcnhPdHl1N1FKdGIrM0hHTXJIN01IQXVI?=
+ =?utf-8?B?dW5WQVpMRnFCcDkrUjhxR2RCbVlueEt4K1FBUzBUSWhJUFVMUVV3cC9qMkd5?=
+ =?utf-8?B?VDhsOFJsaTJSR3QzK1hBVDdaUVJXamM5NHdjbWpKUkVvMTRBL3h1WGdmNU8x?=
+ =?utf-8?B?VjdkWk1XY2xkNHRjcWFrMnZ6S084Vkx5T3lrbm52eEdaVU1tT3EvdVdpdm5v?=
+ =?utf-8?B?dVAzdTRtS0YzSnBwUXJGUXhLMEVYckdrM1ROWFp1ZUVubzNDQ1FyMVJWSjA0?=
+ =?utf-8?B?b2M0anJVNVdYRzVmV2g2TXl3ejFrMk1FcTRsdVVobENSQlY2dkdrZEFoZDlm?=
+ =?utf-8?B?RG5CSE5FWGk1dXF5MHlRZlpFNVQvcHl0dXd1QUF2WUZNb2o0NWhvR1l6NXd0?=
+ =?utf-8?B?WDFXbHhIYWNHVU9uNTkxaE1uWDR3RGxBTnFGWGF5QWp2R0w4V1k3UjhadGxH?=
+ =?utf-8?B?dm9hdS80WXJtUTRLdjIweXRKQjlINGkyMG5kRzdjWE10Z3pjWklJREJYdy9N?=
+ =?utf-8?B?b1V0Qk1BVjRudDJkSjF0Rk9pcmVLMkpsZmwyVERXTVJaQ3ZYN2k3NDdiZnBs?=
+ =?utf-8?B?blBaK1Y1WkxXeDdTYnBBT2N2aFFoOEw4c1c5UWJLNGVIenI0Sk5PSFA3M0lX?=
+ =?utf-8?B?VndaUkIvOWJWS3YyYWpMb2lOL2RIZVdRQ010UlFlSVB4UUVmMlJnbDZYRmVk?=
+ =?utf-8?B?WTFwN2JEY0tqMXRENmI0djJGMkVKNzNOWjlWenlUalFQNmQ5bW02RkN4NU1x?=
+ =?utf-8?B?bWYzMHAvZjlLUWFLNmZxbmpFRVBNYm5ET2RFVldDR3dsTDhTd0FncVcxbHc0?=
+ =?utf-8?Q?tI/CLKzDh2r87Sgs=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cbd418a3-1585-4592-8e86-b0750e19ec0f@amd.com>
+X-Exchange-RoutingPolicyChecked: j+dYUHtVfTQWNaKRqIdGqdB4H63DpYDe5O/JOQkKhdC4wdWCs1enjVcwkP8ZyMJ2RsnUlxFK17QjAz+BR0uOi8UxLnu+eI5ytTUyFaisC6/8QQhvUFTN/aWdzgAutYQeQXax6lnr3/JAcUeIhY1m2hUbglKka8Z4WAc64JT1VCmlTGk0YMsTYjmZdoaEmaiPNttEp9IurCfGh89eamZWILHR32v+KDtfuAVLLxt1r+KealyDHhK6ZB2JEtgj0e0iJsL18uszThPu7G7v5Aw8Dj3gQ4mRMdJMALeNCsZDcVU6i3GWpRxrjATTRPsH9jFSyFZhzlte1b4odVhZo/Qrjw==
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB5203.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 786862b3-0b00-40c8-6394-08deb8199981
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 May 2026 15:48:42.1658
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 772++hfCaEaiNOWSGIkZZfQCYl81XvX7GwaRPOdZ8LgV6HbhKmsCZriiA0z+xm3WV7QH8VDl5o35UB/o3IkrZuzu2vXAkDzyYzt4I73Jqts=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB7077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_084610_678903_C6B68500 
-X-CRM114-Status: GOOD (  56.12  )
+X-CRM114-CacheID: sfid-20260522_084855_901180_0204F346 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,234 +160,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 01:38:57PM -0500, Shah, Tanmay wrote:
-> Hello,
-> 
-> Thank you for the reviews, please find my comments below:
-> 
-> On 5/21/2026 12:48 PM, Mathieu Poirier wrote:
-> > Good morning,
-> > 
-> > I don't recal reviewing the first revision of this set.  Can you provide a link
-> > to it so that I can read the comments that were provided?
-> > 
-> 
-> Here it is:
-> https://lore.kernel.org/linux-remoteproc/20260422202558.2362971-1-tanmay.shah@amd.com/
-> 
-> The device-tree bindings needed rework in v1, so I sent v2, before we
-> ever reviewed the driver part.
-> 
-> 
-> > On Fri, May 01, 2026 at 07:37:07AM -0700, Tanmay Shah wrote:
-> >> remoteproc framework has capability to start (or attach to) the remote
-> > 
-> > The remoteproc framework...
-> > 
-> 
-> Ack.
-> 
-> >> processor automatically if auto boot flag is set by the driver during
-> >> probe. If remote core is not started before the Linux boot, and linux is
-> >> expected to start the remote core then it uses "firmware-name" property
-> >> to load default firmware during auto boot.
-> >>
-> >> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
-> >> ---
-> >>  drivers/remoteproc/xlnx_r5_remoteproc.c | 48 +++++++++++++++++--------
-> >>  1 file changed, 34 insertions(+), 14 deletions(-)
-> >>
-> >> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> >> index 45a62cb98072..652030f9cea2 100644
-> >> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
-> >> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
-> >> @@ -899,17 +899,18 @@ static const struct rproc_ops zynqmp_r5_rproc_ops = {
-> >>  };
-> >>  
-> >>  /**
-> >> - * zynqmp_r5_add_rproc_core() - Add core data to framework.
-> >> - * Allocate and add struct rproc object for each r5f core
-> >> + * zynqmp_r5_alloc_rproc_core() - alloc rproc core data structure
-> >> + * Allocate struct rproc object for each r5f core
-> >>   * This is called for each individual r5f core
-> >>   *
-> >>   * @cdev: Device node of each r5 core
-> >>   *
-> >>   * Return: zynqmp_r5_core object for success else error code pointer
-> >>   */
-> >> -static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
-> >> +static struct zynqmp_r5_core *zynqmp_r5_alloc_rproc_core(struct device *cdev)
-> > 
-> > Why is there a need to change the function's name?
-> > 
-> 
-> Before, the function was actually adding the rproc core by calling
-> rproc_add() function, but now it only allocates the memory by calling
-> rproc_alloc(). For auto boot to work it's important to add rproc core
-> after all the other hw is initialized (such as mbox, tcm, sram,
-> power-domains etc). More details below [1].
-> 
-
-Ok
-
-> >>  {
-> >>  	struct zynqmp_r5_core *r5_core;
-> >> +	const char *fw_name = NULL;
-> >>  	struct rproc *r5_rproc;
-> >>  	int ret;
-> >>  
-> >> @@ -918,10 +919,15 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
-> >>  	if (ret)
-> >>  		return ERR_PTR(ret);
-> >>  
-> >> +	ret = rproc_of_parse_firmware(cdev, 0, &fw_name);
-> >> +	if (ret < 0 && ret != -EINVAL)
-> >> +		return ERR_PTR(dev_err_probe(cdev, ret,
-> >> +					     "failed to parse firmware-name\n"));
-> >> +
-> >>  	/* Allocate remoteproc instance */
-> >>  	r5_rproc = rproc_alloc(cdev, dev_name(cdev),
-> >>  			       &zynqmp_r5_rproc_ops,
-> >> -			       NULL, sizeof(struct zynqmp_r5_core));
-> >> +			       fw_name, sizeof(struct zynqmp_r5_core));
-> >>  	if (!r5_rproc) {
-> >>  		dev_err(cdev, "failed to allocate memory for rproc instance\n");
-> >>  		return ERR_PTR(-ENOMEM);
-> >> @@ -932,6 +938,11 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
-> >>  	r5_rproc->recovery_disabled = true;
-> >>  	r5_rproc->has_iommu = false;
-> >>  	r5_rproc->auto_boot = false;
-> >> +
-> >> +	/* attempt to boot automatically if the firmware-name is provided */
-> >> +	if (fw_name)
-> >> +		r5_rproc->auto_boot = true;
-> >> +
-> > 
-> > What happens when a firmware name needs to be provided in the DT but you don't
-> > want to automatically boot the remote processor?
-> > 
-> 
-> I think that use case is not needed. If the user/system-designer doesn't
-> want auto-boot, then having firmware-name in the device-tree serves no
-> purpose. User can always load the firmware via sysfs once kernel boots.
-> 
-
-Ok
-
-> >>  	r5_core = r5_rproc->priv;
-> >>  	r5_core->dev = cdev;
-> >>  	r5_core->np = dev_of_node(cdev);
-> >> @@ -941,13 +952,6 @@ static struct zynqmp_r5_core *zynqmp_r5_add_rproc_core(struct device *cdev)
-> >>  		goto free_rproc;
-> >>  	}
-> >>  
-> >> -	/* Add R5 remoteproc core */
-> >> -	ret = rproc_add(r5_rproc);
-> >> -	if (ret) {
-> >> -		dev_err(cdev, "failed to add r5 remoteproc\n");
-> >> -		goto free_rproc;
-> >> -	}
-> >> -
-> > 
-> > I'm not sure why there is a need to move this to zynqmp_r5_cluster_init()?  Is
-> > it simply to make the error path easier to handle?  If so, please do that in a
-> > separate patch.
-> > 
-> 
-> [1] This was moved to make auto-boot work. The remote core can auto-boot
-> only after other hardware is initialized. The zynqmp_r5_core_init()
-> initializes sram, TCM and power-domains of the core. Also, mailbox is
-> requested before zynqmp_r5_core_init() as well. We can't auto-boot core
-> directly without all this. So, I had to move rproc_add() at the end of
-> the cluster init, and rename above function from
-> zynqmp_r5_add_rproc_core to zynqmp_r5_alloc_rproc_core.
-> 
-> If you prefer, I will add above explanation in the commit text, or as
-> comment right before rproc_add().
-> 
-
-Yes, please add that to the commit log.
-
-> 
-> 
-> >>  	r5_core->rproc = r5_rproc;
-> >>  	return r5_core;
-> >>  
-> >> @@ -1280,6 +1284,7 @@ static int zynqmp_r5_core_init(struct zynqmp_r5_cluster *cluster,
-> >>  			if (zynqmp_r5_get_rsc_table_va(r5_core))
-> >>  				dev_dbg(r5_core->dev, "rsc tbl not found\n");
-> >>  			r5_core->rproc->state = RPROC_DETACHED;
-> >> +			r5_core->rproc->auto_boot = true;
-> > 
-> > I thought this was done in zynqmp_r5_add_rproc_core() - what am I missing?
-> > 
-> 
-> That function is now zynqmp_r5_alloc_core() as mentioned above. Also,
-> until now, auto_boot was set to 'false' only to show that it is
-> disabled. It is actually used and enabled now.
-> 
-
-Ok
-
-> > Thanks,
-> > Mathieu
-> > 
-> >>  		}
-> >>  	}
-> >>  
-> >> @@ -1304,7 +1309,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
-> >>  	enum rpu_oper_mode fw_reg_val;
-> >>  	struct device **child_devs;
-> >>  	enum rpu_tcm_comb tcm_mode;
-> >> -	int core_count, ret, i;
-> >> +	int core_count, ret, i, j;
-> >>  	struct mbox_info *ipi;
-> >>  
-> >>  	ret = of_property_read_u32(dev_node, "xlnx,cluster-mode", &cluster_mode);
-> >> @@ -1390,7 +1395,7 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
-> >>  		child_devs[i] = &child_pdev->dev;
-> >>  
-> >>  		/* create and add remoteproc instance of type struct rproc */
-> >> -		r5_cores[i] = zynqmp_r5_add_rproc_core(&child_pdev->dev);
-> >> +		r5_cores[i] = zynqmp_r5_alloc_rproc_core(&child_pdev->dev);
-> >>  		if (IS_ERR(r5_cores[i])) {
-> >>  			ret = PTR_ERR(r5_cores[i]);
-> >>  			r5_cores[i] = NULL;
-> >> @@ -1435,16 +1440,31 @@ static int zynqmp_r5_cluster_init(struct zynqmp_r5_cluster *cluster)
-> >>  		goto release_r5_cores;
-> >>  	}
-> >>  
-> >> +	for (j = 0; j < cluster->core_count; j++) {
-> >> +		/* Add R5 remoteproc core */
-> >> +		ret = rproc_add(r5_cores[j]->rproc);
-> >> +		if (ret) {
-> >> +			dev_err_probe(r5_cores[j]->dev, ret,
-> >> +				      "failed to add remoteproc\n");
-> >> +			goto delete_r5_cores;
-> >> +		}
-> >> +	}
-> >> +
-> >>  	kfree(child_devs);
-> >>  	return 0;
-> >>  
-> >> +delete_r5_cores:
-> >> +	i = core_count - 1;
-> >> +	/* delete previous added rproc */
-> >> +	while (--j >= 0)
-> >> +		rproc_del(r5_cores[j]->rproc);
-> >> +
-> >>  release_r5_cores:
-> >>  	while (i >= 0) {
-> >>  		put_device(child_devs[i]);
-> >>  		if (r5_cores[i]) {
-> >>  			zynqmp_r5_free_mbox(r5_cores[i]->ipi);
-> >>  			of_reserved_mem_device_release(r5_cores[i]->dev);
-> >> -			rproc_del(r5_cores[i]->rproc);
-> >>  			rproc_free(r5_cores[i]->rproc);
-> >>  		}
-> >>  		i--;
-> >> -- 
-> >> 2.34.1
-> >>
-> 
+SGkgRGF2aWQsDQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogRGF2aWQg
+TGFpZ2h0IDxkYXZpZC5sYWlnaHQubGludXhAZ21haWwuY29tPg0KPiBTZW50OiBGcmlkYXksIE1h
+eSAyMiwgMjAyNiA0OjE5IFBNDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjIgMi8yXSBzcGk6IGFz
+cGVlZDogUmVwbGFjZSBWTEEgcGFyYW1ldGVyIHdpdGggZmxhdA0KPiBwb2ludGVyIGluIGNhbGli
+cmF0aW9uIGhlbHBlcg0KPiANCj4gT24gRnJpLCAyMiBNYXkgMjAyNiAxNToxNjoyMSArMDgwMA0K
+PiBDaGluLVRpbmcgS3VvIDxjaGluLXRpbmdfa3VvQGFzcGVlZHRlY2guY29tPiB3cm90ZToNCj4g
+DQo+ID4gYXNwZWVkX3NwaV9hc3QyNjAwX29wdGltaXplZF90aW1pbmcoKSBkZWNsYXJlZCBpdHMg
+YnVmZmVyIGFyZ3VtZW50IGFzDQo+ID4gYSB2YXJpYWJsZS1sZW5ndGggYXJyYXkgcGFyYW1ldGVy
+ICh1OCBidWZbcm93c11bY29sc10pLCB3aGljaCBjYXVzZXMgYQ0KPiA+IHNwYXJzZSB3YXJuaW5n
+LiBSZXBsYWNlIHRoZSBWTEEgcGFyYW1ldGVyIHdpdGggYSBwbGFpbiB1OCAqIGFuZA0KPiA+IGNv
+bXB1dGUgdGhlIDItRCBpbmRleCBtYW51YWxseS4gVGhlIGNvcnJlc3BvbmRpbmcgY2FsbCBzaXRl
+IGlzIGFsc28gdXBkYXRlZC4NCj4gDQo+IFRoaXMgY29kZSBpcyBhbGwgYSBiaXQgaG9ycmlkLg0K
+PiBUaGUgNiBhbmQgMTcgKHdoaWNoIGFyZSBhbHNvIHVzZWQgaW4gdGhlIGFycmF5IGRlY2xhcmF0
+aW9uKSBoYXZlIHRvIG1hdGNoIHRoZQ0KPiBUSU1JTkdfREVMQVlfSENZQ0xFX01BWCBhbmQgVElN
+SU5HX0RFTEFZX0lOUFVUX01BWCB2YWx1ZXMgdXNlZA0KPiBmb3IgdGhlIGxvb3BzLg0KPiANCg0K
+VGhlIG1hZ2ljIG51bWJlcnMgNiBhbmQgMTcgY2FuIGJlIGRlcml2ZWQgZnJvbQ0KVElNSU5HX0RF
+TEFZX0hDWUNMRV9NQVggYW5kIFRJTUlOR19ERUxBWV9JTlBVVF9NQVguIEhvd2V2ZXIsIHRoaXMg
+aXMNCmEgcHJlLWV4aXN0aW5nIGlzc3VlIHVucmVsYXRlZCB0byB0aGUgY3VycmVudCBwYXRjaC4g
+V2lsbCBhZGRyZXNzIGl0IGluIGEgc2VwYXJhdGUNCmNsZWFudXAgcGF0Y2ggc2VyaWVzIGluIHRo
+ZSBmdXR1cmUuDQoNCj4gSW4gYW55IGNhc2UgdGhlIGNvZGUgd291bGQgYmUgbW9yZSBvYnZpb3Vz
+IGlmIHRoZSAncnVuIGxlbmd0aCcgb2YgdGVzdCBwYXNzZXMNCj4gd2FzIGNvdW50ZWQgZHVyaW5n
+IHRoZSBpbml0aWFsIGxvb3AuDQo+IExvb2tzIGxpa2UgaXQgd2FudHMgYXQgbGVhc3QgNCBvbmVz
+LCBhZnRlciB5b3UndmUgZ290IHRoYXQgbWFueSAoYW5kIGEgZmFpbCkgdGhlcmUNCj4gaXMgbGl0
+dGxlIHBvaW50IGNvbnRpbnVpbmcgdGhlIGRlbGF5IGxvb3AgZm9yIHRoYXQgaGN5Y2xlLg0KPg0K
+DQpUaGUgaW50ZW50IGlzIHRvIGZpbmQgdGhlIGNlbnRlciBvZiB0aGUgbG9uZ2VzdCBjb25zZWN1
+dGl2ZSBwYXNzIHdpbmRvdyBhY3Jvc3MNCmFsbCBoY3ljbGUvZGVsYXkgY29tYmluYXRpb25zLCBu
+b3QganVzdCB0aGUgZmlyc3Qgd2luZG93IHdpdGggNCBwYXNzZXMuDQpUaGUgdGhyZXNob2xkIG9m
+IDQgaXMgdGhlIG1pbmltdW0gdG9sZXJhYmxlIHdpbmRvdyBzaXplIGRlcml2ZWQgZnJvbQ0KZW1w
+aXJpY2FsIHJlc3VsdHMsIG5vdCBhbiBlYXJseSBleGl0IGhpbnQuIEJlc2lkZXMsIHJlY29yZGlu
+ZyBhbGwgcmVzdWx0cyBpbg0KYSAyLUQgYXJyYXkgYWxzbyBrZWVwcyB0aGUgZGF0YSBjb2xsZWN0
+aW9uIGFuZCB0aGUgYW5hbHlzaXMgY2xlYW5seSBzZXBhcmF0ZWQsDQp3aGljaCBtYWtlcyB0aGUg
+Y2FsaWJyYXRpb24gbG9naWMgZWFzaWVyIHRvIGZvbGxvdyBhbmQgdGVzdCBpbmRlcGVuZGVudGx5
+Lg0KDQoNCkNoaW4tVGluZw0K
 
