@@ -4,135 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D65CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 20:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D16BCD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:15:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Rd5TrjXyF1XvL08JYkWw0Got8+1gIjyp3xOFokyOvEU=; b=QgNwCnYI65VfagDAj6OiZQw2e/
-	EUYsJc/HLdLJWPPsH8UgcJVU68ZbWPQPhO20vnjJMvVf20V0RFZmBBbrdRvtYVBA3XonNl8R71Q51
-	DOzoULlbIoZPUXBU78zOd773ZqtsIQivcjJoD+cv+bU2oyDjK2Wn8ajbgbrSfM/ODwW4kIQRnuGB5
-	OYPaacqcmZNIA3zSh/DtN/fpzQIbgATtQ2r6myvfVGix/r0VyX0ox0/t2CqOcz0BAcKs0Umuw59+/
-	JwQb5QeAV8/rgdqJnbeqckAjEk3vxQ7lIG08u/eHwnnbc0mTWuNQB5L7YUnm+edXaKYx2MukOvhby
-	zQe1zkVA==;
+	bh=q4E9RiNY5xxeH8v0CHIC9N3hVDQi7OzQEt/odZrgvSk=; b=K39yBJMFT6yWRlLtqC9CX+Kp8e
+	qYDMQMXk1Y0bCHTmVvEKDCk/1ay1Oh2bjUTII5P+MzaJntDy0fFs5zkOVP5aillcaE4fULZ9DMaI1
+	l1Crh7ZWAtwvNoEvLVX0iqRTHLmWgVgydc5OXjdhDSNwhbTBdByUaNNj/dh1KTwz2YpLcF3FiWz7H
+	5LYz5mKNeXHtFnNOGUWzXcn+qtR2qYjHmyrt3aHr2wS7MDVahbFpf0z+O3yl/F7jAHY94EOPLjpUh
+	uaD0O1rEOAC2BiI5hepD0bZKvSW2yVMOrfL/+F2rZAlll0CLl1efNui0IcJ2J4zzd7FCo6NNgG12X
+	03tW5X8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQWrF-0000000BuZW-2L8T;
-	Fri, 22 May 2026 20:52:37 +0000
-Received: from mail-northcentralusazon11020103.outbound.protection.outlook.com ([52.101.193.103] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1wQXDG-0000000BwE8-0rHE;
+	Fri, 22 May 2026 21:15:22 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQWrC-0000000BuYz-1DFw
+	id 1wQXDE-0000000BwDY-13Tt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 20:52:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hhm0JVrN31rwM4y663XFKoKCQZzhMm51J3aE7ur/UaovL6/QJ4E4inr9GBNHeYF6lS9o6eRf66jAs1KRtOV0QhnfmaGIVmHzPxXQjvv6tdEpLKHgp0q6nbX0WYGCvmrfP64Z4MU44Z4+IKUR5uKvnTcysFojSmQnJtvwaKnQ8Tfu59X4dUfx/lmxgxQGTuwYjyPU8fJ2VxVhbLfqXk2s+k1mAP6pNNt6uojhf7p+VEem5BV+Xc9kiMlJDsjHiMs1vGyzvZwEWplFJfyIoUG0B6rni6j+Zxa1TP7A4zUNINvDbyVfFfq+9Fus28++0gShecXc8vSx19DUw3kdgBOzrQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Rd5TrjXyF1XvL08JYkWw0Got8+1gIjyp3xOFokyOvEU=;
- b=HLfhRvt6NWJgwIc0vR19NBy4abSkz3uLVZTozuN+jUkwjRVYQbh5eRD+1TrtgO3Njusv9fB5vUttJi2R9dBdEE+9R5ymNKwExBaifWHkGhpol9DBGZk6z6MRuxGX6WMhMJKyoRuUuKgu7ClrjnwBndHpUA5pcu+kViYREgTH3eRMaKDKMb4wtCZSrvR2sRm9vdCLgc+S67MsuW+4YiRWyjT6JnP5MXtmVgrMt1S5rUVh8fRGCG4eZqbypN+k6b3pW1tr5vU4EhmdwSRoR3X6OaECqjHXwc9mDdkcc5w9/rekFSBUg7BG/FnaycC+Pnw++Q+JZa80mvtEIeZe1E0+Tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Fri, 22 May 2026 21:15:21 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-48984d29fe3so80659875e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:15:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Rd5TrjXyF1XvL08JYkWw0Got8+1gIjyp3xOFokyOvEU=;
- b=PYr8/z1q90MFb+MUwaKquPn912MkWH6SmfcuWw1JS/VJM+k7L/QvmBTpCPsWZAD+xH13gpX+sV/1nn51WXM5DGl1+lhjd57XYiXrXiFtA56FyBk7BqoA2FP2lJPfZKUZLbqmCiffpekB0oYj2iKQK4OcDyjPQ+w9peOXiwjbhwM=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from BN3PR01MB9212.prod.exchangelabs.com (2603:10b6:408:2cb::8) by
- LV3PR01MB8533.prod.exchangelabs.com (2603:10b6:408:199::10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.48.17; Fri, 22 May 2026 20:52:26 +0000
-Received: from BN3PR01MB9212.prod.exchangelabs.com
- ([fe80::44f3:1050:dce8:1ea9]) by BN3PR01MB9212.prod.exchangelabs.com
- ([fe80::44f3:1050:dce8:1ea9%5]) with mapi id 15.21.0048.016; Fri, 22 May 2026
- 20:52:26 +0000
-From: Adam Young <admiyo@os.amperecomputing.com>
-To: Sudeep Holla <sudeep.holla@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Huisong Li <lihuisong@huawei.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-hwmon@vger.kernel.org,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	linux-acpi@vger.kernel.org,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
-	MyungJoo Ham <myungjoo.ham@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v02] mailbox/pcc.c shmem map/unmap in callbacks
-Date: Fri, 22 May 2026 16:52:20 -0400
-Message-ID: <20260522205220.237355-1-admiyo@os.amperecomputing.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CY5PR15CA0115.namprd15.prod.outlook.com
- (2603:10b6:930:68::8) To BN3PR01MB9212.prod.exchangelabs.com
- (2603:10b6:408:2cb::8)
+        d=gmail.com; s=20251104; t=1779484518; x=1780089318; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=q4E9RiNY5xxeH8v0CHIC9N3hVDQi7OzQEt/odZrgvSk=;
+        b=Z0vnl8xjislX+j5MIGXyptiQPkQRxwM/gPN+Qf8w/aMg5+zwAg6Cxv1jLKxTNdqUGY
+         rnazYxXjIVj+8DmmUd68oWfPqMUaUk7BbduCXOyJCyFgO+yaEYc5oWLxWUdliSr0cDzb
+         vYMAg0YDQ9c11MN32TwxwoiqxPl17NzngOcwBlDhEDshV5jZ1C4CNjYihzPpwyahutAa
+         TwurbYAhw7rwdnHfrsH42QiS8EqY7m8+ZRVUpFYVqUWrD/j63ajYt00NEUKbrBaiHks4
+         OMt81wfqGNB6DYvEvxa+sNCTUVFiHARAO8Li2dCkNk4X8M1NI591GkL/O7Op7dqlTXaa
+         ImKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779484518; x=1780089318;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q4E9RiNY5xxeH8v0CHIC9N3hVDQi7OzQEt/odZrgvSk=;
+        b=W9G17Gtgsukb+3BITMDDWGxYj+fYWahejAJ9X0j5GLWJelBhpvRj/tlM8qqLVuu8W4
+         eqtlkzWTHhZE6hLTxrZy34XIeo3u5fX/TcTDayOPaigCAtulmnHxi3gKnYya3h+vQx8+
+         sFVgsfWsrEytU9V3dKDB/LtGd6D+Kv1xz3xa+Qp6Q62Vdyycnj9TeY2VIJA/glHKAgts
+         spmlFBGjyTF7JwiYHMiSupgQyI5VHRvze6Qfv8FSz9T6zuvqmF1VnJ9hxUNvNBGRsPdu
+         ipS4d5d3HOk0fhwL+3kV+gQkEPE3aOis6/LSENHhEq9XOm7o+5CJBe0HZ9ooiAYJB1o9
+         ka2g==
+X-Forwarded-Encrypted: i=1; AFNElJ+mRaktBIR66YgFWfyYT3QluXPQDfwESXV34f2ym5ANAbN6fjTX7gDRenJNgYxonRMDayodKzdY81DIOMDOOTdW@lists.infradead.org
+X-Gm-Message-State: AOJu0YyYAX1bFV+sdvViPZoGJZaM98X+Y8a6A74MEcTkQ2lm0poQGKkz
+	DG4xNVCrJUNnuPA7D7f/S3vLQVciMYaVKQEvdsxfhdxPAM+DpxKlH6k5
+X-Gm-Gg: Acq92OFH9m4JGKfT/nsszuiRwYvLx7Beht2jQViypuaCeemOJHQ9dmc7nLBQ/IOktD1
+	N8Lb2Udky8uEW26yz4VVwj4xQZkvlEbf7fPRS4bo1ixTzHXXkNes5uYJffeyovK6tN+BL4ynTVh
+	jEvHUL/cbWE+de3GOfd2zlyY9tmgWFnRdt51BHz7G/c2/kf4v+nra04fwMJ6oYZ20SAZov0xSWG
+	O4HCEbjRx1Gp95nDWe3o/F3OwDee6SrNJtgD832IKPB2ncZjrdaW4tB7S0o4GKAxf+hRuq2PXSN
+	YuLSiFprGcaqvu8p6XitwYt6U5o5h1SrImAsAHgOrAnHisglMEIpHEFrEqNkfqiF0Ye5yh+xqBO
+	NP6a7c4tAQPGsK3pIi7rHoDJPAn9IXr14C0UrODLV4LyDns77+bkxE2nE6kLh5APWGrsQJ9Yagf
+	4mOwPUjNqw7B0XB6hXI5YnrTmMpHbktpvUy1kS1TMdXuc8kn4Za/iUCSJvfwCRIzetlPXPnHhCp
+	uU2hCMiO3ZwNdO520/SmfzP/6NHdqgDCJ9XGc4eYIUdzmYGvpFPuvKJ8jGDiy7ctEjToAVGxRHn
+	MhdN+7t+eA78kZ7/q0uaR78N4bZUkSUvtDugB1zw6w==
+X-Received: by 2002:a05:600c:4ecc:b0:485:30d4:6b9e with SMTP id 5b1f17b1804b1-490426cd8a4mr74193815e9.21.1779484517821;
+        Fri, 22 May 2026 14:15:17 -0700 (PDT)
+Received: from localhost.localdomain (dynamic-2a02-3100-ada3-3901-ad33-2cf3-cf37-617f.310.pool.telefonica.de. [2a02:3100:ada3:3901:ad33:2cf3:cf37:617f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-49044775266sm22135525e9.33.2026.05.22.14.15.15
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 22 May 2026 14:15:16 -0700 (PDT)
+From: Karl Mehltretter <kmehltretter@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Linus Walleij <linusw@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Karl Mehltretter <kmehltretter@gmail.com>
+Subject: [PATCH] ARM: entry: use byte load for KASAN VMAP stack shadow
+Date: Fri, 22 May 2026 23:15:03 +0200
+Message-Id: <20260522211503.25219-1-kmehltretter@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PR01MB9212:EE_|LV3PR01MB8533:EE_
-X-MS-Office365-Filtering-Correlation-Id: 407e78cc-207e-4f6d-f086-08deb84407db
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|10070799003|366016|11063799006|55112099003|6133799003|18002099003|56012099003;
-X-Microsoft-Antispam-Message-Info: S6XzZnJuZgAsLaHgUEub0HI6jnKpoLoKBa+eH5/N5PVOu/chqfkI1xzUTXBCMcNnDvwUKH++/O7gG/dQ2ULETSiOVt2KHNOzR4ZpKijAYhsY3t1QHSdfF/Cfq63tNCs7GZO9RAY/aO6wStuwVGmCjQdUaYVqUlo+tg5UtaRKTXjAUcRuKZvL/gBPZfDx0LmzhTLx4slB1CJAJ54G49bAc5TL0h3M2NFeN5BYzdshj/RIEv4oY91D1hVAWU2ItmZ3sBUxUaB7HbTcVo910EtgrBA0Bfjos/jS5yhOm+qtQMtaD3J3DHyzDZ5el8VTNNIzPgWsMmuYE1oRpRtI3fVX7pHJW9nC4ciWStVplmUXxXKEWIc5NCRuT6GwrQe/vKHwWJQAF6na/SuJ8Zb1xxSLnBesKRQMmD/uRwa+0eTey2a8ll0FuGwoROHlCu5hmBbcJxiz/kzg2IwCCyWdl0vHm0VIigTVwVelvrnR/z1kML1+qb92RB4nHsx2VosX6Ue58BMN6SfCXynjvO/dLUPkn6k/iYySIF2E3oTFX8punMK8kfmM+JYKnPxohNquFK+TppKpOiUVnrq28dt27hYC/GnwczEyvM+puQXgiGDmAA1U8KloBLvGLgGmYP2ct34w802tM+mOO93pesPgQfb7KwCogoHgre9ZGR75E+cJAs2oeEwv0PtSEGIp771d54FOhI0Axp1afNK1CBy4kW9KRw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN3PR01MB9212.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(10070799003)(366016)(11063799006)(55112099003)(6133799003)(18002099003)(56012099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JmCIFHNElNFwJRGL54zpBRYPOOPculc5fcCsGgwVQpkWqkJsS3pkprGtKa61?=
- =?us-ascii?Q?3cHFH14f1fc4AQ+oZVfEzWMcjIB/6tUrKx6lXvGblyENm2I7T/FZ888Lqh6w?=
- =?us-ascii?Q?d01r73h0HLM7EMNxHFLWUewmws7LesCpmvlvMag8M0m5Tg4uYsFopEA1ICju?=
- =?us-ascii?Q?HBkCqv8QdQQb35aAcdna+v7AN/sTLLQAa/ya1N2xrc5C2hHKnqMhma6kBFl8?=
- =?us-ascii?Q?dTbxnH94BMyJwY3pf141t1usaiuPdpWp7Ew0IOKIrOJv4leP61pfflxFVTs7?=
- =?us-ascii?Q?JjJfmx9YmN4x2Fe74S4HYkoDZwqii1P6jk1uZis/M4SevQnNaJ8vkXRZXAw8?=
- =?us-ascii?Q?Ey++6k5ozFbRJ72l5pM8soJcYk1wMd6aUr72aFs+QNDtfRyuyiPXTlUMBNq5?=
- =?us-ascii?Q?Ywh8ol6E05xC/aUjLwDK7vu6DlABAqq+UDNttZhdOYGee8CyvfXSyR2LEe6y?=
- =?us-ascii?Q?lMrAtsgRB0ApqDLwEpZFdnjpe6t0jkflPDnNJ2zvCZHOPNke0b3CAafox2e6?=
- =?us-ascii?Q?QQJOx7gvmfoQAH8x3VeqKR5I1VlIjQsgffPQmkIwwVPE1G10zDlqrnE6k1+x?=
- =?us-ascii?Q?dqx8ZoKoXy78AOeOL94ghiAaXmn15BBGz+aYwvv0MA+WXXXZwq9DOtqmtlA9?=
- =?us-ascii?Q?g9+Q0fGL6Ms9rGqzEeQkD3T+0essWJ0SOk3/LVNoRqXKO3udA/I4sZhWy0Z+?=
- =?us-ascii?Q?MR1lwPVs2VHX65WbGESUtAGwzcdrG1bnt7Wk6+TpsjcMPY0SMrf2k1mvb/e0?=
- =?us-ascii?Q?bft0CDMsoCiLfgq1iFsy1PTxH1qnbtvtfr38FEfoX4ggMI52YUPxUWo/p5WE?=
- =?us-ascii?Q?rPaXCa7XZiLw2NsWbhC4NuqOV+t+UciXCPGQE6nXWyGh6ETEKuw4iY8VL/ca?=
- =?us-ascii?Q?qv6NAAy2VFr5K+Q1SdOr1ODtdq0S36LmY2BQdbpC/nmP5e4dE149AoMAp7XS?=
- =?us-ascii?Q?CUz9MIGt/cQwcuItmsfZ9iNuQM+iTVP6r5GgmI5gka9w9tfJncEgUFNIrPVx?=
- =?us-ascii?Q?z4LqHqcFYShkzy8TOhJeW9kLand6jPE0QUS1CnY1crN8wcSLX/Zaa5wrqff3?=
- =?us-ascii?Q?mYTlZv4COze90wqDnPRK4HuSOTd3uYJ/VYhiQOhccmyxRmxw3E3nnQjNW+Mj?=
- =?us-ascii?Q?5WXMAuVwxLdwTrcgxfF/cLPh6LCtD/UVA8ZlFyeCc2W+kX4e8Q9+RHQMAnis?=
- =?us-ascii?Q?KSEXwmSiY3e6nEkwF5CDo8TMWXXZ7+bEItsLYwT3YtjcD/yu3hYuY70HM5SM?=
- =?us-ascii?Q?4PnSwa4SN1Frcnyd1HrlwvsO/RR1nJBOZZzVBCo9/3z0b6BU9sgriHCVdJ9p?=
- =?us-ascii?Q?ZWOg/OSMuPuK+Olzd2jKn/l1IMQZO6MTlNOCJM0SrHHKQQs9o4VZ4rAM7TSn?=
- =?us-ascii?Q?UDCTDpMwfWde2qWDyKc+xlrWWRw1dtPlTnGFSpGeczBtPhbekgmUTQRCs9xE?=
- =?us-ascii?Q?dHi9Q1OsyWX7XSsGn99mcOzMb5avtF2k1doya7qrF0WlVVN6SHLJeHqgQXgn?=
- =?us-ascii?Q?FWNoGJGRl9LpIYZin8+lpO/n8OT5WF4WGarxg1qnO8DCOrc2+aeUjBtO8fQT?=
- =?us-ascii?Q?k2ultv5SWLsCXPS3gVf50xmg8bg0A87yugIOVgfZxatWgAiPaWNxwCIUl5Nl?=
- =?us-ascii?Q?ytrlW2Hca2nfBK1EgsIeiLnCUUrMFGEpWyI1/tsX2TfZ9+kerFLWNUM9/CNN?=
- =?us-ascii?Q?cmYs63Yt+gTAJap64Wr8RyD2dtdPPP5I5Hu/ahX2psHkRAW0wMt5zqnaoFFi?=
- =?us-ascii?Q?RjySPNqi51NK4e9/j6NjYWgYFI4Ts4daVOTijnY7T2s2M1hdyTwLwE6i8eoq?=
-X-MS-Exchange-AntiSpam-MessageData-1: JDvEX3O8OBSRTA==
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 407e78cc-207e-4f6d-f086-08deb84407db
-X-MS-Exchange-CrossTenant-AuthSource: BN3PR01MB9212.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2026 20:52:26.4513
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pTc8tmEmxStOhBz5E4/Mu9K7GL3ssY2uVO1w6xmeERTlT0qkq7bPfiC60il9JFamGAkg9PR2Olu20zOrtjfU/+29zgLSlrhjbdvbZp/BmxVVszYNx0J8e3vNcH/YzaME
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR01MB8533
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_135234_339686_224C602F 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20260522_141520_310593_EC1BC25B 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,139 +101,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mailbox IRQ and shmems are not cleaned up atomically, so there is a
-race condition. If the shmem is torn down while the IRQ is active, a late
-interrupt can trigger a write to un-mapped memory.
-If the shmem is torn down while the IRQ is active, and another thread
-requests the channel again, we can end up with a channel that has had
-its shmem unmapped.
+Commit 44e9a3bb76e5 ("ARM: 9430/1: entry: Do a dummy read from
+VMAP shadow") added a dummy read from the KASAN VMAP stack shadow in
+__switch_to(). The read uses ldr, but KASAN shadow memory is
+byte-granular and the computed shadow address is not guaranteed to be
+word aligned.
 
-By moving the map to start up and the unmap to teardown, we can let
-the mailbox mechanism prevent re-entrance into the startup/teardown
-functions.
+Booting the QEMU versatilepb machine with an ARM926EJ-S CPU and
+CONFIG_KASAN=y, CONFIG_KASAN_VMALLOC=y and CONFIG_VMAP_STACK=y faults
+before init:
 
-Avoid doubly unmapping the region by removing the unmap in the
-direct error handler for the request.
+  Unhandled fault: alignment exception (0x001) at 0xb91037f6
+  PC is at __switch_to+0x64/0x88
 
-Assisted-by: Codex:gpt-5.4
-Fixes: fa362ffafa51 ("mailbox: pcc: Always map the shared memory communication address")
-Signed-off-by: Adam Young <admiyo@os.amperecomputing.com>
+Use ldrb for the dummy shadow access. The code only needs to fault if
+the shadow mapping is missing, so a byte load is sufficient and matches
+the granularity of KASAN shadow memory.
 
+Fixes: 44e9a3bb76e5 ("ARM: 9430/1: entry: Do a dummy read from VMAP shadow")
+Cc: stable@vger.kernel.org # v6.13+
+Assisted-by: Codex:gpt-5
+Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
 ---
-Previous Version:  https://lore.kernel.org/linux-hwmon/20260515161001.699470-1-admiyo@os.amperecomputing.com/
+ arch/arm/kernel/entry-armv.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in this Version:
-
-- Move the initial mapping into the startup callback
-- No Double unmap on error during setup
----
- drivers/mailbox/pcc.c | 42 ++++++++++++++++++------------------------
- 1 file changed, 18 insertions(+), 24 deletions(-)
-
-diff --git a/drivers/mailbox/pcc.c b/drivers/mailbox/pcc.c
-index 636879ae1db7..c5873f9f2b91 100644
---- a/drivers/mailbox/pcc.c
-+++ b/drivers/mailbox/pcc.c
-@@ -360,7 +360,6 @@ static irqreturn_t pcc_mbox_irq(int irq, void *p)
- struct pcc_mbox_chan *
- pcc_mbox_request_channel(struct mbox_client *cl, int subspace_id)
- {
--	struct pcc_mbox_chan *pcc_mchan;
- 	struct pcc_chan_info *pchan;
- 	struct mbox_chan *chan;
- 	int rc;
-@@ -375,20 +374,10 @@ pcc_mbox_request_channel(struct mbox_client *cl, int subspace_id)
- 		return ERR_PTR(-EBUSY);
- 	}
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index ef6a657c8d13..a3d050ce9b79 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -567,7 +567,7 @@ ENTRY(__switch_to)
+ 	@ are using KASAN
+ 	mov_l	r2, KASAN_SHADOW_OFFSET
+ 	add	r2, r2, ip, lsr #KASAN_SHADOW_SCALE_SHIFT
+-	ldr	r2, [r2]
++	ldrb	r2, [r2]
+ #endif
+ #endif
  
--	pcc_mchan = &pchan->chan;
--	pcc_mchan->shmem = acpi_os_ioremap(pcc_mchan->shmem_base_addr,
--					   pcc_mchan->shmem_size);
--	if (!pcc_mchan->shmem)
--		return ERR_PTR(-ENXIO);
--
- 	rc = mbox_bind_client(chan, cl);
--	if (rc) {
--		iounmap(pcc_mchan->shmem);
--		pcc_mchan->shmem = NULL;
-+	if (rc)
- 		return ERR_PTR(rc);
--	}
--
--	return pcc_mchan;
-+	return  &pchan->chan;
- }
- EXPORT_SYMBOL_GPL(pcc_mbox_request_channel);
- 
-@@ -401,18 +390,8 @@ EXPORT_SYMBOL_GPL(pcc_mbox_request_channel);
- void pcc_mbox_free_channel(struct pcc_mbox_chan *pchan)
- {
- 	struct mbox_chan *chan = pchan->mchan;
--	struct pcc_chan_info *pchan_info;
--	struct pcc_mbox_chan *pcc_mbox_chan;
--
- 	if (!chan || !chan->cl)
- 		return;
--	pchan_info = chan->con_priv;
--	pcc_mbox_chan = &pchan_info->chan;
--	if (pcc_mbox_chan->shmem) {
--		iounmap(pcc_mbox_chan->shmem);
--		pcc_mbox_chan->shmem = NULL;
--	}
--
- 	mbox_free_channel(chan);
- }
- EXPORT_SYMBOL_GPL(pcc_mbox_free_channel);
-@@ -462,9 +441,15 @@ static bool pcc_last_tx_done(struct mbox_chan *chan)
- static int pcc_startup(struct mbox_chan *chan)
- {
- 	struct pcc_chan_info *pchan = chan->con_priv;
-+	struct pcc_mbox_chan *pcc_mchan;
- 	unsigned long irqflags;
- 	int rc;
- 
-+	pcc_mchan = &pchan->chan;
-+	pcc_mchan->shmem = acpi_os_ioremap(pcc_mchan->shmem_base_addr,
-+					   pcc_mchan->shmem_size);
-+	if (pcc_mchan->shmem  == NULL)
-+		return -ENOMEM;
- 	/*
- 	 * Clear and acknowledge any pending interrupts on responder channel
- 	 * before enabling the interrupt
-@@ -479,6 +464,8 @@ static int pcc_startup(struct mbox_chan *chan)
- 		if (unlikely(rc)) {
- 			dev_err(chan->mbox->dev, "failed to register PCC interrupt %d\n",
- 				pchan->plat_irq);
-+			iounmap(pcc_mchan->shmem);
-+			pcc_mchan->shmem = NULL;
- 			return rc;
- 		}
- 	}
-@@ -488,15 +475,22 @@ static int pcc_startup(struct mbox_chan *chan)
- 
- /**
-  * pcc_shutdown - Called from Mailbox Controller code. Used here
-- *		to free the interrupt.
-+ *		to free the interrupt and unmap the shared memory.
-  * @chan: Pointer to Mailbox channel to shutdown.
-  */
- static void pcc_shutdown(struct mbox_chan *chan)
- {
- 	struct pcc_chan_info *pchan = chan->con_priv;
-+	struct pcc_mbox_chan *pcc_mbox_chan;
- 
- 	if (pchan->plat_irq > 0)
- 		devm_free_irq(chan->mbox->dev, pchan->plat_irq, chan);
-+
-+	pcc_mbox_chan = &pchan->chan;
-+	if (pcc_mbox_chan->shmem) {
-+		iounmap(pcc_mbox_chan->shmem);
-+		pcc_mbox_chan->shmem = NULL;
-+	}
- }
- 
- static const struct mbox_chan_ops pcc_chan_ops = {
 -- 
-2.43.0
-
+2.39.5 (Apple Git-154)
 
