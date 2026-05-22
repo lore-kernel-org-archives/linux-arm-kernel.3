@@ -4,144 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B18CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A37ACD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 12:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2tdQC0Bt65JnQr9aYisnmrIEEtfADpkbf1pSjfQh6/c=; b=TmUOmYKhOd9BO1nswya0saQMGh
-	7in0CX0eidr+4xb7PtH5rAEdWBe9n4/WxWDVJRUCTRsjDcjaAYV73HYpTflrg0jA6bpz+H3hIw76J
-	1gyzI3CGOsEmSOnk/TQLBTwzvvEBEfF7Ou2x6X5nCneC0fSXi9A55/8/2Syv7a+s+m4JUIZCv50J3
-	BdUe8NefkhBt1gMQTvuBic5Zizfn4oj5L+EISjYmY3QAlnLSwaWKoh1L5qOiR5dspRUQtwMFcAD6X
-	EyaPxoU3ukLoVcCX266e1/2S9Qv8WuTmAr01mrujGQzkI+0CNKkGuWa2RDMPtjBRweqIj53AiLlq8
-	dqpfuydg==;
+	bh=npoaRceVSKcBIA7XnqArtD5X9kOzz4sAZEkny7h7tJ4=; b=j1IE9yQSXST0wzXTcOMTj02fkS
+	RLzgRhtO9a6pvHnkw8Vmi7xkXkYK5wte90RsayLZO/0pZIn5poaM3S6Y/MTdw2USpSjlJfT19QQgC
+	mvviYAXjZTiwwv+gOTVY1bYCV8XNGtabtXlVktVDafito1H4RQk+5fM+sB1r3m+ldP4wmgaK4sSrO
+	j1Y5l1xVVrmWnlWQuwvMyFLJ9Frx1EHppCmi/uNXYCFC8Z3WJ4M0BQM1JAUIm3iMOf6cXNOlGEFAI
+	LZPKhxacI8dD8XSVV7ObwBwwVxsJIFT6l/UGDivko7mgZmfjv1jCr+ceWvjCnmR4x0B1hX9AcXblp
+	05jufK+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQOJT-0000000AfJd-0nB3;
-	Fri, 22 May 2026 11:45:11 +0000
-Received: from mail-japaneastazon11023073.outbound.protection.outlook.com ([52.101.127.73] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wQOas-0000000AiJr-1QTD;
+	Fri, 22 May 2026 12:03:10 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQOJP-0000000AfIr-3ULy;
-	Fri, 22 May 2026 11:45:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oGU4JaGvkAC6s32c0rFVreVBuTKD2GreK7MgrP0hxyhohj5F7aA8Jk9uFyyA/ueqNICHhg4Ogk3FECTstZkBeqv69tTtU2IA0jjTdi1s99AvsBpauPNKSdAPGVkfEHBMlxHpU19n4UxDNJpealUQuMaJSEy8J4XY2bCELklXcfd33hl754s+fdDz2HCUGKeA7tgjrYQERRxyRjtUR7XB/3xJv3gRYGi6Tq2a2fu2B8hY7bXvsjiKAdROg/MJE/8VABtdfg1dvp5BbkyV4p3Th/iz444nhtMoJux6Ws0GwIq3p2lf9KpbFtlmWh+gZDTqZoC7DY0UhtjsgtQaVE8f3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2tdQC0Bt65JnQr9aYisnmrIEEtfADpkbf1pSjfQh6/c=;
- b=LbIrKE6o8Zeu6ccjS61JciVCAGzSkVrBNlTA+GhbLdIt0FPlLNHLM2ZgPaQUQ2cZ202/EqAoc9bVRWy8wG+B5ai2/nFVQlxspdb7DGMtlmvT4AJiVtlRLXolTGc60/dQTt9NQG6fAoV/7AyZkOeU5l2rinuyFdBMuepZmcHpweoumN/LZsNyTPBywvfW7bM4G/rlhv3qsLQSHEzd4hQnJCkhOO2A6tNV/x74khHX6XRdjoOIPMKWI+2oE15oEpM60u3Md9Yvp2N2ag8H9/q/o3WllF5GMCyKUAt0fVd3WyJgM+OUQdJTxp9B/+3S81keNst+ak2y5a21WRAj9tuR6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2tdQC0Bt65JnQr9aYisnmrIEEtfADpkbf1pSjfQh6/c=;
- b=kpH02bnOn+nROgNfA040Cq+HI1BZRn5v5v3sM/SYWdBLM+recdIJWBgZW0bFwDZBW9FlgyjGwAZfBS1Q0yA01O+q5LG8VAUFQbPzOx/+FkfTvdYhrLNfk/B469SfUdYKhHLgLzPJAepbJu+sm39ZNqPHfskoDLZ6bm6hkI3v18UjTt0gqTic7ZXxp1ErWTIqurK//IoKHiWrIlZ9nyIfCvIaI5r56ox7gB5EJvSRdEc0fpE7SiI/JrXNjZxTfhjzR9WO1DQ0hpEXkxn2syDO0WKBu0+5hVehcnYpkteFvTSd5jBT96lt4RRrKBQJpLXUsmA6OC1wtncLC9bXKW6Nsg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by SEYPR03MB7191.apcprd03.prod.outlook.com (2603:1096:101:d4::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.7; Fri, 22 May 2026
- 11:44:47 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0071.005; Fri, 22 May 2026
- 11:44:47 +0000
-Message-ID: <86d0e5f0-f1be-4fa9-aad9-c498e2740e95@amlogic.com>
-Date: Fri, 22 May 2026 19:44:45 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/10] dt-bindings: clock: Add Amlogic A9 PLL clock
- controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
- <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
- <20260511-b4-a9_clk-v1-2-41cb4071b7c9@amlogic.com>
- <20260515-subtle-sepia-tuatara-cfee3d@quoll>
- <40e83bed-e7a0-4c66-806c-c2988c5d0f33@amlogic.com>
- <7c458070-a56a-4d49-89fc-efeb388beffc@kernel.org>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <7c458070-a56a-4d49-89fc-efeb388beffc@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SG2P153CA0018.APCP153.PROD.OUTLOOK.COM (2603:1096::28) To
- KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+	id 1wQOap-0000000AiDe-43Th;
+	Fri, 22 May 2026 12:03:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=npoaRceVSKcBIA7XnqArtD5X9kOzz4sAZEkny7h7tJ4=; b=hQLcA1R414V+btOIJDOD+tGBES
+	uDEs/ZrExwzWFrdgA2r4itlz8ocKj3qVx/Px03FRFevQRRMraNv3f7W2bvjBN5kFIOJGeb8k7IBXZ
+	6LsHV3nrbRV68SeA96efVg2L53IrdTQBf+ImquXkal8G8iu4FOBfNKYxhu7b5kXN5A4k6B/EG2y0j
+	A2SlkcEx8m3sDfRMwjkN7Q/kmEW5OifhXxKxD9djBPHAr4PZ3yNKA/6oGESvfHi4Gm9OmH4ztnnRQ
+	29d2UdC5J1Q//bqZXoOXiBdQk8M5YpAoUZEm98OEJBD/d6E0QF0umpnWhFoj8xl6vPFKe6cX/3cY2
+	L34qoIfQ==;
+Received: from sslproxy08.your-server.de ([78.47.166.52])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wQOag-000FcQ-0J;
+	Fri, 22 May 2026 14:02:58 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy08.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wQOae-000ErM-1x;
+	Fri, 22 May 2026 14:02:57 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Michael Riesch <michael.riesch@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Frank Li <frank.li@nxp.com>, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Hans Verkuil <hverkuil+cisco@kernel.org>,
+ "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>,
+ "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>,
+ "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-rockchip@lists.infradead.org" <linux-rockchip@lists.infradead.org>,
+ "G.N. Zhou (OSS)" <guoniu.zhou@oss.nxp.com>
+Subject: Re: [PATCH v4 4/6] media: synopsys: Add PHY stopstate wait for i.MX93
+Date: Fri, 22 May 2026 14:02:56 +0200
+Message-ID: <118820958.nniJfEyVGO@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <AS8PR04MB9080844E610F8E8012647B39FA0F2@AS8PR04MB9080.eurprd04.prod.outlook.com>
+References: <20260519-csi2_imx95-v4-0-84ea4bb78a88@oss.nxp.com>
+ <3606153.44csPzL39Z@steina-w>
+ <AS8PR04MB9080844E610F8E8012647B39FA0F2@AS8PR04MB9080.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEYPR03MB7191:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43f50ac5-e2b9-4496-a251-08deb7f7868b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|22082099003|56012099003|18002099003|4143699003|11063799006|3023799007;
-X-Microsoft-Antispam-Message-Info: EqaQvtPL2PpKpT1LEVXXqjLlY6wzH4W8c/E39YOXxJU+wvhzOT/vgCIYqzYCQn++ZMGw4l5XvO3LjtZr+8QAxmwYK0RzC34mLj+CT1SxSI1aPaUOCLsZBKtBM8NWYFh/2TVFk4qoRMcgVcYLLvFtstIJ7hPH5sxTF3R3W6qs5sQNsQEE6oZoSMU/hav38a//CmZR8hgiMQEvfjMDQpQ/Kf3JiM8PErleBLaDJYWueP5yrUIwi5e53E+Ofn/K3cpzqjLf43p0QZft6hilruxC5v18bPEiU96Z57b9mPnoTTcv+hbsN5awDlh75StlX5XKIQ2szowvzgkibvnJElZT7zdQ5Jxc4RBnTinoVUk4nK7+OPMXm2zeHV5599RQDHJ4+wIS5ibmj6ee7E/dzQsCOs3GULUm010s8ghguAt7sSP/teVSYiCAyL94Np0GJ1cp6WIqE0cekxBa8ZnTWyQg+ywLmTaZMw++0Dm3H2dKojTnh+5+Frt4FqXwWH7oW7yMCm968gffvz1BEk3UlDHONkbBJNdzZEoOcyP6FhSLxe5iZGjho13Y+0sVNYBMl1rFdv1nlu5/6qFcd8P0/f3Lei1CUvz2vi5OXbgFK9Asm5irlYbAv4Ujovr8zJWHnZeq4xUGtveboA+dXY/NdSeYxw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(22082099003)(56012099003)(18002099003)(4143699003)(11063799006)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c05OQ3lxWGZPU25JYkFsSlN0dWNzMFE4cWhUY2NJR080bnhPS0dnUFhaT1Vq?=
- =?utf-8?B?aUZnS2V5U3VYUHhsaStmUk5NZmlXRTBDMWFmS3hGN1k3NUtyRmtzbkdhbEtN?=
- =?utf-8?B?VTdvYkVYWVpHSzhKVlI5SnZTdnI5V1Z0a1B1azVSOHpBaGZhRno2cytkelVo?=
- =?utf-8?B?aUNrTGkySWxObjFBb2kyN2lMNit6d2dlc3hPdHpIUWZONDhidko5djRYWVhQ?=
- =?utf-8?B?UytkamNaVnlLSFdLQlhvekVOSkJubHFqZzNpTEYwWFIySnJqUEczdVhqYSsy?=
- =?utf-8?B?QVNKVmJBaUJqU2FTUCtNWUFRQ0ZkMTFxVUZmck4zRVgySEQ1UjFseUpYMGVx?=
- =?utf-8?B?TFZHZi9EUFFhQk10N1p6RCtyWDNNQjNwemVHNmo2d2xlVEY0WFpwTkZQeW9B?=
- =?utf-8?B?VklNdmllRUQ0RHFYNmRoN0NkUEcrZ3hzQXNaU3hjenV4MXBFNlBBV3pnMk11?=
- =?utf-8?B?L0JHSTFWSXUweDVuejhESWZETXQrUjJKam9ZU1lrcXFmc0dZS1FxdHdFR3Jz?=
- =?utf-8?B?cVRoa0ZGR0E1MmllOVBwZTA2NjdHcW13ZTE5cVZTZG5SZHNHNVBES0FhZWZu?=
- =?utf-8?B?MElrMGw0QkZyamc1elMyK3dwUjZ5NVZhdHlBb3JwdVg2NVNobmFSaTNwQkQ1?=
- =?utf-8?B?OGthdDlYY1ZGSFlhYjVXeWdlSlBlc2l2azBWYnd1NHBnYlJQc280bHpuL1RU?=
- =?utf-8?B?aVVSODZLTVBNdEs3WVovWWIyWEZGcjNmTHFseVNIRFhPQ3FaS3Q1S1V2dkE5?=
- =?utf-8?B?R2JhSldQV1dNK3NBbWtVb2dmUHlPZWNEVDJOdGlFQ21uTEVpSkR6MFRBbmVN?=
- =?utf-8?B?dUZKUmZ5cTk2RmFFWlQ5cjFUZmlaWGtnVjdMWjNtbjJHQnBBdS9TMEZEZ1Rh?=
- =?utf-8?B?Q081YnlKTEpheVJ1K2U4cVBaYXNPVWJTQS9wSWY2WXN0Y2lyK0J1U0l3eWhq?=
- =?utf-8?B?UFlsMTJGZGowVk8yWk1hcm92ZnBmU1Y1RUQ1V3pEY3RRdTljZGozWjhlWG5W?=
- =?utf-8?B?cXNUQzBzaTk4UnExWTN2RUlCb0JLemhWdkpOcHdHUE91WTV2YmdIYXoySjNs?=
- =?utf-8?B?dTFDdWVpT3hhYlVUcnJ6QTl5MHhwQzNSbDFkdEl3ZWQwaGpHRkxmVkQvWTUy?=
- =?utf-8?B?UW5ZNyszODh2b3d5dmh1ZFJRYVdqSFpkNGM3dDI1dzJZT00wdnRxaUlaSjhu?=
- =?utf-8?B?citEMEdOQng2ZjJiaDZMTTFTWE56N3ROV1hVLy9MdEpLelFxZ0g5VjZTOXRR?=
- =?utf-8?B?MHQ1dmloL3F3T2tMRHFHMjFFRjd2NFBGNmcrbG5FVnRmT3o4YWpyS2pRN3ov?=
- =?utf-8?B?aFY1MHg5UE53NWlBcnBZZG9TdGVQcWFQWmxVRFkxNHV3VFZDUUI3b2FJMzVZ?=
- =?utf-8?B?NjlLOEhCbnA3MVRIMVg0UUlpbGxsbS95UlZaTHZibnRQWnZ1Ti9sbFhrbWdK?=
- =?utf-8?B?QjB0NDdMMlNHcGFLZ25zVndhNlZJUDBERVZHa2RWbDFWa00reGRNNk9HTWM0?=
- =?utf-8?B?ZURTYjBjVmVCSENYdk1lTDdMdnVrcHZrZGRxV2o1U1lYWVkzd04rTGhONTBB?=
- =?utf-8?B?SGZmK3AxMitrblEyY3ZiY2JEcW15ZUs2VHlHemt5L2FhQ3hzMDZLWjNteU9m?=
- =?utf-8?B?NHdCbmx0WUZhSm1NQk12ZXZ1cE1VMkxyY0VvbDFsWngrRnRENHg4OG1xL0Ji?=
- =?utf-8?B?YkQra3k0NVpSa1dnUlppNHpvTEZhQllDMktiM0s4LzJzTGx3R0dkK1k2VVRW?=
- =?utf-8?B?S0tsQmM4OFIxdW9nSTNxZGNFMENSQVhxcmhXREJaVTIrVktBYUVWODNSbVBK?=
- =?utf-8?B?MjJiM1NKSlJ6Yk5DRGFUbGZ0TWh5bmFHZWowM21FSmRPTGgySE40TTVsSG5z?=
- =?utf-8?B?WXNFZE5tRmV3RlZQWU8wOGp1dGg0LzhwQ3VrRmlWeGcxMGNaSFJXS0VHajJW?=
- =?utf-8?B?RXlXb0g4eEFhdE1iYTQrR1I4VzlCZld1ckp3dXZxdklpUmlNRXIyVlZ1TWtm?=
- =?utf-8?B?aXo4Y3c1aXJNNlVhZ2tpalVCVVUrek1FMDNyNUVIaGxOeXN4T0VPYTlmeEtB?=
- =?utf-8?B?ZUxIUjhCSnJ1aTN0YlVEenRGVjl5QmhNR2xOZ3pUbzc4ZFZUZEt4RHltSVdu?=
- =?utf-8?B?RGlwNjNmd2N2V0FXbDdQZkNINVFRMlhIbHBxKzNKQlJGS0FUTXp5R1ZUWEx2?=
- =?utf-8?B?b1Q0OXBVcjBFdkEwbHpLNm9oMmVoVTBlSm00TjlZRlZPVHNIOUFZb3R4b3pI?=
- =?utf-8?B?cHpBTlNxVU5KUms4Z0xDRE1mdVFZOTdnM3BXQkpSZ1VWbitwV0x6MHNmdGVR?=
- =?utf-8?B?T0dpd0NNRU1WbHhraFZleFVNdm9IZ244M2x3T1FOMGlSM3pVSVhrdz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43f50ac5-e2b9-4496-a251-08deb7f7868b
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2026 11:44:47.6565
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PUI/sgEjDPlP2u+lKbmORO9K9ojv2sQXRgz/MTrVaupciGS3ai9gcf6AJQTOL1POtHty7DB1KqdWiynSXFe4zA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7191
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28008/Fri May 22 08:24:46 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_044507_886467_0A5AF6CC 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20260522_050308_237015_9F3918C3 
+X-CRM114-Status: GOOD (  29.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,96 +99,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/22/2026 5:16 PM, Krzysztof Kozlowski wrote:
-> [ EXTERNAL EMAIL ]
->
-> On 22/05/2026 08:20, Jian Hu wrote:
->> Hi Krzysztof,
->>
->> Thanks for your review.
->>
->> On 5/15/2026 4:09 PM, Krzysztof Kozlowski wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On Mon, May 11, 2026 at 08:47:24PM +0800, Jian Hu wrote:
->>>> Add the PLL clock controller dt-bindings for the Amlogic A9 SoC family.
->>>>
->>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>>> ---
->>>>    .../bindings/clock/amlogic,a9-pll-clkc.yaml        | 110 +++++++++++++++++++++
->>>>    include/dt-bindings/clock/amlogic,a9-pll-clkc.h    |  55 +++++++++++
->>>>    2 files changed, 165 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
->>>> new file mode 100644
->>>> index 000000000000..4ee6013ba1a1
->>>> --- /dev/null
->>>> +++ b/Documentation/devicetree/bindings/clock/amlogic,a9-pll-clkc.yaml
->>>> @@ -0,0 +1,110 @@
->>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->>>> +# Copyright (C) 2026 Amlogic, Inc. All rights reserved
->>>> +%YAML 1.2
->>>> +---
->>>> +$id: http://devicetree.org/schemas/clock/amlogic,a9-pll-clkc.yaml#
->>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>> +
->>>> +title: Amlogic A9 Series PLL Clock Controller
->>>> +
->>>> +maintainers:
->>>> +  - Neil Armstrong <neil.armstrong@linaro.org>
->>>> +  - Jerome Brunet <jbrunet@baylibre.com>
->>>> +  - Jian Hu <jian.hu@amlogic.com>
->>>> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
->>>> +
->>>> +properties:
->>>> +  compatible:
->>>> +    enum:
->>>> +      - amlogic,a9-gp0-pll
->>>> +      - amlogic,a9-hifi0-pll
->>>> +      - amlogic,a9-hifi1-pll
->>>> +      - amlogic,a9-mclk0-pll
->>>> +      - amlogic,a9-mclk1-pll
->>>> +
->>>> +  reg:
->>>> +    maxItems: 1
->>>> +
->>>> +  '#clock-cells':
->>>> +    const: 1
->>>> +
->>>> +  clocks:
->>>> +    items:
->>>> +      - description: pll input oscillator gate
->>>> +      - description: fixed input clock source for mclk_sel_0
->>>> +      - description: u3p2pll input clock source for mclk_sel_0 (optional)
->>> Second clock is also optional. Drop "(optional)" comment, just
->>> confusing.
->>
->> GP0 has only one parent clock, while MCLK has three.
->>
->> The second and third parent entries of GP0 are vacant,
->>
->> so they need to be marked optional.
->>
->> I will add the optional property for the second clock in the next revision.
-> How? Read the previous feedback...
->
-> Best regards,
-> Krzysztof
+Hi,
 
+Am Freitag, 22. Mai 2026, 03:58:56 CEST schrieb G.N. Zhou (OSS):
+> > > Thanks for testing. Regarding the lane stop state error on i.MX93 with
+> > imx327:
+> > >
+> > > This error indicates the CSI-2 lanes are not in LP-11 (stop) state
+> > > when expected. Please check:
+> > >
+> > > 1) Verify the sensor PHY is in LP-11 state before returning from the =
+sensor's
+> > >    s_stream(1) call. The CSI-2 receiver expects lanes to be in stop s=
+tate
+> > >    initially.
+> >=20
+> > Well, this might be tricky as I don't have D-PHY capable scopes.
+> > I can successfully use this sensor on a imx8mp, so I am expecting this =
+to be
+> > okay.
+> >=20
+> > > 2) Check if the imx327 driver has a delay between starting the stream=
+ and
+> > >    returning from s_stream(). If the sensor transitions PHY out of LP=
+=2D11
+> > >    state during this delay, the CSI driver's lane state check will fa=
+il
+> > >    when it runs later. The sensor should remain in LP-11 until the CSI
+> > >    controller completes its initialization.
+> >=20
+> > In imx290_set_stream() and subsequently imx290_start_streaming() setting
+> > IMX290_XMSTA starts the stream. I expect this is the point when the sen=
+sors
+> > switches from LP-11 to HS. But again, I can't verify.
+>=20
+> As mentioned in #2, I reviewed drivers/media/i2c/imx290.c and identified =
+a 30ms
+> delay that appears to be the root cause of this issue.
+>=20
+> The problem occurs because:
+>=20
+> The sensor exits LP-11 state and transitions to HS mode after IMX290_XMST=
+A is written
+> The 30ms delay in s_stream() causes the function to return late
+> By the time the CSI controller performs its lane state check, the sensor =
+has already switched
+> from LP-11 to HS mode, causing the check to fail=E3=80=82
 
-My apologies, I misunderstood your previous comment.
-I will drop "(optional)" from the clock descriptions.
+This sounds wrong, see below.
 
-It will be updated as:
-   clocks:
-     items:
-       - description: pll input oscillator gate
-       - description: fixed input clock source for mclk_sel_0
-       - description: u3p2pll input clock source for mclk_sel_0
+>=20
+> Proposed fix:
+>=20
+> diff --git a/drivers/media/i2c/imx290.c b/drivers/media/i2c/imx290.c
+> index 21cbc81cb2ed..519aa336249a 100644
+> --- a/drivers/media/i2c/imx290.c
+> +++ b/drivers/media/i2c/imx290.c
+> @@ -1059,7 +1059,6 @@ static int imx290_start_streaming(struct imx290 *im=
+x290,
+> =20
+>         cci_write(imx290->regmap, IMX290_STANDBY, 0x00, &ret);
+> =20
+> -       msleep(30);
+> =20
+>         /* Start streaming */
+>         return cci_write(imx290->regmap, IMX290_XMSTA, 0x00, &ret);
+>=20
+> Removing this delay allows s_stream() to return immediately, giving the C=
+SI controller
+> time to complete its initialization before the sensor transitions PHY sta=
+te.
+>=20
+> Could you test this patch and confirm if it resolves the lane state check=
+ failure?
 
+Removing these 30ms does not fix the problem. Actually the delay change is
+hardly measurable, as the i2c transfer take much more time. I added a messa=
+ge
+for start/exit of imx290_enable_streams(). Just the transfers take >600ms.
+
+=2D-8<--
+[   40.507273] plane 0: bytesperline=3D3840 sizeimage=3D4147200
+[   40.512628] mxc-isi 4ae40000.isi: validating link "crossbar":2 -> "mxc_i=
+si.0":0
+[   40.519945] mxc-isi 4ae40000.isi: validating stream "crossbar":2:0 -> "m=
+xc_isi.0":0:0
+[   40.527789] mxc-isi 4ae40000.isi: validating link "dw-mipi-csi2rx 4ae000=
+00.mipi-csi":1 -> "crossbar":0
+[   40.537105] mxc-isi 4ae40000.isi: validating stream "dw-mipi-csi2rx 4ae0=
+0000.mipi-csi":1:0 -> "crossbar":0:0
+[   40.546940] mxc-isi 4ae40000.isi: validating link "imx327 4-001a":0 -> "=
+dw-mipi-csi2rx 4ae00000.mipi-csi":0
+[   40.556680] mxc-isi 4ae40000.isi: validating stream "imx327 4-001a":0:0 =
+=2D> "dw-mipi-csi2rx 4ae00000.mipi-csi":0:0
+[   40.573332] mxc-isi 4ae40000.isi: enable streams "crossbar":2/0x1
+[   40.579446] mxc-isi 4ae40000.isi: collect_streams: "crossbar":2: found 0=
+x1 enabled 0x0
+[   40.587373] imx290 4-001a: Frame descriptor on pad 0, type CSI-2
+[   40.593390] imx290 4-001a:   stream 0, code 0x300f, length 0, flags 0x00=
+00, vc 0, dt 0x2b
+[   40.601489] dw-mipi-csi2rx 4ae00000.mipi-csi: Frame descriptor on pad 1,=
+ type CSI-2
+[   40.609147] dw-mipi-csi2rx 4ae00000.mipi-csi:        stream 0, code 0x30=
+0f, length 0, flags 0x0000, vc 0, dt 0x2b
+[   40.618894] mxc-isi 4ae40000.isi: enable streams "dw-mipi-csi2rx 4ae0000=
+0.mipi-csi":1/0x1
+[   40.627082] dw-mipi-csi2rx 4ae00000.mipi-csi: collect_streams: "dw-mipi-=
+csi2rx 4ae00000.mipi-csi":1: found 0x1 enabled 0x0
+[   40.638184] mxc-isi 4ae40000.isi: enable streams "imx327 4-001a":0/0x1
+[   40.644728] imx290 4-001a: collect_streams: sub-device "imx327 4-001a" d=
+oes not support streams
+[   40.653431] imx290 4-001a: imx290_enable_streams start
+[   41.294967] imx290 4-001a: imx290_enable_streams exit
+[   41.301064] dw-mipi-csi2rx 4ae00000.mipi-csi: lanes are not in stop stat=
+e: 0x0, expected 0x10003
+[   41.309884] mxc-isi 4ae40000.isi: disable streams "imx327 4-001a":0/0x1
+[   41.316534] imx290 4-001a: collect_streams: sub-device "imx327 4-001a" d=
+oes not support streams
+[   41.361401] mxc-isi 4ae40000.isi: enable streams 1:0x1 failed: -110
+[   41.367690] mxc-isi 4ae40000.isi: failed to enable streams 0x1 on 'dw-mi=
+pi-csi2rx 4ae00000.mipi-csi':1: -110
+[   41.379854] mxc-isi 4ae40000.isi: enable streams 2:0x1 failed: -110
+[   41.387325] mxc-isi 4ae40000.isi: Failed to enable pipe 0
+[   41.399231] video0: VIDIOC_STREAMON: error -110: type=3Dvid-cap-mplane
+[   41.408340] videodev: v4l2_release: video0: release
+=2D-8<--
+
+Given this I would ague the CSI host initialization order is wrong. The
+documentation for enable_streams states:
+> The struct v4l2_subdev_pad_ops->enable_streams() and struct
+> v4l2_subdev_pad_ops->disable_streams() callbacks are used by the receiver=
+ driver
+> to control the transmitter driver's streaming state.
+
+So IMHO calling enable_streams it is expected the sensors switched to
+HS mode. Unfortunately even checking PHY stopstate before enabling the subd=
+ev
+streams does not fix this error message.
+There is still=20
+> dw-mipi-csi2rx 4ae00000.mipi-csi: lanes are not in stop state: 0x0, expec=
+ted 0x10003
+
+I also noticed that before the s_stream call (imx290_set_stream) call the
+device is powered down. That might explaing that reversing the order will
+not help.
 
 Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+http://www.tq-group.com/
 
-Jian
 
 
