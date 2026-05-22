@@ -4,102 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14E0CD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 02:30:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94410CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 02:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7P3tHPmrG3wLPqmsJl2HC3o69eg3JUch5W4/s30Hz1E=; b=1FXsCNij7haMAVsAfj6wIWf1up
-	DY2q1c5mh1tPpT8X6gfkNI5peN5L3IPWA4IGyNQ0ugIhEjvylzZVxvvpBbnfd5mJhjEsegtEGo55v
-	6OxVYWObiWKK+xYxubGuYHW7DlDpAPpm8eK24UQoU9ocBpzxVpltyLDophjU56w6lfWxYA4er6OBA
-	Fy6P7hDEFXMgAB3qfxd6Agdj53o77WiHIYWScTI1Zt/0naKCPnMIdFpUCjicR58HSnplGw1zwPPEe
-	fxSQ/rpenabsUdEPVwbUImu4D1TZ1lLScjE5aGChOK/AVnlcVny/1nD/g9ZVD8CV0l6au56pSVqru
-	eWm29AQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJskQkzEXcKmwKbi50aKVJcncb0pn8mjKGrAaOB03qE=; b=qGJnjTsax7GcfXjNbcykL6SY14
+	1ONY9ceY7Orfxh1REhwm5T9Lj9iwdIrZfvMAMxhGZkQXaq8EdDxFyEaa8K8bYM9Uq4V20OUL5gdh1
+	HTSJaC4FGVApGuM7Opb9YfCyEER6EKC/IVqy7lPmC02grkJXzJCyglAa42WJ/fsQFKG5sei+wCSW2
+	5vVrbN5aKjadvm7NaE81xYdI788tBwiIOlQaqILByqB/gVe1utNmSy+d/bJMzzKYqfu9LeQ86H4oh
+	IbPikrw0RTbNzrrxgEXdZuZgVKPhvuD5d/cruM8tKahuegP7qqv2qacC1kAxjXdZX6GF3rPUm8Hpo
+	ORIIjzvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQFeX-00000009Yu8-0URa;
-	Fri, 22 May 2026 02:30:21 +0000
-Received: from mail-dl1-x122f.google.com ([2607:f8b0:4864:20::122f])
+	id 1wQFhM-00000009ZDk-1eeT;
+	Fri, 22 May 2026 02:33:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQFeU-00000009YtD-2XBF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 02:30:20 +0000
-Received: by mail-dl1-x122f.google.com with SMTP id a92af1059eb24-1363e78746eso1654114c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 19:30:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779417017; x=1780021817; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7P3tHPmrG3wLPqmsJl2HC3o69eg3JUch5W4/s30Hz1E=;
-        b=oMJgMwPMS5cAoLnQ3sC1RLaXlk1nSlG2/3b7aomF7LVnyYOjxM6XRYGAuRxX40JcNQ
-         tXS2Cj2SGbWZsiJ3l76H8tZz84IoB45B5xeoUs9uqwe7ObUBE9wpVbDEkNvKXU5Li3MP
-         n9JQCeG/7RpcJeOSj5v9gk59trKDQggHV1XRY8S9SV/xH4puq0rUwCYYwyRQW8+TjPTJ
-         Mo9P1EDdIJKxfoop/pTTaDPh5YuiGMWSzZeZo1/7OuToICgH7JVfR5BSImGq1W2yJVbQ
-         lZS1/KvFCC0g5W21LhwS826rRGc3EKsOItjb4zILu/sVtDKQE4MZuSHNlEDEbgCWs6+R
-         nfTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779417017; x=1780021817;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7P3tHPmrG3wLPqmsJl2HC3o69eg3JUch5W4/s30Hz1E=;
-        b=aVPo2rl+DHCvC5QTL61SglxkGuIU+sxADd4FEFHT5cZJ7p2KL2ww9V2Xfs2nDHz8+Z
-         IWzGrT+kyiEDPboWGr3sSvrKiPb1DvZ441zIvIpWtgLtwe9t5heWiTDD8oeil6VYve8d
-         GvZXt40Ep/g0ewL89I3Lbwq/u3Rp+kOm5xmJafUaibJYxKt+NYTDGaur1RLH9zjPLroT
-         nG/8cwS5O5i4UB7BlxEZIMB1xwBaEnW5sdTozi6PNJ+oKMegyZyFEkaoHiQr8wO+6plQ
-         TfDAC6d+a77NE7R2Io5Ho1iUOhkIo01kxDkkDU+Whx6AZSPE9LW50mbW6/B/PrwyUsPt
-         xIRQ==
-X-Forwarded-Encrypted: i=1; AFNElJ86NfNN6vaMIiO/v8e0WGnAO0PWY2sQJJFSQz+Wub2pMGYahDfdx3g49SFaNMg06JV49c24Me/FVFuuHzJU8LDT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yww+YiG4i/G2lREFztuXBQNdwBuLnBQyM0gPfUrN9wqFrvUZEWy
-	xKf9s2JJooR8MWqrHNfYXB2uGtLcPa4eJnCldfxKfOtnsre/2R9vdMEB
-X-Gm-Gg: Acq92OHWwR3rmXStgF3ypsJGdQpv2IVX8HawmyDPdm3egyKD7c4/ztQyA8NHmA7ERxQ
-	8duzohtF946Hqg524CJCjwL3eFmsA6qW0c7GY9idtGc/0+oMPxicy6a2QS17f+tdbpLQVpbA9vI
-	lUFT1XF9g3yobL4csl9Iptn+o2Rrqeq37BO4gy7ywvYJLzzCsSlsK1TH1hAQsY2/F5LpLfh/4tS
-	eKCt2jytPFIb5kiHLkggnrPPG7AGAsyJ0m2GO98vIK5E8CwyBvrAEcUXu/G34rnuLJ6PQPyIeUR
-	E9XKsxB+p5MhHCyM5dGDRvedvdxtgutA5k7xlop2B/sjJ3pl3iF57kp+eUxdMJWVyLCfaCbZi9V
-	cIoAPDjXzlQ0ACifhbjW7QbxJzRw0YkVRfrSf60OzNKw7zaCBXMSMVHHoqulnx+ZmOzeuAzKcMO
-	ZOnVNj4a0gVBwxJ1AdHjQ7yMJap/VdaJP5f4OpPu+sqYubYhtEkd6GJyqUN3e5eSQLHGTG7KhSf
-	g==
-X-Received: by 2002:a05:7022:661f:b0:135:f2aa:46da with SMTP id a92af1059eb24-1365f812eefmr696894c88.16.1779417017083;
-        Thu, 21 May 2026 19:30:17 -0700 (PDT)
-Received: from [192.168.1.18] (177-4-162-74.user3p.v-tal.net.br. [177.4.162.74])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13669c6a2adsm293024c88.0.2026.05.21.19.30.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 19:30:16 -0700 (PDT)
-From: =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-Date: Thu, 21 May 2026 23:30:07 -0300
-Subject: [PATCH] ASoC: rockchip: i2s: Use managed hclk and runtime PM
- cleanup
+	id 1wQFhK-00000009ZDF-0wIg;
+	Fri, 22 May 2026 02:33:15 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id B82EF41976;
+	Fri, 22 May 2026 02:33:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95D771F000E9;
+	Fri, 22 May 2026 02:33:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779417192;
+	bh=PJskQkzEXcKmwKbi50aKVJcncb0pn8mjKGrAaOB03qE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=VeKgLmEuttrABY4GEK31DGR0wtvJQrbUrhDPjYBD0fAY03yRd26tJZ2eDRLS+BsTj
+	 Jc8ZK+9ymsTG20hwtzOzSZUvyudQMej6Bcon1ca6XsG1grJ2wrlF+v08Krpa2XNaB9
+	 Ogvd1UMp4/wjQovEhihOm0Mu8C20O7Ia2iMmYnfKXWWDLPzC/a4o6aaU0wXG7HysH/
+	 6AnP+a6YdbcY2AEFhFpvHwLkkxaP+4/nZe5g9D/5FY0ux2dCqHaAtBygGeBMOESKzX
+	 Tt0YzWQyecsO9FINPUXBNfRbkfWKeNeWGARhT827Jk3NyexG0cbCk3pdahcQv7TUVx
+	 TSkNLfO2phPKw==
+From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+To: willy@infradead.org
+Cc: akpm@linux-foundation.org,
+	baohua@kernel.org,
+	bhe@redhat.com,
+	chentao@kylinos.cn,
+	chrisl@kernel.org,
+	david@kernel.org,
+	jack@suse.cz,
+	kasong@tencent.com,
+	kunwu.chan@gmail.com,
+	liam@infradead.org,
+	lianux.mm@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	liyangouwen1@oppo.com,
+	ljs@kernel.org,
+	loongarch@lists.linux.dev,
+	mhocko@suse.com,
+	nphamcs@gmail.com,
+	nzzhao@126.com,
+	pfalcato@suse.de,
+	rppt@kernel.org,
+	shikemeng@huaweicloud.com,
+	surenb@google.com,
+	vbabka@kernel.org,
+	wanglian@kylinos.cn,
+	youngjun.park@lge.com
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page fault performance
+Date: Fri, 22 May 2026 10:33:05 +0800
+Message-Id: <20260522023305.98223-1-baohua@kernel.org>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <ag4kj84EcKqamdB-@casper.infradead.org>
+References: <ag4kj84EcKqamdB-@casper.infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260521-asoc-rockchip-i2s-devm-cleanup-v1-1-9319bd781393@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNywrCMBBG4Vcps3agDaagryIu4uSvHS9NyNgil
- L67UZff5pyVDEVhdGxWKljUNE0V3a4hGcN0BWusJte6vvWu42BJuCS5y6iZ1RlHLE+WB8I0Z+4
- lRPhhf/DwVCO5YND3b3A6/23z5QZ5fau0bR/FocZRggAAAA==
-X-Change-ID: 20260521-asoc-rockchip-i2s-devm-cleanup-6cade5f495e5
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Takashi Iwai <tiwai@suse.com>, Jaroslav Kysela <perex@perex.cz>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?C=C3=A1ssio_Gabriel?= <cassiogabrielcontato@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5256;
- i=cassiogabrielcontato@gmail.com; h=from:subject:message-id;
- bh=TMV3OUjSiKWrVH9DS2Bb4U32yk1kAQtbOJI6PQhF/+k=;
- b=owGbwMvMwCV2IdZeKur/u2bG02pJDFn8+7c+Pl3a4dA4+WnT0pC6856eb3pTIvWsll/tLAv/s
- 1bePsGxo5SFQYyLQVZMkWV10iLLPV0PrtbHrfCAmcPKBDKEgYtTACYSK8fwz9R8pszmW4U/8iYG
- 5VU7t8kESQb88EvrWX5vh1mvgrwXB8M/5cWzy6b+X9q3dUegnmSFT+rqjJN+wUa7/SOWc37vVvn
- MDQA=
-X-Developer-Key: i=cassiogabrielcontato@gmail.com; a=openpgp;
- fpr=AB62A239BC8AE0D57F5EA848D05D3F1A5AFFEE83
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_193018_764360_141494E3 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20260521_193314_304953_FD8E513E 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,178 +99,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip I2S driver mixes devm-managed probe resources with manual
-runtime PM and hclk cleanup.  This leaves the remove path doing runtime PM
-shutdown and clock disable before devm-managed ASoC and PCM resources are
-released.
+On Thu, May 21, 2026 at 5:16 AM Matthew Wilcox <willy@infradead.org> wrote:
+>
+> On Thu, May 21, 2026 at 05:14:20AM +0800, Barry Song wrote:
+> > My understanding is that we should not blame applications here. This is 2026:
+> > there are basically only two kinds of applications — single-threaded and
+> > multi-threaded — and single-threaded applications are nearly extinct.
+>
+> all of the applications i run are either single threaded or don't fork.
+> what multithreaded applications call fork?
 
-Keep the bus clock enabled for the device lifetime with
-devm_clk_get_enabled(), and move the runtime PM teardown into devres so the
-unwind order matches the managed registrations.  This also removes the
-remove callback, which only existed for cleanup.
+As I replied to David [1], we cannot control what those apps do.
+Technically, I agree with you that calling fork() within a
+multithreaded app may not be a good idea. But in such a complex
+ecosystem, we cannot simply say no to those apps.
 
-Use a devm action for the final runtime suspend and register it before the
-managed runtime PM action, so teardown disables runtime PM before forcing
-the device into the suspended state.
+Especially when our phones are improving the kernel with this fix,
+our customers may instead complain that our phones regress their
+apps first. That feels unfair.
 
-Signed-off-by: Cássio Gabriel <cassiogabrielcontato@gmail.com>
----
- sound/soc/rockchip/rockchip_i2s.c | 68 +++++++++++++++------------------------
- 1 file changed, 26 insertions(+), 42 deletions(-)
+I can offer a two-step plan. For the first step, we keep the
+current approach of dropping the VMA lock and retrying page faults,
+while trying to make the smallest possible change.
+As discussed with Suren, the draft code is being changed from a
+whitelist approach to a blacklist approach. This way, we do not
+need to touch `filemap.c` at all (probably because you are already
+maintaining `filemap.c` perfectly):
 
-diff --git a/sound/soc/rockchip/rockchip_i2s.c b/sound/soc/rockchip/rockchip_i2s.c
-index 49ff86b35ef1..4e3af0f37941 100644
---- a/sound/soc/rockchip/rockchip_i2s.c
-+++ b/sound/soc/rockchip/rockchip_i2s.c
-@@ -664,6 +664,14 @@ static const struct of_device_id rockchip_i2s_match[] __maybe_unused = {
+diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+index 63de8e8684f2..4101d5fa7a82 100644
+--- a/arch/x86/mm/fault.c
++++ b/arch/x86/mm/fault.c
+@@ -1322,6 +1322,7 @@ void do_user_addr_fault(struct pt_regs *regs,
+ 	if (!(flags & FAULT_FLAG_USER))
+ 		goto lock_mmap;
+ 
++retry_vma:
+ 	vma = lock_vma_under_rcu(mm, address);
+ 	if (!vma)
+ 		goto lock_mmap;
+@@ -1351,6 +1352,8 @@ void do_user_addr_fault(struct pt_regs *regs,
+ 						 ARCH_DEFAULT_PKEY);
+ 		return;
+ 	}
++	if (!(fault & VM_FAULT_RETRY_HARD))
++		goto retry_vma;
+ lock_mmap:
+ 
+ retry:
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index a308e2c23b82..eeb7d6091bef 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -1659,6 +1659,7 @@ typedef __bitwise unsigned int vm_fault_t;
+  * @VM_FAULT_NOPAGE:		->fault installed the pte, not return page
+  * @VM_FAULT_LOCKED:		->fault locked the returned page
+  * @VM_FAULT_RETRY:		->fault blocked, must retry
++ * @VM_FAULT_RETRY_HARD:	->fault blocked, must retry via mmap_lock
+  * @VM_FAULT_FALLBACK:		huge page fault failed, fall back to small
+  * @VM_FAULT_DONE_COW:		->fault has fully handled COW
+  * @VM_FAULT_NEEDDSYNC:		->fault did not modify page tables and needs
+@@ -1678,10 +1679,11 @@ enum vm_fault_reason {
+ 	VM_FAULT_NOPAGE         = (__force vm_fault_t)0x000100,
+ 	VM_FAULT_LOCKED         = (__force vm_fault_t)0x000200,
+ 	VM_FAULT_RETRY          = (__force vm_fault_t)0x000400,
+-	VM_FAULT_FALLBACK       = (__force vm_fault_t)0x000800,
+-	VM_FAULT_DONE_COW       = (__force vm_fault_t)0x001000,
+-	VM_FAULT_NEEDDSYNC      = (__force vm_fault_t)0x002000,
+-	VM_FAULT_COMPLETED      = (__force vm_fault_t)0x004000,
++	VM_FAULT_RETRY_HARD     = (__force vm_fault_t)0x000800,
++	VM_FAULT_FALLBACK       = (__force vm_fault_t)0x001000,
++	VM_FAULT_DONE_COW       = (__force vm_fault_t)0x002000,
++	VM_FAULT_NEEDDSYNC      = (__force vm_fault_t)0x004000,
++	VM_FAULT_COMPLETED      = (__force vm_fault_t)0x008000,
+ 	VM_FAULT_HINDEX_MASK    = (__force vm_fault_t)0x0f0000,
  };
- MODULE_DEVICE_TABLE(of, rockchip_i2s_match);
  
-+static void rockchip_i2s_suspend(void *data)
-+{
-+	struct device *dev = data;
-+
-+	if (!pm_runtime_status_suspended(dev))
-+		i2s_runtime_suspend(dev);
-+}
-+
- static int rockchip_i2s_init_dai(struct rk_i2s_dev *i2s, struct resource *res,
- 				 struct snd_soc_dai_driver **dp)
- {
-@@ -758,37 +766,28 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 	}
- 
- 	/* try to prepare related clocks */
--	i2s->hclk = devm_clk_get(&pdev->dev, "i2s_hclk");
-+	i2s->hclk = devm_clk_get_enabled(&pdev->dev, "i2s_hclk");
- 	if (IS_ERR(i2s->hclk)) {
- 		dev_err(&pdev->dev, "Can't retrieve i2s bus clock\n");
- 		return PTR_ERR(i2s->hclk);
- 	}
--	ret = clk_prepare_enable(i2s->hclk);
--	if (ret) {
--		dev_err(i2s->dev, "hclock enable failed %d\n", ret);
--		return ret;
--	}
- 
- 	i2s->mclk = devm_clk_get(&pdev->dev, "i2s_clk");
- 	if (IS_ERR(i2s->mclk)) {
- 		dev_err(&pdev->dev, "Can't retrieve i2s master clock\n");
--		ret = PTR_ERR(i2s->mclk);
--		goto err_clk;
-+		return PTR_ERR(i2s->mclk);
- 	}
- 
- 	regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(regs)) {
--		ret = PTR_ERR(regs);
--		goto err_clk;
--	}
-+	if (IS_ERR(regs))
-+		return PTR_ERR(regs);
- 
- 	i2s->regmap = devm_regmap_init_mmio(&pdev->dev, regs,
- 					    &rockchip_i2s_regmap_config);
- 	if (IS_ERR(i2s->regmap)) {
- 		dev_err(&pdev->dev,
- 			"Failed to initialise managed register map\n");
--		ret = PTR_ERR(i2s->regmap);
--		goto err_clk;
-+		return PTR_ERR(i2s->regmap);
- 	}
- 
- 	i2s->bclk_ratio = 64;
-@@ -799,8 +798,7 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 			i2s->bclk_off = pinctrl_lookup_state(i2s->pinctrl, "bclk_off");
- 			if (IS_ERR_OR_NULL(i2s->bclk_off)) {
- 				dev_err(&pdev->dev, "failed to find i2s bclk_off\n");
--				ret = -EINVAL;
--				goto err_clk;
-+				return -EINVAL;
- 			}
- 		}
- 	} else {
-@@ -811,16 +809,23 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 
- 	dev_set_drvdata(&pdev->dev, i2s);
- 
--	pm_runtime_enable(&pdev->dev);
-+	ret = devm_add_action(&pdev->dev, rockchip_i2s_suspend, &pdev->dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_pm_runtime_enable(&pdev->dev);
-+	if (ret)
-+		return ret;
-+
- 	if (!pm_runtime_enabled(&pdev->dev)) {
- 		ret = i2s_runtime_resume(&pdev->dev);
- 		if (ret)
--			goto err_pm_disable;
-+			return ret;
- 	}
- 
- 	ret = rockchip_i2s_init_dai(i2s, res, &dai);
- 	if (ret)
--		goto err_pm_disable;
-+		return ret;
- 
- 	ret = devm_snd_soc_register_component(&pdev->dev,
- 					      &rockchip_i2s_component,
-@@ -828,36 +833,16 @@ static int rockchip_i2s_probe(struct platform_device *pdev)
- 
- 	if (ret) {
- 		dev_err(&pdev->dev, "Could not register DAI\n");
--		goto err_suspend;
-+		return ret;
- 	}
- 
- 	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Could not register PCM\n");
--		goto err_suspend;
-+		return ret;
- 	}
- 
- 	return 0;
--
--err_suspend:
--	if (!pm_runtime_status_suspended(&pdev->dev))
--		i2s_runtime_suspend(&pdev->dev);
--err_pm_disable:
--	pm_runtime_disable(&pdev->dev);
--err_clk:
--	clk_disable_unprepare(i2s->hclk);
--	return ret;
--}
--
--static void rockchip_i2s_remove(struct platform_device *pdev)
--{
--	struct rk_i2s_dev *i2s = dev_get_drvdata(&pdev->dev);
--
--	pm_runtime_disable(&pdev->dev);
--	if (!pm_runtime_status_suspended(&pdev->dev))
--		i2s_runtime_suspend(&pdev->dev);
--
--	clk_disable_unprepare(i2s->hclk);
+diff --git a/mm/memory.c b/mm/memory.c
+index 7c020995eafc..b3e7ffdd83f9 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -3797,7 +3797,7 @@ static inline vm_fault_t vmf_can_call_fault(const struct vm_fault *vmf)
+ 	if (vma->vm_ops->map_pages || !(vmf->flags & FAULT_FLAG_VMA_LOCK))
+ 		return 0;
+ 	vma_end_read(vma);
+-	return VM_FAULT_RETRY;
++	return VM_FAULT_RETRY | VM_FAULT_RETRY_HARD;
  }
  
- static const struct dev_pm_ops rockchip_i2s_pm_ops = {
-@@ -866,7 +851,6 @@ static const struct dev_pm_ops rockchip_i2s_pm_ops = {
+ /**
+@@ -3824,7 +3824,7 @@ vm_fault_t __vmf_anon_prepare(struct vm_fault *vmf)
+ 		return 0;
+ 	if (vmf->flags & FAULT_FLAG_VMA_LOCK) {
+ 		if (!mmap_read_trylock(vma->vm_mm))
+-			return VM_FAULT_RETRY;
++			return VM_FAULT_RETRY | VM_FAULT_RETRY_HARD;
+ 	}
+ 	if (__anon_vma_prepare(vma))
+ 		ret = VM_FAULT_OOM;
+@@ -4778,7 +4778,7 @@ vm_fault_t do_swap_page(struct vm_fault *vmf)
+ 				 * under VMA lock.
+ 				 */
+ 				vma_end_read(vma);
+-				ret = VM_FAULT_RETRY;
++				ret = VM_FAULT_RETRY | VM_FAULT_RETRY_HARD;
+ 				goto out;
+ 			}
  
- static struct platform_driver rockchip_i2s_driver = {
- 	.probe = rockchip_i2s_probe,
--	.remove = rockchip_i2s_remove,
- 	.driver = {
- 		.name = DRV_NAME,
- 		.of_match_table = of_match_ptr(rockchip_i2s_match),
 
----
-base-commit: 40cc9602caf2539369bd3dd7d66ee67e204e75ef
-change-id: 20260521-asoc-rockchip-i2s-devm-cleanup-6cade5f495e5
+For the second step, we can move forward with your approach of
+ripping out the PF retry code, after getting in touch with the
+owners of those popular apps one by one to understand why they are
+doing this and whether they can find a different approach. In
+short, this would allow for a one- or two-year transition period.
 
-Best regards,
---  
-Cássio Gabriel <cassiogabrielcontato@gmail.com>
+What do you think about that?
 
+[1] https://lore.kernel.org/linux-mm/CAGsJ_4xC5LdhuoWV1=tK-RZ5rkjc8aOKOkmb1L_8BG_3gtJhDg@mail.gmail.com/
 
