@@ -4,90 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14B71CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A114CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bcQfxlYT0WdkNlclpO13skLK1pFgoPq0lf6iXLyTJ4A=; b=ANCxPELcK47AjmTTuPKJzOm5wd
-	+HfdpwnqqJ+wQQwjya+vMgZLjxC5IW5K4KNGjf8tGL1hTsBAqXYruTL4nMcfgTvRnr+K4tQmVQcq3
-	gJhjXwSuI/NJooj1FwzVvkoSGWKsQ7ZJhUqu93j0iTexi9nleHx1Yann2n0vSJUYSIhSlyuJ5qBTO
-	Q3IveSy0/rR1fwwssnr0RGJ1GIzDBhmYAoXBypHys/73Ol2HkN7ZFLUPI7t2NezFbZ4ebkqBS7eme
-	l5ISI3LpQYhVgRwUb9Fe/EWEDigecT4sirbeB4mGbDMk5wghDT5b3Qu2ARluEmw5XiFgqljDzvJJh
-	Nr9r2Pmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CaaS3jcaWGnPF5je2AWGYV3KmS17BYaLl5N/Juf3+yw=; b=n5ABIW0ITGXxHqXOSvZkXDDDIF
+	QoCxls+iangjLKV5jymnPLMZWLQzyG1uQx5TZX6XLGrGVGI955+nMQQCAGMYEqDmNaNDxuEwtN+H0
+	m8MGIcoNSeoX3pt7DK9U/bSB2tdjYBBtmithzk1II3tqN5L+SY6NUGjqKH9ObCYQhThwp6jGUgJDm
+	K7r6I1/c7Ct461DagOLAS5SZnJAlePazuAv8PNkfCW+NVGbXjhG770+Pv7gD3Spw3GHvwvu7KuzS4
+	rbEXnDBvLu5lHqoMMaWh0+HBuIXGTNDY4Y8CA9csAk9oYLdtFJ7s++gUF6ub3A1+ZGbRk0v8antO2
+	hB7HthEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVKA-0000000BkUe-3fw9;
-	Fri, 22 May 2026 19:14:22 +0000
-Received: from mail-vk1-xa36.google.com ([2607:f8b0:4864:20::a36])
+	id 1wQVKt-0000000BkbD-02vq;
+	Fri, 22 May 2026 19:15:07 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVK8-0000000BkU8-3fQY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 19:14:22 +0000
-Received: by mail-vk1-xa36.google.com with SMTP id 71dfb90a1353d-57611a6a69eso2308512e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:14:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779477259; x=1780082059; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bcQfxlYT0WdkNlclpO13skLK1pFgoPq0lf6iXLyTJ4A=;
-        b=eRn9N9mYmMGapBGUd4RtVpLfJMRPaL6NW7xPiyQPGAzLNHLqi7p83hQKj1CDK+COH6
-         6vW4WO+7o/yuWRFT5IM7IlFqqwc4hGb2RvG6G+ZtFgoO7NMnxvQadLKsvBm/gZbjBuJ+
-         JmfR7MEWmzNjaDMq5xozltZWs3DjZU0/hSjitYi2KHZAsu3IyHYi527UONyGhjrAr520
-         FyzPXfuvjSNY46RVZjx6U4IMU3WZIoZdq67bI6VX1BHDe9cX4hK76VjhvDTSxFQpUuRE
-         Cdlc7MoA4mdQoqGh0xhen5610Q6cjsoaKEP9rxKLlROsb0oaKBb3EKTqtvShhJ9XS9+3
-         X+Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779477259; x=1780082059;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bcQfxlYT0WdkNlclpO13skLK1pFgoPq0lf6iXLyTJ4A=;
-        b=qU6vM0hFY92g3ZUaKDq5AzPs7/fVZrVf0FFVyFJbUL3D5DijG2YtKRMMqkcx6/5nq8
-         XId3UhygeoFSkgUx8Fhn6owmf60T/KWrLx952gvZSMaujaeM+/MHB7TU/XQ94ZwMpQ3j
-         F0uf+PvPmnEpvXaIeK/URujk8x+WTUJd4fqOCDio9m55RZHfYhgBNsLiruoevONN2oox
-         d3Fo5BawaohpvZKw+/gCFM31vH9q8h+2ECT918jSRoiBWBnbsBptDmO7R4jMVbAOBcmc
-         4XLy84C+PsVCs8B2fG4k1ufMm0nRJ7NDppvSelCbXAz8h1hgBmCkas+QDUb7A8n/+fXJ
-         P1uA==
-X-Forwarded-Encrypted: i=1; AFNElJ/Sr/xE1WB4+QI/eSxm1H55CGdbeb2KGi7Zu+FVv8l7+ctQ630fWm5MpJkBdcfMz2HqD6El8hS+PvmlIKeX0vZ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWD4zQGyRy8jyhidei1DZ1o77pYyztIfnD2kC8zarWCKtFb/Qd
-	i3HRLvV/zF7DPOWyMfE8qluzorE9dVdltr781D0uTxhPT5Lb6aBToA0vylEu/HdfkQ4=
-X-Gm-Gg: Acq92OGq/fTPVMbjGRG5PkXUqxpeanFu4qwWjgoYxMclD/w5SM8pxt9AYpI76cTF2hr
-	/zF/HDcmmpVQMeyxJfmkon0LfrfEBmpc+Gz4lYN8tkau93jqbQIt4nEzGrNOIsrjGP4h1zbAvuK
-	V8orXcXDwZxAGanNX97kHftQ5dIj8jCEACmz8njNp87ubXaj0QVlOf86u1dHZuNrvw4dmWHx6ri
-	yyE/5C3saNNUPiYqLwE6HoSTK+VpAHU23HHohyFPp4EQ7zQsa0QlZ0ljxOCf4e7ndn67ib5he/D
-	zQD7+msAQ9gWIXQZr71lltsFbkmSTx+sssWA6Mzpu5AgQ1Q5TxmoUf9gZ5dbSBBFO7099sIvBK5
-	cDuTOQgNVD7vYVKL3xX9mkyxCYahM12wwUcFpvfnX17dfBLFxHR2Pmjp/Mr8N/cyNW3AQKMFzSg
-	SxnRHIo1Eek70mDo6BbCe5htbJabmBkUEbOwxsSdfXew==
-X-Received: by 2002:a05:6122:330a:b0:56f:adb8:7c54 with SMTP id 71dfb90a1353d-5865e3aff5emr3335785e0c.3.1779477259066;
-        Fri, 22 May 2026 12:14:19 -0700 (PDT)
-Received: from acer-e1.tail6c460f.ts.net ([2804:7f0:7542:7b16:2880:ed6d:f5c:8b9e])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96173af3e82sm2741013241.10.2026.05.22.12.14.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 12:14:18 -0700 (PDT)
-From: Ronaldo Nunez <rnunez@baylibre.com>
-To: linux-pwm@vger.kernel.org
-Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
+	id 1wQVKq-0000000BkNb-33KM;
+	Fri, 22 May 2026 19:15:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779477304; x=1811013304;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=3IfPthyDl2oPPglM9oqDGvx1An2T/XqIOjxgRfcIt3I=;
+  b=N7B0+UW4NId10hczx9hBHn33/GgXaCHsPuq1D8ftkyJnf7KMXcx9Qk0i
+   +SstgJS1ermYWuGiu1yazpvRYHDBjtvXbKV+V/qVcvFQQ/nWQ2KF87PXg
+   476oMpJF0f26r0ELe9t4FjgkHcLRkwn2poaBh0HD7m33+LPgvxuCUVjXw
+   CouVw15bWU0QIWfjYqukQK8LKik7pKDYeRndijqVUyJv1XFRpynb5vqVN
+   l66MhWcZpw3TXG9JfRixgB8bNR6dRtPTA6TpuJS4dVajlC0qR4Ydtku4G
+   ZVAJLNRio8CxRlKa4/RINQmojVUDWxZTtM7fZOK3pivaSIghtBoj8gy7J
+   w==;
+X-CSE-ConnectionGUID: eynAzArWSFuFBh4Ydf422A==
+X-CSE-MsgGUID: TuiaywdnTC6yTEcOcIIuoQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11794"; a="91522275"
+X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
+   d="scan'208";a="91522275"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:13:00 -0700
+X-CSE-ConnectionGUID: 7NpFBSNpQWaxr5HTnm4f4A==
+X-CSE-MsgGUID: J5AfsVnqQKOwWRpPLh2Bsg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
+   d="scan'208";a="245281652"
+Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.71])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:12:53 -0700
+Date: Fri, 22 May 2026 22:12:47 +0300
+From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+	Rodrigo Siqueira <siqueira@igalia.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Dmitry Baryshkov <lumag@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ronaldo Nunez <rnunez@baylibre.com>
-Subject: [PATCH v2] pwm: imx27: Fix variable truncation in .apply()
-Date: Fri, 22 May 2026 16:13:48 -0300
-Message-ID: <20260522191348.6227-1-rnunez@baylibre.com>
-X-Mailer: git-send-email 2.53.0
+	Rob Herring <robh@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Daniel Stone <daniel@fooishbar.org>, kernel@collabora.com,
+	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org,
+	wayland-devel@lists.freedesktop.org
+Subject: Re: [PATCH v15 11/28] drm/i915/hdmi: Add YCBCR444 handling for sink
+ formats
+Message-ID: <ahCqmuF7_LywzRGP@intel.com>
+References: <20260522-color-format-v15-0-21fb136c9df2@collabora.com>
+ <20260522-color-format-v15-11-21fb136c9df2@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260522-color-format-v15-11-21fb136c9df2@collabora.com>
+X-Patchwork-Hint: comment
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_121420_923493_2E0E87C3 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260522_121504_807903_5B5F9692 
+X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +117,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a variable truncation when calculating period in microseconds as
-part of the solution for the ERR051198 in .apply() callback.
+On Fri, May 22, 2026 at 02:32:02PM +0200, Nicolas Frattaroli wrote:
+> In anticipation of userspace being able to explicitly select supported
+> sink formats, add handling of the YCBCR444 sink format. The AUTO path
+> does not choose this format, but with explicit format selection added to
+> the driver, it becomes a possibility.
+> 
+> Check for YCBCR444 support on the sink in sink_bpc_possible, and on the
+> source and sink in sink_format_valid.
+> 
+> Acked-by: Daniel Stone <daniel@fooishbar.org>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/gpu/drm/i915/display/intel_hdmi.c | 32 +++++++++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.c b/drivers/gpu/drm/i915/display/intel_hdmi.c
+> index 9076c2b176ec..97cb321e6568 100644
+> --- a/drivers/gpu/drm/i915/display/intel_hdmi.c
+> +++ b/drivers/gpu/drm/i915/display/intel_hdmi.c
+> @@ -1966,6 +1966,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
+>  
+>  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
+>  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_36;
+> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
+> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_36;
+>  		else
+>  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_36;
+>  	case 10:
+> @@ -1974,6 +1976,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
+>  
+>  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
+>  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_30;
+> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
+> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_30;
+>  		else
+>  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_30;
+>  	case 8:
+> @@ -2021,6 +2025,27 @@ intel_hdmi_mode_clock_valid(struct drm_connector *_connector, int clock,
+>  	return status;
+>  }
+>  
+> +/**
+> + * intel_hdmi_can_ycbcr444 - Check whether connector can output YCbCr444
+> + * @connector: pointer to &struct intel_connector to check
+> + *
+> + * Checks whether the hardware that backs @connector is capable of outputting
+> + * YCbCr444 video over HDMI. Does not check whether currently connected sink is
+> + * capable of receiving it.
+> + *
+> + * Returns: %true if source supports outputting YCbCr444, %false otherwise.
+> + */
 
-Example scenario:
- - Period of 3us (PWMPR = 196 and prescaler = 1)
- - Expected value in tmp: 198000000000 (NSEC_PER_SEC * (196 + 2) * 1)
- - Actual value is 431504384 (truncation to u32)
+We don't need kernel docs for internal stuff.
 
-Signed-off-by: Ronaldo Nunez <rnunez@baylibre.com>
----
-Changes in v2:
-- Added example with actual PWMPR/prescaler values per Frank Li's feedback
-- Dropped testing section
----
- drivers/pwm/pwm-imx27.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+> +static bool
+> +intel_hdmi_can_ycbcr444(struct intel_connector *connector)
+> +{
+> +	const struct intel_display *display = to_intel_display(connector);
+> +
+> +	if (HAS_GMCH(display))
+> +		return true;
 
-diff --git a/drivers/pwm/pwm-imx27.c b/drivers/pwm/pwm-imx27.c
-index 3d34cdc4a3a5..c8b801fcb525 100644
---- a/drivers/pwm/pwm-imx27.c
-+++ b/drivers/pwm/pwm-imx27.c
-@@ -200,7 +200,7 @@ static void pwm_imx27_wait_fifo_slot(struct pwm_chip *chip,
- static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 			   const struct pwm_state *state)
- {
--	unsigned long period_cycles, duty_cycles, prescale, period_us, tmp;
-+	unsigned long period_cycles, duty_cycles, prescale, period_us;
- 	struct pwm_imx27_chip *imx = to_pwm_imx27_chip(chip);
- 	unsigned long long c;
- 	unsigned long long clkrate;
-@@ -208,6 +208,7 @@ static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	int val;
- 	int ret;
- 	u32 cr;
-+	u64 tmp;
- 
- 	clkrate = clk_get_rate(imx->clks[PWM_IMX27_PER].clk);
- 	c = clkrate * state->period;
-@@ -249,6 +250,11 @@ static int pwm_imx27_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	val = readl(imx->mmio_base + MX3_PWMPR);
- 	val = val >= MX3_PWMPR_MAX ? MX3_PWMPR_MAX : val;
- 	cr = readl(imx->mmio_base + MX3_PWMCR);
-+
-+	/*
-+	 * tmp stores period in nanoseconds. Result fits in u64 since
-+	 * val <= 0xfffe and prescaler in [1, 0x1000].
-+	 */
- 	tmp = NSEC_PER_SEC * (u64)(val + 2) * MX3_PWMCR_PRESCALER_GET(cr);
- 	tmp = DIV_ROUND_UP_ULL(tmp, clkrate);
- 	period_us = DIV_ROUND_UP_ULL(tmp, 1000);
+Exactly the wrong way around.
+
+> +
+> +	return false;
+> +}
+> +
+>  static enum drm_mode_status
+>  intel_hdmi_sink_format_valid(struct intel_connector *connector,
+>  			     const struct drm_display_mode *mode,
+> @@ -2038,6 +2063,13 @@ intel_hdmi_sink_format_valid(struct intel_connector *connector,
+>  
+>  		return MODE_OK;
+
+I would put the 444 stuff here between 420 and RGB. Then we logically go
+from YCbCr420 -> YCbCr444 -> RGB when reading the code.
+
+>  	case INTEL_OUTPUT_FORMAT_RGB:
+> +		return MODE_OK;
+> +	case INTEL_OUTPUT_FORMAT_YCBCR444:
+> +		if (!intel_hdmi_can_ycbcr444(connector))
+> +			return MODE_BAD;
+
+We're missing the has_hdmi_sink check as well.
+
+> +		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)))
+> +			return MODE_BAD;
+> +
+>  		return MODE_OK;
+>  	default:
+>  		MISSING_CASE(sink_format);
+> 
+> -- 
+> 2.54.0
+
 -- 
-2.53.0
-
+Ville Syrjälä
+Intel
 
