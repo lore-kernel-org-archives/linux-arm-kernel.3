@@ -4,96 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70827CD5BB7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83497CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 21:23:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hmpHbHCnLqaBqS7YTnlpPWtx373ftCx1XDJFmci1v5I=; b=tx9VyK2jogBlaSl7qtyc3o8pMI
-	V+0yw/QJOCgbcPSvUIUMj9hmIjWOMi+2dwecWRvc4Uz8b1FrbeaYWtrvLEGN6v06iSJk/E/x9DCUw
-	J3dmAzI8BAKiQW3HpvBH1ofwK8qb+3dTrfwAROgmzVNueTfbjYC8M26PvtMIpH7xhhK0gfQi6vpYJ
-	5vHkhfCfLrs9QCKh8Y4eLV4cHLmSCu73saQb0gVrbMi82P4R7Cc1YMjAURylBAWZWOAbgMnr4I8ZU
-	PqTrVbV2NF2mqCDhiSbyTX2YLv6ySHDs01+SkIoRTBACq6ustiUd8MpWPcZboCZzyOp9nNnrgUGA1
-	dZtWQMog==;
+	bh=KgGXFHQlusKac+ZqTiaEU7cZC8bLhHd57PmHFjnj0Zs=; b=Hy4k9LlBqqp8mspybpgdcpQk7Y
+	GKypWT4AwESyGLPjQfSNbLd7PLbPUgzQC7xRzznNOgnfAqJuAPiRqLGU0wUsGuoQpdDb318P1ypKW
+	xhxWDNd4v94xtE2gnoiAJLz7E8UXwFKZZ4SKxX6lNdhuQN/uM0UWCzqJC4nEF5s4cT/Fz7ggYqsTP
+	4phbdXbAvtIcdOU3EyuwTx4tE02MlioMYRKYNlLy1SqxuKKGYvpEWWYpd3iiovNeBqeZbHtaaUAd0
+	HLcH7/76k1MYvGWNz/l5gitBpteX2K3MxUsGagYXHPXSVXNZ2kseAIwyJ6m7VhMEXxLUPHL5m/4fb
+	0IsgxJYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXJe-0000000BxQJ-30kN;
-	Fri, 22 May 2026 21:21:58 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1wQXKx-0000000By4P-28i3;
+	Fri, 22 May 2026 21:23:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXJB-0000000Bx05-41Uw
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 21:21:31 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4904fd4f6aeso1818995e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:21:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1779484888; x=1780089688; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hmpHbHCnLqaBqS7YTnlpPWtx373ftCx1XDJFmci1v5I=;
-        b=AhE1RvOLREKMYy95+keXgkyjaK9D/xUjuLPwk3EWUFN/K1IMbK6Xy8BnsdK4imXg6q
-         juOqoj/50CldudGCym9TyXB3FIAdso+HhP5qCNjAQaavc523XUnJl1ShpLPRfhSmM/WJ
-         pnV258KC21wXDLcH31vOf9BRxzF8LxNJZweEeV4aTRjRiYFApbMG0/qzdkgJqiz1A6UI
-         ZIZi0piZeJJiJyEfyYy8I6nZ1o7kD9MSr7DL5Y7eO+KCiOu62djV7qf/O6EqgkgJxB9U
-         L/UxNnp9WyXsmX53Vj+iqTbUQxdKjjV5tuPCjZdziSLTqwE+9aw7JyZvGpBEfYUPiZO0
-         V4+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779484888; x=1780089688;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hmpHbHCnLqaBqS7YTnlpPWtx373ftCx1XDJFmci1v5I=;
-        b=Fm9yvC6S6DCq/qgIMRChxkx+e8kUIFvNuw29sjB4YJX48kNJzlWHVQORVNsLaWUgH7
-         KJEtm7v8+bEnoHYRTWu6zlR/ZjgMDRZzzsIQWJvGbypOJbe6dNOxUzLXCv9/4BSvQIxv
-         v9cY4IL3AKedPrETjtCHeyJxM/oxYhZo5dinGmOxoQM8AgcgYUESLPPfP24OlxImo58K
-         nqE16dQUDQyIDZxpraOJO5/NgVI5NXoP2eW8rHHegFLngfzJZjbZFL3yaJbml+cY2bbi
-         lDRX9O5lPVTmHqUXXvmeDt6dQaYz6mqHtqoFinuP1zOqElQqmP46bl2a+N80kGReu4wv
-         OD/Q==
-X-Forwarded-Encrypted: i=1; AFNElJ8bccFImT9nM2H1cBrythh2fB2n+lTjs5/YLa0LM0M1OdOsBpg3Nr0uNEXpZINhlIaFVetAyeAp9BkY4lpZHm1L@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy/2rF2aHf794KrR/BUN6Trg/tOLHsYT4Hmakcgl0V1cgjcRpr
-	PEM5gmu6xEOvaiJzhytqJEG07QZODWHaz9Cj++h9tdVJfYyr8lmU0jBtbZ50HRndeeE=
-X-Gm-Gg: Acq92OE5fGveZ9Ev764AsVHpKnUf1o+eYK/t2Nrjm2S7Ikdg2lfozzIN8jLrOmJilLJ
-	0P//1OV0uIVCDmzgsYnZ5E+eiofBMWVVo2TkudTTURjYN+I8sa4ns33WRqnCWci2R0E7nha+HVl
-	DgVWeSNRNCKxVELyIX+eTWUtWHDNWr1kwBMhVb0rvg3DAJRwdS+l5Vt3DZR9QevM/OMm2hU8Cm4
-	XtUrAKa3EluCq3Qas02LDzRDhWzjVV6sfLufX3PNeInWYURRcjT8Mb+N7moz4uxXMr255DEvFcC
-	/1qsxyQuqQn+3r3P1nR7/9wMpyUmhvMPcgECzfl2xFG9QELw++kJCTtB04HURbFMraaxw6g6ScD
-	aCvxcdD7+oSslIChWWSsTAfd4JrOtpLqd8pnl8UNCbmrON3hs4f5JLfG8Nl8Ua1sFRIFgqu5Laa
-	beds1tVFwlCKZPWhdFkLpW0qHGGlSAwyE=
-X-Received: by 2002:a05:600c:c0d2:10b0:490:33b3:4be0 with SMTP id 5b1f17b1804b1-490426c1759mr61888985e9.20.1779484888199;
-        Fri, 22 May 2026 14:21:28 -0700 (PDT)
-Received: from [192.168.0.2] ([2a07:7e81:7daa:0:62cf:84ff:feee:627])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b82sm73312225e9.9.2026.05.22.14.21.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 14:21:27 -0700 (PDT)
-From: Angelo Dureghello <adureghello@baylibre.com>
-X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Date: Fri, 22 May 2026 23:20:39 +0200
-Subject: [PATCH v3 11/11] iio: dac: add mcf54415 DAC
+	id 1wQXKv-0000000By2X-3j28;
+	Fri, 22 May 2026 21:23:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D197A44331;
+	Fri, 22 May 2026 21:23:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A9C4CC2BCB3;
+	Fri, 22 May 2026 21:23:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779484996;
+	bh=xqstT+tlRHEtyGEXYmO+4LeTddNMwJiokiAD7V7J5UA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=H4OXmgSWyM1KA2ID0+4h7fy4WWs469AXQvYBfYEi4cJ3eM6gLjMAf8Uo/1XpBJoAL
+	 ZC/VnMTN2VIuV3I2UToS0oLXJSXQCJ52BPeoi6cZCaWeC4287/WAxglQgHlUONJx93
+	 AUFLylRL0pBOJvIyrZDdjG8GtiExExr+dXBhQF9puLjZ5ywXpromg0YaJH+I3BfEVL
+	 s0LDe4c9e1n7b/Cd6HZBRPKtFc4RqbFOH5Crh0KX+JBSJbcN7ElPJfmLx6MxjqaAZy
+	 OwKQAuudrFNx317YN+svFGUcADwW8/CUhgraAHHuoRG06NbUwbh9Y2qYozAN6GRAq3
+	 Xk6mIB16z35wQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 90838CD4F3D;
+	Fri, 22 May 2026 21:23:16 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Date: Fri, 22 May 2026 23:23:07 +0200
+Subject: [PATCH v5 1/8] Documentation: admin-guide: media: add rk3588 vicap
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-wip-stmark2-dac-v3-11-16be0ad35a67@baylibre.com>
-References: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
-In-Reply-To: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
-To: Greg Ungerer <gerg@linux-m68k.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, 
- Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>
-Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
- Angelo Dureghello <adureghello@baylibre.com>
-X-Mailer: b4 0.15.2
+Message-Id: <20260522-rk3588-vicap-v5-1-d1d1f5265c56@collabora.com>
+References: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
+In-Reply-To: <20260522-rk3588-vicap-v5-0-d1d1f5265c56@collabora.com>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, 
+ =?utf-8?q?=D0=9A=D1=83=D0=B7=D0=BD=D0=B5=D1=86=D0=BE=D0=B2_=D0=9C=D0=B8=D1=85=D0=B0=D0=B8=D0=BB?= <mai.kuznetsov.misha@gmail.com>, 
+ Charalampos Mitrodimas <charmitro@posteo.net>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779484994; l=4871;
+ i=michael.riesch@collabora.com; s=20260428; h=from:subject:message-id;
+ bh=eS5mY4EZ7XDsw0jrDI/5w4/ofpel/2YcT5yOuU60IhQ=;
+ b=N2pUoKptdlhLJYmC0x8IoCAFVpqaQxisqzjMxTaylG4mLUSPTY9g/7vxBKCsU7O/mJhmivWMP
+ L/ZBO6ZK1rzCL/vfsAo0XnwuGGFKQP1eas0CWXXE51tbx/xS05JvHDn
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=tAbmpPTE1MELYweXqqDU40fa18uCO6s32GJL/RzyW2Y=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20260428
+ with auth_id=759
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_142130_113616_24913089 
-X-CRM114-Status: GOOD (  26.45  )
+X-CRM114-CacheID: sfid-20260522_142317_986664_931062C8 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,300 +94,99 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Angelo Dureghello <adureghello@baylibre.com>
+From: Michael Riesch <michael.riesch@collabora.com>
 
-Add basic version of mcf54415 DAC driver. DAC is embedded in the cpu and
-DAC configuration registers are mapped in the internal IO address space.
+Add a section that describes the Rockchip RK3588 VICAP.
 
-The DAC accepts a 12-bit digital signal and creates a monotonic 12-bit
-analog output varying from DAC_VREFL to DAC_VREFH. The DAC module
-consists of a conversion unit, an output amplifier, and the associated
-digital control blocks. Default register values for DAC_VREFL and DAC_VREFH
-are respectively 0 and 0xfff, left untouched in this initial version.
-
-This initial version of the driver is minimalistic, "output raw" only, to
-be extended in the future. DMA and external sync are disabled, default mode
-is high speed, default format is right-justified 12bit on 16bit word.
-
-Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
+Reviewed-by: Mehdi Djait <mehdi.djait@linux.intel.com>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
-Changes in v2:
-- remove tests from commit message, moved to patch 0
-- remove additional blank lines
-- remove dead code and unused definitions
-- use regmap
-- add limit check on raw write
-- non functional style fixes
-- add COMPILE_TEST to Kconfig
-Changes in v3:
-- add comments where needed
-- code style changes
-- remove unneeded variables
-- use regmap_set_bits where possible
-- remove macro not needed to define a single channel
-- set up regmap to big_endian accesses for next patches that will come,
-  that will adjust ColdFire readx/writex as standard LE (links in 0/x).
-- add return value check on regmap calls
-- sashiko: remove unneeded .io_port from regmap init.
-- sashiko: add select REGMAP_MMIO in Kconfig
----
- drivers/iio/dac/Kconfig        |  11 +++
- drivers/iio/dac/Makefile       |   1 +
- drivers/iio/dac/mcf54415_dac.c | 207 +++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 219 insertions(+)
+ .../admin-guide/media/rkcif-rk3588-vicap.dot       | 29 ++++++++++++++++++++
+ Documentation/admin-guide/media/rkcif.rst          | 32 ++++++++++++++++++++++
+ 2 files changed, 61 insertions(+)
 
-diff --git a/drivers/iio/dac/Kconfig b/drivers/iio/dac/Kconfig
-index cd4870b65415..b1a578076188 100644
---- a/drivers/iio/dac/Kconfig
-+++ b/drivers/iio/dac/Kconfig
-@@ -516,6 +516,17 @@ config MAX5821
- 	  Say yes here to build support for Maxim MAX5821
- 	  10 bits DAC.
- 
-+config MCF54415_DAC
-+	tristate "NXP MCF54415 DAC driver"
-+	depends on M5441x || COMPILE_TEST
-+	select REGMAP_MMIO
-+	help
-+	  Say yes here to build support for NXP MCF54415
-+	  12bit DAC.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called mcf54415_dac.
-+
- config MCP4725
- 	tristate "MCP4725/6 DAC driver"
- 	depends on I2C
-diff --git a/drivers/iio/dac/Makefile b/drivers/iio/dac/Makefile
-index 2a80bbf4e80a..1cb93e83d0eb 100644
---- a/drivers/iio/dac/Makefile
-+++ b/drivers/iio/dac/Makefile
-@@ -51,6 +51,7 @@ obj-$(CONFIG_MAX517) += max517.o
- obj-$(CONFIG_MAX22007) += max22007.o
- obj-$(CONFIG_MAX5522) += max5522.o
- obj-$(CONFIG_MAX5821) += max5821.o
-+obj-$(CONFIG_MCF54415_DAC) += mcf54415_dac.o
- obj-$(CONFIG_MCP4725) += mcp4725.o
- obj-$(CONFIG_MCP4728) += mcp4728.o
- obj-$(CONFIG_MCP47FEB02) += mcp47feb02.o
-diff --git a/drivers/iio/dac/mcf54415_dac.c b/drivers/iio/dac/mcf54415_dac.c
+diff --git a/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
 new file mode 100644
-index 000000000000..c8c87572d43d
+index 0000000000000000000000000000000000000000..f6d3404920b544f921987d3240f89987b340e138
 --- /dev/null
-+++ b/drivers/iio/dac/mcf54415_dac.c
-@@ -0,0 +1,207 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * NXP mcf54415 DAC driver
-+ *
-+ * Copyright 2026 BayLibre - adureghello@baylibre.com
-+ */
-+
-+#include <linux/array_size.h>
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/compiler_types.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/mutex.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+
-+#include <linux/iio/iio.h>
-+
-+#define MCF54415_DAC_CR			0x00
-+#define MCF54415_DAC_CR_PDN		BIT(0)
-+#define MCF54415_DAC_CR_HSLS		BIT(6)
-+#define MCF54415_DAC_CR_WMLVL		GENMASK(9, 8)
-+#define MCF54415_DAC_CR_FILT		BIT(12)
-+
-+#define MCF54415_DAC_DATA		0x02
-+
-+struct mcf54415_dac {
-+	struct regmap *map;
-+	struct clk *clk;
-+};
-+
-+static const struct regmap_config mcf54415_dac_regmap_config = {
-+	.reg_bits = 16,
-+	.reg_stride = 2,
-+	.val_bits = 16,
-+	.max_register = 0x0c, /* DACX_FILTCNT,  R.M. Table 30-2 */
-+	.val_format_endian = REGMAP_ENDIAN_BIG,
-+	.reg_format_endian = REGMAP_ENDIAN_BIG,
-+};
-+
-+static int mcf54415_dac_init(struct mcf54415_dac *info)
-+{
-+	int ret;
-+
-+	/* Keeping defaults and enable DAC (bit 0 set to 0) */
-+	ret = regmap_write(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_FILT |
-+			   FIELD_PREP(MCF54415_DAC_CR_WMLVL, 1));
-+	if (ret)
-+		return ret;
-+
-+	/* DAC is ready after 12us, from RM table 40-3  */
-+	fsleep(12);
-+
-+	return 0;
++++ b/Documentation/admin-guide/media/rkcif-rk3588-vicap.dot
+@@ -0,0 +1,29 @@
++digraph board {
++        rankdir=TB
++        n00000007 [label="{{<port0> 0} | rkcif-mipi2\n/dev/v4l-subdev0 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000007:port1 -> n0000000a
++        n00000007:port1 -> n00000010 [style=dashed]
++        n00000007:port1 -> n00000016 [style=dashed]
++        n00000007:port1 -> n0000001c [style=dashed]
++        n0000000a [label="rkcif-mipi2-id0\n/dev/video0", shape=box, style=filled, fillcolor=yellow]
++        n00000010 [label="rkcif-mipi2-id1\n/dev/video1", shape=box, style=filled, fillcolor=yellow]
++        n00000016 [label="rkcif-mipi2-id2\n/dev/video2", shape=box, style=filled, fillcolor=yellow]
++        n0000001c [label="rkcif-mipi2-id3\n/dev/video3", shape=box, style=filled, fillcolor=yellow]
++        n00000025 [label="{{<port0> 0} | rkcif-mipi4\n/dev/v4l-subdev1 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000025:port1 -> n00000028
++        n00000025:port1 -> n0000002e [style=dashed]
++        n00000025:port1 -> n00000034 [style=dashed]
++        n00000025:port1 -> n0000003a [style=dashed]
++        n00000028 [label="rkcif-mipi4-id0\n/dev/video4", shape=box, style=filled, fillcolor=yellow]
++        n0000002e [label="rkcif-mipi4-id1\n/dev/video5", shape=box, style=filled, fillcolor=yellow]
++        n00000034 [label="rkcif-mipi4-id2\n/dev/video6", shape=box, style=filled, fillcolor=yellow]
++        n0000003a [label="rkcif-mipi4-id3\n/dev/video7", shape=box, style=filled, fillcolor=yellow]
++        n00000043 [label="{{<port0> 0} | dw-mipi-csi2rx fdd30000.csi\n/dev/v4l-subdev2 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000043:port1 -> n00000007:port0
++        n00000048 [label="{{<port0> 0} | dw-mipi-csi2rx fdd50000.csi\n/dev/v4l-subdev3 | {<port1> 1}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000048:port1 -> n00000025:port0
++        n0000004d [label="{{} | imx415 3-001a\n/dev/v4l-subdev4 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
++        n0000004d:port0 -> n00000043:port0
++        n00000051 [label="{{} | imx415 4-001a\n/dev/v4l-subdev5 | {<port0> 0}}", shape=Mrecord, style=filled, fillcolor=green]
++        n00000051:port0 -> n00000048:port0
 +}
+diff --git a/Documentation/admin-guide/media/rkcif.rst b/Documentation/admin-guide/media/rkcif.rst
+index 2558c121abc466393b4a132e0d9abd2d37f2d25b..313a0ea45d16fe9bbb79d0798e8f8b1dbe1cb83f 100644
+--- a/Documentation/admin-guide/media/rkcif.rst
++++ b/Documentation/admin-guide/media/rkcif.rst
+@@ -77,3 +77,35 @@ and the following video devices:
+ .. kernel-figure:: rkcif-rk3568-vicap.dot
+     :alt:   Topology of the RK3568 Video Capture (VICAP) unit
+     :align: center
 +
-+static void mcf54415_dac_exit(void *data)
-+{
-+	struct mcf54415_dac *info = data;
++Rockchip RK3588 Video Capture (VICAP)
++-------------------------------------
 +
-+	regmap_set_bits(info->map, MCF54415_DAC_CR, MCF54415_DAC_CR_PDN);
-+}
++The RK3588 Video Capture (VICAP) unit features a digital video port and six
++MIPI CSI-2 capture interfaces that can receive video data independently.
++The DVP accepts parallel video data, BT.656 and BT.1120.
++Since the BT.1120 protocol may feature more than one stream, the RK3588 VICAP
++DVP features four DMA engines that can capture different streams.
++Similarly, the RK3588 VICAP MIPI CSI-2 receivers feature four DMA engines each
++to handle different Virtual Channels (VCs).
 +
-+static const struct iio_chan_spec mcf54415_dac_iio_channel = {
-+	.type = IIO_VOLTAGE,
-+	.output = 1,
-+	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
-+	.info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),
-+};
++The rkcif driver represents this hardware variant by exposing the following
++V4L2 subdevices:
 +
-+static int mcf54415_read_raw(struct iio_dev *indio_dev,
-+			     struct iio_chan_spec const *chan,
-+			     int *val, int *val2, long mask)
-+{
-+	struct mcf54415_dac *info = iio_priv(indio_dev);
-+	int ret;
++* dw-mipi-csi2rx fdd30000.csi: MIPI CSI-2 receiver connected to MIPI DPHY0
++* dw-mipi-csi2rx fdd50000.csi: MIPI CSI-2 receiver connected to MIPI DPHY1
++* rkcif-mipi2: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
++  MIPI DPHY0
++* rkcif-mipi4: INTERFACE/CROP block for the MIPI CSI-2 receiver connected to
++  MIPI DPHY1
 +
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+		ret = regmap_read(info->map, MCF54415_DAC_DATA, val);
-+		if (ret)
-+			return -EIO;
-+		*val &= 0xfff;
-+		return IIO_VAL_INT;
-+	case IIO_CHAN_INFO_SCALE:
-+		/* Reference voltage as per ColdFire datasheet is 3.3V */
-+		*val = 3300 /* mV */;
-+		*val2 = 12;
-+		return IIO_VAL_FRACTIONAL_LOG2;
-+	default:
-+		return -EINVAL;
-+	}
-+}
++and the following video devices:
 +
-+static int mcf54415_write_raw(struct iio_dev *indio_dev,
-+			      struct iio_chan_spec const *chan,
-+			      int val, int val2, long mask)
-+{
-+	struct mcf54415_dac *info = iio_priv(indio_dev);
++* rkcif-mipi2-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi2
++  INTERFACE/CROP block.
++* rkcif-mipi4-id{0,1,2,3}: The DMA engines connected to the rkcif-mipi4
++  INTERFACE/CROP block.
 +
-+	switch (mask) {
-+	case IIO_CHAN_INFO_RAW:
-+		/* Check based on RM 30.3.2 (DACn_DATA) reg. resolution */
-+		if (val < 0 || val > 4095)
-+			return -EINVAL;
-+		return regmap_write(info->map, MCF54415_DAC_DATA, val);
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
-+static const struct iio_info mcf54415_dac_iio_info = {
-+	.read_raw = &mcf54415_read_raw,
-+	.write_raw = &mcf54415_write_raw,
-+};
-+
-+static int mcf54415_dac_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct iio_dev *indio_dev;
-+	struct mcf54415_dac *info;
-+	void __iomem *regs;
-+	int ret;
-+
-+	indio_dev = devm_iio_device_alloc(dev, sizeof(*info));
-+	if (!indio_dev)
-+		return -ENOMEM;
-+
-+	info = iio_priv(indio_dev);
-+
-+	regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(regs))
-+		return dev_err_probe(dev, PTR_ERR(regs),
-+				     "failed to get io regs\n");
-+
-+	info->map = devm_regmap_init_mmio(dev, regs,
-+					  &mcf54415_dac_regmap_config);
-+	if (IS_ERR(info->map))
-+		return PTR_ERR(info->map);
-+
-+	info->clk = devm_clk_get_enabled(dev, "dac");
-+	if (IS_ERR(info->clk))
-+		return dev_err_probe(dev, PTR_ERR(info->clk),
-+				     "failed getting clock\n");
-+
-+	platform_set_drvdata(pdev, indio_dev);
-+
-+	indio_dev->name = "mcf54415";
-+	indio_dev->info = &mcf54415_dac_iio_info;
-+	indio_dev->modes = INDIO_DIRECT_MODE;
-+	indio_dev->channels = &mcf54415_dac_iio_channel;
-+	indio_dev->num_channels = 1;
-+
-+	ret = mcf54415_dac_init(info);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_add_action_or_reset(dev, mcf54415_dac_exit, info);
-+	if (ret)
-+		return ret;
-+
-+	return devm_iio_device_register(dev, indio_dev);
-+}
-+
-+static int mcf54415_dac_suspend(struct device *dev)
-+{
-+	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
-+
-+	mcf54415_dac_exit(info);
-+	clk_disable_unprepare(info->clk);
-+
-+	return 0;
-+}
-+
-+static int mcf54415_dac_resume(struct device *dev)
-+{
-+	struct mcf54415_dac *info = iio_priv(dev_get_drvdata(dev));
-+	int ret;
-+
-+	ret = clk_prepare_enable(info->clk);
-+	if (ret)
-+		return ret;
-+
-+	mcf54415_dac_init(info);
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(mcf54415_dac_pm_ops,
-+				mcf54415_dac_suspend, mcf54415_dac_resume);
-+
-+static struct platform_driver mcf54415_dac_driver = {
-+	.probe = mcf54415_dac_probe,
-+	.driver = {
-+		.name = "mcf54415_dac",
-+		.pm = pm_sleep_ptr(&mcf54415_dac_pm_ops),
-+	},
-+};
-+module_platform_driver(mcf54415_dac_driver);
-+
-+MODULE_AUTHOR("Angelo Dureghello <angelo@kernel-space.org>");
-+MODULE_DESCRIPTION("NXP MCF54415 DAC driver");
-+MODULE_LICENSE("GPL");
++.. kernel-figure:: rkcif-rk3588-vicap.dot
++    :alt:   Topology of the RK3588 Video Capture (VICAP) unit
++    :align: center
 
 -- 
-2.54.0
+2.47.3
+
 
 
