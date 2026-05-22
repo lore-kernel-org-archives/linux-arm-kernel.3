@@ -4,143 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD2FCD4F3D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 254D4CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FRufCNt5hSeczlCTxErBMAcYzL3RTS3A9fv99dGMPvI=; b=X7T1nJSuplb95eKgcH10Jr8hax
-	TJtRXbH5ZRpjHuTopZBeCa2RDjvGR88beYohxLWIjv4DbhpFEIK1jVSQ3CgL9zIYZ1KbX8zA61172
-	leBZJb9IR1dgWuw5VVMe7l3Vrh/qKPm5sXbNur3cWyGo1Xlmt89N1eC0o4QBhSpoyY2aun4TqFVH4
-	QIG3CgO9hfpN35TM1A1laPz5ZaPBVrkadFk1b8B7kRm3TLv7LbPnr9YCTqgA/nr7wNkV6Yt590rbn
-	hCnZ+xzC6A38gwx4DIlrlTF4jA+c0J1jYlwjg/WERyMYiUjD9FOXwkYM9ISHOQuZ18p1Lw4edYIZP
-	/zmYp1vQ==;
+	bh=R1URFBCQFkCLKN9AgsB1caAKF9WTg3pIgR98LDqqD60=; b=1w48bOpwZQM5jiVNTZA9DIj73o
+	ZNiP8NeBlTiWvplOMZiCHshKsdiPs50LvY+j54tSw+EdNBclAQOQw6eBRYu54DLpu73jdog1CRZkP
+	nMZJxiiO3UZibYg4Ab/qstlU8Ac+yMhPA2OzqVdZpnv3AEB6ZmgaomXMMjYzWBeE+Ue0rZ1jHqgg0
+	sV4nKixs1H4BpWVS5tkCsDKc4K0C3GcTQLQuINmN8DpTjul+JKtxYsCWQ65zdVRnxZ60uLnEVuwnR
+	nrS/ijRfRIUIKluzKEaH7eLX1OIMTXPki3gW1A13dUYBknepBG4I5kKEVCFl0gDKcleOnADSfcPX7
+	h2dfkePw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQKdk-0000000A8Iz-3zXj;
-	Fri, 22 May 2026 07:49:52 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wQKkU-0000000A8yu-2tA8;
+	Fri, 22 May 2026 07:56:50 +0000
+Received: from mail-vs1-f42.google.com ([209.85.217.42])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQKdi-0000000A8IM-1Um1;
-	Fri, 22 May 2026 07:49:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eCew8Vg1hNtrIeDr1RNmDqeHwj23gIStc7METKQn8UamzHqiyVHle7Gs3PKxNwVVr2YjRfpcOBcf7Kj8DGBWtcT2wR4rbftqThHxNIWyafz3HrAZ+EVH3uJL80Ud/5zJhDsytKDjTAHhq3lAh7yMcOPFtZb7fD9j+2QiWpSCP27yaR5Ue/SJSNWHINrrlkJkdHAIQBKGeAMBF4wxDyUDrXcdcKld4M9146CTDfl9SKHSTvrgHaPONiJ3PqvgTIyNSbAOWBRYpAuO1hnvYDVdOrOeoiosPFBgP0sJOTXdaiRhDZMqaIjBmuA1t0VSXsGiadFjyE5tOkvsqkGORAMWsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FRufCNt5hSeczlCTxErBMAcYzL3RTS3A9fv99dGMPvI=;
- b=OLgHRJMx6+C+BDpuLUkEpaLve1IgsaE8u2RdzOPlfWngan7ooIwukbp4uDrgq3tUZ+NreMr63erEnoxLo6BqRIw6JLGapfyqRhyAgk8uQxNoGM96aQxJwiLzuWRaFmPBWtm6WCD4UKOwG79NgQ10RJp5wf/1F9/+XDs3eYFUlTzwbY88tmH2iPzWIZJHkekipmTVAw97cNfo8x+gLM7EYMJnEbV7tAGGeultzENHFYFZfM07VFLLLI2GZSPXAgS7SeuoI9TCgBDnmLQ9TGSAmqPQO6zIq38HCSV3TvU18clDWhYcnCir+/jb8/gpOdLH85LxFlyUcF21ZbCB12VaLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FRufCNt5hSeczlCTxErBMAcYzL3RTS3A9fv99dGMPvI=;
- b=cJyBM3hReWRtX/+Lya6e9laa/L94uxlLKBxZpSMpV+z+u/wIVSP/j/tpQU9WpEcQgIz8ZaieuBXnzBqYgZEGdSorsbB7P7xUQNKlwlkrxJ4X7O3+tbg6oV30+T2CGHuwI7XvHioCBGbzEDPNWdyz3ozBQ3/VdAVKLhZMKDC+X+vuunAPYcDY1q9xE2uqW5sNJR2oilY0vRZSjBZSsy0VsQjSUzN1Dgbkki805ZgymME9j/89vYEX9GGbkK90TOKDm7yfMb++0vdep9dE5T/dJG0gnX0j84qAB0aPFexNPd5/W6+rdfDVkpsRYeqRyvsCyrMtdyH4RDc5GP9As77ybg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
- by TYSPR03MB7369.apcprd03.prod.outlook.com (2603:1096:400:42c::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.71.6; Fri, 22 May 2026
- 07:49:31 +0000
-Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506]) by KL1PR03MB7149.apcprd03.prod.outlook.com
- ([fe80::2f06:12a:fff0:6506%5]) with mapi id 15.21.0071.005; Fri, 22 May 2026
- 07:49:31 +0000
-Message-ID: <4779aae7-f47b-4cb0-b2cb-1e021fb0cd80@amlogic.com>
-Date: Fri, 22 May 2026 15:49:28 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/10] dt-bindings: clock: Add Amlogic A9 peripherals
- clock controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
- <xianwei.zhao@amlogic.com>, Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com>
- <20260511-b4-a9_clk-v1-3-41cb4071b7c9@amlogic.com>
- <20260515-augmented-cyber-puffin-4db20f@quoll>
-From: Jian Hu <jian.hu@amlogic.com>
-In-Reply-To: <20260515-augmented-cyber-puffin-4db20f@quoll>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SL2P216CA0230.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:18::16) To KL1PR03MB7149.apcprd03.prod.outlook.com
- (2603:1096:820:ca::7)
+	id 1wQKkQ-0000000A8y7-2A8n
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 07:56:48 +0000
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-63a3977145fso2237514137.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 00:56:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779436605; x=1780041405;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R1URFBCQFkCLKN9AgsB1caAKF9WTg3pIgR98LDqqD60=;
+        b=AMWbc8vuHkI15kx5Zit2tpeqawltRMM6Bks13ohdJ2Rz2KWQgGRJmQ65pxom/qvCQl
+         enVF/3YIH7pDE3XtB4cRVrr/roFvqZVzlxKGk6stMfioGOS0pLwd+9x9RO4YcqgPRdPT
+         F4pWZ6uXp/1UR/4ry1yL18fALgE80NrTowCGZoixTltohQJu7x7EquiXAx9zNs3JTqKW
+         dq8g/SIj1hLiPR0ukOcCXXePKPNA4Yol5HBJZjCfrougAjdrkkjG9JycDRhhQhWVFf9P
+         KQGOh4kvabpAF5BDh9msed08Oo7KI0rKJhmOTIAWjjCvwaMFV/8V/GGr/I9PtrVbaiJ+
+         MevA==
+X-Forwarded-Encrypted: i=1; AFNElJ8/4tJXA/+DIA0gdhbNdX9Joe2+pW2tSIoSNtSGmvAbso5aY0mPRHyEFCWKcKaVDwpSPZFbIX/8gwIsUnNVtkSf@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMXTKiNr6M/Zb1OQML+Uwi+KxJx/boFDEbO85wGHllXSnVDENw
+	a0JqXXW4d6KTgfyoU7PxQKiZlG6OTBdgfCnn1+HLG8V2T4sJCt1ZH0/TGm6/hZty
+X-Gm-Gg: Acq92OE21ql/jQG/2K6KZcFl7yDLCKLdl/HdNhC5NRQpzF6cbZit9IR1GXCumqh5hfM
+	1DmVNoqvClJrPvcXwDKZbRzOLlECI090lXg6iIcr2ykTXHB5Z261GZsmVeBUG1Y6M/Lxytf7012
+	UbX1p1s0/SMgCn+txZxoq/ALvYR5KTpmrfsz4J+do1ts6TJi/gB9pdfvChMfcfR/YWaYNPrVYVW
+	fo52luv/Xk+QYEj8qNp+2bIBIJZzgRCb0wCuLhJRRkIfFIhOaFm1nOuK6M43ReiEDviU8ba3BxP
+	yfZ2rKLZYs+wlZ97BvcavAzC6KH34riZMSKVHNcEog06ZsfAVf4Td1A9gmykYwC8p4BzryxYOdS
+	Rbt2dRsog5VvWnTKXg3FXyZ8Ks5pNAQwzLMx9rqSFfQ/kH8JzH1hfff4TN0YuTAINyP3ap5ooYS
+	3SLRf1ZZCKmXw71w5b0kgMNbjD8k5VpeCpcWjF5KZ5yD+wtGVMhiXZNs3Zkpf22NO+pOU0fUQ=
+X-Received: by 2002:a05:6102:3ca8:b0:632:4af0:4133 with SMTP id ada2fe7eead31-67c7c0765b9mr945904137.18.1779436604522;
+        Fri, 22 May 2026 00:56:44 -0700 (PDT)
+Received: from mail-ua1-f48.google.com (mail-ua1-f48.google.com. [209.85.222.48])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-961737bc134sm761375241.1.2026.05.22.00.56.43
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 22 May 2026 00:56:43 -0700 (PDT)
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-9617940274bso26334241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 00:56:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/v1Kjf7hxbh5KKdRDy//pilMrHhgE1NbMWXEaADcUfaDcYsBiYbam5akjOuog0jbDtBWAOxiyRrv9vdaeYGtXL@lists.infradead.org
+X-Received: by 2002:a05:6102:580d:b0:631:4191:6f7e with SMTP id
+ ada2fe7eead31-67c6f273735mr1076501137.4.1779436603553; Fri, 22 May 2026
+ 00:56:43 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|TYSPR03MB7369:EE_
-X-MS-Office365-Filtering-Correlation-Id: a36c85fe-ddcf-489b-dbcf-08deb7d6a8c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|376014|22082099003|18002099003|56012099003|3023799007|11063799006|4143699003;
-X-Microsoft-Antispam-Message-Info: x0IQ/6N/ZaXMcFIvvcI2qVnkDefNc/FA8lA9Eh8kfoNZMPKi3Ob99ojS3qWh3tUREdJtpfG01w3wwybBlxMNKPK89yjy1n3AsXlgxpZurfPBsb7BL7e48Pc92k4B1GcTM7yBPiorKsO4xr1Ly0/TmD6f5/XFUkM0bCkYs3jXdwBC5MSAvnhjlrZp05GaiFGri6a39GKPZWK46pXw1xiJa1faQsifrpw+MZDSlc1wtZv3ibppk7iQ1ojCrZTo3DAAtwsEPeii2uUdMO3LQrqvQ0Kt3b38i+CCs7ccw3IDwD2W63PHIS7on4lj4E0ImhRiqwp7bErjLPn5AGpsPQFOiyvz0pB4Uhs+9QsKoTYbRCDYBo/cqZsU8lFNSrB4aLYXkGW6yFEEYlCYSiwmm1CSl77hVU0yFylPWMFOydOKhJfTweMsm7xUlzVQ27c0KAm5c8orpCtmhq5Ac95ec2lzqd7s96llyTuJ5u/SIgqXCMMl8MX4AW2VWLzobwRSWKvpgaa68p4Iw5piAkHpeC794dnVV3ZCdpOoMBy5UzpDO/m+l+UFgsbVrgVReqJhpE4dUeWliw2UVDX3kbOybytGIjcsyQ25psl+N2a1oHrpA4+2RmI8okuYptUwXLvxQjDTcKnzZNJwEmcVsG7Sh8n96Q==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(22082099003)(18002099003)(56012099003)(3023799007)(11063799006)(4143699003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RjRldzhEa3JlNGZ5SEdWVXZiUlBlaUNkUCtSb1A2SVFFNEZCY3NnL1lHZkxB?=
- =?utf-8?B?YTFhZGFKYmxuRkxrWWx5TTRvZFhjbUFiRkJQaXZQQStqUXNaZThvcVQrcC9W?=
- =?utf-8?B?ZzkycHJIV2JZNDh2dWRqQTBhaG1jSGtFQ3EyZHZWZUtQeW5JSDVMVVZXd3k4?=
- =?utf-8?B?aDhGRjRiYW1LMmNnVUhMajlaY012dDZJL2VXTTl3M1doRmxUVkEydU5wZm5P?=
- =?utf-8?B?SzJySVE0dG93T3VrK0w4RUQ0Ukw3SnA5Q1NwNmFjaWRoZTRtVjBuMXRFeUo5?=
- =?utf-8?B?U2wxNFQxaFpsQTIzUjBZQi9CUEgvVm1pU1plbmJ5Q2VDQklhOW4zcEpHdk9C?=
- =?utf-8?B?cU9Ieno5YTU0U3dzSUhLVTh4cU5CRXF3VGlQRWJlbUQ5ZGI3VjVjdFZzSExz?=
- =?utf-8?B?dnZCRU45cEQwSlByRkh5eVU2WENtb3ZYc3Z3cWJGZjJESml2QzJ0UzR1V3Bn?=
- =?utf-8?B?TEUzWHVualVTeFdTS21RVWFOb256TnI1SWRLWWcrL0t3ZExrOURPYmU3Y1I0?=
- =?utf-8?B?ZVZobkExeGNIZ2x0TzBOOWdIeEkyeHBBZ3Z2TXczSTliaXNkblp4OFdZK2Fm?=
- =?utf-8?B?WGo4UzBOc0VOUW9SQlZLbVVNbHRpcndXNm4zWUFYOW1RRHRYRytDRis4dE9O?=
- =?utf-8?B?TXFYWitvNy9LRFZKRDgzYUhDVUFKOVQyTmgrQzZoL1FBeW1PY1JTd1UyVVRQ?=
- =?utf-8?B?NG5tK3RKaWFIQUh1Y0Q3K3A2N2RmSlRLZTJlWWpFSkNYK3J2QlRNK0toa1hi?=
- =?utf-8?B?ak5sTnpNRVdreTRPTFR2ZlBlN21lN3RxOUhuZGJxZCtOUFBKN2FPblRrWDl6?=
- =?utf-8?B?aitjMTRkUklBQ1hXU2JpOU9ZTG1aR2dLVEVWbWpMbnExNXJGZmhQWHQ1QTRk?=
- =?utf-8?B?clFLQ0JuZGViZHBIN1hOQjJFNWRFMXE5cFNIaXJwVitqVklhcnRQeUg4bHpo?=
- =?utf-8?B?WlNTVGFGSGZvQnZGQmlHUUR4ZUpBcCs0QUVRS3Z3VkxQbnJrVzRyTURvS2pK?=
- =?utf-8?B?MEh6bUljT3l2dmlmV29Hb3ROLzN6ZWhhcDNjRjhnQ0VJTjFNMVlDVzJwMkxD?=
- =?utf-8?B?dmlCVHZKc0pLT1JkN05nRFNLY1M0K0hKN0MzVmpUbVltVEpFMkZCUG94ZEtK?=
- =?utf-8?B?ejlOb1M1VWN2OVJQeWlDQjdsYjhkUGExbDFwOUMvdU5DM3VmejRjR3g5OGs2?=
- =?utf-8?B?MmJwMTZIK0tYdHdQOG1vME9JWXozVzJVMnJyMHVRdjFTRkRpbFRlT0dabXZI?=
- =?utf-8?B?b2VwT2d5THdZenV1VTk2MnlQVlIzVU16UlFQaTl4YnVwOWh1TVo4d293dzRE?=
- =?utf-8?B?YTcyVHl3STR4SFoxbnVYdW02a2lid0VkenpNOFoweEViVjMvY2EzMGttd1VK?=
- =?utf-8?B?T0FEUmsvM1BjaTMzbXJER2FpNEJaMW94NzdJUEVkYTVZemhjR1JuS0RiSWx2?=
- =?utf-8?B?bVhmMjJuN3J0ekdJNjY0Rm52V2JPMFhHNndLRzlGMUFVWDE4ajM2U1BFRDBu?=
- =?utf-8?B?YzVKM0RicmxpV1VsSEpyVFduNnNwWkVTYTcxL0ZNZ1h0dWF3VDN3aUE3bVJ2?=
- =?utf-8?B?L2RrYU9zdmFLc0xMSjdGZnBqV0o1dW04L1E4dVNXWldjRlZoVEprM2ZuRnJy?=
- =?utf-8?B?TDlBZGpnQldMakI4K1FkV0tWSXg2dnBmKzlQTlJ3WEF3NWFLVEJmVm81bnhp?=
- =?utf-8?B?dDVsblZMK2dldmJ4UEFJczlZQlZhUWxyVDE3MmFTclV1UXpNNW9GbEhPWi9v?=
- =?utf-8?B?MWpRRmNOZjdOcFZOOEJqeGhNR21GS2lMcUdyV241U0JzR0s2OHpoVGN6eHlp?=
- =?utf-8?B?dy9zaHo0SVI0Z0JuUFFqTDJxSHVqT2lRQUdEMGhJTzlFR3VlMHpRVUtPS0ZJ?=
- =?utf-8?B?RDBsMkFHRWxGckhYWkxITmZVSW9DZStkVWFIOXpxbUNOd1lvcy9lS0xGdUpQ?=
- =?utf-8?B?THhVOW9ZeG0wbFR3UGx6ZW9oZVkxK3YxUHMzVlJxRklSdzdHZERXVWx4UG9t?=
- =?utf-8?B?WnYrVTJwRGdtWDdCRlpPbUdRSndnUnR6MnI2NGlJQzFzR2t2QVY5eHVLWkd4?=
- =?utf-8?B?OTdkbi8rcm9pUWJhTVhUWjE0dUxDM1BBQWdISTMvN1dXbVBDellZN2labkY2?=
- =?utf-8?B?a05tb3d6UktZTk8vNGJ4OVlidVQ0d0gzOWV6L0p4VzNOcTNEU3FuT251anVk?=
- =?utf-8?B?YitNbkVzKzNtK1VVY3p5Zkp0ZTVCbWFlN0tmNS8vK2pCeEkzMURkLzB3aGhi?=
- =?utf-8?B?RUpZVkt4K0NNRmRia0I1RXUrZ2ZsSCtFenhabS9VTWdIRmYrbWxick1JU2dm?=
- =?utf-8?B?eWpNdGIrQ24rM3V3azRBa2FIMDlKSTlOeitMcEtlUjlROTBwNitHZz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a36c85fe-ddcf-489b-dbcf-08deb7d6a8c7
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2026 07:49:31.7166
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YlUHWuOmko/p475nQ3MrwtX+Scq90M6W0/CnQ3fPkNCLtzcHWThLLQ0jR8lY5+0a2Jk/K5SULLs/uaCvYLgpGg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYSPR03MB7369
+References: <75caae28bdffb55199a0bc6cac5df112a966c608.1778838987.git.geert+renesas@glider.be>
+ <20260521-loutish-lurking-koel-229bd9@sudeepholla>
+In-Reply-To: <20260521-loutish-lurking-koel-229bd9@sudeepholla>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 22 May 2026 09:56:32 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWA1UpZSiN26fd71LUMYatVOwJos6bGb4zR0bnPUqBF8w@mail.gmail.com>
+X-Gm-Features: AVHnY4IbACGIPx8bzoPdFLB4YFVUiG1ESnLSjpbPYX_MILNqEuLBdTCR2tWqAP8
+Message-ID: <CAMuHMdWA1UpZSiN26fd71LUMYatVOwJos6bGb4zR0bnPUqBF8w@mail.gmail.com>
+Subject: Re: [PATCH] firmware: arm_scmi: Fix OOB in scmi_power_name_get()
+To: Sudeep Holla <sudeep.holla@kernel.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_004950_420878_1410CAC0 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20260522_005646_569786_522CA650 
+X-CRM114-Status: GOOD (  32.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,168 +95,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/15/2026 4:10 PM, Krzysztof Kozlowski wrote:
-> [ EXTERNAL EMAIL ]
+Hi Sudeep,
+
+On Thu, 21 May 2026 at 18:26, Sudeep Holla <sudeep.holla@kernel.org> wrote:
+> On Fri, May 15, 2026 at 11:59:15AM +0200, Geert Uytterhoeven wrote:
+> > scmi_power_name_get() does not validate the domain number passed by the
+> > external caller, which may lead to an out-of-bounds access.
+> >
+> > Fix this by returning "unknown" for invalid domains, like
+> > scmi_reset_name_get() does.
+> >
+> > Fixes: 76a6550990e296a7 ("firmware: arm_scmi: add initial support for power protocol")
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> >  drivers/firmware/arm_scmi/power.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/firmware/arm_scmi/power.c b/drivers/firmware/arm_scmi/power.c
+> > index 3aa84ceb6d2bab68..4a7215e02dec035d 100644
+> > --- a/drivers/firmware/arm_scmi/power.c
+> > +++ b/drivers/firmware/arm_scmi/power.c
+> > @@ -204,8 +204,12 @@ scmi_power_name_get(const struct scmi_protocol_handle *ph,
+> >                   u32 domain)
+> >  {
+> >       struct scmi_power_info *pi = ph->get_priv(ph);
+> > -     struct power_dom_info *dom = pi->dom_info + domain;
+> > +     struct power_dom_info *dom;
+> > +
+> > +     if (domain >= pi->num_domains)
+> > +             return "unknown";
 >
-> On Mon, May 11, 2026 at 08:47:25PM +0800, Jian Hu wrote:
->> Add the peripherals clock controller dt-bindings for the Amlogic A9
->> SoC family.
->>
->> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->> ---
->>   .../clock/amlogic,a9-peripherals-clkc.yaml         | 150 +++++++++
->>   .../clock/amlogic,a9-peripherals-clkc.h            | 352 +++++++++++++++++++++
->>   2 files changed, 502 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/clock/amlogic,a9-peripherals-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,a9-peripherals-clkc.yaml
->> new file mode 100644
->> index 000000000000..97e2c44d8630
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/amlogic,a9-peripherals-clkc.yaml
->> @@ -0,0 +1,150 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +# Copyright (C) 2026 Amlogic, Inc. All rights reserved
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/amlogic,a9-peripherals-clkc.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Amlogic A9 Series Peripherals Clock Controller
->> +
->> +maintainers:
->> +  - Neil Armstrong <neil.armstrong@linaro.org>
->> +  - Jerome Brunet <jbrunet@baylibre.com>
->> +  - Jian Hu <jian.hu@amlogic.com>
->> +  - Xianwei Zhao <xianwei.zhao@amlogic.com>
->> +
->> +properties:
->> +  compatible:
->> +    const: amlogic,a9-peripherals-clkc
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +
->> +  clocks:
->> +    minItems: 20
-> I don't think so. How they could be optional in silicon? How does
-> exactly work from silicon point of view?
+> The only user of this function must not call it for domain >= pi->num_domains.
+> However, I am thinking if it is bit inconsistent within SCMI core now. I like
+> the way pinmux/ctl handles this as I don't like the alternative for this
+> (i.e. ERRPTR(-EINVAL or something)). Worst case if this ever causes issue
+> we can change the signature of the scmi_{power,reset}_name_get to follow
+> something like pinmux and update the users. Thoughts ? Happy to apply this
+> for now.
 
+You mean returning an int error code using return statements, and
+returning the objects using passed function pointers?
 
-These are internal clocks from unimplemented analog blocks, and these 
-clocks will be added
+Depends on the number of returned objects: if it's just one (e.g. a
+name or info pointer), then the valid pointer/error pointer idiom is
+very common in Linux.
 
-in the future. Marking them as optional is indeed incorrect.
+Gr{oetje,eeting}s,
 
-Only the last external clock is actually optional.
+                        Geert
 
-I will fix it in the next version.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
->> +    items:
->> +      - description: input oscillator
->> +      - description: input fclk div 2
->> +      - description: input fclk div 3
->> +      - description: input fclk div 4
->> +      - description: input fclk div 5
->> +      - description: input fclk div 7
->> +      - description: input fclk div 2p5
->> +      - description: input sys clk
->> +      - description: input gp1 pll
->> +      - description: input gp2 pll
->> +      - description: input sys pll div 16
->> +      - description: input cpu clk div 16
->> +      - description: input a78 clk div 16
->> +      - description: input dsu clk div 16
->> +      - description: input rtc clk
->> +      - description: input gp0 pll
->> +      - description: input hifi0 pll
->> +      - description: input hifi1 pll
->> +      - description: input mclk0 pll
->> +      - description: input mclk1 pll
->> +      - description: input video1 pll (optional)
->> +      - description: input video2 pll (optional)
->> +      - description: input hdmi out2 clk (optional)
->> +      - description: input hdmi pixel clk (optional)
->> +      - description: input pixel0 pll (optional)
->> +      - description: input pixel1 pll (optional)
->> +      - description: input usb2 drd clk (optional)
->> +      - description: external input rmii oscillator (optional)
->> +
->> +  clock-names:
->> +    minItems: 20
->> +    items:
->> +      - const: xtal
->> +      - const: fdiv2
->> +      - const: fdiv3
->> +      - const: fdiv4
->> +      - const: fdiv5
->> +      - const: fdiv7
->> +      - const: fdiv2p5
->> +      - const: sys
->> +      - const: gp1
->> +      - const: gp2
->> +      - const: sysplldiv16
->> +      - const: cpudiv16
->> +      - const: a78div16
->> +      - const: dsudiv16
->> +      - const: rtc
->> +      - const: gp0
->> +      - const: hifi0
->> +      - const: hifi1
->> +      - const: mclk0
->> +      - const: mclk1
->> +      - const: vid1
->> +      - const: vid2
->> +      - const: hdmiout2
->> +      - const: hdmipix
->> +      - const: pix0
->> +      - const: pix1
->> +      - const: u2drd
->> +      - const: ext_rmii
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - '#clock-cells'
->> +  - clocks
->> +  - clock-names
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    apb4 {
-> Same comments as other patches. Do not come with your own style, but
-> adjust to mainline. Do you see this anywhere?
->
-> git grep apb4 -- Documentation/devicetree/bindings/clock/
->
-> So why coming with something COMPLETELY different?
->
-> Best regards,
-> Krzysztof
-
-
-Thanks for pointing this out. You are correct that there is no precedent 
-for "apb4"
-
-in the mainline clock bindings. I should not have invented a new naming 
-scheme here.
-
-
-
-I will rename this to use the standard "soc" naming that is consistent 
-with all other
-
-similar bindings in the kernel tree.
-
-Furthermore, I will search the kernel to see if it exists when naming.
-
-
-
-This will be fixed in the next revision.
-
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
