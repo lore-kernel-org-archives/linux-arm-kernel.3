@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C87FCD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 10:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52073CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 11:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eZ/urlUnUewfO/E9kyZBYuxNFD5iTOMeDVeNnbbvcO8=; b=NVC0aJeeVYZuYZTrfWSie/tJaB
-	dIw1PwcaIzk0KSI02QJKR8zq1oyPrMn734ypsNkU/K5d1auVSZ6vG6dn7rfVpzRyiRLj3o44lZKov
-	t8echXXwyz5XG+ufCZXgV1gdy/xw6QM6+bPi6J5RNAkzpnqwu9rwVNdciyl99FR9uEdn9dlSYR6OM
-	rLwwLanYu5Pz7w5TqknUPGuwAHIiw+HenJU8qotHonShLGe7lrZGlkWQvvkjx6fDLHSYwt7ErY4Kt
-	HdLnqmwtFkQ7wBD6WwRYEw6h5rhH+0huPVqCSN4ZVW4puUBOSI7oSsc4epoGpqeKkHNajad8N7N14
-	USNlk0fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2ZzTHm3H9lJutC9JWzV0RRTouRHJeFEdYJjeqtxWCzI=; b=Rkm91921A2VC9s4CRGQoRIreNN
+	+ppo3deuBo5ExyNX55Noveo5Zz3Vq9gl9O2a70EoEnlf16xOMuE+WJ/UDmMUPG0zdDtg40sb5G3gW
+	REdWv5Xe5RjQ3xJqMFipxJO4SB2Ylh+T5gB7dhKTRdGyUTtPi1TLkLmrlrBVX+v8oGkqIiGMfOyu4
+	+nvEg970ajRcfGYQJU076qvURxTB6Xyrxxuz2Qdr6WucfPxafEerUJwuIgDk3fiHUT71OUl/ttE/J
+	rxEiQBLnOzsYeI3qcQsL17y2x69STUq7LJYt4scErQBElmtdakH8nMBhslmn1HBFfVKvQSNOXsVxm
+	QdjP1U/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQNZF-0000000AZ5b-4AZ7;
-	Fri, 22 May 2026 10:57:25 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wQNqz-0000000AbN8-25s4;
+	Fri, 22 May 2026 11:15:45 +0000
+Received: from leonov.paulk.fr ([185.233.101.22])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQNZD-0000000AZ47-20gM;
-	Fri, 22 May 2026 10:57:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779447438;
-	bh=RaCiD9C9ee+AQyy4fknkK+gihP8GQ7R1bKyeCWj4GDI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JaBfUJfNr5zqyyEI/gZ60k0uCx5ucNwCUpCb+nz04In5Nr63IGybolGcpcf16P+uB
-	 +FvtjHNPxh/5FZKqhnRpMPt7HeklNlIZdeA2eniYfEQYkyfyc+flXL8vunV+BFRZrs
-	 GL34YSlf46DWcQF79YZ4aA/dazoqE9dXAoeC+r3b2keMJxHm3/THxSyqC1+TV37aLz
-	 TU5ZWAxsNihkH2i/H+cmbJnuqJWGVSZZ+Q80GnFvBEehoLGLGcdxp32PVN7sCRj2RY
-	 mlKXZnNftdV6nYkp1r1rCxbV0thIPb6P/SGkaZg9XCieytEFhOkDQztSU0J2F3NY7F
-	 7l+qHsLkBBHyA==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 621F117E0550;
-	Fri, 22 May 2026 12:57:17 +0200 (CEST)
-Message-ID: <bfdbf194-b400-4de3-bb68-74652dece74d@collabora.com>
-Date: Fri, 22 May 2026 13:57:16 +0300
+	id 1wQNqx-0000000AbMH-0Yjy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 11:15:44 +0000
+Received: from laika.paulk.fr (12.234.24.109.rev.sfr.net [109.24.234.12])
+	by leonov.paulk.fr (Postfix) with ESMTPS id C75583700294
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 11:15:38 +0000 (UTC)
+Received: by laika.paulk.fr (Postfix, from userid 65534)
+	id 1BE2FB408D1; Fri, 22 May 2026 11:15:37 +0000 (UTC)
+Received: from collins (unknown [192.168.1.1])
+	by laika.paulk.fr (Postfix) with ESMTPSA id BB3DEB408CA;
+	Fri, 22 May 2026 11:15:35 +0000 (UTC)
+Date: Fri, 22 May 2026 13:15:33 +0200
+From: Paul Kocialkowski <paulk@sys-base.io>
+To: arash golgol <arash.golgol@gmail.com>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Subject: Re: [PATCH 14/16] media: sun6i-isp: Use V4L2 subdev active state
+Message-ID: <ahA61YIGM4Bqipu7@collins>
+References: <20260518102451.417971-1-paulk@sys-base.io>
+ <20260518102451.417971-15-paulk@sys-base.io>
+ <CAMxPZkg9MgZrsM2L0vKzzUOA_tnSLKHdHkzDsfH5_WRqSQgvZg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/22] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Daniel Stone <daniels@collabora.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com>
- <20260520-dw-hdmi-qp-scramb-v6-2-24b74603b782@collabora.com>
- <20260521-sweet-devout-panther-44d73c@penduick>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20260521-sweet-devout-panther-44d73c@penduick>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="my01EG0z/4JNTjDd"
+Content-Disposition: inline
+In-Reply-To: <CAMxPZkg9MgZrsM2L0vKzzUOA_tnSLKHdHkzDsfH5_WRqSQgvZg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_035723_678747_64B1AB35 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20260522_041543_343788_1CDB5D5F 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,85 +75,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Maxime,
 
-On 5/21/26 10:52 AM, Maxime Ripard wrote:
-> Hi,
-> 
-> Thanks for working on this!
+--my01EG0z/4JNTjDd
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for your quick review! :-)
+Hi Arash,
 
-> 
-> On Wed, May 20, 2026 at 09:38:13PM +0300, Cristian Ciocaltea wrote:
->> Add the connector-level infrastructure to support HDMI 2.0 scrambling:
->>
->> - .scrambler_src_{enable|disable}() callbacks in
->>   drm_connector_hdmi_funcs for source-side scrambling control
->> - A delayed work item (scdc_work) with an associated callback (scdc_cb)
->>   for periodic monitoring of sink-side scrambling status
->> - A scrambler_enabled flag to track whether scrambling is currently
->>   active
->>
->> These are intended to be used by SCDC scrambling helpers to coordinate
->> scrambling setup and teardown between the source driver and the DRM
->> core.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/drm_connector.c | 14 +++++++++++
->>  include/drm/drm_connector.h     | 52 +++++++++++++++++++++++++++++++++++++++++
->>  2 files changed, 66 insertions(+)
-> 
-> So we would need kunit tests for this.
+Le Thu 21 May 26, 12:53, arash golgol a =C3=A9crit :
+> I used LicheePi Zero Dock (V3s) with the following pipeline as test setup.
+>=20
+> ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-isp-proc ->
+> sun6i-isp-capture
+>=20
+> I verified TRY and ACTIVE state handling, including changing TRY
+> formats without affecting ACTIVE state. Format propagation from the
+> sink (csi) pad to the source pad was also tested.
+>=20
+> I also tested streaming with the sensor test pattern enabled and
+> verified the captured output was correct.
+>=20
+> Tested-by: Arash Golgol <arash.golgol@gmail.com>
 
-Ack.
+Thanks a lot for testing this! Did you test just this patch or the other
+ones (especially sun6i-csi format enumeration) as well?
 
-> 
->> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
->> index 3fa4d2082cd7..91e58362fbc0 100644
->> --- a/drivers/gpu/drm/drm_connector.c
->> +++ b/drivers/gpu/drm/drm_connector.c
->> @@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struct *work)
->>  	}
->>  }
+Also if you have an opinion on the code itself feel free to drop a
+Reviewed-by tag, a lot of this work is very similar to what you did for
+sun6i-csi and other drivers.
 
-[...]
+All the best,
 
->> +	/**
->> +	 * @scdc_work: Work item currently used to monitor sink-side scrambling
->> +	 * status and retry setup if the sink resets it.
->> +	 */
->> +	struct delayed_work scdc_work;
->> +
->> +	/** @scdc_cb: Callback to be invoked as part of @scdc_work.
->> +	 *
->> +	 * Currently used to monitor sink-side scrambling status and retry
->> +	 * setup if the sink resets it.
->> +	 *
->> +	 * This is assigned by the framework when making use of
->> +	 * drm_scdc_start_scrambling() helper.
->> +	 */
->> +	void (*scdc_cb)(struct drm_connector *connector);
->> +
-> 
-> I'm really not sure what the monitor thing is about. If we have setup
-> the scrambler at enable time, and we set it again on hotplugging, why
-> would we need to monitor anything?
+Paul
 
-This is similar to 257d36d493e9 ("drm/vc4: hdmi: Add a workqueue to set
-scrambling") in order to deal with some displays needing a retry on scrambling
-setup.
+--=20
+Paul Kocialkowski,
 
-> Also, scrambling is only relevant for HDMI 2.0. We need a way to expose
-> that somehow and make sure that HDMI 2.0 drivers actually have
-> scrambling setup.
+Independent contractor - sys-base - https://www.sys-base.io/
+Free software developer - https://www.paulk.fr/
 
-I assumed drivers that do not reject the HDMI 2.0 rates in their
-.tmds_char_rate_valid() are implicitly expected to support scrambling. 
-Thinking again we could extend the framework to provide some additional checks,
-but let's discuss the topic on the SCDC patch.
+Expert in multimedia, graphics and embedded hardware support with Linux.
 
-Regards,
-Cristian
+--my01EG0z/4JNTjDd
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEAbcMXZQMtj1fphLChP3B6o/ulQwFAmoQOtUACgkQhP3B6o/u
+lQyUew//eizFgJVGOhQ0FRIaPgONOOjys2DARGCXB3iuhfDoWvdG5fb1Ednuqi8u
+QQ/KWW+vMgaB/aogtcSaaP2F+g+QU9iZ4r+1vvQl7Dmz9c1gr4cN4Wtbre1IFJ73
+x9Weab1T9QDO+rRvhQ9i6v3xV4dN0M5UyhGDUfrby4ncO8sWrGyQymF9BWWAE4HT
+K1dRGaAbaSTpXIL/bfI6FIK2hojGIBYUUkxnuG8u7nNDu2MmWDS8/qHU4wxmzfYe
+VaXY542BzXyD+k4hJ8npaezHY8WfrP7DfaQAINXxywAtmbfY/ZrLJQWlIbem/HdY
+J0clVD2GEfqG3aIP8mbzc417ND3PzubuYvUN8fY3tXXkCf5jYegANsOgPoFCzfmF
+ZHzedumGdrmbY8cYCu3oSWUq2Ub+5Mp1zO43u3J5Dlx8vtmbsZP46D+dgoSgCr92
+Cf5fpJh1vr7YsX9TP6cBcY4+o3mxEE3f9A5/NqpLHUMXOj1Lkq16r9weAencDGlx
+k/83DgF3VEOQmooXR1THCnRKmbxY62Vn+IvHTIEtJIZFn4DddwHxq0cjQkfZwkIa
+3kMXwVchPZHmIpBCQM0+jr836XspjxDEgdsQ+iQwpZiMZhbSOhTxbTWVpFpcmzJ5
+fp/nwpcscXW9KdZty3zpYNE8d34xQCF3RGFSPMDZetQFDK76ZH0=
+=512O
+-----END PGP SIGNATURE-----
+
+--my01EG0z/4JNTjDd--
 
