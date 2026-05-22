@@ -4,75 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21056CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 17:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E77ACD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 18:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AAcnzs7CI4odaI29OdW5gRVKD8KnKU5khRHBWADis3c=; b=EyPsC4qAglc1mIUtddGEPa9/lO
-	VIBPNKfCrT/+uxe5dWBfn6CyWUcukxkDl5ZhgMlAEsxLy5HqwGQyRo+jeDfz0L/20lRRDcSWVSrrs
-	XfndE11mOg964heS1ZEtgVzRtBLjtVqMO6c7eV3cuJEckKJzA41947SQIn0l/A4QMLNX6RpCYZtqm
-	rincfxKWI6zjuNfzTt1/wP+RHqDI+vZbJhb0lMpWr4A+u/p4RD8qvlJwBXunDXqx+dGQIXQbvaMKV
-	/42DoOqc+iTzC8UiXFm70rXj7/1KJPDayYQGv9rt/j4+ZObCsEjgFr3Qnd4W6tVhz7ihEToE9pi0O
-	9VqXR8Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DNEOjVzES0rYYSXyj5TslS4hE/GKLlMrmeAgorGcFeQ=; b=iTecJ4tSLB2XcFu80sT+Vxq/O+
+	Ze6YCi9OZTlNL3TFbHxF3NPnbd2nqXYMbLQk/8vMG6MU16Gb+jm7FzKA/b1dw/C9Y0QByahBNcM7l
+	QzIN6NUwSJ6D+VuD2IzLabr32E1bZavQWWn3ZZ4RDeiVK5DgJdHEQz27Km5Ukjuc5zm1OPaOSoFNe
+	UseqYEsh+iWO/45WN/kk0wOL5nmKfL+4r3hkpL18IR/q6arPbeBDd5L9aT6jYiGS8cg8RhNFMR5QD
+	zbJRxcGv4tNmu4r6UO5LFLdHu/KEPVFkpnu3H5uqeyH/AqDv8Ps9Up7JhxxaPR1rzYBsCdDJd4CcX
+	Mu3/AOOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQU9Y-0000000BcfV-3u0z;
-	Fri, 22 May 2026 17:59:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQUAV-0000000Bcz3-0UU3;
+	Fri, 22 May 2026 18:00:19 +0000
+Received: from mail-westeuropeazon11011052.outbound.protection.outlook.com ([52.101.70.52] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQU9N-0000000BcZe-0eGz
+	id 1wQUAS-0000000Bcxq-2ghm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 17:59:10 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A52F342DE6;
-	Fri, 22 May 2026 17:59:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7FDF1F00A3E;
-	Fri, 22 May 2026 17:59:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779472748;
-	bh=AAcnzs7CI4odaI29OdW5gRVKD8KnKU5khRHBWADis3c=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Q3h9SapvwuYmx6+PRTRCX85IWJxf72YhczM7KUol+ItHt/ajLIy8Iqz7b9Yk/gx5i
-	 iknnxjJf88BACO+fWQKNfHDTH/xBj1PgFP9046zrz5Y03jsy3puHzX5MXZvVr5ZVwo
-	 D0HC9CS+VzMvj1SDNik72sRx1+DiqBZXQOfHzXRZLduwm6LFIoMkWbBZwoJldOym6Y
-	 lmEoNjbWQFFz/b1zfBbsyEfPEIE4INi+Tug+iYp+HfD/aBlssylX7t1w0T41jlxiKB
-	 IafDsO9RkVCjoQZD9uhGBP9zxrzmFH4t+HnoFSKClms87FBPagusuWICG8Kdurcdtm
-	 XuifOxzzNJ42w==
-From: Mark Brown <broonie@kernel.org>
-Date: Fri, 22 May 2026 18:58:39 +0100
-Subject: [PATCH 3/3] arm64: Sort registers in cpu-feature-registers.rst
+	Fri, 22 May 2026 18:00:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=b1q7gghJQVHdVUUKpjG4q/IxiiA+zPvDopDHWdQJTvyo5L64sDAbRhJPK0MkJCC37RYTzbGaljul89WBvnXqx87QUe26jIiJUifz47OfLK8+Mfsq5YuGQH9zRPmYe2neOb9qJHR+frEAkXJuVy3C0dwewhoKY+MtbiJTshWM3fsCYBsWeMLhocWucWvb4Ng56UemixK79kF2q+m5KbsSFZJifgtmVZsdyBEli9lXedKiQsGhoe3M8lGcH7Yf0lUwyWAr3h1cToC2bstCuQ8bUV4eauvoS2WSVf3eBEvvsnYInRg3PKiZrljm305nircrb/JOPn00gc0k3rSlCpx5Vg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DNEOjVzES0rYYSXyj5TslS4hE/GKLlMrmeAgorGcFeQ=;
+ b=KXaB46KliehqraTtp3a88KA1HgZgQ6TxR3mFZt+XEiD9DKcPbJGZMKYDz+tqR9zbjq+CAb2iV/XUj0J5IDdnyq4TeasXyXda+DxNOzDHAVtLzUcjtXutKygyG4Q2Rz77aCTPV/nP3hfLtiF3fMOwRyksGMIMaAw+z+SsSOAe3zR7VtYs3rFrT9VkHN+razt2AwSzL7QccsJq22coGeDBRLZEcDpw4Ry/mXbQ72AJH1gEITYShJLFzlSkw7ofSsm8rAFxWsggvxsJbSrjqMBwT64770fdwoJaXrIj6F8Ja83ibtuFZ06SQGL1aFR4jiN2V4+bluDdRDqmcg+JM2MoIA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DNEOjVzES0rYYSXyj5TslS4hE/GKLlMrmeAgorGcFeQ=;
+ b=BeOVLRZigmTxYV4vPH5IJiy+mh5z9C41+j3RX0s0s1jcsTIZVRWq6uocKquPQnHQ6pB63RDRBoLTVumUApDDzO/JGJG4CjraMz5qOrXSGzkje4DlvPwfLmifZVVYbjrsghNOhsBu6PlRXp7OCO3bSfU4izGo6HkpZ4GwDZOqQPg5On3vdEDP778o/wvzk1HHW47xrHHPMIzaxXbmk4rnux70pktjQ/QBCkg2cBUR3/le/LEsxiVfsI4Z6BnuKejJxZwm0kwchQ2RnSieH1Vq8XsyeSeEy1JPs2LuTwhqQLlQDqFGlH1phkDpFy07jIHqbqL6Mt9g+3IYSAuuFFMDVw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com (2603:10a6:102:2a9::8)
+ by DU0PR04MB9300.eurprd04.prod.outlook.com (2603:10a6:10:357::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Fri, 22 May
+ 2026 18:00:10 +0000
+Received: from PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588]) by PA4PR04MB9366.eurprd04.prod.outlook.com
+ ([fe80::75e4:8143:ddbc:6588%3]) with mapi id 15.21.0048.016; Fri, 22 May 2026
+ 18:00:10 +0000
+Date: Fri, 22 May 2026 14:00:02 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: remoteproc: imx_rproc: document
+ optional "memory-region-names"
+Message-ID: <ahCZonHSLyHH6q67@lizhi-Precision-Tower-5810>
+References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
+ <20260522111849.783-2-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260522111849.783-2-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: PH8P220CA0046.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::22) To PA4PR04MB9366.eurprd04.prod.outlook.com
+ (2603:10a6:102:2a9::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-arm64-cpu-ftr-regs-v1-3-19775b40faf0@kernel.org>
-References: <20260522-arm64-cpu-ftr-regs-v1-0-19775b40faf0@kernel.org>
-In-Reply-To: <20260522-arm64-cpu-ftr-regs-v1-0-19775b40faf0@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>, 
- Joey Gouly <joey.gouly@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=18454; i=broonie@kernel.org;
- h=from:subject:message-id; bh=cx+KF/6nrqSAu4vLW0c/WsDbTzGJ4mLnp/FbDrX0pEg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqEJliUL54VF4fiT/FStBUaptC+buEsFiUXBnMg
- Wpo552EeQeJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahCZYgAKCRAk1otyXVSH
- 0IouB/wLNnbin9WAFQnGwNUvyb6ps58Yldlu10vRqOq5Bos0/QIIRuNeRSSj6GVKUE9A3Zk+urV
- agy8PrbCTv0gEEkzrrHPDJGhHjBlYUZPFtTu2hzduapoRnibc1NKpxJVS+q3mirupgy6Wb0Of/S
- 4VoNMUYTOvM1VSq9/vfCabcPR5fA8ClkbTLoV4z9F1TsoIiM5p28LAWnVqvnmmF6clZLqbYmvYS
- Q9cpbD1fuoeBHPCuR/cHYaWU6SijxnNKKOJn8Mj0nyqcfsE7kjPWmOM/FUI1VC9aqY9xqg8vroC
- s00c/JL9BcnMTiJVFSBixKr0vmvb0d+TGZdpLuTYwUN8nu/7
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA4PR04MB9366:EE_|DU0PR04MB9300:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfd381dd-92fa-4fcf-bca2-08deb82bf732
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|52116014|376014|22082099003|18002099003|56012099003|38350700014|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: 6untASrq2si1VGch9NhSzM2FvAksYDoQ/b8RumEXx3MFlDpkXfLPp50dZiBDQPMr/zyGl/w8cTm+XXp+dLvQ36f0b0XLt/VGVQ+Au0NSUtDIw7ulUWciAo8vF3xuWC2D6avHGBCrsgcDQ8KJYUx2CC09y92GbKxLu4ygi2kLtQ5aSP7AM1p9lKeDqHEqENkvSKs10MdeuuB9MJI4yOfIJlcAg0VI/NDSOm71WeXzrPNdKJnOttU6BvfzLFljIo5bp6NhdHbkYj2WD8fRQemGVJVw2cjEnFfzcILSEr9QWWO1o8R5t5UTm3ZoFGIGXbxmcqybEOyJL1Mr4YztEJtW1VDO6MhZyuFK+2Vxxry5YWDgBKS+8TIFCqwEyINgoeiBCKd7ziDKh5/J1p/ooRli0RgGiXUwNn4/xK+zkNzehbWL9F6fQLRIWPxPY7lxjGL//KsHBcfibXAyMGwBw7MauuE462jrmUxrubAm7bAB593EQI7h7EQYcjHZhcEpxixtsYukcnZwEsBu7Sm0I1g3wDaVAicNLgbuQTrreHA+g+pBZstH0nQM6eDfA5Yry4Xj+dD/qMJaCbdW0thx5mFdWkNavDVRPYl0ohOnwLSj62rJeeNeJZzOy8rOkfy63SoJjD/C6tMvPslFn821xAfrx4LrUUyM5XCls7JK69udexlkTWCKb0bj6FC6aiDku//6P/CCeDNLTfIGkNK4uWvqt1d0ybmU4gNcIRJ7yl1neZ9XFgXqV+L7IcOewRaKbGqW
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA4PR04MB9366.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(52116014)(376014)(22082099003)(18002099003)(56012099003)(38350700014)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tqH1RQOkGtXdbnh6AgwmM2VdrnKP8rY43cpku7N2kAcqIEO1f8B2zN125MpX?=
+ =?us-ascii?Q?xaPG2B9FiAL+lIOFSF1V2ZG3CIDd3mrqv07LfEmy+EvZx/+z0zT/UoyF5Z4y?=
+ =?us-ascii?Q?Qq1HYR83dCojSIBcaRGA9NK/lnuehfn+gABDJM7G7OtHLucHGQ4Vjqa0GrkS?=
+ =?us-ascii?Q?h5An2wi0sRmtQJLE5W4YmURaBpZhp5N/W/oAJaVLqMMPOAhlygWvDHp6eLWT?=
+ =?us-ascii?Q?okf3DwHEalsUh+Mp1tae1MEDP2KfiwhnQ30/1oqm6wypByyhfOhYeLhIEWee?=
+ =?us-ascii?Q?UqLJZvk4zJ6OLW/BiAq0ouR4yCpU+pZBw8/TaNF0j/ju/hM16lX0gbVX2ynl?=
+ =?us-ascii?Q?yMcf+BLsUgpUlu6Wl4HI/TKvQQaHRLcLJjkvJTiPkvnSI10bcEhLfbhsQBS9?=
+ =?us-ascii?Q?icFls9Z1PTN9YEruRwBC3QK70tIGXGjSFbJNeWQ63GZvDdEflKwKMouwSzYQ?=
+ =?us-ascii?Q?fv8HPWYEyKJP5P/x6Kueav6pOEiawLOevW2z5CkGyPM7uWXLurtn/BQPSN2M?=
+ =?us-ascii?Q?GhVFUE+zh3iapqC7fsvUbY45VJpprhcFDhYiH/OZJXD8UYMnhFEMDBTnf2P0?=
+ =?us-ascii?Q?nJS8o+wqCvRqFsYU64/qtw4CfTUklB0/PDwFK1zDr3Ywh4XPf2+OXt+6BX93?=
+ =?us-ascii?Q?H+wUS6Xw6Gblw7Hc71C8x54BS0EQjK5VXlJRUWt0UgLV8FIEfLLzl22tP3PZ?=
+ =?us-ascii?Q?H9UL+k09kLXVuEGY514gwkrjsgGjNLarsNneIgBLF/gyapv/Y4dhiaw6y8zL?=
+ =?us-ascii?Q?FF/d/SDqKQbHpEJMhV0xn3qxi5kesUkse14y1CbreaFoFCwZUcrMLNc+Lped?=
+ =?us-ascii?Q?ymVVIMelMR8jhmdkcr0E2BrwS3d1k589ONF834IAi0GuPcwfJnB819mbJzk3?=
+ =?us-ascii?Q?jGRpfnoo1mg2XXYZhhxvndq5XsWR/xTTiXjGVj4yjJi0rsnJxpzPsN+ODbF+?=
+ =?us-ascii?Q?NVzMDZH25Z2mgANVV7I5M+liXM2De7OsYsUvVkOeFhJkq9YgIPl0CZEPHC+y?=
+ =?us-ascii?Q?NJ70GLqzj6L7h9i0HLhpdRJoqY4E24gOs4JEFI+HxSeGzHyRJoeO1K1YgRLE?=
+ =?us-ascii?Q?2pGwkAxh5x9xynlUU9Ux9aj+3rgXa4qmZJwyJvblGTwHPb5/gyygmOytfqfj?=
+ =?us-ascii?Q?tNI+/NNWuhmjKbH5hzHuII70Me7+htzFD4UuojEPlhVGu+9tfNhLNdK2E+Mn?=
+ =?us-ascii?Q?uWxCR8gAvbgnDQCzlGir5QK4xScwlpEP6rOpVSaby87Aof8sQJfNBkK/uE9M?=
+ =?us-ascii?Q?CYQa4WVtaOs4Q+fKZD9xxUch3i62BGtt4xajrS9iAIzAL84BOF9e6fqEga/q?=
+ =?us-ascii?Q?GcteXd/tZxLNTPCgLGjfrmEcKqrx/yWvpndRn/UJ+magQ4SFhRJUqwQ/peqp?=
+ =?us-ascii?Q?bZ0Lge4boiTKw5S85tKvHKt0bUDFbVetdYaVX5oijJDnL9WD5hrAF9Wlshtr?=
+ =?us-ascii?Q?XLxbPRWWU1Xpv7lH56o44Qr/AUj1Y72yTqbK0D/SSJRG0BmHPhvlw4tII2w1?=
+ =?us-ascii?Q?uc6JPeTdCe0qaJPwd1YTeMurg8U/KUCFc0azRjJvXFTQs0zIBRr2YXi8yPx5?=
+ =?us-ascii?Q?4TaYQh7W+DozMDV42dq4+iV9kL7GMHoApnrzyxGJqFd7raOrqVwEUSqZWZhT?=
+ =?us-ascii?Q?2YQRV/MO7prm98LDFNyiPrRIIGFaAJfKwHd6AJlNhnobnFzWRlIBGIeMtzFm?=
+ =?us-ascii?Q?1qmTrNdRJISl/xmpwYIQEyakU/xRAnOVxcyoYlNP3QgZZzZ5bjuaXSkRecP3?=
+ =?us-ascii?Q?eEszuBuQ7w=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfd381dd-92fa-4fcf-bca2-08deb82bf732
+X-MS-Exchange-CrossTenant-AuthSource: PA4PR04MB9366.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 May 2026 18:00:10.4934
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: JXi40ugmZVtf+bHDeIRcpRdjYshDr7EaXxBx3dbKTYRfdUtmabMZHPkaXvqhoDjn2scZAAt3ZKgDn7OAo1Vl+w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9300
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_105909_246592_6817D1BF 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20260522_110016_689930_1F2C90E8 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,366 +145,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to make it a bit easier to work with sort the list of registers in
-cpu-feature-registers.rst lexically. There should be no content changes
-resulting from this patch.
+On Fri, May 22, 2026 at 04:18:45AM -0700, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> Document the optional "memory-region-names" property.
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- Documentation/arch/arm64/cpu-feature-registers.rst | 223 +++++++++++----------
- 1 file changed, 112 insertions(+), 111 deletions(-)
+Need add reason why need memory-region-names.
 
-diff --git a/Documentation/arch/arm64/cpu-feature-registers.rst b/Documentation/arch/arm64/cpu-feature-registers.rst
-index 02815db0c780..0ea294c56984 100644
---- a/Documentation/arch/arm64/cpu-feature-registers.rst
-+++ b/Documentation/arch/arm64/cpu-feature-registers.rst
-@@ -170,137 +170,161 @@ infrastructure:
-      +------------------------------+---------+---------+
- 
- 
--  ID_AA64PFR0_EL1 - Processor Feature Register 0
-+  ID_AA64ISAR1_EL1 - Instruction set attribute register 1
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | DIT                          | [51-48] |    y    |
-+     | LS64                         | [63-60] |    y    |
-      +------------------------------+---------+---------+
--     | MPAM                         | [43-40] |    n    |
-+     | I8MM                         | [55-52] |    y    |
-      +------------------------------+---------+---------+
--     | SVE                          | [35-32] |    y    |
-+     | DGH                          | [51-48] |    y    |
-      +------------------------------+---------+---------+
--     | GIC                          | [27-24] |    n    |
-+     | BF16                         | [47-44] |    y    |
-      +------------------------------+---------+---------+
--     | AdvSIMD                      | [23-20] |    y    |
-+     | SB                           | [39-36] |    y    |
-      +------------------------------+---------+---------+
--     | FP                           | [19-16] |    y    |
-+     | FRINTTS                      | [35-32] |    y    |
-      +------------------------------+---------+---------+
--     | EL3                          | [15-12] |    n    |
-+     | GPI                          | [31-28] |    y    |
-      +------------------------------+---------+---------+
--     | EL2                          | [11-8]  |    n    |
-+     | GPA                          | [27-24] |    y    |
-      +------------------------------+---------+---------+
--     | EL1                          | [7-4]   |    n    |
-+     | LRCPC                        | [23-20] |    y    |
-      +------------------------------+---------+---------+
--     | EL0                          | [3-0]   |    n    |
-+     | FCMA                         | [19-16] |    y    |
-+     +------------------------------+---------+---------+
-+     | JSCVT                        | [15-12] |    y    |
-+     +------------------------------+---------+---------+
-+     | API                          | [11-8]  |    y    |
-+     +------------------------------+---------+---------+
-+     | APA                          | [7-4]   |    y    |
-+     +------------------------------+---------+---------+
-+     | DPB                          | [3-0]   |    y    |
-      +------------------------------+---------+---------+
- 
--
--  ID_AA64PFR1_EL1 - Processor Feature Register 1
-+  ID_AA64ISAR2_EL1 - Instruction set attribute register 2
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | GCS                          | [47-44] |    y    |
-+     | LUT                          | [59-56] |    y    |
-      +------------------------------+---------+---------+
--     | SME                          | [27-24] |    y    |
-+     | CSSC                         | [55-52] |    y    |
-      +------------------------------+---------+---------+
--     | MTE                          | [11-8]  |    y    |
-+     | RPRFM                        | [51-48] |    y    |
-      +------------------------------+---------+---------+
--     | SSBS                         | [7-4]   |    y    |
-+     | BC                           | [23-20] |    y    |
-      +------------------------------+---------+---------+
--     | BT                           | [3-0]   |    y    |
-+     | MOPS                         | [19-16] |    y    |
-+     +------------------------------+---------+---------+
-+     | APA3                         | [15-12] |    y    |
-+     +------------------------------+---------+---------+
-+     | GPA3                         | [11-8]  |    y    |
-+     +------------------------------+---------+---------+
-+     | RPRES                        | [7-4]   |    y    |
-+     +------------------------------+---------+---------+
-+     | WFXT                         | [3-0]   |    y    |
-      +------------------------------+---------+---------+
- 
--  ID_AA64PFR2_EL1 - Processor Feature Register 2
-+  ID_AA64ISAR3_EL1 - Instruction set attribute register 3
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | FPMR                         | [35-32] |    y    |
-+     | FPRCVT                       | [31-28] |    y    |
-      +------------------------------+---------+---------+
--     | MTEFAR                       | [11-8]  |    y    |
-+     | LSFE                         | [19-16] |    y    |
-      +------------------------------+---------+---------+
--     | MTESTOREONLY                 | [7-4]   |    y    |
-+     | FAMINMAX                     | [7-4]   |    y    |
-      +------------------------------+---------+---------+
- 
--  MIDR_EL1 - Main ID Register
-+  ID_AA64MMFR0_EL1 - Memory model feature register 0
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | Implementer                  | [31-24] |    y    |
--     +------------------------------+---------+---------+
--     | Variant                      | [23-20] |    y    |
-+     | ECV                          | [63-60] |    y    |
-      +------------------------------+---------+---------+
--     | Architecture                 | [19-16] |    y    |
-+
-+  ID_AA64MMFR1_EL1 - Memory model feature register 1
-+
-      +------------------------------+---------+---------+
--     | PartNum                      | [15-4]  |    y    |
-+     | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | Revision                     | [3-0]   |    y    |
-+     | AFP                          | [47-44] |    y    |
-      +------------------------------+---------+---------+
- 
--   NOTE: The 'visible' fields of MIDR_EL1 will contain the value
--   as available on the CPU where it is fetched and is not a system
--   wide safe value.
--
--  ID_AA64ISAR1_EL1 - Instruction set attribute register 1
-+  ID_AA64MMFR2_EL1 - Memory model feature register 2
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | LS64                         | [63-60] |    y    |
-+     | AT                           | [35-32] |    y    |
-      +------------------------------+---------+---------+
--     | I8MM                         | [55-52] |    y    |
-+
-+  ID_AA64MMFR3_EL1 - Memory model feature register 3
-+
-      +------------------------------+---------+---------+
--     | DGH                          | [51-48] |    y    |
-+     | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | BF16                         | [47-44] |    y    |
-+     | S1POE                        | [19-16] |    y    |
-      +------------------------------+---------+---------+
--     | SB                           | [39-36] |    y    |
-+
-+  ID_AA64PFR0_EL1 - Processor Feature Register 0
-+
-      +------------------------------+---------+---------+
--     | FRINTTS                      | [35-32] |    y    |
-+     | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | GPI                          | [31-28] |    y    |
-+     | DIT                          | [51-48] |    y    |
-      +------------------------------+---------+---------+
--     | GPA                          | [27-24] |    y    |
-+     | MPAM                         | [43-40] |    n    |
-      +------------------------------+---------+---------+
--     | LRCPC                        | [23-20] |    y    |
-+     | SVE                          | [35-32] |    y    |
-      +------------------------------+---------+---------+
--     | FCMA                         | [19-16] |    y    |
-+     | GIC                          | [27-24] |    n    |
-      +------------------------------+---------+---------+
--     | JSCVT                        | [15-12] |    y    |
-+     | AdvSIMD                      | [23-20] |    y    |
-      +------------------------------+---------+---------+
--     | API                          | [11-8]  |    y    |
-+     | FP                           | [19-16] |    y    |
-      +------------------------------+---------+---------+
--     | APA                          | [7-4]   |    y    |
-+     | EL3                          | [15-12] |    n    |
-      +------------------------------+---------+---------+
--     | DPB                          | [3-0]   |    y    |
-+     | EL2                          | [11-8]  |    n    |
-+     +------------------------------+---------+---------+
-+     | EL1                          | [7-4]   |    n    |
-+     +------------------------------+---------+---------+
-+     | EL0                          | [3-0]   |    n    |
-      +------------------------------+---------+---------+
- 
--  ID_AA64MMFR0_EL1 - Memory model feature register 0
-+
-+  ID_AA64PFR1_EL1 - Processor Feature Register 1
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | ECV                          | [63-60] |    y    |
-+     | GCS                          | [47-44] |    y    |
-      +------------------------------+---------+---------+
--
--  ID_AA64MMFR2_EL1 - Memory model feature register 2
--
-+     | SME                          | [27-24] |    y    |
-      +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
-+     | MTE                          | [11-8]  |    y    |
-      +------------------------------+---------+---------+
--     | AT                           | [35-32] |    y    |
-+     | SSBS                         | [7-4]   |    y    |
-+     +------------------------------+---------+---------+
-+     | BT                           | [3-0]   |    y    |
-      +------------------------------+---------+---------+
- 
--  ID_AA64MMFR3_EL1 - Memory model feature register 3
-+  ID_AA64PFR2_EL1 - Processor Feature Register 2
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | S1POE                        | [19-16] |    y    |
-+     | FPMR                         | [35-32] |    y    |
-+     +------------------------------+---------+---------+
-+     | MTEFAR                       | [11-8]  |    y    |
-+     +------------------------------+---------+---------+
-+     | MTESTOREONLY                 | [7-4]   |    y    |
-      +------------------------------+---------+---------+
- 
-   ID_AA6SMFR0_EL1 - SME feature ID register 0
-@@ -387,50 +411,64 @@ infrastructure:
-      | SVEVer                       | [3-0]   |    y    |
-      +------------------------------+---------+---------+
- 
--  ID_AA64MMFR1_EL1 - Memory model feature register 1
-+  ID_ISAR5_EL1 - AArch32 Instruction Set Attribute Register 5
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | AFP                          | [47-44] |    y    |
-+     | CRC32                        | [19-16] |    y    |
-+     +------------------------------+---------+---------+
-+     | SHA2                         | [15-12] |    y    |
-+     +------------------------------+---------+---------+
-+     | SHA1                         | [11-8]  |    y    |
-+     +------------------------------+---------+---------+
-+     | AES                          | [7-4]   |    y    |
-      +------------------------------+---------+---------+
- 
--  ID_AA64ISAR2_EL1 - Instruction set attribute register 2
-+  ID_ISAR6_EL1 - AArch32 Instruction Set Attribute Register 6
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | LUT                          | [59-56] |    y    |
--     +------------------------------+---------+---------+
--     | CSSC                         | [55-52] |    y    |
-+     | I8MM                         | [27-24] |    y    |
-      +------------------------------+---------+---------+
--     | RPRFM                        | [51-48] |    y    |
-+     | BF16                         | [23-20] |    y    |
-      +------------------------------+---------+---------+
--     | BC                           | [23-20] |    y    |
-+     | SB                           | [15-12] |    y    |
-      +------------------------------+---------+---------+
--     | MOPS                         | [19-16] |    y    |
-+     | FHM                          | [11-8]  |    y    |
-      +------------------------------+---------+---------+
--     | APA3                         | [15-12] |    y    |
-+     | DP                           | [7-4]   |    y    |
-      +------------------------------+---------+---------+
--     | GPA3                         | [11-8]  |    y    |
-+
-+  ID_PFR2_EL1 - AArch32 Processor Feature Register 2
-+
-      +------------------------------+---------+---------+
--     | RPRES                        | [7-4]   |    y    |
-+     | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | WFXT                         | [3-0]   |    y    |
-+     | SSBS                         | [7-4]   |    y    |
-      +------------------------------+---------+---------+
- 
--  ID_AA64ISAR3_EL1 - Instruction set attribute register 3
-+  MIDR_EL1 - Main ID Register
- 
-      +------------------------------+---------+---------+
-      | Name                         |  bits   | visible |
-      +------------------------------+---------+---------+
--     | FPRCVT                       | [31-28] |    y    |
-+     | Implementer                  | [31-24] |    y    |
-      +------------------------------+---------+---------+
--     | LSFE                         | [19-16] |    y    |
-+     | Variant                      | [23-20] |    y    |
-      +------------------------------+---------+---------+
--     | FAMINMAX                     | [7-4]   |    y    |
-+     | Architecture                 | [19-16] |    y    |
-+     +------------------------------+---------+---------+
-+     | PartNum                      | [15-4]  |    y    |
-+     +------------------------------+---------+---------+
-+     | Revision                     | [3-0]   |    y    |
-      +------------------------------+---------+---------+
- 
-+   NOTE: The 'visible' fields of MIDR_EL1 will contain the value
-+   as available on the CPU where it is fetched and is not a system
-+   wide safe value.
-+
-   MVFR0_EL1 - AArch32 Media and VFP Feature Register 0
- 
-      +------------------------------+---------+---------+
-@@ -457,43 +495,6 @@ infrastructure:
-      | SIMDLS                       | [11-8]  |    y    |
-      +------------------------------+---------+---------+
- 
--  ID_ISAR5_EL1 - AArch32 Instruction Set Attribute Register 5
--
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | CRC32                        | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | SHA2                         | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | SHA1                         | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | AES                          | [7-4]   |    y    |
--     +------------------------------+---------+---------+
--
--  ID_ISAR6_EL1 - AArch32 Instruction Set Attribute Register 6
--
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | I8MM                         | [27-24] |    y    |
--     +------------------------------+---------+---------+
--     | BF16                         | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | SB                           | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | FHM                          | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | DP                           | [7-4]   |    y    |
--     +------------------------------+---------+---------+
--
--  ID_PFR2_EL1 - AArch32 Processor Feature Register 2
--
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | SSBS                         | [7-4]   |    y    |
--     +------------------------------+---------+---------+
- 
- Appendix I: Example
- -------------------
+Try to fix previous use undocument ABI method, which depend memory node
+name. But now prefer use morden memory-region-names to fetch related
+resource.
 
--- 
-2.47.3
+you can rephrase it.
 
+Frank
+
+>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> ---
+>  .../devicetree/bindings/remoteproc/fsl,imx-rproc.yaml     | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> index c18f71b64889..6679b10f9da5 100644
+> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
+> @@ -62,6 +62,14 @@ properties:
+>      minItems: 1
+>      maxItems: 32
+>
+> +  memory-region-names:
+> +    minItems: 1
+> +    maxItems: 32
+> +    items:
+> +      oneOf:
+> +        - const: rsc-table
+> +        - pattern: '^vdev[0-9](buffer|vring[0-9])$'
+> +
+>    power-domains:
+>      minItems: 2
+>      maxItems: 8
+> --
+> 2.43.0
+>
 
