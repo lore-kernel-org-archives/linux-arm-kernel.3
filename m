@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A416CD5BB1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A34CD5BB0
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,80 +12,80 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=; b=xjGvOv9d1GUl0oiTeLvHTnWW7e
-	ziQgyGtLhKYapALI3s0NL+cD5WHn7AaFy3TaTX9OPvvj2TCrxndFMrgSp3NRUjO5cHLYEI1Q+LJfr
-	tSqrRE/n3Zi1Qp5t5+1oEqK/O5A4MSyo4ulbWNLu/cfjRoFiodeZN0vazBDap6a8HPfccDPam00xp
-	sCsKtLeSdWuC6MAIP2FQtwhVJO83KjujwYQ6a6pwLewTp9QwrNSOCLxQhBcaQR/2MVVGu38TDtV4m
-	rzVJOJ6mJJZv0o6HmAv/ZVPtAQvMSVnWU9KCdnUfxopj0o016LOMcQc5p/zHxVwvNNlNpD1qtR0cC
-	c2wOvn8Q==;
+	bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=; b=MKFkHtkTihkG0V80iOdTHBz/Uy
+	KhiRdEb0Px9SWh3HpIsc+IOkMm3tBxW63SSzzMy2C2vvnXOoD/XSID/uzDYmLgGBlh1zdHOlqkoIg
+	k1HPRDzoSbY9Wv5I+qhoQ5GgNIWRHIsoB6CtaLp482bPfjUkxZiJ81WYXk7AqiDRjpPEbI1hDa27W
+	fQxje+WxGijgfxenyatwY6OJXnwy7g7zxtAxtSGJpS4NC+qnGsGKIQaSDCSlC+HnNTgVbJBFiSq8a
+	iIjbxU9/dnzz8EwndSW/pR9rGF2EX0UJhk/E/S6YK7YuG8k2sriKayaTaz7Y8RoFzmpsaOnIVQqcp
+	tOIKRJAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPp7-0000000AxK2-3uqS;
-	Fri, 22 May 2026 13:21:57 +0000
+	id 1wQPp8-0000000AxK9-09mf;
+	Fri, 22 May 2026 13:21:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPoZ-0000000Awvz-0Z1Z
+	id 1wQPp0-0000000AxGD-3QQR
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 22 May 2026 13:21:23 +0000
+	Fri, 22 May 2026 13:21:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
 	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=; b=oWTqHjSqUmBzYyDNt1u+N2j+9E
-	Aba6xngYu5CQ/+7bvl0J+x8WZypBcn506X3F/DJScx145KxTYM/qrylKB0ozYyS9c17VYHTTo3GVX
-	YO4MqWPfx3kYFTRhlSKdv58Q6GiaUTFiOR1qe8cGABBhx+MpRlVRDC9NmbwoSj8l0IAxKEXIcisN/
-	u3OTsmsfVBz3B/I4WJkDwzSFTXm6DfrTQwyPaeEZiSPUH1FXRP83FJUNhgBx1KAFNiNOSmiIfKmKA
-	B8OOxWD447lrJguTGsxCNOEY+hV/VNrkme+Fy3EwRDK8lRBo98YqkBTJuOmBOKjLoyYJpwcEgVnqE
-	bnN59lRw==;
-Received: from mail-ed1-f46.google.com ([209.85.208.46])
+	bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=; b=YeeZ5o783ARAXwUW5rsbSbo4vy
+	oAbpkAmsSMZP258N8J69SgMv0QFoPnbR8K2yIuf7IpVRyCVhE48TUXK4yoAnYFVyToBI8VMi9iF1X
+	VdrIduzBvjbONLC5PwKbfvbH/cfDyBXBuT5q2+XcjvnyFWLyAZG9xJ8XhqjTqW2QPrB5eN8lQw/BS
+	I8SaoM7j6eGlQqrnkKm/0OXnSw9NjLgufG9oloVbLmClmuzI0ARrnEpixkHM8XQuTNuFe+nb6vl1s
+	M0/YgYXCultsCoa2IiPqI0ihOErDsbJJBltKax7PlpCYGtSSrwph8UNhVMla1xuB4rbokC0E7I8N/
+	Aw/lbs8w==;
+Received: from mail-ej1-f46.google.com ([209.85.218.46])
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPoU-00000004QTy-1qWA
+	id 1wQPov-00000004QaX-2QX1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:21:22 +0000
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-67c2d57a5ceso11586625a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:21:18 -0700 (PDT)
+	Fri, 22 May 2026 13:21:48 +0000
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-bce386d5b85so1180452766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:21:45 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456077; x=1780060877;
+        d=1e100.net; s=20251104; t=1779456104; x=1780060904;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=b8+hN45m6EcBjSVmc7/E001s4aXOZE0CXpfrpaEBAfw=;
-        b=FIwmKtsJPFad68Yn0W7dRD9a+jVAH7OeRc2dQigiaJwKSa+vYQy4FZpjre3CLILCin
-         whKN23fQUp7Av/Mjj7IjtNSbtdqQamNoktA/jSSmGtIv/NZHhi9ebQyG0Vynv+UwrAEA
-         PLoXFcfqGxvjONTXCOplnJ/4bq0klxbpJ2mAQ3RKprQiXZKZ/BLoiQZsZwe+eL0Gd31P
-         ulNNg8ZuMpVWk0MEHPaumv5kV2iQEKFa324AXGaROgjY6PePBUtMeNvFh6eWeI0GNrQL
-         tz6ZhJ3J627edHQYtv5HNuIEndjY0/RkKuE0ZDwLQxmUU3kI6FQh1NieOU9f5BOHDv76
-         ng5A==
-X-Gm-Message-State: AOJu0YyvdNanqLv4WLyxv1xogpI3hhZMtFp8G4WNrQZAuEgoEz0Ro9hN
-	cGU3ZawYvRQLPRh6zitPl1A2wKn//93nitZ9hZe0kUCJbc/JmN4QOpW7elThrdZrs9k=
-X-Gm-Gg: Acq92OEnLpTydNxsWyG775W2IoKNXkrB8sms2/ah+QuAEVOtT32ogeu6jpreggJnPcm
-	/u4CQ/PN3iixY16vzM+KyCISYhMmvzWICuTdkYVpNNouFoD6fESwisDOGSbOqwW9pY1TBl13mlf
-	JouoyC036GZdpGQRNDUotzbAHktErTiuSFfPRjBUHS/pRIpObcn+RxnbdqLUv1zdJIbYhjawR0z
-	zrS0LCV4IsPDQJCNJhIN7C2z0MdGy4WmrtXM5mzDh+hR3p2e7h3uBB5r/A+2C/Je9cRXKfOCXJn
-	H9JrCMWzafxwN8UcMH4OYrvu01SJBfTnN7hsT8TjTBarQjLghP9xpHqpNRMgOK2hvFksSzrM/Ks
-	fQT4vOmIVYx5vUmeUjDUWE/D/AL4u+DO6R5gwe7ynrkGeMRnmTT4oikqyYOQWqWGqZQpbsWnLzr
-	dawmX+jcxvpHIwyJ079uss7Rxa6aMLgfOv4nPqawWcndLlyNS6fLWc26MUa6dP
-X-Received: by 2002:a05:6402:2482:b0:67c:96e7:3f49 with SMTP id 4fb4d7f45d1cf-6889cc3243dmr1902887a12.17.1779456077300;
-        Fri, 22 May 2026 06:21:17 -0700 (PDT)
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com. [209.85.208.48])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-688b9f60898sm712488a12.13.2026.05.22.06.21.16
+        b=kbKhiEjIr/iVpHz5k94ONfsf0DbuzZ8cnJmpG9j9ycFP1u22dYeXjUGmq5/6b2rpuW
+         712MbLkBnnX89H8PfOysfu3K11aEUnYZKlKo3boMqdUonHoxw20t2kLbWaSbOZ5vdv5h
+         U8N6mk1+r1vqsHMS/jSYARU/WJ9uthFXfAPk5yVnQBiPVCP2K6B8XBDNwLXOQoK2ltU5
+         sr8r1Xq5bse56CSDjbdVL59ZiWgUzBR0OyNHEYkojmXK3nXIPYcuxsdhh793K7U/UftY
+         bE288oxnI0JcVgib+qesX3/WYYIAQG6gwfmAaFknrWzSKoaDkShIuL4iN+GeWFOj+ac2
+         hSwA==
+X-Gm-Message-State: AOJu0YxkGi2zyBCRPyK+FxvQWXDUmIZ8ss2UCgct0ehmW0ZQMZlSyJPs
+	HOt3hItU9YdHKVyT6hQwL4sswVdV6VStotOYVxjw1CH8zkcZXdw3AHepRgIMo+/GHSE=
+X-Gm-Gg: Acq92OES2LLJMKaxAcZgpUjr7BWt6BnNtaIgHerTJhnoZzE0BAHpKU/wtspO3b1xmYx
+	fjqPNMHYIBXE/bfOf+XmUt9qwVtUAwZtSeVUQGbvFwBscyb8r5Q/AKl32wilVKgIMYmy4n9nY6p
+	5LJTqgjKhvGOtW+2P59iQVzh/DQ1+Hwmsh/X9jQm+tZxZzZFhKlFET3A3CshtB8MrLgIP1WMf6r
+	rpx1ur0AjF3ydRUDp+jYvtNxuz09O+0iXJav4qLFs1bDit3/A8X8exfvFBqETf3mEHZFfw89hw2
+	26R8mTZBz2iwqwPpw0WD6XHLebjHltLRgOOsI+uwl1/+a5fFnxqtqcwDfpaEPZNMkNohgyFmrD8
+	FOhHCtPjjSK0zaOt2hbpg2ya6IOeWyQJVylymAGTPp2M6D8jhPSLe/dAgmjDLKms0zXVIUUumpv
+	RYx/lVx7iNvSvPUH51E3I7sLJynWqyktyyNb8XW7ZqqxwahTVfZPGGiNskBhGP
+X-Received: by 2002:a17:907:8997:b0:bbf:74d7:1c4a with SMTP id a640c23a62f3a-bdd27fb3622mr230924266b.40.1779456104328;
+        Fri, 22 May 2026 06:21:44 -0700 (PDT)
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com. [209.85.208.49])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-bddc264d98asm54917466b.9.2026.05.22.06.21.42
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 06:21:16 -0700 (PDT)
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-67c2d57a5ceso11586594a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:21:16 -0700 (PDT)
-X-Received: by 2002:a05:6402:11d3:b0:66e:56a2:b67b with SMTP id
- 4fb4d7f45d1cf-6889cc44111mr1956174a12.20.1779456076494; Fri, 22 May 2026
- 06:21:16 -0700 (PDT)
+        Fri, 22 May 2026 06:21:42 -0700 (PDT)
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6877c719cb0so4189009a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:21:42 -0700 (PDT)
+X-Received: by 2002:a05:6402:40c3:b0:67f:7e9b:afe8 with SMTP id
+ 4fb4d7f45d1cf-6889c4167e7mr2035745a12.6.1779456102329; Fri, 22 May 2026
+ 06:21:42 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org> <20260505034325.167797-4-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260505034325.167797-4-marek.vasut+renesas@mailbox.org>
+References: <20260505034325.167797-1-marek.vasut+renesas@mailbox.org> <20260505034325.167797-5-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260505034325.167797-5-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 15:21:03 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVu22aJCHqrnAv=jk4=71Uz4YsJoAYWMOogANSKvSv=eA@mail.gmail.com>
-X-Gm-Features: AVHnY4Lff0GBvrpmknTfKgnni8ny_chPw6wlBCXf2gW_qkc9A8w4cPoubzyZE64
-Message-ID: <CAMuHMdVu22aJCHqrnAv=jk4=71Uz4YsJoAYWMOogANSKvSv=eA@mail.gmail.com>
-Subject: Re: [PATCH 03/11] arm64: dts: renesas: eagle: Specify ethernet PHY
+Date: Fri, 22 May 2026 15:21:29 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXULb8d60kxa6aOSy=uXhByyHWQbZaEY-EOrFWdcYPaRA@mail.gmail.com>
+X-Gm-Features: AVHnY4L5XJ7YwASenMlXUKivWU992B_gEILaXDcRMH1AAUKnrMIEZvkG7w1HbsQ
+Message-ID: <CAMuHMdXULb8d60kxa6aOSy=uXhByyHWQbZaEY-EOrFWdcYPaRA@mail.gmail.com>
+Subject: Re: [PATCH 04/11] arm64: dts: renesas: v3msk: Specify ethernet PHY
  reset timings
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
@@ -94,8 +94,8 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_142119_581268_C0DFA3E2 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20260522_142145_966991_BA72CA50 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
