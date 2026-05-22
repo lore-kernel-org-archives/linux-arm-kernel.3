@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D29CD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 06:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B731FCD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 06:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PoaYTpOtS/f83LSZSUS371YpKZ7Va1WFwiD79VpLxU8=; b=lsmZuxEwgW1PRRuBxS6rJqA3vh
-	v9bhbdz/u5ADza+WW/HZtSdXsAFFMRDgQSbyEylNjhw86CNFjHbYynqT2Sg1wBaypPTvK5s2wf/9R
-	m6IVx09VV4guTgwIMoSrx4kfK/dZRj5GHGg3nIUbj5J4sLDAiH5RPM5ZYNPpkVYs+7an1Z64uf5oI
-	0aNbgbb30Nkz1bNegPwdePnL/q+BMgJOmgZxs5YQRYWcOzdidNQFdFPHF3rnGpz0Ab0lYkLjlgFYM
-	XHOUPm/VtV6SI88O20l66oHIydqpRzqIUick2rt9yGO0lD7AXOgAwbVOHNJ6/RiII5kt6ATbkLrHb
-	hs7O9c+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GMBUq/WayxHc77lCmKQDUN+mtHnq312YGTm+GhEi5QU=; b=lCDmfNhpnOhmxje/UYQdQq2NGE
+	N/F9YQHnZ9RiTlvtyGeTwU3BHQdv6kZ78Cm442m29/dEPwgN0DSNCN43wIXWDPEbmnCM08d4VDOSu
+	sNHrF5T92UTlSEN7/o2fwlW67j8q7YXD5htnItmcxbD/3WQJXGaw4Dy5VvHBA9ATdQeNV1LJGGfIO
+	CgDXgmZaBkV1DPOkAk4T0VkiOODwD7ub4jp4Wak3LNUxyIUqyo3BPRsWT1zV4jiSXCfD0j3cB5Vkd
+	0HOOJrnMv1tXztSxJ5CDxzNsRwU5FNMZOqg5o4nJxa8gxMazClUN/U4nu+BaAAnSjNnTNhaCeYGV+
+	gp+vOE3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQJmv-0000000A1Ej-3jvX;
-	Fri, 22 May 2026 06:55:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQJr5-0000000A1hH-1VgD;
+	Fri, 22 May 2026 06:59:35 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQJmt-0000000A1E5-39Qr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 06:55:16 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 780FF438E3;
-	Fri, 22 May 2026 06:55:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE28A1F000E9;
-	Fri, 22 May 2026 06:55:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779432915;
-	bh=PoaYTpOtS/f83LSZSUS371YpKZ7Va1WFwiD79VpLxU8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HECtbDQVIxKupYOYPtJ9nH5KpRerCWP9jZT6Z0tI2nxzCe0ssvS4EbeIrd7Vk0fu/
-	 ssnOF1WHE+xRA/dcBJNI1coWs91fN3yZfSTRMdfMzzRVJ1+JujNd+gnHwOz1KezRBq
-	 9unUp/HHECrB8zDvoRyl+S94rc6gUMQo6+eju+fm0rVePR3EAxVFvDexmztyeGNxWK
-	 IjBDtXfA5SRdvQ2IJlSMQIpMz65DsntubMq/DIUcmGOzA6/JSHBWisndMh1a/Z/LQD
-	 hwojgvvbXTFowz99CyUMRy5FKJxnYIh7xYPImQJFQRs5kw+qI2sJBIP6M7SVXbWDVm
-	 8GzuYxJJR/HdA==
-Date: Fri, 22 May 2026 08:55:12 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vitor Soares <ivitro@gmail.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Sam Ravnborg <sam@ravnborg.org>, Vitor Soares <vitor.soares@toradex.com>, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 13/15] dt-bindings: display: panel-lvds: Add
- dual-channel LVDS support
-Message-ID: <20260522-vehement-kangaroo-of-penetration-de8d99@quoll>
-References: <20260521150038.103538-17-ivitro@gmail.com>
- <20260521150038.103538-30-ivitro@gmail.com>
+	id 1wQJr0-0000000A1g5-46a9;
+	Fri, 22 May 2026 06:59:33 +0000
+Received: from localhost (unknown [36.110.52.2])
+	by APP-01 (Coremail) with SMTP id qwCowAAXvmnG_g9qxkskEQ--.2633S2;
+	Fri, 22 May 2026 14:59:18 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: mehdi.djait@linux.intel.com,
+	michael.riesch@collabora.com
+Cc: mchehab@kernel.org,
+	heiko@sntech.de,
+	hverkuil+cisco@kernel.org,
+	gerald.loacker@wolfvision.net,
+	bryan.odonoghue@linaro.org,
+	linux-media@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] media: rockchip: rkcif: Fix error handling for media_entity_remote_source_pad_unique()
+Date: Fri, 22 May 2026 14:55:48 +0800
+Message-Id: <20260522065548.2438545-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260521150038.103538-30-ivitro@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAAXvmnG_g9qxkskEQ--.2633S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7JFW8tw47GFWUtFWkKrWrAFb_yoWktwc_XF
+	Z2yFZxWF10yrs0kwsrtrWru3y5t39I9Fn5JaySka13GF98Cas5AF1jvrW3X3WxJryY9F1U
+	Grn8KFyUua1rCjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb38FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
+	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
+	cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8Jw
+	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjfU5iihUUUUU
+X-Originating-IP: [36.110.52.2]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_235515_810281_1D442763 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20260521_235931_386838_BF6248CF 
+X-CRM114-Status: UNSURE (   9.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,24 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 21, 2026 at 04:00:49PM +0100, Vitor Soares wrote:
-> From: Vitor Soares <vitor.soares@toradex.com>
-> 
-> The panel-lvds binding only supports single-channel panels.
+The media_entity_remote_source_pad_unique() function returns an error
+pointer on failure, not NULL. Fix the check to use IS_ERR() and return
+PTR_ERR() to correctly handle allocation failures.
 
-On purpose, no?
+Fixes: 501802e2ad51 ("media: rockchip: rkcif: add abstraction for dma blocks")
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/media/platform/rockchip/rkcif/rkcif-stream.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> Extend it to support dual-channel LVDS panels by referencing the
-> lvds-dual-ports schema when a ports container is present.
-
-You now changed existing panels to dual channel.
-
-> 
-> Assisted-by: Claude:claude-sonnet-4.6
-
-Using assisted by is not permission to send us unreviewed code.
-
-Best regards,
-Krzysztof
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+index 3130d420ad55..542aa877919d 100644
+--- a/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+@@ -466,7 +466,7 @@ static int rkcif_stream_link_validate(struct media_link *link)
+ 	struct rkcif_stream *stream = to_rkcif_stream(vdev);
+ 	int ret = -EINVAL;
+ 
+-	if (!media_entity_remote_source_pad_unique(link->sink->entity))
++	if (IS_ERR(media_entity_remote_source_pad_unique(link->sink->entity)))
+ 		return -ENOTCONN;
+ 
+ 	sd = media_entity_to_v4l2_subdev(link->source->entity);
+-- 
+2.25.1
 
 
