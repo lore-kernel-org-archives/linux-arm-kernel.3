@@ -4,100 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3C7CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 10:29:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B94FCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 10:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSzyEHIHm/35U1Oc8plpSUbfHu8HJeI3evCHZgZnpFE=; b=ACusappN92SzW30+HIEgYhHUiG
-	g5S7fQccKQaNxJy2DJThfjRnrUC2Nor3+2uS9Bn/MjjcEd6nFhAdmqGBb6S6a0SnJYKwhfmNn7ptU
-	kjoI9pZWuBwKZrFK9qIleyf7M7aBPX372XYPid5a1aMC+KdzxmMkxGxVNMj0csSIdA/RejcAQeGKE
-	Vj42OFB4K1g49UuUFFo1gTdoJhafDqmwnPL2QhfprEqyJWtG1ZSs6/JMehiK2jyu2R+k4qsg5IMu6
-	PS3+CNY7EfPgUzr/7XVZYXPbHanj41LgeRkR4Yq1zLGkfmjyFhlzaQxtSE6joStA0XS0QHYzE/EM4
-	Rsbz1YjQ==;
+	bh=IioT8eni5JJe4Tsa75pm/0B/3IuJLRVJTGewS2qygYo=; b=maT1WUVzpRbrUNnYkS73dm9Hyw
+	pNbHIiF75GETSy4KYoQK2VTTLC8/tNxXI9dBKJgwqJx70ZZB+0HvstaH1BW2PCJxWNHOsNVK4Lapu
+	4Rf4qBPEpR4rtDT5LmvV7aCbD8neV9RNC5WmCVYotWp1lrhndLMzMhwvIctSP01lqG6c5odeGp9Nn
+	LSqWlht3A+RZaG1NK6n3XwA9CbULSPt+Vy5L+Ynez9BSR40736ww5njjgTq5pGZoueSv4OSqeGTie
+	odL2WtJWvBh4MjAzYPW9MLBUSaJSTTyBXPiZyXn2kIXV/JoCug+OkIT6SvR60DBP4eJMeaTYzFfAB
+	1TVn5w6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQN7q-0000000AW29-0pp4;
-	Fri, 22 May 2026 10:29:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQN7p-0000000AW1n-1SC3;
-	Fri, 22 May 2026 10:29:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=wSzyEHIHm/35U1Oc8plpSUbfHu8HJeI3evCHZgZnpFE=; b=nSWtCVq0+kJR05HSLiQIE9VP5t
-	qrG6xage66Jp2C+rqzmRe8jzHHc6m/IO8C8+F7JlOkzcRc0aneaXC9PC4CrHQqLxDsJ3eh1znLe42
-	5+LZB1sUmvTRCPMrVN/XR1t4rLDIIZwm/NjN0ooPHJS9zf5Tdfcb1/yTA15kyqZsg2xCAhhk58NBj
-	DqOOP4G1W9zYrFM4vmozNh5WsLUJAifNV6c9YZwqbvnquLyS7IYbg1VzqYKfEJ9ey5anE9YccOpDm
-	kAmklWUidv8yZcI5r54RUi3dOK2+xNe12v6BQgdA3u6jjmcrRdwcqnRctA+eaIWfkb3NLPZZetKZo
-	i4U4PQRQ==;
-Received: from mgamail.intel.com ([198.175.65.9])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQN7l-00000003ziL-2Zpr;
-	Fri, 22 May 2026 10:29:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779445742; x=1810981742;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=o80USRSoOccAjZ0/+LbXX+qxTLzgZyZiobgDeEHQ1+U=;
-  b=IhTlXiRjW0TA7J3gu+VUcqWocQgejQdBwPd9+C/uzVVMqQlm5+cOGWmu
-   aL4HuDzuCKOl6F2poIRd8/14vygT5LGsm46DUAvHcRd6myTn5qa0k+qV6
-   lpbgZO8LRnQGdrycGKISlj+YL7Wchksrezy9pESwzM2u7jZ39xf+RMIhM
-   R2Sr7Z7y5kBaH3ADET3RRkREhZeeVJEq+3puMKhaBJCcky1gBIcMomELV
-   2uRcLpQr1sMXDmR9N6qPnSUCgj8IiAsUfcWfkNbSFOsZaI/X3JDkuylQh
-   duhIyPvBMmldeJyxz4HNDTjtMj8R8iOimnef9+p4MHdGXoj2nKYXGgea0
-   A==;
-X-CSE-ConnectionGUID: EDLVkt6LReKbQS7G2EqqyQ==
-X-CSE-MsgGUID: On0gyEU8Tr6NeTyhRa5Jow==
-X-IronPort-AV: E=McAfee;i="6800,10657,11793"; a="103052271"
-X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="103052271"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 03:28:55 -0700
-X-CSE-ConnectionGUID: L4nas1MgQJyvuR4w2vBveQ==
-X-CSE-MsgGUID: CGSZjljdTVKDuo6whHqd1g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="245860596"
-Received: from vpanait-mobl.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.224])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 03:28:51 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with ESMTP id 99493121C7F;
-	Fri, 22 May 2026 13:28:47 +0300 (EEST)
-Date: Fri, 22 May 2026 13:28:47 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Cc: Eugen Hristev <ehristev@kernel.org>,
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Dave Stevenson <dave.stevenson@raspberrypi.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] media: bcm2835-unicam: Fix log status runtime access
-Message-ID: <ahAv3430zwqeDXnQ@kekkonen.localdomain>
-References: <20260521-bcmpipm-v1-1-3eba88d88045@kernel.org>
- <4d7deb19-d384-497e-8139-c977a9f3679d@yoseli.org>
+	id 1wQNHG-0000000AX4M-0Xkf;
+	Fri, 22 May 2026 10:38:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQNHD-0000000AX3k-1I0J
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 10:38:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97FF726BC;
+	Fri, 22 May 2026 03:38:39 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A20B3F85F;
+	Fri, 22 May 2026 03:38:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779446324; bh=RqkMYho4Yc7kOH0LueJfnc6XODgDoRr5RXGQOP2xdjY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UspOzoJCY9ZHGdIe6Cyq0b0XfQrNkoc31Jtobq+h2ZXnoL67m4lM9te6G9lQ31fcE
+	 C/jprDrxXZsnHPX1BAGqyqOsKbbv7G3ejV/aOZKPyAjHhx0fda5F+xWeyqlUHlKcV+
+	 WX3LAGb/VFlU93zbcYID9+eyjTgopzgrgHu9OPMQ=
+Date: Fri, 22 May 2026 11:38:40 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zeng Heng <zengheng@huaweicloud.com>
+Cc: yezhenyu2@huawei.com, zhurui3@huawei.com, will@kernel.org,
+	akpm@linux-foundation.org, npiggin@gmail.com,
+	aneesh.kumar@kernel.org, peterz@infradead.org,
+	linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-arch@vger.kernel.org, David Hildenbrand <david@kernel.org>,
+	zengheng4@huawei.com
+Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
+Message-ID: <ahAyMO_6UcPc2q4U@arm.com>
+References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
+ <ag8fHYL-S26uO0yZ@arm.com>
+ <ag8hmZ3kjtJINyIT@arm.com>
+ <b7098272-a348-d918-774a-d5d2645fc7f4@huaweicloud.com>
+ <ahAsPU00ZTTJV3Ye@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4d7deb19-d384-497e-8139-c977a9f3679d@yoseli.org>
+In-Reply-To: <ahAsPU00ZTTJV3Ye@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_112902_360777_65922667 
-X-CRM114-Status: GOOD (  25.73  )
+X-CRM114-CacheID: sfid-20260522_033847_585477_7925CE34 
+X-CRM114-Status: GOOD (  23.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,59 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eugen, Jean-Michel,
+On Fri, May 22, 2026 at 11:13:17AM +0100, Catalin Marinas wrote:
+> On Fri, May 22, 2026 at 01:32:07PM +0800, Zeng Heng wrote:
+> > On 2026/5/21 23:15, Catalin Marinas wrote:
+> > > On Thu, May 21, 2026 at 04:05:07PM +0100, Catalin Marinas wrote:
+> > > > On Thu, May 21, 2026 at 03:30:11PM +0800, Zeng Heng wrote:
+> > > > > From: Zeng Heng <zengheng4@huawei.com>
+> > > > > 
+> > > > > When huge_pmd_unshare() is called to unshare a PMD table, the
+> > > > > tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
+> > > > > but the aarch64 tlb_flush() only checked tlb->freed_tables to
+> > > > > determine whether to use TLBF_NONE (vae1is, invalidates walk
+> > > > > cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
+> > > > > 
+> > > > > This caused the stale PMD page table entry to remain in the walk cache
+> > > > > after unshare, potentially leading to incorrect page table walks.
+> > > > > 
+> > > > > Fix by including unshared_tables in the check, so that when
+> > > > > unsharing tables, TLBF_NONE is used and the walk cache is properly
+> > > > > invalidated.
+> > > > > 
+> > > > > Here is the detailed distinction between vae1is and vale1is:
+> > > > > 
+> > > > > | Instruction Combination  | Actual Invalidation Scope                         |
+> > > > > | ------------------------ | --------------------------------------------------|
+> > > > > | `VAE1IS`  + TTL=`0`      | All entries at all levels (full invalidation)     |
+> > > > > | `VAE1IS`  + TTL=`2` (L2) | Non-leaf at Level 0/1 + leaf at Level 2           |
+> > > > > | `VALE1IS` + TTL=`0`      | Leaf entries at all levels (non-leaf not cleared) |
+> > > > > | `VALE1IS` + TTL=`2` (L2) | Leaf entry at Level 2 only                        |
+[...]
+> > Per the ARM Architecture Reference Manual, whether only the last-level
+> > page table entry is invalidated is determined by the instruction used
+> > (vale1is for leaf entry only, vae1is for walk cache including leaf entry and
+> > non-leaf entry), rather than the TTL field. The TTL field merely specifies
+> > which level the leaf entry belongs to.
+> 
+> Ah, yes, you are right. The TTL is still 2 in this case for a huge pmd,
+> we just want the walk cache leading to it to be invalidated. So no need
+> for the additional tlb_get_level().
 
-On Fri, May 22, 2026 at 10:31:51AM +0200, Jean-Michel Hautbois wrote:
-> Hi Eugen,
-> 
-> Thanks for the fix, the issue is real, but I think the patch leaks a runtime
-> PM reference.
-> 
-> Le 21/05/2026 à 20:09, Eugen Hristev a écrit :
-> > When requesting log status, the block might be powered
-> > off, but registers are being read.
-> > Avoid reading the registers if the device is not
-> > resumed, thus also avoid powering up the device just
-> > for log status.
+The Arm ARM is still unclear. The RVAE1IS has this wording:
 
-Please rewrap this, most editors can do that automatically.
+  The TTL hint is only guaranteed to invalidate:
 
-> > 
-> > Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
-> > Signed-off-by: Eugen Hristev <ehristev@kernel.org>
-> > ---
-> >   drivers/media/platform/broadcom/bcm2835-unicam.c | 4 ++++
-> >   1 file changed, 4 insertions(+)
-> > 
-> > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > index 8d28ba0b59a3..818694f007e2 100644
-> > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
-> > @@ -2052,6 +2052,10 @@ static int unicam_log_status(struct file *file, void *fh)
-> >   		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
-> >   	dev_info(unicam->dev, "V4L2 format:         %08x\n",
-> >   		 node->fmt.fmt.pix.pixelformat);
-> > +
-> > +	if (!pm_runtime_get_if_in_use(unicam->dev))
-> > +		return 0;
-> > +
-> 
-> pm_runtime_get_if_in_use() returns 1 and increments the usage counter is
-> active and in use.
+  - Non-leaf-level entries in the range up to but not including the
+    level described by the TTL hint.
 
-Also, should this be pm_runtime_get_if_active() instead?
+  - Leaf-level entries in the range that match the level described by
+    the TTL hint.
 
-> 
-> I think we need to add:
-> pm_runtime_put(unicam->dev);
-> 
-> Just before the return 0;
-> 
-> BTW, we may miss a dev_info explaining why the live data is skipped when the
-> device is suspended ?
+But we don't have such wording around non-leaf-level entries for VAE1IS.
+I presume it would be the same but I'll ask internally next week. In the
+meantime, I'll take this patch.
 
 -- 
-Regards,
-
-Sakari Ailus
+Catalin
 
