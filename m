@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C24CD5BBC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 23:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1259FCD5BB3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 23:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uuVvbPMfCmoiXjDpDixu/ffXb2eS9sn4npWm18kEdeo=; b=2D9z3fqXlv9m5fz3bS9qvNhAMn
-	KBXfkklcjFoJ/X/GuZDwpvxcWgfmEriZl7JYloSTwW8SozjQS98Oq9lTQ+Yjx3c8hnWxATMNF6VMd
-	sbuzSbpVYOmmS6Bx3iqp9KzJVpHWtCAWLsuTB7CNGbfB1wGNy82ZahGClcbH8Fmv9lhTgV4uFm9OH
-	8AqldlmkAdXZQri5JAs7p5En2MOofBmyqz+h+fYDkuIeaGQ17faaNRzwXo2vqFIyLf4q0U5/v5kjR
-	qh/zGszgHlhJJ2ZYo/XPkXpsfjGjAGJk9n0r2DutavZTE+0EW7TUQlly45zRS9++w1mcNdRLGvQ/t
-	XOmymU2w==;
+	bh=VdPdyRKOtuD7Jq2T1rwTu6Wes+v7LpW2HMOrPNqb248=; b=daKqSF5EwF/LNNddSbit9Oa3MX
+	fmoyIw5rDxFbLKLdVCe5RMlcdXGYkF4gXct/rm5jfO+3rgQNRJGFjnLJ5f1rMHsEGc8jrPRyVUkci
+	TSipBakuvO1qPfbb9ZkpExB1kC3CpMORbD96k+BuAetdgsB8eicB6h+6j9gl2INma1OaUPu1R2T1O
+	hCkR1uXZkE2GhRpbi9w/I+02a2A8qVG8hddQ2paQwEkew0wVqD7evPiIVe67hRDXjfmBF/cWx3GNP
+	QYTDWe7xtybtse2KN4wz7YiUC0RrXZ3lEcvydWYzpEhOrZL9XsnGqhDMSGVnBvUMrUTyYy+SvsDhN
+	1wH6EQzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQYsU-0000000CATh-1i21;
-	Fri, 22 May 2026 23:02:02 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1wQYsT-0000000CAR9-1s3H;
+	Fri, 22 May 2026 23:02:01 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQYsP-0000000CANL-0BtY
+	id 1wQYsF-0000000CAFw-31hs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 23:01:58 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-4493cf2f982so705309f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 16:01:56 -0700 (PDT)
+	Fri, 22 May 2026 23:01:48 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-44b7e8b65faso599522f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 16:01:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779490915; x=1780095715; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779490906; x=1780095706; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uuVvbPMfCmoiXjDpDixu/ffXb2eS9sn4npWm18kEdeo=;
-        b=rhj14DmMyLwu3ZJDkdRXO6G++kcrCvmjCScrceOZpl000JDt/WooDCmzcPG2v9YckW
-         zoCV4eDNfHhmrkrn4k5o4ay7bl4jPry7tRIRPtHgAl9ejIBtyh92MXPLhwbHRB48kltC
-         7sfoerai/xWeUiWWRWF7lPavoiWsQvRwzfDyrI5MdAe1xmkZ0bqhOA5DfSZMCX3iN7B4
-         OePISUVl9UulfaEncKvjZUl4VFBL9KzFvyPZYhYCJyglSSM8OSCdbSxwEHt04QRqecxp
-         oIuMqyCj8M+wumLUoWVGkIkWb3opD9IzQhe7kpjA83qjC/xIsaR4vlM1Vo23UN3P2xhV
-         w7/A==
+        bh=VdPdyRKOtuD7Jq2T1rwTu6Wes+v7LpW2HMOrPNqb248=;
+        b=S8nvzQXeWLVBlMohEkRicxHV6E1RQ2Alh9dZ/z11NthU+mCc1J/12gEEL6iejtYp8Y
+         cZSwUpvqCrlc5COWOrEULIEw3pkZRtfVGX5LWGM4dvQzp5wUkn3+37AywJYHVltKt0v0
+         dG6b4fW0TJiPXyflUxoLj7XgGCutal+MHv0vQApyE6hyGDwtt7xXjgS/CxD4A/OUYgKk
+         M0DetJ8BAsd2WlVVfkPUps+elWjtoS7c2IT2rhf3dwFKhc4j/lfW/MG397tV+R/KyZsr
+         W5YDrshnoYraL3Ro0R71xTJVvnuP9tifJUXNyG/THQNmeNAhfmbRa73ckvgWKo3Rx1Ij
+         47ow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779490915; x=1780095715;
+        d=1e100.net; s=20251104; t=1779490906; x=1780095706;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=uuVvbPMfCmoiXjDpDixu/ffXb2eS9sn4npWm18kEdeo=;
-        b=KTYcIjMcauBEoHtq1uFrgW8mzg2t5YWK+iOWjCYwkjka0Xj5wOnDArFEux9hK6RvNZ
-         h/btoze8qewpQnT/kLXdpcLlrhoqd+EH6yMsf+rK0AVwpazdSTR4NB4fYadQdIOayxCB
-         sX4StVBXtrSW2KqQtAmrUyJ/zdMxciPh+MXN9zvY9bewoAyTkHf1XPcMLIS37+qQ/VlK
-         28O1W4I70Zp8U7iucvMOw7k0LPRXQF+uhg5B4zBnwVuk3E62Srkagebij7fP4pi00MVe
-         0jbJBnmsA9sXyk+9gAXpmmoIGQYgIeeRKePoa/tGQbzqcLg5dZaSjXmCQ50W+Esxzw9z
-         iMbQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/LMvyybcC8T9dHSRmaNV+k5pe9P8JPiBN8XSKP26LNCROEuP4ay7M6bbMOe1B2YPwSevEwrN9L0qAYa/BlJeQq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyajKpghHiOiheuIRPdWUxiECdYNC3fhlfO4BQX27ofw9lapLe/
-	yAOKCSpcune0W00TznS5Z2y24pBV0tCys9SekQvy4eLhdar2GH9O3R5Y
-X-Gm-Gg: Acq92OF3Tuxm6NzqlHwfqkp5MDY/g28AZMVazKJ83Vmqs4jUw63Du5TsgnrFmv5I8nH
-	/W8JBGpWZKyZiHIPeqgcC+8a6mvICU/+qcOE+L0gfEhev2ltmS+WVIKfFmzuwKAtuT1kxE2e9CD
-	nxJPHnPCuanA1lNv3Ognj8NrxPt5drGbzqhc6BgDCQGdlLDq7wE9zGYPIq2SC0O2gl84elZp/ar
-	90Lh782PXRPE9Tc8bUjYiL1DaijYef73rbnlqs9MoWCrVKOf2Ulq/c3DZDADbAqVf9BchHtAUBX
-	+dvfaDLUT8FWhf5doBIKnJts7iGi6slHOXJ2zr+UmqH2iA7gdbkVh4XF01u9vnQH32XoVQ0mflj
-	qfaklSYrO7SVivlD84iHWFX6vsUt1k8kur/cwJ/BPpBqghZDmwrKRyliCd8K59d+f7eP3gq65cL
-	hVl53vIJfXWSEZGycBULrMXdsvT4O74GH+P1ZvJFQ7hVi75/qYLH7+N+W06Mefq2s=
-X-Received: by 2002:a05:600c:1386:b0:490:6ab:406a with SMTP id 5b1f17b1804b1-49042be7044mr34931885e9.8.1779490914815;
-        Fri, 22 May 2026 16:01:54 -0700 (PDT)
+        bh=VdPdyRKOtuD7Jq2T1rwTu6Wes+v7LpW2HMOrPNqb248=;
+        b=m5/d27sndfvcGB/fAPH7tOUV+tR92CzK1etW45XZuyRfNuqCjtoHT7ensRiTflVIoV
+         27EggjsTVhzSVUZkY1dh9NejJI/xU03erp/C/sYVWfNMh07ZNdKU2tNVdwDPeYzsfRAK
+         dCT3G0IcXo3ip797GZzVqMHwVJ3RHoxurphy058H8fo75WGpymkIzzu5saFC65HKJ97D
+         lnI4DNbLyju56yM5uC9for9q2sc+q+4ni9fqJw9rXHe/t+Zjil4yurS9aFQ8WKoxcnHO
+         IoRQOYmerQjp2ynBCMX4mKkoQFmO/OFI4bwjRs28SgFOojRGoMpJ9FCAkOfEPkuI+iAv
+         0Wog==
+X-Forwarded-Encrypted: i=1; AFNElJ/J8q7iI5rANBik4HLTMGTKnwqffs7bHRw3en3nxqLxi+0vQ03UHIXwir3ujDNMpE/xEGaH2JnSH5Uh3TUs7cys@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhpacaPbWvG7vN7skDpWDK0qJmj5sz+ZAUFy8FvMb8mwu/qVC9
+	yyzd05omI2q8eTHK/T5e9m3xVKDA66GGTamn1Zvpw0DCaVqL7+epkR4q
+X-Gm-Gg: Acq92OFkM5Ukag+tdQ0hGVbqFvG3BJB0xBbyp1Uf7SsMpMd+FnswO0t/QYQHzClgLGx
+	uhuPawJ9ZPo1S5rWGhjQ8EA19eyi3Vwbf+1g3QsvylIILESElv4ErqJS5thFQjhtbXgzATP9xp6
+	nHey6x+bsXjnj5/PGH7w0gXCk39poEg4dFvYSurSOXRf8TERhGo5xS9SvACJCcAHggffHQucepM
+	77YjeGosLtjW2m5zLI8P6FHdh2Hinhqw3diNcbNGlloamGUOVVK6siPlKUTH8LMg1t7fnPiCgd0
+	b12s+w6lL/ak0t/6nOQllsIr3BQUOaeF679UgWsZRovYrgruSuTebNM0cqScwoOUPrApiL6G60r
+	+qjVsE1FKNy1qjxr3fTfxqPm1Krxs6xJxmAHoWMZxJ4OgmlFPSci/xYYfr/sD+o8BBixThaBsSc
+	TLVHMTGp34PxBEEza4ogJxKDfsb0ZxTelz+RiC6eFIJ/nQFK6l+F2WfKxjGZtD8v4=
+X-Received: by 2002:a05:600c:c4a3:b0:485:c456:5e4f with SMTP id 5b1f17b1804b1-490422529aemr38152485e9.0.1779490905632;
+        Fri, 22 May 2026 16:01:45 -0700 (PDT)
 Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490456274ebsm67100265e9.15.2026.05.22.16.01.53
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490456274ebsm67100265e9.15.2026.05.22.16.01.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 16:01:54 -0700 (PDT)
+        Fri, 22 May 2026 16:01:44 -0700 (PDT)
 From: Lothar Rubusch <l.rubusch@gmail.com>
 To: thorsten.blum@linux.dev,
 	herbert@gondor.apana.org.au,
@@ -84,17 +84,17 @@ Cc: linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	l.rubusch@gmail.com
-Subject: [PATCH v4 11/12] crypto: atmel-sha204a - integrate into core management tracking
-Date: Fri, 22 May 2026 23:01:33 +0000
-Message-Id: <20260522230134.32414-12-l.rubusch@gmail.com>
+Subject: [PATCH v4 04/12] crypto: atmel-ecc - rename driver_data before moving it into atmel-i2c
+Date: Fri, 22 May 2026 23:01:26 +0000
+Message-Id: <20260522230134.32414-5-l.rubusch@gmail.com>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260522230134.32414-1-l.rubusch@gmail.com>
 References: <20260522230134.32414-1-l.rubusch@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_160157_103852_C2D4B1D1 
-X-CRM114-Status: GOOD (  15.05  )
+X-CRM114-CacheID: sfid-20260522_160147_789309_C7B5C980 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,98 +109,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register the SHA204A I2C device instance into the shared atmel_i2c client
-management tracking list during the probe phase. This allows the driver to
-participate in the central hardware selection infrastructure.
+Rename the local driver_data instance to atmel_i2c_mgmt in
+preparation for moving the shared I2C client management
+infrastructure into the atmel-i2c core driver in a subsequent
+change.
 
-Rework the error-unwind paths inside atmel_sha204a_probe() to prevent stale
-entries from remaining in the global tracking structures if a partial
-initialization failure occurs. If sysfs group creation fails, explicitly
-trigger devm_hwrng_unregister() to preserve the strict lifecycle ordering
-introduced in previous stability fixes.
-
-Convert the removal path to use the core teardown helpers. Ensure the
-device readiness state is deactivated using atmel_i2c_deactivate_client()
-and the tracking node is removed via atmel_i2c_unregister_client() before
-local memory resources are freed. This guarantees that any in-flight work
-queue items are unconditionally flushed, eliminating a potential
-Use-After-Free (UAF) window during device removal.
-
-No functional change intended beyond improved lifecycle handling.
+No functional changes intended.
 
 Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
 ---
- drivers/crypto/atmel-sha204a.c | 26 ++++++++++++++++++++++----
- 1 file changed, 22 insertions(+), 4 deletions(-)
+ drivers/crypto/atmel-ecc.c | 39 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/crypto/atmel-sha204a.c b/drivers/crypto/atmel-sha204a.c
-index 0c5b5cdbfcbc..86a68f2a27e0 100644
---- a/drivers/crypto/atmel-sha204a.c
-+++ b/drivers/crypto/atmel-sha204a.c
-@@ -177,9 +177,15 @@ static int atmel_sha204a_probe(struct i2c_client *client)
- 		return ret;
+diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
+index 005a9a3d919c..d12a9dbe45a7 100644
+--- a/drivers/crypto/atmel-ecc.c
++++ b/drivers/crypto/atmel-ecc.c
+@@ -28,7 +28,7 @@ static int atmel_ecc_kpp_refcnt;
+ DECLARE_COMPLETION(atmel_ecc_unreg_done);
+ static bool atmel_ecc_unreg_active;
  
+-static struct atmel_ecc_driver_data driver_data;
++static struct atmel_ecc_driver_data atmel_i2c_mgmt;
+ 
+ /**
+  * struct atmel_ecdh_ctx - transformation context
+@@ -214,14 +214,14 @@ static struct i2c_client *atmel_ecc_i2c_client_alloc(void)
+ 	int min_tfm_cnt = INT_MAX;
+ 	int tfm_cnt;
+ 
+-	spin_lock(&driver_data.i2c_list_lock);
++	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
+ 
+-	if (list_empty(&driver_data.i2c_client_list)) {
+-		spin_unlock(&driver_data.i2c_list_lock);
++	if (list_empty(&atmel_i2c_mgmt.i2c_client_list)) {
++		spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+ 		return ERR_PTR(-ENODEV);
+ 	}
+ 
+-	list_for_each_entry(i2c_priv, &driver_data.i2c_client_list,
++	list_for_each_entry(i2c_priv, &atmel_i2c_mgmt.i2c_client_list,
+ 			    i2c_client_list_node) {
+ 		if (!i2c_priv->ready)
+ 			continue;
+@@ -239,7 +239,7 @@ static struct i2c_client *atmel_ecc_i2c_client_alloc(void)
+ 		client = min_i2c_priv->client;
+ 	}
+ 
+-	spin_unlock(&driver_data.i2c_list_lock);
++	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+ 
+ 	return client;
+ }
+@@ -334,11 +334,11 @@ static int atmel_ecc_probe(struct i2c_client *client)
  	i2c_priv = i2c_get_clientdata(client);
-+	i2c_priv->ready = false;
+ 	i2c_priv->ready = false;
  
- 	i2c_priv->caps = 0;
- 
+-	spin_lock(&driver_data.i2c_list_lock);
 +	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-+	list_add_tail(&i2c_priv->i2c_client_list_node,
+ 	list_add_tail(&i2c_priv->i2c_client_list_node,
+-		      &driver_data.i2c_client_list);
 +		      &atmel_i2c_mgmt.i2c_client_list);
+ 	i2c_priv->ready = true;
+-	spin_unlock(&driver_data.i2c_list_lock);
 +	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-+
- 	memset(&i2c_priv->hwrng, 0, sizeof(i2c_priv->hwrng));
  
- 	i2c_priv->hwrng.name = dev_name(&client->dev);
-@@ -192,15 +198,26 @@ static int atmel_sha204a_probe(struct i2c_client *client)
- 	ret = devm_hwrng_register(&client->dev, &i2c_priv->hwrng);
- 	if (ret) {
- 		dev_err(&client->dev, "failed to register RNG (%d)\n", ret);
--		return ret;
-+		goto err_list_del;
- 	}
+ 	mutex_lock(&atmel_ecc_kpp_lock);
+ 	/*
+@@ -352,12 +352,11 @@ static int atmel_ecc_probe(struct i2c_client *client)
+ 		timeout = wait_for_completion_timeout(&atmel_ecc_unreg_done,
+ 						      msecs_to_jiffies(2000));
+ 		mutex_lock(&atmel_ecc_kpp_lock);
+-
+ 		if (timeout == 0) {
+-			spin_lock(&driver_data.i2c_list_lock);
++			spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
+ 			i2c_priv->ready = false;
+ 			list_del(&i2c_priv->i2c_client_list_node);
+-			spin_unlock(&driver_data.i2c_list_lock);
++			spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+ 			mutex_unlock(&atmel_ecc_kpp_lock);
  
- 	ret = sysfs_create_group(&client->dev.kobj, &atmel_sha204a_groups);
- 	if (ret) {
- 		dev_err(&client->dev, "failed to create sysfs group (%d)\n", ret);
--		return ret;
-+		goto err_hwrng_unregister;
- 	}
+ 			dev_err(&client->dev, "probe timed out, former driver instance not fully deregistered\n");
+@@ -368,10 +367,10 @@ static int atmel_ecc_probe(struct i2c_client *client)
+ 	if (atmel_ecc_kpp_refcnt == 0) {
+ 		ret = crypto_register_kpp(&atmel_ecdh_nist_p256);
+ 		if (ret) {
+-			spin_lock(&driver_data.i2c_list_lock);
++			spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
+ 			i2c_priv->ready = false;
+ 			list_del(&i2c_priv->i2c_client_list_node);
+-			spin_unlock(&driver_data.i2c_list_lock);
++			spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+ 			mutex_unlock(&atmel_ecc_kpp_lock);
  
-+	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
-+	i2c_priv->ready = true;
-+	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
-+
-+	return 0;
-+
-+err_hwrng_unregister:
-+	devm_hwrng_unregister(&client->dev, &i2c_priv->hwrng);
-+err_list_del:
-+	atmel_i2c_unregister_client(i2c_priv);
-+
- 	return ret;
- }
- 
-@@ -208,9 +225,11 @@ static void atmel_sha204a_remove(struct i2c_client *client)
- {
+ 			dev_err(&client->dev, "%s alg registration failed\n",
+@@ -391,9 +390,9 @@ static void atmel_ecc_remove(struct i2c_client *client)
  	struct atmel_i2c_client_priv *i2c_priv = i2c_get_clientdata(client);
+ 	bool trigger_unreg = false;
  
-+	atmel_i2c_deactivate_client(i2c_priv);
-+
- 	sysfs_remove_group(&client->dev.kobj, &atmel_sha204a_groups);
- 	devm_hwrng_unregister(&client->dev, &i2c_priv->hwrng);
--	atmel_i2c_flush_queue();
-+	atmel_i2c_unregister_client(i2c_priv);
+-	spin_lock(&driver_data.i2c_list_lock);
++	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
+ 	i2c_priv->ready = false;
+-	spin_unlock(&driver_data.i2c_list_lock);
++	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
  
- 	kfree((void *)i2c_priv->hwrng.priv);
- }
-@@ -245,7 +264,6 @@ static int __init atmel_sha204a_init(void)
+ 	/*
+ 	 * The Linux crypto core automatically blocks until all active
+@@ -413,9 +412,9 @@ static void atmel_ecc_remove(struct i2c_client *client)
+ 	if (atomic_read(&i2c_priv->tfm_count))
+ 		wait_for_completion(&i2c_priv->remove_done);
  
- static void __exit atmel_sha204a_exit(void)
+-	spin_lock(&driver_data.i2c_list_lock);
++	spin_lock(&atmel_i2c_mgmt.i2c_list_lock);
+ 	list_del(&i2c_priv->i2c_client_list_node);
+-	spin_unlock(&driver_data.i2c_list_lock);
++	spin_unlock(&atmel_i2c_mgmt.i2c_list_lock);
+ 
+ 	/*
+ 	 * The driver registers once an algorithm, but maintains a list of
+@@ -459,8 +458,8 @@ static struct i2c_driver atmel_ecc_driver = {
+ 
+ static int __init atmel_ecc_init(void)
  {
--	atmel_i2c_flush_queue();
- 	i2c_del_driver(&atmel_sha204a_driver);
+-	spin_lock_init(&driver_data.i2c_list_lock);
+-	INIT_LIST_HEAD(&driver_data.i2c_client_list);
++	spin_lock_init(&atmel_i2c_mgmt.i2c_list_lock);
++	INIT_LIST_HEAD(&atmel_i2c_mgmt.i2c_client_list);
+ 	return i2c_add_driver(&atmel_ecc_driver);
  }
  
 -- 
