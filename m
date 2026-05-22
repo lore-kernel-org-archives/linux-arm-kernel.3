@@ -4,78 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF40CD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 04:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3236CCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 04:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYb7vYqAepxFRoH2FPAszzpLKYcZBm7rEVsl9vC3Ll0=; b=p+uvjw9H6FWfEMNbWMD7Q/qcY2
-	TjpG0GZG0yM09pV0mtAaK4RQ6XgTixH31JI/QiETolQK/iQygJo/zVod4kfFNDpp+PMfpRioW/W4u
-	oOL2I4swh4rS/pbHb9VonSTcEjglYYpaJb95IHjtAjNgsLCnjZaYPfdjV4IdEjoFSqjgNQ4+vwMds
-	/mL9/1P0yNERwmiSd66xWkaiXMa9uYeT9Py+WrY/pKY994YlBCHajDkqa5UxTYvGkIRaHDFyp6nJJ
-	RSSGhwbhNq0944k8rEfWEFnplq+6RfDtUpyBojx6P3OWWG3fyrfEAvHZXlu+NE2piaJBWQYXPTEkB
-	9cRdDbSg==;
+	bh=2uaBSQpnXDZ0Lr2vqL2X8w5SaBUCpNSkuNqugybr2/A=; b=PI3lmLd3vekXqb+psdZ/MhloLq
+	XWbD5pJTtSmATHfVYCeNzR/jz1HdbkcVVYyC/Mq/9CHnxgx/BYhjIKKNcYAs39P6kNVrqPF7LjsKn
+	ZN2t0gSufMPwtBlEa6xu/LNgmj4lb/9rQdbgML5x+4AFmdPMSitkt99wCrw61GYBFwYrEhD9Oc0dl
+	NxBNv9cV7KCymtauMws8ixDpblvdzpD55O+7m8/PmA9j+KsadaXp7MOa0P2nngvPYSqMuuM59VGNv
+	FNuNCE5R1OG5JQY+MbDRc9bF9MUAT3M2lGxxZNZxsNO3hE3zs1UuoQ1cOxaTg79eGZsO993f1GetW
+	K6qCNF/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQHkD-00000009mfJ-17Bf;
-	Fri, 22 May 2026 04:44:21 +0000
-Received: from dggsgout12.his.huawei.com ([45.249.212.56])
+	id 1wQHuz-00000009neJ-3iSC;
+	Fri, 22 May 2026 04:55:29 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQHkA-00000009meC-0x1r
+	id 1wQHuw-00000009ndk-1icB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 04:44:20 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gMCND6t9ZzKHLv5
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:43:56 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 1540240573
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:44:03 +0800 (CST)
-Received: from [10.174.179.37] (unknown [10.174.179.37])
-	by APP4 (Coremail) with SMTP id gCh0CgBnL1sL3w9qXpfDDA--.53130S3;
-	Fri, 22 May 2026 12:43:57 +0800 (CST)
-Message-ID: <d78ebf12-075c-5abd-d83e-f66f0f45e92e@huaweicloud.com>
-Date: Fri, 22 May 2026 12:43:55 +0800
+	Fri, 22 May 2026 04:55:27 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5a8891febd2so9480496e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 21:55:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779425724; x=1780030524; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2uaBSQpnXDZ0Lr2vqL2X8w5SaBUCpNSkuNqugybr2/A=;
+        b=RMNgYWGjGiwGTFOul6dtAZi/GBH1Tvll5m5WO2DXUq12/U7qHBCUtPvogBPikS2nuq
+         jyVZLvioz/tHcmTozl+vWpCuRgSxUWbhvqMjRQO/CPCqMHCCbB0h3yW7eywys+ZyGMfu
+         tQpgK/Sf11obwwhvkSx2EMX6d8tlVT28kOo9C9HfrwXzH0McgNnJBnzbh6AsywTyNIyG
+         aeIdMIlOfiY2uesYCfJrcscesVbY7cvx92lqRWWcdd6wHZH9517EofpuvfC11C1yT9Ap
+         hfC2wOF37hSVEdPZrfAwwhQiYVJ/tvEKF3upiCgQVmIkHYKKf+VN4fM2IWVugWB43fMw
+         TRGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779425724; x=1780030524;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2uaBSQpnXDZ0Lr2vqL2X8w5SaBUCpNSkuNqugybr2/A=;
+        b=KsZSzNxxv/I7/ENU0mwqVHNYoVBfzZzJ8sWoX6QbOMfHTwNJm9ZmRDH+j3qRDlmox7
+         +uAytrMFBGFw7q1YiYVKxx5qgC0VwsY6uI09eYYt1bj/1JlHExxjNWBGY2ibmfgjR6zI
+         QoyFyGXiI+ykA4gjyRP2Nyti25RVByETcGrOYBUulFd/fMdaQSyp/XcH2Tgd0AJ2//qk
+         SRRb9Q5qhb+3Be01LHcdlIaOPj5oGT2oAcViiSKoGmRcRHbPbG4RFmoHxYNBOKgBRHo7
+         +HfasN9cqZdsISHznFEGftvOSJIfem3jDzzTS4XHBjrthzHJPfzTYSHEVlpR7lgdXUEA
+         qveQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/rsUODW0sR5eUDQyaiSwEtfPWxEfluXLOnsbshejF9IITzO0JJV6ENlJTmHZWhcvhO/yTjwt53rs7wZnojwI5G@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUrg6GFJbrXDJjkv5odyM68PWjIEbiIaxEnPX+6nENaByoARLk
+	cPJtkD6OemHr/5oMDbW3IgWtbU03qMELxBFKIjKcPXirshwHLAP4oMH5
+X-Gm-Gg: Acq92OGy4ile4M1Gm6i0Rt5pu3IbupvuWjFa195g3DfKSWdbIA/cCjQH77N0bLCYmC9
+	iHN1Gw1nGJxI6U1qwHtALfHlW2Mz9FAvqf9nzDlzxkfc1zvgHbPuVA1uX5k+NkUWr5cvBkwNXba
+	62LXlogn2CctfXZNawh8OKl0tvTdv9iKEQ2SSDXXnPLUAAGKBgLv0j7upmK19nixT3s+btkZ1ya
+	/rQH72ueA8IoSaUA8PqY0wedg5SR1x3cmE1J+5Dfj9BvbwvIABKafe3zzZ1SR16fNgaVLqTZqJW
+	BiQMV9FhFvOZCnfFkFYZIi5krwxgLNPscXhjbZq4pbuvThMoI4uW3Ehladuf+bWy6selrVLcmhz
+	ZQVaL/HDNy0Eiku5fucJN/YmDVzDNS1kJtJCEqyC0IVchAiZ2wN8GDMgXdja/K1LGPsDU8WpHQW
+	+GXnm9r3OHqa218v4QWm3x7HQaTzehDYUthsta8JMLNzfgXKLyAE3y7C1fUW3MUALOjC08ak602
+	ZLrLglP779ynut/ns4=
+X-Received: by 2002:a05:6512:2552:b0:5a8:9988:f1d5 with SMTP id 2adb3069b0e04-5aa323bc03emr387730e87.24.1779425723236;
+        Thu, 21 May 2026 21:55:23 -0700 (PDT)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa32cb36d2sm144533e87.13.2026.05.21.21.55.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 21 May 2026 21:55:22 -0700 (PDT)
+Message-ID: <b79d8ad9-f36e-4769-9dc2-58baefe23000@gmail.com>
+Date: Fri, 22 May 2026 07:55:19 +0300
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.11.0
-Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
-Content-Language: en-US
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: will@kernel.org, akpm@linux-foundation.org, npiggin@gmail.com,
- aneesh.kumar@kernel.org, peterz@infradead.org, linux-kernel@vger.kernel.org,
- wangkefeng.wang@huawei.com, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, linux-arch@vger.kernel.org,
- David Hildenbrand <david@kernel.org>
-References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
- <ag8fHYL-S26uO0yZ@arm.com>
-From: Zeng Heng <zengheng@huaweicloud.com>
-In-Reply-To: <ag8fHYL-S26uO0yZ@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/10] [v3] input: gpio-keys: make legacy gpiolib optional
+To: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+ Christian Lamparter <chunkeey@googlemail.com>,
+ Johannes Berg <johannes@sipsolutions.net>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>, Andreas Kemnade
+ <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>,
+ Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Lee Jones <lee@kernel.org>,
+ Pavel Machek <pavel@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-wireless@vger.kernel.org, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-leds@vger.kernel.org, netdev@vger.kernel.org
+References: <20260520183815.2510387-1-arnd@kernel.org>
+ <20260520183815.2510387-3-arnd@kernel.org>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <20260520183815.2510387-3-arnd@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgBnL1sL3w9qXpfDDA--.53130S3
-X-Coremail-Antispam: 1UD129KBjvJXoWxJrWkGw4UCr45Cr43Cr4Uurg_yoW5Jr4Upa
-	43CF13KFZ5Wr1UtF1vqr4UXFy3Can8Jr9ruryrZasYvF12yF1vgFWvyryruFy0yFZ5tr4f
-	WF1j9FnrZF4UZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6r1F6r1fM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
-	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
-	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
-	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
-	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
-	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
-	IYCTnIWIevJa73UjIFyTuYvjxUF1v3UUUUU
-X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_214418_641689_58AB9D04 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20260521_215526_476610_87345ABC 
+X-CRM114-Status: GOOD (  21.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,67 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Catalin,
+On 20/05/2026 21:38, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> Most users of gpio-keys and gpio-keys-polled use modern gpiolib
+> interfaces, but there are still number of ancient sh, arm32 and x86
+> machines that have never been converted.
+> 
+> Add an #ifdef block for the parts of the driver that are only used on
+> those legacy machines.
+> 
+> The two Rohm PMIC drivers use a gpio-keys device without an actual GPIO,
+> passing an IRQ number instead. In order to keep this working both with
+> and with CONFIG_GPIOLIB_LEGACY, change the gpio-keys driver to ignore
+> the gpio number if an IRQ is passed.
+> 
+> Link: https://lore.kernel.org/all/b3c94552-c104-42e3-be15-7e8362e8039e@gmail.com/
+> Link: https://lore.kernel.org/all/afJXG4_rtaj3l2Dk@google.com/
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+> v3: resend
+> v2: skip the fake GPIO number passing from mfd
+> 
+> The removal of the arm platforms using this is not yet going to happen
+> for 7.2, and Dmitry's changes for the Rohm drivers have not yet
+> made it into linux-next as of 2026-05-20, so for the moment I
+> would still like to see this patch get merged, even if we are
+> closing in on completely removing the legacy gpio support in
+> the gpio_keys driver, so we can make CONFIG_GPIOLIB_LEGACY
+> default-disabled sooner.
 
-On 2026/5/21 23:05, Catalin Marinas wrote:
-> + David H.
->
-> On Thu, May 21, 2026 at 03:30:11PM +0800, Zeng Heng wrote:
->> From: Zeng Heng <zengheng4@huawei.com>
->>
->> When huge_pmd_unshare() is called to unshare a PMD table, the
->> tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
->> but the aarch64 tlb_flush() only checked tlb->freed_tables to
->> determine whether to use TLBF_NONE (vae1is, invalidates walk
->> cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
->>
->> This caused the stale PMD page table entry to remain in the walk cache
->> after unshare, potentially leading to incorrect page table walks.
->>
->> Fix by including unshared_tables in the check, so that when
->> unsharing tables, TLBF_NONE is used and the walk cache is properly
->> invalidated.
->>
->> Here is the detailed distinction between vae1is and vale1is:
->>
->> | Instruction Combination  | Actual Invalidation Scope                         |
->> | ------------------------ | --------------------------------------------------|
->> | `VAE1IS`  + TTL=`0`      | All entries at all levels (full invalidation)     |
->> | `VAE1IS`  + TTL=`2` (L2) | Non-leaf at Level 0/1 + leaf at Level 2           |
->> | `VALE1IS` + TTL=`0`      | Leaf entries at all levels (non-leaf not cleared) |
->> | `VALE1IS` + TTL=`2` (L2) | Leaf entry at Level 2 only                        |
->>
->> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
-> The fix looks fine but does it need:
->
-> Fixes: 8ce720d5bd91 ("mm/hugetlb: fix excessive IPI broadcasts when unsharing PMD tables using mmu_gather")
-> Cc: <stable@vger.kernel.org>
+I am (still) all fine with this, even though I like Dmitry's set. I 
+suppose you already have a plan for merging this, but I still have to 
+ask - why the MFD changes aren't in own patch? I feel it would have 
+simplified merging, backporting, reviewing and reverting if needed.
 
-It makes sense to me. Thanks a lot for that.
+Well, other than that:
 
+Reviewed-by: Matti Vaittinen <mazziesaccount@gmail.com>
 
-Best regards,
-Zeng Heng
+Yours,
+	-- Matti
 
->> ---
->>   arch/arm64/include/asm/tlb.h | 3 ++-
->>   1 file changed, 2 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
->> index 10869d7731b8..751bd57bc3ba 100644
->> --- a/arch/arm64/include/asm/tlb.h
->> +++ b/arch/arm64/include/asm/tlb.h
->> @@ -53,7 +53,8 @@ static inline int tlb_get_level(struct mmu_gather *tlb)
->>   static inline void tlb_flush(struct mmu_gather *tlb)
->>   {
->>   	struct vm_area_struct vma = TLB_FLUSH_VMA(tlb->mm, 0);
->> -	tlbf_t flags = tlb->freed_tables ? TLBF_NONE : TLBF_NOWALKCACHE;
->> +	tlbf_t flags = (tlb->freed_tables || tlb->unshared_tables) ?
->> +			TLBF_NONE : TLBF_NOWALKCACHE;
->>   	unsigned long stride = tlb_get_unmap_size(tlb);
->>   	int tlb_level = tlb_get_level(tlb);
->>   
->> -- 
->> 2.43.0
+---
+Matti Vaittinen
+Linux kernel developer at ROHM Semiconductors
+Oulu Finland
 
+~~ When things go utterly wrong vim users can always type :help! ~~
 
