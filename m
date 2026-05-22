@@ -4,77 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5147CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F049CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 14:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XAdkVdHYlcySFUBOB9d60INI0VTqn7iPCNrUckiEfSA=; b=PZjFhRGq8iPqDzjQRUdI1qcpRZ
-	wIbtaxxUU6hDAwlG2NPVOKTmNutDeJ68oreExhkqQ/1+PMXGoLmh2FFozzeAUQHVXK5PQRTnr3ZxG
-	C6M3D67FL1cSkfgzHLPtpc/bCQYor6FKpWKwso3Co+T+bCaf557jx1kI7y5yYrYFlYXgACU+CRVGT
-	BgHOZtv50k6mjO13SW9UOGnOVqhhswKEfpkYxJFx6eRVVd4+ubwmKNRBKUe6ZyKE/pS/ohRhIObG7
-	p4aiS8x7JTKRc2NJ0m/YsL2WIuR7ZczJePcgi9vpsW2j/4jUKiQKD8BXwny61zp5M9UpbVeesfdkB
-	L/kRXMwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aQfUzeILNu5tcktKZdX1Dp06noZVwCjrBQxp9UsjPno=; b=frAVQNIGrwP8zXUo2WSk8yKF4x
+	s7sm7HD6VtQb0tQoshHMFCosvrPHRNBdYsssgmnuEhOjr3QCed0uwj2+4NyiMpX+yNIQ4yVb3l6RM
+	6Ur70tL4a3L2KfksTi8QF4RvWq79NEHcchqdINc7Lnsv28J0wKyJvtb3azAfpbYUCDpL6KpsyGmmO
+	Wg59KkgUE0kjQ2rJsLVENH7sHwpNx/e6xjR1ivaV9ZlXOg1Zjw79YILldT2dp/Ap0W/rRJKiKQ0ro
+	Jpq3bsPVTZdmyF2Z1FU5kkQWwLZWL65oM/nFe+onjK5896CFTBOQZaN07n44wq66O60HveKuGQ+Gv
+	2VW7Vdgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQF8-0000000B2rU-3nrJ;
-	Fri, 22 May 2026 13:48:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQQT2-0000000B4hr-0ams;
+	Fri, 22 May 2026 14:03:12 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQF7-0000000B2qw-0hcr
+	id 1wQQSy-0000000B4gf-01DX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:48:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C31460217
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:48:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CADD21F0155F
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:48:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779457727;
-	bh=XAdkVdHYlcySFUBOB9d60INI0VTqn7iPCNrUckiEfSA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=fssRPY20Dyxz/cYAZdo1qxjF95zNf6DPwfqO4+J6MWEGH93cmB3q0+MsnYtIf4mOu
-	 yb2F/LO4bgXDVVZtWJM+4ct2qMqAk527UXL9PHuTUlPYGw8oHZlNwVpv2sEzAnkcrW
-	 rYoPk72XF8cMrkAdvU+bjT79H8QBrkkrFnU3POv8SQ9y83JqXAiA2qGn+LwaCE7CbH
-	 mydY4KMHGknk/wbzPm/k4VXT2aMv/tt5hKvMmQYuGoY0PrpI9XAnuVQcyxvRoLuNWj
-	 8uaBe6X3EksWrohYip6eKCS7TiRDlXSyUEYD1+I0+oxJ/3PXuXltrCZPf7+nmrAZEo
-	 4IW9Ggc3VmhZA==
-Received: by mail-vs1-f50.google.com with SMTP id ada2fe7eead31-6312a0d556cso3383599137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:48:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9IY8N1F9+M6jmoMCO5hXh/+hW/+0Dp7UD+ZIWXt2UjiwXTkzkqZVevSJPEJ72+pVQqFT3wg0B/6EgQFOFOafaw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAV3yTNMmv8tUKmJEX4LLTOlQw8HyjpV571z2ZfaF68aNWeR7m
-	rDpdoidYAeoEkSU3cxjFLR5Nt1gzXqK5He5dC/d687T7PHAq7eW+iof26rp8LUMQgIVJxNFTkCf
-	c3qS5dD27fXKe9ENIJSPp2oFLcHTO11U=
-X-Received: by 2002:a05:6102:3f8e:b0:607:97b7:c283 with SMTP id
- ada2fe7eead31-67c7fff0701mr1602325137.14.1779457727053; Fri, 22 May 2026
- 06:48:47 -0700 (PDT)
+	Fri, 22 May 2026 14:03:10 +0000
+Received: from francesco-nb (93-38-247-131.ip73.fastwebnet.it [93.38.247.131])
+	by mail11.truemail.it (Postfix) with ESMTPA id ECF911F81F;
+	Fri, 22 May 2026 16:03:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1779458584;
+	bh=aQfUzeILNu5tcktKZdX1Dp06noZVwCjrBQxp9UsjPno=; h=From:To:Subject;
+	b=iy8YrBTrKvM9jFeXPgme3Laz8+PEoMqJufzTCq0Rl15cX0EjncveuErsbv2FyD/AV
+	 HD3E7dH21SGFSibTVLc8JaNqku7hCeyD4JXOm8PGljjOqScxzWzO7iW4mikL2+qFbh
+	 DXGZgaVJs6rb7CTFZ5UJaUl8IxcEHMXrks+N3MLHXzBavEZRP87p0grvzodlGSpDrj
+	 UwzEI9CKcskxWgKh09aVYRS9rTS189LdqHRoG6XdjuiNfgXxUZv7DgJiM2jllfGUWN
+	 gVwYNY9OjYbhbMYs8cRHdpz0x0dxve4e/Z8078dANCCcHFfXXgWvliep7414eivNIJ
+	 TQqmQb2Mbj61Q==
+Date: Fri, 22 May 2026 16:02:57 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/5] arm64: dts: freescale: imx95-toradex-smarc: move CM7
+ node to SoC DTSI
+Message-ID: <20260522140257.GA93826@francesco-nb>
+References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
+ <20260522111849.783-4-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-References: <ag4kj84EcKqamdB-@casper.infradead.org> <20260522023305.98223-1-baohua@kernel.org>
- <ahBVh4NM2uoyhPNm@casper.infradead.org> <CAGsJ_4zQuJx1reJxgV387Gh0AqWF0KdoFn9KahQ1BNLPRm57TQ@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zQuJx1reJxgV387Gh0AqWF0KdoFn9KahQ1BNLPRm57TQ@mail.gmail.com>
-From: Barry Song <baohua@kernel.org>
-Date: Fri, 22 May 2026 21:48:35 +0800
-X-Gmail-Original-Message-ID: <CAGsJ_4zrm3sCp8Uz0Gh+sAwRcdtNF8rDLqX250sFVG3rZy9HNw@mail.gmail.com>
-X-Gm-Features: AVHnY4Kzckk2STAPsRlCTXxCXlI9-5Kzu1EhehIrviADTgZ0pSseIwikwC-HrOY
-Message-ID: <CAGsJ_4zrm3sCp8Uz0Gh+sAwRcdtNF8rDLqX250sFVG3rZy9HNw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
- fault performance
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, bhe@redhat.com, chentao@kylinos.cn, 
-	chrisl@kernel.org, david@kernel.org, jack@suse.cz, kasong@tencent.com, 
-	kunwu.chan@gmail.com, liam@infradead.org, lianux.mm@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	liyangouwen1@oppo.com, ljs@kernel.org, loongarch@lists.linux.dev, 
-	mhocko@suse.com, nphamcs@gmail.com, nzzhao@126.com, pfalcato@suse.de, 
-	rppt@kernel.org, shikemeng@huaweicloud.com, surenb@google.com, 
-	vbabka@kernel.org, wanglian@kylinos.cn, youngjun.park@lge.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260522111849.783-4-laurentiumihalcea111@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_070308_939755_467BA41A 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 9:36=E2=80=AFPM Barry Song <baohua@kernel.org> wrot=
-e:
->
-> On Fri, May 22, 2026 at 9:09=E2=80=AFPM Matthew Wilcox <willy@infradead.o=
-rg> wrote:
-> >
-> > On Fri, May 22, 2026 at 10:33:05AM +0800, Barry Song (Xiaomi) wrote:
-> > > need to touch `filemap.c` at all (probably because you are already
-> > > maintaining `filemap.c` perfectly):
-> >
-> > I'm going to give you one chance to apologise for that.
->
-> Apologies if my wording caused any misunderstanding.
-> That was not my intention at all.
->
-> What I meant is that filemap.c already has a very
-> solid design.
->
-> For memory.c, I had to touch several places for the
-> blacklist; otherwise, the kernel would hang.
->
-> But for filemap.c, I basically didn't need to touch
-> anything, and preliminary testing shows no issues after
-> moving it from the whitelist to the blacklist. This is
+On Fri, May 22, 2026 at 04:18:47AM -0700, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> The CM7 remoteproc configuration is common to multiple MX95-based
+> platforms (e.g. MX95-19x19-EVK, MX95-15x15-FRDM, SMARC-IMX95, etc.).
+> Therefore, move the node to the MX95 SoC DTSI. While at it, split the mbox
+> channels using <>.
+> 
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Sorry, I feel I may be causing some misunderstanding
-again.
+...
 
-By "whitelist", I mean I used to allow certain cases
-to use per-vma retry.
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 3e35c956a4d7..f8760ac067fa 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -272,6 +272,13 @@ opp-1000000000 {
+>  		};
+>  	};
+>  
+> +	cm7: remoteproc-cm7 {
+> +		compatible = "fsl,imx95-cm7";
+> +		mboxes = <&mu7 0 1>, <&mu7 1 1>, <&mu7 3 1>;
+> +		mbox-names = "tx", "rx", "rxdb";
+> +		status = "disabled";
+> +	};
+> +
 
-By "blacklist", I mean I am now moving to disallow
-certain cases from using per-vma retry.
+As sashiko noticed, this is introducing a regression. No-one is enabling
+this node anymore.
 
-Right now, I have to add several cases in memory.c
-to the blacklist; otherwise, the kernel would hang.
+Francesco
 
-But it seems that everything in filemap.c is fine so
-far based on testing.
 
-I'm not sure if I've explained things clearly. Please
-let me know if anything is still unclear or insufficient.
 
