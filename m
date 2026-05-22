@@ -4,72 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525B1CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 10:22:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3C7CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 10:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Hs/lgWDFKj1AQ6Sx0xmJaBWVngeOt8sYXNKLfOmygA=; b=bQBOgUsQyEhxD0VRPuvEfgESxO
-	e6Fi1mBC5iqi94u4KoI1TgT44psRpMk1/6YHAwcQ6T3qEkMG7T/XH42G467cdgfqDTYqzQh1pQsEf
-	MiLUeEU1w75RPesWzhdYitOZftsjDrP7xyE8/+lTfVUBtK6M6h8ndefCZc9ecj+/odMRLzpYs4QHS
-	igcBhODm0Y1/1bJ2ypR6gAdls57pSJTU8+MvTiJk8HvPxse8mrD2RHhXloTu5Jj4odsJHq46s5WJr
-	V95uoQ1tSnoHPVIy0Evpk/Y0Rx/RR/v6jb+0ra9DTAgEUe8N23DRzpD/twe2c2J2O/rqMZvGodoag
-	30XtOAfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wSzyEHIHm/35U1Oc8plpSUbfHu8HJeI3evCHZgZnpFE=; b=ACusappN92SzW30+HIEgYhHUiG
+	g5S7fQccKQaNxJy2DJThfjRnrUC2Nor3+2uS9Bn/MjjcEd6nFhAdmqGBb6S6a0SnJYKwhfmNn7ptU
+	kjoI9pZWuBwKZrFK9qIleyf7M7aBPX372XYPid5a1aMC+KdzxmMkxGxVNMj0csSIdA/RejcAQeGKE
+	Vj42OFB4K1g49UuUFFo1gTdoJhafDqmwnPL2QhfprEqyJWtG1ZSs6/JMehiK2jyu2R+k4qsg5IMu6
+	PS3+CNY7EfPgUzr/7XVZYXPbHanj41LgeRkR4Yq1zLGkfmjyFhlzaQxtSE6joStA0XS0QHYzE/EM4
+	Rsbz1YjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQN1C-0000000AVAV-1W9e;
-	Fri, 22 May 2026 10:22:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQN7q-0000000AW29-0pp4;
+	Fri, 22 May 2026 10:29:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQN1A-0000000AV9d-2D8K;
-	Fri, 22 May 2026 10:22:12 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 018BF60136;
-	Fri, 22 May 2026 10:22:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F4141F000E9;
-	Fri, 22 May 2026 10:22:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779445331;
-	bh=9Hs/lgWDFKj1AQ6Sx0xmJaBWVngeOt8sYXNKLfOmygA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=I1QqadFRJvu3SoQ8DTXwajbf7bu6/zBCeT02a1FGYR65Ny52gIB2g/vwxXnDlPFI7
-	 5qYMainQ6gFE/AsGETVodi7f6HYPFn6EUFzqkF6qHmBZAUXfUl0L0LRdbdNDvK41gO
-	 l+283jNvNJaJOnYVVdJfjC5Z6lhvn+nKyfJLeiJKY1erw/F3J9N2oeWD8CIh48QTwK
-	 7uuBoFfwbGVFFMTvwkKX5G0rlaSr4fDXNkhG5TR9qnOSBbmFFNau/slGWByx0bIfR1
-	 9xdeiG9EdA8m1o7SzVWK/GjSruN1TovrppXqr4Rq9+N7DgxaP93AgnUb/hoZV+8mHF
-	 ogFz8O1y8Yd6g==
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Valerio Setti <vsetti@baylibre.com>
-Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-In-Reply-To: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
-References: <20260515-reshape-aiu-as-axg-v1-0-53b457784ff3@baylibre.com>
-Subject: Re: [PATCH 0/4] ASoC: meson: aiu: align I2S design to the AXG one
-Message-Id: <177936336749.58022.15311643425508742115.b4-ty@b4>
-Date: Thu, 21 May 2026 12:36:07 +0100
+	id 1wQN7p-0000000AW1n-1SC3;
+	Fri, 22 May 2026 10:29:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wSzyEHIHm/35U1Oc8plpSUbfHu8HJeI3evCHZgZnpFE=; b=nSWtCVq0+kJR05HSLiQIE9VP5t
+	qrG6xage66Jp2C+rqzmRe8jzHHc6m/IO8C8+F7JlOkzcRc0aneaXC9PC4CrHQqLxDsJ3eh1znLe42
+	5+LZB1sUmvTRCPMrVN/XR1t4rLDIIZwm/NjN0ooPHJS9zf5Tdfcb1/yTA15kyqZsg2xCAhhk58NBj
+	DqOOP4G1W9zYrFM4vmozNh5WsLUJAifNV6c9YZwqbvnquLyS7IYbg1VzqYKfEJ9ey5anE9YccOpDm
+	kAmklWUidv8yZcI5r54RUi3dOK2+xNe12v6BQgdA3u6jjmcrRdwcqnRctA+eaIWfkb3NLPZZetKZo
+	i4U4PQRQ==;
+Received: from mgamail.intel.com ([198.175.65.9])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQN7l-00000003ziL-2Zpr;
+	Fri, 22 May 2026 10:29:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779445742; x=1810981742;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=o80USRSoOccAjZ0/+LbXX+qxTLzgZyZiobgDeEHQ1+U=;
+  b=IhTlXiRjW0TA7J3gu+VUcqWocQgejQdBwPd9+C/uzVVMqQlm5+cOGWmu
+   aL4HuDzuCKOl6F2poIRd8/14vygT5LGsm46DUAvHcRd6myTn5qa0k+qV6
+   lpbgZO8LRnQGdrycGKISlj+YL7Wchksrezy9pESwzM2u7jZ39xf+RMIhM
+   R2Sr7Z7y5kBaH3ADET3RRkREhZeeVJEq+3puMKhaBJCcky1gBIcMomELV
+   2uRcLpQr1sMXDmR9N6qPnSUCgj8IiAsUfcWfkNbSFOsZaI/X3JDkuylQh
+   duhIyPvBMmldeJyxz4HNDTjtMj8R8iOimnef9+p4MHdGXoj2nKYXGgea0
+   A==;
+X-CSE-ConnectionGUID: EDLVkt6LReKbQS7G2EqqyQ==
+X-CSE-MsgGUID: On0gyEU8Tr6NeTyhRa5Jow==
+X-IronPort-AV: E=McAfee;i="6800,10657,11793"; a="103052271"
+X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
+   d="scan'208";a="103052271"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 03:28:55 -0700
+X-CSE-ConnectionGUID: L4nas1MgQJyvuR4w2vBveQ==
+X-CSE-MsgGUID: CGSZjljdTVKDuo6whHqd1g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
+   d="scan'208";a="245860596"
+Received: from vpanait-mobl.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.224])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 03:28:51 -0700
+Received: from kekkonen.localdomain (localhost [IPv6:::1])
+	by kekkonen.fi.intel.com (Postfix) with ESMTP id 99493121C7F;
+	Fri, 22 May 2026 13:28:47 +0300 (EEST)
+Date: Fri, 22 May 2026 13:28:47 +0300
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Eugen Hristev <ehristev@kernel.org>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] media: bcm2835-unicam: Fix log status runtime access
+Message-ID: <ahAv3430zwqeDXnQ@kekkonen.localdomain>
+References: <20260521-bcmpipm-v1-1-3eba88d88045@kernel.org>
+ <4d7deb19-d384-497e-8139-c977a9f3679d@yoseli.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1797; i=broonie@kernel.org;
- h=from:subject:message-id; bh=ebbjq7a6Me00P6HJYA9wBoYwNTnmF9z6Nwz/Is0tWGg=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqEC5QDdh25F8efTMW8DSO5nr2kjOL88DYkanVW
- nA4ayETn2qJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahAuUAAKCRAk1otyXVSH
- 0C8xB/9sCgUlqx0uf9DMyJzHr/V511MqhHwb0rKH3r5PjP4QFs0hvDlCTfu19cBKtcGGG55MjtT
- DfoxiIPr6e30pcpPF5ifHFRuspYEank2tlJqSJyaRGzV9YFZqriUw7FJVyOt6Ksbo3kX9KcKRx9
- e6u7z+3NbgKQWQjDI3g/hbD1rkMUgqMgZAqvemXwvYmzWqtv9RefwDr23uumysJKeQBsftj1L1k
- B6++YWFCITy3HeZYeFIxkNsow9v9U+OMJqIUudoNh9pX+5RifhMn0HDQzGMjA23OUUS0+21h6Yv
- 85OezqwcqgpTJNEF3/lUHXAGx3gomW3I3ZEwri6rFlM9oM+D
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <4d7deb19-d384-497e-8139-c977a9f3679d@yoseli.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_112902_360777_65922667 
+X-CRM114-Status: GOOD (  25.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +112,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 15 May 2026 17:10:36 +0200, Valerio Setti wrote:
-> ASoC: meson: aiu: align I2S design to the AXG one
+Hi Eugen, Jean-Michel,
+
+On Fri, May 22, 2026 at 10:31:51AM +0200, Jean-Michel Hautbois wrote:
+> Hi Eugen,
 > 
-> This is the first follow-up patch series based on RFC [1]. The goal here
-> is simply to reshape Amlogic GX's AIU implementation for I2S to follow
-> the same design as in AXG's TDM. Keeping the same design allows for
-> unifying the two platform implementations in the future.
+> Thanks for the fix, the issue is real, but I think the patch leaks a runtime
+> PM reference.
 > 
-> [...]
+> Le 21/05/2026 à 20:09, Eugen Hristev a écrit :
+> > When requesting log status, the block might be powered
+> > off, but registers are being read.
+> > Avoid reading the registers if the device is not
+> > resumed, thus also avoid powering up the device just
+> > for log status.
 
-Applied to
+Please rewrap this, most editors can do that automatically.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+> > 
+> > Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+> > Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+> > ---
+> >   drivers/media/platform/broadcom/bcm2835-unicam.c | 4 ++++
+> >   1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > index 8d28ba0b59a3..818694f007e2 100644
+> > --- a/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > +++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+> > @@ -2052,6 +2052,10 @@ static int unicam_log_status(struct file *file, void *fh)
+> >   		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
+> >   	dev_info(unicam->dev, "V4L2 format:         %08x\n",
+> >   		 node->fmt.fmt.pix.pixelformat);
+> > +
+> > +	if (!pm_runtime_get_if_in_use(unicam->dev))
+> > +		return 0;
+> > +
+> 
+> pm_runtime_get_if_in_use() returns 1 and increments the usage counter is
+> active and in use.
 
-Thanks!
+Also, should this be pm_runtime_get_if_active() instead?
 
-[1/4] ASoC: meson: gx: add gx-formatter and gx-interface
-      https://git.kernel.org/broonie/sound/c/4efe33e7a2f0
-[2/4] ASoC: meson: aiu-encoder-i2s: use gx_iface and gx_stream structures
-      https://git.kernel.org/broonie/sound/c/3383866c1b77
-[3/4] ASoC: meson: aiu: introduce I2S output formatter
-      https://git.kernel.org/broonie/sound/c/df6057a25c52
-[4/4] ASoC: meson: aiu: use aiu-formatter-i2s to format I2S output data
-      https://git.kernel.org/broonie/sound/c/ca3543cf247b
+> 
+> I think we need to add:
+> pm_runtime_put(unicam->dev);
+> 
+> Just before the return 0;
+> 
+> BTW, we may miss a dev_info explaining why the live data is skipped when the
+> device is suspended ?
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+-- 
+Regards,
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Sakari Ailus
 
