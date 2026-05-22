@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B553CD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 04:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF40CD5BAF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 04:44:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PnWTr5M4G1txOK8iaNSiBBsCv6diWB65cB7qFD+glq0=; b=goCruFZBFGMagWJzflfNV3ZhMa
-	/koIqGDpuzIPWzdTfYLB/wFCLHj/Y9XTuuedMqhDQ2FHHXsTGa9MnefpazwTU2LE0Cy+cOQ/3aHlC
-	l2cM2S28WLbwqDInIWXTNCXvtiP8WTK1nO2K86ltiyXv7yDfsHLmSHF+ZYY9tl/29NisTVHWQU2gK
-	9FkdV79MQz+jlPOD9AEnncn4577HDaK/5srpkwskd/+DpoQIDPo65QjfON0lhQZugFhzuPNVj/fy1
-	txLEtdHXb5tL/LbHJ+LvavNO0hdAUhzW20VOXK1B99tYRTTeoTHvj3FUaxnXZz733LnjqDGFZVj1l
-	pEjcVkPg==;
+	bh=wYb7vYqAepxFRoH2FPAszzpLKYcZBm7rEVsl9vC3Ll0=; b=p+uvjw9H6FWfEMNbWMD7Q/qcY2
+	TjpG0GZG0yM09pV0mtAaK4RQ6XgTixH31JI/QiETolQK/iQygJo/zVod4kfFNDpp+PMfpRioW/W4u
+	oOL2I4swh4rS/pbHb9VonSTcEjglYYpaJb95IHjtAjNgsLCnjZaYPfdjV4IdEjoFSqjgNQ4+vwMds
+	/mL9/1P0yNERwmiSd66xWkaiXMa9uYeT9Py+WrY/pKY994YlBCHajDkqa5UxTYvGkIRaHDFyp6nJJ
+	RSSGhwbhNq0944k8rEfWEFnplq+6RfDtUpyBojx6P3OWWG3fyrfEAvHZXlu+NE2piaJBWQYXPTEkB
+	9cRdDbSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQHYg-00000009lAB-1M2j;
-	Fri, 22 May 2026 04:32:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQHkD-00000009mfJ-17Bf;
+	Fri, 22 May 2026 04:44:21 +0000
+Received: from dggsgout12.his.huawei.com ([45.249.212.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQHYd-00000009l8e-28lw
+	id 1wQHkA-00000009meC-0x1r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 04:32:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30ADB43480;
-	Fri, 22 May 2026 04:32:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6AC31F00A3D;
-	Fri, 22 May 2026 04:32:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779424343;
-	bh=PnWTr5M4G1txOK8iaNSiBBsCv6diWB65cB7qFD+glq0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=N1Lo4X9/X/2KPv5cK2+3UKHdUXj1cGz7UQ49YpR4OgSBfR0+o5/zbRv9Z7cltDb50
-	 FwgTU/8k/2hexHUy4YbuJemEE6lSzfhi66i39msOSQ4Bz6GNyATpcOm1rMYcXf9OWR
-	 clSxELElIXK8J5eNJg8255eiDlYEt34uyOkGHxaOA8zTgaijkHvaF4GQFHLw9OI/+1
-	 a3X51B2vggGH+Uo3Y7IFjEncwGqJZZBJcVWIhpJCeRKnOYZ/QJLuxl5i5wYmtzgx/h
-	 1Av8uIqZ12flfvo+MlDQ6FpOex14s+fq2H0CWER71C8OgvcFFRmUhvSte73qn524+a
-	 UwGNG8l5DiBgA==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Alexey Kardashevskiy <aik@amd.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	x86@kernel.org
-Subject: [PATCH v5 20/20] swiotlb: Preserve allocation virtual address for dynamic pools
-Date: Fri, 22 May 2026 09:58:15 +0530
-Message-ID: <20260522042815.370873-21-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260522042815.370873-1-aneesh.kumar@kernel.org>
-References: <20260522042815.370873-1-aneesh.kumar@kernel.org>
+	Fri, 22 May 2026 04:44:20 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4gMCND6t9ZzKHLv5
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:43:56 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 1540240573
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:44:03 +0800 (CST)
+Received: from [10.174.179.37] (unknown [10.174.179.37])
+	by APP4 (Coremail) with SMTP id gCh0CgBnL1sL3w9qXpfDDA--.53130S3;
+	Fri, 22 May 2026 12:43:57 +0800 (CST)
+Message-ID: <d78ebf12-075c-5abd-d83e-f66f0f45e92e@huaweicloud.com>
+Date: Fri, 22 May 2026 12:43:55 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
+Content-Language: en-US
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: will@kernel.org, akpm@linux-foundation.org, npiggin@gmail.com,
+ aneesh.kumar@kernel.org, peterz@infradead.org, linux-kernel@vger.kernel.org,
+ wangkefeng.wang@huawei.com, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ David Hildenbrand <david@kernel.org>
+References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
+ <ag8fHYL-S26uO0yZ@arm.com>
+From: Zeng Heng <zengheng@huaweicloud.com>
+In-Reply-To: <ag8fHYL-S26uO0yZ@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: gCh0CgBnL1sL3w9qXpfDDA--.53130S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxJrWkGw4UCr45Cr43Cr4Uurg_yoW5Jr4Upa
+	43CF13KFZ5Wr1UtF1vqr4UXFy3Can8Jr9ruryrZasYvF12yF1vgFWvyryruFy0yFZ5tr4f
+	WF1j9FnrZF4UZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6r1F6r1fM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUF1v3UUUUU
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_213224_097612_60D458AF 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260521_214418_641689_58AB9D04 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,145 +90,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-swiotlb_alloc_tlb() can allocate from the DMA atomic pool when a decrypted
-pool is needed from atomic context. With CONFIG_DMA_DIRECT_REMAP, the
-atomic pool is backed by remapped virtual addresses, which are not the same
-as the direct-map addresses returned by phys_to_virt().
+Hi Catalin,
 
-swiotlb_init_io_tlb_pool() currently reconstructs the pool virtual address
-from the physical start address. For atomic-pool backed allocations this
-stores the wrong address in pool->vaddr. Later, swiotlb_free_tlb() passes
-that address to dma_free_from_pool(), which will fail to recognize the
-chunk
+On 2026/5/21 23:05, Catalin Marinas wrote:
+> + David H.
+>
+> On Thu, May 21, 2026 at 03:30:11PM +0800, Zeng Heng wrote:
+>> From: Zeng Heng <zengheng4@huawei.com>
+>>
+>> When huge_pmd_unshare() is called to unshare a PMD table, the
+>> tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
+>> but the aarch64 tlb_flush() only checked tlb->freed_tables to
+>> determine whether to use TLBF_NONE (vae1is, invalidates walk
+>> cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
+>>
+>> This caused the stale PMD page table entry to remain in the walk cache
+>> after unshare, potentially leading to incorrect page table walks.
+>>
+>> Fix by including unshared_tables in the check, so that when
+>> unsharing tables, TLBF_NONE is used and the walk cache is properly
+>> invalidated.
+>>
+>> Here is the detailed distinction between vae1is and vale1is:
+>>
+>> | Instruction Combination  | Actual Invalidation Scope                         |
+>> | ------------------------ | --------------------------------------------------|
+>> | `VAE1IS`  + TTL=`0`      | All entries at all levels (full invalidation)     |
+>> | `VAE1IS`  + TTL=`2` (L2) | Non-leaf at Level 0/1 + leaf at Level 2           |
+>> | `VALE1IS` + TTL=`0`      | Leaf entries at all levels (non-leaf not cleared) |
+>> | `VALE1IS` + TTL=`2` (L2) | Leaf entry at Level 2 only                        |
+>>
+>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+> The fix looks fine but does it need:
+>
+> Fixes: 8ce720d5bd91 ("mm/hugetlb: fix excessive IPI broadcasts when unsharing PMD tables using mmu_gather")
+> Cc: <stable@vger.kernel.org>
 
-Pass the virtual address returned by the allocation path into
-swiotlb_init_io_tlb_pool(), and store that address in pool->vaddr. This
-keeps the pool free path using the same virtual address as the allocator.
+It makes sense to me. Thanks a lot for that.
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
----
- kernel/dma/swiotlb.c | 32 +++++++++++++++++++-------------
- 1 file changed, 19 insertions(+), 13 deletions(-)
 
-diff --git a/kernel/dma/swiotlb.c b/kernel/dma/swiotlb.c
-index 14d834ca298b..e4bd8c9eaeda 100644
---- a/kernel/dma/swiotlb.c
-+++ b/kernel/dma/swiotlb.c
-@@ -302,9 +302,9 @@ void __init swiotlb_update_mem_attributes(void)
- }
- 
- static void swiotlb_init_io_tlb_pool(struct io_tlb_pool *mem, phys_addr_t start,
--		unsigned long nslabs, bool late_alloc, unsigned int nareas)
-+		void *vaddr, unsigned long nslabs, bool late_alloc,
-+		unsigned int nareas)
- {
--	void *vaddr = phys_to_virt(start);
- 	unsigned long bytes = nslabs << IO_TLB_SHIFT, i;
- 
- 	mem->nslabs = nslabs;
-@@ -445,7 +445,7 @@ void __init swiotlb_init_remap(bool addressing_limit, unsigned int flags,
- 		return;
- 	}
- 
--	swiotlb_init_io_tlb_pool(mem, __pa(tlb), nslabs, false, nareas);
-+	swiotlb_init_io_tlb_pool(mem, __pa(tlb), tlb, nslabs, false, nareas);
- 	add_mem_pool(&io_tlb_default_mem, mem);
- 
- 	if (flags & SWIOTLB_VERBOSE)
-@@ -553,7 +553,7 @@ int swiotlb_init_late(size_t size, gfp_t gfp_mask,
- 		}
- 	}
- 
--	swiotlb_init_io_tlb_pool(mem, virt_to_phys(vstart), nslabs, true,
-+	swiotlb_init_io_tlb_pool(mem, virt_to_phys(vstart), vstart, nslabs, true,
- 				 nareas);
- 	add_mem_pool(&io_tlb_default_mem, mem);
- 
-@@ -664,25 +664,26 @@ static struct page *alloc_dma_pages(gfp_t gfp, size_t bytes,
-  * @phys_limit:	Maximum allowed physical address of the buffer.
-  * @attrs:	DMA attributes for the allocation.
-  * @gfp:	GFP flags for the allocation.
-+ * @vaddr:	Receives the virtual address for the allocated buffer.
-  *
-  * Return: Allocated pages, or %NULL on allocation failure.
-  */
- static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
--		u64 phys_limit, unsigned long attrs, gfp_t gfp)
-+		u64 phys_limit, unsigned long attrs, gfp_t gfp, void **vaddr)
- {
- 	struct page *page;
- 
-+	*vaddr = NULL;
-+
- 	/*
- 	 * Allocate from the atomic pools if memory is encrypted and
- 	 * the allocation is atomic, because decrypting may block.
- 	 */
- 	if (!gfpflags_allow_blocking(gfp) && (attrs & DMA_ATTR_CC_SHARED)) {
--		void *vaddr;
--
- 		if (!IS_ENABLED(CONFIG_DMA_COHERENT_POOL))
- 			return NULL;
- 
--		return dma_alloc_from_pool(dev, bytes, &vaddr, gfp,
-+		return dma_alloc_from_pool(dev, bytes, vaddr, gfp,
- 					   attrs, dma_coherent_ok);
- 	}
- 
-@@ -705,6 +706,8 @@ static struct page *swiotlb_alloc_tlb(struct device *dev, size_t bytes,
- 			return NULL;
- 	}
- 
-+	if (page)
-+		*vaddr = phys_to_virt(page_to_phys(page));
- 	return page;
- }
- 
-@@ -750,6 +753,7 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
- {
- 	struct io_tlb_pool *pool;
- 	unsigned int slot_order;
-+	void *tlb_vaddr;
- 	struct page *tlb;
- 	size_t pool_size;
- 	size_t tlb_size;
-@@ -767,7 +771,8 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
- 	pool->unencrypted = !!(attrs & DMA_ATTR_CC_SHARED);
- 
- 	tlb_size = nslabs << IO_TLB_SHIFT;
--	while (!(tlb = swiotlb_alloc_tlb(dev, tlb_size, phys_limit, attrs, gfp))) {
-+	while (!(tlb = swiotlb_alloc_tlb(dev, tlb_size, phys_limit, attrs, gfp,
-+					 &tlb_vaddr))) {
- 		if (nslabs <= minslabs)
- 			goto error_tlb;
- 		nslabs = ALIGN(nslabs >> 1, IO_TLB_SEGSIZE);
-@@ -781,12 +786,12 @@ static struct io_tlb_pool *swiotlb_alloc_pool(struct device *dev,
- 	if (!pool->slots)
- 		goto error_slots;
- 
--	swiotlb_init_io_tlb_pool(pool, page_to_phys(tlb), nslabs, true, nareas);
-+	swiotlb_init_io_tlb_pool(pool, page_to_phys(tlb), tlb_vaddr, nslabs,
-+				 true, nareas);
- 	return pool;
- 
- error_slots:
--	swiotlb_free_tlb(page_address(tlb), tlb_size,
--			 !!(attrs & DMA_ATTR_CC_SHARED));
-+	swiotlb_free_tlb(tlb_vaddr, tlb_size, !!(attrs & DMA_ATTR_CC_SHARED));
- error_tlb:
- 	kfree(pool);
- error:
-@@ -1995,7 +2000,8 @@ static int rmem_swiotlb_device_init(struct reserved_mem *rmem,
- 			mem->unencrypted = false;
- 		}
- 
--		swiotlb_init_io_tlb_pool(pool, rmem->base, nslabs,
-+		swiotlb_init_io_tlb_pool(pool, rmem->base, phys_to_virt(rmem->base),
-+					 nslabs,
- 					 false, nareas);
- 		mem->force_bounce = true;
- 		mem->for_alloc = true;
--- 
-2.43.0
+Best regards,
+Zeng Heng
+
+>> ---
+>>   arch/arm64/include/asm/tlb.h | 3 ++-
+>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+>> index 10869d7731b8..751bd57bc3ba 100644
+>> --- a/arch/arm64/include/asm/tlb.h
+>> +++ b/arch/arm64/include/asm/tlb.h
+>> @@ -53,7 +53,8 @@ static inline int tlb_get_level(struct mmu_gather *tlb)
+>>   static inline void tlb_flush(struct mmu_gather *tlb)
+>>   {
+>>   	struct vm_area_struct vma = TLB_FLUSH_VMA(tlb->mm, 0);
+>> -	tlbf_t flags = tlb->freed_tables ? TLBF_NONE : TLBF_NOWALKCACHE;
+>> +	tlbf_t flags = (tlb->freed_tables || tlb->unshared_tables) ?
+>> +			TLBF_NONE : TLBF_NOWALKCACHE;
+>>   	unsigned long stride = tlb_get_unmap_size(tlb);
+>>   	int tlb_level = tlb_get_level(tlb);
+>>   
+>> -- 
+>> 2.43.0
 
 
