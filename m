@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42A3FCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68668CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:34:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zq0bJbefph0AAGvXGgXMgxADCBjnqDWg/GTQ4ba21xY=; b=W9eKBgQadsztYPMfPYgIuuigHE
-	H41XvlalpRBPWWt4TGKoIMFeU9GjNpUpIhtPnD5jeIOrPERgVG+iZE4N3TL4ixt60YubEtARyTJzI
-	ICQhjiAZ1+9GC/zifYnsp4wcORCdorvqCXd0fBm44/k3ge6Qr8KWFIHTPo/MONHYVVUdHYigJoIFa
-	1rXBEVtSPh/k8UE/p5pyYsH5krSFNkjVWgQOHVxzcuOeukaD76spdr88QiE82rv2z0kaqm9QMwE+8
-	mMgCyQpLC+PA13bJ+FKutjZ6oadLhKOKTIwX+6GfGtkT2BARIml94+Mz4mvQecaiYnF9pmU/k4JSx
-	9v5aM/NA==;
+	bh=zq0bJbefph0AAGvXGgXMgxADCBjnqDWg/GTQ4ba21xY=; b=oKx7Kxz2pKoFEUHwhZDSSv4FJl
+	sA64rmeGRvPMSYK6kc2WqoFLdtKpfRxw2vCNNr32s1lKEQJ1QoQKdxaXsAHztKYD0APWwbOZsPCH1
+	VdRxgNMbgV6epoGhf6M1UjQBejgQeTrkjbAlKN40g3lGaTK+tIBc9WBq1lVjKV5RkzLYrCajn+AEo
+	Doaa/yLzhF+LxdDLtJ3N1+Q0aYqX2nP6P3PMJ2fCVD62+AVlRGZv7SN5/PWlPH7OteU9VuDQWP9Pi
+	hNWvHE/ezJdBpODgBo1C3ms1n9W4fR272iZW/drhyg80+VLmujk2yI1ee9fbhiSyfrhYhIhdMaxH0
+	OMs0+96g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ0j-0000000AzMK-0C0t;
-	Fri, 22 May 2026 13:33:57 +0000
-Received: from mail-vs1-f46.google.com ([209.85.217.46])
+	id 1wQQ17-0000000AzTm-0iMp;
+	Fri, 22 May 2026 13:34:21 +0000
+Received: from mail-vk1-f170.google.com ([209.85.221.170])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQQ0g-0000000AzKv-00t4
+	id 1wQQ15-0000000AzSt-2HhX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:33:55 +0000
-Received: by mail-vs1-f46.google.com with SMTP id ada2fe7eead31-6314287380bso5335706137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:33:53 -0700 (PDT)
+	Fri, 22 May 2026 13:34:20 +0000
+Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-57513a91514so2421648e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:34:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456833; x=1780061633;
+        d=1e100.net; s=20251104; t=1779456858; x=1780061658;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
         bh=zq0bJbefph0AAGvXGgXMgxADCBjnqDWg/GTQ4ba21xY=;
-        b=tKfWLNx0BoH2rys8HFUuNLqGDscomR5pT/3/MiGz3yLe6bp3L4ETWCAgrOq2/oc1p/
-         LMc502zNUT/9EooIRicFl6+wIKxwveWdOKBY4M1U5bVI1WEmQjEJM2EBNfshoHAmVxsr
-         XwEldShvQR94V/uKKJYdkrOxdFtN8zH6DCKYoFuZAXc0Oa7qJLxkdfq+itooI1bvnzvq
-         /hTC3OGHaRp3R2FR6UinKgDmpUFsS2HW+9lIEVINqgdNoyMZa+ncvd9K8NT9BPPMrElh
-         5fSn+vVLqqHPoC9iFlfLNUUIC5ifCSFohdm60p4Wr6XnnhxzdZ0pVq52vveXR8QagP8u
-         tCDw==
-X-Gm-Message-State: AOJu0YzivLsyZ9pbw4EiDGeHYeG2eGZVM9J3ezhVye6LyEh1qDSwXlTL
-	Bdy9hdFIE5BLi2NVo4gMGBiIe19d9VANAFjP2HtHffXqnULZoa12q40k6fIamOzF0ME=
-X-Gm-Gg: Acq92OGzev+iH2kHC6he/j/4Zn/Pi6nKf0x6yeRmFtStWc0gssjWkVjoVuBj56o9vzL
-	FYCtcClmxKewGbCKyIV6a0ScSNeV68q/pcL+8C318Dk5F/xjyN9B+mBtswKdOQLRRqtG8l3qD++
-	eOVZzrkoom4gswkYG6vuAiiMSsla5NZrdXJoH8LkA9ZrfFheZR7dFV5Dthvzf47AZtzmRYuIvzs
-	Bppi7AMMKk6YaGNvZSryQ7eH5fl6MbQS/LPb1vh7JkCiHv+cC3FzR7aChYGR/hpwvgj+FNkY97T
-	vZbN3xjcQkJ48QfntTWAg6iUXPLVthzuvub4jWhKzalUF7ny8IR9YfGl8nmsx4U4zoVi/t1/lS+
-	cY56cJuyK2wn+03Z7r807E9Up4SK0gDcLl3ZzUlLkWY78uihCcn/jRM7dWkfkgcNe4KIrBntRYJ
-	4MoPRkzlZHgqqNMls9w57+/2e+bMEndzl2tEYC1VHsfKVrXvOdTWDtBwZIUc43VaG4
-X-Received: by 2002:a05:6102:5114:b0:633:7d88:c77d with SMTP id ada2fe7eead31-67c90853280mr1828907137.29.1779456832699;
-        Fri, 22 May 2026 06:33:52 -0700 (PDT)
+        b=ZgrBkYGZRf/24HkClORSq8+Y2uWFNifbcHHO8+qPMDqofg3MCehB37w6hIp7kPLOBL
+         iy+/Hcd3OJEc14fH7I72p4aCiB+y7pkOLeQ24S9ueEz6oi+arxcjqS8eHQwY9zYMpZi4
+         /AihvtWpVCgEaQrvfbGA/fQbf+lDq/w8ZmZu7FE4jw1AiRv9jpso6yKbdgh2EP3jrAES
+         ka9cRIhL0DE8DxVr2tIm1KiVZWnPWlmPJf1gpnz+/q3MbI4ay/lcsWp1n9Su/0nHY31N
+         9bWP2VVf/J1vmg7k3NfBlVdnkcTgfMQNRsJIhxVTCXtMvJAx0oYtjIt3BRD17CNy3WFo
+         jR+w==
+X-Gm-Message-State: AOJu0YzyAzm/4cUup2XcJXFF3qto/l62Oq3unVd/eKwCFJL0Zwt+Viq+
+	FYGGbiE7RMXDlpfugDtUeI/JWgcRWvXma3JPiMrCEbHWbdhQOzPPO7eQUwp5puOjRKQ=
+X-Gm-Gg: Acq92OFe9C3tOcXzteu/PTupNpvU1GEkgH3X/ctZk9UNlLRg4g7AurVHHhLjpOoy/Ie
+	BVSTbYS0xuXNK15L8FyV4VmAXZl6U6M3b/IU2X+/g3TUmgF+fR6crRfR6rQDqqLvijGIBQFDTop
+	ebOrtgEGBdRIVKc1f9bxNzXFrfNQxWDwDAFq81ajHn4mGSJN/ctgpfmR5TReDD8ODU2GN3KqdDS
+	7cLuI/txI8lQHVaSpLFLoanoxS4uYAHXv/w+pVJsNFPqwDGNAugUmcib9fKjvhokwKWqHOEIdkr
+	wHxUnR7QILPhS4ohQp10YlRksAdl9jASFfT9eo+k1nzOmmkqJjUIGpV16Ru+UCeeVe64NiqjP9b
+	6b8jHm7MXuucgRAiqMO5OgnJIMnahx0UOCxpn7/7iBnzXXFBPCizkBZyJQLIkiWkFPRScoRz22z
+	eW/mGQNQywva13BWQLLx+II85gDtCF9T5WxYcuCWA1jPlkMvJ4VFRfCM6b7c6BvC0S
+X-Received: by 2002:a05:6122:a0b:b0:56f:2aaa:450c with SMTP id 71dfb90a1353d-5865e4a60f4mr1864758e0c.1.1779456858022;
+        Fri, 22 May 2026 06:34:18 -0700 (PDT)
 Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com. [209.85.221.169])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-67fc9a0fd00sm1383564137.0.2026.05.22.06.33.51
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96173afdb54sm1560590241.8.2026.05.22.06.34.17
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 06:33:51 -0700 (PDT)
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-57516bb40b9so5308395e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:33:51 -0700 (PDT)
-X-Received: by 2002:a05:6122:3d0e:b0:575:22f2:a1f with SMTP id
- 71dfb90a1353d-5865f726da6mr2054383e0c.4.1779456831104; Fri, 22 May 2026
- 06:33:51 -0700 (PDT)
+        Fri, 22 May 2026 06:34:17 -0700 (PDT)
+Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-57513a91514so2421630e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:34:17 -0700 (PDT)
+X-Received: by 2002:a05:6122:3214:b0:56f:2609:cd95 with SMTP id
+ 71dfb90a1353d-586626bd8acmr2048945e0c.9.1779456857164; Fri, 22 May 2026
+ 06:34:17 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260504225704.115125-1-marek.vasut+renesas@mailbox.org> <20260504225704.115125-4-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504225704.115125-4-marek.vasut+renesas@mailbox.org>
+References: <20260504225704.115125-1-marek.vasut+renesas@mailbox.org> <20260504225704.115125-5-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260504225704.115125-5-marek.vasut+renesas@mailbox.org>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 15:33:40 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVeGsp+g2mGu7EQo6cN1v6-ectETVU+PtWUpznHboS-TQ@mail.gmail.com>
-X-Gm-Features: AVHnY4KJmR-uF4CxL9myINVO4InRW9Xy-V6WIFG-Jxn6EItYI51QzaUkbyalZ7o
-Message-ID: <CAMuHMdVeGsp+g2mGu7EQo6cN1v6-ectETVU+PtWUpznHboS-TQ@mail.gmail.com>
-Subject: Re: [PATCH 4/5] arm64: dts: renesas: salvator-common: Rename
- clk-multiplier to clock-controller
+Date: Fri, 22 May 2026 15:34:05 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX7cQ8N3L0g6K4nsJSy8UUut2hNcP7=FovSf+UK_VzwDw@mail.gmail.com>
+X-Gm-Features: AVHnY4L1t-E-4KNi3I0TSerFd7ad9ospqXgo4JNrc9drpmUktdoXOv4OmGqhgvQ
+Message-ID: <CAMuHMdX7cQ8N3L0g6K4nsJSy8UUut2hNcP7=FovSf+UK_VzwDw@mail.gmail.com>
+Subject: Re: [PATCH 5/5] arm64: dts: renesas: ulcb: Rename clk-multiplier to clock-controller
 To: Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
@@ -79,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
 	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_063354_044802_2AF4E271 
-X-CRM114-Status: GOOD (  16.49  )
+X-CRM114-CacheID: sfid-20260522_063419_577154_2B35B8E9 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
