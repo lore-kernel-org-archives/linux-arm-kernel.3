@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00ACCD4F5B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 05:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 149EDCD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 05:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6VthUqcKepKjJupP2u4sKeVYf/HcaCpW/hf4AjZgMk=; b=YKo7HcXbtstXhO11mefcdHitBo
-	bM1iz0aR5nGQpUGNduQh2rgCtlPcDGO8bnRHT1+CDlaoJRSN6VwtRdOOHD0ZjPaQr4Dr5ojNtUusX
-	b/mn4F9EETo1VCXaifmJD0jYMelm/8bIVWvihlZSBnGkC46vZ+cP2N9QIssVskzNpBZi1LDXOxnmS
-	jaMSZMFeOlCxaKGvaaZhS5fQKsP53i86xzy5CgHybiY+gQChYG5QxyD6KABCmZCKXG/Tfk1jxzAJd
-	SJLjAhkr0fWA8cAIyoSqhqnhKec0BFNaNAyeBbHAgRynKj5siKpCp4OGGTjXJbz1eYuFiG0F5h9+Z
-	gze0uD7Q==;
+	bh=HydODzhJG5OH95FA088njE0U9Wx1Okn+yobhn9IOhgQ=; b=PD+xgMq+k2I6/vhGGM38SCXXLS
+	bJkBPUn2HON1ibk6QOvN2N02F+EqMXR7v/LamffXKbZ4ezSoSVrPSDdd28X/H3HxFq35tK+Pffg1L
+	o7/Gzu1KK2WZJ8+52HP4suKNKyuP1JEG2HnTNovdeqhuoJZzFEr1ve3FF7AqcgER8izdwTjhGri2z
+	aGpp75VCUZ67J6OACwg/mk4+LG0ppVuei+4UCHiu4eLoRv+Tgxj4iES+cpwvxDAQAYzKbJxYc9qKM
+	NRkUffiFeMuF3dISQpoaB/urT67EzguZ1QsoBgJ3r5lv2hTtVQglpx5tI3ZiT2saEE/fWJon5MNMu
+	q7ahfNTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQIUS-00000009rZU-3j9i;
-	Fri, 22 May 2026 05:32:08 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wQIUY-00000009rcd-0Muy;
+	Fri, 22 May 2026 05:32:14 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQIUN-00000009rWP-0C9d
+	id 1wQIUR-00000009rYq-3wEN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 05:32:04 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2ba6485d219so52147005ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 22:32:02 -0700 (PDT)
+	Fri, 22 May 2026 05:32:09 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2bd80b3aa13so44939515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 22:32:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779427922; x=1780032722; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779427927; x=1780032727; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=C6VthUqcKepKjJupP2u4sKeVYf/HcaCpW/hf4AjZgMk=;
-        b=Qpq+oLjy8wH5/IMQO+dXb8Pbo2YNp2w2R81KVnCFUu022o06ACnsCMLYWHhBDw0BEQ
-         CRrOU9D7SQlpJl5sPYeBFPd2MM8GbERfLkyVnKm65lIbqgmHb0nrfOmRYJkAOSUjHjGD
-         h7+t+Jc4VrlvlVssNd6aXVWp66Db2vWQsqW7gKz0qxpRmRHXZJIqXr3zLLCtT+X/SF9D
-         uhAS5Llw5MIhwNPgPyCSWRgZcG0474Q/yvSnqLaHvP3a2M75rw7tKJUXfTAjH0tM3zgu
-         /RrEbhCVwzouuXPxwsT8If+y4fyLCsFN2Oxw1h5pWy+R9vbSdAMY2QsXeaR8uqaz/S7a
-         RJXg==
+        bh=HydODzhJG5OH95FA088njE0U9Wx1Okn+yobhn9IOhgQ=;
+        b=J8bIF/rb/U+JjXwF2IfQ9yi8qhkInLyIMPedgos4jWOUgzambkXuNI0BVzgIBWSsuq
+         3kgUL7cyiTqd4x81RWtn6I7ffU2Bsdmv141bcu+Uus3wEDKR+TMl4PszVUzNL+ILbpLK
+         IdtSi5hXPnb2/4gy/eJ91JIzAjj97xY6l50ADBPQkDKNxXxVMhHTi85TfZMH/veIgjuD
+         um2RLJE0bIVCVw5TCcrLeXnNE2Yr+j3z2d6nBFOBMPfVDuxVy+EX2vTHvuhixXjx+w74
+         bjV2r2ZANN6peGom6QzQmU8uNjn0WogzAJLO0RgIsiHn7kbD/25KxYSD0E+/lfKRq3H5
+         s++Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779427922; x=1780032722;
+        d=1e100.net; s=20251104; t=1779427927; x=1780032727;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=C6VthUqcKepKjJupP2u4sKeVYf/HcaCpW/hf4AjZgMk=;
-        b=aLytQxClf/x1IgBQi63PM6mzQV8Vwk98HyO+WsgcIyJuGkhcdRO3Gskst5bUGKsoqS
-         /FiqZWWjQpLl3xW+U/astMc7lRmtt5LBJQprx9qXDYFMwHxys0kaYxC3Uwm6VdDAaEED
-         HuoURaLyAoDE9dDeZXdBYI6UTR9GFPUDTALKIEb9hTYoCLBrXqrtpCOgsMJBSZ+HQwj7
-         ooM7FLtNjO9AqjZ6Qz6oX6C4xNRb1wyRZGHAPKOVy9mbLDGFW4KbMtd2zQSPt5lJY345
-         7dwrgMORViaYiIFaCLq/Uk6SZXPl8Q6cPXYZaJlHAbv9Z5eipizgLl60jvC9Y9kz2S3o
-         JyeQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9hwd6y/xctlvyEWsreschv7+sWNUTFcFsuJaDchVgdBh/Fo7w+NEf6eKsiu6y/N3RKYBi8rH9ArbdpQMyZZbt7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0G2sJHS1njGVUnvxUNz9bGIJXBANyyBhkvQUR4Xvxhy4KWM43
-	HBw6QmF0OlrVp3c91rm7zoBERC8Qv2cxIUXBCQrwNq8x8tKeN2hyrEN4
-X-Gm-Gg: Acq92OH/by9bNzvpTKj9ojXXAT5kefvMmVHGY0nnoXfI76DNsBKD8IprD+CxjfU6T/k
-	HYTSr/5FHKWsp6fSjJErzW8Q4Y9MJKtf05zbJjlYgwmFgyCAv//0bYyUx+dlah+UMYbJ7MnNynh
-	r21MqMTTLhUlgG7jpAMXek2zE6MtBX0GOLQKkPlBFqQqabwexo3En+2DDtbZJVL5QmKYbhse8Jz
-	3mfIXy0ZC18HO66G1sjrc2UsipaWr5Qe2g7A60ScqlhHl2u1VTJZTIBpAmvbsTZCr3GHrT95T0n
-	e6mB/8xg12t3ukirn+LAkL7IUln/j3prSkAZ7jthN2Xo4Wm+CbaLgzSH0TfGSMKkX/vXpobWLAY
-	iabEpU59KuxD51pzY78C9VFCgAaG7uBZRq0B8iSAdEu/lDIEKUsGXb4W8/WQfFcCIL3DWPOtGHV
-	jn3qWDJPMMqt3kKDlZbRNFOBomEl4X4Na5nKd2fvxcntNZxCE9qhY=
-X-Received: by 2002:a17:902:f705:b0:2be:3dbc:eee5 with SMTP id d9443c01a7336-2beb0365bbcmr23143495ad.2.1779427922345;
-        Thu, 21 May 2026 22:32:02 -0700 (PDT)
+        bh=HydODzhJG5OH95FA088njE0U9Wx1Okn+yobhn9IOhgQ=;
+        b=BT+Rp2mwy8adH+y7tx5//VLOjWZR8Wu7kNZi4fprvYfu7jYhL2zrJfi+Acmbcre0po
+         FN041jtsqy4KfMiehrfbjsgSDk3fOAHq537/KLfNwpifBp9QItf+J6m5hi/VXHkKnZPw
+         cxlZkQYSHfubqALKMKleQq4U8SOeJr9adeYT6oPcwzj7kGD86sjgdBZV20uWKYcigyqi
+         YrVi/gfVMM914jVOP/jz3ZXZ3PuObT1ipV+vx6H1ulkCeYgVW8lSv0ndW6vp4Vjs1R6O
+         08Jj02cVSRY0eaO4npq3v/1aiGXu04bBk/K2GSVTXIX7HjTLgqqR7APvw7xMuKKGYdVo
+         stvg==
+X-Forwarded-Encrypted: i=1; AFNElJ9tZ6H1unb4iXUGAKDWbXzJ6C/jGGf3XO1dYivh45O0v+QOiYZiqmiqhURmZwWG4sNsB6DqOZO5n9f8jAHXajCr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxePZfl9MxBNHhkM82BVn7Zm+4XMlkrqLThswkiwpbwaAS+7/QH
+	UZOj/cFs6FHJfoK2ELlCY+GTkBKb2OEEgQ5Nw2rfQXvyvJ6usKffmUEF
+X-Gm-Gg: Acq92OFH/r7GMGJjfLcjtwCucViYnbYcsCzPfqL82fzTatDrRT17RYlNtXt7u5cjkSD
+	05Y+kqPIGtYfkS3zHpPuwc5YaiyUDUfRw3hp9nURarEm6+p5KKcb0ycjet41bx0/DU5qrlN8F2g
+	rGZH0vFBYktBJKTXbcUnu0uNI+Dg2eeDX+Rhnz9xBlGbdZld7A7CrjTrIKB901L5y5Xp1MBvI+f
+	HhaVLFLHddsfp6w4vOqBIhf0B8N4YeUSZeJHD92RFFDIBpwOdfsxEa6leBXkk/eTBA31c6WLeA7
+	mm6SyFCTTNlCcfhZUtfAU548pBYb29eBDF9VLhYQcVMU5ljLThBGY64ttr39txOrxpZlI7OKXg0
+	Dv2ACbtYuAVBpqzQ3U2q6/+91GvU+w57FUMaGQ74mMIHqceNmkgcLLQ8mvFvyxUOffg16IfTgGm
+	SXQy7U6ywuqlMmgB20loYwFRO0PSQ8gbFf3k4edjdbSC+oso8o3Pc=
+X-Received: by 2002:a17:903:f8b:b0:2bd:5026:ca11 with SMTP id d9443c01a7336-2beb06ea84cmr20575295ad.2.1779427926999;
+        Thu, 21 May 2026 22:32:06 -0700 (PDT)
 Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56d68adsm4782665ad.32.2026.05.21.22.31.58
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56d68adsm4782665ad.32.2026.05.21.22.32.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 22:32:02 -0700 (PDT)
+        Thu, 21 May 2026 22:32:06 -0700 (PDT)
 From: Wen Jiang <jiangwenxiaomi@gmail.com>
 To: linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -86,17 +86,17 @@ Cc: baohua@kernel.org,
 	ajd@linux.ibm.com,
 	linux-kernel@vger.kernel.org,
 	jiangwen6@xiaomi.com
-Subject: [PATCH v3 2/6] arm64/vmalloc: Allow arch_vmap_pte_range_map_size to batch multiple CONT_PTE
-Date: Fri, 22 May 2026 13:31:42 +0800
-Message-Id: <20260522053146.83209-3-jiangwenxiaomi@gmail.com>
+Subject: [PATCH v3 3/6] mm/vmalloc: Extract vmap_set_ptes() to consolidate PTE mapping logic
+Date: Fri, 22 May 2026 13:31:43 +0800
+Message-Id: <20260522053146.83209-4-jiangwenxiaomi@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
 References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_223203_088857_AF35005A 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260521_223207_985464_D782256D 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,42 +111,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+Extract the common PTE mapping logic from vmap_pte_range() into a
+shared helper vmap_set_ptes(). This handles both CONT_PTE and regular
+PTE mappings in a single function, preparing for the next patch which
+will extend vmap_pages_pte_range() to also use this helper.
 
-Allow arch_vmap_pte_range_map_size to batch multiple CONT_PTE hugepages,
-reducing both PTE setup and TLB flush iterations.
+The #ifdef CONFIG_HUGETLB_PAGE guard is moved inside vmap_set_ptes(),
+so callers no longer need to handle the conditional compilation.
 
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
 Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
 Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
 ---
- arch/arm64/include/asm/vmalloc.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ mm/vmalloc.c | 49 ++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 34 insertions(+), 15 deletions(-)
 
-diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-index 4ec1acd3c1b34..787fd17b48e2c 100644
---- a/arch/arm64/include/asm/vmalloc.h
-+++ b/arch/arm64/include/asm/vmalloc.h
-@@ -23,6 +23,8 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
- 						unsigned long end, u64 pfn,
- 						unsigned int max_page_shift)
- {
-+	unsigned long size;
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 2c2f74a07f396..53fd4ee460ea4 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -91,6 +91,35 @@ struct vfree_deferred {
+ static DEFINE_PER_CPU(struct vfree_deferred, vfree_deferred);
+ 
+ /*** Page table manipulation functions ***/
 +
- 	/*
- 	 * If the block is at least CONT_PTE_SIZE in size, and is naturally
- 	 * aligned in both virtual and physical space, then we can pte-map the
-@@ -40,7 +42,9 @@ static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
- 	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
- 		return PAGE_SIZE;
++/*
++ * Set PTE mappings for the given PFN. Try CONT_PTE mappings first when
++ * supported, otherwise fall back to PAGE_SIZE mappings.
++ *
++ * Return: mapping size.
++ */
++static __always_inline unsigned long vmap_set_ptes(pte_t *pte,
++		unsigned long addr, unsigned long end, u64 pfn,
++		pgprot_t prot, unsigned int max_page_shift)
++{
++#ifdef CONFIG_HUGETLB_PAGE
++	if (max_page_shift > PAGE_SHIFT) {
++		unsigned long size;
++
++		size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
++		if (size != PAGE_SIZE) {
++			pte_t entry = pfn_pte(pfn, prot);
++
++			entry = arch_make_huge_pte(entry, ilog2(size), 0);
++			set_huge_pte_at(&init_mm, addr, pte, entry, size);
++			return size;
++		}
++	}
++#endif
++	set_pte_at(&init_mm, addr, pte, pfn_pte(pfn, prot));
++	return PAGE_SIZE;
++}
++
+ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 			phys_addr_t phys_addr, pgprot_t prot,
+ 			unsigned int max_page_shift, pgtbl_mod_mask *mask)
+@@ -98,7 +127,8 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 	pte_t *pte;
+ 	u64 pfn;
+ 	struct page *page;
+-	unsigned long size = PAGE_SIZE;
++	unsigned long size;
++	unsigned int steps;
  
--	return CONT_PTE_SIZE;
-+	size = min3(end - addr, 1UL << max_page_shift, PMD_SIZE >> 1);
-+	size = 1UL << __fls(size);
-+	return size;
- }
+ 	if (WARN_ON_ONCE(!PAGE_ALIGNED(end - addr)))
+ 		return -EINVAL;
+@@ -119,20 +149,9 @@ static int vmap_pte_range(pmd_t *pmd, unsigned long addr, unsigned long end,
+ 			BUG();
+ 		}
  
- #define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
+-#ifdef CONFIG_HUGETLB_PAGE
+-		size = arch_vmap_pte_range_map_size(addr, end, pfn, max_page_shift);
+-		if (size != PAGE_SIZE) {
+-			pte_t entry = pfn_pte(pfn, prot);
+-
+-			entry = arch_make_huge_pte(entry, ilog2(size), 0);
+-			set_huge_pte_at(&init_mm, addr, pte, entry, size);
+-			pfn += PFN_DOWN(size);
+-			continue;
+-		}
+-#endif
+-		set_pte_at(&init_mm, addr, pte, pfn_pte(pfn, prot));
+-		pfn++;
+-	} while (pte += PFN_DOWN(size), addr += size, addr != end);
++		size = vmap_set_ptes(pte, addr, end, pfn, prot, max_page_shift);
++		steps = PFN_DOWN(size);
++	} while (pte += steps, pfn += steps, addr += size, addr != end);
+ 
+ 	lazy_mmu_mode_disable();
+ 	*mask |= PGTBL_PTE_MODIFIED;
 -- 
 2.34.1
 
