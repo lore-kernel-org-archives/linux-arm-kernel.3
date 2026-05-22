@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1227BCD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 616A9CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szBb9VN5OI/LxN852+H6x+3LXcGPvGU0m4BLzBAkL+k=; b=yjRUKeul1DBt3Y86XNS1bAbtD6
-	+XeeUdntj4J6Y7U5jPdHhs5Atjiigwo5C9lQsO6FHGaUHIQcetezJu+S7zIRqR0tUs7FOxpH5mrrh
-	sA9iiAw5N9ZcNl4M/mF3X1AG6g7Yv6ZrCnf3jPdjEDc5IBi1FPpfRUx7goKyRUtPwvFspNUh4s/AK
-	EDbllntMJnD3b3A01giL3McDWFQxsBQIH1wUXI+bs5nJaJ2JlkjIi9c/mEWvm1m4zZU8VAoT/tEmC
-	AjWh58RjMzb+tS/UJ+AISUUnWCofa31cEw99dq4R3kvLWivAxfo12JlKObZ4Kb3FuRx1hHibiYft1
-	NI549pDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OFJS4E8ysH6VWoRSBHjAlfd82xpgU6b8hTLyq1WoytQ=; b=OJDdX7GCCi5wNOECULnU7FmznM
+	LcENGsGTdTS3ujU1k0TYBWSTH2vTgKH1rMtL+Yrb1HQ50vlx7MCX3+lARU+gIlzj06YaCH+RAemo1
+	LAQlMkduldqgmVMpnOCLX1JiqPQ6BkLH0hJ6qBIel/fHzz5x7xCd+brBPrdLb4UBx1ggTaLHS4VmK
+	tjCSX0/ITw+U+zx10kgPMF1nyc0VKLOn/nGB05TAXUHo/ZC112vuimr3DfR53CPEUZYR8Vejgg5jv
+	rem+GuAQot9/a4nfdXFxkh0/DicjZ55cmQBY3FoUuo3Q7alkdoWAWXMGUC9DnK6FfXGhXEzVlJORn
+	PqAS5jdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRny-0000000BFgB-1mPJ;
-	Fri, 22 May 2026 15:28:54 +0000
-Received: from mail-vk1-f178.google.com ([209.85.221.178])
+	id 1wQRoJ-0000000BFl9-2EdZ;
+	Fri, 22 May 2026 15:29:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRnw-0000000BFf7-0z1F
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 15:28:53 +0000
-Received: by mail-vk1-f178.google.com with SMTP id 71dfb90a1353d-56f70865797so4673725e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 08:28:51 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779463731; x=1780068531;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=szBb9VN5OI/LxN852+H6x+3LXcGPvGU0m4BLzBAkL+k=;
-        b=JKOl5JlTVZmyZ5iseBFOTKCtcs79DdZCATANVNU8pcVsl8N5TheBDg8lIuhKTfOQmH
-         sOtUm3Z35FLiPiirbL3lta+U/wAVluFNiWheF3bUd2vy5YDR0RkL/jreiJbqAYNDoOdD
-         +Hk/1Jqwo3engV3QxYxseu9yH7dr3Et1uz4ZdTAfGq61Z5xF1y1eiW7C5fYvytECrLWL
-         D8oygFrGVNby7/ZD/D+KxbBaUsIf+sP9Ie/VD3fYGU0bciW1RCGBmqB+hrSodIWTW4e+
-         rHWvNLN3po2ZDRM6iLM+Vd1X3V6rX32XHnmHtGzkrhTws0fT/1d8q8dKusVg4cBF3ZAT
-         pXZQ==
-X-Gm-Message-State: AOJu0YxcHexENJUUMHQIH7vB5CKwG0y15zCmjDmpnceX1uER422vmcqq
-	N4STTRNue53DlbuMgSIO/FKKEv35lxQHtBh2FIxTDO08cUjKoak/b5wgX6QpOpo+tCo=
-X-Gm-Gg: Acq92OFZtI/ZjbokQd9YI0yvxRo1aT61ZgnzctFPGhtxadvcrBnFg78oLoP018qjH7M
-	qyDbbj0XOMVnan4tJsxljD30/90fYpSVODPOz2o1QxgaxbebtXUFPTzTKGO+Lc7EtWXrFhNhOIQ
-	morMt4SgTq+nDi5Ivt9lfx04t3W5wqbVCwleSFp+/8VIOLUTHGY7GQpfa01UW0LioQoj8G85Pkd
-	zR/dm0wpFYq7Nva3eLkdfWggrXKg+fMfY7eAyxQ3iXQnwlGEYxbPOaLV4iup8ZcSHZ8q0sD3ist
-	BcKW9fMGvnXAeUBvjglMYwBwvD/y/k1pn3O1WeCp/GeXCqR70/XePKUNmrtutrg1YN8bj3Pv8Cn
-	sK1Tm79/zHwdZt7nu2sj3jRvKFt1aPj73MZGOny//epT4aEbw9rNPYn+FuNRtowv1dhI9v4E7WH
-	En6MZDDhFINj49qTFlo6IgXMME1DER3onkjjq/v/BQGXFvdWrECH/cSHzpSq1s
-X-Received: by 2002:a05:6122:469d:b0:56f:6b46:28be with SMTP id 71dfb90a1353d-58661b20011mr2447286e0c.8.1779463730902;
-        Fri, 22 May 2026 08:28:50 -0700 (PDT)
-Received: from mail-vs1-f47.google.com (mail-vs1-f47.google.com. [209.85.217.47])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-586f791f719sm2519965e0c.11.2026.05.22.08.28.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 08:28:47 -0700 (PDT)
-Received: by mail-vs1-f47.google.com with SMTP id ada2fe7eead31-6313b7e3d03so4678560137.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 08:28:47 -0700 (PDT)
-X-Received: by 2002:a05:6102:f8e:b0:604:f29d:84be with SMTP id
- ada2fe7eead31-67c70e5f66cmr2706370137.3.1779463726809; Fri, 22 May 2026
- 08:28:46 -0700 (PDT)
+	id 1wQRoD-0000000BFjj-2XKP;
+	Fri, 22 May 2026 15:29:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 11C8B601E8;
+	Fri, 22 May 2026 15:29:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 474A71F000E9;
+	Fri, 22 May 2026 15:29:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779463748;
+	bh=OFJS4E8ysH6VWoRSBHjAlfd82xpgU6b8hTLyq1WoytQ=;
+	h=From:Date:Subject:To:Cc;
+	b=JFXuh43RCVTyqtAbJLwWtRhXdlf4tNdvB981Iu34Wl9Fn8mrtL0eAASxRYj9Fji9i
+	 bAeTmiIWZOy7TZqiw5hjnqSYaOL7ggNfbS2E/PzghqX2e+aY1Bpu7nfnKQMThkDXsF
+	 CoCdJ1H1dS3wlA+t0QS3mznf9DzTHnsOgHCzdWMST4KEFE50gURlD94UU4AsNuRdzy
+	 6InkLGsbNATFKAKI3/nNZFJThTZlQzaxrQM1AWmsix9uQHCglh9+vavtJfdAATbdme
+	 uU8J18jlfpJs8pzhjwvdzAZ3iwqlkLOcPvaq7cey36rt3/p4YpuJ0TOWKWjXUtF+1H
+	 Kmc1t83hkGsYg==
+From: Eugen Hristev <ehristev@kernel.org>
+Date: Fri, 22 May 2026 18:28:50 +0300
+Subject: [PATCH v2] media: bcm2835-unicam: Fix log status runtime access
 MIME-Version: 1.0
-References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org> <20260504144534.43745-5-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504144534.43745-5-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 17:28:35 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUTsoEH60DBWCNnXzaZmfOcDfZ7vEaUgJetqqU-qwBxXA@mail.gmail.com>
-X-Gm-Features: AVHnY4K2cO6mOrwYyMVCwX6fOKSnvdh0vCSY19G3lWwxUQ8j7rXhdTpY2ZF4U8M
-Message-ID: <CAMuHMdUTsoEH60DBWCNnXzaZmfOcDfZ7vEaUgJetqqU-qwBxXA@mail.gmail.com>
-Subject: Re: [PATCH v2 4/7] dt-bindings: soc: renesas: Document Renesas R-Car
- R8A779MD Geist
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Conor Dooley <conor.dooley@microchip.com>, Brian Masney <bmasney@redhat.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_082852_277048_51F31891 
-X-CRM114-Status: GOOD (  20.08  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260522-bcmpipm-v2-1-a3da66cbc9f0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIADF2EGoC/2WNwQ6CMBAFf4Xs2RraWqic/A/DgZYVVoWSFomG8
+ O+2ePQ4ybx5KwT0hAGqbAWPCwVyYwRxyMD2zdghozYyiFwUuRKcGTtMNA2ssKrUWEohzxaiPXm
+ 80XsvXesfh5e5o53TPBk9hdn5z3618OT9VxfOOJNoGq1brfOTujzQj/g8Ot9BvW3bFyy4khKxA
+ AAA
+X-Change-ID: 20260521-bcmpipm-6c578e73239c
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ Hans Verkuil <hverkuil@kernel.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+Cc: Naushir Patuck <naush@raspberrypi.com>, linux-media@vger.kernel.org, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Eugen Hristev <ehristev@kernel.org>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2628; i=ehristev@kernel.org;
+ h=from:subject:message-id; bh=PMJsP28V5hMlxYp4KcsWEmzsqIgDeoKx+jpa+dUb3Vs=;
+ b=owGbwMvMwCXWkjcnuXne3fmMp9WSGLIEyhxa7cVVn6y34sqx1F/sdioi/MbsV280nuwv3J7Mt
+ LNi4lqXjlIWBjEuBlkxRZZqk3+1wv073E+6WqrAzGFlAhnCwMUpABOJO8LwT/3trrQvnHuWzS48
+ GODw/mD3S2NRj6UtDq419Tu8nXPapjH8j5Yx3CnhHS314tncu8euGJ47/PLsB152u1qbVedXLNp
+ mzwMA
+X-Developer-Key: i=ehristev@kernel.org; a=openpgp;
+ fpr=AB184498D27A77B65D7852C81EB31E020EAC2FC8
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,32 +89,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 May 2026 at 16:46, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Document the compatible value for the Renesas R-Car M3Le (R8A779MD)
-> SoC and the Renesas Geist development board. The Renesas M3Le SoC is
-> a register-compatible variant of the R8A77965 (M3-N) with reduced set
-> of peripherals. The Geist board is derived from Renesas Salvator-X/XS
-> boards, with adjustment for the R8A779MD SoC.
->
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+When requesting log status, the block might be powered off, but registers
+are being read.
+Avoid reading the registers if the device is not resumed, thus also avoid
+powering up the device just for log status.
 
-> V2: - Add AB from Conor
->     - Fill in Geist (RTP8A779MDASKB0F10S)
->     - Add RB from Geert
+Fixes: 392cd78d495f ("media: bcm2835-unicam: Add support for CCP2/CSI2 camera interface")
+Signed-off-by: Eugen Hristev <ehristev@kernel.org>
+---
+Changes in v2:
+- changed to use pm_runtime_get_if_active()
+- add corresponding put()
+- Link to v1: https://patch.msgid.link/20260521-bcmpipm-v1-1-3eba88d88045@kernel.org
 
-Thanks, will queue in renesas-devel for v7.2.
+To: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+To: Ray Jui <rjui@broadcom.com>
+To: Scott Branden <sbranden@broadcom.com>
+To: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Hans Verkuil <hverkuil@kernel.org>
+To: Naushir Patuck <naush@raspberrypi.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: linux-media@vger.kernel.org
+Cc: linux-rpi-kernel@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/media/platform/broadcom/bcm2835-unicam.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-Gr{oetje,eeting}s,
+diff --git a/drivers/media/platform/broadcom/bcm2835-unicam.c b/drivers/media/platform/broadcom/bcm2835-unicam.c
+index 8d28ba0b59a3..93815b8ab930 100644
+--- a/drivers/media/platform/broadcom/bcm2835-unicam.c
++++ b/drivers/media/platform/broadcom/bcm2835-unicam.c
+@@ -2052,6 +2052,13 @@ static int unicam_log_status(struct file *file, void *fh)
+ 		 node->fmt.fmt.pix.width, node->fmt.fmt.pix.height);
+ 	dev_info(unicam->dev, "V4L2 format:         %08x\n",
+ 		 node->fmt.fmt.pix.pixelformat);
++
++	if (!pm_runtime_get_if_active(unicam->dev)) {
++		dev_info(unicam->dev,
++			 "Live data N/A due to device inactive\n");
++		return 0;
++	}
++
+ 	reg = unicam_reg_read(unicam, UNICAM_IPIPE);
+ 	dev_info(unicam->dev, "Unpacking/packing:   %u / %u\n",
+ 		 unicam_get_field(reg, UNICAM_PUM_MASK),
+@@ -2065,6 +2072,8 @@ static int unicam_log_status(struct file *file, void *fh)
+ 	dev_info(unicam->dev, "Write pointer:       %08x\n",
+ 		 unicam_reg_read(unicam, UNICAM_IBWP));
+ 
++	pm_runtime_put(unicam->dev);
++
+ 	return 0;
+ }
+ 
 
-                        Geert
+---
+base-commit: e98d21c170b01ddef366f023bbfcf6b31509fa83
+change-id: 20260521-bcmpipm-6c578e73239c
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Best regards,
+--  
+Eugen Hristev <ehristev@kernel.org>
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
