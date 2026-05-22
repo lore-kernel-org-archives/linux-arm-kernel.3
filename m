@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C954CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64534CD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 07:16:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=vqEVtc+uhqyRZSMr4I20ikMC6TiX58Bd/7jTlBDcGyQ=; b=tGeInCZdg/c/M4
-	6N9wRfZXM0GlOEhCPoppNG7EeSS7F3yjXU31DQyxhjkSgQ742PwnFOpgJZUnF5nWC2vxrvmaHmSNU
-	zeFfVlRKraz89NYqWNLV2babnma04VwSRU++Wy6ikzP4MuAQowPX1W/W4Z4l1UWw3Dl4ZALKl9vzC
-	LF+82QG76NSPPrTkHqwnOtYmhUYz9eqY06ILAz+v+g3ISeng1Dz2Oh6N/jfcA5EX4vjzMsFbqNabE
-	hlkuIlTL937PBAK2r0O7IzXHpATWQPkUf9g4lA6jom/R06r/OB8nf9JtN5sMbNxjX8Ei/ghR0nah8
-	s1eWw6fniDwcK6Yx4wVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N6QmoT3amoxN5v8xK9e4KZdgvjcvpzj4dTLMdbcKqKk=; b=qd5a3ZqGmFq5kVf0QacVH1XVT4
+	EUlrpyjj6VBXCCFl50NlBh5UQdQSVjRySP1oWonhK5OI1qMToq4Fzr/kiMEoquxtKqSKWYuOsTLs4
+	SWZ9Cjzh2eGtMfFFFodO9Sw78a5ma1RwCfwf/0eHLBTXEOnqyHV1+G0vCdBVmn2ZSEOV8QxKV49Ha
+	J+VBhUP+j2egPf4x/VjPwX6yWxU2jqEWrOxCfJYQmKoRllNWV3u4mMNmdIBmvh5aJTv9pkWvWSSsy
+	nM3kr327g5KlHt144w0TEJgvKd1qTVA5ufmG51J9JsnrECbCbgQxvzh4WfcciQVoWacG9RnkKLkDU
+	7HbDgmTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQK7Z-0000000A3U7-09kY;
-	Fri, 22 May 2026 07:16:37 +0000
+	id 1wQK7d-0000000A3Vj-0VZp;
+	Fri, 22 May 2026 07:16:41 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQK7X-0000000A3Sj-01ip
+	id 1wQK7Y-0000000A3Sj-3t2D
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 07:16:36 +0000
+	Fri, 22 May 2026 07:16:38 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 22 May
@@ -40,17 +40,19 @@ To: <clg@kaod.org>, <broonie@kernel.org>, <joel@jms.id.au>,
 	<openbmc@lists.ozlabs.org>, <linux-spi@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
 	<david.laight.linux@gmail.com>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 0/2] spi: aspeed: Fix __iomem annotation and VLA parameter
-Date: Fri, 22 May 2026 15:16:19 +0800
-Message-ID: <20260522071621.102507-1-chin-ting_kuo@aspeedtech.com>
+CC: kernel test robot <lkp@intel.com>
+Subject: [PATCH v2 1/2] spi: aspeed: Fix missing __iomem annotation in output transfer path
+Date: Fri, 22 May 2026 15:16:20 +0800
+Message-ID: <20260522071621.102507-2-chin-ting_kuo@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260522071621.102507-1-chin-ting_kuo@aspeedtech.com>
+References: <20260522071621.102507-1-chin-ting_kuo@aspeedtech.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_001635_043332_98D35DD5 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260522_001636_965840_C34B46D3 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,22 +67,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes two sparse warnings reported by the kernel test robot.
-The first patch fixes missing __iomem annotation on an MMIO pointer
-parameter, which also caused a redundant cast at the call site.
-A VLA function parameter warning is also fixed in this patch series.
+The dst parameter of aspeed_spi_user_transfer_tx() is an MMIO address
+obtained from chip->ahb_base, but it was typed as void * instead of
+void __iomem *.  This caused a sparse warning report. Fix the
+parameter type to void __iomem * and drop the now-unnecessary
+cast at the call site.
 
-Changes in v2:
-  - Add parentheses to row-major index for clarity.
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202605180441.uD3toFRJ-lkp@intel.com/
+Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+Reviewed-by: Cédric Le Goater <clg@kaod.org>
+---
+ drivers/spi/spi-aspeed-smc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Chin-Ting Kuo (2):
-  spi: aspeed: Fix missing __iomem annotation in output transfer path
-  spi: aspeed: Replace VLA parameter with flat pointer in calibration
-    helper
-
- drivers/spi/spi-aspeed-smc.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
-
+diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
+index c21323e07d3c..808659a1f460 100644
+--- a/drivers/spi/spi-aspeed-smc.c
++++ b/drivers/spi/spi-aspeed-smc.c
+@@ -891,7 +891,7 @@ static int aspeed_spi_user_unprepare_msg(struct spi_controller *ctlr,
+ static void aspeed_spi_user_transfer_tx(struct aspeed_spi *aspi,
+ 					struct spi_device *spi,
+ 					const u8 *tx_buf, u8 *rx_buf,
+-					void *dst, u32 len)
++					void __iomem *dst, u32 len)
+ {
+ 	const struct aspeed_spi_data *data = aspi->data;
+ 	bool full_duplex_transfer = data->full_duplex && tx_buf == rx_buf;
+@@ -936,7 +936,7 @@ static int aspeed_spi_user_transfer(struct spi_controller *ctlr,
+ 			aspeed_spi_set_io_mode(chip, CTRL_IO_QUAD_DATA);
+ 
+ 		aspeed_spi_user_transfer_tx(aspi, spi, tx_buf, rx_buf,
+-					    (void *)ahb_base, xfer->len);
++					    ahb_base, xfer->len);
+ 	}
+ 
+ 	if (rx_buf && rx_buf != tx_buf) {
 -- 
 2.34.1
 
