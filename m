@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1179CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C26CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JRFSjJVMhkW1cVbO5EZHBHBVGeP4fldmDfewlQIeZHQ=; b=nL0Fr2SumXp4iHWskbIg3/zUN0
-	ueinJBtCi38Sedil1HJD1stT25dqbzLa16kfcemtyuO3xpaqAzlLo1IMwWy8PNf5YphXbgmP8QHnZ
-	M/RzxCW49Fg6qc8XHfvYgT3YI3u4HDctI2dN8jk3tATa44QAmqairJCzqkOBsK6LUt3mLkoMxusid
-	CdDY4Y3ii5MpHnmrMCTQih8dePqnTr6rTBQO2gR++mPNGMEX+XWsLaXbs6w1LYjwbNHjQkWjR4PSL
-	0zLpbEEwiwBw7d08oCj1643diUIhDKBT20h0VTGeOF4v557jh/xEsvrHhAqCNq74w9lJdSWJkx8Ti
-	QWLOF/YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vdspRS+hKmJQmW0Wsieo4FX+5eK/WlAigCd6WtBtyGk=; b=cMaidoB1q+nfnSoBW635TdBmft
+	8A6mAxIdB6EqgEEcHn62hh+0K5Ll0QsxzgA9WNqcE38/k3+MZyXgCt2K2ZCebiZGmYMDpnJI/0Jdq
+	I9NjNuwXbWobJpKrQSB5pvWN45UsXQ8k7oLXX0QoNlaozIZXfjal10cHTS72QvtS0g1JJE1GPgd0o
+	QVLy/ETLOLhe1K8lD7RdUEqZea/cII9SEu34P9z9uM4kpCeWlrKfo4cq0bcSrvhcrttH5UskhsN1A
+	v0rAeY+Hwt29B3n6j53oHkw6jEJ7Hk00owMPMOeDSzT3T1Mj837EjmTXoerVa5NmgNWpyLiQ4YO3n
+	hVaaUMRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMbg-0000000ANv0-2i6p;
-	Fri, 22 May 2026 09:55:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQMbq-0000000ANxa-3FVy;
+	Fri, 22 May 2026 09:56:02 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMbg-0000000ANuq-0fAw
+	id 1wQMbm-0000000ANw6-1ANg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:55:52 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 109E860136;
-	Fri, 22 May 2026 09:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9B311F000E9;
-	Fri, 22 May 2026 09:55:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779443750;
-	bh=JRFSjJVMhkW1cVbO5EZHBHBVGeP4fldmDfewlQIeZHQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Vm8X/Sothl2Nn/zf0Bb0WEHP96x5dzotEE5P5IfPVfKP32zy7i+W8E27CQyufPErX
-	 UvnHByI5C/V2SpU5wFfnFkXB2vxCS/Mpw7JwI42eKTi3OT1Luad62k4ijTYLmBNaod
-	 S9izOaUpvj1e4VDRtbfgDbGfFlEuG+8lQDQZ4DMp5RiePq/OnPz/+dh0fiZWRjkGHG
-	 WFLKBYz8Sa49i4A1GZR6OqOkJx9P89uk7Iych/5dpSkvgpSZ7HOwPtRIqfM+H3tK/6
-	 JPIw5IQQf4u9OcbtrZlIiQg1LoEQNWV3eSDEHQlklsCp4ITfg+c8QflxnUAQDvwoHt
-	 IXjWf22m21x3w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQMba-00000005AaP-0q1s;
-	Fri, 22 May 2026 09:55:47 +0000
-Date: Fri, 22 May 2026 10:58:56 +0100
-Message-ID: <87jysvahpb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
+	Fri, 22 May 2026 09:55:59 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-82fa8d6425bso3274124b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 02:55:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779443757; x=1780048557; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vdspRS+hKmJQmW0Wsieo4FX+5eK/WlAigCd6WtBtyGk=;
+        b=IZxYudqcYg4xsy6KTyUB5JSUf93mXt2yBQFdZBAVSra+wPe7VfbQLezDLYfJNYrViC
+         9Vcb3Y+GDvefRX+/2vooTwHGmZiraFGzGOouJsJmtl+fKpzOJI7Jg0ExbZbRpBcy74oW
+         eNQloMnNlsr9zJOgx9yDKGRqtyVAd/UKglJtgD6k5J3Xq0hcxRxuEobVqGnZLKN9/B+h
+         L8tIGK+h/tTew25ZU2XzD3BTHAkDNbiGG3VIn36UmD4eAkHGAT1KYDXjakrK50AD9vKj
+         AdoqFHm6ERH2i5QD+JYJcSqbTx4Dy/M3NQk0krG8gk5zwsnHC5iheWACCEgyp8RVabvY
+         xgpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779443757; x=1780048557;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vdspRS+hKmJQmW0Wsieo4FX+5eK/WlAigCd6WtBtyGk=;
+        b=bFMEQBaZTd0TsdMKh0UO9GeEleHJ18Fyj4TFA5z4xONuLMXSi1LksjkuA92eZJQN7D
+         JjddCbT0fH2Yz5pNMWd/P6kI6pGvsFuJVj3G+cNjwvleOPd/FPdJRFZmglwvTpmODXdD
+         p3j/VCgzQ8Wst8cMyB9Ki/ejk98wVk/kL/movRb2aV4q6XBlf/yHfoTpj536EwKC3Dhn
+         2nygEDkl+Fh5uI7WAABzLK8YCDnQQHaXCUhKQRI0nGL9IAKIKe9UGDkM0dma+rX6i+oA
+         +JkzEefBApnn0QgvMxPgoaxWc3zMgJIo1c5IUvsaZkNcT0e18Pnoief6p1dWPYewJxS0
+         kv3g==
+X-Forwarded-Encrypted: i=1; AFNElJ8goZdF880EgGjPy7z9iP74p6SiXyA8d39huyZMTytIjzKkfOck93E+O4j8IuZPxWEFpTeMuXtQ2u27xsth4W7j@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeWjmhSZN1xLlrUWdC2Nt/pF7F9N/GmUVpSRI0qiwjBG6jIq33
+	VsALH79E2BK6yOBtZcPIsN5830yGag4at1SJfHl+UOOV/ycFTDdCkZQU
+X-Gm-Gg: Acq92OGjT7rmWzAzqbnNoyN6ssqEV/0wlSp9V0G/b3SM9YhTdI1bg9+H+jNh6Uotp+t
+	vQ90P2KdA7h1S1BXjR7bLAFThY9/UejXR2ZMEhmmhwiT1S1AC4pMssCPlYy68XL9BoVL5J/r8wy
+	4+VYeKjuFIUdkbLdz7ul8AJ1S/bOY4zGW2kLMqYVD0OEs/NML8DjA3dW7Nm0xYSw4aPb62MCrSx
+	N4XtsBuVrsrcLM7aJMD6Y5VDb9OzVPv+mzwC3iiAHpXMa6i110EZTa+H9sFb25LwZFd8wCM8OOG
+	NHnlVKvhzwaRk6BFQvWaYB5AOlLOAUyo6EGlxGLW4G84qfd9poMY6esf6TOH0V5nLAwheJz+K4B
+	O10bsoaeq0HAXQuBUeO/ii/qeSsPeKi4czvSgRulbKJkPRW02smAuT/jMG32T4i1d7stPLVm6re
+	mxfd5fzn3G0jIopsoITRzbN2i0HklyfQ3F4IGUIvoinvctHxmSOiirL+kJpJpf5iW353fV
+X-Received: by 2002:a05:6a00:3020:b0:837:e9cc:d470 with SMTP id d2e1a72fcca58-8415f330e98mr3144147b3a.20.1779443757359;
+        Fri, 22 May 2026 02:55:57 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164fe0bb8sm1338786b3a.51.2026.05.22.02.55.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 May 2026 02:55:57 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: broonie@kernel.org
+Cc: codekipper@gmail.com,
+	jernej.skrabec@gmail.com,
+	lgirdwood@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 04/44] arm64: RMI: Add SMC definitions for calling the RMM
-In-Reply-To: <3261b04f-1a0c-451d-8981-1e2bccc8a9ca@arm.com>
-References: <20260513131757.116630-1-steven.price@arm.com>
-	<20260513131757.116630-5-steven.price@arm.com>
-	<86ecj5vsu4.wl-maz@kernel.org>
-	<3261b04f-1a0c-451d-8981-1e2bccc8a9ca@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-sound@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	nichen@iscas.ac.cn,
+	perex@perex.cz,
+	samuel@sholland.org,
+	tiwai@suse.com,
+	wens@kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH] ASoC: sunxi: sun50i-dmic: Reorder clock enable sequence
+Date: Fri, 22 May 2026 16:55:39 +0700
+Message-ID: <20260522095539.73025-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260522_025558_323569_30F698E4 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,181 +106,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 May 2026 16:33:09 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> On 21/05/2026 13:40, Marc Zyngier wrote:
-> > On Wed, 13 May 2026 14:17:12 +0100,
-> > Steven Price <steven.price@arm.com> wrote:
-> >>
-> >> The RMM (Realm Management Monitor) provides functionality that can be
-> >> accessed by SMC calls from the host.
-> >>
-> >> The SMC definitions are based on DEN0137[1] version 2.0-bet1
-> >>
-> >> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
-> >>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> Changes since v13:
-> >>  * Updated to RMM spec v2.0-bet1
-> >> Changes since v12:
-> >>  * Updated to RMM spec v2.0-bet0
-> >> Changes since v9:
-> >>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
-> >>    this is an 8-bit type with padding afterwards (rather than a u64).
-> >> Changes since v8:
-> >>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
-> >>    permits to be modified.
-> >> Changes since v6:
-> >>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
-> >>    these are flag values.
-> >> Changes since v5:
-> >>  * Sorted the SMC #defines by value.
-> >>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
-> >>    RMI calls.
-> >>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
-> >>    number of available list registers could be lower.
-> >>  * Provided a define for the reserved fields of FeatureRegister0.
-> >>  * Fix inconsistent names for padding fields.
-> >> Changes since v4:
-> >>  * Update to point to final released RMM spec.
-> >>  * Minor rearrangements.
-> >> Changes since v3:
-> >>  * Update to match RMM spec v1.0-rel0-rc1.
-> >> Changes since v2:
-> >>  * Fix specification link.
-> >>  * Rename rec_entry->rec_enter to match spec.
-> >>  * Fix size of pmu_ovf_status to match spec.
-> >> ---
-> >>  arch/arm64/include/asm/rmi_smc.h | 448 +++++++++++++++++++++++++++++++
-> >>  1 file changed, 448 insertions(+)
-> >>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
-> >>
-> >> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-> >> new file mode 100644
-> >> index 000000000000..a09b7a631fef
-> >> --- /dev/null
-> >> +++ b/arch/arm64/include/asm/rmi_smc.h
-> >> @@ -0,0 +1,448 @@
-> >> +/* SPDX-License-Identifier: GPL-2.0 */
-> >> +/*
-> >> + * Copyright (C) 2023-2026 ARM Ltd.
-> >> + *
-> >> + * The values and structures in this file are from the Realm Management Monitor
-> >> + * specification (DEN0137) version 2.0-bet1:
-> >> + * https://developer.arm.com/documentation/den0137/2-0bet1/
-> > 
-> > How long is this spec going to be available on the ARM web site, which
-> > has a tendency of being reorganised every other week? And there is
-> > already a beta2.
-> 
-> Obviously I can't predict the next reorganisation - but at least it's a
-> link that could be fed into archive.org or similar.
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-I found that the PDF spec was less susceptible to creative nonsense,
-and people can download it for future reference, whereas ARM has
-happily *deleted* specs from the website over time (try to find PSCI
-0.1, for example...).
+Enable the bus clock before the DMIC module clock during
+runtime resume.
+The bus clock provides the register access interface and
+should be enabled before the module clock.
 
-[...]
+Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+---
+ sound/soc/sunxi/sun50i-dmic.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-> >> +struct realm_params {
-> >> +	union { /* 0x0 */
-> >> +		struct {
-> >> +			u64 flags;
-> >> +			u64 s2sz;
-> >> +			u64 sve_vl;
-> >> +			u64 num_bps;
-> >> +			u64 num_wps;
-> >> +			u64 pmu_num_ctrs;
-> >> +			u64 hash_algo;
-> >> +			u64 num_aux_planes;
-> >> +		};
-> >> +		u8 padding0[0x400];
-> > 
-> > SZ_1K? And similarly all over the shop?
-> 
-> I'm a bit less sure that makes the code more readable - these structures
-> are a bit of a pain because they are somewhat sparse. I've left a
-> comment where the beginning of each union is, and personally I find it
-> easier to see 0x0 + 0x400 == 0x400 rather than trying to work out what
-> SZ_1K is in hex. This is particularly the case in terms of:
-> 
-> > struct rec_params {
-> > 	union { /* 0x0 */
-> > 		u64 flags;
-> > 		u8 padding0[0x100];
-> > 	};
-> > 	union { /* 0x100 */
-> > 		u64 mpidr;
-> > 		u8 padding1[0x100];
-> > 	};
-> > 	union { /* 0x200 */
-> > 		u64 pc;
-> > 		u8 padding2[0x100];
-> > 	};
-> > 	union { /* 0x300 */
-> > 		u64 gprs[REC_CREATE_NR_GPRS];
-> > 		u8 padding3[0xd00];
-> > 	};
-> > };
-> 
-> Where 0xd00 doesn't even have a correspoding SZ_ define.
-
-Indeed, but it is (SZ_4K - SZ_256 * 3). And a lot of these structures
-seem to be designed to form a 4kB blob. I'm sure we can make use of
-that information (BUILD_BUG_ON?).
-
-> 
-> The RMM deals with this with macro magic:
-> 
-> > struct rmi_rec_params {
-> >         /* Flags */
-> >         SET_MEMBER_RMI(unsigned long flags, 0, 0x100);  /* Offset 0 */
-> >         /* MPIDR of the REC */
-> >         SET_MEMBER_RMI(unsigned long mpidr, 0x100, 0x200);      /* 0x100 */
-> >         /* Program counter */
-> >         SET_MEMBER_RMI(unsigned long pc, 0x200, 0x300); /* 0x200 */
-> >         /* General-purpose registers */
-> >         SET_MEMBER_RMI(unsigned long gprs[REC_CREATE_NR_GPRS], 0x300, 0x1000); /* 0x300 */
-> > };
-> 
-> where the offsets are just directly encoded in the macro - but it's not
-> an especially robust macro and I'm not convinced it's more readable.
-
-I think this is just as horrible, but at least it seems to take the
-boundaries of the structure into account.
-
->
-> I'm happy to hear other suggestions on how to encode this neatly.
-
-Honestly, I wouldn't mind having the structures described in a more
-abstract way and then pre-processed to generate the include files. If
-the architectural MRS wasn't so huge, I would have added it to the
-kernel and used that directly for KVM.
-
->
-> > I haven't checked the details of the encodings (life is too short),
-> > but I wonder how much of this exists as an MRS and could be
-> > automatically generated?
-> 
-> Automatically generating this would be good - I'm not sure whether we
-> have a (public) source available to generate from at the moment. I have
-> tried to methodically work through the spec when updating this file, but
-> as Gavin has already pointed out there was at least one mistake (in
-> currently unused definitions) this time.
-
-I'm slightly baffled that even the RMM is written this way. Given the
-formalism used in the RMM spec, I was expecting that you'd have a
-bunch of JSON at hand and able to generate any output from that. Doing
-this stuff by hand is both incredibly dull work *and* extremely error
-prone.
-
-Thanks,
-
-	M.
-
+diff --git a/sound/soc/sunxi/sun50i-dmic.c b/sound/soc/sunxi/sun50i-dmic.c
+index eddfebe16616..7aff1afdf265 100644
+--- a/sound/soc/sunxi/sun50i-dmic.c
++++ b/sound/soc/sunxi/sun50i-dmic.c
+@@ -323,16 +323,16 @@ static int sun50i_dmic_runtime_suspend(struct device *dev)
+ 
+ static int sun50i_dmic_runtime_resume(struct device *dev)
+ {
+-	struct sun50i_dmic_dev *host  = dev_get_drvdata(dev);
++	struct sun50i_dmic_dev *host = dev_get_drvdata(dev);
+ 	int ret;
+ 
+-	ret = clk_prepare_enable(host->dmic_clk);
++	ret = clk_prepare_enable(host->bus_clk);
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = clk_prepare_enable(host->bus_clk);
++	ret = clk_prepare_enable(host->dmic_clk);
+ 	if (ret) {
+-		clk_disable_unprepare(host->dmic_clk);
++		clk_disable_unprepare(host->bus_clk);
+ 		return ret;
+ 	}
+ 
 -- 
-Jazz isn't dead. It just smells funny.
+2.43.0
+
 
