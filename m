@@ -4,72 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A21CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:06:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD7CCD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4a2i19bMlznTfQSV7hH7AQSoCRRWAsRP+nmZLWmDdE4=; b=Em0SeMSDAITydRw8Iq6w0+io+2
-	m/RJsSVU0heFdMU3KE0lUEH0vfmZH/8djs/d4Omt7xHpfHxiZ4pqe23JTlxuvizODaVJPF9vVLzro
-	2z7e3nafXjMBxFvglwsmk2GgWFEbk0lXHly+O36t/9P05erYTNhS0j+/1UISvOGxINmNmBIb0hP5k
-	oEypnUsZP/MXzeQbZpLc0Euoe0CspKJ1pMHZbkoKaIxovIvSytb8RDtlWXjfgRS9Mo9vImFCmcstC
-	x5+4lGcBUPCRF2WLE/Obhg0s1NJlL4B1mcNtxE+yxsUu2kVsXum51MM84hA5HoxU14Fwck9vAPvnm
-	bUnHYxzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Th0xuEFUWvtbY3CJ3v5IoFxV8Djmrn1oWCif0Z9N5iw=; b=gp6UB7Jlt5ycJ5Wzopksc2XlbM
+	wqIcG3GNjbQBPzPKesyHhoLOPl8phnMfdqV7DZ1zCF5XDMZ8vA1foWnW3WjijaBTJQlEChfcN8go+
+	HAOyIa0IjsMFzw01T2l2fcNN+2jVYScgDy6uDOuuEwzJn3qLfDH7GEgpoCAeOh1WqeTSjukEguqEk
+	vgcIaQXrgncs+/ji0ZsFd7t43ryLKY5z1PrFgg+xGIHrICKNxOqmca5VoX8uAfY3VP88kAsOhZ3Yj
+	Bk5euqKBMdXEd5uoqGTVeUAL02k7zV1CZrD5QEq2+igFs5QkRtfiZ/R8Bx05ZI8Qkqy3GIUy5gDIP
+	NsCGtWeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPaP-0000000Au82-1TbI;
-	Fri, 22 May 2026 13:06:45 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPaM-0000000Au71-3m0h;
-	Fri, 22 May 2026 13:06:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779455196; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=eN4ATdUMpvDsfgn+TXOvfmw+QMiRR7TDY4hdHrR6FU/eI+PszKRAxswHsUPrncTHdlWruDHA/lze3yzGeFkzaV2MOWs7pI9L9O1Tgw1gcwGe6eGrRMC6LO3NBdTfqi8S4fGCIb5xEYMxfpQvMJ6QtymtT4HlbYnUEc1DumdSfDk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779455196; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=4a2i19bMlznTfQSV7hH7AQSoCRRWAsRP+nmZLWmDdE4=; 
-	b=N04NFLs7DKfVjbAMtp6CpE/llnaDJqqD75gVLBt/AsnQOthdSGvbr2jmvYb44iOknnBNQb5oY4ldsr86cIxWIiOwbdCFVncpmBuZKUWgh3vrnVmc3GF/e0Iox00xqLvSyLuUhCd/Si6k6ExK9bWAdml2idjenExM+BiAy6dpX2U=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779455195;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=4a2i19bMlznTfQSV7hH7AQSoCRRWAsRP+nmZLWmDdE4=;
-	b=I6BoQBCtAles2jV2tx0BMUcMWHxLvYsSupLILMME8xHG36WLY1o8qFn9KzDodm0k
-	DDXqToP4cSRhpM+lN4/g7c+Ndf/NV0uT9hZifuBfqdM+VIKxYO+UQN+byCbirJx+lOp
-	ggow4WcOWZunGWeNly59du/Nw12KIzt4tYdafPVs=
-Received: by mx.zohomail.com with SMTPS id 177945519388619.946341277208376;
-	Fri, 22 May 2026 06:06:33 -0700 (PDT)
-Message-ID: <98c2ba7b-5901-4462-8ea3-0de243ed285f@collabora.com>
-Date: Fri, 22 May 2026 09:06:32 -0400
+	id 1wQPcJ-0000000AuW9-36Vb;
+	Fri, 22 May 2026 13:08:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQPcG-0000000AuVc-3MgW
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 13:08:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A134626BC;
+	Fri, 22 May 2026 06:08:32 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9DDFE3F7B4;
+	Fri, 22 May 2026 06:08:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779455317; bh=Sy8A8d0ASCiHF62sSGqQxFN/BJ6vlYXdpHxU7r6WEts=;
+	h=Date:From:To:Cc:Subject:From;
+	b=Sh5wIxnYysaawdKwAOuGae3+gXEsGeXllhO4OgTo7PJiCU4/ELT8ibyx+RMKAZRuh
+	 PQo2vaxs73SDuZ94YI1jMmZ1UGe0JIROstP1okQ87xlds62hppGbmxN6I+mG9BVzHt
+	 R+MZZ/x6FOxKu0j1mteMdh1rwa8cEKghAFkPPZa4=
+Date: Fri, 22 May 2026 14:08:34 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] arm64 fixes for 7.1-rc5
+Message-ID: <ahBVUtmWJue3HmV8@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: rkvdec: hevc: cap EXT SPS RPS control counts
- before descriptor assembly
-To: Michael Bommarito <michael.bommarito@gmail.com>
-Cc: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260513181922.2075438-1-michael.bommarito@gmail.com>
- <67bd72ba-6dab-4bdb-a391-27545e287e94@collabora.com>
- <CAJJ9bXxR5U=33RSzB5uFEZv3ZL2JE=UjK7ZToxm0ewSqyu5GBw@mail.gmail.com>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <CAJJ9bXxR5U=33RSzB5uFEZv3ZL2JE=UjK7ZToxm0ewSqyu5GBw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_060642_985427_D6D3D6C6 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260522_060841_104880_F6B88181 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +66,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+Hi Linus,
 
-On 5/20/26 20:57, Michael Bommarito wrote:
-> On Tue, May 19, 2026 at 9:04 AM Detlev Casanova
-> <detlev.casanova@collabora.com> wrote:
->> Still, did you try just changing the cap to 64 (.cfg.dims = { 64 },) ?
->> You'd need a test that sets the control from userspace though.
->>
->> It should refuse setting the control if there are more than 64 elements,
->> therefore the hevc decoder will not run any function using the count
->> values from the SPS (See  rkvdec-vdpu381-hevc.c:601)
-> Sure, I can test that and send a v2 for ST.  My understanding is that
-> we have four spots we need to check across the flow though:
->
-> 1. ST count > 64
-> 2. LT count > 32
-ST and LT can be handled through cfg.dims and when num_negative_pics / 
-num_positive_pics are non-zero, the code check that ST and LT have 
-actually been set. If not, they can be skipped.
-> 3. num_negative_pics / num_positive_pics > 16
-This could be checked in the validation step of the control in v4l2-core.
-> 4. delta_idx_minus1 + 1 > i
-This one would need to be checked in the construction code indeed.
->
-> So would you also want the same .cfg approach for the LT cap?
-So yes for LT dimensions.
+Please pull the arm64 fixes below. Thanks.
 
-Detlev.
+The following changes since commit 6ccbb613b42a1f1ba7bfd547a148f644a902a25c:
+
+  arm_mpam: Check whether the config array is allocated before destroying it (2026-05-14 09:52:05 +0100)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+
+for you to fetch changes up to c2ff4764e03e7a8d758352f4aceb8fe1be6ac971:
+
+  arm64: tlb: Flush walk cache when unsharing PMD tables (2026-05-22 11:13:51 +0100)
+
+----------------------------------------------------------------
+arm64 fixes:
+
+ - Handle probe on hinted conditional branch instructions. BC.cond
+   instructions can be simulated in the same way as B.cond instructions,
+   so extend the decode mask for B.cond to cover BC.cond
+
+ - Flush the walk cache when unsharing PMD tables. Recent changes to
+   huge_pmd_unshare() introduced mmu_gather::unshared_tables but the
+   arm64 code was still treating the TLB flushing as only targeting leaf
+   entries (TLBI VALE1IS). Fix it by using non-leaf-only instructions
+   (TLBI VAE1IS) when tlb->unshared_tables is set
+
+----------------------------------------------------------------
+Vladimir Murzin (1):
+      arm64: probes: Handle probes on hinted conditional branch instructions
+
+Zeng Heng (1):
+      arm64: tlb: Flush walk cache when unsharing PMD tables
+
+ arch/arm64/include/asm/insn.h | 2 +-
+ arch/arm64/include/asm/tlb.h  | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+-- 
+Catalin
 
