@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF1E2CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:21:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D68BCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wIDdUlwLSUQ6HmbQcd4EJ2Xlpe/x6RgpxVHPUBtWOWQ=; b=WzY0y2evyzE6SB
-	1o32kog6/wzbqjOuVfm/9tWNRoLMA/xNAdP19vpOB8aaeugoOM9Cn9Z6Td1NA1juJQ3EB/KDT1weJ
-	+tM388xGjkoinMWpz2d5tYgtga73PS/8n8PHttwT9zTENLVT8dKaUQ6tXfMv60+vK1x9Xovo3+7WG
-	TVhC6GDkTgIKBNqOT9kRj8P9IP8m01J7Edygfm6wpIL0XSv7X2+jeJBl6rVY9UCL7rT/IAsuxHcuL
-	X6mYN/AUFCCXv/j/sVLH7qHW3UQd2Lgsy/fbCkB6XW5820rTspwIDJR7l9EAwBuPKXydPtKF/ijhI
-	STBGAWsgiY0KEYj3j0rQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rSGSfg4HNocKCYckQK1TU3UBFOchokSC4dL5Ob65f3w=; b=ey9JWcZnrjJ2pjjro3F7WjRqpJ
+	xvfN/JqDbm86fs4w+BTAfRZjaU57wrRxqO2CRsAHbdmbE2AP1l5aoS40mouOG83J5DhQARcZdWKrZ
+	YEvf0JXLuAT/GgvSdQ2X41iJzG3KUyJCNIOQ27iMaPwGR+4IyTUpKF1jgfTL8rjWbqHF7J6SyNkAf
+	Ufg9VNWcvx69+2WDld9mDiPXt8IjPj7BEp0LJUonJxdkSpe27A3EHBAgpBLOXBhjJ+WOIKsAsw5iR
+	XnhEI/KnKfO8ZbvNdXjPP1ny7HetPu1asswoIH1/ZbM76zPbrk4ozBToPtrVWCnT8LXnxAFbpknPN
+	INq/rKbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVQa-0000000BlXt-3YH1;
-	Fri, 22 May 2026 19:21:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wQVVS-0000000Bm45-1fzW;
+	Fri, 22 May 2026 19:26:02 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVQU-0000000BlUs-3iEr
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 19:20:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 25D2244432
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 19:20:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01AA31F0155A
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 19:20:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779477654;
-	bh=wIDdUlwLSUQ6HmbQcd4EJ2Xlpe/x6RgpxVHPUBtWOWQ=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=CyxIvblafc9o1zBDFIS2/n6XwOdH2KLkAR6YxrHNRK+aCoBzHB0qSLh3WcjFw05RA
-	 fRO289iHal7bHRlyVAzmx79wA8o0STWO8xtsyG0wtwUdVCfgLsMF2uXD0ABUfoCNMq
-	 2nrjIOmHPDhauAPpxFxw7Um0/KDq8bqxvtzWTNQhRdoSOTPvtZhzRQaXTaOoFvKrIz
-	 NlT01TtRsyuMKNPJX0kRFh2ax0BMTBQ+lqoI9DgxeyCQnX+967g/BO3Vy5TohRv7/n
-	 j/MVsZiKdAFkKOyB11UtL1ff+zWXUt6lA7zqqj68/LkZWvYcfy6ren5ie+yrhToI0I
-	 MRBD27xeHUoNw==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-393c40246afso88143611fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 12:20:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/+qU4wqP5S7FlHoqXy2lUtxvhJMFyYIci8c1rLxzeKW0Zxs9x74p0KFxZeSIHvQylhuwSiiV9o74k0IDSPwZGb@lists.infradead.org
-X-Gm-Message-State: AOJu0YweDY8EPa+8E2K8gNQpPN1FhVIWlmdbMtxsKrg3PBZ6qH4b1NVI
-	C979mUNULBUgRl/HvhiPSSIHxhjPxqBxtEmragHTl0+a1h1ZhiLYclEJkLW5GIyKjkmSXU0/QLA
-	6Od4fjwiTLQ+wRYsSORfTrDKIYkkxZuM=
-X-Received: by 2002:a2e:bd83:0:b0:38a:6537:6f51 with SMTP id
- 38308e7fff4ca-395d88d8c98mr16564161fa.5.1779477652493; Fri, 22 May 2026
- 12:20:52 -0700 (PDT)
+	id 1wQVVO-0000000Bm2x-3wy1;
+	Fri, 22 May 2026 19:26:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1779477952; x=1780082752; i=markus.elfring@web.de;
+	bh=rSGSfg4HNocKCYckQK1TU3UBFOchokSC4dL5Ob65f3w=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=CuzK3XCdIhuTQn63SIDV4dv7keNP73aVvNi0cfvysKYoEUDCitRNBXHAsNL2RnMB
+	 /i0ZT5CFuc4NZ35ECzU8WXbyInhj6nHaJhhwprTjVnHiOIZqGzWQIgpS/VrXIJoLU
+	 89zBpeSXolXysYfBbUGzfPFoHK/w/oZh6C4B+SB7S0MfBFkWPr4d86sihAjhu4hxv
+	 KKOFOoAXzzN9eIz+0IpC1u3rC/qdD/va64VuHm6qCvuENrQagV8MC+ksdZ5mIPDIR
+	 8FIkz0rmgo264eCnJW+A1se7CDX0kVRDhO0UBnS2okIlxXkdaBo0X/B8z/nacmRIZ
+	 iyrRXjg3vYKEDBipxg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1M2Phc-1wULWg2eMg-005wmn; Fri, 22
+ May 2026 21:25:52 +0200
+Message-ID: <5c7dfb0c-2498-42f0-9561-c4a92e4b4bf3@web.de>
+Date: Fri, 22 May 2026 21:25:51 +0200
 MIME-Version: 1.0
-References: <20260522095401.72915-1-phucduc.bui@gmail.com> <20260522095401.72915-4-phucduc.bui@gmail.com>
-In-Reply-To: <20260522095401.72915-4-phucduc.bui@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Fri, 22 May 2026 22:20:40 +0300
-X-Gmail-Original-Message-ID: <CAGb2v67aXgg8BmrtVVBi+_n32OBcQnQgEUe3XdRp6Jj=aEr8fg@mail.gmail.com>
-X-Gm-Features: AVHnY4KTFRLsmgQYHw4_DylTQJci_NqnQ4LhdImsNnc-4boV7ByQgHAhKlvxOjM
-Message-ID: <CAGb2v67aXgg8BmrtVVBi+_n32OBcQnQgEUe3XdRp6Jj=aEr8fg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] ASoC: sunxi: sun4i-spdif: Reorder clock enable sequence
-To: phucduc.bui@gmail.com
-Cc: broonie@kernel.org, codekipper@gmail.com, jernej.skrabec@gmail.com, 
-	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, nichen@iscas.ac.cn, perex@perex.cz, 
-	samuel@sholland.org, tiwai@suse.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: clocksource/drivers/owl: fix refcount leak
+To: "Alexander A. Klimov" <grandmaster@al2klimov.de>,
+ linux-actions@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Thomas Gleixner <tglx@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <20260521041901.542964-1-grandmaster@al2klimov.de>
+ <c1aba09f-0a74-485c-b787-59b215a3bd88@web.de>
+ <fe494c36-04e9-4714-ab49-5f05bed66c9e@al2klimov.de>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <fe494c36-04e9-4714-ab49-5f05bed66c9e@al2klimov.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:1epvK6hBcSJ/OL1jU/4Jx6ZegRfxCztQ5ZH7iNLhEU76WvxkEV7
+ jimDXHlF+xPbCtgmJuu6i1h4TePeiMEQpZqPbQHOe/sly2hHn94bCsxrxDlPbb4Xr65Nnte
+ uXRH7N0sfFqIBQsS9KT05hF6qnTEsBaRSsiKgCsAfOkpnAki0u786d50+XRQ1c2v5xRrEWf
+ a1oSXnfLGmyFiqQM4cptA==
+UI-OutboundReport: notjunk:1;M01:P0:BwPYaVTC8os=;GWeSVwP4VmiDNXX+ps8hFyICTjd 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 HXZSdDS6PXNtn7BXAAfyzeKEdKcErBqEoxqg=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_122054_965027_5AAA3082 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20260522_122559_340303_476BC913 
+X-CRM114-Status: UNSURE (   2.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +84,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 12:54=E2=80=AFPM <phucduc.bui@gmail.com> wrote:
->
-> From: bui duc phuc <phucduc.bui@gmail.com>
->
-> Enable the APB bus clock before the SPDIF module clock
-> during runtime resume, as register accesses depend on the
-> bus clock being enabled first.
+>> How will chances evolve to adjust variable scopes accordingly?
+>=20
+> Is this even a thing in Linux?
+> I mean specifying C variables anywhere ex. at function begin.
 
-That does not even matter here. Access will only happen once the runtime
-PM callbacks return.
+Development views are evolving also together with the application of scope=
+-based
+resource management, aren't they?
+https://elixir.bootlin.com/linux/v7.1-rc4/source/include/linux/cleanup.h#L=
+136-L153
 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
->  sound/soc/sunxi/sun4i-spdif.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.=
-c
-> index f54eb14c9ed8..102db1a2afbb 100644
-> --- a/sound/soc/sunxi/sun4i-spdif.c
-> +++ b/sound/soc/sunxi/sun4i-spdif.c
-> @@ -643,15 +643,15 @@ static int sun4i_spdif_runtime_suspend(struct devic=
-e *dev)
->
->  static int sun4i_spdif_runtime_resume(struct device *dev)
->  {
-> -       struct sun4i_spdif_dev *host  =3D dev_get_drvdata(dev);
-> +       struct sun4i_spdif_dev *host =3D dev_get_drvdata(dev);
->         int ret;
->
-> -       ret =3D clk_prepare_enable(host->spdif_clk);
-> +       ret =3D clk_prepare_enable(host->apb_clk);
->         if (ret)
->                 return ret;
-> -       ret =3D clk_prepare_enable(host->apb_clk);
-> +       ret =3D clk_prepare_enable(host->spdif_clk);
->         if (ret)
-> -               clk_disable_unprepare(host->spdif_clk);
-> +               clk_disable_unprepare(host->apb_clk);
->
->         return ret;
->  }
-> --
-> 2.43.0
->
+Regards,
+Markus
 
