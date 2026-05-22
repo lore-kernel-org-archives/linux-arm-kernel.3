@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA32ACD5BB5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40938CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=171MQcM9CJWyfM3/2Ru252BSs6XH3O3/Wc0oiM+Mdo0=; b=DWqpKevLwvedU1wgJ/TX68JrGS
-	DVHN/PigucXWF2rOliAvJJGJ6pDPRKkx8pyc8bqu0oG9A+atIsHBZJjnh9YxhYs6giWPDuMkdW7Hx
-	/pTn5CCUdGf7oEqgZbNXwHXhe7YQSLPHo53YEVNOeuD8+vBiHJO4Rogl8QBhV1fsenQVVIzFprbVV
-	tN2rj1QPqnDAbaZrIW39mI9WF49Y3we8N4UAyaQK9H7WGQyJeuTKgLLAL8dn/CzlxihssdgMU9aQn
-	365gEFuRWuqghno9eMXdABbKgfDr4A/jssrRZWFCUed7zMBidKFoJtbCdFFBIEFXphYRoSBx/kLU4
-	XRyhYSFw==;
+	bh=3c05gl0H/GpWSA6qaxgxfypMYcQADyQffOHZBAKPcvc=; b=NYTTJH2Ymmq13t6CnFzW6fGWBU
+	zHh43Cxcc8F3+iqGCfnGdA+wVY5hFdG/AbTcpfLe9gAqrmma6+orCRH3HR8qgCSDp8GfROQgtkdXJ
+	K5NZhxeU1CdBWp7cXlbiFxEo7PDbgFmpRw/c8NEwbgcIwm8KHgl6gFFGkpaIkSOlH6EchYwGEkgfG
+	Ql1j8JcsVBy/lZ6EzrTFHZidcSzejtZapDIbUAmWmvLNg6mg5eU6PEETlohfhS0BoJSsd47Paj9Q4
+	UstW9lpXNMGsLU9j3n2zfdsLN0/BEvEYAXIPj8PcOCZndyE99kG/SCcWmc9Tn9Fqrjtu8rLXlekbt
+	5vH9AY3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQLpK-0000000AGYE-2bk6;
-	Fri, 22 May 2026 09:05:54 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1wQLqH-0000000AGxa-1Iiu;
+	Fri, 22 May 2026 09:06:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQLpH-0000000AGWA-2wfZ
+	id 1wQLqG-0000000AGx4-23ST
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:05:53 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=171MQcM9CJWyfM3/2Ru252BSs6XH3O3/Wc0oiM+Mdo0=;
-	b=46R7hVElxJRykBcWe1HatiAKJuY7Iicpd8UQDywhW3QCaFWMA7W3EGVywhxgdu3EudQZjBzjj
-	XRttR71t6SFsWjzF8AHUcVu+Huw6SFF4VxPpFzfJWIX5PQpAzyJUmflLKWMVRvUHrTi79A+dZXI
-	WksSZUXDI8dMArpwC8ZW6gI=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4gMK0z4TSTz12LD3;
-	Fri, 22 May 2026 16:57:39 +0800 (CST)
-Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3CA16203B1;
-	Fri, 22 May 2026 17:05:42 +0800 (CST)
-Received: from huawei.com (10.50.163.32) by kwepemk500005.china.huawei.com
- (7.202.194.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 22 May
- 2026 17:05:41 +0800
-From: Yifan Wu <wuyifan50@huawei.com>
-To: <wuyifan50@huawei.com>, <tony.luck@intel.com>,
-	<reinette.chatre@intel.com>, <Dave.Martin@arm.com>, <james.morse@arm.com>,
-	<babu.moger@amd.com>, <shuah@kernel.org>, <tan.shaopeng@fujitsu.com>,
-	<fenghuay@nvidia.com>, <ben.horgan@arm.com>, <zengheng4@huawei.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kselftest@vger.kernel.org>, <linuxarm@huawei.com>
-CC: <xiaqinxin@huawei.com>, <prime.zeng@hisilicon.com>,
-	<wangyushan12@huawei.com>, <xuwei5@huawei.com>, <fanghao11@huawei.com>,
-	<wangzhou1@hisilicon.com>
-Subject: [PATCH v3 1/3] selftests/resctrl: Introduce linked list management for IMC counters
-Date: Fri, 22 May 2026 17:05:38 +0800
-Message-ID: <20260522090540.444554-2-wuyifan50@huawei.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20260522090540.444554-1-wuyifan50@huawei.com>
-References: <20260522090540.444554-1-wuyifan50@huawei.com>
+	Fri, 22 May 2026 09:06:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D6DBB60136;
+	Fri, 22 May 2026 09:06:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 701E21F0155D;
+	Fri, 22 May 2026 09:06:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779440809;
+	bh=3c05gl0H/GpWSA6qaxgxfypMYcQADyQffOHZBAKPcvc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AHh9Mvku4Tnd8U5EQXKfG07xtqXD/gmOXK6xZTxiIvJAiMFkn1FNVmOhV3MWPz75/
+	 IV9zCMOtUNQoilLVACbSZK+6EbGvqrV5e1yPfiLurnr2w835AOHAnwWn2FeYnpdyPC
+	 fhxUWLFapRiDSRH2XCyrWgKKh58W3k075AIgm7/R4TgvNhK5wwhclvtlNGngiQjS3a
+	 8cPy7dmRejgOL+ZiWJjl6IzW4cEoNz5h+OsGrMMS+AA8hglPmkdWuQ+LPZzi5AbFJI
+	 epMFfBExLfqLf6f4l8USRqpiRmVtZyXHsW2kjK3jYOy5jDOEQO77z5X28B5fJPEHYd
+	 LKQBvrIrMTVsw==
+Date: Fri, 22 May 2026 10:06:42 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Waiman Long <longman@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	David Hildenbrand <david@kernel.org>, "Liam R. Howlett" <liam@infradead.org>, 
+	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH 2/2] irqchip/gic-v3-its: Use GFP_ATOMIC_RT gfp flag in
+ allocate_vpe_l1_table()
+Message-ID: <ahAcWjiPbf-V554w@lucifer>
+References: <20260520204628.933654-1-longman@redhat.com>
+ <20260520204628.933654-2-longman@redhat.com>
+ <861pf3x3hc.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.163.32]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemk500005.china.huawei.com (7.202.194.90)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_020552_344384_12AB974B 
-X-CRM114-Status: GOOD (  16.93  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <861pf3x3hc.wl-maz@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,156 +77,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The static array approach to managing IMC counters has fixed size
-constraints and limited compatibility and scalability. Introduce
-a linked list-based dynamic management infrastructure to address
-these limitations. Add the core data structure definitions and
-memory allocation and cleanup functions for dynamic counter
-configurations.
+On Fri, May 22, 2026 at 09:17:35AM +0100, Marc Zyngier wrote:
+> On Wed, 20 May 2026 21:46:28 +0100,
+> Waiman Long <longman@redhat.com> wrote:
+> >
+> > A longer term solution is to defer the allocation to a later stage of the
+> > hotplug pipeline where interrupt isn't disabled.
+>
+> And that's what needs doing. Not papering over this in a bizarre way.
+> I proposed a potential solution a few months back, but didn't get a
+> chance to work on it. If you have the bandwidth, that's the way to go.
+>
+> But papering over this issue this way seems like a bad case of short
+> term and unsustainable hack.
 
-Signed-off-by: Yifan Wu <wuyifan50@huawei.com>
----
- tools/testing/selftests/resctrl/mba_test.c    |  1 +
- tools/testing/selftests/resctrl/mbm_test.c    |  1 +
- tools/testing/selftests/resctrl/resctrl.h     |  2 ++
- tools/testing/selftests/resctrl/resctrl_val.c | 27 +++++++++++++++++--
- 4 files changed, 29 insertions(+), 2 deletions(-)
+Yes, agreed. It really smacks of trying the fix the problem at the wrong level
+of abstraction.
 
-diff --git a/tools/testing/selftests/resctrl/mba_test.c b/tools/testing/selftests/resctrl/mba_test.c
-index 39cee9898359..4bb1a82eb195 100644
---- a/tools/testing/selftests/resctrl/mba_test.c
-+++ b/tools/testing/selftests/resctrl/mba_test.c
-@@ -166,6 +166,7 @@ static int check_results(void)
- 
- static void mba_test_cleanup(void)
- {
-+	cleanup_read_mem_bw_imc();
- 	remove(RESULT_FILE_NAME);
- }
- 
-diff --git a/tools/testing/selftests/resctrl/mbm_test.c b/tools/testing/selftests/resctrl/mbm_test.c
-index 6dbbc3b76003..68c89f50a34a 100644
---- a/tools/testing/selftests/resctrl/mbm_test.c
-+++ b/tools/testing/selftests/resctrl/mbm_test.c
-@@ -125,6 +125,7 @@ static int mbm_measure(const struct user_params *uparams,
- 
- static void mbm_test_cleanup(void)
- {
-+	cleanup_read_mem_bw_imc();
- 	remove(RESULT_FILE_NAME);
- }
- 
-diff --git a/tools/testing/selftests/resctrl/resctrl.h b/tools/testing/selftests/resctrl/resctrl.h
-index 175101022bf3..a7556cdae0de 100644
---- a/tools/testing/selftests/resctrl/resctrl.h
-+++ b/tools/testing/selftests/resctrl/resctrl.h
-@@ -24,6 +24,7 @@
- #include <linux/perf_event.h>
- #include <linux/compiler.h>
- #include <linux/bits.h>
-+#include <linux/list.h>
- #include "kselftest.h"
- 
- #define MB			(1024 * 1024)
-@@ -183,6 +184,7 @@ void mem_flush(unsigned char *buf, size_t buf_size);
- void fill_cache_read(unsigned char *buf, size_t buf_size, bool once);
- ssize_t get_fill_buf_size(int cpu_no, const char *cache_type);
- int initialize_read_mem_bw_imc(void);
-+void cleanup_read_mem_bw_imc(void);
- int measure_read_mem_bw(const struct user_params *uparams,
- 			struct resctrl_val_param *param, pid_t bm_pid);
- void initialize_mem_bw_resctrl(const struct resctrl_val_param *param,
-diff --git a/tools/testing/selftests/resctrl/resctrl_val.c b/tools/testing/selftests/resctrl/resctrl_val.c
-index f20d2194c35f..a72dc4ae61fe 100644
---- a/tools/testing/selftests/resctrl/resctrl_val.c
-+++ b/tools/testing/selftests/resctrl/resctrl_val.c
-@@ -28,6 +28,7 @@ struct membw_read_format {
- };
- 
- struct imc_counter_config {
-+	struct list_head entry;
- 	__u32 type;
- 	__u64 event;
- 	__u64 umask;
-@@ -38,6 +39,7 @@ struct imc_counter_config {
- static char mbm_total_path[1024];
- static int imcs;
- static struct imc_counter_config imc_counters_config[MAX_IMCS];
-+LIST_HEAD(imc_counters_list);
- static const struct resctrl_test *current_test;
- 
- static void read_mem_bw_initialize_perf_event_attr(int i)
-@@ -113,6 +115,7 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 				    unsigned int *count)
- {
- 	char imc_events_dir[PATH_MAX], imc_counter_cfg[PATH_MAX];
-+	struct imc_counter_config *imc_counter;
- 	unsigned int orig_count = *count;
- 	char cas_count_cfg[1024];
- 	struct dirent *ep;
-@@ -126,13 +129,13 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 			    imc_dir);
- 	if (path_len >= sizeof(imc_events_dir)) {
- 		ksft_print_msg("Unable to create path to %sevents\n", imc_dir);
--		return -1;
-+		goto out;
- 	}
- 
- 	dp = opendir(imc_events_dir);
- 	if (!dp) {
- 		ksft_perror("Unable to open PMU events directory");
--		return -1;
-+		goto out;
- 	}
- 
- 	while ((ep = readdir(dp))) {
-@@ -167,11 +170,17 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 			ksft_print_msg("Maximum iMC count exceeded\n");
- 			goto out_close;
- 		}
-+		imc_counter = calloc(1, sizeof(*imc_counter));
-+		if (!imc_counter) {
-+			ksft_perror("Unable to allocate memory for iMC counters");
-+			goto out_close;
-+		}
- 
- 		imc_counters_config[*count].type = type;
- 		get_read_event_and_umask(cas_count_cfg, *count);
- 		/* Do not fail after incrementing *count. */
- 		*count += 1;
-+		list_add(&imc_counter->entry, &imc_counters_list);
- 	}
- 	if (*count == orig_count) {
- 		ksft_print_msg("Unable to find events in %s\n", imc_events_dir);
-@@ -180,6 +189,10 @@ static int parse_imc_read_bw_events(char *imc_dir, unsigned int type,
- 	ret = 0;
- out_close:
- 	closedir(dp);
-+out:
-+	if (ret)
-+		cleanup_read_mem_bw_imc();
-+
- 	return ret;
- }
- 
-@@ -303,6 +316,16 @@ int initialize_read_mem_bw_imc(void)
- 	return 0;
- }
- 
-+void cleanup_read_mem_bw_imc(void)
-+{
-+	struct imc_counter_config *imc_counter, *tmp;
-+
-+	list_for_each_entry_safe(imc_counter, tmp, &imc_counters_list, entry) {
-+		list_del(&imc_counter->entry);
-+		free(imc_counter);
-+	}
-+}
-+
- static void perf_close_imc_read_mem_bw(void)
- {
- 	int mc;
--- 
-2.34.1
+>
+> Thanks,
+>
+> 	M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
+Cheers, Lorenzo
 
