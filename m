@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5262FCD5BB7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA2ACD5BB6
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 12:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8uhvifl0KjV7h78DpGOaJw8xIKxgprEXatY1NDwlp1s=; b=qr7TWjay1lxA2TRzjhuwJEvVpj
-	zDC+W7nEHrBrVBa2byDf/711hNaRUf7dzulTkuR2PKlbmLNMjgxqkKGPKhBSRIWiL4xif9GI57mn4
-	pPgkgvBHk9nOwgJ2k62Q8c2NlpJ+xOi/KXWTN3lR1OF63fngXBnrGfco1PHEFyf/mSNU3yJtelA1Y
-	fmJzArDZsLF+D8YwJ21ncQYV1Hm0OF8wKrmZHRAX1fIAKrXiWEsy+0DLkGZ6uKD0SH2FysfV0vGbB
-	a3dIwsBNsvRC9vb16tqwC5iDK/prwW3onFaMlXETJtZvTCvp9kMsvO72EuxwJGPXNBpjLOpSSvHfi
-	7LBO9Q2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pUl6Di85zdywTCtLZDpUxTZGF7q2HknhseYIwing12s=; b=DRzTtFjxr3P7PQAtOoslZAN5Y9
+	pHArourlVoWWKFjL599hJ7Rxd/0lQDJvSkol04CYNMdIdIVyTIiYAMNXGJUh2WKTTcxIvyfVS776s
+	7BhCf5hncTqRhE7CT/y7DJBi41oFdp3gK61FSrBvL6K9Fy/fl58fLpIsCyMgrimprHiskTBplaoUq
+	KHxpmbBLzNjQnljr54W54wafkY3CMAtwNhPBPEajKvPhO2UZioQUia0w/18VelVjM4GvX+7Y7lScD
+	fZ0gRjk3phLv6eDTf4sHwhZ287wbSIV/G6HOf3C00Ff5BLNt/pqpeDOZ3zOhmC1zfmBW2MiV/v5Qc
+	6iwVVFPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQP79-0000000Apa2-0kzj;
+	id 1wQP79-0000000ApaS-1Tty;
 	Fri, 22 May 2026 12:36:31 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQP6u-0000000ApH4-2AGW;
-	Fri, 22 May 2026 12:36:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779453347; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=JMPJvuTa2RfTR0gKAtxDXX/rO7miLRL9BvHzGCcP/GY+6N6Hdtt3A8XCWL3OLtbI3Ei5kH8Vg9Oos84ZFcr2Yy48yjxO4FcwX+9VT9cvomizfRAbYorHDLbpCciFzSsmBv8FUrsBANI+RLb4SAlqlKyXI+Ns74moh0+H4Xs6frg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779453347; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8uhvifl0KjV7h78DpGOaJw8xIKxgprEXatY1NDwlp1s=; 
-	b=Mg5+1xHivchbAFfO/EvBTvURe3mREdwZO2pz+ub007qxv6VehLgzDumZND6OkFsRWQsgmqZ5yPhzqJnCFqvAjZIm/4ienmRKjq53EjScfMXWSmf3v1MP/N7KrV49LRSiC2x7UqkApRnz+CiRq82bOo/3TXkbPUT1IM+T6f1OpjQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779453347;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=8uhvifl0KjV7h78DpGOaJw8xIKxgprEXatY1NDwlp1s=;
-	b=FpcOQBzOEVPnMBxfHBqW2QdjzN4pzPtEhZ1MOjN8pAXVbm/IkNLzSFdvMgU5NRat
-	o5bineT2mO+yrZFOOjPTU7AC5VrgZnzlNXJbcdgoZNh9gnbhnFv42VQ9p9bP7d3LYdN
-	bTpbYhNQfDWfE+wulJ30eyaAiw19bZWZQQz+0T0Y=
-Received: by mx.zohomail.com with SMTPS id 1779453346251347.45496126688056;
-	Fri, 22 May 2026 05:35:46 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 22 May 2026 14:32:12 +0200
-Subject: [PATCH v15 21/28] drm/rockchip: dw_hdmi_qp: Set supported_formats
- platdata
+	id 1wQP6v-0000000ApG5-1bv7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 22 May 2026 12:36:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=pUl6Di85zdywTCtLZDpUxTZGF7q2HknhseYIwing12s=; 
+	b=TM5rct7q+wnyPz8c5pmc5+lfFejfF/vDcb2eDm+l83qnc5HpuwUOHbJueYj4/wIwgGolEyCXKbI
+	+aSbZ3rakFzZzSeM3LIS5Bo0hHaCvM5GlUo3d6I7QaECes7eGYbqB9gy5a6jlDeWHskxe8dQtp7bg
+	mpNbRMsVu/XPsWqXg4QUnsODKsMsNd+mo038qOrgeB3LW5ELUWRbMju82RK8w0Jgy/E04QAktk9Mr
+	Qd0sfGxNcKSX9lHs+uHbqLznmOHgvPjrjKtlf9CeUkw4vc9H09OKVAO66K/9LJzrEyTdTW4L+RQGD
+	y9OXTQUgFXjHei+shivkt5+0uM3XcxfJnVFQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1wQP6k-00GSXH-2I;
+	Fri, 22 May 2026 20:36:07 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 22 May 2026 20:36:06 +0800
+Date: Fri, 22 May 2026 20:36:06 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Lothar Rubusch <l.rubusch@gmail.com>, stable@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] crypto: atmel-sha204a - fail on hwrng registration error
+ in probe path
+Message-ID: <ahBNtvwCCWlqRLSR@gondor.apana.org.au>
+References: <20260517162740.1250-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-color-format-v15-21-21fb136c9df2@collabora.com>
-References: <20260522-color-format-v15-0-21fb136c9df2@collabora.com>
-In-Reply-To: <20260522-color-format-v15-0-21fb136c9df2@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Daniel Stone <daniel@fooishbar.org>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260517162740.1250-2-thorsten.blum@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_053616_624127_601B73B8 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260522_053619_004481_9E1DCB58 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +76,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of the supported_formats member in the
-dw-hdmi-qp platform data struct, drivers that have access to this
-information should now set it.
+On Sun, May 17, 2026 at 06:27:40PM +0200, Thorsten Blum wrote:
+> Commit 13909a0c8897 ("crypto: atmel-sha204a - provide the otp content")
+> overwrote the hwrng registration return value when creating the sysfs
+> group, which allowed atmel_sha204a_probe() to succeed even if
+> devm_hwrng_register() failed.
+> 
+> Return immediately when devm_hwrng_register() fails, and report both
+> hwrng and sysfs registration errors with dev_err(). Adjust the sysfs
+> error log message for consistency.
+> 
+> Fixes: 13909a0c8897 ("crypto: atmel-sha204a - provide the otp content")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
+>  drivers/crypto/atmel-sha204a.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
 
-Set it in the rockchip dw_hdmi_qp glue driver.
-
-This allows this information to be passed down to the dw-hdmi-qp core,
-which sets it in the bridge it creates, and consequently will allow the
-common HDMI bridge code to act on it.
-
-Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Reviewed-by: Daniel Stone <daniel@fooishbar.org>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index b77ef92ae954..815f9ea7bcbe 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -602,6 +602,10 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	plat_data.phy_data = hdmi;
- 	plat_data.max_bpc = 10;
- 
-+	plat_data.supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444) |
-+				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) |
-+				      BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
-+
- 	encoder = &hdmi->encoder.encoder;
- 	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
- 
-
+Patch applied.  Thanks.
 -- 
-2.54.0
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
