@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2768FCD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF37CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XVo/FFXfWI6Siu3pboylHv8St2O3FHDrAkJHWhb+UAc=; b=3b84wMloraY+/xOmSNyGfto2tN
-	qYyDkNV6si7QHshmvTbw99rsXofPqdmu5+ytXLiO6y8E6/Rvh/2OW33/igw/TN9yNoqTl2EQ65zOi
-	FJ08PACKro4Fc/+hB9k4UsYUlP6eQf4CFi5CA236pNbmE8xMsxScGf+YcGWY3cEFUiBsXr+rDJ/SO
-	cjw717WckZ4F9VE3L+ySB2bJBLZ4ZaDOnYJE6ngEHXOTPHXw0SXRzAEijUyW6pdNh4TiKQmkUkEX4
-	dREpmWRWznyR5BjLU6e5qTu/wDSeQPwgs6K6Kymx4pAMn2VtII12fT3gPvIFl4qqMsvW8xFM+mv9e
-	rJObzRZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=951wht0+W1VQnnLt3d/D9/zM6BZV046xXYoOH60ZRZc=; b=KMfqoVYhA/9xKZwbkzmMytSOJg
+	DfmNj+NoXekV8Z8hXS0zgETF+agfwEg6vAXfVjU121Q3NGKpNPovzSkBfhVbsjZwgrwO9ftIcUKAF
+	4ch6mlVB8E0+wma9d72/rSA5kcPzJV8ggeAaDVgAdBD3CMwedc1jBhlPJ+ghxnLKDzM7jjBpE8lIo
+	r6xTIp0tcPBuzvnA9EWYdImFZ0Eskna3K9EfJgsA9skkgEk9lNwDuX0VZ9CuL3gmqP8uYTDSLRtKO
+	TkNqELyHUctkuBS8i5HD4P8TZKpzVJel0p22ff1PlfP1MM63PbYPFa8yHSXFLL+1ErsWemUAXCVoV
+	dG6+/67Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMJV-0000000ALjw-0m3p;
-	Fri, 22 May 2026 09:37:05 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1wQMaE-0000000ANRe-3pR8;
+	Fri, 22 May 2026 09:54:22 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMJS-0000000ALie-2pmg
+	id 1wQMaD-0000000ANR2-02uO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:37:03 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43fe608cb92so4395314f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 02:37:01 -0700 (PDT)
+	Fri, 22 May 2026 09:54:22 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-83538fbd0b2so2942994b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 02:54:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779442620; x=1780047420; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XVo/FFXfWI6Siu3pboylHv8St2O3FHDrAkJHWhb+UAc=;
-        b=ObRcxTYoDKnucrIy2EVA15lnPBPPANuU6F43xwwP9zKKQ6TuFykPz64C0e6gOG+z3u
-         6yf0tG0+HHVlqxxhbj/67JsT3s69x+Ckz72ixJy11515jW3AdY3OcDi1BGmv0aFCAHX0
-         Co2V805jlbb/sj1o07uowZsn/+1wFLz5fOfpAZ7tcSmWYWQRZS5+msEAgsipdAjKdcw8
-         wpGZlZOPmdg6adA2g4f77FIWOb335UA/mVI6chle5KMkry29C5ubPas2nmHl3IvrTMa4
-         qGaIOIYEcVKXeJqYtpcql3ueZUnIM2KabZjKg1obHyRvi46XlaCpp0orBWz9RZlGPd/4
-         64IQ==
+        d=gmail.com; s=20251104; t=1779443660; x=1780048460; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=951wht0+W1VQnnLt3d/D9/zM6BZV046xXYoOH60ZRZc=;
+        b=f1l5TLhMAGgCecYaw6lsbBFvhS8KbkQJCZztG2X4nOzLUMVnrcv763X70Mtf0WYrTR
+         yJzeIvu5Pnxq5vIE+ns7KN4loYAoYh4gOkcvIz3Mkwv2sJwmDKv6G3KkGqbU37nGjm2j
+         tZMIvQ5xXj1sq75yehtQu3DoAPzkbBv7rbKbxBx/2C6UjudzfjT+dtefq9io3VluKCe8
+         WKkKaAb3pEtYPGJBhnekuiA7ZAEdCzUrz5XM0rlAaqI3xMEO/1fXBX/IqwaP8DEH7Md3
+         PBNfGtLfabMI1Q1fRXTcf5afzlb969mcFwod6rSSK9f5EWcMXJelyj3jGYYCVVqV9j1x
+         tUtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779442620; x=1780047420;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XVo/FFXfWI6Siu3pboylHv8St2O3FHDrAkJHWhb+UAc=;
-        b=E63Ggl5p5+Yzb5lWCffCBKe4cXHUzTE5/CMKNpMWs7esHXzBPVkhd9ToTMD/aqgpK8
-         VuAt8w3MGKn30bEiZVmn0MdeNbjAil7Blo/bgYCXy5QPrzEhjRbK8uluqMVF8wLnjGaa
-         hxI0/PUV/KaPRWBU14PFm6MmCpS/Hyj1rvhuMCYJyzlxcdIayDDdu3nNekhlpiKHl72n
-         w/aw02vrokI0TtnAEDkqBk6ggjeLwQxtOO5Tfvzbr2bDoOLQ2IrsoNua6rL8DJvqfvQD
-         yui/qABKvejCYx9aBcJdHfQr/dh3Msx7SN4T3o94Sb1Cj7eG5Cr/e+l3X55EQWMAQtLD
-         anEA==
-X-Forwarded-Encrypted: i=1; AFNElJ++Ebh8kpTEOX9QxROct4Qm9jXOJ+tuWEp+6dTRrUz9pDgZkkmD+0cdDi9tjbniiwdew5sntulBpO+WWGjWGOp9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1XVbppO9Dbm/WW1TOe0EkO7TK2odTVDxOIGw9/QmAXRAwKROv
-	rLnEK+GnMj+I8O1v+O/U32T+4Pl9ugQzh5v7tIvH9oMoF6af53MwUQGc
-X-Gm-Gg: Acq92OE3aXRqwYbrSTpMUfn3XR/cIRD8vibgixkBcaxX9qH2du9cioi2jdXtV7JnHQS
-	uSBnxaiSwcdewIlJGjZynTJ5KpwSpE6hOpuIho92Z9r/k4zYwScjlbHw3/SLSI/eHN0g87ugmFl
-	OCHpYJk2rCkTskdOaFECz8Idx07Gba94mOuXGbhaENPj+oAfIqj3LA7Q8F/zXI+XwXixV8g/6x1
-	jlKsuz04AQs8Eeyljswg2bjPaBMm+ru6zZjf1hiP57EpuOjFYNmeVevOoKF5tDJnl4EC8ImsGwf
-	Q7QcoEVJO/Ihyx+JxUetECucHCH6ZO4kmraIkuQn0ejVGVs2fubsmUM8//MmBEmba83UDGMcYuP
-	ghNBdT+IY6S35RHjnEAgwI5f7yKsoPI7LjGVarL+It2N4qYPvRsYo0DQmJtIHFVo7vx0bFgWIpE
-	Iw4s8Vy378b38mpoQVT1izZnZn8mDRkLXIR6ylaLB1Z8A+rErxIfpWqT2K2Rye59mSxUTCHuMeA
-	Zzb2hFhwgyLNtu1fVbLjwcttSGNcm8Ye0mXrvfNW4mZ
-X-Received: by 2002:a5d:64e4:0:b0:45d:3a84:709c with SMTP id ffacd0b85a97d-45eb38d45e6mr3805787f8f.31.1779442620182;
-        Fri, 22 May 2026 02:37:00 -0700 (PDT)
-Received: from fedora (cpc92878-cmbg18-2-0-cust539.5-4.cable.virginm.net. [86.16.54.28])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-45eb6c9ba2esm2815306f8f.8.2026.05.22.02.36.59
+        d=1e100.net; s=20251104; t=1779443660; x=1780048460;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=951wht0+W1VQnnLt3d/D9/zM6BZV046xXYoOH60ZRZc=;
+        b=lQjwb8/mWqgNFatVP2WbYNwqDKJHpcAeEhIrst7QSsRWmkQIf4I81CdzxbPJ9Ba1PH
+         HvsNsQ+YcgfzIY4WZ2kRM+9r6/8i+AnJc1qCRQlOGCSDTfXnydjFMbf02+EKEpgTXytU
+         nMRPIOOq1gOQANaEwXlMvtdS3yWLZ0ePM5IQwPdD8IRbDA9W36SiMGGH8H4XWRejxxHr
+         fHUYBN+Tj1VuqZj0zEZSc1efCGq+o51ujC+v0HBEqngnOSoQIyFu/F7FiMo6u7sSln5s
+         IIiEdOpNGN0qOeG6q/9r5b27OdlKkCVDIU31fTiT6/SAOpFqZtW86PTbXi4ZwgK9tARx
+         3QXg==
+X-Forwarded-Encrypted: i=1; AFNElJ/pE9rHBT6hTY8hMhHhWuy9z3t/XQ6J8RqHPXWMB0rsWc1qqDbunbGgUyTLg4bpJWeLAvyqINM/AbBx1uwQfv4u@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVDedl9ZWUJOIQlx6gyb49UNY9kxN8YWX9i9AVm23WNk4l4zIX
+	t0f/DNkIjge+AdaEGn7Taa4uH74g3m5MMyc/D5vTz+H/iAeudEO4ru+Z
+X-Gm-Gg: Acq92OHoLajagWKEyO2PXkizQOfVaesyMl+UY/XnP8GH/+CZ1y91/tXqzEGYOlkLZmQ
+	RLpjynZ76qssqqE01gm+z3B3AM5Ru2zhdpXqLMouoSpOzBvXXhUmwvpm/zZ5qssAeeBZtLGNV2k
+	OXZTSiX2hO1dsOUc3ZZWVxHBYb2LzviTdUgS0aydvr8Za1/NlZlaRXf5IVVVZGCS1DmfAPAHxOV
+	MiAniEDSe2OcN8UsUMS7FUW+oR7Ec7gsfRrtln1dUww6IY6VmB/XpPAUdjq2/vCrZ+a9+A2GRso
+	LkIBAHAp9WQYzmj2CYyg1uBcCiaPCaZsLZkg4o83VlL0FYf/3I637l4V8/Qk+jC4CXH1o3TCuDk
+	4lFIOQMzKeT9sKQIVuS1NNSYdeQmJu5d0eCepOFfDckKmmzxcjJp9Y2l6uJN1lfuAP5tW4FApsd
+	lwsjK30hLOp+PflLI0GIKVUwrCRQ9A7CfU4vHwlTcuT8cEzsQui/TauyrCWCXgOk9HWG8m
+X-Received: by 2002:a05:6a00:419a:b0:83c:5e:f647 with SMTP id d2e1a72fcca58-8415f5a64efmr3131038b3a.29.1779443659746;
+        Fri, 22 May 2026 02:54:19 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164aed7c9sm1757366b3a.13.2026.05.22.02.54.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 02:36:59 -0700 (PDT)
-Date: Fri, 22 May 2026 10:36:57 +0100
-From: Vishal Moola <vishal.moola@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Alistair Popple <apopple@nvidia.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, will@kernel.org, david@kernel.org
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-Message-ID: <ahAjudlB32VbkKbG@fedora>
-References: <20260521032730.2104017-1-apopple@nvidia.com>
- <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
- <ahACfQ6kCfONqz5h@arm.com>
+        Fri, 22 May 2026 02:54:19 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: broonie@kernel.org
+Cc: codekipper@gmail.com,
+	jernej.skrabec@gmail.com,
+	lgirdwood@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	nichen@iscas.ac.cn,
+	perex@perex.cz,
+	samuel@sholland.org,
+	tiwai@suse.com,
+	wens@kernel.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH v2 0/3] ASoC: sunxi: sun4i-spdif: Cleanup and runtime PM improvements
+Date: Fri, 22 May 2026 16:53:58 +0700
+Message-ID: <20260522095401.72915-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ahACfQ6kCfONqz5h@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_023702_737251_1CF09A3E 
-X-CRM114-Status: GOOD (  34.28  )
+X-CRM114-CacheID: sfid-20260522_025421_055519_687347CA 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,106 +107,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 08:15:09AM +0100, Catalin Marinas wrote:
-> On Thu, May 21, 2026 at 03:31:30PM -0700, Andrew Morton wrote:
-> > On Thu, 21 May 2026 13:27:30 +1000 Alistair Popple <apopple@nvidia.com> wrote:
-> > > Since 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in
-> > > __create_pgd_mapping()") page-table allocation on ARM64 always
-> > > calls pagetable_{pte,pmd,pud,p4d}_ctor(). This sets the page_type
-> > > to PGTY_table, increments NR_PAGETABLE and possible allocates a PTL.
-> > > However the matching pagetable_dtor() calls were never added.
-> > > 
-> > > With DEBUG_VM enabled on kernel versions prior to v6.17 without
-> > > 2dfcd1608f3a9 ("mm/page_alloc: let page freeing clear any set page
-> > > type") this leads to the following warning when freeing these pages due
-> > > to page->page_type sharing page->_mapcount:
-> > > 
-> > >   BUG: Bad page state in process ... pfn:284fbb
-> > >   page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x284fbb
-> > >   flags: 0x17fffc000000000(node=0|zone=2|lastcpupid=0x1ffff)
-> > >   page_type: f2(table)
-> > >   page dumped because: nonzero mapcount
-> > >   Call trace:
-> > >    bad_page+0x13c/0x160
-> > >    __free_frozen_pages+0x6cc/0x860
-> > >    ___free_pages+0xf4/0x180
-> > >    free_pages+0x54/0x80
-> > >    free_hotplug_page_range.part.0+0x58/0x90
-> > >    free_empty_tables+0x438/0x500
-> > >    __remove_pgd_mapping.constprop.0+0x60/0xa8
-> > >    arch_remove_memory+0x48/0x80
-> > >    try_remove_memory+0x158/0x1d8
-> > >    offline_and_remove_memory+0x138/0x180
-> > > 
-> > > It can also lead to leaking the ptl allocation if ALLOC_SPLIT_PTLOCKS
-> > > is defined and incorrect NR_PAGETABLE stats. Fix this by calling
-> > > pagetable_dtor() in free_hotplug_pgtable_page() prior to freeing the
-> > > page to undo the effects of calling pagetable_*_ctor().
-> > > 
-> > > Fixes: 5e8eb9aeeda3 ("arm64: mm: always call PTE/PMD ctor in __create_pgd_mapping()")
-> > 
-> > 6.16+, so I assume we want cc:stable here.
-> > 
-> > >  arch/arm64/mm/mmu.c | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > > 
-> > > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > > index 8e1d80a7033e..0c24fe650e95 100644
-> > > --- a/arch/arm64/mm/mmu.c
-> > > +++ b/arch/arm64/mm/mmu.c
-> > > @@ -1422,6 +1422,7 @@ static void free_hotplug_page_range(struct page *page, size_t size,
-> > >  
-> > >  static void free_hotplug_pgtable_page(struct page *page)
-> > >  {
-> > > +	pagetable_dtor(page_ptdesc(page));
-> > >  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-> > >  }
-> > 
-> > I'd of course prefer that arm maintainers handle this.  But
-> > 5e8eb9aeeda3 came via myself so convention kinda-dictates that I get to
-> > fix it.
-> 
-> That's fine but Sashiko has some points:
-> 
-> https://sashiko.dev/#/patchset/20260521032730.2104017-1-apopple@nvidia.com
-> 
-> The __remove_pgd_mapping() path is fine but we also have the
-> vmemmap_free() path where the constructor was never called.
-> 
-> We could pass around a bool dtor argument but I wonder whether we could
-> just check it's a pgtable page:
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Free_empty_tables() looks like the only way we'd ever get to
-free_hotplug_pgtable_page(). I'm a little curious why we can't
-consolidate unmap_hotplug_range() and free_empty_tables().
-I.e. just fold unmap_hotplug_range() into the latter.
+Hi,
 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 4c8959153ac4..9d42cbddce27 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->  
->  static void free_hotplug_pgtable_page(struct page *page)
->  {
-> +	if (folio_test_pgtable(page_folio(page)))
+This series contains a few improvements for the sun4i-spdif driver,
+including guard() conversions and ensuring the device is resumed
+via runtime PM before kcontrol register accesses.
 
-This should work.
 
-> +		pagetable_dtor(page_ptdesc(page));
-> +
->  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
+Link v1: 
+https://lore.kernel.org/all/20260513105003.81880-1-phucduc.bui@gmail.com/
 
-In the case we presumably have a page table page (ptdesc) at this
-point, we should really be freeing it with pagetable_free() as well.
+Change in v2: 
+ - Switched from using guard() to scoped_guard()
+ - Added runtime PM handling for kcontrol register accesses.
+	
+Best Regards,
+Phuc
 
-Its not a big deal that we don't right now, but losing track of the
-matching allocation/free sites will become a headache when separately
-allocating from struct page.
+bui duc phuc (3):
+  ASoC: sunxi: sun4i-spdif: Use guard() for spin locks
+  ASoC: sunxi: sun4i-spdif: Resume device before kcontrol register
+    access
+  ASoC: sunxi: sun4i-spdif: Reorder clock enable sequence
 
->  }
->  
-> 
-> -- 
-> Catalin
+ sound/soc/sunxi/sun4i-spdif.c | 76 +++++++++++++++++++----------------
+ 1 file changed, 42 insertions(+), 34 deletions(-)
+
+-- 
+2.43.0
+
 
