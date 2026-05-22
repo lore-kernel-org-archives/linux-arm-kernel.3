@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47457CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E5ACD4F3D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 22:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kc9+pnx9V5zJCzrrZnoMn6gdgHh5drL1PfGcHBn0LCE=; b=hjWeaIeKKM0FjxLNtnzCdbpjpe
-	fdbBIn2wLv3JJjbtlMhyP+OKxDHJqxwrhDPiZsfGEkHDN5IBN6kyvvWFiGXfpppqlHrZEfoFrkAsl
-	SQ4SFGc7mTXkqG0D/wwO/Foao1JXaXXh3cPi22eywGluTj8aUo3NoZ4KFL4JwQszZgK0Uie5JpY/G
-	iGXPugU43qgT8KRJtyH/HRGDCrODM6z2SGqeJdRQLpoYCHAgocBon4bYpCmRJrn6kZR1FIlHY/B6x
-	xmP2a7tgFGEBHctaAy8b+sulL2SVO4ax1xYMtH5EOBf7eVY17zlPZizUBEkTf0M4Z7sLr5/LHrcz4
-	IOezRoFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=; b=sPe3VJZBUSbRL8sLIfMlUJYVd1
+	59WvwD5x9bZNMiDVCgtKcRzW1Myxh1yLtwYaaSkB3uCYp++s1Wgn59OSvr7cEbnNeN9FaVb6CsO26
+	ONaHpJfBuS75pZ2t1BCOVOPoj6+Mc+LQB4W7aggYhyeSXM27n9/yx13vg38z4bAVtJnIOWBb3jF9l
+	TdMCrwLs9H7H4hqxLbiLCqgVGdqUVUxW1nRMpLOQRcngidI7hHXi2wx7MniU7Mh3lB8A/m0hAvWZj
+	kGA+O54Tei4IxtscWfh96wX5IqIolEoR8ADD/hsLAHzdV3kLuVSA+5FurNdbA4WVrckPVKaLjMfpi
+	0nxCBGyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXzw-0000000C3Lc-3bfU;
-	Fri, 22 May 2026 22:05:40 +0000
-Received: from mail-dl1-x124a.google.com ([2607:f8b0:4864:20::124a])
+	id 1wQXJA-0000000Bwz9-1lgO;
+	Fri, 22 May 2026 21:21:28 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQXza-0000000C2wR-21f5
+	id 1wQXJ1-0000000Bwrv-2Tfh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 22:05:19 +0000
-Received: by mail-dl1-x124a.google.com with SMTP id a92af1059eb24-135916eefa0so8069340c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:05:18 -0700 (PDT)
+	Fri, 22 May 2026 21:21:23 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49048e043e5so5874515e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 14:21:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779487517; x=1780092317; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kc9+pnx9V5zJCzrrZnoMn6gdgHh5drL1PfGcHBn0LCE=;
-        b=Li2q0RmHobiH+XVWkdVHjEtTSJqu4bRUFnxiTVwpX2wHGIAMoRJT6OULHHhoLwxVB9
-         p7viy9w3WH41UExVJSBFI8XWy494vMyGt6Wju4S/ZQ9XrvhnhGFqLFl9rfdecXd1tI8s
-         EyBaL1bBP81Ed44aKWaJLFCMdW2ey97nsG/Hkp8L7HwcDWOIRWhA+w6mP5RNDX/VH6/H
-         zg7TT9nGhPfgJc7aK9NKIhvmB8IpJBGIvDg5iC8mZOTQtVkH42hbE8qHBvaJvArdaxr0
-         a7y0z/pgFblfIpfmhEgKkpDvH0t+b2cj0kNu2FCPWfIt/xkkk/vPy9PwIYGL4et2M+XD
-         z0uw==
+        d=baylibre.com; s=google; t=1779484878; x=1780089678; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
+        b=oV/9fB/HkKmOmPnDm7qDZuMZYP6U+RtymIEwCNsb2CRDheZc80bul7ER7LZrGmL5vR
+         KH5GxADrlcHCwJGNUXQ+9pvr/DLwkHQB3jCBRm/Ca+MIVZm1dGGUbaMsWRpP9XdL4mxP
+         3EuC6nzqs6RhP5gJUJOS1vsjizqQUbubCIAPjBQGAystviZfFWxF8rJbG48Al5z+NFNe
+         Gapzj1NkBDZsMEoI8GDgckv6bOX8iYVqri38rXJ14ERF2gBlnMRT1Z31kSmgN7r7fQQb
+         VlA6uKPw+f/Y5qcg8VYB+CYXSdRhoJIQg/QcpSUkW1LQUeD4SjDw7ILxScvZIL9qZi3i
+         sDZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779487517; x=1780092317;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kc9+pnx9V5zJCzrrZnoMn6gdgHh5drL1PfGcHBn0LCE=;
-        b=L30kBGESjdAeaF5yMmaFFrYQD1xii30H9RyC76y4UEE46DzwFGjsK+Qg4YlPWc6pju
-         o4DTlPe4CWT+Ibv13Gx7Zgl2HsIG290CJXK4XNAE0MYmnlBGZC7HfbRM3BWaCeLaGpgT
-         /rXBxpgrWtppv1Al2rHoz9RcK3qCoAAkd7jehghe7Rnsn8zLdjiYvM1BfwMDwExfIHSl
-         vnvaMTa7pfQS5BNLrMHpbg8dCAYShG4ZETCA1lt/KKASCx6Q23WHuGYyeIPkstK6GGWt
-         n0YDhNqAmGi5kDl8nNyYfrOuJcedv0RI+wyWsRCnyy6+NX3J65mM+xiXRtZ8smzcbR2s
-         LQEQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9/+eF4sAQWK6WiHZx8QcNY28t+8PSPcodHFQRqCVBs293xjNtXUFRah1rlDrwAmXsAbsB+wLgjfVHyr6HNzso/@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywsq3lPsCBiGszRswviRvFt+qj77P5BzPmQsPBULS5oLt0NOTPp
-	c4TNQ/zgHtr4izR+Nv82/X7jPeCf7NE7W7+YPrE15hgDkyNGDdqk2ZlBuRFsVN61vvvv5dQj33V
-	4xyZH6gotIQ==
-X-Received: from dlbtu11.prod.google.com ([2002:a05:7022:3c0b:b0:134:ea68:2940])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:6725:b0:12b:ebb9:1c18
- with SMTP id a92af1059eb24-1365fc79de8mr2447524c88.31.1779487517130; Fri, 22
- May 2026 15:05:17 -0700 (PDT)
-Date: Fri, 22 May 2026 15:04:27 -0700
-In-Reply-To: <20260522220435.2378363-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20260428071903.1886173-1-irogers@google.com> <20260522220435.2378363-1-irogers@google.com>
-X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
-Message-ID: <20260522220435.2378363-17-irogers@google.com>
-Subject: [PATCH v9 16/23] perf python: Add mmap2 event
-From: Ian Rogers <irogers@google.com>
-To: irogers@google.com, acme@kernel.org, namhyung@kernel.org
-Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
-	dapeng1.mi@linux.intel.com, james.clark@linaro.org, leo.yan@linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
-	tmricht@linux.ibm.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1779484878; x=1780089678;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=h/JC/lCvJB29DmlH+qRhnlQ7JKVcjCcbMoFC+b+6/88=;
+        b=QNwDKcuxtU3Aw6J+SPFqMVx8IpM30/YzEuDb1xOOYDozbxCsOP7PLkkFAhi4wHxzlE
+         Qo/L/2u4jHU3r+p1hJTqd2OyBl7ok+bPlS5RaQ1dFoArRcroHIWj1gNWZUdaj+WXKvfT
+         tCJvEy2KO4k2FK7gAJE6/BEPeKzy43GSPcdo7KsjOh43zdAFucSgj+S9TkmONmTYTfZH
+         25Sfr2znXllYd+9LXLUu4ejS5I3y65vVbAHWwZEOkfkz+gafXzkKTNLjkgkecma0KoP3
+         QiUEZK44nfAXZcnVR6nM+0ckUFKVIQUmG3ly1FTA6WmlZ3pWZKz/icyY2eEiodSKf5oy
+         pcXQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+n4u2DYRhksNL/m8YYBi1d/9hJZC1+8XqvBFMTqzsw6lhWGcXrxAgw+6iHVd61caGc6yJHwIP915gCZykYTtse@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzdQONgq59miTje36LelMF6mBViKcVKUpRwk2Ezy1omEGpjF+q
+	xvlsc0RNpVTJQwjRo83SA8MT0J7baga3LV/FRe4wz23WOixy4ZiEyX306n3N6jTiEUI=
+X-Gm-Gg: Acq92OG/MILAUOJybvPbgTWrEeRCp58K3RXaLMupDdR+Wm+J+L0+VRyvWwvH8QDnjnj
+	w1dcMbL0F737YBhLh+DwDzi2LLwkJpUQtMbAqr/3QJaIaANqRtfpqxPGQC6QbMdtiiH/4T3taMY
+	0Rz9RM39nK6T1Lt0eFZTK7X6omPpRphZPHFfnmNgisBsQDYiY3hnrm05jUyDEx17ng7rQAfVrZW
+	DDZOtl4v6+Yly07bk/bYqZiusGqKdOD1KMjKvdATAJS04wwTVt1oLJAwEAoHVrQBkjkkgT1UubT
+	3ScQ1sZn6GXXSkuV/ZMbJ+CfowpkNguOMdkNe1O0C1BLDxA7dzWy/oT6w46SuR9EjYwv2xE7jUf
+	ik7ay6cn7F5Be5noeQijY9jVLsfyPfcYaRafbDXajPms5mLMAzX2AJ2AVYFOSlNA9DiRqlpjWGF
+	QKRespjrUrtErTOb/Efo0BXJ7zKIV1gkU=
+X-Received: by 2002:a05:600c:5298:b0:48e:7854:1608 with SMTP id 5b1f17b1804b1-490428dd523mr79562455e9.25.1779484877951;
+        Fri, 22 May 2026 14:21:17 -0700 (PDT)
+Received: from [192.168.0.2] ([2a07:7e81:7daa:0:62cf:84ff:feee:627])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0b82sm73312225e9.9.2026.05.22.14.21.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 May 2026 14:21:17 -0700 (PDT)
+From: Angelo Dureghello <adureghello@baylibre.com>
+X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
+Date: Fri, 22 May 2026 23:20:30 +0200
+Subject: [PATCH v3 02/11] m68k: mcf5441x: add clock for DAC channel 1
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260522-wip-stmark2-dac-v3-2-16be0ad35a67@baylibre.com>
+References: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
+In-Reply-To: <20260522-wip-stmark2-dac-v3-0-16be0ad35a67@baylibre.com>
+To: Greg Ungerer <gerg@linux-m68k.org>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Steven King <sfking@fdwdc.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>
+Cc: Greg Ungerer <gerg@uclinux.org>, linux-m68k@lists.linux-m68k.org, 
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org, 
+ Angelo Dureghello <adureghello@baylibre.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_150518_532225_8D09B5B4 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20260522_142119_647581_A5638E41 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,115 +108,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If mmap is handled so should mmap2 events. Add support as a distinct
-python event type.
+From: Angelo Dureghello <adureghello@baylibre.com>
 
-Assisted-by: Gemini:gemini-3.1-pro-preview
-Signed-off-by: Ian Rogers <irogers@google.com>
+Add missing clock for mcf5441x DAC channel 1.
+
+Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
 ---
- tools/perf/util/python.c | 60 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 60 insertions(+)
+ arch/m68k/coldfire/m5441x.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
-index 029915b7a1fe..daedd67f12d5 100644
---- a/tools/perf/util/python.c
-+++ b/tools/perf/util/python.c
-@@ -153,6 +153,54 @@ static PyTypeObject pyrf_mmap_event__type = {
- 	.tp_repr	= (reprfunc)pyrf_mmap_event__repr,
- };
- 
-+static const char pyrf_mmap2_event__doc[] = PyDoc_STR("perf mmap2 event object.");
-+
-+static PyMemberDef pyrf_mmap2_event__members[] = {
-+	sample_members
-+	member_def(perf_event_header, type, T_UINT, "event type"),
-+	member_def(perf_event_header, misc, T_UINT, "event misc"),
-+	member_def(perf_record_mmap2, pid, T_UINT, "event pid"),
-+	member_def(perf_record_mmap2, tid, T_UINT, "event tid"),
-+	member_def(perf_record_mmap2, start, T_ULONGLONG, "start of the map"),
-+	member_def(perf_record_mmap2, len, T_ULONGLONG, "map length"),
-+	member_def(perf_record_mmap2, pgoff, T_ULONGLONG, "page offset"),
-+	member_def(perf_record_mmap2, prot, T_UINT, "protection"),
-+	member_def(perf_record_mmap2, flags, T_UINT, "flags"),
-+	member_def(perf_record_mmap2, filename, T_STRING_INPLACE, "backing store"),
-+	{ .name = NULL, },
-+};
-+
-+static PyObject *pyrf_mmap2_event__repr(const struct pyrf_event *pevent)
-+{
-+	PyObject *ret;
-+	char *s;
-+
-+	if (asprintf(&s, "{ type: mmap2, pid: %u, tid: %u, start: %#" PRI_lx64 ", "
-+			 "length: %#" PRI_lx64 ", offset: %#" PRI_lx64 ", "
-+			 "flags: %#x, prot: %#x, filename: %s }",
-+		     pevent->event.mmap2.pid, pevent->event.mmap2.tid,
-+		     pevent->event.mmap2.start, pevent->event.mmap2.len,
-+		     pevent->event.mmap2.pgoff, pevent->event.mmap2.flags,
-+		     pevent->event.mmap2.prot, pevent->event.mmap2.filename) < 0)
-+		return PyErr_NoMemory();
-+
-+	ret = PyUnicode_FromString(s);
-+	free(s);
-+	return ret;
-+}
-+
-+static PyTypeObject pyrf_mmap2_event__type = {
-+	PyVarObject_HEAD_INIT(NULL, 0)
-+	.tp_name	= "perf.mmap2_event",
-+	.tp_basicsize	= sizeof(struct pyrf_event),
-+	.tp_dealloc	= (destructor)pyrf_event__delete,
-+	.tp_flags	= Py_TPFLAGS_DEFAULT|Py_TPFLAGS_BASETYPE,
-+	.tp_doc		= pyrf_mmap2_event__doc,
-+	.tp_members	= pyrf_mmap2_event__members,
-+	.tp_getset	= pyrf_event__getset,
-+	.tp_repr	= (reprfunc)pyrf_mmap2_event__repr,
-+};
-+
- static const char pyrf_task_event__doc[] = PyDoc_STR("perf task (fork/exit) event object.");
- 
- static PyMemberDef pyrf_task_event__members[] = {
-@@ -778,6 +826,9 @@ static int pyrf_event__setup_types(void)
- 	int err;
- 
- 	err = PyType_Ready(&pyrf_mmap_event__type);
-+	if (err < 0)
-+		goto out;
-+	err = PyType_Ready(&pyrf_mmap2_event__type);
- 	if (err < 0)
- 		goto out;
- 	err = PyType_Ready(&pyrf_lost_event__type);
-@@ -807,6 +858,7 @@ static int pyrf_event__setup_types(void)
- 
- static PyTypeObject *pyrf_event__type[] = {
- 	[PERF_RECORD_MMAP]	 = &pyrf_mmap_event__type,
-+	[PERF_RECORD_MMAP2]	 = &pyrf_mmap2_event__type,
- 	[PERF_RECORD_LOST]	 = &pyrf_lost_event__type,
- 	[PERF_RECORD_COMM]	 = &pyrf_comm_event__type,
- 	[PERF_RECORD_EXIT]	 = &pyrf_task_event__type,
-@@ -973,6 +1025,11 @@ static PyObject *pyrf_event__new(const union perf_event *event, struct evsel *ev
- 		size_t max_len = pevent->event.header.size - offsetof(struct perf_record_mmap, filename);
- 
- 		pevent->event.mmap.filename[max_len - 1] = '\0';
-+	} else if (event->header.type == PERF_RECORD_MMAP2) {
-+		/* Ensure '\0' string termination. */
-+		size_t max_len = pevent->event.header.size - offsetof(struct perf_record_mmap2, filename);
-+
-+		pevent->event.mmap2.filename[max_len - 1] = '\0';
- 	}
- 
- 	perf_sample__init(&pevent->sample, /*all=*/true);
-@@ -3238,6 +3295,9 @@ PyMODINIT_FUNC PyInit_perf(void)
- 	Py_INCREF(&pyrf_mmap_event__type);
- 	PyModule_AddObject(module, "mmap_event", (PyObject *)&pyrf_mmap_event__type);
- 
-+	Py_INCREF(&pyrf_mmap2_event__type);
-+	PyModule_AddObject(module, "mmap2_event", (PyObject *)&pyrf_mmap2_event__type);
-+
- 	Py_INCREF(&pyrf_lost_event__type);
- 	PyModule_AddObject(module, "lost_event", (PyObject *)&pyrf_lost_event__type);
- 
+diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
+index 613b0275d9d8..5b5e09ecf487 100644
+--- a/arch/m68k/coldfire/m5441x.c
++++ b/arch/m68k/coldfire/m5441x.c
+@@ -44,6 +44,7 @@ DEFINE_CLK(0, "mcfpit.3", 35, MCF_BUSCLK);
+ DEFINE_CLK(0, "mcfeport.0", 36, MCF_CLK);
+ DEFINE_CLK(0, "mcfadc.0", 37, MCF_CLK);
+ DEFINE_CLK(0, "mcfdac.0", 38, MCF_CLK);
++DEFINE_CLK(0, "mcfdac.1", 39, MCF_CLK);
+ DEFINE_CLK(0, "mcfrtc.0", 42, MCF_CLK);
+ DEFINE_CLK(0, "mcfsim.0", 43, MCF_CLK);
+ DEFINE_CLK(0, "mcfusb-otg.0", 44, MCF_CLK);
+@@ -106,6 +107,7 @@ static struct clk_lookup m5411x_clk_lookup[] = {
+ 	CLKDEV_INIT("mcfeport.0", NULL, &__clk_0_36),
+ 	CLKDEV_INIT("mcfadc.0", NULL, &__clk_0_37),
+ 	CLKDEV_INIT("mcfdac.0", NULL, &__clk_0_38),
++	CLKDEV_INIT("mcfdac.1", NULL, &__clk_0_39),
+ 	CLKDEV_INIT("mcfrtc.0", NULL, &__clk_0_42),
+ 	CLKDEV_INIT("mcfsim.0", NULL, &__clk_0_43),
+ 	CLKDEV_INIT("mcfusb-otg.0", NULL, &__clk_0_44),
+@@ -176,6 +178,7 @@ static struct clk * const disable_clks[] __initconst = {
+ 	&__clk_0_35, /* pit.3 */
+ 	&__clk_0_37, /* adc */
+ 	&__clk_0_38, /* dac.0 */
++	&__clk_0_39, /* dac.1 */
+ 	&__clk_0_44, /* usb otg */
+ 	&__clk_0_45, /* usb host */
+ 	&__clk_0_47, /* ssi.0 */
+
 -- 
-2.54.0.794.g4f17f83d09-goog
+2.54.0
 
 
