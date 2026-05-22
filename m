@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0CBCD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1179CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 09:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OZzUxIkdaJ6gBxa9mowChRFjkNJFrAHd972GUGZ8zKk=; b=43oEruBMFQ4ZYKP+T1nyKZCkFu
-	HneHqzbVhasTeS7tZqNXMglYdwGiN/cBiy/2m0jAZB1B3IGEgMvJkMKZWoeO/KRxq5PjJAnz+hlzK
-	nO6f1XcmTBNxqVIwSUTYHyNv7V2GZPUernZhuOX/5trpT4L8G3nFqJmDlAyuZs173rfDb7AtKXj3d
-	Vt10HGyt5tt85U60dFkBxFKhPbLABWWL6q10teOxZW1Tje1MPEh5oN8B17qhabs3/dPdpG00w5N8o
-	aWPa0mk6El9g95PDij8+Y6KxkvyRzay8zO4UVm6UIfWsY6LYtNLneiShHEqAv7PBAdpMCkLrx9aOm
-	ohfBlUNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JRFSjJVMhkW1cVbO5EZHBHBVGeP4fldmDfewlQIeZHQ=; b=nL0Fr2SumXp4iHWskbIg3/zUN0
+	ueinJBtCi38Sedil1HJD1stT25dqbzLa16kfcemtyuO3xpaqAzlLo1IMwWy8PNf5YphXbgmP8QHnZ
+	M/RzxCW49Fg6qc8XHfvYgT3YI3u4HDctI2dN8jk3tATa44QAmqairJCzqkOBsK6LUt3mLkoMxusid
+	CdDY4Y3ii5MpHnmrMCTQih8dePqnTr6rTBQO2gR++mPNGMEX+XWsLaXbs6w1LYjwbNHjQkWjR4PSL
+	0zLpbEEwiwBw7d08oCj1643diUIhDKBT20h0VTGeOF4v557jh/xEsvrHhAqCNq74w9lJdSWJkx8Ti
+	QWLOF/YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMab-0000000ANcq-1zTt;
-	Fri, 22 May 2026 09:54:45 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1wQMbg-0000000ANv0-2i6p;
+	Fri, 22 May 2026 09:55:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQMaR-0000000ANXS-19G3
+	id 1wQMbg-0000000ANuq-0fAw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 09:54:36 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-82f9fdfc965so3327702b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 02:54:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779443674; x=1780048474; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OZzUxIkdaJ6gBxa9mowChRFjkNJFrAHd972GUGZ8zKk=;
-        b=Y98IiIBSoi2YHbkfOmm0GobNl8HOU3VSy3IN1daRweoxEXk6Xn231YaP9y5fmVZ7DU
-         tur+ny+yYPPtm7FgxOvyM3AOGEYjFSVtFsZlVLbMccqzc5e0gbKwcRf/dmNWa/mwb8ff
-         nJKDIQFKvwJFhYLumJtYCytqR37EbgfIFLg2jNvlXrDyb+3qT6oYvvKuE28uK0rhPzhP
-         UF7zjHj0nEbzWzPvBtzRvO4uc9l/lglLmwLXpppKJuHoCiB82S3hPVEzZgvR+DxKWcvD
-         VqfxC5ZegXKZYC6hWhXMLktDqGmOIGKWeQnIfdhI7GZfNd9FiZs0YMki05yIa6ugQclA
-         vzUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779443674; x=1780048474;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=OZzUxIkdaJ6gBxa9mowChRFjkNJFrAHd972GUGZ8zKk=;
-        b=PYcW2g5HHVJjOSqPGiQ7SUZF7rlwCZjLfExLrFvIK+8Rf7MvAzPNUDQJZLTiVk/hoJ
-         yhhODOK2yiixaZeLE1m1FBrhrm7gvfjL0f5j7AxiRdRhIfPTKcFDNm6D4zG5DLFpA0sp
-         M1KMuS0MG/HLfSZPOzWa/cCzn93+SAJl3NB1uhkG3ZkM2NQlZvw3y5pqUm0EI17mYEu2
-         1C/uzglpPpVM307MjwFlLMePM1+XpVOIxCKP3VeJZK7XONufRDlK0FC9gD2KzT71TwqE
-         mTDzbhGDYXxVWR4I3UNeUFwUqBt4E1NQo1Re3Z71UbLJqx4QyRZhrnZe96v8bWag/hcD
-         mQ0g==
-X-Forwarded-Encrypted: i=1; AFNElJ9Yu4ySwAB6lO/gR2pDB4AbhYRCoTwC2ke8UhLLQrk5OESka3WvdcXzMVRtbo8DVGxc7u84vvMmxQ3bWj6P6twb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQtRhXvSu4KtlCVPo7CFFOOKKNREYWbtJ0kgNqlRta1aGYtx/+
-	EsS5m5zLn57/PrUTkDLPe0+cLFbmL2AMj9EMxMS5Q6DxLP079FNaDIaz
-X-Gm-Gg: Acq92OEyvJJM7GEeO7XaJO9rkbILTtDBr/NJo3EgRycHLs2Z4rCg8lIeaIzff3o52pX
-	2yZpuR74n1sfwYLvggcP2dwD5oNVAPRPgzIlwtLpyjfscy1Ab9pbiu5Q6b2iitPOeyB3nzyWwHT
-	K8rdMaO2qUDWo1XZ7c+Uzs7Ys0QIGKnt8QC2fwQgSWRXRXNxXB/mXk+wcNvY1U12Re9wYflMnrA
-	HSP+MXfTRTdmqNvJdwmf+swgYk3UxipQ/8NNBJT+/Epjj3h9arVcw7vCmcDyaXf0xeCE7TM5jUH
-	mC5GYVi60YiMVxrIUxiE/wwJjJ0orkJR7E43SxHXAeZNzQMNcqJBwiMQul/6jMm+S3z8Ksmm+6d
-	0nlRtVLPmTrwz/Ow2IW5QehE2WK6YFgnfpSWOypAk8RtXnt1zrM+GFvSTEnWE+fX3crUPg/O6hK
-	5RlifII1mMeWLwwpXCR5UaMwe7mVJBFxT1j+m25VBkH1x9oey358ShIP7VMw==
-X-Received: by 2002:a05:6a00:17a4:b0:82f:5726:be23 with SMTP id d2e1a72fcca58-8415f3f68ccmr3185755b3a.49.1779443674325;
-        Fri, 22 May 2026 02:54:34 -0700 (PDT)
-Received: from phuc-desktop.. ([183.91.15.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164aed7c9sm1757366b3a.13.2026.05.22.02.54.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 02:54:33 -0700 (PDT)
-From: phucduc.bui@gmail.com
-To: broonie@kernel.org
-Cc: codekipper@gmail.com,
-	jernej.skrabec@gmail.com,
-	lgirdwood@gmail.com,
+	Fri, 22 May 2026 09:55:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 109E860136;
+	Fri, 22 May 2026 09:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9B311F000E9;
+	Fri, 22 May 2026 09:55:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779443750;
+	bh=JRFSjJVMhkW1cVbO5EZHBHBVGeP4fldmDfewlQIeZHQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Vm8X/Sothl2Nn/zf0Bb0WEHP96x5dzotEE5P5IfPVfKP32zy7i+W8E27CQyufPErX
+	 UvnHByI5C/V2SpU5wFfnFkXB2vxCS/Mpw7JwI42eKTi3OT1Luad62k4ijTYLmBNaod
+	 S9izOaUpvj1e4VDRtbfgDbGfFlEuG+8lQDQZ4DMp5RiePq/OnPz/+dh0fiZWRjkGHG
+	 WFLKBYz8Sa49i4A1GZR6OqOkJx9P89uk7Iych/5dpSkvgpSZ7HOwPtRIqfM+H3tK/6
+	 JPIw5IQQf4u9OcbtrZlIiQg1LoEQNWV3eSDEHQlklsCp4ITfg+c8QflxnUAQDvwoHt
+	 IXjWf22m21x3w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQMba-00000005AaP-0q1s;
+	Fri, 22 May 2026 09:55:47 +0000
+Date: Fri, 22 May 2026 10:58:56 +0100
+Message-ID: <87jysvahpb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	nichen@iscas.ac.cn,
-	perex@perex.cz,
-	samuel@sholland.org,
-	tiwai@suse.com,
-	wens@kernel.org,
-	bui duc phuc <phucduc.bui@gmail.com>
-Subject: [PATCH v2 3/3] ASoC: sunxi: sun4i-spdif: Reorder clock enable sequence
-Date: Fri, 22 May 2026 16:54:01 +0700
-Message-ID: <20260522095401.72915-4-phucduc.bui@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260522095401.72915-1-phucduc.bui@gmail.com>
-References: <20260522095401.72915-1-phucduc.bui@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_025435_323379_C8FD1851 
-X-CRM114-Status: GOOD (  11.83  )
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 04/44] arm64: RMI: Add SMC definitions for calling the RMM
+In-Reply-To: <3261b04f-1a0c-451d-8981-1e2bccc8a9ca@arm.com>
+References: <20260513131757.116630-1-steven.price@arm.com>
+	<20260513131757.116630-5-steven.price@arm.com>
+	<86ecj5vsu4.wl-maz@kernel.org>
+	<3261b04f-1a0c-451d-8981-1e2bccc8a9ca@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,42 +107,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: bui duc phuc <phucduc.bui@gmail.com>
+On Thu, 21 May 2026 16:33:09 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> On 21/05/2026 13:40, Marc Zyngier wrote:
+> > On Wed, 13 May 2026 14:17:12 +0100,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> The RMM (Realm Management Monitor) provides functionality that can be
+> >> accessed by SMC calls from the host.
+> >>
+> >> The SMC definitions are based on DEN0137[1] version 2.0-bet1
+> >>
+> >> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
+> >>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> ---
+> >> Changes since v13:
+> >>  * Updated to RMM spec v2.0-bet1
+> >> Changes since v12:
+> >>  * Updated to RMM spec v2.0-bet0
+> >> Changes since v9:
+> >>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+> >>    this is an 8-bit type with padding afterwards (rather than a u64).
+> >> Changes since v8:
+> >>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+> >>    permits to be modified.
+> >> Changes since v6:
+> >>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+> >>    these are flag values.
+> >> Changes since v5:
+> >>  * Sorted the SMC #defines by value.
+> >>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+> >>    RMI calls.
+> >>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+> >>    number of available list registers could be lower.
+> >>  * Provided a define for the reserved fields of FeatureRegister0.
+> >>  * Fix inconsistent names for padding fields.
+> >> Changes since v4:
+> >>  * Update to point to final released RMM spec.
+> >>  * Minor rearrangements.
+> >> Changes since v3:
+> >>  * Update to match RMM spec v1.0-rel0-rc1.
+> >> Changes since v2:
+> >>  * Fix specification link.
+> >>  * Rename rec_entry->rec_enter to match spec.
+> >>  * Fix size of pmu_ovf_status to match spec.
+> >> ---
+> >>  arch/arm64/include/asm/rmi_smc.h | 448 +++++++++++++++++++++++++++++++
+> >>  1 file changed, 448 insertions(+)
+> >>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+> >>
+> >> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+> >> new file mode 100644
+> >> index 000000000000..a09b7a631fef
+> >> --- /dev/null
+> >> +++ b/arch/arm64/include/asm/rmi_smc.h
+> >> @@ -0,0 +1,448 @@
+> >> +/* SPDX-License-Identifier: GPL-2.0 */
+> >> +/*
+> >> + * Copyright (C) 2023-2026 ARM Ltd.
+> >> + *
+> >> + * The values and structures in this file are from the Realm Management Monitor
+> >> + * specification (DEN0137) version 2.0-bet1:
+> >> + * https://developer.arm.com/documentation/den0137/2-0bet1/
+> > 
+> > How long is this spec going to be available on the ARM web site, which
+> > has a tendency of being reorganised every other week? And there is
+> > already a beta2.
+> 
+> Obviously I can't predict the next reorganisation - but at least it's a
+> link that could be fed into archive.org or similar.
 
-Enable the APB bus clock before the SPDIF module clock
-during runtime resume, as register accesses depend on the
-bus clock being enabled first.
+I found that the PDF spec was less susceptible to creative nonsense,
+and people can download it for future reference, whereas ARM has
+happily *deleted* specs from the website over time (try to find PSCI
+0.1, for example...).
 
-Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
----
- sound/soc/sunxi/sun4i-spdif.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+[...]
 
-diff --git a/sound/soc/sunxi/sun4i-spdif.c b/sound/soc/sunxi/sun4i-spdif.c
-index f54eb14c9ed8..102db1a2afbb 100644
---- a/sound/soc/sunxi/sun4i-spdif.c
-+++ b/sound/soc/sunxi/sun4i-spdif.c
-@@ -643,15 +643,15 @@ static int sun4i_spdif_runtime_suspend(struct device *dev)
- 
- static int sun4i_spdif_runtime_resume(struct device *dev)
- {
--	struct sun4i_spdif_dev *host  = dev_get_drvdata(dev);
-+	struct sun4i_spdif_dev *host = dev_get_drvdata(dev);
- 	int ret;
- 
--	ret = clk_prepare_enable(host->spdif_clk);
-+	ret = clk_prepare_enable(host->apb_clk);
- 	if (ret)
- 		return ret;
--	ret = clk_prepare_enable(host->apb_clk);
-+	ret = clk_prepare_enable(host->spdif_clk);
- 	if (ret)
--		clk_disable_unprepare(host->spdif_clk);
-+		clk_disable_unprepare(host->apb_clk);
- 
- 	return ret;
- }
+> >> +struct realm_params {
+> >> +	union { /* 0x0 */
+> >> +		struct {
+> >> +			u64 flags;
+> >> +			u64 s2sz;
+> >> +			u64 sve_vl;
+> >> +			u64 num_bps;
+> >> +			u64 num_wps;
+> >> +			u64 pmu_num_ctrs;
+> >> +			u64 hash_algo;
+> >> +			u64 num_aux_planes;
+> >> +		};
+> >> +		u8 padding0[0x400];
+> > 
+> > SZ_1K? And similarly all over the shop?
+> 
+> I'm a bit less sure that makes the code more readable - these structures
+> are a bit of a pain because they are somewhat sparse. I've left a
+> comment where the beginning of each union is, and personally I find it
+> easier to see 0x0 + 0x400 == 0x400 rather than trying to work out what
+> SZ_1K is in hex. This is particularly the case in terms of:
+> 
+> > struct rec_params {
+> > 	union { /* 0x0 */
+> > 		u64 flags;
+> > 		u8 padding0[0x100];
+> > 	};
+> > 	union { /* 0x100 */
+> > 		u64 mpidr;
+> > 		u8 padding1[0x100];
+> > 	};
+> > 	union { /* 0x200 */
+> > 		u64 pc;
+> > 		u8 padding2[0x100];
+> > 	};
+> > 	union { /* 0x300 */
+> > 		u64 gprs[REC_CREATE_NR_GPRS];
+> > 		u8 padding3[0xd00];
+> > 	};
+> > };
+> 
+> Where 0xd00 doesn't even have a correspoding SZ_ define.
+
+Indeed, but it is (SZ_4K - SZ_256 * 3). And a lot of these structures
+seem to be designed to form a 4kB blob. I'm sure we can make use of
+that information (BUILD_BUG_ON?).
+
+> 
+> The RMM deals with this with macro magic:
+> 
+> > struct rmi_rec_params {
+> >         /* Flags */
+> >         SET_MEMBER_RMI(unsigned long flags, 0, 0x100);  /* Offset 0 */
+> >         /* MPIDR of the REC */
+> >         SET_MEMBER_RMI(unsigned long mpidr, 0x100, 0x200);      /* 0x100 */
+> >         /* Program counter */
+> >         SET_MEMBER_RMI(unsigned long pc, 0x200, 0x300); /* 0x200 */
+> >         /* General-purpose registers */
+> >         SET_MEMBER_RMI(unsigned long gprs[REC_CREATE_NR_GPRS], 0x300, 0x1000); /* 0x300 */
+> > };
+> 
+> where the offsets are just directly encoded in the macro - but it's not
+> an especially robust macro and I'm not convinced it's more readable.
+
+I think this is just as horrible, but at least it seems to take the
+boundaries of the structure into account.
+
+>
+> I'm happy to hear other suggestions on how to encode this neatly.
+
+Honestly, I wouldn't mind having the structures described in a more
+abstract way and then pre-processed to generate the include files. If
+the architectural MRS wasn't so huge, I would have added it to the
+kernel and used that directly for KVM.
+
+>
+> > I haven't checked the details of the encodings (life is too short),
+> > but I wonder how much of this exists as an MRS and could be
+> > automatically generated?
+> 
+> Automatically generating this would be good - I'm not sure whether we
+> have a (public) source available to generate from at the moment. I have
+> tried to methodically work through the spec when updating this file, but
+> as Gavin has already pointed out there was at least one mistake (in
+> currently unused definitions) this time.
+
+I'm slightly baffled that even the RMM is written this way. Given the
+formalism used in the RMM spec, I was expecting that you'd have a
+bunch of JSON at hand and able to generate any output from that. Doing
+this stuff by hand is both incredibly dull work *and* extremely error
+prone.
+
+Thanks,
+
+	M.
+
 -- 
-2.43.0
-
+Jazz isn't dead. It just smells funny.
 
