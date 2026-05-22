@@ -4,98 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D50ACD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 23:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CF5CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 23:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSCRzF6jccIrpW3KuBs+JWgBL0z6wfFkzmIVCZCEAZo=; b=PJhR/XkZpZf/4iYU5gCDVvD4fc
-	s9bdVnhlnVNLlPP7kVRdOLcqFGLWBPovALUoGnI0hwphnoByv1HAmqXAh8HdUB5j5skS/HZkJ3ODX
-	WAeHEbB5vtka2eK8/VMOs8buqA96zyFytqU1UJCunsJoSm8oiuPXTSvKly7amD6U0O55aG/6zuNRy
-	mK5Rs/eIOWTLRjk+Jq22TARDzrxQ7pv08Kbngql3/ODgMRfqtoISslSzMCOxjYn7JqBMCKQfoM7+0
-	Tei/HAHkox22hCCmNxQGG8H2QGY4rzjTVrg3Vzr5UFUXoGPOvKzhTvkjrbXL36ax/B50fA+/tbdfW
-	nnlFwARg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jM4bdTdLVv/rhBQCW1JN696MSnte4z484SiWq30EwPI=; b=Gf96M6h8+SANbnBmz1m+dWgw58
+	iWNkY4kLrzwhVgQUuCGUJTBYlFNox0y1Df0A6H/k48QirtALu7JNMhvhIKzHWLu6yMn0rB32RDaDF
+	ttCCAvBvLuQePID+OaU6zbcMgq1YTOR4UPnGWD5AECC+lb1uA7MOnxtcm/8hT8u2CeJRYYTSnv8m0
+	GWSgy3xAFY0wl6ALgHGHSdnTFZz9J+pynMLJN2bvavAfbVefafxqJbF/4Xc6xp+dBl/2c79LDTIqT
+	7U+qxTL27q5rtYpsXEqkc80NR4PoizsH0kT18t22nUmOChJzNJpuYXYTT2Tpsd/LAL24CK17FH2Kw
+	D2Yd1lzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQYsT-0000000CARj-2lH9;
-	Fri, 22 May 2026 23:02:01 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1wQXzy-0000000C3Pn-45vB;
+	Fri, 22 May 2026 22:05:42 +0000
+Received: from mail-dy1-x134a.google.com ([2607:f8b0:4864:20::134a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQYsI-0000000CAHq-2Y16
+	id 1wQXzj-0000000C35D-1UWm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 23:01:51 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-49048a8ca1bso485775e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 16:01:49 -0700 (PDT)
+	Fri, 22 May 2026 22:05:28 +0000
+Received: by mail-dy1-x134a.google.com with SMTP id 5a478bee46e88-3041c65a30bso3484939eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 15:05:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779490909; x=1780095709; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MSCRzF6jccIrpW3KuBs+JWgBL0z6wfFkzmIVCZCEAZo=;
-        b=cFPD4Yh0Diw1U8rJ3wKRATZ5m/fGtpPHXsnMtYxTmyGkK9yL/gHP+BYQZWU8zdJUw6
-         00vl3V9XthsDmwJKVM2D3sizSp1l6OZXlGZ4szA01AkTSvJb0PDZwHlDTznhJOqgG2st
-         Qa1d2tQJjC4HPgneFGJYNr4s52u0rmf5J2uVz5OgOyrUwDLnUoBrGL69xWEyXYTWEAg0
-         S0kJJ1MBMUrXKhlKZl/9jKWyTTJ6lkV3bwyGjBUF2JQanW3SwT95jKAYJzVqe01CldFv
-         Z89DYY87Up3ceXL1dnOjJ53aJm9P0N6fR7+6i4AsvAeeOIgo79RBT/o8KrHKNpFrYXMr
-         AV9w==
+        d=google.com; s=20251104; t=1779487526; x=1780092326; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jM4bdTdLVv/rhBQCW1JN696MSnte4z484SiWq30EwPI=;
+        b=vpN9lMwgQCdbWd9XygRuGq66izOQYnQOwFIByFptOBlehuO9z7Rw5MhVz5y5OGt7U5
+         j6D5g3EnHdQkX03i7AVTjSMfbPT3Z4LMtDYD/y1uAzCUWdtvFldl1fZBPwAZrhsAa0vR
+         unHhhNJFo+Y17ZxZVC56r2uoofTtXO2uC0XQAl8Z/NGL3MorFO4su7H9dTuk8VDzZ9lg
+         2O7CSpLvkjugNB9JpsMfYFti1/Yr76dZgJQO/p6WtngKaw4VTs0e+s/rBr4gwhh+pWRx
+         bgIxTngtUtqvh+0aMU05Y6wfNHXrNxu3EIjuycAmHhm8rb8Utl+IwXZ351D3tVx3qGXq
+         /AXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779490909; x=1780095709;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=MSCRzF6jccIrpW3KuBs+JWgBL0z6wfFkzmIVCZCEAZo=;
-        b=XLyaYTfcQtQ45Q8sAN3Y0rnTJdbcjriTGuZdBDEyPGKq+kG88bdkptZRXBR5CVvGIW
-         UV0MTzI5hNDZWzbKfcPx9d7cMflnKd7nM2pW0B0hUDeDd+Pp0lcbsTw/DSxs8i4xacbL
-         tVuPP5/6XjNOtzYTFYflk/khByA2yuUAjAwXjKcd6aSAfVJWD25OsWJfrQ/Pqe7xO4T7
-         /OuxHwohV/6QL6w0/a1oQKAR3sHxCTJoYpnUun1aCl8/MBVbIiOWidiVw79x6t97fOTE
-         ZvWYvRdfNpt+y+soAP9mu2sBDs6C9XJ6HulPqcIv9vxOQe0rEakiPPqj7TRwoop5PprY
-         jv1A==
-X-Forwarded-Encrypted: i=1; AFNElJ+EjcIW5aDZbqV5vrMdtQV2hTPT5TMd3Mlj+nuD+fyWDs/KctqwGT621hY4aEtOARrBNAYDn6YJi7a9aCysojjr@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJOe3zDJHTGbXWr1ouQgqWYs8/0e9IYg+wUycJTCKcmg+4rSZ+
-	1QPBkLzwJ8EEp2li50K1o/C0Sb59OgOBn5QEGU+VchY+m6/duyg7oRi6
-X-Gm-Gg: Acq92OGOg1mjzdO0g65bHQEKvkK1z7Z2pJX0Css8uO7E5L+8MnDFr1xjYY3UUWBPtdd
-	IhEwTWYN5HXKyxSz1rKaV+cnEMiHDy/MQk78PAYsaJbqpwrd27m2/Zg4yRQ14hjF6gg7MGWg7fj
-	B3YOhmVbPeyawyQsS0CjP3D800KzxB7MAnN30JZMDwuaQCbB/pYh11B/1XvwoRj73KgXKp+ZUsm
-	lvacBAPmid92owKWbAOB3+FswD8/JE/KldtMmVvj3DWupLtL3TJ1gQeDGugw7rgFBrEQfVO8je1
-	NfORMpWOrUZ6ctQ8cwxGtBmQk0gw+C03JID6K/cmvE+rcg2QxieOgXqub2BYpBzeUixyIGE/Nvd
-	mTQT1iFXDTihA9IREYWgOhSu+VZLOf1O8yisMBDu1caKZOeOgL2VHKnD9t875FfNek9kkpg7eeD
-	alN1lg2YjACBi0Rr66cI0bS+42IXB2O0tK71CZCAZO4OuryM6uSDfjHXcADHJ3wYiOrFI12DjvS
-	g==
-X-Received: by 2002:a05:600c:1f8f:b0:490:3cb8:b853 with SMTP id 5b1f17b1804b1-49042cf87abmr35801335e9.7.1779490908611;
-        Fri, 22 May 2026 16:01:48 -0700 (PDT)
-Received: from menon.v.cablecom.net (84-74-0-139.dclient.hispeed.ch. [84.74.0.139])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490456274ebsm67100265e9.15.2026.05.22.16.01.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 16:01:48 -0700 (PDT)
-From: Lothar Rubusch <l.rubusch@gmail.com>
-To: thorsten.blum@linux.dev,
-	herbert@gondor.apana.org.au,
-	davem@davemloft.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	tudor.ambarus@linaro.org,
-	ardb@kernel.org,
-	linusw@kernel.org,
-	krzk+dt@kernel.org
-Cc: linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	l.rubusch@gmail.com
-Subject: [PATCH v4 06/12] crypto: atmel-i2c - move client management instance into core
-Date: Fri, 22 May 2026 23:01:28 +0000
-Message-Id: <20260522230134.32414-7-l.rubusch@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260522230134.32414-1-l.rubusch@gmail.com>
-References: <20260522230134.32414-1-l.rubusch@gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1779487526; x=1780092326;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jM4bdTdLVv/rhBQCW1JN696MSnte4z484SiWq30EwPI=;
+        b=lwv2Wq9gjWGe3xTMYwNolHwvT+XZcE6CEM8Yz40Ml3KtNPXDpzSCuV7FSwD2bfygD4
+         Ho5hiDVpoIrjazxd+SMPqgGMxbOCEV4gDV5dLc5h1kPAU9r3CRVyIN1ku9PB7bd5sgSZ
+         Q4cpY/YKjRtf4E8k9xEhTY2DO6bBlnxTudgx7Ss4ClpP6HVGmhE4Reniy97XXM3P+/cD
+         E0rW2QdwDXzA5JOYJb0ovXM5nEDAlaaE5pIEpCyeZCYMR6gHFXKtmdSnXmvl+hoKD0pp
+         KulpgUIN7wuzJ0rPWWTlqYz/O82D1YbSIBKI8E94JtV0SV991e6/J49jq81EcxDg6vfq
+         hlBw==
+X-Forwarded-Encrypted: i=1; AFNElJ85nax8Pw58cgYAijWj+lv6e9NgQvzurPOuNOSbGy9M4Dzo1FqN1pzMY8k8ky916KXf6ET9kDoWBC0H6CPqCPGd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyi055HvQpoApMe9X9cmnAKS1WJvoyy70IbzaFkPlu1VkY2fuQz
+	cPFjoKFj8htjcUanHbjP/jnn+86m33pizs3O+aCGb8O1xLnGA6gk5VQXsZYdVE5S3C7tEi80C+u
+	UYsJw/ItxYA==
+X-Received: from dycac4.prod.google.com ([2002:a05:7301:5504:b0:2f9:af7:5047])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7300:7fa6:b0:2ea:edc0:4fbe
+ with SMTP id 5a478bee46e88-30449095631mr3131034eec.14.1779487526120; Fri, 22
+ May 2026 15:05:26 -0700 (PDT)
+Date: Fri, 22 May 2026 15:04:31 -0700
+In-Reply-To: <20260522220435.2378363-1-irogers@google.com>
+Mime-Version: 1.0
+References: <20260428071903.1886173-1-irogers@google.com> <20260522220435.2378363-1-irogers@google.com>
+X-Mailer: git-send-email 2.54.0.794.g4f17f83d09-goog
+Message-ID: <20260522220435.2378363-21-irogers@google.com>
+Subject: [PATCH v9 20/23] perf python: Add syscall name/id to convert syscall
+ number and name
+From: Ian Rogers <irogers@google.com>
+To: irogers@google.com, acme@kernel.org, namhyung@kernel.org
+Cc: adrian.hunter@intel.com, alice.mei.rogers@gmail.com, 
+	dapeng1.mi@linux.intel.com, james.clark@linaro.org, leo.yan@linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, mingo@redhat.com, peterz@infradead.org, 
+	tmricht@linux.ibm.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_160150_689866_F3ACF696 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20260522_150527_417668_11B51626 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,80 +92,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the global 'atmel_i2c_mgmt' tracking instance out of the ECC driver
-and into the atmel-i2c core library.
+Use perf's syscalltbl support to convert syscall number to name
+assuming the number is for the host machine. This avoids python
+libaudit support as tools/perf/scripts/python/syscall-counts.py
+requires.
 
-This change consolidates the shared I2C client infrastructure into a
-central core driver. This centralization allows both the ECC and
-upcoming SHA204A driver modules to access and reference a unified,
-common device-management context.
-
-As part of this relocation, replace the explicit runtime initialization
-calls inside the module init block with static, compile-time macros
-(__SPIN_LOCK_UNLOCKED and LIST_HEAD_INIT). Export the tracking structure
-via EXPORT_SYMBOL_GPL() to make it available to dependent sub-modules.
-
-No functional change intended.
-
-Signed-off-by: Lothar Rubusch <l.rubusch@gmail.com>
+Assisted-by: Gemini:gemini-3.1-pro-preview
+Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- drivers/crypto/atmel-ecc.c | 4 ----
- drivers/crypto/atmel-i2c.c | 6 ++++++
- drivers/crypto/atmel-i2c.h | 1 +
- 3 files changed, 7 insertions(+), 4 deletions(-)
+v2:
 
-diff --git a/drivers/crypto/atmel-ecc.c b/drivers/crypto/atmel-ecc.c
-index d6ae113c45df..1ae9c52812df 100644
---- a/drivers/crypto/atmel-ecc.c
-+++ b/drivers/crypto/atmel-ecc.c
-@@ -28,8 +28,6 @@ static int atmel_ecc_kpp_refcnt;
- DECLARE_COMPLETION(atmel_ecc_unreg_done);
- static bool atmel_ecc_unreg_active;
- 
--static struct atmel_i2c_client_mgmt atmel_i2c_mgmt;
+1. Guarded with HAVE_LIBTRACEEVENT : Wrapped the syscall functions and
+   their entries in perf__methods with #ifdef HAVE_LIBTRACEEVENT to
+   avoid potential linker errors if CONFIG_TRACE is disabled.
+
+2. Changed Exception Type: Updated pyrf__syscall_id to raise a
+   ValueError instead of a TypeError when a syscall is not found.
+
+3. Fixed Typo: Corrected "name number" to "name" in the docstring for
+   syscall_id.
+
+v6:
+- Added optional keyword-only `elf_machine` argument to `syscall_name`
+  and `syscall_id`.
+
+v7:
+- Made syscalltbl.o unconditional in Build to fix undefined symbol
+  when building without libtraceevent.
+---
+ tools/perf/util/Build    |  1 -
+ tools/perf/util/python.c | 48 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 48 insertions(+), 1 deletion(-)
+
+diff --git a/tools/perf/util/Build b/tools/perf/util/Build
+index 4bbc78b1f741..e37779f9dfe4 100644
+--- a/tools/perf/util/Build
++++ b/tools/perf/util/Build
+@@ -75,7 +75,6 @@ perf-util-y += sample.o
+ perf-util-y += sample-raw.o
+ perf-util-y += s390-sample-raw.o
+ perf-util-y += amd-sample-raw.o
 -
- /**
-  * struct atmel_ecdh_ctx - transformation context
-  * @client     : pointer to i2c client device
-@@ -458,8 +456,6 @@ static struct i2c_driver atmel_ecc_driver = {
- 
- static int __init atmel_ecc_init(void)
- {
--	spin_lock_init(&atmel_i2c_mgmt.i2c_list_lock);
--	INIT_LIST_HEAD(&atmel_i2c_mgmt.i2c_client_list);
- 	return i2c_add_driver(&atmel_ecc_driver);
+ perf-util-y += ordered-events.o
+ perf-util-y += namespaces.o
+ perf-util-y += comm.o
+diff --git a/tools/perf/util/python.c b/tools/perf/util/python.c
+index 218d772346e2..23eb65adb392 100644
+--- a/tools/perf/util/python.c
++++ b/tools/perf/util/python.c
+@@ -18,6 +18,7 @@
+ #include "data.h"
+ #include "debug.h"
+ #include "dso.h"
++#include "dwarf-regs.h"
+ #include "event.h"
+ #include "branch.h"
+ #include "evlist.h"
+@@ -35,6 +36,7 @@
+ #include "srcline.h"
+ #include "strbuf.h"
+ #include "symbol.h"
++#include "trace/beauty/syscalltbl.h"
+ #include "thread.h"
+ #include "thread_map.h"
+ #include "tool.h"
+@@ -3792,6 +3794,40 @@ static int pyrf_session__setup_types(void)
+ 	return PyType_Ready(&pyrf_session__type);
  }
  
-diff --git a/drivers/crypto/atmel-i2c.c b/drivers/crypto/atmel-i2c.c
-index ff19857894d0..a42b0ea30033 100644
---- a/drivers/crypto/atmel-i2c.c
-+++ b/drivers/crypto/atmel-i2c.c
-@@ -21,6 +21,12 @@
- #include <linux/workqueue.h>
- #include "atmel-i2c.h"
- 
-+struct atmel_i2c_client_mgmt atmel_i2c_mgmt = {
-+	.i2c_list_lock = __SPIN_LOCK_UNLOCKED(atmel_i2c_mgmt.i2c_list_lock),
-+	.i2c_client_list = LIST_HEAD_INIT(atmel_i2c_mgmt.i2c_client_list),
-+};
-+EXPORT_SYMBOL_GPL(atmel_i2c_mgmt);
++static PyObject *pyrf__syscall_name(PyObject *self, PyObject *args, PyObject *kwargs)
++{
++	const char *name;
++	int id;
++	int elf_machine = EM_HOST;
++	static char * const kwlist[] = { "id", "elf_machine", NULL };
 +
- static const struct {
- 	u8 value;
- 	const char *error_text;
-diff --git a/drivers/crypto/atmel-i2c.h b/drivers/crypto/atmel-i2c.h
-index 660ca861b705..82321c35c21f 100644
---- a/drivers/crypto/atmel-i2c.h
-+++ b/drivers/crypto/atmel-i2c.h
-@@ -119,6 +119,7 @@ struct atmel_i2c_client_mgmt {
- 	struct list_head i2c_client_list;
- 	spinlock_t i2c_list_lock;
- } ____cacheline_aligned;
-+extern struct atmel_i2c_client_mgmt atmel_i2c_mgmt;
++	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "i|$i", kwlist, &id, &elf_machine))
++		return NULL;
++
++	name = syscalltbl__name(elf_machine, id);
++	if (!name)
++		Py_RETURN_NONE;
++	return PyUnicode_FromString(name);
++}
++
++static PyObject *pyrf__syscall_id(PyObject *self, PyObject *args, PyObject *kwargs)
++{
++	const char *name;
++	int id;
++	int elf_machine = EM_HOST;
++	static char * const kwlist[] = { "name", "elf_machine", NULL };
++
++	if (!PyArg_ParseTupleAndKeywords(args, kwargs, "s|$i", kwlist, &name, &elf_machine))
++		return NULL;
++
++	id = syscalltbl__id(elf_machine, name);
++	if (id < 0) {
++		PyErr_Format(PyExc_ValueError, "Failed to find syscall %s", name);
++		return NULL;
++	}
++	return PyLong_FromLong(id);
++}
++
+ static PyMethodDef perf__methods[] = {
+ 	{
+ 		.ml_name  = "metrics",
+@@ -3825,6 +3861,18 @@ static PyMethodDef perf__methods[] = {
+ 		.ml_flags = METH_NOARGS,
+ 		.ml_doc	  = PyDoc_STR("Returns a sequence of pmus.")
+ 	},
++	{
++		.ml_name  = "syscall_name",
++		.ml_meth  = (PyCFunction) pyrf__syscall_name,
++		.ml_flags = METH_VARARGS | METH_KEYWORDS,
++		.ml_doc	  = PyDoc_STR("Turns a syscall number to a string.")
++	},
++	{
++		.ml_name  = "syscall_id",
++		.ml_meth  = (PyCFunction) pyrf__syscall_id,
++		.ml_flags = METH_VARARGS | METH_KEYWORDS,
++		.ml_doc	  = PyDoc_STR("Turns a syscall name to a number.")
++	},
+ 	{ .ml_name = NULL, }
+ };
  
- /**
-  * atmel_i2c_client_priv - i2c_client private data
 -- 
-2.39.5
+2.54.0.794.g4f17f83d09-goog
 
 
