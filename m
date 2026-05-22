@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EC8CD5BB8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:21:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1491ACD5BB7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MxhTRa0jJQh6ofFG9sXlZ7aauhKliKnMeyOlOjmQWhU=; b=OvfNOSkbMICDhIaQo+FLMYLnxx
-	8aluniBGTuiqML1VieYnYFGWiQP7YXTey8iljesVcYATwn/iqSQ9WJwsHan27I81SKXrh/tsQIRCP
-	+q5p9nSY0aI0nJgnICTOsZ18moDec0/sjR0VQAIB7y9GjhnK2ZTLNePPcKZ+ubrtwHiXZTjwm6ZTh
-	IR4ZsCqtv1WVj4uwFGxuJWLWES2NQ5AL7HC4LOR+s2TumO3MUnZgvPj2FjZanjQGSvTMR8xmPMVS9
-	TA0nLMfLYFvneiMWYJwX0RzwGYtT4fXbJ5tnHURUm7Si941gbc/GeTWZBN7yU4l9x9BAQ/SxRCsMc
-	ogzIz45A==;
+	bh=og4Ss48qjWaYlmsfdFxPi0Imv8+Y+Dj/6CNrwGbe4NU=; b=1wPX/sDgabyHzRg0SpiD4RN4ne
+	t+gY5N+8bwpSzWUxu/QQ7h+J0zOn8BIS7oKh+9Dhn5I4DEcOwoddcpp+ZXTA0ZFTvw+qF9eK5M0z3
+	LzwOk+DHtU2kWcSPYnyiQmLeKcnHe0ZhH8PHOovOVlWHQE0gPc4+Em3GyEeHE7il+fWqaHpFhdn2N
+	3H/hmCTeJjuDTxkYxGLLFIJlJomoaH6FqUK/bnLyWfW9B9/gs5u6+09xEjJ7Vt8b43TV3XMrfRBoz
+	leRydi5uaCk5nbRNm8FKOZup/+a7mnWqfm6IkLLajHxjHnIRH0VioK5mn5vyZOsNrd+9ZXM5Dp9Xi
+	E+q35x8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPoE-0000000AwVl-2UQV;
+	id 1wQPoE-0000000AwW5-2vlu;
 	Fri, 22 May 2026 13:21:02 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPnu-0000000AwHv-1Xjd
+	id 1wQPnw-0000000AwIf-0a4v
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:20:43 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-49048e043e5so2187055e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:41 -0700 (PDT)
+	Fri, 22 May 2026 13:20:47 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48d146705b4so78847855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779456040; x=1780060840; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779456042; x=1780060842; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MxhTRa0jJQh6ofFG9sXlZ7aauhKliKnMeyOlOjmQWhU=;
-        b=gTPyg/huy1N7bzVkarzSSHJhx0mvQiVXmRHCisxcrDvwzuf7rM4vuhXTxgZVRzIIdX
-         3CWuimYx/ivYeN7joSwuiDFTAdN7iKQa+ktYijkE7sWfp4HSkgD/w2TSXgZ2NdvOL9HM
-         2R3EJCzaXNa/YYtOAUbwaIJKrWcgFAgk6/uJwVyPxXAwPW15r3nbukltTURt9NNSlioL
-         ksJBV3gwUCbGFgkMYbQFYhV1R5BaM1xznxjX4Nye/PYsIDbnNOHa/9xP0P5MwgYV2Spg
-         H1UChIeose2dqCkKzV5xyY5mqjOYMPr5r6lwUi4ejpyE+YSK5JZEeUI0+OqF5D6t6W6X
-         +TQQ==
+        bh=og4Ss48qjWaYlmsfdFxPi0Imv8+Y+Dj/6CNrwGbe4NU=;
+        b=LcNA9o7kHuRuosloqTTZe5rFFdEHsjiYnppJge3fCO4FLFFapEL3i3CGiUaQYFKWCV
+         c+manbC2xoQKQdYuqIUoSXA4YQPYGJ/D+Zvn6xvYgvlfc4gl+hXHcNASuLl6hnuOyPtY
+         B+8wee0HXbVO4K1r0AW6TcbhzjK0Mx8dBmL0IKaspqbBkYQLteezeNh2N+wCsKyPZF9T
+         6iv5x/2d3uPw4BdkruSK6NsFDbOK0qooen1xiKrf7afubO4yikNQHFYocsR2oUIfV4GC
+         Qru1wPWHo7f9sKa5GWu5w4RlBCcRdVSdUmBPVnM++meGag4+nucF0qbAWoyyXECNMq+8
+         +szg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456040; x=1780060840;
+        d=1e100.net; s=20251104; t=1779456042; x=1780060842;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=MxhTRa0jJQh6ofFG9sXlZ7aauhKliKnMeyOlOjmQWhU=;
-        b=kus9SjkGFRTj0FVTq3nWMa0U3OQ9Rm+ukQKAjp8xPw+EwfvmRx/h+jbui6VsUlWbNy
-         tVq85VxJAQ7UVn/LjRQSSHHaFRF2EbLpXsTKjnDSmG078lsVA6IOtNqcA7oI2ZkSwhvG
-         dEZ0piekj8r/YmbchSBaFiKxpRKjuso7/WNYjaTRK/F/NEL4gRLLQxoQCNkOQX1Lo0bf
-         tlwavbavmrUmmX7XiPe/2j92CsmgHI3B5zdDw/eoSrRf/H74S0wTbA11MEI5fH42cXoz
-         A81qGxk//16cStBICgKDMAMnQh0xPp5cbjeWge63eJsgIjME74qqgwaFZrWRozjz3Eix
-         nKYw==
-X-Forwarded-Encrypted: i=1; AFNElJ+tlQNIDW8uL9tyogXOE+Q13MbJKNAqXyQt4nT6xQbZkwVNEFXHhmwWvx26oaCE3fpl9ipAa/ywFt4rWmYWd4XJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4HwOugx4mUdkjE/N46/1TrW371fmx+ZmITC8orVQ0GnVECRoJ
-	h3PzPGPUwq80nt7tQX/T4Ibvtknr90vYf3flzhqs57EhcjFy2OV5GHQX
-X-Gm-Gg: Acq92OGZ0eACMh4thBnNfLbqoZy9WRHclKe5QogR138/f90I62ClZFpEFQZRHobSp/b
-	tmPbQJ3juyHWvlQp50KAUknvHwTj8IIFfHm9IzDPnd3HETluriX8N4MB6pfspx824ek2hOmSReM
-	4VxQqWY6fZrbMvqAn0SfbLSjVM77sm+Jcve2u/oLgtQp6yIm0eDMuzonAiiu5kb02A1Io8r5Tgj
-	Qpd+5nv9OosyHVEKtPSJ7dpEYF4tGo6Pz9UYoSBnzx7fIZwsMXsyyeY9dqkc4Jp5CSYnsZH9Ewb
-	jNLQgOoxQQTQlNCd4ckKGUsGzyqy6TKRgDRK61pxdwi5zwhuoMUm8YQ06JAJqHus0OEzcSsajQH
-	rWQ+a5perUmcFfjPlux/pJduvlmh2SxITqvGoFs43SRwm/esIyALKvwflO24E7sKo/NOWNOQ6Bt
-	1Jv6ggUTKwGfMPxxz7a0Xy50YeJXasOvth3b+ObIEyRg==
-X-Received: by 2002:a05:600c:a402:b0:486:fd5c:2b35 with SMTP id 5b1f17b1804b1-490426adf66mr39371215e9.13.1779456040467;
-        Fri, 22 May 2026 06:20:40 -0700 (PDT)
+        bh=og4Ss48qjWaYlmsfdFxPi0Imv8+Y+Dj/6CNrwGbe4NU=;
+        b=AxLeG6oV8OFDm8GkwbEBTYaZbbCcmr3FsnRKD/eRRqLXcnR2CHmBNYZZd7sZ/RC85V
+         QqDOThuxHt9n4Ldrh84zu6KdBEYAKbQZ/f52cFGPj+2FcqLvHgar33QhDOQOuJdyy0Ht
+         JdMhLY8piP8erTyjKIyQv2Nb0gBsJDwdqL8c1i3f0fcFesjfQp9bk+JM+emLstx+O/+F
+         BPa0Pxx3gurlFmO4iZnBO2I2mXJymTk2iFoWDWbCfxwpe9tjiEOf0W1p8r/p0YMPq1Ca
+         r+IwXDxxIa00/28u59c8i8iEBcdk3khIj6uIAo/JgiZl2ba2XJ3CY21kfhGN4qHYq7Fb
+         7S3w==
+X-Forwarded-Encrypted: i=1; AFNElJ8EoKmaCJdp9HrfPlnnsQjlXlh82xs5oNHLsKYyBBu5KP3r1ub3qTNBj+HRrFv4cv5QgZ2q5KIH+Z3Xt8WNocLG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSifdS8iNCSsMPcYREvZ+301Jxf7waGhdnoZlq1Y4sHUOUIL4N
+	KkOrtSErc6jwsXZfO2PlAqk8MNIUIr0YxJ0WgCH2bFpsEYt4cEY5IKx8
+X-Gm-Gg: Acq92OHNdlnSoMLZvvG/7DyYsCvRYyZi4BqWN83AK/4DG+XWAtgv3Fz8yF4qWH+hFRg
+	a9Y9EYsSsgOlB6f/y6T6MoTtw2lyOniZWZm0AaGarKnln7cTAtBiy1gZ5byHE2PeFbO7IH3jE+v
+	aAEkffLBAuGv8tvshEWjknvRGW5Eygdgp0yJTrmIN1593WI2He7lefBe6bDxiIL61d1ZwDVWd+O
+	hKNivJDrGdOfixicyBqia976ip6HVFOcMJyHn+LT0AAW9TnqMkI/OYnDHaPhEZnM2R3cYXsouVT
+	I2bgO6r+yDds3WIovyjmz6iSU82ITXuqofF5r+Ewh1AtuDBfQgnFd1GJjwr9hsS2wlFhSpr2n9Z
+	R0N+wYk10NK5JWQoALqjZDsTcQUH+aBqEk85EZJkiserfSG5VHVaJgDsEMUaL+om3dEjj+nNfn0
+	pwB65Jf207y+1Rh8tIg6zDizjJNHmBBOgwPBdnmuuA9A==
+X-Received: by 2002:a05:600d:8445:20b0:48a:89d9:a419 with SMTP id 5b1f17b1804b1-490424ad4c3mr37503325e9.11.1779456042100;
+        Fri, 22 May 2026 06:20:42 -0700 (PDT)
 Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0cd5sm52220755e9.10.2026.05.22.06.20.38
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0cd5sm52220755e9.10.2026.05.22.06.20.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 06:20:39 -0700 (PDT)
+        Fri, 22 May 2026 06:20:41 -0700 (PDT)
 From: Vitor Soares <ivitro@gmail.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -92,18 +92,17 @@ Cc: Vitor Soares <vitor.soares@toradex.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 03/11] dt-bindings: vendor-prefixes: Add Riverdi
-Date: Fri, 22 May 2026 14:20:16 +0100
-Message-ID: <20260522132014.226721-16-ivitro@gmail.com>
+Subject: [PATCH v2 04/11] dt-bindings: display: panel-lvds: Add Riverdi RVT70HSLNWCA0 and RVT101HVLNWC00
+Date: Fri, 22 May 2026 14:20:17 +0100
+Message-ID: <20260522132014.226721-17-ivitro@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260522132014.226721-13-ivitro@gmail.com>
 References: <20260522132014.226721-13-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_062042_421884_7E651F61 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260522_062046_546618_DA43C9AB 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,29 +119,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vitor Soares <vitor.soares@toradex.com>
 
-Add vendor prefix for Riverdi Sp. z o.o, a design and manufacturer
-of TFT display solutions.
+The Riverdi RVT70HSLNWCA0 is a 7.0" WSVGA (1024x600) IPS TFT LCD LVDS
+panel used in the Riverdi RVT70HSDNWCA0 display module.
 
-Link: https://riverdi.com
+The Riverdi RVT101HVLNWC00 is a 10.1" WXGA (1280x800) IPS TFT LCD LVDS
+panel used in the Riverdi RVT101HVDNWC00 display module.
+
+Link: https://download.riverdi.com/RVT70HSLNWCA0/DS_RVT70HSLNWCA0_Rev.1.4.pdf
+Link: https://download.riverdi.com/RVT101HVLNWC00/DS_RVT101HVLNWC00_Rev.1.4.pdf
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ .../devicetree/bindings/display/panel/panel-lvds.yaml         | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index 28784d66ae7b..bac056d486e7 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -1403,6 +1403,8 @@ patternProperties:
-     description: Embest RIoT
-   "^riscv,.*":
-     description: RISC-V Foundation
-+  "^riverdi,.*":
-+    description: Riverdi Sp. z o.o
-   "^rockchip,.*":
-     description: Rockchip Electronics Co., Ltd.
-   "^rocktech,.*":
+diff --git a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+index b31c67babaa8..b89f86bc0683 100644
+--- a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
++++ b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
+@@ -58,6 +58,10 @@ properties:
+           - hydis,hv070wx2-1e0
+           # Jenson Display BL-JT60050-01A 7" WSVGA (1024x600) color TFT LCD LVDS panel
+           - jenson,bl-jt60050-01a
++          # Riverdi RVT101HVLNWC00 10.1" WXGA (1280x800) TFT LCD LVDS panel
++          - riverdi,rvt101hvlnwc00
++          # Riverdi RVT70HSLNWCA0 7.0" WSVGA (1024x600) TFT LCD LVDS panel
++          - riverdi,rvt70hslnwca0
+           # Samsung LTN070NL01 7.0" WSVGA (1024x600) TFT LCD LVDS panel
+           - samsung,ltn070nl01
+           # Samsung LTN101AL03 10.1" WXGA (800x1280) TFT LCD LVDS panel
 -- 
 2.54.0
 
