@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1491ACD5BB7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:21:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5B0CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 13:21:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=og4Ss48qjWaYlmsfdFxPi0Imv8+Y+Dj/6CNrwGbe4NU=; b=1wPX/sDgabyHzRg0SpiD4RN4ne
-	t+gY5N+8bwpSzWUxu/QQ7h+J0zOn8BIS7oKh+9Dhn5I4DEcOwoddcpp+ZXTA0ZFTvw+qF9eK5M0z3
-	LzwOk+DHtU2kWcSPYnyiQmLeKcnHe0ZhH8PHOovOVlWHQE0gPc4+Em3GyEeHE7il+fWqaHpFhdn2N
-	3H/hmCTeJjuDTxkYxGLLFIJlJomoaH6FqUK/bnLyWfW9B9/gs5u6+09xEjJ7Vt8b43TV3XMrfRBoz
-	leRydi5uaCk5nbRNm8FKOZup/+a7mnWqfm6IkLLajHxjHnIRH0VioK5mn5vyZOsNrd+9ZXM5Dp9Xi
-	E+q35x8g==;
+	bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=; b=dYRr7dCe9fnZfRHHB+dop9JCSQ
+	BBwrfP5L5JofVXW55hDtDkKm+ooJBaweD8YT1S8+j7psgoTUr2ESZP2WNruYW9gzZVBZ/ylSqAZcd
+	/Pp/l5jHdGIfkDL7GT58U/S4+9+t/vfTuVvmgysQx7BWCLq5/NLfxduQWl/qINRo2rdTR2fJ+buI6
+	E8B4IiE/1UkEHXWGdNxOTzmeVmtufBwE0EqwUjuGJwywHW/XT6U6U6Fsu9L5A82gQ2gj2xlJSjPL9
+	7+g/bQVxp5/MVPgnMf5WUfDFMizlIHe0WD7MIlJishQHYrLPtq8rVsVLvuZYYuFZhsZhM354Z06pn
+	7llbNqpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPoE-0000000AwW5-2vlu;
-	Fri, 22 May 2026 13:21:02 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wQPoK-0000000Awb5-27ak;
+	Fri, 22 May 2026 13:21:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQPnw-0000000AwIf-0a4v
+	id 1wQPo8-0000000AwRA-1jwy
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 22 May 2026 13:20:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=; b=lMRwWiYgrLTX1HUCi2NqVwbVsA
+	kIYOhrIHxe31HYPW8S1acOwrZGFMrHv9GdZ3jVcTZ9cnrD1S3Uw7WGG9AaaZ0jDkx3iCIWme/kIwk
+	p7SUnful6PWq0jA3rH99WkJImso7KYaSM2wyLZ/mb2jWLO1dkQgkQEmzhE/VJvpJNmBCXZO6qMwHR
+	gERJsIlfYKD8s9ko5SdZikhMOp4X47hYiSgNBHh6VJsERFEZYHvWqLQJg0jZwiAmy38vk/rIjLzn6
+	Q5azx5KQ4DrEMygaGeoh+Lvz6fpCC47W9J8hdNiXrIO2eASgB8d/WcYs/bfAQDpLU1LFVMJwRVoHO
+	t804hGwA==;
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQPo4-00000004QJL-3XXj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 13:20:47 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-48d146705b4so78847855e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:43 -0700 (PDT)
+	Fri, 22 May 2026 13:20:55 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-43d75312379so6169113f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 06:20:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779456042; x=1780060842; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779456051; x=1780060851; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=og4Ss48qjWaYlmsfdFxPi0Imv8+Y+Dj/6CNrwGbe4NU=;
-        b=LcNA9o7kHuRuosloqTTZe5rFFdEHsjiYnppJge3fCO4FLFFapEL3i3CGiUaQYFKWCV
-         c+manbC2xoQKQdYuqIUoSXA4YQPYGJ/D+Zvn6xvYgvlfc4gl+hXHcNASuLl6hnuOyPtY
-         B+8wee0HXbVO4K1r0AW6TcbhzjK0Mx8dBmL0IKaspqbBkYQLteezeNh2N+wCsKyPZF9T
-         6iv5x/2d3uPw4BdkruSK6NsFDbOK0qooen1xiKrf7afubO4yikNQHFYocsR2oUIfV4GC
-         Qru1wPWHo7f9sKa5GWu5w4RlBCcRdVSdUmBPVnM++meGag4+nucF0qbAWoyyXECNMq+8
-         +szg==
+        bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=;
+        b=CIGIBvOE6XhQnjwJWHgTEdHEwiUnmtFpQjUYv2VAAcCWKIdbCRGpJqUkrsRCdeYS+X
+         Hh1tpDezhVQATtp7Ojr+lUi83zW8krl6q1lny3lVn9MQjcPPJPfrKuswrc99+jwPwiwQ
+         IcHAURZy0x5sBtQ42aUz55oZB/JHdFkQjuTxrfkL7ktVdBdcFP8IocRW2NPLjUEbU0XL
+         F8jpHLqEaFJYIKRNyue93YjtfRxiFTo4CzkXVnloSgcvuUxxhzcuWq3Ts5M+j7TtXK0B
+         egVki/7PUmoh9CH6yipb5VRRehhI0VwjilWovaUKNnMEDz03N/l8tXri7vM1aiSbBZpg
+         hPSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779456042; x=1780060842;
+        d=1e100.net; s=20251104; t=1779456051; x=1780060851;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=og4Ss48qjWaYlmsfdFxPi0Imv8+Y+Dj/6CNrwGbe4NU=;
-        b=AxLeG6oV8OFDm8GkwbEBTYaZbbCcmr3FsnRKD/eRRqLXcnR2CHmBNYZZd7sZ/RC85V
-         QqDOThuxHt9n4Ldrh84zu6KdBEYAKbQZ/f52cFGPj+2FcqLvHgar33QhDOQOuJdyy0Ht
-         JdMhLY8piP8erTyjKIyQv2Nb0gBsJDwdqL8c1i3f0fcFesjfQp9bk+JM+emLstx+O/+F
-         BPa0Pxx3gurlFmO4iZnBO2I2mXJymTk2iFoWDWbCfxwpe9tjiEOf0W1p8r/p0YMPq1Ca
-         r+IwXDxxIa00/28u59c8i8iEBcdk3khIj6uIAo/JgiZl2ba2XJ3CY21kfhGN4qHYq7Fb
-         7S3w==
-X-Forwarded-Encrypted: i=1; AFNElJ8EoKmaCJdp9HrfPlnnsQjlXlh82xs5oNHLsKYyBBu5KP3r1ub3qTNBj+HRrFv4cv5QgZ2q5KIH+Z3Xt8WNocLG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxSifdS8iNCSsMPcYREvZ+301Jxf7waGhdnoZlq1Y4sHUOUIL4N
-	KkOrtSErc6jwsXZfO2PlAqk8MNIUIr0YxJ0WgCH2bFpsEYt4cEY5IKx8
-X-Gm-Gg: Acq92OHNdlnSoMLZvvG/7DyYsCvRYyZi4BqWN83AK/4DG+XWAtgv3Fz8yF4qWH+hFRg
-	a9Y9EYsSsgOlB6f/y6T6MoTtw2lyOniZWZm0AaGarKnln7cTAtBiy1gZ5byHE2PeFbO7IH3jE+v
-	aAEkffLBAuGv8tvshEWjknvRGW5Eygdgp0yJTrmIN1593WI2He7lefBe6bDxiIL61d1ZwDVWd+O
-	hKNivJDrGdOfixicyBqia976ip6HVFOcMJyHn+LT0AAW9TnqMkI/OYnDHaPhEZnM2R3cYXsouVT
-	I2bgO6r+yDds3WIovyjmz6iSU82ITXuqofF5r+Ewh1AtuDBfQgnFd1GJjwr9hsS2wlFhSpr2n9Z
-	R0N+wYk10NK5JWQoALqjZDsTcQUH+aBqEk85EZJkiserfSG5VHVaJgDsEMUaL+om3dEjj+nNfn0
-	pwB65Jf207y+1Rh8tIg6zDizjJNHmBBOgwPBdnmuuA9A==
-X-Received: by 2002:a05:600d:8445:20b0:48a:89d9:a419 with SMTP id 5b1f17b1804b1-490424ad4c3mr37503325e9.11.1779456042100;
-        Fri, 22 May 2026 06:20:42 -0700 (PDT)
+        bh=feqCuYJiSrJNV96kUr6v72Q4V4YTTvof+UmoeS01S+w=;
+        b=HUxF1Jye17+7e7qNhbPq1B7A688C9sR4stsxf9l7apkYlGnS3JBYjrCj5lA3x7dI8j
+         OHqL++c0fWFEHv51bI8irLObpdlBn940ibv51rIRMgeES+ZjRe0XJ8IVWU9UUChpuhmb
+         Bcp4t1anZCffYtlUD/yEJXEJOv0GYrLuKSOeomuFdK6Y6zgy/eu6pYuXytGSTeCW4Sxh
+         C9VzfUiqC8Q9FxKvp2AaXxPXBlirB69x3xwIjKmWai3EDvFGZfUc+Rjy9NPNOmCSY/Oi
+         Ld4JMGGQ0aWr+V0j4QvsBNm/QIhOc91u4m0iNFgguy9h7N5IF8pgqlgQCf2w2nL/NrRE
+         UIVA==
+X-Forwarded-Encrypted: i=1; AFNElJ88QSfdu3liGZVTU/zt7zXt5sdnlJGotVKgfWu4c/S6m9RYTOgUEFSouid3UoDYxC0ZYV4bGiacW6BZAQis7Ho3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI3S0vCaA+BFyEn8bw6CqrusHN0IQ9onk7tJ4K+Zos2n8UDwVs
+	1J38YFYTOzjTRCmmqpEBhPfDzjxp7P1czVo+OavGnIaRmWptxPJ5pVCe
+X-Gm-Gg: Acq92OHGD533jAcil+IOV0A0IN3+w7j/jGVtpQoKlJmMEikUUgUY8T7qlyTfKtcypoQ
+	rYOm4292lM/oiv+CCmsQjr9DU5WeHmeC1tbj22V4cQW89YxfAzQ6DjTICDzm11OkgZfrTL4Kdaf
+	PTFf4z3Dfy/uRay4I69QPc/sKagob3+JdzuQnIJ4Yom6sXDHDonHDitL29fqiqrg3XrU+ADHVI4
+	+tlNhZT1FAYHgguhv7NmuN7zoaXiqqr1ZsgMIdv+Y0IDFmQXvxbk96xaBy6SJEE7cwq2y4w6Ok9
+	zTY/wednCzUh1jXBBnyiSgYSveEp0KZ/DPq+qMTOtCWwvscq55MO4G2n4849WvAYI7aYUdgdrjH
+	pXWLgy2UGKloJDrZvBotjpWuxwSP2PbPEnXDGIutyYi0vR9wlyqqYbwVbpCJN3aNZF0VdogwrYN
+	yKSh0p7OSZ6XvBjxOdf1jgZ78tUkojyXWx+p1VcYqAxtgEFB9C7JhI
+X-Received: by 2002:a05:600c:a402:b0:48f:e230:29f5 with SMTP id 5b1f17b1804b1-490426b0c92mr33094865e9.16.1779456051266;
+        Fri, 22 May 2026 06:20:51 -0700 (PDT)
 Received: from vitor-nb (dsl-113-208.bl27.telepac.pt. [176.79.113.208])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0cd5sm52220755e9.10.2026.05.22.06.20.40
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454a0cd5sm52220755e9.10.2026.05.22.06.20.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 06:20:41 -0700 (PDT)
+        Fri, 22 May 2026 06:20:50 -0700 (PDT)
 From: Vitor Soares <ivitro@gmail.com>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -90,19 +105,18 @@ Cc: Vitor Soares <vitor.soares@toradex.com>,
 	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 04/11] dt-bindings: display: panel-lvds: Add Riverdi RVT70HSLNWCA0 and RVT101HVLNWC00
-Date: Fri, 22 May 2026 14:20:17 +0100
-Message-ID: <20260522132014.226721-17-ivitro@gmail.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 09/11] arm64: dts: ti: k3-am62-verdin: Add Toradex OV5640 CSI Cameras
+Date: Fri, 22 May 2026 14:20:22 +0100
+Message-ID: <20260522132014.226721-22-ivitro@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260522132014.226721-13-ivitro@gmail.com>
 References: <20260522132014.226721-13-ivitro@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_062046_546618_DA43C9AB 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20260522_142053_304304_38FBE05B 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +133,182 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vitor Soares <vitor.soares@toradex.com>
 
-The Riverdi RVT70HSLNWCA0 is a 7.0" WSVGA (1024x600) IPS TFT LCD LVDS
-panel used in the Riverdi RVT70HSDNWCA0 display module.
+Add device tree overlays for the Toradex OV5640 CSI Cameras on Verdin
+CSI_1. Two variants are supported: the current CSI Camera Set 5MP OV5640
+with a 27 MHz oscillator and the legacy CSI Camera Module 5MP OV5640
+with a 24 MHz oscillator.
 
-The Riverdi RVT101HVLNWC00 is a 10.1" WXGA (1280x800) IPS TFT LCD LVDS
-panel used in the Riverdi RVT101HVDNWC00 display module.
-
-Link: https://download.riverdi.com/RVT70HSLNWCA0/DS_RVT70HSLNWCA0_Rev.1.4.pdf
-Link: https://download.riverdi.com/RVT101HVLNWC00/DS_RVT101HVLNWC00_Rev.1.4.pdf
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Link: https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
+Link: https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
+Assisted-by: Claude:claude-sonnet-4.6
 Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
 ---
- .../devicetree/bindings/display/panel/panel-lvds.yaml         | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/ti/Makefile               |  8 +++
+ .../dts/ti/k3-am625-verdin-ov5640-24mhz.dtso  | 17 +++++
+ .../boot/dts/ti/k3-am625-verdin-ov5640.dtsi   | 71 +++++++++++++++++++
+ .../boot/dts/ti/k3-am625-verdin-ov5640.dtso   | 18 +++++
+ 4 files changed, 114 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
 
-diff --git a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
-index b31c67babaa8..b89f86bc0683 100644
---- a/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
-+++ b/Documentation/devicetree/bindings/display/panel/panel-lvds.yaml
-@@ -58,6 +58,10 @@ properties:
-           - hydis,hv070wx2-1e0
-           # Jenson Display BL-JT60050-01A 7" WSVGA (1024x600) color TFT LCD LVDS panel
-           - jenson,bl-jt60050-01a
-+          # Riverdi RVT101HVLNWC00 10.1" WXGA (1280x800) TFT LCD LVDS panel
-+          - riverdi,rvt101hvlnwc00
-+          # Riverdi RVT70HSLNWCA0 7.0" WSVGA (1024x600) TFT LCD LVDS panel
-+          - riverdi,rvt70hslnwca0
-           # Samsung LTN070NL01 7.0" WSVGA (1024x600) TFT LCD LVDS panel
-           - samsung,ltn070nl01
-           # Samsung LTN101AL03 10.1" WXGA (800x1280) TFT LCD LVDS panel
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index 31c9bc1d48b1..60844951c9ce 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -41,6 +41,8 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-ivy.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-mallow.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-yavia.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-zinnia.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-ov5640-24mhz.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-ov5640.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-dsi.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-10inch-lvds.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-panel-cap-touch-7inch-dsi.dtbo
+@@ -228,6 +230,10 @@ k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch-dtbs := \
+ 	k3-am625-verdin-dsi-to-lvds-panel-cap-touch-10inch.dtbo
+ k3-am625-verdin-wifi-dev-nau8822-btl-dtbs := k3-am625-verdin-wifi-dev.dtb \
+ 	k3-am625-verdin-dev-nau8822-btl.dtbo
++k3-am625-verdin-wifi-dev-ov5640-24mhz-dtbs := k3-am625-verdin-wifi-dev.dtb \
++	k3-am625-verdin-ov5640-24mhz.dtbo
++k3-am625-verdin-wifi-dev-ov5640-dtbs := k3-am625-verdin-wifi-dev.dtb \
++	k3-am625-verdin-ov5640.dtbo
+ k3-am625-verdin-wifi-dev-panel-cap-touch-7inch-dsi-dtbs := \
+ 	k3-am625-verdin-wifi-dev.dtb \
+ 	k3-am625-verdin-panel-cap-touch-7inch-dsi.dtbo
+@@ -339,6 +345,8 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am625-sk-hdmi-audio.dtb \
+ 	k3-am625-verdin-wifi-dev-dsi-to-lvds-panel-cap-touch-10inch.dtb \
+ 	k3-am625-verdin-wifi-dev-nau8822-btl.dtb \
++	k3-am625-verdin-wifi-dev-ov5640-24mhz.dtb \
++	k3-am625-verdin-wifi-dev-ov5640.dtb \
+ 	k3-am625-verdin-wifi-dev-panel-cap-touch-7inch-dsi.dtb \
+ 	k3-am625-verdin-wifi-dev-uart4-mcu.dtb \
+ 	k3-am625-verdin-wifi-mallow-panel-cap-touch-10inch-lvds.dtb \
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
+new file mode 100644
+index 000000000000..7089336fa5b4
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640-24mhz.dtso
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex CSI Camera Module 5MP OV5640 on Verdin CSI_1.
++ *
++ * https://developer.toradex.com/hardware/legacy-products/other/csi-camera-module-5mp-ov5640/
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include "k3-am625-verdin-ov5640.dtsi"
++
++&clk_ov5640_osc {
++	clock-frequency = <24000000>;
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
+new file mode 100644
+index 000000000000..eb3df9d85517
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtsi
+@@ -0,0 +1,71 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Common device tree include for Toradex OV5640 CSI camera on Verdin CSI_1.
++ */
++
++#include <dt-bindings/gpio/gpio.h>
++
++&{/} {
++	clk_ov5640_osc: ov5640-xclk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++	};
++
++	regulator_camera: regulator-camera {
++		compatible = "regulator-fixed";
++		/* Verdin GPIO_8_CSI (SODIMM 222) - CAM_1_CON_PWRCTRL */
++		gpio = <&main_gpio0 42 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		regulator-name = "V_CSI";
++		startup-delay-us = <5000>;
++	};
++};
++
++&csi0_port0 {
++	status = "okay";
++
++	csi2rx0_in_sensor: endpoint {
++		remote-endpoint = <&csi2_cam0>;
++		bus-type = <4>; /* CSI2 DPHY */
++		clock-lanes = <0>;
++		data-lanes = <1 2>;
++	};
++};
++
++&dphy0 {
++	status = "okay";
++};
++
++&main_i2c3 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	camera@3c {
++		compatible = "ovti,ov5640";
++		reg = <0x3c>;
++
++		clocks = <&clk_ov5640_osc>;
++		clock-names = "xclk";
++		AVDD-supply = <&regulator_camera>;
++		DOVDD-supply = <&regulator_camera>;
++		DVDD-supply = <&regulator_camera>;
++		/* Verdin GPIO_6 (SODIMM 218) - CAM_1_CON_PWRDWN */
++		powerdown-gpios = <&main_gpio0 36 GPIO_ACTIVE_HIGH>;
++		/* Verdin GPIO_5 (SODIMM 216) - CAM_1_CON_RST */
++		reset-gpios = <&main_gpio0 40 GPIO_ACTIVE_LOW>;
++
++		port {
++			csi2_cam0: endpoint {
++				remote-endpoint = <&csi2rx0_in_sensor>;
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&ti_csi2rx0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
+new file mode 100644
+index 000000000000..e7f02cfaa94f
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-am625-verdin-ov5640.dtso
+@@ -0,0 +1,18 @@
++// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
++/*
++ * Copyright (c) Toradex
++ *
++ * Toradex CSI Camera Set 5MP OV5640 on Verdin CSI_1.
++ *
++ * https://developer.toradex.com/hardware/accessories/cameras/csi-camera-module-5mp-ov5640-arducam
++ * https://www.toradex.com/accessories/csi-camera-ov5640
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include "k3-am625-verdin-ov5640.dtsi"
++
++&clk_ov5640_osc {
++	clock-frequency = <27000000>;
++};
 -- 
 2.54.0
 
