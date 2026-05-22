@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 372C3CD5BB3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE2C2CD5BB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IdOpo31kserPmrGp3GvpU58TPDoGY+y8EflyrkRt+J4=; b=Epkguv6OzdZf/Cgsy7SwVMxVsn
-	XkhZyKMQwPDVXBcBJiJLXw3ntJ043/lFdYXLfiOgeyeS3qNdF6pMsLHSoczbDrJCuazs9HJCPsUo6
-	/L8IIRLoJyd6wk+35hfFwo5yaVgWoKFcreE+XdnCcqAdiUYZseNlU/EzJC9KN0BB9euzg8G8QY4PQ
-	GVrF4RoNayqAxI4WPV5200ZiZquaKewdMYZpa0zMF2B6dI88GJ80tAg98BLs8228M1oHg0IrJOWVy
-	h/osT3u6RVw4DPlICLwQ5tKsO9O+G92y+XZjuOPhZcqzyz8Icr0eeNaRBPQpXEcFBq1uDH/KzoYlq
-	Q5yqzZRg==;
+	bh=Ue6+BrgA5cCiK29yEQFjVEW/61iWgshQWpISoK0a5mo=; b=1h9Yd5eFd2YlaNLK2seIDDXuT5
+	XNai689qgl0SHCxCDi9Dc5FmrImKtX2cWt7AGsECTeZqwCZ7wSqjJhQ/Rm4AKslsi/oVmqWehmwFC
+	siF+rtPcdzJNrXxu5nxaQov7y2k75ydnZb0dqVz33mBDHRYABJmge7L0u742fZuo1ou3Rhw0hT5UQ
+	GHsUGKbZzhPKuKJw+fxEn9KoKT1JRTNHxWzsYdIqd8Zl03lDCTo+IGfWlKqi6f2ph4K2DDCPp2Bfq
+	xcGkByTlEV+tP3Z+JoNOhYSrGjY8c1Jz45VI6mtUcTgbwIiHZPezBuf6Iz974eIknkVin4LU4wjYd
+	JLFQE3NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRur-0000000BGtk-11Dh;
-	Fri, 22 May 2026 15:36:01 +0000
-Received: from mail-ot1-f50.google.com ([209.85.210.50])
+	id 1wQRws-0000000BHHE-23la;
+	Fri, 22 May 2026 15:38:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRup-0000000BGsW-0Vto
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 15:36:00 +0000
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-7e568ab0bc5so8276103a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 08:35:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779464158; x=1780068958;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IdOpo31kserPmrGp3GvpU58TPDoGY+y8EflyrkRt+J4=;
-        b=AwntTYLzWU9OGp1ywF0O+FRY/YMbvZ7y9Dq4iP9FDrHZATXcWzjKi47CTB9O6zv65A
-         78rWFN0knNn1YGgHnvxOe/TgABmq+NG2I9rVttWmT/OJSIWmE62tSzKva2ohOch1s0R2
-         yzBJrPuLXgT1P5jgzf4USKWpU0/jMPxDr2smcZc0tHehSbnLHEwwaf6VizyTOynS3Ypv
-         D9OSL2VR3seSVO5yRYtKX4zFLh2t83GEw/T8leqzAfW+YY6JAICqnYp0HzCWokApUikz
-         xPEF6jfESdTNAniVTDqRwwhuqrK6iljfBx9XrvRWjDYryt42qmN/QlSUmE6SVv1Rr8U2
-         0ADA==
-X-Gm-Message-State: AOJu0YwE+CKnDpRUiUjX+GjcreNPBqCEvCNYtH8+2pu+O84lXjrdpdAS
-	HYQEjBa5XyiF0jLB1kXTlavsbWp+Uh+SKk0ukEnKqKJcuBwsPUA0RVHW/iahp2O+zxo=
-X-Gm-Gg: Acq92OE1MEOFZPApT3Dh68+uhnBtWvPVo0/+eSxrAFOhhfwtrg8YnxBxa21ppUTTAw7
-	BRQZxxLEyL3smR+wNCkaG4QsgNOaXSoO4p4Ac1dJBQgrsikumt1qza2Dvl4qE+Q2IcvUeZvFObn
-	H7RWjuqNW60oKv29BdW17N66zjREUW+I4KcY1nIqgD14NK4+P3PcvRo9aaaFBJfJc90CjSVp1MF
-	h9lkNQaAdYxLrYdEy7eOLIUWZoHymqzLk9qET/2/5zQvkx4lxX4P+/dijBFrvHlPEToAbHTkFjK
-	H8FWHcA+vQb1g+nbVue/OELFAI+VFUnXHBofgnCcw7RnW766AkSPoyZKR9RUiBGRDPm2Fmhf7WY
-	8CMilDu8wsDNGNWwVKorqUEd9NJKtCFcMrVN8mE2KnRwfJgYsb34KPPlC7+IPpgHhqSY9TYW/SR
-	YGnzNvE6BgU/b3ql2u8zZ/fcOZuVu8ujn4aR+mVYyzx6w3QJKoOAMjncf09c47BxJdESMnW7c=
-X-Received: by 2002:a05:6830:6dca:b0:7e6:309:2189 with SMTP id 46e09a7af769-7e6030927a2mr1354387a34.13.1779464158075;
-        Fri, 22 May 2026 08:35:58 -0700 (PDT)
-Received: from mail-ot1-f50.google.com (mail-ot1-f50.google.com. [209.85.210.50])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7e6065e6966sm1212996a34.17.2026.05.22.08.35.57
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 22 May 2026 08:35:57 -0700 (PDT)
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-7dcdca9aa0bso8396567a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 08:35:57 -0700 (PDT)
-X-Received: by 2002:a05:6102:c4f:b0:634:10bd:95c6 with SMTP id
- ada2fe7eead31-673d1c38b59mr4123345137.22.1779463759525; Fri, 22 May 2026
- 08:29:19 -0700 (PDT)
+	id 1wQRwq-0000000BHGD-2Exr;
+	Fri, 22 May 2026 15:38:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DE1CE41738;
+	Fri, 22 May 2026 15:38:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4206E1F000E9;
+	Fri, 22 May 2026 15:37:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779464283;
+	bh=Ue6+BrgA5cCiK29yEQFjVEW/61iWgshQWpISoK0a5mo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=e3S85iit9E//Da14omyK4sSzq5E+5P6CirUlrWrNKkWRCr0gH3q2SRSlfFihqMpFf
+	 lNIJ+Ym6rgTd0CfoB7Pca50HGx7yg/Kc5w/2lEe4qOmRDVIKJHaZ2mwp0lyokkwzMM
+	 6vLSr5NafsQy9TfFAYNw8jc2lOZNyREETBaXhqe0wsF6vVu5L5ph14ppOzYFh+6m+v
+	 gJ/dcbqjjuTKEbZXZCc79Pa0JwpRwFDh/QUW0F5E1DEDjYhtDdgK1JyVd4OtmokLSn
+	 On0u89WSmNioM38n363WRHRzMjaBZLPk3SQhu/mA8NqmleLSnwm2/5ltuBOTzidZnQ
+	 dj5LZD2lAZZXQ==
+Date: Fri, 22 May 2026 16:37:54 +0100
+From: Lorenzo Stoakes <ljs@kernel.org>
+To: Yang Shi <shy828301@gmail.com>
+Cc: "David Hildenbrand (Arm)" <david@kernel.org>, 
+	Suren Baghdasaryan <surenb@google.com>, Barry Song <baohua@kernel.org>, 
+	Matthew Wilcox <willy@infradead.org>, akpm@linux-foundation.org, linux-mm@kvack.org, 
+	liam@infradead.org, vbabka@kernel.org, rppt@kernel.org, mhocko@suse.com, 
+	jack@suse.cz, pfalcato@suse.de, wanglian@kylinos.cn, chentao@kylinos.cn, 
+	lianux.mm@gmail.com, kunwu.chan@gmail.com, liyangouwen1@oppo.com, chrisl@kernel.org, 
+	kasong@tencent.com, shikemeng@huaweicloud.com, nphamcs@gmail.com, bhe@redhat.com, 
+	youngjun.park@lge.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, Nanzhe Zhao <nzzhao@126.com>
+Subject: Re: [PATCH v2 0/5] mm: reduce mmap_lock contention and improve page
+ fault performance
+Message-ID: <ahB3DSwipVXw6tmK@lucifer>
+References: <afS_L-5XeWIldTXA@casper.infradead.org>
+ <CAGsJ_4wk=SDtgin+84Ev2TamU-JFfmrg_SUay=-tcYmnFvK6Nw@mail.gmail.com>
+ <afTpoL3FklpQZNMM@casper.infradead.org>
+ <CAGsJ_4ysMcrmDLSOwBkf7qwCQrcDWeEMXkHDajTJFMLKUk0bSQ@mail.gmail.com>
+ <agrWuDNGddNmvMFD@lucifer>
+ <CAGsJ_4zqLfdWoTH9s7FFaqWWj0mESfikYgr7=GcV64qcuXrPxA@mail.gmail.com>
+ <CAJuCfpE0WQrB3zJp9qn3jvn5DthS=ttpX7gJJvyEhA_BJGrp5g@mail.gmail.com>
+ <agxbq1TxJdniMQT3@lucifer>
+ <e6d1017a-e4c5-493e-bfca-932c6d64eaac@kernel.org>
+ <CAHbLzkq3S7NDYe4LXjurKNQU+40-wtqrD_PT18YcyHbAcNxiRQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20260504144534.43745-1-marek.vasut+renesas@mailbox.org> <20260504144534.43745-6-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260504144534.43745-6-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 22 May 2026 17:29:06 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUNLshTRi8yqOBezHpWc1b=f7VdSyN_+cC=r0dKAi8R7w@mail.gmail.com>
-X-Gm-Features: AVHnY4LJMj7MpfiKYvQ9U6raZAqssKkW2xRRdr52QyR92yVonmyMfE85fwhFPPk
-Message-ID: <CAMuHMdUNLshTRi8yqOBezHpWc1b=f7VdSyN_+cC=r0dKAi8R7w@mail.gmail.com>
-Subject: Re: [PATCH v2 5/7] soc: renesas: Identify Renesas R-Car R8A779MD M3Le SoC
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Magnus Damm <magnus.damm@gmail.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulfh@kernel.org>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, devicetree@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHbLzkq3S7NDYe4LXjurKNQU+40-wtqrD_PT18YcyHbAcNxiRQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_083559_160391_608DA5EC 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20260522_083804_618814_F1B4DFAA 
+X-CRM114-Status: GOOD (  40.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,28 +89,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 4 May 2026 at 16:46, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Add support for identifying the R-Car M3Le (R8A779MD) SoC.
+On Wed, May 20, 2026 at 02:39:49PM -0700, Yang Shi wrote:
+> On Wed, May 20, 2026 at 3:34 AM David Hildenbrand (Arm)
+> <david@kernel.org> wrote:
+> >
+> > On 5/19/26 14:53, Lorenzo Stoakes wrote:
+> > > On Mon, May 18, 2026 at 12:56:59PM -0700, Suren Baghdasaryan wrote:
+> > >
+> > >>>
+> > >>> I think we either need to fix `fork()`, or keep the current
+> > >>> behavior of dropping the VMA lock before performing I/O.
+> > >>
+> > >> I see. So, this problem arises from the fact that we are changing the
+> > >> pagefaults requiring I/O operation to hold VMA lock...
+> > >> And you want to lock VMA on fork only if vma_is_anonymous(vma) ||
+> > >> is_cow_mapping(vma->vm_flags). So, we will be blocking page faults for
+> > >> anonymous and COW VMAs only while holding mmap_write_lock, preventing
+> > >> any VMA modification. On the surface, that looks ok to me but I might
+> > >> be missing some corner cases. If nobody sees any obvious issues, I
+> > >> think it's worth a try.
+> > >
+> > > Not sure if you noticed but I did raise concerns ;)
+> > >
+> > > I wonder if you've confused the fault path and fork here, as I think Barry has
+> > > been a little unclear on that.
+> > >
+> > > What's being suggested in this thread is to fundamentally change fork behaviour
+> > > so it's different from the entire history of the kernel (or - presumably - at
+> > > least recent history :)
+> > I don't want fork() to become different in that regard.
+> >
+> > There is already a slight difference with vs. without per-VMA locks, because
+> > there is a window in-between us taking the write mmap_lock and all the per-VMA
+> > locks. I raised that previously [1] and assumed that it is probably fine.
+> >
+> > I also raised in the past why I think we must not allow concurrent page faults,
+> > at least as soon as anonymous memory is involved [2].
 >
-> The Renesas R-Car R8A779MD M3Le SoC is a variant of the
-> already supported R-Car M3-N SoC with reduced peripherals.
-> Enable support for the M3Le SoC through already existing
-> ARCH_R8A77965 configuration symbol. PRR reads 0x67c05501 .
+> Thanks for sharing the context, it is quite helpful to understand the
+> race conditions. Because Lorenzo also raised the concern about page
+> fault race, I will reply to all the concerns regarding page fault race
+> together in this thread.
 >
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> IIUC, there is already some sort of race with per vma lock. Before per
+> vma lock, mmap_lock did lock everything. So page fault happened either
+> before fork or after fork. But page fault can happen on other VMAs
+> which have not been lock'ed yet during fork with per vma lock. For
+> example, we have 3 VMAs, we lock the first VMA, but page fault still
+> can happen on the other 2 VMAs during fork if they already have
+> anon_vma. This is the status quo now, but it seems not harmful.
+>
+> The bad race shared by David is caused by racing with copy page. So it
+> seems like it will be fine as long as we serialize copy page against
+> page fault if I don't miss anything. Since we decide whether to copy
+> page or not by checking vma->anon_vma, so it seems fine to not take
+> vma lock if vma->anon_vma is NULL. This will not introduce more race
+> either because setting up a new  anon_vma in page fault or madvise
+> requires taking mmap_lock according to the earlier discussions.
 
-Thanks, will queue in renesas-devel for v7.2.
+NAK. No.
 
-Gr{oetje,eeting}s,
+We're not doing this, we're not changing how fork fundamentally behaves because
+of concerns about the fault path.
 
-                        Geert
+I've delineated exactly why I think this is a problem and you're pressing ahead
+without addressing those concerns.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+So at this point I'm going to be a grumpy maintainer and just say no, stop
+please :)
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Let's fix this in the right place. You don't fix a leak in the roof by repairing
+a shelf next door :)
+
+Thanks, Lorenzo
+
+
+>
+> Thanks,
+> Yang
+>
+> >
+> > ... and I raised that this is pretty much slower by design right now: "Well, the
+> > design decision that CONFIG_PER_VMA_LOCK made for now to make page faults fast
+> > and to make blocking any page faults from happening to  be slower ..." [3]
+> >
+> > [1] https://lore.kernel.org/all/970295ab-e85d-7af3-76e6-df53a5c52f8b@redhat.com/
+> > [2] https://lore.kernel.org/all/7e3f35cc-59b9-bf12-b8b1-4ed78223844a@redhat.com/
+> > [3] https://lore.kernel.org/all/2efa2c89-3765-721d-2c3c-00590054aa5b@redhat.com/
+> >
+> > --
+> > Cheers,
+> >
+> > David
+> >
 
