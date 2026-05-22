@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A114CD5BB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D1FCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 19:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaaS3jcaWGnPF5je2AWGYV3KmS17BYaLl5N/Juf3+yw=; b=n5ABIW0ITGXxHqXOSvZkXDDDIF
-	QoCxls+iangjLKV5jymnPLMZWLQzyG1uQx5TZX6XLGrGVGI955+nMQQCAGMYEqDmNaNDxuEwtN+H0
-	m8MGIcoNSeoX3pt7DK9U/bSB2tdjYBBtmithzk1II3tqN5L+SY6NUGjqKH9ObCYQhThwp6jGUgJDm
-	K7r6I1/c7Ct461DagOLAS5SZnJAlePazuAv8PNkfCW+NVGbXjhG770+Pv7gD3Spw3GHvwvu7KuzS4
-	rbEXnDBvLu5lHqoMMaWh0+HBuIXGTNDY4Y8CA9csAk9oYLdtFJ7s++gUF6ub3A1+ZGbRk0v8antO2
-	hB7HthEg==;
+	bh=t5pA9INM3Y0nSBQV8/lKxBKif+Y6kFZgzhySclrMnuU=; b=lwIHMU8Ny7DTagfDyF2POC31e/
+	Eo+4gtasa8lDceX0VawDyKH64YdusiBcfzRhRBzs09K5UIkP7xk6BmQI1jbAsFvtxJyP/FxkvsfjC
+	rO5E/YRvxwyMykIh3xSLNyFLB5PFhy3Wx+32+MYp+zZIx44hMyo4apQpNhoEzZ653Jb/Fef+pl7c/
+	O663vn2GN/LrFZq8VdbZtcGg+YE0bQ2iJxjVBBIx1he/h7DamXnvFVt/en1GghmkOLI3ccnlSwT41
+	NCjNX2DIvok+O3aGi8jHHUBiEQxVmBq5RVDBydI7yYBAG4RXmXxjIMtxkRSFSzoJcj46geypOUC3Y
+	a6p74Fbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVKt-0000000BkbD-02vq;
-	Fri, 22 May 2026 19:15:07 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1wQVP8-0000000Bl6q-2y8n;
+	Fri, 22 May 2026 19:19:30 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQVKq-0000000BkNb-33KM;
-	Fri, 22 May 2026 19:15:06 +0000
+	id 1wQVP5-0000000Bl63-4Afz;
+	Fri, 22 May 2026 19:19:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1779477304; x=1811013304;
+  t=1779477568; x=1811013568;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:content-transfer-encoding:in-reply-to;
-  bh=3IfPthyDl2oPPglM9oqDGvx1An2T/XqIOjxgRfcIt3I=;
-  b=N7B0+UW4NId10hczx9hBHn33/GgXaCHsPuq1D8ftkyJnf7KMXcx9Qk0i
-   +SstgJS1ermYWuGiu1yazpvRYHDBjtvXbKV+V/qVcvFQQ/nWQ2KF87PXg
-   476oMpJF0f26r0ELe9t4FjgkHcLRkwn2poaBh0HD7m33+LPgvxuCUVjXw
-   CouVw15bWU0QIWfjYqukQK8LKik7pKDYeRndijqVUyJv1XFRpynb5vqVN
-   l66MhWcZpw3TXG9JfRixgB8bNR6dRtPTA6TpuJS4dVajlC0qR4Ydtku4G
-   ZVAJLNRio8CxRlKa4/RINQmojVUDWxZTtM7fZOK3pivaSIghtBoj8gy7J
-   w==;
-X-CSE-ConnectionGUID: eynAzArWSFuFBh4Ydf422A==
-X-CSE-MsgGUID: TuiaywdnTC6yTEcOcIIuoQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11794"; a="91522275"
+  bh=mvsDdaMaG9ahIS17I/CcaLNe8axrlTXXcEKv1I/F3/Q=;
+  b=ZXssrStocuppOtW1LLHKq65BFilzaNo3KamAI44OhgvwaXPx/s4lCNM6
+   XJvnV8AbkHpzRY6L2zOMz06UJegSnmWIu127uKn9E4DKgZpXkWp8OhTEB
+   d795837jWor1HH23Wq2sGol6JzUckfhDWlij/HYhCqcxMKPdgUAT0AXpT
+   jRD8BAsXqOi4c5iFJp5zAMO7aa8FsicZqyKYrkGo1X0JEWsFllTqvuPJf
+   N1Yi1bvIin4P61UlBiwIzI1zJAk4SWGJ1CigZpWzW3B6CC8pIZEJN2RaR
+   l9SffWHJUoOzr3t5JfKdmIO7E6Zl3hljOSbrtWHi6iCScWLPRtGt5ds/s
+   A==;
+X-CSE-ConnectionGUID: 9iNxwtKPQh2g2lGwLxjwbg==
+X-CSE-MsgGUID: n6AnXCyrTYCvfJ2ZpmzG6w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11794"; a="84267503"
 X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="91522275"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:13:00 -0700
-X-CSE-ConnectionGUID: 7NpFBSNpQWaxr5HTnm4f4A==
-X-CSE-MsgGUID: J5AfsVnqQKOwWRpPLh2Bsg==
+   d="scan'208";a="84267503"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:19:27 -0700
+X-CSE-ConnectionGUID: dL6cDJ6DQFWZrX5hPOKejw==
+X-CSE-MsgGUID: L335gYqQSTavjDxYniwzUQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.24,162,1774335600"; 
-   d="scan'208";a="245281652"
+   d="scan'208";a="264546693"
 Received: from pgcooper-mobl3.ger.corp.intel.com (HELO localhost) ([10.245.245.71])
-  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:12:53 -0700
-Date: Fri, 22 May 2026 22:12:47 +0300
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 May 2026 12:19:18 -0700
+Date: Fri, 22 May 2026 22:19:14 +0300
 From: Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
@@ -87,22 +87,22 @@ Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
 	linux-rockchip@lists.infradead.org, intel-gfx@lists.freedesktop.org,
 	intel-xe@lists.freedesktop.org, linux-doc@vger.kernel.org,
 	wayland-devel@lists.freedesktop.org
-Subject: Re: [PATCH v15 11/28] drm/i915/hdmi: Add YCBCR444 handling for sink
+Subject: Re: [PATCH v15 12/28] drm/i915/dp: Add YCBCR444 handling for sink
  formats
-Message-ID: <ahCqmuF7_LywzRGP@intel.com>
+Message-ID: <ahCsMhvKzUU-3x7b@intel.com>
 References: <20260522-color-format-v15-0-21fb136c9df2@collabora.com>
- <20260522-color-format-v15-11-21fb136c9df2@collabora.com>
+ <20260522-color-format-v15-12-21fb136c9df2@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260522-color-format-v15-11-21fb136c9df2@collabora.com>
+In-Reply-To: <20260522-color-format-v15-12-21fb136c9df2@collabora.com>
 X-Patchwork-Hint: comment
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs Bertel Jungin Aukio 5, 02600 Espoo, Finland
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_121504_807903_5B5F9692 
-X-CRM114-Status: GOOD (  24.52  )
+X-CRM114-CacheID: sfid-20260522_121928_048597_EAD03968 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,94 +117,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 02:32:02PM +0200, Nicolas Frattaroli wrote:
+On Fri, May 22, 2026 at 02:32:03PM +0200, Nicolas Frattaroli wrote:
 > In anticipation of userspace being able to explicitly select supported
 > sink formats, add handling of the YCBCR444 sink format. The AUTO path
 > does not choose this format, but with explicit format selection added to
 > the driver, it becomes a possibility.
 > 
-> Check for YCBCR444 support on the sink in sink_bpc_possible, and on the
-> source and sink in sink_format_valid.
+> Check for both source and sink support of YCBCR444 in
+> intel_dp_sink_format_valid.
 > 
 > Acked-by: Daniel Stone <daniel@fooishbar.org>
 > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->  drivers/gpu/drm/i915/display/intel_hdmi.c | 32 +++++++++++++++++++++++++++++++
->  1 file changed, 32 insertions(+)
+>  drivers/gpu/drm/i915/display/intel_dp.c | 21 +++++++++++++++++++++
+>  1 file changed, 21 insertions(+)
 > 
-> diff --git a/drivers/gpu/drm/i915/display/intel_hdmi.c b/drivers/gpu/drm/i915/display/intel_hdmi.c
-> index 9076c2b176ec..97cb321e6568 100644
-> --- a/drivers/gpu/drm/i915/display/intel_hdmi.c
-> +++ b/drivers/gpu/drm/i915/display/intel_hdmi.c
-> @@ -1966,6 +1966,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
->  
->  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
->  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_36;
-> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
-> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_36;
->  		else
->  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_36;
->  	case 10:
-> @@ -1974,6 +1976,8 @@ static bool intel_hdmi_sink_bpc_possible(struct drm_connector *_connector,
->  
->  		if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR420)
->  			return hdmi->y420_dc_modes & DRM_EDID_YCBCR420_DC_30;
-> +		else if (sink_format == INTEL_OUTPUT_FORMAT_YCBCR444)
-> +			return info->edid_hdmi_ycbcr444_dc_modes & DRM_EDID_HDMI_DC_30;
->  		else
->  			return info->edid_hdmi_rgb444_dc_modes & DRM_EDID_HDMI_DC_30;
->  	case 8:
-> @@ -2021,6 +2025,27 @@ intel_hdmi_mode_clock_valid(struct drm_connector *_connector, int clock,
->  	return status;
+> diff --git a/drivers/gpu/drm/i915/display/intel_dp.c b/drivers/gpu/drm/i915/display/intel_dp.c
+> index 1920d2f02666..143ed85224be 100644
+> --- a/drivers/gpu/drm/i915/display/intel_dp.c
+> +++ b/drivers/gpu/drm/i915/display/intel_dp.c
+> @@ -1344,6 +1344,20 @@ intel_dp_mode_valid_downstream(struct intel_connector *connector,
+>  					 8, sink_format, true);
 >  }
 >  
-> +/**
-> + * intel_hdmi_can_ycbcr444 - Check whether connector can output YCbCr444
-> + * @connector: pointer to &struct intel_connector to check
-> + *
-> + * Checks whether the hardware that backs @connector is capable of outputting
-> + * YCbCr444 video over HDMI. Does not check whether currently connected sink is
-> + * capable of receiving it.
-> + *
-> + * Returns: %true if source supports outputting YCbCr444, %false otherwise.
-> + */
-
-We don't need kernel docs for internal stuff.
-
 > +static bool
-> +intel_hdmi_can_ycbcr444(struct intel_connector *connector)
+> +intel_dp_can_ycbcr444(struct intel_dp *intel_dp)
 > +{
-> +	const struct intel_display *display = to_intel_display(connector);
-> +
-> +	if (HAS_GMCH(display))
+> +	if (source_can_output(intel_dp, INTEL_OUTPUT_FORMAT_YCBCR444) &&
+> +	    !drm_dp_is_branch(intel_dp->dpcd))
 > +		return true;
+> +
+> +	if (source_can_output(intel_dp, INTEL_OUTPUT_FORMAT_RGB) &&
+> +	    dfp_can_convert_from_rgb(intel_dp, INTEL_OUTPUT_FORMAT_YCBCR444))
 
-Exactly the wrong way around.
+IIRC my previous conclusion was that we don't want the dfp convert
+stuff here, at least initially. So this should just are about
+source_can_output().
 
+> +		return true;
 > +
 > +	return false;
 > +}
 > +
 >  static enum drm_mode_status
->  intel_hdmi_sink_format_valid(struct intel_connector *connector,
->  			     const struct drm_display_mode *mode,
-> @@ -2038,6 +2063,13 @@ intel_hdmi_sink_format_valid(struct intel_connector *connector,
+>  intel_dp_sink_format_valid(struct intel_connector *connector,
+>  			   const struct drm_display_mode *mode,
+> @@ -1364,6 +1378,13 @@ intel_dp_sink_format_valid(struct intel_connector *connector,
 >  
 >  		return MODE_OK;
 
-I would put the 444 stuff here between 420 and RGB. Then we logically go
-from YCbCr420 -> YCbCr444 -> RGB when reading the code.
+Again, would prefer a cleanr 420->444->rgb order.
 
 >  	case INTEL_OUTPUT_FORMAT_RGB:
 > +		return MODE_OK;
 > +	case INTEL_OUTPUT_FORMAT_YCBCR444:
-> +		if (!intel_hdmi_can_ycbcr444(connector))
-> +			return MODE_BAD;
-
-We're missing the has_hdmi_sink check as well.
-
 > +		if (!(info->color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444)))
 > +			return MODE_BAD;
+> +		if (!intel_dp_can_ycbcr444(intel_dp))
+> +			return MODE_BAD;
+
+These two ifs are swapped when compared to the HDMI version for no
+good reason that I can see.
+
+And missing the has_hdmi_sink check here as well.
+
 > +
 >  		return MODE_OK;
 >  	default:
