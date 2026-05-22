@@ -4,99 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26869CD5BAF
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 05:32:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEFECD4F5B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 05:32:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQMTpgiyndvYCOhmYu3e/1AOf7TgYGQa7r62/XlPc6Q=; b=SufEAZdkGl0XA+bD4kdXp8sRPI
-	LE/jGyvh+52+e7TWO0dxz7QRVWIwNJMEbTjAoMfxvF2f/uTncNWVBWz6qLDkPsHQU/8NX4Hz/T+XH
-	0268O64Jyf4d6vmZ6PI6+0++PUOZNDsQoKpO49Nzs+lHYRxUeD6kYBtkDCOsi6exBgg1/mPH2hKZc
-	OtjVGDBwTvDpO3BljVff/I8ajWUlGJxH0Sfkgqybc2WzzhK/Zz4JTthSDPwLBShPkl0brzQcK9TJB
-	NJj40A7bvWDfCsHeJJO99TrZBDTQxmELsk0eIRI+diY+p31l7wKpdXCXIRqPM3sWp0mE7N7QBblkY
-	An1jo6Lg==;
+	bh=XJjzg+/5mPtbxuJQNZvMHl/OOVnIvCYRjrUsOQhDVZM=; b=DsaaFzlRU/tqt25yI2N6RcPamx
+	jIZMoJvwvOQT/OGhZ5/KsNQt0LX8xCmZi89rgNSjVHlNufIytkp7r/RK+1yH257kA0L/iHyWA/A7/
+	Yv1afdky5u5aPPGijbwcBR40VqGVGsZTN3gjE+njZSeIv1DrVwFf3Iy3g9xqtBe6TQuYqEbd1Z4iT
+	dOPsoSITpFjvMg6gYdNwXdXm6zFYZjsHzyo0rSJe6AQR0bf7AkPH2byJKJv29Hk0FWprVVRhLbBnn
+	hENXp9Xd5rrdJBD0OjXS1BQn6lADte4eIuoCxGI6PQoXDubPwydRUTDnzTYObcxGubA2ha/8G+DVr
+	vJqdOnAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQIUm-00000009rpM-2YYn;
+	id 1wQIUm-00000009rpY-31vt;
 	Fri, 22 May 2026 05:32:28 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQIUg-00000009rj1-0iVl
+	id 1wQIUi-00000009ria-2HXV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 22 May 2026 05:32:23 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2bd2051167eso32367895ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 21 May 2026 22:32:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779427941; x=1780032741; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZQMTpgiyndvYCOhmYu3e/1AOf7TgYGQa7r62/XlPc6Q=;
-        b=qEtzzOHqmmVeBGxCfYQ6siXfMw8ha9DKuG8yHC0i5EnVGZpL+BGh4/+tlzQ7FZUxaF
-         NsQMNuZgmdbokTlqiIKMET21NqiKZsAw8l6ZbUBD4NSRGGELUmZ877tKKFxeDw8snTAx
-         XjTXLefAW6142nbvwxBARTroHXNv4tF7Kk+EXVDm/sYZS55mmK9meV0yGPJl055ggvCX
-         2D6/40+jWx1IvkBTYBxWejNMfHwIIsW7OFZkcY6RTaXmJwRGJ71dTTQgtKv5z+6Rx48Y
-         k/jnhW8vmwITOU4M7EjQIO5kOBP7WA4THXAm86mYMWeh9+8gTxdLMKqmevbjBGAyBKnM
-         g63w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779427941; x=1780032741;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZQMTpgiyndvYCOhmYu3e/1AOf7TgYGQa7r62/XlPc6Q=;
-        b=lr4p5HYqnL0aeyv5+PxE10W5Ohw5WrlkLMZNeCW9LTWqB1DuwNnfdF+DU1VMDwo0TE
-         kbfwjyqhjkYg2tqRZy81p6Fy9zH0zLGBYGxFYkJx4yhWgio6Tc1WJohHX9I3tmjYSPL3
-         c3jWmqZ4NvhjYGlOQkNdiUZzHVtDCK09xvfQ48oRpsscchmQN2OcUI0RAuXPdB44w3TQ
-         63MActXGOQwb4s3kvmSi9fsRPr2DTduZFzxP1mu1Qg4gxEpEBEVL5JH5Vt+q5fJLM0Rx
-         3Eng61u00Y9v4pXeYOe2eMZJ2XntzMuRSFACGEn+LuHBF2tGxuf4eWo2bXFCc3+SQWO9
-         Z9dQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9GM8FFyHcFLhj+a1XchSzOgWZckJFsDL0E07Tfm+pGEgiztA6zgrerIZ60aYDQM3zDYwYeaK98U7UZSXurGwW1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE0d9v9lWQL7R0DPTNiDBVmrVNx6XKXHCjhL+8TO6olNHxtm+/
-	KAw08ns2LpkZqwc8J5wov/3NJyq7gG9Zf5/YKXgoTkDjTxXQoDwcJXs8
-X-Gm-Gg: Acq92OEQpDsqVKQnR8HwGHgOifkT8ooYfHwvjIdr9UqZctcURyd77lO2N9NyoWe3ChB
-	1U5bldI39KFv2qdP5bUeN7MijCwEOjlJLVdTVWLSnlM8BJj3sBrK7o0dHEHD3GNSI66I+/Wm0a8
-	S4V/3VO3Jx6AtlVPl+FaEA0+Ea9IfZVoFQ0Dyezx45N3pf85Z970zgnlv5HNvxE0p85IcHJSIcE
-	WejIoA/w2fr9ZVehvWoIsAM0/SJWe4FX3sHA6ZQK5wdUfXDYSV8ZXYjf1yRY3sFFqGRW7VWJIyw
-	eCgAHojzbWl83C2iEehmURdU2SIKZpFavEK6Uc7IrJCDD/y6TIt3MU2aVNcP3QJvmIJtbQxaC8E
-	IrtXPA6fiQJIEibPbf7/3NXCWOFEiLSOAf6in+GnWhTlObcGQTQyd27b2eAyI1XgkYPJk4Je/QS
-	+5/jKkwzdC/85gIt88iAtxVzSQkER58yMvNk3m+VAX6mDNEw0gWCiiJZAZ3HPJ3w==
-X-Received: by 2002:a17:902:cec7:b0:2b2:ccfb:8387 with SMTP id d9443c01a7336-2beb0613c3bmr23217405ad.28.1779427941298;
-        Thu, 21 May 2026 22:32:21 -0700 (PDT)
-Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56d68adsm4782665ad.32.2026.05.21.22.32.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 May 2026 22:32:20 -0700 (PDT)
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-To: linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	akpm@linux-foundation.org,
-	urezki@gmail.com
-Cc: baohua@kernel.org,
-	Xueyuan.chen21@gmail.com,
-	dev.jain@arm.com,
-	rppt@kernel.org,
-	david@kernel.org,
-	ryan.roberts@arm.com,
-	anshuman.khandual@arm.com,
-	ajd@linux.ibm.com,
-	linux-kernel@vger.kernel.org,
-	jiangwen6@xiaomi.com
-Subject: [PATCH v3 6/6] mm/vmalloc: align vm_area so vmap() can batch mappings
-Date: Fri, 22 May 2026 13:31:46 +0800
-Message-Id: <20260522053146.83209-7-jiangwenxiaomi@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
-References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
+	Fri, 22 May 2026 05:32:27 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4gMDR53PV1zYQtlX
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:31:29 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id BE98E40573
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 13:32:16 +0800 (CST)
+Received: from [10.174.179.37] (unknown [10.174.179.37])
+	by APP4 (Coremail) with SMTP id gCh0CgA3_1pY6g9qirPHDA--.53518S3;
+	Fri, 22 May 2026 13:32:12 +0800 (CST)
+Message-ID: <b7098272-a348-d918-774a-d5d2645fc7f4@huaweicloud.com>
+Date: Fri, 22 May 2026 13:32:07 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH] arm64: tlb: Flush walk cache when unsharing PMD tables
+Content-Language: en-US
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: yezhenyu2@huawei.com, zhurui3@huawei.com, will@kernel.org,
+ akpm@linux-foundation.org, npiggin@gmail.com, aneesh.kumar@kernel.org,
+ peterz@infradead.org, linux-kernel@vger.kernel.org,
+ wangkefeng.wang@huawei.com, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, linux-arch@vger.kernel.org,
+ David Hildenbrand <david@kernel.org>, zengheng4@huawei.com
+References: <20260521073011.4121277-1-zengheng@huaweicloud.com>
+ <ag8fHYL-S26uO0yZ@arm.com> <ag8hmZ3kjtJINyIT@arm.com>
+From: Zeng Heng <zengheng@huaweicloud.com>
+In-Reply-To: <ag8hmZ3kjtJINyIT@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: gCh0CgA3_1pY6g9qirPHDA--.53518S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxWry3Cry3ZFWxCryrGryUZFb_yoWrWw13pa
+	43CF9xtFZYgryUA340qw48JFyaya1DJw4Uury8ua4FvFnFvr1vgF4vyryF9F95ArW8Gr4f
+	WFWj9F17ZFWjvaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6r1F6r1fM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7Mxk0xIA0c2IE
+	e2xFo4CEbIxvr21lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4I
+	kC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWU
+	WwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr
+	0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWU
+	JVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJb
+	IYCTnIWIevJa73UjIFyTuYvjxUF1v3UUUUU
+X-CM-SenderInfo: p2hqwxhhqjqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260521_223222_216629_B118A03F 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20260521_223224_963994_6CD59115 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,72 +91,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 
-Try to align the vmap virtual address to PMD_SHIFT or a
-larger PTE mapping size hinted by the architecture, so
-contiguous pages can be batch-mapped when setting PMD or
-PTE entries.
 
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
----
- mm/vmalloc.c | 33 ++++++++++++++++++++++++++++++++-
- 1 file changed, 32 insertions(+), 1 deletion(-)
+On 2026/5/21 23:15, Catalin Marinas wrote:
+> On Thu, May 21, 2026 at 04:05:07PM +0100, Catalin Marinas wrote:
+>> + David H.
+>>
+>> On Thu, May 21, 2026 at 03:30:11PM +0800, Zeng Heng wrote:
+>>> From: Zeng Heng <zengheng4@huawei.com>
+>>>
+>>> When huge_pmd_unshare() is called to unshare a PMD table, the
+>>> tlb_unshare_pmd_ptdesc() function sets tlb->unshared_tables=true
+>>> but the aarch64 tlb_flush() only checked tlb->freed_tables to
+>>> determine whether to use TLBF_NONE (vae1is, invalidates walk
+>>> cache) or TLBF_NOWALKCACHE (vale1is, leaf-only).
+>>>
+>>> This caused the stale PMD page table entry to remain in the walk cache
+>>> after unshare, potentially leading to incorrect page table walks.
+>>>
+>>> Fix by including unshared_tables in the check, so that when
+>>> unsharing tables, TLBF_NONE is used and the walk cache is properly
+>>> invalidated.
+>>>
+>>> Here is the detailed distinction between vae1is and vale1is:
+>>>
+>>> | Instruction Combination  | Actual Invalidation Scope                         |
+>>> | ------------------------ | --------------------------------------------------|
+>>> | `VAE1IS`  + TTL=`0`      | All entries at all levels (full invalidation)     |
+>>> | `VAE1IS`  + TTL=`2` (L2) | Non-leaf at Level 0/1 + leaf at Level 2           |
+>>> | `VALE1IS` + TTL=`0`      | Leaf entries at all levels (non-leaf not cleared) |
+>>> | `VALE1IS` + TTL=`2` (L2) | Leaf entry at Level 2 only                        |
+>>>
+>>> Signed-off-by: Zeng Heng <zengheng4@huawei.com>
+>> The fix looks fine but does it need:
+>>
+>> Fixes: 8ce720d5bd91 ("mm/hugetlb: fix excessive IPI broadcasts when unsharing PMD tables using mmu_gather")
+>> Cc: <stable@vger.kernel.org>
+>>
+>>> ---
+>>>   arch/arm64/include/asm/tlb.h | 3 ++-
+>>>   1 file changed, 2 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+>>> index 10869d7731b8..751bd57bc3ba 100644
+>>> --- a/arch/arm64/include/asm/tlb.h
+>>> +++ b/arch/arm64/include/asm/tlb.h
+>>> @@ -53,7 +53,8 @@ static inline int tlb_get_level(struct mmu_gather *tlb)
+>>>   static inline void tlb_flush(struct mmu_gather *tlb)
+>>>   {
+>>>   	struct vm_area_struct vma = TLB_FLUSH_VMA(tlb->mm, 0);
+>>> -	tlbf_t flags = tlb->freed_tables ? TLBF_NONE : TLBF_NOWALKCACHE;
+>>> +	tlbf_t flags = (tlb->freed_tables || tlb->unshared_tables) ?
+>>> +			TLBF_NONE : TLBF_NOWALKCACHE;
+>>>   	unsigned long stride = tlb_get_unmap_size(tlb);
+>>>   	int tlb_level = tlb_get_level(tlb);
+> Do we need this as well?
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 50642246f4d40..040d400928aab 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3620,6 +3620,37 @@ static int vmap_batched(unsigned long addr, unsigned long end,
- 	return err;
- }
- 
-+static struct vm_struct *get_aligned_vm_area(unsigned long size,
-+		unsigned long flags, const void *caller)
-+{
-+	struct vm_struct *vm_area;
-+	unsigned int shift;
-+
-+	/* Try PMD alignment for large sizes */
-+	if (size >= PMD_SIZE) {
-+		vm_area = __get_vm_area_node(size, PMD_SIZE, PAGE_SHIFT, flags,
-+				VMALLOC_START, VMALLOC_END,
-+				NUMA_NO_NODE, GFP_KERNEL, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	/* Try CONT_PTE alignment */
-+	shift = arch_vmap_pte_supported_shift(size);
-+	if (shift > PAGE_SHIFT) {
-+		vm_area = __get_vm_area_node(size, 1UL << shift, PAGE_SHIFT, flags,
-+				VMALLOC_START, VMALLOC_END,
-+				NUMA_NO_NODE, GFP_KERNEL, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	/* Fall back to page alignment */
-+	return __get_vm_area_node(size, PAGE_SIZE, PAGE_SHIFT, flags,
-+			VMALLOC_START, VMALLOC_END,
-+			NUMA_NO_NODE, GFP_KERNEL, caller);
-+}
-+
- /**
-  * vmap - map an array of pages into virtually contiguous space
-  * @pages: array of page pointers
-@@ -3658,7 +3689,7 @@ void *vmap(struct page **pages, unsigned int count,
- 		return NULL;
- 
- 	size = (unsigned long)count << PAGE_SHIFT;
--	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-+	area = get_aligned_vm_area(size, flags, __builtin_return_address(0));
- 	if (!area)
- 		return NULL;
- 
--- 
-2.34.1
+The proposed fix has been validated against the issue scenarios and
+works as expected.
+
+Per the ARM Architecture Reference Manual, whether only the last-level
+page table entry is invalidated is determined by the instruction used
+(vale1is for leaf entry only, vae1is for walk cache including leaf entry 
+and
+non-leaf entry), rather than the TTL field. The TTL field merely specifies
+which level the leaf entry belongs to.
+
+Setting TTL to 0 always works fine, however, hardware must assume that
+the entry can be from any level.[1][2]
+
+
+[1]: vae1is instruction introduction by ARM spec,
+https://developer.arm.com/documentation/ddi0601/2026-03/AArch64-Instructions/TLBI-VAE1IS--TLBI-VAE1ISNXS--TLB-Invalidate-by-VA--EL1--Inner-Shareable
+[2]: rvae1is instruction introduction by ARM spec,
+https://developer.arm.com/documentation/ddi0601/2026-03/AArch64-Instructions/TLBI-RVAE1IS--TLBI-RVAE1ISNXS--TLB-Range-Invalidate-by-VA--EL1--Inner-Shareable?lang=en
+
+
+Best regards,
+Zeng Heng
+
+
+>
+> diff --git a/arch/arm64/include/asm/tlb.h b/arch/arm64/include/asm/tlb.h
+> index 10869d7731b8..3f4ab38cfd6e 100644
+> --- a/arch/arm64/include/asm/tlb.h
+> +++ b/arch/arm64/include/asm/tlb.h
+> @@ -24,7 +24,7 @@ static void tlb_flush(struct mmu_gather *tlb);
+>   static inline int tlb_get_level(struct mmu_gather *tlb)
+>   {
+>   	/* The TTL field is only valid for the leaf entry. */
+> -	if (tlb->freed_tables)
+> +	if (tlb->freed_tables || tlb->unshared_tables)
+>   		return TLBI_TTL_UNKNOWN;
+>   
+>   	if (tlb->cleared_ptes && !(tlb->cleared_pmds ||
 
 
