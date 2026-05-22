@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA62CD5BB6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9690CCD5BB6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 22 May 2026 15:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqxlm0R5Wd0RrDJc5qf7hWcJWc/FoDh8Mkn++k5Hxho=; b=I+cBe0pySGzlwDjTZ2OjKDy/bm
-	7mSYxeT+nd0QpLku8PYGZQ+lgEj4iGlQCT4xwwu32b0blCylrGdmkue9tnpfIufwRKlFfqVvpU7Y+
-	1e3Kx5m6RPFes3PGi+I2qfZ+mzng0mQJMd9rpeerg8YmxWvCogK4yXx47adSqhrqQMroDulVj1zlY
-	VfU3RgLoa1PRcrDPh06BH7KXhuNsdEBD5fhakqxpzU5y1kx/rMfQPnFdmZkKQ2HKTikafjQCTNgqh
-	BFoTZl+AEm7cHbysdWfkgLpYVAS1kgAtvGsTE21joX38rWNZyqbIfgBllk5epk3Tv4HS4zkRIhfWu
-	znTg4alA==;
+	bh=UH1oKT414TlTCl2C+lV3L01K8kAHjponcj2ya0Cw6KI=; b=oCR0gyBHFkJfO3NWCPCF0UvPiY
+	XwK5RmIQRQm3322x4escc59AxOSBhZPubYqmyPsJMSp5Qp9qiJNHL4Bn/yTt6dIGirJvcw1Mx6fW0
+	HsZO5f8tmKJo0ddXUjj012WGSlFyT+Ev9K9P5/ErWD17Nav8HGSQ+ckK0TYU680oYsgDrSnII0h+L
+	yXjTdiqo7mbH5oPGpBKag1VkepkMgTQ8EOIHDiN8hUXA0qniT2lbMbq6TYnXZ9Z6Tv8+dxGFw/Qu3
+	wYB+Iix3rOiYFTOnakdJ6G2AfByNwbiVR7NXttneT85VOWizDmRYMme06Yrm5jnWUORg990d073N0
+	3G259TkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRzP-0000000BIEp-1mxv;
-	Fri, 22 May 2026 15:40:43 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1wQRzZ-0000000BIPo-2vC7;
+	Fri, 22 May 2026 15:40:53 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQRyw-0000000BHtC-3RkG;
+	id 1wQRyw-0000000BHtG-3gqf;
 	Fri, 22 May 2026 15:40:16 +0000
 From: Gregor Herburger <gregor.herburger@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1779464410;
+	s=2020; t=1779464411;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vqxlm0R5Wd0RrDJc5qf7hWcJWc/FoDh8Mkn++k5Hxho=;
-	b=PeW7RWXtB8dNpBjtqAuzknD6YIeNWIlj560/kokuYKeP2iZfGvG0ZyjC+K6m9aHmLAWtjY
-	HGrSqN5ATspKKfezk3Z798vb/AnFsFS/cNAQKLEha4UMnu+vSHLo6HWdMWisu5K75sL3IZ
-	vcHiTHA9A51VaN4c8WOzn+li1R+wLLp0MVA679JAiCuvBrOIXGdrBISOdx8lle7Fy0WGP9
-	KkP4bz6hB3+NxHhvTOnGxdj/7ui/VuFRocx5JvfNSkydi8Kba8VTm3E/pEU9wLEzJkdxt0
-	+N6TN0JK3oszZlI/6GcQUSULe6gTxkmUV5ofqmnKZ77CPYYtWVgbkIDnT98Y1Q==
+	bh=UH1oKT414TlTCl2C+lV3L01K8kAHjponcj2ya0Cw6KI=;
+	b=gRLoE10a/qZ+GP9kFYrL34oKHTONLFQwj39tJCo1QAfSuRNeBez3mK71mZ5ZC167gI0m2u
+	VroDI4oOj5T+fw+ibHPZvx3AlVAFIaVr4pLj4Kh3hifampWUNxVnanfs8TShjlR9P4ulYj
+	KnPrkBuczJ3nJFabqfqG8XpFy/jECe048x4HsyiiTttUQvRaw0zmrMH2+8t0U4bWwbbRWr
+	cY8CJukg4Uck4EQrLO+V686PDVFPCq3m8i17IqkMSUGwZljgmc/Yrp3pqiYwMpWys1zlZk
+	4uOnmsLbD0+RriwOBjBe9JdeY3HplSWr9y0uwWfsowrs9miam9TiKvjCo1jSTQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1779464410;
+	s=2020e; t=1779464411;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vqxlm0R5Wd0RrDJc5qf7hWcJWc/FoDh8Mkn++k5Hxho=;
-	b=FP20AERFPEgsCyqxYTObObpLvBVoVITO2G4VKGk81EX0Ss4ym6WmwVvnBAQx9rMWhxEJx9
-	Xznhv0ohlYX3ROAA==
-Date: Fri, 22 May 2026 17:40:08 +0200
-Subject: [PATCH v6 08/10] arm64: defconfig: Enable the raspberrypi otp
- driver as module
+	bh=UH1oKT414TlTCl2C+lV3L01K8kAHjponcj2ya0Cw6KI=;
+	b=nT1NQABk5MQRRkgcK10OumdbeOof4+Mha7NSWjVsLxpaSIpuXBOLOB0qxUQ2+GJbPFKV9Z
+	K8uz6x9mDxXYhEAA==
+Date: Fri, 22 May 2026 17:40:09 +0200
+Subject: [PATCH v6 09/10] ARM: bcm2835_defconfig: Enable the raspberrypi
+ otp driver as module
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260522-rpi-otp-driver-v6-8-b0eac97d1428@linutronix.de>
+Message-Id: <20260522-rpi-otp-driver-v6-9-b0eac97d1428@linutronix.de>
 References: <20260522-rpi-otp-driver-v6-0-b0eac97d1428@linutronix.de>
 In-Reply-To: <20260522-rpi-otp-driver-v6-0-b0eac97d1428@linutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -71,16 +71,16 @@ Cc: devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-hardening@vger.kernel.org, 
  Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779464406; l=987;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779464406; l=912;
  i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=W3od+N7ms8LBhCXN/JpOtSic+LkKIcRVMQF9+TfNOg4=;
- b=El25Y3nV3USsdO3HnhHOD39+moGC7yQlHwDZobn7c5IdnDfIhTZ7J2pDbwLYYkAZGn36W34UG
- JRg3YhKIVJ7BjoGaB8DBBtdyq7P60+jVQ+6AWkc9K0gqRvbgf5iQDn6
+ bh=4RYdMjibQW2/XaXdOtKYjooXgvg+7dGzfuDMj2Lhh80=;
+ b=jxaFs44VX0BQ/NAzWDc37HASvUIs4J6XgZUmMwhXXrHLj40KDW2yxlbl4C966rFBXFC8PiXQU
+ 6DAgR2Y3nadBNnDlBhHJ78385iBetnicGlGrQyIectCaZ4xoZJIzSLe
 X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
  pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_084015_072365_81473C90 
-X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-CacheID: sfid-20260522_084015_074792_024BCEBD 
+X-CRM114-Status: UNSURE (   8.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,30 +98,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Enable the newly added Raspberry Pi OTP driver as module to allow access
 to the otp registers. This driver provides access to the OTP registers
-present on all Raspberry Pi boards and the private OTP registers present
-on the Raspberry Pi 5.
+present on all Raspberry Pi boards.
 
-Enabling this in the generic arm64 defconfig allows standard upstream
-kernels to use these registers on Raspberry Pi 3, 4 and 5 out of the
-box.
+Enabling this in the bcm2835 defconfig allows standard upstream kernels
+to use these registers out of the box.
 
 Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
 ---
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/configs/bcm2835_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e44e83bc57812..3abb3ca34c708 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1849,6 +1849,7 @@ CONFIG_NVMEM_SPMI_SDAM=m
- CONFIG_NVMEM_SUNXI_SID=y
- CONFIG_NVMEM_UNIPHIER_EFUSE=y
- CONFIG_NVMEM_ZYNQMP=m
+diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
+index 4a8ac09843d73..fd83bda9cfaaf 100644
+--- a/arch/arm/configs/bcm2835_defconfig
++++ b/arch/arm/configs/bcm2835_defconfig
+@@ -151,6 +151,8 @@ CONFIG_BCM2835_MBOX=y
+ CONFIG_RASPBERRYPI_POWER=y
+ CONFIG_PWM=y
+ CONFIG_PWM_BCM2835=y
++CONFIG_NVMEM=y
 +CONFIG_NVMEM_RASPBERRYPI_OTP=m
- CONFIG_FPGA=y
- CONFIG_FPGA_MGR_ALTERA_CVP=m
- CONFIG_FPGA_MGR_STRATIX10_SOC=m
+ CONFIG_EXT2_FS=y
+ CONFIG_EXT2_FS_XATTR=y
+ CONFIG_EXT2_FS_POSIX_ACL=y
 
 -- 
 2.47.3
