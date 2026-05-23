@@ -4,102 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6758BCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 10:27:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D31CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 10:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k6UvRxauUxHtkSOdYEC9vPPJYNErnPXZyVXoKgtsN7o=; b=eZt7KrjF7uBkRym0GlxgfLiKei
-	WU+CyeGgKoYSx/QY3USOogstnrj8DPR2yacJMrCftsZOhA9kSOmZZXtiZSJCDxxEANs4n/7TDrbY8
-	dD8TILhu+UAeYH6uOaJEHqiPdfWalKoNry8wK2FE7lRWTxkesCEHFF6SXq61ZiAFYvIE/NfMaK0P8
-	BOoykER4pRIFkMbdiL37Ll5RoMwSowkfqmkNB0b3uagfL4keUcE/8JsmsFZ/6hOXP9L3mzS+RXiv+
-	PE4qk2AQx3mPUWpKt51vN9Oq65HS24Vdkx3Nonv1y7FIAtDPQupH91kL5GDcU78zDru2CrfHeJQAx
-	Pg5jsj3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uwRJUUfj/z00/IoOBCweiKTZBo4dheyaDimJf55EYM0=; b=49D4wiIO69dSMWr8fAnRwjVJ1y
+	XJQa5yN/zBXTydLgcPRqBzRU3FV0AIN48VEdTfI+yFwJBdhCc/Yh9Mb7I4HK3FnW2XHUf9kfo2v6f
+	jOeQmk5TKxGZ0FEK1UrVLNaFdeM8WVFGrhpTcPCSRwxG0Q07YoEYUeoiGOHLPznOf/9KXbIQlaaVL
+	6kes7UNs2vFOCurZq30Ul7BlCiYzfawvm0RSCvQlLMpq2nx0p09Dp8ribrV/a8U/LthiWssUvpW2w
+	fa6YNkB3ygSciBXGpzK+72fZngUNB6yDeOeE7o5mTQQK5SO7No38vsGuuNzLUb6jC//imtgwrCv9W
+	rkqDMAbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQjZe-0000000D5ly-30IU;
-	Sat, 23 May 2026 10:27:18 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1wQj2v-0000000D3FH-06AS;
+	Sat, 23 May 2026 09:53:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQjZb-0000000D5lZ-0SSk
+	id 1wQj2t-0000000D3F4-1YvT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 10:27:17 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-83d31ac4017so4055826b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 03:27:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779532034; x=1780136834; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=k6UvRxauUxHtkSOdYEC9vPPJYNErnPXZyVXoKgtsN7o=;
-        b=qrLLpt1aUvyBYWxF5iEiLhYerFSoNQN+GRdho9T67X2wXX/djOa81NOV/9PdHb9O6z
-         z2G75JOgMzFBuKrS1mlu/UDYC8nP88RVhqnRlz2gunFon+eh+IahXi8jbf2ZUyofS7rN
-         d0Dfg3B9t4tqGSsY+NtrtQFndrlIj5TSYmSILBoegS+Mdc66W7IsqcWVFAmhs6/WYxSu
-         xczV/Dtaeslpg+1rlfo/ymAEWmwIsO0rdURj0hQGmyQVX2z4cZtT2Y3ffOkg9iymw8eB
-         3WD4gG9UV5OIuyfbcnSGsDl08G34MQUpythUtuz7+pJOrm/ADgXkKgjuip+2c49M5SMb
-         4aDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779532034; x=1780136834;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=k6UvRxauUxHtkSOdYEC9vPPJYNErnPXZyVXoKgtsN7o=;
-        b=rVdEMKDPnPTr0pFvrV6s5zGq5syg3tj6ZYiNRVcBAApP7u+Rlzxu9jfulC6PRwBhuk
-         7de2XQ/aJuMJIieobgz6oMymuPJnTd8jk3wUgJq2lUdT+2aCh2299z5rFfm+PGzPEAyL
-         dLGdSdLVNUBFG2LzKIkn3Wxr5WfSkpNPXDlT2ONn5WvXQ7yZHLB34v8DPyodqbssXGJk
-         d/KZmMtv3vDQq5U+z+wlgciO5LeyGE0OZ6rE6c+3jkCIm864GWWBn8HUfwgsoMT6QmqR
-         lzMaMKXC/HZBaGdy5YJmwxwFhoit8NMvlJ2BWWX4XFyMe/mWhFJzQ5yI1vR00/Id4sun
-         futA==
-X-Forwarded-Encrypted: i=1; AFNElJ8tPYdvFVz22fRxTlc6YMiKhCm288TBWlWSnPauSCoIJvmHb8N6XWRni91loefMSxqxo6/3Wb9EhLgZDdFUJCil@lists.infradead.org
-X-Gm-Message-State: AOJu0YwatF1O63iAmmjCLS1MFJkejf62OhZ9zBlYn1blGZrn5aAspM7s
-	d8QVH7K3dyvs4LWzGu8mJg3NEJMf2xmlbJpWLld77+bFWFuIpzpuDL62
-X-Gm-Gg: Acq92OESWOXka9FtC7dRzuNoCkV8rfHou6BjWcawYwDZPBIoS3GQra9rmFMeFVXnPfC
-	j9XkdLA4fO4+V8PfjFFRSelkAAU86wY0VHmXdpEL3ZelB05wf+tOn0wnkhJ08W0E/+AQNFhexQ6
-	65pU0JBi0LlQZ7+kH6Z23xKdw7hoR5HrwMP4C7Bs1XbpxszKlDb4GqD00WX851qJOlR+1xgj6X6
-	tkESZUIzw8QzqqFuIO7jfPeGIFd9xbgs7Kk7a4OiVSFeYySKUMVfKZn0OOnrObNlhNH88TlgaZG
-	BMYNpcQ0S6CAOoDLGwEre3PigQN06GRb/G5JhBKP7l3HL9lGpbbXhl1ot9P6+Me5Km33S1lbbCr
-	SVB5XBn7Hy1/x9SB95YsqJjPbRb4MEn+cS8453O6pbQCjaQbbBGvApzu3Y1sfpt62hWKhe6p41b
-	VWZH2IBqeg9jKAcbd9LKScPE+bu+E94W3gAyh1Hv9vnmRQYMTeGXX/rFRoDvPP93sqgxv9+oXW5
-	OwJRYsojOKg2jM/rg==
-X-Received: by 2002:a05:6a00:1d86:b0:834:df57:9d36 with SMTP id d2e1a72fcca58-8415f66dd37mr7142262b3a.25.1779532033889;
-        Sat, 23 May 2026 03:27:13 -0700 (PDT)
-Received: from junjungu-PC.localdomain ([223.166.246.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164e9e522sm5137201b3a.36.2026.05.23.03.27.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 23 May 2026 03:27:13 -0700 (PDT)
-From: Felix Gu <ustc.gu@gmail.com>
-Date: Sat, 23 May 2026 18:27:05 +0800
-Subject: [PATCH] pinctrl: imx1: fix device_node leak in
- dt_is_flat_functions()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAPiAEWoC/yXMQQ5AMBBA0avIrDVpKwRXEQutKSOUtIhEenfF8
- i3+v8GjI/RQJzc4PMnTaiNEmoAeOzsgoz4aJJcFz2XGNrJ6dzOj5WJKVKUps0p0ykAsNoeGru/
- WtL/9oSbU+7uAEB6uc0wSbwAAAA==
-X-Change-ID: 20260523-pinctrl-imx-b198f8391abf
-To: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
- Frank Li <Frank.Li@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Felix Gu <ustc.gu@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779532030; l=1610;
- i=ustc.gu@gmail.com; h=from:subject:message-id;
- bh=qcgqBwja4CHu5wwuF/A96Ah+f+QE9tKst8z6RkEiVGM=;
- b=TDWZmut8c/UsJuZ34Imt8NoqEeM0PpEU9Mu+fWpsx5fO0+0lK/CKvVOP1rGb0JTH1GYl6LIQ0
- m4LTlwTPTOgB7znVwyNrGhXUgbS3V/d65TmQ7AYntqW1v8GFhlfnklw
-X-Developer-Key: i=ustc.gu@gmail.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_032716_791452_EB065F14 
-X-CRM114-Status: GOOD (  11.46  )
+	Sat, 23 May 2026 09:53:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 86C1F60138;
+	Sat, 23 May 2026 09:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B6E91F000E9;
+	Sat, 23 May 2026 09:53:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779530006;
+	bh=uwRJUUfj/z00/IoOBCweiKTZBo4dheyaDimJf55EYM0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=UIPYFyteb8WTsavnSWsQvw3mBW4Hv2AoXLhxeruyDsa/z65S7R/t6S0VQFyFPea81
+	 s2CImTXQKdWiQCbOt57fUlE3F8/+lUhr8anOQ/cymNiLIy6X8vQP3/lV54EovluQnM
+	 4FVUCCIeF3vXJguyaKE30swNl80itDJ4MtpYTZMyyWCz4DCqSEEYsTuNQTBUZ/2QL/
+	 Hfp4XX6jPFzEvLG3FOrUqON/pjJG0W5K1CqHyLyt8criq4IpC8iXIHacdD3CJY86F8
+	 d4q0Jz0EvTd+KfqdayMHq++ct+X1nwmcoDFncirfNsC6qpcJEcJoTVNzt6uRAvCotu
+	 UsHvGLhiKSiag==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQj2q-00000005VxA-14y0;
+	Sat, 23 May 2026 09:53:24 +0000
+Date: Sat, 23 May 2026 10:53:23 +0100
+Message-ID: <86zf1qv4do.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	tglx@kernel.org
+Subject: Re: [PATCH] irqchip/gic-v4: Harden against bogus command line
+In-Reply-To: <20260521130503.4103369-1-smostafa@google.com>
+References: <20260521130503.4103369-1-smostafa@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: smostafa@google.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, tglx@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,47 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-for_each_child_of_node() holds a reference on the iterator node that
-must be released on early return. imx1_pinctrl_dt_is_flat_functions()
-has two early return paths inside the loop that skip this cleanup.
+On Thu, 21 May 2026 14:05:03 +0100,
+Mostafa Saleh <smostafa@google.com> wrote:
+>=20
+> When accidentally setting =E2=80=9Ckvm-arm.vgic_v4_enable=3D1=E2=80=9D on=
+ the wrong
+> setup that has no MSI controller device tree node (it exists but
+> not used) and GICv4, it caused a panic as =E2=80=9Cgic_domain=E2=80=9D is=
+ NULL and
+> the kernel attempted to access its ops.
 
-Replace both loops with the scoped variant so that the reference is
-automatically dropped when the iterator goes out of scope.
+When you say "that has no MSI controller device tree node", does it
+mean that the ITS has not been probed at all?
 
-Fixes: 63d2059cd665 ("pinctrl: imx1: Allow parsing DT without function nodes")
-Signed-off-by: Felix Gu <ustc.gu@gmail.com>
----
- drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+>
+> Originally, I hit this on an older kernel, but was able to reproduce
+> it on upstream with Qemu by hacking this unreasonable setup.
+>=20
+> [   33.145536] Unable to handle kernel NULL pointer dereference at virtua=
+l address 0000000000000028
+> [   33.145658] Mem abort info:
+> [   33.145751]   ESR =3D 0x0000000096000006
+> ...
+> [   33.154057] CPU: 1 UID: 0 PID: 295 Comm: lkvm-static Not tainted 7.1.0=
+-rc4-ge3f15ad3970e #5 PREEMPT
+> [   33.156922] Hardware name: linux,dummy-virt (DT)
+> [   33.158780] pstate: 81402005 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYP=
+E=3D--)
+> [   33.160340] pc : __irq_domain_instantiate+0x1d4/0x578
+> [   33.162602] lr : __irq_domain_instantiate+0x1cc/0x578
+>=20
+> Add a hardening check to avoid the NULL access, and fail the VM
+> creation in that case.
+>=20
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  drivers/irqchip/irq-gic-v4.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v4.c b/drivers/irqchip/irq-gic-v4.c
+> index 8455b4a5fbb0..7e39f7eae85f 100644
+> --- a/drivers/irqchip/irq-gic-v4.c
+> +++ b/drivers/irqchip/irq-gic-v4.c
+> @@ -159,6 +159,9 @@ int its_alloc_vcpu_irqs(struct its_vm *vm)
+>  {
+>  	int vpe_base_irq, i;
+> =20
+> +	if (!gic_domain)
+> +		return -EINVAL;
+> +
+>  	vm->fwnode =3D irq_domain_alloc_named_id_fwnode("GICv4-vpe",
+>  						      task_pid_nr(current));
+>  	if (!vm->fwnode)
 
-diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-index b7bd4ef9c0db..4a6bdaefa42f 100644
---- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-+++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-@@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
-  */
- static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
- {
--	struct device_node *function_np;
--	struct device_node *pinctrl_np;
--
--	for_each_child_of_node(np, function_np) {
-+	for_each_child_of_node_scoped(np, function_np) {
- 		if (of_property_present(function_np, "fsl,pins"))
- 			return true;
- 
--		for_each_child_of_node(function_np, pinctrl_np) {
-+		for_each_child_of_node_scoped(function_np, pinctrl_np) {
- 			if (of_property_present(pinctrl_np, "fsl,pins"))
- 				return false;
- 		}
+I think this check is a good few levels too late. If you want to fix
+this, I'd rather make sure that kvm_vgic_global_state.has_gicv4 is
+reliable and covers this case. Which means making sure that
+gic_kvm_info::has_v4 is itself reliable.
 
----
-base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
-change-id: 20260523-pinctrl-imx-b198f8391abf
+If my above understanding is correct, I'd expect the following
+(untested) hack to help.
 
-Best regards,
---  
-Felix Gu <ustc.gu@gmail.com>
+Thanks,
 
+	M.
+
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-=
+its.c
+index 291d7668cc8da..e6b9fee1b6786 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -5838,6 +5838,7 @@ int __init its_init(struct fwnode_handle *handle, str=
+uct rdists *rdists,
+=20
+ 	if (list_empty(&its_nodes)) {
+ 		pr_warn("ITS: No ITS available, not enabling LPIs\n");
++		rdists->has_vlpis =3D false;
+ 		return -ENXIO;
+ 	}
+=20
+
+--=20
+Without deviation from the norm, progress is not possible.
 
