@@ -4,60 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CA52CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 05:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D576ECD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 07:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=smTkU2GnNvjCJezcGlAZjehrG4lc28ix9HlpJrEC1zM=; b=OsZln1ViofBEZQuNpsNOTkIg3N
-	TNdT5VnLojitSGkoZypmpmzLN0oHR0S6usB/gC8c8JB+W+d7EItJ21ICxcKd3Ls4GhDSZJXeU32mH
-	dqykBET6q7Pdh6Fom2ypXXpAWRwJl12SlDv3wsl5OT50PgY9ph8KO59AqwA2Oyjbj6Zkt6BICGJ0K
-	5yrdwREqPGLFuaGnoVWEaELLDiGl5KkMN3rgWzq+XM/R/lXSOCzUaNjRxqbuZ31AIF8clurnvJNkZ
-	TBNolQQYVAO6CYrFYxc3d5DrrUgBFCEw1fBSVpoVVmK83PEoo2Hg2xKt4lsci+g/HG+ExM5cu6DiE
-	dy4HHajg==;
+	bh=i8fKpVGGh7slQFz4F8D41MmhUPeOgy6Utsd1sGDDaic=; b=ZzDAAeKbJr4/lygkRA6xfz+xHx
+	8o+sSQAs1k0DOLwwFsadyYxViEnC7dp2GbWYo4Togl6za6Tu2zZXdxyVWEJrLVjBKOIPRN0F9C4RD
+	pjmsy/L7lGWV2XhEZan8wkhy7qs3nAhCiP1oLLVDCksxt63Omofk0LPZ9t9ubi+d53vAh1okWKKqv
+	16IrYtg8lraY7zWSzBqHM58Dlmk9L8jMC1xSnDHvqFWfhX2x3TifyjkBGeT4F1KLLA2guhLQRHO2+
+	XG5ZuHN9/I7SlH05GL2kfz2oojEdpKiP1foC7jnRd5hBBFo3YGxRir/W4oilCOhT5qra9ToFrXuTE
+	+JQMBblw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQeJb-0000000ChoH-13jb;
-	Sat, 23 May 2026 04:50:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQeJY-0000000Chna-0nFW
+	id 1wQgTq-0000000CqQb-1W2h;
+	Sat, 23 May 2026 07:09:06 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQgTo-0000000CqPQ-0mmx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 04:50:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BCF81D15;
-	Fri, 22 May 2026 21:50:13 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 138B63F85F;
-	Fri, 22 May 2026 21:50:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779511818; bh=XmvhcCMIyo6mbxY7y8SuJFHc01ftQ4EjSoIcMDfl8vM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bzHVuZt+7Gx0IxrA/jJUyXVmCQt7cfSi6k2mMPe8nHd4sfRjVlGTNBoGM5H52rIVN
-	 8A3HtdwyDPKY8sMi+Ut8F8j3d40pXrL7n/BBO3SK1gqNrdHDwjIAKUICsChx131qDp
-	 QSk/Uav64ygKlsTZaSAwXeNfEvYNn4lDNK2r43uk=
-Date: Sat, 23 May 2026 05:50:14 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, yeoreum.yun@arm.com,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 2/4] firmware: arm_ffa: Register core as a platform driver
-Message-ID: <ahEyBrZGSVbdQxDJ@e129823.arm.com>
-References: <20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org>
- <20260508-b4-ffa_plat_dev-v1-2-c5a30f8cf7b8@kernel.org>
- <20260523001148.GA1319283@ax162>
+	Sat, 23 May 2026 07:09:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bN0GHyMkgDJSgwTbo0VC8RAQj9ANlvnVnHnpZQ7XAFqLpKuAqhv1R5imR8sSaoaI9CSCYe8CLa76X1TT9iYcCOLDisHeyfHAjRdZE//2hb4DkHM95vTIteiMU8xpcdxK7/5U6/ExrakCZtRO8IhsSgvodX92XgC0fzHc3iAsmZl67tyiLE/q78XOLgQ/NgRam5Uop2DcoULHvlVUvDXOMvrLg4UpPBFeGmMViE9dkrsTDhEmfsgU0be8Jb/quFOk8sGVef8zSRsT9PZYt3ahowrRQkH1FylcwKkXKgWa8me917azBdPYnA9iONfam+cyPS6jXDRZtV+s4aw4+9rYPQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=i8fKpVGGh7slQFz4F8D41MmhUPeOgy6Utsd1sGDDaic=;
+ b=nA6Nhu2CftjyHBltYAW5BcBXaJow1GyZuV/Z6ug0gSC270rX5p7e33ERmGpMuFU2YBXk6skkk7kkVDiOuA4wk+zDiLzCeIy5A5wJbabdw+Z0AS1w5MynWptLZUvpDbm3LtTV5Ym8XZx7uMHpm4cT0kSIbwLx8Etc1229A6rg0OWZ8c1BgzvL/cKMt7CC49VJ+CvkJ3Or8P2vjs1USz1mhWHCXErAb/0kI+BZXqVSh2nqdQm7lBqBDp+u2W3B3kbocwkvsD2iVFPbxzhl5whKe3tA8szDHzNCWqELNp5msPTsWCF12TzJGOxJwsEY6Rp6UPTLkTWr+Gotw+CYkSOA0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=synopsys.com smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=i8fKpVGGh7slQFz4F8D41MmhUPeOgy6Utsd1sGDDaic=;
+ b=kTYhnWeMWd0g6h2XvVI+06OaCJ83dUqYcEEgVaBEaW3dKoRbONuDzqGGI3pHBIZPXEDzUkYR4TOBul/1I1J5BqN/eLf6+ywj8wnEo/6dX3P+MOQNsbVnrNhYEHSgGvyu/FIpQDA4Va6iPHsLHL8+2XXF3aqx1bJ/E5S7w6+Vg6Y=
+Received: from DS7PR03CA0250.namprd03.prod.outlook.com (2603:10b6:5:3b3::15)
+ by PH8PR12MB7351.namprd12.prod.outlook.com (2603:10b6:510:215::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.17; Sat, 23 May
+ 2026 07:08:55 +0000
+Received: from CY4PEPF0000EDD0.namprd03.prod.outlook.com
+ (2603:10b6:5:3b3:cafe::7e) by DS7PR03CA0250.outlook.office365.com
+ (2603:10b6:5:3b3::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.18 via Frontend Transport; Sat, 23
+ May 2026 07:08:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ CY4PEPF0000EDD0.mail.protection.outlook.com (10.167.241.196) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.71.7 via Frontend Transport; Sat, 23 May 2026 07:08:55 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Sat, 23 May
+ 2026 02:08:54 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Sat, 23 May
+ 2026 02:08:53 -0500
+Received: from xhdradheys41.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Sat, 23 May 2026 02:08:51 -0500
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+To: <Thinh.Nguyen@synopsys.com>, <gregkh@linuxfoundation.org>,
+	<michal.simek@amd.com>, <p.zabel@pengutronix.de>
+CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, Radhey Shyam Pandey
+	<radhey.shyam.pandey@amd.com>
+Subject: [PATCH v2 1/2] usb: dwc3: xilinx: fix missing space before closing comment delimiter
+Date: Sat, 23 May 2026 12:38:36 +0530
+Message-ID: <8e6f53ad4eef8babb3c72ae9fac5130342760da9.1779518171.git.radhey.shyam.pandey@amd.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1779518171.git.radhey.shyam.pandey@amd.com>
+References: <cover.1779518171.git.radhey.shyam.pandey@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260523001148.GA1319283@ax162>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD0:EE_|PH8PR12MB7351:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a6b7646-1eb6-48b9-3443-08deb89a2711
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|22082099003|56012099003|18002099003|11063799006;
+X-Microsoft-Antispam-Message-Info: h3EMgszMK19PVASvh57Fc366/B4Ao/EhKN2LThUZzmh4m8c/eJGSab2rnMAWxkyw7cuGf8U/wzgiP5/56ig5/CbN+s0u6BzMXBMbjVBnvymgS1ZDP33BXXDrz4FT6LJXF+bYDyb2eCdLLDlO7wWtWVe+Nl5S9HTD2wJEsEXd/icUhbRITvOhrITS6RzMwTMPJJnPl1tacdnpNmrDPA+YrQpvtKEnECQha3lX4axC9aU8HFMbeazrMQW+Wcl7qVn2OyFxjSwKrR4qbZ/zEwNY0XUKsifK+WNj+cfnapXePvPZnEQTORguULsxCD09hhbxNcvu6Y8Yec8RRWCBnGuwOlRc6Du1zUor/l2tmQVsGRBZoS78zxAvN0rVqJ+g+Icc7XjPQZiv0qApKYONPSFNart7KMeLWth+1dKYXWiV6rOFNKLwHEauF8QQ0PlpozXVN+DGkNaOsSdA9vLprICi/3nHY/qne+zSCyCVPNBYu83O0WAjh5FyDpIP7jdN0GzrytOwRDRgbSR70co1YiuaEvbuGQIFxGEoR0MVFoZJrNdrNrEXQ4zDnUF8Atqb8tSQtzxA0UT9duTNMPfKz2V3H8KCIAPGdzUxoXhVjB7VVntZc19N5keEsFe6qrxqtMPibvIG2nnX1eScEYZ8XIxh1YuDjFzd3SibcafAZaKj/ueYMpsTDZcnRzI/7nfJH3MWEVGygNYogB5Q880NQ3dlvHPeeGxQq08LV0VLAfgnBYQ=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(22082099003)(56012099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: CKV4LivvQvLi2gdfQzafxkM/Or6p9saGayvTSqMGKrjmaYv5LpEczGpfgmjsgFuOX6rpb/FlutV/7aCWcuSYD+pJYPQkSKagIpn7xoJBVz6mFTXjnX9LwROVKw4K5Me8ya7qnj3uyWeD2g+YUGdqWBXohP+NCd3vKz7vQxzmv3xRt7xhwE7QLOzG1uhVDk8YKp1f8ZpVdfA/hZwLMUE0Z7d8KgKrLt0PSTBAbNHVVKhWA5aU+WcvtwUGlQZJDAfO118ijUgzgBnoNL2kNpbavTn3n9gPW7HB9HO5P9gg9l4SRLPElJlZFh6b3wPqDvjBxc0WCdVUcJNyN1i+L6h3tPcsYMRqkAVKpAjTl6ovaxAnCdt21K+F9Tx+y5igFnF/GlAcYF/daMEgJpYoAiQu80k1845YztRyoMGHdgrzp8EBVjqfuDwNPyZLAA39yxgD
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2026 07:08:55.2221
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a6b7646-1eb6-48b9-3443-08deb89a2711
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD0.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7351
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_215020_365949_F186DBDB 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20260523_000904_226348_D7420575 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,49 +126,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nathan,
+Add missing space before '*/' in an inline comment to follow
+the kernel coding style.
 
-> Hi Sudeep,
-> 
-> On Fri, May 08, 2026 at 06:54:16PM +0100, Sudeep Holla wrote:
-> > Move the FF-A core bring-up and teardown paths into platform driver
-> > probe and remove callbacks, and register a synthetic arm-ffa platform
-> > device to bind the driver.
-> > 
-> > This makes the FF-A core lifetime follow the driver model while keeping
-> > the device creation internal to the FF-A core. Use normal platform driver
-> > registration so the probe path has standard driver-core semantics.
-> > 
-> > The synthetic platform device is a temporary bridge until ACPI and
-> > devicetree describe the FF-A core device or object. Once those firmware
-> > description paths are defined, the internal platform device creation can
-> > be dropped and the driver can bind to the firmware-described device
-> > directly.
-> > 
-> > Since the transport selection now happens from the platform probe path,
-> > drop the __init annotation from ffa_transport_init().
-> > 
-> > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> 
-> I am seeing
-> 
->   arm-ffa arm-ffa: probe with driver arm-ffa failed with error -95
-> 
-> on my two arm64 test machines after this change landed in -next as
-> commit e659fc8e537c ("firmware: arm_ffa: Register core as a platform
-> driver"), is this expected? If so, perhaps it should be silenced?
-> 
-> Cheers,
-> Nathan
->
+Acked-by: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+---
+Changes for v2:
+- Add Thinh Nguyen acked by tag.
+---
+ drivers/usb/dwc3/dwc3-xilinx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Could you share the .config file you used for this?
-
-Thanks!
-
-[...]
-
+diff --git a/drivers/usb/dwc3/dwc3-xilinx.c b/drivers/usb/dwc3/dwc3-xilinx.c
+index 9b9525592a85..02dc35e110b9 100644
+--- a/drivers/usb/dwc3/dwc3-xilinx.c
++++ b/drivers/usb/dwc3/dwc3-xilinx.c
+@@ -194,7 +194,7 @@ static int dwc3_xlnx_init_zynqmp(struct dwc3_xlnx *priv_data)
+ 	}
+ 
+ 	if (priv_data->usb3_phy) {
+-		/* Set PIPE Power Present signal in FPD Power Present Register*/
++		/* Set PIPE Power Present signal in FPD Power Present Register */
+ 		writel(FPD_POWER_PRSNT_OPTION, priv_data->regs + XLNX_USB_FPD_POWER_PRSNT);
+ 		/* Set the PIPE Clock Select bit in FPD PIPE Clock register */
+ 		writel(PIPE_CLK_SELECT, priv_data->regs + XLNX_USB_FPD_PIPE_CLK);
 -- 
-Sincerely,
-Yeoreum Yun
+2.43.0
+
 
