@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3553CD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C86DCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FWX7TUqGEicTVQxA2GTttmQpVSfoy/ldj1hTfdnKHgI=; b=f7ZDb4/pN8xx92AwTtIj7cwzex
-	KFPOPUDrTbnNESJrmUSRMEICcLwqyRY2zY3fQ9Hl4svpiVHeuSe++cZUjOiUEx7WPjcGm6v7ZFFuR
-	bfYnVi2Y4zJHi27yRc2o0Hp9ijl10+pigcOMrQU8DC3c4BIYVoe9oudJL4DFpjiSi2UWPVt7xEHWJ
-	5OMc8WQwYAN4QAFyOlcuXNjdPpgpM/sv9jyXs8NYDwbmExpBxwGooNGXIsHocqwB8kS0NEEeEXcdG
-	a88Tkj+Rbq2s7drtK2VAH1CychTSXbMEwQD+Y6Y7lt9vmosvmBYdOBwisGhpEzVykjSGJL5mljvzk
-	PZpovE9g==;
+	bh=8rYvi+3JVZJtERBC/gfJzp98B/b/Fpz7xNSQPS8u1Nc=; b=gr/rGBiXoN1O42oPsp5Oe7+r++
+	NZKWTCAqyWVzFg9Ng8AU1vk4LH0rQwhc/qQzQPCrGLgrXIt0Fme0RXV2SYnhbY9h4+GMjkF7UTVfm
+	clHTno2LjWu2oRv6kgEKs7zzOIfu5v5L8GwXtIb/qnGSrNvRVwsP0kddo7ahXZAUpEzHmNn7IjXZY
+	Xf9XMSEoglY7SMV6S9R9MyBr5MOrlpqXXTgoQ0tEFnAJFiS68KUQP3nE5x/qVd5ruWwjpJPbHFttQ
+	xXEje9l8fB1vtlExUmebeV9MMhoYDjgB7ojRW2MefCFPmePOuS86tmqYwaOWmTy2X9+qk204SDGF0
+	BmLVm7Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmxC-0000000DMkp-1AmB;
+	id 1wQmxC-0000000DMlO-2HLg;
 	Sat, 23 May 2026 14:03:50 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwR-0000000DLwl-0XIa
+	id 1wQmwS-0000000DLti-1XEv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 14:03:04 +0000
+	Sat, 23 May 2026 14:03:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC2B0445FD;
-	Sat, 23 May 2026 14:03:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D5A1F01564;
-	Sat, 23 May 2026 14:03:02 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 42EC340713;
+	Sat, 23 May 2026 14:03:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 191631F00A3F;
+	Sat, 23 May 2026 14:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779544982;
-	bh=FWX7TUqGEicTVQxA2GTttmQpVSfoy/ldj1hTfdnKHgI=;
+	s=k20260515; t=1779544984;
+	bh=8rYvi+3JVZJtERBC/gfJzp98B/b/Fpz7xNSQPS8u1Nc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Vc4zUcpkYimo1lDe8Ux1B1kIRJxytV1b7YTxsC0iL0vdN/FwY4gdxe5XA2S+dvSKc
-	 Y3WWYhmdEPUPwl7DHvk/4lg3PPbCUS+w2YEuVUgv6FTgjjYQE7aKzDPEMa/sjcGdbC
-	 G2jwPXn0Z8mXDS+9B2ejSfRYbF2Ej6CKvgnFDPr6c8Zx7WRqSzqFzIEd7WdTvQbZtd
-	 c6e4Wjl/XVqddaCNdsJ1xXzDmvyQJl4wnsGP+RC9asIUrifQ6OetbvO3/uoRc38/eL
-	 Gc0U8kHQZnoy/PlfvKEiaaogNKIa9Z1P86n/341/WeMbcEjt+7t65cX76K7VhhelrH
-	 rMm5rgd/OzTdQ==
+	b=bSOJOl7wKDMWKFPYKCprmK5iMeFOfMuB0ZRTyNl36MtQXWICt6vAEKvSI2WUdCq0I
+	 Nzl1W+/UGNWVTNyUMdWd77lAiFBTdqHXG/pLHBfJ7J3oMOA32xKXavlAluSD5Cyf3t
+	 nyfJpdDoWqiJULYOprJvVn/i/zPJa5Tae1lYrS/jBM5qlvxGZpU+BShSO2LYPp9mg9
+	 R/KQoMqNeU1tXQChayB3fprHG1fV720Znu5ffE4fmg3aESGC9LFwIgOL6lxwpH3cGB
+	 i0C4hNTIFT58PKzBJG6W/esVSVHH4q1y3suAkvN43bxHfTZJba/WmSPPnJ0c6YZqjB
+	 10Ds6WzlFyRdg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wQmwO-00000005YFc-2gSK;
-	Sat, 23 May 2026 14:03:00 +0000
+	id 1wQmwQ-00000005YFc-1ECC;
+	Sat, 23 May 2026 14:03:02 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -96,9 +96,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v3 14/17] arm64: dts: realtek: Add EL2 virtual timer interrupt
-Date: Sat, 23 May 2026 15:02:39 +0100
-Message-ID: <20260523140242.586031-15-maz@kernel.org>
+Subject: [PATCH v3 17/17] arm64: dts: xilinx: Add EL2 virtual timer interrupt
+Date: Sat, 23 May 2026 15:02:42 +0100
+Message-ID: <20260523140242.586031-18-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
 References: <20260523140242.586031-1-maz@kernel.org>
@@ -110,8 +110,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_070303_208031_7B53A454 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20260523_070304_474981_F2E01915 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,47 +126,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in a number of Realtek SoCs are missing
-the EL2 virtual timer interrupt. Add it.
+The ARMv8.2 based CPUs used in the versal SoC are missing the EL2 virtual
+timer interrupt. Add it.
 
-Furthermore, the "kent" platform appears to assign PPI9 to both the
-EL2 virtual timer and the GIC Maintenance Interrupt, which can't be
-right. Attempt a fix by setting the former to PPI12, as PPI9 is
-traditionally wired to the GIC itself.
-
+Acked-by: Michal Simek <michal.simek@amd.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/realtek/kent.dtsi    | 2 +-
- arch/arm64/boot/dts/realtek/rtd16xx.dtsi | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/xilinx/versal-net.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
-index ae006ce244205..4147e4269247a 100644
---- a/arch/arm64/boot/dts/realtek/kent.dtsi
-+++ b/arch/arm64/boot/dts/realtek/kent.dtsi
-@@ -23,7 +23,7 @@ timer {
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI  9 IRQ_TYPE_LEVEL_HIGH>;
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
+diff --git a/arch/arm64/boot/dts/xilinx/versal-net.dtsi b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+index 15f767608e67f..0aac93675ad77 100644
+--- a/arch/arm64/boot/dts/xilinx/versal-net.dtsi
++++ b/arch/arm64/boot/dts/xilinx/versal-net.dtsi
+@@ -728,7 +728,8 @@ fpga: fpga-region {
+ 
+ 	timer: timer {
+ 		compatible = "arm,armv8-timer";
+-		interrupts = <1 13 4>, <1 14 4>, <1 11 4>, <1 10 4>;
++		interrupts = <1 13 4>, <1 14 4>, <1 11 4>, <1 10 4>,
++			     <1 12 4>;
  	};
  
- 	cpus {
-diff --git a/arch/arm64/boot/dts/realtek/rtd16xx.dtsi b/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
-index 3a7f6e35b7f74..43b13d133c324 100644
---- a/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
-+++ b/arch/arm64/boot/dts/realtek/rtd16xx.dtsi
-@@ -105,7 +105,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
- 	};
- 
- 	arm_pmu: pmu {
+ 	versal_fpga: versal-fpga {
 -- 
 2.47.3
 
