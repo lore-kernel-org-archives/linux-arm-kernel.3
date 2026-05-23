@@ -4,66 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 891F7CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BF5CD5BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+ubvDUlSsvQcamv6R6/8JNc1sEXNBLDKT0SjoQyXvM=; b=MkQRypCwKPMIwbsGSN8TJt0ahQ
-	SbPLMOFXPb1CsXqT+tJ27MTwgTJOUNBMrUwIEmFxNscqABu5rQLXmnyvA+vy+71bUkuE1n/BLtB0d
-	zeL7X/ksf6qCZPQTWfRPQSo0iUgJyq4tBhImqLWr9zugktSJbw5MfFrMlIDlz9Kjb/faAv8/qR/ln
-	qHBbWO/GFdiK6swGKL1XfLmdQdFxaEdAsZElLo7/ozWCeeUjpI2+qzVZiFkY3HDs1lPcRaJ3MRmQ6
-	CTcU3qMRBT7qeaGul3BY5QDZq5CwdmWJYRx20dSddPi9zFGz7Hyw9rs0nHTq+HBK7XcLh4+3CGRGz
-	RuNYqu+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y7+5gecHYwY03liCeZXowtKfP5Q2KLnQ98XUghpqk2s=; b=3Uinn5jc5uCJ01y/5dC5F7fUcU
+	TBgd6WIL2Pbm8wfaoIHPD2f6Bua3dTfD3Arg3u2RHa4IRHv5ahR1MAWVHO6qYUdYRGnOHZgGqSzty
+	Zo9uDyhw5xhxp0x02cKSIUsTK+fUawa84O7B9s0QaApKQL2QaQBd3MULU2BudleykoZqbZEDzlhnG
+	rLKXtogwUoW70WBw1UGUeUwWyttzTQ+QVXMZDDilwRcqEBtI46Cgu30EBZc3qWjV6mmF0BcM74lNm
+	chzBMvxWWzgDX5yl5GeZhlylqWItZEsGhe9EspOY4yJFwHo8roXQ2RUKUIiye+DkF0n7kk6fy3fPs
+	0KFDFg3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQnUo-0000000DQRg-0TLY;
-	Sat, 23 May 2026 14:38:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wQmwS-0000000DLyT-0c7i;
+	Sat, 23 May 2026 14:03:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQnUm-0000000DQRT-2AkB
+	id 1wQmwL-0000000DLrh-1eic
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 14:38:32 +0000
+	Sat, 23 May 2026 14:02:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 92D7460125;
-	Sat, 23 May 2026 14:38:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20ABD1F000E9;
-	Sat, 23 May 2026 14:38:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 03F6A42A42;
+	Sat, 23 May 2026 14:02:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CC091F00A3C;
+	Sat, 23 May 2026 14:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779547111;
-	bh=/+ubvDUlSsvQcamv6R6/8JNc1sEXNBLDKT0SjoQyXvM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=KcoMatwxjKddir3IoKztxEj1GkTKlI9B5yeKq8fTprt/TMC7Dz7ZbiTzP6NKuRXML
-	 NpcfWdUBHoxrK2CNpmviC1IteTr1V8SCcGf65drd7glqzYhluE5NreS/CXC9MaS0hf
-	 jAr228hK1ElQnPhI9MHXrQg1Eo6SsWcF0NOho+MWcGEQ0qC/oTZZIbaBG1CTzu4uNM
-	 X5aGux7w36uixb7IMB47COOBphy1CcLRWZ48tYae4DIppHZnUuCilWEW57jOmBkCEN
-	 Eq7smvv9A4vTqofgtSMeA9PX2IbOkkJQsOX5NwcKarL2wNNJgAvGEog3vG/TV53hBx
-	 JG1PcXv6bwjyQ==
-Received: by traversing.sirena.org.uk (Postfix, from userid 1000)
-	id 31D2A3036D4; Sat, 23 May 2026 15:38:28 +0100 (BST)
-Date: Sat, 23 May 2026 15:38:28 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	s=k20260515; t=1779544976;
+	bh=y7+5gecHYwY03liCeZXowtKfP5Q2KLnQ98XUghpqk2s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=jdIlKiF7rKURj690F2j6xO0R9FxfGZDx2olZEJ+cI5Z5zKtEx4tx496FUKdMOdFNd
+	 0FXBY5ioRwk32jr9nA06qXH6JF/BwF6FQJoOC6Q6jR4bgNdSPt8t+K9ehW3WN2Q//J
+	 kZXRO5G27fPpG7MGRYwn09hZdZFd5q5E64leTAi/1meNXySM2bimbXDknX9t0TUM/y
+	 sY7xTDX/NEctTUXYOt6Z7hxrLs/mmKghuTA4CRkEyPySX0B2Qnf4IEvRGLy6gF8osh
+	 /x9ghHd6SYPyhRzb1cRsxdgC7YwyWGPXAoaj8gjOdJcR3i0hHWmMVFfT0pcVEFK2Ua
+	 B6GJ/wWCHp7Aw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQmwI-00000005YFc-2Hlt;
+	Sat, 23 May 2026 14:02:54 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
-Message-ID: <ahG75BY6yvaePj-B@sirena.org.uk>
-References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
- <87h5nya4wl.wl-maz@kernel.org>
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	=?UTF-8?q?Yu-Chun=20Lin=20=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?= <eleanor.lin@realtek.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH v3 03/17] clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE
+Date: Sat, 23 May 2026 15:02:28 +0100
+Message-ID: <20260523140242.586031-4-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
+References: <20260523140242.586031-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Fl2vJPm84SLt6fHJ"
-Content-Disposition: inline
-In-Reply-To: <87h5nya4wl.wl-maz@kernel.org>
-X-Cookie: Don't hit the keys so hard, it hurts.
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260523_070257_483024_BE4119E7 
+X-CRM114-Status: GOOD (  27.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,68 +126,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When running with at EL2 with VHE enabled, the architecture provides
+two EL2 timer/counters, dubbed physical and virtual. Apart from their
+names, they are strictly identical.
 
---Fl2vJPm84SLt6fHJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+However, they don't get virtualised the same way, specially when
+it comes to adding arbitrary offsets to the timers. When running as
+a guest, the host CNTVOFF_EL2 does apply to the guest's view of
+CNTHV*_El2. This is not true for CNTPOFF_EL2 and CNTHP*_EL2, as
+the architecture is broken past the first level of virtualisation
+(it lacks some essential mechanisms to be usable, despite what
+the ARM ARM pretends).
 
-On Sat, May 23, 2026 at 09:47:38AM +0100, Marc Zyngier wrote:
-> Mark Brown <broonie@kernel.org> wrote:
+This means that when running as a L2 guest hypervisor, using the
+physical timer results in traps to L0, which are then forwarded to
+L1 in order to emulate the offset, leading to even worse performance
+due to massive trap amplification (the combination of register and
+ERET trapping is absolutely lethal).
 
-> > The reasoning for the current behaviour is not specifically articulated, my
-> > best guess is that it is intended to ensure that the guest can not see an
-> > effective VL greater than the maximum that has been configured. This can
-> > instead be achieved by configuring ZCR_EL2 when loading guest state:
+Switch the arch timer code to using the virtual timer when running
+in VHE by default, only using the physical timer if the interrupt
+is not correctly described in the firmware tables (which seems
+to be an unfortunately common case). This comes as no impact on
+bare-metal, and slightly improves the situation in the virtualised
+case.
 
-> >  - When running at EL0 or EL1 configure ZCR_EL2.LEN to the minimum of the
-> >    guest ZCR_EL2.LEN and vcpu_sve_max_vq(vcpu)-1.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/clocksource/arm_arch_timer.c | 55 +++++++++++++++++-----------
+ 1 file changed, 33 insertions(+), 22 deletions(-)
 
-> This is not EL0 or EL1. This is when in a nested context (i.e. running
-> a L2 guest), as EL0 exists for L1 as well.
+diff --git a/drivers/clocksource/arm_arch_timer.c b/drivers/clocksource/arm_arch_timer.c
+index 90aeff44a2764..4adf756423de9 100644
+--- a/drivers/clocksource/arm_arch_timer.c
++++ b/drivers/clocksource/arm_arch_timer.c
+@@ -688,6 +688,7 @@ static void __arch_timer_setup(struct clock_event_device *clk)
+ 	clk->irq = arch_timer_ppi[arch_timer_uses_ppi];
+ 	switch (arch_timer_uses_ppi) {
+ 	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		clk->set_state_shutdown = arch_timer_shutdown_virt;
+ 		clk->set_state_oneshot_stopped = arch_timer_shutdown_virt;
+ 		sne = erratum_handler(set_next_event_virt);
+@@ -879,7 +880,7 @@ static void __init arch_timer_banner(void)
+ 	pr_info("cp15 timer running at %lu.%02luMHz (%s).\n",
+ 		(unsigned long)arch_timer_rate / 1000000,
+ 		(unsigned long)(arch_timer_rate / 10000) % 100,
+-		(arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI) ? "virt" : "phys");
++		arch_timer_ppi_names[arch_timer_uses_ppi]);
+ }
+ 
+ u32 arch_timer_get_rate(void)
+@@ -912,7 +913,8 @@ static void __init arch_counter_register(void)
+ 	int width;
+ 
+ 	if ((IS_ENABLED(CONFIG_ARM64) && !is_hyp_mode_available()) ||
+-	    arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI) {
++	    arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI ||
++	    arch_timer_uses_ppi == ARCH_TIMER_HYP_VIRT_PPI) {
+ 		if (arch_timer_counter_has_wa()) {
+ 			rd = arch_counter_get_cntvct_stable;
+ 			scr = raw_counter_get_cntvct_stable;
+@@ -1023,6 +1025,7 @@ static int __init arch_timer_register(void)
+ 	ppi = arch_timer_ppi[arch_timer_uses_ppi];
+ 	switch (arch_timer_uses_ppi) {
+ 	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		err = request_percpu_irq(ppi, arch_timer_handler_virt,
+ 					 "arch_timer", arch_timer_evt);
+ 		break;
+@@ -1090,25 +1093,34 @@ static int __init arch_timer_common_init(void)
+ /**
+  * arch_timer_select_ppi() - Select suitable PPI for the current system.
+  *
+- * If HYP mode is available, we know that the physical timer
+- * has been configured to be accessible from PL1. Use it, so
+- * that a guest can use the virtual timer instead.
++ * On AArch32, if HYP mode is available, we know that the physical
++ * timer has been configured to be accessible from PL1. Use it, so
++ * that a guest can use the virtual timer instead (though KVM host
++ * support has long been removed).
+  *
+- * On ARMv8.1 with VH extensions, the kernel runs in HYP. VHE
+- * accesses to CNTP_*_EL1 registers are silently redirected to
+- * their CNTHP_*_EL2 counterparts, and use a different PPI
+- * number.
++ * On ARMv8.1 with FEAT_VHE, the kernel runs in EL2. Accesses to
++ * CNTV_*_EL1 registers are silently redirected to their CNTHV_*_EL2
++ * counterparts, and the timer uses a different PPI number. Similar
++ * thing happen when using the EL2 physical timer. Note that a bunch
++ * of DTs out there omit the virtual EL2 timer, so fallback gracefully
++ * on the physical timer.
++ *
++ * Without VHE, if no interrupt provided for virtual timer, we'll have
++ * to stick to the physical timer. It'd better be accessible...
+  *
+- * If no interrupt provided for virtual timer, we'll have to
+- * stick to the physical timer. It'd better be accessible...
+  * For arm64 we never use the secure interrupt.
+  *
+  * Return: a suitable PPI type for the current system.
+  */
+ static enum arch_timer_ppi_nr __init arch_timer_select_ppi(void)
+ {
+-	if (is_kernel_in_hyp_mode())
++	if (is_kernel_in_hyp_mode()) {
++		if (arch_timer_ppi[ARCH_TIMER_HYP_VIRT_PPI])
++			return ARCH_TIMER_HYP_VIRT_PPI;
++
++		pr_warn_once(FW_BUG "VHE-capable CPU without EL2 virtual timer interrupt\n");
+ 		return ARCH_TIMER_HYP_PPI;
++	}
+ 
+ 	if (!is_hyp_mode_available() && arch_timer_ppi[ARCH_TIMER_VIRT_PPI])
+ 		return ARCH_TIMER_VIRT_PPI;
+@@ -1200,14 +1212,9 @@ static int __init arch_timer_acpi_init(struct acpi_table_header *table)
+ 	if (ret)
+ 		return ret;
+ 
+-	arch_timer_ppi[ARCH_TIMER_PHYS_NONSECURE_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_PHYS_NONSECURE_PPI);
+-
+-	arch_timer_ppi[ARCH_TIMER_VIRT_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_VIRT_PPI);
+-
+-	arch_timer_ppi[ARCH_TIMER_HYP_PPI] =
+-		acpi_gtdt_map_ppi(ARCH_TIMER_HYP_PPI);
++	/* The GTDT parser can't be bothered with the secure timer */
++	for (int i = ARCH_TIMER_PHYS_NONSECURE_PPI; i < ARCH_TIMER_MAX_TIMER_PPI; i++)
++		arch_timer_ppi[i] = acpi_gtdt_map_ppi(i);
+ 
+ 	arch_timer_populate_kvm_info();
+ 
+@@ -1253,10 +1260,14 @@ int kvm_arch_ptp_get_crosststamp(u64 *cycle, struct timespec64 *ts,
+ 	if (!IS_ENABLED(CONFIG_HAVE_ARM_SMCCC_DISCOVERY))
+ 		return -EOPNOTSUPP;
+ 
+-	if (arch_timer_uses_ppi == ARCH_TIMER_VIRT_PPI)
++	switch (arch_timer_uses_ppi) {
++	case ARCH_TIMER_VIRT_PPI:
++	case ARCH_TIMER_HYP_VIRT_PPI:
+ 		ptp_counter = KVM_PTP_VIRT_COUNTER;
+-	else
++		break;
++	default:
+ 		ptp_counter = KVM_PTP_PHYS_COUNTER;
++	}
+ 
+ 	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_PTP_FUNC_ID,
+ 			     ptp_counter, &hvc_res);
+-- 
+2.47.3
 
-Sorry, this was intended to be specifically for a L2 guest but didn't
-actually say that.  I originally had more verbosity in the commit log
-that I cleaned up too much, making things unclear.  I will clarify.
-
-> > Currently all other bits in ZCR_EL2 are either RES0 or RAZ/WI, values
-> > written are sanitised based on this.
-
-> Only for the direct writes to ZCR_EL2, as they are trapping. I don't
-> see any sanitisation for writes using the ZCR_EL1 accessor, which is
-> the common case. This needs fixing at the same time.
-
-OK, I'll convert ZCR_EL2 to a sanitised register.  As I mentioned I was
-a bit confused about why the existing code is the way it is and so
-followed it in only managing the direct writes.  I figured it was
-considered OK to rely on the hardware for the RES0 and WI behaviour for
-untrapped access.
-
-> > -		if (is_nested_ctxt(vcpu)) -			zcr_el2
-> > = __vcpu_sys_reg(vcpu, ZCR_EL2); -		else -
-> > zcr_el2 = vcpu_sve_max_vq(vcpu) - 1; +		if
-> > (is_nested_ctxt(vcpu) && !is_hyp_ctxt(vcpu)) +
-> > zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
-
-> Why the change in the condition guarding this? Given the definition of
-> is_nested_ctxt(), this seems unnecessary.
-
-You're right, this change is not needed.  I had misremembered what
-is_nested_ctxt() was checking.
-
---Fl2vJPm84SLt6fHJ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoRu9sACgkQJNaLcl1U
-h9C/VAf8CHZI6LDLsoBR45fz935sHLDY6GBcMRErBG6zSvckEaREGCpajYeVTdTK
-7GAi1UK0NMGWmS37NR6mIm745ua6rqg0Sxs+U0ZX83O38reW3XNtJWnnpXfk2nJ2
-WZbUH35PBd0uaOQrKsCY0WxkS1Kmau/4Dx7GcUhS8orQl5PbCz7EVP6i1+IDjzai
-yW6fCJk4o5TLrYJrgAzgvnup1U3tHEusmWQSo60pFOQ7lG+EPuwljWJ77ocXtlLT
-7MYzk8cs2trZxO8oWT7Atu1tomCgDSdpXU9bZC24r/zzP3X83187ymk0yc34WD6x
-+Fh+zTBHHV5neQDlJre0nVfezhQI2w==
-=abUa
------END PGP SIGNATURE-----
-
---Fl2vJPm84SLt6fHJ--
 
