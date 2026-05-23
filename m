@@ -4,110 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BCECD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 13:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C943CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlUJXscAj5QuomRn5O6cvpNus9+sfZnlQG7j0zzSF+k=; b=PHUsZCcXpoJetK5S+hwiM7uFY0
-	ZXjzNEsQ2U5CE7Y3se1qc4AzIXVPtaN5G8Xm9QziR772BBp1UMKiQvsNdxxR+aOfpYQ2HThy2ZhLG
-	OKtQVlUM/xjS+1dkuN9ljJbWvW/NLR9nKg+S596MWKXd0PbVpEFa7sc7MX4lwhGmLGi5fyu0eR1lj
-	h7gG4IQhpveejWvdHRD+7eF3XRCoog9dE7p0oaYSW/e8OOxjx/VZuVnqBD/VUBIgh6nVz3q2x9e7Z
-	1vW6ZE8OsPnNsUMvuQHqeNuIjbi4vzGAIvIGOSNmBoTbpezrkwZvSE6GPU0Mx5CI3KUTD3ppQCoAC
-	ekKtilfQ==;
+	bh=fuOTrHOj9uIrl6Hh+9LOPPhruyGEFguBq2wvPmBPjYY=; b=p1vGwXi4JGMn+AibQOFZF7Z/n8
+	YXazvSfJeeuX5bsR6xhoRbKoGHAAG+S8k+OOIr2AYh/zEwX/4qhooscKPahrTu/dwJn3FkvBDXk/L
+	2I/VKgaFb+cs8OEYtWri5/hnnk0lL5mSM1E2dV8cDCTjXutVdgPjbUb4VvG322kZCHbC9wcTc88NK
+	hinePfsZM1iXQ48Ok+Jg8BqUrfDZuCtyQ+Aihv6bCjHt7n9N4J5Nx9pWg0kD3rDddVHICcwUYbjnL
+	PIeRzPZ4k0XGBGhT2jGEyIQPAGu5YcAVaXJFFTwcXZHn5vAuBhrcxXgAaL7zlygP1+leT1eg5Y3ju
+	sTNFlY4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmp6-0000000DLAI-3KmC;
-	Sat, 23 May 2026 13:55:28 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1wQmwL-0000000DLsR-2VCw;
+	Sat, 23 May 2026 14:02:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmp4-0000000DL9G-3V2e
+	id 1wQmwK-0000000DLrK-2SPx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 13:55:28 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2b45cb89f7eso55863035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 06:55:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779544526; cv=none;
-        d=google.com; s=arc-20240605;
-        b=DTlzlvR2W1gUaFD3g2maADCIhd+rMY3tL0PI+KaLtZ3Eqr4W2nCPsSfQJ0ya+X40/h
-         6mO9XvLJEts0nfBEh4tEZ6u0g+sjAzg6td0Vdv6a++j7gTQJ9EXdCZ0TszR760rTuZwx
-         SduipydsJmVeh2vCd3pT5lm0xlMHz8Ss8tuaDLMn+inhSbU8DF/yLPuF1ypWUwV0otci
-         M4bHTEoI/8ENMV7mgR5wtzLAYj70lzk7ioP2vJRMtDM52N7yZMhElDrZeej29gMEn8wK
-         ZtpKLg0wkcaGurK7ongb5nLbrtGiksLy4TxDVKgmo7Ib4s32Ma+uPR93PJVHOn1MQTwK
-         czxg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=nlUJXscAj5QuomRn5O6cvpNus9+sfZnlQG7j0zzSF+k=;
-        fh=8cXR2N3ZErUNTJ7ap8hQ+tnpbWLrvzb70lb4U/M9+Ws=;
-        b=LMoD4LS6te3t4vuJx1TZEIkEmZ5V50CF43j74otVl1SlcdA+KVIYLetgop6oP3Vlti
-         qQs+fSfnGMNDAMku9TlGbZwulXyTOEE8O0m5k0KUCIjYwy3g2l0N3JoEDSUDmpSDEZPN
-         M8HL3ZmNIrxkUk1qESGaffBDBbqoJ69vKgkrs+1nOSTtEXNbGEi6f8L5Q5JiHwOYWxyx
-         Khfj9TPWDJDf9SPz5NNlPSQra868PqXUiMMrrg2mPLCKNUL0GoT2881xZhvaxSXPG4mg
-         sh+NsbHXRVTvbBGtpOWCQCgst76mRhlertcojdQrlAKn750FYuTxloNDRi/P3fP1rr3I
-         +dYg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779544526; x=1780149326; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nlUJXscAj5QuomRn5O6cvpNus9+sfZnlQG7j0zzSF+k=;
-        b=RBmKlWiUg5Lv4eGeD3o4IHt+36us14w/hzUmWyTNfCDUJ8AaOPSdZhVI5ox1p0uTAG
-         xLwaXg30yUBnbH0vDbrUItq/K/erfK2GMa3mSnIaJ3bTt/kRf36o8JrrGn7nt+SzXhGu
-         V6Ib5roU3q7DPWNEMi/erX4oMN6V+zhcHtTEpeBa0IZJ9q21b+a9LWgwwI0UaVV9ZxQZ
-         TaGiEqMnCVGm/pTxuBJ0T2k5RiyRrS+dvGRxq2bqhy56vd1aDX2BYcbMW7TVHNNjg2xJ
-         z64qKdndPTkG4l9D7yRqSZejxG3LR9lbLGqlmFMLr8CBVW5ySzxXPuZdfJWTj4kMjHru
-         KWOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779544526; x=1780149326;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nlUJXscAj5QuomRn5O6cvpNus9+sfZnlQG7j0zzSF+k=;
-        b=r7kOwQnGmGGvcB90yzTEGxUBj4thowaaa+uAFuoosFgaIv3lQmItXkShuXAmeG9Jls
-         iBjboFWHGAhyJ3EYyPkVYl3+aZ8/4BQTOge8CUPBwVS6Ww/inE2Fe9oGg69Gs6nrOUYD
-         l6TN4bKaVn1T7UC4dm0vhhLTuvElWVT8AtkJiePi2W6mH3v+iN3077L0Gq8D05ZOA4UF
-         Nc6M53GTwuu31GyPS2Tg+uqrJ7qaHbYuPLxNfCP/ADtw+KNFfzgKYGu0DWsSPkSumvdH
-         SBQavfVbAwWHfinwisxfgDIPs4CMAWDQGpG08Ukkjzvd9AcB981cmVcmbkXVAuhfz/u+
-         A+WQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9eDpa4N5Xzw8WorIGH3C2TE+Bn85HdK+ZgIAVgsvQNyH84eTKhfxZrVj9igmWX45/btdNteNkpIa7QqQmalZLr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgnKGCuJNHgVzttb/PsfWyJWq3Kp/Ff8ZIHCw5imrUk43fnqQw
-	C5FutlLCHI4eL9BfegomnrC2vY1Hiq/EyJl2ze2Dt4l4xW2QjHKj+95e1aV0w7zr2Ilh5kvhgFv
-	rUiNVxrL/I7S+l0sEBbU0zeW3wkFJh04=
-X-Gm-Gg: Acq92OHwgJ0X0V4NYt9jC3128UqkuK/O9i6gwOBHKZhlXWdG/OmSU7L2CrDZ1WvkQkY
-	UHzyiDbBAX2kEbKDhMsOAfI3WYyl21+blFDcWurO2qswcRR+zT0o4+F0Xf+O+a+/wXj9RzQuMYR
-	DYQ0UtHN7WdDOJF4TGPXQ3PsiebwtvgR6lCAtm35/f3gSmnCtIJSsTtIsFKkFeCKqqsnuOdwJ/o
-	G4gR+k7r0TwNIFrNSf4cjYGrS4THY7kMN56DdrJYAHjEog60yRsUgZrZomuiAdu9nWSP4AedqKJ
-	+8gLWhwiPapvzO/A/ZarGSp8PobZX4r1E9K/k5rZ+IZJ7db/RvS4Nw0UD7CTIyjv0gzhVjnqO+I
-	n/+jAMn4=
-X-Received: by 2002:a17:903:2c04:b0:2b4:61cc:37a8 with SMTP id
- d9443c01a7336-2beb037a5ebmr84878125ad.17.1779544525740; Sat, 23 May 2026
- 06:55:25 -0700 (PDT)
+	Sat, 23 May 2026 14:02:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id E5E5B60141;
+	Sat, 23 May 2026 14:02:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A5CB1F00A3A;
+	Sat, 23 May 2026 14:02:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779544975;
+	bh=fuOTrHOj9uIrl6Hh+9LOPPhruyGEFguBq2wvPmBPjYY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=CahzoAU0cYZa4d4XQ2gooWGHjt0pnJ9Ot4ClzJwVSfAmrOQ92bbrik3HeEkNTnvQM
+	 mWnlFgmNe/RJDLhoM1itYFkXjBlZzqnS/QQkJ1qeuGHaeFTlZvpXA6RAitIv6BFuSA
+	 lyfJgPUDyMamaYrHCO9aJB2/nyVNooulQARv6/ePYMDcCESEJD6yvzhK8prwkJ77wY
+	 nr7kKCcdOPp+bWod+GrgK3XgBC2TwylLfVZjl74BtMvYZ2XCLBRB5uZBxSBA63giB+
+	 iXN1tecIyQxxVIZG+kGoir7PPpsOzvj8YyGsK5wA30ynNReKiZdTaZaWG8+rZDPEYy
+	 3l4c3wvqvf7ow==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQmwH-00000005YFc-1pb9;
+	Sat, 23 May 2026 14:02:53 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	=?UTF-8?q?Yu-Chun=20Lin=20=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?= <eleanor.lin@realtek.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>
+Subject: [PATCH v3 01/17] ACPI: GTDT: Account for GTDTv3 size when walking the platform timer descriptors
+Date: Sat, 23 May 2026 15:02:26 +0100
+Message-ID: <20260523140242.586031-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
+References: <20260523140242.586031-1-maz@kernel.org>
 MIME-Version: 1.0
-References: <20260522095401.72915-1-phucduc.bui@gmail.com> <20260522095401.72915-3-phucduc.bui@gmail.com>
- <CAGb2v67UmMmM7bQOSf3VxsN9D8s3N8nMMX079_kiMcPU=VszFg@mail.gmail.com>
-In-Reply-To: <CAGb2v67UmMmM7bQOSf3VxsN9D8s3N8nMMX079_kiMcPU=VszFg@mail.gmail.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Sat, 23 May 2026 20:55:14 +0700
-X-Gm-Features: AVHnY4LdsB2vxkXWpfCH6RC9wHMSLxokWJG9po2ovVtNcvhv5VoQTpPnz_GBIew
-Message-ID: <CAABR9nEB8jizn+NrVgrjcOOJRtaU0u+TH705unMTh7HYO=8Wcg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] ASoC: sunxi: sun4i-spdif: Resume device before
- kcontrol register access
-To: wens@kernel.org
-Cc: broonie@kernel.org, codekipper@gmail.com, jernej.skrabec@gmail.com, 
-	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, nichen@iscas.ac.cn, perex@perex.cz, 
-	samuel@sholland.org, tiwai@suse.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_065526_879939_6940E1D9 
-X-CRM114-Status: GOOD (  12.13  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,37 +123,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+Since ARMv8.1, the architecture has grown an EL2-private virtual
+timer. This has been described in ACPI since ACPI v6.3 and revision
+3 of the GTDT table.
 
-On Sat, May 23, 2026 at 2:19=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
-e:
-> And when you do add patches due to Sashiko raising an issue, please
-> do mention it in the commit message.
->
+An aditional structure was added in ACPICA, though in a rather
+bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
+add GTDT Revision 3 support").
 
-As mentioned in the v1 discussion , this issue was originally reported
-by Sashiko.
-I'll add the Reported-by tag in the next revision.
-v1 links:
-https://lore.kernel.org/all/20260513105003.81880-1-phucduc.bui@gmail.com/
+Finally plug the table parsing in GTDT, and correct the parsing of
+the platform timer subtables to account for the expanded size of
+the base table. This also comes with some extra sanitisation of
+the table, in the unlikely case someone got it wrong...
 
-> Did you actually reproduce the issue, or did you add the patch simply
-> because Sashiko mentioned it?
->
-Since I lack Sunxi hardware, I couldn't reproduce it or perform runtime tes=
-ting.
-But I did compile-test the patch.
-The patch aims to fix unsafe register accesses that occur before ensuring t=
-he
-device is runtime-resumed.
+Suggested-by: Sudeep Holla <sudeep.holla@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ drivers/acpi/arm64/gtdt.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
 
-> On sunxi, either it will hang the system because the bus transaction
-> got ignored, or it won't as something else enabled the clock.
->
+diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
+index ffc867bac2d60..950d5efdf85ea 100644
+--- a/drivers/acpi/arm64/gtdt.c
++++ b/drivers/acpi/arm64/gtdt.c
+@@ -34,14 +34,25 @@ struct acpi_gtdt_descriptor {
+ 	void *platform_timer;
+ };
+ 
++struct gtdt_v3 {
++	struct acpi_table_gtdt	gtdt_v2;
++	struct acpi_gtdt_el2	el2_vtimer;
++};
++
+ static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
+ 
+ static __init bool platform_timer_valid(void *platform_timer)
+ {
+ 	struct acpi_gtdt_header *gh = platform_timer;
++	void *platform_timer_begin;
+ 
+-	return (platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1) &&
+-		platform_timer < acpi_gtdt_desc.gtdt_end &&
++	if (acpi_gtdt_desc.gtdt->header.revision >= 3)
++		platform_timer_begin = container_of(acpi_gtdt_desc.gtdt, struct gtdt_v3, gtdt_v2) + 1;
++	else
++		platform_timer_begin = acpi_gtdt_desc.gtdt + 1;
++
++	return (platform_timer >= platform_timer_begin &&
++		platform_timer + sizeof(*gh) <= acpi_gtdt_desc.gtdt_end &&
+ 		gh->length != 0 &&
+ 		platform_timer + gh->length <= acpi_gtdt_desc.gtdt_end);
+ }
+@@ -166,6 +177,13 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
+ 	u32 cnt = 0;
+ 
+ 	gtdt = container_of(table, struct acpi_table_gtdt, header);
++
++	if ((gtdt->header.revision >= 3 && gtdt->header.length < sizeof(struct gtdt_v3)) ||
++	    (gtdt->header.revision == 2 && gtdt->header.length < sizeof(*gtdt))) {
++		pr_err(FW_BUG "GTDT with invalid size %d\n", gtdt->header.length);
++		return -EINVAL;
++	}
++
+ 	acpi_gtdt_desc.gtdt = gtdt;
+ 	acpi_gtdt_desc.gtdt_end = (void *)table + table->length;
+ 	acpi_gtdt_desc.platform_timer = NULL;
+-- 
+2.47.3
 
-If Sunxi's PM design already guarantees safe access here,
-feel free to reject the patch.
-
-Best Regards,
-Phuc
 
