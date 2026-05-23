@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8EDCD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19888CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vNWXSp7Nbj9O77x61TBFotnY7B/VVUrjuRV9QAofvts=; b=PWr49k/mHHdYCgbwGCHHjIY8y3
-	QXLTXWWqwMbKQJXr3bI0vc8UVjdmSiYO5+21INSCIMIWrNEA3mTsP9ZUfVsDbObyLNLGIpgY4bwDI
-	njTFToTO6YUp/dCqj6HFKTHBwDXu58Ot/BoiNT3oJDLDQgQ2eN5q4ypGKPQIpPe1aVdzOr25q9K8V
-	P5OZojTBcF3PpCVMpDF+x5EudoMHD6El2zo/JTaTl75sqwX4Cdgp6So10ljG1w3wmIN3hJb6b10g7
-	XnMnRkPOuybE5PT1Ub/xQugc1Fo+2zKuOBJ0AN0Dh4rxr5ZjDSkAQa1KTnyEhq32t3mlhH0eYsnS2
-	dKeQfCKA==;
+	bh=Mn4Kwfv53EbvvGSZgfpwONUvjLBXCStucRWlcVTWwHg=; b=ftWy+D7UXytinVkDbVxGQQGE2s
+	80ZVyAmuRy7cHmWd3evZcbywTPrDVdF7PyU8uSOHt0M7DVihntzWGuEzEaxOIiJ3QcxK7uE1mNb5K
+	DvzqXhr43SYjpWqumbgcJctfEvc/2/ezulMZEMzRQA5jYbeXMSSdWMqBpF9VKxVxBERLokbgnUBxv
+	Ngpm4kYvx4aDNt5QSVWkHfFLDKLYJ/IvsuHtsn8xs8ctxSprx5PhhyPmALRlh7lRKswKKaAk4/HFz
+	7iPXQxj3Ypbksa5hIujTgiy7rdk4OeSZH7O2ShR2Iz7zeoM+D7Sof3zEgRxhCUD319TZYUaK4roMS
+	yhu0xDTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwT-0000000DM16-0gP4;
-	Sat, 23 May 2026 14:03:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQmxB-0000000DMjq-3lAA;
+	Sat, 23 May 2026 14:03:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwP-0000000DLvX-1VNF
+	id 1wQmwP-0000000DLti-3sxr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 14:03:01 +0000
+	Sat, 23 May 2026 14:03:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B86126021A;
-	Sat, 23 May 2026 14:03:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D1B11F00A3D;
-	Sat, 23 May 2026 14:03:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 92ED6445EE;
+	Sat, 23 May 2026 14:03:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63C581F000E9;
+	Sat, 23 May 2026 14:03:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779544980;
-	bh=vNWXSp7Nbj9O77x61TBFotnY7B/VVUrjuRV9QAofvts=;
+	s=k20260515; t=1779544981;
+	bh=Mn4Kwfv53EbvvGSZgfpwONUvjLBXCStucRWlcVTWwHg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=X9wjJfSLTH4QV+UscvWR3Zk+6niq3BAYHpUVozubed6gL5dOTwxpPVDO3ueQ9K6sc
-	 5sZgvb45nS+dbUZ8o8qkkRUtv/U3eNw26OM/dH9OC0TBDUESCdq4JyvCMju6fMezl7
-	 8yLR5QSl9oL4QUMS7qDoOCCdxN/RGYtujRXQQZyulSGPwRq8EqUzIZXICNhkyKdRNo
-	 dBXrRl2ukI8UnCU9Tdc0bOJ70c3Dr/NGWd+KmK8e4hzDyw5bEuD+a+++QasnMpETM+
-	 TpcjZnD6wtqGk8Tz+0LMbEa9oFWhRyE84TjC2qB2Hb1Sq+o9wak8n7/+RtLn9FiARO
-	 B/2keHXC0a/qg==
+	b=b29VADsUCpsQL4I1rJI59JDWYFmZ/015vLSMY7foQ/3lQJpYUaoFu6wjWovB694fr
+	 VVwfpFiJqsmXrOgkVJPdq4Ah2A8C9MUpAZbwQuRyV9MfBObTgmX3FAqHdTgBMOR+bD
+	 apfFsjirhpwewu7NjskDJ32CClzySaYx/i9u85ULZxru2bKTGfrzxMWNISC5IlzdpJ
+	 EvDBTFe+LtKqRxvx4etuNhiXCPFs1qaHI/U7v5baqhAx4usOAk3zPAgYCbsoa/yjx6
+	 06Cx+hFd4A23QIUry4ZTvBU0IN/jyXKgtvu/anou/RLQvQjxWw3T1BYTMU2M1dXtkB
+	 kBhslV6uAMWaA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wQmwM-00000005YFc-1n5h;
-	Sat, 23 May 2026 14:02:58 +0000
+	id 1wQmwN-00000005YFc-2InZ;
+	Sat, 23 May 2026 14:02:59 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -96,9 +96,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v3 10/17] arm64: dts: intel: Add EL2 virtual timer interrupt
-Date: Sat, 23 May 2026 15:02:35 +0100
-Message-ID: <20260523140242.586031-11-maz@kernel.org>
+Subject: [PATCH v3 12/17] arm64: dts: nvidia: Add EL2 virtual timer interrupt
+Date: Sat, 23 May 2026 15:02:37 +0100
+Message-ID: <20260523140242.586031-13-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
 References: <20260523140242.586031-1-maz@kernel.org>
@@ -109,6 +109,9 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
  eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260523_070302_019996_CFC9D014 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +126,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in the agilex5 SoC are missing the EL2 virtual
-timer interrupt. Add it.
+The ARMv8.2 based CPUs used in a number of nvidia SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-Acked-by: Dinh Nguyen <dinguyen@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/nvidia/tegra194.dtsi | 2 ++
+ arch/arm64/boot/dts/nvidia/tegra234.dtsi | 3 ++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-index 02e62d954e949..6db2d48b9bad3 100644
---- a/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5.dtsi
-@@ -155,7 +155,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+diff --git a/arch/arm64/boot/dts/nvidia/tegra194.dtsi b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+index 849694f751d90..45cc180ac9973 100644
+--- a/arch/arm64/boot/dts/nvidia/tegra194.dtsi
++++ b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+@@ -3163,6 +3163,8 @@ timer {
+ 			     <GIC_PPI 11
+ 				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 10
++				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12
+ 				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+ 		interrupt-parent = <&gic>;
+ 		always-on;
+diff --git a/arch/arm64/boot/dts/nvidia/tegra234.dtsi b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+index 04a95b6658caa..ab9813f9ba30c 100644
+--- a/arch/arm64/boot/dts/nvidia/tegra234.dtsi
++++ b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+@@ -5872,7 +5872,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+ 		interrupt-parent = <&gic>;
+ 		always-on;
  	};
- 
- 	usbphy0: usbphy {
 -- 
 2.47.3
 
