@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755ADCD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 12:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA71CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 12:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BUftknpjAzJRHNFFrDtQsWg7bJX0Pe38bqsMwsZfQGk=; b=I2I7YpaGe7GtgUEGYjXnpEr+7H
-	fkeYvASFaHn1l2DAKRlZDwFlhR1S8ZX8UXyEBzYscqZXugKm/AxTza5TCebU+T6AnwI0wCNOW8BiG
-	MIdgJp79loUbh7ZMc1oVEI++e/7X4hmKp9AxTTvJHy9crbpUivM10i/LEVELcBkMGA/5VYBjauLhh
-	Yd/d2xOdo/tZWcWlJwnwYWsPhzJuqjmdsW0CQOLR7bZWsbvHkBOjshOu+z57HvCp97dPY5EmgwHR4
-	2V98EoH+lJqniZME2R1ESbPg3Yez9yvrH5LinVzVi2AWWbj/wDZdX6Wm8gS3ddoTISv7rZ5Jm1LD7
-	XEmgtQeQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bxiCjbyE4L9dPupS9cBbu4nnbIMmzEr7N/QwhywpPUo=; b=m5wfieFYAm0xYzuSTJlKAeqjrN
+	Oqf3ZwZG83mPDlPnjgMqTPNoEvxzbyJM+2CAT1Db5R/UFDqHtH1a1fMPx+40PWH98WulDLYBw6w4t
+	KGnkRvKPIDgCCR+U0Tt4zdj8psFSS579wzTWkq2vztZa+uIP6stYKWS7eDeQXxAbYEUxoSTmgHd4z
+	zQnJTj4sGSwVbh55kIZa7kzD4FZn93WStTX4h3sYYamwZGeM59XFtQc5wzC6Ko1ZnmSIsIHoFiIvq
+	zEOjBG7vVY9jpspW7F1gQb3UZx8fZytzflwcIbTxnp5kW7RAawFvywrfwRv0pQ3EiaxrO26e60yCU
+	0QLiQgKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQlOi-0000000DE9H-0Jbn;
-	Sat, 23 May 2026 12:24:08 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1wQlqO-0000000DGG2-2fpl;
+	Sat, 23 May 2026 12:52:44 +0000
+Received: from mout01.posteo.de ([185.67.36.65])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQlOf-0000000DE8X-3Cgo
+	id 1wQlqL-0000000DGEW-1ijU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 12:24:07 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2ba3e3c4f87so84764355ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 05:24:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779539045; x=1780143845; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=BUftknpjAzJRHNFFrDtQsWg7bJX0Pe38bqsMwsZfQGk=;
-        b=SKtbNuZ+91ziXrPEqEK3s49PwwifuxAGUeLpuM9mTsNdrsQztuwCSSlI4hbLO5sPrP
-         UVynnpBppW6yTaAXP9tniMXvZp2i77kKvpHlsfH2eO8oNOH4LKm11OJnKiT29Jn2HNOH
-         i9MzX6U34ckfLFwnJu3N8a8YmM7shCFI/HnWrCbc5zeMPyQ+PJQlnXRraJe3H0NWFdHY
-         sS9X6+Mx507SkY0wpjfeTcMd6frEjing1fFJcsQ60rNUM22sMEf1Qtn+PAyA7R1RVBqX
-         TSBdmSg5DVu8PufGRQoroP5eQ6fsGY2KtLjIv4acyKpBwcPsD0mMJSqIj4jEsOTK7P21
-         C6SA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779539045; x=1780143845;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BUftknpjAzJRHNFFrDtQsWg7bJX0Pe38bqsMwsZfQGk=;
-        b=AsZMeLxnl2dQqAf9VUNSbAcZfMZ8HKu/MxyWXfge0zryVKtG9djgjRbdIzgzYUNfXy
-         ox6k19ofMZ1TjY8/+qt6CxB2fyQiKPtbwjUOA9LQtP6OH5z+VaqlRQeaz2GD7OcfbgBy
-         adIsWarulh8iYPI/UEdyVNCPBmVaV7smW+WH1slfFwt0estq2Wk5L/KOcP/aDfdE/Rv3
-         +SV0Z+nIrvO64ChtoxmmkPfceIHLQZSCvVyipvNePCYBS/eXMQAu1MkeKt5ZuiXPccol
-         aDsI+6/YJfhIz39a6T59StAmY0i4mgqQCkrbNhlWNRN0uJfKIJx+nZKX/zRvQ2x08t8g
-         jMLg==
-X-Forwarded-Encrypted: i=1; AFNElJ+8yhRye6KLfHRiEKHfYEDRTVcqSc33hFLqpTRRC0atDwsc3jSX2DHAnnGCiTL99YoX4ax8ZWsHGMUo3M3VFX44@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzo4faKbxjt6K2o49slWPOtl/+xkFkuh5sE7bcC/w9etAQ+JD9N
-	Vsh6TUIBFxr/D4SrQPmBOw4uOhVnw0iogRLGph6cy3+OFJ8g6dtuhgOE
-X-Gm-Gg: Acq92OEIjfRUxfoNxu5C/QEZxxiWvsDnw8gkxBa5Ljnw5qiMENvgdNWk7FwB+ayTrLA
-	yJDihuwLwA9IMnZkKKr/6fjNso2zqyaURNUx5q0/FrmU/+Zxd6TYMRE1VC8qvoAXhiknO9an6BT
-	oPUiK4MFzKyenQ4Gby3pI7pv9viEQKfIdthQGesuwdJTL3yqjglTaYOGiyFQelWwxUFbDBk6Faq
-	KOFi1UHWcQECVOE7MMut1wyaoQgdr1Ac/QUca3djF6suZ+dfFO2Zl/eRuKHs9/uyhjCFlJ4Kk1s
-	Z/D82y11GVkYZjvXM/B6hSHwfEditMgwcKB4Vsm1qGmpNpxR8cuHZVC7jOOp0nJEyFi0u3avciy
-	DEcB1fT3cHHZmaKJwOW6f5QtOINN3TSCm7l7AOC8jwbB7l8HNzNgj+9IfFOWrCmBLhiWN+F94nS
-	kbq+TOW7GtbUkM6ewLu0DeuxN19RWpR9ysQA==
-X-Received: by 2002:a17:903:440f:b0:2b0:67a7:5c4b with SMTP id d9443c01a7336-2beb0603fbemr81368385ad.28.1779539044856;
-        Sat, 23 May 2026 05:24:04 -0700 (PDT)
-Received: from [192.168.89.2] ([125.149.177.227])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb58b2ebcsm45002225ad.49.2026.05.23.05.24.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 23 May 2026 05:24:03 -0700 (PDT)
-Message-ID: <5315a2f6-3504-4660-8a64-51f7f6b69a45@gmail.com>
-Date: Sat, 23 May 2026 21:24:00 +0900
+	Sat, 23 May 2026 12:52:43 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout01.posteo.de (Postfix) with ESMTPS id 2C41524002A
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 14:52:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.net; s=2017;
+	t=1779540757; bh=bxiCjbyE4L9dPupS9cBbu4nnbIMmzEr7N/QwhywpPUo=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:From;
+	b=j3gOBikgfn1xTd/Gd2B+JyqhIyaLtMxcxXdZX3m9eLRzQ1vmLG/sQ2WOzYbxt+OPZ
+	 0W3blV4pxc1wVtCgfZSjDG54sl27t3gA80+tuXxyJ7moJCzoVmjgSApuLW5Ji4lG9i
+	 l4LZ5AIUIJmiODfR+WIAw9GRIxXdCd2rF/dsklQuP8H0trjRBYUjfcyd2/1+2gRyTR
+	 HQOg+JgGmG3x/otZzozN/kbh7DQxC5md5txTL9dtXZiq8KlOXLB89O8cC4GXsBm1sf
+	 ERoqvMz8i/ZQosK4gKjcCaj6DkgX6TtWjYS+jXTZcvhP4h3nyFqk+ossLfxPYJ2lcp
+	 IacfcRFiAnelQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4gN29W11Cqz6tvq;
+	Sat, 23 May 2026 14:52:31 +0200 (CEST)
+From: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: Caleb Sander Mateos <csander@purestorage.com>,
+	Sung-woo Kim <iam@sung-woo.kim>,
+	Josef Bacik <josef@toxicpanda.com>,
+	Alasdair Kergon <agk@redhat.com>,
+	Mike Snitzer <snitzer@kernel.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	Benjamin Marzinski <bmarzins@redhat.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Richard Weinberger <richard@nod.at>,
+	Zhihao Cheng <chengzhihao1@huawei.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Keith Busch <kbusch@kernel.org>,
+	Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Justin Tee <justin.tee@broadcom.com>,
+	Naresh Gottumukkala <nareshgottumukkala83@gmail.com>,
+	Paul Ely <paul.ely@broadcom.com>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Thomas Fourier <fourier.thomas@gmail.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Luke Wang <ziniu.wang_1@nxp.com>,
+	Kees Cook <kees@kernel.org>,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	nbd@other.debian.org,
+	dm-devel@lists.linux.dev,
+	linux-mmc@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-nvme@lists.infradead.org,
+	linux-scsi@vger.kernel.org
+Subject: [PATCH v1] block: switch numa_node to int in blk_mq_hw_ctx and init_request
+Date: Sat, 23 May 2026 12:52:35 +0000
+Message-ID: <20260523125210.272274-1-mateusz.nowicki@posteo.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] Add packet-mode ESP offload for Airoha/EIP93
-To: Christian Marangi <ansuelsmth@gmail.com>,
- Antoine Tenart <atenart@kernel.org>, Herbert Xu
- <herbert@gondor.apana.org.au>, "David S . Miller" <davem@davemloft.net>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Steffen Klassert <steffen.klassert@secunet.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20260523121522.3023992-1-hurryman2212@gmail.com>
-Content-Language: en-US
-From: Jihong Min <hurryman2212@gmail.com>
-In-Reply-To: <20260523121522.3023992-1-hurryman2212@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_052405_801388_6134BB1C 
-X-CRM114-Status: GOOD (  22.01  )
+X-CRM114-CacheID: sfid-20260523_055241_730945_9077B7EF 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,104 +105,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+numa_node in blk_mq_hw_ctx and the matching argument of
+blk_mq_ops::init_request can be NUMA_NO_NODE (-1).  Declared as
+unsigned int, NUMA_NO_NODE becomes UINT_MAX and walks off
+nvme_dev::descriptor_pools[] on CONFIG_NUMA=n [1].
 
+Switch the field and the callback prototype to int and update all
+in-tree init_request implementations.  No functional change:
+cpu_to_node(), kmalloc_node() and blk_alloc_flush_queue() already
+take int.
 
-On 5/23/26 21:15, Jihong Min wrote:
-> This series adds the missing plumbing for ESP offload engines that
-> operate on whole ESP packets instead of only exposing AES/HMAC through
-> the crypto API AEAD interface.
-> 
-> The normal ESP software path can already call into accelerated AEAD
-> algorithms, but packet-mode engines such as EIP93 can also generate and
-> consume ESP packet framing: padding, pad length, next header and ICV.
-> That needs a slightly different XFRM offload contract so the netdev
-> driver can hand the skb to a packet backend rather than trying to make
-> hardware fit the software trailer layout.
-> 
-> Patch 1 extends the ESP offload infrastructure for packet engines while
-> preserving the existing behavior for drivers that do not opt in.
-> Patch 2 exposes an EIP93 ESP packet backend for encapsulation and
-> decapsulation.
-> Patch 3 wires Airoha Ethernet GDM netdevs and DSA user ports to that
-> backend through xfrmdev_ops. ESP GSO and ESP TX checksum offload remain
-> disabled.
-> 
-> Runtime testing was done on a Gemtek W1700K2 running OpenWrt with the
-> same changes applied on top of a 6.18.31-based kernel.
-> 
-> Test parameters:
-> 
->   - Static IPv4 transport-mode XFRM SAs between the AP and host.
->   - ESP transform: auth hmac(sha1), enc cbc(aes) with a 128-bit AES key.
->   - iperf3 TCP test, AP as client and host as server:
->         iperf3 -c <host_ip> -P 4 -t 10
->   - The host always used normal Linux XFRM software processing.
->   - With AP ESP offload disabled, the AP also used the Linux XFRM
->     software path; in this setup, EIP93-backed AEAD crypto was still
->     available to that path.
-> 
-> Network-relevant test setup:
-> 
->   - AP: Gemtek W1700K2, Airoha AN7581/EN7581, 4x Arm Cortex-A53 at
->     1.4 GHz, 2 GiB RAM, airoha_eth wan (GDM2) netdev, 10Gb/s full-duplex,
->     MTU 9200, EIP93 crypto and IPsec packet engine present.
->   - Host: AMD Ryzen 9 9950X3D, 16 cores/32 threads, Open vSwitch,
->     MTU 9978, backed by a ConnectX-6 Dx 10Gb/s full-duplex link.
-> 
-> AP to host iperf3 result:
-> 
->   AP offload      Sender          Receiver        Retransmits
->   on              918.2 Mbit/s    913.6 Mbit/s    0
->   off             782.4 Mbit/s    778.6 Mbit/s    3569
-> 
-> This is a 17.3% receiver-side throughput improvement for the AP TX ESP
-> path in this setup, with retransmits eliminated in the offloaded run.
-> 
-> Jihong Min (3):
->   xfrm: extend ESP offload infrastructure for packet engines
->   crypto: inside-secure: add EIP93 ESP packet backend
->   net: airoha: add EIP93-backed ESP XFRM offload
-> 
->  MAINTAINERS                                   |    1 +
->  drivers/crypto/inside-secure/eip93/Kconfig    |   10 +
->  drivers/crypto/inside-secure/eip93/Makefile   |    1 +
->  .../crypto/inside-secure/eip93/eip93-ipsec.c  | 1413 ++++++++++++++++
->  .../crypto/inside-secure/eip93/eip93-main.c   |   69 +-
->  .../crypto/inside-secure/eip93/eip93-main.h   |   38 +-
->  drivers/net/ethernet/airoha/Kconfig           |   11 +
->  drivers/net/ethernet/airoha/Makefile          |    1 +
->  drivers/net/ethernet/airoha/airoha_eth.c      |   51 +-
->  drivers/net/ethernet/airoha/airoha_eth.h      |   69 +
->  drivers/net/ethernet/airoha/airoha_xfrm.c     | 1474 +++++++++++++++++
->  include/crypto/eip93-ipsec.h                  |  132 ++
->  include/linux/netdevice.h                     |    3 +
->  include/net/xfrm.h                            |    8 +-
->  net/ipv4/esp4.c                               |    6 +-
->  net/ipv4/esp4_offload.c                       |   29 +-
->  net/ipv6/esp6.c                               |    6 +-
->  net/ipv6/esp6_offload.c                       |   29 +-
->  18 files changed, 3324 insertions(+), 27 deletions(-)
->  create mode 100644 drivers/crypto/inside-secure/eip93/eip93-ipsec.c
->  create mode 100644 drivers/net/ethernet/airoha/airoha_xfrm.c
->  create mode 100644 include/crypto/eip93-ipsec.h
-> 
+Link: https://lore.kernel.org/linux-nvme/20260522150628.399288-1-mateusz.nowicki@posteo.net/ [1]
+Link: https://lore.kernel.org/linux-nvme/20260309062840.2937858-2-iam@sung-woo.kim/
+Suggested-by: Caleb Sander Mateos <csander@purestorage.com>
+Suggested-by: Sung-woo Kim <iam@sung-woo.kim>
+Signed-off-by: Mateusz Nowicki <mateusz.nowicki@posteo.net>
+---
+ block/bsg-lib.c                   | 2 +-
+ drivers/block/mtip32xx/mtip32xx.c | 2 +-
+ drivers/block/nbd.c               | 2 +-
+ drivers/md/dm-rq.c                | 2 +-
+ drivers/mmc/core/queue.c          | 2 +-
+ drivers/mtd/ubi/block.c           | 2 +-
+ drivers/nvme/host/apple.c         | 2 +-
+ drivers/nvme/host/fc.c            | 2 +-
+ drivers/nvme/host/pci.c           | 2 +-
+ drivers/nvme/host/rdma.c          | 2 +-
+ drivers/nvme/host/tcp.c           | 2 +-
+ drivers/nvme/target/loop.c        | 2 +-
+ drivers/scsi/scsi_lib.c           | 2 +-
+ include/linux/blk-mq.h            | 4 ++--
+ 14 files changed, 15 insertions(+), 15 deletions(-)
 
-One note I should have included in the cover letter:
+diff --git a/block/bsg-lib.c b/block/bsg-lib.c
+index fdb4b290ca68..895db30a7033 100644
+--- a/block/bsg-lib.c
++++ b/block/bsg-lib.c
+@@ -299,7 +299,7 @@ static blk_status_t bsg_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 
+ /* called right after the request is allocated for the request_queue */
+ static int bsg_init_rq(struct blk_mq_tag_set *set, struct request *req,
+-		       unsigned int hctx_idx, unsigned int numa_node)
++		       unsigned int hctx_idx, int numa_node)
+ {
+ 	struct bsg_job *job = blk_mq_rq_to_pdu(req);
+ 
+diff --git a/drivers/block/mtip32xx/mtip32xx.c b/drivers/block/mtip32xx/mtip32xx.c
+index 567192e371a8..8aedba9b5690 100644
+--- a/drivers/block/mtip32xx/mtip32xx.c
++++ b/drivers/block/mtip32xx/mtip32xx.c
+@@ -3340,7 +3340,7 @@ static void mtip_free_cmd(struct blk_mq_tag_set *set, struct request *rq,
+ }
+ 
+ static int mtip_init_cmd(struct blk_mq_tag_set *set, struct request *rq,
+-			 unsigned int hctx_idx, unsigned int numa_node)
++			 unsigned int hctx_idx, int numa_node)
+ {
+ 	struct driver_data *dd = set->driver_data;
+ 	struct mtip_cmd *cmd = blk_mq_rq_to_pdu(rq);
+diff --git a/drivers/block/nbd.c b/drivers/block/nbd.c
+index fe63f3c55d0d..e2fe9e3308fc 100644
+--- a/drivers/block/nbd.c
++++ b/drivers/block/nbd.c
+@@ -1888,7 +1888,7 @@ static void nbd_dbg_close(void)
+ #endif
+ 
+ static int nbd_init_request(struct blk_mq_tag_set *set, struct request *rq,
+-			    unsigned int hctx_idx, unsigned int numa_node)
++			    unsigned int hctx_idx, int numa_node)
+ {
+ 	struct nbd_cmd *cmd = blk_mq_rq_to_pdu(rq);
+ 	cmd->nbd = set->driver_data;
+diff --git a/drivers/md/dm-rq.c b/drivers/md/dm-rq.c
+index 9703b3ae364e..9a386254d836 100644
+--- a/drivers/md/dm-rq.c
++++ b/drivers/md/dm-rq.c
+@@ -462,7 +462,7 @@ static void dm_start_request(struct mapped_device *md, struct request *orig)
+ }
+ 
+ static int dm_mq_init_request(struct blk_mq_tag_set *set, struct request *rq,
+-			      unsigned int hctx_idx, unsigned int numa_node)
++			      unsigned int hctx_idx, int numa_node)
+ {
+ 	struct mapped_device *md = set->driver_data;
+ 	struct dm_rq_target_io *tio = blk_mq_rq_to_pdu(rq);
+diff --git a/drivers/mmc/core/queue.c b/drivers/mmc/core/queue.c
+index 39fcb662c43f..cfa268925c26 100644
+--- a/drivers/mmc/core/queue.c
++++ b/drivers/mmc/core/queue.c
+@@ -208,7 +208,7 @@ static unsigned short mmc_get_max_segments(struct mmc_host *host)
+ }
+ 
+ static int mmc_mq_init_request(struct blk_mq_tag_set *set, struct request *req,
+-			       unsigned int hctx_idx, unsigned int numa_node)
++			       unsigned int hctx_idx, int numa_node)
+ {
+ 	struct mmc_queue_req *mq_rq = req_to_mmc_queue_req(req);
+ 	struct mmc_queue *mq = set->driver_data;
+diff --git a/drivers/mtd/ubi/block.c b/drivers/mtd/ubi/block.c
+index 8880a783c3bc..29c0d6941a81 100644
+--- a/drivers/mtd/ubi/block.c
++++ b/drivers/mtd/ubi/block.c
+@@ -312,7 +312,7 @@ static blk_status_t ubiblock_queue_rq(struct blk_mq_hw_ctx *hctx,
+ 
+ static int ubiblock_init_request(struct blk_mq_tag_set *set,
+ 		struct request *req, unsigned int hctx_idx,
+-		unsigned int numa_node)
++		int numa_node)
+ {
+ 	struct ubiblock_pdu *pdu = blk_mq_rq_to_pdu(req);
+ 
+diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
+index c692fc73babf..97586307ac1a 100644
+--- a/drivers/nvme/host/apple.c
++++ b/drivers/nvme/host/apple.c
+@@ -819,7 +819,7 @@ static int apple_nvme_init_hctx(struct blk_mq_hw_ctx *hctx, void *data,
+ 
+ static int apple_nvme_init_request(struct blk_mq_tag_set *set,
+ 				   struct request *req, unsigned int hctx_idx,
+-				   unsigned int numa_node)
++				   int numa_node)
+ {
+ 	struct apple_nvme_queue *q = set->driver_data;
+ 	struct apple_nvme *anv = queue_to_apple_nvme(q);
+diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
+index e4f4528fe2a2..1907da499ad2 100644
+--- a/drivers/nvme/host/fc.c
++++ b/drivers/nvme/host/fc.c
+@@ -2109,7 +2109,7 @@ __nvme_fc_init_request(struct nvme_fc_ctrl *ctrl,
+ 
+ static int
+ nvme_fc_init_request(struct blk_mq_tag_set *set, struct request *rq,
+-		unsigned int hctx_idx, unsigned int numa_node)
++		unsigned int hctx_idx, int numa_node)
+ {
+ 	struct nvme_fc_ctrl *ctrl = to_fc_ctrl(set->driver_data);
+ 	struct nvme_fcp_op_w_sgl *op = blk_mq_rq_to_pdu(rq);
+diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
+index 139a10cd687f..afd407df640f 100644
+--- a/drivers/nvme/host/pci.c
++++ b/drivers/nvme/host/pci.c
+@@ -660,7 +660,7 @@ static int nvme_init_hctx(struct blk_mq_hw_ctx *hctx, void *data,
+ 
+ static int nvme_pci_init_request(struct blk_mq_tag_set *set,
+ 		struct request *req, unsigned int hctx_idx,
+-		unsigned int numa_node)
++		int numa_node)
+ {
+ 	struct nvme_iod *iod = blk_mq_rq_to_pdu(req);
+ 
+diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
+index f77c960f7632..08459c65c3d5 100644
+--- a/drivers/nvme/host/rdma.c
++++ b/drivers/nvme/host/rdma.c
+@@ -292,7 +292,7 @@ static void nvme_rdma_exit_request(struct blk_mq_tag_set *set,
+ 
+ static int nvme_rdma_init_request(struct blk_mq_tag_set *set,
+ 		struct request *rq, unsigned int hctx_idx,
+-		unsigned int numa_node)
++		int numa_node)
+ {
+ 	struct nvme_rdma_ctrl *ctrl = to_rdma_ctrl(set->driver_data);
+ 	struct nvme_rdma_request *req = blk_mq_rq_to_pdu(rq);
+diff --git a/drivers/nvme/host/tcp.c b/drivers/nvme/host/tcp.c
+index 15d36d6a728e..36b3ec50a9fd 100644
+--- a/drivers/nvme/host/tcp.c
++++ b/drivers/nvme/host/tcp.c
+@@ -548,7 +548,7 @@ static void nvme_tcp_exit_request(struct blk_mq_tag_set *set,
+ 
+ static int nvme_tcp_init_request(struct blk_mq_tag_set *set,
+ 		struct request *rq, unsigned int hctx_idx,
+-		unsigned int numa_node)
++		int numa_node)
+ {
+ 	struct nvme_tcp_ctrl *ctrl = to_tcp_ctrl(set->driver_data);
+ 	struct nvme_tcp_request *req = blk_mq_rq_to_pdu(rq);
+diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
+index d98d0cdc5d6f..ae00bcef2251 100644
+--- a/drivers/nvme/target/loop.c
++++ b/drivers/nvme/target/loop.c
+@@ -202,7 +202,7 @@ static int nvme_loop_init_iod(struct nvme_loop_ctrl *ctrl,
+ 
+ static int nvme_loop_init_request(struct blk_mq_tag_set *set,
+ 		struct request *req, unsigned int hctx_idx,
+-		unsigned int numa_node)
++		int numa_node)
+ {
+ 	struct nvme_loop_ctrl *ctrl = to_loop_ctrl(set->driver_data);
+ 	struct nvme_loop_iod *iod = blk_mq_rq_to_pdu(req);
+diff --git a/drivers/scsi/scsi_lib.c b/drivers/scsi/scsi_lib.c
+index 6e8c7a42603e..67f789bd02e7 100644
+--- a/drivers/scsi/scsi_lib.c
++++ b/drivers/scsi/scsi_lib.c
+@@ -1950,7 +1950,7 @@ static blk_status_t scsi_queue_rq(struct blk_mq_hw_ctx *hctx,
+ }
+ 
+ static int scsi_mq_init_request(struct blk_mq_tag_set *set, struct request *rq,
+-				unsigned int hctx_idx, unsigned int numa_node)
++				unsigned int hctx_idx, int numa_node)
+ {
+ 	struct Scsi_Host *shost = set->driver_data;
+ 	struct scsi_cmnd *cmd = blk_mq_rq_to_pdu(rq);
+diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
+index 18a2388ba581..2e7f90048171 100644
+--- a/include/linux/blk-mq.h
++++ b/include/linux/blk-mq.h
+@@ -428,7 +428,7 @@ struct blk_mq_hw_ctx {
+ 	struct blk_mq_tags	*sched_tags;
+ 
+ 	/** @numa_node: NUMA node the storage adapter has been connected to. */
+-	unsigned int		numa_node;
++	int			numa_node;
+ 	/** @queue_num: Index of this hardware queue. */
+ 	unsigned int		queue_num;
+ 
+@@ -653,7 +653,7 @@ struct blk_mq_ops {
+ 	 * flush request.
+ 	 */
+ 	int (*init_request)(struct blk_mq_tag_set *set, struct request *,
+-			    unsigned int, unsigned int);
++			    unsigned int, int);
+ 	/**
+ 	 * @exit_request: Ditto for exit/teardown.
+ 	 */
 
-The hardware behavior used by this series was studied from the out-of-tree
-IPsec branch of the mtk-eip93 driver:
+base-commit: 45255ea1ca096b11b1303c9b54502a28f3a31dd1
+-- 
+2.53.0
 
-  https://github.com/vschagen/mtk-eip93/tree/ipsec
-
-That code was useful for understanding the EIP93 packet-mode ESP descriptor
-programming and SA record values.
-
-This series is not a direct import of that driver. The implementation was
-rewritten around the current upstream driver layout and the Linux XFRM
-netdev offload model, with EIP93 exposed as a packet-mode ESP backend used
-by the Airoha netdev driver.
-
-
-Sincerely,
-Jihong Min
 
