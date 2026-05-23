@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A02FCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174F8CD5BC0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7T6wzUDec4336BxIngLV82kCrrKAPX2+jfs+nI48nk=; b=Xo5qkHzXpT1vshqlshAED8WXke
-	mLOwvVps6Lix5SsfufwfRdMtyxwj+YOU8LzStS0Buwp1ScnjiU6ClfX76AymD2NJTRAKWlKIy6CoV
-	Xr1X0MeYTD1XI92gCewJAorAItdkPpEJydAqDsu3Z7v1+16a9EoIHKnHp0lsyFBMxP40vn47Kr7VF
-	Hcg+zhZ7LFGwaB7a6Sm0Xr5KsbuoXqrQFn0GvJP3w6CXKQf/4DQksMNK4xaLyzUS2PLfZ0hPtMttd
-	wFk1ipwXVQRMyLubF3jxVJxYiGohakJsQ+B86xSWqCP2gf59+DcgCgsEVzVSLMcYglcA/ZVnrZ2Vu
-	TdQ98Q5Q==;
+	bh=PFHj47c6qJXPg7YyyPPPr06dTCFXBrH1mNb8u9bVy+Q=; b=XVfnKL6sawnPjsJVJlL8V9o2GC
+	fhYlOoeKe1MkHwBHCTS5hQYrYIpjpepFm9mpIX1lJTtq/WsVy6uRH+qYfJMK0QFZibXs5zZUQuxZg
+	0QfvvrFw/cABHLcxHEKetwrZh9jVrpmAdmctdHM2TooB4S42GGeTNm8np+sm59AtPp23k8LmKQ9Pw
+	9gDxSXaTvFPZVIWFTER8Y6f1iTDNlvU2dv0XFPjdxg3W/tgXCDV3i9R0BsRBOVC7iwO86fCjqzNOj
+	sK3dzKnQpxFq+eHDCQUwe7QG+H93fCOIm0IIsXFfzv4c95FQCAnP1yMfC31PrVwfxkC542z96Sa9V
+	X0SeMq7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmxC-0000000DMkg-0ikA;
+	id 1wQmxC-0000000DMl8-1g4l;
 	Sat, 23 May 2026 14:03:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwR-0000000DLxO-4A45
+	id 1wQmwS-0000000DLyL-29jj
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 23 May 2026 14:03:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D0DC60200;
+	by tor.source.kernel.org (Postfix) with ESMTP id E41E96021D;
 	Sat, 23 May 2026 14:03:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10E0F1F00A3D;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A6761F000E9;
 	Sat, 23 May 2026 14:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1779544983;
-	bh=d7T6wzUDec4336BxIngLV82kCrrKAPX2+jfs+nI48nk=;
+	bh=PFHj47c6qJXPg7YyyPPPr06dTCFXBrH1mNb8u9bVy+Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JmFA7TXcey2gVl0iVsPynxQdFDOSOHzpg7+Dl3BLFTboKL2xypLyPczHO+YOv9ajQ
-	 oZFCfnLClKfspIjuJ8ULldvHrZm6vjarfWFP6IsU2HS+O4XFcXZM3f1lXLop3NdCOB
-	 bB44fYcO05fTVXXNzXBTh4TpmauP4ce4DGkU5nzzZ3HEeRgQ16sS+5WkM7hrMFsjSu
-	 OHrfXjasenTs6UEl0BDXfZDeQ2JoCVfx2m2P/Tutvy9MKSymMYH1/JJit8nmQF8EYL
-	 fFOrhTT70cLhwEDXHDicmU8P+T3NVCVtW+WdIzqB9KAeUJHwLJMFZzzULJHTIDoDLK
-	 LjfVUsE0M6uRQ==
+	b=HvDEyRjG5R2omKBbTn30gFkTXxVQ8ffgWsGowy1l4xIOjse3B84DvqQ+uTIF/cOtM
+	 IIr3MUSwXLK62lm1au8ZpT25SVBBjAFORn8hLBqNlXevXPxX4E0P2MLA4nzxdxTNQq
+	 16A2vH2T1zNjN11UyVvF3ScXtMQVtEQ41SNmv5Y7gdnvKm4d7X5/+uurZOSFs4hr7r
+	 j4OmLx/GLU1veXyTh3L+Yv/IB0vt+WOk1cL4LuFOyRy5HanbbJO2PKrqIXqdNc7uiY
+	 svyGKlu7tTkNhPlH8Q4kwNOQ0m30F0fEQ803rCuVocvcoNwSnjHiYLteK5+6W9Z+fI
+	 i+nYRNooueWpQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wQmwP-00000005YFc-11D1;
+	id 1wQmwP-00000005YFc-3EpI;
 	Sat, 23 May 2026 14:03:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
@@ -96,9 +96,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v3 15/17] arm64: dts: rockchip: Add EL2 virtual timer interrupt
-Date: Sat, 23 May 2026 15:02:40 +0100
-Message-ID: <20260523140242.586031-16-maz@kernel.org>
+Subject: [PATCH v3 16/17] arm64: dts: sprd: Add EL2 virtual timer interrupt
+Date: Sat, 23 May 2026 15:02:41 +0100
+Message-ID: <20260523140242.586031-17-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
 References: <20260523140242.586031-1-maz@kernel.org>
@@ -123,29 +123,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARMv8.2 based CPUs used in a number of Rockchip SoCs are missing
+The ARMv8.2 based CPUs used in a number of Unisoc SoCs are missing
 the EL2 virtual timer interrupt. Add it.
 
-Acked-by: Heiko Stuebner <heiko@sntech.de>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/sprd/sc9863a.dtsi | 3 ++-
+ arch/arm64/boot/dts/sprd/ums512.dtsi  | 3 ++-
+ arch/arm64/boot/dts/sprd/ums9620.dtsi | 3 ++-
+ 3 files changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 64bdd8b7754b5..a5832895bd392 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -195,7 +195,8 @@ timer {
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
- 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
- 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
--			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
- 		arm,no-tick-in-suspend;
+diff --git a/arch/arm64/boot/dts/sprd/sc9863a.dtsi b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
+index 31799579d7f2e..18e61c25aa36f 100644
+--- a/arch/arm64/boot/dts/sprd/sc9863a.dtsi
++++ b/arch/arm64/boot/dts/sprd/sc9863a.dtsi
+@@ -130,7 +130,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>, /* Physical Secure PPI */
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>, /* Physical Non-Secure PPI */
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>, /* Virtual PPI */
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>; /* Hipervisor PPI */
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>, /* Hypervisor physical PPI */
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>; /* Hypervisor virtual PPI */
  	};
  
+ 	pmu {
+diff --git a/arch/arm64/boot/dts/sprd/ums512.dtsi b/arch/arm64/boot/dts/sprd/ums512.dtsi
+index efa14309cc4ef..4105647aabd17 100644
+--- a/arch/arm64/boot/dts/sprd/ums512.dtsi
++++ b/arch/arm64/boot/dts/sprd/ums512.dtsi
+@@ -133,7 +133,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>, /* Physical Secure PPI */
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>, /* Physical Non-Secure PPI */
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>, /* Virtual PPI */
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>; /* Hipervisor PPI */
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>, /* Hypervisor physical PPI */
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>; /* Hypervisor virtual PPI */
+ 	};
+ 
+ 	pmu-a55 {
+diff --git a/arch/arm64/boot/dts/sprd/ums9620.dtsi b/arch/arm64/boot/dts/sprd/ums9620.dtsi
+index 2458071320c9b..037e3401d4991 100644
+--- a/arch/arm64/boot/dts/sprd/ums9620.dtsi
++++ b/arch/arm64/boot/dts/sprd/ums9620.dtsi
+@@ -141,7 +141,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>, /* Physical Secure PPI */
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>, /* Physical Non-Secure PPI */
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>, /* Virtual PPI */
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>; /* Hipervisor PPI */
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>, /* Hypervisor physical PPI */
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>; /* Hypervisor virtual PPI */
+ 	};
+ 
+ 	pmu-a55 {
 -- 
 2.47.3
 
