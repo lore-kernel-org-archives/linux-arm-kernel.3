@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91D3CD5BB8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 21:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5372DCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 22:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fe76tELS7vRrYWmPqyIJMXzdjXWM0RGNTPYok5ZNUY=; b=29sQNnMsOVm8vPfsAngJVyP/VG
-	2iaL1YPflAiSquApPXegSwArJNyFPkm7AGIiuHdvHsTnBb9qQ/3yMZ1bn5txLHdoTFXiF8dLrzg6j
-	xGpwBKuEgWY+Hs1OAEZXj+3Pb+jbmg5/+855tNY/JOw8yjrT3MUpFnShM+WJRn6rqDKAMpQpXW61C
-	On5nK6eC9J2Xj0oWj5ZCppm5b2+zowklURrnhM9FQuorqXLPgObmBeAknRgBv+L+uxpVCRPwwCMKU
-	atFmbtFvP39XhAF34NDai5RfFMSi/sbOQpagOGWjtsYPSpmPBW3941Yw9Hy6W2WKdLr1GECz+2FuF
-	XvVy+jWA==;
+	bh=5y5C7U0eJNMWpozPRhpxeJdIqeK0zzLaadU8ylQbPm8=; b=upkZVTVyIwhAoypgZzXjUTnIbh
+	jfs0s+lSqT0OMYDAMxtN7zCMP6jYmFz6iMwi0dOt2jMOR1f6m/UaJNFzDR14lUD/UjbxfSSakh8gs
+	K7pOkNMhUkBCzAwIOVt0RJGUGfbj3p8aLF/mxcZqcZjMNBUrbjkokeeZKMpkb+Z2VHSWQJY1fRikT
+	WMlNt+mKMXhWKjrSQYSACuoi/OAgrSkpfgu1vugUDHSQcL65mgb57MfA5dthOX+pIKvrHKoF8XMPu
+	ifcm7FpufnOsEtc49vgAh2Q7NjMRnYzpObZfxU+8RcWs4LftVqHGdKafcTtKpK5YY9shMrEwJ/Dn4
+	y1WAmZ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQu4o-0000000E1RC-2Wfh;
-	Sat, 23 May 2026 21:40:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQuT7-0000000E3II-1sV0;
+	Sat, 23 May 2026 22:05:17 +0000
+Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQu4m-0000000E1R2-3pn7
+	id 1wQuT4-0000000E3HR-28AU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 21:40:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B84986001A;
-	Sat, 23 May 2026 21:40:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9A5B1F000E9;
-	Sat, 23 May 2026 21:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux-foundation.org; s=korg; t=1779572407;
-	bh=0fe76tELS7vRrYWmPqyIJMXzdjXWM0RGNTPYok5ZNUY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=w7N28E0NuabMjOCzH4dQkIVKSjxHrz+TRnWsceBQIie/DMGKyl6ZII16A4StSyKH6
-	 eCZEBtt2cPMQQUv6k8DWBZ4cZC2qK9Hjm8PCE9FOb8x0luMoOoZ9vuUKox+0K7e1jJ
-	 F9aMm0jdUBo7AWxk8sWslwLpV8TKl7Zd7ZhD8YM8=
-Date: Sat, 23 May 2026 14:40:06 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com, will@kernel.org, urezki@gmail.com,
- baohua@kernel.org, Xueyuan.chen21@gmail.com, dev.jain@arm.com,
- rppt@kernel.org, david@kernel.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com, ajd@linux.ibm.com, linux-kernel@vger.kernel.org,
- jiangwen6@xiaomi.com
-Subject: Re: [PATCH v3 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-Message-Id: <20260523144006.a05c06c91177c98fd9fbea63@linux-foundation.org>
-In-Reply-To: <CAHKocdErBXQLs0izMaEJg8fLgjPahY0fGR3jfCQ2onS49TWiog@mail.gmail.com>
-References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
-	<20260522110727.fc7dccf90bc8513abd1fdbf1@linux-foundation.org>
-	<CAHKocdErBXQLs0izMaEJg8fLgjPahY0fGR3jfCQ2onS49TWiog@mail.gmail.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	Sat, 23 May 2026 22:05:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=kemnade.info; s=20220719; h=References:In-Reply-To:Cc:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=5y5C7U0eJNMWpozPRhpxeJdIqeK0zzLaadU8ylQbPm8=; b=29eVPFxrSct7jQWCF+6gO7VEHs
+	zKAP0Qda313Jh20BQWWgKsnRy1pBtFicxbgKdgC+UZNl9mNE2ESJ65O+vwTbr4DBVdTrjeqg6wR8L
+	saOEkvzVEY1VE2xp9ZYWdUfITY1x72Yt4GTaVgaP9gTF3KQqNscluekNakGKl4cro6dHMxjj9xeek
+	30PT+yCxhZmCUr5AdO9vAW3XdmXNUzWSjQ6w6P3CJSTz/Fx2x+EqkL6U9jymtBr/xAEc8ygNjbuIa
+	H3uj5A9XYEFwlb/lpVf6QpJ7qTtxOjYvw3w11jiicIcuT5SgSwyb57cH/eRRXhlp3NIXzn32Ttvf/
+	wAifhk3Q==;
+Date: Sun, 24 May 2026 00:04:52 +0200
+From: Andreas Kemnade <andreas@kemnade.info>
+To: Mithil Bavishi <bavishimithil@gmail.com>
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>, Kevin Hilman
+ <khilman@baylibre.com>, Roger Quadros <rogerq@kernel.org>, Tony Lindgren
+ <tony@atomide.com>, Russell King <linux@armlinux.org.uk>, Sami Tolvanen
+ <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, Nathan Chancellor
+ <nathan@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, llvm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+Message-ID: <20260524000452.0d67f884@kemnade.info>
+In-Reply-To: <20260522233036.12277-1-bavishimithil@gmail.com>
+References: <20260522233036.12277-1-bavishimithil@gmail.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; aarch64-unknown-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260523_150514_557416_8EA21F9D 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,25 +72,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 May 2026 16:26:36 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+On Fri, 22 May 2026 16:30:36 -0700
+Mithil Bavishi <bavishimithil@gmail.com> wrote:
 
-> On Sat, 23 May 2026 at 02:07, Andrew Morton <akpm@linux-foundation.org> wrote:
-> >
-> > On Fri, 22 May 2026 13:31:40 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
-> >
-> > > This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> > > is physically fully or partially contiguous.
-> >
-> > Thanks.  AI review asked a few things and might have found an existing
-> > 32-bit bug in vmap():
-> >
-> >         https://sashiko.dev/#/patchset/20260522053146.83209-1-jiangwenxiaomi@gmail.com
+> With CONFIG_CFI enabled, OMAP4 can trap in omap4_enter_lowpower()
+> because omap_pm_ops.finish_suspend points directly to the assembly
+> routine omap4_finish_suspend, which lacks the expected KCFI type
+> metadata.
 > 
-> Hi Andrew,
+> Annotate omap4_finish_suspend with SYM_TYPED_FUNC_START so the assembly
+> routine carries the KCFI type metadata.
 > 
-> I've gone through the Sashiko findings:
+> Signed-off-by: Mithil Bavishi <bavishimithil@gmail.com>
 
-Great, thanks.  I won't take any action at this time - let's see what
-reviewers have to say.
+Reviewed-by: Andreas Kemnade <andreas@kemnade.info>
+> ---
+>  arch/arm/mach-omap2/sleep44xx.S | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm/mach-omap2/sleep44xx.S b/arch/arm/mach-omap2/sleep44xx.S
+> index f09c91978..0b48df6fc 100644
+> --- a/arch/arm/mach-omap2/sleep44xx.S
+> +++ b/arch/arm/mach-omap2/sleep44xx.S
+> @@ -58,7 +58,7 @@
+>   * stack frame and it expects the caller to take care of it. Hence the entire
+>   * stack frame is saved to avoid possible stack corruption.
+>   */
+> -ENTRY(omap4_finish_suspend)
+> +SYM_TYPED_FUNC_START(omap4_finish_suspend)
+>  	stmfd	sp!, {r4-r12, lr}
+>  	cmp	r0, #0x0
+>  	beq	do_WFI				@ No lowpower state, jump to WFI
+> @@ -223,7 +223,7 @@ skip_scu_gp_clear:
+>  	isb
+>  	dsb
+>  	ldmfd	sp!, {r4-r12, pc}
+> -ENDPROC(omap4_finish_suspend)
+> +SYM_FUNC_END(omap4_finish_suspend)
+>  
+>  /*
+>   * ============================
 
 
