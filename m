@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0758CCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 09:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8452CCD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 09:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t+aytgWJYWMrIeGAWf/uE60NzkgJIffFPhmKzk31inM=; b=zyLvETYUYIQYTngnMf97Ptx9bq
-	65Ve35BiYrHY/0P33TzNK8K/+TEm7xlOmBbMz6juzvpkR/uVdPNdTiGdDUCc3eT3XQIMvSAwEaiU6
-	j883t/eUGZAJ7jjwLZB+DNR94XiAo5mpY/mOadFh9OOoy1cwYjNpCFk9fwKilVntymHseX0ui3ZWO
-	L9MVaIUgiDg7CHWduyArY3ynyqMmvjEqi2NMfwvJ9rzQ3luo+kI0cF5f7ogjemNrAP8UkmxgsIcrL
-	6i1Zk9BJBDuE5bLo2PBhyW3MtksUjBxLZGZXtdxVFyNr7ZU/tkXphzMneIte/mutCz/KqHA7GUvvi
-	IlpyagNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wjd5EPtpM354Dd7ZDs5Vo2HEh22G1p5pQw/m/3w/sQY=; b=hH6yH1PGJET/uL5lzyKyEr4t7r
+	aRc9RJLh+kd75obxfLZrNB7S0VgjbfRjmpQwE1hNs2FoKowVBJbPER1ur0oVCDmY9nNxB17A0nmW5
+	O5EtU8zXA60NdabG9I9fAgOHjyy4+L99G45fPX3tnQ9zL/WQpc43DTMDo4DbSQZGuGRHKboum8ubn
+	ZripdkVviNzlfj4TE/U3BScm89doukMpaGM5ybE7jvN8xl681lyp2SDiYhw/8DauFvg9NulxnfajM
+	dvKF5wjYnS6ZMvTurKopEcFJSIihkNX8xVpIt4bEi1bvqePbRuGAZQ02iaqVWwMDOHyVds4disoMa
+	ns06ob1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQiWv-0000000D0U0-2rKg;
-	Sat, 23 May 2026 09:20:25 +0000
+	id 1wQhy7-0000000Cxiz-0oLg;
+	Sat, 23 May 2026 08:44:27 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQiWt-0000000D0TS-0hG8
+	id 1wQhy4-0000000Cxid-3ECB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 09:20:24 +0000
+	Sat, 23 May 2026 08:44:25 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE82244565
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 09:20:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE6561F0155E
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 09:20:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0CC4142A96;
+	Sat, 23 May 2026 08:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D40821F00A3A;
+	Sat, 23 May 2026 08:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779528022;
-	bh=t+aytgWJYWMrIeGAWf/uE60NzkgJIffFPhmKzk31inM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=cfxBsi7J9fsxEfsgvFmd2NVs986Q+ome4emmk8XKBW0g0Vb4bFRCXh3k/gEInSN8Q
-	 wEXuaXm6WH4wWD/NmykWGGJpFREKgCOdeQKCh67hcMtBLIaQX8g4xf6Fj0YJaJrb6E
-	 0KkeYumHzBE0gW2aIVVaoAPL6MsNZAVaieL5jDJ98UnLoSi/slwePbTpTNRRuCtkdo
-	 oilPK8HHNaAyy21qLXJqkYqQiaNjU/7QbTVFL/kKpraNgzZP4FeFSD6emYDCnGFOJs
-	 r6bIrTI6lLYD5KEOFKQaAN034CwriA+B+X8bZ8PfjNeuBeHNwWRDanNTFWv/061nE7
-	 oe3vN4O5udvEQ==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-3938cc204a7so61827791fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 02:20:22 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ9FREFB1a3uNn7JvXaxhbsFn2HOianckKJBKggFW1cBPaaIjyAw8myVsAc5ifH3nj7E9hbk70IzgDJtSVWKTQmI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtL+PgZWexB69+taciXGtIKepxGl7QqVy/RshlhhvkfZ3Tt8yi
-	eb2o7xWTvFsY6LYdWVR9PrLkUzU875s45VNBDe5cu8IRiRz6CkGCEyk8h3RTYU1RFB//oDWrtPL
-	YWhGI0mca74OTu5LXjA2tgPIXUiI4pvA=
-X-Received: by 2002:a05:6512:61a:b0:5a8:ee42:c131 with SMTP id
- 2adb3069b0e04-5aa323cbd13mr1605975e87.34.1779528021498; Sat, 23 May 2026
- 02:20:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260513-scmi-client-probe-log-v1-0-00b47b1be009@oss.qualcomm.com>
- <20260513-scmi-client-probe-log-v1-5-00b47b1be009@oss.qualcomm.com> <CAD++jL=6ikpC-BqVqP1Ev5HC37fw=K_n6rP96AxKi0jdVcyvmw@mail.gmail.com>
-In-Reply-To: <CAD++jL=6ikpC-BqVqP1Ev5HC37fw=K_n6rP96AxKi0jdVcyvmw@mail.gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 23 May 2026 11:20:05 +0200
-X-Gmail-Original-Message-ID: <CAD++jLkCiZVOWYcN3yqLu6fOqjQhSkM0aZAbzVuoL-5hj+Lnzw@mail.gmail.com>
-X-Gm-Features: AVHnY4IWSrFsqHQpeusKv0ApoYMxulT_ZRdAj0wPbeYFZEu1mlSyB-OxmXrnTAU
-Message-ID: <CAD++jLkCiZVOWYcN3yqLu6fOqjQhSkM0aZAbzVuoL-5hj+Lnzw@mail.gmail.com>
-Subject: Re: [PATCH 5/5] pinctrl: pinctrl-scmi: Log number of pins, groups, functions
-To: Alex Tran <alex.tran@oss.qualcomm.com>
-Cc: Jyoti Bhayana <jbhayana@google.com>, Jonathan Cameron <jic23@kernel.org>, 
-	David Lechner <dlechner@baylibre.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andy@kernel.org>, Sudeep Holla <sudeep.holla@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	Guenter Roeck <linux@roeck-us.net>, linux-iio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-hwmon@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	s=k20260515; t=1779525863;
+	bh=Wjd5EPtpM354Dd7ZDs5Vo2HEh22G1p5pQw/m/3w/sQY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=h5lJQaoX6ktuOV9HMIQg+/BaKYiIGAlXy94RLLCWuZglA/2mPOJXIEBs+iMJXrJVd
+	 0/fGFGs4huMFIOh2mwzI/lKWng4pW6mqAH1UR0AF3kxXzJFzAtGqM1ZkgwGW5vTVQZ
+	 N9JGxX0Sb2mXb+y60ZfQJIgZzIBmK+/U9H5/cAgDRpntmBFUnlnNqZD54uZcQ+LgB1
+	 zTKkOPK1KM3cewEDhp6FhQ5+x/fgFYc/TUjLfbNGYJcfcM1s71jtpEyPTRXLbOkeSd
+	 BL7rWa3ubIkAKjNm9Tz0bk3VRXK0MpQ2F7Zi96gvGyah7w78zoZebbW6nXHe053Pq5
+	 CAp8Fy346D4dA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQhy1-00000005VBn-2DfZ;
+	Sat, 23 May 2026 08:44:21 +0000
+Date: Sat, 23 May 2026 09:47:38 +0100
+Message-ID: <87h5nya4wl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
+In-Reply-To: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
+References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_022023_246083_99EB12FF 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20260523_014424_851881_2CA59BEB 
+X-CRM114-Status: GOOD (  34.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +91,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 23, 2026 at 11:18=E2=80=AFAM Linus Walleij <linusw@kernel.org> =
-wrote:
-> On Wed, May 13, 2026 at 6:44=E2=80=AFPM Alex Tran <alex.tran@oss.qualcomm=
-.com> wrote:
->
-> > The SCMI pinctrl driver does not currently log the number of pins,
-> > groups, and functions discovered from firmware. This information is
-> > useful for confirming the firmware exposed pinctrl resources during
-> > debugging.
-> >
-> > Log these counts after a successful probe to align with the existing
-> > SCMI client driver logging pattern.
-> >
-> > Signed-off-by: Alex Tran <alex.tran@oss.qualcomm.com>
->
-> Other kernel maintainers want a minimalist dmesg, but not me,
-> so I just applied this.
->
-> If someone is upset about the noise they can send a patch
-> changing it to dev_dbg().
+On Fri, 22 May 2026 19:00:04 +0100,
+Mark Brown <broonie@kernel.org> wrote:
+> 
+> Since b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when guests
+> write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be at most
+> that configuring the maximum guest VL.
 
-Ah scratch that, Andy made a fair point that it is available
-in debugfs anyway so I dropped the patch.
+That's not strictly true. This is only clamped when accessed as
+ZCR_EL2. A VHE guest will happily use the ZCR_EL1 accessor for the
+same register, and not see the truncation. This has ripple effects
+down the line, where the full value will be used at load time.
 
-Yours,
-Linus Walleij
+> This is not the behaviour the
+> architecture documents for ZCR_EL2.LEN, the expectation is that all bits
+> will be read as written. Further, writing values larger than the largest
+> available vector length is part of the documented procedure for enumerating
+> the supported vector lengths so we expect to see this happen in practice.
+> 
+> The reasoning for the current behaviour is not specifically articulated, my
+> best guess is that it is intended to ensure that the guest can not see an
+> effective VL greater than the maximum that has been configured. This can
+> instead be achieved by configuring ZCR_EL2 when loading guest state:
+> 
+>  - When running at EL0 or EL1 configure ZCR_EL2.LEN to the minimum of the
+>    guest ZCR_EL2.LEN and vcpu_sve_max_vq(vcpu)-1.
+
+This is not EL0 or EL1. This is when in a nested context (i.e. running
+a L2 guest), as EL0 exists for L1 as well.
+
+>  - When running at EL2 configure the maximum VL for the guest in
+>    ZCR_EL2.LEN like we do for non-nested guests and load the guest
+>    ZCR_EL2 into ZCR_EL1.
+> 
+> This will ensure that the guest sees both the ZCR_EL2.LEN value which it
+> wrote and the effective VL that resulting from the values it has configured
+> in ZCR_ELx.LEN.
+> 
+> Currently all other bits in ZCR_EL2 are either RES0 or RAZ/WI, values
+> written are sanitised based on this.
+
+Only for the direct writes to ZCR_EL2, as they are trapping. I don't
+see any sanitisation for writes using the ZCR_EL1 accessor, which is
+the common case. This needs fixing at the same time.
+
+> 
+> Fixes: b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps")
+> Signed-off-by: Mark Brown <broonie@kernel.org>
+
+Given the nature of the bug, this needs a Cc: stable.
+
+> ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 8 ++++----
+>  arch/arm64/kvm/sys_regs.c               | 6 +-----
+>  2 files changed, 5 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index bf0eb5e43427..fd277cb70967 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -501,11 +501,11 @@ static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
+>  		return;
+>  
+>  	if (vcpu_has_sve(vcpu)) {
+> +		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+> +
+>  		/* A guest hypervisor may restrict the effective max VL. */
+> -		if (is_nested_ctxt(vcpu))
+> -			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
+> -		else
+> -			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
+> +		if (is_nested_ctxt(vcpu) && !is_hyp_ctxt(vcpu))
+> +			zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
+
+Why the change in the condition guarding this? Given the definition of
+is_nested_ctxt(), this seems unnecessary.
+
+>
+>  		write_sysreg_el2(zcr_el2, SYS_ZCR);
+>  
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 148fc3400ea8..c4d3bbae2d14 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -2862,8 +2862,6 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
+>  			   struct sys_reg_params *p,
+>  			   const struct sys_reg_desc *r)
+>  {
+> -	unsigned int vq;
+> -
+>  	if (guest_hyp_sve_traps_enabled(vcpu)) {
+>  		kvm_inject_nested_sve_trap(vcpu);
+>  		return false;
+> @@ -2874,9 +2872,7 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
+>  		return true;
+>  	}
+>  
+> -	vq = SYS_FIELD_GET(ZCR_ELx, LEN, p->regval) + 1;
+> -	vq = min(vq, vcpu_sve_max_vq(vcpu));
+> -	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, vq - 1);
+> +	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, p->regval & ZCR_ELx_LEN);
+
+Once you have added the full ZCR_EL2 sanitisation, this masking can go.
+
+>  	return true;
+>  }
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
