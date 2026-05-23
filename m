@@ -4,128 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7094ACD5BB8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:35:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BD5DCD5BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yuws2lye+QoaHmTyUcSigKwJbfvfBtQqsXXOG6/gviY=; b=ocfbjIdypjyAQNsuxin0YFAClJ
-	UFPPOw2LYghxFlU+4RfEpBUw0USgVfzvCn5jx4+7gnLTg0YvLq9jJmY1n/cEwtgkb3iSeITxTi4cR
-	de5uiNBnsB4Z0PhWwD86ARpnN3yrCLMY/hFaQ2ibAHbv6ShiuCfZz4o4oPVakEC0nVcq4/CC85RQp
-	Mbp/lD/P6tgd88YA2eJH2JCGT7Zi9EtZCezzCrU8Fqe58h7scHtbpVS+3nSouzNc5ie358ZrFtD6S
-	2y+IYVduAQ6XioKRtAnfvVKFapVSe29dO/WRTnp0F3PBTo7KA7XpJrB3DhctMGhFkzbeHI6XKTJhm
-	zMcU2l5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DogHNPTrqypIEsMO98sxwui0Jd0w7EBtRQ+bMeRsSnE=; b=Pfx98zXvfatuyTHlIRnYKZHhA9
+	FxlzRgp7CLQkxjgP3FulBpcJJnoUh2BqkmW83wDnn9lPfo7OIYMFtS4xN57edPFsVc+iA9yj9KIPZ
+	aBmtgCpWUS9ep1PV3wfI5a775100pzm0pkEdtr/Bvu+LwDbIWxvebfs97jODC+jkCTTehHEXHYJHe
+	iiIY17QX3I4YQo2oFwodWYr4lKpHb44JnGUS27GC1y4THmIV3lhhTyxK8H3S+JdloHaW3jYyzIzvH
+	5/W5byeWG7UAaaI+l4UmgEyPkTqO5NpVoeVF5+EB8hRTyzy89jRFJc7W5XO9OtH8k5HLTowps1oj+
+	DuUKLtCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQnRK-0000000DQ2T-2zU8;
-	Sat, 23 May 2026 14:34:58 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1wQmwS-0000000DLyA-03vK;
+	Sat, 23 May 2026 14:03:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQnRH-0000000DQ1b-1uDd
+	id 1wQmwM-0000000DLtK-47pS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 14:34:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wpk+oY+K3FrPkMvWkrXWmrCZkFbwMCcVfANSK5fuYYIV9tyHB3WKUVaiTYDoKCAS1yPTRE4qXrCV0V2p3DVeNbzMTPuy7FK8WzIlSBwEhOajOZCjr/hmIdH9QS4D2lNFM1n8FRhukwTOoZOhFvXz3po+8Wlcb2QU6bqUSgDN4ApJrd1YCh3icE1g92ssFPeT98AHtCPwQTcMnEzHjwZS2SRGZ/eYtyDTYcV9yE3DnEo3viwzlqPTX9W+apMG4f2xZWqa3oVDwjLfh3FVkeIzklLC90vU+RYMwzxyn+Ne1szaVf/c0X5oKwqPsu/oEzGQa6OqGDEGTeqEkOjHVhEtzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yuws2lye+QoaHmTyUcSigKwJbfvfBtQqsXXOG6/gviY=;
- b=uD7JZng3gM+JE70OVP6q/EMHnoDg2WljY0yyqSpJ4swTVWhR0q2kyENn64icfovhXmhXy6XPKUFQAk9bBF3av9/2KnX2rHFp2UCj6qDLuEnnFr2YJpyE4JrAFzLSQEgiU1TthH3ktRPBA4lDewcuQz1iHl25GI5UCBSdR/MfnDGuL027t7m2c8Wdwg9xYobVjrDsGLXFcz6Y8/YTLaTeQSwTDp36ncUQqaU+ZAvJEl8Rb7YJ75cPW4s6QBqlo87CR8goK/pPBPRDorJWgZRXdmx/y1xJ7OFAZheIxF6hrPqzA5P5zO860Cl2mEN6Qilc5Ag8lIx4Ox6onMfUhCBoqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yuws2lye+QoaHmTyUcSigKwJbfvfBtQqsXXOG6/gviY=;
- b=BoxgABP0edbEfggivq3q0Y9A+EwuSsqIYG3D5Fk8CJYcCvds+E/uIy9tsPy7O+AEMeZLnjv1DzgASxmRh/Ur7YIhlsKavcHXx8Y69PnjN2iKyoLwopCa4WieagA8N+OEWTFFyo20clEEFhadpL+aob0syU/qtXXxLZhnOlha7nd5Dko7AGYvSFpT33f9pjZKEvpXWh7smaeZDMccaFlJNBZW3OActHLIFbZPwADyDx8EwD6FkKvS0GAcs8NlzXGfNb6g+nf5CumXX7tRHw/6IRBbdRPlyAJWxdiBFePKhb3J+8voY++XosPaBKZcsz20eBx9ZhnuGx8xomrGmn4zmQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
- by GVXPR04MB12039.eurprd04.prod.outlook.com (2603:10a6:150:313::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.32; Sat, 23 May
- 2026 14:34:47 +0000
-Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
- ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
- ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.21.0048.016; Sat, 23 May 2026
- 14:34:46 +0000
-Date: Sat, 23 May 2026 10:34:37 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Felix Gu <ustc.gu@gmail.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
-	Jacky Bai <ping.bai@nxp.com>,
+	Sat, 23 May 2026 14:02:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE05F60210;
+	Sat, 23 May 2026 14:02:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92AF01F00A3D;
+	Sat, 23 May 2026 14:02:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779544977;
+	bh=DogHNPTrqypIEsMO98sxwui0Jd0w7EBtRQ+bMeRsSnE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DOlZeM4hxlky1GswsFFlIl3TGYVJKAClWlYopkeIPVWfeuafaNZq0f/N/VeR3cnqU
+	 d6mv6kMQLHaQcvxiY73rDg9z+n/0ZcCtArDJHvmBx/j4H75Gir6WJ/gZedIjGUSl4j
+	 dNZoU6TFAtFwD4vuprXHmM2Tu/WIXJQ/vYFSN4r2h7HFzV2J1g9TkuiXoaT7aHhCAb
+	 pwYDOcMVGjykyraKpsV7VlpuORlTb2jiDcokooPoP8yFJopi8K+ADhAWzgIGBSFDeP
+	 l0rFMMIZGjnVXK30ixAZKrb2RIF3YzfnSJRyovg/wIakkqKy9bdmYdK4af6TM67rf2
+	 lgaW83QqOVVvA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wQmwJ-00000005YFc-2qsF;
+	Sat, 23 May 2026 14:02:55 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Ge Gordon <gordon.ge@bst.ai>,
+	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Lars Persson <lars.persson@axis.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] pinctrl: imx1: fix device_node leak in
- dt_is_flat_functions()
-Message-ID: <ahG6_Y12af3FB7-V@lizhi-Precision-Tower-5810>
-References: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
-X-ClientProxiedBy: BY3PR10CA0012.namprd10.prod.outlook.com
- (2603:10b6:a03:255::17) To DU0PR04MB9372.eurprd04.prod.outlook.com
- (2603:10a6:10:35b::7)
+	Fabio Estevam <festevam@gmail.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Thierry Reding <thierry.reding@kernel.org>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	=?UTF-8?q?Yu-Chun=20Lin=20=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?= <eleanor.lin@realtek.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: [PATCH v3 05/17] arm64: dts: allwinner: Add EL2 virtual timer interrupt
+Date: Sat, 23 May 2026 15:02:30 +0100
+Message-ID: <20260523140242.586031-6-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
+References: <20260523140242.586031-1-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|GVXPR04MB12039:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7152039a-ebdf-4c60-ec79-08deb8d87010
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|19092799006|56012099003|38350700014|11063799006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: FbcwWjTI/aLFsL08pU1GAbJy5yYKL1bcojrJ5MgQsbWLw7b2Y+3b1EayO7Bgc5r/cuOoYWvh73EBPHaFBLRZLuXnitL8655L7E1g58/LuW9EQqRLUiRUDHYsSAHrOSl6oCfLnrw6lncB+FbzYgc5aqg6OBoxg/ZPXgQjYnQVobNVU26w+NlvLFPqwlbfiihN1Eq78pvbuDAfJP08KM/eiTOJwgtHk2+fD5dTZAs8hYBjNemYGJ/W+uBoOPuZrso9K+ZnF5Coy6xC32n+Vv73ou0/L5qA0BO3T0vRfax0hwj8goa19WEm3kNunZWyrin6AdyzBvwQYWUnp6xUhyDassY0E+EwilKT64LITMpEj5LCCHv9arVPs0POqO95QnuwNDgx61ZeA+oqL20C/oVhAqRggr9xoJ+I0eh8JwKjCwAm6kQJ7tg/wHde2Zvvz7qz/DhqXuvzp4WGdltKlJCmu2PSwQPtFqLsWcXbxqhXGSzSDQXB9GbKyzUjdu6cRdBOSncIWPsP//81kaaFswrn6Wruwsw0cNPRtF2Rno2cjLEgxMdSuJpxcYiMpkZGaOSe65qukKPFgx/U/a/VeZHe509R3xyjOJxIpVCdXxfqe8CrN7Xy5AZPUNN6II5I8BMxOKbhH37EsFGcVP/+JScfv8BuIlpw8I4vZHqR0qevlRvZwhgbmhYJmpKYuwVKyoa9KD4cGeZGmpVroDQ+mwfiqcU1JhFytafxFDo8FpP73YmN3QZeCP75VTWemQThOvJl
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(19092799006)(56012099003)(38350700014)(11063799006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oe+sQ+F+z5WvlFNcB/QnPfMZwYx4cnpcMKsm+ZGUx/wrHYO0RF/NPU+bWMuC?=
- =?us-ascii?Q?e/2DRb9K6Hht8DbMNhVmIWLEDc3VUyFgV4KyjAerKrFJVO4+JhRAqwneyrIB?=
- =?us-ascii?Q?HTPTIgHDcjOC1ul8ccCoEn72nVWYGY0ZQaOsdll8HIUPHx7N8szEXmru5j80?=
- =?us-ascii?Q?m0iVGp7KdCT9+wixzDZt9HziYKaGpFtw/tZQfM7M6DIakKEjkfr8D3ikVbqK?=
- =?us-ascii?Q?gRhqk22PdUH21CHMgr1ELj+C3m8WsGmh2VxdA5v+8wRA/Cai0uP7XiXIvG0F?=
- =?us-ascii?Q?ncKk7Aq/lNovFEHRH5ZBuNWjL1aJf8SWfssYNF2gDk71dY6BdokUq5mT+WdG?=
- =?us-ascii?Q?QHL1Z/bxkIMx5KBDJgLknMeeAS8I7FE9/YbRDg4/vN2iC3MRrKTVBN0IIPm1?=
- =?us-ascii?Q?+Y8HCUHVq49hOMaPlvQiOe3uMYCMmMysL0tGOoWesE2ZGn1fwJC4zkBxJ8il?=
- =?us-ascii?Q?O1vUX8ejS0CbKUdPeltudAybbmKYF7AqqpJZ8Q2bpSjmCQySIu0zKfbj0K2P?=
- =?us-ascii?Q?KI966sHjIV+sn/lEo2fTDg/lGT9YIUMQzwwaNXupVrvVN8rtixsWY0p8BAH5?=
- =?us-ascii?Q?6IfccHf4vgv7FHg6NfyWgdlS/3aBn7OqcaPGurmjMAqvqIQP00JAONppynyd?=
- =?us-ascii?Q?S3ZFAktR+2/zirV9vdXNz63nTn7MH3nhUQJtydiowktkHhXQRaPUYcRHASww?=
- =?us-ascii?Q?BLsYh3piQv3B/M/8dGCm6q6GKkBOvClwHhQmag+qeTtcPWhmyNnPwLf0EVlF?=
- =?us-ascii?Q?qSrXCilka54oMX3g+yIvGacZLZNs9e6Odyh+l0nHRKBHdqgnFb8o4SS7FyJW?=
- =?us-ascii?Q?mbvN3vv3TyfPfrfnaeN8IZjmtpCOtZppVOrS2ZklwnyA0FkHuMYBLMLsayQU?=
- =?us-ascii?Q?lWu8DB8sxy+8sIW8yKUzmO/h5s3dN/SZwTVqr10UQ0Rg/LGd/DeOLN5xIcDL?=
- =?us-ascii?Q?/aPQAlHSfzJaaGLNLZbK+8rWqyNqiEXfG1Ps/zzj9oGPBrKCRa9uhKLyeOGh?=
- =?us-ascii?Q?rAL0i8tE7CNehG1LKgtW2sKtS7klSycRziEeMmvVA0SdQLdpShlwn/VCFRui?=
- =?us-ascii?Q?NuTk1ZdmpOA4uQ5o/vkW6GBoMetMvyzB7aYbSSeG6u5TDix+SBoqOeWEtSvH?=
- =?us-ascii?Q?yQEsAnCe+fyaNQQKd7LyxcDfb7zvoN6q7mtfgBnR8mu+EB+pTfK5P/ICA6v+?=
- =?us-ascii?Q?zBGJI8RkanD7xJK73rlgdVkAcV1Fso9qfZ6BNNuh5oZX/scmhZkDZ9EJi8f2?=
- =?us-ascii?Q?mODZtukvBOh2jDRliHdwROJ/kt67TiNmNDRPXYfFh81i0a6QQKXN9bbmQ+lm?=
- =?us-ascii?Q?qBImC883q4ylqhU79L2Aeh+ueSM9vf5h6qhY63dMxDpF+2JZKfNUZFS6BxLl?=
- =?us-ascii?Q?wnW5og/qWfp6H8GkRrmn9PfcfTH7l6zdODqo1m8VPc0cJbA42VF2ZEZ8UfvD?=
- =?us-ascii?Q?vX9keX5E3YihtKbqoMoaXzKDkZp/+pulwqucyC1N5rL65pY3BhHRo448nEmE?=
- =?us-ascii?Q?Fdy/fh+sY/0gYLlbilvoOj0yLmkMoi+LMOtUaltVfOamK3RMo+nrVssHw5Y3?=
- =?us-ascii?Q?0U1dOtbHFkr4heJv3xlvB4K2ODUmKQZ1rr4UBg3qG4N7lpTq/RP97lr5relB?=
- =?us-ascii?Q?rHf71ecENpWEvadAbhn/8UZCfYb12D9if4XLcZvBMD0FqYLbzqYi/r/cljLs?=
- =?us-ascii?Q?a52KQz2Ii+H4sFxTwCpmM6awdr/qvm9v/ASZXzcNb2cmciDfRLmbt7nMW4A1?=
- =?us-ascii?Q?xk0NRgCYRg=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7152039a-ebdf-4c60-ec79-08deb8d87010
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2026 14:34:46.7913
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kEkBzEf91WuQK+uDXcI0g6+KziQCS+LY+H5RGukeuZPmu97nSV/mALD+lv1d6N8ZJR4bbjXJuE+zszz9KeUipg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12039
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_073455_966478_05EA7D7F 
-X-CRM114-Status: GOOD (  20.21  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
+ eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com, andre.przywara@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,53 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 23, 2026 at 06:27:05PM +0800, Felix Gu wrote:
-> for_each_child_of_node() holds a reference on the iterator node that
-> must be released on early return. imx1_pinctrl_dt_is_flat_functions()
-> has two early return paths inside the loop that skip this cleanup.
->
-> Replace both loops with the scoped variant so that the reference is
-> automatically dropped when the iterator goes out of scope.
->
-> Fixes: 63d2059cd665 ("pinctrl: imx1: Allow parsing DT without function nodes")
-> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
-> ---
+The ARMv8.2 based CPUs used in the A523 SoC (and derivatives)
+are missing the EL2 virtual timer interrupt. Add it.
 
-Thank you for fix it.
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Tested-by: Andre Przywara <andre.przywara@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+index 5afa8d92acbfb..d3c47966e8fc8 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+@@ -101,7 +101,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	soc {
+-- 
+2.47.3
 
->  drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> index b7bd4ef9c0db..4a6bdaefa42f 100644
-> --- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> +++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
-> @@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
->   */
->  static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
->  {
-> -	struct device_node *function_np;
-> -	struct device_node *pinctrl_np;
-> -
-> -	for_each_child_of_node(np, function_np) {
-> +	for_each_child_of_node_scoped(np, function_np) {
->  		if (of_property_present(function_np, "fsl,pins"))
->  			return true;
->
-> -		for_each_child_of_node(function_np, pinctrl_np) {
-> +		for_each_child_of_node_scoped(function_np, pinctrl_np) {
->  			if (of_property_present(pinctrl_np, "fsl,pins"))
->  				return false;
->  		}
->
-> ---
-> base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
-> change-id: 20260523-pinctrl-imx-b198f8391abf
->
-> Best regards,
-> --
-> Felix Gu <ustc.gu@gmail.com>
->
 
