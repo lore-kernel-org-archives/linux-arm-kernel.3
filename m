@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F39FCD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 09:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25EAECD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 09:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbX/u0YvILlswAD20c2Nb16wHxkRKuf6rWkIOztP9mg=; b=LD15WK4TUxg21F9O3E0U9aS3b6
-	EZvjf1FZoI+aKWLe5of2rFU9fihdE4lun7EGqUS8DKJNmdE8wfyS3wYisAzWqLuC06/HrviFw6jqd
-	dW7sIfxPmIHg20fsHZRWo6iWEUmHPYYlCbhC988CX5+H/pOQJUbKEsBYMoHSr24MvwjQCXkQ785os
-	vdqzmRB6WDrlAa4wY/8nercCzei6ert5KfOLXZj9ZsSe/aPcj/S62cwl3L5aTQxnkZdwHvpJEBoVF
-	QQHht0wCa0sRRBk2vN4UP8BMKEj/TDgwgx+Lrh5fOoZH2Vnb+OQdByyljApo8jsZ9KdldGFMCIwAU
-	3vArUo/g==;
+	bh=xfwHzHA2XUsT+8TtCjyDwFEfJ3aVEcB4nEfq8icciTc=; b=x12ltc0cYSakPR2583K10NVKhh
+	z/MjCMc+QRgDKpE/3psG0A0SKUP/9p6gG+YqpeIeSTM56C2fTsfUVT6c6+Od8xgzyUiQyg8x5G6u3
+	HhkbOSm/A0KjNqmiWGFSs5XS5+zlKiR2xubxzbEIJVpLHHbDLIMq5sibxm6C2Ru/bxQFA5ABjf4zP
+	T5w7oCZdTPBezEsDklVQuZTSiSnILRsRwVuwEVp3nKDru7aVO2TkwSqolspinhnx0OamV9/bckfO9
+	vZyLGFNv77PK1gJyDkfFa2jdPdoKB4PnwcyiIbXnodTZ6C/7/rkSZaVz7hszldUi1yZ4Pv3rTXuwl
+	T/OJ7kVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQiD2-0000000Cykz-2lve;
-	Sat, 23 May 2026 08:59:53 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQiGJ-0000000Cz3E-20f9;
+	Sat, 23 May 2026 09:03:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQiD1-0000000Cyks-0xvo
+	id 1wQiGG-0000000Cz2h-3Fui
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 08:59:51 +0000
+	Sat, 23 May 2026 09:03:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A36E6020C
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 08:59:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D381F00A3C
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 08:59:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A81F744531
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 09:03:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E5DF1F01562
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 09:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779526790;
-	bh=qbX/u0YvILlswAD20c2Nb16wHxkRKuf6rWkIOztP9mg=;
+	s=k20260515; t=1779526991;
+	bh=xfwHzHA2XUsT+8TtCjyDwFEfJ3aVEcB4nEfq8icciTc=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Sh97Pd4rC9Iw7hEt+aYcJxtxh3NCQBnvhR2MNf3CpOy+/pYI4LijnchZCBTUaGlEA
-	 t10izqgfqkncdc+rUWlHo8gaM98FryM/Uh3CgCpeR4+RymfjXRr3xlJzdndLG4cpCH
-	 3KECiAVgoq/PQcUmBMo0tYpoGq3wGSfjplf27AkrJ5kEXgcbBAOjt7uvI0+vvKUPbo
-	 XBuBbtc0Y4R1kv6BJ5eEnaq1qAcRxIDk5hGEUQrq4L+TfcIut9oxX/GbEn8s3hWVr9
-	 mIzyPN7yNmOXU8ZCGKiyWc5Lmn5/bkd30L4KBk2YgcffzgbiPAZuCfaxHNmaYRNd0U
-	 iDiiXyja5GkkQ==
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5a8d1f43432so13298897e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 01:59:49 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+65GEtmlk1b8bcnkBB0eDZq0dM1jyVXeoplBJN15QEzFUmW1a1fMrmE5CfwHBFqh9sKZJP0ACLsqAX9Pstn3Bc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZJ9+G7BoWzJ3C88yuh/6PktzcW+xC6nbWGj9Z/yMhqPVMp6ot
-	xA7X6u5RQ5Ahv8bddCffwvs2/SGM2FkHlv/GgUc7GLOMyxCPhQnLAmg6Wma+wsBj+rXhozxQG5b
-	ZFd+UQkUdK9whS++tVt2UdgwJS1/9LRI=
-X-Received: by 2002:a05:6512:10c5:b0:5a8:9756:f6b8 with SMTP id
- 2adb3069b0e04-5aa323cd97emr2082906e87.35.1779526788895; Sat, 23 May 2026
- 01:59:48 -0700 (PDT)
+	b=Pv+bdJyb2SZbYXqyk/FDdWCjJKz164AAxhBCDv3Ht1A+I2C5JfpTXXYRZ5NCRMqtS
+	 GYRzCBM4e4KhUZtkli3dknFjJdnLJYk017aofGIwyyi7N7gLHPUUnuhOSHzeZOyuYi
+	 db4GXBIQGlSzm/OMbAKMniy1tIBM3XILWl4+52Ps/gljOOjtOP540WIziC7rtkS+pp
+	 IWzkPv4pFCoBO/xVRpTdzcIz4/pEJsc0IzIWH3z8Z9pIS0PcI/QaHqszaXoC17Ya98
+	 DdxZehH+xtO/lu+6pie4M26ds7Wi95yCmxUM+38kdg4yMVrYVXUxlmby46YidNtqSz
+	 A9k7HJXRkrZrQ==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-5a858881ad2so10436306e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 02:03:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9TL5hUwGsP2PvF1JvOLjxJJHg3PNAUtarDlum/7Eob3eppedpa+Oz9OnmQ06/qieVVimLuoDZiKqyw/+xmJUy+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjMoszTbM69+0HBj9NYslTYhIm+RvX1RF/b82SzE4gipuo/SSS
+	eszVhfqvlTmqtikGUA517meA3dgN9k0tV/aP8MKoAfTbcIub9/jvmYUN/cp+htZk9qiCH4ONkIK
+	ujtuepqc2L1DBT4yeUtWNnwFbajDRMHg=
+X-Received: by 2002:a05:6512:2303:b0:5a1:b83:c7cf with SMTP id
+ 2adb3069b0e04-5aa323713f1mr2715311e87.25.1779526989899; Sat, 23 May 2026
+ 02:03:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260512060917.2096456-1-shubhrajyoti.datta@amd.com> <20260512060917.2096456-4-shubhrajyoti.datta@amd.com>
-In-Reply-To: <20260512060917.2096456-4-shubhrajyoti.datta@amd.com>
+References: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
+ <CAD++jLmXvnf6sSWsGe+++u37ONJpFFvxFMUkLdvvxiiaWuf9gQ@mail.gmail.com>
+ <agIwOYrKXlnKbpII@lizhi-Precision-Tower-5810> <CAD++jL=eqEaTcG7P=++Md7fqosmrGbRRPDb90+=Q4q8oQ=xqRA@mail.gmail.com>
+ <agNFaXbd_sMq5eAo@lizhi-Precision-Tower-5810>
+In-Reply-To: <agNFaXbd_sMq5eAo@lizhi-Precision-Tower-5810>
 From: Linus Walleij <linusw@kernel.org>
-Date: Sat, 23 May 2026 10:59:36 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=iCJpKirfc0GqUuKjrLjeEyWMvcmDx26+hTFtcYz0uPw@mail.gmail.com>
-X-Gm-Features: AVHnY4JF7lnezv7m1tQlOKAjlmVpjnjJD07jbsl29OKRAreK5EuKH4xjhiad3wk
-Message-ID: <CAD++jL=iCJpKirfc0GqUuKjrLjeEyWMvcmDx26+hTFtcYz0uPw@mail.gmail.com>
-Subject: Re: [PATCH v4 3/3] gpio: zynq: Add eio gpio support
-To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Cc: linux-kernel@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com, 
-	Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Sat, 23 May 2026 11:02:56 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=q2+ygUxPPAL7xgivFtMDWF+_0hfYYcXSdqLw65rZd0A@mail.gmail.com>
+X-Gm-Features: AVHnY4IVbnMCkexpYe7Hj6Yl5u62bH3gkmReeN1Qdk5zM4QytaZR9MQNjK9gv8A
+Message-ID: <CAD++jL=q2+ygUxPPAL7xgivFtMDWF+_0hfYYcXSdqLw65rZd0A@mail.gmail.com>
+Subject: Re: [PATCH v6 0/7] pinctrl: Add generic pinctrl for board-level mux chips
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peter Rosin <peda@axentia.se>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+	Conor Dooley <conor.dooley@microchip.com>, Ahmad Fatoum <a.fatoum@pengutronix.de>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260523_020312_840573_C284D022 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +91,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 12, 2026 at 8:09=E2=80=AFAM Shubhrajyoti Datta
-<shubhrajyoti.datta@amd.com> wrote:
-
-> Add support for the EIO GPIO controller found on
-> xa2ve3288 silicon.
+On Tue, May 12, 2026 at 5:21=E2=80=AFPM Frank Li <Frank.li@nxp.com> wrote:
+> On Mon, May 11, 2026 at 10:34:35PM +0200, Linus Walleij wrote:
+> > On Mon, May 11, 2026 at 9:38=E2=80=AFPM Frank Li <Frank.li@nxp.com> wro=
+te:
+> >
+> > > I fixed a build warning by missing doc 'np',
+> > > https://lore.kernel.org/imx/20260507152117.240612-1-Frank.Li@nxp.com/
+> > >
+> > > Anything need me to do futher?
+> >
+> > Sorry was busy!
+> >
+> > Applied this fixup on top of the branch and merged it into my
+> > devel branch for v7.2!
 >
-> The EIO GPIO block provides access to multiplexed I/O pins exposed
-> through the EIO interface. Only bank 0 and bank 1 are connected to
-> external MIO pins, with 26 GPIOs per bank (52 GPIOs total). This
-> change extends the Zynq GPIO driver to support the EIO GPIO
-> variant.
+> Sorry, I missed picked up fix patch during rebase.
 >
-> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+> https://lore.kernel.org/imx/20260512144806.22447-1-Frank.Li@nxp.com/T/#u
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Ooops I should have seen it.
+
+Applied it now!
 
 Yours,
 Linus Walleij
