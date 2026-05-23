@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8808CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 02:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6E5CD5BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 02:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WKrz7vc9STJ7Mp+8h8Ot/78gKtBGE55ZCaRuTUygMk=; b=uro2bAkv4DPZkS1dZD50vdfMeK
-	xhq3e44pJPYt7mIWmfvHDI8O1H0QL4ra39wt4GPf8fvr604Uiq8A+ru9otQgff1JxdSyN6vRGMllG
-	Rdzvh8x1tvFQF6c8kd0d66QPLuJ22XTz5qzOEVYzrVmGIK/J9doeJRDIKvNn2nFE8efR5orjrwtT+
-	sSgB/af/gBrE3TozNQeushJy+Ek8HxbangTtmEWqOLTQa16ZKYXjGzMGUoZ7oEgbKjqYxLjhRRQMz
-	E9iwFmfR5bxT3+JKJmtig1T03z1vlUwuEnCAcZ+HcSnHQEVKqBvpF5mWeajB+p/jkyzG6G+XDgCQQ
-	lDEDZrvQ==;
+	bh=E4HbN/Zm5NwpqBSXqKBpQ21+E30whduckc6SCmpCLzE=; b=t7kn5KuwWNni0dAydH9WxT9kTb
+	aOZ3ihU3PRD/aG4nDHKQz0Q8aYybBbFChW8SqsORqXu8749KGkyXjg8IarcBxmQWnpC2dZgTa0hae
+	hNlZ+uQjYZNxmdS6DMx/Tj/KJ2pRj4NBeFNMFGe57MtXTLEHyubQ3h912QjWFvEEOxWGl5PAZgrgC
+	R1Jg6q7VJnCIhx5vA+tljwkGgDOBtmHKr5wGtjWkuAHpMYc2gEF9gZ18bjIMIhZlgaBnjheih48Yl
+	nJJ0pKlojRpz0l0YLE0XPAqmZGow3VQDI88aAi/ZZJjjY3LSwu0Q8KwhS34v+588CJdGizaBX0Hk7
+	b5B1qQRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQbgB-0000000CUau-3Y5u;
-	Sat, 23 May 2026 02:01:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wQbgf-0000000CUgG-0T3w;
+	Sat, 23 May 2026 02:02:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQbg9-0000000CUaC-0H44
+	id 1wQbge-0000000CUg1-1fCs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 02:01:30 +0000
+	Sat, 23 May 2026 02:02:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2051434B4;
-	Sat, 23 May 2026 02:01:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C4121F000E9;
-	Sat, 23 May 2026 02:01:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8722860136;
+	Sat, 23 May 2026 02:01:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B4871F000E9;
+	Sat, 23 May 2026 02:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779501687;
-	bh=6WKrz7vc9STJ7Mp+8h8Ot/78gKtBGE55ZCaRuTUygMk=;
+	s=k20260515; t=1779501719;
+	bh=E4HbN/Zm5NwpqBSXqKBpQ21+E30whduckc6SCmpCLzE=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=Lu8qzSzUR56qKtBo5J5tVbOBq2fLHEbGuJvGbwBYT7tma9sadRmPhQLEQLdia87v3
-	 Bc2kr0+HlGhfMIdGrUcPDem8YTZTZUcNi+q0hrcxFNA0E3aW6KvhCNgwDr4xu8cp1w
-	 j6meQHhvKD9l1sReRcGE1ZFiaRlRIznR+XML7oZHwPQj89+0MuWxYSkhvRm6T7B492
-	 Ed+kM7H9ritAuVwKmFMZwnAi54HaH+1MYEUSPIK0R26n+3sSRXfehqcRv/lz4bdQfE
-	 dKli06o6ymyCJR9BA5Pho/QY1PLMDRodszvdZYDdUuyI5cUygwjcYycC94JvaBE1g7
-	 aun38acPBJhFA==
-Date: Fri, 22 May 2026 19:01:26 -0700
+	b=POFxUF9RQV3lNgBwJeeqntDwAJP08HxOSPylrRoqiYNK43RreGrQrodnBjYfiBhNL
+	 piYXxG4wkS1rzlvMMdw2qVZM7v69CuwPKxwzPY8ZIuBxQKDtM1+ftMIKv7Rv0mXMSM
+	 yV4PRg9Hy2+aHfqdwUJvBaJ/kbThv89i5CxrEIhMRJUoF2t1VmOmFp5Zkf1PTucDPQ
+	 06LXn2DOsuki8zM7AFa50FXCmPAQInkrVi5sMaVDwpusYr439aSLgUwcrmJRqTVmrm
+	 6fh8gSrdtn+yYoTGm21A9nKTO7T9zFdzgnWDfSjRD22cvrNDvxOlw2igZ2eP/oguFV
+	 9OLL7cruxqLIw==
+Date: Fri, 22 May 2026 19:01:57 -0700
 From: Jakub Kicinski <kuba@kernel.org>
 To: Daniel Machon <daniel.machon@microchip.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
@@ -57,18 +57,15 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <mohsin.bashr@gmail.com>, <netdev@vger.kernel.org>,
  <linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>,
  <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH net-next v5 11/13] net: lan966x: add PCIe FDMA XDP
- support
-Message-ID: <20260522190126.0f2d6587@kernel.org>
-In-Reply-To: <20260520-lan966x-pci-fdma-v5-11-ca56197ae05b@microchip.com>
+Subject: Re: [PATCH net-next v5 12/13] misc: lan966x-pci: dts: extend cpu
+ reg to cover PCIE DBI space
+Message-ID: <20260522190157.02e1e3ff@kernel.org>
+In-Reply-To: <20260520-lan966x-pci-fdma-v5-12-ca56197ae05b@microchip.com>
 References: <20260520-lan966x-pci-fdma-v5-0-ca56197ae05b@microchip.com>
-	<20260520-lan966x-pci-fdma-v5-11-ca56197ae05b@microchip.com>
+	<20260520-lan966x-pci-fdma-v5-12-ca56197ae05b@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_190129_132261_B7D4367E 
-X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +80,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 May 2026 10:12:23 +0200 Daniel Machon wrote:
->  #if IS_ENABLED(CONFIG_MCHP_LAN966X_PCI)
->  extern const struct lan966x_fdma_ops lan966x_fdma_pci_ops;
-> +
-> +static inline bool lan966x_is_pci(struct lan966x *lan966x)
-> +{
-> +	return lan966x->ops == &lan966x_fdma_pci_ops;
+On Wed, 20 May 2026 10:12:24 +0200 Daniel Machon wrote:
+> The ATU outbound windows used by the FDMA engine are programmed through
+> registers at offset 0x400000+, which falls outside the current cpu reg
+> mapping. Extend the cpu reg size from 0x100000 (1MB) to 0x800000 (8MB)
+> to cover the full PCIE DBI and iATU register space.
 
-	return IS_ENABLED(CONFIG_MCHP_LAN966X_PCI) && 
-		lan966x->ops == &lan966x_fdma_pci_ops;
-
-compiler will eliminate the reference to the ops as dead code
-and linker will not complain that its object is missing.
-
-> +}
-> +#else
-> +static inline bool lan966x_is_pci(struct lan966x *lan966x)
-> +{
-> +	return false;
-> +}
->  #endif
->  
->  int lan966x_lag_port_join(struct lan966x_port *port,
-> diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c b/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c
-> index 9ee61db8690b..b470f731e25c 100644
-> --- a/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c
-> +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_xdp.c
-> @@ -24,6 +24,16 @@ static int lan966x_xdp_setup(struct net_device *dev, struct netdev_bpf *xdp)
->  	old_prog = xchg(&port->xdp_prog, xdp->prog);
->  	new_xdp = lan966x_xdp_present(lan966x);
->  
-> +	/* PCIe FDMA uses contiguous buffers, so no page_pool reload
-> +	 * is needed. Drain NAPI before freeing the old program so
-> +	 * no in-flight poll holds a stale pointer.
-> +	 */
-
-Not sure what this does. BPF programs are under RCU, they are not
-immediately freed (if that's that you mean..)
-
-> +	if (lan966x_is_pci(lan966x)) {
-> +		if (old_prog)
-> +			napi_synchronize(&lan966x->napi);
-> +		goto out;
-> +	}
+Are we supposed to take these to net-next ?
 
