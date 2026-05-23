@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9735DCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 12:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 289C3CD5BAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 12:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8wpphr3zABAARr+Xe3rZOUncnYSZS0BnTX9QeRFwgyw=; b=YFuVAr17JHCw6uXBDg+JZbETPt
-	dkzPK/161snv/94JpS8yBUaHPWrKydbqZ6XvpZPq6/vE10phdecMLGcGWhkB05vIvaLYw0PFdHDEl
-	snN5LYKInJbfK0IPRaLptXFav4Uo2lehWN5KUrpNffmAlqqC2QT5CImCOAAJMrJTwu5guamiHjp0o
-	94nqekfGEPcLsC7RsL8mBkjzT4IHCcDZTwdtzGxZr4Zysxt1tHuQndBDCM5Wy0LuXPaS1rH9AkkBS
-	adNrC1MeLxfIc8V5+ye2CjNMBNK464ESbmBifDwXQo9aZQSyUw55PK++4OBDaHQi9oRkq3R/W6/nQ
-	pjjHZ8yg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DK7qqqpT4fnZlS3XGu6aIqnYT1MOPYfSV+g6L0GEpFY=; b=o9AePiM/fcRCsAam+t4MAmic1T
+	OSbANAti6Xy0xKIqBaVtm/WanJtNXFufMesfhIFvRl6i5sB/fZ1AwXdfFXWBzf0eTczCtP0la+kOU
+	ZOBp3U0oYEJ3Ol0DAUtxO2UQNvF/wvvW8VMzEFWlLKDO0ihn7WA+uiIvwl+wevYzO2EPLKOk0vstJ
+	OKkQFdQ7KlRVyieWLzYymZ93Udp58WOVA3yTq0M0wx2H3v4WqSY8TXt37WsXg9Po9vTwttsZvhoQy
+	TRkULwjLKOjNfcwnMEsD51Ggzldq/hMFzTsJQg+u/T7fgplaLPeAioqwBDtbowTPtLjBdDz2mDcTt
+	Nn8SffhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQlCn-0000000DCcr-0qxs;
-	Sat, 23 May 2026 12:11:49 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1wQlGa-0000000DCwk-2iLv;
+	Sat, 23 May 2026 12:15:44 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQlCk-0000000DCcM-2C73
+	id 1wQlGY-0000000DCvi-0Ahl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 12:11:47 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c80167f56cdso3703794a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 05:11:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779538305; cv=none;
-        d=google.com; s=arc-20240605;
-        b=eLjN7Kj1Z3BW2lOc1d6ll5C887/gBzaxQ+DC/x9w7XSHsmbkruEfOQTEGOBLWzsOZZ
-         iG0bxZnQ2q89jxDNMR6G1rCYaakwDm1y4AzjBoW2sphmpkkfa0D+yPVktPSQr13XvTWA
-         IwlIzWDG89116KwLZFA7fzGYV9R28mjwR3qVl9cOxG30SnB4EGjcWWqIsxozEn8X81rE
-         HrhgHGhsQp4xZ5z7EopHEEqQzDgyCMkfKpNTErNaerl37R4f8Xu79wqWgOmYW2yTGErT
-         jH4iRp7A0nYndTkfMM5edATazS9P+SJ9u5jAEk21mh+df4Br7CgHIb6Na0cGjMNdxwm5
-         CpQA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=8wpphr3zABAARr+Xe3rZOUncnYSZS0BnTX9QeRFwgyw=;
-        fh=sSUDOs5quVkyEHSYNQ4W15QZUdnSbussyvlp4fySwVc=;
-        b=N2wSn5fN4rT4OzF4+gAFHq3ZucMTATm+gr2ec4Lctd4Mjjnvdc88EjaN1q0cvmAarU
-         hINRWfeKgz3RVHjcDY0uXs9F9bmB23pnvSu2ZH4wSQGkCxsSxMncu+5Nfto/f50I7OQv
-         RxUKjoSmGCHv+0V/W9DsHQ4HZ3TSCvdDScPDY0OHeKp/gKdjhazEfTCHwcfz07KfM4r+
-         pLgM16tIn3DoAh+WqeaxPyrsYDZGMc+4+pD2DjH4UpNmfrUNCqm33Zt0oq4qS8+e3sT3
-         CN0wGFFE1xkS4v8aF2eZiUrkSKG+2lXWOLKkKVIG5GyoZvPJTXg2sQEOR8HlIAAwI1B6
-         sSBg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Sat, 23 May 2026 12:15:43 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2be1dd4af34so68700825ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 05:15:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779538305; x=1780143105; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8wpphr3zABAARr+Xe3rZOUncnYSZS0BnTX9QeRFwgyw=;
-        b=UFlLpNS9JT7JjbRB8UYLZri4MmfblSdmG+/rblFIt954iRCDTJS+6omhM93tQTP8Q/
-         q6yhDkiQz15q7mplndfFvXRWHZ5JMAvzjJv7JtHe/4c2Hr5EOkLgMGqlMn99GgbTVrcY
-         SVDpSv7gctwTJt+kQUsASh4UKJzFheaHuzlSjzMHQZkqJRAW3NYKO650DpvpeCu284b5
-         AgE+FkfUW5rNWlYiMCpQPZ4f42qLXDXAm73FDpBDO0W1zWiuafblhepihadDoEtIKdIF
-         tjwWk9ixRZv04zE8omutlIicb1pl/RoM2PXpriRq3rSl3bR0qYSqsjDEY47I7WEfjrQA
-         mhUg==
+        d=gmail.com; s=20251104; t=1779538541; x=1780143341; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DK7qqqpT4fnZlS3XGu6aIqnYT1MOPYfSV+g6L0GEpFY=;
+        b=RwziMe8e7D2towCSw6xmjNJvYKYAz76lyMamtjkM3gflKt5dOdbFSXl7UoYFbeDgcp
+         Nx+nYfXhkGuihjwvbzHaqSdw5+rzs2pw//rL0WUre/QHzvHG/2aWJmO6inWKXBDJRwen
+         oo8NyLPhnmHTrOuUXja57KrjQQD3t6TD7g6Q2xMYFlOG380pyKYiN9ZLOoA0KlU4fauu
+         YsMLj0HH7e7+uDFhoCiw0GxqKS1lZQBIE0hcBU6K2KQq6sRTCvyEQ3aKGGxpzaAqf7r9
+         b8wE8Stkm61qW/GLEsv+fbZQelIznj6XOx/lEas6y0STpNfjhCuOx5yDfXaYdvK1DUqU
+         RVDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779538305; x=1780143105;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8wpphr3zABAARr+Xe3rZOUncnYSZS0BnTX9QeRFwgyw=;
-        b=FlBT5lwcr+Mr7/IJROyQwJztt6KdIoFpTDTo0WNVGZMK9hgCHztm9Zpx0VWogiQI02
-         IzJGhIYyhVaOLs3K9tXA8a3vkOTTiYwjwsrjKWdY4GcDqGSQOl7gdgs5Jmwl38Yaw5bd
-         CbrxfuLBjuRq8knYQHr4JUlrOhnqDIYL7vJ1VZd4YW/qVAPzJ5lVCi45kP/DmxsofVf9
-         ZW9CIEVXIvQthkpJvkbj5OJoKsC/t26vVvrjMc79zg61TGiIPQI0cZcjEhqgXx6inlgu
-         +hPWYY5nXoPNHZm/Vcltne49h7MJqwD64wE6RUXujcSUT0LtifngDOPWPml5Vq0xiCd8
-         fJmw==
-X-Forwarded-Encrypted: i=1; AFNElJ92ejnP4lfYIhp9esOiDQrkz9kFJ4szFw9dzIt/cMiLKZsA8ASjCwIJwbyJnDW4YreGB3mlpnqlb7jH6Zq4T7je@lists.infradead.org
-X-Gm-Message-State: AOJu0YwInmHPCjvZnUgrTSOrphD9ZNDcXRjgnHXFN4CUse/OtAsUymPN
-	SrJvm88WMzw8v3+dUxXBbtcfkdmTYvD2zupupHS1csOXMyVT2IZXVnBKPrpANAYqQTvY0BuCiYL
-	74lBVmFJZl8E+tUqGS/MxJZE5iaigaA0=
-X-Gm-Gg: Acq92OHS5Nv7GBXT4Ci5AzZQLgKWkZKAoUX33MyXv4F6XJerowgkI2RkE0pWDXSNjtp
-	ngmFKoCed/orENOb7WWiD9tPFiy+DYy2Ut0aDXNAYXjsMg667bI1pmCb4XFgqsWKcB+9FgbHlzm
-	V9np7Wjq+Iu9vp/qL6Yh1wqQbsGsByAAvjNkqpfBK+CatqVtLpE8RmBJ7DzeM0U+dYOFwLhsIWQ
-	Y8OAgKZ0WI6FkBqrm/XMHG0k2VN626tWY3Fh7FlJ7Ue73E4iIqLaJlJuHfZx8gwKUDTfJoxczFk
-	vzazS5IZtVayrDY6rJPvVaHhOttWNUlgZ/dwQcq3g7utDHmEN3pbEoyTH1kTaW6CvCSo2JF6
-X-Received: by 2002:a05:6a00:430d:b0:838:af72:fb1f with SMTP id
- d2e1a72fcca58-8415f0e43d6mr7637408b3a.2.1779538305135; Sat, 23 May 2026
- 05:11:45 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779538541; x=1780143341;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DK7qqqpT4fnZlS3XGu6aIqnYT1MOPYfSV+g6L0GEpFY=;
+        b=dj6tyU9xb6uXlatTA2RUQlLu9J3qdW3M12U9dW3Mio+CTVzPWBstXu1mZvzj1Iy0Ea
+         8uOyEh3lteb8DdalZyS2aSCJrq8s+ZyLkqRrgnfcJiaEVxn9fSzPOUw1KNlkSJ4zEHMD
+         SgFUXwfU24bqZG4KINTha4wYLR7PTDI9IqUS61UqOmQ1wt9xLfAEfvFMtGGGl+SToDYK
+         jGp3A9pUvjTXmUrdKyBlhK3OdwRBnw4UH2pX5kvhLv++ZNrWGRRTXCPvfYh1aqP5/c1i
+         a+0sjWt7sAvvH3xUv0EuQjSEeChbneaKf6WeLL3Jomjjff82epwYgQLtV4vdzE4LHP5v
+         zcHw==
+X-Forwarded-Encrypted: i=1; AFNElJ9+EiOajg0/97w9RU+YQckaNo5WBczFBkb5wRW1lnxF5sQWhcM4RVABe3/+uVgrefxnd3sYHdeOiTsd9QvQHUiA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7PaN0/Iq3mDYI1j4UAQ3tVcJfiXQjYKUFyRnEOXh/ezBXDssN
+	TuygH631fasmRZ0L1owb2isgEmC6MwzZWtwKsc0dwGWoX0KhfEsX1R4x
+X-Gm-Gg: Acq92OHn62vstW43/ejnoa2R+dmqEXRnwqc3SZUloLj068wueB8KxDDVUPVHFYQVzGb
+	9wourZHQ/iMet0LpxbBO9lEyuacItmBM6YTVi2UoCWED/ed0HjXZhLqIUUgyhg2Zpo9iTnbWIfk
+	jQcd40TpMUvjisJcWfJRTR1eBqnbbmG/nrKUaVh+U+HHChX7GoBQABxWFo4onoyLELWFim9Va7g
+	5GM65mSVW4rRBJ4gsp8tR09ZmeFFscWIZvZTFJi3hNDLufHDE8OG5gK87M4imJq2/3N+795d0JR
+	5dqkxdWuKNcH38MD7AvMj5kJUnkDAwwZ4/0rQLpaG/8sgSFoFWv0l0y6A7uJSPyHlrMB8Js3BVk
+	xAG9B4KNycoZbmwCXVpwa16qhJ1jtT57rZnPqzd9Xf6Q9bdSxxukBDDHPs1Xw2MQr4cfDAFhruB
+	4rtVFc/oEbXueYOBT9E4T9z6Mu
+X-Received: by 2002:a17:903:388c:b0:2bc:a577:70c2 with SMTP id d9443c01a7336-2beb06292f1mr83238405ad.31.1779538540585;
+        Sat, 23 May 2026 05:15:40 -0700 (PDT)
+Received: from mincom1 ([125.149.177.227])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb56ce4easm41746305ad.30.2026.05.23.05.15.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 23 May 2026 05:15:40 -0700 (PDT)
+From: Jihong Min <hurryman2212@gmail.com>
+To: Christian Marangi <ansuelsmth@gmail.com>,
+	Antoine Tenart <atenart@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Steffen Klassert <steffen.klassert@secunet.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Jihong Min <hurryman2212@gmail.com>
+Subject: [PATCH 0/3] Add packet-mode ESP offload for Airoha/EIP93
+Date: Sat, 23 May 2026 21:15:19 +0900
+Message-ID: <20260523121522.3023992-1-hurryman2212@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-References: <20260522095401.72915-1-phucduc.bui@gmail.com> <20260522095401.72915-4-phucduc.bui@gmail.com>
- <CAGb2v67aXgg8BmrtVVBi+_n32OBcQnQgEUe3XdRp6Jj=aEr8fg@mail.gmail.com>
-In-Reply-To: <CAGb2v67aXgg8BmrtVVBi+_n32OBcQnQgEUe3XdRp6Jj=aEr8fg@mail.gmail.com>
-From: Bui Duc Phuc <phucduc.bui@gmail.com>
-Date: Sat, 23 May 2026 19:11:33 +0700
-X-Gm-Features: AVHnY4LgJLcY1WKuBCvFOXhD53DeqFEBktLQO4t2Ke2wkQ_NwOIr1on75a8Arx8
-Message-ID: <CAABR9nEFGOX5GnQ9qpJY-T-92dA_kDcVS+qBz1ior590G_x6gw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] ASoC: sunxi: sun4i-spdif: Reorder clock enable sequence
-To: wens@kernel.org
-Cc: broonie@kernel.org, codekipper@gmail.com, jernej.skrabec@gmail.com, 
-	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, nichen@iscas.ac.cn, perex@perex.cz, 
-	samuel@sholland.org, tiwai@suse.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_051146_571270_6B4D5396 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20260523_051542_085416_578D7138 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,50 +109,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-yu,
+This series adds the missing plumbing for ESP offload engines that
+operate on whole ESP packets instead of only exposing AES/HMAC through
+the crypto API AEAD interface.
 
-Thanks for your feedback
+The normal ESP software path can already call into accelerated AEAD
+algorithms, but packet-mode engines such as EIP93 can also generate and
+consume ESP packet framing: padding, pad length, next header and ICV.
+That needs a slightly different XFRM offload contract so the netdev
+driver can hand the skb to a packet backend rather than trying to make
+hardware fit the software trailer layout.
 
-On Sat, May 23, 2026 at 2:20=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrot=
-e:
-> > Enable the APB bus clock before the SPDIF module clock
-> > during runtime resume, as register accesses depend on the
-> > bus clock being enabled first.
->
-> That does not even matter here. Access will only happen once the runtime
-> PM callbacks return.
->
+Patch 1 extends the ESP offload infrastructure for packet engines while
+preserving the existing behavior for drivers that do not opt in.
+Patch 2 exposes an EIP93 ESP packet backend for encapsulation and
+decapsulation.
+Patch 3 wires Airoha Ethernet GDM netdevs and DSA user ports to that
+backend through xfrmdev_ops. ESP GSO and ESP TX checksum offload remain
+disabled.
 
-I understand your point that =E2=81=A0sun4i-spdif=E2=81=A0 doesn't immediat=
-ely access
-registers within the current =E2=81=A0runtime_resume=E2=81=A0 path, so the =
-order might
-not trigger a failure right now.
+Runtime testing was done on a Gemtek W1700K2 running OpenWrt with the
+same changes applied on top of a 6.18.31-based kernel.
 
-However, if we look at the peer driver for the same Sunxi SoC family,
-=E2=81=A0sun4i-i2s.c=E2=81=A0:
-Links:
-https://elixir.bootlin.com/linux/v7.0-rc5/source/sound/soc/sunxi/sun4i-i2s.=
-c#L1296
-In =E2=81=A0sun4i_i2s_runtime_resume()=E2=81=A0, the sequence is strictly e=
-nforced as:
+Test parameters:
 
-1. Enable bus clock
-2. Access and restore/sync I2S registers
-3. Enable module clock
+  - Static IPv4 transport-mode XFRM SAs between the AP and host.
+  - ESP transform: auth hmac(sha1), enc cbc(aes) with a 128-bit AES key.
+  - iperf3 TCP test, AP as client and host as server:
+        iperf3 -c <host_ip> -P 4 -t 10
+  - The host always used normal Linux XFRM software processing.
+  - With AP ESP offload disabled, the AP also used the Linux XFRM
+    software path; in this setup, EIP93-backed AEAD crypto was still
+    available to that path.
 
-Since both IP blocks belong to the same Sunxi platform and share similar
-bus/module clock relationships, shouldn't we maintain architectural
-consistency across these drivers?
+Network-relevant test setup:
 
-Enforcing the "bus clock before module clock" order keeps the dependency
-ordering aligned with the actual hardware roles, where the bus clock is
-required for register access while the module clock drives the functional
-audio path.
+  - AP: Gemtek W1700K2, Airoha AN7581/EN7581, 4x Arm Cortex-A53 at
+    1.4 GHz, 2 GiB RAM, airoha_eth wan (GDM2) netdev, 10Gb/s full-duplex,
+    MTU 9200, EIP93 crypto and IPsec packet engine present.
+  - Host: AMD Ryzen 9 9950X3D, 16 cores/32 threads, Open vSwitch,
+    MTU 9978, backed by a ConnectX-6 Dx 10Gb/s full-duplex link.
 
-Wouldn't keeping this order also make the runtime PM behavior more
-consistent and easier to follow across the Sunxi audio drivers?
+AP to host iperf3 result:
 
-Best Regards,
-Phuc
+  AP offload      Sender          Receiver        Retransmits
+  on              918.2 Mbit/s    913.6 Mbit/s    0
+  off             782.4 Mbit/s    778.6 Mbit/s    3569
+
+This is a 17.3% receiver-side throughput improvement for the AP TX ESP
+path in this setup, with retransmits eliminated in the offloaded run.
+
+Jihong Min (3):
+  xfrm: extend ESP offload infrastructure for packet engines
+  crypto: inside-secure: add EIP93 ESP packet backend
+  net: airoha: add EIP93-backed ESP XFRM offload
+
+ MAINTAINERS                                   |    1 +
+ drivers/crypto/inside-secure/eip93/Kconfig    |   10 +
+ drivers/crypto/inside-secure/eip93/Makefile   |    1 +
+ .../crypto/inside-secure/eip93/eip93-ipsec.c  | 1413 ++++++++++++++++
+ .../crypto/inside-secure/eip93/eip93-main.c   |   69 +-
+ .../crypto/inside-secure/eip93/eip93-main.h   |   38 +-
+ drivers/net/ethernet/airoha/Kconfig           |   11 +
+ drivers/net/ethernet/airoha/Makefile          |    1 +
+ drivers/net/ethernet/airoha/airoha_eth.c      |   51 +-
+ drivers/net/ethernet/airoha/airoha_eth.h      |   69 +
+ drivers/net/ethernet/airoha/airoha_xfrm.c     | 1474 +++++++++++++++++
+ include/crypto/eip93-ipsec.h                  |  132 ++
+ include/linux/netdevice.h                     |    3 +
+ include/net/xfrm.h                            |    8 +-
+ net/ipv4/esp4.c                               |    6 +-
+ net/ipv4/esp4_offload.c                       |   29 +-
+ net/ipv6/esp6.c                               |    6 +-
+ net/ipv6/esp6_offload.c                       |   29 +-
+ 18 files changed, 3324 insertions(+), 27 deletions(-)
+ create mode 100644 drivers/crypto/inside-secure/eip93/eip93-ipsec.c
+ create mode 100644 drivers/net/ethernet/airoha/airoha_xfrm.c
+ create mode 100644 include/crypto/eip93-ipsec.h
+
+-- 
+2.53.0
 
