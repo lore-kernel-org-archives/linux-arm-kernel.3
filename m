@@ -4,106 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BE9CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 08:27:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F39FCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 09:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SIHtSod+ud/i1BaxCd3bU1q+Iaraa0atqJHPQ1kK6FA=; b=PTdDSxj2PUc2AicocEycC9berS
-	klo9yHrPdryKiQ8HpWg6jjqj2z3tck0reyvtNM/aEPQS7fwUbk90KrrlZxvay+dIyXCXHl2C+F594
-	+z5ajFyE/BWYuuP4wqx4H9a0u5nEzmZlHUYsDlc6mJVTG1FbI+BFaWOgMS+svmT1DyVaFPd9C9WAH
-	1IVIvg6E36xeqNDnN2O//Mi/VBHYct3sHWrpDUxifXjPQ0IK0s3zOqQGSAUgERBnJu2N9CKE99XEd
-	M8VFruu54NwHSHim8QnNXY/HSgsW5hTSRTX8h2vvz4ne7n5IPeZObGnKBtz4UiuH7fHCjUnvDwz4J
-	5i80pD5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qbX/u0YvILlswAD20c2Nb16wHxkRKuf6rWkIOztP9mg=; b=LD15WK4TUxg21F9O3E0U9aS3b6
+	EZvjf1FZoI+aKWLe5of2rFU9fihdE4lun7EGqUS8DKJNmdE8wfyS3wYisAzWqLuC06/HrviFw6jqd
+	dW7sIfxPmIHg20fsHZRWo6iWEUmHPYYlCbhC988CX5+H/pOQJUbKEsBYMoHSr24MvwjQCXkQ785os
+	vdqzmRB6WDrlAa4wY/8nercCzei6ert5KfOLXZj9ZsSe/aPcj/S62cwl3L5aTQxnkZdwHvpJEBoVF
+	QQHht0wCa0sRRBk2vN4UP8BMKEj/TDgwgx+Lrh5fOoZH2Vnb+OQdByyljApo8jsZ9KdldGFMCIwAU
+	3vArUo/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQhh7-0000000CwFq-24il;
-	Sat, 23 May 2026 08:26:53 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1wQiD2-0000000Cykz-2lve;
+	Sat, 23 May 2026 08:59:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQhh4-0000000CwFF-1MD5
+	id 1wQiD1-0000000Cyks-0xvo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 08:26:52 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-48e8132c6d0so51216945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 01:26:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779524808; cv=none;
-        d=google.com; s=arc-20240605;
-        b=jMC1j56ezmbYYFF/NHHGZsAKUwFUQsThuMUH/NzSJsGeIU31ObsNCx3Fq1NuZJttnW
-         1EPDTlFdv7E7Em1nz6StIW4zBGyWgep3Xp/71DVfI4xy09ygnCXyzaYdo0Gacju/Efwn
-         kJbCHWqxK6IeViyVBE50Ow4lGTuhh6jB9Kytk+lnvAHklPbySMcqqJApl9zN34gDqPrR
-         gVHtb5KE6o+AJc+GcEJWxz59kRtdhiv1AJZJiOq8oq1SK/VAbZ9XZpGvDdszkltqGyof
-         SkfHQYFuVKU84y/pcXu/lRRm/A/yAVuZaE3TeX4E4ibb5Q3AmPE0JEXvG3Lv/v9cEI7h
-         8BZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=SIHtSod+ud/i1BaxCd3bU1q+Iaraa0atqJHPQ1kK6FA=;
-        fh=mcN+mWdAwtI80xcQpXnfDOgYI8iQSPHtRbR2awW6yWo=;
-        b=AsK3yNx31L/ds5xxfsbRrTJBoYwO9JXUsIHRCjlU9XG5m96LG+ns5ekeN2kRi+jAFT
-         4AGA+nBF2UBg0AO9OY+NSSf90Z+gcSDY7fb/qm8br0rzmmKDwazMkDWjrAEOB5GSlnJK
-         3/yF6AzegVhCY62b4/VwZV1Zomjc+pgjUarNGa7ujBPGD27MUDvjyhcKb51xXlVE0GWQ
-         X2b7NF0HDcs4rdi/wsRdOOyLsaoDhJlnOsKhDobDuvKhqy+v8vQgPtMry1y/22KY0UTB
-         ga9Te28gMgodiMnOuNfYeDlkuBUndT8UGsoRmxnjFqpKNVKWoU32ERwB3EoPPnYV40hU
-         h01A==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779524808; x=1780129608; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=SIHtSod+ud/i1BaxCd3bU1q+Iaraa0atqJHPQ1kK6FA=;
-        b=EL5jC1oSfJPl10GD7XnVql0E8dE1pARYufVFN4kIz3Jcxdczi2lKhIiCy/oT0DtAPx
-         r1I5332fp5gtEjVfcZyV7xJiT0+m75flG9hF8nvC0KBUG9jPLY3jiDWHH451S1y4U8A6
-         uO1xi5ilDIU9KUrINN3r0x52HAYafXM1Dqyqz5dRmhYBuUOE4Bpv3KP9Zi5VmYZR4OzF
-         XNR2ay74+41dFAFfidy1R5bScfCiShOsEIMfCOmrOrqsyXvdS2TYQO6djP4kt5j7tb4R
-         Q69DdK+qRTs9f5jhNOn5XURaZRUr/h2xUIdEptUW0zvtaQABkPHp3SRFILHbI4VQF8/y
-         PfGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779524808; x=1780129608;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SIHtSod+ud/i1BaxCd3bU1q+Iaraa0atqJHPQ1kK6FA=;
-        b=gfutE6QGy4IATQXXh1sO0b7pB08B9Zw8iou2TfGoZ8BBBYFOlIvp3MMVJxw3bMkP1E
-         GRTKFFDZGE8RRU/ub9GjKm3njxv+OupxackHwdKw/QB/hnfyZx3QBX+MgT+dV1kaRRYq
-         Tr6AevzqmaYt017xHhBs8RDF725NTP7hTY6w9bPGwQoTtzqPatcBtzapADo4q17ZTiqe
-         d8Z6D/Rv1mD/t/uJ7Apviszz+dCfn8pW0qEulWRw+uU9txc5Eb8orFOcknOmMvmLmfhw
-         pqSi895j1oiuCLG/ki4PmygSGoxLFpxWl9u/8Cx4RB5WKaiU9MF/JBeKmerLg28q1w6W
-         WmdA==
-X-Forwarded-Encrypted: i=1; AFNElJ/ptZ9IAnXA0Jg2tN1e8Ahwm3CYrMmeV+XwidKiEheXmb3WcKO97K3uGJzjz8MceNiydTjbuLNvJMbGiLGxd9YQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhuS9Oy+RzN+d1TdZ7q+yknfVI+0sVyDp9a0QKODoLzfgey3xB
-	TO9rDEW8nMtgtaGMJKrgCDhc/diZ/CPpk4zCVBze2n+9HvuCNvuIjHUcpORTkkh57dvxsSf8key
-	fz/9GHgYQNK1umgyRpsFzP0xBU6qk8Zg=
-X-Gm-Gg: Acq92OHSk1c/BurRaDNsRIDm6qxY2KmL0YLISVXgCEsKF+owNq7Kwdf4SQOYqiFxR68
-	G1P5WFdkVlSqlBFdAZpoAiJz/k8ZU/pZo83awjgZsJU37yeYG8OjCjn2GFtdDWDlVC22Wcu9kC9
-	yk/yuEKixChSO9830qLJpkXnt914V5juCLawhNagqzrCdadJu3QVJZ12sg/y9KiaEeVGk67279C
-	OIQb/zlK1Et6hqefsrGB+4WYOxMw0LQ6lVzRX7rVrk506HJnYXsL6b0kEHXhFntNblCfM12xodm
-	MypzTIE6
-X-Received: by 2002:a05:600c:5488:b0:490:47e0:e13f with SMTP id
- 5b1f17b1804b1-49047e0e21bmr83896865e9.3.1779524807627; Sat, 23 May 2026
- 01:26:47 -0700 (PDT)
+	Sat, 23 May 2026 08:59:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A36E6020C
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 08:59:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D381F00A3C
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 08:59:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779526790;
+	bh=qbX/u0YvILlswAD20c2Nb16wHxkRKuf6rWkIOztP9mg=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Sh97Pd4rC9Iw7hEt+aYcJxtxh3NCQBnvhR2MNf3CpOy+/pYI4LijnchZCBTUaGlEA
+	 t10izqgfqkncdc+rUWlHo8gaM98FryM/Uh3CgCpeR4+RymfjXRr3xlJzdndLG4cpCH
+	 3KECiAVgoq/PQcUmBMo0tYpoGq3wGSfjplf27AkrJ5kEXgcbBAOjt7uvI0+vvKUPbo
+	 XBuBbtc0Y4R1kv6BJ5eEnaq1qAcRxIDk5hGEUQrq4L+TfcIut9oxX/GbEn8s3hWVr9
+	 mIzyPN7yNmOXU8ZCGKiyWc5Lmn5/bkd30L4KBk2YgcffzgbiPAZuCfaxHNmaYRNd0U
+	 iDiiXyja5GkkQ==
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5a8d1f43432so13298897e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 01:59:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ+65GEtmlk1b8bcnkBB0eDZq0dM1jyVXeoplBJN15QEzFUmW1a1fMrmE5CfwHBFqh9sKZJP0ACLsqAX9Pstn3Bc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZJ9+G7BoWzJ3C88yuh/6PktzcW+xC6nbWGj9Z/yMhqPVMp6ot
+	xA7X6u5RQ5Ahv8bddCffwvs2/SGM2FkHlv/GgUc7GLOMyxCPhQnLAmg6Wma+wsBj+rXhozxQG5b
+	ZFd+UQkUdK9whS++tVt2UdgwJS1/9LRI=
+X-Received: by 2002:a05:6512:10c5:b0:5a8:9756:f6b8 with SMTP id
+ 2adb3069b0e04-5aa323cd97emr2082906e87.35.1779526788895; Sat, 23 May 2026
+ 01:59:48 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com> <20260522110727.fc7dccf90bc8513abd1fdbf1@linux-foundation.org>
-In-Reply-To: <20260522110727.fc7dccf90bc8513abd1fdbf1@linux-foundation.org>
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-Date: Sat, 23 May 2026 16:26:36 +0800
-X-Gm-Features: AVHnY4IuNlS6vXd5l_7DzxfQJADSEXY9onGk8AY8EdDPIdYUeZEc3Hk2NgVH_yg
-Message-ID: <CAHKocdErBXQLs0izMaEJg8fLgjPahY0fGR3jfCQ2onS49TWiog@mail.gmail.com>
-Subject: Re: [PATCH v3 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	catalin.marinas@arm.com, will@kernel.org, urezki@gmail.com, baohua@kernel.org, 
-	Xueyuan.chen21@gmail.com, dev.jain@arm.com, rppt@kernel.org, david@kernel.org, 
-	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com, 
-	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com
+References: <20260512060917.2096456-1-shubhrajyoti.datta@amd.com> <20260512060917.2096456-4-shubhrajyoti.datta@amd.com>
+In-Reply-To: <20260512060917.2096456-4-shubhrajyoti.datta@amd.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sat, 23 May 2026 10:59:36 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=iCJpKirfc0GqUuKjrLjeEyWMvcmDx26+hTFtcYz0uPw@mail.gmail.com>
+X-Gm-Features: AVHnY4JF7lnezv7m1tQlOKAjlmVpjnjJD07jbsl29OKRAreK5EuKH4xjhiad3wk
+Message-ID: <CAD++jL=iCJpKirfc0GqUuKjrLjeEyWMvcmDx26+hTFtcYz0uPw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/3] gpio: zynq: Add eio gpio support
+To: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Cc: linux-kernel@vger.kernel.org, git@amd.com, shubhrajyoti.datta@gmail.com, 
+	Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_012650_409533_58533429 
-X-CRM114-Status: GOOD (  10.41  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,41 +82,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 23 May 2026 at 02:07, Andrew Morton <akpm@linux-foundation.org> wrote:
+On Tue, May 12, 2026 at 8:09=E2=80=AFAM Shubhrajyoti Datta
+<shubhrajyoti.datta@amd.com> wrote:
+
+> Add support for the EIO GPIO controller found on
+> xa2ve3288 silicon.
 >
-> On Fri, 22 May 2026 13:31:40 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
+> The EIO GPIO block provides access to multiplexed I/O pins exposed
+> through the EIO interface. Only bank 0 and bank 1 are connected to
+> external MIO pins, with 26 GPIOs per bank (52 GPIOs total). This
+> change extends the Zynq GPIO driver to support the EIO GPIO
+> variant.
 >
-> > This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> > is physically fully or partially contiguous.
->
-> Thanks.  AI review asked a few things and might have found an existing
-> 32-bit bug in vmap():
->
->         https://sashiko.dev/#/patchset/20260522053146.83209-1-jiangwenxiaomi@gmail.com
+> Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
 
-Hi Andrew,
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
-I've gone through the Sashiko findings:
-
-- Patch 5 (arch_vmap_pte_supported_shift on x86): Over-interpretation.
-  This targets ARM64 CONT_PTE. x86 falls through with PAGE_SHIFT
-  same as before.
-
-- Patch 5 (1 << order overflow at order=31): Over-interpretation.
-  Reaching order=31 requires 8TB contiguous in a single vmap()
-  not a realistic usage pattern.
-
-- Patch 6 (GFP_KERNEL triggering purge): The purge only triggers
-  when vmalloc space is already under pressure, and benefits the
-  subsequent PAGE_SIZE fallback as well, not wasted work.
-
-- Patch 6 (32-bit count << PAGE_SHIFT overflow): Pre-existing.
-  Will send a separate fix.
-
-- Patch 6 (unconditional alignment without checking contiguity):
-  The main vmap() users typically pass contiguous pages
-  (e.g. system_heap order 8 -> 4 -> 0).
-
-Thanks,
-Wen
+Yours,
+Linus Walleij
 
