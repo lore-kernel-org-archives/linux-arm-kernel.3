@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8452CCD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 09:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860AACD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 10:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wjd5EPtpM354Dd7ZDs5Vo2HEh22G1p5pQw/m/3w/sQY=; b=hH6yH1PGJET/uL5lzyKyEr4t7r
-	aRc9RJLh+kd75obxfLZrNB7S0VgjbfRjmpQwE1hNs2FoKowVBJbPER1ur0oVCDmY9nNxB17A0nmW5
-	O5EtU8zXA60NdabG9I9fAgOHjyy4+L99G45fPX3tnQ9zL/WQpc43DTMDo4DbSQZGuGRHKboum8ubn
-	ZripdkVviNzlfj4TE/U3BScm89doukMpaGM5ybE7jvN8xl681lyp2SDiYhw/8DauFvg9NulxnfajM
-	dvKF5wjYnS6ZMvTurKopEcFJSIihkNX8xVpIt4bEi1bvqePbRuGAZQ02iaqVWwMDOHyVds4disoMa
-	ns06ob1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=081I3uGh9xMy+jangEiaAfSrrsCOcyEM7Q7SYywZ4YI=; b=s01QlantVPfZgMET6T/qYPiMZj
+	qWdUuqhq7figyE0tBvnAYS9sMYZ4b57x33ngb85FjRuqM5u+dK4vpH7RJmqt4Wi9O7Ws6YoR5gy1m
+	6SGbuDovHbI7MYXns1sw9xjetkIN4ulJmcWOcvH3g0lRzx+y0TVWhCUdlzQ/mmUIuuib7Vn25Cw/S
+	QOZ1xytnxu/zvZt+mzPG5UndOwfRPZrYDoO1C4iPdznt6upIyLYp+IySMoFmHIySZBFK8gETzgWZH
+	1w7p7KJh9SonfeIcUO0XZFry1yF8n/nc9IPb7W+hVHpVJF+gTqpSaHvG+QUrfQazHIgGQNpdGF0Ec
+	Cr59XzxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQhy7-0000000Cxiz-0oLg;
-	Sat, 23 May 2026 08:44:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQjS0-0000000D52p-0VgC;
+	Sat, 23 May 2026 10:19:24 +0000
+Received: from mx4.wp.pl ([212.77.101.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQhy4-0000000Cxid-3ECB
+	id 1wQjRv-0000000D51m-2gf4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 08:44:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0CC4142A96;
-	Sat, 23 May 2026 08:44:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D40821F00A3A;
-	Sat, 23 May 2026 08:44:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779525863;
-	bh=Wjd5EPtpM354Dd7ZDs5Vo2HEh22G1p5pQw/m/3w/sQY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=h5lJQaoX6ktuOV9HMIQg+/BaKYiIGAlXy94RLLCWuZglA/2mPOJXIEBs+iMJXrJVd
-	 0/fGFGs4huMFIOh2mwzI/lKWng4pW6mqAH1UR0AF3kxXzJFzAtGqM1ZkgwGW5vTVQZ
-	 N9JGxX0Sb2mXb+y60ZfQJIgZzIBmK+/U9H5/cAgDRpntmBFUnlnNqZD54uZcQ+LgB1
-	 zTKkOPK1KM3cewEDhp6FhQ5+x/fgFYc/TUjLfbNGYJcfcM1s71jtpEyPTRXLbOkeSd
-	 BL7rWa3ubIkAKjNm9Tz0bk3VRXK0MpQ2F7Zi96gvGyah7w78zoZebbW6nXHe053Pq5
-	 CAp8Fy346D4dA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQhy1-00000005VBn-2DfZ;
-	Sat, 23 May 2026 08:44:21 +0000
-Date: Sat, 23 May 2026 09:47:38 +0100
-Message-ID: <87h5nya4wl.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Sat, 23 May 2026 10:19:22 +0000
+Received: (wp-smtpd smtp.wp.pl 42262 invoked from network); 23 May 2026 12:19:13 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
+          t=1779531553; bh=081I3uGh9xMy+jangEiaAfSrrsCOcyEM7Q7SYywZ4YI=;
+          h=From:To:Cc:Subject;
+          b=fiVVcg0yphzYqnPILR2CLP8PxPbR9pYBXBODa6XY0EZ07IvYmSoChVuXgwuw1dHZ7
+           TGupX97dbcs2Wzy95dcFgxGI4kC9QsUKK+zcF9Zie5sOkoHh0MwsApMiwgTLMSpPqb
+           yjPIDqiD3dZMPam5K05HYU2KU9XkJmp8g+YLG437Mik9nmOXi/s25ejfSaJnVr0vec
+           ywkFwm0+XHEwiZKTP5JpZ7NYChvbGz5pfaHvCTkeM38ZyyU15RCo6M7Hi48b+5S9KV
+           9rdR6FnUMYFL9WGaXLuHUiKEVzmf1YGBYTUW2w9XERLx58kysMG1qPqEozSVfkad1O
+           gof1r+6OxdkuA==
+Received: from 83.24.127.64.ipv4.supernova.orange.pl (HELO abajkowski.lan) (olek2@wp.pl@[83.24.127.64])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <robh@kernel.org>; 23 May 2026 12:19:13 +0200
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
-In-Reply-To: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
-References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: broonie@kernel.org, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org
+Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
+Subject: [PATCH RESEND] arm64: dts: mediatek: add LED and key support on Xiaomi AX3000T
+Date: Sat, 23 May 2026 12:18:55 +0200
+Message-ID: <20260523101904.293215-1-olek2@wp.pl>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-WP-DKIM-Status: good (id: wp.pl)                                                      
+X-WP-MailID: 4ff0eba6bf8edec8983f8b295cbbf876
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 0000000 [wVOE]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_014424_851881_2CA59BEB 
-X-CRM114-Status: GOOD (  34.84  )
+X-CRM114-CacheID: sfid-20260523_031920_131198_F2A9AAF7 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,116 +80,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 May 2026 19:00:04 +0100,
-Mark Brown <broonie@kernel.org> wrote:
-> 
-> Since b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when guests
-> write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be at most
-> that configuring the maximum guest VL.
+This patch adds support for keys and LEDs on the Xiaomi AX3000T.
 
-That's not strictly true. This is only clamped when accessed as
-ZCR_EL2. A VHE guest will happily use the ZCR_EL1 accessor for the
-same register, and not see the truncation. This has ripple effects
-down the line, where the full value will be used at load time.
+Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+---
+ .../dts/mediatek/mt7981b-xiaomi-ax3000t.dts   | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-> This is not the behaviour the
-> architecture documents for ZCR_EL2.LEN, the expectation is that all bits
-> will be read as written. Further, writing values larger than the largest
-> available vector length is part of the documented procedure for enumerating
-> the supported vector lengths so we expect to see this happen in practice.
-> 
-> The reasoning for the current behaviour is not specifically articulated, my
-> best guess is that it is intended to ensure that the guest can not see an
-> effective VL greater than the maximum that has been configured. This can
-> instead be achieved by configuring ZCR_EL2 when loading guest state:
-> 
->  - When running at EL0 or EL1 configure ZCR_EL2.LEN to the minimum of the
->    guest ZCR_EL2.LEN and vcpu_sve_max_vq(vcpu)-1.
-
-This is not EL0 or EL1. This is when in a nested context (i.e. running
-a L2 guest), as EL0 exists for L1 as well.
-
->  - When running at EL2 configure the maximum VL for the guest in
->    ZCR_EL2.LEN like we do for non-nested guests and load the guest
->    ZCR_EL2 into ZCR_EL1.
-> 
-> This will ensure that the guest sees both the ZCR_EL2.LEN value which it
-> wrote and the effective VL that resulting from the values it has configured
-> in ZCR_ELx.LEN.
-> 
-> Currently all other bits in ZCR_EL2 are either RES0 or RAZ/WI, values
-> written are sanitised based on this.
-
-Only for the direct writes to ZCR_EL2, as they are trapping. I don't
-see any sanitisation for writes using the ZCR_EL1 accessor, which is
-the common case. This needs fixing at the same time.
-
-> 
-> Fixes: b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps")
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-
-Given the nature of the bug, this needs a Cc: stable.
-
-> ---
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 8 ++++----
->  arch/arm64/kvm/sys_regs.c               | 6 +-----
->  2 files changed, 5 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index bf0eb5e43427..fd277cb70967 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -501,11 +501,11 @@ static inline void fpsimd_lazy_switch_to_guest(struct kvm_vcpu *vcpu)
->  		return;
->  
->  	if (vcpu_has_sve(vcpu)) {
-> +		zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-> +
->  		/* A guest hypervisor may restrict the effective max VL. */
-> -		if (is_nested_ctxt(vcpu))
-> -			zcr_el2 = __vcpu_sys_reg(vcpu, ZCR_EL2);
-> -		else
-> -			zcr_el2 = vcpu_sve_max_vq(vcpu) - 1;
-> +		if (is_nested_ctxt(vcpu) && !is_hyp_ctxt(vcpu))
-> +			zcr_el2 = min(zcr_el2, __vcpu_sys_reg(vcpu, ZCR_EL2));
-
-Why the change in the condition guarding this? Given the definition of
-is_nested_ctxt(), this seems unnecessary.
-
->
->  		write_sysreg_el2(zcr_el2, SYS_ZCR);
->  
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 148fc3400ea8..c4d3bbae2d14 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -2862,8 +2862,6 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
->  			   struct sys_reg_params *p,
->  			   const struct sys_reg_desc *r)
->  {
-> -	unsigned int vq;
-> -
->  	if (guest_hyp_sve_traps_enabled(vcpu)) {
->  		kvm_inject_nested_sve_trap(vcpu);
->  		return false;
-> @@ -2874,9 +2872,7 @@ static bool access_zcr_el2(struct kvm_vcpu *vcpu,
->  		return true;
->  	}
->  
-> -	vq = SYS_FIELD_GET(ZCR_ELx, LEN, p->regval) + 1;
-> -	vq = min(vq, vcpu_sve_max_vq(vcpu));
-> -	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, vq - 1);
-> +	__vcpu_assign_sys_reg(vcpu, ZCR_EL2, p->regval & ZCR_ELx_LEN);
-
-Once you have added the full ZCR_EL2 sanitisation, this masking can go.
-
->  	return true;
->  }
-
-Thanks,
-
-	M.
-
+diff --git a/arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dts b/arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dts
+index a314c3e05e50..db399cb3ead7 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7981b-xiaomi-ax3000t.dts
+@@ -1,6 +1,9 @@
+ // SPDX-License-Identifier: GPL-2.0-only OR MIT
+ 
+ /dts-v1/;
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
+ 
+ #include "mt7981b.dtsi"
+ 
+@@ -12,4 +15,37 @@ memory@40000000 {
+ 		reg = <0 0x40000000 0 0x10000000>;
+ 		device_type = "memory";
+ 	};
++
++	keys {
++		compatible = "gpio-keys";
++
++		key-mesh {
++			label = "MESH";
++			gpios = <&pio 0 GPIO_ACTIVE_LOW>;
++			linux,code = <BTN_9>;
++			linux,input-type = <EV_SW>;
++		};
++
++		key-reset {
++			label = "RESET";
++			gpios = <&pio 1 GPIO_ACTIVE_LOW>;
++			linux,code = <KEY_RESTART>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_BLUE>;
++			function = LED_FUNCTION_STATUS;
++			gpios = <&pio 9 GPIO_ACTIVE_LOW>;
++		};
++
++		led-1 {
++			color = <LED_COLOR_ID_YELLOW>;
++			function = LED_FUNCTION_STATUS;
++			gpios = <&pio 10 GPIO_ACTIVE_LOW>;
++		};
++	};
+ };
 -- 
-Jazz isn't dead. It just smells funny.
+2.53.0
+
 
