@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FD08CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4567ECD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:39:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hrOGjwligoDGN6a9UBVvnPrPnlwEQ4kM9IamSGqVO6A=; b=ggBc/f2PpbcQGHODynlQOtDneI
-	pM8hoIxbFgz91H3B09z6RZ991ueAzoNDXGXOC721Z0k8TZSeIdm5FdTJRTzTJYoh+Ii+9urZsINxc
-	auiw8B5PzsKHJl/WUW+pGjmz6guku3cO1fPqHNMl3X4jcfsox/q1tsP1o1HFCEhf3R58zNYXDZ141
-	eIBI+3gninStVeBZyDde92KBnCcynXTQNK/g/WG2Ai6KvMtVRmU4EE6sC+FOHEIpCf9Y6vc9nFKbt
-	6JxlNAQm9OBQ5s2Tf6BxPAmlXmdmJFpOXFu7Q8gJviKucM7fJd1Otcfcjjqf4R2g/VmlqpzQ4nmVJ
-	Ed8q03KA==;
+	bh=8X0EMa3iUG9PL1Mfl1k+P8zxTYlnVjTTcIFU+vs2pf0=; b=X/8TqeRoWDY7VNiVjyOaZVJwto
+	ISPIOiA/Q926vOrRbF38qqU3yIXUqMwsl/mpb2RMmb5uw43tqpk5QnGbsg69Qpl5iV2cJGGzlyQjT
+	LdpKYJGXDn9Y+HxtIhWi9JxwmGjW17c9eYZUQuLLCW8QgsRARbdfpXhxuEtiwo80TcvVlgwC6bStZ
+	0WJ0/7arZIDDYV9pvKWy9933oHybFMzl2VufwxkbxI5XPFTy/LfciO7z70+hYdqp58SirAQCkvvBD
+	naHmUSquP+LZJtBWPxoUzO6I5whj9pOFbuoEMIquWYEZAt+L4f7Q5GwEjdHmxMGdt6sS8nkVXPuub
+	Ba9MpGlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwS-0000000DLyr-1JLf;
+	id 1wQmwS-0000000DLzy-2vHs;
 	Sat, 23 May 2026 14:03:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwL-0000000DLsM-35bA
+	id 1wQmwN-0000000DLtj-1ThC
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 23 May 2026 14:03:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 340F4445DF;
-	Sat, 23 May 2026 14:02:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A3601F00A3F;
-	Sat, 23 May 2026 14:02:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9D55E43A05;
+	Sat, 23 May 2026 14:02:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D3E41F00ACF;
+	Sat, 23 May 2026 14:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779544977;
-	bh=hrOGjwligoDGN6a9UBVvnPrPnlwEQ4kM9IamSGqVO6A=;
+	s=k20260515; t=1779544978;
+	bh=8X0EMa3iUG9PL1Mfl1k+P8zxTYlnVjTTcIFU+vs2pf0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TwdzMd3yRu+I5Ztqg906id5lYj3VG66CkxFjJQKQvSpeSH3fSEdRyIDLFhtuEplS1
-	 OYq5XFvIGnjCPKSxubHW1DJ6OBEgUsRAKrs97lsjbY8vh0v3X9wwX+VouqYqii+Uqh
-	 DkC4rlhfgdvbH3ihQzTCNU7/ry/QEpqfMt7J6FMJbVVsVfUy5sNNz+zvwxEbH8eSGZ
-	 NjD7AhFlfAqLdRxk35ptF7tOKZR2xGs3C2O/SYAHMqG+zQJaX2uZxW6ziMMYz0ZMAM
-	 X7y9qUX8IlDJe+NXEpDhKAnh9ALru+5w1r9uglzz8sLArKC8NngpNEM8gmzba5LnCB
-	 RDXsIFFLiyBEg==
+	b=B99EEzVcLJ0VJ4hmYc85/YShXDE3Nxd+XZJHjSDU7kIGIbcf8JNx1hFcXvjVjI+lr
+	 efy/SIZx7be8qQFnoClT67QY2055RNZPA3SIKBXyn7ShocsXEV3QEeT+Z7DZRzIQ0d
+	 K14yJADIUpYKFtgfjRvr1aV8mkoGh/MQ75pNhbj1VUDfbeV1ICtZOHXFnnAQguhjdQ
+	 mM2Dy0OLgxHx8D+w2JiFGxAXYc2S5rmb9+cCyO57gPCejJZnww9mXCbygMzaijD0Ax
+	 lM0vdQ/Jl39gD9ttg2wM0DBRHPs3yog1QwIUxgEZPxqtH4zPokUH0VwXlhUDPge9uq
+	 q8W5mL4018/pg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wQmwJ-00000005YFc-0UPX;
-	Sat, 23 May 2026 14:02:55 +0000
+	id 1wQmwK-00000005YFc-13Yk;
+	Sat, 23 May 2026 14:02:56 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -96,9 +96,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v3 04/17] dt-bindings: timer: arm,arch_timer: Fix requirements for interrupt description
-Date: Sat, 23 May 2026 15:02:29 +0100
-Message-ID: <20260523140242.586031-5-maz@kernel.org>
+Subject: [PATCH v3 06/17] arm64: dts: amlogic: Add EL2 virtual timer interrupt
+Date: Sat, 23 May 2026 15:02:31 +0100
+Message-ID: <20260523140242.586031-7-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
 References: <20260523140242.586031-1-maz@kernel.org>
@@ -110,8 +110,8 @@ X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_070257_817840_E7E41923 
-X-CRM114-Status: GOOD (  15.22  )
+X-CRM114-CacheID: sfid-20260523_070259_438553_FFF2F9A6 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,71 +126,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm,arch_timer DT binding is extremely imprecise in describing
-the requirements for interrupts.
+The ARMv8.2 based CPUs used in a number of Amlogic SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-Follow the architecture by making it explicit that:
-- the EL1 secure timer irq is required if EL3 is implemented
-- the EL1 physical timer irq is always required
-- the EL1 virtual timer irq is always required
-- the EL2 physical timer irq is required if EL2 is implemented
-- the EL2 virtual timer irq is required if FEAT_VHE is implemented
+This requires some surgery in the "common" files to move the timer
+node to locations that makes it possible to add the interrupt only
+where it is actually implemented.
 
-The consequence of the above is that the minimum number of interrupts
-to be described is 2, and not 1.
-
-Finally, clean up the description which made the assumption that
-the timers are plugged into a GIC (unfortunately, that's not always
-true), drop the MMIO nonsense that has long be moved to a separate
-binding, and use the architectural terminology to describe the various
-interrupts.
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- .../bindings/timer/arm,arch_timer.yaml        | 21 +++++++------------
- 1 file changed, 8 insertions(+), 13 deletions(-)
+ arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi |  8 --------
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  8 ++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  9 +++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        |  3 ++-
+ arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        |  3 ++-
+ arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       |  3 ++-
+ arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi  | 13 -------------
+ arch/arm64/boot/dts/amlogic/meson-g12.dtsi         |  9 +++++++++
+ arch/arm64/boot/dts/amlogic/meson-sm1.dtsi         | 10 ++++++++++
+ 9 files changed, 42 insertions(+), 24 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml b/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml
-index c5fc3b6c8bd0b..c65e48a155ab6 100644
---- a/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml
-+++ b/Documentation/devicetree/bindings/timer/arm,arch_timer.yaml
-@@ -10,13 +10,8 @@ maintainers:
-   - Marc Zyngier <marc.zyngier@arm.com>
-   - Mark Rutland <mark.rutland@arm.com>
- description: |+
--  ARM cores may have a per-core architected timer, which provides per-cpu timers,
--  or a memory mapped architected timer, which provides up to 8 frames with a
--  physical and optional virtual timer per frame.
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi
+index 54d7a2d56ef64..6f559e4dd9ee9 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a4-common.dtsi
+@@ -7,14 +7,6 @@
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/gpio/gpio.h>
+ / {
+-	timer {
+-		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+-	};
 -
--  The per-core architected timer is attached to a GIC to deliver its
--  per-processor interrupts via PPIs. The memory mapped timer is attached to a GIC
--  to deliver its interrupts via SPIs.
-+  The per-core architected timer is expected to deliver per-CPU interrupts
-+  (commonly to a GIC to deliver its per-processor interrupts as PPIs).
+ 	psci {
+ 		compatible = "arm,psci-1.0";
+ 		method = "smc";
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+index fce45933fa28b..c28fc7fcbae7f 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+@@ -86,6 +86,14 @@ pwrc: power-controller {
+ 			#power-domain-cells = <1>;
+ 		};
+ 	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++	};
+ };
  
- properties:
-   compatible:
-@@ -33,13 +28,13 @@ properties:
-           - const: arm,armv7-timer
+ &apb {
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
+index 2b12d8284594f..c22c0acb4807e 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi
+@@ -49,6 +49,15 @@ pwrc: power-controller {
+ 			#power-domain-cells = <1>;
+ 		};
+ 	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++	};
+ };
  
-   interrupts:
--    minItems: 1
-+    minItems: 2
-     items:
--      - description: secure timer irq
--      - description: non-secure timer irq
--      - description: virtual timer irq
--      - description: hypervisor timer irq
--      - description: hypervisor virtual timer irq
-+      - description: EL1 secure physical timer irq, if EL3 is implemented
-+      - description: EL1 non-secure physical timer irq
-+      - description: EL1 virtual timer irq
-+      - description: EL2 physical timer irq, if EL2 is implemented
-+      - description: EL2 virtual timer irq, if FEAT_VHE is implemented
+ &apb {
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
+index ab3acef2b147e..853d32929ff46 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi
+@@ -56,7 +56,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW>;
+ 	};
  
-   interrupt-names:
-     oneOf:
+ 	psci {
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+index a3faf4d188e11..bfaac5f3e22da 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi
+@@ -94,7 +94,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+ 	};
+ 
+ 	psci {
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
+index 0c4417bcd6827..32d8683059964 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi
+@@ -58,7 +58,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+ 	};
+ 
+ 	psci {
+diff --git a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
+index 00609d2da6743..a911a5181a88d 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-g12-common.dtsi
+@@ -2579,19 +2579,6 @@ map {
+ 		};
+ 	};
+ 
+-	timer {
+-		compatible = "arm,armv8-timer";
+-		interrupts = <GIC_PPI 13
+-			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 14
+-			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 11
+-			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
+-			     <GIC_PPI 10
+-			(GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>;
+-		arm,no-tick-in-suspend;
+-	};
+-
+ 	xtal: xtal-clk {
+ 		compatible = "fixed-clock";
+ 		clock-frequency = <24000000>;
+diff --git a/arch/arm64/boot/dts/amlogic/meson-g12.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12.dtsi
+index 664912d1beaab..866fc07d1b0ae 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-g12.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-g12.dtsi
+@@ -43,6 +43,15 @@ tdmif_c: audio-controller-2 {
+ 		clock-names = "sclk", "lrclk", "mclk";
+ 		status = "disabled";
+ 	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>;
++		arm,no-tick-in-suspend;
++	};
+ };
+ 
+ &apb {
+diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
+index 8f5b850b1774f..77c72936ffdd3 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-sm1.dtsi
+@@ -128,6 +128,16 @@ l2: l2-cache0 {
+ 		};
+ 	};
+ 
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 12 (GIC_CPU_MASK_RAW(0xff) | IRQ_TYPE_LEVEL_LOW)>;
++		arm,no-tick-in-suspend;
++	};
++
+ 	cpu_opp_table: opp-table {
+ 		compatible = "operating-points-v2";
+ 		opp-shared;
 -- 
 2.47.3
 
