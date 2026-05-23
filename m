@@ -4,114 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 578F6CD5BAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7094ACD5BB8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jRpa4HBTQzdXkNwIHBlxSUXY/+Bd1DIGxFwmhEq5MNs=; b=0h1ilTLWPlOIa87c5M0amTvQx3
-	wFjOX14RRBLRGv7Qirr0RLiadAYv3n6rq+XqsFyALlh1T8L5e28b5X3FOJOKQcDQJVFESiupcR1Pl
-	OK3xgHEm9TYJq7OdXBikcN6Qipnh1rJpK9ZN2TWc05i+z5XcfwejFp3EXs+aAkBHO1d1ULttDzUHp
-	BtpZI9PrIiOXgTQp5mKtaLppNVlS7mwYEeGDwCmTYkx/mlCAQkJB2ibS84w2yl5wxQ0jFM6jhyKZb
-	wqFOB5RcAW0wmwgl3tcWbLjRRcG898uBJMZTiuUxsgI+aeb0afaFbEnmQArefVVhqvcdnqHH96svq
-	9A9Hoahg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yuws2lye+QoaHmTyUcSigKwJbfvfBtQqsXXOG6/gviY=; b=ocfbjIdypjyAQNsuxin0YFAClJ
+	UFPPOw2LYghxFlU+4RfEpBUw0USgVfzvCn5jx4+7gnLTg0YvLq9jJmY1n/cEwtgkb3iSeITxTi4cR
+	de5uiNBnsB4Z0PhWwD86ARpnN3yrCLMY/hFaQ2ibAHbv6ShiuCfZz4o4oPVakEC0nVcq4/CC85RQp
+	Mbp/lD/P6tgd88YA2eJH2JCGT7Zi9EtZCezzCrU8Fqe58h7scHtbpVS+3nSouzNc5ie358ZrFtD6S
+	2y+IYVduAQ6XioKRtAnfvVKFapVSe29dO/WRTnp0F3PBTo7KA7XpJrB3DhctMGhFkzbeHI6XKTJhm
+	zMcU2l5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwR-0000000DLxP-3Hsb;
-	Sat, 23 May 2026 14:03:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wQnRK-0000000DQ2T-2zU8;
+	Sat, 23 May 2026 14:34:58 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwL-0000000DLrS-1YUk
+	id 1wQnRH-0000000DQ1b-1uDd
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 14:02:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 15A4740685;
-	Sat, 23 May 2026 14:02:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0EC91F0155E;
-	Sat, 23 May 2026 14:02:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779544976;
-	bh=jRpa4HBTQzdXkNwIHBlxSUXY/+Bd1DIGxFwmhEq5MNs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=erXfKpK7dY9RxXd/poqi266R49oHAcLuBr9maZVCaEFJ6oElzteXijN1wBgLq0lBQ
-	 xRART35Nt4eqJ3DMumBtGclRhw1FM6MHKzMPd6oD4PMePXLAtOSmxNy9emHCbGdtLg
-	 lErxoqD+SLWqC7vTAler1jzhYA2Xe9uDmKwSyvsvd6wKeZleddGJAU8h5K/ap6E3SR
-	 jVjtq67mHUx5rwN2SJ1F7gm+IxX9783FT72S1PSwEO6XB6+aGy/smDWwrQwx6lNw3c
-	 uHaLiTqu6CpjTYMcbY4F4FYFXpoxc4qwiBMbBhx6o6uwV0naHBGoatra5mTMq8rix0
-	 WnMAOlw+mgbeA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wQmwH-00000005YFc-48vq;
-	Sat, 23 May 2026 14:02:54 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Ge Gordon <gordon.ge@bst.ai>,
-	BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Lars Persson <lars.persson@axis.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sat, 23 May 2026 14:34:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Wpk+oY+K3FrPkMvWkrXWmrCZkFbwMCcVfANSK5fuYYIV9tyHB3WKUVaiTYDoKCAS1yPTRE4qXrCV0V2p3DVeNbzMTPuy7FK8WzIlSBwEhOajOZCjr/hmIdH9QS4D2lNFM1n8FRhukwTOoZOhFvXz3po+8Wlcb2QU6bqUSgDN4ApJrd1YCh3icE1g92ssFPeT98AHtCPwQTcMnEzHjwZS2SRGZ/eYtyDTYcV9yE3DnEo3viwzlqPTX9W+apMG4f2xZWqa3oVDwjLfh3FVkeIzklLC90vU+RYMwzxyn+Ne1szaVf/c0X5oKwqPsu/oEzGQa6OqGDEGTeqEkOjHVhEtzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yuws2lye+QoaHmTyUcSigKwJbfvfBtQqsXXOG6/gviY=;
+ b=uD7JZng3gM+JE70OVP6q/EMHnoDg2WljY0yyqSpJ4swTVWhR0q2kyENn64icfovhXmhXy6XPKUFQAk9bBF3av9/2KnX2rHFp2UCj6qDLuEnnFr2YJpyE4JrAFzLSQEgiU1TthH3ktRPBA4lDewcuQz1iHl25GI5UCBSdR/MfnDGuL027t7m2c8Wdwg9xYobVjrDsGLXFcz6Y8/YTLaTeQSwTDp36ncUQqaU+ZAvJEl8Rb7YJ75cPW4s6QBqlo87CR8goK/pPBPRDorJWgZRXdmx/y1xJ7OFAZheIxF6hrPqzA5P5zO860Cl2mEN6Qilc5Ag8lIx4Ox6onMfUhCBoqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yuws2lye+QoaHmTyUcSigKwJbfvfBtQqsXXOG6/gviY=;
+ b=BoxgABP0edbEfggivq3q0Y9A+EwuSsqIYG3D5Fk8CJYcCvds+E/uIy9tsPy7O+AEMeZLnjv1DzgASxmRh/Ur7YIhlsKavcHXx8Y69PnjN2iKyoLwopCa4WieagA8N+OEWTFFyo20clEEFhadpL+aob0syU/qtXXxLZhnOlha7nd5Dko7AGYvSFpT33f9pjZKEvpXWh7smaeZDMccaFlJNBZW3OActHLIFbZPwADyDx8EwD6FkKvS0GAcs8NlzXGfNb6g+nf5CumXX7tRHw/6IRBbdRPlyAJWxdiBFePKhb3J+8voY++XosPaBKZcsz20eBx9ZhnuGx8xomrGmn4zmQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com (2603:10a6:10:35b::7)
+ by GVXPR04MB12039.eurprd04.prod.outlook.com (2603:10a6:150:313::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9818.32; Sat, 23 May
+ 2026 14:34:47 +0000
+Received: from DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4]) by DU0PR04MB9372.eurprd04.prod.outlook.com
+ ([fe80::4f6:1e57:c3b9:62b4%4]) with mapi id 15.21.0048.016; Sat, 23 May 2026
+ 14:34:46 +0000
+Date: Sat, 23 May 2026 10:34:37 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Felix Gu <ustc.gu@gmail.com>
+Cc: Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+	Jacky Bai <ping.bai@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Thierry Reding <thierry.reding@kernel.org>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
-	=?UTF-8?q?Yu-Chun=20Lin=20=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?= <eleanor.lin@realtek.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v3 02/17] ACPI: GTDT: Parse information related to the EL2 virtual timer
-Date: Sat, 23 May 2026 15:02:27 +0100
-Message-ID: <20260523140242.586031-3-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
-References: <20260523140242.586031-1-maz@kernel.org>
+	NXP S32 Linux Team <s32@nxp.com>, Linus Walleij <linusw@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] pinctrl: imx1: fix device_node leak in
+ dt_is_flat_functions()
+Message-ID: <ahG6_Y12af3FB7-V@lizhi-Precision-Tower-5810>
+References: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260523-pinctrl-imx-v1-1-73b7cb731351@gmail.com>
+X-ClientProxiedBy: BY3PR10CA0012.namprd10.prod.outlook.com
+ (2603:10b6:a03:255::17) To DU0PR04MB9372.eurprd04.prod.outlook.com
+ (2603:10a6:10:35b::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, afaerber@suse.de, 
- eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9372:EE_|GVXPR04MB12039:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7152039a-ebdf-4c60-ec79-08deb8d87010
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|19092799006|56012099003|38350700014|11063799006|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info: FbcwWjTI/aLFsL08pU1GAbJy5yYKL1bcojrJ5MgQsbWLw7b2Y+3b1EayO7Bgc5r/cuOoYWvh73EBPHaFBLRZLuXnitL8655L7E1g58/LuW9EQqRLUiRUDHYsSAHrOSl6oCfLnrw6lncB+FbzYgc5aqg6OBoxg/ZPXgQjYnQVobNVU26w+NlvLFPqwlbfiihN1Eq78pvbuDAfJP08KM/eiTOJwgtHk2+fD5dTZAs8hYBjNemYGJ/W+uBoOPuZrso9K+ZnF5Coy6xC32n+Vv73ou0/L5qA0BO3T0vRfax0hwj8goa19WEm3kNunZWyrin6AdyzBvwQYWUnp6xUhyDassY0E+EwilKT64LITMpEj5LCCHv9arVPs0POqO95QnuwNDgx61ZeA+oqL20C/oVhAqRggr9xoJ+I0eh8JwKjCwAm6kQJ7tg/wHde2Zvvz7qz/DhqXuvzp4WGdltKlJCmu2PSwQPtFqLsWcXbxqhXGSzSDQXB9GbKyzUjdu6cRdBOSncIWPsP//81kaaFswrn6Wruwsw0cNPRtF2Rno2cjLEgxMdSuJpxcYiMpkZGaOSe65qukKPFgx/U/a/VeZHe509R3xyjOJxIpVCdXxfqe8CrN7Xy5AZPUNN6II5I8BMxOKbhH37EsFGcVP/+JScfv8BuIlpw8I4vZHqR0qevlRvZwhgbmhYJmpKYuwVKyoa9KD4cGeZGmpVroDQ+mwfiqcU1JhFytafxFDo8FpP73YmN3QZeCP75VTWemQThOvJl
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9372.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(19092799006)(56012099003)(38350700014)(11063799006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oe+sQ+F+z5WvlFNcB/QnPfMZwYx4cnpcMKsm+ZGUx/wrHYO0RF/NPU+bWMuC?=
+ =?us-ascii?Q?e/2DRb9K6Hht8DbMNhVmIWLEDc3VUyFgV4KyjAerKrFJVO4+JhRAqwneyrIB?=
+ =?us-ascii?Q?HTPTIgHDcjOC1ul8ccCoEn72nVWYGY0ZQaOsdll8HIUPHx7N8szEXmru5j80?=
+ =?us-ascii?Q?m0iVGp7KdCT9+wixzDZt9HziYKaGpFtw/tZQfM7M6DIakKEjkfr8D3ikVbqK?=
+ =?us-ascii?Q?gRhqk22PdUH21CHMgr1ELj+C3m8WsGmh2VxdA5v+8wRA/Cai0uP7XiXIvG0F?=
+ =?us-ascii?Q?ncKk7Aq/lNovFEHRH5ZBuNWjL1aJf8SWfssYNF2gDk71dY6BdokUq5mT+WdG?=
+ =?us-ascii?Q?QHL1Z/bxkIMx5KBDJgLknMeeAS8I7FE9/YbRDg4/vN2iC3MRrKTVBN0IIPm1?=
+ =?us-ascii?Q?+Y8HCUHVq49hOMaPlvQiOe3uMYCMmMysL0tGOoWesE2ZGn1fwJC4zkBxJ8il?=
+ =?us-ascii?Q?O1vUX8ejS0CbKUdPeltudAybbmKYF7AqqpJZ8Q2bpSjmCQySIu0zKfbj0K2P?=
+ =?us-ascii?Q?KI966sHjIV+sn/lEo2fTDg/lGT9YIUMQzwwaNXupVrvVN8rtixsWY0p8BAH5?=
+ =?us-ascii?Q?6IfccHf4vgv7FHg6NfyWgdlS/3aBn7OqcaPGurmjMAqvqIQP00JAONppynyd?=
+ =?us-ascii?Q?S3ZFAktR+2/zirV9vdXNz63nTn7MH3nhUQJtydiowktkHhXQRaPUYcRHASww?=
+ =?us-ascii?Q?BLsYh3piQv3B/M/8dGCm6q6GKkBOvClwHhQmag+qeTtcPWhmyNnPwLf0EVlF?=
+ =?us-ascii?Q?qSrXCilka54oMX3g+yIvGacZLZNs9e6Odyh+l0nHRKBHdqgnFb8o4SS7FyJW?=
+ =?us-ascii?Q?mbvN3vv3TyfPfrfnaeN8IZjmtpCOtZppVOrS2ZklwnyA0FkHuMYBLMLsayQU?=
+ =?us-ascii?Q?lWu8DB8sxy+8sIW8yKUzmO/h5s3dN/SZwTVqr10UQ0Rg/LGd/DeOLN5xIcDL?=
+ =?us-ascii?Q?/aPQAlHSfzJaaGLNLZbK+8rWqyNqiEXfG1Ps/zzj9oGPBrKCRa9uhKLyeOGh?=
+ =?us-ascii?Q?rAL0i8tE7CNehG1LKgtW2sKtS7klSycRziEeMmvVA0SdQLdpShlwn/VCFRui?=
+ =?us-ascii?Q?NuTk1ZdmpOA4uQ5o/vkW6GBoMetMvyzB7aYbSSeG6u5TDix+SBoqOeWEtSvH?=
+ =?us-ascii?Q?yQEsAnCe+fyaNQQKd7LyxcDfb7zvoN6q7mtfgBnR8mu+EB+pTfK5P/ICA6v+?=
+ =?us-ascii?Q?zBGJI8RkanD7xJK73rlgdVkAcV1Fso9qfZ6BNNuh5oZX/scmhZkDZ9EJi8f2?=
+ =?us-ascii?Q?mODZtukvBOh2jDRliHdwROJ/kt67TiNmNDRPXYfFh81i0a6QQKXN9bbmQ+lm?=
+ =?us-ascii?Q?qBImC883q4ylqhU79L2Aeh+ueSM9vf5h6qhY63dMxDpF+2JZKfNUZFS6BxLl?=
+ =?us-ascii?Q?wnW5og/qWfp6H8GkRrmn9PfcfTH7l6zdODqo1m8VPc0cJbA42VF2ZEZ8UfvD?=
+ =?us-ascii?Q?vX9keX5E3YihtKbqoMoaXzKDkZp/+pulwqucyC1N5rL65pY3BhHRo448nEmE?=
+ =?us-ascii?Q?Fdy/fh+sY/0gYLlbilvoOj0yLmkMoi+LMOtUaltVfOamK3RMo+nrVssHw5Y3?=
+ =?us-ascii?Q?0U1dOtbHFkr4heJv3xlvB4K2ODUmKQZ1rr4UBg3qG4N7lpTq/RP97lr5relB?=
+ =?us-ascii?Q?rHf71ecENpWEvadAbhn/8UZCfYb12D9if4XLcZvBMD0FqYLbzqYi/r/cljLs?=
+ =?us-ascii?Q?a52KQz2Ii+H4sFxTwCpmM6awdr/qvm9v/ASZXzcNb2cmciDfRLmbt7nMW4A1?=
+ =?us-ascii?Q?xk0NRgCYRg=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7152039a-ebdf-4c60-ec79-08deb8d87010
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9372.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 May 2026 14:34:46.7913
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kEkBzEf91WuQK+uDXcI0g6+KziQCS+LY+H5RGukeuZPmu97nSV/mALD+lv1d6N8ZJR4bbjXJuE+zszz9KeUipg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB12039
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_070257_450702_F8826ED2 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20260523_073455_966478_05EA7D7F 
+X-CRM114-Status: GOOD (  20.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,76 +140,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have a way to identify GTDTv3, allow the information
-related to the EL2 virtual timer to be retrieved by the interface
-used by the architected timer driver.
+On Sat, May 23, 2026 at 06:27:05PM +0800, Felix Gu wrote:
+> for_each_child_of_node() holds a reference on the iterator node that
+> must be released on early return. imx1_pinctrl_dt_is_flat_functions()
+> has two early return paths inside the loop that skip this cleanup.
+>
+> Replace both loops with the scoped variant so that the reference is
+> automatically dropped when the iterator goes out of scope.
+>
+> Fixes: 63d2059cd665 ("pinctrl: imx1: Allow parsing DT without function nodes")
+> Signed-off-by: Felix Gu <ustc.gu@gmail.com>
+> ---
 
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- drivers/acpi/arm64/gtdt.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+Thank you for fix it.
 
-diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
-index 950d5efdf85ea..00158c8aa6d90 100644
---- a/drivers/acpi/arm64/gtdt.c
-+++ b/drivers/acpi/arm64/gtdt.c
-@@ -41,6 +41,14 @@ struct gtdt_v3 {
- 
- static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
- 
-+static __init struct acpi_gtdt_el2 *gtdt_to_el2_vtimer(struct acpi_table_gtdt *gtdt)
-+{
-+	if (gtdt->header.revision < 3)
-+		return NULL;
-+
-+	return &container_of(gtdt, struct gtdt_v3, gtdt_v2)->el2_vtimer;
-+}
-+
- static __init bool platform_timer_valid(void *platform_timer)
- {
- 	struct acpi_gtdt_header *gh = platform_timer;
-@@ -112,6 +120,7 @@ static int __init map_gt_gsi(u32 interrupt, u32 flags)
- int __init acpi_gtdt_map_ppi(int type)
- {
- 	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
-+	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
- 
- 	switch (type) {
- 	case ARCH_TIMER_PHYS_NONSECURE_PPI:
-@@ -124,6 +133,12 @@ int __init acpi_gtdt_map_ppi(int type)
- 	case ARCH_TIMER_HYP_PPI:
- 		return map_gt_gsi(gtdt->non_secure_el2_interrupt,
- 				  gtdt->non_secure_el2_flags);
-+	case ARCH_TIMER_HYP_VIRT_PPI:
-+		if (el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv)
-+			return map_gt_gsi(el2_vtimer->virtual_el2_timer_gsiv,
-+					  el2_vtimer->virtual_el2_timer_flags);
-+
-+		return 0;
- 	default:
- 		pr_err("Failed to map timer interrupt: invalid type.\n");
- 	}
-@@ -141,6 +156,7 @@ int __init acpi_gtdt_map_ppi(int type)
- bool __init acpi_gtdt_c3stop(int type)
- {
- 	struct acpi_table_gtdt *gtdt = acpi_gtdt_desc.gtdt;
-+	struct acpi_gtdt_el2 *el2_vtimer = gtdt_to_el2_vtimer(gtdt);
- 
- 	switch (type) {
- 	case ARCH_TIMER_PHYS_NONSECURE_PPI:
-@@ -152,6 +168,10 @@ bool __init acpi_gtdt_c3stop(int type)
- 	case ARCH_TIMER_HYP_PPI:
- 		return !(gtdt->non_secure_el2_flags & ACPI_GTDT_ALWAYS_ON);
- 
-+	case ARCH_TIMER_HYP_VIRT_PPI:
-+		return el2_vtimer && el2_vtimer->virtual_el2_timer_gsiv &&
-+		       !(el2_vtimer->virtual_el2_timer_flags & ACPI_GTDT_ALWAYS_ON);
-+
- 	default:
- 		pr_err("Failed to get c3stop info: invalid type.\n");
- 	}
--- 
-2.47.3
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
+>  drivers/pinctrl/freescale/pinctrl-imx1-core.c | 7 ++-----
+>  1 file changed, 2 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/pinctrl/freescale/pinctrl-imx1-core.c b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> index b7bd4ef9c0db..4a6bdaefa42f 100644
+> --- a/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> +++ b/drivers/pinctrl/freescale/pinctrl-imx1-core.c
+> @@ -547,14 +547,11 @@ static int imx1_pinctrl_parse_functions(struct device_node *np,
+>   */
+>  static bool imx1_pinctrl_dt_is_flat_functions(struct device_node *np)
+>  {
+> -	struct device_node *function_np;
+> -	struct device_node *pinctrl_np;
+> -
+> -	for_each_child_of_node(np, function_np) {
+> +	for_each_child_of_node_scoped(np, function_np) {
+>  		if (of_property_present(function_np, "fsl,pins"))
+>  			return true;
+>
+> -		for_each_child_of_node(function_np, pinctrl_np) {
+> +		for_each_child_of_node_scoped(function_np, pinctrl_np) {
+>  			if (of_property_present(pinctrl_np, "fsl,pins"))
+>  				return false;
+>  		}
+>
+> ---
+> base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
+> change-id: 20260523-pinctrl-imx-b198f8391abf
+>
+> Best regards,
+> --
+> Felix Gu <ustc.gu@gmail.com>
+>
 
