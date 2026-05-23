@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C943CD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE44ECD5BC7
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 14:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuOTrHOj9uIrl6Hh+9LOPPhruyGEFguBq2wvPmBPjYY=; b=p1vGwXi4JGMn+AibQOFZF7Z/n8
-	YXazvSfJeeuX5bsR6xhoRbKoGHAAG+S8k+OOIr2AYh/zEwX/4qhooscKPahrTu/dwJn3FkvBDXk/L
-	2I/VKgaFb+cs8OEYtWri5/hnnk0lL5mSM1E2dV8cDCTjXutVdgPjbUb4VvG322kZCHbC9wcTc88NK
-	hinePfsZM1iXQ48Ok+Jg8BqUrfDZuCtyQ+Aihv6bCjHt7n9N4J5Nx9pWg0kD3rDddVHICcwUYbjnL
-	PIeRzPZ4k0XGBGhT2jGEyIQPAGu5YcAVaXJFFTwcXZHn5vAuBhrcxXgAaL7zlygP1+leT1eg5Y3ju
-	sTNFlY4A==;
+	bh=iVYOFKxX2nTK7xBG+dFvf5BN63MQ7IZrJ1lALABuKpI=; b=SdI6LnUAideL/b60KPXUxfKQ9g
+	kBwMz6xp3+Io16kyzljpRm+/PMGBjc8pwfQjwCbqEkmO9O1yc0CvVFzgAomQgl5YuL3zbeSYB6dg1
+	wHYvR6RInNzWfE+eEl/ryXlQdQcDlOJWMx0mxNQl8HImK1bZKrEc6AZ89Rx4COmumh4OXeXFz2iZG
+	zpTdte0nhRcKIdafv+/vGXJ5kgfsf+gvPaP5QYs/wTAg704kGrq+kdikDzaausHZsXspTgDap/H/x
+	pn3rUUerHafSfd2MKz0RG2WhPnu00LO6fYrjorogvs6skEL5Z2JWatmik0sr9HC/egbCUCHKmdCy2
+	MrK9dLsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwL-0000000DLsR-2VCw;
-	Sat, 23 May 2026 14:02:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wQmwT-0000000DM27-2E2p;
+	Sat, 23 May 2026 14:03:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQmwK-0000000DLrK-2SPx
+	id 1wQmwP-0000000DLvg-3e9J
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 14:02:56 +0000
+	Sat, 23 May 2026 14:03:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5E5B60141;
-	Sat, 23 May 2026 14:02:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A5CB1F00A3A;
-	Sat, 23 May 2026 14:02:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 44A8F6020C;
+	Sat, 23 May 2026 14:03:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFB2F1F00A3E;
+	Sat, 23 May 2026 14:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779544975;
-	bh=fuOTrHOj9uIrl6Hh+9LOPPhruyGEFguBq2wvPmBPjYY=;
+	s=k20260515; t=1779544981;
+	bh=iVYOFKxX2nTK7xBG+dFvf5BN63MQ7IZrJ1lALABuKpI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CahzoAU0cYZa4d4XQ2gooWGHjt0pnJ9Ot4ClzJwVSfAmrOQ92bbrik3HeEkNTnvQM
-	 mWnlFgmNe/RJDLhoM1itYFkXjBlZzqnS/QQkJ1qeuGHaeFTlZvpXA6RAitIv6BFuSA
-	 lyfJgPUDyMamaYrHCO9aJB2/nyVNooulQARv6/ePYMDcCESEJD6yvzhK8prwkJ77wY
-	 nr7kKCcdOPp+bWod+GrgK3XgBC2TwylLfVZjl74BtMvYZ2XCLBRB5uZBxSBA63giB+
-	 iXN1tecIyQxxVIZG+kGoir7PPpsOzvj8YyGsK5wA30ynNReKiZdTaZaWG8+rZDPEYy
-	 3l4c3wvqvf7ow==
+	b=DuSVkzN0d8p3/jyc9iabj4PY0S9LSlmREOfbZtIOZ+2Gyb4RSk5IiKdi/dJ8bMlPd
+	 rEVkWlru26pC1jpNdL+AhuXw1eDySOeaz4Z/WXAl8gaCJGeqqBUftcSy2gARk6G4VB
+	 vE9wmIwUUV/iPeYdV1cPsmovCZ19UVhvnuT/Yw03ic5Z3QdIx0xv5S3/MGzCeHbGz0
+	 LkR5ITQmfoWy8ycG8Xknz8sWjs95FVP8lqFElNQgkHQkI8itgZY7uk7JZgZazeORnX
+	 zZmh08Wp33m7eMnGNAG2IGTFhz4CMNRrJQBNtc9j9Kp441IyU8XHn+vfxR3F+P7L2x
+	 By1cU8l1XrdaA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wQmwH-00000005YFc-1pb9;
-	Sat, 23 May 2026 14:02:53 +0000
+	id 1wQmwM-00000005YFc-47zB;
+	Sat, 23 May 2026 14:02:59 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
@@ -96,9 +96,9 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Orson Zhai <orsonzhai@gmail.com>,
 	Baolin Wang <baolin.wang@linux.alibaba.com>,
 	Michal Simek <michal.simek@amd.com>
-Subject: [PATCH v3 01/17] ACPI: GTDT: Account for GTDTv3 size when walking the platform timer descriptors
-Date: Sat, 23 May 2026 15:02:26 +0100
-Message-ID: <20260523140242.586031-2-maz@kernel.org>
+Subject: [PATCH v3 11/17] arm64: dts: mediatek: Add EL2 virtual timer interrupt
+Date: Sat, 23 May 2026 15:02:36 +0100
+Message-ID: <20260523140242.586031-12-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
 References: <20260523140242.586031-1-maz@kernel.org>
@@ -123,71 +123,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since ARMv8.1, the architecture has grown an EL2-private virtual
-timer. This has been described in ACPI since ACPI v6.3 and revision
-3 of the GTDT table.
+The ARMv8.1+ based CPUs used in a number of Mediatek SoCs are missing
+the EL2 virtual timer interrupt. Add it.
 
-An aditional structure was added in ACPICA, though in a rather
-bizarre way, and merged in v5.1 as 8f5a14d053100 ("ACPICA: ACPI 6.3:
-add GTDT Revision 3 support").
-
-Finally plug the table parsing in GTDT, and correct the parsing of
-the platform timer subtables to account for the expanded size of
-the base table. This also comes with some extra sanitisation of
-the table, in the unlikely case someone got it wrong...
-
-Suggested-by: Sudeep Holla <sudeep.holla@kernel.org>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/acpi/arm64/gtdt.c | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt6779.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8186.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi | 3 ++-
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi | 3 ++-
+ 5 files changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/acpi/arm64/gtdt.c b/drivers/acpi/arm64/gtdt.c
-index ffc867bac2d60..950d5efdf85ea 100644
---- a/drivers/acpi/arm64/gtdt.c
-+++ b/drivers/acpi/arm64/gtdt.c
-@@ -34,14 +34,25 @@ struct acpi_gtdt_descriptor {
- 	void *platform_timer;
- };
+diff --git a/arch/arm64/boot/dts/mediatek/mt6779.dtsi b/arch/arm64/boot/dts/mediatek/mt6779.dtsi
+index 70f3375916e8c..106df7603d533 100644
+--- a/arch/arm64/boot/dts/mediatek/mt6779.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt6779.dtsi
+@@ -108,7 +108,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
  
-+struct gtdt_v3 {
-+	struct acpi_table_gtdt	gtdt_v2;
-+	struct acpi_gtdt_el2	el2_vtimer;
-+};
-+
- static struct acpi_gtdt_descriptor acpi_gtdt_desc __initdata;
+ 	soc {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186.dtsi b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
+index b91f88ffae0e8..a4621ce370d8e 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8186.dtsi
+@@ -815,7 +815,8 @@ timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
+ 	};
  
- static __init bool platform_timer_valid(void *platform_timer)
- {
- 	struct acpi_gtdt_header *gh = platform_timer;
-+	void *platform_timer_begin;
+ 	soc {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index 75133794cec38..614e75f46c72d 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -918,7 +918,8 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clock-frequency = <13000000>;
+ 	};
  
--	return (platform_timer >= (void *)(acpi_gtdt_desc.gtdt + 1) &&
--		platform_timer < acpi_gtdt_desc.gtdt_end &&
-+	if (acpi_gtdt_desc.gtdt->header.revision >= 3)
-+		platform_timer_begin = container_of(acpi_gtdt_desc.gtdt, struct gtdt_v3, gtdt_v2) + 1;
-+	else
-+		platform_timer_begin = acpi_gtdt_desc.gtdt + 1;
-+
-+	return (platform_timer >= platform_timer_begin &&
-+		platform_timer + sizeof(*gh) <= acpi_gtdt_desc.gtdt_end &&
- 		gh->length != 0 &&
- 		platform_timer + gh->length <= acpi_gtdt_desc.gtdt_end);
- }
-@@ -166,6 +177,13 @@ int __init acpi_gtdt_init(struct acpi_table_header *table,
- 	u32 cnt = 0;
+diff --git a/arch/arm64/boot/dts/mediatek/mt8192.dtsi b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
+index 9f8f115edd4cc..873c4fae6afc9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8192.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
+@@ -328,7 +328,8 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		clock-frequency = <13000000>;
+ 	};
  
- 	gtdt = container_of(table, struct acpi_table_gtdt, header);
-+
-+	if ((gtdt->header.revision >= 3 && gtdt->header.length < sizeof(struct gtdt_v3)) ||
-+	    (gtdt->header.revision == 2 && gtdt->header.length < sizeof(*gtdt))) {
-+		pr_err(FW_BUG "GTDT with invalid size %d\n", gtdt->header.length);
-+		return -EINVAL;
-+	}
-+
- 	acpi_gtdt_desc.gtdt = gtdt;
- 	acpi_gtdt_desc.gtdt_end = (void *)table + table->length;
- 	acpi_gtdt_desc.platform_timer = NULL;
+diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+index c72e34c57629d..3c9a7a08612b9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+@@ -451,7 +451,8 @@ timer: timer {
+ 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
+ 			     <GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
+-			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>,
++			     <GIC_PPI 12 IRQ_TYPE_LEVEL_HIGH 0>;
+ 	};
+ 
+ 	soc {
 -- 
 2.47.3
 
