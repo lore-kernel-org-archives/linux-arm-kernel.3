@@ -4,63 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1A1CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 07:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B8ABCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 07:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kMDEKtDLmLVx96pUCq4Po0S8WmghIroryWHxcT4k5M=; b=ZTvnoWn3daixEB1buo3ECkIpzp
-	JaEDex8ynVqSxUDOEhfpwesvRMcrEEwbpdeGaLI+H59RvsGnPmBAZb2X9XG3mqM1OCFAmFW0888Lz
-	XEu1bxoY69dUCpubIh20QaKC0xTG0rzRUleJdpM5QiuEabVgsILrPgzFjMkSylA991k5DBKJTMH4Y
-	fo5k1ra96oH3lAV+vTOr4zx5L1xRzhyMprYzOVXUiCkRhAmzpxOwES3TmeLu3gFTsOXf8J1uiesDQ
-	gvIxxi3zCb6OO8nrYWyE5n+IHEHGG9ArNOambOcqqBKbKdd2rTgthkWdXwq9kE58O+lXySJ1EtlSD
-	jZ2Ni2XA==;
+	bh=zd0pyH4JyTVrhWiF/m1kbVJHvnAmP0kTBiQpkGCTOkE=; b=qGefPjDe/iW8IYH5WrZqjdjdUo
+	q+VTEPo+ny69q8Prr0f7o3k3CEpceIw78nM6b31Djc9/oq90jQ7sxV8miSwwNsFegGq7yksaRW7S5
+	UR0oE0U4VcrSUI3Fn5MVtqE0JWpgkT8ix817TEsCw27vuIGyxvPsPKAxoqi6IBgvnc8+/KETW5Uog
+	ntFt6w/6BjSbuWrazjHgHpdGvWAIVysOxiAQisaZd0Pjb2zVobso1zZfxOdwsrY1prZKuOV+c2Tdb
+	KKrKiVGVQdfgLQgWQBdy6kp7ApgmejDKeRV6lAUKN8l70in7VWJbaRSRLLUYFXY0cI+m9zUoTUObv
+	AxNlgJvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQfq1-0000000Cnrn-0aUs;
-	Sat, 23 May 2026 06:27:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQfpy-0000000CnrH-0ZGF
+	id 1wQhAf-0000000Ctxc-3Obu;
+	Sat, 23 May 2026 07:53:21 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wQhAd-0000000Ctwr-0s6u
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 06:27:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A2C21F02;
-	Fri, 22 May 2026 23:27:46 -0700 (PDT)
-Received: from e129823.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 211CB3F7B4;
-	Fri, 22 May 2026 23:27:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779517671; bh=JEVR6CkLj/c0gaMD1sZUS4SWLivaFbisW4FMLpwuuDg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uIQJFM/cEmjlN4stENbpOIKjt/iyaSbTyh5hLaLGIXxF5+qBDVQp/OE3m2CxHVp/O
-	 sWtBL7579DfUCAmc8WHI8dr0MQGjw0iVJjBYEegAij/WaCFEgrX6P4bNO4EZyU8DAI
-	 8mOq6ipz1yrieS4cv9bsHmMFlxHkSofGAUYfjwE4=
-Date: Sat, 23 May 2026 07:27:47 +0100
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	linux-security-module@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-integrity@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 2/4] firmware: arm_ffa: Register core as a platform driver
-Message-ID: <ahFI43hT9eoktFlU@e129823.arm.com>
-References: <20260508-b4-ffa_plat_dev-v1-0-c5a30f8cf7b8@kernel.org>
- <20260508-b4-ffa_plat_dev-v1-2-c5a30f8cf7b8@kernel.org>
- <20260523001148.GA1319283@ax162>
- <ahEyBrZGSVbdQxDJ@e129823.arm.com>
- <20260523050555.GA1121518@ax162>
+	Sat, 23 May 2026 07:53:20 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5a40502e63bso8349128e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 00:53:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779522796; x=1780127596; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zd0pyH4JyTVrhWiF/m1kbVJHvnAmP0kTBiQpkGCTOkE=;
+        b=e2fkn7eTEWKxyIr/dqMrlwNFu8sTDUmpfnR+3MIXt7cfAzWw1kTN8nBgrMESg2FzQB
+         kAgHTbkmU1HXlb7PlxsB6QrG36f7OOqDJTSHUOE397bp4CPqEquux1DtnBqfpNCrrZAR
+         fWLHXKSN0Sk+FRoymTUvVKojyWIvTzVgRzABjifLVTdeYuv26T4zWnALflVGcJ89fixa
+         OtBe8boPpiAwpS1SRtyIEixPhpjTuBTw1Th6h5FiU3BSRzB7FvzXeagRIbBniX5p1DYU
+         Kv9D5MraRsHJCNMEccADGXkq7hH8dmSaZRCl8+YMcoOsHK5Zw2UJ+oPp0cD3veewBy3z
+         1jtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779522796; x=1780127596;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zd0pyH4JyTVrhWiF/m1kbVJHvnAmP0kTBiQpkGCTOkE=;
+        b=SLklAVfGYCbDT4rBnCEWcjY5NfeKW/Rf4yaZTp2BJYAqdraGwqXQJjexJsRmj6QGmV
+         Qkju16OqEUu9+V7ms/8kIQV6eU7pVyMGMfZFYxMP10W6liLOEt5on/cutN5YUPGFj3L9
+         DmjH/BjoeuVijxgfy/0FV0uJ1Kldne7oGwt4OQ6J7xsLtlkvCd7k1CLGaaGGiVYNRUuT
+         NxTGASpKjS5VdDjUdPPEXBwOQpkGVtayFibcij6E0Nufu3fupb9kID9F5N8xzbb90LS2
+         Bn0owHnxGvXYzWsBbBibXhljPgwBWyLp+nARz5bAd3340nyxDhJQlekOCFc4nnuk2uxk
+         botQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9OCfpCxrMb5kWqCT3K4mYGEmWp1buSoPmzMvSn+6k00sGBalHpb5cv45UCVYqhLmbyJoy/cph7382O2fRJHQ1H@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfORibUld4PkAOtSyFotY+ISlGHl/8ZtHCI1vNFsTYdFCRI1CI
+	lpMDn0VBb5MB0gjywxp8hHFv0vdgpYvVmEVjLbeOHQam5oNWXaYM1grw
+X-Gm-Gg: Acq92OGp1sr525uLBGHVsWkGLeHvSYejodLcdN8Or6g2n2fZ+SQqng5aZZxhr45/dsQ
+	Nqrr9ENKngIBfVRr2XdSaEhqgA8ezIxEfJCP2EewAWSBrNMRdOsLlQ+kSw+KXd5R7g2sVNPvx2b
+	jfZLeLrYIwXVgpwVPMbLXUiBtkWadTSaf0jb7+3PIN2QgLADDf0EL8SDYJkSZtCv7IeZ+T7JVbn
+	a6IVKPmuJVp7m6QF4mD11XvWiBHp6kI9wrjZGplfMewD8Laaw0rLl/PIOSsvod2NHPeX3HR8So9
+	Shie/M3IsKSWQQADRKx1vAzN75h1V55WpM8SfrYJ5WC/e2uJSYhJGPBhp6Q92iuMECJACx5pU7d
+	F5XMJe+o35C8y2p7YIBXQMbe67L/mTsiH8AjR6tpTwSvgaCdpg3X4LHletJtY5z+HMrWVw74P0j
+	oJK01LVUY0vbUEkbHjISEyRUBGYnCjvZR3c3SefT/l1nBS1KYJpwtQ6cumHqXihg==
+X-Received: by 2002:ac2:4312:0:b0:5a8:a754:4b57 with SMTP id 2adb3069b0e04-5aa323b28e6mr1722088e87.41.1779522796191;
+        Sat, 23 May 2026 00:53:16 -0700 (PDT)
+Received: from pc636 (host-90-238-28-226.mobileonline.telia.com. [90.238.28.226])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa32cb37a7sm981873e87.2.2026.05.23.00.53.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 23 May 2026 00:53:15 -0700 (PDT)
+From: Uladzislau Rezki <urezki@gmail.com>
+X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
+Date: Sat, 23 May 2026 09:53:12 +0200
+To: Wen Jiang <jiangwenxiaomi@gmail.com>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
+	dev.jain@arm.com, rppt@kernel.org, david@kernel.org,
+	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com,
+	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com
+Subject: Re: [PATCH v3 6/6] mm/vmalloc: align vm_area so vmap() can batch
+ mappings
+Message-ID: <ahFc6KfVIoI2w8Uu@pc636>
+References: <20260522053146.83209-1-jiangwenxiaomi@gmail.com>
+ <20260522053146.83209-7-jiangwenxiaomi@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260523050555.GA1121518@ax162>
+In-Reply-To: <20260522053146.83209-7-jiangwenxiaomi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_232754_243956_AC685746 
-X-CRM114-Status: GOOD (  27.00  )
+X-CRM114-CacheID: sfid-20260523_005319_268820_0107CCEA 
+X-CRM114-Status: GOOD (  21.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +104,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 10:05:55PM -0700, Nathan Chancellor wrote:
-> On Sat, May 23, 2026 at 05:50:14AM +0100, Yeoreum Yun wrote:
-> > Hi Nathan,
-> > 
-> > > Hi Sudeep,
-> > > 
-> > > On Fri, May 08, 2026 at 06:54:16PM +0100, Sudeep Holla wrote:
-> > > > Move the FF-A core bring-up and teardown paths into platform driver
-> > > > probe and remove callbacks, and register a synthetic arm-ffa platform
-> > > > device to bind the driver.
-> > > > 
-> > > > This makes the FF-A core lifetime follow the driver model while keeping
-> > > > the device creation internal to the FF-A core. Use normal platform driver
-> > > > registration so the probe path has standard driver-core semantics.
-> > > > 
-> > > > The synthetic platform device is a temporary bridge until ACPI and
-> > > > devicetree describe the FF-A core device or object. Once those firmware
-> > > > description paths are defined, the internal platform device creation can
-> > > > be dropped and the driver can bind to the firmware-described device
-> > > > directly.
-> > > > 
-> > > > Since the transport selection now happens from the platform probe path,
-> > > > drop the __init annotation from ffa_transport_init().
-> > > > 
-> > > > Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-> > > 
-> > > I am seeing
-> > > 
-> > >   arm-ffa arm-ffa: probe with driver arm-ffa failed with error -95
-> > > 
-> > > on my two arm64 test machines after this change landed in -next as
-> > > commit e659fc8e537c ("firmware: arm_ffa: Register core as a platform
-> > > driver"), is this expected? If so, perhaps it should be silenced?
-> > 
-> > Could you share the .config file you used for this?
+On Fri, May 22, 2026 at 01:31:46PM +0800, Wen Jiang wrote:
+> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 > 
-> Sure thing! It is attached. If you need anything else, please let me
-> know.
+> Try to align the vmap virtual address to PMD_SHIFT or a
+> larger PTE mapping size hinted by the architecture, so
+> contiguous pages can be batch-mapped when setting PMD or
+> PTE entries.
+> 
+> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> ---
+>  mm/vmalloc.c | 33 ++++++++++++++++++++++++++++++++-
+>  1 file changed, 32 insertions(+), 1 deletion(-)
+> 
+> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+> index 50642246f4d40..040d400928aab 100644
+> --- a/mm/vmalloc.c
+> +++ b/mm/vmalloc.c
+> @@ -3620,6 +3620,37 @@ static int vmap_batched(unsigned long addr, unsigned long end,
+>  	return err;
+>  }
+>  
+> +static struct vm_struct *get_aligned_vm_area(unsigned long size,
+> +		unsigned long flags, const void *caller)
+> +{
+> +	struct vm_struct *vm_area;
+> +	unsigned int shift;
+> +
+> +	/* Try PMD alignment for large sizes */
+> +	if (size >= PMD_SIZE) {
+> +		vm_area = __get_vm_area_node(size, PMD_SIZE, PAGE_SHIFT, flags,
+> +				VMALLOC_START, VMALLOC_END,
+> +				NUMA_NO_NODE, GFP_KERNEL, caller);
+> +		if (vm_area)
+> +			return vm_area;
+> +	}
+> +
+> +	/* Try CONT_PTE alignment */
+> +	shift = arch_vmap_pte_supported_shift(size);
+> +	if (shift > PAGE_SHIFT) {
+> +		vm_area = __get_vm_area_node(size, 1UL << shift, PAGE_SHIFT, flags,
+> +				VMALLOC_START, VMALLOC_END,
+> +				NUMA_NO_NODE, GFP_KERNEL, caller);
+> +		if (vm_area)
+> +			return vm_area;
+> +	}
+> +
+> +	/* Fall back to page alignment */
+> +	return __get_vm_area_node(size, PAGE_SIZE, PAGE_SHIFT, flags,
+> +			VMALLOC_START, VMALLOC_END,
+> +			NUMA_NO_NODE, GFP_KERNEL, caller);
+> +}
+> +
+>  /**
+>   * vmap - map an array of pages into virtually contiguous space
+>   * @pages: array of page pointers
+> @@ -3658,7 +3689,7 @@ void *vmap(struct page **pages, unsigned int count,
+>  		return NULL;
+>  
+>  	size = (unsigned long)count << PAGE_SHIFT;
+> -	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
+> +	area = get_aligned_vm_area(size, flags, __builtin_return_address(0));
+>  	if (!area)
+>  		return NULL;
+>  
+> -- 
+> 2.34.1
+> 
+This one LGTM:
 
-Thanks! unless there was other error log from ff-a driver,
-I think this happens because your environment either doesn’t
-support FF-A or is using an SMCCC version earlier than 1.2 from
-ffa_version_check() or ffa_transport_init().
-
-If that’s the case, You can ignore this log since this behavior is
-expected, and the dd core should print an error log.
-Before this patch, the error was not shown because all FF-A initialization
-was done during the initcall phase, and nothing was printed
-even when the initcall function returned an error from caller of initcall.
-
-[...]
+Reviewed-by: Uladzislau Rezki (Sony) <urezki@gmail.com>
 
 --
-Sincerely,
-Yeoreum Yun
+Uladzislau Rezki
 
