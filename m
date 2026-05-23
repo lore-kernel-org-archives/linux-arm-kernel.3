@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F6FCD5BB8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 19:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979C6CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 20:45:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26EFTuIhlqnsc4uUzyuaHx+9wSdJArl+zaLC9veBaX4=; b=wSYYMzQ1HTR58MDYoWpXZvnYVI
-	polzzIgQb+tgIcvxueUjtiJZzj6i75ciH1O3vSEZFnD9VR/elsbidl4iGVaN3MwB8A9OeoEq/41Jt
-	k2x8YmKVILI83nD8hx6IIT/erepA1Lm0c5d2/qUNp1A7m9dyxqe0OJlDGFtcnAzrvIgm6uSjqATxF
-	jE5hp0g6i5dxLWApppTaf8GrkaiiUctcNasX3TMW6k37BDiAWOkSDU5ZzF31vY4xP5jB8PPmzcGM5
-	ba/+2Ap2n2cJZk2GnbKr9tLTWgvqS3n6RPSfdBoPca+lAN1m7uAp83p0w9jJilglZsr+1fa3tOjld
-	L0HTlm0w==;
+	bh=uMEEZn+x23X3/iGLCH74HTpR0e0r7hhMuh0rntSsrbY=; b=UwWY6G2qZi+4DttZoT0J7fIFSq
+	D4N2ccPLfDnSC7u0JEsxCtR4lEmKqbkgyJP0oAUW1lbGXZEGR4K2lX27KA6B9iBH4b+hk/xtROD1Y
+	3T/l3LIrBargDCWk9s4CcJOhjdM+VJDZBfMiaXoOr7WVAYHC9X2m9sLFTXxriKCFXr5qglV3rzEWq
+	0MsQgl+yIFFJfZlzNvnTab6PkNRApoNQfFSHa8IHnBLuS9mFTkYalwAZmG0t4wGg+qKx7MEyBqkZD
+	+8uKBAIK2m9IUqpJbzs6jCZ+FgNQxxCT4IF10yG7plOccxyet2YNiWVNCMo6ctcB5RXjJ2wep8mnl
+	IEFJjAtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQsLe-0000000DsKH-08n4;
-	Sat, 23 May 2026 19:49:26 +0000
+	id 1wQsHv-0000000Doou-2zvi;
+	Sat, 23 May 2026 19:45:35 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQsLU-0000000DsBq-1gdK;
-	Sat, 23 May 2026 19:49:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1779565726; cv=none; 
+	id 1wQsHs-0000000DonN-2eEV;
+	Sat, 23 May 2026 19:45:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1779565488; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=YivRdyVdIUyefuyRo7wM018X8HLm1qVWQ9Hbl73R7Qb+sM4fwrqfQrccVXONNbNPudCu7CKKmlAOXzUTpT3sYqzgzK4coTMRVxwOxEOOA8US0QS1MMiUZ87iugfBWw7V8SKrB7P0T/JejsY0OyEEyyoGsUW7R/bqVUzYM+a4fLo=
+	b=GeW0j8HgfdnTz/6VO/sIo4i6siH4Y2uICsByq8WzQ08xC2z5CIohPUCw6eapODwdcJem9J9kjIHu5IUkLF4dRldrlofQ7G62DsnpQV5afKN5iOzMMtcVTd6/+BG9vEJOr4FQ5m9g57jQvp0ueA17h11vwV4f0Jq5HoQvJUA5XY0=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1779565726; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=26EFTuIhlqnsc4uUzyuaHx+9wSdJArl+zaLC9veBaX4=; 
-	b=BXYniJO0Clx+DFYzVCJmbmcziRtNTI6T9eHiSp+LkDpp3YMyKJC/arcT1M2JJFUSpyD6zNlVOpiLO5JKxnHQyizdwMcLLRs/TsjYRPO00CxyqBxwH8p6mRKnVvWo/Vd2OyxzMuSVBt2TZXV7oNIjQeaeAKlR+wxIk39hOsLdrpY=
+	t=1779565488; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=uMEEZn+x23X3/iGLCH74HTpR0e0r7hhMuh0rntSsrbY=; 
+	b=j0yrkzvB+4OGrnyHRIkkGTX97ahcewFaCNupHxmKhKl/5Q7f4kbEiFsYpOSCcK/9vuuHIXF33b3sQneUez9CZdh05SqGtvglbn3R/efQDqRDZnI5lv0ddOp2AF5GGWa3bIE21DHbBWerEd5/e8hfHX8Fj0wDJoJsWN4NinzVmIQ=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779565726;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1779565487;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=26EFTuIhlqnsc4uUzyuaHx+9wSdJArl+zaLC9veBaX4=;
-	b=DHJpKuP0sXDC1x7Nl/iQacLFQF9x8ET0NvL/bls/uu+59nJ9K7HxFhCJAKCosk3o
-	Ck9w5iITProSiAUZVc8NkadC5s7XzRbD/IHjRW5WWH4gjcaqojvM6UreaNhIdQHEJ7E
-	lJlHd5ZnXFDWpvR5Cj5oNOif8XII3xByZGWaQFlQ=
-Received: by mx.zohomail.com with SMTPS id 177956572445825.918389143356876;
-	Sat, 23 May 2026 12:48:44 -0700 (PDT)
+	bh=uMEEZn+x23X3/iGLCH74HTpR0e0r7hhMuh0rntSsrbY=;
+	b=AuTtPEmZzY7WREJoBUB3CUFqgr+IScEBNoMDYDFQ1rZsZS6T+STalkSLJKEKPXKK
+	2bIwDf4497PrknHu1TanCVK55rn2ztJAt/QmpRUb1uvyzWaxBBKemAvXe1CSW3JnaLU
+	L1ezBjRjWPzIipF0HholfjcSgO34BfdhbLspD5Lk=
+Received: by mx.zohomail.com with SMTPS id 1779565485684287.4308773740099;
+	Sat, 23 May 2026 12:44:45 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Sat, 23 May 2026 21:44:03 +0200
-Subject: [PATCH v16 28/28] drm/connector: Update docs of "colorspace" for
- color format prop
+Date: Sat, 23 May 2026 21:43:36 +0200
+Subject: [PATCH v16 01/28] drm/amd/display: Remove unnecessary
+ SIGNAL_TYPE_HDMI_TYPE_A check
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260523-color-format-v16-28-24340c5e4732@collabora.com>
+Message-Id: <20260523-color-format-v16-1-24340c5e4732@collabora.com>
 References: <20260523-color-format-v16-0-24340c5e4732@collabora.com>
 In-Reply-To: <20260523-color-format-v16-0-24340c5e4732@collabora.com>
 To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
@@ -82,11 +82,13 @@ Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
  linux-doc@vger.kernel.org, wayland-devel@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Werner Sembach <wse@tuxedocomputers.com>, 
+ Andri Yngvason <andri@yngvason.is>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260523_124916_493666_879CEE93 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20260523_124532_697933_3D972051 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,36 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The colorspace property's documentation states that BT2020_RGB and
-BT2020_YCC are equivalent, and the output format depends on the driver.
+From: Werner Sembach <wse@tuxedocomputers.com>
 
-Now that there is a "color format" property that userspace can use to
-explicitly set a format, update the colorspace docs to mention this.
+Remove unnecessary SIGNAL_TYPE_HDMI_TYPE_A check that was performed in the
+drm_mode_is_420_only() case, but not in the drm_mode_is_420_also() &&
+force_yuv420_output case.
 
-The behaviour here is not changed for userspace that doesn't know about
-the color format property yet, as the color format property defaults to
-"AUTO", where the choice of output format is left up to drivers.
+Without further knowledge if YCbCr 4:2:0 is supported outside of HDMI,
+there is no reason to use RGB when the display
+reports drm_mode_is_420_only() even on a non HDMI connection.
 
+This patch also moves both checks in the same if-case. This  eliminates an
+extra else-if-case.
+
+Signed-off-by: Werner Sembach <wse@tuxedocomputers.com>
+Signed-off-by: Andri Yngvason <andri@yngvason.is>
+Tested-by: Andri Yngvason <andri@yngvason.is>
 Reviewed-by: Daniel Stone <daniel@fooishbar.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/drm_connector.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index b91c1f76355e..52f9a6a8daf7 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -2573,7 +2573,8 @@ EXPORT_SYMBOL(drm_mode_create_aspect_ratio_property);
-  *		conversion matrix and convert to the appropriate quantization
-  *		range.
-  *		The variants BT2020_RGB and BT2020_YCC are equivalent and the
-- *		driver chooses between RGB and YCbCr on its own.
-+ *		driver chooses between RGB and YCbCr based on the color format
-+ *		property.
-  *
-  *	SMPTE_170M_YCC:
-  *	BT709_YCC:
+diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+index ba7f98a87808..dfe97897127c 100644
+--- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
++++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
+@@ -6917,12 +6917,9 @@ static void fill_stream_properties_from_drm_display_mode(
+ 	timing_out->v_border_top = 0;
+ 	timing_out->v_border_bottom = 0;
+ 	/* TODO: un-hardcode */
+-	if (drm_mode_is_420_only(info, mode_in)
+-			&& stream->signal == SIGNAL_TYPE_HDMI_TYPE_A)
+-		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+-	else if (drm_mode_is_420_also(info, mode_in)
+-			&& aconnector
+-			&& aconnector->force_yuv420_output)
++	if (drm_mode_is_420_only(info, mode_in) ||
++	    (aconnector && aconnector->force_yuv420_output &&
++	     drm_mode_is_420_also(info, mode_in)))
+ 		timing_out->pixel_encoding = PIXEL_ENCODING_YCBCR420;
+ 	else if ((connector->display_info.color_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422))
+ 			&& aconnector
 
 -- 
 2.54.0
