@@ -4,101 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D320ECD5BB8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 02:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29093CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 03:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHPUJ3czC5a2AiOeeio5W0mr8v8tHvSIXMOz+fsp+lA=; b=P++X7e9fXTHQOzNxqjNqf/X0OD
-	OmExT8fPbCTOdcZ81Q1bmuiltiEMUsILIAElAR9+ZDYJkrbxtnfgjXlUowx7GatOcc1HXPGW3KjEG
-	XSeZ8CJV6Iwy3iKxrzcY/XmAVR3m9/iU73Z1/52ooJbbTkDWgaDdeEeZTYMlLiH3TtnyoaKPditmi
-	lBBP033l5kSDOfpfZ59WB7w1eRR6w9htvh1YhYYtXPwcpWRZwchsG1RTCbWXuxNElm7zACBvOXd4J
-	xOzSwnK1fJGf/rd8wxWGZH7VyCHKGva2otPxlIw86shqTWKjIHzGjy75BJZA3xvy+Xk7Evl66wu7z
-	Fv8owXdw==;
+	bh=+XL9fQqEWbSHtUTzHJNem08rNzq8qxneQBBCAFW0a4o=; b=NqVP9Q3I+x8S0aNpyKo7hD9sIf
+	xd2NI2DIezvR/uP4awj/EtKvlpJ3R9SePnscDc2/5EM0PGSmopV8Uz+64nNZu7PN2EORv2NoxaQXI
+	U0HQ8j35UE5aFxPofbYlAgqYY/L1dUEDlWx02MdGegM+LsLpEBnI+xCCP93RyYja3OY7OtfPab2wc
+	Y0/DbgkQDZgHq8Xmr3OmtQoJJWDpnK0TXJqFB80hcyghxo30UjgBcinXT1jpwgph62fRo6wOnutds
+	gasWAhhmNs1y4cLZ5ahguVZQA3KkRUttKcW36i8FVqrXb5+byw8eZM8CYEqygjgCUJ2F4jdX6k3za
+	xIVLtTOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQc8a-0000000CXDs-3e8l;
-	Sat, 23 May 2026 02:30:52 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1wQcqu-0000000CanM-1qMl;
+	Sat, 23 May 2026 03:16:40 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQc8T-0000000CXBU-3lwT
+	id 1wQcqr-0000000Camp-0sLp
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 02:30:47 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3699cdeec05so3315334a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 19:30:45 -0700 (PDT)
+	Sat, 23 May 2026 03:16:38 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-69d8b7aeeecso405554eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 22 May 2026 20:16:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779506195; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Rvf9Laop1bgi4rDsihlEvCewyrnos9DG1gvdVpVsPXkefNnn/YRKxXeCMsLCnWpELa
+         cm5yHX2dg9cokEEY2XevJETUn3PVRKcyy2RsDrsXJShbjbIzfRg4RWGObvuwltCZgxBH
+         nBEV+cTvUCWNgTnU1kjq7gwQKOyLTcnEztC+AW2YzIxfvAMVtd2Wz8dF2w354GK5Kcjr
+         lShsNe/mCfF4AcM+jta7t/gHUYzlVJCxAcwXGLgrk5C5y5shW7has6oguB3ZWkj1n0fe
+         3ij6ZjVbKPCa2CQIUToQ0UsM2IeBCSU/yFdvpuZRfHN558lb8DnV6u9QC4ghTE3SlGU+
+         GkHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=+XL9fQqEWbSHtUTzHJNem08rNzq8qxneQBBCAFW0a4o=;
+        fh=ijKfn35mJEeQ06K6t2EhuzJahhd86+iajDGuPYInFsk=;
+        b=cisZN0P8ZJb0GMCGzxrHxwKyolkKtQ9SHoahIM9Q1azi5tfbqNPVtHWOtLHAva3c0b
+         wYAczn7uUpJpTmv4YW4bcftCxfxowKeyC8CmjZCaOnCaKzKByvr72SvE+yly5zHMTH5A
+         HfM5y0pocPjE62T5dRHMJpr2zMghj7C29wodaWMVFnuj3BAuYhdmHxxbkkYYncH8qQif
+         QvVBFr7en85iU03FYja1L50PaTKN2sNMK8SLLIfWVRQ0v8Y3CkGc8XlcrGbfcTff83LO
+         30ZOMRiHvPgMQFv3Bn9LfN4whsDmvn7Pspuph66cJVzLq5X2LY4ypKJKxyDXb6pEitj0
+         MicA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779503445; x=1780108245; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sHPUJ3czC5a2AiOeeio5W0mr8v8tHvSIXMOz+fsp+lA=;
-        b=l9mJKVzTvS/ebfZc3uHIy9qjGA6QZ9XTNcCBA9UWBvTVzprdB2wACsf1MHjqQdMvBD
-         4nMb38g5b0t0UUTZvIRlGnXjEVOZ1NKbOT5puhhn8HndeTIIl0QoK3VHg6eU7VGfz2lf
-         RkBnYFPPStENGnlMgguTK5uppi54MsRojcKDk7eQGxm4secWMbSNY5l1sZcqQ8jaWngu
-         L5cHevCQQFnS+PWTUAvtkz3me60/krabw9K26ZAy2IS6Bw0T+Ihc0z+ApEHF2+8MtMVv
-         qflVRw27ksmwAOube9VQjXGRsj8X+u/fn2av6vreQoYiUrSFs1ugA1E+4khk0iSPs0sf
-         yFTg==
+        d=gmail.com; s=20251104; t=1779506195; x=1780110995; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+XL9fQqEWbSHtUTzHJNem08rNzq8qxneQBBCAFW0a4o=;
+        b=TktaP0LOJcQDqQ4pTCefUBH4k/sEfHynQveeVUPoAGNuLY37MUe2acCAGqTHtQvKQz
+         4C2xs1MftAEylyHH/itUevotirjA4ddYj+NGj7AHbzYUR6AAeCZqJXsPc1QkhrF2z0LX
+         /YWENSpDOZ4nANAijvU9uka3p+whpIm7SNOb+WseIOcrlrvC0mW4XNwZfSi7gGZWu85u
+         o0o0/O7klaelz0TQnViwtGp7FI4YiaNX0uvs8fn5/iZuZEswVwP/HlkX21i7NPVMvPd4
+         Nx9S28/cTrg4Y+d1gVdp01ZcXUkYoKj+Zlrbc0/bvWa/B3QIP9MvgULvkbiZ9iPQBT8w
+         Z/eQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779503445; x=1780108245;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=sHPUJ3czC5a2AiOeeio5W0mr8v8tHvSIXMOz+fsp+lA=;
-        b=llkmxskIkqRHrpoPff/pECA8Fb5vqruaP4QLUbg2Mz5EMKU1htjcqZRrtiknMEMpiH
-         3U90V/i6i/Xalnnsa58bbUD9o6W4lSw8j89QM+BUI5lZmElbNwtLwoxoWZ62DG09uskB
-         Rs2vC5z2s2Ky1yAIQCuEQliuLu5H6shRW0MV/UYnb1hNyIrtceLpFsBLEuCcViROVNJt
-         FJxown3Bm74+pn7WKAhdFZ8icv606CRhgBXZGSBjD/c0YCaxx3IjxPG0ejiGYmZw50NX
-         nv9rdq9PaXzKjwkXKjGesCRM1bv+c2cJwWW/o3xnnhkkRNCxBCURBwHAe7OtghK6Mu4/
-         2EWQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/P3NwLzuwBY/d/D9Mw5+UYsCTkEYURL4/kv+Y+pPTsWxw+/mbOVdKY4Ac5Onp/cXL2KVJU8OhFmeJ5FVXmprDU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrcQ4s7ONS+cliIlY2SxsL9pVzbvST4A1HbPNIO0RopEfT/ZRV
-	sBXnq7cbbunx6vOi9q0liB9FhlTHj+u3CF86lOWMzxM8Z+IDIsjNmIcJ
-X-Gm-Gg: Acq92OGx/Kkp0B8nsp+s6X1kPj8w6HBPMtuYlIrI9KPITY61tjdlIZAyg5pdyE5ap7F
-	5rYFhCMcYbmxjGgwKaYIx1pr5T7MltGHH3vFlfAZHeR0ZQG2sXIeHdwFezJq2NmpaeGX+sJj2uY
-	hrcC2zOpXZnHiIwPWLwK4SPYFFiw2pDGkh5g/CrBo417GqmiXskJd1v6ZHgRwu8Xya48OK40uGb
-	RaZ3gcFnHV6Jh5eIVBYMFHY6INrjpbILgTfznxjGlgl2musz7OpXZAxGmydHqmEWml1V7ieAhSQ
-	USaiJFAUhywr/xX0p5XasMxRt4exRCLKoGeHjl4i0DEMJ0Jz78crlR+YoNH9y8Gqn+IeBaocXFC
-	22Hvp7En21WbrwCet+3AtjrDLwwLQb94bUa+H3Kd/hcByOpQfBbtf+s0o0nguXzSUFjJWZXqRmp
-	6NzetkqGukj5X+JzB6O3XDslmRS2whD/wXTzZQMYEYbK774IaaALGCNevwmoVYpZhj3g==
-X-Received: by 2002:a17:90b:2f83:b0:369:e4d4:7460 with SMTP id 98e67ed59e1d1-36a6784d120mr6270352a91.21.1779503444976;
-        Fri, 22 May 2026 19:30:44 -0700 (PDT)
-Received: from [10.10.15.228] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a71d944c4sm3010287a91.1.2026.05.22.19.30.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 May 2026 19:30:44 -0700 (PDT)
-From: Potin Lai <potin.lai.pt@gmail.com>
-X-Google-Original-From: Potin Lai <potin.lai@quantatw.com>
-Date: Sat, 23 May 2026 10:28:08 +0800
-Subject: [PATCH 2/2] ARM: dts: aspeed: sanmiguel: Fix the CPU_CHIPTHROT
- linename
+        d=1e100.net; s=20251104; t=1779506195; x=1780110995;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+XL9fQqEWbSHtUTzHJNem08rNzq8qxneQBBCAFW0a4o=;
+        b=RqbTt/mqEwAMfhqoLGEIl3tYPDxapg0tSMMm0/0jI6zOP77CLp/rWbZi8V3cnmLobw
+         UAG9QPn2Z547W1v8V008q5wGEkGgLk1IATAKZA/ilvZAZOnhXaSXQvtwndyB9iKIJXym
+         U6a/It9JwjpUsBcpoRQm63i4PA3RTeLaYxYdhsBLl29K38xi+KXN88RPDtuTmKp4k+Yf
+         1ZYVe9Wb36Mg05GfgzBKa45zisUzi7laC+2MG69ahfg7tzfWrzwnxc35DvqeTLy8dZQD
+         zeLmEl+2uPxtTfE9HMwbXRmHehv3gRdazjQFwkI/jTZlvE84wKuWyXFIUDgWthqBVrqx
+         9Hrw==
+X-Forwarded-Encrypted: i=1; AFNElJ+a04d+heTstXwhfKomk6x8g6oL1rs4We7g7ddpOE+zVXXYaIq5uParBfXHuTK7yquUOH3SdeNYKvhsu/nB6Wd4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe7YdT7dLI40dnZsbc+HVzCTCQgXKSSHmyyZRAcOmU1IHkczFV
+	2PNXE32PTWzLO3Tg1/LDNuO7ssjjWF+2Z7vRdZpobWHT7b6eRhL4WoiAXyG5dJ5XtkXHIYSXnp2
+	sEPGyqBnTfdhe3JBKg7b/nmlVwC8orcyChDtQ5yQ9nC3s5j0=
+X-Gm-Gg: Acq92OHBvyQUzps5YUUnZPJolJpo+76cBCD63dzq7nZyNFzDWNJVzN2kOZJdBAJfPvM
+	hJS15vZY2G5lfAC7WHddxABjI+hAa1kvQok0l48SPZ+1aVSUpRxjg1KJ9rNakfijP9tQneI7kJV
+	XvfhHi3xKIZkm/UJa+Vcf6/FdF1u3Rf2J4Fr/xN91E61JeHGBK2InbRIRtWwFmy+NtD/mXUmKqc
+	8h3VkQj2zBJ3FbT3GR/7XpxvuuixVCyt2aVFKz/N/Dd1wN17a11wC3xD2CvkdDon/jjHvdeWdpf
+	26nMsFppqp7R3mZrwuTuOb5Ly+NixTc+hepW9gYQAiWFSkf34ray367BJo0vTEWHIc0=
+X-Received: by 2002:a05:6820:4c08:b0:69d:521d:a4fc with SMTP id
+ 006d021491bc7-69d7ead810amr3088050eaf.8.1779506195590; Fri, 22 May 2026
+ 20:16:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260523-potin-update-sanmiguel-dts-20260522-v1-2-169f5fceb5f9@quantatw.com>
-References: <20260523-potin-update-sanmiguel-dts-20260522-v1-0-169f5fceb5f9@quantatw.com>
-In-Reply-To: <20260523-potin-update-sanmiguel-dts-20260522-v1-0-169f5fceb5f9@quantatw.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Patrick Williams <patrick@stwcx.xyz>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Cosmo Chou <cosmo.chou@quantatw.com>, Mike Hsieh <Mike_Hsieh@quantatw.com>, 
- Potin Lai <potin.lai.pt@gmail.com>, Potin Lai <potin.lai@quantatw.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779503436; l=1342;
- i=potin.lai@quantatw.com; s=20260522; h=from:subject:message-id;
- bh=Q4E3ZBST3Q3ly34aY2FsZlQq16jx0NpfboLmFcFmWh0=;
- b=Ruc+O4VL0C7Z8Ul8A7X6wFf74EjrJxDSMlytQIRn/OlyWuyYFoLNzwlw/mw93ArtJMjKo7bJ7
- HOfUx0FVyttDLIBwrTXOHZ490kWWtc7AqhVgNJDr5A4ZiBF7wLIJ0VE
-X-Developer-Key: i=potin.lai@quantatw.com; a=ed25519;
- pk=j3/nMxzz1ZPpp1revghyZ8IqOnwi6RWfuxXN2XrNMRE=
+References: <20260518102451.417971-1-paulk@sys-base.io> <20260518102451.417971-15-paulk@sys-base.io>
+ <CAMxPZkg9MgZrsM2L0vKzzUOA_tnSLKHdHkzDsfH5_WRqSQgvZg@mail.gmail.com> <ahA61YIGM4Bqipu7@collins>
+In-Reply-To: <ahA61YIGM4Bqipu7@collins>
+From: arash golgol <arash.golgol@gmail.com>
+Date: Sat, 23 May 2026 06:45:45 +0330
+X-Gm-Features: AVHnY4ISNoCKi2Ahpn2OwYGMSPucMAJaRMseXVZ6HijrWpM0v0rlwFD_MrYBAdY
+Message-ID: <CAMxPZkj_2h507_3d+5aZe6b5wUrDOpA58y4OcD=D0TTj3FQcog@mail.gmail.com>
+Subject: Re: [PATCH 14/16] media: sun6i-isp: Use V4L2 subdev active state
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-staging@lists.linux.dev, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260522_193045_946738_E4E16851 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20260522_201637_257266_394FD35C 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,43 +122,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix the GPIO linenames for CPU_CHIPTHROT signals.
+Hi Paul,
 
-The signals were incorrectly marked as output ("-O") while they are
-actually input signals ("-I").
+On Fri, May 22, 2026 at 2:45=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
+o> wrote:
+>
+> Hi Arash,
+>
+> Le Thu 21 May 26, 12:53, arash golgol a =C3=A9crit :
+> > I used LicheePi Zero Dock (V3s) with the following pipeline as test set=
+up.
+> >
+> > ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-isp-proc ->
+> > sun6i-isp-capture
+> >
+> > I verified TRY and ACTIVE state handling, including changing TRY
+> > formats without affecting ACTIVE state. Format propagation from the
+> > sink (csi) pad to the source pad was also tested.
+> >
+> > I also tested streaming with the sensor test pattern enabled and
+> > verified the captured output was correct.
+> >
+> > Tested-by: Arash Golgol <arash.golgol@gmail.com>
+>
+> Thanks a lot for testing this! Did you test just this patch or the other
+> ones (especially sun6i-csi format enumeration) as well?
+>
 
-- B0_M0_CPU_CHIPTHROT_L-O -> B0_M0_CPU_CHIPTHROT_L-I
-- B1_M0_CPU_CHIPTHROT_L-O -> B1_M0_CPU_CHIPTHROT_L-I
+Happy to help.
+I only tested patch 14 for now, but I plan to test the other patches
+as well when I get some more time, especially the sun6i-csi changes.
 
-Signed-off-by: Potin Lai <potin.lai@quantatw.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+> Also if you have an opinion on the code itself feel free to drop a
+> Reviewed-by tag, a lot of this work is very similar to what you did for
+> sun6i-csi and other drivers.
+>
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-index 61dbef45f8b0..d7ed497d7227 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-sanmiguel.dts
-@@ -224,7 +224,7 @@ hpm0_ioexp_20: gpio@20 {
- 			"B0_M0_LEAK_DETECT_ALERT_L-I",
- 			"B0_M0_RUN_POWER_EN-O",
- 			"B0_M0_RUN_POWER_PG-I",
--			"B0_M0_CPU_CHIPTHROT_L-O",
-+			"B0_M0_CPU_CHIPTHROT_L-I",
- 			"B0_M0_SHDN_REQ_L-O",
- 			"B0_M0_CPU_SHDN_OK_L-I",
- 			"B0_M0_CPLD_READY-I",
-@@ -398,7 +398,7 @@ hpm1_ioexp_20: gpio@20 {
- 			"B1_M0_LEAK_DETECT_ALERT_L-I",
- 			"B1_M0_RUN_POWER_EN-O",
- 			"B1_M0_RUN_POWER_PG-I",
--			"B1_M0_CPU_CHIPTHROT_L-O",
-+			"B1_M0_CPU_CHIPTHROT_L-I",
- 			"B1_M0_SHDN_REQ_L-O",
- 			"B1_M0_CPU_SHDN_OK_L-I",
- 			"B1_M0_CPLD_READY-I",
+From a code perspective, the changes look good to me.
+Reviewed-by: Arash Golgol <arash.golgol@gmail.com>
 
--- 
-2.52.0
-
+--=20
+Regards,
+Arash Golgol
 
