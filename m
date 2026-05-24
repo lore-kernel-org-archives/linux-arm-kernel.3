@@ -4,91 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB921CD5BB4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 22:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9877BCD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 23:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vQjZaq2V359LxFj/1Py1W2spC//5ryaGbLK3jja2HKs=; b=lUL3QqVwwjD8RGBSCCY83aiV67
-	0xaF+O784tv3alWUTGaSfqHGsxtz8jcqkq4YGTvwf4yPhQTKvcfPgBKnAyt5oUj2ydQlnrwyWUcO/
-	y8W/vM3Dm2WWXFFfwd9senDVxVf4IGvopkFqXAOUg6YUQQ38agECYEGGfKwHJGWyfH9ae3QHobhxa
-	jV88542JpBHeZnO4x6ycyfWln/tO2jJ1lvnUhBdwGE6Z0IPI0HNXFwIgFOZphvSjATeHlJ0K/bpTr
-	fOpsP4H9HM9YROemZOb80Qa5+f4NGvh8j79MllwE8IHRZ1z0NIBzQTT2mcwas466lmNu2O2pe4rcQ
-	mULXYilg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MrQ5V3rA/8SexZba/BeMJRaArTuw7Njqia+jNFussIY=; b=YlIAsTirTGGelbEsmFv8fZ+YEt
+	G9bu05HCKP0St4en4VHX/5s5DSfrGzROtJuIAdUyM5jBAWJSZ9vAhNHHMFHt5UmwmGJYBz7ZFp/L/
+	/Rc9kT0kKtSQpOJPUO8B2PQKPJ9pAFvZDq8qWK59oBes6xNWGcyX1Qvs+ZuNQeao1eD80hBLYimlY
+	upE8R4vn8/l5A1cv2HVNCIQ2ksptfb/rWyau72BMcSsDCP3ncCf2E1blqZ2E6Nitxg0vD9ZzkTJSr
+	DtGPWyi8Q8ge4ZRmm9wZK7i3OA40HT2QRoMvtgSTSl+XCU7p1Vro5yqs7xluLvD5sKTo/qQIngvPb
+	j7kvru+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRHY3-0000000Fn3Z-3x6b;
-	Sun, 24 May 2026 22:43:55 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1wRHqY-0000000FoUD-2oIO;
+	Sun, 24 May 2026 23:03:02 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRHY0-0000000Fn2o-46Wl
+	id 1wRHqV-0000000FoTX-2Dcq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 22:43:54 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2bab82d75fdso44767005ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 15:43:52 -0700 (PDT)
+	Sun, 24 May 2026 23:03:00 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4891c0620bcso55787025e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 16:02:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779662631; x=1780267431; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vQjZaq2V359LxFj/1Py1W2spC//5ryaGbLK3jja2HKs=;
-        b=XqMMw73+8AhZqmL3EgDg63qnKSSNCVB1SCTXAGGCTED5elRdwLbOc8k8UHW+7kCbEH
-         cM1kLpK5QOcSYthJSqqFuGy9C+wkmmvR6jGUxcn3rAAAuqsr3aDdts86UKjKsEvTWjDF
-         6nFIfMzmqscWgWNEMqxRpWeeFO5mdQJUbUNyhPdRexjQA2CIBo0q7qKfcrGGIadTRCXM
-         Tl2bw8n0NmcnNAfJZXc4BZvacmF/lBs4em8iOn+HkaLI4pIDdegVnK0nGwmddLJ9WDh4
-         YGXHRS7RmsIJ0h5TYzBUqDN7MgaT+j4OruROhXYH+UVASqshIUHrOTu8NOIniK2wfdhX
-         nrvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779662631; x=1780267431;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1779663777; x=1780268577; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vQjZaq2V359LxFj/1Py1W2spC//5ryaGbLK3jja2HKs=;
-        b=I1/aLgJNQf7/TfwbsZSiPLSPQJrJjirTVoT9NWiecczj2D4WCnncBx6W9zHn7ZlhxN
-         WmotmDjPef0ZwFiGUPkyM3mhX9a82uDahvejpKG8cI39blzz/B3dwvNIgdgxtKREUCF5
-         Eo/PvfdPBiBWDA2F+tZ26cM2VaY385ZujpLmV8+MkaIMBLVzrIJ+CtCwUE4ZnyMAYxpZ
-         SdsEN5R3MmNNsW5ntndimhbUsCjhwUqrADLaeI/Q9YogoWc8oJX0ctRxxFmSxPyvOvDW
-         VUsio7Qiy7cLKGuyLR/oMrZtWpsdmgPoEz3jRK4jSJJ0XJqWF412jEnR9V59I7/Tp0eQ
-         E+8w==
-X-Forwarded-Encrypted: i=1; AFNElJ+Ya85aIVAJTsvjahVVBdlE3d2zCaPfJk64Pg9piN4oKHuZI49uROaPDEeo94b+M/j5T2y/9asVkLgAelLRiYmN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlLZ39kLRiGOM5PvfabIl7qJoEgG22/4Cajxjeh/54BeoUEE8K
-	P/+neCjX92CUAit6T2gz6FgtYoF+COb8DIqSrFlG3SYggT1l7QR/Yc2f
-X-Gm-Gg: Acq92OGjGzTp5qi38e5I3EfP4hm8cuysPXmY3cT38/oOVs9P3M7PK8TLN0rhE9u2n5F
-	SYHpAbpV4oB2RohSymiyOEVMdPS/sTl0foAeHKp48ftoQ5qSQdOCv9bfIwWkl1dTq+QSzsikeio
-	twwnXePFejlT+3ue6tiUmXEwkzgxYZse0zlsqCXXcBuRYtQr/twZsmOipzCUqf8jTHH+Fhb6+xo
-	1yxEIrlvzab0tgqUDSg7G+IiHPvCJKn+67HvUBU/MNgkvXhGd2DUQXff3PhA8sllNRdM/Bt80NO
-	ablaEcknfJpqrLVv7lrOWVEFLyH5boeiBkrk6UYs9DAe6N+Eca5zIB1MqX9fEDMHBbY8DxZQDYO
-	r4+zrWFgJ8xGoFmMxaVlZ1WFdaJRZX6kIEzUIU0lzlsCUy8ZZ87NFUugxfGs/zChiWT4AB6nQSk
-	m3NA5v/VAKqUBTnABB6scISAvC
-X-Received: by 2002:a17:903:2f8d:b0:2b2:be01:5532 with SMTP id d9443c01a7336-2beb0841de5mr126883415ad.35.1779662631489;
-        Sun, 24 May 2026 15:43:51 -0700 (PDT)
-Received: from mincom1 ([125.149.177.227])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb569592dsm75643475ad.16.2026.05.24.15.43.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 May 2026 15:43:51 -0700 (PDT)
-From: Jihong Min <hurryman2212@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jihong Min <hurryman2212@gmail.com>
-Subject: [PATCH net-next] net: airoha: bind WLAN-bound flows on PPE driver L2 cache miss
-Date: Mon, 25 May 2026 07:43:30 +0900
-Message-ID: <20260524224330.3995807-1-hurryman2212@gmail.com>
-X-Mailer: git-send-email 2.53.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        bh=MrQ5V3rA/8SexZba/BeMJRaArTuw7Njqia+jNFussIY=;
+        b=tF+DOL2FHDs49YfaCx2B3n4T8tgjEQ24Ww5ipUlKemTGi/ojanFNMo+4gt57zEuEQC
+         qy5D16hjeJ0QOBta/m7Ohfvgkm/NVwaNyFoKX2c/2lapc1jZiF9svNKsljei6d9AYFSz
+         Q+9qQRz2I31vJuqYC3NAUNopZNKvy4Uj4xiQPopviGQ52jAGmDRs6xLP+IgKTBaO4Y+v
+         rYnjXgs5uw6d6xrd/TbfXqmihNeVqtIDGyA1Fqh3fD3xVjQKg0W/yjpm6pzqkG0wQ4Gs
+         9uadBK9a8FEP+fIIIch6zNblyT+NeaDpkJM4wG5sBIxrceu8S+UFNqRIXkQnVCYthUMs
+         CuQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779663777; x=1780268577;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MrQ5V3rA/8SexZba/BeMJRaArTuw7Njqia+jNFussIY=;
+        b=CdF39nsKjIFfuIVoa4n9/WedZG211Sbe4Pt7VlhzwO/OKQAY0QwAuPCSBsU/IAgjzn
+         RYrqz8jPVmZq7hcu8b/vyh2EYXbaIApayDN7CE0gZrWkjww3Dd7YwYRvOXc0aNATqc58
+         s62kQNBaBx/LQVr+5p82+43R5iNrZlNSg31jL5w3VyyJerlBJJ2wYi9j56SlCw9S/bs8
+         xsTVF3axhHY3s2cdEGJoAMzGJtRe2bAdXoIyq6S8OuzdMuclDa4WXyoJ0cwSYAyNdozW
+         ILWOFbEpS/ET248S8w6YqQEcLh14JrGxcC5mV6ddUBLbKt/qt91PKPFReuH37Ot40WrM
+         2xFw==
+X-Forwarded-Encrypted: i=1; AFNElJ/nrrVgczD5bE5mReKBKUY4pzMkqTdgpj02vqkYbaRspCVRUWWih7feyh8uCyQioaeffqxUHyD8NeIVY4b6Rwzy@lists.infradead.org
+X-Gm-Message-State: AOJu0YxguyAZfKmCwkTwM9BqZJBv8x4thHhlwdaiQ4xV6lsB6KBgr1e0
+	htQxsAGGI834KEss2BQtutnAcKaeoAKOe4/6E/rZ2OyccSXNeF5kN1hD7J4NTzdDOCC/Y5DPEVT
+	00+m+
+X-Gm-Gg: Acq92OGEtweX0EIHiYlxTMRSi8KVfhku3ydoqJ3ESF1V2BlvYCBUm1j6hp8ZqTAdhmP
+	mO2md9jV9W3v2JUcmjfwI1HouHAOsA1kbm/n9HoTJxVq7qeeUAZzrzzFtsAilsgxPN3Sui4JTNt
+	X3QghN32GUDar/8GG0g1s/a4tDIIRWPcS7ae/BOKdQtYZIi9phLNkSzytZk8W4mHNKXvLKtqNMc
+	hNZaAXT5xAgljpvH59fTlqhj3Jf3LAGi51TkDyxqIoUnM3QqW2Xb5vg+1dFFsuHjP8xMxIoWdir
+	aLwP8KFfS52gG/FudDT79qEtjr60pyA8TqPHCScHtEoL9gphf7UHfQC04dPGbe/9yPCH40GyQWM
+	SSb7wGOm/er6MK9/7aRda5mMj+VKpvbItFhe0Q6JhtzIzKXAlUF9JR/OT5r2WSzQtA4S8wlp/DF
+	jrDWqdBp1rOvqMK42NxPRwjPNSuKRljFiIx8nS80r0RU3C77dKVOuJfAnU4tmVIBnUloghiuZDy
+	ojtgszbLzzqGQ==
+X-Received: by 2002:a05:600c:1497:b0:48a:5565:ec3d with SMTP id 5b1f17b1804b1-490428d1551mr125681675e9.22.1779663777178;
+        Sun, 24 May 2026 16:02:57 -0700 (PDT)
+Received: from localhost ([94.4.195.193])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454ea134sm232108475e9.8.2026.05.24.16.02.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 24 May 2026 16:02:56 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 25 May 2026 00:02:55 +0100
+Message-Id: <DIRA5NR89DKG.3MFIRU9TB3NHD@linaro.org>
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: "Tudor Ambarus" <tudor.ambarus@linaro.org>, "Peter Griffin"
+ <peter.griffin@linaro.org>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Michael Turquette"
+ <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Lee Jones"
+ <lee@kernel.org>, "Alim Akhtar" <alim.akhtar@samsung.com>, "Sylwester
+ Nawrocki" <s.nawrocki@samsung.com>, "Chanwoo Choi" <cw00.choi@samsung.com>,
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ <linux-kernel@vger.kernel.org>, <linux-samsung-soc@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>,
+ <jyescas@google.com>, <kernel-team@android.com>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 5/6] firmware: samsung: acpm: Add TMU protocol support
+X-Mailer: aerc 0.21.0
+References: <20260506-acpm-tmu-helpers-v1-0-a9cd5daf8355@linaro.org>
+ <20260506-acpm-tmu-helpers-v1-5-a9cd5daf8355@linaro.org>
+ <DIBOWQYHOPOU.3PCLCL8030WRL@linaro.org>
+ <806da86b-45b7-43cc-b364-97bade8f4041@linaro.org>
+ <DIFVKM72KZDI.14EVGUMQ0NV9S@linaro.org>
+ <a55690fc-7727-401d-9b3c-06bf3c2852d0@linaro.org>
+ <DILRJBWU9SKV.2P7EJN7ECEJB7@linaro.org>
+ <73f18a2c-e729-45d7-9376-7c0e60ed35c7@linaro.org>
+ <DINT2DFDVWFX.BGTG7LOC91RH@linaro.org>
+ <CADrjBPqiooFC9o56bOAg-j7908ssPtrzff1reNe6eXmu7hcA=w@mail.gmail.com>
+ <DIOE94AX265Y.4QU8ZF520FUV@linaro.org>
+ <b061d100-c0dd-467d-8289-be2c0935791b@linaro.org>
+In-Reply-To: <b061d100-c0dd-467d-8289-be2c0935791b@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_154353_060171_DFBCB759 
-X-CRM114-Status: GOOD (  19.06  )
+X-CRM114-CacheID: sfid-20260524_160259_598977_D8A9A99E 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,226 +120,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Linux bridge FDB can resolve a destination station to WDMA even when
-the Airoha PPE driver's L2 offload cache has no entry for that MAC pair.
-The normal bind path only checks the PPE driver's L2 offload cache, so an
-unbound PPE hit for WLAN egress can stay unbound even though the bridge
-already knows the right output path, unless a later offload event fills
-that PPE driver cache.
+On Thu May 21, 2026 at 3:49 PM BST, Tudor Ambarus wrote:
+> Hi, Alexey,
+>
+> On 5/21/26 4:37 PM, Alexey Klimov wrote:
+>> Peter, I agree we shouldn't bother about hypothetical SoCs. However,
+>
+> It's standard kernel philosophy to not add code that __might__ be useful
+> later.
 
-This matters for bridge-visible WLAN egress, such as wired-to-WLAN
-forwarding or WLAN peer forwarding across another BSS, radio or MLO link.
-Same-link or same-radio intra-BSS forwarding can stay inside the WLAN
-datapath and is not covered.
+No idea what you mean by saying standard kernel philosophy but people
+do add code that might be useful later. Some examples are:
+-- ftrace subsystem;
+-- commit eb2415854f3ba7d95c4f30d259f6f598ab604616
+-- commit 78723fe309f189ee4010d5b7a55f6a14644a40c2
+(if you so fancy about debug printk)
 
-Before touching the PPE table, resolve the destination MAC through the
-bridge device above the ingress netdev. If the PPE driver's L2 offload
-cache lookup misses, bind the hardware flow to the resolved CDM4/WDMA
-path.
+We can probably find more examples.
 
-Assisted-by: Codex:gpt-5.5
-Signed-off-by: Jihong Min <hurryman2212@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_ppe.c | 138 +++++++++++++++++++----
- 1 file changed, 119 insertions(+), 19 deletions(-)
+> Please consider adding that print when you submit support for
+> e850.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 26da519236bf..ea932e6d87f6 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -803,65 +803,163 @@ static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
- }
- 
- static int
--airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
--				    struct airoha_flow_table_entry *e,
--				    u32 hash, bool rx_wlan)
-+airoha_ppe_foe_commit_subflow(struct airoha_ppe *ppe,
-+			      const struct airoha_foe_entry *bridge,
-+			      u32 hash, bool rx_wlan)
- {
- 	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
- 	struct airoha_foe_entry *hwe_p, hwe;
--	struct airoha_flow_table_entry *f;
- 	int type;
- 
- 	hwe_p = airoha_ppe_foe_get_entry_locked(ppe, hash);
- 	if (!hwe_p)
- 		return -EINVAL;
- 
--	f = kzalloc_obj(*f, GFP_ATOMIC);
--	if (!f)
--		return -ENOMEM;
--
--	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
--	f->type = FLOW_TYPE_L2_SUBFLOW;
--	f->hash = hash;
--
- 	memcpy(&hwe, hwe_p, sizeof(*hwe_p));
--	hwe.ib1 = (hwe.ib1 & mask) | (e->data.ib1 & ~mask);
-+	hwe.ib1 = (hwe.ib1 & mask) | (bridge->ib1 & ~mask);
- 
- 	type = FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, hwe.ib1);
- 	if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
--		memcpy(&hwe.ipv6.l2, &e->data.bridge.l2, sizeof(hwe.ipv6.l2));
--		hwe.ipv6.ib2 = e->data.bridge.ib2;
-+		memcpy(&hwe.ipv6.l2, &bridge->bridge.l2,
-+		       sizeof(hwe.ipv6.l2));
-+		hwe.ipv6.ib2 = bridge->bridge.ib2;
- 		/* setting smac_id to 0xf instruct the hw to keep original
- 		 * source mac address
- 		 */
- 		hwe.ipv6.l2.src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID,
- 						    0xf);
- 	} else {
--		memcpy(&hwe.bridge.l2, &e->data.bridge.l2,
-+		memcpy(&hwe.bridge.l2, &bridge->bridge.l2,
- 		       sizeof(hwe.bridge.l2));
--		hwe.bridge.ib2 = e->data.bridge.ib2;
-+		hwe.bridge.ib2 = bridge->bridge.ib2;
- 		if (type == PPE_PKT_TYPE_IPV4_HNAPT)
- 			memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
- 			       sizeof(hwe.ipv4.new_tuple));
- 	}
- 
--	hwe.bridge.data = e->data.bridge.data;
--	airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
-+	hwe.bridge.data = bridge->bridge.data;
-+
-+	return airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
-+}
-+
-+static int
-+airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
-+				    struct airoha_flow_table_entry *e,
-+				    u32 hash, bool rx_wlan)
-+{
-+	struct airoha_flow_table_entry *f;
-+	int err;
-+
-+	f = kzalloc_obj(*f, GFP_ATOMIC);
-+	if (!f)
-+		return -ENOMEM;
-+
-+	err = airoha_ppe_foe_commit_subflow(ppe, &e->data, hash, rx_wlan);
-+	if (err) {
-+		kfree(f);
-+		return err;
-+	}
-+
-+	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
-+	f->type = FLOW_TYPE_L2_SUBFLOW;
-+	f->hash = hash;
- 
- 	return 0;
- }
- 
-+static bool
-+airoha_ppe_foe_prepare_wdma_subflow_dev(struct airoha_ppe *ppe,
-+					struct net_device *dev,
-+					struct airoha_flow_data *data,
-+					struct airoha_foe_entry *hwe)
-+{
-+	u32 pse_port;
-+	int err;
-+
-+	err = airoha_ppe_foe_entry_prepare(ppe->eth, hwe, dev,
-+					   PPE_PKT_TYPE_BRIDGE, data, 0);
-+	if (err)
-+		return false;
-+
-+	pse_port = FIELD_GET(AIROHA_FOE_IB2_PSE_PORT, hwe->bridge.ib2);
-+	if (pse_port != FE_PSE_PORT_CDM4)
-+		return false;
-+
-+	return true;
-+}
-+
-+static struct net_device *
-+airoha_ppe_foe_get_bridge_master(struct net_device *dev)
-+{
-+	struct net_device *master = NULL;
-+
-+	rcu_read_lock();
-+	master = netdev_master_upper_dev_get_rcu(dev);
-+	if (master && netif_is_bridge_master(master))
-+		dev_hold(master);
-+	else
-+		master = NULL;
-+	rcu_read_unlock();
-+
-+	return master;
-+}
-+
-+static bool
-+airoha_ppe_foe_prepare_wdma_subflow(struct airoha_ppe *ppe,
-+				    struct sk_buff *skb,
-+				    struct airoha_foe_entry *hwe)
-+{
-+	struct ethhdr *eh = eth_hdr(skb);
-+	struct airoha_flow_data data = {};
-+	struct net_device *master;
-+
-+	if (!is_valid_ether_addr(eh->h_source) ||
-+	    !is_valid_ether_addr(eh->h_dest))
-+		return false;
-+
-+	ether_addr_copy(data.eth.h_dest, eh->h_dest);
-+	ether_addr_copy(data.eth.h_source, eh->h_source);
-+
-+	if (!skb->dev)
-+		return false;
-+
-+	/* WLAN egress unbound hits can arrive before flowtable creates the
-+	 * L2 master flow normally used for subflow binding. Resolve only
-+	 * through the bridge master so dev_fill_forward_path() must use the
-+	 * bridge FDB for the destination MAC. Calling the ingress AP netdev
-+	 * directly can describe the source station's WDMA path and would
-+	 * corrupt Wi-Fi-to-wired flows whose real egress is not WDMA.
-+	 */
-+	master = airoha_ppe_foe_get_bridge_master(skb->dev);
-+	if (!master)
-+		return false;
-+
-+	if (airoha_ppe_foe_prepare_wdma_subflow_dev(ppe, master, &data,
-+						    hwe)) {
-+		dev_put(master);
-+		return true;
-+	}
-+
-+	dev_put(master);
-+	return false;
-+}
-+
- static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
- 					struct sk_buff *skb,
- 					u32 hash, bool rx_wlan)
- {
-+	struct airoha_foe_entry wdma_hwe = {};
- 	struct airoha_flow_table_entry *e;
- 	struct airoha_foe_bridge br = {};
- 	struct airoha_foe_entry *hwe;
- 	bool commit_done = false;
-+	bool wdma_ready = false;
- 	struct hlist_node *n;
- 	u32 index, state;
- 
-+	wdma_ready = airoha_ppe_foe_prepare_wdma_subflow(ppe, skb,
-+							 &wdma_hwe);
-+
- 	spin_lock_bh(&ppe_lock);
- 
- 	hwe = airoha_ppe_foe_get_entry_locked(ppe, hash);
-@@ -899,6 +997,8 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
- 				   airoha_l2_flow_table_params);
- 	if (e)
- 		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash, rx_wlan);
-+	else if (wdma_ready)
-+		airoha_ppe_foe_commit_subflow(ppe, &wdma_hwe, hash, rx_wlan);
- unlock:
- 	spin_unlock_bh(&ppe_lock);
- }
--- 
-2.53.0
+Support for e850 was already sent:
+https://lore.kernel.org/linux-samsung-soc/20260513-exynos850-acpm-firmware-=
+support-v1-0-3858d097e433@linaro.org/
 
+
+It doesn't matter now. Krzysztof already accepted ACPM TMU with error
+conversion variant for gs101 only.
+It will be nice to see ACPM that is more generic towards Exynos/Samsung
+SoCs rather than gs.
+
+BR,
+Alexey.
 
