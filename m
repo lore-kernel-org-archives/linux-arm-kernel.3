@@ -4,123 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130B0CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 18:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFF8ECD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 18:34:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ti+0QCXGT7ETl1POeyETi1M8HN2lZW4xpw/OVCjE8eQ=; b=GDHzqH5rHS1L9jASwshV45IskW
-	27JhiKMXUd2SAgfBg564cfQ6ccGAMK0FKImcQEnPuVPe1oWDwyhD2zgVhTgcj2G4O3qaGBW8PiwS0
-	dkINL2VAChWp7OyQaDy8bfU+Nf3mWcVa8y2/9RDtDY7K7xaBYesQZSuTtuRKHZ6dk6mEVup/yw8ko
-	LxtMM0NwPPz73tfV9KkLoyrV4fnKt6tiD04Bn1zzH3kB2gVIjBsjuDKa5s+2tYcTnSU8dOE4PL2O0
-	e7KT+wjFUaBU2zmn2uhmT3Hx5Gbwq1RYVY/sotb0+Wadw1hbpjy/YUastBdtOM65bGBClub0MpBYi
-	nu0K3WOQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3/1bzDCKOLQOTkCi7bZI1uE7iLJxfhIL315WQnRlRww=; b=JFZ1QBF3Ksr1XUgzYvIVtHf7Q2
+	msquOzG3fRs3171ANb8dBdFZE0qIH1zjhZ8Ups6a3j394ds3hsun16lCAnjZyeXazsYvJnA7+XXx7
+	EWYf8yTXGM1CLUIUdCuhgZCEydFSz/QG6IJbQyZbgbOrq5E/xQ3+zzqPEQ+kaNy1j2bz22nZRtBW1
+	w9oYmsSxcfsZwk4XyVisFj1EuhjErYW7av+W5eo3qMQuNnL9XUqB4TmwqiJGUko/2gNJHsFvM2p0E
+	7Fn1lTopO0LFb2bwPDJYN99NNXrNP5Lrhs0fo5a+9UEZ02F532cxkX5vgNe1TEYcJG0JU2pUYWlBx
+	fdEZUleg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRDRb-0000000FPfD-1FED;
-	Sun, 24 May 2026 18:20:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRDe6-0000000FQg2-1Ve5;
+	Sun, 24 May 2026 18:33:54 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRDRa-0000000FPf2-0ZDX
+	id 1wRDe2-0000000FQfZ-3B6O
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 18:20:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 32254601F4;
-	Sun, 24 May 2026 18:20:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D8C1F000E9;
-	Sun, 24 May 2026 18:20:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779646856;
-	bh=ti+0QCXGT7ETl1POeyETi1M8HN2lZW4xpw/OVCjE8eQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=amOuWBZRkpbbzWRXSo0gLh2BW8aM/+huZFF2HgwpnPIrHiaifu58+cgFfxhkF4Yu9
-	 4tjk0xP50i8CFEvfYatq3JDxwCU7iykVppJ/J1PD5sD7WMqceQ0YtJhWw36nQTdFxF
-	 rEp77CXtuolc9w+Gcc+YkxFjC3WnAt0U9VWh5Y4QsOHBMryussGc2P09HAdmAuAM56
-	 znOWGWHlv/Q9JcIRiqSdAUKHZFQUtaxuKOJLBjj4Q7YwRb4VYtWE8Seiu22Gqw0h2D
-	 HVMbttNmUIiRokX5YHhFZLOoU6u0/5xCymzbnz+Wg4HV6KEh/c1PGtP1UXD/dNuFnz
-	 OlRdFgjSuZykQ==
-Message-ID: <74eb56fb-546d-4b2c-9bbc-01a40937f5d3@kernel.org>
-Date: Sun, 24 May 2026 20:20:52 +0200
+	Sun, 24 May 2026 18:33:52 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-836ebdeb969so4046084b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 11:33:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779647629; x=1780252429; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3/1bzDCKOLQOTkCi7bZI1uE7iLJxfhIL315WQnRlRww=;
+        b=Uoy+DC7n+YY0dgg9n1jPiCmSQ/TE62YOEjbHOyuYc0woJ/ORgfyp/zP/aucO7hzPav
+         44X0hlpPRgfQZOCy0VbSbGZcFovUZa4c9Pj5zzWi4W36p9L6Z4afkavKkGZAvx+t/8cT
+         P+UipJ/H+wmml2pGa+950i1pIVH5Eu0fpVOeZnTOfuNtAzHcqq2T2MUNZyTHXdBzhWGg
+         gdClHIG8oO0/mP6kBRpAc9h/GbbhmeJU3RoI0SCH1P/y3WfJGV1Tzed/J7l1d7NUt2sx
+         SJ+hIoTkJLRjLBtyAjZeoY5eKwj9Ba9FkL5PCtg2Az3TP99axARXs2s8Ra5jsVgLSEw2
+         M8Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779647629; x=1780252429;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3/1bzDCKOLQOTkCi7bZI1uE7iLJxfhIL315WQnRlRww=;
+        b=LtbQsj3SoOIlRHEakvBmUiy5GksZW8RF2iZzPY/IYE9Om/uYgqrA/eHQlsZFLPo3Ra
+         BnGFz7nLeuZLFWW6OPQXjAXiyYws6YnEfFJStWIJYfMOBSJPWdBLJhlI4VLdEajVLfqY
+         yIFautlA2ha9uaZIpegZxy421aNFqkegB2V9FcGpAxp2WDiEOABmc1l/2RJWgyMjsW+U
+         62oohhUN1jdrcyp1wGVlIt9VHHUkvDRmP7lvB/C5f1n8oqmA2K7LxYwB3OmwP+McFdr2
+         SP+vxQZSh5HoAhr7mBmDxhvWtGHNWxIVNQK32NxKtW4T4a01HnaRFtF6jj2810rkCk0q
+         mMtA==
+X-Forwarded-Encrypted: i=1; AFNElJ9mCsxxZw65osMPkRjf7H3rWIfkmx2GyOOsXA3HaReNvF22MECZUuAjSLQ3kDxtMNEMRZ6jJMesx/rdRt0oWh/P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzn69arwiJfOHrF9yAIfi8RhvbVPso0AWYPbnCbvhlnMUnHutkq
+	0GRjY1Bylhl8Z2HR6+rSl02LYW2JC2cMJouJfthrsv94sufybZktsKb3
+X-Gm-Gg: Acq92OH1TTo4PcN2kFq6e8aNm9zriJDyM5jhu1goG1QgY6i6GgE2nTHXYGZTNFOKN/d
+	JCdIOYyumhDh0fhihluaPjb9glOMMOKStuj9WxfZrr3RbxFpjww1VOFaBy05IkJyp30VCV1MBLc
+	65lp9yuGJ/q6K0vCCcspl7UPbtlJJN0xYJBO7XqFSnWibHlYOAFPVO2XrCQc1rVf6ufbVHqLSJb
+	DrCaB7sDMz7I/x9E1siLHSjHRBGPpei+uyo1PlV27oRuKhS0XHDzjlQeD5Brm6bTjGkk8hE8LY/
+	hC8WjmRgwFztAeD/Z3iHPXOyOmxhraAhDcLsXbvR4J7Sl26pL/e2r6Dx6KYSyUEymuw2flKXK0h
+	ihyXv//AKW2TM6pItt+7m6R456LDYjtAnMxYzQfEfHCD3iHHD2hBTca3UEkwwJ1mvfoJnvIgVnr
+	VpJ7qHosMQp19FNOH9dbXVpbY6JrbvJwjQYcVO1AqpNKGy+RdANPCfRX4gkewWHpTzYtCHKYMQA
+	IYLBA==
+X-Received: by 2002:a05:6a00:2d8c:b0:838:9e25:f128 with SMTP id d2e1a72fcca58-8415f32f29dmr10904478b3a.26.1779647629021;
+        Sun, 24 May 2026 11:33:49 -0700 (PDT)
+Received: from Ubuntu.. ([49.37.169.210])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164ffee25sm7339648b3a.58.2026.05.24.11.33.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 11:33:47 -0700 (PDT)
+From: Manish Baing <manishbaing2789@gmail.com>
+To: claudiu.beznea@tuxon.dev,
+	andrei.simion@microchip.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com
+Cc: linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	manishbaing2789@gmail.com
+Subject: [PATCH] ASoC: dt-bindings: sound: atmel_ac97c: Convert to DT schema
+Date: Sun, 24 May 2026 18:33:37 +0000
+Message-ID: <20260524183337.111657-1-manishbaing2789@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
-To: Frank Li <Frank.li@nxp.com>
-Cc: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
- Chancel Liu <chancel.liu@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
-References: <20260509024846.2094049-1-chancel.liu@nxp.com>
- <20260509024846.2094049-3-chancel.liu@nxp.com>
- <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
- <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
- <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <20260519-macho-degu-from-nibiru-960af2@quoll>
- <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
- <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
- <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260524_113350_809129_BF7449A9 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,103 +107,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/05/2026 16:33, Frank Li wrote:
-> On Wed, May 20, 2026 at 09:08:42AM +0200, Krzysztof Kozlowski wrote:
->> On 20/05/2026 07:02, Chancel Liu (OSS) wrote:
->>>>>>>>> +description:
->>>>>>>>> +  The NXP I/O connector represents a physically present I/O
->>>>>>>>> +connector on the
->>>>>>>>> +  base board. It acts as a nexus that exposes a constrained set
->>>> of
->>>>>>>>> +I/O
->>>>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
->>>>>>>>> +fixed
->>>>>>>>> +  electrical wiring. All actual hardware providers reside on the
->>>> base
->>>>>> board.
->>>>>>>>> +  The connector node only defines index-based mappings to those
->>>>>>>> providers.
->>>>>>>>> +
->>>>>>>>> +properties:
->>>>>>>>> +  compatible:
->>>>>>>>> +    const: fsl,io-connector
->>>>>>>>
->>>>>>>> Everything is IO. Everything is connector, so your compatible does
->>>>>>>> not match requirements from writing bindings.
->>>>>>>>
->>>>>>>
->>>>>>> Yes, this compatible is too generic. I will rename the compatible to
->>>>>>> fsl,aud-io-connector.
->>>>>>
->>>>>> aud is not much better. Which boards have it? What's the pinout?
->>>> What's
->>>>>> standard? Is it described anywhere? If so, provide reference to
->>>> spec/docs.
->>>>>>
->>>>>
->>>>> This is not an industry standard electrical interface. This connector
->>>>
->>>> Then if you do not have standard, then you have board specific layouts
->>>> thus you need board-specific compatibles. You can use fallbacks. Generic
->>>> fallback could work, but both io-connector and aud-io-connector are just
->>>> too generic. Every connector is "connector" and "io", thus absolutely
->>>> anything can be "io-connector". "aud" improves it only a bit, thus
->>>> honestly I would go with board specific fallback as well.
->>>>
->>>
->>> How about board specific + common fallback compatible like this:
->>>   compatible:
->>>     items:
->>>       - enum:
->>>           - fsl,imx95-19x19-evk-aud-io-connector
->>>           - fsl,imx952-evk-aud-io-connector
->>>       - const: fsl,imx-aud-io-connector
->>> Since the daughter board is named “IMX-AUD-IO” in publicly available
->>
->> I don't think it is named like that.
->>
->> git grep -i imx-aud-io
->>
->>> documentation, common compatible clearly indicates that this connector
->>> is intended for that.
->>>
->>> Also, I want to talk about the topic of generic connector. It's a common
->>> design that daughter board is connected to base board through a
->>> connector. This connector more often acts as a nexus that exposes a
->>> constrained subset of GPIO, clock, PWM and interrupt resources to the
->>> daughter board. Can we document this kind of connector as a generic
->>> binding?
->>
->> So this binding is the connector between carrier and some addon? Then
->> you don't get a compatible for that at all, because it is not necessary,
->> not useful and NEVER used. Do you see socket LGA "connector" bindings? No.
-> 
-> Not exactly. Any connector connects a carrier board with an add-on board.
-> The key point here is that this connector type is reused across different
-> boards, even though it is not an industry-standard connector. Both the
-> signal definitions and the mechanical layout are defined.
-> 
-> The same add-on boards can therefore be reused across different base boards
-> that use this type of connector.
-> 
-> There are also GPIO mappings involved. For example, pin 1 on the connector
-> may represent reset-gpios, but it could be connected to GPIO0 on board A
-> and GPIO1 on board B.
-> 
-> Without a connector definition layer, this would create an N × M
-> combination problem. The Nexus node discussion already covered this topic:
-> https://osseu2025.sched.com/event/25Vrw
-> 
-> An LGA socket is a CPU socket, where the signals are completely transparent
-> to software, so it is not a good comparison. A PCIe M.2 Key-M/E connector
-> would be a more appropriate comparison.
->
+Convert the Atmel AC97 controller binding from text
+format to YAML schema.
 
-So the terminology of daughter and carrier boards was confusing. If this
-is a hat, mezzanine or other addon, it's fine.
+Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
+---
+ .../sound/atmel,at91sam9263-ac97c.yaml        | 60 +++++++++++++++++++
+ .../devicetree/bindings/sound/atmel_ac97c.txt | 20 -------
+ 2 files changed, 60 insertions(+), 20 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml
+ delete mode 100644 Documentation/devicetree/bindings/sound/atmel_ac97c.txt
 
-I still insist on board specific compatibles - fallback and specific.
+diff --git a/Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml b/Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml
+new file mode 100644
+index 000000000000..870532927164
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml
+@@ -0,0 +1,60 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/atmel,at91sam9263-ac97c.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Atmel AC97 Controller
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++  - Alexandre Belloni <alexandre.belloni@bootlin.com>
++
++allOf:
++  - $ref: dai-common.yaml#
++
++properties:
++  compatible:
++    const: atmel,at91sam9263-ac97c
++
++  reg:
++    maxItems: 1
++    description: Address and length of the register set for the device.
++
++  interrupts:
++    maxItems: 1
++    description: Should contain the AC97 interrupt.
++
++  ac97-gpios:
++    minItems: 3
++    maxItems: 4
++    description: |
++      AC97 link GPIOs- sync, sdata_out, reset, and optional sdata_in.
++      The driver primarily uses the reset pin.
++
++  pinctrl-0: true
++
++  pinctrl-names:
++    const: default
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - ac97-gpios
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/gpio/gpio.h>
++
++    sound@fffa0000 {
++        compatible = "atmel,at91sam9263-ac97c";
++        reg = <0xfffa0000 0x4000>;
++        interrupts = <18 IRQ_TYPE_LEVEL_HIGH 5>;
++        pinctrl-names = "default";
++        pinctrl-0 = <&pinctrl_ac97>;
++        ac97-gpios = <&pioB 0 0>, <&pioB 2 0>, <&pioC 29 GPIO_ACTIVE_LOW>;
++    };
+diff --git a/Documentation/devicetree/bindings/sound/atmel_ac97c.txt b/Documentation/devicetree/bindings/sound/atmel_ac97c.txt
+deleted file mode 100644
+index b151bd902ce3..000000000000
+--- a/Documentation/devicetree/bindings/sound/atmel_ac97c.txt
++++ /dev/null
+@@ -1,20 +0,0 @@
+-* Atmel AC97 controller
+-
+-Required properties:
+-  - compatible: "atmel,at91sam9263-ac97c"
+-  - reg: Address and length of the register set for the device
+-  - interrupts: Should contain AC97 interrupt
+-  - ac97-gpios: Please refer to soc-ac97link.txt, only ac97-reset is used
+-Optional properties:
+-  - pinctrl-names, pinctrl-0: Please refer to pinctrl-bindings.txt
+-
+-Example:
+-sound@fffa0000 {
+-       compatible = "atmel,at91sam9263-ac97c";
+-       pinctrl-names = "default";
+-       pinctrl-0 = <&pinctrl_ac97>;
+-       reg = <0xfffa0000 0x4000>;
+-       interrupts = <18 IRQ_TYPE_LEVEL_HIGH 5>;
+-
+-       ac97-gpios = <&pioB 0 0 &pioB 2 0 &pioC 29 GPIO_ACTIVE_LOW>;
+-};
+-- 
+2.43.0
 
-Best regards,
-Krzysztof
 
