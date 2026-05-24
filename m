@@ -4,69 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC633CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 23 May 2026 22:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D5CCD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 06:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xUiBWlmWfokug/bhDYwI7emM+WOQXoX2pKibgpGhk7Y=; b=RVJJ2zTpxg1Cr15IBFYUV/B5Ym
-	VI5o1BJBrAZ+3Z4P1MW0dX1Ds+Mc/PCjoPil2fMsxMG0oFmQrLbgiLPrPZB8Jx0lk+bwsRW1ADC4y
-	PDfxmSjhZGMNjA27cdDls3jFHLPjeZcK0SwR7MyQa479/liiS0pK+QhdR2XqTwFVHBqVt2vspHunX
-	E/FX8QbQvuk7VxMedytYE2N1O6dc4G+o6AU77FMopf/B7pf7nY43Js5p4xzbXVE7J5G5i5pD21PTf
-	SRD9jp3bB/0gZgxU2RZEHMx7USqGpSfuF6JQe4v/fPHOrFatWHxJ27N2YU5OInr0ldtf6ucNbx7eM
-	AhOpLPQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cCMnDK60/dBQ7JoQnIZdCV6zt4tZHWfAl+OdFHRIHoA=; b=SUCPeiVBuArF5M0IWykxiR9cNU
+	wWxqhtq16t+QEd2+7LJQX5FSrqmR+mYTf0hfTYKO9x0vd2hSWvGFY3KE2exIP70BnRf6RIc5J/x2r
+	DC5S6ol6wAkLuvSBdu1p4a4lnFuKHjPRc72AxZZTc7RbPNJy7I778SbfScxKYvMQurM0oP0y0L4/B
+	LGo4aBfa4q5nZQ6/Idn2QUvoCYNYktOIWTLg4eUtZLMTkO6gwjC2Iis67BRYONbQrAQCCzYDsgIuh
+	5tosxyGB33D1ksH7klEvScvlc9vnuH78Zd+Ser0mhq/FjXy0WiBuZw2XSvRubpNujsmWbc3w3DAxE
+	PxchpzTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQuZU-0000000E3oy-12PM;
-	Sat, 23 May 2026 22:11:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wR1x1-0000000EXNw-0iwl;
+	Sun, 24 May 2026 06:04:39 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wQuZT-0000000E3on-1k6C
+	id 1wR1wx-0000000EXGZ-2HEb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 23 May 2026 22:11:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C66366001A
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 22:11:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9B81F00A3E
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 22:11:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779574310;
-	bh=xUiBWlmWfokug/bhDYwI7emM+WOQXoX2pKibgpGhk7Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JffdEPAQK13z1iDLJO+r5ZCjqF2k0SXjmv02OPCDVkdJ8HxPkx3RUkZmYYb/sTjmF
-	 xz/UurGTR+Pc+fq2h/JyB68uJ97T1Nsmyg9wUBNV1gVplxKtgpRnsa5Yz1Bwn29rej
-	 wT4zbxlLAWbNRhrbFhjovJdzP64lNUoXeBMa5Iuiu2a6ojbLBEDbGBKyVa6FIK5A3H
-	 2nMIQIhFrqsdJnTwHArUD5I2uOe1eLDrsSg+CnAI7myGadAHndvK47lknZ/SBQaUgs
-	 PcQoQd3R6gz0S2wSriLJCHdNa84anxgt53Lm6xXFawB8K++6r91bFfcvuc4HkztcVy
-	 GiZYp43l+MteA==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aa21fa024cso6063144e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 23 May 2026 15:11:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ+rJOyq2dL4BEtitBe1SfzFWraytSPIvaDrjOCKEd1OElqRrdhNCRiQeBBUFIh+vwO39hlyt2BzXBfzDpLePJAn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz24E2bVpuGHa++cbRCtOl3cTmKqOZ2HJjb3lrn8F2Rfw546zfp
-	UogMsssRrGUmixX2GhrOs3l7EUcjR6ThhbEDJz8KTnpcO+RV0+GS72UxK/dYni7dXFdNkHGmug7
-	BBx777904SMIohJPdrGc9j7581im/igs=
-X-Received: by 2002:a05:6512:3ca7:b0:5a8:8825:15fc with SMTP id
- 2adb3069b0e04-5aa3238ba06mr2955522e87.3.1779574309233; Sat, 23 May 2026
- 15:11:49 -0700 (PDT)
+	Sun, 24 May 2026 06:04:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779602675; x=1811138675;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Y/K12480Lw3U1Qcp/YL64sDFWrZspJv5mav39q01dc8=;
+  b=fmdwEYNvE0vwpXLCsfVY8ieakHllKhHsku30W0/dItDTSFQUGTZMbqY5
+   4XOLJQa2StoCR3eQWFWFJ3VIwysGNFBQyw3O9DOtDtrwVxBe5kiD2wV4S
+   Df/xKz/02aCDpNbIP0Ol0qIvZ+HpJXjqVhaW0XzjhC5b+FvtQkOn6huhd
+   CWiQkLdcz8VTA44aLdzQoD7NrOjfZWjXnKn3EZlXdvishYjP+M4CWAG7o
+   IqK+eVAalosNO1kPnB2foZvw5YkEjwfb9q2sMUVfBsJnMygqIACLdTaJx
+   SanwPOmlqXzVvDt6dUQOeA4ERcfhl133JowI4Hly7A9sH80B9v41gKY2p
+   g==;
+X-CSE-ConnectionGUID: HL2rdlXASemRaLhH1OsFPg==
+X-CSE-MsgGUID: QSJ4hMVqSPeDt3QeHOgueA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11795"; a="105927636"
+X-IronPort-AV: E=Sophos;i="6.24,165,1774335600"; 
+   d="scan'208";a="105927636"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2026 23:02:33 -0700
+X-CSE-ConnectionGUID: z3bZdwcWS5yUR9pJTnYVog==
+X-CSE-MsgGUID: WObBaoFZRUKgB5v6k3TvLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,165,1774335600"; 
+   d="scan'208";a="241161211"
+Received: from lkp-server01.sh.intel.com (HELO 6ba8523b1a8f) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 23 May 2026 23:02:30 -0700
+Received: from kbuild by 6ba8523b1a8f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wR1us-000000000kr-3VMm;
+	Sun, 24 May 2026 06:02:26 +0000
+Date: Sun, 24 May 2026 14:01:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Mithil Bavishi <bavishimithil@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Mithil Bavishi <bavishimithil@gmail.com>
+Subject: Re: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+Message-ID: <202605241332.fXvCYBR2-lkp@intel.com>
+References: <20260522233036.12277-1-bavishimithil@gmail.com>
 MIME-Version: 1.0
-References: <20260522212018.25295-1-kmehltretter@gmail.com>
-In-Reply-To: <20260522212018.25295-1-kmehltretter@gmail.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 24 May 2026 00:11:36 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=jrk4EYo+5mhp1cpy2cfsA966MVmbohWhcZdx_SObD_w@mail.gmail.com>
-X-Gm-Features: AVHnY4JVd9LDhBpQKgiZIDi0f5dy-gmldueQmj7HE80mVvbvmmb_60Pm-Q0ZSqk
-Message-ID: <CAD++jL=jrk4EYo+5mhp1cpy2cfsA966MVmbohWhcZdx_SObD_w@mail.gmail.com>
-Subject: Re: [PATCH] ARM: io: avoid KASAN instrumentation of raw halfword I/O
-To: Karl Mehltretter <kmehltretter@gmail.com>
-Cc: Russell King <linux@armlinux.org.uk>, Abbott Liu <liuwenliang@huawei.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260522233036.12277-1-bavishimithil@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260523_230435_601056_3579844E 
+X-CRM114-Status: GOOD (  18.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +96,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 11:20=E2=80=AFPM Karl Mehltretter
-<kmehltretter@gmail.com> wrote:
+Hi Mithil,
 
-> Commit 421015713b30 ("ARM: 9017/2: Enable KASan for ARM") made KASAN
-> instrument ARM C memory accesses. For CPUs before ARMv6, __raw_readw()
-> and __raw_writew() are C volatile halfword accesses, so KASAN instruments
-> them as normal memory accesses.
->
-> That is not valid for MMIO. On the QEMU versatilepb machine with an
-> ARM926EJ-S CPU and CONFIG_KASAN=3Dy, PL011 probing traps while registerin=
-g
-> the UART:
->
->   Unable to handle kernel paging request at virtual address bd23e207
->   PC is at __asan_store2+0x2c/0x9c
->   LR is at pl011_register_port+0x4c/0x19c
->
-> Keep the existing volatile halfword access, but move the pre-ARMv6
-> definitions into __no_kasan_or_inline functions so raw MMIO halfword
-> accesses are not instrumented by KASAN. The ARMv6-and-newer inline
-> assembly path is unchanged.
->
-> Fixes: 421015713b30 ("ARM: 9017/2: Enable KASan for ARM")
-> Cc: stable@vger.kernel.org # v5.11+
-> Assisted-by: Codex:gpt-5
-> Signed-off-by: Karl Mehltretter <kmehltretter@gmail.com>
+kernel test robot noticed the following build errors:
 
-That makes sense.
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+[auto build test ERROR on tmlind-omap/for-next]
+[also build test ERROR on linus/master v7.1-rc4 next-20260522]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Please put this patch into Russell's patch tracker.
+url:    https://github.com/intel-lab-lkp/linux/commits/Mithil-Bavishi/ARM-OMAP2-Add-CFI-type-for-omap4_finish_suspend/20260523-073206
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/tmlind/linux-omap.git for-next
+patch link:    https://lore.kernel.org/r/20260522233036.12277-1-bavishimithil%40gmail.com
+patch subject: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+config: arm-defconfig (https://download.01.org/0day-ci/archive/20260524/202605241332.fXvCYBR2-lkp@intel.com/config)
+compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 5bac06718f502014fade905512f1d26d578a18f3)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260524/202605241332.fXvCYBR2-lkp@intel.com/reproduce)
 
-Yours,
-Linus Walleij
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605241332.fXvCYBR2-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/arm/mach-omap2/sleep44xx.S:61:1: error: invalid instruction
+   SYM_TYPED_FUNC_START(omap4_finish_suspend)
+   ^
+
+
+vim +61 arch/arm/mach-omap2/sleep44xx.S
+
+    33	
+    34	/*
+    35	 * =============================
+    36	 * == CPU suspend finisher ==
+    37	 * =============================
+    38	 *
+    39	 * void omap4_finish_suspend(unsigned long cpu_state)
+    40	 *
+    41	 * This function code saves the CPU context and performs the CPU
+    42	 * power down sequence. Calling WFI effectively changes the CPU
+    43	 * power domains states to the desired target power state.
+    44	 *
+    45	 * @cpu_state : contains context save state (r0)
+    46	 *	0 - No context lost
+    47	 * 	1 - CPUx L1 and logic lost: MPUSS CSWR
+    48	 * 	2 - CPUx L1 and logic lost + GIC lost: MPUSS OSWR
+    49	 *	3 - CPUx L1 and logic lost + GIC + L2 lost: MPUSS OFF
+    50	 * @return: This function never returns for CPU OFF and DORMANT power states.
+    51	 * Post WFI, CPU transitions to DORMANT or OFF power state and on wake-up
+    52	 * from this follows a full CPU reset path via ROM code to CPU restore code.
+    53	 * The restore function pointer is stored at CPUx_WAKEUP_NS_PA_ADDR_OFFSET.
+    54	 * It returns to the caller for CPU INACTIVE and ON power states or in case
+    55	 * CPU failed to transition to targeted OFF/DORMANT state.
+    56	 *
+    57	 * omap4_finish_suspend() calls v7_flush_dcache_all() which doesn't save
+    58	 * stack frame and it expects the caller to take care of it. Hence the entire
+    59	 * stack frame is saved to avoid possible stack corruption.
+    60	 */
+  > 61	SYM_TYPED_FUNC_START(omap4_finish_suspend)
+    62		stmfd	sp!, {r4-r12, lr}
+    63		cmp	r0, #0x0
+    64		beq	do_WFI				@ No lowpower state, jump to WFI
+    65	
+    66		/*
+    67		 * Flush all data from the L1 data cache before disabling
+    68		 * SCTLR.C bit.
+    69		 */
+    70		bl	omap4_get_sar_ram_base
+    71		ldr	r9, [r0, #OMAP_TYPE_OFFSET]
+    72		cmp	r9, #0x1			@ Check for HS device
+    73		bne	skip_secure_l1_clean
+    74		mov	r0, #SCU_PM_NORMAL
+    75		mov	r1, #0xFF			@ clean seucre L1
+    76		stmfd   r13!, {r4-r12, r14}
+    77		ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
+    78		DO_SMC
+    79		ldmfd   r13!, {r4-r12, r14}
+    80	skip_secure_l1_clean:
+    81		bl	v7_flush_dcache_all
+    82	
+    83		/*
+    84		 * Clear the SCTLR.C bit to prevent further data cache
+    85		 * allocation. Clearing SCTLR.C would make all the data accesses
+    86		 * strongly ordered and would not hit the cache.
+    87		 */
+    88		mrc	p15, 0, r0, c1, c0, 0
+    89		bic	r0, r0, #(1 << 2)		@ Disable the C bit
+    90		mcr	p15, 0, r0, c1, c0, 0
+    91		isb
+    92	
+    93		bl	v7_invalidate_l1
+    94	
+    95		/*
+    96		 * Switch the CPU from Symmetric Multiprocessing (SMP) mode
+    97		 * to AsymmetricMultiprocessing (AMP) mode by programming
+    98		 * the SCU power status to DORMANT or OFF mode.
+    99		 * This enables the CPU to be taken out of coherency by
+   100		 * preventing the CPU from receiving cache, TLB, or BTB
+   101		 * maintenance operations broadcast by other CPUs in the cluster.
+   102		 */
+   103		bl	omap4_get_sar_ram_base
+   104		mov	r8, r0
+   105		ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+   106		cmp	r9, #0x1			@ Check for HS device
+   107		bne	scu_gp_set
+   108		mrc	p15, 0, r0, c0, c0, 5		@ Read MPIDR
+   109		ands	r0, r0, #0x0f
+   110		ldreq	r0, [r8, #SCU_OFFSET0]
+   111		ldrne	r0, [r8, #SCU_OFFSET1]
+   112		mov	r1, #0x00
+   113		stmfd   r13!, {r4-r12, r14}
+   114		ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
+   115		DO_SMC
+   116		ldmfd   r13!, {r4-r12, r14}
+   117		b	skip_scu_gp_set
+   118	scu_gp_set:
+   119		mrc	p15, 0, r0, c0, c0, 5		@ Read MPIDR
+   120		ands	r0, r0, #0x0f
+   121		ldreq	r1, [r8, #SCU_OFFSET0]
+   122		ldrne	r1, [r8, #SCU_OFFSET1]
+   123		bl	omap4_get_scu_base
+   124		bl	scu_power_mode
+   125	skip_scu_gp_set:
+   126		mrc	p15, 0, r0, c1, c1, 2		@ Read NSACR data
+   127		tst	r0, #(1 << 18)
+   128		mrcne	p15, 0, r0, c1, c0, 1
+   129		bicne	r0, r0, #(1 << 6)		@ Disable SMP bit
+   130		mcrne	p15, 0, r0, c1, c0, 1
+   131		isb
+   132		dsb
+   133	#ifdef CONFIG_CACHE_L2X0
+   134		/*
+   135		 * Clean and invalidate the L2 cache.
+   136		 * Common cache-l2x0.c functions can't be used here since it
+   137		 * uses spinlocks. We are out of coherency here with data cache
+   138		 * disabled. The spinlock implementation uses exclusive load/store
+   139		 * instruction which can fail without data cache being enabled.
+   140		 * OMAP4 hardware doesn't support exclusive monitor which can
+   141		 * overcome exclusive access issue. Because of this, CPU can
+   142		 * lead to deadlock.
+   143		 */
+   144		bl	omap4_get_sar_ram_base
+   145		mov	r8, r0
+   146		mrc	p15, 0, r5, c0, c0, 5		@ Read MPIDR
+   147		ands	r5, r5, #0x0f
+   148		ldreq	r0, [r8, #L2X0_SAVE_OFFSET0]	@ Retrieve L2 state from SAR
+   149		ldrne	r0, [r8, #L2X0_SAVE_OFFSET1]	@ memory.
+   150		cmp	r0, #3
+   151		bne	do_WFI
+   152	#ifdef CONFIG_PL310_ERRATA_727915
+   153		mov	r0, #0x03
+   154		mov	r12, #OMAP4_MON_L2X0_DBG_CTRL_INDEX
+   155		DO_SMC
+   156	#endif
+   157		bl	omap4_get_l2cache_base
+   158		mov	r2, r0
+   159		ldr	r0, =0xffff
+   160		str	r0, [r2, #L2X0_CLEAN_INV_WAY]
+   161	wait:
+   162		ldr	r0, [r2, #L2X0_CLEAN_INV_WAY]
+   163		ldr	r1, =0xffff
+   164		ands	r0, r0, r1
+   165		bne	wait
+   166	#ifdef CONFIG_PL310_ERRATA_727915
+   167		mov	r0, #0x00
+   168		mov	r12, #OMAP4_MON_L2X0_DBG_CTRL_INDEX
+   169		DO_SMC
+   170	#endif
+   171	l2x_sync:
+   172		bl	omap4_get_l2cache_base
+   173		mov	r2, r0
+   174		mov	r0, #0x0
+   175		str	r0, [r2, #L2X0_CACHE_SYNC]
+   176	sync:
+   177		ldr	r0, [r2, #L2X0_CACHE_SYNC]
+   178		ands	r0, r0, #0x1
+   179		bne	sync
+   180	#endif
+   181	
+   182	do_WFI:
+   183		bl	omap_do_wfi
+   184	
+   185		/*
+   186		 * CPU is here when it failed to enter OFF/DORMANT or
+   187		 * no low power state was attempted.
+   188		 */
+   189		mrc	p15, 0, r0, c1, c0, 0
+   190		tst	r0, #(1 << 2)			@ Check C bit enabled?
+   191		orreq	r0, r0, #(1 << 2)		@ Enable the C bit
+   192		mcreq	p15, 0, r0, c1, c0, 0
+   193		isb
+   194	
+   195		/*
+   196		 * Ensure the CPU power state is set to NORMAL in
+   197		 * SCU power state so that CPU is back in coherency.
+   198		 * In non-coherent mode CPU can lock-up and lead to
+   199		 * system deadlock.
+   200		 */
+   201		mrc	p15, 0, r0, c1, c0, 1
+   202		tst	r0, #(1 << 6)			@ Check SMP bit enabled?
+   203		orreq	r0, r0, #(1 << 6)
+   204		mcreq	p15, 0, r0, c1, c0, 1
+   205		isb
+   206		bl	omap4_get_sar_ram_base
+   207		mov	r8, r0
+   208		ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+   209		cmp	r9, #0x1			@ Check for HS device
+   210		bne	scu_gp_clear
+   211		mov	r0, #SCU_PM_NORMAL
+   212		mov	r1, #0x00
+   213		stmfd   r13!, {r4-r12, r14}
+   214		ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
+   215		DO_SMC
+   216		ldmfd   r13!, {r4-r12, r14}
+   217		b	skip_scu_gp_clear
+   218	scu_gp_clear:
+   219		bl	omap4_get_scu_base
+   220		mov	r1, #SCU_PM_NORMAL
+   221		bl	scu_power_mode
+   222	skip_scu_gp_clear:
+   223		isb
+   224		dsb
+   225		ldmfd	sp!, {r4-r12, pc}
+   226	SYM_FUNC_END(omap4_finish_suspend)
+   227	
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
