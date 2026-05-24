@@ -4,112 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EABCD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:45:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B69ECD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:53:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdj0TK35GEIKhHP5Bk5VXTOILEdwebdNDL/HO2puRpY=; b=JYLcPyNMw7N4nUtkvXPO8NA5/f
-	zr79Io9IJkbXCyj3XlHsUn3zQrE+U+r7UDEMDW14PGQd+WkuLr53lyl8RG+SZvKRedNcXHTWmCFzL
-	6T8tOg0+VkyeOI9tU3J4RjqnJC3pZM7Tq4AOiPkC2+gkDy8CEdA7+0+/m+zpqzIRjPVLL46+P25k6
-	ss4DckooI7J5zpLHtRG62wcjjz/dtfLI5VKEFK54I0u0AC68u8kp4IUA082rrx+ZsbsBYkt4Qtb+N
-	tVGIRqPElPwst1wlVRaiEwBY5j2Z9M0VHNq2mbVyRmO3VyY0uEbFjaQ7yTIIlJeFDCc22bL0z6Vrd
-	6/GGxnYQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ETDhX6hQeHZ88Twc2vJV86bPqeNnna3Es2w6c/Lk7tM=; b=xe5Aj0ASyJjlt50bgkV7ylnrpS
+	RZ6RH9ob769Ak8Y+mjFTdr5cA3rNwq+zdfxOMU+HxfI1rGft6Z5t3OYtKfcvTp5+rUyEb7dXXLv7M
+	uTZbNNAEKQL2pGLXxVtLb6+UgInGIEvFY1WyCzmGzHozo3gaaBn/jFq8mtUxnP/bh5FSCcnZUBBo+
+	hPftThDMjkmoJORJLiAdJHfGsBoBX9AouFI0/m4UoCTv/WUkhtvZKjiPkFVNPllB3OwH4IRhpr10i
+	hAcpHqqknG5iaxPcMHAj3YSZZ2sCbckSbontnjhXbMlCPS41rjjI9gdQk0I70alchvVINXniGYWDr
+	xH3Oa3RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREl9-0000000FWcW-2jH9;
-	Sun, 24 May 2026 19:45:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wREt8-0000000FXLT-2b83;
+	Sun, 24 May 2026 19:53:30 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREl7-0000000FWc1-0AUv
+	id 1wREt6-0000000FXL0-2rz5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 19:45:14 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9A139445CC;
-	Sun, 24 May 2026 19:45:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 027D51F000E9;
-	Sun, 24 May 2026 19:45:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779651912;
-	bh=gdj0TK35GEIKhHP5Bk5VXTOILEdwebdNDL/HO2puRpY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=DgeAlY20zPHOWDxcPkVhHKArltfO89gPsKw5HHeqrV7Teq4LhenSUPZFh8CI4pNmX
-	 kWCK8WAkpKSHPhd5sh3MXSLxA9DZuwKysqUPtHo8wIp2KlBveKZnHUweFg+nLr2our
-	 J/X/lVE1u6VqYIVtyVVX8/xea/R7JSAhbl1QDBhv4WQKKlVQ/fEQtor8nfNj0KEvre
-	 p+7iwAaN9hnod3RYQN9IhwNXytlbo+V47YaSnUxWlmGJ+a9GLxV2MOF+c+WZgtCigU
-	 MKvbS6h4tdSSvcyT6hiytditdeaBPhYolh/lzfqx5wL4Wa7dbktAVh1hlcU8Ij/d2O
-	 i/2bMm+6PXJ5w==
-Message-ID: <453e852b-1134-4404-999e-125d712188dd@kernel.org>
-Date: Sun, 24 May 2026 21:45:08 +0200
+	Sun, 24 May 2026 19:53:30 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-367c26471f5so5721849a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 12:53:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779652408; x=1780257208; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ETDhX6hQeHZ88Twc2vJV86bPqeNnna3Es2w6c/Lk7tM=;
+        b=WG+lb38+NtCYppe+Q5WHmrDo0RovMqh9ItIDEgRza1/dLBeDYi6cOg9trYEpPPDWY2
+         6g4BG4RH7sBsQ+ROaJXui1u4zUzDtfM8FZC/PFCnEFQV/NGseHWdujZ8vajzfyw69S6S
+         k5uP5OAsLy5bhVskKEv6Aor7bFqQhY+d7Fpmlhdwp4SK9KDbtottPbolQtAf6saQ801w
+         YkhBa7pPI3hH0HuPSN7DEQ6OESnQ4rPNS+29qqm8MigAttj3CCgpDSzqS05zbJOE9VQo
+         tcl7hcJj5YYJUPsK9oeYC1mZWn5y14ypQsrbrMSX9KWgSQPAtgOOuDkXhXY+Rnc6PbDZ
+         5Gvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779652408; x=1780257208;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ETDhX6hQeHZ88Twc2vJV86bPqeNnna3Es2w6c/Lk7tM=;
+        b=KkJAD4S4cyJQGd1Xub/9JX4tKte/XgixKEe6JwP1SIwM40EN6OwVwALFY1ms2GQJoK
+         P4/AxAvoEW+E0mxuGwSrp0Y5yoTrHQ8DllzYB+6gc71CbVjY9wSBGpVsrbSjvoVyIKOM
+         1fNccWZ9hKKYGOND4P22Y5slUMEA1AojXfzuvMhbV3z44sirzJSH/+oka7Bebtkp8SHN
+         ZuM7aqNgyqxoqMsxUZKnXvE5ikOa+EgXsOPZLRroBAoNcSY29UC8vR2RbqR7rn2lgkdl
+         1XAe0VrLBWl3tmwBNsehFq+6LEg9s99IRdeYqal+TXU3fEhQyHg6w6ldzBdzoEDtzvBh
+         5E4w==
+X-Forwarded-Encrypted: i=1; AFNElJ8aiO3xpRB7Y1KVIypDJPYPaa62kCCn868u443oCGpomJJoDDy2roF5w85UF/OZEbVOENB4WZZjhbmvqyG3wOiI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXHM+r8O/upqb2KyS9YEX8O3rbvRg3oLSGenkrKotGsWckV9dp
+	hn12xYiGSRhdsbNH8ODBpY33I1857i9eLAJOWqkn5yYBLgrwt+S2nfmZ
+X-Gm-Gg: Acq92OGieCtxP7sMrFa+/pIh1zKft4y9T/gpqSDI1xBPS4Du3A5YoCQVeRLYunz5zW4
+	Sz1JcfNHbwo4Ic7mwGl4qDqsbQecLN7vyDDHu3sbnn2zS0WshuyWxg+8yvGo3g+Hh4++K3lRvwv
+	8f1MTCZ5SH78JIFCbH0YFT6SrrurTY0psKei/qng+ryKpHU8Tscfb6N8Dw+/ktq0ZyndwRN/mVs
+	WQmlr9CARqZH/t0h4LRAUbfzYCSjEep5I0gB2IVl9Sc1CgSRBfC9eKuYI3dmGyTk1dyezcC0Rip
+	j1QddOrP3s477ftEf4/x30LgqHMrdrX4SvK8PrVRgLN17JG+XMvCIvhMU9AVG4XlNtuNBeVHBC1
+	LQgQiCErimCm7MisHbiymPhAlqHjVYKIJ1QbDCIZw/y2hEbF4p8br+u0scm+TgP7re/2qAVKiUV
+	K1IVCamDZy35kGrRtcv3S3E7+PJtGFtDJlR+/IZ8ritS4ZUKfmYEPWw0mrvFvTAnLKKtA3CWIxn
+	3jTdw==
+X-Received: by 2002:a17:90b:2585:b0:366:3ac:f730 with SMTP id 98e67ed59e1d1-36a6788e0abmr10580647a91.25.1779652407646;
+        Sun, 24 May 2026 12:53:27 -0700 (PDT)
+Received: from Ubuntu.. ([49.37.169.210])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a6d86daddsm3584575a91.11.2026.05.24.12.53.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 12:53:27 -0700 (PDT)
+From: Manish Baing <manishbaing2789@gmail.com>
+To: claudiu.beznea@tuxon.dev,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nicolas.ferre@microchip.com,
+	alexandre.belloni@bootlin.com
+Cc: linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	manishbaing2789@gmail.com
+Subject: [PATCH v2] ASoC: dt-bindings: sound: atmel_ac97c: Convert to DT schema
+Date: Sun, 24 May 2026 19:53:18 +0000
+Message-ID: <20260524195318.112398-1-manishbaing2789@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: google,gs101-acpm-ipc:
- document Exynos850 compatible
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260513-exynos850-acpm-firmware-support-v1-0-3858d097e433@linaro.org>
- <20260513-exynos850-acpm-firmware-support-v1-1-3858d097e433@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260513-exynos850-acpm-firmware-support-v1-1-3858d097e433@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_124513_129333_9E891858 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260524_125328_734723_09DAD75E 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,22 +106,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/05/2026 01:12, Alexey Klimov wrote:
-> The Exynos850 SoC incorporates an APM co-processor. Communication with
-> this hardware block is done using the ACPM protocol, which handles IPC
-> messages for clocks, power, thermal management and PMIC control.
-> 
-> Dedicated compatible string is required for the Exynos850 because
-> its firmware utilizes a different initialisation data base offset
-> (0x7000) compared to the existing GS101 implementation (0xa000).
+Convert the Atmel AC97 controller binding from text
+format to YAML schema.
 
-This is good reason/explanation, but open the binding please - you will
-see several specific children, e.g. S2MPG10. You need to be very
-explicit in commit msg that your Exynos850 is always fitted with these
-PMIcs. If not, then you need some other compatibles, because binding
-should be complete.
+Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
+---
+Changes in v2:
+- Added undocumented 'clocks' and 'clock-names' properties which are
+  unconditionally required by the driver.
+- Removed 'ac97-gpios' from the required list, as the driver treats
+  it as optional, fixing validation for existing dtsi files.
+ 
+ .../sound/atmel,at91sam9263-ac97c.yaml        | 70 +++++++++++++++++++
+ .../devicetree/bindings/sound/atmel_ac97c.txt | 20 ------
+ 2 files changed, 70 insertions(+), 20 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml
+ delete mode 100644 Documentation/devicetree/bindings/sound/atmel_ac97c.txt
 
+diff --git a/Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml b/Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml
+new file mode 100644
+index 000000000000..5f4ebe81bf90
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/atmel,at91sam9263-ac97c.yaml
+@@ -0,0 +1,70 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/atmel,at91sam9263-ac97c.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Atmel AC97 Controller
++
++maintainers:
++  - Nicolas Ferre <nicolas.ferre@microchip.com>
++  - Alexandre Belloni <alexandre.belloni@bootlin.com>
++
++allOf:
++  - $ref: dai-common.yaml#
++
++properties:
++  compatible:
++    const: atmel,at91sam9263-ac97c
++
++  reg:
++    maxItems: 1
++    description: Address and length of the register set for the device.
++
++  interrupts:
++    maxItems: 1
++    description: Should contain the AC97 interrupt.
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: ac97_clk
++
++  ac97-gpios:
++    minItems: 3
++    maxItems: 4
++    description: |
++      AC97 link GPIOs- sync, sdata_out, reset, and optional sdata_in.
++      The driver primarily uses the reset pin.
++
++  pinctrl-0: true
++
++  pinctrl-names:
++    const: default
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/clock/at91.h>
++
++    sound@fffa0000 {
++        compatible = "atmel,at91sam9263-ac97c";
++        reg = <0xfffa0000 0x4000>;
++        interrupts = <18 IRQ_TYPE_LEVEL_HIGH 5>;
++        clocks = <&pmc PMC_TYPE_PERIPHERAL 2>;
++        clock-names = "ac97_clk";
++        pinctrl-names = "default";
++        pinctrl-0 = <&pinctrl_ac97>;
++        ac97-gpios = <&pioB 0 0>, <&pioB 2 0>, <&pioC 29 GPIO_ACTIVE_LOW>;
++    };
+diff --git a/Documentation/devicetree/bindings/sound/atmel_ac97c.txt b/Documentation/devicetree/bindings/sound/atmel_ac97c.txt
+deleted file mode 100644
+index b151bd902ce3..000000000000
+--- a/Documentation/devicetree/bindings/sound/atmel_ac97c.txt
++++ /dev/null
+@@ -1,20 +0,0 @@
+-* Atmel AC97 controller
+-
+-Required properties:
+-  - compatible: "atmel,at91sam9263-ac97c"
+-  - reg: Address and length of the register set for the device
+-  - interrupts: Should contain AC97 interrupt
+-  - ac97-gpios: Please refer to soc-ac97link.txt, only ac97-reset is used
+-Optional properties:
+-  - pinctrl-names, pinctrl-0: Please refer to pinctrl-bindings.txt
+-
+-Example:
+-sound@fffa0000 {
+-       compatible = "atmel,at91sam9263-ac97c";
+-       pinctrl-names = "default";
+-       pinctrl-0 = <&pinctrl_ac97>;
+-       reg = <0xfffa0000 0x4000>;
+-       interrupts = <18 IRQ_TYPE_LEVEL_HIGH 5>;
+-
+-       ac97-gpios = <&pioB 0 0 &pioB 2 0 &pioC 29 GPIO_ACTIVE_LOW>;
+-};
+-- 
+2.43.0
 
-Best regards,
-Krzysztof
 
