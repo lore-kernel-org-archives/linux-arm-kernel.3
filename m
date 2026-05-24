@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB48CD4F54
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 08:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4115BCD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 08:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V88tvOdPEuOMBu/jBdpAoznTcHpLTE0OfiQPkQyF8mc=; b=H/LN3BUnYO1g8fwgVQNhZ/k6T8
-	kU1hUK0HUgXAH2Ks21EC/f50fxZIOiBJOhM0n53aN8QoOp4K7WaXpRQPUryA0ltwTwM1hDXUqXxQZ
-	SV2bz7j5Gndqw+2huFqq2GX8uBuNyJUcXdfYqGv1VJPolZoNU/ITQGa+WKFKu0BEHwwrUlzIEUwLx
-	CwSiE6DeQDVWUYgFwHM8+j5lVWk0nGPXRWKeLrpQLSi1lZ9+/mNZ+0OYKp8fitvod3XhvFBZB5mVu
-	0Y2ozmtquCiOyvEpoljczsdkyqBnw2Ng86oEPfseSA0BK7x0c8aa0kMS9R9kRYq+MiRCXGZJr0j0M
-	wL/ljy5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=twvAWBRVO/ZJDAg0wUTAKAtiP6Qk//RmMjnsT8rN9kg=; b=Ivaj1LwTjJHZpZ
+	HxYEbFhqnZErpAorau5N55/R22RzBHK8xZw43ds1QB7XjMkUzDvEUYs6II0x3wzm7VuCRUHBxIsKQ
+	8FMy6ip5MlBLzy/USNCzdNuZr9Ze56j6xrnawlDzjBkMtp3LKvkjvdAMW4ft6lR06zP3lRF+27shx
+	zNtoqAUDxxqHxqXTP85zTQ1zFZbtnfy7vRa+82rS7urf2wxRXkNABCYju0wIbsYB85RRG+mijD/Zj
+	sfhCJFK4872ULBuAxp7QDyAu74e1YKGHeRKol/XG/+6rxA8jegdm5PVq5W08ORgidU/MK2OXYuZ8b
+	0wazIuIMOPJMB1shFInw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wR3tf-0000000EfS9-2YGs;
-	Sun, 24 May 2026 08:09:19 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wR3OB-0000000Ed4p-1CN7;
+	Sun, 24 May 2026 07:36:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wR3tc-0000000EfRf-2sP1
+	id 1wR3OA-0000000Ed4a-0VlV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 08:09:18 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-490388fd0dbso30535425e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 01:09:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779610155; x=1780214955; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=V88tvOdPEuOMBu/jBdpAoznTcHpLTE0OfiQPkQyF8mc=;
-        b=qdmLZ5z74uqFW8buM4aKv5Yy8jumfkvLiy4C8NT9dQQ6L+QCK9u+RIf6bS2hs5UC4E
-         8c1oafXAp9hJdXWZ1vd8FZMw9sSKed0IvzQts0sOOOE681ESxY0SHCqzAem8FIs5/2EM
-         yvrGz4u2SiRv7VM76H2Gg/PHRwyRHp6aj4982Q/zSsxxc+elpzOIyVOmjJqYxGBhZPRI
-         2i+kWIyDkTdsclC/IPsOV8y9M/B1yA7NF0SwHn1E1Fv7dStkBOF6NevL+VZmg8isawzd
-         PW6VDujWW3w4wBCv+BwXvofenleRmSplV28o6wGJaFpyyvh2819dwiQfi/ibgGfT9eY6
-         le2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779610155; x=1780214955;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V88tvOdPEuOMBu/jBdpAoznTcHpLTE0OfiQPkQyF8mc=;
-        b=m4N6P2A/diNTk805fZxHpZO8UUTaFUo7xj3VfJpl8nZCJy6jkyA2vXU5xc5LBEESXK
-         AcBqpqqt0Mo8K87bDwJGYIvymY6TkyS+GRSEHIMIjm0CDj2y0HPlyCXm36Bk/GMLucd0
-         ii9LPXZMsnvcsGERtmBjiwJRdVwOvYQn3DyBqLt0Rq7pVP7HqtHMOmto87/W6SkB1l7z
-         CZ2mstd62YYrmeBC2WmpWnSROFt6EFQlPM8A1oWX2J58jyK94PT2/YmNB6kc8Uihll63
-         RmXpSI6DHmvjilim+VeUaH+9gU/JbF8VRuLCUd48ODFBy29vCXlJuKenM2m+kLVehGoB
-         E5rA==
-X-Forwarded-Encrypted: i=1; AFNElJ9HI+ASny8Fbn3ShX0xeAZLCyzNPetaidrbomzYuB2wCjzp0iIg3E2WFa3Zhc8AzBimCoy6ZVIkpN8qHzG7tU51@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+4tmwPX+Dl6Y6QFdEtums5iFxjpOnXcB7eh8tuSII5Ujyjb0p
-	ef+Ye9iEuvv8dUSyYsQTVmv6g7VVX56fymlkbwqePAY7xcnA7wJDA3W5
-X-Gm-Gg: Acq92OEimvcDvuROT9bTQb86eRgbL95HOeoZqoHoAsa6ZviRdiWZE+nk8SdnMmeRhb2
-	/fqEBkgeIQG/YvBV3oWonl9Z9QFWX01gbzIRlIHzmhQEeQ/SmPIpPNJSUPGaHb1NknlAduzCpNx
-	WpkOm6cVTJoXhTexFJ3B9rcMrLdb5315dwPDZAFNKgGdHnyXPD7SMXv+XTGd+GIm2VlKedyoHJk
-	RtC1QJLvaT8rPlIvrOxBJsvQh7A7uC//f9Xxv4zAXyou9hkSn/bfT+JClS9pc25YiXYhaBAF1Gk
-	zSICvekelsBEBIdwEKRnQKTMN8JK6kCllWHeawBqTKhY2VGa/c0o35N++WT+HqdSUUXlEy60+EM
-	oixnpGudpPsuLO6+T1HikkBz3xD0yV71gVJ29prC7D+UdF9gR/BP3cYqUtxc2HEnTTu4r7IKpKm
-	H6KI0fUyvyLOyaCO5qR3MjZYORM+QGnd/0+YhQlLMIV7eQrx8laGggNmrU2aH9qnhu53Oe1Gkpr
-	ohwtiZGJiApE4Um2X+2dKstU8Nu7ALhaSFlZDDfHx8BgQbewuDk9TqtGmoJNLfSH4hW5kayLaqs
-	GEn/15leO04jWDkPcBuL4WEIOxO7
-X-Received: by 2002:a05:600c:3512:b0:490:601f:d787 with SMTP id 5b1f17b1804b1-490601fd939mr17292075e9.6.1779610154351;
-        Sun, 24 May 2026 01:09:14 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-b3e0-e401-c487-9725-5e6f-67f3.310.pool.telefonica.de. [2a02:3100:b3e0:e401:c487:9725:5e6f:67f3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454ac6a6sm168901005e9.12.2026.05.24.01.09.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 May 2026 01:09:13 -0700 (PDT)
-Date: Sun, 24 May 2026 10:09:11 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, 
-	Abbott Liu <liuwenliang@huawei.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Florian Fainelli <f.fainelli@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] ARM: io: avoid KASAN instrumentation of raw halfword I/O
-Message-ID: <ahKt0Lp9Y8eJDMJ8@unknown748F3CBA5068>
-References: <20260522212018.25295-1-kmehltretter@gmail.com>
- <CAD++jL=jrk4EYo+5mhp1cpy2cfsA966MVmbohWhcZdx_SObD_w@mail.gmail.com>
+	Sun, 24 May 2026 07:36:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE5F060125
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 07:36:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F6E01F00ACF
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 07:36:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779608203;
+	bh=twvAWBRVO/ZJDAg0wUTAKAtiP6Qk//RmMjnsT8rN9kg=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=H9gXRvfF3mxHZdTsJm+unrFd1m69BLLtil4NOpconGGR5ICzieoSxGgTwpLExqHT+
+	 pwahR7Col9y1qPdtkZmicrNMg5k6FOkzOTZs8PvWB5W5Nha0mcoIUIsUh99uEQU6Vv
+	 gSpzYGXOmLOmhOXA71F6WFxi4Iiqc25wFaJQJwZqjp/WGXcZYhOvhpbZer3R5rVhex
+	 2D/pf9cWaV7Dc/qwOTi/Edeab9Cb/Jo8QNxLBFYPJfm9Kk7wMueemQ8pFUd80HlMqi
+	 S00cTVJY4HF6+AtsAgn9mfQBVDo1cmc7fsQVw/xviOJldjo3sFSbc4pJ9F+FcNzrQ5
+	 KQAjCcCu4x5gw==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5a62f43b76aso10306017e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 00:36:43 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ9nsXIUrDWq+Nh8b0lRcLGtWK/vOvhawvGbp0DpMsUGu9fAJEPNIpKrs3VjqyElP9tVwaV7/hFE9r3AHlTK0tq1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBJ2RV3qPXjNkKPMRvbaxjdYZCIiB+0TQdyB4VhGrsfIqxNylc
+	N8XwtkqVNQuUlYi0rWh9/ZhvwK0inxHHsXZEgy5ZbzveEQEim/JC6B7SHiWDWYJ8gkgWz27heMs
+	CSjptrXAB3q+WcIuVZ3BjKd3TxN8ZVOo=
+X-Received: by 2002:a05:651c:1601:b0:38e:2fcc:78fe with SMTP id
+ 38308e7fff4ca-395d8bbc2famr38101571fa.3.1779608201708; Sun, 24 May 2026
+ 00:36:41 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAD++jL=jrk4EYo+5mhp1cpy2cfsA966MVmbohWhcZdx_SObD_w@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_010916_733267_D8B0B023 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+References: <20260522095401.72915-1-phucduc.bui@gmail.com> <20260522095401.72915-3-phucduc.bui@gmail.com>
+ <CAGb2v67UmMmM7bQOSf3VxsN9D8s3N8nMMX079_kiMcPU=VszFg@mail.gmail.com> <CAABR9nEB8jizn+NrVgrjcOOJRtaU0u+TH705unMTh7HYO=8Wcg@mail.gmail.com>
+In-Reply-To: <CAABR9nEB8jizn+NrVgrjcOOJRtaU0u+TH705unMTh7HYO=8Wcg@mail.gmail.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 24 May 2026 10:36:29 +0300
+X-Gmail-Original-Message-ID: <CAGb2v65zK7iOce_UZ+_F=dWtKYFGZj-K4k45MewvDbhivXPH2A@mail.gmail.com>
+X-Gm-Features: AVHnY4KVGfaT4jHK_tEOETRqcTR3jPqtFPaTGTB9dpESZ_u5nKVSnneDOYxlkpk
+Message-ID: <CAGb2v65zK7iOce_UZ+_F=dWtKYFGZj-K4k45MewvDbhivXPH2A@mail.gmail.com>
+Subject: Re: [PATCH v2 2/3] ASoC: sunxi: sun4i-spdif: Resume device before
+ kcontrol register access
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: broonie@kernel.org, codekipper@gmail.com, jernej.skrabec@gmail.com, 
+	lgirdwood@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, nichen@iscas.ac.cn, perex@perex.cz, 
+	samuel@sholland.org, tiwai@suse.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,14 +81,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 24, 2026 at 12:11:36AM +0100, Linus Walleij wrote:
-> Please put this patch into Russell's patch tracker.
+On Sat, May 23, 2026 at 4:55=E2=80=AFPM Bui Duc Phuc <phucduc.bui@gmail.com=
+> wrote:
+>
+> Hi Chen-Yu,
+>
+> On Sat, May 23, 2026 at 2:19=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wr=
+ote:
+> > And when you do add patches due to Sashiko raising an issue, please
+> > do mention it in the commit message.
+> >
+>
+> As mentioned in the v1 discussion , this issue was originally reported
+> by Sashiko.
+> I'll add the Reported-by tag in the next revision.
+> v1 links:
+> https://lore.kernel.org/all/20260513105003.81880-1-phucduc.bui@gmail.com/
+>
+> > Did you actually reproduce the issue, or did you add the patch simply
+> > because Sashiko mentioned it?
+> >
+> Since I lack Sunxi hardware, I couldn't reproduce it or perform runtime t=
+esting.
+> But I did compile-test the patch.
+> The patch aims to fix unsafe register accesses that occur before ensuring=
+ the
+> device is runtime-resumed.
 
-Done: https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9474/1
+When you submit a patch, it is expected that you already tested it.
+If you only compile tested it, please remember to say so in the
+footer (or mark the patch as RFT) so that others can test for you
+and the maintainer knows the status.
 
-Thanks,
-Karl
+And if possible, provide a scheme to test it.
+
+> > On sunxi, either it will hang the system because the bus transaction
+> > got ignored, or it won't as something else enabled the clock.
+> >
+>
+> If Sunxi's PM design already guarantees safe access here,
+> feel free to reject the patch.
+
+I can't say that it does. But since the only control that SPDIF gives
+is the IEC958 status, and that doesn't appear in the standard mixer apps,
+it's unlikely that a _user_ will trigger it. Plus the control was added
+after the basic structure of the driver was done, so there is definitely
+some possibility of a crash.
+
+But what you wrote in the commit message doesn't match the actual hardware
+behavior, like I wrote.
+
+
+ChenYu
 
