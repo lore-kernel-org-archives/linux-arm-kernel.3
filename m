@@ -4,75 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A7DCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 20:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64253CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 20:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPkX7igJ13fuMwN8FYyuf3QvoeBkEBGD1vYFDYDWhAg=; b=IAN8ALkWD9WO+kXNmjV6ChM/wW
-	K/fRbMfgKes7KxCNoeZ28raddEu6JAdbg48bMe2tZI9GFPxNQNxrZHDc1CY3L4uwa+RqRA6XtXW7K
-	y8KhWXlNEiz48tkhDyV5Gw+EXuT6H+v8EjOpvp5jU3gAApdpJUuiTD6M4caSLSFrT/8WulyhaB9Mz
-	n/8hrFzYA5Sg7HCVr0scopmERfol5AfuNZ1f6tfNBFNRyDLzxYZqR4h5dVlvjsO4S1qbtDOWXt7lC
-	Cs6aHuX/m7l0YujbkCx3Glmr0MBUN68PXkBXyYXvbNIWsxmbs6tMsNSTjpklIjUEUPI4wiAA/qzKL
-	DVMOsc0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XdF14EN2gaQGUPUIlCL2/+2xdkR1iD92W761e0Tt4JU=; b=TMBxlEZ+R0nBzE
+	c3Vbs7hnvYSbWdBxIrR5grZ42VdWmsLNh7tXII8mkq2jSW+5YAmUnhYQm8NdCCXfJgJ91I8SgCDiU
+	eLwzlUmKVNE/yckimofkloaIQAYH27as9t/BebmTRp+m4NHLHbRfyCG+kMzXkbIvZZ5EJl2Dmwwa5
+	7O1MF38eg8xhkATNq1xM6BiCwsPRuu7znyDcT2h2f5sYN+qfur5alCT2quWQB427FDcRN9AyfhcYo
+	wZlqENk3WT8RXgSq5l+Ym7wEblnTVKooaTziotKdFOk1+2W2mKoUrNngPPj8e2O5abERIRma2wbZl
+	bbVKf1uf2x0XhAhEwFvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRFhg-0000000Fc9F-42Dk;
-	Sun, 24 May 2026 20:45:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRFiH-0000000FcFP-0f5w;
+	Sun, 24 May 2026 20:46:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRFhe-0000000Fc8g-3ah3
+	id 1wRFiE-0000000FcEQ-3F9W
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 20:45:44 +0000
+	Sun, 24 May 2026 20:46:20 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6469441764;
-	Sun, 24 May 2026 20:45:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08D5D1F000E9;
-	Sun, 24 May 2026 20:45:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C392442BC
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 20:46:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FD4E1F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 20:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779655540;
-	bh=lPkX7igJ13fuMwN8FYyuf3QvoeBkEBGD1vYFDYDWhAg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=T9QgvtZ+uMkpNmsWRi/zVFffFNF5jMA/0ZOfXC6JLYiAXyw/ek26C/nItMVGFo4Sg
-	 DjcmA+xhlLn+2VeovYwuZIlB5jRWJUiDbJ53katUzJA/oZyjZoRwif0e9gKvyyE4vE
-	 LcKFipddaVFRW1AS/FJKUEidna/1d8XW5GWQYwHpzbKqt9S8SXjG9oG3+C09lB8weV
-	 uuSSn0H4gNej9zoNV4s6VD05eJDSA7EPVcAgl6JhqFWa4vcVzbwWOHaYnB3E5jDdPt
-	 Z+HTyUbd0j0U2rPfeB6ymfNzl3saqGtlHRQeeIMtq/gRa5v8VufmsUjIb+uaZsM1ZG
-	 3TZQ21g+fajtQ==
-Date: Sun, 24 May 2026 15:45:37 -0500
-From: Eric Biggers <ebiggers@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Demi Marie Obenour <demiobenour@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Thara Gopinath <thara.gopinath@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] crypto: Delete Qualcomm crypto engine driver
-Message-ID: <20260524204537.GB110177@quark>
-References: <20260523-delete-qce-v1-0-86105cd7f406@gmail.com>
- <20260523-delete-qce-v1-1-86105cd7f406@gmail.com>
- <7rgfuvv3hai7g4wt4accbkejtzdt5dnb6mkj6x7ox5sz35q4n2@h7j6rr7extuj>
- <66317f6a-645e-432b-ae11-8f40569d4117@gmail.com>
- <d97382a6-6c5d-4a3f-89cc-3ae9b432de3f@kernel.org>
+	s=k20260515; t=1779655578;
+	bh=XdF14EN2gaQGUPUIlCL2/+2xdkR1iD92W761e0Tt4JU=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=Jmp3uHrJalMuK97geIL59g/5n7B65j4S+VeBKj4DmDnWAQAOqouhdvFbo252rKe1N
+	 EUpcyyD86pld7FFWuHYj2qi8ttslywQ2YFv76xk/LlUttVGuoD9e4xgAb2hVLHFodp
+	 u6Q1IXTDm6SolrO1KWjZicEZWW5RynXVu/f7bW8JdKQU1niaxHUcErr+5GtJ0J//7M
+	 tS3zfKpjQBSUnWPA00aobrjTTMyxvZ/TVTOv9zHAI180OLjHC+Dvj5SdsgPFJNu5mY
+	 JaZH7oDTDHlAfcxE3VboyLjNP0h0O1pur4E3J7GfrvSc94tGzLkq5ydvaUoftCMZrX
+	 zBlUfe1hiS8dg==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-3937014be0cso28813331fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 13:46:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ/ZUWdPak+NUPbkWSf55IEvl8ZJXmzzuR4pswnvfJrEYAe9l+N4LcrV1UuDEas7OMqeZCq7eBLNGu3RwXSVDpi2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGn0vXG4l+rb4a94E6LBHBddqDUGzOEvZ3A+Ae2kI15HuSQ1lo
+	2xnOdmuokgG9RZ6yfayH2V6vVSFTNBLFWFt74ubg5mnkoEL8RhBrLEzcf0E7cNuGuUtndrFjnpB
+	YYMH3MqqCXBFaqST2fSmf0ayYF+RWxfE=
+X-Received: by 2002:a05:651c:222c:b0:394:942:9bb6 with SMTP id
+ 38308e7fff4ca-395d8c129fbmr37366311fa.6.1779655576527; Sun, 24 May 2026
+ 13:46:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d97382a6-6c5d-4a3f-89cc-3ae9b432de3f@kernel.org>
+References: <20260505134812.408316-1-wens@kernel.org> <20260505134812.408316-6-wens@kernel.org>
+ <afpUiupOgPhLksM8@shepard>
+In-Reply-To: <afpUiupOgPhLksM8@shepard>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Sun, 24 May 2026 23:46:04 +0300
+X-Gmail-Original-Message-ID: <CAGb2v64Ln=2RnOf_WKHJTGphofe-+iUddenu7H4FNFx03tJoOw@mail.gmail.com>
+X-Gm-Features: AVHnY4LzB_OhmZqGSHcQSdeKCJP6XONAvy9GHgQqfzYfXCQHIhPSMFyqiHhyTFc
+Message-ID: <CAGb2v64Ln=2RnOf_WKHJTGphofe-+iUddenu7H4FNFx03tJoOw@mail.gmail.com>
+Subject: Re: [PATCH 5/7] arm64: dts: allwinner: sun50i-h6: Add missing SRAM
+ region for video engine
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: Maxime Ripard <mripard@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-media@vger.kernel.org, 
+	linux-staging@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_134542_917033_B7BA844D 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20260524_134618_861576_23F1E7F9 
+X-CRM114-Status: GOOD (  33.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,49 +86,96 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 24, 2026 at 10:29:28PM +0200, Krzysztof Kozlowski wrote:
-> On 24/05/2026 22:12, Demi Marie Obenour wrote:
-> > On 5/24/26 12:42, Dmitry Baryshkov wrote:
-> >> On Sat, May 23, 2026 at 03:03:56PM -0400, Demi Marie Obenour via B4 Relay wrote:
-> >>> From: Demi Marie Obenour <demiobenour@gmail.com>
-> >>>
-> >>> It's slower than the generic C code and causes problems.
-> >>
-> >> Which problems?
-> > 
-> > See https://lore.kernel.org/all/20260522024912.GC5937@quark/.
-> 
-> Your commit is still incomplete and other people's opinion is poor
-> reason. If you do not know what to write, ask that person to make
-> necessary changes.
-> 
-> Not mentioning that removing driver is not even necessary to achieve the
-> goal Eric was mentioning and if I understood correctly: you are removing
-> even the pieces Eric found useful.
+On Tue, May 5, 2026 at 10:35=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
+o> wrote:
+>
+> Hi Chen-Yu,
+>
+> On Tue 05 May 26, 21:48, Chen-Yu Tsai wrote:
+> > The SRAM C region contains a partial alias to the VE SRAM already
+> > referenced by the video engine. To avoid access through this alias
+> > window, the region should also be claimed by the video engine.
+> >
+> > Add a reference to the SRAM C region to the video engine node.
+>
+> It feels very weird to have a reference to the DE2 SRAM region in the
+> VE node. It seems unlikely that the same region would be used by both DE2=
+ and
+> VE and I am pretty sure can have both running at the same time without
+> overstepping.
+>
+> From what I can see we have so far assumed that the SRAM C and SRAM C1
+> are two different physical SRAM areas, but this is most likely not the ca=
+se.
+> My guess would be that SRAM C1 is actually a part of SRAM C and the DE2 i=
+s
 
-This driver is more than an order of magnitude slower than the CPU for
-both encryption and hashing.  See:
+No. It's the opposite. 0x28000 maps to the same SRAM block at 0x1a00000.
+If you write to one, you see the results in both. However the alias at
+028000 can be disabled while retaining access to 0x1a00000. I don't
+remember how much of the alias points to VE SRAM (0x1a00000). Maybe it
+was the whole alias on the H6.
 
-    https://lore.kernel.org/r/20250704070322.20692-1-ebiggers@kernel.org/
-    https://lore.kernel.org/r/20250615031807.GA81869@sol/
+Also, I can't remember if this was tested on the H6 or H616, but the
+VE indeed writes to VE SRAM (0x1a00000), so that part is indeed used
+by the video engine.
 
-There are many examples of it having bugs as well, for example see the
-second link above.
+> using another part of it. The syscon block probably allows switching acce=
+ss
+> to these different parts of SRAM C.
 
-That's why it had to be disabled via the cra_priority system.  This
-driver was actively making Linux worse.
+From what I've seen in the vendor BSP, both drivers toggle the switch.
+I believe the goal is to prevent the CPU from having access, rather than
+either peripheral claiming it as its own. And that is also what our SRAM
+driver does. It claims the SRAM from the CPU. That's all. The toggle bit
+pattern used by both drivers is the same.
 
-This isn't particularly unique to drivers/crypto/, of course.  This one
-we just have data on, so it's a bit clearer.
+> Also the sram_c1 node implies it's 2 MiB, which sounds quite unlikely.
 
-I've yet to see any real reason to keep this driver.
+That is what the memory map says. Calling it SRAM C1 is probably wrong.
 
-Crypto drivers need to be held to a higher standard than other device
-drivers, as well.  The onus is on those who want to keep a particular
-crypto driver to prove that it's worth keeping.
 
-- Eric
+ChenYu
+
+> All the best,
+>
+> Paul
+>
+> >
+> > Fixes: b542570e5605 ("arm64: dts: allwinner: h6: Add Video Engine node"=
+)
+> > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
+> > ---
+> >  arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi b/arch/arm64/=
+boot/dts/allwinner/sun50i-h6.dtsi
+> > index 72ce1a75647b..88c6e3e105c0 100644
+> > --- a/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
+> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6.dtsi
+> > @@ -205,7 +205,7 @@ video-codec@1c0e000 {
+> >                       clock-names =3D "ahb", "mod", "ram";
+> >                       resets =3D <&ccu RST_BUS_VE>;
+> >                       interrupts =3D <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>;
+> > -                     allwinner,sram =3D <&ve_sram 1>;
+> > +                     allwinner,sram =3D <&ve_sram 1>, <&de2_sram 1>;
+> >                       iommus =3D <&iommu 3>;
+> >               };
+> >
+> > --
+> > 2.47.3
+> >
+>
+> --
+> Paul Kocialkowski,
+>
+> Independent contractor - sys-base - https://www.sys-base.io/
+> Free software developer - https://www.paulk.fr/
+>
+> Expert in multimedia, graphics and embedded hardware support with Linux.
 
