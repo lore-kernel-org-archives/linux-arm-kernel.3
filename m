@@ -4,68 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B05ECD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 16:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D1ECD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 16:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEZaVfnh31zxDcBP4gHdjRxSzhOV4M9v+sQRJjdvUcs=; b=FSlvVTa675ZwwtaN4wt47RCsiw
-	f5M/2Rnv3JqAKmP8ksQ9bS/d0wGDgmkW08v3/Z6yr11z7IiFmpBdUppeejRsWa0Ew3NFUP8HxhMtP
-	NzqBkmU5UPdyiOSFUqQfhak8bq5tg4KYW5cz3kHiKcD3I1DaSEby5DlqGeE7+B49lI9fBV0Iofa+S
-	lLNWIP8E+HeJE2kttfDH63Yxg+8GNKw4BNUfeXYuTTRR8dRtPLf2KYroXwwsZlGrz3rmC/R1MkpaI
-	36DPS/pAOnM7EZJgdYJAAkjOQTDAbNQh0p8LB9ZpIe3rT1tSu/iNI9AntRbhcLRJgO/tC1T0VCLvw
-	QpyHfp4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vfCAtu9YjFvfjUfjXckwcd/pzB82MK5Peh4a9ngumRo=; b=UiyCUifsyb1dk29/XPepDBDabG
+	wyumxUzdE+AzOi2OGZHnOeSpCK1nIJqv7GIvzKMh9XVnNoN0A2ZcDJrhDN8UfjsW8aSbd5TmzAT9B
+	lcsM1LbpMXQOo7ZTX3Lv8h/ob+AGOCi/zJVscupFPNDMPTiS1oP6AVuGzKKG0FgP3w3NMJaeZ8jYG
+	kSOuObbstXnt5PQoHmrOfovlYpkvjv0+azOUvqRGR3jLe2TNfu2XsS2dqCkeCiQQixnMVzQT8fKo/
+	pmAXVIOqUZIs47UG7excJqxBLzwzLCwEGSFZ/OgtUZC5sazqgfIsXQcPw0tYQYBZ0AB8Apfvv0vgl
+	H3JB4STA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRBg9-0000000FGhz-16Ds;
-	Sun, 24 May 2026 16:27:53 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wRBuv-0000000FIAb-2fhK;
+	Sun, 24 May 2026 16:43:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRBg2-0000000FGel-2gwr;
-	Sun, 24 May 2026 16:27:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1779640063;
-	bh=vMUwbHaZbWb66jZ7iCMLMPvsaOQ2sMZq+JqO8SMiEww=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Wt6OovyhHdAuiw09WvJxFvTmER1N/qZZr3Jxc+vd4z+yhxjuLcXSA4psnQdf2Z06j
-	 MH1DyvBUt8L95MDosMTsNnO8ga3cgpL5iq7spoDFgRJlP7CTIK8AcXAeYbTF4af2eZ
-	 D27ksPPwqPCOdqhffIgUU5rdU/HhJK9W2za1XLeYeuvquZj4M4AXQLGl/n8kdNXL7V
-	 D85NwWf5bm2ye2EIqxrdeum6pgxWkQe+Kb5wohrcj3jVfup7rp6/QxVdIi5bvA6kvS
-	 QIOCiFfHsBDnmGYo804Y3gRHaTImv8/4BmMbGm22Fcs1DBeYumPULVEhTF+1EP8o0e
-	 ffKpAqgXi8YJQ==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE3E717E0AE5;
-	Sun, 24 May 2026 18:27:43 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Sun, 24 May 2026 19:27:29 +0300
-Subject: [PATCH 2/2] drm/rockchip: vop2: Add YUV support to background
- color
+	id 1wRBus-0000000FIAB-3DrA
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 24 May 2026 16:43:08 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64NHIFSh1346800
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 16:43:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=vfCAtu9YjFvfjUfjXckwcd/p
+	zB82MK5Peh4a9ngumRo=; b=aC8AiQg/3zgWPCN4RPm2nA0QmIFWwQZENaHmsc5t
+	Tsbu/QjF4LYwD0LQq81RVb2K+V5cERB1XqdtV73ZIwpOz5rnVqn1NBOPUBc2Eavz
+	kc5mQ+yqyB1Yqk8Qhz2tFp/edMNe6LwxoSG+Dx6/7j7t3PDNinYxcmuQlaf0PcV7
+	PGUU+IdL4KLjXfRQ20iFmkTnyQ/Bnq4KSdwbrQeIW2QfpTTB7HFyyi7kalI9wBeE
+	fyjlmR/Un2Ch9ZWHclIzUg8hIgAMaSxRJgYFSlL0XpeQPcFsldZYGpgEaxLZP+VT
+	m2ArzsBCd0UOBf/KA8HBbas3M86bSRLob9sxH3rrg0U+Vw==
+Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com [209.85.217.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eb5h9kejr-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 16:43:05 +0000 (GMT)
+Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-6313cb80e7eso11318331137.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 09:43:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779640984; x=1780245784; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vfCAtu9YjFvfjUfjXckwcd/pzB82MK5Peh4a9ngumRo=;
+        b=MHtWKgkGlBG60xJ2HkAL78hZvsaDL4VvG1VT0LUdn/cdqkY+yjxgz9jhyEAV0G6s+o
+         p6o16iemqKlmTt6Zm0PO1X5xFqZgQs0tDTl2pXzvQojqFijV3rMZWdnHe+6Y4sci8gUW
+         Efa+lVUXNP/6REGSH1Z2Z2HXamhuoKt+fFDX3KCCyt2CVV4GkmVvAU/mDfzWSKQkSS+s
+         B1Eb9XayZ0Xu+7bZ/Nywt/krZFkcCF0uqs0J4UunW2GyMBzTQiZKEmAEO3VvrDkq+01q
+         SbKNOkx3KYraHh7KfweWFdJTuAHdwUaXCBU9rhrdQ9aItMI4t4GCKJ0/5ZF7LXOt+dbN
+         ircA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779640984; x=1780245784;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vfCAtu9YjFvfjUfjXckwcd/pzB82MK5Peh4a9ngumRo=;
+        b=BokHF8R9Z1DLwjL5EjR/+ubHoFuo0onFqpprm2m1JwWopkCuYoi3myZ4oar357oyW1
+         /ywGdZHT9wzzROm41Ep41CilGZIw5RY12FK6zmYjzw9C7vG+JrKwD/xas/0ISAfvz1wp
+         IXd6Gc1KwW3pfeTKMCQ0raiWjQrbB/a2iYkhQ7bfE+sw0pB5lC5qJA20hfzoPFRYmCZ7
+         Npvp6K0f4PlfjSZar0+QYA/gmtR0OrxlyslkYBIQE3WDPZiYqoUc3Te092zeBkwFOkqL
+         vIyXuIUOXzT/daZdFeILFS/XwisjMj+j80QhFqEPZRg9IAkGWrR1Jv30Q9Rvf074XyqE
+         5YVA==
+X-Forwarded-Encrypted: i=1; AFNElJ/W05vib3/FHAlhq3w65z8e8QFCy5A7h8gSl3OQs5gpqDcjqsy6OR6r6hl3d61WSW6tGddfmRWH8Nt0KZYitlcU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwmsAUDVQjbLCxzsauR5BmIu3rQgC1pWGb3thuHkfyeTeVUZoo
+	h86PjeXhIGK+IifJC8lz6UJzHnCp+2KSEdSb0qWV1CHgSS8lU6P9dQSUrxEsQn+Ofsw9FMN7jWc
+	h5oL5Y7aW+m9FGopg9noF2vm8zpFmR4POGFnTd7zN+99dwylD8rw7b0IoE0LtTzzfVK9IhzPsx8
+	wZ5A==
+X-Gm-Gg: Acq92OFgOIdJCJ76P11Yj6XwNJBgzBi/CjNGNqoX6/gzmXQirrHT2C3c57u85i2Me+x
+	6g3IWyS9bJ4KF6V3rE8Fw8AnsfUKDms5GGrpe8i0BiK3csVlE6GC2CGGSQYr/BmpOw3hL7r37Sn
+	s4+yJmsC/TbQ11TnQlgrlTmYM3rF6bSHbi8JPzq2rmF/v9kd2KnthRWr5YMu3tVSt1cqVnjGs6E
+	xItjVRHJQbvjOloZLP1vZ4bJw3KwHXX2PKVhU/W25URqPok9bOxLXXuDtKIPRvc7oL7kVHuBL1P
+	v3doA5Nw8ZSrYxL/hh0UCg/uc28ThMQ5A0Dl0BiZne3W2yRo+syE5tyzbAfnDIBuHA+e00hzSgj
+	AEr1YQ5ygVifuotOHqXcenWYg2KwsYizEU7RK14B1Hi6hbA7y8hZLMi44nFnlVvwLx5N3POJjQ8
+	NEKkPahnrBU1sA2nIvmLAGBoVkZ2qbU4Fiask=
+X-Received: by 2002:a05:6102:2b90:b0:610:db51:6f3d with SMTP id ada2fe7eead31-67c73e722cemr6301319137.12.1779640984365;
+        Sun, 24 May 2026 09:43:04 -0700 (PDT)
+X-Received: by 2002:a05:6102:2b90:b0:610:db51:6f3d with SMTP id ada2fe7eead31-67c73e722cemr6301289137.12.1779640983847;
+        Sun, 24 May 2026 09:43:03 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa32ceb596sm2021962e87.46.2026.05.24.09.43.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 09:43:02 -0700 (PDT)
+Date: Sun, 24 May 2026 19:42:59 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: demiobenour@gmail.com
+Cc: Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
+        linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Eric Biggers <ebiggers@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] crypto: Delete Qualcomm crypto engine driver
+Message-ID: <7rgfuvv3hai7g4wt4accbkejtzdt5dnb6mkj6x7ox5sz35q4n2@h7j6rr7extuj>
+References: <20260523-delete-qce-v1-0-86105cd7f406@gmail.com>
+ <20260523-delete-qce-v1-1-86105cd7f406@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260524-vop2-bg-yuv-v1-2-dcb6a52923f5@collabora.com>
-References: <20260524-vop2-bg-yuv-v1-0-dcb6a52923f5@collabora.com>
-In-Reply-To: <20260524-vop2-bg-yuv-v1-0-dcb6a52923f5@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260523-delete-qce-v1-1-86105cd7f406@gmail.com>
+X-Proofpoint-ORIG-GUID: RMF6VJEK4nqz3DF8qbPEp8oMks9aY1pU
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI0MDE2OCBTYWx0ZWRfX0Mme7a3R8+qA
+ eZBtxTGJ3seLgijDOEXCZrp8a9jkALRebP3LYKFF60ENvJ3fm0niTpyh9vKbE0pAXwL1b7a59i6
+ ZIOfw5TT2FrBtEeRXduu5Ej0sHf9SLIdsYMlvly/9ABXRcf4ZpfZ6d6lTIvU75kKX16mVmK9Mat
+ eql8AQhtMTzTqSQlrIwpGDTBSt0IuDXmK7SkQ6z/4NBgV1YRuZVx4aCno0pfJ+YpmwJnNB1ybWf
+ ZOZpuHt/ZewSaVrcp8bKArkiCbRZHSMOyiFhJxe1sUd8KjZBD7B1aFkPf5YvKvOOLjWqnCKW3h7
+ gA12fuT2w0v1kScUZ1E+1Zg7twY9kbAQUjOfjV5SwSn3Kol9bYKgY/vhNTBzOuqOZFZDeF8PQpJ
+ RO/BE8WL08TYIqnZJ9mwUWzfezlQ7qihQELBpfouBe8irqnahUeO7l7oFE97xr7hYEVvdWyjDlp
+ QEJn2EjVlpqkaDJJ0Kw==
+X-Authority-Analysis: v=2.4 cv=H7jrBeYi c=1 sm=1 tr=0 ts=6a132a99 cx=c_pps
+ a=DUEm7b3gzWu7BqY5nP7+9g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=pGLkceISAAAA:8
+ a=f6XAlUmOwKfAZ5K3pb4A:9 a=CjuIK1q_8ugA:10 a=-aSRE8QhW-JAV6biHavz:22
+X-Proofpoint-GUID: RMF6VJEK4nqz3DF8qbPEp8oMks9aY1pU
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-24_05,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 adultscore=0 suspectscore=0 clxscore=1015 bulkscore=0
+ impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
+ definitions=main-2605240168
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_092746_829728_B7C6AE8A 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20260524_094306_820284_D231E3D4 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,236 +152,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VOP2 background color must be programmed with 10-bit precision,
-using YUV format when the overlay operates in YUV mode, and RGB
-otherwise.
+On Sat, May 23, 2026 at 03:03:56PM -0400, Demi Marie Obenour via B4 Relay wrote:
+> From: Demi Marie Obenour <demiobenour@gmail.com>
+> 
+> It's slower than the generic C code and causes problems.
 
-Add the required RGB-to-YCbCr conversion logic, covering all color
-spaces supported by the display controller: BT601L, BT601F, BT709L and
-BT2020L.
+Which problems?
 
-Since the color is currently programmed to hardware on every atomic
-commit, minimize the computation cost by splitting the work across the
-two paths: in atomic_enable(), perform the conversion unconditionally
-(the hardware state is unknown after power-on), while in atomic_flush(),
-perform it only when the DRM property has actually changed.
+Also in the security world faster and safer are two orthogonal axis with
+very limited correlation.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 152 ++++++++++++++++++++++++---
- 1 file changed, 137 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 64ac07cb1b0d..e3f7ed2ff285 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -644,6 +644,88 @@ static void vop2_setup_scale(struct vop2 *vop2, const struct vop2_win *win,
- 	}
- }
- 
-+/*
-+ * RGB-to-YCbCr conversion based on color_to_ycbcr() and rgb2ycbcr() from
-+ * drivers/media/common/v4l2-tpg/v4l2-tpg-core.c.
-+ *
-+ * Limited-range Y offset & chroma midpoint are expressed in 16-bit space.
-+ */
-+#define RGB2YUV_LIMITED_Y_OFFSET	(16 << 8)
-+#define RGB2YUV_CHROMA_OFFSET		(128 << 8)
-+#define COEFF(v, r)			((s32)(0.5 + (v) * (r) * 256.0))
-+
-+struct rgb2yuv_matrix {
-+	s32 y_r,  y_g,  y_b;
-+	s32 cb_r, cb_g, cb_b;
-+	s32 cr_r, cr_g, cr_b;
-+	s32 y_offset;
-+};
-+
-+/* BT.601 Limited range */
-+static const struct rgb2yuv_matrix rgb2yuv_bt601l = {
-+	.y_r  = COEFF(0.299, 219),   .y_g  = COEFF(0.587, 219),   .y_b  = COEFF(0.114, 219),
-+	.cb_r = COEFF(-0.1687, 224), .cb_g = COEFF(-0.3313, 224), .cb_b = COEFF(0.5, 224),
-+	.cr_r = COEFF(0.5, 224),     .cr_g = COEFF(-0.4187, 224), .cr_b = COEFF(-0.0813, 224),
-+	.y_offset = RGB2YUV_LIMITED_Y_OFFSET,
-+};
-+
-+/* BT.601 Full range */
-+static const struct rgb2yuv_matrix rgb2yuv_bt601f = {
-+	.y_r  = COEFF(0.299, 255),   .y_g  = COEFF(0.587, 255),   .y_b  = COEFF(0.114, 255),
-+	.cb_r = COEFF(-0.1687, 255), .cb_g = COEFF(-0.3313, 255), .cb_b = COEFF(0.5, 255),
-+	.cr_r = COEFF(0.5, 255),     .cr_g = COEFF(-0.4187, 255), .cr_b = COEFF(-0.0813, 255),
-+	.y_offset = 0,
-+};
-+
-+/* BT.709 Limited range */
-+static const struct rgb2yuv_matrix rgb2yuv_bt709l = {
-+	.y_r  = COEFF(0.2126, 219),  .y_g  = COEFF(0.7152, 219),  .y_b  = COEFF(0.0722, 219),
-+	.cb_r = COEFF(-0.1146, 224), .cb_g = COEFF(-0.3854, 224), .cb_b = COEFF(0.5, 224),
-+	.cr_r = COEFF(0.5, 224),     .cr_g = COEFF(-0.4542, 224), .cr_b = COEFF(-0.0458, 224),
-+	.y_offset = RGB2YUV_LIMITED_Y_OFFSET,
-+};
-+
-+/* BT.2020 Limited range */
-+static const struct rgb2yuv_matrix rgb2yuv_bt2020l = {
-+	.y_r  = COEFF(0.2627, 219),  .y_g  = COEFF(0.6780, 219),  .y_b  = COEFF(0.0593, 219),
-+	.cb_r = COEFF(-0.1396, 224), .cb_g = COEFF(-0.3604, 224), .cb_b = COEFF(0.5, 224),
-+	.cr_r = COEFF(0.5, 224),     .cr_g = COEFF(-0.4598, 224), .cr_b = COEFF(-0.0402, 224),
-+	.y_offset = RGB2YUV_LIMITED_Y_OFFSET,
-+};
-+
-+static const struct rgb2yuv_matrix *
-+vop2_rgb2yuv_get_matrix(enum vop_csc_format csc)
-+{
-+	switch (csc) {
-+	case CSC_BT601L:
-+		return &rgb2yuv_bt601l;
-+	case CSC_BT601F:
-+		return &rgb2yuv_bt601f;
-+	case CSC_BT2020L:
-+		return &rgb2yuv_bt2020l;
-+	case CSC_BT709L:
-+	default:
-+		return &rgb2yuv_bt709l;
-+	}
-+}
-+
-+/* Convert an RGB (16bpc) to YUV444 (16bpc). */
-+static void vop2_rgb16_to_yuv16(enum vop_csc_format csc, u16 r, u16 g, u16 b,
-+				u16 *y, u16 *cb, u16 *cr)
-+{
-+	const struct rgb2yuv_matrix *m = vop2_rgb2yuv_get_matrix(csc);
-+	s64 rs = r, gs = g, bs = b;
-+	s64 ys, cbs, crs;
-+
-+	ys  = m->y_r  * rs + m->y_g  * gs + m->y_b  * bs;
-+	cbs = m->cb_r * rs + m->cb_g * gs + m->cb_b * bs;
-+	crs = m->cr_r * rs + m->cr_g * gs + m->cr_b * bs;
-+
-+	*y  = (ys  >> 16) + m->y_offset;
-+	*cb = (cbs >> 16) + RGB2YUV_CHROMA_OFFSET;
-+	*cr = (crs >> 16) + RGB2YUV_CHROMA_OFFSET;
-+}
-+
- static int vop2_convert_csc_mode(int csc_mode)
- {
- 	switch (csc_mode) {
-@@ -1554,12 +1636,58 @@ static void vop2_dither_setup(struct drm_crtc *crtc, u32 *dsp_ctrl)
- 				DITHER_DOWN_ALLEGRO);
- }
- 
--static void vop2_post_config(struct drm_crtc *crtc)
-+static void vop2_bgcolor_setup(struct drm_crtc *crtc, bool force,
-+			       struct drm_crtc_state *new_crtc_state,
-+			       struct drm_crtc_state *old_crtc_state)
-+{
-+	struct rockchip_crtc_state *new_vcstate = to_rockchip_crtc_state(new_crtc_state);
-+	struct rockchip_crtc_state *old_vcstate = to_rockchip_crtc_state(old_crtc_state);
-+	struct vop2_video_port *vp = to_vop2_video_port(crtc);
-+	u64 bgcolor = new_crtc_state->background_color;
-+	u16 y, cb, cr;
-+	u32 val;
-+
-+	if (!force && old_crtc_state->background_color == bgcolor &&
-+	    old_vcstate->color_space == new_vcstate->color_space)
-+		return;
-+
-+	/*
-+	 * Background color is programmed with 10 bits of precision, using YUV
-+	 * format when operating in YUV overlay mode, and RGB otherwise.
-+	 */
-+	if (new_vcstate->yuv_overlay) {
-+		vop2_rgb16_to_yuv16(new_vcstate->color_space,
-+				    DRM_ARGB64_GETR(bgcolor),
-+				    DRM_ARGB64_GETG(bgcolor),
-+				    DRM_ARGB64_GETB(bgcolor),
-+				    &y, &cb, &cr);
-+
-+		val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, cr >> 6);
-+		FIELD_MODIFY(RK3568_VP_DSP_BG__DSP_BG_GREEN, &val, y >> 6);
-+		FIELD_MODIFY(RK3568_VP_DSP_BG__DSP_BG_BLUE, &val, cb >> 6);
-+	} else {
-+		/*
-+		 * Since performance is more important than accuracy here, make
-+		 * use of the DRM_ARGB64_GET*_BPCS() helpers.
-+		 */
-+		val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED,
-+				 DRM_ARGB64_GETR_BPCS(bgcolor, 10));
-+		FIELD_MODIFY(RK3568_VP_DSP_BG__DSP_BG_GREEN, &val,
-+			     DRM_ARGB64_GETG_BPCS(bgcolor, 10));
-+		FIELD_MODIFY(RK3568_VP_DSP_BG__DSP_BG_BLUE, &val,
-+			     DRM_ARGB64_GETB_BPCS(bgcolor, 10));
-+	}
-+
-+	vop2_vp_write(vp, RK3568_VP_DSP_BG, val);
-+}
-+
-+static void vop2_post_config(struct drm_crtc *crtc, bool force,
-+			     struct drm_crtc_state *new_crtc_state,
-+			     struct drm_crtc_state *old_crtc_state)
- {
- 	struct vop2_video_port *vp = to_vop2_video_port(crtc);
- 	struct vop2 *vop2 = vp->vop2;
--	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
--	u64 bgcolor = crtc->state->background_color;
-+	struct drm_display_mode *mode = &new_crtc_state->adjusted_mode;
- 	u16 vtotal = mode->crtc_vtotal;
- 	u16 hdisplay = mode->crtc_hdisplay;
- 	u16 hact_st = mode->crtc_htotal - mode->crtc_hsync_start;
-@@ -1605,15 +1733,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
- 		vop2_vp_write(vp, RK3568_VP_POST_DSP_VACT_INFO_F1, val);
- 	}
- 
--	/*
--	 * Background color is programmed with 10 bits of precision.
--	 * Since performance is more important than accuracy here,
--	 * make use of the DRM_ARGB64_GET*_BPCS() helpers.
--	 */
--	val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, DRM_ARGB64_GETR_BPCS(bgcolor, 10));
--	FIELD_MODIFY(RK3568_VP_DSP_BG__DSP_BG_GREEN, &val, DRM_ARGB64_GETG_BPCS(bgcolor, 10));
--	FIELD_MODIFY(RK3568_VP_DSP_BG__DSP_BG_BLUE, &val, DRM_ARGB64_GETB_BPCS(bgcolor, 10));
--	vop2_vp_write(vp, RK3568_VP_DSP_BG, val);
-+	vop2_bgcolor_setup(crtc, force, new_crtc_state, old_crtc_state);
- }
- 
- static int us_to_vertical_line(struct drm_display_mode *mode, int us)
-@@ -1628,8 +1748,9 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 	struct vop2 *vop2 = vp->vop2;
- 	const struct vop2_data *vop2_data = vop2->data;
- 	const struct vop2_video_port_data *vp_data = &vop2_data->vp[vp->id];
-+	struct drm_crtc_state *old_crtc_state = drm_atomic_get_old_crtc_state(state, crtc);
- 	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
--	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(crtc->state);
-+	struct rockchip_crtc_state *vcstate = to_rockchip_crtc_state(crtc_state);
- 	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
- 	unsigned long clock = mode->crtc_clock * 1000;
- 	u16 hsync_len = mode->crtc_hsync_end - mode->crtc_hsync_start;
-@@ -1799,7 +1920,7 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 
- 	clk_set_rate(vp->dclk, clock);
- 
--	vop2_post_config(crtc);
-+	vop2_post_config(crtc, true, crtc_state, old_crtc_state);
- 
- 	vop2_cfg_done(vp);
- 
-@@ -1874,6 +1995,7 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 				   struct drm_atomic_commit *state)
- {
- 	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-+	struct drm_crtc_state *old_crtc_state = drm_atomic_get_old_crtc_state(state, crtc);
- 	struct vop2_video_port *vp = to_vop2_video_port(crtc);
- 	struct vop2 *vop2 = vp->vop2;
- 
-@@ -1881,7 +2003,7 @@ static void vop2_crtc_atomic_flush(struct drm_crtc *crtc,
- 	if (!drm_atomic_crtc_needs_modeset(crtc_state) && crtc_state->color_mgmt_changed)
- 		vop2_crtc_atomic_try_set_gamma_locked(vop2, vp, crtc, crtc_state);
- 
--	vop2_post_config(crtc);
-+	vop2_post_config(crtc, false, crtc_state, old_crtc_state);
- 
- 	vop2_cfg_done(vp);
- 
+> 
+> Signed-off-by: Demi Marie Obenour <demiobenour@gmail.com>
+> ---
+>  MAINTAINERS                         |   8 -
+>  arch/arm/configs/multi_v7_defconfig |   1 -
+>  arch/arm64/configs/defconfig        |   1 -
+>  drivers/crypto/Kconfig              | 111 -----
+>  drivers/crypto/Makefile             |   1 -
+>  drivers/crypto/qce/Makefile         |   9 -
+>  drivers/crypto/qce/aead.c           | 841 ------------------------------------
+>  drivers/crypto/qce/aead.h           |  56 ---
+>  drivers/crypto/qce/cipher.h         |  56 ---
+>  drivers/crypto/qce/common.c         | 595 -------------------------
+>  drivers/crypto/qce/common.h         | 104 -----
+>  drivers/crypto/qce/core.c           | 271 ------------
+>  drivers/crypto/qce/core.h           |  64 ---
+>  drivers/crypto/qce/dma.c            | 135 ------
+>  drivers/crypto/qce/dma.h            |  47 --
+>  drivers/crypto/qce/regs-v5.h        | 326 --------------
+>  drivers/crypto/qce/sha.c            | 545 -----------------------
+>  drivers/crypto/qce/sha.h            |  72 ---
+>  drivers/crypto/qce/skcipher.c       | 529 -----------------------
+>  19 files changed, 3772 deletions(-)
+> 
 
 -- 
-2.54.0
-
+With best wishes
+Dmitry
 
