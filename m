@@ -4,81 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75DB7CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 15:39:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFEECD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 15:42:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NM1d+x3ZEOkfi/top3uQVI3R3Gs2qSxV34vfqPt1/8E=; b=wxPQB6PH9Xe8fmbjQ/V5VgVq+t
-	EC6kXxocOd/m/2wp7b8KNrvDujOvyGnDXZEbPSOZBSJfBNpmANxTA1kzQSWPcSg/5whxNf0TUJoyB
-	Rxe4Uz+aPjJl4BzAFlxQZ0zmANa2EAhXYPpGOOebvtxaj8mEGHz4UOTio6U02jMRfhIUHLfhjROzh
-	qdk3vUwClXl9n94L/aB8XGXtaVEIXYqrcONkEggDJ2G9CG26adn2Nsim3YuQN8vvRgqwuY11NEop5
-	aXW+6lX3B6OquPOV9jvBbCZPs2B1xKQaWnD3Y/N1Nw0PpLgfh/6rBjd2rNugyftU5rR+8jmZ3DfkE
-	D+v1dS4A==;
+	bh=LM3LpCBe1/njTqEFIo5zYNSwmDEp0EgGwQLLh4EuYBI=; b=VmrzRPpY5DzLWt//LDocgO+Y0R
+	AiKMahd38ZlJLfcyko6a0A+jpOmxt8mJABe6CcLXdSIK6uPdylIfmxqSK7bg1cD+7LGOy8wMuce9N
+	L2NO9arTXJ+RUCr3FEoyJt2Gli3muQtq0iYBnPXRQ/ssWsFAbxizPEsCd3NhG2Wo6sqMhUpQRIY81
+	kO5o9BrkF99r0GRhvw+4AUREaLKhVb7HB0Edfy2VBTKpa/HVNjxQJ8T3Znwm6oYN3D9pf7PNn58aY
+	uIcbm/ySxnaNvgC+ifvrbSwbThB5uLxgqQrTlSTNJyLujJzPHHrEbvBCy3QjCMIDYZiJuX0nrCm4p
+	VuDmbxGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRAvG-0000000FC5F-2sGF;
-	Sun, 24 May 2026 15:39:26 +0000
-Received: from pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com ([50.112.246.219])
+	id 1wRAyX-0000000FCea-1aYB;
+	Sun, 24 May 2026 15:42:49 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRAuz-0000000FC0v-40Ws
+	id 1wRAyT-0000000FCdu-3kmw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 15:39:11 +0000
+	Sun, 24 May 2026 15:42:48 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-365cae89bf5so3871542a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 08:42:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1779637149; x=1811173149;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=NM1d+x3ZEOkfi/top3uQVI3R3Gs2qSxV34vfqPt1/8E=;
-  b=rs9rFUMrIC1fb5zMMhWuIMGQxPynJ56vqxioUXbT+bhhbiC2bxbD7MHh
-   mUnvSdONwJy6NtBoz/FA4B11Ff3Lzru1Q2E9F/+gXFGCuck0RRjfklTOI
-   VQEUGGXbeBlqVaJz6VmHJRsVPdNtc+xJ8qdMekxJTJO3VaS0nRxoUybb4
-   bGwiyKwSWk/xnL7y8mKgscYgIdXMkiyDcjodU/G8wPJOfFI0P0vSr4A1r
-   k1A3dR+exxmvS99H7rxzTbkjbBhLL8SQrsRCbEVr7e4zPY7dZHlCCV+S5
-   u1Y9lu1wD34RDUfuYH53yqPeTbtoih3TvJtbefl4EHjdfHBhk30XWmh4J
-   A==;
-X-CSE-ConnectionGUID: 1M/LgooGTmWRFVaRNORNQw==
-X-CSE-MsgGUID: OhByuXCaT3qYp/2APDOchg==
-X-IronPort-AV: E=Sophos;i="6.24,166,1774310400"; 
-   d="scan'208";a="20184346"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-015.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 May 2026 15:39:04 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [205.251.233.236:6170]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.8.249:2525] with esmtp (Farcaster)
- id a00ae900-5922-41c7-bf0c-abb183f9615f; Sun, 24 May 2026 15:39:03 +0000 (UTC)
-X-Farcaster-Flow-ID: a00ae900-5922-41c7-bf0c-abb183f9615f
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sun, 24 May 2026 15:39:02 +0000
-Received: from dev-dsk-avivb-1b-e28f450e.eu-west-1.amazon.com (10.15.33.9) by
- EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.37;
- Sun, 24 May 2026 15:39:00 +0000
-From: Aviv Bakal <avivb@amazon.com>
-To: <robin.murphy@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-perf-users@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<avivb@amazon.com>, <zeev@amazon.com>, <blakgeof@amazon.com>
-Subject: [PATCH v3 1/2] perf/arm-cmn: Move struct arm_cmn_hw_event into struct hw_perf_event
-Date: Sun, 24 May 2026 18:38:47 +0300
-Message-ID: <20260524153848.16334-2-avivb@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260524153848.16334-1-avivb@amazon.com>
-References: <20260504133923.23373-1-avivb@amazon.com>
- <20260524153848.16334-1-avivb@amazon.com>
+        d=gmail.com; s=20251104; t=1779637365; x=1780242165; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LM3LpCBe1/njTqEFIo5zYNSwmDEp0EgGwQLLh4EuYBI=;
+        b=lKHQAyTBtL/VXA2REATyqV63TtVOb7qNefwTQ2EzjK3AxjDw7qL/K/070tEj118FwI
+         uce5loVIbKifFkFqpI2IcfLB36ie8WAT0ryk2z09cFtRTEvQaLz+sumZWLR3tGhDvgQd
+         xKPeKTe5EneU6HvDF0PgYmo+W1xDlmNnQDDvfdKhNvjQosXIUI990LNsCKldqiadFU1X
+         +0eKbhargqW2MZW90b2Hf7MIjnzzLkNywz3SzrkFNGUWwlzLxLujiD3gISlQfr48PkbP
+         f8Lyygx3fAiaW1zUGk+AittHabW173JusGoePUmgQBKYQ3zA+GzXfIKFdlC6SHqPir9G
+         ruDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779637365; x=1780242165;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :mail-followup-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LM3LpCBe1/njTqEFIo5zYNSwmDEp0EgGwQLLh4EuYBI=;
+        b=LzPujud699vNR1UakX9rbMCElcktnXU/HHOTRRl9M9enQcpy4oFI9xDILscsKPmZcq
+         VHIcrPgDampA6+zTjXZrix2sitZCFDcbO06lVCc7Kkq8DmVOz5ZuXtkDSxN+fIbJAqtQ
+         NH6A46VWmruJKjuTCR3ruX5DOLIkk0zzjR03OwagJlOzHi/SH4bmyp7QVCtMnp72qKCC
+         x4DQB/bmEOGfL+iVYk6wEiO2dCSUI1qoREBWbtSGeHh8MzHRprBq4pojZcEn5wUpPiYQ
+         MgNmvHuQY78G9RBTs+f/t9qTe6jXxHYy827P7CgbeqgyqnEk4UgNTl4zsK6nHSvEO0XG
+         U94g==
+X-Forwarded-Encrypted: i=1; AFNElJ/utS/urRTEou6BvbcdsQFOUZSGNk7/mNYcbgLLeOKRQRvBWEyvR1T7+gv+G1mtAXLQUso4GhfJ+kRmwEMUTxAI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkV0b8lOAIWWqAapPLn2Nhk73t7Sx7QiP40uyvQIOgHsLryatU
+	o49/oSBIYdN3a7pgz1AgKSiZJuZimo/T/1g6lP1pyk26f8UmOF1ka3oB7edYU/SY
+X-Gm-Gg: Acq92OFvbqXW4Hr42a2qdUl89f6khmuXmeCOFaDI6wcGQ0zCk0z7YmBmIRAj1x21VL0
+	Rwzjb4CBFTv/7SzaogvTFzzBAaDrKiadCbn3FsyWKWUP52kryoSLhUMoeSzuFqOKoGVZ1FTl/5k
+	sX5GfyQg22/YxdX4DXw5iD/wt2ZayyMqEgC3yb5QrrJwVNGOOJmu5E4WXmAKM9k+SsuUMa6CxoA
+	brnn/IEIym92qnDyLRKURtgLduq1uagex44vRcIYkpsUFxyZpYIl72s0BgwpRV94gfJCye0vLoC
+	So2WnOPaNoGnx+PRvNdHHgYOm4GwO+o9KBX3FA6TL6Ae8gtR/gB6lHRnY3Wsstp4HpfuE6lFo8A
+	sczdcFeRZdK9MRR8EB2mmeqw4EyvdqVIpXKzgZ/WDqoURc9SiXPcwCWp+3o1gWXP4gYIfJEyc5Y
+	bH1WdWyQDKTwTFCC9pr6WxcZMGBKRWEjOcK3ipqGc=
+X-Received: by 2002:a17:90b:4d0a:b0:368:f0a:1c48 with SMTP id 98e67ed59e1d1-36a671e2735mr10585390a91.0.1779637364483;
+        Sun, 24 May 2026 08:42:44 -0700 (PDT)
+Received: from udknight.localhost ([120.36.203.36])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a71d944c4sm6914751a91.1.2026.05.24.08.42.40
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 24 May 2026 08:42:43 -0700 (PDT)
+Received: from udknight.localhost (localhost [127.0.0.1])
+	by udknight.localhost (8.14.9/8.14.4) with ESMTP id 64OFUlMj008301;
+	Sun, 24 May 2026 23:30:47 +0800
+Received: (from root@localhost)
+	by udknight.localhost (8.14.9/8.14.9/Submit) id 64OFUhEd008296;
+	Sun, 24 May 2026 23:30:43 +0800
+Date: Sun, 24 May 2026 23:30:43 +0800
+From: Wang YanQing <udknight@gmail.com>
+To: torvalds@linux-foundation.org
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, akpm@linux-foundation.org,
+        willy@infradead.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm: lpae: fix non-atomic page table entry update
+ issue
+Message-ID: <20260524153043.GB7031@udknight>
+Mail-Followup-To: Wang YanQing <udknight@gmail.com>,
+	torvalds@linux-foundation.org,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	akpm@linux-foundation.org, willy@infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260315004746.GA32062@udknight>
+ <abYHfGjqTRAB_oyR@shell.armlinux.org.uk>
+ <20260503155432.GA18098@udknight>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.15.33.9]
-X-ClientProxiedBy: EX19D033UWC004.ant.amazon.com (10.13.139.225) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260503155432.GA18098@udknight>
+User-Agent: Mutt/1.7.1 (2016-10-04)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_083910_042926_94658F1C 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20260524_084245_938104_77B657B8 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,124 +114,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to increase CMN_MAX_DIMENSION beyond 12 (required for meshes
-larger than 12x12, such as Graviton5), the arm_cmn_hw_event struct must
-grow. Since it is overlaid on the beginning of hw_perf_event via an
-unsafe cast, increasing its size would violate the static_assert that
-guards against overflowing into the 'target' field.
+On Sun, May 03, 2026 at 11:54:32PM +0800, Wang YanQing wrote:
+> On Sun, Mar 15, 2026 at 01:12:28AM +0000, Russell King (Oracle) wrote:
+> > On Sun, Mar 15, 2026 at 08:47:46AM +0800, Wang YanQing wrote:
+> > > The ARM Architecture Reference Manual explicitly dictates that writes of 64-bit
+> > > translation table descriptors must be single-copy atomic:
+> > > ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition (https://developer.arm.com/documentation/ddi0406/latest)
+> > > "
+> > > ...
+> > > A3.5.3 Atomicity in the ARM architecture
+> > > ...
+> > > In an implementation that includes the Large Physical Address Extension, LDRD, and STRD accesses to 64-bit aligned
+> > > locations are 64-bit single-copy atomic as seen by translation table walks and accesses to translation tables.
+> > > Note
+> > > The Large Physical Address Extension adds this requirement to avoid the need for complex measures to avoid
+> > > atomicity issues when changing translation table entries, without creating a requirement that all locations in the
+> > > memory system are 64-bit single-copy atomic.
+> > 
+> > Thanks. Now, please locate where the need for the updates to the page
+> > tables needs to be done atomically, bearing in mind that we program
+> > SCTLR.AFE=1 and SCTLR.HA=0, meaning the hardware won't write-back to
+> > the page tables to e.g. update the access flag.
+> 
+> Dear Russell and all
+> 
+> ARM Cortex-A cores (cortex-a7, cortex-a32, cortex-a55) all have "walk cache ram", 
+> according to cortex_a32_trm_100241_0100_00_en.pdf (https://documentation-service.arm.com/static/5e7dca43cbfe76649ba52835)
+> "
+> ...
+> The walk cache RAM holds the result of a stage 1 translation up to but not including the last
+> level
+> ...
+> "
+> 
+> The walk cache ram will cache translation result of L1/L2 page table walk, so the non-atomic
+> pmd entry update issue describe in the patch will cause partial updated 64-bit entry to be cached
+> in the walk cache ram.
+> 
+> On SoCs like TI keystone and Sigmastar SoCs which will run arm32 linux kernel on high address,
+> the physical address of page table will be 64-bit and will meet the issue described in the patch.
+> 
+> I think it is right to make page table entry update become atomic according to ARM Architecture 
+> Reference Manual.
+> 
+> Thanks
 
-Resolve this by moving struct arm_cmn_hw_event into the hw_perf_event
-union as a proper named member, eliminating the cast in to_cmn_hw() and
-making the size reservation explicit. Set CMN_MAX_DIMENSION to 14 to
-accommodate larger mesh topologies.
+Hi Linus and all
 
-Signed-off-by: Aviv Bakal <avivb@amazon.com>
----
- drivers/perf/arm-cmn.c     | 26 +-------------------------
- include/linux/perf_event.h | 22 ++++++++++++++++++++++
- 2 files changed, 23 insertions(+), 25 deletions(-)
+Non-atomic LPAE page table update issue on arm32 SOC that run linux kernel on hight address has 
+caused strange mmu related problem, we meet strange unhandled prefetch abort issue due to the 
+no-atomic update when we run arm32 linux on Sigmastar CA55 SoC that uses 0x10_0000_0000 as the 
+start address of DRAM (We do the same thing as keystone SOC, use 0x2000_0000 as start address
+of dram, then switch to high address)
 
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index f5305c8fdca4..3443b819afed 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -31,13 +31,8 @@
- #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
- #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
- 
--#define CMN_MAX_DIMENSION		12
--#define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
- #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
- 
--/* Currently XPs are the node type we can have most of; others top out at 128 */
--#define CMN_MAX_NODES_PER_EVENT		CMN_MAX_XPS
--
- /* The CFG node has various info besides the discovery tree */
- #define CMN_CFGM_PERIPH_ID_01		0x0008
- #define CMN_CFGM_PID0_PART_0		GENMASK_ULL(7, 0)
-@@ -148,7 +143,6 @@
- #define CMN_DT_PMSRR_SS_REQ		BIT(0)
- 
- #define CMN_DT_NUM_COUNTERS		8
--#define CMN_MAX_DTCS			4
- 
- /*
-  * Even in the worst case a DTC counter can't wrap in fewer than 2^42 cycles,
-@@ -595,24 +589,6 @@ static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id)
- static void arm_cmn_debugfs_init(struct arm_cmn *cmn, int id) {}
- #endif
- 
--struct arm_cmn_hw_event {
--	struct arm_cmn_node *dn;
--	u64 dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
--	s8 dtc_idx[CMN_MAX_DTCS];
--	u8 num_dns;
--	u8 dtm_offset;
--
--	/*
--	 * WP config registers are divided to UP and DOWN events. We need to
--	 * keep to track only one of them.
--	 */
--	DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
--
--	bool wide_sel;
--	enum cmn_filter_select filter_sel;
--};
--static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event, target));
--
- #define for_each_hw_dn(hw, dn, i) \
- 	for (i = 0, dn = hw->dn; i < hw->num_dns; i++, dn++)
- 
-@@ -622,7 +598,7 @@ static_assert(sizeof(struct arm_cmn_hw_event) <= offsetof(struct hw_perf_event,
- 
- static struct arm_cmn_hw_event *to_cmn_hw(struct perf_event *event)
- {
--	return (struct arm_cmn_hw_event *)&event->hw;
-+	return &event->hw.cmn;
- }
- 
- static void arm_cmn_set_index(u64 x[], unsigned int pos, unsigned int val)
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 48d851fbd8ea..c38576a8e338 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -119,6 +119,7 @@ struct perf_branch_stack {
- };
- 
- struct task_struct;
-+struct arm_cmn_node;
- 
- /*
-  * extra PMU register associated with an event
-@@ -200,6 +201,27 @@ struct hw_perf_event {
- 			u64	conf;
- 			u64	conf1;
- 		};
-+#ifdef CONFIG_ARM_CMN
-+/* Some implementations use a mesh larger than the architectural max of 12 */
-+#define CMN_MAX_DIMENSION		14
-+#define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
-+#define CMN_MAX_NODES_PER_EVENT		CMN_MAX_XPS
-+#define CMN_MAX_DTCS			4
-+		struct arm_cmn_hw_event { /* arm_cmn */
-+			/*
-+			 * CMN PMU event state overlaid on hw_perf_event.
-+			 * Must fit before the 'target' field.
-+			 */
-+			struct arm_cmn_node	*dn;
-+			u64			dtm_idx[DIV_ROUND_UP(CMN_MAX_NODES_PER_EVENT * 2, 64)];
-+			s8			dtc_idx[CMN_MAX_DTCS];
-+			u8			num_dns;
-+			u8			dtm_offset;
-+			DECLARE_BITMAP(wp_idx, CMN_MAX_XPS);
-+			bool			wide_sel;
-+			int			filter_sel;
-+		} cmn;
-+#endif
- 	};
- 	/*
- 	 * If the event is a per task event, this will point to the task in
--- 
-2.47.3
+I haven't get any respone from Russell King in last three months, the full history could be see
+at: https://lkml.org/lkml/2026/3/15/38, I don't know why.
+I think make the page table update become atomic is a proper solution for the problem according 
+to ARM Architecture Reference Manual.
 
+Because the mainline tipcode still has the problem, so I want to try again to make this patch 
+become merged, if someone don't like it, please tell me what is the better solution for mainline
+kernel.
+
+Thanks.
 
