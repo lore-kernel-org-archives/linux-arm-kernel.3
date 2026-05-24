@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CFBFCD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EABCD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Qbk2Js+U5TVltxF7DmfkdpZCQrfZY8VcWdcdlf8tJQ=; b=1oDOZs3s4lY9Wa9TJvHo4XwDM9
-	4peX8g500woD29NYfP+2fDp37Qo4Mvfs0+BooBiVR3CucW6/HfkOc1y5GqMT9yrPrgySevbmFIYZY
-	1FJdcDrgC2icYpN8EsvCF7LceVb/d1QEXJyx594Rrej9xYheYiXlRNWqweK0O62JzazNF2NJM5zfA
-	rok8ElnX34qjVAXelITGShLcQ2gajnI2ip8Nf0vUQmJlVGdv/5hVc1eDUVClvts4eQDAM7ye9N6Kl
-	DhLxu1df2BKacSIh8leBIk201WRodsn85YsoynUjlj7U5E7qS4HaUttZUKagvrp+EYRXwpgSvr20X
-	IU5QRORA==;
+	bh=gdj0TK35GEIKhHP5Bk5VXTOILEdwebdNDL/HO2puRpY=; b=JYLcPyNMw7N4nUtkvXPO8NA5/f
+	zr79Io9IJkbXCyj3XlHsUn3zQrE+U+r7UDEMDW14PGQd+WkuLr53lyl8RG+SZvKRedNcXHTWmCFzL
+	6T8tOg0+VkyeOI9tU3J4RjqnJC3pZM7Tq4AOiPkC2+gkDy8CEdA7+0+/m+zpqzIRjPVLL46+P25k6
+	ss4DckooI7J5zpLHtRG62wcjjz/dtfLI5VKEFK54I0u0AC68u8kp4IUA082rrx+ZsbsBYkt4Qtb+N
+	tVGIRqPElPwst1wlVRaiEwBY5j2Z9M0VHNq2mbVyRmO3VyY0uEbFjaQ7yTIIlJeFDCc22bL0z6Vrd
+	6/GGxnYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREiG-0000000FWLU-0Xx9;
-	Sun, 24 May 2026 19:42:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wREl9-0000000FWcW-2jH9;
+	Sun, 24 May 2026 19:45:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREiF-0000000FWLE-17A6
+	id 1wREl7-0000000FWc1-0AUv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 19:42:15 +0000
+	Sun, 24 May 2026 19:45:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CAAC8601F4;
-	Sun, 24 May 2026 19:42:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32B3E1F000E9;
-	Sun, 24 May 2026 19:42:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9A139445CC;
+	Sun, 24 May 2026 19:45:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 027D51F000E9;
+	Sun, 24 May 2026 19:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779651733;
-	bh=5Qbk2Js+U5TVltxF7DmfkdpZCQrfZY8VcWdcdlf8tJQ=;
+	s=k20260515; t=1779651912;
+	bh=gdj0TK35GEIKhHP5Bk5VXTOILEdwebdNDL/HO2puRpY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iZb2Qfmltboafv45n9a51F+qDWhaK733kQGT2ABAw9GJv0WPs4sYPWJMkYBrMpW76
-	 84bfCmBxjpODVz4HcUDEpWrhSkXvW/D1by+hOZyX1DJaOqHhCLJxyhaYy3ZS30sDZR
-	 doJES/dfPScYEE85hYtIjEOpT6tG5WvwgwKORpvTKKPeSA6jvxFO8TlPj4qyic62Ea
-	 bzD/f5f6tcd4OnajOVxK95QqB2DR+mg2ebPTSeCXtVUUuLmDMax85rzaK+hTzG/B8E
-	 ifhiwn6cOs7ODHGxJk9ltYtrAK0KsRojltv92B7OydVVEY191AcRu0/5BmLSuDGsh3
-	 9VbImlmVHvx5w==
-Message-ID: <e9c5e57c-25d8-45f1-bc3e-696393cab4dd@kernel.org>
-Date: Sun, 24 May 2026 21:42:08 +0200
+	b=DgeAlY20zPHOWDxcPkVhHKArltfO89gPsKw5HHeqrV7Teq4LhenSUPZFh8CI4pNmX
+	 kWCK8WAkpKSHPhd5sh3MXSLxA9DZuwKysqUPtHo8wIp2KlBveKZnHUweFg+nLr2our
+	 J/X/lVE1u6VqYIVtyVVX8/xea/R7JSAhbl1QDBhv4WQKKlVQ/fEQtor8nfNj0KEvre
+	 p+7iwAaN9hnod3RYQN9IhwNXytlbo+V47YaSnUxWlmGJ+a9GLxV2MOF+c+WZgtCigU
+	 MKvbS6h4tdSSvcyT6hiytditdeaBPhYolh/lzfqx5wL4Wa7dbktAVh1hlcU8Ij/d2O
+	 i/2bMm+6PXJ5w==
+Message-ID: <453e852b-1134-4404-999e-125d712188dd@kernel.org>
+Date: Sun, 24 May 2026 21:45:08 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] tty: serial: samsung: Remove redundant port lock
- acquisition in rx helpers
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Ben Dooks <ben-linux@fluff.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- john.ogness@linutronix.d, peter.griffin@linaro.org,
- andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
- stable@vger.kernel.org, John Ogness <john.ogness@linutronix.de>
-References: <20260515-samsung-tty-flow-control-deadlock-v1-1-93255edbc9bc@linaro.org>
+Subject: Re: [PATCH 1/2] dt-bindings: firmware: google,gs101-acpm-ipc:
+ document Exynos850 compatible
+To: Alexey Klimov <alexey.klimov@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260513-exynos850-acpm-firmware-support-v1-0-3858d097e433@linaro.org>
+ <20260513-exynos850-acpm-firmware-support-v1-1-3858d097e433@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,9 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260515-samsung-tty-flow-control-deadlock-v1-1-93255edbc9bc@linaro.org>
+In-Reply-To: <20260513-exynos850-acpm-firmware-support-v1-1-3858d097e433@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260524_124513_129333_9E891858 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,30 +124,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/05/2026 14:41, Tudor Ambarus wrote:
-> Sashiko identified a deadlock when the console flow is engaged [1].
+On 13/05/2026 01:12, Alexey Klimov wrote:
+> The Exynos850 SoC incorporates an APM co-processor. Communication with
+> this hardware block is done using the ACPM protocol, which handles IPC
+> messages for clocks, power, thermal management and PMIC control.
 > 
-> When console flow control is enabled (UPF_CONS_FLOW),
-> s3c24xx_serial_stop_tx() calls s3c24xx_serial_rx_enable() and
-> s3c24xx_serial_start_tx() calls s3c24xx_serial_rx_disable().
-> 
-> The serial core framework invokes the .stop_tx() and .start_tx()
-> callbacks with the port->lock spinlock already held. Furthermore, all
-> internal driver paths that invoke stop_tx (such as the DMA TX
-> completion handler s3c24xx_serial_tx_dma_complete() or the PIO TX IRQ
-> handler s3c24xx_serial_tx_irq()) also acquire port->lock prior to
-> calling it. (Note that s3c24xx_serial_start_tx() is only invoked by the
-> serial core).
-> 
-> However, s3c24xx_serial_rx_enable() and s3c24xx_serial_rx_disable()
-> unconditionally attempt to acquire port->lock again using
-> uart_port_lock_irqsave(). Since spinlocks are not recursive, this
-> causes a deadlock on the same CPU when console flow control is engaged.
-> 
-> Remove the redundant lock acquisition from both rx helper functions.
-> 
+> Dedicated compatible string is required for the Exynos850 because
+> its firmware utilizes a different initialisation data base offset
+> (0x7000) compared to the existing GS101 implementation (0xa000).
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+This is good reason/explanation, but open the binding please - you will
+see several specific children, e.g. S2MPG10. You need to be very
+explicit in commit msg that your Exynos850 is always fitted with these
+PMIcs. If not, then you need some other compatibles, because binding
+should be complete.
+
 
 Best regards,
 Krzysztof
