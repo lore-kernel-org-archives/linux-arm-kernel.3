@@ -4,77 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 046B4CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CFBFCD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zBoEyETmzb2pJlpxlvi4ncneIXhLBRL6QQqybLVV9FE=; b=yX84wfF7MJILi88OZ+pshYQhF9
-	kQmuWxJY11EcwKvsWsM4hmctoR74PJbePOVRZKh5fyUQ4flZtdbummi1TfXsfgL32er+FCg9jAT4T
-	FD2ls+kG7P66264KJKXQrFghbqfY14SGPV/zSgjQvN48Yz1UFJu07X3FxFD2mg7znL/nFt+4Dtq5q
-	1v+atfa+6SQygoVvS+aMqXs1qEALqVRBSzFgZsCzIg6VMuubROgOemFeShVo8HJxaLwCsXAFHfT7G
-	v9+V4quZKeF2xdhdum1FtTTH2udgEqIUYXHC5wbfEWb1KTHSl7X6W2a6D2/Swv9A6hXuNNZLi0Dlh
-	zJMQfqpA==;
+	bh=5Qbk2Js+U5TVltxF7DmfkdpZCQrfZY8VcWdcdlf8tJQ=; b=1oDOZs3s4lY9Wa9TJvHo4XwDM9
+	4peX8g500woD29NYfP+2fDp37Qo4Mvfs0+BooBiVR3CucW6/HfkOc1y5GqMT9yrPrgySevbmFIYZY
+	1FJdcDrgC2icYpN8EsvCF7LceVb/d1QEXJyx594Rrej9xYheYiXlRNWqweK0O62JzazNF2NJM5zfA
+	rok8ElnX34qjVAXelITGShLcQ2gajnI2ip8Nf0vUQmJlVGdv/5hVc1eDUVClvts4eQDAM7ye9N6Kl
+	DhLxu1df2BKacSIh8leBIk201WRodsn85YsoynUjlj7U5E7qS4HaUttZUKagvrp+EYRXwpgSvr20X
+	IU5QRORA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREgX-0000000FWAQ-3bGk;
-	Sun, 24 May 2026 19:40:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wREiG-0000000FWLU-0Xx9;
+	Sun, 24 May 2026 19:42:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREgV-0000000FW9w-1cV9
+	id 1wREiF-0000000FWLE-17A6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 19:40:28 +0000
+	Sun, 24 May 2026 19:42:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97C3843874;
-	Sun, 24 May 2026 19:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 240FA1F000E9;
-	Sun, 24 May 2026 19:40:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CAAC8601F4;
+	Sun, 24 May 2026 19:42:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32B3E1F000E9;
+	Sun, 24 May 2026 19:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779651626;
-	bh=zBoEyETmzb2pJlpxlvi4ncneIXhLBRL6QQqybLVV9FE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MFGzQLmpiaeKnuF+BM8KzwbenS20tYHbSkw9xPD5TPep2Z52ZXIAiiTGOIFoZUaKY
-	 2lqwKU+6CuTMJOT2WSJrsMSVBDNLBgi8itVkoaKVTZU3Knl2g+tpnSSVSXCtybX8Y8
-	 2yubHksc0qDF22CiyV7AMjpBGWMH53ovGgUkUCi4LHLZDhuZYo3aEub0ziAh16RxjB
-	 gDY63PCt6vbFeJW9ka1ZoI6MJCTABHb03My+oFUI9qIuG3QkPUkOBDpFkL4NYZuNjS
-	 mgeVM3Om4MdM/d6JUjcgHg4i7A7CzKRAhPsk0VssE4AvxrQmYEhXD0cIPmsQthzBqU
-	 kpYMQuvafXklQ==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	peter.griffin@linaro.org,
-	jyescas@google.com,
-	kernel-team@android.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH v2 0/6] firmware: samsung: acpm: TMU support and cleanups
-Date: Sun, 24 May 2026 21:40:10 +0200
-Message-ID: <177965159562.32222.17454581524471571236.b4-ty@b4>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260515-acpm-tmu-helpers-v2-0-8ca011d5a965@linaro.org>
-References: <20260515-acpm-tmu-helpers-v2-0-8ca011d5a965@linaro.org>
+	s=k20260515; t=1779651733;
+	bh=5Qbk2Js+U5TVltxF7DmfkdpZCQrfZY8VcWdcdlf8tJQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=iZb2Qfmltboafv45n9a51F+qDWhaK733kQGT2ABAw9GJv0WPs4sYPWJMkYBrMpW76
+	 84bfCmBxjpODVz4HcUDEpWrhSkXvW/D1by+hOZyX1DJaOqHhCLJxyhaYy3ZS30sDZR
+	 doJES/dfPScYEE85hYtIjEOpT6tG5WvwgwKORpvTKKPeSA6jvxFO8TlPj4qyic62Ea
+	 bzD/f5f6tcd4OnajOVxK95QqB2DR+mg2ebPTSeCXtVUUuLmDMax85rzaK+hTzG/B8E
+	 ifhiwn6cOs7ODHGxJk9ltYtrAK0KsRojltv92B7OydVVEY191AcRu0/5BmLSuDGsh3
+	 9VbImlmVHvx5w==
+Message-ID: <e9c5e57c-25d8-45f1-bc3e-696393cab4dd@kernel.org>
+Date: Sun, 24 May 2026 21:42:08 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1595; i=krzk@kernel.org; h=from:subject:message-id; bh=EMNz44iBB8o+uKlLf5742Rp89BhbFRUqwRB/9Ltg7nE=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqE1QaXz5H4urOzMhB25S55CD9H55mMZKGNh5/A 6Pysa50nMyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCahNUGgAKCRDBN2bmhouD 132zD/sHKWyAZBE34mXd5FejTh7Fp9zwjblu8FUeHimyj2wPWqEWm2ZivqZFjMyn7aA5uymbheH KS06Gcbkkqi1a9chSXmVVQ6MyUU3v5R1Sd6OrYPZlg6WyKzAMfcYB5eC/WF3nnHsVEDlO4Y3A+o qRYUMWnr2tIGbMihwIf3t3duzY8ZC9uAH/hsdA+Nid4qgsBiVqf9q3D8lTWxyZesYn4VEGOZHEX OPpKHKUM0W7QFbLIH9YKjUFMAnSugU+CG9miEVJ9G57vJiGI2adzMRvOya6txYbg7nOxgvZxTuA Ovogrp8uSpDpK0orOoiCoQg0YQVk1dFpLjky1DGMlsGXtqVoV3AYT56O35tDdAh7jZeJwCFfymz fvSwOUhtDd5urBSLed1KXW/BGitK2RclcGIWzOKnZjEeiyvYK1sgh6w/l0EJEH03DOgmRMEp99Y Jx73K+7Duc63/iRPAjAkv+td67OrUOgQJxSUmG5bp0HDj5dDbNjO3g8vm4rfHahNdm+c6g2xSto b7sC7N4Sk5+XfGvhcE0EDMqmqeec/pXsLYyna8M9XLpXiu0U3h2X01sOHC6lHFVqJ/NgElO5sv8 Iuu1woUxKNOojkzuItonSAoHuzZFMwXNWpHznWexhfLT9aVeVjoon/v8Ap7HkHq5wgLgFmT8VMJ oqfWZgPJIkBRi
- 2A==
-X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_124027_485407_A1D8317F 
-X-CRM114-Status: GOOD (  10.48  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] tty: serial: samsung: Remove redundant port lock
+ acquisition in rx helpers
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Ben Dooks <ben-linux@fluff.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ john.ogness@linutronix.d, peter.griffin@linaro.org,
+ andre.draszik@linaro.org, jyescas@google.com, kernel-team@android.com,
+ stable@vger.kernel.org, John Ogness <john.ogness@linutronix.de>
+References: <20260515-samsung-tty-flow-control-deadlock-v1-1-93255edbc9bc@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20260515-samsung-tty-flow-control-deadlock-v1-1-93255edbc9bc@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +120,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Fri, 15 May 2026 09:32:24 +0000, Tudor Ambarus wrote:
-> This series introduces protocol support for the Exynos
-> Thermal Management Unit (TMU) to the ACPM driver, alongside several
-> cleanups.
+On 15/05/2026 14:41, Tudor Ambarus wrote:
+> Sashiko identified a deadlock when the console flow is engaged [1].
 > 
-> Dependencies
-> ============
-> Krzysztof, these patches together with the acpm fixes from your `fixes`
-> branch will be needed by the thermal maintainers. I'm going to send the
-> ACPM TMU (thermal) driver for review. In case they'll take it for the
-> next release, we'll need an immutable tag with the acpm fixes, cleanup
-> and thermal helpers. Thanks!
+> When console flow control is enabled (UPF_CONS_FLOW),
+> s3c24xx_serial_stop_tx() calls s3c24xx_serial_rx_enable() and
+> s3c24xx_serial_start_tx() calls s3c24xx_serial_rx_disable().
 > 
-> [...]
+> The serial core framework invokes the .stop_tx() and .start_tx()
+> callbacks with the port->lock spinlock already held. Furthermore, all
+> internal driver paths that invoke stop_tx (such as the DMA TX
+> completion handler s3c24xx_serial_tx_dma_complete() or the PIO TX IRQ
+> handler s3c24xx_serial_tx_irq()) also acquire port->lock prior to
+> calling it. (Note that s3c24xx_serial_start_tx() is only invoked by the
+> serial core).
+> 
+> However, s3c24xx_serial_rx_enable() and s3c24xx_serial_rx_disable()
+> unconditionally attempt to acquire port->lock again using
+> uart_port_lock_irqsave(). Since spinlocks are not recursive, this
+> causes a deadlock on the same CPU when console flow control is engaged.
+> 
+> Remove the redundant lock acquisition from both rx helper functions.
+> 
 
-Applied, thanks!
-
-[1/6] firmware: samsung: acpm: Consolidate transfer initialization helper
-      https://git.kernel.org/krzk/linux/c/43d3733b7ffd82b2bfeda69befa2a179335dfe6c
-[2/6] firmware: samsung: acpm: Annotate rx_data->cmd with __counted_by_ptr
-      https://git.kernel.org/krzk/linux/c/7b20fd06f783c1e901d34305c68df16212cdf669
-[3/6] firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops members
-      https://git.kernel.org/krzk/linux/c/ef1109e4b6120a52be1ea66d486d6744d0c5ac47
-[4/6] firmware: samsung: acpm: Make acpm_ops const and access via pointer
-      https://git.kernel.org/krzk/linux/c/e694e19bf7db26ee324ff6bb450cc523592f5bee
-[5/6] firmware: samsung: acpm: Add TMU protocol support
-      https://git.kernel.org/krzk/linux/c/f6af402de525d0848fc4a50f25ff01f56fc68d98
-[6/6] firmware: samsung: acpm: Add devm_acpm_get_by_phandle helper
-      https://git.kernel.org/krzk/linux/c/8ad2c29d53e69df5cc1c1d00513c6a0f96d2d452
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzk@kernel.org>
+Krzysztof
 
