@@ -4,90 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6A7CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 08:43:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E554CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 11:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w3GyaXOKkKvLzK7c4V/rn3jVlhkCTZ4qzh+NDvYWL1s=; b=Vq8nwejW9ohmcU+cmOfbdytdH+
-	M3mMwZNjmYGUzMLfWxmtSA73ufij2U68fGhsq5RbWk+L3xuLm/H5QPMVGrQIjDO9uNKMxFuNmOZw+
-	bENB9chQfhHoYKaBNo2cC0BOZYMVnCKki9aY3XlrsTiTSI6PiPed/GjGKQk/EK8Qn2hGV1tANS/s+
-	bB+AJh5DjGRUAsWaxedq4C/YniMsO/Bje1bg9eSEBbVxC+VG91mtbUf9bDoYMjUXD2k0z18hag3aE
-	fm3TI485bgdWDO/t+1U7GLPoHOBGF99lFR8X59cVwXQvhnaKW9a2ZLcKZyFmCEr9/evGDSohrO9Mi
-	j3OhGKVQ==;
+	bh=oLiSri69Now47RImuq7She4lhkBga74FFWNykITHvrY=; b=KfhEHlHsEDiKNS73tfNXSw75nY
+	7a4BgoouWn/sxNGFWGGM3OQ2XgUDoRIPwyaJxBJNY9FerH94PogV74jrcFF3x6qR1mSwVOiEVKnEU
+	d75/oaF9rcksoxCR3OaGjW2XJz7YvGRYSpGSJyUe4GZPL3JY/74onrcynuIdxPl+WX5mO9ShUioaP
+	891kwlpLQg1SNlqqegN/N1FEENGcmD79ynVBeDSNbK1JaeXvM97zRMg+64KikroTRfK94XqAib+hC
+	175+1iF59MdJ2bGupxObPoAg408vUbWuPQUMiZmD6ntt8/5bpQxyHq3kDXYbrBFmNbBp/w1S/cfIP
+	ne8zp99w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wR3aF-0000000Ee2U-2tuO;
-	Sun, 24 May 2026 07:49:15 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wR6tm-0000000EsAl-0qUi;
+	Sun, 24 May 2026 11:21:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wR3aC-0000000EdyD-0wd6
+	id 1wR6tk-0000000EsAV-0aTB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 07:49:13 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-49048e043e5so12537565e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 00:49:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779608950; x=1780213750; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=w3GyaXOKkKvLzK7c4V/rn3jVlhkCTZ4qzh+NDvYWL1s=;
-        b=AUEKwVe9qQ4A1imvyxrRlLps6hxX3iY9S8lODT0nqefgg6W47C+eLFE8L2ZMZBGTl/
-         peb0i18F/E3aszsCMpN46YeZsdpsdPJUupOOV+LgCAXUGO3ZilQUO+3U6K3SiLNwUTXu
-         xQWYh/wgJHdPiGmiiZpw9Jvzj52C6w7sh+k6nN4Tkz74nBP4rrKHAWzidrxa9QimYRvg
-         D9c22+yKxm2dDaJMADOqqMOsyyHpsmaPvl/ZQOqPlS2zrr6uxc6yy/HeOqOzcoILEY28
-         FhuL9y62v5g2o8Ze1oT52sGPWsT91SWG/15nD1SiKD3JGIrFduckjS/a+/jdsHDdvdEH
-         8DoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779608950; x=1780213750;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=w3GyaXOKkKvLzK7c4V/rn3jVlhkCTZ4qzh+NDvYWL1s=;
-        b=azqhET6RI8uu7+n2A8QXNRuV6Zh7xDG5DMvG1G1NY6CmTS9mRpKk8MSLaXF7c5U5hC
-         X9ngSUfQH2wazMeqxrBl9T/9mbpwWzU/e24D/4o1L+0AvZLJMWWgNUaR4biC9VHMY/A/
-         Y1q4+ZvYHtL+LUxYiDz0/8QMhpts45jtBJbUy5G7QYKG6E41bL/Jebd+tolOhAH5QoB9
-         o0mrEMHFmTM47LkSgybAeMUgC8qPBKSc2YbctQFHPESZrma0X7LiGw478SP3EyMbU0Po
-         JL/5hButyCGa6ieyFCu7hqFJMsFY5UbJd4L57M3QYcicQz1HCB+660tydUnK9kU8jBrI
-         vFOw==
-X-Forwarded-Encrypted: i=1; AFNElJ/MSadFSOLKGxJ/hz3XammRAFDIu1pBP7iHwf/4lhipjrxN7E0LoTpidmG8cXaSRVCgzfN4lcYhQx3jrFW75a/x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxi7G8HCd2mJKv0qq5Q6GV+2qAiYga3sdlJNtqJSbQzOBQO7VMq
-	owAXlpQf54HJWDK8vcz+QfX8Tz28B5Rha6S3NdhPc2GzM0rmYlDp0Xmk
-X-Gm-Gg: Acq92OEhDKObdvnnfWMMI6nF50DtQR87/H0Aa4uhSxZvQ+zSygPeWTLPJ1oW3257h/1
-	G24vcwSuq5A3YYI+eFjBngzJaq6AXlSqQfzSN8Z4hgKQwgLYZVgzHz3r1KtudmNl8ORduk7+yO3
-	J0swUwd7QZsunrF5eBn1trZfqp44z8H/uZlfq8tsa/UoiEqb60Ueg3Dj7o9sPYN8Sgcu93LJPzB
-	Y2IWNTdCO2VnzQN0zZPV3AumlGQY/0+xSTbUz11uvJUTBjcfW/vo2bAsBjN39R1P8QtHqpjK0/V
-	4QE88dbSu8FifRVduBg+a8YR4zs/ARZF60UhTneBRVA0Q6ln12SHrtaVrbruvfjxwyWItBeC5uH
-	6VoRcY1c5cTEUDUrK9Iy5Zx9K5tLSjswAkz6/8KmRKMQmdwRwFCHO4KXHm0OpCbciS4zGrt9eCI
-	8JvgAPx2/xh3SOZZNjQ5WWH03CJZQKgX4V94AQsa4fOKK3ZQVDK4EUNFAYmSu7I9HY/l4yrGpJ9
-	xi+CPg6p6sIsUZASFx+IXIiQwfoqfKGCc2WBfe+YXKYkOO6k/QroH79Sh0KdmrO4hP7fsnk57Nf
-	YOSTMAr+pkPlkQvZA1IEVjIN3i1I
-X-Received: by 2002:a05:600c:4ecc:b0:490:389:7644 with SMTP id 5b1f17b1804b1-490426d4d7fmr160170825e9.17.1779608949829;
-        Sun, 24 May 2026 00:49:09 -0700 (PDT)
-Received: from unknown748F3CBA5068 (dynamic-2a02-3100-b3e0-e401-c487-9725-5e6f-67f3.310.pool.telefonica.de. [2a02:3100:b3e0:e401:c487:9725:5e6f:67f3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4904179826dsm75306345e9.2.2026.05.24.00.49.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 May 2026 00:49:08 -0700 (PDT)
-Date: Sun, 24 May 2026 09:49:07 +0200
-From: Karl Mehltretter <kmehltretter@gmail.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] ARM: entry: use byte load for KASAN VMAP stack shadow
-Message-ID: <ahKsgJ4qT7zC5Isz@unknown748F3CBA5068>
-References: <20260522211503.25219-1-kmehltretter@gmail.com>
- <CAD++jLnhONOMn=7hG-EC_uB80nxXfAnRMuZC2xoJjf2Xzcaiuw@mail.gmail.com>
+	Sun, 24 May 2026 11:21:36 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id 7E0C0600AA;
+	Sun, 24 May 2026 11:21:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 874481F000E9;
+	Sun, 24 May 2026 11:21:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779621692;
+	bh=oLiSri69Now47RImuq7She4lhkBga74FFWNykITHvrY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ivt+XsYsfCEwwRlyrk81FgW8qmN3XGVrUO4QIE49s7hLG85UWNqNJFaSnj2oNI2Ba
+	 i1HR34jswIcsOXNFB3K/MjAqwzGQ79pneyvAfKAIvQfzwvTX6+dMpKQirtRaCRntgj
+	 X8gg/k38ukFxyZBKSukaVZ8pP4IHopZFKAMnlQWlkvZYGl3gzaIJ9/kpC+abZ54y64
+	 wAnUhPcRqaCOF6Gt5OxzSvpXai5cXSrsDJnmFwWSg4NHRMjofNGihVHDuwCwXk7txi
+	 MJ+YuW8qYiRyo/oGNqnAziNoro3Kf1WmvoCaolWRJK3C0GpMPMuEOJYge820VPRPJz
+	 ej0Ch+HZiwFGQ==
+Date: Sun, 24 May 2026 13:21:29 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Manish Baing <manishbaing2789@gmail.com>
+Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
+	linusw@kernel.org, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 2/2] dt-bindings: pwm: stmpe: drop legacy binding
+Message-ID: <ahLemdy7Ie9n-Ltx@monoceros>
+References: <20260523173251.72540-1-manishbaing2789@gmail.com>
+ <20260523173251.72540-3-manishbaing2789@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="apdghv2sfx72heyb"
 Content-Disposition: inline
-In-Reply-To: <CAD++jLnhONOMn=7hG-EC_uB80nxXfAnRMuZC2xoJjf2Xzcaiuw@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_004912_291605_98108750 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20260523173251.72540-3-manishbaing2789@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,11 +73,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 24, 2026 at 12:08:57AM +0100, Linus Walleij wrote:
-> Please put this patch into Russell's patch tracker.
 
-Done: https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9475/1
+--apdghv2sfx72heyb
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v4 2/2] dt-bindings: pwm: stmpe: drop legacy binding
+MIME-Version: 1.0
 
-Thanks,
-Karl
+On Sat, May 23, 2026 at 05:32:51PM +0000, Manish Baing wrote:
+> The st,stmpe-pwm binding is already covered by the MFD schema
+> Documentation/devicetree/bindings/mfd/st,stmpe.yaml. Remove the
+> obsolete and redundant text binding file.
+>=20
+> Signed-off-by: Manish Baing <manishbaing2789@gmail.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
+
+Applied to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+with Rob's ack from v2.
+
+Best regards
+Uwe
+
+--apdghv2sfx72heyb
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmoS3zYACgkQj4D7WH0S
+/k7CnQf+LrJy/swVkHwrkqPTyAvOZxezQIxQ6APF6k7/l2fout14sLJ0g7dQtpaW
+nUc8cmeCXmoQkDQ/uhzxhfQBxEGXIX+p92kbur2eXOUWsErUzdPFqEQ1bxZhGb5p
+clieA/lMQE/uZBoFhSlF73S9yBKoQks6s5rqTsEq6vyArWYXm74eHvrcsW+UNL17
+Qsr7my0ZvgUpvRVE6F++d2SpNdtgrrjUAhq3dMqn/HnlQFoNoOxPAh7FKyg5MTyF
+IduJDMP/25MrUL1hRm7XDoiP8xkbHfoHpZif0h0z1xrm8URPA4N5BvTO0hlPmgCd
+pDpNs+9W5CK4XIhyssis+HaaiShrMQ==
+=1Xa4
+-----END PGP SIGNATURE-----
+
+--apdghv2sfx72heyb--
 
