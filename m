@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACDDCD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 18:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130B0CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 18:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujfsSTd76rbF8L3/E8X3Y7ImSNBBQVD7hpvVkdDg5yM=; b=H0pEhQWIoItK34xfELu/GaGlzv
-	qHUvU2S6domL5vbrlr2kxaIapS93u0Tc28+fi+2umoXSIqNhHQj4S2GwIDzY6xMcgMHONrfXuy4/V
-	hvszv8xn6oZGJB5hXkOnJ7AhdOSZbpPCJJD6PdnsknA4DqixhiKDZTq7MhDggkUpmqONYG3M2RmGz
-	d51WtPekSGoreSzSIrs9YV72UMY6yNJcyOM4Qb81q/lygLnuuGMCDY4AnT3eKOyD+9K9tuk0VWiiR
-	PbXjF7MJEwcSLHXwCi4D6wKUKtzAVAZ09aydXSJ7M61X3vkUlyULawd6PJnP7D7N0soT8d/GZ6gbP
-	VvvXlDBA==;
+	bh=ti+0QCXGT7ETl1POeyETi1M8HN2lZW4xpw/OVCjE8eQ=; b=GDHzqH5rHS1L9jASwshV45IskW
+	27JhiKMXUd2SAgfBg564cfQ6ccGAMK0FKImcQEnPuVPe1oWDwyhD2zgVhTgcj2G4O3qaGBW8PiwS0
+	dkINL2VAChWp7OyQaDy8bfU+Nf3mWcVa8y2/9RDtDY7K7xaBYesQZSuTtuRKHZ6dk6mEVup/yw8ko
+	LxtMM0NwPPz73tfV9KkLoyrV4fnKt6tiD04Bn1zzH3kB2gVIjBsjuDKa5s+2tYcTnSU8dOE4PL2O0
+	e7KT+wjFUaBU2zmn2uhmT3Hx5Gbwq1RYVY/sotb0+Wadw1hbpjy/YUastBdtOM65bGBClub0MpBYi
+	nu0K3WOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRDO4-0000000FPJ8-3mr0;
-	Sun, 24 May 2026 18:17:20 +0000
+	id 1wRDRb-0000000FPfD-1FED;
+	Sun, 24 May 2026 18:20:59 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRDO3-0000000FPIy-162t
+	id 1wRDRa-0000000FPf2-0ZDX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 18:17:19 +0000
+	Sun, 24 May 2026 18:20:58 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D2FD601E3;
-	Sun, 24 May 2026 18:17:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E29B1F000E9;
-	Sun, 24 May 2026 18:17:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 32254601F4;
+	Sun, 24 May 2026 18:20:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3D8C1F000E9;
+	Sun, 24 May 2026 18:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779646637;
-	bh=ujfsSTd76rbF8L3/E8X3Y7ImSNBBQVD7hpvVkdDg5yM=;
+	s=k20260515; t=1779646856;
+	bh=ti+0QCXGT7ETl1POeyETi1M8HN2lZW4xpw/OVCjE8eQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=iuSsGew76xGrITF6LtY8oLCQ3c/CXbh/xlXFSjUSDp1H1JGhPfRbyY+tI3E7eVLav
-	 mW01cUly8pbxk1iHnwXQfa/HY5cj6f+kFbZ3mkS8xjIjOtmQ0ypA/+8Vfqpby5+Yer
-	 mCMXVXSZrfalckFMY9p9X9bKq6BNVRYR3ZWokvQJxSKOHPuQMCRHynz4d330R6xz1p
-	 zML2prDHvj9KJSEMM9KpIefpjCfC8FghTbVMxi63eyLQouvJ/r5qvtFOTGKGWt9xS+
-	 Jnn1WquP1L/eeT6rSIZMB/mFOsqRHeDhglJ14PhYzgBA13nFdWH5BRWByHjuqY3Dlk
-	 ZRrpBFqw0H2Bw==
-Message-ID: <f519372e-139c-4530-98bb-dbec56af373a@kernel.org>
-Date: Sun, 24 May 2026 20:17:05 +0200
+	b=amOuWBZRkpbbzWRXSo0gLh2BW8aM/+huZFF2HgwpnPIrHiaifu58+cgFfxhkF4Yu9
+	 4tjk0xP50i8CFEvfYatq3JDxwCU7iykVppJ/J1PD5sD7WMqceQ0YtJhWw36nQTdFxF
+	 rEp77CXtuolc9w+Gcc+YkxFjC3WnAt0U9VWh5Y4QsOHBMryussGc2P09HAdmAuAM56
+	 znOWGWHlv/Q9JcIRiqSdAUKHZFQUtaxuKOJLBjj4Q7YwRb4VYtWE8Seiu22Gqw0h2D
+	 HVMbttNmUIiRokX5YHhFZLOoU6u0/5xCymzbnz+Wg4HV6KEh/c1PGtP1UXD/dNuFnz
+	 OlRdFgjSuZykQ==
+Message-ID: <74eb56fb-546d-4b2c-9bbc-01a40937f5d3@kernel.org>
+Date: Sun, 24 May 2026 20:20:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/17] arm64: Use EL2 virtual timer when running VHE
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Ge Gordon <gordon.ge@bst.ai>,
- BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Lars Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
- <eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Lin <shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Michal Simek <michal.simek@amd.com>
-References: <20260523140242.586031-1-maz@kernel.org>
+Subject: Re: [PATCH 2/5] dt-bindings: connector: Add fsl,io-connector binding
+To: Frank Li <Frank.li@nxp.com>
+Cc: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>,
+ Chancel Liu <chancel.liu@nxp.com>, "robh@kernel.org" <robh@kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+ "festevam@gmail.com" <festevam@gmail.com>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>,
+ "kernel@pengutronix.de" <kernel@pengutronix.de>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <20260509024846.2094049-1-chancel.liu@nxp.com>
+ <20260509024846.2094049-3-chancel.liu@nxp.com>
+ <20260515-resourceful-singing-roadrunner-ce25ec@quoll>
+ <AM9PR04MB8353FE81D06852D45514E460E3032@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <d2b13e51-1684-4acb-a5ed-294c8aa95906@kernel.org>
+ <AM9PR04MB83538C4A07A6835FF8A74793E3002@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <20260519-macho-degu-from-nibiru-960af2@quoll>
+ <AM9PR04MB8353B563519EBC1AD6C5BFE1E3012@AM9PR04MB8353.eurprd04.prod.outlook.com>
+ <e23a610f-e1ad-4536-80fb-8b5707e77f39@kernel.org>
+ <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -128,9 +118,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20260523140242.586031-1-maz@kernel.org>
+In-Reply-To: <ag3GMdmxw60B15Oe@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,18 +135,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/05/2026 16:02, Marc Zyngier wrote:
-> This is the third version of the series initially posted at [1],
-> which
+On 20/05/2026 16:33, Frank Li wrote:
+> On Wed, May 20, 2026 at 09:08:42AM +0200, Krzysztof Kozlowski wrote:
+>> On 20/05/2026 07:02, Chancel Liu (OSS) wrote:
+>>>>>>>>> +description:
+>>>>>>>>> +  The NXP I/O connector represents a physically present I/O
+>>>>>>>>> +connector on the
+>>>>>>>>> +  base board. It acts as a nexus that exposes a constrained set
+>>>> of
+>>>>>>>>> +I/O
+>>>>>>>>> +  resources, such as GPIOs, clocks, PWMs and interrupts, through
+>>>>>>>>> +fixed
+>>>>>>>>> +  electrical wiring. All actual hardware providers reside on the
+>>>> base
+>>>>>> board.
+>>>>>>>>> +  The connector node only defines index-based mappings to those
+>>>>>>>> providers.
+>>>>>>>>> +
+>>>>>>>>> +properties:
+>>>>>>>>> +  compatible:
+>>>>>>>>> +    const: fsl,io-connector
+>>>>>>>>
+>>>>>>>> Everything is IO. Everything is connector, so your compatible does
+>>>>>>>> not match requirements from writing bindings.
+>>>>>>>>
+>>>>>>>
+>>>>>>> Yes, this compatible is too generic. I will rename the compatible to
+>>>>>>> fsl,aud-io-connector.
+>>>>>>
+>>>>>> aud is not much better. Which boards have it? What's the pinout?
+>>>> What's
+>>>>>> standard? Is it described anywhere? If so, provide reference to
+>>>> spec/docs.
+>>>>>>
+>>>>>
+>>>>> This is not an industry standard electrical interface. This connector
+>>>>
+>>>> Then if you do not have standard, then you have board specific layouts
+>>>> thus you need board-specific compatibles. You can use fallbacks. Generic
+>>>> fallback could work, but both io-connector and aud-io-connector are just
+>>>> too generic. Every connector is "connector" and "io", thus absolutely
+>>>> anything can be "io-connector". "aud" improves it only a bit, thus
+>>>> honestly I would go with board specific fallback as well.
+>>>>
+>>>
+>>> How about board specific + common fallback compatible like this:
+>>>   compatible:
+>>>     items:
+>>>       - enum:
+>>>           - fsl,imx95-19x19-evk-aud-io-connector
+>>>           - fsl,imx952-evk-aud-io-connector
+>>>       - const: fsl,imx-aud-io-connector
+>>> Since the daughter board is named “IMX-AUD-IO” in publicly available
+>>
+>> I don't think it is named like that.
+>>
+>> git grep -i imx-aud-io
+>>
+>>> documentation, common compatible clearly indicates that this connector
+>>> is intended for that.
+>>>
+>>> Also, I want to talk about the topic of generic connector. It's a common
+>>> design that daughter board is connected to base board through a
+>>> connector. This connector more often acts as a nexus that exposes a
+>>> constrained subset of GPIO, clock, PWM and interrupt resources to the
+>>> daughter board. Can we document this kind of connector as a generic
+>>> binding?
+>>
+>> So this binding is the connector between carrier and some addon? Then
+>> you don't get a compatible for that at all, because it is not necessary,
+>> not useful and NEVER used. Do you see socket LGA "connector" bindings? No.
 > 
-> - updates the ACPI GTDT parsing to deal the v3 layout and the EL2
->   virtual timer,
-> - moves the architected timer driver to use it when running VHE,
-> - fixes a number of DTs to reflect the reality of the HW.
+> Not exactly. Any connector connects a carrier board with an add-on board.
+> The key point here is that this connector type is reused across different
+> boards, even though it is not an industry-standard connector. Both the
+> signal definitions and the mechanical layout are defined.
 > 
+> The same add-on boards can therefore be reused across different base boards
+> that use this type of connector.
+> 
+> There are also GPIO mappings involved. For example, pin 1 on the connector
+> may represent reset-gpios, but it could be connected to GPIO0 on board A
+> and GPIO1 on board B.
+> 
+> Without a connector definition layer, this would create an N × M
+> combination problem. The Nexus node discussion already covered this topic:
+> https://osseu2025.sched.com/event/25Vrw
+> 
+> An LGA socket is a CPU socket, where the signals are completely transparent
+> to software, so it is not a good comparison. A PCIe M.2 Key-M/E connector
+> would be a more appropriate comparison.
+>
 
-Please mention here what do you expect SoC maintainer to do with this -
-apply individual patches, wait for dependencies, ack etc.
+So the terminology of daughter and carrier boards was confusing. If this
+is a hat, mezzanine or other addon, it's fine.
+
+I still insist on board specific compatibles - fallback and specific.
 
 Best regards,
 Krzysztof
