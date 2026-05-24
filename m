@@ -4,96 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A7D8CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 19:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62241CD5BAB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 24 May 2026 20:01:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6PQW8i/7ZkrkS/T182d40h7fn7wC9G9prkK1aEwDBOU=; b=OzUGid7oybNPznk2HheJqt1Cpg
-	EbtvGp2CvNt9CpRCXVJYKz0DZAbmYNXB4wYhHS+dXmlZrJibA4rZ9tL31Vsyzh4qApt63XzHcRFmw
-	76qG+bCV8o6Ww9DbAVnzoP7hUIPrAv4/kiqxY1zUfP40pbIhvIe8QErHDCBb+9kKX6Kr3K5UxWnfM
-	hhqc/gVArGym3ronJVPgVoMoG17tI2AFXD1fJ57r5mRMcWm9eFIA68Hjoepl18zlDvsEje8X47Djy
-	NazK7xhgN0Qv0NHCrr3AFZY1XAYNz17Yjvr6DWdSzHG7Im6prXx9S4+eLcGDQKD52i3mMjsMYnukl
-	zbmBhahg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3HTBQyePaHVmHHrsauW9DhwKjo0QZV1SOvIWr7DAq5o=; b=IVueqU9ksS3+EdQOLHPh78WhaW
+	Q1UIr8kPNHwUYTRhtRTTB1aapM3gYfp3y8uChydo76ylGa6hF5OheXT+PMawOEPEinMgKMzClZhB5
+	30o4g11ECKWJTHr4H+KNk0bDSTt/PlTjYZsi0rknlE3uradKS/0t22r333ukMEwHLcx4d1fPHfux2
+	FLqLfwm+xOzdupuWfZZnFXSlsDw+05CisVgk3pE+8Y+4mO8sB7hk2vz2llN6kf0ZHz1TLVEJKeg+N
+	uu0xk7nap5yRzOSoaccXe8LG7cWznIPK5LF+ZRTu32K1aRX8LrW8mKBgpA60uEHlv2dXjJlKySVN3
+	cw5FexmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREyb-0000000FXo0-0qT7;
-	Sun, 24 May 2026 19:59:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRF0P-0000000FY1Y-1fNS;
+	Sun, 24 May 2026 20:01:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wREya-0000000FXnq-2fQ5
+	id 1wRF0N-0000000FY0j-0Fyn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 24 May 2026 19:59:08 +0000
+	Sun, 24 May 2026 20:01:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 472D7601E3;
-	Sun, 24 May 2026 19:59:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E17CA1F000E9;
-	Sun, 24 May 2026 19:59:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 383B040148;
+	Sun, 24 May 2026 20:00:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511001F000E9;
+	Sun, 24 May 2026 20:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779652747;
-	bh=6PQW8i/7ZkrkS/T182d40h7fn7wC9G9prkK1aEwDBOU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=PsdL+h/EV4ND6B7eqoBcJIrCsJHpTpg7DdDCc7HttUxD6t/menmaqOU+4g0Zi/rH5
-	 DicJLCPHj/tHF85z+75i9Yk4Dl0xeYzY32ECtBecqtVySEWb+/DdVPjUqEfQ3EfNMP
-	 hNtwPXxbFNBdeg+WFjoxk9ierxRtKSKEMIbZuoS1JdkfseZrwPiwAWTOsTl3qzSSv1
-	 9yGtxf5CXY+ijj3o8CkSfLJNvxdaS2Pc6MzWu8CAm9sZ29Hg9jSpuOLd207RIsXl+r
-	 y9cXD06aT60SP+odRj6M0yXstJRUIIjq0G4UA5z5qY43LLHNHBavd87AdVDko2HD2P
-	 X/ExX/6zWwg0w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wREyV-00000005lyw-38xX;
-	Sun, 24 May 2026 19:59:03 +0000
-Date: Sun, 24 May 2026 20:59:02 +0100
-Message-ID: <86y0h8vat5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,	linux-acpi@vger.kernel.org,
-	linux-kernel@vger.kernel.org,	devicetree@vger.kernel.org,	Lorenzo Pieralisi
- <lpieralisi@kernel.org>,	Hanjun Guo <guohanjun@huawei.com>,	Sudeep Holla
- <sudeep.holla@kernel.org>,	Catalin Marinas <catalin.marinas@arm.com>,	Will
- Deacon <will@kernel.org>,	"Rafael J. Wysocki" <rafael@kernel.org>,	Mark
- Rutland <mark.rutland@arm.com>,	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Chen-Yu Tsai <wens@kernel.org>,	Jernej Skrabec
- <jernej.skrabec@gmail.com>,	Samuel Holland <samuel@sholland.org>,	Neil
- Armstrong <neil.armstrong@linaro.org>,	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,	Martin Blumenstingl
- <martin.blumenstingl@googlemail.com>,	Ge Gordon <gordon.ge@bst.ai>,	BST
- Linux Kernel Upstream Group <bst-upstream@bstai.top>,	Jesper Nilsson
- <jesper.nilsson@axis.com>,	Lars Persson <lars.persson@axis.com>,	Alim
- Akhtar <alim.akhtar@samsung.com>,	Ivaylo Ivanov
- <ivo.ivanov.ivanov1@gmail.com>,	Frank Li <Frank.Li@nxp.com>,	Sascha Hauer
- <s.hauer@pengutronix.de>,	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,	Dinh Nguyen <dinguyen@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,	AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,	Thierry Reding
- <thierry.reding@kernel.org>,	Jonathan Hunter <jonathanh@nvidia.com>,	Bjorn
- Andersson <andersson@kernel.org>,	Konrad Dybcio <konradybcio@kernel.org>,
-	Andreas =?UTF-8?B?RsOkcmJlcg==?= <afaerber@suse.de>,	=?UTF-8?B?Ill1LUNo?=
- =?UTF-8?B?dW4gTGluIFvmnpfnpZDlkJtdIg==?= <eleanor.lin@realtek.com>,	Heiko
- Stuebner <heiko@sntech.de>,	Shawn Lin <shawn.lin@rock-chips.com>,	Orson
- Zhai <orsonzhai@gmail.com>,	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH v3 00/17] arm64: Use EL2 virtual timer when running VHE
-In-Reply-To: <f519372e-139c-4530-98bb-dbec56af373a@kernel.org>
-References: <20260523140242.586031-1-maz@kernel.org>
-	<f519372e-139c-4530-98bb-dbec56af373a@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: krzk@kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, gordon.ge@bst.ai, bst-upstream@bstai.top, jesper.nilsson@axis.com, lars.persson@axis.com, alim.akhtar@samsung.com, ivo.ivanov.ivanov1@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, dinguyen@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, thierry.reding@kernel.org, jonathanh@nvidia.com, andersson@kernel.org, konradybcio@kernel.org, a
- faerber@suse.de, eleanor.lin@realtek.com, heiko@sntech.de, shawn.lin@rock-chips.com, orsonzhai@gmail.com, baolin.wang@linux.alibaba.com, michal.simek@amd.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20260515; t=1779652858;
+	bh=3HTBQyePaHVmHHrsauW9DhwKjo0QZV1SOvIWr7DAq5o=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=Nf1v9JFCTQGRtLm3jZ8I45mGn9GIW8Y64UyUkOfZmmzk8HN42vBNxQwHb/5cW9rzb
+	 Yqn4p5Mtd6eojzbr8tTEJJPWE34wNHMD4Lwb4RzjiKEX2AfYrh0hrngdXVG8i3gE6N
+	 yosPxD34CJMAqoeyrxS49JuXZRLtFHOh7kM1PTjPzzRNtfSon/H9VvCXXA+tJZPguz
+	 KgSXJY6whqzKofM93ZC0GfCIS2tL5wJNc1xgYlL2YFwyqXANSXfd1+F7yJkXVgL3MD
+	 pghyiWz5HjajvWqdFmmetZMOqBDrpzmYIoaRL033NbKaKiBDIu9t9N+gaCKuqz23bb
+	 nkjsBJ7iSJC9A==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Marc Zyngier <maz@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, 
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Ge Gordon <gordon.ge@bst.ai>, 
+ BST Linux Kernel Upstream Group <bst-upstream@bstai.top>, 
+ Jesper Nilsson <jesper.nilsson@axis.com>, 
+ Lars Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Thierry Reding <thierry.reding@kernel.org>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+ =?utf-8?q?Yu-Chun_Lin_=5B=E6=9E=97=E7=A5=90=E5=90=9B=5D?= <eleanor.lin@realtek.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>, 
+ Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Michal Simek <michal.simek@amd.com>
+In-Reply-To: <20260523140242.586031-9-maz@kernel.org>
+References: <20260523140242.586031-9-maz@kernel.org>
+Subject: Re: (subset) [PATCH v3 08/17] arm64: dts: exynos: Add EL2 virtual
+ timer interrupt
+Message-Id: <177965284903.36046.11355001676395450278.b4-ty@b4>
+Date: Sun, 24 May 2026 22:00:49 +0200
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260524_130059_128041_9327A34B 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +108,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 24 May 2026 19:17:05 +0100,
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> 
-> On 23/05/2026 16:02, Marc Zyngier wrote:
-> > This is the third version of the series initially posted at [1],
-> > which
-> > 
-> > - updates the ACPI GTDT parsing to deal the v3 layout and the EL2
-> >   virtual timer,
-> > - moves the architected timer driver to use it when running VHE,
-> > - fixes a number of DTs to reflect the reality of the HW.
-> > 
-> 
-> Please mention here what do you expect SoC maintainer to do with this -
-> apply individual patches, wait for dependencies, ack etc.
 
-I only care about the first 3 patches (ACPI enablement, arm64 timer
-code), and don't have any expectation for the rest, as pointed out in
-the cover letter for v1.
+On Sat, 23 May 2026 15:02:33 +0100, Marc Zyngier wrote:
+> A bunch of Samsung SoCs are missing the EL2 virtual timer interrupt
+> despite using ARMv8.1+ CPUs. Add the missing interrupt, except for
+> those broken designs where the interrupt is documented as not being
+> wired.
 
-These are all bug fixes for DTs that do not correctly describe the HW.
-There is therefore no dependency on anything. The patches can either
-be cherry picked by the individual SoC maintainers, applied globally
-by one of the DT maintainers, or be completely ignored.
+Applied, thanks!
 
-Thanks,
+[08/17] arm64: dts: exynos: Add EL2 virtual timer interrupt
+        https://git.kernel.org/krzk/linux/c/d0298724f901d45c76f1f2193225706200f565e4
 
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Krzysztof Kozlowski <krzk@kernel.org>
+
 
