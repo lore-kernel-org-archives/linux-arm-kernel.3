@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5067ACD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40016CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:06:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4vllGicUbdN0Bqlbgpv612IvW1fY5Ga0NBXa/j5YjIk=; b=tHvaiZE1l0s6ktqdsVO+zJ+5ug
-	CyFBVJCQGKTtnNSfTihFVH5yYIl+iahCKJpGC1p66uq7OjWL+unqs0x7nCI3M4319DdYr+r2RKURZ
-	Ne87hVLkxTrTOQTI5OncXXOTkIeuZTI2dxH9w1bB6XsdxDtq8cUP7xzfYBigyx35Uiqa1MWb4Bdd7
-	uVrGDeaT7cr1QeIhFf89r31jSUTR8+0u37YM3jPqhW5zq8DWaPCItnb+i56RECFy2AQSO/85ULEWQ
-	Vlu5rWswX2Qee+QgIndQDOKHo10tXebfQRddxH29uo3vDfkxuZ0Rnods7E2yxo7TTeayTv78VNQgu
-	Ku/SGcsw==;
+	bh=XBdwrpDpVLZphgnQqjfINiqHGCa1lpywck29IxJWjLU=; b=4iPL/vIWSJYdNm16IU0/kjlahv
+	UWSinRLsd6E2YFb/KDeyQydVbBneJe+EzqMj5wy7XZ7bLth/bY2kKPwTtxZEuSdz289H99Tf9gUjT
+	JPhghPWssSm2p5C2LB4DvM/H1D6PFM190qY2eBhDLl4AmkwxaJDo8FWfpuPltaSmqD306i6Z3SCLj
+	Sw6q2ykfMX+fzbJTV8OOmbxpKO60/cF035Ct+GLGxIdORDeEkQuofxp59dmruOje4YsjXLIL+rxGl
+	dRemXFE4NijlkB9P6co7PpfPTpR6RzUu2zGrix/STW4ge9xgb8z5I8H50y6/tFfd28rs5MQeQH2Fs
+	4pmf+l3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQIB-0000000GaZf-1jlt;
-	Mon, 25 May 2026 08:04:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRQKd-0000000Gax2-2mVR;
+	Mon, 25 May 2026 08:06:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQI9-0000000GaYq-2q1D
+	id 1wRQKb-0000000GawQ-3ltj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 08:04:07 +0000
+	Mon, 25 May 2026 08:06:38 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DFC954437D
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:04:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C85181F00ADB
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:04:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FE16445B7
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:06:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 137841F01562
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779696244;
-	bh=4vllGicUbdN0Bqlbgpv612IvW1fY5Ga0NBXa/j5YjIk=;
+	s=k20260515; t=1779696397;
+	bh=XBdwrpDpVLZphgnQqjfINiqHGCa1lpywck29IxJWjLU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=ONAbaRd5hqziXmIjbcC45rSuMKkCRwKMzaE5TnBLMmpKaBNi2XQTIHCByRBlPx94U
-	 D0P927r+Dy99NpqkcQvUqZWEaAqOFGFfnEs5lHaRE2WGyJv7xuLufbCsGcJ2oRfLbj
-	 gKaHHVcaKTqOAvznP2yIgagbACgHVBeY2UYDElQJ3Mui3JaEOF003cyzcFNZhN+R24
-	 T5Ew2lb3JwFp4FZpTOByXSTyVg0JzCkrQsxAkhl8GCCRDUCoExzF/aJgKQaUr3Tx8r
-	 dSeLfEcsUr18+bjRAchySs1/M5kmAJ4cKFtzjeP6gVrnaPOxT4VR3tU1zzmn1ztxkG
-	 W39EL/s9uPKMw==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5a8d1f43432so15017735e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 01:04:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/XoDjPxA+l2VJtzP1o26K7+e7hFfYvqh7XcIbOhVFGwZbVbfUu/mgGPtDW2YkUfp33ClUj6ZaQVfajikeI1Y3K@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGYUkMHQohGFsG/cpTNmCVdyBpOkISk39qJxDYl/9CFIiU6wse
-	uPqym6ELgoorl4AqJXAWlMzR0eVdMlTs2ayMfYb785enub6nj9bUCShA9bnplIgoEXL/PB+ZfIM
-	FSNS2jfWm+7itlU8OfAH4ZJq59oVzMjw=
-X-Received: by 2002:a05:6512:3ca7:b0:5a8:8825:15fc with SMTP id
- 2adb3069b0e04-5aa3238ba06mr4490982e87.3.1779696243482; Mon, 25 May 2026
- 01:04:03 -0700 (PDT)
+	b=fDLEwigvfx3SKEy+abqKr/OzEu8M1uZr5lZwv82fmKYtK+YvG9058zhlwLGw4oST5
+	 0478577WUe+Uc5wobNxLnJxUxHa0w2WEc4p42UrWv0+7pcuOFtgl5uQywyTZ7VPHod
+	 m5h2YUwU66j6aPQnq84kLOkJiAEg6CCu5bJ6qOal41l2D+aYc8NwfZslUrXD3TEXEo
+	 mdqDKnNJXIYIGlGCmp01Qc8O939wTaNiQ0pd7s7tO2h+dEgrhDnjIz6ydkBi29LCXe
+	 UCHXvyb1Ig/C7O67TkPG3ciG5fITPX7NAAC6/M4R671dFZbM76Lk0FYLmh0crQXTpu
+	 Imm1SJsoC+Ebg==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5a87edf88b3so9320708e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 01:06:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AFNElJ8gut73FFJrItlHaLVfZ3j8nbtQZu7SSwsXokrYLRmGBb49YyNKRhNQZxGP/ny9k5oKMJ1Lr0K+YI6sraEKqqOM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNdivblHnJMW8VkXNjq431jqE49h+Sf3xKV0blEYM/MF45KoMZ
+	IIXM6muD58XfCh6BSPcg1s73I8oh+ay76LTIvqs2pamGTPQ/SCtji6h80WbNuRibRDNsz+kFNR4
+	O+CXS3Rytkobi8YDPYRlnx0dMoFcBYMc=
+X-Received: by 2002:a05:6512:692:b0:5a8:fc25:3843 with SMTP id
+ 2adb3069b0e04-5aa323a49d0mr3894276e87.39.1779696395729; Mon, 25 May 2026
+ 01:06:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260521-pinctrl-single-bit-v5-0-308be2c160fc@aspeedtech.com> <20260521-pinctrl-single-bit-v5-1-308be2c160fc@aspeedtech.com>
-In-Reply-To: <20260521-pinctrl-single-bit-v5-1-308be2c160fc@aspeedtech.com>
+References: <20260521-pinctrl-single-bit-v5-0-308be2c160fc@aspeedtech.com>
+In-Reply-To: <20260521-pinctrl-single-bit-v5-0-308be2c160fc@aspeedtech.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 25 May 2026 10:03:50 +0200
-X-Gmail-Original-Message-ID: <CAD++jLm5Jsrdpg=H8xowFzx9omJhGpamjjcg0LYN2R9HCeW5tw@mail.gmail.com>
-X-Gm-Features: AVHnY4Lr6P_gJlk6yPcaGrv6903bIHaJS623wqRPa4vQc7mnCclEd4yYEBmZPTc
-Message-ID: <CAD++jLm5Jsrdpg=H8xowFzx9omJhGpamjjcg0LYN2R9HCeW5tw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/3] dt-bindings: mfd: aspeed,ast2x00-scu: Support
- AST2700 SoC1 pinctrl
+Date: Mon, 25 May 2026 10:06:23 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnxMGux88CCXH70hwEGiQXn9FCJ=vucLaS=JLhp_C48VQ@mail.gmail.com>
+X-Gm-Features: AVHnY4LaI0HREPthKKhQrYPPwj27_NpiZglEh2S216je37LkMgP9M9Luyc3lYsg
+Message-ID: <CAD++jLnxMGux88CCXH70hwEGiQXn9FCJ=vucLaS=JLhp_C48VQ@mail.gmail.com>
+Subject: Re: [PATCH v5 0/3] pinctrl: aspeed: Add AST2700 SoC1 support
 To: Billy Tsai <billy_tsai@aspeedtech.com>
 Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
@@ -74,8 +73,8 @@ Cc: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_010405_732938_BF4D0B52 
-X-CRM114-Status: GOOD (  10.12  )
+X-CRM114-CacheID: sfid-20260525_010637_987281_6179A7BF 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,24 +92,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, May 21, 2026 at 11:17=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.=
 com> wrote:
 
-> The AST2700 SoC integrates two interconnected SoC instances, each
-> managed by its own System Control Unit (SCU).
+> Legacy ASPEED pin controllers have historically not had a coherent
+> register interface. Control fields often had no consistent mapping to
+> individual pins, and configuring a function frequently required
+> coordinating multiple control bits across several registers. As a
+> result, the existing ASPEED pinctrl drivers rely on complex macro
+> infrastructure to describe the dependencies between pins, functions,
+> and register fields.
 >
-> Allow the AST2700 SoC1 pin controller to be described as a child
-> node of the SCU by extending the compatible strings accepted by
-> the SCU binding.
+> The pin controller for SoC1 in the AST2700 breaks from this legacy
+> design.
 >
-> There is no functional change to the SCU binding beyond permitting
-> the aspeed,ast2700-soc1-pinctrl compatible string.
+> For SoC1, each pin maps directly to a dedicated function field in the
+> SCU register space that determines the active mux function for that
+> pin. This results in a much more regular register layout compared to
+> previous generations.
 >
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> While the behaviour is conceptually similar to pinctrl-single, the
+> register layout and configuration model differ enough that reusing
+> pinctrl-single directly is not practical. Therefore this driver is
+> implemented as a SoC-specific pinctrl driver using static data tables
+> to describe the register layout.
+>
+> The binding reuses the standard pinmux and generic pin configuration
+> schemas and does not introduce any custom Devicetree properties.
+>
 > Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Patches 2 & 3 applied to the pinctrl tree, thanks Billy!
 
-Lee can you pick this up at your convenience?
-
-I'll apply patches 2 & 3.
+Sashiko is moaning about something, look into it but my confidence
+is low since it is using weasel words like "critical" for things that are
+certainly not critical, if there is some validty to these comments it
+can certainly be fixed up in-tree.
 
 Yours,
 Linus Walleij
