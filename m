@@ -4,72 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC572CD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01784CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KxLlu3bGboBpssH3q4i9X/9Rcpz/kEUO07K0hG3KAGo=; b=Vqyvz4XMESyrIMkMK6+FrPJEoM
-	brZL3X15cOjNy0hiVhVqGXKqglZMAusTiT8Uu8xK7I6xau+EF3Zqvm/CJvLjHcWKP2pIKvVaQYczt
-	n5pL6Oo7Dh/QWlG1nOI16kRaBt8PLGy2lI0VOljiwWVaK3ifCfuh88YCuu4us9BesDmsq53130HMY
-	wELQOLj/FGJetM4Snak2ceHudP3C/JNaAPIf0O8MjuVhMtJhmbCgrbWTygI+LWwgp3Ydm6tu6dB/2
-	RAfXOXuNUU/RD+s4HdA+nMok1XUuWPFixWaJjumc9G2BEmuXybhqWXx61I6o3YsoAOc86Bh8cdB8G
-	EVMcKleQ==;
+	bh=v/KJeVQcoYJeZ7NEMluoiY5LeaLQ6MRIkXZPWciIjMs=; b=gpZydxO4y7qVXhH/0ZtFQLOIEW
+	TkHoXSLgtxz0xcL5nq3Zvv89BNC3xDswKKdCOv2QGcMWyLlwbe+4Q7Kzuli66OfMUV+ZpEVE4EYi3
+	UlMWHlEr4GZSccu5CB1yHipA+w5j81aZMkmYp0+OwxdbHtw/2mHHd7/bBT7BTWZNSIGe/Z/xOh1Ix
+	+iYWVYbeHo5mhDfhcQDz9p5jlSv9SzqL3cOi7F3+6/uvOb9blyy4SazWC2Laaa3TwzZr1LhLfMYF2
+	P6izM7wJaGazHLWrVgUJt6zjbQ5C75ixRl9e6Elwz7uFK4wBvB89IHd9sMxFgLToIRKHh0JOMIo9g
+	OBwlZNvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRXNn-0000000HXc7-31Ja;
-	Mon, 25 May 2026 15:38:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRXUl-0000000HYHJ-1tN6;
+	Mon, 25 May 2026 15:45:35 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRXNm-0000000HXbj-0xoR;
-	Mon, 25 May 2026 15:38:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB6D46008A;
-	Mon, 25 May 2026 15:38:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C5BD1F000E9;
-	Mon, 25 May 2026 15:38:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779723501;
-	bh=KxLlu3bGboBpssH3q4i9X/9Rcpz/kEUO07K0hG3KAGo=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=n6Xy8kwWaYqgCrONmhPK9deWc7MFPgyoEIXJHiHbivJ3CBfIdnS4wmIXfRaxhpUEY
-	 095UE7eFqlIQUTHJSDEmWV9MCk1BKfRDDHoywaIPdqiNNG9ryVvdSCniUkcmpEs8mj
-	 SpycPQUynwe6BvMcq0J4LDxTBmngK+OYW0fb7Ju6VoEfzjqNTyqFv9hIbrXif9sNtY
-	 sKRpTXHOR5TFnE2LxlxoD7/1sq1egsHgf8XEN5L+ViQO8x9XSvCwUspiZZvsFqRpWt
-	 c8z+Jxkjshb+If2tzIhIJLvIKlICI+27MWZfODJ7aWzxTfCapfmOTMRAc0be/6l5f2
-	 reE1To22jUBAw==
-From: Mark Brown <broonie@kernel.org>
-To: Srinivas Kandagatla <srinivas.kandagatla@oss.qualcomm.com>
-Cc: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
- sharq0406@gmail.com, kuninori.morimoto.gx@renesas.com, 
- ckeepax@opensource.cirrus.com, linux-sound@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20260520155002.145306-1-srinivas.kandagatla@oss.qualcomm.com>
-References: <20260520155002.145306-1-srinivas.kandagatla@oss.qualcomm.com>
-Subject: Re: [PATCH v2 0/2] ASoC: codecs: max98090: switch to standard
- set_jack callback
-Message-Id: <177971278332.58460.18153221856136100187.b4-ty@b4>
-Date: Mon, 25 May 2026 13:39:43 +0100
+	id 1wRXUj-0000000HYGk-0FOG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 May 2026 15:45:34 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-441209fb77eso6002971f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:45:32 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1779723931; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ecwb1L37+Eq+8ps/8MEEjRqbyunmq2JyslQRWpP1dX7NgsES1xfAY/TF2e/XxjP7ju
+         YYFV9lsCtuaLnqz8FoLCRw4mgy1s0hFLmNELSxegHvTR80s5T2OIY5K9xEmSXufStg+b
+         5JTC/mNG4cuqgSCweGRf21yAq10BrMtttnoCIym3TVXYFgiSfSOtGfJBiaEMAx+g4vpg
+         oAlAONkFmPRlAZ9IvEpSXcnywI1+HMQ7Ay4wgnILZF/D+xk7uSxJt7i8puOyBGY+EolW
+         3QJ6qYLNZJAk/RNWk6lbEOJr5H5cPndhL0qPJfrfgX0aO7SZvIP0JJJ3oYlomwL3Ffo+
+         VOUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=v/KJeVQcoYJeZ7NEMluoiY5LeaLQ6MRIkXZPWciIjMs=;
+        fh=TfZ5fWtHQ7h19Tjwph93mAJ/SxUQaK3Abhe7p7iq81w=;
+        b=guB0BzckRZNF3i9RXwmLCTE/N3VP19DXMgXLBhUb8/bQ4w/xkJ10yjyIr22j7Qlcwj
+         ctzPI8LJqPyniwnJ80xDiinuyHqjo10Lfo9mV7I8vatBHhw7y3mw9k0/zyymSBwdgJ8j
+         UpVGgoRjI//PCx9gs4KJ6OepBm++B+BlQBE2+IDMAn/7LSuziTb+pi4nvYo2+T2GimVC
+         KUiT+rKd0JDTFvkHl+6YJII71ltbnAWbwD0ksvCzeuhHZ7kbDCNUX20lkC/tKud7j5tA
+         uatNE+yJ51dIhf+gdCQyj9VMXQwolb0xRGbgXYg0THrgr4PY4vfehwltkSudDV/oa4o3
+         oFZw==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779723931; x=1780328731; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v/KJeVQcoYJeZ7NEMluoiY5LeaLQ6MRIkXZPWciIjMs=;
+        b=Ia2VDSB4JG7qqtvLwUw0erlbaqDYwH67jfctCPJt1kiQrnHs6oIaQo1nPSBwpDfSz6
+         PtxqIA0Drxpk6CL0/uqc/yxZe42AvpRolw4GmDWfK49lpdqVU2dt0sk6l5cMdQoRAjzc
+         4XOBNdfznNyu30bcM7HYyjXrOS25Z+JD76Ii9BGTQLoflLNNEeu/DHYnwanLkQce1TXS
+         FurZJSlwPiHji5ZqlA3+lnyaBtsZFk08g6Zzrub7xo4eY1fQJGEyuW+9u4+a4KJsEKyH
+         O9EvtH8dPLh88ndsxU7GhshOUBFjYVz2XXNlGRCvfN7GqZRm8vKLO2ccfNAsuSahEiDU
+         rLGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779723931; x=1780328731;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=v/KJeVQcoYJeZ7NEMluoiY5LeaLQ6MRIkXZPWciIjMs=;
+        b=ok3EqCU2C2yXZ8+aA+DGyKbE3z6rSJngUG5PWRR1vb2m+mUVYbAhWGDsGHaTeCWSxM
+         YwlnaPXbNUiobt6gW2EnTHBTHHv7a/7SlFxpR4zPlFnnEwYGiPx24lAL0O6/lRZy8XiZ
+         8BD5f768HBifN7pofOdQYTKEsODqq2qux9Tb9/xUGOeMhUWWuVRcIU8NNqZ3hop1xjfa
+         muy56KIPF5B+49hPuWdCwUMrlufET+u43XLr5kVds7bJ+wPGF70ibcfJ4KXrOH4cvjmN
+         Qbew+Fl2JvzabYKm3nr4lgE0kq2UFtzA6GZU5Q0cojc56eGgoWFC9CnX1xivrcWngOjv
+         rEBw==
+X-Forwarded-Encrypted: i=1; AFNElJ/Rk+Mc/fHBakuv/uwVwimT0D4TpUZ3VSmVRMR/E6c0hWbyeTpSDYiF+WnglGiBQp1oUGYiehLbJ0vbLCTolOIM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzKsZ5qv1DZT+0Kh5wv74ZpbeOUnxbflZSSByIqMd8gAIZRaC1
+	ckmfFr6gpWA7VhjMaBbEO+1nKB5AU4QvBK8kbEnvY2X+WTyuW8n1k9SMw1DOaq0nx3fofQv1pRp
+	L97kACVAWZt6mkPj5oe0h2tzHBVbgSjM=
+X-Gm-Gg: Acq92OGkoV902aH3KWNPhBYVY+y3wlqCCeGOS+iXRlKjH39quMB2/+prFsMBeH8UYad
+	pHcrx6411WE6KTWpfZsRKps5ZExEWUCM8Gzz9lpq8blo/+XdE7qw8XYdqHzDieqx3jldifiwgIh
+	Ev+YuXNi4SoRL+UdRIEJ/6a4v21oTRX1KfFr0r173vVYnZw8aXgCwqDG0RQthEFOUBhWFrI644Z
+	fZONEY54Wl+LXek0FgqEIBm5MTTt3iVPtwupNwpuZ1aXR9Kv52ZamKb0qT3TbyKZZJKgDw0S6DJ
+	gneJ4ZVLb5FEDOlulos3l/e9IFOK2b2kV5K+0acL2iUX+jnrBfkJo4phf6fFlzJYAoYfTbnraBe
+	VzcqiqNbXo08Y+0fSHBg338T1/27/QgsORNF5
+X-Received: by 2002:a5d:59ae:0:b0:45e:8526:7dcb with SMTP id
+ ffacd0b85a97d-45eb30deecdmr22155169f8f.7.1779723930477; Mon, 25 May 2026
+ 08:45:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1634; i=broonie@kernel.org;
- h=from:subject:message-id; bh=HDoLE08+LMsF0VGAE+rCwJWmLkQjgVi2YjS7YWE60Ec=;
- b=kA0DAAoBJNaLcl1Uh9AByyZiAGoUbOqhlLg1wPvZIojtWu3FEb0H1NR9/G08wMPrqySzWZfFW
- okBMwQAAQoAHRYhBK3maKpnVxi1n+Kf6iTWi3JdVIfQBQJqFGzqAAoJECTWi3JdVIfQtSoH/jB1
- B6iErPaE6qYmHbeZUyEALSiPuMZgnX0FbCVNAgZrLEdEVZ6vcy636TPlifiLyVSNPx4OJZ5VjhH
- xwwBDX6NA9U4DJCGD0yRdthITi+97INDChToqvKh/k0o29J44L/UTJAuEDDxqc2JHnuIZONlTA8
- sm+sG8Dx10c60ub2qTsRemJs9JrP+dy2iGY6qbZldrENKwtyhT6yURKI/CQtCcczclW+k9hzKWK
- RLMH71WJGF2Giyoi0oYWUY1iksvajGDsm8fWF+qP3LU9yp90a27CP4be1Ahk+UP58HELw3kqt3d
- dZQqYZfD5npusPHiTSDfATHu66Scp1v7Gc0TUCM=
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <20260522172219.1423324-1-tj@kernel.org>
+In-Reply-To: <20260522172219.1423324-1-tj@kernel.org>
+From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Date: Mon, 25 May 2026 08:45:19 -0700
+X-Gm-Features: AVHnY4IIG790PDlY0_eU6bDIBpmGdEOYyU8PJIW44rY53Ae4UthkEJDV1ZzBOrU
+Message-ID: <CAADnVQJ2r6qYRw-kRe-55Pwg9zAhj7SQkOd_eH=JSAyBFKKymg@mail.gmail.com>
+Subject: Re: [PATCHSET v4 sched_ext/for-7.2] bpf/arena: Direct kernel-side access
+To: Tejun Heo <tj@kernel.org>
+Cc: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>, 
+	Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>, 
+	Mike Rapoport <rppt@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, sched-ext@lists.linux.dev, 
+	bpf <bpf@vger.kernel.org>, X86 ML <x86@kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
+	LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260525_084533_119247_1F1DA6CA 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +127,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 May 2026 15:50:00 +0000, Srinivas Kandagatla wrote:
-> ASoC: codecs: max98090: switch to standard set_jack callback
-> 
-> The MAX98090 codec driver currently exposes a custom
-> max98090_mic_detect() helper for machine drivers to register a headset
-> jack.
-> 
-> This series converts the driver to use the standard component
-> .set_jack callback and updates the mt8173-max98090 machine driver to use
-> snd_soc_component_set_jack() instead of the codec-specific helper.
-> 
-> [...]
+On Fri, May 22, 2026 at 10:22=E2=80=AFAM Tejun Heo <tj@kernel.org> wrote:
+>
+> Patches 1-2 (atomic PTE install + arena scratch-page recovery)
+> --------------------------------------------------------------
+>
+>   mm: Add ptep_try_set() for lockless empty-slot installs
+>   bpf: Recover arena kernel faults with scratch page
+>
+> Patches 3-5 (helpers used by struct_ops registration)
+> -----------------------------------------------------
+>
+>   bpf: Add sleepable variant of bpf_arena_alloc_pages for kernel callers
+>   bpf: Add bpf_struct_ops_for_each_prog()
+>   bpf/arena: Add bpf_arena_map_kern_vm_start() and bpf_prog_arena()
+>
+> Patches 6-8 (sched_ext: arena auto-discovery, allocator, set_cmask)
+> -------------------------------------------------------------------
+>
+>   sched_ext: Require an arena for cid-form schedulers
+>   sched_ext: Sub-allocator over kernel-claimed BPF arena pages
+>   sched_ext: Convert ops.set_cmask() to arena-resident cmask
+>
+> Patch 6 reads each member prog's prog->aux->arena via bpf_prog_arena() an=
+d
+> requires the cid-form struct_ops to reference exactly one arena. Patch 7
+> builds a gen_pool sub-allocator inside that arena. Patch 8 converts
+> set_cmask() to write into arena memory. BPF dereferences via __arena like
+> any other arena struct, no probe-reads.
+>
+> Base
+> ----
+>
+> sched_ext/for-7.2 (f31e89a8f583)
+>
+> Git tree: git://git.kernel.org/pub/scm/linux/kernel/git/tj/sched_ext.git =
+arena-direct-v4
 
-Applied to
+I created a stable branch bpf-next/arena_direct_access
+with the first 5 patches and merged it into bpf-next/master.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
+Tejun,
+please pull it into sched-ext tree as well.
 
-Thanks!
+Let's do any follow ups on top.
 
-[1/2] ASoC: mt8173-max98090: use standard callback to set jack
-      https://git.kernel.org/broonie/sound/c/bad83abb5c29
-[2/2] ASoC: codecs: max98090: use component set_jack callback
-      https://git.kernel.org/broonie/sound/c/e2c428c3832e
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Thanks everyone!
 
