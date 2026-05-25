@@ -4,123 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BCC3CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:47:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF22CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:48:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2UnIgGOT1LSYNrYONi3I1KMllLugz4ZLItU3JkFbBWg=; b=hTNAic0qLgONGU9tu82EG3CSep
-	rDV1N8hu3VI7/jBqZrGUS3WR1ItahnQ/JPofxq5aKSbqcAABW8wgVNdNlufyPyFfUtRW9/uUN26Pg
-	l2/4DAgMM1hols6vcQKKRwlVzkSjZp8IDWuUhwwR77Ff8BA4Wi7KhszoVSVwSJO0g+VqrfstG9Ffd
-	QPoSRDGODPVx+vkC82Cd/a3jO/SjyR9gQqZLIML9x19sKeKSTPJgrwtxuu5BHp/9ZNWbftmxq7ASM
-	MJRn0XPJ51Z9dcF5yqyt8IuhV7II35ACmzVaSm253nUT3ke0abHQhqJSzpL6ltuakJ2klp+Zxb8T5
-	+s4jFn3g==;
+	bh=63/2YWqsD7Ors963G51wcV/l7BgjtiH2c939Q4Bz/2Y=; b=DpnHXMa2b8Ytbh50lvy4WA4fMr
+	cfgjDtvh68lqzWirQwnp7DcvtRl5LgugJGZVgmn+ZttT1vclaLR2o1wNL2G13werYybtVh9H13vrp
+	CdZo9pSoTWFo3+M5keIwmqAXGnfLI66GpqqWfBNmDjhnhx2Vei6Nb4c2GtwmbLuHCGPvuWsTsPbSf
+	i3L+0M5EOUZDmTTHtiNiVEdKAiLVV9ou3nD7WaXSns26NgF0nGYRbk4ho0yn9novueQ66+5KKZgWK
+	AzLMdBvmWko13IAMJXoNs+Ylox2jPmuP1cx297k6Qj/kUgAdaoWljqg0Trfk/XDJVBOtFb/8SXgFv
+	UXjf14cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRbGU-00000000M1P-33u2;
-	Mon, 25 May 2026 19:47:06 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wRbHH-00000000MBf-439v;
+	Mon, 25 May 2026 19:47:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRbGS-00000000M0l-0gsk
+	id 1wRbHG-00000000MAx-1mAh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 19:47:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KOm7p6kb2rWw8DWPlWjTdM7QA+TcqsJfiRA2Wro5gRhfSspCDH+5ZsI247kIK79I5DhoonuYvqQzZ8IrsUByTRYxNztSxuctbbgwUVKUVQ4yKEat/R1M4CqqiKnZyjbRqrZt/HYjghN8fnewErvioAaDdEHxWxsVD1vY+CLiap173XBPke9kIcEl0LnlQMgrmi2ecUnNu+CHaoufcNRLR2f0Dbjmx4DBpqgqnMbf4wy2b4ki9Q+MsWPleNj1+lP05LUWFRygEsFYOhFswn52wBLGZ5RVeibYwmf1ozfn+HKjo4wrGQOngkjJWdvz6pjmvNk5TwVpI6taipVTIGZ/pw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2UnIgGOT1LSYNrYONi3I1KMllLugz4ZLItU3JkFbBWg=;
- b=fO5/Y5ZZf7q9qknt3Ao3UkvzdaneypToci2Q/O87CSkmaXU/3q4oVVibTynh4bgnc0GAjFB4uFrPCDP43X9J7ysxF5f9x4UiMytJscLLFJIeyUZbJoMrvCeWCGYhyye774TQNLRDDRxciwgp22/lCILieZJLuMdbG3skaFHRGfutjOGQeoTLxZnnJwpu3Yi3JG97zCeXagGvtI4JHCkqDDaTDZIhHArn8ge/MxUTZL4Z4PZ3ZvSaYOIIHlZbHL9Bg97nsI+MoQhfd3HJ6hDHlFGmdNpwj7X4BeNdvgM/8XhU47dhcGbH+fUvaGsKN5PA2Q7KMEj5m4naNSPPMbEGZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2UnIgGOT1LSYNrYONi3I1KMllLugz4ZLItU3JkFbBWg=;
- b=XkETIIR3qvfoDtNcj8Tcj/5JhmqhPAmvk0yjrDmc1lDrlpPm9x4FOL3RYXZf4sMC6OQMRM1LNjfMGSUuQyVUfwO0B6n5MkDexzuQVkkWKeyKJQghqvA4eJs2RhA34UUp1PCZYKvwIfuOJag8KHa8ns8FEzdl8QMmuDPriAzwFaksbxOcF+yhWdQy2M0DwyHpmrnmyhMXtbehupJvvOWDGUD7Vl1cmTGZQgytlFRZNTDphif6aQs7GpVrvrE96U9YJVF93rxpEqyrirMG/be/VP6u2lAoZoHwv0XAiD3Db6istjyoqXCDZObfDtL2czf9E5i4nVdaq4vRdTVerMTBQg==
-Received: from BN0PR04CA0127.namprd04.prod.outlook.com (2603:10b6:408:ed::12)
- by SA1PR12MB9547.namprd12.prod.outlook.com (2603:10b6:806:45a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Mon, 25 May
- 2026 19:46:58 +0000
-Received: from BN2PEPF000055DB.namprd21.prod.outlook.com
- (2603:10b6:408:ed:cafe::6c) by BN0PR04CA0127.outlook.office365.com
- (2603:10b6:408:ed::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.20 via Frontend Transport; Mon, 25
- May 2026 19:46:58 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN2PEPF000055DB.mail.protection.outlook.com (10.167.245.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.92.0 via Frontend Transport; Mon, 25 May 2026 19:46:57 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 25 May
- 2026 12:46:56 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 25 May 2026 12:46:56 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.181)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 25 May 2026 12:46:55 -0700
-Date: Mon, 25 May 2026 12:46:53 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, <linux-pci@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Joerg Roedel" <joro@8bytes.org>, Will Deacon <will@kernel.org>, Bjorn
- Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, Lu
- Baolu <baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>,
-	"Suravee Suthikulpanit" <suravee.suthikulpanit@amd.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, David Matlack <dmatlack@google.com>, Samiullah Khawaja
-	<skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, Pasha Tatashin
-	<pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>, "Jason
- Gunthorpe" <jgg@nvidia.com>
-Subject: Re: [PATCH v4 2/5] PCI/ATS: Validate STU for VFs in pci_prepare_ats()
-Message-ID: <ahSnLeKchpPbz1m9@Asurada-Nvidia>
-References: <20260525184347.4059549-1-praan@google.com>
- <20260525184347.4059549-3-praan@google.com>
+	Mon, 25 May 2026 19:47:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 41CBD419ED;
+	Mon, 25 May 2026 19:47:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4811F000E9;
+	Mon, 25 May 2026 19:47:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779738473;
+	bh=63/2YWqsD7Ors963G51wcV/l7BgjtiH2c939Q4Bz/2Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GVPtEeFCZQSk9Wea8Lxyztx9CSsIescfzNCXFArUSSMYqsGkxNNxKQEysr+S5MOda
+	 z46juzqnVw7Mb+v342+1B9m/jrFkMEIgWqaK5n/mgl6ADz6Hr4d7HDV4p1TiMZ4SJL
+	 5uA4KBuSf6127jq0dFoqnzpahbM4f/PwE4x9R3UlC8/X5WZMZiDvcgMfr4ZL7036Al
+	 95+YVXShjuRvwQoapHPi9Fl5589retks03tP4Ih14LsRxoGSJyYz8DmcttDl8lRTqn
+	 aFZLp74USzwDnEzyzwBhY5vznHjeXgkRRosbNhEJz4qak3rSM/5HjPf7Y57DXbHfZp
+	 xlFEnvD0BvqTA==
+Date: Mon, 25 May 2026 20:47:48 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: clock: renesas: div6: Use ZT/ZTR trace
+ clock in R-Mobile APE6 example
+Message-ID: <20260525-outrage-lego-2858c3eed769@spud>
+References: <20260523192622.56605-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="iMjt770BTEZflGTE"
 Content-Disposition: inline
-In-Reply-To: <20260525184347.4059549-3-praan@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000055DB:EE_|SA1PR12MB9547:EE_
-X-MS-Office365-Filtering-Correlation-Id: c476e18e-c8ef-4793-8a10-08deba9661bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700016|1800799024|82310400026|18002099003|22082099003|56012099003|4143699003|6133799003|3023799007|11063799006;
-X-Microsoft-Antispam-Message-Info: xRRYuswypn6mGV0w7jtKGCdfqqpoP40zb3f9+tQ5C0fSxsT8JOw+1dyx6IQ2/yK88rbVoh0egKS5awwH9gbP39w4ms0Vb8Agd0vgAO54IBOBg0ibQhMxhXUKp6UdFqQC29Q24KBAw8EahjmOrX5DQ/+8vlE0QsBTdVDcdWLBNj2ItGaGNLNLbnD/RTc4c4Rvhiub9qkJrtKaYIELubvotJjI8SvrTJmr2Zq3TFAcGVWQjoIswSH3E2j/EEgvK2R+kh8nb/rnQVPRGHeZSuNPPP1wGQ+sIORvvm/EZQSbg9RQ9084yqxCzznML/DO0y71npSKjHP81Me/PmcOh13315s7m34d3+H5gVxk87Pxdl6l5/CIpZAVf0rAgP5VOwyKC9QrSgypzXplr9HKC+UvZMOOKZ/TPiZp9nJeu4fjjBbfR1IWgbozawsp26XPMt4tq+zinytlJPzs6zgyV8j4rCQSG64Kxz82Jpw11SBVf+oZiweVpoom1OT3H/DMSLkDBUfq3AM8IVYFVxtqTHePnZBQNEe+R4ULyvA8drorSn6Mqyhq/1aKTWlfG+mQA8Lz1tkXfBbs0GXmCvNq8Aw0GNDbMNXp9qa0wvpqist8FGC4nZIWG8JJqL18E4e3qbx86yDlSUFkzkBxE7OE/CGglusuq+BDa16r8Cmn9aijuaBin9y2WH1fEQdcH1gZSh2OR7+nJYtwJh5Af6r21su4hylwSGGNtkfw4kM0J2BwesA=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700016)(1800799024)(82310400026)(18002099003)(22082099003)(56012099003)(4143699003)(6133799003)(3023799007)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: zy+hf/mmKIWK71O2GndOGd8B8V1kKR83X6veL6B+Zet38capcac1sP1FzWe4RxBW1xAUm37dIYddffD7KgfF/w/puv12DGOSGkrcaT2UbhDIlm9EJQ82JlCpP+8bDUg6wjEzjB/O2dF6IW1wNlUFoqsG8R1hap7wwrLjet9XimQh9OXf6zfU4xAS6RPr8HSeqfWN6Uov7f1QVsWQQfSTls4ZT5H4puJlxlGbCkW7tPB0q70eMoH0FsTbvGnIpoZfoCQ1A0RtOkXn3BOgrf6LhmdTKrENSKPLThStt3OiMAQ27OgNv69vsvbLoKRIH3SMkX0MCVdwqs5j1bA6BhfJuRKROkMZo1cf9lERRLrrJBgoXo/jyqLwOTCEdU+4CXRz8Nhm87fkqe+nhDt2QiDVpibRz7TjQPgKcoOvjUKOzRMc+sS3xRNx7VyU4ws7oMJm
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 19:46:57.8816
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c476e18e-c8ef-4793-8a10-08deba9661bc
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000055DB.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9547
+In-Reply-To: <20260523192622.56605-1-marek.vasut+renesas@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_124704_209927_B95F8EFB 
-X-CRM114-Status: GOOD (  17.27  )
+X-CRM114-CacheID: sfid-20260525_124754_484012_9E1D2F3E 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,47 +80,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 06:43:44PM +0000, Pranjal Shrivastava wrote:
-> While every PCI Function that implements ATS has an independent ATS
-> Extended Capability structure with a Read/Write Smallest Translation
-> Unit (STU) field, the kernel manages SR-IOV ATS by requiring the IOMMU
-> driver to configure the STU on the Physical Function (PF) before any
-> any Virtual Functions (VFs) are created.
-> 
-> Currently, pci_prepare_ats() bails out early for VFs, assuming that the
-> PF has already been correctly prepared. However, this creates a potential
-> mismatch if a VF is subsequently prepared with a different page shift.
-> 
-> Update pci_prepare_ats() to validate that the requested page shift (ps)
-> matches the STU already configured in the associated PF. This ensures
-> early detection of incompatible configurations and maintains the kernel's
-> policy of consistent STU sizing across all functions associated with a
-> given SMMU.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Samiullah Khawaja <skhawaja@google.com>
-> Signed-off-by: Pranjal Shrivastava <praan@google.com>
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
+--iMjt770BTEZflGTE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Nit:
+On Sat, May 23, 2026 at 09:25:50PM +0200, Marek Vasut wrote:
+> Since commit 2abdc3dcf978 ("dt-bindings: clock: renesas,cpg-clocks:
+> Document ZT/ZTR trace clock on R-Mobile APE6"), the APE6 clock node
+> expects two additional "clock-output-names" entries, "zt" and "ztr".
+> Update the example accordingly.
+>=20
+> Fixes: 2abdc3dcf978 ("dt-bindings: clock: renesas,cpg-clocks: Document ZT=
+/ZTR trace clock on R-Mobile APE6")
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-> @@ -73,8 +73,13 @@ int pci_prepare_ats(struct pci_dev *dev, int ps)
->  	if (ps < PCI_ATS_MIN_STU)
->  		return -EINVAL;
->  
-> -	if (dev->is_virtfn)
-> +	if (dev->is_virtfn) {
-> +		struct pci_dev *pdev = pci_physfn(dev);
-> +
-> +		if (pdev->ats_stu != ps)
-> +			return -EINVAL;
->  		return 0;
-> +	}
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-pdev doesn't seem useful. Dropping it reads better to me:
-		if (pci_physfn(dev)->ats_stu != ps)
-			return -EINVAL;
+--iMjt770BTEZflGTE
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Nicolin
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahSnZAAKCRB4tDGHoIJi
+0vl2AP9l+ryVmXD2JyeSGAK3rZF8YEqWuxvXoEPpknmVqr3CpgEAgMfUE6J96aiu
+6Qv/mObJL5G8vRFckeaPOk30b+HhLQs=
+=5QF5
+-----END PGP SIGNATURE-----
+
+--iMjt770BTEZflGTE--
 
