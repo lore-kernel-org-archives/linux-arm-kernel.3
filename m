@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A15CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD301CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZnQ9RgKaNsNwcPR6h/jF/G5/iqFMlMJPbSMjyRrPPH4=; b=Oqqvet20pD6CwkJ1WjDiqtZP/g
-	bcwYdCNZEO/3OKEscFuUwds6PooGV3O2sImI2dNpOT0BBJ3OIl3X3JzAnE4KHUSSDMXPOQvmzYUkT
-	Jf8ZWiobhfb1ddRpEz1CxMXBV9UjkBU6/2g07hFXG94JrJJKn9wZxlKqyoN0qW6eoNnHvl7i5pTEj
-	9Nfrd6LWvTwh74aFrJIxeHmDrGIjKUPs6JEdqeFwumIoDLJfAquQ1I1t6ITwa2IGXqXQGM5ic3KE9
-	dCSBi9+LeQ1eSl1VcdCqT29QXOUelw9V/c/Z9e8l7FNrU2jSQU+8Ppumdj6xasO7RAyGBhJureuBq
-	lml6MCIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dJmxlSvWQVKoc/7QuMVj+YRRA1DlN4UUW864zJ29Qm8=; b=Zj9YHtUOIFduQ30hnYB8wVp6KI
+	eJZzrGfxz45vrwtqh688fFl3HCSNVExGCVwAd4D9YYscaJtNIzEaYYJDINfHfkD0ONK+I9ru0zaxn
+	Hxrxpldy+k4wXVBnIZy6KcgUU73bnipojWVqbZ74kNRyj1asvzfKXeY5okfnfGEWvSd8Fq9wcROKJ
+	MV9j+c2phZrLFy9GA/hsHlYhcQpfVKepyBexuWr4UL4kKYIt1riah2kplXTNJ4rQiZprXyoUG38LO
+	bV7WTn1PpjuHaeR0c6ok0ZXhRewp5QZeo1Ms+yewXVdOr1mCa04Qri4jea6/LJPaN6xTfaqomRMc+
+	G5OfBE2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRk9-0000000GpuW-1eqK;
-	Mon, 25 May 2026 09:37:05 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1wRRuR-0000000GrDa-0gLc;
+	Mon, 25 May 2026 09:47:43 +0000
+Received: from mail-m10143.netease.com ([154.81.10.143])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRk6-0000000GptQ-3XQx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 09:37:04 +0000
-Date: Mon, 25 May 2026 11:36:51 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1779701819;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZnQ9RgKaNsNwcPR6h/jF/G5/iqFMlMJPbSMjyRrPPH4=;
-	b=ITEMvkyDepRUxpz/GvZIhxeNE12ljx8AEJKrhfQFdjpCLScZUyQDwT6EyTn0jSXOFpA7Rl
-	Ajlz9d93Bm+4vISbWdPlhs+tgCByaY8hjvCcXavxCCLUXYUz0JQc5Q+b5Sr+7cemVztqJJ
-	DQuXt/L/vS74HSE4SvuY+sf18h5kBsE=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Thorsten Blum <thorsten.blum@linux.dev>
-To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND 1/2] stm class: Replace kmalloc + copy_from_user
- with memdup_user
-Message-ID: <ahQYM0LA_-4yHToW@linux.dev>
-References: <20260402165933.895706-4-thorsten.blum@linux.dev>
+	id 1wRRuN-0000000GrBh-2yES;
+	Mon, 25 May 2026 09:47:41 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3fb5f0035;
+	Mon, 25 May 2026 17:47:33 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v3 0/2] Add eDP lane mapping support
+Date: Mon, 25 May 2026 17:47:29 +0800
+Message-Id: <20260525094731.121380-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260402165933.895706-4-thorsten.blum@linux.dev>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e5e8855eb03a3kunm84eb206f10f6de
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaT0tKVhgaTE8YHUJOGEMaHVYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=LhdM9J5K8Ff4EF6h/eqz/71N+GCQt1zn7XF4QRbFUj85GTayKMHtqx+Zn5aNDYN9GHdaN5LdhKHzg7EAebf9qSSuLxTZLdVjaT4JppPiW76gzei2ODx/QYnLjDW3t1VZ/mS8U2EdNM8BKpyCfPfmOSkBuE5otmOybJWOMHyVwH0=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=dJmxlSvWQVKoc/7QuMVj+YRRA1DlN4UUW864zJ29Qm8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_023703_031864_E6D5025D 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260525_024740_303163_409922A5 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,41 +94,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping?
+This series adds configurable eDP physical lane mapping support via
+device tree data-lanes property.
 
-On Thu, Apr 02, 2026 at 06:59:35PM +0200, Thorsten Blum wrote:
-> Replace kmalloc() followed by copy_from_user() with memdup_user() to
-> simplify and improve stm_char_write().
-> 
-> Allocate and copy only 'count' bytes instead of 'count + 1' since the
-> extra byte is unused.
-> 
-> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
-> ---
->  drivers/hwtracing/stm/core.c | 12 +++---------
->  1 file changed, 3 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/stm/core.c b/drivers/hwtracing/stm/core.c
-> index 37584e786bb5..49791024bb86 100644
-> --- a/drivers/hwtracing/stm/core.c
-> +++ b/drivers/hwtracing/stm/core.c
-> @@ -645,15 +645,9 @@ static ssize_t stm_char_write(struct file *file, const char __user *buf,
->  			return err;
->  	}
->  
-> -	kbuf = kmalloc(count + 1, GFP_KERNEL);
-> -	if (!kbuf)
-> -		return -ENOMEM;
-> -
-> -	err = copy_from_user(kbuf, buf, count);
-> -	if (err) {
-> -		kfree(kbuf);
-> -		return -EFAULT;
-> -	}
-> +	kbuf = memdup_user(buf, count);
-> +	if (IS_ERR(kbuf))
-> +		return PTR_ERR(kbuf);
->  
->  	pm_runtime_get_sync(&stm->dev);
->  
+Lane mapping is mainly used for below scenarios:
+1. Correct PCB lane swap and differential line routing crossover
+   without hardware changes;
+2. Adapt mismatched lane pin definitions between SoC and eDP panel;
+3. Support multiple panel hardware variants on the same board
+   by configuring data-lanes in device tree only.
+
+The series includes driver implementation and device tree binding
+updates to support custom lane mapping configuration from endpoint
+node, and keeps default linear lane order if no configuration is given.
+
+Patch 1: Add endpoint data-lanes property to analogix-dp binding
+Patch 2: Implement lane mapping in analogix_dp driver
+
+Damon Ding (2):
+  dt-bindings: display: bridge: analogix-dp: Add data-lanes support for
+    endpoint
+  drm/bridge: analogix_dp: Add support for optional data-lanes mapping
+
+ .../bindings/display/bridge/analogix,dp.yaml  | 19 +++++--
+ .../rockchip/rockchip,analogix-dp.yaml        |  1 +
+ .../drm/bridge/analogix/analogix_dp_core.c    | 56 +++++++++++++++++++
+ .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 +++--
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 ++
+ 6 files changed, 85 insertions(+), 14 deletions(-)
+
+---
+
+Changes in v2:
+- Add lane mapping application scenarios in commit message.
+- Remove redundant deprecated property 'data-lanes' for eDP node.
+- Update port@1 $ref to /schemas/graph.yaml#/$defs/port-base.
+
+Changes in v3:
+- Squash [PATCH v2 2/3] into [PATCH v2 1/3].
+- Add unevaluatedProperties: false to both the port@1 and endpoint
+  nodes.
+
+-- 
+2.34.1
+
 
