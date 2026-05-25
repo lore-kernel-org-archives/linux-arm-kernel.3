@@ -4,115 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B894CD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C9ECD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:34:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DoERE+8L5vLj1dPanKPuhfMBdwOHVvuHRasN+h+wvto=; b=W0pn5TZUvgAHKH6/R8Yi4/iS59
-	YCV9ZkrwdmjwVJcnQJ+nzQ67/oQn3BuJKYY0IJN3SKfKnMk9WCHfKeKAkUL0vx9ru1iQHLb+nnD02
-	4IxFZkNh4M94E4s0mVr0D2O30MT59mTbv94Wfm9CjGLRBDtIJRup3F3GpIOt3oUmoSPCkMmLFqriw
-	qZM7ksGEYOtOAVZqrgDLhzf9BAb+jfVpyCaKdRqaEjYjYkva1xSTofhpHHQWDwZyxcE+lrQW3yo21
-	gNnd7+F6zuaIx7jZdxeACGLC3BeUEph40bDxoAcBUN0Db+FDyTlQhmg3BMK9Dd4ad5msu64fOBSfK
-	6WNIT4Zg==;
+	bh=NWtZANLHzw4I/IUILA+giiDj3hDdk4vM2TOMGAB+8uo=; b=HcjITv0tVaRKOwXgDre8L95Cwn
+	RDtLAif/dX0sNrRqAjNEKjIERbk9vKnfBJT4hv6/0g4cPifLjyVKDska+hXA4AwhabIz9Xg41HOYL
+	kftcSY6zT63KN1d8C8ZEVP+XTOAoTsPMGjzFMMUN7RiGY8na9RsbNGbDDO/2TmBHPYzfsYOi4Pd1U
+	rrBxlU5O3qaEcId4n7N0cI3Z88zZ++4392kZhAhC2mPYlaEDyddioV1gdx8LGOc48SQt9xil863gf
+	nv+/knV8hSaQgPxEHEd3W7Wz/VtmpYJ+vtddLBaVAzUqkO2NJKX0TjFrDdriLNXPATjLML346Zdxj
+	YEQmTsyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRgP-0000000GpLO-3GVO;
-	Mon, 25 May 2026 09:33:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wRRhj-0000000GpYr-3zgn;
+	Mon, 25 May 2026 09:34:35 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRgN-0000000GpKu-2P4Y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 25 May 2026 09:33:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=DoERE+8L5vLj1dPanKPuhfMBdwOHVvuHRasN+h+wvto=; b=IaoUAzEuGf061FNQLytpiF2Her
-	6sP9bXsRtifUvyyEGqUA9QdFZ9AzIE/ComDr2Xu+3utBxl5yn8yzX9A3zQ0nYPEhrmq32GtefSL34
-	JdeM/2dzyK6qUtoPHY3tNH4wVup7EcuR/FBgBAZe2P5hKroblbZ6HCEk2E6WVkqVI+AT6Kg84b24U
-	+4mQ/JjbYAbSjHMkBdxuBmXw2TPIYpfzDrb+dRUbY8bUCpV3B6ZcdTr+l9V9h6EwTuoxGTJYWBRG5
-	GvxCQWOH3atFlRzQH3uoX8533VchTmIHG254x/1XLJdq/IxS80GP32PsSbTQMySqVGWWQJ+c1m6N+
-	xKUrGgPQ==;
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRgK-00000008ueH-1BiJ
+	id 1wRRhh-0000000GpYF-448y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 09:33:10 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-45e7c636e74so4922418f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 02:33:07 -0700 (PDT)
+	Mon, 25 May 2026 09:34:35 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64P9EmdT080127
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 09:34:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	NWtZANLHzw4I/IUILA+giiDj3hDdk4vM2TOMGAB+8uo=; b=pecBBg+SsBTrRmQr
+	Pg3TUzF8MmHBHR09X/FqARhTkfJBdK/6RDtiEhRtj0mRcmkDgKDSdOyuEqytApXq
+	WVyX2QxasQhCfnhMP1AAAa+uO8xVM0J4enEU1Tuw/qqDW08qzaNautouP7MWtx5H
+	l0e14uTrUywGuttuq2vndYtaxZOjzhC5eBdrP8HGvsaBvTQj4qNigwBwMGN/mtnk
+	gOkeXwzCYrLxwvdLGa9b+AqwunWbx9/zRFTvUn4dW+g53zBJ9Ebx4HKlEOWkPiEl
+	2XgYhnhjsZ/MxUS/iGyWahjRobN1Z+WsZDjBbv8HOAphLPS69hhTRPa1uX1Z+41p
+	Vxg53A==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eckma82qy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 09:34:32 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-83f7e7f7457so5761805b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 02:34:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779701586; x=1780306386; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1779701672; x=1780306472; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=DoERE+8L5vLj1dPanKPuhfMBdwOHVvuHRasN+h+wvto=;
-        b=MislluTCawTtaxdj5TuMUsGtsH3X20v2YcSRE1XE0rJJ0/wSMKyB5BkycRxKwqd0IB
-         Cg2pAelB2W6ta5EIfyFdK8WO+dxNz4gk2W6tf3v7crol2lsfNhiyvhhbW4Sd9VdKp++m
-         O2Nq3O9+4jjz5lZvNEgBBZl+GLohImEp2Stoki0II8fMG4sAecS8oo5zHiXEklLzCHfI
-         cntdvsmzzPJcMrKhMVPn6GpWHBo+tv5KE1mFLFbeYxHyPm3lOZZH2h9qTWzE8/PkWcxK
-         SMz2Nw/h288Xe2k6u+2L3D9xhrkFTC3xOkyJIsZST4/74hzKq6toXoptIbhPyhV5XcpN
-         7efw==
+        bh=NWtZANLHzw4I/IUILA+giiDj3hDdk4vM2TOMGAB+8uo=;
+        b=C7e/ZxEvlNBEcWJzlpZsWU1nKoDzQKZwIUjnp4CP8tPdinxsJbr2Hdm4e8D9OTEFZA
+         8sbxLXT31Gc1MPPWPpLhXcc6tpxRoB5z3TQvbF+eMuLtL0me/7bja+1Dvr28DLuLc7dP
+         EVLxUlZVDTMK2wq4sYPavjWMcu2c1kh3NHASIGt12+WwDgddsRH/61ElakXE0xiSsuRf
+         QS7uUjGNnQ3iL7R+ye889lw2zwED0LEMt6SMrxmDucVf5kMvN/Fhxp66h+uSGIQoPJ2X
+         1YzOmr7n++GnIOXcZ+4U3VhX+QwViKr3uBUzvuPLF39GwBqPxEB3IQTms50PlTgMzK1I
+         Rl2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779701586; x=1780306386;
+        d=1e100.net; s=20251104; t=1779701672; x=1780306472;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DoERE+8L5vLj1dPanKPuhfMBdwOHVvuHRasN+h+wvto=;
-        b=DPnM25jp0v9xpcwUBLPWdrVcfAQGnCHf1veo7sdrP8/VTsWvjIEJhH/IaT7/G6wWgc
-         1fONRnBD9cJIi8fDqIGzBvK1wL3ScsOlzS6j92oSWKMC/mIIx8E64SgPG0KmTyPfPa9Z
-         EhqcMFh86jozIKCgxWduaNAPC1ER3sQnPwjTZ1fCfh8+IghOvJCDBKS8hD9Xrg5EwEnS
-         RSUyGmBJipqB+oADPewdsL9/i4T5Wfl1qOc0CuNIgEZbN5XMN1j7EzJyz+1xIgcwHd+Z
-         hp1UUR9wAb/59GAmqhfDzQ796Vg9OaUlkVcwn+V7u61n+m+p3xDpTeUK1ukkA0y1+6MN
-         XZYQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+n5CJnxSfHX59OoOy4A8OPQi05n/v5lfz2Gki9SbvMGrXjfvWA+TJ13P1xo00i1Z6dtPkT5k39sHESaRtWz5hz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2LhnSWo2miMwanGc3MJg2VMhq/PH8+pHZ6rGHiiotqOouJ2C+
-	hDK4jYzo997H/FjV7d2001u3l92w08gD9+cfd94nG/wJI1qzxbK4HdXM
-X-Gm-Gg: Acq92OEwuv9XZNg/cBbRPMzrlCjm8TuKy8VX8/+ffST6Ou440sc+AnnfXlAztJDSiL7
-	eCTO0sTOvY7pc+RsDuvN81918lrojhFcL8hDZSptBQhb/WnM+v4K8z4dHcikwkZaPZUosOkj36J
-	tPq5CxftkwbDaY00AQP/ra/HUfkxkODdO0aw13PFDegt1RSaaWnED1+U9QiI7aAy8YhmYt0qo7s
-	tD6jiFxHzJ6dg3OCSb2EX8fhPqqjsbExsp+J8EB9ha4y6qpqmPPYV+52ymTgDRaQ/TjPRr3OQXf
-	HXjINxJ1r8tMPuCaPuP/zidX3gE3X7ThzcfuhFME7+b1eIzD0UFXXZkMGcje/HiDI5bMZkPhnAU
-	WFsUl13YYxpLCP85WvJJZflRJ1IptOd0g8sVn2mA3tw2rPCSJgfJokQ3/cjpJimQrxLMsG++k1J
-	xMmy7M1SOvoB9C2KmTy9T/G8L75+0S1GcxYt5/mHNDxAE3BMHg2fAY+Yn/
-X-Received: by 2002:a05:600c:8484:b0:490:3c94:a3c6 with SMTP id 5b1f17b1804b1-490428e205cmr231028375e9.26.1779701586132;
-        Mon, 25 May 2026 02:33:06 -0700 (PDT)
-Received: from [10.25.212.250] ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4904333146bsm135468715e9.0.2026.05.25.02.33.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 02:33:05 -0700 (PDT)
-Message-ID: <3c2bc7b9-33e8-4840-af41-ce6e7308ae2f@gmail.com>
-Date: Mon, 25 May 2026 02:33:02 -0700
+        bh=NWtZANLHzw4I/IUILA+giiDj3hDdk4vM2TOMGAB+8uo=;
+        b=DIen7bpRNrxJbKqGJskTY860epTnE7RGhJFtwyGGRbKEigZIEeNs0EyCWGFEv1Rw8O
+         VkS4RDHraUPT0CQTlM0vJFIKSGqZkS3lZ/S9FoK+uFZekpWT2HXacRAro7npiAH1WKTq
+         9oSPn3RbOgQAXEaDOlXjRCtk5fKjrZGpiY+Z55kXiZ+yt11d0S8KYtYhzaawpNBccvP/
+         o/Jz7gyffFEYFg+H1WLHI8rKwy77Sxs98SOOFG54nQQ5LmQStDm5sHcbcysQw0RHDRpq
+         VSMPtaR6CKeJYiTChT37ZFD2cqEGkDzfEO5KtvuhYkT1RAVe5ITRJ+6qfrqDFW15cEC6
+         l6pw==
+X-Forwarded-Encrypted: i=1; AFNElJ+FzytNpM+KEXjQEf4rWJnaZREMcm9IpkECGcUc1L5I6dcLWsiIC8ssLRTTovu45UZGIEopRqqZnbjez6LgDEIi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwO6l60lzDEbfC8lDJJbjEE6IXaYADdw+30z7wgrQFjVQT9AI4w
+	6BcskMCuhB/9Gu9VOKOU26V8E7bZmrPOpK8WYf3y/3dUoAIHZ30fkapCjuB2qH6JHyWwAZhPF4O
+	AG/x+bUSINd6HzobM+UM6HAwO7Juar91VUfteKvmYK+3QacOYaBiVRa6chRs1FlI6y/UgvHC9Bx
+	oy9w==
+X-Gm-Gg: Acq92OE3rEBkIzakauUcItAFlQim1R9kQbtp4NkgQLPMfZBrfz7aRU4WC246+SGSyHs
+	SUBUNnL+eelCZwbG72oSRp1in9IUXwnmiSlD5ITiyFbEoIKwzRBYuJKf/eFaSPf4tGAGS+SKaAP
+	1HvT2452aoBCLhP/MwOhY1hu/C4BfO6tfGZ3Hs0BWAo5sKNZpKilVjjf7ihjmxnLpKTC6yBCi0j
+	7QhdbWcqItLM9u4OPAG9dFP5fBbBbGt0HILdeNbNsJnjYmrVSv+fjZEqKmqka/FwR0R+/lYgdio
+	EiopMHAq9rLV3meyqS9Q7TxWldZJGFE3qLC2e4QvBMk+o266N/nHDxcmG/IdxVfl2OH63kGCdo2
+	msAx0LxHqkfbpGJDVBoaw5h6tQE9XtGw1Z7FpEIeGK6bEWkfH2z3gFwUK
+X-Received: by 2002:a05:6a00:3c6c:b0:841:a0c8:6e9c with SMTP id d2e1a72fcca58-841a0c8731dmr1853824b3a.26.1779701672282;
+        Mon, 25 May 2026 02:34:32 -0700 (PDT)
+X-Received: by 2002:a05:6a00:3c6c:b0:841:a0c8:6e9c with SMTP id d2e1a72fcca58-841a0c8731dmr1853810b3a.26.1779701671783;
+        Mon, 25 May 2026 02:34:31 -0700 (PDT)
+Received: from [10.219.57.229] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-84164fd80cdsm10474835b3a.49.2026.05.25.02.34.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 May 2026 02:34:31 -0700 (PDT)
+Message-ID: <c034a7c5-7215-4e96-80cf-ef0c51f8291b@oss.qualcomm.com>
+Date: Mon, 25 May 2026 15:04:20 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] arm64: dts: freescale: imx95-toradex-smarc: move CM7
- node to SoC DTSI
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
- <20260522111849.783-4-laurentiumihalcea111@gmail.com>
- <ahOwvnij7Fwxh3La@shlinux89>
+Subject: Re: [PATCH v22 08/13] mfd: core: Add firmware-node support to MFD
+ cells
+To: Bartosz Golaszewski <brgl@kernel.org>, Lee Jones <lee@kernel.org>
+Cc: Sebastian Reichel <sre@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        "Rafael J. Wysocki" <rafael@kernel.org>,
+        Daniel Lezcano <daniel.lezcano@kernel.org>,
+        Christian Loehle <christian.loehle@arm.com>,
+        Ulf Hansson <ulfh@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Matthias Brugger
+ <matthias.bgg@gmail.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        Sudeep Holla <sudeep.holla@kernel.org>, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Andre Draszik <andre.draszik@linaro.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        Srinivas Kandagatla <srini@kernel.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260514-arm-psci-system_reset2-vendor-reboots-v22-0-28a5bde07483@oss.qualcomm.com>
+ <20260514-arm-psci-system_reset2-vendor-reboots-v22-8-28a5bde07483@oss.qualcomm.com>
+ <20260521112638.GD2921053@google.com>
+ <CAMRc=MfqaCjiALZyVBHQs=Taft1M9xmNTFvQHWPrd5PgcTfJDQ@mail.gmail.com>
+ <20260521132419.GA3591266@google.com>
+ <CAMRc=Me5QS4xA3PJWXNuRP1N_C+w3sP9ZvqH36GNh2Ebc9hwcw@mail.gmail.com>
+ <20260521162705.GH3591266@google.com>
+ <CAMRc=MdiwwX_XH7JFW8HuLvYA_ao50fjj0Oip2WMM4QROHRiFA@mail.gmail.com>
 Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <ahOwvnij7Fwxh3La@shlinux89>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+In-Reply-To: <CAMRc=MdiwwX_XH7JFW8HuLvYA_ao50fjj0Oip2WMM4QROHRiFA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=cL3QdFeN c=1 sm=1 tr=0 ts=6a1417a9 cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=VwQbUJbxAAAA:8 a=VqCRv7ZaHuqyx2qM4PwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=OpyuDcXvxspvyRM73sMx:22
+X-Proofpoint-ORIG-GUID: wrbsEer71g2o3eyF_aGkX4vVZVDNY-Bu
+X-Proofpoint-GUID: wrbsEer71g2o3eyF_aGkX4vVZVDNY-Bu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI1MDA5NyBTYWx0ZWRfX3VUiVXoOuC8l
+ GXGNzWft25ZsiDs5R1TJde3yrw40hZnTjVmuPc47qr2HtzIc7ezBVfcuT71bg1+KcRCmF5oH7+4
+ 9wAmERjohtxSpv7MsR84BTVKuD/taNuEE99iBSf6mF6w0CJ4kY+A1wnlOXeFg70yelJIRuTzgxH
+ 4MIU0UTCLI+aIyD2/fplhC2U2QoIKukPmFX+u4B9K1rqfflpG5D1UmTDy9b27v8A2mqhIQqdgH8
+ YCx419ZnYieOUSD5STOQou8FRM7pcpwyLpjZRY4sgSeLSIlIIa/Z3wnjn7voh5z43xq/n0ty4tF
+ WrhXjFliINPfxMJO3H73hy2cIHFPciPYnEd4rZNmOKeI+ku7UPn9y5Lqd9YwAe5D3afR8e96eBr
+ ETbq5/6JjqQyVZcp2z4j/koMfCscOsb0VqKKPJ+YNlKci4pRk96YO3Wv/5FCt3OqO8PMFe2Zb6A
+ UCvYhLzte2YzQbQyhAA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-25_02,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 priorityscore=1501 phishscore=0 adultscore=0
+ lowpriorityscore=0 spamscore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605250097
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_103308_756385_4B3E21FE 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20260525_023434_015970_0235094C 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,74 +181,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/24/2026 7:15 PM, Peng Fan wrote:
-> On Fri, May 22, 2026 at 04:18:47AM -0700, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On 22-05-2026 14:38, Bartosz Golaszewski wrote:
+> On Thu, May 21, 2026 at 6:27 PM Lee Jones <lee@kernel.org> wrote:
 >>
->> The CM7 remoteproc configuration is common to multiple MX95-based
->> platforms (e.g. MX95-19x19-EVK, MX95-15x15-FRDM, SMARC-IMX95, etc.).
->> Therefore, move the node to the MX95 SoC DTSI. While at it, split the mbox
->> channels using <>.
+>> On Thu, 21 May 2026, Bartosz Golaszewski wrote:
 >>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->> .../boot/dts/freescale/imx95-toradex-smarc.dtsi    | 14 ++++++--------
->> arch/arm64/boot/dts/freescale/imx95.dtsi           |  7 +++++++
->> 2 files changed, 13 insertions(+), 8 deletions(-)
+>>> On Thu, May 21, 2026 at 3:24 PM Lee Jones <lee@kernel.org> wrote:
+>>>>
+>>>>>
+>>>>> I suggested it because of its flexibility. The alternative I had in
+>>>>> mind is something like a new field in mfd_cell:
+>>>>>
+>>>>>      const char *cell_node_name;
+>>>>>
+>>>>> Which - if set - would tell MFD to look up an fwnode that's a child of
+>>>>> the parent device's node by name - as it may not have a compatible.
+>>>>
+>>>> Remind me why the chlid device can't look-up its own fwnode?
+>>>>
+>>>
+>>> Oh sure it can, but should it? I'm not sure it's logically sound to
+>>> have the child device reach into the parent, look up the fwnode and
+>>> then assign it to itself after it's already attached to the driver.
+>>> This should be done at the subsystem level before the device is
+>>> registered.
 >>
->> diff --git a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
->> index 7d760470201f..c94a63a3bf8f 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi
->> @@ -145,14 +145,6 @@ reg_wifi_en: regulator-wifi-en {
->> 		startup-delay-us = <2000>;
->> 	};
+>> Leaf drivers reach back into the parent all the time.
 >>
->> -	remoteproc-cm7 {
->> -		compatible = "fsl,imx95-cm7";
->> -		mboxes = <&mu7 0 1 &mu7 1 1 &mu7 3 1>;
->> -		mbox-names = "tx", "rx", "rxdb";
->> -		memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
->> -				<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
->> -	};
->> -
->> 	reserved-memory {
->> 		#address-cells = <2>;
->> 		#size-cells = <2>;
->> @@ -204,6 +196,12 @@ vdevbuffer: vdevbuffer@88020000 {
->> 	};
->> };
->>
->> +&cm7 {
->> +	memory-region = <&vdevbuffer>, <&vdev0vring0>, <&vdev0vring1>,
->> +			<&vdev1vring0>, <&vdev1vring1>, <&rsc_table>, <&m7_reserved>;
->> +	status = "okay";
->> +};
->> +
->> /* SMARC GBE0 */
->> &enetc_port0 {
->> 	pinctrl-names = "default";
->> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> index 3e35c956a4d7..f8760ac067fa 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> @@ -272,6 +272,13 @@ opp-1000000000 {
->> 		};
->> 	};
->>
->> +	cm7: remoteproc-cm7 {
->> +		compatible = "fsl,imx95-cm7";
->> +		mboxes = <&mu7 0 1>, <&mu7 1 1>, <&mu7 3 1>;
->> +		mbox-names = "tx", "rx", "rxdb";
 > 
-> Please not put mboxes and mbox-names in dtsi. Some demos may not
-> require them and boards may use different MUs.
-> 
-> Regards
-> Peng
-> 
+> But drivers don't generally assign firmware nodes to devices they are
+> already bound to. This is racy as in probe() the device is already
+> visible to the system. There's no synchronization of device property
+> access - properties are assumed to be read-only for a registered
+> device.
 
-Not going to insist on this.
-Frank Li, are you ok with dropping this patch and handling this at board/SoM level?
+thanks Bart/Lee. Any pointers to take this from here?
 
+thanks,
+Shivendra
 
