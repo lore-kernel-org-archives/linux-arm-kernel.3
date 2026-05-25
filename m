@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FB7CD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 18:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28548CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ejVfo6aDK2IjkhbswQYdZPzC7RHqvBJONF1IKeVRso4=; b=Qdjvs5R7DviezYzvyNgSTzrTMo
-	GCLQJhyLqMw2oispzIctJfJB6YrNos7achPjeoXoyquceeOPoWNVHTFO+lj0T6aqiNuMYbbcLg+oZ
-	CioEYYnGrlz1zYE7B1TvWOw4iKDco9D2tyOIhLTO2H8xn+FZqZorffAa4hf28FjsxGrZRvA5X4HR3
-	/k1z3DtYw7bJgMAcOtPlhL2m5M8KH1pT60Zo6lI7M3zj963uJRIkdRoxeT2a/81xCy10X91LI4jQz
-	gngGMJMiwUadQ8/yaO4sBjcDqxeBZZKapdpZ6FCOzIHH2vA29O+Dnx0WmYOJOJ963RkJT4+La9X0d
-	jHjyPIYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ObDGARjY7FQPDXSHRudLvXieCDCqP0ZMwD1vh2MeN/M=; b=YXXy4gpphhjdhL/cDuPs19cMcN
+	oBE2B14AyK2v6YJ5DbdIb/Z+FLdCmo3p6fxKtCaXpccEhm0ZZwN8jBPn5fYtiMdwUOx9q0+t70pF/
+	+DRZO2sMfz6n3kGebJhlaD6HlQouP3gitcwKT6dNSJAKbIyHu7f0bY0ANyzJLK+ot5umQYSbh52rZ
+	9PK3Q26Zsnslwb29ZWH+s/+LMsmd+Vg6FDPp69We43AwELBMsX6cIKVucTdF6quGApVxcIrrf/U7D
+	dtTEds3b0liDibKd2p7xoM+eE7cBJJ1YkbqKx4XOTToKIMCbCU9TgYZ+HNgZO5dr7PCg5O1oBw82m
+	3K2HDXFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRaHZ-00000000G2J-3IxH;
-	Mon, 25 May 2026 18:44:09 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1wRapV-00000000JSt-3Uaq;
+	Mon, 25 May 2026 19:19:13 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRaHT-00000000Fyi-36AJ
+	id 1wRapR-00000000JSJ-38ou
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 18:44:04 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2ba718173d1so26565545ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 11:44:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779734642; x=1780339442; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ejVfo6aDK2IjkhbswQYdZPzC7RHqvBJONF1IKeVRso4=;
-        b=dVsef5DtL/3oxKCiXZeGKyckQKVeaaBIqCcUFBd6m4eXmjjiUpFHKqkc56kH2Z4YLe
-         lfkNixGs7D2irMScdBkQeGUIuc1lhrCD9X2XAepxKlu5wJARyt5eKyiM81nFDuCBvf4T
-         2rE2UOCo0Z3/5habAXiZTdr1WmTSEghxSwXPl1zG2Op5yn0PVm0YyEwTcYE0QUiaIjz+
-         abjemwmi8SGKd7AvY40n6sJjdrVHk86VrbX5gFX5NyRjUyVpG/ZL4A/4wLbmlRXrWPP7
-         5duHmlQqJ3mORiiFWbjN3fI5YMJ9XwDyUY2kQJSqldSC7y9/smyle5fIy65M5MRNkZ3X
-         gcdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779734642; x=1780339442;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ejVfo6aDK2IjkhbswQYdZPzC7RHqvBJONF1IKeVRso4=;
-        b=QoI0JzwocERNLZGBYqYRAQD9fy+oQYNhrqlsZo1IeZjJco8EmgmtmSEgTw5+Q0tuSQ
-         HNGimvlzxesZm5hWRabnBHANVO9g0qHCEXFEjcV5lGURuajrFvzmlBwrBeMMZT9ViyC1
-         M0V4/Jd+qxr+nLS+Itxb37h/7vnIZmQpIqejgP+jD7Kj9hQQ1ubmgLQM/PuTHj4IpyoE
-         3A+d1x2npiVONk1iVkbDRwbnZSU0wXQEA8elBWbiVrC6QUjXyc381+565ZHfB9yMVdcB
-         09BxFNvemKdjMj8HOpMgCWWC0oIGEzY4wJQbN/fzjTE3WQDhJLLmsd4au0qvjmOkNMth
-         5dTQ==
-X-Forwarded-Encrypted: i=1; AFNElJ91ri5qnar+rXbjs7JUSvaFGlXt+APAeW8w5VvRtxkQhby70szh3WHrincAq3yDKg26ZOGd5q8qACwaIJghOQJa@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwqHq7uwa/1eyOafsUiei7A7ZQ69wx2EqllUQtMpddYCPV+Hv8
-	dAnb/pT9qNGBjlIFAg9Qb2r/GA+O/7hl1AvfiDwHSmYF2DHEtVlcC8+KbmlciustYeUXTHII/Cx
-	lDw==
-X-Received: from plbke6.prod.google.com ([2002:a17:903:3406:b0:2ba:2935:3b4])
- (user=praan job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:e78e:b0:2bc:8359:66f
- with SMTP id d9443c01a7336-2beb06db375mr172687615ad.35.1779734642223; Mon, 25
- May 2026 11:44:02 -0700 (PDT)
-Date: Mon, 25 May 2026 18:43:47 +0000
-In-Reply-To: <20260525184347.4059549-1-praan@google.com>
-Mime-Version: 1.0
-References: <20260525184347.4059549-1-praan@google.com>
-X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260525184347.4059549-6-praan@google.com>
-Subject: [PATCH v4 5/5] iommu/amd: Fail probe on ATS configuration failure
-From: Pranjal Shrivastava <praan@google.com>
-To: iommu@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, 
-	Lu Baolu <baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>, 
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	Nicolin Chen <nicolinc@nvidia.com>, David Matlack <dmatlack@google.com>, 
-	Samiullah Khawaja <skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>, 
-	Pranjal Shrivastava <praan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 25 May 2026 19:19:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 3E401C79AA7;
+	Mon, 25 May 2026 19:19:05 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 09E965FEFF;
+	Mon, 25 May 2026 19:19:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ED26A10888059;
+	Mon, 25 May 2026 21:18:53 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1779736744; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=ObDGARjY7FQPDXSHRudLvXieCDCqP0ZMwD1vh2MeN/M=;
+	b=tt50jXr8zuHfg5IwtMBrX84P7nUtAGwiXs3mDBcr1mg1MFR1gfzJm/ra3RWy8eaWDGaMRe
+	yp86OfAS4ioxbkR822ZXWt2cX3d6nY+On2M9VA7S3ht0vdUZFFKGtjKwTRcuHpwWbHLBdY
+	McpG3gyOg4xCl5NmaGyegb0w+vleSfiOd9ldMCm7dy6WANGvwl1RBUh6G6sY5coR0AS/iR
+	yNRx/yWqkv/gp12Er0jcM6Hjr53Hy17yhmWfPcj+XXgBIUUte1nDRI6heyd/cOdPdEtrQX
+	4Xghi39jzHdVX5g+7nlw1ySYb5F6G4VFfOA4Qao6osOGDSgADixAjT6UV5eFzg==
+Message-ID: <de0255c8-d751-4220-b0ab-88aef3a15f9a@bootlin.com>
+Date: Mon, 25 May 2026 21:18:52 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 1/2] net: ti: icssg-prueth: Add Frame
+ Preemption MAC Merge support
+To: Meghana Malladi <m-malladi@ti.com>, liuhangbin@gmail.com,
+ h-mittal1@ti.com, haokexin@gmail.com, vadim.fedorenko@linux.dev,
+ devnexen@gmail.com, horms@kernel.org, jacob.e.keller@intel.com,
+ arnd@arndb.de, afd@ti.com, basharath@couthit.com, parvathi@couthit.com,
+ vladimir.oltean@nxp.com, rogerq@kernel.org, danishanwar@ti.com,
+ pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+ davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, srk@ti.com,
+ Vignesh Raghavendra <vigneshr@ti.com>
+References: <20260525182700.3135858-1-m-malladi@ti.com>
+ <20260525182700.3135858-2-m-malladi@ti.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260525182700.3135858-2-m-malladi@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_114403_783070_5FC8F53A 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260525_121910_147559_75CE393E 
+X-CRM114-Status: GOOD (  39.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,67 +85,538 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the AMD IOMMU driver to handle ATS configuration and enablement
-more strictly. Specifically, update the device probe to fail if
-pci_prepare_ats() returns an error. This ensures that any ATS-capable
-master reaching the attach phase is guaranteed to have a valid config.
+Hi Meghana,
 
-Additionally, update pdev_enable_cap_ats() to WARN_ON() if pci_enable_ats
-fails. Since earlier checks in the probe phase preclude config-related
-failures, any failure during hardware enablement is considered a kernel
-bug.
+On 5/25/26 20:26, Meghana Malladi wrote:
+> From: MD Danish Anwar <danishanwar@ti.com>
+> 
+> Introduce QoS infrastructure for Frame Preemption (FPE) support in
+> the ICSSG Ethernet driver.
+> 
+> prueth_qos_iet tracks FPE enable/active state and verify state machine
+> status via firmware-reported enum icssg_ietfpe_verify_states.
+> icssg_config_ietfpe() configures IET FPE in firmware, triggers
+> verify state machine based on ethtool MAC Merge parameters.
+> Polls firmware verify status up to 3 times with verify_time_ms intervals
+> and driver handles timeout by logging error and returning.
+> In case of any failure during configuration for enable/disable,
+> IET FPE falls back to disabled state.
+> 
+> For MQPRIO qdisc support all queues are express by default later
+> gets override by user-provided preemptible_tcs bitmask via tc qdisc mask
+> Preempt mask configuration: Maps traffic classes to queue express/preemptible
+> state and applied only when FPE is active (Tx enabled)
+> 
+> Verify state machine re-triggers on link up/down events based on
+> fpe_enabled and fpe_active flags, and for memory protection, fpe_lock
+> serializes all FPE state mutations, preventing races between ethtool
+> config, qdisc setup, and link events
+> 
+> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
 
-Signed-off-by: Pranjal Shrivastava <praan@google.com>
----
- drivers/iommu/amd/iommu.c | 27 +++++++++++++++++++++------
- 1 file changed, 21 insertions(+), 6 deletions(-)
+There's quite a lot of checkpatch output for this patch, I'll let you 
+browse through it :)
 
-diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-index 84cad43dc188..1dddb08e7b22 100644
---- a/drivers/iommu/amd/iommu.c
-+++ b/drivers/iommu/amd/iommu.c
-@@ -570,10 +570,16 @@ static inline int pdev_enable_cap_ats(struct pci_dev *pdev)
- 	if (amd_iommu_iotlb_sup &&
- 	    (dev_data->flags & AMD_IOMMU_DEVICE_FLAG_ATS_SUP)) {
- 		ret = pci_enable_ats(pdev, PAGE_SHIFT);
--		if (!ret) {
--			dev_data->ats_enabled = 1;
--			dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
--		}
-+		/*
-+		 * pci_enable_ats() should not fail here because earlier checks
-+		 * have already verified support and configuration.
-+		 */
-+		if (WARN_ON(ret))
-+			return ret;
-+
-+		dev_data->ats_enabled = 1;
-+		dev_data->ats_qdep    = pci_ats_queue_depth(pdev);
-+		ret = 0;
- 	}
- 
- 	return ret;
-@@ -2502,8 +2508,17 @@ static struct iommu_device *amd_iommu_probe_device(struct device *dev)
- 	else
- 		dev_data->max_irqs = MAX_IRQS_PER_TABLE_512;
- 
--	if (dev_is_pci(dev))
--		pci_prepare_ats(to_pci_dev(dev), PAGE_SHIFT);
-+	if (dev_is_pci(dev)) {
-+		struct pci_dev *pdev = to_pci_dev(dev);
-+
-+		if (pci_ats_supported(pdev)) {
-+			ret = pci_prepare_ats(pdev, PAGE_SHIFT);
-+			if (ret) {
-+				iommu_dev = ERR_PTR(ret);
-+				goto out_err;
-+			}
-+		}
-+	}
- 
- out_err:
- 	return iommu_dev;
--- 
-2.54.0.746.g67dd491aae-goog
+Also keep in mind that we still recommend 80 chars on net.
 
+Besides that, I have a few comments, see below :)
+
+> ---
+> 
+> v6-v5:
+> - Balance fpe_lock mutex lifecycle on all error paths
+> - Remove deadcode inside icssg_iet_set_preempt_mask()
+> - Add fallback label inside icssg_config_ietfpe() to fix
+>    stale state machine handling.
+> - Replace netdev_err with netdev_info and netdev_dbg wherever
+>    applicable
+> - Remove EXPORT_SYMBOL_GPL for icssg_config_ietfpe()
+> - Remove redundant code inside icssg_qos_init()
+> - qdisc deletion path clears per-queue map as well.
+> - Protect all read/writes to p_mqprio with a mutex
+> All the above changes address the comments raised by sashiko
+> 
+>   drivers/net/ethernet/ti/Makefile             |   3 +-
+>   drivers/net/ethernet/ti/icssg/icssg_common.c |   1 +
+>   drivers/net/ethernet/ti/icssg/icssg_config.h |   9 -
+>   drivers/net/ethernet/ti/icssg/icssg_prueth.c |   6 +
+>   drivers/net/ethernet/ti/icssg/icssg_prueth.h |   2 +
+>   drivers/net/ethernet/ti/icssg/icssg_qos.c    | 269 +++++++++++++++++++
+>   drivers/net/ethernet/ti/icssg/icssg_qos.h    |  66 +++++
+>   7 files changed, 346 insertions(+), 10 deletions(-)
+>   create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.c
+>   create mode 100644 drivers/net/ethernet/ti/icssg/icssg_qos.h
+> 
+> diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
+> index f4276c9a77620..d19bcd25c9d07 100644
+> --- a/drivers/net/ethernet/ti/Makefile
+> +++ b/drivers/net/ethernet/ti/Makefile
+> @@ -46,6 +46,7 @@ icssg-y := icssg/icssg_common.o \
+>   	   icssg/icssg_config.o \
+>   	   icssg/icssg_mii_cfg.o \
+>   	   icssg/icssg_stats.o \
+> -	   icssg/icssg_ethtool.o
+> +	   icssg/icssg_ethtool.o \
+> +	   icssg/icssg_qos.o
+>   
+>   obj-$(CONFIG_TI_ICSS_IEP) += icssg/icss_iep.o
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+> index a28a608f9bf4b..c3ee97e96cd50 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+> @@ -1724,6 +1724,7 @@ void prueth_netdev_exit(struct prueth *prueth,
+>   
+>   	netif_napi_del(&emac->napi_rx);
+>   
+> +	mutex_destroy(&emac->qos.iet.fpe_lock);
+>   	pruss_release_mem_region(prueth->pruss, &emac->dram);
+>   	free_netdev(emac->ndev);
+>   	prueth->emac[mac] = NULL;
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> index 60d69744ffae2..1ac202f855ed4 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+> @@ -323,13 +323,4 @@ struct prueth_fdb_slot {
+>   	u8 fid;
+>   	u8 fid_c2;
+>   } __packed;
+> -
+> -enum icssg_ietfpe_verify_states {
+> -	ICSSG_IETFPE_STATE_UNKNOWN = 0,
+> -	ICSSG_IETFPE_STATE_INITIAL,
+> -	ICSSG_IETFPE_STATE_VERIFYING,
+> -	ICSSG_IETFPE_STATE_SUCCEEDED,
+> -	ICSSG_IETFPE_STATE_FAILED,
+> -	ICSSG_IETFPE_STATE_DISABLED
+> -};
+>   #endif /* __NET_TI_ICSSG_CONFIG_H */
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index 591be5c8056b4..39f379df923bf 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -392,6 +392,8 @@ static void emac_adjust_link(struct net_device *ndev)
+>   		} else {
+>   			icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
+>   		}
+> +
+> +		icssg_qos_link_state_update(ndev);
+>   	}
+>   
+>   	if (emac->link) {
+> @@ -1652,6 +1654,7 @@ static const struct net_device_ops emac_netdev_ops = {
+>   	.ndo_hwtstamp_get = icssg_ndo_get_ts_config,
+>   	.ndo_hwtstamp_set = icssg_ndo_set_ts_config,
+>   	.ndo_xsk_wakeup = prueth_xsk_wakeup,
+> +	.ndo_setup_tc = icssg_qos_ndo_setup_tc,
+>   };
+>   
+>   static int prueth_netdev_init(struct prueth *prueth,
+> @@ -1686,6 +1689,8 @@ static int prueth_netdev_init(struct prueth *prueth,
+>   
+>   	INIT_DELAYED_WORK(&emac->stats_work, icssg_stats_work_handler);
+>   
+> +	icssg_qos_init(ndev);
+> +
+>   	ret = pruss_request_mem_region(prueth->pruss,
+>   				       port == PRUETH_PORT_MII0 ?
+>   				       PRUSS_MEM_DRAM0 : PRUSS_MEM_DRAM1,
+> @@ -1793,6 +1798,7 @@ static int prueth_netdev_init(struct prueth *prueth,
+>   free:
+>   	pruss_release_mem_region(prueth->pruss, &emac->dram);
+>   free_ndev:
+> +	mutex_destroy(&emac->qos.iet.fpe_lock);
+>   	emac->ndev = NULL;
+>   	prueth->emac[mac] = NULL;
+>   	free_netdev(ndev);
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index df93d15c5b786..85f7017d2c8e7 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -44,6 +44,7 @@
+>   #include "icssg_config.h"
+>   #include "icss_iep.h"
+>   #include "icssg_switch_map.h"
+> +#include "icssg_qos.h"
+>   
+>   #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
+>   #define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
+> @@ -254,6 +255,7 @@ struct prueth_emac {
+>   	struct bpf_prog *xdp_prog;
+>   	struct xdp_attachment_info xdpi;
+>   	int xsk_qid;
+> +	struct prueth_qos qos;
+>   };
+>   
+>   /* The buf includes headroom compatible with both skb and xdpf */
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> new file mode 100644
+> index 0000000000000..2781abf39e9bb
+> --- /dev/null
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> @@ -0,0 +1,269 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Texas Instruments ICSSG PRUETH QoS submodule
+> + * Copyright (C) 2023 Texas Instruments Incorporated - http://www.ti.com/
+> + */
+> +
+> +#include "icssg_prueth.h"
+> +#include "icssg_switch_map.h"
+> +
+> +static void icssg_iet_set_preempt_mask(struct prueth_emac *emac)
+> +{
+> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_mqprio *p_mqprio = &emac->qos.mqprio;
+> +	struct tc_mqprio_qopt *qopt = &p_mqprio->mqprio.qopt;
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int prempt_mask = 0, i;
+> +	u8 tc, num_tc;
+> +
+> +	if (!iet->preemptible_tcs)
+> +		goto reset_hw;
+> +
+> +	if (iet->fpe_active) {
+> +		/* Configure the queues based on the preemptible tc map set by the user */
+> +		num_tc = p_mqprio->mqprio.qopt.num_tc;
+> +		for (tc = 0; tc < num_tc; tc++) {
+> +			/* check if the tc is preemptive or not */
+> +			if (iet->preemptible_tcs & BIT(tc)) {
+> +				for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
+> +					/* Set all the queues in this tc as preemptive queues */
+> +					writeb(BIT(4), config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +				}
+> +			} else {
+> +				/* Set all the queues in this tc as express queues */
+> +				for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
+> +					writeb(0, config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +					prempt_mask |= BIT(i);
+> +				}
+> +			}
+> +			netdev_set_tc_queue(emac->ndev, tc, qopt->count[tc], qopt->offset[tc]);
+> +		}
+> +		writeb(prempt_mask, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +		return;
+> +	}
+> +
+> +reset_hw:
+> +	/* Reset to default: all queues as express */
+> +	for (i = 0; i < ICSSG_MAX_TC_QUEUES; i++)
+> +		writeb(0, config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +	writeb(ICSSG_EXPRESS_Q_MASK_ALL, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +}
+> +
+> +static int icssg_iet_verify_wait(struct prueth_emac *emac)
+> +{
+> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int try = 3;
+> +
+> +	do {
+> +		msleep(iet->verify_time_ms);
+> +		iet->verify_status = readb(config + PRE_EMPTION_VERIFY_STATUS);
+> +		if (iet->verify_status == ICSSG_IETFPE_STATE_SUCCEEDED)
+> +			return 0;
+> +	} while (--try > 0);
+
+You can replace that whole loop with a readb_poll_timeout, to avoid
+open-coding it.
+
+> +
+> +	netdev_err(emac->ndev, "MAC Verify timeout\n");
+> +	return -ETIMEDOUT;
+> +}
+> +
+> +/* Direct synchronous configuration of IET FPE.
+> + * Caller must hold iet->fpe_lock.
+> + */
+> +int icssg_config_ietfpe(struct net_device *ndev, bool enable)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +	u8 val;
+> +
+> +	lockdep_assert_held(&iet->fpe_lock);
+> +
+> +	if (!netif_running(ndev)) {
+> +		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
+> +		return 0;
+> +	}
+> +
+> +	/* Update FPE Tx enable bit (PRE_EMPTION_ENABLE_TX) if
+> +	 * fpe_enabled is set to enable MM in Tx direction
+> +	 */
+> +	writeb(enable ? 1 : 0, config + PRE_EMPTION_ENABLE_TX);
+> +
+> +	/* If FPE is to be enabled, first configure MAC Verify state
+> +	 * machine in firmware as firmware kicks the Verify process
+> +	 * as soon as ICSSG_EMAC_PORT_PREMPT_TX_ENABLE command is
+> +	 * received.
+> +	 */
+> +	if (enable && iet->mac_verify_configure) {
+> +		writeb(1, config + PRE_EMPTION_ENABLE_VERIFY);
+> +		writew(iet->tx_min_frag_size + ETH_FCS_LEN,
+> +		       config + PRE_EMPTION_ADD_FRAG_SIZE_LOCAL);
+> +		writel(iet->verify_time_ms, config + PRE_EMPTION_VERIFY_TIME);
+> +	} else {
+> +		writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+> +		iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+> +	}
+> +
+> +	/* Send command to enable FPE Tx side. Rx is always enabled */
+> +	ret = icssg_set_port_state(emac,
+> +				   enable ? ICSSG_EMAC_PORT_PREMPT_TX_ENABLE :
+> +					    ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+> +	if (ret) {
+> +		netdev_err(ndev, "TX preempt %s command failed\n",
+> +			   str_enable_disable(enable));
+> +		goto fallback;
+> +	}
+> +
+> +	if (enable && iet->mac_verify_configure) {
+> +		ret = icssg_iet_verify_wait(emac);
+> +		if (ret) {
+> +			netdev_err(ndev, "MAC Verification failed with timeout\n");
+> +			goto disable_tx;
+> +		}
+> +	} else if (enable) {
+> +		/* Give firmware some time to update PRE_EMPTION_ACTIVE_TX state */
+> +		usleep_range(100, 200);
+> +	}
+> +
+> +	if (enable) {
+> +		val = readb(config + PRE_EMPTION_ACTIVE_TX);
+> +		if (val != 1) {
+> +			netdev_err(ndev,
+> +				   "Firmware fails to activate IET/FPE\n");
+> +			ret = -EIO;
+> +			goto disable_tx;
+> +		}
+> +		iet->fpe_active = true;
+> +	} else {
+> +		iet->fpe_active = false;
+> +	}
+> +
+> +	icssg_iet_set_preempt_mask(emac);
+> +	netdev_info(ndev, "IET FPE %s successfully\n",
+> +		   str_enable_disable(iet->fpe_active));
+> +	return ret;
+> +
+> +disable_tx:
+> +	icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+> +fallback:
+> +	writeb(0, config + PRE_EMPTION_ENABLE_TX);
+> +	writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+> +	iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+> +	iet->fpe_active =  false;
+> +	return ret;
+> +}
+> +
+> +void icssg_qos_init(struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +
+> +	mutex_init(&iet->fpe_lock);
+> +	/* Set default values to prevent garbage values during .get_mm() */
+> +	mutex_lock(&iet->fpe_lock);
+> +	iet->verify_time_ms = ICSSG_IET_MAX_VERIFY_TIME;
+> +	iet->tx_min_frag_size = ETH_ZLEN;
+> +	mutex_unlock(&iet->fpe_lock);
+> +}
+> +EXPORT_SYMBOL_GPL(icssg_qos_init);
+> +
+> +static int icssg_iet_change_preemptible_tcs(struct prueth_emac *emac)
+> +{
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +
+> +	mutex_lock(&iet->fpe_lock);
+> +	ret = icssg_config_ietfpe(emac->ndev, iet->fpe_enabled);
+> +	mutex_unlock(&iet->fpe_lock);
+> +
+> +	return ret;
+> +}
+> +
+> +static int emac_tc_query_caps(struct net_device *ndev, void *type_data)
+> +{
+> +	struct tc_query_caps_base *base = type_data;
+> +
+> +	switch (base->type) {
+> +	case TC_SETUP_QDISC_MQPRIO: {
+> +		struct tc_mqprio_caps *caps = base->caps;
+> +
+> +		caps->validate_queue_counts = true;
+> +		return 0;
+> +	}
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +
+> +static int emac_tc_setup_mqprio(struct net_device *ndev, void *type_data)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_mqprio *p_mqprio = &emac->qos.mqprio;
+> +	struct tc_mqprio_qopt_offload *mqprio = type_data;
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +
+> +	/* Validate parameters */
+> +	if (mqprio->qopt.num_tc > ICSSG_MAX_TC_QUEUES) {
+> +		netdev_err(ndev, "Number of traffic classes (%u) exceeds hardware limit\n",
+> +			   mqprio->qopt.num_tc);
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (mqprio->flags & TC_MQPRIO_F_SHAPER) {
+> +		netdev_err(ndev, "traffic shaping is not supported\n");
+> +		return -EINVAL;
+
+Maybe -EOPNOTSUPP ?
+
+> +	}
+> +
+> +	if (mqprio->flags & (TC_MQPRIO_F_MIN_RATE | TC_MQPRIO_F_MAX_RATE)) {
+> +		netdev_err(ndev, "per-queue rate limiting is not supported\n");
+> +		return -EINVAL;
+
+Same
+
+> +	}
+> +
+> +	if (!mqprio->qopt.num_tc) {
+> +		netdev_reset_tc(ndev);
+> +	} else {
+> +		netdev_set_num_tc(ndev, mqprio->qopt.num_tc);
+> +	}
+> +
+> +	mutex_lock(&iet->fpe_lock);
+> +	if (!mqprio->qopt.num_tc) {
+> +		iet->preemptible_tcs = 0;
+> +	} else {
+> +		memcpy(&p_mqprio->mqprio, mqprio, sizeof(*mqprio));
+> +		iet->preemptible_tcs = mqprio->preemptible_tcs;
+> +	}
+> +	mutex_unlock(&iet->fpe_lock);
+> +
+> +	netdev_dbg(ndev, "dev->num_tc %u dev->real_num_tx_queues %u\n",
+> +		   ndev->num_tc, ndev->real_num_tx_queues);
+> +
+> +	ret = icssg_iet_change_preemptible_tcs(emac);
+> +	return ret;
+
+Simplify this with :
+
+	return icssg_iet_change_preemptible_tcs(emac);
+
+> +}
+> +
+> +int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
+> +			   void *type_data)
+> +{
+> +	switch (type) {
+> +	case TC_QUERY_CAPS:
+> +		return emac_tc_query_caps(ndev, type_data);
+> +	case TC_SETUP_QDISC_MQPRIO:
+> +		return emac_tc_setup_mqprio(ndev, type_data);
+> +	default:
+> +		return -EOPNOTSUPP;
+> +	}
+> +}
+> +EXPORT_SYMBOL_GPL(icssg_qos_ndo_setup_tc);
+> +
+> +void icssg_qos_link_state_update(struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +
+> +	ret = icssg_iet_change_preemptible_tcs(emac);
+> +	if (ret)
+> +		netdev_dbg(ndev, "IET FPE %s failed\n",
+> +		   str_enable_disable(iet->fpe_active));
+> +}
+> +EXPORT_SYMBOL_GPL(icssg_qos_link_state_update);
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> new file mode 100644
+> index 0000000000000..9355e96bbcda8
+> --- /dev/null
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> @@ -0,0 +1,66 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* Copyright (C) 2023 Texas Instruments Incorporated - http://www.ti.com/
+> + */
+> +
+> +#ifndef __NET_TI_ICSSG_QOS_H
+> +#define __NET_TI_ICSSG_QOS_H
+> +
+> +#include <linux/atomic.h>
+> +#include <linux/netdevice.h>
+> +#include <net/pkt_sched.h>
+> +
+> +#define ICSSG_MAX_TC_QUEUES			8
+> +#define ICSSG_EXPRESS_Q_MASK_ALL		0xFF
+> +#define ICSSG_IET_MAX_VERIFY_TIME		128
+> +#define ICSSG_IET_MIN_VERIFY_TIME		1
+> +
+> +/**
+> + * enum icssg_ietfpe_verify_states - status of MAC Merge Verify returned by firmware
+> + * @ICSSG_IETFPE_STATE_UNKNOWN:
+> + *	verification status is unknown
+> + * @ICSSG_IETFPE_STATE_INITIAL:
+> + *	Firmware returns this if verify state diagram is idle
+> + * @ICSSG_IETFPE_STATE_VERIFYING:
+> + *	Firmware returns this if verification is ongoing
+> + * @ICSSG_IETFPE_STATE_SUCCEEDED:
+> + *	Firmware returns this if verify state diagram completes verification
+> + * @ICSSG_IETFPE_STATE_FAILED:
+> + *	Firmware returns this if verify state diagram fails during verification
+> + * @ICSSG_IETFPE_STATE_DISABLED:
+> + *	verification is disabled by the driver
+> + */
+> +enum icssg_ietfpe_verify_states {
+> +	ICSSG_IETFPE_STATE_UNKNOWN = 0,
+> +	ICSSG_IETFPE_STATE_INITIAL,
+> +	ICSSG_IETFPE_STATE_VERIFYING,
+> +	ICSSG_IETFPE_STATE_SUCCEEDED,
+> +	ICSSG_IETFPE_STATE_FAILED,
+> +	ICSSG_IETFPE_STATE_DISABLED
+> +};
+> +
+> +struct prueth_qos_mqprio {
+> +	struct tc_mqprio_qopt_offload mqprio;
+> +};
+> +
+> +struct prueth_qos_iet {
+> +	bool fpe_enabled;
+> +	bool mac_verify_configure;
+> +	u32 tx_min_frag_size;
+> +	u32 verify_time_ms;
+> +	bool fpe_active;
+> +	enum icssg_ietfpe_verify_states verify_status;
+> +	struct mutex fpe_lock;
+
+Checkpatch already says it, but you need to document what this
+mutex is protecting.
+
+> +	u8 preemptible_tcs;
+> +};
+> +
+> +struct prueth_qos {
+> +	struct prueth_qos_iet iet;
+> +	struct prueth_qos_mqprio mqprio;
+> +};
+> +
+> +void icssg_qos_init(struct net_device *ndev);
+> +void icssg_qos_link_state_update(struct net_device *ndev);
+> +int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
+> +			   void *type_data);
+> +int icssg_config_ietfpe(struct net_device *ndev, bool enable);
+> +#endif /* __NET_TI_ICSSG_QOS_H */
+
+Thanks,
+
+Maxime
 
