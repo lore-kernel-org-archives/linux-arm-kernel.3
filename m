@@ -4,115 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB41BCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 14:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EE8CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IY5VpH1QCqNL+Hxqm+EMdHN3zeBtEzU6Oz9nJybwNNI=; b=VoRJoXsbSS3KvkUUGh0zOt7BAZ
-	saxp3fAhdtE3YWt3s2KoylPyS6J4dCD0XtjhSWgI8Ee7Gy7cF+Co8XInKJZk+jM430spE5Y3JGS5Y
-	Usw5HonTsuViI69FtYh+3HQVunBMpU2cdf3b3um4hLLqN5oISJw6HiLz4Dwcz82aqIxVgfjxbpLKr
-	Xqc6o5LB2/QY7Bc2ntKDQ0ARvXj2+lBzsVkj32idJgBG7fpXHjO5uo1sRn7mC4Sgb1LZRU/YNPBnY
-	ClwkgHd94pWcquLYvlZuz0ZU5wDKuLwHnU7FXKSVIRMizR5/M5CNbbHIhcqic3K51RUzXBrjyyweL
-	vdTD9RBQ==;
+	bh=AzwE9k9QJF7DUyRnk+qmGDQkXJ2+kA/q8Ntjxx3//vI=; b=2zDpvB6p+EOJ64rm4sUqgU+VKe
+	yLlyYDB0ztlgOsvlxORerhFnSLQamXNzqBclEOXcb4aSBNCAco41L6kaC5WEe/mG8t22n4OTKLJ6D
+	mOn7wEuaS3CIbPPKqT0UIC2xeuB5pGu2tDdZGrYkC/8nMSlJ6RSiTgCcYnr9tsuLRuWWl1B4IYOxW
+	n7nUzEXKKdqtx4zzAqJKnDDa+u5/LF8XcesruGefxoyZbLTgpWchfJvnibB8ZX1lef3t/KJRtQmt8
+	JAcla639utZ+pvRciibmz6JgFQ2aIjWlLaeg+DgzSj815AkisYMBFSvGdsqRZuziVKd9DrGtig+hO
+	yER3SuSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRWbC-0000000HRwW-2d14;
-	Mon, 25 May 2026 14:48:10 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1wRWor-0000000HTdq-09dX;
+	Mon, 25 May 2026 15:02:17 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRWb9-0000000HRue-3LN7
+	id 1wRWon-0000000HTa7-44of
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 14:48:09 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-36931e4f5e8so8990719a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 07:48:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779720487; x=1780325287; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IY5VpH1QCqNL+Hxqm+EMdHN3zeBtEzU6Oz9nJybwNNI=;
-        b=sl9sawBZaSHWpkJP+u02eeFk+ejhxrKO50Gv/nvr75CzN57ypxSx7QriFCOYiu881T
-         I/ch9tqAKmpIEZ+X7loBdQAUJ8JyRmTz7J0Ed0A5JPkYdYO+vz/K6DogFAkQl3HFX4+c
-         eXgFYWpshH5VA2rHcMNmLWSfCkL/B2xLQ0EA01cy5TOFdXBnAv24RkhkSVgpa24nhIcG
-         Us6Hkhzw4KBn2zuSACoxQLSFHUpdBXxiG8PmVu/vpBKoysMsqMqFhVtbJXvGGjykbHbS
-         SJICm5lNyY5zWEiLsNdziPWESBTKX45Mj+f1VF1tt0L51YtUcJhtc3t8vpzP5sBOuO+K
-         ryRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779720487; x=1780325287;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IY5VpH1QCqNL+Hxqm+EMdHN3zeBtEzU6Oz9nJybwNNI=;
-        b=WDxQ5df9k1pLuYfOf/ae6rndF1zTGyEY7MEoRukCgAEJJUCz5uUeI6LdEYbLJXMG1Q
-         MT8Oqu9E7wma5O+Pj53UvOkQeN408CNc9hn4GLSH2fBerxRF3SsgvJ44dOE0zJNiXW3T
-         Rud5bSPz1ttsqVBF/WvNzqT87Jw3/EQvFfSbQV1wacd4yA7QW64KaXjeDQJnLTfqaHYy
-         CanZH5fE7+2Tm++jC2zUiWbZK3dLj96DyHxMrHySUpFoyIkugs2DorEFV8VZ19GsnEBw
-         2OisacrRmbAY4DK4TSRmfjN0ajdu7V8zeMibgLr6Q6XXdOVAO6gFbeZ7Kb9Ullto/bGd
-         GtYg==
-X-Forwarded-Encrypted: i=1; AFNElJ+70gsEfJSVurK0R3g6K+uG5FAUmVb7qpa/kT0kM1dNKeIrCHMbcRaXmTC9JlCm46Q18jwoRC5erkgcKNLVJZyh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7XINMlEqTuk/DpgryyHqPQVNq+Cj4u9ZH9qVxQFcRbmgN2rMG
-	oUzcS3DW8axKYVCRpb8o2bgob2Qqu+8P898ipr+4T+vKyQP8s1cxeDw1
-X-Gm-Gg: Acq92OFNkga0tmaiHtZl89BVpiTgC5Hoa4Qauojl+igNfuU/57ATieP7kXJP01ZNMUJ
-	Xj6fKOmcz61canPb3x5QiCd0zy8hClnHSH6Aphd1rBNwfY+uxL5W9ibkohQ4AxXEoncgFF3W0Tk
-	ez6dCBkRAdrLI99EL99BXpQ9l7BGclTWbWeslwCO1+ThreSdaDd2o3JurnYFp5r2wftKhbw6nbe
-	p2X95PwH+PUREH6b5mBuDIO/8AnUYBrjrVJkkXSx/4PGAjz3fOh/VYhDHHusIYZnI080dqSRXRL
-	Zc5MoFH7e48jHrHXwttJnTdxMQh96xKJS9pEfT1IHhawyAGHvgwy2SnPiePUqm9NKbfmr2EYLm+
-	uY6MyBYHdsD9zXtkhLdGLSbE5HzVmOducejskwFx/5LGIyvvZZLxXf5cKob96QLJbW8EJyhxmjl
-	/4EynMy352XR6RXTQo+N5AX7nOix6gqHsFyGTtp+lxaUrSymiXHrGrXHcBPj2n
-X-Received: by 2002:a17:90b:2e88:b0:369:a359:b18e with SMTP id 98e67ed59e1d1-36a67449708mr14002024a91.9.1779720486941;
-        Mon, 25 May 2026 07:48:06 -0700 (PDT)
-Received: from arch.localdomain ([2409:8a28:a5f:4fa1:cc65:18c0:209b:38a4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36abfe17c95sm2721993a91.0.2026.05.25.07.48.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 07:48:06 -0700 (PDT)
-From: Jun Yan <jerrysteve1101@gmail.com>
-To: linusw@kernel.org,
-	dmitry.baryshkov@oss.qualcomm.com,
-	Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Vincent Knecht <vincent.knecht@mailoo.org>,
-	Grant Feng <von81@163.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Baruch Siach <baruch@tkos.co.il>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Paul Barker <paul.barker@sancloud.com>,
-	Robert Marko <robert.marko@sartura.hr>
-Cc: Jun Yan <jerrysteve1101@gmail.com>,
-	Pavel Machek <pavel@ucw.cz>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	linux-leds@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH v2 6/6] arm64: dts: marvell: armada-7040-mochabin: Fix is31fl3199 shutdown GPIO polarity
-Date: Mon, 25 May 2026 22:46:12 +0800
-Message-ID: <20260525144629.498630-7-jerrysteve1101@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260525144629.498630-1-jerrysteve1101@gmail.com>
-References: <20260525144629.498630-1-jerrysteve1101@gmail.com>
+	Mon, 25 May 2026 15:02:15 +0000
+Message-ID: <8edc8cd0-f65c-4456-9b3f-362e744c9a96@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1779721303;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AzwE9k9QJF7DUyRnk+qmGDQkXJ2+kA/q8Ntjxx3//vI=;
+	b=fsSvL3R+HyOLiJBlzetIGjmPzu1GfueYA9lAtGy2Z8SL3+P0kPz1vyGsKd+ewF7+yPqqfC
+	/iuy4xlG2sBfvGWm8UGvpe2AWMCyGuQUPrUGljCAmlQ3kSIJHpayjMw01YvtZ7vJP62/sE
+	FqH9kKksxanHmBQ196JOJTJSIlyErtA=
+Date: Mon, 25 May 2026 16:01:19 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v5 0/2] mm: improve large folio readahead for exec memory
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: david@kernel.org, willy@infradead.org, ryan.roberts@arm.com,
+ linux-mm@kvack.org, r@hev.cc, jack@suse.cz,
+ Andrew Donnellan <andrew+kernel@donnellan.id.au>, apopple@nvidia.com,
+ baohua@kernel.org, baolin.wang@linux.alibaba.com, brauner@kernel.org,
+ catalin.marinas@arm.com, dev.jain@arm.com, kees@kernel.org,
+ kevin.brodsky@arm.com, lance.yang@linux.dev,
+ "Liam R.Howlett" <liam@infradead.org>, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, ljs@kernel.org,
+ mhocko@suse.com, npache@redhat.com, pasha.tatashin@soleen.com,
+ rmclure@linux.ibm.com, rppt@kernel.org, surenb@google.com,
+ vbabka@kernel.org, Al Viro <viro@zeniv.linux.org.uk>,
+ wilts.infradead.org@hp2.hsd1.ca.comcast.net, ziy@nvidia.com,
+ hannes@cmpxchg.org, kas@kernel.org, shakeel.butt@linux.dev,
+ kernel-team@meta.com
+References: <20260522162422.3856502-1-usama.arif@linux.dev>
+ <20260522122052.7b4ad7c482a0e4826296e392@linux-foundation.org>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Usama Arif <usama.arif@linux.dev>
+In-Reply-To: <20260522122052.7b4ad7c482a0e4826296e392@linux-foundation.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_074807_836704_82940360 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260525_080214_164795_4D0B4EAC 
+X-CRM114-Status: GOOD (  15.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,31 +82,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The is31fl3199 shutdown pin is active-low [1]. Correct the GPIO flags
-from GPIO_ACTIVE_HIGH to GPIO_ACTIVE_LOW to match the hardware.
 
-[1] https://lumissil.com/assets/pdf/core/IS31FL3199_DS.pdf
 
-Fixes: 737929191283 ("arm64: dts: marvell: add Globalscale MOCHAbin")
-Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
----
- arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 22/05/2026 20:20, Andrew Morton wrote:
+> On Fri, 22 May 2026 09:23:46 -0700 Usama Arif <usama.arif@linux.dev> wrote:
+> 
+>> Two checks in do_sync_mmap_readahead() limit large-folio readahead:
+>>
+>>   1. The mmap_miss heuristic is meant to throttle wasteful speculative
+>>      readahead. It is currently also applied to the VM_EXEC readahead
+>>      path, which is targeted rather than speculative. Once mmap_miss exceeds
+>>      MMAP_LOTSAMISS, exec readahead - including the large-folio
+>>      order requested by exec_folio_order() - is disabled. On
+>>      configurations where the mmap_miss decrement paths are not
+>>      active (see patch 1) the counter only grows, so exec readahead
+>>      is permanently disabled after the first 100 faults.
+>>
+>>   2. The force_thp_readahead path is gated only on
+>>      HPAGE_PMD_ORDER <= MAX_PAGECACHE_ORDER and always drives the
+>>      readahead at HPAGE_PMD_ORDER. Configurations where
+>>      HPAGE_PMD_ORDER exceeds MAX_PAGECACHE_ORDER never reach this
+>>      path, even when the mapping itself supports usefully large
+>>      folios well below the cap.
+>>
+>> Both issues are most visible on arm64 with a 64K base page size,
+>> where HPAGE_PMD_ORDER is 13 (512MB) -- above MAX_PAGECACHE_ORDER
+>> (11) -- and where fault_around_pages collapses to 1 disabling
+>> should_fault_around() (one of the two mmap_miss decrement sites).
+>> However the fixes are architecture-agnostic: patch 1 reflects the
+>> nature of VM_EXEC readahead regardless of base page size, and
+>> patch 2 generalises the gate so any mapping advertising a usefully
+>> large maximum folio order can benefit.
+>>
+>> I created a benchmark that mmaps a large executable file and calls
+>> RET-stub functions at PAGE_SIZE offsets across it. "Cold" measures
+>> fault + readahead cost. "Random" first faults in all pages with a
+>> sequential sweep (not measured), then measures time for calling random
+>> offsets, isolating iTLB miss cost for scattered execution.
+>>
+>> The benchmark results on Neoverse V2 (Grace), arm64 with 64K base pages,
+>> 512MB executable file on ext4, averaged over 3 runs:
+>>
+>>   Phase      | Baseline     | Patched      | Improvement
+>>   -----------|--------------|--------------|------------------
+>>   Cold fault | 83.4 ms      | 41.3 ms      | 50% faster
+>>   Random     | 76.0 ms      | 58.3 ms      | 23% faster
+> 
+> Well that's nice.
+> 
+> AI review might have found a few things:
+> 	https://sashiko.dev/#/patchset/20260522162422.3856502-1-usama.arif@linux.dev
+> 
 
-diff --git a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
-index 6bdc4f1e6939..cf690a85cc2a 100644
---- a/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
-+++ b/arch/arm64/boot/dts/marvell/armada-7040-mochabin.dts
-@@ -236,7 +236,7 @@ leds@64 {
- 		#size-cells = <0>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&is31_sdb_pins>;
--		shutdown-gpios = <&cp0_gpio1 30 GPIO_ACTIVE_HIGH>;
-+		shutdown-gpios = <&cp0_gpio1 30 GPIO_ACTIVE_LOW>;
- 		reg = <0x64>;
- 
- 		led1_red: led@1 {
--- 
-2.54.0
+Thanks Andrew! So sashiko seems to have brought out some interesting problems,
+some of which are pre-existing. For example, the decrement sites for mmap_miss
+in do_async_mmap_readahead() and filemap_map_pages() dont skip for VM_SEQ_READ.
+
+I have sent this as an independent patch in [1].
+
+I will send the next version of this series on top of [1] in a few days
+addressing the rest of the issues raised by sashiko.
+
+[1] https://lore.kernel.org/all/20260525145751.2671248-1-usama.arif@linux.dev/
+
 
 
