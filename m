@@ -4,135 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19628CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 02:15:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC699CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 02:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvjta846qP8qgQGodC5zX4cHipJwcjDKsuWBvxOD0+E=; b=g+TfgqCQTCJd1O7U4lUvnQKgcU
-	/AB+sqrIhdScR7KLToYksmNJSAca99pb3jd1B/hTs5gVRTDZ/GOKhlTfaucAwNuQp0ehkmPAserTs
-	VJ/QNzmrhLSfKQDMmEshl1sQ949VneT5WotemeotaYXadlQrYv3ur29DPFh2wSfru5Rck3fB4SimN
-	J8DnEbAMgB9TMqYCMEty6b5SndpnuH1g2pGxFXvre08fMJxV3lPHtii4BO53vHG9S0hQqvwCzTeND
-	lZ2ZSSTyKJmh+4kbpwEDqYHUDcSVpyCwA/NTK2zqQkplquo1yDuzMAYMZt+4S9ItSu9MHuhuEQAlO
-	Ns98LH1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xaqNcv4CXQk4smv0jZmLI0c3iL1j6I7cH/uwpHLe1Gk=; b=V25nwGnlArXnqO/TpWjzBKxfiZ
+	tPSaRjUWinEl8DWa/37KVNF/6sPguQFBmgxIZvVSjtr+IExfl6ncI34mYjQW45J5L01ebw/GUvtzQ
+	9kFNdo0sBalPIbKZqWbfwg3ypDaoQA23ZJ9J8280yQwI2jKI40wgnA8ABH2nLSGC+2ic6doN12m8L
+	E2bWoFdEJt50ICF/gVM5cHI08JLtioVigjKfvQGq1vI5Zl6GNEsLoszEaU/mct+/pHAuIOnKn2/+a
+	sU5BiHVXJ/RckR0Z2DzQLBwISuxMAzbTk8anuVnlKhD7I0OwYCKPPsRkIZ5a0iuzX+gljvs9k0zsY
+	MT/CgurQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRKqw-0000000G69j-2lSt;
-	Mon, 25 May 2026 02:15:38 +0000
-Received: from mail-swedencentralazon11013038.outbound.protection.outlook.com ([52.101.83.38] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wRL61-0000000G7Wj-48zr;
+	Mon, 25 May 2026 02:31:13 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRKqu-0000000G696-284V
+	id 1wRL5z-0000000G7WB-2m1u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 02:15:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gcjgO1QnfRtvCXRrA6wncz9ce8J9GAP/wShEy2sP7qTrYk2EZcfggUUBvZjNd9a3U+XS9t8hbcTh3q9+5FqsP1b43gNO/bzwR1Uiy2CL3gPk9zl7vL6dLH6NEofLQ8r7uFuwcWquKo9k036SbT0W/TBwTVt/dKNdvsbIgzpr6jyO5jwynHGfamFGGIvJ+mthaYQxCA3s1rRYgL2mfqisd5P7q4f/4lKqZ4udOF/7uvksHHp8/4YXzEdhP7ekDi8eBVkhzRcN7RxsgHnMxXvVRYlOuUxuv5N8h4ZW5YQk0iVTLLXT4gx46YPdjthHlpp7LpevBJlU7AV44eiIicwsGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wvjta846qP8qgQGodC5zX4cHipJwcjDKsuWBvxOD0+E=;
- b=m/KSwQhf6KGYvq9Tdnp3/utoo/534QvNlfn476KhFy+o1TGnpqmLp4XkDhIbg7gkpywGYBMc1ae+b0hUw19F+0CwswodHarR/PlOk8RgO+OAZtsP9GxZHMUWUlmZ0dB/XPu8ZTnDVnUmS1kyc8uuZOirAVLC4Ox0asYSeJwqe4gx7GzI9QjbPWvL8/Je04W+hf1pPf1e8t3dea1/VWCvuCFy4PoQ0XNTIfbbERqbxT/gJlj4Hpa1kvR9vYCTFvT03hvIEJg05xFP11UWCvLMt9qB3mC/ARefky/zZLpBg6PbUTQhjYl7L+QFi0SiMjht+0BLFDcTg5CIlrQ6YP6LNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wvjta846qP8qgQGodC5zX4cHipJwcjDKsuWBvxOD0+E=;
- b=bRDy8/+c/0IHGpNDBFhVTYQaRi7VShdE9djKq92kDLcTgUB1DN+zgeI1ShEZPplZMiOS8ecI5m/CBqo05s0nzpFS1zLu7LCzia/e5IwmTDf0srHi20ZoW1Ue7p3DTwC19Oqk7KSAz2BdHTAyxKna/bSV/wdL+4MMIRuHnZKHcfjipdKTQK738wxSdIEHZKAsd/ZmWTb37mA0TnBjP18XtL2elZpDuJVwoAMjWPaLVPUkEjtfyHoP/OJxGaWVb5pJRP4O9Q9pZFEL6P1wB01/sS5qAj8JEaRVQ24vPeV5QOH/UxixkH4wFNm1+mYIUz1+sEWL9Dg9JA9sfPbA7DQ/qw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MRWPR04MB12330.eurprd04.prod.outlook.com (2603:10a6:501:7f::23)
- by AM8PR04MB7346.eurprd04.prod.outlook.com (2603:10a6:20b:1d9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Mon, 25 May
- 2026 02:10:23 +0000
-Received: from MRWPR04MB12330.eurprd04.prod.outlook.com
- ([fe80::ca22:f8c8:6aca:7889]) by MRWPR04MB12330.eurprd04.prod.outlook.com
- ([fe80::ca22:f8c8:6aca:7889%6]) with mapi id 15.21.0048.016; Mon, 25 May 2026
- 02:10:23 +0000
-Date: Mon, 25 May 2026 10:13:15 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/5] remoteproc: imx_rpoc: fix carveout name parsing
-Message-ID: <ahOwO7LBXCYFIngw@shlinux89>
-References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
- <20260522111849.783-3-laurentiumihalcea111@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260522111849.783-3-laurentiumihalcea111@gmail.com>
-X-ClientProxiedBy: SI2PR02CA0053.apcprd02.prod.outlook.com
- (2603:1096:4:196::16) To MRWPR04MB12330.eurprd04.prod.outlook.com
- (2603:10a6:501:7f::23)
+	Mon, 25 May 2026 02:31:12 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8acb856a674so113047436d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 19:31:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779676269; x=1780281069; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xaqNcv4CXQk4smv0jZmLI0c3iL1j6I7cH/uwpHLe1Gk=;
+        b=k4JDlHts6i/whvXsCh9Js41STBF6croP8nbkE0ngxV6wM4CGO6DVUyczwk21BR6a7i
+         M40VBXld9G+bzBZj/TIQZwsg8wQQqBxk4dQK6S35LOdwHPj+HTN4Gc8xmENElQMavCrG
+         iZ7IHXtfeJwFNB8uZZcXGUdAwMIjT73MYx5cA93LfKSd8N34qEyXprH7HF+dfTdI+N2q
+         Ps9TajQ/mBhyQD9ObGBZItorJtrEbmeiIbSG2e0/4FkjS2PKLas/mjmFg1FUOsq0bW6d
+         xL8PXIomT9plrRISR2pVL0o2Y9nsqye4824GHOQ4RBC8A6jYMflzGRxBODzvHnqgUz/d
+         nUwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779676269; x=1780281069;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xaqNcv4CXQk4smv0jZmLI0c3iL1j6I7cH/uwpHLe1Gk=;
+        b=ab7Lj3x3lWPEsndu7wkCM+cR/VLga4CAtR23qvb3hnnCG54/jeX5WvzCPHZoVMlBFq
+         5QxdcSG5C7FrH7u7fNOoXWmMMn1EcZvZQk5xTnwOmpp8xpiLsbldFqSws7zgjlR8ErHj
+         zLndskc5aJqC7G1smJtNtNO+SWBQgJ02DkrZQIQhlGDnjY4RZmIUtb3XVffgMxej+f+B
+         v1FarbdjsNtuDKweEHmwr1F7Pvg09W7+K86vxE73MU+73zvtshonVi2+ThhVFTSlKkIs
+         q0urP6iQ3bE/zdtdSwTagoLnHvcvJEoUKS47YkysG6MqPcR2wLPsK6eRfnZ1joPWgkSb
+         L3tA==
+X-Gm-Message-State: AOJu0YzVY3kXOJSD7xcKEQ2NDNgziqDch/H11lF3l0gl5KXYT6AndOxZ
+	NR4+tUfioCIoJNw59SHJTR6jbdHKti8Mm4NvmW2XfJdnM8z4sY7z3ZAcA0Buy7ZP/wY=
+X-Gm-Gg: Acq92OFr4lmoMTGVRFhc2stH6wVR+783hUROdJkxgpf1s9m4a0rXDgLIenxqFWADRNp
+	aZ7O9J8GXVCmuzzZD7Y9Gd2FVwnnuR+/ZLAW2SUeklEj2jhv7lOUWP5bRboEQv0dir4h9vzN03i
+	uxOyAH75i5K1EKkqU3G+ftdkoQ4NuCVQ3fQ/lGUh5NbVWOlQRNWln8upb+KEdBSoss90khvr68r
+	tEVL3mFhHoe/7BZfKnb+WlQ4MlqRejHrg35bNqvxeM5RieQc9B0yHlhR6o2w8BHGYsP0hWmuCxs
+	E+YHq1VcmV0CNPKa4Bvmj6lD3kgVpSFqnpjtzRtx5zkeRo/5YfIC2oYvvW+MpXFI6HejzqUAEKP
+	1bTITeK04JHJGsTxJJ1U2McpAdy+7gIKMvlGG7HiKEN7v6pYt+L/5/NIdjtAc0EFMYdnYgGl83h
+	QBIajCTMKYlQFOL5Pt0RvOJ6/OkgpVIQtaz+Qbuis/
+X-Received: by 2002:a05:6214:242b:b0:8ca:10cc:aa44 with SMTP id 6a1803df08f44-8cc6e356819mr235419686d6.3.1779676269161;
+        Sun, 24 May 2026 19:31:09 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cc81316d44sm97267086d6.42.2026.05.24.19.31.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 19:31:08 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Dinh Nguyen <dinguyen@kernel.org>,
+	Russell King <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] ARM: socfpga: Fix OF node refcount leak in SMP setup
+Date: Sun, 24 May 2026 22:31:01 -0400
+Message-ID: <20260525023101.1329892-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MRWPR04MB12330:EE_|AM8PR04MB7346:EE_
-X-MS-Office365-Filtering-Correlation-Id: b69a8b09-2f93-429f-9c98-08deba02c74c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|52116014|366016|4143699003|11063799006|18002099003|22082099003|56012099003|38350700014;
-X-Microsoft-Antispam-Message-Info: 7iQ+CwhOjvXEjCrngJOoqbMmDtJDswvLFAUcJZzmJk+Ifp1pRDKQNvSROBzngCHm86YR9wWerbGinbZwZNmPmrv+BDHMX6fN7RhmvwzA4+wlsw1zeH3KAohcD5h/cNRL/BPtdDYdrxe2tlG7FApRmqn039e4Th0zlrRe/QnBJi4kKeEvR+52z7FcoGtLehe7PMUmHtQS/eAHcfRQqHs7nCc00HieVif97Lo//VfayfueLN/mUm4nx18GBunzSPZyJlbsZuJd+d3IWRCSIbNaLkAsffgFB6NCSaAIvJV6oso8idxgs4HJ12fBDdjqBi7A+lzHhESpMYrCCecRT1j0i3guWAaAII1DrWE/7jRkYw3399N9YrAV791dNXEseNSlZObOocDj4geahCs7qZZIskWNlWn6uIESdbqmemF87Q0ALQwroQlOstgiobhhbZyFiXHZlaSAcZddL7ElC7g4UibYu2gcBnxd3jnjjm30Ym5SLo969y9aEpGaw8U3o3zxpX5G+YX7osQHiR/C9cUSbilc3NtEGdPL7ZG2Gi1KGjlQ3vjfaODCXJ/V+SBecq3s9MaWYbpheCGr/Wvvkk3hxaEY8uj0wM4k3+wm1bF3cz7JotVdlk7laoyvXmdCVe09jCblwDF8OU5eAVcliihr3eRvzZDzR7Aot3f/d7zwBx3zVOA6a6qXw3D6+mfMv98dkMpH7MddNAbWc6zR4Rl+NgyHeXIQUkTMnWWj92fOG7HrzrmcD+vKorh7lrcvwHVC
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12330.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(52116014)(366016)(4143699003)(11063799006)(18002099003)(22082099003)(56012099003)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dqXYdNLMxyrIU7S3RZlTb2otnkuNQwm+w0MFXkGOt81kBuQ+VmlIx9v0WmY9?=
- =?us-ascii?Q?jnt5C5JQXrTvu6EFYsfV5/bZYCF2uRH6y6F5i9lSmEnmnlqLsJq6bvp2jQ0R?=
- =?us-ascii?Q?KXHG4SeHH3YtBx5fEYyrfOsaas69m4qDXUYKtIECTAwftHCLnLfGfBfwIN6b?=
- =?us-ascii?Q?WlA+CIETtadORE4JnCG2EqEYg3eEQFzNFKV1tktCVR9EAl7g4estk9ZckJya?=
- =?us-ascii?Q?SBwZP+zbxtM+Nzo9oQB0kPxkFcQq9eN35CwAgpo2s24GpbWfx/+4x01t8hVC?=
- =?us-ascii?Q?VmY69UVxseNGwJkkJjx5rlRDX/wXDI0DtZd+8d4KUOeP3lALZBfvCQJMaRM1?=
- =?us-ascii?Q?OzQ8T74Ayqv0lLwvpzuOaT3LcUTJz9F+JgorKSNlhhnfzYEVOm2oDDFr2aGg?=
- =?us-ascii?Q?SniUSyT9QoMUb3f1ee0j/+zgyfk7w3ifgRIXPQOoOlurG4BLNAWxOvNDYGMK?=
- =?us-ascii?Q?cBdOPINGHgL9l9dTIzH/fSZpaE9fW5PZGIJFkk86KIizHmJn8sVKnit2aNlV?=
- =?us-ascii?Q?KG7q4NiOuK502YcGtJH5sz2ZZ7IxFIhwxUg9fYMrAYZCCmMi9FCq6HGqua8x?=
- =?us-ascii?Q?2+XLfvjELeiEJQh77aYctbtzwvLVCxLvp1Ib4hx2NXq88RrZubrQ+Oh6dTBe?=
- =?us-ascii?Q?qhlNMVj52zKUELkuUSGsrLmKIOjxSPET68rD6xhqwCGGLi/NWjc1cDMo8pVG?=
- =?us-ascii?Q?r5crAhQ2V5+InOeKS9oPtQ+uq+iMtV8QQd2WYHePeB2B4EN5ltpkCMg4i/0/?=
- =?us-ascii?Q?gmc4l7Zdi8OY1QFYlioUTppsoqYNJxOSXMkEA60zNX8yrXzjJLgjyO2hooSv?=
- =?us-ascii?Q?IyWd2joHQ9QrbUSc1//rdQtDCBqhdm3h19zW/zQQUdlU1lDZPJ9VSUyZUS4t?=
- =?us-ascii?Q?Z4wfwsdOXgZeJEZ++LllAXZ6AJEl7EV6mV7Bb76+1qKxLf1K5z6F9APFUoLe?=
- =?us-ascii?Q?b7Kwk2yiAZGmi2ONNHupWKC39WIFxIBdDA24v1kw8xRqDsQa7a//71eOCw/i?=
- =?us-ascii?Q?IkJCs0yHu+7kpNsw5zenP9tFh7MHeAkra4OsYw/OdtPPYTzaPFvo4ei/y0t+?=
- =?us-ascii?Q?4rkED1kHebKCnlQiPkCZ8JBPKE3Z5Bhbxc0Wt/GBE3RqSGDe5p8S30Hxr6ha?=
- =?us-ascii?Q?+vhBh6WBzBh+LWpWI/eKjXEewfx98J70legMego/QdaDACPHC1D03HduyKXO?=
- =?us-ascii?Q?Xvelvi/Iq0qnfn1EaikA7+PcS1E1wUGz8KLIeS9aqbRRSona6H/dE7wbnF2H?=
- =?us-ascii?Q?Z9+GdtrgK6AuQzxNXEdfrrnlCTvmn9M4DaOZTOuNYnaOWXkxEv0vzE/JRn7U?=
- =?us-ascii?Q?VJkhWOnV+1efSK/M5EzRCgsccU9tFoD48YU7R7oT+x/mNRWE6wW9ImqTzI40?=
- =?us-ascii?Q?eDVoFpKQ6N+bldsvGMN77fVag5/1RV10BaqYTLa3ykvGSWGO+/jcZ9Z7lxBT?=
- =?us-ascii?Q?/N6rzakxPZeFubdL4a3rbbruv8rVZKZ1wZTuAtXVKmCiY4SuJ6+ynjKRBdET?=
- =?us-ascii?Q?QOxeJV1TCEUIOqG/UbM9KbyQDPFL1AAWOElVjpYhlphjuTVXO0w462+jHMFl?=
- =?us-ascii?Q?fkPnClhVzfChmRzafol/L7+lM2XfwhA7gzXYrDv8p3Fn6rI2wXN9akYudJQk?=
- =?us-ascii?Q?YdtGoFIDU2hUUX25qnKJ5bPuPn+1x4SldGav+ga5K+fMg6mbdkka5XUy6iQ+?=
- =?us-ascii?Q?7Vkn8oduGfJJAGElXvAO2/pM+LS6JHv+/kBFZYTurrPAO1WCPxcxok3oaMiq?=
- =?us-ascii?Q?vaMjPnB3Cw=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b69a8b09-2f93-429f-9c98-08deba02c74c
-X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12330.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 02:10:23.1033
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PKNrIw6Wdsq2mtNCM/tr7bQB6+k13c2Y4QnJztVaeZjW86O67LBIEaENZg5SHk9z4lpNN+YEgSDK1Ay8Y2uVgA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7346
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_191536_553152_9A7BF1F0 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20260524_193111_707484_E5F5C276 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,93 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 22, 2026 at 04:18:46AM -0700, Laurentiu Mihalcea wrote:
->From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
->The imx remoteproc driver assumes that the names of the reserved memory
->regions reflect their usage (e.g. "vdevbuffer", "vdev0vring0", etc.). This
->conflicts with the devicetree specification's recommendation, which states
->that the names of the devicetree nodes should be generic.
->
->Therefore, instead of relying on the node names, use the names passed via
->the "memory-region-names" property if present. Otherwise, keep the old
->behavior.
->
->The definition of imx_rproc_rmem_to_resource() is added to a common place
->as imx_dsp_rproc.c can also use it given that it suffers from the same
->aforementioned problem.
->
->Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->---
-> drivers/remoteproc/imx_rproc.c |  7 +++++--
-> drivers/remoteproc/imx_rproc.h | 19 +++++++++++++++++++
-> 2 files changed, 24 insertions(+), 2 deletions(-)
->
->diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
->index 7f54322244ac..1ee1c658dcc1 100644
->--- a/drivers/remoteproc/imx_rproc.c
->+++ b/drivers/remoteproc/imx_rproc.c
->@@ -672,7 +672,7 @@ static int imx_rproc_prepare(struct rproc *rproc)
-> 		int err;
-> 		struct resource res;
-> 
->-		err = of_reserved_mem_region_to_resource(np, i++, &res);
->+		err = imx_rproc_rmem_to_resource(np, i++, &res);
-> 		if (err)
-> 			break;
-> 
->@@ -850,11 +850,14 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
-> 	if (nph <= 0)
-> 		return 0;
-> 
->+	if (!of_property_present(np, "memory-region-names"))
->+		dev_warn(dev, "using node names for carveouts should be avoided\n");
+socfpga_smp_prepare_cpus() looks up the Cortex-A9 SCU node with
+of_find_compatible_node(), which returns a node reference that must be
+released with of_node_put().
 
-Please check 'memory-regions && !memory-region-names', some demos may not
-need to use memory regions.
+The function maps the SCU registers and then returns without dropping
+that reference, leaking the node on both the success path and the
+of_iomap() failure path.
 
-Regards
-Peng
+Drop the reference once the mapping attempt is complete. The returned
+MMIO mapping does not depend on keeping the device node reference held.
 
->+
-> 	/* remap optional addresses */
-> 	for (a = 0; a < nph; a++) {
-> 		struct resource res;
-> 
->-		err = of_reserved_mem_region_to_resource(np, a, &res);
->+		err = imx_rproc_rmem_to_resource(np, a, &res);
-> 		if (err) {
-> 			dev_err(dev, "unable to resolve memory region\n");
-> 			return err;
->diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
->index 0d7d48352a10..58e9daa41afe 100644
->--- a/drivers/remoteproc/imx_rproc.h
->+++ b/drivers/remoteproc/imx_rproc.h
->@@ -45,4 +45,23 @@ struct imx_rproc_dcfg {
-> 	u32				reset_vector_mask;
-> };
-> 
->+static inline int imx_rproc_rmem_to_resource(struct device_node *np,
->+					     int index,
->+					     struct resource *res)
->+{
->+	int ret;
->+
->+	ret = of_reserved_mem_region_to_resource(np, index, res);
->+	if (ret)
->+		return ret;
->+
->+	/* "memory-region-names" is optional */
->+	ret = of_property_read_string_index(np, "memory-region-names",
->+					    index, &res->name);
->+	if (ret == -EINVAL)
->+		return 0;
->+
->+	return ret;
->+}
->+
-> #endif /* _IMX_RPROC_H */
->-- 
->2.43.0
->
+Fixes: 122694a0c712 ("ARM: socfpga: use of_iomap to map the SCU")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ arch/arm/mach-socfpga/platsmp.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/mach-socfpga/platsmp.c b/arch/arm/mach-socfpga/platsmp.c
+index 201191cf68f3..349e6c54518e 100644
+--- a/arch/arm/mach-socfpga/platsmp.c
++++ b/arch/arm/mach-socfpga/platsmp.c
+@@ -78,6 +78,7 @@ static void __init socfpga_smp_prepare_cpus(unsigned int max_cpus)
+ 	}
+ 
+ 	socfpga_scu_base_addr = of_iomap(np, 0);
++	of_node_put(np);
+ 	if (!socfpga_scu_base_addr)
+ 		return;
+ 	scu_enable(socfpga_scu_base_addr);
+-- 
+2.43.0
+
 
