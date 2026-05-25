@@ -4,70 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5694CCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 10:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0661BCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 11:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sL2k1TVhyRJKaVnuqZpKLrU4rtjpfO7R4bvt8rDkFus=; b=CGO22mdljbgONc9jAIXKXg4lUO
-	7X/NtpZybPD49LSz5vo8RqIZ7iIGS7xQKDr1z4uNLO+n9dvCKYp0RTsdCJc6VJ2DjvFHr5n+ByCeE
-	OhwzEFwBlTDkwivzu2RuMLnWZF5qOHT5IthJXJN+kDMRsuenqLX2nPMlSehY6wmvw4GC/OmitDaIF
-	AFHPIsbWW9RzUdJryQ+OP4IVwjwu690bAHVEuV5wbNgbq7rahhavsKLr6RoKu6QrAUPJqo2lPQsuv
-	9IcWMvFwWdDPnRg25mTmYPRZH9M4/rUQFSikhBY5/l0g/j88fatNJCjcFGFJuUF5/juUVxlXxsjLR
-	aSEcifTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5NQfF+ZUa2lq7+ZRulYI6A2NsYPt5ClBqhGGJ3BoYU=; b=SKz56totbKqQyQ7hEmKWCW+GVA
+	A+HopfPBd+WI+wQgezvZhhp4a5LhFgmM6ueA8jmIiA+f5/+yjeINMYSzbHkJpNh6SwaWh9Mhy/cl0
+	+pVxbBN7Mz5gFleswVSVRPBnZMdWhOKVbBC3y3pvNr9Qh9ojyrTxR7xf+wdBoNIbDVPOdH/K0tqvW
+	xlalKY923jkf702D31HLMh4uZX8TOz9m8FF5/h+FSOaMgMNaOfrU38WJ/Q0V+PQ2aVX/G7M/YFFiu
+	CLGQtjGsmoOq5/G8D0KwCfAD34jvl23g3+FW3liOf9rf9Wrri0jRia48Q69dvxf9jnuSMZdsmos/T
+	VBHjwJJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRpG-0000000GqVD-1mSz;
-	Mon, 25 May 2026 09:42:22 +0000
-Received: from mail-m8182.xmail.ntesmail.com ([156.224.81.82])
+	id 1wRT9j-0000000H1XD-1T2K;
+	Mon, 25 May 2026 11:07:35 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRpC-0000000GqTs-2IF3;
-	Mon, 25 May 2026 09:42:20 +0000
-Received: from [172.16.12.74] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3fb5a1dcd;
-	Mon, 25 May 2026 17:42:08 +0800 (GMT+08:00)
-Message-ID: <c3c81cc7-6c5e-44b4-892b-c5b4199452ec@rock-chips.com>
-Date: Mon, 25 May 2026 17:42:07 +0800
+	id 1wRT9g-0000000H1WZ-0v72
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 May 2026 11:07:33 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64P7oFkM2801844
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 11:07:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=/5NQfF+ZUa2lq7+ZRulYI6A2
+	NsYPt5ClBqhGGJ3BoYU=; b=kGi2RGmBw1JUMOoGdEou6hvnPDbPITcGo5Mt/uJu
+	CRBahgR1LKFIrw/sgAokxejEB+4OK7Wsu4gDmyxuLP3N++LW/9Wm2s0DAAX+xQGH
+	qGXzjDboMFXCPairiM9W8UsJbigEQORV2O1mAD/s4lKSe8UXgXvmbxa07kE0xOXV
+	Q68r6KwQkuZo17+sV8NdI+9ZQn7QcO226pjtD5ENpz6qKCahEgUQLTYzVienfz0H
+	8nfGnQ8pAcoTEWijFzl9EYYXwwkPURTZ9R8nBnnWithSIdpZrHt0Am3BVeS12VSo
+	w7ZZKSCNEF/cb0ZVSmLJrH5vyCOnq3KO8MclI+P/e7zHtw==
+Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eb1kmps5u-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 11:07:30 +0000 (GMT)
+Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-95ccfd9b58dso13516178241.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 04:07:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779707250; x=1780312050; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/5NQfF+ZUa2lq7+ZRulYI6A2NsYPt5ClBqhGGJ3BoYU=;
+        b=EqTxDueAiawPCMUSZ1GxKBamQEKPRli9V73+fwsEyDbvrZDqkhjyzeVPGf9cBCM97I
+         EDu+g0wZI58YjC3BOOl1u66Oama+3cht90KyFqe8s+LSR8ssxKq1bo2wZP7q/plefwoI
+         ZuSGAhj1jaSNgIhPFJygeKJ8OEG8KcNWXcv0rswLzTLSpwwaYYWzoqhATKwghrn/6MDJ
+         r77ohmfxITvxFgSjsqG4K4e4WDAE3Ek/ixn6MXPnUK62Sr6RL3jltcXIQyj/myjkyiRu
+         6DRMqIQW0KlUd53LMJtLBIhT8SHkFqdjABLo8CRxYWAGveRJjWylQRibaKOqGeeVNd7F
+         ZTdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779707250; x=1780312050;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/5NQfF+ZUa2lq7+ZRulYI6A2NsYPt5ClBqhGGJ3BoYU=;
+        b=nOnlmUgTkERzVssLTCmZp0HGPaVowV1iq0Tz/0JfFIN399rdNdkyu3woN9SCRKSzv5
+         G/Q45KdpapOTdINT0JV9rVZW+aKS9rGe/gZvgIbQjFq06AtZrJX7fu9rnn6uOTfZ4+X+
+         FIu/uXzzruw+8bzq5W2kGrkOTC+HDE4ER1jSuJZsVLcJjLjn5kbP4OBUrAvsLEcmyQR9
+         VfKblMV1EwstUpYjS1Hu+zk6fWYs8dSUzHibekWxxlxlz6cEbqyPg8TBwffRu72PUSzX
+         JhyD6+v79owwx+PtT8TEi/5ZLGsGiAkrAWaqJzKXHYIaSvuQsNlobW0C6mSGSM0G+B8c
+         YLUg==
+X-Forwarded-Encrypted: i=1; AFNElJ9dYBDP8E0QQT505dsVamgbjfOeWcHhGkAFjte5y5H5Mm194w6pnkkUOu3skI+UfARq7y68uRCxYb8qICphWc9r@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr/1YC6pwnaAjz2cWlpn8VTkE0DN+3SNHGN/h2yeXzeap9uEdo
+	extEmQXVXl2aKx1elN+wUWrJpe6Bimch2w+j2Pj+MJmGe/zNYhf3zP/Q9VkWIdiYr9mZ02dyW1x
+	9qakgzicDEQov0tIwVMAM5x3JRaQBNHdArwQhnnYD3nCG3xeHlDOA8QmOT5osDgztQKp3BG2gfD
+	7Nzg==
+X-Gm-Gg: Acq92OERv02W3jBdsWyff+fZlm4ctHMHMHVxyGLtWBemwIGHxiABvptVTxGemXBOXxa
+	6L76VA9QiV9ubQgCg9QvVV4uZRQr2KCGTqfe5yccAXmf3/3hfGMvWDYbwP9aLKvs7+X6qoOlcUV
+	07P3j/IOqZ5srFFo/iWNQma7BdEkApnOvFvSM9ixRK9BjJssyv9B+ivSaQV50rsWCISqwR58Scp
+	IQqT/S89UNuNI0vK8a5TDH9EDHcA09bHKuoXmILU3VYTCjtvg9YIytIJFgkYIG413P+Sii55iRf
+	RJ6FDidFcmJu7gK4FbvFZkhbebYV3tbibli24GH67J+FrIVLHJ36WWrF++1m11stfbkpRoHdWkd
+	4CADGWLjlFUcuHkhL2jxVkrHKlagM4psdwpSlXD57I/uvRQTTrb5BMt64Zgr4qC6MZ8LjvidC4Q
+	w6mS18jAsXyAJLA6dB7/AiLC9kAOefI2RhefM=
+X-Received: by 2002:a05:6102:688f:b0:631:81d6:e158 with SMTP id ada2fe7eead31-67c8fcbdbdfmr6780126137.27.1779707250293;
+        Mon, 25 May 2026 04:07:30 -0700 (PDT)
+X-Received: by 2002:a05:6102:688f:b0:631:81d6:e158 with SMTP id ada2fe7eead31-67c8fcbdbdfmr6780116137.27.1779707249899;
+        Mon, 25 May 2026 04:07:29 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aa32cf96b3sm2600950e87.80.2026.05.25.04.07.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 May 2026 04:07:28 -0700 (PDT)
+Date: Mon, 25 May 2026 14:07:26 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Luca Weiss <luca.weiss@fairphone.com>,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: Re: [PATCH v5 4/7] clk: qcom: videocc: Add video clock controller
+ driver for Eliza
+Message-ID: <bnwy2srhmflo7drgavqonka7wrzbiwas5xjbabei2b6wfzci2b@62pkd4dr23j5>
+References: <20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com>
+ <20260525-eliza_mm_cc_v2-v5-4-a1d125619a5a@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 01/10] dt-bindings: display: rockchip: analogix-dp: Fix
- hclk as third clock for RK3588
-To: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
- airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
- rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
- cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
- dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com,
- dianders@chromium.org, m.szyprowski@samsung.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260525082033.117569-1-damon.ding@rock-chips.com>
- <20260525082033.117569-2-damon.ding@rock-chips.com>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20260525082033.117569-2-damon.ding@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9e5e835f7703a3kunmae9bfcda10eb2a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCGh9NVkNPHxgYGB9LT0hNTVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Nv/exr7AsXooqkxImwxXo6jSxa80U8X1v8eE9880g+5wTjsSfrFu/nYbd7R3+3fm+kswG7ONUngoAn2OjhHJvkZYNBFRtLobTuZ8f4zxo3IF196fLscVp94xRG9cx7NwP6qx+FLnqpNhUGX9bglXhf0iCjlXU+1XBZd6pMh6294=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=sL2k1TVhyRJKaVnuqZpKLrU4rtjpfO7R4bvt8rDkFus=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260525-eliza_mm_cc_v2-v5-4-a1d125619a5a@oss.qualcomm.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI1MDExMyBTYWx0ZWRfX+ioR7iUy8nBu
+ VsKBRDZkbEGDwcnGJL08IyzbN4A5Fa5V5xItXszhYqYRKxF/jUlLpwCDdpW45uLZPKBFZrX5tFy
+ vAI1TuDCsFS/LXrAmyK89vl7XBvRnLGWf2eRXUhTuk+1KqHl4ntLAUo6t5rVbjq3oSp8u1qXr1g
+ ceUC7tocWa4aeuoj6HEZrlGrJEnvxRbK1N7otK+0WiFWZ7+eVlGF8G2ysFY7CPcBFKp9fMh1uF1
+ 7knJWfFZxdq3R+LOtd0YjEbM8rbrmjo5B17rZo0LB6adNEaSOyYmh7auYd+nDu/2HWRC7X8wb2A
+ xKfLnkmnZpzktfXYm2H8Qm0k11OvetMZEJFNKOQpgXrdEqcW4QahB2Sm60k/GYYhs3DK4r8v8In
+ ULD0FZm+IJQyzHpWhFPkMYgfgFoEKeMoDPOmyelELU2bS6GH7NJhhnaFvQR73eAgNLOp9fjzSFM
+ GZ1rnjPrYRflaCx9cAg==
+X-Proofpoint-ORIG-GUID: 7Ak_j7pjoPiaWyvMONGm55ae21hZVjAM
+X-Authority-Analysis: v=2.4 cv=cN3QdFeN c=1 sm=1 tr=0 ts=6a142d72 cx=c_pps
+ a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=EUspDBNiAAAA:8
+ a=d7ClhsmVZ3m4v3ji_18A:9 a=CjuIK1q_8ugA:10 a=1WsBpfsz9X-RYQiigVTh:22
+X-Proofpoint-GUID: 7Ak_j7pjoPiaWyvMONGm55ae21hZVjAM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-25_03,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 adultscore=0 priorityscore=1501 phishscore=0
+ spamscore=0 bulkscore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605250113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_024218_873739_5C3274E4 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20260525_040732_377710_37CD978F 
+X-CRM114-Status: GOOD (  15.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +157,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/25/2026 4:20 PM, Damon Ding wrote:
-> RK3588 eDP controller requires HCLK_VO1 to access the VO1 GRF
-> registers and enable the video datapath.
+On Mon, May 25, 2026 at 04:16:06PM +0530, Taniya Das wrote:
+> Add support for the video clock controller for video clients to be able
+> to request for videocc clocks on Eliza platform.
 > 
-> Previously, the clock was enabled implicitly via the 'rockchip,vo-grf'
-> phandle reference, which allowed the eDP to work without explicitly
-> managing the hclk_vo1 clock. However, this is not safe or explicit.
-> 
-> To make the clock dependency explicit, enforce per-SoC clock-names
-> requirements:
->   - RK3288: 2 clocks (dp, pclk)
->   - RK3399: 3 clocks (dp, pclk, grf)
->   - RK3588: 3 clocks (dp, pclk, hclk)
-> 
-> Do not reuse the 'grf' clock name for RK3588 because it represents
-> a different clock with distinct control logic:
-> - The 'grf' clock is only for GRF register access and is toggled
->    dynamically during register access.
-> - The 'hclk' clock controls both GRF access and video datapath
->    gating, and must remain enabled during probe.
-> 
-> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add support for RK3588")
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 > ---
+>  drivers/clk/qcom/Kconfig         |  10 +
+>  drivers/clk/qcom/Makefile        |   1 +
+>  drivers/clk/qcom/videocc-eliza.c | 404 +++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 415 insertions(+)
 > 
-> Changes in v4:
-> - Modify the commit msg.
-> 
-> Changes in v5:
-> - Enforce the correct third clock name on a per-compatible basis.
-> - Modify the commit msg simultaneously.
-> 
-> Changes in v6:
-> - Expand more detail commit msg about using hclk instead of grf clock.
-> 
-> Changes in v7:
-> - List all valid clock names at the top level, and constrain the clock
->    count for each platform with minItems/maxItems in allOf.
-> ---
->   .../rockchip/rockchip,analogix-dp.yaml        | 34 ++++++++++++++++++-
->   1 file changed, 33 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-> index d99b23b88cc5..7fe7655c1f37 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml
-> @@ -26,7 +26,9 @@ properties:
->       items:
->         - const: dp
->         - const: pclk
-> -      - const: grf
-> +      - enum:
-> +        - grf
-> +        - hclk
 
-./Documentation/devicetree/bindings/display/rockchip/rockchip,analogix-dp.yaml:34:9: 
-[warning] wrong indentation: expected 10 but found 8 (indentation)
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-Will fix in v8.
 
-Best regards,
-Damon
-
->   
->     power-domains:
->       maxItems: 1
-> @@ -60,6 +62,32 @@ required:
->   allOf:
->     - $ref: /schemas/display/bridge/analogix,dp.yaml#
->   
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3288-dp
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 2
-> +        clock-names:
-> +          maxItems: 2
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3399-edp
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 3
-> +        clock-names:
-> +          minItems: 3
-> +
->     - if:
->         properties:
->           compatible:
-> @@ -68,6 +96,10 @@ allOf:
->                 - rockchip,rk3588-edp
->       then:
->         properties:
-> +        clocks:
-> +          minItems: 3
-> +        clock-names:
-> +          minItems: 3
->           resets:
->             minItems: 2
->           reset-names:
-
+-- 
+With best wishes
+Dmitry
 
