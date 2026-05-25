@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29889CD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42BAFCD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6jqLwhkLz3GnNiG5F6aqvc2zAsvy9RUUFv6VMz3rWAI=; b=mlVQjAepBe3yVH
-	B4SpQujANRZhmmF/5udVcLg6e9e15WwuUyoIrup6WMveDTnO3CFhMW1vPcGIWUL2T/kcddvB5/ZYp
-	kCrzCNek8Cpl5Auz3W8XXYfQnaJCBa3ExGVnHJ86mx9qk7cbRn2apeTlz5DkjL7/6Foagh6mdAfQT
-	+0y6pwW9ulU4JfwK1+D2MqUqveklHX1WQQjbn7O6AYMenMByv1BuvkQpmTvVtdWFYmF6w+cfNN3y0
-	jIBlpPXNo+QM+5TwIkWVJ6x/TpThX2cpGI04El1QA5c6uOMKI6B+NA9JofKps6xNrkc+BCHsoqBNq
-	zvx3qybkrKr8N1sz9IaA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MGZJIkp+bxuC8sN+1d1VBd1BwHThYFGRrqxTQBMfj8w=; b=giJUJZsonMn5lJ7TbbmeW1y2XO
+	yMSFk3O2gT6y3qX1/wtnmdusaUNwOd7N99kkaWI3zbE2HA/3e49MWTPrEewfi8pwMVZE+iAj986R7
+	OfPLwAvv5zFMWcjnrVKGWp20nBxAfdHCUctExsuktophiwOVnWlU0jZLRqRlEPAMR4Ngq/67WXLhC
+	/H0SPcTcURq4Mb5f1c/HsTpqo3Gt7M7djfG0hq4pDSdppGjdpqzrDTrP8tnxUG/Dz6bOqihFQe+cx
+	v+0eanRtI0wdmBuGOjbxfD/t+azXYbO3rnD9JOqYHkN/TyHlbqr/FrpuZRFQrOTsJ7zIi4N5CjAgA
+	YE2YJncA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRz9-0000000GsCp-1ZJU;
-	Mon, 25 May 2026 09:52:35 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1wRRzI-0000000GsFq-2Wdm;
+	Mon, 25 May 2026 09:52:44 +0000
+Received: from mail-m3291.qiye.163.com ([220.197.32.91])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRz6-0000000GsBa-2b4j
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 09:52:34 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-367c26471f5so6046177a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 02:52:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779702751; x=1780307551; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6jqLwhkLz3GnNiG5F6aqvc2zAsvy9RUUFv6VMz3rWAI=;
-        b=JICKPqQLsnmhDi9eJl4j6hVkasSWvV5iaddg/iKQSd1EuwCKnJ5RChLmTHgdbTvlDY
-         GyCRWcxzKyN5fjkuJ6x1pqVgSMbsBj7ZGzyZmIfxZ97ysL51JZ2zvoh5+i0dhL9oYgrC
-         CCQcBMRlSBYMWIgwRks5Xl3uWDLvwFwUwQwWPyOzR/jWzqtH/tkXsbDteqTXsc5g3VqJ
-         VuvJ9C7yaUF9fj8iznDDTvCgxCztzhSGK9L2qFe9utx0lUCC7fmu9vvockHgk+4Cc+Ff
-         ddLH63Cv9vvErUeLKzvAralRgVMYAJbgF69dMBQ9TwpD63TqgMNO6X92aLP3L8kuefgS
-         FtZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779702751; x=1780307551;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6jqLwhkLz3GnNiG5F6aqvc2zAsvy9RUUFv6VMz3rWAI=;
-        b=cTfkBoqOrJb2Dejk+ocV1gs1oItPd/jtmTa+ayRSvrN/ZW4kCC7yVBKDh25LuN+WfR
-         L1SEkbdxOjG/C0IZes/OTqxIQCLXFKAe0UVkZBV0EWWrAiK7Y7fl0yWBmW6iQc68xXal
-         w0L6l8INrdwy89QQNoycsuX4BQVg9HXFQTxHaI8VoZJuaflYgc0UHG4hIhP9pQ9ow2CB
-         kPGFbmMNLkX69dO8XvxTRjAc4I4aZNRAfFamZJuA3150cUq0mR1EGtOVsis/yKAfggKf
-         3sJTCO8ETheE7IjnTAEjh+k61Ui08L+Rt8rMUjW8EjP7dolAYLA0XdRAy+3kYHBTX0FE
-         YsAw==
-X-Forwarded-Encrypted: i=1; AFNElJ9jUUW83C8HTkz0YgMe4v/gWO4jzkM9GOPaLTaoeQj19BYzTxJWOM50UlQQZyM1TWIhAdRSKvD5Lrm9NE3g+Mon@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQH3IgZwZXTeO79G6P2s4I3OjxxERlQE9dnW7+VxQmgPk8pRKa
-	sYqh/LEg7Ozy4bj7+H6G7uYO+ElnEVhEFlCUiCmnYO+MJ0euxMNh/Wf8
-X-Gm-Gg: Acq92OEbgK8B6YccZfnvaVYuiI0zr1inFtUexmgG0wLFHV1583Uz8123GGYWSRpwYRe
-	Ydvpl5V58jg/Qh+HGsuq+yXkv1+2XzLJ81ytXxXS1+xNOgW5+5BTx1LCL6NFJXA5xPdnBOYppYl
-	L/eqiWEy8pom6Pkv2TtlYUNYHRtscg8veEvLncpHBELPICONNQ7Y+iJaUZvCE9j1U1wQxN8m+Ao
-	NCKF0IM7cE082LaRIdAkdVKFSXENQzylly2oN0Q0c7YJlj/dEZy84C57zC5Gbob6xFosCYsZm/B
-	40g+8rozE+O5AVS2/75Zs09klTCUEcGT60dUD88s+mwlgG1b77PG4AITep7KV6b0bTSIsl15OqG
-	ffq7SwUXafmG6EI7raW5fo3orzT2esZmN8wib8fbyeaGVAHIWpkWpMYuklDf0HHabVTZsKkultM
-	hgbnbcYRvVmahXeJKiHLvA
-X-Received: by 2002:a17:902:ffcf:b0:2b0:663f:6b53 with SMTP id d9443c01a7336-2beb0385f3amr153090915ad.13.1779702751312;
-        Mon, 25 May 2026 02:52:31 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.230])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb58b2cd6sm92533615ad.52.2026.05.25.02.52.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 02:52:30 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Jourdan <mjourdan@baylibre.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v5 0/6] media: meson: Fix memory leak in error path in vdec
-Date: Mon, 25 May 2026 15:21:48 +0530
-Message-ID: <20260525095216.12078-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	id 1wRRzF-0000000GsEE-3ouM;
+	Mon, 25 May 2026 09:52:43 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3fb5f003e;
+	Mon, 25 May 2026 17:47:36 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v3 2/2] drm/bridge: analogix_dp: Add support for optional data-lanes mapping
+Date: Mon, 25 May 2026 17:47:31 +0800
+Message-Id: <20260525094731.121380-3-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260525094731.121380-1-damon.ding@rock-chips.com>
+References: <20260525094731.121380-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9e5e88608d03a3kunm84eb206f10f6ef
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCSBkYVhhOGEpIHkhKHx8YSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
+	pKQk1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=SwnWaMCWjBLEY9nKSNBIz17WNyQl3/WLyAr/pLx5YTQwhiRjh6ZQnLn6oAI6Iqs/7NNrszMwz5keqkc5VnCtZoSncH1PkgVdrLw8GU859XU30U80MLn2h5OaEzhOShS6a3j147K5XoJ29wwpsRa3jmXHxvKrw45mCGYx690GYHg=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=MGZJIkp+bxuC8sN+1d1VBd1BwHThYFGRrqxTQBMfj8w=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_025232_662431_5DD1FA9D 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20260525_025242_140614_3E623E37 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,64 +92,183 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sashiko <sashiko-bot@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-V5: Changes 
-Following chamges try to fix the memory leak reported by Sashiko
+Parse the optional 'data-lanes' device tree property to support
+custom physical lane mapping configuration.
 
-New issues:
-- [High] The newly added error path in `vdec_start_streaming()` leaks 
-  `sess->priv` when `kthread_run()` fails.
+If no valid configuration is found, fall back to the default
+lane map (0, 1, 2, 3) automatically and keep the driver running.
 
-Pre-existing issues:
-- [Critical] Race condition between hardware power-on and `core->cur_sess`
-   initialization leads to a NULL pointer dereference in the IRQ handler.
-- [High] Returning buffers for both source and destination queues upon
-    single-queue failure orphans active queue buffers.
-- [High] Concurrent sessions can bypass the hardware exclusivity check, 
-  leading to simultaneous hardware programming.
---
+Lane mapping is mainly used for below scenarios:
+1. Correct PCB lane swap and differential line routing crossover
+   without hardware changes;
+2. Adapt mismatched lane pin definitions between SoC and eDP panel;
+3. Support multiple panel hardware variants on the same board
+   by configuring data-lanes in device tree only.
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-https://lore.kernel.org/all/20260521090944.F35401F00A3D@smtp.kernel.org/
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
-V4: Changes:
+---
 
-Following chamges try to fix the memory leak reported by Sashiko
+Changes in v2:
+- Add lane mapping application scenarios in commit message.
+---
+ .../drm/bridge/analogix/analogix_dp_core.c    | 56 +++++++++++++++++++
+ .../drm/bridge/analogix/analogix_dp_core.h    |  4 +-
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 15 +++--
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.h |  4 ++
+ 4 files changed, 70 insertions(+), 9 deletions(-)
 
-Pre-existing issues:
-- [Critical] The `sess->esparser_queue_work` work item is not canceled
-   before freeing the session context, leading to a potential Use-After-Free
-   vulnerability.
-- [High] The patch attempts to fix a memory leak reported by kmemleak,
-    but misdiagnoses the root cause and leaves the primary memory leak
-    (the V4L2 control handler) unresolved.
-- [High] The driver does not verify if `kthread_run()` returns an `ERR_PTR`,
-     leading to a kernel panic when `kthread_stop()` is called.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-https://lore.kernel.org/all/20260520045905.6ACBA1F000E9@smtp.kernel.org/#t
-
-Thanks
--Anand
-
-Anand Moon (6):
-  media: meson: vdec: Fix memory leak in error path of vdec_open
-  media: meson: vdec: Protect session exclusivity check with lock
-  media: meson: vdec: Set cur_sess before hardware vdec_poweron()
-  media: meson: vdec: Handle kthread error and free codec private data
-  media: meson: vdec: Isolate error path buffer flush to the active
-    queue
-  media: meson: vdec: Cancel esparser work in error and stop paths
-
- drivers/staging/media/meson/vdec/vdec.c | 54 ++++++++++++++++++++-----
- 1 file changed, 44 insertions(+), 10 deletions(-)
-
-
-base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 5dc07ff84cd3..d1c6365118de 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1234,6 +1234,59 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
+ 	.detect = analogix_dp_bridge_detect,
+ };
+ 
++static int analogix_dp_dt_parse_lanes_map(struct analogix_dp_device *dp)
++{
++	struct video_info *video_info = &dp->video_info;
++	struct device_node *endpoint;
++	u32 tmp[LANE_COUNT4];
++	u32 map[LANE_COUNT4] = {0, 1, 2, 3};
++	bool used[LANE_COUNT4] = {false};
++	int num_lanes;
++	int ret, i;
++
++	memcpy(video_info->lane_map, map, sizeof(map));
++
++	num_lanes = drm_of_get_data_lanes_count_ep(dp->dev->of_node, 1, 0, 1,
++						   video_info->max_lane_count);
++	if (num_lanes < 0)
++		return -EINVAL;
++
++	endpoint = of_graph_get_endpoint_by_regs(dp->dev->of_node, 1, -1);
++	if (!endpoint)
++		return -EINVAL;
++
++	ret = of_property_read_u32_array(endpoint, "data-lanes", tmp, num_lanes);
++	of_node_put(endpoint);
++	if (ret)
++		return -EINVAL;
++
++	for (i = 0; i < num_lanes; i++) {
++		if (tmp[i] >= LANE_COUNT4) {
++			dev_dbg(dp->dev, "data-lanes[%d] = %u is out of range\n", i, tmp[i]);
++			return -EINVAL;
++		}
++
++		if (used[tmp[i]]) {
++			dev_dbg(dp->dev, "data-lanes[%d] = %u is duplicate\n", i, tmp[i]);
++			return -EINVAL;
++		}
++
++		used[tmp[i]] = true;
++		map[i] = tmp[i];
++	}
++
++	for (i = 0; i < LANE_COUNT4 && num_lanes < LANE_COUNT4; i++) {
++		if (!used[i])
++			map[num_lanes++] = i;
++	}
++
++	dev_dbg(dp->dev, "Using parsed lane map: <%u %u %u %u>\n", map[0], map[1], map[2], map[3]);
++
++	memcpy(video_info->lane_map, map, sizeof(map));
++
++	return 0;
++}
++
+ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
+ {
+ 	struct device_node *dp_node = dp->dev->of_node;
+@@ -1266,6 +1319,9 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
+ 		break;
+ 	}
+ 
++	if (analogix_dp_dt_parse_lanes_map(dp))
++		dev_dbg(dp->dev, "No valid data-lanes found, using default lane map\n");
++
+ 	return 0;
+ }
+ 
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+index 94348c4e3623..a75d0fb8f980 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.h
+@@ -137,6 +137,8 @@ struct video_info {
+ 
+ 	int max_link_rate;
+ 	enum link_lane_count_type max_lane_count;
++
++	u32 lane_map[LANE_COUNT4];
+ };
+ 
+ struct link_train {
+@@ -175,7 +177,7 @@ struct analogix_dp_device {
+ /* analogix_dp_reg.c */
+ void analogix_dp_enable_video_mute(struct analogix_dp_device *dp, bool enable);
+ void analogix_dp_stop_video(struct analogix_dp_device *dp);
+-void analogix_dp_lane_swap(struct analogix_dp_device *dp, bool enable);
++void analogix_dp_lane_mapping(struct analogix_dp_device *dp);
+ void analogix_dp_init_analog_param(struct analogix_dp_device *dp);
+ void analogix_dp_init_interrupt(struct analogix_dp_device *dp);
+ void analogix_dp_reset(struct analogix_dp_device *dp);
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+index ea8401293a23..c1344a3f013a 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+@@ -48,16 +48,15 @@ void analogix_dp_stop_video(struct analogix_dp_device *dp)
+ 	writel(reg, dp->reg_base + ANALOGIX_DP_VIDEO_CTL_1);
+ }
+ 
+-void analogix_dp_lane_swap(struct analogix_dp_device *dp, bool enable)
++void analogix_dp_lane_mapping(struct analogix_dp_device *dp)
+ {
++	u32 *lane_map = dp->video_info.lane_map;
+ 	u32 reg;
+ 
+-	if (enable)
+-		reg = LANE3_MAP_LOGIC_LANE_0 | LANE2_MAP_LOGIC_LANE_1 |
+-		      LANE1_MAP_LOGIC_LANE_2 | LANE0_MAP_LOGIC_LANE_3;
+-	else
+-		reg = LANE3_MAP_LOGIC_LANE_3 | LANE2_MAP_LOGIC_LANE_2 |
+-		      LANE1_MAP_LOGIC_LANE_1 | LANE0_MAP_LOGIC_LANE_0;
++	reg = lane_map[0] << LANE0_MAP_SHIFT;
++	reg |= lane_map[1] << LANE1_MAP_SHIFT;
++	reg |= lane_map[2] << LANE2_MAP_SHIFT;
++	reg |= lane_map[3] << LANE3_MAP_SHIFT;
+ 
+ 	writel(reg, dp->reg_base + ANALOGIX_DP_LANE_MAP);
+ }
+@@ -140,7 +139,7 @@ void analogix_dp_reset(struct analogix_dp_device *dp)
+ 
+ 	usleep_range(20, 30);
+ 
+-	analogix_dp_lane_swap(dp, 0);
++	analogix_dp_lane_mapping(dp);
+ 
+ 	writel(0x0, dp->reg_base + ANALOGIX_DP_SYS_CTL_1);
+ 	writel(0x40, dp->reg_base + ANALOGIX_DP_SYS_CTL_2);
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h
+index 12735139046c..ac914e37089b 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.h
+@@ -209,6 +209,10 @@
+ #define LANE0_MAP_LOGIC_LANE_1			(0x1 << 0)
+ #define LANE0_MAP_LOGIC_LANE_2			(0x2 << 0)
+ #define LANE0_MAP_LOGIC_LANE_3			(0x3 << 0)
++#define LANE3_MAP_SHIFT				(6)
++#define LANE2_MAP_SHIFT				(4)
++#define LANE1_MAP_SHIFT				(2)
++#define LANE0_MAP_SHIFT				(0)
+ 
+ /* ANALOGIX_DP_ANALOG_CTL_1 */
+ #define TX_TERMINAL_CTRL_50_OHM			(0x1 << 4)
 -- 
-2.50.1
+2.34.1
 
 
