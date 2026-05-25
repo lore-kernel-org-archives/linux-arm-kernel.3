@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09806CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B737CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oIFEnpVuawucZlIPGTpnFigTasBUEJzr8Hl8oaehmP4=; b=U16+ggjCt8smo+
-	YN32DBR9hIGOkr/NdYiLTMKRvR42Jg6tu9IzpGj5raZGzHL8DcHYRi0WxL0uqELJU/MTRJPrvkaey
-	hT14M+JLXoWwnwYwezGzo8G8k2n58taJoUGbRlwUyLg/N55tUkXxoimiGeVuNY3H79bjz6KAGsABm
-	g75cmxrABSIi2iVe+yyR+9LClXgtoP7eiy4jFrBsz5rxTyX3pALiKukJLYTd8nBkMPsXhLPLEmmAL
-	IsDKzQWwOj7yckyk3tvR5yX4UiLBXPaeKaMVIN0NuwoHlc/8jfIRkkeK9+pzZuh6uF7tGqbzGo1aQ
-	weLZxZxpfcgZntzAdcUA==;
+	List-Owner; bh=v2KznrLCQ77VZ51Z4KvrxVufB2DqA7HTlU0nEjlF/zw=; b=YmjSqIBRzDnabS
+	Kutq45c8wRmGJnryNpxejefxpmvw73WCCayKziHLb8fw/CXzm7KNo291kUAl4GNYz52vv/vdRlP6o
+	+DtSb9+BfkM0GPWp3k6ktC+/aViXJQS5EDL7nyzgUcV/wcMcTEWkIeLyYGur2nxM/WSYuy/6Tmp0K
+	5TCzhCNVEBnFK73R/IPVOoAoLzfZCqQGkYVNPyMuJ4vNSVj+uVd/S4vdiCeCFMt1hr5LuRL3TH5zy
+	7ecMVST8fNIGCtFSSJutxwAeZ0WM8NRaAgIbDRfzrRHoDPGKxA2dsqve651caf0OIZUlSGBcms+87
+	8uHH5kOyDI3gX9eLthPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRzU-0000000GsOG-43MH;
-	Mon, 25 May 2026 09:52:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wRRza-0000000GsSd-0r2P;
+	Mon, 25 May 2026 09:53:02 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRzR-0000000GsLZ-2c6h
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 25 May 2026 09:52:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=oIFEnpVuawucZlIPGTpnFigTasBUEJzr8Hl8oaehmP4=; b=qjr68SQV5s7AcB4/kHF8TBpEpb
-	etSWZXU6DjHWv1TR0Pdy+IAyNSJ34/Ik4YPM9AoNCtgYq6lHPcKA2frsI+wJ0T8oqrRK/HC6Xwmrs
-	p8WPmtU3HhtYhaGI/l7OGfImlN+j1NuLcntk5xep4KdRjIzFY3IBptwijblkBkMue8is1lJavYsYc
-	Z0MDlrGjxFsR+8XDldZ1NRWnZ1XXgW7ME7fNjBFLPS7mkjPGwsPFbm5YXJe/GnJY+/DTPjnYzX2OZ
-	wACCidUn2LDUqxlgvxlGS4odu+se3qOAjjZVteRNsvgofNKbhspPgGhFdoO+07UFIL7uI0a0B3wyG
-	4Arjgv7g==;
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRzO-00000008wZ3-08cD
+	id 1wRRzW-0000000GsPV-3IVS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 09:52:52 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2bccb978bd9so59972475ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 02:52:49 -0700 (PDT)
+	Mon, 25 May 2026 09:53:00 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2bd2051167eso45530195ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 02:52:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779702768; x=1780307568; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779702778; x=1780307578; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=oIFEnpVuawucZlIPGTpnFigTasBUEJzr8Hl8oaehmP4=;
-        b=Wpj7iHnVxLhiIMfBPVsFF0S/60HM3YDEKo/kF/YhX5wlc4IePbUSQUc6wOJPpMW7xq
-         VPHN4Dm5OIjekpSsXJeJbKX4T9d+F5+WlIRGiKAlAWV8EgL1bWdxKzdALLkC9QaBlNGW
-         Nvogg8j0KdzRcx2Yo/8uWQ09bDI3yG7bYFiMJi4nuaN7CHAS3MBozzshQ1ZXgspMl9sz
-         OtvFCIbuLQULyk/xB0Zi4VctuIZ4FvJbJyRrGpK9ePJeK/ovwRFVlx5N17lf2SSwQmrz
-         LnGts+HRsdMfL+iQo6p1Si8efJCTDXZHSY3UmwVCmOnfIcPNjYaozsesd9fYtSgwW8Vd
-         389g==
+        bh=v2KznrLCQ77VZ51Z4KvrxVufB2DqA7HTlU0nEjlF/zw=;
+        b=H4FArlHzPIG26K5zPKk/IbfMqfD5XIb+GGO1kfvwdHB/h0z76qVOccCD274kGN97yD
+         PgbOLJ0rL8DTkK/5nsAAFnFCxgSwoaKkJxv9yr4y0MN+fk3W7rHQqwhyLrNgIiNVhj21
+         j0mUrV4Z5gb5d7LjsMW1RYwxq16zjs7opceYIallj8nlPpr+uUVQVKY0C1wPHbmttxtQ
+         kucY/Z//5yn+BLqXhoBQ6D35r4s+csHGeG0vjh3iW53TIiU7Zs5D2fOSjTQIezNNM3fa
+         3hMSOATEEKwtgo6kGBofwZDeYBJYXV7QNJZkaFLldR3zqYs51eNVvtpJph9MxEuMuXrc
+         S7Cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779702768; x=1780307568;
+        d=1e100.net; s=20251104; t=1779702778; x=1780307578;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=oIFEnpVuawucZlIPGTpnFigTasBUEJzr8Hl8oaehmP4=;
-        b=s7VbpxN3/3fL8+3JRcbEoM4MPTqpA+ffKvWmvRTLyLNqh7j68A4tYUvP/2JfDbgQah
-         Im7DdM9HR2DYWz9dzDYHfZsBH4o+H5xirKuPzb85YxDvALubwDuisVbItrA0A0lGYMMS
-         xvALxaKUNJYUiJ5AO+Z3yNtJCYSUDLScuiyxLRzdTz9xRSVyQZWkBObJnbjlsBPTsMC1
-         EmEtJ6y///kKlSeqlXExmr8WkNoUv53HJeqJ5LhnaZUUvlAun9M5pGDkw9ttHfsHq3A8
-         4Xjt12DFEhYNSJbCUTI1yNOf4mMz6rEXkEqMA4hMPlR2vstBLC1I49mwPL/ofVrlJhl6
-         vQFg==
-X-Forwarded-Encrypted: i=1; AFNElJ9sfl+pVknr/lmuCF64SQxj2yA4Mikdy43ooHyFt4NKb+nB4yz+X+r76si1kYH7yaYN1B+1UY4NocB2zW1c2+Wl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPlVFn0JVVTGjSQGX1Mti4sFFuaLEj0LrJGLiPCdNRl+KA250K
-	15TFMSIILkUzHawL1TuHTUm44/HxRRivgKZfYekCiZWYnEbXVl6wy3vH
-X-Gm-Gg: Acq92OEjSfDczpXMsp5vDDOodTmWmiyt0HtimiRcvOPdj1761AGucB88yLnbSxuJcqA
-	J/2b8SS9jTVp02dcO7q74lVlTkyUK20dw8xg6RDf3p7VcnXm/RkFv/8E7js3q+5In/Iul6nLYQ3
-	/V7lyks9C1hBNRhjFd5xO88kHmErmnW+YAh0e8jIFsPag/oYcSDPG6Wy1JLVVcKutSuVbH7wlra
-	Yo1XP+RJzbgKSDiIGp66h7GSi5O7Jk3WYO0fs3Y43l3O7ihsddMFDCcDY058wTfkbL0yLz/mHSK
-	sf2NKLDWduP5vYCdCcXjJ6jRpJhuAtJTPHBB5vp442RiJxFHHYx2zdVTsAXBXO6yUR1T3d1r7wV
-	exUD460zwbmFn9dx3revRQZ4oWsfodLxQkPE44GwgtbnKot+2yvCXVQZa0fI/ftXww8iQQZmTgu
-	pO61hSRyZTxQKPFS4AOAbT
-X-Received: by 2002:a17:902:f546:b0:2bc:8e7d:3dce with SMTP id d9443c01a7336-2bea23e2057mr157194235ad.27.1779702767866;
-        Mon, 25 May 2026 02:52:47 -0700 (PDT)
+        bh=v2KznrLCQ77VZ51Z4KvrxVufB2DqA7HTlU0nEjlF/zw=;
+        b=adAUimRO14ojdGIIauNQslngjZQPuucoqFx0AMaZbwLXsatq7Fg5GVIFaIybTa+FkO
+         nfvNgOqTUqp/M3G7yFjWFt61ap76/mJEmQ0H46RZre1lNgC8dQ6S81tN5JkfBaVqzDh5
+         wWynIDqSA41f3SuS1Kb5FG44scC2nHLViiFw117/yqTEYbBGoz8Ex47KKQmfEsZnCj9t
+         eu9XxkFGUJuu9c6v2PZ4hJdLR06VLchc5lfLFK5aKOoAFLzXLj1fl/Fiotn0eESTPOSB
+         CHLQYt7YoD7IOJ77ptvcVhGkeI40CpyEipW/Kfe9IRMNS1vOkqkjB4xh5i1nMP+6TpjF
+         pmLQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/tHyGCu8RkCeaWoUpSHOyEkMyZflsINxBASxJcoZdk6RINjvF/hzsOLr+YAXrv2wOV3tGTYvgjsxaYCxalSniY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz82/ah0lYuGI/dFpL4/dz0v0fW3gg6p5Qkjq7stm9CAqNVqe5j
+	14vM2pU5KOyuTynIAw1YhXLMHc2qnQlwUoP3QpC1uSJwRjreisy6NTVe
+X-Gm-Gg: Acq92OGyQ5DGLCsz05h1+gq+3LkMAm9jov2Tpg1WHl1KiHM18nVMhX+IQbPp8k3vxCd
+	nDnvPSAJ1Q6gYz6McNH0i6i3EJuayd30LkqG66hwDxw9MxFklV+HfiyoWGKjxZBXdwrwTlTxutD
+	kl2FtsbNuWC9ujdHym0k5ZDl030vTR6YkcUyXUSQoBqYWzprT9isZZU+ssbws90TvBxjnnw8aXG
+	5TGSxiK8IJVfwvMrKfDnOfYoo+j/k/Dx2ao4HkKz4DwfiT6BVP1165SDYgl4KMso0LxtzjdUCWt
+	UPbpaJDCwFZ0Fw34I49yYEgLkFG2CUjQcGshC8vcCLdEd2L7RPfTyNCGJ1nmmFy7C7lb2asLfHG
+	FaKsLIpRszWjy76Z/TuWinaxfdKo4zKN7sCNWNP2erSiOKb0OkTLObp/1JJLNaH16zGgJoGpP9X
+	JkwmkRd3p9WfMdGIZZXE9i
+X-Received: by 2002:a17:903:1ae3:b0:2ba:bfc:76a8 with SMTP id d9443c01a7336-2beb057f8c9mr151250385ad.16.1779702777738;
+        Mon, 25 May 2026 02:52:57 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.230])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb58b2cd6sm92533615ad.52.2026.05.25.02.52.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb58b2cd6sm92533615ad.52.2026.05.25.02.52.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 02:52:47 -0700 (PDT)
+        Mon, 25 May 2026 02:52:56 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -91,24 +76,24 @@ To: Neil Armstrong <neil.armstrong@linaro.org>,
 	Kevin Hilman <khilman@baylibre.com>,
 	Jerome Brunet <jbrunet@baylibre.com>,
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
 	Maxime Jourdan <mjourdan@baylibre.com>,
+	Hans Verkuil <hverkuil@kernel.org>,
 	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
 	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
 	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v5 2/6] media: meson: vdec: Protect session exclusivity check with lock
-Date: Mon, 25 May 2026 15:21:50 +0530
-Message-ID: <20260525095216.12078-3-linux.amoon@gmail.com>
+Subject: [PATCH v5 3/6] media: meson: vdec: Set cur_sess before hardware vdec_poweron()
+Date: Mon, 25 May 2026 15:21:51 +0530
+Message-ID: <20260525095216.12078-4-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20260525095216.12078-1-linux.amoon@gmail.com>
 References: <20260525095216.12078-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_105250_709968_411E7925 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20260525_025258_830803_6B1A0D70 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,13 +109,21 @@ Cc: Sashiko <sashiko-bot@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the check for an active hardware session is performed without holding
-the core->lock mutex. In multi-threaded environments, two concurrent
-STREAMON ioctls on different file descriptors can simultaneously find
-core->cur_sess to be NULL, bypass the check, and concurrently call
-vdec_poweron(), corrupting hardware state.
+vdec_poweron() initializes hardware and unmasks device interrupts. If an
+interrupt fires before core->cur_sess is set, vdec_isr() dereferences a
+NULL pointer when updating sess->last_irq_jiffies, leading to a kernel
+panic.
 
-Fix this by wrapping the session exclusivity check inside core->lock.
+Fix this by assigning core->cur_sess and updating sess->status under
+core->lock before calling vdec_poweron(). This ensures the interrupt
+handler always sees a valid session pointer. On the error path, clear
+core->cur_sess and reset sess->status to STATUS_STOPPED to avoid stale
+references.
+
+Following change also strengthens the hardware exclusivity check by
+holding core->lock during session assignment, preventing concurrent
+sessions from racing through cur_sess == NULL and corrupting hardware
+state.
 
 Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
 Reported-by: Sashiko <sashiko-bot@kernel.org>
@@ -138,31 +131,45 @@ Closes: https://lore.kernel.org/all/20260521090944.F35401F00A3D@smtp.kernel.org/
 Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
-v5: New patch.
-[High] Concurrent sessions can bypass the hardware exclusivity check,
-leading to simultaneous hardware programming.
+v5: [Critical] Race condition between hardware power-on and `core->cur_sess`
+ initialization leads to a NULL pointer dereference in the IRQ handler.
 ---
- drivers/staging/media/meson/vdec/vdec.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/staging/media/meson/vdec/vdec.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 18a22b79e835..e72f54af026e 100644
+index e72f54af026e..52ace4de967c 100644
 --- a/drivers/staging/media/meson/vdec/vdec.c
 +++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -286,10 +286,13 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
- 	struct vb2_v4l2_buffer *buf;
- 	int ret;
+@@ -334,6 +334,11 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ 	atomic_set(&sess->esparser_queued_bufs, 0);
+ 	v4l2_ctrl_s_ctrl(sess->ctrl_min_buf_capture, 1);
  
 +	mutex_lock(&core->lock);
- 	if (core->cur_sess && core->cur_sess != sess) {
-+		mutex_unlock(&core->lock);
- 		ret = -EBUSY;
- 		goto bufs_done;
- 	}
++	core->cur_sess = sess;
++	sess->status = STATUS_INIT;
 +	mutex_unlock(&core->lock);
++
+ 	ret = vdec_poweron(sess);
+ 	if (ret)
+ 		goto vififo_free;
+@@ -344,12 +349,14 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
+ 		sess->recycle_thread = kthread_run(vdec_recycle_thread, sess,
+ 						   "vdec_recycle");
  
- 	if (q->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE)
- 		sess->streamon_out = 1;
+-	sess->status = STATUS_INIT;
+-	core->cur_sess = sess;
+ 	schedule_work(&sess->esparser_queue_work);
+ 	return 0;
+ 
+ vififo_free:
++	mutex_lock(&core->lock);
++	core->cur_sess = NULL;
++	sess->status = STATUS_STOPPED;
++	mutex_unlock(&core->lock);
+ 	dma_free_coherent(sess->core->dev, sess->vififo_size,
+ 			  sess->vififo_vaddr, sess->vififo_paddr);
+ bufs_done:
 -- 
 2.50.1
 
