@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A159CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 16:47:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65467CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 16:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICS7Dz29jLrJ1wTqVXTj0KDShL8/FYLDELZ9YhttbOo=; b=TejfK/5y+H++hQKps8NRZ0Urt3
-	Sdtue9gmbIRJCap1RA2mL3bSDh9PSTX0hJooiDkDbeios2uSRDyJyMFD8+Fb+ooru1/VsOxdavBJg
-	/5KWSCE/Nog54qIMMoA701/+4by1oT548+aX3Mu7uey8vKjFrsG48UesDmVeon50EsKWsFcZKte9h
-	E2rscTzWt8q66zpM9YMCcjfG4Sz9XlKh2PedC1BOxhSgaLrX19nD5zSYm6Aragqnjk+zLQwb38/8S
-	wcu2QNd3a0NEgJHqZKg5YBBq5lWrZzLwRy7jzBPtuVYs0TymUepleuL7cN3EZGcPEZhR0MyABRuY9
-	ruOAtlvg==;
+	bh=3kgvASxp3f7rsNalAAxiKY75IcAIHz3Q2alZe0wcMyI=; b=LQBumXAFKY7lnh2rckLcRPa4dp
+	VwI6Khekbiv62E5rQGXBIXksqK2jPT5rj5gM4rwLxsZHoGIj2wVFWQ4J01kkxyyB3JtzjFHyU6ogE
+	ILQYtyCKHinguH49o0wzRK67JNRkAoHL3lVf4cBJGoInCBfMb3Vu5A6ASIkTnwz/ZN5+/PHf06Coa
+	re4t0HkMSFCPe49emKsZXfP4ZiSoZNKnWyFmZkhuzljkDU8gZflzarHX49WyT676sZFkIu83b/qA9
+	jCp8hwN9ANkIaJqoh83wSGtjUyk2VN47Jg1mL8QaFIiKnnRfmmdV6a92eDSu3Q2820O7yTqtDMroN
+	N6Zvxs3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRYSW-000000003co-0QDO;
-	Mon, 25 May 2026 16:47:20 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1wRYZJ-000000004jE-3NYK;
+	Mon, 25 May 2026 16:54:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRYSU-000000003c6-1v6o
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 16:47:19 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8b3d6b215cfso168733536d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 09:47:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1779727637; x=1780332437; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ICS7Dz29jLrJ1wTqVXTj0KDShL8/FYLDELZ9YhttbOo=;
-        b=efVSqny9VTejW7Lgrr1JGy7KENEPMxO1yBI94SpFe5oeSoqPb9fAWJ6lf1xDcZOR8x
-         81e/OxaCoxUc1tKsXMCdm8Y56fIP7qqZmINnWKO0wB1/r8AlFXhOZjMB8iz5mBy0WaUw
-         Gwmoei0czKpAa2E+0MMTe75GNlG3tkIBkv4+z1v31Sr0CQKcMq85ty3Ll3LNVAXPDoVj
-         WojMAWBPs1XGCPMO8HQigi9RNcTLx5/924SovKbr/q5q+eJK9GO+9QR8TaDkVAhMuZZ2
-         gMNevnCTsMKaDiuQZoB6TB6bez6K76zkcl6QcC2hI3N3F/jAioLk8RceGDqiB/MXQiAo
-         agcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779727637; x=1780332437;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ICS7Dz29jLrJ1wTqVXTj0KDShL8/FYLDELZ9YhttbOo=;
-        b=RakwE0B0dzttvp0ckTW4wdSI9SxlWBQgGKOPAnSw2ez+uuZN1qMagKuBuhrSJEn+dh
-         +wS5SUTXQNkZUMgVWsaFK6gmGz5Mnjmbj3AUWNNUN+ubrILk72KULZgPRkATosSrthTC
-         Sh6XUTw+y56/EBBwQFUO4K2HtSq39/4BKuiNJEJp32Bu2SswItBnMb/ajAJh/ds28Px1
-         HCbt9svBOmi6r2FMPFAyfnSMXoRr6AumPs9okje4EUWgNrpekob40VzQjT3Bkix1oir0
-         kfGcqUYBtvChNrt3JAaHK0QLV8lpVqg4/lzHmELPWvLUEb9c7FfmUlujwwTHnMP6hs6+
-         3KmA==
-X-Forwarded-Encrypted: i=1; AFNElJ9F6KkTWTcPmNOg76GBM+CEcohmKi+kF8wACBAp86Xnjq0fNO4xAo1EVmBV39CnBxp0b8zBlKeUGCYJUpltosiU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwniaRoHMGpjNuFxDJ6uBVN3MH9/8Vl9+y/o2gSftT0d1mDu7yb
-	eDg39joBPb8ZmDkccMBO9YlUlaHSQvcRuawt3f2U3tM1CQLdmirozgPdaUajgbd6azM=
-X-Gm-Gg: Acq92OGR53mJbDYQ1JsaXjRoGX2SEivCpqZBVwdkbBHAMZqaYmfuYTVuJzc7hamyGqz
-	chUo/StURYgRdjFfGRA9F241DUkRMo6Vk/1ErfzZjp3gLh+e5GYddOI91VegTlqcvjK1yZlInWn
-	yy/HBwd/LlYrZiZfDW32bysoGFYEuTTtjD4TE7EgF5dpCwkds6FCfKY8GpJp7DlUAI8ZnkSgXA0
-	v4UekrJiDS2X12IXvZKMJ/qyfwNls+GqIiAWLrFBhxcyo6joC2dMa96jzXjsmpme2SfKkvdK6cq
-	KsZnUCPcLfnqO/Rhn6Qt3N4TFvi3i7F5Oz3n1Oze07MGlvunZUGVUMzVcGDlhahPRcy8KW4Jwh1
-	iOtag8chPUOXFAO7vlcEciGwKAD4Uv+J4LiCpgupyVIsvA2KcQUtajmCcVie8RxeVmWCk7fo/0p
-	+tYby4ubtLRShN0CjTU7ttsB7d2fiJDaoEe5JJSHABFWHwhaVAybEGRAfPXN1qOGw3jBlLV3K5v
-	s73JOOiTBGwqt1L
-X-Received: by 2002:a05:620a:690f:b0:914:cad9:fa2b with SMTP id af79cd13be357-914cad9fac8mr1258537585a.55.1779727636838;
-        Mon, 25 May 2026 09:47:16 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-914bb9d6b1dsm1068052185a.26.2026.05.25.09.47.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 09:47:16 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wRYSR-0000000AbRY-2eeV;
-	Mon, 25 May 2026 13:47:15 -0300
-Date: Mon, 25 May 2026 13:47:15 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Joonwon Kang <joonwonkang@google.com>
-Cc: kevin.tian@intel.com, Alexander.Grest@microsoft.com,
-	alexander.shishkin@linux.intel.com, amhetre@nvidia.com,
-	baolu.lu@linux.intel.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	easwar.hariharan@linux.microsoft.com, hpa@zytor.com,
-	iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com,
-	joro@8bytes.org, jpb@kernel.org, kas@kernel.org, kees@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	mingo@redhat.com, nicolinc@nvidia.com, peterz@infradead.org,
-	praan@google.com, robin.murphy@arm.com, ryasuoka@redhat.com,
-	smostafa@google.com, sohil.mehta@intel.com, tglx@kernel.org,
-	will@kernel.org, x86@kernel.org, xin@zytor.com
-Subject: Re: [PATCH v2] iommu: Allow device driver to use its own PASID space
- for SVA
-Message-ID: <20260525164715.GA2487554@ziepe.ca>
-References: <BL1PR11MB52710D3CCFA2F75F6B540A468C0A2@BL1PR11MB5271.namprd11.prod.outlook.com>
- <20260525152924.524721-1-joonwonkang@google.com>
+	id 1wRYZI-000000004iy-0mso;
+	Mon, 25 May 2026 16:54:20 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 52FDF60008;
+	Mon, 25 May 2026 16:54:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B92B01F000E9;
+	Mon, 25 May 2026 16:54:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779728059;
+	bh=3kgvASxp3f7rsNalAAxiKY75IcAIHz3Q2alZe0wcMyI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=WHSIA2szLm/lG8nfbsx0b1dX/19zaHSHKmzhqWGOlfRydi3jFqS0LXDvjPo15jyr+
+	 GYMyv3Z/0DMGvpPKfLG0XbJC+OcLdnLPzvuK6m8OvRwxBF2MD/heGI1Q7Brotx7ek9
+	 8Iuni51ScaWRnImVtRTHOTIckQuMsxO5IsMSKMLpgp6ZGFkTelEqhc/9cLm4jFD0LS
+	 3kMa+nu80ND+5cWl1nCeqjCt5kLTFG5W6CVabh/SxGxd50iWHJds6KK5aypiLMwEN7
+	 mwQuZrVhRqknXAJAuZh2iThVMKD7rpQkF5fuOzvSCkPIk87OMC6ZjEIynhFEYg5xSe
+	 SMmE5z96Q8tyQ==
+Date: Mon, 25 May 2026 17:54:11 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se, jernej.skrabec@gmail.com,
+	nicolas.frattaroli@collabora.com, cristian.ciocaltea@collabora.com,
+	sebastian.reichel@collabora.com, dmitry.baryshkov@oss.qualcomm.com,
+	luca.ceresoli@bootlin.com, dianders@chromium.org,
+	m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 01/10] dt-bindings: display: rockchip: analogix-dp:
+ Fix hclk as third clock for RK3588
+Message-ID: <20260525-ominous-hurling-c24874030f5a@spud>
+References: <20260525125331.140059-1-damon.ding@rock-chips.com>
+ <20260525125331.140059-2-damon.ding@rock-chips.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Mp1gnxnR0vhDimzB"
 Content-Disposition: inline
-In-Reply-To: <20260525152924.524721-1-joonwonkang@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_094718_497583_281E375B 
-X-CRM114-Status: GOOD (  10.96  )
+In-Reply-To: <20260525125331.140059-2-damon.ding@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,15 +81,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 03:29:24PM +0000, Joonwon Kang wrote:
 
-> Currently, the only known expected user of the new kAPI is our team. Since
-> I test if the patch resolves our problem before sending it, I believe it
-> should be good enough. Do you mean more than our team by "accompanied
-> users"?
+--Mp1gnxnR0vhDimzB
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-He means you cannot send patches like this that only serve OOT drivers
-to the mainline kernel.
+On Mon, May 25, 2026 at 08:53:22PM +0800, Damon Ding wrote:
+> RK3588 eDP controller requires HCLK_VO1 to access the VO1 GRF
+> registers and enable the video datapath.
+>=20
+> Previously, the clock was enabled implicitly via the 'rockchip,vo-grf'
+> phandle reference, which allowed the eDP to work without explicitly
+> managing the hclk_vo1 clock. However, this is not safe or explicit.
+>=20
+> To make the clock dependency explicit, enforce per-SoC clock-names
+> requirements:
+>  - RK3288: 2 clocks (dp, pclk)
+>  - RK3399: 3 clocks (dp, pclk, grf)
+>  - RK3588: 3 clocks (dp, pclk, hclk)
+>=20
+> Do not reuse the 'grf' clock name for RK3588 because it represents
+> a different clock with distinct control logic:
+> - The 'grf' clock is only for GRF register access and is toggled
+>   dynamically during register access.
+> - The 'hclk' clock controls both GRF access and video datapath
+>   gating, and must remain enabled during probe.
+>=20
+> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add su=
+pport for RK3588")
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>=20
+> ---
+>=20
+> Changes in v4:
+> - Modify the commit msg.
+>=20
+> Changes in v5:
+> - Enforce the correct third clock name on a per-compatible basis.
+> - Modify the commit msg simultaneously.
+>=20
+> Changes in v6:
+> - Expand more detail commit msg about using hclk instead of grf clock.
+>=20
+> Changes in v7:
+> - List all valid clock names at the top level, and constrain the clock
+>   count for each platform with minItems/maxItems in allOf.
+>=20
+> Changes in v8:
+> - Fix indentation to 10 for enum in clock-names property.
+> ---
+>  .../rockchip/rockchip,analogix-dp.yaml        | 34 ++++++++++++++++++-
+>  1 file changed, 33 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,=
+analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockc=
+hip,analogix-dp.yaml
+> index d99b23b88cc5..a1ab7a77bdd3 100644
+> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
+x-dp.yaml
+> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
+x-dp.yaml
+> @@ -26,7 +26,9 @@ properties:
+>      items:
+>        - const: dp
+>        - const: pclk
+> -      - const: grf
+> +      - enum:
+> +          - grf
+> +          - hclk
+> =20
+>    power-domains:
+>      maxItems: 1
+> @@ -60,6 +62,32 @@ required:
+>  allOf:
+>    - $ref: /schemas/display/bridge/analogix,dp.yaml#
+> =20
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - rockchip,rk3288-dp
+> +    then:
+> +      properties:
+> +        clocks:
+> +          maxItems: 2
+> +        clock-names:
+> +          maxItems: 2
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - rockchip,rk3399-edp
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 3
+> +        clock-names:
+> +          minItems: 3
 
-Jason
+If you go back to v6, you'll see that I never asked you to remove the
+explict clock-names from here or below. Only the one from the 3288
+section. The minItems was an addition, not a replacement.
+
+pw-bot: changes-requested
+
+Cheers,
+Conor.
+
+> +
+>    - if:
+>        properties:
+>          compatible:
+> @@ -68,6 +96,10 @@ allOf:
+>                - rockchip,rk3588-edp
+>      then:
+>        properties:
+> +        clocks:
+> +          minItems: 3
+> +        clock-names:
+> +          minItems: 3
+>          resets:
+>            minItems: 2
+>          reset-names:
+> --=20
+> 2.34.1
+>=20
+>=20
+
+--Mp1gnxnR0vhDimzB
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahR+swAKCRB4tDGHoIJi
+0o1sAPoCijEh8PvkC+TvmEG0cY5/F12kqBe0lYz7nrYlMfDh9AEA70JPBE7y/TZV
+FPGNv8tWORRJxlbf3FYOq1H7vDY0/AE=
+=9FAA
+-----END PGP SIGNATURE-----
+
+--Mp1gnxnR0vhDimzB--
 
