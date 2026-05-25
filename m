@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47395CD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 14:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611DACD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 14:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wCToqKFCbrUX7FSNvgPMJdWqTINioLrARjrzWOT0nyY=; b=z4M02WWqUH2fYbAMCFHq2cQL7a
-	wdg+7+5sre0L72PS5zdZ4Uk1FdGClqEX98n+sWCmfsGnK+Lr5e7uCVI3Nca3er67XkGPCgehb2FT0
-	5rBQaEti5VYJh+XCvBn98HcWyXPpboAk8/MdZpmIgPrUF94ohJwBp5xKcpxZb3EF69cAF5zNQA0dH
-	+0CpvbZmRsBp2frp7ExmB6v5hOeyaUgYFiioUBYVM8bX7HfFHyFABzjxALbXr8u7bxEI/sdQYLsXO
-	LGp4If1A1C2RpAgxK8uosB+ndJ2RZRdlbwazUY+f2EptvLwSoH6UM1FooMpYcvg5XSrjnBQTUvAfR
-	HytX7o+Q==;
+	bh=Qt5GF4ec4Tz+ThdSwkffpWxOTLLBMBcFoFVLeUcmmpQ=; b=l0BHXAiSdoKDhZJ6D5PeQxUa5l
+	MDchy1l5//i/hhYg3JcMGYZdlMfLWi0SA/dyZqOssOiBPlD1evS2w7n/vMb4S8hhEpU0GyN2NdpSz
+	PvZbQZCmE7RQh9jl58baGLPcFPNy17Wfbx1QNN6Bp4udQ3CaasBJpyj9XxKD73TQi2ASolwNf07GC
+	TqMariqicSE7q0/iPBfrftvtrgeIjcSHQszQPDpKtf8foSOTxvEKzFrO8ZJAl1VIMkk42R9KwY8F3
+	cYTtbHkDyUk6pFDqosEebrTQDQ1aGhEPhGTTPTh8fUUWUY5PdoAZ5NDzjY86Di1FB2xyz7YqrVCzF
+	0u9ZHrpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRWad-0000000HRdT-0TtQ;
-	Mon, 25 May 2026 14:47:35 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wRWam-0000000HRhF-0vZq;
+	Mon, 25 May 2026 14:47:44 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRWab-0000000HRc8-0uqH
+	id 1wRWaj-0000000HRgC-2ahF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 14:47:34 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-36900945df5so4814674a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 07:47:33 -0700 (PDT)
+	Mon, 25 May 2026 14:47:42 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-36ac67f489aso786488a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 07:47:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779720452; x=1780325252; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1779720461; x=1780325261; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wCToqKFCbrUX7FSNvgPMJdWqTINioLrARjrzWOT0nyY=;
-        b=Vkd2tw8e8235hR2GtuXk2aEJZwR+tVEqKo/YnBQ2B3E1j6Cig0reudXArLDdeNqfNl
-         GA1QZMrzTPJUmO+JFc5QB/AWLd+I9RqhD9AMmWDGwp66agDFfUh5n8fkz41Gv4sLkzda
-         +v9crJp0xC0Qp0upw4Y/sslucnCa04d2VcCkIeXFtrhIgPvCY9Cp44G7Yxms0SomCB9g
-         YRapufwdIL7QRlW321j5MbTmNl5jkIro7728JzNuWRkvb1sgtUdTWbM/EM4BEWYVIM/X
-         uLNnZsnSw5cc+pI8sFZIjuShmHDmRACHhEKOxOuBeEY6HcG1AKw5h6fLBcdBE51VSslh
-         N80g==
+        bh=Qt5GF4ec4Tz+ThdSwkffpWxOTLLBMBcFoFVLeUcmmpQ=;
+        b=IWJvKLX36+8+nFjBDcKjjrH1U/d5OnQ0j9uhbxWBBeib7oWq/3EAuTKywVIRQ60nj9
+         2yhrCFHGGmCItu+12CRTEbKuSNGgSjukxZsiAJ6gf1yMRXvmNLFK1OC2WxyRgst7qeSf
+         VR9IBLxQDgrikoR+Z1HIz0V4xVLc3b65LAjYk4/EBj+c/9xs5qMavhH+cdFijimaLJqf
+         nSJDW+mDmAU9QDx+iFZj2qKOeDwXwRvpODzMIC/3wd3I1q9UsENpaNPxOZx7XTDIS45i
+         EVP+WP6H52hO67lN9QBU6L4az5DFFXXEkJkpUWnbAb9HxyQmN7xLiQ1irP4X8aUa2t84
+         0f0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779720452; x=1780325252;
+        d=1e100.net; s=20251104; t=1779720461; x=1780325261;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=wCToqKFCbrUX7FSNvgPMJdWqTINioLrARjrzWOT0nyY=;
-        b=tWsL0WrESjDcBFgeaoTqOFNOD7OnkdeELIMMZ0frR5Q1/6+CFU/5wXrK9nj/m4rY3P
-         vyNvF/My/kLo0Meln5hCjCzr7anqtCyc34O2PzuYhkZCaDrqefXTHKjqUcUOfgFSu7cG
-         ZEIygweRz1d9dQCBmNO6NnQJ7QOy4pNPRbTfluCAON4AaZB+DKVzJUfuCuB2kWgLV6hq
-         vmnvhw0txCrUJogNlEqvHTOsb00hUmCPfA9auoDedQ6plKw0ArBdDGVeDNGQfJXqASb1
-         jvdskxzHNs9ws/e0QUNnwQfemLZC5UkE34227jhKsSPV5/we4FtDo83mJsiy2dPytgpq
-         5H2A==
-X-Forwarded-Encrypted: i=1; AFNElJ+GN5w3hCKmnmi3lXlNV3L25XXNsAr9ynpWriefJxJZDQG8GZHQiJMC8QNQmLWJzcDGbQv1qZFRkwcX0MBn3TSv@lists.infradead.org
-X-Gm-Message-State: AOJu0YxroiN9grliPJ9/8jXpPgTHtC7ld45mARmvPdrx09/11JRu21wT
-	JiuLJrcHzQAwOynJ0hH4Q8sDo9UoDeMtAfg16gtjSlSz5gtBaEgckwz7
-X-Gm-Gg: Acq92OFlupWIwUZxcPl09agWqSRtMomt8xd1jnzUTfXT9sVrK7C2MIgE5XZBZw4QCP0
-	1hTEOHPdBr/sxB7sM6aVFuG9cf6nBRQdRVpW+4RK5+OeyyeqfG9AdjyATQ4SSsp7QQRkCmfP8b6
-	gdhpPsqDOA5FMh1HrOVx8Ps+DRNweSUXozaNOYpOO+NU/gK+K6TLl8MT0zoz0n8Wzu10WYrU82a
-	0vrPm9YwtQp552PrgHLh2bd3YDzZog+9L6PMX5yhJ/W6Y48/+ODD/yBMXqAoSemHNSNxRXJIJsS
-	x6/e/9cH3vpdeyHulManCZV4xRj6J/Ww/7Kof8RqN1ZAs5u1NUC0b1DnHvEJ7ITz+q+Uffkwxa6
-	fTN/GV1A3WJ36eeN9ZBuqlbIfzvdKvL4MAmVdMqTd/haRebI/REgdctedyiDOrUUeKc/7bCgEKi
-	KXes4vKiPI7BkvIy+mydMsa0EFRIP5OFf76WeOPW8=
-X-Received: by 2002:a17:90b:2f88:b0:369:a962:8cd7 with SMTP id 98e67ed59e1d1-36a6749afa1mr15044923a91.12.1779720452269;
-        Mon, 25 May 2026 07:47:32 -0700 (PDT)
+        bh=Qt5GF4ec4Tz+ThdSwkffpWxOTLLBMBcFoFVLeUcmmpQ=;
+        b=UT70uaPI8sP7UysT4dVxweSVBF1xIcdhuJnSjnVfaLaPuVz/G6ZO+CcYT/8D+ACqpf
+         OVOGDKNDxd2i9R/XE1U/AYWChOliwLyjjzwRcGcTYEFm11hDktL+qAhwgXXS0BvEVh0G
+         VPGvMqp6rD/G4zwrAZ9H6e2zJUHJciLO5bLr57QanSi9EEgjLwPTeXAIJfXhbpKhE2sa
+         2QaZzKtykcys3JsLY9H8aEJH1d7lxb8ObWc3J7fRj0wa3LQWtFrxvSjsrTF3MJoT+1w2
+         bMe8HJlnaa2BYvB1xcJz3iSrT5shX2XECq4NutsLDvzBRjrOEAm6w7tObfcz0mrpmcuc
+         P2Rg==
+X-Forwarded-Encrypted: i=1; AFNElJ8kSQqHfqtawwxAD82L3L69hGyg5AwVXRUNfogYfgkPSWDy9BjzJe3w82QF5tAcqR4NGtsOkJFImISQR4NbS9Yp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzvs4YA82jETu3rjS9OQux5esm8ZrKAEgbFqpr+gBUHSivxBJkX
+	fUnsZHLwtf5LX2CWDC+b9DVjLHrziZJRP0EI2AYMoyzKlbJiGNMYz9qJ
+X-Gm-Gg: Acq92OE8Rkf/E1j8KY6n6bSuKbu1Bzfn9AdYF0pHvOSi7KkoBpV4vAfIv+g2CVToDYR
+	+/qTZiX5EuGZ1d3wsXGiYWLlyMnaoi/mS+dSm+bJ3Danm00CmIP7na7cf3NCzqSBcmiDtjEALzt
+	D8IpO3oTpsFEVs+A8YPE9RokDieS2GLEWr5kib3q5wRVDHTFYkrQqVwD6kOUjtfw2w90oU8Zye9
+	VaBuSakLzUcENAl4wD6lLH3N9X+HV2WynZ7SXZSoO29jsbnVqvnNGjsHoFA59xR47vei9gvxuuE
+	HjCmxLzLOOtudM4a7Aej3p+r2P/6IX3c/jJ6uTssmRDIYoAIoPydqR4cMcETbOjxwaueXEasWqU
+	x11BZb/ZMyWP9fg103hxntTBZQAp1SHcfihkdr5FtJxocTTZM8LTqBU7gCh350tI5vW93je0Auw
+	BkgjsGyCfTcP5NHJMAG/LxZIad9hWTIphfopcYWzM=
+X-Received: by 2002:a17:90b:3e4f:b0:365:8fd4:925c with SMTP id 98e67ed59e1d1-36a6c65330amr11990238a91.8.1779720460900;
+        Mon, 25 May 2026 07:47:40 -0700 (PDT)
 Received: from arch.localdomain ([2409:8a28:a5f:4fa1:cc65:18c0:209b:38a4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36abfe17c95sm2721993a91.0.2026.05.25.07.47.26
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36abfe17c95sm2721993a91.0.2026.05.25.07.47.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 07:47:31 -0700 (PDT)
+        Mon, 25 May 2026 07:47:40 -0700 (PDT)
 From: Jun Yan <jerrysteve1101@gmail.com>
 To: linusw@kernel.org,
 	dmitry.baryshkov@oss.qualcomm.com,
@@ -86,33 +86,35 @@ To: linusw@kernel.org,
 	Vincent Knecht <vincent.knecht@mailoo.org>,
 	Grant Feng <von81@163.com>,
 	Andre Przywara <andre.przywara@arm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Romain Perier <romain.perier@gmail.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
 	Robert Marko <robert.marko@sartura.hr>
 Cc: Jun Yan <jerrysteve1101@gmail.com>,
 	Pavel Machek <pavel@ucw.cz>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+	Wei Xu <xuwei5@hisilicon.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Peter Rosin <peda@axentia.se>,
 	linux-leds@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-gpio@vger.kernel.org
-Subject: [PATCH v2 2/6] leds: is31fl319x: Fix shutdown GPIO initial state and remove redundant startup pulse
-Date: Mon, 25 May 2026 22:46:08 +0800
-Message-ID: <20260525144629.498630-3-jerrysteve1101@gmail.com>
+Subject: [PATCH v2 3/6] gpiolib: of: add quirk for IS31FL319X shutdown line
+Date: Mon, 25 May 2026 22:46:09 +0800
+Message-ID: <20260525144629.498630-4-jerrysteve1101@gmail.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260525144629.498630-1-jerrysteve1101@gmail.com>
 References: <20260525144629.498630-1-jerrysteve1101@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_074733_262673_E8E394FD 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260525_074741_660615_C413C3D9 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,60 +129,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. Per IS31FL319x datasheet [1], the hardware shutdown pin (SDB) is
-active-low.
+According to the IS31FL319x datasheet[1], the SDB pin is active‑low.
+However, existing device tree incorrectly configure it as active‑high.
 
-Fix incorrect initial GPIO level to properly release the chip from shutdown
-state.
+Add a fixup to force the consumer active low for legacy device trees.
 
-2. According to datasheet [1] definition:
-  Shutdown mode can either be used as a means of
-  reducing power consumption or generating a flashing
-  display (repeatedly entering and leaving shutdown
-  mode). During shutdown mode all registers retain their
-  data.
-shutdown mode does NOT perform chip reset.A dedicated software reset is
-already implemented in driver by writing 0 to reset chip.
+[1] https://lumissil.com/assets/pdf/core/IS31FL3196_DS.pdf
 
-Remove redundant unnecessary toggling of the shutdown GPIO.
-
-[1] https://lumissil.com/assets/pdf/core/IS31FL3193_DS.pdf
-
-Fixes: dddb4e38c6ba ("leds: is31fl319x: Add shutdown pin and generate a 5ms low pulse when startup")
 Signed-off-by: Jun Yan <jerrysteve1101@gmail.com>
 ---
- drivers/leds/leds-is31fl319x.c | 11 ++++-------
- 1 file changed, 4 insertions(+), 7 deletions(-)
+ drivers/gpio/gpiolib-of.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/leds/leds-is31fl319x.c b/drivers/leds/leds-is31fl319x.c
-index e411cee06dab..41087ed262cb 100644
---- a/drivers/leds/leds-is31fl319x.c
-+++ b/drivers/leds/leds-is31fl319x.c
-@@ -396,7 +396,10 @@ static int is31fl319x_parse_fw(struct device *dev, struct is31fl319x_chip *is31)
- 	int count;
- 	int ret;
- 
--	is31->shutdown_gpio = devm_gpiod_get_optional(dev, "shutdown", GPIOD_OUT_HIGH);
-+	/* Driving this GPIO line low (in fact high) takes the chip out of shutdown,
-+	 * as it is flagged as GPIO_ACTIVE_LOW in provider (such as the device tree).
-+	 */
-+	is31->shutdown_gpio = devm_gpiod_get_optional(dev, "shutdown", GPIOD_OUT_LOW);
- 	if (IS_ERR(is31->shutdown_gpio))
- 		return dev_err_probe(dev, PTR_ERR(is31->shutdown_gpio),
- 				     "Failed to get shutdown gpio\n");
-@@ -506,12 +509,6 @@ static int is31fl319x_probe(struct i2c_client *client)
- 	if (err)
- 		return err;
- 
--	if (is31->shutdown_gpio) {
--		gpiod_direction_output(is31->shutdown_gpio, 0);
--		mdelay(5);
--		gpiod_direction_output(is31->shutdown_gpio, 1);
--	}
--
- 	is31->client = client;
- 	is31->regmap = devm_regmap_init_i2c(client, is31->cdef->is31fl319x_regmap_config);
- 	if (IS_ERR(is31->regmap))
+diff --git a/drivers/gpio/gpiolib-of.c b/drivers/gpio/gpiolib-of.c
+index ef1ac68b94b7..8a79aaadc9ea 100644
+--- a/drivers/gpio/gpiolib-of.c
++++ b/drivers/gpio/gpiolib-of.c
+@@ -194,6 +194,16 @@ static void of_gpio_try_fixup_polarity(const struct device_node *np,
+ 		{ "himax,hx8357",	"gpios-reset",	false },
+ 		{ "himax,hx8369",	"gpios-reset",	false },
+ #endif
++#if IS_ENABLED(CONFIG_LEDS_IS31FL319X)
++		/*
++		 * According to the IS31FL319x datasheet, the SDB pin is active‑low.
++		 * However, existing device tree incorrectly configure it
++		 * as active‑high.
++		 */
++		{ "issi,is31fl3199",	"shutdown-gpios",	false },
++		{ "si-en,sn3190",	"shutdown-gpios",	false },
++		{ "si-en,sn3193",	"shutdown-gpios",	false },
++#endif
+ #if IS_ENABLED(CONFIG_MTD_NAND_JZ4780)
+ 		/*
+ 		 * The rb-gpios semantics was undocumented and qi,lb60 (along with
 -- 
 2.54.0
 
