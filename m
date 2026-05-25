@@ -4,61 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FC3CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 20:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CD7CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 21:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hi70jsuJNaRnrdjtRjHSlLfTtWECTJLNhN8fQ8AimIU=; b=Qz9wp3FTbpI6h5Wr8FawuIKexi
-	uizjuk7KPKkzX4cDN0F4thHjabV3XMH85gJ2QdYcEyh39aAKd8APt6Sqt/3UGpbOw7rmWt5FS20hG
-	iYpPrL+CMoVjXphOy2+jDWALTh3yDW4dSgtBiB05dzJp4zef3rjhlKfcVVGVSW/Ldj2p3yMmKoqQ3
-	Djxa0mWy6kM8ONT3O9dtJRiwKsiyq2NqUiJ7HQ8WVsNsDK/umMDDpBz/kjtnV4hLI/U2feq7q+215
-	Lx3vi2WI4dX7wbbio6uqdR7/6UxYaU496ex+j3UfQmeWl+oALLxlhYLANATTd5AAl0TYBR2EWsZSn
-	9SqkDY7A==;
+	bh=bNNN4D5MpHVo8O8P96Spg5PfU1PqKnQWGcRJSIW2Ppk=; b=jv21u+GVJG7pt4NBBHJrFJ7eGB
+	fzRo+KuKxisGxAak5V28F5BbeaUGKR81MjnhP2gObUaCd5w2jac9bihamdFJ7+tAUltwizee9vnWl
+	e4C4mYxahPUf5ZhANbqc98QMA13q6EOqueWRWL6/5++7C6BJWjMaLDubij2/q6BZ8EhMbN84EeDvb
+	iN+9d+VJLwN0L/7W2Zt94N9jB8WJbVTcUctENteAhIXUY+KnVy5xTvPTqrbOyr2ZZMAxGolG8t37M
+	QUiCT+ULYGbuACcTYMiUEZSIPftwB3YnlFuNlOqnw3Y82+DiwyqGyPV5s3SSws+sQ8G2jE10ETxGR
+	MRRwhMwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRcAS-00000000RcP-3G9j;
-	Mon, 25 May 2026 20:44:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRc9x-00000000RKy-0OxD
+	id 1wRcf6-00000000U6Z-0Ndk;
+	Mon, 25 May 2026 21:16:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRcf3-00000000U5U-0aWs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 20:44:26 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA02D43EEB;
-	Mon, 25 May 2026 20:44:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 055621F000E9;
-	Mon, 25 May 2026 20:44:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779741864;
-	bh=hi70jsuJNaRnrdjtRjHSlLfTtWECTJLNhN8fQ8AimIU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ajBC5xSdSxB14rtP1XRKd9uzpDzdG0r13Y2xYCbYFmZMLk+UcZ/JSvGi7QM9buH8/
-	 TtKlMtU1W1Lco7Td2fgk4/exV5EH+qXrPC9F2lc/3Tkd1L2EPh5V5aP0rF5W0DajCU
-	 h9sYORknsN2E8w2fNtzxjc7Jo+DOucwXND/yvzwVYXxCd3R5wZPMOdfKLILoE6l36x
-	 xgVRnSw6NLkugDiT1DzM2du4eI7mJKlKC3/nu8uGw3N2+6pp9OaVq+uop8oOMVm6Vn
-	 Ci4oapkNcm8njEWptSrWni9L9EaAOQ8GJbzn9BqTOHQjMkvpXyGs7URljB0pkDj0Gq
-	 QZ7yyAr/0qPPg==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Mon, 25 May 2026 21:42:46 +0100
-Subject: [PATCH v2 8/9] firmware: arm_scmi: transport: Add ACPI PCC
- transport
+	Mon, 25 May 2026 21:16:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FB001758;
+	Mon, 25 May 2026 14:16:21 -0700 (PDT)
+Received: from ryzen.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F29713F632;
+	Mon, 25 May 2026 14:16:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1779743786; bh=Q3KznSmPGXShIXkpUxQ+T6UiVEFFgAzT1PTN8IZQDcA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DceHwUnsr+h9yMlBWX/oFjrCB/CAS+EBlWKkxrF7rijrwncPuyE1VOcEfF6eFEnUV
+	 ERbPoaErMvi9f6rVI+fnr6fCMje0FFMj1FD+ANSgdfBohsCTdD5ydudgxRAk+BDj2Q
+	 56tLHKt09r4Vai3S95SsZnNzDvx/rH9y9TwVIxEw=
+Date: Mon, 25 May 2026 23:15:26 +0200
+From: Andre Przywara <andre.przywara@arm.com>
+To: Richard Genoud <richard.genoud@bootlin.com>
+Cc: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Philipp
+ Zabel <p.zabel@pengutronix.de>, Paul Kocialkowski <paulk@sys-base.io>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, John Stultz
+ <jstultz@google.com>, Joao Schim <joao@schimsalabim.eu>,
+ bigunclemax@gmail.com, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 0/4] Introduce Allwinner H616 PWM controller
+Message-ID: <20260525231526.0c5d9a10@ryzen.lan>
+In-Reply-To: <20260416134037.3160537-1-richard.genoud@bootlin.com>
+References: <20260416134037.3160537-1-richard.genoud@bootlin.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260525-acpi_scmi_pcc-v2-8-4f38938d08d8@arm.com>
-References: <20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com>
-In-Reply-To: <20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
- Cristian Marussi <cristian.marussi@arm.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_134425_245068_C834EC88 
-X-CRM114-Status: GOOD (  27.35  )
+X-CRM114-CacheID: sfid-20260525_141633_475839_1D517BDC 
+X-CRM114-Status: GOOD (  47.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,699 +78,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a new SCMI transport that uses ACPI PCCT (PCC) subspaces via
-the Linux PCC mailbox layer. The driver parses ACPI _DSD data to map
-protocols to PCC subspace UIDs, supports shared TX/RX channels, and
-optionally sets up a P2A channel for notifications.
+On Thu, 16 Apr 2026 15:40:33 +0200
+Richard Genoud <richard.genoud@bootlin.com> wrote:
 
-Key points:
-- new CONFIG_ARM_SCMI_TRANSPORT_PCC option
-- integration with SCMI core via scmi_desc and transport ops
-- response/notification fetch from PCC shared memory header/payload
-- ACPI device matching and registration via the ACPI transport macro
+Hi Richard,
 
-This enables SCMI to be exercised over PCC on ACPI platforms.
+> Allwinner H616 PWM controller is quite different from the A10 one.
+> 
+> It can drive 6 PWM channels, and like for the A10, each channel has a
+> bypass that permits to output a clock, bypassing the PWM logic, when
+> enabled.
+> 
+> But, the channels are paired 2 by 2, sharing a first set of
+> MUX/prescaler/gate.
+> Then, for each channel, there's another prescaler (that will be bypassed
+> if the bypass is enabled for this channel).
+> 
+> It looks like that:
+>             _____      ______      ________
+> OSC24M --->|     |    |      |    |        |
+> APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
+>            |_____|    |______|    |________|
+>                           ________
+>                          |        |
+>                       +->| /div_k |---> PWM_clock_x
+>                       |  |________|
+>                       |    ______
+>                       |   |      |
+>                       +-->| Gate |----> PWM_bypass_clock_x
+>                       |   |______|
+> PWM_clock_src_xy -----+   ________
+>                       |  |        |
+>                       +->| /div_k |---> PWM_clock_y
+>                       |  |________|
+>                       |    ______
+>                       |   |      |
+>                       +-->| Gate |----> PWM_bypass_clock_y
+>                           |______|
+> 
+> Where xy can be 0/1, 2/3, 4/5
+> 
+> PWM_clock_x/y serve for the PWM purpose.
+> PWM_bypass_clock_x/y serve for the clock-provider purpose.
+> The common clock framework has been used to manage those clocks.
+> 
+> This PWM driver serves as a clock-provider for PWM_bypass_clocks.
+> This is needed for example by the embedded AC300 PHY which clock comes
+> from PMW5 pin (PB12).
+> 
+> Usually, to get a clock from a PWM driver, we use the pwm-clock driver
+> so that the PWM driver doesn't need to be a clk-provider itself.
+> While this works in most cases, here it just doesn't.
+> That's because the pwm-clock request a period from the PWM driver,
+> without any clue that it actually wants a clock at a specific frequency,
+> and not a PWM signal with duty cycle capability.
+> So, the PWM driver doesn't know if it can use the bypass or not, it
+> doesn't even have the real accurate frequency information (23809524 Hz
+> instead of 24MHz) because PWM drivers only deal with periods.
+> 
+> With pwm-clock, we loose a precious information along the way (that we
+> actually want a clock and not a PWM signal).
+> That's ok with simple PWM drivers that don't have multiple input clocks,
+> but in this case, without this information, we can't know for sure which
+> clock to use.
+> And here, for instance, if we ask for a 24MHz clock, pwm-clock will
+> requests 42ns (assigned-clocks doesn't help for that matter). The logic
+> is to select the highest clock (100MHz) with no prescaler and a duty
+> cycle value of 2/4 => we have 25MHz instead of 24MHz.
 
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/common.h            |  11 +
- drivers/firmware/arm_scmi/transports/Kconfig  |  12 +
- drivers/firmware/arm_scmi/transports/Makefile |   2 +
- drivers/firmware/arm_scmi/transports/pcc.c    | 593 ++++++++++++++++++++++++++
- include/linux/scmi_protocol.h                 |   1 +
- 5 files changed, 619 insertions(+)
+Didn't we discuss this choice of "highest clock" before? I dimly
+remember asking whether we cannot use a least-error approach, so
+considering all clocks and choosing the one which matches the target
+best?
 
-diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 347e0da0d9cc..e4b2e1d3e7e7 100644
---- a/drivers/firmware/arm_scmi/common.h
-+++ b/drivers/firmware/arm_scmi/common.h
-@@ -465,6 +465,17 @@ struct scmi_transport_core_operations {
- 	const struct scmi_message_operations *msg;
- };
- 
-+struct scmi_dsd_info {
-+	u32 protocol_id;
-+	const char *const property_name;
-+};
-+
-+static struct scmi_dsd_info scmi_dsd_info_list[] = {
-+	{ SCMI_PROTOCOL_BASE, "arm-arml0001-transport-pcc"},
-+	{ SCMI_PROTOCOL_POWERCAP, "arm-arml0001-protocol-pcap"},
-+	{ SCMI_PROTOCOL_TELEMETRY, "arm-arml0001-protocol-telemetry"},
-+};
-+
- /**
-  * struct scmi_transport  - A structure representing a configured transport
-  *
-diff --git a/drivers/firmware/arm_scmi/transports/Kconfig b/drivers/firmware/arm_scmi/transports/Kconfig
-index 57eccf316e26..4936078f279f 100644
---- a/drivers/firmware/arm_scmi/transports/Kconfig
-+++ b/drivers/firmware/arm_scmi/transports/Kconfig
-@@ -77,6 +77,18 @@ config ARM_SCMI_TRANSPORT_OPTEE
- 	  This driver can also be built as a module. If so, the module
- 	  will be called scmi_transport_optee.
- 
-+config ARM_SCMI_TRANSPORT_PCC
-+	tristate "SCMI transport based on ACPI PCC"
-+	depends on PCC
-+	select ARM_SCMI_HAVE_TRANSPORT
-+	help
-+	  Enable ACPI PCC mailbox based transport for SCMI.
-+
-+	  If you want the ARM SCMI PROTOCOL stack to include support for a
-+	  transport based on mailboxes, answer Y.
-+	  This driver can also be built as a module. If so, the module
-+	  will be called scmi_transport_pcc.
-+
- config ARM_SCMI_TRANSPORT_VIRTIO
- 	tristate "SCMI transport based on VirtIO"
- 	depends on VIRTIO
-diff --git a/drivers/firmware/arm_scmi/transports/Makefile b/drivers/firmware/arm_scmi/transports/Makefile
-index 3ba3d3bee151..e7c4b8de6251 100644
---- a/drivers/firmware/arm_scmi/transports/Makefile
-+++ b/drivers/firmware/arm_scmi/transports/Makefile
-@@ -7,6 +7,8 @@ scmi_transport_mailbox-objs := mailbox.o
- obj-$(CONFIG_ARM_SCMI_TRANSPORT_MAILBOX) += scmi_transport_mailbox.o
- scmi_transport_optee-objs := optee.o
- obj-$(CONFIG_ARM_SCMI_TRANSPORT_OPTEE) += scmi_transport_optee.o
-+scmi_transport_pcc-objs := pcc.o
-+obj-$(CONFIG_ARM_SCMI_TRANSPORT_PCC) += scmi_transport_pcc.o
- scmi_transport_virtio-objs := virtio.o
- obj-$(CONFIG_ARM_SCMI_TRANSPORT_VIRTIO) += scmi_transport_virtio.o
- 
-diff --git a/drivers/firmware/arm_scmi/transports/pcc.c b/drivers/firmware/arm_scmi/transports/pcc.c
-new file mode 100644
-index 000000000000..aaebd1530370
---- /dev/null
-+++ b/drivers/firmware/arm_scmi/transports/pcc.c
-@@ -0,0 +1,593 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * System Control and Management Interface (SCMI) Message ACPI PCC
-+ * Transport Driver
-+ *
-+ * This transport uses ACPI PCC (PCCT Type 3/4) subspaces via the Linux
-+ * PCC mailbox controller to exchange SCMI messages over the standard
-+ * SCMI Shared Memory Transport (SMT) layout.
-+ *
-+ * PCC subspace selection is conveyed via ACPI SCMI namespace device.
-+ *
-+ * Copyright (C) 2025
-+ */
-+
-+#include <linux/acpi.h>
-+#include <linux/err.h>
-+#include <linux/device.h>
-+#include <linux/hashtable.h>
-+#include <linux/io.h>
-+#include <linux/limits.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
-+#include <linux/types.h>
-+#include <acpi/pcc.h>
-+
-+#include "../common.h"
-+
-+#define SCMI_SHMEM_FLAG_INTR_ENABLED		BIT(0)
-+#define SCMI_TRANSPORT_PACKAGE_MAX_VERSION	(1)
-+#define SCMI_PROTOCOL_PACKAGE_MAX_VERSION	(1)
-+#define SCMI_TRANSPORT_SHARED_CHANNEL		BIT_ULL(0)
-+#define SCMI_TRANSPORT_P2A_CHANNEL		BIT_ULL(1)
-+#define SCMI_TRANSPORT_FLAGS_MASK		(SCMI_TRANSPORT_SHARED_CHANNEL | \
-+					 SCMI_TRANSPORT_P2A_CHANNEL)
-+
-+/*
-+ * SCMI specification requires all parameters, message headers, return
-+ * arguments or any protocol data to be expressed in little endian
-+ * format only.
-+ */
-+struct pcc_shared_mem {
-+	struct acpi_pcct_ext_pcc_shared_memory header;
-+	u8 msg_payload[];
-+};
-+
-+/**
-+ * struct scmi_pcc - Structure representing a SCMI mailbox transport
-+ *
-+ * @cl: Mailbox Client
-+ * @pchan: Transmit/Receive PCC/mailbox channel
-+ * @cinfo: SCMI channel info
-+ * @shmem: Transmit/Receive shared memory area
-+ */
-+struct scmi_pcc {
-+	struct mbox_client cl;
-+	struct pcc_mbox_chan *pchan;
-+	struct scmi_chan_info *cinfo;
-+};
-+
-+struct pcc_transport {
-+	u32 uid;
-+	u32 pcc_ss_id;
-+	u32 protocol_id;
-+	u32 flags;
-+	struct hlist_node hnode;
-+};
-+
-+/* Not all MAX_PCC_SUBSPACES will be used for SCMI, keeping it at 16 for now */
-+static DECLARE_HASHTABLE(pcc_id_hash, ilog2(MAX_PCC_SUBSPACES / 8));
-+
-+#define client_to_scmi_pcc(c) container_of(c, struct scmi_pcc, cl)
-+
-+static struct scmi_transport_core_operations *core;
-+
-+static void acpi_scmi_clear_transport_hash(void)
-+{
-+	struct pcc_transport *p;
-+	struct hlist_node *tmp;
-+	int idx;
-+
-+	hash_for_each_safe(pcc_id_hash, idx, tmp, p, hnode) {
-+		hash_del(&p->hnode);
-+		kfree(p);
-+	}
-+}
-+
-+static int acpi_scmi_dsd_parse_transport_package(const union acpi_object *obj)
-+{
-+	unsigned int revision, pkg_cnt;
-+	unsigned int common_a2p = 0, common_p2a = 0;
-+	int idx;
-+
-+	if (obj->type != ACPI_TYPE_PACKAGE || obj->package.count < 2)
-+		return -EINVAL;
-+	if (obj->package.elements[0].type != ACPI_TYPE_INTEGER ||
-+	    obj->package.elements[1].type != ACPI_TYPE_INTEGER)
-+		return -EINVAL;
-+
-+	revision = obj->package.elements[0].integer.value;
-+	pkg_cnt = obj->package.elements[1].integer.value;
-+
-+	if (revision != SCMI_TRANSPORT_PACKAGE_MAX_VERSION)
-+		return -EINVAL;
-+	if (obj->package.count != pkg_cnt + 2)
-+		return -EINVAL;
-+
-+	for (idx = 0; idx < pkg_cnt; idx++) {
-+		union acpi_object *pack = &obj->package.elements[idx + 2];
-+		struct pcc_transport *p, *tmp;
-+		u64 flags;
-+		u32 uid;
-+
-+		if (pack->type != ACPI_TYPE_PACKAGE || pack->package.count != 3) {
-+			pr_info("Invalid transport properties pkg %d\n", idx);
-+			return -EINVAL;
-+		}
-+		if (pack->package.elements[0].type != ACPI_TYPE_INTEGER ||
-+		    pack->package.elements[1].type != ACPI_TYPE_INTEGER ||
-+		    pack->package.elements[2].type != ACPI_TYPE_INTEGER)
-+			return -EINVAL;
-+		if (pack->package.elements[0].integer.value > U32_MAX ||
-+		    pack->package.elements[1].integer.value > U32_MAX)
-+			return -EINVAL;
-+
-+		flags = pack->package.elements[2].integer.value;
-+		if (flags & ~SCMI_TRANSPORT_FLAGS_MASK)
-+			return -EINVAL;
-+
-+		uid = pack->package.elements[1].integer.value;
-+		hash_for_each_possible(pcc_id_hash, tmp, hnode, uid) {
-+			if (tmp->uid == uid) {
-+				pr_info("Duplicate UID %d\n", uid);
-+				return -EEXIST;
-+			}
-+		}
-+
-+		p = kzalloc(sizeof(*p), GFP_KERNEL);
-+		if (!p)
-+			return -ENOMEM;
-+
-+		p->uid = uid;
-+		p->pcc_ss_id = pack->package.elements[0].integer.value;
-+		p->flags = flags;
-+		if (p->flags & SCMI_TRANSPORT_SHARED_CHANNEL) {
-+			p->protocol_id = SCMI_PROTOCOL_BASE;
-+			if (p->flags & SCMI_TRANSPORT_P2A_CHANNEL)
-+				common_p2a++;
-+			else
-+				common_a2p++;
-+		}
-+
-+		hash_add(pcc_id_hash, &p->hnode, uid);
-+	}
-+
-+	if (common_a2p != 1 || common_p2a > 1)
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static int acpi_scmi_dsd_parse_protocol_subpackage(const union acpi_object *obj,
-+						   int prot_id)
-+{
-+	bool found, tx_found = false, rx_found = false;
-+	u32 uid;
-+	int idx, ret = 0;
-+	struct pcc_transport *p;
-+	unsigned int pkg_cnt = obj->package.count;
-+
-+	if (pkg_cnt > 2) {
-+		pr_warn("Only 2 channels: one Tx and one Rx needed\n");
-+		return -EINVAL;
-+	}
-+
-+	for (idx = 0; idx < pkg_cnt; idx++) {
-+		union acpi_object *pack = &obj->package.elements[idx];
-+		u64 flags;
-+
-+		if (pack->type != ACPI_TYPE_PACKAGE || pack->package.count != 2)
-+			return -EINVAL;
-+		if (pack->package.elements[0].type != ACPI_TYPE_INTEGER ||
-+		    pack->package.elements[1].type != ACPI_TYPE_INTEGER)
-+			return -EINVAL;
-+		if (pack->package.elements[0].integer.value > U32_MAX)
-+			return -EINVAL;
-+
-+		flags = pack->package.elements[1].integer.value;
-+		if (flags)
-+			return -EINVAL;
-+
-+		uid = pack->package.elements[0].integer.value;
-+		found = false;
-+		hash_for_each_possible(pcc_id_hash, p, hnode, uid) {
-+			if (p->uid != uid)
-+				continue;
-+
-+			found = true;
-+			if (p->flags & SCMI_TRANSPORT_SHARED_CHANNEL) {
-+				pr_info("Invalid! %d channel is shared\n",
-+					p->pcc_ss_id);
-+				ret = -EINVAL;
-+				break;
-+			}
-+			if (p->flags & SCMI_TRANSPORT_P2A_CHANNEL) {
-+				if (rx_found)
-+					return -EINVAL;
-+				rx_found = true;
-+			} else {
-+				if (tx_found)
-+					return -EINVAL;
-+				tx_found = true;
-+			}
-+			p->protocol_id = prot_id;
-+			break;
-+		}
-+
-+		if (ret)
-+			return ret;
-+		if (!found)
-+			return -ENOENT;
-+	}
-+
-+	return ret;
-+}
-+
-+static int
-+acpi_scmi_dsd_parse_protocol_package(const union acpi_object *obj, int prot_id)
-+{
-+	unsigned int revision;
-+	union acpi_object *pack;
-+	int ret;
-+
-+	if (obj->type != ACPI_TYPE_PACKAGE || obj->package.count != 3)
-+		return -EINVAL;
-+	if (obj->package.elements[0].type != ACPI_TYPE_INTEGER)
-+		return -EINVAL;
-+
-+	revision = obj->package.elements[0].integer.value;
-+	pack = &obj->package.elements[1];
-+
-+	if (revision != SCMI_PROTOCOL_PACKAGE_MAX_VERSION)
-+		return -EINVAL;
-+
-+	if (pack->type != ACPI_TYPE_PACKAGE) {
-+		pr_info("Invalid protocol transport package\n");
-+		return -EINVAL;
-+	}
-+
-+	/* Empty protocol specific transport package allowed */
-+	if (pack->package.count != 0) {
-+		ret = acpi_scmi_dsd_parse_protocol_subpackage(pack, prot_id);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	pack = &obj->package.elements[2];
-+	if (pack->type != ACPI_TYPE_PACKAGE) {
-+		pr_info("Invalid protocol transport association package\n");
-+		return -EINVAL;
-+	}
-+
-+	if (pack->package.count != 0) {
-+		pr_info("Non-empty association package not supported\n");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+/* ACPI SCMI _DSD UUID: "84a2d1c6-86b6-4199-8dac-9c17449d5e03" */
-+static const guid_t acpi_scmi_uuid = GUID_INIT(0x84a2d1c6, 0x86b6, 0x4199,
-+					       0x8d, 0xac, 0x9c, 0x17,
-+					       0x44, 0x9d, 0x5e, 0x03);
-+
-+static int acpi_scmi_lookup_protocol_id(const char *name)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(scmi_dsd_info_list); i++) {
-+		if (!strcmp(name, scmi_dsd_info_list[i].property_name))
-+			return scmi_dsd_info_list[i].protocol_id;
-+	}
-+	return -ENOENT;
-+}
-+
-+static int acpi_scmi_parse_properties(const union acpi_object *properties)
-+{
-+	int i;
-+
-+	if (properties->type != ACPI_TYPE_PACKAGE)
-+		return -EINVAL;
-+
-+	for (i = 0; i < properties->package.count; i++) {
-+		const union acpi_object *property;
-+		const union acpi_object *k, *v;
-+		int prot_id, ret;
-+
-+		property = &properties->package.elements[i];
-+		if (property->type != ACPI_TYPE_PACKAGE ||
-+		    property->package.count != 2)
-+			return -EINVAL;
-+
-+		k = &property->package.elements[0];
-+		v = &property->package.elements[1];
-+
-+		if (k->type != ACPI_TYPE_STRING || !k->string.pointer)
-+			return -EINVAL;
-+		if (v->type != ACPI_TYPE_PACKAGE)
-+			return -EINVAL;
-+
-+		prot_id = acpi_scmi_lookup_protocol_id(k->string.pointer);
-+		if (prot_id < 0)
-+			return -EINVAL;
-+
-+		/*
-+		 * We validate structure inside the dedicated parsing functions.
-+		 * They return proper errors and avoid double-validation.
-+		 */
-+		if (prot_id == SCMI_PROTOCOL_BASE)
-+			ret = acpi_scmi_dsd_parse_transport_package(v);
-+		else
-+			ret = acpi_scmi_dsd_parse_protocol_package(v, prot_id);
-+
-+		if (ret)
-+			return ret;
-+	}
-+	return 0;
-+}
-+
-+static int acpi_scmi_parse_dsd(struct acpi_device *adev)
-+{
-+	struct acpi_buffer buf = { ACPI_ALLOCATE_BUFFER, NULL };
-+	union acpi_object *desc;
-+	acpi_status status;
-+	int i, ret = -ENOENT;
-+
-+	if (!adev->handle)
-+		return -EINVAL;
-+
-+	status = acpi_evaluate_object_typed(adev->handle, "_DSD", NULL, &buf,
-+					    ACPI_TYPE_PACKAGE);
-+	if (ACPI_FAILURE(status))
-+		return -EINVAL;
-+
-+	desc = buf.pointer;
-+	if (desc->package.count % 2)
-+		goto out_free_inval;
-+
-+	/* Look for the device properties GUID. */
-+	for (i = 0; i < desc->package.count; i += 2) {
-+		const union acpi_object *guid;
-+		const union acpi_object *properties;
-+
-+		guid = &desc->package.elements[i];
-+		properties = &desc->package.elements[i + 1];
-+
-+		/*
-+		 * The first element must be a GUID and the second one must be
-+		 * a package.
-+		 */
-+		if (guid->type != ACPI_TYPE_BUFFER ||
-+		    guid->buffer.length != UUID_SIZE ||
-+		    properties->type != ACPI_TYPE_PACKAGE)
-+			continue;
-+
-+		if (!guid_equal((guid_t *)guid->buffer.pointer,
-+				&acpi_scmi_uuid))
-+			continue;
-+
-+		ret = acpi_scmi_parse_properties(properties);
-+		goto out_free;
-+	}
-+
-+out_free:
-+	ACPI_FREE(buf.pointer);
-+	return ret;
-+out_free_inval:
-+	ret = -EINVAL;
-+	goto out_free;
-+}
-+
-+static int acpi_scmi_namespace_device_parse(struct fwnode_handle *fwnode)
-+{
-+	struct acpi_device *adev = to_acpi_device_node(fwnode);
-+	int ret;
-+
-+	acpi_scmi_clear_transport_hash();
-+	hash_init(pcc_id_hash);
-+
-+	ret = acpi_scmi_parse_dsd(adev);
-+	if (ret)
-+		acpi_scmi_clear_transport_hash();
-+
-+	return ret;
-+}
-+
-+static int pcc_get_ss_id(u32 prot_id, bool tx)
-+{
-+	struct pcc_transport *p;
-+	int idx;
-+
-+	hash_for_each(pcc_id_hash, idx, p, hnode) {
-+		if (p->protocol_id != prot_id)
-+			continue;
-+
-+		if ((!tx && (p->flags & SCMI_TRANSPORT_P2A_CHANNEL)) ||
-+		    (tx && !(p->flags & SCMI_TRANSPORT_P2A_CHANNEL)))
-+			return p->pcc_ss_id;
-+	}
-+
-+	return -ENOENT;
-+}
-+
-+static bool
-+pcc_chan_available(struct fwnode_handle *fwnode, int prot_id, int idx)
-+{
-+	/*
-+	 * Parse the ACPI SCMI namespace device on each Tx-channel lookup and
-+	 * reuse the resulting mapping for the matching Rx lookup. Defer full
-+	 * validation until pcc_chan_setup() for simplicity.
-+	 */
-+	if (!idx && acpi_scmi_namespace_device_parse(fwnode))
-+		return false;
-+
-+	if (pcc_get_ss_id(prot_id, idx ? false : true) < 0)
-+		return false;
-+
-+	return true;
-+}
-+
-+static void tx_prepare(struct mbox_client *cl, void *m)
-+{
-+	struct scmi_pcc *smbox = client_to_scmi_pcc(cl);
-+	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
-+	struct scmi_xfer *xfer = m;
-+
-+	/*
-+	 * PCC take cares not to call tx_prepare until last transmit is done
-+	 * Mark channel busy + clear error, request platform IRQ if available
-+	 */
-+	if (smbox->pchan->mchan->mbox->txdone_irq)
-+		iowrite32(SCMI_SHMEM_FLAG_INTR_ENABLED, &shmem->header.flags);
-+	iowrite32(sizeof(shmem->header.command) + xfer->tx.len,
-+		  &shmem->header.length);
-+	iowrite32(pack_scmi_header(&xfer->hdr), &shmem->header.command);
-+	if (xfer->tx.buf)
-+		memcpy_toio(shmem->msg_payload, xfer->tx.buf, xfer->tx.len);
-+}
-+
-+static void rx_callback(struct mbox_client *cl, void *m)
-+{
-+	struct scmi_pcc *smbox = client_to_scmi_pcc(cl);
-+	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
-+
-+	core->rx_callback(smbox->cinfo, ioread32(&shmem->header.command), NULL);
-+}
-+
-+static int pcc_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
-+			  bool tx)
-+{
-+	const char *desc = tx ? "Tx" : "Rx";
-+	struct device *cdev = cinfo->dev;
-+	struct scmi_pcc *smbox;
-+	int ret, ss_id;
-+	struct mbox_client *cl;
-+
-+	smbox = devm_kzalloc(dev, sizeof(*smbox), GFP_KERNEL);
-+	if (!smbox)
-+		return -ENOMEM;
-+
-+	cl = &smbox->cl;
-+	cl->dev = cdev;
-+	cl->tx_prepare = tx ? tx_prepare : NULL;
-+	cl->rx_callback = rx_callback;
-+	cl->tx_block = false;
-+
-+	ss_id = pcc_get_ss_id(cinfo->id, tx);
-+	if (ss_id < 0)
-+		return ss_id;
-+
-+	smbox->pchan = pcc_mbox_request_channel(cl, ss_id);
-+	if (IS_ERR(smbox->pchan)) {
-+		ret = PTR_ERR(smbox->pchan);
-+		if (ret != -EPROBE_DEFER)
-+			dev_err(cdev,
-+				"failed to request SCMI %s mailbox\n", desc);
-+		return ret;
-+	}
-+
-+	cinfo->transport_info = smbox;
-+	smbox->cinfo = cinfo;
-+
-+	return 0;
-+}
-+
-+static int pcc_chan_free(int id, void *p, void *data)
-+{
-+	struct scmi_chan_info *cinfo = p;
-+	struct scmi_pcc *smbox = cinfo->transport_info;
-+
-+	if (smbox && !IS_ERR(smbox->pchan)) {
-+		pcc_mbox_free_channel(smbox->pchan);
-+		cinfo->transport_info = NULL;
-+		smbox->pchan = NULL;
-+		smbox->cinfo = NULL;
-+	}
-+
-+	return 0;
-+}
-+
-+static int
-+pcc_send_message(struct scmi_chan_info *cinfo, struct scmi_xfer *xfer)
-+{
-+	struct scmi_pcc *smbox = cinfo->transport_info;
-+	int ret;
-+
-+	/*
-+	 * The mailbox layer has its own queue. However the mailbox queue
-+	 * confuses the per message SCMI timeouts since the clock starts when
-+	 * the message is submitted into the mailbox queue. So when multiple
-+	 * messages are queued up the clock starts on all messages instead of
-+	 * only the one inflight.
-+	 */
-+	ret = mbox_send_message(smbox->pchan->mchan, xfer);
-+	/* mbox_send_message returns non-negative value on success */
-+	if (ret < 0)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static void pcc_fetch_response(struct scmi_chan_info *cinfo,
-+			       struct scmi_xfer *xfer)
-+{
-+	struct scmi_pcc *smbox = cinfo->transport_info;
-+	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
-+	size_t len = ioread32(&shmem->header.length);
-+
-+	xfer->hdr.status = ioread32(shmem->msg_payload);
-+	/* Skip the length of header and status in shmem area i.e 8 bytes */
-+	xfer->rx.len = min_t(size_t, xfer->rx.len, len > 8 ? len - 8 : 0);
-+
-+	/* Take a copy to the rx buffer.. */
-+	memcpy_fromio(xfer->rx.buf, shmem->msg_payload + 4, xfer->rx.len);
-+}
-+
-+static void pcc_fetch_notification(struct scmi_chan_info *cinfo, size_t max_len,
-+				   struct scmi_xfer *xfer)
-+{
-+	struct scmi_pcc *smbox = cinfo->transport_info;
-+	struct pcc_shared_mem __iomem *shmem = smbox->pchan->shmem;
-+	size_t len = ioread32(&shmem->header.length);
-+
-+	/* Skip only the length of header in shmem area i.e 4 bytes */
-+	xfer->rx.len = min_t(size_t, max_len, len > 4 ? len - 4 : 0);
-+
-+	/* Take a copy to the rx buffer.. */
-+	memcpy_fromio(xfer->rx.buf, shmem->msg_payload, xfer->rx.len);
-+}
-+
-+static const struct scmi_transport_ops scmi_pcc_ops = {
-+	.chan_available = pcc_chan_available,
-+	.chan_setup = pcc_chan_setup,
-+	.chan_free = pcc_chan_free,
-+	.send_message = pcc_send_message,
-+	.fetch_response = pcc_fetch_response,
-+	.fetch_notification = pcc_fetch_notification,
-+};
-+
-+static struct scmi_desc scmi_pcc_desc = {
-+	.ops = &scmi_pcc_ops,
-+	.max_rx_timeout_ms = 30,	/* We may increase this if required */
-+	.max_msg = 20,		/* Limited by MBOX_TX_QUEUE_LEN */
-+	.max_msg_size = SCMI_SHMEM_MAX_PAYLOAD_SIZE,
-+};
-+
-+#ifdef CONFIG_ACPI
-+static const struct acpi_device_id scmi_acpi_ids[] = {
-+	{ "ARML0001", 0 },
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(acpi, scmi_acpi_ids);
-+#endif
-+
-+DEFINE_SCMI_ACPI_TRANSPORT_DRIVER(scmi_pcc, scmi_pcc_driver,
-+				  scmi_pcc_desc, scmi_acpi_ids, core);
-+module_platform_driver(scmi_pcc_driver);
-+
-+MODULE_AUTHOR("Sudeep Holla <sudeep.holla@kernel.org>");
-+MODULE_DESCRIPTION("SCMI ACPI PCC Transport driver");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index aafaac1496b0..d4ab8d918ee9 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -926,6 +926,7 @@ enum scmi_std_protocol {
- 	SCMI_PROTOCOL_VOLTAGE = 0x17,
- 	SCMI_PROTOCOL_POWERCAP = 0x18,
- 	SCMI_PROTOCOL_PINCTRL = 0x19,
-+	SCMI_PROTOCOL_TELEMETRY = 0x1B,
- };
- 
- enum scmi_system_events {
+> And that's a perfectly fine choice for a PMW, because we still can
+> change the duty cycle in the range [0-4]/4.
+> But obviously for a clock, we don't care about the duty cycle, but more
+> about the clock accuracy.
 
--- 
-2.43.0
+Thanks for your research into this and summarising this up! I see your
+point, and always found the choice to use nanoseconds in PWM somewhat
+problematic, especially when looking at the rounding errors.
+And while turning the PWM into a clock provider looks like a clever
+solution, this is somewhat arbitrary - why do we have this for those
+SoCs and not the other (older) ones? The 24 MHz != 1/42ns problem is
+the same there.
+What also bugs me a bit is also that this is actually a decision
+affecting the generic hardware devicetree description of the system,
+but its rooted in a Linux implementation detail (ns resolution periods).
+
+So before we consider going this route:
+- Can we change the internal interface in Linux, maybe introducing
+  some special interface from pwm-clock to the pwm drivers, to convey
+  frequencies directly, instead of period lengths?
+- Can we add an optional interface for pwm drivers in general, to use
+  a frequency / duty-cycle pair to describe a PWM setup? I would naively
+  think those to be some kind of natural PWM parameters.
+- Can we at least add a picosecond precision interface? That doesn't
+  solve the rounding issue for those number not only divisible by
+  2 or 5 (like 24), but at least it seems to mitigate it:
+  24 MHz => 41666 ps => 24.000384 MHz
+
+I see that having a clock provider seems like a more sustainable and
+fitting choice, but as mentioned it's something that affects the DT
+description, so I don't want to change that lightly.
+
+Cheers,
+Andre
+
+> And actually, this PWM is really a PWM AND a real clock when the bypass
+> is set.
+> 
+> This series is based onto v7.0
+> 
+> NB: checkpatch is not happy with patch 2, but it's a false positive.
+> It doesn't detect that PWM_XY_SRC_MUX/GATE/DIV are structures, but as
+> it's more readable like that, I prefer keeping it that way.
+> 
+> Changes since v5:
+> - remove trailing junk after commit message in patch 4
+> - remove Tested-by when it doesn't make sense.
+> (sorry for the noise)
+> 
+> Changes since v4:
+> - Fix a bug on bypass for channels greater than 1
+> - add colons to clarify 2 debug messages
+> - switch from H616 to sun8i prefix (in code, filename, module name)
+> - fix consistency issues in macro parameters
+> - rename some macros with a confusing naming
+> - rebase on v7.0
+> 
+> Changes since v3:
+> - gather Acked-by/Tested-by
+> - fix cast from pointer to integer of different size (kernel test robot
+>   with arc platform)
+> - add devm_action for clk_hw_unregister_composite as suggested by Philipp
+> - remove now unused pwm_remove as suggested by Philipp
+> 
+> Changes since v2:
+> - use U32_MAX instead of defining UINT32_MAX
+> - add a comment on U32_MAX usage in clk_round_rate()
+> - change clk_table_div_m (use macros)
+> - fix formatting (double space, superfluous comma, extra line feed)
+> - fix the parent clock order
+> - simplify code by using scoped_guard()
+> - add missing const in to_h616_pwm_chip() and rename to
+> h616_pwm_from_chip()
+> - add/remove missing/superfluous error messages
+> - rename cnt->period_ticks, duty_cnt->duty_ticks
+> - fix PWM_PERIOD_MAX
+> - add .remove() callback
+> - fix DIV_ROUND_CLOSEST_ULL->DIV_ROUND_UP_ULL
+> - add H616_ prefix
+> - protect _reg in macros
+> - switch to waveforms instead of apply/get_state
+> - shrink struct h616_pwm_channel
+> - rebase on v6.19-rc4
+> 
+> Changes since v1:
+> - rebase onto v6.19-rc1
+> - add missing headers
+> - remove MODULE_ALIAS (suggested by Krzysztof)
+> - use sun4i-pwm binding instead of creating a new one (suggested by Krzysztof)
+> - retrieve the parent clocks from the devicetree
+> - switch num_parents to unsigned int
+> 
+> Richard Genoud (4):
+>   dt-bindings: pwm: allwinner: add h616 pwm compatible
+>   pwm: sun8i: Add H616 PWM support
+>   arm64: dts: allwinner: h616: add PWM controller
+>   MAINTAINERS: Add entry on Allwinner sun8i/H616 PWM driver
+> 
+>  .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml |  19 +-
+>  MAINTAINERS                                   |   5 +
+>  .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
+>  drivers/pwm/Kconfig                           |  12 +
+>  drivers/pwm/Makefile                          |   1 +
+>  drivers/pwm/pwm-sun8i.c                       | 938 ++++++++++++++++++
+>  6 files changed, 1021 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/pwm/pwm-sun8i.c
+> 
+> 
+> base-commit: 028ef9c96e96197026887c0f092424679298aae8
+> 
 
 
