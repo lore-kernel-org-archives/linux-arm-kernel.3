@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB7B5CD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:25:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0596CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Y/U3zylxiiKFPVpsOwi/XNbLU1kl/YjFR8sHoGtWj8=; b=H5OuOimvLJ74DRNgrU9FrdBSld
-	rCh4gjoLwmDYHKPmrAj7mUhzHvtY6eYGeDMhcFZVK84U4S1pme9JNrluonDTAC0X1dr9IYV3ld0UQ
-	4F8nN2/Z4Ih1fhMa4bP79r6RiG6Uo6y4VEREdahiaKOy76kP3mzJDzwxekvxPS2ZFZHdVgRZmYvra
-	dDaU83RAKaas81dhLeQIMdszDgrC8Pr2uycySBUhogKD6AHQ+A4VGJ8zgqr5lbOwTRjiUJ50ACkM9
-	5sJt2WialIJ/6mNeKYT2FgneKTq6pZMgYECgquN/TbL9NamLfbjrCLIb3jYH6z2RY4ui6F2HopML7
-	usPxEj/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=skzTssuwru7jF3TpsgIsQPJu8IbIuLMfcBBNvTemjVE=; b=tI2viLtUEvqlyV+RPzLDbjcRTn
+	s1eiOheIfNbiak1Ojo6Hy4VpUEas5mNHYR58s8V6+DeM1MIwZVeipVkAPSO3nhGTwDtWpKRF57sSc
+	mYvSZp9eW0BHHOq/lPwNN7XZ4x5tFhNACR84b0aYEsDYeRFYUh8tGYMUxiSge8qATErvEjk6qQ3Zz
+	BYMFRmfb++KMSmFC6sYABAu3gcnan52sL/bTyZz/q2+AxuncFqucKoO7TYLCXwNNHN5XQOvR8GmtD
+	7sRBCycdHhRvCzEZXu3Cn8trxETBO27kbGktddt2ThraXWSpEvdBwz3uCZLUlx2CBVRjz9Uu9MK9b
+	kxlHarfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRYd-0000000GnrW-0c1O;
-	Mon, 25 May 2026 09:25:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wRRZY-0000000GoMc-3Aez;
+	Mon, 25 May 2026 09:26:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRYb-0000000Gnq8-3J7q;
-	Mon, 25 May 2026 09:25:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7Y/U3zylxiiKFPVpsOwi/XNbLU1kl/YjFR8sHoGtWj8=; b=iGPxpyPjH9rK6+soG9250VzUrh
-	s1lcvYj38/mLtl7aGDNC1IiQAdLCRzXUNeieUDQLOlHI8DHjCZ4NU01C+QLYtvgCNObgvG4N1GTp7
-	3beIhNhOAFkDDQdbJ+jl2s8zLeas2DbUo3Ot81hovV4Lb8vMNd9YFnraJRYzNtNLegciC6HBieLo9
-	/KGViwVhLuTPHpGvAKDUPevV3p1/3mbPRlp9ZunpWKkx4GgaBAA2/vvHrtsjwdRbf86XpwM/rxwTd
-	cKr/mRl03QjuEt9HIFvMjZG6K6Vhn7RtuckXwq4uXn6CKauSG4jH8GpT8p0/LeWrJnnEe8p3DTAEa
-	s/Juju3A==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRYY-00000008tJm-19A0;
-	Mon, 25 May 2026 09:25:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1779701106; x=1811237106;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=6AUu28k/Clqbv8wTtKnnwKjWBW9XtjZIigR38lrNNYw=;
-  b=kMQU2dQVWh38LuqcCf8lBnlC+hNDPcSJwGL2wx42GMlHT4852Zxol3nu
-   qFycqmn8L1Y/LW9u+/4lMlrVKABKdDFLbfMzlMAHD9ISxBV+YY5Lg25Oq
-   xxvQqnyovOZDNHlnIV05SEfm5rIENXhHlNJWbZWVJIb9ouYUXGJov4p/T
-   siDQ6sL8hAP0PC21MIE7h2wEqcef2EQbHcfIeklo5VDAou7XKtZ7qW41p
-   LXqz0JxUoZAWKRQzRYYk2T9hesBkAXAH9JVuEIEIzvRe0RGWDKYqqKydc
-   1SR2WJmWcFBYHPAqHC6CBAIdtRWU0+BlPBZvXQh0SRaWiOtbVQ9YT5ji5
-   Q==;
-X-CSE-ConnectionGUID: w72KhTerRzCNpgloKDd3vQ==
-X-CSE-MsgGUID: /Y7BedzdS4eyqLDAz5w4zw==
-X-IronPort-AV: E=Sophos;i="6.24,167,1774335600"; 
-   d="scan'208";a="57215514"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 May 2026 02:25:04 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.41; Mon, 25 May 2026 02:25:04 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 25 May 2026 02:24:55 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <alexandre.belloni@bootlin.com>, <Frank.Li@nxp.com>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
-	<claudiu.beznea@tuxon.dev>, <linux@armlinux.org.uk>,
-	<mturquette@baylibre.com>, <sboyd@kernel.org>, <bmasney@redhat.com>,
-	<aubin.constans@microchip.com>, <Ryan.Wanner@microchip.com>,
-	<romain.sioen@microchip.com>, <tytso@mit.edu>,
-	<cristian.birsan@microchip.com>, <adrian.hunter@intel.com>,
-	<npitre@baylibre.com>, <linux-i3c@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-clk@vger.kernel.org>
-CC: Manikandan Muralidharan <manikandan.m@microchip.com>, Durai Manickam KR
-	<durai.manickamkr@microchip.com>
-Subject: [PATCH v7 5/5] ARM: configs: at91: sama7: add sama7d65 i3c-hci
-Date: Mon, 25 May 2026 14:54:05 +0530
-Message-ID: <20260525092405.1514213-6-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260525092405.1514213-1-manikandan.m@microchip.com>
-References: <20260525092405.1514213-1-manikandan.m@microchip.com>
+	id 1wRRZX-0000000GoLw-1Sdp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 May 2026 09:26:07 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 724AB600BB;
+	Mon, 25 May 2026 09:26:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A02E1F000E9;
+	Mon, 25 May 2026 09:26:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779701166;
+	bh=skzTssuwru7jF3TpsgIsQPJu8IbIuLMfcBBNvTemjVE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=H7H8MfXDgcg2czwLwQhZFCL2kqMjRCt9tXoVzp4zeEDmKAYkQrEXUVc2JEUW2iIjK
+	 Vuzy3H5k3Lla3w9XIbEjkEw8EIAEUxPr9Ik+YywZqcE3XvMlv0kK6kyA9tTXjno7ax
+	 YZGG6k95KRRS3MHsk0avHWKKMJA+wHrlHeDeeYtuBWyv+l8X9+TDVPr8HJxWx+TXLZ
+	 DzQ4fKJC3n1V0kfuXrlqZ9kmDUuSBoEywRGAyrWlR1QAL/PvGbajSvlG5VuW6KgYe8
+	 Pg9qRoSl+NV2ibriujglyE7gRvcEXZwZx+fG2cs5PIfYpf+TQ44LxUg/jTMrE4RZvv
+	 Sdbjhi2TLVoxQ==
+From: Sven Peter <sven@kernel.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Neal Gompa <neal@gompa.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Sasha Finkelstein <k@chaosmail.tech>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	Joshua Peisach <jpeisach@ubuntu.com>,
+	Michael Reeves <michael.reeves077@gmail.com>
+Subject: Re: (subset) [PATCH v3 0/5] Initial Apple silicon M3 device trees and dt-bindings
+Date: Mon, 25 May 2026 11:25:48 +0200
+Message-ID: <177970089799.4336.5106410094266979561.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
+References: <20260507-apple-m3-initial-devicetrees-v3-0-ca07c81b5dc7@jannau.net>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_102506_967325_CADD8589 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the configs needed for I3C framework and microchip
-sama7d65 i3c-hci driver.
+On Thu, 07 May 2026 09:33:06 +0200, Janne Grunau wrote:
+> Hej,
+> 
+> This series adds initial device trees for M3 Apple silicon devices. The
+> device trees contain only a minimal set of hardware not going much
+> beyond the minimum required for booting kernel and initramfs and
+> verify via serial console that the hardware and drivers work.
+> The hardware with the exception of the interrupt controller is
+> compatible with the M1 and M2 SoCs and the existing drivers.
+> `make dtbs_check` depends on the already applied and dropped apple,i2c
+> and apple,pmgr dt-binding changes.
+> The watchdog load depends on stalled and forgotten addition of the
+> "apple,t8103-wdt" compatible posted in [1]. I've replied to the thread
+> to get the change merged.
+> 
+> [...]
 
-Signed-off-by: Durai Manickam KR <durai.manickamkr@microchip.com>
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
- arch/arm/configs/sama7_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+Applied to local tree (apple-soc/dt-7.2), thanks!
 
-diff --git a/arch/arm/configs/sama7_defconfig b/arch/arm/configs/sama7_defconfig
-index e52f671ccec4..6470c7d3fe8a 100644
---- a/arch/arm/configs/sama7_defconfig
-+++ b/arch/arm/configs/sama7_defconfig
-@@ -117,6 +117,8 @@ CONFIG_HW_RANDOM=y
- CONFIG_I2C=y
- CONFIG_I2C_CHARDEV=y
- CONFIG_I2C_AT91=y
-+CONFIG_I3C=y
-+CONFIG_MIPI_I3C_HCI=y
- CONFIG_SPI=y
- CONFIG_SPI_ATMEL=y
- CONFIG_SPI_ATMEL_QUADSPI=y
+[1/5] dt-bindings: power: apple,pmgr-pwrstate: Add t8122 compatible
+      https://github.com/AsahiLinux/linux/commit/4d28a9a428f6
+[3/5] dt-bindings: pwm: apple,s5l-fpwm: Add t8122 compatible
+      https://github.com/AsahiLinux/linux/commit/d0960529afbd
+[4/5] dt-bindings: arm: apple: Add M3 based devices
+      https://github.com/AsahiLinux/linux/commit/5701af106b03
+[5/5] arm64: dts: apple: Initial t8122 (M3) device trees
+      https://github.com/AsahiLinux/linux/commit/1dfa78533534
+
+Best regards,
 -- 
-2.25.1
+Sven Peter <sven@kernel.org>
 
 
