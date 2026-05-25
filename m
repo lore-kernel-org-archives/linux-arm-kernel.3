@@ -4,109 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B90ACD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 03:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F98CD5BC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 03:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zvwfuFavRTickP2JgkskpCqaYMIYAPH+/fczcSyou0Q=; b=hJuK8sUYZ4dKHQ0gP3IdksSgw5
-	oUmpPtOyiar0RSDJ0CY/sUuVQwZSYgeFjEiihOHrq4OLMzhIiVTuWozELHgoJjXkZaXc0xFXLJGW6
-	69E/CqaOjRV/JllhmVmbc6+dzkxXWz9LERZcz6/lzNXqSRZ5LsPLAH0sXubOWVsS0H+4EE9OqPTAW
-	gFs6h6sPrcayEpd533Q0D4R/O4eHwxpVXWhq7iPskom0rqNWbjXXy9ahTcgjeHtUg0hbOA7h3h3LR
-	mF0sZpiACNiZ9OGN1hPGHexPjMc+uuP9ikMxXsvaMY8nkiMhCS/WJaC0dmYJb9RGrO5Hs2HaEBzsB
-	VusvD7sQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R9RwqYB7r6bhFVqkJhACAFbElSFPJqjemhMeBFLCqnM=; b=udInozsdFXl4ZLJVZcH96sQN8M
+	nF6ww86ZUkqDfgdCJu5gADk04vVBCG+gLYUnwmj/bTiLvSO2oZXw1fVGayliw3Zmyrxn4Yw6Kes77
+	I6QnqhXmLXiD+PoZmCUFBxLIGeby50J2qORS3LjtATU1X5V30Gd8b2nkkJFI/Vr/rBjI2hTMsaktk
+	dZUW/fFEYL129zfAjjQo5KoX6v/vQT1XkZb3khhDQTQ2Oix7FMUOJr7V+cbw/SAm2BHopf/pgSQ0o
+	YzIdeQiyFR4VaHiaD+UJNdyBBmRupT1nHo2bnwu5oHB6X7Wk+UN6Hk5L3csJWyVJx4iG3vrX+Bu1j
+	uzJBdn2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRLxE-0000000GBhx-1zcJ;
-	Mon, 25 May 2026 03:26:12 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1wRM9W-0000000GCjW-2C3x;
+	Mon, 25 May 2026 03:38:54 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRLxB-0000000GBh6-3Odr
+	id 1wRM9T-0000000GCis-1pwQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 03:26:11 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7e612d0693eso1880011a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 20:26:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1779679568; cv=none;
-        d=google.com; s=arc-20240605;
-        b=hi8fsqAe6RsKKgJHdb9miHL1I16h3Pi3bQkvdVeAK0MpD9OpwhVbFKBe//PNJ6YYMt
-         mV2R9szOrYh7vEaXmgLKT9UoBg4slSsMwu0AsoF846FeZtUTxqRn25ks5VjprTtA+EN6
-         +IL6Y/rHiOnWtXZOX9KGM6jhIJ7XFQ3BS+O5qHeuS5UvcW13PjrvsIsmDmOrhRiXQAdB
-         hHRAZHPbQSXcjYPM8/+EYZBtM/rSwm01U4ZvHjjk0rGn5d4HkU1eWzae+0AvKYTbKh0e
-         7uHNPZU4u8NPtbaFR2A1fDgsibdFMXB+9vk4pMxtexxqq2exZsXoPZE9U1IYice7gXbG
-         63VA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=zvwfuFavRTickP2JgkskpCqaYMIYAPH+/fczcSyou0Q=;
-        fh=OBiLJ6ffZaRr1yETO60a2ZSbr6xv045kG8mDzR4dkXo=;
-        b=X3vbvqHGA5OeS81zlXLEzOCG+IPAEOsKqhZbhw/eHKSzHQt07U2ISDR3RFSGEvSdiZ
-         KjDyIs3bCme5vh+1x+PcKZXVo7WH1uy+Tp/A5KE9Il6Z7zhbff5dFta0/DRwTWhl6awa
-         07EC535AaoDlhyK3C2RAHn56Vku/X3pDKPQzyDfwCdMBhjUP6juAoJ1dWWNgBnd376ry
-         L1hUgXlB3YYz115rCarXdwZAJcPc02Utgi42xKnWQP6i2h5vGgGTv2Ededl+Vb5iL/E4
-         vFEjmsDIlBfWuuh2tYAlks2Pf6g7jbtVoCMv4GG1+vr2aXUPCcG0CTncvtEGR328GFNx
-         8VaA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Mon, 25 May 2026 03:38:52 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-50fc496c8baso105290101cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 20:38:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779679568; x=1780284368; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zvwfuFavRTickP2JgkskpCqaYMIYAPH+/fczcSyou0Q=;
-        b=XWwrnsJugVCEmehETZyI7D4Gf6qXQZNiefe5JBKRuJY/hzEpqDw3l2+cCw44eNZYlS
-         Wu3j3w6FCrUFm3Uxfy+v0Cl8jc9pUpwpgu0o08ma5kJiEgwsqjR6IoViHierf7cWwZLL
-         Nm93ObIKapAogpIhLBggYkNRMK9QDR0NWhSYiRPrAxoJRMFKevhiN6eeY2Hn+dkP+zx7
-         6Cvwfybe40cvZG8mSs/44wHqip9BcLLJtmnuCkOnCpjVLT0USlYdRKUtVx5DvajODIqp
-         RlBoBz/hdFkQgh3jYdR60Po9jp601uriVdX3mMHDmCWQszrH0vvMFmNt38omkVXlQxHV
-         lfIA==
+        d=gmail.com; s=20251104; t=1779680330; x=1780285130; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=R9RwqYB7r6bhFVqkJhACAFbElSFPJqjemhMeBFLCqnM=;
+        b=lip/btzlx7RP2in87m6S/Vdy9sYkg0zkxEoI9GooE6i1TkKEUFse/awL8m2AT5T2Jh
+         /yumXVs06w4gl6qIVPY9nWnnUaCAu3aALfKxGfzYS7mh68lMKVZIVvkEED4WRiLrUGX1
+         7TfqhW7ylOeDl1W24t7AlCieDsN2WgIGnkL1OFy3JKRtR7stOcydmp+gaKBdbnMxQC1N
+         DJEISvwUGdJMEuQCddkL06pVm3rcZ4d9ESMw4GZHgmedwV/3LwLAagg4xJQe+rZsocx+
+         tV6Wh6DLX6u4dLqO6+ZqU7BESGLz5MKRidXWNoBh5rNR54uqM2ZFK+cch/VL1MiuaBWh
+         FBqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779679568; x=1780284368;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zvwfuFavRTickP2JgkskpCqaYMIYAPH+/fczcSyou0Q=;
-        b=GNBQgxT6HearXUhuKOtJlfIs1n4hxpa+vB1SWiXcJgQItpaxEUn4vV49N4Gg/5m5sr
-         6hxbRJ/blq8QETq0cKqLuJgo5zB3qrHB8LZSbCvuIUotVAc3aUDGmaMrTAYNcKC8lEY2
-         +jd0UvBlCozY7s6bgU/zgwCAJiE6JFQphDOOSfW398MhXVJnPGuMFgDgc91bvfrrVdxK
-         5ACmnd/mpC9MJPd1qbiSbK/6EEHl/ywtRrEC23IebMKqSgoh3Vsp2SNmmF0+Oi/H+WMc
-         T1LS4smWu0p6qRaOGIp55ly7Oq1sAe2wKwKQzSnw9abz+GtFAsgufU9dzrGNXeCsjqbm
-         +wFQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+rd3qyllR/BvttbNZiDkiUAzTuzVSq1uWeIs6OIzhD7F5AWD9c6zJIdbDNc0Pn8R3KCg78lrkg29pQIxML5nc7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8XbPK9/IC+D5CR+fNQ+BQMUNsfcm6Wyyjo/NTGMAbx3n+fEFC
-	aSFpQKhgnagCjWTxKMXa72+N6H1kPVSJoNWelvS6RHuA96B3kVt0ceRkYWqJ3zMPnhwRSNxS/Pc
-	5cSvemf1zJJXe5DepiCNvyp6oEeRhgKA=
-X-Gm-Gg: Acq92OF9zFPGk+cVHjuv2krH8a6w9Majv/xvvq2XG9JKLSQu5sHi+rdeiOAEJzGWK1r
-	0ZZgGX22JKWQvPd+SxCa0kElr1TnSjyvRstkSNXQskD7LUQllj6PZOZWlBFXz8OxnEYWTCF/tgy
-	wRWSTnCVA2HCUsoXaM2JtS+aXXo4pQVPESvkUGM0Rig04HDLZrToL1tC7c4Fn75Y2K2yPrG2aRa
-	PKJFM/vMQKGXdXKUdDSrKGsajuKyyQFP8NT+sT9GK6ZWCSBGweioc5S2IJy1Z8aDVBSBlOH2JG1
-	14AjOZNJ9th+m8+Dplje6xbJvjXnlQVi8QOGeERkosE44SUIwsI3XgwIkfzoGsPvnhrc
-X-Received: by 2002:a05:6820:4b09:b0:67e:2ff7:2a6e with SMTP id
- 006d021491bc7-69d7eb501dbmr7243815eaf.18.1779679568125; Sun, 24 May 2026
- 20:26:08 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779680330; x=1780285130;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R9RwqYB7r6bhFVqkJhACAFbElSFPJqjemhMeBFLCqnM=;
+        b=niTuWxNg2UW3zhvVZBicLWRb4mqNhXKUkszdb3TeEExknCdFRMJtLQwloMZVAB7V//
+         oKl/Pb8sLQpN0zvGBAEOggQsl/HlKQFRzNxibpHJJrbMXbjcu6Ha0QqM6MRIo5vWeUBy
+         e3ujxEd6+o9ir3JKOelG8brMd+66phGUyctiGQYMnPcb3hNpGQucenTofO1/nr3EbUQl
+         Ac5WWzjQcX8BwoslUE9oXem0/hfPbpjJN3OCdES0k4ht3u7n58Qe2X8BIR6I080EmmlW
+         cAmMfP97V/C02A6dOcGoO9nhG5vQsCy12DJpjpwU6NGKRP3piEWlFRFjaLu54NmuBPbs
+         7eMA==
+X-Forwarded-Encrypted: i=1; AFNElJ8OTk+bR9LSV1/cUh1e/KzgJa/Yt2Jnf7LEvc9dgCJY7KE8dOUrVkx7mZpubWXcKbL/C/0e1I1AMOf5xsnkfc4a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/r6khJjS5JZ2jmbWGUPpmlPquzifOoz1I1zkeZNr+y2DHLfUY
+	JBHjdfn0Dc6EnngVOUW/MhiZPO7aA/lB84W/KfgRJ3/m87VFXtwKmd3X
+X-Gm-Gg: Acq92OEPHC1ggMO8YqME2hydAHNWnDwe1ecxy1g5H/R10PaNxDxukGJbDEZhb0Y8bK7
+	b04uFiLmTrpIk4O/EBlwHch/IJVuOPtdAroSfPeFsWZE5gBCqWLvDOmE/qiFGY97QhMzxnf0+VR
+	kzwu6FOCOi6nPfesVDh3yndCuuu34TRpvg5qnifBavuJQMOauWMcXVuPKVhDbj1/ZRXYz4XovRy
+	CvwJBTmH9C6JY6XX7pjPVXoLyJj3Assglfngu0FpNecppYBE3jAkhKidnlYzYylh6AB1zo1KS4e
+	z6BZ6lJ54pRwtHy2YkImRJng8xxCConHMXiY/+0kqmRE/6qMW8NMIHN88pgWqU3UJoxG+tNsFMt
+	Zupud+crkb/5zWqT7TaEQ++Dnvs2KI6+IJF+rjTqGZAxL5ZKWpI+8Z7gYWkNMXNQM8naXlazbbJ
+	52xR6YuRP9a2+5d8Iju0soamcBkvujfLZpK1mfNcYNCFIFrE6ztj8=
+X-Received: by 2002:a05:622a:110c:b0:516:d83c:edb8 with SMTP id d75a77b69052e-516d83cfc3dmr157369111cf.27.1779680329955;
+        Sun, 24 May 2026 20:38:49 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-516d8cb8da8sm83104691cf.20.2026.05.24.20.38.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 20:38:49 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Avi Fishman <avifishman70@gmail.com>,
+	Tomer Maimon <tmaimon77@gmail.com>,
+	Tali Perry <tali.perry1@gmail.com>
+Cc: Patrick Venture <venture@google.com>,
+	Nancy Yuen <yuenn@google.com>,
+	Benjamin Fair <benjaminfair@google.com>,
+	Russell King <linux@armlinux.org.uk>,
+	openbmc@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] ARM: npcm: Fix OF node refcount leaks in SMP setup
+Date: Sun, 24 May 2026 23:38:46 -0400
+Message-ID: <20260525033846.1346744-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260518102451.417971-1-paulk@sys-base.io> <20260518102451.417971-14-paulk@sys-base.io>
-In-Reply-To: <20260518102451.417971-14-paulk@sys-base.io>
-From: arash golgol <arash.golgol@gmail.com>
-Date: Mon, 25 May 2026 06:55:48 +0330
-X-Gm-Features: AVHnY4KUuBcGh4fPuvaF9wKJBQKBE4TDK2MAAseg_T5QDDf0jB-H1zPi4i_Lwlk
-Message-ID: <CAMxPZkjfWckb89HeZ1aZU6szkvfPm6J20HH2+O2C-ZoftR1YsQ@mail.gmail.com>
-Subject: Re: [PATCH 13/16] media: sun6i-isp: Add dummy params link_validate implementation
-To: Paul Kocialkowski <paulk@sys-base.io>
-Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-staging@lists.linux.dev, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_202609_858132_AA843998 
-X-CRM114-Status: GOOD (  20.87  )
+X-CRM114-CacheID: sfid-20260524_203851_479091_9D3DA638 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,74 +104,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paul,
+npcm7xx_smp_boot_secondary() and npcm7xx_smp_prepare_cpus() look up
+the GCR and SCU nodes with of_find_compatible_node(). The returned
+nodes are used for of_iomap(), but the node references are never
+released.
 
-On Mon, May 18, 2026 at 2:01=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
-o> wrote:
->
-> There isn't anything configurable about the params video device link,
-> but the v4l2 core complains that no op is provided so implement a dummy
-> one to make it happy.
->
-> Signed-off-by: Paul Kocialkowski <paulk@sys-base.io>
-> ---
->  .../media/sunxi/sun6i-isp/sun6i_isp_params.c     | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
->
-> diff --git a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c b/d=
-rivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> index 77c2d06c0436..b7ef33fa2b13 100644
-> --- a/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> +++ b/drivers/staging/media/sunxi/sun6i-isp/sun6i_isp_params.c
-> @@ -450,6 +450,18 @@ static const struct v4l2_file_operations sun6i_isp_p=
-arams_fops =3D {
->         .poll           =3D vb2_fop_poll,
->  };
->
-> +/* Media Entity */
-> +
-> +static int sun6i_isp_params_link_validate(struct media_link *link)
-> +{
-> +       /* Nothing to validate here. */
-> +       return 0;
-> +}
-> +
-> +static const struct media_entity_operations sun6i_isp_params_entity_ops =
-=3D {
-> +       .link_validate  =3D sun6i_isp_params_link_validate,
-> +};
-> +
->  /* Params */
->
->  int sun6i_isp_params_setup(struct sun6i_isp_device *isp_dev)
-> @@ -470,6 +482,10 @@ int sun6i_isp_params_setup(struct sun6i_isp_device *=
-isp_dev)
->         INIT_LIST_HEAD(&state->queue);
->         spin_lock_init(&state->lock);
->
-> +       /* Media Entity */
-> +
-> +       video_dev->entity.ops =3D &sun6i_isp_params_entity_ops;
-> +
->         /* Media Pads */
->
->         pad->flags =3D MEDIA_PAD_FL_SOURCE | MEDIA_PAD_FL_MUST_CONNECT;
-> --
-> 2.54.0
->
+of_iomap() does not consume the device node reference, and iounmap()
+only releases the MMIO mapping. Drop each node reference after the
+corresponding mapping attempt.
 
-Tested on a LicheePi Zero Dock (V3s) with the following pipeline:
+Fixes: 7bffa14c9aed ("arm: npcm: add basic support for Nuvoton BMCs")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ arch/arm/mach-npcm/platsmp.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-ov5647 -> sun6i-mipi-csi2 -> sun6i-csi-bridge -> sun6i-isp-proc ->
-sun6i-isp-capture
+diff --git a/arch/arm/mach-npcm/platsmp.c b/arch/arm/mach-npcm/platsmp.c
+index 41891d3aa124..4c1fc9983746 100644
+--- a/arch/arm/mach-npcm/platsmp.c
++++ b/arch/arm/mach-npcm/platsmp.c
+@@ -32,6 +32,7 @@ static int npcm7xx_smp_boot_secondary(unsigned int cpu,
+ 		goto out;
+ 	}
+ 	gcr_base = of_iomap(gcr_np, 0);
++	of_node_put(gcr_np);
+ 	if (!gcr_base) {
+ 		pr_err("could not iomap gcr");
+ 		ret = -ENOMEM;
+@@ -60,6 +61,7 @@ static void __init npcm7xx_smp_prepare_cpus(unsigned int max_cpus)
+ 		return;
+ 	}
+ 	scu_base = of_iomap(scu_np, 0);
++	of_node_put(scu_np);
+ 	if (!scu_base) {
+ 		pr_err("could not iomap scu");
+ 		return;
+-- 
+2.43.0
 
-I verified that streaming through the ISP pipeline works correctly
-after this change and that the previous .link_validate() warning for
-'sun6i-isp-params' device is no longer triggered.
-
-Tested-by: Arash Golgol <arash.golgol@gmail.com>
-
---=20
-Regards,
-Arash Golgol
 
