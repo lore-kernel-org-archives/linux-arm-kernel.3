@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E361BCD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 09:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AFFACD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 10:12:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AKwrXEXaLENw99YJowK3xb8rjn7NyiynQVbSpLY2vlI=; b=vxXbdEtym8eftY
-	HS2C/jVGAhLNdxJXLvmwdGJSnSP/hQdM8oKJ/8WZXl166B44A/8/p7rqJCiervP1Yi2e2w/Ablbjq
-	ycc0SLF3tc93XKUpdrasFVS9T/kOZgz9p0wJLYq+aJ1mJcBnewCuxltpkEnvQCpsMVndMWJQlFqes
-	QCopOOTQnIWtDunrOLG3p55uDi0gGusSMJ16dFZ+uqml5RtYNgYugRNo62kaJrkPDHTeNWREyDWSY
-	46gUctrJ9FTL1b2JCyHazoyEFqkfOj9hYRdS2gPWHOrDXVLT60PBtaUDCLI0zObEeLDEdWqoHAIQR
-	0iVDCwC+PCFmgynAn7+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RPsTr42GSKVHAD89g5ugmjFmkPUG4GzK5AqN4QlbUl0=; b=UIwJMpU3AYoAETXykHcU9q2rk1
+	2FzYQVoYX1D/1KOLsBcWmycRPEVPvNOInUTSOWlB8h5s0h7m0yDQ30ZaeyEHWnOlFvc2FgyWxw26K
+	cWNbJ8yWHZSQowlQktoTE6ULgXVHy5EMPr/yHJ6oL4yD5RnTSA693AKu3X/c+GSQA7J+aGbJCEIZW
+	GKIbv733KrlrqRiOIHTF4bVQQy+ngBUz1N0ZMBYJqVmUrY2frNm+IHQoxUHY9TbgfmQ54aCg0QU34
+	P5kqWH3OP5zGFTMDA+srNyEr5bFQLIBdJa2z60JY3y6vgsiAK8tKWyRt9rEl7pz5eQ2M3nJUsTVxQ
+	UDMOc9wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRzx-0000000GsnX-3bo9;
-	Mon, 25 May 2026 09:53:25 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1wRSIB-0000000GuzA-43l9;
+	Mon, 25 May 2026 10:12:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRRzu-0000000Gskm-4Aup
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 09:53:24 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2bd2c147abaso56275235ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 02:53:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779702802; x=1780307602; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AKwrXEXaLENw99YJowK3xb8rjn7NyiynQVbSpLY2vlI=;
-        b=QvBsXgCQZV3UVx0UBG5v3OikZR2+rBckV+3IAvIVXvY9sTjstBDk+GzGO0QPWWhVFR
-         jTfQypPVON3MB+y9Lf0f9cjyYzgHkQFjd5sVJtDe/qUQg8W0EqVa9PkbZseIXXERPFxg
-         rM/kybAS6Ho1G5J1bnhIBSc3iy/rZQC7rbK3tpQvpaHSi2zye7+BopcNqiiu/erEwLBp
-         L4SwZ6woNKvuReJku6DCfCB+C5tgDBPpRowUIQicBmkqVMQAaqVnwMv03h2rWPLmbEO1
-         2doM5y1kUdmzYnevmULoSmTsGhsx9goUf50FrnKtvo+S1Mq4G+y6HK3d0Fx41x3mH4UX
-         32Bw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779702802; x=1780307602;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=AKwrXEXaLENw99YJowK3xb8rjn7NyiynQVbSpLY2vlI=;
-        b=B2ArlhBRVYC99ExhHkvQNeYDZJKJEO2yQ9wv/4P2waQeKgzmkoOlCUggvHxVrWVrJ6
-         ldFB6QEvjrQKOnS5I6u5DdWmj8DqDa2UitXuDVTQTFXICGTh648/OfJYhQ66wEilCJOo
-         lswT70pbjmCW/HNsqKrWN9pFhCo5t82TVABjwZJrfRF8I0TEMhiDjZvc1rppBS6bMTdw
-         pWodo+JiAfd/tLaFqtrSodgHEEQaJD78bgInGxwTXKVyf8Vx34xYaRL1EdwrUZCKlRKL
-         nwYRDTWNdS4dfW9p7l6r6PxwerclQTX7A5QQ89o8MfYKoSVhZnYzox4rLSIdxT2ejiaC
-         SlPA==
-X-Forwarded-Encrypted: i=1; AFNElJ9pCwPqA3f58QYbyeK//SPvRTzZIhEjwVKbIuoBMiep09rxAsDAUAvmnuShSx+SVr8v43HMxljTZkuVXJjeOrqG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZzkw5BzW48WJfwhe+sO9uJ3qJzPJIsLPp2l+AhvbMgg8U83FL
-	NysYjXcqq2QUjW3BvoHgahxrTrgpI24EpfVVS694pdO37PLVr42g4ZwH
-X-Gm-Gg: Acq92OGPUWSJJ0ZaGas0LPlUksJfw1QgnOBy64SQXm61wkGl3Z87BR+YWS1FrjKn/wP
-	7dXDrhX5hFPGyxxvoewZRA1xzYQypmokFpgWQh4ouJROWmHfN23p8DwsY5KGPvfalu33tgVW8Kn
-	+zWTImEdqWyRNsnu9d/v//YBKa9XQ6aaKcJ4UQNjarXVb2YpKRsgUMyyaM9OT+yKMICBME7AFam
-	saU0pwoVBgnoY7WAxe3pHD/sekbvESjFcQbQcaHqO/b+Bo85SpxjOB3ghPPnpaN/e6ZwFCwr+Wi
-	3K8yUytJBgoFfqMYDoB41otQMUicy/hnmgKriDazt8cE84RMiYqcUjNQRmLnStgFZOeOQp6qtOS
-	yPXk5UWGbd7WoOEbEE9bNG4PYi8EnESJfXAvyn1WvRe30eImLa0N05q1bunX1AULqPexCB2z/7H
-	9POjlIRS6Z4rWzzKPShrtR
-X-Received: by 2002:a17:902:ebc2:b0:2ae:6259:5aff with SMTP id d9443c01a7336-2beb031adfdmr138558515ad.6.1779702802100;
-        Mon, 25 May 2026 02:53:22 -0700 (PDT)
-Received: from rockpi-5b ([45.112.0.230])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb58b2cd6sm92533615ad.52.2026.05.25.02.53.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 02:53:21 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Maxime Jourdan <mjourdan@baylibre.com>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	linux-media@vger.kernel.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-amlogic@lists.infradead.org (open list:MESON VIDEO DECODER DRIVER FOR AMLOGIC SOCS),
-	linux-staging@lists.linux.dev (open list:STAGING SUBSYSTEM),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Amlogic Meson SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v5 6/6] media: meson: vdec: Cancel esparser work in error and stop paths
-Date: Mon, 25 May 2026 15:21:54 +0530
-Message-ID: <20260525095216.12078-7-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260525095216.12078-1-linux.amoon@gmail.com>
-References: <20260525095216.12078-1-linux.amoon@gmail.com>
+	id 1wRSIB-0000000Guyv-1W5V;
+	Mon, 25 May 2026 10:12:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B6EF600BB;
+	Mon, 25 May 2026 10:12:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2A8E9C2BCB7;
+	Mon, 25 May 2026 10:12:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1779703934;
+	bh=R1GgFe59YMZX6danIrFGUoWQKiOB3++Y2+t6P2g9wRo=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=NiJtpp1JxeiDN7T4QZ9Qez9xO/ym5qQAquuF6u0Ej/NvKNyG6x5WOTyQHQqcLpUw1
+	 i8a49TlJBrPOOCkJaq7VZ2XN8MEogdoA/4hn2xAiWuq7IHGBfqiwMVmwdweWnL8Y/o
+	 1cHVa1zhKwCAzSDsoykOz8d+U1jvCvH67ilSdCdKF1sRE1eb8NYuWrb3aCgLUrgwJU
+	 FDNcVMdA2Lp8Dhi5QSVaI4f9bMhIZ/89ZNtXwwQXHOgo5oVpEQkloVYaQiy4Oi+PLg
+	 Hw2w8Hu0HZE+RAM0p03UQ/YBDZLzMKWRdC0Ev2mU/KNf7DJNbcztD4LVX/ZRkU/R5N
+	 7huBJ4tvl9K2Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2278ACD5BD0;
+	Mon, 25 May 2026 10:12:14 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Date: Mon, 25 May 2026 12:12:12 +0200
+Subject: [PATCH] arm64: dts: rockchip: describe PCIe Ethernet controllers
+ on NanoPC-T6
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_025323_037375_E0843FF5 
-X-CRM114-Status: GOOD (  15.89  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260525-rk3588-dts-rtl-eth-describe-dt-alias-v1-1-a6fcda563ac7@pardini.net>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXNSw7CMAxF0a1UHmMpCQ2N2ApikI+hhqogO6BKV
+ fdOgOF5g/tWUBImhWO3gtCblR9zg911kMc4Xwm5NIMz7mC861Huex8ClqoodUKqIxbSLJyojRg
+ njorZUrFhSEP2BlrqKXTh5XdzOv+tr3SjXL9t2LYPxz+gY4gAAAA=
+X-Change-ID: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3532;
+ i=ricardo@pardini.net; h=from:subject:message-id;
+ bh=ATDxgV+aVRYA1qwVl5QQNVkoTUqIMI+aNMm96MahMCc=;
+ b=owEBiQF2/pANAwAIATteP+Oex+3pAcsmYgBqFCB9KNIKy16b9ZOZvEfenPlRdjMemK/hkmuEK
+ v7F67/+EWSJAU8EAAEIADkWIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCahQgfRsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwwLDMACgkQO14/457H7ekCeAgAhETNghtgglmhDGNt9QFfL3n73Tw10Gc
+ FzHh8hLZmz5mFgbpWN31ixqkFdOtvj6xz4ba3rSh/T0zezG3EObvlNMtmyPe9YfaDtOtSndYlMZ
+ 4mKo83ioOZWwzJJMxuXdWWxe6siI7IWEQ7Zz0861Tf1qDaGyeDMj45dKMZq5bFhpsg8n619HJNd
+ IVF7Mhc9uWFnTmE3V0xxaVl2sOc60rjztOgkT8EgUH9gEhk9ygegkxGOPs+jDIUDvYo+frdpe5c
+ UVuwbJ6ax1BCseH9JqPOpLh38agQGmxWxXQBXlNAtVA2GEz8yfLj/qLIlfgjz89zkNa9C6f9q+F
+ u96ZM+5/MSg==
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +90,119 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Sashiko <sashiko-bot@kernel.org>, Nicolas Dufresne <nicolas@ndufresne.ca>
+Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The esparser workqueue may remain pending when streaming is stopped or
-the device is closed, leading to use-after-free if it runs after session
-teardown. vdec_start_streaming(), vdec_stop_streaming(), and vdec_close()
-did not cancel this work, leaving a race between session cleanup and
-work execution.
+From: Ricardo Pardini <ricardo@pardini.net>
 
-Fix this by calling cancel_work_sync(&sess->esparser_queue_work) in all
-cleanup paths. Unlocking and relocking sess->lock around the cancel
-ensures the work handler cannot run concurrently with teardown. This
-prevents dangling work items from accessing freed session memory and
-eliminates a potential kernel crash.
+The FriendlyElec NanoPC-T6 carries two on-board Realtek RTL8125BG
+(r8169 family, PCI 10ec:8125) NICs, each behind its own RK3588 PCIe2x1
+controller (pcie2x1l1 and pcie2x1l2). Both host bridges were already
+enabled by the board DT, but the Ethernet function nodes themselves
+were not described, leaving the kernel without DT handles on the two
+NICs.
 
-Cc: Nicolas Dufresne <nicolas@ndufresne.ca>
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260520045905.6ACBA1F000E9@smtp.kernel.org/#t
-Fixes: 3e7f51bd9607 ("media: meson: add v4l2 m2m video decoder driver")
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+Describe the fixed PCI function nodes and attach ethernet0/ethernet1
+aliases to them.
+
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 ---
-v5: Tried to fix the order of cancel_work_sync() which could lead to
-   a use-after-free. update the commit message.
----
- drivers/staging/media/meson/vdec/vdec.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+This describes the two on-board Realtek RTL8125BG PCIe Ethernet
+controllers on the FriendlyElec NanoPC-T6 (RK3588) board and aliases
+them to ethernet0/ethernet1.
 
-diff --git a/drivers/staging/media/meson/vdec/vdec.c b/drivers/staging/media/meson/vdec/vdec.c
-index 925537bd4d0b..296b387f3667 100644
---- a/drivers/staging/media/meson/vdec/vdec.c
-+++ b/drivers/staging/media/meson/vdec/vdec.c
-@@ -372,6 +372,10 @@ static int vdec_start_streaming(struct vb2_queue *q, unsigned int count)
- 	dma_free_coherent(sess->core->dev, sess->vififo_size,
- 			  sess->vififo_vaddr, sess->vififo_paddr);
- bufs_done:
-+	mutex_unlock(&sess->lock);
-+	cancel_work_sync(&sess->esparser_queue_work);
-+	mutex_lock(&sess->lock);
-+
- 	if (q->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
- 		sess->streamon_out = 0;
- 		while ((buf = v4l2_m2m_src_buf_remove(sess->m2m_ctx)))
-@@ -430,6 +434,9 @@ static void vdec_stop_streaming(struct vb2_queue *q)
- 			kthread_stop(sess->recycle_thread);
+Many Rockchip boards have on-board RTL8125 PCIe NICs, wired to
+pcie2x1l1 and pcie2x1l2. The controllers were already enabled in the
+board DT, but the Ethernet function nodes themselves are not
+described, so the kernel (and u-boot) has no DT handle on the NICs.
+
+Adding the function nodes lets us:
+- expose stable ethernet0/ethernet1 aliases for the two NICs, the
+  same way other rk3588 boards alias their GMAC interfaces; and
+- let U-Boot's fdt_fixup_ethernet() patch mac-address properties in
+  at boot time from its ethaddr/eth1addr environment - useful on
+  boards (like this one) whose on-NIC EEPROM is not pre-programmed
+  with a unique MAC. The kernel and U-Boot then agree on the MAC,
+  which matters for network-boot setups.
+
+Checkpatch warnings:
+-  WARNING: DT compatible string "pci10ec,8125" appears un-documented
+-  WARNING: DT compatible string vendor "pci10ec" appears un-documented
+Both are expected. "pciVVVV,DDDD" is the Open Firmware PCI Bus
+Binding spelling, where VVVV/DDDD are the PCI vendor and device IDs
+allocated by the PCI-SIG (10ec = Realtek, 8125 = RTL8125). It is not a
+DT vendor prefix.
+
+If this is seen as a good thing, it would apply very similarly to
+the Radxa Rock 5 series and others.
+---
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 30 ++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+index 84b6b53f016ab..5d28c74847c58 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi
+@@ -20,6 +20,8 @@ / {
+ 	compatible = "friendlyarm,nanopc-t6", "rockchip,rk3588";
  
- 		vdec_poweroff(sess);
-+		mutex_unlock(&sess->lock);
-+		cancel_work_sync(&sess->esparser_queue_work);
-+		mutex_lock(&sess->lock);
- 		vdec_free_canvas(sess);
- 		dma_free_coherent(sess->core->dev, sess->vififo_size,
- 				  sess->vififo_vaddr, sess->vififo_paddr);
-@@ -948,6 +955,8 @@ static int vdec_close(struct file *file)
- {
- 	struct amvdec_session *sess = file_to_amvdec_session(file);
- 
-+	cancel_work_sync(&sess->esparser_queue_work);
+ 	aliases {
++		ethernet0 = &rtl_eth0;
++		ethernet1 = &rtl_eth1;
+ 		mmc0 = &sdhci;
+ 		mmc1 = &sdmmc;
+ 	};
+@@ -643,6 +645,20 @@ &pcie2x1l1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie2_1_rst>;
+ 	status = "okay";
 +
- 	v4l2_m2m_ctx_release(sess->m2m_ctx);
- 	v4l2_m2m_release(sess->m2m_dev);
- 	v4l2_fh_del(&sess->fh, file);
--- 
-2.50.1
++	pcie@0,0 {
++		reg = <0x200000 0 0 0 0>;
++		#address-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++		device_type = "pci";
++		bus-range = <0x20 0x2f>;
++
++		rtl_eth0: ethernet@0,0 {
++			compatible = "pci10ec,8125";
++			reg = <0x210000 0 0 0 0>;
++		};
++	};
+ };
+ 
+ &pcie2x1l2 {
+@@ -651,6 +667,20 @@ &pcie2x1l2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pcie2_2_rst>;
+ 	status = "okay";
++
++	pcie@0,0 {
++		reg = <0x400000 0 0 0 0>;
++		#address-cells = <3>;
++		#size-cells = <2>;
++		ranges;
++		device_type = "pci";
++		bus-range = <0x40 0x4f>;
++
++		rtl_eth1: ethernet@0,0 {
++			compatible = "pci10ec,8125";
++			reg = <0x410000 0 0 0 0>;
++		};
++	};
+ };
+ 
+ &pcie30phy {
+
+---
+base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+change-id: 20260524-rk3588-dts-rtl-eth-describe-dt-alias-c1ed187b7c50
+
+Best regards,
+--  
+Ricardo Pardini <ricardo@pardini.net>
+
 
 
