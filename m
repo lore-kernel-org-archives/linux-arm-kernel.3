@@ -4,134 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC7ACD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 06:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79BF5CD5BC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 06:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RPYOByuvTPG2+cNqGP4MwRHgirvm7Gjf/E3R0XCXxMI=; b=AEyxXDggry4+tvCe4fwhingJ97
-	rItCcBIm49G/5ZfoRhMkAjuRaBx55q5huUhpRt5vSDf5Ft/jXc6ut9ONVE5GqE/YKX6OjjQDHiOCK
-	xqKn3di0uHj+1kgDPiRNP7PuGWQIEFe+jDA95h4fKdgxITeyNAJdHCSbiHL3NkWoyZfQnRqS+mYP5
-	sDtu2oDKn1wyv4zijuiAwnBHvIde00uQICgJEfs5v/qHhFRPGvGc0KoaaNpMHoNnwIalaD7F8xoW8
-	8q5KCiEh3lmM41V57cCn67Vrhlp2TDWeaK0V0aIyFwYmAERpWhij5k8Oa4ry5bx65Ya5/gsnn/DhZ
-	N9Gvp91w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LJX57Ht5s74mV+xzZtIacnVMiPk98gL3JtBjflkMkrQ=; b=FeUxnxGAT562KzmrBzpLRKO70O
+	1rc5T1+5+VmdF3620IgR8VBMVYs3DCV22Z7P0654CORyO4783ZOMh14Vw9wWYfc7hPQJq5ANUEqV/
+	G8HoXZuj8nWF5m6v/q5rvTiKYT3+VSMla7bECyb4FmjLn3KfnGL9xSr8XJVa3v5ps/qOUU3JNpxDn
+	wJNUvfGoHgYx4NZ8gahdhAQnMXhI7JNmB9C1f8h+Ewe77SwColib4PjFextMDd2wm4UT0fHZAxdS3
+	z9mxj8VjsrvCf1/JxrbajHoD9UYSVR7JIVso5hnvR+7+zAuZwKVhskekgewcJ7n1uVb476BP8Xdw5
+	clRqU6jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wROcf-0000000GOep-3dq3;
-	Mon, 25 May 2026 06:17:09 +0000
-Received: from mail-westcentralusazon11010039.outbound.protection.outlook.com ([40.93.198.39] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1wROdI-0000000GOkX-49Wr;
+	Mon, 25 May 2026 06:17:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wROcd-0000000GOeG-1Rtz
+	id 1wROdG-0000000GOjs-1BNF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 06:17:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CrY/CqU1XdsJphoEZjRNlNGbFKD9luhV2l48MukYu+EMRHRrN+lytCaxzgY9xAy7TZq+BbhHZV37AI0dEzVJp7lX9JuH+VpQJmeZ/s4ud7uV5jP2dRcJJpipMezGQY0z6dsxQJptCXIxaG5uM5uV07VSCgJ4kN2bhbJGc8ktSrFT77wB9KrQ2Zt0ydAsSzVSU3Gaq+2yNXwQ+djQA8v6AI5kCPOTFZUGSLYdpcZyA8Q0SBSjvxl0O8dvPU0KJYLNv7NDo2R1Xph0ImrLiEV+hW9DAmU1Dds0pDu6OVJ5ZconAdo636PW+mS3hUMITtlMvAJYEd6H2JC3K1NKFnEW3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RPYOByuvTPG2+cNqGP4MwRHgirvm7Gjf/E3R0XCXxMI=;
- b=YyU4/fkzIfLpb3Bc9copuD3V8vbw4UijwSBBGHivdMYEYc2WORf7QjO3UMt02W2ZzNXQxmiz9Yp1nq8NwFZxlJaojXkJxfIHVfzY9K0owTVgKL9qPoCbGkgbs2qi5tYhE0MBRcB/yqhz8jd/QNKSqcW7LWCSnCsc/bH9ujQKN15Hr6sKJsXvX//sbYGUk72yN2YZqe87xGTsTZsYvn1HeMJ2D6qHGcQYWITwP8RI96GW3O29YgHQqFGqZAowtF8cqIaaHvmdQQZ1inSEIy45kNMmjNefNW2eDQFDMQcVlOFGsKgL8crmZHeywIeUmYjZD/fahz6BhKKb4r4o+03w1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RPYOByuvTPG2+cNqGP4MwRHgirvm7Gjf/E3R0XCXxMI=;
- b=pVv3rvWoLLxJbD0rTJUHVPAfJmPyMwnPaON4w8+kvLw5gOq/H+u9fmGtb07iSSAjmcVie6yRPxwpw0YoIiHAwKMesdrAfNYMwJ+kotQDvWfDJ2L55x0A+I5tlpYwZmPqZkk3OrA2x7UcP+MP9hUVln1rA0kaktV8apPXwqpQcBSDUpH207mVqB0Q6YO/NfTGwiRbFFDW5alB16oHLES4Lypw0Ljs2SSARGgv/wnpoRBDsY0YqdJsbDS2OLsSb88NzobS7dLMA57NFO3CVM8926qImksynhraMg9UPAs3SLirRjlc7vdSkRMzdiFNmdlBBXf1t8cc43BnydX/xWlNvw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by DM6PR03MB5177.namprd03.prod.outlook.com (2603:10b6:5:22b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Mon, 25 May
- 2026 06:16:55 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%6]) with mapi id 15.21.0048.016; Mon, 25 May 2026
- 06:16:55 +0000
-From: muhammad.nazim.amirul.nazle.asmade@altera.com
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	maxime.chevallier@bootlin.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: Improve Tx timer arm logic further
-Date: Sun, 24 May 2026 23:16:53 -0700
-Message-ID: <20260525061653.22548-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-Mailer: git-send-email 2.43.7
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BYAPR21CA0017.namprd21.prod.outlook.com
- (2603:10b6:a03:114::27) To SJ0PR03MB6964.namprd03.prod.outlook.com
- (2603:10b6:a03:432::18)
+	Mon, 25 May 2026 06:17:47 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64OMD1SP2840543
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 06:17:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=LJX57Ht5s74mV+xzZtIacn
+	VMiPk98gL3JtBjflkMkrQ=; b=ifskVIAYtzSY5iQodV85d/BVjSRUCbYtKjXITA
+	gn00aJalBMgzbZyZmkCDiue4ol4Xi4dZXJaOfpobcTVS0RLvAM9d7WRNIYEhw7Ae
+	pWkiJCfZW/leaW99R4r6fDSMu5fS2uhuQK1xiWVP0SWtAu2PLkQOlH1vbCMi/AL+
+	NHAOX6n3NAqUetz/Us/vDgAkWqSmITqSIjutljM6Lxzrq4kuB2b715VRWrTWwa0X
+	zW/dI+zebApoWKmd2QEeJjGzO8bGfdsxzg6X2m3VD8mJ7nkTD1x6UbeRTjBYmpJV
+	wsOH5tgZvSJA9Mz+9Ic8jB6W9sZDPn4YVgMoGBcxDNv36Glg==
+Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eb50fw4np-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 06:17:44 +0000 (GMT)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-132d631edaaso2419858c88.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 23:17:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779689864; x=1780294664; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LJX57Ht5s74mV+xzZtIacnVMiPk98gL3JtBjflkMkrQ=;
+        b=De3A82SoH6N360pxZPFTxLazOl31BxARG1zzdg1yhzOveFSAeajnxBG/6BKHdEMDV6
+         186Na/yVj4L9EUmZATpblG7Dw0dAKBfzVaEH00TNQtVnaeXths52BOXBgoBlym5mJHvG
+         wE4kMy/z2R4hPuZcLh9Llvn8aRsW9mjP6B1TyN2oRK6Dg6EPw9XSgBBRNSklhiUA0t2Z
+         LXWv8z4hJeYB9CYIlBjSP3pHWCiTsdm/ZWivIWxYzKkH38YUsnd+lg5XbPgLjo6PegrK
+         ZUkJStBhDuSubqWSvhYPW/tLy3nVQad6xa5pRcRMk3c8SPHm7I45DdW/YWeTFgZKCxRa
+         m0Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779689864; x=1780294664;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LJX57Ht5s74mV+xzZtIacnVMiPk98gL3JtBjflkMkrQ=;
+        b=DgB86SMRWc+lKd+4smkve1WAvxcEaKi4V64S+k6wZ+eDIhn/wJIN6kLTsmAMGy/3s4
+         LN/TTxa7jMRfpvF95yRdqSGweL4JAjM35cRtugSBKX1PT0UFeIlp/YpfbU1FuOWtK48b
+         cujdWU94lm8b22DH89rW4aOuJDSkvGNMfrsGpndxZh2rqxHwfBkzEzv8L+4Uq252mttc
+         XndrlnygIjE8VIe78UHYKTXprUxnMDl8uKVS5gLtLI1XUWvKetp3AjkZFHW+fK2ot/Ef
+         6hkBdFKb9FTWjS/N1XLPBozXnUeyH6AjKb3afpB6iU2Nrt/FckWrR3iuAynBIZ4hZAT2
+         9mcg==
+X-Forwarded-Encrypted: i=1; AFNElJ+70QGYmT3rLbUtqYPsu8pKXJYeghwFj33/NuJxgJQwMe/K8llHCA+IYwJ/cq4C4M4IdV5kUlYg0LK8aCvvKgFB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3/AS4Z0KnUuwCEcmTBBmKsic09aZv7VCVtPgaMDyagKjKOf06
+	irYAPZhrYEn3mqniqivmTIk+k7NH9dcf1bCiOzpHyJzmi/EMjnVAdzig6Bv5BEWyooX2wGizJBi
+	VUOFOxy7FJtAdOvanJXBlC/Z1MCEZ0eClI1xDj8bdMV4COe7QM5Oth6zv4wvH5XC8WH7XL7QeUy
+	l1Yw==
+X-Gm-Gg: Acq92OEheiuPatZ5M/uPQ3q6BGiKNazojWHSZVv5IMWB5hmtjeIQ3c1zZ939RQBKwAc
+	e1o0dCuruFuWxJWdG8XRzmUOgsbJvRaJyJ9O7MGV3+7OudgRS9cVIow6bbn/0i7cRlJdsKd5b76
+	RbJroYd3yvDT62kmYlI9YCK/R9gfdKYVF088h+uni4IG+6lrfBhDEze6nNoZ0IY8LjIavnq+M8/
+	HhQd/q76EAh7/+dA0ox/svurB/2ix647yS9xeL60Adbx6D06RRb+QD+D+Jy6pUhXtZIHIw1XSOC
+	eOD84yJ5ukMtI78N4VmTgyohCRlCpCt8Yb8aQpcGg2V7ZR7AyB4LVvAEK62aaaUBxks3ZgiCEg2
+	onLYLSRPuQeg0x6f3VyHuZ5cfl7cXlTOJ/IRNs+2twQ5kz/fJvTOyArNuKSJ+Eo4AJyM1dsnLBi
+	+1iCQ+xXs=
+X-Received: by 2002:a05:7301:578a:b0:2d8:97d6:6abc with SMTP id 5a478bee46e88-3044915ff8fmr5978842eec.22.1779689863603;
+        Sun, 24 May 2026 23:17:43 -0700 (PDT)
+X-Received: by 2002:a05:7301:578a:b0:2d8:97d6:6abc with SMTP id 5a478bee46e88-3044915ff8fmr5978831eec.22.1779689863079;
+        Sun, 24 May 2026 23:17:43 -0700 (PDT)
+Received: from hu-jingyw-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30452230f1bsm6942271eec.14.2026.05.24.23.17.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 24 May 2026 23:17:42 -0700 (PDT)
+From: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+Date: Sun, 24 May 2026 23:17:34 -0700
+Subject: [PATCH] dt-bindings: arm-smmu: qcom: Add compatible for Maili SoC
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|DM6PR03MB5177:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b622ef4-ae29-4003-03ba-08deba253829
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|18002099003|56012099003|55112099003|11063799006;
-X-Microsoft-Antispam-Message-Info: +KzQIR9TbAmeL4TqYLfwwGYYzZeUXE0pzSHg3vDGyPO0UnHOE4Fk8L+z9+WHLe1gDGkjr4OdkoN6vLsIrks/ot1sVXtKo6joK6HnHQi4dx9s0B4wcTxHSmbxTQk2KzQjJDjVH65Q0FnlU4O/KwEc3FukCDaCzVnOltXTulYQgk2/WiPxVVH95ujH0WdJa4lVn2fhmjvzM23v5qKlAsiUpaIF+R+jDBn/on/JpAx5+v2Uudtna55jSppfSk/Lxayyyd74Dw8b1I1tcHhPezJ1+9AZYCv0uUwqd1m41R9xgsgPgXBNwNaGBe6+/KKwlSThl9XkBpwstdhetAi5kmHPGJwSovAjHY0f4aCfKh5S+41v2nht6/OkGYKSEEA086gTlHQFpjX4BxfM/sZMFs2I6Y3zEaMM+F/xZ9Wm3dY46IpdDXiyXrJbLlH4FYS6POWv9rDq/btb5uRRi0ozKTMmU+sqIdh98KkXP3tu+tU9VqBhGI+N6Xi1yqo9JGsePdLoE/WBJGmj2RGL6S9Yf5MA0NoLq+KBrOM6KJiPduWpJXjCbcBAtrLpKUEvqCNtd9ISWGEEgraDY8Fe96ZyyQzJnulwVic/iXaoBoKo6TYTmsEC/kDfYx9urzRYKbDCpglg+vG2CVY1PTW71UfuOGi5Av72gwo34Y+CiX9we3io+Zk+tcT7MexXe9FjFDlmLs2p
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(18002099003)(56012099003)(55112099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Ym/lamggAuIEqwEZlRKBpid02yyNIVt9aiDzPBGqc2aWZKK9OSa7KBuP4r0C?=
- =?us-ascii?Q?RteVnF7SwggR1KnDiQ4zSu634JJzc69Z1ZAVGSJNGVZMLg4slCCS7MyrPTOL?=
- =?us-ascii?Q?3r6rlnVIydFGBmlhRXd1uFF2ow7mD8P1a8P0E9QGtgUygq4r0jsvaGi+zO4c?=
- =?us-ascii?Q?VPNYdJngluWn5iBaFn7o9o3CO4141D06EG3wE/n/JvFJw9l1sjgromyCFsSu?=
- =?us-ascii?Q?JEryJZu7fGRR0Qzmxg9Cyys6nbBNrqUmYc0msvu2EO9vpccEqWsB8/SwsQaQ?=
- =?us-ascii?Q?XANf2fJj+yZlMkOc5Oveucciy5I7BBPynPCrWhVdm0QVyJrAaZpoeF1Dy0PZ?=
- =?us-ascii?Q?7XNmn+xqOyY+c58OnYdUkNB878y3hKD6Evml3tXAotvIrIeQLadBnvz7g7qm?=
- =?us-ascii?Q?mIO7zinezcL7hDjoxREjLMya7YFSJgreSvjhWGm1bYPokYho0evh1HGZzx1h?=
- =?us-ascii?Q?vHATMLsv7jUYJ5TifQwQS+8Xvy4RWn+x1dv+E0GgthTYnwFKuWitM0wa8SqT?=
- =?us-ascii?Q?vYYCtTMlXDMwd5owVK1x2ISiVJx1WvCMZpHck23zWtBOmdz/Lqd1QoHY/spY?=
- =?us-ascii?Q?ytuVZwMzpdHcaS1p0uPM4bZyn3mZd2KaM0DP03QbWug4i05wT/Dd8gCRavZD?=
- =?us-ascii?Q?08u1OJ2rsa9F2mHri03g40AKkMloFHZ0ZFSJQkg0a4YV5tCeu0qFL8is0OVl?=
- =?us-ascii?Q?ArF+FGkiWP+LZEH2xaMv9753J79ItcZoC9SwdUPIdDNMUVUb7k6qhhaH1rus?=
- =?us-ascii?Q?2vlNeY0MaVO9e/SKnQ0eWP8w6ySOD5OzoXo9nWaM9uW8zdCJGRek4sXSfM2q?=
- =?us-ascii?Q?sxUSnQY7odbzvkn9TCQP1a+6/t9kDdhpkQOgOCV1Mj/eZ09Jm0KrjZVc7xUC?=
- =?us-ascii?Q?YvX6wQuCHo6BjmC5sYEe9BOhMy8pALV6yKikZ6ZcphvT1QvZ7t/huM1/sPPd?=
- =?us-ascii?Q?DZdq+R1ALQWaefTnLmT3d4FlGaOad0kWxCiuvVn2KxJagKIKnuu7Wp30ueKL?=
- =?us-ascii?Q?Oc8YOjCoaNsYsPr/YvW5FmIzHDzTIF/NLSI+jbptQe0jJ632XACJTitFZjGu?=
- =?us-ascii?Q?ud76ymZh98Z7C7KWZD6fZefD7ssnEv2U7PI7DKDohhLoZKdvcklMcr/etvhZ?=
- =?us-ascii?Q?VLXn3t4gcyhO9LkOGzS1xjU6MfzC7cG3ekPNdmoCxkAeaFSOcXwD3C38bto7?=
- =?us-ascii?Q?SEt4Rhhl/g6UpS0hq461fWPTqZrcjrfGL0OlErZOkVW6c7fHdudFzMK2VxA2?=
- =?us-ascii?Q?CWl6cscYijfJbp/Auve0Tqn44ekzztIdkNkJlFGFgSp8Cv+9GxnldoQAqUEp?=
- =?us-ascii?Q?cmfrI/GJhzUFuIM3xtnA7ktewdBFtUHsprg8vdh0YnX/rphki3sPjxop4I+w?=
- =?us-ascii?Q?EoaD7S1pgJ5J1onJMolntlDAZKqxFyuTMtso7AjcqWuHshBQQoJF86SS3yzV?=
- =?us-ascii?Q?+A7gOvmfoM1yegAB2QSP06KDS59RSMvpCzfx3XYVViEyR5P7gnYm1+y97L24?=
- =?us-ascii?Q?4/Y5dCrU/rnEjstixFREjV3HkRD6cRzcuconJv74sh+qR/AjlDiRkg1vr7cn?=
- =?us-ascii?Q?+0YGZ9rw4ki6H1J8jJmFCSqsKe8chjsFeAaUHIyw5ZaVoNtBSuERTizm9obz?=
- =?us-ascii?Q?KCU9yXUaOiiq5r7yY0NWQglDg43Y3mn7X2qvavLo9mBUafgCqDIxEUoXK0Bb?=
- =?us-ascii?Q?eIOJSWq0hhQvGv/v9CqkugpBXDQvIGCZpSMWPHjYgVPLe5KrC4vfdNjH0TGu?=
- =?us-ascii?Q?4J5FVSZBCF60tTE1H76TfZeWkswz4nikC7o9klzZXrSU/uScTRqbs0TzsTsa?=
-X-MS-Exchange-AntiSpam-MessageData-1: yJDdzOjMEasyBg==
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b622ef4-ae29-4003-03ba-08deba253829
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 06:16:55.4299
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: xZQcPjxDcnZp8i7Y6xsI3X22mB+WKeWpf6eC3VigADi17ohCbMHAUPvTkon3KPO8J/NGSZ9wMR5gJ7Y1h1WXgjFGxd4v/0DzryEbF81R0csKuzK+ZTvv3IFr85qO2PZkCw9iAAxOUI04grNYEqSkyQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR03MB5177
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260524-maili-smmu-v1-1-ec85b12fda83@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAH3pE2oC/x3MTQqDQAxA4atI1g1kfmyhVyldzGisgc60TFAK4
+ t0bXX6L9zZQbsIK926DxquofKrBXToY5lRfjDKawZO/Uu8jliRvQS1lQUcUp+hyoFsAC76NJ/m
+ ds8fTnJMy5pbqMB8Lyz3s+x/fMR/mcwAAAA==
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: aiqun.yu@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
+        trilok.soni@oss.qualcomm.com, yijie.yang@oss.qualcomm.com,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-3d134
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779689862; l=1104;
+ i=jingyi.wang@oss.qualcomm.com; s=20250911; h=from:subject:message-id;
+ bh=+m9rqksL9CcrcdAyKNuiMdVbpebT0DR9bi9FjEL4MaM=;
+ b=FdaYxV0ad4yvCaLBOHVjfmVKs1TzMIdM2JDbZ/NmYG2SZFVmfunAdmtiOXIT/hElu2NtLGciP
+ TEpgiOa7sdHBSYd3m1iunT8kG0Pp/vBgvtUts92OpXv1+0EvTN9L3Lr
+X-Developer-Key: i=jingyi.wang@oss.qualcomm.com; a=ed25519;
+ pk=PSoHZ6KbUss3IW8FPRVMHMK0Jkkr/jV347mBYJO3iLo=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI1MDA2MCBTYWx0ZWRfXwc4lBYNjI+kh
+ oGVpu5/RM3y0ymDG9rbfVH3wYWtIwBGpoGg30XcyqhoZnYzdRk0yw8YGImNISj2Zh8JBdFh+rKz
+ pysOFi+3PUwTCTwTmKc3f8jrAqJ4n9oy404JwVivhxoy75c4MNECw40SxtR4jhjN974ovZ5znt4
+ g8I4tnIHdGTD5ODqIgCvrFAzfRiledwyOnTOBuZ3gQEGPN2eDuK/vW3Xrjx4fa4EWsKVWEnGHZU
+ VZSpvTH13G/k9lB/Bu9wCMvnXSumB3/vzrYlPZII0/zS2Gg4FYAx/Rgb1erIJrBr56hNUg6s97v
+ mr5mGNC2Vakt0KK5akffFAnChJyNOAGuiHo9XpzIoCf5wTSz227X/M+66eZ8pnVHvE1yq+Ue0jB
+ koJJ71WEY1Mhuu+6eTM9iemdA3lI6K28X+VuUn9LJZitQO4+MhzVm09KaQe7vDg9Yjm9kz5FeLV
+ 79FrVvRiKl4JJuUbbzw==
+X-Proofpoint-ORIG-GUID: 6zEW8BzfRg_NlZOchDKB0XD3ehTQ2vXb
+X-Authority-Analysis: v=2.4 cv=UdBhjqSN c=1 sm=1 tr=0 ts=6a13e988 cx=c_pps
+ a=kVLUcbK0zfr7ocalXnG1qA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=0vWZlYpcnXXQiWOWdZUA:9 a=QEXdDO2ut3YA:10
+ a=vr4QvYf-bLy2KjpDp97w:22
+X-Proofpoint-GUID: 6zEW8BzfRg_NlZOchDKB0XD3ehTQ2vXb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-25_01,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 suspectscore=0 clxscore=1011 impostorscore=0
+ priorityscore=1501 malwarescore=0 lowpriorityscore=0 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605250060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_231707_397556_4C3CD4E1 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20260524_231746_341914_53030B7D 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,43 +156,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+Qualcomm Maili SoC includes apps smmu that implements arm,mmu-500,
+which is used to translate device-visible virtual addresses to
+physical addresses. Add compatible for it.
 
-Currently hrtimer_start is called even if hrtimer is
-active. This is unnecessary and expensive in some targets.
-This patch avoids calling hrtimer_start unnecessarily.
-
-Signed-off-by: Rohan G Thomas <rohan.g.thomas@intel.com>
-Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 3591755ea30b..35da51c26248 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3341,12 +3341,14 @@ static void stmmac_tx_timer_arm(struct stmmac_priv *priv, u32 queue)
- 	 * Try to cancel any timer if napi is scheduled, timer will be armed
- 	 * again in the next scheduled napi.
- 	 */
--	if (unlikely(!napi_is_scheduled(napi)))
--		hrtimer_start(&tx_q->txtimer,
--			      STMMAC_COAL_TIMER(tx_coal_timer),
--			      HRTIMER_MODE_REL);
--	else
-+	if (unlikely(!napi_is_scheduled(napi))) {
-+		if (unlikely(!(hrtimer_active(&tx_q->txtimer))))
-+			hrtimer_start(&tx_q->txtimer,
-+				      STMMAC_COAL_TIMER(tx_coal_timer),
-+				      HRTIMER_MODE_REL);
-+	} else {
- 		hrtimer_try_to_cancel(&tx_q->txtimer);
-+	}
- }
- 
- /**
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index 06fb5c8e7547..4bd31aadc405 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -38,6 +38,7 @@ properties:
+               - qcom,eliza-smmu-500
+               - qcom,glymur-smmu-500
+               - qcom,kaanapali-smmu-500
++              - qcom,maili-smmu-500
+               - qcom,milos-smmu-500
+               - qcom,qcm2290-smmu-500
+               - qcom,qcs615-smmu-500
+
+---
+base-commit: c1ecb239fa3456529a32255359fc78b69eb9d847
+change-id: 20260524-maili-smmu-1004f41b3073
+
+Best regards,
 -- 
-2.43.7
+Jingyi Wang <jingyi.wang@oss.qualcomm.com>
 
 
