@@ -4,176 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB76FCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 14:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B525CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 14:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujjgQ0O40O4V6tn4hfnr42eoCiTCp9358a9HUKqkDxY=; b=wNC/RjVP9CUiDIk8+C3YX6HdK5
-	kRJ0X4E7wU0BTWH1NjksuP5yHI6pF+lqelMSKM9j0PHPbPCCpNjBWA5gzp064aCSnZRIszC2ujJX7
-	fMJOojJ+9jJWAZDb6duaSKVFTKnIw7MmKqWsgJ/KfsIKuqHsGM3FtboV2KYjMJzNC/QwxnpHRs8u6
-	LegP2zj1RjJnrv3FYHYrracD2oZvSAZupp1SC7/Tkjm3lrjEJ8i1yZHmI3vwIZN+ctR5KcRb2Xtbi
-	4SMSj6CSO580Le1JeZzDd8rn8jFurjT3ZQv6Y1N5oOGYGm0PdBhubHtx0o2Yh+zZDsjphTyA/X/p6
-	IV9aQL+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RXek9nCqxBos4vZVBDAOXMfSUabKZ1nUxWxUgnDm8Os=; b=Yf1+aLSTVTGN3W//6C3LRT6JhB
+	fsIaGc1l3IlFjxIKSe4nMmopUoewBTxDRkXOku10Cb3reGhgFz/2dzGrHnq3DQduzqW5iXxjxgekb
+	RLaH7Z357E4HIS4YEVtY/KtrgkFwxbMQmJxu37JTFDMVqqtCleHaFjJHgkZQwmL8+m3ZMG1S52w2H
+	9QLu2144O8h1juXitQ1fb5mUUKvXvWfRNwLOCZkgEtxpBFPDDkayukXH3R5mKzEFEvohhB7FxmA+V
+	VEj92I4eTOidNK5GcqabxmQJwgsnEyYvbOooiyuvx1sVEA6nxnhb7md5M4P7/eOWcGMtUX+qJIHF5
+	Z2XhNv5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRW0B-0000000HO4f-42HB;
-	Mon, 25 May 2026 14:09:55 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wRW3l-0000000HOQ6-229G;
+	Mon, 25 May 2026 14:13:37 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRW08-0000000HO3z-48Hn
+	id 1wRW3h-0000000HOOb-2m96
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 14:09:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CrFvNiZfGUpCDwPEzBTDvVLOL6+fK3AVC1+SQpGVWZQKSQ77NnR0JWgulbWhhRqI7YprYkfrrJvVpvCPVmhp0RHjcyuSkmbApHnEoBzofGfARcjFZMIuUmyk5M8GZdFY49L3Rbp9x4xPIXlCJz/Wh989dV8Sp2XWy/+iqFR++oTTG/wzaC0L+P0dkrZcUEQPWtnQMKtlRtIIle2PyLipIJhxQppAsKl9Bg++Tb21j9TA742ZS7ytITh6yQcfFxvXyGgKdBE4i2p77iQSFwamKtBmqJXD6orki70So1E1ewihZrgVLkMyVLMW1Kr/yqwOGNszeACFiq19S+gCUyq86Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ujjgQ0O40O4V6tn4hfnr42eoCiTCp9358a9HUKqkDxY=;
- b=A7CZhs9cauAMtkspjUJT8G1PMMmGfurf9E1VvHBC+R/PsJQDk62tBiy1kb2mVhBXDGuUQ6UkXFnaTxVSuMC7MleGqeiFCcMyBQ9tne6puR1U/b9k5tlvFZnwA30oxyHsHidEqTi7hhpXKulZ3MrRA5/URUlBJVDj6sdNl03P3KitRZHQwzAd6vgNZXixd9kgoSUiZ/e4bEWW9Qb0lcE/Fb6u/SPhdbMbuVaD55wMcRzOBmK3cFJ8rKS1Jqlhhl5JRoQEFWeASVS/q9hMP6CNcAI5w+Ky6T/1GD2R1bSZP5GIDm0Qp1lMA1GTbJANzHZibGKeTR7MfD+AYym6d34HtQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ujjgQ0O40O4V6tn4hfnr42eoCiTCp9358a9HUKqkDxY=;
- b=SgRjqMqV3/QG/owDTUv40NfgyKvxjKMQiAIffVXL7g5DxE018NnpBF4LoAUdErW7fHXZnub8Sphw/4LC3tRqkTGl1Lsx4Pidi4OhQUVTWJ7GTeWDKdWngIfIgLsgv1O2liantbt7Xak9ZaQffH/zz2XEpuf1PBnRJXhUDuJzv1Q=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA4PR12MB9788.namprd12.prod.outlook.com (2603:10b6:208:5d5::11)
- by CH8PR12MB9838.namprd12.prod.outlook.com (2603:10b6:610:270::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Mon, 25 May
- 2026 14:09:45 +0000
-Received: from IA4PR12MB9788.namprd12.prod.outlook.com
- ([fe80::aac5:ae06:3bf1:36db]) by IA4PR12MB9788.namprd12.prod.outlook.com
- ([fe80::aac5:ae06:3bf1:36db%6]) with mapi id 15.21.0048.019; Mon, 25 May 2026
- 14:09:45 +0000
-Message-ID: <13ee424b-60f2-4180-8964-b467794a4772@amd.com>
-Date: Mon, 25 May 2026 16:09:40 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Add dynamic CSU register sysfs interface
-To: Ronak Jain <ronak.jain@amd.com>, senthilnathan.thangaraj@amd.com
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260520093654.3303917-1-ronak.jain@amd.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20260520093654.3303917-1-ronak.jain@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8P221CA0045.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:346::20) To IA4PR12MB9788.namprd12.prod.outlook.com
- (2603:10b6:208:5d5::11)
+	Mon, 25 May 2026 14:13:35 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2b788a98557so61402885ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 07:13:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1779718412; x=1780323212; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RXek9nCqxBos4vZVBDAOXMfSUabKZ1nUxWxUgnDm8Os=;
+        b=DSrkB7wGDO26/RR5Pg2dlzg4exXZ5Iz4omQ/JB1NnooO2E35mD31iqYvN9UxCVedCW
+         pAXrtOaqVzQG9z7xsHytJVlKSUZNd5Hl6z1qqWzwN2Ip7umx2NRUc14dsbKPV1TO6p/p
+         9SmEiQDSCWxvMim7mz5bQmtVnkC+JyxIiQFm/y/S8AyjDd0t25PNkQUS8KhrFw4wckPF
+         0SEAsBUAjXQZE/4FR9S++kVmY0PnVe+QiMTJpD9BL4Qpiu0jLf1LsS3X4bhVL+ZPIE22
+         urR/5+KV2oMZoaqr0PBidqldojRashKlYgjqpphXHVq7fsbmrW0Te6EUSo2ZOxfyJMd6
+         xDQg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779718412; x=1780323212;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RXek9nCqxBos4vZVBDAOXMfSUabKZ1nUxWxUgnDm8Os=;
+        b=SmTfEjZnp5m6za6mALx7bu7NsIx/7/9PueE2vblL7wkXoeuxOhtknigrUVEanHRn+r
+         tl5hMQcKEgRApmwzAXlhD022np905ehpehzLynnKo5pxjlOeJYrudxZta7dvgWADTRLg
+         swto4iyfmcyE0ZGfiUXlOTCnrI2WOOFooiYWJGKUNAaTMV9QsMUcniUMJzFD2zAnJa5a
+         63qNARMsRWW57/llKkr1KcXWYRLlD7WqdgrtfcvJUI/pIVLQO0DPvFOLDanCRO+b2UjR
+         yswAmynIfPSScPXKJ8hHq2UMFWyhGbf0es/v977yKsYwPj2/LA1Q4K4ixdYyXErcgW2j
+         M1yQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8k9OpcRWs/ZnImQmbkmXGQZd1o+0FtN9Xe5K7i8Tgk/PLwAa8qrS6Kk/ubGQaW6SW7AqTJNFC8z6r0z0fac1qS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZJLykhWxI+t+BfmNBzmSqpdVAysZxqwzhZm5l3DLp7TD9o/0z
+	lUTma0GP1BtlFH3NbeudK7iEwVTSQSPRgqJtLzdj2uZ34aC1Q+SNawed
+X-Gm-Gg: Acq92OE6ZsDx3A7IQRoiNWyP5CGiZ1ay5uwi+sUud/5Q6NY664yMbP4Z2fLOovSSoA+
+	xmxzsUZUIa9zVGqsUlc5czILZkGP1U8SWVj23zPprRqxk4Eq1k0YECncWHsfiht0ngEfSlYkkkT
+	jcEBGZGa7pQZx0vPAJIllvo7HI4ZaviJjMRMtPw5utJGje7mOd1DlWZh1EE+q2KSo9Tx1dZ0bGP
+	2yMSTPxjJtTW36XNlUqwxlUOJDHbxnlC1RLL8LUq3N4VRGbNA3CtqB2sqf9o5bEyJ/0i125eMfn
+	OnUwOePMilWvDwK2VwrjJGXh0OgluQPPOBsSgOGkfd9F6ECZizI7tASbm6a5BEx98zA3pLJ1myC
+	dZfzrdiNC3MURj74KnxHgCIIndqrIPL5EOOvWP95J1BSwbliT4bA/APNIlZloFFMtrQMHtIzsn+
+	NE1+om8teu7WsqTyo3y2/3CAVEtIjVlqv9TY2XC50YWyMi
+X-Received: by 2002:a17:903:11c6:b0:2bd:3bfd:7512 with SMTP id d9443c01a7336-2beb065b6edmr161039305ad.29.1779718412299;
+        Mon, 25 May 2026 07:13:32 -0700 (PDT)
+Received: from [192.168.89.2] ([112.179.160.134])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb5695f54sm100830745ad.10.2026.05.25.07.13.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 May 2026 07:13:31 -0700 (PDT)
+Message-ID: <a08289e7-641c-489e-8d89-6eae9f092f90@gmail.com>
+Date: Mon, 25 May 2026 23:13:28 +0900
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA4PR12MB9788:EE_|CH8PR12MB9838:EE_
-X-MS-Office365-Filtering-Correlation-Id: c1be7c2c-d221-4765-72f0-08deba6745fa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|6133799003|22082099003|18002099003|56012099003|11063799006;
-X-Microsoft-Antispam-Message-Info: VQdR3SfolwBU8SCXcv2j7qbhguNaH5JH99xLMajW3BwQDGwIeMQCB9ThnvqFE8DX7RK8RMdBfkUvop7AQgFOXwaUvCVErC+pblTKySJhmzw58L/7Getu1i2geAo013uI2ibvPxW2y3EjKLAcg7EuSBEUpsEyiCB39VfNZaj1ghrifhZ9WmkGMf5LvCTYU6VjTw3mOdAmUjkgurB3wLPW69tp/4YjVmKr6FYJTpW1yKTCMVuulzzV7vtZEmTqH1kLrpSIMRZuf/B/XWASFyGRLNM8BFGcnvNJpOEMMwIEAHY6gkfavDd6WyJ5C5Af7f6GezyVyRRlm9BpD86hSxKVjZ8aERXX1+wlfoCPAP60yrQ+sJNrWfrqOFQZ2LCIKOTBWhhJowJHtWFRImRIDeYOiL0OPWm8n37On6s5Zlw4JnIuQrk5zLTMabnvtIrBJuo40AhYaJ2KruR5z9l8EJJns6rJG7RUhwnEVW7UkFJnUA3YQgmgOAaDHBaFQ3cHbgRI23ALKu4gSLwufKadY7Vq7FckrTgyIKkJptro0xiYoNLYBitDiYAImr0qbKwgO6Q5IHCPnwYz99pcYCRRuCxpI93cIXusqdqj4/QMtfAPEmqCbsZC+iMY1PGM7gmr+e3GP7rbG0tEbdHfhOdbASuv+3QVxSahF8nJ8hR4w/oBBxEdUrFfJsgFZl9q5pUNJtJC
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB9788.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(6133799003)(22082099003)(18002099003)(56012099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TCtxQm9nSEdFeE1HdlpPaWt2cGNIc1lYdmt4cXdFc3pmbHFMcVQwaGVxcXdH?=
- =?utf-8?B?TFM3N3hhZ05FaUtjU256b0JHNlFFanFsL01sb3pOMTMrU0NscmVKUEV2dEww?=
- =?utf-8?B?eCswSXdEb041Mk1XVkJDeDFXZyt1VEFlVjI3MVh1Ym1kWU9sa0lsR3BhbGN3?=
- =?utf-8?B?MWl2K3VvS2lQZzJiTHdYdzZPTzVEdFUrcENrS09ObEZ0NUhmVFNidHJPRTFU?=
- =?utf-8?B?akJVUWpPVTNaR2d1NEorNWtGaGJ4K0MzTXdEbExJNkR6NmY2Ykx6c1FBK2lk?=
- =?utf-8?B?Qlp3bmxkVzZkcGRHL1VZM05CZWQwMlBOdkFLMXdWZjRoSTh0UWhPOXlDOW9W?=
- =?utf-8?B?b0lVQmN0Zk1oV0RIdDBBQ1dKczd6dCt5bFZBazR2TU12dlA0b0RhVXJSNVo0?=
- =?utf-8?B?angrV2FoVi9ZajI0bU5RcnZVQ2dmUGcxK25lR25yM3REQmk1UWdTd2lSUVRZ?=
- =?utf-8?B?VTlrZFVOZHNmaVZJOVcwMGNTWHhSUXVrM1hVZnQyR1dzSGV0R1ZTWFBScnZP?=
- =?utf-8?B?MVBDQ1NJSklaREhMR1hhbm9HanhEWXM2R0FDVTlIRDN6Vi9ZVEZUb2M0bjdm?=
- =?utf-8?B?T0NMekI4RlZMejFPY2pmQ1ZhNXpNUlp0cVFMeTFkT2RRdysrUWRiemhGV0sr?=
- =?utf-8?B?YkRXMFVJSVh4QjJmVVVPUzZKcy9OTWttcWg1VkFhSytyTEFhY2tVNXhhNE92?=
- =?utf-8?B?ZUVLR1pJR1FSNGIwOWhpRDBFb3ZSTEpKUzdPcHoxZTRhdnBLWnJzaThEcUcx?=
- =?utf-8?B?bjdRRG5ENXE5WTVlMUhBTTZsSEhOM0tIWFEraER2ZzNOelB6Nks0a3hRYzI1?=
- =?utf-8?B?UmpxQlZDakpLUURBZVVKTktGWHZ0QTNyVEh3bXBTVGJ2bEtKNzMyMDUvVzR6?=
- =?utf-8?B?Y0ZUeE8rRWpJVldxMTFBUVNobEwydFMvNEFTUEpnNkY2YlRlNXZpdElNODdD?=
- =?utf-8?B?RnVod2ZLaVpHTFZneUlNb2orMjVDMVFMVUd2MUxtK2N5L1JuZzZOTG9rSURL?=
- =?utf-8?B?M3BmV0dSRXA1c2xFRHpjKzBhQjJ6d3R5SmpvWjBYOTU1U1Ntc3drNDBTbWRJ?=
- =?utf-8?B?NGFCMll2WCtwbUwrY2c4Q2FUVW5rNVFCY1pmR3BoNTA2ZklEY2d3MTRHaFM5?=
- =?utf-8?B?ZGt6cVVtbWZqYzNMcVRUQ2ZjTEtMQ0FZUk5LL1QxenNuQjdpejAybUk1T3Ja?=
- =?utf-8?B?azg4OWRPTmJhZThkL2JPZmtEYVdCMFZwcEZ4UjkvQnJsR1hMTDE2TUpnWC9R?=
- =?utf-8?B?YTJrVm5ZVjl1cldOalVZcE5EcmpSMklVNiswOEdST2k0NkxEdGRqelp0N29F?=
- =?utf-8?B?WkJzUjQ5bG1MSWN5OHJ1UVVNR0p6NVlIYTVsbERPYkFRM3kxTSthbWF4QzlP?=
- =?utf-8?B?VmhoTTgwcWpja0lCVTd4d2NRY3dybDFzRkF3ZFcrUndrbzB0QnNHazFJUWtO?=
- =?utf-8?B?THBqUmJFaUVRdHp0ZEtCdU8rQzY2dWVmbHVrelhIemh1M21zc1RLN29HWnFu?=
- =?utf-8?B?L0xKdHRQYkNTb3ZRaXNCRDZ2c0x5UWxBcWRqL2p4cVIvNE5FVE1HUmEwODJT?=
- =?utf-8?B?TS9JN0EwWnF6Tjd2QjE3bjhJWVNrQkZHSG1DSDFrNUpIVysvSUNvUFl1dExI?=
- =?utf-8?B?YXpTajg1b0E0SXJ4eUJNR1BaenpVb1Iwa1RMblVqNlIrMnF1bEpHNmZweXRs?=
- =?utf-8?B?N0JQL0g3b2ZyRzB6ZWtFdEFGZmtGUitHTXNNbTczcFJFSjBGYklZNW1aT0dR?=
- =?utf-8?B?ZS9hRjI1em9XMHlwSHBaNVJkb2xuZlRiaC9sUldVRlJiQzc3REl0dUZRajlm?=
- =?utf-8?B?Qm1RTnIzOFh0WXp4UTZMUU9oRnlJUmxvZEU3SEg5ZlQ0N1hvNUdSZDFVWWNO?=
- =?utf-8?B?RlQzTFUxSE0rMkQ1SEwzMjk0RkF3ajhQL01RUFRCa0FHRHNVa055eG5aU1FU?=
- =?utf-8?B?YXI5cXV1eGI4SlZmYTZjM2I4bjdsLzhLL0FCSWR6UGIyd3NTMjE5b1VURUN6?=
- =?utf-8?B?ajFOcUNqRW5qSVkzR3Z0SFRpcFZwL3hiaVVtbXR1NDZaeitoVnp4V3dVZXgw?=
- =?utf-8?B?ek9NWU9kVkJQMjRBUVhheFNnc2w4a3hUWThlaEF2RUJXT1Jpc2xwMTNzSWJ6?=
- =?utf-8?B?eDhEZ0JTSDRmQ3BRVkVRNnBmbjhzQVMzamxINjBDbCt2UmY0c1E0ZEZ4WU8v?=
- =?utf-8?B?MzJuUEYwZlhQWkZLSmZMbWZrNGgzaVJURndQblYvVnY5WmplR3ZFOG5XaHht?=
- =?utf-8?B?T055cTdsM1R2WmpLZ0tla2xGSW5yajdTY05YK2dtd2ZQR0xBc0tGci9FaVVs?=
- =?utf-8?B?ZEdrU0NIYUNWWkhabURvVTVFbjhVK3hYNXBFVm9UeXJhTmZyck41QT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1be7c2c-d221-4765-72f0-08deba6745fa
-X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB9788.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 14:09:45.2440
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tNuIUnZ3lJuue5BzRMTIAkV1vLRb+hqN3Z6WHYXTivUC47U/e4JwMOtkk//fl8Kj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9838
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: airoha: bind WLAN-bound flows on PPE driver
+ L2 cache miss
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20260524224330.3995807-1-hurryman2212@gmail.com>
+ <ahQDon-nio0STA4E@lore-desk>
+Content-Language: en-US
+From: Jihong Min <hurryman2212@gmail.com>
+In-Reply-To: <ahQDon-nio0STA4E@lore-desk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_070953_147667_16CD115C 
-X-CRM114-Status: GOOD (  21.54  )
+X-CRM114-CacheID: sfid-20260525_071333_721524_D7C5ABF3 
+X-CRM114-Status: GOOD (  32.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,91 +108,295 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 5/20/26 11:36, Ronak Jain wrote:
-> This patch series adds support for exposing CSU registers through a
-> sysfs interface. The implementation uses dynamic discovery via the
-> PM_QUERY_DATA firmware API to determine available registers at
-> runtime, making the interface flexible and maintainable without
-> requiring kernel changes when firmware capabilities evolve.
+On 5/25/26 17:09, Lorenzo Bianconi wrote:
+>> The Linux bridge FDB can resolve a destination station to WDMA even when
+>> the Airoha PPE driver's L2 offload cache has no entry for that MAC pair.
+>> The normal bind path only checks the PPE driver's L2 offload cache, so an
+>> unbound PPE hit for WLAN egress can stay unbound even though the bridge
+>> already knows the right output path, unless a later offload event fills
+>> that PPE driver cache.
+>>
+>> This matters for bridge-visible WLAN egress, such as wired-to-WLAN
+>> forwarding or WLAN peer forwarding across another BSS, radio or MLO link.
+>> Same-link or same-radio intra-BSS forwarding can stay inside the WLAN
+>> datapath and is not covered.
 > 
-> Background:
-> 
-> The ZynqMP platform has several CSU registers that are useful for
-> system configuration and debugging. Previously, accessing these
-> registers required direct memory access or custom tools. This series
-> provides a standardized sysfs interface that leverages existing
-> firmware APIs for secure access.
-> 
-> Key Features:
-> 
-> - Dynamic register discovery using PM_QUERY_DATA API
->    * PM_QID_GET_NODE_COUNT: Query number of available registers
->    * PM_QID_GET_NODE_NAME: Query register names by index
-> - Automatic sysfs attribute creation under csu_registers/ group
-> - Read operations via existing IOCTL_READ_REG firmware API
-> - Write operations via existing IOCTL_MASK_WRITE_REG firmware API
-> - Firmware-enforced access control for read-only registers
-> 
-> Currently Supported Registers:
-> 
-> - multiboot (CSU_MULTI_BOOT): Boot mode configuration
-> - idcode (CSU_IDCODE): Device identification (read-only)
-> - pcap-status (CSU_PCAP_STATUS): PCAP status (read-only)
-> 
-> The sysfs interface is available at:
->    /sys/devices/platform/firmware:zynqmp-firmware/csu_registers/
-> 
-> Usage Examples:
-> 
-> Reading a register:
->    # cat /sys/devices/platform/firmware:zynqmp-firmware/csu_registers/idcode
-> 
-> Writing a register (mask and value in hex):
->    # echo "0xFFFFFFFF 0x0" > /sys/devices/platform/firmware:zynqmp-firmware/csu_registers/multiboot
-> 
-> 
-> Testing:
-> 
-> - Verified register read operations return correct values
-> - Verified write operations update registers correctly
-> - Verified read-only registers reject write attempts
-> - Verified dynamic discovery works with different firmware versions
-> 
-> Changes in v2:
-> Patch #1
-> - Update date
-> 
-> Patch #2:
-> - Removed unused csu_reg_count field from struct zynqmp_csu_data and
->    its kernel-doc entry.
-> - Added explicit devm_kfree() on the csu_regs and attrs allocation
->    failure paths, plus on devm_device_add_group() failure — keeps the
->    footprint minimal when CSU is optional.
-> - Expanded the 0644 sysfs-mode inline comment into a block comment
->    explaining the firmware-enforced access-control limitation.Also,
->    update the commit message accordingly.
-> - Added zynqmp_pm_is_function_supported check for PM_QID_GET_NODE_NAME
->    ID to mirror the PM_QID_GET_NODE_COUNT verification.
-> 
-> Ronak Jain (2):
->    Documentation: ABI: add sysfs interface for ZynqMP CSU registers
->    firmware: zynqmp: Add dynamic CSU register discovery and sysfs
->      interface
-> 
->   .../ABI/stable/sysfs-driver-firmware-zynqmp   |  33 +++
->   MAINTAINERS                                   |  10 +
->   drivers/firmware/xilinx/Makefile              |   2 +-
->   drivers/firmware/xilinx/zynqmp-csu-reg.c      | 258 ++++++++++++++++++
->   drivers/firmware/xilinx/zynqmp-csu-reg.h      |  18 ++
->   drivers/firmware/xilinx/zynqmp.c              |   6 +
->   include/linux/firmware/xlnx-zynqmp.h          |   4 +-
->   7 files changed, 329 insertions(+), 2 deletions(-)
->   create mode 100644 drivers/firmware/xilinx/zynqmp-csu-reg.c
->   create mode 100644 drivers/firmware/xilinx/zynqmp-csu-reg.h
-> 
+> Hi Jihong,
 
-Applied with kernel version changed to 7.2.
+Hi, Lorenzo.
 
-Thanks,
-Michal
+> 
+> In order to offload L2 flows, I assume you are using the OpenWrt bridger
+> package, right?
+
+Actually, no.
+
+I am using Fanboy's OpenWrt `test` build for the Lumen W1700K2,
+together with several of my other patches. It does not include the
+bridger package specifically. It now uses native nft-based offloading
+with `kmod-br-netfilter`.
+
+> IIUC the issue you want to resolve is we are not adding PPE L2 entries for
+> the specified cases (same-link or same-radio intra-BSS forwarding), correct?
+
+No. As written in the patch message, this specifically addresses
+bridge-visible WLAN egress, such as:
+
+1. wired-to-WLAN forwarding
+2. WLAN peer forwarding across another BSS, radio, or MLO link
+
+Same-link or same-radio intra-BSS forwarding can stay inside the WLAN
+datapath and is not covered by this patch, although it did show poor
+performance, whether that is due to shared airtime or not. That case
+appears to belong to the Wi-Fi stack/driver datapath, such as the
+mac80211/mt76/mt7996 path, rather than to this Airoha PPE fallback path.
+
+> Using this approach, we are breaking the assumption PPE flow-table and hw
+> flow-table are in sync. If the issue is the one described above, why not
+> fixing the problem directly in the bridger package?
+
+Again, this problem exists in an environment without bridger.
+
+> Moreover, I see you developed the patch using Codex:gpt-5.5. Have you tested it
+> on a real hw?
+
+Yes. This has been tested on my Lumen W1700K2 with the environment
+described above. MLO Wi-Fi P2P communication and some wired-to-WLAN
+cases were indeed left unbound by PPE. CPU usage was high, and the
+unbound throughput was close to 50% of what this patch achieves now.
+
+> 
+> Some comments inline.
+> 
+> Regards,
+> Lorenzo
+> >>
+>> Before touching the PPE table, resolve the destination MAC through the
+>> bridge device above the ingress netdev. If the PPE driver's L2 offload
+>> cache lookup misses, bind the hardware flow to the resolved CDM4/WDMA
+>> path.
+>>
+>> Assisted-by: Codex:gpt-5.5
+>> Signed-off-by: Jihong Min <hurryman2212@gmail.com>
+>> ---
+>>  drivers/net/ethernet/airoha/airoha_ppe.c | 138 +++++++++++++++++++----
+>>  1 file changed, 119 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+>> index 26da519236bf..ea932e6d87f6 100644
+>> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+>> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+>> @@ -803,65 +803,163 @@ static void airoha_ppe_foe_flow_remove_entry(struct airoha_ppe *ppe,
+>>  }
+>>  
+>>  static int
+>> -airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
+>> -				    struct airoha_flow_table_entry *e,
+>> -				    u32 hash, bool rx_wlan)
+>> +airoha_ppe_foe_commit_subflow(struct airoha_ppe *ppe,
+>> +			      const struct airoha_foe_entry *bridge,
+> 
+> maybe l2_hwe instead of bridge?
+> 
+>> +			      u32 hash, bool rx_wlan)
+>>  {
+>>  	u32 mask = AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_UDP;
+>>  	struct airoha_foe_entry *hwe_p, hwe;
+>> -	struct airoha_flow_table_entry *f;
+>>  	int type;
+>>  
+>>  	hwe_p = airoha_ppe_foe_get_entry_locked(ppe, hash);
+>>  	if (!hwe_p)
+>>  		return -EINVAL;
+>>  
+>> -	f = kzalloc_obj(*f, GFP_ATOMIC);
+>> -	if (!f)
+>> -		return -ENOMEM;
+>> -
+>> -	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
+>> -	f->type = FLOW_TYPE_L2_SUBFLOW;
+>> -	f->hash = hash;
+>> -
+>>  	memcpy(&hwe, hwe_p, sizeof(*hwe_p));
+>> -	hwe.ib1 = (hwe.ib1 & mask) | (e->data.ib1 & ~mask);
+>> +	hwe.ib1 = (hwe.ib1 & mask) | (bridge->ib1 & ~mask);
+>>  
+>>  	type = FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, hwe.ib1);
+>>  	if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
+>> -		memcpy(&hwe.ipv6.l2, &e->data.bridge.l2, sizeof(hwe.ipv6.l2));
+>> -		hwe.ipv6.ib2 = e->data.bridge.ib2;
+>> +		memcpy(&hwe.ipv6.l2, &bridge->bridge.l2,
+>> +		       sizeof(hwe.ipv6.l2));
+>> +		hwe.ipv6.ib2 = bridge->bridge.ib2;
+>>  		/* setting smac_id to 0xf instruct the hw to keep original
+>>  		 * source mac address
+>>  		 */
+>>  		hwe.ipv6.l2.src_mac_hi = FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID,
+>>  						    0xf);
+>>  	} else {
+>> -		memcpy(&hwe.bridge.l2, &e->data.bridge.l2,
+>> +		memcpy(&hwe.bridge.l2, &bridge->bridge.l2,
+>>  		       sizeof(hwe.bridge.l2));
+>> -		hwe.bridge.ib2 = e->data.bridge.ib2;
+>> +		hwe.bridge.ib2 = bridge->bridge.ib2;
+>>  		if (type == PPE_PKT_TYPE_IPV4_HNAPT)
+>>  			memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
+>>  			       sizeof(hwe.ipv4.new_tuple));
+>>  	}
+>>  
+>> -	hwe.bridge.data = e->data.bridge.data;
+>> -	airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
+>> +	hwe.bridge.data = bridge->bridge.data;
+>> +
+>> +	return airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
+>> +}
+>> +
+>> +static int
+>> +airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
+>> +				    struct airoha_flow_table_entry *e,
+>> +				    u32 hash, bool rx_wlan)
+>> +{
+>> +	struct airoha_flow_table_entry *f;
+>> +	int err;
+>> +
+>> +	f = kzalloc_obj(*f, GFP_ATOMIC);
+>> +	if (!f)
+>> +		return -ENOMEM;
+>> +
+>> +	err = airoha_ppe_foe_commit_subflow(ppe, &e->data, hash, rx_wlan);
+>> +	if (err) {
+>> +		kfree(f);
+>> +		return err;
+>> +	}
+>> +
+>> +	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
+>> +	f->type = FLOW_TYPE_L2_SUBFLOW;
+>> +	f->hash = hash;
+>>  
+>>  	return 0;
+>>  }
+>>  
+>> +static bool
+>> +airoha_ppe_foe_prepare_wdma_subflow_dev(struct airoha_ppe *ppe,
+>> +					struct net_device *dev,
+>> +					struct airoha_flow_data *data,
+>> +					struct airoha_foe_entry *hwe)
+>> +{
+>> +	u32 pse_port;
+>> +	int err;
+>> +
+>> +	err = airoha_ppe_foe_entry_prepare(ppe->eth, hwe, dev,
+>> +					   PPE_PKT_TYPE_BRIDGE, data, 0);
+>> +	if (err)
+>> +		return false;
+>> +
+>> +	pse_port = FIELD_GET(AIROHA_FOE_IB2_PSE_PORT, hwe->bridge.ib2);
+>> +	if (pse_port != FE_PSE_PORT_CDM4)
+>> +		return false;
+>> +
+>> +	return true;
+> 
+> 	return pse_port == FE_PSE_PORT_CDM4;
+> 
+>> +}
+>> +
+>> +static struct net_device *
+>> +airoha_ppe_foe_get_bridge_master(struct net_device *dev)
+>> +{
+>> +	struct net_device *master = NULL;
+>> +
+>> +	rcu_read_lock();
+>> +	master = netdev_master_upper_dev_get_rcu(dev);
+>> +	if (master && netif_is_bridge_master(master))
+>> +		dev_hold(master);
+>> +	else
+>> +		master = NULL;
+>> +	rcu_read_unlock();
+>> +
+>> +	return master;
+>> +}
+>> +
+>> +static bool
+>> +airoha_ppe_foe_prepare_wdma_subflow(struct airoha_ppe *ppe,
+>> +				    struct sk_buff *skb,
+>> +				    struct airoha_foe_entry *hwe)
+>> +{
+>> +	struct ethhdr *eh = eth_hdr(skb);
+>> +	struct airoha_flow_data data = {};
+>> +	struct net_device *master;
+>> +
+>> +	if (!is_valid_ether_addr(eh->h_source) ||
+>> +	    !is_valid_ether_addr(eh->h_dest))
+>> +		return false;
+>> +
+>> +	ether_addr_copy(data.eth.h_dest, eh->h_dest);
+>> +	ether_addr_copy(data.eth.h_source, eh->h_source);
+>> +
+>> +	if (!skb->dev)
+>> +		return false;
+>> +
+>> +	/* WLAN egress unbound hits can arrive before flowtable creates the
+>> +	 * L2 master flow normally used for subflow binding. Resolve only
+>> +	 * through the bridge master so dev_fill_forward_path() must use the
+>> +	 * bridge FDB for the destination MAC. Calling the ingress AP netdev
+>> +	 * directly can describe the source station's WDMA path and would
+>> +	 * corrupt Wi-Fi-to-wired flows whose real egress is not WDMA.
+>> +	 */
+>> +	master = airoha_ppe_foe_get_bridge_master(skb->dev);
+>> +	if (!master)
+>> +		return false;
+>> +
+>> +	if (airoha_ppe_foe_prepare_wdma_subflow_dev(ppe, master, &data,
+>> +						    hwe)) {
+>> +		dev_put(master);
+>> +		return true;
+>> +	}
+>> +
+>> +	dev_put(master);
+>> +	return false;
+> 
+> maybe something like:
+> 
+> 	ret = airoha_ppe_foe_prepare_wdma_subflow_dev();
+> 	dev_put(master);
+> 
+> 	return ret;
+> 
+>> +}
+>> +
+>>  static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
+>>  					struct sk_buff *skb,
+>>  					u32 hash, bool rx_wlan)
+>>  {
+>> +	struct airoha_foe_entry wdma_hwe = {};
+>>  	struct airoha_flow_table_entry *e;
+>>  	struct airoha_foe_bridge br = {};
+>>  	struct airoha_foe_entry *hwe;
+>>  	bool commit_done = false;
+>> +	bool wdma_ready = false;
+>>  	struct hlist_node *n;
+>>  	u32 index, state;
+>>  
+>> +	wdma_ready = airoha_ppe_foe_prepare_wdma_subflow(ppe, skb,
+>> +							 &wdma_hwe);
+>> +
+>>  	spin_lock_bh(&ppe_lock);
+>>  
+>>  	hwe = airoha_ppe_foe_get_entry_locked(ppe, hash);
+>> @@ -899,6 +997,8 @@ static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
+>>  				   airoha_l2_flow_table_params);
+>>  	if (e)
+>>  		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash, rx_wlan);
+>> +	else if (wdma_ready)
+>> +		airoha_ppe_foe_commit_subflow(ppe, &wdma_hwe, hash, rx_wlan);
+>>  unlock:
+>>  	spin_unlock_bh(&ppe_lock);
+>>  }
+>> -- 
+>> 2.53.0
+>>
+
+All inline code-style review comments will be addressed in the next
+submission of the patch set, together with the responses to Sashiko's
+review, if any.
 
