@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F9D8CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 10:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E65CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 10:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CnP6fu1gIF8/BeJwmQenLDKjaBsUwE5zDv/qSLU/so8=; b=a8boPSLHhrn+vN2zKh+VjTMYk9
-	IX8GQg4c/YSJSH5az79Las1QUGFWCmnNIFG+IF/GZLqX1+3H1YQ/joBrdJLFFtHg56T8pwzYEmgfS
-	5f5HJPoAO+n4RNWhD+uSddiyrtTLRcEumMhP4n9r0RjEH+xf8vCFKLQ9Il/I11led58JDDhsgxWUF
-	39lxJEzgC/ksx8lACChNxvqblOt4FjgwvLtpNUOAjas2fZqupz1DV/HFA7+aB1FShHGHMrw0g3YSy
-	CwQffeIQHuvqb91i3Qa8x1bBSXe6PbAbtAHHIuVtP0RV8bLn2eySlPaNQBtSzdKodeJeUJs5Yhluz
-	oHISXCmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wWSLyJybt2OyyRaX8KnGrCyG9V7lLiQLV2SzojMMMTw=; b=h8/IahBOyYbz1r6Qp1cLoRRpzy
+	rMhPBoeoy0vg9jiRb3hqgYPmQxK0SIZqKsJRtvYXPxMijDsCaEvfVCc6LLJJGDn1ZRUxHiZ3YuwJH
+	dFlmen6mLg9m9vO2hWbR0lqhhEYS6EtnHv2JoAmJ23Yy6oXi4u+I6joHIl/nlDbkF4GRTnr64S8Jk
+	1VyAZku+YjDkn+gcDIz9FQPgjkDkXjzxngKUKTTijjkkx3MVp4qiSh6YGMCPLjYN2IqX32fxpjavc
+	6nRTQOHWnnXQfZNQwKKVRcCvCZIaG3p/yAkhKzt+iOyeYHh1KeNU1iFKgtKbBv86Wx8C4GaKMSX4y
+	vrmLcAxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRSto-0000000GzWC-3j0m;
-	Mon, 25 May 2026 10:51:08 +0000
+	id 1wRStv-0000000GzYw-0N8f;
+	Mon, 25 May 2026 10:51:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRStn-0000000GzVZ-3Ub1
+	id 1wRStt-0000000GzYC-3i9P
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 25 May 2026 10:51:07 +0000
+	Mon, 25 May 2026 10:51:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CnP6fu1gIF8/BeJwmQenLDKjaBsUwE5zDv/qSLU/so8=; b=jsTVVsBjjCtvPKpBXAwWZdY9GZ
-	0I8gIrPSj5pvJfjl9xBkJLDB3vZSGI2A6KlpnxefEdFKgPLWrLqLMi+T0BKoJ7cQ9ftYlPV6TH9om
-	diZrUdOzlZ2YwYAEce9TPUoYXukaMykRP8Z57mSKMJBvKBqJhbbZYYQ4R7W2zbuhYYExfZNDLbCyw
-	HGeIRG8QQzzk9cpWF0TTpmxhx0N66NjtL8I4WHlXvAyx4M9pRtVycF58cbmflsT3ezaZkO1vWk8j6
-	3ypv6wXZoj2yezQ/UheyVDxtBbqO2ZjN/CffbsJaNpoFx/cyJh/dLvNWlXM/1+Ufnc3E5BaiubqGD
-	3HoMieCQ==;
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	bh=wWSLyJybt2OyyRaX8KnGrCyG9V7lLiQLV2SzojMMMTw=; b=attgYjwkfLkBEkwWQWBDaYbarS
+	+eHHoBfg6Ynb21VHdxTfzs+uqy/hgntjZbdwJ28kBRhvpXwJ3JW3W63GvquNGzxMeYQxmOw6Cl+r1
+	rxLhGNvxveKtBLkwLpPdrPqY99P5retExD6LxTTiWb7sqq+fbqgMlD7E2SBsL7Gvt0YWrRPDpzWXI
+	kDoTxm69NWUlApwnZbCS63QGVxP6z2F4ifnbO61QzaUEKJl7Xr4g7viz/wfFXRwTrn7Ufj99/Wf/d
+	KtqKtHOvPvKgvmoD5V33Ruclsp44O1DoItLCa/Kc4FLkQc256ViB2KrUWJFjj9vVSTXJYvZmAB6Vr
+	lnaDR+9Q==;
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRStj-000000092S6-2FCt
+	id 1wRStq-000000092U2-1qMS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 10:51:06 +0000
+	Mon, 25 May 2026 10:51:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iWopx/P7X3tPeAjLq2MUu8eqwjJ3DeM9EcqqjjFxjDRZmUa6P7WAITMnE9pJqxGvRR7dsEz3bZ/tSx1TCQpgg9IFMTiEQ9QiWRdAdpT2l0fg7JMeLLXp75gtrjfJEalBTqmd/f8rCOLT8zCrc778TTfOD0f67CpqQz6dpEQ3LTAJy6ZcL7F3TLTI3zI3NZ3JXk3NzveaCdkl80OPviKrEVeg6z555T52HRedn531grp+vWfqg2ulLWo69lY+HX/pSrBeV1otaJPjNpSHqxo9JsOogCqkMMuq1R2VKoDl3SKJNnzkDptcy7IpdliHrPK9szFZ3BMEqtpquwzu5dJVKA==
+ b=E78j6yoNKiEq+ifrQyJAHzbS8O35THI7cqRNr2iaD1jFCz7Cmqt31Y6WFkTVqUB4XJzxhwIgbABRN5MF4QOgZqXpOrqWfgKY+vKP+o9uK+Mi91TdrczVLJt38AdsEIs40uexmUEJAUSpoRZEfGEOiLu3SdyHAqrxWbJTUpBDTosb4GlhLmd5QO+Ev4zVQQj1NAF6Qk/gEwaPJv2xLzolEkGWTMT3b6Vy/L0u7rR1A6UTCpZlHsUcDNnig11VJjWjvEX9s8Sdv+MerYIekEVM901Esp+GiPhK2/r0Hu29mqMN8G//lw4hep41ySFnf68LJQEAxwOy480pQa8SNlodbQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CnP6fu1gIF8/BeJwmQenLDKjaBsUwE5zDv/qSLU/so8=;
- b=OkBRmAMnl5aIKpGPrm9puixp8Od7pSfw6hDLzw9m6wf6g1ilyKlADdaG9pdW0X8vNdj753rEYP2f5rBst1jUZNHJ3yRertUWIRygRb47v2aSeNnj9STTYkWH7hLziIpUwg7t/poQxKb+6E/KnzZb9ixmrnbK2xa0vxmJcGbzro69MBV6KxAb+XsZFrckqSr6s6DfuOQDbleWANvRqLOgKDuxRg4Xl11pz+nPS1e82VXmDhvFIAE6azW1rJz5+8iD331oQgn8T+5Iqk2kIGy4Qwq1FVVNl0HSO7m5mTBmeZ108TLSASUmAoFFsnDb0XZF6xyYvzMZCNCO+MR6SaBobQ==
+ bh=wWSLyJybt2OyyRaX8KnGrCyG9V7lLiQLV2SzojMMMTw=;
+ b=WOOG6HzMNk3SZIw37Y6fcM0UywtPWIKbGDfGPBXh6eitgOwQvGUrAw1pf/vY8qXMZkaNT6A5UFns69PRlC5kssLHcz9nR+2a8c99IYKW9r18qzCZpmeGf4pjMRJneJH9QX/17fm4JHQrPsDrYC3C7MXbGest8XafjpTC/avqO4mWaImFkH8Sod4JTv9am0wAh/hhMqv+PFBbQeeDKGL4BBpxzuhzUoHJCQ7fxwurmKwsAnc8x9AIsUXZGB7xOcdowT2NxChQCrv8NlMWOvZby6MmRMm5rDhB0BiikhTlYMG0esNw2NWa0mRt1QMs8tLGAjtj01Pc0H4NY0/uMnX1gg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
  (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CnP6fu1gIF8/BeJwmQenLDKjaBsUwE5zDv/qSLU/so8=;
- b=ITYB4/wQ93I1aoxt7c27sGQptGqlKtg3dG8xn9W7lPPue6dv4hUP2UiDf8aZc1ISyojph9s5r+OTyPs/x8WBHrnH+RtLges0zVK3QxXbu48DDy4MK5rWKYJuCCnEfy0Mp4VC520Q+ZULo3GMER79LhTEIk2Jyp6Ez61abq6+fdY=
-Received: from SJ0PR13CA0156.namprd13.prod.outlook.com (2603:10b6:a03:2c7::11)
- by SN7PR12MB6768.namprd12.prod.outlook.com (2603:10b6:806:268::8) with
+ bh=wWSLyJybt2OyyRaX8KnGrCyG9V7lLiQLV2SzojMMMTw=;
+ b=nI5eRu/3NsM5e5f5RcZqsp3F50cHSNQCS3nRXXtELXy5KJN6Y7WSDJ63XnLR9DwYAO3Uy8TwIOkogxajG3FbMahKp0rDstN5hsjTSppgYf1um8Yb2Lc11liN3srhEf+oxMwD3845CISHH/trb54EFdOS8FGW4JD5+6+D9xWRhEM=
+Received: from SA9P221CA0002.NAMP221.PROD.OUTLOOK.COM (2603:10b6:806:25::7) by
+ MN0PR12MB6029.namprd12.prod.outlook.com (2603:10b6:208:3cf::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Mon, 25 May
- 2026 10:50:54 +0000
-Received: from SJ5PEPF000001ED.namprd05.prod.outlook.com
- (2603:10b6:a03:2c7:cafe::a7) by SJ0PR13CA0156.outlook.office365.com
- (2603:10b6:a03:2c7::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.10 via Frontend Transport; Mon, 25
- May 2026 10:50:54 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.14; Mon, 25 May
+ 2026 10:51:00 +0000
+Received: from SA2PEPF00003AEB.namprd02.prod.outlook.com
+ (2603:10b6:806:25:cafe::38) by SA9P221CA0002.outlook.office365.com
+ (2603:10b6:806:25::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.19 via Frontend Transport; Mon, 25
+ May 2026 10:51:00 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ5PEPF000001ED.mail.protection.outlook.com (10.167.242.201) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SA2PEPF00003AEB.mail.protection.outlook.com (10.167.248.11) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Mon, 25 May 2026 10:50:54 +0000
-Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 25 May
- 2026 05:50:53 -0500
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
- (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 25 May
- 2026 05:50:52 -0500
+ 15.21.71.7 via Frontend Transport; Mon, 25 May 2026 10:51:00 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.41; Mon, 25 May
+ 2026 05:50:59 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 25 May
+ 2026 05:50:57 -0500
 Received: from xhdappanad40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Mon, 25 May 2026 05:50:48 -0500
+ Transport; Mon, 25 May 2026 05:50:53 -0500
 From: Golla Nagendra <nagendra.golla@amd.com>
 To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>,
 	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -97,39 +97,41 @@ To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>,
 	<sakari.ailus@linux.intel.com>
 CC: <git@amd.com>, <dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 1/2] dt-bindings: dma: xilinx: Add optional resets property for ZDMA
-Date: Mon, 25 May 2026 16:20:41 +0530
-Message-ID: <20260525105042.2249542-2-nagendra.golla@amd.com>
+Subject: [PATCH 2/2] dmaengine: zynqmp_dma: Add per-channel reset support
+Date: Mon, 25 May 2026 16:20:42 +0530
+Message-ID: <20260525105042.2249542-3-nagendra.golla@amd.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260525105042.2249542-1-nagendra.golla@amd.com>
 References: <20260525105042.2249542-1-nagendra.golla@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: nagendra.golla@amd.com does not
+ designate permitted sender hosts)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001ED:EE_|SN7PR12MB6768:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c2b8730-3d57-43ad-c6d5-08deba4b7ed5
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003AEB:EE_|MN0PR12MB6029:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5c77e8fb-7578-4e59-e570-08deba4b8232
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|1800799024|11063799006|6133799003|18002099003|22082099003|56012099003|921020;
-X-Microsoft-Antispam-Message-Info: 40uMJoUmT5i5EgTUhdB0VutulGuZJYmef9tENevAr4L3yRjl59ViquKsK4NfVxe3cXH4QrMEg4hvkcpqGTpKUXSyUZH02/QJCnmckfu9aJOfmo0RGhVPUE2m+MTScfddrQgpsz4HKMufL1kbA+ntC2I0pJ6aFVLF3fhV28m8QCDW/ebOAcYyoYuQ94R49DxApEdna1jFJka9qgljeo00buW0vtAtVqR7OUWlJolFLa3za99zpiQuMCYF+6jVJzYsxroujSySkYyOWtFT/zNmlcT5Tyw4ZyQS6+O/g+PcpynORCQ9qHvsOTe6Uai0OWpUku6zJaDMfCT/+tosaz4md4kfoDKfTXx38kteNImgDu8xvv7/eQmSIywAjOJ9rMzCJJjwmu5Blvg5OZhSVH/YQWSxQPr+JuL9yu5Q88munHnHU2HQDpmUVmbnZ93ZYS5LYeUoj9SjETReZuuj9TLSj2EWqpAHqfXy731U5V9hXgBny24NlV7xANYuz5sMRF3f5c11UDuE6qfOGQFjzs+3UyeHM89x5baQcv6wJ2SZ4R2invX06ssi7tCXRtoxVgzW7zZSSraFtr7AtZW6Xb3ZNraMyh7qIxyWhBPKTr/F8H9zakzSgqEzMnYzmw/qK4agf9ZT5+bGwqa3IulQyP458cezXLI2tdW9WtklY4ybAIiSSYj8qNRo5u+2sfRvIloi1fYP50GQMXhxXEdk07FYm9jr8tSQX4wvRf+YqveV4RYwiXMMh2vuOcIK5b/cStdDZMsjDi6bJeR3ch7h31+A/w==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(1800799024)(11063799006)(6133799003)(18002099003)(22082099003)(56012099003)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|7416014|376014|1800799024|82310400026|18002099003|22082099003|56012099003|921020|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: IVbRnHuL4tdMRghznap3LUkAMAJHHZC0fJB4akt7iOlxquA3W3X6XTEh6xeG6f0Ndk7PWbnICqbTKfd25TyudI9lkfxX15TS5BB8rAXT0tATP7U0e5dr7YQLQIzIr8FxlghF0YzlAtyhNjK6dx19EiTiXGPzHfMDQIHizTrYf7PjzySq1xZNYfvNghMetqA84gTBumafl1n9WCi45ik5E9QXUZRHiHSlixITvFBUVMzQsUR28/AoEA7ZTKHz9Iv66XETIAjJR1wjovd6gPs26EXUhL+Q3vNZZOpqUD+6leT9KqIpkCaW/Kht4QaaTY/bJAIUyvmr2KlpE1u2EgLfmVOx9CF/c56oiKeGcOfvaTcOSt+g83scbneqDf6Lyr5kihcBOEnPK9z6oDvpCKC5C1snja1orKK47tUyqELP1tPkF4wMZQMpvuV+JLsYPj1luu1c1XbZxC1+o2KZPMamMed4WWItr9gZ9pvuykFKuZRPGx6KcwefHEBL0Hl31qlUI9NSx5DdBec6wo0y8y9lcTbxYPKYwfTY9rB7oScP11OYX5F79ITrUxWHSc05cRTT1sKjY7viaVNE83E/MMnFerZ0rk4JRb0XvFybEzGMIX6tysboDJZrtGr73Yvvsc7oSOM8uQfIyJ+BslJZN7cV/Aw3VdQcw9gtvrTV4ukzauYbDy2qKuyDOAQFhg9d7mLBy/pmOKgAZEH2g9Jv5VFDScflvtCTz/g03JxMODu34aNhkmGayOBNtCzrhGPEiCkFvhZVgHMjhJ1rKw+EVLMx4w==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(7416014)(376014)(1800799024)(82310400026)(18002099003)(22082099003)(56012099003)(921020)(11063799006)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: v9kGM48VHWIlN7dMGZjBoLdgyQXmgKVkwSXHVHescIB1DqQa2LFK9SyMQ0SLcPkvlOWrdqM4xjZZRJVYwRUfdt7EoN4KSPmTSaXfaZzBvdtM4ewgmYKzoXQORnA0VM2PTtk+8Er6Zflv+EBze6dFR1eyYZ9cjLBW1p1Dkke2nnZ1X66VQ7hfc2Q001D6D1H2WS1s36/4h55zei3vUMvUCawImzdEqUDY3wdrIMZpJKcd3G2tsidZca2/HluNdjDVPksWUY1jUplIV+hneaqb6+lQNVjDljcQG9u2yGUzcF+uS1aG0pbkeZlSNECMMIARzYRB8Cpv+ANnB5yz50dt6QsjQ4Pf45SIjg7Sdzcm3j6NkFieUMqssn9MQ3iBBKsc+j3xpT7JhHS+HEDYlqYxfFkzpbZj6+44BIijrXR4kdP46UF7+HdE8Y7G4Sd4GSm4
+X-MS-Exchange-AntiSpam-MessageData-0: u/DfibYFJDdHNJErb8isBy57/P+1sEVjNf3X+WApRetl1WjL6q9bGkFnB6S0dx9ucA6PSfmKyOOaNSbAm3TJq4VUEpOVTNuTmGEvTuPRdDaWAGPj+2R9imbX1/lQMtBYw00Ljtdt0hgw59ZX/tuuuf+pTaTTG/N0i4u3vu+NTbvZPk046X4kw7kxaoFEjFy58XzV4IhdwiM2FMijSd+qkamyENeV8cQ89AupjoZCJ0J7QcmNVVFw2sdmWVltDy+9/VXGzmeSckPBijCUK3/dcMQwxjNNKjtU3sSMJ1m0JtVHUtNmGrCswvcKNAwfVsg+ae12QWd89a+NyarmN+1GXlYEJpfPB+moQXQrRqnL85MDgcc4sDNvj8zAb3LCYJiLIUa+MbkaSjqHCOEd2K9F1/BLAu+ZY1yGgQM/W6vmMOQM2Bn8E235urYJyXyd2TyQ
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 10:50:54.5107
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 10:51:00.2233
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c2b8730-3d57-43ad-c6d5-08deba4b7ed5
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5c77e8fb-7578-4e59-e570-08deba4b8232
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001ED.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003AEB.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6768
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_115104_072224_820E43AB 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260525_115111_013609_39BFA869 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,33 +146,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
+Versal Gen 2 and Versal Net SoCs expose a dedicated reset line per
+ZDMA channel, replacing the earlier approach where a single reset
+was shared across all channels. Add reset handling in the channel
+probe path using device_reset_optional() to trigger a reset pulse
+on the channel during initialization.
 
-Newer SoCs such as Versal Gen2 and Versal‑Net expose a reset line
-for ZDMA. Older SoCs do not have this provision. Add an optional
-resets property to describe this reset.
+Platforms without per-channel reset continue to work unaffected
+since device_reset_optional() returns 0 when no reset is specified.
 
-Signed-off-by: Jay Buddhabhatti <jay.buddhabhatti@amd.com>
-Co-developed-by: Golla Nagendra <nagendra.golla@amd.com>
 Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
 ---
- .../devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml    | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/dma/xilinx/zynqmp_dma.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
-index 2da86037ad79..dff16763e11b 100644
---- a/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
-+++ b/Documentation/devicetree/bindings/dma/xilinx/xlnx,zynqmp-dma-1.0.yaml
-@@ -56,6 +56,9 @@ properties:
-   iommus:
-     maxItems: 1
+diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+index f6a812e49ddc..51c831760372 100644
+--- a/drivers/dma/xilinx/zynqmp_dma.c
++++ b/drivers/dma/xilinx/zynqmp_dma.c
+@@ -18,6 +18,7 @@
+ #include <linux/clk.h>
+ #include <linux/io-64-nonatomic-lo-hi.h>
+ #include <linux/pm_runtime.h>
++#include <linux/reset.h>
  
-+  resets:
-+    maxItems: 1
+ #include "../dmaengine.h"
+ 
+@@ -916,6 +917,11 @@ static int zynqmp_dma_chan_probe(struct zynqmp_dma_device *zdev,
+ 	if (IS_ERR(chan->regs))
+ 		return PTR_ERR(chan->regs);
+ 
++	err = device_reset_optional(&pdev->dev);
++	if (err)
++		return dev_err_probe(&pdev->dev, err,
++				     "failed to reset channel\n");
 +
-   power-domains:
-     maxItems: 1
- 
+ 	chan->bus_width = ZYNQMP_DMA_BUS_WIDTH_64;
+ 	chan->dst_burst_len = ZYNQMP_DMA_MAX_DST_BURST_LEN;
+ 	chan->src_burst_len = ZYNQMP_DMA_MAX_SRC_BURST_LEN;
 -- 
 2.43.0
 
