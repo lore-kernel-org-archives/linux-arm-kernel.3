@@ -4,119 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E6ADCD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 18:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB235CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 18:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fzor4pOAcoXrq0r/dQWN3ieh5O1PmvSJQr5rj+ToVL8=; b=Y7iIOxLDMVav07c7Q+iA7oCCB8
-	0JbT95dfeE3FqiWKWmOIPx9KcT39X47ZQUlkmoHOvBvfB4rGZ2llfAcdg15I6UpKJ2MQb8gG19+N4
-	O/Db4BVdnb/LF2/oj/VDDmhMpNnK6Reea7vYVHnUCwxys6OnTN8Krgkslhdiw1a7uEJPuRmXy8re4
-	NNE7VACflIF0ruCHifvVgCsV+SVZMyxQCsQCZ3se/9bUkIxq2/elnUc2ayadi5cNJxP6SJEzgLkI8
-	ZKXTkuEPIMYqeBvzaaDdqZ9H5VQohJh1hy+4UUTst8CA2tq4VMar9UPsPWI3OR+PuIk3TH4B/JzGb
-	j+YY6YQg==;
+	bh=yjbdeHMBEOSMPFX+Z3uePz1MMNxDwCdB8xF7r1cvcC4=; b=RF1R1sQ2Q2CDTpiyvQO7mFQh7P
+	iYaI+8QMLdyVCapUCTE2j7XKyK/uTtrd2du6E3nF/6y0MhpvYrvFV38V01fCn2FrwWUtKtKbHZ8vX
+	BC1vgeSz5nVaCz5Jmo85IKc/4o3+ckSIDzFXn5k1HWPraNf4oP6Xs+MZ9KcW/RsWuvWPIGfrHVziE
+	XyThgUUEGKhJCAVTnmTLdPTknGphQKYt5qm+ci+uakhLasqAw9uMvUU/3SrUiuEm7XxQYtSNGHNQr
+	1JnMnYPwr4E3WLAUEGhYnjtWbQVZk6iZ1MtzD8yvAQVp2fOfbiDaZQuzWLHKTM1CwWCsYkNyfwvfY
+	Urm8DW9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRZcZ-00000000BVp-3BMv;
-	Mon, 25 May 2026 18:01:47 +0000
-Received: from mail-dl1-x1236.google.com ([2607:f8b0:4864:20::1236])
+	id 1wRZps-00000000Cs8-2Zyb;
+	Mon, 25 May 2026 18:15:32 +0000
+Received: from mail-pj1-x1062.google.com ([2607:f8b0:4864:20::1062])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRZcX-00000000BVR-1Zzi
+	id 1wRZpp-00000000CrR-1g1T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 18:01:47 +0000
-Received: by mail-dl1-x1236.google.com with SMTP id a92af1059eb24-1329fc4bf77so7608127c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 11:01:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=etsalapatis-com.20251104.gappssmtp.com; s=20251104; t=1779732104; x=1780336904; darn=lists.infradead.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fzor4pOAcoXrq0r/dQWN3ieh5O1PmvSJQr5rj+ToVL8=;
-        b=fID1y1jMkPKlHW6DR9rPvbbMMFmSrZuCgdtcEJr9T6QLqVVccgh/OBFqhea+ORCbgo
-         v28onRpV/DB0I91EaA8JjSWdYjINSeoAxyjpomkZ0EoikEq8TOemYTbOpn90wG5JwJyG
-         ZegYwGPE8dTZCIrQ4FsLbPGmFS1kZspyj76cbCG7x2noyjnoj5yoQA1D+aAAGAewxTOY
-         S9aKZR4bM05B65iOqPksUawryTvq5QNcruE6qUM8FfvERbP6U6VbsJ84G81ucEOboswp
-         8Gw12CdRw5v/jdMtf1c7HhhTNVK7roSpJurT27PO+Bz2E1JS2ocqMWETl1Jg33PH7HKp
-         XIQQ==
+	Mon, 25 May 2026 18:15:31 +0000
+Received: by mail-pj1-x1062.google.com with SMTP id 98e67ed59e1d1-3698e34a567so9026232a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 11:15:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779732104; x=1780336904;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=fzor4pOAcoXrq0r/dQWN3ieh5O1PmvSJQr5rj+ToVL8=;
-        b=jd7RtGUvrvwqOKCPxdjVtPXhKPDbZvEtYlfmjPobJaJNLeHOo68XjY+Hcf+aUdZkGV
-         EKFVBNiCNNJUScaeuTJOe7w1naK2/DNoDn5+MG8jVn6V2naTTM3nBjhhnMhNYw7mBOYF
-         CdEkZ0Lfg6SOIyqn8fQs5Z6JsIiB2YpD4VSVkecJcbGlEOHbcRC3MT/MBE9381bJZotH
-         LjMr6qzYxjQaTNPQ1B8QMpDHLsM7n7zU/qZhIYCSwtlEIYA5ynI3QLR18vdcF/Mr7M+o
-         TcM7Y/52jKJrzVtHzPhNT9J/fkxR4942Et91ALEOX2v/GSI3ZAzFuXzZnHWhyn5pwh5d
-         5nYA==
-X-Forwarded-Encrypted: i=1; AFNElJ8FaddV4DlJE1SXZKK+Lme8quPePZ3ek+kMwdhjBuFOmZRyHXihpiYwJbYUxp17I7MP0WjXhXBQoXghcX+BKKcF@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWahU/szRoNvyWj7YvexNNlCuLYK8Fsi8L3NhXK7rzy3aJO6dU
-	o0FX4AtEt4NZ5wQp+4hfXVv4l+a5qKkB9SsHX6GCxJojqABoadP3xTL5qzb/OYTWv24=
-X-Gm-Gg: Acq92OEzybLKLQnhhiFRb8x+5OLY1F2TUuPUcg2kQiHQTE8N756VxE+l/HyOk6Wv6FS
-	aKpx9OUWAuD3ud89OhG0bwF5ZFTOOa8nASLj9Aho5khDHWoIT7zJRfA7AFFuykmStI53HwN39s1
-	bXXEYQQDB1YsAb7CcXW+y2L+f/Txnplce5GYJrz6Cqsl3bzSCBe5iYcXntBJSZloh3WfLEe1Vp5
-	LqJeF4BGHf/1r2p4nDlqnwv1NH72I/B1YIjMhdqNsCM7u8dZWMVWJ0dp/g4gqJrx8NlGenMnaEZ
-	cfjg+Rqe1NDEEnNDlxMEjq4JSjVMceThWcMZKuwSoU/UTBp/zDgkoLYdYfhSECRJTcCRiamm9rU
-	MCaJNeKnl9EEpsHwujWjZ789G2oDwzAKuF4rLJmgBmWbIydzINTYK4duPaGlSWsEN9nMlIZHLUB
-	8oJO4=
-X-Received: by 2002:a05:7022:ef01:b0:12c:8f92:c6ba with SMTP id a92af1059eb24-1365fc7b48cmr5378838c88.34.1779732103455;
-        Mon, 25 May 2026 11:01:43 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:600::cc2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1366a2e634csm7642048c88.2.2026.05.25.11.01.39
+        d=1e100.net; s=20251104; t=1779732927; x=1780337727;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=yjbdeHMBEOSMPFX+Z3uePz1MMNxDwCdB8xF7r1cvcC4=;
+        b=UA1/nSQadf7PK5oehFC96Oc8aalCVIrQo5OdqC+0EZvuK0ry7eN/ABBAQfNaoxrZtG
+         bGvplpNu6RaiBc08ocLn8ug9ME7wlZ7/hAkGYS5aTN/pbjwj3z5PQR1abRU/LDyFtnW+
+         ZNWZVeWWTAcK18r/pRGF0Z82taMe7gg0G2asMLOEDnS3NWGWtUh2cIojytPsuXntn25V
+         yRstMCoWESnnv8tSjSfSQC2IyhHGZIAft30Zj7/S7ciHe/kKu7NX9+OrqMz5vGIvZ+cK
+         /FK97bQZzTPT7qQpCc+YQcykfHpVRnSvzSYnyhX86FNtrOznUqrJlvi3AyhixbpMOdLc
+         f1hw==
+X-Gm-Message-State: AOJu0Yw0Xv31xxl18fRQORh6wXNDgiFjaaIOSMVvpODvIYa/8buAHspt
+	yhjM7QXkQT+5CmTsSgp1+TTxNEA7pOqRb7qHi05lKyZyPzaMCoQnJzqYJ00XqCg7FahH57XMrJX
+	7Q/ITeWXNvBhMJZFcLRJwNqLEGUxMUhXylfp51r4HRHOEArcX1gsxg8rIaDm3vlxBAvHP76fMv6
+	1+JXYzjW4aq89BhsedZM3J5iXIbMiQELAD9kGnIUM8upLx06qGa+HqkkNo5LDmkU3zyxAZ8QBi+
+	0Vy8KiYkN05jCv2i01Y/ar75GW9SvbjLg0=
+X-Gm-Gg: Acq92OER26uvl6dmjonCnF1enx+UQZiWhsAPFQSDikVOOHKAi1nib4Q4URhi2maJAug
+	Yaa1e/cTskLH62KIDh/oSRkigrd1z83AfpUvBbeNFBZ1ptylJc6EtNa8OIf4coVksWAfUJupbcI
+	bh0X8sVklSIhF2ACmi52sboqTbEnBgwKtO4HAJP9GMWpse+WhJKXEBJJemcYcQX44doHbXgOAY1
+	id20HXdDBaSwPJOKfexIxwvaWj6sdarxrH0266GrDGWw3DWlWmclO/SU+XqoE9nuWU2eiaXxhkS
+	R9SGlhG3oKgBmVnFlmknXPPMWw1Vn+5+OLAwlULEKpSoPzywFdwPOYQw5YXqZtVdd1hzEK1sl3x
+	3cAdfpkPt/vuvvSWFZkDko4W/nQKxIifvHe6PpmZ8a/ea63TEq/ka30rpwNh7ESVqwJP+Zc8s8v
+	oR60aYyN6XK3c0GjSYqTGM4nRUUfqMQ+dEnogc+jaSzPcR7DBzNIQIL7tz6vSdLpOL
+X-Received: by 2002:a17:90b:2e04:b0:359:1130:1047 with SMTP id 98e67ed59e1d1-36a677c7a77mr14216407a91.17.1779732927220;
+        Mon, 25 May 2026 11:15:27 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-36a721b37b0sm1001274a91.6.2026.05.25.11.15.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 25 May 2026 11:15:27 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-2fded513994so1486987eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 11:15:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1779732925; x=1780337725; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=yjbdeHMBEOSMPFX+Z3uePz1MMNxDwCdB8xF7r1cvcC4=;
+        b=dbRfH9oJEsfN27xo8xTBTOd0mItuNEb2Me4Ad80IYcfRIXcvvo7dAzeI36DQmAKC18
+         YGNhzDoW5SyBdDr25cco0QFUG/SfDU4NFRvfDt3/cpHdjqdt7ka6PzWgOL675sH99MDb
+         BgKfoPWjx/UR6bhgLj0dKJTqiqUc6/i/Wf1gk=
+X-Received: by 2002:a05:693c:68cc:b0:304:5a9c:6452 with SMTP id 5a478bee46e88-3045a9c6cd5mr4157845eec.17.1779732924942;
+        Mon, 25 May 2026 11:15:24 -0700 (PDT)
+X-Received: by 2002:a05:693c:68cc:b0:304:5a9c:6452 with SMTP id 5a478bee46e88-3045a9c6cd5mr4157826eec.17.1779732924127;
+        Mon, 25 May 2026 11:15:24 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30451f3feadsm10921365eec.13.2026.05.25.11.15.22
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 25 May 2026 11:01:43 -0700 (PDT)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 25 May 2026 14:01:33 -0400
-Message-Id: <DIRYDGLWJJWI.1PACVYJDRYBJ2@etsalapatis.com>
-Subject: Re: [PATCH RFC bpf-next 3/8] bpf: add BPF_JIT_KASAN for KASAN
- instrumentation of JITed programs
-From: "Emil Tsalapatis" <emil@etsalapatis.com>
-To: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Alexei Starovoitov"
- <alexei.starovoitov@gmail.com>
-Cc: "Andrey Konovalov" <andreyknvl@gmail.com>, "Alexei Starovoitov"
- <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii
- Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>,
- "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "David S. Miller" <davem@davemloft.net>, "David
- Ahern" <dsahern@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Ingo
- Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>, "Dave Hansen"
- <dave.hansen@linux.intel.com>, "X86 ML" <x86@kernel.org>, "H. Peter Anvin"
- <hpa@zytor.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Andrey Ryabinin" <ryabinin.a.a@gmail.com>,
- "Alexander Potapenko" <glider@google.com>, "Dmitry Vyukov"
- <dvyukov@google.com>, "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
- "Andrew Morton" <akpm@linux-foundation.org>, <ebpf@linuxfoundation.org>,
- "Bastien Curutchet" <bastien.curutchet@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Xu Kuohai" <xukuohai@huawei.com>, "bpf"
- <bpf@vger.kernel.org>, "LKML" <linux-kernel@vger.kernel.org>, "Network
- Development" <netdev@vger.kernel.org>, "open list:KERNEL SELFTEST
- FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>, "linux-arm-kernel"
- <linux-arm-kernel@lists.infradead.org>, "kasan-dev"
- <kasan-dev@googlegroups.com>, "linux-mm" <linux-mm@kvack.org>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260413-kasan-v1-0-1a5831230821@bootlin.com>
- <20260413-kasan-v1-3-1a5831230821@bootlin.com>
- <CA+fCnZf-o8tiv_tX9YB5eBUGx17OpztKZsEB6Awjw3WAqBAiUw@mail.gmail.com>
- <DHSWSSYRPUVC.2W3G3OU27L3HG@bootlin.com>
- <CAADnVQLj=UosnsC-4V2+mN92Fe0-kW++U+m-O9c93kk6BwiXgw@mail.gmail.com>
- <DIP9O3BEWG3C.2BAHKYUIA4H4E@bootlin.com>
- <DIPDH3PCUDDG.EGYL0SYSG1IO@etsalapatis.com>
- <DIRMYUXFYOVY.1LQV9E3OHGGBK@bootlin.com>
-In-Reply-To: <DIRMYUXFYOVY.1LQV9E3OHGGBK@bootlin.com>
+        Mon, 25 May 2026 11:15:23 -0700 (PDT)
+Message-ID: <724e103e-ebc2-403c-887e-d91e403754d9@broadcom.com>
+Date: Mon, 25 May 2026 11:15:20 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: mm: fix kexec and hibernation with
+ CONFIG_CPU_TTBR0_PAN
+To: Linus Walleij <linusw@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ bcm-kernel-feedback-list@broadcom.com,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Russell King <linux@armlinux.org.uk>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Kees Cook <kees@kernel.org>, open list <linux-kernel@vger.kernel.org>
+References: <20260523000839.430550-1-florian.fainelli@broadcom.com>
+ <CAD++jL=QxG=e62aOBXCzuud-nMEKtiUd-6_iUAudB0DJRWJwzw@mail.gmail.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <CAD++jL=QxG=e62aOBXCzuud-nMEKtiUd-6_iUAudB0DJRWJwzw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_110145_667530_7EC9408E 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20260525_111529_485181_92E16A60 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,76 +153,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon May 25, 2026 at 5:05 AM EDT, Alexis Lothor=C3=A9 wrote:
-> On Fri May 22, 2026 at 7:13 PM CEST, Emil Tsalapatis wrote:
->> On Fri May 22, 2026 at 10:14 AM EDT, Alexis Lothor=C3=A9 wrote:
->>> On Tue Apr 14, 2026 at 4:38 PM CEST, Alexei Starovoitov wrote:
->>>> On Tue, Apr 14, 2026 at 6:24=E2=80=AFAM Alexis Lothor=C3=A9
->>>> <alexis.lothore@bootlin.com> wrote:
->>>>>
->>>>> On Tue Apr 14, 2026 at 12:20 AM CEST, Andrey Konovalov wrote:
->>>>> > On Mon, Apr 13, 2026 at 8:29=E2=80=AFPM Alexis Lothor=C3=A9 (eBPF F=
-oundation)
->>>>> > <alexis.lothore@bootlin.com> wrote:
->>>
->>> [...]
->>>
->>>>> >> +config BPF_JIT_KASAN
->>>>> >> +       bool
->>>>> >> +       depends on HAVE_EBPF_JIT_KASAN
->>>>> >> +       default y if BPF_JIT && KASAN_GENERIC
->>>>> >
->>>>> > Should this be "depends on KASAN && KASAN_GENERIC"?
->>>>>
->>>>> Meaning, making it an explicit user-selectable option ?
->>>>>
->>>>> If so, the current design choice is voluntary and based on the feedba=
-ck
->>>>> received on the original RFC, where I have been suggested to
->>>>> automatically enable the KASAN instrumentation in BPF programs if KAS=
-AN
->>>>> support is enabled in the kernel ([1]). But if a user-selectable togg=
-le
->>>>> is eventually a better solution, I'm fine with changing it.
->>>>
->>>> Let's not add more config knobs.
->>>> Even this patch looks redundant.
->>>> Inside JIT do instrumentation when KASAN_GENERIC is set.
->>>
->>> (with quite some delay) I think it would be better to keep this new
->>> BPF_JIT_KASAN, because aside from the possibility to use it in
->>> bpf_jit_comp.c, it allows to update tests affected by KASAN
->>> instrumentation in a nicer way. For example, the test_loader subtests
->>> that monitor JITted instructions are confused by KASAN. I can either
->>> skip them or make them smarter when KASAN is enabled for BPF, but in
->>> both cases, it would be nicer to just adapt the behavior based on a
->>> generic CONFIG_BPF_JIT_KASAN, rather than sprinkling some "if
->>> jit_enabled AND CONFIG_KASAN_GENERIC AND ARCH_X86" in selftests. That
->>> still does not make it a config knob, that just creates an internal
->>> Kconfig option that is automatically turned on when KASAN and JIT are
->>> enabled at build time.
+
+
+On 5/25/2026 6:35 AM, Linus Walleij wrote:
+> Hi Florian,
+> 
+> thanks for digging in and finding this!
+> 
+> On Sat, May 23, 2026 at 2:08 AM Florian Fainelli
+> <florian.fainelli@broadcom.com> wrote:
+> 
+>> Commit 7af5b901e847 ("ARM: 9358/2: Implement PAN for LPAE by TTBR0
+>> page table walks disablement") implemented PAN for LPAE kernels by
+>> setting TTBCR.EPD0 on every kernel entry, disabling TTBR0 page-table
+>> walks while running in kernel mode. The commit correctly updated
+>> cpu_suspend() in arch/arm/kernel/suspend.c, but missed two other code
+>> paths that switch the CPU to the identity mapping before jumping to
+>> low-PA (TTBR0-range) physical addresses:
 >>
->> Having a togglable config knob gives us the option to set up KASAN for
->> the kernel but not for BPF, and I don't see why we'd want that. Imo we a=
-re
->> already paying the cost of KASAN for the rest of the kernel, there is no
->> incentive to not run it for the BPF JIT. Having to eat the complexity co=
-st
->> in the selftests seems reasonable if the alternative means a cleaner
->> interface for the user (preventing them from choosing an unreasonable
->> combination of options).
->
-> Again, this does not expose a togglable knob, this is a purely internal
-> kconfig, automatically enabled if CONFIG_KASAN_GENERIC is set and if the
-> architecture-specific Kconfig defines HAVE_EBPF_JIT_KASAN (since we want
-> it for x86 only), and there would be no way to enable KASAN for kernel
-> only and not for BPF, or the other way around. What I am proposing is
-> just an internal, architecture-agnostice kconfig to avoid conditioning
-> some selftests to any architecture.=20
+>> 1. setup_mm_for_reboot() in arch/arm/mm/idmap.c, used by the kexec
+>>     reboot path. With TTBCR.EPD0 still set, the subsequent branch to
+>>     the identity-mapped cpu_v7_reset causes a PrefetchAbort because the
+>>     TTBR0 page-table walk needed to resolve the identity-mapped address
+>>     is disabled. This manifests as a hard hang or "bad PC value" panic
+>>     on LPAE kernels booted on CPUs that strictly enforce EPD0 for
+>>     instruction fetch (e.g. Cortex-A53 in AArch32 mode) while the same
+>>     image may accidentally work on Cortex-A15 due to microarchitectural
+>>     differences in EPD0 enforcement.
+>>
+>> 2. arch_restore_image() in arch/arm/kernel/hibernate.c, which calls
+>>     cpu_switch_mm(idmap_pgd, &init_mm) directly without going through
+>>     setup_mm_for_reboot(), leaving TTBCR.EPD0 set while the identity
+>>     mapping is active.
+>>
+>> Fix both sites by calling uaccess_save_and_enable() before switching
+>> to the identity mapping, mirroring what the original commit did for
+>> cpu_suspend().
+>>
+>> Fixes: 7af5b901e847 ("ARM: 9358/2: Implement PAN for LPAE by TTBR0 page table walks disablement")
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Linus Walleij <linus.walleij@linaro.org>
+>> Assisted-by: Cursor:claude-sonnet-4.6
+>> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> 
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> 
+> Please put this patch into Russell's patch tracker.
 
-Makes sense, in this case this seems reasonable.
+Thank you, now done:
 
->
-> Alexis
+https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9476/1
+-- 
+Florian
 
 
