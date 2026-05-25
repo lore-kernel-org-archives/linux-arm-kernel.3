@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8B17CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6A4CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zrIDVk+3CslyJkUrNGl34AIpYDsI+Gmqf4gQKToWHJM=; b=Fa0S0NdOLK2500QIQahuKQEv7H
-	nXlqgsaIvMC9jMYzWDELeBHMX8Vand/9QYCdXS2VV8gOVaRXApYXMHjQKhR3GrKguUyqqnWQcihBD
-	3NnfHuGraDeLeCE3E0hdDg14T3x78VC8no1F2qlI1UEgqmEJHw42wNVHu0crSBSweXJp3wjXT7jf7
-	jyvwAR9AzQ1W3oDmOUN0MUgnLqXDlW5bX3FUEtQCSUzfjkHKkcnbbysiQX5BjGu9h8AipYqGd+ew5
-	+mg8RuRrusZ+7CyWCY97ePvGliD4ogBP2k73LW/SasuijV1dD2QS4kjxGJAWP+WJRoeTo9PHdZ7wV
-	2ZmWWnJQ==;
+	bh=QeWjSlPEDikRvLF1aU9lZbkxd+9N7RugqZlM/tjJ0Bs=; b=SO+L8Wpw39Ww51wHbp5UNt6VpE
+	si7wSA/U/XpSPS0UzdhDyKnoQHAvsSljM/MJLafeFyADHsHyXywihl3bJK3+LA9N+rYoTTR5zFAMw
+	+iM9Nc5N8FLkRNd0lxTrP9JqPou8ZsZ281w/kD9OM9nA5atSzViGnjNSxPN1fbNLYo34/ifOqWe+0
+	TKRvbk1veZ9NyBjaKgMcntfO3NuZFrbAQJwChqOq8ZXtetlJKnmykbhEmF+SKR3A1eLCeH98ABfOI
+	59vVg6nLHO9XrHZB/qS1NYPgitUtcYBq2jhkxwnhqllb9W0Xch8U4ytjFz3ocBN6+OshWpCamyQ3a
+	kcCDBh7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUT0-0000000HCDO-2FJk;
-	Mon, 25 May 2026 12:31:34 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wRUlZ-0000000HDwa-2xq4;
+	Mon, 25 May 2026 12:50:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUSy-0000000HCCv-08Ta
+	id 1wRUlN-0000000HDsw-2yH4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 12:31:33 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4903974854dso34416525e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 05:31:31 -0700 (PDT)
+	Mon, 25 May 2026 12:50:36 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4903997fcb5so38541215e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 05:50:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779712290; x=1780317090; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zrIDVk+3CslyJkUrNGl34AIpYDsI+Gmqf4gQKToWHJM=;
-        b=hgADeiqkEU6UzDjfmGKA7e4nIpFU3bb9UQF3h8G+mrjAIa9zkxzCQUOOspUqL1OlMw
-         9uCT6zhVSaJfvHc4fq/jWP/c+57uy3xFm5xfxRRuZJDbapL2ZjQVbxz0AIkloQkNlXNM
-         7d3km1enc/huue8/kIhEMT8gxIAFZpheg7zKZT1oworsp6wlSWT75KZhmfxwSzPOOSMg
-         +hMExrpRNX0d6kjgGn4PS9dnU6J/g3qalnf+iP/Fx1tS+NlaJJ7lzQhg+5or/6Ysr+4Z
-         vi/KrGqSaILHbkHnX3yELpwZUrua8UnUFApvxKwkw16XlUZLCDNf3jW5KIp6NeTfv4IT
-         j3OA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779712290; x=1780317090;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1779713432; x=1780318232; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=zrIDVk+3CslyJkUrNGl34AIpYDsI+Gmqf4gQKToWHJM=;
-        b=k0tLmlLkGTwFtWcsUwhetVTQ1k/eDz1jldfho8HaMUUTTdz2ZtI9/0aPEDV2lkU9De
-         CNx8v4NF32l4hZduFgMogfdUrsDh2qk4XRHPN9LWWJtVjlQL1I4sMWUTwrn7vnSw4urv
-         ObMf8groh7AdYLlRt+PlSq8SYJzIm2rPMGkBW5QTsopWDGMviBQs77uBzrbbZLYvcYkX
-         5ptTzHlapBAhxivZMjJlJ7TvZLDc3cllbAB5VTf8Gncw0DHcrEeBnVy4ituvJCrO36aq
-         1gXHK7GWNUe1iSUC7eXL4UJEfJGKD/hiIp7HtgJXAWvtKBhoMt0zHMCPlnDgbv8qxP/T
-         c2Xg==
-X-Forwarded-Encrypted: i=1; AFNElJ+bwLt6ET5KYFnFHKW+OMbTW3nzqbXQen63cxdw/TKcFO830dspXDm4ioUcC89QSNnCpERB0KURvhnTDsvOtIMz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsegWtpcu+Q0aj1lfykUnZgi11FMS4s2sP7doM0mr54ePc1lEl
-	xEnlTKDrxxP1JIXQssZvgCuiMVq1/wCUoAVpU4gg9mmuKX6cpNLbkmjc
-X-Gm-Gg: Acq92OF4E035piMRscMEzix0P82RmYWSSFrit835w2uhntNwJSuesQ0RI64Q1im9qOf
-	O71KjnI7NAuRdQBi1bXWnQksYBZxtw5YnaGeFTMzsLrURE2bu58giz2JIQIzOwBwzeAxtMTs6Jk
-	Q2do7oRkqTca+eXkA5yDStVyAROYYuv35CrNnZyHfnOYc6ugYXQ+hg5fj/5saPKWI0OwEVH9K1M
-	BhoZD+GkhcwXJkPmqoIWX90u4mP99h+V0rkZsnBREC7j1R9GIrBCqSXL8kArEywgcWzKH7PAdiT
-	3yf8BnG40dPB/6yS6nsnTy9lA1NErMesezRqs3Sray/bAp3XAgfNcpjRtJdPSLYnA3D34lmV7WD
-	HWsWMqPq85IFYvoUrKOFFrR7S9MqqAh14rczTCEStYdaHSLktU+kbKy0lZOyNdjD+tE/tRb148e
-	rTj3MUzZI862n0O+XjXutXtPOTEJrGMuZttmz+/VS/rnCWAHcB5qxgZMOE
-X-Received: by 2002:a05:600c:3d96:b0:490:5429:1513 with SMTP id 5b1f17b1804b1-49054291bbamr158545285e9.6.1779712289494;
-        Mon, 25 May 2026 05:31:29 -0700 (PDT)
-Received: from [10.25.212.250] ([128.77.115.157])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490428e6d68sm85965215e9.22.2026.05.25.05.31.26
+        bh=QeWjSlPEDikRvLF1aU9lZbkxd+9N7RugqZlM/tjJ0Bs=;
+        b=x9X4Y4FLsa24CB4kZhtMG1mFXlwPwJx2YOPAywl09+gpBrKW8BRZGIFuShAbP1ke3G
+         yEcwCm1CK/caxp6emoYtmFfRcHGyFcqoY2FsuVp+e3e21i6tR2hi48qcYnyu7NdA0bqS
+         TJ3VkpzXrse1j0L2e++/jQNgPNO1EqaSSVR7J2M2qZKJHUuTki8VG8ZwwtuOpxmdYbs9
+         4nevqmhRXrWzzokck4yqmcC5IHthoLUO4cQPYI9JbmRauPdw3ZgXfnrFbcoB1F1BE1k3
+         ilGlid6d4IZ/jI9YUnM/GDedU9qn0f3O95b3zjAKLs/wL7S+VlrJ8y/xs0VZeU+WpFaK
+         vO8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779713432; x=1780318232;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=QeWjSlPEDikRvLF1aU9lZbkxd+9N7RugqZlM/tjJ0Bs=;
+        b=Nb6cNhyX4qLsxVHv9X8hihyQfQ++UPxZtgrnfzh6OXyScT4a1Q8zk4gGvAjPPH3kHA
+         Ler62c0KdNUIm7C6s/+e99lTxY+9HeXoIllmlVtWG1b3HW9UYdllKvInFqdloGJIzMgF
+         wRMwlucB/jwryBIcISv+mKcNhoPzpOA4KreIPuKWDr7BOqqrn0MEXBi6F084EGDVJVaa
+         8Vcj2fsna3WMQHFN7sUpXE/x6iE7ps5/udPCgDjVBl+wAgI7XVvUkpUpyO7aHRIlahxJ
+         iryaHqIJzyPUBvyNuwR4dBv+mEKIr7Dp3plT7FZcg2BbRb0eW+gwcItzGlpHnJU745oo
+         FHAA==
+X-Forwarded-Encrypted: i=1; AFNElJ/S4Nm+faszZZUjhqIaTBGgU4SeZ+oEOjWlNCc6RXthhKsKaEgpZGeNvc5L8Y84uDp3Gj0ldy1dwJ/3Oljcow6U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8UXDKz0SvvnUPVcPCxqiVC31NIMzzPJzEdo+L+hIueEPBkUv1
+	cCgZcZ7xGIX0XB4mwTbMHmcv6EaOrqa7kbe/Ft3UqrckJo0+NRnsMnLgDSvvX30llzw=
+X-Gm-Gg: Acq92OERjFVyGbIhy2MVZ7ztpZW5mruadoH8bcmdfXp/PLwa4nn4jXNJlPmDS/dPRNn
+	JW6DsZySUu4jG/6oyddTliE/HwJHHDE5bjsQvd1X5O7p2LuDcXaTaIPCDt/6jIafTCZYwVKTYhS
+	ZYh6J0uZlWugMM44v3vPs5kkC1dqpPn3c9tvaYV2NSmkJ0CwjmMjYyUVAGprugqnuC/IOK0J5YO
+	d/WLcIsWlk0jtpyD6CH+7nEJzAIEaTnQm0iF7s9L9bSfribFzmDsmh6rTdmwmZxtMyDsyWw1idG
+	oG1dGUwJs0lwPDTSX4lCAlniU6EyfuZBbGAvBMDCEGBdOMAzOLJovDgZR0559u69CCwhayjaxbj
+	+17KFvD9TayOfMqHpJnEL3iyoF1WX92LEmLIKTp0gB4FoCQdN2hmd8vaN0xesX9KBYLGf18cMt6
+	XHysqZP+n3kJJySKZCiJKcCvjV+xFQqkqoVYL4Szozd9j7tEkDhWe/Put1vXBlewWCbusjvsI9s
+	UCcrPw=
+X-Received: by 2002:a05:600c:45ce:b0:490:52c0:73f1 with SMTP id 5b1f17b1804b1-49052c07823mr151219345e9.9.1779713431711;
+        Mon, 25 May 2026 05:50:31 -0700 (PDT)
+Received: from ta2.c.googlers.com (231.141.38.34.bc.googleusercontent.com. [34.38.141.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454cfcaesm241824825e9.4.2026.05.25.05.50.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 05:31:28 -0700 (PDT)
-Message-ID: <9fb59c65-8cee-4502-bc10-1375f276e25c@gmail.com>
-Date: Mon, 25 May 2026 05:31:24 -0700
+        Mon, 25 May 2026 05:50:30 -0700 (PDT)
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+Date: Mon, 25 May 2026 12:50:23 +0000
+Subject: [PATCH v5 3/5] MAINTAINERS: Add entry for Samsung Exynos ACPM
+ thermal driver
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/5] remoteproc: imx_rpoc: fix carveout name parsing
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
- Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20260522111849.783-1-laurentiumihalcea111@gmail.com>
- <20260522111849.783-3-laurentiumihalcea111@gmail.com>
- <ahOwO7LBXCYFIngw@shlinux89>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <ahOwO7LBXCYFIngw@shlinux89>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260525-acpm-tmu-v5-3-85fde739752e@linaro.org>
+References: <20260525-acpm-tmu-v5-0-85fde739752e@linaro.org>
+In-Reply-To: <20260525-acpm-tmu-v5-0-85fde739752e@linaro.org>
+To: "Rafael J. Wysocki" <rafael@kernel.org>, 
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: jyescas@google.com, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779713428; l=988;
+ i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
+ bh=j2bS/h+sguKS9/qgJjI48x6qOqG+tkwy92XDxvAI8yY=;
+ b=wGj/ffuuA+IGQ5pRdRuMChnrz10mIrbyGhYYPnunxYqt6E370YQjJM3fCVLiK7mzpJhj+Uf/C
+ 82tUXkViWFXCDZJnfAcgY+c8oE7hfjIUHprgnbQm2BqPxOtrLUp7s5v
+X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
+ pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_053132_092988_D9D6742E 
-X-CRM114-Status: GOOD (  19.05  )
+X-CRM114-CacheID: sfid-20260525_055034_882065_9845FD10 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,57 +123,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add a MAINTAINERS entry for the Samsung Exynos ACPM thermal driver.
 
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ MAINTAINERS | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-On 5/24/2026 7:13 PM, Peng Fan wrote:
-> On Fri, May 22, 2026 at 04:18:46AM -0700, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> The imx remoteproc driver assumes that the names of the reserved memory
->> regions reflect their usage (e.g. "vdevbuffer", "vdev0vring0", etc.). This
->> conflicts with the devicetree specification's recommendation, which states
->> that the names of the devicetree nodes should be generic.
->>
->> Therefore, instead of relying on the node names, use the names passed via
->> the "memory-region-names" property if present. Otherwise, keep the old
->> behavior.
->>
->> The definition of imx_rproc_rmem_to_resource() is added to a common place
->> as imx_dsp_rproc.c can also use it given that it suffers from the same
->> aforementioned problem.
->>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->> drivers/remoteproc/imx_rproc.c |  7 +++++--
->> drivers/remoteproc/imx_rproc.h | 19 +++++++++++++++++++
->> 2 files changed, 24 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
->> index 7f54322244ac..1ee1c658dcc1 100644
->> --- a/drivers/remoteproc/imx_rproc.c
->> +++ b/drivers/remoteproc/imx_rproc.c
->> @@ -672,7 +672,7 @@ static int imx_rproc_prepare(struct rproc *rproc)
->> 		int err;
->> 		struct resource res;
->>
->> -		err = of_reserved_mem_region_to_resource(np, i++, &res);
->> +		err = imx_rproc_rmem_to_resource(np, i++, &res);
->> 		if (err)
->> 			break;
->>
->> @@ -850,11 +850,14 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
->> 	if (nph <= 0)
->> 		return 0;
->>
->> +	if (!of_property_present(np, "memory-region-names"))
->> +		dev_warn(dev, "using node names for carveouts should be avoided\n");
-> 
-> Please check 'memory-regions && !memory-region-names', some demos may not
-> need to use memory regions.
-> 
-> Regards
-> Peng
-> 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2fb1c75afd16..7ea3b9d95ccd 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23660,6 +23660,14 @@ F:	drivers/clk/samsung/clk-acpm.c
+ F:	drivers/firmware/samsung/exynos-acpm*
+ F:	include/linux/firmware/samsung/exynos-acpm-protocol.h
+ 
++SAMSUNG EXYNOS ACPM THERMAL DRIVER
++M:	Tudor Ambarus <tudor.ambarus@linaro.org>
++L:	linux-kernel@vger.kernel.org
++L:	linux-samsung-soc@vger.kernel.org
++S:	Supported
++F:	Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
++F:	drivers/thermal/samsung/acpm-tmu.c
++
+ SAMSUNG EXYNOS MAILBOX DRIVER
+ M:	Tudor Ambarus <tudor.ambarus@linaro.org>
+ L:	linux-kernel@vger.kernel.org
 
-What for? You'll not reach this check unless "memory-regions" is specified?
+-- 
+2.54.0.746.g67dd491aae-goog
+
 
