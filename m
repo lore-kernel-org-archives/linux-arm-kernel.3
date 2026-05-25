@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E079FCD5BDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80F40CD5BD5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,23 +12,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qzrSU6F51VUS8IVrczy9Q/DVSlabFI0ne4m7RTJg/xI=; b=jy+f/cFKr9sKN6ldoEy00W2M2+
-	tIWGmzvJ9VxAmIKFkM74a7lKiTFVLyOd+19v89vRZs7iMNN2uOJYmvL0KkpnKTcaCgtU8dxkzzZSd
-	HHEdLOIcwLuCXgg2sPwTSZs+iptfByym44tXueHFmQQZJ9sNnFSbWpcwyfU1WuGFCVnyKHxqvFkGj
-	Y71YpX2zOjPZ1ct5SeIl0QInjQdIjI7wFBkZmH3UCMXFAJxWiBJEglAV92tPAQNQX4e3PwslOmKSF
-	zF1Fu817cfPuJisKNOEWET7rEIzxiiQgvkEvzGkvj3hpYD2+T74xOcQzfIfphDeAcAUF03bEIkTKR
-	5Y3luDDA==;
+	bh=FSnd82QhzgsTc9VLihugRZhMWxwKpTg7Bj65m7IRRDM=; b=S/ief3nyGyLY+SYkOSBub2jlxo
+	G1EU1wxO6EsfwvW+m5tWu7O7ceEAgzLuSAEFTXZqPJKhmfGXPJlrL0WzWTKqOM8FK203SnC89s3AD
+	Nalxv+Uc54BF7h4FSabDP1o4yCZbQJhUNDsGIseotAxAsAnte7JIJbE/xuArdp6hOfpnsBIeNml3m
+	+ndDTJgne+yZTqPTgvmf4i4XrSaVrjCWVBIiJClH6pU0hoGi1CcQj1a58+Y6XFm2T/yOvbp0/2OAS
+	tIWjS4gXWscFpIZe+jtxyCqb+Hcx1HEMzCpySEx7/9AyJOVAj4s+KYVU2jn4YWDkmRmC1293shKuR
+	Tjh0Ddzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUp3-0000000HF7r-3U29;
+	id 1wRUp3-0000000HF7I-2hES;
 	Mon, 25 May 2026 12:54:21 +0000
-Received: from mail-m254104.xmail.ntesmail.com ([103.129.254.104])
+Received: from mail-m8113.xmail.ntesmail.com ([156.224.81.13])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUol-0000000HEq9-3H9X;
-	Mon, 25 May 2026 12:54:05 +0000
+	id 1wRUok-0000000HEpg-36IT;
+	Mon, 25 May 2026 12:54:04 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3fbb28c45;
-	Mon, 25 May 2026 20:53:59 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 3fbb28c42;
+	Mon, 25 May 2026 20:53:58 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: hjc@rock-chips.com,
 	heiko@sntech.de,
@@ -60,27 +60,27 @@ Cc: Laurent.pinchart@ideasonboard.com,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v8 05/10] drm/rockchip: analogix_dp: Enable hclk for RK3588
-Date: Mon, 25 May 2026 20:53:26 +0800
-Message-Id: <20260525125331.140059-6-damon.ding@rock-chips.com>
+Subject: [PATCH v8 04/10] arm64: dts: rockchip: Add missing hclk for RK3588 eDP1
+Date: Mon, 25 May 2026 20:53:25 +0800
+Message-Id: <20260525125331.140059-5-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260525125331.140059-1-damon.ding@rock-chips.com>
 References: <20260525125331.140059-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e5f3304f803a8kunm7b8971f5af5cc5
+X-HM-Tid: 0a9e5f32ffc003a8kunm7b8971f5af5cc0
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSx1DVkhNSklJHUNCGElCS1YVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSh9OVh4eTx5IQ0lIGE0dSlYVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=ZYD/90zY8kQTz0Hc0lpwQh+LoydrKWIfTntfRLG+YaW2FdQ8ZdDrBiLboBmGALveo53paxfOyhUuWVGRt0qMXMWmstrPmP18CQ1STX5Ap/vSZBHO6Uvy9hEspnp6qUdfbslmMQAHrPX9nDdYeck/x/6ImuJkEeB8wrIUy3l+6Fo=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=qzrSU6F51VUS8IVrczy9Q/DVSlabFI0ne4m7RTJg/xI=;
+	b=QJLg0ZI4igKUmliJjJ1pxib9C3d05ZaxHoUQjNvPZGhbSA/aX/XPhNLTJ2kJ5gu1g5ZQ3XTIqnAOpgeo5y7VVUzeU0Xq6Bv475HWFF8sTLzKkqqowx3NeiZVNtQhUc1593lcvuS3Fga2CHFHxJr8TxZz6XMFPAjeRHwOhyWyEik=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=FSnd82QhzgsTc9VLihugRZhMWxwKpTg7Bj65m7IRRDM=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_055404_037323_1FE93CA9 
-X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-CacheID: sfid-20260525_055403_194293_20C27F60 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,16 +96,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Acquire and enable the HCLK_VO1 bus clock explicitly for RK3588
-eDP controller to guarantee register and datapath access.
+Add the required HCLK_VO1 bus clock to RK3588 eDP1 node with
+corresponding clock-name "hclk". This clock is necessary for
+the eDP controller to access video output GRF and work properly.
 
-The clock was previously enabled implicitly via rockchip,vo-grf
-phandle reference, which relies on side effect and is fragile.
+Previously the clock was enabled implicitly via GRF phandle
+reference. Add it explicitly now to align with updated binding.
 
-Fetch optional "hclk" clock in driver to align with updated device
-tree binding and keep consistent with hardware clock dependency.
-
-Fixes: 729f8eefdcad ("drm/rockchip: analogix_dp: Add support for RK3588")
+Fixes: a481bb0b1ad9 ("arm64: dts: rockchip: Add eDP1 dt node for rk3588")
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
 ---
@@ -113,33 +111,24 @@ Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 Changes in v4:
 - Modify the commit msg.
 ---
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index 06072efd7fca..d2af5eb29dbb 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -311,6 +311,7 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
- {
- 	struct device *dev = dp->dev;
- 	struct device_node *np = dev->of_node;
-+	struct clk *clk;
- 
- 	dp->grf = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
- 	if (IS_ERR(dp->grf))
-@@ -327,6 +328,11 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
- 		return dev_err_probe(dev, PTR_ERR(dp->pclk),
- 				     "failed to get pclk property\n");
- 
-+	clk = devm_clk_get_optional_enabled(dev, "hclk");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk),
-+				     "failed to get hclk property\n");
-+
- 	dp->rst = devm_reset_control_get(dev, "dp");
- 	if (IS_ERR(dp->rst))
- 		return dev_err_probe(dev, PTR_ERR(dp->rst),
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index a2640014ee04..b251bb129cdb 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -285,8 +285,8 @@ hdmi1_out: port@1 {
+ 	edp1: edp@fded0000 {
+ 		compatible = "rockchip,rk3588-edp";
+ 		reg = <0x0 0xfded0000 0x0 0x1000>;
+-		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>;
+-		clock-names = "dp", "pclk";
++		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>, <&cru HCLK_VO1>;
++		clock-names = "dp", "pclk", "hclk";
+ 		interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH 0>;
+ 		phys = <&hdptxphy1>;
+ 		phy-names = "dp";
 -- 
 2.34.1
 
