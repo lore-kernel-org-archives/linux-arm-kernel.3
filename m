@@ -4,124 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518FACD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 20:41:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F79CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 20:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MBJsUqMsmY6sO8fKyJ76sXPhRp2+pyP3YbMNyyk3aGg=; b=iZZF2J/sxDvYrKBtXaT0MvPsvP
-	ioF4039WeAYKkNtoiyXrgLLQty8HBcC583KysyQvjUlePCCtE749Tm21jHo6yMO/eoQxyAMvQkekr
-	SpEmpa4yMczvgcKgRnZpGSEwXrV6uUOR7fRBwkC6MwSDib840V68eIpD5wt2IZyE/MCzN4rMPK5fa
-	7OKlGQmApXSD0ecb7iqdo+C/CA7WsHSsh/R0Vgp3e6CbeBGPjAQAy3DU86Juce12h8AZ1kCaj93s1
-	bchoiV1Y/Vlc1ZVKsc5rIwcfke5gRGJSgM/aIwFaqD/LPggOsKTzfk6UfTqvhQ7u4kTJZorkGj4eR
-	J52+vQWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qTZQl07DZ3orwMJ1zWD5Kp5YJ4qWGG3RQzOnMKdff7I=; b=xPTOaSEEcoq6Wi
+	P5nRvI8WyWFZTPndvdYNi2M3aVY7Zcn1y8PyWNJKJtwI7IDVY0Z60yorsIi5f0Hv3niY6Jo6yvbRt
+	CL59Co3KvX+OAxbQ894BClDkcxlhuFZsCzyR/0dA9BZuCgaP5teX9gJWfZ3QFOh3rD1tJi92yKyAP
+	6JlZvtoYO0Y7X0LvFT7lOk6OEtUZDhLjaLUx4RXBL+pO0aqpk2Wf/qc1KS9iFSHXiuYYmNj/owO3T
+	s/xnbxl4gHG6018JVXEKoRVP/PPcjFJb6tNYWOwpb3O7lla5S+JhfmUbOP+xkiebG8ltualcNvrKn
+	m+Qae2c14fOniiFo4fzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRc6d-00000000Qys-3AgR;
-	Mon, 25 May 2026 20:40:59 +0000
-Received: from mail-eastusazon11012062.outbound.protection.outlook.com ([52.101.53.62] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1wRc9q-00000000RHh-0W0s;
+	Mon, 25 May 2026 20:44:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRc6b-00000000QyN-2E9g
+	id 1wRc9p-00000000RHW-16jc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 20:40:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hhsXx1XV0HC0kZd0jo4U0Aa5zNXMk+u0a6fXaYC5/OtG6eiFBgoZiH3yBkxroFwFO6P78h/HUbYp1I5MnUQMT/5tbJCOZLiZLpqUrORjTBZ7PjujuakKLJqhOWUmTv29X8VAAmNhNIU2j9oeOj2+gJeePf9yVxdOx5MXsNQTfbp2L4vxRG7QwDZsn44hKY2YoN5N0U7pmiqDWkEX+DYikcAEgC42miBQFBFe1JQehjYztLtOJGvXOVV6KOlT3KNSqX89hCYJXbCtIEkXEhTppVFwZdHw+3Rg4TBkk+UWCrSiwQPbuy582VC89lDVCzWOxAN5tYMzUgT+VvA/HGUJSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MBJsUqMsmY6sO8fKyJ76sXPhRp2+pyP3YbMNyyk3aGg=;
- b=iGT75zsF6TnqKUhAKDjthQ5O9UH5GeCGhXLNZQyPMhO9JE2mJdUy24z6f4eVk4glwjoGvHJxleFZ2lIVVnXi8uevkH1vhnagB+epWSDSHksaVsCaPtvtLoIYDgEfXsAeoQORFiHcRUkuOdu+FOEPCBRopXUoN8mJeGjTBgU3YlKWMcMv/QzcJwpzKyxNTu6fGaZv1BdA0j7GHa55rrcUadyVPA2kIMJMjOyPKAO8NeGkuqtbYZXATfaDhmujRePHOoroArDl0KTZK6CeUEvu2Y53RnqEEt6cM1HvxjxEQQy2FahtThvFiaTNmN8dREgkpffqrVPUqpxLD9I6vEYwag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MBJsUqMsmY6sO8fKyJ76sXPhRp2+pyP3YbMNyyk3aGg=;
- b=Fk76d8oURu/q7l6x/D/SttgeTShyB1G9K3QY0vInAICuGSj/YhAeU1v/OAQUcOBtHSn+Nxqs4HwcXk2ottEkr4tocN4XqjTd81fyfUGdVKhruu988rXJQ2qX9ygUmzoNt+dhVbgWFU1APvaAFL/l0T6yamGz9Im4MhkMyWuLmwrCVDmcIohvV6JmJzw1DlqLmJcvT/5QdHjdSqje2gD/BC05BeH0q9UglIA0xCYjFOwWvM84Jg/wu3WHuw1LazLvJf61CJn/pYvEElFJyYd+Ny7AjQCT+XsdLPkRmrihbVO14aCDI1Yw2ao3Vhe0Qstg/Bsa33nav/kcyR3zZ8ajhQ==
-Received: from CY5PR19CA0103.namprd19.prod.outlook.com (2603:10b6:930:83::17)
- by DS7PR12MB8250.namprd12.prod.outlook.com (2603:10b6:8:db::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Mon, 25 May
- 2026 20:40:30 +0000
-Received: from CH2PEPF0000014A.namprd02.prod.outlook.com
- (2603:10b6:930:83:cafe::ac) by CY5PR19CA0103.outlook.office365.com
- (2603:10b6:930:83::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.48.20 via Frontend Transport; Mon, 25
- May 2026 20:40:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH2PEPF0000014A.mail.protection.outlook.com (10.167.244.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Mon, 25 May 2026 20:40:30 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 25 May
- 2026 13:40:12 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 25 May
- 2026 13:40:12 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.10)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 25 May 2026 13:40:11 -0700
-Date: Mon, 25 May 2026 13:40:09 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <iommu@lists.linux.dev>, <linux-pci@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"Joerg Roedel" <joro@8bytes.org>, Will Deacon <will@kernel.org>, Bjorn
- Helgaas <bhelgaas@google.com>, David Woodhouse <dwmw2@infradead.org>, Lu
- Baolu <baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>,
-	"Suravee Suthikulpanit" <suravee.suthikulpanit@amd.com>, Jason Gunthorpe
-	<jgg@ziepe.ca>, David Matlack <dmatlack@google.com>, Samiullah Khawaja
-	<skhawaja@google.com>, Daniel Mentz <danielmentz@google.com>, Pasha Tatashin
-	<pasha.tatashin@soleen.com>, Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 3/5] iommu/arm-smmu-v3: Fix ATS state tracking
-Message-ID: <ahSzqdoDb8SjIJo9@Asurada-Nvidia>
-References: <20260525184347.4059549-1-praan@google.com>
- <20260525184347.4059549-4-praan@google.com>
- <ahSrkOv+4QZWrcJq@Asurada-Nvidia>
- <ahSxWoWd5hFvKE_R@google.com>
+	Mon, 25 May 2026 20:44:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5D43760018;
+	Mon, 25 May 2026 20:44:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 595781F000E9;
+	Mon, 25 May 2026 20:44:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779741856;
+	bh=qTZQl07DZ3orwMJ1zWD5Kp5YJ4qWGG3RQzOnMKdff7I=;
+	h=From:Subject:Date:To:Cc;
+	b=HzTpAAvxlET8eKMq2IaYwxyIxtDV6mbM6PQk+wp8fD+mLXqvnuhOEwSTlIhBOZf44
+	 q6qh8aAApgQ9W1DA6N6EA/wg9cAFt5p366duLrBIEBzDNzUMpgeJtIZ+p8kKd0Nb/n
+	 gp79eqDJG0Eq2kx44tK/XKUyr9tFLlzpDOtUXXWP59a93utMc9zcN9EIThxWeGGUUG
+	 zh8DScqSOnxauPlTlv3teiZTA5sl3PIqaeNRFaHTfe3urfRQMDY2+H6ICixjV2MbCl
+	 rKTm+AxIn4w8WlU9w4W4V5Gd/jqSfqMI+oj7iDFBsnuGz4C5hi/lPgGB6nI9eDXI5e
+	 DSCpyjAnUHfbQ==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v2 0/9] firmware: arm_scmi: Refactoring and enablement of
+ ACPI PCC transport
+Date: Mon, 25 May 2026 21:42:38 +0100
+Message-Id: <20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <ahSxWoWd5hFvKE_R@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000014A:EE_|DS7PR12MB8250:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32a96079-01a9-416d-e422-08deba9ddc8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700016|82310400026|22082099003|56012099003|11063799006|4143699003|18002099003;
-X-Microsoft-Antispam-Message-Info: HWAqvtqQKxljJO9TLSeeWnDTstKrSJwyas9lOuHyuCIKt75EqCi+jnCovG9RFeI5qypiLJ4vHwUSqzGPSXnppvmUlMCGF0XnxGLhKLoiMSDJfGfLouKnrqHx4ZhJYaFAPZs6js3A78jpPdXRV4wYAWPGbmLUFvroc+aaCuxxRiOCh+TsmaG6dDalrTWEBqE9zNSmmmLHbw+Rl1dblW37lTHWCaYrLYdrvJwYN0I66Izw3KquQVKPFiXX+OyWgvsi8Ov05HDeVLeXAh1jSp6cQuS/+ZVQV8p5qyofQHiHB3E6+Tp/vOYKeXDcSMnaVtVtF4/2PJFSV0AZh8lpaXNDey52e3YRk7BKcwD0hz7mF2qkdv8UhSNFFHo4ToeZ9v8+0UZyJd2JRwOZ9LHTPO9jGYDdH8DsnrX5v4uP+zRcwZn7BTXXibkyOFzB5Dfou/YBtRWpQRD+LraNNNTMm6DEHMBrSgepD6BgKIANrIWXUDEOaBil5wgLwPTa49f/r3ZAafUOyvYEAP9K4V8RICqwHZdWl9zJDQHMkLnUDAQOMwqXqVtaL44ICJsnzUTsM2RONu2OYqlfd170paO7c/mI6/rLY9TAzMJWIwQB2PakP/ZwogvQhef5dFw1UO+QlAqB1I9lnpeDLTkhi1hQlpe9TMpUO8zYKhCgcZ6qoNpAjShN217uibR9KmFw/VCIxujgofS9J/byEshQw7ENECJDcdWQt2lf5J6CYEImNnzzD0o=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700016)(82310400026)(22082099003)(56012099003)(11063799006)(4143699003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 6P3rMGuZAfD7qfEJ/5taIsfNb5TJFFYC6PVwetkSQQydyolPJGINcK0P3mcIkVbrIZETTmpIa2P6lew6Z0C13qlx/2VW+aCQ7YQvo06USkXQp6bH5d8itz57mzDYWMIjfqJ3fl8FUsE87SUyhIErRzVX2FIn73vE0aCUZPB9E+ulN0vzaJKiPiD4KuZbpF7T20SbJ4xOxGFFgMYwqIuXK9o5bpiblBic/Z4J5kTATbULqkZ1nWIZPoXz786DimKiqDddPxsJS54TYJPhYtdYi90cjZA/MwbrkT/T19CunFbNy7lHbNVwy4S3N3m/94yCSLtogE/7O7xTs2hvp1MI45mOIhFmsRQG70txP2uONWdRcoChFetvYwWWOcLX8UnyZ71lCZbn2Nv+bu+wIgziL05PnjZqE5ZwCjss/hJWTxotvAMOWi8SmR2u8vtbx3HY
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 20:40:30.4302
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32a96079-01a9-416d-e422-08deba9ddc8a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000014A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8250
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_134057_708338_56902277 
-X-CRM114-Status: GOOD (  10.27  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAES0FGoC/3XMywrCMBCF4VcpszaSSyXUle8hpUyT0c4iTUkkK
+ CXvbuze5X/gfDtkSkwZrt0OiQpnjmsLferALbg+SbBvDVrqi5LKCnQbT9kFnjbnBPU9KW0MIRl
+ ony3Rg9+Hdx9bL5xfMX0Ovqjf+k8qSkgh0c84WysHP9wwhbOLAcZa6xfia7ciqAAAAA==
+X-Change-ID: 20251017-acpi_scmi_pcc-e44e1233eae3
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Sudeep Holla <sudeep.holla@kernel.org>, 
+ Cristian Marussi <cristian.marussi@arm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,15 +72,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 25, 2026 at 08:30:18PM +0000, Pranjal Shrivastava wrote:
-> On Mon, May 25, 2026 at 01:05:36PM -0700, Nicolin Chen wrote:
-> > On Mon, May 25, 2026 at 06:43:45PM +0000, Pranjal Shrivastava wrote:
-> >  - pci_prepare_ats() covers pci_ats_supported().
-> 
-> the idea was to call prepare only if ATS was
-> supported [1] i.e. not penalise non-ATS callers of pci_prepare_ats. But
+The SCMI can be utilized in systems using either the FDT or ACPI specification.
+While FDT-based systems can natively use SCMI, ACPI-based systems often
+need to abstract the functionality provided by SCMI under ASL methods.
+So far, there has been no need to support SCMI natively on ACPI systems.
 
-Yea. I realized that it is slightly different after I replied.
+However, with the addition of a few new protocols such as Powercap and Telemetry,
+which lack abstractions in the ACPI specification, there is now a need to
+run SCMI natively for those use cases. ACPI for System Control and Management
+Interface document[1] provides a mechanism which allows ACPI-based systems to
+discover whether a platform supports SCMI and to natively use SCMI for
+selected/limited subset of SCMI protocols.
 
-Nicolin
+This patch series introduces ACPI PCC transport support for the Arm SCMI
+framework, alongside several foundational refactors and enhancements to
+achieve firmware-node neutrality between Device Tree (DT) and ACPI systems.
+
+The key changes include:
+
+1. ACPI/DT abstraction and fwnode transition
+
+   Converted the core SCMI code to use `fwnode_handle` instead of DT-specific
+   structures, ensuring seamless operation across both ACPI and DT
+   environments. All property lookups, child enumeration, and device
+   association paths have been updated accordingly.
+
+2. Unified transport registration for ACPI and DT
+
+   Extended the SCMI transport driver macros to support ACPI match tables,
+   enabling transports to probe using ACPI device IDs while maintaining
+   backward compatibility with DT-only systems.
+
+3. Protocol device initialization and refactoring
+
+   Refactored the protocol device creation and validation logic into a new
+   helper for improved readability and maintainability. Enhanced the
+   initialization logic to handle ACPI-based SCMI devices without explicit
+   child fwnodes.
+
+4. Introduction of ACPI PCC transport
+
+   Added a new SCMI transport driver leveraging ACPI PCCT (Platform
+   Communications Channel Table) subspaces via the Linux PCC mailbox
+   framework. This enables SCMI communication over PCC on ACPI-based
+   platforms.
+
+Collectively, these changes lay the groundwork for robust SCMI operation on
+ACPI platforms, achieving near parity with DT systems where applicable,
+while enabling the new PCC transport path for firmware communication.
+
+Note: SCMI will not be run natively for all existing protocols other
+than Powercap and Telemetry, as they must continue to use ACPI abstractions.
+
+[1] https://developer.arm.com/documentation/111115/latest
+
+-->8
+
+Device (SCM0) {
+  Name(_HID, "ARML0001")
+  Name (_UID, 0)
+  Name (_DSD, Package () {
+    ToUUID("84a2d1c6-86b6-4199-8dac-9c17449d5e03"),  // SCMI Properties UUID
+      Package () {
+        Package(2) {
+          "arm-arml0001-transport-pcc", // Key
+          Package () {               // Value
+              1,                     // Revision
+              3,                     // Count
+              Package(){4, 0, 1},    // PCCT Idx, TransportUID, A2P Common
+              Package(){7, 1, 0},    // PCCT Idx, TransportUID, A2P Exclusive
+              Package(){9, 2, 2}     // PCCT Idx, TransportUID, P2A Exclusive
+          } // Value
+        },
+        Package(2) {
+          "arm-arml0001-protocol-pcap",   // Key
+          Package () {                // Value
+             1,                       // Revision
+             Package() {              // Protocol Exclusive Transport Package
+                                      // Empty; A2P Common
+             },
+             Package() {}             // Protocol Association Package
+          } // Value
+        },
+        Package(2) {
+          "arm-arml0001-protocol-telemetry", // Key
+          Package () {                // Value
+            1,                        // Revision
+            Package() {               // Protocol Exclusive Transport Package
+              Package (2) {1, 0},     // UID=1; Flags=0; A2P Exclusive
+              Package (2) {2, 0}      // UID=2; Flags=0; P2A Exclusive
+            },
+            Package() {}              // Protocol Association Package
+          } // Value
+        },
+      } // Device Properties
+    }) // _DSD
+} // SCM0
+
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+Changes in v2:
+    - Fixed SCMI fwnode lifetime handling by taking a reference when
+      assigning protocol device fwnodes and releasing it from the device
+      release path.
+    - Reworked ACPI PCC _DSD parsing to validate package types,
+      revisions, counts, UID ranges, flags, duplicate UIDs, and channel
+      mappings.
+    - Parse the SCMI ACPI _DSD UUID package directly as we moved to SCMI
+      specific UUID from the generic device properties UUID and reject
+      malformed or unsupported protocol association data.
+    - Tightened PCC channel selection so each protocol gets at most one Tx
+      and one Rx channel, with exactly one common A2P channel and at most
+      one common P2A channel.
+    - Only set the PCC interrupt-enable flag when the mailbox channel has a
+      txdone IRQ.
+    - Added the SCMI Telemetry protocol ID(Temporary to get the build
+      working, must come from Cristian's Telemetry support patched)
+    - Link to v1: https://patch.msgid.link/20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com
+
+---
+Sudeep Holla (9):
+      firmware: arm_scmi: Fix OF node reference handling
+      firmware: arm_scmi: Set fwnode for the generated SCMI platform device
+      firmware: arm_scmi: Extend transport driver macro to support ACPI
+      firmware: arm_scmi: Convert OF-only paths to generic fwnode in SCMI core
+      firmware: arm_scmi: Fall back to ACPI HID when "compatible" is absent
+      firmware: arm_scmi: Pass protocol ID to chan_available() transport callback
+      firmware: arm_scmi: Refactor protocol device creation logic
+      firmware: arm_scmi: transport: Add ACPI PCC transport
+      firmware: arm_scmi: Initialise all protocol devices and transport channels
+
+ drivers/firmware/arm_scmi/bus.c                |  36 +-
+ drivers/firmware/arm_scmi/common.h             |  36 +-
+ drivers/firmware/arm_scmi/driver.c             | 183 ++++----
+ drivers/firmware/arm_scmi/transports/Kconfig   |  12 +
+ drivers/firmware/arm_scmi/transports/Makefile  |   2 +
+ drivers/firmware/arm_scmi/transports/mailbox.c |   7 +-
+ drivers/firmware/arm_scmi/transports/optee.c   |   7 +-
+ drivers/firmware/arm_scmi/transports/pcc.c     | 593 +++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/transports/smc.c     |  12 +-
+ drivers/firmware/arm_scmi/transports/virtio.c  |   3 +-
+ include/linux/scmi_protocol.h                  |   1 +
+ 11 files changed, 785 insertions(+), 107 deletions(-)
+---
+base-commit: e7ae89a0c97ce2b68b0983cd01eda67cf373517d
+change-id: 20251017-acpi_scmi_pcc-e44e1233eae3
+
+
+-- 
+Regards,
+Sudeep
+
 
