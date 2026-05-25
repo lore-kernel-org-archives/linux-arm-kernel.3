@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7DD7CD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC34CD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:22:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iic8eH/ZjacAbCYnZDsN1M7HxjET5lpUzehxwlD86N0=; b=d56Fma10R8Ohy5ZRSrGX+sh+Oe
-	/aC9B6n1a0Zt6/TXtjwCf2BAtgBnN/ADFQlxt/9ymYfJsdV+YVWa6C5iielCekS71lwJGVF36MtVb
-	ighxXsYnvqyqE6jYOMpzgRbZbdV3c4DgEMfpsybQSt8olbXTeDK5KFnfH1CTkGY4qE85M9GT5jL1Z
-	T9YRcuU/Dsn2VQNcBwxL5P9KWorynpqR3b9xElZviO8PCEJKK1B5mNziOV50LoqoQWvF47y6NjW/m
-	cTYiudqtv3bRIFVznakn3XLQrQwm4ovfciYkqQ4+RIQU2Bkzaktebw8Skjgh7LNsqjRg+b1Fi9e/b
-	+I/CEhSw==;
+	bh=jlAGElbDSwYe7W4fp2ll8Crxv83yKatGQRMqBajZFqM=; b=QTfBTwF57yBrH/kPh84zYNcwBd
+	Sb3Ge+N5wtCYXgzEb1okYRg1PYNIGfDuCI2wQx5aTRFrDp97R6dOQ4pMfYZSbCrt/VQ36bwpD1QnF
+	qIAcELFPcl7KTHPd1yrf2rJuS0s/EPUBHObCf+Yn1lhcrtmTzGeVqyyKZHPYjdS9PYLcfevG5YUuh
+	AOP/WqcOIl/51nKkYB/yiOgvJVXucAFykLex/UaDeXWWW1qHS2Msr4+ua5G99B4vlPAb/gc9Vcjdx
+	S4gbxC5YIGEfiI+0slOWRJpE2SIRergwbwdaelPtykAMsDN4h0ZdEEjKmxIleFqHo3UnE9wLSs+Y+
+	6ZUdWIcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQYw-0000000GdF1-46Ch;
-	Mon, 25 May 2026 08:21:26 +0000
-Received: from mail-m82211.xmail.ntesmail.com ([156.224.82.211])
+	id 1wRQWc-0000000GcRA-2f3m;
+	Mon, 25 May 2026 08:19:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQYZ-0000000Gcmj-1YnE;
-	Mon, 25 May 2026 08:21:05 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 3fb20c07a;
-	Mon, 25 May 2026 16:20:55 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v7 08/10] drm/bridge: analogix_dp: Rename and simplify is_rockchip()
-Date: Mon, 25 May 2026 16:20:31 +0800
-Message-Id: <20260525082033.117569-9-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260525082033.117569-1-damon.ding@rock-chips.com>
-References: <20260525082033.117569-1-damon.ding@rock-chips.com>
+	id 1wRQWZ-0000000GcQe-3rXE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 May 2026 08:19:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B05E4443A
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:18:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10BA81F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:18:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779697139;
+	bh=jlAGElbDSwYe7W4fp2ll8Crxv83yKatGQRMqBajZFqM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=hwlIToctPXfIR8I3xZlJ13Dv4JVXLxahZ1KqVhToxy7LlLg/ZxSDracBNqedJpogD
+	 CZrr2XBw/H9RQK79gntcxg5ju3k/468DHEhk8jA8eE26pWbIpGtwVKXHZsBYLRpeRm
+	 /t6xx0PsnVd76G5RqOax3sDUFqGlmG/vGBbcP/oozPwbV8RTF5v9eg6o9PiR1MjIrO
+	 EF47kpoL4Uvpc6YvqlYH/k9S6PGVFNi+AAAQ3p/m0oJb5sEYabOTC/p+QTSzAPUP9/
+	 p+oS8HLUdVtXaXHCl8UQMAF+nKVMCfpqDsdOpT8eTFUprFrt1KmqD8S3EADqBZZbQG
+	 u4slrJU2/WAyg==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39378db197aso96285301fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 01:18:58 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yz7aaTBtVngckI1tv1fYV29Z/JDHSv1dc9gLqSrFYvI0rhXuLII
+	B43G65RkNTrHPwGvJiSvAoDoYOguonplWFzdy/NV+aFjeavfvZFwE65x11HRlq6cdHx32XKJ9oh
+	ZagK1HvnGXjeZyUHo2Mvnkdzhk8HK+ts=
+X-Received: by 2002:a05:6512:1243:b0:5aa:116c:4127 with SMTP id
+ 2adb3069b0e04-5aa323a9065mr4487621e87.41.1779697137800; Mon, 25 May 2026
+ 01:18:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9e5e39056903a3kunmb64b982110267f
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaQ08eVhgdSR0eTx8ZS0gfTVYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
-	pKQk1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=kvNw+nUMvrS3BfyoFBr4tR/0q3If9m7sY+q8LnTFQ24B8Eru1pjzjd4bRJKbRPzmkjlHA9oIsktTNU+NtA0vUoeo/9gB22GZ8vPGLEe0Zp7hf66FUjUZimxPsqK/bkkXOZtNv0lEarZSwaak0Hukbv/MCrWmyUiEYfamD4mcReA=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=Iic8eH/ZjacAbCYnZDsN1M7HxjET5lpUzehxwlD86N0=;
-	h=date:mime-version:subject:message-id:from;
+References: <20260518014920.135011-1-enelsonmoore@gmail.com>
+In-Reply-To: <20260518014920.135011-1-enelsonmoore@gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 25 May 2026 10:18:45 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=0qYGoygUwGEXQL7C_ROnC7kfpRv8RA+H5tNWwYu+pQA@mail.gmail.com>
+X-Gm-Features: AVHnY4L3wfMFUnjNE8lm9cvN091uSgyxKr6Hy7t4eK0YNSLwuts2rYxfVsneK30
+Message-ID: <CAD++jL=0qYGoygUwGEXQL7C_ROnC7kfpRv8RA+H5tNWwYu+pQA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: disable broken eBPF JIT on the Risc PC
+To: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	stable@vger.kernel.org, Russell King <linux@armlinux.org.uk>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Arnd Bergmann <arnd@arndb.de>, Kees Cook <kees@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Thomas Weissschuh <thomas.weissschuh@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Shubham Bansal <illusionist.neo@gmail.com>, 
+	"David S. Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_012103_716235_D5299CB4 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20260525_011859_985816_45D02A4C 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,148 +85,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename inline helper is_rockchip() to analogix_dp_is_rockchip()
-to follow driver namespace convention consistently across code.
+On Mon, May 18, 2026 at 3:49=E2=80=AFAM Ethan Nelson-Moore
+<enelsonmoore@gmail.com> wrote:
 
-Replace chained equality comparisons with switch-case layout
-to improve readability and simplify adding new SoC entries later.
+> The eBPF JIT unconditionally generates ldrh/strh instructions, which do
+> not function correctly on the Risc PC because its bus is unable to
+> signal half-word accesses. Work around this issue by disabling the eBPF
+> JIT when building for ARMv3 (the Risc PC is the only currently
+> supported ARMv3 machine).
+>
+> Fixes: 39c13c204bb1 ("arm: eBPF JIT compiler")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Suggested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Looks correct to me.
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
----
+Please put this into Russell's patch tracker!
 
-Changes in v3:
-- Add Reviewed-by tag.
-
-Changes in v4:
-- Modify the commit msg.
----
- .../gpu/drm/bridge/analogix/analogix_dp_core.c |  2 +-
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c  | 18 +++++++++---------
- include/drm/bridge/analogix_dp.h               | 11 +++++++++--
- 3 files changed, 19 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 573900c2cefc..c2fd5b978fc0 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -870,7 +870,7 @@ static int analogix_dp_bridge_atomic_check(struct drm_bridge *bridge,
- 	struct drm_display_info *di = &conn_state->connector->display_info;
- 	u32 mask = BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR444) | BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR422);
- 
--	if (is_rockchip(dp->plat_data->dev_type)) {
-+	if (analogix_dp_is_rockchip(dp->plat_data->dev_type)) {
- 		if ((di->color_formats & mask)) {
- 			DRM_DEBUG_KMS("Swapping display color format from YUV to RGB\n");
- 			di->color_formats &= ~mask;
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-index f84c1d48d671..ea8401293a23 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
-@@ -72,7 +72,7 @@ void analogix_dp_init_analog_param(struct analogix_dp_device *dp)
- 	reg = SEL_24M | TX_DVDD_BIT_1_0625V;
- 	writel(reg, dp->reg_base + ANALOGIX_DP_ANALOG_CTL_2);
- 
--	if (dp->plat_data && is_rockchip(dp->plat_data->dev_type)) {
-+	if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type)) {
- 		reg = REF_CLK_24M;
- 		if (dp->plat_data->dev_type == RK3288_DP)
- 			reg ^= REF_CLK_MASK;
-@@ -123,7 +123,7 @@ void analogix_dp_reset(struct analogix_dp_device *dp)
- 	analogix_dp_stop_video(dp);
- 	analogix_dp_enable_video_mute(dp, 0);
- 
--	if (dp->plat_data && is_rockchip(dp->plat_data->dev_type))
-+	if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type))
- 		reg = RK_VID_CAP_FUNC_EN_N | RK_VID_FIFO_FUNC_EN_N |
- 			SW_FUNC_EN_N;
- 	else
-@@ -233,7 +233,7 @@ void analogix_dp_set_pll_power_down(struct analogix_dp_device *dp, bool enable)
- 	u32 mask = DP_PLL_PD;
- 	u32 pd_addr = ANALOGIX_DP_PLL_CTL;
- 
--	if (dp->plat_data && is_rockchip(dp->plat_data->dev_type)) {
-+	if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type)) {
- 		pd_addr = ANALOGIX_DP_PD;
- 		mask = RK_PLL_PD;
- 	}
-@@ -254,12 +254,12 @@ void analogix_dp_set_analog_power_down(struct analogix_dp_device *dp,
- 	u32 phy_pd_addr = ANALOGIX_DP_PHY_PD;
- 	u32 mask;
- 
--	if (dp->plat_data && is_rockchip(dp->plat_data->dev_type))
-+	if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type))
- 		phy_pd_addr = ANALOGIX_DP_PD;
- 
- 	switch (block) {
- 	case AUX_BLOCK:
--		if (dp->plat_data && is_rockchip(dp->plat_data->dev_type))
-+		if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type))
- 			mask = RK_AUX_PD;
- 		else
- 			mask = AUX_PD;
-@@ -317,7 +317,7 @@ void analogix_dp_set_analog_power_down(struct analogix_dp_device *dp,
- 		 * to power off everything instead of DP_PHY_PD in
- 		 * Rockchip
- 		 */
--		if (dp->plat_data && is_rockchip(dp->plat_data->dev_type))
-+		if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type))
- 			mask = DP_INC_BG;
- 		else
- 			mask = DP_PHY_PD;
-@@ -329,7 +329,7 @@ void analogix_dp_set_analog_power_down(struct analogix_dp_device *dp,
- 			reg &= ~mask;
- 
- 		writel(reg, dp->reg_base + phy_pd_addr);
--		if (dp->plat_data && is_rockchip(dp->plat_data->dev_type))
-+		if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type))
- 			usleep_range(10, 15);
- 		break;
- 	case POWER_ALL:
-@@ -465,7 +465,7 @@ void analogix_dp_init_aux(struct analogix_dp_device *dp)
- 	analogix_dp_reset_aux(dp);
- 
- 	/* AUX_BIT_PERIOD_EXPECTED_DELAY doesn't apply to Rockchip IP */
--	if (dp->plat_data && is_rockchip(dp->plat_data->dev_type))
-+	if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type))
- 		reg = 0;
- 	else
- 		reg = AUX_BIT_PERIOD_EXPECTED_DELAY(3);
-@@ -837,7 +837,7 @@ void analogix_dp_config_video_slave_mode(struct analogix_dp_device *dp)
- 	u32 reg;
- 
- 	reg = readl(dp->reg_base + ANALOGIX_DP_FUNC_EN_1);
--	if (dp->plat_data && is_rockchip(dp->plat_data->dev_type)) {
-+	if (dp->plat_data && analogix_dp_is_rockchip(dp->plat_data->dev_type)) {
- 		reg &= ~(RK_VID_CAP_FUNC_EN_N | RK_VID_FIFO_FUNC_EN_N);
- 	} else {
- 		reg &= ~(MASTER_VID_FUNC_EN_N | SLAVE_VID_FUNC_EN_N);
-diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analogix_dp.h
-index 854af692229b..7b670dd769e9 100644
---- a/include/drm/bridge/analogix_dp.h
-+++ b/include/drm/bridge/analogix_dp.h
-@@ -19,9 +19,16 @@ enum analogix_dp_devtype {
- 	RK3588_EDP,
- };
- 
--static inline bool is_rockchip(enum analogix_dp_devtype type)
-+static inline bool analogix_dp_is_rockchip(enum analogix_dp_devtype type)
- {
--	return type == RK3288_DP || type == RK3399_EDP || type == RK3588_EDP;
-+	switch (type) {
-+	case RK3288_DP:
-+	case RK3399_EDP:
-+	case RK3588_EDP:
-+		return true;
-+	default:
-+		return false;
-+	}
- }
- 
- struct analogix_dp_plat_data {
--- 
-2.34.1
-
+Yours,
+Linus Walleij
 
