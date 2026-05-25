@@ -4,84 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90CD3CD5BAB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 02:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56003CD4F54
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 03:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xaqNcv4CXQk4smv0jZmLI0c3iL1j6I7cH/uwpHLe1Gk=; b=jazbX3cjFs8RE/LePzBePKVZ05
-	QpIWfPRFSmJGXSOpLsqg5EQvR4Qa+nQyBY9kILfDifWDfcCUXLktNScNy6pfq04mQnCfIUKD2+LJl
-	rDqjc2LarMMuIrWAQ9MVM+EdEGS5MhaQ4RDn0bbnFroF3ciXSxgelgSNz6s4xHD52YZYV0SILvG/E
-	rBz1vsBDycdv3IrAsAkIlObz7YGaoJWZDJUkCxvndg29zqHQohzvmw49eZ+uJJkMcQnORUgkyIQIk
-	+rCWLP3g4QVuI+szbW8KkGQ2aSAE0RL3gvwplHnykpVxQ7pWcpGRRxmru4DdZMlgsws7UczNIssQ1
-	Wc5cz0Lg==;
+	bh=DoPXviqR3T9LCL0W79XbV+zBJwe5FqqHzXWAV5UPg6s=; b=CTMqnmf7D+Afrnq/j4dTsWKEmx
+	wrijJtV3s4izKL28b+vtJ6iM54H8hzrXHQu5i0FiFCvEhmfd2LQG69CTU/AXdGl5M48MQcw0deE5b
+	uizLuCg/J5vRKRPS6/6KLrtTiC3k6MXJxdNcFbhYMokfjqYYO4mDznx/pTmDaQbK9IHhBTwwJMPWB
+	MoEZx7FESJU5YSRb91KkirEhczvPQtWxf+2wskAKTyR0w18dNirvOaNDu2GFFfSQSoT0ZMRzevyLD
+	kY5ieRsUyiM9mCGD+kZiGM2vPgzFoUp/ySH9gSTg/KtQFNwgvgG4A82SV0rLMWdqehJJvSZlM7qCQ
+	zfhIPsDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRLLc-0000000G8gR-0CDp;
-	Mon, 25 May 2026 02:47:20 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1wRLaB-0000000G9sp-1k1y;
+	Mon, 25 May 2026 03:02:23 +0000
+Received: from mail-northeuropeazon11010006.outbound.protection.outlook.com ([52.101.84.6] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRLLY-0000000G8fp-0p9e
+	id 1wRLa8-0000000G9ro-2QlP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 02:47:17 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-8b3fe2f19a4so99672246d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 19:47:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1779677235; x=1780282035; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xaqNcv4CXQk4smv0jZmLI0c3iL1j6I7cH/uwpHLe1Gk=;
-        b=aW9rHzY3aiV8HVkj3DL0OuTUC0CpfiPkWi1r0xQoTP0bR2Ye/HhEJHwnpLBKLSRvTd
-         dxd6iOFY/BWSjbCDTsbzUGL9TSnHQUS8OdW6mQAfP9VEgenAy/dytiHbFwI1OQegdyTG
-         aYpx0Qiuu7GJcvnu7HoGh/ROlMS2h8Ca2+olBRI72JIzZVcOHKjoA4T+uaRsDHhSz13d
-         fI0g9Piu/ssG790kyuwk3G2VdDs8xqVDstpCi2VjQ66nKezjt6ocHdyuGB5iESb0fwjg
-         z7n6XftTn94CLedoCL0VXfT/4RzRyJJQ9bYHip0WP376t2E0E8utG1+MAVW6uexYjj3z
-         8gEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779677235; x=1780282035;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xaqNcv4CXQk4smv0jZmLI0c3iL1j6I7cH/uwpHLe1Gk=;
-        b=DZyowpW6HRYGL8ivr8e3ABHxhN779BRlMJYqEBsSG0h/Eqwv+cbbkE97R/sMIvCaQo
-         n8ov4zxDr21S7PAifyAE8LWA+i27Q17VJ3pZuc1u0jgTJ9vhGZsQxIVHdxcO4i5708PX
-         t9PLpzzDM2TXS/jgtrWz6tuukpjV/AxSzaL5em+LbwJ9dXV9mFEftlC5+eKSoO1PNxGI
-         AOX1wpbDHB8QrKyRoW/Fg5v6GvgvPF3QlA9aI3uDkIDpqX9feq0TtmWNN4xhWJcpytOI
-         J74Y98+eST5Z6ZWBLBlMdOwK9b/VLmq+GEQLr+HEUak24vcRLiKTbBxOGToH3lCLSZvM
-         nJnw==
-X-Gm-Message-State: AOJu0YyUwY7Xv4ADxIkbUWA269o4Z/yi3zRjGx/KpuCQlW9m6ldiJLCf
-	2wW5vfDQdSdF/pBs9ynoJkIL0ebS+Bc3Wc2XR/CHU65gZv4RsyOSZvMuKr5tTWWz4w8=
-X-Gm-Gg: Acq92OGp+7mv8UV1GlB7EQEithcjR4Ho6+xsurzNEpK443B9T3eqk7HkP/fqJdKsVJz
-	fG3L8IldSMG3kSOTIcvNXkutq49o2RWAmsYSE9fjKlRaKHRUthmQUX8MOYgUC+qV/QgcxayP4v2
-	tbtWvZFgjv51DNowHSnjbhBQ6dtToO7rzdqetZFMyLgAxYhAsubbQLCplV0kgcFk5sm3VoMr+GR
-	4WKYvL3D+yX9SCFUaVZ3UEb7Dj3f1loxz74BprF4xCgwSgM/pff8iWUxyTt0eOdF3Yp1s9+u2Gn
-	7HX/NtF8wIptrcvawNKsDwFowS/9MtI2uq3iwEA0gm4jTeUP6I7Dr3O3HnJ02OOpoDdKllISscH
-	cWLJgleh2Nk2hEvZNPNqjko668VP3BKN5EbUHPj+luTY+921mBM+afB3cQhTcafPm4r6b9CJw6o
-	kylF97bbuA/T5e2j1/qCUQ+nRtc4OqVTzoCGue4WQD
-X-Received: by 2002:a05:6214:540e:b0:8b1:f069:3fc9 with SMTP id 6a1803df08f44-8cc7b65a95bmr212981536d6.23.1779677234543;
-        Sun, 24 May 2026 19:47:14 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8cc80df081asm97760136d6.18.2026.05.24.19.47.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 24 May 2026 19:47:14 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: Dinh Nguyen <dinguyen@kernel.org>,
-	Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org,
+	Mon, 25 May 2026 03:02:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fpX/6hcOr2O1yfunYNQpR5HLMDOtPjLFBkUr4qqgI8CWMZQeJMklQ4hqSaviAB14os13fW2BsfC02uQO/hQ534mLDtt9bLFv8rS6hkfn6ORJF9pSRLQkwP1J6Y2rKDDhZpU2VEUcFS4TSy96vB0+aRrD1HYGgz5rryyXfkRkda+mz2j2LnpBRbYsoLUwLyQH08P3qfwkIe57EmC2iPcg87zx6mEnv8fJj37kmqlLg0VV9UwwRUNgFo/HFTJDm24LEErKqEX7OaRucR/tdgX0I4Aenfw27vho9fsYGY1N5WiYGfyzE+STYEL92XSz1xtV2cmd3raus/96SJgr/d8lbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DoPXviqR3T9LCL0W79XbV+zBJwe5FqqHzXWAV5UPg6s=;
+ b=fbJMvX2pPeyp10bw50TjoPMdWpXXP1eEVb4bXKTmQq3j2dupWF8jr9RQXjwD8E9/MIDB3Ir8/uFtj6OLpYcV2Sm7EhdIUChnhqLBPPSrg5j/oXVG1Rgg1YI/VI20V52NUhg2kcWaP2nJUBGJJSITLQ2d1zRMF6fRNQUh8mvkzQwnUBwIN03Y4FjbM8ksMmrOmkdXUXKy9+kgbP06h/Yv5h6//ip86tQF830XO0S9BuJF8V0EKiqYFIUycWKWxyca0OiCw8tFZ1b246N9pAEBUbgf/OYWfYPxohRYlUN4w16sQSVHRiZxmIXq7sIgjDlwxokn7EBj561p7+EIYk4Tpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DoPXviqR3T9LCL0W79XbV+zBJwe5FqqHzXWAV5UPg6s=;
+ b=kAaaUhqTOWRrz1aJzgRX9s8/MdLqQqHxKE3/Scy8pjYKLvCMtXfd37zjXRlBZiEgcFdZGfSCswyosvF/ISAVqU2/8Rguioh5kON0NPXWOf3bX6gak1NqPRkP/UmdCVmDNGkJxil1TH5iYnc+VHAjFSKDE/10XOydkL5XF18YLV/1sq48CpCd7GRDmZXAlvPd5x6xUTM0Bw1B4rKmjaUcCWtmp0ZOnwGmech5TparLyGWDoHmFscaJgds6j/EQ93o2k6gnO1ArLMKYaB+54Fy+/NiAncvcGJLHfcnJjVeMuhrW6558EZLz5LHaSg+e1eAHB34HkngSD7db9g2DOftaA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
+ by AM0PR04MB11878.eurprd04.prod.outlook.com (2603:10a6:20b:6fb::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Mon, 25 May
+ 2026 03:02:09 +0000
+Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
+ ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.016; Mon, 25 May 2026
+ 03:02:09 +0000
+From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
+To: o.rempel@pengutronix.de,
+	kernel@pengutronix.de,
+	andi.shyti@kernel.org,
+	s.hauer@pengutronix.de,
+	festevam@gmail.com,
+	carlos.song@nxp.com,
+	haibo.chen@nxp.com
+Cc: linux-i2c@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v1] ARM: socfpga: Fix OF node refcount leak in SMP setup
-Date: Sun, 24 May 2026 22:47:09 -0400
-Message-ID: <20260525024709.1336252-1-dbgh9129@gmail.com>
+	stable@vger.kernel.org
+Subject: [PATCH v5] i2c: imx: mark I2C adapter when hardware is powered down
+Date: Mon, 25 May 2026 11:04:00 +0800
+Message-ID: <20260525030400.3182911-1-carlos.song@oss.nxp.com>
 X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR06CA0244.apcprd06.prod.outlook.com
+ (2603:1096:4:ac::28) To AM0PR04MB6802.eurprd04.prod.outlook.com
+ (2603:10a6:208:184::17)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|AM0PR04MB11878:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6d75270c-4c4d-4310-4c52-08deba0a026d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|376014|52116014|366016|38350700014|18002099003|56012099003|11063799006|6133799003;
+X-Microsoft-Antispam-Message-Info: o2G2pff74uGZMGzyG4FCQUBXj1jgGdFBJhh7yxYv7eCCDx66+LsN13H+Ld16kKuzQ/HGObLEBsUHvq2YM0HJDbMLCMp4hA74iGCO/nm3jCSsrOw9Mf8t+w0NFZqW5kXD7mLr7wf975FqH2DrmD6Qwyk/qmlFSs9sMCjWNYNawuEqZQttnIrWcHiVwJDmp6p8rCJlkR712amSACqyFhqFqF2W7ji4Vh+w6EnQsxOyHz1oJLAKpVQq+9PNPYynZqzCiq3mTTiPEM5ukXCXFTiG/J0at5lFoeTlzil7QCHgAL5MPwTtf0ZF2mVXiKWNbEeBIUnMKgFGXvU4L0aZ9C5Y2X1JPAxmDN4FsBokiQNWg18WbnZwfOxs02x2qsWVIkkN3lXx4mWda76g5Ll5K71ncq5hSsIVgrHqjkQVaNzb7llFwXhKgQIZPT8U+/bjFh7tikqsgRf9hcT0XgHQ0f3dnT9i21btpYZThonQoQfqxMKpyWwHNkhbaYdNaMUuLCnOsoZbWEZ9BxZG6TvWpMF4nfpGmDdfxwQthK1Q7ltCI5K4fJ5KJ6RQH0xgl5k+tYzqnJQSXegpsWEihJvLcQBUJGSVUGSiHrX0OTAt56RAJk0IsAnlH5kmhE0yZS1KtH809C1BWXds5gsoAY6BGL4a0knBc5kcUZiKQlC14utokuuuo2orXg0oHEz8RepLtuLfSXkPbZ12XQsZC3rURwLUNtbAlFFL4n5VETHX1mVm45Kh1vg2VPl+bJfhMpBxU/cU
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(376014)(52116014)(366016)(38350700014)(18002099003)(56012099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?f4OnT7zgYVrDi8JlYarmA3yp64iP9qn0SQ/MyJ4Vv5sH2AUDkchnVRw89FUe?=
+ =?us-ascii?Q?IdryL4TQcgwbXYII1VSu+iu3KOeg9kxJcGUsSUwcWstDeNKqpMrJ7O6boND0?=
+ =?us-ascii?Q?zlj0b0G+duQuT91C7mGnNxiWo+Gi46Nw43AQqg7mP0rCvakKBPC8cme5NyXe?=
+ =?us-ascii?Q?v5VC8EMVK3JV1delaDhfx5k5YIFGTC6HwWhWGhTRHus/Bw+5mL6BGG0B324w?=
+ =?us-ascii?Q?rIgInpfxfiwcYRqKYvDfsEAKdBobsa5tnhFMfDYAGoq4ST+7piEQTueNSOtR?=
+ =?us-ascii?Q?OvqNQ6lsViB+FTj5QrW0DxpU2Tr9mwwu7Ml+otBVy4cTtAjULLgB1JI1VQQJ?=
+ =?us-ascii?Q?B9v0e8lJbBMiJC2bL1k0Mg0C+weUP3pHkwARH6StnGiRX6Ru7yjKmJx6atb7?=
+ =?us-ascii?Q?+t6m2Zz/UEv8EcKrpa7PHHCMGWxXqsMHdbGN6lbj5T7A1EanrV/7LB0r+Xou?=
+ =?us-ascii?Q?IG4bIctXgOQd5ViH1s++wOS85bSUydRcLgQsWlHpNtw/AsDhJBJm6F7FoBxi?=
+ =?us-ascii?Q?DtBAXZZQr/Q/O29WLwlakHLlx+pt6upQMyLsJzNtxDPOHjbTpJYbNJ1eU7hN?=
+ =?us-ascii?Q?OrLVQKwd+wT2DAFiD/8DwJIed0AoDKTXm/OY+OgfDd/bgjRiGLru17oQcHBN?=
+ =?us-ascii?Q?/LtXHzGZ9GmLK2G9mXyodax7rLi4IkAmNHm2jCPgN9kC6QLDzfIoGsBBvoHD?=
+ =?us-ascii?Q?Q4kcT+CntlYixx10TA2BiWDuhMsGxhtnXKqTiNap/wmVSqnEb7MGAky/UfHO?=
+ =?us-ascii?Q?PMrRqJQ6gp6RhC3wF+LQPsM+iCf2QtqWWcMAFiwEOUYshfiyzPpWC4jKydF8?=
+ =?us-ascii?Q?AKvLyHRe2yOn7RZtH3pvs/iIQs0s4u5IXPIrWFV/4kvx2/UN3TPr84ooAie2?=
+ =?us-ascii?Q?fYgu0Ukak4Baw869A8C6y8QqrfRkvZE3XWokwbGB92YHAExJ7MX7cfR1eV7p?=
+ =?us-ascii?Q?l6x5BIcharpYL7kZaTqUZ+6ZF31vQyMf4BwyXaR+/FBP3kdlkO5hQ25hWHMQ?=
+ =?us-ascii?Q?R7qOdeoK315GE3qIU2W6g2YLmoVz2jB7tBoAgCU0j60LJieG35rgNJ735WT5?=
+ =?us-ascii?Q?RoRn9lHS5+YEUQeCcwB1XKI40veoOmdfkFjh+2mr5We99dmxV3eArOdVBgHd?=
+ =?us-ascii?Q?yPLMBOEKtkitxvWK1XLlfVDo+piYJVAN6BCSDwDvjIMT+W3Mce2cJtXmNi89?=
+ =?us-ascii?Q?LWsxSOZ90c/QFcf+eujHR54Dj0aVIu5DimaYHRmJ6JeOk9/2bQcv2H+MO1T+?=
+ =?us-ascii?Q?7ykRndihBQS6xH8/h9CcAoH0kNHmgj/bUwYSS/y2wQVWqTwsuOah3lyugc7+?=
+ =?us-ascii?Q?1vAFI2YcQYBau02sJz/+8YXnMkmFiPROml2ZVEMu28kvC+HF5dX98e03GRlA?=
+ =?us-ascii?Q?79F7aOaErOb3iQLbs9Eerd0Cslae1fC/Wlv6gLhR0jt9WCzB6HHIWGBSGHA8?=
+ =?us-ascii?Q?SyJDMnTQh1hSjwQyodSlDt0icsiBAyhGMCgjn1REtNfB9KXtG1Z/hKqMf0v0?=
+ =?us-ascii?Q?6Jfle2EvJ31aIB25GiGsSiq9DRu0T0F66OCcRB7BbeCYHjWx4b+wgFuKsGal?=
+ =?us-ascii?Q?4kMS9Zd6i8qKR2knj+OcLRuh3/0Gh2z1oVrEW4mekNrHIXcepqSTVwI7oxzT?=
+ =?us-ascii?Q?6RzAMihZuV3fgPyOr+M66OEITMA++8VNDDixGYnZYFDE/gCSvbztFKBEDnpj?=
+ =?us-ascii?Q?H2xRFBbesdFPf3LxZOWi2KHv7+neA1PezLr1edbtzCIivjU6T0NlScQWdQsS?=
+ =?us-ascii?Q?xvGvkD4Feg=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d75270c-4c4d-4310-4c52-08deba0a026d
+X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 03:02:08.9768
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qT8zYblLCS3CxZuai2fIsBQdV9pfflUd8EuW75JLJf/ByspjJvqTIuQ3QoKBRqRssJNYGckmM2UkKxStyS9sMA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11878
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_194716_272328_2BD84DFA 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20260524_200220_632099_CDA60449 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +145,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-socfpga_smp_prepare_cpus() looks up the Cortex-A9 SCU node with
-of_find_compatible_node(), which returns a node reference that must be
-released with of_node_put().
+From: Carlos Song <carlos.song@nxp.com>
 
-The function maps the SCU registers and then returns without dropping
-that reference, leaking the node on both the success path and the
-of_iomap() failure path.
+On some i.MX platforms, certain I2C client drivers keep a periodic
+workqueue which continues to trigger I2C transfers.
 
-Drop the reference once the mapping attempt is complete. The returned
-MMIO mapping does not depend on keeping the device node reference held.
+During system suspend/resume, there exists a time window between:
+  - suspend_noirq and the system entering suspend
+  - the system starting to resume and resume_noirq
 
-Fixes: 122694a0c712 ("ARM: socfpga: use of_iomap to map the SCU")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+In this window, the I2C controller resources such as clock and pinctrl
+may already be disabled or not yet restored.
+
+If a workqueue triggers an I2C transfer in this period, the driver
+attempts to access I2C registers while the hardware resources are
+unavailable, which may lead to system hang.
+
+Mark the I2C adapter as suspended during noirq suspend and block new
+transfers until resume, ensuring that I2C transfers are only issued
+when hardware resources are available.
+
+Fixes: 358025ac091e ("i2c: imx: make controller available until system suspend_noirq() and from resume_noirq()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
 ---
- arch/arm/mach-socfpga/platsmp.c | 1 +
- 1 file changed, 1 insertion(+)
+Change for v5:
+  - Remake commit log including the issue detail from Mukesh's
+    suggestion.
+Change for v4:
+  - Restore hrtimer when pm_runtime_force_suspend failed when slave mode
+    enabled.
+Change for v3:
+  - Add hrtimer_cancel in i2c_imx_suspend_noirq to cancel slave_timer for
+    safe suspend in i2c slave mode.
+Change for v2:
+  - Call i2c_mark_adapter_suspended() before pm_runtime_force_suspend()
+    to prevent potential deadlock if a transfer is active during suspend.
+  - Roll back with i2c_mark_adapter_resumed() if pm_runtime_force_suspend()
+    fails.
+---
+ drivers/i2c/busses/i2c-imx.c | 45 ++++++++++++++++++++++++++++++++++--
+ 1 file changed, 43 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/mach-socfpga/platsmp.c b/arch/arm/mach-socfpga/platsmp.c
-index 201191cf68f3..349e6c54518e 100644
---- a/arch/arm/mach-socfpga/platsmp.c
-+++ b/arch/arm/mach-socfpga/platsmp.c
-@@ -78,6 +78,7 @@ static void __init socfpga_smp_prepare_cpus(unsigned int max_cpus)
- 	}
+diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
+index 28313d0fad37..73317ddd5f02 100644
+--- a/drivers/i2c/busses/i2c-imx.c
++++ b/drivers/i2c/busses/i2c-imx.c
+@@ -1922,6 +1922,47 @@ static int i2c_imx_runtime_resume(struct device *dev)
+ 	return 0;
+ }
  
- 	socfpga_scu_base_addr = of_iomap(np, 0);
-+	of_node_put(np);
- 	if (!socfpga_scu_base_addr)
- 		return;
- 	scu_enable(socfpga_scu_base_addr);
++static int __maybe_unused i2c_imx_suspend_noirq(struct device *dev)
++{
++	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
++	int ret;
++
++	i2c_mark_adapter_suspended(&i2c_imx->adapter);
++
++	/*
++	 * Cancel the slave timer before powering down to prevent
++	 * i2c_imx_slave_timeout() from accessing hardware registers
++	 * while the clock is disabled.
++	 */
++	hrtimer_cancel(&i2c_imx->slave_timer);
++
++	ret = pm_runtime_force_suspend(dev);
++	if (ret) {
++		i2c_mark_adapter_resumed(&i2c_imx->adapter);
++		if (i2c_imx->slave) {
++			hrtimer_forward_now(&i2c_imx->slave_timer, I2C_IMX_CHECK_DELAY);
++			hrtimer_restart(&i2c_imx->slave_timer);
++		}
++		return ret;
++	}
++
++	return 0;
++}
++
++static int __maybe_unused i2c_imx_resume_noirq(struct device *dev)
++{
++	struct imx_i2c_struct *i2c_imx = dev_get_drvdata(dev);
++	int ret;
++
++	ret = pm_runtime_force_resume(dev);
++	if (ret)
++		return ret;
++
++	i2c_mark_adapter_resumed(&i2c_imx->adapter);
++
++	return 0;
++}
++
+ static int i2c_imx_suspend(struct device *dev)
+ {
+ 	/*
+@@ -1955,8 +1996,8 @@ static int i2c_imx_resume(struct device *dev)
+ }
+ 
+ static const struct dev_pm_ops i2c_imx_pm_ops = {
+-	NOIRQ_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
+-				  pm_runtime_force_resume)
++	NOIRQ_SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend_noirq,
++				  i2c_imx_resume_noirq)
+ 	SYSTEM_SLEEP_PM_OPS(i2c_imx_suspend, i2c_imx_resume)
+ 	RUNTIME_PM_OPS(i2c_imx_runtime_suspend, i2c_imx_runtime_resume, NULL)
+ };
 -- 
 2.43.0
 
