@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70502CD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 907F1CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:43:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TGM0HnwsQ+sAC0d9nq1+H2+fQIQXp7hPnnfrzxBYUA0=; b=3lLWe9kBb+QR41pQvS1UyPpYuJ
-	PFEKfjh7uYniW8QOH5RqOYGYu85vcOrPWgEMTXc92L2k11HO3ULMAadxAmZ686WOOrDYxpgkBgehf
-	T0AXpJXxGi8Se/IrIuBKX2NlgD6GS9vP/RNbJZFPmvM2/B7iGO/sF5P7j/ZYkjLqq0VxIlnr2jd83
-	2DVbrExXOdCnMGYUyJnTNhQgObhmiw3iZllJznc4wyc4/8lELI1k9pXeiVjU9gEj7JLFqMe6zQVEq
-	CsIKKNrlCuDT4qQT7Z21bgewgksYRMtrVLTU3Jj+p+H9v5UFtLtdAXbUROFaUFdnELUoFN4viYmdC
-	uLR+3EmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S3ZSu6l2zidNkM2TZ4OfaBlRHM01wPWQ4M//D1d9z68=; b=tT/PMcA+T0tqFO6+bFHVRfkQkA
+	W1XMj9zGCCEXUSvF8fPXqWns2lzQwHDV+03u8UXvVz/N2o+/fuHpttwZVc0eTS5ibqkGob7sV0YyL
+	kXCI/dYsXsdWaPQ3S9Z2C+2+8e9qtiL1g2z/Evn1hGBggb/aCGLpt2Q6QZZFWvSJcfQWkdtoqUOZX
+	mic0+Y90uYJrjnqSkycDLxF6erluw/n4/ly3dltr8FZSMmZRFJcy3ML9X8ExbHRy+tLYUeO4RMrKI
+	Aa3k9enPd/2YNE23N7kWRa5nsP8GE7Ure8hkGr96lhRL4zZiD6UxrvpSU3UTWLSSv7enwiFt+yjFM
+	bpSzfs+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQsx-0000000GgTa-02bN;
-	Mon, 25 May 2026 08:42:07 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1wRQuf-0000000Ggir-10LS;
+	Mon, 25 May 2026 08:43:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQst-0000000GgSc-2xXC
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 08:42:04 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4891d7164ddso44881545e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 01:42:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1779698521; x=1780303321; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=TGM0HnwsQ+sAC0d9nq1+H2+fQIQXp7hPnnfrzxBYUA0=;
-        b=TBwWhb7mL4dmxgchfoYYAFcCgHwFu4D0qbAyva96h1NttbiY3+Rmv6IMbqFqEjZW2d
-         eA8tVl7+P0h7WGdj+gyZeYagnQU+0Z5jKECcSwh8P/5kHuuCmhwOq2QA0VzfRoz6dvJQ
-         LFsncSJf+ht8bUgWno928mqsS4KFoGfxQXfVKvasnzhc/5hrfyFqwENCVFOJnq1NIeGL
-         TNBzPyJ99E2uObt06VJJGKRnglWGa9BwdE9qgpu+OJKZeWPTl+KOB92zu9S0m+5ZMltX
-         L0PQQdTGUynJQCrEwPJFzJ3snY8DuE2ROGU8E2JB6eizvSypZCXDNXPCfSpL3PyhAvAb
-         KJgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779698521; x=1780303321;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TGM0HnwsQ+sAC0d9nq1+H2+fQIQXp7hPnnfrzxBYUA0=;
-        b=W770CoYopa2hrYM4LFNcU6IVKjNE9Cx0wVvGA9zWOBApNMQxea+KgiTQnXdHmHnCYk
-         qj155bBx04XZxmgjJMzI3v4+tVQv/vkul8v2IFGilnBx1Q64bXpJF7zSafYaAVk1G9U4
-         uSmOn2REPhvEa/0JSPX3pwx3OWvph31NrM1T/ZdByJgYWblpn+r3yrVkrQl4/9mAmreO
-         u1IAVY3Agai9Ns5Rph8BAgr2J++4GVib2AbFrPNcONy+T8Dz5dgKaUjNlqEmKcYpmerk
-         730VrMclFVxtb5xIW+jz96Fo4RXTT7/BCEIQ1id3ECdf5fCZAPrX13KuIqJsSjBpWMX6
-         26ww==
-X-Forwarded-Encrypted: i=1; AFNElJ8flYeZYzQNwqOyo6lkwQ1HQK7B1owVEK8yJ7TmYf/UljC0YBNELk3fHAd4k8+GLtftY7WEVMigMG5nDdU8pFGU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyDnYDtKBfrhKYndBgrHVJ57YcoqPH2zz8WbZv/ssbuMLGVuAoZ
-	6AWZrZdtfGXgpUn4TjcOR1zYS787xazfTS+da2rWgYYgFvRBwkJHE2ZQLZMoiQF2U8w=
-X-Gm-Gg: Acq92OE0lW/AVBPlv8YhZukW5S1VbleQhNuQ1qKrswidHMn3PVphIRUmlbYkcXwBmyv
-	KvxoSV5zYPpHEdapS4I9ABervPIo2kMbBC5OAdbBCuGlhejk52LHNXlN9vprnaun6So0QXUYIG6
-	iioiE05NfPaE+3WOVJDrWOtX03I1YxfjR6enzbzbVU7ddQuEiWogvnTLcA2Lo4adA1PTp10Ruqy
-	Ssji1Mr445vyan0RljG2vp3kOtKBoZrKoDig5GIlYi+TeUZ7agQ20byAtB7eIC2Mg2wfVXjbghP
-	mX0HeJfbnSt61dKc5BGy5ChuCSXrySme0ONkBLcp8pErCKJQhdJUF/NR40SvjnPUS/40eNghfVu
-	M+m0cp3Dw6Ea6GPq8JMp9MwUChNq3Gou11igtGh3f7CTo+eLtOYgdg6tDOPZlAPU3pCOyu1KzVV
-	v52aTUikUZ8rtUjB5BgfiIAVltfyH8jvgH5eDS
-X-Received: by 2002:a05:600c:6095:b0:490:51b9:2309 with SMTP id 5b1f17b1804b1-49051b924b1mr152029475e9.29.1779698520913;
-        Mon, 25 May 2026 01:42:00 -0700 (PDT)
-Received: from localhost (109-81-80-247.rct.o2.cz. [109.81.80.247])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490428ee444sm82000815e9.24.2026.05.25.01.41.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 01:42:00 -0700 (PDT)
-Date: Mon, 25 May 2026 10:41:58 +0200
-From: Michal Hocko <mhocko@suse.com>
-To: Waiman Long <longman@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH 1/2] gfp_types: Introduce a new GFP_ATOMIC_RT gfp flag
-Message-ID: <ahQLVgj8zV4xQRh9@tiehlicka>
-References: <20260520204628.933654-1-longman@redhat.com>
+	id 1wRQuc-0000000Gghi-3MIC;
+	Mon, 25 May 2026 08:43:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779698626;
+	bh=+vFgdumFv6/nxAboBbbU8jY8FPS562TdhfuUlJYfhWs=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=pteKG9RGa6j7Jk0dGEg5MhAvkOhE2ubpLjxeaSvnBYZ9mj/ULKDjGWLxgGfV4sJ0j
+	 NHbGPXwqWmCWEY/PeBMo3vJdQwS9lwYeMbBGZBhNMAgyG9FZqkNJWwxMAk8ivVZoTp
+	 0wAqF3AIY3tNUIUlG6h38hiaihcR6BxD+4YHuJWDLinCZEZ+IcceJmPb/YnAOr6lrV
+	 tBhEZrEg8ltEYnh0MyP/ya6w6QOEh3/Y783aq/VUF4PXt6NZp7lxdUIDosYufoSnue
+	 zPX0drtYnOhwRoNXqp0E8U6K0oYlNsMvifREW1GOHWyD9gE5y58LD8QfNVMGVaHsNH
+	 X2iXXK74OiwUg==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4670B17E0979;
+	Mon, 25 May 2026 10:43:46 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ matthias.bgg@gmail.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <20260523101904.293215-1-olek2@wp.pl>
+References: <20260523101904.293215-1-olek2@wp.pl>
+Subject: Re: [PATCH RESEND] arm64: dts: mediatek: add LED and key support
+ on Xiaomi AX3000T
+Message-Id: <177969862621.3767670.3588325630835903644.b4-ty@b4>
+Date: Mon, 25 May 2026 10:43:46 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260520204628.933654-1-longman@redhat.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_014203_763179_8CB11293 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20260525_014350_989593_BCD216E3 
+X-CRM114-Status: UNSURE (   5.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 20-05-26 16:46:27, Waiman Long wrote:
-> The GFP_ATOMIC flag is to be used in atomic context where user cannot
-> sleep and need the allocation to succeed. However, it does not support
-> contexts where preemption or interrupt is disabled under PREEMPT_RT
-> like raw_spin_lock_irqsave() or plain preempt_disable().
-> 
-> With the advance of the ALLOC_TRYLOCK allocation flag in the v7.1
-> kernel, it is possible to allocate memory under such contexts by using
-> spin_trylock to acquire the spinlock in the memory allocation path. This
-> does increase the chance that the allocation can fail due to the presence
-> of concurrent memory allocation requests. So its users must be able to
-> handle such memory allocation failure gracefully.
-> 
-> The ALLOC_TRYLOCK flag will only be enabled if none of the
-> ___GFP_DIRECT_RECLAIM and ___GFP_KSWAPD_RECLAIM flags are set.
-> 
-> Introduce a new GFP_ATOMIC_RT gfp flag for those PREEMPT_RT
-> atomic contexts.  This new flag will fall back to GFP_ATOMIC in
-> non-PREEMPT_RT kernel. GFP_ATOMIC can continue to be used in contexts
-> where preemption and interrupt are not disabled in PREEMPT_RT kernel
-> like spin_lock_irqsave().
+On Sat, 23 May 2026 12:18:55 +0200, Aleksander Jan Bajkowski wrote:
+> This patch adds support for keys and LEDs on the Xiaomi AX3000T.
 
-Before we go this way we need to really be clear we do want to support
-raw_spinlock (aka RT) contexts. This is a big commitment because it
-dictates internal allocator locking that would have potentially a much
-bigger impact long term. I would go this way only after/when we conclude
-there is absolutely no other way and we need to have allocator in those
-critical sections. Now you have a single place which complains ATM
-without much of an explanation why this cannot be really handled in
-other way. Have you even considered any options to pull the allocation
-from within the raw spin lock section?
+Applied to v7.1-next/dts64, thanks!
 
--- 
-Michal Hocko
-SUSE Labs
+[1/1] arm64: dts: mediatek: add LED and key support on Xiaomi AX3000T
+      commit: 9897c586b09f79ebcf2e67a888743c046b20d254
+
+Cheers,
+Angelo
+
+
 
