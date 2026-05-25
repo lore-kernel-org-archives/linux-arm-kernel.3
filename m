@@ -4,102 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A294CCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 10:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E94B2CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 10:46:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=RrAk3Qchsl9HTYYm+whnBSrxmWERJEvxM4jVWJl2EWg=; b=zr23APGxBhbagN
-	IgCuLHR6fdglbRJqUdBZX+g4BP8aukAShZ9YA7Es6yzhOU/zrQo7nM2kPpoMzZMRgWOMRFHoeejsA
-	A08PISwome8PN3bevAZ02H48CPYFguoWH/bv1X5EpgaTbhPKspREaPwrJf6Gn290Hemgs+gKec0rZ
-	NSjibENl5QBAl6UeaVpukZGirLrSH0M5XCP1sDBDxBSmS9igWxa5RFDF5ASTzA8lDa7hEXOqUxmU/
-	Efyw9hiSDbv4byQvrcVQbdY4WJGJvttb54npDT6FcbHo+UkjzMgf7JAtmiUeaI+1kp3VtsPRYlp4C
-	tPd3KM8RP5i5ZCdxzRfw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iAGiRZXZQtrxqIY50PmQ+yjP1cs4RScr9Q+YrQrcqkg=; b=ENV/Ea1FAJW7Z8ASw48U3uGzYn
+	lwdYFwdAGxpeMlE0u59LM4v7axBho5Jq0Kwmv1CVdrroBhUigeAtgCTI0BX0DFuczv6HeVJlu0As+
+	UrF95hShw/ka4IA1AqOb6liVP5G+dXFHaBba34Exg5pYN1kZg5INpLuzAETniSLu6TAYQ3cSTwViv
+	zpREOGKqg6jwkAd2UhHUcsN8ZE02IsWSfGXIpqFMbHe/bZAfrcvk5HuBsQXP4mpy/EuqjT3L0JK4P
+	IGBVFdhwGgWxsz225Ev6WoivlZcaH36NMm56bOV3NWA6V7QwSLyjZ/k1C2li+wFm7dOlgdgHecFTg
+	A+xC/anQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRSp9-0000000GyMl-1TVo;
-	Mon, 25 May 2026 10:46:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wRSpE-0000000GyOw-2DQu;
+	Mon, 25 May 2026 10:46:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRSp6-0000000GyMF-1Zes
+	id 1wRSpC-0000000GyNd-2LZu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 10:46:17 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64P7dwbc1594683
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 10:46:15 GMT
+	Mon, 25 May 2026 10:46:24 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64P9cwPu1802808
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 10:46:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=RrAk3Qchsl9HTYYm+whnBS
-	rxmWERJEvxM4jVWJl2EWg=; b=mZqfAbTEnRpaIWs5d8tduMEw+NTdHXNbZfILfL
-	PLgonA7oeyGfQKdlwL/7MxAasB9hjFNrpCeRUnB/Z1dMtN5PRjCskRWU4q40Ibk+
-	n0j6TQMtlzRQUwtQVgEfuiZsbWmB/e3FxaFgtvCPx/y40HLaTAn/IJbwpibYuJ3m
-	2VATpCLG0IUave2AI2v09FKzuH2/+L1nA6RxspFDAJGeY08DwFGCC0O31cjMV/yW
-	VxJE4/0pNJ+X9P+zw39ZeIiUBAkVfGXcAWo7oCCc5V6raHaTmdyPlqP9dCMoHh5b
-	i6KSZ8Ysv7r+FiDqv1sGbryg9tku2wBUYngJfxvaiYYL0HOg==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eb88w5s95-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iAGiRZXZQtrxqIY50PmQ+yjP1cs4RScr9Q+YrQrcqkg=; b=iWUOeg4ViKLcqOYz
+	3tqo9umiPdnH+cYBOwSmQQSW6cjcSp9VmNGiUK9QGqNz614/qpLq8e4W4pSid+uZ
+	NGqsmNHkl5wVLnqhI20GRUQ3CSSYp1iEi9ilusfKmx+xIlNEYcItVIBMeRPpTzzP
+	M1AG2JaDixtQ6MrXFFDDrL61/JD+cIJxk9gF3wNnfCXYgAyuTb5vdBrEkzc/XPzB
+	tMGydYH8QNZqjjjuJN8e17idzjFKmeNslgsA+dLcHKVOx2aEj1i3oO5BYgaeqoWv
+	gX70VFyhUfLUm/U+Eih83QgcWvoFpz0fH2PzFPMfjMaxeiDRublf7iwvQ0DeKLvd
+	Po3IDA==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4eckyqg7t3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 10:46:14 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2b4678c6171so102529765ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 03:46:14 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 10:46:21 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2bd1dbcccf6so19545275ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 03:46:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1779705974; x=1780310774; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RrAk3Qchsl9HTYYm+whnBSrxmWERJEvxM4jVWJl2EWg=;
-        b=GpQii4yJBGk7LNPZi4hlUexP/xdP+H+dVFXr6sgm9UQk7QUo55rur2chIXM3dpsufp
-         K0o5CzmBI26EEFy3E/AUbYqM1Nt9YbQ8BoNrccQ1tBMGxoy/dElcFErPifthn33y7NDx
-         GQdO1+JG2k+LNSTLOPJZ8DTiYzG+DLvem9JKbeXPYE/si5kbar8EAdsr4fcCPYnAlJPJ
-         zS1j6itnDAMHbojGhfKjAQhAqWEwRIYeRGkBSaYm1aI9jSqszMw63AKtMN0FcO+47uxe
-         Aajj+stfFS//+JIUEwhoeuuTmDgSTxfck/iCu1I2yuSKIqw4C2ioIQxxyxy41HI9PrSn
-         xfvQ==
+        d=oss.qualcomm.com; s=google; t=1779705980; x=1780310780; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iAGiRZXZQtrxqIY50PmQ+yjP1cs4RScr9Q+YrQrcqkg=;
+        b=T4Ae6xwYrk4aS1X0Vm3YvdoaghlIE20/ajAjrqscA3YOs+Atz4qSjmZsnwJ6YV9T3f
+         /g77xwCWb+B/nBeoIRfv7T5hJxvVZvXzXSi056e5GKfkVgVBad9q6PCSlznuGYLSotQB
+         bF/cS3+YfT0a9qJC3FaJAruQdgCBVesmJd8pZ7/F/OMmGsQ5GJETg+ycAuGrsa0x7ChC
+         zN4VOrJwRoEfoX2WPeO6DwPja0p2oPBabGi4r37w0Ez0Lx/nXzlQ7pIrquVX/wpM0z3I
+         N20M+0p4GWUxlmN1EJ463myiMhnVcVK6ioz23EuQ8NRrwQk0yIpJnhH0yFTpcI5hq2xR
+         fzkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779705974; x=1780310774;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RrAk3Qchsl9HTYYm+whnBSrxmWERJEvxM4jVWJl2EWg=;
-        b=N+Q9mZ5qNVnPEthBDfZHxYA+RNpNnuta6t89y00N4EDWPSasEI7Qi4DC6oIbPfp2N6
-         H7JM1urgrnKGmM63A2spxTAbl1vcJlmUKgj58XpuYvg0ZFV/YmsNaWwESj8baHcuU7B4
-         Jp5hQqgYfp7yv7FECE9P3GWYtNmb4MK+PX8I/RJuhQw6dmW8pB6FGWSPpVTKbRl941FX
-         21SMU+UMyNmScCNB+o0sAcO1EbZlI5bq7KR9nvTDi56+6UHBBUbn//3n+85+VtWdbtQV
-         faNYvYbZR/2WWf9eZPK6asyCqGZxsWkEKEdqG4AzkBwNbQ6MD0sOWij67d4aUcakDxTy
-         LQrQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+UUEVnTpqRpyxsT88YHj4Ydz3+k6brzazt50tfdFRwquK/U58f7CxilErOUoDKRJK+WP8Z04vP3239GA+B/z4y@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywl6ILnLw4nbeLFVd4izf0/hLzNUl8pnlx+UcTQyoDD3mTBehXD
-	z8jI2PEUXqROKWXZEHWg1cIRY8CGrgUxlz1QoD1hZCwiQJXYHntbwCF96Nv2j8eabT9E59MLEx0
-	aXeLMRTTDZMz2w2/NPCh+JOiAYn0yMioA/f0nW7Y3ZXmvA0Y6Sg7hQZCGfTyJ7O/kfylSc6pmaS
-	kq3A==
-X-Gm-Gg: Acq92OEY1UGdYs+/WXXi0vk8MWgjB0JhAEMZRTA4UntIV/HjMs+bI7SUJe2DhmLqYm0
-	CidWDptAEv7mGH/gve1aoCCikAnW/gB4Mn6mf/kBt1Y/ruz9wXssyWgZQPP0Z3EH3Zujt7WDbM/
-	YkiAQykkrQ7ebb4iE2WgQf+Nri8iSqYIdkMrMMC8pfjQJFVAXD2PSN0MnrLZjTZ24rL3x5nJu6D
-	lAjpn8ZFRur5tZLe+nIuP9mHexsqwiI42BjM5lE3dvEIIqqA1h7jUuuyxvHeNJgSasGY+hj/XDM
-	v6cERwKAyVJushOujnyyMQ9luLLPaCw6jUpLw466QJIX0wf4w1FHOi839FDtGD8aXEM8+n8eaYY
-	yD3XyzvkvGpOJGG9UPDPXprx0sGkh0uebEci3KNk2o3mo0w==
-X-Received: by 2002:a17:903:2f8d:b0:2b2:be01:5532 with SMTP id d9443c01a7336-2beb0841de5mr148146345ad.35.1779705974077;
-        Mon, 25 May 2026 03:46:14 -0700 (PDT)
-X-Received: by 2002:a17:903:2f8d:b0:2b2:be01:5532 with SMTP id d9443c01a7336-2beb0841de5mr148145745ad.35.1779705973407;
-        Mon, 25 May 2026 03:46:13 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1779705980; x=1780310780;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=iAGiRZXZQtrxqIY50PmQ+yjP1cs4RScr9Q+YrQrcqkg=;
+        b=rLKYePrWQ0YWPS2elGH0cZK+/aOQ0TWmVSZa87SbwwsjlSVRT/+qwWxDrDupcZF2Vw
+         8Ypwihyas5uAf4/6TkbT8kjt8C8cAIPuiOOSN//NYpb0cujxDZP2XGjy7W2RYL1iS+d2
+         ZFfeesYOKktKCnX9YKF7i6F5mj3vehcigsnjxrtpRpFH7OtvquU3SAr0ogmJ0MW9h0lZ
+         5sLMfXm5mrUBMQRbWXWE7S7wE/Y1Ms0qDXGxZ+nsUVkqlJt2YXuumzhueIe6i7qHGt4o
+         mKhY3wVx1zWSxwOC0q903yecDN0whGwhlSxf9k2X5XFEn9yHTyo+jCg49sQBmt3V4olX
+         20PQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/j5yvR07EMfqZY0noZTPnbi7FiYv5aLt7biKKYoWwPxFhAqX9v3VH/ohm7iAIAgKY5qHakGBpTxiFfBFD4NZGX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7VC+k6lD0AQCicedul+enmfI6nbWNdlk5NdK7VSF0NdgqH2TA
+	Y2wy1Z7R09uxWQOUHTFJC6RhsTa+BadRCMK2aaUsXV3gTJ7DL8Tq5TDXrHvU/D6M4mU3PxCEipo
+	TXwb2U6m6iBZG+CIkCzrwaUjUnM94sIFc1cYRjKT8s1cZFr09nly8TsArrvsagWAqxNy7U1kXGT
+	ObYQ==
+X-Gm-Gg: Acq92OEgqg5fIFnDdvfEm4Tr0ebY7tuHTR2oqQ9eotdzdnmUOxQQLYtTybopIqk6gwi
+	g8jUOrkotMbpodH2tXZtfrI2qQOd4WoIIKx7d0OCufhDWnL7xJcdbetQpTKvtVIBr5EdOlICRZG
+	pN4IVeiEhTpKubSTahN7XqWo4LN4Mmr8jwRhVobuz7xU8KK4bK0jR3Pi5WRV3mf8gyMJBal7Fd8
+	NKiA4PdfzWmtz///pBHnS+4SOdwptp3aCmoa/ZEVbEEiOczfaxong3VDu0pyfjROG24dTBI1YE9
+	8+5p3sFN5xZDK1X/WuPkt7794mZbQFEGLhLOzJObnlxPQYu/i57vV82xcuB1WCDsfTOJK47uILy
+	QVtkw89tty5zWlyZ5+Z0u9FzRh8rNorwGaGVPeZdjycXgbg==
+X-Received: by 2002:a17:903:2381:b0:2bc:ac76:c1c9 with SMTP id d9443c01a7336-2beb05e8633mr145799505ad.16.1779705980475;
+        Mon, 25 May 2026 03:46:20 -0700 (PDT)
+X-Received: by 2002:a17:903:2381:b0:2bc:ac76:c1c9 with SMTP id d9443c01a7336-2beb05e8633mr145799125ad.16.1779705980019;
+        Mon, 25 May 2026 03:46:20 -0700 (PDT)
 Received: from hu-tdas-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb591f63dsm118666175ad.83.2026.05.25.03.46.06
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2beb591f63dsm118666175ad.83.2026.05.25.03.46.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 03:46:12 -0700 (PDT)
+        Mon, 25 May 2026 03:46:19 -0700 (PDT)
 From: Taniya Das <taniya.das@oss.qualcomm.com>
-Subject: [PATCH v5 0/7] Add support for Video, Camera, Graphics clock
- controllers on Eliza
-Date: Mon, 25 May 2026 16:16:02 +0530
-Message-Id: <20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com>
+Date: Mon, 25 May 2026 16:16:03 +0530
+Subject: [PATCH v5 1/7] dt-bindings: clock: qcom: Add video clock
+ controller on Qualcomm Eliza SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGooFGoC/33MSw6CMBCA4auQri0pfVBw5T2MITAdpYlQbZWoh
- Ltb2LhQTCaT/JPMN5KA3mIg22QkHgcbrOtjqE1CoK37E1JrYhPOeM4kKyme7auuuq4CqAZONct
- ASGMaLZHEp4vHo30s4P4Qu7Xh5vxz8Qc+X1epOIw2wCA3RusG1M6FkF7v9Rlc16VxkVkcxEdRm
- fhSxKyoEoRmBniRrSjyvyKjgnnWKCkkFqb8oUzT9AZZ8FIqPwEAAA==
-X-Change-ID: 20260409-eliza_mm_cc_v2-701c34ddb74e
+Message-Id: <20260525-eliza_mm_cc_v2-v5-1-a1d125619a5a@oss.qualcomm.com>
+References: <20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com>
+In-Reply-To: <20260525-eliza_mm_cc_v2-v5-0-a1d125619a5a@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
         Michael Turquette <mturquette@baylibre.com>,
         Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -116,37 +115,35 @@ Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-stm32@st-md-mailman.stormreply.com,
         linux-arm-kernel@lists.infradead.org,
-        Taniya Das <taniya.das@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+        Taniya Das <taniya.das@oss.qualcomm.com>
 X-Mailer: b4 0.15-dev-aa3f6
-X-Authority-Analysis: v=2.4 cv=S/jpBosP c=1 sm=1 tr=0 ts=6a142876 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+X-Authority-Analysis: v=2.4 cv=RMyD2Yi+ c=1 sm=1 tr=0 ts=6a14287d cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
  a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=8HYrQF7E7KXWYYjJzRwA:9 a=QEXdDO2ut3YA:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI1MDEwOSBTYWx0ZWRfX7eOJ4UblPDRd
- PXja8i+jtIn9Po7zP/3e7O4MKDGIWcFVE8Iu25OxVQlS7+DoP3f8UoqCzkVrDtDtsowSgIL7VIz
- O8Lk9+yYQFXsxEvAF8q1GFvaTKeAR4GR5TVNhIn5fwAs7Kso3UAbtJAuMhrwkZ4t+rUSuNeOtg+
- SOGozC+6kz4+RocZ5tHoyp/4QM5VWmymgAHXkaFEFkXw5t8s38HYG8AFwwLlq0lOGkse3H9R/57
- OLWPA+kU/N6TN1AKDuCxMx2PXvhkxRLmbN45NLLGeSA1w7TuAkwR+HtMVd7FzFsh8ftwE4yKagn
- QIhD/Zn0EZkCEJlqi+FGM7dTV8S9lRh+dFDCt+DXhXPahsEQAgGs3E1qopKXch0/JrDIGrP2CGh
- lY1vnq5nHY9pd1GAJSTicfC08RciFG8Uq3K+4+x7F/4mRzTvGAJcdiJIyd6iF2WCP7l7oqwchRV
- yuHOLLoBIqnNlbTjN0g==
-X-Proofpoint-ORIG-GUID: OiJ00D0D5duH5YGDPuGl5U8vkB48_0WA
-X-Proofpoint-GUID: OiJ00D0D5duH5YGDPuGl5U8vkB48_0WA
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=6H0WHjuAAAAA:8 a=p7IodTP_qeDR1Assq60A:9 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22 a=Soq9LBFxuPC4vsCAQt-j:22
+X-Proofpoint-ORIG-GUID: a7nIS889OmjaZWcV3-wrhv-OhWbSrSZP
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI1MDEwOSBTYWx0ZWRfXy8jVB03IpuxF
+ g5dOp9rCoJjrEdDswa/902YVjyMzxjfQt2ucWyJDvj7TuCQS2SVWO2SkOTJdiA7LLSCDQHR7K07
+ sruUck3nxJZvduz/xmyOyGZI60M0m0tUvgnokm+ny/uVYlIJH+T4aOc2KccttNrWf5ZI5WbSwNB
+ MkcN7mEjOcrg0aJjCYTt/Wzn6QFvXeIS+pI9ndC0K8tvu22ARX8Fn5M+3W9VJy9cSpQ+bvIQBgr
+ Lty4Ii8lPbh/2pipLxDojfA29XUyKEOi3YolSUBrv55+a6jiaB5GyP+8bJxrcZhIn9XTBJZuWOc
+ 5RdAT7YXV7lmnffPzc5vF5sjX2ktV0wW+DEuTQFJ7+7Vsrx+R6pDJc5S4+cgQNkOiXKiKoOWSsj
+ NXwrYzOaaJ2UM5iT1lYc4Itz/6AfKJ4zCDp8emb7qEPkBZmuEELSLrbeTcVfg7ogE2rNdkGhhPF
+ NFS/h0vO6EzArP389RQ==
+X-Proofpoint-GUID: a7nIS889OmjaZWcV3-wrhv-OhWbSrSZP
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
  definitions=2026-05-25_03,2026-05-18_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1015
- priorityscore=1501 impostorscore=0 adultscore=0 phishscore=0 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2605130000
- definitions=main-2605250109
+ spamscore=0 priorityscore=1501 malwarescore=0 suspectscore=0 clxscore=1015
+ lowpriorityscore=0 phishscore=0 adultscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605250109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_034616_430462_D59FB8FD 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20260525_034622_729027_73B90910 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,76 +158,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add driver for Eliza SoC camera, graphics and Video clock controllers.
-The camera clock controller supports the cambist clock controller and
-the regular camera clock controller.
+Eliza Video clock controller is on CX and MX rails similar to Milos.
+Add compatible string for Eliza video clock controller to the existing
+Milos videocc binding and add the dt-bindings header for Eliza.
 
-Eliza camcc and videocc are on CX and MX rails and doesn't have MMCX
-and MXC rails dependency. Since CX and MX rails are already ON when APPS
-is active, explicit power-domain voting is not required similar to Milos.
-Hence extended the Milos camcc & videocc documentation bindings for Eliza.
-
-The patches have been tested on Qualcomm Eliza MTP board.
-
-Changes in v5:
-- Taken care of comments from v3, v4.
-- Update milos-videocc and milos-camcc bindings to add '#power-domain-cells'
-  as required property in bindings.
-- Remove duplicate clock 'gpu_cc_gpu_smmu_vote_clk' from driver and
-  bindings.
-- Add '#power-domain-cells' for 'camcc' and 'cambistmclkcc' device node.
-- Link to v4: https://lore.kernel.org/r/20260513-eliza_mm_cc_v2-v4-0-e61b5434e8d9@oss.qualcomm.com
-
-Changes in v4:
-- Update the clock ordering for camcc and cambistmclkcc in milos.dtsi.
-- Link to v3: https://lore.kernel.org/r/20260513-eliza_mm_cc_v2-v3-0-b59c370dc281@oss.qualcomm.com
-
-Changes in v3:
-- Dropped new documentation bindings & extended Milos documentation bindings for Eliza videocc & camcc.
-- Dropped the defconfig patch and included the drivers as m from Kconfig itself.
-- Update the header inclusion in the milos.dtsi.
-- Link to v2: https://lore.kernel.org/r/20260409-eliza_mm_cc_v2-v2-0-bc0c6dd77bc5@oss.qualcomm.com
-
-Changes in v2:
- - rebased the patches on the latest linux-next.
- - Add new bindings for Video and Camcc.
- - Remove commented code in GPUCC (limiter code).
- - Add device nodes for the corresponding clock controllers.
- - Add RB-by tags for VideoCC and CamCC/Cambistmclk from v1.
- - Link to v1: https://lore.kernel.org/r/20260317-eliza_mm_clock_controllers_v1-v1-0-4696eeda8cfb@oss.qualcomm.com
+The video clock controller exposes power domains, so '#power-domain-cells'
+must be present in the device node. Add it to the required properties list
+to enforce this in binding validation.
 
 Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 ---
-Taniya Das (7):
-      dt-bindings: clock: qcom: Add video clock controller on Qualcomm Eliza SoC
-      dt-bindings: clock: qcom: document the Eliza GPU Clock Controller
-      dt-bindings: clock: qcom: Add support for CAMCC for Eliza
-      clk: qcom: videocc: Add video clock controller driver for Eliza
-      clk: qcom: gpucc: Add GPU Clock Controller driver for Eliza
-      clk: qcom: camcc: Add support for camera clock controller for Eliza
-      arm64: dts: qcom: eliza: Add support for MM clock controllers
+ .../bindings/clock/qcom,milos-videocc.yaml         | 10 ++++--
+ include/dt-bindings/clock/qcom,eliza-videocc.h     | 37 ++++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 2 deletions(-)
 
- .../bindings/clock/qcom,milos-camcc.yaml           |   12 +-
- .../bindings/clock/qcom,milos-videocc.yaml         |   10 +-
- .../bindings/clock/qcom,sm8450-gpucc.yaml          |    3 +
- arch/arm64/boot/dts/qcom/eliza.dtsi                |   61 +
- drivers/clk/qcom/Kconfig                           |   31 +
- drivers/clk/qcom/Makefile                          |    3 +
- drivers/clk/qcom/cambistmclkcc-eliza.c             |  465 ++++
- drivers/clk/qcom/camcc-eliza.c                     | 2803 ++++++++++++++++++++
- drivers/clk/qcom/gpucc-eliza.c                     |  607 +++++
- drivers/clk/qcom/videocc-eliza.c                   |  404 +++
- .../dt-bindings/clock/qcom,eliza-cambistmclkcc.h   |   32 +
- include/dt-bindings/clock/qcom,eliza-camcc.h       |  151 ++
- include/dt-bindings/clock/qcom,eliza-gpucc.h       |   51 +
- include/dt-bindings/clock/qcom,eliza-videocc.h     |   37 +
- 14 files changed, 4666 insertions(+), 4 deletions(-)
----
-base-commit: db7efce4ae23ad5e42f5f55428f529ff62b86fab
-change-id: 20260409-eliza_mm_cc_v2-701c34ddb74e
+diff --git a/Documentation/devicetree/bindings/clock/qcom,milos-videocc.yaml b/Documentation/devicetree/bindings/clock/qcom,milos-videocc.yaml
+index 14c31efe1308aadbea61eb7be7e56039a923aec5..c0c9e450b8cda53625b6f6bdb1bdfe5f2bfbee25 100644
+--- a/Documentation/devicetree/bindings/clock/qcom,milos-videocc.yaml
++++ b/Documentation/devicetree/bindings/clock/qcom,milos-videocc.yaml
+@@ -8,16 +8,21 @@ title: Qualcomm Video Clock & Reset Controller on Milos
+ 
+ maintainers:
+   - Luca Weiss <luca.weiss@fairphone.com>
++  - Taniya Das <taniya.das@oss.qualcomm.com>
+ 
+ description: |
+   Qualcomm video clock control module provides the clocks, resets and power
+   domains on Milos.
+ 
+-  See also: include/dt-bindings/clock/qcom,milos-videocc.h
++  See also:
++    include/dt-bindings/clock/qcom,eliza-videocc.h
++    include/dt-bindings/clock/qcom,milos-videocc.h
+ 
+ properties:
+   compatible:
+-    const: qcom,milos-videocc
++    enum:
++      - qcom,eliza-videocc
++      - qcom,milos-videocc
+ 
+   clocks:
+     items:
+@@ -29,6 +34,7 @@ properties:
+ required:
+   - compatible
+   - clocks
++  - '#power-domain-cells'
+ 
+ allOf:
+   - $ref: qcom,gcc.yaml#
+diff --git a/include/dt-bindings/clock/qcom,eliza-videocc.h b/include/dt-bindings/clock/qcom,eliza-videocc.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..1e922250a7fae77f5c996208d50ff372b252aa51
+--- /dev/null
++++ b/include/dt-bindings/clock/qcom,eliza-videocc.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#ifndef _DT_BINDINGS_CLK_QCOM_VIDEO_CC_ELIZA_H
++#define _DT_BINDINGS_CLK_QCOM_VIDEO_CC_ELIZA_H
++
++/* VIDEO_CC clocks */
++#define VIDEO_CC_AHB_CLK					0
++#define VIDEO_CC_AHB_CLK_SRC					1
++#define VIDEO_CC_MVS0_CLK					2
++#define VIDEO_CC_MVS0_CLK_SRC					3
++#define VIDEO_CC_MVS0_DIV_CLK_SRC				4
++#define VIDEO_CC_MVS0_SHIFT_CLK					5
++#define VIDEO_CC_MVS0C_CLK					6
++#define VIDEO_CC_MVS0C_DIV2_DIV_CLK_SRC				7
++#define VIDEO_CC_MVS0C_SHIFT_CLK				8
++#define VIDEO_CC_PLL0						9
++#define VIDEO_CC_SLEEP_CLK					10
++#define VIDEO_CC_SLEEP_CLK_SRC					11
++#define VIDEO_CC_XO_CLK						12
++#define VIDEO_CC_XO_CLK_SRC					13
++
++/* VIDEO_CC power domains */
++#define VIDEO_CC_MVS0_GDSC					0
++#define VIDEO_CC_MVS0C_GDSC					1
++
++/* VIDEO_CC resets */
++#define VIDEO_CC_INTERFACE_BCR					0
++#define VIDEO_CC_MVS0_CLK_ARES					1
++#define VIDEO_CC_MVS0_BCR					2
++#define VIDEO_CC_MVS0C_CLK_ARES					3
++#define VIDEO_CC_MVS0C_BCR					4
++#define VIDEO_CC_XO_CLK_ARES					5
++
++#endif
 
-Best regards,
 -- 
-Taniya Das <taniya.das@oss.qualcomm.com>
+2.34.1
 
 
