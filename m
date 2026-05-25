@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BDB0CD5BC9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0C8CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vRkAeET5rv8Z8DTQNlN8D1MILGQswgQciWtn2IPNIxQ=; b=Y7KHJjjBU0zEdSAe7uvqEJKtmB
-	IyJeJfvCrT+4Medzi+4/fxKZqIjJHnoj9BZIpsEpMSefeKD40VfANMyujjTaFJAkW7Ba5keWQyFDP
-	ifkknmoP4NUP05P828It1/genNJGu2Zb1Lpv4yX18eTUb+iCT5oJ67LDeyvHAJsr6OjeOQ9wjg+Ca
-	fedcMkrd4eli2ja7EQ3Y0ffRV0CpRRz91St3CsAYmKxhCWjhNcTcVcQ45G2rtb8Gblb0O/h7gL6wz
-	pHdCkCTGDMk5P0pB2AJBp+ZznxduC3nPkNkXntQYjvnI1gMn1hE3zYcXq5N9u+BNeUWAolNpvZOug
-	tnylIMtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kJH4eAuLTn/9VBHNDdS21HNu2w6MoQbVhjKm1wkjibQ=; b=RURCdPRlWWLa0PAADVqOT0/uWj
+	zx1ro8SAXwB9bP6uwVGPhiefRMQIY6BHo3jU7xEYZYNVmYmZ5clwhsgYGH2LI2AvH5jLVWPAGrwoS
+	Ud58cjoVtT3pbczKWpwTnSy2XPUmjbf6ZDSsBedW+4pAxz2jioZxXm6XAkqNf+Fs0I4GZshZthOjF
+	tww3/4YgwMbDQhACONFvuyhYC3q8nUmpT4gPuJmqFlyo/OnjEstaIFPYwt1OPkYHpfr9I5FWwIv7M
+	R/kMI3wQuDjAXd16DID8S34Ku7urLjxWaNuNhByTSbuSiRznQx13dPTmus0Dt67nlmw9N+kMNqoX2
+	hYArhXgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRb5j-00000000L6N-1dI3;
-	Mon, 25 May 2026 19:35:59 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wRbGD-00000000Lya-2eMj;
+	Mon, 25 May 2026 19:46:49 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRb5f-00000000L5m-3h4l
+	id 1wRbGA-00000000Lxq-3yBV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 19:35:58 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4B4E74E42D47;
-	Mon, 25 May 2026 19:35:52 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F0B7D5FEFF;
-	Mon, 25 May 2026 19:35:51 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1B3510888059;
-	Mon, 25 May 2026 21:35:41 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1779737750; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=vRkAeET5rv8Z8DTQNlN8D1MILGQswgQciWtn2IPNIxQ=;
-	b=ipgSBdP9cOiYncW4sr4kQ8jZqd9KUKpT3G+Sg8bq4gMbotsFZq9S4Vy8tLh3q08rwuvsiB
-	arNaiWup5zG2yyaTs0C6l0VKhtmKXDV7cx+WkSpvXSHiH0uSFXa80VyPk1kKn5bOCKK754
-	6+vW2rA/069L+f/g+L1mURPdNKwI2vENcf/Bi21A/DbK2SskJLkTME4HoJ6aHaY21INXj/
-	Iro/aOm9K06BYoiurj67AjdwpFgQrX0BJgoSaR+oux83S7sG3v6R0Zkgfummsc0+GgHCC5
-	DswrLmpO6qE7EZzuk9VAf2WmxQeECDmqjOcjc8vKkffBfaqhwTqBngyucmxLHg==
-Message-ID: <7f194a90-8bf6-4217-b5fa-c003b3dc85b3@bootlin.com>
-Date: Mon, 25 May 2026 21:35:41 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 2/2] net: ti: icssg-prueth: Add ethtool ops
- for Frame Preemption MAC Merge
-To: Meghana Malladi <m-malladi@ti.com>, liuhangbin@gmail.com,
- h-mittal1@ti.com, haokexin@gmail.com, vadim.fedorenko@linux.dev,
- devnexen@gmail.com, horms@kernel.org, jacob.e.keller@intel.com,
- arnd@arndb.de, afd@ti.com, basharath@couthit.com, parvathi@couthit.com,
- vladimir.oltean@nxp.com, rogerq@kernel.org, danishanwar@ti.com,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, srk@ti.com,
- Vignesh Raghavendra <vigneshr@ti.com>
+	Mon, 25 May 2026 19:46:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=kJH4eAuLTn/9VBHNDdS21HNu2w6MoQbVhjKm1wkjibQ=; b=IVPbaRWQR0TemdNwL7UWxuUz9o
+	1tRrIh+hBN1Zv2izgh3yWc0kW+yp+lH2LaLMd++hX6opoEDqpO64HECd/qHnC6gSuOy4oyVkBaM3U
+	sZp/IOYrXDszYgpaTDYbYWc6DovI6ckV/ull6CSjCq70lhMb+ODUDtCi/k98HdVFbg2k=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1wRbFU-004VMB-T5; Mon, 25 May 2026 21:46:04 +0200
+Date: Mon, 25 May 2026 21:46:04 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Meghana Malladi <m-malladi@ti.com>, liuhangbin@gmail.com,
+	h-mittal1@ti.com, haokexin@gmail.com, vadim.fedorenko@linux.dev,
+	devnexen@gmail.com, horms@kernel.org, jacob.e.keller@intel.com,
+	arnd@arndb.de, afd@ti.com, basharath@couthit.com,
+	parvathi@couthit.com, vladimir.oltean@nxp.com, rogerq@kernel.org,
+	danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
+	edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [PATCH net-next v6 1/2] net: ti: icssg-prueth: Add Frame
+ Preemption MAC Merge support
+Message-ID: <ac753d51-0a1b-4fda-aae3-661ca5b8715c@lunn.ch>
 References: <20260525182700.3135858-1-m-malladi@ti.com>
- <20260525182700.3135858-3-m-malladi@ti.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20260525182700.3135858-3-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+ <20260525182700.3135858-2-m-malladi@ti.com>
+ <de0255c8-d751-4220-b0ab-88aef3a15f9a@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <de0255c8-d751-4220-b0ab-88aef3a15f9a@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_123556_194299_9C87237D 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20260525_124647_018472_6A8CE9F5 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,336 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> > +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> > @@ -44,6 +44,7 @@
+> >   #include "icssg_config.h"
+> >   #include "icss_iep.h"
+> >   #include "icssg_switch_map.h"
+> > +#include "icssg_qos.h"
+> >   #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
 
-On 5/25/26 20:27, Meghana Malladi wrote:
-> From: MD Danish Anwar <danishanwar@ti.com>
-> 
-> Add driver support for viewing and changing the MAC Merge sublayer
-> parameters via ethtool ops: .set_mm(), .get_mm() and .get_mm_stats().
-> 
-> The minimum size of non-final mPacket fragments supported by the firmware
-> without leading errors is 64 Bytes (including FCS). Verify time bounded to
-> 1-128 ms per 802.3-2018 clause 30.14.1.6. Add a check to ensure
-> user passed tx_min_frag_size argument via ethtool, honors this.
-> Add pa stats registers to check statistics for preemption, which can be
-> dumped using ethtool ops.
-> 
-> Fix emac_get_stat_by_name() to return u64 instead of int and return 0 on
-> error instead of -EINVAL. This prevents invalid stat lookups from corrupting
-> output stats with signed error codes cast to u64. Error conditions are still
-> logged via netdev_err().
-> 
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> 
-> v6-v5:
-> - Initialize tx_min_frag_size and verify_time with valid values
->    to avoid returning corrupted values during get_mm()
-> - Fix rx_min_frag_size to ETH_ZLEN excluding ETH_FCS_LEN
-> - Fix return codes for emac_set_mm()
-> All the above changes address the comments raised by sashiko
-> 
->   drivers/net/ethernet/ti/icssg/icssg_ethtool.c | 106 ++++++++++++++++++
->   drivers/net/ethernet/ti/icssg/icssg_prueth.h  |   7 +-
->   drivers/net/ethernet/ti/icssg/icssg_qos.h     |  46 ++++++++
->   drivers/net/ethernet/ti/icssg/icssg_stats.c   |   4 +-
->   drivers/net/ethernet/ti/icssg/icssg_stats.h   |   7 +-
->   .../net/ethernet/ti/icssg/icssg_switch_map.h  |   5 +
->   6 files changed, 168 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> index b715af21d23ac..ee940051644d6 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> @@ -294,6 +294,109 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
->   	return 0;
->   }
->   
-> +static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct prueth_qos_iet *iet = &emac->qos.iet;
-> +	enum icssg_ietfpe_verify_states verify_status;
-> +
-> +	if (emac->is_sr1)
-> +		return -EOPNOTSUPP;
-> +
-> +	mutex_lock(&iet->fpe_lock);
-> +	state->tx_enabled = iet->fpe_enabled;
-> +	state->tx_min_frag_size = iet->tx_min_frag_size;
-> +	state->tx_active = iet->fpe_active;
-> +	state->verify_enabled = iet->mac_verify_configure;
-> +	state->verify_time = iet->verify_time_ms;
-> +	verify_status = iet->verify_status;
-> +	mutex_unlock(&iet->fpe_lock);
-> +
-> +	state->rx_min_frag_size = ETH_ZLEN;
-> +	state->pmac_enabled = true;
-> +
-> +	switch (verify_status) {
-> +	case ICSSG_IETFPE_STATE_DISABLED:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
-> +		break;
-> +	case ICSSG_IETFPE_STATE_INITIAL:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
-> +		break;
-> +	case ICSSG_IETFPE_STATE_VERIFYING:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_VERIFYING;
-> +		break;
-> +	case ICSSG_IETFPE_STATE_SUCCEEDED:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_SUCCEEDED;
-> +		break;
-> +	case ICSSG_IETFPE_STATE_FAILED:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_FAILED;
-> +		break;
-> +	default:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_UNKNOWN;
-> +		break;
-> +	}
-> +
-> +	/* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
-> +	 * variable has a range between 1 and 128 ms inclusive. Limit to that.
-> +	 */
-> +	state->max_verify_time = ETHTOOL_MM_MAX_VERIFY_TIME_MS;
-> +
-> +	return 0;
-> +}
-> +
-> +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
-> +		       struct netlink_ext_ack *extack)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct prueth_qos_iet *iet = &emac->qos.iet;
-> +	int err;
-> +
-> +	if (emac->is_sr1)
-> +		return -EOPNOTSUPP;
-> +
-> +	if (!cfg->pmac_enabled) {
-> +		NL_SET_ERR_MSG_MOD(extack, "preemptible MAC is always enabled");
-> +		return -EOPNOTSUPP;
-> +	}
-> +
-> +	err = icssg_qos_validate_tx_min_frag_size(cfg->tx_min_frag_size, extack);
-> +	if (err)
-> +		return err;
-> +
-> +	err = icssg_qos_validate_verify_time(cfg->verify_time, extack);
-> +	if (err)
-> +		return err;
+Sorry for hijacking another message, but the indentation looks odd
+here.
 
-The ethnl code already validates the verify_time :
-
-https://elixir.bootlin.com/linux/v7.0.9/source/net/ethtool/mm.c#L153
-
-> +
-> +	mutex_lock(&iet->fpe_lock);
-> +	iet->verify_time_ms = cfg->verify_time;
-> +	iet->tx_min_frag_size = cfg->tx_min_frag_size;
-> +	iet->fpe_enabled = cfg->tx_enabled;
-> +	iet->mac_verify_configure = cfg->verify_enabled;
-> +	err = icssg_config_ietfpe(ndev, cfg->tx_enabled);
-> +	mutex_unlock(&iet->fpe_lock);
-> +
-> +	return err;
-> +}
-> +
-> +static void emac_get_mm_stats(struct net_device *ndev,
-> +			      struct ethtool_mm_stats *s)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +
-> +	if (emac->is_sr1)
-> +		return;
-> +
-> +	if (!emac->prueth->pa_stats)
-> +		return;
-> +
-> +	/* MACMergeHoldCount stats is not tracked by the firmware */
-> +	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
-> +	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
-> +	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
-> +	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
-> +	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
-> +}
-> +
->   const struct ethtool_ops icssg_ethtool_ops = {
->   	.get_drvinfo = emac_get_drvinfo,
->   	.get_msglevel = emac_get_msglevel,
-> @@ -317,5 +420,8 @@ const struct ethtool_ops icssg_ethtool_ops = {
->   	.set_eee = emac_set_eee,
->   	.nway_reset = emac_nway_reset,
->   	.get_rmon_stats = emac_get_rmon_stats,
-> +	.get_mm = emac_get_mm,
-> +	.set_mm = emac_set_mm,
-> +	.get_mm_stats = emac_get_mm_stats,
->   };
->   EXPORT_SYMBOL_GPL(icssg_ethtool_ops);
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 85f7017d2c8e7..61320c252bec2 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -45,6 +45,7 @@
->   #include "icss_iep.h"
->   #include "icssg_switch_map.h"
->   #include "icssg_qos.h"
-> +#include "icssg_stats.h"
->   
->   #define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
->   #define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
-> @@ -58,8 +59,8 @@
->   
->   #define ICSSG_MAX_RFLOWS	8	/* per slice */
->   
-> -#define ICSSG_NUM_PA_STATS	32
-> -#define ICSSG_NUM_MIIG_STATS	60
-> +#define ICSSG_NUM_PA_STATS	ARRAY_SIZE(icssg_all_pa_stats)
-> +#define ICSSG_NUM_MIIG_STATS	ARRAY_SIZE(icssg_all_miig_stats)
->   /* Number of ICSSG related stats */
->   #define ICSSG_NUM_STATS (ICSSG_NUM_MIIG_STATS + ICSSG_NUM_PA_STATS)
->   #define ICSSG_NUM_STANDARD_STATS 31
-> @@ -460,7 +461,7 @@ int emac_fdb_flow_id_updated(struct prueth_emac *emac);
->   
->   void icssg_stats_work_handler(struct work_struct *work);
->   void emac_update_hardware_stats(struct prueth_emac *emac);
-> -int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name);
-> +u64 emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name);
->   
->   /* Common functions */
->   void prueth_cleanup_rx_chns(struct prueth_emac *emac,
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-> index 9355e96bbcda8..87ca031afcaa4 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-> @@ -13,6 +13,7 @@
->   #define ICSSG_EXPRESS_Q_MASK_ALL		0xFF
->   #define ICSSG_IET_MAX_VERIFY_TIME		128
->   #define ICSSG_IET_MIN_VERIFY_TIME		1
-> +#define ICSSG_IET_MAX_TX_MIN_FRAG_SIZE		252
->   
->   /**
->    * enum icssg_ietfpe_verify_states - status of MAC Merge Verify returned by firmware
-> @@ -63,4 +64,49 @@ void icssg_qos_link_state_update(struct net_device *ndev);
->   int icssg_qos_ndo_setup_tc(struct net_device *ndev, enum tc_setup_type type,
->   			   void *type_data);
->   int icssg_config_ietfpe(struct net_device *ndev, bool enable);
-> +static inline int icssg_qos_validate_tx_min_frag_size(u32 min_frag_size,
-> +						      struct netlink_ext_ack *extack)
-> +{
-> +	/* Firmware takes min_frag_size including FCS length.
-> +	 * The firmware requires the fragment size (including FCS) to be
-> +	 * a multiple of 64 bytes. Since 64 bytes = ETH_ZLEN + ETH_FCS_LEN,
-> +	 * valid user-facing values are: 60, 124, 188, 252.
-> +	 */
-> +
-> +	if (min_frag_size < ETH_ZLEN) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx_min_frag_size must be at least 60 bytes");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (min_frag_size > ICSSG_IET_MAX_TX_MIN_FRAG_SIZE) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx_min_frag_size must not exceed 252 bytes");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if ((min_frag_size + ETH_FCS_LEN) % (ETH_ZLEN + ETH_FCS_LEN)) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx_min_frag_size must be a multiple of 64 bytes minus 4");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-
-Is there any reason this helper is in a header file instead
-of being directly in icssg_ethtool.c ?
-
-> +
-> +static inline int icssg_qos_validate_verify_time(u32 verify_time_ms,
-> +						 struct netlink_ext_ack *extack)
-> +{
-> +	/* 802.3-2018 clause 30.14.1.6: aMACMergeVerifyTime must be
-> +	 * between 1 and 128 ms inclusive
-> +	 */
-> +	if (verify_time_ms < ICSSG_IET_MIN_VERIFY_TIME ||
-> +	    verify_time_ms > ICSSG_IET_MAX_VERIFY_TIME) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "verify_time must be between 1 and 128 ms");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-
-And this shouldn't be needed as the ethnl mm code already validates
-these boundaries, as they are straight from the standard.
-
->   #endif /* __NET_TI_ICSSG_QOS_H */
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-> index 7159baa0155cf..cfdb6f5dc5da1 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-> @@ -74,7 +74,7 @@ void icssg_stats_work_handler(struct work_struct *work)
->   }
->   EXPORT_SYMBOL_GPL(icssg_stats_work_handler);
->   
-> -int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
-> +u64 emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
->   {
->   	int i;
->   
-> @@ -91,5 +91,5 @@ int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
->   	}
->   
->   	netdev_err(emac->ndev, "Invalid stats %s\n", stat_name);
-> -	return -EINVAL;
-> +	return 0;
->   }
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.h b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> index 5ec0b38e0c67d..8073deac35c3e 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_stats.h
-> @@ -8,8 +8,6 @@
->   #ifndef __NET_TI_ICSSG_STATS_H
->   #define __NET_TI_ICSSG_STATS_H
->   
-> -#include "icssg_prueth.h"
-> -
->   #define STATS_TIME_LIMIT_1G_MS    25000    /* 25 seconds @ 1G */
->   
->   struct miig_stats_regs {
-> @@ -189,6 +187,11 @@ static const struct icssg_pa_stats icssg_all_pa_stats[] = {
->   	ICSSG_PA_STATS(FW_INF_DROP_PRIOTAGGED),
->   	ICSSG_PA_STATS(FW_INF_DROP_NOTAG),
->   	ICSSG_PA_STATS(FW_INF_DROP_NOTMEMBER),
-> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
-> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
-> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
-> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
-> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),
->   	ICSSG_PA_STATS(FW_RX_EOF_SHORT_FRMERR),
->   	ICSSG_PA_STATS(FW_RX_B0_DROP_EARLY_EOF),
->   	ICSSG_PA_STATS(FW_TX_JUMBO_FRM_CUTOFF),
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-> index 7e053b8af3ece..855fd4ed0b3f6 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_switch_map.h
-> @@ -256,6 +256,11 @@
->   #define FW_INF_DROP_PRIOTAGGED		0x0148
->   #define FW_INF_DROP_NOTAG		0x0150
->   #define FW_INF_DROP_NOTMEMBER		0x0158
-> +#define FW_PREEMPT_BAD_FRAG		0x0160
-> +#define FW_PREEMPT_ASSEMBLY_ERR		0x0168
-> +#define FW_PREEMPT_FRAG_CNT_TX		0x0170
-> +#define FW_PREEMPT_ASSEMBLY_OK		0x0178
-> +#define FW_PREEMPT_FRAG_CNT_RX		0x0180
->   #define FW_RX_EOF_SHORT_FRMERR		0x0188
->   #define FW_RX_B0_DROP_EARLY_EOF		0x0190
->   #define FW_TX_JUMBO_FRM_CUTOFF		0x0198
-
-Maxime
+	Andrew
 
