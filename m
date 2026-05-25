@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF886CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2150CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4b1oC5HhUnRhm7z2afBn84VUcPa5B5EWRXQvz0Iqfxc=; b=b8s5MbOFNMIAv2eQs94ob5twZ9
-	HmLGXR+IFzyl1Sy24dCgblOGnd80y5edDK19Xlq4TmTzCzRBaLu90mFgYtTizH1lkTjPsTCh5ysHY
-	AbbKv5+Gr6xFQU05rpwcmHviChrU8rxjRa3LCw45Qo/invM+uhsNbVpJwCDTR/jijQDx6SMC58k/o
-	+nGrai/3IYn3r6xp0szAQV0MhoaFMqNLljPp4qs7W4JLS+bTdzb9XFKkZ+TOYCqFvzwHW2K+pnPNa
-	nDvgNE6NvyIGOmaxGyq4y73q5iZHMu2m0zegG8GihoNiQ+N1ufoipTKV4xBbz0j2ENsH+Yu2atKxZ
-	4HOzVpFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rlh+oYV+P/+1/m8THqzUSHnl6pvPwf9k2pk0kwC/skM=; b=J6/t96R1CIYH9eTptQ/CbErI9W
+	uMV2Mt00z2mYufLMV/eUyTX4OocGJxFsVTpQZ2eZ6Z7UHrc0LQQhoaujkyzoZ2TXZjmb1Wk7iLqhF
+	ND6hIQRHxR1d3yN2jat/6ErU0n+AlOMdK0qiwBjjznsEY/lDwIJSJM5hWrFT47YbIfk55TkEUsGr5
+	21/4rjssF3x7APNBDirrBBmvrMNSQDd1d1IrN4yufBKEZAUc9Co3CWP6Ylft9raLGVzxbxxZUHVbe
+	RwxEzyU9/0BzyPKalh3vPnLj0ShrXIoaXVkQ6dAoV37bVy5h5KGrwI7zabXQY3AqSoqjMjyelQbdO
+	UqulixsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRXFC-0000000HWae-0Bzv;
-	Mon, 25 May 2026 15:29:30 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1wRXNU-0000000HXZ1-2Bly;
+	Mon, 25 May 2026 15:38:04 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRXF9-0000000HWa4-3w03
+	id 1wRXNT-0000000HXYr-1z3s
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 15:29:29 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-83f7e7f7457so5935193b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:29:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1779722966; x=1780327766; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4b1oC5HhUnRhm7z2afBn84VUcPa5B5EWRXQvz0Iqfxc=;
-        b=heF0LoGxRVle8gOfe3Za4gF8K89bs1mp4vSVuGTWglfpwfGtEc86KY9TpT3b5vnOLP
-         hBa7pCS3PqczRjrfboEjZL0qTNd8rCbHszcqLUfLvTAgTPVi88ujz3A0IIWY/8PygraN
-         ioz6hdmN9Jasnh0e1erBtZqUsgXVnkHWu6YSf7+2Q+iAHol5K7mR/8Y7R/yxJ2oeK6ql
-         Bx4OLkFBPs56p2Xr3RoKygTmHFLYMrYY2tDUEb5b+bSRhun5QIRD9EaV2WpDtjq+lmhd
-         At78aPEGtkfsYyInMA/1Xm4bLIIenX/ExzF4N1M49PtG8BXfkmRPXKM+xxVScSzn42EH
-         AjnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779722966; x=1780327766;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4b1oC5HhUnRhm7z2afBn84VUcPa5B5EWRXQvz0Iqfxc=;
-        b=hgp9gFjGI2LGqPPAzYwlKxbaXVgByDRptzqZCH6TXxowWR7aSDn2y/yNcRjER91Ziv
-         up42KAqHi/GAwQSOfaLyIoZ2GU93FfpPhKWBxGIhuy/blI2K4MJ1lzyIBRhSY1SLJcsW
-         eLec6fdNVY8UQ2R/oBK72tAha0WegJZ74fLkEHCp8IVpxnSHsISxd67YmkkvG1UUrLPA
-         nVRppYjRY7SDrD2GRnz8CI/hfztaUfJAwBv556SHjuXqdbh8a3ieIkbzLsWb1sMna3Xq
-         MKW/q9HnGF/ugp10huhPS0U7BIWo4GvEa++WSAONVmc1iqCqAuBmH/z0PnGEaLtuRo2d
-         ccxg==
-X-Forwarded-Encrypted: i=1; AFNElJ+jhUweZsbm6rlwO1SHrEXjIFSQbaNMHlHqBZCT55mBjzSNm11SQh5R0P1cFm6K1gdH50KhK84Kxoj0kXmqvAfV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRh7WsuaYB2GPd7ftMCGa1Is2FJJKU+BtZrecsdClee1/FJvze
-	O9rHTGFnI3QNiD7fMXxnRI6R4ddMiFIIFmOGBNeyKC8zGG3VRhecQnXcWU0cK1uOihqhXtcTI1U
-	gP9JVuAf0i/4fpXZ5ehnzujXOxw==
-X-Received: from pffv22.prod.google.com ([2002:aa7:8096:0:b0:83f:8b6a:7319])
- (user=joonwonkang job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:808f:b0:837:21dc:6ad4 with SMTP id d2e1a72fcca58-84160b8441cmr10891888b3a.2.1779722965809;
- Mon, 25 May 2026 08:29:25 -0700 (PDT)
-Date: Mon, 25 May 2026 15:29:24 +0000
-In-Reply-To: <BL1PR11MB52710D3CCFA2F75F6B540A468C0A2@BL1PR11MB5271.namprd11.prod.outlook.com>
-Mime-Version: 1.0
-References: <BL1PR11MB52710D3CCFA2F75F6B540A468C0A2@BL1PR11MB5271.namprd11.prod.outlook.com>
-X-Mailer: git-send-email 2.54.0.746.g67dd491aae-goog
-Message-ID: <20260525152924.524721-1-joonwonkang@google.com>
-Subject: RE: [PATCH v2] iommu: Allow device driver to use its own PASID space
- for SVA
-From: Joonwon Kang <joonwonkang@google.com>
-To: kevin.tian@intel.com
-Cc: Alexander.Grest@microsoft.com, alexander.shishkin@linux.intel.com, 
-	amhetre@nvidia.com, baolu.lu@linux.intel.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, easwar.hariharan@linux.microsoft.com, 
-	hpa@zytor.com, iommu@lists.linux.dev, jacob.jun.pan@linux.intel.com, 
-	jgg@ziepe.ca, joonwonkang@google.com, joro@8bytes.org, jpb@kernel.org, 
-	kas@kernel.org, kees@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, mingo@redhat.com, nicolinc@nvidia.com, 
-	peterz@infradead.org, praan@google.com, robin.murphy@arm.com, 
-	ryasuoka@redhat.com, smostafa@google.com, sohil.mehta@intel.com, 
-	tglx@kernel.org, will@kernel.org, x86@kernel.org, xin@zytor.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_082928_008998_0AE7CF94 
-X-CRM114-Status: GOOD (  27.93  )
+	Mon, 25 May 2026 15:38:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9F6866008A;
+	Mon, 25 May 2026 15:38:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A1F51F000E9;
+	Mon, 25 May 2026 15:37:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1779723482;
+	bh=Rlh+oYV+P/+1/m8THqzUSHnl6pvPwf9k2pk0kwC/skM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=CPbQoCK85r7KVUyfv4U3p2wcqp9owjOmyyO5fAqYM2oPq1FvX/QfiYrcOu+6W1AM6
+	 UFXIpvmpla6okI91+txKBJ71yoCQi1BdW2gPI873OlOou83eA/4uOJsY/6EUvIbMTe
+	 WyMJRvI5im7SPPs7bIx2eD6O4AHuYgB9Bczn7wN+LA52Fae4HIWthuD0huHKBMV24k
+	 bEncvArhH8VmdBHA6Qacw4ZsAvNHA3V+Mm1K8qTxLy/qFdt/8RETG5aGikb+aNinRs
+	 qoxwhCyF911HpF7YSpddwUDmZREhFaD+Ibsgpp/Gc/fAYbAEu9brD7RZ9XfUKSBmnl
+	 lwAXCSo8nnZKw==
+From: Mark Brown <broonie@kernel.org>
+To: lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+ shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
+ nicoleotsuka@gmail.com, Frank.Li@nxp.com, s.hauer@pengutronix.de, 
+ Chancel Liu <chancel.liu@nxp.com>
+Cc: kernel@pengutronix.de, shumingf@realtek.com, 
+ pierre-louis.bossart@linux.dev, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20260507013654.2945915-1-chancel.liu@nxp.com>
+References: <20260507013654.2945915-1-chancel.liu@nxp.com>
+Subject: Re: [PATCH v4 0/3] ASoC: soc-core: Add core support for ignoring
+ suspend on selected DAPM widgets
+Message-Id: <177971268540.58460.7539013149269437135.b4-ty@b4>
+Date: Mon, 25 May 2026 13:38:05 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1812; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=mfakf2KSCdA6oLTC+W7ozYHLNIjtRk6O1EZB6UlOvIQ=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqFGzWus3H0DiqbvYsMNr6AhAn2YhKG9F0iSV+B
+ 32wu4npHTKJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCahRs1gAKCRAk1otyXVSH
+ 0KcuB/93oLl8Dd37RwlCi7zKXZ0udVgDD24fhItx7pWfOYBluGwUA3VTRlqk9uLajf0/rCnks2L
+ x9cGZE2Yc44RmIsPZH7pjx8YRINcTUTnPYeAZzZ11pKZbIyEXofmxlGuullQ943JHpvSPmAfpBO
+ pZzP/ksFkeSGl+hejU+Akib6DfjYbibr21CuVMf4aepOEfYIQeHub25jopsyAPWNIhSgdkfxqsg
+ OxlHe7xIKOqgpD37K6zXN/LcsDJdNn7aEl6/hFg7185XVZdRKT/7aeJbRxTEjmpeOWUmFDuXfX1
+ Q/Fu1mdF+RWX0wrtIVCNhCjnZxtgz52tMLU6dlP2rF4QRTFF
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,70 +86,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin, thanks for your review.
+On Thu, 07 May 2026 10:36:51 +0900, Chancel Liu wrote:
+> ASoC: soc-core: Add core support for ignoring suspend on selected DAPM widgets
+> 
+> Some audio systems require specific DAPM widgets to remain powered
+> during system suspend. Introduce a generic and reusable mechanism in
+> the ASoC core to mark selected DAPM widgets as ignore_suspend.
+> 
+> The unified mechanism consists of two parts:
+> 1. Parse and store the name list of widgets to ignore suspend in
+> struct snd_soc_card
+> 
+> [...]
 
-> > This commit resolves the issue by allowing device driver to maintain its
-> > own PASID space and assign a PASID from that for the process-device bond
-> > via a new API called `iommu_sva_bind_device_pasid(dev, mm, pasid)`. Doing
-> > that, however, will disallow the process to execute the ENQCMD-like
-> > instructions at EL0. It is because the process cannot change its PASID in
-> > IA32_PASID(or ACCDATA_EL1 on ARM) for each device without the kernel's
-> > intervention. For this reason, calling `iommu_sva_bind_device()` and then
-> > `iommu_sva_bind_device_pasid()` for the same process will not be allowed
-> > and vice versa.
-> > 
-> > Currently, there is a limitation that a process simultaneously doing SVA
-> > with multiple devices with different PASIDs is not supported. So, calling
-> > `iommu_sva_bind_device_pasid()` multiple times for the same process with
-> > different devices will not be allowed for now while that for
-> > `iommu_sva_bind_device()` will be.
-> > 
-> > Another limitation is that a process cannot do `iommu_sva_bind_device()`
-> > if it has ever done `iommu_sva_bind_device_pasid()` even though it has
-> > been unbound after use.
-> 
-> Why not making it clean in one step instead of leaving many unsupported
-> cases which are likely required soon in this "1" to "many" transition?
-> 
+Applied to
 
-Since I did not know much about the IOMMU team's future plans on the IOMMU
-core structure, I narrowed down the scope just enough to resolve our
-specific problem and avoided introducing big change. But now that I have
-two queries to support the 1-to-many relationships in this patchset, not
-in a later one, I think it is fair enough to start working on it now. I
-will try it and lift the limitations.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.2
 
-> for each mm:
-> - one global pasid for ENQCMD or ST64BV0
-> - an array of device local pasids tracked in [struct device *, pasid] tuple.
-> 
-> upon gp fault or equivalent, fetch the global pasid.
-> 
-> upon device-specific bind, match [dev, pasid].
-> 
-> > 
-> > Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-> > Suggested-by: Kevin Tian <kevin.tian@intel.com>
-> > Signed-off-by: Joonwon Kang <joonwonkang@google.com>
-> > ---
-> > v2: Reuse iommu_mm->pasid after SVA bound by
-> > iommu_sva_bind_device_pasid()
-> >     is unbound.
-> 
-> No idea what it talks about.
-> 
+Thanks!
 
-There was a bug in v1 that the second call for `iommu_sva_bind_device_pasid()`
-failed after the first call with a different PASID was released. Will
-rephrase it in a clearer language in v3.
+[1/3] ASoC: dapm: Fix widget lookup with prefixed names across DAPM contexts
+      https://git.kernel.org/broonie/sound/c/8468c8aafe8b
+[2/3] ASoC: soc-core: Add core support for ignoring suspend on selected DAPM widgets
+      https://git.kernel.org/broonie/sound/c/51271184a06d
+[3/3] ASoC: fsl: imx-rpmsg: Switch to core ignore-suspend-widgets support
+      https://git.kernel.org/broonie/sound/c/68bb9a7f557a
 
-> btw a new kAPI always needs accompanied users to review together.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Currently, the only known expected user of the new kAPI is our team. Since
-I test if the patch resolves our problem before sending it, I believe it
-should be good enough. Do you mean more than our team by "accompanied
-users"?
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
-Joonwon Kang
+Mark
+
 
