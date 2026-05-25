@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CA18CD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5F3CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8KHtOlsr90yhD2rGuVVnFxT47aP8oLr2JK50jkH/W9E=; b=PKeFhGGlPiIlti3wa+ts55HRe2
-	feOeg7FHmSW00mVGwGUcHNJUAk5BPvRRPXxh/i6XR109YU4LRPUC0HH0nHgr9yWGt0jttGK6wpBq5
-	tpMJEltm3qMvx65XRIuWXwNRzRAEy0Xs7fS9obfoZLaJTvqGRFp50cNIOEe32PQMh3xX/bofj76o1
-	hqGGec9cd09KbOFegLF2SJG5tFlhgiSRYwykTocXqBB2fG/7SNZBDAOqjOQBsYTs1G7CEfCxQ5wJT
-	vayoRI3tVQHW0yfTr8PD6Xum1ZD66blQZrRTWo8sb6DkmMzrAAj5ab9KysvO5U4Qp20V9AJY63tG4
-	5x2u8l7Q==;
+	bh=z5Uht39vr75GvbXhlhmve8BdPrujLfsmE7MQhBRtb8M=; b=mWcSZXu2jS8FUzZ1dSav1GykBI
+	ZTh2ciUcdfD8UBrWu59NNYxw3f0q3PZRRJKWKByZB3Fr/UV3c0M1mxY4woGPwPYvWDbgy7wJmg1M8
+	GTewLbuowyPe9KK/E+B/FVfEgm1bvwh/q2BO7VDPgNM21GoH4HJ1B2cKoEwf4GLSgxfUzTtnfbsL0
+	whvce3tuShQGOBTXZ3jLdCT5LYkdAHqYO7BATbvBuNjuPOU82j0vsEBuvdevUjAFVOhXsqUYN5vO7
+	jSpcaaxRcNqkkfcecuLJ6FTko33yyZs6sesZT0OkWnEQy51cZhlgqZTpFVJQVdwyeZ/Yxbe66wRCR
+	hxugGI3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUNA-0000000HBO2-2OnG;
-	Mon, 25 May 2026 12:25:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wRUOt-0000000HBbU-3xug;
+	Mon, 25 May 2026 12:27:19 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUN9-0000000HBNs-2wvm
+	id 1wRUOr-0000000HBaz-2lLA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 12:25:31 +0000
+	Mon, 25 May 2026 12:27:18 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 187F7600BB;
-	Mon, 25 May 2026 12:25:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C5F41F000E9;
-	Mon, 25 May 2026 12:25:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D307F403AB;
+	Mon, 25 May 2026 12:27:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F23881F000E9;
+	Mon, 25 May 2026 12:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779711930;
-	bh=8KHtOlsr90yhD2rGuVVnFxT47aP8oLr2JK50jkH/W9E=;
+	s=k20260515; t=1779712036;
+	bh=z5Uht39vr75GvbXhlhmve8BdPrujLfsmE7MQhBRtb8M=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=Fw3mttdFwKIGyqQvkdD80S0Jqg8+gB1hpM57uQ1bWe0+dYInP09EBKc3EQFGelKY8
-	 /Vz3KcNLIAPXAKXj1NzPDHsq/RcWWRZtf2ykOjBDK0hJrrNdWnQrGknl/cJBGHlaFn
-	 RCGAEi3qr6dMh1uJ0O/GPYkvFitkDN6v0gDF/lOAvjFU72vSMtWQtABv5nwfcipL/f
-	 VGiasHVHACNYzqfjbj1DMBiHO1Tfpjk1QPurRaVKNyRYnM6KbbxOlbI+GSJvvqaggh
-	 /mYqLXF/LeQesG0pmaJfDpRPV/4es3MWsbucciUb/2BNuSfQA/CjHc5B9jS0IBTQ5t
-	 gXuYpMv2mxSrg==
-Message-ID: <a59c6e3a-6092-4114-8961-c2a71a812959@kernel.org>
-Date: Mon, 25 May 2026 14:25:25 +0200
+	b=c53Pezhshq6PGFgPDAGIkeDKWZHodAXEt/gCyqrUh30GuDrbJzvVjZOLUD0zHsJln
+	 Y2Wgkp2UW/AN5koRiMlnZ5KfBlvvIWNaDtmn/6A52/kmMamv1TkbwlRePzIFX++qV8
+	 Wur9BMSyzadpYH/hAms5HfJzLVBZHYFrigxILrq+LkYzzdc4mNDZa45YMdfvJ0dSs5
+	 Rruvwaw49c2jDpAcE4P5H+y4kGaU/LqWPY4TIQthCh1+34TGItRji/KurD6e3lE8+f
+	 vnLKi3XkTuNTWEQEA8FiMxeeL2Pux1D/jbkeOpgMsytHcPbOSdY88F73CZcNLZgyyI
+	 GxeDZ5vlbJqXw==
+Message-ID: <71629b97-a971-484c-9388-b3fb35adb982@kernel.org>
+Date: Mon, 25 May 2026 14:27:11 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/6] firmware: samsung: acpm: TMU support and cleanups
-To: Alexey Klimov <alexey.klimov@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Lee Jones <lee@kernel.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
- peter.griffin@linaro.org, jyescas@google.com, kernel-team@android.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260515-acpm-tmu-helpers-v2-0-8ca011d5a965@linaro.org>
- <177965159562.32222.17454581524471571236.b4-ty@b4>
- <DIR9DLGP2EN5.21HR8BY11G5SF@linaro.org>
+Subject: Re: [PATCH v6 05/10] dt-bindings: arm: fsl: Add solidrun lx2160a
+ twins board
+To: Josua Mayer <josua@solid-run.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Li Yang <leoyang.li@nxp.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Yazan Shhady
+ <yazan.shhady@solid-run.com>, Jon Nettleton <jon@solid-run.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>
+References: <20260512-lx2160-pci-v6-0-d0ff72d3c983@solid-run.com>
+ <20260512-lx2160-pci-v6-5-d0ff72d3c983@solid-run.com>
+ <20260514-macho-white-tapir-4f8cf2@quoll>
+ <e26e0b56-a91f-43ff-9268-1b885dafba89@solid-run.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +112,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <DIR9DLGP2EN5.21HR8BY11G5SF@linaro.org>
+In-Reply-To: <e26e0b56-a91f-43ff-9268-1b885dafba89@solid-run.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260525_052717_736641_7DC90698 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,50 +132,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/05/2026 00:26, Alexey Klimov wrote:
-> On Sun May 24, 2026 at 8:40 PM BST, Krzysztof Kozlowski wrote:
->>
->> On Fri, 15 May 2026 09:32:24 +0000, Tudor Ambarus wrote:
->>> This series introduces protocol support for the Exynos
->>> Thermal Management Unit (TMU) to the ACPM driver, alongside several
->>> cleanups.
->>>
->>> Dependencies
->>> ============
->>> Krzysztof, these patches together with the acpm fixes from your `fixes`
->>> branch will be needed by the thermal maintainers. I'm going to send the
->>> ACPM TMU (thermal) driver for review. In case they'll take it for the
->>> next release, we'll need an immutable tag with the acpm fixes, cleanup
->>> and thermal helpers. Thanks!
->>>
->>> [...]
->>
->> Applied, thanks!
->>
->> [1/6] firmware: samsung: acpm: Consolidate transfer initialization helper
->>       https://git.kernel.org/krzk/linux/c/43d3733b7ffd82b2bfeda69befa2a179335dfe6c
->> [2/6] firmware: samsung: acpm: Annotate rx_data->cmd with __counted_by_ptr
->>       https://git.kernel.org/krzk/linux/c/7b20fd06f783c1e901d34305c68df16212cdf669
->> [3/6] firmware: samsung: acpm: Drop redundant _ops suffix in acpm_ops members
->>       https://git.kernel.org/krzk/linux/c/ef1109e4b6120a52be1ea66d486d6744d0c5ac47
->> [4/6] firmware: samsung: acpm: Make acpm_ops const and access via pointer
->>       https://git.kernel.org/krzk/linux/c/e694e19bf7db26ee324ff6bb450cc523592f5bee
->> [5/6] firmware: samsung: acpm: Add TMU protocol support
->>       https://git.kernel.org/krzk/linux/c/f6af402de525d0848fc4a50f25ff01f56fc68d98
+On 14/05/2026 12:12, Josua Mayer wrote:
+> Hi Krzysztof,
 > 
-> That commit contained the questionable error conversion which works
-> only for gs101 -- acpm_tmu_to_linux_err() hides some sensible errors into -EIO.
-> There were on-going discussion on maillist.
+> Am 14.05.26 um 08:43 schrieb Krzysztof Kozlowski:
+>> On Tue, May 12, 2026 at 04:39:00PM +0200, Josua Mayer wrote:
+>>> The SolidRun LX2160A Twins board supports two configurations, one with
+>>> with a sinle CEX-7 module, and one with two (dual).
+>>>
+>>> The dual configuration was not yet tested.
+>> And how do see dual configuration? New compatible? For the same
+>> hardware (the same because from SoC point of view it will be exactly
+>> the same)?
 > 
-> Now, it is needed to ignore that or generalise that or split it to have
-> different SoCs if needed. Some re-work will be needed.
+> From SoC point of view the sides are different, and the hardware looks different
+> when it is assembled for dual configuration. Most notably each cpu in dual
+> version only sees 12 SFP connectors each, while the single sees 20.
+> 
+> Further the port numbering might be different between left and right side cpu.
+> 
+> Finally there are some complications in the current pcb version with resource
+> distribution (i.e. fans, leds).
+> 
+>>
+>> You must post complete binding, otherwise this feels risky and when you
+>> actually try running dual configuration you will see that existing
+>> binding makes no sense.
+> 
+> I thought about this and decided against it.
+> 
+> The single version is simple to describe, the cpu always sits in the right side socket,
+> sees 20 SFP connectors and has full control over every peripheral.
+> 
+> The dual version will require different description even if only one cpu is installed.
+> 
+> Currently dual is hardware only without any software, and changes may or may not
+> be made to the PCB to simplify things. Therefore I avoided drafting any bindings.
 
-That patch was looking correct in its scope. It solved one particular
-case (GS101) without stopping anyone to grow this to support other cases
-(Exynos850 etc)., so it is in kernel spirit to take such things. Solving
-these other cases is simply not necessary now. It's also not blocked, so
-just build on top and improve that code to match both use cases, when
-you have exynos850 consumer of this.
+OK, one compatible is also fine, but your earlier explanation this
+should be part of the commit msg.
 
 Best regards,
 Krzysztof
