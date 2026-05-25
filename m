@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF22CD5BCF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0038CD5BC9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 19:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=63/2YWqsD7Ors963G51wcV/l7BgjtiH2c939Q4Bz/2Y=; b=DpnHXMa2b8Ytbh50lvy4WA4fMr
-	cfgjDtvh68lqzWirQwnp7DcvtRl5LgugJGZVgmn+ZttT1vclaLR2o1wNL2G13werYybtVh9H13vrp
-	CdZo9pSoTWFo3+M5keIwmqAXGnfLI66GpqqWfBNmDjhnhx2Vei6Nb4c2GtwmbLuHCGPvuWsTsPbSf
-	i3L+0M5EOUZDmTTHtiNiVEdKAiLVV9ou3nD7WaXSns26NgF0nGYRbk4ho0yn9novueQ66+5KKZgWK
-	AzLMdBvmWko13IAMJXoNs+Ylox2jPmuP1cx297k6Qj/kUgAdaoWljqg0Trfk/XDJVBOtFb/8SXgFv
-	UXjf14cg==;
+	bh=dii3jeukr9ExIOwor2LDBx6O9OEuTAMnAAZyBHgb1+k=; b=Gj+6HrYgRyeIzfU/tNX0bYragK
+	MX0Pru86lNkQdF9Wv1/HrGL5npglkcHRNMkCft9JAsmdIamFfr1kbASBN/ebBU/jr533hvBR4uIsI
+	/3UScdwbXVuoXncfGlQlk7pYOPakb/dSUSSmCxHXZpvOKjt7zbesn3fTto+S/+HdOoJe3WFC/+kOy
+	dgg5SsjokeC8+9EiIWJBp/gycW7zeEZwNEYCHZlSEi8h0/Z7qd5gIx/cIBK7nToXgJjSauLY1O/ZY
+	lp8VwkBRvoauj1jDnWjImFcyOSiiwWV8yn6y36VuHu/M6+QF32iH647kWFPyPpyRQnfyhqbzgOFIi
+	waT0eU4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRbHH-00000000MBf-439v;
-	Mon, 25 May 2026 19:47:55 +0000
+	id 1wRbNc-00000000MoJ-2xK6;
+	Mon, 25 May 2026 19:54:28 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRbHG-00000000MAx-1mAh
+	id 1wRbNa-00000000Mnt-3vgG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 19:47:55 +0000
+	Mon, 25 May 2026 19:54:28 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 41CBD419ED;
-	Mon, 25 May 2026 19:47:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4811F000E9;
-	Mon, 25 May 2026 19:47:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9068040630;
+	Mon, 25 May 2026 19:54:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D1241F000E9;
+	Mon, 25 May 2026 19:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779738473;
-	bh=63/2YWqsD7Ors963G51wcV/l7BgjtiH2c939Q4Bz/2Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GVPtEeFCZQSk9Wea8Lxyztx9CSsIescfzNCXFArUSSMYqsGkxNNxKQEysr+S5MOda
-	 z46juzqnVw7Mb+v342+1B9m/jrFkMEIgWqaK5n/mgl6ADz6Hr4d7HDV4p1TiMZ4SJL
-	 5uA4KBuSf6127jq0dFoqnzpahbM4f/PwE4x9R3UlC8/X5WZMZiDvcgMfr4ZL7036Al
-	 95+YVXShjuRvwQoapHPi9Fl5589retks03tP4Ih14LsRxoGSJyYz8DmcttDl8lRTqn
-	 aFZLp74USzwDnEzyzwBhY5vznHjeXgkRRosbNhEJz4qak3rSM/5HjPf7Y57DXbHfZp
-	 xlFEnvD0BvqTA==
-Date: Mon, 25 May 2026 20:47:48 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Brian Masney <bmasney@redhat.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH] dt-bindings: clock: renesas: div6: Use ZT/ZTR trace
- clock in R-Mobile APE6 example
-Message-ID: <20260525-outrage-lego-2858c3eed769@spud>
-References: <20260523192622.56605-1-marek.vasut+renesas@mailbox.org>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="iMjt770BTEZflGTE"
-Content-Disposition: inline
-In-Reply-To: <20260523192622.56605-1-marek.vasut+renesas@mailbox.org>
+	s=k20260515; t=1779738865;
+	bh=dii3jeukr9ExIOwor2LDBx6O9OEuTAMnAAZyBHgb1+k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=SqGm8cyerm1SAKBPfWzdO911EPlHOkLgLQxNL2YxIKlaa2m0/wIkdLGaWuQk+uw3A
+	 G0G816Zc+XLJqqK1siV/8whKehjGCchy2oHMQybI8D6VxAGgQVAUZ+vcgQRLeAYQye
+	 dWwIkfUAttGN+Wsn0GfAh/zvhzjAP/ItOgIemH25wTluWa6DsZan0Y76olOHNS5Sr4
+	 1O6OhHpe8Tujbolu0VpDx2Iq0Hz5cjSu60j0wNILiZ92QyrouncjKvYvJS4zM4WeC8
+	 xq9487/+ZwKDyziuUXNXpYKOVQwNYYTPa2ufLfi6pMzaq7gRCTDprZ0o9epjoJI8jG
+	 zQZEOSY357XFw==
+Date: Mon, 25 May 2026 09:54:24 -1000
+Message-ID: <240ca6a938e38d2af591f09a721d6e9f@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: David Vernet <void@manifault.com>, Andrea Righi <arighi@nvidia.com>,
+ Changwoo Min <changwoo@igalia.com>, Alexei Starovoitov <ast@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>,
+ Mike Rapoport <rppt@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>,
+ sched-ext@lists.linux.dev, bpf@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, Tejun Heo <tj@kernel.org>
+Subject: Re: [PATCHSET v4 sched_ext/for-7.2] bpf/arena: Direct kernel-side
+ access
+In-Reply-To: <20260522172219.1423324-1-tj@kernel.org>
+References: <20260522172219.1423324-1-tj@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_124754_484012_9E1D2F3E 
-X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-CacheID: sfid-20260525_125427_000785_0A9F0568 
+X-CRM114-Status: UNSURE (   4.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,35 +81,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
---iMjt770BTEZflGTE
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Patches 1-5 went through bpf-next and are pulled into sched_ext/for-7.2.
+Applied 6-8 to for-7.2.
 
-On Sat, May 23, 2026 at 09:25:50PM +0200, Marek Vasut wrote:
-> Since commit 2abdc3dcf978 ("dt-bindings: clock: renesas,cpg-clocks:
-> Document ZT/ZTR trace clock on R-Mobile APE6"), the APE6 clock node
-> expects two additional "clock-output-names" entries, "zt" and "ztr".
-> Update the example accordingly.
->=20
-> Fixes: 2abdc3dcf978 ("dt-bindings: clock: renesas,cpg-clocks: Document ZT=
-/ZTR trace clock on R-Mobile APE6")
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Thanks.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
-
---iMjt770BTEZflGTE
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahSnZAAKCRB4tDGHoIJi
-0vl2AP9l+ryVmXD2JyeSGAK3rZF8YEqWuxvXoEPpknmVqr3CpgEAgMfUE6J96aiu
-6Qv/mObJL5G8vRFckeaPOk30b+HhLQs=
-=5QF5
------END PGP SIGNATURE-----
-
---iMjt770BTEZflGTE--
+-- 
+tejun
 
