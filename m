@@ -4,131 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886FBCD5BBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 06:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2922FCD5BBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 06:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=s0CoIKHVEgspwhErVQEhnqKpUPZoPE3lbzhgsGsXgjM=; b=jRPtZxEAxnGupm6OjtQv4+uTdA
-	C0voFOmkNf7tWwJi3eF4fJCHRDwy7O2Ri6r8W9ywnJ020VCkvlDys9t3VvPAuk6LSOHWU898OXtkH
-	gazcaJl4eXSjSkJFg59Re8IVase8J5/uExynpsxxzMfNyV/LfDS1kkCykuBX84tonyq9VrzxkX+Cb
-	06Aihj/yA9nxzyiFf5d6UDfGpDxcFV3sUySZ8aSKBPdVly3tgPm6253UnhdwPICeMfcUiZMj6wMAM
-	+1d/nIX1zwq52ZWYzWy+13H5M35NQvEhzwY0ydA612yO/oNy3UQtaItAls27UFbxbv+qeG3LHCCwe
-	4WLprNNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FdIrsOqTvAtPVjBT+JGYNekw3r4qMnKczAPJbhiSasE=; b=DtXi3xVTUpAQhHmX8pCsnOxTah
+	X4UHq4RUm2xGkiWlsNw/iZaLJ6S3klvp0DD3JSqD+9rPNf+woufeUvSTc2j6NthUp1dTtK1+9dPZg
+	nm6kGS+xRuXWcYwbvp4uhLkqLzHMW5BKabOO9BfAtnPaTpmwV+tlwGDT0S1P5h+dCm1c9Lzr/O90M
+	Fy/bmF/wgRy029gjit8g0xktfGT9BQpckeK8jksZtNngLsjWfg3QL/avbka11coaeeVFCCdTsdI9j
+	Dns8Q+19e5GSknbE1j8p69V/1n8Fb9460856Pyg+JMzfcA+Wlwsogu10t3AesYTt9rOZ8lrcdvjSd
+	1fnAincQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wROmf-0000000GPpM-3weY;
-	Mon, 25 May 2026 06:27:29 +0000
-Received: from mail-northeuropeazon11012034.outbound.protection.outlook.com ([52.101.66.34] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wROor-0000000GQT4-2iFs;
+	Mon, 25 May 2026 06:29:45 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wROme-0000000GPoZ-10bp
+	id 1wROop-0000000GQSK-0rct
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 06:27:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IzpwMk/AZyB3rKyxyXCDkH1lumzMRUODc1dA3fCAsBIpjTWTXWptZdsJg59MdIp0aUMRz5mjUOHCyd7zmP/5X02x/ZYTm8T8tvK/IAhuugXwBOGbyEONrPyIrwtUPYFlQPZ6pGCWtscQJgqUIGXlGcYLPWowdlr6fBNoXFAFo5LdJP/7NgOPcIWKB0CH5YZ3GpfPt5B8qW+NamOeIJDC0vZLe9iCT0rfXzFYF/BBdMoRws2GDD4kEGD0r7XKaw3gKPuYwh1FPQoV8W+E5LvzLKmo8KGXooVpY/T6AQ9yEW8bpimo3U5h/Y5VCQyw3Posr4e+am4eOw3L4zN2WpsHrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=s0CoIKHVEgspwhErVQEhnqKpUPZoPE3lbzhgsGsXgjM=;
- b=b91npJ5QvL3TnuiNl7IwAruMy0hxy1WB0SoUhmO5IeNHg06d2psy/QJlmRWcdta78qXksc+NVfLnf4JVxHQ8SLSe46LBxbjZHPMYcB3WqaXdGsC7mXs3HlD1yofkTGXrkikaUAUKhxJlwcn9MmXK+MxAcUrvgPtURWjGNoApJ2VWzTdfSYNiQG3oHnSiRgMbJsPNd9yiMjJloUwFnNudQnTJy/H+xqdCpSZkalwvPUeWKBC7xlFitOfHJ8e+HBS3GfsqWoyeVC4MR7MkBMZ4QcBy4AFIgDWMUX9XLyI+y/0Urs1wcXRsDsV9qiBvpLrlm1CpatT0g9WnlBMdmB12ew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=s0CoIKHVEgspwhErVQEhnqKpUPZoPE3lbzhgsGsXgjM=;
- b=ECSXzF5WX02ZRrxc0s5WwBm2g1YpD/sQOVXxt8o1OIuT6ABdJxulzuD1RvDduiJA1lmdYQse90BPVah2YqdCczJeLHyojjOZmp9pBTxs1cMZFKmXT/W1oHJ6mdLUtziAr9Re4DVh7HrzTaTF9l6bVRVgJ+XLpxwRo8AY++XErbxZQ5ad3QAywrVxC7uMARokOaUarXTP6L5MXjgiCoSWsgNS2B4AFNEeUGQCxzWMQnpJ7PJBuXS2aq1bvMF6qYtFHOKB2PjcDOPp5hVuBfeJLI121JeE+ZMfPV5Jzf0pjZ+9arKmFmufLuNJUFyOJ9CdGC1OpRITgxNYejbjjJXIlQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by VI2PR04MB10764.eurprd04.prod.outlook.com (2603:10a6:800:271::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Mon, 25 May
- 2026 06:27:22 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.016; Mon, 25 May 2026
- 06:27:22 +0000
-From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-To: broonie@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	carlos.song@nxp.com
-Cc: linux-spi@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] spi: imx: replace dmaengine_terminate_all() with dmaengine_terminate_sync()
-Date: Mon, 25 May 2026 14:29:28 +0800
-Message-ID: <20260525062928.3191821-1-carlos.song@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: FR2P281CA0077.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:9a::14) To AM0PR04MB6802.eurprd04.prod.outlook.com
- (2603:10a6:208:184::17)
+	Mon, 25 May 2026 06:29:44 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 64OMdr7O1927545
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 06:29:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	FdIrsOqTvAtPVjBT+JGYNekw3r4qMnKczAPJbhiSasE=; b=Ve7tV7mMp8QvF+42
+	6DWaCZPyb51vcb3OWG2A1fWxOI7zTm1jllpE2R+oh7ju7u1eGYzZDHQ/FpFuw9GG
+	j/mVh9dlwX1EYgBDnWJ1cDFqK93XYHTAjvPUHTkPnGsUEH6jUzoNImm2C4uRNk2F
+	xiebWDSRDrglWr+seh4Z7Iy6BPytSYpfPBAKEdV0gmBFlozxERO14Z4BEYd1LM1Y
+	VTiCA1IvM1w+dpadbyrfUcFC9CfL/TvMflraVvfmFARIz93obC6WBcTJ3XUmnqPK
+	p1HHxBKjMtzk7/O34VXU41dXUyFaS/M9XZE7y6zdmyn/YOy9eDEzCxaQyjrxFwah
+	9Ky1AQ==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ebba0vga9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 06:29:42 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3663d5e9bf4so9206849a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 24 May 2026 23:29:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1779690582; x=1780295382; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FdIrsOqTvAtPVjBT+JGYNekw3r4qMnKczAPJbhiSasE=;
+        b=fzmrkU5c1qwV+kFb87j1tCdyA2yPy9Vx9EWcZJLbg6ZySwrsfE3UcDjFzVtXndYxBZ
+         3p66RMJbKZmr09JXMIXmqId9xQPGBNRzRS2GWHIQBQ6awbIM5nei0LSmhcGO941Tmwk2
+         UVlxI5mBErKRXrDfBeOId3224gHe5v1bA8DonjOUD4ztCLuZsd73RkLLWiIkwmvxgkY7
+         /yY93zWCOzDDEllv7VXyL6MiJLjvqHZmRw4kWLAbxrGLBT4jJqXO+AO0gVf46kOGSRHD
+         /RidXSWRqjcJB19pPLOnMn1Ovow8FMxyTuDpk5PJHtqUYHZnR5O7r9P+YusExm92kUqF
+         dbGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779690582; x=1780295382;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FdIrsOqTvAtPVjBT+JGYNekw3r4qMnKczAPJbhiSasE=;
+        b=BAktgoW6QGsZfqNncmqI0H+q4Kx/ja7nkE/8gIbT+qNL/8ChMWdI3TqGfjbksL3ue/
+         rMfE/VIsQ5KeK5gpSVCkreDS13n5/D0Hbi6+BmurAgGRBzBVe2xH/DXT10ZvmntKydij
+         9FO8Hzn5aX2I6IsBSgc+z/VnD7guVPLGiOumeKkmlxObR7/m0cM6TOUj0pioaM4kmxJ3
+         8GqO7cJ46PBNLlOeg9o/D5dOZ1hnXNxyB+tZbP6Q7x3sfa05xY+LwlMcEoCZvTXM2JxT
+         EQ0z75s8Fh2hgj97l0djzasJ6Jk9euiQ0WihKmcbm5zT2vrL5r0sakNZ2uY4jSMZ99Fz
+         6RFQ==
+X-Forwarded-Encrypted: i=1; AFNElJ8JOtZmdVCij7/iepInxojjzQ2muq2brDXJjJd5YDIEdwhBdbVOouKUsOtJJdSFJKHXnySdV7PrWFoveBnM0sgD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe+wtbbORbQurWyaCP1ysGjPjWP7Pl+o00RGpxqia9eWPqFvc0
+	Su+BQBTL3Vm5s1f5sneqPmZ6mj5USk9vLBrzNNyKJYkmfN8SWYY35bktXiagmJBwIR8AMsWaM2f
+	lh/xdIsZz86qaVp0LtGOJDHo7tQo7ScMEyq2Ljm8GoZ5IGcfD/V099stWOYuQqhq6OUUQWNaZkP
+	eHhA==
+X-Gm-Gg: Acq92OGoIb80Gb3a6LAYt5wZ3Xu0CC3S32gOBarveK2QsjKnDftIlkXcYR0vviS6uRZ
+	ar9ZnvGY8nnWGwBFZdgHN2uICvAcOGdT+e6SOhfq7tNvOejTi4Db/a/3Slgg2f6o2lJYNCNFp6W
+	+BEL87hulbenHDDBnDmbikPlbTP2HGZ8kVPD19iXPwDpaYG651vUfW2TtIoHokylL0FoWjYXjmy
+	zSfLioaeEjA8/fT3YzYMGR9m84zWI+Z2DdfnWlekAq4XzFlNYuWe1dfBwQ6OPKEMpMzr8Aym30p
+	MfYV/6xe+6++bxT+zLSLDeK4GboWvrB3z/2wGCxtoo37pRcJxSx5o+9PWM5vPPXtmIyNFxiDjmC
+	XfSIdjgyQxIEHanvhVRz9assZ2IJNyVB6n9+SNzAKKdDGO5udZTD6SnaXbvrpgE4=
+X-Received: by 2002:a17:90a:c88d:b0:35c:cba:3453 with SMTP id 98e67ed59e1d1-36a67693ee5mr13860537a91.22.1779690581709;
+        Sun, 24 May 2026 23:29:41 -0700 (PDT)
+X-Received: by 2002:a17:90a:c88d:b0:35c:cba:3453 with SMTP id 98e67ed59e1d1-36a67693ee5mr13860512a91.22.1779690581236;
+        Sun, 24 May 2026 23:29:41 -0700 (PDT)
+Received: from [10.217.223.47] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-36a72c4ca35sm8718531a91.9.2026.05.24.23.29.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 24 May 2026 23:29:40 -0700 (PDT)
+Message-ID: <e36172c6-4424-4b77-9b3c-47dcdbdff05b@oss.qualcomm.com>
+Date: Mon, 25 May 2026 11:59:33 +0530
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB6802:EE_|VI2PR04MB10764:EE_
-X-MS-Office365-Filtering-Correlation-Id: c21a8052-8666-4517-0ea7-08deba26ad92
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|52116014|19092799006|1800799024|38350700014|56012099003|18002099003|11063799006;
-X-Microsoft-Antispam-Message-Info: bPiK7OS0nGQ4NjYXx7VSRYyFcCXSb9tXVPNHJkCYq1zJJL5c0+PQKgVtVL441FoOrA9ECR0gWqJd9wxqzNISfoah4Pwpbkw4oAtgZdasHIvF9mPXmOxb5jRmGFPX/GoPtx7VR2gkkk6UGlr4mo7QnxxB3SreUFtHdYUgbVCjDMIBLtjeeRHDTOHbiUTbur2j3QJ3hflTIXBYCYVkEZb4Rq+NnuWSS+haT+N7txuv4sunznQgHorGnemEt2PcvVjtZKbt82rC1h2DFSJfxls0Hqv+KNFVvWN0DcFnESUJ2gNi/7wmCKaWPKFsuEYdVuJVuuG/qOa2HJqjpEw2URkIqAImVPKturP4z1TCbQWKtBZOD+w0FJbJMBlGMilhOg/J1/1HeHdIJlHb1n4k6/mXkyZeKa3Rfy41r1RZ/ycCZpZg+G6HQHu+rxMJwqct2V5U6828pASZoAK0zsJlC9L3+KNCBmoaWWdfNAE5WVALDRVw4zldo9/sVd2bWn/xkGBnaWBvChvIPGRaN5GlYt+wARPgQP5+vs3CBwH7JlO2y0vGP0SLSQVzQZaXXXKmJE9LHpLJlOI35Ifz3IYZTmF6BvjhCnlV/H+Ut1T2B7JhfKwHNit1FA8S5G6+kvKh/8M/tJVxaOo9iPN2QCIKbrWbRVaCzgu50kw+Ra/ANZkxX1Nn87DLS5NfBRQeWLCPNcd6w+iQA1Eiw1HGtWgAyjHV+G1CZXAj/HyUiPCS48s5G/IS/wXBfGKq12C0vK9SD8Ps
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(52116014)(19092799006)(1800799024)(38350700014)(56012099003)(18002099003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OpirdsjbydIlLyy/Xewmq4nQ9ThBeep+il3q2ZyrIOI03oAzXdFRAuTe0Bp0?=
- =?us-ascii?Q?/MKA5VfYz4vS0rQpCr75FW6Yc+vV8ujfvafPSMT4LzZ1MzbHQzejaYsKk8L/?=
- =?us-ascii?Q?77iH0l320tb+3XVwag81WIDIZ9Gv7Kdpq4Rce6AV6uLyVo1xcV2hYAwnG9p9?=
- =?us-ascii?Q?q+G0e6OQX+kwb1Q6rw3EiZGh0JOVp2hgTNnFiHd7+VewRU/MRX5rftICDNi/?=
- =?us-ascii?Q?RJDgATAMlplJ7gmdGozQA93Ksk9j48Mor0gkznUVc2bkBxbCx3POKY7O1XIh?=
- =?us-ascii?Q?ailNd9HuXY214Lyplwm7Q8/eXXeasD36j26SvD/7X+F25vqJM05sJSXEG2Ju?=
- =?us-ascii?Q?s7CXOdyD27r8EV4kxoo4loNTCVTSFZAkRJKt5PGJeHndHIOMo5a5QgkDABKG?=
- =?us-ascii?Q?kRrwcQRmS5bWfcDKc3eBQ11RKIicIRyPr/VEVJNwBEDw9wGBUtjj84zWcY2W?=
- =?us-ascii?Q?EkGMIFy7GCM7CJmFrW5bl0zw92kHJnqhj6vXIAeLsaJ9ZozfL+CrEKbY980H?=
- =?us-ascii?Q?DVh+2QGQ6TIcEx4c3WcYKr4+8wL9T1vySewaGd3Sz4m3T7nQiZTsm4pSf36z?=
- =?us-ascii?Q?olSPo7L0eqx9OLkdpR9CW7ebFQsxkGYtH4w1sLaEsYC++yK3h0jApTvgB4bb?=
- =?us-ascii?Q?qNdEcrSzuJJM8GRWlubRCNMQGz5SzF9FbrP25mbULOnHklCUQ/QKvZJGGfHj?=
- =?us-ascii?Q?Lc0sOLP6vHHi8rK4vhE7JHr31q5RE2SgZbLYq0Tp6QEGRQwQoKIuawmtwcKw?=
- =?us-ascii?Q?iQCnRNqN+ecf8YUw8BtwmDutLQjtoqh8hxsSsbmrN7U22NCDGgpndo+JgBN8?=
- =?us-ascii?Q?QwtSkoJ+XvT6mpP9DqYtiecSxLrPTxyUKEUg/DpYendqbz1QFeNXq6h3VROU?=
- =?us-ascii?Q?n8CB6XQe6xbsMNMUCrmfbTzT3GsNuhSDUhBfh3zaIbpG71j3wy2iNQysGN6q?=
- =?us-ascii?Q?DSNnf2+Vz0Up6RCglaLW+impY9TyX8GkazQiYPF22plL4U/CYwW82VgHay5Q?=
- =?us-ascii?Q?nOSTPp6Ke7bEHwQpVuDWeTDw92FWq2uJpcOHzVHWfbjKOUXWMrR5pwnvtlB8?=
- =?us-ascii?Q?U3MKFBtAXE2Nb9SlsH1pPtlP/q72k4CoDYxwUZ1vVWHNVQ7q38gel7WSM8ZR?=
- =?us-ascii?Q?eNgsBq1QC+a9RopfsMXkGaFmHwc0ieNiLyqyMzyYvQ21XbscTGN0HfByn+l4?=
- =?us-ascii?Q?qwDu0u9WQUo2ril+UR61psU7S4zpoSXoDfyIceaa+bQA89aHFURPnEJ+yiG9?=
- =?us-ascii?Q?kuo+4vDRs9LmD+VmXX/VlQk9hRIRs5SaNx8s2bX/a9QgX53wEZRSZaooNzIe?=
- =?us-ascii?Q?EtFqTmbgg+ji8ioFy79ZFRw9I8PmzhwNaFlytQ2QfOPRcFDwU2vuBVLnDgqT?=
- =?us-ascii?Q?q07g6MjYzLPRq16YMRTD+7WYheAaCqA9jpQWkcXRRuNcoFdewEKTc5LNotUb?=
- =?us-ascii?Q?WN8L99QDCk5fx2c4q4sdY5XpJDsYKoOioa+R/+/YuYoDVB+B0qY+Qaq3QYKe?=
- =?us-ascii?Q?t78KHNEiZo+fbaYcE1lnYoOWRSNuOtJYJ5+/OyLvxGIZcX1+PQ1rorGnF9lZ?=
- =?us-ascii?Q?zINA6Qg5Soplf8p+Sn2Fe6hNrlc2P0m4cpcffg/Qrl2EnHcjYmgsMJwmqTP3?=
- =?us-ascii?Q?ObKMMpM3VhouruMRkQKek/5Z/ZnJdPOuPUvJnIPMyvbMO7KhJtEUrahE0hNO?=
- =?us-ascii?Q?Czzq6jN1FYQEvEe/NBaXPaKx3ixIMq3FG08mR3vRm60UoWkPDrJaYuodu6Yv?=
- =?us-ascii?Q?98+ta5n5eg=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c21a8052-8666-4517-0ea7-08deba26ad92
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 May 2026 06:27:21.9751
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: X8h0XztaK6WioJayaSsi0xqo25VwL/f5Jo3/NDueLBifY0ao3Q5/iLeFely/8z4UlJpd9whs2oLWtDDJXKuHJA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10764
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] crypto: Delete Qualcomm crypto engine driver
+To: Eric Biggers <ebiggers@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Demi Marie Obenour <demiobenour@gmail.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Herbert Xu <herbert@gondor.apana.org.au>,
+        "David S. Miller" <davem@davemloft.net>,
+        Thara Gopinath <thara.gopinath@gmail.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Russell King
+ <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
+        linux-crypto@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Ard Biesheuvel <ardb@kernel.org>, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260523-delete-qce-v1-0-86105cd7f406@gmail.com>
+ <20260523-delete-qce-v1-1-86105cd7f406@gmail.com>
+ <7rgfuvv3hai7g4wt4accbkejtzdt5dnb6mkj6x7ox5sz35q4n2@h7j6rr7extuj>
+ <66317f6a-645e-432b-ae11-8f40569d4117@gmail.com>
+ <d97382a6-6c5d-4a3f-89cc-3ae9b432de3f@kernel.org>
+ <20260524204537.GB110177@quark>
+Content-Language: en-US
+From: Kuldeep Singh <kuldeep.singh@oss.qualcomm.com>
+In-Reply-To: <20260524204537.GB110177@quark>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: 0E1XM5JNd_EFS7lcljyBSrI0-fNIId9E
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTI1MDA2MiBTYWx0ZWRfXyemUKEBeV5Bu
+ AljqIIvaH9Zl6iUoRmIZQy+BjKYNWyj+qYlJR5rpPJTfpvuhXoAFC4ezaT2vPoIWwak3EnDIHGs
+ 4tO5QggPWGttYwum5jYN4EGj/f/05d86da2/GeCbrj8dWRTlTUqpzFI7lyBINFKEpX2IpmOjstj
+ 587c4HYclfYufmznUTJxuTEDPjGJ6JsUDRacATcumKLyLPyH+b81C8X1GUts7X67eKRA7wpIQKc
+ xZyB7N3Vfb1/+a/LrCstZC1HONQZKz37JvSdsM6ZD04/or7GicVzz++AZ6V9m6gYzIGcb/aXL1T
+ 8huFkuYJvdP/SssA+GzLiaZGMBIeO6iEXKPzilQ1FIqbEXcoJr+Hf8OezJv6hKQJlmWMvcVEVPC
+ tR77Yzcuz0K3XN3THQmxAm6kDeNSgZTz1W/Vh+5HZKxtOlXHEySZ8LdSN45dFJaptH/gc1kmnxL
+ 2B29A3vi5Rp2nYlLjYw==
+X-Proofpoint-GUID: 0E1XM5JNd_EFS7lcljyBSrI0-fNIId9E
+X-Authority-Analysis: v=2.4 cv=Xca5Co55 c=1 sm=1 tr=0 ts=6a13ec56 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=NGcC8JguVDcA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=84HhrvKZSfYMtnHzFl8A:9 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-05-25_02,2026-05-18_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 malwarescore=0 adultscore=0 priorityscore=1501 impostorscore=0
+ clxscore=1011 lowpriorityscore=0 bulkscore=0 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605130000 definitions=main-2605250062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260524_232728_281794_B93AD6D3 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20260524_232943_254755_1FBA31E3 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,77 +164,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Carlos Song <carlos.song@nxp.com>
+> This driver is more than an order of magnitude slower than the CPU for
+> both encryption and hashing.  See:
+> 
+>     https://lore.kernel.org/r/20250704070322.20692-1-ebiggers@kernel.org/
+>     https://lore.kernel.org/r/20250615031807.GA81869@sol/
+> 
+> There are many examples of it having bugs as well, for example see the
+> second link above.
+> 
+> That's why it had to be disabled via the cra_priority system.  This
+> driver was actively making Linux worse.
+> 
+> This isn't particularly unique to drivers/crypto/, of course.  This one
+> we just have data on, so it's a bit clearer.
+> 
+> I've yet to see any real reason to keep this driver.
 
-dmaengine_terminate_all() has been deprecated, so replace it with
-dmaengine_terminate_sync().
+https://lore.kernel.org/all/c1697372-54ec-4f57-85d9-ad375ff1a44d@oss.qualcomm.com/
+Kindly check my latest reply to the thread. There are numerous usecases
+like DRM(Digital rights management) coming up and qce driver is required
+for secure content.
 
-Fixes: ba9b28652c75 ("spi: imx: enable DMA mode for target operation")
-Fixes: a450c8b77f92 ("spi: imx: handle DMA submission errors with dma_submit_error()")
-Signed-off-by: Carlos Song <carlos.song@nxp.com>
----
-Change for v2:
-  - Fix a nit on title and simplify the commit log.
----
- drivers/spi/spi-imx.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+> Crypto drivers need to be held to a higher standard than other device
+> drivers, as well.  The onus is on those who want to keep a particular
+> crypto driver to prove that it's worth keeping. 
+Sure, I'll be working on stabilizing self_tests infra for qce.
+Kindly allow sometime to go over failures in crypto selftest and will
+submit fix if applicable.
+So far, i am observing 2 ciphers failing(xts-aes-qce and ctr-aes-qce )
+with CONFIG_CRYPTO_SELFTESTS enabled.
 
-diff --git a/drivers/spi/spi-imx.c b/drivers/spi/spi-imx.c
-index 480d1e8b281f..ae9912905c67 100644
---- a/drivers/spi/spi-imx.c
-+++ b/drivers/spi/spi-imx.c
-@@ -1774,8 +1774,8 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 							transfer_timeout);
- 		if (!time_left) {
- 			dev_err(spi_imx->dev, "I/O Error in DMA TX\n");
--			dmaengine_terminate_all(controller->dma_tx);
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_tx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -ETIMEDOUT;
- 		}
- 
-@@ -1784,7 +1784,7 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 		if (!time_left) {
- 			dev_err(&controller->dev, "I/O Error in DMA RX\n");
- 			spi_imx->devtype_data->reset(spi_imx);
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -ETIMEDOUT;
- 		}
- 	} else {
-@@ -1793,15 +1793,15 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 		if (wait_for_completion_interruptible(&spi_imx->dma_tx_completion) ||
- 		    READ_ONCE(spi_imx->target_aborted)) {
- 			dev_dbg(spi_imx->dev, "I/O Error in DMA TX interrupted\n");
--			dmaengine_terminate_all(controller->dma_tx);
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_tx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -EINTR;
- 		}
- 
- 		if (wait_for_completion_interruptible(&spi_imx->dma_rx_completion) ||
- 		    READ_ONCE(spi_imx->target_aborted)) {
- 			dev_dbg(spi_imx->dev, "I/O Error in DMA RX interrupted\n");
--			dmaengine_terminate_all(controller->dma_rx);
-+			dmaengine_terminate_sync(controller->dma_rx);
- 			return -EINTR;
- 		}
- 
-@@ -1818,9 +1818,9 @@ static int spi_imx_dma_submit(struct spi_imx_data *spi_imx,
- 	return 0;
- 
- dmaengine_terminate_tx:
--	dmaengine_terminate_all(controller->dma_tx);
-+	dmaengine_terminate_sync(controller->dma_tx);
- dmaengine_terminate_rx:
--	dmaengine_terminate_all(controller->dma_rx);
-+	dmaengine_terminate_sync(controller->dma_rx);
- 
- 	return -EINVAL;
- }
+https://lore.kernel.org/r/20250615031807.GA81869@sol/
+May I know how to issue reproduce steps because I didn't observe
+crypto/ahash.c failure with CONFIG_CRYPTO_SELFTESTS?
+
 -- 
-2.43.0
+Regards
+Kuldeep
 
 
