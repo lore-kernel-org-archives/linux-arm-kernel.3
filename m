@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F211CCD5BD0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:50:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF731CD5BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 12:50:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGd5UlriZ0Fmljc0R8krxuZT/x7hHgGTNiWkLANtVt8=; b=Q3kIpBeKFp/yfRhcp9vSRoeB4j
-	7dhCMnTF7FP6lxv+dRiNLTnfUR57KRcVyqVttIFpsVF02LSVZYw9zNQ5VpydcHMQlxyAggCsj4WKn
-	rcqloljcBXTuW4z203iJ3ylZ5u9yrYpN7eFBkEB9f3FXCZevGx8zYs4R39Fhk0MfhH6Lt2So/QSUx
-	NKw0QGIVwgmOoyu2sX3x7By6HoIbUgGD+VFIjg6KWxEXQdSoV62vQJoPdLM5qILcaD+/TqZ9CP0WE
-	Sx78+6x5CjMl+A4UTWk2jMbarnEp9TIkpawtHRuK6GfsW8hg7EuHyDikuyMeIyTKq89dcO0M3WHT3
-	9VsQcm/w==;
+	bh=vDToCxua2FGXb+7ZVGR5RdwizXsWPQiwm2ZuxQ2xHTo=; b=nzCEPEwDoIS8OiH6gjIE5scJOW
+	wluyb3KllQ+6BTGSIeaDGx0vIQDWWwnuFDcag1bpomREVuigh+AWVd2rGuqdDczudNruDXr42GrPt
+	Cg48e8UV0/jiG5X/fuReUcxgsddSwlpWqFj5ufj7AkN4ym7xAI+ey0sz5KAqIT9ctV0WyKBsAF5Br
+	qM36CC4s9lgtdfy68EmQto7F+iIsVGkw0LG1TK7qfotnxvkux+Nj7LIvNzfx/grtIzxW/L/e7D4JU
+	vdnVONO+IlJ3sRczHfAi+ojVVtIFP6yp2OAys7T0puRfFrf5TwhW0sAzHAponhMn+gTxZOpAbJCbU
+	cuIRTQOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUlZ-0000000HDx8-3tQe;
-	Mon, 25 May 2026 12:50:45 +0000
+	id 1wRUlQ-0000000HDui-281u;
+	Mon, 25 May 2026 12:50:36 +0000
 Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRUlO-0000000HDt2-0H9f
+	id 1wRUlM-0000000HDs6-08mm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 12:50:36 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4891e5b9c1fso82195555e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 05:50:33 -0700 (PDT)
+	Mon, 25 May 2026 12:50:35 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49068493267so5693995e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 05:50:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1779713432; x=1780318232; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1779713430; x=1780318230; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hGd5UlriZ0Fmljc0R8krxuZT/x7hHgGTNiWkLANtVt8=;
-        b=Yq1Jecmi7hcE4+nvQFrgibZaR5KGok9Qi/o7ZTl+Qvt4zgcyfvrCMmOWi8QJBAONkC
-         SoSgsPmkD0gxCxOWBiPBogXnJP7k7qcpU96VZ0ftpa/TzcVOAp28DU3UNcPMtUrd2u34
-         jJ59+39iGsT9n9aYIxM4VLXwlPp6GYK6Yy8q/gcVcad3Mc7+0DifonimQS1CmkKNK3FU
-         J8fyk2hnUv9yXIivJMGkpmh2xWjSzKCD9pc49ekAeJbotxXKNLUo00Fd58M+B/RSoGux
-         23jPgpPGhpCovPxs917UwDOKoSySCh7lR6PhJx+xgdMMRtxa51YVfIby/WvWqPxiHici
-         ZEQQ==
+        bh=vDToCxua2FGXb+7ZVGR5RdwizXsWPQiwm2ZuxQ2xHTo=;
+        b=DWk51B9wuR6MHJS5TdI6Njm6IuVBE+UacHpqdG5VAUzTNvkq0F6KuAOH4IxJtyZgeV
+         IpUv4ycTKyC623i9JJubCNkwH5/GCs68EEKzimzRKEm+b5QzNSWlAAVLMBswBHoI6OTq
+         loMEKv2tRb0xXhj8OnGxHbYPUk1NkJ0ACJTlgGaYpMkMRBS+G/T4AiN777i8b3EGh5ut
+         g9p+2w2Pu342JINj+rUYLNbb3g2pWejmQ5oFkFFmYYVfI7JglaHTY+IlVkNTPcUGFnC6
+         iNbG95HIXjHZBDk84sDtFiPIn1LUIu1cEhqu0eD4TFMk05al0a5+51Z1fuyfdeoIRPBz
+         6zhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1779713432; x=1780318232;
+        d=1e100.net; s=20251104; t=1779713430; x=1780318230;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=hGd5UlriZ0Fmljc0R8krxuZT/x7hHgGTNiWkLANtVt8=;
-        b=JeXqHPpTQ7xDGLXyvm2RO0OuPSaMK7JVaG8XrS2EMddf6vphRtagB7alvWJeVa1Bwg
-         wqMV8u5ae/69HnP+N9zKrzhCDcOSX9/WQtG9JXSezrEUVoMuYUEhrCai0hHoYDt9NxqZ
-         Lvbh/yIIqQR4RXSkGUnaUm2EEAczc+M0j4PpYnSCHmSAB0Dz9Gjzzc2wjBi+/AE8x97Q
-         zL9NM8pMZ1DyLPtaPSyWCHsXLQCZHfe0GO0zW873l6Z+CRsTeEP3s53vzDL7rA1zuyw7
-         K0pit2TmrRc5OUkd99RdVQieSogu/7K/BbaK2w30YQ7MwmWDdCnsDYfYGHy9eUDsNzLv
-         2ztw==
-X-Forwarded-Encrypted: i=1; AFNElJ82jS/EVGoy+dOveHIyOoEYKoLzFCCN/ks7Pv4DdLQMICuEw++0Ii443wtMZLTsOeRfWY9+c1gb04ho2J7ilbNM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeTZFQKyYinRajjYoUiOyEKgtqZKikwhTaW/dHgGxHVbzBoJ9B
-	LWGDnXxw4w0VXnu5Q6c2f4AvTB9FmN7ltQA7Q9RSzNI4ZLhLcSm/QtqwRW9+xsCLtiI=
-X-Gm-Gg: Acq92OEUWQAyAKCVgVGCfSrNn74yQ7ASSxx0lcTJ4BltxNe8QZUziNWYx3sti1tHnwY
-	bmLV1bG1qz0Y1da1/Zd2y0TwVmfMJ6If36ojMOhiQJTY0ImWytSXKpsZXbwPnbk5lkMfO5gUwBe
-	Yf8he49YH8cYYYdP1iAcXVKwobWLo2i3LN6QTZL85F3E22GWSbqx+BLCoF/ebwcWXl4e/+MCHKk
-	ofZOAV3k62uwkNJ+O4jD/pHFORe/CYwxZBrea0XJNfxPHo3FXqc9LRwcpeBHRWlCkgEc/R88Kst
-	ZFUfZ5/ioqr22x+t/C4ZptKZ3/kylKIV1Y8ONpx5vCjkdVLfsvTpb+yshv/83c+TqJ5jdOb3DI7
-	5YKzkEtl7WIOC8/lMOsdGQ4U6Bb5zDR5NPJVRxOIdG0CxzzfkEDFOL2y992AmRJIQ42mJXFXrPI
-	7vNnJMlnmT6PwYFd9F2GqlTCRfrsya16njI3AgaoyiudgrLEHKpZIlrgN+ZW9w96DTqpkbkG+ua
-	IGTegRWPIjpsZOFYQ==
-X-Received: by 2002:a05:600c:8599:b0:485:9a50:3370 with SMTP id 5b1f17b1804b1-490424acb4cmr187576005e9.8.1779713432460;
-        Mon, 25 May 2026 05:50:32 -0700 (PDT)
+        bh=vDToCxua2FGXb+7ZVGR5RdwizXsWPQiwm2ZuxQ2xHTo=;
+        b=cMFlMg2eSjeMjEISO9D0NNCPBT5c2BBKyvILjMDA/KFzr7JtuI3ughdU+Smk4UwwbG
+         KysZ9unZEa9Su5HZ/wPBOKmMme6zvOVVpMb4fgzRQUQx1dA0BiTAlPpPxc5FIZDV9bG1
+         EfH0ziavt+5rZGB9xviS5p70nT/Lwq9Ay2t2hYCMzpsPhScqW+Krexp6QQHizcmlwja6
+         qZtPLrbeP3Ee1kXKfBrKu2sKQcITzS2HWwa43HVSgDnZqNnBDM1Pc7fXMgL38zf4IF+D
+         YAatLS1ASCJNc0OKi1PmFD+Zq/FeiComirGecbHhHgrgI+MCV0zJXtrkYSXlSO+uiOJy
+         DZMA==
+X-Forwarded-Encrypted: i=1; AFNElJ9LPGn8PMEwYShvusJBL9S8EQSSkfiw5WfL1c+1BkAeneKWZsy2Knl2Hs9a8F+s2KdGu2YNhb7cJa2cC/hGPiUe@lists.infradead.org
+X-Gm-Message-State: AOJu0YxW/bJ3L5p2zdtlHPDNqa6COF0vZNVdnbF31YLgHkNpjBEiTdaV
+	iUDQ4ChEu3tnI36VoCqsc+Q9Pf40eEnrHmaOGLNMpFv3L3k511SwaGmj3BM+IO4MLU8=
+X-Gm-Gg: Acq92OFRqq2ZlHecNxNlW9HjEmjU+uSduCo+lPwT9tVB9x77AZABYJzW0Eo3+/LSsul
+	C3r0Ss50yll7GungJXcISswca+Ps6frVcJJUKwWvUKg7srOAosqQEewBbykxDF+xV04P4I7wAnv
+	/m9U29EKsEjDiF4RjwD5R5Jwy5vFYlwBpVJkZ1+fvzeMDCbRZjkbbw/LbepFxw67alMZPSQF9PS
+	/PjBonAVundvrgx0eCxi46HZGPU6Suaja+NPS6r4k+tu3kHGPLW9Of64R/LL+9BykyKginEdYVy
+	wusAyuqqSWJGQ4B8+7f0KguCw2I/qfezPiYBIHTqgvwht1nyL9V8mOpqKUklB3HfgTcw9OS0QYW
+	erPz0vTNpecgI0APaXCweYGuA0ffDU+mSnZQ05StKfSAfBst+5/VrZsk6wRNW37ooqsSYGaaEUJ
+	ZqlvDYtnnGW6ri4Xk0ofCqEOH2SH271IRq87DsLVqRLj3lvpDraPYKnrVlnpT1pmUPSngWoPBP/
+	FKqd/o=
+X-Received: by 2002:a05:600c:4ecc:b0:490:3c90:2cda with SMTP id 5b1f17b1804b1-490426cef73mr223966475e9.20.1779713429563;
+        Mon, 25 May 2026 05:50:29 -0700 (PDT)
 Received: from ta2.c.googlers.com (231.141.38.34.bc.googleusercontent.com. [34.38.141.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454cfcaesm241824825e9.4.2026.05.25.05.50.31
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-490454cfcaesm241824825e9.4.2026.05.25.05.50.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 25 May 2026 05:50:31 -0700 (PDT)
+        Mon, 25 May 2026 05:50:29 -0700 (PDT)
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Mon, 25 May 2026 12:50:24 +0000
-Subject: [PATCH v5 4/5] arm64: dts: exynos: gs101: Add thermal management
- unit
+Date: Mon, 25 May 2026 12:50:21 +0000
+Subject: [PATCH v5 1/5] dt-bindings: thermal: Add Google GS101 TMU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260525-acpm-tmu-v5-4-85fde739752e@linaro.org>
+Message-Id: <20260525-acpm-tmu-v5-1-85fde739752e@linaro.org>
 References: <20260525-acpm-tmu-v5-0-85fde739752e@linaro.org>
 In-Reply-To: <20260525-acpm-tmu-v5-0-85fde739752e@linaro.org>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -95,18 +94,19 @@ Cc: jyescas@google.com, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-hardening@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779713428; l=7065;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1779713428; l=3371;
  i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=z5Fhpx6IUPSYAgFvZrJUnVUKezx0DwqehwsV2CJ50Xs=;
- b=3kUfL+Zlfc10wC65GccpAO0ZPOAehBJ+CwGSYYMwyBlA4abF5mKa9zhEwrLJ/e2DuOv0D9zzK
- x9O1Mlwz+gUBKJp3v8i5DgWGhBfDRSqnCqBTzSTS4H5kch6hq6l7za7
+ bh=DAUUHdnV6Bz6+/JxuE+k0hPb6SNHwiYOqoiSfSYzQUs=;
+ b=ULkkI8n2UPTnqvUWoHoTUCDJ4MK6ZX+UVIFvysuu2RleXY/AfOM/GGmGmIu4wMR82yOPy1RW4
+ OLHQ5e8X18nBxHYr/DkmwVIAVM0SLz/ezkJaIIoPA5PdDiemOxCXLee
 X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
  pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_055034_887924_41746991 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20260525_055032_107364_3348F05C 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,253 +121,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the Thermal Management Unit (TMU) support for the Google GS101 SoC.
+Document the Thermal Management Unit (TMU) found on the Google GS101 SoC.
 
-Describe the TMU using a consolidated SoC node that includes memory
-resources for interrupt identification and a phandle to the ACPM IPC
-interface for functional control.
+The GS101 TMU utilizes a hybrid control model shared between the
+Application Processor (AP) and the ACPM (Alive Clock and Power Manager)
+firmware. This hybrid ACPM TMU architecture is also present on other
+Samsung Exynos SoCs (e.g., AutoV920, Exynos850).
 
-Define thermal zones for the little, mid, and big CPU clusters, including
-associated trip points and cooling-device maps to enable thermal
-mitigation.
+While the TMU is a standard memory-mapped IP block, on this platform
+the AP's direct register access is restricted to the interrupt pending
+(INTPEND) registers for event identification. High-level functional
+tasks, such as sensor initialization, threshold programming, and
+temperature reads, are delegated to the ACPM firmware.
 
 Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi | 136 +++++++++++++++++++++++
- arch/arm64/boot/dts/exynos/google/gs101.dtsi     |  18 +++
- 2 files changed, 154 insertions(+)
+ .../bindings/thermal/google,gs101-tmu-top.yaml     | 68 ++++++++++++++++++++++
+ 1 file changed, 68 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi
+diff --git a/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
 new file mode 100644
-index 000000000000..b27d1a539ec2
+index 000000000000..d0eb2393d581
 --- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-tmu.dtsi
-@@ -0,0 +1,136 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Google GS101 TMU configurations device tree source
-+ *
-+ * Copyright 2020 Samsung Electronics Co., Ltd.
-+ * Copyright 2020 Google LLC.
-+ * Copyright 2026 Linaro Ltd.
-+ */
++++ b/Documentation/devicetree/bindings/thermal/google,gs101-tmu-top.yaml
+@@ -0,0 +1,68 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/thermal/google,gs101-tmu-top.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <dt-bindings/thermal/thermal.h>
++title: Samsung Exynos ACPM Thermal Management Unit (TMU)
 +
-+/ {
-+	thermal-zones {
-+		cpucl2-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tmu_top 0>;
++maintainers:
++  - Tudor Ambarus <tudor.ambarus@linaro.org>
 +
-+			trips {
-+				big_switch_on: big-switch-on {
-+					temperature = <80000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
++description:
++  The Samsung Exynos ACPM TMU is a thermal sensor block found on Exynos
++  based platforms (such as Google GS101 and Exynos850). It supports
++  both direct register-level access and firmware-mediated management
++  via the ACPM (Alive Clock and Power Manager) firmware.
 +
-+				big_mitigate: big-mitigate {
-+					temperature = <90000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
++  On these platforms, the hardware is managed in a hybrid fashion. The
++  Application Processor (AP) maintains direct memory-mapped access
++  exclusively to the interrupt pending registers to identify thermal
++  events. All other functional aspects - including sensor
++  initialization, threshold configuration, and temperature acquisition
++  - are handled by the ACPM firmware. The AP coordinates these
++  operations through the ACPM IPC protocol.
 +
-+				big_hot: big-hot {
-+					temperature = <100000>;
-+					hysteresis = <5000>;
-+					type = "hot";
-+				};
++properties:
++  compatible:
++    const: google,gs101-tmu-top
 +
-+				big_critical: big-critical {
-+					temperature = <105000>;
-+					hysteresis = <2000>;
-+					type = "critical";
-+				};
-+			};
++  reg:
++    maxItems: 1
 +
-+			cooling-maps {
-+				map0 {
-+					trip = <&big_mitigate>;
-+					cooling-device = <&cpu6 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu7 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
++  clocks:
++    items:
++      - description: APB peripheral clock (PCLK) for TMU register access.
 +
-+		cpucl1-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tmu_top 1>;
++  interrupts:
++    maxItems: 1
 +
-+			trips {
-+				mid_switch_on: mid-switch-on {
-+					temperature = <80000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
++  "#thermal-sensor-cells":
++    const: 1
 +
-+				mid_mitigate: mid-mitigate {
-+					temperature = <90000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
++  samsung,acpm-ipc:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to the ACPM IPC node.
 +
-+				mid_hot: mid-hot {
-+					temperature = <100000>;
-+					hysteresis = <5000>;
-+					type = "hot";
-+				};
++required:
++  - compatible
++  - reg
++  - clocks
++  - interrupts
++  - "#thermal-sensor-cells"
 +
-+				mid_critical: mid-critical {
-+					temperature = <105000>;
-+					hysteresis = <2000>;
-+					type = "critical";
-+				};
-+			};
++additionalProperties: false
 +
-+			cooling-maps {
-+				map0 {
-+				     trip = <&mid_mitigate>;
-+					cooling-device = <&cpu4 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu5 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+			       };
-+			};
-+		};
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/clock/google,gs101.h>
 +
-+		cpucl0-thermal {
-+			polling-delay-passive = <0>;
-+			polling-delay = <0>;
-+			thermal-sensors = <&tmu_top 2>;
-+
-+			trips {
-+				little_switch_on: little-switch-on {
-+					temperature = <80000>;
-+					hysteresis = <2000>;
-+					type = "passive";
-+				};
-+
-+				little_mitigate: little-mitigate {
-+					temperature = <90000>;
-+					hysteresis = <5000>;
-+					type = "passive";
-+				};
-+
-+				little_hot: little-hot {
-+					temperature = <100000>;
-+					hysteresis = <5000>;
-+					type = "hot";
-+				};
-+
-+				little_critical: little-critical {
-+					temperature = <105000>;
-+					hysteresis = <2000>;
-+					type = "critical";
-+				};
-+			};
-+
-+			cooling-maps {
-+				map0 {
-+					trip = <&little_mitigate>;
-+					cooling-device = <&cpu0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+							 <&cpu3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+				};
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 86933f22647b..b6866ef99fb3 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -74,6 +74,7 @@ cpu0: cpu@0 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0000>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL0>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
-@@ -86,6 +87,7 @@ cpu1: cpu@100 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0100>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL0>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
-@@ -98,6 +100,7 @@ cpu2: cpu@200 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0200>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL0>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
-@@ -110,6 +113,7 @@ cpu3: cpu@300 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0300>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL0>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
-@@ -122,6 +126,7 @@ cpu4: cpu@400 {
- 			compatible = "arm,cortex-a76";
- 			reg = <0x0400>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL1>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&enyo_cpu_sleep>;
- 			capacity-dmips-mhz = <620>;
-@@ -134,6 +139,7 @@ cpu5: cpu@500 {
- 			compatible = "arm,cortex-a76";
- 			reg = <0x0500>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL1>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&enyo_cpu_sleep>;
- 			capacity-dmips-mhz = <620>;
-@@ -146,6 +152,7 @@ cpu6: cpu@600 {
- 			compatible = "arm,cortex-x1";
- 			reg = <0x0600>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL2>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&hera_cpu_sleep>;
- 			capacity-dmips-mhz = <1024>;
-@@ -158,6 +165,7 @@ cpu7: cpu@700 {
- 			compatible = "arm,cortex-x1";
- 			reg = <0x0700>;
- 			clocks = <&acpm_ipc GS101_CLK_ACPM_DVFS_CPUCL2>;
-+			#cooling-cells = <2>;
- 			enable-method = "psci";
- 			cpu-idle-states = <&hera_cpu_sleep>;
- 			capacity-dmips-mhz = <1024>;
-@@ -639,6 +647,15 @@ watchdog_cl1: watchdog@10070000 {
- 			status = "disabled";
- 		};
- 
-+		tmu_top: thermal-sensor@100a0000 {
-+			compatible = "google,gs101-tmu-top";
-+			reg = <0x100a0000 0x800>;
-+			clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
-+			interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
-+			samsung,acpm-ipc = <&acpm_ipc>;
-+			#thermal-sensor-cells = <1>;
-+		};
-+
- 		trng: rng@10141400 {
- 			compatible = "google,gs101-trng",
- 				     "samsung,exynos850-trng";
-@@ -1862,3 +1879,4 @@ timer {
- };
- 
- #include "gs101-pinctrl.dtsi"
-+#include "gs101-tmu.dtsi"
++    thermal-sensor@100a0000 {
++        compatible = "google,gs101-tmu-top";
++        reg = <0x100a0000 0x800>;
++        clocks = <&cmu_misc CLK_GOUT_MISC_TMU_TOP_PCLK>;
++        interrupts = <GIC_SPI 769 IRQ_TYPE_LEVEL_HIGH 0>;
++        #thermal-sensor-cells = <1>;
++        samsung,acpm-ipc = <&acpm_ipc>;
++    };
 
 -- 
 2.54.0.746.g67dd491aae-goog
