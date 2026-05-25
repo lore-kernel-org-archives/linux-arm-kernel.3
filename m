@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65467CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 16:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 181BDCD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 16:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3kgvASxp3f7rsNalAAxiKY75IcAIHz3Q2alZe0wcMyI=; b=LQBumXAFKY7lnh2rckLcRPa4dp
-	VwI6Khekbiv62E5rQGXBIXksqK2jPT5rj5gM4rwLxsZHoGIj2wVFWQ4J01kkxyyB3JtzjFHyU6ogE
-	ILQYtyCKHinguH49o0wzRK67JNRkAoHL3lVf4cBJGoInCBfMb3Vu5A6ASIkTnwz/ZN5+/PHf06Coa
-	re4t0HkMSFCPe49emKsZXfP4ZiSoZNKnWyFmZkhuzljkDU8gZflzarHX49WyT676sZFkIu83b/qA9
-	jCp8hwN9ANkIaJqoh83wSGtjUyk2VN47Jg1mL8QaFIiKnnRfmmdV6a92eDSu3Q2820O7yTqtDMroN
-	N6Zvxs3w==;
+	bh=ev9yLt5NTZ9nEb03Xjyz/o28bx64uGp1JLdEhh9Coe0=; b=FzwDHcwkpX1E8iFipfVZls9ePh
+	XWtsBu3QycFKJ0jsdOssW28TX4+v4Hl/0Mg4mJP58xV46KVLcMBTAqtsZOF2vzcc9I7kieNse9AZ+
+	Q+wnU5ICG4T3es3byDu8iyXKXCaWcA0c7euzaaPwQynW+eshQzYLP427BOHKXMH1pczNvQNpxwHzL
+	sEiJNBvQ/YWH5751s8xv4EU/+aIQHGh8c4ztKJmKKuLZMWFEhQ9GzK4baZ+C71SmQrDpgC+mUyc82
+	1UWmGAvh2FddUzMNGzmPFJRAiVXfGSwj4CgbrhDvX5p2pbINg6xcAnRZIrDCWxtI84KkpWQjnxonf
+	guPK2Tjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRYZJ-000000004jE-3NYK;
-	Mon, 25 May 2026 16:54:21 +0000
+	id 1wRYaV-000000004vU-0kgY;
+	Mon, 25 May 2026 16:55:35 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRYZI-000000004iy-0mso;
-	Mon, 25 May 2026 16:54:20 +0000
+	id 1wRYaU-000000004vK-18ln
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 May 2026 16:55:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 52FDF60008;
-	Mon, 25 May 2026 16:54:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B92B01F000E9;
-	Mon, 25 May 2026 16:54:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B3BA3600AF;
+	Mon, 25 May 2026 16:55:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74DF41F000E9;
+	Mon, 25 May 2026 16:55:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779728059;
-	bh=3kgvASxp3f7rsNalAAxiKY75IcAIHz3Q2alZe0wcMyI=;
+	s=k20260515; t=1779728133;
+	bh=ev9yLt5NTZ9nEb03Xjyz/o28bx64uGp1JLdEhh9Coe0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WHSIA2szLm/lG8nfbsx0b1dX/19zaHSHKmzhqWGOlfRydi3jFqS0LXDvjPo15jyr+
-	 GYMyv3Z/0DMGvpPKfLG0XbJC+OcLdnLPzvuK6m8OvRwxBF2MD/heGI1Q7Brotx7ek9
-	 8Iuni51ScaWRnImVtRTHOTIckQuMsxO5IsMSKMLpgp6ZGFkTelEqhc/9cLm4jFD0LS
-	 3kMa+nu80ND+5cWl1nCeqjCt5kLTFG5W6CVabh/SxGxd50iWHJds6KK5aypiLMwEN7
-	 mwQuZrVhRqknXAJAuZh2iThVMKD7rpQkF5fuOzvSCkPIk87OMC6ZjEIynhFEYg5xSe
-	 SMmE5z96Q8tyQ==
-Date: Mon, 25 May 2026 17:54:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	andrzej.hajda@intel.com, neil.armstrong@linaro.org,
-	rfoss@kernel.org, Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se, jernej.skrabec@gmail.com,
-	nicolas.frattaroli@collabora.com, cristian.ciocaltea@collabora.com,
-	sebastian.reichel@collabora.com, dmitry.baryshkov@oss.qualcomm.com,
-	luca.ceresoli@bootlin.com, dianders@chromium.org,
-	m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 01/10] dt-bindings: display: rockchip: analogix-dp:
- Fix hclk as third clock for RK3588
-Message-ID: <20260525-ominous-hurling-c24874030f5a@spud>
-References: <20260525125331.140059-1-damon.ding@rock-chips.com>
- <20260525125331.140059-2-damon.ding@rock-chips.com>
+	b=fmjI4rKS4bBepoqAbV18Ip+mP1JiKaJ3SoWM3uQKqXia1IKu2zRHu2mI1vT2l5Fqs
+	 3+EOG9c04IkzAjonoKnZm7GnFDrQO2v6NPjAZT3ut9lI48JcOZ2G9P3IT6YksrvV99
+	 y1e7z+eYHMmBDGXGsxi2q2imq/lnYzFVqV9rOuqaYdo3I8lMmskVD04kbXLnNMYQ25
+	 kq967Zy2cOc7fghz+uBGLRScMX/WVp30btRe98rSP5Hzx65U9+z4lBn/0KOhjB71un
+	 l52BZzGMNEsXMzRCvHQ21t4rHFRPC21lyXe8cKiDIOKJGMB+BdE8FFmuHw3AWsjfUk
+	 dPifMRmJhwO+g==
+Date: Mon, 25 May 2026 09:55:27 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: kernel test robot <lkp@intel.com>
+Cc: Mithil Bavishi <bavishimithil@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+Message-ID: <20260525165527.GA18457@ax162>
+References: <20260522233036.12277-1-bavishimithil@gmail.com>
+ <202605241332.fXvCYBR2-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Mp1gnxnR0vhDimzB"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260525125331.140059-2-damon.ding@rock-chips.com>
+In-Reply-To: <202605241332.fXvCYBR2-lkp@intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,147 +77,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, May 24, 2026 at 02:01:31PM +0800, kernel test robot wrote:
+> Hi Mithil,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on tmlind-omap/for-next]
+> [also build test ERROR on linus/master v7.1-rc4 next-20260522]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Mithil-Bavishi/ARM-OMAP2-Add-CFI-type-for-omap4_finish_suspend/20260523-073206
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/tmlind/linux-omap.git for-next
+> patch link:    https://lore.kernel.org/r/20260522233036.12277-1-bavishimithil%40gmail.com
+> patch subject: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+> config: arm-defconfig (https://download.01.org/0day-ci/archive/20260524/202605241332.fXvCYBR2-lkp@intel.com/config)
+> compiler: clang version 23.0.0git (https://github.com/llvm/llvm-project 5bac06718f502014fade905512f1d26d578a18f3)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260524/202605241332.fXvCYBR2-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202605241332.fXvCYBR2-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> arch/arm/mach-omap2/sleep44xx.S:61:1: error: invalid instruction
+>    SYM_TYPED_FUNC_START(omap4_finish_suspend)
+>    ^
 
---Mp1gnxnR0vhDimzB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This report and the GCC one
 
-On Mon, May 25, 2026 at 08:53:22PM +0800, Damon Ding wrote:
-> RK3588 eDP controller requires HCLK_VO1 to access the VO1 GRF
-> registers and enable the video datapath.
->=20
-> Previously, the clock was enabled implicitly via the 'rockchip,vo-grf'
-> phandle reference, which allowed the eDP to work without explicitly
-> managing the hclk_vo1 clock. However, this is not safe or explicit.
->=20
-> To make the clock dependency explicit, enforce per-SoC clock-names
-> requirements:
->  - RK3288: 2 clocks (dp, pclk)
->  - RK3399: 3 clocks (dp, pclk, grf)
->  - RK3588: 3 clocks (dp, pclk, hclk)
->=20
-> Do not reuse the 'grf' clock name for RK3588 because it represents
-> a different clock with distinct control logic:
-> - The 'grf' clock is only for GRF register access and is toggled
->   dynamically during register access.
-> - The 'hclk' clock controls both GRF access and video datapath
->   gating, and must remain enabled during probe.
->=20
-> Fixes: f855146263b1 ("dt-bindings: display: rockchip: analogix-dp: Add su=
-pport for RK3588")
-> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->=20
-> ---
->=20
-> Changes in v4:
-> - Modify the commit msg.
->=20
-> Changes in v5:
-> - Enforce the correct third clock name on a per-compatible basis.
-> - Modify the commit msg simultaneously.
->=20
-> Changes in v6:
-> - Expand more detail commit msg about using hclk instead of grf clock.
->=20
-> Changes in v7:
-> - List all valid clock names at the top level, and constrain the clock
->   count for each platform with minItems/maxItems in allOf.
->=20
-> Changes in v8:
-> - Fix indentation to 10 for enum in clock-names property.
-> ---
->  .../rockchip/rockchip,analogix-dp.yaml        | 34 ++++++++++++++++++-
->  1 file changed, 33 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,=
-analogix-dp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockc=
-hip,analogix-dp.yaml
-> index d99b23b88cc5..a1ab7a77bdd3 100644
-> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
-x-dp.yaml
-> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,analogi=
-x-dp.yaml
-> @@ -26,7 +26,9 @@ properties:
->      items:
->        - const: dp
->        - const: pclk
-> -      - const: grf
-> +      - enum:
-> +          - grf
-> +          - hclk
-> =20
->    power-domains:
->      maxItems: 1
-> @@ -60,6 +62,32 @@ required:
->  allOf:
->    - $ref: /schemas/display/bridge/analogix,dp.yaml#
-> =20
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3288-dp
-> +    then:
-> +      properties:
-> +        clocks:
-> +          maxItems: 2
-> +        clock-names:
-> +          maxItems: 2
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - rockchip,rk3399-edp
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 3
-> +        clock-names:
-> +          minItems: 3
+  https://lore.kernel.org/202605252315.UhjCBtGA-lkp@intel.com/
 
-If you go back to v6, you'll see that I never asked you to remove the
-explict clock-names from here or below. Only the one from the 3288
-section. The minItems was an addition, not a replacement.
+are both pointing out that cfi_types.h needs to be included in
+arch/arm/mach-omap2/sleep44xx.S for SYM_TYPED_FUNC_START to always be
+expanded properly. I tested adding
 
-pw-bot: changes-requested
+  #include <linux/cfi_types.h>
+
+as the first include line and both issues were resolved.
 
 Cheers,
-Conor.
-
-> +
->    - if:
->        properties:
->          compatible:
-> @@ -68,6 +96,10 @@ allOf:
->                - rockchip,rk3588-edp
->      then:
->        properties:
-> +        clocks:
-> +          minItems: 3
-> +        clock-names:
-> +          minItems: 3
->          resets:
->            minItems: 2
->          reset-names:
-> --=20
-> 2.34.1
->=20
->=20
-
---Mp1gnxnR0vhDimzB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCahR+swAKCRB4tDGHoIJi
-0o1sAPoCijEh8PvkC+TvmEG0cY5/F12kqBe0lYz7nrYlMfDh9AEA70JPBE7y/TZV
-FPGNv8tWORRJxlbf3FYOq1H7vDY0/AE=
-=9FAA
------END PGP SIGNATURE-----
-
---Mp1gnxnR0vhDimzB--
+Nathan
 
