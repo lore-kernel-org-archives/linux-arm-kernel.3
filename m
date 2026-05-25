@@ -4,66 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E676CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0268CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 15:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ldrpg8oGe2gxlwuergjpDOcn7wyRCXPWMyE5KdnSBs=; b=EgnbRBbPeU0YItoOe6vPlFNyNd
-	y/4efMB2ardfKvV5sD37rvrJlpYRdy62ZMlWpd5Djw3Ymdl7Jkt64XMw9fWFkcY+k/4PkNPiIZqGa
-	fFhEWib3g019m1sUePSnGFFjDV4SCNRzLFsFqtt1EzNB/UMP5eyCskT/S4vhP0e9sqI7ZMlDUm+V4
-	r7/4i1CK/7PxuhIsX779Tpi5/ANzFEEhY/ExYabepugI9EOGZ30gtd2yxgsATlds4+WaVCqwStOYB
-	ZDFhR8gjrxtfGvKiGJZP6292XfamzdBK5DsIKGFNylEC1E0HOgMYNa+jMv3gYXasuCnkPEFIET7YO
-	f7fBCLuw==;
+	bh=SrDr62uKlzVefRgJLZR2FapOw43GpXu8qnefGW81Ik4=; b=yVtb/kZzWar0ZXJcxdEibBt3gM
+	rJn12BtHhsRNQvDUjN9ahewuU3PnvihQclUTJ50ZM7Jm+LI76sP9FwvUdRdDxuffRaF5YdAx0lG2x
+	aZ2xVI6WFYbYazYs5ugDxkK0aEeV5FM6FBPBt9YUc55g88IjrH7wKGyJCeRdh6mMvJmWKhcIZcSbv
+	ynKtaWRuOJJNltg+3O9pVvl3JaJJ6qlherU1eKfusGtmAJMOmB/S9HYTqqLfqjb0/fLNJOfj8KMD4
+	D32yExlaswPzhu72sjprVr7Yuoc+LUNAdp85hZRDz7PIXhKt1AT1dwb/tmTZbJhNnunZFogYObSB/
+	W4FGL58Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRX62-0000000HVNF-1poF;
-	Mon, 25 May 2026 15:20:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wRX7E-0000000HVc2-3ZGl;
+	Mon, 25 May 2026 15:21:16 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRX5z-0000000HVMN-3ays;
-	Mon, 25 May 2026 15:20:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1071240640;
-	Mon, 25 May 2026 15:19:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B2DC1F000E9;
-	Mon, 25 May 2026 15:19:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779722398;
-	bh=3Ldrpg8oGe2gxlwuergjpDOcn7wyRCXPWMyE5KdnSBs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=DGXk0T1A+H1gESuuyQ5x5VrWTQf8d+JqQR4HgWhUrnxXyZMYilodVayOEJXIKOwa8
-	 Tbl2YyRR9d/3kGHnADosTRsALHWge78POVUYyzHL9qvgvEjvGwCf+bTcW5cttZZ6HW
-	 d9EF7ivVlXL7U8vcUW0dWDSNGcK6bGosNtY8jul0+1trm1u5jeqxk/lcbmxaUpcW8C
-	 fhnjqQ38PwMhk5dzCInddnUiSidLSSC8DZlnGpyxaBsG2Z48aRXnNkpfHQefj13jh/
-	 NcVqvyTJK/N3kRJ/0tAWS2cHwAl+8j9h2gF2R+rLGJFpWObG54J++xzZgKMV+Nh6Dd
-	 iKApsQzAJwVcA==
-Date: Mon, 25 May 2026 17:19:56 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Jihong Min <hurryman2212@gmail.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: bind WLAN-bound flows on PPE
- driver L2 cache miss
-Message-ID: <ahRonGRDCqdFTBQm@lore-desk>
-References: <20260524224330.3995807-1-hurryman2212@gmail.com>
- <ahQDon-nio0STA4E@lore-desk>
- <a08289e7-641c-489e-8d89-6eae9f092f90@gmail.com>
+	id 1wRX7B-0000000HVHc-3tYa
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 25 May 2026 15:21:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1779722474; x=1811258474;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=MDbKH3I9Xo1nyWaJ3Vjbg5g1zO8s5OEeVcc04Sxds9U=;
+  b=kO+WLiz229elx/Uo+0MZNrbJu6sqCD7mE8unBjb+GoWNjDZ2Kp/+BW5P
+   LuBKp6Aqs2FaVovDSG4FTRVwGu+zYBX/nqtZSxHKSISUEWQk+DKmyfXff
+   u15Jqc3A3vP0EI6At4i9DI+FZ5B73gU4Y5byZuagS474amPd+hthT/G8t
+   3FkEr1s9mp7V0rJAr15TLUn0bwwM0owKlk48eRdF7yxvConugP0mor0jO
+   9sGBALzhVp/+o2caJQsdnEuoRjUJoXl/9GF6UHUGzSTZ9pA4y6aD2xIw2
+   1Y0+rT+leRYp3wEvgp86JS8Y+y0liGAriq1ev+RWw5IqcHdWwquKw6ZPf
+   w==;
+X-CSE-ConnectionGUID: lIE/FZTETzelj9BlsRuF6g==
+X-CSE-MsgGUID: z5HQhJDuSDK8KlxyiyWqrQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11797"; a="68067218"
+X-IronPort-AV: E=Sophos;i="6.24,168,1774335600"; 
+   d="scan'208";a="68067218"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 May 2026 08:19:10 -0700
+X-CSE-ConnectionGUID: /LN56M9PSKmEnmMyNO9CrQ==
+X-CSE-MsgGUID: Y243DC/4Qpu+CiNmehiI+A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.24,168,1774335600"; 
+   d="scan'208";a="235265284"
+Received: from lkp-server01.sh.intel.com (HELO f0d55cb201f0) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 25 May 2026 08:19:07 -0700
+Received: from kbuild by f0d55cb201f0 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1wRX56-000000001Ze-0QvV;
+	Mon, 25 May 2026 15:19:04 +0000
+Date: Mon, 25 May 2026 23:18:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Mithil Bavishi <bavishimithil@gmail.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>
+Cc: oe-kbuild-all@lists.linux.dev, Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>, Nathan Chancellor <nathan@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	llvm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Mithil Bavishi <bavishimithil@gmail.com>
+Subject: Re: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+Message-ID: <202605252315.UhjCBtGA-lkp@intel.com>
+References: <20260522233036.12277-1-bavishimithil@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Gg8YQr2jQ3M7KWtf"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a08289e7-641c-489e-8d89-6eae9f092f90@gmail.com>
+In-Reply-To: <20260522233036.12277-1-bavishimithil@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_081959_941374_7ADE9449 
-X-CRM114-Status: GOOD (  44.31  )
+X-CRM114-CacheID: sfid-20260525_082113_981758_4C84230A 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,347 +95,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mithil,
 
---Gg8YQr2jQ3M7KWtf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build errors:
 
->=20
->=20
-> On 5/25/26 17:09, Lorenzo Bianconi wrote:
-> >> The Linux bridge FDB can resolve a destination station to WDMA even wh=
-en
-> >> the Airoha PPE driver's L2 offload cache has no entry for that MAC pai=
-r.
-> >> The normal bind path only checks the PPE driver's L2 offload cache, so=
- an
-> >> unbound PPE hit for WLAN egress can stay unbound even though the bridge
-> >> already knows the right output path, unless a later offload event fills
-> >> that PPE driver cache.
-> >>
-> >> This matters for bridge-visible WLAN egress, such as wired-to-WLAN
-> >> forwarding or WLAN peer forwarding across another BSS, radio or MLO li=
-nk.
-> >> Same-link or same-radio intra-BSS forwarding can stay inside the WLAN
-> >> datapath and is not covered.
-> >=20
-> > Hi Jihong,
->=20
-> Hi, Lorenzo.
->=20
-> >=20
-> > In order to offload L2 flows, I assume you are using the OpenWrt bridger
-> > package, right?
->=20
-> Actually, no.
->=20
-> I am using Fanboy's OpenWrt `test` build for the Lumen W1700K2,
-> together with several of my other patches. It does not include the
-> bridger package specifically. It now uses native nft-based offloading
-> with `kmod-br-netfilter`.
+[auto build test ERROR on tmlind-omap/for-next]
+[also build test ERROR on linus/master v7.1-rc5 next-20260522]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-according to my understanding this is not merged yet, right? I guess the
-patches should be based on official/accepted code.
+url:    https://github.com/intel-lab-lkp/linux/commits/Mithil-Bavishi/ARM-OMAP2-Add-CFI-type-for-omap4_finish_suspend/20260523-073206
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/tmlind/linux-omap.git for-next
+patch link:    https://lore.kernel.org/r/20260522233036.12277-1-bavishimithil%40gmail.com
+patch subject: [PATCH v2] ARM: OMAP2+: Add CFI type for omap4_finish_suspend
+config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20260525/202605252315.UhjCBtGA-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 15.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260525/202605252315.UhjCBtGA-lkp@intel.com/reproduce)
 
->=20
-> > IIUC the issue you want to resolve is we are not adding PPE L2 entries =
-for
-> > the specified cases (same-link or same-radio intra-BSS forwarding), cor=
-rect?
->=20
-> No. As written in the patch message, this specifically addresses
-> bridge-visible WLAN egress, such as:
->=20
-> 1. wired-to-WLAN forwarding
-> 2. WLAN peer forwarding across another BSS, radio, or MLO link
->=20
-> Same-link or same-radio intra-BSS forwarding can stay inside the WLAN
-> datapath and is not covered by this patch, although it did show poor
-> performance, whether that is due to shared airtime or not. That case
-> appears to belong to the Wi-Fi stack/driver datapath, such as the
-> mac80211/mt76/mt7996 path, rather than to this Airoha PPE fallback path.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202605252315.UhjCBtGA-lkp@intel.com/
 
-according to my understanding the l2 nft-based offloading solution should
-add the missing info to PPE flow-table. As I pointed out, it should be
-in-sync with hw flow-table. It seems a bug in the nft code to me.
+All errors (new ones prefixed by >>):
 
->=20
-> > Using this approach, we are breaking the assumption PPE flow-table and =
-hw
-> > flow-table are in sync. If the issue is the one described above, why not
-> > fixing the problem directly in the bridger package?
->=20
-> Again, this problem exists in an environment without bridger.
+   arch/arm/mach-omap2/sleep44xx.S: Assembler messages:
+>> arch/arm/mach-omap2/sleep44xx.S:61: Error: bad instruction `sym_typed_func_start(omap4_finish_suspend)'
+>> /tmp/ccmn2Vzn.s: Error: invalid operands (.text and *UND* sections) for `-' when setting `.L__sym_size_omap4_finish_suspend'
 
-In order to offload L2 traffic bridger is mandatory. Do you mean the issue
-occurs even on L3 scenario?
 
->=20
-> > Moreover, I see you developed the patch using Codex:gpt-5.5. Have you t=
-ested it
-> > on a real hw?
->=20
-> Yes. This has been tested on my Lumen W1700K2 with the environment
-> described above. MLO Wi-Fi P2P communication and some wired-to-WLAN
-> cases were indeed left unbound by PPE. CPU usage was high, and the
-> unbound throughput was close to 50% of what this patch achieves now.
+vim +61 arch/arm/mach-omap2/sleep44xx.S
 
-ack
+    33	
+    34	/*
+    35	 * =============================
+    36	 * == CPU suspend finisher ==
+    37	 * =============================
+    38	 *
+    39	 * void omap4_finish_suspend(unsigned long cpu_state)
+    40	 *
+    41	 * This function code saves the CPU context and performs the CPU
+    42	 * power down sequence. Calling WFI effectively changes the CPU
+    43	 * power domains states to the desired target power state.
+    44	 *
+    45	 * @cpu_state : contains context save state (r0)
+    46	 *	0 - No context lost
+    47	 * 	1 - CPUx L1 and logic lost: MPUSS CSWR
+    48	 * 	2 - CPUx L1 and logic lost + GIC lost: MPUSS OSWR
+    49	 *	3 - CPUx L1 and logic lost + GIC + L2 lost: MPUSS OFF
+    50	 * @return: This function never returns for CPU OFF and DORMANT power states.
+    51	 * Post WFI, CPU transitions to DORMANT or OFF power state and on wake-up
+    52	 * from this follows a full CPU reset path via ROM code to CPU restore code.
+    53	 * The restore function pointer is stored at CPUx_WAKEUP_NS_PA_ADDR_OFFSET.
+    54	 * It returns to the caller for CPU INACTIVE and ON power states or in case
+    55	 * CPU failed to transition to targeted OFF/DORMANT state.
+    56	 *
+    57	 * omap4_finish_suspend() calls v7_flush_dcache_all() which doesn't save
+    58	 * stack frame and it expects the caller to take care of it. Hence the entire
+    59	 * stack frame is saved to avoid possible stack corruption.
+    60	 */
+  > 61	SYM_TYPED_FUNC_START(omap4_finish_suspend)
+    62		stmfd	sp!, {r4-r12, lr}
+    63		cmp	r0, #0x0
+    64		beq	do_WFI				@ No lowpower state, jump to WFI
+    65	
+    66		/*
+    67		 * Flush all data from the L1 data cache before disabling
+    68		 * SCTLR.C bit.
+    69		 */
+    70		bl	omap4_get_sar_ram_base
+    71		ldr	r9, [r0, #OMAP_TYPE_OFFSET]
+    72		cmp	r9, #0x1			@ Check for HS device
+    73		bne	skip_secure_l1_clean
+    74		mov	r0, #SCU_PM_NORMAL
+    75		mov	r1, #0xFF			@ clean seucre L1
+    76		stmfd   r13!, {r4-r12, r14}
+    77		ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
+    78		DO_SMC
+    79		ldmfd   r13!, {r4-r12, r14}
+    80	skip_secure_l1_clean:
+    81		bl	v7_flush_dcache_all
+    82	
+    83		/*
+    84		 * Clear the SCTLR.C bit to prevent further data cache
+    85		 * allocation. Clearing SCTLR.C would make all the data accesses
+    86		 * strongly ordered and would not hit the cache.
+    87		 */
+    88		mrc	p15, 0, r0, c1, c0, 0
+    89		bic	r0, r0, #(1 << 2)		@ Disable the C bit
+    90		mcr	p15, 0, r0, c1, c0, 0
+    91		isb
+    92	
+    93		bl	v7_invalidate_l1
+    94	
+    95		/*
+    96		 * Switch the CPU from Symmetric Multiprocessing (SMP) mode
+    97		 * to AsymmetricMultiprocessing (AMP) mode by programming
+    98		 * the SCU power status to DORMANT or OFF mode.
+    99		 * This enables the CPU to be taken out of coherency by
+   100		 * preventing the CPU from receiving cache, TLB, or BTB
+   101		 * maintenance operations broadcast by other CPUs in the cluster.
+   102		 */
+   103		bl	omap4_get_sar_ram_base
+   104		mov	r8, r0
+   105		ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+   106		cmp	r9, #0x1			@ Check for HS device
+   107		bne	scu_gp_set
+   108		mrc	p15, 0, r0, c0, c0, 5		@ Read MPIDR
+   109		ands	r0, r0, #0x0f
+   110		ldreq	r0, [r8, #SCU_OFFSET0]
+   111		ldrne	r0, [r8, #SCU_OFFSET1]
+   112		mov	r1, #0x00
+   113		stmfd   r13!, {r4-r12, r14}
+   114		ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
+   115		DO_SMC
+   116		ldmfd   r13!, {r4-r12, r14}
+   117		b	skip_scu_gp_set
+   118	scu_gp_set:
+   119		mrc	p15, 0, r0, c0, c0, 5		@ Read MPIDR
+   120		ands	r0, r0, #0x0f
+   121		ldreq	r1, [r8, #SCU_OFFSET0]
+   122		ldrne	r1, [r8, #SCU_OFFSET1]
+   123		bl	omap4_get_scu_base
+   124		bl	scu_power_mode
+   125	skip_scu_gp_set:
+   126		mrc	p15, 0, r0, c1, c1, 2		@ Read NSACR data
+   127		tst	r0, #(1 << 18)
+   128		mrcne	p15, 0, r0, c1, c0, 1
+   129		bicne	r0, r0, #(1 << 6)		@ Disable SMP bit
+   130		mcrne	p15, 0, r0, c1, c0, 1
+   131		isb
+   132		dsb
+   133	#ifdef CONFIG_CACHE_L2X0
+   134		/*
+   135		 * Clean and invalidate the L2 cache.
+   136		 * Common cache-l2x0.c functions can't be used here since it
+   137		 * uses spinlocks. We are out of coherency here with data cache
+   138		 * disabled. The spinlock implementation uses exclusive load/store
+   139		 * instruction which can fail without data cache being enabled.
+   140		 * OMAP4 hardware doesn't support exclusive monitor which can
+   141		 * overcome exclusive access issue. Because of this, CPU can
+   142		 * lead to deadlock.
+   143		 */
+   144		bl	omap4_get_sar_ram_base
+   145		mov	r8, r0
+   146		mrc	p15, 0, r5, c0, c0, 5		@ Read MPIDR
+   147		ands	r5, r5, #0x0f
+   148		ldreq	r0, [r8, #L2X0_SAVE_OFFSET0]	@ Retrieve L2 state from SAR
+   149		ldrne	r0, [r8, #L2X0_SAVE_OFFSET1]	@ memory.
+   150		cmp	r0, #3
+   151		bne	do_WFI
+   152	#ifdef CONFIG_PL310_ERRATA_727915
+   153		mov	r0, #0x03
+   154		mov	r12, #OMAP4_MON_L2X0_DBG_CTRL_INDEX
+   155		DO_SMC
+   156	#endif
+   157		bl	omap4_get_l2cache_base
+   158		mov	r2, r0
+   159		ldr	r0, =0xffff
+   160		str	r0, [r2, #L2X0_CLEAN_INV_WAY]
+   161	wait:
+   162		ldr	r0, [r2, #L2X0_CLEAN_INV_WAY]
+   163		ldr	r1, =0xffff
+   164		ands	r0, r0, r1
+   165		bne	wait
+   166	#ifdef CONFIG_PL310_ERRATA_727915
+   167		mov	r0, #0x00
+   168		mov	r12, #OMAP4_MON_L2X0_DBG_CTRL_INDEX
+   169		DO_SMC
+   170	#endif
+   171	l2x_sync:
+   172		bl	omap4_get_l2cache_base
+   173		mov	r2, r0
+   174		mov	r0, #0x0
+   175		str	r0, [r2, #L2X0_CACHE_SYNC]
+   176	sync:
+   177		ldr	r0, [r2, #L2X0_CACHE_SYNC]
+   178		ands	r0, r0, #0x1
+   179		bne	sync
+   180	#endif
+   181	
+   182	do_WFI:
+   183		bl	omap_do_wfi
+   184	
+   185		/*
+   186		 * CPU is here when it failed to enter OFF/DORMANT or
+   187		 * no low power state was attempted.
+   188		 */
+   189		mrc	p15, 0, r0, c1, c0, 0
+   190		tst	r0, #(1 << 2)			@ Check C bit enabled?
+   191		orreq	r0, r0, #(1 << 2)		@ Enable the C bit
+   192		mcreq	p15, 0, r0, c1, c0, 0
+   193		isb
+   194	
+   195		/*
+   196		 * Ensure the CPU power state is set to NORMAL in
+   197		 * SCU power state so that CPU is back in coherency.
+   198		 * In non-coherent mode CPU can lock-up and lead to
+   199		 * system deadlock.
+   200		 */
+   201		mrc	p15, 0, r0, c1, c0, 1
+   202		tst	r0, #(1 << 6)			@ Check SMP bit enabled?
+   203		orreq	r0, r0, #(1 << 6)
+   204		mcreq	p15, 0, r0, c1, c0, 1
+   205		isb
+   206		bl	omap4_get_sar_ram_base
+   207		mov	r8, r0
+   208		ldr	r9, [r8, #OMAP_TYPE_OFFSET]
+   209		cmp	r9, #0x1			@ Check for HS device
+   210		bne	scu_gp_clear
+   211		mov	r0, #SCU_PM_NORMAL
+   212		mov	r1, #0x00
+   213		stmfd   r13!, {r4-r12, r14}
+   214		ldr	r12, =OMAP4_MON_SCU_PWR_INDEX
+   215		DO_SMC
+   216		ldmfd   r13!, {r4-r12, r14}
+   217		b	skip_scu_gp_clear
+   218	scu_gp_clear:
+   219		bl	omap4_get_scu_base
+   220		mov	r1, #SCU_PM_NORMAL
+   221		bl	scu_power_mode
+   222	skip_scu_gp_clear:
+   223		isb
+   224		dsb
+   225		ldmfd	sp!, {r4-r12, pc}
+   226	SYM_FUNC_END(omap4_finish_suspend)
+   227	
 
-Regards,
-Lorenzo
-
->=20
-> >=20
-> > Some comments inline.
-> >=20
-> > Regards,
-> > Lorenzo
-> > >>
-> >> Before touching the PPE table, resolve the destination MAC through the
-> >> bridge device above the ingress netdev. If the PPE driver's L2 offload
-> >> cache lookup misses, bind the hardware flow to the resolved CDM4/WDMA
-> >> path.
-> >>
-> >> Assisted-by: Codex:gpt-5.5
-> >> Signed-off-by: Jihong Min <hurryman2212@gmail.com>
-> >> ---
-> >>  drivers/net/ethernet/airoha/airoha_ppe.c | 138 +++++++++++++++++++----
-> >>  1 file changed, 119 insertions(+), 19 deletions(-)
-> >>
-> >> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/et=
-hernet/airoha/airoha_ppe.c
-> >> index 26da519236bf..ea932e6d87f6 100644
-> >> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> >> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> >> @@ -803,65 +803,163 @@ static void airoha_ppe_foe_flow_remove_entry(st=
-ruct airoha_ppe *ppe,
-> >>  }
-> >> =20
-> >>  static int
-> >> -airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
-> >> -				    struct airoha_flow_table_entry *e,
-> >> -				    u32 hash, bool rx_wlan)
-> >> +airoha_ppe_foe_commit_subflow(struct airoha_ppe *ppe,
-> >> +			      const struct airoha_foe_entry *bridge,
-> >=20
-> > maybe l2_hwe instead of bridge?
-> >=20
-> >> +			      u32 hash, bool rx_wlan)
-> >>  {
-> >>  	u32 mask =3D AIROHA_FOE_IB1_BIND_PACKET_TYPE | AIROHA_FOE_IB1_BIND_U=
-DP;
-> >>  	struct airoha_foe_entry *hwe_p, hwe;
-> >> -	struct airoha_flow_table_entry *f;
-> >>  	int type;
-> >> =20
-> >>  	hwe_p =3D airoha_ppe_foe_get_entry_locked(ppe, hash);
-> >>  	if (!hwe_p)
-> >>  		return -EINVAL;
-> >> =20
-> >> -	f =3D kzalloc_obj(*f, GFP_ATOMIC);
-> >> -	if (!f)
-> >> -		return -ENOMEM;
-> >> -
-> >> -	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
-> >> -	f->type =3D FLOW_TYPE_L2_SUBFLOW;
-> >> -	f->hash =3D hash;
-> >> -
-> >>  	memcpy(&hwe, hwe_p, sizeof(*hwe_p));
-> >> -	hwe.ib1 =3D (hwe.ib1 & mask) | (e->data.ib1 & ~mask);
-> >> +	hwe.ib1 =3D (hwe.ib1 & mask) | (bridge->ib1 & ~mask);
-> >> =20
-> >>  	type =3D FIELD_GET(AIROHA_FOE_IB1_BIND_PACKET_TYPE, hwe.ib1);
-> >>  	if (type >=3D PPE_PKT_TYPE_IPV6_ROUTE_3T) {
-> >> -		memcpy(&hwe.ipv6.l2, &e->data.bridge.l2, sizeof(hwe.ipv6.l2));
-> >> -		hwe.ipv6.ib2 =3D e->data.bridge.ib2;
-> >> +		memcpy(&hwe.ipv6.l2, &bridge->bridge.l2,
-> >> +		       sizeof(hwe.ipv6.l2));
-> >> +		hwe.ipv6.ib2 =3D bridge->bridge.ib2;
-> >>  		/* setting smac_id to 0xf instruct the hw to keep original
-> >>  		 * source mac address
-> >>  		 */
-> >>  		hwe.ipv6.l2.src_mac_hi =3D FIELD_PREP(AIROHA_FOE_MAC_SMAC_ID,
-> >>  						    0xf);
-> >>  	} else {
-> >> -		memcpy(&hwe.bridge.l2, &e->data.bridge.l2,
-> >> +		memcpy(&hwe.bridge.l2, &bridge->bridge.l2,
-> >>  		       sizeof(hwe.bridge.l2));
-> >> -		hwe.bridge.ib2 =3D e->data.bridge.ib2;
-> >> +		hwe.bridge.ib2 =3D bridge->bridge.ib2;
-> >>  		if (type =3D=3D PPE_PKT_TYPE_IPV4_HNAPT)
-> >>  			memcpy(&hwe.ipv4.new_tuple, &hwe.ipv4.orig_tuple,
-> >>  			       sizeof(hwe.ipv4.new_tuple));
-> >>  	}
-> >> =20
-> >> -	hwe.bridge.data =3D e->data.bridge.data;
-> >> -	airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
-> >> +	hwe.bridge.data =3D bridge->bridge.data;
-> >> +
-> >> +	return airoha_ppe_foe_commit_entry(ppe, &hwe, hash, rx_wlan);
-> >> +}
-> >> +
-> >> +static int
-> >> +airoha_ppe_foe_commit_subflow_entry(struct airoha_ppe *ppe,
-> >> +				    struct airoha_flow_table_entry *e,
-> >> +				    u32 hash, bool rx_wlan)
-> >> +{
-> >> +	struct airoha_flow_table_entry *f;
-> >> +	int err;
-> >> +
-> >> +	f =3D kzalloc_obj(*f, GFP_ATOMIC);
-> >> +	if (!f)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	err =3D airoha_ppe_foe_commit_subflow(ppe, &e->data, hash, rx_wlan);
-> >> +	if (err) {
-> >> +		kfree(f);
-> >> +		return err;
-> >> +	}
-> >> +
-> >> +	hlist_add_head(&f->l2_subflow_node, &e->l2_flows);
-> >> +	f->type =3D FLOW_TYPE_L2_SUBFLOW;
-> >> +	f->hash =3D hash;
-> >> =20
-> >>  	return 0;
-> >>  }
-> >> =20
-> >> +static bool
-> >> +airoha_ppe_foe_prepare_wdma_subflow_dev(struct airoha_ppe *ppe,
-> >> +					struct net_device *dev,
-> >> +					struct airoha_flow_data *data,
-> >> +					struct airoha_foe_entry *hwe)
-> >> +{
-> >> +	u32 pse_port;
-> >> +	int err;
-> >> +
-> >> +	err =3D airoha_ppe_foe_entry_prepare(ppe->eth, hwe, dev,
-> >> +					   PPE_PKT_TYPE_BRIDGE, data, 0);
-> >> +	if (err)
-> >> +		return false;
-> >> +
-> >> +	pse_port =3D FIELD_GET(AIROHA_FOE_IB2_PSE_PORT, hwe->bridge.ib2);
-> >> +	if (pse_port !=3D FE_PSE_PORT_CDM4)
-> >> +		return false;
-> >> +
-> >> +	return true;
-> >=20
-> > 	return pse_port =3D=3D FE_PSE_PORT_CDM4;
-> >=20
-> >> +}
-> >> +
-> >> +static struct net_device *
-> >> +airoha_ppe_foe_get_bridge_master(struct net_device *dev)
-> >> +{
-> >> +	struct net_device *master =3D NULL;
-> >> +
-> >> +	rcu_read_lock();
-> >> +	master =3D netdev_master_upper_dev_get_rcu(dev);
-> >> +	if (master && netif_is_bridge_master(master))
-> >> +		dev_hold(master);
-> >> +	else
-> >> +		master =3D NULL;
-> >> +	rcu_read_unlock();
-> >> +
-> >> +	return master;
-> >> +}
-> >> +
-> >> +static bool
-> >> +airoha_ppe_foe_prepare_wdma_subflow(struct airoha_ppe *ppe,
-> >> +				    struct sk_buff *skb,
-> >> +				    struct airoha_foe_entry *hwe)
-> >> +{
-> >> +	struct ethhdr *eh =3D eth_hdr(skb);
-> >> +	struct airoha_flow_data data =3D {};
-> >> +	struct net_device *master;
-> >> +
-> >> +	if (!is_valid_ether_addr(eh->h_source) ||
-> >> +	    !is_valid_ether_addr(eh->h_dest))
-> >> +		return false;
-> >> +
-> >> +	ether_addr_copy(data.eth.h_dest, eh->h_dest);
-> >> +	ether_addr_copy(data.eth.h_source, eh->h_source);
-> >> +
-> >> +	if (!skb->dev)
-> >> +		return false;
-> >> +
-> >> +	/* WLAN egress unbound hits can arrive before flowtable creates the
-> >> +	 * L2 master flow normally used for subflow binding. Resolve only
-> >> +	 * through the bridge master so dev_fill_forward_path() must use the
-> >> +	 * bridge FDB for the destination MAC. Calling the ingress AP netdev
-> >> +	 * directly can describe the source station's WDMA path and would
-> >> +	 * corrupt Wi-Fi-to-wired flows whose real egress is not WDMA.
-> >> +	 */
-> >> +	master =3D airoha_ppe_foe_get_bridge_master(skb->dev);
-> >> +	if (!master)
-> >> +		return false;
-> >> +
-> >> +	if (airoha_ppe_foe_prepare_wdma_subflow_dev(ppe, master, &data,
-> >> +						    hwe)) {
-> >> +		dev_put(master);
-> >> +		return true;
-> >> +	}
-> >> +
-> >> +	dev_put(master);
-> >> +	return false;
-> >=20
-> > maybe something like:
-> >=20
-> > 	ret =3D airoha_ppe_foe_prepare_wdma_subflow_dev();
-> > 	dev_put(master);
-> >=20
-> > 	return ret;
-> >=20
-> >> +}
-> >> +
-> >>  static void airoha_ppe_foe_insert_entry(struct airoha_ppe *ppe,
-> >>  					struct sk_buff *skb,
-> >>  					u32 hash, bool rx_wlan)
-> >>  {
-> >> +	struct airoha_foe_entry wdma_hwe =3D {};
-> >>  	struct airoha_flow_table_entry *e;
-> >>  	struct airoha_foe_bridge br =3D {};
-> >>  	struct airoha_foe_entry *hwe;
-> >>  	bool commit_done =3D false;
-> >> +	bool wdma_ready =3D false;
-> >>  	struct hlist_node *n;
-> >>  	u32 index, state;
-> >> =20
-> >> +	wdma_ready =3D airoha_ppe_foe_prepare_wdma_subflow(ppe, skb,
-> >> +							 &wdma_hwe);
-> >> +
-> >>  	spin_lock_bh(&ppe_lock);
-> >> =20
-> >>  	hwe =3D airoha_ppe_foe_get_entry_locked(ppe, hash);
-> >> @@ -899,6 +997,8 @@ static void airoha_ppe_foe_insert_entry(struct air=
-oha_ppe *ppe,
-> >>  				   airoha_l2_flow_table_params);
-> >>  	if (e)
-> >>  		airoha_ppe_foe_commit_subflow_entry(ppe, e, hash, rx_wlan);
-> >> +	else if (wdma_ready)
-> >> +		airoha_ppe_foe_commit_subflow(ppe, &wdma_hwe, hash, rx_wlan);
-> >>  unlock:
-> >>  	spin_unlock_bh(&ppe_lock);
-> >>  }
-> >> --=20
-> >> 2.53.0
-> >>
->=20
-> All inline code-style review comments will be addressed in the next
-> submission of the patch set, together with the responses to Sashiko's
-> review, if any.
-
---Gg8YQr2jQ3M7KWtf
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCahRonAAKCRA6cBh0uS2t
-rJZGAQDwpUicbHSPKJS6GK7b2MnRJslrwf6DaJXFQK68IpbKPwD8D7bnTKU0rC9V
-nZsd+kM9Ljjo6+NVbSOgVeXt+vAwzQY=
-=GgNT
------END PGP SIGNATURE-----
-
---Gg8YQr2jQ3M7KWtf--
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
