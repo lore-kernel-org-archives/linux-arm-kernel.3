@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B18F3CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:45:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D8A4CD5BCF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 25 May 2026 08:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HzMY867DBTN5pjOSjRIUSRzjlYQe63UJPO23K/q0Zy8=; b=3SCHvaJF35JTPL3CiMA8Dv8Neq
-	LuIRp4cNniDTLjkDp0FOAgJ/AYSvxSOLKZsDbNQOE5z4MSv6cvqGXoF+RGeKs5ggoDBP/2Vyc8Sid
-	DC0H7z4POluYR/4JKQBMcXoF8OmUqPBVA61nnPeuiQADjmGLMhFVj6K4bBwNpVY7jTr4bbxv7b0jS
-	cMekKMD7CZKiUExy7MNvEbDxieQJqLxjfD31GIM25J40uHUNRNEuYEJ+Sb53RwCubG+oqMpXjPYf+
-	jX4i9jy8j4zxIA/M9uzpk6+xb+zUkSMle6Vdp9G9YeKXMOzadtTjTnNDVUsLbG1+1bpLz8jtVzS7h
-	dBQAxW7A==;
+	bh=V3GWrH6OEudYkRJfmd+mdPaXCI7D1XyImuZGdNy8Zkc=; b=nyMCP4plK+LCvDuoOIFNo8DYIM
+	7lPfp0Z2VVRjngALQeCQX5QA7NDWiHCrbCO69mNJOLFwUw0kuFbiVWNZIEwctZV9nYYKVSvwCORPl
+	7Brb+JCAwPM+ar//Q65kYZwUFDneLN56ckg8dLgGmTpn5FKAXmpzTJxPSV6/eVzA6jT+3SPz2qmrn
+	J1vcTrZR4WcbfFtATQwinO6uHQedt4/tvDgsMMJY2tTH6F2zoE6naNwJpiSG7J8JrbEvTbeHuaxv7
+	nvAxmZX6sWLcHaAtttyEAErVnD/q9eEx295QFoszAdsOKFxI5/30xVo9ABrR6oMgbqbU+cDdy3jrW
+	vYXD2Vcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQwO-0000000GgzF-20oX;
-	Mon, 25 May 2026 08:45:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wRQwp-0000000Gh6q-04wK;
+	Mon, 25 May 2026 08:46:07 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRQwM-0000000GgyS-2ea3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 25 May 2026 08:45:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D3E7445B8
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:45:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E0D51F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 08:45:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779698738;
-	bh=HzMY867DBTN5pjOSjRIUSRzjlYQe63UJPO23K/q0Zy8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=dDlpKJe9ynN4tivU+0I/iVNXkmz8V7D8cY+DYo3vXqn1UYVshRJXYUhU9+Ggzr/rP
-	 trO3grk83wo0wkCTxglQBfucaDHfctHTHb580BoJpX/OHzK4mljqCnxAvzi77zSsvh
-	 ULf/bnWdghLs1mVRRxE0/+n4XlYuH/JD/kPtzEqOOYLjFcRdXkFID7j5sQqLzvYne0
-	 AEC0IpDrGu/M2640NGZecMpy9+bbPYtf3J/2nTEDIZHhb/4ZMjehX7CQq2aq0fROxp
-	 IEhrNH76zfunOn/96KhpiyzQkzzVlkFgnGNnC+YU7cpcRRWwcm6+2ynGgx9unWllqh
-	 1VJWvK9b1XQeQ==
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-7e603d0ee0aso1864801a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 25 May 2026 01:45:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ8lT6im9RBA+sk93kICYs1fJZck7SGA+Xj2rHDv0oGibqnOk/jIIHG93jQCITbiIxI6jKo74YVRVkt4UM1cju52@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaZoXCtYoQOy15teObOqvoF5un4KXAWHCjHnMo6DOvCz2XARSS
-	eqVDQHHTF+4A5wPdPhOJNxyFd45GEAa2xXdq7lRRf0UyxP23670M9vaCgovTCcmGRgH6s3vTDSH
-	UsUxmXlrAY8gDWFbF/fqDstX0/xR1ybc=
-X-Received: by 2002:a05:6830:270f:b0:7dd:e032:3ce5 with SMTP id
- 46e09a7af769-7e5feed03cemr8122305a34.17.1779698737336; Mon, 25 May 2026
- 01:45:37 -0700 (PDT)
+	id 1wRQwm-0000000Gh5f-2ZVH;
+	Mon, 25 May 2026 08:46:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1779698762;
+	bh=RVCV0KAzW/3y+rrtGYRGLXcpYLEOUoe3QHZ5Oyu1M0I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=IpGgaYUA6WlJOXP8zbTfoc448+EE+PojNvepQ1agw5wLoubw+H5jaKP92Dzp++ysk
+	 l/HLRMRapXzmRiMS/acTqtXxYOUe84ieO0fFJilWgd0fehR5CpY20JkaXN6yBAVMhN
+	 xE14um8K1tCmwYIBjrTGIVTm7IJ6qAlIwv8Kf3EpUj8qu2oqFvC+t+9gmXbG6HVGJ0
+	 RLPz0VG9Mkw3J30D4NiHBoYTYJELaQN1aEkYCBrvdRGq0cCyBEvp4E/8FPHTCu3WG5
+	 CD6ap6E5z3XCe2rE6Rs5o9cqu5myFyfEKWAO/iCMBNqYX8Zsn0FTdcjBDw19KlUTtZ
+	 bgpPV2xKmnujg==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7BCA17E0979;
+	Mon, 25 May 2026 10:46:01 +0200 (CEST)
+Message-ID: <dd1136db-1a78-4d32-a3ed-13691621c8ba@collabora.com>
+Date: Mon, 25 May 2026 10:46:01 +0200
 MIME-Version: 1.0
-References: <20260504131148.3622697-1-khristineandreea.barbulescu@oss.nxp.com> <20260504131148.3622697-2-khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20260504131148.3622697-2-khristineandreea.barbulescu@oss.nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Mon, 25 May 2026 10:45:19 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmhUPUxkP=RNqJGVJRfuGS2YXAYt7JH64sisk2MAMxFNw@mail.gmail.com>
-X-Gm-Features: AVHnY4LfJIB0vsq8DdAkZL7tiUgsJC6U2Cr8b926VN452Ay9Gg3rU34cLJlAkLs
-Message-ID: <CAD++jLmhUPUxkP=RNqJGVJRfuGS2YXAYt7JH64sisk2MAMxFNw@mail.gmail.com>
-Subject: Re: [PATCH v9 1/7] pinctrl: s32cc: use dev_err_probe() and improve
- error messages
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
-	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] soc: mediatek: pwrap: Remove obsolete NEED CONFIRM
+ comments
+To: Akari Tsuyukusa <akkun11.open@gmail.com>, matthias.bgg@gmail.com
+Cc: james.lo@mediatek.com, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260522134522.368073-1-akkun11.open@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20260522134522.368073-1-akkun11.open@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260525_014538_689498_863E9208 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260525_014604_796614_3C2A9894 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,18 +75,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 4, 2026 at 3:11=E2=80=AFPM Khristine Andreea Barbulescu
-<khristineandreea.barbulescu@oss.nxp.com> wrote:
+On 5/22/26 15:45, Akari Tsuyukusa wrote:
+> Remove the obsolete "/* NEED CONFIRM */" comments from the MT8196
 
-> Change dev_err&return statements into dev_err_probe throughout the driver
-> on the probing path.
->
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@=
-oss.nxp.com>
+s/mt8196/mt8195/g
 
-This patch 1/7 applied to the pinctrl tree.
+> configuration. These values were previously confirmed during review,
+> but the placeholder comments were accidentally left behind.
+> 
+> Link: https://lore.kernel.org/all/2a117e5fe9fe0ece39e9165a463082ef42be973f.camel@mediatek.com/
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
 
-Yours,
-Linus Walleij
+
+after which...
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> ---
+>   drivers/soc/mediatek/mtk-pmic-wrap.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/soc/mediatek/mtk-pmic-wrap.c b/drivers/soc/mediatek/mtk-pmic-wrap.c
+> index 0bcd85826375..87bcbfa2d5f1 100644
+> --- a/drivers/soc/mediatek/mtk-pmic-wrap.c
+> +++ b/drivers/soc/mediatek/mtk-pmic-wrap.c
+> @@ -2396,8 +2396,8 @@ static const struct pmic_wrapper_type pwrap_mt8183 = {
+>   static const struct pmic_wrapper_type pwrap_mt8195 = {
+>   	.regs = mt8195_regs,
+>   	.type = PWRAP_MT8195,
+> -	.arb_en_all = 0x777f, /* NEED CONFIRM */
+> -	.int_en_all = 0x180000, /* NEED CONFIRM */
+> +	.arb_en_all = 0x777f,
+> +	.int_en_all = 0x180000,
+>   	.int1_en_all = 0,
+>   	.spi_w = PWRAP_MAN_CMD_SPI_WRITE,
+>   	.wdt_src = PWRAP_WDT_SRC_MASK_ALL,
+
 
