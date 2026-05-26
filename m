@@ -4,74 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6251CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA70CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 17:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wqSGufEf+VhOgsnQP4ruaoi/6j/RatFRKcOVJpzWgb4=; b=cgTfCLGfrSil0Z
-	DlTxET9HmyxIRFn0hSY/MQhRwuBiJs4cuTPFrizKMg1D1Q2QcqpVfqYTbeHZ61GR6FJC1hM48X5Lj
-	PdUXq0OXV12Ph+sruYwX8TV0P6PYgZjYR3GG1Pgyfv3AgHHwfItSzY8SPUndCfedx55zOQaxP0dMx
-	4XfCcYzYoPpkr5viojw0XygcHgpKuNib/5acj64KYtGbWGAD6VBU+i2n3t3+gpiaMkBYv06esdMxz
-	GKyl0WWMl049Wn9XCEeUyIlJcM7BJwsljtZalgfb70+TPrEoR0YHzizLZq8Qf5OudKUf5mvUaL6iO
-	Iqwu1hSj4wg9PTuMK14g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3v7j5t9/Ei/dvkrhTWLvbnWZo0gJn6tOy3Bo7O728j8=; b=F0KQvdI+1InlqERS5lfXxPmPwL
+	GVZ2K+2/8b2anQ0a8X9zEchSD3kpJt0vcw/r2DvS46UQq3zV+1cqTb/pA+ZJYlq+oZC0+XAjumGl8
+	uh2sdL68I7EfNu81LnTfoJT3TIfdWzdTC+kY3MGeE28Sb8yCKnPRyJW4EGbnaO4fR+SrLdrZTzN0H
+	4bYygofxt1XohLNCBoklmicWBNUUHis6x6uTSMhR54xwp3lq6dJtSumQdp6OqXIBu13gQcTknJxCB
+	wbc30hryLMANndZiIljKYRhtvKZo+pLVLaUl4H6St0zDzVd5z28z3wdpL1QWhazYSU+EqCikHUVgB
+	8l6N8jcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRv8o-00000002cuu-3ij1;
-	Tue, 26 May 2026 17:00:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRv8m-00000002cuH-0v0m
+	id 1wRvqj-00000002lCv-1tl1;
+	Tue, 26 May 2026 17:45:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wRvqg-00000002lC8-1ZHs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 17:00:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 540CC16F2;
-	Tue, 26 May 2026 10:00:20 -0700 (PDT)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CDFBA3F7B4;
-	Tue, 26 May 2026 10:00:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779814825; bh=Tfeuh+P8TqCHW78P+vSWitK7caIMQbU3THhuUssm2ds=;
-	h=From:Subject:Date:To:Cc:From;
-	b=prLoemugJ6oWYHZ+SrTShkYChkHtXtj29yzUCQI3kuQgsprPxRyCvL+gmmlONp/5b
-	 LRuKijpIv1yBmuyo7XQTii3c0h0p50RKujenesOfdwVuF64UbIsZckVV30lLetq8Yt
-	 ay3pM4dEv4ntHBNA8ivBaNufkC1DMKMzMUB86LZw=
-From: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v6 0/8] perf cs-etm: Support thread stack and callchain
-Date: Tue, 26 May 2026 17:59:36 +0100
-Message-Id: <20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com>
+	Tue, 26 May 2026 17:45:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1779817549;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3v7j5t9/Ei/dvkrhTWLvbnWZo0gJn6tOy3Bo7O728j8=;
+	b=hSQ25QGfOvgRIybp5Gh+w297IBrxQcq/95EqoWz9hiyQP9EBh9tYjs7ruGI5krqUM+lY0t
+	HOSx6InyjDq+3FuMg7fBHbgRDIjslfv9urplYgqoplE058VFjGD/9wx/Rzs8vq3qcVcwl9
+	Gh7zZT3ddKS6Ldw4Jyw5mdoXRS83Ftc=
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com
+ [209.85.160.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-390-Yb2aVv_FOaywY9EnfUxkrg-1; Tue, 26 May 2026 13:45:46 -0400
+X-MC-Unique: Yb2aVv_FOaywY9EnfUxkrg-1
+X-Mimecast-MFC-AGG-ID: Yb2aVv_FOaywY9EnfUxkrg_1779817546
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-514cbe73d00so296923671cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 26 May 2026 10:45:46 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1779817546; x=1780422346;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3v7j5t9/Ei/dvkrhTWLvbnWZo0gJn6tOy3Bo7O728j8=;
+        b=JndLXMgn7lX8BrN4vYRXnJNlCZG1pNRT0BJTUt6Zh3SRgSehKcuCGrp/FlpCs5sNc4
+         zw9aUatNdyggA2OrgTZM+HmzLOi62oxwPp5MbL02ecBCdUZMrXZRtFrOd5hjzcFq+dTl
+         lE31x69ompDa5OpwifrmE93Oi9pzIHnKwV+dEwO6Juzh1x+UdNFSufkM1gNWY3uLVMfB
+         sffXh3MyQ/ivaVoeItmCH4Db+q/yORkQag+IptIEOosBpuD+QoeM+vM+OBGiXSbs5fgY
+         fxFzFXUpvkQFMEP7cfROPjX31heDVrg2DqncTaJUTJeyuTzNVoECIFuaZOMaDw6MMRMt
+         HDog==
+X-Forwarded-Encrypted: i=1; AFNElJ+b8VU+KEic9e4mkDDzGKuNnPJ/X15QsV6Xbgvt1SzACREjcGrwTecFvhW6iHdivx+7fBkvjWYkzH9rEsTS9LE9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5C3nr/NYUKIMfYAP572E7DorAKpTAJrTq6+3pIC7OAzncEopq
+	BHXCt5gAN6F1VlNOJ656sd0HGXlBxNH2pFvYyxAloEtiSUIAc9d2qUS+a3iqqmUwcSYPs0W5GlU
+	XNbY8EqpwFxv3WzdZXBP1oL/P3X1Q/mDytZsK/vdSiFg6Fei77r2Emyquld67Kn6NyZ0xWaIkL7
+	DN
+X-Gm-Gg: Acq92OHZ9Qr9PmkK5OX2h6j4pokzgP1FJor7QfuIZ1bMIq8U1njnA00mwdxoHrwEmEP
+	fXgstI3ktw7aZp+O1Z1QfeXCW7q+3Ozxyn4Gs+xDBIk2cGAq4QzrOZeTObltlCuG3skRuY7cxBX
+	t+6dhsUOAB78bX9p9ftGRQiYhoyOv4rd2s6F3R2l8F7MwZ22+0JJcOxMNk23siPFsGJgaxpsK/H
+	SVQBJqxkxePwZwR7Ta7GVaVccUooh98hy+sUNePNJTzKNm5WIeIsXuN+rzAZtLSMQVnCW3G7Vbu
+	J1J7t724lWEmrB5G4ByNyt+IQyOGQzdz/56B4s3Hhdigurcb14CSzHkWUyedL7x7j2XS812H8HK
+	TG/4dTkYhAfl2My9+bTlseYZFoQkFYaGLDicqGAjVKREF/th+vZazXOUf
+X-Received: by 2002:a05:622a:1c10:b0:516:e033:f5a8 with SMTP id d75a77b69052e-516e033f8a8mr202373821cf.59.1779817545821;
+        Tue, 26 May 2026 10:45:45 -0700 (PDT)
+X-Received: by 2002:a05:622a:1c10:b0:516:e033:f5a8 with SMTP id d75a77b69052e-516e033f8a8mr202373121cf.59.1779817545155;
+        Tue, 26 May 2026 10:45:45 -0700 (PDT)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-5170c403529sm10457421cf.10.2026.05.26.10.45.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 26 May 2026 10:45:44 -0700 (PDT)
+Date: Tue, 26 May 2026 13:45:43 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: "Alexander A. Klimov" <grandmaster@al2klimov.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Jonas Jensen <jonas.jensen@gmail.com>,
+	Mike Turquette <mturquette@linaro.org>,
+	"moderated list:ARM/MOXA ART SOC" <linux-arm-kernel@lists.infradead.org>,
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] clk: moxart: fix refcount leak
+Message-ID: <ahXcR-T6pyWmV1_e@redhat.com>
+References: <20260520175552.537603-1-grandmaster@al2klimov.de>
+ <ag41wJBhdK7-Zynb@redhat.com>
+ <cb81262a-5327-41bb-9ef6-9cd91f1be0f7@al2klimov.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAHjRFWoC/x2N0QqDMAwAf0XyvEIbnDJ/RUapWbYFXC2JykD89
- 5U9Hhx3BxirsMHQHKC8i8mSK3SXBuid8oudPCoDeuz8FYObWpf0E8kipXmujuRoWymLrnEPDgl
- T7/twm4igRoryU77/wXg/zx+szR5+cAAAAA==
-X-Change-ID: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
- Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
- linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1779814822; l=4896;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=Tfeuh+P8TqCHW78P+vSWitK7caIMQbU3THhuUssm2ds=;
- b=mLyaOHfzorChUBkLzLhkgIfeebmY7YwbzDtJJJktIph3sgZD2RvXQPT/P6ZeVzsbqZs02A0IM
- S2Xc4f/0BJTCV3q6RRRS2dcvTotpOUuurCw3p5KEq401aaSLZ9+5qNg
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+In-Reply-To: <cb81262a-5327-41bb-9ef6-9cd91f1be0f7@al2klimov.de>
+User-Agent: Mutt/2.3.1 (2026-03-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: iRFEwNOLzAFcT7EHp9GeAYcEqxENrYNewBvuingsEp4_1779817546
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_100028_410977_ABCE912E 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20260526_104550_485174_F9F50DA8 
+X-CRM114-Status: GOOD (  23.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,101 +116,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds thread-stack and synthesized callchain support for Arm
-CoreSight, which comes from older series [1] but heavily rewritten.
+Hi Alexander,
 
-CS ETM previously kept last-branch state in a per-trace-queue buffer.
-That effectively makes the state per CPU, while the call/return history
-belongs to a thread. This series moves branch tracking to the common
-thread-stack code.
+On Thu, May 21, 2026 at 06:16:38AM +0200, Alexander A. Klimov wrote:
+> On 5/21/26 00:29, Brian Masney wrote:
+> > On Wed, May 20, 2026 at 07:55:50PM +0200, Alexander A. Klimov wrote:
+> > > Every value returned from of_clk_get() is supposed to be cleaned up
+> > > via clk_put() once not needed anymore.
+> > > The values here are used only for error checking,
+> > > but weren't cleaned up until now.
+> > > 
+> > > Fixes: c7bb4fc16ead ("clk: add MOXA ART SoCs clock driver")
+> > > Signed-off-by: Alexander A. Klimov <grandmaster@al2klimov.de>
+> > > ---
+> > >   drivers/clk/clk-moxart.c | 2 ++
+> > >   1 file changed, 2 insertions(+)
+> > > 
+> > > diff --git a/drivers/clk/clk-moxart.c b/drivers/clk/clk-moxart.c
+> > > index 3786a0153ad1..7e191b1481bb 100644
+> > > --- a/drivers/clk/clk-moxart.c
+> > > +++ b/drivers/clk/clk-moxart.c
+> > > @@ -39,6 +39,7 @@ static void __init moxart_of_pll_clk_init(struct device_node *node)
+> > >   		pr_err("%pOF: of_clk_get failed\n", node);
+> > >   		return;
+> > >   	}
+> > > +	clk_put(ref_clk);
+> > >   	hw = clk_hw_register_fixed_factor(NULL, name, parent_name, 0, mul, 1);
+> > >   	if (IS_ERR(hw)) {
+> > > @@ -83,6 +84,7 @@ static void __init moxart_of_apb_clk_init(struct device_node *node)
+> > >   		pr_err("%pOF: of_clk_get failed\n", node);
+> > >   		return;
+> > >   	}
+> > > +	clk_put(pll_clk);
+> > 
+> > So this immediately drops the reference to the clk after of_clk_get() is
+> > called. Can we just remove these two of_clk_get() calls since they don't
+> > appear to be used?
+> Not if their purpose is to... idk...
+> check whether device_node is a clock at all, maybe?
 
-The series records CoreSight branches with thread_stack__event(), uses
-thread_stack__br_sample() for last branch entries, flushes thread stacks
-after decoder resets.
+The clk driver already calls of_clk_get_parent_name(), and it validates
+the clock-output-names is valid. The of_clk_get() validations in this driver
+are redundant, unless I'm missing something.
 
-A decoder reset between AUX trace buffers is treated as a global trace
-discontinuity, so all thread stacks are flushed, so avoids carrying
-stale call/return history across a trace discontinuity.
-
-One limitation remains for instructions emulated by the kernel. In that
-case the exception return address may not match the return address
-stored in the thread stack, because after exception return can be one
-instruction ahead. The stack can still recover when a later return
-matches an upper caller. Given emulated instructions are not the common
-target for performance callchain analysis. Supporting this would require
-extending the common thread-stack path to accept both the real target
-address and an adjusted address for stack matching, so this series
-leaves that extra complexity out.
-
-The series has been tested on Orion6 board:
-
-  perf test 150 -vvv
-
-  150: Check Arm CoreSight synthesized callchain:
-  --- start ---
-  test child forked, pid 13528
-  Test callchain push: PASS
-  Test callchain pop: PASS
-  ---- end(0) ----
-  150: Check Arm CoreSight synthesized callchain                       : Ok
-
-  perf script --itrace=g16i10il64
-
-  callchain_test   17468 [005] 1031003.229943:         10 instructions:
-              aaaac32507c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
-              ffff90bd233c call_init+0x9c (inlined)
-              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
-              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-
-  callchain_test   17468 [005] 1031003.229943:         10 instructions:
-              aaaac3250774 do_svc+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
-              ffff90bd233c call_init+0x9c (inlined)
-              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
-              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-
-  callchain_test   17468 [005] 1031003.229944:         10 instructions:
-          ffff800080010c20 vectors+0x420 ([kernel.kallsyms])
-              aaaac3250784 do_svc+0x1c (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
-              ffff90bd233c call_init+0x9c (inlined)
-              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
-              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-
-Note, the test fails on Juno board which is caused by many discontinuity
-packets (mainly caused by NO_SYNC elem). This is likely caused by the
-FIFO overflow on the path.
-
-[1] https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
-
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
-Leo Yan (8):
-      perf cs-etm: Decode ETE exception packets
-      perf cs-etm: Refactor instruction size handling
-      perf cs-etm: Use thread-stack for last branch entries
-      perf cs-etm: Flush thread stacks after decoder reset
-      perf cs-etm: Support call indentation
-      perf cs-etm: Filter synthesized branch samples
-      perf cs-etm: Synthesize callchains for instruction samples
-      perf test: Add Arm CoreSight callchain test
-
- .../tests/shell/test_arm_coresight_callchain.sh    | 235 ++++++++++++++++
- tools/perf/util/cs-etm.c                           | 309 ++++++++++++---------
- 2 files changed, 408 insertions(+), 136 deletions(-)
----
-base-commit: bd2a5be1fe731bc7548205dd148db75f1d588da2
-change-id: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
-
-Best regards,
--- 
-Leo Yan <leo.yan@arm.com>
+Brian
 
 
