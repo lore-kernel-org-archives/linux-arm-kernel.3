@@ -4,144 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BF2ACD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C59ACD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bWPKPWBL+OnBN5OqpJkcLu/DBykXAh/wTUqjVfoaVf8=; b=nTMEKlCI12iTTT7dXHp6ATuETu
-	fgtNpNnAMobATdxVbvu7lLJwJk2Gzd6GOEIqHt3Hv64y8XCwlf75RDS3D2w9D1rYiN0hKMHiIHKmm
-	TL+t/mhG5eKXr2yUuk+BN9G1bKCXZ3d9AjcEwpHrXjL5HZul8VNm8MpxKT7Rxm1CGd64+JqmHnbjb
-	sNSErbf68r1eAVQ9qkzxux8I3c6wEpvXuROgkw/2HPpJTSgcOmtlB0z5+36ain1MbhAgb8oT7bHeg
-	yd5hoGmlsfdBahTFsr1LusqrrfjfEM3t8YWtgp6JJKS098tdM1az5PlQ69Uvk/eQ7MgjH5EzCjKdb
-	XHyvs6gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1yHSAnSnfei8Gpn2LyHnScleECQ2X3M3l4lHkpRdlsY=; b=ZZ7uMfQpln+EqT1/T8cQMTjcf3
+	4nOyG/FsZIuMsvUCbQB6Ws5shGZkf3W9KL0r08c1AQUQkSROmFbbnQXJAldtjQWzQlL3DJ2A+5AtR
+	XWSGOSwqiFvdGdhva55iDp5Nkvd+RFnQaasZUVh6Bo1PP4glVX9yJQO3VZLLsMcTE2M2d0Mo0s3V7
+	4ediAHhEXTsALJgNzAZYYjofB9UeLcdqbSAm9BOxIomKJ6CYwNvqlwT7wJEycAPRw4y/dLWezAsRz
+	tRFPTJbVioFuRrxaj5EHzDe6kqwSuS8YgesGOt9AUlT/dGMaKzwzW/tehHu3ksV/vgHW8GFqYzzVq
+	FyZ3KQWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRneQ-00000001Rud-18BY;
-	Tue, 26 May 2026 09:00:38 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wRnh0-00000001SI7-3KIg;
+	Tue, 26 May 2026 09:03:18 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRneO-00000001Rtk-0wM3
+	id 1wRngx-00000001SHS-2blm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:00:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cP27iFcMFfT4CXw/ReCHv2Yii4/gC3hzz6XF+P+IlL2ZBon7xZBY2w/JW4qbxZ7mZ90SzfXbUL2GlXbaJE92cFdMUsMFH2nhKMap9nAjIxanhoywn15YmPZDifOHIzt3nhUwz/IDr9m+5zmRkzylx1fUu6x8cInz02QPlZV7PjKhwunGy6KnCW2KibQSHduZ6ZRNcVclNfhjEPUkJwxEU2C+hPPYo0veSMNzNz5TKtTZEaO3Vyvswz5iGoljobMcX4AoDSDc1/VBaw8rC9QkyC9hYF7aUSwhR9S1r0F1ROoyBcuV1Iix064mHhZBytjNHpp1Jd6ALmyjyRYtFLJcvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bWPKPWBL+OnBN5OqpJkcLu/DBykXAh/wTUqjVfoaVf8=;
- b=imgiKFmijoMjwGdLI0GN1OHUejl4vPwRZKaxNd1Mjip7DKInZ0gXBulTqYszF8pbhYu4MkaVt/TxoTSGhol6u539aCr2GGgcBl7mls2D5CYSoYw6UKPU573zn/+qp4Kst4hTyyk8zy7Nr2uvqQ131MmyyaJ3GwK3yRvlxswvHhZ9CPYhAZ+BDT5ducDDJu7VibaFiAs+nQfagbftblGPYFBETEjOLjOH5AhIIda9EUB43k3p9S0eothJ+fnc1TZ2r2LiW+IL3yAqn0iAffa7MC2ICY/mzhObSZBJK5eF7e/q6tEMIyucnpQscg9HVr/8aROVe+AhFAw4bBMHUn90Fw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bWPKPWBL+OnBN5OqpJkcLu/DBykXAh/wTUqjVfoaVf8=;
- b=wPcdkdSu/PbDYQAMyRyyQK5wTpTyHcuEphHCkPOmbn9bKUOwWBt7uO5UKXRywMpa9DKqtHuW63ieTzF3l96yXvUSED1n+2f1z0gi2mGgrITVXnAl/1CsVLfR1ScojZLUd0FcDAbAwXm3cc1BdypwA+HMARu9qQQzD4lRHFKsG6k84+ERf8mYMnHNdBDtXj2PfSOuYtgxYZAsA4wLyMRspKmOxig4p0qXp/qJCtCKI6HIqYTuqumAWVLqtk54716i6esIM6bRh9RZDO7xIkM5AztX0Mkh43feVVgWnYh2jRmaMPAT1dKnshl1pLXNUnBps23wZcqgIgzMbk3cjdDydg==
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com (2603:10a6:208:184::17)
- by AM8PR04MB7379.eurprd04.prod.outlook.com (2603:10a6:20b:1c4::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.19; Tue, 26 May
- 2026 09:00:29 +0000
-Received: from AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51]) by AM0PR04MB6802.eurprd04.prod.outlook.com
- ([fe80::dc36:17b6:e5b1:fa51%4]) with mapi id 15.21.0048.019; Tue, 26 May 2026
- 09:00:29 +0000
-From: "Carlos Song (OSS)" <carlos.song@oss.nxp.com>
-To: Vincent Jardin <vjardin@free.fr>, "Carlos Song (OSS)"
-	<carlos.song@oss.nxp.com>
-CC: Oleksij Rempel <o.rempel@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Andi Shyti <andi.shyti@kernel.org>, Frank Li
-	<frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Wolfram Sang <wsa@kernel.org>, Kaushal Butala
-	<kaushalkernelmailinglist@gmail.com>, Shawn Guo <shawn.guo@freescale.com>,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "stable@vger.kernel.org"
-	<stable@vger.kernel.org>
-Subject: RE: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the
- bus
-Thread-Topic: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking the
- bus
-Thread-Index: AQHc7O4Z5txHwyLcp0GmJoBnLT9VjQ==
-Date: Tue, 26 May 2026 09:00:29 +0000
-Message-ID: <AM0PR04MB68023033BCC34474D12D4EB8E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
-References: <20260525-for-upstream-i2c-lx2160-fix-v1-v1-0-f30ab53dd97c@free.fr>
- <20260525-for-upstream-i2c-lx2160-fix-v1-v2-0-26a3cc8cd055@free.fr>
- <AM0PR04MB6802B906706F0CDE5BA73696E80B2@AM0PR04MB6802.eurprd04.prod.outlook.com>
- <ahVV1X_cdhHDmRwc@L30177.local>
-In-Reply-To: <ahVV1X_cdhHDmRwc@L30177.local>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AM0PR04MB6802:EE_|AM8PR04MB7379:EE_
-x-ms-office365-filtering-correlation-id: be8978b9-6b22-407b-8115-08debb053c79
-x-ms-exchange-sharedmailbox-routingagent-processed: True
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|19092799006|366016|38070700021|4143699003|6133799003|3023799007|11063799006|22082099003|56012099003|18002099003|15866825006|41080700001;
-x-microsoft-antispam-message-info: i1Knthr1hXtYcW3lMRhkVI0YEKoFr1iESYh4webreo0Hi27uvW5vF68Vz4GI2xg84hVv4lSUePXobzImGEzW4BIZUbwZW89RcPm+fBdkjS2u0sEHDLVCRUDf43zxy2u/kfpM04nIi7b4CnBXaGVnCUN26UlbDEn9eQeA+bjqqmXCWlYHUSFqQbNnKrCDb+pGt2rLCpwGqxJzm9G8SK4hb/GHPM2T/VKSR3haFmpAjTRmmOUw1JABIXYkOF3qgHm01hBQpknFtuj+jm2aHq/mKVb3zyysPQ1JbspLVTkSpjeeNKWmQcYoDKcOf+UxZZaPAAWFt+X0bnrREBRzPFAiEvuJJEIumwmH+PO7s9buvBH4hWkiwf2RtF+JUbQagSq1PkJvdwEmEEPIkflMODa9lQhFE28qYQU5TDcWMdbPuUd+iTVz6JBqV+o8aEJCRZ4MQS2CQo144WMB2ZPHAV1RW9kS5CY2b7x8+pCqp+6VlY1q5ORP1PkfDgF04yJOQzrNhFOoUW9Bug0Z0jK/k9YMu0vUo7H12PmOagWkU9lL6YBReh3BNFDD1CQ4jSXi6mAizgXqLJN5Bi93uVpjlKiTd1jVBkX6qan5Tgi/6JAWOeXIHyU0qxk7hqcPIMw51cJwaioMWx4Py9vPjo3GhE+RkQMJ0gwuHGM8uocnpcJS7XgPVGhibOTP2JnHHD6myUbPbiCy1iAcvUg3DxhEQp2y+OahuAy7uft/6OwMMHNhG1U1f0gvFVxbyAimhSqNp6n9LwHoj3FmB/NaRPBduHnlGjy50dY/94Yie2os3uxSHD/K+ilxlG56CcReTiG3OVKv
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6802.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(19092799006)(366016)(38070700021)(4143699003)(6133799003)(3023799007)(11063799006)(22082099003)(56012099003)(18002099003)(15866825006)(41080700001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?2ydeEMQY4IhD2eMJAIgutX9BLtshIeoLVr24SQuLO+h1kyDsO6gLWs+l91cL?=
- =?us-ascii?Q?mGPUaI6lty7+z31BM/lb0AeWw0bu2NC6L2a8cy66RF6b1n3UTCql6IVaWlPe?=
- =?us-ascii?Q?j42bqrpjJ04uNI+bddQCNZePRdif7hC/WvoudGQ7qxnNx7pvXpmr1z91hiE0?=
- =?us-ascii?Q?AGimXbOSOT9yIirAPh9kt/cTR86ohiejhiXGU+enLdmgxv6PUgd2zh3ZDFfr?=
- =?us-ascii?Q?8+xUjwgwWbHOz4M6RPHpmmBIyPYX5GNcNNP0hNoLjqT6iTdH3iRzuYhiNv47?=
- =?us-ascii?Q?k8Oze/UoZQDwo6nnX4B87bsfjfrMGZUSiUwjS5yqI3hpLZClL6qEn5rmU7UQ?=
- =?us-ascii?Q?6O3kfb0gkRxs+kbB+dBBYDGl1v7zlLfoD4sT8xSebcOBkE3BBkTRWCfT2/T9?=
- =?us-ascii?Q?v+JG4DOFoUYaIpgqHsYO/GEOP1Bml8KpTC6Z+Y8p/CLZchfbzjlV8Luy9xGt?=
- =?us-ascii?Q?8htxJ6U/I5E+4GDbti4GAQn/EYZN3YeTJtgNXO2aWsxz4a6JfhgJdeNFQ1tW?=
- =?us-ascii?Q?6mnwoywxTk19ADBiFoJuIUrDBUIdclhg8t7xHz+V1T8tGwvp/2rmatujIqQP?=
- =?us-ascii?Q?jLtIm8P1VYO+Mt4xGhJENLQ4vvbl/gUrznjPqPNLVLmhP9glFks9cX7FV9cP?=
- =?us-ascii?Q?SrmcSHrhLfFaWQoEsE0382tg4quynOh+IBGy30ggi4w7xJSR/GM2kx/1XwDa?=
- =?us-ascii?Q?7r6PSkWMiNbgoLL+DWcZDUNAgSu2KkveOiEQTGFt/IdUHcD7wVnson1RHSxg?=
- =?us-ascii?Q?wqf8dq9H4fdwrCrih1+7U8Shm7nSIUWCimswJaaBH5nCC3zDSllYPYRQPPPC?=
- =?us-ascii?Q?BJTH5vjhQDS5Hty8kumF0uHK4v3L0wZyTuqvYXYe7lkyPeqUJSAICHHZp9eC?=
- =?us-ascii?Q?1S78Z/rToGMJYCC1HNE3XAlH0GCaFmZqCU0LbVmIx656lNTf4OfLpiKmDFOO?=
- =?us-ascii?Q?UhgFS9ickGsN+5VGhLktm46Xbmao+wyodzu8Vj22g/mGXINPYeCtrNmfswu1?=
- =?us-ascii?Q?2758nk/7PHbZUXS3X+W23Lv2pRyXHCGxGrr/OsWb6TaAQXCIAXTpWvTcRASS?=
- =?us-ascii?Q?UpRVNMYqzS2JRuKqY9wU3H9nKwMMWxSblNwaSQ4qcFqnrKoaSyoSBOqKIvsZ?=
- =?us-ascii?Q?PgGLrZgcq+w526yoP/ARuAOsURxeMJAqfSVmj+SUMbKN4jLe/0ftYKF3koyD?=
- =?us-ascii?Q?h2AwWW+x0HpqeRStEZG19+G8azRMcOKpXeFL72Pj8yiBeTyEC7Ztgh3z8oW1?=
- =?us-ascii?Q?zJf9w3X9cFiPiyuNK0ObOIOatLH6q4Wt+6NXRgqaYYQjJmH0D4KJlaqKTyum?=
- =?us-ascii?Q?MXAUcnReYRwJMDryec5+N6HdQr18Arjcycu9fwQb1rlTaKeLd8ZKbNqB8k3v?=
- =?us-ascii?Q?sCKgwU3l2hphpQ2hzoo/dIql/yi0qWUnNrHtOtW2/XsnZeYREi7/24IGDIlf?=
- =?us-ascii?Q?4GAb+2S4cTQvy6EyYoBlaKCInklhM6UFCe+ovZYhOZ90XHL1YTmU995rSmIB?=
- =?us-ascii?Q?VLjfN+F0d8hVk7ijrB+yd+98UquLeAgDhqU30mF8tNtNLD4Z6O8WKkuAiPT8?=
- =?us-ascii?Q?t3MSN1bc07ceN2WipDkD99bBogJi+kuizqx84QS8v1j1l3xYeLEoL06xGDx+?=
- =?us-ascii?Q?GGk0aZnOvYrTOp1X+jifHtlSgfq17RRL3bh7JH57ysyBF7+nxSEALTB8Y3mL?=
- =?us-ascii?Q?BLCFtrMl+aHTlXNRfPEdb0m1PwrRHQ5r6OM0Czugmo91EVGYcaBQzs7WEEe4?=
- =?us-ascii?Q?+tIHFWlLMw=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 26 May 2026 09:03:17 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 7B9356B2FB;
+	Tue, 26 May 2026 09:03:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779786193; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1yHSAnSnfei8Gpn2LyHnScleECQ2X3M3l4lHkpRdlsY=;
+	b=ssazCIfkbn/XH8qvMDgaTEmoPRG0iN7BpVes7jP6wzLpPdPpf7XhxPspDKmhRGrWrWnEcD
+	HUh3FO5qjERqbV5N3xoIBF4nV3HiJmtBErWqgfZ11hJ1w+HJQwUp8ErS5bruCK9F4ClxoY
+	KmcdsDzvdTodr8w0YyVjEVv0YvBEQIo=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779786193;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1yHSAnSnfei8Gpn2LyHnScleECQ2X3M3l4lHkpRdlsY=;
+	b=k09tBqN/nuw/Yzpcik8gNJC/9N5tQ/YhIZX6GeULjf4G1J5nKOwBaIvzi5f4hUwfBy3VGC
+	BVL+2GbqYR7y6+Cg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="cDFJ/fIa";
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=kyNGaIPN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1779786188; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1yHSAnSnfei8Gpn2LyHnScleECQ2X3M3l4lHkpRdlsY=;
+	b=cDFJ/fIaPTLps14vShNqkeLQ2ry751FTf598fjLwi++BhSaPRJArHvYHnNs2o8K1x1p9ZM
+	WYmKvGNoSTsR5qxRfvBEkeET1ApRsnXK6bSgmOEB2po1lJpHYIl0qv7C1IKuSv770Enfux
+	B/amjK67/jPITJ+88L+F77xLF6rjPN0=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1779786188;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=1yHSAnSnfei8Gpn2LyHnScleECQ2X3M3l4lHkpRdlsY=;
+	b=kyNGaIPNw+IYlG1o6Yr0yD6ud8RKRG6VXC/MTwB+b/XtPgHLGgQVcqGfmLlfZ8ktEs28rV
+	CeQn3BXUiwkMbfCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 8723A5A112;
+	Tue, 26 May 2026 09:03:07 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id /jKuH8thFWrHZwAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Tue, 26 May 2026 09:03:07 +0000
+Message-ID: <0f581544-69aa-4d88-9b72-9341a4c847ea@suse.de>
+Date: Tue, 26 May 2026 11:03:07 +0200
 MIME-Version: 1.0
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6802.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: be8978b9-6b22-407b-8115-08debb053c79
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 May 2026 09:00:29.6634
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CvHrQdGVqqgn8/uW2pazr0tNFl0d+9/bWu2GZLMlzCLEfIJPq8dvv+mdUyxM0k3La8SeaKxAGa8f6qCaxGDOVA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7379
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 03/19] drm/atomic: Drop drm_private_obj.state
+ assignment from create_state
+To: Maxime Ripard <mripard@kernel.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Jyri Sarha <jyri.sarha@iki.fi>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Simon Ser <contact@emersion.fr>, Harry Wentland <harry.wentland@amd.com>,
+ Melissa Wen <mwen@igalia.com>, Sebastian Wick <sebastian.wick@redhat.com>,
+ Alex Hung <alex.hung@amd.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Chen-Yu Tsai <wens@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+References: <20260519-drm-mode-config-init-v5-0-388b03321e38@kernel.org>
+ <20260519-drm-mode-config-init-v5-3-388b03321e38@kernel.org>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260519-drm-mode-config-init-v5-3-388b03321e38@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 7B9356B2FB
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[kernel.org,linux.intel.com,gmail.com,ffwll.ch,lwn.net,linuxfoundation.org,oss.qualcomm.com,iki.fi,ideasonboard.com,intel.com,linaro.org,kwiboo.se,emersion.fr,amd.com,igalia.com,redhat.com,ursulin.net,sholland.org,raspberrypi.com];
+	RCPT_COUNT_TWELVE(0.00)[38];
+	RCVD_TLS_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	ARC_NA(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	R_RATELIMIT(0.00)[to_ip_from(RL7gneoo7ydcsn9o76mxr5d8pb)];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	MID_RHS_MATCH_FROM(0.00)[];
+	internal_greylist_whitelist(0.00)[2a07:de40:b281:104:10:150:64:97];
+	TAGGED_RCPT(0.00)[renesas];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,suse.de:dkim,suse.com:url,ideasonboard.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_020036_266522_0E6F7E27 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20260526_020315_848912_DBEB465F 
+X-CRM114-Status: GOOD (  18.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,90 +197,58 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-> -----Original Message-----
-> From: Vincent Jardin <vjardin@free.fr>
-> Sent: Tuesday, May 26, 2026 4:12 PM
-> To: Carlos Song (OSS) <carlos.song@oss.nxp.com>
-> Cc: Oleksij Rempel <o.rempel@pengutronix.de>; Pengutronix Kernel Team
-> <kernel@pengutronix.de>; Andi Shyti <andi.shyti@kernel.org>; Frank Li
-> <frank.li@nxp.com>; Sascha Hauer <s.hauer@pengutronix.de>; Fabio
-> Estevam <festevam@gmail.com>; Wolfram Sang <wsa@kernel.org>; Kaushal
-> Butala <kaushalkernelmailinglist@gmail.com>; Shawn Guo
-> <shawn.guo@freescale.com>; Stefan Eichenberger
-> <stefan.eichenberger@toradex.com>; linux-i2c@vger.kernel.org;
-> imx@lists.linux.dev; linux-arm-kernel@lists.infradead.org;
-> linux-kernel@vger.kernel.org; stable@vger.kernel.org
-> Subject: Re: [PATCH v2 0/2] i2c: imx: fix SMBus block-read of 0 locking t=
-he bus
->=20
-> [You don't often get email from vjardin@free.fr. Learn why this is import=
-ant at
-> https://aka.ms/LearnAboutSenderIdentification ]
->=20
-> Hi Carlos,
->=20
-> > Thanks for working on this fix, this looks good to me.
->=20
-> thanks for checking it. It took some times to isolate this issue and then=
- find a
-> fix.
->=20
-> > SMBus block reads with a length of 0 seem quite uncommon in practice.
-> > Was this triggered by a specific device behavior, or mainly found
-> > during boundary / compliance testing?
->=20
-> It is trigger by the usage of a mpq8785 on the i2c bus: when the kernel
-> attaches on it using its pmsbus/hwmon framework, then the i2c bus get
-> locked on lx2160 !
->=20
-> > Regarding the handling of len =3D=3D 0,
-> > I see that the patch sets:
-> >
-> >     msg->buf[0] =3D 0;
-> >     msg->len =3D 2;
-> >
-> > It relies on the last-byte STOP handling together with TXAK. It will
-> > help I2C-IMX generate NACK + STOP and release the bus, right?
->=20
-> Yes, exactly. Reading I2DR for the length byte has already armed the next=
- byte,
-> so we set TXAK to NACK it and extend msg->len to 2.
-> Next then i2c_imx_isr_read_continue() at msg_buf_idx =3D=3D msg->len - 1,=
- ie the
-> normal last-byte path, which clears MSTA to emit STOP. So NACK + STOP, an=
-d
-> THEN the bus is released. I do not see any other means to handle it.
->=20
-> > len =3D 0 is a legal behavior, So it go into a successful path.
->=20
-> Yes. count =3D=3D 0 is legal (SMBus 3.1 6.5.7), so the transfer reaches
-> STATE_DONE and returns success.
->=20
-> > But len > I2C_SMBUS_BLOCK_MAX is abnormal behavior. So it go into a fai=
-l
-> path.
->=20
-> Correct, and it is a protocol error, so it needs to end up with a -EPROTO=
- while
-> a count of 0 is an ok case.
->=20
-> > Do I understand it right?
->=20
-> yes. I do not see any other means to handle it.
->=20
-> > Also, if possible could you briefly describe how you validated this
-> > change (e.g. test setup or steps, with and without the fix)?
->=20
-> On a lx2160a board, on its i2c, bind a mpq8785, and enable the Kernel
-> pmbus/hwmon framework, then the i2c bus becomes un-useable. Using a
-> scope, we can confirm that the lx21260a i2c cannot recover.
->=20
-Hi, Vincent
+Am 19.05.26 um 11:01 schrieb Maxime Ripard:
+> The initial intent of the atomic_create_state hook was to simply
+> allocate a proper drm_private_state and return it, without any side
+> effect.
+>
+> However, __drm_atomic_helper_private_obj_create_state(), which most
+> atomic_create_state implementations call, introduces a side effect by
+> setting drm_private_obj.state to the newly allocated state.
+>
+> This assignment defeats the purpose, but is also redundant since
+> drm_atomic_private_obj_init(), the only call site for the
+> atomic_create_state hook, will also set this pointer to the newly
+> allocated state.
+>
+> Drop the assignment in __drm_atomic_helper_private_obj_create_state().
+>
+> Fixes: e7be39ed1716 ("drm/atomic-helper: Add private_obj atomic_create_state helper")
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+> Signed-off-by: Maxime Ripard <mripard@kernel.org>
 
-Thank you very much!
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 
-Acked-by: Carlos Song <carlos.song@nxp.com>
+> ---
+>   drivers/gpu/drm/drm_atomic_state_helper.c | 2 --
+>   1 file changed, 2 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+> index cc70508d4fdb..a82568d87e4f 100644
+> --- a/drivers/gpu/drm/drm_atomic_state_helper.c
+> +++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+> @@ -729,12 +729,10 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_destroy_state);
+>   void __drm_atomic_helper_private_obj_create_state(struct drm_private_obj *obj,
+>   						  struct drm_private_state *state)
+>   {
+>   	if (state)
+>   		state->obj = obj;
+> -
+> -	obj->state = state;
+>   }
+>   EXPORT_SYMBOL(__drm_atomic_helper_private_obj_create_state);
+>   
+>   /**
+>    * __drm_atomic_helper_private_obj_duplicate_state - copy atomic private state
+>
 
-> Best regards,
->   Vincent
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+
+
 
