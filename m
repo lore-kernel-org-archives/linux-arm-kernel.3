@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FF0CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A17A8CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:46:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vrkT9lXcF3FiMxlu63fDavQGKudZshNhcSnlhc4BSRs=; b=OIuEO9yffyb9jWyVnl2dYfVHiD
-	IQqGQyrvsCXcxIuZkMjO9m/7ZpxBLzRmrOG/0KWKkLDB7bbojEqZMqrEMMoGUxqj8FpHpTUNFq2Vy
-	EKIvZYvQqjm08gHaFaPDQNGKlgpifEBOXrE6WmhBpMGB3aFcAWhb9pId7GkSejOolqhgDyxoeZdAj
-	k+410FQNeDkYFEz8UbyqIqfjuG1JJbg6Jw1Hk5gM2OkEMK5iCMQejgTayMi1LmABQ3td7U2xYE7BF
-	Gr8KCEdPDqZRDfyckquh7qi5h4yCOLjF6T5xHgg22+O6qZUoYi97dYJi4TG8MwHRgMAG+ZOF39j2X
-	u89ygJTQ==;
+	bh=7G0AvhnldznKjlOkg6oJndKDwtDSJwo/+5wcviSKhb0=; b=4cmlZ8hfFP/tle6Sey3h4V4s1n
+	Ib46f8hPtMllwkKbdzTP6h5FEuLsm+74CoWVvXGrVvUSGhmx+vicSgdgEprfjeSAbx7ILEjBFj6Ap
+	ExXbZVF8x/B7Bd3417+EtI6fTV7DrXMtYIaLPJ2z1JqoXes9ld6ATljt1cvnVUzDreUJCXgmmyybo
+	TuNw+t53z88M8P/Fy/OtU3bafLBDj+CB3MQwFMep+Ss/JF8fd3M8ngeqxH1fNqnxv4MJwbf9bAZGE
+	01kN99568GG+EAykpm9AWBFzTbghKqJCZ+mCEAWZ6+TycyjQ/It04w2JhTs9ui/nFb0PfFz4xemGV
+	X0o2fxVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuvN-00000002Z5e-2Owe;
-	Tue, 26 May 2026 16:46:37 +0000
+	id 1wRuvP-00000002Z7Y-3LQh;
+	Tue, 26 May 2026 16:46:39 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuvF-00000002Z2E-3u9m
+	id 1wRuvL-00000002Z4q-2UfL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 16:46:30 +0000
+	Tue, 26 May 2026 16:46:35 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5D86F60018;
-	Tue, 26 May 2026 16:46:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD7E1F00A3A;
-	Tue, 26 May 2026 16:46:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D9BD600B0;
+	Tue, 26 May 2026 16:46:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CE721F00A3A;
+	Tue, 26 May 2026 16:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779813989;
-	bh=vrkT9lXcF3FiMxlu63fDavQGKudZshNhcSnlhc4BSRs=;
+	s=k20260515; t=1779813994;
+	bh=7G0AvhnldznKjlOkg6oJndKDwtDSJwo/+5wcviSKhb0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Y0xJqOSdNhLKozjgn+5wR+2iQnhz9Ifkvm6ipv3ZoVSxXBw5WwNykuAqHZbpWR8Vn
-	 cZqY73d2va0ojAAD5NoiVKRkytnGYmlSMJ/i8ycjgMxCsaocTyZ7dy1/7Rfc8k0eL4
-	 UUaNtJ/Y4+/gKH3dgIKjjLqykiy0ZtG31fZJK+BwIfZZnm+CoBq2Pd+vVsVwNv11ne
-	 giDe/qHFK6zUFLlbgjpgw509jhLaf2eXBRJq0fFdJFojdhFPO3EtQ2aKNVvwOznCAo
-	 Ip94NskDV4u75nmWvKgUg0AAUyi/K0MDr2i+4uQ0xvg8xIyE8lW+o1cItliE4Xg3AI
-	 qdH7ASHd5KVzg==
+	b=DVrVj7lbOQdEd3pO6dhrQAFwfkj63ibCFZ5MR9wHykOKdFO8YY/d6iPHimL+SfFku
+	 mEZmfGzj7IHHugR73kZUmQkWhP6O4Br5xk52iR+cxTUruVtZ+5hseOHeepBpreKuGN
+	 w6ES52oWhL1z85e44LmYnqrdaZ6zmg5AqZ7iumjlR1NJcFsL8JlQDw3DT6hf6+omxL
+	 2y9JgtWenDtqtyPcaYZAWUjnCXZJQel+5dOLKz7x8oPHNZhadWmZBJO3l23eD7zE6i
+	 rG6FYwBp2JZgMIQkYIcBPiyFv9CB98oHj2++w2BuwEVFsfRsiS00KNwKS/NSVlNSsh
+	 lN0uMT8Q6y/Vw==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 26 May 2026 18:46:13 +0200
-Subject: [PATCH v6 01/19] drm/atomic: Document atomic commit lifetime
+Date: Tue, 26 May 2026 18:46:15 +0200
+Subject: [PATCH v6 03/19] drm/atomic: Drop drm_private_obj.state assignment
+ from create_state
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-drm-mode-config-init-v6-1-852346394200@kernel.org>
+Message-Id: <20260526-drm-mode-config-init-v6-3-852346394200@kernel.org>
 References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 In-Reply-To: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,12 +80,12 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  Maxime Ripard <mripard@kernel.org>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5255; i=mripard@kernel.org;
- h=from:subject:message-id; bh=n7jZEFPj01CGIbSO3Dr/2XkC28R6mm+lF9pW2o8pSbA=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi58IZ+a6+2aYUrNKjt49ddOFWc//guZq9ksXsD667H
- L8/Q1yhYyoLgzAng6yYIssTmbDTy9sXVznYr/wBM4eVCWQIAxenAExE9DRjQ6vi7uQ5CqkCVoIN
- WuvOP+x/u/BOnOP9U/u+/pmZv06JwePbq5Mrt9unsEt/SZhcc4FrM2OtqE/TuyU2XjNun3hluev
- lBQbeqV3XT+Z2HC62blkakdR+S2haTffqZzydJddOfVu+T70GAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1675; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=u5HTzQX3tbGR+9Qa/HlwJij4QSF7J0Dnsbadygh24+g=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi58Lfzo24yJ29TJ5t2QSWQ4vkPGe/V/hwrcs8N+zqv
+ iurco77dExlYRDmZJAVU2R5IhN2enn74ioH+5U/YOawMoEMYeDiFICJlEsxNmxpXMwz/7fl+7On
+ 1718fcJtx2Rfj5kHNyd0LLHlmuJw0+xH2PluRoEM9qf/7jVHHdS+N5+x4cn6HZZMtbLaRp0PAzi
+ upCxkrZGZrd8/ocruEof355WvVINyPqW5lHpV/zVjO/J8/iZ9AA==
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -101,124 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-How drm_atomic_commit and the various entity structures are allocated
-and freed isn't really trivial. Document it.
+The initial intent of the atomic_create_state hook was to simply
+allocate a proper drm_private_state and return it, without any side
+effect.
 
+However, __drm_atomic_helper_private_obj_create_state(), which most
+atomic_create_state implementations call, introduces a side effect by
+setting drm_private_obj.state to the newly allocated state.
+
+This assignment defeats the purpose, but is also redundant since
+drm_atomic_private_obj_init(), the only call site for the
+atomic_create_state hook, will also set this pointer to the newly
+allocated state.
+
+Drop the assignment in __drm_atomic_helper_private_obj_create_state().
+
+Fixes: e7be39ed1716 ("drm/atomic-helper: Add private_obj atomic_create_state helper")
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- Documentation/gpu/drm-kms.rst |  6 ++++
- drivers/gpu/drm/drm_atomic.c  | 72 +++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 78 insertions(+)
+ drivers/gpu/drm/drm_atomic_state_helper.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/Documentation/gpu/drm-kms.rst b/Documentation/gpu/drm-kms.rst
-index d22817fdf9aa..36d76e391074 100644
---- a/Documentation/gpu/drm-kms.rst
-+++ b/Documentation/gpu/drm-kms.rst
-@@ -282,10 +282,16 @@ structure, ordering of committing state changes to hardware is sequenced using
- :c:type:`struct drm_crtc_commit <drm_crtc_commit>`.
- 
- Read on in this chapter, and also in :ref:`drm_atomic_helper` for more detailed
- coverage of specific topics.
- 
-+Atomic State Lifetime
-+---------------------
-+
-+.. kernel-doc:: drivers/gpu/drm/drm_atomic.c
-+   :doc: state lifetime
-+
- Handling Driver Private State
- -----------------------------
- 
- .. kernel-doc:: drivers/gpu/drm/drm_atomic.c
-    :doc: handling driver private state
-diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-index 170de30c28ae..3c5714481ad2 100644
---- a/drivers/gpu/drm/drm_atomic.c
-+++ b/drivers/gpu/drm/drm_atomic.c
-@@ -45,10 +45,82 @@
- #include <drm/drm_colorop.h>
- 
- #include "drm_crtc_internal.h"
- #include "drm_internal.h"
- 
-+/**
-+ * DOC: state lifetime
-+ *
-+ * &drm_atomic_commit represents an update to modeset pipeline state.
-+ * It's a transient object that holds a state update as a collection of
-+ * pointers to individual objects' states. &struct drm_atomic_commit has
-+ * a much shorter lifetime than the objects' states, since it's only
-+ * allocated while preparing, checking or committing the update, while
-+ * object states are allocated when preparing the update and kept alive
-+ * as long as they are active in the device.
-+ *
-+ * Their respective lifetimes are:
-+ *
-+ * - at reset time, the object reset implementation allocates a new
-+ *   default state and stores it in the object state pointer.
-+ *
-+ * - whenever a new update is needed:
-+ *
-+ *   + drm_atomic_commit_alloc() allocates a new &drm_atomic_commit
-+ *     instance.
-+ *
-+ *   + The code triggering the commit (ioctl, client modeset,
-+ *     drm_atomic_helper_reset_crtc(), etc.) copies the current active
-+ *     state of all entities affected by the update into this new
-+ *     &drm_atomic_commit using drm_atomic_get_plane_state(),
-+ *     drm_atomic_get_crtc_state(), drm_atomic_get_connector_state(), or
-+ *     drm_atomic_get_private_obj_state(). This new state can then be
-+ *     modified.
-+ *
-+ *     At that point, &drm_atomic_commit stores three state pointers for
-+ *     any affected entity: the "old" and "new" states, and
-+ *     state_to_destroy. The old state is the state currently active in
-+ *     the hardware, which is either the one initialized by reset() or a
-+ *     newer one if a commit has been made. The new state is the state
-+ *     we just allocated and we might eventually commit to the hardware.
-+ *     The state_to_destroy points to the state we'll eventually have to
-+ *     free when the drm_atomic_commit will be destroyed, and points to
-+ *     the new state for now since the old state is still the active
-+ *     state.
-+ *
-+ *   + After the calling code populated the commit with the entities
-+ *     states, it updates the new states with the new values we need to
-+ *     commit. The new commit instance is now ready.
-+ *
-+ *   + Then we have two branches depending on the calling code intent:
-+ *
-+ *     - If the calling code only wants to check that the commit would
-+ *       work (for example because of the DRM_MODE_ATOMIC_TEST_ONLY
-+ *       flag). It calls drm_atomic_check_only(), which in turn checks
-+ *       all these states by invoking atomic_check on all affected
-+ *       pipeline stages.
-+ *
-+ *     - If the calling code actually wants to trigger a commit, it
-+ *       calls drm_atomic_commit(). The first stage is the check
-+ *       mentioned above, and if the check is successful, it performs
-+ *       the commit. Part of the commit is a call to
-+ *       drm_atomic_helper_swap_state() which turns the new states into
-+ *       the active states. After swapping states, each object's state
-+ *       pointer now refers to the formerly new state. The
-+ *       state_to_destroy now refers to the formerly old state.
-+ *
-+ *   + Once done, and when the last refererence to our &struct
-+ *     drm_atomic_commit is given up through drm_atomic_commit_put(), it
-+ *     calls __drm_atomic_commit_free(). In turn,
-+ *     __drm_atomic_commit_free() calls drm_atomic_commit_clear() that
-+ *     will free all state_to_destroy (ie. old states), and it finally
-+ *     frees &drm_atomic_commit instance.
-+ *
-+ *   + Now, we don't have any active &drm_atomic_commit anymore, and
-+ *     only the entity active states remain allocated.
-+ */
-+
- void __drm_crtc_commit_free(struct kref *kref)
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index cc70508d4fdb..a82568d87e4f 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -729,12 +729,10 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_destroy_state);
+ void __drm_atomic_helper_private_obj_create_state(struct drm_private_obj *obj,
+ 						  struct drm_private_state *state)
  {
- 	struct drm_crtc_commit *commit =
- 		container_of(kref, struct drm_crtc_commit, ref);
+ 	if (state)
+ 		state->obj = obj;
+-
+-	obj->state = state;
+ }
+ EXPORT_SYMBOL(__drm_atomic_helper_private_obj_create_state);
  
+ /**
+  * __drm_atomic_helper_private_obj_duplicate_state - copy atomic private state
 
 -- 
 2.54.0
