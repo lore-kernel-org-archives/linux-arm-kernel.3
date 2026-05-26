@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB605CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 261F5CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3YbZlqd0BBc0X5BDowSBVCyi9Ei0k9dPDQCq9TAzo7s=; b=21J9zDlf32VsUur5Y8xjn8GEnq
-	kW5ULScKsi8d7w322zvy+jT+l7tOHgHKXvD+DYXPZUD5cePX3sqFc0VpVqnTOEJsMrHF+sJye7Kkv
-	nhWhkJAarhwmbYIG+KHcWbwTe/mZTZRIKzCvOFVSyS2o5LeHC9+zkOzArvUoCJYoLRqf68ln7bGRc
-	52vELbt6Iwqv7NiaDRv2eFdEWpsMLZczynOOnllz0Eu491ygXbVYlCNrdnCqZv3pQN7JRyR84Hc4q
-	FRfS+2twQ3R0GZlGXrCNHD6AlKEO7MdDWml/ncudvsYsRHXujkJ9dqTLh7mFPpRlS7d08NLX3ll7f
-	1DUthKlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DK8eA9/GN7NzLuxBx/GTovhK/apGoGFfUGeCC5d5iyI=; b=d8obQYudvx+//ObK56sXlr2Dnf
+	aTKmdWx3R3kDBIcF7IsAC/h2nMB1xzqOOMdn7c0Wgxcj8gkl4TCvamYJSk2AjE3F5fERTKsuXlGhe
+	UMHe0TS2rE3buwT9jS89moYTdGkonumK8ghXpmtTJhySaR9fAChXlF1bF7mdh0WaXhAJKzBJ5M1sN
+	Kx6wdJHa0qZjSyrlkKSObjq8WAV58aibM9IgG1P+tNpvosHdy7a6sw5EOFj9ODEBuDPt2+aZOkMgI
+	gwyC1MVGy0zbPkWTbnsFLsODSr/jW5CmeDAcr9bUcSV5mleBF56/vndTkwOEfBcfyzhnISfyP9emo
+	1JXan0sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpoW-00000001llM-28hp;
-	Tue, 26 May 2026 11:19:12 +0000
-Received: from mailout3.hostsharing.net ([144.76.133.104])
+	id 1wRqa5-00000001sie-2z0y;
+	Tue, 26 May 2026 12:08:21 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRpoC-00000001lUi-2dz4
+	id 1wRqa2-00000001shD-2xdg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:18:57 +0000
-Received: from h08.hostsharing.net (h08.hostsharing.net [83.223.95.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384
-	 client-signature ECDSA (secp384r1) client-digest SHA384)
-	(Client CN "*.hostsharing.net", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
-	by mailout3.hostsharing.net (Postfix) with ESMTPS id 463BFC93;
-	Tue, 26 May 2026 13:10:39 +0200 (CEST)
-Received: by h08.hostsharing.net (Postfix, from userid 100393)
-	id 1E2B36109E4F; Tue, 26 May 2026 13:10:39 +0200 (CEST)
-Date: Tue, 26 May 2026 13:10:39 +0200
-From: Lukas Wunner <lukas@wunner.de>
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczy??ski <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Michal Simek <michal.simek@amd.com>,
-	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH v5 2/4] PCI: Use standard wait times for PCIe link
- monitoring
-Message-ID: <ahV_r6NJWnmJptT2@wunner.de>
-References: <20260526-tegra264-pcie-v5-0-84a813b979d7@nvidia.com>
- <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
+	Tue, 26 May 2026 12:08:21 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id BC4A54E42D59;
+	Tue, 26 May 2026 12:08:13 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 866A56011D;
+	Tue, 26 May 2026 12:08:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7181C10888356;
+	Tue, 26 May 2026 14:07:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1779797292; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=DK8eA9/GN7NzLuxBx/GTovhK/apGoGFfUGeCC5d5iyI=;
+	b=RNU5++s0L9bfnoxU24iB+xsMHm5P0Ae9cOJvZKPHxeM97AF368q8RuNWiwcQLO12P9CZ6o
+	moU9/AUpCKd8iyFRV54iR+l+nhFxSXVFwjQn4i9RbIvM26ms7QueBOCrGZ0MMKChE14P7P
+	HZ4an8aN8PC+KrEOHJu3tLBY7Zi/DIs7l3U2GzxAYnRfA3DEp2mUT0jZPfnbEJn4DAORa7
+	xVj58D97QdBzzHxdheW2w2kq4sIQtzS+j2fdh6rSwYZIdd5EZ0oVBR7inInOpoANc0OCpg
+	LhcQsFUfMpAh+toIhmX2aljXCS2HNweQL5NuMs0i3q0TuPvtlh6+YQ76VYqetA==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260526-tegra264-pcie-v5-2-84a813b979d7@nvidia.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 2/2] drm/bridge: analogix_dp: Add support for
+ optional data-lanes mapping
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com, 
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, 
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org, 
+ rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, 
+ jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com, 
+ cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com, 
+ dmitry.baryshkov@oss.qualcomm.com, luca.ceresoli@bootlin.com, 
+ dianders@chromium.org, m.szyprowski@samsung.com, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20260525094731.121380-3-damon.ding@rock-chips.com>
+References: <20260525094731.121380-1-damon.ding@rock-chips.com>
+ <20260525094731.121380-3-damon.ding@rock-chips.com>
+Date: Tue, 26 May 2026 14:07:50 +0200
+Message-Id: <177979727057.297330.10691183273720133245.b4-review@b4>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_041853_716163_CD9AA44F 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20260526_050818_886377_EA3E8E35 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +87,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 26, 2026 at 10:53:11AM +0200, Thierry Reding wrote:
-> Instead of defining the wait values for each driver, use common values
-> defined in the core pci.h header file. Note that most drivers don't use
-> the millisecond waits, but rather usleep_range(), so add these commonly
-> used values to the header so that all drivers can use them.
+On Mon, 25 May 2026 17:47:31 +0800, Damon Ding <damon.ding@rock-chips.com> wrote:
 
-Hm, why not just replace usleep_range() with msleep() and use the existing
-macro instead of defining new ones?
+Hello Damon,
 
-> +++ b/drivers/pci/pci.h
-> @@ -63,6 +63,8 @@ struct pcie_tlp_log;
->  /* Parameters for the waiting for link up routine */
->  #define PCIE_LINK_WAIT_MAX_RETRIES	10
->  #define PCIE_LINK_WAIT_SLEEP_MS		90
-> +#define PCIE_LINK_WAIT_US_MIN		90000
-> +#define PCIE_LINK_WAIT_US_MAX		100000
+>
+> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> index 8cf6b73bceac..d53ab25bc57b 100644
+> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> @@ -1234,6 +1234,59 @@ static const struct drm_bridge_funcs analogix_dp_bridge_funcs = {
+> [ ... skip 11 lines ... ]
+> +	int ret, i;
+> +
+> +	memcpy(video_info->lane_map, map, sizeof(map));
+> +
+> +	num_lanes = drm_of_get_data_lanes_count_ep(dp->dev->of_node, 1, 0, 1,
+> +						   video_info->max_lane_count);
 
-If you absolutely positively want to add a new macro, consider
-90 * USEC_PER_MSEC instead of 90000.  Moreover, consider using
-fsleep() instead of adding an additional MAX macro.
+Should num_lanes be > 4, the buffers could overflow. I realize it should
+not happen, but analogix_dp_dt_parse_pdata() can set max_lane_count from
+the device tree, so a bogus dtb could cause such overflow.
 
-Thanks,
+Perhaps you should just (in a separate patch) error out in
+analogix_dp_dt_parse_pdata() to prevent this. And maybe even adding an
+BUG_ON(lane_count > 4) here.
 
-Lukas
+Otherwise LGTM.
+
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
