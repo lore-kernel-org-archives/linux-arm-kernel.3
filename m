@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C1A2CD5BD1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E224CD5BB1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 16:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRUQ7VRBHVaVxbbAttWXyHjOTDYSaT6tyGmviBcmO54=; b=CzvRpFkhXzkaRZZep5Y9HxQJws
-	keDjDjWoxXL+bRunRxCPmHrJ2bHgHA2c5h1ujYxT5EX4COjFEiJRi6mvKttXbq+UA8nG8mmw9+Tsx
-	U6+bIN/HVVv5hnV77UOjaLOvaBpve0eOlp0BbSnOPy7prJmZxpN2h+QaTyJDkL3C1v3kJ9ZD8INUr
-	cEUbM8LDuaKQ3As7nPdntXumA7JYxgjMgm+q/+/UmreTAa3Q5/OoXnTEgPQT1B4FW14AJZRJ2FfAk
-	AKfRl42XPQrExX8dJeH0NfoOHRTcAmO4kEZMlSFkkgtfljaWBC4aN+kfkbGFRJViuBimsK84eX8+e
-	67dGSx+g==;
+	bh=K2UPYbhPtSXUMDOwtfdlf//YUN1fGrJchSE9r9ljFSs=; b=2fZ72MVq3dV/N55i5ARlzzoWV7
+	YT5vx4cbWDnFlfw6bWKVgIDStKUGGcsVfv6EGkZ2hXdgVQG2Bn9F36WZeKV0fcffxIUG/z9/dLhxx
+	1p0j9UDjaEugID/sv6pzXKwFaYzsXpCKRMZQhnzdFN8wwOGfYlwdeOnsdd0mw/9BZXu0p6SkyOTOc
+	ig8MNRvq57Y7i72FgHygjEtiPJdgx2/aB7qWVBXabU7T+8/y5o109XYiID5HuqSPt6A+gSMFijSBV
+	Dr4ObE1w+Zkvr8if2qIPsacaDJ/yMLecGC9bwDgriTJqPiI/dTs5zqls/0RsYUpk1MOx96JcLFEdx
+	hbme0h7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuwR-00000002a5G-0MLp;
-	Tue, 26 May 2026 16:47:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRuwQ-00000002a33-08GJ;
+	Tue, 26 May 2026 16:47:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRuw2-00000002Zkn-25p5
+	id 1wRuvt-00000002ZZk-2L0d
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 16:47:18 +0000
+	Tue, 26 May 2026 16:47:10 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3593600AB;
-	Tue, 26 May 2026 16:47:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E388D1F000E9;
-	Tue, 26 May 2026 16:47:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 27EBD42A2B;
+	Tue, 26 May 2026 16:47:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511541F00A3E;
+	Tue, 26 May 2026 16:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779814037;
-	bh=TRUQ7VRBHVaVxbbAttWXyHjOTDYSaT6tyGmviBcmO54=;
+	s=k20260515; t=1779814029;
+	bh=K2UPYbhPtSXUMDOwtfdlf//YUN1fGrJchSE9r9ljFSs=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=AoP8XAOyuJBTC63xV4E2FvD0BRz+TQxAh9AbHbcxZx+8brUKbTDGTd8Xg9pz2fBc3
-	 dQ7z68tSmzRR4W82bCLaqoaUfVQVsiXZpDybNHS2OHkYuF0AjyYiWmJHKt5F3wr7xj
-	 3jwLOHyFggvGbeRzsENQFLoU5v3W2EcGR0YhRK6hDLdu4C2zSG3G4vkYZNsrpj7diF
-	 E+CBQfDmQ14yR54FN/8ExAndssFTOX+Qam1y71lUo3p03mu5vnXDh4nzL8oirif3Ew
-	 NO8XFELru7gZ2vTlwehF9yuq9vQj53hDwrhdg4VddhCqwsSQUNoRyr2AaHu2J9fVCk
-	 RkSJx4OBhR//g==
+	b=X2BUSXUgB7r56xydA7YoZlmwwRW+Og2tBCRtZtZFtYabf3aj/eIQiFTGKaTOCUy7+
+	 IPU6k8dgJHKCduq78Addw8yor2it5KxWK9JtWhqkwlmdCSpY1ylEjjhIoCAw4beCfQ
+	 S7zH4ib+8zdIL+YCmJyCVAR5fYvReB1CiCVINDiQWxPisryCliv9/dBWKYR0LhdeJC
+	 pyrYFnkCR/7ZexBHngI12QS4IPhPGGFrdhF800B5o43EUn6eiRCF94Yu17Rb41q391
+	 02+/M96h4uXUzQhkrwnJzaloEvveNOxWatXU1JhHSo0FQVCycSJ0RHs1JEo0lD5VbM
+	 tDaJ3ambTeNhA==
 From: Maxime Ripard <mripard@kernel.org>
-Date: Tue, 26 May 2026 18:46:30 +0200
-Subject: [PATCH v6 18/19] drm/tidss: Convert to atomic_create_state
+Date: Tue, 26 May 2026 18:46:27 +0200
+Subject: [PATCH v6 15/19] drm/connector: Add new atomic_create_state
+ callback
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260526-drm-mode-config-init-v6-18-852346394200@kernel.org>
+Message-Id: <20260526-drm-mode-config-init-v6-15-852346394200@kernel.org>
 References: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 In-Reply-To: <20260526-drm-mode-config-init-v6-0-852346394200@kernel.org>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -79,14 +80,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
  Maxime Ripard <mripard@kernel.org>, 
  Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3091; i=mripard@kernel.org;
- h=from:subject:message-id; bh=ol7ZxJRFzPU3goqwZsKdhnIW4o0nEjdILT7N6tLltxI=;
- b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi5+LW6KoEezDblxwLfnKj7/sUGcNu2T7miYu2Ojn7d
- 9bsYo3smMrCIMzJICumyPJEJuz08vbFVQ72K3/AzGFlAhnCwMUpABN595+xzsJeuvLKxa6GlG2n
- S5omXlHxFoxOn3f/yqKwTU52bVPvfc1o3jLj0q0H/o9uVty9OE1tKmPDNqm+Bfpq6rOE9Ofq2oi
- eNtc5L3g9ta49c//mb8u2nQ/ieSsQ6bVEO1X8Rot3B4cQczoA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8349; i=mripard@kernel.org;
+ h=from:subject:message-id; bh=+uyL1hB7aSv5FAMP3njLcYeI/kcEL2d3N0SXzQ4QHoY=;
+ b=owGbwMvMwCmsHn9OcpHtvjLG02pJDFmi52L/9vbVrlRxrdnQv+bqrpYd3n9dRCPOGHWukhJba
+ z/dS/hpx1QWBmFOBlkxRZYnMmGnl7cvrnKwX/kDZg4rE8gQBi5OAZiIfAljwxe5ZOOtO6quvl31
+ Y0atqpu5yrrCb7nRHP3SpkH71/9mTbCUULp0SVI2mMfZkKll2WRexjqF4B/HVfbvtdctf2TiL7V
+ K/FLcsiUrln2c6+3Zena/RHp/Vsk3vtU/RPUK0y04PpYypgMA
 X-Developer-Key: i=mripard@kernel.org; a=openpgp;
  fpr=BE5675C37E818C8B5764241C254BCFC56BF6CE8D
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_094709_646772_D1E355E1 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,88 +105,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Our driver uses reset to create the various object states, but only
-calls the helper that allocate a new state. They are thus strictly
-equivalent to the new atomic_create_state helpers, so let's switch to
-these.
+Commit 47b5ac7daa46 ("drm/atomic: Add new atomic_create_state callback
+to drm_private_obj") introduced a new pattern for allocating drm object
+states.
 
-Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Instead of relying on the reset() callback, it created a new
+atomic_create_state hook. This is helpful because reset is a bit
+overloaded: it's used to create the initial software state, reset it,
+but also reset the hardware.
+
+It can also be used either at probe time, to create the initial state
+and possibly reset the hardware to an expected default, but also during
+suspend/resume.
+
+Both these cases come with different expectations too: during the
+initialization, we want to initialize all states, but during
+suspend/resume, drm_private_states for example are expected to be kept
+around.
+
+reset() also isn't fallible, which makes it harder to handle
+initialization errors properly. This is only really relevant for some
+drivers though, since all the helpers for reset only create a new
+state, and don't touch the hardware at all.
+
+It was thus decided to create a new hook that would allocate and
+initialize a pristine state without any side effect:
+atomic_create_state to untangle a bit some of it, and to separate the
+initialization with the actual reset one might need during a
+suspend/resume.
+
+Continue the transition to the new pattern with connectors.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
 Signed-off-by: Maxime Ripard <mripard@kernel.org>
 ---
- drivers/gpu/drm/tidss/tidss_crtc.c  | 17 +++++++----------
- drivers/gpu/drm/tidss/tidss_plane.c |  2 +-
- 2 files changed, 8 insertions(+), 11 deletions(-)
+ drivers/gpu/drm/drm_atomic_state_helper.c | 26 ++++++++++++++++++++++++++
+ drivers/gpu/drm/drm_connector.c           | 10 +++++++++-
+ drivers/gpu/drm/drm_mode_config.c         | 31 ++++++++++++++++++++++++++++++-
+ include/drm/drm_atomic_state_helper.h     |  2 ++
+ include/drm/drm_connector.h               | 16 ++++++++++++++++
+ 5 files changed, 83 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_crtc.c b/drivers/gpu/drm/tidss/tidss_crtc.c
-index acab9307bdf3..400329aa2200 100644
---- a/drivers/gpu/drm/tidss/tidss_crtc.c
-+++ b/drivers/gpu/drm/tidss/tidss_crtc.c
-@@ -355,24 +355,21 @@ static void tidss_crtc_destroy_state(struct drm_crtc *crtc,
- 
- 	__drm_atomic_helper_crtc_destroy_state(&tstate->base);
- 	kfree(tstate);
+diff --git a/drivers/gpu/drm/drm_atomic_state_helper.c b/drivers/gpu/drm/drm_atomic_state_helper.c
+index e2e5a1b8a820..07686e94aae0 100644
+--- a/drivers/gpu/drm/drm_atomic_state_helper.c
++++ b/drivers/gpu/drm/drm_atomic_state_helper.c
+@@ -532,10 +532,36 @@ void drm_atomic_helper_connector_reset(struct drm_connector *connector)
+ 	kfree(connector->state);
+ 	__drm_atomic_helper_connector_reset(connector, conn_state);
  }
+ EXPORT_SYMBOL(drm_atomic_helper_connector_reset);
  
--static void tidss_crtc_reset(struct drm_crtc *crtc)
-+static struct drm_crtc_state *tidss_crtc_create_state(struct drm_crtc *crtc)
- {
- 	struct tidss_crtc_state *tstate;
- 
--	if (crtc->state)
--		tidss_crtc_destroy_state(crtc, crtc->state);
--
- 	tstate = kzalloc_obj(*tstate);
--	if (!tstate) {
--		crtc->state = NULL;
--		return;
--	}
-+	if (!tstate)
-+		return ERR_PTR(-ENOMEM);
- 
--	__drm_atomic_helper_crtc_reset(crtc, &tstate->base);
-+	__drm_atomic_helper_crtc_state_init(&tstate->base, crtc);
++/**
++ * drm_atomic_helper_connector_create_state - default &drm_connector_funcs.atomic_create_state hook for connectors
++ * @connector: connector object
++ *
++ * Allocates and  initializes pristine @drm_connector_state.
++ *
++ * This is useful for drivers that don't subclass @drm_connector_state.
++ *
++ * RETURNS:
++ * Pointer to new connector state, or ERR_PTR on failure.
++ */
++struct drm_connector_state *
++drm_atomic_helper_connector_create_state(struct drm_connector *connector)
++{
++	struct drm_connector_state *state;
 +
-+	return &tstate->base;
++	state = kzalloc_obj(*state);
++	if (!state)
++		return ERR_PTR(-ENOMEM);
++
++	__drm_atomic_helper_connector_state_init(state, connector);
++
++	return state;
++}
++EXPORT_SYMBOL(drm_atomic_helper_connector_create_state);
++
+ /**
+  * drm_atomic_helper_connector_tv_margins_reset - Resets TV connector properties
+  * @connector: DRM connector
+  *
+  * Resets the TV-related properties attached to a connector.
+diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+index 3fa4d2082cd7..a0b132c658a1 100644
+--- a/drivers/gpu/drm/drm_connector.c
++++ b/drivers/gpu/drm/drm_connector.c
+@@ -616,11 +616,19 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+ 
+ 	/*
+ 	 * drm_connector_attach_max_bpc_property() requires the
+ 	 * connector to have a state.
+ 	 */
+-	if (connector->funcs->reset)
++	if (connector->funcs->atomic_create_state) {
++		struct drm_connector_state *state;
++
++		state = connector->funcs->atomic_create_state(connector);
++		if (IS_ERR(state))
++			return PTR_ERR(state);
++
++		connector->state = state;
++	} else if (connector->funcs->reset)
+ 		connector->funcs->reset(connector);
+ 
+ 	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
+ 	connector->max_bpc = max_bpc;
+ 
+diff --git a/drivers/gpu/drm/drm_mode_config.c b/drivers/gpu/drm/drm_mode_config.c
+index 2e2cd18a14b4..9d240817f8b6 100644
+--- a/drivers/gpu/drm/drm_mode_config.c
++++ b/drivers/gpu/drm/drm_mode_config.c
+@@ -235,10 +235,36 @@ static int drm_mode_config_crtc_reset_with_create_state(struct drm_crtc *crtc)
+ 	}
+ 
+ 	return drm_mode_config_crtc_create_state(crtc);
  }
  
- static struct drm_crtc_state *tidss_crtc_duplicate_state(struct drm_crtc *crtc)
- {
- 	struct tidss_crtc_state *state, *current_state;
-@@ -403,14 +400,14 @@ static void tidss_crtc_destroy(struct drm_crtc *crtc)
- 	drm_crtc_cleanup(crtc);
- 	kfree(tcrtc);
++static int drm_mode_config_connector_create_state(struct drm_connector *connector)
++{
++	struct drm_connector_state *conn_state;
++
++	if (!connector->funcs->atomic_create_state)
++		return 0;
++
++	conn_state = connector->funcs->atomic_create_state(connector);
++	if (IS_ERR(conn_state))
++		return PTR_ERR(conn_state);
++
++	connector->state = conn_state;
++
++	return 0;
++}
++
++static int drm_mode_config_connector_reset_with_create_state(struct drm_connector *connector)
++{
++	if (connector->state) {
++		connector->funcs->atomic_destroy_state(connector, connector->state);
++		connector->state = NULL;
++	}
++
++	return drm_mode_config_connector_create_state(connector);
++}
++
+ /**
+  * drm_mode_config_reset - call ->reset callbacks
+  * @dev: drm device
+  *
+  * This functions calls all the crtc's, encoder's and connector's ->reset
+@@ -278,13 +304,16 @@ void drm_mode_config_reset(struct drm_device *dev)
+ 	drm_for_each_encoder(encoder, dev)
+ 		if (encoder->funcs && encoder->funcs->reset)
+ 			encoder->funcs->reset(encoder);
+ 
+ 	drm_connector_list_iter_begin(dev, &conn_iter);
+-	drm_for_each_connector_iter(connector, &conn_iter)
++	drm_for_each_connector_iter(connector, &conn_iter) {
+ 		if (connector->funcs->reset)
+ 			connector->funcs->reset(connector);
++		else if (connector->funcs->atomic_create_state)
++			drm_mode_config_connector_reset_with_create_state(connector);
++	}
+ 	drm_connector_list_iter_end(&conn_iter);
  }
+ EXPORT_SYMBOL(drm_mode_config_reset);
  
- static const struct drm_crtc_funcs tidss_crtc_funcs = {
--	.reset = tidss_crtc_reset,
- 	.destroy = tidss_crtc_destroy,
- 	.set_config = drm_atomic_helper_set_config,
- 	.page_flip = drm_atomic_helper_page_flip,
-+	.atomic_create_state = tidss_crtc_create_state,
- 	.atomic_duplicate_state = tidss_crtc_duplicate_state,
- 	.atomic_destroy_state = tidss_crtc_destroy_state,
- 	.enable_vblank = tidss_crtc_enable_vblank,
- 	.disable_vblank = tidss_crtc_disable_vblank,
- };
-diff --git a/drivers/gpu/drm/tidss/tidss_plane.c b/drivers/gpu/drm/tidss/tidss_plane.c
-index 1a8b44fb45f8..6d82976c2db1 100644
---- a/drivers/gpu/drm/tidss/tidss_plane.c
-+++ b/drivers/gpu/drm/tidss/tidss_plane.c
-@@ -176,12 +176,12 @@ static const struct drm_plane_helper_funcs tidss_primary_plane_helper_funcs = {
- };
+ /*
+diff --git a/include/drm/drm_atomic_state_helper.h b/include/drm/drm_atomic_state_helper.h
+index 9634a70e0401..f4b6d8833bc2 100644
+--- a/include/drm/drm_atomic_state_helper.h
++++ b/include/drm/drm_atomic_state_helper.h
+@@ -73,10 +73,12 @@ void drm_atomic_helper_plane_destroy_state(struct drm_plane *plane,
+ void __drm_atomic_helper_connector_state_init(struct drm_connector_state *conn_state,
+ 					       struct drm_connector *connector);
+ void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+ 					 struct drm_connector_state *conn_state);
+ void drm_atomic_helper_connector_reset(struct drm_connector *connector);
++struct drm_connector_state *
++drm_atomic_helper_connector_create_state(struct drm_connector *connector);
+ void drm_atomic_helper_connector_tv_reset(struct drm_connector *connector);
+ int drm_atomic_helper_connector_tv_check(struct drm_connector *connector,
+ 					 struct drm_atomic_commit *state);
+ void drm_atomic_helper_connector_tv_margins_reset(struct drm_connector *connector);
+ void
+diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+index 5ad62c207d00..529755c2e862 100644
+--- a/include/drm/drm_connector.h
++++ b/include/drm/drm_connector.h
+@@ -1569,10 +1569,26 @@ struct drm_connector_funcs {
+ 	 * when a connector is being hot-unplugged for drivers that support
+ 	 * connector hotplugging (e.g. DisplayPort MST).
+ 	 */
+ 	void (*destroy)(struct drm_connector *connector);
  
- static const struct drm_plane_funcs tidss_plane_funcs = {
- 	.update_plane = drm_atomic_helper_update_plane,
- 	.disable_plane = drm_atomic_helper_disable_plane,
--	.reset = drm_atomic_helper_plane_reset,
- 	.destroy = drm_plane_destroy,
-+	.atomic_create_state = drm_atomic_helper_plane_create_state,
- 	.atomic_duplicate_state = drm_atomic_helper_plane_duplicate_state,
- 	.atomic_destroy_state = drm_atomic_helper_plane_destroy_state,
- };
- 
- struct tidss_plane *tidss_plane_create(struct tidss_device *tidss,
++	/**
++	 * @atomic_create_state:
++	 *
++	 * Allocate a pristine, initialized, state for the connector
++	 * object and return it. This callback must have no side
++	 * effects: in particular, the returned state must not be
++	 * assigned to the object's state pointer and it must not affect
++	 * the hardware state.
++	 *
++	 * RETURNS:
++	 *
++	 * A new, pristine, connector state instance or an error pointer
++	 * on failure.
++	 */
++	struct drm_connector_state *(*atomic_create_state)(struct drm_connector *connector);
++
+ 	/**
+ 	 * @atomic_duplicate_state:
+ 	 *
+ 	 * Duplicate the current atomic state for this connector and return it.
+ 	 * The core and helpers guarantee that any atomic state duplicated with
 
 -- 
 2.54.0
