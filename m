@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C492CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 003B4CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 15:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xlWfipCfpVrBkBpAdX/tN7AaGo2a4SCb8Dd/ea6jDuk=; b=fmiVvilNCGlybgOt5nelPnufpg
-	wJYsTsTFxgbPXscAbI+hDbUq8tQ6TPwwpnjRCcTWP/6Rg6P1dUeY00kRwMIdgABLOg/6SD6Ad/xq8
-	keCtszVGRDWGVpT2KWtvIudlSE3PAUswIr+mqZxDl/L2INSRQKUDQWtdtcO7SdIs0gTjgsS3Qts6H
-	7v1iKESSxbuJVXrr1aNRHT/BkBdCItVPgTliN7cVD7kXfVUG+h/5jMzhcJ76NI1AdNvuDrworTOmN
-	CGpg1DBXfNCVPjhhCjQ/qeTfl/puVNtD5c/gtf20lVg3PfdTHJ2xNXDzwrnRdwBO0oA48W40Lxd0H
-	Sq/GE6gg==;
+	bh=rxYm5SvTOcVKLkiC72tchyYE0ruvCzdYhMcAjMbKO08=; b=mHS6L24IDU5v3l/AmtqYbnwwKE
+	MqTXxZ3GMNckE8gZNTqTr3vjpMji9BbnjzIm6m5SrbHAvqG7d4TcQW6rpBOkyILBLPBqnuV8KynIr
+	PfNgoferHb8A8a8fC+U7cZuK6FAFNgdZS4h+qXpsk93BLPXQl+60U+dGHLHhwQ9qjq6Rj457CHh6Z
+	nbH4Jyl9990jri6NjUg+1KfEdYWcfA3Ax/sCDFQwiMmqoLt47U3KaxBh7FyG7fzR7vOo892qw0ylo
+	OE4A5rzcXDTQkqxYAtnn2ISNUXFp5QPdGTWrXoEEi3WF1nEOkesVAsx427ClICGl2JC8/lqxntS/N
+	JA9YwjNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtvI-00000002Pc5-3PNR;
-	Tue, 26 May 2026 15:42:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wRtwC-00000002Pk0-40vb;
+	Tue, 26 May 2026 15:43:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRtvH-00000002Pbo-1bLc
+	id 1wRtwA-00000002Pjf-1iKE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 15:42:27 +0000
+	Tue, 26 May 2026 15:43:23 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 450D260018;
-	Tue, 26 May 2026 15:42:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EC651F000E9;
-	Tue, 26 May 2026 15:42:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB47C43DF6;
+	Tue, 26 May 2026 15:43:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03E1F1F000E9;
+	Tue, 26 May 2026 15:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1779810146;
-	bh=xlWfipCfpVrBkBpAdX/tN7AaGo2a4SCb8Dd/ea6jDuk=;
+	s=k20260515; t=1779810201;
+	bh=rxYm5SvTOcVKLkiC72tchyYE0ruvCzdYhMcAjMbKO08=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ho9Mwa3WhHSdo7xEuFgtdR/cQ34pFe1npVVRysfDY9CzFIYmnThmBFnEWJ5ComMBT
-	 8ZDkNmuiTIalJbOf3wZJNkifn2t10XtdzMU7bvaPnk3AD6hEZ2xEU3t5VGHtrieSFg
-	 A4naN5Rir2bdI/5TGpEIQgQCTlvjo7NrDWVxde2kTku9DBDjz4kCc1XeJA2mShNEFD
-	 xAKasSBbNS2/rVIXRGIwIcXYGBMOFd3sfj7p8ALlsmHzb1w339CbIG95fgGNNceOjV
-	 vmd4dXJFrx8dQG1wAIrvRbSfcjfctFypiIssNDbsc5JXKpURjFOi+/ytHF17JU0j30
-	 p49X/wQTnXt5w==
-Date: Tue, 26 May 2026 16:42:21 +0100
+	b=HW+bRRyvwTV6HudGegIlgGBk8E8txzo4s0Q4+4ftbXP3pW1/hGGJqmdi2LL+i8/2v
+	 SqqjZ7igTXz0JYuslSztKYEXhb5WSqG1sKk/+LseDp4G3zaFBqSn8XTexpEcxpQrdP
+	 o5ezCjhU2tl7g08TERaEC524tphtYmqV7h/QenGPgVXm9hMt34oCSqen3w8p24nCuB
+	 EwtQ/U9+3LXVE2PctSWZ/9AaJ19Z5ttNmVjfgRPltstWJE2LHeTrU2aG/yGXjRf+7h
+	 Jin4YsmG8eIcu0rGz4YVMH/EnhdVvCprIUcyLVKDmUbO763vFF2y28A2bRDh7mEyE0
+	 +BEcxcDQShwbw==
+Date: Tue, 26 May 2026 16:43:17 +0100
 From: Mark Brown <broonie@kernel.org>
 To: Mark Rutland <mark.rutland@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	catalin.marinas@arm.com, james.morse@arm.com, maz@kernel.org,
 	oupton@kernel.org, tabba@google.com, will@kernel.org
-Subject: Re: [PATCH 06/18] arm64: fpsimd: Remove sve_set_vq() and sme_set_vq()
-Message-ID: <7eaaac65-cb58-4808-8b54-83cc5beb0b42@sirena.org.uk>
+Subject: Re: [PATCH 07/18] arm64: fpsimd: Use assembler for SVE instructions
+Message-ID: <5918222c-b518-45a9-81f7-53ac7079a0c4@sirena.org.uk>
 References: <20260521132556.584676-1-mark.rutland@arm.com>
- <20260521132556.584676-7-mark.rutland@arm.com>
+ <20260521132556.584676-8-mark.rutland@arm.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OMsXyzo8b24o7qHQ"
+	protocol="application/pgp-signature"; boundary="ErY8mrnqLWnVZBkw"
 Content-Disposition: inline
-In-Reply-To: <20260521132556.584676-7-mark.rutland@arm.com>
+In-Reply-To: <20260521132556.584676-8-mark.rutland@arm.com>
 X-Cookie: You are fairminded, just and loving.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260526_084322_465180_5A729FC3 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,33 +77,39 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---OMsXyzo8b24o7qHQ
+--ErY8mrnqLWnVZBkw
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Thu, May 21, 2026 at 02:25:44PM +0100, Mark Rutland wrote:
-> The sve_set_vq() and sme_set_vq() assembly functions (and the
-> sve_load_vq and sme_load_vq macros they use) are open-coded forms of
-> sysreg_clear_set*(). There's no need for these to be implemented
-> out-of-line in assembly, and the 'vq_minus_1' argument is unusual and
-> confusing.
+On Thu, May 21, 2026 at 02:25:45PM +0100, Mark Rutland wrote:
+> Historically we supported assemblers which could not assemble SVE
+> instructions. We dropped support for such assemblers in commit:
+>=20
+>   118c40b7b503 ("kbuild: require gcc-8 and binutils-2.30")
+>=20
+> Since that commit, all supported assemblers (binutils and LLVM) are
+> capable of assembling SVE instructions, and there's no need for us to
+> manually encode SVE instructions.
+
+Oh, finally.  I hadn't checked in a while:
 
 Reviewed-by: Mark Brown <broonie@kernel.org>
 
---OMsXyzo8b24o7qHQ
+--ErY8mrnqLWnVZBkw
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVv1wACgkQJNaLcl1U
-h9AE8Af/cdVzDAtuMAzFV5XhnfVEkEQuVDx/Ewt1ITp0WL10LAgaKMiNGY+fn/bs
-UPn297NFIf4xDb7KwuGQPO/ocs2IaTsYL9Dh4WMPrW7Y0RlhzEgP88u4ZRaN2gvr
-+t83aeAij9rWvCkqf1g9CcASMz//VMwG5nMa2NKySYpT7aNdxBBVB8Vy5ixRNHJe
-Al9r9xg0MCdxVr+uhTNQ8smW2uyNKXyVTHKA9tjfuPqa+SY9K88uSHdMUdnDZ0uP
-8tLk90UaleDzvvUlaYjtAN2idk3+xdnIHPVq+3XHk5q34ntAHzvmEUpq8D2xdo3I
-oIUR+8gcyi/EB8CRprGHPM0HoV5qhw==
-=pLbJ
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmoVv5QACgkQJNaLcl1U
+h9DIHAf/cI4ULioK4aN2o4Rzo+KZL3f4lNjpzInnpNXeEWBzKED8BXzM2jojAAWk
+WT3BhcQKoE+t+93fKkpPP+a6lAG/euPOqjxjvS2h1qgNqqf+nCsTABbe3vK8aiJw
+9hm6eORHn6e/PNm6MWPjGk0YuVLvEhICmiI8m7nzhKjSt4bb0rk1iBnP6B26rqlO
+VBD4XaDmRKZQhymidHcFefTvn2W7GaMYiRWQ80GTDSlliceAoPVAi9Lq67xFo2Lo
+TASLxahZsqNNc4jWkGoL1ATfC93P5Fv+godLu8p/okejkxCzy7NGd+METz0Z6Ufy
+GtTSWXZ6l6BatnEzZgGmpUI30JfBUg==
+=lht4
 -----END PGP SIGNATURE-----
 
---OMsXyzo8b24o7qHQ--
+--ErY8mrnqLWnVZBkw--
 
