@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF657CD5BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B535CD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 22:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xyKaWpG8K34wUdn2bubOYPdzAbDa6l5hXnAxBW9DLqk=; b=4TshhKIqIoeJCzKjh3tDENVZOX
-	OUKDl/Q8d4rd2aE4oejf/u5ph/4OLbPsnPGV0yQCcDBN7jHfilXJAF4mblssOOG44ZHWoaXAT0uyZ
-	T2SUfYwmLTXLsPF3r9klvjqIZlLcwXIJUn8PXXus7rcT1nbHfiE6B6p9MG/EHaXIEvXf+SJ7XA8cG
-	F0/1WNGLJRjT9R7qB8xNl6zsXfUAIjN7T/S8HJTFo+nx6iCRLZDlvdilX0CQYrp7SDJp2dVj3aBh7
-	w8nbKj+E+a2FmdurLXYNspvLC4DorM99mDn+O4mQo06mtQFBwL1p1weg5fSFCl6+M3Vq5uM3eK84v
-	BJC+9k+A==;
+	bh=cHAkb9ussuW/gFMo+6tUXK1GuaNMsXBey6vyC2VXx6o=; b=orwkmp2Yi9jn+5dSDqAdloSUyX
+	zW0UvaMP6cdKXjnkgyLStaxHui3zOvYrI/rUBsS7hVq3dZ8yqPddf6xAUd4h0NY/3oTW8GkDAh2bx
+	czjJaZBJZgkXDDzh897CNnoK87S9n6zvfLEXBJteCnjVo1rwJeUv6Sm5I2m9zpSgWpOl9d/4W7s4N
+	XT+LI8H8CFzxt/N0cP14sH4xfOZVZakZDOLRWHXO4esqRJtrAhkaWRCt15LPAV+lOgJ+KKcOD1wQu
+	IDD63/mRBmYQKV+ut60GeUY1ehfabYFC5h+vDqEzPXrZs6jVddmUw/1up7m0yMp66PLRXK5Ul2/70
+	hGotzt5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0Fd-000000031K6-0ctB;
-	Tue, 26 May 2026 22:27:53 +0000
+	id 1wS0KK-000000031UD-2vgZ;
+	Tue, 26 May 2026 22:32:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wS0FZ-000000031JW-021s
+	id 1wS0KI-000000031Tj-0EGL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 22:27:52 +0000
+	Tue, 26 May 2026 22:32:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFAC92BCD;
-	Tue, 26 May 2026 15:27:40 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C32B31477;
+	Tue, 26 May 2026 15:32:34 -0700 (PDT)
 Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 881D23F7B4;
-	Tue, 26 May 2026 15:27:40 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 84A2F3F7B4;
+	Tue, 26 May 2026 15:32:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779834465; bh=4mleRwxx/487qOWzenA0B4ktBvSH1skjy0g7+5i1jT4=;
+	t=1779834759; bh=CnTQg5Em7qbBD++2a2OXx4PHl2fVqQrbo8tj+7BfMfE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UOeYDOohWEeBzw2bAt2AX18TjQdQbHOVZfrEHd4AIRBYF9jq4/i8HdB/ZGUVgVgsq
-	 dX/V72IFfHuj+6x9e0B+x3vDu5tinOc0nAyZwVrlPe58dRkjeknxe1Xm9h7ptBjjXn
-	 VqJtmIRizdJOT3MDwEQy52rX+mQcrkrsm715/pqY=
-Date: Tue, 26 May 2026 23:27:33 +0100
+	b=tjPO0vqvFaiqqgm2BzZR61freoSwDS6m3d5vKVc3BssrtXVrDDk0deeUcyaFJU3lb
+	 d18sTjnUlknydHfl3/deJeRP+vEMiR8ZprN3nTWc6ut3gP080bGKC5nkGEeGRn1zGz
+	 e7pNvwYOU5G9i2n4UltF+BZTABbIvNnbpcHhqv4Q=
+Date: Tue, 26 May 2026 23:32:28 +0100
 From: Wei-Lin Chang <weilin.chang@arm.com>
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org, 
 	kvmarm@lists.linux.dev
@@ -55,7 +55,7 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
 	Vishal Annapurve <vannapurve@google.com>, Lorenzo.Pieralisi2@arm.com
 Subject: Re: [PATCH v14 17/44] arm64: RMI: RTT tear down
-Message-ID: <7egwow26r6sbbtm53mujbhpwyts2utzv2ddth7554kqwbk7k7d@iptjpvvbsc2n>
+Message-ID: <mpesc2j3czpunbg3pvgwbotvfn7vahaabvoiu77vd2g5uervho@255lwycekmxh>
 References: <20260513131757.116630-1-steven.price@arm.com>
  <20260513131757.116630-18-steven.price@arm.com>
 MIME-Version: 1.0
@@ -63,8 +63,8 @@ Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 In-Reply-To: <20260513131757.116630-18-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_152751_051809_B0A8EB9E 
-X-CRM114-Status: GOOD (  33.69  )
+X-CRM114-CacheID: sfid-20260526_153242_184482_F92CF90B 
+X-CRM114-Status: GOOD (  36.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,12 +188,69 @@ On Wed, May 13, 2026 at 02:17:25PM +0100, Steven Price wrote:
 >  	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
 > -	struct kvm_pgtable *pgt = NULL;
 > +	struct kvm_pgtable *pgt;
-
-Is this included by accident?
-
 >  
 >  	write_lock(&kvm->mmu_lock);
 >  	pgt = mmu->pgt;
+> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
+> index f51ec667445e..5b00ccca4af3 100644
+> --- a/arch/arm64/kvm/rmi.c
+> +++ b/arch/arm64/kvm/rmi.c
+> @@ -11,6 +11,14 @@
+>  #include <asm/rmi_cmds.h>
+>  #include <asm/virt.h>
+>  
+> +static inline unsigned long rmi_rtt_level_mapsize(int level)
+> +{
+> +	if (WARN_ON(level > KVM_PGTABLE_LAST_LEVEL))
+> +		return PAGE_SIZE;
+> +
+> +	return (1UL << ARM64_HW_PGTABLE_LEVEL_SHIFT(level));
+> +}
+> +
+>  static bool rmi_has_feature(unsigned long feature)
+>  {
+>  	return !!u64_get_bits(rmm_feat_reg0, feature);
+> @@ -21,6 +29,144 @@ u32 kvm_realm_ipa_limit(void)
+>  	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+>  }
+>  
+> +static int get_start_level(struct realm *realm)
+> +{
+> +	return 4 - stage2_pgtable_levels(realm->ia_bits);
+> +}
+> +
+> +static void free_rtt(phys_addr_t phys)
+> +{
+> +	if (free_delegated_page(phys))
+> +		return;
+> +
+> +	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+> +}
+> +
+> +/*
+> + * realm_rtt_destroy - Destroy an RTT at @level for @addr.
+> + *
+> + * Returns - Result of the RMI_RTT_DESTROY call, and:
+> + * @rtt_granule:	RTT granule, if the RTT was destroyed.
+> + * @next_addr:		IPA corresponding to the next possible valid entry we
+> + *			can target
+> + */
+> +static int realm_rtt_destroy(struct realm *realm, unsigned long addr,
+> +			     int level, phys_addr_t *rtt_granule,
+> +			     unsigned long *next_addr)
+> +{
+> +	unsigned long out_rtt;
+> +	int ret;
+> +
+> +	ret = rmi_rtt_destroy(virt_to_phys(realm->rd), addr, level,
+> +			      &out_rtt, next_addr);
+> +
+> +	*rtt_granule = out_rtt;
+> +
+> +	return ret;
+> +}
+
+Looks like out_rtt can be simplified out.
 
 [...]
 
