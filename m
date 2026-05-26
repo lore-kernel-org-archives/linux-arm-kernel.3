@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8649CD5BB1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 11:54:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6B7CD5BC8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 12:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDpo1CN0RJTEn2WPF2oB4CNFhnk25tcXiAZ3ssn8QRk=; b=ESUOvQ8mBhsTDbIfjtrFJHQkUp
-	uC1pVbZhedlf6oPSsLDqOeRlSynyJiErsMmOZIeqlWKIp72SYCIOE1g2isrDrgM+p/hp75pTFSzsM
-	58dsnPq8Ar0FQVymegAviMSTUEbKrqwactVk9+WWovV+bcRpYhOUiC0scLXasUWBUgKT5cT5mgSDk
-	3ttrY/IAhqJSdKQKy7o1sQAgqibKetvHNsPzKt2oaolTj8Wv41rjxH/+Q4eVUlnNbpF7KH5FIH6uM
-	sTelzRQROyvmuPH+N6NIAReBC385AyUifip72S2q79kRczlLSOvzhPcCmpNoSN93w+1vgvX1TDBWJ
-	Cn+LXLSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=snO0GPCcpAIumJIbbpDl03xp41IGS0xxxbEpNFTS3AA=; b=O5sAQ6McrDaVJv1otsN/xcAFJJ
+	icZYv3EGVwU7ysyYSrQGHxc0MlQX47F+thEcvoII3+eOqv9YQVah2fJGUv2ASypgDItV28Sf4Njt+
+	co5Wt3ffXSyMGj71fExLBY1+1Vp4Ed46mWGiuouSI7Nnh6fxCs0RSLJZTyABThOBCbS/BJ4s8k+Ya
+	botSg1tmTEV2CSQVNjbUr68oi90zMLQbW10L29fLFmoq90L7DSac7wfKmeaQvIiS6fJDqPHhHvYac
+	1+Izd6dK1ooUE0t7NyhHgVA/YGK1d2QlKt2Oy0g6z7WxYKo8EABsi9NfKW0lQgV7Jld2KBLdPBBRF
+	NiiwPH+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqMP-00000001r3f-1qV6;
-	Tue, 26 May 2026 11:54:13 +0000
+	id 1wRqVR-00000001s33-0mKb;
+	Tue, 26 May 2026 12:03:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRqML-00000001r2z-1XmH
+	id 1wRqVO-00000001s2b-2T7o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 11:54:11 +0000
+	Tue, 26 May 2026 12:03:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51C1E169C;
-	Tue, 26 May 2026 04:54:02 -0700 (PDT)
-Received: from [10.43.20.71] (e126510-lin.lund.arm.com [10.43.20.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F78B3F7D8;
-	Tue, 26 May 2026 04:54:03 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5B89169C;
+	Tue, 26 May 2026 05:03:23 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF7E43F7B4;
+	Tue, 26 May 2026 05:03:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1779796446; bh=HhcY4TG/6pLCS5ZpzHLBZkS5pauDzOZDzxzLR0+SqjQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gLe2m3YcfahXbF6L9I64v0GrkoUwaoSfBtFJPZh1Es69i5BTm8ud5+HoppYSxqF8x
-	 xLrCWMqIkpVaBF4B1n5RlLbhQzwDaIwvIOQUNmMRZSZ37egc8hXFdCi7nuyyQJ/M52
-	 IpRd39A1PTh7+YKNFNiYx9CT1/TsMBBprazNAgFk=
-Message-ID: <92450154-e1ab-46e4-b23d-eaa59c9cdd3b@arm.com>
-Date: Tue, 26 May 2026 13:54:00 +0200
+	t=1779797008; bh=FlkpAY2X0Yf6Pfxqf2EFeAIJYm7FxKNht2VVBPprLyY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JocWluzfka/6ENtOHIR4dFPNqvNa8CNewaA4hKshW5Dw0uZjcQsvUUIhXmf4AIjaO
+	 0pGRR2jmTc0GcfqCJTAs9/uh/FJ1Evnjc8x+7gw5zRF5zyqTbGZZ8/7HJfVRkQyGXE
+	 XdHOXd086EHrfmvunqN2WcSHj0m9rz1IbmlbrMtg=
+Date: Tue, 26 May 2026 13:03:19 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Preserve all guest ZCR_EL2.LEN values
+Message-ID: <ahWMByoIme6_oECX@J2N7QTR9R3>
+References: <20260522-kvm-arm64-fix-zcr-len-nv-v1-1-ec254e9078cf@kernel.org>
+ <ahSWwl-uCv4ZW-nE@J2N7QTR9R3>
+ <b4fdceb6-5fa7-4829-a60e-6f80f47f032a@sirena.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: call pagetable dtor when freeing hot-removed
- page tables
-To: Vishal Moola <vishal.moola@gmail.com>,
- Catalin Marinas <catalin.marinas@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Alistair Popple <apopple@nvidia.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, will@kernel.org,
- david@kernel.org
-References: <20260521032730.2104017-1-apopple@nvidia.com>
- <20260521153130.d7d5cd060f7522f894252333@linux-foundation.org>
- <ahACfQ6kCfONqz5h@arm.com> <ahAjudlB32VbkKbG@fedora>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <ahAjudlB32VbkKbG@fedora>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b4fdceb6-5fa7-4829-a60e-6f80f47f032a@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_045409_581489_18C6AC07 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20260526_050330_721181_0C4B9C39 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +75,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/05/2026 11:36, Vishal Moola wrote:
->> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->> index 4c8959153ac4..9d42cbddce27 100644
->> --- a/arch/arm64/mm/mmu.c
->> +++ b/arch/arm64/mm/mmu.c
->> @@ -1441,6 +1441,9 @@ static void free_hotplug_page_range(struct page *page, size_t size,
->>  
->>  static void free_hotplug_pgtable_page(struct page *page)
->>  {
->> +	if (folio_test_pgtable(page_folio(page)))
-> This should work.
->
->> +		pagetable_dtor(page_ptdesc(page));
->> +
->>  	free_hotplug_page_range(page, PAGE_SIZE, NULL);
-> In the case we presumably have a page table page (ptdesc) at this
-> point, we should really be freeing it with pagetable_free() as well.
+On Tue, May 26, 2026 at 11:19:38AM +0100, Mark Brown wrote:
+> On Mon, May 25, 2026 at 07:36:50PM +0100, Mark Rutland wrote:
+> > On Fri, May 22, 2026 at 07:00:04PM +0100, Mark Brown wrote:
+> 
+> > > Since b3d29a823099 ("KVM: arm64: nv: Handle ZCR_EL2 traps") when guests
+> > > write to ZCR_EL2 we have clamped the value of ZCR_EL2.LEN to be at most
+> > > that configuring the maximum guest VL. This is not the behaviour the
+> 
+> ...
+> 
+> > Have we sought feedback from architects? While I said "*or* the
+> > architcture requires a clarification", I think it should be clarified
+> > more explicitly either way given that the pattern is unusual.
 
-Agreed, I think this is the right thing to do, something like:
+The part I asked for clarification on was:
 
-if (folio_test_pgtable(page_folio(page)))
-pagetable_dtor_free(page_ptdesc(page)); else
-free_hotplug_page_range(page, PAGE_SIZE, NULL);
+  AFAICT, none of the values for the SMCR_ELx.LEN and ZCR_ELx.LEN fields
+  are reserved or unallocated. Thus all the bits of those fields should
+  be stateful, and a read should observe the last value written,
+  regardless of the effective value of the field.
 
+  [...]
 
-Strangely enough x86 calls pagetable_free() in both cases.
+  Either what we're doing is wrong, or the architcture requires a
+  clarification to say that values corresponding to unimplmented vector
+  lengths are reserved.
 
-My series protecting page tables with pkeys has a patch [1] to get
-vmemmap to allocate page tables with pagetable_alloc(). The diff above
-will require pagetable_*_ctor() to be called as well, but I think that's
-the right thing to do anyway. That could be posted as a separate series,
-but I'm hesitant due to the lack of NUMA awareness in pagetable_alloc().
+> > Given this is particularly subtle, please keep me in the loop when
+> > speaking with architects about this.
+> 
+> TBH it didn't strike me as subtle, I don't see anything in the
+> architecture which would lead me to expect the current behaviour. 
 
-- Kevin
+The point I was trying to get across is that I don't think this is
+specified clearly enough, and I think we need to get this clarified.
 
-[1] https://lore.kernel.org/all/20260526-kpkeys-v8-14-eaaacdacc67c@arm.com/
+There's a general principle regarding reserved values. See K1.2.19
+("Reserved values in System and memory-mapped registers and translation
+table entries"), and specifically note "reserved values of fields".
 
-> Its not a big deal that we don't right now, but losing track of the
-> matching allocation/free sites will become a headache when separately
-> allocating from struct page.
->
->>  }
+There's no explicit statement either way regarding the values for
+ZCR_ELx.LEN and SMCR_ELx.LEN. The statement regarding the selection of
+the effective vector length implies *some* constraints, but
+(explicitly!) doesn't specify the behaviour for direct reads.
+
+It's possible for a reader to come to one of the following conclusions:
+
+(a) Any value written to the LEN field must be preserved exactly. In all
+    cases a read must observe the last value written.
+
+(b) Some values written to the LEN field are reserved, and don't need to
+    be preserved exactly.
+
+    For example, since the only architecturally-defined VLs are
+    powers-of-two, the only "legitimate" values are: 0b0000, 0b0001,
+    0b0011, 0b0111, 0b1111. Hence any written value could be collapsed
+    to that set.
+
+(c) Some values written to the LEN field are reserved, and can be
+    replaced with *any* value.
+
+    See the statement at the end of K1.2.19 regarding subsequent reads
+    returning an UNKNOWN value.
+
+While one simple reading is that all values must be preserved exactly, I
+don't think this watertight, and I think while some people will take
+reading (a), others will take (b) or (c). I should have spelled that out
+more clearly in my initial mail, sorry.
+
+> The psudocode all just has direct assignments for the write
+
+The pseudocode doesn't capture the detail I've described above.
+
+> and there's language in the ARM (eg, in the ZCR_EL2 description)
+> saying "for all purposes other than returning the result of a direct
+> read of ZCR_EL2" which seems specifically intended to cover there
+> being a divergence between the written and effective values, though I
+> guess it doesn't explicitly mention writes in the text.  
+
+That permits a divergence, but does not define the boundary conditions
+for what a direct read can observe.
+
+Mark.
 
