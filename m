@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27903CD5BC8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54C7BCD5BD0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 26 May 2026 09:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSq4iY8zIV2K2GhGFXql6/hx2Yc8zdu9ALh8mL35N9c=; b=VAdS1ynAhNOmuesH5ghikdKocQ
-	gzFSEvnMooxj7Z7XPTIH9br2WBpMS7vDApJTQwsWsf/jHFiKP7j5ZcU0GpV9yJLcbgBWO03ZqxThX
-	w3iNlu0Yxr9szP8rrOMeSUiH+v4WaGsPQQqRLNZ5eb9rHbuewM7orD5g8NQHLuoJtoX3mvChU/HAJ
-	UnW59w6stJF7ZlqKMUDFLO03Eqwz7On/q9rWnMCss9353FzZJ5h6EISDRoe67YzrVcftqZ2pyXgf8
-	CUN+1hILowNv7ZbKUBV/G7Zprff46iV2mQjR7ST1uZqR99yGgom8bBr7twYe/LjA0C1B3jaAnDFaP
-	1fL763AA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lF3GowPO+XMJ0UCjcpVn1Fz65F1tQJWibav3wFxTdVs=; b=otXAMsfwSCFtYe
+	bByeP4WaFiZT9q6zEG6d5KzlP3zats3Q6q9Z9YCiOBf3olByTHTbjsFMrTcM6HAXPst+wp8bhKbVN
+	gx4dbJ5mXD5EU0iOdOjTiTMuxVxNyWdGxu6hL7fi4vR/OW/Sx8e0HZo0Gi/kt/a9UJLxvHwAtOj4D
+	M3Q14SkyPHGdz0OZKz51nCyBQIriXeJFbLE69HPjgWeu43po7GHlBvWgGjvgJvtUju8D+fwpM3Nt8
+	rDb6EPO2qxACNB4BSLGJeeUnmL4B47Exg58yRuBopTh8p0UM1fPYA7aEMxSXfDDRCt4rf6N3SK0CE
+	sHdUgv+MWo61VF8yrwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRo40-00000001VB3-2G3F;
-	Tue, 26 May 2026 09:27:04 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wRo3z-00000001V9m-3adv;
+	Tue, 26 May 2026 09:27:03 +0000
+Received: from mail-westeuropeazon11011009.outbound.protection.outlook.com ([52.101.70.9] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wRo3x-00000001V7k-0hMI
+	id 1wRo3p-00000001V3r-21hT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 26 May 2026 09:27:02 +0000
+	Tue, 26 May 2026 09:26:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YjRv36ix5Jvub1DOq33ydGQnDyy0EwQSp/11ongkXMpT6Roqxki13V+2SpWwwfgRLp+Be3IbdjsQfr7/kpYqsxD2iCQZmjxpysjXi7bK0nvuFOIQhziM/FE/QrcjfKgrGKjkHg0A3+3K9fido+0Kb/77r5KeWTc1lTNGIMsEkb7+CoJQ3BrlbEAZYKAAwpxEybY5kww1TXNA/X+P5xAh8LPYubCI6BjA088z5qX73xtzPiWjRMlpLXO/slwUy2GaVoa8LvdWVQ0JdUNj/geOnw0wY2q3vkQSMtAKPjcF/+HEwg5312VKnsSEC14pCcMhx3I2rTU++Xv0Ah/yoAPjaA==
+ b=f44vEUKPzsRc6sPZRoxJ1ulMTx9ALI/i9OworrdM5Uw14ln4kL/+3EdE9WfZzNJ5DtjB69URdKnhmUdnNFAdEO/EPJXs9ZF8hhuhAjkPZ4rlJKkZmBZ4QVL6fMCp2075j7wqgFrx2w17bJ6Y1xG91jVmSMyPjZOhVUUoq24NjgT3JsqjOGJB25S22Vv8H9H4WKZXvylU0nj31eYOqTfBdoQt/pS+8MwHx38qk7xuIvb3e6Sw7PnNpuE9SczDT8F1bABiLc1Gm/gEfOBQ13Z93A2VmAd03E+jwJyhB6tRSYrbpO6T8Ihjfea9qgqqUJA+bcWGg2apxJATy0v9esujkA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BSq4iY8zIV2K2GhGFXql6/hx2Yc8zdu9ALh8mL35N9c=;
- b=b5Q5cYOnYw2YbsZx23G/H9ewG2SoJI+ZIQhbV3hnnuqVIzRs0d4955UAVRRc7Tnnr2vaCnAUb+w0etdNQT6i1537M/+Fh2MErVytcpR9L2rplYgKE3Dxul15NXipy/ZOVs7CkKHgpSiSJWCTSv5liD/JJN/ACW6CM1GIgxuVZw+Gd0BNoJCAf0i261945+O6m8iACXanGsXaXpff0xwql8abxA1Rd+xQhzAwwDpyjg9nzvsTatbpc4FjyK9Sv4rlBAWnNE5co7xUS97XvqXt+gFhilLdkdHIknqIr/Trj1/KEzZEOyzFTPWBdzt6Q1MsROPdbiDgyozkC5tAhRdicA==
+ bh=lF3GowPO+XMJ0UCjcpVn1Fz65F1tQJWibav3wFxTdVs=;
+ b=FbsFabxnV9787SLXylOBAPfcnG3UTTh7C6ErTPwzolW7GmSVvQW44z2aun3+o1C+G6xXNTq92/jW2LrELYiGG2hLheYdAdqcoVW7L8+L4WDT1OIT4qZ2lz6dJNkjAfjaRDTxxxlqVam4EGwac0W0Rdne/DdO3HeY0JIqEBEyn+c+favMqdo/duDF4CyUw2y581gnmhnXsNBwjEkio1QSBPP5AVk3kXfr3akgPWxDt/V4AqbBBBXmMk9i143c+TOFxs9f4nRVy9zgNf4OM4qnFnXfxu/ex4BtzKIY1RnoxEIFEtg0Lb81gDzVwqN/2nH4LM6Hm8SxtuQ3thInF+5hyw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
+ 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
  dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BSq4iY8zIV2K2GhGFXql6/hx2Yc8zdu9ALh8mL35N9c=;
- b=fQH1od4k6gqCtzSDLH5/kEg+lAfGTRtgvuXkcL1hilj0pody+edoh4tntx3L8nrD93lfQaFesXNN3pUl/6Qq0vcOFs0FuFe9ZYt9CN0CFSJAI1k38J0TIT78t1RAxHGk0Aa3h4mUAEzfSFyqZgjsHyv4cQEpc/L1s4BX6msn29dxFgRtsVngH9K/eeogD2pTd3gdT1MqEKPbeLGQyKCeSTsvdUR2xldb231ZMGN8osgUXRNH+qPpzlALPsfCqJ4fYmYaYCSfgprfb/bL8S1RHFC1q88Kt92DjP9ElUnfc3irinDsbBYwcYnRYTxtPWXzzw9SnGcU5Sa6diaCjjpwBA==
-Received: from CWLP265CA0413.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1b6::19)
- by DB9PR10MB7593.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:3d2::10) with
+ bh=lF3GowPO+XMJ0UCjcpVn1Fz65F1tQJWibav3wFxTdVs=;
+ b=Hv5fxuybyCxDQyupC8jfsHM3ee+XjPxcwgSOVsDolXlAz9SwafzUel4Lzos7UdYvtDaoJHVEJ5m7MaegZKa4ppQHzn+I5YW5OYUGKq2DNtpF704bBa6beHlfL6TaVW4pDgmPrVGfTsVSJpVyuiVzZleiXQlTBdjBK0qa/xP4Pvrjt9GdhKe71mh9lMvpeCi1yI6rmJCL1wgI9H+1dYJQrKaBmGyPHUy8E0XiO5tErBCjej+JkNCVw+P2nmmcUmjFc88lNJWYdtejmP001BKV0BW9yQxPARZ3xs82k4d6MwHWZ+4Ty4R3j0BD7UwvkqbpU+/3BnnYvsJ6JMoh7yakpw==
+Received: from CWLP123CA0061.GBRP123.PROD.OUTLOOK.COM (2603:10a6:401:59::25)
+ by GV2PR10MB6092.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:7e::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.48.20; Tue, 26 May
- 2026 09:26:48 +0000
-Received: from AM2PEPF0001C714.eurprd05.prod.outlook.com
- (2603:10a6:400:1b6:cafe::3e) by CWLP265CA0413.outlook.office365.com
- (2603:10a6:400:1b6::19) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 09:26:44 +0000
+Received: from AMS1EPF00000091.eurprd05.prod.outlook.com
+ (2603:10a6:401:59:cafe::9c) by CWLP123CA0061.outlook.office365.com
+ (2603:10a6:401:59::25) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.71.11 via Frontend Transport; Tue, 26
- May 2026 09:26:48 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ May 2026 09:26:43 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
  smtp.mailfrom=foss.st.com; dkim=none (message not signed)
  header.d=none;dmarc=fail action=none header.from=foss.st.com;
 Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- AM2PEPF0001C714.mail.protection.outlook.com (10.167.16.184) with Microsoft
+ designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.60; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.60) by
+ AMS1EPF00000091.mail.protection.outlook.com (10.167.242.88) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 09:26:48 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.71.7 via Frontend Transport; Tue, 26 May 2026 09:26:43 +0000
+Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
+ (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
- 2026 11:30:52 +0200
+ 2026 11:30:24 +0200
 Received: from localhost (10.48.87.93) by STKDAG1NODE2.st.com (10.75.128.133)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.35; Tue, 26 May
- 2026 11:26:47 +0200
+ 2026 11:26:42 +0200
 From: Patrice Chotard <patrice.chotard@foss.st.com>
-Date: Tue, 26 May 2026 11:26:45 +0200
-Subject: [PATCH v7 5/7] ARM: dts: stm32: Add boot phase tags for
- STMicroelectronics mp13 boards
+Subject: [PATCH v7 0/7] Add boot phase tags for STMicroelectronics boards
+Date: Tue, 26 May 2026 11:26:40 +0200
+Message-ID: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260526-upstream_uboot_properties-v7-5-e17cd424d5db@foss.st.com>
-References: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
-In-Reply-To: <20260526-upstream_uboot_properties-v7-0-e17cd424d5db@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAFBnFWoC/43QTWrDMBAF4KsEreswM/p1V71HKcGSpUaLREZyT
+ Evw3SsHSl1cTJdvYL43zJ0Vn6Mv7PlwZ9lPscR0rUE/HZg7d9d338S+ZkZAEhGpuQ1lzL67nG4
+ 2pfE05DT4PFaiIRIGLFhh0bG6P2Qf4sfDfn2r+RzLmPLno2rCZfofdcIGGrDYIucawfOXkEo5l
+ vHo0oUt7kRrS+xZVC2ujQhBKdN52Fr821KAYPYsXi2Htu1FIOdNv7XE2mr3LFEtLT0oJbVT8Md
+ dcmUR37NktSQq3VLbyy7IraV+LIJdSy2/74gMeCN6jr+teZ6/AHZsYdNAAgAA
+X-Change-ID: 20251112-upstream_uboot_properties-22480b0b4b1c
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
 	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
@@ -95,28 +98,28 @@ X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
  (10.75.128.133)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM2PEPF0001C714:EE_|DB9PR10MB7593:EE_
-X-MS-Office365-Filtering-Correlation-Id: bab0f95a-311d-4bc0-b522-08debb08e993
+X-MS-TrafficTypeDiagnostic: AMS1EPF00000091:EE_|GV2PR10MB6092:EE_
+X-MS-Office365-Filtering-Correlation-Id: c7f8f24d-95d4-4e3b-4f82-08debb08e68e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|82310400026|376014|36860700016|18002099003|56012099003|22082099003|11063799006|3023799007;
-X-Microsoft-Antispam-Message-Info: I9CEGUICZxX5i1oh4NC48RVyw+VZ1G/QdFz7Op93zuZ42eRUUiREuYbHf/2sDGDITTg+IQGliuOxSe56ZVYrJN1FVcffstLf9JgplkYZc6sUn4ahKJryZeho1/H7BacFw8ce2os1hmPjXLcaPbuv+HyCAlh3I3bcmH55tK66BCu/JAP6UaywIMcbVkujXvjxpGg/Mf3h15H7CLT9bZ2BfL/gJEh/HcEWB1dbd4/2eAeLCHSp0XhwohVNlQPP8h1tW0yMQDSLYorb2l/lpvGf9wd2mTEyPVVx61stNtudb0N5oqvUxuHR+4XotAjp4p+hSSmx0qIopd9njGD8SWHSTCXe4okr9JWL7/gOrk4aHqe/bDVazyN3PMcpW8Z01eBKlGuFGHl+H64jAbGMXIIRScxyfIZJx7S7uFact9Hs9pExuDYY30FH+qWN52WYmu8dQNziVc/iW8gI6acGWxlZKnaV8MBix3vwebx8SZ6ylowVwm2zGU/yYEgnBISjASppecVma43Rd2J+xMdEfrbmytsvmiT0pSIgoBzqHaHn2mkypYd0PJkRAaf+bKjVlqWsdm2RAB594066ttgTdkRfDTOMiGQvVMqQ1arTMS6sURUySvLlysHbDiqNwopf9aEbrz8QpwHxoeeB5wmAjo0Hl/kvZX2z/utdc6nNCa01nJRXF4n46rZXYgM7CBE9ZQDbb5FgbjVZmooE5SeI1ZzoA1YUR3ynJm5x3+BHyh6/z24=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(82310400026)(376014)(36860700016)(18002099003)(56012099003)(22082099003)(11063799006)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700016|11063799006|3023799007|18002099003|56012099003;
+X-Microsoft-Antispam-Message-Info: hMd5tJUBxwZSedEvFkRVZdYa499ADXCVI7YPQvak3YZ4EFJuoB3+rx6Gnq+3SojOfJvyMm6LfLUYZAQjJU0Ij35x/3hf+KccjtaZQVulQfhWeTLeU6BZJQbzURvg6D+rlTZyPxfmBNw9SIhB+0BKtLQLfeEi4oOxM1Jmy3TNwWMh3wxBPIEA6CSjgrhHtf5vTZ/ZKeZGYRCs8w4U73l9zs+HZq4Mow3HwkIxOqfkbPsLF0iYwiXBDrNqLVO4QMH1sJR+XMz4b3v9ypK7mRVlFYkIKbSrDXB/AHQ1i3Y18Tch+Y5icqMxzQtO2ymK4D58EhICWXGwrRLdjk0ZKCSxk0nPdw8Jbzk6pojIq576hOC5q4y3yhuebcW4TjU80NoFcB4ERsvuMLuAB+mVk7Mjuy73OQi8/lQsnzdNCF9ylAVim5FdtKzy10pHIWeISi+0h8+5LpiDBKI5tr0v5E0CjqWAQA0octaJw3UVlD9aGBU9NOFUOJbj+Vup1wOp1x93O3LulUXwnf27XXBP1msqdpjebDqEW1dtusGlCrZiAdHeETIcDIo06QJP0v0J4vDKPPRCRom6b8VES+W3XIJLTJolpcV6cSwPVPccoCghUIB2A4N1QHQfa2aW5wM/zuBPKquXJRg9Ig9vMi2XwDuBeZdKrGrOu8v2MeyNPcRdjAmYOirJYMvpGiws/kv6EiIaXGC2g2JwTl5z/rnbRDyYQP1tBFMbZ8MJLVjlJ07J1j9DkSXOTRO1M3C1RtznVHtX
+X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700016)(11063799006)(3023799007)(18002099003)(56012099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 2gW5lECWqsG9rdZiG+IMiNllSWmHYtqlHuizUcafqiSmQdvwmI+66daZccq+Y1r1wGYrQrzapVuhv/z/Zh7WyMm6twFHOLG6ArnFN7rOCJqMBfsmCBFF5tAK89P2jdrxPBgAYcTW7PQ3/vgVqJg8DGr1cudQ0YnvWkqKRHjzoMwbk5UVkKw/5v1OucoiezcUdyrHIXc182Ad4BlI1ZK9GZmA19eWYi/ive1rM78wtUnJvjresmNW4MWrau1ABI3Hfb578lc4VKj1j0O0gF6V8Kl3vU3pWIFWzlmTO+fDop09jI/1MUrVunj8dNbz7Kf2t/J0CpnBM6Z8dWfvx+HY42pCui57Bolrd/HTN0yAnsGrnIrbEK7I6kkyHLcKHJS+CRtc/S/kTYYdBlpnjjpd4tf6b2TFqM+iTOEGLLo/An+Zk6qpDWwx4MrMOuXZXm+p
+X-MS-Exchange-AntiSpam-MessageData-0: URprcZgx2kwFe4eBBc7+8STxzs/zy5M2FH0Y3144yPgVAw1dIOleEPF/mw//Y0ADfghYjpKfgmVL2KWywu3S0ZbFWDqzt7+dYq82RVyaXVpgPu29z3UGk2hfhrVO36XusghyfPEuw247e8pfU3hZtws36kwG686Rs0/RHgJrs/SH/53RIHELExUMMEzYUPiunYLeUYNwNy0TE7JiefvImcAcj3a9zf14DCWbe90S893TaJ4rBikunWgRUzC3zi2bgZSqHNxPw192GivuxMe78x8V7SQhHR+a9wDFNLSkWdm9ozBERTSrAUP0xcbdbPGCbImHGzDg9DSsRWmoAGsTG5bxH/oyEcRFSh08SXHbsxuZ1G72Aat/q2nH/Bq3AGvbhXH6C6M0e3KPcGnQD96mGqvD2DhH1C28UT0QgesL0wAUrDqrJofJ7A2ZPlT5IukA
 X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 09:26:48.5254
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2026 09:26:43.4529
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bab0f95a-311d-4bc0-b522-08debb08e993
+X-MS-Exchange-CrossTenant-Network-Message-Id: c7f8f24d-95d4-4e3b-4f82-08debb08e68e
 X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C714.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000091.eurprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB7593
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR10MB6092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260526_022701_400115_3CBDECE7 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20260526_022653_530656_9B6E5CE5 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,434 +137,111 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The bootph-all flag was introduced in dt-schema
 (dtschema/schemas/bootph.yaml) to define node usage across
 different boot phases.
-
+    
 To ensure SD boot, timer, gpio, syscfg, clock and uart nodes need to be
 present in all boot stages, so add missing bootph-all phase flag
 to these nodes to support SD boot.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- arch/arm/boot/dts/st/stm32mp131.dtsi             |   4 +-
- arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts |  21 +++++
- arch/arm/boot/dts/st/stm32mp135f-dk.dts          | 101 +++++++++++++++++++++++
- arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi  | 101 +++++++++++++++++++++++
- 4 files changed, 225 insertions(+), 2 deletions(-)
+Changes in v7:
+- Rebase on top of stm32-next.
+_ Fix sdmmc2_b4_pins_a's node in stm32mp15xx-dhcom-som.dtsi.
+- Link to v6: https://lore.kernel.org/r/20260203-upstream_uboot_properties-v6-0-0a2280e84d31@foss.st.com
 
-diff --git a/arch/arm/boot/dts/st/stm32mp131.dtsi b/arch/arm/boot/dts/st/stm32mp131.dtsi
-index 83ae59b73dd0..ec1e91101971 100644
---- a/arch/arm/boot/dts/st/stm32mp131.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp131.dtsi
-@@ -37,7 +37,7 @@ arm_wdt: watchdog {
- 	};
- 
- 	firmware {
--		optee {
-+		optee: optee {
- 			method = "smc";
- 			compatible = "linaro,optee-tz";
- 			interrupt-parent = <&intc>;
-@@ -92,7 +92,7 @@ intc: interrupt-controller@a0021000 {
- 		      <0xa0022000 0x2000>;
- 	};
- 
--	psci {
-+	psci: psci {
- 		compatible = "arm,psci-1.0";
- 		method = "smc";
- 	};
-diff --git a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-index 70d85af46735..06b5b68e5f78 100644
---- a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-+++ b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-@@ -354,6 +354,21 @@ timer@12 {
- 	};
- };
- 
-+&uart4 {
-+	bootph-all;
-+};
-+
-+&uart4_pins_b {
-+	bootph-all;
-+
-+	pins1 {
-+		bootph-all;
-+	};
-+	pins2 {
-+		bootph-all;
-+	};
-+};
-+
- &usart1 { /* Expansion connector: RX:pin33 TX:pin37 */
- 	pinctrl-names = "default", "sleep", "idle";
- 	pinctrl-0 = <&usart1_pins_b>;
-@@ -371,6 +386,10 @@ &usart2 { /* Expansion connector: RX:pin10 TX:pin8 RTS:pin11 CTS:pin36 */
- 	status = "okay";
- };
- 
-+&usbphyc {
-+	bootph-all;
-+};
-+
- &usbh_ehci {
- 	phys = <&usbphyc_port0>;
- 	status = "okay";
-@@ -436,6 +455,7 @@ connector {
- 
- /* LDO2 is expansion connector 3V3 supply on STM32MP13xx DHCOR DHSBC rev.200 */
- &vdd_ldo2 {
-+	bootph-all;
- 	regulator-always-on;
- 	regulator-boot-on;
- 	regulator-min-microvolt = <3300000>;
-@@ -444,6 +464,7 @@ &vdd_ldo2 {
- 
- /* LDO5 is carrier board 3V3 supply on STM32MP13xx DHCOR DHSBC rev.200 */
- &vdd_sd {
-+	bootph-all;
- 	regulator-always-on;
- 	regulator-boot-on;
- 	regulator-min-microvolt = <3300000>;
-diff --git a/arch/arm/boot/dts/st/stm32mp135f-dk.dts b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-index 6022e73f58af..43b8a7eed01b 100644
---- a/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-+++ b/arch/arm/boot/dts/st/stm32mp135f-dk.dts
-@@ -182,6 +182,10 @@ &arm_wdt {
- 	status = "okay";
- };
- 
-+&bsec {
-+	bootph-all;
-+};
-+
- &crc1 {
- 	status = "okay";
- };
-@@ -253,6 +257,42 @@ phy0_eth1: ethernet-phy@0 {
- 	};
- };
- 
-+&gpioa {
-+	bootph-all;
-+};
-+
-+&gpiob {
-+	bootph-all;
-+};
-+
-+&gpioc {
-+	bootph-all;
-+};
-+
-+&gpiod {
-+	bootph-all;
-+};
-+
-+&gpioe {
-+	bootph-all;
-+};
-+
-+&gpiof {
-+	bootph-all;
-+};
-+
-+&gpiog {
-+	bootph-all;
-+};
-+
-+&gpioh {
-+	bootph-all;
-+};
-+
-+&gpioi {
-+	bootph-all;
-+};
-+
- &i2c1 {
- 	pinctrl-names = "default", "sleep";
- 	/* SDA on PE8 = CN8.27, SCL on PD12 = CN8.28 */
-@@ -388,6 +428,7 @@ goodix: goodix-ts@5d {
- 
- &iwdg2 {
- 	timeout-sec = <32>;
-+	bootph-all;
- 	status = "okay";
- };
- 
-@@ -395,6 +436,7 @@ &ltdc {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&ltdc_pins_a>;
- 	pinctrl-1 = <&ltdc_sleep_pins_a>;
-+	bootph-some-ram;
- 	status = "okay";
- 
- 	port {
-@@ -404,6 +446,22 @@ ltdc_out_rgb: endpoint {
- 	};
- };
- 
-+&optee {
-+	bootph-all;
-+};
-+
-+&pinctrl {
-+	bootph-all;
-+};
-+
-+&psci {
-+	bootph-some-ram;
-+};
-+
-+&rcc {
-+	bootph-all;
-+};
-+
- &rtc {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&rtc_rsvd_pins_a>;
-@@ -415,6 +473,14 @@ rtc_lsco_pins_a: rtc-lsco-0 {
- 	};
- };
- 
-+&scmi {
-+	bootph-all;
-+};
-+
-+&scmi_clk {
-+	bootph-all;
-+};
-+
- &scmi_regu {
- 	scmi_vdd_adc: regulator@10 {
- 		reg = <VOLTD_SCMI_STPMIC1_LDO1>;
-@@ -438,6 +504,10 @@ scmi_v3v3_sw: regulator@19 {
- 	};
- };
- 
-+&scmi_reset {
-+	bootph-all;
-+};
-+
- &sdmmc1 {
- 	pinctrl-names = "default", "opendrain", "sleep";
- 	pinctrl-0 = <&sdmmc1_b4_pins_a &sdmmc1_clk_pins_a>;
-@@ -448,9 +518,24 @@ &sdmmc1 {
- 	st,neg-edge;
- 	bus-width = <4>;
- 	vmmc-supply = <&scmi_vdd_sd>;
-+	bootph-pre-ram;
- 	status = "okay";
- };
- 
-+&sdmmc1_b4_pins_a {
-+	bootph-pre-ram;
-+	pins {
-+		bootph-pre-ram;
-+	};
-+};
-+
-+&sdmmc1_clk_pins_a {
-+	bootph-pre-ram;
-+	pins {
-+		bootph-pre-ram;
-+	};
-+};
-+
- /* Wifi */
- &sdmmc2 {
- 	pinctrl-names = "default", "opendrain", "sleep";
-@@ -482,6 +567,10 @@ &spi5 {
- 	status = "disabled";
- };
- 
-+&syscfg {
-+	bootph-all;
-+};
-+
- &timers3 {
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
-@@ -575,9 +664,20 @@ &uart4 {
- 	pinctrl-2 = <&uart4_idle_pins_a>;
- 	/delete-property/dmas;
- 	/delete-property/dma-names;
-+	bootph-all;
- 	status = "okay";
- };
- 
-+&uart4_pins_a {
-+	bootph-all;
-+	pins1 {
-+		bootph-all;
-+	};
-+	pins2 {
-+		bootph-all;
-+	};
-+};
-+
- &uart8 {
- 	pinctrl-names = "default", "sleep", "idle";
- 	/* TX on PE1 = CN8.37, RX on PF9 = CN8.33 */
-@@ -645,6 +745,7 @@ usbotg_hs_ep: endpoint {
- };
- 
- &usbphyc {
-+	bootph-all;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-index 54ece71085c1..4efaca84a72c 100644
---- a/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi
-@@ -54,6 +54,46 @@ vin: vin {
- 	};
- };
- 
-+&bsec {
-+	bootph-all;
-+};
-+
-+&gpioa {
-+	bootph-all;
-+};
-+
-+&gpiob {
-+	bootph-all;
-+};
-+
-+&gpioc {
-+	bootph-all;
-+};
-+
-+&gpiod {
-+	bootph-all;
-+};
-+
-+&gpioe {
-+	bootph-all;
-+};
-+
-+&gpiof {
-+	bootph-all;
-+};
-+
-+&gpiog {
-+	bootph-all;
-+};
-+
-+&gpioh {
-+	bootph-all;
-+};
-+
-+&gpioi {
-+	bootph-all;
-+};
-+
- &i2c3 {
- 	i2c-scl-rising-time-ns = <96>;
- 	i2c-scl-falling-time-ns = <3>;
-@@ -216,9 +256,18 @@ eeprom0wl: eeprom@58 {
- 
- &iwdg2 {
- 	timeout-sec = <32>;
-+	bootph-all;
- 	status = "okay";
- };
- 
-+&pinctrl {
-+	bootph-all;
-+};
-+
-+&psci {
-+	bootph-some-ram;
-+};
-+
- &qspi {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&qspi_clk_pins_a
-@@ -229,6 +278,7 @@ &qspi_bk1_sleep_pins_a
- 		     &qspi_cs1_sleep_pins_a>;
- 	#address-cells = <1>;
- 	#size-cells = <0>;
-+	bootph-all;
- 	status = "okay";
- 
- 	flash0: flash@0 {
-@@ -238,9 +288,35 @@ flash0: flash@0 {
- 		spi-max-frequency = <108000000>;
- 		#address-cells = <1>;
- 		#size-cells = <1>;
-+		bootph-all;
- 	};
- };
- 
-+&qspi_clk_pins_a {
-+	bootph-all;
-+	pins {
-+		bootph-all;
-+	};
-+};
-+
-+&qspi_bk1_pins_a {
-+	bootph-all;
-+	pins {
-+		bootph-all;
-+	};
-+};
-+
-+&qspi_cs1_pins_a {
-+	bootph-all;
-+	pins {
-+		bootph-all;
-+	};
-+};
-+
-+&rcc {
-+	bootph-all;
-+};
-+
- /* SDIO WiFi */
- &sdmmc1 {
- 	pinctrl-names = "default", "opendrain", "sleep";
-@@ -285,6 +361,10 @@ &sdmmc2 {
- 	status = "okay";
- };
- 
-+&syscfg {
-+	bootph-all;
-+};
-+
- /* Console UART */
- &uart4 {
- 	pinctrl-names = "default", "sleep", "idle";
-@@ -312,3 +392,24 @@ bluetooth {
- 		shutdown-gpios = <&gpioi 2 GPIO_ACTIVE_HIGH>;
- 	};
- };
-+
-+&vdd {
-+	bootph-all;
-+};
-+
-+&vddcpu {
-+	bootph-all;
-+};
-+
-+
-+&vddcore {
-+	bootph-all;
-+};
-+
-+&vdd_ddr {
-+	bootph-all;
-+};
-+
-+&vref_ddr {
-+	bootph-all;
-+};
+Changes in v6:
+- Add bootph-all property in syscfg node of stm32mp215f-dk.dtsi.
+- Split patch 4 in 2 parts, first part for reordering nodes, second part
+  for adding bootph-all property.
+- Rebase on top of stm32-dt-for-v6.20-1.
+- Link to v5: https://lore.kernel.org/r/20260123-upstream_uboot_properties-v5-0-5167929d5af5@foss.st.com
 
+Changes in v5:
+- Initial implementation allows to factorize and add bootph-* properties in a limited number of DT files.
+  After internal discussion with Alexandre, choice has been done to add bootph-* properties only
+  in board DT files instead of SoCs/pinctrl/boards DT files.This impacts a greater number of DT boards files.
+- Link to v4: https://lore.kernel.org/r/20260109-upstream_uboot_properties-v4-0-75e06657c600@foss.st.com
+
+Changes in v4:
+- Remove useless nodes in stm32mp15-scmi.dtsi
+- Link to v3: https://lore.kernel.org/r/20260108-upstream_uboot_properties-v3-0-c1b9d4f2ce8d@foss.st.com
+
+Changes in v3:
+- Remove duplicate bootph-all property in ltdc node
+- Link to v2: https://lore.kernel.org/r/20251114-upstream_uboot_properties-v2-0-3784ff668ae0@foss.st.com
+
+Changes in v2:
+- Fix 'pinmux' is a required property for arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dtb
+- Add bootph-all property for lvds and ltdc nodes for stm32mp2
+
+---
+Patrice Chotard (7):
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics f4 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics f7 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics h7 boards
+      ARM: dts: stm32: Sort uart nodes by alphabetical order in stm32mp13xx-dhcor-som.dtsi
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics mp13 boards
+      ARM: dts: stm32: Add boot phase tags for STMicroelectronics mp15 boards
+      arm64: dts: st: Add boot phase tags for STMicroelectronics mp2 boards
+
+ arch/arm/boot/dts/st/stm32429i-eval.dts            |  80 ++++++++++
+ arch/arm/boot/dts/st/stm32746g-eval.dts            |  10 ++
+ arch/arm/boot/dts/st/stm32f429-disco.dts           |  80 ++++++++++
+ arch/arm/boot/dts/st/stm32f469-disco.dts           |  72 +++++++++
+ arch/arm/boot/dts/st/stm32f746-disco.dts           |  75 +++++++++
+ arch/arm/boot/dts/st/stm32f746.dtsi                |   2 +-
+ arch/arm/boot/dts/st/stm32f769-disco.dts           |  76 ++++++++-
+ arch/arm/boot/dts/st/stm32h743i-disco.dts          |  69 ++++++++
+ arch/arm/boot/dts/st/stm32h743i-eval.dts           |  69 ++++++++
+ arch/arm/boot/dts/st/stm32h747i-disco.dts          |  69 ++++++++
+ arch/arm/boot/dts/st/stm32h750i-art-pi.dts         |  69 ++++++++
+ arch/arm/boot/dts/st/stm32mp131.dtsi               |   4 +-
+ arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts   |  21 +++
+ arch/arm/boot/dts/st/stm32mp135f-dk.dts            | 101 ++++++++++++
+ arch/arm/boot/dts/st/stm32mp13xx-dhcor-som.dtsi    | 145 ++++++++++++++---
+ arch/arm/boot/dts/st/stm32mp151.dtsi               |   2 +-
+ arch/arm/boot/dts/st/stm32mp157a-dk1-scmi.dts      |  19 +++
+ .../st/stm32mp157a-icore-stm32mp1-ctouch2-of10.dts |   1 +
+ .../dts/st/stm32mp157a-icore-stm32mp1-ctouch2.dts  |  25 +++
+ .../dts/st/stm32mp157a-icore-stm32mp1-edimm2.2.dts |  26 +++
+ .../boot/dts/st/stm32mp157a-icore-stm32mp1.dtsi    | 100 ++++++++++++
+ ...m32mp157a-microgea-stm32mp1-microdev2.0-of7.dts |  27 ++++
+ .../stm32mp157a-microgea-stm32mp1-microdev2.0.dts  |  27 ++++
+ .../boot/dts/st/stm32mp157a-microgea-stm32mp1.dtsi |  97 ++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-dk2-scmi.dts      |   5 +
+ arch/arm/boot/dts/st/stm32mp157c-dk2.dts           |   1 +
+ arch/arm/boot/dts/st/stm32mp157c-ed1-scmi.dts      |  19 +++
+ arch/arm/boot/dts/st/stm32mp157c-ed1.dts           | 151 ++++++++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-ev1-scmi.dts      |   5 +
+ arch/arm/boot/dts/st/stm32mp157c-ev1.dts           |  38 +++++
+ arch/arm/boot/dts/st/stm32mp157c-lxa-mc1.dts       |   1 +
+ arch/arm/boot/dts/st/stm32mp157c-odyssey-som.dtsi  | 119 ++++++++++++++
+ arch/arm/boot/dts/st/stm32mp157c-odyssey.dts       |  21 +++
+ arch/arm/boot/dts/st/stm32mp157c-osd32mp1-red.dts  |   1 +
+ arch/arm/boot/dts/st/stm32mp157f-dk2-scmi.dtsi     |   5 +
+ arch/arm/boot/dts/st/stm32mp157f-dk2.dts           |   1 +
+ arch/arm/boot/dts/st/stm32mp15xx-dhcom-pdk2.dtsi   |   2 +-
+ arch/arm/boot/dts/st/stm32mp15xx-dhcom-som.dtsi    | 175 +++++++++++++++++++++
+ .../boot/dts/st/stm32mp15xx-dhcor-avenger96.dtsi   |  55 +++++++
+ .../boot/dts/st/stm32mp15xx-dhcor-drc-compact.dtsi |  50 ++++++
+ arch/arm/boot/dts/st/stm32mp15xx-dhcor-som.dtsi    | 157 ++++++++++++++++++
+ .../boot/dts/st/stm32mp15xx-dhcor-testbench.dtsi   |  50 ++++++
+ arch/arm/boot/dts/st/stm32mp15xx-dkx.dtsi          | 122 ++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp211.dtsi             |   4 +-
+ arch/arm64/boot/dts/st/stm32mp215f-dk.dts          |  29 ++++
+ arch/arm64/boot/dts/st/stm32mp231.dtsi             |   4 +-
+ arch/arm64/boot/dts/st/stm32mp235f-dk.dts          |  95 +++++++++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi             |   4 +-
+ arch/arm64/boot/dts/st/stm32mp255.dtsi             |   2 +-
+ arch/arm64/boot/dts/st/stm32mp257f-dk.dts          | 103 ++++++++++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts         | 105 +++++++++++++
+ 51 files changed, 2552 insertions(+), 38 deletions(-)
+---
+base-commit: a0d6c2a06fffff47bcca4d5bfdab4cc428a315fc
+change-id: 20251112-upstream_uboot_properties-22480b0b4b1c
+
+Best regards,
 -- 
-2.43.0
+Patrice Chotard <patrice.chotard@foss.st.com>
 
 
